@@ -64,7 +64,7 @@ fun Done(s: AppState, room: Route.Letter) {
     }
     fun win(a: Float, b: Float) = androidx.compose.animation.core.FastOutSlowInEasing.transform(((t.value - a) / (b - a)).coerceIn(0f, 1f))
     val stamp = win(0f, 0.35f)
-    val modes = s.seriesSettings(room.series).modes.filter { it in io.github.graviton94.todayletters.core.Plays.inLetter }
+    val modes = io.github.graviton94.todayletters.core.Plays.inLetter.filter { it in s.seriesSettings(room.series).modes }
     val waiting = s.waiting(room.series)
     val next = s.openable(room.series).firstOrNull { (c, l) -> !s.progress(room.series, c, l.id).done }
 

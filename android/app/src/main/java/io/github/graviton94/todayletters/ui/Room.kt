@@ -126,7 +126,7 @@ fun Room(s: AppState, r: Route.Letter) {
     }
 
     val progress = s.progress(id, chapter, letter.id)
-    val modes = s.seriesSettings(id).modes.filter { it in Plays.inLetter }
+    val modes = Plays.inLetter.filter { it in s.seriesSettings(id).modes }
     val nextPlay = modes.firstOrNull { it !in progress.replied }
     val reply = Exercises.replyFor(letter, view.learn).second
     val finished = written >= total
