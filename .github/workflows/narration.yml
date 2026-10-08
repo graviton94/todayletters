@@ -1,0 +1,32 @@
+name: Narration
+
+# 편지 낭독 만들기. 배역표(data/<인물>/voices.json) · 감정 프리셋 · 편지 파일을 읽어 메시지 · 낱말마다 m4a.
+# 결과는 narration 가지에 (작품/챕터/편지 id/ 구조). R2 로 옮기는 건 따로 (Secrets 준비 뒤).
+on:
+  workflow_dispatch:
+    inputs:
+      file: { description: "편지 파일", default: "data/vincent/chapter1.json" }
+
+jobs:
+  narrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Get Supertonic 3 (archived, pinned) and ffmpeg
+        run: |
+          sudo apt-get install -y -qq ffmpeg >/dev/null
+          git clone -q --depth 1 https://github.com/supertone-oss-archive/supertonic.git /tmp/st
+          pip install -q huggingface_hub -r /tmp/st/py/requirements.txt
+          hf download supertone-oss-archive/supertonic-3 --revision aafc6e32416a594460b32413efc49d7fe4ce6d46 --local-dir /tmp/st/assets
+      - name: Narrate
+        run: python scripts/narrate.py /tmp/st/py /tmp/st/assets "${{ inputs.file }}" narration_out
+      - name: Publish to narration branch
+        run: |
+          cd narration_out && find . -name "*.m4a" | wc -l && du -sh .
+          git init -q && git checkout -q -b narration && git add .
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Narration: ${{ inputs.file }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:narration
