@@ -8,7 +8,7 @@
     <string name="tab_inbox">편⁠지⁠함</string>
     <string name="tab_library">서⁠재</string>
     <string name="tab_words">단⁠어⁠장</string>
-    <string name="tab_gallery">화⁠첩</string>
+    <string name="tab_gallery">갤⁠러⁠리</string>
     <string name="help">이 화⁠면 도⁠움⁠말</string>
     <string name="settings">설⁠정</string>
     <string name="series_settings">이 작⁠품 설⁠정</string>
@@ -89,7 +89,7 @@
     <string name="aloud_mine">내 목⁠소⁠리 듣⁠기</string>
     <string name="done_title">오⁠늘⁠의 편⁠지⁠를 마⁠쳤⁠어⁠요</string>
     <string name="done_story">그⁠림 이⁠야⁠기</string>
-    <string name="done_next">다⁠음 편⁠지⁠는 내⁠일 아⁠침⁠에 도⁠착⁠해⁠요⁠. 그⁠림⁠은 화⁠첩⁠에 들⁠어⁠갔⁠어⁠요⁠.</string>
+    <string name="done_next">다⁠음 편⁠지⁠는 내⁠일 아⁠침⁠에 도⁠착⁠해⁠요⁠. 그⁠림⁠은 갤⁠러⁠리⁠에 들⁠어⁠갔⁠어⁠요⁠.</string>
     <string name="stat_words">새 낱⁠말</string>
     <string name="stat_replies">보⁠낸 답⁠장</string>
     <string name="stat_letters">읽⁠은 편⁠지</string>
@@ -182,7 +182,7 @@
     <string name="play_finish">마⁠치⁠기</string>
     <string name="done_streak">%1$d⁠일⁠째 이⁠어 읽⁠는 중</string>
     <string name="done_next_now">다⁠음 편⁠지⁠가 이⁠미 도⁠착⁠해 있⁠어⁠요⁠.</string>
-    <string name="done_next_tomorrow">다⁠음 편⁠지⁠는 내⁠일 도⁠착⁠해⁠요⁠. 그⁠림⁠은 화⁠첩⁠에 들⁠어⁠갔⁠어⁠요⁠.</string>
+    <string name="done_next_tomorrow">다⁠음 편⁠지⁠는 내⁠일 도⁠착⁠해⁠요⁠. 그⁠림⁠은 갤⁠러⁠리⁠에 들⁠어⁠갔⁠어⁠요⁠.</string>
     <string name="done_home">편⁠지⁠함⁠으⁠로</string>
     <string name="done_open_next">다⁠음 편⁠지 열⁠기</string>
     <string name="words_search">낱⁠말 찾⁠기</string>
@@ -202,7 +202,7 @@
     <string name="ob0_d4">답⁠장 쓰⁠기</string>
     <string name="ob0_d4d">낱⁠말 별⁠을 순⁠서⁠대⁠로 이⁠어 테⁠오⁠의 답⁠장⁠을 완⁠성⁠해⁠요⁠.</string>
     <string name="ob0_d5">그⁠림 도⁠착</string>
-    <string name="ob0_d5d">편⁠지 속 그⁠림⁠과 그 시⁠절 이⁠야⁠기⁠가 화⁠첩⁠에 쌓⁠여⁠요⁠.</string>
+    <string name="ob0_d5d">편⁠지 속 그⁠림⁠과 그 시⁠절 이⁠야⁠기⁠가 갤⁠러⁠리⁠에 쌓⁠여⁠요⁠.</string>
     <string name="ob_start_hello">시⁠작⁠하⁠기</string>
     <string name="room_auto_on">자⁠동 낭⁠독 켜⁠짐 · 누⁠르⁠면 꺼⁠요</string>
     <string name="room_auto_off">자⁠동 낭⁠독 꺼⁠짐 · 누⁠르⁠면 켜⁠요</string>

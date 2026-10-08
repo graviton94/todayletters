@@ -29,8 +29,8 @@
     "ko": "단어장"
   },
   "tab_gallery": {
-    "en": "Plates",
-    "ko": "화첩"
+    "ko": "갤러리",
+    "en": "Gallery"
   },
   "help": {
     "en": "Help for this screen",
@@ -353,8 +353,8 @@
     "ko": "그림 이야기"
   },
   "done_next": {
-    "en": "The next letter arrives tomorrow morning. The painting is in your Plates.",
-    "ko": "다음 편지는 내일 아침에 도착해요. 그림은 화첩에 들어갔어요."
+    "en": "The next letter arrives tomorrow morning. The painting is in your Gallery.",
+    "ko": "다음 편지는 내일 아침에 도착해요. 그림은 갤러리에 들어갔어요."
   },
   "stat_words": {
     "en": "new words",
@@ -725,8 +725,8 @@
     "ko": "다음 편지가 이미 도착해 있어요."
   },
   "done_next_tomorrow": {
-    "en": "The next letter arrives tomorrow. The painting is in your Plates.",
-    "ko": "다음 편지는 내일 도착해요. 그림은 화첩에 들어갔어요."
+    "en": "The next letter arrives tomorrow. The painting is in your Gallery.",
+    "ko": "다음 편지는 내일 도착해요. 그림은 갤러리에 들어갔어요."
   },
   "done_home": {
     "en": "Back to letters",
@@ -805,8 +805,8 @@
     "ko": "그림 도착"
   },
   "ob0_d5d": {
-    "en": "The painting from the letter and its story join your Plates.",
-    "ko": "편지 속 그림과 그 시절 이야기가 화첩에 쌓여요."
+    "en": "The painting from the letter and its story join your Gallery.",
+    "ko": "편지 속 그림과 그 시절 이야기가 갤러리에 쌓여요."
   },
   "ob_start_hello": {
     "en": "Let's begin",
