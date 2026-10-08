@@ -1,13 +1,14 @@
 name: Fetch letter sources
 
 # 편지 원문(프랑스어 · 네덜란드어) 대조용: 원문 페이지를 받아 sources 가지에 둔다. 앱에는 들어가지 않음.
+# vangoghletters.org 원문 탭은 letters/letNNN/original_text.html (번역은 translation.html) 에 따로 있다.
 # 원문은 공공 영역. 받은 페이지는 대조에만 쓰고, 영어 · 한국어는 이 앱의 새 번역만 쓴다.
 on:
   workflow_dispatch:
     inputs:
       urls:
         description: "받을 주소들 (띄어쓰기로 구분)"
-        default: "https://vangoghletters.org/vg/letters/let602/print/?originaltext=1 https://www.webexhibits.org/vangogh/data/letters/19/480-fr.htm https://www.webexhibits.org/vangogh/data/letters/18/480.htm"
+        default: "https://vangoghletters.org/vg/letters/let602/original_text.html"
 
 jobs:
   fetch:

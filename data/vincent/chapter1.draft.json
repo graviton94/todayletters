@@ -36,7 +36,7 @@
           "source": "https://www.webexhibits.org/vangogh/data/letters/18/463-fr.htm"
         },
         {
-          "fr": "Et les paysages dans la neige avec les cimes blanches contre un ciel aussi lumineux que la neige étaient bien comme les paysages d'hiver qu'ont fait les Japonais.",
+          "fr": "Et les paysages sous la neige avec les cimes blanches contre un ciel aussi lumineux que la neige étaient bien comme les paysages d'hiver qu'ont fait les Japonais.",
           "en": "And the landscapes in the snow, with white peaks against a sky as bright as the snow, were just like the winter landscapes the Japanese made.",
           "ko": "눈 덮인 풍경은, 눈만큼 환한 하늘에 하얀 봉우리가 솟은 모습이 꼭 일본 사람들이 그린 겨울 풍경 같았어.",
           "verified": true,
@@ -209,7 +209,7 @@
           "source": "https://www.webexhibits.org/vangogh/data/letters/18/469-fr.htm"
         },
         {
-          "fr": "La rivière bleue également, des berges orangées avec verdure, un groupe de laveuses aux caracos et bonnets bariolés.",
+          "fr": "La rivière bleue également, des berges orangées avec verdure, un groupe de laveuses aux caracos, bonnets bariolés.",
           "en": "The river blue as well, orange banks with greenery, a group of washerwomen in bright smocks and bonnets.",
           "ko": "강도 파랗고, 주황빛 강둑에는 풀이 돋았고, 알록달록한 윗옷과 모자를 쓴 빨래하는 여자들이 모여 있어.",
           "verified": true,
@@ -299,25 +299,25 @@
       "mood": "bright",
       "messages": [
         {
-          "fr": "Mon cher Théo, je suis dans une rage de travail puisque les arbres sont en fleur et que je voudrais faire un verger de Provence d'une gaieté monstre.",
-          "en": "My dear Theo, I'm in a frenzy of work because the trees are in blossom and I'd like to paint a Provençal orchard of enormous cheerfulness.",
-          "ko": "사랑하는 테오에게. 나무에 꽃이 피어서 나는 미친 듯이 일하고 있어. 엄청나게 밝은 프로방스 과수원을 그리고 싶거든.",
-          "verified": false,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/473-fr.htm"
+          "fr": "Mon cher Théo, je suis dans une rage de travail puisque les arbres sont en fleurs et que je voulais faire un verger de Provence d'une gaieté monstre.",
+          "en": "My dear Theo, I'm in a frenzy of work because the trees are in blossom and I wanted to paint a Provençal orchard of enormous cheerfulness.",
+          "ko": "사랑하는 테오에게. 나무에 꽃이 피어서 나는 미친 듯이 일하고 있어. 엄청나게 밝은 프로방스 과수원을 그리고 싶었거든.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let592/original_text.html"
         },
         {
           "fr": "Je crois pouvoir t'assurer que ce que je fabrique ici est supérieur à la campagne d'Asnières au printemps dernier.",
           "en": "I think I can assure you that what I'm making here is better than the Asnières countryside last spring.",
           "ko": "여기서 그리는 그림이 지난봄 아니에르 시골 풍경보다 낫다고 장담할 수 있을 것 같아.",
-          "verified": false,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/473-fr.htm"
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let592/original_text.html"
         },
         {
-          "fr": "Je ne puis pas encore réussir une lettre telle que je voudrais, le travail m'absorbe complètement.",
+          "fr": "Je ne puis pas encore te réussir une lettre telle que je voudrais, le travail m'absorbe complètement.",
           "en": "I can't yet manage a letter the way I'd like; work absorbs me completely.",
           "ko": "아직 마음먹은 대로 편지를 쓰지 못하겠어. 일에 완전히 빠져 있거든.",
-          "verified": false,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/473-fr.htm"
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let592/original_text.html"
         }
       ],
       "words": [
@@ -382,25 +382,25 @@
       "mood": "tender",
       "messages": [
         {
-          "fr": "Mon cher Théo, …j'ai loué l'aile droite de cette maison, qui contient 4 pièces ou plutôt deux avec deux cabinets.",
-          "en": "My dear Theo, …I've rented the right wing of this house, which has 4 rooms, or rather two, with two small rooms.",
-          "ko": "사랑하는 테오에게. …이 집의 오른쪽 채를 빌렸어. 방이 네 개, 아니 큰 방 둘에 작은 방 둘이야.",
-          "verified": false,
-          "source": "https://vangoghletters.org/vg/letters/let602/letter.html (English checked; French not yet)"
+          "fr": "Mon cher Théo, … eh bien, j'ai aujourd'hui loué l'aile droite de cette construction, qui contient 4 pièces ou plutôt deux avec deux cabinets.",
+          "en": "My dear Theo, … well, today I've rented the right wing of this building, which has 4 rooms, or rather two, with two small rooms.",
+          "ko": "사랑하는 테오에게. …그래서 말인데, 오늘 이 건물의 오른쪽 채를 빌렸어. 방이 네 개, 아니 큰 방 둘에 작은 방 둘이야.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let602/original_text.html"
         },
         {
-          "fr": "Elle est peinte en jaune au dehors, blanchie à la chaux dedans, en plein soleil.",
-          "en": "It's painted yellow outside, whitewashed inside, and in full sun.",
+          "fr": "C'est peint en jaune dehors, blanchi à la chaux à l'intérieur, en plein soleil.",
+          "en": "It's painted yellow outside, whitewashed inside, in full sun.",
           "ko": "바깥은 노랗게 칠했고, 안은 하얗게 회칠했어. 햇빛이 가득 들어.",
-          "verified": false,
-          "source": "https://vangoghletters.org/vg/letters/let602/letter.html (English checked; French not yet)"
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let602/original_text.html"
         },
         {
-          "fr": "Je l'ai pour 15 francs par mois.",
-          "en": "I've got it for 15 francs a month.",
-          "ko": "한 달에 15프랑이야.",
-          "verified": false,
-          "source": "https://vangoghletters.org/vg/letters/let602/letter.html (English checked; French not yet)"
+          "fr": "Je l'ai loué à raison de 15 francs par mois.",
+          "en": "I've rented it at 15 francs a month.",
+          "ko": "한 달에 15프랑에 빌렸어.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let602/original_text.html"
         }
       ],
       "words": [
@@ -412,11 +412,11 @@
           "ko": "빌리다, 세내다"
         },
         {
-          "fr": "maison",
+          "fr": "construction",
           "pos": "n.f.",
-          "ipa": "mɛzɔ̃",
-          "en": "house",
-          "ko": "집"
+          "ipa": "kɔ̃stʁyksjɔ̃",
+          "en": "building",
+          "ko": "건물"
         },
         {
           "fr": "pièce",
