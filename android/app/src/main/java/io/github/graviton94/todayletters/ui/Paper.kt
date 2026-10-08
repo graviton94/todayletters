@@ -41,6 +41,8 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -208,6 +210,7 @@ fun SpeakerButton(playing: Boolean, label: String, onDark: Boolean = false, onCl
 fun InkText(
     text: String, style: TextStyle, color: Color, animate: Boolean, modifier: Modifier = Modifier,
     go: Boolean = true, lineMs: Int = Tokens.Motion.inkLineMs, onDone: () -> Unit = {},
+    marks: List<IntRange> = emptyList(), markColor: Color = Color.Unspecified, onMark: ((Int) -> Unit)? = null,
 ) {
     var layout by remember { mutableStateOf<TextLayoutResult?>(null) }
     val progress = remember(text) { Animatable(if (animate) 0f else 1f) }
@@ -221,10 +224,34 @@ fun InkText(
     Text(
         text, style = style, color = color, onTextLayout = { layout = it },
         modifier = modifier
+            .then(if (onMark != null && marks.isNotEmpty()) Modifier.pointerInput(marks) {
+                detectTapGestures { pos ->
+                    val l = layout ?: return@detectTapGestures
+                    val off = l.getOffsetForPosition(pos)
+                    marks.indexOfFirst { off in it.first..(it.last + 1) }.takeIf { it >= 0 }?.let(onMark)
+                }
+            } else Modifier)
             .graphicsLayer(compositingStrategy = CompositingStrategy.Offscreen)
             .drawWithContent {
                 drawContent()
                 val l = layout ?: return@drawWithContent
+                // 단어장 낱말: 점선 밑줄 (글자와 함께 잉크로 번진다)
+                if (marks.isNotEmpty()) {
+                    val dash = PathEffect.dashPathEffect(floatArrayOf(2.5.dp.toPx(), 2.5.dp.toPx()))
+                    marks.forEach { r ->
+                        val end = (r.last + 1).coerceAtMost(l.layoutInput.text.length)
+                        var a = r.first
+                        while (a < end) {
+                            val line = l.getLineForOffset(a)
+                            val lineEnd = minOf(end, l.getLineEnd(line, visibleEnd = true))
+                            val x1 = l.getHorizontalPosition(a, true); val x2 = l.getHorizontalPosition(lineEnd, true)
+                            val y = l.getLineBaseline(line) + 3.dp.toPx()
+                            drawLine(markColor, Offset(minOf(x1, x2), y), Offset(maxOf(x1, x2), y), 1.2.dp.toPx(), pathEffect = dash)
+                            if (lineEnd <= a) break
+                            a = lineEnd
+                        }
+                    }
+                }
                 val pr = progress.value
                 if (pr >= 1f) return@drawWithContent
                 val n = l.lineCount
@@ -246,3 +273,26 @@ fun InkText(
 
 /** 잠깐 기다리기 (움직임 줄이기면 바로). */
 suspend fun pause(ms: Int, still: Boolean) { if (!still && ms > 0) delay(ms.toLong()) }
+
+/**
+ * 단어장 낱말이 문장 안 어디에 있는지: 글자 범위와 낱말 번호.
+ * 낱말은 사전형으로 적혀 있어서(arbre · fleur) 문장의 꼴(arbres · fleurs)과 앞부분이 같으면 같은 낱말로 본다.
+ */
+fun wordMarks(text: String, words: List<String>): List<Pair<IntRange, Int>> {
+    fun base(x: String) = java.text.Normalizer.normalize(x.lowercase(), java.text.Normalizer.Form.NFD).replace(Regex("\\p{M}"), "").replace("\u2060", "")
+    val keys = words.map { base(it) }
+    val out = mutableListOf<Pair<IntRange, Int>>()
+    Regex("[\\p{L}\u2060]+").findAll(text).forEach { m ->
+        val tok = base(m.value)
+        val k = keys.indexOfFirst { key ->
+            when {
+                key.isEmpty() -> false
+                tok == key || tok == key + "s" || tok == key + "x" -> true
+                key.length <= 4 -> false   // 짧은 낱말은 꼴이 같을 때만 (mois ≠ moi)
+                else -> tok.startsWith(key.dropLast(1)) && tok.length in (key.length - 1)..(key.length + 2)
+            }
+        }
+        if (k >= 0 && out.none { it.second == k }) out += m.range to k
+    }
+    return out
+}

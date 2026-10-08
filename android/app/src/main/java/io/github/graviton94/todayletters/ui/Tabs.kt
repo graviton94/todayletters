@@ -23,6 +23,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Langs
 import io.github.graviton94.todayletters.core.ReplyMode
@@ -110,30 +117,74 @@ fun LibraryTab(s: AppState) {
     }
 }
 
-/** 단어장: 받은 편지의 낱말 (배우는 언어 · 읽는 언어). */
+/**
+ * 단어장: 받은 편지의 낱말. 한 줄에 낱말 · 뜻 (누르면 발음). 위에 찾기, 아래로 20개씩 더 보기.
+ * 같은 낱말은 한 번만 (처음 나온 편지 기준).
+ */
 @Composable
 fun WordsTab(s: AppState) {
     val p = Ink.palette
-    Column(Modifier.fillMaxSize()) {
-        TopBar(stringResource(R.string.tab_words), s, help = null, showBack = s.route !is Route.Tab, showSettings = s.route is Route.Tab)
-        Page {
-            s.works.forEach { w ->
-                val id = w.series.id
-                val room = s.room(id)
-                w.chapters.forEach { c ->
-                    c.letters.filter { s.progress(id, c.id, it.id).shown > 0 }.forEach { l ->
-                        Caps(l.date)
-                        l.words.forEach { word ->
-                            Row(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.touch), verticalAlignment = Alignment.CenterVertically) {
-                                Text(word.text[room.learn], style = Type.target.of(room.learn), color = p.ink, modifier = Modifier.weight(1f))
-                                Text(word.text[room.read], style = Type.body.of(room.read), color = p.inkSoft)
-                            }
-                            Hair()
-                        }
+    var query by remember { mutableStateOf("") }
+    var limit by remember { mutableIntStateOf(20) }
+    data class Entry(val learn: String, val read: String, val ipa: String, val date: String, val audio: String, val lang: io.github.graviton94.todayletters.core.Lang, val readLang: io.github.graviton94.todayletters.core.Lang)
+    val all = remember(s.version) {
+        s.works.flatMap { w ->
+            val id = w.series.id
+            val room = s.room(id)
+            w.chapters.flatMap { c ->
+                c.letters.filter { s.progress(id, c.id, it.id).shown > 0 }.flatMap { l ->
+                    l.words.mapIndexed { i, word ->
+                        Entry(word.text[room.learn], word.text[room.read], if (room.learn == w.series.original) word.ipa else "", l.date,
+                            s.narrator.path(id, c.id, l.id, "w${i + 1}_${room.learn.code}"), room.learn, room.read)
                     }
                 }
             }
-            Text(stringResource(R.string.words_note), style = Type.small.ui(), color = p.inkSoft)
+        }.distinctBy { it.learn.lowercase() }
+    }
+    fun norm(x: String) = java.text.Normalizer.normalize(io.github.graviton94.todayletters.core.Breaks.plain(x).lowercase(), java.text.Normalizer.Form.NFD).replace(Regex("\\p{M}"), "")
+    val shown = if (query.isBlank()) all else all.filter { norm(it.learn).contains(norm(query)) || norm(it.read).contains(norm(query)) }
+    Column(Modifier.fillMaxSize()) {
+        TopBar(stringResource(R.string.tab_words), s, help = null, showBack = s.route !is Route.Tab, showSettings = s.route is Route.Tab)
+        Column(Modifier.padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            Row(
+                Modifier.fillMaxWidth().heightIn(min = 48.dp).background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(horizontal = Tokens.Space.s3),
+                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
+            ) {
+                androidx.compose.foundation.Canvas(Modifier.size(16.dp)) {
+                    drawCircle(p.inkSoft, size.width * 0.32f, androidx.compose.ui.geometry.Offset(size.width * 0.42f, size.width * 0.42f), style = androidx.compose.ui.graphics.drawscope.Stroke(1.5.dp.toPx()))
+                    drawLine(p.inkSoft, androidx.compose.ui.geometry.Offset(size.width * 0.66f, size.width * 0.66f), androidx.compose.ui.geometry.Offset(size.width * 0.95f, size.width * 0.95f), 1.5.dp.toPx())
+                }
+                Box(Modifier.weight(1f)) {
+                    if (query.isEmpty()) Text(stringResource(R.string.words_search), style = Type.body.ui(), color = p.hideInk)
+                    androidx.compose.foundation.text.BasicTextField(
+                        query, { query = it; limit = 20 }, singleLine = true,
+                        textStyle = Type.body.ui().copy(color = p.ink), cursorBrush = androidx.compose.ui.graphics.SolidColor(p.giltText),
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                }
+            }
+            Text(stringResource(R.string.words_count, all.size), style = Type.small.ui(), color = p.inkSoft)
+        }
+        androidx.compose.foundation.lazy.LazyColumn(Modifier.weight(1f).fillMaxWidth(), contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = Tokens.Space.s5)) {
+            items(shown.take(limit).size) { k ->
+                val e = shown[k]
+                Row(
+                    Modifier.fillMaxWidth().heightIn(min = 48.dp).pressable { s.narrator.play(e.audio) },
+                    verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
+                ) {
+                    Text(e.learn, style = Type.body.of(e.lang), color = p.ink, maxLines = 1)
+                    if (e.ipa.isNotEmpty()) Text("[${e.ipa}]", style = Type.small, color = p.hideInk, maxLines = 1)
+                    Spacer(Modifier.weight(1f))
+                    Text(e.read, style = Type.small.of(e.readLang), color = p.inkSoft, maxLines = 1)
+                }
+                Hair()
+            }
+            item {
+                when {
+                    shown.isEmpty() -> Text(stringResource(if (all.isEmpty()) R.string.words_note else R.string.words_none), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(vertical = Tokens.Space.s4))
+                    shown.size > limit -> Box(Modifier.padding(vertical = Tokens.Space.s4)) { Secondary(stringResource(R.string.words_more, shown.size - limit)) { limit += 20 } }
+                }
+            }
         }
     }
 }
@@ -217,23 +268,52 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
             c.letters.forEachIndexed { i, l ->
                 val pr = s.progress(r.series, c.id, l.id)
                 val can = l.id in openable
+                val days = s.daysUntil(r.series, l.id)
+                val reading = can && !pr.done && pr.shown > 0
+                // 다 읽음: 금빛 체크 · 오늘 도착/읽는 중: 채운 줄 · 앞으로: 흐리게 + 언제 오는지
                 Row(
-                    Modifier.fillMaxWidth().heightIn(min = Tokens.Size.row).clickable(enabled = can, role = Role.Button) { s.open(r.series, c.id, l, Route.Library) },
+                    Modifier.fillMaxWidth().heightIn(min = Tokens.Size.row)
+                        .background(if (can && !pr.done) p.leaf else androidx.compose.ui.graphics.Color.Transparent)
+                        .then(if (can && !pr.done) Modifier.border(1.dp, p.giltText.copy(alpha = 0.6f)) else Modifier)
+                        .pressable(enabled = can) { s.open(r.series, c.id, l, Route.Library) }
+                        .padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s2),
                     verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
                 ) {
-                    Text(roman(i + 1), style = Type.numeral, color = if (can) p.giltText else p.inkSoft)
-                    Column(Modifier.weight(1f)) {
-                        Text("${l.place} · ${l.date}", style = Type.label, color = if (can) p.ink else p.inkSoft)
+                    Text(roman(i + 1), style = Type.numeral, color = when { pr.done -> p.giltText; can -> p.ink; else -> p.hideInk }, modifier = Modifier.width(36.dp))
+                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Text(dateLine(l.date, l.place), style = Type.body.ui(), color = if (can) p.ink else p.hideInk)
                         Text(
-                            stringResource(if (pr.done) R.string.letter_done else if (can) R.string.letter_open else R.string.letter_tomorrow),
-                            style = Type.small.ui(), color = p.inkSoft,
+                            when {
+                                pr.done -> stringResource(R.string.letter_done)
+                                reading -> stringResource(R.string.letter_reading)
+                                can -> stringResource(R.string.letter_new)
+                                days == 1 -> stringResource(R.string.letter_eta)
+                                else -> stringResource(R.string.letter_eta_n, days)
+                            },
+                            style = Type.small.ui(), color = when { pr.done -> p.giltText; can -> p.ink; else -> p.hideInk },
                         )
                     }
+                    when {
+                        pr.done -> CheckMark(true, 22.dp)
+                        can -> Box(Modifier.background(p.fill).padding(horizontal = Tokens.Space.s2, vertical = 2.dp)) {
+                            Text(stringResource(if (reading) R.string.letter_reading else R.string.letter_new), style = Type.small.ui(), color = p.onFill)
+                        }
+                        else -> Lock(p.hideInk)
+                    }
                 }
-                Hair()
+                if (!(can && !pr.done)) Hair()
             }
         }
     }
+}
+
+/** 자물쇠 (아직 오지 않은 편지). */
+@Composable
+private fun Lock(c: androidx.compose.ui.graphics.Color) = androidx.compose.foundation.Canvas(Modifier.size(18.dp)) {
+    val w = size.width
+    val st = androidx.compose.ui.graphics.drawscope.Stroke(1.4.dp.toPx())
+    drawRect(c, androidx.compose.ui.geometry.Offset(w * 0.18f, w * 0.45f), androidx.compose.ui.geometry.Size(w * 0.64f, w * 0.45f), style = st)
+    drawArc(c, 180f, 180f, false, androidx.compose.ui.geometry.Offset(w * 0.3f, w * 0.12f), androidx.compose.ui.geometry.Size(w * 0.4f, w * 0.66f), style = st)
 }
 
 /** 작품 설정: 배울 언어 · 번역 줄 · 답장 방식 · 하루 편지 수. */
@@ -256,8 +336,9 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
             Caps(stringResource(R.string.ob_modes), p.giltText, small = true)
             Column {
                 listOf(
-                    Triple(ReplyMode.CONSTELLATION, R.string.mode_constellation, R.string.mode_constellation_d),
+                    Triple(ReplyMode.MATCH, R.string.mode_match, R.string.mode_match_d),
                     Triple(ReplyMode.ALOUD, R.string.mode_aloud, R.string.mode_aloud_d),
+                    Triple(ReplyMode.CONSTELLATION, R.string.mode_constellation, R.string.mode_constellation_d),
                 ).forEach { (m, label, desc) ->
                     val on = m in cur.modes
                     Row(
@@ -295,7 +376,11 @@ private fun ModePreview(m: ReplyMode) {
     val p = Ink.palette
     androidx.compose.foundation.Canvas(Modifier.size(62.dp, 38.dp).border(Tokens.Stroke.hair, p.hair)) {
         val w = size.width; val h = size.height
-        if (m == ReplyMode.CONSTELLATION) {
+        if (m == ReplyMode.MATCH) {
+            drawRect(p.line, androidx.compose.ui.geometry.Offset(w * 0.1f, h * 0.2f), androidx.compose.ui.geometry.Size(w * 0.3f, h * 0.24f), style = androidx.compose.ui.graphics.drawscope.Stroke(1.dp.toPx()))
+            drawRect(p.line, androidx.compose.ui.geometry.Offset(w * 0.6f, h * 0.56f), androidx.compose.ui.geometry.Size(w * 0.3f, h * 0.24f), style = androidx.compose.ui.graphics.drawscope.Stroke(1.dp.toPx()))
+            drawLine(p.gilt, androidx.compose.ui.geometry.Offset(w * 0.4f, h * 0.32f), androidx.compose.ui.geometry.Offset(w * 0.6f, h * 0.68f), 1.dp.toPx())
+        } else if (m == ReplyMode.CONSTELLATION) {
             val a = androidx.compose.ui.geometry.Offset(w * 0.18f, h * 0.68f)
             val b = androidx.compose.ui.geometry.Offset(w * 0.46f, h * 0.3f)
             val c = androidx.compose.ui.geometry.Offset(w * 0.8f, h * 0.58f)

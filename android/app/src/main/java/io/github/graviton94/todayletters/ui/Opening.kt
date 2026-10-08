@@ -80,11 +80,17 @@ fun Opening(s: AppState) {
     val p = Ink.palette
     val haptic = LocalHapticFeedback.current
     var ready by remember { mutableStateOf(false) }
+    // 서서히 나타나기: 램프가 켜지듯 바탕 → 이름 → 소개 → 봉투가 한 장씩 → "눌러서 열기"
+    val t = remember { androidx.compose.animation.core.Animatable(if (s.reducedMotion) 1f else 0f) }
+    LaunchedEffect(Unit) {
+        t.animateTo(1f, tween(3200, easing = androidx.compose.animation.core.LinearEasing))
+    }
     LaunchedEffect(Unit) { delay(Tokens.Motion.loadingMinMs.toLong()); ready = true }
+    fun win(a: Float, b: Float) = androidx.compose.animation.core.FastOutSlowInEasing.transform(((t.value - a) / (b - a)).coerceIn(0f, 1f))
     val ko = uiHangul()
     Box(
-        Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.55f)
-            .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null, enabled = ready) {
+        Modifier.fillMaxSize().background(p.paper).graphicsLayer { alpha = win(0f, 0.22f) }.desk(p.paper, p.lamp, 0.55f)
+            .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null, enabled = ready && t.value > 0.6f) {
                 if (s.app.haptics) haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                 s.nextStage()
             },
@@ -93,23 +99,23 @@ fun Opening(s: AppState) {
             Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding().padding(top = 56.dp, bottom = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(stringResource(R.string.open_caps), style = Type.caps, color = p.giltText)
+            Text(stringResource(R.string.open_caps), style = Type.caps, color = p.giltText, modifier = Modifier.rise(win(0.1f, 0.3f)))
             Spacer(Modifier.height(Tokens.Space.s3))
             Text(
                 stringResource(R.string.app_name),
                 style = if (ko) Type.display.ui().copy(fontSize = Tokens.Text.brand, lineHeight = Tokens.Text.brand * 1.15f)
                 else Type.display.copy(fontSize = Tokens.Text.brand * 1.15f, lineHeight = Tokens.Text.brand * 1.25f),
-                color = p.ink, textAlign = TextAlign.Center,
+                color = p.ink, textAlign = TextAlign.Center, modifier = Modifier.rise(win(0.16f, 0.4f)),
             )
             Spacer(Modifier.height(Tokens.Space.s3))
             Text(
                 stringResource(R.string.open_tagline), style = Type.body.ui(), color = p.inkSoft,
-                textAlign = TextAlign.Center, modifier = Modifier.widthIn(max = 320.dp).padding(horizontal = Tokens.Space.s5),
+                textAlign = TextAlign.Center, modifier = Modifier.widthIn(max = 320.dp).padding(horizontal = Tokens.Space.s5).rise(win(0.26f, 0.5f)),
             )
             Spacer(Modifier.height(Tokens.Space.s5))
-            Pile(s.reducedMotion)
+            Pile(s.reducedMotion) { i -> win(0.42f + i * 0.08f, 0.6f + i * 0.08f) }
             Spacer(Modifier.weight(1f))
-            AnimatedVisibility(ready, enter = fadeIn(tween(Tokens.Motion.introFadeMs))) {
+            AnimatedVisibility(ready && t.value > 0.86f, enter = fadeIn(tween(Tokens.Motion.introFadeMs))) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     PulseRing(s.reducedMotion)
                     Spacer(Modifier.height(Tokens.Space.s2))
@@ -120,15 +126,18 @@ fun Opening(s: AppState) {
     }
 }
 
+/** 아래에서 살짝 떠오르며 나타나기. */
+private fun Modifier.rise(a: Float) = graphicsLayer { alpha = a; translationY = (1f - a) * 14.dp.toPx() }
+
 /** 봉투 더미: 390×360 기준으로 그리고, 좁은 화면에서는 같은 비율로 줄인다. */
 @Composable
-private fun Pile(still: Boolean) {
+private fun Pile(still: Boolean, appear: (Int) -> Float) {
     BoxWithConstraints(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
         val k = (maxWidth / 390.dp).coerceAtMost(1f)
         Box(Modifier.size(390.dp * k, 360.dp * k), contentAlignment = Alignment.TopStart) {
             Box(Modifier.requiredSize(390.dp, 360.dp).scale(k)) {
                 // 바쇼: 접은 화지, 세로 글씨
-                Envelope(18.dp, 16.dp, 200.dp, 128.dp, -10f, Color(0xFFEAE0C9)) {
+                Envelope(18.dp, 16.dp, 200.dp, 128.dp, -10f, Color(0xFFEAE0C9), appear = appear(0)) {
                     Text("1689", style = Type.capsSm, color = envSoft, modifier = Modifier.offset(18.dp, 14.dp))
                     Column(Modifier.align(Alignment.TopEnd).padding(top = 16.dp, end = 22.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                         "芭蕉 深川".forEach { c -> Text(if (c == ' ') "" else c.toString(), style = Type.body.copy(fontSize = 15.sp), color = envInk) }
@@ -138,20 +147,20 @@ private fun Pile(still: Boolean) {
                     }
                 }
                 // 모차르트: 뒷면, 초록 밀랍
-                Envelope(168.dp, 4.dp, 206.dp, 132.dp, 8f, back = true) { Box(Modifier.offset(83.dp, 62.dp)) { WaxSeal(waxGreen, "", 40.dp) } }
+                Envelope(168.dp, 4.dp, 206.dp, 132.dp, 8f, back = true, appear = appear(1)) { Box(Modifier.offset(83.dp, 62.dp)) { WaxSeal(waxGreen, "", 40.dp) } }
                 // 오스틴
-                Envelope(2.dp, 132.dp, 214.dp, 132.dp, 5f) {
+                Envelope(2.dp, 132.dp, 214.dp, 132.dp, 5f, appear = appear(2)) {
                     Text("Miss Austen\nSteventon", style = Type.label.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic, fontSize = 15.sp, lineHeight = 19.sp), color = envInk, modifier = Modifier.offset(18.dp, 52.dp))
                     Box(Modifier.align(Alignment.TopEnd).padding(top = 14.dp, end = 18.dp)) { Mark("OVERTON", "JA 96", null, 46.dp) }
                 }
                 // 나폴레옹: 뒷면, 금빛 밀랍
-                Envelope(196.dp, 140.dp, 190.dp, 122.dp, -7f, back = true) {
+                Envelope(196.dp, 140.dp, 190.dp, 122.dp, -7f, back = true, appear = appear(3)) {
                     Box(Modifier.offset(76.dp, 57.dp)) { WaxSeal(waxGold, "N", 38.dp) }
                     Text("ARMÉE D'ITALIE", style = Type.capsSm.copy(fontSize = 9.sp), color = envSoft, modifier = Modifier.align(Alignment.BottomEnd).padding(end = 14.dp, bottom = 10.dp))
                 }
                 // 빈센트: 맨 위, 앞면 (주소 · 우표 · 소인)
                 val lift = if (still) 0f else rememberInfiniteTransition(label = "lift").animateFloat(0f, -5f, infiniteRepeatable(tween(1800), RepeatMode.Reverse), label = "y").value
-                Envelope(46.dp, 168.dp, 296.dp, 178.dp, -2f, lift = lift) {
+                Envelope(46.dp, 168.dp, 296.dp, 178.dp, -2f, lift = lift, appear = appear(4)) {
                     Text("V.", style = Type.capsSm.copy(fontSize = 9.sp), color = Color(0xFF8E2A22), modifier = Modifier.offset(16.dp, 16.dp))
                     Stamp(Modifier.align(Alignment.TopEnd).padding(top = 14.dp, end = 16.dp))
                     Box(Modifier.align(Alignment.TopEnd).padding(top = 12.dp, end = 70.dp)) { Mark("ARLES", "21 FÉVR", "1888", 58.dp) }
@@ -169,14 +178,17 @@ private fun Pile(still: Boolean) {
 /** 봉투 한 장. [back] 이면 뒷면 덮개의 V 접합선을 그린다. 밀랍은 부르는 쪽이 그 꼭짓점(가로 50%, 세로 62%)에 놓는다. */
 @Composable
 private fun Envelope(
-    x: Dp, y: Dp, w: Dp, h: Dp, tilt: Float, paper: Color = Color(0xFFF7F0E1), back: Boolean = false, lift: Float = 0f,
+    x: Dp, y: Dp, w: Dp, h: Dp, tilt: Float, paper: Color = Color(0xFFF7F0E1), back: Boolean = false, lift: Float = 0f, appear: Float = 1f,
     content: @Composable BoxScope.() -> Unit,
 ) {
     val p = Ink.palette
     Box(
         Modifier.offset(x, y).size(w, h)
             .graphicsLayer {
-                rotationZ = tilt; translationY = lift * density
+                // 봉투가 위에서 살짝 기울어진 채 내려와 놓인다
+                alpha = appear
+                rotationZ = tilt + (1f - appear) * tilt.coerceIn(-1f, 1f) * 6f
+                translationY = lift * density - (1f - appear) * 36.dp.toPx()
                 shadowElevation = 10.dp.toPx(); ambientShadowColor = p.shadow; spotShadowColor = p.shadow
             }
             .paperGrain(paper, Color(0x0B5A3C14), Color(0x38785523))

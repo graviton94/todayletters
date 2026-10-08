@@ -7,6 +7,9 @@ import android.media.MediaRecorder
 import android.os.Build
 import java.io.File
 
+/** 낭독 한 덩어리: 시작 · 끝(밀리초) · 글자. */
+data class Chunk(val start: Int, val end: Int, val text: String)
+
 /** 앱의 모든 소리는 미디어 볼륨으로 (사용자가 녹음하는 마이크 입력만 예외). */
 private val media: AudioAttributes = AudioAttributes.Builder()
     .setUsage(AudioAttributes.USAGE_MEDIA)
@@ -44,6 +47,16 @@ class Narrator(private val ctx: Context) {
         player = null
         playing = null
     }
+
+    /** 재생 위치 (밀리초). 재생 중이 아니면 -1. */
+    fun position(): Int = player?.runCatching { if (isPlaying) currentPosition else -1 }?.getOrNull() ?: -1
+
+    /** 낭독의 덩어리 시각: assets/....m<번호>_<언어>.json (narrate.py 가 씀). 없으면 빈 목록. */
+    fun chunks(asset: String): List<Chunk> = runCatching {
+        val o = org.json.JSONObject(ctx.assets.open(asset.removeSuffix(".m4a") + ".json").bufferedReader().readText())
+        val a = o.getJSONArray("chunks")
+        (0 until a.length()).map { a.getJSONObject(it).let { c -> Chunk((c.getDouble("s") * 1000).toInt(), (c.getDouble("e") * 1000).toInt(), c.getString("text")) } }
+    }.getOrDefault(emptyList())
 
     /** 지금 재생 중인 파일 (화면의 듣기 버튼이 재생 · 멈춤 모양을 고른다). */
     var playing: String? = null

@@ -101,11 +101,20 @@ class CoreTest {
     )
 
     @Test fun arrivalsLetPerDayNewLetters() {
-        assertEquals(1, Arrivals.openable(total = 5, done = 0, openedToday = 0, perDay = 1))
-        assertEquals(1, Arrivals.openable(total = 5, done = 1, openedToday = 1, perDay = 1))
-        assertEquals(0, Arrivals.waiting(total = 5, done = 1, openedToday = 1, perDay = 1))
-        assertEquals(2, Arrivals.waiting(total = 5, done = 1, openedToday = 0, perDay = 2))
-        assertEquals(5, Arrivals.openable(total = 5, done = 5, openedToday = 0, perDay = 3))
+        assertEquals(1, Arrivals.openable(total = 5, started = 0, openedToday = 0, perDay = 1))
+        // 오늘 열고 아직 다 읽지 않은 편지는 그대로 열려 있다 (사라지지 않음)
+        assertEquals(1, Arrivals.openable(total = 5, started = 1, openedToday = 1, perDay = 1))
+        assertEquals(1, Arrivals.waiting(total = 5, done = 0, started = 1, openedToday = 1, perDay = 1))
+        assertEquals(0, Arrivals.waiting(total = 5, done = 1, started = 1, openedToday = 1, perDay = 1))
+        assertEquals(2, Arrivals.waiting(total = 5, done = 1, started = 1, openedToday = 0, perDay = 2))
+        assertEquals(5, Arrivals.openable(total = 5, started = 5, openedToday = 0, perDay = 3))
+        assertEquals(0, Arrivals.daysUntil(index = 0, openable = 1, perDay = 1))
+        assertEquals(1, Arrivals.daysUntil(index = 1, openable = 1, perDay = 1))
+        assertEquals(3, Arrivals.daysUntil(index = 3, openable = 1, perDay = 1))
+        assertEquals(2, Arrivals.daysUntil(index = 4, openable = 1, perDay = 2))
+        assertEquals(3, Streak.after(lastDay = 10, count = 2, today = 11))
+        assertEquals(1, Streak.after(lastDay = 10, count = 5, today = 13))
+        assertEquals(2, Streak.after(lastDay = 11, count = 2, today = 11))
     }
 
     @Test fun constellationShufflesButKeepsTheAnswer() {
@@ -132,8 +141,10 @@ class CoreTest {
         p = p.reply(ReplyMode.CONSTELLATION).complete(modes)
         assertFalse(p.done)
         p = p.reply(ReplyMode.ALOUD).complete(modes)
+        assertFalse(p.done)
+        p = p.reply(ReplyMode.MATCH).complete(modes)
         assertTrue(p.done)
-        assertTrue(LetterProgress().complete(setOf(ReplyMode.MATCH)).done)
+        assertTrue(LetterProgress().complete(setOf(ReplyMode.DICTATION)).done)
     }
 
     @Test fun helpReplaysOnlyThatScreen() {

@@ -79,6 +79,15 @@ class Store(ctx: Context) {
         p.edit().putLong("o:$series:day", LocalDate.now().toEpochDay()).putInt("o:$series:n", n).apply()
     }
 
+    /** 한 번이라도 연 편지 (열자마자 나가도 그 편지는 계속 열려 있게). */
+    fun started(key: String) = p.getBoolean("st:$key", false)
+    fun markStarted(key: String) = p.edit().putBoolean("st:$key", true).apply()
+
+    /** 이어 읽은 날: 마지막으로 편지를 끝낸 날 · 이어진 날 수. */
+    val streakDay: Long get() = p.getLong("streak:day", -10)
+    val streakCount: Int get() = p.getInt("streak:n", 0)
+    fun saveStreak(day: Long, n: Int) = p.edit().putLong("streak:day", day).putInt("streak:n", n).apply()
+
     var coachSeen: Set<String>
         get() = p.getString("coach_seen", "")!!.split(",").filter { it.isNotBlank() }.toSet()
         set(v) = p.edit().putString("coach_seen", v.joinToString(",")).apply()

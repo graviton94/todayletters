@@ -37,7 +37,10 @@ import io.github.graviton94.todayletters.design.Type
 @Composable
 fun Root(s: AppState, onExit: () -> Unit) {
     val p = Ink.palette
+    androidx.compose.runtime.CompositionLocalProvider(LocalHaptics provides s.app.haptics) {
     Box(Modifier.fillMaxSize().background(p.paper)) {
+        // 오프닝 · 처음 소개 · 오늘의 봉투에서 뒤로: 닫을지 묻는다 (메인은 Main 이 따로 묻는다)
+        BackHandler(enabled = s.stage != Stage.MAIN && !s.askingExit) { s.askingExit = true }
         AnimatedContent(s.stage, transitionSpec = { fadeIn(tween(Tokens.Motion.pageMs * 2)) togetherWith fadeOut(tween(Tokens.Motion.pageMs)) }, label = "stage") { stage ->
         when (stage) {
             Stage.OPENING -> Opening(s)
@@ -46,16 +49,31 @@ fun Root(s: AppState, onExit: () -> Unit) {
             Stage.MAIN -> Main(s, onExit)
         }
         }
+        if (s.askingExit) Ask(
+            stringResource(R.string.exit_title), stringResource(R.string.exit_yes), stringResource(R.string.exit_no),
+            onYes = { s.askingExit = false; onExit() }, onNo = { s.askingExit = false },
+        )
+    }
     }
 }
 
 @Composable
 private fun Main(s: AppState, onExit: () -> Unit) {
     val p = Ink.palette
-    BackHandler(enabled = !s.settingsOpen) { if (!s.back()) onExit() }
+    // 맨 위 화면에서 뒤로: 바로 나가지 않고 닫을지 묻는다 (홈 단추로 내리는 건 묻지 않음)
+    BackHandler(enabled = !s.settingsOpen && !s.askingExit) { if (!s.back()) s.askingExit = true }
     Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
         Box(Modifier.weight(1f)) {
-            AnimatedContent(s.route, transitionSpec = { fadeIn(tween(Tokens.Motion.fadeMs)) togetherWith fadeOut(tween(Tokens.Motion.fadeMs)) }, label = "route") { r ->
+            AnimatedContent(
+                s.route,
+                transitionSpec = {
+                    val d = if (s.forward) 1 else -1
+                    if (s.reducedMotion) fadeIn(tween(Tokens.Motion.fadeMs)) togetherWith fadeOut(tween(Tokens.Motion.fadeMs))
+                    else (fadeIn(tween(Tokens.Motion.pageMs)) + androidx.compose.animation.slideInHorizontally(tween(Tokens.Motion.pageMs)) { it / 5 * d }) togetherWith
+                        (fadeOut(tween(Tokens.Motion.fadeMs)) + androidx.compose.animation.slideOutHorizontally(tween(Tokens.Motion.pageMs)) { -it / 8 * d })
+                },
+                label = "route",
+            ) { r ->
                 when (r) {
                     Route.Inbox -> Inbox(s)
                     Route.Library -> LibraryTab(s)

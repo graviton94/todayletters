@@ -32,12 +32,29 @@ data class Chapter(val series: String, val id: String, val title: Tri, val free:
  * 다 읽은 편지 수와 오늘 이미 연 편지 수로, 지금 열 수 있는 편지(번호)를 정한다.
  */
 object Arrivals {
-    fun openable(total: Int, done: Int, openedToday: Int, perDay: Int): Int =
-        (done + (perDay - openedToday).coerceAtLeast(0)).coerceAtMost(total)
+    /**
+     * 지금 열 수 있는 편지 수 (앞에서부터). [started] 는 한 번이라도 연 편지 수(다 읽은 것 포함).
+     * 오늘 연 편지는 다 읽지 않았어도 계속 열려 있다. 하루 [perDay] 통까지 새로 도착한다.
+     */
+    fun openable(total: Int, started: Int, openedToday: Int, perDay: Int): Int =
+        (started + (perDay - openedToday).coerceAtLeast(0)).coerceAtMost(total)
 
-    /** 오늘 더 받을 편지가 남았는가 (편지함의 "새 편지 n통"). */
-    fun waiting(total: Int, done: Int, openedToday: Int, perDay: Int): Int =
-        (openable(total, done, openedToday, perDay) - done).coerceAtLeast(0)
+    /** 열 수 있지만 아직 다 읽지 않은 편지 수 (편지함의 숫자). */
+    fun waiting(total: Int, done: Int, started: Int, openedToday: Int, perDay: Int): Int =
+        (openable(total, started, openedToday, perDay) - done).coerceAtLeast(0)
+
+    /** [index](0부터) 번째 편지가 며칠 뒤에 오는가. 0 이면 이미 왔다. */
+    fun daysUntil(index: Int, openable: Int, perDay: Int): Int =
+        if (index < openable) 0 else (index - openable) / perDay.coerceAtLeast(1) + 1
+}
+
+/** 이어 읽은 날 (편지를 끝낸 날이 하루씩 이어지면 늘어나고, 하루 건너뛰면 1부터). */
+object Streak {
+    fun after(lastDay: Long, count: Int, today: Long): Int = when (today - lastDay) {
+        0L -> count.coerceAtLeast(1)
+        1L -> count + 1
+        else -> 1
+    }
 }
 
 /** 답장 문제 만들기. 편지 데이터에서 저절로 만든다 (사람이 문제를 따로 쓰지 않음). */
@@ -71,6 +88,13 @@ object Exercises {
 
     /** 낱말 맞추기: (배우는 언어, 읽는 언어) 짝. */
     fun pairs(letter: Letter, learn: Lang, read: Lang) = letter.words.map { it.text[learn] to it.text[read] }
+
+    /** 낱말 맞추기 판: 왼쪽은 편지 순서, 오른쪽 뜻은 섞어서 (같은 편지는 늘 같은 순서). 최대 [max] 짝. */
+    fun matchBoard(letter: Letter, learn: Lang, read: Lang, max: Int = 6): Pair<List<Pair<String, String>>, List<Int>> {
+        val pairs = pairs(letter, learn, read).take(max)
+        val order = pairs.indices.shuffled(java.util.Random(letter.id.hashCode().toLong()))
+        return pairs to (if (order == pairs.indices.toList() && pairs.size > 1) order.reversed() else order)
+    }
 }
 
 /** 편지 한 통의 진도: 몇 번째 메시지까지 받았는지, 답장을 마쳤는지. 메시지 단위로 저장해 중간에 나가도 이어진다. */
@@ -83,6 +107,9 @@ data class LetterProgress(val shown: Int = 0, val replied: Set<ReplyMode> = empt
 }
 
 object Plays {
-    /** 편지 안에서 하는 답장. 낱말 맞추기 · 듣고 쓰기는 단어장 복습에서. */
-    val inLetter = listOf(ReplyMode.CONSTELLATION, ReplyMode.ALOUD)
+    /**
+     * 편지 한 통의 하루 순서: 읽기 다음에 낱말 맞추기 → 따라 읽기(연습) → 답장 쓰기(별자리 잇기) → 그림.
+     * 작품 설정에서 끈 것은 건너뛴다. 듣고 쓰기는 단어장 복습에서.
+     */
+    val inLetter = listOf(ReplyMode.MATCH, ReplyMode.ALOUD, ReplyMode.CONSTELLATION)
 }

@@ -10,6 +10,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,6 +38,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -57,6 +59,27 @@ import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 import io.github.graviton94.todayletters.design.hangul
 import io.github.graviton94.todayletters.design.uiHangul
+
+/** 진동을 켰는가 (앱 설정). Root 가 넣어 준다. */
+val LocalHaptics = androidx.compose.runtime.staticCompositionLocalOf { true }
+
+/**
+ * 누를 수 있는 모든 것의 공통 손맛: 누르는 동안 살짝 작아지고, 손을 떼면 가벼운 진동.
+ * 움직임 줄이기에서도 진동은 남는다 (설정에서 끌 수 있음).
+ */
+@Composable
+fun Modifier.pressable(enabled: Boolean = true, role: Role = Role.Button, haptic: Boolean = true, onClick: () -> Unit): Modifier {
+    val src = remember { androidx.compose.foundation.interaction.MutableInteractionSource() }
+    val pressed by src.collectIsPressedAsState()
+    val k by androidx.compose.animation.core.animateFloatAsState(if (pressed && enabled) 0.97f else 1f, androidx.compose.animation.core.tween(90), label = "press")
+    val h = androidx.compose.ui.platform.LocalHapticFeedback.current
+    val on = LocalHaptics.current
+    return this.graphicsLayer { scaleX = k; scaleY = k }
+        .clickable(interactionSource = src, indication = androidx.compose.foundation.LocalIndication.current, enabled = enabled, role = role) {
+            if (haptic && on) h.performHapticFeedback(androidx.compose.ui.hapticfeedback.HapticFeedbackType.TextHandleMove)
+            onClick()
+        }
+}
 
 /** 앱 글자(UI)용 글자 모양: 앱 글자가 한국어면 한글 글꼴로. */
 @Composable
@@ -153,8 +176,7 @@ fun Twinkle(still: Boolean) {
 fun Primary(text: String, modifier: Modifier = Modifier, enabled: Boolean = true, onClick: () -> Unit) {
     val p = Ink.palette
     Box(
-        modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).background(if (enabled) p.fill else p.hide)
-            .clickable(enabled = enabled, role = Role.Button, onClick = onClick),
+        modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).pressable(enabled, onClick = onClick).background(if (enabled) p.fill else p.hide),
         contentAlignment = Alignment.Center,
     ) { Text(text, style = Type.body.ui().copy(fontSize = 17.sp), color = if (enabled) p.onFill else p.hideInk) }
 }
@@ -163,8 +185,7 @@ fun Primary(text: String, modifier: Modifier = Modifier, enabled: Boolean = true
 fun Secondary(text: String, modifier: Modifier = Modifier, onClick: () -> Unit) {
     val p = Ink.palette
     Box(
-        modifier.fillMaxWidth().heightIn(min = Tokens.Size.buttonSm).border(Tokens.Stroke.hair, p.ink)
-            .clickable(role = Role.Button, onClick = onClick),
+        modifier.fillMaxWidth().heightIn(min = Tokens.Size.buttonSm).pressable(onClick = onClick).border(Tokens.Stroke.hair, p.ink),
         contentAlignment = Alignment.Center,
     ) { Text(text, style = Type.body.ui(), color = p.ink) }
 }
@@ -179,7 +200,7 @@ fun <T> Choices(options: List<Pair<T, String>>, selected: T, onPick: (T) -> Unit
             if (i > 0) Box(Modifier.width(Tokens.Stroke.hair).heightIn(min = Tokens.Size.touch).background(p.hair))
             Box(
                 Modifier.weight(1f).heightIn(min = Tokens.Size.touch).background(if (on) p.fill else Color.Transparent)
-                    .clickable(role = Role.RadioButton) { onPick(value) }.padding(horizontal = Tokens.Space.s1),
+                    .pressable(role = Role.RadioButton) { onPick(value) }.padding(horizontal = Tokens.Space.s1),
                 contentAlignment = Alignment.Center,
             ) { Text(label, style = Type.label.ui(), color = if (on) p.onFill else p.ink) }
         }
@@ -215,7 +236,7 @@ fun TopBar(title: String, s: AppState, help: String?, showBack: Boolean, showSet
 @Composable
 fun IconButton(label: String, onClick: () -> Unit, content: @Composable () -> Unit) =
     Box(
-        Modifier.size(Tokens.Size.touch).semantics { contentDescription = label }.clickable(role = Role.Button, onClick = onClick),
+        Modifier.size(Tokens.Size.touch).semantics { contentDescription = label }.pressable(onClick = onClick),
         contentAlignment = Alignment.Center,
     ) { content() }
 

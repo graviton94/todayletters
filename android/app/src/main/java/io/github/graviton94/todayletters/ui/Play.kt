@@ -14,6 +14,8 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Brush
@@ -70,6 +72,7 @@ fun Play(s: AppState, r: Route.Play) {
     var asking by remember { mutableStateOf(false) }
     BackHandler { asking = true }
     when (r.mode) {
+        ReplyMode.MATCH -> Match(s, r)
         ReplyMode.ALOUD -> Aloud(s, r)
         else -> Constellation(s, r)
     }
@@ -241,51 +244,200 @@ private fun Sky(
     }
 }
 
-/** 따라 읽기: 원어 듣기 → 녹음 → 보내기. MVP 는 녹음한 것만으로 완료 (채점 없음). 녹음은 기기 안에만. */
+/**
+ * 낱말 맞추기: 왼쪽 낱말(배울 언어)을 누르고 오른쪽 뜻(번역)을 누른다. 짝이 맞으면 둘 다 금빛으로 잠기고 발음이 나온다.
+ * 틀리면 잠깐 붉게 흔들린다. 다 맞히면 마치기.
+ */
+@Composable
+private fun Match(s: AppState, r: Route.Play) {
+    val p = Ink.palette
+    val haptic = LocalHapticFeedback.current
+    val (chapter, letter) = s.letterOf(r.room)
+    val view = s.room(r.room.series)
+    val (pairs, order) = remember(letter.id, view.learn, view.read) { Exercises.matchBoard(letter, view.learn, view.read) }
+    var left by remember { mutableStateOf<Int?>(null) }
+    var matched by remember(letter.id) { mutableStateOf(setOf<Int>()) }
+    var wrong by remember { mutableStateOf<Int?>(null) }
+    val done = matched.size == pairs.size
+    LaunchedEffect(wrong) { if (wrong != null) { delay(600); wrong = null } }
+
+    fun pickRight(k: Int) {
+        val l = left ?: return
+        if (l == k) {
+            matched = matched + k; left = null
+            if (s.app.haptics) haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+            s.narrator.play(s.narrator.path(r.room.series, chapter, letter.id, "w${k + 1}_${view.learn.code}"))
+        } else {
+            wrong = k; left = null
+            if (s.app.haptics) haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+        }
+    }
+
+    Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
+        PlayHeader(s, stringResource(R.string.mode_match), "${matched.size} / ${pairs.size}")
+        Column(
+            Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
+        ) {
+            Text(stringResource(R.string.match_hint), style = Type.small.ui(), color = p.inkSoft)
+            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                    pairs.forEachIndexed { k, (w, _) ->
+                        MatchCard(w, view.learn, on = left == k, matched = k in matched, wrong = false) { if (k !in matched) left = k }
+                    }
+                }
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                    order.forEach { k ->
+                        MatchCard(pairs[k].second, view.read, on = false, matched = k in matched, wrong = wrong == k) { if (k !in matched) pickRight(k) }
+                    }
+                }
+            }
+            when {
+                done -> Text(stringResource(R.string.match_done), style = Type.small.ui(), color = p.correct)
+                wrong != null -> Text(stringResource(R.string.match_wrong), style = Type.small.ui(), color = p.wrong)
+            }
+        }
+        Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
+            Primary(stringResource(R.string.play_finish), enabled = done) { s.replied(r.room, ReplyMode.MATCH); s.back() }
+        }
+    }
+}
+
+@Composable
+private fun MatchCard(text: String, lang: io.github.graviton94.todayletters.core.Lang, on: Boolean, matched: Boolean, wrong: Boolean, onClick: () -> Unit) {
+    val p = Ink.palette
+    val shake by androidx.compose.animation.core.animateFloatAsState(if (wrong) 1f else 0f, tween(120), label = "shake")
+    Box(
+        Modifier.fillMaxWidth().heightIn(min = 56.dp)
+            .graphicsLayer { translationX = kotlin.math.sin(shake * 18f) * 6.dp.toPx() * shake; alpha = if (matched) 0.55f else 1f }
+            .background(when { matched -> p.hide; on -> p.fill; else -> p.leaf })
+            .border(1.dp, when { wrong -> p.wrong; on -> p.fill; matched -> p.hair; else -> p.line })
+            .pressable(enabled = !matched, onClick = onClick).padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s2),
+        contentAlignment = Alignment.CenterStart,
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            if (matched) CheckMark(true, 16.dp)
+            Text(text, style = Type.body.of(lang), color = if (on) p.onFill else p.ink, maxLines = 2)
+        }
+    }
+}
+
+/**
+ * 따라 읽기 (답장이 아니라 연습): 빈센트가 읽는 동안 읽는 자리의 낱말이 차례로 칠해진다.
+ * 그다음 소리 내어 읽고 녹음한다. MVP 는 녹음만으로 완료 (채점 없음). 녹음은 기기 안에만.
+ * 문장은 이 편지에서 낱말 수가 알맞은(4~14) 가장 짧은 문장.
+ */
 @Composable
 private fun Aloud(s: AppState, r: Route.Play) {
     val p = Ink.palette
     val ctx = LocalContext.current
     val (chapter, letter) = s.letterOf(r.room)
     val view = s.room(r.room.series)
-    val i = letter.messages.lastIndex
+    val i = remember(letter.id, view.learn) {
+        letter.messages.indices.filter { letter.messages[it].text[view.learn].split(" ").size in 4..14 }
+            .minByOrNull { letter.messages[it].text[view.learn].length } ?: letter.messages.lastIndex
+    }
     val line = letter.messages[i].text
+    val sentence = io.github.graviton94.todayletters.core.Breaks.plain(line[view.learn])
+    val audio = s.narrator.path(r.room.series, chapter, letter.id, "m${i + 1}_${view.learn.code}")
+    val chunks = remember(audio) { s.narrator.chunks(audio) }
+    var playing by remember { mutableStateOf(false) }
+    var heard by remember { mutableStateOf(false) }
+    var pos by remember { mutableIntStateOf(-1) }        // 지금 칠하는 글자 자리
     var recording by remember { mutableStateOf(false) }
     var has by remember { mutableStateOf(false) }
     var allowed by remember { mutableStateOf(ContextCompat.checkSelfPermission(ctx, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) }
     val ask = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { allowed = it }
-    DisposableEffect(Unit) { onDispose { s.recorder.stop() } }
+    DisposableEffect(Unit) { onDispose { s.recorder.stop(); s.narrator.stop() } }
 
-    Column(Modifier.fillMaxSize()) {
+    // 덩어리 시각 → 글자 자리. 덩어리 글자를 문장에서 차례로 찾아, 덩어리 안에서는 시간에 비례해 나아간다.
+    val spans = remember(sentence, chunks) {
+        var from = 0
+        chunks.map { c ->
+            val at = sentence.indexOf(c.text, from).takeIf { it >= 0 } ?: from
+            from = at + c.text.length
+            Triple(c, at, at + c.text.length)
+        }
+    }
+    LaunchedEffect(playing) {
+        while (playing) {
+            val t = s.narrator.position()
+            if (t >= 0) {
+                val hit = spans.lastOrNull { it.first.start <= t }
+                pos = when {
+                    hit == null -> -1
+                    t >= hit.first.end -> hit.third
+                    else -> hit.second + ((t - hit.first.start).toFloat() / (hit.first.end - hit.first.start).coerceAtLeast(1) * (hit.third - hit.second)).toInt()
+                }
+            }
+            androidx.compose.runtime.withFrameMillis { }
+        }
+    }
+    fun listen() {
+        if (playing) { s.narrator.stop(); playing = false; return }
+        s.recorder.stop(); recording = false
+        playing = s.narrator.play(audio) { playing = false; heard = true; pos = sentence.length }
+        if (spans.isEmpty()) pos = -1
+    }
+
+    Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
         PlayHeader(s, stringResource(R.string.mode_aloud), "")
         Column(
-            Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s5),
+            Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
-            Text(stringResource(R.string.aloud_prompt), style = Type.body.ui(), color = p.inkSoft)
-            Incoming { Pair2(line[view.learn], view.learn, line[view.read], view.read) }
-            Secondary(stringResource(R.string.aloud_listen)) { s.narrator.play(s.narrator.path(r.room.series, chapter, letter.id, "m${i + 1}_${view.learn.code}")) }
+            Text(stringResource(R.string.aloud_prompt), style = Type.small.ui(), color = p.inkSoft)
+            Slip(seed = 9, modifier = Modifier.fillMaxWidth()) {
+                Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                    Text(readAlong(sentence, pos, p.slipInk, p.slipSoft.copy(alpha = 0.75f), p.gilt.copy(alpha = 0.35f)), style = Type.target.of(view.learn))
+                    Text(line[view.read], style = Type.base.of(view.read), color = p.slipSoft)
+                }
+            }
+            Secondary(stringResource(if (playing) R.string.room_stop else if (heard) R.string.aloud_again else R.string.aloud_listen)) { listen() }
             Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                 Box(
-                    Modifier.size(Tokens.Size.mic).background(if (recording) p.wrong else p.paper, CircleShape).border(Tokens.Stroke.hair, p.giltText, CircleShape)
-                        .clickable(role = Role.Button) {
-                            if (!allowed) { ask.launch(Manifest.permission.RECORD_AUDIO); return@clickable }
-                            if (recording) { s.recorder.stop(); recording = false; has = true } else { s.narrator.stop(); recording = s.recorder.start() }
+                    Modifier.size(Tokens.Size.mic).background(if (recording) p.wrong else Color.Transparent, CircleShape).border(1.dp, p.giltText, CircleShape)
+                        .pressable(role = Role.Button) {
+                            if (!allowed) { ask.launch(Manifest.permission.RECORD_AUDIO); return@pressable }
+                            if (recording) { s.recorder.stop(); recording = false; has = true } else { s.narrator.stop(); playing = false; recording = s.recorder.start() }
                         },
                     contentAlignment = Alignment.Center,
-                ) { Text(if (recording) "■" else "●", style = Type.heading, color = if (recording) p.onFill else p.giltText) }
+                ) {
+                    Canvas(Modifier.size(20.dp)) {
+                        if (recording) drawRect(p.onFill) else drawCircle(p.wrong, size.minDimension / 2)
+                    }
+                }
             }
             Text(
                 stringResource(if (recording) R.string.aloud_recording else if (has) R.string.aloud_recorded else R.string.aloud_tap),
                 style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.align(Alignment.CenterHorizontally),
             )
-            if (has) Secondary(stringResource(R.string.aloud_mine)) { s.recorder.play() }
+            if (has) Secondary(stringResource(R.string.aloud_mine)) { s.narrator.stop(); playing = false; s.recorder.play() }
         }
-        Column(Modifier.padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s4)) {
-            Primary(stringResource(R.string.play_send), enabled = has && !recording) { s.replied(r.room, ReplyMode.ALOUD); s.back() }
+        Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
+            Primary(stringResource(R.string.aloud_finish), enabled = has && !recording) { s.replied(r.room, ReplyMode.ALOUD); s.back() }
         }
     }
 }
+
+/** 읽는 자리 칠하기: 읽은 낱말은 먹색, 지금 낱말은 금빛 바탕, 남은 낱말은 흐리게. [pos] < 0 이면 모두 먹색. */
+private fun readAlong(text: String, pos: Int, done: Color, rest: Color, now: Color): androidx.compose.ui.text.AnnotatedString =
+    androidx.compose.ui.text.buildAnnotatedString {
+        if (pos < 0) { withStyle(androidx.compose.ui.text.SpanStyle(color = done)) { append(text) }; return@buildAnnotatedString }
+        val words = Regex("\\S+").findAll(text).toList()
+        var last = 0
+        words.forEach { m ->
+            append(text.substring(last, m.range.first))
+            val style = when {
+                m.range.last < pos -> androidx.compose.ui.text.SpanStyle(color = done)
+                m.range.first <= pos -> androidx.compose.ui.text.SpanStyle(color = done, background = now)
+                else -> androidx.compose.ui.text.SpanStyle(color = rest)
+            }
+            withStyle(style) { append(m.value) }
+            last = m.range.last + 1
+        }
+        append(text.substring(last))
+    }
 
 /** 화면 안에서 묻기 (시스템 대화상자 대신). */
 @Composable

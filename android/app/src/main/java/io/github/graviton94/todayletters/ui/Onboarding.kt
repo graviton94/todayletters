@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -71,7 +72,8 @@ private val soon = listOf(
 )
 
 /**
- * 처음 소개 (첫 설치 한 번), 두 단계:
+ * 처음 소개 (첫 설치 한 번), 세 단계:
+ *  0. 반가워요: 이 앱이 무엇인지, 하루가 어떻게 흘러가는지 (읽기 → 낱말 → 따라 읽기 → 답장 → 그림)
  *  1. 이렇게 도착해요: 실제 첫 문장 한 조각으로 원문 · 번역 · 듣기를 보여 준다 (묻는 것 없음)
  *  2. 작품과 배울 언어: 작품을 고르면 그 자리에서 배울 언어. 번역 언어는 시스템 언어로 시작 (설정에서 변경)
  * 답장 방식(모두 켜짐) · 하루 편지 수(1통)는 묻지 않고, 작품 설정에서 바꾼다.
@@ -88,9 +90,9 @@ fun Onboarding(s: AppState, startStep: Int = 0) {
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f).statusBarsPadding().navigationBarsPadding().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4)) {
         Row(Modifier.heightIn(min = Tokens.Size.touch), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             if (step > 0) IconButton(stringResource(R.string.back), onClick = { step-- }) { Chevron(p.ink) }
-            repeat(2) { i -> Box(Modifier.width(28.dp).height(2.dp).background(if (i <= step) p.giltText else p.hair)) }
+            repeat(3) { i -> Box(Modifier.width(28.dp).height(2.dp).background(if (i <= step) p.giltText else p.hair)) }
             Spacer(Modifier.weight(1f))
-            Caps("${step + 1} / 2")
+            Caps("${step + 1} / 3")
         }
         AnimatedContent(
             step, Modifier.weight(1f),
@@ -102,14 +104,54 @@ fun Onboarding(s: AppState, startStep: Int = 0) {
             label = "ob",
         ) { st ->
             Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(top = Tokens.Space.s4, bottom = Tokens.Space.s4)) {
-                if (st == 0) Arrive(s, work) else Pick(s, work, learn) { learn = it }
+                when (st) {
+                    0 -> Hello(s, work)
+                    1 -> Arrive(s, work)
+                    else -> Pick(s, work, learn) { learn = it }
+                }
             }
         }
-        Primary(stringResource(if (step == 0) R.string.ob_next else R.string.ob2_start)) {
-            if (step == 0) step = 1
+        Primary(stringResource(when (step) { 0 -> R.string.ob_start_hello; 1 -> R.string.ob_next; else -> R.string.ob2_start })) {
+            if (step < 2) step++
             else {
                 s.narrator.stop()
                 s.finishOnboarding(s.app, work.series.id, Langs.start(work.series, s.app).copy(learn = learn))
+            }
+        }
+    }
+}
+
+/** 0단계: 반가워요. 처음 쓰는 사람에게 앱이 무엇이고 하루가 어떻게 흘러가는지. */
+@Composable
+private fun Hello(s: AppState, work: io.github.graviton94.todayletters.data.Work) {
+    val p = Ink.palette
+    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+        Portrait(work.portrait, work.fullName, 44.dp)
+        Text(stringResource(R.string.ob0_hello), style = Type.caps.ui(), color = p.giltText)
+    }
+    Spacer(Modifier.height(Tokens.Space.s4))
+    Text(stringResource(R.string.ob0_title), style = Type.title.ui(), color = p.ink)
+    Spacer(Modifier.height(Tokens.Space.s3))
+    Text(stringResource(R.string.ob0_body), style = Type.body.ui(), color = p.inkSoft)
+    Spacer(Modifier.height(Tokens.Space.s6))
+    Text(stringResource(R.string.ob0_day), style = Type.small.ui(), color = p.giltText)
+    Spacer(Modifier.height(Tokens.Space.s3))
+    val days = listOf(
+        R.string.ob0_d1 to R.string.ob0_d1d, R.string.ob0_d2 to R.string.ob0_d2d, R.string.ob0_d3 to R.string.ob0_d3d,
+        R.string.ob0_d4 to R.string.ob0_d4d, R.string.ob0_d5 to R.string.ob0_d5d,
+    )
+    days.forEachIndexed { i, (t, d) ->
+        Row(Modifier.fillMaxWidth().height(androidx.compose.foundation.layout.IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+            // 시간의 줄: 동그라미 숫자를 세로선으로 잇는다
+            Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.width(30.dp).fillMaxHeight()) {
+                Box(Modifier.size(30.dp).border(1.dp, p.giltText, CircleShape).background(if (i == days.lastIndex) p.giltText else Color.Transparent, CircleShape), contentAlignment = Alignment.Center) {
+                    Text(roman(i + 1), style = Type.small.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = if (i == days.lastIndex) p.paper else p.giltText)
+                }
+                if (i < days.lastIndex) Box(Modifier.width(1.dp).weight(1f).background(p.hair))
+            }
+            Column(Modifier.weight(1f).padding(bottom = Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(stringResource(t), style = Type.body.ui(), color = p.ink)
+                Text(stringResource(d), style = Type.small.ui(), color = p.inkSoft)
             }
         }
     }

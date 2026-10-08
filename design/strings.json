@@ -309,8 +309,8 @@
     "ko": "확인"
   },
   "play_send": {
-    "en": "Send",
-    "ko": "보내기"
+    "en": "Send the reply",
+    "ko": "답장 보내기"
   },
   "play_right": {
     "en": "Well done. Send it to Vincent.",
@@ -321,12 +321,12 @@
     "ko": "아쉬워요. 정답은 이래요: %1$s"
   },
   "aloud_prompt": {
-    "en": "Listen to the line, then read it aloud as your reply.",
-    "ko": "원어를 듣고, 소리 내어 읽어 답장해요."
+    "en": "Follow the words as Vincent reads, then read it aloud yourself.",
+    "ko": "빈센트가 읽는 자리를 눈으로 따라가고, 이어서 소리 내어 읽어 봐요."
   },
   "aloud_listen": {
-    "en": "Listen",
-    "ko": "원어 듣기"
+    "en": "Listen to Vincent",
+    "ko": "빈센트 목소리로 듣기"
   },
   "aloud_tap": {
     "en": "Tap to record",
@@ -345,8 +345,8 @@
     "ko": "내 목소리 듣기"
   },
   "done_title": {
-    "en": "Letter received",
-    "ko": "편지를 다 받았어요"
+    "en": "Today's letter is complete",
+    "ko": "오늘의 편지를 마쳤어요"
   },
   "done_story": {
     "en": "The painting's story",
@@ -617,8 +617,8 @@
     "ko": "낱말을 순서대로 이어 문장을 만들어요"
   },
   "mode_aloud_d": {
-    "en": "Read aloud and record. Scoring is gentle",
-    "ko": "소리 내어 읽고 녹음하면 끝. 채점은 너그럽게"
+    "en": "Follow Vincent's voice, then record yourself. Gentle scoring",
+    "ko": "빈센트 목소리를 따라 읽고 녹음해요. 채점은 너그럽게"
   },
   "modes_note": {
     "en": "Each letter uses the modes you keep on. Keep at least one.",
@@ -631,5 +631,185 @@
   "plate_soon": {
     "en": "Painting coming soon",
     "ko": "그림 준비 중"
+  },
+  "note_title": {
+    "en": "Curator's note",
+    "ko": "큐레이터 노트"
+  },
+  "letter_eta": {
+    "en": "Arrives tomorrow",
+    "ko": "내일 도착"
+  },
+  "letter_eta_n": {
+    "en": "Arrives in %1$d days",
+    "ko": "%1$d일 뒤 도착"
+  },
+  "letter_reading": {
+    "en": "Reading",
+    "ko": "읽는 중"
+  },
+  "letter_new": {
+    "en": "Arrived today",
+    "ko": "오늘 도착"
+  },
+  "exit_title": {
+    "en": "Close Letters by Day?",
+    "ko": "하루의 편지를 닫을까요?"
+  },
+  "exit_yes": {
+    "en": "Close",
+    "ko": "닫기"
+  },
+  "exit_no": {
+    "en": "Stay",
+    "ko": "더 머물기"
+  },
+  "step_match": {
+    "en": "Words",
+    "ko": "낱말"
+  },
+  "step_aloud": {
+    "en": "Read along",
+    "ko": "따라 읽기"
+  },
+  "room_next": {
+    "en": "Next · %1$s",
+    "ko": "다음 · %1$s"
+  },
+  "room_done_today": {
+    "en": "Finish today's letter",
+    "ko": "오늘의 편지 마치기"
+  },
+  "first_guide_title": {
+    "en": "First time? Try all three",
+    "ko": "처음이니 세 가지 모두 해 봐요"
+  },
+  "first_guide_body": {
+    "en": "Learn the meanings with Match the words, the sounds with Read along, then write Theo's reply by joining the stars. Later you can choose in the series settings.",
+    "ko": "낱말 맞추기로 뜻을 익히고, 따라 읽기로 소리를 익히고, 별자리 잇기로 테오의 답장을 써요. 다음부터는 작품 설정에서 고를 수 있어요."
+  },
+  "mode_match_d": {
+    "en": "Pair the letter's words with their meanings",
+    "ko": "편지에 나온 낱말과 뜻을 짝지어요"
+  },
+  "match_hint": {
+    "en": "Tap a word on the left, then its meaning.",
+    "ko": "왼쪽 낱말을 누르고, 맞는 뜻을 눌러요."
+  },
+  "match_done": {
+    "en": "All matched.",
+    "ko": "다 맞혔어요."
+  },
+  "match_wrong": {
+    "en": "Not a pair. Try again.",
+    "ko": "짝이 아니에요. 다시 골라 봐요."
+  },
+  "aloud_again": {
+    "en": "Listen again",
+    "ko": "다시 듣기"
+  },
+  "aloud_finish": {
+    "en": "Finish reading along",
+    "ko": "따라 읽기 마치기"
+  },
+  "play_finish": {
+    "en": "Done",
+    "ko": "마치기"
+  },
+  "done_streak": {
+    "en": "%1$d days in a row",
+    "ko": "%1$d일째 이어 읽는 중"
+  },
+  "done_next_now": {
+    "en": "The next letter has already arrived.",
+    "ko": "다음 편지가 이미 도착해 있어요."
+  },
+  "done_next_tomorrow": {
+    "en": "The next letter arrives tomorrow. The painting is in your Plates.",
+    "ko": "다음 편지는 내일 도착해요. 그림은 화첩에 들어갔어요."
+  },
+  "done_home": {
+    "en": "Back to letters",
+    "ko": "편지함으로"
+  },
+  "done_open_next": {
+    "en": "Open the next letter",
+    "ko": "다음 편지 열기"
+  },
+  "words_search": {
+    "en": "Search words",
+    "ko": "낱말 찾기"
+  },
+  "words_more": {
+    "en": "Show more · %1$d left",
+    "ko": "더 보기 · %1$d개 남음"
+  },
+  "words_count": {
+    "en": "%1$d words collected",
+    "ko": "모은 낱말 %1$d개"
+  },
+  "words_none": {
+    "en": "No matching words.",
+    "ko": "찾는 낱말이 없어요."
+  },
+  "ob0_hello": {
+    "en": "Welcome",
+    "ko": "반가워요"
+  },
+  "ob0_title": {
+    "en": "Welcome to Letters by Day",
+    "ko": "하루의 편지에 오신 걸 환영해요"
+  },
+  "ob0_body": {
+    "en": "From today you receive letters from people in history. The first are the real letters Vincent van Gogh wrote to his brother Theo. You reply as Theo.",
+    "ko": "이제부터 당신은 역사 속 인물에게서 편지를 받는 사람이에요. 첫 편지는 빈센트 반 고흐가 동생 테오에게 보낸 진짜 편지예요. 당신은 테오가 되어 답장을 써요."
+  },
+  "ob0_day": {
+    "en": "A day goes like this · five minutes is enough",
+    "ko": "하루는 이렇게 흘러가요 · 5분이면 충분해요"
+  },
+  "ob0_d1": {
+    "en": "Read the letter",
+    "ko": "편지 읽기"
+  },
+  "ob0_d1d": {
+    "en": "Original and translation side by side, Vincent's voice on tap.",
+    "ko": "원문과 번역이 나란히. 듣기 단추를 누르면 빈센트 목소리로."
+  },
+  "ob0_d2": {
+    "en": "Match the words",
+    "ko": "낱말 맞추기"
+  },
+  "ob0_d2d": {
+    "en": "Pair the letter's words with their meanings.",
+    "ko": "편지에 나온 낱말과 뜻을 짝지어요."
+  },
+  "ob0_d3": {
+    "en": "Read along",
+    "ko": "따라 읽기"
+  },
+  "ob0_d3d": {
+    "en": "Follow Vincent's reading, then say it yourself.",
+    "ko": "빈센트가 읽는 자리를 따라가고, 소리 내어 읽어요."
+  },
+  "ob0_d4": {
+    "en": "Write back",
+    "ko": "답장 쓰기"
+  },
+  "ob0_d4d": {
+    "en": "Join the word stars to finish Theo's reply.",
+    "ko": "낱말 별을 순서대로 이어 테오의 답장을 완성해요."
+  },
+  "ob0_d5": {
+    "en": "A painting arrives",
+    "ko": "그림 도착"
+  },
+  "ob0_d5d": {
+    "en": "The painting from the letter and its story join your Plates.",
+    "ko": "편지 속 그림과 그 시절 이야기가 화첩에 쌓여요."
+  },
+  "ob_start_hello": {
+    "en": "Let's begin",
+    "ko": "시작하기"
   }
 }

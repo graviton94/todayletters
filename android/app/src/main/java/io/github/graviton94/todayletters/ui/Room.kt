@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -37,6 +38,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
@@ -76,6 +78,7 @@ fun Room(s: AppState, r: Route.Letter) {
     var written by remember(letter.id) { mutableIntStateOf(already) }   // 다 써진 조각 수
     var writing by remember(letter.id) { mutableStateOf(false) }
     var words by remember { mutableStateOf(false) }
+    var wordFocus by remember { mutableStateOf<Int?>(null) }
     var playing by remember(letter.id) { mutableStateOf<Int?>(null) }
     var all by remember { mutableStateOf<Job?>(null) }
     val list = rememberLazyListState()
@@ -131,7 +134,7 @@ fun Room(s: AppState, r: Route.Letter) {
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
         RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else dateLine(letter.date, letter.place),
             listening = all != null, canListen = written > 0, onListen = { speakAll() }, onInfo = { s.go(Route.RoomInfo(r)) })
-        TodayStrip(read = written, total = total, words = letter.words.size, replied = progress.replied.size, modes = modes.size, done = progress.done)
+        TodayStrip(read = written, total = total, modes = modes, replied = progress.replied, done = progress.done)
         LazyColumn(
             Modifier.weight(1f).fillMaxWidth(), state = list,
             contentPadding = PaddingValues(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s5),
@@ -156,32 +159,32 @@ fun Room(s: AppState, r: Route.Letter) {
                         signature = if (i == total - 1) "t. à t. ${work.sender}" else null,
                         playing = playing == i, canPlay = i < written,
                         onPlay = { speak(i) }, onWritten = { if (written < i + 1) written = i + 1 },
+                        marks = wordMarks(m.text[view.learn], letter.words.map { it.text[view.learn] }),
+                        onWord = { wordFocus = it },
                     )
                 }
             }
             if (finished) {
                 letter.note?.let { note ->
-                    item {
-                        Column(Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s2), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                            Hair()
-                            Caps("Note du conservateur", p.giltText, small = true)
-                            val lang = uiLang()
-                            Text(note[lang], style = Type.body.of(lang), color = p.ink)
-                            Hair()
-                        }
-                    }
+                    item { CuratorNote(note[uiLang()], uiLang()) }
                 }
                 if (ReplyMode.CONSTELLATION in progress.replied) item {
                     Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
                         Outgoing { Pair2(reply[view.learn], view.learn, if (view.showRead) reply[view.read] else null, view.read, onFill = true) }
                     }
                 }
-                if (ReplyMode.ALOUD in progress.replied) item {
-                    Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
-                        Outgoing {
-                            Row(Modifier.clickable(role = Role.Button) { s.recorder.play() }, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2), verticalAlignment = Alignment.CenterVertically) {
-                                Text("▶", style = Type.small, color = p.onFill)
-                                Text(stringResource(R.string.voice_done), style = Type.small.ui(), color = p.onFillSoft)
+                // 처음 한 번: 세 가지를 모두 해 보자는 안내
+                if (!progress.done && progress.replied.isEmpty() && s.coach.due("first_steps", calm = true)) item {
+                    s.coachTick
+                    Slip(seed = 3, modifier = Modifier.fillMaxWidth()) {
+                        Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                            Text(stringResource(R.string.first_guide_title), style = Type.heading.ui(), color = p.slipInk)
+                            Text(stringResource(R.string.first_guide_body), style = Type.small.ui(), color = p.slipSoft)
+                            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2), verticalAlignment = Alignment.CenterVertically) {
+                                modes.forEachIndexed { k, m ->
+                                    if (k > 0) Text("→", style = Type.small, color = p.slipSoft)
+                                    Text(stringResource(modeLabel(m)), style = Type.small.ui(), color = p.slipInk)
+                                }
                             }
                         }
                     }
@@ -201,19 +204,28 @@ fun Room(s: AppState, r: Route.Letter) {
                     Box(Modifier.width(Tokens.Space.s2))
                     Text(stringResource(R.string.room_locked), style = Type.small.ui(), color = p.inkSoft)
                 }
+                progress.done -> {
+                    if (letter.words.isNotEmpty()) Secondary(stringResource(R.string.room_words, letter.words.size)) { words = true }
+                    Primary(stringResource(R.string.done_home)) { stopAll(); s.go(r.from) }
+                }
                 else -> {
                     if (letter.words.isNotEmpty()) Secondary(stringResource(R.string.room_words, letter.words.size)) { words = true }
-                    if (nextPlay != null) Primary(stringResource(R.string.room_reply, stringResource(modeLabel(nextPlay)))) { stopAll(); s.go(Route.Play(r, nextPlay)) }
-                    else Primary(stringResource(R.string.room_finish)) {
-                        stopAll()
-                        s.save(id, chapter, letter.id, progress.complete(s.seriesSettings(id).modes).copy(done = true))
-                        s.go(Route.Done(r))
+                    when (nextPlay) {
+                        null -> Primary(stringResource(R.string.room_done_today)) {
+                            stopAll()
+                            s.save(id, chapter, letter.id, progress.complete(s.seriesSettings(id).modes).copy(done = true))
+                            s.finished()
+                            s.go(Route.Done(r))
+                        }
+                        ReplyMode.CONSTELLATION -> Primary(stringResource(R.string.room_reply, stringResource(modeLabel(nextPlay)))) { stopAll(); s.coachDone("first_steps"); s.go(Route.Play(r, nextPlay)) }
+                        else -> Primary(stringResource(R.string.room_next, stringResource(modeLabel(nextPlay)))) { stopAll(); s.coachDone("first_steps"); s.go(Route.Play(r, nextPlay)) }
                     }
                 }
             }
         }
     }
     if (words) WordSheet(s, r, onClose = { words = false })
+    wordFocus?.let { k -> WordCard(s, r, k, onClose = { wordFocus = null }) }
 }
 
 fun modeLabel(m: ReplyMode) = when (m) {
@@ -256,32 +268,66 @@ private fun RoomHeader(
     }
 }
 
-/** 오늘의 순서: 읽기 → 낱말 → 답장 → 그림. 한 일은 금빛, 지금 할 일은 먹색, 남은 일은 흐리게. */
+/** 오늘의 순서: 읽기 → (낱말 → 따라 읽기 → 답장, 켠 것만) → 그림. 한 일은 금빛 체크, 지금 할 일은 먹색, 남은 일은 흐리게. */
 @Composable
-private fun TodayStrip(read: Int, total: Int, words: Int, replied: Int, modes: Int, done: Boolean) {
+private fun TodayStrip(read: Int, total: Int, modes: List<ReplyMode>, replied: Set<ReplyMode>, done: Boolean) {
     val p = Ink.palette
     val readDone = read >= total
-    val steps = listOf(
-        stringResource(R.string.step_read, read, total) to (if (readDone) 2 else 1),
-        stringResource(R.string.step_words, words) to (if (readDone) 2 else 0),
-        stringResource(R.string.step_reply) to (if (replied >= modes && readDone) 2 else if (readDone) 1 else 0),
-        stringResource(R.string.step_plate) to (if (done) 2 else 0),
-    )
+    val next = if (!readDone) null else modes.firstOrNull { it !in replied }
+    val steps = buildList {
+        add(stringResource(R.string.step_read, read, total) to (if (readDone) 2 else 1))
+        modes.forEach { m ->
+            val label = stringResource(when (m) { ReplyMode.MATCH -> R.string.step_match; ReplyMode.ALOUD -> R.string.step_aloud; else -> R.string.step_reply })
+            add(label to when { m in replied -> 2; m == next -> 1; else -> 0 })
+        }
+        add(stringResource(R.string.step_plate) to (if (done) 2 else if (readDone && next == null) 1 else 0))
+    }
     Column(Modifier.background(p.paper)) {
         Row(
             Modifier.fillMaxWidth().heightIn(min = 44.dp).padding(horizontal = Tokens.Space.s4),
-            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
+            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s1),
         ) {
-            Text(stringResource(R.string.room_today), style = Type.capsSm.ui(), color = p.giltText)
             steps.forEachIndexed { i, (label, state) ->
-                if (i > 0) Box(Modifier.weight(1f).height(1.dp).background(p.hair))
-                Text(
-                    (if (state == 2) "✓ " else "") + label, style = Type.small.ui(), maxLines = 1,
-                    color = when (state) { 2 -> p.giltText; 1 -> p.ink; else -> p.inkSoft },
-                )
+                if (i > 0) Box(Modifier.weight(1f).height(1.dp).background(if (state > 0) p.giltText.copy(alpha = 0.5f) else p.hair))
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(3.dp)) {
+                    when (state) {
+                        2 -> Box(Modifier.size(14.dp).background(p.giltText, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) {
+                            Canvas(Modifier.size(8.dp)) {
+                                val w = size.width
+                                drawPath(androidx.compose.ui.graphics.Path().apply { moveTo(w * 0.1f, w * 0.55f); lineTo(w * 0.4f, w * 0.82f); lineTo(w * 0.92f, w * 0.2f) }, p.paper,
+                                    style = androidx.compose.ui.graphics.drawscope.Stroke(1.6.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round))
+                            }
+                        }
+                        1 -> Box(Modifier.size(8.dp).background(p.ink, androidx.compose.foundation.shape.CircleShape))
+                        else -> Box(Modifier.size(8.dp).border(1.dp, p.hideInk, androidx.compose.foundation.shape.CircleShape))
+                    }
+                    Text(label, style = Type.small.ui().copy(fontSize = Tokens.Text.capsSm * 1.15f), maxLines = 1,
+                        color = when (state) { 2 -> p.giltText; 1 -> p.ink; else -> p.hideInk })
+                }
             }
         }
         Hair()
+    }
+}
+
+/** 큐레이터 노트: 편지와 다른 재료 (미술관 벽의 작품 설명판). 앱 글자 언어로. */
+@Composable
+private fun CuratorNote(text: String, lang: Lang) {
+    val p = Ink.palette
+    Column(
+        Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s2).background(p.leaf)
+            .border(1.dp, p.giltText.copy(alpha = 0.55f)).padding(3.dp).border(Tokens.Stroke.hair, p.giltText.copy(alpha = 0.3f))
+            .padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s4),
+        verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            Canvas(Modifier.size(10.dp)) {
+                val w = size.width
+                drawPath(androidx.compose.ui.graphics.Path().apply { moveTo(w / 2, 0f); lineTo(w, w / 2); lineTo(w / 2, w); lineTo(0f, w / 2); close() }, p.giltText)
+            }
+            Text(stringResource(R.string.note_title), style = Type.caps.ui(), color = p.giltText)
+        }
+        Text(text, style = Type.body.of(lang).copy(fontSize = Tokens.Text.small * 1.08f, lineHeight = Tokens.Text.small * 1.75f), color = p.ink)
     }
 }
 
@@ -291,6 +337,7 @@ private fun LetterSlip(
     index: Int, learn: String, learnLang: Lang, read: String?, readLang: Lang,
     animate: Boolean, lineMs: Int, signature: String?, playing: Boolean, canPlay: Boolean,
     onPlay: () -> Unit, onWritten: () -> Unit,
+    marks: List<Pair<IntRange, Int>> = emptyList(), onWord: (Int) -> Unit = {},
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
@@ -304,7 +351,7 @@ private fun LetterSlip(
                 InkText(learn, Type.target.of(learnLang), p.slipInk, animate, lineMs = lineMs, onDone = {
                     learnDone = true
                     if (read == null) onWritten()
-                })
+                }, marks = marks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { k -> onWord(marks[k].second) })
                 if (read != null) InkText(read, Type.base.of(readLang), p.slipSoft, animate, go = learnDone, lineMs = (lineMs * 0.7f).toInt(), onDone = onWritten)
                 if (signature != null) Text(signature, style = Type.signature, color = p.slipSoft, modifier = Modifier.align(Alignment.End).padding(top = Tokens.Space.s1))
             }
@@ -363,6 +410,35 @@ fun WordSheet(s: AppState, r: Route.Letter, onClose: () -> Unit) {
                 }
                 Hair()
             }
+            Secondary(stringResource(R.string.close), onClick = onClose)
+        }
+    }
+}
+
+/** 낱말 한 장: 편지 속 밑줄 낱말을 누르면. 열자마자 발음을 들려준다. */
+@Composable
+fun WordCard(s: AppState, r: Route.Letter, index: Int, onClose: () -> Unit) {
+    val p = Ink.palette
+    val (chapter, letter) = s.letterOf(r)
+    val view = s.room(r.series)
+    val w = letter.words.getOrNull(index) ?: return
+    val audio = s.narrator.path(r.series, chapter, letter.id, "w${index + 1}_${view.learn.code}")
+    LaunchedEffect(index) { s.narrator.play(audio) }
+    androidx.activity.compose.BackHandler(onBack = onClose)
+    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose), contentAlignment = Alignment.BottomCenter) {
+        Column(
+            Modifier.fillMaxWidth().background(p.paper).clickable(enabled = false) {}.navigationBarsPadding().padding(Tokens.Space.s5),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
+        ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(w.text[view.learn], style = Type.display.of(view.learn), color = p.ink)
+                    if (w.ipa.isNotEmpty() && view.learn == s.work(r.series).series.original) Text("[${w.ipa}] · ${w.pos}", style = Type.small, color = p.inkSoft)
+                }
+                SpeakerButton(false, stringResource(R.string.listen_line), onDark = true) { s.narrator.play(audio) }
+            }
+            Hair()
+            Text(w.text[view.read], style = Type.heading.of(view.read), color = p.ink)
             Secondary(stringResource(R.string.close), onClick = onClose)
         }
     }

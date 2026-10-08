@@ -24,7 +24,10 @@ import io.github.graviton94.todayletters.data.Store
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.TodayLettersTheme
 import io.github.graviton94.todayletters.ui.AppState
+import io.github.graviton94.todayletters.ui.ChapterScreen
+import io.github.graviton94.todayletters.ui.Done
 import io.github.graviton94.todayletters.ui.Inbox
+import io.github.graviton94.todayletters.ui.WordsTab
 import io.github.graviton94.todayletters.ui.LibraryTab
 import io.github.graviton94.todayletters.ui.Onboarding
 import io.github.graviton94.todayletters.ui.Opening
@@ -73,8 +76,9 @@ class ScreensTest {
     @Test fun openingKoLight() { val s = state(false); shot("01_opening_ko_light", false) { Opening(s) } }
     @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi")
     @Test fun openingEnDark() { val s = state(false); shot("02_opening_en_dark", true) { Opening(s) } }
-    @Test fun onboarding1() { val s = state(false); shot("03_onboarding1_ko_light", false) { Onboarding(s) } }
-    @Test fun onboarding2() { val s = state(false); shot("04_onboarding2_ko_dark", true) { Onboarding(s, startStep = 1) } }
+    @Test fun onboarding0() { val s = state(false); shot("03a_onboarding0_ko_light", false) { Onboarding(s) } }
+    @Test fun onboarding1() { val s = state(false); shot("03_onboarding1_ko_light", false) { Onboarding(s, startStep = 1) } }
+    @Test fun onboarding2() { val s = state(false); shot("04_onboarding2_ko_dark", true) { Onboarding(s, startStep = 2) } }
     @Test fun today() { val s = state(true); shot("05_today_ko_dark", true) { Today(s) } }
     @Test fun inbox() { val s = state(true); shot("06_inbox_ko_light", false) { Inbox(s) } }
     @Test fun roomLight() { val s = state(true); shot("07_room_ko_light", false, 6000) { Room(s, Route.Letter("vincent", 1, 1)) } }
@@ -94,6 +98,31 @@ class ScreensTest {
         shot("10_constellation_ko_dark", true, act = {
             answer.take(3).forEach { rule.onAllNodes(hasText(it) and hasClickAction() and isEnabled()).onFirst().performClick(); rule.mainClock.advanceTimeBy(700) }
         }) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.CONSTELLATION)) }
+    }
+    @Test fun match() { val s = state(true); shot("13_match_ko_light", false, act = {
+        val l = s.work("vincent").chapters.first().letters.first()
+        val w = l.words.first().text[s.seriesSettings("vincent").learn]
+        rule.onAllNodes(hasText(w) and hasClickAction()).onFirst().performClick()
+    }) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.MATCH)) } }
+    @Test fun aloud() { val s = state(true); shot("14_aloud_ko_dark", true) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.ALOUD)) } }
+    @Test fun done() { val s = state(true); shot("15_done_ko_light", false, 4000) { Done(s, Route.Letter("vincent", 1, 1)) } }
+    @Test fun chapter() {
+        val s = state(true)
+        val (c, l) = s.openable("vincent").first()
+        s.open("vincent", c, l, Route.Library)
+        shot("16_chapter_ko_dark", true) { ChapterScreen(s, Route.Chapter("vincent", 1)) }
+    }
+    @Test fun words() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters.first()
+        s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = 4))
+        shot("17_words_ko_light", false) { WordsTab(s) }
+    }
+    @Test fun roomGuide() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters.first()
+        s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = 4))
+        shot("18_room_finished_ko_light", false, 4000) { Room(s, Route.Letter("vincent", 1, 1)) }
     }
     @Test fun seriesSettings() { val s = state(true); shot("11_series_settings_ko_light", false) { SeriesSettingsScreen(s, "vincent") } }
     @Test fun library() { val s = state(true); shot("12_library_ko_dark", true) { LibraryTab(s) } }

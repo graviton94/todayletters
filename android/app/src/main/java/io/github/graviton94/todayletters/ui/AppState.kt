@@ -62,13 +62,24 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     val stack = mutableStateListOf<Route>(Route.Inbox)
     val route get() = stack.last()
 
+    /** 마지막 이동이 앞으로였나 (화면 전환 방향). */
+    var forward by mutableStateOf(true)
+        private set
+
     fun go(r: Route) {
+        forward = r !is Route.Tab || stack.size > 1 || (stack.lastOrNull() as? Route.Tab)?.let { tabIndex(it) < tabIndex(r) } ?: true
         if (r is Route.Tab) { stack.clear(); stack.addAll(Nav.trail(r)) } else stack.add(r)
     }
+
+    private fun tabIndex(r: Route) = listOf(Route.Inbox, Route.Library, Route.Words, Route.Gallery).indexOf(r)
+
+    /** 앱을 닫을지 묻는 중. */
+    var askingExit by mutableStateOf(false)
 
     /** 뒤로: 스택을 하나 내리고, 비면 계층의 부모로. 맨 위(편지함)면 false (앱을 나감). */
     fun back(): Boolean {
         narrator.stop()
+        forward = false
         if (stack.size > 1) { stack.removeAt(stack.lastIndex); return true }
         val up = Nav.up(route) ?: return false
         stack.clear(); stack.addAll(Nav.trail(up)); return true
@@ -107,22 +118,39 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     fun doneCount(id: String) = work(id).chapters.flatMap { c -> c.letters.map { c.id to it } }
         .count { (c, l) -> progress(id, c, l.id).done }
 
+    private fun all(id: String) = work(id).chapters.flatMap { c -> c.letters.map { c.id to it } }
+
+    /** 한 번이라도 연 편지 수 (다 읽은 것 포함). */
+    fun startedCount(id: String) = all(id).count { (c, l) -> store.started(key(id, c, l.id)) || progress(id, c, l.id).let { it.shown > 0 || it.done } }
+
     fun openable(id: String): List<Pair<String, Letter>> {
-        val all = work(id).chapters.flatMap { c -> c.letters.map { c.id to it } }
-        val done = doneCount(id)
-        val n = Arrivals.openable(all.size, done, store.openedToday(id), seriesSettings(id).lettersPerDay)
+        val all = all(id)
+        val n = Arrivals.openable(all.size, startedCount(id), store.openedToday(id), seriesSettings(id).lettersPerDay)
         return all.take(n)
     }
 
-    fun waiting(id: String): Int {
-        val all = work(id).chapters.sumOf { it.letters.size }
-        return Arrivals.waiting(all, doneCount(id), store.openedToday(id), seriesSettings(id).lettersPerDay)
+    fun waiting(id: String): Int =
+        Arrivals.waiting(all(id).size, doneCount(id), startedCount(id), store.openedToday(id), seriesSettings(id).lettersPerDay)
+
+    /** 이 편지가 며칠 뒤에 오는가 (0 이면 이미 왔다). */
+    fun daysUntil(id: String, letterId: String): Int {
+        val idx = all(id).indexOfFirst { it.second.id == letterId }
+        return Arrivals.daysUntil(idx, openable(id).size, seriesSettings(id).lettersPerDay)
     }
+
+    /** 편지를 끝냈을 때: 이어 읽은 날을 센다. */
+    fun finished(): Int {
+        val today = LocalDate.now().toEpochDay()
+        val n = io.github.graviton94.todayletters.core.Streak.after(store.streakDay, store.streakCount, today)
+        store.saveStreak(today, n); return n
+    }
+    val streak: Int get() = if (LocalDate.now().toEpochDay() - store.streakDay <= 1) store.streakCount else 0
 
     /** 새 편지를 처음 열 때 한 번 센다 (하루 편지 수). */
     fun open(id: String, chapter: String, letter: Letter, from: Route.Tab) {
         val p = progress(id, chapter, letter.id)
-        if (p.shown == 0 && !p.done) store.markOpened(id)
+        if (!store.started(key(id, chapter, letter.id)) && p.shown == 0 && !p.done) store.markOpened(id)
+        store.markStarted(key(id, chapter, letter.id))
         val idx = work(id).chapters.indexOfFirst { it.id == chapter } + 1
         go(Route.Letter(id, idx, work(id).chapters[idx - 1].letters.indexOf(letter) + 1, from))
     }

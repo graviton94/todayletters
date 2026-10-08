@@ -17,6 +17,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.border
+import androidx.compose.foundation.background
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Route
@@ -35,36 +43,76 @@ private fun Scroll(content: @Composable () -> Unit) =
 @Composable
 private fun noteLang(@Suppress("UNUSED_PARAMETER") s: AppState) = uiLang()
 
-/** 편지 완료: 그 편지와 이어진 그림이 도착한다. */
+/**
+ * 오늘의 편지 완료: 밀랍 도장이 찍히고(진동), 오늘 한 일이 하나씩 체크되고, 이어 읽은 날 · 그림 · 다음 편지가 언제 오는지.
+ * 뒤로 가면 편지함으로 (대화방으로 되돌아가지 않음).
+ */
 @Composable
 fun Done(s: AppState, room: Route.Letter) {
     val p = Ink.palette
     val (chapter, letter) = s.letterOf(room)
     val view = s.room(room.series)
-    Column(Modifier.fillMaxSize()) {
-        TopBar(stringResource(R.string.done_title), s, help = null, showBack = true, showSettings = false)
+    val work = s.work(room.series)
+    val haptic = androidx.compose.ui.platform.LocalHapticFeedback.current
+    val home = { s.go(Route.Inbox) }
+    androidx.activity.compose.BackHandler(onBack = home)
+    val t = remember { androidx.compose.animation.core.Animatable(if (s.reducedMotion) 1f else 0f) }
+    LaunchedEffect(Unit) {
+        t.animateTo(0.35f, androidx.compose.animation.core.tween(420, easing = androidx.compose.animation.core.FastOutSlowInEasing))
+        if (s.app.haptics) haptic.performHapticFeedback(androidx.compose.ui.hapticfeedback.HapticFeedbackType.LongPress)
+        t.animateTo(1f, androidx.compose.animation.core.tween(1600, easing = androidx.compose.animation.core.LinearEasing))
+    }
+    fun win(a: Float, b: Float) = androidx.compose.animation.core.FastOutSlowInEasing.transform(((t.value - a) / (b - a)).coerceIn(0f, 1f))
+    val stamp = win(0f, 0.35f)
+    val modes = s.seriesSettings(room.series).modes.filter { it in io.github.graviton94.todayletters.core.Plays.inLetter }
+    val waiting = s.waiting(room.series)
+    val next = s.openable(room.series).firstOrNull { (c, l) -> !s.progress(room.series, c, l.id).done }
+
+    Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.25f)) {
         Scroll {
-            Caps("Lettre ${roman(room.letter)} · Reçue", p.giltText)
-            letter.plate?.let { pl ->
-                PlateImage(pl.image, Modifier.fillMaxWidth().aspectRatio(1.3f))
-                Row(Modifier.fillMaxWidth()) {
-                    Text("${pl.title[s.work(room.series).series.original]}, ${pl.date}", style = Type.small, color = p.inkSoft, modifier = Modifier.weight(1f))
-                    Caps("PL. ${roman(room.letter)}", small = true)
+            Box(Modifier.fillMaxWidth().padding(top = Tokens.Space.s5), contentAlignment = Alignment.Center) {
+                // 밀랍 도장: 위에서 크게 내려와 찍힌다
+                Box(
+                    Modifier.size(96.dp).graphicsLayer {
+                        val k = 1.8f - 0.8f * stamp
+                        scaleX = k; scaleY = k; alpha = stamp; rotationZ = -12f * (1f - stamp)
+                    }.background(androidx.compose.ui.graphics.Brush.radialGradient(listOf(Color(0xFFC25546), Color(0xFF9A3027), Color(0xFF6E1C15))), CircleShape),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Portrait(work.portrait, work.fullName, 60.dp)
                 }
-                Text(pl.title[view.read], style = Type.heading.of(view.read), color = p.ink)
             }
-            Rule()
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s5)) {
-                Stat("${letter.words.size}", stringResource(R.string.stat_words))
-                Stat("${s.progress(room.series, chapter, letter.id).replied.size}", stringResource(R.string.stat_replies))
-                Stat("${s.doneCount(room.series)}", stringResource(R.string.stat_letters))
+            Text(stringResource(R.string.done_title), style = Type.title.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                modifier = Modifier.fillMaxWidth().graphicsLayer { alpha = win(0.3f, 0.5f) })
+            if (s.streak > 0) Text(stringResource(R.string.done_streak, s.streak), style = Type.body.ui(), color = p.giltText, textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                modifier = Modifier.fillMaxWidth().graphicsLayer { alpha = win(0.4f, 0.6f) })
+            // 오늘 한 일
+            Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.hair).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                val items = listOf(R.string.ob0_d1) + modes.map { modeLabel(it) } + listOf(R.string.ob0_d5)
+                items.forEachIndexed { k, label ->
+                    val a = win(0.45f + k * 0.08f, 0.55f + k * 0.08f)
+                    Row(Modifier.graphicsLayer { alpha = 0.3f + 0.7f * a }, verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                        CheckMark(a > 0.5f, 20.dp)
+                        Text(stringResource(label), style = Type.body.ui(), color = p.ink)
+                    }
+                }
             }
-            Hair()
-            Text(stringResource(R.string.done_next), style = Type.small.ui(), color = p.inkSoft)
+            letter.plate?.let { pl ->
+                Column(Modifier.fillMaxWidth().graphicsLayer { alpha = win(0.75f, 0.95f) }.pressable { s.go(Route.Artwork(room.series, room.letter, room)) }, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                    PlateImage(pl.image, Modifier.fillMaxWidth().aspectRatio(1.6f))
+                    Text(pl.title[view.read], style = Type.heading.of(view.read), color = p.ink)
+                    Text("${pl.title[work.series.original]}, ${pl.date}", style = Type.small, color = p.inkSoft)
+                }
+            }
+            Text(
+                stringResource(if (waiting > 0) R.string.done_next_now else R.string.done_next_tomorrow),
+                style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.graphicsLayer { alpha = win(0.8f, 1f) },
+            )
         }
-        Column(Modifier.padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             if (letter.plate != null) Secondary(stringResource(R.string.done_story)) { s.go(Route.Artwork(room.series, room.letter, room)) }
-            Primary(stringResource(R.string.ob_continue)) { s.go(room.from) }
+            if (next != null) Primary(stringResource(R.string.done_open_next)) { s.open(room.series, next.first, next.second, Route.Inbox) }
+            else Primary(stringResource(R.string.done_home), onClick = home)
         }
     }
 }
