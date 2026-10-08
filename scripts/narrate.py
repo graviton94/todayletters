@@ -4,9 +4,9 @@
 
   목소리: data/<인물>/voices.json 의 young · old 를 챕터 age 로 섞은 것 (세 언어 같은 비율)
   감정:   편지의 "mood" (없으면 챕터 기본값) → data/voices/presets.json 의 빠르기 · 높낮이 · 쉼 · 앞 숨
-  끊어 읽기: 메시지의 "speak" 에 사람이 표시한 끊음 ("/" 짧게, "//" 길게)이 있으면 그 덩어리마다 따로 읽는다.
-          (없으면 문장부호에서만 끊는다.) 덩어리마다 시작 · 끝 시각을 m<번호>_<언어>.json 에 적어, 앱이
-          따라 읽기에서 읽는 자리의 낱말을 칠한다.
+  끊어 읽기: 메시지의 "speak" 에서 긴 끊음("//", 쉼표 자리)마다 마디를 나눠, 마디는 한 번에 읽고(억양이 이어짐)
+          마디 사이에는 긴 숨을 둔다. 짧은 끊음("/")은 이어 읽는다. 마디마다 시작 · 끝 시각을
+          m<번호>_<언어>.json 에 적어, 앱이 따라 읽기에서 읽는 자리의 낱말을 칠한다.
   결과:   <출력>/<작품>/<챕터>/<편지 id>/m<번호>_<언어>.m4a (+ .json), w<번호>_<언어>.m4a
           32kHz 모노 AAC 48k (하루의 성경과 같은 결). 메시지 사이 쉼은 앱이 넣는다.
 
@@ -55,30 +55,31 @@ def silence(s):
     return np.zeros(int(s * sr), dtype=np.float32)
 
 
-def marked(text):
-    """ "a / b // c" → [("a", 0.18), ("b", 0.4), ("c", 0)] : 덩어리와 그 뒤의 쉼(초)."""
-    out = []
-    for k, big in enumerate(re.split(r"\s*//\s*", text.strip())):
-        small = [x for x in re.split(r"\s*/\s*", big) if x]
-        for j, x in enumerate(small):
-            out.append((x, 0.18 if j < len(small) - 1 else 0.42))
-    if out:
-        out[-1] = (out[-1][0], 0)
-    return out
+STEPS_FINE = 32      # 문장을 한 번에 읽을 때의 정밀도 (비교 샘플 B)
+SLOWER = 0.92        # 조금 느리게 (비교 샘플 D)
+BREATH = 0.62        # 쉼표 자리(“//”)의 숨, 초. 프리셋의 쉼 배율을 곱한다
+
+
+def clauses(text):
+    """ "a / b // c" → ["a b", "c"] : 긴 끊음(//)에서만 나누고, 짧은 끊음(/)은 이어 읽는다."""
+    return [re.sub(r"\s*/\s*", " ", c).strip() for c in re.split(r"\s*//\s*", text.strip()) if c.strip()]
 
 
 def speak(text, lang, pr, lead="", spoken=None):
-    """읽은 소리와 덩어리 시각 [(시작, 끝, 글자)]."""
-    chunks = marked(spoken) if spoken else [(p, 0.35) for p in phrases(text, lang)]
-    parts, times, t = [silence(0.15)], [], 0.15
-    for j, (p, gap) in enumerate(chunks):
+    """
+    사람처럼 읽기: 마디(쉼표 자리)마다 한 번에 읽어 억양이 이어지게 하고, 마디 사이에 긴 숨을 둔다.
+    돌려주는 것: 소리와 마디 시각 [(시작, 끝, 글자)] (따라 읽기에서 읽는 자리를 칠할 때 쓴다).
+    """
+    chunks = clauses(spoken) if spoken else [text]
+    parts, times, t = [silence(0.2)], [], 0.2
+    for j, p in enumerate(chunks):
         said = f"{lead} {p}" if j == 0 and lead else p
-        wav, dur = tts(said, lang, voice, STEPS, pr["speed"])
+        wav, dur = tts(said, lang, voice, STEPS_FINE, pr["speed"] * SLOWER)
         audio = wav[0, : int(sr * dur[0].item())].astype(np.float32)
         parts.append(audio)
         times.append((round(t, 3), round(t + len(audio) / sr, 3), p))
         t += len(audio) / sr
-        pause = gap * pr["pause"] if j < len(chunks) - 1 else 0.2
+        pause = BREATH * pr["pause"] if j < len(chunks) - 1 else 0.3
         parts.append(silence(pause)); t += pause
     return np.concatenate(parts), times
 
