@@ -227,5 +227,205 @@
   "set_read_lang": {
     "en": "Small line",
     "ko": "작은 줄 언어"
+  },
+  "back": {
+    "en": "Back",
+    "ko": "뒤로"
+  },
+  "close": {
+    "en": "Close",
+    "ko": "닫기"
+  },
+  "on": {
+    "en": "On",
+    "ko": "켜기"
+  },
+  "off": {
+    "en": "Off",
+    "ko": "끄기"
+  },
+  "free": {
+    "en": "Free",
+    "ko": "무료"
+  },
+  "letters_n": {
+    "en": "%1$d a day",
+    "ko": "하루 %1$d통"
+  },
+  "inbox_all_read": {
+    "en": "All letters read for today",
+    "ko": "오늘 편지는 다 읽었어요"
+  },
+  "inbox_you_are_theo": {
+    "en": "You are Theo. Vincent's letters arrive here as messages.",
+    "ko": "당신은 테오예요. 빈센트의 편지가 메시지로 도착해요."
+  },
+  "library_next": {
+    "en": "Next season: Wolfgang (German) · coming soon",
+    "ko": "다음 시즌: 볼프강 (독일어) · 곧 도착"
+  },
+  "words_note": {
+    "en": "Words from the letters you have read.",
+    "ko": "읽은 편지에서 모은 낱말이에요."
+  },
+  "gallery_empty": {
+    "en": "Finish a letter to receive its painting.",
+    "ko": "편지를 끝까지 받으면 그림이 도착해요."
+  },
+  "chapter_meta": {
+    "en": "%1$d letters · %2$d read",
+    "ko": "편지 %1$d통 · %2$d통 읽음"
+  },
+  "letter_done": {
+    "en": "Read",
+    "ko": "다 읽음"
+  },
+  "letter_open": {
+    "en": "Waiting for you",
+    "ko": "기다리는 편지"
+  },
+  "letter_tomorrow": {
+    "en": "Arrives on a later day",
+    "ko": "다음 날 도착"
+  },
+  "toggle_small_line": {
+    "en": "Show or hide the small line",
+    "ko": "작은 줄 보이기 · 가리기"
+  },
+  "room_writing": {
+    "en": "Vincent is writing",
+    "ko": "빈센트가 쓰는 중이에요"
+  },
+  "room_words": {
+    "en": "Words in this letter · %1$d",
+    "ko": "이 편지의 낱말 · %1$d"
+  },
+  "room_finish": {
+    "en": "Finish the letter",
+    "ko": "편지 마치기"
+  },
+  "play_check": {
+    "en": "Check",
+    "ko": "확인"
+  },
+  "play_send": {
+    "en": "Send",
+    "ko": "보내기"
+  },
+  "play_right": {
+    "en": "Well done. Send it to Vincent.",
+    "ko": "잘했어요. 빈센트에게 보내요."
+  },
+  "play_wrong": {
+    "en": "Not quite. The sentence is: %1$s",
+    "ko": "아쉬워요. 정답은 이래요: %1$s"
+  },
+  "aloud_prompt": {
+    "en": "Listen to the line, then read it aloud as your reply.",
+    "ko": "원어를 듣고, 소리 내어 읽어 답장해요."
+  },
+  "aloud_listen": {
+    "en": "Listen",
+    "ko": "원어 듣기"
+  },
+  "aloud_tap": {
+    "en": "Tap to record",
+    "ko": "눌러서 녹음"
+  },
+  "aloud_recording": {
+    "en": "Recording… tap to stop",
+    "ko": "녹음 중… 누르면 멈춰요"
+  },
+  "aloud_recorded": {
+    "en": "Recorded. Listen or send.",
+    "ko": "녹음했어요. 들어 보거나 보내요."
+  },
+  "aloud_mine": {
+    "en": "Hear my voice",
+    "ko": "내 목소리 듣기"
+  },
+  "done_title": {
+    "en": "Letter received",
+    "ko": "편지를 다 받았어요"
+  },
+  "done_story": {
+    "en": "The painting's story",
+    "ko": "그림 이야기"
+  },
+  "done_next": {
+    "en": "The next letter arrives tomorrow. The painting is in your Plates.",
+    "ko": "다음 편지는 내일 도착해요. 그림은 화첩에 들어갔어요."
+  },
+  "stat_words": {
+    "en": "new words",
+    "ko": "새 낱말"
+  },
+  "stat_replies": {
+    "en": "replies",
+    "ko": "보낸 답장"
+  },
+  "stat_letters": {
+    "en": "letters read",
+    "ko": "읽은 편지"
+  },
+  "info_vincent": {
+    "en": "35 · painter · alone in Arles · your elder brother",
+    "ko": "35세 · 화가 · 아를에서 혼자 지내는 중 · 네 살 위의 형"
+  },
+  "info_future": {
+    "en": "Still to come",
+    "ko": "앞으로 올 편지"
+  },
+  "set_language": {
+    "en": "Language",
+    "ko": "언어"
+  },
+  "set_feel": {
+    "en": "Sound and touch",
+    "ko": "소리와 진동"
+  },
+  "set_sound": {
+    "en": "Narration",
+    "ko": "낭독"
+  },
+  "set_haptics": {
+    "en": "Vibration",
+    "ko": "진동"
+  },
+  "set_help": {
+    "en": "Help",
+    "ko": "도움"
+  },
+  "set_privacy": {
+    "en": "Everything stays on this phone. Your recordings are never sent anywhere.",
+    "ko": "모든 기록은 이 폰에만 남아요. 녹음한 목소리도 밖으로 보내지 않아요."
+  },
+  "set_sources": {
+    "en": "Letters: Vincent van Gogh (public domain). English and Korean are this app's own translations.",
+    "ko": "편지: 빈센트 반 고흐 (공공 저작물). 영어 · 한국어는 이 앱의 새 번역이에요."
+  },
+  "coach_library": {
+    "en": "Each cover is one series. The first chapters are free.",
+    "ko": "표지 하나가 작품 하나예요. 앞 챕터는 무료예요."
+  },
+  "coach_series": {
+    "en": "The gear sets the language you learn for this series.",
+    "ko": "⚙ 에서 이 작품에서 배울 언어를 정해요."
+  },
+  "coach_play_aloud": {
+    "en": "Listen, record, send. Recording once is enough.",
+    "ko": "듣고, 녹음하고, 보내요. 한 번 녹음하면 충분해요."
+  },
+  "coach_skip": {
+    "en": "Skip",
+    "ko": "건너뛰기"
+  },
+  "coach_next": {
+    "en": "Next ›",
+    "ko": "다음 ›"
+  },
+  "coach_ok": {
+    "en": "Got it",
+    "ko": "알겠어요"
   }
 }

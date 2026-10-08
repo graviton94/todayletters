@@ -13,6 +13,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -107,7 +108,7 @@ fun Pair2(learn: String, learnLang: Lang, read: String?, readLang: Lang, onFill:
 }
 
 @Composable
-fun Incoming(content: @Composable () -> Unit) {
+fun Incoming(content: @Composable ColumnScope.() -> Unit) {
     val p = Ink.palette
     Column(
         Modifier.widthIn(max = Tokens.Size.bubbleMax).background(p.leaf).border(Tokens.Stroke.hair, p.hair)
@@ -117,7 +118,7 @@ fun Incoming(content: @Composable () -> Unit) {
 }
 
 @Composable
-fun Outgoing(content: @Composable () -> Unit) =
+fun Outgoing(content: @Composable ColumnScope.() -> Unit) =
     Column(
         Modifier.widthIn(max = Tokens.Size.replyMax).background(Ink.palette.fill)
             .padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
