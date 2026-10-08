@@ -30,11 +30,12 @@ class Narrator(private val ctx: Context) {
     fun play(asset: String, speed: Float = 1f, onDone: () -> Unit = {}): Boolean {
         stop()
         val fd = runCatching { ctx.assets.openFd(asset) }.getOrNull() ?: run { onDone(); return false }
+        pending = onDone
         player = MediaPlayer().apply {
             setAudioAttributes(media)
             setDataSource(fd.fileDescriptor, fd.startOffset, fd.length)
             fd.close()
-            setOnCompletionListener { onDone() }
+            setOnCompletionListener { finish() }
             prepare()
             if (speed != 1f) playbackParams = playbackParams.setSpeed(speed)
             start()
@@ -42,10 +43,15 @@ class Narrator(private val ctx: Context) {
         return true
     }
 
+    /** 끝났을 때 부를 것. 멈춰도(다른 소리로 바뀌어도) 한 번은 불러서, 기다리던 쪽이 멈춰 서지 않게 한다. */
+    private var pending: (() -> Unit)? = null
+    private fun finish() { val d = pending; pending = null; d?.invoke() }
+
     fun stop() {
         player?.runCatching { stop(); release() }
         player = null
         playing = null
+        finish()
     }
 
     /** 재생 위치 (밀리초). 재생 중이 아니면 -1. */

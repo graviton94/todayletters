@@ -120,6 +120,15 @@ fun Room(s: AppState, r: Route.Letter) {
             list.animateScrollToItem((i + 1).coerceAtMost(list.layoutInfo.totalItemsCount))
             snapshotFlow { written }.first { it > i }
             writing = false
+            // 자동 낭독 (기본 켜짐): 조각이 다 써지면 그 문장을 빈센트 목소리로 읽고 나서 다음 조각
+            if (s.app.sound && all == null) {
+                playing = i
+                suspendCancellableCoroutine { c ->
+                    c.invokeOnCancellation { s.narrator.stop() }
+                    if (!s.narrator.play(audio(i)) { if (c.isActive) c.resume(Unit) } && c.isActive) c.resume(Unit)
+                }
+                if (playing == i) playing = null
+            }
             s.save(id, chapter, letter.id, s.progress(id, chapter, letter.id).copy(shown = i + 1))
             if (animate) delay((Tokens.Motion.inkPauseMs * pace).toLong())
         }
@@ -133,7 +142,7 @@ fun Room(s: AppState, r: Route.Letter) {
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
         RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else dateLine(letter.date, letter.place),
-            listening = all != null, canListen = written > 0, onListen = { speakAll() }, onInfo = { s.go(Route.RoomInfo(r)) })
+            auto = s.app.sound, onAuto = { if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }, onInfo = { s.go(Route.RoomInfo(r)) })
         TodayStrip(read = written, total = total, modes = modes, replied = progress.replied, done = progress.done)
         LazyColumn(
             Modifier.weight(1f).fillMaxWidth(), state = list,
@@ -239,7 +248,7 @@ fun modeLabel(m: ReplyMode) = when (m) {
 @Composable
 private fun RoomHeader(
     s: AppState, portrait: String, name: String, sub: String,
-    listening: Boolean, canListen: Boolean, onListen: () -> Unit, onInfo: () -> Unit,
+    auto: Boolean, onAuto: () -> Unit, onInfo: () -> Unit,
 ) {
     val p = Ink.palette
     Column(Modifier.background(p.paper)) {
@@ -250,14 +259,20 @@ private fun RoomHeader(
                 Text(name, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.ink, maxLines = 1)
                 Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
             }
-            val listenLabel = stringResource(if (listening) R.string.room_stop else R.string.room_listen_all)
-            IconButton(listenLabel, onClick = { if (canListen) onListen() }) {
-                Box(Modifier.size(34.dp).border(1.dp, if (canListen) p.giltText else p.hair, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) {
-                    Canvas(Modifier.size(11.dp)) {
+            // 자동 낭독 켜기 · 끄기: 켜져 있으면 금빛으로 채운 스피커, 꺼져 있으면 빗금
+            IconButton(stringResource(if (auto) R.string.room_auto_on else R.string.room_auto_off), onClick = onAuto) {
+                Box(Modifier.size(34.dp).background(if (auto) p.giltText else Color.Transparent, androidx.compose.foundation.shape.CircleShape)
+                    .border(1.dp, p.giltText, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) {
+                    Canvas(Modifier.size(16.dp)) {
                         val w = size.width
-                        val c = if (canListen) p.giltText else p.hair
-                        if (listening) drawRect(c)
-                        else drawPath(androidx.compose.ui.graphics.Path().apply { moveTo(w * 0.15f, 0f); lineTo(w, w / 2); lineTo(w * 0.15f, w); close() }, c)
+                        val c = if (auto) p.paper else p.giltText
+                        val st = androidx.compose.ui.graphics.drawscope.Stroke(1.4.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round, join = androidx.compose.ui.graphics.StrokeJoin.Round)
+                        drawPath(androidx.compose.ui.graphics.Path().apply {
+                            moveTo(w * 0.1f, w * 0.38f); lineTo(w * 0.3f, w * 0.38f); lineTo(w * 0.52f, w * 0.18f)
+                            lineTo(w * 0.52f, w * 0.82f); lineTo(w * 0.3f, w * 0.62f); lineTo(w * 0.1f, w * 0.62f); close()
+                        }, c, style = st)
+                        if (auto) drawArc(c, -50f, 100f, false, Offset(w * 0.5f, w * 0.3f), androidx.compose.ui.geometry.Size(w * 0.36f, w * 0.4f), style = st)
+                        else drawLine(c, Offset(w * 0.62f, w * 0.35f), Offset(w * 0.95f, w * 0.68f), 1.4.dp.toPx())
                     }
                 }
             }

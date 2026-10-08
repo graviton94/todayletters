@@ -97,7 +97,7 @@
     <string name="info_future">앞⁠으⁠로 올 편⁠지</string>
     <string name="set_language">언⁠어</string>
     <string name="set_feel">소⁠리⁠와 진⁠동</string>
-    <string name="set_sound">낭⁠독</string>
+    <string name="set_sound">편⁠지 자⁠동 낭⁠독</string>
     <string name="set_haptics">진⁠동</string>
     <string name="set_help">도⁠움</string>
     <string name="set_privacy">모⁠든 기⁠록⁠은 이 폰⁠에⁠만 남⁠아⁠요⁠. 녹⁠음⁠한 목⁠소⁠리⁠도 밖⁠으⁠로 보⁠내⁠지 않⁠아⁠요⁠.</string>
@@ -204,4 +204,6 @@
     <string name="ob0_d5">그⁠림 도⁠착</string>
     <string name="ob0_d5d">편⁠지 속 그⁠림⁠과 그 시⁠절 이⁠야⁠기⁠가 화⁠첩⁠에 쌓⁠여⁠요⁠.</string>
     <string name="ob_start_hello">시⁠작⁠하⁠기</string>
+    <string name="room_auto_on">자⁠동 낭⁠독 켜⁠짐 · 누⁠르⁠면 꺼⁠요</string>
+    <string name="room_auto_off">자⁠동 낭⁠독 꺼⁠짐 · 누⁠르⁠면 켜⁠요</string>
 </resources>
