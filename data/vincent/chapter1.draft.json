@@ -19,28 +19,48 @@
           "en": "My dear Theo, on the journey I thought about you at least as much as about the new country I was seeing.",
           "ko": "사랑하는 테오에게. 오는 길에 나는 처음 보는 이 고장만큼이나 너를 많이 생각했어.",
           "verified": true,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/463-fr.htm"
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/463-fr.htm",
+          "speak": {
+            "fr": "Mon cher Théo, // durant le voyage / j'ai pour le moins autant pensé à toi / qu'au nouveau pays / que je voyais.",
+            "en": "My dear Theo, // on the journey / I thought about you / at least as much as / about the new country / I was seeing.",
+            "ko": "사랑하는 테오에게. // 오는 길에 / 나는 처음 보는 이 고장만큼이나 / 너를 많이 생각했어."
+          }
         },
         {
           "fr": "Maintenant je te dirai que pour commencer il y a partout au moins 60 centimètres de neige de tombée, et il en tombe toujours.",
           "en": "Now I'll tell you that, to begin with, there's at least 60 centimetres of snow everywhere, and it's still falling.",
           "ko": "먼저 말해 둘게. 여기는 온통 눈이 60센티미터나 쌓였고, 지금도 계속 내리고 있어.",
           "verified": true,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/463-fr.htm"
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/463-fr.htm",
+          "speak": {
+            "fr": "Maintenant je te dirai / que pour commencer / il y a partout / au moins 60 centimètres de neige de tombée, // et il en tombe toujours.",
+            "en": "Now I'll tell you that, / to begin with, / there's at least 60 centimetres of snow / everywhere, // and it's still falling.",
+            "ko": "먼저 말해 둘게. // 여기는 온통 / 눈이 60센티미터나 쌓였고, // 지금도 계속 내리고 있어."
+          }
         },
         {
           "fr": "J'ai aperçu de magnifiques terrains rouges plantés de vignes, avec des fonds de montagnes du plus fin lilas.",
           "en": "I glimpsed magnificent red fields planted with vines, with mountains behind them of the finest lilac.",
           "ko": "포도나무를 심은 붉은 밭이 정말 멋졌어. 그 뒤로는 아주 고운 연보랏빛 산이 이어졌고.",
           "verified": true,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/463-fr.htm"
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/463-fr.htm",
+          "speak": {
+            "fr": "J'ai aperçu / de magnifiques terrains rouges / plantés de vignes, // avec des fonds de montagnes / du plus fin lilas.",
+            "en": "I glimpsed / magnificent red fields / planted with vines, // with mountains behind them / of the finest lilac.",
+            "ko": "포도나무를 심은 / 붉은 밭이 정말 멋졌어. // 그 뒤로는 / 아주 고운 연보랏빛 산이 이어졌고."
+          }
         },
         {
           "fr": "Et les paysages sous la neige avec les cimes blanches contre un ciel aussi lumineux que la neige étaient bien comme les paysages d'hiver qu'ont fait les Japonais.",
           "en": "And the landscapes under the snow, with white peaks against a sky as bright as the snow, were just like the winter landscapes the Japanese made.",
           "ko": "눈 덮인 풍경은, 눈만큼 환한 하늘에 하얀 봉우리가 솟은 모습이 꼭 일본 사람들이 그린 겨울 풍경 같았어.",
           "verified": true,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/463-fr.htm"
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/463-fr.htm",
+          "speak": {
+            "fr": "Et les paysages sous la neige / avec les cimes blanches / contre un ciel aussi lumineux que la neige // étaient bien comme / les paysages d'hiver / qu'ont fait les Japonais.",
+            "en": "And the landscapes under the snow, // with white peaks / against a sky as bright as the snow, // were just like / the winter landscapes / the Japanese made.",
+            "ko": "눈 덮인 풍경은, // 눈만큼 환한 하늘에 / 하얀 봉우리가 솟은 모습이 // 꼭 일본 사람들이 그린 / 겨울 풍경 같았어."
+          }
         }
       ],
       "words": [
@@ -122,28 +142,48 @@
           "en": "My dear Theo, thank you for your kind letter and for the 50-franc note.",
           "ko": "사랑하는 테오에게. 따뜻한 편지와 50프랑, 고마워.",
           "verified": true,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/464-fr.htm"
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/464-fr.htm",
+          "speak": {
+            "fr": "Mon cher Théo, // merci de ta bonne lettre / ainsi que du billet de 50 francs.",
+            "en": "My dear Theo, // thank you for your kind letter / and for the 50-franc note.",
+            "ko": "사랑하는 테오에게. // 따뜻한 편지와 50프랑, / 고마워."
+          }
         },
         {
           "fr": "Il me semble par moments que mon sang veuille bien plus ou moins se remettre à circuler.",
           "en": "At times it seems to me that my blood is more or less willing to start flowing again.",
           "ko": "가끔은 내 피가 다시 돌기 시작하는 것 같아.",
           "verified": true,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/464-fr.htm"
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/464-fr.htm",
+          "speak": {
+            "fr": "Il me semble par moments / que mon sang veuille bien / plus ou moins / se remettre à circuler.",
+            "en": "At times it seems to me / that my blood is more or less willing / to start flowing again.",
+            "ko": "가끔은 / 내 피가 다시 돌기 시작하는 것 같아."
+          }
         },
         {
           "fr": "Les études que j'ai sont une vieille femme Arlésienne, un paysage avec de la neige, une vue d'un bout de trottoir avec la boutique d'un charcutier.",
           "en": "The studies I have are an old woman of Arles, a landscape with snow, and a view of a bit of pavement with a pork butcher's shop.",
           "ko": "지금까지 그린 습작은 아를의 할머니, 눈 덮인 풍경, 그리고 정육점이 보이는 보도 한 귀퉁이야.",
           "verified": true,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/464-fr.htm"
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/464-fr.htm",
+          "speak": {
+            "fr": "Les études que j'ai / sont une vieille femme Arlésienne, // un paysage avec de la neige, // une vue d'un bout de trottoir / avec la boutique d'un charcutier.",
+            "en": "The studies I have / are an old woman of Arles, // a landscape with snow, // and a view of a bit of pavement / with a pork butcher's shop.",
+            "ko": "지금까지 그린 습작은 // 아를의 할머니, / 눈 덮인 풍경, // 그리고 정육점이 보이는 / 보도 한 귀퉁이야."
+          }
         },
         {
           "fr": "Les femmes sont bien belles ici, c'est pas une blague, par contraire le musée d'Arles est atroce et une blague, et digne d'être à Tarascon.",
           "en": "The women here are really beautiful, that's no joke; the Arles museum, on the other hand, is dreadful and a joke, fit to be in Tarascon.",
           "ko": "여기 여자들은 정말 아름다워. 농담이 아니야. 그런데 아를 미술관은 끔찍하고 농담 같아서, 타라스콩에나 어울려.",
           "verified": true,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/464-fr.htm"
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/464-fr.htm",
+          "speak": {
+            "fr": "Les femmes sont bien belles ici, // c'est pas une blague, // par contraire / le musée d'Arles est atroce / et une blague, // et digne d'être à Tarascon.",
+            "en": "The women here are really beautiful, // that's no joke; // the Arles museum, / on the other hand, / is dreadful and a joke, // fit to be in Tarascon.",
+            "ko": "여기 여자들은 정말 아름다워. // 농담이 아니야. // 그런데 아를 미술관은 / 끔찍하고 농담 같아서, // 타라스콩에나 어울려."
+          }
         }
       ],
       "words": [
@@ -218,28 +258,48 @@
           "en": "As for work, today I brought back a size 15 canvas: a drawbridge with a little carriage going over it, outlined against a blue sky.",
           "ko": "일 얘기를 하자면, 오늘 15호 캔버스를 하나 들고 왔어. 작은 마차가 건너는 도개교가 파란 하늘을 배경으로 서 있는 그림이야.",
           "verified": true,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/469-fr.htm"
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/469-fr.htm",
+          "speak": {
+            "fr": "Pour ce qui est du travail, // j'ai rapporté une toile de 15 aujourd'hui, // c'est un pont-levis / sur lequel passe une petite voiture, // qui se profile / sur un ciel bleu.",
+            "en": "As for work, // today I brought back / a size 15 canvas: // a drawbridge / with a little carriage going over it, // outlined against a blue sky.",
+            "ko": "일 얘기를 하자면, // 오늘 15호 캔버스를 하나 들고 왔어. // 작은 마차가 건너는 도개교가 / 파란 하늘을 배경으로 / 서 있는 그림이야."
+          }
         },
         {
           "fr": "La rivière bleue également, des berges orangées avec verdure, un groupe de laveuses aux caracos, bonnets bariolés.",
           "en": "The river blue as well, orange banks with greenery, a group of washerwomen in bright smocks and bonnets.",
           "ko": "강도 파랗고, 주황빛 강둑에는 풀이 돋았고, 알록달록한 윗옷과 모자를 쓴 빨래하는 여자들이 모여 있어.",
           "verified": true,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/469-fr.htm"
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/469-fr.htm",
+          "speak": {
+            "fr": "La rivière bleue également, // des berges orangées / avec verdure, // un groupe de laveuses / aux caracos, / bonnets bariolés.",
+            "en": "The river blue as well, // orange banks / with greenery, // a group of washerwomen / in bright smocks and bonnets.",
+            "ko": "강도 파랗고, // 주황빛 강둑에는 풀이 돋았고, // 알록달록한 윗옷과 모자를 쓴 / 빨래하는 여자들이 / 모여 있어."
+          }
         },
         {
           "fr": "Mais, mon cher frère, tu sais je me sens au Japon.",
           "en": "But, my dear brother, you know, I feel I'm in Japan.",
           "ko": "그런데 동생아, 있잖아, 나는 일본에 와 있는 것 같아.",
           "verified": true,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/469-fr.htm"
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/469-fr.htm",
+          "speak": {
+            "fr": "Mais, // mon cher frère, // tu sais / je me sens au Japon.",
+            "en": "But, // my dear brother, // you know, / I feel I'm in Japan.",
+            "ko": "그런데 동생아, // 있잖아, / 나는 일본에 와 있는 것 같아."
+          }
         },
         {
           "fr": "Ici je vois du neuf, j'apprends, et étant traité avec un peu de douceur, mon corps ne me refuse pas ses services.",
           "en": "Here I see new things, I learn, and treated with a little gentleness, my body doesn't refuse to serve me.",
           "ko": "여기서는 새로운 걸 보고 배우고 있어. 몸도 조금 살살 다뤄 주니까 말을 잘 들어.",
           "verified": true,
-          "source": "https://www.webexhibits.org/vangogh/data/letters/18/469-fr.htm"
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/469-fr.htm",
+          "speak": {
+            "fr": "Ici je vois du neuf, / j'apprends, // et étant traité / avec un peu de douceur, // mon corps / ne me refuse pas ses services.",
+            "en": "Here I see new things, / I learn, // and treated / with a little gentleness, // my body / doesn't refuse to serve me.",
+            "ko": "여기서는 / 새로운 걸 보고 배우고 있어. // 몸도 조금 살살 다뤄 주니까 / 말을 잘 들어."
+          }
         }
       ],
       "words": [
@@ -321,21 +381,36 @@
           "en": "My dear Theo, I'm in a frenzy of work because the trees are in blossom and I wanted to paint a Provençal orchard of enormous cheerfulness.",
           "ko": "사랑하는 테오에게. 나무에 꽃이 피어서 나는 미친 듯이 일하고 있어. 엄청나게 밝은 프로방스 과수원을 그리고 싶었거든.",
           "verified": true,
-          "source": "https://vangoghletters.org/vg/letters/let592/original_text.html"
+          "source": "https://vangoghletters.org/vg/letters/let592/original_text.html",
+          "speak": {
+            "fr": "Mon cher Théo, // je suis dans une rage de travail / puisque les arbres sont en fleurs // et que je voulais faire / un verger de Provence / d'une gaieté monstre.",
+            "en": "My dear Theo, // I'm in a frenzy of work / because the trees are in blossom // and I wanted to paint / a Provençal orchard / of enormous cheerfulness.",
+            "ko": "사랑하는 테오에게. // 나무에 꽃이 피어서 / 나는 미친 듯이 일하고 있어. // 엄청나게 밝은 / 프로방스 과수원을 / 그리고 싶었거든."
+          }
         },
         {
           "fr": "Je crois pouvoir t'assurer que ce que je fabrique ici est supérieur à la campagne d'Asnières au printemps dernier.",
           "en": "I think I can assure you that what I'm making here is better than the Asnières countryside last spring.",
           "ko": "여기서 그리는 그림이 지난봄 아니에르 시골 풍경보다 낫다고 장담할 수 있을 것 같아.",
           "verified": true,
-          "source": "https://vangoghletters.org/vg/letters/let592/original_text.html"
+          "source": "https://vangoghletters.org/vg/letters/let592/original_text.html",
+          "speak": {
+            "fr": "Je crois pouvoir t'assurer / que ce que je fabrique ici / est supérieur / à la campagne d'Asnières / au printemps dernier.",
+            "en": "I think I can assure you / that what I'm making here / is better than / the Asnières countryside / last spring.",
+            "ko": "여기서 그리는 그림이 / 지난봄 아니에르 시골 풍경보다 / 낫다고 / 장담할 수 있을 것 같아."
+          }
         },
         {
           "fr": "Je ne puis pas encore te réussir une lettre telle que je voudrais, le travail m'absorbe complètement.",
           "en": "I can't yet manage a letter the way I'd like; work absorbs me completely.",
           "ko": "아직 마음먹은 대로 편지를 쓰지 못하겠어. 일에 완전히 빠져 있거든.",
           "verified": true,
-          "source": "https://vangoghletters.org/vg/letters/let592/original_text.html"
+          "source": "https://vangoghletters.org/vg/letters/let592/original_text.html",
+          "speak": {
+            "fr": "Je ne puis pas encore / te réussir une lettre / telle que je voudrais, // le travail / m'absorbe complètement.",
+            "en": "I can't yet manage a letter / the way I'd like; // work / absorbs me completely.",
+            "ko": "아직 마음먹은 대로 / 편지를 쓰지 못하겠어. // 일에 / 완전히 빠져 있거든."
+          }
         }
       ],
       "words": [
@@ -410,21 +485,36 @@
           "en": "My dear Theo, … well, today I've rented the right wing of this building, which has 4 rooms, or rather two, with two small rooms.",
           "ko": "사랑하는 테오에게. …그래서 말인데, 오늘 이 건물의 오른쪽 채를 빌렸어. 방이 네 개, 아니 큰 방 둘에 작은 방 둘이야.",
           "verified": true,
-          "source": "https://vangoghletters.org/vg/letters/let602/original_text.html"
+          "source": "https://vangoghletters.org/vg/letters/let602/original_text.html",
+          "speak": {
+            "fr": "Mon cher Théo, // … eh bien, // j'ai aujourd'hui loué / l'aile droite de cette construction, // qui contient 4 pièces / ou plutôt deux / avec deux cabinets.",
+            "en": "My dear Theo, // … well, // today I've rented / the right wing of this building, // which has 4 rooms, / or rather two, / with two small rooms.",
+            "ko": "사랑하는 테오에게. // …그래서 말인데, // 오늘 이 건물의 / 오른쪽 채를 빌렸어. // 방이 네 개, / 아니 큰 방 둘에 / 작은 방 둘이야."
+          }
         },
         {
           "fr": "C'est peint en jaune dehors, blanchi à la chaux à l'intérieur, en plein soleil.",
           "en": "It's painted yellow outside, whitewashed inside, in full sun.",
           "ko": "바깥은 노랗게 칠했고, 안은 하얗게 회칠했어. 햇빛이 가득 들어.",
           "verified": true,
-          "source": "https://vangoghletters.org/vg/letters/let602/original_text.html"
+          "source": "https://vangoghletters.org/vg/letters/let602/original_text.html",
+          "speak": {
+            "fr": "C'est peint en jaune dehors, // blanchi à la chaux à l'intérieur, // en plein soleil.",
+            "en": "It's painted yellow outside, // whitewashed inside, // in full sun.",
+            "ko": "바깥은 노랗게 칠했고, // 안은 하얗게 회칠했어. // 햇빛이 가득 들어."
+          }
         },
         {
           "fr": "Je l'ai loué à raison de 15 francs par mois.",
           "en": "I've rented it at 15 francs a month.",
           "ko": "한 달에 15프랑에 빌렸어.",
           "verified": true,
-          "source": "https://vangoghletters.org/vg/letters/let602/original_text.html"
+          "source": "https://vangoghletters.org/vg/letters/let602/original_text.html",
+          "speak": {
+            "fr": "Je l'ai loué / à raison de 15 francs / par mois.",
+            "en": "I've rented it / at 15 francs / a month.",
+            "ko": "한 달에 / 15프랑에 빌렸어."
+          }
         }
       ],
       "words": [
