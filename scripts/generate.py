@@ -110,8 +110,11 @@ def strings():
 
 
 def letters():
-    """data/<작품>/series.json + 챕터 파일 → assets/letters/<작품>/. 검토 전 챕터는 .draft.json 을 대신 쓴다."""
+    """data/<작품>/series.json + 챕터 파일 → assets/letters/<작품>/. 검토 전 챕터는 .draft.json 을 대신 쓴다.
+    작품 목록은 assets/letters/index.json 에 따로 적는다 (폴더 목록 읽기에 기대지 않게)."""
     out = {}
+    ids = sorted(os.path.basename(os.path.dirname(m)) for m in glob.glob(os.path.join(ROOT, "data", "*", "series.json")))
+    out[os.path.join(APP, "assets", "letters", "index.json")] = json.dumps(ids) + "\n"
     for meta_path in glob.glob(os.path.join(ROOT, "data", "*", "series.json")):
         folder = os.path.dirname(meta_path)
         sid = os.path.basename(folder)
