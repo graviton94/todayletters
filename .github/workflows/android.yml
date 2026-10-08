@@ -13,6 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions: { contents: write }
     steps:
       - uses: actions/checkout@v4
       - name: Generated files and fonts are up to date
@@ -35,6 +36,11 @@ jobs:
         working-directory: android
         run: |
           grep -E "^e: |error:|What went wrong" -A2 build.log | head -120 || true
+          # 로그를 내려받을 수 없는 곳에서도 볼 수 있게 ci-errors 가지에 남긴다
+          mkdir -p /tmp/err && grep -E "^e: |error:|What went wrong|FAILED" -A3 build.log | head -300 > /tmp/err/errors.txt || true
+          cd /tmp/err && git init -q && git checkout -q -b ci-errors && git add -A
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Errors ${{ github.sha }}" && \
+            git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:ci-errors || true
       - name: Rename APK
         run: |
           mkdir -p out
