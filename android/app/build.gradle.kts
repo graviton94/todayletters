@@ -18,12 +18,21 @@ android {
         buildConfigField("boolean", "DEV_TOOLS", "true")
     }
 
+    // 직접 설치용 (내 폰 시험용) 고정 키: 저장소에 있는 시험 키라 비밀이 아님 (android/keystore/README.md)
+    signingConfigs {
+        create("sideload") {
+            storeFile = file("../keystore/sideload.jks")
+            storePassword = "android"; keyAlias = "sideload"; keyPassword = "android"
+        }
+    }
+
     buildTypes {
-        debug { versionNameSuffix = "-dev" }
+        debug { signingConfig = signingConfigs.getByName("sideload"); versionNameSuffix = "-dev" }
         release {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("sideload")
             buildConfigField("boolean", "DEV_TOOLS", "false")
         }
     }
