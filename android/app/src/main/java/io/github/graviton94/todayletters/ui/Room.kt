@@ -380,13 +380,12 @@ fun dayOf(date: String): String = runCatching {
     d.format(java.time.format.DateTimeFormatter.ofPattern("d MMM", java.util.Locale.FRENCH))
 }.getOrDefault(date)
 
-/** 대화방 머리의 날짜: 앱 글자 언어로 ("아를 · 1888년 2월 21일" / "Arles · 21 February 1888"). */
+/** 대화방 머리의 날짜: 앱 글자 언어로 ("1888년 2월 21일" / "21 February 1888"). 장소는 소인에 있다. */
 @Composable
 fun dateLine(date: String, place: String): String {
     val ko = uiLang() == Lang.KO
     val d = runCatching { java.time.LocalDate.parse(date.take(10)) }.getOrNull() ?: return place
     val text = if (ko) "${d.year}년 ${d.monthValue}월 ${d.dayOfMonth}일"
     else d.format(java.time.format.DateTimeFormatter.ofPattern("d MMMM yyyy", java.util.Locale.ENGLISH))
-    val where = if (ko && place == "Arles") "아를" else place
-    return "$where · $text"
+    return text
 }

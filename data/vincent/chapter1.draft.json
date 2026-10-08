@@ -101,6 +101,12 @@
         "imageLicense": "public domain reproduction (Wikimedia Commons; museum image is not CC0)",
         "imageSource": "https://commons.wikimedia.org/w/index.php?search=Van+Gogh+Landscape+with+Snow+Guggenheim+1888",
         "why": "Painted in Arles in the first days after arrival, in the snow this letter describes."
+      },
+      "reply": {
+        "fr": "Moi aussi, j'ai pensé à toi.",
+        "en": "I thought of you too.",
+        "ko": "나도 형 생각 많이 했어.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
       }
     },
     {
@@ -191,6 +197,12 @@
         "imageLicense": "public domain reproduction (Wikimedia Commons)",
         "imageSource": "https://commons.wikimedia.org/w/index.php?search=Van+Gogh+An+Old+Woman+of+Arles+1888",
         "why": "One of the three first studies listed in this letter."
+      },
+      "reply": {
+        "fr": "Je suis content que tu ailles mieux.",
+        "en": "I'm glad you are feeling better.",
+        "ko": "형이 나아지고 있다니 기뻐.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
       }
     },
     {
@@ -288,6 +300,12 @@
         "imageLicense": "public domain reproduction (Wikimedia Commons)",
         "imageSource": "https://commons.wikimedia.org/w/index.php?search=Langlois+Bridge+at+Arles+with+Women+Washing+Kröller-Müller",
         "why": "This is the size 15 canvas the letter describes: drawbridge, small carriage, washerwomen."
+      },
+      "reply": {
+        "fr": "Envoie-moi un dessin du pont.",
+        "en": "Send me a drawing of the bridge.",
+        "ko": "그 다리 그림 하나 보내 줘.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
       }
     },
     {
@@ -371,6 +389,12 @@
         "imageLicense": "CC0 (Met Open Access) — confirm on object page",
         "imageSource": "https://www.metmuseum.org/art/collection/search?q=The+Flowering+Orchard+van+Gogh",
         "why": "One of the 'Provence orchards' this letter announces."
+      },
+      "reply": {
+        "fr": "Je veux voir ces arbres en fleurs.",
+        "en": "I want to see those trees in blossom.",
+        "ko": "꽃 핀 그 나무들을 보고 싶어.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
       }
     },
     {
@@ -461,6 +485,12 @@
         "imageLicense": "public domain reproduction (Wikimedia Commons)",
         "imageSource": "https://commons.wikimedia.org/w/index.php?search=Van+Gogh+The+Yellow+House+The+Street+1888",
         "why": "The house rented in this letter, painted a few months later. Alternative: the sketch of the house in letter 602 itself (JH 1413)."
+      },
+      "reply": {
+        "fr": "Une maison jaune au soleil, c'est parfait.",
+        "en": "A yellow house in the sun, that's perfect.",
+        "ko": "햇살 아래 노란 집이라니, 딱 좋아.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
       }
     }
   ]
