@@ -1,0 +1,2854 @@
+/* decovivago.js - mix of required js files */
+
+// SpryCollapsiblePanel.js - version 0.7 - Spry Pre-Release 1.6.1
+//
+// Copyright (c) 2006. Adobe Systems Incorporated.
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are met:
+//
+//   * Redistributions of source code must retain the above copyright notice,
+//     this list of conditions and the following disclaimer.
+//   * Redistributions in binary form must reproduce the above copyright notice,
+//     this list of conditions and the following disclaimer in the documentation
+//     and/or other materials provided with the distribution.
+//   * Neither the name of Adobe Systems Incorporated nor the names of its
+//     contributors may be used to endorse or promote products derived from this
+//     software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+// POSSIBILITY OF SUCH DAMAGE.
+var Spry;
+if (!Spry) Spry = {};
+if (!Spry.Widget) Spry.Widget = {};
+
+Spry.Widget.CollapsiblePanel = function(element, opts) {
+  this.element = this.getElement(element);
+  this.focusElement = null;
+  this.hoverClass = "CollapsiblePanelTabHover";
+  this.openClass = "CollapsiblePanelOpen";
+  this.closedClass = "CollapsiblePanelClosed";
+  this.focusedClass = "CollapsiblePanelFocused";
+  this.enableAnimation = true;
+  this.enableKeyboardNavigation = true;
+  this.animator = null;
+  this.hasFocus = false;
+  this.contentIsOpen = true;
+
+  this.openPanelKeyCode = Spry.Widget.CollapsiblePanel.KEY_DOWN;
+  this.closePanelKeyCode = Spry.Widget.CollapsiblePanel.KEY_UP;
+
+  Spry.Widget.CollapsiblePanel.setOptions(this, opts);
+
+  this.attachBehaviors();
+};
+
+Spry.Widget.CollapsiblePanel.prototype.getElement = function(ele) {
+  if (ele && typeof ele == "string") return document.getElementById(ele);
+  return ele;
+};
+
+Spry.Widget.CollapsiblePanel.prototype.addClassName = function(ele, className) {
+  if (!ele || !className || (ele.className && ele.className.search(new RegExp("\\b" + className + "\\b")) != -1)) return;
+  ele.className += (ele.className ? " " : "") + className;
+};
+
+Spry.Widget.CollapsiblePanel.prototype.removeClassName = function(ele, className) {
+  if (!ele || !className || (ele.className && ele.className.search(new RegExp("\\b" + className + "\\b")) == -1)) return;
+  ele.className = ele.className.replace(new RegExp("\\s*\\b" + className + "\\b", "g"), "");
+};
+
+Spry.Widget.CollapsiblePanel.prototype.hasClassName = function(ele, className) {
+  if (!ele || !className || !ele.className || ele.className.search(new RegExp("\\b" + className + "\\b")) == -1) return false;
+  return true;
+};
+
+Spry.Widget.CollapsiblePanel.prototype.setDisplay = function(ele, display) {
+  if (ele) ele.style.display = display;
+};
+
+Spry.Widget.CollapsiblePanel.setOptions = function(obj, optionsObj, ignoreUndefinedProps) {
+  if (!optionsObj) return;
+  for ( var optionName in optionsObj) {
+    if (ignoreUndefinedProps && optionsObj[optionName] == undefined) continue;
+    obj[optionName] = optionsObj[optionName];
+  }
+};
+
+Spry.Widget.CollapsiblePanel.prototype.onTabMouseOver = function(e) {
+  this.addClassName(this.getTab(), this.hoverClass);
+  return false;
+};
+
+Spry.Widget.CollapsiblePanel.prototype.onTabMouseOut = function(e) {
+  this.removeClassName(this.getTab(), this.hoverClass);
+  return false;
+};
+
+Spry.Widget.CollapsiblePanel.prototype.open = function() {
+  this.contentIsOpen = true;
+  if (this.enableAnimation) {
+    if (this.animator) this.animator.stop();
+    this.animator = new Spry.Widget.CollapsiblePanel.PanelAnimator(this, true, {
+      duration : this.duration,
+      fps : this.fps,
+      transition : this.transition
+    });
+    this.animator.start();
+  } else
+    this.setDisplay(this.getContent(), "block");
+
+  this.removeClassName(this.element, this.closedClass);
+  this.addClassName(this.element, this.openClass);
+};
+
+Spry.Widget.CollapsiblePanel.prototype.close = function() {
+  this.contentIsOpen = false;
+  if (this.enableAnimation) {
+    if (this.animator) this.animator.stop();
+    this.animator = new Spry.Widget.CollapsiblePanel.PanelAnimator(this, false, {
+      duration : this.duration,
+      fps : this.fps,
+      transition : this.transition
+    });
+    this.animator.start();
+  } else
+    this.setDisplay(this.getContent(), "none");
+
+  this.removeClassName(this.element, this.openClass);
+  this.addClassName(this.element, this.closedClass);
+};
+
+Spry.Widget.CollapsiblePanel.prototype.onTabClick = function(e) {
+  if (this.isOpen())
+    this.close();
+  else
+    this.open();
+
+  this.focus();
+
+  return this.stopPropagation(e);
+};
+
+Spry.Widget.CollapsiblePanel.prototype.onFocus = function(e) {
+  this.hasFocus = true;
+  this.addClassName(this.element, this.focusedClass);
+  return false;
+};
+
+Spry.Widget.CollapsiblePanel.prototype.onBlur = function(e) {
+  this.hasFocus = false;
+  this.removeClassName(this.element, this.focusedClass);
+  return false;
+};
+
+Spry.Widget.CollapsiblePanel.KEY_UP = 38;
+Spry.Widget.CollapsiblePanel.KEY_DOWN = 40;
+
+Spry.Widget.CollapsiblePanel.prototype.onKeyDown = function(e) {
+  var key = e.keyCode;
+  if (!this.hasFocus || (key != this.openPanelKeyCode && key != this.closePanelKeyCode)) return true;
+
+  if (this.isOpen() && key == this.closePanelKeyCode)
+    this.close();
+  else if (key == this.openPanelKeyCode) this.open();
+
+  return this.stopPropagation(e);
+};
+
+Spry.Widget.CollapsiblePanel.prototype.stopPropagation = function(e) {
+  if (e.preventDefault)
+    e.preventDefault();
+  else
+    e.returnValue = false;
+  if (e.stopPropagation)
+    e.stopPropagation();
+  else
+    e.cancelBubble = true;
+  return false;
+};
+
+Spry.Widget.CollapsiblePanel.prototype.attachPanelHandlers = function() {
+  var tab = this.getTab();
+  if (!tab) return;
+
+  var self = this;
+  Spry.Widget.CollapsiblePanel.addEventListener(tab, "click", function(e) {
+    return self.onTabClick(e);
+  }, false);
+  Spry.Widget.CollapsiblePanel.addEventListener(tab, "mouseover", function(e) {
+    return self.onTabMouseOver(e);
+  }, false);
+  Spry.Widget.CollapsiblePanel.addEventListener(tab, "mouseout", function(e) {
+    return self.onTabMouseOut(e);
+  }, false);
+
+  if (this.enableKeyboardNavigation) {
+    // XXX: IE doesn't allow the setting of tabindex dynamically. This means we can't
+    // rely on adding the tabindex attribute if it is missing to enable keyboard navigation
+    // by default.
+
+    // Find the first element within the tab container that has a tabindex or the first
+    // anchor tag.
+
+    var tabIndexEle = null;
+    var tabAnchorEle = null;
+
+    this.preorderTraversal(tab, function(node) {
+      if (node.nodeType == 1 /* NODE.ELEMENT_NODE */) {
+        var tabIndexAttr = tab.attributes.getNamedItem("tabindex");
+        if (tabIndexAttr) {
+          tabIndexEle = node;
+          return true;
+        }
+        if (!tabAnchorEle && node.nodeName.toLowerCase() == "a") tabAnchorEle = node;
+      }
+      return false;
+    });
+
+    if (tabIndexEle)
+      this.focusElement = tabIndexEle;
+    else if (tabAnchorEle) this.focusElement = tabAnchorEle;
+
+    if (this.focusElement) {
+      Spry.Widget.CollapsiblePanel.addEventListener(this.focusElement, "focus", function(e) {
+        return self.onFocus(e);
+      }, false);
+      Spry.Widget.CollapsiblePanel.addEventListener(this.focusElement, "blur", function(e) {
+        return self.onBlur(e);
+      }, false);
+      Spry.Widget.CollapsiblePanel.addEventListener(this.focusElement, "keydown", function(e) {
+        return self.onKeyDown(e);
+      }, false);
+    }
+  }
+};
+
+Spry.Widget.CollapsiblePanel.addEventListener = function(element, eventType, handler, capture) {
+  try {
+    if (element.addEventListener)
+      element.addEventListener(eventType, handler, capture);
+    else if (element.attachEvent) element.attachEvent("on" + eventType, handler);
+  } catch (e) {}
+};
+
+Spry.Widget.CollapsiblePanel.prototype.preorderTraversal = function(root, func) {
+  var stopTraversal = false;
+  if (root) {
+    stopTraversal = func(root);
+    if (root.hasChildNodes()) {
+      var child = root.firstChild;
+      while (!stopTraversal && child) {
+        stopTraversal = this.preorderTraversal(child, func);
+        try {
+          child = child.nextSibling;
+        } catch (e) {
+          child = null;
+        }
+      }
+    }
+  }
+  return stopTraversal;
+};
+
+Spry.Widget.CollapsiblePanel.prototype.attachBehaviors = function() {
+  var panel = this.element;
+//  var tab = this.getTab();
+  var content = this.getContent();
+
+  if (this.contentIsOpen || this.hasClassName(panel, this.openClass)) {
+    this.addClassName(panel, this.openClass);
+    this.removeClassName(panel, this.closedClass);
+    this.setDisplay(content, "block");
+    this.contentIsOpen = true;
+  } else {
+    this.removeClassName(panel, this.openClass);
+    this.addClassName(panel, this.closedClass);
+    this.setDisplay(content, "none");
+    this.contentIsOpen = false;
+  }
+
+  this.attachPanelHandlers();
+};
+
+Spry.Widget.CollapsiblePanel.prototype.getTab = function() {
+  return this.getElementChildren(this.element)[0];
+};
+
+Spry.Widget.CollapsiblePanel.prototype.getContent = function() {
+  return this.getElementChildren(this.element)[1];
+};
+
+Spry.Widget.CollapsiblePanel.prototype.isOpen = function() {
+  return this.contentIsOpen;
+};
+
+Spry.Widget.CollapsiblePanel.prototype.getElementChildren = function(element) {
+  var children = [];
+  var child = element.firstChild;
+  while (child) {
+    if (child.nodeType == 1 /* Node.ELEMENT_NODE */) children.push(child);
+    child = child.nextSibling;
+  }
+  return children;
+};
+
+Spry.Widget.CollapsiblePanel.prototype.focus = function() {
+  if (this.focusElement && this.focusElement.focus) this.focusElement.focus();
+};
+
+/////////////////////////////////////////////////////
+
+Spry.Widget.CollapsiblePanel.PanelAnimator = function(panel, doOpen, opts) {
+  this.timer = null;
+  this.interval = 0;
+
+  this.fps = 60;
+  this.duration = 500;
+  this.startTime = 0;
+
+  this.transition = Spry.Widget.CollapsiblePanel.PanelAnimator.defaultTransition;
+
+  this.onComplete = null;
+
+  this.panel = panel;
+  this.content = panel.getContent();
+  this.doOpen = doOpen;
+
+  Spry.Widget.CollapsiblePanel.setOptions(this, opts, true);
+
+  this.interval = Math.floor(1000 / this.fps);
+
+  var c = this.content;
+
+  var curHeight = c.offsetHeight ? c.offsetHeight : 0;
+  this.fromHeight = (doOpen && c.style.display == "none") ? 0 : curHeight;
+
+  if (!doOpen)
+    this.toHeight = 0;
+  else {
+    if (c.style.display == "none") {
+      // The content area is not displayed so in order to calculate the extent
+      // of the content inside it, we have to set its display to block.
+
+      c.style.visibility = "hidden";
+      c.style.display = "block";
+    }
+
+    // Clear the height property so we can calculate
+    // the full height of the content we are going to show.
+
+    c.style.height = "";
+    this.toHeight = c.offsetHeight;
+  }
+
+  this.distance = this.toHeight - this.fromHeight;
+  this.overflow = c.style.overflow;
+
+  c.style.height = this.fromHeight + "px";
+  c.style.visibility = "visible";
+  c.style.overflow = "hidden";
+  c.style.display = "block";
+};
+
+Spry.Widget.CollapsiblePanel.PanelAnimator.defaultTransition = function(time, begin, finish, duration) {
+  time /= duration;
+  return begin + ((2 - time) * time * finish);
+};
+
+Spry.Widget.CollapsiblePanel.PanelAnimator.prototype.start = function() {
+  var self = this;
+  this.startTime = (new Date).getTime();
+  this.timer = setTimeout( function() {
+    self.stepAnimation();
+  }, this.interval);
+};
+
+Spry.Widget.CollapsiblePanel.PanelAnimator.prototype.stop = function() {
+  if (this.timer) {
+    clearTimeout(this.timer);
+
+    // If we're killing the timer, restore the overflow property.
+
+    this.content.style.overflow = this.overflow;
+  }
+
+  this.timer = null;
+};
+
+Spry.Widget.CollapsiblePanel.PanelAnimator.prototype.stepAnimation = function() {
+  var curTime = (new Date).getTime();
+  var elapsedTime = curTime - this.startTime;
+
+  if (elapsedTime >= this.duration) {
+    if (!this.doOpen) this.content.style.display = "none";
+    this.content.style.overflow = this.overflow;
+    this.content.style.height = this.toHeight + "px";
+    if (this.onComplete) this.onComplete();
+    return;
+  }
+
+  var ht = this.transition(elapsedTime, this.fromHeight, this.distance, this.duration);
+
+  this.content.style.height = ((ht < 0) ? 0 : ht) + "px";
+
+  var self = this;
+  this.timer = setTimeout( function() {
+    self.stepAnimation();
+  }, this.interval);
+};
+
+Spry.Widget.CollapsiblePanelGroup = function(element, opts) {
+  this.element = this.getElement(element);
+  this.opts = opts;
+
+  this.attachBehaviors();
+};
+
+Spry.Widget.CollapsiblePanelGroup.prototype.setOptions = Spry.Widget.CollapsiblePanel.prototype.setOptions;
+Spry.Widget.CollapsiblePanelGroup.prototype.getElement = Spry.Widget.CollapsiblePanel.prototype.getElement;
+Spry.Widget.CollapsiblePanelGroup.prototype.getElementChildren = Spry.Widget.CollapsiblePanel.prototype.getElementChildren;
+
+Spry.Widget.CollapsiblePanelGroup.prototype.setElementWidget = function(element, widget) {
+  if (!element || !widget) return;
+  if (!element.spry) element.spry = new Object;
+  element.spry.collapsiblePanel = widget;
+};
+
+Spry.Widget.CollapsiblePanelGroup.prototype.getElementWidget = function(element) {
+  return (element && element.spry && element.spry.collapsiblePanel) ? element.spry.collapsiblePanel : null;
+};
+
+Spry.Widget.CollapsiblePanelGroup.prototype.getPanels = function() {
+  if (!this.element) return [];
+  return this.getElementChildren(this.element);
+};
+
+Spry.Widget.CollapsiblePanelGroup.prototype.getPanel = function(panelIndex) {
+  return this.getPanels()[panelIndex];
+};
+
+Spry.Widget.CollapsiblePanelGroup.prototype.attachBehaviors = function() {
+  if (!this.element) return;
+
+  var cpanels = this.getPanels();
+  var numCPanels = cpanels.length;
+  for ( var i = 0; i < numCPanels; i++) {
+    var cpanel = cpanels[i];
+    this.setElementWidget(cpanel, new Spry.Widget.CollapsiblePanel(cpanel, this.opts));
+  }
+};
+
+Spry.Widget.CollapsiblePanelGroup.prototype.openPanel = function(panelIndex) {
+  var w = this.getElementWidget(this.getPanel(panelIndex));
+  if (w && !w.isOpen()) w.open();
+};
+
+Spry.Widget.CollapsiblePanelGroup.prototype.closePanel = function(panelIndex) {
+  var w = this.getElementWidget(this.getPanel(panelIndex));
+  if (w && w.isOpen()) w.close();
+};
+
+Spry.Widget.CollapsiblePanelGroup.prototype.openAllPanels = function() {
+  var cpanels = this.getPanels();
+  var numCPanels = cpanels.length;
+  for ( var i = 0; i < numCPanels; i++) {
+    var w = this.getElementWidget(cpanels[i]);
+    if (w && !w.isOpen()) w.open();
+  }
+};
+
+Spry.Widget.CollapsiblePanelGroup.prototype.closeAllPanels = function() {
+  var cpanels = this.getPanels();
+  var numCPanels = cpanels.length;
+  for ( var i = 0; i < numCPanels; i++) {
+    var w = this.getElementWidget(cpanels[i]);
+    if (w && w.isOpen()) w.close();
+  }
+};
+
+/* Cookie class */
+var Cookie = Class.create();
+Cookie.prototype = {
+  initialize : function(name) {
+    this.DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
+    this.name = name;
+  },
+
+  create : function(value, days) {
+    var expires;
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * this.DAY_IN_MILLISECONDS));
+      expires = "; expires=" + date.toGMTString();
+    } else {
+      expires = "";
+    }
+    document.cookie = this.name + "=" + value + expires + "; path=/";
+  },
+
+  read : function() {
+    var nameEQ = this.name + "=";
+    var ca = document.cookie.split(';');
+    for ( var i = 0; i < ca.length; ++i) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1, c.length);
+      }
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  },
+
+  erase : function() {
+    this.create("", -1);
+  }
+};
+
+/* PageHistory class */
+var PageHistory = Class.create();
+PageHistory.prototype = {
+  initialize : function() {
+    this.PAGEHISTORY_SIZE = 10;
+    this.cookie = new Cookie('pagehistory');
+  },
+
+  update : function(letternumber) {
+    var pageArray = this.load().without(letternumber);
+    while (pageArray.length >= this.PAGEHISTORY_SIZE) {
+      pageArray.pop();
+    }
+    pageArray.unshift(letternumber);
+    this.save(pageArray);
+  },
+
+  load : function() {
+    cookievalue = this.cookie.read();
+    if (cookievalue == null)
+      return [];
+    else
+      return cookievalue.split('|');
+  },
+
+  save : function(pageArray) {
+    this.cookie.create(pageArray.join('|'), 365);
+  },
+
+  trail : function() {
+    var html = "<ul>";
+    this.load().each( function(letter) {
+      if (letter.indexOf('RM') > -1) {
+        url = letter;
+      } else {
+        url = "let" + letter;
+      }
+      html += ' <li><a href="/vg/letters/' + url + '/letter.html" title="previously viewed letters">' + letter + '</a></li>';
+    });
+    html += "</ul>";
+    return html;
+  }
+};
+
+/*
+ * Yetii - Yet (E)Another Tab Interface Implementation version 1.5
+ * http://www.kminek.pl/lab/yetii/ Copyright (c) 2007-2008 Grzegorz Wojcik Code
+ * licensed under the BSD License: http://www.kminek.pl/bsdlicense.txt
+ * 
+ * refactored for prototype.js
+ */
+var Yetii = Class.create();
+Yetii.prototype = {
+  initialize : function(arguments) {
+    this.defaults = {
+      id : null,
+      active : 1,
+      interval : null,
+      wait : null,
+      persist : null,
+      tabclass : 'tab',
+      activeclass : 'active',
+      callback : null,
+      leavecallback : null
+    };
+    this.activebackup = null;
+    for ( var n in arguments) {
+      this.defaults[n] = arguments[n];
+    }
+    this.content = [ 'original_text', 'line_endings', 'facsimile', 'translation', 'notes', 'artwork' ];
+    this.listitems = $(this.defaults.id + '-nav').getElementsByTagName('li');
+    this.links = [];
+    for ( var i = 0; i < this.listitems.length; i++) {
+      this.links[i] = this.listitems[i].getElementsByTagName('a')[0];
+    }
+
+    var parseurl = this.parseurl(this.defaults.id);
+    this.defaults.active = (parseurl) ? parseurl : this.defaults.active;
+    var readCookie = this.readCookie(this.defaults.id);
+    if (this.defaults.persist && readCookie) {
+      this.defaults.active = readCookie;
+    }
+    this.activebackup = this.defaults.active;
+    this.show(this.defaults.active);
+
+    var self = this;
+    for ( var i = 0; i < this.links.length; i++) {
+      this.links[i].customindex = i + 1;
+      this.links[i].onclick = function() {
+        self.show(this.customindex);
+        if (self.defaults.persist) {
+          self.createCookie(self.defaults.id, this.customindex,500);
+        }
+
+        return false;
+      };
+    }
+  },
+
+  getActiveTab : function() {
+    return $(this.defaults.id);
+  },
+
+  show : function(number) {
+    $(this.defaults.id).undoPositioned(); /* linked to the makePositioned for the facsimiles */
+    for ( var i = 0; i < this.listitems.length; i++) {
+      if ((i + 1) == number) {
+        $(this.links[i]).addClassName(this.defaults.activeclass);
+        $(this.listitems[i]).addClassName(this.defaults.activeclass);
+      } else {
+        $(this.links[i]).removeClassName(this.defaults.activeclass);
+        if ($(this.listitems[i])) {
+          $(this.listitems[i]).removeClassName(this.defaults.activeclass);
+        }
+      }
+    }
+
+    new Ajax.Updater(this.defaults.id, this.content[number - 1] + '.html?20241213', {
+      asynchronous : false,
+      method : 'get',
+      onComplete : highlightSearchTerms
+    });
+
+    this.activebackup = number;
+    this.defaults.active = number;
+  },
+
+  gup : function(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regexS = "[\\?&]" + name + "=([^&#]*)";
+    var regex = new RegExp(regexS);
+    var results = regex.exec(window.location.href);
+    if (results == null)
+      return null;
+    else
+      return results[1];
+  },
+
+  parseurl : function(tabinterfaceid) {
+    var result = this.gup(tabinterfaceid);
+    if (result == null) return null;
+    if (parseInt(result)) return parseInt(result);
+    if ($(result)) {
+      for ( var i = 0; i < this.links.length; i++) {
+        if (this.links[i].id == result) return (i + 1);
+      }
+    }
+    return null;
+  },
+
+  createCookie : function(name, value, days) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toGMTString();
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+  },
+
+  readCookie : function(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for ( var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1, c.length);
+      }
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+};
+
+/* Columns class */
+var Columns = Class.create();
+Columns.prototype = {
+  initialize : function() {
+    this.FACSIMILE_TAB = 3;
+    this.TRANSLATION_TAB = 4;
+    this.NOTES_TAB = 5;
+    this.highlightedElement = '';
+    this.columns = [ '', '', '', '' ];
+    this.columns[0] = new Yetii( {
+      id : 'tab-container-1',
+      active : this.TRANSLATION_TAB,
+      persist : true
+    });
+    this.determineVisibleColumns();
+    this.activateDefaultColumns();
+    this.activateColumn(2, this.NOTES_TAB);
+    this.last_anchor = null;
+    this.tabName2Number = new Hash();
+    this.tabName2Number.set('original', 0); /* original text */
+    this.tabName2Number.set('l', 1); /* + line endings */
+    this.tabName2Number.set('t', 1); /* + line endings */
+    /*this.tabName2Number.set('n', 2); *//* facsimile */
+    this.tabName2Number.set('translation', 3); /* translation */
+    this.tabName2Number.set('n', 4); /* notes */
+    this.tabName2Number.set('sketch', 99); /* metadata */
+    this.tabName2Number.set('sourcestatus', 99); /* metadata */
+    this.tabName2Number.set('ongoingtopic', 99); /* metadata */
+    this.tabName2Number.set('location', 99); /* metadata */
+    this.tabName2Number.set('arrangement', 99); /* metadata */
+    this.tabName2Number.set('additional', 99); /* metadata */
+    this.tabName2Number.set('date', 99); /* metadata */
+    this.tabName2Number.set('publicationStmt', 99); /* metadata */
+
+    /*this.tabName2Number.set('n', 4); *//* artwork */
+  },
+
+  referencedTab : function(anchor) {
+    var label = anchor.split('-')[0];
+    return this.tabName2Number.get(label);
+  },
+
+  tabIsActive : function(tabNumber) {
+    tabNumber += 1;
+    return (this.columns[0].defaults.active == tabNumber) || (this.columns[1] != '' && this.columns[1].defaults.active == tabNumber)
+        || (this.columns[2] != '' && this.columns[2].defaults.active == tabNumber) || (this.columns[3] != '' && this.columns[3].defaults.active == tabNumber);
+  },
+
+  activateReferencedTabAndHighlight : function() {
+    var hash = location.hash;
+    if (hash.length > 1) {
+      var anchor = hash.substr(1, hash.length - 1);
+      var referencedTab = this.referencedTab(anchor);
+      if (referencedTab == 99) {
+        /* anchor in metadata, open more_link */
+        $('more_link').onclick();
+        anchor = "note_" + anchor;
+      } else if (!this.tabIsActive(referencedTab) && this.columns[0].links[referencedTab]) {
+        this.columns[0].links[referencedTab].onclick();
+      }
+      var anchordivs = $$('#' + anchor);
+      if (anchordivs.length > 0) {
+        if (this.highlightedElement) {
+          this.highlightedElement.setStyle( {
+            background : ''
+          });
+        }
+        anchordivs.each( function(item) {
+          item.setStyle( {
+            background : '#FAFAD2'
+          });
+        });
+        this.highlightedElement = anchordivs;
+        var pos = anchordivs[0].cumulativeOffset();
+        window.scrollTo(0, pos[1]);
+      }
+    }
+  },
+
+  activateDefaultColumns : function() {
+    for ( var i = 2; i < 5; i++) {
+      if (new Cookie('tabs' + i + '_setting').read() == '1') {
+        this.activateColumn(i);
+      }
+    }
+  },
+
+  activateColumn : function(n, activeTab) {
+    if (!activeTab) {
+      activeTab = 1;
+    }
+    $('closetabs' + n).show();
+    $('tab-container-' + n + '-nav').update($('tabs' + n).innerHTML);
+    this.columns[n - 1] = new Yetii( {
+      id : 'tab-container-' + n,
+      active : activeTab,
+      persist : true
+    });
+    var cookie = new Cookie('tabs' + n + '_setting');
+    cookie.create('1', 365);
+  },
+
+  deactivateColumn : function(n) {
+    $('tab-container-' + n + '-nav').update('<li onclick="columns.activateColumn(' + n + ')"><a class="newtab">new tab</a></li>');
+    $('tab-container-' + n).update('&nbsp;');
+    this.columns[n - 1] = '';
+    var cookie = new Cookie('tabs' + n + '_setting');
+    cookie.create('0', 365);
+  },
+
+  determineVisibleColumns : function() {
+    var width = document.viewport.getWidth() + 20;
+    var rightmost = 2;
+    if (width > 1400) {
+      $('letterbox3').show();
+      $('tab-container-3-nav').show();
+      rightmost = 3;
+    } else {
+      this.deactivateColumn(3);
+      $('letterbox3').hide();
+      $('tab-container-3-nav').hide();
+    }
+    if (width > 1800) {
+      $('letterbox4').show();
+      $('tab-container-4-nav').show();
+      rightmost = 4;
+    } else {
+      this.deactivateColumn(4);
+      $('letterbox4').hide();
+      $('tab-container-4-nav').hide();
+    }
+    for ( var column = 2; column < 4; column++) {
+      var closetabs = $('closetabs' + column);
+      if (column == rightmost) {
+        closetabs.show();
+      } else {
+        closetabs.hide();
+      }
+    }
+  },
+
+  showNoteReference : function(note_id) {
+    var activeTab1 = this.columns[0].defaults.active;
+    var activeTab2 = this.columns[1].defaults.active;
+    var translation_column = -1;
+    if (activeTab1 == this.TRANSLATION_TAB)
+      translation_column = 0;
+    else if (activeTab2 == this.TRANSLATION_TAB)
+      translation_column = 1;
+    else {
+      translation_column = (activeTab1 == this.NOTES_TAB) ? 1 : 0;
+      this.columns[translation_column].links[this.TRANSLATION_TAB - 1].onclick();
+    }
+    var note_anchor = this.columns[translation_column].getActiveTab().select('[name="translation-noteref-' + note_id + '"]').first();
+    if (note_anchor != undefined) {
+      window.scrollTo(0, note_anchor.cumulativeOffset()[1]);
+      note_anchor.onclick();
+    }
+  },
+
+  showTab : function(column, tab) {
+    $('tab-container-' + column).undoPositioned();
+    this.columns[column - 1].show(tab);
+  },
+
+  showFacsimileInPanel : function(facsimile_ref, align_element) {
+    facsimile_column = -1;
+    column = 0;
+    while (facsimile_column < 0 && column < 4) {
+      if (this.columns[column] && (this.columns[column].defaults.active == this.FACSIMILE_TAB)) {
+        facsimile_column = column;
+      }
+      column++;
+    }
+    if (facsimile_column == -1) {
+      /* no facsimile column visible, determine which current column should get be the facsimile column */
+      facsimile_column = 1;
+      container = $('tab-container-2');
+      if (align_element && (container == currentTab(align_element))) {
+        facsimile_column = 0;
+        container = $('tab-container-1');
+      }
+      this.columns[facsimile_column].links[this.FACSIMILE_TAB - 1].onclick();
+    } else {
+      container = $('tab-container-' + (facsimile_column + 1));
+    }
+
+    if (align_element) {
+      vposition = $(align_element).cumulativeOffset().top;
+      container.makePositioned();
+      container.setStyle( {
+        top : vposition - 236 + 'px'
+      });
+    }
+    $('fac-' + facsimile_ref + '-thumb').select('a')[0].onclick();
+  },
+  
+  showMetadata: function(){
+    var note_panel = $('note_panel');
+    note_panel.hide();
+    $('metadata-panel').show();
+    $('show-metadata').hide();
+    this.last_anchor = null;
+  },
+
+  showNote : function(anchor_element, note_id) {
+    var note_panel = $('note_panel');
+    if (this.last_anchor == anchor_element) {
+      this.showMetadata();
+    } else {
+      $('metadata-panel').hide();
+      $('show-metadata').show();
+      var note = $(note_id);
+      note_panel.update(note.innerHTML);
+      var offsetTop=120;
+      if (Prototype.Browser.IE){
+        offsetTop=0;
+      }
+      note_panel.clonePosition(anchor_element, {
+        offsetTop: offsetTop,
+        setLeft : false,
+        setWidth : false,
+        setHeight : false
+      });
+//      alert(note_panel.positionedOffset()[1]);
+//      note_panel.setStyle('top',$(anchor_element).positionedOffset()[1]);
+      note_panel.show();
+      this.last_anchor = anchor_element;
+    }
+  }
+
+};
+
+var WindowSize = Class.create({
+  width: window.innerWidth || (window.document.documentElement.clientWidth || window.document.body.clientWidth),
+  height: window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight)
+});
+var windowSize = new WindowSize();
+
+var ImagePanel = Class.create();
+ImagePanel.prototype = {
+  initialize : function() {},
+
+  show : function(number, width, artist, title, credit, no_save, f_number, vgww_hits) {
+    $('vergroting-h1').update('<span class="name">' + artist + '</span><br/>' + title);
+    //  no_save can now be ignored, swf is no longer supported in most browsers
+    $('vergroting-beeld').update('<img id="vergroting-img" src="/vg/illustrations/' + number + '.jpg"/>');
+
+    if (f_number){
+      var url = '/vg/search/vgww?f='+f_number;
+      console.log('GET '+url);
+      var original_credit = credit;
+      new Ajax.Request(url,{
+           method:'get',
+           onSuccess: function(response) {
+             if (response.status == 200) {
+               var vgww_hits = parseInt(response.responseText) || 0;
+               console.log('success: hits = '+vgww_hits);
+               if (vgww_hits == 1){
+                 original_credit += '<br/><a href="https://vangoghworldwide.org/artwork/'   + f_number + '" target="_blank">This work in Van Gogh Worldwide</a>';
+               } else if (vgww_hits > 1){
+                 original_credit += '<br/><a href="https://vangoghworldwide.org/search/?q=' + f_number + '" target="_blank">This work in Van Gogh Worldwide</a>';
+               }
+               $('vergroting-creditline').update(original_credit);
+             }else{
+                console.log('statuscode='+response.status);
+             }
+           },
+           onFailure: function() {
+             console.log('failure');
+           }
+        }
+      );
+      if (vgww_hits == 1){
+        credit += '<br/><a href="https://vangoghworldwide.org/artwork/'   + f_number + '" target="_blank">This work in Van Gogh Worldwide</a>';
+      } else if (vgww_hits > 1){
+        credit += '<br/><a href="https://vangoghworldwide.org/search/?q=' + f_number + '" target="_blank">This work in Van Gogh Worldwide</a>';
+      }
+    }
+    $('vergroting-creditline').update(credit);
+    var panel = $('vergroting');
+    panel.setStyle( {
+      width : width + 'px'
+    });
+    this.waitForImage();
+    panel.show();
+  },
+
+  waitForImage: function(){ 
+    if(!$('vergroting-img').complete){ 
+      imgWait=setTimeout('new ImagePanel().waitForImage()', 250); 
+    } else{ 
+      new ImagePanel().fit_in_viewport($('vergroting'));
+    } 
+  },
+  
+  close : function() {
+    $('vergroting').hide();
+  },
+
+  fit_in_viewport : function(panel) {
+    var viewport_dimensions = document.viewport.getDimensions();
+    var panel_dimensions = panel.getDimensions();
+    var panel_viewportoffset = panel.viewportOffset();
+    var panel_left = panel_viewportoffset.left;
+    var panel_top = panel_viewportoffset.top;
+
+//    alert(("panel_dimensions.height:"+panel_dimensions.height+", viewport_dimensions.height:" + viewport_dimensions.height));
+    var possible_width_fit = (panel_dimensions.width <= viewport_dimensions.width);
+    var possible_height_fit = (panel_dimensions.height <= viewport_dimensions.height);
+    var actual_width_fit = (panel_left + panel_dimensions.width <= viewport_dimensions.width);
+    var actual_height_fit = (panel_top + panel_dimensions.height <= viewport_dimensions.height);
+
+    var decrease_width = (!possible_width_fit);
+    var decrease_height = (!possible_height_fit);
+
+    if (decrease_width) {
+      /*      alert("decrease_width"); */
+      panel.setStyle( {
+        left : 0 + 'px',
+        width : viewport_dimensions.width - 10 + 'px'
+      });
+      $('vergroting-img').writeAttribute('width', viewport_dimensions.width - 100);
+      actual_width_fit = true;
+    }
+    if (decrease_height) {
+      panel.setStyle( {
+        top : 0 + 'px'
+      });
+      $('vergroting-img').writeAttribute('height', viewport_dimensions.height - 90);
+      actual_height_fit = true;
+    }
+
+    var reposition_left = (!(actual_width_fit) && possible_width_fit);
+    var reposition_top = (!(actual_height_fit) && possible_height_fit);
+
+    if (reposition_left) {
+      /*alert("reposition_left");*/
+      centered_left = Math.round((viewport_dimensions.width - panel_dimensions.width) / 2);
+      panel.setStyle( {
+        left : centered_left + 'px'
+      });
+    }
+    if (reposition_top) {
+      /*alert("reposition_top");*/
+      centered_top = Math.round((viewport_dimensions.height - panel_dimensions.height) / 2);
+      panel.setStyle( {
+        top : centered_top + 'px'
+      });
+    }
+  }
+};
+
+var MapPanel = Class.create();
+MapPanel.prototype = {
+  initialize : function() {},
+
+  show : function(filename) {
+    $('map-beeld').update('<img id="map-img" src="/vg/maps/' + filename + '"/>');
+    var panel = $('map-panel');
+    this.fit_in_viewport(panel);
+    this.waitForImage();
+    panel.show();
+  },
+
+  close : function() {
+    $('map-panel').hide();
+  },
+  
+  waitForImage: function(){ 
+    if(!$('map-img').complete){ 
+      imgWait=setTimeout('new MapPanel().waitForImage()', 250); 
+    } else{ 
+      new MapPanel().fit_in_viewport($('map-panel'));
+    } 
+  },
+
+  fit_in_viewport : function(panel) {
+    var viewport_dimensions = document.viewport.getDimensions();
+    var panel_dimensions = panel.getDimensions();
+    var panel_viewportoffset = panel.viewportOffset();
+    var panel_left = panel_viewportoffset.left;
+    var panel_top = panel_viewportoffset.top;
+
+    var possible_width_fit = (panel_dimensions.width <= viewport_dimensions.width);
+    var possible_height_fit = (panel_dimensions.height <= viewport_dimensions.height);
+    var actual_width_fit = (panel_left + panel_dimensions.width <= viewport_dimensions.width);
+    var actual_height_fit = (panel_top + panel_dimensions.height <= viewport_dimensions.height);
+
+    var decrease_width = (!possible_width_fit);
+    var decrease_height = (!possible_height_fit);
+
+    if (decrease_width) {
+      /*      alert("decrease_width"); */
+      panel.setStyle( {
+        left : 0 + 'px',
+        width : viewport_dimensions.width - 10 + 'px'
+      });
+      $('map-img').writeAttribute('width', viewport_dimensions.width - 100);
+      actual_width_fit = true;
+    }
+    if (decrease_height) {
+      /*      alert("decrease_height"); */
+      panel.setStyle( {
+        top : 0 + 'px'
+      });
+      $('map-img').writeAttribute('height', viewport_dimensions.height - 40);
+      actual_height_fit = true;
+    }
+
+    var reposition_left = (!(actual_width_fit) && possible_width_fit);
+    var reposition_top = (!(actual_height_fit) && possible_height_fit);
+
+    if (reposition_left) {
+      /*alert("reposition_left");*/
+      centered_left = Math.round((viewport_dimensions.width - panel_dimensions.width) / 2);
+      panel.setStyle( {
+        left : centered_left + 'px'
+      });
+    }
+    if (reposition_top) {
+      /*alert("reposition_top");*/
+      centered_top = Math.round((viewport_dimensions.height - panel_dimensions.height) / 2);
+      panel.setStyle( {
+        top : centered_top + 'px'
+      });
+    }
+  }
+};
+
+var FacsimilePanel = Class.create();
+FacsimilePanel.prototype = {
+  initialize : function(tiler_base) {
+    this.viewerBean = null;
+    this.tiler_base = tiler_base;
+  },
+
+  reinitializeGraphic : function() {
+    if (this.viewerBean) {
+      this.viewerBean.calculateOffset();
+      /*      this.viewerBean.resize(); */
+    };
+  },
+
+  afterResize : function() {
+    this.viewerBean.height = parseInt($('imageViewer').getStyle('height'));
+    this.reinitializeGraphic();
+  },
+
+  resize : function() {
+    var viewportDimensions = document.viewport.getDimensions();
+    var viewportScrollOffsets = document.viewport.getScrollOffsets();
+//    var viewportWidth = viewportDimensions.width;
+    var viewportHeight = viewportDimensions.height;
+    var viewportTop = viewportScrollOffsets.top;
+    var panelHeight = viewportHeight * 0.8;
+    $('fac-vergroting').setStyle( {
+      top : 50 + viewportTop + 'px',
+      height : panelHeight + 'px'
+    });
+    $('imageViewer').setStyle( {
+      height : (panelHeight - 162) + 'px'
+    });
+    this.reinitializeGraphic();
+  },
+  
+//  show : function(n, surfaceTitle, basename, minTileZoomLevel, initialViewZoomLevel, hFactor, vFactor) {
+//    var realshow = "new FacsimilePanel('https://vgtile.vangoghletters.org/vangogh/').realshow("+n+",'"+surfaceTitle+"','"+ basename+"',"+ minTileZoomLevel+","+ initialViewZoomLevel+","+ hFactor+","+ vFactor+")";
+//    var t = setTimeout(realshow,1000);
+//  },
+
+  show : function(n, surfaceTitle, basename, minTileZoomLevel, initialViewZoomLevel, hFactor, vFactor) {
+    var number_of_levels = 2 - minTileZoomLevel;
+    var level = 2 - initialViewZoomLevel;
+//    alert(number_of_levels+","+level);
+    this.resize();
+    $('fac-vergroting').show();
+    $$('.fac-thumb.active').each( function(link) {
+      link.removeClassName('active');
+    });
+    $('fac-thumb-' + n).addClassName('active');
+    $('fac-surface-title').update(surfaceTitle);
+
+    if (this.viewerBean) this.viewerBean.clear();
+    this.viewerBean = new GSV('imageViewer', this.tiler_base + basename + '_tiles', basename + '_tile_', 128, minTileZoomLevel, initialViewZoomLevel, hFactor, vFactor);
+    /*this.viewerBean.fitToWindow();*/
+    this.viewerBean.init();
+    var listener = {
+      number_of_levels:1,
+      setNumberOfLevels: function(nol){
+        this.number_of_levels = nol;
+      },
+      viewerZoomed: function(e){
+        setZoomIndicator(this.number_of_levels,e.level+1,'zoomArrow', 'zoomRuler');
+      }
+    };
+    listener.setNumberOfLevels(number_of_levels);
+    this.viewerBean.addViewerZoomedListener(listener);
+    setZoomIndicator(number_of_levels,level,'zoomArrow', 'zoomRuler');
+  },
+
+  close : function() {
+    $('fac-vergroting').hide();
+  }
+
+};
+
+function setZoomIndicator(number_of_levels,level,levelArrowId,levelRulerId) {
+  var numberHeight;
+  levelNumber = number_of_levels-8;
+  //alert ("levelNumber="+abs(levelNumber));
+  
+  numberHeight = 6 + ((63 -(abs(levelNumber)*8))-9) +'px';
+  //alert ("numberHeight="+numberHeight);
+  numberMargin = (abs(levelNumber)*8);
+  
+  //arrow
+  numberArrow = (63-(level*8)+5);
+  //alert ("levelsAmount="+levelsAmount + ' numberArrow=' + numberArrow);
+  
+  var levelRuler = document.getElementById(levelRulerId);
+  levelRuler.style.height = numberHeight;
+  levelRuler.style.marginTop = numberMargin +3+'px';
+
+  var levelArrow = document.getElementById(levelArrowId);
+  levelArrow.style.height = numberArrow +3+'px';
+}
+
+var WatermarkPanel = Class.create();
+WatermarkPanel.prototype = {
+  initialize : function(tiler_base) {
+    this.viewerBean = null;
+    this.tiler_base = tiler_base;
+  },
+
+  reinitializeGraphic : function() {
+    if (this.viewerBean) {
+      /*     this.viewerBean.resize(); */
+    };
+  },
+
+  afterResize : function() {
+    this.viewerBean.height = parseInt($('wmImageViewer').getStyle('height'));
+    this.reinitializeGraphic();
+  },
+
+  resize : function() {
+    var viewportDimensions = document.viewport.getDimensions();
+    var viewportScrollOffsets = document.viewport.getScrollOffsets();
+//    var viewportWidth = viewportDimensions.width;
+    var viewportHeight = viewportDimensions.height;
+    var viewportTop = viewportScrollOffsets.top;
+    var panelHeight = viewportHeight * 0.8;
+    $('watermark-zoom').setStyle( {
+      top : 50 + viewportTop + 'px',
+      height : panelHeight + 'px'
+    });
+    $('wmImageViewer').setStyle( {
+      height : (panelHeight - 20) + 'px'
+    });
+    this.reinitializeGraphic();
+  },
+
+  show : function(basename, minTileZoomLevel, initialViewZoomLevel, hFactor, vFactor) {
+    var number_of_levels = 2 - minTileZoomLevel;
+    var level = 2 - initialViewZoomLevel;
+    this.resize();
+    $('watermark-zoom').show();
+    if (this.viewerBean) this.viewerBean.clear();
+    this.viewerBean = new GSV('wmImageViewer', this.tiler_base + basename + '_tiles', basename + '_tile_', 128, minTileZoomLevel, initialViewZoomLevel, hFactor, vFactor);
+    /*this.viewerBean.fitToWindow();*/
+    this.viewerBean.init();
+    var listener = {
+      number_of_levels:1,
+      setNumberOfLevels: function(nol){
+        this.number_of_levels = nol;
+      },
+      viewerZoomed: function(e){
+        setZoomIndicator(this.number_of_levels,e.level+1,'wmZoomArrow', 'wmZoomRuler');
+      }
+    };
+    listener.setNumberOfLevels(number_of_levels);
+    this.viewerBean.addViewerZoomedListener(listener);
+    setZoomIndicator(number_of_levels,level,'wmZoomArrow', 'wmZoomRuler');
+  },
+
+  close : function() {
+    $('watermark-zoom').hide();
+  }
+
+};
+
+var FormSettings = Class.create();
+FormSettings.prototype = {
+  initialize : function(form_id) {
+    this.form = $(form_id);
+    this.cookie = new Cookie('formsettings_' + form_id);
+    this.textfields = [ 'term', 'person_terms', 'person_code', 'literature_terms', 'literature_code', 'workofart_terms', 'workofart_code', 'bibleref_terms', 'bibleref_code', 'f_number',
+        'jh_number', 'id_range', 'date_from', 'date_until', 'period', 'periodical', 'correspondent_name', 'correspondent_id', 'place_name', 'place_id' ];
+    this.checkables = [ 'originaltext', 'translation', 'annotations', 'bibliography', 'from', 'to', 'sketches' ];
+    this.order_options = [ 'relevance', 'correspondent', 'date' ];
+    this.idtype_values = [ 'jlb_id', 'brieven1990_id', 'collectedletters_id' ];
+    this.default_on = [ 'originaltext', 'translation', 'annotations', 'essays', 'bibliography', 'other', 'from', 'to', 'sketches' ];
+    this.default_off = [ 'sketches' ];
+    this.load_id_type_setting();
+  },
+
+  save : function() {
+    this.cookie.create($H(this.form.serialize(true)).toJSON(), 365);
+  },
+
+  load : function() {
+    var jsonString = this.cookie.read();
+    if (jsonString) {
+      settingsHash = $H(jsonString.evalJSON(true));
+      this.checkables.each( function(checkable_id) {
+        $(checkable_id).checked = !Object.isUndefined(settingsHash.get(checkable_id));
+      });
+      this.textfields.each( function(textfield_id) {
+        $(textfield_id).value = settingsHash.get(textfield_id);
+      });
+      var saved_order = settingsHash.get('order');
+      this.order_options.each( function(option) {
+        $(option).checked = (saved_order == option);
+      });
+      this.set_id_type(settingsHash.get('id_type'));
+    }
+  },
+
+  load_id_type_setting: function() {
+    var jsonString = this.cookie.read();
+    if (jsonString) {
+      settingsHash = $H(jsonString.evalJSON(true));
+      this.set_id_type(settingsHash.get('id_type'));
+    }
+  },
+  
+  set_id_type: function(saved_idtype) {
+    var index = 0;
+    this.idtype_values.each( function(option) {
+      if (saved_idtype == option) {
+        $('id_type').selectedIndex = index;
+      }
+      index++;
+    });
+  },
+
+  reset : function() {
+    this.default_on.each( function(checkable_id) {
+      $(checkable_id).checked = true;
+    });
+    this.default_off.each( function(checkable_id) {
+      $(checkable_id).checked = false;
+    });
+    this.textfields.each( function(textfield_id) {
+      $(textfield_id).value = '';
+    });
+
+    $('date_from').value = '1872-09-29';
+    $('date_until').value = '1890-07-31';
+
+    /* idtypes select */
+    $('id_type').selectedIndex = 0;
+
+    /* sortby radio */
+    $('relevance').checked = false;
+    $('correspondent').checked = false;
+    $('date').checked = true;
+    this.save();
+  },
+
+  submitOnEnter : function(e) {
+    var charCode="";
+    if (window.event) { /* IE */
+      charCode = e.keyCode;
+    } else if (e.which) { /* Netscape/Firefox/Opera */
+      charCode = e.which;
+    }
+    if (charCode == "13") {
+      this.save();
+      this.form.submit();
+      return false;
+    }
+  }
+
+};
+
+var YearLine = Class.create();
+YearLine.prototype = {
+  initialize : function() {
+    this.cookie = new Cookie('active_year');
+    this.active_year = this.cookie.read() || 1853;
+    $('show' + this.active_year + '_1').addClassName('active');
+    $('show' + this.active_year + '_2').addClassName('active');
+    $('year' + this.active_year).show();
+    $('y' + this.active_year).show();
+  },
+  activateYear : function(year) {
+    $('show' + this.active_year + '_1').removeClassName('active');
+    $('show' + year + '_1').addClassName('active');
+    $('show' + this.active_year + '_2').removeClassName('active');
+    $('show' + year + '_2').addClassName('active');
+    $('year' + this.active_year).toggle();
+    $('year' + year).toggle();
+    $('y' + this.active_year).toggle();
+    $('y' + year).toggle();
+    this.active_year = year;
+    this.cookie.create(this.active_year, 365);
+  }
+};
+
+/* loose functions */
+function currentTab(element) {
+  p = $(element).up();
+  while (!p.hasClassName('tab-container')) {
+    p = p.up();
+  }
+  return (p);
+}
+
+function toggleMetadata(element, metadataid) {
+  currentTab(element).select('.' + metadataid).first().toggle();
+}
+
+function showFacsimile(element, facsimile_id) {
+  var tab = currentTab(element);
+
+  var currentFullPanel = tab.select('div[class="full"]').first();
+  if (currentFullPanel) {
+    currentFullPanel.removeClassName('full');
+    currentFullPanel.hide();
+  }
+
+  var newFullPanel = tab.select('div[id="fac-' + facsimile_id + '-full"]').first();
+  newFullPanel.addClassName('full');
+  newFullPanel.show();
+}
+
+function toggleMore() {
+  var span = $('more_div');
+  var link = $('more_link');
+  if (span.visible()) {
+    span.hide();
+    link.update('more...');
+  } else {
+    span.show();
+    link.update('less...');
+  }
+}
+
+// function showPeriod(n, title) {
+// for ( var i = 0; i < 16; i++) {
+// menulink = $('menulink-' + i);
+// if (i == n) {
+// menulink.addClassName('active');
+// } else {
+// menulink.removeClassName('active');
+// }
+// }
+// h2 = $('header').childElements()[1];
+// h2.update(title);
+// period = $('period-' + n);
+// showdiv = $('selected_period');
+// showdiv.update(period.innerHTML);
+// }
+
+function showLetterGroup(n, title) {
+  $$('.lettergrouplink.active').each( function(link) {
+    link.removeClassName('active');
+  });
+
+  $('lettergrouplink-' + n).addClassName('active');
+
+  h2 = $('header').childElements()[1];
+  h2.update(title);
+
+  group = $('lettergroup-' + n);
+  showdiv = $('selected_lettergroup');
+  showdiv.update(group.innerHTML);
+}
+
+/* old */
+function usePeriod() {
+  period_select = $('period_select');
+  selected = period_select.options[period_select.selectedIndex].value;
+  select_range = $('selectform_range');
+  select_range.value = selected;
+  search_range = $('searchform_range');
+  search_range.value = selected;
+  $('selectform_id_type').selectedIndex = 0;
+  $('searchform_id_type').selectedIndex = 0;
+}
+
+function pickPeriod(name, range, startdate, enddate) {
+  $('period').value = name;
+  $('id_range').value = range;
+  $('date_from').value = startdate;
+  $('date_until').value = enddate;
+  $('id_type').selectedIndex = 0;
+}
+
+function makeReferencedTabVisible() {
+  var url = location.href;
+  var reference = location.hash;
+  if (reference.length == 0) return;
+  switch (reference) {
+    case "#title":
+    case "#date":
+    case "#additional":
+      // do nothing
+      return;
+      break;
+    case "#original":
+    case "#translation":
+      break;
+    default:
+      if (reference.match("#n-")) {
+        url = url.replace(reference, "#notes");
+      } else
+        return;
+  }
+  var leftCookie = new Cookie('left_settings');
+  var currentLeftTab = leftCookie.read();
+  var currentRightTab = new Cookie('right_settings').read();
+  var currentRight3Tab = new Cookie('right3_settings').read();
+  var currentRight4Tab = new Cookie('right4_settings').read();
+  if (url != currentLeftTab && url != currentRightTab && url != currentRight3Tab && url != currentRight4Tab) {
+    leftCookie.create(url, 365);
+  }
+}
+
+function pick(input_id, value) {
+  input = $(input_id);
+  input.value = value;
+//  input.activate();
+}
+
+function pick2(input_id, value1, value2) {
+  pick(input_id + '_name', value1);
+  $(input_id + '_id').value = value2;
+}
+
+function toggle_visibility(id, liid) {
+  $(id).toggle();
+  $(liid).hide();
+}
+
+function showSearchResults() {
+  var query_url = new Cookie('query_url').read();
+  if (query_url) {
+    location.href = query_url;//.replace('localhost','www.vangoghletters.org');
+  }
+}
+
+/* http://www.kryogenix.org/code/browser/searchhi/ */
+/* Modified 20021006 to fix query string parsing and add case insensitivity */
+/* Modified 20070316 to stop highlighting inside nosearchhi nodes */
+/* [BB] Modified 20080828 to adjust for vg site */
+Element.addMethods( {
+  textNodes : function(element, shallow) {
+    var results = [], node = $(element).firstChild;
+    while (node) {
+      if (node.nodeType === 3)
+        results.push(node);
+      else if (!shallow && node.hasChildNodes()) results = results.concat(arguments.callee(node));
+      node = node.nextSibling;
+    }
+    return results;
+  }
+});
+
+function highlightWord(element, word) {
+  var tempWordVal = word.toLowerCase();
+  if (tempWordVal == "" || element==null) return;
+  element.textNodes().each( function(node) {
+    tempNodeVal = node.nodeValue.toLowerCase();
+    if (tempNodeVal.indexOf(tempWordVal) != -1) {
+      pn = node.parentNode;
+      // check if we're inside a "nosearchhi" zone
+      checkn = pn;
+      while (checkn.nodeType != 9 && checkn.nodeName.toLowerCase() != 'body') {
+        /* 9 = top of doc */
+        if (checkn.className.match(/\bnosearchhi\b/)) return;
+        checkn = checkn.parentNode;
+      }
+      if (pn.className != "highlight") {
+        // word has not already been highlighted!
+        nv = node.nodeValue;
+        ni = tempNodeVal.indexOf(tempWordVal);
+        // Create a load of replacement nodes
+        before = document.createTextNode(nv.substr(0, ni));
+        docWordVal = nv.substr(ni, word.length);
+        after = document.createTextNode(nv.substr(ni + word.length));
+        hiwordtext = document.createTextNode(docWordVal);
+        hiword = document.createElement("span");
+        hiword.className = "highlight";
+        hiword.appendChild(hiwordtext);
+        pn.insertBefore(before, node);
+        pn.insertBefore(hiword, node);
+        pn.insertBefore(after, node);
+        pn.removeChild(node);
+      }
+    }
+  });
+}
+
+function highlightSearchTerms() {
+  if (!document.createElement) return;
+
+  var ref = document.referrer;
+//  alert(ref);
+  if (ref.indexOf('?') == -1) return;
+
+  var page = $('text');
+  var qs = ref.substr(ref.indexOf('?') + 1);
+  var qsa = qs.split('&');
+  for ( var i = 0; i < qsa.length; i++) {
+    var qsip = qsa[i].split('=');
+    if (qsip.length == 1) continue;
+    switch (qsip[0]) {
+      case 'term':
+        var terms = decodeURIComponent(qsip[1].replace(/\+/g, ' '));
+        if (terms.charAt(0) == '"') {
+          words = [ terms.replace('"', '').replace('"', '') ];
+        } else {
+          words = terms.split(/\s+/);
+        }
+        for ( var w = 0; w < words.length; w++) {
+          highlightWord(page, words[w]);
+        }
+        break;
+
+      case 'periodical':
+        words = decodeURIComponent(qsip[1].replace(/\+/g, ' '));
+        highlightWord(page, words);
+        break;
+
+      case 'f_number':
+        numbers = unescape(qsip[1].replace(/\+/g, ' ')).split(/\s+/);
+        for ( var w = 0; w < numbers.length; w++) {
+          if (numbers[w] != "") {
+            highlightWord(page, "F " + numbers[w]);
+          }
+        }
+        break;
+
+      case 'jh_number':
+        numbers = unescape(qsip[1].replace(/\+/g, ' ')).split(/\s+/);
+        for ( var w = 0; w < numbers.length; w++) {
+          if (numbers[w] != "") {
+            highlightWord(page, "JH " + numbers[w]);
+          }
+        }
+        break;
+
+      case 'person_code':
+        highlightReference(qsip[1], 'pers');
+        break;
+
+      case 'literature_code':
+        highlightReference(qsip[1], 'lit');
+        break;
+
+      case 'workofart_code':
+        if (qsip[1] != '') {
+          var codes = unescape(qsip[1].replace(/i/,'ill').replace(/o/,'otherart').replace(/\+/g, ' ')).split(/\s+/);
+          for ( var c = 0; c < codes.length; c++) {
+            $$('.' + codes[c]).each( function(div) {
+              div.addClassName('highlight');
+            });
+          }
+        }
+
+        break;
+
+      case 'sketch_code':
+        highlightReference(qsip[1], 'sketch');
+        break;
+
+      case 'bibleref_code':
+        highlightReference(qsip[1], 'bib');
+    }
+  }
+}
+
+function scrollToFirstHighlightedElement(){
+  var e = firstVisibleHighlightedElement();
+  if (e) { e.scrollTo(); }
+}
+
+function firstVisibleHighlightedElement(){
+  highlighted_elements = $$('.highlight');
+  for (var i=0; i < highlighted_elements.length; i++) {
+    var e = $$('.highlight')[i];
+    if (e.getStyle('visibility')!='hidden'){
+      return e;
+    }
+  }
+  return null;
+}
+
+function openReferencedNote(){
+  var reference = location.hash;
+  if (reference.length == 0) return;
+  if (reference.match("#n-")) {
+    notelink_id = reference.replace('#n-','linknote');
+    $(notelink_id).scrollTo();
+    ZZLN_toggleLayer(notelink_id.replace('link',''));
+  }
+}
+
+function highlightReference(codestring, reftype) {
+  if (codestring != '') {
+    var codes = unescape(codestring.replace(/\+/g, ' ')).split(/\s+/);
+    for ( var c = 0; c < codes.length; c++) {
+      $$('.' + reftype + codes[c]).each( function(div) {
+        div.addClassName('highlight');
+      });
+    }
+  }
+}
+
+/* for IE css expressions, see http://webfx.eae.net/dhtml/cssexpr/cssexpr.html */
+function constExpression(x) {
+  return x;
+}
+
+/**
+* A static utility class for accessing browser-neutral event properties and
+* methods.
+*/
+function EventUtils() {
+  throw 'RuntimeException: EventUtils is a static utility class and may not be instantiated';
+}
+
+EventUtils.addEventListener = function(target, type, callback, captures) {
+  var result = true;
+  if (target.addEventListener) {
+    target.addEventListener(type, callback, captures);
+  } else if (target.attachEvent) {
+    result = target.attachEvent('on' + type, callback, captures);
+  } else {
+    // IE 5 Mac and some others
+    target['on' + type] = callback;
+  }
+
+  return result;
+};
+
+EventUtils.findTarget = function(e, allowTextNodes) {
+  var target;
+  if (window.event) {
+    target = window.event.srcElement;
+  } else if (e) {
+    target = e.target;
+  } else {
+    // we can't find it, just use window
+    target = window;
+  }
+
+  if (!allowTextNodes && target.nodeType == 3) {
+    target = target.parentNode;
+  }
+
+  return target;
+};
+
+/**
+* @return {x, y}
+*/
+EventUtils.getMousePosition = function(e) {
+  var posx = 0;
+  var posy = 0;
+  if (!e) {
+    e = window.event;
+  }
+
+  if (e.pageX || e.pageY) {
+    posx = e.pageX;
+    posy = e.pageY;
+  } else if (e.clientX || e.clientY) {
+    posx = e.clientX + document.body.scrollLeft;
+    posy = e.clientY + document.body.scrollTop;
+  }
+
+  return {
+    x : posx,
+    y : posy
+  };
+};
+
+function TextSelectionEvent(selectedText, mousePosition) {
+  this.selectedText = selectedText;
+  this.x = mousePosition.x;
+  this.y = mousePosition.y;
+}
+
+/**
+* Panoramic JavaScript Image Viewer (PanoJS) 1.0.2
+*
+* Generates a draggable and zoomable viewer for images that would
+* be otherwise too large for a browser window.  Examples would include
+* maps or high resolution document scans.
+*
+* Images must be precut into tiles, such as by the accompanying tilemaker.py
+* python library.
+*
+* <div class="viewer">
+*   <div class="well"><!-- --></div>
+*   <div class="surface"><!-- --></div>
+*   <div class="controls">
+*     <a href="#" class="zoomIn">+</a>
+*     <a href="#" class="zoomOut">-</a>
+*   </div>
+* </div>
+*
+* The "well" node is where generated IMG elements are appended. It
+* should have the CSS rule "overflow: hidden", to occlude image tiles
+* that have scrolled out of view.
+*
+* The "surface" node is the transparent mouse-responsive layer of the
+* image viewer, and should match the well in size.
+*
+* var viewerBean = new GSV(element, 'tiles', 256, 3, 1);
+*
+* To disable the image toolbar in IE, be sure to add the following:
+* <meta http-equiv="imagetoolbar" content="no" />
+*
+* Copyright (c) 2005 Michal Migurski <mike-gsv@teczno.com>
+*                    Dan Allen <dan.allen@mojavelinux.com>
+*
+* Redistribution and use in source form, with or without modification,
+* are permitted provided that the following conditions are met:
+* 1. Redistributions of source code must retain the above copyright
+*    notice, this list of conditions and the following disclaimer.
+* 2. The name of the author may not be used to endorse or promote products
+*    derived from this software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+* IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+* OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+* IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+* INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+* NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+* THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+* THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*
+* @author Michal Migurski <mike-gsv@teczno.com>
+* @author Dan Allen <dan.allen@mojavelinux.com>
+*
+* NOTE: if artifacts are appearing, then positions include half-pixels
+* TODO: additional jsdoc and package jsmin
+* TODO: Tile could be an object
+*/
+function GSV(viewer, tileDir, prefix, tileSize, minTileZoomLevel, initialViewZoomLevel, hFactor, vFactor) {
+
+  // The tiles use a different way of numbering the zoomlevels as is used in this script:
+  // for the tiles, zoomlevel 0 is the zoomlevel at which the original image isn't scaled,
+  // and zoomlevel minTileZoomLevel is the zoomlevel at which the image is scaled to fit the minimum amount of tiles
+  // For the tiles, the zoomlevels are numbered minTileZoomLevel (which is a negative number) to 1
+  // Internally, zoomlevels go from 0 (the zoomlevel at which the image is scaled to fit the minimum amount of tiles) to abs(minTileZoomLevel)+1
+
+  // listeners that are notified on a move (pan) event
+  this.viewerMovedListeners = [];
+  // listeners that are notified on a zoom event
+  this.viewerZoomedListeners = [];
+  this.viewer = $(viewer);
+
+  this.surface = null;
+  this.well = null;
+
+  this.tileDir = tileDir ? tileDir : 'tiles';
+  this.tileSize = tileSize ? tileSize : 256;
+
+  // assign and do some validation on the zoom levels to ensure sanity
+  this.initialZoomLevel = (typeof initialViewZoomLevel == 'undefined' ? 0 : parseInt(initialViewZoomLevel));
+  this.initialZoomLevel = 2;
+  this.zoomLevel = 2;
+  this.minZoomLevel = 0;
+  this.maxZoomLevel = 1 - minTileZoomLevel;
+  if (this.zoomLevel > this.maxZoomLevel) {
+    this.zoomLevel = this.maxZoomLevel;
+  }
+
+  this.width = 0;
+  this.height = 0;
+  this.top = 0;
+  this.left = 0;
+  this.x = 0;
+  this.y = 0;
+  this.border = -1;
+  this.mark = {
+    'x' : 0,
+    'y' : 0
+  };
+  this.pressed = false;
+  this.tiles = [];
+  this.cache = {};
+  this.cache['blank'] = new Image();
+  this.cache['blank'].src = GSV.BLANK_TILE_IMAGE;
+  if (GSV.BLANK_TILE_IMAGE != GSV.LOADING_TILE_IMAGE) {
+    this.cache['loading'] = new Image();
+    this.cache['loading'].src = GSV.LOADING_TILE_IMAGE;
+  } else {
+    this.cache['loading'] = this.cache['blank'];
+  }
+
+  this.initialized = false;
+
+  // employed to throttle the number of redraws that
+  // happen while the mouse is moving
+  this.moveCount = 0;
+  this.slideMonitor = 0;
+  this.slideAcceleration = 0;
+
+  this.prefix = prefix;
+
+  this.hFactor = hFactor;
+  this.vFactor = vFactor;
+  this.debug();
+}
+
+GFX_URL = '/vg/gsv/gfx/';
+GSV.PROJECT_NAME = 'GSV';
+GSV.PROJECT_VERSION = '2.0';
+GSV.REVISION_FLAG = '';
+GSV.SURFACE_STYLE_CLASS = 'surface';
+GSV.WELL_STYLE_CLASS = 'well';
+GSV.CONTROLS_STYLE_CLASS = 'controls';
+GSV.TILE_STYLE_CLASS = 'tile';
+GSV.TILE_FILE_EXTENSION = 'png';
+GSV.BLANK_TILE_IMAGE = GFX_URL + 'blank.gif';
+GSV.LOADING_TILE_IMAGE = GFX_URL + 'progress.gif';
+GSV.GRAB_MOUSE_CURSOR = navigator.userAgent.search(/KHTML|Opera/i) >= 0 ? 'pointer' : document.attachEvent ? 'url(\'' + GFX_URL + 'grab.cur\')' : '-moz-grab';
+GSV.GRABBING_MOUSE_CURSOR = navigator.userAgent.search(/KHTML|Opera/i) >= 0 ? 'move' : document.attachEvent ? 'url(\'' + GFX_URL + 'grabbing.cur\')' : '-moz-grabbing';
+GSV.MOVE_THROTTLE = 3;
+GSV.DOM_ONLOAD = navigator.userAgent.indexOf('KHTML') >= 0 ? false : true;
+GSV.USE_LOADER = true;
+GSV.USE_SLIDE = true;
+GSV.SLIDE_DELAY = 40;
+GSV.SLIDE_ACCELERATION_FACTOR = 5;
+GSV.INITIAL_PAN = {
+  'x' : .5,
+  'y' : .5
+};
+
+GSV.prototype = {
+
+  /**
+   * Resize the viewer to fit snug inside the browser window (or frame),
+   * spacing it from the edges by the specified border.
+   * 
+   * This method should be called prior to init()
+   * FIXME: option to hide viewer to prevent scrollbar interference
+   */
+  fitToWindow : function(border) {
+    if (typeof border != 'number' || border < 0) {
+      border = 0;
+    }
+
+    this.border = border;
+    var calcWidth = 0;
+    var calcHeight = 0;
+    if (window.innerWidth) {
+      calcWidth = window.innerWidth;
+      calcHeight = window.innerHeight;
+    } else {
+      calcWidth = document.compatMode == 'CSS1Compat' ? document.documentElement.clientWidth : document.body.clientWidth;
+      calcHeight = document.compatMode == 'CSS1Compat' ? document.documentElement.clientHeight : document.body.clientHeight;
+    }
+
+    calcWidth = Math.max(calcWidth - 2 * border, 0);
+    calcHeight = Math.max(calcHeight - 2 * border, 0);
+    if (calcWidth % 2) {
+      calcWidth--;
+    }
+
+    if (calcHeight % 2) {
+      calcHeight--;
+    }
+
+    // alert("calcwidth="+calcWidth+",calcheight="+calcHeight)
+
+    this.width = calcWidth;
+    this.height = calcHeight;
+    this.viewer.style.width = this.width + 'px';
+    this.viewer.style.height = this.height + 'px';
+    this.viewer.style.top = border + 'px';
+    this.viewer.style.left = border + 'px';
+    this.debug();
+  },
+
+  init : function() {
+    if (document.attachEvent) {
+      document.body.ondragstart = function() {
+        return false;
+      };
+    }
+    this.calculateOffset();
+
+    // alert("width="+this.width+",height="+this.height)
+    var fullSize = this.tileSize;
+    // explicit set of zoom level
+    if (this.zoomLevel >= 0 && this.zoomLevel <= this.maxZoomLevel) {
+      fullSize = this.tileSize * Math.pow(2, this.zoomLevel);
+    }
+    // calculate the zoom level based on what fits best in window
+    else {
+      this.zoomLevel = -1;
+      fullSize = this.tileSize / 2;
+      do {
+        this.zoomLevel += 1;
+        fullSize *= 2;
+      } while (fullSize < Math.max(this.width, this.height));
+    }
+
+    // move top level up and to the left so that the image is centered
+    this.x = Math.floor((fullSize - this.width / this.hFactor) * -GSV.INITIAL_PAN.x * this.hFactor);
+    this.y = Math.floor((fullSize - this.height / this.vFactor) * -GSV.INITIAL_PAN.y * this.vFactor);
+
+    for ( var child = this.viewer.firstChild; child; child = child.nextSibling) {
+      if ((typeof child.className !== 'undefined') && child.className.startsWith(GSV.SURFACE_STYLE_CLASS)) {
+        this.surface = child;
+        child.backingBean = this;
+      } else if (child.className == GSV.WELL_STYLE_CLASS) {
+        this.well = child;
+        child.backingBean = this;
+      } else if (child.className == GSV.CONTROLS_STYLE_CLASS) {
+        for ( var control = child.firstChild; control; control = control.nextSibling) {
+          if (control.className) {
+            handler = GSV[control.className + 'Handler'];
+            if (handler) {
+              control.onclick = handler;
+            }
+          }
+        }
+      }
+    }
+
+    this.viewer.backingBean = this;
+    this.surface.style.cursor = GSV.GRAB_MOUSE_CURSOR;
+    this.prepareTiles();
+    this.initialized = true;
+    this.debug();
+  },
+
+  calculateOffset : function() {
+    var oldWidth = this.width;
+    this.width = this.viewer.offsetWidth;
+    this.height = this.viewer.offsetHeight;
+    var left_top = this.viewer.viewportOffset();
+    this.left = left_top[0];
+
+    this.top = left_top[1];
+    if (oldWidth < this.width) {
+      this.resize();
+    }
+
+    //  this.top = 0;
+    //  this.left = 0;
+    //  // offset of viewer in the window
+    //  for ( var node = this.viewer; node; node = node.offsetParent) {
+    //    this.top += node.offsetTop;
+    //    this.left += node.offsetLeft;
+    //  }
+    this.debug();
+  },
+
+  prepareTiles : function() {
+    var rows = Math.ceil(this.height / this.tileSize) + 1;
+    var cols = Math.ceil(this.width / this.tileSize) + 1;
+    // alert('rows='+rows+',cols='+cols)
+
+    for ( var c = 0; c < cols; c++) {
+      var tileCol = [];
+
+      for ( var r = 0; r < rows; r++) {
+        /**
+         * element is the DOM element associated with this tile
+         * posx/posy are the pixel offsets of the tile
+         * xIndex/yIndex are the index numbers of the tile segment
+         * qx/qy represents the quadrant location of the tile
+         */
+        var tile = {
+          'element' : null,
+          'posx' : 0,
+          'posy' : 0,
+          'xIndex' : c,
+          'yIndex' : r,
+          'qx' : c,
+          'qy' : r
+        };
+
+        tileCol.push(tile);
+      }
+
+      this.tiles.push(tileCol);
+    }
+
+    this.surface.onmousedown = GSV.mousePressedHandler;
+    this.surface.onmouseup = this.surface.onmouseout = GSV.mouseReleasedHandler;
+    this.surface.ondblclick = GSV.doubleClickHandler;
+
+    this.positionTiles();
+    this.debug();
+  },
+
+  /**
+   * Position the tiles based on the x, y coordinates of the
+   * viewer, taking into account the motion offsets, which
+   * are calculated by a motion event handler.
+   */
+  positionTiles : function(motion, reset) {
+    // default to no motion, just setup tiles
+    if (typeof motion == 'undefined') {
+      motion = {
+        'x' : 0,
+        'y' : 0
+      };
+    }
+    // alert('positionTiles('+motion+','+reset+')')
+
+    for ( var c = 0; c < this.tiles.length; c++) {
+      for ( var r = 0; r < this.tiles[c].length; r++) {
+        var tile = this.tiles[c][r];
+
+        tile.posx = (tile.xIndex * this.tileSize) + this.x + motion.x;
+        tile.posy = (tile.yIndex * this.tileSize) + this.y + motion.y;
+
+        var visible = true;
+
+        if (tile.posx > this.width) {
+          // tile moved out of view to the right
+          // consider the tile coming into view from the left
+          do {
+            tile.xIndex -= this.tiles.length;
+            tile.posx = (tile.xIndex * this.tileSize) + this.x + motion.x;
+          } while (tile.posx > this.width);
+
+          if (tile.posx + this.tileSize < 0) {
+            visible = false;
+          }
+
+        } else {
+          // tile may have moved out of view from the left
+          // if so, consider the tile coming into view from the right
+          while (tile.posx < -this.tileSize) {
+            tile.xIndex += this.tiles.length;
+            tile.posx = (tile.xIndex * this.tileSize) + this.x + motion.x;
+          }
+
+          if (tile.posx > this.width) {
+            visible = false;
+          }
+        }
+
+        if (tile.posy > this.height) {
+          // tile moved out of view to the bottom
+          // consider the tile coming into view from the top
+          do {
+            tile.yIndex -= this.tiles[c].length;
+            tile.posy = (tile.yIndex * this.tileSize) + this.y + motion.y;
+          } while (tile.posy > this.height);
+
+          if (tile.posy + this.tileSize < 0) {
+            visible = false;
+          }
+
+        } else {
+          // tile may have moved out of view to the top
+          // if so, consider the tile coming into view from the bottom
+          while (tile.posy < -this.tileSize) {
+            tile.yIndex += this.tiles[c].length;
+            tile.posy = (tile.yIndex * this.tileSize) + this.y + motion.y;
+          }
+
+          if (tile.posy > this.height) {
+            visible = false;
+          }
+        }
+
+        // initialize the image object for this quadrant
+        if (!this.initialized) {
+          this.assignTileImage(tile, true);
+          tile.element.style.top = tile.posy + 'px';
+          tile.element.style.left = tile.posx + 'px';
+        }
+
+        // display the image if visible
+        if (visible) {
+          this.assignTileImage(tile);
+        }
+
+        // seems to need this no matter what
+        tile.element.style.top = tile.posy + 'px';
+        tile.element.style.left = tile.posx + 'px';
+      }
+    }
+
+    // reset the x, y coordinates of the viewer according to motion
+    if (reset) {
+      this.x += motion.x;
+      this.y += motion.y;
+    }
+    this.debug();
+  },
+
+  /**
+   * Determine the source image of the specified tile based
+   * on the zoom level and position of the tile.  If forceBlankImage
+   * is specified, the source should be automatically set to the
+   * null tile image.  This method will also setup an onload
+   * routine, delaying the appearance of the tile until it is fully
+   * loaded, if configured to do so.
+   */
+  assignTileImage : function(tile, forceBlankImage) {
+    // alert("assignTileImage(["+tile.xIndex+","+tile.yIndex+"],"+forceBlankImage+")")
+    var tileImgId, src;
+    var useBlankImage = forceBlankImage ? true : false;
+
+    // check if image has been scrolled too far in any particular direction
+    // and if so, use the null tile image
+    if (!useBlankImage) {
+      var left = tile.xIndex < 0;
+      var high = tile.yIndex < 0;
+      var right = tile.xIndex >= this.hFactor * Math.pow(2, this.zoomLevel);
+      var low = tile.yIndex >= this.vFactor * Math.pow(2, this.zoomLevel);
+      if (high || left || low || right) {
+        useBlankImage = true;
+      }
+    }
+
+    if (useBlankImage) {
+      tileImgId = 'blank:' + tile.qx + ':' + tile.qy;
+      src = this.cache['blank'].src;
+    } else {
+      tileZoomLevel = this.zoomLevel - this.maxZoomLevel + 1;
+      tileImgId = src = this.tileDir + '/zoom' + tileZoomLevel + '/' + this.prefix + tileZoomLevel + '_' + tile.yIndex + '_' + tile.xIndex + '.' + GSV.TILE_FILE_EXTENSION
+          + (GSV.REVISION_FLAG ? '?r=' + GSV.REVISION_FLAG : '');
+      this.debug('tileImgId=' + tileImgId);
+    }
+
+    // only remove tile if identity is changing
+    if (tile.element && tile.element.parentNode && tile.element.relativeSrc != src) {
+      this.well.removeChild(tile.element);
+    }
+
+    var tileImg = this.cache[tileImgId];
+    // create cache if not exist
+    if (!tileImg) {
+      tileImg = this.cache[tileImgId] = this.createPrototype(src);
+    }
+
+    if (useBlankImage || !GSV.USE_LOADER || tileImg.complete || tileImg.image && tileImg.image.complete) {
+      tileImg.onload = function() {};
+      if (tileImg.image) {
+        tileImg.image.onload = function() {};
+      }
+
+      if (!tileImg.parentNode) {
+        tile.element = this.well.appendChild(tileImg);
+      }
+    } else {
+      var loadingImgId = 'loading:' + tile.qx + ':' + tile.qy;
+      var loadingImg = this.cache[loadingImgId];
+      if (!loadingImg) {
+        loadingImg = this.cache[loadingImgId] = this.createPrototype(this.cache['loading'].src);
+      }
+
+      // alert(tileImgId)
+      loadingImg.targetSrc = tileImgId;
+
+      var well = this.well;
+      tile.element = well.appendChild(loadingImg);
+      tileImg.onload = function() {
+        // make sure our destination is still present
+        if (loadingImg.parentNode && loadingImg.targetSrc == tileImgId) {
+          tileImg.style.top = loadingImg.style.top;
+          tileImg.style.left = loadingImg.style.left;
+          well.replaceChild(tileImg, loadingImg);
+          tile.element = tileImg;
+        }
+
+        tileImg.onload = function() {};
+        return false;
+      };
+
+      // konqueror only recognizes the onload event on an Image
+      // javascript object, so we must handle that case here
+      if (!GSV.DOM_ONLOAD) {
+        tileImg.image = new Image();
+        tileImg.image.onload = tileImg.onload;
+        tileImg.image.src = tileImg.src;
+      }
+    }
+    this.debug();
+  },
+
+  createPrototype : function(src) {
+    var img = document.createElement('img');
+    img.src = src;
+    img.relativeSrc = src;
+    img.className = GSV.TILE_STYLE_CLASS;
+    img.style.width = this.tileSize + 'px';
+    img.style.height = this.tileSize + 'px';
+    this.debug();
+    return img;
+  },
+
+  addViewerMovedListener : function(listener) {
+    this.viewerMovedListeners.push(listener);
+    this.debug();
+  },
+
+  addViewerZoomedListener : function(listener) {
+    this.viewerZoomedListeners.push(listener);
+    this.debug();
+  },
+
+  /**
+   * Notify listeners of a zoom event on the viewer.
+   */
+  notifyViewerZoomed : function() {
+    var percentage = 100 / (this.maxZoomLevel + 1) * (this.zoomLevel + 1);
+    for ( var i = 0; i < this.viewerZoomedListeners.length; i++) {
+      this.viewerZoomedListeners[i].viewerZoomed(new GSV.ZoomEvent(this.x, this.y, this.zoomLevel, percentage));
+    }
+    this.debug();
+  },
+
+  /**
+   * Notify listeners of a move event on the viewer.
+   */
+  notifyViewerMoved : function(coords) {
+    if (!coords) {
+      coords = {
+        'x' : 0,
+        'y' : 0
+      };
+    }
+
+    for ( var i = 0; i < this.viewerMovedListeners.length; i++) {
+      this.viewerMovedListeners[i].viewerMoved(new GSV.MoveEvent(this.x + coords.x - this.mark.x, this.y + coords.y - this.mark.y));
+    }
+    this.debug();
+  },
+
+  zoom : function(direction) {
+    if (this.zoomLevel + direction < 0)
+      /*  $(this.zoomin).disable(); */
+      /*  $(this.zoomout).enable(); */
+      return;
+    else if (this.zoomLevel + direction > this.maxZoomLevel)
+    /*  $(this.zoomout).disable(); */
+    /*  $(this.zoomin).enable(); */
+    return;
+
+    this.blank();
+
+    if (direction == 0) {
+      this.zoomLevel = this.initialZoomLevel;
+      var fullSize = this.tileSize * Math.pow(2, this.zoomLevel);
+      this.x = Math.floor((fullSize - this.width) * -GSV.INITIAL_PAN.x);
+      this.y = Math.floor((fullSize - this.height) * -GSV.INITIAL_PAN.y);
+
+    } else {
+      var coords = {
+        'x' : Math.floor(this.width / 2),
+        'y' : Math.floor(this.height / 2)
+      };
+
+      var before = {
+        'x' : (coords.x - this.x),
+        'y' : (coords.y - this.y)
+      };
+
+      var after = {
+        'x' : Math.floor(before.x * Math.pow(2, direction)),
+        'y' : Math.floor(before.y * Math.pow(2, direction))
+      };
+
+      this.x = coords.x - after.x;
+      this.y = coords.y - after.y;
+      this.zoomLevel += direction;
+    }
+    this.positionTiles();
+
+    this.notifyViewerZoomed();
+    this.debug();
+  },
+
+  /**
+   * Clear all the tiles from the well for a complete reinitialization of the
+   * viewer. At this point the viewer is not considered to be initialized.
+   */
+  clear : function() {
+    this.blank();
+    this.initialized = false;
+    this.tiles = [];
+    this.debug();
+  },
+
+  /**
+   * Remove all tiles from the well, which effectively "hides"
+   * them for a repaint.
+   */
+  blank : function() {
+    for (imgId in this.cache) {
+      var img = this.cache[imgId];
+      img.onload = function() {};
+      if (img.image) {
+        img.image.onload = function() {};
+      }
+
+      if (img.parentNode) {
+        this.well.removeChild(img);
+      }
+    }
+    this.debug();
+  },
+
+  /**
+   * Method specifically for handling a mouse move event. A direct movement of
+   * the viewer can be achieved by calling positionTiles() directly.
+   */
+  moveViewer : function(coords) {
+    this.positionTiles( {
+      'x' : (coords.x - this.mark.x),
+      'y' : (coords.y - this.mark.y)
+    });
+    this.notifyViewerMoved(coords);
+    this.debug();
+  },
+
+  /**
+   * Make the specified coords the new center of the image placement. This
+   * method is typically triggered as the result of a double-click event. The
+   * calculation considers the distance between the center of the viewable area
+   * and the specified (viewer-relative) coordinates. If absolute is specified,
+   * treat the point as relative to the entire image, rather than only the
+   * viewable portion.
+   */
+  recenter : function(coords, absolute) {
+    if (absolute) {
+      coords.x += this.x;
+      coords.y += this.y;
+    }
+
+    var motion = {
+      'x' : Math.floor(this.width / 2 - coords.x),
+      'y' : Math.floor(this.height / 2 - coords.y)
+    };
+
+    if (motion.x == 0 && motion.y == 0) return;
+
+    if (GSV.USE_SLIDE) {
+      var target = motion;
+      var x, y;
+      if (target.x == 0) {
+        x = 0;
+        y = this.slideAcceleration;
+      } else {
+        var slope = Math.abs(target.y / target.x);
+        x = Math.round(Math.pow(Math.pow(this.slideAcceleration, 2) / (1 + Math.pow(slope, 2)), .5));
+        y = Math.round(slope * x);
+      }
+
+      motion = {
+        'x' : Math.min(x, Math.abs(target.x)) * (target.x < 0 ? -1 : 1),
+        'y' : Math.min(y, Math.abs(target.y)) * (target.y < 0 ? -1 : 1)
+      };
+    }
+
+    this.positionTiles(motion, true);
+    this.notifyViewerMoved();
+
+    if (!GSV.USE_SLIDE) return;
+
+    var newcoords = {
+      'x' : coords.x + motion.x,
+      'y' : coords.y + motion.y
+    };
+
+    var self = this;
+    /* TODO: use an exponential growth rather than linear (should also depend on how far we are going) */
+    /* FIXME: this could be optimized by calling positionTiles directly perhaps */
+    this.slideAcceleration += GSV.SLIDE_ACCELERATION_FACTOR;
+    this.slideMonitor = setTimeout( function() {
+      self.recenter(newcoords);
+    }, GSV.SLIDE_DELAY);
+    this.debug();
+  },
+
+  resize : function() {
+    // IE fires a premature resize event
+    if (!this.initialized) return;
+
+    this.viewer.hide();
+    this.clear();
+
+    var before = {
+      'x' : Math.floor(this.width / 2),
+      'y' : Math.floor(this.height / 2)
+    };
+
+    //    if (this.border >= 0) {
+    //      this.fitToWindow(this.border);
+    //    }
+
+    this.prepareTiles();
+
+    var after = {
+      'x' : Math.floor(this.width / 2),
+      'y' : Math.floor(this.height / 2)
+    };
+
+    this.x += after.x - before.x;
+    this.y += after.y - before.y;
+    this.positionTiles();
+    this.viewer.show();
+    this.initialized = true;
+    this.notifyViewerMoved();
+    this.debug();
+  },
+
+  /**
+   * Resolve the coordinates from this mouse event by subtracting the
+   * offset of the viewer in the browser window (or frame).  This does
+   * take into account the scroll offset of the page.
+   */
+  resolveCoordinates : function(e) {
+    this.debug();
+    return {
+      'x' : (e.clientX - this.left),
+      'y' : (e.clientY - this.top)
+    };
+  },
+
+  press : function(coords) {
+//     alert('press:'+coords);
+    this.activate(true);
+    this.mark = coords;
+    this.debug();
+  },
+
+  release : function(coords) {
+    // alert('release:'+coords)
+    this.activate(false);
+    var motion = {
+      'x' : (coords.x - this.mark.x),
+      'y' : (coords.y - this.mark.y)
+    };
+
+    this.x += motion.x;
+    this.y += motion.y;
+    this.mark = {
+      'x' : 0,
+      'y' : 0
+    };
+    this.debug();
+  },
+
+  /**
+   * Activate the viewer into motion depending on whether the mouse is pressed or
+   * not pressed. This method localizes the changes that must be made to the
+   * layers.
+   */
+  activate : function(pressed) {
+    // alert("activate("+pressed+")")
+    this.pressed = pressed;
+    this.surface.style.cursor = (pressed ? GSV.GRABBING_MOUSE_CURSOR : GSV.GRAB_MOUSE_CURSOR);
+    this.surface.onmousemove = (pressed ? GSV.mouseMovedHandler : function() {});
+    this.debug();
+  },
+
+  /**
+   * Check whether the specified point exceeds the boundaries of
+   * the viewer's primary image.
+   */
+  pointExceedsBoundaries : function(coords) {
+    this.debug();
+    return coords.x < this.x || coords.y < this.y || coords.x > this.tileSize * this.hFactor * Math.pow(2, this.zoomLevel) + this.x
+        || coords.y > this.tileSize * this.vFactor * Math.pow(2, this.zoomLevel) + this.y;
+  },
+
+  // QUESTION: where is the best place for this method to be invoked?
+  resetSlideMotion : function() {
+    if (this.slideMonitor != 0) {
+      clearTimeout(this.slideMonitor);
+      this.slideMonitor = 0;
+    }
+    this.slideAcceleration = 0;
+    this.debug();
+  },
+
+  debug : function(msg) {
+    if ($('debugdiv')) {
+      if (Object.isUndefined(this.debug_message)) this.debug_message = '';
+      if (!Object.isUndefined(msg)) this.debug_message = msg;
+      $('debugdiv').update("" + this.debug_message + "<br/>" + //
+          "<b>x=</b>" + this.x + " / " + //
+          "<b>y=</b>" + this.y + "<br/>" + //
+          "<b>width=</b>" + this.width + " / " + //
+          "<b>height=</b>" + this.height + "<br/>" + //
+          "<b>top=</b>" + this.top + " / " + //
+          "<b>left=</b>" + this.left + "<br/>" + //
+          "<b>page=</b>" + this.viewer.viewportOffset() + "<br/>" + //
+          "<b>Offset=</b>" + this.viewer.cumulativeOffset());
+    }
+  }
+};
+
+GSV.mousePressedHandler = function(e) {
+//  alert('GSV.mousePressedHandler')
+  e = e ? e : window.event;
+  // only grab on left-click
+  if (e.button < 2) {
+    var self = this.backingBean;
+    var coords = self.resolveCoordinates(e);
+    if (self.pointExceedsBoundaries(coords)) {
+      e.cancelBubble = true;
+    } else {
+      self.press(coords);
+    }
+  }
+
+  // NOTE: MANDATORY! must return false so event does not propagate to well!
+  return false;
+};
+
+GSV.mouseReleasedHandler = function(e) {
+  e = e ? e : window.event;
+  var self = this.backingBean;
+  if (self.pressed) {
+    // OPTION: could decide to move viewer only on release, right here
+    self.release(self.resolveCoordinates(e));
+  }
+};
+
+GSV.mouseMovedHandler = function(e) {
+  // alert("mouseMovedHandler")
+  e = e ? e : window.event;
+  var self = this.backingBean;
+  self.moveCount++;
+  if (self.moveCount % GSV.MOVE_THROTTLE == 0) {
+    self.moveViewer(self.resolveCoordinates(e));
+  }
+};
+
+GSV.zoomInHandler = function(e) {
+  e = e ? e : window.event;
+  var self = this.parentNode.parentNode.backingBean;
+  self.zoom(1);
+  return false;
+};
+
+GSV.zoomOutHandler = function(e) {
+  e = e ? e : window.event;
+  var self = this.parentNode.parentNode.backingBean;
+  self.zoom(-1);
+  return false;
+};
+
+GSV.resetHandler = function(e) {
+  e = e ? e : window.event;
+  var self = this.parentNode.parentNode.backingBean;
+  self.zoom(0);
+  return false;
+};
+
+GSV.doubleClickHandler = function(e) {
+//  e = e ? e : window.event;
+//  var self = this.backingBean;
+//  coords = self.resolveCoordinates(e);
+//  if (!self.pointExceedsBoundaries(coords)) {
+//    self.resetSlideMotion();
+//    self.recenter(coords);
+//  }
+};
+
+GSV.MoveEvent = function(x, y) {
+  this.x = x;
+  this.y = y;
+};
+
+GSV.ZoomEvent = function(x, y, level, percentage) {
+  this.x = x;
+  this.y = y;
+  this.percentage = percentage;
+  this.level = level;
+};
+
+//javacsript library zzln_togglelayers
+//made by Zeezeilen www.zzln.nl
+//written bij Egbert Bleyenburg
+//updated 09072004: alllayers object removed
+//remember what layer is visible
+//if another one needs to become visible, simply 
+//hide the former visible one
+//ie 5.5, mozilla 5.0 en netscape 7.1 bestendig
+
+var domversion = null;
+var domtest = false;
+var now_visible_layer_id = '';
+//now_visible_layer_id: hierin word de id van het huidig visible layer oonthouden
+//wanneer we een ander layer zichtbaar maken moet deze onzichtbaar
+
+function testDomVersion() {
+  if (document.layers) {
+    layerRef = "document.layers";
+    styleSwitch = "";
+    argVisibility = "show";
+    screenSize = window.innerWidth;
+    domversion = "ns4";
+  } else if (document.all) {
+    layerRef = "document.all";
+    styleSwitch = ".style";
+    argVisibility = "visible";
+    screenSize = document.body.clientWidth + 18;
+    domversion = "ie4";
+  } else if (document.getElementById) {
+    layerRef = "document.getElementByID";
+    styleSwitch = ".style";
+    argVisibility = "visible";
+    domversion = "dom1";
+  } else {
+    domversion = "none";
+  }
+  domtest = true;
+}
+
+//Domindependent function to manipulate style properties of a layer
+function setLayerProperty(layerName, property, value) {
+  if (layerName == '') return;
+  if (!domtest) {
+    testDomVersion();
+  }
+  if (domversion == "none")
+    return;
+  else {
+    if (domversion == "dom1") {
+      eval('document.getElementById("' + layerName + '").style.' + property + '="' + value + '"');
+    } else {
+      eval(layerRef + '["' + layerName + '"]' + styleSwitch + '.' + property + '="' + value + '"');
+    }
+  }
+}
+
+function getLayerProperty(layerName, property) {
+  if (layerName == '') return;
+  if (!domtest) {
+    testDomVersion();
+  }
+  var propvalue;
+  if (domversion == "none")
+    return;
+  else {
+    if (domversion == "dom1") {
+      propvalue = eval('document.getElementById("' + layerName + '").style.' + property);
+    } else {
+      propvalue = eval(layerRef + '["' + layerName + '"]' + styleSwitch + '.' + property);
+    }
+  }
+  return propvalue;
+}
+
+function ZZLN_toggleLayer(layername) {
+  if (now_visible_layer_id != '') {
+    setLayerProperty(now_visible_layer_id, "visibility", "hidden");
+    document.getElementById("link" + now_visible_layer_id).className = "closednoot";
+  }
+  if (now_visible_layer_id != layername) {
+    setLayerProperty(layername, "visibility", "visible");
+    document.getElementById("link" + layername).className = "opennoot";
+    now_visible_layer_id = layername;
+  } else {
+    now_visible_layer_id = '';
+  }
+}
+
+function simplesearch() {
+  var keyword = $('keyword').value.toUpperCase();
+  var number_re = new RegExp("^[0-9][0-9][0-9]$");
+  var rmnumber_re = new RegExp("^RM[0-9][0-9]$");
+  var its_a_letternumber = keyword.match(number_re);
+  if (its_a_letternumber) {
+    i = parseInt(keyword);
+    its_a_letternumber = (i > 0 && i < 903);
+  }
+  var its_a_manuscriptnumber = keyword.match(rmnumber_re) && keyword > "RM00" && keyword < "RM26";
+  if (its_a_manuscriptnumber || its_a_letternumber) {
+    var loc = (its_a_manuscriptnumber) ? keyword : "let" + keyword;
+    location.href = "/vg/letters/" + loc + "/letter.html";
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function showHelpPageIfFirstVisit(letter_id) {
+  var cookie = new Cookie('experienced');
+  cookievalue = cookie.read();
+  if (!cookievalue) {
+    cookie.create(location.href, 3650);
+    $('toQuickGuide').show();
+//    location.href = '/vg/quickguide.html?redirect';
+  }
+}
+
+function backToLetter() {
+  location.href = new Cookie('experienced').read();
+}
+
+function checkAdvancedSearchInput() {
+  var errors_in_input = new Array();
+  if ($('person_code').value == "" && $('person_terms').value != "") {
+    errors_in_input.push("To search for a Person, you need to select a name from the list.");
+    $('person_terms').value = "";
+  }
+  if ($('literature_code').value == "" && $('literature_terms').value != "") {
+    errors_in_input.push("To search for Literature, you need to select a title from the list.");
+    $('literature_terms').value = "";
+  }
+  if ($('workofart_code').value == "" && $('workofart_terms').value != "") {
+    errors_in_input.push("To search for a Work of art, you need to select a title from the list.");
+    $('workofart_terms').value = "";
+  }
+  if (invalidDateField('date_from'))
+    errors_in_input.push("Invalid first date (" + $('date_from').value + "): date should be between 1871 and 1891; format should be yyyy-mm-dd, eg. 1872-09-29");
+  if (invalidDateField('date_until'))
+    errors_in_input.push("Invalid last date (" + $('date_until').value + "): date should be between 1871 and 1891; format should be yyyy-mm-dd, eg. 1872-09-29");
+
+  var has_errors = (errors_in_input.length > 0);
+  if (has_errors) alert(errors_in_input.join("\n"));
+  return !has_errors;
+}
+
+function invalidDateField(field) {
+  var date = $(field).value;
+  var parts = date.split('-');
+  var year = parseInt(parts[0], 10);
+  var month = parseInt(parts[1], 10);
+  var day = parseInt(parts[2], 10);
+  return !(year > 1871 && year < 1891 && month > 0 && month < 13 && day > 0 && day < 32);
+}
+
+function abs (number) {
+  var n = number;
+  return ((n<0) ? n*-1 : n*-1);
+}
+
+function getQuerystring(key, default_){
+  if (default_==null) default_=""; 
+  key = key.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regex = new RegExp("[\\?&]"+key+"=([^&#]*)");
+  var qs = regex.exec(window.location.href);
+  if(qs == null)
+    return default_;
+  else
+    return qs[1];
+}
