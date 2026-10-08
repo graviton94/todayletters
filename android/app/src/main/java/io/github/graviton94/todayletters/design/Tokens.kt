@@ -6,14 +6,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 /** 한 테마의 색. 라이트와 다크는 이름이 같고 값만 다르다. */
-data class Palette(val paper: Color, val leaf: Color, val sky: Color, val ink: Color, val inkSoft: Color, val hair: Color, val gilt: Color, val giltText: Color, val fill: Color, val onFill: Color, val onFillSoft: Color, val post: Color, val hide: Color, val hideInk: Color, val correct: Color, val wrong: Color, val scrim: Color, val mapPaper: Color, val mapRoad: Color, val mapRiver: Color)
+data class Palette(val paper: Color, val leaf: Color, val sky: Color, val ink: Color, val inkSoft: Color, val hair: Color, val gilt: Color, val giltText: Color, val fill: Color, val onFill: Color, val onFillSoft: Color, val post: Color, val hide: Color, val hideInk: Color, val correct: Color, val wrong: Color, val scrim: Color, val mapPaper: Color, val mapRoad: Color, val mapRiver: Color, val slip: Color, val slipInk: Color, val slipSoft: Color, val slipLaid: Color, val slipAge: Color, val shadow: Color, val lamp: Color, val line: Color)
 
 /** 보내는 사람의 봉랍: 바탕 · 안쪽 테 · 글자. 두 테마 공통. */
 data class Seal(val wax: Color, val ring: Color, val ink: Color)
 
 object Tokens {
-    val light = Palette(paper = Color(0xFFF6F3EC), leaf = Color(0xFFFFFFFF), sky = Color(0xFFFFFFFF), ink = Color(0xFF16130F), inkSoft = Color(0xFF5D564C), hair = Color(0xFFD8D0C2), gilt = Color(0xFFB8913E), giltText = Color(0xFF7F6127), fill = Color(0xFF16130F), onFill = Color(0xFFF6F3EC), onFillSoft = Color(0xFFCFC6B6), post = Color(0xFF3C4A6B), hide = Color(0xFFECE6DA), hideInk = Color(0xFF9C9488), correct = Color(0xFF3E6B57), wrong = Color(0xFFA23B2C), scrim = Color(0x4716130F), mapPaper = Color(0xFFEEE7D8), mapRoad = Color(0xFFFFFFFF), mapRiver = Color(0xFFB9C7DA))
-    val dark = Palette(paper = Color(0xFF0E1630), leaf = Color(0xFF18234A), sky = Color(0xFF121C3D), ink = Color(0xFFEDE6D3), inkSoft = Color(0xFFA9A38F), hair = Color(0xFF2C3760), gilt = Color(0xFFF0CD6A), giltText = Color(0xFFD9B45A), fill = Color(0xFFD9B45A), onFill = Color(0xFF0E1630), onFillSoft = Color(0xFF4A3D1C), post = Color(0xFF8C9AC0), hide = Color(0xFF1A2550), hideInk = Color(0xFF5E6788), correct = Color(0xFF7FB39A), wrong = Color(0xFFE08A7C), scrim = Color(0x8C050814), mapPaper = Color(0xFF121C3D), mapRoad = Color(0xFF24305A), mapRiver = Color(0xFF2F4E8E))
+    val light = Palette(paper = Color(0xFFEFE6D2), leaf = Color(0xFFFBF6EA), sky = Color(0xFFF6EEDC), ink = Color(0xFF2A2118), inkSoft = Color(0xFF6E6150), hair = Color(0xFFD9CCAE), gilt = Color(0xFFB8913E), giltText = Color(0xFF7A5A20), fill = Color(0xFF2A2118), onFill = Color(0xFFF7F0E1), onFillSoft = Color(0xFFCFC2A8), post = Color(0xFF3D4C6E), hide = Color(0xFFE4D9C2), hideInk = Color(0xFF968871), correct = Color(0xFF3E6B57), wrong = Color(0xFFA23B2C), scrim = Color(0x522A2118), mapPaper = Color(0xFFEEE5D0), mapRoad = Color(0xFFFBF6EA), mapRiver = Color(0xFFB9C7DA), slip = Color(0xFFFBF6EA), slipInk = Color(0xFF2A2118), slipSoft = Color(0xFF6E6150), slipLaid = Color(0x0B5A3C14), slipAge = Color(0x33966E32), shadow = Color(0x383C280A), lamp = Color(0x99FFFAEC), line = Color(0xFFB9A985))
+    val dark = Palette(paper = Color(0xFF17110C), leaf = Color(0xFF211912), sky = Color(0xFF1C150F), ink = Color(0xFFEADFC8), inkSoft = Color(0xFFA8977C), hair = Color(0xFF33281D), gilt = Color(0xFFE6BF68), giltText = Color(0xFFD2A955), fill = Color(0xFFD2A955), onFill = Color(0xFF17110C), onFillSoft = Color(0xFF5A4320), post = Color(0xFFB49A78), hide = Color(0xFF261D15), hideInk = Color(0xFF6E5E4A), correct = Color(0xFF8FBF9F), wrong = Color(0xFFE39A86), scrim = Color(0x8C000000), mapPaper = Color(0xFF211912), mapRoad = Color(0xFF33281D), mapRiver = Color(0xFF4A5C6E), slip = Color(0xFFE9DCC0), slipInk = Color(0xFF2A2118), slipSoft = Color(0xFF6A5B47), slipLaid = Color(0x0D5A3C14), slipAge = Color(0x4D785523), shadow = Color(0x99000000), lamp = Color(0x1AFFBA6E), line = Color(0xFF4A3B2B))
     object Seals {
         val vincent = Seal(Color(0xFF8E2A22), Color(0xFF7A231C), Color(0xFFEAD0C2))
         val emile = Seal(Color(0xFF2F4A3A), Color(0xFF263D30), Color(0xFFD6E2D2))
@@ -49,7 +49,7 @@ object Tokens {
         val buttonSm = 50.dp
         val chip = 46.dp
         val avatar = 40.dp
-        val avatarLg = 62.dp
+        val avatarLg = 96.dp
         val seal = 46.dp
         val postmark = 58.dp
         val postmarkSm = 40.dp
@@ -64,21 +64,24 @@ object Tokens {
         val plateHero = 290.dp
         val bubbleMax = 304.dp
         val replyMax = 270.dp
+        val portraitRow = 52.dp
+        val speaker = 44.dp
     }
     object Text {
-        val display = 42.sp
-        val title = 30.sp
-        val heading = 23.sp
+        val display = 30.sp
+        val title = 24.sp
+        val heading = 19.sp
         val numeral = 24.sp
         val target = 18.sp
-        val base = 13.sp
-        val body = 16.sp
-        val label = 15.sp
-        val small = 13.sp
+        val base = 14.sp
+        val body = 17.sp
+        val label = 17.sp
+        val small = 14.sp
         val caps = 11.sp
-        val capsSm = 10.sp
+        val capsSm = 11.sp
         val word = 44.sp
-        val chipWord = 19.sp
+        val chipWord = 18.sp
+        val brand = 40.sp
     }
     object Font {
         const val display = "Cormorant Garamond"
@@ -103,7 +106,9 @@ object Tokens {
         const val coachDelayMs = 700
         const val toastMs = 2400
         const val sealBreakMs = 600
-        const val starLinkMs = 260
+        const val starLinkMs = 520
+        const val inkLineMs = 900
+        const val inkPauseMs = 500
     }
     object Leading {
         const val target = 1.4f

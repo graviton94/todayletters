@@ -33,16 +33,18 @@ import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 
-/** 앱의 뿌리: 시작 단계 (인트로 → 처음 소개) 다음에 이름표 화면들. */
+/** 앱의 뿌리: 시작 단계 (오프닝 → 처음 소개 또는 오늘의 봉투) 다음에 이름표 화면들. */
 @Composable
 fun Root(s: AppState, onExit: () -> Unit) {
     val p = Ink.palette
     Box(Modifier.fillMaxSize().background(p.paper)) {
-        when (s.stage) {
-            Stage.INTRO_ENVELOPE -> Intro(s, envelope = true)
-            Stage.INTRO_SHORT -> Intro(s, envelope = false)
+        AnimatedContent(s.stage, transitionSpec = { fadeIn(tween(Tokens.Motion.pageMs * 2)) togetherWith fadeOut(tween(Tokens.Motion.pageMs)) }, label = "stage") { stage ->
+        when (stage) {
+            Stage.OPENING -> Opening(s)
             Stage.ONBOARDING -> Onboarding(s)
+            Stage.TODAY -> Today(s)
             Stage.MAIN -> Main(s, onExit)
+        }
         }
     }
 }

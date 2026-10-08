@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Langs
 import io.github.graviton94.todayletters.core.ReplyMode
@@ -59,9 +60,9 @@ fun Inbox(s: AppState) {
                     },
                     horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    SealMark(Tokens.Seals.vincent, w.sender.take(1))
+                    Portrait(w.portrait, w.fullName, Tokens.Size.portraitRow)
                     Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
-                        Text(w.sender, style = Type.heading, color = p.ink)
+                        Text(w.title[uiLang()], style = Type.heading.ui(), color = p.ink)
                         val learn = s.seriesSettings(id).learn
                         Text(
                             next?.second?.messages?.firstOrNull()?.text?.get(learn) ?: stringResource(R.string.inbox_all_read),
@@ -90,11 +91,17 @@ fun LibraryTab(s: AppState) {
         TopBar(stringResource(R.string.tab_library), s, help = "library", showBack = false, showSettings = true)
         Page {
             s.works.forEach { w ->
-                Column(Modifier.fillMaxWidth().clickable(role = Role.Button) { s.go(Route.Series(w.series.id)) }, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    PlateImage("", Modifier.fillMaxWidth().aspectRatio(1.6f))
-                    Caps("Saison I · ${w.years}")
-                    Text(w.title[s.app.read], style = Type.title.of(s.app.read), color = p.ink)
-                    Text("${w.sender} → Théo · ${langName(w.series.original)}", style = Type.small, color = p.inkSoft)
+                Row(
+                    Modifier.fillMaxWidth().clickable(role = Role.Button) { s.go(Route.Series(w.series.id)) }.padding(vertical = Tokens.Space.s2),
+                    horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Portrait(w.portrait, w.fullName, 64.dp)
+                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Caps("Saison I · ${w.years}", small = true)
+                        Text(w.title[uiLang()], style = Type.heading.ui(), color = p.ink)
+                        Text("${w.name[uiLang()]} → ${w.recipient} · ${stringResource(langLabel(w.series.original))}", style = Type.small.ui(), color = p.inkSoft)
+                        if (w.credit.isNotEmpty()) Text(w.credit, style = Type.signature.copy(fontSize = Tokens.Text.small), color = p.inkSoft)
+                    }
                 }
                 Hair()
             }
@@ -207,7 +214,6 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
             Caps("Chapitre ${roman(r.chapter)}")
             Text(c.title[w.series.original], style = Type.display, color = p.ink)
             Text(c.title[s.app.read], style = Type.body.of(s.app.read), color = p.inkSoft)
-            PlateImage(c.letters.firstOrNull()?.plate?.image.orEmpty(), Modifier.fillMaxWidth().aspectRatio(1.5f))
             c.letters.forEachIndexed { i, l ->
                 val pr = s.progress(r.series, c.id, l.id)
                 val can = l.id in openable
@@ -230,7 +236,7 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
     }
 }
 
-/** 작품 설정: 배우는 언어 · 작은 줄 · 답장 방식 · 하루 편지 수. */
+/** 작품 설정: 배울 언어 · 번역 줄 · 답장 방식 · 하루 편지 수. */
 @Composable
 fun SeriesSettingsScreen(s: AppState, id: String) {
     val p = Ink.palette
@@ -240,18 +246,68 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
     Column(Modifier.fillMaxSize()) {
         TopBar(stringResource(R.string.series_settings), s, help = null, showBack = true, showSettings = false)
         Page {
-            Text(stringResource(R.string.set_learn), style = Type.label.ui(), color = p.giltText)
-            Choices(Langs.learnChoices(w.series, s.app.read).map { it to langName(it) }, cur.learn) { s.update(id, cur.copy(learn = it)) }
-            Text(stringResource(R.string.set_show_read), style = Type.label.ui(), color = p.giltText)
-            Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.showRead) { s.update(id, cur.copy(showRead = it)) }
-            Text(stringResource(R.string.ob_modes), style = Type.label.ui(), color = p.giltText)
-            listOf(ReplyMode.CONSTELLATION to R.string.mode_constellation, ReplyMode.ALOUD to R.string.mode_aloud).forEach { (m, label) ->
-                Choices(listOf(true to stringResource(label), false to stringResource(R.string.off)), m in cur.modes) {
-                    s.update(id, cur.copy(modes = if (it) cur.modes + m else cur.modes - m))
-                }
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                Portrait(w.portrait, w.fullName, Tokens.Size.avatar)
+                Text(w.title[uiLang()], style = Type.heading.ui(), color = p.ink)
             }
-            Text(stringResource(R.string.ob_pace), style = Type.label.ui(), color = p.giltText)
+            Caps(stringResource(R.string.set_learn), p.giltText, small = true)
+            Choices(Langs.learnChoices(w.series, s.app.read).map { it to stringResource(langLabel(it)) }, cur.learn) { s.update(id, cur.copy(learn = it)) }
+
+            Caps(stringResource(R.string.ob_modes), p.giltText, small = true)
+            Column {
+                listOf(
+                    Triple(ReplyMode.CONSTELLATION, R.string.mode_constellation, R.string.mode_constellation_d),
+                    Triple(ReplyMode.ALOUD, R.string.mode_aloud, R.string.mode_aloud_d),
+                ).forEach { (m, label, desc) ->
+                    val on = m in cur.modes
+                    Row(
+                        Modifier.fillMaxWidth().heightIn(min = 72.dp).clickable(role = Role.Checkbox) {
+                            val next = if (on) cur.modes - m else cur.modes + m
+                            if (next.any { it in io.github.graviton94.todayletters.core.Plays.inLetter }) s.update(id, cur.copy(modes = next))
+                        },
+                        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
+                    ) {
+                        CheckMark(on)
+                        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                            Text(stringResource(label), style = Type.body.ui(), color = p.ink)
+                            Text(stringResource(desc), style = Type.small.ui(), color = p.inkSoft)
+                        }
+                        ModePreview(m)
+                    }
+                    Hair()
+                }
+                Text(stringResource(R.string.modes_note), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(top = Tokens.Space.s2))
+            }
+
+            Caps(stringResource(R.string.set_show_read), p.giltText, small = true)
+            Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.showRead) { s.update(id, cur.copy(showRead = it)) }
+
+            Caps(stringResource(R.string.ob_pace), p.giltText, small = true)
             Choices(listOf(1, 2, 3).map { it to stringResource(R.string.letters_n, it) }, cur.lettersPerDay) { s.update(id, cur.copy(lettersPerDay = it)) }
+            Text(stringResource(R.string.perday_note), style = Type.small.ui(), color = p.inkSoft)
+        }
+    }
+}
+
+/** 답장 방식 옆의 작은 그림: 별자리는 이어진 별, 따라 읽기는 소리 물결. */
+@Composable
+private fun ModePreview(m: ReplyMode) {
+    val p = Ink.palette
+    androidx.compose.foundation.Canvas(Modifier.size(62.dp, 38.dp).border(Tokens.Stroke.hair, p.hair)) {
+        val w = size.width; val h = size.height
+        if (m == ReplyMode.CONSTELLATION) {
+            val a = androidx.compose.ui.geometry.Offset(w * 0.18f, h * 0.68f)
+            val b = androidx.compose.ui.geometry.Offset(w * 0.46f, h * 0.3f)
+            val c = androidx.compose.ui.geometry.Offset(w * 0.8f, h * 0.58f)
+            drawLine(p.gilt, a, b, 1.dp.toPx())
+            drawCircle(p.gilt, 3.dp.toPx(), a); drawCircle(p.gilt, 3.dp.toPx(), b)
+            drawCircle(p.gilt, 3.dp.toPx(), c, style = androidx.compose.ui.graphics.drawscope.Stroke(1.dp.toPx()))
+        } else {
+            val bars = listOf(0.25f, 0.5f, 0.75f, 0.4f, 0.62f, 0.3f, 0.18f)
+            bars.forEachIndexed { i, k ->
+                val x = w * (0.2f + i * 0.1f)
+                drawLine(p.inkSoft, androidx.compose.ui.geometry.Offset(x, h * (0.5f - k / 2)), androidx.compose.ui.geometry.Offset(x, h * (0.5f + k / 2)), 2.5.dp.toPx())
+            }
         }
     }
 }

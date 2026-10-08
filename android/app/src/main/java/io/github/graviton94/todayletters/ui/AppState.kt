@@ -42,12 +42,11 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     var app by mutableStateOf(if (store.hasApp()) store.app() else Langs.firstRun(ctx.resources.configuration.locales[0].language))
         private set
 
-    /** 앱을 켰을 때 남은 단계 (인트로 → 처음 소개 → 메인). */
+    /** 앱을 켰을 때 남은 단계 (오프닝 → 처음 소개 또는 오늘의 봉투 → 메인). */
     var stages by mutableStateOf(
         Launch.plan(
             firstRun = !store.onboarded,
             firstOfDay = store.openedDay != LocalDate.now().toEpochDay(),
-            reducedMotion = reducedMotion,
             deepLink = deepLink,
         )
     )

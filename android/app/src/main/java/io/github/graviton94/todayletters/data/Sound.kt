@@ -1,10 +1,17 @@
 package io.github.graviton94.todayletters.data
 
 import android.content.Context
+import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.os.Build
 import java.io.File
+
+/** 앱의 모든 소리는 미디어 볼륨으로 (사용자가 녹음하는 마이크 입력만 예외). */
+private val media: AudioAttributes = AudioAttributes.Builder()
+    .setUsage(AudioAttributes.USAGE_MEDIA)
+    .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+    .build()
 
 /**
  * 낭독 재생: assets/audio/<작품>/<챕터>/<편지 id>/m<번호>_<언어>.m4a (낱말은 w<번호>_<언어>.m4a).
@@ -21,6 +28,7 @@ class Narrator(private val ctx: Context) {
         stop()
         val fd = runCatching { ctx.assets.openFd(asset) }.getOrNull() ?: run { onDone(); return false }
         player = MediaPlayer().apply {
+            setAudioAttributes(media)
             setDataSource(fd.fileDescriptor, fd.startOffset, fd.length)
             fd.close()
             setOnCompletionListener { onDone() }
@@ -34,6 +42,17 @@ class Narrator(private val ctx: Context) {
     fun stop() {
         player?.runCatching { stop(); release() }
         player = null
+        playing = null
+    }
+
+    /** 지금 재생 중인 파일 (화면의 듣기 버튼이 재생 · 멈춤 모양을 고른다). */
+    var playing: String? = null
+        private set
+
+    /** 같은 파일을 다시 누르면 멈추고, 아니면 그 파일을 재생한다. */
+    fun toggle(asset: String, onDone: () -> Unit = {}) {
+        if (playing == asset) { stop(); onDone(); return }
+        if (play(asset) { playing = null; onDone() }) playing = asset
     }
 }
 
@@ -65,6 +84,7 @@ class Recorder(private val ctx: Context) {
         player?.release()
         if (!file.exists()) return onDone()
         player = MediaPlayer().apply {
+            setAudioAttributes(media)
             setDataSource(file.absolutePath)
             setOnCompletionListener { onDone() }
             prepare(); start()

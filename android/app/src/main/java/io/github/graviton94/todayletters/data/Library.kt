@@ -1,6 +1,7 @@
 package io.github.graviton94.todayletters.data
 
 import android.content.Context
+import io.github.graviton94.todayletters.core.Breaks
 import io.github.graviton94.todayletters.core.Chapter
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Letter
@@ -19,6 +20,13 @@ data class Work(
     val years: String,
     val seal: String,
     val chapters: List<Chapter>,
+    /** 동그란 초상: assets/portraits/<파일>. 저작권이 끝난 원화. */
+    val portrait: String = "",
+    val credit: String = "",
+    val fullName: String = sender,
+    val recipient: String = "",
+    /** 앱 글자에 쓰는 보내는 사람 이름 (빈센트 / Vincent). */
+    val name: Tri = Tri(mapOf(Lang.EN to sender)),
 )
 
 /** 앱 안에 넣은 편지 데이터 읽기 (scripts/generate.py 가 data/ 에서 assets/letters/ 로 옮김). */
@@ -39,12 +47,18 @@ object Library {
                     Chapter(id, c.getString("id"), tri(c.getJSONObject("title")), c.optBoolean("free", false), letters(data))
                 }
             }
-            Work(Series(id, original), meta.getString("sender"), tri(meta.getJSONObject("title")), meta.optString("years"), meta.optString("seal", id), chapters)
+            Work(
+                Series(id, original), meta.getString("sender"), tri(meta.getJSONObject("title")), meta.optString("years"), meta.optString("seal", id), chapters,
+                portrait = meta.optString("portrait"), credit = meta.optString("credit"),
+                fullName = meta.optString("fullName", meta.getString("sender")), recipient = meta.optString("recipient"),
+                name = meta.optJSONObject("name")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to meta.getString("sender"))),
+            )
         }
     }
 
+    /** 세 언어 글자. 한국어가 낱말 가운데서 줄이 바뀌지 않게 [Breaks.keepAll] 을 거친다. */
     private fun tri(o: JSONObject, prefix: String = ""): Tri =
-        Tri(Lang.entries.mapNotNull { l -> o.optString(prefix + l.code, "").takeIf { it.isNotEmpty() }?.let { l to it } }.toMap())
+        Tri(Lang.entries.mapNotNull { l -> o.optString(prefix + l.code, "").takeIf { it.isNotEmpty() }?.let { l to Breaks.keepAll(it) } }.toMap())
 
     private fun letters(data: JSONObject): List<Letter> {
         val arr = data.getJSONArray("letters")

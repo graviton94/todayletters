@@ -113,8 +113,8 @@
     "ko": "쓰는 중…"
   },
   "room_reply": {
-    "en": "Reply and learn",
-    "ko": "답장하며 배우기"
+    "en": "Write back · %1$s",
+    "ko": "답장 쓰기 · %1$s"
   },
   "play_leave_title": {
     "en": "Write the reply later?",
@@ -193,8 +193,8 @@
     "ko": "배우는 언어"
   },
   "set_show_read": {
-    "en": "Show the small line",
-    "ko": "작은 줄 보이기"
+    "en": "Show the translation line",
+    "ko": "번역 줄 보이기"
   },
   "coach_inbox_row": {
     "en": "Each series is one conversation. New letters wait here.",
@@ -205,12 +205,12 @@
     "ko": "테마 · 글자 크기 · 읽는 언어는 여기서 바꿔요."
   },
   "coach_room_bubble": {
-    "en": "The large line is the language you learn; the small line is yours. Tap any word.",
-    "ko": "큰 줄은 배우는 언어, 작은 줄은 내 언어예요. 낱말을 눌러 보세요."
+    "en": "The large line is the language you learn, the small line is the translation. Tap the speaker on any slip and Vincent reads it to you.",
+    "ko": "큰 줄은 배울 언어, 작은 줄은 번역이에요. 조각의 듣기 단추를 누르면 빈센트가 직접 읽어 줘요."
   },
   "coach_room_hide": {
-    "en": "Hide the small line when you want to read on your own.",
-    "ko": "혼자 읽어 보고 싶을 땐 작은 줄을 가려요."
+    "en": "You can hide the translation line in the series settings.",
+    "ko": "번역 줄은 작품 설정에서 숨길 수 있어요."
   },
   "coach_room_info": {
     "en": "Time, place and the people around Vincent.",
@@ -225,8 +225,8 @@
     "ko": "앱 글자 언어"
   },
   "set_read_lang": {
-    "en": "Small line",
-    "ko": "작은 줄 언어"
+    "en": "Translation language",
+    "ko": "번역 언어"
   },
   "back": {
     "en": "Back",
@@ -353,8 +353,8 @@
     "ko": "그림 이야기"
   },
   "done_next": {
-    "en": "The next letter arrives tomorrow. The painting is in your Plates.",
-    "ko": "다음 편지는 내일 도착해요. 그림은 화첩에 들어갔어요."
+    "en": "The next letter arrives tomorrow morning. The painting is in your Plates.",
+    "ko": "다음 편지는 내일 아침에 도착해요. 그림은 화첩에 들어갔어요."
   },
   "stat_words": {
     "en": "new words",
@@ -401,8 +401,8 @@
     "ko": "모든 기록은 이 폰에만 남아요. 녹음한 목소리도 밖으로 보내지 않아요."
   },
   "set_sources": {
-    "en": "Letters: Vincent van Gogh (public domain). English and Korean are this app's own translations.",
-    "ko": "편지: 빈센트 반 고흐 (공공 저작물). 영어 · 한국어는 이 앱의 새 번역이에요."
+    "en": "Letters: Vincent van Gogh (public domain). English and Korean are this app's own translations. Portraits: Van Gogh, Self-Portrait (1887, Art Institute of Chicago); Joseph Lange, Mozart (1782–83); Antoine-Jean Gros, Bonaparte at Arcole (1796); The Poet Bashō (c. 1820–40, Rijksmuseum). All public domain.",
+    "ko": "편지: 빈센트 반 고흐 (공공 저작물). 영어 · 한국어는 이 앱의 새 번역이에요. 초상: 반 고흐 자화상(1887, 시카고 미술관), 요제프 랑게의 모차르트(1782–83), 그로의 「아르콜 다리의 보나파르트」(1796), 「시인 바쇼」(1820–40년경, 레이크스 미술관). 모두 공공 저작물이에요."
   },
   "coach_library": {
     "en": "Each cover is one series. The first chapters are free.",
@@ -427,5 +427,209 @@
   "coach_ok": {
     "en": "Got it",
     "ko": "알겠어요"
+  },
+  "open_caps": {
+    "en": "A LETTER EVERY MORNING",
+    "ko": "LETTERS BY DAY"
+  },
+  "open_tagline": {
+    "en": "Exchange letters with people from history, every day. Learn their language naturally, through the history and art of their time.",
+    "ko": "매일 역사 속 인물들과 편지를 주고받아요. 그 시대의 역사와 미술과 함께하며 자연스레 언어를 학습해요."
+  },
+  "open_cta": {
+    "en": "Tap to open",
+    "ko": "눌러서 열기"
+  },
+  "today_title": {
+    "en": "A letter from %1$s has arrived",
+    "ko": "%1$s의 편지가 도착했어요"
+  },
+  "ob1_title": {
+    "en": "This is how letters arrive",
+    "ko": "편지는 이렇게 도착해요"
+  },
+  "ob1_note": {
+    "en": "The first line of the letter Vincent sent the day he reached Arles.",
+    "ko": "빈센트가 아를에 도착한 날 보낸 편지의 첫 문장이에요."
+  },
+  "ob1_listen": {
+    "en": "Tap the button and Vincent reads it to you",
+    "ko": "버튼을 누르면 빈센트가 직접 읽어 줘요"
+  },
+  "ob1_a_t": {
+    "en": "The large line is the language you learn",
+    "ko": "큰 글씨는 배울 언어"
+  },
+  "ob1_a_d": {
+    "en": "Each letter has word cards with meanings and sounds.",
+    "ko": "편지마다 낱말 카드에서 뜻과 발음을 볼 수 있어요."
+  },
+  "ob1_b_t": {
+    "en": "The small line is the translation",
+    "ko": "작은 글씨는 번역"
+  },
+  "ob1_b_d": {
+    "en": "Hide it in the series settings once you are ready.",
+    "ko": "익숙해지면 작품 설정에서 숨길 수 있어요."
+  },
+  "ob1_c_t": {
+    "en": "Reply when you finish reading",
+    "ko": "다 읽으면 답장을 써요"
+  },
+  "ob1_c_d": {
+    "en": "One letter a day, every morning. A reply takes three minutes.",
+    "ko": "하루 한 통, 아침에 도착해요. 답장은 3분이면 돼요."
+  },
+  "ob_next": {
+    "en": "Next",
+    "ko": "다음"
+  },
+  "ob2_meta": {
+    "en": "%1$s · one letter a day · about a month · original in %2$s",
+    "ko": "%1$s · 하루에 한 통 · 약 한 달 분량 · 원어 %2$s"
+  },
+  "ob2_learn": {
+    "en": "Language to learn",
+    "ko": "배울 언어"
+  },
+  "ob2_original": {
+    "en": "the original",
+    "ko": "원문"
+  },
+  "ob2_translation": {
+    "en": "translation",
+    "ko": "번역"
+  },
+  "ob2_note": {
+    "en": "Translations appear in your system language (%1$s). You can change this in Settings.",
+    "ko": "번역은 시스템 언어(%1$s)로 보여요. 설정에서 바꿀 수 있어요."
+  },
+  "ob2_soon": {
+    "en": "Coming soon",
+    "ko": "곧 도착"
+  },
+  "ob2_start": {
+    "en": "Start receiving letters",
+    "ko": "편지 받기 시작"
+  },
+  "soon_mozart": {
+    "en": "Mozart → his father",
+    "ko": "모차르트 → 아버지"
+  },
+  "soon_napoleon": {
+    "en": "Napoléon → Joséphine",
+    "ko": "나폴레옹 → 조제핀"
+  },
+  "soon_basho": {
+    "en": "Bashō's journey",
+    "ko": "바쇼의 여행"
+  },
+  "lang_ko": {
+    "en": "Korean",
+    "ko": "한국어"
+  },
+  "lang_en": {
+    "en": "English",
+    "ko": "영어"
+  },
+  "lang_fr": {
+    "en": "French",
+    "ko": "프랑스어"
+  },
+  "lang_de": {
+    "en": "German",
+    "ko": "독일어"
+  },
+  "lang_ja": {
+    "en": "Japanese",
+    "ko": "일본어"
+  },
+  "lang_nl": {
+    "en": "Dutch",
+    "ko": "네덜란드어"
+  },
+  "room_listen_all": {
+    "en": "Listen",
+    "ko": "전체 듣기"
+  },
+  "room_stop": {
+    "en": "Stop",
+    "ko": "멈추기"
+  },
+  "room_today": {
+    "en": "Today",
+    "ko": "오늘"
+  },
+  "step_read": {
+    "en": "Read %1$d/%2$d",
+    "ko": "읽기 %1$d/%2$d"
+  },
+  "step_words": {
+    "en": "Words %1$d",
+    "ko": "낱말 %1$d"
+  },
+  "step_reply": {
+    "en": "Reply",
+    "ko": "답장"
+  },
+  "step_plate": {
+    "en": "Painting",
+    "ko": "그림"
+  },
+  "room_locked": {
+    "en": "Replies open once you finish the letter",
+    "ko": "편지를 끝까지 읽으면 답장이 열려요"
+  },
+  "listen_line": {
+    "en": "Listen to this line",
+    "ko": "이 문장 듣기"
+  },
+  "guide_title": {
+    "en": "Let's do the first one together",
+    "ko": "처음이니까 같이 해 봐요"
+  },
+  "guide_body": {
+    "en": "Tap the stars in order so they say this.",
+    "ko": "이 뜻이 되도록 별을 순서대로 눌러 이어요."
+  },
+  "guide_after": {
+    "en": "Next time there is no guide. Tap (?) above to see it again.",
+    "ko": "다음부터는 안내 없이 해요. 다시 보고 싶으면 위의 (?)를 누르세요."
+  },
+  "play_mine": {
+    "en": "My reply",
+    "ko": "내 답장"
+  },
+  "play_wrong_star": {
+    "en": "Not that star yet. Look at the meaning again.",
+    "ko": "그 별은 아직이에요. 뜻을 다시 보세요."
+  },
+  "play_show": {
+    "en": "Show the answer",
+    "ko": "정답 보기"
+  },
+  "play_meaning": {
+    "en": "Meaning",
+    "ko": "뜻"
+  },
+  "mode_constellation_d": {
+    "en": "Join the words in order to build the sentence",
+    "ko": "낱말을 순서대로 이어 문장을 만들어요"
+  },
+  "mode_aloud_d": {
+    "en": "Read aloud and record. Scoring is gentle",
+    "ko": "소리 내어 읽고 녹음하면 끝. 채점은 너그럽게"
+  },
+  "modes_note": {
+    "en": "Each letter uses the modes you keep on. Keep at least one.",
+    "ko": "켠 방식이 편지마다 차례로 나와요. 하나 이상 켜 두세요."
+  },
+  "perday_note": {
+    "en": "How many new letters arrive each day.",
+    "ko": "하루에 새로 도착하는 편지 수예요."
+  },
+  "plate_soon": {
+    "en": "Painting coming soon",
+    "ko": "그림 준비 중"
   }
 }

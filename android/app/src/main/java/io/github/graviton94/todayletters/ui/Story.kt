@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Route
@@ -32,7 +33,7 @@ private fun Scroll(content: @Composable () -> Unit) =
 
 /** 해설 언어: 앱 글자 언어 (영어 · 한국어). */
 @Composable
-private fun noteLang(s: AppState) = if (s.app.ui.code == "ko") Lang.KO else Lang.EN
+private fun noteLang(@Suppress("UNUSED_PARAMETER") s: AppState) = uiLang()
 
 /** 편지 완료: 그 편지와 이어진 그림이 도착한다. */
 @Composable
@@ -112,9 +113,10 @@ fun RoomInfo(s: AppState, room: Route.Letter) {
         TopBar(stringResource(R.string.room_info), s, help = null, showBack = true, showSettings = false)
         Scroll {
             Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically) {
-                SealMark(Tokens.Seals.vincent, "V", Tokens.Size.avatarLg)
-                Column {
-                    Text("Vincent van Gogh", style = Type.heading, color = p.ink)
+                Portrait(w.portrait, w.fullName, Tokens.Size.avatarLg)
+                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(w.fullName, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.ink)
+                    if (w.credit.isNotEmpty()) Text(w.credit, style = Type.signature.copy(fontSize = Tokens.Text.small), color = p.inkSoft)
                     Text(stringResource(R.string.info_vincent), style = Type.small.ui(), color = p.inkSoft)
                 }
             }

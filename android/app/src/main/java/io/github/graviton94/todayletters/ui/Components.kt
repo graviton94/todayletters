@@ -62,6 +62,10 @@ import io.github.graviton94.todayletters.design.uiHangul
 @Composable
 fun TextStyle.ui(): TextStyle = hangul(uiHangul())
 
+/** 앱 글자 언어를 편지 줄 언어로 (큐레이터 노트 · 이름처럼 앱 글자로 보여 줄 때). */
+@Composable
+fun uiLang(): Lang = if (uiHangul()) Lang.KO else Lang.EN
+
 /** 편지 줄용: 그 줄의 언어가 한국어면 한글 글꼴로. 한국어는 어절 단위로 줄을 바꾼다. */
 fun TextStyle.of(lang: Lang): TextStyle =
     if (lang == Lang.KO) hangul().copy(lineBreak = LineBreak.Paragraph.copy(wordBreak = LineBreak.WordBreak.Phrase)) else this
@@ -84,39 +88,44 @@ fun SealMark(seal: Seal, letter: String, size: Dp = Tokens.Size.seal) =
         contentAlignment = Alignment.Center,
     ) { Text(letter, style = Type.signature.copy(fontSize = (size.value * 0.48f).sp), color = seal.ink) }
 
-/** 우체국 소인: 편지의 시간은 이렇게 글자로만 보여 준다. */
+/** 우체국 소인: 두 겹 원. 편지의 시간은 이렇게 글자로만 보여 준다. */
 @Composable
 fun Postmark(place: String, day: String, year: String, size: Dp = Tokens.Size.postmark) {
     val c = Ink.palette.post
-    Box(Modifier.size(size).rotate(-12f).border(1.5.dp, c, CircleShape), contentAlignment = Alignment.Center) {
+    Box(
+        Modifier.size(size).rotate(-10f).border(1.3.dp, c, CircleShape).padding(3.dp).border(1.dp, c, CircleShape),
+        contentAlignment = Alignment.Center,
+    ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Caps(place, c, small = true)
-            Text(day.uppercase(), style = Type.capsSm.copy(fontSize = 10.sp), color = c)
-            Caps(year, c, small = true)
+            Text(place.uppercase(), style = Type.capsSm.copy(fontSize = 7.5.sp, letterSpacing = 0.4.sp), color = c)
+            Text(day.uppercase(), style = Type.capsSm.copy(fontSize = 9.sp, letterSpacing = 0.4.sp), color = c)
+            Text(year, style = Type.capsSm.copy(fontSize = 7.5.sp, letterSpacing = 0.4.sp), color = c)
         }
     }
 }
 
-/** 말풍선 한 쌍: 배우는 언어 한 줄 + 작게 읽는 언어 한 줄. */
+/** 편지 한 쌍: 배우는 언어 한 줄 + 작게 번역 한 줄. 편지지 위(늘 밝은 종이) 또는 답장(채운 바탕) 위에 놓인다. */
 @Composable
 fun Pair2(learn: String, learnLang: Lang, read: String?, readLang: Lang, onFill: Boolean = false, caret: Boolean = false) {
     val p = Ink.palette
-    Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1 / 2)) {
-        Text(learn + if (caret) "▏" else "", style = Type.target.of(learnLang), color = if (onFill) p.onFill else p.ink)
-        if (read != null) Text(read, style = Type.base.of(readLang), color = if (onFill) p.onFillSoft else p.inkSoft)
+    Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
+        Text(learn + if (caret) "▏" else "", style = Type.target.of(learnLang), color = if (onFill) p.onFill else p.slipInk)
+        if (read != null) Text(read, style = Type.base.of(readLang), color = if (onFill) p.onFillSoft else p.slipSoft)
     }
 }
 
+/** 받은 편지 한 조각 (편지지 조각 위). */
 @Composable
-fun Incoming(content: @Composable ColumnScope.() -> Unit) {
-    val p = Ink.palette
-    Column(
-        Modifier.widthIn(max = Tokens.Size.bubbleMax).background(p.leaf).border(Tokens.Stroke.hair, p.hair)
-            .padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
-        verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
-    ) { content() }
+fun Incoming(seed: Int = 1, content: @Composable ColumnScope.() -> Unit) {
+    Slip(seed, modifier = Modifier.widthIn(max = Tokens.Size.bubbleMax + 24.dp)) {
+        Column(
+            Modifier.padding(start = Tokens.Space.s4, end = Tokens.Space.s3, top = Tokens.Space.s4, bottom = Tokens.Space.s3),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
+        ) { content() }
+    }
 }
 
+/** 보낸 답장: 오른쪽, 채운 바탕. */
 @Composable
 fun Outgoing(content: @Composable ColumnScope.() -> Unit) =
     Column(
@@ -230,9 +239,10 @@ fun Gear(c: Color) = Canvas(Modifier.size(Tokens.Size.icon)) {
     drawCircle(c, r * 0.64f, style = Stroke(1.5.dp.toPx()))
 }
 
-/** 그림: assets/plates/<파일> 이 있으면 그것, 없으면 별밤 자리표시. */
+/** 그림: assets/plates/<파일>. 아직 고르지 않았으면 빈 액자에 "그림 준비 중" (임시 그림은 그리지 않는다). */
 @Composable
 fun PlateImage(file: String, modifier: Modifier) {
+    val p = Ink.palette
     val ctx = LocalContext.current
     val bmp: ImageBitmap? = remember(file) {
         if (file.isBlank()) null else runCatching {
@@ -240,14 +250,7 @@ fun PlateImage(file: String, modifier: Modifier) {
         }.getOrNull()
     }
     if (bmp != null) Image(bmp, null, modifier, contentScale = ContentScale.Crop)
-    else Canvas(modifier.background(Color(0xFF1F2C55))) {
-        val w = size.width; val h = size.height
-        drawRect(Color(0xFF273A6B), Offset(0f, h * 0.62f), Size(w, h * 0.38f))
-        drawRect(Color(0xFF111A36), Offset(0f, h * 0.6f), Size(w, h * 0.04f))
-        listOf(0.18f to 0.15f, 0.32f to 0.25f, 0.46f to 0.12f, 0.6f to 0.27f, 0.64f to 0.42f, 0.78f to 0.36f, 0.88f to 0.48f).forEach { (x, y) ->
-            drawCircle(Color(0x33E9C25A), 9.dp.toPx(), Offset(w * x, h * y))
-            drawCircle(Color(0xFFE9C25A), 4.5.dp.toPx(), Offset(w * x, h * y))
-        }
-        for (i in 0 until 7) drawRect(Color(0xFFD69B3A), Offset(w * (0.08f + i * 0.13f), h * (0.68f + (i % 2) * 0.05f)), Size(4.dp.toPx(), h * 0.12f))
+    else Box(modifier.background(p.hide).border(Tokens.Stroke.hair, p.hair), contentAlignment = Alignment.Center) {
+        Text(stringResource(R.string.plate_soon), style = Type.small.ui(), color = p.hideInk)
     }
 }

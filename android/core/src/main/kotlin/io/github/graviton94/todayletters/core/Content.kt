@@ -57,6 +57,9 @@ object Exercises {
 
     fun isRight(answer: List<String>, picked: List<String>) = answer == picked
 
+    /** 별자리 잇기에서 이 낱말이 다음 차례인가. 같은 낱말이 두 번 나와도 글자로 비교하므로 어느 쪽을 눌러도 된다. */
+    fun isNext(answer: List<String>, done: Int, word: String) = answer.getOrNull(done) == word
+
     /** 답장 문장: 저자가 쓴 [Letter.reply] 가 있으면 그것, 없으면 낱말 수가 4~10개인 가장 짧은 메시지. */
     fun replyFor(letter: Letter, learn: Lang): Pair<String, Tri> {
         letter.reply?.let { return it[learn] to it }

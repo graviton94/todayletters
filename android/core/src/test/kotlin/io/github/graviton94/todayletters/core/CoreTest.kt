@@ -66,11 +66,28 @@ class CoreTest {
     }
 
     @Test fun launchOrder() {
-        assertEquals(listOf(Stage.INTRO_ENVELOPE, Stage.ONBOARDING, Stage.MAIN), Launch.plan(true, true, false, false))
-        assertEquals(listOf(Stage.INTRO_ENVELOPE, Stage.MAIN), Launch.plan(false, true, false, false))
-        assertEquals(listOf(Stage.INTRO_SHORT, Stage.MAIN), Launch.plan(false, false, false, false))
-        assertEquals(listOf(Stage.MAIN), Launch.plan(false, true, true, false))
-        assertEquals(listOf(Stage.MAIN), Launch.plan(false, true, false, true))
+        assertEquals(listOf(Stage.OPENING, Stage.ONBOARDING, Stage.MAIN), Launch.plan(firstRun = true, firstOfDay = true, deepLink = false))
+        assertEquals(listOf(Stage.OPENING, Stage.TODAY, Stage.MAIN), Launch.plan(firstRun = false, firstOfDay = true, deepLink = false))
+        assertEquals(listOf(Stage.OPENING, Stage.MAIN), Launch.plan(firstRun = false, firstOfDay = false, deepLink = false))
+        assertEquals(listOf(Stage.MAIN), Launch.plan(firstRun = false, firstOfDay = true, deepLink = true))
+        assertEquals(listOf(Stage.ONBOARDING, Stage.MAIN), Launch.plan(firstRun = true, firstOfDay = true, deepLink = true))
+    }
+
+    @Test fun koreanBreaksOnlyBetweenWords() {
+        val j = Breaks.JOIN
+        assertEquals("도${j}착${j}해${j}요${j}.", Breaks.keepAll("도착해요."))
+        assertEquals("하${j}루${j}에 한 통", Breaks.keepAll("하루에 한 통"))
+        assertEquals("1${j}통 · 「${j}남${j}쪽${j}으${j}로${j}」", Breaks.keepAll("1통 · 「남쪽으로」"))
+        assertEquals("Mon cher Théo,", Breaks.keepAll("Mon cher Théo,"))
+        assertEquals("도착해요 오늘", Breaks.plain(Breaks.keepAll("도착해요 오늘")))
+    }
+
+    @Test fun onlyTheNextStarJoins() {
+        val answer = listOf("Moi", "aussi,", "j'ai", "pensé", "à", "toi.")
+        assertTrue(Exercises.isNext(answer, 0, "Moi"))
+        assertFalse(Exercises.isNext(answer, 1, "pensé"))
+        assertTrue(Exercises.isNext(answer, 2, "j'ai"))
+        assertFalse(Exercises.isNext(answer, 6, "toi."))
     }
 
     private fun tri(fr: String, en: String = fr, ko: String = fr) = Tri(mapOf(Lang.FR to fr, Lang.EN to en, Lang.KO to ko))

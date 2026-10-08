@@ -3,10 +3,32 @@
   "id": "vincent",
   "original": "fr",
   "sender": "Vincent",
+  "name": {
+    "fr": "Vincent",
+    "en": "Vincent",
+    "ko": "빈센트"
+  },
   "seal": "vincent",
   "years": "1888–1890",
-  "title": { "fr": "Lettres de Vincent", "en": "Letters from Vincent", "ko": "빈센트의 편지" },
+  "fullName": "Vincent van Gogh",
+  "recipient": "Théo",
+  "portrait": "vincent.jpg",
+  "credit": "Self-Portrait, 1887 · Art Institute of Chicago",
+  "title": {
+    "fr": "Lettres de Vincent",
+    "en": "Letters from Vincent",
+    "ko": "빈센트의 편지"
+  },
   "chapters": [
-    { "id": "I", "file": "chapter1.json", "free": true, "title": { "fr": "Le Midi", "en": "The South", "ko": "남쪽으로" } }
+    {
+      "id": "I",
+      "file": "chapter1.json",
+      "free": true,
+      "title": {
+        "fr": "Le Midi",
+        "en": "The South",
+        "ko": "남쪽으로"
+      }
+    }
   ]
 }

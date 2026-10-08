@@ -75,6 +75,24 @@ def tokens():
     return out
 
 
+JOIN = "\u2060"
+
+
+def keep_all(text):
+    """한글이 낀 낱말 안의 글자 사이에 보이지 않는 이음표를 넣어, 띄어쓰기에서만 줄이 바뀌게 한다 (core/Breaks.kt 와 같음)."""
+    def hangul(c):
+        return "\uac00" <= c <= "\ud7a3" or "\u1100" <= c <= "\u11ff" or "\u3130" <= c <= "\u318f"
+    out = []
+    for i, c in enumerate(text):
+        out.append(c)
+        n = text[i + 1] if i + 1 < len(text) else None
+        if n is None or JOIN in (c, n) or c.isspace() or n.isspace():
+            continue
+        if hangul(c) or hangul(n):
+            out.append(JOIN)
+    return "".join(out)
+
+
 def strings():
     s = json.load(open(os.path.join(ROOT, "design", "strings.json"), encoding="utf-8"))
     out = {}
@@ -83,7 +101,7 @@ def strings():
         for k, v in s.items():
             if k.startswith("_"):
                 continue
-            text = v[lang] if isinstance(v, dict) else v
+            text = keep_all(v[lang] if isinstance(v, dict) else v)
             text = escape(text).replace("'", "\\'").replace("\n", "\\n")
             L.append(f'    <string name="{k}">{text}</string>')
         L.append("</resources>")

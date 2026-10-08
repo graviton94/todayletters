@@ -3,24 +3,25 @@ package io.github.graviton94.todayletters.core
 /**
  * 앱을 켰을 때의 순서.
  *
- *   그날 첫 실행: 봉투 인트로 (소인 → 봉랍 탭 → 첫 줄 미리보기 → 눌러서 들어가기)
- *   같은 날 다시: 짧은 인트로 (제목 → 눌러서 들어가기)
- *   처음 설치:    인트로 다음에 처음 소개 (읽는 언어 → 첫 작품 → 배우는 언어 → 답장 방식 · 하루 편지 수 → 알림)
+ *   늘:          오프닝 (앱 이름 · 앞으로 올 발신인들의 봉투 · 눌러서 열기)
+ *   처음 설치:    오프닝 다음에 처음 소개 두 단계 (이렇게 도착해요 → 작품과 배울 언어)
+ *   그날 첫 실행: 오프닝 다음에 오늘의 봉투 (고른 작품의 편지 한 통이 도착)
  *
- * 불러오기(콘텐츠 확인 · 구매 복원)는 인트로 뒤에서 함께 돈다. 따로 로딩 화면을 두지 않고,
- * 준비가 끝나야 "눌러서 들어가기"가 나타난다. 움직임 줄이기 · 알림으로 바로 들어오기는 인트로를 건너뛴다.
+ * 불러오기는 오프닝 뒤에서 함께 돈다. 따로 로딩 화면을 두지 않고, 준비가 끝나야 "눌러서 열기"가 나타난다.
+ * 알림으로 바로 들어오기(언어를 바꿔 다시 그릴 때 포함)는 오프닝과 봉투를 건너뛴다.
  */
-enum class Stage { INTRO_ENVELOPE, INTRO_SHORT, ONBOARDING, MAIN }
+enum class Stage { OPENING, ONBOARDING, TODAY, MAIN }
 
 object Launch {
-    fun plan(firstRun: Boolean, firstOfDay: Boolean, reducedMotion: Boolean, deepLink: Boolean): List<Stage> {
-        val intro = when {
-            deepLink || reducedMotion -> null
-            firstRun || firstOfDay -> Stage.INTRO_ENVELOPE
-            else -> Stage.INTRO_SHORT
-        }
-        return listOfNotNull(intro, if (firstRun) Stage.ONBOARDING else null, Stage.MAIN)
-    }
+    fun plan(firstRun: Boolean, firstOfDay: Boolean, deepLink: Boolean): List<Stage> = listOfNotNull(
+        if (deepLink) null else Stage.OPENING,
+        when {
+            firstRun -> Stage.ONBOARDING
+            firstOfDay && !deepLink -> Stage.TODAY
+            else -> null
+        },
+        Stage.MAIN,
+    )
 }
 
 /**

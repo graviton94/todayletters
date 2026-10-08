@@ -13,6 +13,7 @@ import androidx.compose.ui.text.font.FontFamily
 import io.github.graviton94.todayletters.R
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.LineBreak
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.em
 import io.github.graviton94.todayletters.core.ThemeMode
@@ -65,7 +66,9 @@ fun uiHangul(): Boolean = LocalConfiguration.current.locales[0].language == "ko"
  */
 fun TextStyle.hangul(on: Boolean = true): TextStyle =
     if (!on) this else copy(fontFamily = Faces.hangul, fontStyle = FontStyle.Normal,
-        fontWeight = if ((fontWeight ?: FontWeight.Normal) >= FontWeight.Medium) FontWeight.SemiBold else FontWeight.Normal)
+        fontWeight = if ((fontWeight ?: FontWeight.Normal) >= FontWeight.Medium) FontWeight.SemiBold else FontWeight.Normal,
+        // 한국어는 어절 단위로만 줄을 바꾼다 (안드로이드 13+; 그 아래는 글자에 넣은 이음표가 같은 일을 한다. core/Breaks.kt)
+        lineBreak = LineBreak.Paragraph.copy(wordBreak = LineBreak.WordBreak.Phrase))
 
 private fun style(face: FontFamily, size: TextUnit, leading: Float? = null, weight: FontWeight = FontWeight.Normal,
                   italic: Boolean = false, tracking: Float = 0f) = TextStyle(
