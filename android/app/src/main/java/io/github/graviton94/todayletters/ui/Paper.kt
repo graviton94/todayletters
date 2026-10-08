@@ -95,7 +95,8 @@ fun Modifier.paperGrain(base: Color, laid: Color, age: Color): Modifier = drawBe
     while (y < size.height) { drawLine(laid, Offset(0f, y), Offset(size.width, y), 1f); y += gap }
     val chain = 38.dp.toPx()
     var x = chain / 2
-    while (x < size.width) { drawLine(laid, Offset(x, 0f), Offset(x, size.height), 1f); x += chain }
+    val chainInk = laid.copy(alpha = laid.alpha * 0.45f)
+    while (x < size.width) { drawLine(chainInk, Offset(x, 0f), Offset(x, size.height), 1f); x += chain }
     drawRect(
         Brush.radialGradient(
             listOf(Color.Transparent, Color.Transparent, age),

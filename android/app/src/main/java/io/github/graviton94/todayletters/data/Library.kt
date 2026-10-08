@@ -24,7 +24,7 @@ data class Work(
     val portrait: String = "",
     val credit: String = "",
     val fullName: String = sender,
-    val recipient: String = "",
+    val recipient: Tri = Tri(mapOf(Lang.EN to "")),
     /** 앱 글자에 쓰는 보내는 사람 이름 (빈센트 / Vincent). */
     val name: Tri = Tri(mapOf(Lang.EN to sender)),
 )
@@ -54,7 +54,7 @@ object Library {
             Work(
                 Series(id, original), meta.getString("sender"), tri(meta.getJSONObject("title")), meta.optString("years"), meta.optString("seal", id), chapters,
                 portrait = meta.optString("portrait"), credit = meta.optString("credit"),
-                fullName = meta.optString("fullName", meta.getString("sender")), recipient = meta.optString("recipient"),
+                fullName = meta.optString("fullName", meta.getString("sender")), recipient = meta.optJSONObject("recipient")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to meta.optString("recipient"))),
                 name = meta.optJSONObject("name")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to meta.getString("sender"))),
             )
         }

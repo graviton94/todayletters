@@ -72,7 +72,7 @@ fun TextStyle.of(lang: Lang): TextStyle =
 
 @Composable
 fun Caps(text: String, color: Color = Ink.palette.inkSoft, small: Boolean = false, modifier: Modifier = Modifier) =
-    Text(text.uppercase(), style = if (small) Type.capsSm else Type.caps, color = color, modifier = modifier)
+    Text(text.uppercase(), style = (if (small) Type.capsSm else Type.caps).hangul(text.any { it in '\uAC00'..'\uD7A3' }), color = color, modifier = modifier)
 
 @Composable
 fun Rule(color: Color = Ink.palette.ink) = Box(Modifier.fillMaxWidth().height(Tokens.Stroke.rule).background(color))

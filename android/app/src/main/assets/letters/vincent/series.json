@@ -11,7 +11,11 @@
   "seal": "vincent",
   "years": "1888–1890",
   "fullName": "Vincent van Gogh",
-  "recipient": "Théo",
+  "recipient": {
+    "fr": "Théo",
+    "en": "Theo",
+    "ko": "테오"
+  },
   "portrait": "vincent.jpg",
   "credit": "Self-Portrait, 1887 · Art Institute of Chicago",
   "title": {

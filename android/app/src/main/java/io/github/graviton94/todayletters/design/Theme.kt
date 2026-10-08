@@ -66,7 +66,10 @@ fun uiHangul(): Boolean = LocalConfiguration.current.locales[0].language == "ko"
  */
 fun TextStyle.hangul(on: Boolean = true): TextStyle =
     if (!on) this else copy(fontFamily = Faces.hangul, fontStyle = FontStyle.Normal,
-        fontWeight = if ((fontWeight ?: FontWeight.Normal) >= FontWeight.Medium) FontWeight.SemiBold else FontWeight.Normal,
+        // 한글에는 대문자 라벨의 자간을 주지 않는다 ("배 울 언 어"처럼 벌어지지 않게). 라벨은 한 단계 키워 굵게.
+        letterSpacing = 0.em,
+        fontSize = if (fontFamily == Faces.caps) Tokens.Text.small else fontSize,
+        fontWeight = if (fontFamily == Faces.caps || (fontWeight ?: FontWeight.Normal) >= FontWeight.Medium) FontWeight.SemiBold else FontWeight.Normal,
         // 한국어는 어절 단위로만 줄을 바꾼다 (안드로이드 13+; 그 아래는 글자에 넣은 이음표가 같은 일을 한다. core/Breaks.kt)
         lineBreak = LineBreak.Paragraph.copy(wordBreak = LineBreak.WordBreak.Phrase))
 

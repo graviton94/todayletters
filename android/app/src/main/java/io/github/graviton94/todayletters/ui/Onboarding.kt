@@ -181,7 +181,7 @@ private fun Pick(s: AppState, work: io.github.graviton94.todayletters.data.Work,
                 Portrait(work.portrait, work.fullName, 48.dp)
                 Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     Text(work.title[uiLang()], style = Type.heading.ui(), color = p.slipInk)
-                    Text("${work.name[uiLang()]} → ${work.recipient} · ${work.years}", style = Type.small.ui(), color = p.slipSoft)
+                    Text("${work.name[uiLang()]} → ${work.recipient[uiLang()]} · ${work.years}", style = Type.small.ui(), color = p.slipSoft)
                 }
                 CheckMark(true, 22.dp)
             }

@@ -238,19 +238,15 @@ private fun RoomHeader(
                 Text(name, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.ink, maxLines = 1)
                 Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
             }
-            Box(
-                Modifier.heightIn(min = 36.dp).border(1.dp, if (canListen) p.giltText else p.hair)
-                    .clickable(enabled = canListen, role = Role.Button, onClick = onListen).padding(horizontal = Tokens.Space.s3),
-                contentAlignment = Alignment.Center,
-            ) {
-                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Canvas(Modifier.size(10.dp)) {
+            val listenLabel = stringResource(if (listening) R.string.room_stop else R.string.room_listen_all)
+            IconButton(listenLabel, onClick = { if (canListen) onListen() }) {
+                Box(Modifier.size(34.dp).border(1.dp, if (canListen) p.giltText else p.hair, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) {
+                    Canvas(Modifier.size(11.dp)) {
                         val w = size.width
                         val c = if (canListen) p.giltText else p.hair
                         if (listening) drawRect(c)
-                        else drawPath(androidx.compose.ui.graphics.Path().apply { moveTo(0f, 0f); lineTo(w, w / 2); lineTo(0f, w); close() }, c)
+                        else drawPath(androidx.compose.ui.graphics.Path().apply { moveTo(w * 0.15f, 0f); lineTo(w, w / 2); lineTo(w * 0.15f, w); close() }, c)
                     }
-                    Text(stringResource(if (listening) R.string.room_stop else R.string.room_listen_all), style = Type.small.ui(), color = if (canListen) p.giltText else p.hideInk)
                 }
             }
             IconButton(stringResource(R.string.help), onClick = { s.coachAgain("room") }) { HelpGlyph(p.ink) }

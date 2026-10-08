@@ -99,7 +99,7 @@ fun LibraryTab(s: AppState) {
                     Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                         Caps("Saison I · ${w.years}", small = true)
                         Text(w.title[uiLang()], style = Type.heading.ui(), color = p.ink)
-                        Text("${w.name[uiLang()]} → ${w.recipient} · ${stringResource(langLabel(w.series.original))}", style = Type.small.ui(), color = p.inkSoft)
+                        Text("${w.name[uiLang()]} → ${w.recipient[uiLang()]} · ${stringResource(langLabel(w.series.original))}", style = Type.small.ui(), color = p.inkSoft)
                         if (w.credit.isNotEmpty()) Text(w.credit, style = Type.signature.copy(fontSize = Tokens.Text.small), color = p.inkSoft)
                     }
                 }
