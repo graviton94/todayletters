@@ -1,6 +1,7 @@
 package io.github.graviton94.todayletters
 
 import android.content.Context
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -20,6 +21,7 @@ import io.github.graviton94.todayletters.core.Route
 import io.github.graviton94.todayletters.core.ThemeMode
 import io.github.graviton94.todayletters.core.TypingPace
 import io.github.graviton94.todayletters.data.Store
+import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.TodayLettersTheme
 import io.github.graviton94.todayletters.ui.AppState
 import io.github.graviton94.todayletters.ui.Inbox
@@ -60,7 +62,7 @@ class ScreensTest {
     private fun shot(name: String, dark: Boolean, ms: Long = 2500, act: () -> Unit = {}, content: @Composable () -> Unit) {
         rule.mainClock.autoAdvance = false
         rule.setContent {
-            TodayLettersTheme(if (dark) ThemeMode.DARK else ThemeMode.LIGHT) { Box(Modifier.fillMaxSize()) { content() } }
+            TodayLettersTheme(if (dark) ThemeMode.DARK else ThemeMode.LIGHT) { Box(Modifier.fillMaxSize().background(Ink.palette.paper)) { content() } }
         }
         rule.mainClock.advanceTimeBy(ms)
         act()
