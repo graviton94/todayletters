@@ -1,6 +1,7 @@
 """Wikimedia Commons 에서 인물 초상 후보를 찾아 작은 이미지와 라이선스 정보를 받는다 (시안·검토용).
 
-사용: python3 scripts/fetch_portraits.py <out>
+사용: python3 scripts/fetch_portraits.py <out> [검색어 파일.json] [폭]
+  검색어 파일: {"이름": ["검색어", …]} (없으면 아래 인물 초상)
 """
 import json, os, sys, urllib.parse, urllib.request
 
@@ -17,9 +18,14 @@ def get(url):
     with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=40) as r:
         return r.read()
 
+WIDTH = int(sys.argv[3]) if len(sys.argv) > 3 else 600
+if len(sys.argv) > 2:
+    QUERIES = json.load(open(sys.argv[2], encoding="utf-8"))
+
+
 def search(q):
     p = {"action": "query", "format": "json", "generator": "search", "gsrnamespace": 6, "gsrsearch": q,
-         "gsrlimit": 4, "prop": "imageinfo", "iiprop": "url|extmetadata|mime", "iiurlwidth": 600}
+         "gsrlimit": 4, "prop": "imageinfo", "iiprop": "url|extmetadata|mime|size", "iiurlwidth": WIDTH}
     d = json.loads(get("https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(p)))
     pages = sorted(d.get("query", {}).get("pages", {}).values(), key=lambda x: x.get("index", 0))
     return pages

@@ -1,0 +1,28 @@
+name: TTS natural
+
+# 낭독 자연스러움 비교 샘플 (A 덩어리 따로 · B 한 번에 · C 한 번에+쉼표 · D C 조금 느리게) → tts-natural 가지
+on:
+  workflow_dispatch:
+
+jobs:
+  samples:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Get Supertonic 3 (archived, pinned) and ffmpeg
+        run: |
+          sudo apt-get install -y -qq ffmpeg >/dev/null
+          git clone -q --depth 1 https://github.com/supertone-oss-archive/supertonic.git /tmp/st
+          pip install -q huggingface_hub -r /tmp/st/py/requirements.txt
+          hf download supertone-oss-archive/supertonic-3 --revision aafc6e32416a594460b32413efc49d7fe4ce6d46 --local-dir /tmp/st/assets
+      - name: Samples
+        run: python scripts/tts_natural.py /tmp/st/py /tmp/st/assets data/vincent/chapter1.draft.json out
+      - name: Publish
+        run: |
+          cd out && git init -q && git checkout -q -b tts-natural && git add .
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "TTS natural samples"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:tts-natural
