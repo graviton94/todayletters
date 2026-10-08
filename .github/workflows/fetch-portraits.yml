@@ -1,0 +1,21 @@
+name: Fetch portraits
+
+# 인물 초상 후보(위키미디어 공용)를 받아 portraits 가지에 둔다. 앱에는 들어가지 않음 (검토 후 고른 것만 넣는다).
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch
+        run: python3 scripts/fetch_portraits.py out
+      - name: Publish to portraits branch
+        run: |
+          cd out
+          git init -q && git checkout -q -b portraits
+          git add -A
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Portrait candidates"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:portraits
