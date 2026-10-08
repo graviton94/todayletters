@@ -2,7 +2,7 @@ name: Android
 
 on:
   push:
-    paths: ["android/**", "design/**", "scripts/generate.py", ".github/workflows/android.yml"]
+    paths: ["android/**", "design/**", "data/**", "scripts/generate.py", "scripts/build_fonts.py", ".github/workflows/android.yml"]
   workflow_dispatch:
 
 concurrency:
@@ -15,8 +15,11 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - name: Generated files are up to date
-        run: python3 scripts/generate.py --check
+      - name: Generated files and fonts are up to date
+        run: |
+          python3 scripts/generate.py --check
+          pip install -q fonttools
+          python3 scripts/build_fonts.py --check
       - uses: actions/setup-java@v4
         with:
           distribution: temurin

@@ -32,6 +32,8 @@ import io.github.graviton94.todayletters.core.ThemeMode
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
+import io.github.graviton94.todayletters.design.hangul
+import io.github.graviton94.todayletters.design.uiHangul
 
 /** 토큰 견본: 같은 컴포넌트가 라이트 · 다크에서 색만 바뀌는지 폰에서 확인하는 화면. */
 @Composable
@@ -44,7 +46,7 @@ fun Specimen(mode: ThemeMode, large: Boolean, onMode: (ThemeMode) -> Unit, onLar
     ) {
         Text("Lettres de Vincent".uppercase(), style = Type.caps, color = p.inkSoft)
         Box(Modifier.fillMaxWidth().height(Tokens.Stroke.rule).background(p.ink))
-        Text(stringResource(R.string.app_name), style = Type.display, color = p.ink)
+        Text(stringResource(R.string.app_name), style = Type.display.hangul(uiHangul()), color = p.ink)
 
         Segmented(
             listOf(ThemeMode.SYSTEM to R.string.set_theme_system, ThemeMode.LIGHT to R.string.set_theme_light, ThemeMode.DARK to R.string.set_theme_dark),
@@ -59,7 +61,7 @@ fun Specimen(mode: ThemeMode, large: Boolean, onMode: (ThemeMode) -> Unit, onLar
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1),
         ) {
             Text("Mais la vue des étoiles me fait toujours rêver,", style = Type.target, color = p.ink)
-            Text("그래도 별을 보면 나는 늘 꿈을 꾸게 돼.", style = Type.base, color = p.inkSoft)
+            Text("그래도 별을 보면 나는 늘 꿈을 꾸게 돼.", style = Type.base.hangul(), color = p.inkSoft)
             Text("t. à t. Vincent", style = Type.signature, color = p.inkSoft, modifier = Modifier.align(Alignment.End))
         }
         Column(
@@ -67,7 +69,7 @@ fun Specimen(mode: ThemeMode, large: Boolean, onMode: (ThemeMode) -> Unit, onLar
                 .padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
         ) {
             Text("La vue des étoiles te fait rêver ?", style = Type.target, color = p.onFill)
-            Text("별을 보면 형은 꿈을 꾸는구나?", style = Type.base, color = p.onFillSoft)
+            Text("별을 보면 형은 꿈을 꾸는구나?", style = Type.base.hangul(), color = p.onFillSoft)
         }
 
         Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
@@ -96,7 +98,7 @@ private fun <T> Segmented(options: List<Pair<T, Int>>, selected: T, onPick: (T) 
                     .semantics { this.selected = on }
                     .clickable(role = Role.RadioButton) { onPick(value) },
                 contentAlignment = Alignment.Center,
-            ) { Text(stringResource(label), style = Type.label, color = if (on) p.onFill else p.ink) }
+            ) { Text(stringResource(label), style = Type.label.hangul(uiHangul()), color = if (on) p.onFill else p.ink) }
         }
     }
 }

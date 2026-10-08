@@ -4,10 +4,13 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import io.github.graviton94.todayletters.R
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
@@ -28,12 +31,41 @@ object Ink {
     val isDark: Boolean @Composable get() = LocalDark.current
 }
 
-/** 글꼴 역할. 글꼴 파일을 넣기 전까지는 시스템 세리프로 대신한다 (역할 이름은 바뀌지 않음). */
+/** 글꼴 역할 (scripts/build_fonts.py 가 쓰는 글자만 남겨 res/font 에 넣음). */
 object Faces {
-    var display: FontFamily = FontFamily.Serif   // Cormorant Garamond: 제목 · 숫자 · 이름
-    var text: FontFamily = FontFamily.Serif      // Crimson Pro (+ Noto Serif KR): 편지 · 본문
-    var caps: FontFamily = FontFamily.Serif      // Cinzel: 작은 대문자 라벨 (라틴 전용)
+    /** Cormorant Garamond: 제목 · 숫자 · 이름 · 서명 */
+    val display = FontFamily(
+        Font(R.font.display_medium, FontWeight.Medium),
+        Font(R.font.display_semibold, FontWeight.SemiBold),
+        Font(R.font.display_italic, FontWeight.Medium, FontStyle.Italic),
+    )
+    /** Crimson Pro: 편지 · 본문 (라틴) */
+    val text = FontFamily(
+        Font(R.font.text_regular, FontWeight.Normal),
+        Font(R.font.text_medium, FontWeight.Medium),
+        Font(R.font.text_italic, FontWeight.Normal, FontStyle.Italic),
+    )
+    /** Cinzel: 작은 대문자 라벨 (라틴만) */
+    val caps = FontFamily(Font(R.font.caps, FontWeight.Medium))
+    /** Noto Serif KR: 한글이 들어가는 모든 글자 */
+    val hangul = FontFamily(
+        Font(R.font.kr_regular, FontWeight.Normal),
+        Font(R.font.kr_semibold, FontWeight.SemiBold),
+        Font(R.font.kr_semibold, FontWeight.Medium),
+    )
 }
+
+/** 앱 글자가 한국어인가 (앱 글자 언어는 영어 · 한국어 둘). */
+@Composable
+fun uiHangul(): Boolean = LocalConfiguration.current.locales[0].language == "ko"
+
+/**
+ * 한글이 들어가는 글자는 한글 글꼴로. 라틴 글꼴에는 한글이 없어서, 글자의 언어를 아는 곳(말풍선 줄,
+ * 앱 글자)에서 이걸로 고른다. 이탤릭 한글은 바로 세운다.
+ */
+fun TextStyle.hangul(on: Boolean = true): TextStyle =
+    if (!on) this else copy(fontFamily = Faces.hangul, fontStyle = FontStyle.Normal,
+        fontWeight = if ((fontWeight ?: FontWeight.Normal) >= FontWeight.Medium) FontWeight.SemiBold else FontWeight.Normal)
 
 private fun style(face: FontFamily, size: TextUnit, leading: Float? = null, weight: FontWeight = FontWeight.Normal,
                   italic: Boolean = false, tracking: Float = 0f) = TextStyle(
