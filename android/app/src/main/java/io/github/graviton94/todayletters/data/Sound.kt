@@ -1,0 +1,75 @@
+package io.github.graviton94.todayletters.data
+
+import android.content.Context
+import android.media.MediaPlayer
+import android.media.MediaRecorder
+import android.os.Build
+import java.io.File
+
+/**
+ * 낭독 재생: assets/audio/<작품>/<챕터>/<편지 id>/m<번호>_<언어>.m4a (낱말은 w<번호>_<언어>.m4a).
+ * 파일이 없으면 조용히 넘어간다 (낭독이 아직 없는 편지도 읽을 수 있게).
+ */
+class Narrator(private val ctx: Context) {
+    private var player: MediaPlayer? = null
+
+    fun path(series: String, chapter: String, letter: String, file: String) = "audio/$series/$chapter/$letter/$file.m4a"
+
+    fun has(asset: String) = runCatching { ctx.assets.openFd(asset).close() }.isSuccess
+
+    fun play(asset: String, speed: Float = 1f, onDone: () -> Unit = {}): Boolean {
+        stop()
+        val fd = runCatching { ctx.assets.openFd(asset) }.getOrNull() ?: run { onDone(); return false }
+        player = MediaPlayer().apply {
+            setDataSource(fd.fileDescriptor, fd.startOffset, fd.length)
+            fd.close()
+            setOnCompletionListener { onDone() }
+            prepare()
+            if (speed != 1f) playbackParams = playbackParams.setSpeed(speed)
+            start()
+        }
+        return true
+    }
+
+    fun stop() {
+        player?.runCatching { stop(); release() }
+        player = null
+    }
+}
+
+/** 따라 읽기 녹음: 앱 캐시에만 두고, 밖으로 보내지 않는다. */
+class Recorder(private val ctx: Context) {
+    private var rec: MediaRecorder? = null
+    private var player: MediaPlayer? = null
+    val file get() = File(ctx.cacheDir, "aloud.m4a")
+
+    fun start(): Boolean = runCatching {
+        stop()
+        rec = (if (Build.VERSION.SDK_INT >= 31) MediaRecorder(ctx) else @Suppress("DEPRECATION") MediaRecorder()).apply {
+            setAudioSource(MediaRecorder.AudioSource.MIC)
+            setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+            setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+            setAudioSamplingRate(32000)
+            setAudioEncodingBitRate(48000)
+            setOutputFile(file.absolutePath)
+            prepare(); start()
+        }
+    }.isSuccess
+
+    fun stop() {
+        rec?.runCatching { stop(); release() }
+        rec = null
+    }
+
+    fun play(onDone: () -> Unit = {}) {
+        player?.release()
+        if (!file.exists()) return onDone()
+        player = MediaPlayer().apply {
+            setDataSource(file.absolutePath)
+            setOnCompletionListener { onDone() }
+            prepare(); start()
+        }
+    }
+
+    fun release() { stop(); player?.release(); player = null }
+}

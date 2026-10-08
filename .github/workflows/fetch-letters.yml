@@ -1,0 +1,34 @@
+name: Fetch letter sources
+
+# 편지 원문(프랑스어 · 네덜란드어) 대조용: 원문 페이지를 받아 sources 가지에 둔다. 앱에는 들어가지 않음.
+# 원문은 공공 영역. 받은 페이지는 대조에만 쓰고, 영어 · 한국어는 이 앱의 새 번역만 쓴다.
+on:
+  workflow_dispatch:
+    inputs:
+      letters: { description: "vangoghletters.org 번호들", default: "577 578 585 592 602" }
+      old: { description: "옛 번호 (webexhibits, 18 폴더)", default: "463 464 469 473 480" }
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch pages
+        run: |
+          mkdir -p out
+          for n in ${{ inputs.letters }}; do
+            curl -sSL -A "Mozilla/5.0" -o "out/let${n}.html" "https://vangoghletters.org/vg/letters/let${n}/letter.html" || true
+          done
+          for n in ${{ inputs.old }}; do
+            curl -sSL -A "Mozilla/5.0" -o "out/old${n}-fr.html" "https://www.webexhibits.org/vangogh/data/letters/18/${n}-fr.htm" || true
+          done
+          ls -la out
+      - name: Plain text
+        run: python3 scripts/letter_text.py out
+      - name: Publish to sources branch
+        run: |
+          cd out
+          git init -q && git checkout -q -b sources && git add .
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Letter sources"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:sources

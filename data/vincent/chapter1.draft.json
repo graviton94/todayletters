@@ -1,0 +1,460 @@
+{
+  "_doc": "Chapter I draft for review (Le Midi · 남쪽으로, Arles, 20 Feb – early May 1888). French = Vincent's original (public domain). English and Korean are this app's new translations. 'verified': true means the French wording was matched against a quoted French source found through web search snippets; full source pages could not be opened in this environment (vangoghletters.org, webexhibits.org, wikisource, gallica and archive.org were all unreachable), so EVERY message, true or false, must be checked against vangoghletters.org before release. Letters are in chronological order: the Langlois bridge letter (mid-March) comes before the orchards (early April).",
+  "series": "vincent",
+  "chapter": "I",
+  "title_fr": "Le Midi",
+  "title_ko": "남쪽으로",
+  "original": "fr",
+  "letters": [
+    {
+      "id": "c1-l1",
+      "date": "1888-02-21",
+      "dateNote": "Dated Tuesday 21 February 1888 by the Van Gogh Museum/Huygens edition; Vincent arrived in Arles the day before (20 Feb).",
+      "ref": "577 (Brieven 1990: 579; CL: 463). https://vangoghletters.org/vg/letters/let577/letter.html ; French text (old no. 463): https://www.webexhibits.org/vangogh/data/letters/18/463-fr.htm",
+      "place": "Arles",
+      "mood": "calm",
+      "messages": [
+        {
+          "fr": "Mon cher Théo, pendant le voyage j'ai pour le moins autant pensé à toi qu'au nouveau pays que je voyais.",
+          "en": "My dear Theo, on the journey I thought about you at least as much as about the new country I was seeing.",
+          "ko": "사랑하는 테오에게. 오는 길에 나는 처음 보는 이 고장만큼이나 너를 많이 생각했어.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let577/letter.html"
+        },
+        {
+          "fr": "Maintenant je te dirai que pour commencer il y a partout au moins 60 centimètres de neige de tombée, et il en tombe encore toujours.",
+          "en": "Now let me tell you that, to begin with, at least 60 centimetres of snow has fallen everywhere, and it's still falling.",
+          "ko": "우선 이것부터 말할게. 온 데에 눈이 60센티미터는 쌓였고, 아직도 계속 내리고 있어.",
+          "verified": false,
+          "source": "https://vangoghletters.org/vg/letters/let577/letter.html"
+        },
+        {
+          "fr": "…de magnifiques terrains rouges, plantés de vignes, avec des fonds de montagnes du plus fin lilas.",
+          "en": "…magnificent red fields planted with vines, with mountains behind them in the most delicate lilac.",
+          "ko": "…포도나무가 심긴 붉은 땅이 정말 멋졌어. 그 뒤로는 아주 고운 연보랏빛 산들이 보였고.",
+          "verified": true,
+          "source": "https://booknode.com/lettres_a_son_frere_theo_065665/extraits?offset=6"
+        },
+        {
+          "fr": "Et les paysages sous la neige, avec les cimes blanches contre le ciel aussi lumineux que la neige elle-même, étaient bien comme les paysages d'hiver qu'ont faits les Japonais.",
+          "en": "And the snowy landscapes, with white peaks against a sky as bright as the snow itself, were just like the winter landscapes the Japanese made.",
+          "ko": "눈 덮인 풍경은 눈만큼 환한 하늘 아래 하얀 봉우리가 솟아 있어서, 꼭 일본 화가들이 그린 겨울 풍경 같았어.",
+          "verified": true,
+          "source": "https://booknode.com/lettres_a_son_frere_theo_065665/extraits?offset=6"
+        }
+      ],
+      "words": [
+        {
+          "fr": "voyage",
+          "pos": "n.m.",
+          "ipa": "vwajaʒ",
+          "en": "journey, trip",
+          "ko": "여행, 길"
+        },
+        {
+          "fr": "pays",
+          "pos": "n.m.",
+          "ipa": "pei",
+          "en": "country, region",
+          "ko": "고장, 나라"
+        },
+        {
+          "fr": "neige",
+          "pos": "n.f.",
+          "ipa": "nɛʒ",
+          "en": "snow",
+          "ko": "눈"
+        },
+        {
+          "fr": "vigne",
+          "pos": "n.f.",
+          "ipa": "viɲ",
+          "en": "vine, vineyard",
+          "ko": "포도나무, 포도밭"
+        },
+        {
+          "fr": "ciel",
+          "pos": "n.m.",
+          "ipa": "sjɛl",
+          "en": "sky",
+          "ko": "하늘"
+        },
+        {
+          "fr": "lumineux",
+          "pos": "adj.",
+          "ipa": "lyminø",
+          "en": "bright, luminous",
+          "ko": "환한, 빛나는"
+        }
+      ],
+      "note": {
+        "ko": "빈센트는 1888년 2월 19일 파리를 떠나 기차로 열다섯 시간쯤 달려 20일에 아를에 도착했어요. 남쪽의 햇빛을 찾아왔지만, 그해 아를은 보기 드문 폭설에 덮여 있었어요. 처음에는 카발르리 거리의 카렐 호텔 겸 식당에 묵었어요.",
+        "en": "Vincent left Paris on 19 February 1888 and, after a train journey of about fifteen hours, arrived in Arles on the 20th. He had come looking for southern sun but found the town under unusually heavy snow. He first lodged at the Hôtel-Restaurant Carrel in rue de la Cavalerie.",
+        "source": "https://www.surlespasdevangogh.fr/vincent-van-gogh-a-arles.html ; https://vangoghletters.org/vg/letters/let577/letter.html"
+      },
+      "plate": {
+        "title_fr": "Paysage enneigé",
+        "title_en": "Landscape with Snow",
+        "title_ko": "눈 덮인 풍경",
+        "date": "February 1888",
+        "collection": "Solomon R. Guggenheim Museum, New York (Thannhauser Collection)",
+        "imageLicense": "public domain reproduction (Wikimedia Commons; museum image is not CC0)",
+        "imageSource": "https://commons.wikimedia.org/w/index.php?search=Van+Gogh+Landscape+with+Snow+Guggenheim+1888",
+        "why": "Painted in Arles in the first days after arrival, in the snow this letter describes."
+      }
+    },
+    {
+      "id": "c1-l2",
+      "date": "1888-02-24",
+      "dateNote": "Dated 'on or about Friday, 24 February 1888' by the edition (approximate).",
+      "ref": "578 (Brieven 1990: 580; CL: 464). https://vangoghletters.org/vg/letters/let578/letter.html ; French text (old no. 464): https://www.webexhibits.org/vangogh/data/letters/18/464-fr.htm",
+      "place": "Arles",
+      "mood": "bright",
+      "messages": [
+        {
+          "fr": "Il gèle dur et il y a encore de la neige à la campagne.",
+          "en": "It's freezing hard, and there's still snow in the countryside.",
+          "ko": "날씨가 꽁꽁 얼어붙었고, 들판에는 아직 눈이 남아 있어.",
+          "verified": false,
+          "source": "https://vangoghletters.org/vg/letters/let578/letter.html"
+        },
+        {
+          "fr": "J'ai jusqu'à présent fait trois études : une vieille Arlésienne, un paysage avec de la neige, une vue d'un bout de trottoir avec une charcuterie.",
+          "en": "So far I've done three studies: an old woman of Arles, a landscape with snow, and a view of a bit of pavement with a pork butcher's shop.",
+          "ko": "지금까지 습작을 세 점 그렸어. 아를의 할머니, 눈 내린 풍경, 그리고 정육점이 있는 길가 한 모퉁이.",
+          "verified": false,
+          "source": "https://vangoghletters.org/vg/letters/let578/letter.html"
+        },
+        {
+          "fr": "Les femmes sont belles ici, ce n'est pas une blague…",
+          "en": "The women here are beautiful, and that's no joke…",
+          "ko": "여기 여자들은 정말 아름다워. 농담이 아니야…",
+          "verified": false,
+          "source": "https://vangoghletters.org/vg/letters/let578/letter.html"
+        },
+        {
+          "fr": "…par contre le musée d'Arles est atroce et une blague, et digne d'être à Tarascon.",
+          "en": "…the Arles museum, on the other hand, is dreadful, a joke, fit for Tarascon.",
+          "ko": "…그런데 아를 미술관은 끔찍해. 그야말로 웃음거리라서 타라스콩에나 어울려.",
+          "verified": false,
+          "source": "https://vangoghletters.org/vg/letters/let578/letter.html"
+        }
+      ],
+      "words": [
+        {
+          "fr": "geler",
+          "pos": "v.",
+          "ipa": "ʒəle",
+          "en": "to freeze",
+          "ko": "얼다"
+        },
+        {
+          "fr": "campagne",
+          "pos": "n.f.",
+          "ipa": "kɑ̃paɲ",
+          "en": "countryside",
+          "ko": "시골, 들판"
+        },
+        {
+          "fr": "étude",
+          "pos": "n.f.",
+          "ipa": "etyd",
+          "en": "study (painting)",
+          "ko": "습작"
+        },
+        {
+          "fr": "trottoir",
+          "pos": "n.m.",
+          "ipa": "tʁɔtwaʁ",
+          "en": "pavement, sidewalk",
+          "ko": "보도, 인도"
+        },
+        {
+          "fr": "blague",
+          "pos": "n.f.",
+          "ipa": "blaɡ",
+          "en": "joke",
+          "ko": "농담"
+        }
+      ],
+      "note": {
+        "ko": "아를에 온 지 며칠 만에 빈센트는 첫 습작 세 점을 그렸어요. ‘타라스콩에나 어울린다’는 말은 알퐁스 도데의 익살스러운 소설 『타라스콩의 타르타랭』을 떠올린 농담이에요.",
+        "en": "Within days of arriving, Vincent had finished his first three Arles studies. The jibe about Tarascon alludes to Alphonse Daudet's comic novel Tartarin de Tarascon, a favourite of his.",
+        "source": "https://vangoghletters.org/vg/letters/let578/letter.html ; https://www.webexhibits.org/vangogh/letter/18/464.htm"
+      },
+      "plate": {
+        "title_fr": "Vieille Arlésienne",
+        "title_en": "An Old Woman of Arles",
+        "title_ko": "아를의 할머니",
+        "date": "February 1888",
+        "collection": "Van Gogh Museum, Amsterdam (Vincent van Gogh Foundation)",
+        "imageLicense": "public domain reproduction (Wikimedia Commons)",
+        "imageSource": "https://commons.wikimedia.org/w/index.php?search=Van+Gogh+An+Old+Woman+of+Arles+1888",
+        "why": "One of the three first studies listed in this letter."
+      }
+    },
+    {
+      "id": "c1-l3",
+      "date": "1888-03-16",
+      "dateNote": "Dated 'on or about Friday, 16 March 1888' by the edition (approximate).",
+      "ref": "585 (Brieven 1990: 587; CL: 469). https://vangoghletters.org/en/let585 ; French text (old no. 469): https://www.webexhibits.org/vangogh/data/letters/18/469-fr.htm",
+      "place": "Arles",
+      "mood": "calm",
+      "messages": [
+        {
+          "fr": "J'ai rapporté aujourd'hui une toile de 15.",
+          "en": "Today I brought back a size 15 canvas.",
+          "ko": "오늘 15호 캔버스 하나를 들고 돌아왔어.",
+          "verified": false,
+          "source": "https://vangoghletters.org/en/let585"
+        },
+        {
+          "fr": "C'est un pont-levis sur lequel passe une petite voiture, se profilant contre un ciel bleu.",
+          "en": "It's a drawbridge with a little carriage crossing it, outlined against a blue sky.",
+          "ko": "도개교 위로 작은 마차 한 대가 지나가. 파란 하늘에 그 모습이 또렷하게 보여.",
+          "verified": false,
+          "source": "https://vangoghletters.org/en/let585"
+        },
+        {
+          "fr": "La rivière bleue aussi, les berges orangées avec de la verdure…",
+          "en": "The river blue as well, the banks orange with some green…",
+          "ko": "강물도 파랗고, 강둑은 주황빛에 풀이 파릇해…",
+          "verified": false,
+          "source": "https://vangoghletters.org/en/let585"
+        },
+        {
+          "fr": "…un groupe de laveuses à sarraus et bonnets multicolores.",
+          "en": "…a group of washerwomen in smocks and caps of every colour.",
+          "ko": "…알록달록한 작업복에 모자를 쓴 빨래하는 여자들이 모여 있어.",
+          "verified": false,
+          "source": "https://vangoghletters.org/en/let585"
+        }
+      ],
+      "words": [
+        {
+          "fr": "toile",
+          "pos": "n.f.",
+          "ipa": "twal",
+          "en": "canvas",
+          "ko": "캔버스, 화폭"
+        },
+        {
+          "fr": "pont-levis",
+          "pos": "n.m.",
+          "ipa": "pɔ̃ləvi",
+          "en": "drawbridge",
+          "ko": "도개교"
+        },
+        {
+          "fr": "rivière",
+          "pos": "n.f.",
+          "ipa": "ʁivjɛʁ",
+          "en": "river",
+          "ko": "강"
+        },
+        {
+          "fr": "berge",
+          "pos": "n.f.",
+          "ipa": "bɛʁʒ",
+          "en": "bank (of a river)",
+          "ko": "강둑"
+        },
+        {
+          "fr": "laveuse",
+          "pos": "n.f.",
+          "ipa": "lavøz",
+          "en": "washerwoman",
+          "ko": "빨래하는 여자"
+        }
+      ],
+      "note": {
+        "ko": "랑글루아 다리는 아를 남쪽 운하에 놓인 도개교로, 다리지기의 이름을 따서 불렸어요. 네덜란드식 다리라서 빈센트에게 고향을 떠올리게 했어요. 이 편지 무렵 그는 아를에 와서 습작 열두 점을 그렸다고 전해요.",
+        "en": "The Langlois Bridge was a drawbridge over the canal south of Arles, named after its keeper; its Dutch-style design reminded Vincent of home. By this letter he reports twelve studies made since arriving in Arles.",
+        "source": "https://en.wikipedia.org/wiki/Langlois_Bridge_at_Arles ; https://vangoghletters.org/en/let585"
+      },
+      "plate": {
+        "title_fr": "Le Pont de Langlois avec des lavandières",
+        "title_en": "The Langlois Bridge at Arles with Women Washing",
+        "title_ko": "빨래하는 여자들이 있는 랑글루아 다리",
+        "date": "March 1888",
+        "collection": "Kröller-Müller Museum, Otterlo",
+        "imageLicense": "public domain reproduction (Wikimedia Commons)",
+        "imageSource": "https://commons.wikimedia.org/w/index.php?search=Langlois+Bridge+at+Arles+with+Women+Washing+Kröller-Müller",
+        "why": "This is the size 15 canvas the letter describes: drawbridge, small carriage, washerwomen."
+      }
+    },
+    {
+      "id": "c1-l4",
+      "date": "1888-04-03",
+      "dateNote": "Dated 'on or about Tuesday, 3 April 1888' by the edition (approximate).",
+      "ref": "592 (Brieven 1990: 594; CL: 473). https://vangoghletters.org/vg/letters/let592/print.html ; French text (old no. 473): https://www.webexhibits.org/vangogh/data/letters/18/473-fr.htm",
+      "place": "Arles",
+      "mood": "bright",
+      "messages": [
+        {
+          "fr": "Mon cher Théo, je suis dans une rage de travail…",
+          "en": "My dear Theo, I'm in a fury of work…",
+          "ko": "사랑하는 테오에게. 요즘 나는 정신없이 그림만 그리고 있어…",
+          "verified": true,
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/473-fr.htm"
+        },
+        {
+          "fr": "…puisque les arbres sont en fleurs et que je voulais faire un verger de Provence d'une gaieté monstre.",
+          "en": "…because the trees are in blossom and I wanted to paint a Provence orchard of tremendous gaiety.",
+          "ko": "…나무마다 꽃이 활짝 피었거든. 아주 신나고 환한 프로방스 과수원을 그리고 싶었어.",
+          "verified": true,
+          "source": "https://www.webexhibits.org/vangogh/data/letters/18/473-fr.htm"
+        },
+        {
+          "fr": "C'est le pont-levis avec petite voiture jaune et groupe de laveuses…",
+          "en": "It's the drawbridge with the little yellow carriage and the group of washerwomen…",
+          "ko": "노란 작은 마차랑 빨래하는 여자들이 있는 그 도개교 그림이야…",
+          "verified": false,
+          "source": "https://vangoghletters.org/vg/letters/let592/print.html"
+        }
+      ],
+      "words": [
+        {
+          "fr": "travail",
+          "pos": "n.m.",
+          "ipa": "tʁavaj",
+          "en": "work",
+          "ko": "일, 작업"
+        },
+        {
+          "fr": "arbre",
+          "pos": "n.m.",
+          "ipa": "aʁbʁ",
+          "en": "tree",
+          "ko": "나무"
+        },
+        {
+          "fr": "fleur",
+          "pos": "n.f.",
+          "ipa": "flœʁ",
+          "en": "flower, blossom",
+          "ko": "꽃"
+        },
+        {
+          "fr": "verger",
+          "pos": "n.m.",
+          "ipa": "vɛʁʒe",
+          "en": "orchard",
+          "ko": "과수원"
+        },
+        {
+          "fr": "gaieté",
+          "pos": "n.f.",
+          "ipa": "ɡete",
+          "en": "cheerfulness, gaiety",
+          "ko": "명랑함, 즐거움"
+        }
+      ],
+      "note": {
+        "ko": "1888년 3월 말부터 4월까지 아를 둘레의 과수원에 살구꽃, 복숭아꽃, 배꽃이 피자 빈센트는 꽃 핀 과수원을 연이어 그렸어요. 꽃이 지기 전에 끝내려고 서둘렀어요.",
+        "en": "From late March into April 1888, as apricot, peach and pear trees blossomed around Arles, Vincent painted a run of flowering-orchard canvases, racing to finish before the blossom fell.",
+        "source": "https://en.wikipedia.org/wiki/Flowering_Orchards"
+      },
+      "plate": {
+        "title_fr": "Le Verger en fleurs",
+        "title_en": "The Flowering Orchard",
+        "title_ko": "꽃 핀 과수원",
+        "date": "April 1888",
+        "collection": "The Metropolitan Museum of Art, New York",
+        "imageLicense": "CC0 (Met Open Access) — confirm on object page",
+        "imageSource": "https://www.metmuseum.org/art/collection/search?q=The+Flowering+Orchard+van+Gogh",
+        "why": "One of the 'Provence orchards' this letter announces."
+      }
+    },
+    {
+      "id": "c1-l5",
+      "date": "1888-05-01",
+      "dateNote": "Dated Tuesday 1 May 1888 by the edition; the editors assume the lease began on the first of the month.",
+      "ref": "602 (Brieven 1990: 604; CL: 480). https://vangoghletters.org/vg/letters/let602/print.html",
+      "place": "Arles",
+      "mood": "tender",
+      "messages": [
+        {
+          "fr": "Mon cher Théo, …j'ai loué l'aile droite de cette maison, qui contient 4 pièces ou plutôt deux avec deux cabinets.",
+          "en": "My dear Theo, …I've rented the right wing of this house, which has 4 rooms, or rather two, with two small rooms.",
+          "ko": "사랑하는 테오에게. …이 집의 오른쪽 채를 빌렸어. 방이 네 개, 아니 큰 방 둘에 작은 방 둘이야.",
+          "verified": false,
+          "source": "https://vangoghletters.org/vg/letters/let602/print.html"
+        },
+        {
+          "fr": "Elle est peinte en jaune au dehors, blanchie à la chaux dedans, en plein soleil.",
+          "en": "It's painted yellow outside, whitewashed inside, and in full sun.",
+          "ko": "바깥은 노랗게 칠했고, 안은 하얗게 회칠했어. 햇빛이 가득 들어.",
+          "verified": false,
+          "source": "https://vangoghletters.org/vg/letters/let602/print.html"
+        },
+        {
+          "fr": "Je l'ai pour 15 francs par mois.",
+          "en": "I've got it for 15 francs a month.",
+          "ko": "한 달에 15프랑이야.",
+          "verified": false,
+          "source": "https://vangoghletters.org/vg/letters/let602/print.html"
+        }
+      ],
+      "words": [
+        {
+          "fr": "louer",
+          "pos": "v.",
+          "ipa": "lwe",
+          "en": "to rent",
+          "ko": "빌리다, 세내다"
+        },
+        {
+          "fr": "maison",
+          "pos": "n.f.",
+          "ipa": "mɛzɔ̃",
+          "en": "house",
+          "ko": "집"
+        },
+        {
+          "fr": "pièce",
+          "pos": "n.f.",
+          "ipa": "pjɛs",
+          "en": "room",
+          "ko": "방"
+        },
+        {
+          "fr": "jaune",
+          "pos": "adj.",
+          "ipa": "ʒon",
+          "en": "yellow",
+          "ko": "노란"
+        },
+        {
+          "fr": "soleil",
+          "pos": "n.m.",
+          "ipa": "sɔlɛj",
+          "en": "sun",
+          "ko": "해, 햇빛"
+        },
+        {
+          "fr": "mois",
+          "pos": "n.m.",
+          "ipa": "mwa",
+          "en": "month",
+          "ko": "달"
+        }
+      ],
+      "note": {
+        "ko": "빈센트가 빌린 곳은 라마르틴 광장 2번지 건물의 오른쪽 채였어요. 처음에는 작업실로만 쓰다가, 집을 손보고 가구를 들인 뒤 1888년 9월에야 들어가 살았어요.",
+        "en": "Vincent rented the right wing of 2 Place Lamartine. At first he used it only as a studio; he moved in to live there in September 1888, once it had been repainted and furnished.",
+        "source": "https://en.wikipedia.org/wiki/The_Yellow_House ; https://fr.wikipedia.org/wiki/La_Maison_jaune_(Van_Gogh)"
+      },
+      "plate": {
+        "title_fr": "La Maison jaune (La Rue)",
+        "title_en": "The Yellow House (The Street)",
+        "title_ko": "노란 집 (거리)",
+        "date": "September 1888",
+        "collection": "Van Gogh Museum, Amsterdam (Vincent van Gogh Foundation)",
+        "imageLicense": "public domain reproduction (Wikimedia Commons)",
+        "imageSource": "https://commons.wikimedia.org/w/index.php?search=Van+Gogh+The+Yellow+House+The+Street+1888",
+        "why": "The house rented in this letter, painted a few months later. Alternative: the sketch of the house in letter 602 itself (JH 1413)."
+      }
+    }
+  ]
+}

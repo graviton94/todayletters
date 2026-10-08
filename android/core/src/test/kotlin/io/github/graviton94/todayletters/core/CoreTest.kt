@@ -73,6 +73,52 @@ class CoreTest {
         assertEquals(listOf(Stage.MAIN), Launch.plan(false, true, false, true))
     }
 
+    private fun tri(fr: String, en: String = fr, ko: String = fr) = Tri(mapOf(Lang.FR to fr, Lang.EN to en, Lang.KO to ko))
+    private val letter = Letter(
+        id = "c1-l1", date = "1888-02-21", place = "Arles", mood = "bright",
+        messages = listOf(
+            Message(tri("Mon cher Théo,")),
+            Message(tri("Mais la vue des étoiles me fait toujours rêver,", "But the sight of the stars always makes me dream,")),
+        ),
+        words = listOf(Word(tri("étoile", "star", "별"))), note = null, plate = null,
+    )
+
+    @Test fun arrivalsLetPerDayNewLetters() {
+        assertEquals(1, Arrivals.openable(total = 5, done = 0, openedToday = 0, perDay = 1))
+        assertEquals(1, Arrivals.openable(total = 5, done = 1, openedToday = 1, perDay = 1))
+        assertEquals(0, Arrivals.waiting(total = 5, done = 1, openedToday = 1, perDay = 1))
+        assertEquals(2, Arrivals.waiting(total = 5, done = 1, openedToday = 0, perDay = 2))
+        assertEquals(5, Arrivals.openable(total = 5, done = 5, openedToday = 0, perDay = 3))
+    }
+
+    @Test fun constellationShufflesButKeepsTheAnswer() {
+        val (answer, pieces) = Exercises.constellation("La vue des étoiles me fait rêver", seed = 7)
+        assertEquals(listOf("La", "vue", "des", "étoiles", "me", "fait", "rêver"), answer)
+        assertEquals(answer.sorted(), pieces.sorted())
+        assertFalse(answer == pieces)
+        assertTrue(Exercises.isRight(answer, answer))
+    }
+
+    @Test fun replyFallsBackToAShortMessage() {
+        val (text, _) = Exercises.replyFor(letter, Lang.FR)
+        assertEquals("Mais la vue des étoiles me fait toujours rêver,", text)
+        val authored = letter.copy(reply = tri("La vue des étoiles te fait rêver ?"))
+        assertEquals("La vue des étoiles te fait rêver ?", Exercises.replyFor(authored, Lang.FR).first)
+        assertEquals(listOf("étoile" to "별"), Exercises.pairs(letter, Lang.FR, Lang.KO))
+    }
+
+    @Test fun letterIsDoneWhenChosenRepliesAreDone() {
+        val modes = setOf(ReplyMode.MATCH, ReplyMode.CONSTELLATION, ReplyMode.ALOUD)
+        var p = LetterProgress().reveal(2).reveal(2).reveal(2)
+        assertEquals(2, p.shown)
+        assertTrue(p.allShown(2))
+        p = p.reply(ReplyMode.CONSTELLATION).complete(modes)
+        assertFalse(p.done)
+        p = p.reply(ReplyMode.ALOUD).complete(modes)
+        assertTrue(p.done)
+        assertTrue(LetterProgress().complete(setOf(ReplyMode.MATCH)).done)
+    }
+
     @Test fun helpReplaysOnlyThatScreen() {
         val c = Coach()
         assertTrue(c.due("room", calm = true))

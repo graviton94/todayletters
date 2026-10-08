@@ -7,8 +7,9 @@
 - design/tokens.json  → android/app/.../design/Tokens.kt
                         android/app/src/main/res/values{,-night}/window.xml (창 · 시작 화면 바탕색)
 - design/strings.json → android/app/src/main/res/values{,-ko}/strings.xml
+- data/<작품>/series.json + 챕터 → android/app/src/main/assets/letters/<작품>/
 """
-import json, os, sys
+import glob, json, os, sys
 from xml.sax.saxutils import escape
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -90,9 +91,27 @@ def strings():
     return out
 
 
+def letters():
+    """data/<작품>/series.json + 챕터 파일 → assets/letters/<작품>/. 검토 전 챕터는 .draft.json 을 대신 쓴다."""
+    out = {}
+    for meta_path in glob.glob(os.path.join(ROOT, "data", "*", "series.json")):
+        folder = os.path.dirname(meta_path)
+        sid = os.path.basename(folder)
+        meta = json.load(open(meta_path, encoding="utf-8"))
+        dest = os.path.join(APP, "assets", "letters", sid)
+        out[os.path.join(dest, "series.json")] = open(meta_path, encoding="utf-8").read()
+        for ch in meta["chapters"]:
+            src = os.path.join(folder, ch["file"])
+            if not os.path.exists(src):
+                src = src.replace(".json", ".draft.json")
+            if os.path.exists(src):
+                out[os.path.join(dest, ch["file"])] = open(src, encoding="utf-8").read()
+    return out
+
+
 def main():
     check = "--check" in sys.argv
-    files = {**tokens(), **strings()}
+    files = {**tokens(), **strings(), **letters()}
     stale = []
     for path, text in files.items():
         old = open(path, encoding="utf-8").read() if os.path.exists(path) else None

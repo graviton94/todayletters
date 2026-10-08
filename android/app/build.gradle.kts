@@ -34,6 +34,8 @@ android {
     }
     kotlinOptions { jvmTarget = "17" }
     buildFeatures { compose = true; buildConfig = true }
+    // 낭독은 assets 에서 바로 연다 (압축하면 openFd 가 안 됨)
+    androidResources { noCompress += listOf("m4a") }
 }
 
 dependencies {

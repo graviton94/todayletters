@@ -1,0 +1,12 @@
+{
+  "_doc": "작품 표지 정보와 챕터 목록. 챕터 파일은 같은 폴더의 chapter<번호>.json (검토 전에는 .draft.json).",
+  "id": "vincent",
+  "original": "fr",
+  "sender": "Vincent",
+  "seal": "vincent",
+  "years": "1888–1890",
+  "title": { "fr": "Lettres de Vincent", "en": "Letters from Vincent", "ko": "빈센트의 편지" },
+  "chapters": [
+    { "id": "I", "file": "chapter1.json", "free": true, "title": { "fr": "Le Midi", "en": "The South", "ko": "남쪽으로" } }
+  ]
+}
