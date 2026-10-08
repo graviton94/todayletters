@@ -1,0 +1,231 @@
+{
+  "_doc": "앱 글자. 해요체, 짧고 차분하게. 화면 코드에는 글자를 쓰지 않고 여기 키만. en 은 values, ko 는 values-ko 로.",
+  "app_name": {
+    "en": "Letters by Day",
+    "ko": "하루의 편지"
+  },
+  "intro_tap": {
+    "en": "Tap to enter",
+    "ko": "눌러서 들어가기"
+  },
+  "intro_new": {
+    "en": "%1$d new letters",
+    "ko": "새 편지 %1$d통"
+  },
+  "intro_seal": {
+    "en": "Break the seal",
+    "ko": "봉랍을 눌러 열어요"
+  },
+  "tab_inbox": {
+    "en": "Letters",
+    "ko": "편지함"
+  },
+  "tab_library": {
+    "en": "Library",
+    "ko": "서재"
+  },
+  "tab_words": {
+    "en": "Words",
+    "ko": "단어장"
+  },
+  "tab_gallery": {
+    "en": "Plates",
+    "ko": "화첩"
+  },
+  "help": {
+    "en": "Help for this screen",
+    "ko": "이 화면 도움말"
+  },
+  "settings": {
+    "en": "Settings",
+    "ko": "설정"
+  },
+  "series_settings": {
+    "en": "Settings for this series",
+    "ko": "이 작품 설정"
+  },
+  "room_info": {
+    "en": "About this conversation",
+    "ko": "대화방 정보"
+  },
+  "ob_read": {
+    "en": "Which language do you read in?",
+    "ko": "어떤 언어로 읽을까요?"
+  },
+  "ob_read_note": {
+    "en": "Every letter has the original, English and Korean. This is the small line in each bubble.",
+    "ko": "모든 편지에는 원어 · 영어 · 한국어가 다 있어요. 말풍선의 작은 줄이 이 언어로 나와요."
+  },
+  "ob_series": {
+    "en": "Whose letters first?",
+    "ko": "누구의 편지부터 받을까요?"
+  },
+  "ob_learn": {
+    "en": "Which language will you learn here?",
+    "ko": "이 작품에서 어떤 언어를 배울까요?"
+  },
+  "ob_learn_note": {
+    "en": "Each series keeps its own choice. Change it any time from the series page.",
+    "ko": "작품마다 따로 정해요. 작품 표지에서 언제든 바꿀 수 있어요."
+  },
+  "ob_modes": {
+    "en": "How will you reply?",
+    "ko": "답장은 어떻게 쓸까요?"
+  },
+  "ob_pace": {
+    "en": "Letters a day",
+    "ko": "하루 편지 수"
+  },
+  "ob_notify": {
+    "en": "Shall we tell you when a letter arrives?",
+    "ko": "편지가 오면 알려 드릴까요?"
+  },
+  "ob_notify_yes": {
+    "en": "Tell me",
+    "ko": "알려 주세요"
+  },
+  "ob_notify_no": {
+    "en": "Not now",
+    "ko": "괜찮아요"
+  },
+  "ob_continue": {
+    "en": "Continue",
+    "ko": "계속"
+  },
+  "mode_match": {
+    "en": "Match the words",
+    "ko": "낱말 맞추기"
+  },
+  "mode_constellation": {
+    "en": "Join the stars",
+    "ko": "별자리 잇기"
+  },
+  "mode_aloud": {
+    "en": "Read aloud",
+    "ko": "따라 읽기"
+  },
+  "mode_dictation": {
+    "en": "Listen and write",
+    "ko": "듣고 쓰기"
+  },
+  "room_typing": {
+    "en": "writing…",
+    "ko": "쓰는 중…"
+  },
+  "room_reply": {
+    "en": "Reply and learn",
+    "ko": "답장하며 배우기"
+  },
+  "play_leave_title": {
+    "en": "Write the reply later?",
+    "ko": "답장은 나중에 쓸까요?"
+  },
+  "play_leave_yes": {
+    "en": "Later",
+    "ko": "나중에"
+  },
+  "play_leave_no": {
+    "en": "Keep writing",
+    "ko": "계속 쓰기"
+  },
+  "voice_done": {
+    "en": "You replied in your own voice",
+    "ko": "목소리로 답장했어요"
+  },
+  "set_display": {
+    "en": "Display",
+    "ko": "화면"
+  },
+  "set_theme": {
+    "en": "Theme",
+    "ko": "테마"
+  },
+  "set_theme_system": {
+    "en": "System",
+    "ko": "시스템"
+  },
+  "set_theme_light": {
+    "en": "Light",
+    "ko": "라이트"
+  },
+  "set_theme_dark": {
+    "en": "Dark",
+    "ko": "다크"
+  },
+  "set_text": {
+    "en": "Text size",
+    "ko": "글자 크기"
+  },
+  "set_text_normal": {
+    "en": "Normal",
+    "ko": "보통"
+  },
+  "set_text_large": {
+    "en": "Large",
+    "ko": "크게"
+  },
+  "set_pace": {
+    "en": "Typing",
+    "ko": "타이핑"
+  },
+  "set_pace_calm": {
+    "en": "Calm",
+    "ko": "차분하게"
+  },
+  "set_pace_quick": {
+    "en": "Quick",
+    "ko": "빠르게"
+  },
+  "set_pace_instant": {
+    "en": "Show at once",
+    "ko": "바로 보기"
+  },
+  "set_help_again": {
+    "en": "Show the guides again",
+    "ko": "사용법 다시 보기"
+  },
+  "set_tour_again": {
+    "en": "Replay the introduction",
+    "ko": "소개 다시 보기"
+  },
+  "set_learn": {
+    "en": "Language you learn",
+    "ko": "배우는 언어"
+  },
+  "set_show_read": {
+    "en": "Show the small line",
+    "ko": "작은 줄 보이기"
+  },
+  "coach_inbox_row": {
+    "en": "Each series is one conversation. New letters wait here.",
+    "ko": "작품 하나가 대화방 하나예요. 새 편지는 여기서 기다려요."
+  },
+  "coach_inbox_settings": {
+    "en": "Theme, text size and your reading language live here.",
+    "ko": "테마 · 글자 크기 · 읽는 언어는 여기서 바꿔요."
+  },
+  "coach_room_bubble": {
+    "en": "The large line is the language you learn; the small line is yours. Tap any word.",
+    "ko": "큰 줄은 배우는 언어, 작은 줄은 내 언어예요. 낱말을 눌러 보세요."
+  },
+  "coach_room_hide": {
+    "en": "Hide the small line when you want to read on your own.",
+    "ko": "혼자 읽어 보고 싶을 땐 작은 줄을 가려요."
+  },
+  "coach_room_info": {
+    "en": "Time, place and the people around Vincent.",
+    "ko": "그때 그곳, 빈센트 곁의 사람들을 볼 수 있어요."
+  },
+  "coach_play_stars": {
+    "en": "Tap the words in order. They join like a constellation.",
+    "ko": "낱말을 차례로 누르면 별자리처럼 이어져요."
+  },
+  "set_ui_lang": {
+    "en": "App language",
+    "ko": "앱 글자 언어"
+  },
+  "set_read_lang": {
+    "en": "Small line",
+    "ko": "작은 줄 언어"
+  }
+}

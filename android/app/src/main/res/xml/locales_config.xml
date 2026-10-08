@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 앱 글자 언어는 영어 · 한국어 둘. 원어(프랑스어 · 독일어 …)는 편지 줄로만 쓴다. -->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="en" />
+    <locale android:name="ko" />
+</locale-config>
