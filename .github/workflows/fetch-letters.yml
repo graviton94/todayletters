@@ -5,8 +5,9 @@ name: Fetch letter sources
 on:
   workflow_dispatch:
     inputs:
-      letters: { description: "vangoghletters.org 번호들", default: "577 578 585 592 602" }
-      old: { description: "옛 번호 (webexhibits, 18 폴더)", default: "463 464 469 473 480" }
+      urls:
+        description: "받을 주소들 (띄어쓰기로 구분)"
+        default: "https://vangoghletters.org/vg/letters/let602/print/?originaltext=1 https://www.webexhibits.org/vangogh/data/letters/19/480-fr.htm https://www.webexhibits.org/vangogh/data/letters/18/480.htm"
 
 jobs:
   fetch:
@@ -14,21 +15,23 @@ jobs:
     permissions: { contents: write }
     steps:
       - uses: actions/checkout@v4
+      - name: Keep earlier sources
+        run: git fetch -q origin sources && git worktree add -q out origin/sources || mkdir -p out
       - name: Fetch pages
         run: |
-          mkdir -p out
-          for n in ${{ inputs.letters }}; do
-            curl -sSL -A "Mozilla/5.0" -o "out/let${n}.html" "https://vangoghletters.org/vg/letters/let${n}/letter.html" || true
+          cd out
+          for u in ${{ inputs.urls }}; do
+            name=$(echo "$u" | sed -E 's#https?://##; s#[^A-Za-z0-9._-]+#_#g' | cut -c1-120)
+            code=$(curl -sSL -A "Mozilla/5.0" -o "$name.html" -w "%{http_code}" "$u" || echo 000)
+            echo "$code $u"
           done
-          for n in ${{ inputs.old }}; do
-            curl -sSL -A "Mozilla/5.0" -o "out/old${n}-fr.html" "https://www.webexhibits.org/vangogh/data/letters/18/${n}-fr.htm" || true
-          done
-          ls -la out
+          ls -la
       - name: Plain text
         run: python3 scripts/letter_text.py out
       - name: Publish to sources branch
         run: |
           cd out
-          git init -q && git checkout -q -b sources && git add .
-          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Letter sources"
+          git checkout -q -B sources
+          git add -A
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Letter sources" || true
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:sources
