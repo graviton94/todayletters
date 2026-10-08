@@ -1,6 +1,6 @@
 name: TTS sample
 
-# 빈센트 배역 고르기용 목소리 견본 (원어 · 영어 · 한국어 × 목소리 10). 결과는 tts-sample 가지에.
+# 빈센트 배역 고르기용 목소리 견본 (원어 · 영어 · 한국어 × 남성 목소리 5). 결과는 tts-sample 가지에.
 on:
   workflow_dispatch:
   push:

@@ -8,7 +8,7 @@ import json, os, re, sys
 import numpy as np, soundfile as sf
 
 py, assets, out = sys.argv[1:4]
-voices = sys.argv[4:] or ["M1", "M2", "M3", "M4", "M5", "F1", "F2", "F3", "F4", "F5"]
+voices = sys.argv[4:] or ["M1", "M2", "M3", "M4", "M5"]  # 빈센트 배역: 남성 목소리만
 sys.path.insert(0, py)
 from helper import load_text_to_speech, load_voice_style  # noqa: E402
 
