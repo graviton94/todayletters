@@ -1,0 +1,35 @@
+name: Screens
+
+# 화면 사진: 기기 없이 주요 화면을 PNG 로 그려 screens 가지에 올린다 (검토용). 직접 실행할 때만.
+on:
+  workflow_dispatch:
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Draw screens
+        working-directory: android
+        run: ./gradlew :app:testDebugUnitTest --tests '*ScreensTest*' --continue
+      - name: Show failures
+        if: failure()
+        run: |
+          grep -h -A12 "<failure" android/app/build/test-results/testDebugUnitTest/*.xml | head -120 || true
+          ./android/gradlew -p android :app:compileDebugUnitTestKotlin 2>&1 | grep -E "^e: " | head -40 || true
+      - name: Publish to screens branch
+        if: always()
+        run: |
+          mkdir -p out && cp android/app/build/screens/*.png out/ 2>/dev/null || true
+          cd out && ls -la
+          git init -q && git checkout -q -b screens
+          git add -A
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Screens ${{ github.sha }}" || exit 0
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:screens

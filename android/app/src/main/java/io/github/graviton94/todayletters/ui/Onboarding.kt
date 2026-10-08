@@ -77,10 +77,10 @@ private val soon = listOf(
  * 답장 방식(모두 켜짐) · 하루 편지 수(1통)는 묻지 않고, 작품 설정에서 바꾼다.
  */
 @Composable
-fun Onboarding(s: AppState) {
+fun Onboarding(s: AppState, startStep: Int = 0) {
     val p = Ink.palette
     val work = s.works.first()
-    var step by remember { mutableIntStateOf(0) }
+    var step by remember { mutableIntStateOf(startStep) }
     var learn by remember { mutableStateOf(Langs.defaultLearn(work.series, s.app.read)) }
     BackHandler(enabled = step > 0) { step-- }
     DisposableEffect(Unit) { onDispose { s.narrator.stop() } }

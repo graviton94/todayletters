@@ -45,6 +45,13 @@ android {
     buildFeatures { compose = true; buildConfig = true }
     // 낭독은 assets 에서 바로 연다 (압축하면 openFd 가 안 됨)
     androidResources { noCompress += listOf("m4a") }
+    // 화면 사진 (Robolectric + Roborazzi): .github/workflows/screens.yml 에서만 돌린다
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+            all { it.systemProperty("roborazzi.test.record", "true") }
+        }
+    }
 }
 
 dependencies {
@@ -56,4 +63,12 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.9.3")
     implementation("androidx.core:core-ktx:1.15.0")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+
+    testImplementation(platform("androidx.compose:compose-bom:2024.12.01"))
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.robolectric:robolectric:4.14.1")
+    testImplementation("androidx.compose.ui:ui-test-junit4")
+    testImplementation("io.github.takahirom.roborazzi:roborazzi:1.39.0")
+    testImplementation("io.github.takahirom.roborazzi:roborazzi-compose:1.39.0")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
