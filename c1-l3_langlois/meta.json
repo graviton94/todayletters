@@ -1,0 +1,38 @@
+[
+ {
+  "file": "1.jpg",
+  "title": "File:Vincent Willem van Gogh - Pont de Langlois - Kröller-Müller.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_-_Pont_de_Langlois_-_Kr%C3%B6ller-M%C3%BCller.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Vincent_van_Gogh\" class=\"extiw\" title=\"w:en:Vincent van Gogh\"><span title=\"Dutch painter (1853–1890)\">Vincent van Gogh</span></a></bdi>",
+  "date": "March 1888<div style=\"display: none;\">date QS:P571,+1888-03-00T00:00:00Z/10</div>",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://krollermuller.nl/en/vincent-van-gogh-bridge-at-arles-pont-de-langlois\">https://krollermuller.nl/en/vincent-van-gogh-bridge-at-arles-pont-de-langlois</a>"
+ },
+ {
+  "file": "2.jpg",
+  "title": "File:Vincent van Gogh - Bridge at Arles (Pont de Langlois) F397.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Bridge_at_Arles_(Pont_de_Langlois)_F397.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Vincent_van_Gogh\" class=\"extiw\" title=\"w:en:Vincent van Gogh\"><span title=\"Dutch painter (1853–1890)\">Vincent van Gogh</span></a></bdi>",
+  "date": "March 1888",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.kmm.nl/object/KM%20111.056/Bridge-at-Arles-Pont-de-Langlois\">http://www.kmm.nl/object/KM%20111.056/Bridge-at-Arles-Pont-de-Langlois</a>"
+ },
+ {
+  "file": "3.jpg",
+  "title": "File:Van Gogh -Die Brücke von Langlois in Arles mit Wäscherinnen.jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-Die_Br%C3%BCcke_von_Langlois_in_Arles_mit_W%C3%A4scherinnen.jpeg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Vincent_van_Gogh\" class=\"extiw\" title=\"w:en:Vincent van Gogh\"><span title=\"Dutch painter (1853–1890)\">Vincent van Gogh</span></a></bdi>",
+  "date": "March 1888<div style=\"display: none;\">date QS:P571,+1888-03-00T00:00:00Z/10</div>",
+  "credit": "Copied from an art book"
+ },
+ {
+  "file": "4.jpg",
+  "title": "File:1888 van Gogh Brug te Arles Pont de Langlois anagoria.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:1888_van_Gogh_Brug_te_Arles_Pont_de_Langlois_anagoria.JPG",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Vincent_van_Gogh\" class=\"extiw\" title=\"w:en:Vincent van Gogh\"><span title=\"Dutch painter (1853–1890)\">Vincent van Gogh</span></a></bdi>",
+  "date": "15 March 1888<div style=\"display: none;\">date QS:P571,+1888-03-15T00:00:00Z/11</div>",
+  "credit": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Kr%C3%B6ller-M%C3%BCller_Museum\" class=\"extiw\" title=\"w:en:Kröller-Müller Museum\"><span title=\"art museum and sculpture garden in Otterlo, Netherlands\">Kröller-Müller Museum</span></a>\n</bdi>"
+ }
+]
