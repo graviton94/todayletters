@@ -1,0 +1,31 @@
+name: TTS v2
+
+# 빈센트 목소리 견본 v2 (한국어): 섞는 비율 · 나이 흐름 · 빠르기 × 높낮이 · 감정 프리셋. 결과는 tts-v2 가지에.
+on:
+  workflow_dispatch:
+  push:
+    paths: ["scripts/tts_v2.py", "data/voices/**", "data/vincent/voices.json", ".github/workflows/tts-v2.yml"]
+
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Get Supertonic 3 (archived, pinned) and ffmpeg
+        run: |
+          sudo apt-get install -y -qq ffmpeg >/dev/null
+          git clone -q --depth 1 https://github.com/supertone-oss-archive/supertonic.git /tmp/st
+          pip install -q huggingface_hub -r /tmp/st/py/requirements.txt
+          hf download supertone-oss-archive/supertonic-3 --revision aafc6e32416a594460b32413efc49d7fe4ce6d46 --local-dir /tmp/st/assets
+      - name: Make v2 samples
+        run: python scripts/tts_v2.py /tmp/st/py /tmp/st/assets tts_out
+      - name: Publish to tts-v2 branch
+        run: |
+          cd tts_out && ls -la
+          git init -q && git checkout -q -b tts-v2 && git add .
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Vincent voice samples v2 (ko)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:tts-v2

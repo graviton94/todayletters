@@ -1,0 +1,7 @@
+{
+  "_doc": "모든 작품 · 인물이 함께 쓰는 감정 프리셋. 문장마다 손보지 않는다: 편지 한 통에 한 단어(mood)만 붙이고, 없으면 인물 배역표의 챕터 기본값을 쓴다. speed 는 Supertonic 빠르기, pitch 는 높낮이 배율(1.0 = 그대로), pause 는 쉼 길이 배율, lead 는 첫 메시지 앞에 붙이는 숨 태그.",
+  "calm":   { "label": "차분",  "speed": 0.90, "pitch": 1.00, "pause": 1.00, "lead": "" },
+  "bright": { "label": "들뜸",  "speed": 0.98, "pitch": 1.02, "pause": 0.85, "lead": "" },
+  "weary":  { "label": "지침",  "speed": 0.82, "pitch": 0.96, "pause": 1.30, "lead": "<sigh>" },
+  "tender": { "label": "다정",  "speed": 0.87, "pitch": 0.99, "pause": 1.15, "lead": "<breath>" }
+}

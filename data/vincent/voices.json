@@ -1,0 +1,13 @@
+{
+  "_doc": "빈센트 배역표 (초안, v2 견본을 듣고 확정). 목소리는 하나: young 과 old 두 결을 섞고, 챕터마다 old 쪽 비율(age)만 옮겨 나이 들어감을 낸다. 같은 비율을 원어 · 영어 · 한국어에 함께 쓴다. mood 는 챕터 기본 감정 (data/voices/presets.json).",
+  "character": "vincent",
+  "young": "M2",
+  "old": "M5",
+  "chapters": {
+    "I":   { "age": 0.20, "mood": "bright", "_note": "아를 도착 · 꽃 피는 과수원 (1888년 2–5월, 34–35세)" },
+    "II":  { "age": 0.35, "mood": "calm",   "_note": "아를의 밤 · 해바라기 (1888년 6–9월)" },
+    "III": { "age": 0.50, "mood": "bright", "_note": "고갱과의 두 달, 끝은 위기 (1888년 10–12월)" },
+    "IV":  { "age": 0.65, "mood": "weary",  "_note": "생레미 요양원 (1889년)" },
+    "V":   { "age": 0.80, "mood": "tender", "_note": "오베르, 마지막 여름 (1890년, 37세)" }
+  }
+}
