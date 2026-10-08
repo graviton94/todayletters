@@ -28,6 +28,7 @@ jobs:
         if: always()
         run: |
           mkdir -p out && cp android/app/build/screens/*.png out/ 2>/dev/null || true
+          grep -h -B2 -A25 "<failure" android/app/build/test-results/testDebugUnitTest/*.xml > out/failures.txt 2>/dev/null || true
           cd out && ls -la
           git init -q && git checkout -q -b screens
           git add -A
