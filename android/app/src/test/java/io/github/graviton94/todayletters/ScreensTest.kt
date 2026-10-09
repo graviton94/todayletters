@@ -226,4 +226,49 @@ class ScreensTest {
             Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.BLANK))
         }
     }
+
+    /** 엔진 화면용: 편지 세 통을 끝내고, 낱말 몇 개는 위 단계로, 우표 80장. */
+    private fun engineState(): AppState {
+        val s = withCards()
+        val ls = s.work("vincent").chapters.first().letters
+        ls.take(3).forEach { l ->
+            s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = l.messages.size, done = true))
+            s.store.markStarted(s.key("vincent", "I", l.id))
+            s.collectWords("vincent", "I", l)
+        }
+        s.cards().forEachIndexed { k, c -> s.store.save(c.copy(box = k % 6)) }
+        s.store.wallet = io.github.graviton94.todayletters.core.Wallet(balance = 80)
+        s.store.unlock("first_letter"); s.store.unlock("streak_3"); s.store.addStamp("vincent:neige"); s.store.addStamp("vincent:pont")
+        s.store.markDoneDay(s.today); s.store.markDoneDay(s.today - 1); s.store.markDoneDay(s.today - 3)
+        return s
+    }
+    private fun albumTab(name: String, label: String, dark: Boolean) {
+        val s = engineState()
+        shot(name, dark, act = { if (label.isNotEmpty()) rule.onNodeWithText(io.github.graviton94.todayletters.core.Breaks.keepAll(label)).performClick() }) {
+            io.github.graviton94.todayletters.ui.CollectionTab(s)
+        }
+    }
+    @Test fun albumCabinet() = albumTab("40_album_cabinet_dark", "", true)
+    @Test fun albumItems() = albumTab("41_album_items_light", "물건", false)
+    @Test fun albumJournal() = albumTab("42_album_journal_light", "여행기", false)
+    @Test fun albumStamps() = albumTab("43_album_stamps_light", "기념 우표", false)
+    @Test fun albumProgress() = albumTab("44_album_progress_dark", "진도 · 업적", true)
+    @Test fun reward() {
+        val s = engineState()
+        val w = s.work("vincent")
+        s.reward = AppState.RewardMoment(24, w.chapters.first().letters[0].words.filter { it.icon.isNotEmpty() }.take(1), listOf("streak_7"), listOf(w.kit.stamps[2]), 25)
+        shot("45_reward_dark", true, 2000) { io.github.graviton94.todayletters.ui.RewardOverlay(s) }
+    }
+    @Test fun parcel() { val s = engineState(); shot("46_parcel_light", false) { io.github.graviton94.todayletters.ui.ParcelScreen(s, "vincent") } }
+    @Test fun visitor() { val s = engineState(); shot("47_visitor_light", false) { io.github.graviton94.todayletters.ui.VisitorScreen(s) } }
+    @Test fun todayEngine() { val s = engineState(); s.reward = null; shot("48_today_engine_light", false, 3000) { Inbox(s) } }
+    @Test fun speak() {
+        val s = engineState()
+        shot("49_speak_light", false) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.SPEAK)) }
+    }
+    @Test fun roomFade() {
+        val s = engineState()
+        s.cards().forEach { c -> s.store.save(c.copy(box = 3)) }
+        shot("50_room_fade_ko_light", false, 4000) { Room(s, Route.Letter("vincent", 1, 1)) }
+    }
 }
