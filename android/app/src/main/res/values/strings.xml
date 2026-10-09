@@ -100,8 +100,8 @@
     <string name="set_sound">Read letters aloud automatically</string>
     <string name="set_haptics">Vibration</string>
     <string name="set_help">Help</string>
-    <string name="set_privacy">Everything stays on this phone. Your recordings are never sent anywhere.</string>
-    <string name="set_sources">Letters: Vincent van Gogh (public domain). English and Korean are this app\'s own translations. Portraits: Van Gogh, Self-Portrait (1887, Art Institute of Chicago); Joseph Lange, Mozart (1782–83); Antoine-Jean Gros, Bonaparte at Arcole (1796); The Poet Bashō (c. 1820–40, Rijksmuseum). All public domain.</string>
+    <string name="set_privacy">Everything stays on this phone. Your recordings leave it only when you send one as a voice postcard yourself.</string>
+    <string name="set_sources">Every letter, picture, font and voice in the app, with where it comes from and its licence:</string>
     <string name="coach_library">Each cover is one series. The first chapters are free.</string>
     <string name="coach_series">The gear sets the language you learn for this series.</string>
     <string name="coach_play_aloud">Listen, record, send. Recording once is enough.</string>
@@ -478,4 +478,15 @@
     <string name="seal_share_text">“%1$s” — a letter by %2$s, read in my voice (Letters by Day)</string>
     <string name="focus_shadow">Read it along · towards the seal</string>
     <string name="focus_sealed">Sealed · see it</string>
+    <string name="set_credits">Sources and licences</string>
+    <string name="credits_text_h">Letters</string>
+    <string name="credits_text">French text of the letters: Brieven aan zijn broeder, edited by J. van Gogh-Bonger, 1914 (public domain), from the Internet Archive scan. English and Korean translations are written for this app.</string>
+    <string name="credits_images_h">Pictures</string>
+    <string name="credits_images_note">Only works whose holders allow free reuse, or Van Gogh\'s own sketches printed in the 1914 edition.</string>
+    <string name="credits_portraits_h">Portraits</string>
+    <string name="credits_portraits">Vincent van Gogh, Self-Portrait, 1887 · Art Institute of Chicago · CC0\nLeopold Mozart and His Children (after Carmontelle), 1764 · The Metropolitan Museum of Art · CC0\nJacques-Louis David, The Emperor Napoleon in His Study at the Tuileries, 1812 · National Gallery of Art, Washington · Open Access\nThe Poet Bashō · Rijksmuseum, Amsterdam · CC0</string>
+    <string name="credits_voice_h">Narration</string>
+    <string name="credits_voice">Voices generated with Supertonic 3 by Supertone Inc. The model is licensed under OpenRAIL-M and is not included in the app.</string>
+    <string name="credits_fonts_h">Fonts · SIL Open Font License 1.1</string>
+    <string name="credits_licence">Licence text</string>
 </resources>

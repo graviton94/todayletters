@@ -100,8 +100,8 @@
     <string name="set_sound">편⁠지 자⁠동 낭⁠독</string>
     <string name="set_haptics">진⁠동</string>
     <string name="set_help">도⁠움</string>
-    <string name="set_privacy">모⁠든 기⁠록⁠은 이 폰⁠에⁠만 남⁠아⁠요⁠. 녹⁠음⁠한 목⁠소⁠리⁠도 밖⁠으⁠로 보⁠내⁠지 않⁠아⁠요⁠.</string>
-    <string name="set_sources">편⁠지⁠: 빈⁠센⁠트 반 고⁠흐 (⁠공⁠공 저⁠작⁠물⁠). 영⁠어 · 한⁠국⁠어⁠는 이 앱⁠의 새 번⁠역⁠이⁠에⁠요⁠. 초⁠상⁠: 반 고⁠흐 자⁠화⁠상⁠(1887, 시⁠카⁠고 미⁠술⁠관⁠), 요⁠제⁠프 랑⁠게⁠의 모⁠차⁠르⁠트⁠(1782–83), 그⁠로⁠의 「⁠아⁠르⁠콜 다⁠리⁠의 보⁠나⁠파⁠르⁠트⁠」(1796), 「⁠시⁠인 바⁠쇼⁠」(1820–40⁠년⁠경⁠, 레⁠이⁠크⁠스 미⁠술⁠관⁠). 모⁠두 공⁠공 저⁠작⁠물⁠이⁠에⁠요⁠.</string>
+    <string name="set_privacy">모⁠든 기⁠록⁠은 이 폰⁠에⁠만 남⁠아⁠요⁠. 녹⁠음⁠한 목⁠소⁠리⁠는 직⁠접 목⁠소⁠리 엽⁠서⁠로 보⁠낼 때⁠만 밖⁠으⁠로 나⁠가⁠요⁠.</string>
+    <string name="set_sources">앱⁠에 들⁠어 있⁠는 편⁠지 · 그⁠림 · 글⁠꼴 · 목⁠소⁠리⁠의 출⁠처⁠와 라⁠이⁠선⁠스⁠:</string>
     <string name="coach_library">표⁠지 하⁠나⁠가 작⁠품 하⁠나⁠예⁠요⁠. 앞 챕⁠터⁠는 무⁠료⁠예⁠요⁠.</string>
     <string name="coach_series">⚙ 에⁠서 이 작⁠품⁠에⁠서 배⁠울 언⁠어⁠를 정⁠해⁠요⁠.</string>
     <string name="coach_play_aloud">듣⁠고⁠, 녹⁠음⁠하⁠고⁠, 보⁠내⁠요⁠. 한 번 녹⁠음⁠하⁠면 충⁠분⁠해⁠요⁠.</string>
@@ -478,4 +478,15 @@
     <string name="seal_share_text">“%1$s” — 내 목⁠소⁠리⁠로 읽⁠은 %2$s⁠의 편⁠지 (⁠하⁠루⁠의 편⁠지⁠)</string>
     <string name="focus_shadow">따⁠라 읽⁠기 · 봉⁠인⁠까⁠지 한 걸⁠음</string>
     <string name="focus_sealed">봉⁠인⁠됐⁠어⁠요 · 보⁠기</string>
+    <string name="set_credits">출⁠처 · 오⁠픈⁠소⁠스 고⁠지</string>
+    <string name="credits_text_h">편⁠지 글</string>
+    <string name="credits_text">편⁠지⁠의 프⁠랑⁠스⁠어 원⁠문⁠: 『Brieven aan zijn broeder』(⁠요 반 고⁠흐⁠-⁠봉⁠어 엮⁠음⁠, 1914, 공⁠공 영⁠역⁠), 인⁠터⁠넷 아⁠카⁠이⁠브 스⁠캔⁠본⁠. 영⁠어 · 한⁠국⁠어 번⁠역⁠은 이 앱⁠이 새⁠로 썼⁠어⁠요⁠.</string>
+    <string name="credits_images_h">그⁠림</string>
+    <string name="credits_images_note">소⁠장⁠처⁠가 자⁠유 사⁠용⁠을 허⁠락⁠한 작⁠품⁠, 또⁠는 1914⁠년⁠판⁠에 실⁠린 빈⁠센⁠트⁠의 편⁠지 속 스⁠케⁠치⁠만 써⁠요⁠.</string>
+    <string name="credits_portraits_h">초⁠상</string>
+    <string name="credits_portraits">빈⁠센⁠트 반 고⁠흐⁠, 「⁠자⁠화⁠상⁠」 1887 · 시⁠카⁠고 미⁠술⁠관 · CC0\n「⁠레⁠오⁠폴⁠트 모⁠차⁠르⁠트⁠와 아⁠이⁠들⁠」(⁠카⁠르⁠몽⁠텔 원⁠화⁠) 1764 · 메⁠트⁠로⁠폴⁠리⁠탄 미⁠술⁠관 · CC0\n자⁠크⁠루⁠이 다⁠비⁠드⁠, 「⁠튈⁠르⁠리 궁 서⁠재⁠의 나⁠폴⁠레⁠옹⁠」 1812 · 미⁠국 국⁠립⁠미⁠술⁠관 · 오⁠픈 액⁠세⁠스\n「⁠시⁠인 바⁠쇼⁠」 · 레⁠이⁠크⁠스 미⁠술⁠관 · CC0</string>
+    <string name="credits_voice_h">낭⁠독</string>
+    <string name="credits_voice">낭⁠독 음⁠성⁠은 Supertone⁠사⁠의 Supertonic 3⁠로 만⁠들⁠었⁠어⁠요⁠. 모⁠델 라⁠이⁠선⁠스⁠는 OpenRAIL-M⁠이⁠고⁠, 모⁠델 자⁠체⁠는 앱⁠에 들⁠어 있⁠지 않⁠아⁠요⁠.</string>
+    <string name="credits_fonts_h">글⁠꼴 · SIL 오⁠픈 폰⁠트 라⁠이⁠선⁠스 1.1</string>
+    <string name="credits_licence">라⁠이⁠선⁠스 전⁠문</string>
 </resources>

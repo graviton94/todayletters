@@ -16,6 +16,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Lang
@@ -31,6 +34,8 @@ import io.github.graviton94.todayletters.design.Type
 fun SettingsScreen(s: AppState) {
     val p = Ink.palette
     val a = s.app
+    var credits by androidx.compose.runtime.saveable.rememberSaveable { androidx.compose.runtime.mutableStateOf(false) }
+    if (credits) { CreditsScreen(s) { credits = false }; return }
     BackHandler { s.settingsOpen = false }
     Column(Modifier.fillMaxSize().background(p.paper).statusBarsPadding().navigationBarsPadding()) {
         TopBar(stringResource(R.string.settings), s, help = null, showBack = false, showSettings = false) {
@@ -75,9 +80,71 @@ fun SettingsScreen(s: AppState) {
             Secondary(stringResource(R.string.set_help_again)) { s.coachReset(); s.settingsOpen = false }
             Text(stringResource(R.string.set_privacy), style = Type.small.ui(), color = p.inkSoft)
             Text(stringResource(R.string.set_sources), style = Type.small.ui(), color = p.inkSoft)
+            Secondary(stringResource(R.string.set_credits)) { credits = true }
         }
     }
 }
 
 @Composable
 private fun Label(text: String) = Text(text, style = Type.label.ui(), color = Ink.palette.ink)
+
+/**
+ * 출처 · 오픈소스 고지: 편지 글(1914년판), 그림마다 소장처와 라이선스(편지 데이터에서), 초상, 낭독 모델, 글꼴 OFL 전문.
+ * 그림 목록은 작품 데이터에서 만들어서, 편지가 늘어도 이 화면을 고칠 일이 없다.
+ */
+@Composable
+private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
+    val p = Ink.palette
+    val ctx = androidx.compose.ui.platform.LocalContext.current
+    val ui = uiLang()
+    BackHandler { onClose() }
+    Column(Modifier.fillMaxSize().background(p.paper).statusBarsPadding().navigationBarsPadding()) {
+        TopBar(stringResource(R.string.set_credits), s, help = null, showBack = false, showSettings = false) {
+            IconButton(stringResource(R.string.close), onClick = onClose) { Text("×", style = Type.heading, color = p.ink) }
+        }
+        Column(
+            Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s5),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
+        ) {
+            Caps(stringResource(R.string.credits_text_h), p.giltText)
+            Text(stringResource(R.string.credits_text), style = Type.small.ui(), color = p.ink)
+
+            Caps(stringResource(R.string.credits_images_h), p.giltText)
+            Text(stringResource(R.string.credits_images_note), style = Type.small.ui(), color = p.inkSoft)
+            s.works.forEach { w -> w.chapters.forEach { c -> c.letters.forEach { l ->
+                l.plate?.let { pl ->
+                    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Text("${pl.title[ui]} · ${pl.date}", style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+                        Text(pl.collection, style = Type.small.ui(), color = p.inkSoft)
+                        if (pl.source.isNotEmpty()) Text(pl.source, style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+                    }
+                }
+                l.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Photo>().filter { it.sketch && it.credit.isNotEmpty() }.forEach { m ->
+                    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Text(m.caption[ui], style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+                        Text(m.credit, style = Type.small.ui(), color = p.inkSoft)
+                    }
+                }
+            } } }
+
+            Caps(stringResource(R.string.credits_portraits_h), p.giltText)
+            Text(stringResource(R.string.credits_portraits), style = Type.small.ui(), color = p.ink)
+
+            Caps(stringResource(R.string.credits_voice_h), p.giltText)
+            Text(stringResource(R.string.credits_voice), style = Type.small.ui(), color = p.ink)
+
+            Caps(stringResource(R.string.credits_fonts_h), p.giltText)
+            listOf("Cormorant Garamond" to "cormorantgaramond", "Crimson Pro" to "crimsonpro", "Cinzel" to "cinzel", "Noto Serif KR" to "notoserifkr").forEach { (name, file) ->
+                val text = androidx.compose.runtime.remember(file) { runCatching { ctx.assets.open("licenses/OFL-$file.txt").bufferedReader().readText() }.getOrDefault("") }
+                var open by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
+                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(name, style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+                    Text(text.lineSequence().firstOrNull().orEmpty(), style = Type.small.ui(), color = p.inkSoft)
+                    Text(stringResource(R.string.credits_licence) + if (open) " ▴" else " ▾", style = Type.small.ui(), color = p.giltText,
+                        modifier = Modifier.pressable { open = !open }.padding(vertical = 6.dp))
+                    if (open) Text(text, style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+                }
+            }
+        }
+    }
+}

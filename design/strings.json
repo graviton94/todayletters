@@ -397,12 +397,12 @@
     "ko": "도움"
   },
   "set_privacy": {
-    "en": "Everything stays on this phone. Your recordings are never sent anywhere.",
-    "ko": "모든 기록은 이 폰에만 남아요. 녹음한 목소리도 밖으로 보내지 않아요."
+    "en": "Everything stays on this phone. Your recordings leave it only when you send one as a voice postcard yourself.",
+    "ko": "모든 기록은 이 폰에만 남아요. 녹음한 목소리는 직접 목소리 엽서로 보낼 때만 밖으로 나가요."
   },
   "set_sources": {
-    "en": "Letters: Vincent van Gogh (public domain). English and Korean are this app's own translations. Portraits: Van Gogh, Self-Portrait (1887, Art Institute of Chicago); Joseph Lange, Mozart (1782–83); Antoine-Jean Gros, Bonaparte at Arcole (1796); The Poet Bashō (c. 1820–40, Rijksmuseum). All public domain.",
-    "ko": "편지: 빈센트 반 고흐 (공공 저작물). 영어 · 한국어는 이 앱의 새 번역이에요. 초상: 반 고흐 자화상(1887, 시카고 미술관), 요제프 랑게의 모차르트(1782–83), 그로의 「아르콜 다리의 보나파르트」(1796), 「시인 바쇼」(1820–40년경, 레이크스 미술관). 모두 공공 저작물이에요."
+    "en": "Every letter, picture, font and voice in the app, with where it comes from and its licence:",
+    "ko": "앱에 들어 있는 편지 · 그림 · 글꼴 · 목소리의 출처와 라이선스:"
   },
   "coach_library": {
     "en": "Each cover is one series. The first chapters are free.",
@@ -1907,5 +1907,49 @@
   "focus_sealed": {
     "en": "Sealed · see it",
     "ko": "봉인됐어요 · 보기"
+  },
+  "set_credits": {
+    "en": "Sources and licences",
+    "ko": "출처 · 오픈소스 고지"
+  },
+  "credits_text_h": {
+    "en": "Letters",
+    "ko": "편지 글"
+  },
+  "credits_text": {
+    "en": "French text of the letters: Brieven aan zijn broeder, edited by J. van Gogh-Bonger, 1914 (public domain), from the Internet Archive scan. English and Korean translations are written for this app.",
+    "ko": "편지의 프랑스어 원문: 『Brieven aan zijn broeder』(요 반 고흐-봉어 엮음, 1914, 공공 영역), 인터넷 아카이브 스캔본. 영어 · 한국어 번역은 이 앱이 새로 썼어요."
+  },
+  "credits_images_h": {
+    "en": "Pictures",
+    "ko": "그림"
+  },
+  "credits_images_note": {
+    "en": "Only works whose holders allow free reuse, or Van Gogh's own sketches printed in the 1914 edition.",
+    "ko": "소장처가 자유 사용을 허락한 작품, 또는 1914년판에 실린 빈센트의 편지 속 스케치만 써요."
+  },
+  "credits_portraits_h": {
+    "en": "Portraits",
+    "ko": "초상"
+  },
+  "credits_portraits": {
+    "en": "Vincent van Gogh, Self-Portrait, 1887 · Art Institute of Chicago · CC0\nLeopold Mozart and His Children (after Carmontelle), 1764 · The Metropolitan Museum of Art · CC0\nJacques-Louis David, The Emperor Napoleon in His Study at the Tuileries, 1812 · National Gallery of Art, Washington · Open Access\nThe Poet Bashō · Rijksmuseum, Amsterdam · CC0",
+    "ko": "빈센트 반 고흐, 「자화상」 1887 · 시카고 미술관 · CC0\n「레오폴트 모차르트와 아이들」(카르몽텔 원화) 1764 · 메트로폴리탄 미술관 · CC0\n자크루이 다비드, 「튈르리 궁 서재의 나폴레옹」 1812 · 미국 국립미술관 · 오픈 액세스\n「시인 바쇼」 · 레이크스 미술관 · CC0"
+  },
+  "credits_voice_h": {
+    "en": "Narration",
+    "ko": "낭독"
+  },
+  "credits_voice": {
+    "en": "Voices generated with Supertonic 3 by Supertone Inc. The model is licensed under OpenRAIL-M and is not included in the app.",
+    "ko": "낭독 음성은 Supertone사의 Supertonic 3로 만들었어요. 모델 라이선스는 OpenRAIL-M이고, 모델 자체는 앱에 들어 있지 않아요."
+  },
+  "credits_fonts_h": {
+    "en": "Fonts · SIL Open Font License 1.1",
+    "ko": "글꼴 · SIL 오픈 폰트 라이선스 1.1"
+  },
+  "credits_licence": {
+    "en": "Licence text",
+    "ko": "라이선스 전문"
   }
 }

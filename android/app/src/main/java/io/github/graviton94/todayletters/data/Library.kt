@@ -135,7 +135,7 @@ object Library {
                             if (sp.has("quote")) sp.getInt("quote") else null)
                     } }
                 } ?: emptyList()
-                Plate(tri(pl, "title_"), pl.optString("date"), pl.optString("collection"), pl.optString("image"), spots)
+                Plate(tri(pl, "title_"), pl.optString("date"), pl.optString("collection"), pl.optString("image"), spots, pl.optString("imageSource"))
             }
             val moments = l.optJSONArray("moments")?.let { a ->
                 (0 until a.length()).mapNotNull { k -> a.getJSONObject(k).let { m ->

@@ -11,7 +11,8 @@ data class Word(val text: Tri, val pos: String = "", val ipa: String = "", val i
 /** 그림 속 산책의 한 자리: 그림 위의 위치(0~1), 이름, 큐레이터 설명, 낱말, 그 요소가 나오는 편지 문장 번호. */
 data class Spot(val x: Float, val y: Float, val title: Tri, val note: Tri, val word: Word?, val quote: Int? = null)
 
-data class Plate(val title: Tri, val date: String, val collection: String, val image: String = "", val spots: List<Spot> = emptyList())
+/** 그림 한 점. [collection] 은 소장처와 라이선스 (“… · CC0”), [source] 는 소장처의 작품 페이지 (출처 화면). */
+data class Plate(val title: Tri, val date: String, val collection: String, val image: String = "", val spots: List<Spot> = emptyList(), val source: String = "")
 
 /**
  * 메신저 같은 순간: 문장 [after] 다음에 끼어든다 (-1 이면 첫 문장 앞). 모두 편지에 실제로 나온 일에서만 만든다.
