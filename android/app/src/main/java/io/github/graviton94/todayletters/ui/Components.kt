@@ -87,7 +87,6 @@ fun Modifier.pressable(enabled: Boolean = true, role: Role = Role.Button, haptic
 fun TextStyle.ui(): TextStyle = hangul(uiHangul())
 
 /** 앱 글자 언어를 편지 줄 언어로 (큐레이터 노트 · 이름처럼 앱 글자로 보여 줄 때). */
-@Composable
 /** 한국어 조사: 마지막 글자에 받침이 있으면 [withFinal](이 · 을 · 은), 없으면 [without](가 · 를 · 는). 한글이 아니면 받침 없는 쪽. */
 fun josa(word: String, withFinal: String, without: String): String {
     val c = word.trimEnd().replace("\u2060", "").lastOrNull() ?: return word + without
@@ -95,6 +94,7 @@ fun josa(word: String, withFinal: String, without: String): String {
     return word + if (final) withFinal else without
 }
 
+@Composable
 fun uiLang(): Lang = if (uiHangul()) Lang.KO else Lang.EN
 
 /** 편지 줄용: 그 줄의 언어가 한국어면 한글 글꼴로. 한국어는 어절 단위로 줄을 바꾼다. */
