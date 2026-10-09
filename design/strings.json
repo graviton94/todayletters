@@ -1215,5 +1215,21 @@
   "map_places": {
     "en": "Places so far",
     "ko": "다녀간 곳"
+  },
+  "transfer_received": {
+    "en": "Received ✓",
+    "ko": "받음 ✓"
+  },
+  "transfer_paid": {
+    "en": "Paid",
+    "ko": "보냄"
+  },
+  "read_mark": {
+    "en": "Unread until the next letter",
+    "ko": "다음 편지가 오면 읽음"
+  },
+  "typing_bubble": {
+    "en": "%1$s is writing…",
+    "ko": "%1$s가 쓰는 중…"
   }
 }

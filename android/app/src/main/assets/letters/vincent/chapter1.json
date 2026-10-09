@@ -213,6 +213,15 @@
       },
       "moments": [
         {
+          "after": -1,
+          "type": "notice",
+          "text": {
+            "fr": "Vincent est arrivé à Arles · 20 février, par le train de Paris",
+            "en": "Vincent has arrived in Arles · 20 February, by train from Paris",
+            "ko": "빈센트가 아를에 도착했어요 · 2월 20일, 파리에서 기차로"
+          }
+        },
+        {
           "after": 0,
           "type": "location",
           "place": "carrel",
@@ -222,8 +231,29 @@
             "fr": "Hôtel-Restaurant Carrel"
           },
           "address": "30, rue de la Cavalerie"
+        },
+        {
+          "after": 1,
+          "type": "weather",
+          "title": {
+            "fr": "Le temps à Arles",
+            "en": "Weather in Arles",
+            "ko": "아를의 날씨"
+          },
+          "value": {
+            "fr": "60 cm de neige",
+            "en": "60 cm of snow",
+            "ko": "눈 60cm"
+          },
+          "quote": "il en tombe toujours",
+          "icon": "snow"
         }
-      ]
+      ],
+      "status": {
+        "fr": "À la recherche du soleil du Midi",
+        "en": "Looking for the southern sun",
+        "ko": "남쪽의 햇빛을 찾아서"
+      }
     },
     {
       "id": "c1-l2",
@@ -423,6 +453,22 @@
       },
       "moments": [
         {
+          "after": -1,
+          "type": "transfer",
+          "amount": "50 francs",
+          "label": {
+            "fr": "Théo a envoyé",
+            "en": "Theo sent",
+            "ko": "테오가 보냄"
+          },
+          "memo": {
+            "fr": "Paris → Arles",
+            "en": "Paris → Arles",
+            "ko": "파리 → 아를"
+          },
+          "outgoing": false
+        },
+        {
           "after": 2,
           "type": "photo",
           "image": "c1-l2.jpg",
@@ -432,7 +478,12 @@
             "fr": "Vieille Arlésienne, étude"
           }
         }
-      ]
+      ],
+      "status": {
+        "fr": "Le sang recommence à circuler",
+        "en": "Blood starting to flow again",
+        "ko": "몸이 조금씩 풀리는 중"
+      }
     },
     {
       "id": "c1-l3",
@@ -670,6 +721,17 @@
           }
         },
         {
+          "after": 2,
+          "type": "sketch",
+          "image": "c1-l3-bernard.jpg",
+          "caption": {
+            "fr": "Croquis dans une lettre à Émile Bernard, mars 1888",
+            "en": "Sketch in a letter to Émile Bernard, March 1888",
+            "ko": "같은 3월, 에밀 베르나르에게 보낸 편지 속 스케치"
+          },
+          "credit": "Letter 587 to Émile Bernard, c. 18 March 1888 · Public domain · Wikimedia Commons"
+        },
+        {
           "after": 3,
           "type": "location",
           "place": "langlois",
@@ -680,7 +742,12 @@
           },
           "address": "Canal d’Arles à Bouc"
         }
-      ]
+      ],
+      "status": {
+        "fr": "Je me sens au Japon",
+        "en": "I feel I'm in Japan",
+        "ko": "일본에 와 있는 것 같아"
+      }
     },
     {
       "id": "c1-l4",
@@ -878,7 +945,12 @@
             "fr": "Verger en fleurs"
           }
         }
-      ]
+      ],
+      "status": {
+        "fr": "Dans une rage de travail",
+        "en": "In a frenzy of work",
+        "ko": "미친 듯이 그리는 중"
+      }
     },
     {
       "id": "c1-l5",
@@ -1101,8 +1173,29 @@
             "fr": "La maison jaune"
           },
           "address": "2, place Lamartine"
+        },
+        {
+          "after": 2,
+          "type": "transfer",
+          "amount": "15 francs",
+          "label": {
+            "fr": "Loyer · par mois",
+            "en": "Rent · per month",
+            "ko": "월세 · 한 달"
+          },
+          "memo": {
+            "fr": "Maison jaune, 2 place Lamartine",
+            "en": "The Yellow House, 2 place Lamartine",
+            "ko": "노란 집, 라마르틴 광장 2번지"
+          },
+          "outgoing": true
         }
-      ]
+      ],
+      "status": {
+        "fr": "Enfin un atelier à moi",
+        "en": "A studio of my own at last",
+        "ko": "드디어 내 작업실"
+      }
     }
   ]
 }

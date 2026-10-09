@@ -42,6 +42,8 @@ import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
@@ -91,7 +93,7 @@ fun MomentCard(s: AppState, work: Work, m: Moment, onMap: () -> Unit, onPhoto: (
                     modifier = Modifier.padding(top = 4.dp, start = 2.dp))
             }
         }
-        is Moment.Photo -> Column(
+        is Moment.Photo -> if (m.sketch) SketchCard(m, lang) else Column(
             Modifier.widthIn(max = 260.dp).graphicsLayer { rotationZ = -1.2f }.pressable(onClick = onPhoto)
                 .background(Color(0xFFFBF8F1)).padding(start = 8.dp, end = 8.dp, top = 8.dp, bottom = 10.dp),
             verticalArrangement = Arrangement.spacedBy(6.dp),
@@ -99,6 +101,96 @@ fun MomentCard(s: AppState, work: Work, m: Moment, onMap: () -> Unit, onPhoto: (
             PlateImage(m.image, Modifier.fillMaxWidth().aspectRatio(1.2f))
             Text(m.caption[lang], style = Type.small.ui(), color = Color(0xFF2A2118))
             Text(stringResource(R.string.moment_photo, work.name[lang]), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = Color(0xFF6E6150))
+        }
+        is Moment.Notice -> Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+            Text(
+                m.text[lang], style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                modifier = Modifier.clip(androidx.compose.foundation.shape.RoundedCornerShape(12.dp)).background(p.leaf).border(1.dp, p.hair, androidx.compose.foundation.shape.RoundedCornerShape(12.dp))
+                    .padding(horizontal = 12.dp, vertical = 5.dp),
+            )
+        }
+        is Moment.Transfer -> TransferCard(m, lang, work)
+        is Moment.Weather -> WeatherCard(m, lang)
+    }
+}
+
+/** 송금 카드: 테오가 보낸 돈은 오른쪽 푸른 쪽지(테오 쪽), 빈센트가 낸 돈은 왼쪽 편지지. */
+@Composable
+private fun TransferCard(m: Moment.Transfer, lang: Lang, work: Work) {
+    val theo = !m.outgoing
+    val bg = if (theo) Color(0xFFC9D2D8) else Color(0xFFE9DCC0)
+    val ink = if (theo) Color(0xFF24303A) else Color(0xFF2A2118)
+    val soft = if (theo) Color(0xFF4A5865) else Color(0xFF6A5B47)
+    val shape = if (theo) androidx.compose.foundation.shape.RoundedCornerShape(14.dp, 14.dp, 4.dp, 14.dp) else androidx.compose.foundation.shape.RoundedCornerShape(4.dp, 14.dp, 14.dp, 14.dp)
+    Box(Modifier.fillMaxWidth(), contentAlignment = if (theo) Alignment.CenterEnd else Alignment.CenterStart) {
+        Column(Modifier.widthIn(max = 260.dp).fillMaxWidth(0.72f).clip(shape).background(bg)) {
+            Row(Modifier.padding(horizontal = 13.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                Box(Modifier.size(34.dp).background(ink, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) {
+                    Text("F", style = Type.caps.copy(fontSize = Tokens.Text.small), color = bg)
+                }
+                Column {
+                    Text(m.label[lang], style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = soft)
+                    Text(m.amount, style = Type.title.copy(fontFamily = Faces.display, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = ink)
+                }
+            }
+            Box(Modifier.fillMaxWidth().height(1.dp).background(ink.copy(alpha = 0.15f)))
+            Row(Modifier.fillMaxWidth().padding(horizontal = 13.dp, vertical = 7.dp)) {
+                Text(m.memo[lang], style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = soft, modifier = Modifier.weight(1f), maxLines = 1)
+                Text(stringResource(if (theo) R.string.transfer_received else R.string.transfer_paid), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = soft)
+            }
+        }
+    }
+    @Suppress("UNUSED_EXPRESSION") work
+}
+
+/** 날씨 공유 카드: 큰 값(눈 60cm)과 편지 원문 한 토막. */
+@Composable
+private fun WeatherCard(m: Moment.Weather, lang: Lang) {
+    val bg = Color(0xFF24303A); val ink = Color(0xFFE3EAF0); val soft = Color(0xFF9FB0BE)
+    Column(Modifier.widthIn(max = 270.dp).fillMaxWidth(0.74f).clip(androidx.compose.foundation.shape.RoundedCornerShape(4.dp, 14.dp, 14.dp, 14.dp)).background(bg)) {
+        Row(Modifier.padding(horizontal = 14.dp, vertical = 12.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            Canvas(Modifier.size(38.dp)) {
+                val c = Offset(size.width / 2, size.height / 2); val r = size.minDimension / 2
+                for (k in 0 until 6) {
+                    val a = Math.toRadians(k * 60.0 - 90); val e = Offset(c.x + r * kotlin.math.cos(a).toFloat(), c.y + r * kotlin.math.sin(a).toFloat())
+                    drawLine(ink, c, e, 1.3.dp.toPx())
+                    val m1 = Offset(c.x + r * 0.6f * kotlin.math.cos(a).toFloat(), c.y + r * 0.6f * kotlin.math.sin(a).toFloat())
+                    for (s in listOf(-1, 1)) {
+                        val b = a + s * Math.toRadians(35.0)
+                        drawLine(ink, m1, Offset(m1.x + r * 0.3f * kotlin.math.cos(b).toFloat(), m1.y + r * 0.3f * kotlin.math.sin(b).toFloat()), 1.1.dp.toPx())
+                    }
+                }
+            }
+            Column(verticalArrangement = Arrangement.spacedBy(1.dp)) {
+                Text(m.title[lang], style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = soft)
+                Text(m.value[lang], style = Type.title.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = ink)
+            }
+        }
+        if (m.quote.isNotEmpty()) Text("“${m.quote}”", style = Type.small.copy(fontFamily = Faces.text, fontStyle = androidx.compose.ui.text.font.FontStyle.Italic), color = soft,
+            modifier = Modifier.fillMaxWidth().background(Color(0x10FFFFFF)).padding(horizontal = 14.dp, vertical = 7.dp))
+    }
+}
+
+/** 편지 원본의 스케치: 사진처럼 비스듬히, 위쪽 그림 부분만. 누르면 편지 한 장 전체. */
+@Composable
+private fun SketchCard(m: Moment.Photo, lang: Lang) {
+    val p = Ink.palette
+    val ctx = androidx.compose.ui.platform.LocalContext.current
+    val bmp = remember(m.image) { runCatching { ctx.assets.open("sketches/${m.image}").use { android.graphics.BitmapFactory.decodeStream(it).asImageBitmap() } }.getOrNull() }
+    var full by remember { mutableStateOf(false) }
+    Column(Modifier.widthIn(max = 260.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Box(Modifier.graphicsLayer { rotationZ = -0.8f }.background(Color(0xFFF4EBD5)).padding(6.dp).pressable { full = true }) {
+            if (bmp != null) androidx.compose.foundation.Image(bmp, m.caption[lang], Modifier.fillMaxWidth().aspectRatio(1.3f),
+                contentScale = androidx.compose.ui.layout.ContentScale.Crop, alignment = Alignment.TopCenter)
+        }
+        Text(m.caption[lang], style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+    }
+    if (full && bmp != null) androidx.compose.ui.window.Dialog(onDismissRequest = { full = false }, properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false)) {
+        Column(Modifier.fillMaxSize().background(Color(0xF0120D09)).clickable { full = false }.verticalScroll(androidx.compose.foundation.rememberScrollState()).padding(Tokens.Space.s4),
+            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+            androidx.compose.foundation.Image(bmp, m.caption[lang], Modifier.fillMaxWidth(), contentScale = androidx.compose.ui.layout.ContentScale.FillWidth)
+            Text(m.caption[lang], style = Type.small.ui(), color = Color(0xFFEADFC8))
+            if (m.credit.isNotEmpty()) Text(m.credit, style = Type.small.copy(fontSize = Tokens.Text.caps), color = Color(0xFFA8977C))
         }
     }
 }

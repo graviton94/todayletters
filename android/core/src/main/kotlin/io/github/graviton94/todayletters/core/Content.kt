@@ -13,13 +13,20 @@ data class Spot(val x: Float, val y: Float, val title: Tri, val note: Tri, val w
 data class Plate(val title: Tri, val date: String, val collection: String, val image: String = "", val spots: List<Spot> = emptyList())
 
 /**
- * 메신저 같은 순간: 문장 [after] 다음에 끼어드는 위치 공유 · 사진 공유.
- * 위치는 작품의 장소 목록([Place]) 이름, 사진은 assets/plates 의 그림.
+ * 메신저 같은 순간: 문장 [after] 다음에 끼어든다 (-1 이면 첫 문장 앞). 모두 편지에 실제로 나온 일에서만 만든다.
+ * 위치 공유 · 사진(그림) · 스케치 · 송금 · 알림 줄 · 날씨 공유.
  */
 sealed interface Moment {
     val after: Int
     data class Location(override val after: Int, val place: String, val title: Tri, val address: String) : Moment
-    data class Photo(override val after: Int, val image: String, val caption: Tri) : Moment
+    /** 그림 사진 (assets/plates) 또는 [sketch] 면 편지 원본의 스케치 (assets/sketches). */
+    data class Photo(override val after: Int, val image: String, val caption: Tri, val sketch: Boolean = false, val credit: String = "") : Moment
+    /** 송금: [outgoing] 이면 보내는 사람(빈센트)이 보낸 것, 아니면 받는 사람(테오)이 보낸 것. */
+    data class Transfer(override val after: Int, val amount: String, val label: Tri, val memo: Tri, val outgoing: Boolean = false) : Moment
+    /** 가운데 알림 줄: 도착 · 이사 같은 실제 사건. */
+    data class Notice(override val after: Int, val text: Tri) : Moment
+    /** 날씨 공유: [value] 는 큰 글자 (눈 60cm), [quote] 는 편지 원문 한 토막. */
+    data class Weather(override val after: Int, val title: Tri, val value: Tri, val quote: String, val icon: String = "snow") : Moment
 }
 
 /** 작품의 장소 (손으로 그린 지도 위 0~1 위치, 실제 위도 · 경도). */
@@ -40,6 +47,8 @@ data class Letter(
     val plate: Plate?,
     val reply: Tri? = null,
     val moments: List<Moment> = emptyList(),
+    /** 대화방 위의 상태 메시지 (그 무렵 빈센트의 한마디). */
+    val status: Tri? = null,
 )
 
 data class Chapter(val series: String, val id: String, val title: Tri, val free: Boolean, val letters: List<Letter>)

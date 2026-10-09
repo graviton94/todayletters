@@ -2,6 +2,8 @@ package io.github.graviton94.todayletters.ui
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.ui.draw.clip
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.Canvas
@@ -142,7 +144,7 @@ fun Room(s: AppState, r: Route.Letter) {
     val finished = written >= total
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
-        RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else dateLine(letter.date, letter.place),
+        RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else letter.status?.get(uiLang()) ?: dateLine(letter.date, letter.place),
             auto = s.app.sound, onAuto = { if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }, onInfo = { s.go(Route.RoomInfo(r)) })
         TodayStrip(read = written, total = total, modes = modes, replied = progress.replied, done = progress.done)
         LazyColumn(
@@ -156,6 +158,9 @@ fun Room(s: AppState, r: Route.Letter) {
                     Postmark(letter.place, dayOf(letter.date), letter.date.take(4))
                     Box(Modifier.weight(1f)) { Hair() }
                 }
+            }
+            letter.moments.filter { it.after < 0 }.forEachIndexed { k, mo ->
+                item(key = "${letter.id}:pre:$k") { MomentCard(s, work, mo, onMap = { mapOpen = true }, onPhoto = { s.go(Route.Artwork(id, r.letter, r)) }) }
             }
             itemsIndexed(letter.messages.take(arrived), key = { i, _ -> "${letter.id}:$i" }) { i, m ->
                 val fresh = i >= already && animate
@@ -186,12 +191,17 @@ fun Room(s: AppState, r: Route.Letter) {
                 }
                 }
             }
+            if (writing && arrived == written && arrived < total) item(key = "${letter.id}:typing") { TypingBubble(work.name[uiLang()], s.reducedMotion) }
             if (finished) {
                 letter.note?.let { note ->
                     item { CuratorNote(note[uiLang()], uiLang()) }
                 }
                 if (ReplyMode.CONSTELLATION in progress.replied) item {
-                    Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
+                    val nextLetter = work.chapters.getOrNull(r.chapter - 1)?.letters?.getOrNull(r.letter)
+                    val unreadByHim = nextLetter != null && !s.store.started(s.key(id, chapter, nextLetter.id)) && s.progress(id, chapter, nextLetter.id).shown == 0
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End, verticalAlignment = Alignment.Bottom) {
+                        if (unreadByHim) Text("1", style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.giltText,
+                            modifier = Modifier.padding(end = 6.dp, bottom = 2.dp))
                         TheoNote(reply[view.learn], view.learn, if (view.showRead) reply[view.read] else null, view.read, work.recipient[view.learn])
                     }
                 }
@@ -258,6 +268,30 @@ fun modeLabel(m: ReplyMode) = when (m) {
     ReplyMode.CONSTELLATION -> R.string.mode_constellation
     ReplyMode.ALOUD -> R.string.mode_aloud
     ReplyMode.DICTATION -> R.string.mode_dictation
+}
+
+/** 쓰는 중…: 펜이 끄적이는 작은 거품 (움직임 줄이기면 멈춰 있음). */
+@Composable
+private fun TypingBubble(name: String, still: Boolean) {
+    val p = Ink.palette
+    val t = if (still) 1f else androidx.compose.animation.core.rememberInfiniteTransition(label = "pen").animateFloat(
+        0f, 1f, androidx.compose.animation.core.infiniteRepeatable(tween(1100), androidx.compose.animation.core.RepeatMode.Restart), label = "scribble",
+    ).value
+    Row(
+        Modifier.clip(androidx.compose.foundation.shape.RoundedCornerShape(4.dp, 14.dp, 14.dp, 14.dp)).background(p.slip).padding(horizontal = 14.dp, vertical = 9.dp),
+        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        Canvas(Modifier.size(22.dp, 14.dp)) {
+            val w = size.width; val h = size.height
+            val path = androidx.compose.ui.graphics.Path().apply {
+                moveTo(0f, h * 0.8f); cubicTo(w * 0.2f, -h * 0.2f, w * 0.35f, h * 1.1f, w * 0.55f, h * 0.45f); cubicTo(w * 0.7f, 0f, w * 0.85f, h * 0.3f, w, h * 0.6f)
+            }
+            val m = androidx.compose.ui.graphics.PathMeasure().apply { setPath(path, false) }
+            val part = androidx.compose.ui.graphics.Path(); m.getSegment(0f, m.length * t, part, true)
+            drawPath(part, p.slipSoft, style = androidx.compose.ui.graphics.drawscope.Stroke(1.4.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round))
+        }
+        Text(stringResource(R.string.typing_bubble, name), style = Type.small.ui(), color = p.slipSoft)
+    }
 }
 
 /** 대화방 맨 위: 뒤로 · 동그란 초상 · 이름과 날짜 · 전체 듣기 · (?) · 대화방 정보. */

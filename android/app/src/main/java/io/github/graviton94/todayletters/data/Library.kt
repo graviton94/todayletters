@@ -95,6 +95,10 @@ object Library {
                     when (m.optString("type")) {
                         "location" -> Moment.Location(m.getInt("after"), m.getString("place"), tri(m.getJSONObject("title")), m.optString("address"))
                         "photo" -> Moment.Photo(m.getInt("after"), m.getString("image"), tri(m.getJSONObject("caption")))
+                        "sketch" -> Moment.Photo(m.getInt("after"), m.getString("image"), tri(m.getJSONObject("caption")), sketch = true, credit = m.optString("credit"))
+                        "transfer" -> Moment.Transfer(m.getInt("after"), m.getString("amount"), tri(m.getJSONObject("label")), tri(m.getJSONObject("memo")), m.optBoolean("outgoing"))
+                        "notice" -> Moment.Notice(m.getInt("after"), tri(m.getJSONObject("text")))
+                        "weather" -> Moment.Weather(m.getInt("after"), tri(m.getJSONObject("title")), tri(m.getJSONObject("value")), m.optString("quote"), m.optString("icon", "snow"))
                         else -> null
                     }
                 } }
@@ -103,6 +107,7 @@ object Library {
                 id = l.getString("id"), date = l.optString("date"), place = l.optString("place"), mood = l.optString("mood", "calm"),
                 messages = msgs, words = words, note = l.optJSONObject("note")?.let { tri(it) }, plate = plate,
                 reply = l.optJSONObject("reply")?.let { tri(it) }, moments = moments,
+                status = l.optJSONObject("status")?.let { tri(it) },
             )
         }
     }

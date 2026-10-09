@@ -305,4 +305,8 @@
     <string name="lib_progress">%1$s⁠장 %2$d / %3$d</string>
     <string name="map_open">지⁠도⁠에⁠서 보⁠기</string>
     <string name="map_places">다⁠녀⁠간 곳</string>
+    <string name="transfer_received">받⁠음 ✓</string>
+    <string name="transfer_paid">보⁠냄</string>
+    <string name="read_mark">다⁠음 편⁠지⁠가 오⁠면 읽⁠음</string>
+    <string name="typing_bubble">%1$s⁠가 쓰⁠는 중⁠…</string>
 </resources>

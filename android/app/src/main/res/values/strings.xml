@@ -305,4 +305,8 @@
     <string name="lib_progress">Ch. %1$s · %2$d / %3$d</string>
     <string name="map_open">Open in Maps</string>
     <string name="map_places">Places so far</string>
+    <string name="transfer_received">Received ✓</string>
+    <string name="transfer_paid">Paid</string>
+    <string name="read_mark">Unread until the next letter</string>
+    <string name="typing_bubble">%1$s is writing…</string>
 </resources>
