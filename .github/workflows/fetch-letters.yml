@@ -19,9 +19,11 @@ jobs:
       - name: Keep earlier sources
         run: git fetch -q origin sources && git worktree add -q out origin/sources || mkdir -p out
       - name: Fetch pages
+        # 주소는 환경 변수로 받는다 (& | 같은 글자가 셸 명령으로 읽히지 않게)
+        env: { URLS: "${{ inputs.urls }}" }
         run: |
           cd out
-          for u in ${{ inputs.urls }}; do
+          for u in $URLS; do
             name=$(echo "$u" | sed -E 's#https?://##; s#[^A-Za-z0-9._-]+#_#g' | cut -c1-120)
             code=$(curl -sSL -A "Mozilla/5.0" -o "$name.html" -w "%{http_code}" "$u" || echo 000)
             echo "$code $u"
