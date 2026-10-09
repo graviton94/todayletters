@@ -81,6 +81,9 @@ fun inputHelpers(lang: Lang): List<String> = when (lang) {
     else -> emptyList()
 }
 
+/** 뜻 나누기: “study (sketch)” → [study, sketch], “country, land” → [country, land]. */
+fun senses(x: String): List<String> = Breaks.plain(x).split(Regex("[,;/()]")).map { it.trim() }.filter { it.isNotEmpty() }.ifEmpty { listOf(Breaks.plain(x)) }
+
 /** 뜻이 여럿이면 첫 뜻 (쉼표 · 쌍반점 · 빗금 · 괄호 앞까지). */
 fun firstSense(x: String): String = Breaks.plain(x).split(Regex("[,;/(]")).first().trim().ifEmpty { x }
 
@@ -205,7 +208,11 @@ private fun ModeRow(title: String, desc: String, badge: String?, enabled: Boolea
 
 /** 문제 하나. */
 private data class Q(val card: Card, val kind: ReviewKind, val word: String, val meaning: String, val ipa: String, val audio: String,
-                     val sentence: String?, val sentenceRead: String?, val sentenceAudio: String?, val options: List<String>, val learn: Lang, val read: Lang)
+                     val sentence: String?, val sentenceRead: String?, val sentenceAudio: String?, val options: List<String>, val learn: Lang, val read: Lang,
+                     /** 소리로 읽히는 전체 (“study (sketch)”). 그 안의 [typeFrom] 부터 [word] 길이만 쓰고 나머지는 미리 보여 준다. */
+                     val full: String = word, val typeFrom: Int = 0,
+                     /** 편지 문장 속 실제 꼴 (studies). 문장에서 표시 · 빈칸에 쓴다. */
+                     val inText: String? = null)
 
 /**
  * 복습 한 판: 듣고 쓰기 · 빈칸 채우기 · 뜻 고르기. [Route.Session.kind] 가 없으면 오늘의 복습 (칸에 맞춰 섞어서).
@@ -230,6 +237,8 @@ fun Session(s: AppState, r: Route.Session) {
     var picked by remember { mutableStateOf<String?>(null) }
     var typed by remember { mutableStateOf(TextFieldValue("")) }
     var hint by remember { mutableStateOf(false) }
+    // 다시 듣기를 누를수록 힌트가 조금씩: 1번째 첫 글자, 2번째 문장 힌트, 그 뒤로 한 글자씩 (마지막 한 글자는 남김)
+    var replays by remember { mutableIntStateOf(0) }
     // 글자판: 특수 문자를 고를 때는 시스템 키보드를 내리고 그 자리에 큰 글자판
     var pad by remember { mutableStateOf(false) }
     val focus = remember { FocusRequester() }
@@ -278,10 +287,11 @@ fun Session(s: AppState, r: Route.Session) {
             if (!compact) Text(stringResource(when (q.kind) { ReviewKind.DICTATION -> R.string.kind_dictation; ReviewKind.BLANK -> R.string.kind_blank; ReviewKind.MEANING -> R.string.kind_meaning }), style = Type.small.ui(), color = p.giltText)
             when (q.kind) {
                 ReviewKind.DICTATION -> {
+                    fun replay() { if (mark == null) { replays++; if (replays >= 2) hint = true } }
                     val listenLabel = stringResource(R.string.a11y_listen_word); val slowLabel = stringResource(R.string.a11y_listen_slow)
                     if (compact) Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
-                        Box(Modifier.size(52.dp).background(p.fill, CircleShape).semantics { contentDescription = listenLabel }.pressable { s.narrator.play(q.audio) }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.onFill, 22.dp) }
-                        Box(Modifier.size(48.dp).border(1.dp, p.giltText, CircleShape).semantics { contentDescription = slowLabel }.pressable { s.narrator.play(q.audio, speed = 0.7f) }, contentAlignment = Alignment.Center) {
+                        Box(Modifier.size(52.dp).background(p.fill, CircleShape).semantics { contentDescription = listenLabel }.pressable { s.narrator.play(q.audio); replay() }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.onFill, 22.dp) }
+                        Box(Modifier.size(48.dp).border(1.dp, p.giltText, CircleShape).semantics { contentDescription = slowLabel }.pressable { s.narrator.play(q.audio, speed = 0.7f); replay() }, contentAlignment = Alignment.Center) {
                             Text("0.7×", style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.giltText)
                         }
                         Column(Modifier.weight(1f)) {
@@ -293,23 +303,40 @@ fun Session(s: AppState, r: Route.Session) {
                     // 큰 듣기 단추가 가운데: 오른쪽 0.7× 만큼 왼쪽을 비워 대칭을 맞춘다
                     if (!compact) Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically) {
                         Spacer(Modifier.size(52.dp))
-                        Box(Modifier.size(84.dp).background(p.fill, CircleShape).semantics { contentDescription = listenLabel }.pressable { s.narrator.play(q.audio) }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.onFill, 34.dp) }
-                        Box(Modifier.size(52.dp).border(1.dp, p.giltText, CircleShape).semantics { contentDescription = slowLabel }.pressable { s.narrator.play(q.audio, speed = 0.7f) }, contentAlignment = Alignment.Center) {
+                        Box(Modifier.size(84.dp).background(p.fill, CircleShape).semantics { contentDescription = listenLabel }.pressable { s.narrator.play(q.audio); replay() }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.onFill, 34.dp) }
+                        Box(Modifier.size(52.dp).border(1.dp, p.giltText, CircleShape).semantics { contentDescription = slowLabel }.pressable { s.narrator.play(q.audio, speed = 0.7f); replay() }, contentAlignment = Alignment.Center) {
                             Text("0.7×", style = Type.small, color = p.giltText)
                         }
                     }
-                    // 글자 칸: 낱말 길이만큼 밑줄, 쓴 글자가 채워진다
+                    // 글자 칸: 소리로 읽히는 전체를 보여 주고, 쓸 낱말만 칸 (괄호 · 다른 뜻은 미리 적혀 있음)
                     val answer = Breaks.plain(q.word)
-                    // 글자 칸: 길면 다음 줄로 (화면 밖으로 나가지 않게)
+                    val full = Breaks.plain(q.full)
+                    val shown = (if (replays >= 1) 1 else 0) + (replays - 2).coerceAtLeast(0)   // 힌트로 보여 줄 글자 수
                     androidx.compose.foundation.layout.FlowRow(
-                        Modifier.heightIn(min = 48.dp).pressable(haptic = false) { showKeyboard() },
+                        Modifier.heightIn(min = 48.dp).pressable(haptic = false) { if (q.learn == Lang.KO) showPad() else showKeyboard() },
                         horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally), verticalArrangement = Arrangement.spacedBy(6.dp),
                     ) {
-                        answer.forEachIndexed { k, ch ->
+                        full.forEachIndexed { j, ch ->
+                            val k = j - q.typeFrom
+                            if (k !in answer.indices) {
+                                // 문제 밖 글자: 그대로 흐리게
+                                Box(Modifier.width(if (ch == ' ') 10.dp else 16.dp).height(40.dp), contentAlignment = Alignment.BottomCenter) {
+                                    Text(ch.toString(), style = Type.title.copy(fontFamily = Faces.text), color = p.inkSoft.copy(alpha = 0.7f))
+                                }
+                                return@forEachIndexed
+                            }
                             val c = typed.text.getOrNull(k)
+                            val hinted = c == null && mark == null && k < shown.coerceAtMost(answer.length - 1)
                             Box(Modifier.width(24.dp).height(40.dp), contentAlignment = Alignment.BottomCenter) {
                                 if (ch == ' ') Spacer(Modifier) else {
-                                    Text((c ?: ' ').toString(), style = Type.title.copy(fontFamily = Faces.text), color = when (mark) { null -> p.ink; Memory.Mark.WRONG -> if (c?.lowercaseChar() == ch.lowercaseChar()) p.ink else p.wrong; else -> p.correct })
+                                    Text((c ?: if (hinted || mark != null) ch else ' ').toString(), style = Type.title.copy(fontFamily = Faces.text),
+                                        color = when {
+                                            c == null && mark != null -> p.wrong.copy(alpha = 0.6f)
+                                            c == null -> p.giltText.copy(alpha = 0.55f)
+                                            mark == null -> p.ink
+                                            mark == Memory.Mark.WRONG -> if (c.lowercaseChar() == ch.lowercaseChar()) p.ink else p.wrong
+                                            else -> p.correct
+                                        })
                                     Box(Modifier.fillMaxWidth().height(2.dp).background(if (c != null) p.ink else p.line))
                                 }
                             }
@@ -408,7 +435,7 @@ fun Session(s: AppState, r: Route.Session) {
                 val ok = mark != Memory.Mark.WRONG
                 if (r.kind == null) s.answer(q.card, ok)   // 기억 칸은 오늘의 복습에서만 움직인다 (따로 연습은 기록하지 않음)
                 results = results + (q to ok)
-                mark = null; picked = null; typed = TextFieldValue(""); hint = false; pad = false
+                mark = null; picked = null; typed = TextFieldValue(""); hint = false; pad = false; replays = 0
                 at++
                 s.store.saveSession(sessionName, io.github.graviton94.todayletters.data.Store.SavedSession(s.today, questions.map { it.card.key }, at, results.map { it.second }))
             }
@@ -425,16 +452,17 @@ private fun SentenceHint(q: Q, filled: Boolean = true, highlight: Boolean = fals
     Slip(seed = 13, modifier = Modifier.fillMaxWidth()) {
         Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
             Text(stringResource(R.string.dict_hint_title), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = Color(0xFF7A5A20))
-            val blank = q.sentence.replace(q.word, if (filled) q.word else "_____", ignoreCase = true)
+            val key = q.inText ?: q.word
+            val blank = q.sentence.replace(key, if (filled) key else "_____", ignoreCase = true)
             // 답이 나오면 문장 속 그 낱말에 금빛 표식
             val marked = androidx.compose.ui.text.buildAnnotatedString {
                 append(blank)
                 if (filled) {
                     var from = 0
                     while (true) {
-                        val i = blank.indexOf(q.word, from, ignoreCase = true); if (i < 0 || q.word.isEmpty()) break
-                        addStyle(androidx.compose.ui.text.SpanStyle(background = Color(0x66D2A955), fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), i, i + q.word.length)
-                        from = i + q.word.length
+                        val i = blank.indexOf(key, from, ignoreCase = true); if (i < 0 || key.isEmpty()) break
+                        addStyle(androidx.compose.ui.text.SpanStyle(background = Color(0x66D2A955), fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), i, i + key.length)
+                        from = i + key.length
                     }
                 }
             }
@@ -590,14 +618,20 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         val view = s.room(w.series.id)
         val word = l.words[i]
         val learnWord = word.text[view.learn]
-        val hit = l.messages.indexOfFirst { m -> wordMarks(m.text[view.learn], listOf(learnWord)).isNotEmpty() }
+        // “study (sketch)”, “country, land” 처럼 뜻이 여럿이면 뜻마다 편지 문장에서 찾는다
+        val senses = senses(learnWord)
+        val hit = l.messages.indexOfFirst { m -> wordMarks(m.text[view.learn], senses).isNotEmpty() }
         val sentenceLearn = l.messages.getOrNull(hit)?.text?.get(view.learn)
-        val marks = sentenceLearn?.let { wordMarks(it, listOf(learnWord)) }
+        val marks = sentenceLearn?.let { wordMarks(it, senses) }
         val formInText = marks?.firstOrNull()?.first?.let { sentenceLearn.substring(it.first, it.last + 1) }
+        // 받아쓸 뜻: 문장에 나온 뜻, 없으면 첫 뜻. 소리는 전체를 읽으니 화면에도 전체를 두고 그 뜻만 칸으로
+        val dictSense = marks?.firstOrNull()?.second?.let { senses.getOrNull(it) } ?: senses.firstOrNull() ?: learnWord
+        val plainFull = Breaks.plain(learnWord)
+        val typeFrom = plainFull.indexOf(dictSense).coerceAtLeast(0)
         var k = kind ?: Memory.kindFor(card)
         if (k == ReviewKind.BLANK && formInText == null) k = ReviewKind.MEANING
         // 듣고 쓰기는 첫 뜻 하나만 (“flower, blossom” → flower): 쉼표 · 괄호까지 치지 않게
-        val answerWord = when (k) { ReviewKind.BLANK -> formInText!!; ReviewKind.DICTATION -> firstSense(learnWord); else -> learnWord }
+        val answerWord = when (k) { ReviewKind.BLANK -> formInText!!; ReviewKind.DICTATION -> dictSense; else -> learnWord }
         val others = all.filter { it.third != i || it.second.second.id != l.id }.map { (ow, ocl, oi) -> ocl.second.words[oi].text[if (k == ReviewKind.MEANING) view.read else view.learn] }
             .distinct().filter { it != answerWord && it != word.text[view.read] }.shuffled(java.util.Random(card.key.hashCode().toLong())).take(3)
         val right = if (k == ReviewKind.MEANING) word.text[view.read] else answerWord
@@ -605,7 +639,8 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
             s.narrator.path(w.series.id, ch, l.id, "w${i + 1}_${view.learn.code}"),
             sentenceLearn, l.messages.getOrNull(hit)?.text?.get(view.read),
             if (hit >= 0) s.narrator.path(w.series.id, ch, l.id, "m${hit + 1}_${view.learn.code}") else null,
-            (others + right).shuffled(java.util.Random(card.key.hashCode().toLong() + 7)), view.learn, view.read)
+            (others + right).shuffled(java.util.Random(card.key.hashCode().toLong() + 7)), view.learn, view.read,
+            full = if (k == ReviewKind.DICTATION) plainFull else answerWord, typeFrom = if (k == ReviewKind.DICTATION) typeFrom else 0, inText = formInText)
     }
 }
 
