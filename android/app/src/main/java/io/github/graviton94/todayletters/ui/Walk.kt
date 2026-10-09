@@ -278,8 +278,8 @@ private fun SpotCard(
                     verticalArrangement = Arrangement.spacedBy(2.dp),
                 ) {
                     Text(stringResource(R.string.walk_from_letter), style = Type.caps.copy(fontSize = Tokens.Text.caps), color = Color(0xFF7A5A20))
-                    Text("“${quote[learn]}”", style = Type.base.of(learn).copy(fontStyle = FontStyle.Italic), color = if (playing == quoteAsset) Color(0xFF7A5A20) else p.slipInk, maxLines = 3)
-                    if (read != learn) Text(quote[read], style = Type.small.of(read), color = p.slipSoft, maxLines = 2)
+                    Text("“${quote[learn]}”", style = Type.base.of(learn).copy(fontStyle = FontStyle.Italic), color = if (playing == quoteAsset) Color(0xFF7A5A20) else p.slipInk, maxLines = 3, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+                    if (read != learn) Text(quote[read], style = Type.small.of(read), color = p.slipSoft, maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
                 }
             }
             Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
