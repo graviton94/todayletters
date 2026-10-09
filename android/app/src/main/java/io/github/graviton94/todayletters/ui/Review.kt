@@ -225,14 +225,16 @@ fun Session(s: AppState, r: Route.Session) {
             Text("  ${at + 1} / ${questions.size}", style = Type.small, color = p.inkSoft)
         }
         Column(
-            Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
+            Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
             Text(stringResource(when (q.kind) { ReviewKind.DICTATION -> R.string.kind_dictation; ReviewKind.BLANK -> R.string.kind_blank; ReviewKind.MEANING -> R.string.kind_meaning }), style = Type.small.ui(), color = p.giltText)
             when (q.kind) {
                 ReviewKind.DICTATION -> {
                     Text(stringResource(R.string.dict_prompt), style = Type.heading.ui(), color = p.ink)
+                    // 큰 듣기 단추가 가운데: 오른쪽 0.7× 만큼 왼쪽을 비워 대칭을 맞춘다
                     Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically) {
+                        Spacer(Modifier.size(52.dp))
                         Box(Modifier.size(84.dp).background(p.fill, CircleShape).pressable { s.narrator.play(q.audio) }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.onFill, 34.dp) }
                         Box(Modifier.size(52.dp).border(1.dp, p.giltText, CircleShape).pressable { s.narrator.play(q.audio, speed = 0.7f) }, contentAlignment = Alignment.Center) {
                             Text("0.7×", style = Type.small, color = p.giltText)
