@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       file: { description: "편지 파일", default: "data/vincent/chapter1.json" }
+      only: { description: "spots = 그림 산책 낱말만", default: "" }
 
 jobs:
   narrate:
@@ -24,6 +25,7 @@ jobs:
           hf download supertone-oss-archive/supertonic-3 --revision aafc6e32416a594460b32413efc49d7fe4ce6d46 --local-dir /tmp/st/assets
       - name: Narrate
         run: python scripts/narrate.py /tmp/st/py /tmp/st/assets "${{ inputs.file }}" narration_out
+        env: { NARRATE_ONLY: "${{ inputs.only }}" }
       - name: Publish to narration branch
         run: |
           cd narration_out && find . -name "*.m4a" | wc -l && du -sh .

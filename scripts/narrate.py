@@ -93,10 +93,19 @@ def save(path, audio, pitch):
                         "-ac", "1", "-c:a", "aac", "-b:a", "48k", path], check=True)
 
 
+# NARRATE_ONLY=spots: 그림 속 산책 낱말만 만든다 (편지 낭독은 그대로 둠)
+ONLY = os.environ.get("NARRATE_ONLY", "")
 for letter in book["letters"]:
     pr = presets[letter.get("mood") or cast["chapters"][chapter]["mood"]]
     base = os.path.join(out, series, chapter, letter["id"])
     for lang in langs:
+        # 그림 속 산책의 낱말 (s<k>): 낱말 발음과 같은 방식
+        for k, sp in enumerate((letter.get("plate") or {}).get("spots", []), 1):
+            w = sp.get("word") or {}
+            if lang in w:
+                save(os.path.join(base, f"s{k}_{lang}.m4a"), speak(w[lang], lang, presets["calm"])[0], 1.0)
+        if ONLY == "spots":
+            continue
         for i, m in enumerate(letter["messages"], 1):
             audio, times = speak(m[lang], lang, pr, pr["lead"] if i == 1 else "", (m.get("speak") or {}).get(lang))
             save(os.path.join(base, f"m{i}_{lang}.m4a"), audio, pr["pitch"])
