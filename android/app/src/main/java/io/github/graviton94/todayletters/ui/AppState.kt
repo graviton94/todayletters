@@ -53,6 +53,19 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
         private set
 
     val stage get() = stages.first()
+
+    private var seenDay = LocalDate.now().toEpochDay()
+    /** 앱으로 돌아올 때: 날짜가 바뀌었으면 화면을 오늘 기준으로 새로 그리고, 오늘의 봉투부터. */
+    fun resumed() {
+        val today = LocalDate.now().toEpochDay()
+        if (today == seenDay) return
+        seenDay = today
+        version++
+        if (stage == Stage.MAIN && store.onboarded && store.openedDay != today) {
+            stages = listOf(Stage.TODAY, Stage.MAIN)
+            stack.clear(); stack.add(Route.Inbox)
+        }
+    }
     fun nextStage() {
         if (stages.size > 1) stages = stages.drop(1)
         if (stage == Stage.MAIN) store.openedDay = LocalDate.now().toEpochDay()
@@ -216,6 +229,15 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     fun replied(r: Route.Letter, mode: ReplyMode) {
         val (ch, l) = letterOf(r)
         save(r.series, ch, l.id, progress(r.series, ch, l.id).reply(mode).complete(seriesSettings(r.series).modes))
+    }
+
+    /** 연습을 마치고 대화방으로. 이 연습으로 편지가 끝났으면 (처음 한 번) 이어 읽은 날을 세고 편지 완료 화면으로. */
+    fun replyAndContinue(r: Route.Letter, mode: ReplyMode) {
+        val (ch, l) = letterOf(r)
+        val was = progress(r.series, ch, l.id).done
+        replied(r, mode)
+        back()
+        if (!was && progress(r.series, ch, l.id).done) { finished(); go(Route.Done(r)) }
     }
 
     // 도움말 (?)

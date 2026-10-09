@@ -31,6 +31,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
@@ -87,6 +88,13 @@ fun TextStyle.ui(): TextStyle = hangul(uiHangul())
 
 /** 앱 글자 언어를 편지 줄 언어로 (큐레이터 노트 · 이름처럼 앱 글자로 보여 줄 때). */
 @Composable
+/** 한국어 조사: 마지막 글자에 받침이 있으면 [withFinal](이 · 을 · 은), 없으면 [without](가 · 를 · 는). 한글이 아니면 받침 없는 쪽. */
+fun josa(word: String, withFinal: String, without: String): String {
+    val c = word.trimEnd().replace("\u2060", "").lastOrNull() ?: return word + without
+    val final = c in '\uAC00'..'\uD7A3' && (c.code - 0xAC00) % 28 != 0
+    return word + if (final) withFinal else without
+}
+
 fun uiLang(): Lang = if (uiHangul()) Lang.KO else Lang.EN
 
 /** 편지 줄용: 그 줄의 언어가 한국어면 한글 글꼴로. 한국어는 어절 단위로 줄을 바꾼다. */
@@ -94,8 +102,10 @@ fun TextStyle.of(lang: Lang): TextStyle =
     if (lang == Lang.KO) hangul().copy(lineBreak = LineBreak.Paragraph.copy(wordBreak = LineBreak.WordBreak.Phrase)) else this
 
 @Composable
-fun Caps(text: String, color: Color = Ink.palette.inkSoft, small: Boolean = false, modifier: Modifier = Modifier) =
-    Text(text.uppercase(), style = (if (small) Type.capsSm else Type.caps).hangul(text.any { it in '\uAC00'..'\uD7A3' }), color = color, modifier = modifier)
+/** 대문자 머리말. [decorative] 면 장식 글자(프랑스어 표제 등)라 화면 읽기에서 건너뛴다. */
+fun Caps(text: String, color: Color = Ink.palette.inkSoft, small: Boolean = false, modifier: Modifier = Modifier, decorative: Boolean = false) =
+    Text(text.uppercase(), style = (if (small) Type.capsSm else Type.caps).hangul(text.any { it in '\uAC00'..'\uD7A3' }), color = color,
+        modifier = if (decorative) modifier.clearAndSetSemantics { } else modifier)
 
 @Composable
 fun Rule(color: Color = Ink.palette.ink) = Box(Modifier.fillMaxWidth().height(Tokens.Stroke.rule).background(color))

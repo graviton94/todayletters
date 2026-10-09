@@ -308,9 +308,22 @@
     <string name="transfer_received">받⁠음 ✓</string>
     <string name="transfer_paid">보⁠냄</string>
     <string name="read_mark">다⁠음 편⁠지⁠가 오⁠면 읽⁠음</string>
-    <string name="typing_bubble">%1$s⁠가 쓰⁠는 중⁠…</string>
+    <string name="typing_bubble">%1$s 쓰⁠는 중⁠…</string>
     <string name="status_line">%1$s⁠의 상⁠태 메⁠시⁠지 · “%2$s”</string>
     <string name="walk_to_whole">‹ 전⁠경⁠으⁠로</string>
     <string name="step_not_yet">앞 단⁠계⁠부⁠터 해⁠요⁠.</string>
     <string name="blank_hint">💡 번⁠역⁠에⁠서 찾⁠기</string>
+    <string name="result_caps">RÉVISION · TERMINÉE</string>
+    <string name="result_practice_note">연⁠습⁠이⁠라 복⁠습 일⁠정⁠은 그⁠대⁠로⁠예⁠요⁠.</string>
+    <string name="chapter_end_caps">SAISON I · CHAPITRE I · FIN</string>
+    <string name="chapter_end_title">아⁠를⁠의 첫 봄⁠을 다 읽⁠었⁠어⁠요</string>
+    <string name="chapter_end_stats">편⁠지 %1$d⁠통 · 낱⁠말 %2$d⁠개 · 그⁠림 %3$d⁠점</string>
+    <string name="chapter_end_next">다⁠음 장⁠은 준⁠비 중⁠이⁠에⁠요⁠. 오⁠면 알⁠림⁠으⁠로 알⁠려 드⁠릴⁠게⁠요⁠.</string>
+    <string name="chapter_end_review">그⁠동⁠안 복⁠습⁠하⁠기 · 낱⁠말 %1$d⁠개</string>
+    <string name="chapter_end_again">처⁠음⁠부⁠터 다⁠시 읽⁠기</string>
+    <string name="done_chapter_end">1⁠장⁠의 마⁠지⁠막 편⁠지⁠였⁠어⁠요⁠. 다⁠음 장⁠은 준⁠비 중⁠이⁠에⁠요⁠.</string>
+    <string name="a11y_record">내 목⁠소⁠리 녹⁠음</string>
+    <string name="a11y_record_stop">녹⁠음 멈⁠추⁠기</string>
+    <string name="a11y_listen_word">낱⁠말 듣⁠기</string>
+    <string name="a11y_listen_slow">느⁠리⁠게 듣⁠기</string>
 </resources>

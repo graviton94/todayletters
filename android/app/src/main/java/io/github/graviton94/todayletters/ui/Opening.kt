@@ -38,6 +38,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.rotate
@@ -167,7 +168,7 @@ private fun Pile(still: Boolean, appear: (Int) -> Float) {
                     Text(
                         "Monsieur Théo van Gogh\n      54, rue Lepic\n            Paris",
                         style = Type.label.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic, fontSize = 18.sp, lineHeight = 24.sp),
-                        color = envInk, modifier = Modifier.offset(38.dp, 84.dp),
+                        color = envInk, modifier = Modifier.offset(38.dp, 84.dp).clearAndSetSemantics { },
                     )
                 }
             }
@@ -309,7 +310,7 @@ fun Today(s: AppState) {
                             Text(
                                 "Monsieur Théo van Gogh\n      54, rue Lepic\n            Paris",
                                 style = Type.label.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic, fontSize = 18.sp, lineHeight = 24.sp),
-                                color = envInk, modifier = Modifier.offset(38.dp, 84.dp),
+                                color = envInk, modifier = Modifier.offset(38.dp, 84.dp).clearAndSetSemantics { },
                             )
                         }
                     }

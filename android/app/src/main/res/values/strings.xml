@@ -3,7 +3,7 @@
 <resources>
     <string name="app_name">Letters by Day</string>
     <string name="intro_tap">Tap to enter</string>
-    <string name="intro_new">%1$d new letters</string>
+    <string name="intro_new">New letters: %1$d</string>
     <string name="intro_seal">Break the seal</string>
     <string name="tab_inbox">Today</string>
     <string name="tab_library">Library</string>
@@ -69,7 +69,7 @@
     <string name="library_next">Coming soon: Mozart · Napoléon · Bashō</string>
     <string name="words_note">Words from the letters you have read.</string>
     <string name="gallery_empty">Finish a letter to receive its painting.</string>
-    <string name="chapter_meta">%1$d letters · %2$d read</string>
+    <string name="chapter_meta">Letters %1$d · read %2$d</string>
     <string name="letter_done">Read</string>
     <string name="letter_open">Waiting for you</string>
     <string name="letter_tomorrow">Arrives on a later day</string>
@@ -180,14 +180,14 @@
     <string name="aloud_again">Listen again</string>
     <string name="aloud_finish">Finish reading along</string>
     <string name="play_finish">Done</string>
-    <string name="done_streak">%1$d days in a row</string>
+    <string name="done_streak">%1$d-day streak</string>
     <string name="done_next_now">The next letter has already arrived.</string>
     <string name="done_next_tomorrow">The next letter arrives tomorrow. The painting is in your Gallery.</string>
     <string name="done_home">Back to Today</string>
     <string name="done_open_next">Open the next letter</string>
     <string name="words_search">Search words</string>
     <string name="words_more">Show more · %1$d left</string>
-    <string name="words_count">%1$d words collected</string>
+    <string name="words_count">Words collected: %1$d</string>
     <string name="words_none">No matching words.</string>
     <string name="ob0_hello">Welcome</string>
     <string name="ob0_title">Welcome to Letters by Day</string>
@@ -240,7 +240,7 @@
     <string name="gap_14">in 2 weeks</string>
     <string name="review_empty">Finish a letter and its words arrive here.</string>
     <string name="review_none_today">All done for today.</string>
-    <string name="review_count">%1$d words · about %2$d min</string>
+    <string name="review_count">Words: %1$d · about %2$d min</string>
     <string name="review_start">Start review</string>
     <string name="kind_dictation">Listen and write</string>
     <string name="kind_dictation_d">Hear the word, type it.</string>
@@ -250,10 +250,10 @@
     <string name="kind_meaning_d">Pick what the word means.</string>
     <string name="badge_default">Default</string>
     <string name="quotes_title">My lines</string>
-    <string name="quotes_count">%1$d saved</string>
+    <string name="quotes_count">Saved: %1$d</string>
     <string name="quotes_empty">Tap the bookmark on a line to keep it here.</string>
     <string name="dict_prompt">Listen and write</string>
-    <string name="dict_letters">%1$d letters</string>
+    <string name="dict_letters">Letters: %1$d</string>
     <string name="dict_hint">Show the sentence</string>
     <string name="dict_hint_title">From the letter</string>
     <string name="blank_prompt">Fill the blank</string>
@@ -273,14 +273,14 @@
     <string name="notice_channel">Letter arrivals</string>
     <string name="notice_title">A letter from %1$s has arrived</string>
     <string name="notice_text">Today\'s letter is waiting.</string>
-    <string name="notice_text_review">Today\'s letter and %1$d words to review.</string>
+    <string name="notice_text_review">Today\'s letter, plus words to review: %1$d.</string>
     <string name="set_notice">Arrival notice</string>
     <string name="notice_note">Once a day, around this hour. Not on days you\'ve finished.</string>
     <string name="notice_hour">%1$d:00</string>
     <string name="widget_name">Today\'s letter</string>
     <string name="widget_desc">Today\'s line and what\'s waiting.</string>
-    <string name="widget_status">%1$d letter waiting · %2$d to review</string>
-    <string name="widget_done">Done today · %1$d days in a row</string>
+    <string name="widget_status">Letters waiting: %1$d · to review: %2$d</string>
+    <string name="widget_done">Done today · %1$d-day streak</string>
     <string name="walk_title">A walk in the painting</string>
     <string name="walk_hint">Tap a glowing spot.</string>
     <string name="walk_start">Start the walk</string>
@@ -301,7 +301,7 @@
     <string name="lib_today">Today</string>
     <string name="lib_yesterday">Yesterday</string>
     <string name="lib_days_ago">%1$d days ago</string>
-    <string name="lib_missed">Missed · %1$d letter · %2$s</string>
+    <string name="lib_missed">Missed: %1$d · %2$s</string>
     <string name="lib_progress">Ch. %1$s · %2$d / %3$d</string>
     <string name="map_open">Open in Maps</string>
     <string name="map_places">Places so far</string>
@@ -313,4 +313,17 @@
     <string name="walk_to_whole">‹ Whole painting</string>
     <string name="step_not_yet">Do the earlier step first.</string>
     <string name="blank_hint">💡 Find it in the translation</string>
+    <string name="result_caps">REVIEW · DONE</string>
+    <string name="result_practice_note">Practice only — your review schedule stays the same.</string>
+    <string name="chapter_end_caps">SAISON I · CHAPITRE I · FIN</string>
+    <string name="chapter_end_title">You\'ve read Vincent\'s first spring in Arles</string>
+    <string name="chapter_end_stats">Letters %1$d · words %2$d · paintings %3$d</string>
+    <string name="chapter_end_next">The next chapter is on its way. We\'ll let you know when it arrives.</string>
+    <string name="chapter_end_review">Review meanwhile · words: %1$d</string>
+    <string name="chapter_end_again">Read again from the start</string>
+    <string name="done_chapter_end">That was the last letter of chapter I. The next chapter is on its way.</string>
+    <string name="a11y_record">Record my voice</string>
+    <string name="a11y_record_stop">Stop recording</string>
+    <string name="a11y_listen_word">Listen to the word</string>
+    <string name="a11y_listen_slow">Listen slowly</string>
 </resources>

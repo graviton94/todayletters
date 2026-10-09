@@ -9,7 +9,7 @@
     "ko": "눌러서 들어가기"
   },
   "intro_new": {
-    "en": "%1$d new letters",
+    "en": "New letters: %1$d",
     "ko": "새 편지 %1$d통"
   },
   "intro_seal": {
@@ -273,7 +273,7 @@
     "ko": "편지를 끝까지 받으면 그림이 도착해요."
   },
   "chapter_meta": {
-    "en": "%1$d letters · %2$d read",
+    "en": "Letters %1$d · read %2$d",
     "ko": "편지 %1$d통 · %2$d통 읽음"
   },
   "letter_done": {
@@ -717,7 +717,7 @@
     "ko": "마치기"
   },
   "done_streak": {
-    "en": "%1$d days in a row",
+    "en": "%1$d-day streak",
     "ko": "%1$d일째 이어 읽는 중"
   },
   "done_next_now": {
@@ -745,7 +745,7 @@
     "ko": "더 보기 · %1$d개 남음"
   },
   "words_count": {
-    "en": "%1$d words collected",
+    "en": "Words collected: %1$d",
     "ko": "모은 낱말 %1$d개"
   },
   "words_none": {
@@ -957,7 +957,7 @@
     "ko": "오늘 복습은 다 했어요."
   },
   "review_count": {
-    "en": "%1$d words · about %2$d min",
+    "en": "Words: %1$d · about %2$d min",
     "ko": "낱말 %1$d개 · 약 %2$d분"
   },
   "review_start": {
@@ -997,7 +997,7 @@
     "ko": "내 구절"
   },
   "quotes_count": {
-    "en": "%1$d saved",
+    "en": "Saved: %1$d",
     "ko": "%1$d개 모음"
   },
   "quotes_empty": {
@@ -1009,7 +1009,7 @@
     "ko": "듣고 써 보세요"
   },
   "dict_letters": {
-    "en": "%1$d letters",
+    "en": "Letters: %1$d",
     "ko": "%1$d글자"
   },
   "dict_hint": {
@@ -1089,7 +1089,7 @@
     "ko": "오늘의 편지가 기다려요."
   },
   "notice_text_review": {
-    "en": "Today's letter and %1$d words to review.",
+    "en": "Today's letter, plus words to review: %1$d.",
     "ko": "오늘의 편지와 복습 낱말 %1$d개."
   },
   "set_notice": {
@@ -1113,11 +1113,11 @@
     "ko": "오늘의 문장과 기다리는 편지."
   },
   "widget_status": {
-    "en": "%1$d letter waiting · %2$d to review",
+    "en": "Letters waiting: %1$d · to review: %2$d",
     "ko": "편지 %1$d통 · 복습 %2$d개"
   },
   "widget_done": {
-    "en": "Done today · %1$d days in a row",
+    "en": "Done today · %1$d-day streak",
     "ko": "오늘 다 읽었어요 · %1$d일째"
   },
   "walk_title": {
@@ -1201,7 +1201,7 @@
     "ko": "%1$d일 전"
   },
   "lib_missed": {
-    "en": "Missed · %1$d letter · %2$s",
+    "en": "Missed: %1$d · %2$s",
     "ko": "부재중 편지 %1$d통 · %2$s"
   },
   "lib_progress": {
@@ -1230,7 +1230,7 @@
   },
   "typing_bubble": {
     "en": "%1$s is writing…",
-    "ko": "%1$s가 쓰는 중…"
+    "ko": "%1$s 쓰는 중…"
   },
   "status_line": {
     "en": "%1$s's status · “%2$s”",
@@ -1247,5 +1247,57 @@
   "blank_hint": {
     "en": "💡 Find it in the translation",
     "ko": "💡 번역에서 찾기"
+  },
+  "result_caps": {
+    "en": "REVIEW · DONE",
+    "ko": "RÉVISION · TERMINÉE"
+  },
+  "result_practice_note": {
+    "en": "Practice only — your review schedule stays the same.",
+    "ko": "연습이라 복습 일정은 그대로예요."
+  },
+  "chapter_end_caps": {
+    "en": "SAISON I · CHAPITRE I · FIN",
+    "ko": "SAISON I · CHAPITRE I · FIN"
+  },
+  "chapter_end_title": {
+    "en": "You've read Vincent's first spring in Arles",
+    "ko": "아를의 첫 봄을 다 읽었어요"
+  },
+  "chapter_end_stats": {
+    "en": "Letters %1$d · words %2$d · paintings %3$d",
+    "ko": "편지 %1$d통 · 낱말 %2$d개 · 그림 %3$d점"
+  },
+  "chapter_end_next": {
+    "en": "The next chapter is on its way. We'll let you know when it arrives.",
+    "ko": "다음 장은 준비 중이에요. 오면 알림으로 알려 드릴게요."
+  },
+  "chapter_end_review": {
+    "en": "Review meanwhile · words: %1$d",
+    "ko": "그동안 복습하기 · 낱말 %1$d개"
+  },
+  "chapter_end_again": {
+    "en": "Read again from the start",
+    "ko": "처음부터 다시 읽기"
+  },
+  "done_chapter_end": {
+    "en": "That was the last letter of chapter I. The next chapter is on its way.",
+    "ko": "1장의 마지막 편지였어요. 다음 장은 준비 중이에요."
+  },
+  "a11y_record": {
+    "en": "Record my voice",
+    "ko": "내 목소리 녹음"
+  },
+  "a11y_record_stop": {
+    "en": "Stop recording",
+    "ko": "녹음 멈추기"
+  },
+  "a11y_listen_word": {
+    "en": "Listen to the word",
+    "ko": "낱말 듣기"
+  },
+  "a11y_listen_slow": {
+    "en": "Listen slowly",
+    "ko": "느리게 듣기"
   }
 }

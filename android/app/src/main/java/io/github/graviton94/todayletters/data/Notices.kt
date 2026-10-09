@@ -47,7 +47,7 @@ data class TodaySummary(
             val open = s.openable(id)
             val current = open.firstOrNull { (c, l) -> !s.progress(id, c, l.id).done } ?: open.lastOrNull()
             val m = current?.second?.messages?.firstOrNull()?.text
-            val ui = if (view.read == Lang.KO) Lang.KO else Lang.EN
+            val ui = if (ctx.resources.configuration.locales[0].language == "ko") Lang.KO else Lang.EN
             return TodaySummary(
                 name = work.name[ui],
                 line = m?.get(view.learn)?.let(Breaks::plain).orEmpty(),
@@ -97,7 +97,7 @@ object Notices {
             NotificationChannel(CHANNEL, ctx.getString(R.string.notice_channel), NotificationManager.IMPORTANCE_DEFAULT),
         )
         val open = PendingIntent.getActivity(
-            ctx, 0, Intent(ctx, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP),
+            ctx, 0, Intent(ctx, MainActivity::class.java).putExtra(MainActivity.FROM_NOTICE, true).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         val text = if (sum.due > 0) ctx.getString(R.string.notice_text_review, sum.due) else ctx.getString(R.string.notice_text)
@@ -139,7 +139,8 @@ class TodayWidget : AppWidgetProvider() {
         private fun views(ctx: Context): RemoteViews {
             val v = RemoteViews(ctx.packageName, R.layout.widget_today)
             val sum = TodaySummary.of(ctx)
-            v.setTextViewText(R.id.w_date, LocalDate.now().format(DateTimeFormatter.ofPattern("EEEE d MMMM", Locale.FRENCH)).uppercase())
+            val ko = ctx.resources.configuration.locales[0].language == "ko"
+            v.setTextViewText(R.id.w_date, LocalDate.now().format(if (ko) DateTimeFormatter.ofPattern("M월 d일 EEEE", Locale.KOREAN) else DateTimeFormatter.ofPattern("EEEE d MMMM", Locale.ENGLISH)).uppercase())
             if (sum != null) {
                 v.setTextViewText(R.id.w_line, if (sum.line.isNotEmpty()) "“${sum.line}”" else ctx.getString(R.string.app_name))
                 v.setTextViewText(R.id.w_read, sum.lineRead)

@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.shape.CircleShape
@@ -89,7 +90,7 @@ fun Done(s: AppState, room: Route.Letter) {
                 PlateImage(letter.plate?.image.orEmpty(), Modifier.fillMaxSize().graphicsLayer { alpha = win(0.1f, 0.45f); val k = 1.06f - 0.06f * win(0.1f, 0.6f); scaleX = k; scaleY = k })
                 Box(Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Brush.verticalGradient(0f to Color(0x59170F0A), 0.3f to Color.Transparent, 0.65f to Color.Transparent, 1f to p.paper)))
                 Row(Modifier.fillMaxWidth().statusBarsPadding().padding(Tokens.Space.s4)) {
-                    Text("PL. ${roman(room.letter)} · REÇUE", style = Type.caps, color = Color(0xFFF7F0E1), modifier = Modifier.weight(1f))
+                    Text("PL. ${roman(room.letter)} · REÇUE", style = Type.caps, color = Color(0xFFF7F0E1), modifier = Modifier.weight(1f).clearAndSetSemantics { })
                     letter.plate?.let { Text(it.date.uppercase(), style = Type.caps, color = Color(0xFFF7F0E1)) }
                 }
                 Box(
@@ -118,7 +119,7 @@ fun Done(s: AppState, room: Route.Letter) {
                     Stat("+${letter.words.size}", stringResource(R.string.done_stat_cards))
                     Stat("$got/${plates.size}", stringResource(R.string.tab_gallery))
                 }
-                Text(stringResource(if (waiting > 0) R.string.done_next_now else R.string.done_next_tomorrow), style = Type.small.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                Text(stringResource(if (waiting > 0) R.string.done_next_now else if (got >= plates.size) R.string.done_chapter_end else R.string.done_next_tomorrow), style = Type.small.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
             }
         }
         Column(Modifier.background(p.paper).navigationBarsPadding().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
@@ -155,7 +156,7 @@ fun RoomInfo(s: AppState, room: Route.Letter) {
                 }
             }
             Rule()
-            Caps("Chronologie", p.giltText)
+            Caps("Chronologie", p.giltText, decorative = true)
             w.chapters.forEach { c ->
                 c.letters.forEach { l ->
                     val seen = s.progress(room.series, c.id, l.id).shown > 0

@@ -24,6 +24,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
@@ -103,6 +106,25 @@ fun Inbox(s: AppState) {
                         Box(Modifier.fillMaxWidth().heightIn(min = 50.dp).pressable { s.open(id, c, l, Route.Inbox) }.background(p.slipInk), contentAlignment = Alignment.Center) {
                             Text(next, style = Type.body.ui(), color = p.slip)
                         }
+                    } else if (s.doneCount(id) >= work.chapters.sumOf { it.letters.size }) {
+                        // 다 읽음: ‘내일 도착’ 대신 장 끝 카드 (다음 장은 준비 중)
+                        val letters = work.chapters.flatMap { it.letters }
+                        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                            Text(stringResource(R.string.chapter_end_caps), style = Type.caps, color = Color(0xFF7A5A20), modifier = Modifier.clearAndSetSemantics { })
+                            Text(stringResource(R.string.chapter_end_title), style = Type.heading.ui(), color = p.slipInk, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                                letters.forEachIndexed { k, l -> PlateThumb(l.plate?.image.orEmpty(), true, Modifier.size(46.dp).graphicsLayer { rotationZ = (k - letters.size / 2) * 3f }) }
+                            }
+                            Text(stringResource(R.string.chapter_end_stats, letters.size, letters.sumOf { it.words.size }, letters.count { it.plate != null }), style = Type.small.ui(), color = p.slipSoft)
+                            Box(Modifier.fillMaxWidth().height(1.dp).background(p.slipInk.copy(alpha = 0.15f)))
+                            Text(stringResource(R.string.chapter_end_next), style = Type.small.ui(), color = p.slipInk, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                            Box(Modifier.fillMaxWidth().heightIn(min = 46.dp).background(p.slipInk).pressable { s.go(Route.Words) }, contentAlignment = Alignment.Center) {
+                                Text(stringResource(R.string.chapter_end_review, due.size), style = Type.body.ui().copy(fontSize = 15.sp), color = p.slip)
+                            }
+                            Box(Modifier.fillMaxWidth().heightIn(min = 46.dp).border(1.dp, p.slipInk.copy(alpha = 0.5f)).pressable { s.go(Route.Chapter(id, 1)) }, contentAlignment = Alignment.Center) {
+                                Text(stringResource(R.string.chapter_end_again), style = Type.body.ui().copy(fontSize = 15.sp), color = p.slipInk)
+                            }
+                        }
                     } else {
                         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                             Portrait(work.portrait, work.fullName, 52.dp)
@@ -123,7 +145,7 @@ fun Inbox(s: AppState) {
                     Text(stringResource(R.string.review_today), style = Type.small.ui(), color = p.giltText)
                     Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                         Text(if (s.reviewedToday && due.isEmpty()) "✓" else "${due.size}", style = Type.display.copy(fontFamily = Faces.display), color = p.ink)
-                        Text(stringResource(R.string.review_minutes, (due.size / 4).coerceAtLeast(1)), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(bottom = 4.dp))
+                        if (due.isNotEmpty()) Text(stringResource(R.string.review_minutes, (due.size / 4).coerceAtLeast(1)), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(bottom = 4.dp))
                     }
                     BoxBar(counts)
                 }

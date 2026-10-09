@@ -21,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
@@ -98,7 +99,7 @@ private fun LibraryRow(s: AppState, w: io.github.graviton94.todayletters.data.Wo
                 Text("${w.name[uiLang()]} → ${w.recipient[uiLang()]}", style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink, modifier = Modifier.weight(1f))
                 if (day != null) Text(relDay(day, today), style = Type.small.ui(), color = if (unread > 0) p.giltText else p.inkSoft)
             }
-            Caps("Saison I · ${w.years} · ${stringResource(langLabel(w.series.original))}", small = true)
+            Caps("Saison I · ${w.years} · ${stringResource(langLabel(w.series.original))}", small = true, decorative = true)
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                 Text(io.github.graviton94.todayletters.core.Breaks.plain(line), style = Type.base.of(view.learn), color = p.inkSoft, maxLines = 1,
                     overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
@@ -237,7 +238,7 @@ fun SeriesCover(s: AppState, id: String) {
             IconButton(stringResource(R.string.series_settings), onClick = { s.go(Route.SeriesSettings(id)) }) { Gear(p.ink) }
         }
         Page {
-            Caps("Saison I · Table des matières")
+            Caps("Saison I · Table des matières", decorative = true)
             Text(w.title[w.series.original], style = Type.display, color = p.ink)
             Text(w.title[s.app.read], style = Type.body.of(s.app.read), color = p.inkSoft)
             Rule()
@@ -275,7 +276,7 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
             Box(Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Brush.verticalGradient(0f to androidx.compose.ui.graphics.Color(0x73170F0A), 0.45f to androidx.compose.ui.graphics.Color(0x0D170F0A), 1f to p.paper)))
             IconButton(stringResource(R.string.back), onClick = { s.back() }) { Chevron(androidx.compose.ui.graphics.Color(0xFFF7F0E1)) }
             Column(Modifier.align(Alignment.BottomStart).padding(start = Tokens.Space.s5, bottom = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                Caps("Chapitre ${roman(r.chapter)} · ${c.letters.firstOrNull()?.place ?: ""} ${c.letters.firstOrNull()?.date?.take(4) ?: ""}", p.giltText, small = true)
+                Caps("Chapitre ${roman(r.chapter)} · ${c.letters.firstOrNull()?.place ?: ""} ${c.letters.firstOrNull()?.date?.take(4) ?: ""}", p.giltText, small = true, decorative = true)
                 Text(c.title[w.series.original], style = Type.display, color = p.ink)
                 Text(stringResource(R.string.chapter_meta, c.letters.size, readN) + " · " + c.title[uiLang()], style = Type.small.ui(), color = p.inkSoft)
             }

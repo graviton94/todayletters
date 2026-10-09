@@ -51,6 +51,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalContext
@@ -169,7 +171,7 @@ private fun Constellation(s: AppState, r: Route.Play) {
             }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (done) Primary(stringResource(R.string.play_send)) { s.replied(r.room, ReplyMode.CONSTELLATION); s.back() }
+            if (done) Primary(stringResource(R.string.play_send)) { s.replyAndContinue(r.room, ReplyMode.CONSTELLATION) }
             else Secondary(stringResource(R.string.play_show)) { showAnswer = true }
         }
     }
@@ -299,7 +301,7 @@ private fun Match(s: AppState, r: Route.Play) {
             }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            Primary(stringResource(R.string.play_finish), enabled = done) { s.replied(r.room, ReplyMode.MATCH); s.back() }
+            Primary(stringResource(R.string.play_finish), enabled = done) { s.replyAndContinue(r.room, ReplyMode.MATCH) }
         }
     }
 }
@@ -395,12 +397,14 @@ private fun Aloud(s: AppState, r: Route.Play) {
                 }
             }
             Secondary(stringResource(if (playing) R.string.room_stop else if (heard) R.string.aloud_again else R.string.aloud_listen)) { listen() }
+            val recStart = stringResource(R.string.a11y_record); val recStop = stringResource(R.string.a11y_record_stop)
             Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                 Box(
                     Modifier.size(Tokens.Size.mic).background(if (recording) p.wrong else Color.Transparent, CircleShape).border(1.dp, p.giltText, CircleShape)
+                        .semantics { contentDescription = if (recording) recStop else recStart }
                         .pressable(role = Role.Button) {
                             if (!allowed) { ask.launch(Manifest.permission.RECORD_AUDIO); return@pressable }
-                            if (recording) { s.recorder.stop(); recording = false; has = true } else { s.narrator.stop(); playing = false; recording = s.recorder.start() }
+                            if (recording) { has = s.recorder.stop() || has; recording = false } else { s.narrator.stop(); playing = false; recording = s.recorder.start() }
                         },
                     contentAlignment = Alignment.Center,
                 ) {
@@ -416,7 +420,7 @@ private fun Aloud(s: AppState, r: Route.Play) {
             if (has) Secondary(stringResource(R.string.aloud_mine)) { s.narrator.stop(); playing = false; s.recorder.play() }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            Primary(stringResource(R.string.aloud_finish), enabled = has && !recording) { s.replied(r.room, ReplyMode.ALOUD); s.back() }
+            Primary(stringResource(R.string.aloud_finish), enabled = has && !recording) { s.replyAndContinue(r.room, ReplyMode.ALOUD) }
         }
     }
 }

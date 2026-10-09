@@ -98,20 +98,29 @@ class Recorder(private val ctx: Context) {
         }
     }.isSuccess
 
-    fun stop() {
-        rec?.runCatching { stop(); release() }
+    /** 녹음을 끝낸다. 너무 짧아 녹음이 안 됐으면 파일을 지우고 false (마이크는 늘 놓아 준다). */
+    fun stop(): Boolean {
+        val r = rec ?: return false
         rec = null
+        val ok = runCatching { r.stop() }.isSuccess
+        runCatching { r.release() }
+        if (!ok) runCatching { file.delete() }
+        return ok
     }
 
     fun play(onDone: () -> Unit = {}) {
-        player?.release()
+        runCatching { player?.release() }
+        player = null
         if (!file.exists()) return onDone()
-        player = MediaPlayer().apply {
-            setAudioAttributes(media)
-            setDataSource(file.absolutePath)
-            setOnCompletionListener { onDone() }
-            prepare(); start()
-        }
+        player = runCatching {
+            MediaPlayer().apply {
+                setAudioAttributes(media)
+                setDataSource(file.absolutePath)
+                setOnCompletionListener { onDone() }
+                prepare(); start()
+            }
+        }.getOrNull()
+        if (player == null) { runCatching { file.delete() }; onDone() }
     }
 
     fun release() { stop(); player?.release(); player = null }

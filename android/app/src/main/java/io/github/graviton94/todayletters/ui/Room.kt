@@ -105,7 +105,7 @@ fun Room(s: AppState, r: Route.Letter) {
                 playing = i
                 suspendCancellableCoroutine { c ->
                     c.invokeOnCancellation { s.narrator.stop() }
-                    if (!s.narrator.play(audio(i)) { if (c.isActive) c.resume(Unit) }) c.resume(Unit)
+                    if (!s.narrator.play(audio(i)) { if (c.isActive) c.resume(Unit) } && c.isActive) c.resume(Unit)
                 }
             }
             playing = null; all = null
@@ -312,7 +312,7 @@ private fun TypingBubble(name: String, still: Boolean) {
             val part = androidx.compose.ui.graphics.Path(); m.getSegment(0f, m.length * t, part, true)
             drawPath(part, p.slipSoft, style = androidx.compose.ui.graphics.drawscope.Stroke(1.4.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round))
         }
-        Text(stringResource(R.string.typing_bubble, name), style = Type.small.ui(), color = p.slipSoft)
+        Text(stringResource(R.string.typing_bubble, if (uiLang() == Lang.KO) josa(name, "이", "가") else name), style = Type.small.ui(), color = p.slipSoft)
     }
 }
 
@@ -371,14 +371,14 @@ private fun TodayStrip(read: Int, total: Int, modes: List<ReplyMode>, replied: S
     }
     Column(Modifier.background(p.paper)) {
         Row(
-            Modifier.fillMaxWidth().heightIn(min = 44.dp).padding(horizontal = Tokens.Space.s4),
-            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s1),
+            Modifier.fillMaxWidth().heightIn(min = 48.dp).padding(horizontal = Tokens.Space.s3),
+            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(2.dp),
         ) {
             steps.forEachIndexed { i, (label, state) ->
                 if (i > 0) Box(Modifier.weight(1f).height(1.dp).background(if (state > 0) p.giltText.copy(alpha = 0.5f) else p.hair))
                 Row(
                     Modifier.clip(androidx.compose.foundation.shape.RoundedCornerShape(14.dp)).background(if (state == 1) p.giltText.copy(alpha = 0.12f) else Color.Transparent)
-                        .pressable(haptic = false) { onStep(i) }.heightIn(min = 32.dp).padding(horizontal = 5.dp),
+                        .pressable(haptic = false) { onStep(i) }.heightIn(min = 48.dp).padding(horizontal = 5.dp),
                     verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(3.dp),
                 ) {
                     when (state) {
