@@ -4,7 +4,7 @@ name: Fetch portraits
 on:
   workflow_dispatch:
     inputs:
-      set: { description: "portraits 또는 paintings", default: "portraits" }
+      set: { description: "portraits · paintings · sketches (data/images/<set>_queries.json)", default: "portraits" }
 
 jobs:
   fetch:
@@ -14,8 +14,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Fetch
         run: |
-          if [ "${{ inputs.set }}" = "paintings" ]; then python3 scripts/fetch_portraits.py out data/images/paintings_queries.json 1400
-          else python3 scripts/fetch_portraits.py out; fi
+          if [ "${{ inputs.set }}" = "portraits" ]; then python3 scripts/fetch_portraits.py out
+          else python3 scripts/fetch_portraits.py out "data/images/${{ inputs.set }}_queries.json" 1200; fi
       - name: Publish to portraits branch
         run: |
           cd out
