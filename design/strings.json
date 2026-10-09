@@ -1151,5 +1151,17 @@
   "walk_whole": {
     "en": "See the whole",
     "ko": "전체 보기"
+  },
+  "pad_open": {
+    "en": "%1$s letters",
+    "ko": "%1$s 글자판"
+  },
+  "pad_keyboard": {
+    "en": "Keyboard",
+    "ko": "키보드"
+  },
+  "pad_delete": {
+    "en": "Delete",
+    "ko": "지우기"
   }
 }

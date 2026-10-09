@@ -142,6 +142,12 @@ class ScreensTest {
     @Test fun review() { val s = withCards(); shot("20_review_ko_light", false) { WordsTab(s) } }
     @Test fun reviewDark() { val s = withCards(); shot("21_review_ko_dark", true) { WordsTab(s) } }
     @Test fun dictation() { val s = withCards(); shot("22_dictation_ko_light", false) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.DICTATION)) } }
+    @Test fun dictationPad() {
+        val s = withCards()
+        shot("22b_dictation_pad_ko_light", false, act = { rule.onNodeWithText(io.github.graviton94.todayletters.core.Breaks.keepAll("프랑스어 글자판")).performClick() }) {
+            Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.DICTATION))
+        }
+    }
     @Test fun blank() { val s = withCards(); shot("23_blank_ko_dark", true) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.BLANK)) } }
     @Test fun meaning() { val s = withCards(); shot("24_meaning_ko_light", false) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.MEANING)) } }
     @Test fun quotes() {

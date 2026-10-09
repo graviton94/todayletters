@@ -203,6 +203,13 @@ fun Session(s: AppState, r: Route.Session) {
     var picked by remember { mutableStateOf<String?>(null) }
     var typed by remember { mutableStateOf(TextFieldValue("")) }
     var hint by remember { mutableStateOf(false) }
+    // 글자판: 특수 문자를 고를 때는 시스템 키보드를 내리고 그 자리에 큰 글자판
+    var pad by remember { mutableStateOf(false) }
+    val focus = remember { FocusRequester() }
+    val keyboard = androidx.compose.ui.platform.LocalSoftwareKeyboardController.current
+    fun showKeyboard() { pad = false; runCatching { focus.requestFocus() }; keyboard?.show() }
+    fun showPad() { keyboard?.hide(); pad = true }
+    fun put(t: String) { typed = TextFieldValue(t, TextRange(t.length)) }
 
     if (questions.isEmpty()) { LaunchedEffect(Unit) { s.back() }; return }
     if (at >= questions.size) { SessionResult(s, r, results); return }
@@ -242,7 +249,7 @@ fun Session(s: AppState, r: Route.Session) {
                     }
                     // 글자 칸: 낱말 길이만큼 밑줄, 쓴 글자가 채워진다
                     val answer = Breaks.plain(q.word)
-                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Row(Modifier.pressable(haptic = false) { showKeyboard() }, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                         answer.forEachIndexed { k, ch ->
                             val c = typed.text.getOrNull(k)
                             Box(Modifier.width(24.dp).height(40.dp), contentAlignment = Alignment.BottomCenter) {
@@ -253,8 +260,7 @@ fun Session(s: AppState, r: Route.Session) {
                             }
                         }
                     }
-                    val focus = remember { FocusRequester() }
-                    LaunchedEffect(at) { runCatching { focus.requestFocus() } }
+                    LaunchedEffect(at) { pad = false; runCatching { focus.requestFocus() } }
                     BasicTextField(
                         typed, { if (mark == null) typed = it.copy(text = it.text.take(answer.length + 2)) },
                         singleLine = true, textStyle = Type.body.copy(color = Color.Transparent), cursorBrush = SolidColor(Color.Transparent),
@@ -287,13 +293,44 @@ fun Session(s: AppState, r: Route.Session) {
         }
         if (q.kind == ReviewKind.DICTATION && mark == null) {
             val helpers = inputHelpers(q.learn)
-            if (helpers.isNotEmpty()) Column(Modifier.fillMaxWidth().background(p.hide).padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s2), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Text(stringResource(R.string.input_helper, stringResource(langLabel(q.learn))), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.giltText)
-                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                    helpers.forEach { h ->
-                        Box(Modifier.weight(1f).heightIn(min = 40.dp).background(p.leaf).border(Tokens.Stroke.hair, p.line).pressable {
-                            val t = typed.text + h; typed = TextFieldValue(t, TextRange(t.length))
-                        }, contentAlignment = Alignment.Center) { Text(h, style = Type.body.copy(fontFamily = Faces.text), color = p.ink) }
+            val label = stringResource(langLabel(q.learn))
+            if (helpers.isNotEmpty() && !pad) Row(
+                Modifier.fillMaxWidth().background(p.hide).padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s2),
+                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+                // 키보드 위 한 줄: 자주 쓰는 몇 글자 + 글자판 열기
+                helpers.take(5).forEach { h ->
+                    Box(Modifier.size(40.dp).background(p.leaf).border(Tokens.Stroke.hair, p.line).pressable { put(typed.text + h) }, contentAlignment = Alignment.Center) {
+                        Text(h, style = Type.body.copy(fontFamily = Faces.text), color = p.ink)
+                    }
+                }
+                Spacer(Modifier.weight(1f))
+                Box(Modifier.heightIn(min = 40.dp).border(1.dp, p.giltText).pressable { showPad() }.padding(horizontal = Tokens.Space.s3), contentAlignment = Alignment.Center) {
+                    Text(stringResource(R.string.pad_open, label), style = Type.small.ui(), color = p.giltText)
+                }
+            }
+            if (helpers.isNotEmpty() && pad) Column(
+                Modifier.fillMaxWidth().background(p.hide).padding(Tokens.Space.s3),
+                verticalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+                Text(stringResource(R.string.input_helper, label), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.giltText)
+                // 가로 4 × 세로 3: 키보드 자리를 차지하는 큰 글자판
+                helpers.chunked(4).forEach { row ->
+                    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        row.forEach { h ->
+                            Box(Modifier.weight(1f).height(54.dp).background(p.leaf).border(Tokens.Stroke.hair, p.line).pressable { put(typed.text + h) }, contentAlignment = Alignment.Center) {
+                                Text(h, style = Type.title.copy(fontFamily = Faces.text), color = p.ink)
+                            }
+                        }
+                        repeat(4 - row.size) { Spacer(Modifier.weight(1f)) }
+                    }
+                }
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Box(Modifier.weight(2f).height(48.dp).border(1.dp, p.line).pressable { showKeyboard() }, contentAlignment = Alignment.Center) {
+                        Text(stringResource(R.string.pad_keyboard), style = Type.small.ui(), color = p.ink)
+                    }
+                    Box(Modifier.weight(2f).height(48.dp).border(1.dp, p.line).pressable { put(typed.text.dropLast(1)) }, contentAlignment = Alignment.Center) {
+                        Text("⌫  " + stringResource(R.string.pad_delete), style = Type.small.ui(), color = p.ink)
                     }
                 }
             }

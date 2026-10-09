@@ -289,4 +289,7 @@
     <string name="walk_prev">이⁠전</string>
     <string name="walk_next">다⁠음 자⁠리</string>
     <string name="walk_whole">전⁠체 보⁠기</string>
+    <string name="pad_open">%1$s 글⁠자⁠판</string>
+    <string name="pad_keyboard">키⁠보⁠드</string>
+    <string name="pad_delete">지⁠우⁠기</string>
 </resources>
