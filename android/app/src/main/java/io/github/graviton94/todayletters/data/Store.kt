@@ -122,6 +122,19 @@ class Store(ctx: Context) {
         get() = p.getString("coach_seen", "")!!.split(",").filter { it.isNotBlank() }.toSet()
         set(v) = p.edit().putString("coach_seen", v.joinToString(",")).apply()
 
+    /** 복습 한 판의 중간 저장: 그날 · 문제 카드 순서 · 몇 번째까지 · 맞고 틀림. [name] 은 오늘의 복습이면 "today", 아니면 문제 꼴. */
+    data class SavedSession(val day: Long, val keys: List<String>, val at: Int, val oks: List<Boolean>)
+    fun session(name: String): SavedSession? {
+        val v = p.getString("sess:$name", null)?.split("|") ?: return null
+        if (v.size < 4) return null
+        return runCatching {
+            SavedSession(v[0].toLong(), v[1].split(";").filter { it.isNotEmpty() }, v[2].toInt(), v[3].map { it == '1' })
+        }.getOrNull()
+    }
+    fun saveSession(name: String, s: SavedSession) =
+        p.edit().putString("sess:$name", "${s.day}|${s.keys.joinToString(";")}|${s.at}|${s.oks.joinToString("") { if (it) "1" else "0" }}").apply()
+    fun clearSession(name: String) = p.edit().remove("sess:$name").apply()
+
     var notifyAsked: Boolean
         get() = p.getBoolean("notify_asked", false)
         set(v) = p.edit().putBoolean("notify_asked", v).apply()

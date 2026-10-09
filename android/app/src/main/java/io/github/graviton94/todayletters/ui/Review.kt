@@ -35,6 +35,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -215,12 +216,16 @@ private data class Q(val card: Card, val kind: ReviewKind, val word: String, val
 fun Session(s: AppState, r: Route.Session) {
     val p = Ink.palette
     val haptic = LocalHapticFeedback.current
+    val view = androidx.compose.ui.platform.LocalView.current
     var asking by remember { mutableStateOf(false) }
-    val questions = remember(r) { buildQuestions(s, r.kind) }
-    var at by remember { mutableIntStateOf(0) }
+    // 중간에 나갔다 오면 그 자리부터 (같은 날 · 같은 문제 순서)
+    val sessionName = r.kind?.name ?: "today"
+    val saved = remember(r) { s.store.session(sessionName)?.takeIf { it.day == s.today && it.at > 0 } }
+    val questions = remember(r) { buildQuestions(s, r.kind, saved?.keys) }
+    var at by remember { mutableIntStateOf((saved?.at ?: 0).coerceAtMost(questions.size)) }
     // 문제를 푸는 동안만 ‘그만할까요?’ (결과 화면에서는 결과 화면의 뒤로 가기)
     BackHandler(enabled = at < questions.size) { asking = true }
-    var results by remember { mutableStateOf(listOf<Pair<Q, Boolean>>()) }
+    var results by remember { mutableStateOf(saved?.let { sv -> questions.take(sv.at).zip(sv.oks) } ?: listOf<Pair<Q, Boolean>>()) }
     var mark by remember { mutableStateOf<Memory.Mark?>(null) }
     var picked by remember { mutableStateOf<String?>(null) }
     var typed by remember { mutableStateOf(TextFieldValue("")) }
@@ -234,14 +239,21 @@ fun Session(s: AppState, r: Route.Session) {
     fun put(t: String) { typed = TextFieldValue(t, TextRange(t.length)) }
 
     if (questions.isEmpty()) { LaunchedEffect(Unit) { s.back() }; return }
-    if (at >= questions.size) { SessionResult(s, r, results); return }
+    if (at >= questions.size) { LaunchedEffect(Unit) { s.store.clearSession(sessionName) }; SessionResult(s, r, results); return }
     val q = questions[at]
     LaunchedEffect(at) { if (q.kind != ReviewKind.BLANK) s.narrator.play(q.audio) }
 
+    val focusManager = androidx.compose.ui.platform.LocalFocusManager.current
     fun judge(m: Memory.Mark) {
         mark = m
+        // 답을 보면 키보드 · 글자판을 내려 문장과 ‘다음’ 단추가 가려지지 않게
+        keyboard?.hide(); focusManager.clearFocus(); pad = false
         val ok = m != Memory.Mark.WRONG
-        if (s.app.haptics) haptic.performHapticFeedback(if (ok) HapticFeedbackType.TextHandleMove else HapticFeedbackType.LongPress)
+        // 맞으면 ‘확인’ 진동 (Android 11+), 아니면 길게 한 번
+        if (s.app.haptics) {
+            if (ok && android.os.Build.VERSION.SDK_INT >= 30) view.performHapticFeedback(android.view.HapticFeedbackConstants.CONFIRM)
+            else haptic.performHapticFeedback(if (ok) HapticFeedbackType.TextHandleMove else HapticFeedbackType.LongPress)
+        }
         if (q.kind == ReviewKind.BLANK && ok && q.sentenceAudio != null) s.narrator.play(q.sentenceAudio) else if (q.kind != ReviewKind.DICTATION || ok) s.narrator.play(q.audio)
     }
 
@@ -257,8 +269,10 @@ fun Session(s: AppState, r: Route.Session) {
         @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
         val ime = WindowInsets.isImeVisible
         val compact = ime && !pad && q.kind == ReviewKind.DICTATION
+        val scroll = rememberScrollState()
+        LaunchedEffect(mark) { if (mark != null) { kotlinx.coroutines.delay(250); scroll.animateScrollTo(scroll.maxValue) } }
         Column(
-            Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = if (compact) Tokens.Space.s2 else Tokens.Space.s4),
+            Modifier.weight(1f).fillMaxWidth().verticalScroll(scroll).padding(horizontal = Tokens.Space.s5, vertical = if (compact) Tokens.Space.s2 else Tokens.Space.s4),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(if (compact) Tokens.Space.s3 else Tokens.Space.s4),
         ) {
             if (!compact) Text(stringResource(when (q.kind) { ReviewKind.DICTATION -> R.string.kind_dictation; ReviewKind.BLANK -> R.string.kind_blank; ReviewKind.MEANING -> R.string.kind_meaning }), style = Type.small.ui(), color = p.giltText)
@@ -272,7 +286,7 @@ fun Session(s: AppState, r: Route.Session) {
                         }
                         Column(Modifier.weight(1f)) {
                             Text(stringResource(R.string.kind_dictation), style = Type.small.ui(), color = p.giltText)
-                            Text(stringResource(R.string.dict_letters, Breaks.plain(q.word).count { it != ' ' }), style = Type.small.ui(), color = p.inkSoft)
+                            Text(listOfNotNull(q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, stringResource(R.string.dict_letters, Breaks.plain(q.word).count { it != ' ' })).joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
                         }
                     }
                     if (!compact) Text(stringResource(R.string.dict_prompt), style = Type.heading.ui(), color = p.ink)
@@ -310,7 +324,7 @@ fun Session(s: AppState, r: Route.Session) {
                         keyboardActions = KeyboardActions(onDone = { if (mark == null && typed.text.isNotBlank()) judge(Memory.grade(q.word, typed.text)) }),
                         modifier = Modifier.size(1.dp).focusRequester(focus),
                     )
-                    Text(listOfNotNull(q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, stringResource(R.string.dict_letters, answer.count { it != ' ' })).joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
+                    if (!compact) Text(listOfNotNull(q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, stringResource(R.string.dict_letters, answer.count { it != ' ' })).joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
                     if (compact && !hint && mark == null) Unit
                     else if (hint || mark != null) SentenceHint(q) else Text(stringResource(R.string.dict_hint), style = Type.small.ui(), color = p.giltText, modifier = Modifier.pressable { hint = true }.padding(Tokens.Space.s2))
                 }
@@ -333,8 +347,13 @@ fun Session(s: AppState, r: Route.Session) {
                 if (mark == null) { picked = o; judge(if (o == (if (q.kind == ReviewKind.MEANING) q.meaning else q.word)) Memory.Mark.RIGHT else Memory.Mark.WRONG) }
             }
             when (mark) {
-                Memory.Mark.RIGHT -> Text(stringResource(R.string.review_right), style = Type.body.ui(), color = p.correct)
-                Memory.Mark.ACCENT -> Text(stringResource(R.string.review_accent, q.word), style = Type.body.ui(), color = p.correct, textAlign = TextAlign.Center)
+                Memory.Mark.RIGHT, Memory.Mark.ACCENT -> Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
+                    CorrectBurst(still = s.reducedMotion)
+                    Text(if (mark == Memory.Mark.RIGHT) stringResource(R.string.review_right) else stringResource(R.string.review_accent, q.word), style = Type.body.ui(), color = p.correct, textAlign = TextAlign.Center)
+                    // 그 낱말의 뜻 (뜻 고르기는 고른 것이 뜻이니 낱말을)
+                    Text(if (q.kind == ReviewKind.MEANING) q.word else q.meaning, style = Type.title.of(if (q.kind == ReviewKind.MEANING) q.learn else q.read), color = p.ink, textAlign = TextAlign.Center)
+                    if (q.ipa.isNotEmpty()) Text("[${q.ipa}]", style = Type.small, color = p.inkSoft)
+                }
                 Memory.Mark.WRONG -> Text(stringResource(R.string.review_wrong, q.word, q.meaning), style = Type.body.ui(), color = p.wrong, textAlign = TextAlign.Center)
                 null -> {}
             }
@@ -391,6 +410,7 @@ fun Session(s: AppState, r: Route.Session) {
                 results = results + (q to ok)
                 mark = null; picked = null; typed = TextFieldValue(""); hint = false; pad = false
                 at++
+                s.store.saveSession(sessionName, io.github.graviton94.todayletters.data.Store.SavedSession(s.today, questions.map { it.card.key }, at, results.map { it.second }))
             }
         }
     }
@@ -406,7 +426,19 @@ private fun SentenceHint(q: Q, filled: Boolean = true, highlight: Boolean = fals
         Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
             Text(stringResource(R.string.dict_hint_title), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = Color(0xFF7A5A20))
             val blank = q.sentence.replace(q.word, if (filled) q.word else "_____", ignoreCase = true)
-            Text(blank, style = Type.target.of(q.learn), color = p.slipInk)
+            // 답이 나오면 문장 속 그 낱말에 금빛 표식
+            val marked = androidx.compose.ui.text.buildAnnotatedString {
+                append(blank)
+                if (filled) {
+                    var from = 0
+                    while (true) {
+                        val i = blank.indexOf(q.word, from, ignoreCase = true); if (i < 0 || q.word.isEmpty()) break
+                        addStyle(androidx.compose.ui.text.SpanStyle(background = Color(0x66D2A955), fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), i, i + q.word.length)
+                        from = i + q.word.length
+                    }
+                }
+            }
+            Text(marked, style = Type.target.of(q.learn), color = p.slipInk)
             if (q.sentenceRead != null) Text(
                 if (highlight) meaningMarks(q.sentenceRead, q.meaning, p.slipInk) else androidx.compose.ui.text.AnnotatedString(q.sentenceRead),
                 style = Type.base.of(q.read), color = p.slipSoft,
@@ -455,6 +487,30 @@ private fun OptionsGrid(q: Q, picked: String?, mark: Memory.Mark?, onPick: (Stri
                 }
             }
         }
+    }
+}
+
+/** 맞았을 때: 금빛 원이 튀어 오르며 체크가 그려지고, 고리가 퍼진다. */
+@Composable
+private fun CorrectBurst(still: Boolean) {
+    val p = Ink.palette
+    val k = remember { androidx.compose.animation.core.Animatable(if (still) 1f else 0f) }
+    LaunchedEffect(Unit) { k.animateTo(1f, androidx.compose.animation.core.tween(650, easing = androidx.compose.animation.core.FastOutSlowInEasing)) }
+    androidx.compose.foundation.Canvas(Modifier.size(84.dp)) {
+        val t = k.value
+        val c = center; val r = size.minDimension / 2
+        // 퍼지는 고리 두 겹
+        drawCircle(p.giltText.copy(alpha = (1f - t) * 0.6f), r * (0.5f + 0.5f * t), c, style = androidx.compose.ui.graphics.drawscope.Stroke(2.dp.toPx()))
+        drawCircle(p.giltText.copy(alpha = (1f - t) * 0.35f), r * (0.3f + 0.7f * t), c, style = androidx.compose.ui.graphics.drawscope.Stroke(1.dp.toPx()))
+        // 튀어 오르는 원 (조금 넘쳤다가 제자리)
+        val s = when { t < 0.55f -> t / 0.55f * 1.15f; else -> 1.15f - (t - 0.55f) / 0.45f * 0.15f }
+        drawCircle(p.correct, r * 0.48f * s, c)
+        // 체크: 원이 다 커진 뒤 그려짐
+        val d = ((t - 0.35f) / 0.65f).coerceIn(0f, 1f)
+        val a = Offset(c.x - r * 0.2f, c.y + r * 0.0f); val b = Offset(c.x - r * 0.05f, c.y + r * 0.15f); val e = Offset(c.x + r * 0.22f, c.y - r * 0.15f)
+        val st = 3.dp.toPx()
+        if (d > 0f) drawLine(p.onFill, a, Offset(a.x + (b.x - a.x) * (d * 2).coerceAtMost(1f), a.y + (b.y - a.y) * (d * 2).coerceAtMost(1f)), st, cap = androidx.compose.ui.graphics.StrokeCap.Round)
+        if (d > 0.5f) { val u = (d - 0.5f) * 2; drawLine(p.onFill, b, Offset(b.x + (e.x - b.x) * u, b.y + (e.y - b.y) * u), st, cap = androidx.compose.ui.graphics.StrokeCap.Round) }
     }
 }
 
@@ -523,8 +579,10 @@ fun SpeakerGlyph(c: Color, size: androidx.compose.ui.unit.Dp) = androidx.compose
 }
 
 /** 문제 만들기: 카드 → 문제. 문장은 그 낱말이 나온 편지 문장 (없으면 빈칸 대신 뜻 고르기). */
-private fun buildQuestions(s: AppState, kind: ReviewKind?): List<Q> {
-    val pool = if (kind == null) s.dueCards() else s.cards().sortedWith(compareBy({ it.box }, { it.due })).take(Memory.DAILY)
+private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? = null): List<Q> {
+    val cards = s.cards()
+    val pool = keys?.mapNotNull { k -> cards.firstOrNull { it.key == k } }?.takeIf { it.isNotEmpty() }
+        ?: if (kind == null) s.dueCards() else cards.sortedWith(compareBy({ it.box }, { it.due })).take(Memory.DAILY)
     val all = s.cards().mapNotNull { c -> s.cardWord(c.key) }
     return pool.mapNotNull { card ->
         val (w, cl, i) = s.cardWord(card.key) ?: return@mapNotNull null
