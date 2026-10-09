@@ -105,7 +105,7 @@ fun StampView(label: String, value: String, color: Color, image: String = "", w:
         if (image.isNotEmpty()) PlateThumb(image, true, Modifier.padding(w * 0.16f).fillMaxSize())
         Column(Modifier.fillMaxSize().padding(w * 0.12f), verticalArrangement = Arrangement.SpaceBetween, horizontalAlignment = Alignment.CenterHorizontally) {
             if (w > 40.dp) Text(label, style = Type.caps.copy(fontSize = (w.value / 11).sp), color = Color(0xFFF4EBD5), maxLines = 1) else Spacer(Modifier)
-            Text(value, style = Type.caps.copy(fontSize = (w.value / (if (w > 40.dp) 9 else 3.2f)).sp), color = Color(0xFFF4EBD5), maxLines = 1)
+            Text(value, style = Type.caps.copy(fontSize = (w.value / (if (w > 40.dp) 9f else 3.2f)).sp), color = Color(0xFFF4EBD5), maxLines = 1)
         }
     }
 }
