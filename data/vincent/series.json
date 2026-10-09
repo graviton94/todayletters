@@ -17,7 +17,7 @@
     "ko": "테오"
   },
   "portrait": "vincent.jpg",
-  "credit": "Self-Portrait, 1887 · Art Institute of Chicago",
+  "credit": "Self-Portrait, 1887 · Art Institute of Chicago · CC0",
   "title": {
     "fr": "Lettres de Vincent",
     "en": "Letters from Vincent",
@@ -171,9 +171,9 @@
             "en": "Thank you, Theo",
             "ko": "고마워, 테오"
           },
-          "letter": "c1-l2",
-          "message": 0,
-          "image": "sketches/c1-l3-bernard.jpg"
+          "letter": "c1-l4",
+          "message": 3,
+          "image": "sketches/c1-l4-poirier.jpg"
         }
       ]
     },
@@ -208,37 +208,37 @@
     ],
     "stamps": [
       {
-        "id": "neige",
-        "label": "ARLES 1888",
+        "id": "chapeau",
+        "label": "PARIS 1887",
         "image": "c1-l1.jpg",
         "value": "25c",
         "color": "#3D5A8F"
       },
       {
-        "id": "vieille",
-        "label": "ARLÉSIENNE",
-        "image": "c1-l2.jpg",
-        "value": "15c",
-        "color": "#5B3A6E"
-      },
-      {
         "id": "pont",
         "label": "PONT DE LANGLOIS",
-        "image": "c1-l3.jpg",
+        "image": "c1-l2.jpg",
         "value": "10c",
         "color": "#2E6B5A"
       },
       {
         "id": "verger",
         "label": "VERGER",
-        "image": "c1-l4.jpg",
+        "image": "c1-l3.jpg",
         "value": "5c",
         "color": "#8E2A22"
       },
       {
-        "id": "maison",
-        "label": "MAISON JAUNE",
-        "image": "c1-l5.jpg",
+        "id": "mousme",
+        "label": "MOUSMÉ",
+        "image": "c2-l3.jpg",
+        "value": "15c",
+        "color": "#5B3A6E"
+      },
+      {
+        "id": "tournesols",
+        "label": "TOURNESOLS",
+        "image": "c2-l4.jpg",
         "value": "1F",
         "color": "#B8913E"
       }

@@ -585,6 +585,8 @@ fun Lines(c: androidx.compose.ui.graphics.Color) = Canvas(Modifier.size(Tokens.S
 
 /** "1888-02-21" → "21 FÉVR." (소인용, 프랑스어 약자). */
 fun dayOf(date: String): String = runCatching {
+    // 날짜를 모르는 편지는 "1888-04" 처럼 달까지만: 소인에는 달 이름만
+    if (date.length == 7) return@runCatching java.time.YearMonth.parse(date).format(java.time.format.DateTimeFormatter.ofPattern("MMM", java.util.Locale.FRENCH))
     val d = java.time.LocalDate.parse(date.take(10))
     d.format(java.time.format.DateTimeFormatter.ofPattern("d MMM", java.util.Locale.FRENCH))
 }.getOrDefault(date)
@@ -593,6 +595,9 @@ fun dayOf(date: String): String = runCatching {
 @Composable
 fun dateLine(date: String, place: String): String {
     val ko = uiLang() == Lang.KO
+    if (date.length == 7) runCatching { java.time.YearMonth.parse(date) }.getOrNull()?.let { m ->
+        return if (ko) "${m.year}년 ${m.monthValue}월" else m.format(java.time.format.DateTimeFormatter.ofPattern("MMMM yyyy", java.util.Locale.ENGLISH))
+    }
     val d = runCatching { java.time.LocalDate.parse(date.take(10)) }.getOrNull() ?: return place
     val text = if (ko) "${d.year}년 ${d.monthValue}월 ${d.dayOfMonth}일"
     else d.format(java.time.format.DateTimeFormatter.ofPattern("d MMMM yyyy", java.util.Locale.ENGLISH))
