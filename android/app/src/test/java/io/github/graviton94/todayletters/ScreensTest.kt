@@ -251,7 +251,6 @@ class ScreensTest {
     @Test fun albumCabinet() = albumTab("40_album_cabinet_dark", "", true)
     @Test fun albumItems() = albumTab("41_album_items_light", "물건", false)
     @Test fun albumJournal() = albumTab("42_album_journal_light", "여행기", false)
-    @Test fun albumStamps() = albumTab("43_album_stamps_light", "기념 우표", false)
     @Test fun albumProgress() = albumTab("44_album_progress_dark", "진도 · 업적", true)
     @Test fun reward() {
         val s = engineState()
@@ -270,5 +269,30 @@ class ScreensTest {
         val s = engineState()
         s.cards().forEach { c -> s.store.save(c.copy(box = 3)) }
         shot("50_room_fade_ko_light", false, 4000) { Room(s, Route.Letter("vincent", 1, 1)) }
+    }
+
+    // ── v11 하나의 고리: 오늘의 북극성 · 다시 읽기 · 따라 읽기 · 봉인 ──
+    private fun loopState(): AppState {
+        val s = engineState()
+        s.reward = null
+        s.store.markOpened("vincent")   // 오늘 몫을 이미 열었다 → 새 편지 없이 다 읽은 편지가 주인공
+        return s
+    }
+    private fun room(n: Int) = Route.Letter("vincent", 1, n, Route.Inbox)
+    @Test fun todayFocus() { val s = loopState(); shot("51_today_focus_light", false, 2000) { Inbox(s) } }
+    @Test fun todaySealed() {
+        val s = loopState()
+        val l = s.work("vincent").chapters.first().letters[2]
+        l.words.indices.forEach { i -> s.store.save(io.github.graviton94.todayletters.core.Card(s.cardKey("vincent", "I", l.id, i), box = 3, due = s.today + 5)) }
+        s.store.markShadowed(s.key("vincent", "I", l.id)); s.settle(); s.reward = null
+        shot("52_today_sealed_dark", true, 2000) { Inbox(s) }
+    }
+    @Test fun reread() { val s = loopState(); shot("53_room_reread_light", false, 3000) { Room(s, room(1)) } }
+    @Test fun shadow() { val s = loopState(); shot("54_shadow_dark", true, 2000) { io.github.graviton94.todayletters.ui.ShadowScreen(s, Route.Shadow(room(1))) } }
+    @Test fun seal() {
+        val s = loopState()
+        val l = s.work("vincent").chapters.first().letters[0]
+        s.shadowChunks("vincent", "I", l).forEachIndexed { i, cs -> cs.indices.forEach { j -> s.take("vincent", "I", l.id, i, j).apply { parentFile?.mkdirs(); writeBytes(ByteArray(16)) } } }
+        shot("55_seal_dark", true, 2000) { io.github.graviton94.todayletters.ui.SealScreen(s, Route.Seal(room(1))) }
     }
 }
