@@ -153,7 +153,7 @@ class ScreensTest {
     @Test fun walk() { val s = state(true); shot("26_walk_intro", false) { Artwork(s, Route.Artwork("vincent", 1, Route.Letter("vincent", 1, 1))) } }
     @Test fun walkSpot() {
         val s = state(true)
-        shot("27_walk_spot", false, act = { rule.onNodeWithText("산책 시작").performClick() }) { Artwork(s, Route.Artwork("vincent", 1, Route.Letter("vincent", 1, 3))) }
+        shot("27_walk_spot", false, act = { rule.onNodeWithText(io.github.graviton94.todayletters.core.Breaks.keepAll("산책 시작")).performClick() }) { Artwork(s, Route.Artwork("vincent", 1, Route.Letter("vincent", 1, 3))) }
     }
     @Test fun todayHome() { val s = withCards(); shot("28_today_home_ko_light", false) { Inbox(s) } }
     @Test fun moments() {

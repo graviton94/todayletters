@@ -106,7 +106,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
     val focusRef = remember { arrayOf<(Int) -> Unit>({}) }
     val focus: (Int) -> Unit = { focusRef[0](it) }
     Box(Modifier.fillMaxSize().background(Room)) {
-        BoxWithConstraints(Modifier.fillMaxSize().statusBarsPadding().padding(top = 56.dp, bottom = 120.dp)) {
+        BoxWithConstraints(Modifier.fillMaxSize().statusBarsPadding().padding(top = 56.dp, bottom = 250.dp)) {
             val density = LocalDensity.current
             val maxW = constraints.maxWidth.toFloat()
             val maxH = constraints.maxHeight.toFloat()
@@ -185,7 +185,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
             }
             Text(stringResource(R.string.walk_title), style = Type.body.ui(), color = Wall, modifier = Modifier.weight(1f))
             if (spots.isNotEmpty()) Text(
-                if (at >= 0) "${at + 1} / ${spots.size}" else "${spots.size}",
+                if (at >= 0) "${at + 1} / ${spots.size}" else "· ${spots.size} ·",
                 style = Type.caps, color = Gilt, modifier = Modifier.padding(end = Tokens.Space.s3),
             )
         }
@@ -201,7 +201,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
                             Text(it.title[work.series.original], style = Type.title.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic), color = Ink.palette.slipInk)
                             if (ui != work.series.original) Text(it.title[ui], style = Type.small.ui(), color = Ink.palette.slipSoft)
                         }
-                        letter?.note?.let { Text(it[ui], style = Type.small.of(ui), color = Ink.palette.slipInk, maxLines = 3) }
+                        letter?.note?.let { Text(it[ui], style = Type.small.of(ui), color = Ink.palette.slipInk, maxLines = 3, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis) }
                         if (spots.isNotEmpty()) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                             Text(stringResource(R.string.walk_hint), style = Type.small.ui(), color = Ink.palette.slipSoft, modifier = Modifier.weight(1f))
                             Box(Modifier.heightIn(min = 44.dp).background(Ink.palette.slipInk).pressable { focus(0) }.padding(horizontal = Tokens.Space.s4), contentAlignment = Alignment.Center) {

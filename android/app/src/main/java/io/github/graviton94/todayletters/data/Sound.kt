@@ -31,15 +31,19 @@ class Narrator(private val ctx: Context) {
         stop()
         val fd = runCatching { ctx.assets.openFd(asset) }.getOrNull() ?: run { onDone(); return false }
         pending = onDone
-        player = MediaPlayer().apply {
-            setAudioAttributes(media)
-            setDataSource(fd.fileDescriptor, fd.startOffset, fd.length)
-            fd.close()
-            setOnCompletionListener { finish() }
-            prepare()
-            if (speed != 1f) playbackParams = playbackParams.setSpeed(speed)
-            start()
-        }
+        // 소리 파일이 깨졌거나 재생기가 거절하면 조용히 넘어간다 (대화는 계속)
+        player = runCatching {
+            MediaPlayer().apply {
+                setAudioAttributes(media)
+                setDataSource(fd.fileDescriptor, fd.startOffset, fd.length)
+                setOnCompletionListener { finish() }
+                prepare()
+                if (speed != 1f) playbackParams = playbackParams.setSpeed(speed)
+                start()
+            }
+        }.getOrNull()
+        runCatching { fd.close() }
+        if (player == null) { finish(); return false }
         return true
     }
 
