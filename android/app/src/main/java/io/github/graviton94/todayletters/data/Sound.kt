@@ -58,6 +58,23 @@ class Narrator(private val ctx: Context) {
         finish()
     }
 
+    /** 낭독의 한 토막만: [from]~[to] 밀리초 (따라 읽기의 한 마디). */
+    fun playRange(asset: String, from: Int, to: Int, onDone: () -> Unit = {}): Boolean {
+        if (!play(asset, onDone = onDone)) return false
+        val pl = player ?: return false
+        runCatching { pl.seekTo(from) }
+        val h = android.os.Handler(android.os.Looper.getMainLooper())
+        val tick = object : Runnable {
+            override fun run() {
+                if (player !== pl) return
+                val at = runCatching { pl.currentPosition }.getOrDefault(to)
+                if (at >= to) stop() else h.postDelayed(this, 40)
+            }
+        }
+        h.postDelayed(tick, 40)
+        return true
+    }
+
     /** 재생 위치 (밀리초). 재생 중이 아니면 -1. */
     fun position(): Int = player?.runCatching { if (isPlaying) currentPosition else -1 }?.getOrNull() ?: -1
 
@@ -79,21 +96,26 @@ class Narrator(private val ctx: Context) {
     }
 }
 
-/** 따라 읽기 녹음: 앱 캐시에만 두고, 밖으로 보내지 않는다. */
+/**
+ * 따라 읽기 녹음: 기기 안에만 둔다 (사용자가 목소리 엽서로 보낼 때만 밖으로).
+ * 마디 녹음은 AAC(ADTS)라서 파일을 차례로 이어 붙이면 그대로 한 편의 낭독이 된다.
+ */
 class Recorder(private val ctx: Context) {
     private var rec: MediaRecorder? = null
     private var player: MediaPlayer? = null
-    val file get() = File(ctx.cacheDir, "aloud.m4a")
+    private var target: File = File(ctx.cacheDir, "aloud.m4a")
+    val file get() = target
 
-    fun start(): Boolean = runCatching {
+    fun start(to: File = File(ctx.cacheDir, "aloud.m4a"), adts: Boolean = false): Boolean = runCatching {
         stop()
+        target = to.also { it.parentFile?.mkdirs() }
         rec = (if (Build.VERSION.SDK_INT >= 31) MediaRecorder(ctx) else @Suppress("DEPRECATION") MediaRecorder()).apply {
             setAudioSource(MediaRecorder.AudioSource.MIC)
-            setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+            setOutputFormat(if (adts) MediaRecorder.OutputFormat.AAC_ADTS else MediaRecorder.OutputFormat.MPEG_4)
             setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
             setAudioSamplingRate(32000)
             setAudioEncodingBitRate(48000)
-            setOutputFile(file.absolutePath)
+            setOutputFile(target.absolutePath)
             prepare(); start()
         }
     }.isSuccess
@@ -108,20 +130,22 @@ class Recorder(private val ctx: Context) {
         return ok
     }
 
-    fun play(onDone: () -> Unit = {}) {
+    fun play(what: File = file, onDone: () -> Unit = {}) {
         runCatching { player?.release() }
         player = null
-        if (!file.exists()) return onDone()
+        if (!what.exists()) return onDone()
         player = runCatching {
             MediaPlayer().apply {
                 setAudioAttributes(media)
-                setDataSource(file.absolutePath)
+                setDataSource(what.absolutePath)
                 setOnCompletionListener { onDone() }
                 prepare(); start()
             }
         }.getOrNull()
-        if (player == null) { runCatching { file.delete() }; onDone() }
+        if (player == null) { if (what == file) runCatching { file.delete() }; onDone() }
     }
+
+    fun stopPlaying() { runCatching { player?.stop(); player?.release() }; player = null }
 
     fun release() { stop(); player?.release(); player = null }
 }

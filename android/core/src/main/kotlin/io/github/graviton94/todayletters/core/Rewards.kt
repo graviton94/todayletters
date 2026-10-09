@@ -12,6 +12,7 @@ enum class Earn(val amount: Int, val dailyCap: Int) {
     READ_ALONE(5, 50),      // 혼자 읽기 1% 오를 때마다
     DAY_COMPLETE(5, 5),     // 오늘의 일 다 함
     ACHIEVEMENT(10, 100),   // 업적
+    SEAL(20, 100),          // 편지 한 통 완독 봉인 (혼자 다 읽고 다 따라 읽음)
 }
 
 /** 지갑: 잔액 · 오늘 날짜 · 오늘 종류별로 받은 양. */
@@ -42,6 +43,7 @@ data class Stats(
     val wordsOwned: Int = 0,
     val readAlone: Int = 0,
     val lettersAlone: Int = 0,
+    val lettersSealed: Int = 0,
     val visitors: Int = 0,
     val parcels: Int = 0,
     val chapters: Int = 0,
@@ -56,7 +58,7 @@ object Achievements {
      * 첫 봉인(편지 한 통을 혼자) · 혼자 읽기 25 / 50 / 90% · 한 장 완주.
      */
     val all = listOf(
-        Achievement("alone_1", 1) { it.lettersAlone },
+        Achievement("alone_1", 1) { it.lettersSealed },
         Achievement("read_25", 25) { it.readAlone },
         Achievement("read_50", 50) { it.readAlone },
         Achievement("read_90", 90) { it.readAlone },

@@ -236,6 +236,12 @@ fun Room(s: AppState, r: Route.Letter) {
                 letter.note?.let { note ->
                     item { CuratorNote(note[uiLang()], uiLang()) }
                 }
+                // 따라 읽기 (봉인까지): 다 읽은 편지라면 언제든
+                if (progress.done) item(key = "${letter.id}:shadow") {
+                    Secondary(stringResource(if (s.isSealed(id, chapter, letter)) R.string.focus_sealed else R.string.shadow_entry)) {
+                        stopAll(); s.go(if (s.isSealed(id, chapter, letter)) Route.Seal(r) else Route.Shadow(r))
+                    }
+                }
                 if (ReplyMode.CONSTELLATION in progress.replied) item {
                     val nextLetter = work.chapters.getOrNull(r.chapter - 1)?.letters?.getOrNull(r.letter)
                     val unreadByHim = nextLetter != null && !s.store.started(s.key(id, chapter, nextLetter.id)) && s.progress(id, chapter, nextLetter.id).shown == 0

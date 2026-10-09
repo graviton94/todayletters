@@ -86,6 +86,8 @@ private fun Main(s: AppState, onExit: () -> Unit) {
                     is Route.RoomInfo -> RoomInfo(s, r.room)
                     is Route.Play -> Play(s, r)
                     is Route.Done -> Done(s, r.room)
+                    is Route.Shadow -> ShadowScreen(s, r)
+                    is Route.Seal -> SealScreen(s, r)
                     is Route.Artwork -> Artwork(s, r)
                     is Route.Review -> WordsTab(s)
                     is Route.Session -> Session(s, r)

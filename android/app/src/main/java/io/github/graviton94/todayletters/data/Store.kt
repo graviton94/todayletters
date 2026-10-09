@@ -159,6 +159,13 @@ class Store(ctx: Context) {
     /** 금빛이 된 물건 (낱말 카드 키) — 새로 금빛이 되면 보상 순간에 보여 준다. */
     val goldItems: Set<String> get() = set("gold")
     fun gild(key: String) = add("gold", key)
+    /** 따라 읽기를 끝까지 한 편지 · 봉인된 편지 · 봉인 화면을 이미 본 편지 (편지 키). */
+    val shadowed: Set<String> get() = set("shadow")
+    fun markShadowed(key: String) = add("shadow", key)
+    val sealed: Set<String> get() = set("sealed")
+    fun seal(key: String) = add("sealed", key)
+    val sealSeen: Set<String> get() = set("sealseen")
+    fun markSealSeen(key: String) = add("sealseen", key)
     /** 오늘의 일을 다 해서 보너스를 받은 날. */
     var dayCompleteDay: Long
         get() = p.getLong("daydone", -1)

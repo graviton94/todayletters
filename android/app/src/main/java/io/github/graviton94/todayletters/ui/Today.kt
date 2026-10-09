@@ -218,10 +218,19 @@ private fun FocusLetter(s: AppState, id: String, chapter: String, l: io.github.g
     }
     Text(text, style = Type.target.of(learn), color = p.slipInk, maxLines = 3)
     Text(stringResource(R.string.focus_hint), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.slipSoft)
-    if (due > 0) Box(Modifier.fillMaxWidth().heightIn(min = 50.dp).pressable { s.go(Route.Session()) }.background(p.slipInk), contentAlignment = Alignment.Center) {
-        Text(stringResource(R.string.focus_review, due), style = Type.body.ui(), color = p.slip)
-    } else g.nextDue?.let { d ->
-        Text(if (d <= 1) stringResource(R.string.focus_due_tomorrow) else stringResource(R.string.focus_due_in, d), style = Type.small.ui(), color = p.slipInk)
+    val room = Route.Letter(id, s.work(id).chapters.indexOfFirst { it.id == chapter } + 1, s.work(id).chapters.first { it.id == chapter }.letters.indexOf(l) + 1, Route.Inbox)
+    @Composable fun big(label: String, onClick: () -> Unit) = Box(Modifier.fillMaxWidth().heightIn(min = 50.dp).pressable(onClick = onClick).background(p.slipInk), contentAlignment = Alignment.Center) {
+        Text(label, style = Type.body.ui(), color = p.slip)
+    }
+    when {
+        // 봉인됐는데 아직 못 본 편지 → 봉인 화면
+        s.isSealed(id, chapter, l) -> big(stringResource(R.string.focus_sealed)) { s.go(Route.Seal(room)) }
+        // 혼자 다 읽는데 따라 읽기가 남음 → 봉인까지 한 걸음
+        g.known == g.total && g.total > 0 && !s.isShadowed(id, chapter, l) -> big(stringResource(R.string.focus_shadow)) { s.go(Route.Shadow(room)) }
+        due > 0 -> big(stringResource(R.string.focus_review, due)) { s.go(Route.Session()) }
+        else -> g.nextDue?.let { d ->
+            Text(if (d <= 1) stringResource(R.string.focus_due_tomorrow) else stringResource(R.string.focus_due_in, d), style = Type.small.ui(), color = p.slipInk)
+        }
     }
     Box(Modifier.fillMaxWidth().heightIn(min = 46.dp).border(1.dp, p.slipInk.copy(alpha = 0.5f)).pressable { s.open(id, chapter, l, Route.Inbox) }, contentAlignment = Alignment.Center) {
         Text(stringResource(R.string.focus_reread), style = Type.body.ui().copy(fontSize = 15.sp), color = p.slipInk)

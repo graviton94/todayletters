@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 구절 엽서 공유: 캐시의 postcards 폴더만 내보낸다 -->
+<!-- 구절 엽서 · 목소리 엽서 공유: 이 두 폴더만 내보낸다 -->
 <paths>
     <cache-path name="postcards" path="postcards/" />
+    <!-- 내 낭독 (따라 읽기 녹음을 이어 붙인 것) · 목소리 엽서로 보낼 때만 -->
+    <files-path name="readings" path="readings/" />
 </paths>

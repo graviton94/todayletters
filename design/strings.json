@@ -1799,5 +1799,113 @@
   "reread_banner": {
     "en": "You read %1$d of the %2$d words in this letter alone, and the translation folds by that much.",
     "ko": "이 편지 낱말 %2$d개 중 %1$d개를 혼자 읽어요. 번역이 그만큼 접혀요."
+  },
+  "shadow_title": {
+    "en": "Read along",
+    "ko": "따라 읽기"
+  },
+  "shadow_count": {
+    "en": "%1$d / %2$d",
+    "ko": "%1$d / %2$d 마디"
+  },
+  "shadow_hint": {
+    "en": "Hear one phrase of the original, then say it in your own voice. The phrases break where the reading breaks.",
+    "ko": "원래 소리 한 마디를 듣고, 내 목소리로 한 마디. 끊는 자리는 낭독 그대로예요."
+  },
+  "shadow_noaudio": {
+    "en": "This letter has no reading yet. Read each phrase aloud from the text.",
+    "ko": "이 편지는 아직 낭독이 없어요. 글을 보고 한 마디씩 소리 내어 읽어 보세요."
+  },
+  "shadow_tap": {
+    "en": "Tap the microphone and say the phrase.",
+    "ko": "마이크를 누르고 이 마디를 따라 말해 보세요."
+  },
+  "shadow_recording": {
+    "en": "Listening… tap again when you've finished.",
+    "ko": "듣고 있어요… 다 말하면 다시 누르세요."
+  },
+  "shadow_check": {
+    "en": "Compare the original with your voice, then go on.",
+    "ko": "원래 소리와 내 소리를 번갈아 들어 보고 다음으로."
+  },
+  "shadow_orig": {
+    "en": "Original",
+    "ko": "원래 소리"
+  },
+  "shadow_mine": {
+    "en": "My voice",
+    "ko": "내 소리"
+  },
+  "shadow_talk": {
+    "en": "Speak",
+    "ko": "말하기"
+  },
+  "shadow_stop": {
+    "en": "Done",
+    "ko": "다 말했어요"
+  },
+  "shadow_next": {
+    "en": "Next phrase",
+    "ko": "다음 마디"
+  },
+  "shadow_finish": {
+    "en": "I've read it all along",
+    "ko": "다 따라 읽었어요"
+  },
+  "shadow_done_title": {
+    "en": "You've read the whole letter along",
+    "ko": "편지를 끝까지 따라 읽었어요"
+  },
+  "shadow_done_body": {
+    "en": "You read %2$d of its %1$d words alone. When you read them all alone, this letter is sealed.",
+    "ko": "낱말 %1$d개 중 %2$d개를 혼자 읽어요. 모두 혼자 읽게 되면 이 편지가 봉인돼요."
+  },
+  "shadow_back": {
+    "en": "Back to the letter",
+    "ko": "편지로 돌아가기"
+  },
+  "shadow_stay": {
+    "en": "Stay here",
+    "ko": "여기 있기"
+  },
+  "shadow_entry": {
+    "en": "Read this letter along · keep my reading",
+    "ko": "이 편지 따라 읽기 · 내 낭독 남기기"
+  },
+  "seal_caps": {
+    "en": "Letter %1$s · read alone",
+    "ko": "편지 %1$s · 혼자 읽음"
+  },
+  "seal_title": {
+    "en": "You read this letter all on your own",
+    "ko": "이 편지를 혼자 다 읽었어요"
+  },
+  "seal_stats": {
+    "en": "No translation · %1$d words · %2$d phrases read along",
+    "ko": "번역 없이 · 낱말 %1$d개 · %2$d마디 따라 읽음"
+  },
+  "seal_mine": {
+    "en": "Letter %1$s, in my voice",
+    "ko": "내가 읽은 편지 %1$s"
+  },
+  "seal_mine_d": {
+    "en": "Your %1$d phrases, joined together",
+    "ko": "따라 읽은 %1$d마디를 이어 붙였어요"
+  },
+  "seal_send": {
+    "en": "Send as a voice postcard",
+    "ko": "목소리 엽서로 보내기"
+  },
+  "seal_share_text": {
+    "en": "“%1$s” — a letter by %2$s, read in my voice (Letters by Day)",
+    "ko": "“%1$s” — 내 목소리로 읽은 %2$s의 편지 (하루의 편지)"
+  },
+  "focus_shadow": {
+    "en": "Read it along · towards the seal",
+    "ko": "따라 읽기 · 봉인까지 한 걸음"
+  },
+  "focus_sealed": {
+    "en": "Sealed · see it",
+    "ko": "봉인됐어요 · 보기"
   }
 }

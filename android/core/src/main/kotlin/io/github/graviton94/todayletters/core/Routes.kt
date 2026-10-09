@@ -27,6 +27,10 @@ sealed interface Route {
     data class RoomInfo(val room: Letter) : Route
     data class Play(val room: Letter, val mode: ReplyMode) : Route
     data class Done(val room: Letter) : Route
+    /** 따라 읽기: 편지 문장을 낭독 마디째 듣고 따라 말한다 (내 낭독이 남는다). */
+    data class Shadow(val room: Letter) : Route
+    /** 완독 봉인: 혼자 다 읽고 다 따라 읽은 편지. */
+    data class Seal(val room: Letter) : Route
 
     data class Artwork(val series: String, val plate: Int, val from: Route) : Route
     data class Review(val series: String?) : Route
@@ -54,6 +58,8 @@ object Nav {
         is Route.RoomInfo -> r.room
         is Route.Play -> r.room
         is Route.Done -> r.room
+        is Route.Shadow -> r.room
+        is Route.Seal -> r.room
         is Route.Artwork -> r.from
         is Route.Review -> Route.Words
         is Route.Session, Route.WordList, Route.Quotes -> Route.Words

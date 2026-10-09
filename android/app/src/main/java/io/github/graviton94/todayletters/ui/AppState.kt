@@ -303,11 +303,49 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     }
 
     /**
-     * 오늘 화면의 주인공 편지: 읽는 중인 편지가 없을 때, 다 읽었지만 아직 혼자 다 읽지 못하는 가장 최근 편지.
-     * (북극성 = ‘이 편지를 얼마나 혼자 읽나’)
+     * 오늘 화면의 주인공 편지 (북극성 = ‘이 편지를 얼마나 혼자 읽나’). 읽는 중인 편지가 없을 때:
+     * 봉인했지만 봉인 화면을 아직 못 본 편지 → 다 읽었지만 아직 봉인 못 한 가장 최근 편지.
      */
-    fun focusLetter(id: String): Pair<String, Letter>? =
-        openable(id).lastOrNull { (c, l) -> progress(id, c, l.id).done && !letterAlone(id, c, l) }
+    fun focusLetter(id: String): Pair<String, Letter>? {
+        val done = openable(id).filter { (c, l) -> progress(id, c, l.id).done }
+        return done.firstOrNull { (c, l) -> isSealed(id, c, l) && key(id, c, l.id) !in store.sealSeen }
+            ?: done.lastOrNull { (c, l) -> !isSealed(id, c, l) }
+    }
+
+    // ── 따라 읽기 · 완독 봉인 (모든 시리즈 공통) ─────────────────
+    /** 따라 읽기의 마디: 편지 문장마다 낭독 시각 파일의 마디. 낭독이 없으면 문장 부호에서 나눈 글 (소리 없이). */
+    fun shadowChunks(id: String, chapter: String, l: Letter): List<List<io.github.graviton94.todayletters.data.Chunk>> {
+        val learn = seriesSettings(id).learn
+        return l.messages.mapIndexed { i, m ->
+            narrator.chunks(narrator.path(id, chapter, l.id, "m${i + 1}_${learn.code}")).ifEmpty {
+                m.text[learn].replace("\u2060", "").split(Regex("(?<=[,.;:!?–])\\s+")).filter { it.isNotBlank() }
+                    .map { io.github.graviton94.todayletters.data.Chunk(-1, -1, it.trim()) }
+            }
+        }
+    }
+    /** 마디 녹음 파일: files/readings/<편지>/m<문장>_c<마디>.aac */
+    fun readingDir(id: String, chapter: String, letter: String) = java.io.File(ctx.filesDir, "readings/${id}_${chapter}_$letter")
+    fun take(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = java.io.File(readingDir(id, chapter, letter), "m${msg}_c$chunk.aac")
+
+    /** 내 낭독: 마디 녹음을 차례로 이어 붙인 한 편 (ADTS 라 그대로 이어진다). 하나도 없으면 null. */
+    fun myReading(id: String, chapter: String, l: Letter): java.io.File? {
+        val parts = shadowChunks(id, chapter, l).flatMapIndexed { i, cs -> cs.indices.map { j -> take(id, chapter, l.id, i, j) } }.filter { it.exists() }
+        if (parts.isEmpty()) return null
+        val out = java.io.File(ctx.filesDir, "readings/${id}_${chapter}_${l.id}.aac")
+        runCatching { out.outputStream().use { o -> parts.forEach { p -> p.inputStream().use { it.copyTo(o) } } } }.onFailure { return null }
+        return out
+    }
+
+    fun isShadowed(id: String, chapter: String, l: Letter) = run { @Suppress("UNUSED_EXPRESSION") version; key(id, chapter, l.id) in store.shadowed }
+    fun isSealed(id: String, chapter: String, l: Letter) = run { @Suppress("UNUSED_EXPRESSION") version; key(id, chapter, l.id) in store.sealed }
+
+    /** 따라 읽기를 끝까지 했을 때. 이미 혼자 다 읽는 편지라면 봉인까지. 봉인됐으면 true. */
+    fun shadowDone(id: String, chapter: String, l: Letter): Boolean {
+        store.markShadowed(key(id, chapter, l.id)); version++
+        settle()
+        return isSealed(id, chapter, l)
+    }
+    fun sealSeen(id: String, chapter: String, l: Letter) { store.markSealSeen(key(id, chapter, l.id)); version++ }
 
     fun stats(): Stats {
         val cm = cardMap()
@@ -320,7 +358,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
         return Stats(
             lettersDone = done, streak = streak, bestStreak = maxOf(store.bestStreak, streak),
             wordsKnown = cm.values.count { Growth.known(it) }, wordsOwned = cm.values.count { it.box >= Memory.TOP },
-            readAlone = readAlone, lettersAlone = alone, visitors = store.visitors,
+            readAlone = readAlone, lettersAlone = alone, lettersSealed = store.sealed.size, visitors = store.visitors,
             parcels = works.sumOf { store.parcels(it.series.id) }, chapters = chapters,
         )
     }
@@ -369,6 +407,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
             val k = cardKey(w.series.id, c.id, l.id, i)
             if (Growth.known(cm[k]) && k !in store.goldItems) { store.gild(k); items += word }
         } } } }
+        // 완독 봉인: 혼자 다 읽고 (낱말 모두 떠올리기 이상) 다 따라 읽은 편지
+        works.forEach { w -> w.chapters.forEach { c -> c.letters.forEach { l ->
+            val k = key(w.series.id, c.id, l.id)
+            if (k !in store.sealed && k in store.shadowed && progress(w.series.id, c.id, l.id).done &&
+                Growth.letterAlone(l.words.indices.map { cardKey(w.series.id, c.id, l.id, it) }, cm)) { store.seal(k); earn(Earn.SEAL) }
+        } } }
         // 혼자 읽기
         val now = readAlone
         val seen = store.readAloneSeen
