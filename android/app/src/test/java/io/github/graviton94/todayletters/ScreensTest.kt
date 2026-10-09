@@ -200,4 +200,16 @@ class ScreensTest {
         s.update("vincent", s.seriesSettings("vincent").copy(learn = io.github.graviton94.todayletters.core.Lang.KO))
         shot("34_korean_pad_light", false) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.DICTATION)) }
     }
+    @Test fun roomTransfer() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters[1]
+        s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = l.messages.size))
+        shot("35_room_transfer_ko_light", false, 4000) { Room(s, Route.Letter("vincent", 1, 2)) }
+    }
+    @Test fun roomRent() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters[4]
+        s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = l.messages.size))
+        shot("36_room_rent_ko_dark", true, 4000) { Room(s, Route.Letter("vincent", 1, 5)) }
+    }
 }
