@@ -489,4 +489,15 @@
     <string name="credits_voice">Voices generated with Supertonic 3 by Supertone Inc. The model is licensed under OpenRAIL-M and is not included in the app.</string>
     <string name="credits_fonts_h">Fonts · SIL Open Font License 1.1</string>
     <string name="credits_licence">Licence text</string>
+    <string name="shadow_intonation">Intonation</string>
+    <string name="shadow_rhythm">Rhythm</string>
+    <string name="shadow_scoring">Listening and comparing…</string>
+    <string name="shadow_noscore">Couldn\'t compare this take. Try once more, a little louder.</string>
+    <string name="shadow_pass">Passed: this phrase turns gold.</string>
+    <string name="shadow_retry">70 passes. Listen once more and try again?</string>
+    <string name="shadow_note">This scores the rise and fall of your voice and its rhythm, not pronunciation.</string>
+    <string name="shadow_again">Say it again</string>
+    <string name="shadow_unpassed_title">Some phrases haven\'t passed yet</string>
+    <string name="shadow_unpassed_body">%1$d phrases are under 70. Every phrase needs to pass for the seal.</string>
+    <string name="shadow_go">Go to that phrase</string>
 </resources>

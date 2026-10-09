@@ -323,16 +323,21 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
             }
         }
     }
-    /** 마디 녹음 파일: files/readings/<편지>/m<문장>_c<마디>.aac */
+    /** 마디 녹음 파일: files/readings/<편지>/m<문장>_c<마디>.wav (원음이라 억양 · 리듬을 잴 수 있다) */
     fun readingDir(id: String, chapter: String, letter: String) = java.io.File(ctx.filesDir, "readings/${id}_${chapter}_$letter")
-    fun take(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = java.io.File(readingDir(id, chapter, letter), "m${msg}_c$chunk.aac")
+    fun take(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = java.io.File(readingDir(id, chapter, letter), "m${msg}_c$chunk.wav")
+    val pcm = io.github.graviton94.todayletters.data.PcmRecorder()
 
-    /** 내 낭독: 마디 녹음을 차례로 이어 붙인 한 편 (ADTS 라 그대로 이어진다). 하나도 없으면 null. */
+    /** 억양 · 리듬을 통과한 마디인가. */
+    fun passed(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = run { @Suppress("UNUSED_EXPRESSION") version; "${key(id, chapter, letter)}:$msg:$chunk" in store.passed }
+    fun markPassed(id: String, chapter: String, letter: String, msg: Int, chunk: Int) { store.markPassed("${key(id, chapter, letter)}:$msg:$chunk"); version++ }
+
+    /** 내 낭독: 마디 녹음을 차례로 이어 붙인 한 편. 하나도 없으면 null. */
     fun myReading(id: String, chapter: String, l: Letter): java.io.File? {
         val parts = shadowChunks(id, chapter, l).flatMapIndexed { i, cs -> cs.indices.map { j -> take(id, chapter, l.id, i, j) } }.filter { it.exists() }
         if (parts.isEmpty()) return null
-        val out = java.io.File(ctx.filesDir, "readings/${id}_${chapter}_${l.id}.aac")
-        runCatching { out.outputStream().use { o -> parts.forEach { p -> p.inputStream().use { it.copyTo(o) } } } }.onFailure { return null }
+        val out = java.io.File(ctx.filesDir, "readings/${id}_${chapter}_${l.id}.wav")
+        runCatching { io.github.graviton94.todayletters.data.Wav.join(parts, out) }.onFailure { return null }
         return out
     }
 

@@ -164,6 +164,9 @@ class Store(ctx: Context) {
     fun markShadowed(key: String) = add("shadow", key)
     val sealed: Set<String> get() = set("sealed")
     fun seal(key: String) = add("sealed", key)
+    /** 따라 읽기에서 억양 · 리듬 70점을 넘은 마디 ("편지키:문장:마디"). */
+    val passed: Set<String> get() = set("pass")
+    fun markPassed(key: String) = add("pass", key)
     val sealSeen: Set<String> get() = set("sealseen")
     fun markSealSeen(key: String) = add("sealseen", key)
     /** 오늘의 일을 다 해서 보너스를 받은 날. */

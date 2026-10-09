@@ -1951,5 +1951,49 @@
   "credits_licence": {
     "en": "Licence text",
     "ko": "라이선스 전문"
+  },
+  "shadow_intonation": {
+    "en": "Intonation",
+    "ko": "억양"
+  },
+  "shadow_rhythm": {
+    "en": "Rhythm",
+    "ko": "리듬"
+  },
+  "shadow_scoring": {
+    "en": "Listening and comparing…",
+    "ko": "듣고 비교하는 중…"
+  },
+  "shadow_noscore": {
+    "en": "Couldn't compare this take. Try once more, a little louder.",
+    "ko": "이번 녹음은 비교하지 못했어요. 조금 크게 한 번 더 해 보세요."
+  },
+  "shadow_pass": {
+    "en": "Passed: this phrase turns gold.",
+    "ko": "통과! 이 마디는 금빛이 돼요."
+  },
+  "shadow_retry": {
+    "en": "70 passes. Listen once more and try again?",
+    "ko": "70점이 넘으면 통과예요. 한 번 더 듣고 해 볼까요?"
+  },
+  "shadow_note": {
+    "en": "This scores the rise and fall of your voice and its rhythm, not pronunciation.",
+    "ko": "목소리의 오르내림과 리듬을 봐요. 발음이 맞는지는 채점하지 않아요."
+  },
+  "shadow_again": {
+    "en": "Say it again",
+    "ko": "다시 말하기"
+  },
+  "shadow_unpassed_title": {
+    "en": "Some phrases haven't passed yet",
+    "ko": "아직 통과 못 한 마디가 있어요"
+  },
+  "shadow_unpassed_body": {
+    "en": "%1$d phrases are under 70. Every phrase needs to pass for the seal.",
+    "ko": "%1$d마디가 70점에 못 미쳤어요. 모든 마디를 통과해야 봉인돼요."
+  },
+  "shadow_go": {
+    "en": "Go to that phrase",
+    "ko": "그 마디로"
   }
 }

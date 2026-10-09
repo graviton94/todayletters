@@ -228,4 +228,36 @@ class CoreTest {
         val ids = Achievements.newly(s, setOf("alone_1")).map { it.id }
         assertEquals(listOf("read_25", "read_50"), ids)
     }
+
+    /** 가짜 목소리: 시간에 따른 음높이 [pitch] 와 크기 [amp] 로 배음 셋을 합친 소리. */
+    private fun voice(seconds: Double, rate: Int, pitch: (Double) -> Double, amp: (Double) -> Double): FloatArray {
+        val n = (seconds * rate).toInt(); var ph = 0.0
+        return FloatArray(n) { k ->
+            val t = k.toDouble() / rate
+            ph += 2 * Math.PI * pitch(t) / rate
+            (amp(t) * (0.6 * Math.sin(ph) + 0.3 * Math.sin(2 * ph) + 0.1 * Math.sin(3 * ph))).toFloat()
+        }
+    }
+
+    @Test fun prosodyPitch() {
+        val rate = 16000
+        val x = voice(0.5, rate, { 200.0 }, { 0.5 })
+        val f = Prosody.yin(x, 2000, 640, rate)
+        assertTrue(kotlin.math.abs(f - 200f) < 4f, "got $f")
+    }
+
+    @Test fun prosodyScore() {
+        val rate = 16000
+        // 오르다 내려가는 문장, 가운데 쉼
+        fun melody(scale: Double) = { t: Double -> val u = t / scale; if (u < 0.6) 150 + 120 * u else 222 - 100 * (u - 0.6) }
+        fun env(scale: Double) = { t: Double -> val u = t / scale; if (u > 0.55 && u < 0.7) 0.0 else 0.5 }
+        val ref = Prosody.analyze(voice(1.3, rate, melody(1.0), env(1.0)), rate)
+        // 같은 가락을 한 옥타브 위에서, 10% 느리게
+        val same = Prosody.analyze(voice(1.43, rate, { t -> 2 * melody(1.1)(t) }, env(1.1)), rate)
+        // 높낮이 없이 한 음으로
+        val flat = Prosody.analyze(voice(1.3, rate, { 180.0 }, env(1.0)), rate)
+        val good = Prosody.score(ref, same); val bad = Prosody.score(ref, flat)
+        assertTrue(good.passed && good.intonation >= 80, "good $good")
+        assertTrue(bad.intonation < 60 && bad.intonation < good.intonation, "bad $bad")
+    }
 }
