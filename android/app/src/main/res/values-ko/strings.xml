@@ -309,4 +309,5 @@
     <string name="transfer_paid">보⁠냄</string>
     <string name="read_mark">다⁠음 편⁠지⁠가 오⁠면 읽⁠음</string>
     <string name="typing_bubble">%1$s⁠가 쓰⁠는 중⁠…</string>
+    <string name="status_line">%1$s⁠의 상⁠태 메⁠시⁠지 · “%2$s”</string>
 </resources>

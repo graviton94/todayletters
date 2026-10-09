@@ -309,4 +309,5 @@
     <string name="transfer_paid">Paid</string>
     <string name="read_mark">Unread until the next letter</string>
     <string name="typing_bubble">%1$s is writing…</string>
+    <string name="status_line">%1$s\'s status · “%2$s”</string>
 </resources>

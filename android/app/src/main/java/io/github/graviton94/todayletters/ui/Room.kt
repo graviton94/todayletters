@@ -144,7 +144,7 @@ fun Room(s: AppState, r: Route.Letter) {
     val finished = written >= total
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
-        RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else letter.status?.get(uiLang()) ?: dateLine(letter.date, letter.place),
+        RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else dateLine(letter.date, letter.place),
             auto = s.app.sound, onAuto = { if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }, onInfo = { s.go(Route.RoomInfo(r)) })
         TodayStrip(read = written, total = total, modes = modes, replied = progress.replied, done = progress.done)
         LazyColumn(
@@ -159,6 +159,13 @@ fun Room(s: AppState, r: Route.Letter) {
                     Box(Modifier.weight(1f)) { Hair() }
                 }
             }
+            // 그 무렵 빈센트의 상태 메시지 (메신저 프로필 한마디처럼)
+            letter.status?.let { st -> item(key = "${letter.id}:status") {
+                Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                    Text(stringResource(R.string.status_line, work.name[uiLang()], st[uiLang()]), style = Type.small.ui(), color = p.inkSoft,
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                }
+            } }
             letter.moments.filter { it.after < 0 }.forEachIndexed { k, mo ->
                 item(key = "${letter.id}:pre:$k") { MomentCard(s, work, mo, onMap = { mapOpen = true }, onPhoto = { s.go(Route.Artwork(id, r.letter, r)) }) }
             }

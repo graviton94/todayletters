@@ -1231,5 +1231,9 @@
   "typing_bubble": {
     "en": "%1$s is writing…",
     "ko": "%1$s가 쓰는 중…"
+  },
+  "status_line": {
+    "en": "%1$s's status · “%2$s”",
+    "ko": "%1$s의 상태 메시지 · “%2$s”"
   }
 }

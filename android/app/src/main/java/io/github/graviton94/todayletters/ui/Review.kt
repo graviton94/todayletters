@@ -248,7 +248,7 @@ fun Session(s: AppState, r: Route.Session) {
         // 키보드가 올라오면 위쪽을 한 줄로 접는다 (듣기 · 0.7× · 안내), 확인은 키보드 바로 위
         @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
         val ime = WindowInsets.isImeVisible
-        val compact = ime && q.kind == ReviewKind.DICTATION
+        val compact = ime && !pad && q.kind == ReviewKind.DICTATION
         Column(
             Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = if (compact) Tokens.Space.s2 else Tokens.Space.s4),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(if (compact) Tokens.Space.s3 else Tokens.Space.s4),

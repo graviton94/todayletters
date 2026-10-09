@@ -253,7 +253,7 @@ fun ArlesMap(work: Work, focus: String?, modifier: Modifier, compact: Boolean = 
     BoxWithConstraints(modifier.clipToBounds().background(MapPaper)) {
         val W = constraints.maxWidth.toFloat(); val H = constraints.maxHeight.toFloat()
         // 지도 한 장의 크기 (가로 기준, 세로는 0.95 비율) 와 보이는 창
-        val z = if (compact) 1.6f else 1f
+        val z = if (compact) 1.3f else 1f
         val mw = W * z; val mh = (if (compact) W / 0.95f else H) * z
         val ox = if (compact && fp != null) (W / 2 - fp.x * mw).coerceIn(W - mw, 0f) else 0f
         val oy = if (compact && fp != null) (H / 2 - fp.y * mh).coerceIn(H - mh, 0f) else 0f
