@@ -593,7 +593,10 @@ private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Ma
     heard?.let { Text(stringResource(R.string.speak_heard, it), style = Type.small.ui(), color = p.inkSoft) }
     if (mark == null && selfCheck) {
         // 스스로 판정: 먼저 말해 보고, 원어민 소리를 들은 뒤
+        var heardIt by remember(q) { mutableStateOf(false) }
         Text(stringResource(R.string.speak_self), style = Type.small.ui(), color = p.inkSoft, textAlign = TextAlign.Center)
+        // 먼저 말해 본 뒤에야 원래 소리와 글자를 보여 준다
+        if (!heardIt) { Secondary(stringResource(R.string.speak_reveal), small = true) { heardIt = true; s.narrator.play(q.audio) }; return }
         SpeakerButton(false, stringResource(R.string.a11y_listen_word)) { s.narrator.play(q.audio) }
         Text(q.word, style = Type.title.of(q.learn), color = p.ink)
         Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {

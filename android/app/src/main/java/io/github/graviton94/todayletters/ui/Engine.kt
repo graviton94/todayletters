@@ -415,10 +415,10 @@ private fun JournalPane(s: AppState, w: Work) {
                         if (on) Text(stringResource(R.string.map_open), style = Type.small.ui(), color = Color(0xFF8F6A27), modifier = Modifier.pressable { openMaps(s.ctx, pl, pl.name[ui]) }.padding(4.dp))
                     }
                 }
-            }
-            // 도시 소인
-            Box(Modifier.align(Alignment.BottomEnd).size(84.dp).graphicsLayer { rotationZ = -12f; alpha = if (full) 0.85f else 0.35f }.border(2.dp, Color(0xFF9A3B22), CircleShape), contentAlignment = Alignment.Center) {
-                Text("${page.city[Lang.FR].uppercase()}\n${page.years}\n$got / ${page.places.size}", style = Type.caps.copy(fontSize = 10.sp, lineHeight = 13.sp), color = Color(0xFF9A3B22), textAlign = TextAlign.Center)
+                // 도시 소인 (다 차면 진하게)
+                Box(Modifier.align(Alignment.End).size(84.dp).graphicsLayer { rotationZ = -12f; alpha = if (full) 0.85f else 0.35f }.border(2.dp, Color(0xFF9A3B22), CircleShape), contentAlignment = Alignment.Center) {
+                    Text("${page.city[Lang.FR].uppercase()}\n${page.years}\n$got / ${page.places.size}", style = Type.caps.copy(fontSize = 10.sp, lineHeight = 13.sp), color = Color(0xFF9A3B22), textAlign = TextAlign.Center)
+                }
             }
         }
     }

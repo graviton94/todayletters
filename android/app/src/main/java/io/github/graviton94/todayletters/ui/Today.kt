@@ -73,10 +73,12 @@ fun Inbox(s: AppState) {
     Column(Modifier.fillMaxSize()) {
         Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s5, end = Tokens.Space.s1, top = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                Text(LocalDate.now().format(DateTimeFormatter.ofPattern("EEEE d MMMM", Locale.FRENCH)).uppercase(), style = Type.caps, color = p.giltText)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(LocalDate.now().format(DateTimeFormatter.ofPattern("EEEE d MMMM", Locale.FRENCH)).uppercase(), style = Type.caps, color = p.giltText, modifier = Modifier.weight(1f))
+                    StampChip(s)
+                }
                 Text(stringResource(greet, work.recipient[uiLang()]), style = Type.title.ui(), color = p.ink)
             }
-            StampChip(s)
             IconButton(stringResource(R.string.help), onClick = { s.coachAgain("inbox") }) { HelpGlyph(p.ink) }
             IconButton(stringResource(R.string.settings), onClick = { s.settingsOpen = true }) { Gear(p.ink) }
         }

@@ -1735,5 +1735,9 @@
   "ach_chapter_1_d": {
     "en": "Finish a whole chapter.",
     "ko": "한 장을 끝까지."
+  },
+  "speak_reveal": {
+    "en": "I said it — play the original",
+    "ko": "말해 봤어요 · 원래 소리 듣기"
   }
 }

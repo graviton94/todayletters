@@ -435,4 +435,5 @@
     <string name="ach_parcel_6_d">Send 6 parcels.</string>
     <string name="ach_chapter_1">A chapter</string>
     <string name="ach_chapter_1_d">Finish a whole chapter.</string>
+    <string name="speak_reveal">I said it — play the original</string>
 </resources>
