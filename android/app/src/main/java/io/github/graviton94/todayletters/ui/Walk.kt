@@ -102,6 +102,9 @@ fun Artwork(s: AppState, r: Route.Artwork) {
         if (s.narrator.play(asset) { playing = null }) playing = asset
     }
 
+    // 자리로 다가가기: 그림 크기를 아는 BoxWithConstraints 안에서 정해지고, 아래 쪽지 단추도 같이 쓴다
+    val focusRef = remember { arrayOf<(Int) -> Unit>({}) }
+    val focus: (Int) -> Unit = { focusRef[0](it) }
     Box(Modifier.fillMaxSize().background(Room)) {
         BoxWithConstraints(Modifier.fillMaxSize().statusBarsPadding().padding(top = 56.dp, bottom = 120.dp)) {
             val density = LocalDensity.current
@@ -113,7 +116,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
 
             fun clampX(v: Float, z: Float) = v.coerceIn(-(w * z - w) / 2 - 0f, (w * z - w) / 2 + 0f)
             fun clampY(v: Float, z: Float) = v.coerceIn(-((h * z - maxH) / 2).coerceAtLeast(0f) - h * 0.15f, ((h * z - maxH) / 2).coerceAtLeast(0f) + h * 0.15f)
-            fun focus(i: Int) {
+            focusRef[0] = { i ->
                 at = i
                 val z = if (i < 0) 1f else 2.3f
                 val sp = spots.getOrNull(i)

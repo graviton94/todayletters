@@ -12,6 +12,7 @@ import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.isEnabled
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.core.app.ApplicationProvider
 import com.github.takahirom.roborazzi.captureRoboImage
@@ -35,6 +36,10 @@ import io.github.graviton94.todayletters.ui.Play
 import io.github.graviton94.todayletters.ui.Room
 import io.github.graviton94.todayletters.ui.SeriesSettingsScreen
 import io.github.graviton94.todayletters.ui.Today
+import io.github.graviton94.todayletters.ui.Session
+import io.github.graviton94.todayletters.ui.QuotesScreen
+import io.github.graviton94.todayletters.ui.Artwork
+import io.github.graviton94.todayletters.ui.postcard
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -126,4 +131,42 @@ class ScreensTest {
     }
     @Test fun seriesSettings() { val s = state(true); shot("11_series_settings_ko_light", false) { SeriesSettingsScreen(s, "vincent") } }
     @Test fun library() { val s = state(true); shot("12_library_ko_dark", true) { LibraryTab(s) } }
+
+    /** 편지 두 통을 끝내고 낱말을 모은 상태 (복습 화면들). 몇 장은 오늘 복습할 차례로. */
+    private fun withCards(): AppState {
+        val s = state(true)
+        s.work("vincent").chapters.first().letters.take(2).forEach { l -> s.collectWords("vincent", "I", l) }
+        s.cards().forEachIndexed { i, c -> s.store.save(c.copy(box = i % 4, due = if (i % 3 == 0) s.today + 2 else s.today)) }
+        return s
+    }
+    @Test fun review() { val s = withCards(); shot("20_review_ko_light", false) { WordsTab(s) } }
+    @Test fun reviewDark() { val s = withCards(); shot("21_review_ko_dark", true) { WordsTab(s) } }
+    @Test fun dictation() { val s = withCards(); shot("22_dictation_ko_light", false) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.DICTATION)) } }
+    @Test fun blank() { val s = withCards(); shot("23_blank_ko_dark", true) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.BLANK)) } }
+    @Test fun meaning() { val s = withCards(); shot("24_meaning_ko_light", false) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.MEANING)) } }
+    @Test fun quotes() {
+        val s = withCards()
+        s.toggleQuote(s.quoteKey("vincent", "I", s.work("vincent").chapters.first().letters.first().id, 2))
+        s.toggleQuote(s.quoteKey("vincent", "I", s.work("vincent").chapters.first().letters[1].id, 0))
+        shot("25_quotes_ko_light", false) { QuotesScreen(s) }
+    }
+    @Test fun walk() { val s = state(true); shot("26_walk_intro", false) { Artwork(s, Route.Artwork("vincent", 1, Route.Letter("vincent", 1, 1))) } }
+    @Test fun walkSpot() {
+        val s = state(true)
+        shot("27_walk_spot", false, act = { rule.onNodeWithText("산책 시작").performClick() }) { Artwork(s, Route.Artwork("vincent", 1, Route.Letter("vincent", 1, 3))) }
+    }
+    @Test fun todayHome() { val s = withCards(); shot("28_today_home_ko_light", false) { Inbox(s) } }
+    @Test fun moments() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters[2]
+        s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = l.messages.size))
+        shot("29_room_moments_ko_dark", true, 4000) { Room(s, Route.Letter("vincent", 1, 3)) }
+    }
+    @Test fun postcard() {
+        val s = state(true)
+        val w = s.work("vincent"); val l = w.chapters.first().letters[1]
+        val bmp = postcard(ctx, w, l, l.messages[2], io.github.graviton94.todayletters.core.Lang.FR, io.github.graviton94.todayletters.core.Lang.KO)
+        java.io.File("build/screens").mkdirs()
+        java.io.File("build/screens/30_postcard.png").outputStream().use { bmp.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, it) }
+    }
 }
