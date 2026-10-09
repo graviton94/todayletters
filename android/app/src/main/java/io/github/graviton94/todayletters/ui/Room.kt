@@ -182,6 +182,14 @@ fun Room(s: AppState, r: Route.Letter) {
                         textAlign = androidx.compose.ui.text.style.TextAlign.Center)
                 }
             } }
+            // 다시 읽기: 다 읽은 편지라면 지금 얼마나 혼자 읽는지 (번역이 그만큼 접힌다)
+            if (progress.done) s.letterGrowth(id, chapter, letter).takeIf { it.total > 0 }?.let { g -> item(key = "${letter.id}:growth") {
+                Row(Modifier.fillMaxWidth().background(p.fill).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
+                    verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                    Text("${g.pct}%", style = Type.title.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = Color(0xFFD2A955))
+                    Text(stringResource(R.string.reread_banner, g.known, g.total), style = Type.small.ui(), color = p.onFill, modifier = Modifier.weight(1f))
+                }
+            } }
             letter.moments.filter { it.after < 0 }.forEachIndexed { k, mo ->
                 item(key = "${letter.id}:pre:$k") { MomentCard(s, work, mo, onMap = { mapOpen = true }, onPhoto = { s.go(Route.Artwork(id, r.letter, r)) }) }
             }

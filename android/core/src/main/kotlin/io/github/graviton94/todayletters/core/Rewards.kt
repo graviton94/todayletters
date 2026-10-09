@@ -51,26 +51,15 @@ data class Stats(
 data class Achievement(val id: String, val goal: Int, val metric: (Stats) -> Int)
 
 object Achievements {
+    /**
+     * 이정표 다섯 (모든 시리즈 공통). 매 문제가 아니라 ‘혼자 읽게 된 만큼’에만 걸린다:
+     * 첫 봉인(편지 한 통을 혼자) · 혼자 읽기 25 / 50 / 90% · 한 장 완주.
+     */
     val all = listOf(
-        Achievement("first_letter", 1) { it.lettersDone },
-        Achievement("letters_5", 5) { it.lettersDone },
-        Achievement("letters_20", 20) { it.lettersDone },
-        Achievement("streak_3", 3) { it.bestStreak },
-        Achievement("streak_7", 7) { it.bestStreak },
-        Achievement("streak_30", 30) { it.bestStreak },
-        Achievement("words_25", 25) { it.wordsKnown },
-        Achievement("words_100", 100) { it.wordsKnown },
-        Achievement("words_300", 300) { it.wordsKnown },
-        Achievement("own_10", 10) { it.wordsOwned },
-        Achievement("own_50", 50) { it.wordsOwned },
         Achievement("alone_1", 1) { it.lettersAlone },
-        Achievement("alone_5", 5) { it.lettersAlone },
+        Achievement("read_25", 25) { it.readAlone },
         Achievement("read_50", 50) { it.readAlone },
         Achievement("read_90", 90) { it.readAlone },
-        Achievement("visitors_5", 5) { it.visitors },
-        Achievement("visitors_30", 30) { it.visitors },
-        Achievement("parcel_1", 1) { it.parcels },
-        Achievement("parcel_6", 6) { it.parcels },
         Achievement("chapter_1", 1) { it.chapters },
     )
 

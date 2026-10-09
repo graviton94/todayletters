@@ -197,7 +197,6 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     fun dueCards() = io.github.graviton94.todayletters.core.Memory.dueToday(cards(), today)
     fun answer(c: io.github.graviton94.todayletters.core.Card, correct: Boolean) {
         store.save(io.github.graviton94.todayletters.core.Memory.after(c, correct, today))
-        if (correct) earn(Earn.REVIEW_RIGHT)
         version++
     }
     fun reviewDone() { store.reviewedDay = today; version++; settle() }
@@ -249,9 +248,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     fun replyAndContinue(r: Route.Letter, mode: ReplyMode) {
         val (ch, l) = letterOf(r)
         val was = progress(r.series, ch, l.id).done
-        val first = mode !in progress(r.series, ch, l.id).replied
         replied(r, mode)
-        if (first) earn(Earn.PRACTICE)
         back()
         if (!was && progress(r.series, ch, l.id).done) { finished(); earn(Earn.LETTER); go(Route.Done(r)) }
         settle()
@@ -293,6 +290,24 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     /** 편지 한 통을 혼자 읽을 수 있는가. */
     fun letterAlone(id: String, chapter: String, l: Letter): Boolean =
         Growth.letterAlone(l.words.indices.map { cardKey(id, chapter, l.id, it) }, cardMap())
+
+    /** 편지 한 통의 혼자 읽기: (혼자 읽는 낱말 수, 낱말 수, 그 편지 낱말이 다음에 복습으로 오는 날까지 며칠 · 없으면 null). */
+    data class LetterGrowth(val known: Int, val total: Int, val nextDue: Int?) {
+        val pct get() = if (total == 0) 0 else known * 100 / total
+    }
+    fun letterGrowth(id: String, chapter: String, l: Letter): LetterGrowth {
+        val cm = cardMap()
+        val cs = l.words.indices.mapNotNull { cm[cardKey(id, chapter, l.id, it)] }
+        val next = cs.filter { !Growth.known(it) }.minOfOrNull { it.due }?.let { (it - today).toInt().coerceAtLeast(0) }
+        return LetterGrowth(cs.count { Growth.known(it) }, l.words.size, next)
+    }
+
+    /**
+     * 오늘 화면의 주인공 편지: 읽는 중인 편지가 없을 때, 다 읽었지만 아직 혼자 다 읽지 못하는 가장 최근 편지.
+     * (북극성 = ‘이 편지를 얼마나 혼자 읽나’)
+     */
+    fun focusLetter(id: String): Pair<String, Letter>? =
+        openable(id).lastOrNull { (c, l) -> progress(id, c, l.id).done && !letterAlone(id, c, l) }
 
     fun stats(): Stats {
         val cm = cardMap()
@@ -363,9 +378,6 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
             milestone = Growth.crossed(seen, now).lastOrNull()
             store.readAloneSeen = now
         }
-        // 오늘의 일
-        val tasks = dayTasks()
-        if (tasks.isNotEmpty() && tasks.all { it.done } && store.dayCompleteDay != today) { store.dayCompleteDay = today; earn(Earn.DAY_COMPLETE) }
         // 업적 → 기념 우표
         val got = Achievements.newly(stats(), store.achievements)
         val gifts = mutableListOf<StampArt>()

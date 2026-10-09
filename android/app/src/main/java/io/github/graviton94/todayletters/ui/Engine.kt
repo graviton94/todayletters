@@ -239,7 +239,8 @@ fun CollectionTab(s: AppState) {
     Column(Modifier.fillMaxSize()) {
         TopBar(stringResource(R.string.tab_gallery), s, help = null, showBack = false, showSettings = true) { StampChip(s); Spacer(Modifier.width(Tokens.Space.s2)) }
         Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            AlbumTab.entries.forEach { t ->
+            // 기념 우표 탭 · 소포 · 손님은 편지가 더 쌓인 뒤 다시 (v11: 고리의 결과로만)
+            AlbumTab.entries.filter { it != AlbumTab.STAMPS }.forEach { t ->
                 val on = t == tab
                 Box(Modifier.heightIn(min = 40.dp).background(if (on) p.fill else Color.Transparent).border(1.dp, if (on) p.fill else p.hair).pressable { tab = t }.padding(horizontal = 12.dp), contentAlignment = Alignment.Center) {
                     Text(stringResource(t.label), style = Type.small.ui(), color = if (on) p.onFill else p.ink)
@@ -292,8 +293,6 @@ private fun CabinetPane(s: AppState, w: Work) {
         }
         Text(stringResource(R.string.cabinet_gold), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = Color(0xFFA8977C))
     }
-    ParcelCard(s, w)
-    VisitorCard(s)
 }
 
 @Composable

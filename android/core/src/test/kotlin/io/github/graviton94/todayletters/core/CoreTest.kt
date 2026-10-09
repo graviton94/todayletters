@@ -224,8 +224,8 @@ class CoreTest {
     }
 
     @Test fun achievementsUnlock() {
-        val s = Stats(lettersDone = 5, bestStreak = 7, wordsKnown = 30)
-        val ids = Achievements.newly(s, setOf("first_letter")).map { it.id }
-        assertEquals(listOf("letters_5", "streak_3", "streak_7", "words_25"), ids)
+        val s = Stats(lettersDone = 5, bestStreak = 7, wordsKnown = 30, readAlone = 52, lettersAlone = 1)
+        val ids = Achievements.newly(s, setOf("alone_1")).map { it.id }
+        assertEquals(listOf("read_25", "read_50"), ids)
     }
 }

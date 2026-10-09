@@ -316,7 +316,7 @@
     <string name="result_caps">REVIEW · DONE</string>
     <string name="result_practice_note">Practice only — your review schedule stays the same.</string>
     <string name="chapter_end_caps">SAISON I · CHAPITRE I · FIN</string>
-    <string name="chapter_end_title">You\'ve read Vincent\'s first spring in Arles</string>
+    <string name="chapter_end_title">You\'ve read “%1$s”</string>
     <string name="chapter_end_stats">Letters %1$d · words %2$d · paintings %3$d</string>
     <string name="chapter_end_next">The next chapter is on its way. We\'ll let you know when it arrives.</string>
     <string name="chapter_end_review">Review meanwhile · words: %1$d</string>
@@ -417,7 +417,7 @@
     <string name="ach_own_10_d">10 words at the top stage.</string>
     <string name="ach_own_50">50 words mine</string>
     <string name="ach_own_50_d">50 words at the top stage.</string>
-    <string name="ach_alone_1">Read alone</string>
+    <string name="ach_alone_1">First seal</string>
     <string name="ach_alone_1_d">Read a whole letter without translation.</string>
     <string name="ach_alone_5">Five alone</string>
     <string name="ach_alone_5_d">Read 5 letters without translation.</string>
@@ -436,4 +436,19 @@
     <string name="ach_chapter_1">A chapter</string>
     <string name="ach_chapter_1_d">Finish a whole chapter.</string>
     <string name="speak_reveal">I said it — play the original</string>
+    <string name="ach_read_25">A quarter on your own</string>
+    <string name="ach_read_25_d">Read a quarter of the words alone.</string>
+    <string name="focus_ring">read alone</string>
+    <string name="focus_alone">You read %1$d of its %2$d words alone</string>
+    <string name="focus_hint">Underlined words are the ones you can\'t read alone yet. Each review moves them on.</string>
+    <string name="focus_review">Today\'s review · %1$d words</string>
+    <string name="focus_due_tomorrow">Its words come back for review tomorrow</string>
+    <string name="focus_due_in">Its words come back for review in %1$d days</string>
+    <string name="focus_reread">Read the letter again</string>
+    <string name="next_title">Next letter</string>
+    <string name="next_arrived">Arrived</string>
+    <string name="next_in">In %1$d days</string>
+    <string name="next_none">Next chapter soon</string>
+    <string name="streak_line">%1$d days in a row</string>
+    <string name="reread_banner">You read %1$d of the %2$d words in this letter alone, and the translation folds by that much.</string>
 </resources>

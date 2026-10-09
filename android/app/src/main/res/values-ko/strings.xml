@@ -316,7 +316,7 @@
     <string name="result_caps">RÉVISION · TERMINÉE</string>
     <string name="result_practice_note">연⁠습⁠이⁠라 복⁠습 일⁠정⁠은 그⁠대⁠로⁠예⁠요⁠.</string>
     <string name="chapter_end_caps">SAISON I · CHAPITRE I · FIN</string>
-    <string name="chapter_end_title">아⁠를⁠의 첫 봄⁠을 다 읽⁠었⁠어⁠요</string>
+    <string name="chapter_end_title">‘%1$s’ 장⁠을 다 읽⁠었⁠어⁠요</string>
     <string name="chapter_end_stats">편⁠지 %1$d⁠통 · 낱⁠말 %2$d⁠개 · 그⁠림 %3$d⁠점</string>
     <string name="chapter_end_next">다⁠음 장⁠은 준⁠비 중⁠이⁠에⁠요⁠. 오⁠면 알⁠림⁠으⁠로 알⁠려 드⁠릴⁠게⁠요⁠.</string>
     <string name="chapter_end_review">그⁠동⁠안 복⁠습⁠하⁠기 · 낱⁠말 %1$d⁠개</string>
@@ -417,7 +417,7 @@
     <string name="ach_own_10_d">낱⁠말 10⁠개⁠를 ‘⁠내 것⁠’⁠까⁠지⁠.</string>
     <string name="ach_own_50">내 것 50</string>
     <string name="ach_own_50_d">낱⁠말 50⁠개⁠를 ‘⁠내 것⁠’⁠까⁠지⁠.</string>
-    <string name="ach_alone_1">혼⁠자 한 통</string>
+    <string name="ach_alone_1">첫 봉⁠인</string>
     <string name="ach_alone_1_d">편⁠지 한 통⁠을 번⁠역 없⁠이⁠.</string>
     <string name="ach_alone_5">혼⁠자 다⁠섯 통</string>
     <string name="ach_alone_5_d">편⁠지 다⁠섯 통⁠을 번⁠역 없⁠이⁠.</string>
@@ -436,4 +436,19 @@
     <string name="ach_chapter_1">한 장 완⁠주</string>
     <string name="ach_chapter_1_d">한 장⁠을 끝⁠까⁠지⁠.</string>
     <string name="speak_reveal">말⁠해 봤⁠어⁠요 · 원⁠래 소⁠리 듣⁠기</string>
+    <string name="ach_read_25">혼⁠자 읽⁠기 25%</string>
+    <string name="ach_read_25_d">낱⁠말 4⁠분⁠의 1⁠을 혼⁠자 읽⁠기⁠.</string>
+    <string name="focus_ring">혼⁠자 읽⁠어⁠요</string>
+    <string name="focus_alone">낱⁠말 %2$d⁠개 중 %1$d⁠개⁠를 혼⁠자 읽⁠어⁠요</string>
+    <string name="focus_hint">밑⁠줄 = 아⁠직 혼⁠자 못 읽⁠는 낱⁠말⁠. 복⁠습⁠할 때⁠마⁠다 한 칸⁠씩 사⁠라⁠져⁠요⁠.</string>
+    <string name="focus_review">오⁠늘⁠의 복⁠습 · 낱⁠말 %1$d⁠개</string>
+    <string name="focus_due_tomorrow">이 편⁠지 낱⁠말⁠은 내⁠일 복⁠습⁠에 다⁠시 와⁠요</string>
+    <string name="focus_due_in">이 편⁠지 낱⁠말⁠은 %1$d⁠일 뒤 복⁠습⁠에 다⁠시 와⁠요</string>
+    <string name="focus_reread">편⁠지 다⁠시 읽⁠기</string>
+    <string name="next_title">다⁠음 편⁠지</string>
+    <string name="next_arrived">도⁠착⁠했⁠어⁠요</string>
+    <string name="next_in">%1$d⁠일 뒤 도⁠착</string>
+    <string name="next_none">다⁠음 장 준⁠비 중</string>
+    <string name="streak_line">이⁠어 읽⁠기 %1$d⁠일</string>
+    <string name="reread_banner">이 편⁠지 낱⁠말 %2$d⁠개 중 %1$d⁠개⁠를 혼⁠자 읽⁠어⁠요⁠. 번⁠역⁠이 그⁠만⁠큼 접⁠혀⁠요⁠.</string>
 </resources>

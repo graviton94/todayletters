@@ -75,7 +75,7 @@ fun Inbox(s: AppState) {
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(LocalDate.now().format(DateTimeFormatter.ofPattern("EEEE d MMMM", Locale.FRENCH)).uppercase(), style = Type.caps, color = p.giltText, modifier = Modifier.weight(1f))
-                    StampChip(s)
+                    if (s.streak > 0) Text(stringResource(R.string.streak_line, s.streak), style = Type.small.ui(), color = p.inkSoft)
                 }
                 Text(stringResource(greet, work.recipient[uiLang()]), style = Type.title.ui(), color = p.ink)
             }
@@ -86,13 +86,15 @@ fun Inbox(s: AppState) {
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
-            // 오늘의 편지
+            val letters = work.chapters.flatMap { it.letters }
+            val focus = if (current == null) s.focusLetter(id) else null
+            // 오늘의 편지: 읽는 중인 편지 → 그날의 단계 · 다 읽었으면 → 이 편지를 얼마나 혼자 읽나 (북극성)
             Slip(seed = 21, modifier = Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                     if (current != null) {
                         val (c, l) = current
                         val pr = s.progress(id, c, l.id)
-                        val idx = work.chapters.flatMap { it.letters }.indexOf(l) + 1
+                        val idx = letters.indexOf(l) + 1
                         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                             Portrait(work.portrait, work.fullName, 52.dp)
                             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
@@ -112,22 +114,24 @@ fun Inbox(s: AppState) {
                         Box(Modifier.fillMaxWidth().heightIn(min = 50.dp).pressable { s.open(id, c, l, Route.Inbox) }.background(p.slipInk), contentAlignment = Alignment.Center) {
                             Text(next, style = Type.body.ui(), color = p.slip)
                         }
-                    } else if (s.doneCount(id) >= work.chapters.sumOf { it.letters.size }) {
+                    } else if (focus != null) {
+                        FocusLetter(s, id, focus.first, focus.second, letters.indexOf(focus.second) + 1, due.size)
+                    } else if (s.doneCount(id) >= letters.size) {
                         // 다 읽음: ‘내일 도착’ 대신 장 끝 카드 (다음 장은 준비 중)
-                        val letters = work.chapters.flatMap { it.letters }
                         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                             Text(stringResource(R.string.chapter_end_caps), style = Type.caps, color = Color(0xFF7A5A20), modifier = Modifier.clearAndSetSemantics { })
-                            Text(stringResource(R.string.chapter_end_title), style = Type.heading.ui(), color = p.slipInk, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                            Text(stringResource(R.string.chapter_end_title, work.chapters.last().title[uiLang()]), style = Type.heading.ui(), color = p.slipInk, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                            val last = work.chapters.last().letters
                             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                                letters.forEachIndexed { k, l -> PlateThumb(l.plate?.image.orEmpty(), true, Modifier.size(46.dp).graphicsLayer { rotationZ = (k - letters.size / 2) * 3f }) }
+                                last.forEachIndexed { k, l -> PlateThumb(l.plate?.image.orEmpty(), true, Modifier.size(46.dp).graphicsLayer { rotationZ = (k - last.size / 2) * 3f }) }
                             }
-                            Text(stringResource(R.string.chapter_end_stats, letters.size, letters.sumOf { it.words.size }, letters.count { it.plate != null }), style = Type.small.ui(), color = p.slipSoft)
+                            Text(stringResource(R.string.chapter_end_stats, last.size, last.sumOf { it.words.size }, last.count { it.plate != null }), style = Type.small.ui(), color = p.slipSoft)
                             Box(Modifier.fillMaxWidth().height(1.dp).background(p.slipInk.copy(alpha = 0.15f)))
                             Text(stringResource(R.string.chapter_end_next), style = Type.small.ui(), color = p.slipInk, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
                             Box(Modifier.fillMaxWidth().heightIn(min = 46.dp).background(p.slipInk).pressable { s.go(Route.Words) }, contentAlignment = Alignment.Center) {
                                 Text(stringResource(R.string.chapter_end_review, due.size), style = Type.body.ui().copy(fontSize = 15.sp), color = p.slip)
                             }
-                            Box(Modifier.fillMaxWidth().heightIn(min = 46.dp).border(1.dp, p.slipInk.copy(alpha = 0.5f)).pressable { s.go(Route.Chapter(id, 1)) }, contentAlignment = Alignment.Center) {
+                            Box(Modifier.fillMaxWidth().heightIn(min = 46.dp).border(1.dp, p.slipInk.copy(alpha = 0.5f)).pressable { s.go(Route.Chapter(id, work.chapters.size)) }, contentAlignment = Alignment.Center) {
                                 Text(stringResource(R.string.chapter_end_again), style = Type.body.ui().copy(fontSize = 15.sp), color = p.slipInk)
                             }
                         }
@@ -142,7 +146,7 @@ fun Inbox(s: AppState) {
                     }
                 }
             }
-            // 오늘의 복습 · 이어 읽기
+            // 오늘의 복습 · 다음 편지
             Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                 Column(
                     Modifier.weight(1f).background(p.leaf).border(Tokens.Stroke.hair, p.hair).pressable { s.go(Route.Words) }.padding(Tokens.Space.s4),
@@ -155,48 +159,72 @@ fun Inbox(s: AppState) {
                     }
                     BoxBar(counts)
                 }
+                // 다음 편지: 기다림도 고리의 일부 (펜팔처럼)
+                val upcoming = letters.firstOrNull { l -> open.none { it.second == l } }
+                val waitingNow = open.any { (c, l) -> !s.progress(id, c, l.id).done && s.progress(id, c, l.id).shown == 0 }
                 Column(
-                    Modifier.width(128.dp).background(p.leaf).border(Tokens.Stroke.hair, p.hair).padding(Tokens.Space.s4),
+                    Modifier.width(140.dp).background(p.leaf).border(Tokens.Stroke.hair, p.hair).padding(Tokens.Space.s4),
                     verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1),
                 ) {
-                    Text(stringResource(R.string.streak_title), style = Type.small.ui(), color = p.giltText)
-                    Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                        Text("${s.streak}", style = Type.display.copy(fontFamily = Faces.display), color = p.ink)
-                        Text(stringResource(R.string.streak_days), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(bottom = 4.dp))
-                    }
-                }
-            }
-            // 오늘의 일 (편지 · 복습 · 손님) · 혼자 읽기
-            DayTasksCard(s)
-            Row(
-                Modifier.fillMaxWidth().background(p.fill).pressable { s.go(Route.Gallery) }.padding(Tokens.Space.s4),
-                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
-            ) {
-                val alone = s.readAlone
-                AloneRing(alone, 60.dp, p.onFillSoft, Color(0xFFD2A955), p.onFill)
-                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                    Text(stringResource(R.string.alone_title, alone), style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.onFill)
-                    Text(io.github.graviton94.todayletters.core.Growth.nextMilestone(alone)?.let { stringResource(R.string.alone_next, it) } ?: stringResource(R.string.alone_all), style = Type.small.ui(), color = p.onFillSoft)
-                }
-            }
-            VisitorCard(s)
-            WeekStamps(s, work.portrait)
-            // 갤러리 미리보기
-            val plates = work.chapters.flatMap { c -> c.letters.map { c to it } }
-            val got = plates.count { (c, l) -> s.progress(id, c.id, l.id).done }
-            Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                Text(stringResource(R.string.gallery_peek, got, plates.size), style = Type.small.ui(), color = p.giltText)
-                Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    plates.forEachIndexed { k, (c, l) ->
-                        val done = s.progress(id, c.id, l.id).done
-                        val img = l.plate?.image.orEmpty()
-                        Box(Modifier.size(92.dp).pressable(enabled = done) { s.go(Route.Artwork(id, k + 1, Route.Letter(id, work.chapters.indexOf(c) + 1, c.letters.indexOf(l) + 1, Route.Gallery))) }) {
-                            PlateThumb(img, done, Modifier.fillMaxSize())
-                        }
-                    }
+                    Text(stringResource(R.string.next_title), style = Type.small.ui(), color = p.giltText)
+                    val days = upcoming?.let { s.daysUntil(id, it.id) }
+                    Text(
+                        when {
+                            waitingNow -> stringResource(R.string.next_arrived)
+                            days == null -> stringResource(R.string.next_none)
+                            days <= 1 -> stringResource(R.string.letter_eta)
+                            else -> stringResource(R.string.next_in, days)
+                        },
+                        style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink,
+                    )
+                    upcoming?.let { Text(dateLine(it.date, it.place), style = Type.small.ui(), color = p.inkSoft, maxLines = 1) }
                 }
             }
         }
+    }
+}
+
+/**
+ * 오늘의 북극성: 다 읽은 편지를 얼마나 혼자 읽나. 편지 낱말 가운데 떠올리기 단계 이상인 비율을 고리로,
+ * 첫 문장에서 아직 혼자 못 읽는 낱말에 밑줄. 낱말은 복습(늘어나는 간격)으로만 오르므로 버튼도 그 길로.
+ */
+@Composable
+private fun FocusLetter(s: AppState, id: String, chapter: String, l: io.github.graviton94.todayletters.core.Letter, idx: Int, due: Int) {
+    val p = Ink.palette
+    val g = s.letterGrowth(id, chapter, l)
+    val learn = s.seriesSettings(id).learn
+    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
+        Box(contentAlignment = Alignment.BottomCenter) {
+            AloneRing(g.pct, 104.dp, p.slipSoft.copy(alpha = 0.25f), Color(0xFFB8913E), p.slipInk)
+            Text(stringResource(R.string.focus_ring), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.slipSoft, modifier = Modifier.padding(bottom = 22.dp))
+        }
+        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(3.dp)) {
+            Text((stringResource(R.string.letter_n, roman(idx)) + " · " + l.place).uppercase(), style = Type.caps, color = Color(0xFF7A5A20), maxLines = 1)
+            Text(l.status?.get(uiLang()) ?: dateLine(l.date, l.place), style = Type.heading.ui(), color = p.slipInk)
+            Text(stringResource(R.string.focus_alone, g.known, g.total), style = Type.small.ui(), color = p.slipSoft)
+        }
+    }
+    Box(Modifier.fillMaxWidth().height(1.dp).background(p.slipInk.copy(alpha = 0.12f)))
+    // 첫 문장: 아직 혼자 못 읽는 낱말에 밑줄
+    val first = l.messages.first().text[learn]
+    val cm = s.cardMap()
+    val marks = wordMarks(first, l.words.map { it.text[learn] })
+    val text = androidx.compose.ui.text.buildAnnotatedString {
+        append("« $first »")
+        marks.forEach { (range, k) ->
+            if (!io.github.graviton94.todayletters.core.Growth.known(cm[s.cardKey(id, chapter, l.id, k)]))
+                addStyle(androidx.compose.ui.text.SpanStyle(color = Color(0xFF9A3B22), textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), range.first + 2, range.last + 3)
+        }
+    }
+    Text(text, style = Type.target.of(learn), color = p.slipInk, maxLines = 3)
+    Text(stringResource(R.string.focus_hint), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.slipSoft)
+    if (due > 0) Box(Modifier.fillMaxWidth().heightIn(min = 50.dp).pressable { s.go(Route.Session()) }.background(p.slipInk), contentAlignment = Alignment.Center) {
+        Text(stringResource(R.string.focus_review, due), style = Type.body.ui(), color = p.slip)
+    } else g.nextDue?.let { d ->
+        Text(if (d <= 1) stringResource(R.string.focus_due_tomorrow) else stringResource(R.string.focus_due_in, d), style = Type.small.ui(), color = p.slipInk)
+    }
+    Box(Modifier.fillMaxWidth().heightIn(min = 46.dp).border(1.dp, p.slipInk.copy(alpha = 0.5f)).pressable { s.open(id, chapter, l, Route.Inbox) }, contentAlignment = Alignment.Center) {
+        Text(stringResource(R.string.focus_reread), style = Type.body.ui().copy(fontSize = 15.sp), color = p.slipInk)
     }
 }
 

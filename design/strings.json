@@ -1261,8 +1261,8 @@
     "ko": "SAISON I · CHAPITRE I · FIN"
   },
   "chapter_end_title": {
-    "en": "You've read Vincent's first spring in Arles",
-    "ko": "아를의 첫 봄을 다 읽었어요"
+    "en": "You've read “%1$s”",
+    "ko": "‘%1$s’ 장을 다 읽었어요"
   },
   "chapter_end_stats": {
     "en": "Letters %1$d · words %2$d · paintings %3$d",
@@ -1665,8 +1665,8 @@
     "ko": "낱말 50개를 ‘내 것’까지."
   },
   "ach_alone_1": {
-    "en": "Read alone",
-    "ko": "혼자 한 통"
+    "en": "First seal",
+    "ko": "첫 봉인"
   },
   "ach_alone_1_d": {
     "en": "Read a whole letter without translation.",
@@ -1739,5 +1739,65 @@
   "speak_reveal": {
     "en": "I said it — play the original",
     "ko": "말해 봤어요 · 원래 소리 듣기"
+  },
+  "ach_read_25": {
+    "en": "A quarter on your own",
+    "ko": "혼자 읽기 25%"
+  },
+  "ach_read_25_d": {
+    "en": "Read a quarter of the words alone.",
+    "ko": "낱말 4분의 1을 혼자 읽기."
+  },
+  "focus_ring": {
+    "en": "read alone",
+    "ko": "혼자 읽어요"
+  },
+  "focus_alone": {
+    "en": "You read %1$d of its %2$d words alone",
+    "ko": "낱말 %2$d개 중 %1$d개를 혼자 읽어요"
+  },
+  "focus_hint": {
+    "en": "Underlined words are the ones you can't read alone yet. Each review moves them on.",
+    "ko": "밑줄 = 아직 혼자 못 읽는 낱말. 복습할 때마다 한 칸씩 사라져요."
+  },
+  "focus_review": {
+    "en": "Today's review · %1$d words",
+    "ko": "오늘의 복습 · 낱말 %1$d개"
+  },
+  "focus_due_tomorrow": {
+    "en": "Its words come back for review tomorrow",
+    "ko": "이 편지 낱말은 내일 복습에 다시 와요"
+  },
+  "focus_due_in": {
+    "en": "Its words come back for review in %1$d days",
+    "ko": "이 편지 낱말은 %1$d일 뒤 복습에 다시 와요"
+  },
+  "focus_reread": {
+    "en": "Read the letter again",
+    "ko": "편지 다시 읽기"
+  },
+  "next_title": {
+    "en": "Next letter",
+    "ko": "다음 편지"
+  },
+  "next_arrived": {
+    "en": "Arrived",
+    "ko": "도착했어요"
+  },
+  "next_in": {
+    "en": "In %1$d days",
+    "ko": "%1$d일 뒤 도착"
+  },
+  "next_none": {
+    "en": "Next chapter soon",
+    "ko": "다음 장 준비 중"
+  },
+  "streak_line": {
+    "en": "%1$d days in a row",
+    "ko": "이어 읽기 %1$d일"
+  },
+  "reread_banner": {
+    "en": "You read %1$d of the %2$d words in this letter alone, and the translation folds by that much.",
+    "ko": "이 편지 낱말 %2$d개 중 %1$d개를 혼자 읽어요. 번역이 그만큼 접혀요."
   }
 }
