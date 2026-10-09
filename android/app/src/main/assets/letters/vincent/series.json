@@ -33,6 +33,16 @@
         "en": "The South",
         "ko": "남쪽으로"
       }
+    },
+    {
+      "id": "II",
+      "file": "chapter2.json",
+      "free": false,
+      "title": {
+        "fr": "Nuits et tournesols",
+        "en": "Nights and Sunflowers",
+        "ko": "밤과 해바라기"
+      }
     }
   ],
   "places": {
@@ -110,6 +120,21 @@
       },
       "lat": 43.65733,
       "lng": 4.62315
+    },
+    "cafe": {
+      "x": 0.6,
+      "y": 0.25,
+      "name": {
+        "ko": "역 앞 카페",
+        "en": "Café de la Gare",
+        "fr": "Café de la Gare"
+      },
+      "note": {
+        "ko": "밤의 카페. 노란 집과 같은 라마르틴 광장.",
+        "en": "The night café, on the same square as the Yellow House."
+      },
+      "lat": 43.6838,
+      "lng": 4.6316
     }
   },
   "kit": {
@@ -231,7 +256,8 @@
           "station",
           "carrel",
           "langlois",
-          "yellow"
+          "yellow",
+          "cafe"
         ],
         "ticket": {
           "line": "Chemin de fer P.L.M.",

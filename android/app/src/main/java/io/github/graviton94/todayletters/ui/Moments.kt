@@ -151,13 +151,32 @@ private fun WeatherCard(m: Moment.Weather, lang: Lang) {
         Row(Modifier.padding(horizontal = 14.dp, vertical = 12.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             Canvas(Modifier.size(38.dp)) {
                 val c = Offset(size.width / 2, size.height / 2); val r = size.minDimension / 2
-                for (k in 0 until 6) {
-                    val a = Math.toRadians(k * 60.0 - 90); val e = Offset(c.x + r * kotlin.math.cos(a).toFloat(), c.y + r * kotlin.math.sin(a).toFloat())
-                    drawLine(ink, c, e, 1.3.dp.toPx())
-                    val m1 = Offset(c.x + r * 0.6f * kotlin.math.cos(a).toFloat(), c.y + r * 0.6f * kotlin.math.sin(a).toFloat())
-                    for (s in listOf(-1, 1)) {
-                        val b = a + s * Math.toRadians(35.0)
-                        drawLine(ink, m1, Offset(m1.x + r * 0.3f * kotlin.math.cos(b).toFloat(), m1.y + r * 0.3f * kotlin.math.sin(b).toFloat()), 1.1.dp.toPx())
+                fun ray(a: Double, from: Float, to: Float, w: Float) = drawLine(ink,
+                    Offset(c.x + r * from * kotlin.math.cos(a).toFloat(), c.y + r * from * kotlin.math.sin(a).toFloat()),
+                    Offset(c.x + r * to * kotlin.math.cos(a).toFloat(), c.y + r * to * kotlin.math.sin(a).toFloat()), w)
+                when (m.icon) {
+                    // 해: 동그라미와 짧은 빛살 여덟
+                    "sun" -> {
+                        drawCircle(ink, r * 0.42f, c, style = androidx.compose.ui.graphics.drawscope.Stroke(1.4.dp.toPx()))
+                        for (k in 0 until 8) ray(Math.toRadians(k * 45.0), 0.62f, 0.95f, 1.3.dp.toPx())
+                    }
+                    // 별: 큰 별 하나와 작은 별 둘 (네 갈래 빛)
+                    "stars" -> listOf(Triple(0f, 0f, 1f), Triple(-0.55f, -0.5f, 0.42f), Triple(0.6f, -0.35f, 0.32f)).forEach { (dx, dy, s) ->
+                        val o = Offset(c.x + r * dx, c.y + r * dy)
+                        for (k in 0 until 4) {
+                            val a = Math.toRadians(k * 90.0 - 90)
+                            drawLine(ink, o, Offset(o.x + r * 0.55f * s * kotlin.math.cos(a).toFloat(), o.y + r * 0.55f * s * kotlin.math.sin(a).toFloat()), 1.3.dp.toPx())
+                        }
+                    }
+                    // 눈송이: 여섯 갈래와 곁가지
+                    else -> for (k in 0 until 6) {
+                        val a = Math.toRadians(k * 60.0 - 90)
+                        ray(a, 0f, 1f, 1.3.dp.toPx())
+                        val m1 = Offset(c.x + r * 0.6f * kotlin.math.cos(a).toFloat(), c.y + r * 0.6f * kotlin.math.sin(a).toFloat())
+                        for (s in listOf(-1, 1)) {
+                            val b = a + s * Math.toRadians(35.0)
+                            drawLine(ink, m1, Offset(m1.x + r * 0.3f * kotlin.math.cos(b).toFloat(), m1.y + r * 0.3f * kotlin.math.sin(b).toFloat()), 1.1.dp.toPx())
+                        }
                     }
                 }
             }

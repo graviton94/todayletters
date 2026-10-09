@@ -1,0 +1,1180 @@
+{
+  "_doc": "Chapter II 초안. 프랑스어는 vangoghletters.org 원문(original_text)과 대조. 철자만 지금 표기로 조금 다듬음 (Theo→Théo, Stes Maries→Saintes-Maries, sabloneuse→sablonneuse, symfonie→symphonie, oeil→œil, decoration→décoration 등 빠진 악센트). 문장은 편지에서 발췌. 영어 · 한국어는 이 앱의 새 번역. 그림은 편지 원문판 주석이 짚은 작품.",
+  "series": "vincent",
+  "chapter": "II",
+  "title_fr": "Nuits et tournesols",
+  "title_ko": "밤과 해바라기",
+  "original": "fr",
+  "letters": [
+    {
+      "id": "c2-l1",
+      "date": "1888-06-03",
+      "dateNote": "Dated 'on or about Sunday, 3 or Monday, 4 June 1888' by the Van Gogh Museum/Huygens edition.",
+      "ref": "619 (Brieven 1990: 622; CL: 499). https://vangoghletters.org/vg/letters/let619/letter.html ; French text: https://vangoghletters.org/vg/letters/let619/original_text.html",
+      "place": "Saintes-Maries",
+      "mood": "calm",
+      "messages": [
+        {
+          "fr": "Mon cher Théo, je t'écris de Saintes-Maries, au bord de la Méditerranée enfin.",
+          "en": "My dear Theo, I'm writing to you from Saintes-Maries, on the shore of the Mediterranean at last.",
+          "ko": "사랑하는 테오에게. 드디어 지중해 바닷가, 생트마리에서 편지를 써.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let619/original_text.html",
+          "speak": {
+            "fr": "Mon cher Théo, // je t'écris de Saintes-Maries, // au bord de la Méditerranée / enfin."
+          }
+        },
+        {
+          "fr": "La Méditerranée a une couleur comme les maquereaux, c'est-à-dire changeante – on ne sait pas toujours si c'est vert ou violet – on ne sait pas toujours si c'est bleu – car la seconde après, le reflet changeant a pris une teinte rose ou grise.",
+          "en": "The Mediterranean has a colour like mackerel, changing, that is: you can't always tell if it's green or violet, you can't always tell if it's blue, because a second later the shifting reflection has taken on a pink or grey tint.",
+          "ko": "지중해는 고등어 같은 색이야. 그러니까 자꾸 변해. 초록인지 보라인지, 파랑인지 늘 알 수가 없어. 다음 순간이면 일렁이는 빛이 분홍이나 회색으로 바뀌어 있거든.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let619/original_text.html",
+          "speak": {
+            "fr": "La Méditerranée / a une couleur comme les maquereaux, // c'est-à-dire changeante // – on ne sait pas toujours / si c'est vert ou violet // – on ne sait pas toujours / si c'est bleu // – car la seconde après, / le reflet changeant / a pris une teinte rose ou grise."
+          }
+        },
+        {
+          "fr": "La plage ici est sablonneuse, pas de falaises ni des rochers – comme la Hollande – moins les dunes et plus le bleu.",
+          "en": "The beach here is sandy, no cliffs or rocks, like Holland, minus the dunes and with more blue.",
+          "ko": "여기 해변은 모래밭이야. 절벽도 바위도 없어. 네덜란드 같은데, 모래 언덕은 없고 파랑은 더 많아.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let619/original_text.html",
+          "speak": {
+            "fr": "La plage ici est sablonneuse, // pas de falaises / ni des rochers // – comme la Hollande – // moins les dunes / et plus le bleu."
+          }
+        },
+        {
+          "fr": "Je me suis promené une nuit au bord de la mer sur la plage déserte. C'était pas gai mais pas non plus triste, c'était – beau.",
+          "en": "One night I walked by the sea on the empty beach. It wasn't cheerful, but it wasn't sad either. It was beautiful.",
+          "ko": "어느 밤엔 아무도 없는 해변을 따라 바닷가를 걸었어. 즐겁지도 슬프지도 않았어. 그냥, 아름다웠어.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let619/original_text.html",
+          "speak": {
+            "fr": "Je me suis promené une nuit / au bord de la mer / sur la plage déserte. // C'était pas gai / mais pas non plus triste, // c'était – beau."
+          }
+        }
+      ],
+      "words": [
+        {
+          "fr": "mer",
+          "pos": "n.f.",
+          "ipa": "mɛʁ",
+          "en": "sea",
+          "ko": "바다",
+          "icon": "🌊"
+        },
+        {
+          "fr": "couleur",
+          "pos": "n.f.",
+          "ipa": "kulœʁ",
+          "en": "colour",
+          "ko": "색"
+        },
+        {
+          "fr": "changeant",
+          "pos": "adj.",
+          "ipa": "ʃɑ̃ʒɑ̃",
+          "en": "changing",
+          "ko": "변하는"
+        },
+        {
+          "fr": "plage",
+          "pos": "n.f.",
+          "ipa": "plaʒ",
+          "en": "beach",
+          "ko": "해변",
+          "icon": "🐚"
+        },
+        {
+          "fr": "beau",
+          "pos": "adj.",
+          "ipa": "bo",
+          "en": "beautiful",
+          "ko": "아름다운"
+        }
+      ],
+      "note": {
+        "ko": "생트마리드라메르는 아를 남서쪽, 카마르그 습지를 지나 지중해에 닿는 바닷가 마을이에요. 빈센트는 1888년 6월 초 이곳에서 며칠을 지내며 바다 그림 두 점과 마을 풍경 한 점을 그렸어요.",
+        "en": "Saintes-Maries-de-la-Mer is a seaside village south-west of Arles, across the Camargue marshes. Vincent spent a few days there in early June 1888 and painted two seascapes and a view of the village.",
+        "source": "https://vangoghletters.org/vg/letters/let619/letter.html (n. 2) ; https://en.wikipedia.org/wiki/Saintes-Maries-de-la-Mer"
+      },
+      "plate": {
+        "title_fr": "Marine aux Saintes-Maries-de-la-Mer",
+        "title_en": "Seascape near Les Saintes-Maries-de-la-Mer",
+        "title_ko": "생트마리의 바다",
+        "date": "June 1888",
+        "collection": "Van Gogh Museum, Amsterdam (Vincent van Gogh Foundation)",
+        "imageLicense": "Public domain",
+        "imageSource": "https://commons.wikimedia.org/wiki/File:Zeegezicht_bij_Les_Saintes-Maries-de-la-Mer_-_s0117V1962_-_Van_Gogh_Museum.jpg",
+        "why": "One of the two seascapes painted on this trip (F 417), named in the edition's note to this letter.",
+        "image": "c2-l1.jpg",
+        "spots": [
+          {
+            "x": 0.5,
+            "y": 0.55,
+            "title": {
+              "fr": "Vert ou violet",
+              "en": "Green or violet?",
+              "ko": "초록인지 보라인지"
+            },
+            "note": {
+              "ko": "‘초록인지 보라인지 늘 알 수가 없어’. 물결마다 색이 달라요.",
+              "en": "‘You can't always tell if it's green or violet’: every wave is a different colour."
+            },
+            "word": {
+              "fr": "vert",
+              "en": "green",
+              "ko": "초록",
+              "ipa": "vɛʁ"
+            },
+            "quote": 1
+          },
+          {
+            "x": 0.3,
+            "y": 0.8,
+            "title": {
+              "fr": "L'écume rose",
+              "en": "Pink foam",
+              "ko": "분홍빛 물거품"
+            },
+            "note": {
+              "ko": "다음 순간이면 빛이 ‘분홍이나 회색’으로 바뀌어요.",
+              "en": "A second later the light turns ‘pink or grey’."
+            },
+            "word": {
+              "fr": "rose",
+              "en": "pink",
+              "ko": "분홍",
+              "ipa": "ʁoz"
+            },
+            "quote": 1
+          },
+          {
+            "x": 0.38,
+            "y": 0.3,
+            "title": {
+              "fr": "Les barques",
+              "en": "The fishing boats",
+              "ko": "고깃배"
+            },
+            "note": {
+              "ko": "먼바다로 나가는 생트마리의 고깃배들.",
+              "en": "The fishing boats of Saintes-Maries heading out."
+            },
+            "word": {
+              "fr": "barque",
+              "en": "small boat",
+              "ko": "작은 배",
+              "ipa": "baʁk"
+            }
+          },
+          {
+            "x": 0.5,
+            "y": 0.1,
+            "title": {
+              "fr": "Le bleu",
+              "en": "The blue",
+              "ko": "파랑"
+            },
+            "note": {
+              "ko": "하늘도 바다도 파랑. ‘파랑인지 늘 알 수가 없어’.",
+              "en": "Sky and sea, both blue: ‘you can't always tell if it's blue’."
+            },
+            "word": {
+              "fr": "bleu",
+              "en": "blue",
+              "ko": "파랑",
+              "ipa": "blø"
+            },
+            "quote": 1
+          }
+        ]
+      },
+      "reply": {
+        "fr": "Envoie-moi tes dessins de la mer.",
+        "en": "Send me your drawings of the sea.",
+        "ko": "바다 그림들 보내 줘.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+      },
+      "moments": [
+        {
+          "after": -1,
+          "type": "notice",
+          "text": {
+            "fr": "Vincent est aux Saintes-Maries-de-la-Mer · à cinq heures de voiture d'Arles",
+            "en": "Vincent is at Saintes-Maries-de-la-Mer · five hours by coach from Arles",
+            "ko": "빈센트가 생트마리드라메르에 왔어요 · 아를에서 마차로 다섯 시간"
+          }
+        },
+        {
+          "after": 1,
+          "type": "photo",
+          "image": "c2-l1.jpg",
+          "caption": {
+            "fr": "Marine",
+            "en": "A seascape",
+            "ko": "바다 습작"
+          }
+        },
+        {
+          "after": 3,
+          "type": "weather",
+          "title": {
+            "fr": "La nuit aux Saintes-Maries",
+            "en": "Night at Saintes-Maries",
+            "ko": "생트마리의 밤"
+          },
+          "value": {
+            "fr": "nuit étoilée",
+            "en": "starry night",
+            "ko": "별이 총총"
+          },
+          "quote": "les étoiles scintillaient",
+          "icon": "stars"
+        }
+      ],
+      "status": {
+        "fr": "Au bord de la Méditerranée",
+        "en": "By the Mediterranean",
+        "ko": "지중해 바닷가에서"
+      }
+    },
+    {
+      "id": "c2-l2",
+      "date": "1888-06-05",
+      "dateNote": "Dated 'on or about Tuesday, 5 June 1888' by the edition (approximate).",
+      "ref": "620 (Brieven 1990: 623; CL: 500). https://vangoghletters.org/vg/letters/let620/letter.html ; French text: https://vangoghletters.org/vg/letters/let620/original_text.html",
+      "place": "Arles",
+      "mood": "bright",
+      "messages": [
+        {
+          "fr": "Maintenant que j'ai vu la mer ici, je ressens tout à fait l'importance qu'il y a de rester dans le Midi.",
+          "en": "Now that I've seen the sea here, I really feel how important it is to stay in the South.",
+          "ko": "여기서 바다를 보고 나니, 남쪽에 머무는 게 얼마나 중요한지 정말 알겠어.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let620/original_text.html",
+          "speak": {
+            "fr": "Maintenant que j'ai vu la mer ici, // je ressens tout à fait / l'importance qu'il y a / de rester dans le Midi."
+          }
+        },
+        {
+          "fr": "Au moment de partir le matin fort de bonne heure, j'ai fait le dessin des bateaux et j'en ai le tableau en train, toile de 30, avec davantage de mer et de ciel à droite.",
+          "en": "Just as I was leaving, very early in the morning, I made the drawing of the boats, and I have the painting of it under way: a size 30 canvas, with more sea and sky on the right.",
+          "ko": "떠나기 직전, 아주 이른 아침에 배들을 그렸어. 그걸로 지금 그림을 그리는 중이야. 30호 캔버스에, 오른쪽에 바다와 하늘을 더 넣었어.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let620/original_text.html",
+          "speak": {
+            "fr": "Au moment de partir / le matin fort de bonne heure, // j'ai fait le dessin des bateaux // et j'en ai le tableau en train, // toile de 30, / avec davantage de mer et de ciel / à droite."
+          }
+        },
+        {
+          "fr": "Au bout de quelque temps la vue change, on voit avec un œil plus japonais, on sent autrement la couleur.",
+          "en": "After a while your sight changes: you see with a more Japanese eye, you feel colour differently.",
+          "ko": "얼마쯤 지나면 보는 눈이 달라져. 더 일본 사람 같은 눈으로 보고, 색을 다르게 느끼게 돼.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let620/original_text.html",
+          "speak": {
+            "fr": "Au bout de quelque temps / la vue change, // on voit avec un œil plus japonais, // on sent autrement la couleur."
+          }
+        },
+        {
+          "fr": "Le Japonais dessine vite, très vite, comme un éclair.",
+          "en": "The Japanese draw quickly, very quickly, like a flash of lightning.",
+          "ko": "일본 사람은 빨리, 아주 빨리, 번개처럼 그려.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let620/original_text.html",
+          "speak": {
+            "fr": "Le Japonais dessine vite, // très vite, // comme un éclair."
+          }
+        }
+      ],
+      "words": [
+        {
+          "fr": "bateau",
+          "pos": "n.m.",
+          "ipa": "bato",
+          "en": "boat",
+          "ko": "배",
+          "icon": "⛵"
+        },
+        {
+          "fr": "dessin",
+          "pos": "n.m.",
+          "ipa": "desɛ̃",
+          "en": "drawing",
+          "ko": "소묘, 드로잉",
+          "icon": "✏️"
+        },
+        {
+          "fr": "œil",
+          "pos": "n.m.",
+          "ipa": "œj",
+          "en": "eye",
+          "ko": "눈"
+        },
+        {
+          "fr": "vite",
+          "pos": "adv.",
+          "ipa": "vit",
+          "en": "quickly",
+          "ko": "빨리"
+        },
+        {
+          "fr": "éclair",
+          "pos": "n.m.",
+          "ipa": "eklɛʁ",
+          "en": "flash of lightning",
+          "ko": "번개"
+        }
+      ],
+      "note": {
+        "ko": "빈센트는 일본 판화를 좋아해 모으고 따라 그리기도 했어요. 그에게 남프랑스의 밝은 빛과 선명한 색은 ‘일본과 같은 곳’이었어요. 이 편지에서도 남쪽이 곧 그에게는 일본이라고 적었어요.",
+        "en": "Vincent collected and copied Japanese prints. For him the bright light and clear colours of the South were ‘the equivalent of Japan’, as he writes later in this same letter.",
+        "source": "https://vangoghletters.org/vg/letters/let620/letter.html"
+      },
+      "plate": {
+        "title_fr": "Barques sur la plage des Saintes-Maries",
+        "title_en": "Fishing Boats on the Beach at Les Saintes-Maries-de-la-Mer",
+        "title_ko": "생트마리 해변의 고깃배",
+        "date": "June 1888",
+        "collection": "Van Gogh Museum, Amsterdam (Vincent van Gogh Foundation)",
+        "imageLicense": "Public domain",
+        "imageSource": "https://commons.wikimedia.org/wiki/File:Vissersboten_op_het_strand_van_Les_Saintes-Maries-de-la-Mer_-_s0028V1962_-_Van_Gogh_Museum.jpg",
+        "why": "The painting begun from the drawing of the boats this letter describes (F 413), per the edition's note.",
+        "image": "c2-l2.jpg",
+        "spots": [
+          {
+            "x": 0.35,
+            "y": 0.7,
+            "title": {
+              "fr": "Les bateaux",
+              "en": "The boats",
+              "ko": "배"
+            },
+            "note": {
+              "ko": "떠나기 전 이른 아침, 해변에 올려 둔 배들을 그렸어요.",
+              "en": "Drawn early in the morning, before he left: boats pulled up on the beach."
+            },
+            "word": {
+              "fr": "bateau",
+              "en": "boat",
+              "ko": "배",
+              "ipa": "bato"
+            },
+            "quote": 1
+          },
+          {
+            "x": 0.85,
+            "y": 0.4,
+            "title": {
+              "fr": "La mer",
+              "en": "The sea",
+              "ko": "바다"
+            },
+            "note": {
+              "ko": "‘오른쪽에 바다와 하늘을 더’. 먼바다에도 배가 떠 있어요.",
+              "en": "‘More sea and sky on the right’, with boats out on the water too."
+            },
+            "word": {
+              "fr": "mer",
+              "en": "sea",
+              "ko": "바다",
+              "ipa": "mɛʁ"
+            },
+            "quote": 1
+          },
+          {
+            "x": 0.5,
+            "y": 0.12,
+            "title": {
+              "fr": "Le ciel",
+              "en": "The sky",
+              "ko": "하늘"
+            },
+            "note": {
+              "ko": "아침 하늘. 바다와 하늘을 넓게 남겼어요.",
+              "en": "The morning sky, left wide open above the sea."
+            },
+            "word": {
+              "fr": "ciel",
+              "en": "sky",
+              "ko": "하늘",
+              "ipa": "sjɛl"
+            },
+            "quote": 1
+          },
+          {
+            "x": 0.55,
+            "y": 0.5,
+            "title": {
+              "fr": "Les couleurs",
+              "en": "The colours",
+              "ko": "배의 색"
+            },
+            "note": {
+              "ko": "빨강 · 파랑 · 초록 · 노랑. ‘색을 다르게 느끼게 돼’.",
+              "en": "Red, blue, green, yellow: ‘you feel colour differently’."
+            },
+            "word": {
+              "fr": "couleur",
+              "en": "colour",
+              "ko": "색",
+              "ipa": "kulœʁ"
+            },
+            "quote": 2
+          }
+        ]
+      },
+      "reply": {
+        "fr": "J'aimerais voir la mer avec toi.",
+        "en": "I'd like to see the sea with you.",
+        "ko": "형이랑 같이 바다 보고 싶다.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+      },
+      "moments": [
+        {
+          "after": -1,
+          "type": "transfer",
+          "amount": "50 francs",
+          "label": {
+            "fr": "Théo a envoyé",
+            "en": "Theo sent",
+            "ko": "테오가 보냄"
+          },
+          "memo": {
+            "fr": "Paris → Arles",
+            "en": "Paris → Arles",
+            "ko": "파리 → 아를"
+          },
+          "outgoing": false
+        },
+        {
+          "after": 1,
+          "type": "photo",
+          "image": "c2-l2.jpg",
+          "caption": {
+            "fr": "Barques aux Saintes-Maries",
+            "en": "Boats at Saintes-Maries",
+            "ko": "생트마리의 배들"
+          }
+        }
+      ],
+      "status": {
+        "fr": "Un œil plus japonais",
+        "en": "A more Japanese eye",
+        "ko": "더 일본 사람 같은 눈"
+      }
+    },
+    {
+      "id": "c2-l3",
+      "date": "1888-08-21",
+      "dateNote": "Dated 'Tuesday, 21 or Wednesday, 22 August 1888' by the edition.",
+      "ref": "666 (Brieven 1990: 670; CL: 526). https://vangoghletters.org/vg/letters/let666/letter.html ; French text: https://vangoghletters.org/vg/letters/let666/original_text.html",
+      "place": "Arles",
+      "mood": "bright",
+      "messages": [
+        {
+          "fr": "Je suis en train de peindre avec l'entrain d'un Marseillais mangeant la bouillabaisse, ce qui ne t'étonnera pas lorsqu'il s'agit de peindre des grands tournesols.",
+          "en": "I'm painting with the gusto of a Marseillais eating bouillabaisse, which won't surprise you when it's a matter of painting big sunflowers.",
+          "ko": "부야베스를 먹는 마르세유 사람처럼 신나게 그리는 중이야. 커다란 해바라기를 그리는 일이니 놀랍지도 않지?",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let666/original_text.html",
+          "speak": {
+            "fr": "Je suis en train de peindre / avec l'entrain d'un Marseillais / mangeant la bouillabaisse, // ce qui ne t'étonnera pas / lorsqu'il s'agit de peindre / des grands tournesols."
+          }
+        },
+        {
+          "fr": "Dans l'espoir de vivre dans un atelier à nous avec Gauguin, je voudrais faire une décoration pour l'atelier. Rien que des grands tournesols.",
+          "en": "In the hope of living in a studio of our own with Gauguin, I'd like to make a decoration for the studio. Nothing but big sunflowers.",
+          "ko": "고갱과 함께 우리 작업실에서 살 날을 바라며, 작업실을 꾸밀 그림을 그리고 싶어. 온통 커다란 해바라기로만.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let666/original_text.html",
+          "speak": {
+            "fr": "Dans l'espoir de vivre / dans un atelier à nous / avec Gauguin, // je voudrais faire une décoration / pour l'atelier. // Rien que des grands tournesols."
+          }
+        },
+        {
+          "fr": "Le tout sera une symphonie en bleu et jaune donc. J'y travaille tous ces matins à partir du lever du soleil. Car les fleurs se fanent vite et il s'agit de faire l'ensemble d'un trait.",
+          "en": "So the whole thing will be a symphony in blue and yellow. I work on it every morning from sunrise, because the flowers wilt quickly and the thing is to do the whole in one go.",
+          "ko": "그러니까 전체가 파랑과 노랑의 교향곡이 될 거야. 요즘은 매일 아침 해 뜰 때부터 그려. 꽃은 금방 시드니까 한 번에 다 그려 내야 하거든.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let666/original_text.html",
+          "speak": {
+            "fr": "Le tout sera une symphonie / en bleu et jaune donc. // J'y travaille tous ces matins / à partir du lever du soleil. // Car les fleurs se fanent vite // et il s'agit de faire l'ensemble / d'un trait."
+          }
+        },
+        {
+          "fr": "Je voudrais peindre de façon qu'à la rigueur tout le monde qui a des yeux puisse y voir clair.",
+          "en": "I'd like to paint in such a way that, if need be, everyone who has eyes could see it clearly.",
+          "ko": "눈이 있는 사람이라면 누구나 또렷하게 알아볼 수 있게 그리고 싶어.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let666/original_text.html",
+          "speak": {
+            "fr": "Je voudrais peindre de façon / qu'à la rigueur / tout le monde qui a des yeux // puisse y voir clair."
+          }
+        }
+      ],
+      "words": [
+        {
+          "fr": "tournesol",
+          "pos": "n.m.",
+          "ipa": "tuʁnəsɔl",
+          "en": "sunflower",
+          "ko": "해바라기",
+          "icon": "🌻"
+        },
+        {
+          "fr": "atelier",
+          "pos": "n.m.",
+          "ipa": "atəlje",
+          "en": "studio",
+          "ko": "작업실",
+          "icon": "🎨"
+        },
+        {
+          "fr": "matin",
+          "pos": "n.m.",
+          "ipa": "matɛ̃",
+          "en": "morning",
+          "ko": "아침"
+        },
+        {
+          "fr": "se faner",
+          "pos": "v.",
+          "ipa": "sə fane",
+          "en": "to wilt",
+          "ko": "시들다"
+        },
+        {
+          "fr": "clair",
+          "pos": "adj.",
+          "ipa": "klɛʁ",
+          "en": "clear",
+          "ko": "또렷한"
+        }
+      ],
+      "note": {
+        "ko": "빈센트는 고갱이 아를에 오기를 기다리며, 노란 집 작업실을 해바라기 그림으로 꾸미려 했어요. 이 편지에서 말한 세 번째 그림(노란 꽃병의 열두 송이)은 지금 뮌헨 노이에 피나코테크에 있어요.",
+        "en": "Waiting for Gauguin to come to Arles, Vincent planned to decorate the Yellow House studio with sunflowers. The third canvas in this letter, twelve flowers in a yellow vase, is now in the Neue Pinakothek, Munich.",
+        "source": "https://vangoghletters.org/vg/letters/let666/letter.html (n. 4) ; https://en.wikipedia.org/wiki/Sunflowers_(Van_Gogh_series)"
+      },
+      "plate": {
+        "title_fr": "Tournesols dans un vase",
+        "title_en": "Sunflowers in a Vase",
+        "title_ko": "꽃병의 해바라기",
+        "date": "August 1888",
+        "collection": "Neue Pinakothek, Munich",
+        "imageLicense": "Public domain",
+        "imageSource": "https://commons.wikimedia.org/wiki/File:Van_Gogh_Sunflowers_Neue_Pinakothek_8672.jpg",
+        "why": "The third canvas listed in this letter, twelve flowers and buds in a yellow vase (F 456), per the edition's note.",
+        "image": "c2-l3.jpg",
+        "spots": [
+          {
+            "x": 0.5,
+            "y": 0.3,
+            "title": {
+              "fr": "Les tournesols",
+              "en": "The sunflowers",
+              "ko": "해바라기"
+            },
+            "note": {
+              "ko": "아침마다 해 뜰 때부터, 꽃이 시들기 전에 한 번에 그렸어요.",
+              "en": "Painted each morning from sunrise, before the flowers wilted."
+            },
+            "word": {
+              "fr": "tournesol",
+              "en": "sunflower",
+              "ko": "해바라기",
+              "ipa": "tuʁnəsɔl"
+            },
+            "quote": 0
+          },
+          {
+            "x": 0.45,
+            "y": 0.8,
+            "title": {
+              "fr": "Le vase jaune",
+              "en": "The yellow vase",
+              "ko": "노란 꽃병"
+            },
+            "note": {
+              "ko": "‘파랑과 노랑의 교향곡’. 노랑 꽃병에 노랑 꽃.",
+              "en": "‘A symphony in blue and yellow’: yellow flowers in a yellow vase."
+            },
+            "word": {
+              "fr": "jaune",
+              "en": "yellow",
+              "ko": "노랑",
+              "ipa": "ʒon"
+            },
+            "quote": 2
+          },
+          {
+            "x": 0.12,
+            "y": 0.12,
+            "title": {
+              "fr": "Le fond bleu",
+              "en": "The blue background",
+              "ko": "파란 배경"
+            },
+            "note": {
+              "ko": "노랑 꽃 뒤의 푸른 바탕. 교향곡의 다른 절반이에요.",
+              "en": "The blue ground behind the yellow: the other half of the symphony."
+            },
+            "word": {
+              "fr": "bleu",
+              "en": "blue",
+              "ko": "파랑",
+              "ipa": "blø"
+            },
+            "quote": 2
+          },
+          {
+            "x": 0.85,
+            "y": 0.6,
+            "title": {
+              "fr": "Les fleurs fanées",
+              "en": "Wilting flowers",
+              "ko": "시드는 꽃"
+            },
+            "note": {
+              "ko": "벌써 꽃잎이 떨어지는 송이도 있어요. ‘꽃은 금방 시드니까’.",
+              "en": "Some heads are already losing petals: ‘the flowers wilt quickly’."
+            },
+            "word": {
+              "fr": "fleur",
+              "en": "flower",
+              "ko": "꽃",
+              "ipa": "flœʁ"
+            },
+            "quote": 2
+          }
+        ]
+      },
+      "reply": {
+        "fr": "Garde une place pour un tournesol chez moi.",
+        "en": "Keep a sunflower for my place too.",
+        "ko": "내 방에 걸 해바라기도 하나 남겨 줘.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+      },
+      "moments": [
+        {
+          "after": 0,
+          "type": "photo",
+          "image": "c2-l3.jpg",
+          "caption": {
+            "fr": "Tournesols",
+            "en": "Sunflowers",
+            "ko": "해바라기"
+          }
+        }
+      ],
+      "status": {
+        "fr": "Rien que des grands tournesols",
+        "en": "Nothing but big sunflowers",
+        "ko": "온통 커다란 해바라기"
+      }
+    },
+    {
+      "id": "c2-l4",
+      "date": "1888-09-08",
+      "dateNote": "Dated 'Saturday, 8 September 1888' by the edition.",
+      "ref": "676 (Brieven 1990: 679; CL: 533). https://vangoghletters.org/vg/letters/let676/letter.html ; French text: https://vangoghletters.org/vg/letters/let676/original_text.html",
+      "place": "Arles",
+      "mood": "weary",
+      "messages": [
+        {
+          "fr": "3 nuits durant j'ai veillé à peindre en me couchant pendant la journée.",
+          "en": "For 3 nights running I stayed up painting, and slept during the day.",
+          "ko": "사흘 밤을 꼬박 새우며 그렸어. 잠은 낮에 잤고.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let676/original_text.html",
+          "speak": {
+            "fr": "3 nuits durant / j'ai veillé à peindre // en me couchant / pendant la journée."
+          }
+        },
+        {
+          "fr": "Souvent il me semble que la nuit est bien plus vivante et richement colorée que le jour.",
+          "en": "It often seems to me that the night is much more alive and richly coloured than the day.",
+          "ko": "밤이 낮보다 훨씬 살아 있고 색이 풍부하다는 생각이 자주 들어.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let676/original_text.html",
+          "speak": {
+            "fr": "Souvent il me semble / que la nuit est bien plus vivante / et richement colorée / que le jour."
+          }
+        },
+        {
+          "fr": "J'ai cherché à exprimer avec le rouge et le vert les terribles passions humaines.",
+          "en": "I've tried to express the terrible human passions with red and green.",
+          "ko": "빨강과 초록으로 사람의 무서운 정념을 나타내 보려고 했어.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let676/original_text.html",
+          "speak": {
+            "fr": "J'ai cherché à exprimer / avec le rouge et le vert // les terribles passions humaines."
+          }
+        },
+        {
+          "fr": "La salle est rouge sang et jaune sourd, un billard vert au milieu, 4 lampes jaune citron à rayonnement orangé et vert.",
+          "en": "The room is blood red and dull yellow, a green billiard table in the middle, 4 lemon-yellow lamps with an orange and green glow.",
+          "ko": "방은 핏빛 빨강과 탁한 노랑이고, 가운데에 초록 당구대가 있어. 레몬빛 노란 램프 4개가 주황과 초록으로 빛을 퍼뜨리고.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let676/original_text.html",
+          "speak": {
+            "fr": "La salle est rouge sang / et jaune sourd, // un billard vert au milieu, // 4 lampes jaune citron / à rayonnement orangé et vert."
+          }
+        }
+      ],
+      "words": [
+        {
+          "fr": "nuit",
+          "pos": "n.f.",
+          "ipa": "nɥi",
+          "en": "night",
+          "ko": "밤",
+          "icon": "🌙"
+        },
+        {
+          "fr": "jour",
+          "pos": "n.m.",
+          "ipa": "ʒuʁ",
+          "en": "day",
+          "ko": "낮"
+        },
+        {
+          "fr": "rouge",
+          "pos": "adj.",
+          "ipa": "ʁuʒ",
+          "en": "red",
+          "ko": "빨강"
+        },
+        {
+          "fr": "billard",
+          "pos": "n.m.",
+          "ipa": "bijaʁ",
+          "en": "billiard table",
+          "ko": "당구대",
+          "icon": "🎱"
+        },
+        {
+          "fr": "lampe",
+          "pos": "n.f.",
+          "ipa": "lɑ̃p",
+          "en": "lamp",
+          "ko": "램프",
+          "icon": "💡"
+        }
+      ],
+      "note": {
+        "ko": "밤의 카페는 노란 집이 있는 라마르틴 광장의 역 앞 카페예요. 빈센트는 이 카페 주인 지누에게 방을 빌려 지내고 있었어요. 테오가 보낸 300프랑은 노란 집 가구를 사려고 빌려 달라던 돈이에요.",
+        "en": "The night café was the Café de la Gare on place Lamartine, near the Yellow House. Vincent rented a room there from the owner, Ginoux. Theo's 300 francs were the loan Vincent had asked for to furnish the Yellow House.",
+        "source": "https://vangoghletters.org/vg/letters/let676/letter.html (n. 1, 2, 7) ; https://en.wikipedia.org/wiki/The_Night_Café"
+      },
+      "plate": {
+        "title_fr": "Le Café de nuit",
+        "title_en": "The Night Café",
+        "title_ko": "밤의 카페",
+        "date": "September 1888",
+        "collection": "Yale University Art Gallery, New Haven",
+        "imageLicense": "Public domain",
+        "imageSource": "https://commons.wikimedia.org/wiki/File:Le_caf%C3%A9_de_nuit_(The_Night_Caf%C3%A9)_by_Vincent_van_Gogh.jpeg",
+        "why": "The painting this letter describes (F 463): blood-red walls, a green billiard table, four lemon-yellow lamps.",
+        "image": "c2-l4.jpg",
+        "spots": [
+          {
+            "x": 0.62,
+            "y": 0.62,
+            "title": {
+              "fr": "Le billard",
+              "en": "The billiard table",
+              "ko": "당구대"
+            },
+            "note": {
+              "ko": "방 한가운데 초록 당구대. 빨간 벽과 부딪치는 초록이에요.",
+              "en": "The green billiard table in the middle, clashing with the red walls."
+            },
+            "word": {
+              "fr": "billard",
+              "en": "billiard",
+              "ko": "당구대",
+              "ipa": "bijaʁ"
+            },
+            "quote": 3
+          },
+          {
+            "x": 0.27,
+            "y": 0.15,
+            "title": {
+              "fr": "Les lampes",
+              "en": "The lamps",
+              "ko": "램프"
+            },
+            "note": {
+              "ko": "레몬빛 램프 네 개. 둘레에 주황 · 초록 빛무리가 번져요.",
+              "en": "Four lemon-yellow lamps, each with an orange and green halo."
+            },
+            "word": {
+              "fr": "lampe",
+              "en": "lamp",
+              "ko": "램프",
+              "ipa": "lɑ̃p"
+            },
+            "quote": 3
+          },
+          {
+            "x": 0.8,
+            "y": 0.28,
+            "title": {
+              "fr": "Les murs rouges",
+              "en": "The red walls",
+              "ko": "빨간 벽"
+            },
+            "note": {
+              "ko": "‘빨강과 초록으로 사람의 무서운 정념을’.",
+              "en": "‘The terrible human passions with red and green’."
+            },
+            "word": {
+              "fr": "rouge",
+              "en": "red",
+              "ko": "빨강",
+              "ipa": "ʁuʒ"
+            },
+            "quote": 2
+          },
+          {
+            "x": 0.6,
+            "y": 0.43,
+            "title": {
+              "fr": "Le patron",
+              "en": "The owner",
+              "ko": "카페 주인"
+            },
+            "note": {
+              "ko": "흰옷을 입고 구석을 지키는 주인. 불빛에 옷이 레몬빛으로 물들어요.",
+              "en": "The owner in white, keeping watch; the light turns his clothes lemon yellow."
+            },
+            "word": {
+              "fr": "patron",
+              "en": "owner",
+              "ko": "주인",
+              "ipa": "patʁɔ̃"
+            }
+          }
+        ]
+      },
+      "reply": {
+        "fr": "Envoie-moi le croquis du café.",
+        "en": "Send me the sketch of the café.",
+        "ko": "그 카페 스케치 보내 줘.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+      },
+      "moments": [
+        {
+          "after": -1,
+          "type": "transfer",
+          "amount": "300 francs",
+          "label": {
+            "fr": "Théo a envoyé",
+            "en": "Theo sent",
+            "ko": "테오가 보냄"
+          },
+          "memo": {
+            "fr": "Pour meubler la maison jaune",
+            "en": "To furnish the Yellow House",
+            "ko": "노란 집 가구 살 돈"
+          },
+          "outgoing": false
+        },
+        {
+          "after": 1,
+          "type": "location",
+          "place": "cafe",
+          "title": {
+            "fr": "Café de la Gare",
+            "en": "Café de la Gare",
+            "ko": "역 앞 카페"
+          },
+          "address": "30, place Lamartine"
+        },
+        {
+          "after": 3,
+          "type": "photo",
+          "image": "c2-l4.jpg",
+          "caption": {
+            "fr": "Le café de nuit",
+            "en": "The night café",
+            "ko": "밤의 카페"
+          }
+        }
+      ],
+      "status": {
+        "fr": "La nuit, plus vivante que le jour",
+        "en": "Night, more alive than day",
+        "ko": "낮보다 살아 있는 밤"
+      }
+    },
+    {
+      "id": "c2-l5",
+      "date": "1888-09-29",
+      "dateNote": "Dated 'on or about Saturday, 29 September 1888' by the edition (approximate).",
+      "ref": "691 (Brieven 1990: 695; CL: 543). https://vangoghletters.org/vg/letters/let691/letter.html ; French text: https://vangoghletters.org/vg/letters/let691/original_text.html",
+      "place": "Arles",
+      "mood": "calm",
+      "messages": [
+        {
+          "fr": "Ci-inclus petit croquis d'une toile de 30 carrée – enfin le ciel étoilé peint la nuit même, sous un bec de gaz.",
+          "en": "Enclosed, a little sketch of a square size 30 canvas: the starry sky at last, painted at night itself, under a gas lamp.",
+          "ko": "작은 스케치를 같이 보내. 30호 정사각 캔버스야. 드디어 별이 빛나는 하늘을, 정말로 밤에 가스등 아래서 그렸어.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let691/original_text.html",
+          "speak": {
+            "fr": "Ci-inclus petit croquis / d'une toile de 30 carrée // – enfin le ciel étoilé / peint la nuit même, // sous un bec de gaz."
+          }
+        },
+        {
+          "fr": "Le ciel est bleu vert, l'eau est bleu de roi, les terrains sont mauves. La ville est bleue et violette.",
+          "en": "The sky is blue-green, the water royal blue, the ground mauve. The town is blue and violet.",
+          "ko": "하늘은 청록, 물은 짙은 파랑, 땅은 연보라야. 마을은 파랑과 보라고.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let691/original_text.html",
+          "speak": {
+            "fr": "Le ciel est bleu vert, // l'eau est bleu de roi, // les terrains sont mauves. // La ville est bleue et violette."
+          }
+        },
+        {
+          "fr": "Le gaz est jaune et ses reflets sont or roux et descendent jusqu'au bronze vert.",
+          "en": "The gas light is yellow, and its reflections are russet gold, going down to bronze green.",
+          "ko": "가스등은 노랗고, 물에 비친 빛은 붉은 금빛이었다가 청동빛 초록으로 내려가.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let691/original_text.html",
+          "speak": {
+            "fr": "Le gaz est jaune // et ses reflets sont or roux // et descendent / jusqu'au bronze vert."
+          }
+        },
+        {
+          "fr": "Deux figurines colorées d'amoureux à l'avant-plan.",
+          "en": "Two little coloured figures of lovers in the foreground.",
+          "ko": "앞쪽에는 알록달록한 연인 두 사람.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let691/original_text.html",
+          "speak": {
+            "fr": "Deux figurines colorées / d'amoureux / à l'avant-plan."
+          }
+        },
+        {
+          "fr": "Alors je vais la nuit dehors pour peindre les étoiles.",
+          "en": "So I go outside at night to paint the stars.",
+          "ko": "그래서 밤이면 밖에 나가 별을 그려.",
+          "verified": true,
+          "source": "https://vangoghletters.org/vg/letters/let691/original_text.html",
+          "speak": {
+            "fr": "Alors je vais la nuit dehors // pour peindre les étoiles."
+          }
+        }
+      ],
+      "words": [
+        {
+          "fr": "étoile",
+          "pos": "n.f.",
+          "ipa": "etwal",
+          "en": "star",
+          "ko": "별",
+          "icon": "⭐"
+        },
+        {
+          "fr": "eau",
+          "pos": "n.f.",
+          "ipa": "o",
+          "en": "water",
+          "ko": "물"
+        },
+        {
+          "fr": "ville",
+          "pos": "n.f.",
+          "ipa": "vil",
+          "en": "town",
+          "ko": "마을"
+        },
+        {
+          "fr": "gaz",
+          "pos": "n.m.",
+          "ipa": "ɡaz",
+          "en": "gas light",
+          "ko": "가스등",
+          "icon": "🏮"
+        },
+        {
+          "fr": "amoureux",
+          "pos": "n.m.pl.",
+          "ipa": "amuʁø",
+          "en": "lovers",
+          "ko": "연인"
+        },
+        {
+          "fr": "dehors",
+          "pos": "adv.",
+          "ipa": "dəɔʁ",
+          "en": "outside",
+          "ko": "밖에"
+        }
+      ],
+      "note": {
+        "ko": "이 편지에는 그림 두 점의 스케치가 들어 있었어요. 론강 위의 별밤, 그리고 노란 집과 그 둘레예요. 별밤은 실제로 밤에 강가에서, 가스등 불빛 아래 그렸어요. 이듬해 생레미에서 그린 ‘별이 빛나는 밤’과는 다른 그림이에요.",
+        "en": "This letter carried sketches of two paintings: the starry night over the Rhône and the Yellow House with its surroundings. The starry night was painted outdoors at night, by gaslight. It is a different picture from The Starry Night painted at Saint-Rémy the next year.",
+        "source": "https://vangoghletters.org/vg/letters/let691/letter.html (n. 1, 2) ; https://en.wikipedia.org/wiki/Starry_Night_Over_the_Rhône"
+      },
+      "plate": {
+        "title_fr": "La Nuit étoilée sur le Rhône",
+        "title_en": "Starry Night over the Rhône",
+        "title_ko": "론강의 별이 빛나는 밤",
+        "date": "September 1888",
+        "collection": "Musée d'Orsay, Paris",
+        "imageLicense": "Public domain",
+        "imageSource": "https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg",
+        "why": "The starry sky painted at night under the gas lamps, sketched in this letter (F 474), per the edition's note.",
+        "image": "c2-l5.jpg",
+        "spots": [
+          {
+            "x": 0.6,
+            "y": 0.15,
+            "title": {
+              "fr": "Les étoiles",
+              "en": "The stars",
+              "ko": "별"
+            },
+            "note": {
+              "ko": "큰곰자리. ‘밤이면 밖에 나가 별을 그려’.",
+              "en": "The Great Bear: ‘I go outside at night to paint the stars’."
+            },
+            "word": {
+              "fr": "étoile",
+              "en": "star",
+              "ko": "별",
+              "ipa": "etwal"
+            },
+            "quote": 4
+          },
+          {
+            "x": 0.5,
+            "y": 0.45,
+            "title": {
+              "fr": "La ville",
+              "en": "The town",
+              "ko": "마을"
+            },
+            "note": {
+              "ko": "강 건너 아를. ‘마을은 파랑과 보라’.",
+              "en": "Arles across the river: ‘the town is blue and violet’."
+            },
+            "word": {
+              "fr": "ville",
+              "en": "town",
+              "ko": "마을",
+              "ipa": "vil"
+            },
+            "quote": 1
+          },
+          {
+            "x": 0.45,
+            "y": 0.62,
+            "title": {
+              "fr": "Les reflets du gaz",
+              "en": "Gaslight reflections",
+              "ko": "가스등 그림자 빛"
+            },
+            "note": {
+              "ko": "노란 가스등 빛이 물 위로 길게 내려와요.",
+              "en": "The yellow gaslight runs down across the water."
+            },
+            "word": {
+              "fr": "gaz",
+              "en": "gas",
+              "ko": "가스등",
+              "ipa": "ɡaz"
+            },
+            "quote": 2
+          },
+          {
+            "x": 0.25,
+            "y": 0.75,
+            "title": {
+              "fr": "L'eau",
+              "en": "The water",
+              "ko": "물"
+            },
+            "note": {
+              "ko": "론강. ‘물은 짙은 파랑’.",
+              "en": "The Rhône: ‘the water royal blue’."
+            },
+            "word": {
+              "fr": "eau",
+              "en": "water",
+              "ko": "물",
+              "ipa": "o"
+            },
+            "quote": 1
+          },
+          {
+            "x": 0.88,
+            "y": 0.88,
+            "title": {
+              "fr": "Les amoureux",
+              "en": "The lovers",
+              "ko": "연인"
+            },
+            "note": {
+              "ko": "앞쪽 강가를 걷는 연인 두 사람.",
+              "en": "Two lovers walking on the bank in front."
+            },
+            "word": {
+              "fr": "amoureux",
+              "en": "lovers",
+              "ko": "연인",
+              "ipa": "amuʁø"
+            },
+            "quote": 3
+          }
+        ]
+      },
+      "reply": {
+        "fr": "J'aimerais voir ce ciel étoilé.",
+        "en": "I'd love to see that starry sky.",
+        "ko": "그 별 하늘, 나도 꼭 보고 싶다.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+      },
+      "moments": [
+        {
+          "after": -1,
+          "type": "weather",
+          "title": {
+            "fr": "Le temps à Arles",
+            "en": "Weather in Arles",
+            "ko": "아를의 날씨"
+          },
+          "value": {
+            "fr": "beau temps",
+            "en": "fine weather",
+            "ko": "맑음"
+          },
+          "quote": "Le temps ici reste beau",
+          "icon": "sun"
+        },
+        {
+          "after": 0,
+          "type": "photo",
+          "image": "c2-l5.jpg",
+          "caption": {
+            "fr": "La nuit étoilée",
+            "en": "The starry night",
+            "ko": "론강의 별밤"
+          }
+        }
+      ],
+      "status": {
+        "fr": "Peindre les étoiles",
+        "en": "Painting the stars",
+        "ko": "별을 그리러"
+      }
+    }
+  ]
+}
