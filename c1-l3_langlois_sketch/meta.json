@@ -1,0 +1,29 @@
+[
+ {
+  "file": "1.jpg",
+  "title": "File:Vincent Willem van Gogh letter sketch.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_letter_sketch.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Vincent_van_Gogh\" class=\"extiw\" title=\"w:en:Vincent van Gogh\"><span title=\"Dutch painter (1853–1890)\">Vincent van Gogh</span></a></bdi>",
+  "date": "15 March 1888<div style=\"display: none;\">date QS:P571,+1888-03-15T00:00:00Z/11</div>",
+  "credit": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.vangoghgallery.com/catalog/Letter%20Sketches/2067/Drawbridge-with-Walking-Couple.html\">vangoghgallery.com</a>"
+ },
+ {
+  "file": "2.jpg",
+  "title": "File:Van Gogh - Die Brücke von Langlois in Arles.jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Die_Br%C3%BCcke_von_Langlois_in_Arles.jpeg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Vincent_van_Gogh\" class=\"extiw\" title=\"w:en:Vincent van Gogh\"><span title=\"Dutch painter (1853–1890)\">Vincent van Gogh</span></a></bdi>",
+  "date": "Arles, March 1888",
+  "credit": "Copied from an art book"
+ },
+ {
+  "file": "3.jpg",
+  "title": "File:Willem van Gogh F1470.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Willem_van_Gogh_F1470.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Vincent_van_Gogh\" class=\"extiw\" title=\"w:en:Vincent van Gogh\"><span title=\"Dutch painter (1853–1890)\">Vincent van Gogh</span></a></bdi>",
+  "date": "March 1888<div style=\"display: none;\">date QS:P571,+1888-03-00T00:00:00Z/10</div>",
+  "credit": "Unknown source<span style=\"display: none;\">Unknown source</span>,  <a rel=\"nofollow\" class=\"external text\" href=\"https://www.vangoghgallery.com/catalog/Drawing/1127/Langlois%20Bridge%20at%20Arles%20Seen%20from%20the%20Road,%20The.html\">vangoghgallery.com</a>"
+ }
+]
