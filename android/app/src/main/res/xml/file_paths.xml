@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 구절 엽서 공유: 캐시의 postcards 폴더만 내보낸다 -->
+<paths>
+    <cache-path name="postcards" path="postcards/" />
+</paths>

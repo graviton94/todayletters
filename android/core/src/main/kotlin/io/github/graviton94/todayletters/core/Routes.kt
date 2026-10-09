@@ -3,7 +3,7 @@ package io.github.graviton94.todayletters.core
 /**
  * 앱의 화면 계층 (docs/ia.md 의 트리를 코드로).
  *
- *   이름표(탭) ─ 편지함 · 서재 · 단어장 · 화첩
+ *   이름표(탭) ─ 오늘 · 서재 · 복습 · 갤러리   (코드 이름은 Inbox · Library · Words · Gallery 그대로)
  *   서재 → 작품 → 챕터 → 편지(대화방) → 답장(플레이어블) / 편지 완료
  *   편지함 → 편지(대화방)  (지름길: 뒤로 가면 편지함)
  *
@@ -30,6 +30,11 @@ sealed interface Route {
 
     data class Artwork(val series: String, val plate: Int, val from: Route) : Route
     data class Review(val series: String?) : Route
+    /** 복습 한 판. [kind] 가 null 이면 오늘의 복습 (섞어서). */
+    data class Session(val kind: ReviewKind? = null) : Route
+    /** 모은 낱말 찾기 · 내 구절. */
+    data object WordList : Route
+    data object Quotes : Route
     data object Settings : Route
 }
 
@@ -47,6 +52,7 @@ object Nav {
         is Route.Done -> r.room
         is Route.Artwork -> r.from
         is Route.Review -> Route.Words
+        is Route.Session, Route.WordList, Route.Quotes -> Route.Words
         Route.Settings -> Route.Inbox
     }
 
@@ -60,5 +66,5 @@ object Nav {
     fun showsSeriesSettings(r: Route) = r is Route.Series || r is Route.RoomInfo
 
     /** 답장 중 뒤로 가기는 바로 나가지 않고 한 번 묻는다 ("답장은 나중에 쓸까요?"). */
-    fun asksBeforeLeaving(r: Route) = r is Route.Play
+    fun asksBeforeLeaving(r: Route) = r is Route.Play || r is Route.Session
 }

@@ -30,6 +30,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxHeight
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Langs
 import io.github.graviton94.todayletters.core.ReplyMode
@@ -48,47 +50,6 @@ private fun Page(content: @Composable () -> Unit) =
         Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s5),
         verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
     ) { content() }
-
-/** 편지함: 진행 중인 작품마다 대화방 한 줄. */
-@Composable
-fun Inbox(s: AppState) {
-    val p = Ink.palette
-    s.version
-    Column(Modifier.fillMaxSize()) {
-        TopBar(stringResource(R.string.tab_inbox), s, help = "inbox", showBack = false, showSettings = true)
-        Page {
-            s.works.forEach { w ->
-                val id = w.series.id
-                val waiting = s.waiting(id)
-                val next = s.openable(id).firstOrNull { (c, l) -> !s.progress(id, c, l.id).done }
-                Row(
-                    Modifier.fillMaxWidth().heightIn(min = Tokens.Size.row).clickable(role = Role.Button) {
-                        next?.let { (c, l) -> s.open(id, c, l, Route.Inbox) } ?: s.go(Route.Series(id))
-                    },
-                    horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Portrait(w.portrait, w.fullName, Tokens.Size.portraitRow)
-                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
-                        Text(w.title[uiLang()], style = Type.heading.ui(), color = p.ink)
-                        val learn = s.seriesSettings(id).learn
-                        Text(
-                            next?.second?.messages?.firstOrNull()?.text?.get(learn) ?: stringResource(R.string.inbox_all_read),
-                            style = Type.small.of(learn), color = if (waiting > 0) p.giltText else p.inkSoft, maxLines = 1,
-                        )
-                    }
-                    if (waiting > 0) Box(Modifier.size(Tokens.Size.icon + Tokens.Space.s1).background(p.fill, CircleShape), contentAlignment = Alignment.Center) {
-                        Text("$waiting", style = Type.small, color = p.onFill)
-                    }
-                }
-                Hair()
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                Caps("Note", Ink.palette.giltText, small = true)
-                Text(stringResource(R.string.inbox_you_are_theo), style = Type.small.ui(), color = p.inkSoft)
-            }
-        }
-    }
-}
 
 /** 서재: 모든 작품 표지. */
 @Composable
@@ -122,7 +83,7 @@ fun LibraryTab(s: AppState) {
  * 같은 낱말은 한 번만 (처음 나온 편지 기준).
  */
 @Composable
-fun WordsTab(s: AppState) {
+fun WordListScreen(s: AppState) {
     val p = Ink.palette
     var query by remember { mutableStateOf("") }
     var limit by remember { mutableIntStateOf(20) }
@@ -144,7 +105,7 @@ fun WordsTab(s: AppState) {
     fun norm(x: String) = java.text.Normalizer.normalize(io.github.graviton94.todayletters.core.Breaks.plain(x).lowercase(), java.text.Normalizer.Form.NFD).replace(Regex("\\p{M}"), "")
     val shown = if (query.isBlank()) all else all.filter { norm(it.learn).contains(norm(query)) || norm(it.read).contains(norm(query)) }
     Column(Modifier.fillMaxSize()) {
-        TopBar(stringResource(R.string.tab_words), s, help = null, showBack = s.route !is Route.Tab, showSettings = s.route is Route.Tab)
+        TopBar(stringResource(R.string.words_search), s, help = null, showBack = true, showSettings = false)
         Column(Modifier.padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Row(
                 Modifier.fillMaxWidth().heightIn(min = 48.dp).background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(horizontal = Tokens.Space.s3),
@@ -252,6 +213,7 @@ fun SeriesCover(s: AppState, id: String) {
     }
 }
 
+/** 챕터: 그림 표지 + 편지의 길 (세로 선 위에 편지마다 마디). 다 읽은 편지는 그림이 붙고, 앞으로 올 편지는 흐리게. */
 @Composable
 fun ChapterScreen(s: AppState, r: Route.Chapter) {
     val p = Ink.palette
@@ -259,49 +221,57 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
     val c = w.chapters[r.chapter - 1]
     val openable = s.openable(r.series).map { it.second.id }.toSet()
     s.version
-    Column(Modifier.fillMaxSize()) {
-        TopBar(w.sender, s, help = null, showBack = true, showSettings = false)
-        Page {
-            Caps("Chapitre ${roman(r.chapter)}")
-            Text(c.title[w.series.original], style = Type.display, color = p.ink)
-            Text(c.title[s.app.read], style = Type.body.of(s.app.read), color = p.inkSoft)
+    val readN = c.letters.count { s.progress(r.series, c.id, it.id).done }
+    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
+        Box(Modifier.fillMaxWidth().height(220.dp)) {
+            PlateImage(c.letters.firstOrNull { it.plate != null }?.let { l -> if (s.progress(r.series, c.id, l.id).done) l.plate?.image else c.letters.getOrNull(2)?.plate?.image }.orEmpty(), Modifier.fillMaxSize())
+            Box(Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Brush.verticalGradient(0f to androidx.compose.ui.graphics.Color(0x73170F0A), 0.45f to androidx.compose.ui.graphics.Color(0x0D170F0A), 1f to p.paper)))
+            IconButton(stringResource(R.string.back), onClick = { s.back() }) { Chevron(androidx.compose.ui.graphics.Color(0xFFF7F0E1)) }
+            Column(Modifier.align(Alignment.BottomStart).padding(start = Tokens.Space.s5, bottom = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Caps("Chapitre ${roman(r.chapter)} · ${c.letters.firstOrNull()?.place ?: ""} ${c.letters.firstOrNull()?.date?.take(4) ?: ""}", p.giltText, small = true)
+                Text(c.title[w.series.original], style = Type.display, color = p.ink)
+                Text(stringResource(R.string.chapter_meta, c.letters.size, readN) + " · " + c.title[uiLang()], style = Type.small.ui(), color = p.inkSoft)
+            }
+        }
+        Column(Modifier.padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3)) {
             c.letters.forEachIndexed { i, l ->
                 val pr = s.progress(r.series, c.id, l.id)
                 val can = l.id in openable
                 val days = s.daysUntil(r.series, l.id)
-                val reading = can && !pr.done && pr.shown > 0
-                // 다 읽음: 금빛 체크 · 오늘 도착/읽는 중: 채운 줄 · 앞으로: 흐리게 + 언제 오는지
-                Row(
-                    Modifier.fillMaxWidth().heightIn(min = Tokens.Size.row)
-                        .background(if (can && !pr.done) p.leaf else androidx.compose.ui.graphics.Color.Transparent)
-                        .then(if (can && !pr.done) Modifier.border(1.dp, p.giltText.copy(alpha = 0.6f)) else Modifier)
-                        .pressable(enabled = can) { s.open(r.series, c.id, l, Route.Library) }
-                        .padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s2),
-                    verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
-                ) {
-                    Text(roman(i + 1), style = Type.numeral, color = when { pr.done -> p.giltText; can -> p.ink; else -> p.hideInk }, modifier = Modifier.width(36.dp))
-                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                        Text(dateLine(l.date, l.place), style = Type.body.ui(), color = if (can) p.ink else p.hideInk)
-                        Text(
-                            when {
-                                pr.done -> stringResource(R.string.letter_done)
-                                reading -> stringResource(R.string.letter_reading)
-                                can -> stringResource(R.string.letter_new)
-                                days == 1 -> stringResource(R.string.letter_eta)
-                                else -> stringResource(R.string.letter_eta_n, days)
-                            },
-                            style = Type.small.ui(), color = when { pr.done -> p.giltText; can -> p.ink; else -> p.hideInk },
-                        )
+                val reading = can && !pr.done
+                Row(Modifier.fillMaxWidth().height(androidx.compose.foundation.layout.IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                    // 길: 마디와 이어지는 선
+                    Column(Modifier.width(22.dp).fillMaxHeight(), horizontalAlignment = Alignment.CenterHorizontally) {
+                        Box(Modifier.padding(top = 26.dp).size(16.dp).then(
+                            when { pr.done -> Modifier.background(p.giltText, androidx.compose.foundation.shape.CircleShape)
+                                   reading -> Modifier.background(p.leaf, androidx.compose.foundation.shape.CircleShape).border(2.dp, p.ink, androidx.compose.foundation.shape.CircleShape)
+                                   else -> Modifier.dashed(p.line) }))
+                        if (i < c.letters.lastIndex) Box(Modifier.width(1.5.dp).weight(1f).background(p.line))
                     }
-                    when {
-                        pr.done -> CheckMark(true, 22.dp)
-                        can -> Box(Modifier.background(p.fill).padding(horizontal = Tokens.Space.s2, vertical = 2.dp)) {
-                            Text(stringResource(if (reading) R.string.letter_reading else R.string.letter_new), style = Type.small.ui(), color = p.onFill)
+                    Row(
+                        Modifier.weight(1f).padding(bottom = Tokens.Space.s2)
+                            .then(if (reading) Modifier.background(p.leaf).border(1.dp, p.giltText.copy(alpha = 0.7f)) else Modifier)
+                            .pressable(enabled = can) { s.open(r.series, c.id, l, Route.Library) }.padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s3),
+                        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
+                    ) {
+                        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                            Text("LETTRE ${roman(i + 1)}", style = Type.capsSm, color = p.giltText)
+                            Text(dateLine(l.date, l.place), style = Type.body.ui(), color = if (can) p.ink else p.hideInk)
+                            Text(
+                                when {
+                                    pr.done -> stringResource(R.string.letter_done) + (l.plate?.let { " · " + it.title[uiLang()] } ?: "")
+                                    pr.shown > 0 -> stringResource(R.string.letter_reading)
+                                    can -> stringResource(R.string.letter_new)
+                                    days == 1 -> stringResource(R.string.letter_eta)
+                                    else -> stringResource(R.string.letter_eta_n, days)
+                                },
+                                style = Type.small.ui(), color = when { pr.done -> p.giltText; can -> p.ink; else -> p.hideInk }, maxLines = 1,
+                            )
                         }
-                        else -> Lock(p.hideInk)
+                        if (pr.done) PlateThumb(l.plate?.image.orEmpty(), true, Modifier.size(52.dp))
+                        else if (!can) Lock(p.hideInk)
                     }
                 }
-                if (!(can && !pr.done)) Hair()
             }
         }
     }
@@ -366,6 +336,16 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
             Caps(stringResource(R.string.ob_pace), p.giltText, small = true)
             Choices(listOf(1, 2, 3).map { it to stringResource(R.string.letters_n, it) }, cur.lettersPerDay) { s.update(id, cur.copy(lettersPerDay = it)) }
             Text(stringResource(R.string.perday_note), style = Type.small.ui(), color = p.inkSoft)
+
+            Caps(stringResource(R.string.set_notice), p.giltText, small = true)
+            Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.arrivalNotice) { s.update(id, cur.copy(arrivalNotice = it)) }
+            if (cur.arrivalNotice) {
+                var hour by remember { mutableStateOf(s.store.noticeHour) }
+                Choices(listOf(7, 8, 12, 19, 21).map { it to stringResource(R.string.notice_hour, it) }, hour) {
+                    hour = it; s.store.noticeHour = it; io.github.graviton94.todayletters.data.Notices.schedule(s.ctx)
+                }
+            }
+            Text(stringResource(R.string.notice_note), style = Type.small.ui(), color = p.inkSoft)
         }
     }
 }

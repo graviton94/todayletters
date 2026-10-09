@@ -121,14 +121,107 @@
         "imageLicense": "Public domain",
         "imageSource": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Landschaft_im_Schnee.jpg",
         "why": "Painted in Arles in the first days after arrival, in the snow this letter describes.",
-        "image": "c1-l1.jpg"
+        "image": "c1-l1.jpg",
+        "spots": [
+          {
+            "x": 0.21,
+            "y": 0.33,
+            "title": {
+              "ko": "눈길을 걷는 사람",
+              "en": "A walker in the snow",
+              "fr": "Le promeneur"
+            },
+            "note": {
+              "ko": "작게 그린 사람과 개 덕분에 눈 덮인 들판이 더 넓어 보여요.",
+              "en": "The tiny figure and dog make the snowy plain feel vast."
+            },
+            "word": {
+              "fr": "chemin",
+              "en": "path, road",
+              "ko": "길",
+              "ipa": "ʃəmɛ̃"
+            }
+          },
+          {
+            "x": 0.55,
+            "y": 0.62,
+            "title": {
+              "ko": "눈 덮인 밭",
+              "en": "Fields under snow",
+              "fr": "Les champs sous la neige"
+            },
+            "note": {
+              "ko": "빈센트가 도착한 날 아를엔 60센티미터나 눈이 쌓여 있었어요.",
+              "en": "When Vincent arrived, 60 centimetres of snow covered Arles."
+            },
+            "word": {
+              "fr": "neige",
+              "en": "snow",
+              "ko": "눈",
+              "ipa": "nɛʒ"
+            },
+            "quote": 1
+          },
+          {
+            "x": 0.42,
+            "y": 0.22,
+            "title": {
+              "ko": "먼 산",
+              "en": "Distant hills",
+              "fr": "Les Alpilles"
+            },
+            "note": {
+              "ko": "편지에서 ‘아주 고운 연보랏빛’이라 쓴 알피유 산맥이에요.",
+              "en": "The Alpilles, which he called ‘the finest lilac’."
+            },
+            "word": {
+              "fr": "montagne",
+              "en": "mountain",
+              "ko": "산",
+              "ipa": "mɔ̃taɲ"
+            },
+            "quote": 2
+          },
+          {
+            "x": 0.67,
+            "y": 0.27,
+            "title": {
+              "ko": "붉은 지붕",
+              "en": "A red roof",
+              "fr": "Un toit rouge"
+            },
+            "note": {
+              "ko": "흰 눈 속 작은 붉은 점 하나가 그림 전체에 온기를 줘요.",
+              "en": "One small red roof warms the whole white field."
+            },
+            "word": {
+              "fr": "toit",
+              "en": "roof",
+              "ko": "지붕",
+              "ipa": "twa"
+            }
+          }
+        ]
       },
       "reply": {
         "fr": "Moi aussi, j'ai pensé à toi.",
         "en": "I thought of you too.",
         "ko": "나도 형 생각 많이 했어.",
         "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-      }
+      },
+      "moments": [
+        {
+          "after": 0,
+          "type": "location",
+          "place": "carrel",
+          "title": {
+            "ko": "카렐 식당",
+            "en": "Restaurant Carrel",
+            "fr": "Hôtel-Restaurant Carrel"
+          },
+          "address": "30, rue de la Cavalerie"
+        }
+      ]
     },
     {
       "id": "c1-l2",
@@ -238,14 +331,106 @@
         "imageLicense": "Public domain",
         "imageSource": "https://commons.wikimedia.org/wiki/File:Oude_Arl%C3%A9sienne_-_s0145V1962_-_Van_Gogh_Museum.jpg",
         "why": "One of the three first studies listed in this letter.",
-        "image": "c1-l2.jpg"
+        "image": "c1-l2.jpg",
+        "spots": [
+          {
+            "x": 0.55,
+            "y": 0.14,
+            "title": {
+              "ko": "검은 머리쓰개",
+              "en": "The dark headscarf",
+              "fr": "La coiffe"
+            },
+            "note": {
+              "ko": "아를 여성들의 머리쓰개. 빈센트는 이곳 여자들이 정말 아름답다고 썼어요.",
+              "en": "An Arlésienne’s headdress; he wrote that the women here were truly beautiful."
+            },
+            "word": {
+              "fr": "coiffe",
+              "en": "headdress",
+              "ko": "머리쓰개",
+              "ipa": "kwaf"
+            },
+            "quote": 3
+          },
+          {
+            "x": 0.5,
+            "y": 0.45,
+            "title": {
+              "ko": "주름진 얼굴",
+              "en": "A weathered face",
+              "fr": "Le visage"
+            },
+            "note": {
+              "ko": "아를에서 처음 그린 습작 중 하나. 편지에 ‘아를의 할머니’라고 적었어요.",
+              "en": "One of his first Arles studies — ‘an old woman of Arles’ in the letter."
+            },
+            "word": {
+              "fr": "visage",
+              "en": "face",
+              "ko": "얼굴",
+              "ipa": "vizaʒ"
+            },
+            "quote": 2
+          },
+          {
+            "x": 0.34,
+            "y": 0.47,
+            "title": {
+              "ko": "귀걸이",
+              "en": "An earring",
+              "fr": "La boucle d’oreille"
+            },
+            "note": {
+              "ko": "푸른 옷 사이로 작은 금빛 귀걸이가 반짝여요.",
+              "en": "A small gold earring glints against the blue."
+            },
+            "word": {
+              "fr": "boucle d’oreille",
+              "en": "earring",
+              "ko": "귀걸이",
+              "ipa": "bukl dɔʁɛj"
+            }
+          },
+          {
+            "x": 0.3,
+            "y": 0.78,
+            "title": {
+              "ko": "푸른 숄",
+              "en": "The blue shawl",
+              "fr": "Le châle"
+            },
+            "note": {
+              "ko": "굵은 붓질의 파랑이 얼굴의 노랑을 더 밝게 해요.",
+              "en": "Thick blue strokes make the yellow face glow."
+            },
+            "word": {
+              "fr": "châle",
+              "en": "shawl",
+              "ko": "숄",
+              "ipa": "ʃɑl"
+            }
+          }
+        ]
       },
       "reply": {
         "fr": "Je suis content que tu ailles mieux.",
         "en": "I'm glad you are feeling better.",
         "ko": "형이 나아지고 있다니 기뻐.",
         "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-      }
+      },
+      "moments": [
+        {
+          "after": 2,
+          "type": "photo",
+          "image": "c1-l2.jpg",
+          "caption": {
+            "ko": "아를의 할머니, 습작",
+            "en": "An old woman of Arles, a study",
+            "fr": "Vieille Arlésienne, étude"
+          }
+        }
+      ]
     },
     {
       "id": "c1-l3",
@@ -362,14 +547,138 @@
         "imageLicense": "Public domain",
         "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_-_Pont_de_Langlois_-_Kr%C3%B6ller-M%C3%BCller.jpg",
         "why": "This is the size 15 canvas the letter describes: drawbridge, small carriage, washerwomen.",
-        "image": "c1-l3.jpg"
+        "image": "c1-l3.jpg",
+        "spots": [
+          {
+            "x": 0.5,
+            "y": 0.2,
+            "title": {
+              "ko": "도개교",
+              "en": "The drawbridge",
+              "fr": "Le pont-levis"
+            },
+            "note": {
+              "ko": "배가 지나가면 들어 올리는 다리. 운하 위의 랑글루아 다리예요.",
+              "en": "A bridge that lifts for boats — the Langlois bridge over the canal."
+            },
+            "word": {
+              "fr": "pont-levis",
+              "en": "drawbridge",
+              "ko": "도개교",
+              "ipa": "pɔ̃ ləvi"
+            },
+            "quote": 0
+          },
+          {
+            "x": 0.44,
+            "y": 0.3,
+            "title": {
+              "ko": "작은 마차",
+              "en": "A little carriage",
+              "fr": "La petite voiture"
+            },
+            "note": {
+              "ko": "편지에 쓴 그대로, 다리를 건너는 작은 마차.",
+              "en": "Just as in the letter: a little carriage crossing."
+            },
+            "word": {
+              "fr": "voiture",
+              "en": "carriage, car",
+              "ko": "마차",
+              "ipa": "vwatyʁ"
+            },
+            "quote": 0
+          },
+          {
+            "x": 0.35,
+            "y": 0.62,
+            "title": {
+              "ko": "빨래하는 여자들",
+              "en": "The washerwomen",
+              "fr": "Les laveuses"
+            },
+            "note": {
+              "ko": "‘알록달록한 윗옷과 모자’를 쓴 여자들이 강가에서 빨래해요.",
+              "en": "Women in ‘bright smocks and bonnets’ wash clothes at the bank."
+            },
+            "word": {
+              "fr": "laveuse",
+              "en": "washerwoman",
+              "ko": "빨래하는 여자",
+              "ipa": "lavøz"
+            },
+            "quote": 1
+          },
+          {
+            "x": 0.5,
+            "y": 0.82,
+            "title": {
+              "ko": "작은 배",
+              "en": "A rowing boat",
+              "fr": "La barque"
+            },
+            "note": {
+              "ko": "물가에 대어 둔 배. 주황 강둑과 파란 물이 맞닿아요.",
+              "en": "A boat at the bank, where orange meets blue."
+            },
+            "word": {
+              "fr": "barque",
+              "en": "small boat",
+              "ko": "작은 배",
+              "ipa": "baʁk"
+            }
+          },
+          {
+            "x": 0.76,
+            "y": 0.63,
+            "title": {
+              "ko": "파란 강",
+              "en": "The blue river",
+              "fr": "La rivière"
+            },
+            "note": {
+              "ko": "‘강도 파랗고’ — 하늘의 파랑을 그대로 담은 물.",
+              "en": "‘The river blue as well’ — water holding the sky."
+            },
+            "word": {
+              "fr": "rivière",
+              "en": "river",
+              "ko": "강",
+              "ipa": "ʁivjɛʁ"
+            },
+            "quote": 1
+          }
+        ]
       },
       "reply": {
         "fr": "Envoie-moi un dessin du pont.",
         "en": "Send me a drawing of the bridge.",
         "ko": "그 다리 그림 하나 보내 줘.",
         "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-      }
+      },
+      "moments": [
+        {
+          "after": 0,
+          "type": "photo",
+          "image": "c1-l3.jpg",
+          "caption": {
+            "ko": "오늘 들고 온 15호 캔버스",
+            "en": "Today’s size 15 canvas",
+            "fr": "Le pont de Langlois"
+          }
+        },
+        {
+          "after": 3,
+          "type": "location",
+          "place": "langlois",
+          "title": {
+            "ko": "랑글루아 다리",
+            "en": "The Langlois bridge",
+            "fr": "Pont de Langlois"
+          },
+          "address": "Canal d’Arles à Bouc"
+        }
+      ]
     },
     {
       "id": "c1-l4",
@@ -467,14 +776,106 @@
         "imageLicense": "CC0",
         "imageSource": "https://commons.wikimedia.org/wiki/File:The_Flowering_Orchard_MET_DT1948.jpg",
         "why": "One of the 'Provence orchards' this letter announces.",
-        "image": "c1-l4.jpg"
+        "image": "c1-l4.jpg",
+        "spots": [
+          {
+            "x": 0.75,
+            "y": 0.45,
+            "title": {
+              "ko": "꽃 핀 나무",
+              "en": "A tree in blossom",
+              "fr": "L’arbre en fleurs"
+            },
+            "note": {
+              "ko": "과수원의 꽃이 지기 전에 그리려고 빈센트는 미친 듯이 일했어요.",
+              "en": "He worked in a frenzy to paint the orchard before the blossom fell."
+            },
+            "word": {
+              "fr": "arbre",
+              "en": "tree",
+              "ko": "나무",
+              "ipa": "aʁbʁ"
+            },
+            "quote": 0
+          },
+          {
+            "x": 0.3,
+            "y": 0.15,
+            "title": {
+              "ko": "흰 꽃잎",
+              "en": "White blossoms",
+              "fr": "Les fleurs"
+            },
+            "note": {
+              "ko": "짧은 붓질을 겹쳐 꽃잎이 바람에 떨리는 듯해요.",
+              "en": "Short strokes make the petals tremble."
+            },
+            "word": {
+              "fr": "fleur",
+              "en": "flower",
+              "ko": "꽃",
+              "ipa": "flœʁ"
+            },
+            "quote": 0
+          },
+          {
+            "x": 0.42,
+            "y": 0.8,
+            "title": {
+              "ko": "풀밭",
+              "en": "The meadow",
+              "fr": "L’herbe"
+            },
+            "note": {
+              "ko": "초록과 노랑의 짧은 선이 봄 풀밭을 채워요.",
+              "en": "Green and yellow dashes fill the spring grass."
+            },
+            "word": {
+              "fr": "herbe",
+              "en": "grass",
+              "ko": "풀",
+              "ipa": "ɛʁb"
+            }
+          },
+          {
+            "x": 0.1,
+            "y": 0.95,
+            "title": {
+              "ko": "서명",
+              "en": "The signature",
+              "fr": "La signature"
+            },
+            "note": {
+              "ko": "왼쪽 아래 ‘Vincent’. 그는 성 없이 이름만 썼어요.",
+              "en": "Bottom left: ‘Vincent’ — he signed with his first name only."
+            },
+            "word": {
+              "fr": "signature",
+              "en": "signature",
+              "ko": "서명",
+              "ipa": "siɲatyʁ"
+            }
+          }
+        ]
       },
       "reply": {
         "fr": "Je veux voir ces arbres en fleurs.",
         "en": "I want to see those trees in blossom.",
         "ko": "꽃 핀 그 나무들을 보고 싶어.",
         "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-      }
+      },
+      "moments": [
+        {
+          "after": 0,
+          "type": "photo",
+          "image": "c1-l4.jpg",
+          "caption": {
+            "ko": "꽃 핀 과수원",
+            "en": "The flowering orchard",
+            "fr": "Verger en fleurs"
+          }
+        }
+      ]
     },
     {
       "id": "c1-l5",
@@ -579,14 +980,126 @@
         "imageLicense": "Public domain",
         "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_The_yellow_house_(%60The_street%27)_-_Google_Art_Project.jpg",
         "why": "The house rented in this letter, painted a few months later. Alternative: the sketch of the house in letter 602 itself (JH 1413).",
-        "image": "c1-l5.jpg"
+        "image": "c1-l5.jpg",
+        "spots": [
+          {
+            "x": 0.38,
+            "y": 0.5,
+            "title": {
+              "ko": "노란 집",
+              "en": "The Yellow House",
+              "fr": "La maison jaune"
+            },
+            "note": {
+              "ko": "빈센트가 오른쪽 채를 빌린 집. ‘바깥은 노랗게, 안은 하얗게’.",
+              "en": "The wing he rented — ‘yellow outside, whitewashed inside’."
+            },
+            "word": {
+              "fr": "maison",
+              "en": "house",
+              "ko": "집",
+              "ipa": "mɛzɔ̃"
+            },
+            "quote": 1
+          },
+          {
+            "x": 0.43,
+            "y": 0.45,
+            "title": {
+              "ko": "초록 덧문",
+              "en": "Green shutters",
+              "fr": "Les volets"
+            },
+            "note": {
+              "ko": "노란 벽에 초록 덧문. 그가 좋아한 보색이에요.",
+              "en": "Green shutters on yellow — his favourite complementaries."
+            },
+            "word": {
+              "fr": "volet",
+              "en": "shutter",
+              "ko": "덧문",
+              "ipa": "vɔlɛ"
+            }
+          },
+          {
+            "x": 0.2,
+            "y": 0.56,
+            "title": {
+              "ko": "식당",
+              "en": "The restaurant",
+              "fr": "Le restaurant"
+            },
+            "note": {
+              "ko": "분홍 차양 아래는 빈센트가 자주 밥을 먹던 식당이에요.",
+              "en": "Under the pink awning: the restaurant where he often ate."
+            },
+            "word": {
+              "fr": "restaurant",
+              "en": "restaurant",
+              "ko": "식당",
+              "ipa": "ʁɛstɔʁɑ̃"
+            }
+          },
+          {
+            "x": 0.9,
+            "y": 0.55,
+            "title": {
+              "ko": "철교",
+              "en": "The railway bridge",
+              "fr": "Le pont du chemin de fer"
+            },
+            "note": {
+              "ko": "오른쪽 끝으로 기차가 지나요. 파리의 테오에게 가는 길.",
+              "en": "Trains crossed here — the line to Theo in Paris."
+            },
+            "word": {
+              "fr": "train",
+              "en": "train",
+              "ko": "기차",
+              "ipa": "tʁɛ̃"
+            }
+          },
+          {
+            "x": 0.5,
+            "y": 0.1,
+            "title": {
+              "ko": "짙은 파란 하늘",
+              "en": "A deep blue sky",
+              "fr": "Le ciel bleu"
+            },
+            "note": {
+              "ko": "한낮인데도 하늘을 짙게 칠해 집의 노랑을 터뜨려요.",
+              "en": "A deep midday blue makes the yellow burst."
+            },
+            "word": {
+              "fr": "ciel",
+              "en": "sky",
+              "ko": "하늘",
+              "ipa": "sjɛl"
+            },
+            "quote": 1
+          }
+        ]
       },
       "reply": {
         "fr": "Une maison jaune au soleil, c'est parfait.",
         "en": "A yellow house in the sun, that's perfect.",
         "ko": "햇살 아래 노란 집이라니, 딱 좋아.",
         "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-      }
+      },
+      "moments": [
+        {
+          "after": 0,
+          "type": "location",
+          "place": "yellow",
+          "title": {
+            "ko": "노란 집",
+            "en": "The Yellow House",
+            "fr": "La maison jaune"
+          },
+          "address": "2, place Lamartine"
+        }
+      ]
     }
   ]
 }

@@ -18,6 +18,8 @@ class MainActivity : ComponentActivity() {
         volumeControlStream = AudioManager.STREAM_MUSIC
         // 언어를 바꿔 다시 그릴 때는 인트로를 건너뛴다
         val restarted = savedInstanceState != null
+        // 도착 알림을 다음 그 시각으로 다시 잡는다 (권한이 없으면 울릴 때 조용히 넘어감)
+        runCatching { io.github.graviton94.todayletters.data.Notices.schedule(applicationContext) }
         setContent {
             val s = remember { AppState(applicationContext, deepLink = restarted) }
             TodayLettersTheme(s.app.theme, s.app.largeText) {

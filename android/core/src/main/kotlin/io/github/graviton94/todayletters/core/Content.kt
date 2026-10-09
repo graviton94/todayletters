@@ -7,7 +7,23 @@ data class Tri(val lines: Map<Lang, String>) {
 
 data class Message(val text: Tri)
 data class Word(val text: Tri, val pos: String = "", val ipa: String = "")
-data class Plate(val title: Tri, val date: String, val collection: String, val image: String = "")
+/** 그림 속 산책의 한 자리: 그림 위의 위치(0~1), 이름, 큐레이터 설명, 낱말, 그 요소가 나오는 편지 문장 번호. */
+data class Spot(val x: Float, val y: Float, val title: Tri, val note: Tri, val word: Word?, val quote: Int? = null)
+
+data class Plate(val title: Tri, val date: String, val collection: String, val image: String = "", val spots: List<Spot> = emptyList())
+
+/**
+ * 메신저 같은 순간: 문장 [after] 다음에 끼어드는 위치 공유 · 사진 공유.
+ * 위치는 작품의 장소 목록([Place]) 이름, 사진은 assets/plates 의 그림.
+ */
+sealed interface Moment {
+    val after: Int
+    data class Location(override val after: Int, val place: String, val title: Tri, val address: String) : Moment
+    data class Photo(override val after: Int, val image: String, val caption: Tri) : Moment
+}
+
+/** 작품의 장소 (손으로 그린 지도 위 0~1 위치). */
+data class Place(val id: String, val x: Float, val y: Float, val name: Tri, val note: Tri)
 
 /**
  * 편지 한 통 = 대화방 한 번.
@@ -23,6 +39,7 @@ data class Letter(
     val note: Tri?,
     val plate: Plate?,
     val reply: Tri? = null,
+    val moments: List<Moment> = emptyList(),
 )
 
 data class Chapter(val series: String, val id: String, val title: Tri, val free: Boolean, val letters: List<Letter>)

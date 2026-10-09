@@ -88,6 +88,9 @@ private fun Main(s: AppState, onExit: () -> Unit) {
                     is Route.Done -> Done(s, r.room)
                     is Route.Artwork -> Artwork(s, r)
                     is Route.Review -> WordsTab(s)
+                    is Route.Session -> Session(s, r)
+                    Route.WordList -> WordListScreen(s)
+                    Route.Quotes -> QuotesScreen(s)
                     is Route.Purchase -> SeriesCover(s, r.series)
                     Route.Settings -> Inbox(s)
                 }

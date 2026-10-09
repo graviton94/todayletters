@@ -138,11 +138,58 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
         return Arrivals.daysUntil(idx, openable(id).size, seriesSettings(id).lettersPerDay)
     }
 
+    // ── 복습 (낱말 카드) ─────────────────────────────────────
+    val today: Long get() = LocalDate.now().toEpochDay()
+
+    /** 낱말 카드 키 "작품:챕터:편지:낱말번호". */
+    fun cardKey(series: String, chapter: String, letter: String, word: Int) = "$series:$chapter:$letter:$word"
+
+    /** 카드 키 → (작품, 챕터, 편지, 낱말). 없어진 낱말이면 null. */
+    fun cardWord(key: String): Triple<Work, Pair<String, Letter>, Int>? {
+        val (sid, ch, lid, wi) = key.split(":").takeIf { it.size == 4 } ?: return null
+        val w = works.firstOrNull { it.series.id == sid } ?: return null
+        val c = w.chapters.firstOrNull { it.id == ch } ?: return null
+        val l = c.letters.firstOrNull { it.id == lid } ?: return null
+        val i = wi.toIntOrNull()?.takeIf { it in l.words.indices } ?: return null
+        return Triple(w, ch to l, i)
+    }
+
+    /** 편지를 다 읽으면 그 편지의 낱말이 카드함에 들어간다 (내일부터 복습). */
+    fun collectWords(series: String, chapter: String, letter: Letter) {
+        letter.words.indices.forEach { i ->
+            val k = cardKey(series, chapter, letter.id, i)
+            if (!store.hasCard(k)) store.save(io.github.graviton94.todayletters.core.Memory.added(k, today))
+        }
+        version++
+    }
+
+    fun cards() = run { @Suppress("UNUSED_EXPRESSION") version; store.cards().filter { cardWord(it.key) != null } }
+    fun dueCards() = io.github.graviton94.todayletters.core.Memory.dueToday(cards(), today)
+    fun answer(c: io.github.graviton94.todayletters.core.Card, correct: Boolean) {
+        store.save(io.github.graviton94.todayletters.core.Memory.after(c, correct, today)); version++
+    }
+    fun reviewDone() { store.reviewedDay = today; version++ }
+    val reviewedToday: Boolean get() = run { @Suppress("UNUSED_EXPRESSION") version; store.reviewedDay == today }
+
+    // ── 내 구절 ──────────────────────────────────────────────
+    fun quoteKey(series: String, chapter: String, letter: String, msg: Int) = "$series:$chapter:$letter:$msg"
+    fun isSaved(k: String) = run { @Suppress("UNUSED_EXPRESSION") version; k in store.quotes }
+    fun toggleQuote(k: String) { store.quotes = if (k in store.quotes) store.quotes - k else listOf(k) + store.quotes; version++ }
+
+    /** 이번 주(월~일) 중 편지를 끝낸 요일 (0=월). */
+    fun weekDone(): Set<Int> {
+        val now = LocalDate.now(); val monday = now.minusDays((now.dayOfWeek.value - 1).toLong()).toEpochDay()
+        return store.doneDays().filter { it in monday..(monday + 6) }.map { (it - monday).toInt() }.toSet()
+    }
+
     /** 편지를 끝냈을 때: 이어 읽은 날을 센다. */
     fun finished(): Int {
         val today = LocalDate.now().toEpochDay()
+        store.markDoneDay(today)
         val n = io.github.graviton94.todayletters.core.Streak.after(store.streakDay, store.streakCount, today)
-        store.saveStreak(today, n); return n
+        store.saveStreak(today, n)
+        runCatching { io.github.graviton94.todayletters.data.TodayWidget.refresh(ctx) }
+        return n
     }
     val streak: Int get() = if (LocalDate.now().toEpochDay() - store.streakDay <= 1) store.streakCount else 0
 

@@ -159,4 +159,26 @@ class CoreTest {
         c.reset()
         assertTrue(c.due("library", calm = true))
     }
+
+    @Test fun memoryMovesCardsUpAndBack() {
+        var c = Memory.added("w", today = 100)
+        assertEquals(101, c.due)
+        c = Memory.after(c, correct = true, today = 101)
+        assertEquals(1, c.box); assertEquals(102, c.due)
+        c = Memory.after(c, correct = true, today = 102)
+        assertEquals(2, c.box); assertEquals(106, c.due)
+        c = Memory.after(c, correct = true, today = 106)
+        assertEquals(3, c.box); assertEquals(120, c.due)
+        c = Memory.after(c, correct = false, today = 120)
+        assertEquals(0, c.box); assertEquals(121, c.due)
+        val cards = (1..20).map { Card("k$it", box = it % 4, due = 100) }
+        assertEquals(Memory.DAILY, Memory.dueToday(cards, 100).size)
+        assertEquals(0, Memory.dueToday(cards, 100).first().box)
+    }
+
+    @Test fun dictationIsGentle() {
+        assertEquals(Memory.Mark.RIGHT, Memory.grade("neige", " Neige "))
+        assertEquals(Memory.Mark.ACCENT, Memory.grade("pensé", "pense"))
+        assertEquals(Memory.Mark.WRONG, Memory.grade("neige", "neije"))
+    }
 }

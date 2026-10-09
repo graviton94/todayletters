@@ -88,6 +88,33 @@ class Store(ctx: Context) {
     val streakCount: Int get() = p.getInt("streak:n", 0)
     fun saveStreak(day: Long, n: Int) = p.edit().putLong("streak:day", day).putInt("streak:n", n).apply()
 
+    /** 낱말 카드 (복습): "c:<키>" = "칸|다시 볼 날|본 횟수". */
+    fun cards(): List<io.github.graviton94.todayletters.core.Card> = p.all.keys.filter { it.startsWith("c:") }.mapNotNull { k ->
+        val v = p.getString(k, null)?.split("|") ?: return@mapNotNull null
+        io.github.graviton94.todayletters.core.Card(k.removePrefix("c:"), v[0].toInt(), v[1].toLong(), v.getOrNull(2)?.toInt() ?: 0)
+    }
+    fun save(c: io.github.graviton94.todayletters.core.Card) = p.edit().putString("c:${c.key}", "${c.box}|${c.due}|${c.seen}").apply()
+    fun hasCard(key: String) = p.contains("c:$key")
+
+    /** 오늘 복습을 마친 날 (오늘 화면 · 우표). */
+    var reviewedDay: Long
+        get() = p.getLong("reviewed:day", -1)
+        set(v) = p.edit().putLong("reviewed:day", v).apply()
+
+    /** 편지를 끝낸 날들 (이번 주 우표). */
+    fun doneDays(): Set<Long> = p.getStringSet("donedays", emptySet())!!.mapNotNull { it.toLongOrNull() }.toSet()
+    fun markDoneDay(day: Long) = p.edit().putStringSet("donedays", (doneDays() + day).filter { day - it < 60 }.map { it.toString() }.toSet()).apply()
+
+    /** 내 구절: "작품:챕터:편지:문장번호". */
+    var quotes: List<String>
+        get() = p.getString("quotes", "")!!.split("\n").filter { it.isNotBlank() }
+        set(v) = p.edit().putString("quotes", v.joinToString("\n")).apply()
+
+    /** 도착 알림 시각 (시). */
+    var noticeHour: Int
+        get() = p.getInt("notice:hour", 8)
+        set(v) = p.edit().putInt("notice:hour", v).apply()
+
     var coachSeen: Set<String>
         get() = p.getString("coach_seen", "")!!.split(",").filter { it.isNotBlank() }.toSet()
         set(v) = p.edit().putString("coach_seen", v.joinToString(",")).apply()

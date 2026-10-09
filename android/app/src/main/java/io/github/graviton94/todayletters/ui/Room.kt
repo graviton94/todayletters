@@ -79,6 +79,7 @@ fun Room(s: AppState, r: Route.Letter) {
     var writing by remember(letter.id) { mutableStateOf(false) }
     var words by remember { mutableStateOf(false) }
     var wordFocus by remember { mutableStateOf<Int?>(null) }
+    var mapOpen by remember { mutableStateOf(false) }
     var playing by remember(letter.id) { mutableStateOf<Int?>(null) }
     var all by remember { mutableStateOf<Job?>(null) }
     val list = rememberLazyListState()
@@ -160,6 +161,7 @@ fun Room(s: AppState, r: Route.Letter) {
                 val fresh = i >= already && animate
                 var shownIn by remember { mutableStateOf(!fresh) }
                 LaunchedEffect(Unit) { shownIn = true }
+                Column {
                 AnimatedVisibility(shownIn, enter = fadeIn(tween(Tokens.Motion.fadeMs * 2)) + slideInVertically(tween(Tokens.Motion.fadeMs * 2)) { it / 6 }) {
                     LetterSlip(
                         index = i, learn = m.text[view.learn], learnLang = view.learn,
@@ -170,7 +172,18 @@ fun Room(s: AppState, r: Route.Letter) {
                         onPlay = { speak(i) }, onWritten = { if (written < i + 1) written = i + 1 },
                         marks = wordMarks(m.text[view.learn], letter.words.map { it.text[view.learn] }),
                         onWord = { wordFocus = it },
+                        saved = s.isSaved(s.quoteKey(id, chapter, letter.id, i)),
+                        onSave = { s.toggleQuote(s.quoteKey(id, chapter, letter.id, i)) },
                     )
+                }
+                // 메신저 같은 순간: 이 문장 다음의 위치 공유 · 사진 공유 (문장이 다 써진 뒤에)
+                if (i < written) letter.moments.filter { it.after == i }.forEach { mo ->
+                    Box(Modifier.padding(top = Tokens.Space.s4)) {
+                        MomentCard(s, work, mo, onMap = { mapOpen = true }, onPhoto = {
+                            s.go(Route.Artwork(id, r.letter, r))
+                        })
+                    }
+                }
                 }
             }
             if (finished) {
@@ -179,7 +192,7 @@ fun Room(s: AppState, r: Route.Letter) {
                 }
                 if (ReplyMode.CONSTELLATION in progress.replied) item {
                     Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
-                        Outgoing { Pair2(reply[view.learn], view.learn, if (view.showRead) reply[view.read] else null, view.read, onFill = true) }
+                        TheoNote(reply[view.learn], view.learn, if (view.showRead) reply[view.read] else null, view.read, work.recipient[view.learn])
                     }
                 }
                 // 처음 한 번: 세 가지를 모두 해 보자는 안내
@@ -235,6 +248,9 @@ fun Room(s: AppState, r: Route.Letter) {
     }
     if (words) WordSheet(s, r, onClose = { words = false })
     wordFocus?.let { k -> WordCard(s, r, k, onClose = { wordFocus = null }) }
+    if (mapOpen) MapSheet(s, work, onClose = { mapOpen = false })
+    // 다 읽은 편지의 낱말은 낱말 카드함으로 (내일부터 복습)
+    LaunchedEffect(finished) { if (finished) s.collectWords(id, chapter, letter) }
 }
 
 fun modeLabel(m: ReplyMode) = when (m) {
@@ -353,6 +369,7 @@ private fun LetterSlip(
     animate: Boolean, lineMs: Int, signature: String?, playing: Boolean, canPlay: Boolean,
     onPlay: () -> Unit, onWritten: () -> Unit,
     marks: List<Pair<IntRange, Int>> = emptyList(), onWord: (Int) -> Unit = {},
+    saved: Boolean = false, onSave: () -> Unit = {},
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
@@ -370,8 +387,12 @@ private fun LetterSlip(
                 if (read != null) InkText(read, Type.base.of(readLang), p.slipSoft, animate, go = learnDone, lineMs = (lineMs * 0.7f).toInt(), onDone = onWritten)
                 if (signature != null) Text(signature, style = Type.signature, color = p.slipSoft, modifier = Modifier.align(Alignment.End).padding(top = Tokens.Space.s1))
             }
-            if (canPlay) SpeakerButton(playing, stringResource(R.string.listen_line), onClick = onPlay)
-            else Box(Modifier.size(Tokens.Size.speaker))
+            Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
+                if (canPlay) SpeakerButton(playing, stringResource(R.string.listen_line), onClick = onPlay)
+                else Box(Modifier.size(Tokens.Size.speaker))
+                // 내 구절에 담기
+                if (canPlay) IconButton(stringResource(if (saved) R.string.quote_saved else R.string.quote_save), onClick = onSave) { Bookmark(saved) }
+            }
         }
     }
 }

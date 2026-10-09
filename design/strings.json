@@ -17,16 +17,16 @@
     "ko": "봉랍을 눌러 열어요"
   },
   "tab_inbox": {
-    "en": "Letters",
-    "ko": "편지함"
+    "en": "Today",
+    "ko": "오늘"
   },
   "tab_library": {
     "en": "Library",
     "ko": "서재"
   },
   "tab_words": {
-    "en": "Words",
-    "ko": "단어장"
+    "en": "Review",
+    "ko": "복습"
   },
   "tab_gallery": {
     "ko": "갤러리",
@@ -729,8 +729,8 @@
     "ko": "다음 편지는 내일 도착해요. 그림은 갤러리에 들어갔어요."
   },
   "done_home": {
-    "en": "Back to letters",
-    "ko": "편지함으로"
+    "en": "Back to Today",
+    "ko": "오늘로 돌아가기"
   },
   "done_open_next": {
     "en": "Open the next letter",
@@ -819,5 +819,337 @@
   "room_auto_off": {
     "ko": "자동 낭독 꺼짐 · 누르면 켜요",
     "en": "Auto narration off · tap to turn on"
+  },
+  "greet_morning": {
+    "en": "Good morning, %1$s",
+    "ko": "좋은 아침이에요, %1$s"
+  },
+  "greet_day": {
+    "en": "Hello, %1$s",
+    "ko": "안녕하세요, %1$s"
+  },
+  "greet_evening": {
+    "en": "Good evening, %1$s",
+    "ko": "좋은 저녁이에요, %1$s"
+  },
+  "letter_n": {
+    "en": "Letter %1$s",
+    "ko": "편지 %1$s"
+  },
+  "today_letter_title": {
+    "en": "A letter from %1$s",
+    "ko": "%1$s의 편지"
+  },
+  "today_open": {
+    "en": "Open the letter",
+    "ko": "편지 열기"
+  },
+  "today_all_done": {
+    "en": "Today's letters are done",
+    "ko": "오늘 편지를 모두 마쳤어요"
+  },
+  "review_today": {
+    "en": "Today's review",
+    "ko": "오늘의 복습"
+  },
+  "review_minutes": {
+    "en": "words · about %1$d min",
+    "ko": "낱말 · 약 %1$d분"
+  },
+  "streak_title": {
+    "en": "In a row",
+    "ko": "이어 읽기"
+  },
+  "streak_days": {
+    "en": "days",
+    "ko": "일째"
+  },
+  "gallery_peek": {
+    "en": "Gallery · %1$d / %2$d",
+    "ko": "갤러리 · %1$d / %2$d"
+  },
+  "week_days": {
+    "en": "M,T,W,T,F,S,S",
+    "ko": "월,화,수,목,금,토,일"
+  },
+  "today_short": {
+    "en": "Today",
+    "ko": "오늘"
+  },
+  "step_read_short": {
+    "en": "Read",
+    "ko": "읽기"
+  },
+  "moment_location": {
+    "en": "%1$s shared a location",
+    "ko": "%1$s의 위치 공유"
+  },
+  "moment_photo": {
+    "en": "Photo from %1$s",
+    "ko": "%1$s의 사진"
+  },
+  "map_title": {
+    "en": "Vincent's Arles, 1888",
+    "ko": "빈센트의 아를, 1888"
+  },
+  "quote_save": {
+    "en": "Save to my lines",
+    "ko": "내 구절에 담기"
+  },
+  "quote_saved": {
+    "en": "Remove from my lines",
+    "ko": "내 구절에서 빼기"
+  },
+  "done_stat_streak": {
+    "en": "days in a row",
+    "ko": "일째 이어 읽기"
+  },
+  "done_stat_cards": {
+    "en": "word cards",
+    "ko": "낱말 카드"
+  },
+  "done_walk": {
+    "en": "Walk into the painting",
+    "ko": "그림 속 산책"
+  },
+  "cards_title": {
+    "en": "Word cards",
+    "ko": "낱말 카드"
+  },
+  "box_new": {
+    "en": "New",
+    "ko": "새 낱말"
+  },
+  "box_learning": {
+    "en": "Learning",
+    "ko": "익히는 중"
+  },
+  "box_almost": {
+    "en": "Almost",
+    "ko": "거의 앎"
+  },
+  "box_known": {
+    "en": "Known",
+    "ko": "익힌 낱말"
+  },
+  "gap_today": {
+    "en": "today",
+    "ko": "오늘"
+  },
+  "gap_1": {
+    "en": "in 1 day",
+    "ko": "하루 뒤"
+  },
+  "gap_4": {
+    "en": "in 4 days",
+    "ko": "나흘 뒤"
+  },
+  "gap_14": {
+    "en": "in 2 weeks",
+    "ko": "2주 뒤"
+  },
+  "review_empty": {
+    "en": "Finish a letter and its words arrive here.",
+    "ko": "편지를 끝내면 낱말이 여기로 와요."
+  },
+  "review_none_today": {
+    "en": "All done for today.",
+    "ko": "오늘 복습은 다 했어요."
+  },
+  "review_count": {
+    "en": "%1$d words · about %2$d min",
+    "ko": "낱말 %1$d개 · 약 %2$d분"
+  },
+  "review_start": {
+    "en": "Start review",
+    "ko": "복습 시작"
+  },
+  "kind_dictation": {
+    "en": "Listen and write",
+    "ko": "듣고 쓰기"
+  },
+  "kind_dictation_d": {
+    "en": "Hear the word, type it.",
+    "ko": "듣고 낱말을 써요."
+  },
+  "kind_blank": {
+    "en": "Fill the blank",
+    "ko": "빈칸 채우기"
+  },
+  "kind_blank_d": {
+    "en": "Find the missing word in the letter.",
+    "ko": "편지 문장의 빈칸을 채워요."
+  },
+  "kind_meaning": {
+    "en": "Meaning",
+    "ko": "뜻 고르기"
+  },
+  "kind_meaning_d": {
+    "en": "Pick what the word means.",
+    "ko": "낱말의 뜻을 골라요."
+  },
+  "badge_default": {
+    "en": "Default",
+    "ko": "기본"
+  },
+  "quotes_title": {
+    "en": "My lines",
+    "ko": "내 구절"
+  },
+  "quotes_count": {
+    "en": "%1$d saved",
+    "ko": "%1$d개 모음"
+  },
+  "quotes_empty": {
+    "en": "Tap the bookmark on a line to keep it here.",
+    "ko": "문장의 책갈피를 누르면 여기 모여요."
+  },
+  "dict_prompt": {
+    "en": "Listen and write",
+    "ko": "듣고 써 보세요"
+  },
+  "dict_letters": {
+    "en": "%1$d letters",
+    "ko": "%1$d글자"
+  },
+  "dict_hint": {
+    "en": "Show the sentence",
+    "ko": "문장 힌트 보기"
+  },
+  "dict_hint_title": {
+    "en": "From the letter",
+    "ko": "편지 속 문장"
+  },
+  "blank_prompt": {
+    "en": "Fill the blank",
+    "ko": "빈칸에 들어갈 낱말"
+  },
+  "review_right": {
+    "en": "Right.",
+    "ko": "맞았어요."
+  },
+  "review_accent": {
+    "en": "Right — mind the accent: %1$s",
+    "ko": "맞았어요. 철자 부호만 확인: %1$s"
+  },
+  "review_wrong": {
+    "en": "%1$s · %2$s",
+    "ko": "%1$s · %2$s"
+  },
+  "input_helper": {
+    "en": "%1$s letters",
+    "ko": "%1$s 글자"
+  },
+  "review_finish": {
+    "en": "Finish",
+    "ko": "마치기"
+  },
+  "review_leave": {
+    "en": "Stop the review? Answers so far are kept.",
+    "ko": "복습을 그만할까요? 푼 것은 저장돼요."
+  },
+  "result_right": {
+    "en": "right",
+    "ko": "맞힌 수"
+  },
+  "result_done": {
+    "en": "reviewed",
+    "ko": "복습 완료"
+  },
+  "result_tomorrow": {
+    "en": "again tomorrow",
+    "ko": "내일 다시"
+  },
+  "result_moved": {
+    "en": "Words that moved",
+    "ko": "칸이 바뀐 낱말"
+  },
+  "result_note": {
+    "en": "Missed words come back tomorrow.",
+    "ko": "틀린 낱말은 내일 다시 나와요."
+  },
+  "result_again": {
+    "en": "Try the missed ones",
+    "ko": "틀린 것만 다시"
+  },
+  "postcard_send": {
+    "en": "Send as postcard",
+    "ko": "엽서로 보내기"
+  },
+  "notice_channel": {
+    "en": "Letter arrivals",
+    "ko": "편지 도착"
+  },
+  "notice_title": {
+    "en": "A letter from %1$s has arrived",
+    "ko": "%1$s의 편지가 도착했어요"
+  },
+  "notice_text": {
+    "en": "Today's letter is waiting.",
+    "ko": "오늘의 편지가 기다려요."
+  },
+  "notice_text_review": {
+    "en": "Today's letter and %1$d words to review.",
+    "ko": "오늘의 편지와 복습 낱말 %1$d개."
+  },
+  "set_notice": {
+    "en": "Arrival notice",
+    "ko": "도착 알림"
+  },
+  "notice_note": {
+    "en": "Once a day, around this hour. Not on days you've finished.",
+    "ko": "하루 한 번, 이 무렵에 알려요. 다 읽은 날은 조용히."
+  },
+  "notice_hour": {
+    "en": "%1$d:00",
+    "ko": "%1$d시"
+  },
+  "widget_name": {
+    "en": "Today's letter",
+    "ko": "오늘의 편지"
+  },
+  "widget_desc": {
+    "en": "Today's line and what's waiting.",
+    "ko": "오늘의 문장과 기다리는 편지."
+  },
+  "widget_status": {
+    "en": "%1$d letter waiting · %2$d to review",
+    "ko": "편지 %1$d통 · 복습 %2$d개"
+  },
+  "widget_done": {
+    "en": "Done today · %1$d days in a row",
+    "ko": "오늘 다 읽었어요 · %1$d일째"
+  },
+  "walk_title": {
+    "en": "A walk in the painting",
+    "ko": "그림 속 산책"
+  },
+  "walk_hint": {
+    "en": "Tap a glowing spot.",
+    "ko": "빛나는 곳을 눌러 보세요."
+  },
+  "walk_start": {
+    "en": "Start the walk",
+    "ko": "산책 시작"
+  },
+  "walk_word": {
+    "en": "Word",
+    "ko": "낱말"
+  },
+  "walk_from_letter": {
+    "en": "In the letter",
+    "ko": "편지 속 문장"
+  },
+  "walk_prev": {
+    "en": "Back",
+    "ko": "이전"
+  },
+  "walk_next": {
+    "en": "Next spot",
+    "ko": "다음 자리"
+  },
+  "walk_whole": {
+    "en": "See the whole",
+    "ko": "전체 보기"
   }
 }

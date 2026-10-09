@@ -6,6 +6,9 @@ import io.github.graviton94.todayletters.core.Chapter
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Letter
 import io.github.graviton94.todayletters.core.Message
+import io.github.graviton94.todayletters.core.Moment
+import io.github.graviton94.todayletters.core.Place
+import io.github.graviton94.todayletters.core.Spot
 import io.github.graviton94.todayletters.core.Plate
 import io.github.graviton94.todayletters.core.Series
 import io.github.graviton94.todayletters.core.Tri
@@ -27,6 +30,8 @@ data class Work(
     val recipient: Tri = Tri(mapOf(Lang.EN to "")),
     /** 앱 글자에 쓰는 보내는 사람 이름 (빈센트 / Vincent). */
     val name: Tri = Tri(mapOf(Lang.EN to sender)),
+    /** 손으로 그린 지도의 장소들 (위치 공유 · 지도). */
+    val places: List<Place> = emptyList(),
 )
 
 /** 앱 안에 넣은 편지 데이터 읽기 (scripts/generate.py 가 data/ 에서 assets/letters/ 로 옮김). */
@@ -56,6 +61,9 @@ object Library {
                 portrait = meta.optString("portrait"), credit = meta.optString("credit"),
                 fullName = meta.optString("fullName", meta.getString("sender")), recipient = meta.optJSONObject("recipient")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to meta.optString("recipient"))),
                 name = meta.optJSONObject("name")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to meta.getString("sender"))),
+                places = meta.optJSONObject("places")?.let { o ->
+                    o.keys().asSequence().map { k -> o.getJSONObject(k).let { p -> Place(k, p.getDouble("x").toFloat(), p.getDouble("y").toFloat(), tri(p.getJSONObject("name")), tri(p.getJSONObject("note"))) } }.toList()
+                } ?: emptyList(),
             )
         }
     }
@@ -73,12 +81,28 @@ object Library {
                 (0 until w.length()).map { j -> w.getJSONObject(j).let { Word(tri(it), it.optString("pos"), it.optString("ipa")) } }
             } ?: emptyList()
             val plate = l.optJSONObject("plate")?.let { pl ->
-                Plate(tri(pl, "title_"), pl.optString("date"), pl.optString("collection"), pl.optString("image"))
+                val spots = pl.optJSONArray("spots")?.let { a ->
+                    (0 until a.length()).map { k -> a.getJSONObject(k).let { sp ->
+                        Spot(sp.getDouble("x").toFloat(), sp.getDouble("y").toFloat(), tri(sp.getJSONObject("title")), tri(sp.getJSONObject("note")),
+                            sp.optJSONObject("word")?.let { wo -> Word(tri(wo), "", wo.optString("ipa")) },
+                            if (sp.has("quote")) sp.getInt("quote") else null)
+                    } }
+                } ?: emptyList()
+                Plate(tri(pl, "title_"), pl.optString("date"), pl.optString("collection"), pl.optString("image"), spots)
             }
+            val moments = l.optJSONArray("moments")?.let { a ->
+                (0 until a.length()).mapNotNull { k -> a.getJSONObject(k).let { m ->
+                    when (m.optString("type")) {
+                        "location" -> Moment.Location(m.getInt("after"), m.getString("place"), tri(m.getJSONObject("title")), m.optString("address"))
+                        "photo" -> Moment.Photo(m.getInt("after"), m.getString("image"), tri(m.getJSONObject("caption")))
+                        else -> null
+                    }
+                } }
+            } ?: emptyList()
             Letter(
                 id = l.getString("id"), date = l.optString("date"), place = l.optString("place"), mood = l.optString("mood", "calm"),
                 messages = msgs, words = words, note = l.optJSONObject("note")?.let { tri(it) }, plate = plate,
-                reply = l.optJSONObject("reply")?.let { tri(it) },
+                reply = l.optJSONObject("reply")?.let { tri(it) }, moments = moments,
             )
         }
     }
