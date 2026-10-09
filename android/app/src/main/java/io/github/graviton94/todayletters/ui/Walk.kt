@@ -36,6 +36,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
@@ -106,7 +108,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
     val focusRef = remember { arrayOf<(Int) -> Unit>({}) }
     val focus: (Int) -> Unit = { focusRef[0](it) }
     Box(Modifier.fillMaxSize().background(Room)) {
-        BoxWithConstraints(Modifier.fillMaxSize().statusBarsPadding().padding(top = 56.dp, bottom = 250.dp)) {
+        BoxWithConstraints(Modifier.fillMaxSize().statusBarsPadding().padding(top = 56.dp, bottom = 250.dp).clipToBounds()) {
             val density = LocalDensity.current
             val maxW = constraints.maxWidth.toFloat()
             val maxH = constraints.maxHeight.toFloat()
@@ -173,17 +175,24 @@ fun Artwork(s: AppState, r: Route.Artwork) {
 
         // 위: 닫기 · 산책 n / N
         Row(
-            Modifier.fillMaxWidth().statusBarsPadding().padding(horizontal = Tokens.Space.s2, vertical = Tokens.Space.s1),
+            Modifier.fillMaxWidth().background(Room).statusBarsPadding().heightIn(min = 56.dp).padding(horizontal = Tokens.Space.s2),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            IconButton(stringResource(R.string.close), onClick = { s.back() }) {
+            if (at >= 0) Row(
+                Modifier.padding(start = Tokens.Space.s2, end = Tokens.Space.s3).heightIn(min = 36.dp).border(1.dp, Gilt.copy(alpha = 0.55f))
+                    .pressable { focus(-1) }.padding(start = 6.dp, end = 12.dp),
+                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
+                Canvas(Modifier.size(14.dp)) { drawLine(Gilt, Offset(size.width * 0.7f, 0f), Offset(size.width * 0.25f, size.height / 2), 1.6.dp.toPx()); drawLine(Gilt, Offset(size.width * 0.25f, size.height / 2), Offset(size.width * 0.7f, size.height), 1.6.dp.toPx()) }
+                Text(stringResource(R.string.walk_back_whole), style = Type.small.ui(), color = Gilt)
+            } else IconButton(stringResource(R.string.close), onClick = { s.back() }) {
                 Canvas(Modifier.size(18.dp)) {
                     val st = Stroke(1.6.dp.toPx())
                     drawLine(Wall, Offset.Zero, Offset(size.width, size.height), st.width)
                     drawLine(Wall, Offset(size.width, 0f), Offset(0f, size.height), st.width)
                 }
             }
-            Text(stringResource(R.string.walk_title), style = Type.body.ui(), color = Wall, modifier = Modifier.weight(1f))
+            Text(stringResource(R.string.walk_title), style = Type.body.ui(), color = if (at >= 0) WallSoft else Wall, modifier = Modifier.weight(1f))
             if (spots.isNotEmpty()) Text(
                 if (at >= 0) "${at + 1} / ${spots.size}" else "· ${spots.size} ·",
                 style = Type.caps, color = Gilt, modifier = Modifier.padding(end = Tokens.Space.s3),
@@ -201,7 +210,21 @@ fun Artwork(s: AppState, r: Route.Artwork) {
                             Text(it.title[work.series.original], style = Type.title.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic), color = Ink.palette.slipInk)
                             if (ui != work.series.original) Text(it.title[ui], style = Type.small.ui(), color = Ink.palette.slipSoft)
                         }
-                        letter?.note?.let { Text(it[ui], style = Type.small.of(ui), color = Ink.palette.slipInk, maxLines = 3, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis) }
+                        letter?.note?.let { note ->
+                            var more by remember { mutableStateOf(false) }
+                            var long by remember { mutableStateOf(false) }
+                            Column(if (more) Modifier.heightIn(max = 300.dp).verticalScroll(androidx.compose.foundation.rememberScrollState()) else Modifier) {
+                                Text(
+                                    note[ui], style = Type.small.of(ui), color = Ink.palette.slipInk,
+                                    maxLines = if (more) Int.MAX_VALUE else 3, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
+                                    onTextLayout = { if (!more) long = it.hasVisualOverflow },
+                                )
+                            }
+                            if (long || more) Text(
+                                stringResource(if (more) R.string.walk_less else R.string.walk_more), style = Type.small.ui(), color = Color(0xFF7A5A20),
+                                modifier = Modifier.pressable { more = !more }.padding(vertical = 4.dp),
+                            )
+                        }
                         if (spots.isNotEmpty()) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                             Text(stringResource(R.string.walk_hint), style = Type.small.ui(), color = Ink.palette.slipSoft, modifier = Modifier.weight(1f))
                             Box(Modifier.heightIn(min = 44.dp).background(Ink.palette.slipInk).pressable { focus(0) }.padding(horizontal = Tokens.Space.s4), contentAlignment = Alignment.Center) {
@@ -274,11 +297,16 @@ private fun SpotCard(
             }
             if (quote != null) {
                 Column(
-                    Modifier.fillMaxWidth().border(1.dp, p.slipInk.copy(alpha = 0.18f)).pressable(enabled = quoteAsset != null) { quoteAsset?.let(onPlay) }.padding(Tokens.Space.s3),
+                    Modifier.fillMaxWidth().border(1.dp, p.slipInk.copy(alpha = 0.18f)).padding(Tokens.Space.s3),
                     verticalArrangement = Arrangement.spacedBy(2.dp),
                 ) {
                     Text(stringResource(R.string.walk_from_letter), style = Type.caps.copy(fontSize = Tokens.Text.caps), color = Color(0xFF7A5A20))
-                    Text("“${quote[learn]}”", style = Type.base.of(learn).copy(fontStyle = FontStyle.Italic), color = if (playing == quoteAsset) Color(0xFF7A5A20) else p.slipInk, maxLines = 3, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+                    val line = "“${quote[learn]}”"
+                    val marked = androidx.compose.ui.text.buildAnnotatedString {
+                        append(line)
+                        sp.word?.let { wd -> wordMarks(line, listOf(wd.text[learn])).forEach { (range, _) -> addStyle(androidx.compose.ui.text.SpanStyle(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold, color = Color(0xFF7A5A20)), range.first, range.last + 1) } }
+                    }
+                    Text(marked, style = Type.base.of(learn).copy(fontStyle = FontStyle.Italic), color = p.slipInk, maxLines = 3, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
                     if (read != learn) Text(quote[read], style = Type.small.of(read), color = p.slipSoft, maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
                 }
             }

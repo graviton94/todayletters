@@ -25,6 +25,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.height
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.graphics.drawscope.clipPath
+import androidx.compose.ui.graphics.drawscope.clipRect
+import androidx.compose.ui.graphics.drawscope.rotate
+import androidx.compose.ui.graphics.drawscope.translate
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
@@ -53,21 +63,32 @@ fun MomentCard(s: AppState, work: Work, m: Moment, onMap: () -> Unit, onPhoto: (
     val lang = uiLang()
     when (m) {
         is Moment.Location -> {
+            // 요즘 메신저의 위치 카드: 둥근 모서리 안에 옛 동판 지도, 이름 · 주소, 단추 둘. 지도는 카드 밖으로 나가지 않는다.
             val place = work.places.firstOrNull { it.id == m.place }
-            Column(Modifier.widthIn(max = 280.dp).pressable(onClick = onMap).background(p.slip).border(Tokens.Stroke.hair, p.line)) {
-                Box(Modifier.fillMaxWidth().aspectRatio(1.6f)) {
-                    ArlesMap(work, focus = m.place, modifier = Modifier.fillMaxSize(), compact = true)
-                }
-                Row(Modifier.padding(Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    Pin(Color(0xFFA2382A), 14.dp)
-                    Column(Modifier.weight(1f)) {
-                        Text(m.title[lang], style = Type.body.ui(), color = p.slipInk, maxLines = 1)
-                        Text(m.address, style = Type.small.copy(fontFamily = Faces.display), color = p.slipSoft, maxLines = 1)
+            val ctx = androidx.compose.ui.platform.LocalContext.current
+            val shape = androidx.compose.foundation.shape.RoundedCornerShape(14.dp)
+            Column(Modifier.widthIn(max = 280.dp)) {
+                Column(
+                    Modifier.clip(shape).background(CardInk).border(1.dp, CardEdge, shape)
+                        .pressable { place?.let { openMaps(ctx, it, m.title[lang]) } ?: onMap() },
+                ) {
+                    ArlesMap(work, focus = m.place, modifier = Modifier.fillMaxWidth().height(150.dp), compact = true)
+                    Column(Modifier.padding(start = 13.dp, end = 13.dp, top = 11.dp, bottom = 12.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Text(m.title[lang], style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = CardText, maxLines = 1)
+                        Text(m.address, style = Type.small.copy(fontFamily = Faces.text), color = CardSoft, maxLines = 1)
+                        Row(Modifier.padding(top = 8.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                            val btn = androidx.compose.foundation.shape.RoundedCornerShape(8.dp)
+                            Box(Modifier.weight(1f).heightIn(min = 36.dp).clip(btn).background(CardButton).pressable { place?.let { openMaps(ctx, it, m.title[lang]) } }, contentAlignment = Alignment.Center) {
+                                Text(stringResource(R.string.map_open), style = Type.small.ui(), color = Color(0xFFD2A955))
+                            }
+                            Box(Modifier.weight(1f).heightIn(min = 36.dp).clip(btn).background(CardButton).pressable(onClick = onMap), contentAlignment = Alignment.Center) {
+                                Text(stringResource(R.string.map_places), style = Type.small.ui(), color = CardText)
+                            }
+                        }
                     }
                 }
-                Text(stringResource(R.string.moment_location, work.name[lang]), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.slipSoft,
-                    modifier = Modifier.padding(start = Tokens.Space.s3, end = Tokens.Space.s3, bottom = Tokens.Space.s3))
-                @Suppress("UNUSED_EXPRESSION") place
+                Text(stringResource(R.string.moment_location, work.name[lang]), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft,
+                    modifier = Modifier.padding(top = 4.dp, start = 2.dp))
             }
         }
         is Moment.Photo -> Column(
@@ -97,68 +118,150 @@ fun MapSheet(s: AppState, work: Work, onClose: () -> Unit) {
             Box(Modifier.fillMaxWidth().aspectRatio(0.95f).border(Tokens.Stroke.hair, p.line)) {
                 ArlesMap(work, focus = pick, modifier = Modifier.fillMaxSize(), visible = seen, onPick = { pick = it })
             }
+            val ctx = androidx.compose.ui.platform.LocalContext.current
             work.places.firstOrNull { it.id == pick }?.let { pl ->
                 Text(pl.name[lang], style = Type.body.ui(), color = p.ink)
                 Text(pl.note[lang], style = Type.small.ui(), color = p.inkSoft)
+                Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                    Box(Modifier.weight(1f)) { Secondary(stringResource(R.string.close), small = true, onClick = onClose) }
+                    Box(Modifier.weight(1f)) { Primary(stringResource(R.string.map_open), small = true) { openMaps(ctx, pl, pl.name[lang]) } }
+                }
             }
-            Secondary(stringResource(R.string.close), onClick = onClose)
         }
     }
 }
 
+/** 위치 카드 색 (테마와 상관없이 메신저 카드처럼). */
+private val CardInk = Color(0xFF241B13)
+private val CardEdge = Color(0xFF3A2E22)
+private val CardText = Color(0xFFEADFC8)
+private val CardSoft = Color(0xFFA8977C)
+private val CardButton = Color(0xFF33281D)
+
+/** 그 장소의 실제 좌표로 구글 지도를 연다 (앱이 없으면 브라우저). */
+fun openMaps(ctx: android.content.Context, place: io.github.graviton94.todayletters.core.Place, label: String) {
+    if (place.lat == 0.0 && place.lng == 0.0) return
+    val uri = android.net.Uri.parse("https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lng}")
+    runCatching { ctx.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, uri).addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)) }
+    @Suppress("UNUSED_EXPRESSION") label
+}
+
 /**
- * 손으로 그린 1888년 아를: 론강 · 성벽 안 옛 도시 · 남쪽 운하 · 철길. 장소마다 핀.
- * [visible] 에 든 장소만 핀을 보이고 (편지에서 나온 곳), [focus] 는 붉은 핀.
+ * 1888년 아를 시가도 같은 동판 지도: 론강(두 강둑 선 + 물결 결) · 성곽 안 옛 시가(기울어진 격자 블록, 빗금) ·
+ * 원형 경기장 · 남쪽 운하 · 철길 · 나침반 · 표제 띠. 장소 좌표(0~1)는 이 그림 위의 자리.
+ * [compact] 면 [focus] 를 가운데 두고 1.6배로 (위치 카드). [visible] 에 든 장소만 핀.
  */
 @Composable
 fun ArlesMap(work: Work, focus: String?, modifier: Modifier, compact: Boolean = false, visible: Set<String>? = null, onPick: (String) -> Unit = {}) {
     val lang = uiLang()
-    BoxWithConstraints(modifier.background(Color(0xFFEEE5D0))) {
-        Canvas(Modifier.fillMaxSize()) { drawArles() }
+    val ctx = androidx.compose.ui.platform.LocalContext.current
+    val caps = remember { runCatching { androidx.core.content.res.ResourcesCompat.getFont(ctx, R.font.caps) }.getOrNull() }
+    val italic = remember { runCatching { androidx.core.content.res.ResourcesCompat.getFont(ctx, R.font.display_italic) }.getOrNull() }
+    val fp = work.places.firstOrNull { it.id == focus }
+    BoxWithConstraints(modifier.clipToBounds().background(MapPaper)) {
+        val W = constraints.maxWidth.toFloat(); val H = constraints.maxHeight.toFloat()
+        // 지도 한 장의 크기 (가로 기준, 세로는 0.95 비율) 와 보이는 창
+        val z = if (compact) 1.6f else 1f
+        val mw = W * z; val mh = (if (compact) W / 0.95f else H) * z
+        val ox = if (compact && fp != null) (W / 2 - fp.x * mw).coerceIn(W - mw, 0f) else 0f
+        val oy = if (compact && fp != null) (H / 2 - fp.y * mh).coerceIn(H - mh, 0f) else 0f
+        Canvas(Modifier.fillMaxSize()) {
+            translate(ox, oy) { drawEngraved(mw, mh) }
+            if (!compact) cartouche(caps, italic)
+            drawRect(androidx.compose.ui.graphics.Brush.radialGradient(0.55f to Color.Transparent, 1f to Color(0x5C785523), center = Offset(W / 2, H * 0.45f), radius = maxOf(W, H) * 0.75f))
+            compass(W, H)
+        }
+        val d = LocalDensity.current
         work.places.filter { visible == null || it.id in visible || it.id == focus }.forEach { pl ->
             if (compact && pl.id != focus) return@forEach
-            val x = maxWidth * pl.x; val y = maxHeight * pl.y
+            val x = with(d) { (ox + pl.x * mw).toDp() }; val y = with(d) { (oy + pl.y * mh).toDp() }
             Column(
-                Modifier.offset(x - 40.dp, y - 34.dp).size(80.dp, 52.dp).clickable { onPick(pl.id) },
+                Modifier.offset(x - 40.dp, y - 34.dp).size(80.dp, 52.dp).clickable(enabled = !compact) { onPick(pl.id) },
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Pin(if (pl.id == focus) Color(0xFFA2382A) else Color(0xFF3D4C6E), 22.dp)
+                Pin(if (pl.id == focus) Color(0xFF9A3B22) else Color(0xFF3D4C6E), 24.dp)
                 if (!compact) Text(pl.name[lang], style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = Color(0xFF2A2118), maxLines = 1)
             }
         }
     }
 }
 
-private fun DrawScope.drawArles() {
-    val w = size.width; val h = size.height
-    val ink = Color(0x592A2118)
-    // 론강: 북동에서 들어와 도시 서쪽을 감아 남서로
+private val MapPaper = Color(0xFFF1E6CC)
+private val Engrave = Color(0xFF4A3A22)
+
+private fun DrawScope.drawEngraved(w: Float, h: Float) {
+    val px = w / 300f   // 굵기 기준 (지도 폭 300 일 때 1)
+    // 론강: 북동에서 들어와 시가 북서를 감아 남서로. 진한 강둑 두 줄 사이를 옅게 채우고 물결 결
     val river = Path().apply {
-        moveTo(w * 0.78f, -10f)
-        cubicTo(w * 0.55f, h * 0.18f, w * 0.18f, h * 0.22f, w * 0.2f, h * 0.48f)
-        cubicTo(w * 0.22f, h * 0.7f, w * 0.05f, h * 0.85f, -10f, h * 0.98f)
+        moveTo(w * 1.05f, h * 0.02f)
+        cubicTo(w * 0.72f, h * 0.06f, w * 0.48f, h * 0.10f, w * 0.34f, h * 0.22f)
+        cubicTo(w * 0.20f, h * 0.36f, w * 0.18f, h * 0.62f, -w * 0.05f, h * 0.94f)
     }
-    drawPath(river, Color(0xFFB9C7DA), style = Stroke(w * 0.07f))
-    drawPath(river, Color(0x553D4C6E), style = Stroke(1.2f))
-    // 성벽 안 옛 도시
-    val town = Path().apply {
-        moveTo(w * 0.32f, h * 0.36f); cubicTo(w * 0.45f, h * 0.28f, w * 0.66f, h * 0.32f, w * 0.7f, h * 0.45f)
-        cubicTo(w * 0.72f, h * 0.6f, w * 0.52f, h * 0.68f, w * 0.38f, h * 0.62f); cubicTo(w * 0.28f, h * 0.56f, w * 0.26f, h * 0.44f, w * 0.32f, h * 0.36f); close()
+    drawPath(river, Engrave, style = Stroke(32f * px))
+    drawPath(river, Color(0xFFD9D4BC), style = Stroke(29.5f * px))
+    for (k in listOf(-9f, -4f, 1f, 6f)) {
+        translate(0f, k * px) { drawPath(river, Color(0xCC6C7470), style = Stroke(0.6f * px, pathEffect = PathEffect.dashPathEffect(floatArrayOf(7f * px, 6f * px)))) }
     }
-    drawPath(town, Color(0xFFE4D6B8))
-    drawPath(town, ink, style = Stroke(1.5f, pathEffect = PathEffect.dashPathEffect(floatArrayOf(6f, 4f))))
-    // 골목 몇 줄
-    for (k in 0..4) drawLine(Color(0x332A2118), Offset(w * (0.36f + k * 0.07f), h * 0.36f), Offset(w * (0.33f + k * 0.07f), h * 0.62f), 1f)
-    // 철길 (북쪽, 역으로)
-    drawLine(Color(0x802A2118), Offset(w * 0.4f, h * 0.12f), Offset(w * 1.02f, h * 0.2f), 2f, pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 6f)))
-    // 남쪽 운하 (아를-부크 운하)
-    drawLine(Color(0xFF9FB4CC), Offset(w * 0.55f, h * 0.66f), Offset(w * 0.78f, h * 1.02f), w * 0.025f)
+    // 남쪽 운하 (아를–부크): 랑글루아 다리 쪽으로
+    drawLine(Engrave, Offset(w * 0.56f, h * 0.64f), Offset(w * 0.76f, h * 1.02f), 7f * px)
+    drawLine(Color(0xFFD9D4BC), Offset(w * 0.56f, h * 0.64f), Offset(w * 0.76f, h * 1.02f), 5f * px)
+    // 성 밖으로 나가는 길 두 줄
+    drawLine(Engrave, Offset(w * 0.30f, h * 0.52f), Offset(w * 0.16f, h * 1.02f), 0.6f * px)
+    drawLine(Engrave, Offset(w * 0.32f, h * 0.53f), Offset(w * 0.18f, h * 1.02f), 0.6f * px)
+    // 철길 (역에서 북동으로): 선 + 침목
+    val r0 = Offset(w * 0.62f, h * 0.30f); val r1 = Offset(w * 1.03f, h * 0.10f)
+    drawLine(Color(0xFF2A2118), r0, r1, 1f * px)
+    for (i in 1..13) {
+        val t = i / 14f; val c = Offset(r0.x + (r1.x - r0.x) * t, r0.y + (r1.y - r0.y) * t)
+        drawLine(Color(0xFF2A2118), Offset(c.x - 1.5f * px, c.y - 3f * px), Offset(c.x + 1.5f * px, c.y + 3f * px), 0.7f * px)
+    }
+    // 성곽 안 옛 시가: 기울어진 격자 블록에 빗금
+    val cx = w * 0.52f; val cy = h * 0.47f; val rx = w * 0.21f; val ry = h * 0.21f
+    drawOval(Engrave, Offset(cx - rx - 7 * px, cy - ry - 7 * px), androidx.compose.ui.geometry.Size((rx + 7 * px) * 2, (ry + 7 * px) * 2), style = Stroke(1.1f * px))
+    drawOval(Engrave, Offset(cx - rx - 11 * px, cy - ry - 11 * px), androidx.compose.ui.geometry.Size((rx + 11 * px) * 2, (ry + 11 * px) * 2), style = Stroke(0.5f * px))
+    val bw = 17f * px; val bh = 12f * px; val gap = 3.2f * px
+    rotate(-14f, Offset(cx, cy)) {
+        for (i in -9..9) for (j in -8..8) {
+            val x = cx + i * (bw + gap); val y = cy + j * (bh + gap)
+            val dx = (x - cx) / rx; val dy = (y - cy) / ry
+            if (dx * dx + dy * dy > 0.88f || (i * 7 + j * 3) % 11 == 0) continue
+            val tl = Offset(x - bw / 2, y - bh / 2)
+            drawRect(Color(0xFFE6D8B8), tl, androidx.compose.ui.geometry.Size(bw, bh))
+            clipRect(tl.x, tl.y, tl.x + bw, tl.y + bh) {
+                var s = -bh; while (s < bw) { drawLine(Color(0xFF7A6440), Offset(tl.x + s, tl.y + bh), Offset(tl.x + s + bh, tl.y), 0.55f * px); s += 2.6f * px }
+            }
+            drawRect(Engrave, tl, androidx.compose.ui.geometry.Size(bw, bh), style = Stroke(0.6f * px))
+        }
+    }
     // 원형 경기장
-    drawOval(Color(0x592A2118), Offset(w * 0.53f, h * 0.47f), androidx.compose.ui.geometry.Size(w * 0.07f, h * 0.05f), style = Stroke(1.5f))
-    // 나침반
-    drawLine(ink, Offset(w * 0.92f, h * 0.86f), Offset(w * 0.92f, h * 0.76f), 1.5f)
-    drawLine(ink, Offset(w * 0.9f, h * 0.79f), Offset(w * 0.92f, h * 0.76f), 1.5f)
-    drawLine(ink, Offset(w * 0.94f, h * 0.79f), Offset(w * 0.92f, h * 0.76f), 1.5f)
+    val ac = Offset(w * 0.58f, h * 0.50f); val ar = androidx.compose.ui.geometry.Size(34f * px, 26f * px)
+    drawOval(MapPaper, Offset(ac.x - ar.width / 2, ac.y - ar.height / 2), ar)
+    clipPath(Path().apply { addOval(androidx.compose.ui.geometry.Rect(ac.x - ar.width / 2, ac.y - ar.height / 2, ac.x + ar.width / 2, ac.y + ar.height / 2)) }) {
+        var s = -ar.height; while (s < ar.width) { drawLine(Color(0xFF2A2118), Offset(ac.x - ar.width / 2 + s, ac.y + ar.height / 2), Offset(ac.x - ar.width / 2 + s + ar.height * 0.6f, ac.y - ar.height / 2), 0.55f * px); s += 2.2f * px }
+    }
+    drawOval(Color(0xFF2A2118), Offset(ac.x - ar.width / 2, ac.y - ar.height / 2), ar, style = Stroke(1.2f * px))
+    drawOval(MapPaper, Offset(ac.x - 8 * px, ac.y - 5.5f * px), androidx.compose.ui.geometry.Size(16 * px, 11 * px))
+    drawOval(Color(0xFF2A2118), Offset(ac.x - 8 * px, ac.y - 5.5f * px), androidx.compose.ui.geometry.Size(16 * px, 11 * px), style = Stroke(0.8f * px))
+}
+
+private fun DrawScope.compass(w: Float, h: Float) {
+    val c = Offset(w - 28.dp.toPx(), h - 28.dp.toPx()); val r = 12.dp.toPx()
+    drawCircle(Engrave, r, c, style = Stroke(0.6.dp.toPx()))
+    drawPath(Path().apply { moveTo(c.x, c.y - r * 1.15f); lineTo(c.x + r * 0.27f, c.y); lineTo(c.x, c.y + r * 1.15f); lineTo(c.x - r * 0.27f, c.y); close() }, Engrave)
+}
+
+/** 표제 띠: ARLES · plan de la ville · 1888 (큰 지도에만). */
+private fun DrawScope.cartouche(caps: android.graphics.Typeface?, italic: android.graphics.Typeface?) {
+    val x = 10.dp.toPx(); val y = size.height - 42.dp.toPx(); val bw = 104.dp.toPx(); val bh = 32.dp.toPx()
+    drawRect(Color(0xFFF4EBD5), Offset(x, y), androidx.compose.ui.geometry.Size(bw, bh))
+    drawRect(Engrave, Offset(x, y), androidx.compose.ui.geometry.Size(bw, bh), style = Stroke(0.8.dp.toPx()))
+    drawRect(Engrave, Offset(x + 3.dp.toPx(), y + 3.dp.toPx()), androidx.compose.ui.geometry.Size(bw - 6.dp.toPx(), bh - 6.dp.toPx()), style = Stroke(0.4.dp.toPx()))
+    drawContext.canvas.nativeCanvas.apply {
+        val p1 = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply { typeface = caps; textSize = 10.dp.toPx(); color = 0xFF2A2118.toInt(); textAlign = android.graphics.Paint.Align.CENTER; letterSpacing = 0.25f }
+        drawText("ARLES", x + bw / 2, y + 15.dp.toPx(), p1)
+        val p2 = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply { typeface = italic; textSize = 8.5f * density; color = 0xFF4A3A22.toInt(); textAlign = android.graphics.Paint.Align.CENTER }
+        drawText("plan de la ville · 1888", x + bw / 2, y + 25.dp.toPx(), p2)
+    }
 }
 
 /** 지도 핀. */

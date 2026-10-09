@@ -442,17 +442,20 @@ private fun readAlong(text: String, pos: Int, done: Color, rest: Color, now: Col
 
 /** 화면 안에서 묻기 (시스템 대화상자 대신). */
 @Composable
-fun Ask(title: String, yes: String, no: String, onYes: () -> Unit, onNo: () -> Unit) {
+/** 묻는 창: 제목 17 · 본문 14 · 단추 46 (작은 단추 둘). 화면 너비의 84%. */
+fun Ask(title: String, yes: String, no: String, onYes: () -> Unit, onNo: () -> Unit, body: String? = null) {
     val p = Ink.palette
     Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onNo), contentAlignment = Alignment.Center) {
         Column(
-            Modifier.padding(Tokens.Space.s6).background(p.paper).border(Tokens.Stroke.hair, p.ink).clickable(enabled = false) {}.padding(Tokens.Space.s5),
-            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
+            Modifier.fillMaxWidth(0.84f).background(p.paper).border(Tokens.Stroke.hair, p.line).clickable(enabled = false) {}
+                .padding(start = Tokens.Space.s5, end = Tokens.Space.s5, top = Tokens.Space.s5, bottom = Tokens.Space.s4),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
-            Text(title, style = Type.heading.ui(), color = p.ink)
-            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                Box(Modifier.weight(1f)) { Secondary(yes, onClick = onYes) }
-                Box(Modifier.weight(1f)) { Primary(no, onClick = onNo) }
+            Text(title, style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+            if (body != null) Text(body, style = Type.small.ui(), color = p.inkSoft)
+            Row(Modifier.padding(top = Tokens.Space.s3), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                Box(Modifier.weight(1f)) { Secondary(yes, small = true, onClick = onYes) }
+                Box(Modifier.weight(1f)) { Primary(no, small = true, onClick = onNo) }
             }
         }
     }

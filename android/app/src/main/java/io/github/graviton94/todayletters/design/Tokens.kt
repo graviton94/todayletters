@@ -46,7 +46,7 @@ object Tokens {
         val touch = 56.dp
         val row = 64.dp
         val button = 54.dp
-        val buttonSm = 50.dp
+        val buttonSm = 46.dp
         val chip = 46.dp
         val avatar = 40.dp
         val avatarLg = 96.dp

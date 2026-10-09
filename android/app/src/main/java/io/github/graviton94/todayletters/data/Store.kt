@@ -74,6 +74,9 @@ class Store(ctx: Context) {
     fun openedToday(series: String): Int =
         if (p.getLong("o:$series:day", -1) == LocalDate.now().toEpochDay()) p.getInt("o:$series:n", 0) else 0
 
+    /** 마지막으로 새 편지를 연 날과 그날 연 수 (날이 지나도 남아 있음). 연 적 없으면 (-1, 0). */
+    fun lastOpen(series: String): Pair<Long, Int> = p.getLong("o:$series:day", -1) to p.getInt("o:$series:n", 0)
+
     fun markOpened(series: String) {
         val n = openedToday(series) + 1
         p.edit().putLong("o:$series:day", LocalDate.now().toEpochDay()).putInt("o:$series:n", n).apply()

@@ -262,7 +262,7 @@
     <string name="review_wrong">%1$s · %2$s</string>
     <string name="input_helper">%1$s 글⁠자</string>
     <string name="review_finish">마⁠치⁠기</string>
-    <string name="review_leave">복⁠습⁠을 그⁠만⁠할⁠까⁠요⁠? 푼 것⁠은 저⁠장⁠돼⁠요⁠.</string>
+    <string name="review_leave">복⁠습⁠을 그⁠만⁠할⁠까⁠요⁠?</string>
     <string name="result_right">맞⁠힌 수</string>
     <string name="result_done">복⁠습 완⁠료</string>
     <string name="result_tomorrow">내⁠일 다⁠시</string>
@@ -292,4 +292,17 @@
     <string name="pad_open">%1$s 글⁠자⁠판</string>
     <string name="pad_keyboard">키⁠보⁠드</string>
     <string name="pad_delete">지⁠우⁠기</string>
+    <string name="review_leave_d">지⁠금⁠까⁠지 푼 것⁠은 저⁠장⁠돼⁠요⁠.</string>
+    <string name="review_stop">그⁠만⁠하⁠기</string>
+    <string name="review_keep">계⁠속⁠하⁠기</string>
+    <string name="walk_back_whole">전⁠체 그⁠림</string>
+    <string name="walk_more">더⁠보⁠기</string>
+    <string name="walk_less">접⁠기</string>
+    <string name="lib_today">오⁠늘</string>
+    <string name="lib_yesterday">어⁠제</string>
+    <string name="lib_days_ago">%1$d⁠일 전</string>
+    <string name="lib_missed">부⁠재⁠중 편⁠지 %1$d⁠통 · %2$s</string>
+    <string name="lib_progress">%1$s⁠장 %2$d / %3$d</string>
+    <string name="map_open">지⁠도⁠에⁠서 보⁠기</string>
+    <string name="map_places">다⁠녀⁠간 곳</string>
 </resources>

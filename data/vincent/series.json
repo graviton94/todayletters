@@ -37,8 +37,8 @@
   ],
   "places": {
     "station": {
-      "x": 0.62,
-      "y": 0.16,
+      "x": 0.7,
+      "y": 0.22,
       "name": {
         "ko": "아를 역",
         "en": "Arles station",
@@ -47,10 +47,12 @@
       "note": {
         "ko": "2월 20일, 파리에서 기차로 도착한 곳.",
         "en": "Where he arrived from Paris on 20 February."
-      }
+      },
+      "lat": 43.68466,
+      "lng": 4.63121
     },
     "yellow": {
-      "x": 0.58,
+      "x": 0.57,
       "y": 0.27,
       "name": {
         "ko": "노란 집",
@@ -60,11 +62,13 @@
       "note": {
         "ko": "5월에 빌린 집. 화가들의 집을 꿈꿨어요.",
         "en": "Rented in May; he dreamed of a house of artists."
-      }
+      },
+      "lat": 43.68345,
+      "lng": 4.63118
     },
     "carrel": {
-      "x": 0.45,
-      "y": 0.46,
+      "x": 0.47,
+      "y": 0.44,
       "name": {
         "ko": "카렐 식당",
         "en": "Restaurant Carrel",
@@ -73,10 +77,12 @@
       "note": {
         "ko": "도착해서 처음 묵은 여관 겸 식당.",
         "en": "His first lodging, an inn with a restaurant."
-      }
+      },
+      "lat": 43.68205,
+      "lng": 4.63097
     },
     "arena": {
-      "x": 0.56,
+      "x": 0.58,
       "y": 0.5,
       "name": {
         "ko": "원형 경기장",
@@ -86,11 +92,13 @@
       "note": {
         "ko": "로마 시대 경기장. 투우도 열렸어요.",
         "en": "The Roman arena, where bullfights were held."
-      }
+      },
+      "lat": 43.67778,
+      "lng": 4.6311
     },
     "langlois": {
-      "x": 0.66,
-      "y": 0.86,
+      "x": 0.7,
+      "y": 0.88,
       "name": {
         "ko": "랑글루아 다리",
         "en": "The Langlois bridge",
@@ -99,7 +107,9 @@
       "note": {
         "ko": "도시 남쪽 운하 위의 도개교.",
         "en": "A drawbridge on the canal south of town."
-      }
+      },
+      "lat": 43.65733,
+      "lng": 4.62315
     }
   }
 }

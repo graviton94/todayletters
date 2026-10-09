@@ -173,21 +173,22 @@ fun Twinkle(still: Boolean) {
 }
 
 @Composable
-fun Primary(text: String, modifier: Modifier = Modifier, enabled: Boolean = true, onClick: () -> Unit) {
+/** 단추 크기는 두 가지뿐: 큰 것 54 (글 17), 작은 것 46 (글 15). 같은 줄의 단추는 같은 크기. */
+fun Primary(text: String, modifier: Modifier = Modifier, enabled: Boolean = true, small: Boolean = false, onClick: () -> Unit) {
     val p = Ink.palette
     Box(
-        modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).pressable(enabled, onClick = onClick).background(if (enabled) p.fill else p.hide),
+        modifier.fillMaxWidth().heightIn(min = if (small) Tokens.Size.buttonSm else Tokens.Size.button).pressable(enabled, onClick = onClick).background(if (enabled) p.fill else p.hide),
         contentAlignment = Alignment.Center,
-    ) { Text(text, style = Type.body.ui().copy(fontSize = 17.sp), color = if (enabled) p.onFill else p.hideInk) }
+    ) { Text(text, style = Type.body.ui().copy(fontSize = if (small) 15.sp else 17.sp), color = if (enabled) p.onFill else p.hideInk) }
 }
 
 @Composable
-fun Secondary(text: String, modifier: Modifier = Modifier, onClick: () -> Unit) {
+fun Secondary(text: String, modifier: Modifier = Modifier, small: Boolean = false, onClick: () -> Unit) {
     val p = Ink.palette
     Box(
-        modifier.fillMaxWidth().heightIn(min = Tokens.Size.buttonSm).pressable(onClick = onClick).border(Tokens.Stroke.hair, p.ink),
+        modifier.fillMaxWidth().heightIn(min = if (small) Tokens.Size.buttonSm else Tokens.Size.button).pressable(onClick = onClick).border(Tokens.Stroke.hair, p.ink),
         contentAlignment = Alignment.Center,
-    ) { Text(text, style = Type.body.ui(), color = p.ink) }
+    ) { Text(text, style = Type.body.ui().copy(fontSize = if (small) 15.sp else 17.sp), color = p.ink) }
 }
 
 /** 선택지 줄 (테마 · 언어 · 하루 편지 수 …). */

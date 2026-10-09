@@ -181,4 +181,15 @@ class CoreTest {
         assertEquals(Memory.Mark.ACCENT, Memory.grade("pensé", "pense"))
         assertEquals(Memory.Mark.WRONG, Memory.grade("neige", "neije"))
     }
+
+    @Test fun arrivalDayAndMissed() {
+        // 하루 1통: 10일에 열었으면 다음 편지는 11일 도착
+        assertEquals(11L, Arrivals.arrivedOn(10, 1, 1))
+        // 하루 2통인데 1통만 열었으면 같은 날 하나 더
+        assertEquals(10L, Arrivals.arrivedOn(10, 1, 2))
+        assertEquals(null, Arrivals.arrivedOn(-1, 0, 1))
+        assertTrue(Arrivals.missed(11, 13, 1))
+        assertFalse(Arrivals.missed(13, 13, 1))
+        assertFalse(Arrivals.missed(11, 13, 0))
+    }
 }

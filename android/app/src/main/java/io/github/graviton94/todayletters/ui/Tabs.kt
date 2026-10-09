@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -58,24 +59,70 @@ fun LibraryTab(s: AppState) {
     Column(Modifier.fillMaxSize()) {
         TopBar(stringResource(R.string.tab_library), s, help = "library", showBack = false, showSettings = true)
         Page {
-            s.works.forEach { w ->
-                Row(
-                    Modifier.fillMaxWidth().clickable(role = Role.Button) { s.go(Route.Series(w.series.id)) }.padding(vertical = Tokens.Space.s2),
-                    horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Portrait(w.portrait, w.fullName, 64.dp)
-                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                        Caps("Saison I · ${w.years}", small = true)
-                        Text(w.title[uiLang()], style = Type.heading.ui(), color = p.ink)
-                        Text("${w.name[uiLang()]} → ${w.recipient[uiLang()]} · ${stringResource(langLabel(w.series.original))}", style = Type.small.ui(), color = p.inkSoft)
-                        if (w.credit.isNotEmpty()) Text(w.credit, style = Type.signature.copy(fontSize = Tokens.Text.small), color = p.inkSoft)
-                    }
-                }
-                Hair()
-            }
+            s.version
+            s.works.forEach { w -> LibraryRow(s, w) }
             Text(stringResource(R.string.library_next), style = Type.small.ui(), color = p.inkSoft)
         }
     }
+}
+
+/**
+ * 서재의 한 줄: 메신저 대화 목록처럼. 초상 · 이름 · 마지막(또는 새로 온) 문장 · 언제 · 안 읽은 수.
+ * 도착한 날이 지났는데 열지 않은 편지는 ‘부재중’.
+ */
+@Composable
+private fun LibraryRow(s: AppState, w: io.github.graviton94.todayletters.data.Work) {
+    val p = Ink.palette
+    val id = w.series.id
+    val view = s.room(id)
+    val today = s.today
+    val unread = s.unread(id)
+    val arrived = s.arrivedOn(id)
+    val open = s.openable(id)
+    // 새로 온 편지가 있으면 그 첫 문장, 없으면 마지막으로 읽은 편지의 마지막으로 받은 문장
+    val next = open.firstOrNull { (c, l) -> s.progress(id, c, l.id).shown == 0 && !s.progress(id, c, l.id).done }
+    val last = open.lastOrNull { (c, l) -> s.progress(id, c, l.id).shown > 0 }
+    val line = next?.second?.messages?.firstOrNull()?.text?.get(view.learn)
+        ?: last?.let { (c, l) -> l.messages.getOrNull((s.progress(id, c, l.id).shown - 1).coerceAtLeast(0))?.text?.get(view.learn) }
+        ?: ""
+    val day = if (unread > 0) arrived ?: today else s.store.lastOpen(id).first.takeIf { it >= 0 }
+    val missed = io.github.graviton94.todayletters.core.Arrivals.missed(arrived, today, unread)
+    val ch = w.chapters.firstOrNull()
+    Row(
+        Modifier.fillMaxWidth().clickable(role = Role.Button) { s.go(Route.Series(id)) }.padding(vertical = Tokens.Space.s3),
+        horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Portrait(w.portrait, w.fullName, 56.dp)
+        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(3.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("${w.name[uiLang()]} → ${w.recipient[uiLang()]}", style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink, modifier = Modifier.weight(1f))
+                if (day != null) Text(relDay(day, today), style = Type.small.ui(), color = if (unread > 0) p.giltText else p.inkSoft)
+            }
+            Caps("Saison I · ${w.years} · ${stringResource(langLabel(w.series.original))}", small = true)
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                Text(io.github.graviton94.todayletters.core.Breaks.plain(line), style = Type.base.of(view.learn), color = p.inkSoft, maxLines = 1,
+                    overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
+                if (unread > 0) Box(Modifier.heightIn(min = 22.dp).widthIn(min = 22.dp).background(p.wrong, androidx.compose.foundation.shape.CircleShape).padding(horizontal = 6.dp), contentAlignment = Alignment.Center) {
+                    Text("$unread", style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.onFill)
+                }
+            }
+            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2), modifier = Modifier.padding(top = 2.dp)) {
+                if (missed && arrived != null) Text(stringResource(R.string.lib_missed, unread, relDay(arrived, today)), style = Type.small.ui().copy(fontSize = Tokens.Text.caps),
+                    color = p.giltText, modifier = Modifier.border(Tokens.Stroke.hair, p.giltText).padding(horizontal = 8.dp, vertical = 3.dp))
+                if (ch != null) Text(stringResource(R.string.lib_progress, ch.id, ch.letters.count { s.progress(id, ch.id, it.id).done }, ch.letters.size), style = Type.small.ui().copy(fontSize = Tokens.Text.caps),
+                    color = p.inkSoft, modifier = Modifier.border(Tokens.Stroke.hair, p.hair).padding(horizontal = 8.dp, vertical = 3.dp))
+            }
+        }
+    }
+    Hair()
+}
+
+/** 오늘 · 어제 · N일 전. */
+@Composable
+private fun relDay(day: Long, today: Long): String = when (val d = (today - day).toInt()) {
+    0 -> stringResource(R.string.lib_today)
+    1 -> stringResource(R.string.lib_yesterday)
+    else -> stringResource(R.string.lib_days_ago, d.coerceAtLeast(0))
 }
 
 /**

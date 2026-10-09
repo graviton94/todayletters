@@ -136,11 +136,12 @@
               "en": "The tiny figure and dog make the snowy plain feel vast."
             },
             "word": {
-              "fr": "chemin",
-              "en": "path, road",
-              "ko": "길",
-              "ipa": "ʃəmɛ̃"
-            }
+              "fr": "paysage",
+              "en": "landscape",
+              "ko": "풍경",
+              "ipa": "pɛizaʒ"
+            },
+            "quote": 3
           },
           {
             "x": 0.55,
@@ -183,23 +184,24 @@
             "quote": 2
           },
           {
-            "x": 0.67,
-            "y": 0.27,
+            "x": 0.5,
+            "y": 0.12,
             "title": {
-              "ko": "붉은 지붕",
-              "en": "A red roof",
-              "fr": "Un toit rouge"
+              "ko": "눈만큼 환한 하늘",
+              "en": "A sky as bright as the snow",
+              "fr": "Le ciel lumineux"
             },
             "note": {
-              "ko": "흰 눈 속 작은 붉은 점 하나가 그림 전체에 온기를 줘요.",
-              "en": "One small red roof warms the whole white field."
+              "ko": "빈센트는 눈밭 위의 이 밝은 하늘을 일본 판화 속 겨울 풍경에 견줬어요.",
+              "en": "Vincent compared this bright sky over the snow to winter scenes in Japanese prints."
             },
             "word": {
-              "fr": "toit",
-              "en": "roof",
-              "ko": "지붕",
-              "ipa": "twa"
-            }
+              "fr": "ciel",
+              "en": "sky",
+              "ko": "하늘",
+              "ipa": "sjɛl"
+            },
+            "quote": 3
           }
         ]
       },
@@ -337,39 +339,39 @@
             "x": 0.55,
             "y": 0.14,
             "title": {
-              "ko": "검은 머리쓰개",
-              "en": "The dark headscarf",
-              "fr": "La coiffe"
+              "ko": "아를의 할머니",
+              "en": "An old woman of Arles",
+              "fr": "Vieille Arlésienne"
             },
             "note": {
-              "ko": "아를 여성들의 머리쓰개. 빈센트는 이곳 여자들이 정말 아름답다고 썼어요.",
-              "en": "An Arlésienne’s headdress; he wrote that the women here were truly beautiful."
+              "ko": "아를에 와서 처음 그린 사람. 편지에서 가장 먼저 꼽은 습작이에요.",
+              "en": "The first person he painted in Arles, and the first study he lists in the letter."
             },
             "word": {
-              "fr": "coiffe",
-              "en": "headdress",
-              "ko": "머리쓰개",
-              "ipa": "kwaf"
+              "fr": "vieille femme",
+              "en": "old woman",
+              "ko": "할머니",
+              "ipa": "vjɛj fam"
             },
-            "quote": 3
+            "quote": 2
           },
           {
             "x": 0.5,
             "y": 0.45,
             "title": {
-              "ko": "주름진 얼굴",
-              "en": "A weathered face",
-              "fr": "Le visage"
+              "ko": "습작의 붓질",
+              "en": "The brushwork of a study",
+              "fr": "Une étude"
             },
             "note": {
-              "ko": "아를에서 처음 그린 습작 중 하나. 편지에 ‘아를의 할머니’라고 적었어요.",
-              "en": "One of his first Arles studies — ‘an old woman of Arles’ in the letter."
+              "ko": "주름진 얼굴을 빠른 붓질로 잡았어요. 빈센트는 이런 그림을 ‘습작’이라 불렀어요.",
+              "en": "The lined face is caught in quick strokes. Vincent called pictures like this ‘studies’."
             },
             "word": {
-              "fr": "visage",
-              "en": "face",
-              "ko": "얼굴",
-              "ipa": "vizaʒ"
+              "fr": "étude",
+              "en": "study",
+              "ko": "습작",
+              "ipa": "etyd"
             },
             "quote": 2
           },
@@ -812,7 +814,7 @@
             },
             "word": {
               "fr": "fleur",
-              "en": "flower",
+              "en": "blossom",
               "ko": "꽃",
               "ipa": "flœʁ"
             },
@@ -822,20 +824,21 @@
             "x": 0.42,
             "y": 0.8,
             "title": {
-              "ko": "풀밭",
-              "en": "The meadow",
-              "fr": "L’herbe"
+              "ko": "프로방스 과수원",
+              "en": "A Provençal orchard",
+              "fr": "Le verger"
             },
             "note": {
-              "ko": "초록과 노랑의 짧은 선이 봄 풀밭을 채워요.",
-              "en": "Green and yellow dashes fill the spring grass."
+              "ko": "빈센트가 그리고 싶었던 ‘엄청나게 밝은’ 과수원. 꽃이 지기 전에 서둘러 여러 점을 그렸어요.",
+              "en": "The ‘enormously cheerful’ orchard he wanted. He hurried to paint several before the blossom fell."
             },
             "word": {
-              "fr": "herbe",
-              "en": "grass",
-              "ko": "풀",
-              "ipa": "ɛʁb"
-            }
+              "fr": "verger",
+              "en": "orchard",
+              "ko": "과수원",
+              "ipa": "vɛʁʒe"
+            },
+            "quote": 0
           },
           {
             "x": 0.1,
@@ -995,10 +998,10 @@
               "en": "The wing he rented — ‘yellow outside, whitewashed inside’."
             },
             "word": {
-              "fr": "maison",
-              "en": "house",
-              "ko": "집",
-              "ipa": "mɛzɔ̃"
+              "fr": "jaune",
+              "en": "yellow",
+              "ko": "노랗게",
+              "ipa": "ʒon"
             },
             "quote": 1
           },
@@ -1072,10 +1075,10 @@
               "en": "A deep midday blue makes the yellow burst."
             },
             "word": {
-              "fr": "ciel",
-              "en": "sky",
-              "ko": "하늘",
-              "ipa": "sjɛl"
+              "fr": "soleil",
+              "en": "sun",
+              "ko": "햇빛",
+              "ipa": "sɔlɛj"
             },
             "quote": 1
           }

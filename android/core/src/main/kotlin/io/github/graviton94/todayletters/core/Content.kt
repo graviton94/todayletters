@@ -22,8 +22,8 @@ sealed interface Moment {
     data class Photo(override val after: Int, val image: String, val caption: Tri) : Moment
 }
 
-/** 작품의 장소 (손으로 그린 지도 위 0~1 위치). */
-data class Place(val id: String, val x: Float, val y: Float, val name: Tri, val note: Tri)
+/** 작품의 장소 (손으로 그린 지도 위 0~1 위치, 실제 위도 · 경도). */
+data class Place(val id: String, val x: Float, val y: Float, val name: Tri, val note: Tri, val lat: Double = 0.0, val lng: Double = 0.0)
 
 /**
  * 편지 한 통 = 대화방 한 번.
@@ -63,6 +63,16 @@ object Arrivals {
     /** [index](0부터) 번째 편지가 며칠 뒤에 오는가. 0 이면 이미 왔다. */
     fun daysUntil(index: Int, openable: Int, perDay: Int): Int =
         if (index < openable) 0 else (index - openable) / perDay.coerceAtLeast(1) + 1
+
+    /**
+     * 아직 열지 않은 다음 편지가 도착한 날. 마지막으로 새 편지를 연 날([lastDay])에 하루 몫([perDay])을 다 열었으면
+     * 그다음 날, 아니면 그날. 연 적이 없으면 null (처음 받은 편지).
+     */
+    fun arrivedOn(lastDay: Long, openedThatDay: Int, perDay: Int): Long? =
+        if (lastDay < 0) null else if (openedThatDay >= perDay) lastDay + 1 else lastDay
+
+    /** 부재중: 도착한 날이 오늘보다 앞인데 아직 열지 않은 편지. */
+    fun missed(arrived: Long?, today: Long, unread: Int): Boolean = arrived != null && arrived < today && unread > 0
 }
 
 /** 이어 읽은 날 (편지를 끝낸 날이 하루씩 이어지면 늘어나고, 하루 건너뛰면 1부터). */

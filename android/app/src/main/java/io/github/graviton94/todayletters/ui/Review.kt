@@ -76,6 +76,18 @@ fun inputHelpers(lang: Lang): List<String> = when (lang) {
 }
 
 /**
+ * 한국어 글자판: 자모로 쪼개지 않고 한 글자 단위. 정답의 글자에 다른 낱말의 글자를 섞어 12칸 (같은 문제는 늘 같은 배치).
+ */
+fun koSyllables(answer: String, pool: List<String>, seed: Int): List<String> {
+    fun hangul(c: Char) = c in '\uAC00'..'\uD7A3'
+    val need = answer.filter(::hangul).map { it.toString() }.distinct()
+    val rnd = java.util.Random(answer.hashCode().toLong() + seed)
+    val others = pool.flatMap { w -> w.filter(::hangul).map { it.toString() } }.distinct().filter { it !in need }.shuffled(rnd)
+    val fill = (others + listOf("가", "나", "다", "마", "사", "아", "하", "지", "리", "고", "는", "에").filter { it !in need && it !in others }).take((12 - need.size).coerceAtLeast(0))
+    return (need + fill).take(12).shuffled(rnd)
+}
+
+/**
  * 복습 (이름표): 낱말 카드 네 칸, 오늘의 복습, 문제 꼴별로 따로 하기, 내 구절, 모은 낱말 찾기.
  */
 @Composable
@@ -214,7 +226,7 @@ fun Session(s: AppState, r: Route.Session) {
     if (questions.isEmpty()) { LaunchedEffect(Unit) { s.back() }; return }
     if (at >= questions.size) { SessionResult(s, r, results); return }
     val q = questions[at]
-    LaunchedEffect(at) { mark = null; picked = null; typed = TextFieldValue(""); hint = false; if (q.kind != ReviewKind.BLANK) s.narrator.play(q.audio) }
+    LaunchedEffect(at) { if (q.kind != ReviewKind.BLANK) s.narrator.play(q.audio) }
 
     fun judge(m: Memory.Mark) {
         mark = m
@@ -231,16 +243,30 @@ fun Session(s: AppState, r: Route.Session) {
             }
             Text("  ${at + 1} / ${questions.size}", style = Type.small, color = p.inkSoft)
         }
+        // 키보드가 올라오면 위쪽을 한 줄로 접는다 (듣기 · 0.7× · 안내), 확인은 키보드 바로 위
+        @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
+        val ime = androidx.compose.foundation.layout.WindowInsets.isImeVisible
+        val compact = ime && q.kind == ReviewKind.DICTATION
         Column(
-            Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
-            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
+            Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = if (compact) Tokens.Space.s2 else Tokens.Space.s4),
+            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(if (compact) Tokens.Space.s3 else Tokens.Space.s4),
         ) {
-            Text(stringResource(when (q.kind) { ReviewKind.DICTATION -> R.string.kind_dictation; ReviewKind.BLANK -> R.string.kind_blank; ReviewKind.MEANING -> R.string.kind_meaning }), style = Type.small.ui(), color = p.giltText)
+            if (!compact) Text(stringResource(when (q.kind) { ReviewKind.DICTATION -> R.string.kind_dictation; ReviewKind.BLANK -> R.string.kind_blank; ReviewKind.MEANING -> R.string.kind_meaning }), style = Type.small.ui(), color = p.giltText)
             when (q.kind) {
                 ReviewKind.DICTATION -> {
-                    Text(stringResource(R.string.dict_prompt), style = Type.heading.ui(), color = p.ink)
+                    if (compact) Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
+                        Box(Modifier.size(52.dp).background(p.fill, CircleShape).pressable { s.narrator.play(q.audio) }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.onFill, 22.dp) }
+                        Box(Modifier.size(40.dp).border(1.dp, p.giltText, CircleShape).pressable { s.narrator.play(q.audio, speed = 0.7f) }, contentAlignment = Alignment.Center) {
+                            Text("0.7×", style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.giltText)
+                        }
+                        Column(Modifier.weight(1f)) {
+                            Text(stringResource(R.string.kind_dictation), style = Type.small.ui(), color = p.giltText)
+                            Text(stringResource(R.string.dict_letters, Breaks.plain(q.word).count { it != ' ' }), style = Type.small.ui(), color = p.inkSoft)
+                        }
+                    }
+                    if (!compact) Text(stringResource(R.string.dict_prompt), style = Type.heading.ui(), color = p.ink)
                     // 큰 듣기 단추가 가운데: 오른쪽 0.7× 만큼 왼쪽을 비워 대칭을 맞춘다
-                    Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically) {
+                    if (!compact) Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically) {
                         Spacer(Modifier.size(52.dp))
                         Box(Modifier.size(84.dp).background(p.fill, CircleShape).pressable { s.narrator.play(q.audio) }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.onFill, 34.dp) }
                         Box(Modifier.size(52.dp).border(1.dp, p.giltText, CircleShape).pressable { s.narrator.play(q.audio, speed = 0.7f) }, contentAlignment = Alignment.Center) {
@@ -260,7 +286,8 @@ fun Session(s: AppState, r: Route.Session) {
                             }
                         }
                     }
-                    LaunchedEffect(at) { pad = false; runCatching { focus.requestFocus() } }
+                    // 한국어를 배우면 한 글자 글자판을 먼저 (한글 키보드가 없을 수 있어서), 그 밖에는 키보드
+                    LaunchedEffect(at) { if (q.learn == Lang.KO) { pad = true; keyboard?.hide() } else { pad = false; runCatching { focus.requestFocus() } } }
                     BasicTextField(
                         typed, { if (mark == null) typed = it.copy(text = it.text.take(answer.length + 2)) },
                         singleLine = true, textStyle = Type.body.copy(color = Color.Transparent), cursorBrush = SolidColor(Color.Transparent),
@@ -269,7 +296,8 @@ fun Session(s: AppState, r: Route.Session) {
                         modifier = Modifier.size(1.dp).focusRequester(focus),
                     )
                     Text(listOfNotNull(q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, stringResource(R.string.dict_letters, answer.count { it != ' ' })).joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
-                    if (hint || mark != null) SentenceHint(q) else Text(stringResource(R.string.dict_hint), style = Type.small.ui(), color = p.giltText, modifier = Modifier.pressable { hint = true }.padding(Tokens.Space.s2))
+                    if (compact && !hint && mark == null) Unit
+                    else if (hint || mark != null) SentenceHint(q) else Text(stringResource(R.string.dict_hint), style = Type.small.ui(), color = p.giltText, modifier = Modifier.pressable { hint = true }.padding(Tokens.Space.s2))
                 }
                 ReviewKind.BLANK -> {
                     Text(stringResource(R.string.blank_prompt), style = Type.heading.ui(), color = p.ink)
@@ -292,7 +320,7 @@ fun Session(s: AppState, r: Route.Session) {
             }
         }
         if (q.kind == ReviewKind.DICTATION && mark == null) {
-            val helpers = inputHelpers(q.learn)
+            val helpers = if (q.learn == Lang.KO) remember(at) { koSyllables(Breaks.plain(q.word), s.cards().mapNotNull { c -> s.cardWord(c.key)?.let { (_, cl, i) -> cl.second.words[i].text[Lang.KO] } }, at) } else inputHelpers(q.learn)
             val label = stringResource(langLabel(q.learn))
             if (helpers.isNotEmpty() && !pad) Row(
                 Modifier.fillMaxWidth().background(p.hide).padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s2),
@@ -339,12 +367,14 @@ fun Session(s: AppState, r: Route.Session) {
             if (mark == null && q.kind == ReviewKind.DICTATION) Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank()) { judge(Memory.grade(q.word, typed.text)) }
             else if (mark != null) Primary(stringResource(if (at == questions.lastIndex) R.string.review_finish else R.string.ob_next)) {
                 val ok = mark != Memory.Mark.WRONG
-                s.answer(q.card, ok); results = results + (q to ok); at++
+                s.answer(q.card, ok); results = results + (q to ok)
+                mark = null; picked = null; typed = TextFieldValue(""); hint = false; pad = false
+                at++
             }
         }
     }
-    if (asking) Ask(stringResource(R.string.review_leave), stringResource(R.string.play_leave_yes), stringResource(R.string.play_leave_no),
-        onYes = { asking = false; s.back() }, onNo = { asking = false })
+    if (asking) Ask(stringResource(R.string.review_leave), stringResource(R.string.review_stop), stringResource(R.string.review_keep),
+        onYes = { asking = false; s.back() }, onNo = { asking = false }, body = stringResource(R.string.review_leave_d))
 }
 
 @Composable

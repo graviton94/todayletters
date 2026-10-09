@@ -175,4 +175,29 @@ class ScreensTest {
         java.io.File("build/screens").mkdirs()
         java.io.File("build/screens/30_postcard.png").outputStream().use { bmp.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, it) }
     }
+    @Test fun libraryMissed() {
+        val s = state(true)
+        val (c, l) = s.openable("vincent").first()
+        s.open("vincent", c, l, Route.Library)
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size, done = true))
+        // 이틀 전에 첫 편지를 열었다 → 다음 편지는 어제 도착, 아직 안 열었으니 부재중
+        ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().putLong("o:vincent:day", s.today - 2).putInt("o:vincent:n", 1).commit()
+        shot("31_library_missed_ko_dark", true) { LibraryTab(s) }
+    }
+    @Test fun roomLocation() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters.first()
+        s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = l.messages.size))
+        shot("32_room_location_ko_dark", true, 4000) { Room(s, Route.Letter("vincent", 1, 1)) }
+    }
+    @Test fun askDialog() {
+        val s = state(true)
+        shot("33_ask_ko_dark", true) { io.github.graviton94.todayletters.ui.Ask("복습을 그만할까요?", "그만하기", "계속하기", {}, {}, body = "지금까지 푼 것은 저장돼요.") }
+    }
+    @Test fun koreanPad() {
+        val s = withCards()
+        s.update(s.app.copy(read = io.github.graviton94.todayletters.core.Lang.EN))
+        s.update("vincent", s.seriesSettings("vincent").copy(learn = io.github.graviton94.todayletters.core.Lang.KO))
+        shot("34_korean_pad_light", false) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.DICTATION)) }
+    }
 }

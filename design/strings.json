@@ -1045,8 +1045,8 @@
     "ko": "마치기"
   },
   "review_leave": {
-    "en": "Stop the review? Answers so far are kept.",
-    "ko": "복습을 그만할까요? 푼 것은 저장돼요."
+    "en": "Stop the review?",
+    "ko": "복습을 그만할까요?"
   },
   "result_right": {
     "en": "right",
@@ -1163,5 +1163,57 @@
   "pad_delete": {
     "en": "Delete",
     "ko": "지우기"
+  },
+  "review_leave_d": {
+    "en": "What you've done so far is saved.",
+    "ko": "지금까지 푼 것은 저장돼요."
+  },
+  "review_stop": {
+    "en": "Stop",
+    "ko": "그만하기"
+  },
+  "review_keep": {
+    "en": "Keep going",
+    "ko": "계속하기"
+  },
+  "walk_back_whole": {
+    "en": "Whole painting",
+    "ko": "전체 그림"
+  },
+  "walk_more": {
+    "en": "More",
+    "ko": "더보기"
+  },
+  "walk_less": {
+    "en": "Less",
+    "ko": "접기"
+  },
+  "lib_today": {
+    "en": "Today",
+    "ko": "오늘"
+  },
+  "lib_yesterday": {
+    "en": "Yesterday",
+    "ko": "어제"
+  },
+  "lib_days_ago": {
+    "en": "%1$d days ago",
+    "ko": "%1$d일 전"
+  },
+  "lib_missed": {
+    "en": "Missed · %1$d letter · %2$s",
+    "ko": "부재중 편지 %1$d통 · %2$s"
+  },
+  "lib_progress": {
+    "en": "Ch. %1$s · %2$d / %3$d",
+    "ko": "%1$s장 %2$d / %3$d"
+  },
+  "map_open": {
+    "en": "Open in Maps",
+    "ko": "지도에서 보기"
+  },
+  "map_places": {
+    "en": "Places so far",
+    "ko": "다녀간 곳"
   }
 }

@@ -129,6 +129,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
         return all.take(n)
     }
 
+    /** 도착했지만 한 번도 열지 않은 편지 수 (서재의 붉은 숫자). */
+    fun unread(id: String): Int = openable(id).count { (c, l) -> !store.started(key(id, c, l.id)) && progress(id, c, l.id).shown == 0 }
+
+    /** 열지 않은 다음 편지가 도착한 날 (epoch day). */
+    fun arrivedOn(id: String): Long? = store.lastOpen(id).let { (d, n) -> Arrivals.arrivedOn(d, n, seriesSettings(id).lettersPerDay) }
+
     fun waiting(id: String): Int =
         Arrivals.waiting(all(id).size, doneCount(id), startedCount(id), store.openedToday(id), seriesSettings(id).lettersPerDay)
 

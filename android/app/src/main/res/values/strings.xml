@@ -262,7 +262,7 @@
     <string name="review_wrong">%1$s · %2$s</string>
     <string name="input_helper">%1$s letters</string>
     <string name="review_finish">Finish</string>
-    <string name="review_leave">Stop the review? Answers so far are kept.</string>
+    <string name="review_leave">Stop the review?</string>
     <string name="result_right">right</string>
     <string name="result_done">reviewed</string>
     <string name="result_tomorrow">again tomorrow</string>
@@ -292,4 +292,17 @@
     <string name="pad_open">%1$s letters</string>
     <string name="pad_keyboard">Keyboard</string>
     <string name="pad_delete">Delete</string>
+    <string name="review_leave_d">What you\'ve done so far is saved.</string>
+    <string name="review_stop">Stop</string>
+    <string name="review_keep">Keep going</string>
+    <string name="walk_back_whole">Whole painting</string>
+    <string name="walk_more">More</string>
+    <string name="walk_less">Less</string>
+    <string name="lib_today">Today</string>
+    <string name="lib_yesterday">Yesterday</string>
+    <string name="lib_days_ago">%1$d days ago</string>
+    <string name="lib_missed">Missed · %1$d letter · %2$s</string>
+    <string name="lib_progress">Ch. %1$s · %2$d / %3$d</string>
+    <string name="map_open">Open in Maps</string>
+    <string name="map_places">Places so far</string>
 </resources>

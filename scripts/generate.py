@@ -9,7 +9,7 @@
 - design/strings.json → android/app/src/main/res/values{,-ko}/strings.xml
 - data/<작품>/series.json + 챕터 → android/app/src/main/assets/letters/<작품>/
 """
-import glob, json, os, sys
+import re, glob, json, os, sys
 from xml.sax.saxutils import escape
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -126,8 +126,29 @@ def letters():
             if not os.path.exists(src):
                 src = src.replace(".json", ".draft.json")
             if os.path.exists(src):
-                out[os.path.join(dest, ch["file"])] = open(src, encoding="utf-8").read()
+                text = open(src, encoding="utf-8").read()
+                check_spots(src, json.loads(text))
+                out[os.path.join(dest, ch["file"])] = text
     return out
+
+
+def check_spots(src, chapter):
+    """그림 속 산책: 자리의 낱말이 그 자리의 '편지 속 문장'에 정말 나오는지 (세 언어 모두). 어긋나면 멈춘다."""
+    bad = []
+    for letter in chapter.get("letters", []):
+        for k, spot in enumerate((letter.get("plate") or {}).get("spots", []), 1):
+            q = spot.get("quote")
+            if q is None:
+                continue
+            msg = letter["messages"][q]
+            for lang, word in (spot.get("word") or {}).items():
+                if lang == "ipa" or lang not in msg:
+                    continue
+                parts = [w for w in re.split(r"[ ,]+", word) if w]
+                if not any(w.lower()[:max(3, len(w) - 2)] in msg[lang].lower() for w in parts):
+                    bad.append(f"{letter['id']} 자리 {k} ({lang}) '{word}' 가 문장 {q} 에 없음")
+    if bad:
+        sys.exit(f"{os.path.relpath(src, ROOT)}: 그림 산책 낱말과 문장이 어긋남\n  " + "\n  ".join(bad))
 
 
 def main():
