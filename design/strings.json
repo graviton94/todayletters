@@ -1299,5 +1299,441 @@
   "a11y_listen_slow": {
     "en": "Listen slowly",
     "ko": "느리게 듣기"
+  },
+  "reward_caps": {
+    "en": "TODAY'S REWARD",
+    "ko": "RÉCOMPENSE · 오늘의 보상"
+  },
+  "reward_stamps": {
+    "en": "+ %1$d stamps",
+    "ko": "+ 우표 %1$d장"
+  },
+  "reward_alone": {
+    "en": "You can read %1$d%% on your own",
+    "ko": "%1$d%%를 혼자 읽어요"
+  },
+  "reward_alone_d": {
+    "en": "Translations fade from the words you know.",
+    "ko": "익힌 낱말은 편지에서 뜻풀이가 사라져요."
+  },
+  "reward_item": {
+    "en": "An object from the letters is now gold",
+    "ko": "편지 속 물건이 금빛이 됐어요"
+  },
+  "reward_gift": {
+    "en": "Commemorative stamp: %1$s",
+    "ko": "기념 우표 ‘%1$s’를 받았어요"
+  },
+  "reward_album": {
+    "en": "Open the album",
+    "ko": "수집 앨범 보기"
+  },
+  "album_cabinet": {
+    "en": "Cabinet",
+    "ko": "진열장"
+  },
+  "album_items": {
+    "en": "Objects",
+    "ko": "물건"
+  },
+  "album_journal": {
+    "en": "Journal",
+    "ko": "여행기"
+  },
+  "album_stamps": {
+    "en": "Stamps",
+    "ko": "기념 우표"
+  },
+  "album_progress": {
+    "en": "Progress",
+    "ko": "진도 · 업적"
+  },
+  "cabinet_gold": {
+    "en": "A gold double frame means you can read that letter alone.",
+    "ko": "금빛 이중 액자 = 그 편지를 혼자 읽을 수 있어요."
+  },
+  "parcel_title": {
+    "en": "Monthly parcel",
+    "ko": "정기 소포"
+  },
+  "parcel_sent_short": {
+    "en": "Sent ✓",
+    "ko": "보냄 ✓"
+  },
+  "parcel_line": {
+    "en": "Send %1$s to %2$s once a month — a reply comes back.",
+    "ko": "한 달에 한 번, %2$s에게 %1$s 보내기 · 답례가 와요"
+  },
+  "visitor_today": {
+    "en": "Today's visitor",
+    "ko": "오늘의 손님"
+  },
+  "game_listen": {
+    "en": "Listen and pick the painting",
+    "ko": "듣고 그림 고르기"
+  },
+  "game_torn": {
+    "en": "Piece a torn letter together",
+    "ko": "찢어진 편지 잇기"
+  },
+  "game_telegram": {
+    "en": "Take down a telegram",
+    "ko": "전보 받아 적기"
+  },
+  "game_listen_d": {
+    "en": "Hear a word from a painting, then pick the painting it's in.",
+    "ko": "그림 속 낱말을 듣고, 그 낱말이 있는 그림을 골라요."
+  },
+  "game_torn_d": {
+    "en": "Tap the scraps of a sentence in order.",
+    "ko": "찢긴 문장 조각을 순서대로 눌러요."
+  },
+  "game_telegram_d": {
+    "en": "Listen to three words and write them down.",
+    "ko": "낱말 셋을 듣고 받아 적어요."
+  },
+  "items_count": {
+    "en": "Objects found: %1$d / %2$d",
+    "ko": "편지 속 물건 %1$d / %2$d"
+  },
+  "items_note": {
+    "en": "Each object is a word from the letters. It turns gold when you can recall it.",
+    "ko": "물건 = 편지 속 낱말. 떠올리기 단계에 오르면 금빛."
+  },
+  "stage_meet": {
+    "en": "Met",
+    "ko": "만남"
+  },
+  "stage_recognize": {
+    "en": "Recognize",
+    "ko": "알아보기"
+  },
+  "stage_recall": {
+    "en": "Recall",
+    "ko": "떠올리기"
+  },
+  "stage_write": {
+    "en": "Write",
+    "ko": "쓰기"
+  },
+  "stage_speak": {
+    "en": "Speak",
+    "ko": "말하기"
+  },
+  "stage_own": {
+    "en": "Mine",
+    "ko": "내 것"
+  },
+  "journal_note": {
+    "en": "Places fill in as they appear in the letters. A full page gets the city postmark.",
+    "ko": "편지에 나온 장소가 차요. 다 차면 도시 소인."
+  },
+  "stamps_count": {
+    "en": "Commemorative stamps: %1$d / %2$d",
+    "ko": "기념 우표 %1$d / %2$d"
+  },
+  "stamps_note": {
+    "en": "Every achievement brings a stamp.",
+    "ko": "업적마다 한 장씩 받아요."
+  },
+  "alone_title": {
+    "en": "Reading alone: %1$d%%",
+    "ko": "혼자 읽기 %1$d%%"
+  },
+  "alone_next": {
+    "en": "Next milestone: %1$d%%",
+    "ko": "다음 이정표 %1$d%%"
+  },
+  "alone_all": {
+    "en": "You can read every word on your own.",
+    "ko": "모든 낱말을 혼자 읽어요."
+  },
+  "growth_title": {
+    "en": "Your words, stage by stage",
+    "ko": "단계별 낱말 · 성장 곡선"
+  },
+  "growth_note": {
+    "en": "Met → recognize → recall → write → speak → mine. Each step is reviewed further apart.",
+    "ko": "만남 → 알아보기 → 떠올리기 → 쓰기 → 말하기 → 내 것. 단계가 오를수록 더 길게 기억해요."
+  },
+  "weeks_title": {
+    "en": "Last 4 weeks · streak %1$d · best %2$d",
+    "ko": "지난 4주 · 이어 읽기 %1$d일 · 최고 %2$d일"
+  },
+  "ach_title": {
+    "en": "Achievements %1$d / %2$d",
+    "ko": "업적 %1$d / %2$d"
+  },
+  "parcel_none": {
+    "en": "No parcel for this series yet.",
+    "ko": "이 작품은 아직 소포가 없어요."
+  },
+  "parcel_how": {
+    "en": "Costs %1$d stamps. Once a calendar month.",
+    "ko": "우표 %1$d장 · 달마다 한 번"
+  },
+  "parcel_sent": {
+    "en": "Sent this month. The next one opens on %1$s.",
+    "ko": "이번 달은 보냈어요. 다음은 %1$s부터."
+  },
+  "parcel_send": {
+    "en": "Send · %1$d stamps",
+    "ko": "보내기 · 우표 %1$d장"
+  },
+  "parcel_short": {
+    "en": "%1$d more stamps to go.",
+    "ko": "우표 %1$d장 더 모으면 돼요."
+  },
+  "visitor_finish": {
+    "en": "Done",
+    "ko": "마치기"
+  },
+  "game_try": {
+    "en": "Not that one — listen again.",
+    "ko": "그 그림이 아니에요. 다시 들어 봐요."
+  },
+  "game_again": {
+    "en": "Try again",
+    "ko": "다시"
+  },
+  "tasks_title": {
+    "en": "Today",
+    "ko": "오늘의 일"
+  },
+  "tasks_today": {
+    "en": "Today +%1$d",
+    "ko": "오늘 +%1$d"
+  },
+  "task_letter": {
+    "en": "Today's letter",
+    "ko": "오늘의 편지"
+  },
+  "task_review": {
+    "en": "Today's review",
+    "ko": "오늘의 복습"
+  },
+  "task_visitor": {
+    "en": "Today's visitor",
+    "ko": "오늘의 손님"
+  },
+  "tasks_bonus": {
+    "en": "All three: +5 bonus stamps",
+    "ko": "셋 다 하면 우표 +5"
+  },
+  "gap_3": {
+    "en": "in 3 days",
+    "ko": "사흘 뒤"
+  },
+  "gap_7": {
+    "en": "in a week",
+    "ko": "일주일 뒤"
+  },
+  "gap_16": {
+    "en": "in 16 days",
+    "ko": "16일 뒤"
+  },
+  "gap_35": {
+    "en": "in 5 weeks",
+    "ko": "5주 뒤"
+  },
+  "kind_speak": {
+    "en": "Speak",
+    "ko": "말하기"
+  },
+  "kind_speak_d": {
+    "en": "See the meaning, say the word.",
+    "ko": "뜻을 보고 소리 내어 말해요."
+  },
+  "speak_prompt": {
+    "en": "Say it aloud",
+    "ko": "소리 내어 말해 보세요"
+  },
+  "speak_listening": {
+    "en": "Listening…",
+    "ko": "듣고 있어요…"
+  },
+  "speak_tap": {
+    "en": "Tap and say the word",
+    "ko": "누르고 낱말을 말해요"
+  },
+  "speak_heard": {
+    "en": "Heard: %1$s",
+    "ko": "들린 말: %1$s"
+  },
+  "speak_self": {
+    "en": "Say it first, then listen and check yourself.",
+    "ko": "먼저 말해 보고, 원래 소리를 들은 뒤 스스로 판정해요."
+  },
+  "speak_again": {
+    "en": "Not yet",
+    "ko": "아직"
+  },
+  "speak_ok": {
+    "en": "I said it right",
+    "ko": "맞게 말했어요"
+  },
+  "fade_show": {
+    "en": "Show translation",
+    "ko": "번역 보기"
+  },
+  "ach_first_letter": {
+    "en": "First letter",
+    "ko": "첫 편지"
+  },
+  "ach_first_letter_d": {
+    "en": "Finish your first letter.",
+    "ko": "편지 한 통을 끝까지."
+  },
+  "ach_letters_5": {
+    "en": "Five letters",
+    "ko": "편지 다섯 통"
+  },
+  "ach_letters_5_d": {
+    "en": "Finish 5 letters.",
+    "ko": "편지 다섯 통을 끝까지."
+  },
+  "ach_letters_20": {
+    "en": "Twenty letters",
+    "ko": "편지 스무 통"
+  },
+  "ach_letters_20_d": {
+    "en": "Finish 20 letters.",
+    "ko": "편지 스무 통을 끝까지."
+  },
+  "ach_streak_3": {
+    "en": "3 days running",
+    "ko": "3일 연속"
+  },
+  "ach_streak_3_d": {
+    "en": "Read 3 days in a row.",
+    "ko": "사흘 이어 읽기."
+  },
+  "ach_streak_7": {
+    "en": "A week running",
+    "ko": "7일 연속"
+  },
+  "ach_streak_7_d": {
+    "en": "Read 7 days in a row.",
+    "ko": "일주일 이어 읽기."
+  },
+  "ach_streak_30": {
+    "en": "A month running",
+    "ko": "30일 연속"
+  },
+  "ach_streak_30_d": {
+    "en": "Read 30 days in a row.",
+    "ko": "한 달 이어 읽기."
+  },
+  "ach_words_25": {
+    "en": "25 words",
+    "ko": "낱말 25"
+  },
+  "ach_words_25_d": {
+    "en": "Recall 25 words.",
+    "ko": "낱말 25개를 떠올리기까지."
+  },
+  "ach_words_100": {
+    "en": "100 words",
+    "ko": "낱말 100"
+  },
+  "ach_words_100_d": {
+    "en": "Recall 100 words.",
+    "ko": "낱말 100개를 떠올리기까지."
+  },
+  "ach_words_300": {
+    "en": "300 words",
+    "ko": "낱말 300"
+  },
+  "ach_words_300_d": {
+    "en": "Recall 300 words.",
+    "ko": "낱말 300개를 떠올리기까지."
+  },
+  "ach_own_10": {
+    "en": "10 words mine",
+    "ko": "내 것 10"
+  },
+  "ach_own_10_d": {
+    "en": "10 words at the top stage.",
+    "ko": "낱말 10개를 ‘내 것’까지."
+  },
+  "ach_own_50": {
+    "en": "50 words mine",
+    "ko": "내 것 50"
+  },
+  "ach_own_50_d": {
+    "en": "50 words at the top stage.",
+    "ko": "낱말 50개를 ‘내 것’까지."
+  },
+  "ach_alone_1": {
+    "en": "Read alone",
+    "ko": "혼자 한 통"
+  },
+  "ach_alone_1_d": {
+    "en": "Read a whole letter without translation.",
+    "ko": "편지 한 통을 번역 없이."
+  },
+  "ach_alone_5": {
+    "en": "Five alone",
+    "ko": "혼자 다섯 통"
+  },
+  "ach_alone_5_d": {
+    "en": "Read 5 letters without translation.",
+    "ko": "편지 다섯 통을 번역 없이."
+  },
+  "ach_read_50": {
+    "en": "Half on your own",
+    "ko": "혼자 읽기 50%"
+  },
+  "ach_read_50_d": {
+    "en": "Read half the words alone.",
+    "ko": "낱말 절반을 혼자 읽기."
+  },
+  "ach_read_90": {
+    "en": "Almost fluent",
+    "ko": "혼자 읽기 90%"
+  },
+  "ach_read_90_d": {
+    "en": "Read 90% of the words alone.",
+    "ko": "낱말 90%를 혼자 읽기."
+  },
+  "ach_visitors_5": {
+    "en": "Five visitors",
+    "ko": "손님 다섯"
+  },
+  "ach_visitors_5_d": {
+    "en": "Welcome 5 visitors.",
+    "ko": "손님 다섯 명 맞이하기."
+  },
+  "ach_visitors_30": {
+    "en": "Regular house",
+    "ko": "단골 서른"
+  },
+  "ach_visitors_30_d": {
+    "en": "Welcome 30 visitors.",
+    "ko": "손님 서른 명 맞이하기."
+  },
+  "ach_parcel_1": {
+    "en": "First parcel",
+    "ko": "첫 소포"
+  },
+  "ach_parcel_1_d": {
+    "en": "Send your first parcel.",
+    "ko": "첫 정기 소포 보내기."
+  },
+  "ach_parcel_6": {
+    "en": "Half a year",
+    "ko": "소포 여섯"
+  },
+  "ach_parcel_6_d": {
+    "en": "Send 6 parcels.",
+    "ko": "정기 소포 여섯 번."
+  },
+  "ach_chapter_1": {
+    "en": "A chapter",
+    "ko": "한 장 완주"
+  },
+  "ach_chapter_1_d": {
+    "en": "Finish a whole chapter.",
+    "ko": "한 장을 끝까지."
   }
 }

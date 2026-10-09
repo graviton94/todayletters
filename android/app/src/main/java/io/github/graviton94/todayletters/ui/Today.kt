@@ -24,6 +24,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.clearAndSetSemantics
@@ -57,6 +58,8 @@ import java.util.Locale
 fun Inbox(s: AppState) {
     val p = Ink.palette
     s.version
+    // 들어올 때 한 번 정산 (혼자 읽기가 올랐거나 새 업적이 있으면 보상 순간)
+    LaunchedEffect(Unit) { s.settle() }
     val work = s.works.first()
     val id = work.series.id
     val modes = Plays.inLetter.filter { it in s.seriesSettings(id).modes }
@@ -73,6 +76,7 @@ fun Inbox(s: AppState) {
                 Text(LocalDate.now().format(DateTimeFormatter.ofPattern("EEEE d MMMM", Locale.FRENCH)).uppercase(), style = Type.caps, color = p.giltText)
                 Text(stringResource(greet, work.recipient[uiLang()]), style = Type.title.ui(), color = p.ink)
             }
+            StampChip(s)
             IconButton(stringResource(R.string.help), onClick = { s.coachAgain("inbox") }) { HelpGlyph(p.ink) }
             IconButton(stringResource(R.string.settings), onClick = { s.settingsOpen = true }) { Gear(p.ink) }
         }
@@ -160,6 +164,20 @@ fun Inbox(s: AppState) {
                     }
                 }
             }
+            // 오늘의 일 (편지 · 복습 · 손님) · 혼자 읽기
+            DayTasksCard(s)
+            Row(
+                Modifier.fillMaxWidth().background(p.fill).pressable { s.go(Route.Gallery) }.padding(Tokens.Space.s4),
+                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
+            ) {
+                val alone = s.readAlone
+                AloneRing(alone, 60.dp, p.onFillSoft, Color(0xFFD2A955), p.onFill)
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(stringResource(R.string.alone_title, alone), style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.onFill)
+                    Text(io.github.graviton94.todayletters.core.Growth.nextMilestone(alone)?.let { stringResource(R.string.alone_next, it) } ?: stringResource(R.string.alone_all), style = Type.small.ui(), color = p.onFillSoft)
+                }
+            }
+            VisitorCard(s)
             WeekStamps(s, work.portrait)
             // 갤러리 미리보기
             val plates = work.chapters.flatMap { c -> c.letters.map { c to it } }
@@ -206,7 +224,7 @@ fun BoxBar(counts: IntArray) {
     val p = Ink.palette
     val total = counts.sum().coerceAtLeast(1)
     Row(Modifier.fillMaxWidth().height(5.dp).clip(CircleShape)) {
-        listOf(3 to p.correct, 2 to p.giltText, 1 to p.gilt, 0 to p.hair).forEach { (b, c) ->
+        listOf(5 to p.correct, 4 to p.correct.copy(alpha = 0.7f), 3 to p.giltText, 2 to p.gilt, 1 to p.gilt.copy(alpha = 0.5f), 0 to p.hair).forEach { (b, c) ->
             if (counts[b] > 0) Box(Modifier.weight(counts[b].toFloat() / total).fillMaxSize().background(c))
         }
         if (counts.sum() == 0) Box(Modifier.weight(1f).fillMaxSize().background(p.hair))
@@ -252,4 +270,30 @@ fun PlateThumb(file: String, unlocked: Boolean, modifier: Modifier) {
         colorFilter = if (unlocked) null else ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(0f) }),
         alpha = if (unlocked) 1f else 0.35f,
     )
+}
+
+/** 오늘의 일: 편지 · 복습 · 손님. 다 하면 보너스 우표 (엔진 공통). */
+@Composable
+fun DayTasksCard(s: AppState) {
+    val p = Ink.palette
+    val tasks = s.dayTasks()
+    if (tasks.isEmpty()) return
+    Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.hair).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Text(stringResource(R.string.tasks_title), style = Type.small.ui(), color = p.giltText, modifier = Modifier.weight(1f))
+            Text(stringResource(R.string.tasks_today, io.github.graviton94.todayletters.core.Rewards.todayTotal(s.wallet, s.today)), style = Type.small.ui(), color = p.inkSoft)
+        }
+        tasks.forEach { t ->
+            val label = when (t.kind) { "letter" -> R.string.task_letter; "review" -> R.string.task_review; else -> R.string.task_visitor }
+            val gain = when (t.kind) { "letter" -> "+10"; "review" -> "+12"; else -> "+4" }
+            Row(Modifier.fillMaxWidth().heightIn(min = 40.dp).pressable(enabled = !t.done) {
+                when (t.kind) { "review" -> s.go(Route.Words); "visitor" -> s.go(Route.Visitor); else -> s.go(Route.Library) }
+            }, verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                CheckMark(t.done, 22.dp)
+                Text(stringResource(label), style = Type.body.ui(), color = if (t.done) p.inkSoft else p.ink, modifier = Modifier.weight(1f))
+                Text(gain, style = Type.small.copy(fontFamily = Faces.display), color = p.giltText)
+            }
+        }
+        Text(stringResource(R.string.tasks_bonus), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+    }
 }

@@ -166,12 +166,13 @@ class CoreTest {
         c = Memory.after(c, correct = true, today = 101)
         assertEquals(1, c.box); assertEquals(102, c.due)
         c = Memory.after(c, correct = true, today = 102)
-        assertEquals(2, c.box); assertEquals(106, c.due)
-        c = Memory.after(c, correct = true, today = 106)
-        assertEquals(3, c.box); assertEquals(120, c.due)
-        c = Memory.after(c, correct = false, today = 120)
-        assertEquals(0, c.box); assertEquals(121, c.due)
-        val cards = (1..20).map { Card("k$it", box = it % 4, due = 100) }
+        assertEquals(2, c.box); assertEquals(105, c.due)
+        c = Memory.after(c, correct = true, today = 105)
+        assertEquals(3, c.box); assertEquals(112, c.due)
+        // 틀리면 두 단계만 내려간다
+        c = Memory.after(c, correct = false, today = 112)
+        assertEquals(1, c.box); assertEquals(113, c.due)
+        val cards = (1..20).map { Card("k$it", box = it % 6, due = 100) }
         assertEquals(Memory.DAILY, Memory.dueToday(cards, 100).size)
         assertEquals(0, Memory.dueToday(cards, 100).first().box)
     }
@@ -191,5 +192,40 @@ class CoreTest {
         assertTrue(Arrivals.missed(11, 13, 1))
         assertFalse(Arrivals.missed(13, 13, 1))
         assertFalse(Arrivals.missed(11, 13, 0))
+    }
+
+    @Test fun growthCurve() {
+        assertEquals(ReviewKind.MEANING, Memory.kindFor(Card("a", box = 0)))
+        assertEquals(ReviewKind.BLANK, Memory.kindFor(Card("a", box = 1)))
+        assertEquals(ReviewKind.DICTATION, Memory.kindFor(Card("a", box = 2)))
+        assertEquals(ReviewKind.SPEAK, Memory.kindFor(Card("a", box = 3)))
+        val cards = mapOf("a" to Card("a", box = 2), "b" to Card("b", box = 1), "c" to Card("c", box = 5))
+        assertEquals(66, Growth.readAlone(listOf("a", "b", "c"), cards))
+        assertFalse(Growth.letterAlone(listOf("a", "b"), cards))
+        assertTrue(Growth.letterAlone(listOf("a", "c"), cards))
+        assertEquals(listOf(25, 50), Growth.crossed(20, 55))
+        assertEquals(75, Growth.nextMilestone(50))
+    }
+
+    @Test fun rewardsAndCaps() {
+        var w = Wallet()
+        var g: Int
+        w = Rewards.earn(w, Earn.REVIEW_RIGHT, 10, times = 10).let { (a, b) -> g = b; a }
+        assertEquals(10, g)
+        w = Rewards.earn(w, Earn.REVIEW_RIGHT, 10, times = 5).let { (a, b) -> g = b; a }
+        assertEquals(2, g)   // 하루 상한 12
+        w = Rewards.earn(w, Earn.REVIEW_RIGHT, 11).let { (a, b) -> g = b; a }
+        assertEquals(1, g)   // 다음 날은 새로
+        assertEquals(13, w.balance)
+        assertEquals(null, Rewards.spend(w, 50))
+        assertEquals(3, Rewards.spend(w, 10)!!.balance)
+        assertTrue(Parcel.canSend(Wallet(balance = 60), 50, lastMonth = 10, thisMonth = 11))
+        assertFalse(Parcel.canSend(Wallet(balance = 60), 50, lastMonth = 11, thisMonth = 11))
+    }
+
+    @Test fun achievementsUnlock() {
+        val s = Stats(lettersDone = 5, bestStreak = 7, wordsKnown = 30)
+        val ids = Achievements.newly(s, setOf("first_letter")).map { it.id }
+        assertEquals(listOf("letters_5", "streak_3", "streak_7", "words_25"), ids)
     }
 }

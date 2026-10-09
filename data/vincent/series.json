@@ -111,5 +111,137 @@
       "lat": 43.65733,
       "lng": 4.62315
     }
+  },
+  "kit": {
+    "_doc": "시리즈 키트: 엔진(공통 화면)에 이 작품만의 이름 · 그림 · 목록을 채운다. 코드는 시리즈마다 바뀌지 않는다.",
+    "currency": {
+      "label": "25c",
+      "color": "#3D5A8F"
+    },
+    "cabinet": {
+      "title": {
+        "fr": "Galerie · Arles",
+        "en": "Gallery · Arles room",
+        "ko": "화랑 · 아를 방"
+      },
+      "place": {
+        "fr": "19, boulevard Montmartre",
+        "en": "19 Boulevard Montmartre",
+        "ko": "몽마르트르 대로 19번지"
+      },
+      "wall": "#3A2E26",
+      "floor": "#5A3F2A"
+    },
+    "parcel": {
+      "cost": 50,
+      "label": {
+        "fr": "Argent et couleurs",
+        "en": "Money and paints",
+        "ko": "생활비와 물감"
+      },
+      "returns": [
+        {
+          "title": {
+            "fr": "Merci, Théo",
+            "en": "Thank you, Theo",
+            "ko": "고마워, 테오"
+          },
+          "letter": "c1-l2",
+          "message": 0,
+          "image": "sketches/c1-l3-bernard.jpg"
+        }
+      ]
+    },
+    "visitors": [
+      {
+        "id": "collector",
+        "template": "listen",
+        "name": {
+          "fr": "Une collectionneuse",
+          "en": "A collector",
+          "ko": "수집가"
+        }
+      },
+      {
+        "id": "critic",
+        "template": "torn",
+        "name": {
+          "fr": "Un critique",
+          "en": "A critic",
+          "ko": "비평가"
+        }
+      },
+      {
+        "id": "postman",
+        "template": "telegram",
+        "name": {
+          "fr": "Le facteur Roulin",
+          "en": "Roulin the postman",
+          "ko": "우체부 룰랭"
+        }
+      }
+    ],
+    "stamps": [
+      {
+        "id": "neige",
+        "label": "ARLES 1888",
+        "image": "c1-l1.jpg",
+        "value": "25c",
+        "color": "#3D5A8F"
+      },
+      {
+        "id": "vieille",
+        "label": "ARLÉSIENNE",
+        "image": "c1-l2.jpg",
+        "value": "15c",
+        "color": "#5B3A6E"
+      },
+      {
+        "id": "pont",
+        "label": "PONT DE LANGLOIS",
+        "image": "c1-l3.jpg",
+        "value": "10c",
+        "color": "#2E6B5A"
+      },
+      {
+        "id": "verger",
+        "label": "VERGER",
+        "image": "c1-l4.jpg",
+        "value": "5c",
+        "color": "#8E2A22"
+      },
+      {
+        "id": "maison",
+        "label": "MAISON JAUNE",
+        "image": "c1-l5.jpg",
+        "value": "1F",
+        "color": "#B8913E"
+      }
+    ],
+    "journal": [
+      {
+        "id": "arles",
+        "city": {
+          "fr": "Arles",
+          "en": "Arles",
+          "ko": "아를"
+        },
+        "years": "1888",
+        "places": [
+          "station",
+          "carrel",
+          "langlois",
+          "yellow"
+        ],
+        "ticket": {
+          "line": "Chemin de fer P.L.M.",
+          "text": {
+            "fr": "Paris → Arles · 19–20 févr. 1888",
+            "en": "Paris → Arles · 19–20 Feb 1888",
+            "ko": "파리 → 아를 · 1888년 2월 19–20일"
+          }
+        }
+      }
+    ]
   }
 }

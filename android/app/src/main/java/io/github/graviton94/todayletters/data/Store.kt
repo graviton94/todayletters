@@ -135,6 +135,52 @@ class Store(ctx: Context) {
         p.edit().putString("sess:$name", "${s.day}|${s.keys.joinToString(";")}|${s.at}|${s.oks.joinToString("") { if (it) "1" else "0" }}").apply()
     fun clearSession(name: String) = p.edit().remove("sess:$name").apply()
 
+    // ── 보상 엔진 (모든 시리즈 공통) ─────────────────────────
+    /** 지갑: 잔액 · 날 · 오늘 종류별 · 누적. */
+    var wallet: io.github.graviton94.todayletters.core.Wallet
+        get() {
+            val today = p.getString("wallet:today", "") ?: ""
+            val map = today.split(";").mapNotNull { e -> e.split("=").takeIf { it.size == 2 }?.let { (k, v) ->
+                runCatching { io.github.graviton94.todayletters.core.Earn.valueOf(k) to v.toInt() }.getOrNull() } }.toMap()
+            return io.github.graviton94.todayletters.core.Wallet(p.getInt("wallet:bal", 0), p.getLong("wallet:day", -1), map, p.getInt("wallet:total", 0))
+        }
+        set(w) = p.edit().putInt("wallet:bal", w.balance).putLong("wallet:day", w.day).putInt("wallet:total", w.total)
+            .putString("wallet:today", w.today.entries.joinToString(";") { "${it.key.name}=${it.value}" }).apply()
+
+    private fun set(key: String): Set<String> = p.getStringSet(key, emptySet())!!.toSet()
+    private fun add(key: String, v: String) = p.edit().putStringSet(key, set(key) + v).apply()
+
+    /** 받은 업적 id. */
+    val achievements: Set<String> get() = set("ach")
+    fun unlock(id: String) = add("ach", id)
+    /** 받은 기념 우표 ("작품:id"). */
+    val stamps: Set<String> get() = set("stamps")
+    fun addStamp(key: String) = add("stamps", key)
+    /** 금빛이 된 물건 (낱말 카드 키) — 새로 금빛이 되면 보상 순간에 보여 준다. */
+    val goldItems: Set<String> get() = set("gold")
+    fun gild(key: String) = add("gold", key)
+    /** 오늘의 일을 다 해서 보너스를 받은 날. */
+    var dayCompleteDay: Long
+        get() = p.getLong("daydone", -1)
+        set(v) = p.edit().putLong("daydone", v).apply()
+    /** 가장 길게 이어 읽은 날 수. */
+    var bestStreak: Int
+        get() = p.getInt("streak:best", 0)
+        set(v) = p.edit().putInt("streak:best", v).apply()
+    /** 마지막으로 잰 혼자 읽기 % (오른 만큼 보상). */
+    var readAloneSeen: Int
+        get() = p.getInt("alone:seen", 0)
+        set(v) = p.edit().putInt("alone:seen", v).apply()
+    /** 정기 소포: 마지막으로 보낸 달 · 보낸 횟수 (작품마다). */
+    fun parcelMonth(series: String) = p.getInt("parcel:$series:month", -1)
+    fun parcels(series: String) = p.getInt("parcel:$series:n", 0)
+    fun sendParcel(series: String, month: Int) = p.edit().putInt("parcel:$series:month", month).putInt("parcel:$series:n", parcels(series) + 1).apply()
+    /** 손님: 오늘 맞이했는지 · 모두 몇 명. */
+    var visitorDay: Long
+        get() = p.getLong("visitor:day", -1)
+        set(v) = p.edit().putLong("visitor:day", v).putInt("visitor:n", p.getInt("visitor:n", 0) + 1).apply()
+    val visitors: Int get() = p.getInt("visitor:n", 0)
+
     var notifyAsked: Boolean
         get() = p.getBoolean("notify_asked", false)
         set(v) = p.edit().putBoolean("notify_asked", v).apply()

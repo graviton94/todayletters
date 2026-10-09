@@ -78,7 +78,7 @@ private fun Main(s: AppState, onExit: () -> Unit) {
                     Route.Inbox -> Inbox(s)
                     Route.Library -> LibraryTab(s)
                     Route.Words -> WordsTab(s)
-                    Route.Gallery -> GalleryTab(s)
+                    Route.Gallery -> CollectionTab(s)
                     is Route.Series -> SeriesCover(s, r.series)
                     is Route.SeriesSettings -> SeriesSettingsScreen(s, r.series)
                     is Route.Chapter -> ChapterScreen(s, r)
@@ -89,6 +89,8 @@ private fun Main(s: AppState, onExit: () -> Unit) {
                     is Route.Artwork -> Artwork(s, r)
                     is Route.Review -> WordsTab(s)
                     is Route.Session -> Session(s, r)
+                    Route.Visitor -> VisitorScreen(s)
+                    is Route.Parcel -> ParcelScreen(s, r.series)
                     Route.WordList -> WordListScreen(s)
                     Route.Quotes -> QuotesScreen(s)
                     is Route.Purchase -> SeriesCover(s, r.series)
@@ -100,6 +102,8 @@ private fun Main(s: AppState, onExit: () -> Unit) {
     }
     if (s.settingsOpen) SettingsScreen(s)
     CoachLayer(s)
+    // 보상 순간: 어느 화면에서든 맨 위에
+    RewardOverlay(s)
 }
 
 @Composable

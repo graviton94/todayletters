@@ -35,6 +35,10 @@ sealed interface Route {
     /** 모은 낱말 찾기 · 내 구절. */
     data object WordList : Route
     data object Quotes : Route
+    /** 오늘의 손님 (미니게임). */
+    data object Visitor : Route
+    /** 정기 소포 보내기 · 답례. */
+    data class Parcel(val series: String) : Route
     data object Settings : Route
 }
 
@@ -53,6 +57,8 @@ object Nav {
         is Route.Artwork -> r.from
         is Route.Review -> Route.Words
         is Route.Session, Route.WordList, Route.Quotes -> Route.Words
+        Route.Visitor -> Route.Inbox
+        is Route.Parcel -> Route.Gallery
         Route.Settings -> Route.Inbox
     }
 

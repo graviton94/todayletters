@@ -11,6 +11,17 @@ import io.github.graviton94.todayletters.core.Arrivals
 import io.github.graviton94.todayletters.core.Coach
 import io.github.graviton94.todayletters.core.Langs
 import io.github.graviton94.todayletters.core.Launch
+import io.github.graviton94.todayletters.core.Word
+import io.github.graviton94.todayletters.core.Visitor
+import io.github.graviton94.todayletters.core.StampArt
+import io.github.graviton94.todayletters.core.ParcelReturn
+import io.github.graviton94.todayletters.core.Parcel
+import io.github.graviton94.todayletters.core.Memory
+import io.github.graviton94.todayletters.core.Achievements
+import io.github.graviton94.todayletters.core.Stats
+import io.github.graviton94.todayletters.core.Growth
+import io.github.graviton94.todayletters.core.Rewards
+import io.github.graviton94.todayletters.core.Earn
 import io.github.graviton94.todayletters.core.Letter
 import io.github.graviton94.todayletters.core.LetterProgress
 import io.github.graviton94.todayletters.core.Nav
@@ -185,9 +196,11 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     fun cards() = run { @Suppress("UNUSED_EXPRESSION") version; store.cards().filter { cardWord(it.key) != null } }
     fun dueCards() = io.github.graviton94.todayletters.core.Memory.dueToday(cards(), today)
     fun answer(c: io.github.graviton94.todayletters.core.Card, correct: Boolean) {
-        store.save(io.github.graviton94.todayletters.core.Memory.after(c, correct, today)); version++
+        store.save(io.github.graviton94.todayletters.core.Memory.after(c, correct, today))
+        if (correct) earn(Earn.REVIEW_RIGHT)
+        version++
     }
-    fun reviewDone() { store.reviewedDay = today; version++ }
+    fun reviewDone() { store.reviewedDay = today; version++; settle() }
     val reviewedToday: Boolean get() = run { @Suppress("UNUSED_EXPRESSION") version; store.reviewedDay == today }
 
     // ── 내 구절 ──────────────────────────────────────────────
@@ -207,6 +220,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
         store.markDoneDay(today)
         val n = io.github.graviton94.todayletters.core.Streak.after(store.streakDay, store.streakCount, today)
         store.saveStreak(today, n)
+        if (n > store.bestStreak) store.bestStreak = n
         runCatching { io.github.graviton94.todayletters.data.TodayWidget.refresh(ctx) }
         return n
     }
@@ -235,9 +249,137 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     fun replyAndContinue(r: Route.Letter, mode: ReplyMode) {
         val (ch, l) = letterOf(r)
         val was = progress(r.series, ch, l.id).done
+        val first = mode !in progress(r.series, ch, l.id).replied
         replied(r, mode)
+        if (first) earn(Earn.PRACTICE)
         back()
-        if (!was && progress(r.series, ch, l.id).done) { finished(); go(Route.Done(r)) }
+        if (!was && progress(r.series, ch, l.id).done) { finished(); earn(Earn.LETTER); go(Route.Done(r)) }
+        settle()
+    }
+
+    // ── 보상 엔진 (모든 시리즈 공통: 우표 · 혼자 읽기 · 업적 · 기념 우표 · 물건) ───────────
+    /** 한 번에 보여 줄 보상 순간. */
+    data class RewardMoment(
+        val stamps: Int,
+        val items: List<Word>,
+        val achievements: List<String>,
+        val gifts: List<StampArt>,
+        val milestone: Int?,
+    )
+    var reward by mutableStateOf<RewardMoment?>(null)
+    private var pendingStamps = 0
+    var wallet by mutableStateOf(store.wallet)
+        private set
+
+    fun earn(e: Earn, times: Int = 1): Int {
+        val (w, g) = Rewards.earn(store.wallet, e, today, times)
+        store.wallet = w; wallet = w; pendingStamps += g
+        return g
+    }
+    fun spend(cost: Int): Boolean {
+        val w = Rewards.spend(store.wallet, cost) ?: return false
+        store.wallet = w; wallet = w; version++; return true
+    }
+
+    /** 받은(연) 편지들의 낱말 카드 키 — 모든 작품. */
+    fun arrivedWordKeys(): List<String> = works.flatMap { w ->
+        val id = w.series.id
+        w.chapters.flatMap { c -> c.letters.filter { l -> progress(id, c.id, l.id).let { it.done || it.shown > 0 } }
+            .flatMap { l -> l.words.indices.map { cardKey(id, c.id, l.id, it) } } }
+    }
+    fun cardMap() = cards().associateBy { it.key }
+    val readAlone: Int get() = run { @Suppress("UNUSED_EXPRESSION") version; Growth.readAlone(arrivedWordKeys(), cardMap()) }
+
+    /** 편지 한 통을 혼자 읽을 수 있는가. */
+    fun letterAlone(id: String, chapter: String, l: Letter): Boolean =
+        Growth.letterAlone(l.words.indices.map { cardKey(id, chapter, l.id, it) }, cardMap())
+
+    fun stats(): Stats {
+        val cm = cardMap()
+        var done = 0; var alone = 0; var chapters = 0
+        works.forEach { w -> w.chapters.forEach { c ->
+            val ds = c.letters.count { progress(w.series.id, c.id, it.id).done }
+            done += ds; if (ds == c.letters.size && ds > 0) chapters++
+            alone += c.letters.count { l -> progress(w.series.id, c.id, l.id).done && Growth.letterAlone(l.words.indices.map { cardKey(w.series.id, c.id, l.id, it) }, cm) }
+        } }
+        return Stats(
+            lettersDone = done, streak = streak, bestStreak = maxOf(store.bestStreak, streak),
+            wordsKnown = cm.values.count { Growth.known(it) }, wordsOwned = cm.values.count { it.box >= Memory.TOP },
+            readAlone = readAlone, lettersAlone = alone, visitors = store.visitors,
+            parcels = works.sumOf { store.parcels(it.series.id) }, chapters = chapters,
+        )
+    }
+
+    /** 오늘의 일: 편지 · 복습 · 손님. 다 하면 보너스. */
+    data class DayTask(val kind: String, val done: Boolean)
+    fun dayTasks(): List<DayTask> {
+        val w = works.firstOrNull() ?: return emptyList()
+        val id = w.series.id
+        return listOfNotNull(
+            DayTask("letter", today in store.doneDays() || waiting(id) == 0),
+            DayTask("review", reviewedToday || dueCards().isEmpty()),
+            if (w.kit.visitors.isNotEmpty()) DayTask("visitor", store.visitorDay == today) else null,
+        )
+    }
+
+    /** 오늘의 손님 (키트의 손님을 날마다 돌아가며). */
+    fun visitorToday(): Pair<Work, Visitor>? {
+        val w = works.firstOrNull { it.kit.visitors.isNotEmpty() } ?: return null
+        return w to w.kit.visitors[(today % w.kit.visitors.size).toInt()]
+    }
+    fun visitorDone() { store.visitorDay = today; earn(Earn.VISITOR); version++; settle() }
+
+    /** 정기 소포: 이번 달 (달력) 에 보냈는지 · 보낼 수 있는지. */
+    val thisMonth: Int get() = LocalDate.now().let { Parcel.month(it.year, it.monthValue) }
+    fun parcelSent(id: String) = store.parcelMonth(id) == thisMonth
+    fun sendParcel(w: Work): ParcelReturn? {
+        val kit = w.kit.parcel ?: return null
+        if (parcelSent(w.series.id) || !spend(kit.cost)) return null
+        val n = store.parcels(w.series.id)
+        store.sendParcel(w.series.id, thisMonth)
+        version++; settle()
+        return kit.returns.getOrNull(n % kit.returns.size.coerceAtLeast(1))
+    }
+
+    /**
+     * 정산: 혼자 읽기가 오른 만큼 · 새로 금빛이 된 물건 · 오늘의 일 보너스 · 새 업적(+기념 우표)을 모아
+     * 한 번의 보상 순간으로 보여 준다. 아무 것도 없으면 조용히.
+     */
+    fun settle() {
+        val cm = cardMap()
+        // 편지 속 물건: 낱말이 떠올리기 단계에 오르면 금빛
+        val items = mutableListOf<Word>()
+        works.forEach { w -> w.chapters.forEach { c -> c.letters.forEach { l -> l.words.forEachIndexed { i, word ->
+            if (word.icon.isEmpty()) return@forEachIndexed
+            val k = cardKey(w.series.id, c.id, l.id, i)
+            if (Growth.known(cm[k]) && k !in store.goldItems) { store.gild(k); items += word }
+        } } } }
+        // 혼자 읽기
+        val now = readAlone
+        val seen = store.readAloneSeen
+        var milestone: Int? = null
+        if (now > seen) {
+            earn(Earn.READ_ALONE, now - seen)
+            milestone = Growth.crossed(seen, now).lastOrNull()
+            store.readAloneSeen = now
+        }
+        // 오늘의 일
+        val tasks = dayTasks()
+        if (tasks.isNotEmpty() && tasks.all { it.done } && store.dayCompleteDay != today) { store.dayCompleteDay = today; earn(Earn.DAY_COMPLETE) }
+        // 업적 → 기념 우표
+        val got = Achievements.newly(stats(), store.achievements)
+        val gifts = mutableListOf<StampArt>()
+        got.forEach { a ->
+            store.unlock(a.id); earn(Earn.ACHIEVEMENT)
+            works.firstNotNullOfOrNull { w -> w.kit.stamps.firstOrNull { "${w.series.id}:${it.id}" !in store.stamps }?.let { w to it } }?.let { (w, st) ->
+                store.addStamp("${w.series.id}:${st.id}"); gifts += st
+            }
+        }
+        if (pendingStamps > 0 || items.isNotEmpty() || got.isNotEmpty()) {
+            reward = RewardMoment(pendingStamps, items, got.map { it.id }, gifts, milestone)
+        }
+        pendingStamps = 0
+        version++
     }
 
     // 도움말 (?)

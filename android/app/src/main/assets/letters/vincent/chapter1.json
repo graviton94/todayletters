@@ -69,7 +69,8 @@
           "pos": "n.m.",
           "ipa": "vwajaʒ",
           "en": "journey",
-          "ko": "여행, 오는 길"
+          "ko": "여행, 오는 길",
+          "icon": "🚂"
         },
         {
           "fr": "pays",
@@ -83,21 +84,24 @@
           "pos": "n.f.",
           "ipa": "nɛʒ",
           "en": "snow",
-          "ko": "눈"
+          "ko": "눈",
+          "icon": "❄️"
         },
         {
           "fr": "vigne",
           "pos": "n.f.",
           "ipa": "viɲ",
           "en": "vine",
-          "ko": "포도나무"
+          "ko": "포도나무",
+          "icon": "🍇"
         },
         {
           "fr": "ciel",
           "pos": "n.m.",
           "ipa": "sjɛl",
           "en": "sky",
-          "ko": "하늘"
+          "ko": "하늘",
+          "icon": "🌤️"
         },
         {
           "fr": "lumineux",
@@ -318,7 +322,8 @@
           "pos": "n.f.",
           "ipa": "lɛtʁ",
           "en": "letter",
-          "ko": "편지"
+          "ko": "편지",
+          "icon": "✉️"
         },
         {
           "fr": "sang",
@@ -332,7 +337,8 @@
           "pos": "n.f.",
           "ipa": "etyd",
           "en": "study (sketch)",
-          "ko": "습작"
+          "ko": "습작",
+          "icon": "🎨"
         },
         {
           "fr": "trottoir",
@@ -548,28 +554,32 @@
           "pos": "n.f.",
           "ipa": "twal",
           "en": "canvas",
-          "ko": "캔버스"
+          "ko": "캔버스",
+          "icon": "🖼️"
         },
         {
           "fr": "pont-levis",
           "pos": "n.m.",
           "ipa": "pɔ̃ləvi",
           "en": "drawbridge",
-          "ko": "도개교"
+          "ko": "도개교",
+          "icon": "🌉"
         },
         {
           "fr": "rivière",
           "pos": "n.f.",
           "ipa": "ʁivjɛʁ",
           "en": "river",
-          "ko": "강"
+          "ko": "강",
+          "icon": "🌊"
         },
         {
           "fr": "laveuse",
           "pos": "n.f.",
           "ipa": "lavøz",
           "en": "washerwoman",
-          "ko": "빨래하는 여자"
+          "ko": "빨래하는 여자",
+          "icon": "🧺"
         },
         {
           "fr": "frère",
@@ -807,21 +817,24 @@
           "pos": "n.m.",
           "ipa": "aʁbʁ",
           "en": "tree",
-          "ko": "나무"
+          "ko": "나무",
+          "icon": "🌳"
         },
         {
           "fr": "fleur",
           "pos": "n.f.",
           "ipa": "flœʁ",
           "en": "flower, blossom",
-          "ko": "꽃"
+          "ko": "꽃",
+          "icon": "🌸"
         },
         {
           "fr": "verger",
           "pos": "n.m.",
           "ipa": "vɛʁʒe",
           "en": "orchard",
-          "ko": "과수원"
+          "ko": "과수원",
+          "icon": "🌿"
         },
         {
           "fr": "printemps",
@@ -1010,14 +1023,16 @@
           "pos": "n.f.",
           "ipa": "kɔ̃stʁyksjɔ̃",
           "en": "building",
-          "ko": "건물"
+          "ko": "건물",
+          "icon": "🏠"
         },
         {
           "fr": "pièce",
           "pos": "n.f.",
           "ipa": "pjɛs",
           "en": "room",
-          "ko": "방"
+          "ko": "방",
+          "icon": "🚪"
         },
         {
           "fr": "jaune",
@@ -1031,7 +1046,8 @@
           "pos": "n.m.",
           "ipa": "sɔlɛj",
           "en": "sun",
-          "ko": "해, 햇빛"
+          "ko": "해, 햇빛",
+          "icon": "☀️"
         },
         {
           "fr": "mois",

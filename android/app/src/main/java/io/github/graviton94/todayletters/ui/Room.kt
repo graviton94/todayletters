@@ -142,6 +142,7 @@ fun Room(s: AppState, r: Route.Letter) {
     val nextPlay = modes.firstOrNull { it !in progress.replied }
     val reply = Exercises.replyFor(letter, view.learn).second
     val finished = written >= total
+    val cardMap = remember(s.version) { s.cardMap() }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
         RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else dateLine(letter.date, letter.place),
@@ -185,6 +186,14 @@ fun Room(s: AppState, r: Route.Letter) {
                 item(key = "${letter.id}:pre:$k") { MomentCard(s, work, mo, onMap = { mapOpen = true }, onPhoto = { s.go(Route.Artwork(id, r.letter, r)) }) }
             }
             itemsIndexed(letter.messages.take(arrived), key = { i, _ -> "${letter.id}:$i" }) { i, m ->
+                val sentMarks = wordMarks(m.text[view.learn], letter.words.map { it.text[view.learn] })
+                // 번역이 사라지는 편지 (엔진 공통): 이 문장 낱말의 절반 이상을 혼자 읽으면 번역을 접고 아직인 낱말만 뜻풀이
+                val fade = remember(s.version, i) {
+                    val idx = sentMarks.map { it.second }.distinct()
+                    val known = idx.filter { k -> io.github.graviton94.todayletters.core.Growth.known(cardMap[s.cardKey(id, chapter, letter.id, k)]) }
+                    val fold = idx.isNotEmpty() && known.size * 2 >= idx.size
+                    fold to (idx - known.toSet()).map { k -> letter.words[k].let { firstSense(it.text[view.learn]) to firstSense(it.text[view.read]) } }
+                }
                 val fresh = i >= already && animate
                 var shownIn by remember { mutableStateOf(!fresh) }
                 LaunchedEffect(Unit) { shownIn = true }
@@ -197,8 +206,9 @@ fun Room(s: AppState, r: Route.Letter) {
                         signature = if (i == total - 1) "t. à t. ${work.sender}" else null,
                         playing = playing == i, canPlay = i < written,
                         onPlay = { speak(i) }, onWritten = { if (written < i + 1) written = i + 1 },
-                        marks = wordMarks(m.text[view.learn], letter.words.map { it.text[view.learn] }),
+                        marks = sentMarks,
                         onWord = { wordFocus = it },
+                        fold = fade.first, glosses = fade.second,
                         saved = s.isSaved(s.quoteKey(id, chapter, letter.id, i)),
                         onSave = { s.toggleQuote(s.quoteKey(id, chapter, letter.id, i)) },
                     )
@@ -423,6 +433,7 @@ private fun CuratorNote(text: String, lang: Lang) {
 }
 
 /** 편지지 한 조각: 배울 언어 줄(크게) · 번역 줄(작게) · 듣기 단추. 새로 온 조각은 줄마다 잉크가 번지며 한 번만 써진다. */
+@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
 private fun LetterSlip(
     index: Int, learn: String, learnLang: Lang, read: String?, readLang: Lang,
@@ -430,9 +441,11 @@ private fun LetterSlip(
     onPlay: () -> Unit, onWritten: () -> Unit,
     marks: List<Pair<IntRange, Int>> = emptyList(), onWord: (Int) -> Unit = {},
     saved: Boolean = false, onSave: () -> Unit = {},
+    fold: Boolean = false, glosses: List<Pair<String, String>> = emptyList(),
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
+    var reveal by remember { mutableStateOf(false) }
     val tilt = listOf(-0.6f, 0.5f, -0.3f, 0.4f)[index % 4]
     Slip(seed = index * 31 + 7, tilt = tilt, modifier = Modifier.fillMaxWidth(0.92f)) {
         Row(
@@ -442,9 +455,19 @@ private fun LetterSlip(
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
                 InkText(learn, Type.target.of(learnLang), p.slipInk, animate, lineMs = lineMs, onDone = {
                     learnDone = true
-                    if (read == null) onWritten()
+                    if (read == null || fold) onWritten()
                 }, marks = marks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { k -> onWord(marks[k].second) })
-                if (read != null) InkText(read, Type.base.of(readLang), p.slipSoft, animate, go = learnDone, lineMs = (lineMs * 0.7f).toInt(), onDone = onWritten)
+                // 번역이 사라지는 편지: 익힌 낱말이 많은 문장은 번역을 접고, 아직인 낱말만 작은 뜻풀이로
+                if (read != null && fold) {
+                    if (glosses.isNotEmpty()) androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        glosses.forEach { (w, m) ->
+                            Text("$w · $m", style = Type.small.of(readLang).copy(fontSize = Tokens.Text.caps), color = Color(0xFF7A5A20),
+                                modifier = Modifier.border(1.dp, Color(0x557A5A20)).padding(horizontal = 6.dp, vertical = 2.dp))
+                        }
+                    }
+                    if (reveal) Text(read, style = Type.base.of(readLang), color = p.slipSoft)
+                    else Text(stringResource(R.string.fade_show), style = Type.small.ui(), color = p.slipSoft, modifier = Modifier.pressable(haptic = false) { reveal = true }.padding(vertical = 4.dp))
+                } else if (read != null) InkText(read, Type.base.of(readLang), p.slipSoft, animate, go = learnDone, lineMs = (lineMs * 0.7f).toInt(), onDone = onWritten)
                 if (signature != null) Text(signature, style = Type.signature, color = p.slipSoft, modifier = Modifier.align(Alignment.End).padding(top = Tokens.Space.s1))
             }
             Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {

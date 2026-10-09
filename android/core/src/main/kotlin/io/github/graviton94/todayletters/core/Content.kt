@@ -6,7 +6,8 @@ data class Tri(val lines: Map<Lang, String>) {
 }
 
 data class Message(val text: Tri)
-data class Word(val text: Tri, val pos: String = "", val ipa: String = "")
+/** 낱말. [icon] 이 있으면 ‘편지 속 물건’으로 수집 앨범에 들어간다. */
+data class Word(val text: Tri, val pos: String = "", val ipa: String = "", val icon: String = "")
 /** 그림 속 산책의 한 자리: 그림 위의 위치(0~1), 이름, 큐레이터 설명, 낱말, 그 요소가 나오는 편지 문장 번호. */
 data class Spot(val x: Float, val y: Float, val title: Tri, val note: Tri, val word: Word?, val quote: Int? = null)
 
@@ -149,3 +150,30 @@ object Plays {
      */
     val inLetter = listOf(ReplyMode.MATCH, ReplyMode.ALOUD, ReplyMode.CONSTELLATION)
 }
+
+/**
+ * 시리즈 키트: 공통 화면(엔진)에 이 작품만의 이름 · 그림 · 목록을 채우는 데이터. 시리즈가 늘어도 코드는 그대로.
+ * 색은 0xAARRGGBB.
+ */
+data class Kit(
+    val currency: StampSkin = StampSkin(),
+    val cabinet: Cabinet = Cabinet(),
+    val parcel: ParcelKit? = null,
+    val visitors: List<Visitor> = emptyList(),
+    val stamps: List<StampArt> = emptyList(),
+    val journal: List<JournalPage> = emptyList(),
+)
+/** 우표(재화)의 모양: 액면 글자와 바탕색. */
+data class StampSkin(val label: String = "1c", val color: Long = 0xFF3D5A8F)
+/** 진열장: 화랑 · 악보장 · 지도방 … 이름과 벽 · 바닥 색. */
+data class Cabinet(val title: Tri = Tri(mapOf(Lang.EN to "")), val place: Tri = Tri(mapOf(Lang.EN to "")), val wall: Long = 0xFF3A2E26, val floor: Long = 0xFF5A3F2A)
+/** 정기 소포: 우표 [cost] 장 · 보내는 것 · 차례로 오는 답례 (실제 편지의 문장 + 그림). */
+data class ParcelKit(val cost: Int, val label: Tri, val returns: List<ParcelReturn>)
+data class ParcelReturn(val title: Tri, val letter: String, val message: Int, val image: String)
+/** 손님 = 미니게임 틀. 틀은 엔진, 손님 이름은 키트. */
+enum class VisitorGame { LISTEN, TORN, TELEGRAM }
+data class Visitor(val id: String, val game: VisitorGame, val name: Tri)
+/** 기념 우표 (업적 · 장 완주로 받는 수집품). [image] 는 그림 파일. */
+data class StampArt(val id: String, val label: String, val image: String, val value: String, val color: Long)
+/** 여행기 한 쪽: 도시 · 그 도시의 장소들 · 표. */
+data class JournalPage(val id: String, val city: Tri, val years: String, val places: List<String>, val ticketLine: String, val ticket: Tri)

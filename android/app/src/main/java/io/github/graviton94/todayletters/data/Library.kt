@@ -13,6 +13,15 @@ import io.github.graviton94.todayletters.core.Plate
 import io.github.graviton94.todayletters.core.Series
 import io.github.graviton94.todayletters.core.Tri
 import io.github.graviton94.todayletters.core.Word
+import io.github.graviton94.todayletters.core.JournalPage
+import io.github.graviton94.todayletters.core.StampArt
+import io.github.graviton94.todayletters.core.VisitorGame
+import io.github.graviton94.todayletters.core.Visitor
+import io.github.graviton94.todayletters.core.ParcelReturn
+import io.github.graviton94.todayletters.core.ParcelKit
+import io.github.graviton94.todayletters.core.Cabinet
+import io.github.graviton94.todayletters.core.StampSkin
+import io.github.graviton94.todayletters.core.Kit
 import org.json.JSONObject
 
 /** 작품 하나: 표지 정보 + 챕터들. assets/letters/<작품>/series.json 과 챕터 파일들. */
@@ -32,6 +41,8 @@ data class Work(
     val name: Tri = Tri(mapOf(Lang.EN to sender)),
     /** 손으로 그린 지도의 장소들 (위치 공유 · 지도). */
     val places: List<Place> = emptyList(),
+    /** 시리즈 키트 (우표 · 진열장 · 소포 · 손님 · 기념 우표 · 여행기). */
+    val kit: Kit = Kit(),
 )
 
 /** 앱 안에 넣은 편지 데이터 읽기 (scripts/generate.py 가 data/ 에서 assets/letters/ 로 옮김). */
@@ -64,8 +75,44 @@ object Library {
                 places = meta.optJSONObject("places")?.let { o ->
                     o.keys().asSequence().map { k -> o.getJSONObject(k).let { p -> Place(k, p.getDouble("x").toFloat(), p.getDouble("y").toFloat(), tri(p.getJSONObject("name")), tri(p.getJSONObject("note")), p.optDouble("lat", 0.0), p.optDouble("lng", 0.0)) } }.toList()
                 } ?: emptyList(),
+                kit = meta.optJSONObject("kit")?.let { kit(it) } ?: Kit(),
             )
         }
+    }
+
+    private fun color(s: String?, fallback: Long): Long =
+        s?.removePrefix("#")?.takeIf { it.length == 6 }?.toLongOrNull(16)?.let { 0xFF000000 or it } ?: fallback
+
+    private fun kit(o: JSONObject): Kit {
+        val cur = o.optJSONObject("currency")
+        val cab = o.optJSONObject("cabinet")
+        val par = o.optJSONObject("parcel")
+        return Kit(
+            currency = StampSkin(cur?.optString("label") ?: "1c", color(cur?.optString("color"), 0xFF3D5A8F)),
+            cabinet = cab?.let { Cabinet(tri(it.getJSONObject("title")), tri(it.optJSONObject("place") ?: JSONObject()), color(it.optString("wall"), 0xFF3A2E26), color(it.optString("floor"), 0xFF5A3F2A)) } ?: Cabinet(),
+            parcel = par?.let { pk ->
+                ParcelKit(pk.optInt("cost", 50), tri(pk.getJSONObject("label")), pk.optJSONArray("returns")?.let { a ->
+                    (0 until a.length()).map { i -> a.getJSONObject(i).let { r -> ParcelReturn(tri(r.getJSONObject("title")), r.optString("letter"), r.optInt("message"), r.optString("image")) } }
+                } ?: emptyList())
+            },
+            visitors = o.optJSONArray("visitors")?.let { a ->
+                (0 until a.length()).mapNotNull { i -> a.getJSONObject(i).let { v ->
+                    val g = runCatching { VisitorGame.valueOf(v.getString("template").uppercase()) }.getOrNull() ?: return@mapNotNull null
+                    Visitor(v.getString("id"), g, tri(v.getJSONObject("name")))
+                } }
+            } ?: emptyList(),
+            stamps = o.optJSONArray("stamps")?.let { a ->
+                (0 until a.length()).map { i -> a.getJSONObject(i).let { s -> StampArt(s.getString("id"), s.optString("label"), s.optString("image"), s.optString("value"), color(s.optString("color"), 0xFF3D5A8F)) } }
+            } ?: emptyList(),
+            journal = o.optJSONArray("journal")?.let { a ->
+                (0 until a.length()).map { i -> a.getJSONObject(i).let { j ->
+                    val t = j.optJSONObject("ticket")
+                    JournalPage(j.getString("id"), tri(j.getJSONObject("city")), j.optString("years"),
+                        j.optJSONArray("places")?.let { p -> (0 until p.length()).map { p.getString(it) } } ?: emptyList(),
+                        t?.optString("line") ?: "", t?.optJSONObject("text")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")))
+                } }
+            } ?: emptyList(),
+        )
     }
 
     /** 세 언어 글자. 한국어가 낱말 가운데서 줄이 바뀌지 않게 [Breaks.keepAll] 을 거친다. */
@@ -78,7 +125,7 @@ object Library {
             val l = arr.getJSONObject(i)
             val msgs = l.getJSONArray("messages").let { m -> (0 until m.length()).map { Message(tri(m.getJSONObject(it))) } }
             val words = l.optJSONArray("words")?.let { w ->
-                (0 until w.length()).map { j -> w.getJSONObject(j).let { Word(tri(it), it.optString("pos"), it.optString("ipa")) } }
+                (0 until w.length()).map { j -> w.getJSONObject(j).let { Word(tri(it), it.optString("pos"), it.optString("ipa"), it.optString("icon")) } }
             } ?: emptyList()
             val plate = l.optJSONObject("plate")?.let { pl ->
                 val spots = pl.optJSONArray("spots")?.let { a ->
