@@ -1,0 +1,15 @@
+Error 404 - Van Gogh Museum
+
+ {{pageTransitionStateText}}
+
+404
+
+Sorry, the page is not available. Please try:
+
+ Homepage
+
+ What's On
+
+ Vincent van Gogh's Life
+
+ Search the Collection
