@@ -565,6 +565,8 @@ private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Ma
             .putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE_MODEL, android.speech.RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
             .putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE, tag)
             .putExtra(android.speech.RecognizerIntent.EXTRA_MAX_RESULTS, 5)
+            // 가능하면 폰 안에서 알아듣기 (개인정보처리방침에 적은 대로)
+            .putExtra(android.speech.RecognizerIntent.EXTRA_PREFER_OFFLINE, true)
         listening = true
         runCatching { r.startListening(i) }.onFailure { listening = false; selfCheck = true }
     }

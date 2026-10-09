@@ -133,6 +133,10 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
             Caps(stringResource(R.string.credits_voice_h), p.giltText)
             Text(stringResource(R.string.credits_voice), style = Type.small.ui(), color = p.ink)
 
+            Caps(stringResource(R.string.credits_about_h), p.giltText)
+            Text(stringResource(R.string.credits_about), style = Type.small.ui(), color = p.ink)
+            Text(stringResource(R.string.credits_links), style = Type.small.ui(), color = p.inkSoft)
+
             Caps(stringResource(R.string.credits_fonts_h), p.giltText)
             listOf("Cormorant Garamond" to "cormorantgaramond", "Crimson Pro" to "crimsonpro", "Cinzel" to "cinzel", "Noto Serif KR" to "notoserifkr").forEach { (name, file) ->
                 val text = androidx.compose.runtime.remember(file) { runCatching { ctx.assets.open("licenses/OFL-$file.txt").bufferedReader().readText() }.getOrDefault("") }

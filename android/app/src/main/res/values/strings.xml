@@ -500,4 +500,7 @@
     <string name="shadow_unpassed_title">Some phrases haven\'t passed yet</string>
     <string name="shadow_unpassed_body">%1$d phrases are under 70. Every phrase needs to pass for the seal.</string>
     <string name="shadow_go">Go to that phrase</string>
+    <string name="credits_about_h">No affiliation · rights questions</string>
+    <string name="credits_about">This app is not affiliated with, sponsored or endorsed by the Van Gogh Museum, the Vincent van Gogh Foundation or any museum or library named here; their names appear only to credit sources. If you believe something infringes your rights, write to ruahn49@gmail.com: we take the item down while we check and reply within 7 days.</string>
+    <string name="credits_links">Sources and licences: graviton94.github.io/todayletters\nPrivacy policy: graviton94.github.io/todayletters/privacy</string>
 </resources>
