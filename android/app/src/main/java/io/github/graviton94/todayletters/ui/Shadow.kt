@@ -180,10 +180,10 @@ fun ShadowScreen(s: AppState, r: Route.Shadow) {
 }
 
 @Composable
-private fun RoundButton(label: String, size: androidx.compose.ui.unit.Dp, fill: Color, ring: Color, enabled: Boolean, onClick: () -> Unit) {
+private fun RoundButton(label: String, diameter: androidx.compose.ui.unit.Dp, fill: Color, ring: Color, enabled: Boolean, onClick: () -> Unit) {
     Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
         Box(
-            Modifier.size(size).background(fill, CircleShape).border(1.dp, ring, CircleShape).pressable(enabled = enabled, role = Role.Button) { onClick() }
+            Modifier.size(diameter).background(fill, CircleShape).border(1.dp, ring, CircleShape).pressable(enabled = enabled, role = Role.Button) { onClick() }
                 .semantics { contentDescription = label },
             contentAlignment = Alignment.Center,
         ) {
