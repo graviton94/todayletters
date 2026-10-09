@@ -303,7 +303,12 @@ fun Session(s: AppState, r: Route.Session) {
                 }
                 ReviewKind.BLANK -> {
                     Text(stringResource(R.string.blank_prompt), style = Type.heading.ui(), color = p.ink)
-                    SentenceHint(q, filled = mark != null)
+                    SentenceHint(q, filled = mark != null, highlight = hint || mark != null)
+                    // 번역에서 찾기: 빈칸 낱말에 해당하는 말을 번역 문장에서 금빛으로 (맞히면 그대로 맞은 것으로)
+                    if (!hint && mark == null && q.sentenceRead != null && q.read != q.learn) Text(
+                        stringResource(R.string.blank_hint), style = Type.small.ui(), color = p.giltText,
+                        modifier = Modifier.align(Alignment.End).border(1.dp, p.giltText.copy(alpha = 0.5f)).pressable { hint = true }.padding(horizontal = 10.dp, vertical = 6.dp),
+                    )
                 }
                 ReviewKind.MEANING -> {
                     Text(q.word, style = Type.display.of(q.learn), color = p.ink)
@@ -380,7 +385,7 @@ fun Session(s: AppState, r: Route.Session) {
 }
 
 @Composable
-private fun SentenceHint(q: Q, filled: Boolean = true) {
+private fun SentenceHint(q: Q, filled: Boolean = true, highlight: Boolean = false) {
     val p = Ink.palette
     if (q.sentence == null) return
     Slip(seed = 13, modifier = Modifier.fillMaxWidth()) {
@@ -388,10 +393,33 @@ private fun SentenceHint(q: Q, filled: Boolean = true) {
             Text(stringResource(R.string.dict_hint_title), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = Color(0xFF7A5A20))
             val blank = q.sentence.replace(q.word, if (filled) q.word else "_____", ignoreCase = true)
             Text(blank, style = Type.target.of(q.learn), color = p.slipInk)
-            if (q.sentenceRead != null) Text(q.sentenceRead, style = Type.base.of(q.read), color = p.slipSoft)
+            if (q.sentenceRead != null) Text(
+                if (highlight) meaningMarks(q.sentenceRead, q.meaning, p.slipInk) else androidx.compose.ui.text.AnnotatedString(q.sentenceRead),
+                style = Type.base.of(q.read), color = p.slipSoft,
+            )
         }
     }
 }
+
+/** 번역 문장에서 뜻(“밝은, 환한”)의 말을 찾아 금빛 바탕으로. 한글은 글자 그대로, 다른 글은 어간(끝 한두 글자 뺀 것)으로 찾는다. */
+private fun meaningMarks(text: String, meaning: String, ink: Color): androidx.compose.ui.text.AnnotatedString =
+    androidx.compose.ui.text.buildAnnotatedString {
+        append(text)
+        val plain = Breaks.plain(text)
+        meaning.split(Regex("[,;/()]+")).map { Breaks.plain(it).trim() }.filter { it.isNotEmpty() }.forEach { part ->
+            val hangul = part.any { it in '\uAC00'..'\uD7A3' }
+            val key = if (hangul || part.length <= 4) part else part.dropLast(if (part.length > 6) 2 else 1)
+            var from = 0
+            while (true) {
+                val i = plain.indexOf(key, from, ignoreCase = true); if (i < 0) break
+                // Breaks.keepAll 이 넣은 보이지 않는 글자 때문에 위치를 원문 기준으로 다시 센다
+                var k = 0; var start = -1; var end = -1; var n = 0
+                while (k < text.length) { if (text[k] != '\u2060') { if (n == i) start = k; if (n == i + key.length - 1) { end = k; break }; n++ }; k++ }
+                if (start >= 0 && end >= start) addStyle(androidx.compose.ui.text.SpanStyle(background = Color(0x73D2A955), color = ink, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), start, end + 1)
+                from = i + key.length
+            }
+        }
+    }
 
 @Composable
 private fun OptionsGrid(q: Q, picked: String?, mark: Memory.Mark?, onPick: (String) -> Unit) {

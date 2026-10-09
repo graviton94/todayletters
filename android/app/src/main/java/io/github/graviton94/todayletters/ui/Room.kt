@@ -146,7 +146,22 @@ fun Room(s: AppState, r: Route.Letter) {
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
         RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else dateLine(letter.date, letter.place),
             auto = s.app.sound, onAuto = { if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }, onInfo = { s.go(Route.RoomInfo(r)) })
-        TodayStrip(read = written, total = total, modes = modes, replied = progress.replied, done = progress.done)
+        val ctx = androidx.compose.ui.platform.LocalContext.current
+        val notYet = stringResource(R.string.step_not_yet)
+        TodayStrip(read = written, total = total, modes = modes, replied = progress.replied, done = progress.done) { step ->
+            // 0 = 읽기, 1..modes = 연습, 마지막 = 그림. 다 한 단계와 지금 단계만 이동, 나머지는 짧은 안내
+            val readDone = written >= total
+            val nextMode = if (!readDone) null else modes.firstOrNull { it !in progress.replied }
+            when {
+                step == 0 -> scope.launch { list.animateScrollToItem(0) }
+                step <= modes.size -> modes[step - 1].let { m ->
+                    if (readDone && (m in progress.replied || m == nextMode)) { stopAll(); s.go(Route.Play(r, m)) }
+                    else android.widget.Toast.makeText(ctx, notYet, android.widget.Toast.LENGTH_SHORT).show()
+                }
+                else -> if (progress.done || (readDone && nextMode == null)) { stopAll(); s.go(Route.Artwork(id, r.letter, r)) }
+                    else android.widget.Toast.makeText(ctx, notYet, android.widget.Toast.LENGTH_SHORT).show()
+            }
+        }
         LazyColumn(
             Modifier.weight(1f).fillMaxWidth(), state = list,
             contentPadding = PaddingValues(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s5),
@@ -342,7 +357,7 @@ private fun RoomHeader(
 
 /** 오늘의 순서: 읽기 → (낱말 → 따라 읽기 → 답장, 켠 것만) → 그림. 한 일은 금빛 체크, 지금 할 일은 먹색, 남은 일은 흐리게. */
 @Composable
-private fun TodayStrip(read: Int, total: Int, modes: List<ReplyMode>, replied: Set<ReplyMode>, done: Boolean) {
+private fun TodayStrip(read: Int, total: Int, modes: List<ReplyMode>, replied: Set<ReplyMode>, done: Boolean, onStep: (Int) -> Unit) {
     val p = Ink.palette
     val readDone = read >= total
     val next = if (!readDone) null else modes.firstOrNull { it !in replied }
@@ -361,7 +376,11 @@ private fun TodayStrip(read: Int, total: Int, modes: List<ReplyMode>, replied: S
         ) {
             steps.forEachIndexed { i, (label, state) ->
                 if (i > 0) Box(Modifier.weight(1f).height(1.dp).background(if (state > 0) p.giltText.copy(alpha = 0.5f) else p.hair))
-                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(3.dp)) {
+                Row(
+                    Modifier.clip(androidx.compose.foundation.shape.RoundedCornerShape(14.dp)).background(if (state == 1) p.giltText.copy(alpha = 0.12f) else Color.Transparent)
+                        .pressable(haptic = false) { onStep(i) }.heightIn(min = 32.dp).padding(horizontal = 5.dp),
+                    verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(3.dp),
+                ) {
                     when (state) {
                         2 -> Box(Modifier.size(14.dp).background(p.giltText, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) {
                             Canvas(Modifier.size(8.dp)) {

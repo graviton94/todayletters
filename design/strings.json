@@ -1235,5 +1235,17 @@
   "status_line": {
     "en": "%1$s's status · “%2$s”",
     "ko": "%1$s의 상태 메시지 · “%2$s”"
+  },
+  "walk_to_whole": {
+    "en": "‹ Whole painting",
+    "ko": "‹ 전경으로"
+  },
+  "step_not_yet": {
+    "en": "Do the earlier step first.",
+    "ko": "앞 단계부터 해요."
+  },
+  "blank_hint": {
+    "en": "💡 Find it in the translation",
+    "ko": "💡 번역에서 찾기"
   }
 }

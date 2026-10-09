@@ -240,7 +240,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
                     quoteAsset = pair?.let { (ch, l) -> sp.quote?.let { q -> s.narrator.path(r.series, ch, l.id, "m${q + 1}_${view.learn.code}") } },
                     quote = sp.quote?.let { letter?.messages?.getOrNull(it) }?.text,
                     playing = playing, onPlay = ::play,
-                    onPrev = { focus(at - 1) }, onNext = { focus(if (at + 1 < spots.size) at + 1 else -1) },
+                    onPrev = { focus(if (at > 0) at - 1 else -1) }, onNext = { focus(if (at + 1 < spots.size) at + 1 else -1) },
                 )
             }
         }
@@ -311,8 +311,8 @@ private fun SpotCard(
                 }
             }
             Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                Box(Modifier.weight(1f).heightIn(min = 44.dp).border(1.dp, p.slipInk.copy(alpha = 0.5f)).pressable(enabled = at > 0) { onPrev() }, contentAlignment = Alignment.Center) {
-                    Text(stringResource(R.string.walk_prev), style = Type.small.ui(), color = p.slipInk.copy(alpha = if (at > 0) 1f else 0.35f))
+                Box(Modifier.weight(1f).heightIn(min = 44.dp).border(1.dp, p.slipInk.copy(alpha = 0.5f)).pressable { onPrev() }, contentAlignment = Alignment.Center) {
+                    Text(stringResource(if (at > 0) R.string.walk_prev else R.string.walk_to_whole), style = Type.small.ui(), color = p.slipInk)
                 }
                 Box(Modifier.weight(1f).heightIn(min = 44.dp).background(p.slipInk).pressable { onNext() }, contentAlignment = Alignment.Center) {
                     Text(stringResource(if (at + 1 < total) R.string.walk_next else R.string.walk_whole), style = Type.small.ui(), color = p.slip)
