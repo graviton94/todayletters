@@ -212,4 +212,18 @@ class ScreensTest {
         s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = l.messages.size))
         shot("36_room_rent_ko_dark", true, 4000) { Room(s, Route.Letter("vincent", 1, 5)) }
     }
+    @Test fun chapterEnd() {
+        val s = withCards()
+        s.work("vincent").chapters.first().letters.forEach { l ->
+            s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = l.messages.size, done = true))
+            s.store.markStarted(s.key("vincent", "I", l.id))
+        }
+        shot("37_chapter_end_ko_dark", true) { Inbox(s) }
+    }
+    @Test fun blankHint() {
+        val s = withCards()
+        shot("38_blank_hint_ko_light", false, act = { rule.onNodeWithText(io.github.graviton94.todayletters.core.Breaks.keepAll("💡 번역에서 찾기")).performClick() }) {
+            Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.BLANK))
+        }
+    }
 }
