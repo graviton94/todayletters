@@ -1925,8 +1925,8 @@
     "ko": "그림"
   },
   "credits_images_note": {
-    "en": "Images of public-domain originals only, chosen in two tiers: by default, images whose holders release them for free use (including commercial); for a few essential masterpieces, faithful public-domain reproductions (PD-Art), marked as an exception. We never use pictures we have drawn ourselves.",
-    "ko": "공공 영역 원작의 이미지만, 두 단계 원칙으로 써요. 기본은 소장처가 상업 이용까지 자유 이용을 밝힌 이미지이고, 꼭 필요한 대표작만 예외로 공공 영역 평면 작품의 충실한 복제 사진(PD-Art)을 쓰며 ‘예외’로 표시해요. 저희가 그린 그림은 쓰지 않아요."
+    "en": "Images of public-domain originals only, chosen in two tiers: by default, images whose holders release them for free use (including commercial); for a few essential masterpieces, faithful public-domain reproductions (PD-Art). We never use pictures we have drawn ourselves.",
+    "ko": "공공 영역 원작의 이미지만, 두 단계 원칙으로 써요. 기본은 소장처가 상업 이용까지 자유 이용을 밝힌 이미지이고, 꼭 필요한 대표작만 공공 영역 평면 작품의 충실한 복제 사진(PD-Art)을 써요. 저희가 그린 그림은 쓰지 않아요."
   },
   "credits_portraits_h": {
     "en": "Portraits",

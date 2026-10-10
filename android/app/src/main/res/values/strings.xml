@@ -482,7 +482,7 @@
     <string name="credits_text_h">Letters</string>
     <string name="credits_text">French text of the letters: Brieven aan zijn broeder, edited by J. van Gogh-Bonger, 1914 (public domain), from the Internet Archive scan. English and Korean translations are written for this app.</string>
     <string name="credits_images_h">Pictures</string>
-    <string name="credits_images_note">Images of public-domain originals only, chosen in two tiers: by default, images whose holders release them for free use (including commercial); for a few essential masterpieces, faithful public-domain reproductions (PD-Art), marked as an exception. We never use pictures we have drawn ourselves.</string>
+    <string name="credits_images_note">Images of public-domain originals only, chosen in two tiers: by default, images whose holders release them for free use (including commercial); for a few essential masterpieces, faithful public-domain reproductions (PD-Art). We never use pictures we have drawn ourselves.</string>
     <string name="credits_portraits_h">Portraits</string>
     <string name="credits_portraits">Vincent van Gogh, Self-Portrait, 1887 · Art Institute of Chicago · CC0\nLeopold Mozart and His Children (after Carmontelle), 1764 · The Metropolitan Museum of Art · CC0\nJacques-Louis David, The Emperor Napoleon in His Study at the Tuileries, 1812 · National Gallery of Art, Washington · Open Access\nThe Poet Bashō · Rijksmuseum, Amsterdam · CC0</string>
     <string name="credits_voice_h">Narration</string>
