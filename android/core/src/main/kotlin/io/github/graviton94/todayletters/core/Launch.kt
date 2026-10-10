@@ -3,8 +3,8 @@ package io.github.graviton94.todayletters.core
 /**
  * 앱을 켰을 때의 순서.
  *
- *   그날 처음 열 때: 첫 화면 (언어 미술관 입구 · 오늘의 작품) → (처음 설치면 처음 소개) → 시간의 서재
- *   같은 날 다시 열 때 · 알림으로 열 때: 바로 서재 (처음 설치면 처음 소개부터)
+ *   앱을 켤 때마다: 첫 화면 (언어 미술관 입구 · 오늘의 작품) → (처음 설치면 처음 소개) → 시간의 서재
+ *   화면을 다시 그릴 때(언어 바꿈 · 회전, [deepLink]): 첫 화면 없이. 앱은 firstOfDay = true 로 부른다.
  */
 enum class Stage { OPENING, ONBOARDING, MAIN }
 

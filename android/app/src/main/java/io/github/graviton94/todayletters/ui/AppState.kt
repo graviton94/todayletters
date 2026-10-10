@@ -48,7 +48,7 @@ import java.time.LocalDate
  * 앱 한 벌의 상태. 화면 이동은 [Route] 스택 하나 (core/Routes.kt 의 계층을 따름).
  * 저장은 [Store] (기기 안), 콘텐츠는 [Library] (assets).
  */
-class AppState(val ctx: Context, deepLink: Boolean = false) {
+class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean = false) {
     val store = Store(ctx)
     val works: List<Work> = Library.works(ctx)
     val narrator = Narrator(ctx)
@@ -69,10 +69,11 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
         private set
 
     /** 앱을 켰을 때 남은 단계 (첫 화면 → 처음 소개 → 메인). */
+    // 첫 화면(미술관 입구)은 앱을 켤 때마다 늘 (알림으로 열어도). 언어를 바꿔 화면을 다시 그릴 때만 건너뛴다.
     var stages by mutableStateOf(Launch.plan(
         firstRun = !store.onboarded,
-        firstOfDay = store.openedDay != LocalDate.now().toEpochDay(),
-        deepLink = deepLink,
+        firstOfDay = true,
+        deepLink = recreated,
     ))
         private set
 
@@ -300,6 +301,23 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
         val l = a.letter ?: return
         if (silent) silentChapters += "${a.series}:${a.chapter}"
         open(a.series, a.chapter, l, a.from, skipAudio = true)
+    }
+    /**
+     * 소장품이 연 편지의 그림이기도 하면 (영어 제목이 같으면) 그 그림 산책: (자리 수, 가기). 아니면 null.
+     * 아직 안 연 편지의 그림은 잇지 않는다 (미리 보이지 않게).
+     */
+    fun plateWalk(series: String, pc: io.github.graviton94.todayletters.core.Piece): Pair<Int, () -> Unit>? {
+        val key = pc.title[io.github.graviton94.todayletters.core.Lang.EN].trim().lowercase().takeIf { it.isNotEmpty() } ?: return null
+        work(series).chapters.forEachIndexed { ci, c ->
+            c.letters.forEachIndexed { li, l ->
+                val pl = l.plate ?: return@forEachIndexed
+                if (pl.title[io.github.graviton94.todayletters.core.Lang.EN].trim().lowercase() != key || pl.spots.isEmpty()) return@forEachIndexed
+                val pr = progress(series, c.id, l.id)
+                if (pr.shown == 0 && !pr.done) return@forEachIndexed
+                return pl.spots.size to { go(Route.Artwork(series, li + 1, Route.Letter(series, ci + 1, li + 1, Route.Gallery))) }
+            }
+        }
+        return null
     }
     /** 받아 둔 낭독을 모두 지운다 (설정 › 저장 공간). */
     fun clearDownloads() { downloads.clear(); version++ }

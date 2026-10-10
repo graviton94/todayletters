@@ -19,12 +19,13 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         // 앱 안에서 볼륨 버튼은 늘 미디어 볼륨을 움직인다
         volumeControlStream = AudioManager.STREAM_MUSIC
-        // 언어를 바꿔 다시 그릴 때와 알림을 눌러 들어올 때는 오프닝을 건너뛴다
-        val restarted = savedInstanceState != null || intent.getBooleanExtra(FROM_NOTICE, false)
+        // 첫 화면은 늘 나온다. 언어를 바꿔 다시 그릴 때만 건너뛰고, 알림으로 들어오면 첫 화면 뒤에 오늘 화면으로.
+        val recreated = savedInstanceState != null
+        val fromNotice = intent.getBooleanExtra(FROM_NOTICE, false)
         // 도착 알림을 다음 그 시각으로 다시 잡는다 (권한이 없으면 울릴 때 조용히 넘어감)
         runCatching { io.github.graviton94.todayletters.data.Notices.schedule(applicationContext) }
         setContent {
-            val s = remember { AppState(applicationContext, deepLink = restarted).also { state = it } }
+            val s = remember { AppState(applicationContext, deepLink = fromNotice || recreated, recreated = recreated).also { state = it } }
             TodayLettersTheme(s.app.theme, s.app.largeText) {
                 Root(s, onExit = { finish() })
             }

@@ -610,8 +610,13 @@ private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Ma
         runCatching { r.startListening(i) }.onFailure { listening = false; selfCheck = true }
     }
     val ask = androidx.activity.compose.rememberLauncherForActivityResult(androidx.activity.result.contract.ActivityResultContracts.RequestPermission()) { ok -> if (ok) listen() else selfCheck = true }
-    Text(stringResource(R.string.speak_prompt), style = Type.heading.ui(), color = p.ink)
-    Text(q.meaning, style = Type.display.of(q.read), color = p.ink, textAlign = TextAlign.Center)
+    // 뜻(내 언어)을 보고 배우는 언어로 말한다: 무엇을 어느 말로 할지 분명히 (v21)
+    Text(stringResource(R.string.speak_prompt_lang, stringResource(langLabel(q.learn))), style = Type.heading.ui(), color = p.ink, textAlign = TextAlign.Center)
+    Caps(stringResource(R.string.speak_meaning), p.giltText, small = true)
+    Text("“${q.meaning}”", style = Type.display.of(q.read), color = p.ink, textAlign = TextAlign.Center)
+    val plainWord = io.github.graviton94.todayletters.core.Breaks.plain(q.word)
+    if (mark == null && !selfCheck) Text(stringResource(R.string.speak_hint_letters, plainWord.take(1), plainWord.count { it != ' ' }),
+        style = Type.small.ui(), color = p.inkSoft)
     if (q.ipa.isNotEmpty() && (mark != null || selfCheck)) Text("[${q.ipa}]", style = Type.small, color = p.inkSoft)
     if (mark == null && !selfCheck) {
         Box(

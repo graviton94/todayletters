@@ -2607,5 +2607,33 @@
   "audio_ahead": {
     "en": "Get ahead · %1$s",
     "ko": "미리 받기 · %1$s"
+  },
+  "speak_prompt_lang": {
+    "en": "Say it in %1$s",
+    "ko": "%1$s로 말해 보세요"
+  },
+  "speak_meaning": {
+    "en": "Meaning",
+    "ko": "이 뜻의 낱말"
+  },
+  "speak_hint_letters": {
+    "en": "Starts with “%1$s” · %2$d letters",
+    "ko": "‘%1$s’로 시작 · %2$d글자"
+  },
+  "walk_spots": {
+    "en": "Painting walk · %1$d spots ›",
+    "ko": "그림 산책 · 자리 %1$d ›"
+  },
+  "plates_title": {
+    "en": "Paintings from the letters",
+    "ko": "편지의 그림"
+  },
+  "plates_spots": {
+    "en": "%1$d spots",
+    "ko": "자리 %1$d"
+  },
+  "plates_locked": {
+    "en": "After the letter",
+    "ko": "편지를 읽으면"
   }
 }

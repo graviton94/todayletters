@@ -653,4 +653,11 @@
     <string name="audio_ready">✓ 낭⁠독 있⁠음</string>
     <string name="audio_getting">받⁠는 중⁠…</string>
     <string name="audio_ahead">미⁠리 받⁠기 · %1$s</string>
+    <string name="speak_prompt_lang">%1$s⁠로 말⁠해 보⁠세⁠요</string>
+    <string name="speak_meaning">이 뜻⁠의 낱⁠말</string>
+    <string name="speak_hint_letters">‘%1$s’⁠로 시⁠작 · %2$d⁠글⁠자</string>
+    <string name="walk_spots">그⁠림 산⁠책 · 자⁠리 %1$d ›</string>
+    <string name="plates_title">편⁠지⁠의 그⁠림</string>
+    <string name="plates_spots">자⁠리 %1$d</string>
+    <string name="plates_locked">편⁠지⁠를 읽⁠으⁠면</string>
 </resources>

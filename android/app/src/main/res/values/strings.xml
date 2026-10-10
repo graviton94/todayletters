@@ -653,4 +653,11 @@
     <string name="audio_ready">✓ Reading here</string>
     <string name="audio_getting">Downloading…</string>
     <string name="audio_ahead">Get ahead · %1$s</string>
+    <string name="speak_prompt_lang">Say it in %1$s</string>
+    <string name="speak_meaning">Meaning</string>
+    <string name="speak_hint_letters">Starts with “%1$s” · %2$d letters</string>
+    <string name="walk_spots">Painting walk · %1$d spots ›</string>
+    <string name="plates_title">Paintings from the letters</string>
+    <string name="plates_spots">%1$d spots</string>
+    <string name="plates_locked">After the letter</string>
 </resources>

@@ -5,6 +5,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -268,6 +269,8 @@ fun GalleryTab(s: AppState) {
                 Text("${s.ownedCount(id)}", style = Type.title.copy(fontFamily = Faces.display), color = p.ink)
                 Text(" / ${all.size}", style = Type.small, color = p.inkSoft, modifier = Modifier.padding(bottom = 3.dp))
             }
+            // 편지의 그림 (v21): 읽은 편지의 그림 → 그림 산책 (자리별 설명)
+            LetterPlates(s, w)
             // 이달의 전시
             s.exhibition(id)?.let { e ->
                 val ep = s.exhibitionPieces(id)
@@ -315,7 +318,7 @@ fun GalleryTab(s: AppState) {
             }
         }
     }
-    open?.let { pc -> PieceView(pc) { open = null } }
+    open?.let { pc -> PieceView(pc, walk = s.plateWalk(id, pc)) { open = null } }
     buying?.let { pc ->
         val cost = Spend.PICK_PIECE.cost
         Ask(stringResource(R.string.pick_title, cost, w.kit.currency[uiLang()]), stringResource(R.string.pick_yes), stringResource(R.string.not_now),
@@ -323,10 +326,52 @@ fun GalleryTab(s: AppState) {
     }
 }
 
-/** 걸린 작품 크게 보기: 잘라 내지 않고 전체를, 확대 · 끌어 보기 (ZoomViewer). */
+/** 걸린 작품 크게 보기: 잘라 내지 않고 전체를, 확대 · 끌어 보기 (ZoomViewer). 편지의 그림이기도 하면 ‘그림 산책’ 단추. */
 @Composable
-fun PieceView(pc: Piece, onClose: () -> Unit) {
-    ZoomViewer(rememberAsset(pc.image), pc.title[uiLang()], "${pc.date} · ${pc.collection}", onClose)
+fun PieceView(pc: Piece, walk: Pair<Int, () -> Unit>? = null, onClose: () -> Unit) {
+    ZoomViewer(rememberAsset(pc.image), pc.title[uiLang()], "${pc.date} · ${pc.collection}", onClose,
+        action = walk?.let { (n, go) -> stringResource(R.string.walk_spots, n) to { onClose(); go() } })
+}
+
+/**
+ * 갤러리 맨 위 ‘편지의 그림’ (v21): 연 편지의 그림을 가로 줄로 (편지 번호 · 그림 이름 · 자리 수), 누르면 그림 산책.
+ * 아직 안 연 편지의 그림은 미리 보이지 않게 빈 테두리 (다음 두 통까지만).
+ */
+@Composable
+private fun LetterPlates(s: AppState, w: io.github.graviton94.todayletters.data.Work) {
+    val p = Ink.palette
+    val id = w.series.id
+    val all = w.chapters.flatMapIndexed { ci, c -> c.letters.mapIndexed { li, l -> Triple(ci, li, c to l) } }.filter { it.third.second.plate != null }
+    if (all.isEmpty()) return
+    val opened = all.filter { (_, _, cl) -> s.progress(id, cl.first.id, cl.second.id).let { it.shown > 0 || it.done } }
+    val ahead = all.filter { it !in opened }.take(2)
+    Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        Row(verticalAlignment = Alignment.Bottom) {
+            Text(stringResource(R.string.plates_title), style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink, modifier = Modifier.weight(1f))
+            Text("${opened.size} / ${all.size}", style = Type.small.copy(fontFamily = Faces.display), color = p.giltText)
+        }
+        Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            val letters = w.chapters.flatMap { it.letters }
+            opened.forEach { (ci, li, cl) ->
+                val pl = cl.second.plate!!
+                Column(Modifier.width(112.dp).pressable { s.go(Route.Artwork(id, li + 1, Route.Letter(id, ci + 1, li + 1, Route.Gallery))) },
+                    verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    AssetImage("plates/${pl.image}", Modifier.fillMaxWidth().height(84.dp).border(Tokens.Stroke.hair, p.hair), sample = 4)
+                    Text(stringResource(R.string.letter_n, roman(letters.indexOf(cl.second) + 1)) + " · " + pl.title[uiLang()],
+                        style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, maxLines = 2)
+                    if (pl.spots.isNotEmpty()) Capsule(stringResource(R.string.plates_spots, pl.spots.size))
+                }
+            }
+            ahead.forEach { (_, _, cl) ->
+                Column(Modifier.width(112.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Box(Modifier.fillMaxWidth().height(84.dp).border(1.dp, p.hair), contentAlignment = Alignment.Center) {
+                        Text(stringResource(R.string.plates_locked), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.hideInk)
+                    }
+                    Text(stringResource(R.string.letter_n, roman(letters.indexOf(cl.second) + 1)), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.hideInk)
+                }
+            }
+        }
+    }
 }
 
 /** 이정표 (시리즈 안 이름표): 이 시리즈의 이정표와 화폐 쓰기. */

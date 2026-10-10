@@ -3,6 +3,7 @@ package io.github.graviton94.todayletters.ui
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.layout.Arrangement
@@ -55,7 +56,7 @@ fun rememberAsset(path: String): ImageBitmap? {
  * 처음에는 그림 전체가 다 보이게 맞추고, 두 손가락으로 키우면 위아래 양옆 어디로나 끌어 볼 수 있다. 두 번 누르면 그 자리를 확대 / 원래대로.
  */
 @Composable
-fun ZoomViewer(bmp: ImageBitmap?, caption: String?, credit: String?, onClose: () -> Unit) {
+fun ZoomViewer(bmp: ImageBitmap?, caption: String?, credit: String?, onClose: () -> Unit, action: Pair<String, () -> Unit>? = null) {
     val ink = Color(0xFFEADFC8); val soft = Color(0xFFA8977C)
     BackHandler { onClose() }
     var scale by remember(bmp) { mutableFloatStateOf(1f) }
@@ -105,6 +106,8 @@ fun ZoomViewer(bmp: ImageBitmap?, caption: String?, credit: String?, onClose: ()
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp)) {
             if (!caption.isNullOrBlank()) Text(caption, style = Type.small.ui(), color = ink, textAlign = TextAlign.Center)
             if (!credit.isNullOrBlank()) Text(credit, style = Type.small.copy(fontSize = Tokens.Text.caps), color = soft, textAlign = TextAlign.Center)
+            if (action != null) Box(Modifier.fillMaxWidth().padding(top = 6.dp).border(1.dp, Color(0xFFD2A955)).pressable { action.second() }.padding(vertical = 10.dp),
+                contentAlignment = Alignment.Center) { Text(action.first, style = Type.small.ui(), color = Color(0xFFD2A955)) }
             Text(stringResource(R.string.viewer_hint), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = soft.copy(alpha = 0.8f),
                 textAlign = TextAlign.Center, modifier = Modifier.padding(top = 4.dp))
         }
