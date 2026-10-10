@@ -233,6 +233,9 @@ class Store(ctx: Context) {
     fun markPassed(key: String) = add("pass", key)
     val sealSeen: Set<String> get() = set("sealseen")
     fun markSealSeen(key: String) = add("sealseen", key)
+    /** 편지 도착 연출을 본 편지 (v21 2단계 D1: 처음 열 때 한 번만). */
+    fun arrived(key: String) = key in set("arrived")
+    fun markArrived(key: String) = add("arrived", key)
     /** 가장 길게 이어 읽은 날 수. */
     var bestStreak: Int
         get() = p.getInt("streak:best", 0)

@@ -38,7 +38,7 @@ sealed interface Route {
     data class Play(val room: Letter, val mode: ReplyMode) : Route
     data class Done(val room: Letter) : Route
     /** 따라 읽기: 편지 문장을 낭독 마디째 듣고 따라 말한다 (내 낭독이 남는다). */
-    data class Shadow(val room: Letter) : Route
+    data class Shadow(val room: Letter, val only: Int? = null) : Route
     /** 완독 봉인: 혼자 다 읽고 다 따라 읽은 편지. */
     data class Seal(val room: Letter) : Route
 
@@ -46,7 +46,8 @@ sealed interface Route {
     data class Review(val series: String?) : Route
     /** 복습 한 판. [kind] 가 null 이면 오늘의 복습 (섞어서). */
     /** 복습 한 판. [only] 가 있으면 그 낱말만 (틀린 것 다시 · 낱말 카드에서 말해 보기), 연습이라 기억 칸은 움직이지 않는다. */
-    data class Session(val kind: ReviewKind? = null, val only: List<String>? = null) : Route
+    /** [quote] 가 있으면 그 구절(내 구절 열쇠)로 빈칸 연습 (v21 2단계 F5). */
+    data class Session(val kind: ReviewKind? = null, val only: List<String>? = null, val quote: String? = null) : Route
     /** 모은 낱말 찾기 · 내 구절. */
     data object WordList : Route
     data object Quotes : Route

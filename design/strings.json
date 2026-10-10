@@ -2727,5 +2727,153 @@
   "empty_words_b": {
     "en": "Read a letter and its words gather here.",
     "ko": "편지를 읽으면 그 편지의 낱말이 여기 모여요."
+  },
+  "step_of": {
+    "en": "Step %2$d of %1$d",
+    "ko": "%1$d걸음 중 %2$d번째"
+  },
+  "step_after": {
+    "en": "%1$s done",
+    "ko": "%1$s 끝남"
+  },
+  "steps_caps": {
+    "en": "Letter %1$s · %2$d steps",
+    "ko": "편지 %1$s · %2$d걸음"
+  },
+  "steps_count": {
+    "en": "%1$d done · %2$d to go",
+    "ko": "한 것 %1$d · 남은 것 %2$d"
+  },
+  "step_read_d_done": {
+    "en": "All %1$d lines read",
+    "ko": "%1$d문장 모두 읽음"
+  },
+  "step_read_d": {
+    "en": "Reading · %2$d of %1$d lines",
+    "ko": "읽는 중 · %1$d문장 중 %2$d"
+  },
+  "step_match_d": {
+    "en": "%1$d words · pair meaning and sound",
+    "ko": "낱말 %1$d개 · 뜻과 소리를 짝지어요"
+  },
+  "step_aloud_d": {
+    "en": "Say the %1$d lines aloud",
+    "ko": "%1$d문장을 소리 내어"
+  },
+  "step_reply_d": {
+    "en": "Write %1$s's reply",
+    "ko": "%1$s의 답장을 써요"
+  },
+  "step_plate_d": {
+    "en": "Receive this letter's painting",
+    "ko": "이 편지의 그림을 받아요"
+  },
+  "step_now": {
+    "en": "Now",
+    "ko": "지금"
+  },
+  "step_again": {
+    "en": "Again",
+    "ko": "다시"
+  },
+  "step_again_read": {
+    "en": "Read again",
+    "ko": "다시 읽기"
+  },
+  "steps_settings": {
+    "en": "Choose the steps in the series settings",
+    "ko": "걸음은 작품 설정에서 고를 수 있어요"
+  },
+  "steps_open": {
+    "en": "Show all steps",
+    "ko": "모든 걸음 보기"
+  },
+  "arrival_title": {
+    "en": "A new letter from %1$s",
+    "ko": "%1$s의 새 편지"
+  },
+  "arrival_sub": {
+    "en": "%1$s · %2$s → %3$s",
+    "ko": "%1$s · %2$s → %3$s"
+  },
+  "arrival_tap": {
+    "en": "Tap to open ›",
+    "ko": "눌러서 열기 ›"
+  },
+  "arrival_voice": {
+    "en": "In %1$s's voice · tap to skip",
+    "ko": "%1$s의 목소리로 · 눌러서 건너뛰기"
+  },
+  "arrival_read": {
+    "en": "Read the letter",
+    "ko": "편지 읽기"
+  },
+  "dict_phrase_kind": {
+    "en": "Listen and write · phrase",
+    "ko": "듣고 쓰기 · 문장"
+  },
+  "dict_phrase_prompt": {
+    "en": "Write the phrase you hear",
+    "ko": "들은 구절을 써 보세요"
+  },
+  "dict_phrase_info": {
+    "en": "%1$d words · from letter %2$s",
+    "ko": "%1$d 낱말 · 편지 %2$s에서"
+  },
+  "dict_phrase_meaning": {
+    "en": "Show meaning",
+    "ko": "뜻 보기"
+  },
+  "dict_phrase_retry": {
+    "en": "Fix %1$d word(s)",
+    "ko": "%1$d 낱말만 다시"
+  },
+  "dict_phrase_retry_d": {
+    "en": "The right words stay. Rewrite only the red ones.",
+    "ko": "맞은 낱말은 그대로 두고, 붉은 낱말만 다시 써요."
+  },
+  "dict_phrase_retype": {
+    "en": "Rewrite those words",
+    "ko": "그 낱말만 다시 쓰기"
+  },
+  "dict_phrase_score": {
+    "en": "%2$d of %1$d words right",
+    "ko": "%1$d 낱말 중 %2$d 맞음"
+  },
+  "quote_from": {
+    "en": "From my lines",
+    "ko": "내 구절에서"
+  },
+  "quote_mine": {
+    "en": "a line I saved",
+    "ko": "내가 모은 구절"
+  },
+  "quotes_review_note": {
+    "en": "Saved lines come back now and then as blanks in today's review",
+    "ko": "모은 구절은 오늘의 복습에 가끔 빈칸 문제로 다시 나와요"
+  },
+  "quote_listen": {
+    "en": "Listen",
+    "ko": "듣기"
+  },
+  "quote_shadow": {
+    "en": "Read along",
+    "ko": "따라 읽기"
+  },
+  "quote_blank": {
+    "en": "Blanks",
+    "ko": "빈칸 연습"
+  },
+  "quote_postcard": {
+    "en": "Postcard",
+    "ko": "엽서로"
+  },
+  "quote_blank_none": {
+    "en": "None of this line's words are in your cards yet",
+    "ko": "이 구절의 낱말이 아직 카드함에 없어요"
+  },
+  "quotes_n": {
+    "en": "%1$d",
+    "ko": "%1$d개"
   }
 }

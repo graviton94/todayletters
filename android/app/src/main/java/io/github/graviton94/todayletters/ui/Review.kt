@@ -222,7 +222,13 @@ private data class Q(val card: Card, val kind: ReviewKind, val word: String, val
                      /** 소리로 읽히는 전체 (“study (sketch)”). 그 안의 [typeFrom] 부터 [word] 길이만 쓰고 나머지는 미리 보여 준다. */
                      val full: String = word, val typeFrom: Int = 0,
                      /** 편지 문장 속 실제 꼴 (studies). 문장에서 표시 · 빈칸에 쓴다. */
-                     val inText: String? = null)
+                     val inText: String? = null,
+                     /** 문장 받아쓰기 (v21 2단계 F4): 낭독 마디 하나의 낱말들과 그 마디의 시각(밀리초). 소리는 [sentenceAudio] 의 그 토막. */
+                     val phrase: List<String>? = null, val range: IntRange? = null,
+                     /** 편지 번호 (로마 숫자) · 날짜 · 그림: 이름표와 출처 줄에. */
+                     val letterNo: String = "", val date: String = "", val place: String = "", val plate: String = "",
+                     /** 내 구절에서 나온 빈칸 (v21 2단계 F5). */
+                     val fromQuote: Boolean = false)
 
 /**
  * 복습 한 판: 듣고 쓰기 · 빈칸 채우기 · 뜻 고르기. [Route.Session.kind] 가 없으면 오늘의 복습 (칸에 맞춰 섞어서).
@@ -236,9 +242,9 @@ fun Session(s: AppState, r: Route.Session) {
     val view = androidx.compose.ui.platform.LocalView.current
     var asking by remember { mutableStateOf(false) }
     // 중간에 나갔다 오면 그 자리부터 (같은 날 · 같은 문제 순서)
-    val sessionName = if (r.only != null) "again" else r.kind?.name ?: "today"
-    val saved = remember(r) { if (r.only != null) null else s.store.session(sessionName)?.takeIf { it.day == s.today && it.at > 0 } }
-    val questions = remember(r) { buildQuestions(s, r.kind, r.only ?: saved?.keys) }
+    val sessionName = if (r.only != null || r.quote != null) "again" else r.kind?.name ?: "today"
+    val saved = remember(r) { if (r.only != null || r.quote != null) null else s.store.session(sessionName)?.takeIf { it.day == s.today && it.at > 0 } }
+    val questions = remember(r) { buildQuestions(s, r.kind, r.only ?: saved?.keys, r.quote) }
     var at by remember { mutableIntStateOf((saved?.at ?: 0).coerceAtMost(questions.size)) }
     // 문제를 푸는 동안만 ‘그만할까요?’ (결과 화면에서는 결과 화면의 뒤로 가기)
     BackHandler(enabled = at < questions.size) { asking = true }
@@ -256,6 +262,11 @@ fun Session(s: AppState, r: Route.Session) {
     var replays by remember { mutableIntStateOf(0) }
     // 글자판: 특수 문자를 고를 때는 시스템 키보드를 내리고 그 자리에 큰 글자판
     var pad by remember { mutableStateOf(false) }
+    // 문장 받아쓰기: 맞힌 낱말은 잠그고 (초록), 틀린 낱말만 다시 쓴다. 다 끝나면 낱말마다 쓴 것
+    var locked by remember { mutableStateOf(mapOf<Int, String>()) }
+    var wrongShown by remember { mutableStateOf(mapOf<Int, String>()) }
+    var finalTyped by remember { mutableStateOf(mapOf<Int, String>()) }
+    var accentWord by remember { mutableStateOf<String?>(null) }
     val focus = remember { FocusRequester() }
     val keyboard = androidx.compose.ui.platform.LocalSoftwareKeyboardController.current
     fun showKeyboard() { pad = false; runCatching { focus.requestFocus() }; keyboard?.show() }
@@ -274,7 +285,14 @@ fun Session(s: AppState, r: Route.Session) {
     }
     androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
     // 새 문제로 오면 앞 문제의 소리(빈칸 문장 등)는 멈추고, 듣는 문제만 새 소리를
-    LaunchedEffect(at) { if (q.kind != ReviewKind.BLANK && q.kind != ReviewKind.SPEAK) s.narrator.play(q.audio) else s.narrator.stop() }
+    fun playPhrase(speed: Float = 1f) { val a = q.sentenceAudio; val rg = q.range; if (a != null && rg != null) s.narrator.playRange(a, rg.first, rg.last, speed) }
+    LaunchedEffect(at) {
+        when {
+            q.phrase != null -> playPhrase()
+            q.kind != ReviewKind.BLANK && q.kind != ReviewKind.SPEAK -> s.narrator.play(q.audio)
+            else -> s.narrator.stop()
+        }
+    }
 
     val focusManager = androidx.compose.ui.platform.LocalFocusManager.current
     fun judge(m: Memory.Mark) {
@@ -289,7 +307,8 @@ fun Session(s: AppState, r: Route.Session) {
             if (ok && android.os.Build.VERSION.SDK_INT >= 30) view.performHapticFeedback(android.view.HapticFeedbackConstants.CONFIRM)
             else haptic.performHapticFeedback(if (ok) HapticFeedbackType.TextHandleMove else HapticFeedbackType.LongPress)
         }
-        if (q.kind == ReviewKind.BLANK && ok && q.sentenceAudio != null) s.narrator.play(q.sentenceAudio) else if (q.kind != ReviewKind.DICTATION || ok) s.narrator.play(q.audio)
+        if (q.phrase != null) playPhrase()
+        else if (q.kind == ReviewKind.BLANK && ok && q.sentenceAudio != null) s.narrator.play(q.sentenceAudio) else if (q.kind != ReviewKind.DICTATION || ok) s.narrator.play(q.audio)
     }
 
     /** 첫 번째로 틀림: 흔들고 붉은 띠. 두 번째면 정답을 보여 준다. */
@@ -313,9 +332,17 @@ fun Session(s: AppState, r: Route.Session) {
             Modifier.weight(1f).fillMaxWidth().verticalScroll(scroll).padding(horizontal = Tokens.Space.s5, vertical = if (compact) Tokens.Space.s2 else Tokens.Space.s4),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(if (compact) Tokens.Space.s3 else Tokens.Space.s4),
         ) {
-            if (!compact) Text(stringResource(when (q.kind) { ReviewKind.DICTATION -> R.string.kind_dictation; ReviewKind.BLANK -> R.string.kind_blank; ReviewKind.MEANING -> R.string.kind_meaning; ReviewKind.SPEAK -> R.string.kind_speak }), style = Type.small.ui(), color = p.giltText)
+            if (!compact) Text(stringResource(when {
+                q.phrase != null -> R.string.dict_phrase_kind
+                q.fromQuote -> R.string.quote_from
+                else -> when (q.kind) { ReviewKind.DICTATION -> R.string.kind_dictation; ReviewKind.BLANK -> R.string.kind_blank; ReviewKind.MEANING -> R.string.kind_meaning; ReviewKind.SPEAK -> R.string.kind_speak }
+            }), style = Type.small.ui(), color = p.giltText)
             when (q.kind) {
-                ReviewKind.DICTATION -> {
+                ReviewKind.DICTATION -> if (q.phrase != null) PhraseDictation(
+                    q, typed, { if (mark == null && !retry) typed = it }, locked, wrongShown, finalTyped, mark, hint, { hint = true },
+                    compact, focus, onPlay = { playPhrase(it) }, onTap = { showKeyboard() },
+                    onDone = { /* 확인 단추로 */ },
+                ) else {
                     fun replay() { if (mark == null) { replays++; if (replays >= 2) hint = true } }
                     val listenLabel = stringResource(R.string.a11y_listen_word); val slowLabel = stringResource(R.string.a11y_listen_slow)
                     if (compact) Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
@@ -387,6 +414,12 @@ fun Session(s: AppState, r: Route.Session) {
                 ReviewKind.BLANK -> {
                     Text(stringResource(R.string.blank_prompt), style = Type.heading.ui(), color = p.ink)
                     BlankPaper(q, filled = mark != null, highlight = hint || mark != null)
+                    if (q.fromQuote) Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                        PlateThumb(q.plate, true, Modifier.size(28.dp))
+                        Text(stringResource(R.string.letter_n, q.letterNo) + " · " + dateLine(q.date, q.place) + " · " + stringResource(R.string.quote_mine),
+                            style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, modifier = Modifier.weight(1f))
+                        Bookmark(true)
+                    }
                     // 번역에서 찾기: 빈칸 낱말에 해당하는 말을 번역 문장에서 금빛으로 (맞히면 그대로 맞은 것으로)
                     if (!hint && mark == null && q.sentenceRead != null && q.read != q.learn) Text(
                         stringResource(R.string.blank_hint), style = Type.small.ui(), color = p.giltText,
@@ -458,15 +491,25 @@ fun Session(s: AppState, r: Route.Session) {
             if (r.kind == null && r.only == null) s.answer(q.card, ok)   // 기억 칸은 오늘의 복습에서만 움직인다 (따로 연습 · 다시 하기는 기록하지 않음)
             results = results + (q to ok)
             mark = null; picked = null; typed = TextFieldValue(""); hint = false; pad = false; replays = 0
+            locked = emptyMap(); wrongShown = emptyMap(); finalTyped = emptyMap(); accentWord = null
             tries = 0; retry = false; missed = emptySet()
             at++
             s.store.saveSession(sessionName, io.github.graviton94.todayletters.data.Store.SavedSession(s.today, questions.map { it.card.key }, at, results.map { it.second }))
         }
         val nextLabel = stringResource(if (at == questions.lastIndex) R.string.review_finish else R.string.ob_next)
         // 그 낱말의 뜻 · 발음 (뜻 고르기는 고른 것이 뜻이니 낱말을)
-        val detail = listOfNotNull(q.word, q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, q.meaning).joinToString("  ·  ") +
+        val detail = (q.phrase?.let { it.joinToString(" ") + "\n" } ?: "") + listOfNotNull(q.word, q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, q.meaning).joinToString("  ·  ") +
             (if (q.kind == ReviewKind.MEANING) snippet(q)?.let { "\n“$it” · $tag" }.orEmpty() else "")
         when {
+            retry && q.phrase != null -> FeedbackBar(
+                ok = false, title = stringResource(R.string.dict_phrase_retry, wrongShown.size),
+                detail = stringResource(R.string.dict_phrase_retry_d),
+                primary = stringResource(R.string.dict_phrase_retype),
+                onPrimary = { retry = false; wrongShown = emptyMap(); typed = TextFieldValue(""); showKeyboard() },
+                secondary = stringResource(R.string.practice_reveal), onSecondary = {
+                    retry = false; finalTyped = locked + wrongShown; wrongShown = emptyMap(); judge(Memory.Mark.WRONG)
+                },
+            )
             retry -> FeedbackBar(
                 ok = false, title = stringResource(R.string.practice_retry_title),
                 primary = stringResource(if (q.kind == ReviewKind.DICTATION) R.string.practice_retype else R.string.practice_retry),
@@ -475,8 +518,35 @@ fun Session(s: AppState, r: Route.Session) {
             )
             mark == Memory.Mark.WRONG -> FeedbackBar(false, stringResource(R.string.practice_answer), detail, nextLabel, ::next)
             mark != null -> FeedbackBar(true,
-                if (mark == Memory.Mark.RIGHT) stringResource(R.string.review_right) else stringResource(R.string.review_accent, q.word),
+                if (mark == Memory.Mark.RIGHT) stringResource(R.string.review_right) else stringResource(R.string.review_accent, accentWord ?: q.word),
                 detail, nextLabel, ::next)
+            q.kind == ReviewKind.DICTATION && q.phrase != null -> Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
+                Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank()) {
+                    // 남은 칸마다 채점: 다 맞으면 맞음, 첫 번째로 틀리면 맞은 낱말은 잠그고 틀린 낱말만 다시
+                    val words = q.phrase
+                    val free = words.indices.filter { it !in locked }
+                    val tw = typed.text.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
+                    val res = free.mapIndexed { k, j -> Triple(j, tw.getOrElse(k) { "" }, Memory.grade(words[j], tw.getOrElse(k) { "" })) }
+                    val bad = res.filter { it.third == Memory.Mark.WRONG }
+                    val all = locked + res.associate { it.first to it.second }
+                    when {
+                        bad.isEmpty() -> {
+                            finalTyped = all
+                            val acc = res.firstOrNull { it.third == Memory.Mark.ACCENT }
+                            accentWord = acc?.let { words[it.first] }
+                            judge(if (acc != null) Memory.Mark.ACCENT else Memory.Mark.RIGHT)
+                        }
+                        tries == 0 -> {
+                            tries = 1; retry = true; shakeKey++
+                            locked = locked + res.filter { it.third != Memory.Mark.WRONG }.associate { it.first to it.second }
+                            wrongShown = bad.associate { it.first to it.second }
+                            buzzWrong(view, s.app.haptics); s.cue(false)
+                            keyboard?.hide(); focusManager.clearFocus()
+                        }
+                        else -> { finalTyped = all; judge(Memory.Mark.WRONG) }
+                    }
+                }
+            }
             q.kind == ReviewKind.DICTATION -> Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
                 Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank()) {
                     val g = Memory.grade(q.word, typed.text)
@@ -749,12 +819,25 @@ fun SpeakerGlyph(c: Color, size: androidx.compose.ui.unit.Dp) = androidx.compose
     drawArc(c, -50f, 100f, false, androidx.compose.ui.geometry.Offset(w * 0.46f, w * 0.16f), androidx.compose.ui.geometry.Size(w * 0.56f, w * 0.68f), style = st)
 }
 
-/** 문제 만들기: 카드 → 문제. 문장은 그 낱말이 나온 편지 문장 (없으면 빈칸 대신 뜻 고르기). */
-private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? = null): List<Q> {
+/** 내 구절 열쇠 (작품:장:편지:문장) → 나눈 조각. */
+private data class QuoteRef(val series: String, val chapter: String, val letter: String, val msg: Int)
+private fun quoteRef(k: String): QuoteRef? = k.split(":").takeIf { it.size == 4 }?.let { (a, b, c, d) -> d.toIntOrNull()?.let { QuoteRef(a, b, c, it) } }
+
+/**
+ * 문제 만들기: 카드 → 문제. 문장은 그 낱말이 나온 편지 문장 (없으면 빈칸 대신 뜻 고르기).
+ *   F4 문장 받아쓰기: ‘말하기’ 칸 위(내 것 포함)의 듣고 쓰기는, 낱말이 든 낭독 마디(3–9 낱말)가 있으면 그 마디를 통째로 받아쓴다.
+ *   F5 내 구절: 오늘의 복습에서 빈칸 · 뜻 고르기 차례인 낱말이 내가 모은 구절에 있으면 그 구절로 빈칸 (한 판에 둘까지).
+ *      [quote] 가 있으면 그 구절 하나로 빈칸 연습.
+ */
+private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? = null, quote: String? = null): List<Q> {
     val cards = s.cards()
-    val pool = keys?.mapNotNull { k -> cards.firstOrNull { it.key == k } }?.takeIf { it.isNotEmpty() }
+    val only = quote?.let { quoteRef(it) }
+    val pool = if (only != null) cards.filter { it.key in (keys ?: emptyList()) }
+        else keys?.mapNotNull { k -> cards.firstOrNull { it.key == k } }?.takeIf { it.isNotEmpty() }
         ?: if (kind == null) s.dueCards() else cards.sortedWith(compareBy({ it.box }, { it.due })).take(Memory.DAILY)
     val all = s.cards().mapNotNull { c -> s.cardWord(c.key) }
+    val saved = s.store.quotes.mapNotNull { quoteRef(it) }
+    var fromQuotes = 0
     return pool.mapNotNull { card ->
         val (w, cl, i) = s.cardWord(card.key) ?: return@mapNotNull null
         val (ch, l) = cl
@@ -763,7 +846,17 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         val learnWord = word.text[view.learn]
         // “study (sketch)”, “country, land” 처럼 뜻이 여럿이면 뜻마다 편지 문장에서 찾는다
         val senses = senses(learnWord)
-        val hit = l.messages.indexOfFirst { m -> wordMarks(m.text[view.learn], senses).isNotEmpty() }
+        fun has(mi: Int) = l.messages.getOrNull(mi)?.let { m -> wordMarks(m.text[view.learn], senses).isNotEmpty() } == true
+        var k = kind ?: Memory.kindFor(card)
+        // 내 구절에서: 그 구절 연습이면 늘, 오늘의 복습이면 빈칸 · 뜻 고르기 차례에 가끔
+        val mine = when {
+            only != null -> only.takeIf { it.series == w.series.id && it.chapter == ch && it.letter == l.id && has(it.msg) }
+            kind == null && fromQuotes < 2 && (k == ReviewKind.BLANK || k == ReviewKind.MEANING) ->
+                saved.firstOrNull { it.series == w.series.id && it.chapter == ch && it.letter == l.id && has(it.msg) }
+            else -> null
+        }
+        if (mine != null) { k = ReviewKind.BLANK; fromQuotes++ }
+        val hit = mine?.msg ?: l.messages.indexOfFirst { m -> wordMarks(m.text[view.learn], senses).isNotEmpty() }
         val sentenceLearn = l.messages.getOrNull(hit)?.text?.get(view.learn)
         val marks = sentenceLearn?.let { wordMarks(it, senses) }
         val formInText = marks?.firstOrNull()?.first?.let { sentenceLearn.substring(it.first, it.last + 1) }
@@ -771,8 +864,14 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         val dictSense = marks?.firstOrNull()?.second?.let { senses.getOrNull(it) } ?: senses.firstOrNull() ?: learnWord
         val plainFull = Breaks.plain(learnWord)
         val typeFrom = plainFull.indexOf(dictSense).coerceAtLeast(0)
-        var k = kind ?: Memory.kindFor(card)
         if (k == ReviewKind.BLANK && formInText == null) k = ReviewKind.MEANING
+        val sentenceAudio = if (hit >= 0) s.narrator.path(w.series.id, ch, l.id, "m${hit + 1}_${view.learn.code}") else null
+        // 문장 받아쓰기: 낭독 마디 가운데 이 낱말이 든 짧은 마디 (마디 시각이 있는 낭독만)
+        val phrase = if (k == ReviewKind.DICTATION && card.box >= 4 && view.learn != Lang.KO && sentenceAudio != null)
+            s.narrator.chunks(sentenceAudio).firstOrNull { c ->
+                val n = c.text.trim().split(Regex("\\s+")).size
+                n in 3..9 && c.end > c.start && wordMarks(c.text, senses).isNotEmpty()
+            } else null
         // 듣고 쓰기는 첫 뜻 하나만 (“flower, blossom” → flower): 쉼표 · 괄호까지 치지 않게
         val answerWord = when (k) { ReviewKind.BLANK -> formInText!!; ReviewKind.DICTATION, ReviewKind.SPEAK -> dictSense; else -> learnWord }
         val others = all.filter { it.third != i || it.second.second.id != l.id }.map { (ow, ocl, oi) -> ocl.second.words[oi].text[if (k == ReviewKind.MEANING) view.read else view.learn] }
@@ -780,14 +879,92 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         val right = if (k == ReviewKind.MEANING) word.text[view.read] else answerWord
         Q(card, k, answerWord, word.text[view.read], if (view.learn == w.series.original) word.ipa else "",
             s.narrator.path(w.series.id, ch, l.id, "w${i + 1}_${view.learn.code}"),
-            sentenceLearn, l.messages.getOrNull(hit)?.text?.get(view.read),
-            if (hit >= 0) s.narrator.path(w.series.id, ch, l.id, "m${hit + 1}_${view.learn.code}") else null,
+            sentenceLearn, l.messages.getOrNull(hit)?.text?.get(view.read), sentenceAudio,
             (others + right).shuffled(java.util.Random(card.key.hashCode().toLong() + 7)), view.learn, view.read,
-            full = if (k == ReviewKind.DICTATION) plainFull else answerWord, typeFrom = if (k == ReviewKind.DICTATION) typeFrom else 0, inText = formInText)
+            full = if (k == ReviewKind.DICTATION) plainFull else answerWord, typeFrom = if (k == ReviewKind.DICTATION) typeFrom else 0, inText = formInText,
+            phrase = phrase?.text?.trim()?.split(Regex("\\s+")), range = phrase?.let { it.start..it.end },
+            letterNo = roman(w.chapters.flatMap { it.letters }.indexOf(l) + 1), date = l.date, place = l.place, plate = l.plate?.image.orEmpty(),
+            fromQuote = mine != null)
     }
 }
 
-/** 내 구절: 담아 둔 문장들. 듣기 · 엽서로 보내기. */
+/**
+ * 문장 받아쓰기 (v21 2단계 F4): 낭독 마디 하나를 듣고 통째로 쓴다. 낱말마다 밑줄 칸, 지금 칸은 먹색 밑줄.
+ * 확인하면 낱말마다 초록 · 붉게. 맞힌 낱말은 잠기고 틀린 낱말만 다시 (악상만 틀리면 맞음으로).
+ */
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun PhraseDictation(
+    q: Q, typed: TextFieldValue, onType: (TextFieldValue) -> Unit,
+    locked: Map<Int, String>, wrongShown: Map<Int, String>, finalTyped: Map<Int, String>,
+    mark: Memory.Mark?, hint: Boolean, onHint: () -> Unit, compact: Boolean, focus: FocusRequester,
+    onPlay: (Float) -> Unit, onTap: () -> Unit, onDone: () -> Unit,
+) {
+    val p = Ink.palette
+    val words = q.phrase ?: return
+    val listenLabel = stringResource(R.string.a11y_listen_word); val slowLabel = stringResource(R.string.a11y_listen_slow)
+    if (!compact) Text(stringResource(R.string.dict_phrase_prompt), style = Type.heading.ui(), color = p.ink)
+    Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically) {
+        if (!compact) Spacer(Modifier.size(52.dp))
+        Box(Modifier.size(if (compact) 52.dp else 84.dp).background(p.fill, CircleShape).semantics { contentDescription = listenLabel }.pressable { onPlay(1f) },
+            contentAlignment = Alignment.Center) { SpeakerGlyph(p.onFill, if (compact) 22.dp else 34.dp) }
+        Box(Modifier.size(if (compact) 48.dp else 52.dp).border(1.dp, p.giltText, CircleShape).semantics { contentDescription = slowLabel }.pressable { onPlay(0.7f) },
+            contentAlignment = Alignment.Center) { Text("0.7×", style = Type.small, color = p.giltText) }
+    }
+    val free = words.indices.filter { it !in locked }
+    val tw = typed.text.split(" ")
+    val cur = tw.size - 1
+    val style = Type.title.copy(fontFamily = Faces.text).of(q.learn)
+    FlowRow(
+        Modifier.fillMaxWidth().pressable(haptic = false) { onTap() }.padding(vertical = Tokens.Space.s2),
+        horizontalArrangement = Arrangement.spacedBy(10.dp, Alignment.CenterHorizontally), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
+    ) {
+        words.forEachIndexed { j, w ->
+            val k = free.indexOf(j)
+            var fix: String? = null
+            var strike = false
+            val (text, color, line) = when {
+                mark != null -> {
+                    val t = finalTyped[j].orEmpty()
+                    val ok = Memory.grade(w, t) != Memory.Mark.WRONG
+                    if (!ok) { fix = w; strike = t.isNotEmpty() }
+                    Triple(if (ok) t else t.ifEmpty { "—" }, if (ok) p.correct else p.wrong, if (ok) p.correct else p.wrong)
+                }
+                j in locked -> Triple(locked[j].orEmpty(), p.correct, p.correct)
+                j in wrongShown -> { strike = true; Triple(wrongShown[j].orEmpty().ifEmpty { "—" }, p.wrong, p.wrong) }
+                else -> Triple(tw.getOrNull(k).orEmpty(), p.ink, if (k == cur) p.ink else p.line)
+            }
+            Column(Modifier.width(androidx.compose.foundation.layout.IntrinsicSize.Max), horizontalAlignment = Alignment.CenterHorizontally) {
+                if (fix != null) Text(fix, style = Type.small.copy(fontFamily = Faces.text).of(q.learn), color = p.correct)
+                Box(contentAlignment = Alignment.BottomCenter) {
+                    // 칸 너비는 정답 낱말만큼 (글자 수 힌트는 낱말 받아쓰기와 같다)
+                    Text(w, style = style, color = Color.Transparent)
+                    Text(text, style = style.copy(textDecoration = if (strike) androidx.compose.ui.text.style.TextDecoration.LineThrough else null), color = color)
+                }
+                Box(Modifier.fillMaxWidth().height(2.dp).background(line))
+            }
+        }
+    }
+    if (!compact) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        Text(stringResource(R.string.dict_phrase_info, words.size, q.letterNo), style = Type.small.ui(), color = p.inkSoft)
+        if (!hint && mark == null && q.sentenceRead != null) Text(stringResource(R.string.dict_phrase_meaning), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline),
+            color = p.giltText, modifier = Modifier.pressable { onHint() }.padding(Tokens.Space.s1))
+    }
+    if ((hint || mark != null) && q.sentenceRead != null) Column(Modifier.fillMaxWidth().background(p.leaf).padding(Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Text(q.sentenceRead, style = Type.small.of(q.read), color = p.inkSoft)
+        if (mark != null) Text("“${words.joinToString(" ")}”", style = Type.small.copy(fontFamily = Faces.text).of(q.learn), color = p.ink)
+    }
+    LaunchedEffect(q) { runCatching { focus.requestFocus() } }
+    BasicTextField(
+        typed, { v -> if (v.text.split(" ").size <= free.size.coerceAtLeast(1)) onType(v) },
+        singleLine = true, textStyle = Type.body.copy(color = Color.Transparent), cursorBrush = SolidColor(Color.Transparent),
+        keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.None, autoCorrectEnabled = false, imeAction = ImeAction.Done),
+        keyboardActions = KeyboardActions(onDone = { onDone() }),
+        modifier = Modifier.size(1.dp).focusRequester(focus),
+    )
+}
+
+/** 내 구절: 담아 둔 문장들. 구절마다 듣기 · 따라 읽기(그 문장만) · 빈칸 연습 · 엽서로 (v21 2단계 F5). */
 @Composable
 fun QuotesScreen(s: AppState) {
     val p = Ink.palette
@@ -797,38 +974,97 @@ fun QuotesScreen(s: AppState) {
         TopBar(stringResource(R.string.quotes_title), s, help = null, showBack = true, showSettings = false)
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
             val items = s.store.quotes.mapNotNull { k ->
-                val (sid, ch, lid, mi) = k.split(":").takeIf { it.size == 4 } ?: return@mapNotNull null
-                val w = s.works.firstOrNull { it.series.id == sid } ?: return@mapNotNull null
-                val l = w.chapters.firstOrNull { it.id == ch }?.letters?.firstOrNull { it.id == lid } ?: return@mapNotNull null
-                val m = mi.toIntOrNull()?.let { l.messages.getOrNull(it) } ?: return@mapNotNull null
-                Triple(k, Triple(w, ch, l), m to mi.toInt())
+                val ref = quoteRef(k) ?: return@mapNotNull null
+                val w = s.works.firstOrNull { it.series.id == ref.series } ?: return@mapNotNull null
+                val ci = w.chapters.indexOfFirst { it.id == ref.chapter }.takeIf { it >= 0 } ?: return@mapNotNull null
+                val l = w.chapters[ci].letters.firstOrNull { it.id == ref.letter } ?: return@mapNotNull null
+                val m = l.messages.getOrNull(ref.msg) ?: return@mapNotNull null
+                Triple(k, Triple(w, ci, l), m to ref.msg)
             }
             if (items.isEmpty()) EmptyState(stringResource(R.string.empty_quotes_t), stringResource(R.string.quotes_empty), stringResource(R.string.today_open)) { s.go(Route.Inbox) }
+            else Row(Modifier.fillMaxWidth().dashed(p.line).padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s2),
+                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                Canvas(Modifier.size(16.dp)) {
+                    val r = size.width / 2
+                    drawCircle(p.giltText, r * 0.85f, style = androidx.compose.ui.graphics.drawscope.Stroke(1.4.dp.toPx()))
+                    drawLine(p.giltText, center, Offset(center.x, center.y - r * 0.5f), 1.4.dp.toPx())
+                    drawLine(p.giltText, center, Offset(center.x + r * 0.35f, center.y + r * 0.25f), 1.4.dp.toPx())
+                }
+                Text(stringResource(R.string.quotes_review_note), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.weight(1f))
+            }
             items.forEach { (k, wcl, mm) ->
-                val (w, ch, l) = wcl; val (m, mi) = mm
+                val (w, ci, l) = wcl; val (m, mi) = mm
+                val ch = w.chapters[ci].id
                 val view = s.room(w.series.id)
+                val n = w.chapters.flatMap { it.letters }.indexOf(l) + 1
+                val audio = s.narrator.path(w.series.id, ch, l.id, "m${mi + 1}_${view.learn.code}")
                 Slip(seed = k.hashCode(), modifier = Modifier.fillMaxWidth()) {
-                    Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                            PlateThumb(l.plate?.image.orEmpty(), true, Modifier.size(36.dp))
-                            Text(dateLine(l.date, l.place), style = Type.small.ui(), color = p.slipSoft, modifier = Modifier.weight(1f))
-                            IconButton(stringResource(R.string.quote_saved), onClick = { s.toggleQuote(k) }) { Bookmark(true) }
+                    Column {
+                        Column(Modifier.padding(start = Tokens.Space.s4, end = Tokens.Space.s2, top = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                                PlateThumb(l.plate?.image.orEmpty(), true, Modifier.size(36.dp))
+                                Text(dateLine(l.date, l.place) + " · " + stringResource(R.string.letter_n, roman(n)), style = Type.small.ui(), color = p.slipSoft, modifier = Modifier.weight(1f))
+                                IconButton(stringResource(R.string.quote_saved), onClick = { s.toggleQuote(k) }) { Bookmark(true) }
+                            }
+                            Text(m.text[view.learn], style = Type.target.of(view.learn), color = p.slipInk, modifier = Modifier.padding(end = Tokens.Space.s2))
+                            if (view.read != view.learn) Text(m.text[view.read], style = Type.base.of(view.read), color = p.slipSoft, modifier = Modifier.padding(end = Tokens.Space.s2))
                         }
-                        Text(m.text[view.learn], style = Type.target.of(view.learn), color = p.slipInk)
-                        Text(m.text[view.read], style = Type.base.of(view.read), color = p.slipSoft)
-                        Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                            Box(Modifier.weight(1f).heightIn(min = 44.dp).border(1.dp, p.slipInk.copy(alpha = 0.5f)).pressable { s.narrator.play(s.narrator.path(w.series.id, ch, l.id, "m${mi + 1}_${view.learn.code}")) }, contentAlignment = Alignment.Center) {
-                                Text(stringResource(R.string.listen_line), style = Type.small.ui(), color = p.slipInk)
+                        Box(Modifier.padding(top = Tokens.Space.s3).fillMaxWidth().height(1.dp).background(p.hair))
+                        Row(Modifier.fillMaxWidth().height(androidx.compose.foundation.layout.IntrinsicSize.Min)) {
+                            val blanks = remember(k, s.version) {
+                                s.cards().filter { it.key.startsWith("${w.series.id}:$ch:${l.id}:") }.filter { c ->
+                                    s.cardWord(c.key)?.let { (_, cl, wi) -> wordMarks(m.text[view.learn], senses(cl.second.words[wi].text[view.learn])).isNotEmpty() } == true
+                                }.map { it.key }
                             }
-                            Box(Modifier.weight(1f).heightIn(min = 44.dp).background(p.slipInk).pressable { sharePostcard(ctx, w, l, m, view.learn, view.read) }, contentAlignment = Alignment.Center) {
-                                Text(stringResource(R.string.postcard_send), style = Type.small.ui(), color = p.slip)
+                            val none = stringResource(R.string.quote_blank_none)
+                            QuoteAction(stringResource(R.string.quote_listen), { SpeakerGlyph(it, 18.dp) }) { s.narrator.toggle(audio) }
+                            QuoteAction(stringResource(R.string.quote_shadow), { MicGlyph(it) }) { s.narrator.stop(); s.go(Route.Shadow(Route.Letter(w.series.id, ci + 1, w.chapters[ci].letters.indexOf(l) + 1), only = mi)) }
+                            QuoteAction(stringResource(R.string.quote_blank), { BlankGlyph(it) }) {
+                                if (blanks.isEmpty()) android.widget.Toast.makeText(ctx, none, android.widget.Toast.LENGTH_SHORT).show()
+                                else { s.narrator.stop(); s.go(Route.Session(ReviewKind.BLANK, only = blanks, quote = k)) }
                             }
+                            QuoteAction(stringResource(R.string.quote_postcard), { PostcardGlyph(it) }) { sharePostcard(ctx, w, l, m, view.learn, view.read) }
                         }
                     }
                 }
             }
         }
     }
+}
+
+@Composable
+private fun androidx.compose.foundation.layout.RowScope.QuoteAction(label: String, icon: @Composable (Color) -> Unit, onClick: () -> Unit) {
+    val p = Ink.palette
+    Column(Modifier.weight(1f).fillMaxSize().heightIn(min = 60.dp).pressable(onClick = onClick).padding(vertical = Tokens.Space.s2),
+        horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp, Alignment.CenterVertically)) {
+        icon(p.slipInk)
+        Text(label, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.slipInk, maxLines = 1)
+    }
+}
+
+@Composable
+private fun MicGlyph(c: Color) = Canvas(Modifier.size(18.dp)) {
+    val w = size.width; val st = androidx.compose.ui.graphics.drawscope.Stroke(1.4.dp.toPx())
+    drawRoundRect(c, Offset(w * 0.36f, w * 0.05f), androidx.compose.ui.geometry.Size(w * 0.28f, w * 0.52f), androidx.compose.ui.geometry.CornerRadius(w * 0.14f), style = st)
+    drawArc(c, 0f, 180f, false, Offset(w * 0.2f, w * 0.25f), androidx.compose.ui.geometry.Size(w * 0.6f, w * 0.5f), style = st)
+    drawLine(c, Offset(w / 2, w * 0.75f), Offset(w / 2, w * 0.95f), 1.4.dp.toPx())
+}
+
+@Composable
+private fun BlankGlyph(c: Color) = Canvas(Modifier.size(18.dp)) {
+    val w = size.width; val sw = 1.4.dp.toPx()
+    drawLine(c, Offset(0f, w * 0.75f), Offset(w * 0.25f, w * 0.75f), sw)
+    drawLine(c, Offset(w * 0.75f, w * 0.75f), Offset(w, w * 0.75f), sw)
+    drawRect(c, Offset(w * 0.34f, w * 0.3f), androidx.compose.ui.geometry.Size(w * 0.32f, w * 0.45f), style = androidx.compose.ui.graphics.drawscope.Stroke(sw))
+}
+
+@Composable
+private fun PostcardGlyph(c: Color) = Canvas(Modifier.size(18.dp)) {
+    val w = size.width; val sw = 1.4.dp.toPx(); val st = androidx.compose.ui.graphics.drawscope.Stroke(sw)
+    drawRect(c, Offset(0f, w * 0.18f), androidx.compose.ui.geometry.Size(w, w * 0.66f), style = st)
+    drawRect(c, Offset(w * 0.62f, w * 0.3f), androidx.compose.ui.geometry.Size(w * 0.24f, w * 0.24f), style = st)
+    drawLine(c, Offset(w * 0.14f, w * 0.42f), Offset(w * 0.48f, w * 0.42f), sw)
+    drawLine(c, Offset(w * 0.14f, w * 0.6f), Offset(w * 0.48f, w * 0.6f), sw)
 }
 
 /** 편지 문장에서 그 낱말 둘레 한 토막 (앞뒤 30자 남짓). */

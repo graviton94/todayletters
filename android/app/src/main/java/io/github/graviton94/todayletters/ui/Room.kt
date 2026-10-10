@@ -44,6 +44,10 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Exercises
@@ -158,6 +162,9 @@ fun Room(s: AppState, r: Route.Letter) {
     }
     var asking by remember(letter.id) { mutableStateOf(resumeAt != null) }
     var gate by remember(letter.id) { mutableStateOf(resumeAt == null || already >= total) }
+    // 편지 도착 (v21 2단계 D1): 처음 여는 새 편지만. 도착 화면이 첫 줄을 읽었으면 방에서는 첫 줄을 다시 읽지 않는다
+    var arriving by remember(letter.id) { mutableStateOf(already == 0 && !s.progress(id, chapter, letter.id).done && !s.store.arrived(key) && total > 0) }
+    var arrivalVoiced by remember(letter.id) { mutableStateOf(false) }
 
     // 도착: 남은 문장을 한 조각씩. 조각이 놓이면 바로 쓰기 시작하면서 빈센트 목소리로 읽고 (자동 낭독), 화면은 쓰이는 끝을 따라 내려간다.
     // 글자도 다 써지고 낭독도 끝나면 다음 조각. 조각이 화면 밖이라 ‘다 써짐’ 알림이 오지 않아도 시간이 지나면 다음으로 넘어간다.
@@ -172,7 +179,7 @@ fun Room(s: AppState, r: Route.Letter) {
             // 마지막 조각이 화면보다 길면 그 아래 끝까지
             list.scrollBy(100_000f)
         }
-        snapshotFlow { gate }.first { it }
+        snapshotFlow { gate && !arriving }.first { it }
         var voiced = false
         while (arrived < total) {
             val i = arrived
@@ -180,7 +187,7 @@ fun Room(s: AppState, r: Route.Letter) {
             if (animate && fg()) delay((Tokens.Motion.typingDotsMs * pace).toLong())
             arrived = i + 1
             toEnd(animated = animate)
-            val voice = if (s.app.sound && all == null && !muted) launch { voiced = true; say(i, i + 1) } else null
+            val voice = if (s.app.sound && all == null && !muted && !(i == 0 && arrivalVoiced)) launch { voiced = true; say(i, i + 1) } else null
             // 쓰는 동안 끝을 따라간다 (손으로 넘기는 중이면 기다림)
             val follow = launch {
                 while (true) {
@@ -218,8 +225,10 @@ fun Room(s: AppState, r: Route.Letter) {
             speed = speed, onSpeed = { speed = if (speed < 1f) 1f else 0.7f; s.store.setRoomSpeed(id, speed) })
         val ctx = androidx.compose.ui.platform.LocalContext.current
         val notYet = stringResource(R.string.step_not_yet)
-        TodayStrip(read = written, total = total, modes = modes, replied = progress.replied, done = progress.done) { step ->
-            // 0 = 읽기, 1..modes = 연습, 마지막 = 그림. 다 한 단계와 지금 단계만 이동, 나머지는 짧은 안내
+        val nLetter = remember(letter.id) { work.chapters.flatMap { it.letters }.indexOf(letter) + 1 }
+        StepBar(read = written, total = total, modes = modes, replied = progress.replied, done = progress.done,
+            words = letter.words.size, recipient = work.recipient[uiLang()], number = roman(nLetter)) { step ->
+            // 0 = 읽기, 1..modes = 연습, 마지막 = 그림. 다 한 걸음과 지금 걸음만 이동
             val readDone = written >= total
             val nextMode = if (!readDone) null else modes.firstOrNull { it !in progress.replied }
             when {
@@ -320,22 +329,6 @@ fun Room(s: AppState, r: Route.Letter) {
                         TheoNote(reply[view.learn], view.learn, if (view.showRead) reply[view.read] else null, view.read, work.recipient[view.learn])
                     }
                 }
-                // 처음 한 번: 세 가지를 모두 해 보자는 안내
-                if (!progress.done && progress.replied.isEmpty() && s.coach.due("first_steps", calm = true)) item {
-                    s.coachTick
-                    Slip(seed = 3, modifier = Modifier.fillMaxWidth()) {
-                        Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                            Text(stringResource(R.string.first_guide_title), style = Type.heading.ui(), color = p.slipInk)
-                            Text(stringResource(R.string.first_guide_body), style = Type.small.ui(), color = p.slipSoft)
-                            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2), verticalAlignment = Alignment.CenterVertically) {
-                                modes.forEachIndexed { k, m ->
-                                    if (k > 0) Text("→", style = Type.small, color = p.slipSoft)
-                                    Text(stringResource(modeLabel(m)), style = Type.small.ui(), color = p.slipInk)
-                                }
-                            }
-                        }
-                    }
-                }
             }
         }
         // 듣다 멈춘 자리에서 (v17 E)
@@ -393,6 +386,9 @@ fun Room(s: AppState, r: Route.Letter) {
                 }
             }
         }
+    }
+    if (arriving) LetterArrival(s, id, chapter, letter, remember(letter.id) { work.chapters.flatMap { it.letters }.indexOf(letter) + 1 }) { heard ->
+        s.store.markArrived(key); arrivalVoiced = heard; arriving = false
     }
     if (words) WordSheet(s, r, onClose = { words = false })
     wordFocus?.let { k -> val (ch, lt) = s.letterOf(r); WordDetail(s, s.cardKey(id, ch, lt.id, k)) { wordFocus = null } }
@@ -475,51 +471,122 @@ private fun RoomHeader(
     }
 }
 
-/** 오늘의 순서: 읽기 → (낱말 → 따라 읽기 → 답장, 켠 것만) → 그림. 한 일은 금빛 체크, 지금 할 일은 먹색, 남은 일은 흐리게. */
+/** 걸음 하나: 이름 · 한 줄 설명 · 상태 (0 남음 · 1 지금 · 2 끝남). */
+internal data class Step(val label: String, val desc: String, val state: Int)
+
 @Composable
-private fun TodayStrip(read: Int, total: Int, modes: List<ReplyMode>, replied: Set<ReplyMode>, done: Boolean, onStep: (Int) -> Unit) {
-    val p = Ink.palette
+private fun steps(read: Int, total: Int, modes: List<ReplyMode>, replied: Set<ReplyMode>, done: Boolean, words: Int, recipient: String): List<Step> {
     val readDone = read >= total
     val next = if (!readDone) null else modes.firstOrNull { it !in replied }
-    val steps = buildList {
-        add(stringResource(R.string.step_read, read, total) to (if (readDone) 2 else 1))
+    return buildList {
+        add(Step(stringResource(R.string.step_read_short),
+            if (readDone) stringResource(R.string.step_read_d_done, total) else stringResource(R.string.step_read_d, total, read), if (readDone) 2 else 1))
         modes.forEach { m ->
-            val label = stringResource(when (m) { ReplyMode.MATCH -> R.string.step_match; ReplyMode.ALOUD -> R.string.step_aloud; else -> R.string.step_reply })
-            add(label to when { m in replied -> 2; m == next -> 1; else -> 0 })
+            add(Step(stringResource(modeLabel(m)), when (m) {
+                ReplyMode.MATCH -> stringResource(R.string.step_match_d, words)
+                ReplyMode.ALOUD -> stringResource(R.string.step_aloud_d, total)
+                else -> stringResource(R.string.step_reply_d, recipient)
+            }, when { m in replied -> 2; m == next -> 1; else -> 0 }))
         }
-        add(stringResource(R.string.step_plate) to (if (done) 2 else if (readDone && next == null) 1 else 0))
+        add(Step(stringResource(R.string.step_plate), stringResource(R.string.step_plate_d), if (done) 2 else if (readDone && next == null) 1 else 0))
     }
+}
+
+/**
+ * 진행 줄 (v21 2단계 U1): 지금 할 걸음 하나만 (로마 숫자 · 이름 · 몇 번째 · 앞 걸음 끝남) + 작은 마름모들.
+ * 누르면 위에서 걸음 목록이 내려온다 (끝난 것 ✓ · 지금 · 남은 것). 끝난 걸음 · 지금 걸음만 바로 간다.
+ */
+@Composable
+private fun StepBar(read: Int, total: Int, modes: List<ReplyMode>, replied: Set<ReplyMode>, done: Boolean,
+                    words: Int, recipient: String, number: String, onStep: (Int) -> Unit) {
+    val p = Ink.palette
+    val list = steps(read, total, modes, replied, done, words, recipient)
+    var open by remember { mutableStateOf(false) }
+    val cur = list.indexOfFirst { it.state == 1 }.let { if (it < 0) list.lastIndex else it }
+    val openLabel = stringResource(R.string.steps_open)
     Column(Modifier.background(p.paper)) {
         Row(
-            Modifier.fillMaxWidth().heightIn(min = 48.dp).padding(horizontal = Tokens.Space.s3),
-            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(2.dp),
+            Modifier.fillMaxWidth().heightIn(min = 60.dp).pressable(haptic = false) { open = !open }
+                .androidx_semantics(openLabel).padding(start = Tokens.Space.s4, end = Tokens.Space.s3, top = 6.dp, bottom = 6.dp),
+            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
-            steps.forEachIndexed { i, (label, state) ->
-                if (i > 0) Box(Modifier.weight(1f).height(1.dp).background(if (state > 0) p.giltText.copy(alpha = 0.5f) else p.hair))
-                Row(
-                    Modifier.clip(androidx.compose.foundation.shape.RoundedCornerShape(14.dp)).background(if (state == 1) p.giltText.copy(alpha = 0.12f) else Color.Transparent)
-                        .pressable(haptic = false) { onStep(i) }.heightIn(min = 48.dp).padding(horizontal = 5.dp),
-                    verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(3.dp),
-                ) {
-                    when (state) {
-                        2 -> Box(Modifier.size(14.dp).background(p.giltText, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) {
-                            Canvas(Modifier.size(8.dp)) {
-                                val w = size.width
-                                drawPath(androidx.compose.ui.graphics.Path().apply { moveTo(w * 0.1f, w * 0.55f); lineTo(w * 0.4f, w * 0.82f); lineTo(w * 0.92f, w * 0.2f) }, p.paper,
-                                    style = androidx.compose.ui.graphics.drawscope.Stroke(1.6.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round))
-                            }
+            Text(roman(cur + 1), style = Type.numeral.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.giltText,
+                modifier = Modifier.width(34.dp))
+            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(1.dp)) {
+                Text(list[cur].label, style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink, maxLines = 1)
+                Text(stringResource(R.string.step_of, list.size, cur + 1) + (if (cur > 0 && list[cur - 1].state == 2) " · " + stringResource(R.string.step_after, list[cur - 1].label) else ""),
+                    style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, maxLines = 1)
+            }
+            Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                list.forEach { st ->
+                    val d = if (st.state == 1) 9.dp else 7.dp
+                    Box(Modifier.size(d).graphicsLayer { rotationZ = 45f }
+                        .background(when (st.state) { 2 -> p.giltText; 1 -> p.ink; else -> Color.Transparent })
+                        .border(1.dp, when (st.state) { 2 -> p.giltText; 1 -> p.ink; else -> p.hideInk }))
+                }
+            }
+            Box(Modifier.graphicsLayer { rotationZ = if (open) 90f else -90f }) { Chevron(p.inkSoft) }
+        }
+        // 한 것만큼 금빛 (가는 줄)
+        Box(Modifier.fillMaxWidth().height(2.dp).background(p.hair)) {
+            Box(Modifier.fillMaxWidth(list.count { it.state == 2 }.toFloat() / list.size).height(2.dp).background(p.giltText))
+        }
+        if (open) androidx.compose.ui.window.Popup(onDismissRequest = { open = false },
+            properties = androidx.compose.ui.window.PopupProperties(focusable = true)) {
+            Column(Modifier.fillMaxSize()) {
+                StepSheet(list, number) { i -> if (list[i].state > 0) open = false; onStep(i) }
+                Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false) { open = false })
+            }
+        }
+    }
+}
+
+/** 펼친 걸음 목록. */
+@Composable
+internal fun StepSheet(list: List<Step>, number: String, onStep: (Int) -> Unit) {
+    val p = Ink.palette
+    Column(Modifier.fillMaxWidth().background(p.paper)) {
+        Row(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
+            Caps(stringResource(R.string.steps_caps, number, list.size), p.giltText, small = true, modifier = Modifier.weight(1f))
+            Text(stringResource(R.string.steps_count, list.count { it.state == 2 }, list.count { it.state < 2 }), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+        }
+        list.forEachIndexed { i, st ->
+            Hair()
+            Row(
+                Modifier.fillMaxWidth().background(if (st.state == 1) p.leaf else Color.Transparent)
+                    .drawBehind { if (st.state == 1) drawRect(p.ink, size = androidx.compose.ui.geometry.Size(3.dp.toPx(), size.height)) }
+                    .pressable(haptic = false) { onStep(i) }.heightIn(min = 64.dp).padding(horizontal = Tokens.Space.s4, vertical = 10.dp),
+                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
+            ) {
+                Box(Modifier.width(34.dp), contentAlignment = Alignment.Center) {
+                    if (st.state == 2) Box(Modifier.size(22.dp).background(p.giltText, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) {
+                        Canvas(Modifier.size(11.dp)) {
+                            val w = size.width
+                            drawPath(androidx.compose.ui.graphics.Path().apply { moveTo(w * 0.1f, w * 0.55f); lineTo(w * 0.4f, w * 0.82f); lineTo(w * 0.92f, w * 0.2f) }, p.paper,
+                                style = androidx.compose.ui.graphics.drawscope.Stroke(1.8.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round))
                         }
-                        1 -> Box(Modifier.size(8.dp).background(p.ink, androidx.compose.foundation.shape.CircleShape))
-                        else -> Box(Modifier.size(8.dp).border(1.dp, p.hideInk, androidx.compose.foundation.shape.CircleShape))
-                    }
-                    Text(label, style = Type.small.ui().copy(fontSize = Tokens.Text.capsSm * 1.15f), maxLines = 1,
-                        color = when (state) { 2 -> p.giltText; 1 -> p.ink; else -> p.hideInk })
+                    } else Text(roman(i + 1), style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display),
+                        color = if (st.state == 1) p.ink else p.hideInk)
+                }
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(st.label, style = Type.body.ui().copy(fontWeight = if (st.state == 2) null else androidx.compose.ui.text.font.FontWeight.SemiBold),
+                        color = if (st.state == 2) p.inkSoft else p.ink)
+                    Text(st.desc, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+                }
+                when (st.state) {
+                    2 -> Capsule(stringResource(if (i == 0) R.string.step_again_read else R.string.step_again))
+                    1 -> Capsule(stringResource(R.string.step_now), CapsuleKind.FILLED)
                 }
             }
         }
         Hair()
+        Text(stringResource(R.string.steps_settings), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft,
+            modifier = Modifier.padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3))
+        Hair()
     }
 }
+
+private fun Modifier.androidx_semantics(label: String) = this.then(androidx.compose.ui.Modifier.semantics { contentDescription = label })
 
 /** 큐레이터 노트: 편지와 다른 재료 (미술관 벽의 작품 설명판). 앱 글자 언어로. */
 @Composable

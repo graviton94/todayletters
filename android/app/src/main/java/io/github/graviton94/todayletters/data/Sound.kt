@@ -90,8 +90,8 @@ class Narrator(private val ctx: Context) {
     val active get() = player != null
 
     /** 낭독의 한 토막만: [from]~[to] 밀리초 (따라 읽기의 한 마디). */
-    fun playRange(asset: String, from: Int, to: Int, onDone: () -> Unit = {}): Boolean {
-        if (!play(asset, onDone = onDone)) return false
+    fun playRange(asset: String, from: Int, to: Int, speed: Float = 1f, onDone: () -> Unit = {}): Boolean {
+        if (!play(asset, speed, onDone = onDone)) return false
         val pl = player ?: return false
         runCatching { pl.seekTo(from) }
         val h = android.os.Handler(android.os.Looper.getMainLooper())
@@ -105,6 +105,9 @@ class Narrator(private val ctx: Context) {
         h.postDelayed(tick, 40)
         return true
     }
+
+    /** 지금 파일의 길이 (밀리초). 재생 중이 아니면 -1. */
+    fun duration(): Int = player?.runCatching { duration }?.getOrNull() ?: -1
 
     /** 재생 위치 (밀리초). 재생 중이 아니면 -1. */
     fun position(): Int = player?.runCatching { if (isPlaying || paused) currentPosition else -1 }?.getOrNull() ?: -1

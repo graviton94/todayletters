@@ -63,7 +63,7 @@ import io.github.graviton94.todayletters.design.Type
  * 세 번 해도 60점이 안 되면 ‘넘어가기’ (통과로는 세지 않음).
  */
 @Composable
-fun ShadowScreen(s: AppState, r: Route.Shadow) = ReadAlong(s, r.room, only = null, onClose = { s.back() }, onFinish = null)
+fun ShadowScreen(s: AppState, r: Route.Shadow) = ReadAlong(s, r.room, only = r.only?.let { listOf(it) }, onClose = { s.back() }, onFinish = null)
 
 @Composable
 fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> Unit, onFinish: (() -> Unit)?) {

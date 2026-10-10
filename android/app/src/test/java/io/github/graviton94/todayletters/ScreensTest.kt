@@ -64,6 +64,8 @@ class ScreensTest {
         if (onboarded) Store(ctx).onboarded = true
         val s = AppState(ctx, deepLink = false)
         s.update(s.app.copy(pace = TypingPace.INSTANT))
+        // 편지 도착 연출(2단계 D1)은 따로 찍는다: 다른 편지 방 사진에서는 이미 본 것으로
+        s.works.forEach { w -> w.chapters.forEach { c -> c.letters.forEach { l -> s.store.markArrived(s.key(w.series.id, c.id, l.id)) } } }
         return s
     }
 
@@ -352,5 +354,49 @@ class ScreensTest {
         val l = s.work("vincent").chapters.first().letters.first()
         s.store.save(io.github.graviton94.todayletters.core.Card(s.cardKey("vincent", "I", l.id, 1), box = 5, due = s.today + 30, seen = 8, last = s.today - 40))
         shot("63_today_surprise_light", false, 2000, series = s) { Inbox(s) }
+    }
+    // ── 2단계: 진행 줄 · 편지 도착 · 문장 받아쓰기 · 내 구절 ──
+    /** U1: 펼친 걸음 목록 (읽기 끝 · 지금 낱말 맞추기). */
+    @Test fun roomSteps() {
+        val s = state(true)
+        shot("64_room_steps_light", false, series = s) {
+            androidx.compose.foundation.layout.Column {
+                io.github.graviton94.todayletters.ui.StepSheet(listOf(
+                    io.github.graviton94.todayletters.ui.Step("읽기", "4문장 모두 읽음", 2),
+                    io.github.graviton94.todayletters.ui.Step("낱말 맞추기", "낱말 6개 · 뜻과 소리를 짝지어요", 1),
+                    io.github.graviton94.todayletters.ui.Step("따라 읽기", "4문장을 소리 내어", 0),
+                    io.github.graviton94.todayletters.ui.Step("답장", "테오의 답장을 써요", 0),
+                    io.github.graviton94.todayletters.ui.Step("그림", "이 편지의 그림을 받아요", 0),
+                ), "I") { }
+            }
+        }
+    }
+    /** D1: 그림이 먼저 · 첫 줄이 다 쓰인 뒤. */
+    @Test fun arrivalPainting() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters.first()
+        shot("65_arrival_painting", false, series = s) { io.github.graviton94.todayletters.ui.ArrivalBody(s, "vincent", "I", l, 1, { }, startAt = 0) }
+    }
+    @Test fun arrivalLine() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters.first()
+        shot("66_arrival_line", false, series = s) { io.github.graviton94.todayletters.ui.ArrivalBody(s, "vincent", "I", l, 1, { }, startAt = 2) }
+    }
+    /** F4: ‘말하기’ 칸 위 낱말(pays)의 듣고 쓰기 → 그 낭독 마디를 통째로. */
+    @Test fun phraseDictation() {
+        val s = withCards()
+        val l = s.work("vincent").chapters.first().letters.first()
+        val key = s.cardKey("vincent", "I", l.id, 1)
+        s.store.save(io.github.graviton94.todayletters.core.Card(key, box = 4, due = s.today, seen = 5))
+        shot("67_phrase_dictation_light", false, series = s) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.DICTATION, only = listOf(key))) }
+    }
+    /** F5: 내 구절로 빈칸 연습. */
+    @Test fun quoteBlank() {
+        val s = withCards()
+        val l = s.work("vincent").chapters.first().letters.first()
+        val qk = s.quoteKey("vincent", "I", l.id, 2)
+        s.toggleQuote(qk)
+        val key = s.cardKey("vincent", "I", l.id, 3)
+        shot("68_quote_blank_light", false, series = s) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.BLANK, only = listOf(key), quote = qk)) }
     }
 }
