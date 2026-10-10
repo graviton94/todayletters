@@ -265,6 +265,7 @@ fun Session(s: AppState, r: Route.Session) {
         // 답을 보면 키보드 · 글자판을 내려 문장과 ‘다음’ 단추가 가려지지 않게
         keyboard?.hide(); focusManager.clearFocus(); pad = false
         val ok = m != Memory.Mark.WRONG
+        s.judged(q.kind, ok)
         // 맞으면 ‘확인’ 진동 (Android 11+), 아니면 길게 한 번
         if (s.app.haptics) {
             if (ok && android.os.Build.VERSION.SDK_INT >= 30) view.performHapticFeedback(android.view.HapticFeedbackConstants.CONFIRM)

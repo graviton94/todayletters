@@ -3,25 +3,13 @@ package io.github.graviton94.todayletters.core
 /**
  * 앱을 켰을 때의 순서.
  *
- *   늘:          오프닝 (앱 이름 · 앞으로 올 발신인들의 봉투 · 눌러서 열기)
- *   처음 설치:    오프닝 다음에 처음 소개 두 단계 (이렇게 도착해요 → 작품과 배울 언어)
- *   그날 첫 실행: 오프닝 다음에 오늘의 봉투 (고른 작품의 편지 한 통이 도착)
- *
- * 불러오기는 오프닝 뒤에서 함께 돈다. 따로 로딩 화면을 두지 않고, 준비가 끝나야 "눌러서 열기"가 나타난다.
- * 알림으로 바로 들어오기(언어를 바꿔 다시 그릴 때 포함)는 오프닝과 봉투를 건너뛴다.
+ *   처음 설치: 처음 소개 (이렇게 도착해요 → 작품과 배울 언어) → 서재
+ *   그다음부터: 바로 서재 (오늘 도착한 편지는 시리즈 카드에 ‘오늘 도착’으로)
  */
-enum class Stage { OPENING, ONBOARDING, TODAY, MAIN }
+enum class Stage { ONBOARDING, MAIN }
 
 object Launch {
-    fun plan(firstRun: Boolean, firstOfDay: Boolean, deepLink: Boolean): List<Stage> = listOfNotNull(
-        if (deepLink) null else Stage.OPENING,
-        when {
-            firstRun -> Stage.ONBOARDING
-            firstOfDay && !deepLink -> Stage.TODAY
-            else -> null
-        },
-        Stage.MAIN,
-    )
+    fun plan(firstRun: Boolean): List<Stage> = listOfNotNull(if (firstRun) Stage.ONBOARDING else null, Stage.MAIN)
 }
 
 /**

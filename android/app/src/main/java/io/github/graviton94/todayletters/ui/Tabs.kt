@@ -53,79 +53,6 @@ private fun Page(content: @Composable () -> Unit) =
         verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
     ) { content() }
 
-/** 서재: 모든 작품 표지. */
-@Composable
-fun LibraryTab(s: AppState) {
-    val p = Ink.palette
-    Column(Modifier.fillMaxSize()) {
-        TopBar(stringResource(R.string.tab_library), s, help = "library", showBack = false, showSettings = true)
-        Page {
-            s.version
-            s.works.forEach { w -> LibraryRow(s, w) }
-            Text(stringResource(R.string.library_next), style = Type.small.ui(), color = p.inkSoft)
-        }
-    }
-}
-
-/**
- * 서재의 한 줄: 메신저 대화 목록처럼. 초상 · 이름 · 마지막(또는 새로 온) 문장 · 언제 · 안 읽은 수.
- * 도착한 날이 지났는데 열지 않은 편지는 ‘부재중’.
- */
-@Composable
-private fun LibraryRow(s: AppState, w: io.github.graviton94.todayletters.data.Work) {
-    val p = Ink.palette
-    val id = w.series.id
-    val view = s.room(id)
-    val today = s.today
-    val unread = s.unread(id)
-    val arrived = s.arrivedOn(id)
-    val open = s.openable(id)
-    // 새로 온 편지가 있으면 그 첫 문장, 없으면 마지막으로 읽은 편지의 마지막으로 받은 문장
-    val next = open.firstOrNull { (c, l) -> s.progress(id, c, l.id).shown == 0 && !s.progress(id, c, l.id).done }
-    val last = open.lastOrNull { (c, l) -> s.progress(id, c, l.id).shown > 0 }
-    val line = next?.second?.messages?.firstOrNull()?.text?.get(view.learn)
-        ?: last?.let { (c, l) -> l.messages.getOrNull((s.progress(id, c, l.id).shown - 1).coerceAtLeast(0))?.text?.get(view.learn) }
-        ?: ""
-    val day = if (unread > 0) arrived ?: today else s.store.lastOpen(id).first.takeIf { it >= 0 }
-    val missed = io.github.graviton94.todayletters.core.Arrivals.missed(arrived, today, unread)
-    val ch = w.chapters.firstOrNull()
-    Row(
-        Modifier.fillMaxWidth().clickable(role = Role.Button) { s.go(Route.Series(id)) }.padding(vertical = Tokens.Space.s3),
-        horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Portrait(w.portrait, w.fullName, 56.dp)
-        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(3.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text("${w.name[uiLang()]} → ${w.recipient[uiLang()]}", style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink, modifier = Modifier.weight(1f))
-                if (day != null) Text(relDay(day, today), style = Type.small.ui(), color = if (unread > 0) p.giltText else p.inkSoft)
-            }
-            Caps("Saison I · ${w.years} · ${stringResource(langLabel(w.series.original))}", small = true, decorative = true)
-            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                Text(io.github.graviton94.todayletters.core.Breaks.plain(line), style = Type.base.of(view.learn), color = p.inkSoft, maxLines = 1,
-                    overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
-                if (unread > 0) Box(Modifier.heightIn(min = 22.dp).widthIn(min = 22.dp).background(p.wrong, androidx.compose.foundation.shape.CircleShape).padding(horizontal = 6.dp), contentAlignment = Alignment.Center) {
-                    Text("$unread", style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.onFill)
-                }
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2), modifier = Modifier.padding(top = 2.dp)) {
-                if (missed && arrived != null) Text(stringResource(R.string.lib_missed, unread, relDay(arrived, today)), style = Type.small.ui().copy(fontSize = Tokens.Text.caps),
-                    color = p.giltText, modifier = Modifier.border(Tokens.Stroke.hair, p.giltText).padding(horizontal = 8.dp, vertical = 3.dp))
-                if (ch != null) Text(stringResource(R.string.lib_progress, ch.id, ch.letters.count { s.progress(id, ch.id, it.id).done }, ch.letters.size), style = Type.small.ui().copy(fontSize = Tokens.Text.caps),
-                    color = p.inkSoft, modifier = Modifier.border(Tokens.Stroke.hair, p.hair).padding(horizontal = 8.dp, vertical = 3.dp))
-            }
-        }
-    }
-    Hair()
-}
-
-/** 오늘 · 어제 · N일 전. */
-@Composable
-private fun relDay(day: Long, today: Long): String = when (val d = (today - day).toInt()) {
-    0 -> stringResource(R.string.lib_today)
-    1 -> stringResource(R.string.lib_yesterday)
-    else -> stringResource(R.string.lib_days_ago, d.coerceAtLeast(0))
-}
-
 /**
  * 단어장: 받은 편지의 낱말. 한 줄에 낱말 · 뜻 (누르면 발음). 위에 찾기, 아래로 20개씩 더 보기.
  * 같은 낱말은 한 번만 (처음 나온 편지 기준).
@@ -194,35 +121,6 @@ fun WordListScreen(s: AppState) {
                     shown.size > limit -> Box(Modifier.padding(vertical = Tokens.Space.s4)) { Secondary(stringResource(R.string.words_more, shown.size - limit)) { limit += 20 } }
                 }
             }
-        }
-    }
-}
-
-/** 화첩: 다 읽은 편지의 그림. */
-@Composable
-fun GalleryTab(s: AppState) {
-    val p = Ink.palette
-    Column(Modifier.fillMaxSize()) {
-        TopBar(stringResource(R.string.tab_gallery), s, help = null, showBack = false, showSettings = true)
-        Page {
-            var any = false
-            s.works.forEach { w ->
-                val id = w.series.id
-                w.chapters.forEachIndexed { ci, c ->
-                    c.letters.forEachIndexed { li, l ->
-                        val plate = l.plate ?: return@forEachIndexed
-                        if (!s.progress(id, c.id, l.id).done) return@forEachIndexed
-                        any = true
-                        val room = Route.Letter(id, ci + 1, li + 1)
-                        Column(Modifier.fillMaxWidth().clickable(role = Role.Button) { s.go(Route.Artwork(id, li + 1, room)) }, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                            PlateImage(plate.image, Modifier.fillMaxWidth().aspectRatio(1.4f))
-                            Text(plate.title[s.app.read], style = Type.label.of(s.app.read), color = p.ink)
-                            Text("${plate.date} · ${plate.collection}", style = Type.small, color = p.inkSoft)
-                        }
-                    }
-                }
-            }
-            if (!any) Text(stringResource(R.string.gallery_empty), style = Type.body.ui(), color = p.inkSoft)
         }
     }
 }
@@ -299,7 +197,7 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
                     Row(
                         Modifier.weight(1f).padding(bottom = Tokens.Space.s2)
                             .then(if (reading) Modifier.background(p.leaf).border(1.dp, p.giltText.copy(alpha = 0.7f)) else Modifier)
-                            .pressable(enabled = can) { s.open(r.series, c.id, l, Route.Library) }.padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s3),
+                            .pressable(enabled = can) { s.open(r.series, c.id, l, null) }.padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s3),
                         verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
                     ) {
                         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {

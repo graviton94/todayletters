@@ -138,135 +138,654 @@
     }
   },
   "kit": {
-    "_doc": "시리즈 키트: 엔진(공통 화면)에 이 작품만의 이름 · 그림 · 목록을 채운다. 코드는 시리즈마다 바뀌지 않는다.",
+    "_doc": "시리즈 키트: 공통 틀에 이 작품만의 빛깔 · 대표 그림 · 화폐 이름 · 갤러리 소장품 · 이달의 전시를 채운다. 코드는 시리즈마다 바뀌지 않는다. 소장품은 공공 영역이고 소장처가 자유 이용(상업 포함)을 밝힌 것만.",
+    "theme": {
+      "light": {
+        "paper": "#F3EAD6",
+        "ink": "#2A1F10",
+        "soft": "#76664A",
+        "faint": "#AE9C78",
+        "accent": "#9A6B1F"
+      },
+      "dark": {
+        "paper": "#17120A",
+        "ink": "#F0E3C4",
+        "soft": "#B3A07A",
+        "faint": "#76674B",
+        "accent": "#D9AE55"
+      }
+    },
+    "hero": "plates/c1-l3.jpg",
+    "place": "ARLES · 1888",
+    "world": {
+      "fr": "Vers le monde de Vincent",
+      "en": "Into Vincent's world",
+      "ko": "빈센트의 세상으로 떠납니다"
+    },
     "currency": {
-      "label": "25c",
-      "color": "#3D5A8F"
-    },
-    "cabinet": {
-      "title": {
-        "fr": "Galerie · Arles",
-        "en": "Gallery · Arles room",
-        "ko": "화랑 · 아를 방"
-      },
-      "place": {
-        "fr": "19, boulevard Montmartre",
-        "en": "19 Boulevard Montmartre",
-        "ko": "몽마르트르 대로 19번지"
-      },
-      "wall": "#3A2E26",
-      "floor": "#5A3F2A"
-    },
-    "parcel": {
-      "cost": 50,
-      "label": {
-        "fr": "Argent et couleurs",
-        "en": "Money and paints",
-        "ko": "생활비와 물감"
-      },
-      "returns": [
-        {
-          "title": {
-            "fr": "Merci, Théo",
-            "en": "Thank you, Theo",
-            "ko": "고마워, 테오"
-          },
-          "letter": "c1-l4",
-          "message": 3,
-          "image": "sketches/c1-l4-poirier.jpg"
-        }
-      ]
-    },
-    "visitors": [
-      {
-        "id": "collector",
-        "template": "listen",
-        "name": {
-          "fr": "Une collectionneuse",
-          "en": "A collector",
-          "ko": "수집가"
-        }
-      },
-      {
-        "id": "critic",
-        "template": "torn",
-        "name": {
-          "fr": "Un critique",
-          "en": "A critic",
-          "ko": "비평가"
-        }
-      },
-      {
-        "id": "postman",
-        "template": "telegram",
-        "name": {
-          "fr": "Le facteur Roulin",
-          "en": "Roulin the postman",
-          "ko": "우체부 룰랭"
-        }
+      "name": {
+        "fr": "timbres",
+        "en": "stamps",
+        "ko": "우표"
       }
-    ],
-    "stamps": [
+    },
+    "weekdays": "LMMJVSD",
+    "collection": [
       {
-        "id": "chapeau",
-        "label": "PARIS 1887",
-        "image": "c1-l1.jpg",
-        "value": "25c",
-        "color": "#3D5A8F"
-      },
-      {
-        "id": "pont",
-        "label": "PONT DE LANGLOIS",
-        "image": "c1-l2.jpg",
-        "value": "10c",
-        "color": "#2E6B5A"
-      },
-      {
-        "id": "verger",
-        "label": "VERGER",
-        "image": "c1-l3.jpg",
-        "value": "5c",
-        "color": "#8E2A22"
-      },
-      {
-        "id": "mousme",
-        "label": "MOUSMÉ",
-        "image": "c2-l3.jpg",
-        "value": "15c",
-        "color": "#5B3A6E"
-      },
-      {
-        "id": "tournesols",
-        "label": "TOURNESOLS",
-        "image": "c2-l4.jpg",
-        "value": "1F",
-        "color": "#B8913E"
-      }
-    ],
-    "journal": [
-      {
-        "id": "arles",
-        "city": {
-          "fr": "Arles",
-          "en": "Arles",
-          "ko": "아를"
+        "id": "met-436528",
+        "image": "gallery/met-436528.jpg",
+        "title": {
+          "en": "Irises",
+          "ko": "붓꽃"
         },
-        "years": "1888",
-        "places": [
-          "station",
-          "carrel",
-          "langlois",
-          "yellow",
-          "cafe"
-        ],
-        "ticket": {
-          "line": "Chemin de fer P.L.M.",
-          "text": {
-            "fr": "Paris → Arles · 19–20 févr. 1888",
-            "en": "Paris → Arles · 19–20 Feb 1888",
-            "ko": "파리 → 아를 · 1888년 2월 19–20일"
-          }
-        }
+        "date": "1890",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "master",
+        "themes": [
+          "flowers"
+        ]
+      },
+      {
+        "id": "met-436535",
+        "image": "gallery/met-436535.jpg",
+        "title": {
+          "en": "Wheat Field with Cypresses",
+          "ko": "사이프러스가 있는 밀밭"
+        },
+        "date": "1889",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "master",
+        "themes": [
+          "fields"
+        ]
+      },
+      {
+        "id": "met-437980",
+        "image": "gallery/met-437980.jpg",
+        "title": {
+          "en": "Cypresses",
+          "ko": "사이프러스"
+        },
+        "date": "1889",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "master",
+        "themes": [
+          "fields"
+        ]
+      },
+      {
+        "id": "met-436534",
+        "image": "gallery/met-436534.jpg",
+        "title": {
+          "en": "Roses",
+          "ko": "장미"
+        },
+        "date": "1890",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "master",
+        "themes": [
+          "flowers"
+        ]
+      },
+      {
+        "id": "met-436529",
+        "image": "gallery/met-436529.jpg",
+        "title": {
+          "en": "L'Arlésienne: Madame Joseph-Michel Ginoux",
+          "ko": "아를의 여인: 지누 부인"
+        },
+        "date": "1888–89",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "painting",
+        "themes": [
+          "people"
+        ]
+      },
+      {
+        "id": "met-459123",
+        "image": "gallery/met-459123.jpg",
+        "title": {
+          "en": "Madame Roulin and Her Baby",
+          "ko": "룰랭 부인과 아기"
+        },
+        "date": "1888",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "painting",
+        "themes": [
+          "people"
+        ]
+      },
+      {
+        "id": "met-437984",
+        "image": "gallery/met-437984.jpg",
+        "title": {
+          "en": "La Berceuse (Augustine Roulin)",
+          "ko": "자장가 (오귀스틴 룰랭)"
+        },
+        "date": "1889",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "painting",
+        "themes": [
+          "people"
+        ]
+      },
+      {
+        "id": "met-436525",
+        "image": "gallery/met-436525.jpg",
+        "title": {
+          "en": "Bouquet of Flowers in a Vase",
+          "ko": "꽃병의 꽃다발"
+        },
+        "date": "1890",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "painting",
+        "themes": [
+          "flowers"
+        ]
+      },
+      {
+        "id": "met-436530",
+        "image": "gallery/met-436530.jpg",
+        "title": {
+          "en": "Oleanders",
+          "ko": "협죽도"
+        },
+        "date": "1888",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "painting",
+        "themes": [
+          "flowers"
+        ]
+      },
+      {
+        "id": "met-436533",
+        "image": "gallery/met-436533.jpg",
+        "title": {
+          "en": "Shoes",
+          "ko": "구두"
+        },
+        "date": "1888",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "painting",
+        "themes": []
+      },
+      {
+        "id": "met-436536",
+        "image": "gallery/met-436536.jpg",
+        "title": {
+          "en": "Women Picking Olives",
+          "ko": "올리브를 따는 여인들"
+        },
+        "date": "1889",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "painting",
+        "themes": [
+          "fields",
+          "people"
+        ]
+      },
+      {
+        "id": "met-437998",
+        "image": "gallery/met-437998.jpg",
+        "title": {
+          "en": "Olive Trees",
+          "ko": "올리브 나무"
+        },
+        "date": "1889",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "painting",
+        "themes": [
+          "fields"
+        ]
+      },
+      {
+        "id": "met-436526",
+        "image": "gallery/met-436526.jpg",
+        "title": {
+          "en": "First Steps, after Millet",
+          "ko": "첫걸음 (밀레를 따라)"
+        },
+        "date": "1890",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "painting",
+        "themes": [
+          "people"
+        ]
+      },
+      {
+        "id": "met-436531",
+        "image": "gallery/met-436531.jpg",
+        "title": {
+          "en": "Peasant Woman Cooking by a Fireplace",
+          "ko": "화롯가에서 요리하는 농부 여인"
+        },
+        "date": "1885",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "painting",
+        "themes": [
+          "people"
+        ]
+      },
+      {
+        "id": "met-438722",
+        "image": "gallery/met-438722.jpg",
+        "title": {
+          "en": "The Potato Peeler",
+          "ko": "감자 깎는 여인"
+        },
+        "date": "1885",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "painting",
+        "themes": [
+          "people"
+        ]
+      },
+      {
+        "id": "met-335536",
+        "image": "gallery/met-335536.jpg",
+        "title": {
+          "en": "The Zouave",
+          "ko": "주아브 병사"
+        },
+        "date": "1888",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "drawing",
+        "themes": [
+          "people"
+        ]
+      },
+      {
+        "id": "met-335537",
+        "image": "gallery/met-335537.jpg",
+        "title": {
+          "en": "Wheat Field",
+          "ko": "밀밭"
+        },
+        "date": "1888",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "drawing",
+        "themes": [
+          "fields"
+        ]
+      },
+      {
+        "id": "met-336327",
+        "image": "gallery/met-336327.jpg",
+        "title": {
+          "en": "Corridor in the Asylum",
+          "ko": "요양원 복도"
+        },
+        "date": "1889",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "drawing",
+        "themes": []
+      },
+      {
+        "id": "met-335538",
+        "image": "gallery/met-335538.jpg",
+        "title": {
+          "en": "Nursery on Schenkweg",
+          "ko": "스헹크베흐의 묘목밭"
+        },
+        "date": "1882",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "drawing",
+        "themes": [
+          "fields"
+        ]
+      },
+      {
+        "id": "met-459193",
+        "image": "gallery/met-459193.jpg",
+        "title": {
+          "en": "Road in Etten",
+          "ko": "에텐의 길"
+        },
+        "date": "1881",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "drawing",
+        "themes": [
+          "fields"
+        ]
+      },
+      {
+        "id": "met-829372",
+        "image": "gallery/met-829372.jpg",
+        "title": {
+          "en": "Peasant Woman Kneeling and Pulling Carrots",
+          "ko": "당근을 뽑는 농부 여인"
+        },
+        "date": "1885",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "drawing",
+        "themes": [
+          "people",
+          "fields"
+        ]
+      },
+      {
+        "id": "met-849052",
+        "image": "gallery/met-849052.jpg",
+        "title": {
+          "en": "At Eternity's Gate (lithograph)",
+          "ko": "영원의 문에서 (석판화)"
+        },
+        "date": "1882",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "drawing",
+        "themes": [
+          "people"
+        ]
+      },
+      {
+        "id": "met-849054",
+        "image": "gallery/met-849054.jpg",
+        "title": {
+          "en": "Gardener by an Apple Tree (lithograph)",
+          "ko": "사과나무 옆 정원사 (석판화)"
+        },
+        "date": "1883",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "drawing",
+        "themes": [
+          "people",
+          "fields"
+        ]
+      },
+      {
+        "id": "met-849055",
+        "image": "gallery/met-849055.jpg",
+        "title": {
+          "en": "Burning Weeds (lithograph)",
+          "ko": "잡초 태우기 (석판화)"
+        },
+        "date": "1883",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "drawing",
+        "themes": [
+          "fields"
+        ]
+      },
+      {
+        "id": "met-849056",
+        "image": "gallery/met-849056.jpg",
+        "title": {
+          "en": "Portrait of Doctor Gachet (etching)",
+          "ko": "가셰 박사 (에칭)"
+        },
+        "date": "1890",
+        "collection": "The Metropolitan Museum of Art · CC0",
+        "tier": "drawing",
+        "themes": [
+          "people"
+        ]
+      },
+      {
+        "id": "brieven-009",
+        "image": "gallery/brieven-009.jpg",
+        "title": {
+          "en": "Vincent van Gogh, after Toulouse-Lautrec's pastel",
+          "ko": "빈센트 반 고흐 (툴루즈로트레크의 파스텔)"
+        },
+        "date": "1887",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.frontispiece",
+        "tier": "drawing",
+        "themes": [
+          "people"
+        ]
+      },
+      {
+        "id": "brieven-238",
+        "image": "gallery/brieven-238.jpg",
+        "title": {
+          "en": "The bedroom",
+          "ko": "아를의 침실"
+        },
+        "date": "1888",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.227",
+        "tier": "sketch",
+        "themes": []
+      },
+      {
+        "id": "brieven-329",
+        "image": "gallery/brieven-329.jpg",
+        "title": {
+          "en": "La Berceuse between two sunflowers",
+          "ko": "자장가와 해바라기 세 폭"
+        },
+        "date": "1889",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.318",
+        "tier": "sketch",
+        "themes": [
+          "people",
+          "flowers"
+        ]
+      },
+      {
+        "id": "brieven-254",
+        "image": "gallery/brieven-254.jpg",
+        "title": {
+          "en": "Laval's self-portrait, sketched by Vincent",
+          "ko": "라발의 자화상 (빈센트가 옮겨 그림)"
+        },
+        "date": "1888",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.243",
+        "tier": "sketch",
+        "themes": [
+          "people"
+        ]
+      },
+      {
+        "id": "brieven-044",
+        "image": "gallery/brieven-044.jpg",
+        "title": {
+          "en": "A pear tree in blossom",
+          "ko": "꽃 핀 배나무"
+        },
+        "date": "1888",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.33",
+        "tier": "sketch",
+        "themes": [
+          "flowers"
+        ]
+      },
+      {
+        "id": "brieven-065",
+        "image": "gallery/brieven-065.jpg",
+        "title": {
+          "en": "A meadow full of buttercups",
+          "ko": "버터컵이 가득한 들판"
+        },
+        "date": "1888",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.54",
+        "tier": "sketch",
+        "themes": [
+          "fields",
+          "flowers"
+        ]
+      },
+      {
+        "id": "brieven-070",
+        "image": "gallery/brieven-070.jpg",
+        "title": {
+          "en": "Still life with coffee pot",
+          "ko": "커피포트가 있는 정물"
+        },
+        "date": "1888",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.59",
+        "tier": "sketch",
+        "themes": []
+      },
+      {
+        "id": "brieven-108",
+        "image": "gallery/brieven-108.jpg",
+        "title": {
+          "en": "Cicada",
+          "ko": "매미"
+        },
+        "date": "1888",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.97",
+        "tier": "sketch",
+        "themes": []
+      },
+      {
+        "id": "brieven-115",
+        "image": "gallery/brieven-115.jpg",
+        "title": {
+          "en": "A field",
+          "ko": "들판"
+        },
+        "date": "1888",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.104",
+        "tier": "sketch",
+        "themes": [
+          "fields"
+        ]
+      },
+      {
+        "id": "brieven-125",
+        "image": "gallery/brieven-125.jpg",
+        "title": {
+          "en": "Flower garden",
+          "ko": "꽃밭"
+        },
+        "date": "1888",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.114",
+        "tier": "sketch",
+        "themes": [
+          "flowers"
+        ]
+      },
+      {
+        "id": "brieven-156",
+        "image": "gallery/brieven-156.jpg",
+        "title": {
+          "en": "Fishing boats at Saintes-Maries",
+          "ko": "생트마리의 고깃배"
+        },
+        "date": "1888",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.145",
+        "tier": "sketch",
+        "themes": []
+      },
+      {
+        "id": "brieven-231a",
+        "image": "gallery/brieven-231a.jpg",
+        "title": {
+          "en": "The Tarascon diligence",
+          "ko": "타라스콩 승합마차"
+        },
+        "date": "1888",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.220",
+        "tier": "sketch",
+        "themes": []
+      },
+      {
+        "id": "brieven-231b",
+        "image": "gallery/brieven-231b.jpg",
+        "title": {
+          "en": "Corner of a garden with geraniums",
+          "ko": "제라늄 꽃밭이 있는 정원 구석"
+        },
+        "date": "1888",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.220",
+        "tier": "sketch",
+        "themes": [
+          "flowers"
+        ]
+      },
+      {
+        "id": "brieven-233",
+        "image": "gallery/brieven-233.jpg",
+        "title": {
+          "en": "The Trinquetaille bridge",
+          "ko": "트랭크타유 다리"
+        },
+        "date": "1888",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.222",
+        "tier": "sketch",
+        "themes": [
+          "people"
+        ]
+      },
+      {
+        "id": "brieven-262",
+        "image": "gallery/brieven-262.jpg",
+        "title": {
+          "en": "A letter from the Arles hospital, 2 January 1889",
+          "ko": "아를 병원에서 쓴 편지 (1889년 1월 2일)"
+        },
+        "date": "1889",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.251",
+        "tier": "sketch",
+        "themes": []
+      },
+      {
+        "id": "brieven-330",
+        "image": "gallery/brieven-330.jpg",
+        "title": {
+          "en": "The asylum garden at Saint-Rémy",
+          "ko": "생레미 요양원 정원"
+        },
+        "date": "1889",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.319",
+        "tier": "sketch",
+        "themes": [
+          "fields"
+        ]
+      },
+      {
+        "id": "brieven-332",
+        "image": "gallery/brieven-332.jpg",
+        "title": {
+          "en": "Emperor moth",
+          "ko": "산누에나방"
+        },
+        "date": "1889",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.321",
+        "tier": "sketch",
+        "themes": []
+      },
+      {
+        "id": "brieven-335",
+        "image": "gallery/brieven-335.jpg",
+        "title": {
+          "en": "Brushes",
+          "ko": "붓"
+        },
+        "date": "1889",
+        "collection": "Brieven aan zijn broeder (1914) · public domain · p.324",
+        "tier": "sketch",
+        "themes": []
+      }
+    ],
+    "exhibitions": [
+      {
+        "id": "people",
+        "title": {
+          "fr": "Les gens d'Arles",
+          "en": "The people around Vincent",
+          "ko": "빈센트 곁의 사람들"
+        },
+        "theme": "people"
+      },
+      {
+        "id": "flowers",
+        "title": {
+          "fr": "Fleurs",
+          "en": "Flowers",
+          "ko": "꽃"
+        },
+        "theme": "flowers"
+      },
+      {
+        "id": "fields",
+        "title": {
+          "fr": "Champs et oliviers",
+          "en": "Fields and olive trees",
+          "ko": "들판과 올리브 나무"
+        },
+        "theme": "fields"
       }
     ]
   }

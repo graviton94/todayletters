@@ -29,8 +29,8 @@
     "ko": "복습"
   },
   "tab_gallery": {
-    "ko": "갤러리",
-    "en": "Gallery"
+    "en": "Gallery",
+    "ko": "갤러리"
   },
   "help": {
     "en": "Help for this screen",
@@ -861,8 +861,8 @@
     "ko": "이어 읽기"
   },
   "streak_days": {
-    "en": "days",
-    "ko": "일째"
+    "en": " days",
+    "ko": "일"
   },
   "gallery_peek": {
     "en": "Gallery · %1$d / %2$d",
@@ -1301,16 +1301,16 @@
     "ko": "느리게 듣기"
   },
   "reward_caps": {
-    "en": "TODAY'S REWARD",
-    "ko": "RÉCOMPENSE · 오늘의 보상"
+    "en": "TODAY",
+    "ko": "AUJOURD'HUI"
   },
   "reward_stamps": {
     "en": "+ %1$d stamps",
     "ko": "+ 우표 %1$d장"
   },
   "reward_alone": {
-    "en": "You can read %1$d%% on your own",
-    "ko": "%1$d%%를 혼자 읽어요"
+    "en": "You now read %1$d%% on your own",
+    "ko": "이제 %1$d%%를 혼자 읽어요"
   },
   "reward_alone_d": {
     "en": "Translations fade from the words you know.",
@@ -1609,8 +1609,8 @@
     "ko": "사흘 이어 읽기."
   },
   "ach_streak_7": {
-    "en": "A week running",
-    "ko": "7일 연속"
+    "en": "Seven days of reading",
+    "ko": "이어 읽기 7일"
   },
   "ach_streak_7_d": {
     "en": "Read 7 days in a row.",
@@ -1665,8 +1665,8 @@
     "ko": "낱말 50개를 ‘내 것’까지."
   },
   "ach_alone_1": {
-    "en": "First seal",
-    "ko": "첫 봉인"
+    "en": "First letter sealed",
+    "ko": "첫 편지 봉인"
   },
   "ach_alone_1_d": {
     "en": "Read a whole letter without translation.",
@@ -1681,7 +1681,7 @@
     "ko": "편지 다섯 통을 번역 없이."
   },
   "ach_read_50": {
-    "en": "Half on your own",
+    "en": "Half the letters, on your own",
     "ko": "혼자 읽기 50%"
   },
   "ach_read_50_d": {
@@ -1689,7 +1689,7 @@
     "ko": "낱말 절반을 혼자 읽기."
   },
   "ach_read_90": {
-    "en": "Almost fluent",
+    "en": "Nearly everything, on your own",
     "ko": "혼자 읽기 90%"
   },
   "ach_read_90_d": {
@@ -1729,8 +1729,8 @@
     "ko": "정기 소포 여섯 번."
   },
   "ach_chapter_1": {
-    "en": "A chapter",
-    "ko": "한 장 완주"
+    "en": "A whole chapter",
+    "ko": "한 장을 다 읽기"
   },
   "ach_chapter_1_d": {
     "en": "Finish a whole chapter.",
@@ -2007,5 +2007,405 @@
   "credits_links": {
     "en": "Sources and licences: graviton94.github.io/todayletters\nPrivacy policy: graviton94.github.io/todayletters/privacy",
     "ko": "출처와 라이선스: graviton94.github.io/todayletters\n개인정보처리방침: graviton94.github.io/todayletters/privacy"
+  },
+  "tab_milestones": {
+    "en": "Milestones",
+    "ko": "이정표"
+  },
+  "streak_label": {
+    "en": "Reading on",
+    "ko": "이어 읽기"
+  },
+  "rests_n": {
+    "en": "Rests %1$d",
+    "ko": "쉼표 %1$d"
+  },
+  "tier_letter": {
+    "en": "Letter pieces",
+    "ko": "편지 자료"
+  },
+  "tier_sketch": {
+    "en": "Sketches",
+    "ko": "스케치"
+  },
+  "tier_drawing": {
+    "en": "Drawings · prints",
+    "ko": "소묘 · 판화"
+  },
+  "tier_painting": {
+    "en": "Paintings",
+    "ko": "유화"
+  },
+  "tier_master": {
+    "en": "Masterpieces",
+    "ko": "명작"
+  },
+  "earn_letter": {
+    "en": "A new letter read",
+    "ko": "새 편지 다 읽기"
+  },
+  "earn_practice": {
+    "en": "Practice",
+    "ko": "연습"
+  },
+  "earn_review": {
+    "en": "Words remembered",
+    "ko": "맞힌 낱말"
+  },
+  "earn_shadow": {
+    "en": "Phrases passed in read-along",
+    "ko": "따라 읽기 통과"
+  },
+  "earn_alone": {
+    "en": "Reading on your own",
+    "ko": "혼자 읽기"
+  },
+  "earn_quests": {
+    "en": "Today's three tasks",
+    "ko": "오늘의 할 일 셋"
+  },
+  "earn_recital": {
+    "en": "Sunday reading",
+    "ko": "일요일 낭독회"
+  },
+  "earn_streak": {
+    "en": "A day of reading",
+    "ko": "이어 읽은 날"
+  },
+  "earn_achievement": {
+    "en": "Milestone",
+    "ko": "이정표"
+  },
+  "earn_seal": {
+    "en": "Letter sealed",
+    "ko": "편지 봉인"
+  },
+  "reward_piece": {
+    "en": "Today's piece is on the wall",
+    "ko": "오늘의 자료가 걸렸어요"
+  },
+  "reward_title": {
+    "en": "Well read",
+    "ko": "잘 읽었어요"
+  },
+  "reward_ach": {
+    "en": "Milestone · %1$s",
+    "ko": "이정표 · %1$s"
+  },
+  "reward_total": {
+    "en": "%1$s today",
+    "ko": "오늘 받은 %1$s"
+  },
+  "reward_hang": {
+    "en": "Hang it in the gallery",
+    "ko": "갤러리에 걸기"
+  },
+  "reward_ok": {
+    "en": "Good",
+    "ko": "좋아요"
+  },
+  "expo_line": {
+    "en": "This month's exhibition · %1$s",
+    "ko": "이달의 전시 · %1$s"
+  },
+  "expo_meta": {
+    "en": "%1$d days left · %2$d / %3$d pieces",
+    "ko": "%1$d일 남음 · 전시 자료 %2$d / %3$d"
+  },
+  "expo_days": {
+    "en": "Until the end of the month · %1$d days left",
+    "ko": "이달 말까지 · %1$d일 남음"
+  },
+  "expo_note": {
+    "en": "This month, pieces on this theme turn up twice as often in today's piece. Collect them all and the catalogue cover stays in your gallery.",
+    "ko": "이번 달엔 오늘의 자료에서 이 주제의 작품이 두 배로 잘 나와요. 다 모으면 전시 도록 표지가 갤러리에 남아요."
+  },
+  "expo_pieces": {
+    "en": "Exhibition pieces",
+    "ko": "전시 자료"
+  },
+  "expo_complete": {
+    "en": "Exhibition complete · the catalogue cover is yours",
+    "ko": "전시 완성 · 도록 표지가 갤러리에 남았어요"
+  },
+  "gallery_letter_note": {
+    "en": "A letter's piece goes up when you finish reading that letter.",
+    "ko": "편지를 다 읽으면 그 편지의 자료가 걸려요."
+  },
+  "gallery_draw_note": {
+    "en": "One piece goes up each day you finish your review, and one more when you finish today's three tasks. An empty frame can also be opened with your coins.",
+    "ko": "복습을 마친 날마다 한 점, 오늘의 할 일 셋을 다 하면 한 점 더 걸려요. 빈칸은 화폐로 열 수도 있어요."
+  },
+  "gallery_next": {
+    "en": "Next milestone · %1$d pieces",
+    "ko": "다음 이정표 · 자료 %1$d점"
+  },
+  "gallery_next_gift": {
+    "en": "A painting guaranteed",
+    "ko": "유화 한 점 확정"
+  },
+  "pick_title": {
+    "en": "Open this frame for %1$d %2$s?",
+    "ko": "%1$d %2$s로 이 칸을 열까요?"
+  },
+  "pick_yes": {
+    "en": "Open",
+    "ko": "열기"
+  },
+  "not_now": {
+    "en": "Not now",
+    "ko": "다음에"
+  },
+  "spend_title": {
+    "en": "Spend %1$s",
+    "ko": "%1$s 쓰기"
+  },
+  "spend_rest": {
+    "en": "Rest",
+    "ko": "쉼표"
+  },
+  "spend_rest_d": {
+    "en": "Skip a day and keep your streak · %1$d / %2$d",
+    "ko": "하루 쉬어도 이어 읽기가 끊기지 않아요 · %1$d / %2$d"
+  },
+  "spend_early": {
+    "en": "Open tomorrow's letter",
+    "ko": "내일 편지 미리 열기"
+  },
+  "spend_early_d": {
+    "en": "The next letter arrives today",
+    "ko": "다음 편지가 오늘 도착해요"
+  },
+  "spend_pick": {
+    "en": "Choose a gallery piece",
+    "ko": "갤러리 칸 하나 열기"
+  },
+  "spend_pick_d": {
+    "en": "Tap an empty frame in the gallery",
+    "ko": "갤러리에서 빈칸을 누르세요"
+  },
+  "spend_confirm": {
+    "en": "Use %1$d %2$s?",
+    "ko": "%1$d %2$s를 쓸까요?"
+  },
+  "spend_yes": {
+    "en": "Use",
+    "ko": "쓰기"
+  },
+  "ach_gift": {
+    "en": "A painting goes up with it",
+    "ko": "받으면 유화 한 점이 걸려요"
+  },
+  "ach_words_50": {
+    "en": "50 words you can read alone",
+    "ko": "혼자 읽는 낱말 50개"
+  },
+  "ach_shadow_100": {
+    "en": "100 phrases read aloud",
+    "ko": "따라 읽기 100마디"
+  },
+  "ach_pieces_12": {
+    "en": "12 pieces in the gallery",
+    "ko": "갤러리 자료 12점"
+  },
+  "ach_all_series_2": {
+    "en": "A second series begun",
+    "ko": "두 번째 시리즈 시작"
+  },
+  "ach_all_langs_2": {
+    "en": "Read aloud in two languages",
+    "ko": "두 언어로 따라 읽기"
+  },
+  "ach_all_letters_30": {
+    "en": "30 letters across all series",
+    "ko": "모든 시리즈 합쳐 편지 30통"
+  },
+  "ach_all_streak_30": {
+    "en": "30 days of reading",
+    "ko": "이어 읽기 30일"
+  },
+  "ach_all_streak_100": {
+    "en": "100 days of reading",
+    "ko": "이어 읽기 100일"
+  },
+  "recital_title": {
+    "en": "Sunday reading",
+    "ko": "일요일 낭독회"
+  },
+  "recital_meta": {
+    "en": "This week · %1$d phrases · %2$d:%3$02d",
+    "ko": "이번 주 따라 읽은 %1$d마디 · %2$d분 %3$d초"
+  },
+  "recital_play": {
+    "en": "Hear your week, start to finish",
+    "ko": "이번 주 내 낭독 이어 듣기"
+  },
+  "recital_empty": {
+    "en": "Read along this week and your readings gather here",
+    "ko": "이번 주에 따라 읽으면 여기 모여요"
+  },
+  "recital_compare": {
+    "en": "Against your first week",
+    "ko": "첫 주와 비교"
+  },
+  "score_intonation": {
+    "en": "Intonation",
+    "ko": "억양"
+  },
+  "score_rhythm": {
+    "en": "Rhythm",
+    "ko": "리듬"
+  },
+  "recital_note": {
+    "en": "Averages of every phrase you read along that week.",
+    "ko": "그 주에 따라 읽은 모든 마디의 평균이에요."
+  },
+  "recital_finish": {
+    "en": "Close the reading · %1$s",
+    "ko": "낭독회 마치기 · %1$s"
+  },
+  "recital_done": {
+    "en": "This week's reading is done",
+    "ko": "이번 주 낭독회를 마쳤어요"
+  },
+  "recital_today": {
+    "en": "Today · hear your week",
+    "ko": "오늘 · 이번 주 내 낭독 듣기"
+  },
+  "recital_sunday": {
+    "en": "On Sunday · your week in one reading",
+    "ko": "일요일 · 이번 주 낭독을 한 편으로"
+  },
+  "quests_title": {
+    "en": "Today's three",
+    "ko": "오늘의 할 일"
+  },
+  "quests_bonus": {
+    "en": "All three · one more piece",
+    "ko": "셋 다 하면 자료 한 번 더"
+  },
+  "quest_shadow": {
+    "en": "Pass %1$d phrases in read-along",
+    "ko": "따라 읽기 %1$d마디 통과"
+  },
+  "quest_reread": {
+    "en": "Reread a letter you've finished",
+    "ko": "다 읽은 편지 다시 읽기"
+  },
+  "quest_dictation": {
+    "en": "%1$d dictations right in a row",
+    "ko": "듣고 쓰기 %1$d개 연속 정답"
+  },
+  "quest_review": {
+    "en": "Finish today's review",
+    "ko": "오늘의 복습 끝내기"
+  },
+  "quest_meaning": {
+    "en": "Choose %1$d meanings right",
+    "ko": "뜻 고르기 %1$d개 맞히기"
+  },
+  "today_contents": {
+    "en": "All letters",
+    "ko": "편지 목록"
+  },
+  "lib_stat_streak": {
+    "en": "days reading",
+    "ko": "이어 읽기"
+  },
+  "lib_stat_pieces": {
+    "en": "pieces",
+    "ko": "모은 자료"
+  },
+  "lib_stat_ach": {
+    "en": "milestones",
+    "ko": "전체 이정표"
+  },
+  "lib_overall": {
+    "en": "My record",
+    "ko": "내 기록"
+  },
+  "lib_soon": {
+    "en": "Coming soon",
+    "ko": "곧 도착"
+  },
+  "lib_letters": {
+    "en": "Letters %1$d / %2$d",
+    "ko": "편지 %1$d / %2$d"
+  },
+  "lib_arrived": {
+    "en": "Arrived today",
+    "ko": "오늘 도착"
+  },
+  "lib_due": {
+    "en": "Review %1$d",
+    "ko": "복습 %1$d"
+  },
+  "up_mozart": {
+    "en": "Mozart",
+    "ko": "모차르트"
+  },
+  "up_napoleon": {
+    "en": "Napoleon",
+    "ko": "나폴레옹"
+  },
+  "up_basho": {
+    "en": "Bashō",
+    "ko": "바쇼"
+  },
+  "enter_loading": {
+    "en": "Unfolding the letters…",
+    "ko": "편지 꾸러미를 펴는 중…"
+  },
+  "enter_ready": {
+    "en": "%1$d new letter(s) · %2$d to review",
+    "ko": "새 편지 %1$d통 · 복습 %2$d개"
+  },
+  "enter_go": {
+    "en": "Tap to enter",
+    "ko": "눌러서 들어가기"
+  },
+  "overall_title": {
+    "en": "My record · all",
+    "ko": "내 기록 · 전체"
+  },
+  "overall_streak": {
+    "en": "days reading",
+    "ko": "일째 이어 읽기"
+  },
+  "overall_streak_note": {
+    "en": "Any series keeps it going",
+    "ko": "어느 시리즈든 이어져요"
+  },
+  "overall_gallery": {
+    "en": "My gallery",
+    "ko": "내 갤러리"
+  },
+  "overall_all": {
+    "en": "All",
+    "ko": "전체"
+  },
+  "overall_gallery_empty": {
+    "en": "Finish a letter and its piece hangs here.",
+    "ko": "편지를 다 읽으면 그 자료가 여기 걸려요."
+  },
+  "overall_milestones": {
+    "en": "All-series milestones",
+    "ko": "전체 이정표"
+  },
+  "seal_line": {
+    "en": "Read without translation · %1$s",
+    "ko": "번역 없이 읽음 · %1$s"
+  },
+  "seal_words": {
+    "en": "Words from this letter",
+    "ko": "이 편지에서 익힌 낱말"
+  },
+  "credits_sound_h": {
+    "en": "Sound",
+    "ko": "소리"
+  },
+  "credits_sound": {
+    "en": "Page-turn sound: “10 Book Page Flips” by StarNinjas, OpenGameArt.org, CC0 (public domain dedication).",
+    "ko": "책장 넘기는 소리: StarNinjas 「10 Book Page Flips」, OpenGameArt.org, CC0 (퍼블릭 도메인 기증)."
   }
 }

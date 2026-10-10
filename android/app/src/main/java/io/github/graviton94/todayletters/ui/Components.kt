@@ -192,13 +192,16 @@ fun Primary(text: String, modifier: Modifier = Modifier, enabled: Boolean = true
     ) { Text(text, style = Type.body.ui().copy(fontSize = if (small) 15.sp else 17.sp), color = if (enabled) p.onFill else p.hideInk) }
 }
 
+/** 둘째 행동: 상자 없는 밑줄 글자 (채운 단추는 한 화면에 [Primary] 하나). */
 @Composable
 fun Secondary(text: String, modifier: Modifier = Modifier, small: Boolean = false, onClick: () -> Unit) {
     val p = Ink.palette
     Box(
-        modifier.fillMaxWidth().heightIn(min = if (small) Tokens.Size.buttonSm else Tokens.Size.button).pressable(onClick = onClick).border(Tokens.Stroke.hair, p.ink),
+        modifier.fillMaxWidth().heightIn(min = if (small) Tokens.Size.buttonSm else Tokens.Size.button).pressable(onClick = onClick),
         contentAlignment = Alignment.Center,
-    ) { Text(text, style = Type.body.ui().copy(fontSize = if (small) 15.sp else 17.sp), color = p.ink) }
+    ) {
+        Text(text, style = Type.body.ui().copy(fontSize = if (small) 15.sp else 16.sp, textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.ink)
+    }
 }
 
 /** 선택지 줄 (테마 · 언어 · 하루 편지 수 …). */

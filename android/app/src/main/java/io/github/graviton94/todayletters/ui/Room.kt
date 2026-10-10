@@ -81,7 +81,6 @@ fun Room(s: AppState, r: Route.Letter) {
     var writing by remember(letter.id) { mutableStateOf(false) }
     var words by remember { mutableStateOf(false) }
     var wordFocus by remember { mutableStateOf<Int?>(null) }
-    var mapOpen by remember { mutableStateOf(false) }
     var playing by remember(letter.id) { mutableStateOf<Int?>(null) }
     var all by remember { mutableStateOf<Job?>(null) }
     val list = rememberLazyListState()
@@ -171,7 +170,7 @@ fun Room(s: AppState, r: Route.Letter) {
             item {
                 Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                     Box(Modifier.weight(1f)) { Hair() }
-                    Postmark(letter.place, dayOf(letter.date), letter.date.take(4))
+                    Text(dateLine(letter.date, letter.place).uppercase(), style = Type.capsSm, color = p.giltText)
                     Box(Modifier.weight(1f)) { Hair() }
                 }
             }
@@ -191,7 +190,7 @@ fun Room(s: AppState, r: Route.Letter) {
                 }
             } }
             letter.moments.filter { it.after < 0 }.forEachIndexed { k, mo ->
-                item(key = "${letter.id}:pre:$k") { MomentCard(s, work, mo, onMap = { mapOpen = true }, onPhoto = { s.go(Route.Artwork(id, r.letter, r)) }) }
+                item(key = "${letter.id}:pre:$k") { MomentCard(s, work, mo, onMap = { }, onPhoto = { s.go(Route.Artwork(id, r.letter, r)) }) }
             }
             itemsIndexed(letter.messages.take(arrived), key = { i, _ -> "${letter.id}:$i" }) { i, m ->
                 val sentMarks = wordMarks(m.text[view.learn], letter.words.map { it.text[view.learn] })
@@ -224,7 +223,7 @@ fun Room(s: AppState, r: Route.Letter) {
                 // 메신저 같은 순간: 이 문장 다음의 위치 공유 · 사진 공유 (문장이 다 써진 뒤에)
                 if (i < written) letter.moments.filter { it.after == i }.forEach { mo ->
                     Box(Modifier.padding(top = Tokens.Space.s4)) {
-                        MomentCard(s, work, mo, onMap = { mapOpen = true }, onPhoto = {
+                        MomentCard(s, work, mo, onMap = { }, onPhoto = {
                             s.go(Route.Artwork(id, r.letter, r))
                         })
                     }
@@ -284,7 +283,7 @@ fun Room(s: AppState, r: Route.Letter) {
                 }
                 progress.done -> {
                     if (letter.words.isNotEmpty()) Secondary(stringResource(R.string.room_words, letter.words.size)) { words = true }
-                    Primary(stringResource(R.string.done_home)) { stopAll(); s.go(r.from) }
+                    Primary(stringResource(R.string.done_home)) { stopAll(); s.go(r.from ?: Route.Inbox) }
                 }
                 else -> {
                     if (letter.words.isNotEmpty()) Secondary(stringResource(R.string.room_words, letter.words.size)) { words = true }
@@ -304,7 +303,6 @@ fun Room(s: AppState, r: Route.Letter) {
     }
     if (words) WordSheet(s, r, onClose = { words = false })
     wordFocus?.let { k -> WordCard(s, r, k, onClose = { wordFocus = null }) }
-    if (mapOpen) MapSheet(s, work, onClose = { mapOpen = false })
     // 다 읽은 편지의 낱말은 낱말 카드함으로 (내일부터 복습)
     LaunchedEffect(finished) { if (finished) s.collectWords(id, chapter, letter) }
 }

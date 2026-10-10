@@ -48,13 +48,17 @@ class CoreTest {
     @Test fun backFollowsTheTreeEvenFromADeepLink() {
         val letter = Route.Letter("vincent", 2, 13)
         assertEquals(
-            listOf(Route.Inbox, Route.Library, Route.Series("vincent"), Route.Chapter("vincent", 2), letter),
+            listOf(Route.Library, Route.Inbox, Route.Series("vincent"), Route.Chapter("vincent", 2), letter),
             Nav.trail(letter),
         )
         val shortcut = letter.copy(from = Route.Inbox)
-        assertEquals(listOf(Route.Inbox, shortcut), Nav.trail(shortcut))
+        assertEquals(listOf(Route.Library, Route.Inbox, shortcut), Nav.trail(shortcut))
         assertEquals(letter, Nav.up(Route.Play(letter, ReplyMode.CONSTELLATION)))
-        assertNull(Nav.up(Route.Inbox))
+        assertNull(Nav.up(Route.Library))
+        assertEquals(Route.Library, Nav.up(Route.Enter("vincent")))
+        assertEquals(listOf(Route.Library, Route.Gallery, Route.Exhibition), Nav.trail(Route.Exhibition))
+        assertFalse(Nav.inSeries(Route.Overall))
+        assertTrue(Nav.inSeries(Route.Milestones))
     }
 
     @Test fun settingsAreReachedFromTheRightPlaces() {
@@ -66,11 +70,8 @@ class CoreTest {
     }
 
     @Test fun launchOrder() {
-        assertEquals(listOf(Stage.OPENING, Stage.ONBOARDING, Stage.MAIN), Launch.plan(firstRun = true, firstOfDay = true, deepLink = false))
-        assertEquals(listOf(Stage.OPENING, Stage.TODAY, Stage.MAIN), Launch.plan(firstRun = false, firstOfDay = true, deepLink = false))
-        assertEquals(listOf(Stage.OPENING, Stage.MAIN), Launch.plan(firstRun = false, firstOfDay = false, deepLink = false))
-        assertEquals(listOf(Stage.MAIN), Launch.plan(firstRun = false, firstOfDay = true, deepLink = true))
-        assertEquals(listOf(Stage.ONBOARDING, Stage.MAIN), Launch.plan(firstRun = true, firstOfDay = true, deepLink = true))
+        assertEquals(listOf(Stage.ONBOARDING, Stage.MAIN), Launch.plan(firstRun = true))
+        assertEquals(listOf(Stage.MAIN), Launch.plan(firstRun = false))
     }
 
     @Test fun koreanBreaksOnlyBetweenWords() {
@@ -219,14 +220,44 @@ class CoreTest {
         assertEquals(13, w.balance)
         assertEquals(null, Rewards.spend(w, 50))
         assertEquals(3, Rewards.spend(w, 10)!!.balance)
-        assertTrue(Parcel.canSend(Wallet(balance = 60), 50, lastMonth = 10, thisMonth = 11))
-        assertFalse(Parcel.canSend(Wallet(balance = 60), 50, lastMonth = 11, thisMonth = 11))
     }
 
     @Test fun achievementsUnlock() {
         val s = Stats(lettersDone = 5, bestStreak = 7, wordsKnown = 30, readAlone = 52, lettersSealed = 1)
-        val ids = Achievements.newly(s, setOf("alone_1")).map { it.id }
-        assertEquals(listOf("read_25", "read_50"), ids)
+        val ids = Achievements.newly(Achievements.series, s, setOf("vincent:alone_1"), "vincent").map { it.id }
+        assertEquals(listOf("streak_7", "read_50"), ids)
+        val all = Achievements.newly(Achievements.overall, Stats(seriesStarted = 2, langsSpoken = 1), emptySet()).map { it.id }
+        assertEquals(listOf("all_series_2"), all)
+        assertEquals("all_series_2", Achievements.key(Achievements.overall.first(), "vincent"))
+    }
+
+    @Test fun streakRests() {
+        assertEquals(4 to 1, Streak.afterWithRest(lastDay = 10, count = 3, today = 12, rests = 1))
+        assertEquals(1 to 0, Streak.afterWithRest(lastDay = 10, count = 3, today = 12, rests = 0))
+        assertEquals(1 to 0, Streak.afterWithRest(lastDay = 10, count = 3, today = 14, rests = 2))
+        assertEquals(3, Streak.shown(lastDay = 10, count = 3, today = 12, rests = 1))
+        assertEquals(0, Streak.shown(lastDay = 10, count = 3, today = 12, rests = 0))
+    }
+
+    @Test fun galleryDraws() {
+        fun p(id: String, t: Tier, th: Set<String> = emptySet()) = Piece(id, "", Tri(mapOf(Lang.EN to id)), "", "", t, th)
+        val pool = listOf(p("l", Tier.LETTER), p("s1", Tier.SKETCH), p("s2", Tier.SKETCH), p("d", Tier.DRAWING, setOf("people")), p("m", Tier.MASTER))
+        repeat(50) { seed -> assertTrue(Draws.pick(pool, emptySet(), seed.toLong())!!.id != "l") }
+        assertEquals("m", Draws.pick(pool, setOf("s1"), 3, minTier = Tier.MASTER)!!.id)
+        assertEquals(null, Draws.pick(pool, setOf("s1", "s2", "d", "m"), 1))
+        assertEquals(Draws.pick(pool, emptySet(), 42), Draws.pick(pool, emptySet(), 42))
+        val e = Exhibition("x", Tri(mapOf(Lang.EN to "x")), "people")
+        assertEquals(listOf("d"), Draws.exhibitionPieces(pool, e).map { it.id })
+        assertEquals(e, Draws.exhibition(listOf(e), 9))
+    }
+
+    @Test fun questsAndRecital() {
+        val q = Quests.today(20000)
+        assertEquals(3, q.size); assertEquals(3, q.toSet().size)
+        assertEquals(q, Quests.today(20000))
+        assertEquals(6, Recital.weekday(3))      // 1970-01-04 은 일요일
+        assertTrue(Recital.isSunday(3))
+        assertEquals(-3, Recital.weekStart(3))   // 그 주 월요일 1969-12-29
     }
 
     /** 가짜 목소리: 시간에 따른 음높이 [pitch] 와 크기 [amp] 로 배음 셋을 합친 소리. */

@@ -126,6 +126,16 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
                     }
                 }
             } } }
+            // 갤러리 소장품 (오늘의 자료로 걸리는 작품)
+            s.works.forEach { w -> w.kit.collection.forEach { pc ->
+                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text("${pc.title[ui]} · ${pc.date}", style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+                    Text(pc.collection, style = Type.small.ui(), color = p.inkSoft)
+                }
+            } }
+
+            Caps(stringResource(R.string.credits_sound_h), p.giltText)
+            Text(stringResource(R.string.credits_sound), style = Type.small.ui(), color = p.ink)
 
             Caps(stringResource(R.string.credits_portraits_h), p.giltText)
             Text(stringResource(R.string.credits_portraits), style = Type.small.ui(), color = p.ink)

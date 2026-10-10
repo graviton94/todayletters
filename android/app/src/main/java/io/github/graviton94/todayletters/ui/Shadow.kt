@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
@@ -104,7 +105,7 @@ fun ShadowScreen(s: AppState, r: Route.Shadow) {
             Triple(P.score(rt, mt), P.semitones(P.trim(rt).f0), P.semitones(P.trim(mt).f0))
         }
         scoring = false
-        result?.first?.let { if (it.passed) s.markPassed(id, chapter, letter.id, mi, cj) }
+        result?.first?.let { s.recordScore(it); if (it.passed) s.markPassed(id, chapter, letter.id, mi, cj) }
     }
 
     fun original() {
@@ -271,16 +272,16 @@ private fun RoundButton(label: String, diameter: androidx.compose.ui.unit.Dp, fi
 }
 
 /**
- * 완독 봉인 (모든 시리즈 공통): 혼자 다 읽고 다 따라 읽은 편지. 원문 첫 문장 위에 밀랍 봉인,
- * 내 낭독 듣기, 그 편지에서 모은 물건 · 장소, 다음 편지, 목소리 엽서로 보내기.
+ * 완독 봉인 (모든 시리즈 공통): 혼자 다 읽고 다 따라 읽은 편지. 그 편지의 자료가 크게 (자료가 나오는 세 순간 가운데 하나),
+ * 날짜 줄, 내 낭독 듣기, 이 편지에서 익힌 낱말, 내 낭독 보내기.
  */
 @Composable
 fun SealScreen(s: AppState, r: Route.Seal) {
-    val gold = Color(0xFFD2A955); val text = Color(0xFFEADFC8); val soft = Color(0xFFA8977C)
     val ctx = LocalContext.current
     val (chapter, letter) = s.letterOf(r.room)
     val id = r.room.series
     val work = s.work(id)
+    val t = darkTone(work)
     val view = s.room(id)
     val letters = work.chapters.flatMap { it.letters }
     val idx = letters.indexOf(letter) + 1
@@ -290,49 +291,36 @@ fun SealScreen(s: AppState, r: Route.Seal) {
     LaunchedEffect(letter.id) { s.sealSeen(id, chapter, letter) }
     DisposableEffect(Unit) { onDispose { s.recorder.stopPlaying() } }
 
-    Column(Modifier.fillMaxSize().background(Color(0xFF120D09)).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s5),
-        horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
-        Text(stringResource(R.string.seal_caps, roman(idx)).uppercase(), style = Type.caps, color = gold, modifier = Modifier.padding(top = Tokens.Space.s5))
-        Text(stringResource(R.string.seal_title), style = Type.heading.ui(), color = text, textAlign = TextAlign.Center)
-        Box(Modifier.widthIn(max = 360.dp).fillMaxWidth().padding(bottom = 18.dp)) {
-            Slip(seed = 41, tilt = -1.2f, modifier = Modifier.fillMaxWidth()) {
-                Column(Modifier.padding(Tokens.Space.s5), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    Text(dateLine(letter.date, letter.place).uppercase(), style = Type.caps.copy(fontSize = 10.sp), color = Color(0xFF8F6A27))
-                    Text(letter.messages.first().text[view.learn], style = Type.target.of(view.learn), color = Ink.palette.slipInk)
-                    Text(stringResource(R.string.seal_stats, letter.words.size, chunks), style = Type.small.ui(), color = Ink.palette.slipSoft)
-                }
-            }
-            // 밀랍 봉인: 편지 번호
-            Box(
-                Modifier.align(Alignment.BottomEnd).padding(end = 4.dp).size(76.dp).graphicsLayer { rotationZ = -8f }
-                    .background(androidx.compose.ui.graphics.Brush.radialGradient(listOf(Color(0xFFC4563A), Color(0xFF7E2018))), CircleShape),
-                contentAlignment = Alignment.Center,
-            ) { Text(roman(idx), style = Type.title.copy(fontFamily = Faces.display, fontWeight = FontWeight.SemiBold), color = Color(0xFFF4EBD5)) }
+    Column(Modifier.fillMaxSize().background(t.paper).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s5),
+        horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+        Text(stringResource(R.string.seal_caps, roman(idx)).uppercase(), style = Type.caps, color = t.accent, modifier = Modifier.padding(top = Tokens.Space.s4))
+        Text(stringResource(R.string.seal_title), style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
+        Text(dateLine(letter.date, letter.place), style = Type.small.ui(), color = t.soft)
+        letter.plate?.let { pl -> AssetImage("plates/${pl.image}", Modifier.padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s2).fillMaxWidth().height(220.dp), sample = 2) }
+        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+            Box(Modifier.weight(1f).height(1.dp).background(t.ink.copy(alpha = 0.14f)))
+            Text(stringResource(R.string.seal_line, java.time.LocalDate.now().let { "${it.year}. ${it.monthValue}. ${it.dayOfMonth}" }), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = t.soft)
+            Box(Modifier.weight(1f).height(1.dp).background(t.ink.copy(alpha = 0.14f)))
         }
         // 내 낭독
         if (reading != null) Row(
-            Modifier.widthIn(max = 360.dp).fillMaxWidth().border(1.dp, gold).pressable {
+            Modifier.fillMaxWidth().pressable {
                 if (playing) { s.recorder.stopPlaying(); playing = false } else { playing = true; s.recorder.play(reading) { playing = false } }
-            }.padding(Tokens.Space.s3),
+            }.padding(vertical = Tokens.Space.s2),
             verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
-            Box(Modifier.size(44.dp).background(gold, CircleShape), contentAlignment = Alignment.Center) {
-                Canvas(Modifier.size(16.dp)) {
-                    if (playing) drawRect(Color(0xFF17110C))
-                    else drawPath(androidx.compose.ui.graphics.Path().apply { moveTo(size.width * 0.2f, 0f); lineTo(size.width, size.height / 2); lineTo(size.width * 0.2f, size.height); close() }, Color(0xFF17110C))
-                }
+            Box(Modifier.size(46.dp).border(1.5.dp, t.ink, CircleShape), contentAlignment = Alignment.Center) {
+                Text(if (playing) "■" else "▶", style = Type.body, color = t.ink)
             }
             Column(Modifier.weight(1f)) {
-                Text(stringResource(R.string.seal_mine, roman(idx)), style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = text)
-                Text(stringResource(R.string.seal_mine_d, chunks), style = Type.small.ui(), color = soft)
+                Text(stringResource(R.string.seal_mine, roman(idx)), style = Type.body.ui(), color = t.ink)
+                Text(stringResource(R.string.seal_mine_d, chunks), style = Type.small.ui(), color = t.soft)
             }
         }
-        // 이 편지에서 모은 물건 · 장소
-        val items = letter.words.filter { it.icon.isNotEmpty() }
-        val places = letter.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Location>()
-        if (items.isNotEmpty() || places.isNotEmpty()) Row(Modifier.widthIn(max = 360.dp).fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            items.take(2).forEach { w -> Chip("${w.icon} ${firstSense(w.text[view.read])} (${w.text[view.learn]})", Modifier.weight(1f)) }
-            places.take(1).forEach { pl -> Chip("📍 ${pl.title[uiLang()]}", Modifier.weight(1f)) }
+        // 이 편지에서 익힌 낱말
+        if (letter.words.isNotEmpty()) Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Text(stringResource(R.string.seal_words), style = Type.small.ui(), color = t.soft)
+            Text(letter.words.joinToString(" · ") { it.text[view.learn] }, style = Type.body.of(view.learn), color = t.ink)
         }
         Box(Modifier.height(Tokens.Space.s3))
         val upcoming = letters.getOrNull(idx)
@@ -340,12 +328,12 @@ fun SealScreen(s: AppState, r: Route.Seal) {
             val d = s.daysUntil(id, u.id)
             Text(
                 when { d <= 0 -> stringResource(R.string.next_arrived); d == 1 -> stringResource(R.string.letter_eta); else -> stringResource(R.string.next_in, d) } + " · " + stringResource(R.string.next_title),
-                style = Type.small.ui(), color = soft,
+                style = Type.small.ui(), color = t.soft,
             )
         }
-        Column(Modifier.widthIn(max = 360.dp).fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            if (reading != null) Primary(stringResource(R.string.seal_send)) {
-                val share = stringResource0(ctx, R.string.seal_share_text, letter.messages.first().text[view.learn].replace("⁠", ""), work.fullName)
+        Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            if (reading != null) Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).background(t.ink).pressable {
+                val share = stringResource0(ctx, R.string.seal_share_text, letter.messages.first().text[view.learn].replace("\u2060", ""), work.fullName)
                 runCatching {
                     val uri = FileProvider.getUriForFile(ctx, ctx.packageName + ".files", reading)
                     val send = Intent(Intent.ACTION_SEND).apply {
@@ -356,17 +344,13 @@ fun SealScreen(s: AppState, r: Route.Seal) {
                     }
                     ctx.startActivity(Intent.createChooser(send, ctx.getString(R.string.seal_send)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
                 }
+            }, contentAlignment = Alignment.Center) { Text(stringResource(R.string.seal_send), style = Type.body.ui(), color = t.paper) }
+            Box(Modifier.fillMaxWidth().heightIn(min = 46.dp).pressable { s.back() }, contentAlignment = Alignment.Center) {
+                Text(stringResource(R.string.close), style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = t.ink)
             }
-            Secondary(stringResource(R.string.close)) { s.back() }
         }
     }
 }
 
 private fun stringResource0(ctx: android.content.Context, id: Int, vararg args: Any) = ctx.getString(id, *args)
 
-@Composable
-private fun Chip(label: String, modifier: Modifier) {
-    Box(modifier.border(1.dp, Color(0xFF33281D)).padding(horizontal = 10.dp, vertical = 9.dp)) {
-        Text(label, style = Type.small.ui(), color = Color(0xFFC9BBA0), maxLines = 2)
-    }
-}

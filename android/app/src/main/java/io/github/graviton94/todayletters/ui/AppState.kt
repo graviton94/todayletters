@@ -11,13 +11,19 @@ import io.github.graviton94.todayletters.core.Arrivals
 import io.github.graviton94.todayletters.core.Coach
 import io.github.graviton94.todayletters.core.Langs
 import io.github.graviton94.todayletters.core.Launch
-import io.github.graviton94.todayletters.core.Word
-import io.github.graviton94.todayletters.core.Visitor
-import io.github.graviton94.todayletters.core.StampArt
-import io.github.graviton94.todayletters.core.ParcelReturn
-import io.github.graviton94.todayletters.core.Parcel
 import io.github.graviton94.todayletters.core.Memory
 import io.github.graviton94.todayletters.core.Achievements
+import io.github.graviton94.todayletters.core.Achievement
+import io.github.graviton94.todayletters.core.Draws
+import io.github.graviton94.todayletters.core.Piece
+import io.github.graviton94.todayletters.core.Tier
+import io.github.graviton94.todayletters.core.Quest
+import io.github.graviton94.todayletters.core.Quests
+import io.github.graviton94.todayletters.core.Spend
+import io.github.graviton94.todayletters.core.Streak
+import io.github.graviton94.todayletters.core.Wallet
+import io.github.graviton94.todayletters.core.ReviewKind
+import io.github.graviton94.todayletters.core.Exhibition
 import io.github.graviton94.todayletters.core.Stats
 import io.github.graviton94.todayletters.core.Growth
 import io.github.graviton94.todayletters.core.Rewards
@@ -53,37 +59,39 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     var app by mutableStateOf(if (store.hasApp()) store.app() else Langs.firstRun(ctx.resources.configuration.locales[0].language))
         private set
 
-    /** 앱을 켰을 때 남은 단계 (오프닝 → 처음 소개 또는 오늘의 봉투 → 메인). */
-    var stages by mutableStateOf(
-        Launch.plan(
-            firstRun = !store.onboarded,
-            firstOfDay = store.openedDay != LocalDate.now().toEpochDay(),
-            deepLink = deepLink,
-        )
-    )
+    /** 앱을 켰을 때 남은 단계 (처음 소개 → 메인). */
+    var stages by mutableStateOf(Launch.plan(firstRun = !store.onboarded))
         private set
 
     val stage get() = stages.first()
 
     private var seenDay = LocalDate.now().toEpochDay()
-    /** 앱으로 돌아올 때: 날짜가 바뀌었으면 화면을 오늘 기준으로 새로 그리고, 오늘의 봉투부터. */
+    /** 앱으로 돌아올 때: 날짜가 바뀌었으면 화면을 오늘 기준으로 새로 그린다. */
     fun resumed() {
         val today = LocalDate.now().toEpochDay()
         if (today == seenDay) return
         seenDay = today
         version++
-        if (stage == Stage.MAIN && store.onboarded && store.openedDay != today) {
-            stages = listOf(Stage.TODAY, Stage.MAIN)
-            stack.clear(); stack.add(Route.Inbox)
-        }
     }
     fun nextStage() {
         if (stages.size > 1) stages = stages.drop(1)
         if (stage == Stage.MAIN) store.openedDay = LocalDate.now().toEpochDay()
     }
 
-    /** 화면 스택. 맨 끝이 지금 화면. */
-    val stack = mutableStateListOf<Route>(Route.Inbox)
+    /** 지금 들어가 있는 시리즈 (시리즈 안 화면은 이 시리즈를 본다). */
+    var current by mutableStateOf(store.lastSeries.takeIf { id -> works.any { it.series.id == id } } ?: works.firstOrNull()?.series?.id.orEmpty())
+        private set
+    val currentWork: Work get() = work(current)
+
+    /** 서재에서 고른 시리즈로 들어간다 (전환 화면의 ‘눌러서 들어가기’). */
+    fun enter(id: String) {
+        current = id; store.lastSeries = id
+        forward = true
+        stack.clear(); stack.addAll(Nav.trail(Route.Inbox))
+    }
+
+    /** 화면 스택. 맨 끝이 지금 화면. 알림으로 들어오면 그 시리즈의 오늘부터. */
+    val stack = mutableStateListOf<Route>().apply { addAll(if (deepLink && store.onboarded) Nav.trail(Route.Inbox) else listOf(Route.Library)) }
     val route get() = stack.last()
 
     /** 마지막 이동이 앞으로였나 (화면 전환 방향). */
@@ -91,16 +99,20 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
         private set
 
     fun go(r: Route) {
-        forward = r !is Route.Tab || stack.size > 1 || (stack.lastOrNull() as? Route.Tab)?.let { tabIndex(it) < tabIndex(r) } ?: true
-        if (r is Route.Tab) { stack.clear(); stack.addAll(Nav.trail(r)) } else stack.add(r)
+        forward = r != Route.Library && (r !is Route.Tab || stack.size > 2 || (stack.lastOrNull() as? Route.Tab)?.let { tabIndex(it) < tabIndex(r) } ?: true)
+        when {
+            r == Route.Library -> { narrator.stop(); stack.clear(); stack.add(r) }
+            r is Route.Tab -> { stack.clear(); stack.addAll(Nav.trail(r)) }
+            else -> stack.add(r)
+        }
     }
 
-    private fun tabIndex(r: Route) = listOf(Route.Inbox, Route.Library, Route.Words, Route.Gallery).indexOf(r)
+    private fun tabIndex(r: Route) = listOf(Route.Inbox, Route.Words, Route.Gallery, Route.Milestones).indexOf(r)
 
     /** 앱을 닫을지 묻는 중. */
     var askingExit by mutableStateOf(false)
 
-    /** 뒤로: 스택을 하나 내리고, 비면 계층의 부모로. 맨 위(편지함)면 false (앱을 나감). */
+    /** 뒤로: 스택을 하나 내리고, 비면 계층의 부모로. 맨 위(서재)면 false (앱을 나감). */
     fun back(): Boolean {
         narrator.stop()
         forward = false
@@ -149,8 +161,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
 
     fun openable(id: String): List<Pair<String, Letter>> {
         val all = all(id)
-        val n = Arrivals.openable(all.size, startedCount(id), store.openedToday(id), seriesSettings(id).lettersPerDay)
-        return all.take(n)
+        val n = Arrivals.openable(all.size, startedCount(id), store.openedToday(id), seriesSettings(id).lettersPerDay) +
+            (if (store.earlyDay(id) == today) 1 else 0)
+        return all.take(n.coerceAtMost(all.size))
     }
 
     /** 도착했지만 한 번도 열지 않은 편지 수 (서재의 붉은 숫자). */
@@ -197,9 +210,21 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     fun dueCards() = io.github.graviton94.todayletters.core.Memory.dueToday(cards(), today)
     fun answer(c: io.github.graviton94.todayletters.core.Card, correct: Boolean) {
         store.save(io.github.graviton94.todayletters.core.Memory.after(c, correct, today))
+        if (correct) earn(Earn.REVIEW_RIGHT)
         version++
     }
-    fun reviewDone() { store.reviewedDay = today; version++; settle() }
+    /** 복습 문제 하나의 결과 (오늘의 할 일: 듣고 쓰기 연속 · 뜻 고르기). */
+    private var answerRun = ReviewKind.MEANING to 0
+    fun judged(kind: ReviewKind, ok: Boolean) {
+        answerRun = if (ok) kind to (if (answerRun.first == kind) answerRun.second + 1 else 1) else kind to 0
+        if (ok && kind == ReviewKind.DICTATION) questAtLeast(Quest.DICTATION_RUN, answerRun.second)
+        if (ok && kind == ReviewKind.MEANING) questAdd(Quest.MEANING_RUN)
+    }
+    fun reviewDone() {
+        store.reviewedDay = today; questAdd(Quest.REVIEW_DONE); finished()
+        draw(current, "review")
+        version++; settle()
+    }
     val reviewedToday: Boolean get() = run { @Suppress("UNUSED_EXPRESSION") version; store.reviewedDay == today }
 
     // ── 내 구절 ──────────────────────────────────────────────
@@ -207,27 +232,32 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     fun isSaved(k: String) = run { @Suppress("UNUSED_EXPRESSION") version; k in store.quotes }
     fun toggleQuote(k: String) { store.quotes = if (k in store.quotes) store.quotes - k else listOf(k) + store.quotes; version++ }
 
-    /** 이번 주(월~일) 중 편지를 끝낸 요일 (0=월). */
+    /** 이번 주(월~일) 중 배운 날 (편지 · 복습 · 따라 읽기, 0=월). */
     fun weekDone(): Set<Int> {
-        val now = LocalDate.now(); val monday = now.minusDays((now.dayOfWeek.value - 1).toLong()).toEpochDay()
+        val monday = io.github.graviton94.todayletters.core.Recital.weekStart(today)
         return store.doneDays().filter { it in monday..(monday + 6) }.map { (it - monday).toInt() }.toSet()
     }
 
-    /** 편지를 끝냈을 때: 이어 읽은 날을 센다. */
+    /** 오늘 배웠다 (편지를 끝냈거나 복습 · 따라 읽기를 했다): 이어 읽은 날을 센다. 빈 날은 쉼표로 메운다. */
     fun finished(): Int {
-        val today = LocalDate.now().toEpochDay()
+        val first = today !in store.doneDays()
         store.markDoneDay(today)
-        val n = io.github.graviton94.todayletters.core.Streak.after(store.streakDay, store.streakCount, today)
+        val (n, used) = Streak.afterWithRest(store.streakDay, store.streakCount, today, store.rests)
+        if (used > 0) store.rests = (store.rests - used).coerceAtLeast(0)
         store.saveStreak(today, n)
         if (n > store.bestStreak) store.bestStreak = n
+        if (first) earn(Earn.STREAK)
         runCatching { io.github.graviton94.todayletters.data.TodayWidget.refresh(ctx) }
         return n
     }
-    val streak: Int get() = if (LocalDate.now().toEpochDay() - store.streakDay <= 1) store.streakCount else 0
+    val streak: Int get() = run { @Suppress("UNUSED_EXPRESSION") version; Streak.shown(store.streakDay, store.streakCount, today, store.rests) }
+    val rests: Int get() = run { @Suppress("UNUSED_EXPRESSION") version; store.rests }
 
     /** 새 편지를 처음 열 때 한 번 센다 (하루 편지 수). */
-    fun open(id: String, chapter: String, letter: Letter, from: Route.Tab) {
+    fun open(id: String, chapter: String, letter: Letter, from: Route.Tab?) {
         val p = progress(id, chapter, letter.id)
+        if (p.done) questAdd(Quest.REREAD)
+        current = id
         if (!store.started(key(id, chapter, letter.id)) && p.shown == 0 && !p.done) store.markOpened(id)
         store.markStarted(key(id, chapter, letter.id))
         val idx = work(id).chapters.indexOfFirst { it.id == chapter } + 1
@@ -254,28 +284,122 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
         settle()
     }
 
-    // ── 보상 엔진 (모든 시리즈 공통: 우표 · 혼자 읽기 · 업적 · 기념 우표 · 물건) ───────────
-    /** 한 번에 보여 줄 보상 순간. */
+    // ── 보상 엔진 (모든 시리즈 공통: 시리즈 화폐 · 오늘의 자료 · 이정표) ───────────
+    /** 한 번에 보여 줄 보상 순간: 받은 화폐 · 걸린 자료 · 새 이정표 · 혼자 읽기 이정표. */
     data class RewardMoment(
-        val stamps: Int,
-        val items: List<Word>,
+        val series: String,
+        val gain: Int,
+        val piece: Piece?,
         val achievements: List<String>,
-        val gifts: List<StampArt>,
         val milestone: Int?,
+        val lines: List<Pair<Earn, Int>> = emptyList(),
     )
     var reward by mutableStateOf<RewardMoment?>(null)
-    private var pendingStamps = 0
-    var wallet by mutableStateOf(store.wallet)
-        private set
+    private var pending = mutableMapOf<Earn, Int>()
+    private var pendingPiece: Piece? = null
 
-    fun earn(e: Earn, times: Int = 1): Int {
-        val (w, g) = Rewards.earn(store.wallet, e, today, times)
-        store.wallet = w; wallet = w; pendingStamps += g
+    /** 시리즈 지갑. */
+    fun wallet(id: String = current): Wallet = run { @Suppress("UNUSED_EXPRESSION") version; store.wallet(id) }
+    val wallet: Wallet get() = wallet(current)
+
+    fun earn(e: Earn, times: Int = 1, id: String = current): Int {
+        val (w, g) = Rewards.earn(store.wallet(id), e, today, times)
+        store.saveWallet(id, w); if (g > 0) pending[e] = (pending[e] ?: 0) + g
         return g
     }
-    fun spend(cost: Int): Boolean {
-        val w = Rewards.spend(store.wallet, cost) ?: return false
-        store.wallet = w; wallet = w; version++; return true
+    fun spend(cost: Int, id: String = current): Boolean {
+        val w = Rewards.spend(store.wallet(id), cost) ?: return false
+        store.saveWallet(id, w); version++; return true
+    }
+
+    /** 화폐로 사기. 쉼표는 [Streak.MAX_RESTS] 개까지. */
+    fun buy(what: Spend, id: String = current, piece: Piece? = null): Boolean {
+        when (what) {
+            Spend.REST -> if (store.rests >= Streak.MAX_RESTS) return false
+            Spend.EARLY_LETTER -> if (store.earlyDay(id) == today || all(id).size <= openable(id).size) return false
+            Spend.PICK_PIECE -> if (piece == null || owns(id, piece)) return false
+        }
+        if (!spend(what.cost, id)) return false
+        when (what) {
+            Spend.REST -> store.rests = store.rests + 1
+            Spend.EARLY_LETTER -> store.setEarlyDay(id, today)
+            Spend.PICK_PIECE -> store.addPiece(id, piece!!.id)
+        }
+        version++; return true
+    }
+
+    // ── 갤러리 ───────────────────────────────────────────────
+    /** 편지 자료: 다 읽은 편지의 그림 (편지 순서대로). */
+    fun letterPieces(id: String): List<Piece> = work(id).chapters.flatMap { c -> c.letters.mapNotNull { l ->
+        l.plate?.let { pl -> Piece("letter:${l.id}", "plates/${pl.image}", pl.title, pl.date, pl.collection, Tier.LETTER) }
+    } }
+    fun ownedLetterPieces(id: String) = work(id).chapters.flatMap { c -> c.letters.filter { progress(id, c.id, it.id).done && it.plate != null }.map { "letter:${it.id}" } }.toSet()
+    fun owns(id: String, p: Piece) = run { @Suppress("UNUSED_EXPRESSION") version; p.id in store.pieces(id) || p.id in ownedLetterPieces(id) }
+    /** 이 시리즈 갤러리 전체 (편지 자료 + 소장품) 와 가진 수. */
+    fun gallery(id: String): List<Piece> = letterPieces(id) + work(id).kit.collection
+    fun ownedCount(id: String) = gallery(id).count { owns(id, it) }
+
+    /**
+     * 오늘의 자료 한 점을 건다. 같은 날 같은 [reason] 으로는 한 번만 (다시 열어도 같은 그림).
+     * 이달의 전시 주제가 두 배로 잘 나온다. [minTier] 는 이정표의 확정 명작.
+     */
+    fun draw(id: String, reason: String, minTier: Tier = Tier.SKETCH): Piece? {
+        val tag = "$today:$reason"
+        if (tag in store.drawTags(id)) return null
+        val pool = work(id).kit.collection
+        val p = Draws.pick(pool, store.pieces(id), (today * 131 + reason.hashCode()).toLong() xor id.hashCode().toLong(), exhibition(id)?.theme, minTier) ?: return null
+        store.addPiece(id, p.id); store.addDrawTag(id, tag)
+        pendingPiece = p
+        version++
+        return p
+    }
+
+    // ── 오늘의 할 일 ─────────────────────────────────────────
+    val quests: List<Quest> get() = Quests.today(today)
+    fun questCount(q: Quest) = run { @Suppress("UNUSED_EXPRESSION") version; store.quest(today, q) }
+    fun questDone(q: Quest) = Quests.done(q, questCount(q))
+    private fun questAdd(q: Quest, n: Int = 1) { if (q in quests) { store.setQuest(today, q, store.quest(today, q) + n); questsCheck() } }
+    private fun questAtLeast(q: Quest, n: Int) { if (q in quests && store.quest(today, q) < n) { store.setQuest(today, q, n); questsCheck() } }
+    private fun questsCheck() {
+        version++
+        if (quests.all { questDone(it) } && store.questsPaidDay != today) {
+            store.questsPaidDay = today
+            earn(Earn.QUESTS); draw(current, "quests")
+            settle()
+        }
+    }
+
+    // ── 이달의 전시 ──────────────────────────────────────────
+    fun exhibition(id: String = current): Exhibition? = Draws.exhibition(work(id).kit.exhibitions, LocalDate.now().monthValue - 1)
+    fun exhibitionPieces(id: String = current): List<Piece> = exhibition(id)?.let { Draws.exhibitionPieces(work(id).kit.collection, it) } ?: emptyList()
+    val daysLeftInMonth: Int get() = LocalDate.now().let { it.lengthOfMonth() - it.dayOfMonth + 1 }
+
+    // ── 일요일 낭독회 ────────────────────────────────────────
+    /** 이번 주 (월~) 에 녹음한 마디들, 녹음한 차례대로. */
+    fun weekTakes(): List<java.io.File> {
+        val start = java.time.LocalDate.ofEpochDay(io.github.graviton94.todayletters.core.Recital.weekStart(today)).atStartOfDay(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli()
+        val root = java.io.File(ctx.filesDir, "readings")
+        return (root.listFiles() ?: emptyArray()).filter { it.isDirectory && it.name != "first" }
+            .flatMap { d -> (d.listFiles() ?: emptyArray()).filter { it.name.endsWith(".wav") && it.lastModified() >= start } }
+            .sortedBy { it.lastModified() }
+    }
+    /** 억양 · 리듬 기록: (첫 주 평균, 이번 주 평균). 기록이 없으면 null. */
+    fun scoreTrend(): Pair<Pair<Int, Int>?, Pair<Int, Int>?> {
+        val all = store.scores()
+        if (all.isEmpty()) return null to null
+        val firstWeek = io.github.graviton94.todayletters.core.Recital.weekStart(all.keys.min())
+        val thisWeek = io.github.graviton94.todayletters.core.Recital.weekStart(today)
+        fun avg(range: LongRange) = all.filterKeys { it in range }.values.let { v ->
+            val n = v.sumOf { it.third }; if (n == 0) null else (v.sumOf { it.first } / n) to (v.sumOf { it.second } / n)
+        }
+        return avg(firstWeek..firstWeek + 6) to avg(thisWeek..thisWeek + 6)
+    }
+    fun recordScore(sc: io.github.graviton94.todayletters.core.Prosody.Score) { store.addScore(today, sc.intonation, sc.rhythm); version++ }
+    val recitalDone: Boolean get() = run { @Suppress("UNUSED_EXPRESSION") version; store.recitalWeek == io.github.graviton94.todayletters.core.Recital.weekStart(today) }
+    fun recitalFinish() {
+        if (recitalDone) return
+        store.recitalWeek = io.github.graviton94.todayletters.core.Recital.weekStart(today)
+        earn(Earn.RECITAL); settle()
     }
 
     /** 받은(연) 편지들의 낱말 카드 키 — 모든 작품. */
@@ -330,7 +454,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
 
     /** 억양 · 리듬을 통과한 마디인가. */
     fun passed(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = run { @Suppress("UNUSED_EXPRESSION") version; "${key(id, chapter, letter)}:$msg:$chunk" in store.passed }
-    fun markPassed(id: String, chapter: String, letter: String, msg: Int, chunk: Int) { store.markPassed("${key(id, chapter, letter)}:$msg:$chunk"); version++ }
+    fun markPassed(id: String, chapter: String, letter: String, msg: Int, chunk: Int) {
+        val k = "${key(id, chapter, letter)}:$msg:$chunk"
+        if (k !in store.passed) { store.markPassed(k); earn(Earn.SHADOW_PASS, id = id) }
+        questAdd(Quest.SHADOW_PASS); finished()
+        version++
+    }
 
     /** 내 낭독: 마디 녹음을 차례로 이어 붙인 한 편. 하나도 없으면 null. */
     fun myReading(id: String, chapter: String, l: Letter): java.io.File? {
@@ -352,71 +481,45 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     }
     fun sealSeen(id: String, chapter: String, l: Letter) { store.markSealSeen(key(id, chapter, l.id)); version++ }
 
-    fun stats(): Stats {
+    /** 이정표 숫자: [id] 가 있으면 그 시리즈만, 없으면 모든 시리즈를 합쳐서. */
+    fun stats(id: String? = null): Stats {
         val cm = cardMap()
-        var done = 0; var alone = 0; var chapters = 0
-        works.forEach { w -> w.chapters.forEach { c ->
+        var done = 0; var alone = 0; var chapters = 0; var known = 0; var owned = 0
+        val ws = if (id == null) works else listOf(work(id))
+        ws.forEach { w -> w.chapters.forEach { c ->
             val ds = c.letters.count { progress(w.series.id, c.id, it.id).done }
             done += ds; if (ds == c.letters.size && ds > 0) chapters++
             alone += c.letters.count { l -> progress(w.series.id, c.id, l.id).done && Growth.letterAlone(l.words.indices.map { cardKey(w.series.id, c.id, l.id, it) }, cm) }
         } }
+        val prefixes = ws.map { it.series.id + ":" }
+        cm.values.filter { c -> prefixes.any { c.key.startsWith(it) } }.forEach { if (Growth.known(it)) known++; if (it.box >= Memory.TOP) owned++ }
         return Stats(
             lettersDone = done, streak = streak, bestStreak = maxOf(store.bestStreak, streak),
-            wordsKnown = cm.values.count { Growth.known(it) }, wordsOwned = cm.values.count { it.box >= Memory.TOP },
-            readAlone = readAlone, lettersAlone = alone, lettersSealed = store.sealed.size, visitors = store.visitors,
-            parcels = works.sumOf { store.parcels(it.series.id) }, chapters = chapters,
+            wordsKnown = known, wordsOwned = owned,
+            readAlone = if (id == null) readAlone else Growth.readAlone(arrivedWordKeys().filter { it.startsWith("$id:") }, cm),
+            lettersAlone = alone, lettersSealed = store.sealed.count { k -> prefixes.any { k.startsWith(it) } }, chapters = chapters,
+            shadowPassed = store.passed.count { k -> prefixes.any { k.startsWith(it) } },
+            pieces = ws.sumOf { ownedCount(it.series.id) },
+            seriesStarted = works.count { startedCount(it.series.id) > 0 },
+            langsSpoken = works.filter { w -> store.passed.any { it.startsWith(w.series.id + ":") } }.map { seriesSettings(it.series.id).learn }.distinct().size,
         )
     }
 
-    /** 오늘의 일: 편지 · 복습 · 손님. 다 하면 보너스. */
-    data class DayTask(val kind: String, val done: Boolean)
-    fun dayTasks(): List<DayTask> {
-        val w = works.firstOrNull() ?: return emptyList()
-        val id = w.series.id
-        return listOfNotNull(
-            DayTask("letter", today in store.doneDays() || waiting(id) == 0),
-            DayTask("review", reviewedToday || dueCards().isEmpty()),
-            if (w.kit.visitors.isNotEmpty()) DayTask("visitor", store.visitorDay == today) else null,
-        )
-    }
-
-    /** 오늘의 손님 (키트의 손님을 날마다 돌아가며). */
-    fun visitorToday(): Pair<Work, Visitor>? {
-        val w = works.firstOrNull { it.kit.visitors.isNotEmpty() } ?: return null
-        return w to w.kit.visitors[(today % w.kit.visitors.size).toInt()]
-    }
-    fun visitorDone() { store.visitorDay = today; earn(Earn.VISITOR); version++; settle() }
-
-    /** 정기 소포: 이번 달 (달력) 에 보냈는지 · 보낼 수 있는지. */
-    val thisMonth: Int get() = LocalDate.now().let { Parcel.month(it.year, it.monthValue) }
-    fun parcelSent(id: String) = store.parcelMonth(id) == thisMonth
-    fun sendParcel(w: Work): ParcelReturn? {
-        val kit = w.kit.parcel ?: return null
-        if (parcelSent(w.series.id) || !spend(kit.cost)) return null
-        val n = store.parcels(w.series.id)
-        store.sendParcel(w.series.id, thisMonth)
-        version++; settle()
-        return kit.returns.getOrNull(n % kit.returns.size.coerceAtLeast(1))
-    }
+    /** 이정표 받은 날 (epoch day), 못 받았으면 null. */
+    fun achievedOn(key: String): Long? = run { @Suppress("UNUSED_EXPRESSION") version; store.achievedDay(key) }
 
     /**
-     * 정산: 혼자 읽기가 오른 만큼 · 새로 금빛이 된 물건 · 오늘의 일 보너스 · 새 업적(+기념 우표)을 모아
-     * 한 번의 보상 순간으로 보여 준다. 아무 것도 없으면 조용히.
+     * 정산: 혼자 읽기가 오른 만큼 · 봉인 · 새 이정표 (시리즈 · 전체) 를 모아 한 번의 보상 순간으로 보여 준다.
+     * 이정표 세 개마다 명작 한 점이 확정. 아무 것도 없으면 조용히.
      */
     fun settle() {
         val cm = cardMap()
-        // 편지 속 물건: 낱말이 떠올리기 단계에 오르면 금빛
-        val items = mutableListOf<Word>()
-        works.forEach { w -> w.chapters.forEach { c -> c.letters.forEach { l -> l.words.forEachIndexed { i, word ->
-            if (word.icon.isEmpty()) return@forEachIndexed
-            val k = cardKey(w.series.id, c.id, l.id, i)
-            if (Growth.known(cm[k]) && k !in store.goldItems) { store.gild(k); items += word }
-        } } } }
+        val id = current
         // 완독 봉인: 혼자 다 읽고 (낱말 모두 떠올리기 이상) 다 따라 읽은 편지
         works.forEach { w -> w.chapters.forEach { c -> c.letters.forEach { l ->
             val k = key(w.series.id, c.id, l.id)
             if (k !in store.sealed && k in store.shadowed && progress(w.series.id, c.id, l.id).done &&
-                Growth.letterAlone(l.words.indices.map { cardKey(w.series.id, c.id, l.id, it) }, cm)) { store.seal(k); earn(Earn.SEAL) }
+                Growth.letterAlone(l.words.indices.map { cardKey(w.series.id, c.id, l.id, it) }, cm)) { store.seal(k); earn(Earn.SEAL, id = w.series.id) }
         } } }
         // 혼자 읽기
         val now = readAlone
@@ -427,19 +530,22 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
             milestone = Growth.crossed(seen, now).lastOrNull()
             store.readAloneSeen = now
         }
-        // 업적 → 기념 우표
-        val got = Achievements.newly(stats(), store.achievements)
-        val gifts = mutableListOf<StampArt>()
-        got.forEach { a ->
-            store.unlock(a.id); earn(Earn.ACHIEVEMENT)
-            works.firstNotNullOfOrNull { w -> w.kit.stamps.firstOrNull { "${w.series.id}:${it.id}" !in store.stamps }?.let { w to it } }?.let { (w, st) ->
-                store.addStamp("${w.series.id}:${st.id}"); gifts += st
-            }
+        // 이정표: 이 시리즈 + 전체
+        val got = mutableListOf<String>()
+        if (id.isNotEmpty()) Achievements.newly(Achievements.series, stats(id), store.achievements, id).forEach { a ->
+            val k = Achievements.key(a, id)
+            store.unlock(k); store.setAchievedDay(k, today); earn(Earn.ACHIEVEMENT); got += a.id
+            val n = store.achievements.count { it.startsWith("$id:") }
+            if (Achievements.grantsMasterpiece(n - 1)) draw(id, "ach:${a.id}", Tier.PAINTING)
         }
-        if (pendingStamps > 0 || items.isNotEmpty() || got.isNotEmpty()) {
-            reward = RewardMoment(pendingStamps, items, got.map { it.id }, gifts, milestone)
+        Achievements.newly(Achievements.overall, stats(), store.achievements).forEach { a ->
+            store.unlock(a.id); store.setAchievedDay(a.id, today); earn(Earn.ACHIEVEMENT); got += a.id
         }
-        pendingStamps = 0
+        val gain = pending.values.sum()
+        if (gain > 0 || pendingPiece != null || got.isNotEmpty()) {
+            reward = RewardMoment(id, gain, pendingPiece, got, milestone, pending.toList())
+        }
+        pending = mutableMapOf(); pendingPiece = null
         version++
     }
 

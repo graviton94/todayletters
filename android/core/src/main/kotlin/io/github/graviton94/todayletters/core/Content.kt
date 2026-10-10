@@ -86,15 +86,6 @@ object Arrivals {
     fun missed(arrived: Long?, today: Long, unread: Int): Boolean = arrived != null && arrived < today && unread > 0
 }
 
-/** 이어 읽은 날 (편지를 끝낸 날이 하루씩 이어지면 늘어나고, 하루 건너뛰면 1부터). */
-object Streak {
-    fun after(lastDay: Long, count: Int, today: Long): Int = when (today - lastDay) {
-        0L -> count.coerceAtLeast(1)
-        1L -> count + 1
-        else -> 1
-    }
-}
-
 /** 답장 문제 만들기. 편지 데이터에서 저절로 만든다 (사람이 문제를 따로 쓰지 않음). */
 object Exercises {
     /** 별자리 잇기: 문장을 낱말(띄어쓰기 단위) 조각으로. 순서는 섞되 정답 순서와 같지 않게. */
@@ -153,28 +144,29 @@ object Plays {
 }
 
 /**
- * 시리즈 키트: 공통 화면(엔진)에 이 작품만의 이름 · 그림 · 목록을 채우는 데이터. 시리즈가 늘어도 코드는 그대로.
+ * 시리즈 키트: 공통 화면(엔진)에 이 작품만의 이름 · 색 · 소장품을 채우는 데이터. 시리즈가 늘어도 코드는 그대로.
+ * 틀은 모든 시리즈가 같고, 시리즈가 바꾸는 것은 강조 색과 종이 · 잉크 빛, 초상, 편지마다의 자료뿐이다.
  * 색은 0xAARRGGBB.
  */
 data class Kit(
-    val currency: StampSkin = StampSkin(),
-    val cabinet: Cabinet = Cabinet(),
-    val parcel: ParcelKit? = null,
-    val visitors: List<Visitor> = emptyList(),
-    val stamps: List<StampArt> = emptyList(),
-    val journal: List<JournalPage> = emptyList(),
+    /** 시리즈의 빛깔: 밝게 · 어둡게. 없으면 공통 색. */
+    val light: Tone? = null,
+    val dark: Tone? = null,
+    /** 서재 카드와 들어가는 전환의 대표 그림 (assets 안 경로). */
+    val hero: String = "",
+    /** 머리글 지명 (ARLES · 1888). */
+    val place: String = "",
+    /** “OO의 세상으로 떠납니다”. */
+    val world: Tri = Tri(mapOf(Lang.EN to "")),
+    /** 화폐 이름 (우표 · 두카트). */
+    val currency: Tri = Tri(mapOf(Lang.EN to "")),
+    /** 요일 머리글자 일곱 (월요일부터, 그 시리즈 언어로: LMMJVSD). */
+    val weekdays: String = "MTWTFSS",
+    /** 갤러리 소장품 (공공 영역 · 소장처가 자유 이용을 밝힌 것만). */
+    val collection: List<Piece> = emptyList(),
+    /** 이달의 전시 (달마다 돌아가며). */
+    val exhibitions: List<Exhibition> = emptyList(),
 )
-/** 우표(재화)의 모양: 액면 글자와 바탕색. */
-data class StampSkin(val label: String = "1c", val color: Long = 0xFF3D5A8F)
-/** 진열장: 화랑 · 악보장 · 지도방 … 이름과 벽 · 바닥 색. */
-data class Cabinet(val title: Tri = Tri(mapOf(Lang.EN to "")), val place: Tri = Tri(mapOf(Lang.EN to "")), val wall: Long = 0xFF3A2E26, val floor: Long = 0xFF5A3F2A)
-/** 정기 소포: 우표 [cost] 장 · 보내는 것 · 차례로 오는 답례 (실제 편지의 문장 + 그림). */
-data class ParcelKit(val cost: Int, val label: Tri, val returns: List<ParcelReturn>)
-data class ParcelReturn(val title: Tri, val letter: String, val message: Int, val image: String)
-/** 손님 = 미니게임 틀. 틀은 엔진, 손님 이름은 키트. */
-enum class VisitorGame { LISTEN, TORN, TELEGRAM }
-data class Visitor(val id: String, val game: VisitorGame, val name: Tri)
-/** 기념 우표 (업적 · 장 완주로 받는 수집품). [image] 는 그림 파일. */
-data class StampArt(val id: String, val label: String, val image: String, val value: String, val color: Long)
-/** 여행기 한 쪽: 도시 · 그 도시의 장소들 · 표. */
-data class JournalPage(val id: String, val city: Tri, val years: String, val places: List<String>, val ticketLine: String, val ticket: Tri)
+
+/** 시리즈 빛깔 한 벌. */
+data class Tone(val paper: Long, val ink: Long, val soft: Long, val faint: Long, val accent: Long)

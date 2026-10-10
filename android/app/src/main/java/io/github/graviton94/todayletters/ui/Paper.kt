@@ -114,24 +114,14 @@ fun Modifier.desk(base: Color, lamp: Color, center: Float = 0.45f): Modifier = d
     drawRect(Brush.radialGradient(listOf(lamp, Color.Transparent), center = Offset(size.width / 2, size.height * center), radius = size.width * 0.9f))
 }
 
-/** 편지지 조각: 찢은 가장자리 · 종이 결 · 그림자 · 살짝 기운 각도. */
+/**
+ * 편지지 조각. 공통 틀에서는 상자를 만들지 않는다: 종이와 거의 같은 빛의 평평한 면 하나 (그림자 · 결 · 찢은 가장자리 없음).
+ * [seed] · [tilt] 는 예전 부르는 곳과 맞추려고 남겨 둠.
+ */
 @Composable
-fun Slip(seed: Int, tilt: Float = 0f, modifier: Modifier = Modifier, content: @Composable BoxScope.() -> Unit) {
+fun Slip(@Suppress("UNUSED_PARAMETER") seed: Int, @Suppress("UNUSED_PARAMETER") tilt: Float = 0f, modifier: Modifier = Modifier, content: @Composable BoxScope.() -> Unit) {
     val p = Ink.palette
-    val shape = remember(seed) { DeckleShape(seed) }
-    Box(
-        modifier
-            .graphicsLayer {
-                rotationZ = tilt
-                shadowElevation = 5.dp.toPx()
-                this.shape = shape
-                clip = true
-                ambientShadowColor = p.shadow
-                spotShadowColor = p.shadow
-            }
-            .paperGrain(p.slip, p.slipLaid, p.slipAge),
-        content = content,
-    )
+    Box(modifier.background(p.slip), content = content)
 }
 
 /** 동그란 초상: assets/portraits/<파일>. 없으면 이름 첫 글자. 채팅 앱의 프로필 사진처럼 어디서나 같은 모양. */

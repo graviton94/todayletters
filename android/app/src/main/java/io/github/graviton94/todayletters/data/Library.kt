@@ -13,15 +13,11 @@ import io.github.graviton94.todayletters.core.Plate
 import io.github.graviton94.todayletters.core.Series
 import io.github.graviton94.todayletters.core.Tri
 import io.github.graviton94.todayletters.core.Word
-import io.github.graviton94.todayletters.core.JournalPage
-import io.github.graviton94.todayletters.core.StampArt
-import io.github.graviton94.todayletters.core.VisitorGame
-import io.github.graviton94.todayletters.core.Visitor
-import io.github.graviton94.todayletters.core.ParcelReturn
-import io.github.graviton94.todayletters.core.ParcelKit
-import io.github.graviton94.todayletters.core.Cabinet
-import io.github.graviton94.todayletters.core.StampSkin
 import io.github.graviton94.todayletters.core.Kit
+import io.github.graviton94.todayletters.core.Tone
+import io.github.graviton94.todayletters.core.Piece
+import io.github.graviton94.todayletters.core.Tier
+import io.github.graviton94.todayletters.core.Exhibition
 import org.json.JSONObject
 
 /** 작품 하나: 표지 정보 + 챕터들. assets/letters/<작품>/series.json 과 챕터 파일들. */
@@ -41,7 +37,7 @@ data class Work(
     val name: Tri = Tri(mapOf(Lang.EN to sender)),
     /** 손으로 그린 지도의 장소들 (위치 공유 · 지도). */
     val places: List<Place> = emptyList(),
-    /** 시리즈 키트 (우표 · 진열장 · 소포 · 손님 · 기념 우표 · 여행기). */
+    /** 시리즈 키트 (빛깔 · 대표 그림 · 화폐 이름 · 갤러리 소장품 · 이달의 전시). */
     val kit: Kit = Kit(),
 )
 
@@ -83,34 +79,30 @@ object Library {
     private fun color(s: String?, fallback: Long): Long =
         s?.removePrefix("#")?.takeIf { it.length == 6 }?.toLongOrNull(16)?.let { 0xFF000000 or it } ?: fallback
 
+    private fun tone(o: JSONObject?): Tone? = o?.let {
+        Tone(color(it.optString("paper"), 0xFFF4EFE6), color(it.optString("ink"), 0xFF1F1A15), color(it.optString("soft"), 0xFF6E655A),
+            color(it.optString("faint"), 0xFFA39886), color(it.optString("accent"), 0xFF8A7350))
+    }
+
     private fun kit(o: JSONObject): Kit {
-        val cur = o.optJSONObject("currency")
-        val cab = o.optJSONObject("cabinet")
-        val par = o.optJSONObject("parcel")
+        val theme = o.optJSONObject("theme")
         return Kit(
-            currency = StampSkin(cur?.optString("label") ?: "1c", color(cur?.optString("color"), 0xFF3D5A8F)),
-            cabinet = cab?.let { Cabinet(tri(it.getJSONObject("title")), tri(it.optJSONObject("place") ?: JSONObject()), color(it.optString("wall"), 0xFF3A2E26), color(it.optString("floor"), 0xFF5A3F2A)) } ?: Cabinet(),
-            parcel = par?.let { pk ->
-                ParcelKit(pk.optInt("cost", 50), tri(pk.getJSONObject("label")), pk.optJSONArray("returns")?.let { a ->
-                    (0 until a.length()).map { i -> a.getJSONObject(i).let { r -> ParcelReturn(tri(r.getJSONObject("title")), r.optString("letter"), r.optInt("message"), r.optString("image")) } }
-                } ?: emptyList())
-            },
-            visitors = o.optJSONArray("visitors")?.let { a ->
-                (0 until a.length()).mapNotNull { i -> a.getJSONObject(i).let { v ->
-                    val g = runCatching { VisitorGame.valueOf(v.getString("template").uppercase()) }.getOrNull() ?: return@mapNotNull null
-                    Visitor(v.getString("id"), g, tri(v.getJSONObject("name")))
+            light = tone(theme?.optJSONObject("light")),
+            dark = tone(theme?.optJSONObject("dark")),
+            hero = o.optString("hero"),
+            place = o.optString("place"),
+            world = o.optJSONObject("world")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")),
+            currency = o.optJSONObject("currency")?.optJSONObject("name")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")),
+            weekdays = o.optString("weekdays", "MTWTFSS"),
+            collection = o.optJSONArray("collection")?.let { a ->
+                (0 until a.length()).mapNotNull { i -> a.getJSONObject(i).let { c ->
+                    val tier = runCatching { Tier.valueOf(c.getString("tier").uppercase()) }.getOrNull() ?: return@mapNotNull null
+                    Piece(c.getString("id"), c.getString("image"), tri(c.getJSONObject("title")), c.optString("date"), c.optString("collection"), tier,
+                        c.optJSONArray("themes")?.let { t -> (0 until t.length()).map { t.getString(it) }.toSet() } ?: emptySet())
                 } }
             } ?: emptyList(),
-            stamps = o.optJSONArray("stamps")?.let { a ->
-                (0 until a.length()).map { i -> a.getJSONObject(i).let { s -> StampArt(s.getString("id"), s.optString("label"), s.optString("image"), s.optString("value"), color(s.optString("color"), 0xFF3D5A8F)) } }
-            } ?: emptyList(),
-            journal = o.optJSONArray("journal")?.let { a ->
-                (0 until a.length()).map { i -> a.getJSONObject(i).let { j ->
-                    val t = j.optJSONObject("ticket")
-                    JournalPage(j.getString("id"), tri(j.getJSONObject("city")), j.optString("years"),
-                        j.optJSONArray("places")?.let { p -> (0 until p.length()).map { p.getString(it) } } ?: emptyList(),
-                        t?.optString("line") ?: "", t?.optJSONObject("text")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")))
-                } }
+            exhibitions = o.optJSONArray("exhibitions")?.let { a ->
+                (0 until a.length()).map { i -> a.getJSONObject(i).let { e -> Exhibition(e.getString("id"), tri(e.getJSONObject("title")), e.getString("theme")) } }
             } ?: emptyList(),
         )
     }

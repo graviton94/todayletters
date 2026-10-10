@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: scripts/generate.py (design/tokens.json) -->
 <resources>
-    <color name="window">#EFE6D2</color>
+    <color name="window">#F4EFE6</color>
     <color name="seal">#8E2A22</color>
 </resources>

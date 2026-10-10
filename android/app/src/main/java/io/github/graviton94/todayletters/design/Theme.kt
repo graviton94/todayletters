@@ -7,6 +7,7 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -30,6 +31,33 @@ private val LocalDark = staticCompositionLocalOf { false }
 object Ink {
     val palette: Palette @Composable get() = LocalPalette.current
     val isDark: Boolean @Composable get() = LocalDark.current
+}
+
+/** 시리즈 빛깔 (키트의 Tone 을 화면 색으로). */
+data class SeriesTone(val paper: Color, val ink: Color, val soft: Color, val faint: Color, val accent: Color)
+
+private fun mix(a: Color, b: Color, t: Float) = Color(a.red + (b.red - a.red) * t, a.green + (b.green - a.green) * t, a.blue + (b.blue - a.blue) * t, 1f)
+
+/**
+ * 공통 틀의 색 이름에 시리즈 빛깔을 채운 팔레트. 종이 · 잉크 · 강조가 바뀌고, 편지지 조각도 같은 종이라 상자가 생기지 않는다.
+ * 채운 단추는 잉크색 하나 (두 테마 모두).
+ */
+fun Palette.toned(t: SeriesTone, dark: Boolean): Palette = copy(
+    paper = t.paper, sky = t.paper, leaf = mix(t.paper, if (dark) t.ink else Color.White, if (dark) 0.04f else 0.35f),
+    ink = t.ink, inkSoft = t.soft, hair = mix(t.paper, t.ink, 0.16f), line = t.faint,
+    gilt = t.accent, giltText = t.accent, fill = t.ink, onFill = t.paper, onFillSoft = mix(t.paper, t.ink, 0.35f),
+    hide = mix(t.paper, t.ink, 0.07f), hideInk = t.faint,
+    slip = mix(t.paper, if (dark) t.ink else Color.White, if (dark) 0.03f else 0.3f), slipInk = t.ink, slipSoft = t.soft,
+    mapPaper = mix(t.paper, t.ink, 0.04f), mapRoad = t.paper,
+)
+
+/** 시리즈 안 화면: [light] · [dark] 가운데 지금 테마의 빛깔로 칠한다. 없으면 공통 색 그대로. */
+@Composable
+fun SeriesTheme(light: SeriesTone?, dark: SeriesTone?, content: @Composable () -> Unit) {
+    val isDark = LocalDark.current
+    val tone = if (isDark) dark else light
+    if (tone == null) { content(); return }
+    CompositionLocalProvider(LocalPalette provides LocalPalette.current.toned(tone, isDark), content = content)
 }
 
 /** 글꼴 역할 (scripts/build_fonts.py 가 쓰는 글자만 남겨 res/font 에 넣음). */
