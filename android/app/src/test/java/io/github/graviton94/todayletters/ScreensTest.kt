@@ -293,4 +293,10 @@ class ScreensTest {
         s.shadowChunks("vincent", "I", l).forEachIndexed { i, cs -> cs.indices.forEach { j -> s.take("vincent", "I", l.id, i, j).apply { parentFile?.mkdirs(); writeBytes(ByteArray(16)) } } }
         shot("55_seal_dark", true, 2000, series = s) { io.github.graviton94.todayletters.ui.SealScreen(s, Route.Seal(room(1))) }
     }
+    @Test fun download() {
+        val s = state(true)
+        val ch = s.work("vincent").chapters[1]
+        s.downloadAsk = AppState.DownloadAsk(s.downloads.pack("vincent", ch.id)!!, "vincent", ch.id, ch.letters.first(), Route.Inbox)
+        shot("56_download_light", false, series = s) { io.github.graviton94.todayletters.ui.DownloadSheet(s, s.downloadAsk!!) }
+    }
 }

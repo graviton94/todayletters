@@ -100,7 +100,7 @@
     <string name="set_sound">편⁠지 자⁠동 낭⁠독</string>
     <string name="set_haptics">진⁠동</string>
     <string name="set_help">도⁠움</string>
-    <string name="set_privacy">모⁠든 기⁠록⁠은 이 폰⁠에⁠만 남⁠아⁠요⁠. 녹⁠음⁠한 목⁠소⁠리⁠는 직⁠접 목⁠소⁠리 엽⁠서⁠로 보⁠낼 때⁠만 밖⁠으⁠로 나⁠가⁠요⁠.</string>
+    <string name="set_privacy">학⁠습 기⁠록⁠은 이 폰⁠에⁠만 남⁠아⁠요⁠. 인⁠터⁠넷⁠은 장⁠의 낭⁠독⁠을 직⁠접 받⁠을 때⁠만 쓰⁠고⁠, 나⁠에 대⁠한 정⁠보⁠는 보⁠내⁠지 않⁠아⁠요⁠. 녹⁠음⁠한 목⁠소⁠리⁠는 직⁠접 목⁠소⁠리 엽⁠서⁠로 보⁠낼 때⁠만 밖⁠으⁠로 나⁠가⁠요⁠.</string>
     <string name="set_sources">앱⁠에 들⁠어 있⁠는 편⁠지 · 그⁠림 · 글⁠꼴 · 목⁠소⁠리⁠의 출⁠처⁠와 라⁠이⁠선⁠스⁠:</string>
     <string name="coach_library">표⁠지 하⁠나⁠가 작⁠품 하⁠나⁠예⁠요⁠. 앞 챕⁠터⁠는 무⁠료⁠예⁠요⁠.</string>
     <string name="coach_series">⚙ 에⁠서 이 작⁠품⁠에⁠서 배⁠울 언⁠어⁠를 정⁠해⁠요⁠.</string>
@@ -607,4 +607,13 @@
     <string name="opening_tagline">명⁠화⁠와 역⁠사 속 편⁠지⁠로 배⁠우⁠는 외⁠국⁠어</string>
     <string name="opening_piece">오⁠늘⁠의 작⁠품 · 〈%1$s〉 %2$s</string>
     <string name="opening_enter">눌⁠러⁠서 입⁠장⁠하⁠기</string>
+    <string name="dl_title">「%1$s」 낭⁠독</string>
+    <string name="dl_body">이 장⁠의 낭⁠독⁠(⁠빈⁠센⁠트 목⁠소⁠리⁠)⁠은 아⁠직 앱⁠에 없⁠어⁠요⁠. 한 번 받⁠아 두⁠면⁠(%1$s) 그⁠다⁠음⁠부⁠터⁠는 인⁠터⁠넷 없⁠이 들⁠려⁠요⁠.</string>
+    <string name="dl_mobile">지⁠금 모⁠바⁠일 데⁠이⁠터⁠로 연⁠결⁠돼 있⁠어⁠요⁠. 데⁠이⁠터⁠가 넉⁠넉⁠하⁠지 않⁠다⁠면 와⁠이⁠파⁠이⁠에⁠서 받⁠는 게 좋⁠아⁠요⁠.</string>
+    <string name="dl_go">받⁠기 · %1$s</string>
+    <string name="dl_silent">소⁠리 없⁠이 읽⁠기</string>
+    <string name="dl_loading">받⁠는 중⁠이⁠에⁠요⁠. 언⁠제⁠든 멈⁠출 수 있⁠고⁠, 받⁠은 만⁠큼⁠은 남⁠아⁠요⁠.</string>
+    <string name="dl_stop">그⁠만 받⁠기</string>
+    <string name="dl_failed">받⁠지 못⁠했⁠어⁠요⁠. 연⁠결⁠을 확⁠인⁠하⁠고 다⁠시 해 보⁠세⁠요 (⁠남⁠은 양 %1$s).</string>
+    <string name="dl_retry">다⁠시 받⁠기 · %1$s</string>
 </resources>

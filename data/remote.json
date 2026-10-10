@@ -1,0 +1,4 @@
+{
+  "_doc": "앱 밖(Cloudflare R2)에 두는 낭독. remote/audio/<작품>/<장>/ 의 파일은 앱에 넣지 않고, 그 장의 편지를 처음 열 때 받는다 (narration-r2.yml 이 올림). generate.py 가 장마다 파일 목록 · 크기를 assets/letters/<작품>/remote.json 으로 적는다.",
+  "base": "https://pub-4ca8de2e978d484887e1086f68454b0b.r2.dev/audio/"
+}

@@ -64,7 +64,7 @@ fun Root(s: AppState, onExit: () -> Unit) {
 @Composable
 private fun Main(s: AppState, onExit: () -> Unit) {
     // 맨 위 화면(서재)에서 뒤로: 바로 나가지 않고 닫을지 묻는다 (홈 단추로 내리는 건 묻지 않음)
-    BackHandler(enabled = !s.settingsOpen && !s.askingExit && s.reward == null) { if (!s.back()) s.askingExit = true }
+    BackHandler(enabled = !s.settingsOpen && !s.askingExit && s.reward == null && s.downloadAsk == null) { if (!s.back()) s.askingExit = true }
     val inSeries = Nav.inSeries(s.route) && s.route !is Route.Enter && s.current.isNotEmpty()
     // 시리즈 안 화면은 그 시리즈의 빛깔로 (서재 · 내 기록 · 전환은 제 색)
     val body: @Composable () -> Unit = {
@@ -117,6 +117,8 @@ private fun Main(s: AppState, onExit: () -> Unit) {
             if (s.route is Route.Tab) Tabs(s)
         }
         if (s.settingsOpen) SettingsScreen(s)
+        // 앱 밖에 둔 장의 낭독 받기 (크기 안내 · 진행률 · 뒤로)
+        s.downloadAsk?.let { DownloadSheet(s, it) }
         CoachLayer(s)
         // 보상 순간: 어느 화면에서든 맨 위에
         RewardOverlay(s)

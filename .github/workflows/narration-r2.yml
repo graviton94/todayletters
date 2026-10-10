@@ -1,6 +1,6 @@
 name: Narration to R2
 
-# 앱에 들어 있는 낭독 (android/app/src/main/assets/audio/작품/챕터/편지/*.m4a · 마디 시각 *.json) 을 Cloudflare R2 의 audio/ 로 올리고,
+# 앱에 들어 있는 낭독과 앱 밖에 두는 장의 낭독 (android/app/src/main/assets/audio/ · remote/audio/작품/챕터/편지/*.m4a · 마디 시각 *.json) 을 Cloudflare R2 의 audio/ 로 올리고,
 # 공개 주소로 하나 받아 같은 파일인지 확인해요. (narration 가지는 마지막에 만든 장만 들고 있어서, 모든 장이 있는 앱 쪽을 기준으로)
 # 키는 GitHub Secrets (CF_ACCOUNT_ID · CF_R2_ACCESS_KEY_ID · CF_R2_SECRET_ACCESS_KEY · CF_R2_BUCKET),
 # 공개 주소는 Variables (CF_R2_PUBLIC_URL). 하루의 성경과 같은 이름이에요.
@@ -35,11 +35,15 @@ jobs:
           ep="https://$ACCOUNT.r2.cloudflarestorage.com"
           aws s3 sync "$src" "s3://$BUCKET/audio/" --only-show-errors --exclude "*" --include "*.m4a" --content-type audio/mp4 --endpoint-url "$ep"
           aws s3 sync "$src" "s3://$BUCKET/audio/" --only-show-errors --exclude "*" --include "*.json" --content-type application/json --endpoint-url "$ep"
-          echo "local: $(find "$src" -type f | wc -l) files"
+          # 앱 밖에 두는 장 (그 장을 처음 열 때 받는다)
+          aws s3 sync remote/audio "s3://$BUCKET/audio/" --only-show-errors --exclude "*" --include "*.m4a" --content-type audio/mp4 --endpoint-url "$ep"
+          aws s3 sync remote/audio "s3://$BUCKET/audio/" --only-show-errors --exclude "*" --include "*.json" --content-type application/json --endpoint-url "$ep"
+          echo "local: $(( $(find "$src" -type f | wc -l) + $(find remote/audio -type f | wc -l) )) files"
           echo "R2:    $(aws s3 ls "s3://$BUCKET/audio/" --recursive --endpoint-url "$ep" | wc -l) files"
       - name: Check public download
         run: |
           src=android/app/src/main/assets/audio
+          src=remote/audio
           for f in $(cd $src && find . -name "*.m4a" | sort | sed -n '1p;$p' | sed 's#^\./##'); do
             code=$(curl -s -o /tmp/t -w "%{http_code}" "${PUBLIC%/}/audio/$f")
             echo "GET $f → $code ($(stat -c%s /tmp/t) bytes)"

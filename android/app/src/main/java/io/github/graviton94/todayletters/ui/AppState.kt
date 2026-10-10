@@ -52,6 +52,13 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     val works: List<Work> = Library.works(ctx)
     val narrator = Narrator(ctx)
     val recorder = Recorder(ctx)
+    val downloads = io.github.graviton94.todayletters.data.Downloads(ctx)
+
+    /** 앱 밖에 둔 장의 낭독을 받을지 묻는 중: 받고 나면 (또는 소리 없이 읽기를 고르면) 이 편지를 연다. */
+    data class DownloadAsk(val pack: io.github.graviton94.todayletters.data.Downloads.Pack, val series: String, val chapter: String, val letter: Letter, val from: Route.Tab?)
+    var downloadAsk by mutableStateOf<DownloadAsk?>(null)
+    /** 이번 실행에서 ‘소리 없이 읽기’를 고른 장 (다시 묻지 않음). */
+    private val silentChapters = mutableSetOf<String>()
 
     val reducedMotion: Boolean =
         Settings.Global.getFloat(ctx.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) == 0f
@@ -258,7 +265,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     val rests: Int get() = run { @Suppress("UNUSED_EXPRESSION") version; store.rests }
 
     /** 새 편지를 처음 열 때 한 번 센다 (하루 편지 수). */
-    fun open(id: String, chapter: String, letter: Letter, from: Route.Tab?) {
+    fun open(id: String, chapter: String, letter: Letter, from: Route.Tab?, skipAudio: Boolean = false) {
+        // 앱 밖(R2)에 둔 장이고 아직 받지 않았으면: 먼저 크기를 알려 주고 받을지 묻는다
+        val pack = downloads.pack(id, chapter)
+        if (!skipAudio && pack != null && "$id:$chapter" !in silentChapters && !downloads.ready(pack)) {
+            downloadAsk = DownloadAsk(pack, id, chapter, letter, from); return
+        }
         val p = progress(id, chapter, letter.id)
         if (p.done) questAdd(Quest.REREAD)
         current = id
@@ -266,6 +278,14 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
         store.markStarted(key(id, chapter, letter.id))
         val idx = work(id).chapters.indexOfFirst { it.id == chapter } + 1
         go(Route.Letter(id, idx, work(id).chapters[idx - 1].letters.indexOf(letter) + 1, from))
+    }
+
+    /** 받기를 마쳤거나 소리 없이 읽기를 골랐을 때: 기다리던 편지를 연다. */
+    fun downloadFinished(silent: Boolean) {
+        val a = downloadAsk ?: return
+        downloadAsk = null
+        if (silent) silentChapters += "${a.series}:${a.chapter}"
+        open(a.series, a.chapter, a.letter, a.from, skipAudio = true)
     }
 
     fun letterOf(r: Route.Letter): Pair<String, Letter> {

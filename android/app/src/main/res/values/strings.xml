@@ -100,7 +100,7 @@
     <string name="set_sound">Read letters aloud automatically</string>
     <string name="set_haptics">Vibration</string>
     <string name="set_help">Help</string>
-    <string name="set_privacy">Everything stays on this phone. Your recordings leave it only when you send one as a voice postcard yourself.</string>
+    <string name="set_privacy">Your record stays on this phone. The app connects to the internet only to download a chapter\'s narration when you choose to, and sends nothing about you. Your recordings leave the phone only when you send one as a voice postcard yourself.</string>
     <string name="set_sources">Every letter, picture, font and voice in the app, with where it comes from and its licence:</string>
     <string name="coach_library">Each cover is one series. The first chapters are free.</string>
     <string name="coach_series">The gear sets the language you learn for this series.</string>
@@ -607,4 +607,13 @@
     <string name="opening_tagline">Learn languages through real letters from art and history</string>
     <string name="opening_piece">Today\'s piece · %1$s · %2$s</string>
     <string name="opening_enter">Tap to enter</string>
+    <string name="dl_title">Narration for “%1$s”</string>
+    <string name="dl_body">This chapter\'s narration (Vincent\'s voice) is not inside the app yet. Download it once (%1$s) and it plays offline from then on.</string>
+    <string name="dl_mobile">You are on mobile data. Wi-Fi is better if your data plan is limited.</string>
+    <string name="dl_go">Download · %1$s</string>
+    <string name="dl_silent">Read without sound</string>
+    <string name="dl_loading">Downloading… you can stop at any time; what is already downloaded is kept.</string>
+    <string name="dl_stop">Stop downloading</string>
+    <string name="dl_failed">The download didn\'t finish. Check the connection and try again (%1$s left).</string>
+    <string name="dl_retry">Try again · %1$s</string>
 </resources>

@@ -132,6 +132,24 @@ def letters():
     return out
 
 
+def remote():
+    """앱 밖(R2)에 두는 낭독의 목록: remote/audio/<작품>/<장>/... → assets/letters/<작품>/remote.json (장마다 파일 · 크기 · 합)."""
+    out = {}
+    cfg = json.load(open(os.path.join(ROOT, "data", "remote.json"), encoding="utf-8"))
+    for sdir in sorted(glob.glob(os.path.join(ROOT, "remote", "audio", "*"))):
+        sid = os.path.basename(sdir)
+        chapters = {}
+        for cdir in sorted(glob.glob(os.path.join(sdir, "*"))):
+            files = []
+            for f in sorted(glob.glob(os.path.join(cdir, "**", "*"), recursive=True)):
+                if os.path.isfile(f):
+                    files.append([os.path.relpath(f, os.path.join(ROOT, "remote", "audio")).replace(os.sep, "/"), os.path.getsize(f)])
+            chapters[os.path.basename(cdir)] = {"bytes": sum(x[1] for x in files), "files": files}
+        doc = {"base": cfg["base"], "chapters": chapters}
+        out[os.path.join(APP, "assets", "letters", sid, "remote.json")] = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
+    return out
+
+
 def check_spots(src, chapter):
     """그림 속 산책: 자리의 낱말이 그 자리의 '편지 속 문장'에 정말 나오는지 (세 언어 모두). 어긋나면 멈춘다."""
     bad = []
@@ -153,7 +171,7 @@ def check_spots(src, chapter):
 
 def main():
     check = "--check" in sys.argv
-    files = {**tokens(), **strings(), **letters()}
+    files = {**tokens(), **strings(), **letters(), **remote()}
     stale = []
     for path, text in files.items():
         old = open(path, encoding="utf-8").read() if os.path.exists(path) else None

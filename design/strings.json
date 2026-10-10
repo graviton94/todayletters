@@ -397,8 +397,8 @@
     "ko": "도움"
   },
   "set_privacy": {
-    "en": "Everything stays on this phone. Your recordings leave it only when you send one as a voice postcard yourself.",
-    "ko": "모든 기록은 이 폰에만 남아요. 녹음한 목소리는 직접 목소리 엽서로 보낼 때만 밖으로 나가요."
+    "en": "Your record stays on this phone. The app connects to the internet only to download a chapter's narration when you choose to, and sends nothing about you. Your recordings leave the phone only when you send one as a voice postcard yourself.",
+    "ko": "학습 기록은 이 폰에만 남아요. 인터넷은 장의 낭독을 직접 받을 때만 쓰고, 나에 대한 정보는 보내지 않아요. 녹음한 목소리는 직접 목소리 엽서로 보낼 때만 밖으로 나가요."
   },
   "set_sources": {
     "en": "Every letter, picture, font and voice in the app, with where it comes from and its licence:",
@@ -2423,5 +2423,41 @@
   "opening_enter": {
     "en": "Tap to enter",
     "ko": "눌러서 입장하기"
+  },
+  "dl_title": {
+    "en": "Narration for “%1$s”",
+    "ko": "「%1$s」 낭독"
+  },
+  "dl_body": {
+    "en": "This chapter's narration (Vincent's voice) is not inside the app yet. Download it once (%1$s) and it plays offline from then on.",
+    "ko": "이 장의 낭독(빈센트 목소리)은 아직 앱에 없어요. 한 번 받아 두면(%1$s) 그다음부터는 인터넷 없이 들려요."
+  },
+  "dl_mobile": {
+    "en": "You are on mobile data. Wi-Fi is better if your data plan is limited.",
+    "ko": "지금 모바일 데이터로 연결돼 있어요. 데이터가 넉넉하지 않다면 와이파이에서 받는 게 좋아요."
+  },
+  "dl_go": {
+    "en": "Download · %1$s",
+    "ko": "받기 · %1$s"
+  },
+  "dl_silent": {
+    "en": "Read without sound",
+    "ko": "소리 없이 읽기"
+  },
+  "dl_loading": {
+    "en": "Downloading… you can stop at any time; what is already downloaded is kept.",
+    "ko": "받는 중이에요. 언제든 멈출 수 있고, 받은 만큼은 남아요."
+  },
+  "dl_stop": {
+    "en": "Stop downloading",
+    "ko": "그만 받기"
+  },
+  "dl_failed": {
+    "en": "The download didn't finish. Check the connection and try again (%1$s left).",
+    "ko": "받지 못했어요. 연결을 확인하고 다시 해 보세요 (남은 양 %1$s)."
+  },
+  "dl_retry": {
+    "en": "Try again · %1$s",
+    "ko": "다시 받기 · %1$s"
   }
 }

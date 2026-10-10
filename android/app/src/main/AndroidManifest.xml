@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- 따라 읽기 녹음 (기기 안에만 저장) -->
+    <!-- 앱 밖(Cloudflare R2)에 둔 장의 낭독을 받을 때만 (개인 정보는 보내지 않음) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <!-- 도착 알림 (첫 편지를 끝낸 뒤에 묻는다) · 재시작 후 다시 잡기 -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
