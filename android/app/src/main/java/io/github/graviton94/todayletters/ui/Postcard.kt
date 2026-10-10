@@ -31,6 +31,8 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 
 /**
  * 구절 엽서: 왼쪽은 그 편지의 그림, 오른쪽은 엽서 뒷면처럼 원문 · 번역 · 서명 · 우표.
