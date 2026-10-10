@@ -353,15 +353,17 @@ fun ChapterRow(
         Modifier.fillMaxWidth().heightIn(min = Tokens.Size.row).clickable(role = Role.Button, onClick = onClick).padding(vertical = Tokens.Space.s3),
         horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
     ) {
-        Text(numeral, style = Type.numeral, color = p.giltText)
+        // 번호 칸은 폭을 고정 (I · III · VIII 이어도 제목이 같은 자리에서 시작)
+        Text(numeral, style = Type.numeral, color = p.giltText, modifier = Modifier.width(36.dp))
         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
             val balanced = androidx.compose.ui.text.style.LineBreak.Heading
-            Text(original, style = Type.label.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display, lineBreak = balanced).of(originalLang), color = p.ink)
-            if (read != null) Text(read, style = Type.small.copy(lineBreak = balanced).of(readLang), color = p.ink)
+            val keep = io.github.graviton94.todayletters.core.Breaks::keepAll   // 어절 가운데서 끊기지 않게 (몇 번 거쳐도 같음)
+            Text(keep(original), style = Type.label.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display, lineBreak = balanced).of(originalLang), color = p.ink)
+            if (read != null) Text(keep(read), style = Type.small.copy(lineBreak = balanced).of(readLang), color = p.ink)
             androidx.compose.foundation.layout.FlowRow(
                 Modifier.padding(top = 4.dp), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp),
             ) {
-                Text(meta, style = Type.small.ui(), color = p.inkSoft)
+                Text(keep(meta), style = Type.small.ui(), color = p.inkSoft)
                 capsules()
             }
         }
