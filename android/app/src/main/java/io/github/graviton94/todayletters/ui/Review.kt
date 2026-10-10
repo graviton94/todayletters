@@ -262,7 +262,9 @@ fun Session(s: AppState, r: Route.Session) {
     if (questions.isEmpty()) { LaunchedEffect(Unit) { s.back() }; return }
     if (at >= questions.size) { LaunchedEffect(Unit) { s.store.clearSession(sessionName) }; SessionResult(s, r, results); return }
     val q = questions[at]
-    LaunchedEffect(at) { if (q.kind != ReviewKind.BLANK && q.kind != ReviewKind.SPEAK) s.narrator.play(q.audio) }
+    androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
+    // 새 문제로 오면 앞 문제의 소리(빈칸 문장 등)는 멈추고, 듣는 문제만 새 소리를
+    LaunchedEffect(at) { if (q.kind != ReviewKind.BLANK && q.kind != ReviewKind.SPEAK) s.narrator.play(q.audio) else s.narrator.stop() }
 
     val focusManager = androidx.compose.ui.platform.LocalFocusManager.current
     fun judge(m: Memory.Mark) {
