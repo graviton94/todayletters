@@ -58,6 +58,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import androidx.compose.foundation.gestures.scrollBy
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 
@@ -112,28 +113,51 @@ fun Room(s: AppState, r: Route.Letter) {
     }
     DisposableEffect(letter.id) { onDispose { s.narrator.stop() } }
 
-    // 도착: 남은 문장을 한 조각씩. 조각의 글자가 다 써지면 다음 조각.
+    // 도착: 남은 문장을 한 조각씩. 조각이 놓이면 바로 쓰기 시작하면서 빈센트 목소리로 읽고 (자동 낭독), 화면은 쓰이는 끝을 따라 내려간다.
+    // 글자도 다 써지고 낭독도 끝나면 다음 조각. 조각이 화면 밖이라 ‘다 써짐’ 알림이 오지 않아도 시간이 지나면 다음으로 넘어간다.
     LaunchedEffect(letter.id) {
+        suspend fun toEnd(animated: Boolean) {
+            androidx.compose.runtime.withFrameNanos { }
+            val last = list.layoutInfo.totalItemsCount - 1
+            if (last < 0) return
+            if (animated) list.animateScrollToItem(last) else list.scrollToItem(last)
+            // 마지막 조각이 화면보다 길면 그 아래 끝까지
+            list.scrollBy(100_000f)
+        }
         while (arrived < total) {
             val i = arrived
             writing = true
             if (animate) delay((Tokens.Motion.typingDotsMs * pace).toLong())
             arrived = i + 1
-            list.animateScrollToItem((i + 1).coerceAtMost(list.layoutInfo.totalItemsCount))
-            snapshotFlow { written }.first { it > i }
-            writing = false
-            // 자동 낭독 (기본 켜짐): 조각이 다 써지면 그 문장을 빈센트 목소리로 읽고 나서 다음 조각
-            if (s.app.sound && all == null) {
+            toEnd(animated = animate)
+            val voice = if (s.app.sound && all == null) launch {
                 playing = i
                 suspendCancellableCoroutine { c ->
                     c.invokeOnCancellation { s.narrator.stop() }
                     if (!s.narrator.play(audio(i)) { if (c.isActive) c.resume(Unit) } && c.isActive) c.resume(Unit)
                 }
                 if (playing == i) playing = null
+            } else null
+            // 쓰는 동안 끝을 따라간다 (손으로 넘기는 중이면 기다림)
+            val follow = launch {
+                while (true) {
+                    delay(300)
+                    if (!list.isScrollInProgress) list.scrollBy(100_000f)
+                }
             }
+            val m = letter.messages[i]
+            val lines = (m.text[view.learn].length + (if (view.showRead) m.text[view.read].length else 0)) / 26 + 2
+            val limit = if (animate) lines * (Tokens.Motion.inkLineMs * pace.coerceAtLeast(0.3f)).toLong() + 2500 else 600
+            kotlinx.coroutines.withTimeoutOrNull(limit) { snapshotFlow { written }.first { it > i } }
+            if (written <= i) written = i + 1
+            follow.cancel()
+            writing = false
+            toEnd(animated = animate)
+            voice?.join()
             s.save(id, chapter, letter.id, s.progress(id, chapter, letter.id).copy(shown = i + 1))
             if (animate) delay((Tokens.Motion.inkPauseMs * pace).toLong())
         }
+        toEnd(animated = animate)
     }
 
     val progress = s.progress(id, chapter, letter.id)
