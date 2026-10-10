@@ -56,7 +56,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     val downloads = io.github.graviton94.todayletters.data.Downloads(ctx)
 
     /** 앱 밖에 둔 장의 낭독을 받을지 묻는 중: 받고 나면 (또는 소리 없이 읽기를 고르면) 이 편지를 연다. */
-    data class DownloadAsk(val pack: io.github.graviton94.todayletters.data.Downloads.Pack, val series: String, val chapter: String, val letter: Letter, val from: Route.Tab?)
+    /** 낭독 받기 묻기. [letter] 가 있으면 받은 뒤 그 편지를 열고, 없으면 미리 받기 (받고 끝). */
+    data class DownloadAsk(val pack: io.github.graviton94.todayletters.data.Downloads.Pack, val series: String, val chapter: String, val letter: Letter?, val from: Route.Tab?)
     var downloadAsk by mutableStateOf<DownloadAsk?>(null)
     /** 이번 실행에서 ‘소리 없이 읽기’를 고른 장 (다시 묻지 않음). */
     private val silentChapters = mutableSetOf<String>()
@@ -295,8 +296,16 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     fun downloadFinished(silent: Boolean) {
         val a = downloadAsk ?: return
         downloadAsk = null
+        version++
+        val l = a.letter ?: return
         if (silent) silentChapters += "${a.series}:${a.chapter}"
-        open(a.series, a.chapter, a.letter, a.from, skipAudio = true)
+        open(a.series, a.chapter, l, a.from, skipAudio = true)
+    }
+    /** 미리 받기: 아직 도착하지 않은 장도 (지금은 유료로 막힌 장이 없음). [chapter] 가 null 이면 모든 장. */
+    fun predownload(series: String, chapter: String?) {
+        val pack = if (chapter == null) downloads.all(series) else downloads.pack(series, chapter)
+        if (pack == null || downloads.ready(pack)) return
+        downloadAsk = DownloadAsk(pack, series, pack.chapter, null, null)
     }
 
     fun letterOf(r: Route.Letter): Pair<String, Letter> {

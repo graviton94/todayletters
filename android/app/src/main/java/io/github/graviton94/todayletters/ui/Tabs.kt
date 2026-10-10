@@ -152,6 +152,7 @@ fun SeriesCover(s: AppState, id: String) {
                         Text(stringResource(R.string.chapter_meta, c.letters.size, done), style = Type.small.ui(), color = p.inkSoft)
                     }
                     if (c.free) Text(stringResource(R.string.free), style = Type.small.ui(), color = p.onFill, modifier = Modifier.background(p.fill).padding(horizontal = Tokens.Space.s2))
+                    AudioChip(s, id, c.id)
                 }
                 Hair()
             }
@@ -326,3 +327,21 @@ private fun ModePreview(m: ReplyMode) {
 @Composable
 fun Bordered(content: @Composable () -> Unit) =
     Box(Modifier.fillMaxWidth().border(Tokens.Stroke.hair, Ink.palette.hair).padding(Tokens.Space.s4)) { content() }
+
+/** 장의 낭독 상태 (v19): 앱 안 · 받음 · 받는 중 % · 미리 받기 · 크기. 도착 전 장도 미리 받을 수 있다. */
+@Composable
+private fun AudioChip(s: AppState, id: String, chapter: String) {
+    val p = Ink.palette
+    s.version
+    val pack = s.downloads.pack(id, chapter)
+    val asking = s.downloadAsk?.let { it.series == id && (it.chapter == chapter || it.chapter == io.github.graviton94.todayletters.data.Downloads.ALL) } == true
+    val (label, filled) = when {
+        pack == null || s.downloads.ready(pack) -> stringResource(R.string.audio_ready) to false
+        asking -> stringResource(R.string.audio_getting) to false
+        else -> stringResource(R.string.audio_ahead, sizeLabel(s.downloads.remaining(pack))) to true
+    }
+    Box(
+        Modifier.then(if (filled) Modifier.background(p.ink) else Modifier.border(1.dp, if (pack == null || s.downloads.ready(pack)) p.correct else p.ink))
+            .pressable(enabled = filled) { s.predownload(id, chapter) }.padding(horizontal = Tokens.Space.s2, vertical = 6.dp),
+    ) { Text(label, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = if (filled) p.paper else if (pack == null || s.downloads.ready(pack)) p.correct else p.ink) }
+}

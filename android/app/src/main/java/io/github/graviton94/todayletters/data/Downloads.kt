@@ -22,6 +22,7 @@ import java.util.concurrent.atomic.AtomicLong
  * 계정 · 학습 기록 같은 것은 보내지 않는다: 공개 주소에서 파일을 받기만 한다.
  */
 class Downloads(private val ctx: Context) {
+    companion object { const val ALL = "*" }
     data class Part(val path: String, val size: Long)
     data class Pack(val series: String, val chapter: String, val bytes: Long, val parts: List<Part>)
 
@@ -39,6 +40,19 @@ class Downloads(private val ctx: Context) {
             }.getOrNull()
         }
     }
+
+    /** 이 작품에서 앱 밖에 둔 모든 장을 한 묶음으로 (설정 › 저장 공간의 ‘모두 받기’). 없으면 null. */
+    fun all(series: String): Pack? {
+        val packs = load(series)?.second?.values?.sortedBy { it.chapter }.orEmpty()
+        if (packs.isEmpty()) return null
+        return Pack(series, ALL, packs.sumOf { it.bytes }, packs.flatMap { it.parts })
+    }
+
+    /** 받아 둔 낭독의 크기 (바이트). */
+    fun stored(): Long = File(ctx.filesDir, "audio").walkTopDown().filter { it.isFile }.sumOf { it.length() }
+
+    /** 받아 둔 낭독을 모두 지운다 (앱 안에 든 1장 낭독은 그대로). */
+    fun clear() { File(ctx.filesDir, "audio").deleteRecursively() }
 
     /** 이 장의 낭독이 앱 밖에 있는가. 없으면 null (앱 안에 들어 있는 장). */
     fun pack(series: String, chapter: String): Pack? = load(series)?.second?.get(chapter)

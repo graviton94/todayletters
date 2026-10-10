@@ -642,4 +642,15 @@
     <string name="today_reread">Reread today\'s letter</string>
     <string name="today_all_letters">All letters ›</string>
     <string name="today_chapter_count">Ch. %1$s %2$d/%3$d</string>
+    <string name="meaning_prompt">What does this word mean?</string>
+    <string name="dl_all_chapters">All chapters</string>
+    <string name="dl_body_ahead">You can download the reading of letters that haven\'t arrived yet (%1$s). Then they play without data on the day they arrive.</string>
+    <string name="set_storage">Storage</string>
+    <string name="set_storage_used">Downloaded readings: %1$s</string>
+    <string name="set_storage_all">Download all readings · %1$s</string>
+    <string name="set_storage_clear">Delete downloaded readings</string>
+    <string name="set_storage_clear_sure">Tap again to delete</string>
+    <string name="audio_ready">✓ Reading here</string>
+    <string name="audio_getting">Downloading…</string>
+    <string name="audio_ahead">Get ahead · %1$s</string>
 </resources>

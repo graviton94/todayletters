@@ -2563,5 +2563,49 @@
   "today_chapter_count": {
     "en": "Ch. %1$s %2$d/%3$d",
     "ko": "%1$s장 %2$d/%3$d"
+  },
+  "meaning_prompt": {
+    "en": "What does this word mean?",
+    "ko": "이 낱말의 뜻은?"
+  },
+  "dl_all_chapters": {
+    "en": "All chapters",
+    "ko": "모든 장"
+  },
+  "dl_body_ahead": {
+    "en": "You can download the reading of letters that haven't arrived yet (%1$s). Then they play without data on the day they arrive.",
+    "ko": "아직 도착하지 않은 편지의 낭독도 미리 받아 둘 수 있어요 (%1$s). 받아 두면 편지가 도착한 날 데이터 없이 바로 들려요."
+  },
+  "set_storage": {
+    "en": "Storage",
+    "ko": "저장 공간"
+  },
+  "set_storage_used": {
+    "en": "Downloaded readings: %1$s",
+    "ko": "받아 둔 낭독: %1$s"
+  },
+  "set_storage_all": {
+    "en": "Download all readings · %1$s",
+    "ko": "모든 낭독 받기 · %1$s"
+  },
+  "set_storage_clear": {
+    "en": "Delete downloaded readings",
+    "ko": "받아 둔 낭독 지우기"
+  },
+  "set_storage_clear_sure": {
+    "en": "Tap again to delete",
+    "ko": "한 번 더 누르면 지워요"
+  },
+  "audio_ready": {
+    "en": "✓ Reading here",
+    "ko": "✓ 낭독 있음"
+  },
+  "audio_getting": {
+    "en": "Downloading…",
+    "ko": "받는 중…"
+  },
+  "audio_ahead": {
+    "en": "Get ahead · %1$s",
+    "ko": "미리 받기 · %1$s"
   }
 }

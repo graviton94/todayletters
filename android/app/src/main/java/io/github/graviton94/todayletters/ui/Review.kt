@@ -37,6 +37,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.foundation.Canvas
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
@@ -262,6 +265,13 @@ fun Session(s: AppState, r: Route.Session) {
     if (questions.isEmpty()) { LaunchedEffect(Unit) { s.back() }; return }
     if (at >= questions.size) { LaunchedEffect(Unit) { s.store.clearSession(sessionName) }; SessionResult(s, r, results); return }
     val q = questions[at]
+    // 이름표의 번호: 그 낱말이 나온 편지 (N° 027 · LETTRE I)
+    val tag = remember(q.card.key) {
+        s.cardWord(q.card.key)?.let { (w, cl, wi) ->
+            val n = w.chapters.flatMap { it.letters }.indexOf(cl.second) + 1
+            "N° ${"%03d".format(wi + 1)} · LETTRE ${roman(n)}"
+        }.orEmpty()
+    }
     androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
     // 새 문제로 오면 앞 문제의 소리(빈칸 문장 등)는 멈추고, 듣는 문제만 새 소리를
     LaunchedEffect(at) { if (q.kind != ReviewKind.BLANK && q.kind != ReviewKind.SPEAK) s.narrator.play(q.audio) else s.narrator.stop() }
@@ -375,7 +385,7 @@ fun Session(s: AppState, r: Route.Session) {
                 }
                 ReviewKind.BLANK -> {
                     Text(stringResource(R.string.blank_prompt), style = Type.heading.ui(), color = p.ink)
-                    SentenceHint(q, filled = mark != null, highlight = hint || mark != null)
+                    BlankPaper(q, filled = mark != null, highlight = hint || mark != null)
                     // 번역에서 찾기: 빈칸 낱말에 해당하는 말을 번역 문장에서 금빛으로 (맞히면 그대로 맞은 것으로)
                     if (!hint && mark == null && q.sentenceRead != null && q.read != q.learn) Text(
                         stringResource(R.string.blank_hint), style = Type.small.ui(), color = p.giltText,
@@ -384,17 +394,18 @@ fun Session(s: AppState, r: Route.Session) {
                 }
                 ReviewKind.SPEAK -> SpeakPane(s, q, mark) { judge(it) }
                 ReviewKind.MEANING -> {
-                    Text(q.word, style = Type.display.of(q.learn), color = p.ink)
-                    if (q.ipa.isNotEmpty()) Text("[${q.ipa}]", style = Type.small, color = p.inkSoft)
-                    SpeakerButton(false, stringResource(R.string.listen_line), onDark = true) { s.narrator.play(q.audio) }
+                    LabelCard(q, tag) { s.narrator.play(q.audio) }
+                    Text(stringResource(R.string.meaning_prompt), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth())
                 }
             }
-            if (q.kind != ReviewKind.DICTATION && q.kind != ReviewKind.SPEAK) OptionsGrid(q, picked, mark, missed, retry, shakeKey) { o ->
+            val choose: (String) -> Unit = { o ->
                 if (mark == null && !retry) {
                     picked = o
                     if (o == (if (q.kind == ReviewKind.MEANING) q.meaning else q.word)) judge(Memory.Mark.RIGHT) else miss(o)
                 }
             }
+            if (q.kind == ReviewKind.MEANING) IndexOptions(q, picked, mark, missed, retry, shakeKey, choose)
+            if (q.kind == ReviewKind.BLANK) TypeTiles(q, picked, mark, missed, retry, shakeKey, choose)
             if (mark == Memory.Mark.RIGHT || mark == Memory.Mark.ACCENT) CorrectBurst(still = s.reducedMotion)
         }
         if (q.kind == ReviewKind.DICTATION && mark == null) {
@@ -452,7 +463,8 @@ fun Session(s: AppState, r: Route.Session) {
         }
         val nextLabel = stringResource(if (at == questions.lastIndex) R.string.review_finish else R.string.ob_next)
         // 그 낱말의 뜻 · 발음 (뜻 고르기는 고른 것이 뜻이니 낱말을)
-        val detail = listOfNotNull(q.word, q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, q.meaning).joinToString("  ·  ")
+        val detail = listOfNotNull(q.word, q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, q.meaning).joinToString("  ·  ") +
+            (if (q.kind == ReviewKind.MEANING) snippet(q)?.let { "\n“$it” · $tag" }.orEmpty() else "")
         when {
             retry -> FeedbackBar(
                 ok = false, title = stringResource(R.string.practice_retry_title),
@@ -802,6 +814,109 @@ fun QuotesScreen(s: AppState) {
                     }
                 }
             }
+        }
+    }
+}
+
+/** 편지 문장에서 그 낱말 둘레 한 토막 (앞뒤 30자 남짓). */
+private fun snippet(q: Q): String? {
+    val sen = q.sentence ?: return null
+    val key = q.inText ?: q.word
+    val i = sen.indexOf(key, ignoreCase = true).takeIf { it >= 0 } ?: return null
+    val a = (i - 30).coerceAtLeast(0).let { k -> sen.lastIndexOf(' ', k).takeIf { it in 0 until i }?.plus(1) ?: k }
+    val b = (i + key.length + 30).coerceAtMost(sen.length).let { k -> sen.indexOf(' ', k).takeIf { it >= 0 } ?: sen.length }
+    return (if (a > 0) "…" else "") + sen.substring(a, b).trim() + (if (b < sen.length) "…" else "")
+}
+
+/** 뜻 고르기의 낱말: 작품 이름표처럼 (번호 · 어느 편지 · 큰 낱말 · 듣기 · 발음). */
+@Composable
+private fun LabelCard(q: Q, tag: String, onListen: () -> Unit) {
+    val p = Ink.palette
+    Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s4),
+        verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        if (tag.isNotEmpty()) Caps(tag, p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
+        Text(q.word, style = Type.display.copy(fontFamily = Faces.display).of(q.learn), color = p.ink)
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape).pressable { onListen() }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) }
+            if (q.ipa.isNotEmpty()) Text("[${q.ipa}]", style = Type.small, color = p.inkSoft)
+        }
+    }
+}
+
+/** 뜻 고르기의 보기: 색인 카드 목록 A–D. 맞으면 초록 줄 + ✓, 틀리면 붉은 취소선 (그 줄은 다시 못 고름). */
+@Composable
+private fun IndexOptions(q: Q, picked: String?, mark: Memory.Mark?, missed: Set<String>, retry: Boolean, shakeKey: Int, onPick: (String) -> Unit) {
+    val p = Ink.palette
+    val right = q.meaning
+    Column(Modifier.fillMaxWidth()) {
+        Hair()
+        q.options.forEachIndexed { k, o ->
+            val st = when {
+                mark == null && o in missed -> if (retry && o == picked) 2 else 3
+                mark == null -> 0; o == right -> 1; o == picked -> 2; else -> 3
+            }
+            val c = when (st) { 1 -> p.correct; 2 -> p.wrong; 3 -> p.hideInk; else -> p.ink }
+            Row(
+                Modifier.fillMaxWidth().heightIn(min = 52.dp).then(if (st == 2 && o == picked) Modifier.shake(shakeKey) else Modifier)
+                    .background(if (st == 1) p.correct.copy(alpha = 0.12f) else Color.Transparent)
+                    .pressable(enabled = mark == null && !retry && o !in missed) { onPick(o) }.padding(horizontal = Tokens.Space.s2),
+                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
+            ) {
+                Text("ABCD".getOrElse(k) { ' ' }.toString(), style = Type.caps, color = if (st == 0) p.giltText else c)
+                Text(o, style = Type.body.of(q.read).copy(textDecoration = if (st == 2) androidx.compose.ui.text.style.TextDecoration.LineThrough else null),
+                    color = c, modifier = Modifier.weight(1f))
+                if (st == 1) Text("✓", style = Type.body, color = p.correct)
+            }
+            Hair()
+        }
+    }
+}
+
+/** 빈칸 채우기의 문장: 편지지 위에, 빈칸은 금빛 밑줄. 맞으면 그 자리에 낱말이 끼워지고 번역 쪽 말도 금빛. */
+@Composable
+private fun BlankPaper(q: Q, filled: Boolean, highlight: Boolean) {
+    val p = Ink.palette
+    if (q.sentence == null) return
+    val key = q.inText ?: q.word
+    val gap = "\u2007".repeat(key.length.coerceIn(4, 10))
+    val text = androidx.compose.ui.text.buildAnnotatedString {
+        val i = q.sentence.indexOf(key, ignoreCase = true)
+        if (i < 0) { append(q.sentence); return@buildAnnotatedString }
+        append(q.sentence.substring(0, i))
+        withStyle(androidx.compose.ui.text.SpanStyle(color = p.giltText, textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline,
+            fontStyle = androidx.compose.ui.text.font.FontStyle.Normal, fontWeight = if (filled) androidx.compose.ui.text.font.FontWeight.SemiBold else null)) {
+            append(if (filled) q.sentence.substring(i, i + key.length) else gap)
+        }
+        append(q.sentence.substring(i + key.length))
+    }
+    Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        Text(text, style = Type.target.copy(fontFamily = Faces.display, fontStyle = androidx.compose.ui.text.font.FontStyle.Italic).of(q.learn), color = p.ink)
+        if (q.sentenceRead != null) Text(
+            if (highlight) meaningMarks(q.sentenceRead, q.meaning, p.ink) else androidx.compose.ui.text.AnnotatedString(q.sentenceRead),
+            style = Type.small.of(q.read), color = p.inkSoft,
+        )
+    }
+}
+
+/** 빈칸 채우기의 보기: 활자 조각. 맞은 조각은 빈칸으로 들어가 자리만 남고, 틀린 조각은 비틀리며 붉게 (다시 못 고름). */
+@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
+@Composable
+private fun TypeTiles(q: Q, picked: String?, mark: Memory.Mark?, missed: Set<String>, retry: Boolean, shakeKey: Int, onPick: (String) -> Unit) {
+    val p = Ink.palette
+    androidx.compose.foundation.layout.FlowRow(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2, Alignment.CenterHorizontally),
+        verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        q.options.forEach { o ->
+            val used = mark != null && o == q.word                       // 빈칸으로 들어감
+            val bad = o in missed && (mark != null || (retry && o == picked)) || (mark == Memory.Mark.WRONG && o == picked)
+            val gone = (o in missed && !bad) || used
+            val alpha by androidx.compose.animation.core.animateFloatAsState(if (gone) 0.18f else 1f, androidx.compose.animation.core.tween(Tokens.Motion.fadeMs), label = "tile")
+            val c = if (bad) p.wrong else p.ink
+            Box(
+                Modifier.then(if (bad) Modifier.shake(shakeKey) else Modifier).graphicsLayer { this.alpha = alpha; rotationZ = if (bad) -3f else 0f }
+                    .background(p.paper).border(1.dp, c).drawBehind { drawRect(c, androidx.compose.ui.geometry.Offset(0f, size.height), androidx.compose.ui.geometry.Size(size.width, 2.dp.toPx())) }
+                    .pressable(enabled = mark == null && !retry && o !in missed) { onPick(o) }
+                    .padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s2),
+            ) { Text(o, style = Type.heading.copy(fontFamily = Faces.display).of(q.learn), color = c) }
         }
     }
 }

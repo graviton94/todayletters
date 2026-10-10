@@ -53,7 +53,8 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
     var got by remember { mutableLongStateOf(0L) }
     var frac by remember { mutableFloatStateOf(0f) }
     var failed by remember { mutableStateOf(false) }
-    val chapterTitle = s.work(ask.series).chapters.firstOrNull { it.id == ask.chapter }?.title?.get(uiLang()).orEmpty()
+    val chapterTitle = if (ask.chapter == io.github.graviton94.todayletters.data.Downloads.ALL) stringResource(R.string.dl_all_chapters)
+        else s.work(ask.series).chapters.firstOrNull { it.id == ask.chapter }?.title?.get(uiLang()).orEmpty()
 
     fun close() { job?.cancel(); job = null; s.downloadAsk = null }
     fun start() {
@@ -77,7 +78,7 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
             Caps("AUDIO", p.giltText, small = true, decorative = true)
             Text(stringResource(R.string.dl_title, chapterTitle), style = Type.heading.ui(), color = p.ink)
             if (job == null) {
-                Text(stringResource(if (failed) R.string.dl_failed else R.string.dl_body, sizeLabel(remaining)), style = Type.small.ui(), color = p.inkSoft)
+                Text(stringResource(if (failed) R.string.dl_failed else if (ask.letter == null) R.string.dl_body_ahead else R.string.dl_body, sizeLabel(remaining)), style = Type.small.ui(), color = p.inkSoft)
                 if (mobile && !failed) Text(stringResource(R.string.dl_mobile), style = Type.small.ui(), color = p.giltText)
                 Box(Modifier.height(Tokens.Space.s2))
                 Primary(stringResource(if (failed) R.string.dl_retry else R.string.dl_go, sizeLabel(remaining))) { start() }
@@ -85,7 +86,7 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
                     Box(Modifier.heightIn(min = 44.dp).pressable { close() }, contentAlignment = Alignment.CenterStart) {
                         Text(stringResource(R.string.back), style = Type.body.ui().copy(textDecoration = TextDecoration.Underline), color = p.ink)
                     }
-                    Box(Modifier.heightIn(min = 44.dp).pressable { s.downloadFinished(silent = true) }, contentAlignment = Alignment.CenterEnd) {
+                    if (ask.letter != null) Box(Modifier.heightIn(min = 44.dp).pressable { s.downloadFinished(silent = true) }, contentAlignment = Alignment.CenterEnd) {
                         Text(stringResource(R.string.dl_silent), style = Type.body.ui().copy(textDecoration = TextDecoration.Underline), color = p.inkSoft)
                     }
                 }

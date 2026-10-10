@@ -642,4 +642,15 @@
     <string name="today_reread">오⁠늘⁠의 편⁠지 다⁠시 읽⁠기</string>
     <string name="today_all_letters">전⁠체 편⁠지 목⁠록 ›</string>
     <string name="today_chapter_count">%1$s⁠장 %2$d/%3$d</string>
+    <string name="meaning_prompt">이 낱⁠말⁠의 뜻⁠은⁠?</string>
+    <string name="dl_all_chapters">모⁠든 장</string>
+    <string name="dl_body_ahead">아⁠직 도⁠착⁠하⁠지 않⁠은 편⁠지⁠의 낭⁠독⁠도 미⁠리 받⁠아 둘 수 있⁠어⁠요 (%1$s). 받⁠아 두⁠면 편⁠지⁠가 도⁠착⁠한 날 데⁠이⁠터 없⁠이 바⁠로 들⁠려⁠요⁠.</string>
+    <string name="set_storage">저⁠장 공⁠간</string>
+    <string name="set_storage_used">받⁠아 둔 낭⁠독⁠: %1$s</string>
+    <string name="set_storage_all">모⁠든 낭⁠독 받⁠기 · %1$s</string>
+    <string name="set_storage_clear">받⁠아 둔 낭⁠독 지⁠우⁠기</string>
+    <string name="set_storage_clear_sure">한 번 더 누⁠르⁠면 지⁠워⁠요</string>
+    <string name="audio_ready">✓ 낭⁠독 있⁠음</string>
+    <string name="audio_getting">받⁠는 중⁠…</string>
+    <string name="audio_ahead">미⁠리 받⁠기 · %1$s</string>
 </resources>

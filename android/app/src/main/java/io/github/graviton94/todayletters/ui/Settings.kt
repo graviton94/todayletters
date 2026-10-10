@@ -18,6 +18,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import io.github.graviton94.todayletters.R
@@ -75,6 +77,22 @@ fun SettingsScreen(s: AppState) {
             Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), a.sound) { s.update(a.copy(sound = it)) }
             Label(stringResource(R.string.set_haptics))
             Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), a.haptics) { s.update(a.copy(haptics = it)) }
+
+            // 저장 공간 (v19): 받아 둔 낭독 · 모두 받기 · 지우기
+            Caps(stringResource(R.string.set_storage), p.giltText)
+            s.version
+            val stored = remember(s.version) { s.downloads.stored() }
+            val ahead = remember(s.version) { s.works.mapNotNull { w -> s.downloads.all(w.series.id)?.takeIf { !s.downloads.ready(it) } } }
+            Text(stringResource(R.string.set_storage_used, sizeLabel(stored)), style = Type.small.ui(), color = p.inkSoft)
+            ahead.firstOrNull()?.let { pk ->
+                Secondary(stringResource(R.string.set_storage_all, sizeLabel(ahead.sumOf { s.downloads.remaining(it) }))) {
+                    s.settingsOpen = false; s.predownload(pk.series, null)
+                }
+            }
+            var sure by remember { mutableStateOf(false) }
+            if (stored > 0) Secondary(stringResource(if (sure) R.string.set_storage_clear_sure else R.string.set_storage_clear)) {
+                if (sure) { s.downloads.clear(); sure = false; s.version++ } else sure = true
+            }
 
             Caps(stringResource(R.string.set_help), p.giltText)
             Secondary(stringResource(R.string.set_help_again)) { s.coachReset(); s.settingsOpen = false }
