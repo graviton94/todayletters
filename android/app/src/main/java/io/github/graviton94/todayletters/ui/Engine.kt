@@ -63,6 +63,7 @@ import io.github.graviton94.todayletters.design.SeriesTheme
 import io.github.graviton94.todayletters.design.SeriesTone
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
+import io.github.graviton94.todayletters.design.uiHangul
 
 /**
  * 보상 · 갤러리 엔진의 화면들. 모두 시리즈 공통 틀이고, 이름 · 색 · 소장품만 키트([io.github.graviton94.todayletters.core.Kit])에서 온다.
@@ -483,4 +484,14 @@ fun RecitalScreen(s: AppState) {
             else Primary(stringResource(R.string.recital_finish, w.kit.currency[uiLang()]), enabled = takes.isNotEmpty()) { s.recitalFinish() }
         }
     }
+}
+
+/** 낱말 성장 단계의 이름 (만남 → … → 내 것). */
+val io.github.graviton94.todayletters.core.Growth.Stage.label: Int get() = when (this) {
+    io.github.graviton94.todayletters.core.Growth.Stage.MEET -> R.string.stage_meet
+    io.github.graviton94.todayletters.core.Growth.Stage.RECOGNIZE -> R.string.stage_recognize
+    io.github.graviton94.todayletters.core.Growth.Stage.RECALL -> R.string.stage_recall
+    io.github.graviton94.todayletters.core.Growth.Stage.WRITE -> R.string.stage_write
+    io.github.graviton94.todayletters.core.Growth.Stage.SPEAK -> R.string.stage_speak
+    io.github.graviton94.todayletters.core.Growth.Stage.OWN -> R.string.stage_own
 }
