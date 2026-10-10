@@ -233,6 +233,28 @@ class Store(ctx: Context) {
     fun markPassed(key: String) = add("pass", key)
     val sealSeen: Set<String> get() = set("sealseen")
     fun markSealSeen(key: String) = add("sealseen", key)
+    // ── v21 3단계 ─────────────────────────────────────────
+    /** 작품마다 고른 액자 (Frames.Kind 이름). 없으면 등급의 기본 액자. */
+    fun frameOf(piece: String): String? = p.getString("frame:$piece", null)
+    fun setFrame(piece: String, kind: String) = p.edit().putString("frame:$piece", kind).apply()
+    /** 산 작품 카드 테두리 · 지금 쓰는 테두리. */
+    fun borders(): Set<String> = set("borders") + "PLAIN"
+    fun addBorder(b: String) = add("borders", b)
+    var border: String
+        get() = p.getString("border", "PLAIN")!!
+        set(v) = p.edit().putString("border", v).apply()
+    /** 다 모은 전시 (전시 id:연월) — 도록 표지. */
+    fun catalogues(): Set<String> = set("catalogues")
+    fun addCatalogue(k: String) = add("catalogues", k)
+    /** 이번 주 돌아보기 (E1): 날마다 쉼표로 이은 날 · 끝낸 편지 · 새로 ‘내 것’ · 걸린 작품. 값은 "날:열쇠". 60일만 둔다. */
+    fun dayLog(kind: String): List<Pair<Long, String>> = set("log:$kind").mapNotNull { e -> e.substringBefore(":").toLongOrNull()?.let { it to e.substringAfter(":") } }
+    fun logDay(kind: String, day: Long, key: String) =
+        p.edit().putStringSet("log:$kind", (set("log:$kind") + "$day:$key").filter { (it.substringBefore(":").toLongOrNull() ?: 0) > day - 60 }.toSet()).apply()
+    /** 저녁 알림 (E2): 이어 읽기가 끊기기 전 한 번. -1 이면 끔. */
+    var eveningHour: Int
+        get() = p.getInt("evening", 20)
+        set(v) = p.edit().putInt("evening", v).apply()
+
     /** 편지 도착 연출을 본 편지 (v21 2단계 D1: 처음 열 때 한 번만). */
     fun arrived(key: String) = key in set("arrived")
     fun markArrived(key: String) = add("arrived", key)

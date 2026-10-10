@@ -227,6 +227,12 @@ fun OverallScreen(s: AppState) {
                 }
             }
             if (all.isEmpty()) Text(stringResource(R.string.overall_gallery_empty), style = Type.small.ui(), color = p.inkSoft)
+            // 도록 (E4): 다 모은 이달의 전시
+            val cats = s.works.flatMap { w -> s.catalogues(w.series.id).map { w to it } }
+            if (cats.isNotEmpty()) {
+                Text(stringResource(R.string.overall_catalogues), style = Type.heading.ui(), color = p.ink, modifier = Modifier.padding(top = Tokens.Space.s2))
+                cats.forEachIndexed { k, (w, c) -> CatalogueCover(s, w, c.first, c.second, c.third, k + 1) }
+            }
             // 전체 이정표
             Text(stringResource(R.string.overall_milestones), style = Type.heading.ui(), color = p.ink, modifier = Modifier.padding(top = Tokens.Space.s2))
             Column {
@@ -246,7 +252,7 @@ fun OverallScreen(s: AppState) {
             Spacer(Modifier.height(Tokens.Space.s5))
         }
     }
-    open?.let { pc -> PieceView(pc) { open = null } }
+    open?.let { pc -> PieceView(pc, frame = s.frameKind(pc)) { open = null } }
 }
 
 @Composable

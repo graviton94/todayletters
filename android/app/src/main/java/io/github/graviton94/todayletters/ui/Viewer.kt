@@ -56,7 +56,7 @@ fun rememberAsset(path: String): ImageBitmap? {
  * 처음에는 그림 전체가 다 보이게 맞추고, 두 손가락으로 키우면 위아래 양옆 어디로나 끌어 볼 수 있다. 두 번 누르면 그 자리를 확대 / 원래대로.
  */
 @Composable
-fun ZoomViewer(bmp: ImageBitmap?, caption: String?, credit: String?, onClose: () -> Unit, action: Pair<String, () -> Unit>? = null) {
+fun ZoomViewer(bmp: ImageBitmap?, caption: String?, credit: String?, onClose: () -> Unit, action: Pair<String, () -> Unit>? = null, action2: Pair<String, () -> Unit>? = null) {
     val ink = Color(0xFFEADFC8); val soft = Color(0xFFA8977C)
     BackHandler { onClose() }
     var scale by remember(bmp) { mutableFloatStateOf(1f) }
@@ -108,6 +108,8 @@ fun ZoomViewer(bmp: ImageBitmap?, caption: String?, credit: String?, onClose: ()
             if (!credit.isNullOrBlank()) Text(credit, style = Type.small.copy(fontSize = Tokens.Text.caps), color = soft, textAlign = TextAlign.Center)
             if (action != null) Box(Modifier.fillMaxWidth().padding(top = 6.dp).border(1.dp, Color(0xFFD2A955)).pressable { action.second() }.padding(vertical = 10.dp),
                 contentAlignment = Alignment.Center) { Text(action.first, style = Type.small.ui(), color = Color(0xFFD2A955)) }
+            if (action2 != null) Box(Modifier.fillMaxWidth().padding(top = 6.dp).border(1.dp, soft).pressable { action2.second() }.padding(vertical = 10.dp),
+                contentAlignment = Alignment.Center) { Text(action2.first, style = Type.small.ui(), color = ink) }
             Text(stringResource(R.string.viewer_hint), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = soft.copy(alpha = 0.8f),
                 textAlign = TextAlign.Center, modifier = Modifier.padding(top = 4.dp))
         }

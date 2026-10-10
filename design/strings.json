@@ -2125,8 +2125,8 @@
     "ko": "전시 자료"
   },
   "expo_complete": {
-    "en": "Exhibition complete · the catalogue cover is yours",
-    "ko": "전시 완성 · 도록 표지가 갤러리에 남았어요"
+    "en": "Exhibition complete · the catalogue cover is in My records",
+    "ko": "전시 완성 · 도록 표지가 내 기록에 남았어요"
   },
   "gallery_letter_note": {
     "en": "A letter's piece goes up when you finish reading that letter.",
@@ -2875,5 +2875,333 @@
   "quotes_n": {
     "en": "%1$d",
     "ko": "%1$d개"
+  },
+  "earn_exhibition": {
+    "en": "Exhibition complete",
+    "ko": "이달의 전시 완성"
+  },
+  "frame_sketch": {
+    "en": "Thin wooden frame",
+    "ko": "얇은 나무 액자"
+  },
+  "frame_drawing": {
+    "en": "Wooden frame with mat",
+    "ko": "나무 액자 + 매트"
+  },
+  "frame_painting": {
+    "en": "Carved gilt frame",
+    "ko": "도금 조각 액자"
+  },
+  "frame_master": {
+    "en": "Ornate gilt frame",
+    "ko": "장식 금박 액자"
+  },
+  "reward_master": {
+    "en": "A masterpiece is on the wall",
+    "ko": "명작이 걸렸어요"
+  },
+  "reward_catalogue": {
+    "en": "You collected the whole exhibition",
+    "ko": "이달의 전시를 다 모았어요"
+  },
+  "reward_catalogue_gain": {
+    "en": "%1$s for the exhibition",
+    "ko": "전시를 다 모은 %1$s"
+  },
+  "reward_catalogue_open": {
+    "en": "Look through the catalogue",
+    "ko": "도록 넘겨 보기"
+  },
+  "reward_odds": {
+    "en": "about %1$d in 100 draws",
+    "ko": "뽑기 100번 중 %1$d번꼴"
+  },
+  "reward_from_ach": {
+    "en": "Every third milestone brings a guaranteed masterpiece.",
+    "ko": "셋째 이정표마다 확정으로 오는 작품이에요."
+  },
+  "reward_lines": {
+    "en": "details",
+    "ko": "내역"
+  },
+  "catalogue_foot": {
+    "en": "Lingua Museum · %1$s room",
+    "ko": "언어 미술관 · %1$s 전시실"
+  },
+  "medal_1": {
+    "en": "Medal of the national applied-arts exhibition, The Hague 1888",
+    "ko": "1888 헤이그 국립 공예 전람회 메달"
+  },
+  "medal_2": {
+    "en": "Prize medal of the Arnhem art exhibition, 1901",
+    "ko": "아른험 미술 전람회 상패 (1901)"
+  },
+  "medal_3": {
+    "en": "Medal of the international art exhibition in Munich",
+    "ko": "뮌헨 국제 미술 전람회 메달"
+  },
+  "medal_4": {
+    "en": "Medal of the international painting exhibition, Amsterdam",
+    "ko": "암스테르담 국제 회화 전람회 메달"
+  },
+  "medal_5": {
+    "en": "Medal of the international photography exhibition, Amsterdam 1891",
+    "ko": "1891 암스테르담 국제 사진 전람회 메달"
+  },
+  "medal_6": {
+    "en": "Prize medal of the Arnhem art exhibition, 1901 (reverse)",
+    "ko": "아른험 미술 전람회 상패 (1901, 뒷면)"
+  },
+  "medal_7": {
+    "en": "Drawing prize of the 's-Hertogenbosch academy",
+    "ko": "스헤르토헨보스 미술 아카데미 데생 상패"
+  },
+  "medal_8": {
+    "en": "Prize medal of a society for art and science",
+    "ko": "예술 · 학문 진흥 협회 상패"
+  },
+  "medals_note": {
+    "en": "%2$d of %1$d · each milestone is a real exhibition medal · every third brings a masterpiece",
+    "ko": "%1$d개 중 %2$d개 · 이정표마다 실제 전람회 메달 한 점 · 셋째마다 명작"
+  },
+  "medal_got": {
+    "en": "Received · %1$s",
+    "ko": "받음 · %1$s"
+  },
+  "medal_master": {
+    "en": "Masterpiece guaranteed",
+    "ko": "명작 확정"
+  },
+  "medal_left": {
+    "en": "%1$d now · %2$d to go",
+    "ko": "지금 %1$d · %2$d 남았어요"
+  },
+  "medal_credit": {
+    "en": "Medal: %1$s · Rijksmuseum · CC0",
+    "ko": "메달: %1$s · Rijksmuseum · CC0"
+  },
+  "medal_cast": {
+    "en": "When you get it, the plaster model turns to metal",
+    "ko": "받으면 석고 본이 금속 메달로 바뀌어요"
+  },
+  "medal_gift": {
+    "en": "When you get it: 10 %1$s",
+    "ko": "받으면: %1$s 10"
+  },
+  "medal_gift_master": {
+    "en": "When you get it: a guaranteed masterpiece in the gallery · 10 %1$s",
+    "ko": "받으면: 갤러리에 명작 한 점 확정 · %1$s 10"
+  },
+  "spend_g_streak": {
+    "en": "Reading days",
+    "ko": "이어 읽기"
+  },
+  "spend_g_letter": {
+    "en": "Letters",
+    "ko": "편지"
+  },
+  "spend_g_gallery": {
+    "en": "Gallery",
+    "ko": "갤러리"
+  },
+  "spend_g_card": {
+    "en": "Cards",
+    "ko": "카드"
+  },
+  "spend_frame": {
+    "en": "Change a frame",
+    "ko": "액자 바꾸기"
+  },
+  "spend_frame_d": {
+    "en": "Put one of your pieces in another frame (wood · gilt · ornate gilt)",
+    "ko": "가진 작품 하나에 다른 액자 (나무 · 도금 · 장식 금박)"
+  },
+  "spend_frame_hint": {
+    "en": "Open a piece in the gallery and choose ‘Change frame’.",
+    "ko": "갤러리에서 작품을 열고 ‘액자 바꾸기’를 눌러요."
+  },
+  "spend_border": {
+    "en": "Card borders",
+    "ko": "카드 테두리"
+  },
+  "spend_border_d": {
+    "en": "Borders for painting cards · buy once, keep it",
+    "ko": "작품 카드에 쓰는 테두리 · 한 번 사면 계속"
+  },
+  "spend_free_note": {
+    "en": "Letters, review and hints are always free. Stamps only buy decorations and conveniences.",
+    "ko": "배움(편지 · 복습 · 힌트)은 우표 없이 늘 열려 있어요. 우표로는 꾸미기와 편의만 사요."
+  },
+  "border_note": {
+    "en": "Tap one you own to use it.",
+    "ko": "가진 테두리는 눌러서 바로 써요."
+  },
+  "border_on": {
+    "en": "In use",
+    "ko": "쓰는 중"
+  },
+  "border_owned": {
+    "en": "Owned",
+    "ko": "가짐"
+  },
+  "border_plain": {
+    "en": "Plain",
+    "ko": "기본"
+  },
+  "border_postmark": {
+    "en": "Postmark",
+    "ko": "소인"
+  },
+  "border_gilt": {
+    "en": "Gilt",
+    "ko": "금박"
+  },
+  "border_paint": {
+    "en": "Paint",
+    "ko": "물감"
+  },
+  "frame_change": {
+    "en": "Change frame",
+    "ko": "액자 바꾸기"
+  },
+  "frame_note": {
+    "en": "Real empty frames from the Rijksmuseum (CC0).",
+    "ko": "레이크스 미술관의 실제 빈 액자들이에요 (CC0)."
+  },
+  "week_title": {
+    "en": "This week",
+    "ko": "이번 주"
+  },
+  "week_line": {
+    "en": "%1$d days · %2$d letters · %3$d words made yours",
+    "ko": "%1$d일 배움 · 편지 %2$d통 · 새로 내 것 %3$d"
+  },
+  "week_range": {
+    "en": "%1$s – %2$s",
+    "ko": "%1$s – %2$s"
+  },
+  "week_rest": {
+    "en": "rest",
+    "ko": "쉼"
+  },
+  "week_streak": {
+    "en": "%1$d days in a row",
+    "ko": "이어 읽기 %1$d일"
+  },
+  "week_rest_note": {
+    "en": "dotted days were kept by a rest",
+    "ko": "점선은 쉼표로 이어진 날"
+  },
+  "week_letters": {
+    "en": "letters read",
+    "ko": "읽은 편지"
+  },
+  "week_owned": {
+    "en": "new ‘mine’",
+    "ko": "새로 ‘내 것’"
+  },
+  "week_sentences": {
+    "en": "lines read aloud",
+    "ko": "따라 읽은 문장"
+  },
+  "week_scores": {
+    "en": "Read-along scores",
+    "ko": "따라 읽기 점수"
+  },
+  "week_scores_d": {
+    "en": "intonation · rhythm, daily average",
+    "ko": "억양 · 리듬, 날마다 평균"
+  },
+  "week_scores_empty": {
+    "en": "Read a sentence aloud and your scores appear here.",
+    "ko": "따라 읽기를 하면 여기에 점수가 쌓여요."
+  },
+  "week_vs_last": {
+    "en": "intonation %1$s vs last week",
+    "ko": "지난주보다 억양 %1$s"
+  },
+  "week_pieces": {
+    "en": "Pieces this week",
+    "ko": "이번 주 모은 작품"
+  },
+  "week_pieces_empty": {
+    "en": "No new pieces yet this week.",
+    "ko": "이번 주에는 아직 새 작품이 없어요."
+  },
+  "week_recital": {
+    "en": "Open the Sunday recital",
+    "ko": "일요일 낭독회 열기"
+  },
+  "overall_catalogues": {
+    "en": "Catalogues",
+    "ko": "도록"
+  },
+  "evening_channel": {
+    "en": "Keep your reading days",
+    "ko": "이어 읽기 지키기"
+  },
+  "evening_title": {
+    "en": "Today's letter is still waiting",
+    "ko": "오늘 편지가 아직 기다려요"
+  },
+  "evening_text": {
+    "en": "Your %1$d-day run ends at midnight. One letter or one review keeps it going.",
+    "ko": "이어 읽기 %1$d일째가 자정에 끊겨요. 편지 한 통이나 복습 한 판이면 이어져요."
+  },
+  "evening_rest_title": {
+    "en": "It's fine to rest today",
+    "ko": "오늘 쉬어도 괜찮아요"
+  },
+  "evening_rest_text": {
+    "en": "You have %1$d rest(s), so your %2$d-day run carries on to tomorrow.",
+    "ko": "쉼표 %1$d개가 있어서 이어 읽기 %2$d일은 내일까지 이어져요."
+  },
+  "set_evening": {
+    "en": "Evening reminder",
+    "ko": "저녁 알림"
+  },
+  "evening_note": {
+    "en": "Only once, only on days you haven't read yet.",
+    "ko": "그날 아무것도 안 했을 때만, 한 번."
+  },
+  "card_title": {
+    "en": "Send as a painting card",
+    "ko": "작품 카드로 보내기"
+  },
+  "card_share": {
+    "en": "Share",
+    "ko": "공유하기"
+  },
+  "card_portrait": {
+    "en": "Portrait",
+    "ko": "세로 카드"
+  },
+  "card_square": {
+    "en": "Square",
+    "ko": "정사각"
+  },
+  "card_story": {
+    "en": "Story (9:16)",
+    "ko": "이야기 (9:16)"
+  },
+  "card_border": {
+    "en": "Border: %1$s · change",
+    "ko": "테두리: %1$s · 바꾸기"
+  },
+  "card_tr_on": {
+    "en": "Translation ✓",
+    "ko": "번역 줄 넣기 ✓"
+  },
+  "card_tr_off": {
+    "en": "Translation off",
+    "ko": "번역 줄 빼기"
+  },
+  "credits_museum_h": {
+    "en": "Frames and medals",
+    "ko": "액자와 메달"
+  },
+  "credits_museum": {
+    "en": "Gallery frames: four empty frames photographed by the Rijksmuseum, Amsterdam (RP-L-534, SK-L-6754, RP-L-513, RP-L-515), CC0. Milestone medals: eight 19th- and early 20th-century exhibition and prize medals from the Rijksmuseum (NG-2004-75-A, NG-423, NG-429, NG-VG-6-1, NG-2014-22-1, NG-VG-1-4109, NG-VG-6-125), CC0; the app only cuts them out and lightens the not-yet-earned ones. Reward sounds are made by the app.",
+    "ko": "갤러리 액자: 암스테르담 레이크스 미술관이 찍은 빈 액자 넷 (RP-L-534, SK-L-6754, RP-L-513, RP-L-515), CC0. 이정표 메달: 레이크스 미술관의 19세기 · 20세기 초 전람회 · 상패 메달 여덟 (NG-2004-75-A, NG-423, NG-429, NG-VG-6-1, NG-2014-22-1, NG-VG-1-4109, NG-VG-6-125), CC0. 앱은 오려 내고, 아직 받지 않은 메달을 하얗게만 바꿉니다. 보상 소리는 앱이 직접 만든 것입니다."
   }
 }

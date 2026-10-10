@@ -970,6 +970,8 @@ fun QuotesScreen(s: AppState) {
     val p = Ink.palette
     val ctx = androidx.compose.ui.platform.LocalContext.current
     s.version
+    var card by remember { mutableStateOf<Triple<io.github.graviton94.todayletters.data.Work, io.github.graviton94.todayletters.core.Letter, io.github.graviton94.todayletters.core.Message>?>(null) }
+    card?.let { (w, l, m) -> ArtCardSheet(s, w, l, m) { card = null }; return }
     Column(Modifier.fillMaxSize()) {
         TopBar(stringResource(R.string.quotes_title), s, help = null, showBack = true, showSettings = false)
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
@@ -1023,7 +1025,7 @@ fun QuotesScreen(s: AppState) {
                                 if (blanks.isEmpty()) android.widget.Toast.makeText(ctx, none, android.widget.Toast.LENGTH_SHORT).show()
                                 else { s.narrator.stop(); s.go(Route.Session(ReviewKind.BLANK, only = blanks, quote = k)) }
                             }
-                            QuoteAction(stringResource(R.string.quote_postcard), { PostcardGlyph(it) }) { sharePostcard(ctx, w, l, m, view.learn, view.read) }
+                            QuoteAction(stringResource(R.string.quote_postcard), { PostcardGlyph(it) }) { card = Triple(w, l, m) }
                         }
                     }
                 }

@@ -293,6 +293,14 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
                 }
             }
             Text(stringResource(R.string.notice_note), style = Type.small.ui(), color = p.inkSoft)
+
+            // 저녁 알림 (E2): 이어 읽기가 끊기기 전 한 번
+            Caps(stringResource(R.string.set_evening), p.giltText, small = true)
+            var eh by remember { mutableStateOf(s.store.eveningHour) }
+            Choices(listOf(-1 to stringResource(R.string.off)) + listOf(19, 20, 21, 22).map { it to stringResource(R.string.notice_hour, it) }, eh) {
+                eh = it; s.store.eveningHour = it; io.github.graviton94.todayletters.data.Notices.schedule(s.ctx)
+            }
+            Text(stringResource(R.string.evening_note), style = Type.small.ui(), color = p.inkSoft)
         }
     }
 }

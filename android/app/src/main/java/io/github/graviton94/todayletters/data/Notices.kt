@@ -68,6 +68,8 @@ data class TodaySummary(
 object Notices {
     private const val CHANNEL = "arrivals"
     private const val ID = 1
+    private const val CHANNEL_EVENING = "evening"
+    private const val ID_EVENING = 2
 
     fun schedule(ctx: Context) {
         val store = Store(ctx)
@@ -77,6 +79,48 @@ object Notices {
         if (!at.isAfter(now)) at = at.plusDays(1)
         val ms = at.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
         am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, ms, pending(ctx))
+        // 저녁 알림 (E2): 끄지 않았으면 그 시각에 한 번
+        val eh = store.eveningHour
+        if (eh < 0) { am.cancel(evening(ctx)); return }
+        var ev = now.toLocalDate().atTime(eh, 0)
+        if (!ev.isAfter(now)) ev = ev.plusDays(1)
+        am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, ev.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli(), evening(ctx))
+    }
+
+    private fun evening(ctx: Context) = PendingIntent.getBroadcast(
+        ctx, 1, Intent(ctx, ArrivalReceiver::class.java).setAction("io.github.graviton94.todayletters.EVENING"),
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+    )
+
+    /**
+     * 이어 읽기 지키기 (v21 3단계 E2): 저녁에 한 번만, 오늘 아무것도 안 했고 이어 읽기가 있을 때.
+     * 쉼표가 있으면 ‘오늘 쉬어도 괜찮아요’로 (쉼표가 이어 준다).
+     */
+    fun eveningNotice(ctx: Context) {
+        val store = Store(ctx)
+        if (store.eveningHour < 0 || !canPost(ctx)) return
+        val sum = TodaySummary.of(ctx) ?: return
+        if (sum.doneToday || sum.streak <= 0) return
+        val nm = ctx.getSystemService(NotificationManager::class.java)
+        if (Build.VERSION.SDK_INT >= 26) nm.createNotificationChannel(
+            NotificationChannel(CHANNEL_EVENING, ctx.getString(R.string.evening_channel), NotificationManager.IMPORTANCE_DEFAULT),
+        )
+        val open = PendingIntent.getActivity(
+            ctx, 1, Intent(ctx, MainActivity::class.java).putExtra(MainActivity.FROM_NOTICE, true).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+        )
+        val rest = store.rests > 0
+        val title = ctx.getString(if (rest) R.string.evening_rest_title else R.string.evening_title)
+        val text = if (rest) ctx.getString(R.string.evening_rest_text, store.rests, sum.streak) else ctx.getString(R.string.evening_text, sum.streak)
+        val n = NotificationCompat.Builder(ctx, CHANNEL_EVENING)
+            .setSmallIcon(R.drawable.ic_notice)
+            .setContentTitle(title)
+            .setContentText(text)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(text))
+            .setContentIntent(open)
+            .setAutoCancel(true)
+            .build()
+        runCatching { NotificationManagerCompat.from(ctx).notify(ID_EVENING, n) }
     }
 
     private fun pending(ctx: Context) = PendingIntent.getBroadcast(
@@ -117,6 +161,7 @@ object Notices {
 class ArrivalReceiver : BroadcastReceiver() {
     override fun onReceive(ctx: Context, intent: Intent) {
         if (intent.action == "io.github.graviton94.todayletters.ARRIVE") Notices.arrive(ctx)
+        if (intent.action == "io.github.graviton94.todayletters.EVENING") Notices.eveningNotice(ctx)
         Notices.schedule(ctx)
         TodayWidget.refresh(ctx)
     }

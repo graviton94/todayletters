@@ -102,6 +102,7 @@ private fun Main(s: AppState, onExit: () -> Unit) {
                         Route.Milestones -> MilestonesTab(s)
                         Route.Exhibition -> ExhibitionScreen(s)
                         Route.Recital -> RecitalScreen(s)
+                        Route.Week -> WeekScreen(s)
                         is Route.Series -> SeriesCover(s, r.series)
                         is Route.SeriesSettings -> SeriesSettingsScreen(s, r.series)
                         is Route.Chapter -> ChapterScreen(s, r)

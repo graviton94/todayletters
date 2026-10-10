@@ -149,6 +149,17 @@ fun Inbox(s: AppState) {
                     Hair()
                 }
             }
+            // 이번 주 돌아보기 (E1)
+            run {
+                val wk = s.week(id)
+                Row(Modifier.fillMaxWidth().pressable { s.go(Route.Week) }.padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Column(Modifier.weight(1f)) {
+                        Text(stringResource(R.string.week_title), style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+                        Text(stringResource(R.string.week_line, wk.done.size, wk.letters, wk.owned), style = Type.small.ui(), color = p.inkSoft)
+                    }
+                    Text("›", style = Type.heading, color = p.inkSoft)
+                }
+            }
             // 일요일 낭독회 (일요일, 또는 이번 주 녹음이 있으면)
             val sunday = io.github.graviton94.todayletters.core.Recital.isSunday(s.today)
             if (sunday || (!s.recitalDone && s.weekTakes().isNotEmpty())) {

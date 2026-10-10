@@ -3,7 +3,7 @@ package io.github.graviton94.todayletters.core
 /**
  * 보상 (모든 시리즈 공통 틀). 화폐는 시리즈마다 따로 (반 고흐 = 우표, 모차르트 = 두카트: 이름만 키트에서).
  * 배운 만큼 모이고, 같은 일 반복에는 하루 상한. 배움은 막지 않는다: 편지 · 복습 · 힌트는 화폐 없이 늘 열려 있고,
- * 화폐로는 쉼표 · 다음 편지 미리 열기 · 갤러리 소장품 고르기만 산다.
+ * 화폐로는 쉼표 · 다음 편지 미리 열기 · 갤러리 소장품 고르기와 꾸미기(액자 · 카드 테두리)만 산다.
  */
 enum class Earn(val amount: Int, val dailyCap: Int) {
     LETTER(6, 18),          // 새 편지 다 읽기
@@ -16,6 +16,7 @@ enum class Earn(val amount: Int, val dailyCap: Int) {
     STREAK(4, 4),           // 이어 읽은 날 (하루 한 번)
     ACHIEVEMENT(10, 100),   // 이정표
     SEAL(20, 100),          // 편지 한 통 완독 봉인 (혼자 다 읽고 다 따라 읽음)
+    EXHIBITION(50, 50),     // 이달의 전시를 다 모음 (v21 3단계 E4, 전시마다 한 번)
 }
 
 /** 지갑: 잔액 · 오늘 날짜 · 오늘 종류별로 받은 양. */
@@ -45,7 +46,14 @@ enum class Spend(val cost: Int) {
     EARLY_LETTER(120),
     /** 갤러리의 빈칸 하나를 골라 건다. */
     PICK_PIECE(200),
+    /** 가진 작품 하나의 액자를 바꾼다 (v21 3단계 E3). */
+    FRAME(40),
+    /** 작품 카드 테두리 하나 (한 번 사면 계속, E3). */
+    BORDER(60),
 }
+
+/** 작품 카드 테두리 (E5). 기본은 처음부터 있다. */
+enum class Border { PLAIN, POSTMARK, GILT, PAINT }
 
 /** 이정표 판정에 쓰는 숫자들. 시리즈 하나의 것이거나 (시리즈 이정표) 모두 합친 것 (전체 이정표). */
 data class Stats(

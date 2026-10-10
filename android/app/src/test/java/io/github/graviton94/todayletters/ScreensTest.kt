@@ -399,4 +399,41 @@ class ScreensTest {
         val key = s.cardKey("vincent", "I", l.id, 3)
         shot("68_quote_blank_light", false, series = s) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.BLANK, only = listOf(key), quote = qk)) }
     }
+    // ── 3단계: 액자 · 메달 · 이번 주 · 우표 · 도록 · 작품 카드 ──
+    /** D2: 명작이 실제 장식 금박 액자에. */
+    @Test fun rewardMaster() {
+        val s = engineState()
+        val pc = s.work("vincent").kit.collection.first { it.id == "met-436528" }
+        s.reward = AppState.RewardMoment("vincent", 28, pc, listOf("pieces_12"), null,
+            listOf(io.github.graviton94.todayletters.core.Earn.ACHIEVEMENT to 10, io.github.graviton94.todayletters.core.Earn.LETTER to 6, io.github.graviton94.todayletters.core.Earn.STREAK to 4, io.github.graviton94.todayletters.core.Earn.REVIEW_RIGHT to 8))
+        shot("69_reward_master", true, 2000) { io.github.graviton94.todayletters.ui.RewardOverlay(s) }
+    }
+    /** E4: 이달의 전시를 다 모은 순간 (도록 표지). */
+    @Test fun rewardCatalogue() {
+        val s = engineState()
+        val e = s.exhibition("vincent")!!
+        s.reward = AppState.RewardMoment("vincent", 50, null, emptyList(), null, listOf(io.github.graviton94.todayletters.core.Earn.EXHIBITION to 50), e)
+        shot("70_reward_catalogue", true, 2000) { io.github.graviton94.todayletters.ui.RewardOverlay(s) }
+    }
+    /** E1: 이번 주. */
+    @Test fun week() {
+        val s = engineState(); s.reward = null
+        val start = io.github.graviton94.todayletters.core.Recital.weekStart(s.today)
+        (0..4).forEach { d -> s.store.addScore(start + d, 64 + d * 4, 58 + d * 3) }
+        s.store.logDay("pieces", s.today, "vincent|met-436529"); s.store.logDay("pieces", s.today, "vincent|brieven-238")
+        s.store.logDay("rest", start + 2, "rest")
+        shot("71_week_light", false, series = s) { io.github.graviton94.todayletters.ui.WeekScreen(s) }
+    }
+    /** E5: 작품 카드 (테두리 소인). */
+    @Test fun artCard() {
+        val s = engineState(); s.reward = null
+        s.store.addBorder("POSTMARK"); s.store.border = "POSTMARK"
+        val w = s.work("vincent"); val l = w.chapters[2].letters[0]
+        shot("72_art_card_light", false, series = s) { io.github.graviton94.todayletters.ui.ArtCardSheet(s, w, l, l.messages[1]) { } }
+    }
+    /** E3: 카드 테두리 고르기. */
+    @Test fun borders() {
+        val s = engineState(); s.reward = null
+        shot("73_borders_light", false, series = s) { io.github.graviton94.todayletters.ui.BorderSheet(s, s.work("vincent")) { } }
+    }
 }

@@ -321,10 +321,15 @@ fun decodeRange(ctx: Context, asset: String, fromMs: Int, toMs: Int): FloatArray
  * 낭독(Narrator)과 따로 울려서 문장 소리를 끊지 않는다. 휴대폰이 무음이면 소리가 나지 않는다 (미디어 볼륨).
  */
 class Effects(ctx: Context) {
-    private val pool = android.media.SoundPool.Builder().setMaxStreams(2)
+    private val pool = android.media.SoundPool.Builder().setMaxStreams(4)
         .setAudioAttributes(AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_GAME).setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION).build())
         .build()
     private val right = runCatching { ctx.assets.openFd("sounds/right.wav").use { pool.load(it, 1) } }.getOrDefault(0)
     private val wrong = runCatching { ctx.assets.openFd("sounds/wrong.wav").use { pool.load(it, 1) } }.getOrDefault(0)
     fun play(ok: Boolean) { val id = if (ok) right else wrong; if (id != 0) pool.play(id, 0.8f, 0.8f, 1, 0, 1f) }
+    /** 자료가 걸릴 때 (v21 3단계 D2): 등급마다 다른 소리 (sounds/tier_<등급>.wav, 역시 합성음). */
+    private val tiers = listOf("sketch", "drawing", "painting", "master").associateWith { n ->
+        runCatching { ctx.assets.openFd("sounds/tier_$n.wav").use { pool.load(it, 1) } }.getOrDefault(0)
+    }
+    fun tier(name: String) { tiers[name]?.takeIf { it != 0 }?.let { pool.play(it, 0.9f, 0.9f, 1, 0, 1f) } }
 }

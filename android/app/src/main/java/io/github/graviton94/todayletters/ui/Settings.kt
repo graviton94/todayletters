@@ -154,6 +154,8 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
                 }
             } }
 
+            Caps(stringResource(R.string.credits_museum_h), p.giltText)
+            Text(stringResource(R.string.credits_museum), style = Type.small.ui(), color = p.ink)
             Caps(stringResource(R.string.credits_sound_h), p.giltText)
             Text(stringResource(R.string.credits_sound), style = Type.small.ui(), color = p.ink)
 

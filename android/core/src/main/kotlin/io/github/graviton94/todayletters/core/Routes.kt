@@ -55,6 +55,8 @@ sealed interface Route {
     data object Exhibition : Route
     /** 일요일 낭독회: 이번 주 내 낭독. */
     data object Recital : Route
+    /** 이번 주 돌아보기 (v21 3단계 E1): 읽은 날 · 편지 · 내 것 · 따라 읽기 점수 · 모은 작품. */
+    data object Week : Route
     data object Settings : Route
 }
 
@@ -78,6 +80,7 @@ object Nav {
         is Route.Session, Route.WordList, Route.Quotes -> Route.Words
         Route.Exhibition -> Route.Gallery
         Route.Recital -> Route.Inbox
+        Route.Week -> Route.Inbox
     }
 
     /** 맨 위(서재)까지 거슬러 오르는 길. 알림으로 바로 들어왔을 때 뒤로 가기 스택을 만든다. */

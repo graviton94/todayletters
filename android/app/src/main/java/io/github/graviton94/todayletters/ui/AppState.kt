@@ -55,6 +55,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     private val effects = io.github.graviton94.todayletters.data.Effects(ctx)
     /** 맞음 · 틀림 효과음 (설정 › 효과음이 켜져 있을 때만). */
     fun cue(ok: Boolean) { if (app.effects) runCatching { effects.play(ok) } }
+    /** 자료가 걸리는 소리 (등급마다). */
+    fun cueTier(t: io.github.graviton94.todayletters.core.Tier) { if (app.effects) runCatching { effects.tier(io.github.graviton94.todayletters.data.Frames.kindOf(t).sound) } }
     val recorder = Recorder(ctx)
     val downloads = io.github.graviton94.todayletters.data.Downloads(ctx)
 
@@ -157,6 +159,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 작품 설정이 바뀌었을 때 화면을 다시 그리게 하는 표시. */
     var version by mutableStateOf(0)
         private set
+    /** 저장한 값이 바뀌어 화면을 다시 그려야 할 때. */
+    fun bump() { version++ }
 
     fun seriesSettings(id: String): SeriesSettings =
         store.series(id) ?: Langs.start(works.first { it.series.id == id }.series, app).also { store.save(id, it) }
@@ -174,7 +178,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     }
 
     fun save(series: String, chapter: String, letter: String, p: LetterProgress) {
-        store.save(key(series, chapter, letter), p); version++
+        val k = key(series, chapter, letter)
+        if (p.done && !store.progress(k).done) store.logDay("letters", today, k)   // 이번 주 돌아보기 (E1)
+        store.save(k, p); version++
     }
 
     /** 이 작품에서 다 읽은 편지 수와 지금 열 수 있는 편지 (순서대로). */
@@ -236,7 +242,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun cards() = run { @Suppress("UNUSED_EXPRESSION") version; store.cards().filter { cardWord(it.key) != null } }
     fun dueCards() = io.github.graviton94.todayletters.core.Memory.dueToday(cards(), today)
     fun answer(c: io.github.graviton94.todayletters.core.Card, correct: Boolean) {
-        store.save(io.github.graviton94.todayletters.core.Memory.after(c, correct, today))
+        val next = io.github.graviton94.todayletters.core.Memory.after(c, correct, today)
+        if (next.box == io.github.graviton94.todayletters.core.Memory.TOP && c.box < io.github.graviton94.todayletters.core.Memory.TOP) store.logDay("own", today, c.key)
+        store.save(next)
         if (correct) earn(Earn.REVIEW_RIGHT)
         version++
     }
@@ -271,6 +279,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         store.markDoneDay(today)
         val (n, used) = Streak.afterWithRest(store.streakDay, store.streakCount, today, store.rests)
         if (used > 0) store.rests = (store.rests - used).coerceAtLeast(0)
+        (1..used).forEach { store.logDay("rest", today - it, "rest") }
         store.saveStreak(today, n)
         if (n > store.bestStreak) store.bestStreak = n
         if (first) earn(Earn.STREAK)
@@ -371,6 +380,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val achievements: List<String>,
         val milestone: Int?,
         val lines: List<Pair<Earn, Int>> = emptyList(),
+        /** 이달의 전시를 방금 다 모았으면 그 전시 (도록 표지, E4). */
+        val catalogue: Exhibition? = null,
     )
     var reward by mutableStateOf<RewardMoment?>(null)
     private var pending = mutableMapOf<Earn, Int>()
@@ -391,19 +402,29 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     }
 
     /** 화폐로 사기. 쉼표는 [Streak.MAX_RESTS] 개까지. */
-    fun buy(what: Spend, id: String = current, piece: Piece? = null): Boolean {
+    fun buy(what: Spend, id: String = current, piece: Piece? = null, option: String? = null): Boolean {
         when (what) {
             Spend.REST -> if (store.rests >= Streak.MAX_RESTS) return false
             Spend.EARLY_LETTER -> if (store.earlyDay(id) == today || all(id).size <= openable(id).size) return false
             Spend.PICK_PIECE -> if (piece == null || owns(id, piece)) return false
+            Spend.FRAME -> if (piece == null || option == null || !owns(id, piece) || frameKind(piece).name == option) return false
+            Spend.BORDER -> if (option == null || option in store.borders()) return false
         }
         if (!spend(what.cost, id)) return false
         when (what) {
             Spend.REST -> store.rests = store.rests + 1
             Spend.EARLY_LETTER -> store.setEarlyDay(id, today)
-            Spend.PICK_PIECE -> store.addPiece(id, piece!!.id)
+            Spend.PICK_PIECE -> { store.addPiece(id, piece!!.id); store.logDay("pieces", today, "$id|${piece.id}") }
+            Spend.FRAME -> store.setFrame(piece!!.id, option!!)
+            Spend.BORDER -> { store.addBorder(option!!); store.border = option }
         }
-        version++; return true
+        version++; settle(); return true
+    }
+
+    /** 이 작품의 액자: 고른 것, 없으면 등급의 기본 (E3). */
+    fun frameKind(p: Piece): io.github.graviton94.todayletters.data.Frames.Kind = run {
+        @Suppress("UNUSED_EXPRESSION") version
+        store.frameOf(p.id)?.let { n -> io.github.graviton94.todayletters.data.Frames.Kind.entries.firstOrNull { it.name == n } } ?: io.github.graviton94.todayletters.data.Frames.kindOf(p.tier)
     }
 
     // ── 갤러리 ───────────────────────────────────────────────
@@ -426,7 +447,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         if (tag in store.drawTags(id)) return null
         val pool = work(id).kit.collection
         val p = Draws.pick(pool, store.pieces(id), (today * 131 + reason.hashCode()).toLong() xor id.hashCode().toLong(), exhibition(id)?.theme, minTier) ?: return null
-        store.addPiece(id, p.id); store.addDrawTag(id, tag)
+        store.addPiece(id, p.id); store.addDrawTag(id, tag); store.logDay("pieces", today, "$id|${p.id}")
         pendingPiece = p
         version++
         return p
@@ -450,6 +471,40 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     // ── 이달의 전시 ──────────────────────────────────────────
     fun exhibition(id: String = current): Exhibition? = Draws.exhibition(work(id).kit.exhibitions, LocalDate.now().monthValue - 1)
     fun exhibitionPieces(id: String = current): List<Piece> = exhibition(id)?.let { Draws.exhibitionPieces(work(id).kit.collection, it) } ?: emptyList()
+    /** 도록 열쇠: 전시 id · 연월 (같은 전시도 해가 바뀌면 다시). */
+    fun catalogueKey(e: Exhibition) = "${e.id}:${LocalDate.now().year}-${LocalDate.now().monthValue}"
+    /** 다 모은 전시들 (전시 · 연 · 월). */
+    fun catalogues(id: String = current): List<Triple<Exhibition, Int, Int>> = run {
+        @Suppress("UNUSED_EXPRESSION") version
+        store.catalogues().mapNotNull { k ->
+            val e = work(id).kit.exhibitions.firstOrNull { it.id == k.substringBefore(":") } ?: return@mapNotNull null
+            val (y, m) = k.substringAfter(":").split("-").map { it.toIntOrNull() ?: 0 }
+            Triple(e, y, m)
+        }.sortedWith(compareBy({ it.second }, { it.third }))
+    }
+
+    // ── 이번 주 (E1) ─────────────────────────────────────────
+    data class Week(
+        val start: Long, val done: Set<Int>, val rests: Set<Int>, val letters: Int, val owned: Int, val sentences: Int,
+        /** 요일(0=월)마다 (억양, 리듬) 평균. 따라 읽은 날만. */
+        val scores: Map<Int, Pair<Int, Int>>,
+        val lastWeek: Pair<Int, Int>?, val pieces: List<Piece>,
+    )
+    fun week(id: String = current): Week = run {
+        @Suppress("UNUSED_EXPRESSION") version
+        val start = io.github.graviton94.todayletters.core.Recital.weekStart(today)
+        val range = start..start + 6
+        fun inWeek(kind: String) = store.dayLog(kind).filter { it.first in range }
+        val sc = store.scores()
+        val days = sc.filterKeys { it in range }.filterValues { it.third > 0 }.map { (d, v) -> (d - start).toInt() to (v.first / v.third to v.second / v.third) }.toMap()
+        val last = sc.filterKeys { it in (start - 7) until start }.values.let { v -> v.sumOf { it.third }.takeIf { it > 0 }?.let { n -> v.sumOf { it.first } / n to v.sumOf { it.second } / n } }
+        val pieceIds = inWeek("pieces").map { it.second }.filter { it.startsWith("$id|") }.map { it.substringAfter("|") }.toSet()
+        Week(start, weekDone(), inWeek("rest").map { (it.first - start).toInt() }.toSet(),
+            inWeek("letters").count { it.second.startsWith("$id:") }, inWeek("own").count { it.second.startsWith("$id:") },
+            sc.filterKeys { it in range }.values.sumOf { it.third }, days, last,
+            gallery(id).filter { it.id in pieceIds })
+    }
+
     val daysLeftInMonth: Int get() = LocalDate.now().let { it.lengthOfMonth() - it.dayOfMonth + 1 }
 
     // ── 일요일 낭독회 ────────────────────────────────────────
@@ -619,9 +674,18 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         Achievements.newly(Achievements.overall, stats(), store.achievements).forEach { a ->
             store.unlock(a.id); store.setAchievedDay(a.id, today); earn(Earn.ACHIEVEMENT); got += a.id
         }
+        // 이달의 전시를 다 모았으면 (전시마다 한 번): 도록 표지 + 화폐 (E4)
+        var catalogue: Exhibition? = null
+        if (id.isNotEmpty()) exhibition(id)?.let { e ->
+            val ep = exhibitionPieces(id)
+            val k = catalogueKey(e)
+            if (ep.isNotEmpty() && ep.all { owns(id, it) } && k !in store.catalogues()) {
+                store.addCatalogue(k); earn(Earn.EXHIBITION, id = id); catalogue = e
+            }
+        }
         val gain = pending.values.sum()
-        if (gain > 0 || pendingPiece != null || got.isNotEmpty()) {
-            reward = RewardMoment(id, gain, pendingPiece, got, milestone, pending.toList())
+        if (gain > 0 || pendingPiece != null || got.isNotEmpty() || catalogue != null) {
+            reward = RewardMoment(id, gain, pendingPiece, got, milestone, pending.toList(), catalogue)
         }
         pending = mutableMapOf(); pendingPiece = null
         version++
