@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 자동 생성: scripts/generate.py (design/strings.json) -->
 <resources>
-    <string name="app_name">Letters by Day</string>
+    <string name="app_name">Lingua Museum</string>
     <string name="intro_tap">Tap to enter</string>
     <string name="intro_new">New letters: %1$d</string>
     <string name="intro_seal">Break the seal</string>
@@ -164,7 +164,7 @@
     <string name="letter_eta_n">Arrives in %1$d days</string>
     <string name="letter_reading">Reading</string>
     <string name="letter_new">Arrived today</string>
-    <string name="exit_title">Close Letters by Day?</string>
+    <string name="exit_title">Close Lingua Museum?</string>
     <string name="exit_yes">Close</string>
     <string name="exit_no">Stay</string>
     <string name="step_match">Words</string>
@@ -190,7 +190,7 @@
     <string name="words_count">Words collected: %1$d</string>
     <string name="words_none">No matching words.</string>
     <string name="ob0_hello">Welcome</string>
-    <string name="ob0_title">Welcome to Letters by Day</string>
+    <string name="ob0_title">Welcome to Lingua Museum</string>
     <string name="ob0_body">From today you receive letters from people in history. The first are the real letters Vincent van Gogh wrote to his brother Theo. You reply as Theo.</string>
     <string name="ob0_day">A day goes like this · five minutes is enough</string>
     <string name="ob0_d1">Read the letter</string>
@@ -475,7 +475,7 @@
     <string name="seal_mine">Letter %1$s, in my voice</string>
     <string name="seal_mine_d">Your %1$d phrases, joined together</string>
     <string name="seal_send">Send as a voice postcard</string>
-    <string name="seal_share_text">“%1$s” — a letter by %2$s, read in my voice (Letters by Day)</string>
+    <string name="seal_share_text">“%1$s” — a letter by %2$s, read in my voice (Lingua Museum)</string>
     <string name="focus_shadow">Read it along · towards the seal</string>
     <string name="focus_sealed">Sealed · see it</string>
     <string name="set_credits">Sources and licences</string>
@@ -603,4 +603,5 @@
     <string name="seal_words">Words from this letter</string>
     <string name="credits_sound_h">Sound</string>
     <string name="credits_sound">Page-turn sound: “10 Book Page Flips” by StarNinjas, OpenGameArt.org, CC0 (public domain dedication).</string>
+    <string name="lib_title">Library of Time</string>
 </resources>

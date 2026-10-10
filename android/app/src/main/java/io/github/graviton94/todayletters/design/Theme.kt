@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.em
 import io.github.graviton94.todayletters.core.ThemeMode
 
 /**
- * 하루의 편지 테마.
+ * 언어 미술관 테마.
  * 컴포넌트는 하나: 화면 코드는 [Ink.palette] 의 색 이름과 [Type] 의 글자 역할만 쓴다.
  * 라이트와 다크는 같은 이름에 다른 값이 들어갈 뿐, 모양 · 간격 · 움직임은 같다.
  * 테마는 사용자 설정(기본: 시스템)을 따르고, 편지의 시간대로 바뀌지 않는다.

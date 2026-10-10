@@ -1,8 +1,8 @@
 {
   "_doc": "앱 글자. 해요체, 짧고 차분하게. 화면 코드에는 글자를 쓰지 않고 여기 키만. en 은 values, ko 는 values-ko 로.",
   "app_name": {
-    "en": "Letters by Day",
-    "ko": "하루의 편지"
+    "en": "Lingua Museum",
+    "ko": "언어 미술관"
   },
   "intro_tap": {
     "en": "Tap to enter",
@@ -430,7 +430,7 @@
   },
   "open_caps": {
     "en": "A LETTER EVERY MORNING",
-    "ko": "LETTERS BY DAY"
+    "ko": "LINGUA MUSEUM"
   },
   "open_tagline": {
     "en": "Exchange letters with people from history, every day. Learn their language naturally, through the history and art of their time.",
@@ -653,8 +653,8 @@
     "ko": "오늘 도착"
   },
   "exit_title": {
-    "en": "Close Letters by Day?",
-    "ko": "하루의 편지를 닫을까요?"
+    "en": "Close Lingua Museum?",
+    "ko": "언어 미술관을 닫을까요?"
   },
   "exit_yes": {
     "en": "Close",
@@ -757,8 +757,8 @@
     "ko": "반가워요"
   },
   "ob0_title": {
-    "en": "Welcome to Letters by Day",
-    "ko": "하루의 편지에 오신 걸 환영해요"
+    "en": "Welcome to Lingua Museum",
+    "ko": "언어 미술관에 오신 걸 환영해요"
   },
   "ob0_body": {
     "en": "From today you receive letters from people in history. The first are the real letters Vincent van Gogh wrote to his brother Theo. You reply as Theo.",
@@ -1897,8 +1897,8 @@
     "ko": "목소리 엽서로 보내기"
   },
   "seal_share_text": {
-    "en": "“%1$s” — a letter by %2$s, read in my voice (Letters by Day)",
-    "ko": "“%1$s” — 내 목소리로 읽은 %2$s의 편지 (하루의 편지)"
+    "en": "“%1$s” — a letter by %2$s, read in my voice (Lingua Museum)",
+    "ko": "“%1$s” — 내 목소리로 읽은 %2$s의 편지 (언어 미술관)"
   },
   "focus_shadow": {
     "en": "Read it along · towards the seal",
@@ -2407,5 +2407,9 @@
   "credits_sound": {
     "en": "Page-turn sound: “10 Book Page Flips” by StarNinjas, OpenGameArt.org, CC0 (public domain dedication).",
     "ko": "책장 넘기는 소리: StarNinjas 「10 Book Page Flips」, OpenGameArt.org, CC0 (퍼블릭 도메인 기증)."
+  },
+  "lib_title": {
+    "en": "Library of Time",
+    "ko": "시간의 서재"
   }
 }

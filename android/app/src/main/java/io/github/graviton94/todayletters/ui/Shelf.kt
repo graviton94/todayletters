@@ -64,12 +64,12 @@ fun LibraryTab(s: AppState) {
     val overallDone = Achievements.overall.count { it.id in s.store.achievements }
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s5, end = Tokens.Space.s1, top = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
-            Caps("LETTERS BY DAY", p.inkSoft, small = true, decorative = true, modifier = Modifier.weight(1f))
+            Caps("LINGUA MUSEUM", p.inkSoft, small = true, decorative = true, modifier = Modifier.weight(1f))
             IconButton(stringResource(R.string.help), onClick = { s.coachAgain("library") }) { HelpGlyph(p.ink) }
             IconButton(stringResource(R.string.settings), onClick = { s.settingsOpen = true }) { Gear(p.ink) }
         }
         Column(Modifier.padding(horizontal = Tokens.Space.s5), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
-            Text(stringResource(R.string.tab_library), style = Type.title.ui(), color = p.ink)
+            Text(stringResource(R.string.lib_title), style = Type.title.ui(), color = p.ink)
             Row(Modifier.fillMaxWidth()) {
                 listOf("${s.streak}" to R.string.lib_stat_streak, "$pieces" to R.string.lib_stat_pieces, "$overallDone / ${Achievements.overall.size}" to R.string.lib_stat_ach).forEach { (v, l) ->
                     Column(Modifier.weight(1f)) {
