@@ -310,4 +310,11 @@ class ScreensTest {
         val pc = s.work("vincent").kit.collection.first { it.tier == io.github.graviton94.todayletters.core.Tier.PAINTING }
         shot("58_viewer_dark", true, series = s) { io.github.graviton94.todayletters.ui.PieceView(pc) { } }
     }
+    @Test fun contents() { val s = state(true); shot("59_contents_light", false, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "vincent") } }
+    @Test fun roomChapter3() {
+        val s = state(true)
+        val l = s.work("vincent").chapters[2].letters[3]
+        s.save("vincent", "III", l.id, s.progress("vincent", "III", l.id).copy(shown = l.messages.size))
+        shot("60_room_c3_light", false, 3000, series = s) { Room(s, Route.Letter("vincent", 3, 4)) }
+    }
 }
