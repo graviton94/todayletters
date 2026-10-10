@@ -1,0 +1,11 @@
+Wikimedia Error
+
+Error
+
+Use thumbnail sizes listed on https://w.wiki/GHai
+
+If you report this error to the Wikimedia System Administrators, please include the details below.
+Request served via cp4047 cp4047, Varnish XID 511463653
+Upstream caches: cp4047 int
+Error: 400, Use thumbnail sizes listed on https://w.wiki/GHai at Sat, 10 Oct 2026 13:05:35 GMT
+Sensitive client informationIP address: 13.64.25.178
