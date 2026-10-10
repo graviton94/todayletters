@@ -134,10 +134,10 @@
               "en": "Seven stars sparkling green and pink."
             },
             "word": {
-              "fr": "étoile",
-              "en": "star",
-              "ko": "별",
-              "ipa": "etwal"
+              "fr": "grande ourse",
+              "en": "Great Bear",
+              "ko": "큰곰자리",
+              "ipa": "ɡʁɑ̃d‿uʁs"
             },
             "quote": 3
           },
@@ -156,7 +156,7 @@
             "word": {
               "fr": "gaz",
               "en": "gas",
-              "ko": "가스(등)",
+              "ko": "가스등",
               "ipa": "ɡaz"
             },
             "quote": 2
@@ -687,8 +687,8 @@
             "quote": 2
           },
           {
-            "x": 0.4,
-            "y": 0.25,
+            "x": 0.31,
+            "y": 0.15,
             "title": {
               "fr": "La fenêtre",
               "en": "The window",
@@ -707,8 +707,8 @@
             "quote": 3
           },
           {
-            "x": 0.2,
-            "y": 0.78,
+            "x": 0.09,
+            "y": 0.62,
             "title": {
               "fr": "La chaise",
               "en": "The chair",

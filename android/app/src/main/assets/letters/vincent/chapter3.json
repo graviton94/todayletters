@@ -1,0 +1,949 @@
+{
+  "_doc": "Chapter III 초안 (v1). 프랑스어는 1914년판 『Brieven aan zijn broeder』(요 반 고흐-봉어 엮음, 공공 영역, archive.org 스캔)에서 옮김. 스캔 OCR이 떨어뜨린 악센트와 글자 오류만 바로잡음 (Theo→Théo, eher→cher, Jbesoin→besoin, simplemmt→simplement, 6/ä→é/à 등). 문장은 편지에서 발췌. 영어 · 한국어는 이 앱의 새 번역. 그림은 소장처가 직접 자유 사용(상업 포함)을 밝힌 것, 또는 위키미디어 공용의 공공 영역 이미지.",
+  "series": "vincent",
+  "chapter": "III",
+  "title_fr": "La maison jaune",
+  "title_ko": "노란 집",
+  "original": "fr",
+  "letters": [
+    {
+      "id": "c3-l1",
+      "date": "1888-09",
+      "dateNote": "Undated in the 1914 edition beyond its header (September.); written in Arles in September 1888.",
+      "ref": "Brieven 1914, n° 543 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 543 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+      "place": "Arles",
+      "mood": "bright",
+      "messages": [
+        {
+          "fr": "Le temps ici reste beau, et si c'était toujours comme cela, ce serait mieux que le paradis des peintres, ce serait du Japon en plein.",
+          "en": "The weather here stays fine, and if it were always like this, it would be better than the painters' paradise; it would be Japan through and through.",
+          "ko": "여기 날씨는 계속 좋아. 늘 이렇다면 화가들의 낙원보다도 나을 거야. 그야말로 일본 그 자체겠지.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 543 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Le temps ici reste beau, // et si c'était toujours comme cela, // ce serait mieux / que le paradis des peintres, // ce serait du Japon en plein."
+          }
+        },
+        {
+          "fr": "Ci-inclus petit croquis d'une toile de 30 carrée, enfin le ciel étoilé peint la nuit même sous un bec de gaz.",
+          "en": "Enclosed is a little sketch of a square size-30 canvas: the starry sky at last, painted at night itself, under a gas lamp.",
+          "ko": "30호 정사각 캔버스의 작은 스케치를 같이 넣었어. 드디어 별이 빛나는 하늘이야. 바로 그 밤에, 가스등 아래서 그렸어.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 543 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Ci-inclus petit croquis / d'une toile de 30 carrée, // enfin le ciel étoilé / peint la nuit même / sous un bec de gaz."
+          }
+        },
+        {
+          "fr": "Le ciel est bleu vert, l'eau est bleu de roi, les terrains sont mauves. La ville est bleue et violette, le gaz est jaune et des reflets sont or roux et descendent jusqu'au bronze vert.",
+          "en": "The sky is blue-green, the water royal blue, the ground mauve. The town is blue and violet, the gas is yellow, and the reflections are russet gold, going down to green bronze.",
+          "ko": "하늘은 청록색, 물은 짙은 파랑, 땅은 연보라야. 도시는 파랑과 보라, 가스등은 노랑이고, 물에 비친 빛은 붉은 금빛에서 초록빛 청동까지 내려가.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 543 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Le ciel est bleu vert, // l'eau est bleu de roi, // les terrains sont mauves. // La ville est bleue et violette, // le gaz est jaune / et des reflets sont or roux // et descendent / jusqu'au bronze vert."
+          }
+        },
+        {
+          "fr": "Sur le champ bleu vert du ciel, la grande ourse a un scintillement vert et rose, dont la pâleur discrète contraste avec l'or brutal du gaz. Deux figurines colorées d'amoureux à l'avant-plan.",
+          "en": "On the blue-green field of the sky the Great Bear sparkles green and pink, its quiet paleness contrasting with the harsh gold of the gas. Two small coloured figures of lovers in the foreground.",
+          "ko": "청록빛 하늘 위에서 큰곰자리가 초록과 분홍으로 반짝여. 그 은은하고 옅은 빛이 가스등의 거친 금빛과 대비를 이뤄. 앞쪽엔 알록달록한 연인 두 사람.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 543 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Sur le champ bleu vert du ciel, // la grande ourse / a un scintillement vert et rose, // dont la pâleur discrète / contraste avec l'or brutal du gaz. // Deux figurines colorées d'amoureux / à l'avant-plan."
+          }
+        },
+        {
+          "fr": "Cela n'empêche, que j'ai un besoin terrible de — dirai-je le mot — de religion — alors je vais la nuit dehors pour peindre les étoiles, et je rêve toujours un tableau comme cela avec un groupe de figures vivantes des copains.",
+          "en": "Still, I have a terrible need of — shall I say the word — of religion — so I go outside at night to paint the stars, and I keep dreaming of a picture like that, with a group of living figures of our friends.",
+          "ko": "그래도 나한텐 지독하게 필요한 게 있어. 말해 버릴까, 종교야. 그래서 밤이면 밖에 나가 별을 그려. 그리고 늘 그런 그림을 꿈꿔. 친구들이 살아 있는 모습으로 모여 있는 그림.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 543 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Cela n'empêche, / que j'ai un besoin terrible de // — dirai-je le mot — // de religion // — alors je vais la nuit dehors / pour peindre les étoiles, // et je rêve toujours un tableau comme cela / avec un groupe de figures vivantes / des copains."
+          }
+        }
+      ],
+      "words": [
+        {
+          "fr": "ciel",
+          "pos": "n.m.",
+          "ipa": "sjɛl",
+          "en": "sky",
+          "ko": "하늘"
+        },
+        {
+          "fr": "étoile",
+          "pos": "n.f.",
+          "ipa": "etwal",
+          "en": "star",
+          "ko": "별",
+          "icon": "⭐"
+        },
+        {
+          "fr": "gaz",
+          "pos": "n.m.",
+          "ipa": "ɡaz",
+          "en": "gas (gas lamp)",
+          "ko": "가스(등)",
+          "icon": "🔥"
+        },
+        {
+          "fr": "eau",
+          "pos": "n.f.",
+          "ipa": "o",
+          "en": "water",
+          "ko": "물",
+          "icon": "💧"
+        },
+        {
+          "fr": "amoureux",
+          "pos": "n.m.",
+          "ipa": "amuʁø",
+          "en": "lover",
+          "ko": "연인"
+        }
+      ],
+      "note": {
+        "ko": "빈센트는 이 그림을 노란 집에서 걸어서 몇 분 거리인 론강 강둑에서 그렸어요. 편지 속 ‘큰곰자리’는 북두칠성이 있는 별자리예요. 이 그림은 이듬해 파리의 앵데팡당전에 걸렸어요.",
+        "en": "Vincent painted this picture on the bank of the Rhône, a few minutes' walk from the Yellow House. The ‘grande ourse’ of the letter is the Great Bear, the constellation of the Plough. The picture was shown in Paris the following year, at the Salon des Indépendants.",
+        "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 543 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://en.wikipedia.org/wiki/Starry_Night_Over_the_Rhône"
+      },
+      "plate": {
+        "title_fr": "La Nuit étoilée",
+        "title_en": "Starry Night over the Rhône",
+        "title_ko": "론강의 별이 빛나는 밤",
+        "date": "September 1888",
+        "collection": "Musée d'Orsay, Paris · Public domain",
+        "imageLicense": "Public domain",
+        "imageSource": "https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg",
+        "why": "The painting this letter describes; a public-domain image from Wikimedia Commons.",
+        "image": "c3-l1.jpg",
+        "spots": [
+          {
+            "x": 0.55,
+            "y": 0.2,
+            "title": {
+              "fr": "La grande ourse",
+              "en": "The Great Bear",
+              "ko": "큰곰자리"
+            },
+            "note": {
+              "ko": "초록과 분홍으로 반짝이는 일곱 별.",
+              "en": "Seven stars sparkling green and pink."
+            },
+            "word": {
+              "fr": "grande ourse",
+              "en": "Great Bear",
+              "ko": "큰곰자리",
+              "ipa": "ɡʁɑ̃d‿uʁs"
+            },
+            "quote": 3
+          },
+          {
+            "x": 0.48,
+            "y": 0.62,
+            "title": {
+              "fr": "Les reflets du gaz",
+              "en": "The gaslight reflections",
+              "ko": "가스등 그림자"
+            },
+            "note": {
+              "ko": "물 위로 길게 내려오는 가스등 빛. ‘붉은 금빛에서 초록빛 청동까지’.",
+              "en": "Gaslight streaming down the water: ‘russet gold, going down to green bronze’."
+            },
+            "word": {
+              "fr": "gaz",
+              "en": "gas",
+              "ko": "가스등",
+              "ipa": "ɡaz"
+            },
+            "quote": 2
+          },
+          {
+            "x": 0.78,
+            "y": 0.86,
+            "title": {
+              "fr": "Les amoureux",
+              "en": "The lovers",
+              "ko": "연인"
+            },
+            "note": {
+              "ko": "앞쪽 강둑을 걷는 연인 두 사람.",
+              "en": "Two lovers on the bank in the foreground."
+            },
+            "word": {
+              "fr": "amoureux",
+              "en": "lovers",
+              "ko": "연인",
+              "ipa": "amuʁø"
+            },
+            "quote": 3
+          }
+        ]
+      },
+      "reply": {
+        "fr": "J'aimerais voir ton ciel étoilé.",
+        "en": "I'd love to see your starry sky.",
+        "ko": "형의 별 하늘, 보고 싶다.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+      },
+      "moments": [
+        {
+          "after": -1,
+          "type": "transfer",
+          "amount": "50 francs",
+          "label": {
+            "fr": "Théo a envoyé",
+            "en": "Theo sent",
+            "ko": "테오가 보냄"
+          },
+          "memo": {
+            "fr": "Paris → Arles",
+            "en": "Paris → Arles",
+            "ko": "파리 → 아를"
+          },
+          "outgoing": false
+        },
+        {
+          "after": 0,
+          "type": "weather",
+          "title": {
+            "fr": "Le temps à Arles",
+            "en": "Weather in Arles",
+            "ko": "아를의 날씨"
+          },
+          "value": {
+            "fr": "beau temps",
+            "en": "fine weather",
+            "ko": "맑음"
+          },
+          "quote": "Le temps ici reste beau",
+          "icon": "sun"
+        },
+        {
+          "after": 3,
+          "type": "photo",
+          "image": "c3-l1.jpg",
+          "caption": {
+            "fr": "Le ciel étoilé",
+            "en": "The starry sky",
+            "ko": "별이 빛나는 하늘"
+          }
+        }
+      ],
+      "status": {
+        "fr": "Le ciel étoilé, sous un bec de gaz",
+        "en": "The starry sky, under a gas lamp",
+        "ko": "가스등 아래, 별이 빛나는 하늘"
+      }
+    },
+    {
+      "id": "c3-l2",
+      "date": "1888-10",
+      "dateNote": "Undated in the 1914 edition beyond its header (October.); written in Arles in October 1888.",
+      "ref": "Brieven 1914, n° 546 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 546 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+      "place": "Arles",
+      "mood": "weary",
+      "messages": [
+        {
+          "fr": "Merci de ta lettre, mais j'ai bien langui cette fois-ci, mon argent était épuisé jeudi, ainsi jusqu'à lundi midi c'était bigrement long.",
+          "en": "Thanks for your letter, but I really pined this time: my money ran out on Thursday, so it was a damned long wait until Monday noon.",
+          "ko": "편지 고마워. 그런데 이번엔 정말 힘들었어. 목요일에 돈이 다 떨어져서 월요일 점심까지 지독하게 길었거든.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 546 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Merci de ta lettre, // mais j'ai bien langui cette fois-ci, // mon argent était épuisé jeudi, // ainsi jusqu'à lundi midi / c'était bigrement long."
+          }
+        },
+        {
+          "fr": "J'ai principalement vécu de 23 cafés ces 4 jours-là durant, avec du pain et que je dois encore payer. C'est pas de ta faute, c'est la mienne si faute il y a.",
+          "en": "For those 4 days I lived mainly on 23 coffees, with bread, and I still have to pay for them. It's not your fault; it's mine, if it's anyone's.",
+          "ko": "그 나흘 동안 주로 커피 23잔으로 버텼어. 빵이랑 같이. 그것도 아직 갚아야 해. 네 잘못이 아니야. 잘못이 있다면 내 잘못이지.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 546 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "J'ai principalement vécu de 23 cafés / ces 4 jours-là durant, // avec du pain / et que je dois encore payer. // C'est pas de ta faute, // c'est la mienne / si faute il y a."
+          }
+        },
+        {
+          "fr": "Car j'ai été enragé pour voir mes tableaux dans des cadres, et j'en avais un peu trop commandé pour le budget, vu que le mois de loyer et la femme de chambre devaient être payés aussi.",
+          "en": "Because I was mad to see my pictures in frames, and I'd ordered a few too many for the budget, seeing that the month's rent and the maid had to be paid too.",
+          "ko": "내 그림들을 액자에 넣어 보고 싶어서 안달이 났거든. 그래서 예산보다 조금 많이 주문해 버렸어. 한 달 집세랑 가정부 삯도 내야 했는데.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 546 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Car j'ai été enragé / pour voir mes tableaux dans des cadres, // et j'en avais un peu trop commandé / pour le budget, // vu que le mois de loyer / et la femme de chambre / devaient être payés aussi."
+          }
+        },
+        {
+          "fr": "Pour ma semaine sais-tu ce qui me reste aujourd'hui et cela après 4 jours de jeûne rigide ? Juste 6 francs.",
+          "en": "Do you know what I have left for my week today, and that after 4 days of strict fasting? Just 6 francs.",
+          "ko": "이번 주를 버틸 돈이 오늘 얼마 남았는지 알아? 나흘을 꼬박 굶다시피 하고 나서 말이야. 딱 6프랑.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 546 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Pour ma semaine / sais-tu ce qui me reste aujourd'hui // et cela après 4 jours / de jeûne rigide ? // Juste 6 francs."
+          }
+        },
+        {
+          "fr": "J'ai fait fabriquer pour les deux « jardin du poète » des cadres en noyer, qui font fort bien.",
+          "en": "I've had walnut frames made for the two ‘poet's garden’ canvases, and they look very good.",
+          "ko": "‘시인의 정원’ 두 점에는 호두나무 액자를 맞췄어. 아주 잘 어울려.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 546 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "J'ai fait fabriquer / pour les deux « jardin du poète » // des cadres en noyer, // qui font fort bien."
+          }
+        }
+      ],
+      "words": [
+        {
+          "fr": "argent",
+          "pos": "n.m.",
+          "ipa": "aʁʒɑ̃",
+          "en": "money",
+          "ko": "돈",
+          "icon": "💰"
+        },
+        {
+          "fr": "café",
+          "pos": "n.m.",
+          "ipa": "kafe",
+          "en": "coffee",
+          "ko": "커피",
+          "icon": "☕"
+        },
+        {
+          "fr": "pain",
+          "pos": "n.m.",
+          "ipa": "pɛ̃",
+          "en": "bread",
+          "ko": "빵",
+          "icon": "🥖"
+        },
+        {
+          "fr": "cadre",
+          "pos": "n.m.",
+          "ipa": "kadʁ",
+          "en": "frame",
+          "ko": "액자",
+          "icon": "🖼️"
+        },
+        {
+          "fr": "noyer",
+          "pos": "n.m.",
+          "ipa": "nwaje",
+          "en": "walnut (wood)",
+          "ko": "호두나무"
+        }
+      ],
+      "note": {
+        "ko": "1888년 가을, 빈센트는 고갱을 맞을 노란 집을 꾸미느라 가구를 들이고 그림마다 액자를 맞추면서 돈이 늘 모자랐어요. ‘시인의 정원’은 노란 집 맞은편, 라마르틴 광장의 공원을 그린 연작에 붙인 이름이에요. 그림은 그 연작 가운데 한 점인데, 호두나무 액자를 맞춘 두 점이 어느 것인지는 편지가 밝히지 않아요.",
+        "en": "In autumn 1888, getting the Yellow House ready for Gauguin, Vincent was buying furniture and having his pictures framed, and money kept running short. ‘The poet's garden’ was his name for a series of paintings of the public garden on place Lamartine, across from the Yellow House. The picture is one of that series; the letter does not say which two canvases got the walnut frames.",
+        "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 546 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.artic.edu/artworks/14586"
+      },
+      "plate": {
+        "title_fr": "Le Jardin du poète",
+        "title_en": "The Poet's Garden",
+        "title_ko": "시인의 정원",
+        "date": "1888",
+        "collection": "Art Institute of Chicago · CC0",
+        "imageLicense": "Public domain",
+        "imageSource": "https://www.artic.edu/artworks/14586",
+        "why": "A canvas of the ‘poet's garden’ series this letter mentions; the Art Institute of Chicago releases it under CC0.",
+        "image": "c3-l2.jpg",
+        "spots": []
+      },
+      "reply": {
+        "fr": "Mange bien, je t'en prie.",
+        "en": "Please eat properly.",
+        "ko": "제발 잘 챙겨 먹어.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+      },
+      "moments": [
+        {
+          "after": 1,
+          "type": "transfer",
+          "amount": "23 cafés",
+          "label": {
+            "fr": "À crédit · 4 jours",
+            "en": "On credit · 4 days",
+            "ko": "외상 · 나흘"
+          },
+          "memo": {
+            "fr": "Du pain et du café, de jeudi à lundi",
+            "en": "Bread and coffee, Thursday to Monday",
+            "ko": "빵과 커피, 목요일부터 월요일까지"
+          },
+          "outgoing": true
+        },
+        {
+          "after": 3,
+          "type": "notice",
+          "text": {
+            "fr": "Il reste à Vincent 6 francs pour la semaine",
+            "en": "Vincent has 6 francs left for the week",
+            "ko": "빈센트에게 남은 돈 · 이번 주 6프랑"
+          }
+        },
+        {
+          "after": 4,
+          "type": "photo",
+          "image": "c3-l2.jpg",
+          "caption": {
+            "fr": "Le jardin du poète",
+            "en": "The poet's garden",
+            "ko": "시인의 정원"
+          }
+        }
+      ],
+      "status": {
+        "fr": "23 cafés en 4 jours",
+        "en": "23 coffees in 4 days",
+        "ko": "나흘 동안 커피 23잔"
+      }
+    },
+    {
+      "id": "c3-l3",
+      "date": "1888-10",
+      "dateNote": "Undated in the 1914 edition; October 1888, between letters 546 and 555, both headed (October.).",
+      "ref": "Brieven 1914, n° 552 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 552 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+      "place": "Arles",
+      "mood": "bright",
+      "messages": [
+        {
+          "fr": "Mais l'automne continue encore à être d'un beau ! quel drôle de pays que cette patrie de Tartarin.",
+          "en": "But the autumn is still so beautiful! What a strange country, this homeland of Tartarin.",
+          "ko": "그래도 가을이 여전히 얼마나 아름다운지! 타르타랭의 고향, 참 묘한 고장이야.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 552 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Mais l'automne continue encore / à être d'un beau ! // quel drôle de pays / que cette patrie de Tartarin."
+          }
+        },
+        {
+          "fr": "Suppose maintenant un sapin bleu vert immense, étendant des branches horizontales sur une pelouse très verte et du sable tacheté de lumière et d'ombre.",
+          "en": "Now imagine an immense blue-green fir tree, spreading its branches horizontally over a very green lawn and sand dappled with light and shade.",
+          "ko": "이제 거대한 청록빛 전나무를 떠올려 봐. 아주 푸른 잔디와, 빛과 그늘이 얼룩진 모래 위로 가지를 가로로 뻗고 있어.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 552 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Suppose maintenant / un sapin bleu vert immense, // étendant des branches horizontales / sur une pelouse très verte // et du sable tacheté / de lumière et d'ombre."
+          }
+        },
+        {
+          "fr": "Ce coin de jardin fort simple est égayé par des parterres de géraniums mine orange dans les fonds, sous les branches noires.",
+          "en": "This very simple corner of a garden is brightened by beds of red-lead orange geraniums in the background, under the black branches.",
+          "ko": "아주 소박한 이 정원 한구석을, 뒤쪽 검은 가지들 아래 주홍빛 제라늄 화단이 환하게 밝혀 줘.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 552 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Ce coin de jardin fort simple / est égayé / par des parterres de géraniums mine orange / dans les fonds, // sous les branches noires."
+          }
+        },
+        {
+          "fr": "Deux figures d'amoureux se trouvent à l'ombre du grand arbre : toile de 30.",
+          "en": "Two figures of lovers are in the shade of the big tree. Size-30 canvas.",
+          "ko": "큰 나무 그늘 아래 연인 두 사람이 있어. 30호 캔버스야.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 552 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Deux figures d'amoureux / se trouvent / à l'ombre du grand arbre : // toile de 30."
+          }
+        }
+      ],
+      "words": [
+        {
+          "fr": "automne",
+          "pos": "n.m.",
+          "ipa": "otɔn",
+          "en": "autumn",
+          "ko": "가을",
+          "icon": "🍂"
+        },
+        {
+          "fr": "sapin",
+          "pos": "n.m.",
+          "ipa": "sapɛ̃",
+          "en": "fir tree",
+          "ko": "전나무",
+          "icon": "🌲"
+        },
+        {
+          "fr": "jardin",
+          "pos": "n.m.",
+          "ipa": "ʒaʁdɛ̃",
+          "en": "garden",
+          "ko": "정원"
+        },
+        {
+          "fr": "ombre",
+          "pos": "n.f.",
+          "ipa": "ɔ̃bʁ",
+          "en": "shade, shadow",
+          "ko": "그늘"
+        },
+        {
+          "fr": "arbre",
+          "pos": "n.m.",
+          "ipa": "aʁbʁ",
+          "en": "tree",
+          "ko": "나무",
+          "icon": "🌳"
+        }
+      ],
+      "note": {
+        "ko": "편지가 그리는 캔버스, 큰 전나무 그늘 아래 연인이 있는 공원 그림은 여기 실린 그림과 다른 그림이에요. 여기 실린 것은 같은 공원을 그린 ‘시인의 정원’ 연작의 다른 한 점이에요. 빈센트는 이 편지 끝에, 집을 꾸밀 30호 캔버스가 이제 15점쯤 된다고 적었어요.",
+        "en": "The canvas this letter describes, the lovers in the shade of the big fir in the public garden, is a different picture from the one shown here, which is another canvas of the same park from the ‘poet's garden’ series. At the end of the letter Vincent reckons the size-30 canvases for the decoration of the house now number about 15.",
+        "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 552 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.artic.edu/artworks/14586"
+      },
+      "plate": {
+        "title_fr": "Le Jardin du poète",
+        "title_en": "The Poet's Garden",
+        "title_ko": "시인의 정원",
+        "date": "1888",
+        "collection": "Art Institute of Chicago · CC0",
+        "imageLicense": "Public domain",
+        "imageSource": "https://www.artic.edu/artworks/14586",
+        "why": "Not the lovers canvas this letter describes: another picture of the same public garden from the ‘poet's garden’ series; the Art Institute of Chicago releases it under CC0.",
+        "image": "c3-l3.jpg",
+        "spots": []
+      },
+      "reply": {
+        "fr": "J'aimerais m'asseoir dans ton jardin.",
+        "en": "I'd like to sit in your garden.",
+        "ko": "그 정원에 앉아 보고 싶다.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+      },
+      "moments": [
+        {
+          "after": -1,
+          "type": "transfer",
+          "amount": "50 francs",
+          "label": {
+            "fr": "Théo a envoyé",
+            "en": "Theo sent",
+            "ko": "테오가 보냄"
+          },
+          "memo": {
+            "fr": "Nouveau mandat",
+            "en": "A new money order",
+            "ko": "새 우편환"
+          },
+          "outgoing": false
+        },
+        {
+          "after": 3,
+          "type": "photo",
+          "image": "c3-l3.jpg",
+          "caption": {
+            "fr": "Le jardin du poète · une autre toile du même jardin",
+            "en": "The poet's garden · another canvas of the same garden",
+            "ko": "시인의 정원 · 같은 공원을 그린 다른 그림"
+          }
+        }
+      ],
+      "status": {
+        "fr": "Un coin de jardin",
+        "en": "A corner of the garden",
+        "ko": "정원 한구석"
+      }
+    },
+    {
+      "id": "c3-l4",
+      "date": "1888-10",
+      "dateNote": "Undated in the 1914 edition; October 1888, between letters 546 and 555, both headed (October.).",
+      "ref": "Brieven 1914, n° 554 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 554 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+      "place": "Arles",
+      "mood": "calm",
+      "messages": [
+        {
+          "fr": "C'est cette fois-ci ma chambre à coucher tout simplement, seulement la couleur doit ici faire la chose et en donnant par sa simplification un style plus grand aux choses, être suggestive ici du repos ou du sommeil en général.",
+          "en": "This time it's simply my bedroom, only here colour has to do everything, and, by giving things a grander style through its simplification, be suggestive of rest or of sleep in general.",
+          "ko": "이번엔 그냥 내 침실이야. 다만 여기선 색이 모든 걸 해내야 해. 단순하게 다듬어서 사물에 더 큰 품격을 주고, 쉼이나 잠 그 자체를 떠올리게 해야 하지.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 554 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "C'est cette fois-ci / ma chambre à coucher tout simplement, // seulement la couleur / doit ici faire la chose // et en donnant par sa simplification / un style plus grand aux choses, // être suggestive ici / du repos ou du sommeil en général."
+          }
+        },
+        {
+          "fr": "Enfin la vue du tableau doit reposer la tête ou plutôt l'imagination.",
+          "en": "In short, looking at the picture should rest the mind, or rather the imagination.",
+          "ko": "그러니까 이 그림을 보면 머리가, 아니 상상력이 쉬어야 해.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 554 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Enfin la vue du tableau / doit reposer la tête // ou plutôt l'imagination."
+          }
+        },
+        {
+          "fr": "Les murs sont d'un violet pâle. Le sol est à carreaux rouges. Le bois du lit et les chaises sont jaune beurre frais, le drap et les oreillers citron vert très clair.",
+          "en": "The walls are pale violet. The floor is red tiles. The wood of the bed and the chairs are fresh-butter yellow, the sheet and the pillows a very light lemon green.",
+          "ko": "벽은 옅은 보라야. 바닥은 붉은 타일이고. 침대 나무와 의자는 갓 만든 버터 같은 노랑, 시트와 베개는 아주 밝은 연둣빛 레몬색.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 554 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Les murs sont d'un violet pâle. // Le sol est à carreaux rouges. // Le bois du lit et les chaises / sont jaune beurre frais, // le drap et les oreillers / citron vert très clair."
+          }
+        },
+        {
+          "fr": "La couverture rouge écarlate. La fenêtre verte. La table à toilette orangée, la cuvette bleue. Les portes lilas.",
+          "en": "The blanket scarlet red. The window green. The washstand orange, the basin blue. The doors lilac.",
+          "ko": "이불은 진홍색. 창문은 초록. 세면대는 주황, 대야는 파랑. 문은 라일락색.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 554 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "La couverture rouge écarlate. // La fenêtre verte. // La table à toilette orangée, / la cuvette bleue. // Les portes lilas."
+          }
+        },
+        {
+          "fr": "Et c'est tout — rien dans cette chambre à volets clos.",
+          "en": "And that's all: nothing in this room, with its shutters closed.",
+          "ko": "그게 다야. 덧창을 닫은 이 방엔 아무것도 없어.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 554 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Et c'est tout // — rien dans cette chambre / à volets clos."
+          }
+        }
+      ],
+      "words": [
+        {
+          "fr": "chambre",
+          "pos": "n.f.",
+          "ipa": "ʃɑ̃bʁ",
+          "en": "bedroom, room",
+          "ko": "방, 침실"
+        },
+        {
+          "fr": "repos",
+          "pos": "n.m.",
+          "ipa": "ʁəpo",
+          "en": "rest",
+          "ko": "쉼, 휴식"
+        },
+        {
+          "fr": "sommeil",
+          "pos": "n.m.",
+          "ipa": "sɔmɛj",
+          "en": "sleep",
+          "ko": "잠",
+          "icon": "😴"
+        },
+        {
+          "fr": "lit",
+          "pos": "n.m.",
+          "ipa": "li",
+          "en": "bed",
+          "ko": "침대",
+          "icon": "🛏️"
+        },
+        {
+          "fr": "fenêtre",
+          "pos": "n.f.",
+          "ipa": "f(ə)nɛtʁ",
+          "en": "window",
+          "ko": "창문",
+          "icon": "🪟"
+        }
+      ],
+      "note": {
+        "ko": "빈센트는 1888년 10월에 처음 침실을 그렸고(암스테르담 반 고흐 미술관), 이듬해 생레미에서 두 번 더 그렸어요. 여기 실린 시카고 미술관의 그림은 1889년에 다시 그린 것이에요. 편지에서 말한 대로 그림자를 없애고, 평평하고 또렷한 색으로 칠했어요.",
+        "en": "Vincent first painted the bedroom in October 1888 (Van Gogh Museum, Amsterdam) and painted it twice more at Saint-Rémy the following year. The Art Institute of Chicago picture shown here is the 1889 repetition. As the letter says, the shadows are left out and the colour is laid on in flat, frank tints.",
+        "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 554 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.artic.edu/artworks/28560"
+      },
+      "plate": {
+        "title_fr": "La Chambre à coucher",
+        "title_en": "The Bedroom",
+        "title_ko": "침실",
+        "date": "1889 (repetition of the 1888 canvas)",
+        "collection": "Art Institute of Chicago · CC0",
+        "imageLicense": "Public domain",
+        "imageSource": "https://www.artic.edu/artworks/28560",
+        "why": "The bedroom this letter describes, in the repetition Vincent painted in 1889; the Art Institute of Chicago releases it under CC0.",
+        "image": "c3-l4.jpg",
+        "spots": [
+          {
+            "x": 0.68,
+            "y": 0.62,
+            "title": {
+              "fr": "Le lit",
+              "en": "The bed",
+              "ko": "침대"
+            },
+            "note": {
+              "ko": "‘침대 나무는 갓 만든 버터 같은 노랑’.",
+              "en": "‘The wood of the bed … fresh-butter yellow’."
+            },
+            "word": {
+              "fr": "lit",
+              "en": "bed",
+              "ko": "침대",
+              "ipa": "li"
+            },
+            "quote": 2
+          },
+          {
+            "x": 0.31,
+            "y": 0.15,
+            "title": {
+              "fr": "La fenêtre",
+              "en": "The window",
+              "ko": "창문"
+            },
+            "note": {
+              "ko": "‘창문은 초록’. 덧창은 닫혀 있어요.",
+              "en": "‘The window green’, its shutters closed."
+            },
+            "word": {
+              "fr": "fenêtre",
+              "en": "window",
+              "ko": "창문",
+              "ipa": "f(ə)nɛtʁ"
+            },
+            "quote": 3
+          },
+          {
+            "x": 0.09,
+            "y": 0.62,
+            "title": {
+              "fr": "La chaise",
+              "en": "The chair",
+              "ko": "의자"
+            },
+            "note": {
+              "ko": "‘의자는 갓 만든 버터 같은 노랑’.",
+              "en": "‘The chairs … fresh-butter yellow’."
+            },
+            "word": {
+              "fr": "chaise",
+              "en": "chair",
+              "ko": "의자",
+              "ipa": "ʃɛz"
+            },
+            "quote": 2
+          }
+        ]
+      },
+      "reply": {
+        "fr": "Repose-toi bien dans ta chambre.",
+        "en": "Rest well in your room.",
+        "ko": "그 방에서 푹 쉬어.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+      },
+      "moments": [
+        {
+          "after": 0,
+          "type": "photo",
+          "image": "c3-l4.jpg",
+          "caption": {
+            "fr": "Ma chambre à coucher",
+            "en": "My bedroom",
+            "ko": "내 침실"
+          }
+        }
+      ],
+      "status": {
+        "fr": "Ma chambre à coucher",
+        "en": "My bedroom",
+        "ko": "내 침실"
+      }
+    },
+    {
+      "id": "c3-l5",
+      "date": "1888-10",
+      "dateNote": "Undated in the 1914 edition; October 1888, after letter 555 (October.) and before Gauguin's arrival on 23 October.",
+      "ref": "Brieven 1914, n° 556 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 556 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+      "place": "Arles",
+      "mood": "bright",
+      "messages": [
+        {
+          "fr": "J'ai fait mettre le gaz dans l'atelier et dans la cuisine, ce qui me coûte 25 francs d'installations.",
+          "en": "I've had gas put in the studio and the kitchen, which costs me 25 francs for the fittings.",
+          "ko": "작업실이랑 부엌에 가스를 들였어. 설치비로 25프랑이 들었어.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 556 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "J'ai fait mettre le gaz / dans l'atelier et dans la cuisine, // ce qui me coûte / 25 francs d'installations."
+          }
+        },
+        {
+          "fr": "Si Gauguin et moi travaillons une quinzaine tous les soirs, ne les regagnerons-nous pas ?",
+          "en": "If Gauguin and I work every evening for a fortnight, won't we earn it back?",
+          "ko": "고갱이랑 내가 보름 동안 매일 저녁 일하면, 그 돈쯤은 다시 벌지 않겠어?",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 556 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Si Gauguin et moi / travaillons une quinzaine / tous les soirs, // ne les regagnerons-nous pas ?"
+          }
+        },
+        {
+          "fr": "Seulement comme d'ailleurs Gauguin peut maintenant venir de jour en jour, j'aurai absolument, absolument encore besoin de 50 francs au moins.",
+          "en": "Only, since Gauguin may now come any day, I'll absolutely, absolutely need at least another 50 francs.",
+          "ko": "다만 고갱이 이제 언제라도 올 수 있으니까, 적어도 50프랑은 꼭, 정말 꼭 더 있어야 해.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 556 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Seulement comme d'ailleurs / Gauguin peut maintenant venir / de jour en jour, // j'aurai absolument, / absolument / encore besoin de 50 francs au moins."
+          }
+        },
+        {
+          "fr": "Voici croquis bien vague de ma dernière toile, une rangée de cyprès verts contre un ciel rose avec un croissant citron pâle.",
+          "en": "Here's a very rough sketch of my latest canvas: a row of green cypresses against a pink sky with a pale lemon crescent moon.",
+          "ko": "내 최근 그림을 아주 대충 스케치해 봤어. 분홍 하늘을 배경으로 초록 사이프러스가 줄지어 있고, 옅은 레몬빛 초승달이 떠 있어.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 556 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Voici croquis bien vague / de ma dernière toile, // une rangée de cyprès verts / contre un ciel rose // avec un croissant citron pâle."
+          }
+        },
+        {
+          "fr": "Deux amoureux, l'homme bleu pâle à chapeau jaune, la femme à un corsage rose et une jupe noire. Cela fait la quatrième toile du « jardin du poète » qui est la décoration de la chambre à Gauguin.",
+          "en": "Two lovers: the man pale blue with a yellow hat, the woman in a pink bodice and a black skirt. That makes the fourth canvas of the ‘poet's garden’, which is the decoration for Gauguin's room.",
+          "ko": "연인 두 사람. 남자는 옅은 파랑에 노란 모자, 여자는 분홍 블라우스에 검은 치마. 이걸로 ‘시인의 정원’이 네 점째야. 고갱 방을 꾸밀 그림들이지.",
+          "verified": true,
+          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 556 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+          "speak": {
+            "fr": "Deux amoureux, // l'homme bleu pâle / à chapeau jaune, // la femme à un corsage rose / et une jupe noire. // Cela fait la quatrième toile / du « jardin du poète » // qui est la décoration / de la chambre à Gauguin."
+          }
+        }
+      ],
+      "words": [
+        {
+          "fr": "cuisine",
+          "pos": "n.f.",
+          "ipa": "kɥizin",
+          "en": "kitchen",
+          "ko": "부엌",
+          "icon": "🍳"
+        },
+        {
+          "fr": "soir",
+          "pos": "n.m.",
+          "ipa": "swaʁ",
+          "en": "evening",
+          "ko": "저녁"
+        },
+        {
+          "fr": "cyprès",
+          "pos": "n.m.",
+          "ipa": "sipʁɛ",
+          "en": "cypress",
+          "ko": "사이프러스",
+          "icon": "🌲"
+        },
+        {
+          "fr": "croissant",
+          "pos": "n.m.",
+          "ipa": "kʁwasɑ̃",
+          "en": "crescent (moon)",
+          "ko": "초승달",
+          "icon": "🌙"
+        },
+        {
+          "fr": "chapeau",
+          "pos": "n.m.",
+          "ipa": "ʃapo",
+          "en": "hat",
+          "ko": "모자",
+          "icon": "👒"
+        }
+      ],
+      "note": {
+        "ko": "고갱은 1888년 10월 23일 아를에 도착했어요. 가스는 노란 집의 작업실과 부엌에 들였어요. 그림은 빈센트가 그해 9월에 그린 노란 집으로, 543번 편지에서 ‘유황빛 햇빛 아래, 순수한 코발트빛 하늘 아래 집과 그 주변’이라고 설명한 그림이에요.",
+        "en": "Gauguin arrived in Arles on 23 October 1888. The gas went into the studio and the kitchen of the Yellow House. The picture is the Yellow House as Vincent painted it that September, the canvas he described in letter 543 as ‘the house and its surroundings under a sulphur sun, under a pure cobalt sky’.",
+        "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 556 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 543 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_The_yellow_house_(%27The_street%27).jpg"
+      },
+      "plate": {
+        "title_fr": "La Maison jaune (La rue)",
+        "title_en": "The Yellow House (The Street)",
+        "title_ko": "노란 집 (거리)",
+        "date": "September 1888",
+        "collection": "Van Gogh Museum, Amsterdam · Public domain",
+        "imageLicense": "Public domain",
+        "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_The_yellow_house_(%27The_street%27).jpg",
+        "why": "The house where the gas was put in, painted that September; a public-domain image from Wikimedia Commons.",
+        "image": "c3-l5.jpg",
+        "spots": []
+      },
+      "reply": {
+        "fr": "Dis bonjour à Gauguin pour moi.",
+        "en": "Say hello to Gauguin for me.",
+        "ko": "고갱한테 안부 전해 줘.",
+        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+      },
+      "moments": [
+        {
+          "after": -1,
+          "type": "transfer",
+          "amount": "50 francs",
+          "label": {
+            "fr": "Théo a envoyé",
+            "en": "Theo sent",
+            "ko": "테오가 보냄"
+          },
+          "memo": {
+            "fr": "Paris → Arles",
+            "en": "Paris → Arles",
+            "ko": "파리 → 아를"
+          },
+          "outgoing": false
+        },
+        {
+          "after": 0,
+          "type": "location",
+          "place": "yellow",
+          "title": {
+            "fr": "La maison jaune",
+            "en": "The Yellow House",
+            "ko": "노란 집"
+          },
+          "address": "2, place Lamartine"
+        },
+        {
+          "after": 0,
+          "type": "transfer",
+          "amount": "25 francs",
+          "label": {
+            "fr": "Installation du gaz",
+            "en": "Gas fittings",
+            "ko": "가스 설치비"
+          },
+          "memo": {
+            "fr": "Atelier et cuisine",
+            "en": "Studio and kitchen",
+            "ko": "작업실과 부엌"
+          },
+          "outgoing": true
+        },
+        {
+          "after": 2,
+          "type": "notice",
+          "text": {
+            "fr": "Gauguin est attendu à Arles · de jour en jour",
+            "en": "Gauguin is expected in Arles · any day now",
+            "ko": "고갱이 아를에 올 날만 기다려요 · 이제 언제라도"
+          }
+        },
+        {
+          "after": 4,
+          "type": "photo",
+          "image": "c3-l5.jpg",
+          "caption": {
+            "fr": "La maison jaune",
+            "en": "The Yellow House",
+            "ko": "노란 집"
+          }
+        }
+      ],
+      "status": {
+        "fr": "Gauguin peut venir de jour en jour",
+        "en": "Gauguin may come any day",
+        "ko": "고갱이 언제라도 올 수 있어"
+      }
+    }
+  ]
+}

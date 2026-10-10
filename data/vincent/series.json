@@ -43,6 +43,16 @@
         "en": "Nights and Sunflowers",
         "ko": "밤과 해바라기"
       }
+    },
+    {
+      "id": "III",
+      "file": "chapter3.json",
+      "free": false,
+      "title": {
+        "fr": "La maison jaune",
+        "en": "The Yellow House",
+        "ko": "노란 집"
+      }
     }
   ],
   "places": {
@@ -757,6 +767,60 @@
         "collection": "Brieven aan zijn broeder (1914) · public domain · p.324",
         "tier": "sketch",
         "themes": []
+      },
+      {
+        "id": "aic-28560",
+        "image": "gallery/aic-28560.jpg",
+        "title": {
+          "en": "The Bedroom",
+          "ko": "침실"
+        },
+        "date": "1889",
+        "collection": "Art Institute of Chicago · CC0",
+        "tier": "master",
+        "themes": []
+      },
+      {
+        "id": "aic-14586",
+        "image": "gallery/aic-14586.jpg",
+        "title": {
+          "en": "The Poet's Garden",
+          "ko": "시인의 정원"
+        },
+        "date": "1888",
+        "collection": "Art Institute of Chicago · CC0",
+        "tier": "painting",
+        "themes": [
+          "fields"
+        ]
+      },
+      {
+        "id": "wmc-starry-rhone",
+        "image": "gallery/wmc-starry-rhone.jpg",
+        "title": {
+          "en": "Starry Night over the Rhône",
+          "ko": "론강의 별이 빛나는 밤"
+        },
+        "date": "1888",
+        "collection": "Musée d'Orsay, Paris",
+        "tier": "master",
+        "themes": [],
+        "exception": "pd-art",
+        "source": "https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg"
+      },
+      {
+        "id": "wmc-yellow-house",
+        "image": "gallery/wmc-yellow-house.jpg",
+        "title": {
+          "en": "The Yellow House",
+          "ko": "노란 집"
+        },
+        "date": "1888",
+        "collection": "Van Gogh Museum, Amsterdam",
+        "tier": "painting",
+        "themes": [],
+        "exception": "pd-art",
+        "source": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_The_yellow_house_(%27The_street%27).jpg"
       }
     ],
     "exhibitions": [
