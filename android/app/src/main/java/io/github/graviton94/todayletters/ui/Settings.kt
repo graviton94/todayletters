@@ -91,7 +91,7 @@ fun SettingsScreen(s: AppState) {
             }
             var sure by remember { mutableStateOf(false) }
             if (stored > 0) Secondary(stringResource(if (sure) R.string.set_storage_clear_sure else R.string.set_storage_clear)) {
-                if (sure) { s.downloads.clear(); sure = false; s.version++ } else sure = true
+                if (sure) { s.clearDownloads(); sure = false } else sure = true
             }
 
             Caps(stringResource(R.string.set_help), p.giltText)

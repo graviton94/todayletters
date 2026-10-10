@@ -301,6 +301,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
         if (silent) silentChapters += "${a.series}:${a.chapter}"
         open(a.series, a.chapter, l, a.from, skipAudio = true)
     }
+    /** 받아 둔 낭독을 모두 지운다 (설정 › 저장 공간). */
+    fun clearDownloads() { downloads.clear(); version++ }
     /** 미리 받기: 아직 도착하지 않은 장도 (지금은 유료로 막힌 장이 없음). [chapter] 가 null 이면 모든 장. */
     fun predownload(series: String, chapter: String?) {
         val pack = if (chapter == null) downloads.all(series) else downloads.pack(series, chapter)
