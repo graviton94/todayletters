@@ -352,6 +352,7 @@ private fun Aloud(s: AppState, r: Route.Play) {
     var allowed by remember { mutableStateOf(ContextCompat.checkSelfPermission(ctx, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) }
     val ask = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { allowed = it }
     DisposableEffect(Unit) { onDispose { s.recorder.stop(); s.narrator.stop() } }
+    LaunchedEffect(s.away) { if (recording) { has = s.recorder.file.exists() || has; recording = false } }
 
     // 덩어리 시각 → 글자 자리. 덩어리 글자를 문장에서 차례로 찾아, 덩어리 안에서는 시간에 비례해 나아간다.
     val spans = remember(sentence, chunks) {

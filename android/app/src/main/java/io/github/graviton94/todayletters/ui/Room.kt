@@ -1,5 +1,6 @@
 package io.github.graviton94.todayletters.ui
 
+import io.github.graviton94.todayletters.data.Playback
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.animateFloat
@@ -84,6 +85,7 @@ fun Room(s: AppState, r: Route.Letter) {
     var wordFocus by remember { mutableStateOf<Int?>(null) }
     var playing by remember(letter.id) { mutableStateOf<Int?>(null) }
     var all by remember { mutableStateOf<Job?>(null) }
+    val controlsRef = remember { arrayOfNulls<Playback.Controls>(1) }
     val list = rememberLazyListState()
     val scope = rememberCoroutineScope()
 
@@ -91,32 +93,77 @@ fun Room(s: AppState, r: Route.Letter) {
     val animate = pace > 0f && !s.reducedMotion
     fun audio(i: Int) = s.narrator.path(id, chapter, letter.id, "m${i + 1}_${view.learn.code}")
 
-    fun stopAll() { all?.cancel(); all = null; s.narrator.stop(); playing = null }
+    // 낭독 이어 듣기: 앱을 벗어나도 알림창 · 잠금 화면 · 이어폰 단추로 멈추고 넘긴다 (data/Playback)
+    val appCtx = androidx.compose.ui.platform.LocalContext.current.applicationContext
+    val lifecycle = androidx.lifecycle.compose.LocalLifecycleOwner.current.lifecycle
+    fun fg() = lifecycle.currentState.isAtLeast(androidx.lifecycle.Lifecycle.State.STARTED)
+    val key = s.key(id, chapter, letter.id)
+    val jump = remember(letter.id) { intArrayOf(0) }   // 단추로 넘길 곳: 1 다음 문장, -1 이전 문장, 2 이 문장 처음부터
+    var muted by remember(letter.id) { mutableStateOf(false) }   // 알림을 밀어 지우면 이 방에서는 더 읽지 않는다
+    val nowTitle = dateLine(letter.date, letter.place)
+    val nowSub = stringResource(R.string.narration_sub, work.name[uiLang()], work.recipient[uiLang()],
+        work.chapters.firstOrNull { it.id == chapter }?.title?.get(uiLang()).orEmpty())
+    fun session() {
+        if (Playback.now == null) Playback.start(appCtx, s.narrator,
+            Playback.Now(nowTitle, nowSub, letter.plate?.image?.takeIf { it.isNotBlank() }?.let { "plates/$it" }, 0, total), controlsRef[0]!!)
+    }
+
+    fun stopAll() { all?.cancel(); all = null; s.narrator.stop(); playing = null; Playback.end(appCtx) }
     fun speak(i: Int) {
         if (playing == i) { stopAll(); return }
         stopAll()
         if (s.narrator.play(audio(i)) { if (playing == i) playing = null }) playing = i
     }
-    fun speakAll() {
-        if (all != null) { stopAll(); return }
-        stopAll()
-        all = scope.launch {
-            for (i in 0 until written) {
-                playing = i
-                suspendCancellableCoroutine { c ->
-                    c.invokeOnCancellation { s.narrator.stop() }
-                    if (!s.narrator.play(audio(i)) { if (c.isActive) c.resume(Unit) } && c.isActive) c.resume(Unit)
-                }
+    /** [from] 번째부터 [until] 앞까지 차례로 읽는다. 멈춰 두면 기다리고, 단추로 앞뒤 문장을 오간다. */
+    suspend fun say(from: Int, until: Int) {
+        var k = from
+        while (k < until && !muted) {
+            snapshotFlow { Playback.paused }.first { !it }
+            session()
+            playing = k; Playback.update(k); s.store.setHeard(key, k)
+            jump[0] = 0
+            suspendCancellableCoroutine { c ->
+                c.invokeOnCancellation { s.narrator.stop() }
+                if (!s.narrator.play(audio(k)) { if (c.isActive) c.resume(Unit) } && c.isActive) c.resume(Unit)
             }
-            playing = null; all = null
+            k = when (jump[0]) { -1 -> (k - 1).coerceAtLeast(0); 2 -> k; else -> k + 1 }
+        }
+        if (playing != null) playing = null
+    }
+    fun speakAll(from: Int = 0, after: (() -> Unit)? = null) {
+        if (all != null) { stopAll(); return }
+        stopAll(); muted = false
+        all = scope.launch {
+            say(from, written)
+            all = null
+            if (after != null) after() else {
+                if (written >= total && !muted) s.store.setHeard(key, -1)
+                Playback.end(appCtx)
+            }
         }
     }
-    DisposableEffect(letter.id) { onDispose { s.narrator.stop() } }
+    controlsRef[0] = object : Playback.Controls {
+        override fun next() { jump[0] = 1; s.narrator.stop() }
+        override fun prev() { jump[0] = if (s.narrator.position() > 1500) 2 else -1; s.narrator.stop() }
+        override fun stop() { muted = true; stopAll() }
+    }
+    DisposableEffect(letter.id) { onDispose { s.narrator.stop(); Playback.end(appCtx) } }
+
+    // 다시 열 때: 듣다 멈춘 문장이 있으면 묻는다 (이어서 듣기 · 처음부터). 소리를 끈 사람에게는 묻지 않고 전처럼 이어서 도착.
+    val resumeAt = remember(letter.id) {
+        if (!s.app.sound) null
+        else if (already in 1 until total) already
+        else s.store.heard(key).takeIf { it in 1 until total && already >= total }
+    }
+    var asking by remember(letter.id) { mutableStateOf(resumeAt != null) }
+    var gate by remember(letter.id) { mutableStateOf(resumeAt == null || already >= total) }
 
     // 도착: 남은 문장을 한 조각씩. 조각이 놓이면 바로 쓰기 시작하면서 빈센트 목소리로 읽고 (자동 낭독), 화면은 쓰이는 끝을 따라 내려간다.
     // 글자도 다 써지고 낭독도 끝나면 다음 조각. 조각이 화면 밖이라 ‘다 써짐’ 알림이 오지 않아도 시간이 지나면 다음으로 넘어간다.
+    // 앱을 벗어나 화면이 그려지지 않는 동안에도 (화면 따라가기만 쉬고) 낭독은 이어진다.
     LaunchedEffect(letter.id) {
         suspend fun toEnd(animated: Boolean) {
+            if (!fg()) return
             androidx.compose.runtime.withFrameNanos { }
             val last = list.layoutInfo.totalItemsCount - 1
             if (last < 0) return
@@ -124,30 +171,25 @@ fun Room(s: AppState, r: Route.Letter) {
             // 마지막 조각이 화면보다 길면 그 아래 끝까지
             list.scrollBy(100_000f)
         }
+        snapshotFlow { gate }.first { it }
+        var voiced = false
         while (arrived < total) {
             val i = arrived
             writing = true
-            if (animate) delay((Tokens.Motion.typingDotsMs * pace).toLong())
+            if (animate && fg()) delay((Tokens.Motion.typingDotsMs * pace).toLong())
             arrived = i + 1
             toEnd(animated = animate)
-            val voice = if (s.app.sound && all == null) launch {
-                playing = i
-                suspendCancellableCoroutine { c ->
-                    c.invokeOnCancellation { s.narrator.stop() }
-                    if (!s.narrator.play(audio(i)) { if (c.isActive) c.resume(Unit) } && c.isActive) c.resume(Unit)
-                }
-                if (playing == i) playing = null
-            } else null
+            val voice = if (s.app.sound && all == null && !muted) launch { voiced = true; say(i, i + 1) } else null
             // 쓰는 동안 끝을 따라간다 (손으로 넘기는 중이면 기다림)
             val follow = launch {
                 while (true) {
                     delay(300)
-                    if (!list.isScrollInProgress) list.scrollBy(100_000f)
+                    if (fg() && !list.isScrollInProgress) list.scrollBy(100_000f)
                 }
             }
             val m = letter.messages[i]
             val lines = (m.text[view.learn].length + (if (view.showRead) m.text[view.read].length else 0)) / 26 + 2
-            val limit = if (animate) lines * (Tokens.Motion.inkLineMs * pace.coerceAtLeast(0.3f)).toLong() + 2500 else 600
+            val limit = if (animate && fg()) lines * (Tokens.Motion.inkLineMs * pace.coerceAtLeast(0.3f)).toLong() + 2500 else 600
             kotlinx.coroutines.withTimeoutOrNull(limit) { snapshotFlow { written }.first { it > i } }
             if (written <= i) written = i + 1
             follow.cancel()
@@ -155,8 +197,10 @@ fun Room(s: AppState, r: Route.Letter) {
             toEnd(animated = animate)
             voice?.join()
             s.save(id, chapter, letter.id, s.progress(id, chapter, letter.id).copy(shown = i + 1))
-            if (animate) delay((Tokens.Motion.inkPauseMs * pace).toLong())
+            if (animate && fg()) delay((Tokens.Motion.inkPauseMs * pace).toLong())
         }
+        if (voiced && !muted) s.store.setHeard(key, -1)
+        if (voiced && all == null) Playback.end(appCtx)
         toEnd(animated = animate)
     }
 
@@ -288,6 +332,29 @@ fun Room(s: AppState, r: Route.Letter) {
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+        // 듣다 멈춘 자리에서 (v17 E)
+        if (asking && resumeAt != null) Column(
+            Modifier.fillMaxWidth().background(p.paper).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
+        ) {
+            Hair()
+            Caps("RESUME", p.giltText, small = true, decorative = true)
+            Text(stringResource(R.string.room_resume, resumeAt + 1), style = Type.body.ui(), color = p.ink)
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                Box(Modifier.heightIn(min = 44.dp).pressable {
+                    asking = false
+                    if (already < total) speakAll(0) { gate = true } else speakAll(0)
+                }, contentAlignment = Alignment.CenterStart) {
+                    Text(stringResource(R.string.room_resume_start), style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.inkSoft)
+                }
+                Box(Modifier.width(160.dp)) {
+                    Primary(stringResource(R.string.room_resume_go), small = true) {
+                        asking = false
+                        if (already < total) gate = true else speakAll(resumeAt)
                     }
                 }
             }

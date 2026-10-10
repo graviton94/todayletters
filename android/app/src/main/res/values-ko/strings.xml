@@ -616,4 +616,14 @@
     <string name="dl_stop">그⁠만 받⁠기</string>
     <string name="dl_failed">받⁠지 못⁠했⁠어⁠요⁠. 연⁠결⁠을 확⁠인⁠하⁠고 다⁠시 해 보⁠세⁠요 (⁠남⁠은 양 %1$s).</string>
     <string name="dl_retry">다⁠시 받⁠기 · %1$s</string>
+    <string name="narration_channel">편⁠지 낭⁠독</string>
+    <string name="narration_sub">%1$s → %2$s · 「%3$s」</string>
+    <string name="narration_prev">이⁠전 문⁠장</string>
+    <string name="narration_next">다⁠음 문⁠장</string>
+    <string name="narration_play">재⁠생</string>
+    <string name="narration_pause">멈⁠춤</string>
+    <string name="room_resume">지⁠난⁠번 %1$d⁠번⁠째 문⁠장⁠에⁠서 멈⁠췄⁠어⁠요</string>
+    <string name="room_resume_go">이⁠어⁠서 듣⁠기</string>
+    <string name="room_resume_start">처⁠음⁠부⁠터</string>
+    <string name="viewer_hint">두 손⁠가⁠락⁠으⁠로 크⁠게 · 끌⁠어⁠서 위⁠아⁠래 양⁠옆 · 두 번 누⁠르⁠면 확⁠대 / 원⁠래⁠대⁠로</string>
 </resources>

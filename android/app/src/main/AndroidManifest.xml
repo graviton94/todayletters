@@ -8,6 +8,9 @@
     <!-- 도착 알림 (첫 편지를 끝낸 뒤에 묻는다) · 재시작 후 다시 잡기 -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 편지 낭독을 앱 밖에서도 이어 듣기 (알림창 · 잠금 화면의 재생 단추) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
     <!-- 말하기 복습: 폰의 음성 인식 서비스 찾기 (Android 11+) -->
     <queries>
         <intent>
@@ -33,6 +36,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".data.NarrationService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
         <!-- 구절 엽서 공유 -->
         <provider
             android:name="androidx.core.content.FileProvider"

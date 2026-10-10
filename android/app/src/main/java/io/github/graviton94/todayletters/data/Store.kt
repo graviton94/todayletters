@@ -179,6 +179,10 @@ class Store(ctx: Context) {
     fun earlyDay(series: String) = p.getLong("early:$series", -1)
     fun setEarlyDay(series: String, day: Long) = p.edit().putLong("early:$series", day).apply()
 
+    /** 편지 낭독을 듣다 멈춘 문장 (편지 열쇠마다, 0부터). 없으면 -1. 끝까지 들으면 지운다. */
+    fun heard(key: String) = p.getInt("heard:$key", -1)
+    fun setHeard(key: String, i: Int) = p.edit().apply { if (i < 0) remove("heard:$key") else putInt("heard:$key", i) }.apply()
+
     /** 오늘의 할 일 진행 (날마다 새로) · 다 해서 보너스를 받은 날. */
     fun quest(day: Long, q: io.github.graviton94.todayletters.core.Quest) = if (p.getLong("quest:day", -1) == day) p.getInt("quest:${q.name}", 0) else 0
     fun setQuest(day: Long, q: io.github.graviton94.todayletters.core.Quest, n: Int) {

@@ -323,17 +323,10 @@ fun GalleryTab(s: AppState) {
     }
 }
 
-/** 걸린 작품 크게 보기. */
+/** 걸린 작품 크게 보기: 잘라 내지 않고 전체를, 확대 · 끌어 보기 (ZoomViewer). */
 @Composable
 fun PieceView(pc: Piece, onClose: () -> Unit) {
-    androidx.activity.compose.BackHandler { onClose() }
-    Box(Modifier.fillMaxSize().background(Color(0xF2121110)).pressable(haptic = false) { onClose() }.statusBarsPadding().navigationBarsPadding()) {
-        Column(Modifier.align(Alignment.Center).padding(Tokens.Space.s5), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-            AssetImage(pc.image, Modifier.fillMaxWidth().aspectRatio(0.8f), sample = 1)
-            Text(pc.title[uiLang()], style = Type.body.ui(), color = Color(0xFFECE7DE), textAlign = TextAlign.Center)
-            Text("${pc.date} · ${pc.collection}", style = Type.small.copy(fontSize = Tokens.Text.caps), color = Color(0xFFA29B90), textAlign = TextAlign.Center)
-        }
-    }
+    ZoomViewer(rememberAsset(pc.image), pc.title[uiLang()], "${pc.date} · ${pc.collection}", onClose)
 }
 
 /** 이정표 (시리즈 안 이름표): 이 시리즈의 이정표와 화폐 쓰기. */
@@ -450,6 +443,7 @@ fun RecitalScreen(s: AppState) {
     val secs = remember(takes) { takes.sumOf { (it.length() - 44).coerceAtLeast(0) } / (io.github.graviton94.todayletters.data.Wav.RATE * 2) }
     val (first, now) = remember(s.version) { s.scoreTrend() }
     var playing by remember { mutableStateOf(false) }
+    androidx.compose.runtime.LaunchedEffect(s.away) { playing = false }
     val joined = remember(takes) {
         if (takes.isEmpty()) null else java.io.File(s.ctx.filesDir, "readings/week.wav").also { runCatching { io.github.graviton94.todayletters.data.Wav.join(takes, it) } }
     }

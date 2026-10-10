@@ -158,13 +158,9 @@ private fun SketchCard(m: Moment.Photo, lang: Lang) {
         }
         Text(m.caption[lang], style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
     }
-    if (full && bmp != null) androidx.compose.ui.window.Dialog(onDismissRequest = { full = false }, properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false)) {
-        Column(Modifier.fillMaxSize().background(Color(0xF0120D09)).clickable { full = false }.verticalScroll(androidx.compose.foundation.rememberScrollState()).padding(Tokens.Space.s4),
-            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-            androidx.compose.foundation.Image(bmp, m.caption[lang], Modifier.fillMaxWidth(), contentScale = androidx.compose.ui.layout.ContentScale.FillWidth)
-            Text(m.caption[lang], style = Type.small.ui(), color = Color(0xFFEADFC8))
-            if (m.credit.isNotEmpty()) Text(m.credit, style = Type.small.copy(fontSize = Tokens.Text.caps), color = Color(0xFFA8977C))
-        }
+    if (full && bmp != null) androidx.compose.ui.window.Dialog(onDismissRequest = { full = false },
+        properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
+        ZoomViewer(bmp, m.caption[lang], m.credit, onClose = { full = false })
     }
 }
 

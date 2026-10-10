@@ -616,4 +616,14 @@
     <string name="dl_stop">Stop downloading</string>
     <string name="dl_failed">The download didn\'t finish. Check the connection and try again (%1$s left).</string>
     <string name="dl_retry">Try again · %1$s</string>
+    <string name="narration_channel">Letter narration</string>
+    <string name="narration_sub">%1$s → %2$s · “%3$s”</string>
+    <string name="narration_prev">Previous sentence</string>
+    <string name="narration_next">Next sentence</string>
+    <string name="narration_play">Play</string>
+    <string name="narration_pause">Pause</string>
+    <string name="room_resume">You stopped at sentence %1$d last time</string>
+    <string name="room_resume_go">Keep listening</string>
+    <string name="room_resume_start">From the start</string>
+    <string name="viewer_hint">Pinch to zoom · drag to look around · double-tap to zoom in or out</string>
 </resources>

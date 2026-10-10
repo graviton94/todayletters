@@ -75,8 +75,19 @@ class Narrator(private val ctx: Context) {
         player?.runCatching { stop(); release() }
         player = null
         playing = null
+        paused = false
         finish()
     }
+
+    /** 잠깐 멈춤 · 이어서 (알림창 · 이어폰 단추). 멈춘 동안에는 ‘끝났을 때’를 부르지 않는다. */
+    var paused = false
+        private set
+    fun pause() { player?.runCatching { if (isPlaying) { pause(); paused = true } } }
+    fun resume() { player?.runCatching { if (paused) { start(); paused = false } } }
+    /** 지금 파일의 처음으로. */
+    fun restart() { player?.runCatching { seekTo(0) } }
+    /** 지금 파일을 재생 중인가 (멈춘 것도 포함). */
+    val active get() = player != null
 
     /** 낭독의 한 토막만: [from]~[to] 밀리초 (따라 읽기의 한 마디). */
     fun playRange(asset: String, from: Int, to: Int, onDone: () -> Unit = {}): Boolean {
@@ -96,7 +107,7 @@ class Narrator(private val ctx: Context) {
     }
 
     /** 재생 위치 (밀리초). 재생 중이 아니면 -1. */
-    fun position(): Int = player?.runCatching { if (isPlaying) currentPosition else -1 }?.getOrNull() ?: -1
+    fun position(): Int = player?.runCatching { if (isPlaying || paused) currentPosition else -1 }?.getOrNull() ?: -1
 
     /** 낭독의 덩어리 시각: assets/....m<번호>_<언어>.json (narrate.py 가 씀). 없으면 빈 목록. */
     fun chunks(asset: String): List<Chunk> = runCatching {

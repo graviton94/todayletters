@@ -299,4 +299,15 @@ class ScreensTest {
         s.downloadAsk = AppState.DownloadAsk(s.downloads.pack("vincent", ch.id)!!, "vincent", ch.id, ch.letters.first(), Route.Inbox)
         shot("56_download_light", false, series = s) { io.github.graviton94.todayletters.ui.DownloadSheet(s, s.downloadAsk!!) }
     }
+    @Test fun roomResume() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters.first()
+        s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = 2))
+        shot("57_room_resume_light", false, 3000, series = s) { Room(s, Route.Letter("vincent", 1, 1)) }
+    }
+    @Test fun viewer() {
+        val s = state(true)
+        val pc = s.work("vincent").kit.collection.first { it.tier == io.github.graviton94.todayletters.core.Tier.PAINTING }
+        shot("58_viewer_dark", true, series = s) { io.github.graviton94.todayletters.ui.PieceView(pc) { } }
+    }
 }

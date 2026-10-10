@@ -4,6 +4,7 @@ import android.content.Context
 import android.provider.Settings
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import io.github.graviton94.todayletters.core.AppSettings
@@ -122,6 +123,16 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
 
     /** 앱을 닫을지 묻는 중. */
     var askingExit by mutableStateOf(false)
+
+    /** 앱을 벗어난 횟수. 녹음 · 내 녹음 듣기 화면은 이 값이 바뀌면 그 자리에서 멈춘 것으로 그린다. */
+    var away by mutableIntStateOf(0)
+        private set
+    /** 앱을 벗어날 때: 이어 듣는 편지 낭독(알림이 있는 것)만 두고, 짧은 소리 · 녹음 · 내 녹음 듣기는 멈춘다 (마이크를 뒤에서 켜 두지 않는다). */
+    fun leftApp() {
+        if (io.github.graviton94.todayletters.data.Playback.now == null) narrator.stop()
+        pcm.stop(); recorder.stop(); recorder.stopPlaying()
+        away++
+    }
 
     /** 뒤로: 스택을 하나 내리고, 비면 계층의 부모로. 맨 위(서재)면 false (앱을 나감). */
     fun back(): Boolean {

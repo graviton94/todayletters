@@ -2459,5 +2459,45 @@
   "dl_retry": {
     "en": "Try again · %1$s",
     "ko": "다시 받기 · %1$s"
+  },
+  "narration_channel": {
+    "en": "Letter narration",
+    "ko": "편지 낭독"
+  },
+  "narration_sub": {
+    "en": "%1$s → %2$s · “%3$s”",
+    "ko": "%1$s → %2$s · 「%3$s」"
+  },
+  "narration_prev": {
+    "en": "Previous sentence",
+    "ko": "이전 문장"
+  },
+  "narration_next": {
+    "en": "Next sentence",
+    "ko": "다음 문장"
+  },
+  "narration_play": {
+    "en": "Play",
+    "ko": "재생"
+  },
+  "narration_pause": {
+    "en": "Pause",
+    "ko": "멈춤"
+  },
+  "room_resume": {
+    "en": "You stopped at sentence %1$d last time",
+    "ko": "지난번 %1$d번째 문장에서 멈췄어요"
+  },
+  "room_resume_go": {
+    "en": "Keep listening",
+    "ko": "이어서 듣기"
+  },
+  "room_resume_start": {
+    "en": "From the start",
+    "ko": "처음부터"
+  },
+  "viewer_hint": {
+    "en": "Pinch to zoom · drag to look around · double-tap to zoom in or out",
+    "ko": "두 손가락으로 크게 · 끌어서 위아래 양옆 · 두 번 누르면 확대 / 원래대로"
   }
 }

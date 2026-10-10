@@ -38,6 +38,13 @@ import io.github.graviton94.todayletters.design.Type
 @Composable
 fun Root(s: AppState, onExit: () -> Unit) {
     val p = Ink.palette
+    // 앱을 벗어나면 (홈 · 다른 앱 · 화면 끔) 짧은 소리와 녹음을 멈춘다. 편지 낭독은 알림과 함께 이어진다.
+    val owner = androidx.lifecycle.compose.LocalLifecycleOwner.current
+    androidx.compose.runtime.DisposableEffect(owner) {
+        val obs = androidx.lifecycle.LifecycleEventObserver { _, e -> if (e == androidx.lifecycle.Lifecycle.Event.ON_STOP) s.leftApp() }
+        owner.lifecycle.addObserver(obs)
+        onDispose { owner.lifecycle.removeObserver(obs) }
+    }
     androidx.compose.runtime.CompositionLocalProvider(LocalHaptics provides s.app.haptics) {
     Box(Modifier.fillMaxSize().background(p.paper)) {
         // 처음 소개에서 뒤로: 닫을지 묻는다 (메인은 Main 이 따로 묻는다)

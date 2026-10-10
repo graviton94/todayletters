@@ -81,6 +81,8 @@ fun ShadowScreen(s: AppState, r: Route.Shadow) {
     var allowed by remember { mutableStateOf(ContextCompat.checkSelfPermission(ctx, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) }
     val ask = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { allowed = it }
     DisposableEffect(Unit) { onDispose { s.pcm.stop(); s.recorder.release(); s.narrator.stop() } }
+    // 앱을 벗어나면 녹음은 그 자리에서 끝난다 (그때까지 녹음한 마디는 남는다)
+    LaunchedEffect(s.away) { if (recording) { recording = false; tick++ }; playing = false }
     if (flat.isEmpty()) return
     val (mi, cj) = flat[at]
     val chunk = chunks[mi][cj]
