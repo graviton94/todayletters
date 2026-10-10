@@ -482,7 +482,7 @@
     <string name="credits_text_h">Letters</string>
     <string name="credits_text">French text of the letters: Brieven aan zijn broeder, edited by J. van Gogh-Bonger, 1914 (public domain), from the Internet Archive scan. English and Korean translations are written for this app.</string>
     <string name="credits_images_h">Pictures</string>
-    <string name="credits_images_note">Only works whose holders allow free reuse, or Van Gogh\'s own sketches printed in the 1914 edition.</string>
+    <string name="credits_images_note">Images of public-domain originals only, chosen in two tiers: by default, images whose holders release them for free use (including commercial); for a few essential masterpieces, faithful public-domain reproductions (PD-Art), marked as an exception. We never use pictures we have drawn ourselves.</string>
     <string name="credits_portraits_h">Portraits</string>
     <string name="credits_portraits">Vincent van Gogh, Self-Portrait, 1887 · Art Institute of Chicago · CC0\nLeopold Mozart and His Children (after Carmontelle), 1764 · The Metropolitan Museum of Art · CC0\nJacques-Louis David, The Emperor Napoleon in His Study at the Tuileries, 1812 · National Gallery of Art, Washington · Open Access\nThe Poet Bashō · Rijksmuseum, Amsterdam · CC0</string>
     <string name="credits_voice_h">Narration</string>
@@ -501,8 +501,8 @@
     <string name="shadow_unpassed_body">%1$d phrases are under 70. Every phrase needs to pass for the seal.</string>
     <string name="shadow_go">Go to that phrase</string>
     <string name="credits_about_h">No affiliation · rights questions</string>
-    <string name="credits_about">This app is not affiliated with, sponsored or endorsed by the Van Gogh Museum, the Vincent van Gogh Foundation or any museum or library named here; their names appear only to credit sources. If you believe something infringes your rights, write to ruahn49@gmail.com: we take the item down while we check and reply within 7 days.</string>
-    <string name="credits_links">Sources and licences: graviton94.github.io/todayletters\nPrivacy policy: graviton94.github.io/todayletters/privacy</string>
+    <string name="credits_about">This app is not affiliated with, sponsored or endorsed by the Van Gogh Museum, the Vincent van Gogh Foundation or any museum or library named here; their names appear only to credit sources. Rights holders are welcome to contact us at ruahn49@gmail.com: we acknowledge within 2 business days, take the item down while we check, and reply with the outcome within 7 days.</string>
+    <string name="credits_links">Sources and licences: graviton94.github.io/todayletters\nTerms and image policy: graviton94.github.io/todayletters/terms\nPrivacy policy: graviton94.github.io/todayletters/privacy</string>
     <string name="tab_milestones">Milestones</string>
     <string name="streak_label">Reading on</string>
     <string name="rests_n">Rests %1$d</string>
