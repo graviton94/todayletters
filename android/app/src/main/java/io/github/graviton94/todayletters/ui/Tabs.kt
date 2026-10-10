@@ -142,16 +142,13 @@ fun SeriesCover(s: AppState, id: String) {
             Rule()
             w.chapters.forEachIndexed { i, c ->
                 val done = c.letters.count { s.progress(id, c.id, it.id).done }
-                Row(
-                    Modifier.fillMaxWidth().heightIn(min = Tokens.Size.row).clickable(role = Role.Button) { s.go(Route.Chapter(id, i + 1)) },
-                    verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
+                ChapterRow(
+                    numeral = roman(i + 1), original = c.title[w.series.original], read = c.title[s.app.read].takeIf { it != c.title[w.series.original] },
+                    readLang = s.app.read, originalLang = w.series.original,
+                    meta = stringResource(R.string.chapter_meta, c.letters.size, done),
+                    onClick = { s.go(Route.Chapter(id, i + 1)) },
                 ) {
-                    Text(roman(i + 1), style = Type.numeral, color = p.giltText)
-                    Column(Modifier.weight(1f)) {
-                        Text("${c.title[w.series.original]} · ${c.title[s.app.read]}", style = Type.label.of(s.app.read), color = p.ink)
-                        Text(stringResource(R.string.chapter_meta, c.letters.size, done), style = Type.small.ui(), color = p.inkSoft)
-                    }
-                    if (c.free) Text(stringResource(R.string.free), style = Type.small.ui(), color = p.onFill, modifier = Modifier.background(p.fill).padding(horizontal = Tokens.Space.s2))
+                    if (c.free) Capsule(stringResource(R.string.free), CapsuleKind.FILLED)
                     AudioChip(s, id, c.id)
                 }
                 Hair()
@@ -328,20 +325,45 @@ private fun ModePreview(m: ReplyMode) {
 fun Bordered(content: @Composable () -> Unit) =
     Box(Modifier.fillMaxWidth().border(Tokens.Stroke.hair, Ink.palette.hair).padding(Tokens.Space.s4)) { content() }
 
-/** 장의 낭독 상태 (v19): 앱 안 · 받음 · 받는 중 % · 미리 받기 · 크기. 도착 전 장도 미리 받을 수 있다. */
+/** 장의 낭독 상태 (v19): 앱 안 · 받음 · 받는 중 · 미리 받기 · 크기. 도착 전 장도 미리 받을 수 있다. */
 @Composable
 private fun AudioChip(s: AppState, id: String, chapter: String) {
-    val p = Ink.palette
     s.version
     val pack = s.downloads.pack(id, chapter)
     val asking = s.downloadAsk?.let { it.series == id && (it.chapter == chapter || it.chapter == io.github.graviton94.todayletters.data.Downloads.ALL) } == true
-    val (label, filled) = when {
-        pack == null || s.downloads.ready(pack) -> stringResource(R.string.audio_ready) to false
-        asking -> stringResource(R.string.audio_getting) to false
-        else -> stringResource(R.string.audio_ahead, sizeLabel(s.downloads.remaining(pack))) to true
+    when {
+        pack == null || s.downloads.ready(pack) -> Capsule(stringResource(R.string.audio_ready), CapsuleKind.DONE)
+        asking -> Capsule(stringResource(R.string.audio_getting))
+        else -> Capsule(stringResource(R.string.audio_ahead, sizeLabel(s.downloads.remaining(pack))), CapsuleKind.FILLED) { s.predownload(id, chapter) }
     }
-    Box(
-        Modifier.then(if (filled) Modifier.background(p.ink) else Modifier.border(1.dp, if (pack == null || s.downloads.ready(pack)) p.correct else p.ink))
-            .pressable(enabled = filled) { s.predownload(id, chapter) }.padding(horizontal = Tokens.Space.s2, vertical = 6.dp),
-    ) { Text(label, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = if (filled) p.paper else if (pack == null || s.downloads.ready(pack)) p.correct else p.ink) }
+}
+
+/**
+ * 장 한 줄 (v20 규칙): 제목은 혼자 한 줄 폭 전체 · 원제와 번역은 두 줄 · 캡슐은 아래 정보 줄에.
+ * 긴 제목은 균형 줄바꿈으로 고르게 (Type.label 은 제목이 아니라서 여기서 Heading 으로).
+ */
+@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
+@Composable
+fun ChapterRow(
+    numeral: String, original: String, read: String?, readLang: io.github.graviton94.todayletters.core.Lang, originalLang: io.github.graviton94.todayletters.core.Lang,
+    meta: String, onClick: () -> Unit, capsules: @Composable () -> Unit,
+) {
+    val p = Ink.palette
+    Row(
+        Modifier.fillMaxWidth().heightIn(min = Tokens.Size.row).clickable(role = Role.Button, onClick = onClick).padding(vertical = Tokens.Space.s3),
+        horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
+    ) {
+        Text(numeral, style = Type.numeral, color = p.giltText)
+        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            val balanced = androidx.compose.ui.text.style.LineBreak.Heading
+            Text(original, style = Type.label.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display, lineBreak = balanced).of(originalLang), color = p.ink)
+            if (read != null) Text(read, style = Type.small.copy(lineBreak = balanced).of(readLang), color = p.ink)
+            androidx.compose.foundation.layout.FlowRow(
+                Modifier.padding(top = 4.dp), horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+                Text(meta, style = Type.small.ui(), color = p.inkSoft)
+                capsules()
+            }
+        }
+    }
 }

@@ -66,6 +66,7 @@ object Tokens {
         val replyMax = 270.dp
         val portraitRow = 52.dp
         val speaker = 44.dp
+        val capsule = 24.dp
     }
     object Text {
         val display = 30.sp

@@ -99,7 +99,7 @@ fun uiLang(): Lang = if (uiHangul()) Lang.KO else Lang.EN
 
 /** 편지 줄용: 그 줄의 언어가 한국어면 한글 글꼴로. 한국어는 어절 단위로 줄을 바꾼다. */
 fun TextStyle.of(lang: Lang): TextStyle =
-    if (lang == Lang.KO) hangul().copy(lineBreak = LineBreak.Paragraph.copy(wordBreak = LineBreak.WordBreak.Phrase)) else this
+    if (lang == Lang.KO) hangul() else this   // hangul() 이 어절 단위 줄바꿈을 넣는다 (제목 글자는 균형 줄바꿈을 지킨 채)
 
 @Composable
 /** 대문자 머리말. [decorative] 면 장식 글자(프랑스어 표제 등)라 화면 읽기에서 건너뛴다. */
@@ -288,4 +288,26 @@ fun PlateImage(file: String, modifier: Modifier) {
     else Box(modifier.background(p.hide).border(Tokens.Stroke.hair, p.hair), contentAlignment = Alignment.Center) {
         Text(stringResource(R.string.plate_soon), style = Type.small.ui(), color = p.hideInk)
     }
+}
+
+/** 캡슐 모양 (v20): 채움 · 테두리 · 초록. 높이 · 글자 · 여백이 늘 같다. */
+enum class CapsuleKind { FILLED, OUTLINE, DONE }
+
+/**
+ * 작은 표지 (무료 · 낭독 있음 · 미리 받기 · 받는 중 · 기본 …). 모든 표지는 이것만 쓴다.
+ * 제목 줄 옆이 아니라 그 아래 정보 줄에 둔다 (제목은 혼자 한 줄 폭 전체).
+ */
+@Composable
+fun Capsule(text: String, kind: CapsuleKind = CapsuleKind.OUTLINE, onClick: (() -> Unit)? = null) {
+    val p = Ink.palette
+    val fg = when (kind) { CapsuleKind.FILLED -> p.paper; CapsuleKind.OUTLINE -> p.ink; CapsuleKind.DONE -> p.correct }
+    val edge = when (kind) { CapsuleKind.FILLED -> p.ink; CapsuleKind.OUTLINE -> p.ink; CapsuleKind.DONE -> p.correct }
+    Box(
+        Modifier.height(Tokens.Size.capsule)
+            .then(if (kind == CapsuleKind.FILLED) Modifier.background(p.ink) else Modifier)
+            .border(1.dp, edge)
+            .then(if (onClick != null) Modifier.pressable { onClick() } else Modifier)
+            .padding(horizontal = Tokens.Space.s2),
+        contentAlignment = Alignment.Center,
+    ) { Text(text, style = Type.small.ui().copy(fontSize = Tokens.Text.caps, lineHeight = Tokens.Text.caps), color = fg, maxLines = 1) }
 }

@@ -1,5 +1,7 @@
 package io.github.graviton94.todayletters
 
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.padding
 import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -316,5 +318,24 @@ class ScreensTest {
         val l = s.work("vincent").chapters[2].letters[3]
         s.save("vincent", "III", l.id, s.progress("vincent", "III", l.id).copy(shown = l.messages.size))
         shot("60_room_c3_light", false, 3000, series = s) { Room(s, Route.Letter("vincent", 3, 4)) }
+    }
+    /** 긴 제목 지킴이 (v20): 새 시리즈를 넣기 전에 아주 긴 원제 · 번역에서 줄바꿈 · 캡슐이 깨지지 않는지. */
+    @Test fun longTitles() {
+        val s = state(true)
+        shot("61_long_titles_light", false, series = s) {
+            androidx.compose.foundation.layout.Column(androidx.compose.ui.Modifier.padding(horizontal = 24.dp)) {
+                io.github.graviton94.todayletters.ui.ChapterRow("III", "La maison jaune", "노란 집", io.github.graviton94.todayletters.core.Lang.KO, io.github.graviton94.todayletters.core.Lang.FR, "편지 5통 · 0통 읽음", {}) {
+                    io.github.graviton94.todayletters.ui.Capsule("무료", io.github.graviton94.todayletters.ui.CapsuleKind.FILLED)
+                    io.github.graviton94.todayletters.ui.Capsule("✓ 낭독 있음", io.github.graviton94.todayletters.ui.CapsuleKind.DONE)
+                }
+                io.github.graviton94.todayletters.ui.ChapterRow("IV", "Lettres de Wolfgang Amadeus Mozart à son père, de Salzbourg à Paris", "잘츠부르크에서 파리까지, 아버지에게 보내는 볼프강 아마데우스 모차르트의 편지", io.github.graviton94.todayletters.core.Lang.KO, io.github.graviton94.todayletters.core.Lang.FR, "편지 12통 · 0통 읽음", {}) {
+                    io.github.graviton94.todayletters.ui.Capsule("미리 받기 · 12.4MB", io.github.graviton94.todayletters.ui.CapsuleKind.FILLED)
+                    io.github.graviton94.todayletters.ui.Capsule("받는 중…")
+                }
+                io.github.graviton94.todayletters.ui.ChapterRow("V", "Briefe an den Vater aus der Zeit der großen Reise nach Mannheim und Paris", "Letters to his father from the time of the great journey to Mannheim and Paris", io.github.graviton94.todayletters.core.Lang.EN, io.github.graviton94.todayletters.core.Lang.DE, "12 letters", {}) {
+                    io.github.graviton94.todayletters.ui.Capsule("Free", io.github.graviton94.todayletters.ui.CapsuleKind.FILLED)
+                }
+            }
+        }
     }
 }

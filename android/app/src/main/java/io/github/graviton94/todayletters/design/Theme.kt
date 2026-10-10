@@ -99,11 +99,14 @@ fun TextStyle.hangul(on: Boolean = true): TextStyle =
         fontSize = if (fontFamily == Faces.caps) Tokens.Text.small else fontSize,
         fontWeight = if (fontFamily == Faces.caps || (fontWeight ?: FontWeight.Normal) >= FontWeight.Medium) FontWeight.SemiBold else FontWeight.Normal,
         // 한국어는 어절 단위로만 줄을 바꾼다 (안드로이드 13+; 그 아래는 글자에 넣은 이음표가 같은 일을 한다. core/Breaks.kt)
-        lineBreak = LineBreak.Paragraph.copy(wordBreak = LineBreak.WordBreak.Phrase))
+        // 제목 글자(균형 줄바꿈)는 그 방식을 지킨 채 어절 단위만 더한다
+        lineBreak = (if (lineBreak == LineBreak.Heading) LineBreak.Heading else LineBreak.Paragraph).copy(wordBreak = LineBreak.WordBreak.Phrase))
 
 private fun style(face: FontFamily, size: TextUnit, leading: Float? = null, weight: FontWeight = FontWeight.Normal,
-                  italic: Boolean = false, tracking: Float = 0f) = TextStyle(
+                  italic: Boolean = false, tracking: Float = 0f, heading: Boolean = false) = TextStyle(
     fontFamily = face, fontSize = size, fontWeight = weight,
+    // 제목 · 머리글은 균형 줄바꿈 (v20): 줄이 바뀌면 두 줄 길이를 비슷하게, 한 낱말만 떨어지지 않게
+    lineBreak = if (heading) LineBreak.Heading else LineBreak.Unspecified,
     fontStyle = if (italic) FontStyle.Italic else FontStyle.Normal,
     lineHeight = leading?.em ?: TextUnit.Unspecified,
     letterSpacing = tracking.em,
@@ -111,9 +114,9 @@ private fun style(face: FontFamily, size: TextUnit, leading: Float? = null, weig
 
 /** 글자 역할. 화면 코드에서 크기 숫자를 쓰지 않는다. */
 object Type {
-    val display get() = style(Faces.display, Tokens.Text.display, Tokens.Leading.display, FontWeight.Medium)
-    val title get() = style(Faces.display, Tokens.Text.title, Tokens.Leading.title, FontWeight.Medium)
-    val heading get() = style(Faces.display, Tokens.Text.heading, Tokens.Leading.title, FontWeight.SemiBold)
+    val display get() = style(Faces.display, Tokens.Text.display, Tokens.Leading.display, FontWeight.Medium, heading = true)
+    val title get() = style(Faces.display, Tokens.Text.title, Tokens.Leading.title, FontWeight.Medium, heading = true)
+    val heading get() = style(Faces.display, Tokens.Text.heading, Tokens.Leading.title, FontWeight.SemiBold, heading = true)
     val numeral get() = style(Faces.display, Tokens.Text.numeral, 1.0f)
     val word get() = style(Faces.display, Tokens.Text.word, 1.0f, FontWeight.Medium)
     /** 말풍선의 배우는 언어 줄 (크게). */

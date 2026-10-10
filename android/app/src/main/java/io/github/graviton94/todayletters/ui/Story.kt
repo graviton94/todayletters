@@ -103,7 +103,11 @@ fun Done(s: AppState, room: Route.Letter) {
             }
             Column(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                 Text(stringResource(R.string.done_title), style = Type.title.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center, modifier = Modifier.graphicsLayer { alpha = win(0.3f, 0.5f) })
-                letter.plate?.let { pl -> Text("${pl.title[view.read]} · ${pl.title[work.series.original]}", style = Type.small.of(view.read), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center) }
+                letter.plate?.let { pl ->
+                    // 원제와 번역은 두 줄 (v20)
+                    Text(pl.title[work.series.original], style = Type.small.of(work.series.original), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                    if (pl.title[view.read] != pl.title[work.series.original]) Text(pl.title[view.read], style = Type.small.of(view.read), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                }
                 // 오늘 한 일 (작은 칩)
                 androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     (listOf(R.string.step_read_short) + modes.map { when (it) { io.github.graviton94.todayletters.core.ReplyMode.MATCH -> R.string.step_match; io.github.graviton94.todayletters.core.ReplyMode.ALOUD -> R.string.step_aloud; else -> R.string.step_reply } }).forEachIndexed { k, label ->

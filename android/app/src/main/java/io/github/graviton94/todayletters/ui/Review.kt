@@ -207,7 +207,7 @@ private fun ModeRow(title: String, desc: String, badge: String?, enabled: Boolea
         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 Text(title, style = Type.body.ui(), color = if (enabled) p.ink else p.hideInk)
-                if (badge != null) Text(badge, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.onFill, modifier = Modifier.background(p.fill).padding(horizontal = 6.dp, vertical = 1.dp))
+                if (badge != null) Capsule(badge, CapsuleKind.FILLED)
             }
             Text(desc, style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
         }
