@@ -84,13 +84,11 @@ fun LibraryTab(s: AppState) {
             s.works.forEach { w -> SeriesCard(s, w) }
             Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                 upcoming.filter { (id, _) -> s.works.none { it.series.id == id } }.forEach { (file, name) ->
-                    Row(Modifier.weight(1f).heightIn(min = 72.dp).dashed(p.hair).padding(horizontal = Tokens.Space.s3),
-                        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                        Box(Modifier.graphicsLayer { alpha = 0.5f }) { Portrait("$file.jpg", stringResource(name), 30.dp) }
-                        Column {
-                            Text(stringResource(name), style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
-                            Text(stringResource(R.string.lib_soon), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.hideInk)
-                        }
+                    Column(Modifier.weight(1f).heightIn(min = 96.dp).dashed(p.hair).padding(vertical = Tokens.Space.s3),
+                        horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Box(Modifier.graphicsLayer { alpha = 0.5f }) { Portrait("$file.jpg", stringResource(name), 32.dp) }
+                        Text(stringResource(name), style = Type.small.ui(), color = p.inkSoft, textAlign = TextAlign.Center)
+                        Text(stringResource(R.string.lib_soon), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.hideInk)
                     }
                 }
             }
