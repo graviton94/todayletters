@@ -75,7 +75,7 @@ object Achievements {
         Achievement("streak_7", 7) { it.bestStreak },
         Achievement("words_50", 50) { it.wordsKnown },
         Achievement("chapter_1", 1) { it.chapters },
-        Achievement("shadow_100", 100) { it.shadowPassed },
+        Achievement("shadow_100", 50) { it.shadowPassed },   // 열쇠는 그대로, v18 부터 문장 50개
         Achievement("pieces_12", 12) { it.pieces },
         Achievement("read_50", 50) { it.readAlone },
         Achievement("read_90", 90) { it.readAlone },

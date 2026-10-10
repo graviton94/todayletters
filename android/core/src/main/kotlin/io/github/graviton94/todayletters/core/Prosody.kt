@@ -17,7 +17,10 @@ import kotlin.math.sqrt
  */
 object Prosody {
     const val HOP_MS = 10
-    const val PASS = 70
+    /** 통과 (v18: 70 → 60). 75 좋아요 · 90 훌륭해요는 화면의 말. */
+    const val PASS = 60
+    const val GOOD = 75
+    const val GREAT = 90
 
     /** 한 소리의 분석: 프레임마다 음높이(Hz, 목소리 없으면 0)와 크기(dB). */
     class Track(val f0: FloatArray, val db: FloatArray) {

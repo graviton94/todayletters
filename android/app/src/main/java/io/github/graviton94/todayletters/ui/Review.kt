@@ -244,6 +244,11 @@ fun Session(s: AppState, r: Route.Session) {
     var picked by remember { mutableStateOf<String?>(null) }
     var typed by remember { mutableStateOf(TextFieldValue("")) }
     var hint by remember { mutableStateOf(false) }
+    // 틀렸을 때 한 번 더 (v18): 첫 번째로 틀리면 붉은 띠와 ‘다시 고르기’, 두 번째도 틀리면 정답
+    var tries by remember { mutableIntStateOf(0) }
+    var retry by remember { mutableStateOf(false) }
+    var missed by remember { mutableStateOf(setOf<String>()) }
+    var shakeKey by remember { mutableIntStateOf(0) }
     // 다시 듣기를 누를수록 힌트가 조금씩: 1번째 첫 글자, 2번째 문장 힌트, 그 뒤로 한 글자씩 (마지막 한 글자는 남김)
     var replays by remember { mutableIntStateOf(0) }
     // 글자판: 특수 문자를 고를 때는 시스템 키보드를 내리고 그 자리에 큰 글자판
@@ -274,14 +279,17 @@ fun Session(s: AppState, r: Route.Session) {
         if (q.kind == ReviewKind.BLANK && ok && q.sentenceAudio != null) s.narrator.play(q.sentenceAudio) else if (q.kind != ReviewKind.DICTATION || ok) s.narrator.play(q.audio)
     }
 
+    /** 첫 번째로 틀림: 흔들고 붉은 띠. 두 번째면 정답을 보여 준다. */
+    fun miss(o: String?) {
+        if (tries == 0) {
+            tries = 1; retry = true; if (o != null) missed = missed + o; shakeKey++
+            buzzWrong(view, s.app.haptics)
+            keyboard?.hide(); pad = false
+        } else judge(Memory.Mark.WRONG)
+    }
+
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f).imePadding()) {
-        Row(Modifier.fillMaxWidth().padding(end = Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically) {
-            IconButton(stringResource(R.string.close), onClick = { asking = true }) { Text("×", style = Type.title, color = p.ink) }
-            Row(Modifier.weight(1f), horizontalArrangement = Arrangement.spacedBy(3.dp)) {
-                questions.indices.forEach { k -> Box(Modifier.weight(1f).height(4.dp).background(when { k < at -> p.giltText; k == at -> p.ink; else -> p.hair })) }
-            }
-            Text("  ${at + 1} / ${questions.size}", style = Type.small, color = p.inkSoft)
-        }
+        PracticeHeader(at, questions.size, onClose = { asking = true })
         // 키보드가 올라오면 위쪽을 한 줄로 접는다 (듣기 · 0.7× · 안내), 확인은 키보드 바로 위
         @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
         val ime = WindowInsets.isImeVisible
@@ -379,20 +387,13 @@ fun Session(s: AppState, r: Route.Session) {
                     SpeakerButton(false, stringResource(R.string.listen_line), onDark = true) { s.narrator.play(q.audio) }
                 }
             }
-            if (q.kind != ReviewKind.DICTATION && q.kind != ReviewKind.SPEAK) OptionsGrid(q, picked, mark) { o ->
-                if (mark == null) { picked = o; judge(if (o == (if (q.kind == ReviewKind.MEANING) q.meaning else q.word)) Memory.Mark.RIGHT else Memory.Mark.WRONG) }
-            }
-            when (mark) {
-                Memory.Mark.RIGHT, Memory.Mark.ACCENT -> Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
-                    CorrectBurst(still = s.reducedMotion)
-                    Text(if (mark == Memory.Mark.RIGHT) stringResource(R.string.review_right) else stringResource(R.string.review_accent, q.word), style = Type.body.ui(), color = p.correct, textAlign = TextAlign.Center)
-                    // 그 낱말의 뜻 (뜻 고르기는 고른 것이 뜻이니 낱말을)
-                    Text(if (q.kind == ReviewKind.MEANING) q.word else q.meaning, style = Type.title.of(if (q.kind == ReviewKind.MEANING) q.learn else q.read), color = p.ink, textAlign = TextAlign.Center)
-                    if (q.ipa.isNotEmpty()) Text("[${q.ipa}]", style = Type.small, color = p.inkSoft)
+            if (q.kind != ReviewKind.DICTATION && q.kind != ReviewKind.SPEAK) OptionsGrid(q, picked, mark, missed, retry, shakeKey) { o ->
+                if (mark == null && !retry) {
+                    picked = o
+                    if (o == (if (q.kind == ReviewKind.MEANING) q.meaning else q.word)) judge(Memory.Mark.RIGHT) else miss(o)
                 }
-                Memory.Mark.WRONG -> Text(stringResource(R.string.review_wrong, q.word, q.meaning), style = Type.body.ui(), color = p.wrong, textAlign = TextAlign.Center)
-                null -> {}
             }
+            if (mark == Memory.Mark.RIGHT || mark == Memory.Mark.ACCENT) CorrectBurst(still = s.reducedMotion)
         }
         if (q.kind == ReviewKind.DICTATION && mark == null) {
             val helpers = if (q.learn == Lang.KO) remember(at) { koSyllables(Breaks.plain(q.word), s.cards().mapNotNull { c -> s.cardWord(c.key)?.let { (_, cl, i) -> cl.second.words[i].text[Lang.KO] } }, at) } else inputHelpers(q.learn)
@@ -438,15 +439,34 @@ fun Session(s: AppState, r: Route.Session) {
                 }
             }
         }
-        Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (mark == null && q.kind == ReviewKind.DICTATION) Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank()) { judge(Memory.grade(q.word, typed.text)) }
-            else if (mark != null) Primary(stringResource(if (at == questions.lastIndex) R.string.review_finish else R.string.ob_next)) {
-                val ok = mark != Memory.Mark.WRONG
-                if (r.kind == null) s.answer(q.card, ok)   // 기억 칸은 오늘의 복습에서만 움직인다 (따로 연습은 기록하지 않음)
-                results = results + (q to ok)
-                mark = null; picked = null; typed = TextFieldValue(""); hint = false; pad = false; replays = 0
-                at++
-                s.store.saveSession(sessionName, io.github.graviton94.todayletters.data.Store.SavedSession(s.today, questions.map { it.card.key }, at, results.map { it.second }))
+        fun next() {
+            val ok = mark != Memory.Mark.WRONG
+            if (r.kind == null) s.answer(q.card, ok)   // 기억 칸은 오늘의 복습에서만 움직인다 (따로 연습은 기록하지 않음)
+            results = results + (q to ok)
+            mark = null; picked = null; typed = TextFieldValue(""); hint = false; pad = false; replays = 0
+            tries = 0; retry = false; missed = emptySet()
+            at++
+            s.store.saveSession(sessionName, io.github.graviton94.todayletters.data.Store.SavedSession(s.today, questions.map { it.card.key }, at, results.map { it.second }))
+        }
+        val nextLabel = stringResource(if (at == questions.lastIndex) R.string.review_finish else R.string.ob_next)
+        // 그 낱말의 뜻 · 발음 (뜻 고르기는 고른 것이 뜻이니 낱말을)
+        val detail = listOfNotNull(q.word, q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, q.meaning).joinToString("  ·  ")
+        when {
+            retry -> FeedbackBar(
+                ok = false, title = stringResource(R.string.practice_retry_title),
+                primary = stringResource(if (q.kind == ReviewKind.DICTATION) R.string.practice_retype else R.string.practice_retry),
+                onPrimary = { retry = false; picked = null; if (q.kind == ReviewKind.DICTATION) showKeyboard() },
+                secondary = stringResource(R.string.practice_reveal), onSecondary = { retry = false; judge(Memory.Mark.WRONG) },
+            )
+            mark == Memory.Mark.WRONG -> FeedbackBar(false, stringResource(R.string.practice_answer), detail, nextLabel, ::next)
+            mark != null -> FeedbackBar(true,
+                if (mark == Memory.Mark.RIGHT) stringResource(R.string.review_right) else stringResource(R.string.review_accent, q.word),
+                detail, nextLabel, ::next)
+            q.kind == ReviewKind.DICTATION -> Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
+                Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank()) {
+                    val g = Memory.grade(q.word, typed.text)
+                    if (g == Memory.Mark.WRONG) miss(null) else judge(g)
+                }
             }
         }
     }
@@ -505,7 +525,7 @@ private fun meaningMarks(text: String, meaning: String, ink: Color): androidx.co
     }
 
 @Composable
-private fun OptionsGrid(q: Q, picked: String?, mark: Memory.Mark?, onPick: (String) -> Unit) {
+private fun OptionsGrid(q: Q, picked: String?, mark: Memory.Mark?, missed: Set<String>, retry: Boolean, shakeKey: Int, onPick: (String) -> Unit) {
     val p = Ink.palette
     val right = if (q.kind == ReviewKind.MEANING) q.meaning else q.word
     val lang = if (q.kind == ReviewKind.MEANING) q.read else q.learn
@@ -513,12 +533,16 @@ private fun OptionsGrid(q: Q, picked: String?, mark: Memory.Mark?, onPick: (Stri
         q.options.chunked(2).forEach { row ->
             Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                 row.forEach { o ->
-                    val st = when { mark == null -> 0; o == right -> 1; o == picked -> 2; else -> 3 }
+                    // 0 고를 수 있음 · 1 정답 · 2 방금 틀림 · 3 흐리게 (이미 틀린 것 · 끝난 뒤 나머지)
+                    val st = when {
+                        mark == null && o in missed -> if (retry && o == picked) 2 else 3
+                        mark == null -> 0; o == right -> 1; o == picked -> 2; else -> 3
+                    }
                     Box(
-                        Modifier.weight(1f).heightIn(min = 56.dp)
+                        Modifier.weight(1f).heightIn(min = 56.dp).then(if (o == picked && st == 2) Modifier.shake(shakeKey) else Modifier)
                             .background(when (st) { 1 -> p.correct; 2 -> p.wrong; else -> p.leaf })
                             .border(Tokens.Stroke.hair, if (st == 0) p.line else Color.Transparent)
-                            .pressable(enabled = mark == null) { onPick(o) }.padding(Tokens.Space.s2),
+                            .pressable(enabled = mark == null && !retry && o !in missed) { onPick(o) }.padding(Tokens.Space.s2),
                         contentAlignment = Alignment.Center,
                     ) { Text(o, style = Type.body.of(lang), color = if (st == 1 || st == 2) p.onFill else if (st == 3) p.hideInk else p.ink, textAlign = TextAlign.Center) }
                 }

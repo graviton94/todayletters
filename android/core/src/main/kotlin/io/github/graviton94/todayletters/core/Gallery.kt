@@ -53,7 +53,7 @@ object Draws {
 
 /** 오늘의 할 일: 날마다 세 가지. 셋 다 하면 오늘의 자료를 한 번 더 뽑는다. */
 enum class Quest(val goal: Int) {
-    SHADOW_PASS(5),     // 따라 읽기 5마디 통과
+    SHADOW_PASS(3),     // 따라 읽기 3문장 통과 (v18: 문장 통째)
     REREAD(1),          // 어제 (또는 지난) 편지 다시 읽기
     DICTATION_RUN(3),   // 듣고 쓰기 3개 연속 정답
     REVIEW_DONE(1),     // 오늘의 복습 끝내기

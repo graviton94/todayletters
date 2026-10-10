@@ -229,13 +229,33 @@ class PcmRecorder {
         thread = Thread {
             val out = java.io.ByteArrayOutputStream()
             val buf = ByteArray(min)
-            while (running) { val n = rec.read(buf, 0, buf.size); if (n > 0) out.write(buf, 0, n) }
+            while (running) {
+                val n = rec.read(buf, 0, buf.size)
+                if (n > 0) { out.write(buf, 0, n); onFrame?.let { f -> live(buf, n, f) } }
+            }
             runCatching { rec.stop() }; rec.release()
             val pcm = out.toByteArray()
             if (pcm.size >= Wav.RATE * 2 * 3 / 10) { Wav.write(to, pcm); saved = true }
         }.also { it.start() }
         true
     }.getOrDefault(false)
+
+    /**
+     * 녹음하는 동안 프레임마다 (크기 dB, 음높이 Hz · 목소리 없으면 0) 를 화면 쪽(메인 스레드)으로 알려 준다.
+     * 따라 읽기의 실시간 파형 · 음높이 선. 계산은 기기 안에서만.
+     */
+    @Volatile var onFrame: ((Float, Float) -> Unit)? = null
+    private val main = android.os.Handler(android.os.Looper.getMainLooper())
+    private fun live(buf: ByteArray, n: Int, f: (Float, Float) -> Unit) {
+        val sb = java.nio.ByteBuffer.wrap(buf, 0, n).order(java.nio.ByteOrder.LITTLE_ENDIAN).asShortBuffer()
+        val x = FloatArray(sb.remaining()) { sb.get(it) / 32768f }
+        if (x.isEmpty()) return
+        var e = 0.0; for (v in x) e += v * v
+        val db = (20 * kotlin.math.log10(kotlin.math.sqrt(e / x.size).coerceAtLeast(1e-6))).toFloat()
+        val win = Wav.RATE * 40 / 1000
+        val hz = if (db > -45f && x.size >= win) io.github.graviton94.todayletters.core.Prosody.yin(x, 0, win, Wav.RATE) else 0f
+        main.post { f(db, hz) }
+    }
 
     /** 녹음을 끝낸다. 쓸 만한 녹음이 남았으면 true. */
     fun stop(): Boolean {

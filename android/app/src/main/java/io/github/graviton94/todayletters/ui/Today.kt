@@ -116,11 +116,13 @@ fun Inbox(s: AppState) {
                         due > 0 -> Primary(stringResource(R.string.focus_review, due)) { s.go(Route.Session()) }
                         else -> g.nextDue?.let { d -> Text(if (d <= 1) stringResource(R.string.focus_due_tomorrow) else stringResource(R.string.focus_due_in, d), style = Type.small.ui(), color = p.inkSoft) }
                     }
-                    if (pr.done) Secondary(stringResource(R.string.focus_reread), small = true) { s.open(id, c, l, Route.Inbox) }
                 }
+                // 편지 목록을 위로 (v18): 왼쪽 오늘의 편지 다시 읽기 · 오른쪽 전체 편지 목록
+                LetterLinks(s, id, work, reread = if (pr.shown > 0) ({ s.open(id, c, l, Route.Inbox) }) else null)
             } else {
                 Text(stringResource(if (s.doneCount(id) >= letters.size) R.string.chapter_end_next else R.string.today_all_done), style = Type.heading.ui(), color = p.ink)
                 if (due > 0) Primary(stringResource(R.string.focus_review, due)) { s.go(Route.Session()) }
+                LetterLinks(s, id, work, reread = null)
             }
             // 오늘의 할 일
             Column {
@@ -171,9 +173,6 @@ fun Inbox(s: AppState) {
                 val days = upcoming?.let { s.daysUntil(id, it.id) }
                 Text(stringResource(R.string.next_title) + " · " + when { days == null -> stringResource(R.string.next_none); days <= 1 -> stringResource(R.string.letter_eta); else -> stringResource(R.string.next_in, days) },
                     style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.weight(1f))
-                Box(Modifier.heightIn(min = 40.dp).pressable { s.go(Route.Series(id)) }, contentAlignment = Alignment.Center) {
-                    Text(stringResource(R.string.today_contents), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.ink)
-                }
             }
         }
     }
@@ -218,3 +217,29 @@ fun PlateThumb(file: String, unlocked: Boolean, modifier: Modifier) {
     )
 }
 
+
+/** 오늘 화면의 두 단추: 오늘의 편지 다시 읽기 (있을 때) | 전체 편지 목록, 아래에 장마다 읽은 수. */
+@Composable
+private fun LetterLinks(s: AppState, id: String, work: io.github.graviton94.todayletters.data.Work, reread: (() -> Unit)?) {
+    val p = Ink.palette
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            if (reread != null) OutlineButton(stringResource(R.string.today_reread), Modifier.weight(1f), reread)
+            OutlineButton(stringResource(R.string.today_all_letters), Modifier.weight(1f)) { s.go(Route.Series(id)) }
+        }
+        val counts = work.chapters.mapIndexed { k, ch ->
+            stringResource(R.string.today_chapter_count, "${k + 1}", ch.letters.count { s.progress(id, ch.id, it.id).done }, ch.letters.size)
+        }
+        Text(counts.joinToString("  ·  "), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft,
+            modifier = Modifier.align(Alignment.End))
+    }
+}
+
+@Composable
+private fun OutlineButton(text: String, modifier: Modifier, onClick: () -> Unit) {
+    val p = Ink.palette
+    Box(modifier.heightIn(min = Tokens.Size.buttonSm).border(1.dp, p.ink).pressable { onClick() }.padding(horizontal = Tokens.Space.s2),
+        contentAlignment = Alignment.Center) {
+        Text(text, style = Type.small.ui(), color = p.ink, maxLines = 1)
+    }
+}

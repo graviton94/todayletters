@@ -28,6 +28,11 @@ import kotlinx.coroutines.launch
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.width
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -75,26 +80,14 @@ fun Play(s: AppState, r: Route.Play) {
     var asking by remember { mutableStateOf(false) }
     BackHandler { asking = true }
     when (r.mode) {
-        ReplyMode.MATCH -> Match(s, r)
-        ReplyMode.ALOUD -> Aloud(s, r)
-        else -> Constellation(s, r)
+        ReplyMode.MATCH -> Match(s, r, onClose = { asking = true })
+        ReplyMode.ALOUD -> Aloud(s, r, onClose = { asking = true })
+        else -> Constellation(s, r, onClose = { asking = true })
     }
     if (asking) Ask(
         stringResource(R.string.play_leave_title), stringResource(R.string.play_leave_yes), stringResource(R.string.play_leave_no),
         onYes = { asking = false; s.recorder.stop(); s.back() }, onNo = { asking = false },
     )
-}
-
-@Composable
-private fun PlayHeader(s: AppState, label: String, step: String) {
-    val p = Ink.palette
-    Row(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s2, vertical = Tokens.Space.s2), verticalAlignment = Alignment.CenterVertically) {
-        IconButton(stringResource(R.string.back), onClick = { s.back() }) { Chevron(p.ink) }
-        Text(label, style = Type.heading.ui(), color = p.ink, modifier = Modifier.weight(1f))
-        if (step.isNotEmpty()) Caps(step)
-        IconButton(stringResource(R.string.help), onClick = { helpId(s.route)?.let { s.coachAgain(it) } }) { HelpGlyph(p.ink) }
-    }
-    Hair()
 }
 
 /**
@@ -103,7 +96,7 @@ private fun PlayHeader(s: AppState, label: String, step: String) {
  * 라이트 · 다크 모두 같은 모양, 색만 다르다.
  */
 @Composable
-private fun Constellation(s: AppState, r: Route.Play) {
+private fun Constellation(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val p = Ink.palette
     val haptic = LocalHapticFeedback.current
     val (_, letter) = s.letterOf(r.room)
@@ -136,11 +129,12 @@ private fun Constellation(s: AppState, r: Route.Play) {
     }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PlayHeader(s, stringResource(R.string.mode_constellation), "")
+        PracticeHeader(picked.size, answer.size, onClose = onClose, onHelp = { helpId(s.route)?.let { s.coachAgain(it) } }, count = "${picked.size} / ${answer.size}")
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
+            PracticeTitle("CONSTELLATION", stringResource(R.string.mode_constellation))
             Slip(seed = 5, modifier = Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                     Text(stringResource(if (guided) R.string.guide_title else R.string.play_meaning), style = Type.capsSm.ui(), color = Color(0xFF7A5A20))
@@ -248,57 +242,114 @@ private fun Sky(
 }
 
 /**
- * 낱말 맞추기: 왼쪽 낱말(배울 언어)을 누르고 오른쪽 뜻(번역)을 누른다. 짝이 맞으면 둘 다 금빛으로 잠기고 발음이 나온다.
- * 틀리면 잠깐 붉게 흔들린다. 다 맞히면 마치기.
+ * 낱말 맞추기 (v18, 별자리처럼): 왼쪽 낱말 별에서 오른쪽 뜻 별로 선을 끌어 잇는다 (낱말을 누르고 뜻을 눌러도 된다).
+ * 맞으면 선이 금빛으로 굳고 발음이 나온다. 틀리면 붉은 점선이 잠깐 떨리다 사라진다. 연속으로 맞히면 ‘연속 N’.
+ * 다 이으면 별자리가 한 번 빛나고 마치기.
  */
 @Composable
-private fun Match(s: AppState, r: Route.Play) {
+private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val p = Ink.palette
     val haptic = LocalHapticFeedback.current
+    val view0 = androidx.compose.ui.platform.LocalView.current
     val (chapter, letter) = s.letterOf(r.room)
     val view = s.room(r.room.series)
     val (pairs, order) = remember(letter.id, view.learn, view.read) { Exercises.matchBoard(letter, view.learn, view.read) }
-    var left by remember { mutableStateOf<Int?>(null) }
+    var sel by remember { mutableStateOf<Int?>(null) }
     var matched by remember(letter.id) { mutableStateOf(setOf<Int>()) }
-    var wrong by remember { mutableStateOf<Int?>(null) }
+    var wrongLine by remember { mutableStateOf<Pair<Int, Int>?>(null) }
+    var combo by remember { mutableIntStateOf(0) }
+    var drag by remember { mutableStateOf<Offset?>(null) }
+    val glow = remember { Animatable(0f) }
     val done = matched.size == pairs.size
-    LaunchedEffect(wrong) { if (wrong != null) { delay(600); wrong = null } }
-
-    fun pickRight(k: Int) {
-        val l = left ?: return
+    LaunchedEffect(wrongLine) { if (wrongLine != null) { delay(650); wrongLine = null } }
+    LaunchedEffect(done) { if (done && !s.reducedMotion) { glow.animateTo(1f, tween(450)); glow.animateTo(0f, tween(900)) } }
+    fun say(k: Int) = s.narrator.play(s.narrator.path(r.room.series, chapter, letter.id, "w${k + 1}_${view.learn.code}"))
+    fun connect(l: Int, row: Int) {
+        val k = order[row]
+        if (k in matched || l in matched) return
         if (l == k) {
-            matched = matched + k; left = null
+            matched = matched + k; combo++
             if (s.app.haptics) haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
-            s.narrator.play(s.narrator.path(r.room.series, chapter, letter.id, "w${k + 1}_${view.learn.code}"))
+            say(k)
         } else {
-            wrong = k; left = null
-            if (s.app.haptics) haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+            wrongLine = l to row; combo = 0
+            buzzWrong(view0, s.app.haptics)
         }
+        sel = null
     }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PlayHeader(s, stringResource(R.string.mode_match), "${matched.size} / ${pairs.size}")
+        PracticeHeader(matched.size, pairs.size, onClose = onClose, onHelp = { helpId(s.route)?.let { s.coachAgain(it) } }, count = "${matched.size} / ${pairs.size}")
         Column(
-            Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
-            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
+            Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3), horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(stringResource(R.string.match_hint), style = Type.small.ui(), color = p.inkSoft)
-            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    pairs.forEachIndexed { k, (w, _) ->
-                        MatchCard(w, view.learn, on = left == k, matched = k in matched, wrong = false) { if (k !in matched) left = k }
+            PracticeTitle("MATCH", stringResource(R.string.match_prompt))
+            Text(if (combo >= 2) stringResource(R.string.match_combo, combo) else " ", style = Type.small.ui(), color = p.giltText)
+            val rowH = 58.dp
+            val density = androidx.compose.ui.platform.LocalDensity.current
+            androidx.compose.foundation.layout.BoxWithConstraints(
+                Modifier.fillMaxWidth().height(rowH * pairs.size + 16.dp).background(p.sky).border(Tokens.Stroke.hair, p.hair),
+            ) {
+                val w = constraints.maxWidth.toFloat()
+                val rh = with(density) { rowH.toPx() }
+                val top = with(density) { 8.dp.toPx() }
+                val lx = w * 0.42f; val rx = w * 0.58f
+                fun cy(i: Int) = top + rh * (i + 0.5f)
+                fun nearest(y: Float) = ((y - top) / rh).toInt().coerceIn(0, pairs.lastIndex)
+                Box(Modifier.matchParentSize().pointerInput(pairs, matched) {
+                    detectDragGestures(
+                        onDragStart = { pos -> val i = nearest(pos.y); if (pos.x < w * 0.5f && i !in matched) { sel = i; drag = pos } },
+                        onDrag = { ch, _ -> if (drag != null) drag = ch.position },
+                        onDragEnd = { val d = drag; val l = sel; drag = null; if (d != null && l != null && d.x > w * 0.5f) connect(l, nearest(d.y)) },
+                        onDragCancel = { drag = null },
+                    )
+                }.drawBehind {
+                    val gl = p.gilt.copy(alpha = (0.85f + 0.15f * glow.value))
+                    matched.forEach { k ->
+                        val a = Offset(lx, cy(k)); val b = Offset(rx, cy(order.indexOf(k)))
+                        if (glow.value > 0f) drawLine(p.gilt.copy(alpha = 0.35f * glow.value), a, b, 7.dp.toPx())
+                        drawLine(gl, a, b, 1.8.dp.toPx())
+                    }
+                    wrongLine?.let { (l, row) ->
+                        drawLine(p.wrong, Offset(lx, cy(l)), Offset(rx, cy(row)), 1.6.dp.toPx(),
+                            pathEffect = androidx.compose.ui.graphics.PathEffect.dashPathEffect(floatArrayOf(8f, 7f)))
+                    }
+                    val d = drag; val l = sel
+                    if (d != null && l != null) drawLine(p.ink.copy(alpha = 0.7f), Offset(lx, cy(l)), d, 1.2.dp.toPx(),
+                        pathEffect = androidx.compose.ui.graphics.PathEffect.dashPathEffect(floatArrayOf(5f, 7f)))
+                    val r0 = 6.dp.toPx()
+                    pairs.indices.forEach { i ->
+                        val on = i in matched || sel == i
+                        if (glow.value > 0f && i in matched) drawCircle(p.gilt.copy(alpha = 0.3f * glow.value), r0 * 2.2f, Offset(lx, cy(i)))
+                        if (on) drawCircle(p.gilt, r0, Offset(lx, cy(i))) else drawCircle(p.gilt, r0, Offset(lx, cy(i)), style = androidx.compose.ui.graphics.drawscope.Stroke(1.5.dp.toPx()))
+                        val k = order[i]
+                        val bad = wrongLine?.second == i
+                        if (k in matched) drawCircle(p.gilt, r0, Offset(rx, cy(i)))
+                        else drawCircle(if (bad) p.wrong else p.gilt, r0, Offset(rx, cy(i)), style = androidx.compose.ui.graphics.drawscope.Stroke(1.5.dp.toPx()))
+                    }
+                })
+                val lw = with(density) { (lx - 16.dp.toPx()).toDp() }
+                val rStart = with(density) { (rx + 14.dp.toPx()).toDp() }
+                val rw = with(density) { (w - rx - 18.dp.toPx()).toDp() }
+                pairs.forEachIndexed { i, (word, _) ->
+                    Box(Modifier.offset(y = 8.dp + rowH * i).width(lw).height(rowH).clickable(enabled = i !in matched, role = Role.Button) { sel = i; say(i) },
+                        contentAlignment = Alignment.CenterEnd) {
+                        Text(word, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display).of(view.learn),
+                            color = if (i in matched) p.giltText else p.ink, maxLines = 2, textAlign = TextAlign.End)
                     }
                 }
-                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    order.forEach { k ->
-                        MatchCard(pairs[k].second, view.read, on = false, matched = k in matched, wrong = wrong == k) { if (k !in matched) pickRight(k) }
+                order.forEachIndexed { row, k ->
+                    val bad = wrongLine?.second == row
+                    Box(Modifier.offset(x = rStart, y = 8.dp + rowH * row).width(rw).height(rowH)
+                        .clickable(enabled = k !in matched, role = Role.Button) { sel?.let { connect(it, row) } },
+                        contentAlignment = Alignment.CenterStart) {
+                        Text(pairs[k].second, style = Type.small.of(view.read), maxLines = 2,
+                            color = when { bad -> p.wrong; k in matched -> p.giltText; else -> p.ink })
                     }
                 }
             }
-            when {
-                done -> Text(stringResource(R.string.match_done), style = Type.small.ui(), color = p.correct)
-                wrong != null -> Text(stringResource(R.string.match_wrong), style = Type.small.ui(), color = p.wrong)
-            }
+            Text(stringResource(if (done) R.string.match_done else R.string.match_hint), style = Type.small.ui(), color = if (done) p.correct else p.inkSoft, textAlign = TextAlign.Center)
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
             Primary(stringResource(R.string.play_finish), enabled = done) { s.replyAndContinue(r.room, ReplyMode.MATCH) }
@@ -306,128 +357,23 @@ private fun Match(s: AppState, r: Route.Play) {
     }
 }
 
-@Composable
-private fun MatchCard(text: String, lang: io.github.graviton94.todayletters.core.Lang, on: Boolean, matched: Boolean, wrong: Boolean, onClick: () -> Unit) {
-    val p = Ink.palette
-    val shake by androidx.compose.animation.core.animateFloatAsState(if (wrong) 1f else 0f, tween(120), label = "shake")
-    Box(
-        Modifier.fillMaxWidth().heightIn(min = 56.dp)
-            .graphicsLayer { translationX = kotlin.math.sin(shake * 18f) * 6.dp.toPx() * shake; alpha = if (matched) 0.55f else 1f }
-            .background(when { matched -> p.hide; on -> p.fill; else -> p.leaf })
-            .border(1.dp, when { wrong -> p.wrong; on -> p.fill; matched -> p.hair; else -> p.line })
-            .pressable(enabled = !matched, onClick = onClick).padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s2),
-        contentAlignment = Alignment.CenterStart,
-    ) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            if (matched) CheckMark(true, 16.dp)
-            Text(text, style = Type.body.of(lang), color = if (on) p.onFill else p.ink, maxLines = 2)
-        }
-    }
-}
-
 /**
- * 따라 읽기 (답장이 아니라 연습): 빈센트가 읽는 동안 읽는 자리의 낱말이 차례로 칠해진다.
- * 그다음 소리 내어 읽고 녹음한다. MVP 는 녹음만으로 완료 (채점 없음). 녹음은 기기 안에만.
- * 문장은 이 편지에서 낱말 수가 알맞은(4~14) 가장 짧은 문장.
+ * 편지 안 따라 읽기 (v18): 복습 · 봉인과 같은 따라 읽기 화면 하나 (ReadAlong) 에서, 이 편지의 한 문장만.
+ * 문장은 이 편지에서 낱말 수가 알맞은(4~14) 가장 짧은 문장. 녹음까지 하면 마칠 수 있고, 점수는 같이 보여 준다.
  */
 @Composable
-private fun Aloud(s: AppState, r: Route.Play) {
-    val p = Ink.palette
-    val ctx = LocalContext.current
-    val (chapter, letter) = s.letterOf(r.room)
+private fun Aloud(s: AppState, r: Route.Play, onClose: () -> Unit) {
+    val (_, letter) = s.letterOf(r.room)
     val view = s.room(r.room.series)
     val i = remember(letter.id, view.learn) {
         letter.messages.indices.filter { letter.messages[it].text[view.learn].split(" ").size in 4..14 }
             .minByOrNull { letter.messages[it].text[view.learn].length } ?: letter.messages.lastIndex
     }
-    val line = letter.messages[i].text
-    val sentence = io.github.graviton94.todayletters.core.Breaks.plain(line[view.learn])
-    val audio = s.narrator.path(r.room.series, chapter, letter.id, "m${i + 1}_${view.learn.code}")
-    val chunks = remember(audio) { s.narrator.chunks(audio) }
-    var playing by remember { mutableStateOf(false) }
-    var heard by remember { mutableStateOf(false) }
-    var pos by remember { mutableIntStateOf(-1) }        // 지금 칠하는 글자 자리
-    var recording by remember { mutableStateOf(false) }
-    var has by remember { mutableStateOf(false) }
-    var allowed by remember { mutableStateOf(ContextCompat.checkSelfPermission(ctx, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) }
-    val ask = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { allowed = it }
-    DisposableEffect(Unit) { onDispose { s.recorder.stop(); s.narrator.stop() } }
-    LaunchedEffect(s.away) { if (recording) { has = s.recorder.file.exists() || has; recording = false } }
-
-    // 덩어리 시각 → 글자 자리. 덩어리 글자를 문장에서 차례로 찾아, 덩어리 안에서는 시간에 비례해 나아간다.
-    val spans = remember(sentence, chunks) {
-        var from = 0
-        chunks.map { c ->
-            val at = sentence.indexOf(c.text, from).takeIf { it >= 0 } ?: from
-            from = at + c.text.length
-            Triple(c, at, at + c.text.length)
-        }
-    }
-    LaunchedEffect(playing) {
-        while (playing) {
-            val t = s.narrator.position()
-            if (t >= 0) {
-                val hit = spans.lastOrNull { it.first.start <= t }
-                pos = when {
-                    hit == null -> -1
-                    t >= hit.first.end -> hit.third
-                    else -> hit.second + ((t - hit.first.start).toFloat() / (hit.first.end - hit.first.start).coerceAtLeast(1) * (hit.third - hit.second)).toInt()
-                }
-            }
-            androidx.compose.runtime.withFrameMillis { }
-        }
-    }
-    fun listen() {
-        if (playing) { s.narrator.stop(); playing = false; return }
-        s.recorder.stop(); recording = false
-        playing = s.narrator.play(audio) { playing = false; heard = true; pos = sentence.length }
-        if (spans.isEmpty()) pos = -1
-    }
-
-    Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PlayHeader(s, stringResource(R.string.mode_aloud), "")
-        Column(
-            Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
-            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
-        ) {
-            Text(stringResource(R.string.aloud_prompt), style = Type.small.ui(), color = p.inkSoft)
-            Slip(seed = 9, modifier = Modifier.fillMaxWidth()) {
-                Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    Text(readAlong(sentence, pos, p.slipInk, p.slipSoft.copy(alpha = 0.75f), p.gilt.copy(alpha = 0.35f)), style = Type.target.of(view.learn))
-                    Text(line[view.read], style = Type.base.of(view.read), color = p.slipSoft)
-                }
-            }
-            Secondary(stringResource(if (playing) R.string.room_stop else if (heard) R.string.aloud_again else R.string.aloud_listen)) { listen() }
-            val recStart = stringResource(R.string.a11y_record); val recStop = stringResource(R.string.a11y_record_stop)
-            Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                Box(
-                    Modifier.size(Tokens.Size.mic).background(if (recording) p.wrong else Color.Transparent, CircleShape).border(1.dp, p.giltText, CircleShape)
-                        .semantics { contentDescription = if (recording) recStop else recStart }
-                        .pressable(role = Role.Button) {
-                            if (!allowed) { ask.launch(Manifest.permission.RECORD_AUDIO); return@pressable }
-                            if (recording) { has = s.recorder.stop() || has; recording = false } else { s.narrator.stop(); playing = false; recording = s.recorder.start() }
-                        },
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Canvas(Modifier.size(20.dp)) {
-                        if (recording) drawRect(p.onFill) else drawCircle(p.wrong, size.minDimension / 2)
-                    }
-                }
-            }
-            Text(
-                stringResource(if (recording) R.string.aloud_recording else if (has) R.string.aloud_recorded else R.string.aloud_tap),
-                style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.align(Alignment.CenterHorizontally),
-            )
-            if (has) Secondary(stringResource(R.string.aloud_mine)) { s.narrator.stop(); playing = false; s.recorder.play() }
-        }
-        Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            Primary(stringResource(R.string.aloud_finish), enabled = has && !recording) { s.replyAndContinue(r.room, ReplyMode.ALOUD) }
-        }
-    }
+    ReadAlong(s, r.room, only = listOf(i), onClose = onClose, onFinish = { s.replyAndContinue(r.room, ReplyMode.ALOUD) })
 }
 
 /** 읽는 자리 칠하기: 읽은 낱말은 먹색, 지금 낱말은 금빛 바탕, 남은 낱말은 흐리게. [pos] < 0 이면 모두 먹색. */
-private fun readAlong(text: String, pos: Int, done: Color, rest: Color, now: Color): androidx.compose.ui.text.AnnotatedString =
+internal fun readAlong(text: String, pos: Int, done: Color, rest: Color, now: Color): androidx.compose.ui.text.AnnotatedString =
     androidx.compose.ui.text.buildAnnotatedString {
         if (pos < 0) { withStyle(androidx.compose.ui.text.SpanStyle(color = done)) { append(text) }; return@buildAnnotatedString }
         val words = Regex("\\S+").findAll(text).toList()

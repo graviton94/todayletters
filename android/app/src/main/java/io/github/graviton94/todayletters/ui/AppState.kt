@@ -472,16 +472,16 @@ class AppState(val ctx: Context, deepLink: Boolean = false) {
     }
 
     // ── 따라 읽기 · 완독 봉인 (모든 시리즈 공통) ─────────────────
-    /** 따라 읽기의 마디: 편지 문장마다 낭독 시각 파일의 마디. 낭독이 없으면 문장 부호에서 나눈 글 (소리 없이). */
+    /** 따라 읽기의 칸: 문장(메시지)마다 하나, 문장 통째 (v18). 낭독 시각이 있으면 첫 마디 시작 ~ 끝 마디 끝. */
     fun shadowChunks(id: String, chapter: String, l: Letter): List<List<io.github.graviton94.todayletters.data.Chunk>> {
         val learn = seriesSettings(id).learn
         return l.messages.mapIndexed { i, m ->
-            narrator.chunks(narrator.path(id, chapter, l.id, "m${i + 1}_${learn.code}")).ifEmpty {
-                m.text[learn].replace("\u2060", "").split(Regex("(?<=[,.;:!?–])\\s+")).filter { it.isNotBlank() }
-                    .map { io.github.graviton94.todayletters.data.Chunk(-1, -1, it.trim()) }
-            }
+            val text = io.github.graviton94.todayletters.core.Breaks.plain(m.text[learn])
+            val cs = narrator.chunks(narrator.path(id, chapter, l.id, "m${i + 1}_${learn.code}"))
+            listOf(if (cs.isEmpty()) io.github.graviton94.todayletters.data.Chunk(-1, -1, text) else io.github.graviton94.todayletters.data.Chunk(cs.first().start, cs.last().end, text))
         }
     }
+
     /** 마디 녹음 파일: files/readings/<편지>/m<문장>_c<마디>.wav (원음이라 억양 · 리듬을 잴 수 있다) */
     fun readingDir(id: String, chapter: String, letter: String) = java.io.File(ctx.filesDir, "readings/${id}_${chapter}_$letter")
     fun take(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = java.io.File(readingDir(id, chapter, letter), "m${msg}_c$chunk.wav")

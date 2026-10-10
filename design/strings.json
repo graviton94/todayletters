@@ -693,8 +693,8 @@
     "ko": "편지에 나온 낱말과 뜻을 짝지어요"
   },
   "match_hint": {
-    "en": "Tap a word on the left, then its meaning.",
-    "ko": "왼쪽 낱말을 누르고, 맞는 뜻을 눌러요."
+    "en": "Tap a word to hear it · drag from dot to dot",
+    "ko": "낱말을 누르면 소리 · 점에서 점으로 끌어 이어요"
   },
   "match_done": {
     "en": "All matched.",
@@ -1806,19 +1806,19 @@
   },
   "shadow_count": {
     "en": "%1$d / %2$d",
-    "ko": "%1$d / %2$d 마디"
+    "ko": "%1$d / %2$d 문장"
   },
   "shadow_hint": {
-    "en": "Hear one phrase of the original, then say it in your own voice. The phrases break where the reading breaks.",
-    "ko": "원래 소리 한 마디를 듣고, 내 목소리로 한 마디. 끊는 자리는 낭독 그대로예요."
+    "en": "Hear the sentence, then say the whole of it in your own voice.",
+    "ko": "원래 소리로 문장을 듣고, 내 목소리로 통째로 읽어요."
   },
   "shadow_noaudio": {
-    "en": "This letter has no reading yet. Read each phrase aloud from the text.",
-    "ko": "이 편지는 아직 낭독이 없어요. 글을 보고 한 마디씩 소리 내어 읽어 보세요."
+    "en": "This letter has no reading yet. Read the sentence aloud from the text.",
+    "ko": "이 편지는 아직 낭독이 없어요. 글을 보고 문장을 소리 내어 읽어 보세요."
   },
   "shadow_tap": {
-    "en": "Tap the microphone and say the phrase.",
-    "ko": "마이크를 누르고 이 마디를 따라 말해 보세요."
+    "en": "Tap the microphone and read the sentence.",
+    "ko": "마이크를 누르고 이 문장을 따라 읽어 보세요."
   },
   "shadow_recording": {
     "en": "Listening… tap again when you've finished.",
@@ -1845,8 +1845,8 @@
     "ko": "다 말했어요"
   },
   "shadow_next": {
-    "en": "Next phrase",
-    "ko": "다음 마디"
+    "en": "Next sentence",
+    "ko": "다음 문장"
   },
   "shadow_finish": {
     "en": "I've read it all along",
@@ -1881,16 +1881,16 @@
     "ko": "이 편지를 혼자 다 읽었어요"
   },
   "seal_stats": {
-    "en": "No translation · %1$d words · %2$d phrases read along",
-    "ko": "번역 없이 · 낱말 %1$d개 · %2$d마디 따라 읽음"
+    "en": "No translation · %1$d words · %2$d sentences read along",
+    "ko": "번역 없이 · 낱말 %1$d개 · %2$d문장 따라 읽음"
   },
   "seal_mine": {
     "en": "Letter %1$s, in my voice",
     "ko": "내가 읽은 편지 %1$s"
   },
   "seal_mine_d": {
-    "en": "Your %1$d phrases, joined together",
-    "ko": "따라 읽은 %1$d마디를 이어 붙였어요"
+    "en": "Your %1$d sentences, joined together",
+    "ko": "따라 읽은 %1$d문장을 이어 붙였어요"
   },
   "seal_send": {
     "en": "Send as a voice postcard",
@@ -1969,12 +1969,12 @@
     "ko": "이번 녹음은 비교하지 못했어요. 조금 크게 한 번 더 해 보세요."
   },
   "shadow_pass": {
-    "en": "Passed: this phrase turns gold.",
-    "ko": "통과! 이 마디는 금빛이 돼요."
+    "en": "Passed: this sentence turns gold.",
+    "ko": "통과! 이 문장은 금빛이 돼요."
   },
   "shadow_retry": {
-    "en": "70 passes. Listen once more and try again?",
-    "ko": "70점이 넘으면 통과예요. 한 번 더 듣고 해 볼까요?"
+    "en": "60 passes. Listen once more and try again?",
+    "ko": "60점이면 통과예요. 한 번 더 듣고 해 볼까요?"
   },
   "shadow_note": {
     "en": "This scores the rise and fall of your voice and its rhythm, not pronunciation.",
@@ -1985,16 +1985,16 @@
     "ko": "다시 말하기"
   },
   "shadow_unpassed_title": {
-    "en": "Some phrases haven't passed yet",
-    "ko": "아직 통과 못 한 마디가 있어요"
+    "en": "Some sentences haven't passed yet",
+    "ko": "아직 통과 못 한 문장이 있어요"
   },
   "shadow_unpassed_body": {
-    "en": "%1$d phrases are under 70. Every phrase needs to pass for the seal.",
-    "ko": "%1$d마디가 70점에 못 미쳤어요. 모든 마디를 통과해야 봉인돼요."
+    "en": "%1$d sentences are under 60. Every sentence needs to pass for the seal.",
+    "ko": "%1$d문장이 60점에 못 미쳤어요. 모든 문장을 통과해야 봉인돼요."
   },
   "shadow_go": {
-    "en": "Go to that phrase",
-    "ko": "그 마디로"
+    "en": "Go to that sentence",
+    "ko": "그 문장으로"
   },
   "credits_about_h": {
     "en": "No affiliation · rights questions",
@@ -2201,8 +2201,8 @@
     "ko": "혼자 읽는 낱말 50개"
   },
   "ach_shadow_100": {
-    "en": "100 phrases read aloud",
-    "ko": "따라 읽기 100마디"
+    "en": "50 sentences read aloud",
+    "ko": "따라 읽기 50문장"
   },
   "ach_pieces_12": {
     "en": "12 pieces in the gallery",
@@ -2233,8 +2233,8 @@
     "ko": "일요일 낭독회"
   },
   "recital_meta": {
-    "en": "This week · %1$d phrases · %2$d:%3$02d",
-    "ko": "이번 주 따라 읽은 %1$d마디 · %2$d분 %3$d초"
+    "en": "This week · %1$d sentences · %2$d:%3$02d",
+    "ko": "이번 주 따라 읽은 %1$d문장 · %2$d분 %3$d초"
   },
   "recital_play": {
     "en": "Hear your week, start to finish",
@@ -2257,8 +2257,8 @@
     "ko": "리듬"
   },
   "recital_note": {
-    "en": "Averages of every phrase you read along that week.",
-    "ko": "그 주에 따라 읽은 모든 마디의 평균이에요."
+    "en": "Averages of every sentence you read along that week.",
+    "ko": "그 주에 따라 읽은 모든 문장의 평균이에요."
   },
   "recital_finish": {
     "en": "Close the reading · %1$s",
@@ -2285,8 +2285,8 @@
     "ko": "셋 다 하면 자료 한 번 더"
   },
   "quest_shadow": {
-    "en": "Pass %1$d phrases in read-along",
-    "ko": "따라 읽기 %1$d마디 통과"
+    "en": "Pass %1$d sentences in read-along",
+    "ko": "따라 읽기 %1$d문장 통과"
   },
   "quest_reread": {
     "en": "Reread a letter you've finished",
@@ -2499,5 +2499,69 @@
   "viewer_hint": {
     "en": "Pinch to zoom · drag to look around · double-tap to zoom in or out",
     "ko": "두 손가락으로 크게 · 끌어서 위아래 양옆 · 두 번 누르면 확대 / 원래대로"
+  },
+  "match_prompt": {
+    "en": "Join each word to its meaning",
+    "ko": "낱말과 뜻을 선으로 이어요"
+  },
+  "match_combo": {
+    "en": "%1$d in a row ✦",
+    "ko": "연속 %1$d ✦"
+  },
+  "practice_retry_title": {
+    "en": "Not quite · try again",
+    "ko": "아쉬워요 · 한 번 더"
+  },
+  "practice_retry": {
+    "en": "Try again",
+    "ko": "다시 고르기"
+  },
+  "practice_retype": {
+    "en": "Type again",
+    "ko": "다시 쓰기"
+  },
+  "practice_reveal": {
+    "en": "Show answer",
+    "ko": "정답 보기"
+  },
+  "practice_answer": {
+    "en": "The answer",
+    "ko": "정답"
+  },
+  "read_where": {
+    "en": "Sentence %1$d / %2$d",
+    "ko": "문장 %1$d / %2$d"
+  },
+  "read_pass_line": {
+    "en": "Pass %1$d",
+    "ko": "통과 %1$d"
+  },
+  "read_pass": {
+    "en": "Passed!",
+    "ko": "통과!"
+  },
+  "read_good": {
+    "en": "Good!",
+    "ko": "좋아요!"
+  },
+  "read_great": {
+    "en": "Excellent!",
+    "ko": "훌륭해요!"
+  },
+  "read_skip": {
+    "en": "Skip for now (won't count as passed)",
+    "ko": "넘어가기 (통과로 세지 않아요)"
+  },
+  "today_reread": {
+    "en": "Reread today's letter",
+    "ko": "오늘의 편지 다시 읽기"
+  },
+  "today_all_letters": {
+    "en": "All letters ›",
+    "ko": "전체 편지 목록 ›"
+  },
+  "today_chapter_count": {
+    "en": "Ch. %1$s %2$d/%3$d",
+    "ko": "%1$s장 %2$d/%3$d"
   }
 }
