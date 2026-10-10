@@ -62,7 +62,8 @@ fun WordListScreen(s: AppState) {
     val p = Ink.palette
     var query by remember { mutableStateOf("") }
     var limit by remember { mutableIntStateOf(20) }
-    data class Entry(val learn: String, val read: String, val ipa: String, val date: String, val audio: String, val lang: io.github.graviton94.todayletters.core.Lang, val readLang: io.github.graviton94.todayletters.core.Lang)
+    var detail by remember { mutableStateOf<String?>(null) }
+    data class Entry(val learn: String, val read: String, val ipa: String, val date: String, val audio: String, val lang: io.github.graviton94.todayletters.core.Lang, val readLang: io.github.graviton94.todayletters.core.Lang, val key: String)
     val all = remember(s.version) {
         s.works.flatMap { w ->
             val id = w.series.id
@@ -71,7 +72,7 @@ fun WordListScreen(s: AppState) {
                 c.letters.filter { s.progress(id, c.id, it.id).shown > 0 }.flatMap { l ->
                     l.words.mapIndexed { i, word ->
                         Entry(word.text[room.learn], word.text[room.read], if (room.learn == w.series.original) word.ipa else "", l.date,
-                            s.narrator.path(id, c.id, l.id, "w${i + 1}_${room.learn.code}"), room.learn, room.read)
+                            s.narrator.path(id, c.id, l.id, "w${i + 1}_${room.learn.code}"), room.learn, room.read, s.cardKey(id, c.id, l.id, i))
                     }
                 }
             }
@@ -105,7 +106,7 @@ fun WordListScreen(s: AppState) {
             items(shown.take(limit).size) { k ->
                 val e = shown[k]
                 Row(
-                    Modifier.fillMaxWidth().heightIn(min = 48.dp).pressable { s.narrator.play(e.audio) },
+                    Modifier.fillMaxWidth().heightIn(min = 48.dp).pressable { detail = e.key },
                     verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
                 ) {
                     Text(e.learn, style = Type.body.of(e.lang), color = p.ink, maxLines = 1)
@@ -117,12 +118,14 @@ fun WordListScreen(s: AppState) {
             }
             item {
                 when {
-                    shown.isEmpty() -> Text(stringResource(if (all.isEmpty()) R.string.words_note else R.string.words_none), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(vertical = Tokens.Space.s4))
+                    all.isEmpty() -> EmptyState(stringResource(R.string.empty_words_t), stringResource(R.string.empty_words_b), stringResource(R.string.today_open)) { s.go(Route.Inbox) }
+                    shown.isEmpty() -> Text(stringResource(R.string.words_none), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(vertical = Tokens.Space.s4))
                     shown.size > limit -> Box(Modifier.padding(vertical = Tokens.Space.s4)) { Secondary(stringResource(R.string.words_more, shown.size - limit)) { limit += 20 } }
                 }
             }
         }
     }
+    detail?.let { k -> WordDetail(s, k) { detail = null } }
 }
 
 /** 작품 표지: 소개 · 진도 · 목차 · ⚙ 작품 설정. */

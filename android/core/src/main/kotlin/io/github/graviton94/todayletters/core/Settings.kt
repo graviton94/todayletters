@@ -37,6 +37,8 @@ data class AppSettings(
     val largeText: Boolean = false,
     val sound: Boolean = true,
     val haptics: Boolean = true,
+    /** 맞음 · 틀림 효과음 (v21 1단계). 낭독 소리와는 따로 켜고 끈다. */
+    val effects: Boolean = true,
     val pace: TypingPace = TypingPace.CALM,
 )
 

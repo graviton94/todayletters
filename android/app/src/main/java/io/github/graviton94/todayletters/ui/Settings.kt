@@ -75,6 +75,8 @@ fun SettingsScreen(s: AppState) {
             Caps(stringResource(R.string.set_feel), p.giltText)
             Label(stringResource(R.string.set_sound))
             Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), a.sound) { s.update(a.copy(sound = it)) }
+            Label(stringResource(R.string.set_effects))
+            Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), a.effects) { s.update(a.copy(effects = it)) }
             Label(stringResource(R.string.set_haptics))
             Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), a.haptics) { s.update(a.copy(haptics = it)) }
 

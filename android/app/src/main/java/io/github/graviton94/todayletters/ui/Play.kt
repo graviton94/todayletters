@@ -124,6 +124,7 @@ private fun Constellation(s: AppState, r: Route.Play, onClose: () -> Unit) {
             if (picked.size == answer.size && guided) s.coachDone("play_constellation")
         } else {
             if (s.app.haptics) haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+            s.cue(false)
             wrong = idx
         }
     }
@@ -270,10 +271,11 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
         if (l == k) {
             matched = matched + k; combo++
             if (s.app.haptics) haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+            s.cue(true)
             say(k)
         } else {
             wrongLine = l to row; combo = 0
-            buzzWrong(view0, s.app.haptics)
+            buzzWrong(view0, s.app.haptics); s.cue(false)
         }
         sel = null
     }

@@ -164,6 +164,35 @@ class CoreTest {
         assertTrue(c.due("library", calm = true))
     }
 
+    /** F7: ‘내 것’이 된 낱말도 계속 다시 나오고, 간격은 늘어나되 흔들리며, 하루 몫에서 밀리지 않는다. */
+    @Test fun memoryKeepsComingBack() {
+        var c = Card("lumineux", box = 4, due = 200)
+        c = Memory.after(c, correct = true, today = 200)          // 내 것 도착: 35일 ±20%
+        assertEquals(Memory.TOP, c.box); assertEquals(0, c.keep)
+        assertTrue(c.due - 200 in 28..42)
+        val gaps = mutableListOf<Long>()
+        var day = c.due
+        repeat(5) { c = Memory.after(c, correct = true, today = day); gaps += c.due - day; day = c.due }
+        assertEquals(Memory.TOP, c.box)
+        assertTrue(gaps[0] in 48L..72L && gaps[1] in 96L..144L && gaps[2] in 192L..288L && gaps[4] in 192L..288L)   // 60 · 120 · 240 · 240 …
+        // 틀리면 두 단계 내려가 내일, ‘잊을 뻔’ 표시, 다시 올라가면 35일부터
+        c = Memory.after(c, correct = false, today = day)
+        assertEquals(3, c.box); assertTrue(c.lapsed); assertEquals(0, c.keep); assertEquals(day + 1, c.due)
+        // 같은 낱말 · 같은 날이면 흔들림도 같다
+        assertEquals(Memory.jitter(60, "x", 10), Memory.jitter(60, "x", 10))
+        // 새 낱말이 많아도 ‘내 것’ 확인 두 장은 자리를 지킨다
+        val many = (1..30).map { Card("n$it", box = 0, due = 100) } + (1..5).map { Card("t$it", box = Memory.TOP, due = 90) }
+        val today = Memory.dueToday(many, 100)
+        assertEquals(Memory.DAILY, today.size)
+        assertEquals(Memory.KEEP_SLOTS, today.count { it.box == Memory.TOP })
+        // 갑자기 한 문제: 2주 넘게 안 본 ‘내 것’ 가운데 하나, 같은 날이면 같은 것
+        val pool = listOf(Card("a", box = Memory.TOP, due = 400, last = 100), Card("b", box = Memory.TOP, due = 400, last = 299), Card("c", box = 2, due = 400, last = 10))
+        assertEquals("a", Memory.surprise(pool, 300)?.key)
+        assertEquals(null, Memory.surprise(pool.drop(1), 300))
+        val kept = Memory.surpriseAnswered(pool[0], true, 300)
+        assertEquals(400, kept.due); assertEquals(300, kept.last)
+    }
+
     @Test fun memoryMovesCardsUpAndBack() {
         var c = Memory.added("w", today = 100)
         assertEquals(101, c.due)

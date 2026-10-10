@@ -52,6 +52,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     val store = Store(ctx)
     val works: List<Work> = Library.works(ctx)
     val narrator = Narrator(ctx)
+    private val effects = io.github.graviton94.todayletters.data.Effects(ctx)
+    /** 맞음 · 틀림 효과음 (설정 › 효과음이 켜져 있을 때만). */
+    fun cue(ok: Boolean) { if (app.effects) runCatching { effects.play(ok) } }
     val recorder = Recorder(ctx)
     val downloads = io.github.graviton94.todayletters.data.Downloads(ctx)
 
@@ -318,6 +321,17 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             }
         }
         return null
+    }
+    /** 갑자기 한 문제 (F7): 오늘 아직 안 냈으면, 오래전 ‘내 것’ 낱말 하나. */
+    fun surprise(): io.github.graviton94.todayletters.core.Card? =
+        if (store.surpriseDay == today) null else io.github.graviton94.todayletters.core.Memory.surprise(cards(), today)
+    /** 기억났는가: 맞으면 일정은 그대로 + 우표 하나, 아니면 내려가서 내일 다시. 하루 한 번. */
+    fun surpriseDone(c: io.github.graviton94.todayletters.core.Card, ok: Boolean) {
+        store.save(io.github.graviton94.todayletters.core.Memory.surpriseAnswered(c, ok, today))
+        store.surpriseDay = today
+        if (ok) earn(Earn.REVIEW_RIGHT, id = c.key.substringBefore(":"))
+        cue(ok)
+        version++
     }
     /** 받아 둔 낭독을 모두 지운다 (설정 › 저장 공간). */
     fun clearDownloads() { downloads.clear(); version++ }

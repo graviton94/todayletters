@@ -602,7 +602,7 @@
     <string name="seal_line">Read without translation · %1$s</string>
     <string name="seal_words">Words from this letter</string>
     <string name="credits_sound_h">Sound</string>
-    <string name="credits_sound">Page-turn sound: “10 Book Page Flips” by StarNinjas, OpenGameArt.org, CC0 (public domain dedication).</string>
+    <string name="credits_sound">Page-turn sound: “10 Book Page Flips” by StarNinjas, OpenGameArt.org, CC0 (public domain dedication). The right · wrong sound effects are made by this app.</string>
     <string name="lib_title">Library of Time</string>
     <string name="opening_tagline">Learn languages through real letters from art and history</string>
     <string name="opening_piece">Today\'s piece · %1$s · %2$s</string>
@@ -660,4 +660,27 @@
     <string name="plates_title">Paintings from the letters</string>
     <string name="plates_spots">%1$d spots</string>
     <string name="plates_locked">After the letter</string>
+    <string name="set_effects">Sound effects (right · wrong)</string>
+    <string name="word_card">Word card</string>
+    <string name="word_not_yet">Not in your word box yet. It joins once you finish this letter.</string>
+    <string name="word_memory">My memory · stage %1$d, “%2$s”</string>
+    <string name="word_next">Next review · %1$s (%2$d/%3$d)</string>
+    <string name="word_today">today</string>
+    <string name="word_in_days">in %1$d days</string>
+    <string name="word_lapsed">You nearly forgot this one once.</string>
+    <string name="word_keep_note">It’s yours, but it will still come back now and then, further apart each time.</string>
+    <string name="word_hear_sentence">Hear the sentence</string>
+    <string name="word_open_letter">See it in the letter</string>
+    <string name="word_say">Say it aloud</string>
+    <string name="result_again_n">Try the %1$d wrong ones again now</string>
+    <string name="result_enough">That’s enough for today</string>
+    <string name="surprise_title">Do you still remember this one? (a word you made yours a while ago)</string>
+    <string name="surprise_reveal">Recall it, then show the meaning</string>
+    <string name="surprise_hazy">Hazy</string>
+    <string name="surprise_yes">I remembered</string>
+    <string name="empty_gallery_t">No pieces on the wall yet</string>
+    <string name="empty_gallery_b">Read a letter and finish its practice: the day’s piece will hang on this wall.</string>
+    <string name="empty_quotes_t">No lines saved yet</string>
+    <string name="empty_words_t">No words yet</string>
+    <string name="empty_words_b">Read a letter and its words gather here.</string>
 </resources>

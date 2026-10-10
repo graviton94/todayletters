@@ -45,7 +45,8 @@ sealed interface Route {
     data class Artwork(val series: String, val plate: Int, val from: Route) : Route
     data class Review(val series: String?) : Route
     /** 복습 한 판. [kind] 가 null 이면 오늘의 복습 (섞어서). */
-    data class Session(val kind: ReviewKind? = null) : Route
+    /** 복습 한 판. [only] 가 있으면 그 낱말만 (틀린 것 다시 · 낱말 카드에서 말해 보기), 연습이라 기억 칸은 움직이지 않는다. */
+    data class Session(val kind: ReviewKind? = null, val only: List<String>? = null) : Route
     /** 모은 낱말 찾기 · 내 구절. */
     data object WordList : Route
     data object Quotes : Route

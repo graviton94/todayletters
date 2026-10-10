@@ -236,9 +236,9 @@ fun Session(s: AppState, r: Route.Session) {
     val view = androidx.compose.ui.platform.LocalView.current
     var asking by remember { mutableStateOf(false) }
     // 중간에 나갔다 오면 그 자리부터 (같은 날 · 같은 문제 순서)
-    val sessionName = r.kind?.name ?: "today"
-    val saved = remember(r) { s.store.session(sessionName)?.takeIf { it.day == s.today && it.at > 0 } }
-    val questions = remember(r) { buildQuestions(s, r.kind, saved?.keys) }
+    val sessionName = if (r.only != null) "again" else r.kind?.name ?: "today"
+    val saved = remember(r) { if (r.only != null) null else s.store.session(sessionName)?.takeIf { it.day == s.today && it.at > 0 } }
+    val questions = remember(r) { buildQuestions(s, r.kind, r.only ?: saved?.keys) }
     var at by remember { mutableIntStateOf((saved?.at ?: 0).coerceAtMost(questions.size)) }
     // 문제를 푸는 동안만 ‘그만할까요?’ (결과 화면에서는 결과 화면의 뒤로 가기)
     BackHandler(enabled = at < questions.size) { asking = true }
@@ -283,6 +283,7 @@ fun Session(s: AppState, r: Route.Session) {
         keyboard?.hide(); focusManager.clearFocus(); pad = false
         val ok = m != Memory.Mark.WRONG
         s.judged(q.kind, ok)
+        s.cue(ok)
         // 맞으면 ‘확인’ 진동 (Android 11+), 아니면 길게 한 번
         if (s.app.haptics) {
             if (ok && android.os.Build.VERSION.SDK_INT >= 30) view.performHapticFeedback(android.view.HapticFeedbackConstants.CONFIRM)
@@ -295,7 +296,7 @@ fun Session(s: AppState, r: Route.Session) {
     fun miss(o: String?) {
         if (tries == 0) {
             tries = 1; retry = true; if (o != null) missed = missed + o; shakeKey++
-            buzzWrong(view, s.app.haptics)
+            buzzWrong(view, s.app.haptics); s.cue(false)
             keyboard?.hide(); pad = false
         } else judge(Memory.Mark.WRONG)
     }
@@ -454,7 +455,7 @@ fun Session(s: AppState, r: Route.Session) {
         }
         fun next() {
             val ok = mark != Memory.Mark.WRONG
-            if (r.kind == null) s.answer(q.card, ok)   // 기억 칸은 오늘의 복습에서만 움직인다 (따로 연습은 기록하지 않음)
+            if (r.kind == null && r.only == null) s.answer(q.card, ok)   // 기억 칸은 오늘의 복습에서만 움직인다 (따로 연습 · 다시 하기는 기록하지 않음)
             results = results + (q to ok)
             mark = null; picked = null; typed = TextFieldValue(""); hint = false; pad = false; replays = 0
             tries = 0; retry = false; missed = emptySet()
@@ -681,9 +682,10 @@ private fun CorrectBurst(still: Boolean) {
 @Composable
 private fun SessionResult(s: AppState, r: Route.Session, results: List<Pair<Q, Boolean>>) {
     val p = Ink.palette
-    LaunchedEffect(Unit) { if (r.kind == null) s.reviewDone() }
+    LaunchedEffect(Unit) { if (r.kind == null && r.only == null) s.reviewDone() }
     BackHandler { s.back() }
-    val practice = r.kind != null
+    val practice = r.kind != null || r.only != null
+    var detail by remember { mutableStateOf<String?>(null) }
     val right = results.count { it.second }
     val wrong = results.filter { !it.second }
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f)) {
@@ -701,7 +703,7 @@ private fun SessionResult(s: AppState, r: Route.Session, results: List<Pair<Q, B
                     Text(stringResource(R.string.result_moved), style = Type.small.ui(), color = Color(0xFF7A5A20), modifier = Modifier.padding(vertical = Tokens.Space.s2))
                     results.forEach { (q, ok) ->
                         val to = if (ok) (q.card.box + 1).coerceAtMost(Memory.TOP) else (q.card.box - 2).coerceAtLeast(0)
-                        Row(Modifier.fillMaxWidth().heightIn(min = 44.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                        Row(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable { detail = q.card.key }, verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                             Text(q.word, style = Type.body.of(q.learn), color = p.slipInk, modifier = Modifier.weight(1f), maxLines = 1)
                             Text(stringResource(boxNames[q.card.box]), style = Type.small.ui(), color = p.slipSoft)
                             Text(if (ok) "→" else "↩", style = Type.body, color = if (ok) p.correct else p.wrong)
@@ -715,10 +717,16 @@ private fun SessionResult(s: AppState, r: Route.Session, results: List<Pair<Q, B
             }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            if (wrong.isNotEmpty() && r.kind == null) Secondary(stringResource(R.string.result_again)) { s.back(); s.go(Route.Session(ReviewKind.MEANING)) }
-            Primary(stringResource(R.string.done_home)) { s.go(Route.Inbox) }
+            // 틀린 것 다시 (v21 F3): 틀린 낱말만 바로 한 판 더 (연습이라 기억 칸은 오늘 처음 결과대로)
+            if (wrong.isNotEmpty()) {
+                Primary(stringResource(R.string.result_again_n, wrong.size)) { s.back(); s.go(Route.Session(null, wrong.map { it.first.card.key }.distinct())) }
+                Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable { s.go(Route.Inbox) }, contentAlignment = Alignment.Center) {
+                    Text(stringResource(R.string.result_enough), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.inkSoft)
+                }
+            } else Primary(stringResource(R.string.done_home)) { s.go(Route.Inbox) }
         }
     }
+    detail?.let { k -> WordDetail(s, k) { detail = null } }
 }
 
 @Composable
@@ -795,7 +803,7 @@ fun QuotesScreen(s: AppState) {
                 val m = mi.toIntOrNull()?.let { l.messages.getOrNull(it) } ?: return@mapNotNull null
                 Triple(k, Triple(w, ch, l), m to mi.toInt())
             }
-            if (items.isEmpty()) Text(stringResource(R.string.quotes_empty), style = Type.body.ui(), color = p.inkSoft)
+            if (items.isEmpty()) EmptyState(stringResource(R.string.empty_quotes_t), stringResource(R.string.quotes_empty), stringResource(R.string.today_open)) { s.go(Route.Inbox) }
             items.forEach { (k, wcl, mm) ->
                 val (w, ch, l) = wcl; val (m, mi) = mm
                 val view = s.room(w.series.id)
@@ -914,7 +922,7 @@ private fun TypeTiles(q: Q, picked: String?, mark: Memory.Mark?, missed: Set<Str
             val used = mark != null && o == q.word                       // 빈칸으로 들어감
             val bad = o in missed && (mark != null || (retry && o == picked)) || (mark == Memory.Mark.WRONG && o == picked)
             val gone = (o in missed && !bad) || used
-            val alpha by androidx.compose.animation.core.animateFloatAsState(if (gone) 0.18f else 1f, androidx.compose.animation.core.tween(Tokens.Motion.fadeMs), label = "tile")
+            val alpha by androidx.compose.animation.core.animateFloatAsState(if (gone) 0.18f else 1f, androidx.compose.animation.core.tween(if (calm()) 0 else Tokens.Motion.fadeMs), label = "tile")
             val c = if (bad) p.wrong else p.ink
             Box(
                 Modifier.then(if (bad) Modifier.shake(shakeKey) else Modifier).graphicsLayer { this.alpha = alpha; rotationZ = if (bad) -3f else 0f }

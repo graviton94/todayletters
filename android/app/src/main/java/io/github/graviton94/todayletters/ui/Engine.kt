@@ -284,6 +284,8 @@ fun GalleryTab(s: AppState) {
                     Text("›", style = Type.heading, color = p.inkSoft)
                 }
             }
+            // 아직 한 점도 없으면: 왜 비었는지 + 오늘의 편지로 (U2)
+            if (s.ownedCount(id) == 0) EmptyState(stringResource(R.string.empty_gallery_t), stringResource(R.string.empty_gallery_b), stringResource(R.string.today_open)) { s.go(Route.Inbox) }
             // 희귀도 칸
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
                 Tier.entries.forEach { t ->

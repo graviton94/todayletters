@@ -86,6 +86,7 @@ fun Room(s: AppState, r: Route.Letter) {
     var playing by remember(letter.id) { mutableStateOf<Int?>(null) }
     var all by remember { mutableStateOf<Job?>(null) }
     val controlsRef = remember { arrayOfNulls<Playback.Controls>(1) }
+    var speed by remember(id) { androidx.compose.runtime.mutableFloatStateOf(s.store.roomSpeed(id)) }
     val list = rememberLazyListState()
     val scope = rememberCoroutineScope()
 
@@ -112,7 +113,7 @@ fun Room(s: AppState, r: Route.Letter) {
     fun speak(i: Int) {
         if (playing == i) { stopAll(); return }
         stopAll()
-        if (s.narrator.play(audio(i)) { if (playing == i) playing = null }) playing = i
+        if (s.narrator.play(audio(i), speed) { if (playing == i) playing = null }) playing = i
     }
     /** [from] 번째부터 [until] 앞까지 차례로 읽는다. 멈춰 두면 기다리고, 단추로 앞뒤 문장을 오간다. */
     suspend fun say(from: Int, until: Int) {
@@ -124,7 +125,7 @@ fun Room(s: AppState, r: Route.Letter) {
             jump[0] = 0
             suspendCancellableCoroutine { c ->
                 c.invokeOnCancellation { s.narrator.stop() }
-                if (!s.narrator.play(audio(k)) { if (c.isActive) c.resume(Unit) } && c.isActive) c.resume(Unit)
+                if (!s.narrator.play(audio(k), speed) { if (c.isActive) c.resume(Unit) } && c.isActive) c.resume(Unit)
             }
             k = when (jump[0]) { -1 -> (k - 1).coerceAtLeast(0); 2 -> k; else -> k + 1 }
         }
@@ -213,7 +214,8 @@ fun Room(s: AppState, r: Route.Letter) {
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
         RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else dateLine(letter.date, letter.place),
-            auto = s.app.sound, onAuto = { if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }, onInfo = { s.go(Route.RoomInfo(r)) })
+            auto = s.app.sound, onAuto = { if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }, onInfo = { s.go(Route.RoomInfo(r)) },
+            speed = speed, onSpeed = { speed = if (speed < 1f) 1f else 0.7f; s.store.setRoomSpeed(id, speed) })
         val ctx = androidx.compose.ui.platform.LocalContext.current
         val notYet = stringResource(R.string.step_not_yet)
         TodayStrip(read = written, total = total, modes = modes, replied = progress.replied, done = progress.done) { step ->
@@ -393,7 +395,7 @@ fun Room(s: AppState, r: Route.Letter) {
         }
     }
     if (words) WordSheet(s, r, onClose = { words = false })
-    wordFocus?.let { k -> WordCard(s, r, k, onClose = { wordFocus = null }) }
+    wordFocus?.let { k -> val (ch, lt) = s.letterOf(r); WordDetail(s, s.cardKey(id, ch, lt.id, k)) { wordFocus = null } }
     // 다 읽은 편지의 낱말은 낱말 카드함으로 (내일부터 복습)
     LaunchedEffect(finished) { if (finished) s.collectWords(id, chapter, letter) }
 }
@@ -434,6 +436,7 @@ private fun TypingBubble(name: String, still: Boolean) {
 private fun RoomHeader(
     s: AppState, portrait: String, name: String, sub: String,
     auto: Boolean, onAuto: () -> Unit, onInfo: () -> Unit,
+    speed: Float = 1f, onSpeed: () -> Unit = {},
 ) {
     val p = Ink.palette
     Column(Modifier.background(p.paper)) {
@@ -443,6 +446,10 @@ private fun RoomHeader(
             Column(Modifier.weight(1f).padding(start = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(1.dp)) {
                 Text(name, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.ink, maxLines = 1)
                 Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
+            }
+            // 낭독 빠르기 (v21 F6): 1× ↔ 0.7×, 시리즈마다 기억
+            Box(Modifier.heightIn(min = 44.dp).pressable { onSpeed() }.padding(horizontal = 4.dp), contentAlignment = Alignment.Center) {
+                Capsule(if (speed < 1f) "0.7×" else "1×", if (speed < 1f) CapsuleKind.FILLED else CapsuleKind.OUTLINE)
             }
             // 자동 낭독 켜기 · 끄기: 켜져 있으면 금빛으로 채운 스피커, 꺼져 있으면 빗금
             IconButton(stringResource(if (auto) R.string.room_auto_on else R.string.room_auto_off), onClick = onAuto) {

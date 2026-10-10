@@ -31,13 +31,14 @@ class Store(ctx: Context) {
         largeText = p.getBoolean("large", false),
         sound = p.getBoolean("sound", true),
         haptics = p.getBoolean("haptics", true),
+        effects = p.getBoolean("effects", true),
         pace = runCatching { TypingPace.valueOf(p.getString("pace", "") ?: "") }.getOrDefault(TypingPace.CALM),
     )
 
     fun save(a: AppSettings) = p.edit()
         .putString("ui", a.ui.name).putString("read", a.read.name).putString("theme", a.theme.name)
         .putBoolean("large", a.largeText).putBoolean("sound", a.sound).putBoolean("haptics", a.haptics)
-        .putString("pace", a.pace.name).apply()
+        .putBoolean("effects", a.effects).putString("pace", a.pace.name).apply()
 
     fun hasApp() = p.contains("read")
 
@@ -94,9 +95,20 @@ class Store(ctx: Context) {
     /** 낱말 카드 (복습): "c:<키>" = "칸|다시 볼 날|본 횟수". */
     fun cards(): List<io.github.graviton94.todayletters.core.Card> = p.all.keys.filter { it.startsWith("c:") }.mapNotNull { k ->
         val v = p.getString(k, null)?.split("|") ?: return@mapNotNull null
-        io.github.graviton94.todayletters.core.Card(k.removePrefix("c:"), v[0].toInt(), v[1].toLong(), v.getOrNull(2)?.toInt() ?: 0)
+        io.github.graviton94.todayletters.core.Card(k.removePrefix("c:"), v[0].toInt(), v[1].toLong(), v.getOrNull(2)?.toInt() ?: 0,
+            keep = v.getOrNull(3)?.toIntOrNull() ?: 0, last = v.getOrNull(4)?.toLongOrNull() ?: 0, lapsed = v.getOrNull(5) == "1")
     }
-    fun save(c: io.github.graviton94.todayletters.core.Card) = p.edit().putString("c:${c.key}", "${c.box}|${c.due}|${c.seen}").apply()
+    fun save(c: io.github.graviton94.todayletters.core.Card) =
+        p.edit().putString("c:${c.key}", "${c.box}|${c.due}|${c.seen}|${c.keep}|${c.last}|${if (c.lapsed) 1 else 0}").apply()
+
+    /** 갑자기 한 문제를 낸 날 · 그 낱말 (하루 한 번). */
+    var surpriseDay: Long
+        get() = p.getLong("surprise_day", -1)
+        set(v) = p.edit().putLong("surprise_day", v).apply()
+
+    /** 편지 방 낭독 빠르기 (시리즈마다, 1 또는 0.7). */
+    fun roomSpeed(series: String) = p.getFloat("speed:$series", 1f)
+    fun setRoomSpeed(series: String, v: Float) = p.edit().putFloat("speed:$series", v).apply()
     fun hasCard(key: String) = p.contains("c:$key")
 
     /** 오늘 복습을 마친 날 (오늘 화면 · 우표). */

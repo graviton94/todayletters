@@ -79,7 +79,8 @@ fun FeedbackBar(
 ) {
     val p = Ink.palette
     val c = if (ok) p.correct else p.wrong
-    AnimatedVisibility(true, enter = fadeIn(tween(Tokens.Motion.fadeMs)) + slideInVertically(tween(Tokens.Motion.fadeMs)) { it / 3 }) {
+    val still = calm()
+    AnimatedVisibility(true, enter = if (still) androidx.compose.animation.EnterTransition.None else fadeIn(tween(Tokens.Motion.fadeMs)) + slideInVertically(tween(Tokens.Motion.fadeMs)) { it / 3 }) {
         Column(
             Modifier.fillMaxWidth().background(c.copy(alpha = 0.12f)),
         ) {
@@ -104,12 +105,20 @@ fun FeedbackBar(
     }
 }
 
-/** [key] 가 바뀔 때마다 좌우로 짧게 흔들린다 (틀린 칸). 처음 그릴 때는 가만히. */
+/** 휴대폰의 ‘애니메이션 줄이기’(애니메이션 배율 0)가 켜져 있는가 (D6: 흔들림 · 날아가기 · 빛남을 멈춘다). */
+@Composable
+fun calm(): Boolean {
+    val ctx = androidx.compose.ui.platform.LocalContext.current
+    return remember { android.provider.Settings.Global.getFloat(ctx.contentResolver, android.provider.Settings.Global.ANIMATOR_DURATION_SCALE, 1f) == 0f }
+}
+
+/** [key] 가 바뀔 때마다 좌우로 짧게 흔들린다 (틀린 칸). 처음 그릴 때는 가만히. 움직임 줄이기면 흔들지 않는다. */
 @Composable
 fun Modifier.shake(key: Int): Modifier {
     val x = remember { Animatable(0f) }
+    val still = calm()
     LaunchedEffect(key) {
-        if (key == 0) return@LaunchedEffect
+        if (key == 0 || still) return@LaunchedEffect
         for (d in listOf(10f, -9f, 7f, -5f, 3f, 0f)) x.animateTo(d, tween(45))
     }
     return this.graphicsLayer { translationX = x.value * density }
@@ -121,3 +130,18 @@ fun buzzWrong(view: android.view.View, on: Boolean) {
     view.performHapticFeedback(if (android.os.Build.VERSION.SDK_INT >= 30) android.view.HapticFeedbackConstants.REJECT else android.view.HapticFeedbackConstants.LONG_PRESS)
 }
 
+
+/**
+ * 빈 화면 (v21 1단계 U2): 왜 비었는지 한 줄 + 할 일 단추 하나. 갤러리 · 내 구절 · 낱말 찾기 등이 같은 틀을 쓴다.
+ */
+@Composable
+fun EmptyState(title: String, body: String, action: String? = null, onAction: () -> Unit = {}) {
+    val p = Ink.palette
+    Column(Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s6), horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        Box(Modifier.size(84.dp, 64.dp).dashed(p.line), contentAlignment = Alignment.Center) { Text("◇", style = Type.title, color = p.hideInk) }
+        Text(title, style = Type.heading.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+        Text(body, style = Type.small.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+        if (action != null) Box(Modifier.padding(top = Tokens.Space.s2)) { Primary(action, small = true, onClick = onAction) }
+    }
+}

@@ -312,3 +312,16 @@ fun decodeRange(ctx: Context, asset: String, fromMs: Int, toMs: Int): FloatArray
     val n = (mono.size.toLong() * Wav.RATE / rate).toInt()
     FloatArray(n) { k -> val x = k.toDouble() * rate / Wav.RATE; val a = x.toInt().coerceAtMost(mono.size - 1); val b = (a + 1).coerceAtMost(mono.size - 1); (mono[a] + (mono[b] - mono[a]) * (x - a)).toFloat() }
 }.getOrNull()
+
+/**
+ * 맞음 · 틀림 효과음 (v21 1단계 F1): 앱이 직접 만든 짧은 소리 둘 (assets/sounds/right.wav · wrong.wav, 합성음이라 저작권 없음).
+ * 낭독(Narrator)과 따로 울려서 문장 소리를 끊지 않는다. 휴대폰이 무음이면 소리가 나지 않는다 (미디어 볼륨).
+ */
+class Effects(ctx: Context) {
+    private val pool = android.media.SoundPool.Builder().setMaxStreams(2)
+        .setAudioAttributes(AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_GAME).setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION).build())
+        .build()
+    private val right = runCatching { ctx.assets.openFd("sounds/right.wav").use { pool.load(it, 1) } }.getOrDefault(0)
+    private val wrong = runCatching { ctx.assets.openFd("sounds/wrong.wav").use { pool.load(it, 1) } }.getOrDefault(0)
+    fun play(ok: Boolean) { val id = if (ok) right else wrong; if (id != 0) pool.play(id, 0.8f, 0.8f, 1, 0, 1f) }
+}

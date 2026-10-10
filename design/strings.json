@@ -2405,8 +2405,8 @@
     "ko": "소리"
   },
   "credits_sound": {
-    "en": "Page-turn sound: “10 Book Page Flips” by StarNinjas, OpenGameArt.org, CC0 (public domain dedication).",
-    "ko": "책장 넘기는 소리: StarNinjas 「10 Book Page Flips」, OpenGameArt.org, CC0 (퍼블릭 도메인 기증)."
+    "en": "Page-turn sound: “10 Book Page Flips” by StarNinjas, OpenGameArt.org, CC0 (public domain dedication). The right · wrong sound effects are made by this app.",
+    "ko": "책장 넘기는 소리: StarNinjas 「10 Book Page Flips」, OpenGameArt.org, CC0 (퍼블릭 도메인 기증). 맞음 · 틀림 효과음은 이 앱이 직접 만든 소리예요."
   },
   "lib_title": {
     "en": "Library of Time",
@@ -2635,5 +2635,97 @@
   "plates_locked": {
     "en": "After the letter",
     "ko": "편지를 읽으면"
+  },
+  "set_effects": {
+    "en": "Sound effects (right · wrong)",
+    "ko": "효과음 (맞음 · 틀림)"
+  },
+  "word_card": {
+    "en": "Word card",
+    "ko": "낱말 카드"
+  },
+  "word_not_yet": {
+    "en": "Not in your word box yet. It joins once you finish this letter.",
+    "ko": "아직 낱말 카드함에 없어요. 이 편지를 마치면 들어와요."
+  },
+  "word_memory": {
+    "en": "My memory · stage %1$d, “%2$s”",
+    "ko": "내 기억 · %1$d단계 ‘%2$s’"
+  },
+  "word_next": {
+    "en": "Next review · %1$s (%2$d/%3$d)",
+    "ko": "다음 복습 · %1$s (%2$d월 %3$d일)"
+  },
+  "word_today": {
+    "en": "today",
+    "ko": "오늘"
+  },
+  "word_in_days": {
+    "en": "in %1$d days",
+    "ko": "%1$d일 뒤"
+  },
+  "word_lapsed": {
+    "en": "You nearly forgot this one once.",
+    "ko": "한 번 잊을 뻔했던 낱말이에요."
+  },
+  "word_keep_note": {
+    "en": "It’s yours, but it will still come back now and then, further apart each time.",
+    "ko": "내 것이 됐어도 가끔 다시 물어봐요. 맞힐수록 더 오래 뒤에."
+  },
+  "word_hear_sentence": {
+    "en": "Hear the sentence",
+    "ko": "문장 듣기"
+  },
+  "word_open_letter": {
+    "en": "See it in the letter",
+    "ko": "편지에서 보기"
+  },
+  "word_say": {
+    "en": "Say it aloud",
+    "ko": "소리 내 말해 보기"
+  },
+  "result_again_n": {
+    "en": "Try the %1$d wrong ones again now",
+    "ko": "틀린 %1$d개 지금 한 번 더"
+  },
+  "result_enough": {
+    "en": "That’s enough for today",
+    "ko": "오늘은 여기까지"
+  },
+  "surprise_title": {
+    "en": "Do you still remember this one? (a word you made yours a while ago)",
+    "ko": "이 낱말, 아직 기억나요? (오래전에 내 것이 된 낱말)"
+  },
+  "surprise_reveal": {
+    "en": "Recall it, then show the meaning",
+    "ko": "떠올려 보고 뜻 펼치기"
+  },
+  "surprise_hazy": {
+    "en": "Hazy",
+    "ko": "가물가물"
+  },
+  "surprise_yes": {
+    "en": "I remembered",
+    "ko": "기억났어요"
+  },
+  "empty_gallery_t": {
+    "en": "No pieces on the wall yet",
+    "ko": "아직 걸린 작품이 없어요"
+  },
+  "empty_gallery_b": {
+    "en": "Read a letter and finish its practice: the day’s piece will hang on this wall.",
+    "ko": "편지 한 통을 읽고 연습을 마치면 그날의 작품 한 점이 이 벽에 걸려요."
+  },
+  "empty_quotes_t": {
+    "en": "No lines saved yet",
+    "ko": "아직 모은 구절이 없어요"
+  },
+  "empty_words_t": {
+    "en": "No words yet",
+    "ko": "아직 낱말이 없어요"
+  },
+  "empty_words_b": {
+    "en": "Read a letter and its words gather here.",
+    "ko": "편지를 읽으면 그 편지의 낱말이 여기 모여요."
   }
 }

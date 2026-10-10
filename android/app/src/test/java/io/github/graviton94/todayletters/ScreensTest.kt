@@ -338,4 +338,19 @@ class ScreensTest {
             }
         }
     }
+    /** 1단계 F2: 낱말 카드 상세 (내 것 · 잊을 뻔 표시 · 나온 문장). */
+    @Test fun wordDetail() {
+        val s = loopState()
+        val l = s.work("vincent").chapters.first().letters.first()
+        val key = s.cardKey("vincent", "I", l.id, 0)
+        s.store.save(io.github.graviton94.todayletters.core.Card(key, box = 5, due = s.today + 41, seen = 9, keep = 1, last = s.today - 20, lapsed = true))
+        shot("62_word_detail_light", false, series = s) { io.github.graviton94.todayletters.ui.WordDetailBody(s, key) { } }
+    }
+    /** 1단계 F7: 오늘 화면의 ‘기억 확인’ (오래전 내 것 낱말). */
+    @Test fun todaySurprise() {
+        val s = loopState()
+        val l = s.work("vincent").chapters.first().letters.first()
+        s.store.save(io.github.graviton94.todayletters.core.Card(s.cardKey("vincent", "I", l.id, 1), box = 5, due = s.today + 30, seen = 8, last = s.today - 40))
+        shot("63_today_surprise_light", false, 2000, series = s) { Inbox(s) }
+    }
 }

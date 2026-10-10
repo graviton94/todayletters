@@ -22,6 +22,10 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.runtime.LaunchedEffect
@@ -124,6 +128,8 @@ fun Inbox(s: AppState) {
                 if (due > 0) Primary(stringResource(R.string.focus_review, due)) { s.go(Route.Session()) }
                 LetterLinks(s, id, work, reread = null)
             }
+            // 갑자기 한 문제 (F7): 오래전 ‘내 것’ 낱말, 하루 한 번
+            s.surprise()?.let { c -> SurpriseCard(s, c) }
             // 오늘의 할 일
             Column {
                 Row(verticalAlignment = Alignment.Bottom, modifier = Modifier.padding(bottom = 4.dp)) {
@@ -241,5 +247,39 @@ private fun OutlineButton(text: String, modifier: Modifier, onClick: () -> Unit)
     Box(modifier.heightIn(min = Tokens.Size.buttonSm).border(1.dp, p.ink).pressable { onClick() }.padding(horizontal = Tokens.Space.s2),
         contentAlignment = Alignment.Center) {
         Text(text, style = Type.small.ui(), color = p.ink, maxLines = 1)
+    }
+}
+
+/**
+ * 기억 확인 (F7): ‘내 것’이 된 지 오래된 낱말 하나를 툭. 낱말을 보고 뜻을 떠올린 뒤 펼쳐서 스스로 판정.
+ * 기억났어요 → 일정 그대로 + 우표 하나, 가물가물 → 두 단계 내려가 내일 다시.
+ */
+@Composable
+private fun SurpriseCard(s: AppState, c: io.github.graviton94.todayletters.core.Card) {
+    val p = Ink.palette
+    val found = remember(c.key) { s.cardWord(c.key) } ?: return
+    val (w, cl, wi) = found
+    val view = s.room(w.series.id)
+    val word = cl.second.words.getOrNull(wi) ?: return
+    var open by remember(c.key) { mutableStateOf(false) }
+    val audio = s.narrator.path(w.series.id, cl.first, cl.second.id, "w${wi + 1}_${view.learn.code}")
+    Column(Modifier.fillMaxWidth().border(1.dp, p.giltText).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        Caps("SOUVENIR", p.giltText, small = true, decorative = true)
+        Text(stringResource(R.string.surprise_title), style = Type.small.ui(), color = p.inkSoft)
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            Text(word.text[view.learn], style = Type.title.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display).of(view.learn), color = p.ink, modifier = Modifier.weight(1f))
+            Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape).pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) }
+        }
+        if (!open) Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable { open = true }, contentAlignment = Alignment.CenterStart) {
+            Text(stringResource(R.string.surprise_reveal), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.ink)
+        } else {
+            Text(word.text[view.read], style = Type.heading.of(view.read), color = p.ink)
+            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                Box(Modifier.weight(1f).heightIn(min = Tokens.Size.buttonSm).border(1.dp, p.ink).pressable { s.surpriseDone(c, false) }, contentAlignment = Alignment.Center) {
+                    Text(stringResource(R.string.surprise_hazy), style = Type.small.ui(), color = p.ink)
+                }
+                Box(Modifier.weight(1f)) { Primary(stringResource(R.string.surprise_yes), small = true) { s.surpriseDone(c, true) } }
+            }
+        }
     }
 }

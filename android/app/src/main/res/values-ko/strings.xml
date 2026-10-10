@@ -602,7 +602,7 @@
     <string name="seal_line">번⁠역 없⁠이 읽⁠음 · %1$s</string>
     <string name="seal_words">이 편⁠지⁠에⁠서 익⁠힌 낱⁠말</string>
     <string name="credits_sound_h">소⁠리</string>
-    <string name="credits_sound">책⁠장 넘⁠기⁠는 소⁠리⁠: StarNinjas 「10 Book Page Flips」, OpenGameArt.org, CC0 (⁠퍼⁠블⁠릭 도⁠메⁠인 기⁠증⁠).</string>
+    <string name="credits_sound">책⁠장 넘⁠기⁠는 소⁠리⁠: StarNinjas 「10 Book Page Flips」, OpenGameArt.org, CC0 (⁠퍼⁠블⁠릭 도⁠메⁠인 기⁠증⁠). 맞⁠음 · 틀⁠림 효⁠과⁠음⁠은 이 앱⁠이 직⁠접 만⁠든 소⁠리⁠예⁠요⁠.</string>
     <string name="lib_title">시⁠간⁠의 서⁠재</string>
     <string name="opening_tagline">명⁠화⁠와 역⁠사 속 편⁠지⁠로 배⁠우⁠는 외⁠국⁠어</string>
     <string name="opening_piece">오⁠늘⁠의 작⁠품 · 〈%1$s〉 %2$s</string>
@@ -660,4 +660,27 @@
     <string name="plates_title">편⁠지⁠의 그⁠림</string>
     <string name="plates_spots">자⁠리 %1$d</string>
     <string name="plates_locked">편⁠지⁠를 읽⁠으⁠면</string>
+    <string name="set_effects">효⁠과⁠음 (⁠맞⁠음 · 틀⁠림⁠)</string>
+    <string name="word_card">낱⁠말 카⁠드</string>
+    <string name="word_not_yet">아⁠직 낱⁠말 카⁠드⁠함⁠에 없⁠어⁠요⁠. 이 편⁠지⁠를 마⁠치⁠면 들⁠어⁠와⁠요⁠.</string>
+    <string name="word_memory">내 기⁠억 · %1$d⁠단⁠계 ‘%2$s’</string>
+    <string name="word_next">다⁠음 복⁠습 · %1$s (%2$d⁠월 %3$d⁠일⁠)</string>
+    <string name="word_today">오⁠늘</string>
+    <string name="word_in_days">%1$d⁠일 뒤</string>
+    <string name="word_lapsed">한 번 잊⁠을 뻔⁠했⁠던 낱⁠말⁠이⁠에⁠요⁠.</string>
+    <string name="word_keep_note">내 것⁠이 됐⁠어⁠도 가⁠끔 다⁠시 물⁠어⁠봐⁠요⁠. 맞⁠힐⁠수⁠록 더 오⁠래 뒤⁠에⁠.</string>
+    <string name="word_hear_sentence">문⁠장 듣⁠기</string>
+    <string name="word_open_letter">편⁠지⁠에⁠서 보⁠기</string>
+    <string name="word_say">소⁠리 내 말⁠해 보⁠기</string>
+    <string name="result_again_n">틀⁠린 %1$d⁠개 지⁠금 한 번 더</string>
+    <string name="result_enough">오⁠늘⁠은 여⁠기⁠까⁠지</string>
+    <string name="surprise_title">이 낱⁠말⁠, 아⁠직 기⁠억⁠나⁠요⁠? (⁠오⁠래⁠전⁠에 내 것⁠이 된 낱⁠말⁠)</string>
+    <string name="surprise_reveal">떠⁠올⁠려 보⁠고 뜻 펼⁠치⁠기</string>
+    <string name="surprise_hazy">가⁠물⁠가⁠물</string>
+    <string name="surprise_yes">기⁠억⁠났⁠어⁠요</string>
+    <string name="empty_gallery_t">아⁠직 걸⁠린 작⁠품⁠이 없⁠어⁠요</string>
+    <string name="empty_gallery_b">편⁠지 한 통⁠을 읽⁠고 연⁠습⁠을 마⁠치⁠면 그⁠날⁠의 작⁠품 한 점⁠이 이 벽⁠에 걸⁠려⁠요⁠.</string>
+    <string name="empty_quotes_t">아⁠직 모⁠은 구⁠절⁠이 없⁠어⁠요</string>
+    <string name="empty_words_t">아⁠직 낱⁠말⁠이 없⁠어⁠요</string>
+    <string name="empty_words_b">편⁠지⁠를 읽⁠으⁠면 그 편⁠지⁠의 낱⁠말⁠이 여⁠기 모⁠여⁠요⁠.</string>
 </resources>

@@ -127,7 +127,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
         }
         scoring = false
         result?.first?.let {
-            s.recordScore(it)
+            s.recordScore(it); s.cue(it.passed)
             if (it.passed) s.markPassed(id, chapter, letter.id, mi, cj) else if (tick > 0) tries[mi] = (tries[mi] ?: 0) + 1
         }
     }
