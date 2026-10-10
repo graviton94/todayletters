@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 언어 미술관 아이콘: 편지 봉투에서 나오는 두 장 (〈해바라기〉 · 〈밀짚모자를 쓴 자화상〉, 메트로폴리탄 미술관 CC0) -->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@mipmap/ic_launcher_background" />
+    <foreground android:drawable="@mipmap/ic_launcher_foreground" />
+</adaptive-icon>
