@@ -25,19 +25,23 @@ class Downloads(private val ctx: Context) {
     data class Part(val path: String, val size: Long)
     data class Pack(val series: String, val chapter: String, val bytes: Long, val parts: List<Part>)
 
-    private val index: Map<String, Pair<String, Map<String, Pack>>> by lazy {
-        (ctx.assets.list("letters") ?: emptyArray()).mapNotNull { sid ->
-            val o = runCatching { JSONObject(ctx.assets.open("letters/$sid/remote.json").bufferedReader().readText()) }.getOrNull() ?: return@mapNotNull null
-            val chs = o.getJSONObject("chapters")
-            sid to (o.getString("base") to chs.keys().asSequence().associateWith { c ->
-                val co = chs.getJSONObject(c); val fa = co.getJSONArray("files")
-                Pack(sid, c, co.getLong("bytes"), (0 until fa.length()).map { i -> fa.getJSONArray(i).let { Part(it.getString(0), it.getLong(1)) } })
-            })
-        }.toMap()
+    // 작품마다 처음 물을 때 한 번 읽는다 (assets.list 에 기대지 않는다)
+    private val index = HashMap<String, Pair<String, Map<String, Pack>>?>()
+    private fun load(sid: String): Pair<String, Map<String, Pack>>? = synchronized(index) {
+        index.getOrPut(sid) {
+            runCatching {
+                val o = JSONObject(ctx.assets.open("letters/$sid/remote.json").bufferedReader().use { it.readText() })
+                val chs = o.getJSONObject("chapters")
+                o.getString("base") to chs.keys().asSequence().associateWith { c ->
+                    val co = chs.getJSONObject(c); val fa = co.getJSONArray("files")
+                    Pack(sid, c, co.getLong("bytes"), (0 until fa.length()).map { i -> fa.getJSONArray(i).let { Part(it.getString(0), it.getLong(1)) } })
+                }
+            }.getOrNull()
+        }
     }
 
     /** 이 장의 낭독이 앱 밖에 있는가. 없으면 null (앱 안에 들어 있는 장). */
-    fun pack(series: String, chapter: String): Pack? = index[series]?.second?.get(chapter)
+    fun pack(series: String, chapter: String): Pack? = load(series)?.second?.get(chapter)
 
     private fun file(p: Part) = File(ctx.filesDir, "audio/${p.path}")
 
@@ -59,7 +63,7 @@ class Downloads(private val ctx: Context) {
      * 코루틴을 취소하면 (뒤로 · 그만 받기) 받다 만 파일은 지우고 멈춘다. 실패하면 예외.
      */
     suspend fun fetch(pack: Pack, progress: (Long, Long) -> Unit) = withContext(Dispatchers.IO) {
-        val base = index[pack.series]?.first ?: error("no base")
+        val base = load(pack.series)?.first ?: error("no base")
         val todo = pack.parts.filter { file(it).length() != it.size }
         val total = pack.bytes
         val done = AtomicLong(total - todo.sumOf { it.size })
