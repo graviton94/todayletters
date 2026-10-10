@@ -3,13 +3,17 @@ package io.github.graviton94.todayletters.core
 /**
  * 앱을 켰을 때의 순서.
  *
- *   처음 설치: 처음 소개 (이렇게 도착해요 → 작품과 배울 언어) → 서재
- *   그다음부터: 바로 서재 (오늘 도착한 편지는 시리즈 카드에 ‘오늘 도착’으로)
+ *   그날 처음 열 때: 첫 화면 (언어 미술관 입구 · 오늘의 작품) → (처음 설치면 처음 소개) → 시간의 서재
+ *   같은 날 다시 열 때 · 알림으로 열 때: 바로 서재 (처음 설치면 처음 소개부터)
  */
-enum class Stage { ONBOARDING, MAIN }
+enum class Stage { OPENING, ONBOARDING, MAIN }
 
 object Launch {
-    fun plan(firstRun: Boolean): List<Stage> = listOfNotNull(if (firstRun) Stage.ONBOARDING else null, Stage.MAIN)
+    fun plan(firstRun: Boolean, firstOfDay: Boolean = true, deepLink: Boolean = false): List<Stage> = listOfNotNull(
+        if (!deepLink && (firstRun || firstOfDay)) Stage.OPENING else null,
+        if (firstRun) Stage.ONBOARDING else null,
+        Stage.MAIN,
+    )
 }
 
 /**

@@ -34,7 +34,7 @@ import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 
-/** 앱의 뿌리: 처음 소개 (처음 한 번) 다음에 서재와 시리즈 안 화면들. */
+/** 앱의 뿌리: 첫 화면 (그날 처음) → 처음 소개 (처음 한 번) → 서재와 시리즈 안 화면들. */
 @Composable
 fun Root(s: AppState, onExit: () -> Unit) {
     val p = Ink.palette
@@ -42,8 +42,13 @@ fun Root(s: AppState, onExit: () -> Unit) {
     Box(Modifier.fillMaxSize().background(p.paper)) {
         // 처음 소개에서 뒤로: 닫을지 묻는다 (메인은 Main 이 따로 묻는다)
         BackHandler(enabled = s.stage != Stage.MAIN && !s.askingExit) { s.askingExit = true }
-        AnimatedContent(s.stage, transitionSpec = { fadeIn(tween(Tokens.Motion.pageMs * 2)) togetherWith fadeOut(tween(Tokens.Motion.pageMs)) }, label = "stage") { stage ->
+        // 첫 화면에서 들어갈 때: 책장 소리와 함께 다음 화면이 천천히 밝아진다
+        AnimatedContent(s.stage, transitionSpec = {
+            if (s.reducedMotion) fadeIn(tween(Tokens.Motion.fadeMs)) togetherWith fadeOut(tween(Tokens.Motion.fadeMs))
+            else fadeIn(tween(1200, delayMillis = 250)) togetherWith fadeOut(tween(700))
+        }, label = "stage") { stage ->
         when (stage) {
+            Stage.OPENING -> Opening(s)
             Stage.ONBOARDING -> Onboarding(s)
             Stage.MAIN -> Main(s, onExit)
         }

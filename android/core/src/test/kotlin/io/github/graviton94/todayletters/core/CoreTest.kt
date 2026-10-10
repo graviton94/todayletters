@@ -70,8 +70,11 @@ class CoreTest {
     }
 
     @Test fun launchOrder() {
-        assertEquals(listOf(Stage.ONBOARDING, Stage.MAIN), Launch.plan(firstRun = true))
-        assertEquals(listOf(Stage.MAIN), Launch.plan(firstRun = false))
+        assertEquals(listOf(Stage.OPENING, Stage.ONBOARDING, Stage.MAIN), Launch.plan(firstRun = true, firstOfDay = true))
+        assertEquals(listOf(Stage.OPENING, Stage.MAIN), Launch.plan(firstRun = false, firstOfDay = true))
+        assertEquals(listOf(Stage.MAIN), Launch.plan(firstRun = false, firstOfDay = false))
+        assertEquals(listOf(Stage.MAIN), Launch.plan(firstRun = false, firstOfDay = true, deepLink = true))
+        assertEquals(listOf(Stage.ONBOARDING, Stage.MAIN), Launch.plan(firstRun = true, firstOfDay = true, deepLink = true))
     }
 
     @Test fun koreanBreaksOnlyBetweenWords() {

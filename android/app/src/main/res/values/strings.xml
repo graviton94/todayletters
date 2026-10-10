@@ -604,4 +604,7 @@
     <string name="credits_sound_h">Sound</string>
     <string name="credits_sound">Page-turn sound: “10 Book Page Flips” by StarNinjas, OpenGameArt.org, CC0 (public domain dedication).</string>
     <string name="lib_title">Library of Time</string>
+    <string name="opening_tagline">Learn languages through real letters from art and history</string>
+    <string name="opening_piece">Today\'s piece · %1$s · %2$s</string>
+    <string name="opening_enter">Tap to enter</string>
 </resources>

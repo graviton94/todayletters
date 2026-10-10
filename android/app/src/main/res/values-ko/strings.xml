@@ -604,4 +604,7 @@
     <string name="credits_sound_h">소⁠리</string>
     <string name="credits_sound">책⁠장 넘⁠기⁠는 소⁠리⁠: StarNinjas 「10 Book Page Flips」, OpenGameArt.org, CC0 (⁠퍼⁠블⁠릭 도⁠메⁠인 기⁠증⁠).</string>
     <string name="lib_title">시⁠간⁠의 서⁠재</string>
+    <string name="opening_tagline">명⁠화⁠와 역⁠사 속 편⁠지⁠로 배⁠우⁠는 외⁠국⁠어</string>
+    <string name="opening_piece">오⁠늘⁠의 작⁠품 · 〈%1$s〉 %2$s</string>
+    <string name="opening_enter">눌⁠러⁠서 입⁠장⁠하⁠기</string>
 </resources>
