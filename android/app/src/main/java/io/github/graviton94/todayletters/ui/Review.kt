@@ -1083,12 +1083,13 @@ private fun snippet(q: Q): String? {
 @Composable
 private fun LabelCard(q: Q, tag: String, onListen: () -> Unit) {
     val p = Ink.palette
+    val listenA11y = stringResource(R.string.a11y_listen_word)
     Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s4),
         verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
         if (tag.isNotEmpty()) Caps(tag, p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
         Text(q.word, style = Type.display.copy(fontFamily = Faces.display).of(q.learn), color = p.ink)
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape).pressable { onListen() }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) }
+            Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { onListen() }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
             if (q.ipa.isNotEmpty()) Text("[${q.ipa}]", style = Type.small, color = p.inkSoft)
         }
     }

@@ -3203,5 +3203,133 @@
   "credits_museum": {
     "en": "Gallery frames: four empty frames photographed by the Rijksmuseum, Amsterdam (RP-L-534, SK-L-6754, RP-L-513, RP-L-515), CC0. Milestone medals: eight 19th- and early 20th-century exhibition and prize medals from the Rijksmuseum (NG-2004-75-A, NG-423, NG-429, NG-VG-6-1, NG-2014-22-1, NG-VG-1-4109, NG-VG-6-125), CC0; the app only cuts them out and lightens the not-yet-earned ones. Reward sounds are made by the app.",
     "ko": "갤러리 액자: 암스테르담 레이크스 미술관이 찍은 빈 액자 넷 (RP-L-534, SK-L-6754, RP-L-513, RP-L-515), CC0. 이정표 메달: 레이크스 미술관의 19세기 · 20세기 초 전람회 · 상패 메달 여덟 (NG-2004-75-A, NG-423, NG-429, NG-VG-6-1, NG-2014-22-1, NG-VG-1-4109, NG-VG-6-125), CC0. 앱은 오려 내고, 아직 받지 않은 메달을 하얗게만 바꿉니다. 보상 소리는 앱이 직접 만든 것입니다."
+  },
+  "ob_one_title": {
+    "en": "Real letters\nfrom %1$s",
+    "ko": "%1$s 보낸\n진짜 편지를 받아요"
+  },
+  "ob_one_body": {
+    "en": "Letters written to %1$s. One a day — you become %2$s, read, and reply.",
+    "ko": "%1$s에게 쓴 편지예요. 하루 한 통, 당신이 %2$s 되어 읽고 답장해요."
+  },
+  "ob_one_1": {
+    "en": "A letter arrives · in %1$s's voice",
+    "ko": "편지가 도착해요 · %1$s 목소리로"
+  },
+  "ob_one_2": {
+    "en": "Learn the words and read aloud",
+    "ko": "낱말을 익히고 소리 내어 읽어요"
+  },
+  "ob_one_3": {
+    "en": "Reply, and that letter's painting is hung",
+    "ko": "답장하면 그 편지의 그림이 걸려요"
+  },
+  "ob_one_q": {
+    "en": "Which language will you read in?",
+    "ko": "어떤 말로 읽을까요?"
+  },
+  "ob_one_note": {
+    "en": "You can change this later in the work's settings · translation in your phone's language (%1$s)",
+    "ko": "나중에 작품 설정에서 바꿀 수 있어요 · 번역은 폰 언어(%1$s)로"
+  },
+  "ob_one_go": {
+    "en": "Receive the first letter",
+    "ko": "첫 편지 받기"
+  },
+  "set_text_preview": {
+    "en": "Preview",
+    "ko": "미리 보기"
+  },
+  "set_pace2": {
+    "en": "How fast the letter is written",
+    "ko": "편지가 쓰이는 빠르기"
+  },
+  "set_pace_instant2": {
+    "en": "At once",
+    "ko": "바로"
+  },
+  "set_sound_d": {
+    "en": "When a letter arrives, in the writer's voice",
+    "ko": "편지가 오면 쓴 사람 목소리로"
+  },
+  "set_effects2": {
+    "en": "Sound effects",
+    "ko": "효과음"
+  },
+  "set_effects_d": {
+    "en": "Right · wrong · when a piece is hung",
+    "ko": "맞음 · 틀림 · 자료가 걸릴 때"
+  },
+  "set_ui_lang2": {
+    "en": "App text",
+    "ko": "앱 글자"
+  },
+  "set_read_lang2": {
+    "en": "Translation",
+    "ko": "번역"
+  },
+  "set_g_notice": {
+    "en": "Notifications",
+    "ko": "알림"
+  },
+  "set_arrival": {
+    "en": "Letter arrives",
+    "ko": "편지 도착"
+  },
+  "set_arrival_d": {
+    "en": "When a new letter comes",
+    "ko": "새 편지가 오는 시각"
+  },
+  "set_evening2": {
+    "en": "Keep your streak",
+    "ko": "이어 읽기 지키기"
+  },
+  "set_evening_d": {
+    "en": "Once, only on days you haven't read",
+    "ko": "그날 아무것도 안 했을 때만 한 번"
+  },
+  "set_storage_row": {
+    "en": "Downloaded readings",
+    "ko": "받아 둔 낭독"
+  },
+  "set_storage_left": {
+    "en": "Still to download · %1$s",
+    "ko": "남은 장 · %1$s"
+  },
+  "set_g_help": {
+    "en": "Help · sources",
+    "ko": "도움 · 출처"
+  },
+  "set_privacy_row": {
+    "en": "Privacy",
+    "ko": "개인정보"
+  },
+  "set_privacy_d": {
+    "en": "Your record stays on this phone · nothing is sent",
+    "ko": "학습 기록은 이 폰에만 · 보내는 정보 없음"
+  },
+  "set_credits_d": {
+    "en": "Letters · paintings · frames · medals · fonts · voices",
+    "ko": "편지 · 그림 · 액자 · 메달 · 글꼴 · 목소리"
+  },
+  "set_version": {
+    "en": "Lingua Museum · version %1$s (%2$d)",
+    "ko": "언어 미술관 · 버전 %1$s (%2$d)"
+  },
+  "set_notice_moved": {
+    "en": "Notifications are now in Settings › Notifications.",
+    "ko": "알림은 이제 설정 › 알림에서 정해요."
+  },
+  "widget_caps": {
+    "en": "TODAY · LETTRE %1$s",
+    "ko": "AUJOURD'HUI · LETTRE %1$s"
+  },
+  "widget_streak": {
+    "en": "%1$d-day streak",
+    "ko": "이어 읽기 %1$d일"
+  },
+  "widget_recital": {
+    "en": "Sunday reading today",
+    "ko": "오늘은 낭독회"
   }
 }

@@ -59,22 +59,23 @@ import io.github.graviton94.todayletters.design.Type
  *   3. 다 쓰이면 우리말이 스며 나오고 ‘편지 읽기’.
  * 움직임 줄이기면 3만. 그림이 없는 편지는 2부터. 색은 테마와 상관없이 밤의 전시실.
  */
-private val Night = Color(0xFF15110C)
+private val Night = Color(0xFF120E0A) // 뷰어와 같은 밤색 (D4)
 private val Light = Color(0xFFF3EAD6)
 private val Soft = Color(0xFFB9AFA0)
 private val Faint = Color(0xFF8F8572)
 private val Gilt = Color(0xFFC9B48C)
 
 @Composable
-fun LetterArrival(s: AppState, series: String, chapter: String, letter: Letter, n: Int, onDone: (heardFirst: Boolean) -> Unit) {
-    androidx.compose.ui.window.Dialog(onDismissRequest = { onDone(false) },
+fun LetterArrival(s: AppState, series: String, chapter: String, letter: Letter, n: Int, onBack: () -> Unit, onDone: (heardFirst: Boolean) -> Unit) {
+    // 뒤로 가기 (U5): 편지 방으로 들어가지 않고 들어온 곳으로. 도착 장면은 다음에 열 때 다시
+    androidx.compose.ui.window.Dialog(onDismissRequest = onBack,
         properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
-        ArrivalBody(s, series, chapter, letter, n, onDone)
+        ArrivalBody(s, series, chapter, letter, n, onDone, onBack = onBack)
     }
 }
 
 @Composable
-internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: Letter, n: Int, onDone: (heardFirst: Boolean) -> Unit, startAt: Int? = null) {
+internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: Letter, n: Int, onDone: (heardFirst: Boolean) -> Unit, startAt: Int? = null, onBack: () -> Unit = {}) {
     val work = s.work(series)
     val view = s.room(series)
     val still = s.reducedMotion
@@ -87,7 +88,7 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
     var heard by remember(letter.id) { mutableFloatStateOf(if (stage == 2) 1f else 0f) }
     // 첫 줄 낭독을 끝까지 들었는가 (그러면 편지 방에서 첫 줄을 다시 읽지 않는다)
     var heardAll by remember(letter.id) { androidx.compose.runtime.mutableStateOf(false) }
-    BackHandler { onDone(heardAll) }
+    BackHandler(onBack = onBack)
     DisposableEffect(letter.id) { onDispose { s.narrator.stop() } }
 
     // 1. 그림이 밝아지며 다가온다

@@ -11,7 +11,10 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
+import android.os.Bundle
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -37,6 +40,12 @@ data class TodaySummary(
     val due: Int,
     val doneToday: Boolean,
     val streak: Int,
+    /** 그림 자산 경로 (plates/...), 없으면 null. */
+    val plate: String? = null,
+    /** 작품 전체에서 몇 번째 편지인지 (1부터). */
+    val letterNo: Int = 0,
+    /** 일요일이고 이번 주 낭독회를 아직 안 했으면. */
+    val recital: Boolean = false,
 ) {
     companion object {
         fun of(ctx: Context): TodaySummary? {
@@ -56,6 +65,9 @@ data class TodaySummary(
                 due = s.dueCards().size,
                 doneToday = s.today in s.store.doneDays(),
                 streak = s.streak,
+                plate = current?.second?.plate?.image?.takeIf { it.isNotEmpty() }?.let { "plates/$it" },
+                letterNo = current?.let { (_, l) -> work.chapters.flatMap { it.letters }.indexOfFirst { it.id == l.id } + 1 } ?: 0,
+                recital = io.github.graviton94.todayletters.core.Recital.isSunday(s.today) && !s.recitalDone,
             )
         }
     }
@@ -167,32 +179,75 @@ class ArrivalReceiver : BroadcastReceiver() {
     }
 }
 
-/** 홈 화면 위젯: 오늘 날짜, 오늘의 편지 첫 문장, 기다리는 편지와 복습 수. 누르면 앱. */
+/** 홈 화면 위젯: 4×2 는 그림 · 편지 번호 · 첫 문장 · 상태, 2×2 는 그림 한 장과 한 줄. 너비에 따라 고른다. 누르면 앱. */
 class TodayWidget : AppWidgetProvider() {
     override fun onUpdate(ctx: Context, manager: AppWidgetManager, ids: IntArray) {
-        val views = views(ctx)
-        ids.forEach { manager.updateAppWidget(it, views) }
+        draw(ctx, manager, ids)
+    }
+
+    override fun onAppWidgetOptionsChanged(ctx: Context, manager: AppWidgetManager, id: Int, options: Bundle) {
+        draw(ctx, manager, intArrayOf(id))
     }
 
     companion object {
         fun refresh(ctx: Context) {
             val m = AppWidgetManager.getInstance(ctx) ?: return
             val ids = m.getAppWidgetIds(ComponentName(ctx, TodayWidget::class.java))
-            if (ids.isNotEmpty()) { val v = views(ctx); ids.forEach { m.updateAppWidget(it, v) } }
+            if (ids.isNotEmpty()) draw(ctx, m, ids)
         }
 
-        private fun views(ctx: Context): RemoteViews {
-            val v = RemoteViews(ctx.packageName, R.layout.widget_today)
+        private fun draw(ctx: Context, m: AppWidgetManager, ids: IntArray) {
             val sum = TodaySummary.of(ctx)
+            val art = sum?.plate?.let { plate(ctx, it) }
+            ids.forEach { id ->
+                val small = m.getAppWidgetOptions(id).getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH, 250) < 200
+                m.updateAppWidget(id, views(ctx, sum, art, small))
+            }
+        }
+
+        /** 위젯에 넣을 그림: 큰 비트맵은 위젯에 못 실으니 짧은 변을 400px 남짓으로 줄여 읽는다. */
+        internal fun plate(ctx: Context, path: String): Bitmap? = runCatching {
+            val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+            ctx.assets.open(path).use { BitmapFactory.decodeStream(it, null, bounds) }
+            var sample = 1
+            while (minOf(bounds.outWidth, bounds.outHeight) / (sample * 2) >= 400) sample *= 2
+            ctx.assets.open(path).use { BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = sample }) }
+        }.getOrNull()
+
+        internal fun views(ctx: Context, sum: TodaySummary?, art: Bitmap?, small: Boolean): RemoteViews {
+            val v = RemoteViews(ctx.packageName, if (small) R.layout.widget_small else R.layout.widget_today)
             val ko = ctx.resources.configuration.locales[0].language == "ko"
-            v.setTextViewText(R.id.w_date, LocalDate.now().format(if (ko) DateTimeFormatter.ofPattern("M월 d일 EEEE", Locale.KOREAN) else DateTimeFormatter.ofPattern("EEEE d MMMM", Locale.ENGLISH)).uppercase())
-            if (sum != null) {
-                v.setTextViewText(R.id.w_line, if (sum.line.isNotEmpty()) "“${sum.line}”" else ctx.getString(R.string.app_name))
-                v.setTextViewText(R.id.w_read, sum.lineRead)
+            val date = LocalDate.now().format(if (ko) DateTimeFormatter.ofPattern("M월 d일 EEEE", Locale.KOREAN) else DateTimeFormatter.ofPattern("EEEE d MMMM", Locale.ENGLISH)).uppercase()
+            art?.let { v.setImageViewBitmap(R.id.w_art, it) }
+            val no = sum?.letterNo?.takeIf { it > 0 }?.let(io.github.graviton94.todayletters.ui::roman)
+            if (sum == null) {
+                v.setTextViewText(R.id.w_date, date)
+                v.setTextViewText(R.id.w_line, ctx.getString(R.string.app_name))
+            } else if (small) {
+                // 2×2: 편지 번호 · 오늘의 편지 · 이어 읽기. 일요일엔 낭독회.
+                v.setTextViewText(R.id.w_date, if (sum.recital) "DIMANCHE" else no?.let { "LETTRE $it" } ?: date)
+                v.setTextViewText(R.id.w_line, ctx.getString(if (sum.recital) R.string.widget_recital else R.string.widget_name))
                 v.setTextViewText(
                     R.id.w_status,
-                    if (sum.doneToday) ctx.getString(R.string.widget_done, sum.streak)
-                    else ctx.getString(R.string.widget_status, sum.waiting, sum.due),
+                    when {
+                        sum.doneToday -> ctx.getString(R.string.widget_done, sum.streak)
+                        sum.recital -> ctx.getString(R.string.recital_today)
+                        else -> ctx.getString(R.string.widget_streak, sum.streak)
+                    },
+                )
+            } else {
+                v.setTextViewText(R.id.w_date, no?.let { ctx.getString(R.string.widget_caps, it) } ?: date)
+                v.setTextViewText(R.id.w_line, if (sum.line.isNotEmpty()) "“${sum.line}”" else ctx.getString(R.string.app_name))
+                v.setTextViewText(R.id.w_read, sum.lineRead)
+                val status = ctx.getString(R.string.widget_status, sum.waiting, sum.due)
+                v.setTextViewText(
+                    R.id.w_status,
+                    when {
+                        sum.doneToday -> ctx.getString(R.string.widget_done, sum.streak)
+                        sum.recital -> status + " · " + ctx.getString(R.string.widget_recital)
+                        sum.streak > 0 -> status + " · " + ctx.getString(R.string.widget_streak, sum.streak)
+                        else -> status
+                    },
                 )
             }
             val open = PendingIntent.getActivity(

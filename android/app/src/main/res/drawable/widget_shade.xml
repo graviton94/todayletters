@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 작은 위젯: 그림 아래쪽을 어둡게 (글자가 읽히게) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient android:angle="270" android:startColor="#0015110C" android:centerColor="#3315110C" android:endColor="#DD15110C" />
+    <corners android:radius="22dp" />
+</shape>

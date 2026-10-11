@@ -312,7 +312,7 @@ fun ArtCardSheet(s: AppState, w: Work, l: Letter, m: Message, onClose: () -> Uni
     }
     androidx.activity.compose.BackHandler(onBack = onClose)
     androidx.compose.foundation.layout.Column(
-        androidx.compose.ui.Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Color(0xFFE6DCC8)).statusBarsPadding().navigationBarsPadding(),
+        androidx.compose.ui.Modifier.fillMaxSize().background(p.hide).statusBarsPadding().navigationBarsPadding(),
     ) {
         androidx.compose.foundation.layout.Row(androidx.compose.ui.Modifier.fillMaxWidth().padding(end = io.github.graviton94.todayletters.design.Tokens.Space.s4),
             verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {

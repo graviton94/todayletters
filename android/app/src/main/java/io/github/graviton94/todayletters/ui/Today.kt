@@ -26,6 +26,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.runtime.LaunchedEffect
@@ -273,13 +275,14 @@ private fun SurpriseCard(s: AppState, c: io.github.graviton94.todayletters.core.
     val view = s.room(w.series.id)
     val word = cl.second.words.getOrNull(wi) ?: return
     var open by remember(c.key) { mutableStateOf(false) }
+    val listenA11y = stringResource(R.string.a11y_listen_word)
     val audio = s.narrator.path(w.series.id, cl.first, cl.second.id, "w${wi + 1}_${view.learn.code}")
     Column(Modifier.fillMaxWidth().border(1.dp, p.giltText).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
         Caps("SOUVENIR", p.giltText, small = true, decorative = true)
         Text(stringResource(R.string.surprise_title), style = Type.small.ui(), color = p.inkSoft)
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Text(word.text[view.learn], style = Type.title.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display).of(view.learn), color = p.ink, modifier = Modifier.weight(1f))
-            Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape).pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) }
+            Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
         }
         if (!open) Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable { open = true }, contentAlignment = Alignment.CenterStart) {
             Text(stringResource(R.string.surprise_reveal), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.ink)

@@ -45,8 +45,8 @@ private fun mix(a: Color, b: Color, t: Float) = Color(a.red + (b.red - a.red) * 
 fun Palette.toned(t: SeriesTone, dark: Boolean): Palette = copy(
     paper = t.paper, sky = t.paper, leaf = mix(t.paper, if (dark) t.ink else Color.White, if (dark) 0.04f else 0.35f),
     ink = t.ink, inkSoft = t.soft, hair = mix(t.paper, t.ink, 0.16f), line = t.faint,
-    gilt = t.accent, giltText = t.accent, fill = t.ink, onFill = t.paper, onFillSoft = mix(t.paper, t.ink, 0.35f),
-    hide = mix(t.paper, t.ink, 0.07f), hideInk = t.faint,
+    gilt = t.accent, giltText = if (dark) t.accent else mix(t.accent, t.ink, 0.2f), fill = t.ink, onFill = t.paper, onFillSoft = mix(t.paper, t.ink, 0.35f),
+    hide = mix(t.paper, t.ink, 0.07f), hideInk = mix(t.faint, t.ink, if (dark) 0.2f else 0.45f),
     slip = mix(t.paper, if (dark) t.ink else Color.White, if (dark) 0.03f else 0.3f), slipInk = t.ink, slipSoft = t.soft,
     mapPaper = mix(t.paper, t.ink, 0.04f), mapRoad = t.paper,
 )

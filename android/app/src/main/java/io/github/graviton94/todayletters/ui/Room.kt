@@ -387,7 +387,8 @@ fun Room(s: AppState, r: Route.Letter) {
             }
         }
     }
-    if (arriving) LetterArrival(s, id, chapter, letter, remember(letter.id) { work.chapters.flatMap { it.letters }.indexOf(letter) + 1 }) { heard ->
+    if (arriving) LetterArrival(s, id, chapter, letter, remember(letter.id) { work.chapters.flatMap { it.letters }.indexOf(letter) + 1 },
+        onBack = { arriving = false; s.narrator.stop(); s.back() }) { heard ->
         s.store.markArrived(key); arrivalVoiced = heard; arriving = false
     }
     if (words) WordSheet(s, r, onClose = { words = false })

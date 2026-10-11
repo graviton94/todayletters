@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 홈 위젯 색 (v21 4단계 D3): 밝은 테마는 작품의 종이, 어두운 테마는 작품의 밤 빛깔 (values-night). -->
+<resources>
+    <color name="widget_bg">#F7F0E2</color>
+    <color name="widget_ink">#2A1F10</color>
+    <color name="widget_soft">#76674F</color>
+    <color name="widget_gilt">#7A5C2C</color>
+</resources>

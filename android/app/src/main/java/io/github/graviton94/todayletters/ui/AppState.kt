@@ -109,6 +109,13 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         stack.clear(); stack.addAll(Nav.trail(Route.Inbox))
     }
 
+    /** 처음 설치 (U4): 서재 · 전환 · 오늘을 건너 그 작품의 첫 편지로. 뒤로 가면 오늘. */
+    fun startFirstLetter(id: String) {
+        enter(id)
+        val c = work(id).chapters.firstOrNull() ?: return
+        c.letters.firstOrNull()?.let { open(id, c.id, it, Route.Inbox) }
+    }
+
     /** 화면 스택. 맨 끝이 지금 화면. 알림으로 들어오면 그 시리즈의 오늘부터. */
     val stack = mutableStateListOf<Route>().apply { addAll(if (deepLink && store.onboarded) Nav.trail(Route.Inbox) else listOf(Route.Library)) }
     val route get() = stack.last()

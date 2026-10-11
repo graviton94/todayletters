@@ -46,6 +46,9 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
+import org.robolectric.RuntimeEnvironment
+import androidx.compose.ui.semantics.SemanticsProperties
+import androidx.compose.ui.semantics.getOrNull
 
 /**
  * 화면 사진: 기기 없이 화면을 PNG 로 그려 검토한다 (screens 가지에 올라감). 앱에는 들어가지 않는다.
@@ -82,12 +85,37 @@ class ScreensTest {
         act()
         rule.mainClock.advanceTimeBy(900)
         rule.onRoot().captureRoboImage("build/screens/$name.png")
+        audit(name)
+    }
+
+    /**
+     * 접근성 점검 (v21 4단계 R2): 누를 수 있는데 이름이 없는 것, 48dp 보다 작은 것을 적어 둔다.
+     * 실패시키지 않고 build/screens/a11y.txt 에 모은다 (사람이 보고 고친다).
+     */
+    private fun audit(name: String) {
+        val d = ctx.resources.displayMetrics.density
+        val found = rule.onAllNodes(hasClickAction()).fetchSemanticsNodes().mapNotNull { n ->
+            val c = n.config
+            val label = (c.getOrNull(SemanticsProperties.ContentDescription).orEmpty() + c.getOrNull(SemanticsProperties.Text).orEmpty().map { it.text })
+                .joinToString(" ").trim()
+            val w = (n.size.width / d).toInt(); val h = (n.size.height / d).toInt()
+            val issues = buildList { if (label.isEmpty()) add("이름 없음"); if (w < 48 || h < 48) add("작음 ${w}×${h}dp") }
+            if (issues.isEmpty()) null else "  ${issues.joinToString(" · ")}  [${label.take(40)}]"
+        }
+        if (found.isEmpty()) return
+        val f = java.io.File("build/screens/a11y.txt"); f.parentFile?.mkdirs()
+        synchronized(ScreensTest::class.java) { f.appendText("$name\n" + found.joinToString("\n") + "\n") }
+    }
+
+    /** 큰 글씨 (시스템 글자 크기 2배): 넘치거나 잘리는 데가 없는지 찍는다. */
+    private fun large(name: String, ms: Long = 2500, series: AppState? = null, content: @Composable () -> Unit) {
+        RuntimeEnvironment.setFontScale(2f)
+        try { shot("${name}_large", false, ms, series = series, content = content) } finally { RuntimeEnvironment.setFontScale(1f) }
     }
 
     @Test fun opening() { val s = state(true); shot("01_opening_ko_dark", true, 4500) { io.github.graviton94.todayletters.ui.Opening(s) } }
     @Test fun onboarding0() { val s = state(false); shot("03a_onboarding0_ko_light", false) { Onboarding(s) } }
-    @Test fun onboarding1() { val s = state(false); shot("03_onboarding1_ko_light", false) { Onboarding(s, startStep = 1) } }
-    @Test fun onboarding2() { val s = state(false); shot("04_onboarding2_ko_dark", true) { Onboarding(s, startStep = 2) } }
+    @Test fun onboarding2() { val s = state(false); shot("04_onboarding2_ko_dark", true) { Onboarding(s) } }
     @Test fun inbox() { val s = state(true); shot("06_inbox_ko_light", false, series = s) { Inbox(s) } }
     @Test fun roomLight() { val s = state(true); shot("07_room_ko_light", false, 6000, series = s) { Room(s, Route.Letter("vincent", 1, 1)) } }
     @Test fun roomDark() { val s = state(true); shot("08_room_ko_dark", true, 6000, series = s) { Room(s, Route.Letter("vincent", 1, 1)) } }
@@ -435,5 +463,77 @@ class ScreensTest {
     @Test fun borders() {
         val s = engineState(); s.reward = null
         shot("73_borders_light", false, series = s) { io.github.graviton94.todayletters.ui.BorderSheet(s, s.work("vincent")) { } }
+    }
+    // ── 4단계: 설정 · 첫 실행 · 위젯 · 어두운 화면 · 큰 글씨 ──
+    @Test fun settings() { val s = state(true); shot("74_settings_light", false) { io.github.graviton94.todayletters.ui.SettingsScreen(s) } }
+    @Test fun settingsDark() { val s = state(true); shot("75_settings_dark", true) { io.github.graviton94.todayletters.ui.SettingsScreen(s) } }
+    @Test fun weekDark() {
+        val s = engineState(); s.reward = null
+        val start = io.github.graviton94.todayletters.core.Recital.weekStart(s.today)
+        (0..3).forEach { d -> s.store.addScore(start + d, 60 + d * 5, 55 + d * 4) }
+        shot("76_week_dark", true, series = s) { io.github.graviton94.todayletters.ui.WeekScreen(s) }
+    }
+    @Test fun medalsDark() { val s = engineState(); s.reward = null; shot("77_milestones_dark", true, series = s) { io.github.graviton94.todayletters.ui.MilestonesTab(s) } }
+    @Test fun artCardDark() {
+        val s = engineState(); s.reward = null
+        val w = s.work("vincent"); val l = w.chapters[2].letters[0]
+        shot("78_art_card_dark", true, series = s) { io.github.graviton94.todayletters.ui.ArtCardSheet(s, w, l, l.messages[1]) { } }
+    }
+    @Test fun stepsDark() {
+        val s = state(true)
+        shot("79_room_steps_dark", true, series = s) {
+            io.github.graviton94.todayletters.ui.StepSheet(listOf(
+                io.github.graviton94.todayletters.ui.Step("읽기", "4문장 모두 읽음", 2),
+                io.github.graviton94.todayletters.ui.Step("낱말 맞추기", "낱말 6개 · 뜻과 소리를 짝지어요", 1),
+                io.github.graviton94.todayletters.ui.Step("따라 읽기", "4문장을 소리 내어", 0),
+            ), "I") { }
+        }
+    }
+    @Test fun arrivalDark() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters.first()
+        shot("80_arrival_dark", true, series = s) { io.github.graviton94.todayletters.ui.ArrivalBody(s, "vincent", "I", l, 1, { }, startAt = 2) }
+    }
+    @Test fun askDark() {
+        val s = state(true)
+        shot("81_ask_dark", true, series = s) {
+            Room(s, Route.Letter("vincent", 1, 1))
+            io.github.graviton94.todayletters.ui.Ask("답장은 나중에 쓸까요?", "나중에", "계속 쓰기", { }, { })
+        }
+    }
+    /** D3: 위젯 4×2 · 2×2 (RemoteViews 를 그대로 펼쳐 그린다). */
+    @Test fun widgets() {
+        state(true)
+        val sum = io.github.graviton94.todayletters.data.TodaySummary.of(ctx)
+        val art = sum?.plate?.let { io.github.graviton94.todayletters.data.TodayWidget.plate(ctx, it) }
+        val d = ctx.resources.displayMetrics.density
+        listOf(Triple("82_widget_4x2", false, 340 to 170), Triple("83_widget_2x2", true, 170 to 170)).forEach { (name, small, size) ->
+            val rv = io.github.graviton94.todayletters.data.TodayWidget.views(ctx, sum, art, small)
+            val v = rv.apply(ctx, android.widget.FrameLayout(ctx))
+            val w = (size.first * d).toInt(); val h = (size.second * d).toInt()
+            v.measure(android.view.View.MeasureSpec.makeMeasureSpec(w, android.view.View.MeasureSpec.EXACTLY), android.view.View.MeasureSpec.makeMeasureSpec(h, android.view.View.MeasureSpec.EXACTLY))
+            v.layout(0, 0, w, h)
+            val bmp = android.graphics.Bitmap.createBitmap(w, h, android.graphics.Bitmap.Config.ARGB_8888)
+            v.draw(android.graphics.Canvas(bmp))
+            val f = java.io.File("build/screens/$name.png"); f.parentFile?.mkdirs()
+            f.outputStream().use { bmp.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, it) }
+        }
+    }
+    @Test fun largeToday() { val s = withCards(); large("84_today", 2000, series = s) { Inbox(s) } }
+    @Test fun largeRoom() { val s = state(true); large("85_room", 6000, series = s) { Room(s, Route.Letter("vincent", 1, 1)) } }
+    @Test fun largeDictation() { val s = withCards(); large("86_dictation", series = s) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.DICTATION)) } }
+    @Test fun largeWordCard() {
+        val s = loopState()
+        val l = s.work("vincent").chapters.first().letters.first()
+        val key = s.cardKey("vincent", "I", l.id, 0)
+        s.store.save(io.github.graviton94.todayletters.core.Card(key, box = 3, due = s.today + 5, seen = 4))
+        large("87_word_card", series = s) { io.github.graviton94.todayletters.ui.WordDetailBody(s, key) { } }
+    }
+    @Test fun largeSettings() { val s = state(true); large("88_settings") { io.github.graviton94.todayletters.ui.SettingsScreen(s) } }
+    @Test fun largeReward() {
+        val s = engineState()
+        val pc = s.work("vincent").kit.collection.first { it.id == "met-436528" }
+        s.reward = AppState.RewardMoment("vincent", 28, pc, listOf("pieces_12"), null, listOf(io.github.graviton94.todayletters.core.Earn.LETTER to 6))
+        large("89_reward", 2000) { io.github.graviton94.todayletters.ui.RewardOverlay(s) }
     }
 }

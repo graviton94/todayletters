@@ -22,6 +22,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -68,6 +70,8 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
     val card = remember(key, s.version) { s.cardMap()[key] }
     val letters = w.chapters.flatMap { it.letters }
     val n = letters.indexOf(letter) + 1
+    val listenA11y = stringResource(R.string.a11y_listen_word)
+    val slowA11y = stringResource(R.string.a11y_listen_slow)
     LaunchedEffect(key) { s.narrator.play(audio) }
     // 그 낱말이 나온 문장 (편지 속 꼴로 찾는다)
     val stem = Breaks.plain(learn).substringBefore(" (").substringBefore(",").trim().lowercase()
@@ -84,8 +88,8 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
                     Caps("N° ${"%03d".format(wi + 1)} · LETTRE ${roman(n)}", p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
                     Text(learn, style = Type.display.copy(fontFamily = Faces.display).of(view.learn), color = p.ink)
                     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                        Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape).pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) }
-                        Box(Modifier.heightIn(min = 36.dp).pressable { s.narrator.play(audio, speed = 0.7f) }, contentAlignment = Alignment.Center) { Capsule("0.7×") }
+                        Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
+                        Box(Modifier.heightIn(min = 48.dp).semantics { contentDescription = slowA11y }.pressable { s.narrator.play(audio, speed = 0.7f) }, contentAlignment = Alignment.Center) { Capsule("0.7×") }
                         if (word.ipa.isNotEmpty() && view.learn == w.series.original) Text("[${word.ipa}]" + if (word.pos.isNotEmpty()) " · ${word.pos}" else "", style = Type.small, color = p.inkSoft)
                     }
                     Text(word.text[view.read], style = Type.title.of(view.read), color = p.ink)

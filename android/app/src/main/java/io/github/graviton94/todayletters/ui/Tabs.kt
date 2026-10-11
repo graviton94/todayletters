@@ -284,23 +284,8 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
             Choices(listOf(1, 2, 3).map { it to stringResource(R.string.letters_n, it) }, cur.lettersPerDay) { s.update(id, cur.copy(lettersPerDay = it)) }
             Text(stringResource(R.string.perday_note), style = Type.small.ui(), color = p.inkSoft)
 
-            Caps(stringResource(R.string.set_notice), p.giltText, small = true)
-            Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.arrivalNotice) { s.update(id, cur.copy(arrivalNotice = it)) }
-            if (cur.arrivalNotice) {
-                var hour by remember { mutableStateOf(s.store.noticeHour) }
-                Choices(listOf(7, 8, 12, 19, 21).map { it to stringResource(R.string.notice_hour, it) }, hour) {
-                    hour = it; s.store.noticeHour = it; io.github.graviton94.todayletters.data.Notices.schedule(s.ctx)
-                }
-            }
-            Text(stringResource(R.string.notice_note), style = Type.small.ui(), color = p.inkSoft)
-
-            // 저녁 알림 (E2): 이어 읽기가 끊기기 전 한 번
-            Caps(stringResource(R.string.set_evening), p.giltText, small = true)
-            var eh by remember { mutableStateOf(s.store.eveningHour) }
-            Choices(listOf(-1 to stringResource(R.string.off)) + listOf(19, 20, 21, 22).map { it to stringResource(R.string.notice_hour, it) }, eh) {
-                eh = it; s.store.eveningHour = it; io.github.graviton94.todayletters.data.Notices.schedule(s.ctx)
-            }
-            Text(stringResource(R.string.evening_note), style = Type.small.ui(), color = p.inkSoft)
+            // 알림(도착 · 저녁)은 앱 설정으로 옮김 (v21 4단계 U3)
+            Text(stringResource(R.string.set_notice_moved), style = Type.small.ui(), color = p.inkSoft)
         }
     }
 }
