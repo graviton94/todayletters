@@ -1,0 +1,878 @@
+{
+ "_doc": "Chapter III. 독일어는 루트비히 놀(Ludwig Nohl) 엮음 『Mozarts Briefe』(잘츠부르크 1865, 공공 영역, archive.org 스캔) 쪽 사진에서 인쇄된 그대로 옮겼고, 판의 철자(daß, Thür, -iren 등)도 그대로 두었어요. 영어는 레이디 월리스(Lady Wallace)의 1866년 번역을 그대로 썼고, en_own 표시가 있는 문장만 이 앱이 직접 옮겼어요. 한국어는 이 앱의 번역이에요.",
+ "series": "mozart",
+ "chapter": "III",
+ "title_de": "Paris",
+ "title_en": "Paris",
+ "title_ko": "파리",
+ "original": "de",
+ "letters": [
+  {
+   "id": "c3-l1",
+   "wallace_no": 100,
+   "nohl_pages": [
+    147,
+    148,
+    150
+   ],
+   "date": "1778-03-24",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 100 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Paris",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "tender",
+   "messages": [
+    {
+     "de": "Wir haben geglaubt wir können es nicht aushalten, ich habe mich mein Lebetag niemals so ennuyirt.",
+     "en": "We thought we really could not have gone through with it; in my life I never was so wearied.",
+     "ko": "도저히 못 견딜 줄 알았어요. 평생 이렇게 지친 적은 없었어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 100 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wir haben geglaubt / wir können es nicht aushalten, // ich habe mich mein Lebetag / niemals so ennuyirt.",
+      "en": "We thought / we really could not have gone through with it; // in my life / I never was so wearied.",
+      "ko": "도저히 못 견딜 줄 알았어요. // 평생 / 이렇게 지친 적은 없었어요."
+     }
+    },
+    {
+     "de": "„Ich bin versichert daß Sie mehr Empfehlung für den Brief sein werden, als er es für Sie sein kann.“",
+     "en": "\"I feel sure that you will be a greater recommendation to the letter than the letter can possibly be to you.\"",
+     "ko": "“이 편지가 당신을 추천하는 것보다 당신이 이 편지를 더 빛내 줄 거라고 확신합니다.”",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 100 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "„Ich bin versichert / daß Sie mehr Empfehlung für den Brief sein werden, // als er es für Sie sein kann.“",
+      "en": "\"I feel sure / that you will be a greater recommendation to the letter // than the letter can possibly be to you.\"",
+      "ko": "“이 편지가 당신을 추천하는 것보다 / 당신이 이 편지를 더 빛내 줄 거라고 // 확신합니다.”"
+     }
+    },
+    {
+     "de": "Alle haben gesagt, daß sie noch keine Arie so gerührt habe wie diese. Sie hat sie aber auch gesungen, wie man sie singen soll.",
+     "en": "All present said that no aria had ever affected them like this one; and, indeed, she sang it as it ought to be sung.",
+     "ko": "모두들 이 아리아만큼 마음을 울린 곡은 없었다고 했어요. 사실 그녀는 꼭 불러야 할 그대로 불렀어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 100 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Alle haben gesagt, / daß sie noch keine Arie so gerührt habe / wie diese. // Sie hat sie aber auch gesungen, / wie man sie singen soll.",
+      "en": "All present said / that no aria had ever affected them / like this one; // and, indeed, / she sang it as it ought to be sung.",
+      "ko": "모두들 / 이 아리아만큼 마음을 울린 곡은 없었다고 했어요. // 사실 그녀는 / 꼭 불러야 할 그대로 불렀어요."
+     }
+    },
+    {
+     "de": "Ich wünsche es, und mir ist auch immer so — ich habe immer noch Hoffnung.",
+     "en": "I wish it may; and thus it ever is with me— I live always in hope.",
+     "ko": "그렇게 되길 바라요. 저는 늘 이래요. 언제나 희망을 품고 살아요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 100 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich wünsche es, / und mir ist auch immer so — // ich habe immer noch Hoffnung.",
+      "en": "I wish it may; / and thus it ever is with me— // I live always in hope.",
+      "ko": "그렇게 되길 바라요. / 저는 늘 이래요. // 언제나 희망을 품고 살아요."
+     }
+    },
+    {
+     "de": "Er ging mit mir die Treppe hinab, blieb unter der Hausthüre stehen, bis ich ums Eck herum war, und rief mir noch nach: Adieu.",
+     "en": "Weber came down-stairs with me, and remained standing at the door till I turned the corner and called out Adieu!",
+     "ko": "베버 씨는 저와 함께 계단을 내려와, 제가 모퉁이를 돌 때까지 대문 앞에 서서 “아디외!” 하고 불러 주었어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 100 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Er ging mit mir die Treppe hinab, / blieb unter der Hausthüre stehen, / bis ich ums Eck herum war, // und rief mir noch nach: / Adieu.",
+      "en": "Weber came down-stairs with me, / and remained standing at the door / till I turned the corner // and called out / Adieu!",
+      "ko": "베버 씨는 저와 함께 계단을 내려와, / 제가 모퉁이를 돌 때까지 / 대문 앞에 서서 // “아디외!” 하고 / 불러 주었어요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Brief",
+     "pos": "n.m.",
+     "ipa": "bʁiːf",
+     "en": "letter",
+     "ipa_en": "ˈlɛtɚ",
+     "ko": "편지",
+     "rom_ko": "pyeonji",
+     "icon": "✉️"
+    },
+    {
+     "de": "die Arie",
+     "pos": "n.f.",
+     "ipa": "ˈaːʁi̯ə",
+     "en": "aria",
+     "ipa_en": "ˈɑɹiə",
+     "ko": "아리아",
+     "rom_ko": "aria",
+     "icon": "🎶"
+    },
+    {
+     "de": "singen",
+     "pos": "v.",
+     "ipa": "ˈzɪŋən",
+     "en": "to sing",
+     "ipa_en": "tə sɪŋ",
+     "ko": "노래하다",
+     "rom_ko": "noraehada",
+     "icon": "🎤"
+    },
+    {
+     "de": "die Hoffnung",
+     "pos": "n.f.",
+     "ipa": "ˈhɔfnʊŋ",
+     "en": "hope",
+     "ipa_en": "hoʊp",
+     "ko": "희망",
+     "rom_ko": "huimang"
+    },
+    {
+     "de": "die Treppe",
+     "pos": "n.f.",
+     "ipa": "ˈtʁɛpə",
+     "en": "stairs",
+     "ipa_en": "stɛɹz",
+     "ko": "계단",
+     "rom_ko": "gyedan"
+    }
+   ],
+   "note": {
+    "ko": "모차르트와 어머니는 만하임을 떠나 9일 반 만인 1778년 3월 23일 파리에 닿았어요. 떠나기 전 칸나비히 집 음악회에서 알로이지아 베버가 그의 새 아리아 「Non so d'onde viene」(K. 294)를 불렀어요. 마지막 문장의 '그'는 알로이지아의 아버지 프리돌린 베버예요.",
+    "en": "Mozart and his mother reached Paris on 23 March 1778, nine and a half days after leaving Mannheim. Before they left, Aloysia Weber sang his new aria 'Non so d'onde viene' (K. 294) at a concert at Cannabich's house. The man waving at the door is her father, Fridolin Weber.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 100 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Ich hoffe mit dir, mein Sohn.",
+    "en": "I hope with you, my son.",
+    "ko": "나도 너와 함께 희망한다, 아들아.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Angekommen in Paris · 23. März 1778, nach 9 ½ Tagen Reise",
+      "en": "Arrived in Paris · 23 March 1778, after nine and a half days on the road",
+      "ko": "파리 도착 · 1778년 3월 23일, 9일 반의 여정 끝에"
+     }
+    },
+    {
+     "after": 2,
+     "type": "music",
+     "piece": {
+      "de": "Arie „Non sò d'onde viene“, KV 294",
+      "en": "Aria 'Non so d'onde viene', K. 294",
+      "ko": "아리아 「Non so d'onde viene」 K. 294"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "de": "Angekommen in Paris",
+    "en": "Arrived in Paris",
+    "ko": "파리에 도착"
+   },
+   "plate_hint": {
+    "idea": "Paris view c. 1778 (e.g. Pont Neuf and the Louvre by Nicolas-Jean-Baptiste Raguenet).",
+    "search": [
+     "Raguenet Pont Neuf",
+     "Nicolas-Jean-Baptiste Raguenet Paris",
+     "Paris 1778 view engraving"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c3-l2",
+   "wallace_no": 102,
+   "nohl_pages": [
+    152,
+    153,
+    155
+   ],
+   "date": "1778-05-01",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 102 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Paris",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "weary",
+   "messages": [
+    {
+     "de": "Da mußte ich eine halbe Stunde in einem eiskalten, ungeheizten und ohne mit Kamin versehenen großen Zimmer warten.",
+     "en": "I waited half an hour in a large room without any fire, and as cold as ice.",
+     "ko": "불도 벽난로도 없는 얼음장 같은 큰 방에서 30분을 기다려야 했어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 102 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Da mußte ich eine halbe Stunde / in einem eiskalten, ungeheizten / und ohne mit Kamin versehenen / großen Zimmer warten.",
+      "en": "I waited half an hour / in a large room without any fire, // and as cold as ice.",
+      "ko": "불도 벽난로도 없는 / 얼음장 같은 큰 방에서 // 30분을 기다려야 했어요."
+     }
+    },
+    {
+     "de": "… und ich also für die Sessel, Tisch und Mauern spielen mußte.",
+     "en": "… so I was left to play to the chairs and tables, and the walls.",
+     "ko": "… 결국 저는 의자와 탁자와 벽을 상대로 연주해야 했어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 102 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… und ich also / für die Sessel, Tisch und Mauern / spielen mußte.",
+      "en": "… so I was left to play / to the chairs and tables, / and the walls.",
+      "ko": "… 결국 저는 / 의자와 탁자와 벽을 상대로 / 연주해야 했어요."
+     }
+    },
+    {
+     "de": "Geben Sie mir das beste Clavier in Europa und aber Leute zu Zuhörern, die nichts verstehen oder die nichts verstehen wollen und die nicht mit mir empfinden, was ich spiele, so werde ich alle Freude verlieren.",
+     "en": "Give me the best piano in Europe, and listeners who understand nothing, or don't wish to understand, and who do not sympathize with me in what I am playing, I no longer feel any pleasure.",
+     "ko": "유럽 최고의 클라비어를 주셔도, 아무것도 모르거나 알려고도 하지 않고 제 연주에 함께 마음을 움직이지 않는 사람들이 듣는다면, 저는 모든 기쁨을 잃을 거예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 102 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Geben Sie mir das beste Clavier in Europa / und aber Leute zu Zuhörern, / die nichts verstehen / oder die nichts verstehen wollen / und die nicht mit mir empfinden, was ich spiele, // so werde ich alle Freude verlieren.",
+      "en": "Give me the best piano in Europe, / and listeners who understand nothing, / or don't wish to understand, / and who do not sympathize with me in what I am playing, // I no longer feel any pleasure.",
+      "ko": "유럽 최고의 클라비어를 주셔도, / 아무것도 모르거나 / 알려고도 하지 않고 / 제 연주에 함께 마음을 움직이지 않는 사람들이 듣는다면, // 저는 모든 기쁨을 잃을 거예요."
+     }
+    },
+    {
+     "de": "Das ist aber nicht möglich, zu Fuß ist es überall zu weit oder zu kothig, denn in Paris ist ein unbeschreiblicher Dreck.",
+     "en": "This is, however, impossible, from the distances being so great, and it is too muddy to go on foot, for really the mud in Paris is beyond all description.",
+     "ko": "하지만 그건 불가능해요. 걸어가기엔 어디든 너무 멀거나 너무 질척거려요. 파리의 진창은 말로 다 못 해요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 102 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Das ist aber nicht möglich, / zu Fuß ist es überall zu weit / oder zu kothig, // denn in Paris / ist ein unbeschreiblicher Dreck.",
+      "en": "This is, however, impossible, / from the distances being so great, / and it is too muddy to go on foot, // for really the mud in Paris / is beyond all description.",
+      "ko": "하지만 그건 불가능해요. / 걸어가기엔 어디든 너무 멀거나 / 너무 질척거려요. // 파리의 진창은 / 말로 다 못 해요."
+     }
+    },
+    {
+     "de": "Ich bitte alle Tage Gott, daß er mir die Gnade gibt, daß ich hier standhaft aushalten kann, daß ich mir und der ganzen deutschen Nation Ehre mache …",
+     "en": "I pray to God every day to grant me grace to be firm and steadfast here, that I may do honor to the whole German nation …",
+     "ko": "날마다 하느님께 빌어요. 이곳에서 꿋꿋이 버틸 은총을 주시기를, 그래서 저 자신과 온 독일 민족에게 영예가 되기를요 …",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 102 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich bitte alle Tage Gott, / daß er mir die Gnade gibt, / daß ich hier standhaft aushalten kann, // daß ich mir und der ganzen deutschen Nation / Ehre mache …",
+      "en": "I pray to God every day / to grant me grace / to be firm and steadfast here, // that I may do honor / to the whole German nation …",
+      "ko": "날마다 하느님께 빌어요. / 이곳에서 꿋꿋이 버틸 / 은총을 주시기를, // 그래서 저 자신과 온 독일 민족에게 / 영예가 되기를요 …"
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "das Zimmer",
+     "pos": "n.n.",
+     "ipa": "ˈtsɪmɐ",
+     "en": "room",
+     "ipa_en": "ɹum",
+     "ko": "방",
+     "rom_ko": "bang",
+     "icon": "🚪"
+    },
+    {
+     "de": "das Clavier",
+     "de_modern": "das Klavier",
+     "pos": "n.n.",
+     "ipa": "klaˈviːɐ̯",
+     "en": "keyboard, piano",
+     "ipa_en": "ˈkiˌbɔɹd",
+     "ko": "건반 악기",
+     "rom_ko": "geonban akgi",
+     "icon": "🎹"
+    },
+    {
+     "de": "die Freude",
+     "pos": "n.f.",
+     "ipa": "ˈfʁɔɪ̯də",
+     "en": "joy",
+     "ipa_en": "dʒɔɪ",
+     "ko": "기쁨",
+     "rom_ko": "gippeum"
+    },
+    {
+     "de": "der Dreck",
+     "pos": "n.m.",
+     "ipa": "dʁɛk",
+     "en": "mud, dirt",
+     "ipa_en": "mʌd",
+     "ko": "진창",
+     "rom_ko": "jinchang"
+    },
+    {
+     "de": "die Gnade",
+     "pos": "n.f.",
+     "ipa": "ˈɡnaːdə",
+     "en": "grace",
+     "ipa_en": "ɡɹeɪs",
+     "ko": "은총",
+     "rom_ko": "eunchong"
+    }
+   ],
+   "note": {
+    "ko": "그림 남작의 소개장을 들고 샤보 공작부인 댁에 갔다가, 사람들이 그림만 그리는 추운 방에서 연주해야 했던 날의 이야기예요. 같은 편지에서 그는 관악 독주자 네 명(벤틀링, 람, 푼토, 리터)을 위해 쓴 신포니아 콘체르탄테가 콩세르 스피리튀엘에서 끝내 연주되지 않았다고 전해요. 그 악보는 남아 있지 않아요.",
+    "en": "Grimm's letter of introduction took Mozart to the Duchesse de Chabot, where he had to play in a freezing room to guests who went on drawing. In the same letter he reports that the sinfonia concertante he wrote for four wind soloists (Wendling, Ramm, Punto and Ritter) was quietly left unperformed at the Concert Spirituel. That score is lost.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 102 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Halte aus, Gott hilft dir.",
+    "en": "Hold on, God will help you.",
+    "ko": "버텨라, 하느님이 도와주실 거다.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 3,
+     "type": "music",
+     "piece": {
+      "de": "Sinfonia concertante für Bläser (verschollen) · die Aufnahme ist das zweifelhafte Werk KV 297b",
+      "en": "Sinfonia concertante for winds (lost) · the recording is the work of doubtful authenticity, K. 297b",
+      "ko": "관악 신포니아 콘체르탄테 (분실) · 녹음은 진위가 불확실한 K. 297b"
+     },
+     "commons": "File:Wolfgang Amadeus Mozart - Sinfonia Concertante for Oboe, Clarinet, Horn, Bassoon and Orchestra - 2. Adagio.ogg"
+    }
+   ],
+   "status": {
+    "de": "Spielen für Tisch und Mauern",
+    "en": "Playing to the walls",
+    "ko": "벽을 상대로 연주"
+   },
+   "plate_hint": {
+    "idea": "Engraving of the Salle des Cent-Suisses in the Tuileries, home of the Concert Spirituel.",
+    "search": [
+     "Salle des Cent-Suisses Tuileries",
+     "Concert Spirituel Tuileries",
+     "Palais des Tuileries engraving 18th century"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c3-l3",
+   "wallace_no": 107,
+   "nohl_pages": [
+    164,
+    165,
+    166,
+    167
+   ],
+   "date": "1778-07-03",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 107 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Paris",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "tender",
+   "messages": [
+    {
+     "de": "Ich sage dessentwegen nicht, daß meine Mutter sterben wird und sterben muß, daß alle Hoffnung verloren sei, sie kann frisch und gesund werden, aber nur wenn Gott will.",
+     "en": "I do not mean to say by this that my mother will or must die, or that all hope is at an end; she may recover and be restored to health, but only if the Lord wills it thus.",
+     "ko": "그렇다고 어머니가 돌아가실 거라거나 모든 희망이 사라졌다는 말은 아니에요. 다시 기운을 차리고 건강해지실 수도 있어요. 다만 하느님이 원하실 때에만요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 107 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich sage dessentwegen nicht, / daß meine Mutter sterben wird und sterben muß, / daß alle Hoffnung verloren sei, // sie kann frisch und gesund werden, / aber nur wenn Gott will.",
+      "en": "I do not mean to say by this / that my mother will or must die, / or that all hope is at an end; // she may recover and be restored to health, / but only if the Lord wills it thus.",
+      "ko": "그렇다고 어머니가 돌아가실 거라거나 / 모든 희망이 사라졌다는 말은 아니에요. // 다시 기운을 차리고 건강해지실 수도 있어요. / 다만 하느님이 원하실 때에만요."
+     }
+    },
+    {
+     "de": "Ich habe eine Sinfonie, um das Concert spirituel zu eröffnen, machen müssen. — Am Frohnleichnamstag wurde sie mit allem Applause aufgeführt.",
+     "en": "I have composed a symphony for the opening of the Concert Spirituel, which was performed with great applause on Corpus Christi day.",
+     "ko": "콩세르 스피리튀엘의 개막을 위해 교향곡을 하나 써야 했어요. 성체 축일에 큰 박수 속에 연주됐어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 107 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich habe eine Sinfonie, / um das Concert spirituel zu eröffnen, / machen müssen. // — Am Frohnleichnamstag / wurde sie mit allem Applause aufgeführt.",
+      "en": "I have composed a symphony / for the opening of the Concert Spirituel, // which was performed with great applause / on Corpus Christi day.",
+      "ko": "콩세르 스피리튀엘의 개막을 위해 / 교향곡을 하나 써야 했어요. // 성체 축일에 / 큰 박수 속에 연주됐어요."
+     }
+    },
+    {
+     "de": "… gleich mitten im ersten Allegro, war eine Passage, die ich wohl wußte, daß sie gefallen müßte, alle Zuhörer wurden davon hingerissen — und war ein großes Applaudissement …",
+     "en": "… right in the middle of the first allegro came a passage I felt sure must please; the whole audience was carried away by it, and there was a great burst of applause …",
+     "ko": "…첫 알레그로 한가운데에 틀림없이 마음에 들 거라 생각한 악절이 있었는데, 청중이 모두 넋을 잃었고 큰 박수가 터졌어요 …",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 107 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… gleich mitten im ersten Allegro, / war eine Passage, / die ich wohl wußte, daß sie gefallen müßte, // alle Zuhörer wurden davon hingerissen / — und war ein großes Applaudissement …",
+      "en": "… right in the middle of the first allegro / came a passage / I felt sure must please; // the whole audience was carried away by it, / and there was a great burst of applause …",
+      "ko": "…첫 알레그로 한가운데에 / 틀림없이 마음에 들 거라 생각한 / 악절이 있었는데, // 청중이 모두 넋을 잃었고 / 큰 박수가 터졌어요 …"
+     },
+     "en_own": true
+    },
+    {
+     "de": "Ich ging also gleich für Freude nach der Sinfonie ins Palais Royal — nahm ein gutes Gefrorenes — bat den Rosenkranz den ich versprochen hatte — und ging nach Haus …",
+     "en": "The moment the symphony was over I went off in my joy to the Palais Royal, where I took a good ice, told over my beads, as I had vowed, and went home …",
+     "ko": "교향곡이 끝나자마자 기쁜 마음으로 팔레루아얄에 가서, 맛있는 아이스크림을 먹고, 약속한 대로 묵주 기도를 드리고, 집으로 돌아왔어요 …",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 107 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich ging also gleich für Freude nach der Sinfonie / ins Palais Royal / — nahm ein gutes Gefrorenes / — bat den Rosenkranz den ich versprochen hatte // — und ging nach Haus …",
+      "en": "The moment the symphony was over / I went off in my joy to the Palais Royal, / where I took a good ice, / told over my beads, as I had vowed, // and went home …",
+      "ko": "교향곡이 끝나자마자 / 기쁜 마음으로 팔레루아얄에 가서, / 맛있는 아이스크림을 먹고, / 약속한 대로 묵주 기도를 드리고, // 집으로 돌아왔어요 …"
+     }
+    },
+    {
+     "de": "Nun leben Sie recht wohl — haben Sie Sorg auf Ihre Gesundheit, verlassen Sie sich auf Gott, da müssen Sie ja Trost finden; meine liebe Mutter ist in Händen des Allmächtigen …",
+     "en": "Now, farewell! Be careful of your health; place your trust in God, and then you will find consolation. My dearest mother is in the hands of the Almighty.",
+     "ko": "그럼 안녕히 계세요. 건강 잘 챙기시고, 하느님께 의지하세요. 그러면 위로를 얻으실 거예요. 사랑하는 어머니는 전능하신 분의 손에 계세요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 107 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun leben Sie recht wohl / — haben Sie Sorg auf Ihre Gesundheit, / verlassen Sie sich auf Gott, / da müssen Sie ja Trost finden; // meine liebe Mutter / ist in Händen des Allmächtigen …",
+      "en": "Now, farewell! / Be careful of your health; / place your trust in God, / and then you will find consolation. // My dearest mother / is in the hands of the Almighty.",
+      "ko": "그럼 안녕히 계세요. / 건강 잘 챙기시고, / 하느님께 의지하세요. / 그러면 위로를 얻으실 거예요. // 사랑하는 어머니는 / 전능하신 분의 손에 계세요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Mutter",
+     "pos": "n.f.",
+     "ipa": "ˈmʊtɐ",
+     "en": "mother",
+     "ipa_en": "ˈmʌðɚ",
+     "ko": "어머니",
+     "rom_ko": "eomeoni"
+    },
+    {
+     "de": "die Sinfonie",
+     "pos": "n.f.",
+     "ipa": "zɪnfoˈniː",
+     "en": "symphony",
+     "ipa_en": "ˈsɪmfəni",
+     "ko": "교향곡",
+     "rom_ko": "gyohyanggok",
+     "icon": "🎻"
+    },
+    {
+     "de": "das Gefrorene",
+     "pos": "n.n.",
+     "ipa": "ɡəˈfʁoːʁənə",
+     "en": "ice cream",
+     "ipa_en": "ˈaɪs ˌkɹim",
+     "ko": "아이스크림",
+     "rom_ko": "aiseukeurim",
+     "icon": "🍨"
+    },
+    {
+     "de": "der Rosenkranz",
+     "pos": "n.m.",
+     "ipa": "ˈʁoːzn̩ˌkʁants",
+     "en": "rosary",
+     "ipa_en": "ˈɹoʊzəɹi",
+     "ko": "묵주",
+     "rom_ko": "mukju",
+     "icon": "📿"
+    },
+    {
+     "de": "der Trost",
+     "pos": "n.m.",
+     "ipa": "tʁoːst",
+     "en": "comfort, consolation",
+     "ipa_en": "ˈkʌmfɚt",
+     "ko": "위로",
+     "rom_ko": "wiro"
+    }
+   ],
+   "note": {
+    "ko": "모차르트의 어머니 안나 마리아는 1778년 7월 3일 밤 파리에서 세상을 떠났어요. 그는 바로 그날 밤 이 편지를 쓰면서, 아버지가 충격을 한꺼번에 받지 않도록 '많이 편찮으시다'고만 적었어요. 같은 밤 집안의 벗 불링거 신부에게는 사실을 알리고 아버지를 준비시켜 달라고 부탁했어요. 편지 속 교향곡은 「파리」 교향곡 D장조 K. 297이에요.",
+    "en": "Mozart's mother, Anna Maria, died in Paris on the night of 3 July 1778. Writing that same night, he told his father only that she was very ill, so the news would not come all at once; in a second letter that night he told the truth to the family friend Abbé Bullinger and asked him to prepare Leopold. The symphony is the 'Paris' Symphony in D, K. 297.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 107 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Ich bete für deine Mutter.",
+    "en": "I pray for your mother.",
+    "ko": "네 어머니를 위해 기도한다.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Geschrieben in der Nacht, in der seine Mutter starb",
+      "en": "Written on the night his mother died",
+      "ko": "어머니가 세상을 떠난 그날 밤에 쓴 편지"
+     }
+    },
+    {
+     "after": 1,
+     "type": "weather",
+     "title": {
+      "de": "Das Wetter in Paris",
+      "en": "Weather in Paris",
+      "ko": "파리의 날씨"
+     },
+     "value": {
+      "de": "Abends schönes Wetter",
+      "en": "Fine weather in the evening",
+      "ko": "저녁엔 날이 갬"
+     },
+     "quote": "es wurde aber Abends gut Wetter",
+     "icon": "sun"
+    },
+    {
+     "after": 3,
+     "type": "music",
+     "piece": {
+      "de": "Sinfonie D-Dur KV 297 „Pariser“",
+      "en": "Symphony in D, K. 297 'Paris'",
+      "ko": "교향곡 D장조 K. 297 「파리」"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "de": "Applaus und Sorge",
+    "en": "Applause and worry",
+    "ko": "박수와 근심"
+   },
+   "plate_hint": {
+    "idea": "The Palais-Royal garden c. 1780 (where he 'took a good ice'), or the first page of the 'Paris' Symphony K. 297 autograph.",
+    "search": [
+     "Palais-Royal jardin 18e siècle",
+     "Jardin du Palais-Royal gravure",
+     "Mozart K. 297 Paris symphony autograph"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c3-l4",
+   "wallace_no": 108,
+   "nohl_pages": [
+    167,
+    168
+   ],
+   "date": "1778-07-09",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 108 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Paris",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "tender",
+   "messages": [
+    {
+     "de": "… den nämlichen Tag den 3. ist meine Mutter Abends um 10 Uhr 21 Minuten in Gott selig entschlafen …",
+     "en": "That very same day, the 3d, at twenty minutes past ten at night, my mother fell asleep peacefully in the Lord …",
+     "ko": "바로 그날, 3일 밤 10시 21분에 어머니는 하느님 안에서 평안히 잠드셨어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 108 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… den nämlichen Tag den 3. / ist meine Mutter Abends um 10 Uhr 21 Minuten // in Gott selig entschlafen …",
+      "en": "That very same day, the 3d, / at twenty minutes past ten at night, // my mother fell asleep peacefully in the Lord …",
+      "ko": "바로 그날, 3일 / 밤 10시 21분에 // 어머니는 하느님 안에서 평안히 잠드셨어요."
+     }
+    },
+    {
+     "de": "… ich habe Schmerzen genug empfunden, habe genug geweint — was nützte es aber? — Ich mußte mich also trösten …",
+     "en": "I have, indeed, suffered and wept, but what did it avail? So I strove to be comforted …",
+     "ko": "저도 아플 만큼 아팠고, 울 만큼 울었어요. 하지만 그게 무슨 소용이었겠어요? 그래서 마음을 다잡아야 했어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 108 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… ich habe Schmerzen genug empfunden, / habe genug geweint // — was nützte es aber? / — Ich mußte mich also trösten …",
+      "en": "I have, indeed, suffered and wept, // but what did it avail? / So I strove to be comforted …",
+      "ko": "저도 아플 만큼 아팠고, / 울 만큼 울었어요. // 하지만 그게 무슨 소용이었겠어요? / 그래서 마음을 다잡아야 했어요."
+     }
+    },
+    {
+     "de": "Weinen Sie, weinen Sie sich recht aus, — trösten Sie sich aber endlich …",
+     "en": "Weep, weep, as you cannot fail to weep, but take comfort at last …",
+     "ko": "우세요, 실컷 우세요. 하지만 끝내는 위로를 받으세요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 108 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Weinen Sie, / weinen Sie sich recht aus, // — trösten Sie sich aber endlich …",
+      "en": "Weep, weep, / as you cannot fail to weep, // but take comfort at last …",
+      "ko": "우세요, / 실컷 우세요. // 하지만 끝내는 위로를 받으세요."
+     }
+    },
+    {
+     "de": "… daß sie nicht auf ewig für uns verloren ist — daß wir sie wiedersehen werden …",
+     "en": "… that she is not lost to us forever, that we shall see her again …",
+     "ko": "… 어머니를 영영 잃은 게 아니라는 것, 우리가 다시 만나게 되리라는 것이에요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 108 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… daß sie nicht auf ewig für uns verloren ist // — daß wir sie wiedersehen werden …",
+      "en": "… that she is not lost to us forever, // that we shall see her again …",
+      "ko": "… 어머니를 영영 잃은 게 아니라는 것, // 우리가 다시 만나게 되리라는 것이에요."
+     }
+    },
+    {
+     "de": "Ich schreibe dieses im Hause der Mad. d'Epinay und des Mr. Grimm, wo ich nun logire, ein hübsches Zimmerl mit einer sehr angenehmen Aussicht habe …",
+     "en": "I write this in the house of Madame d'Epinay and M. Grimm, with whom I now live; I have a pretty little room with a very agreeable prospect …",
+     "ko": "이 편지는 데피네 부인과 그림 씨 댁에서 쓰고 있어요. 지금 여기 묵고 있는데, 전망이 아주 좋은 예쁜 작은 방이에요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 108 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich schreibe dieses / im Hause der Mad. d'Epinay und des Mr. Grimm, / wo ich nun logire, // ein hübsches Zimmerl / mit einer sehr angenehmen Aussicht habe …",
+      "en": "I write this / in the house of Madame d'Epinay and M. Grimm, / with whom I now live; // I have a pretty little room / with a very agreeable prospect …",
+      "ko": "이 편지는 / 데피네 부인과 그림 씨 댁에서 쓰고 있어요. / 지금 여기 묵고 있는데, // 전망이 아주 좋은 / 예쁜 작은 방이에요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "weinen",
+     "pos": "v.",
+     "ipa": "ˈvaɪ̯nən",
+     "en": "to weep",
+     "ipa_en": "tə wip",
+     "ko": "울다",
+     "rom_ko": "ulda",
+     "icon": "😢"
+    },
+    {
+     "de": "trösten",
+     "pos": "v.",
+     "ipa": "ˈtʁøːstn̩",
+     "en": "to comfort",
+     "ipa_en": "tə ˈkʌmfɚt",
+     "ko": "위로하다",
+     "rom_ko": "wirohada"
+    },
+    {
+     "de": "wiedersehen",
+     "pos": "v.",
+     "ipa": "ˈviːdɐˌzeːən",
+     "en": "to see again",
+     "ipa_en": "tə si əˈɡɛn",
+     "ko": "다시 만나다",
+     "rom_ko": "dasi mannada"
+    },
+    {
+     "de": "die Aussicht",
+     "pos": "n.f.",
+     "ipa": "ˈaʊ̯sˌzɪçt",
+     "en": "view, prospect",
+     "ipa_en": "vju",
+     "ko": "전망",
+     "rom_ko": "jeonmang",
+     "icon": "🪟"
+    },
+    {
+     "de": "die Mutter",
+     "pos": "n.f.",
+     "ipa": "ˈmʊtɐ",
+     "en": "mother",
+     "ipa_en": "ˈmʌðɚ",
+     "ko": "어머니",
+     "rom_ko": "eomeoni"
+    }
+   ],
+   "note": {
+    "ko": "안나 마리아 모차르트는 1778년 7월 3일 파리에서 세상을 떠나, 생퇴스타슈 성당에 묻혔어요. 엿새 뒤 모차르트는 아버지에게 사실을 그대로 전하고, 앞선 편지에서 소식을 누그러뜨린 까닭을 설명했어요. 놀(1865)은 시각을 '10시 21분'으로, 월리스의 영역은 '10시 20분'으로 적고 있어요.",
+    "en": "Anna Maria Mozart died in Paris on 3 July 1778 and was buried at Saint-Eustache. Six days later Mozart told his father plainly and explained why he had softened the news in his previous letter. Nohl's German gives the hour as 10.21 p.m.; Wallace's English has 'twenty minutes past ten'.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 108 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Ich weine, aber ich bete mit dir.",
+    "en": "I weep, but I pray with you.",
+    "ko": "울고 있지만, 너와 함께 기도한다.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Anna Maria Mozart ist am 3. Juli 1778 in Paris gestorben",
+      "en": "Anna Maria Mozart died in Paris on 3 July 1778",
+      "ko": "안나 마리아 모차르트, 1778년 7월 3일 파리에서 세상을 떠남"
+     }
+    }
+   ],
+   "status": {
+    "de": "In Gott selig entschlafen",
+    "en": "Fell asleep in the Lord",
+    "ko": "평안히 잠드신 어머니"
+   },
+   "plate_hint": {
+    "idea": "Church of Saint-Eustache, Paris, where Anna Maria Mozart was buried (memorial plaque); or her painted medallion in the della Croce family portrait (1780-81).",
+    "search": [
+     "Saint-Eustache Paris Anna Maria Mozart plaque",
+     "Église Saint-Eustache Paris",
+     "Della Croce Mozart family portrait"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c3-l5",
+   "wallace_no": 113,
+   "nohl_pages": [
+    198,
+    199
+   ],
+   "date": "1778-09-11",
+   "dateNote": "The opening page with Nohl's date line (p. 197) is missing from our scans; the date follows Wallace (Paris, Sept. 11, 1778).",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 113 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Paris",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "… ich bin zu Haus, lebe in Frieden und Ruhe mit meinem besten Vater und liebsten Schwester …",
+     "en": "… a place I can call my home, and where I can live in peace and quiet with my excellent father and beloved sister …",
+     "ko": "… ‘나는 집에 있다’ 말할 수 있고, 가장 좋은 아버지, 가장 사랑하는 누나와 평화롭고 고요하게 사는 곳이에요 …",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 113 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… ich bin zu Haus, / lebe in Frieden und Ruhe / mit meinem besten Vater und liebsten Schwester …",
+      "en": "… a place I can call my home, / and where I can live in peace and quiet / with my excellent father and beloved sister …",
+      "ko": "… ‘나는 집에 있다’ 말할 수 있고, / 가장 좋은 아버지, 가장 사랑하는 누나와 / 평화롭고 고요하게 사는 곳이에요 …"
+     }
+    },
+    {
+     "de": "Denn, ich versichere Sie, ohne Reisen (wenigstens Leute von Künsten und Wissenschaften) ist man wohl ein armseliges Geschöpf!",
+     "en": "For I assure you that people who do not travel (especially artists and scientific men) are but poor creatures.",
+     "ko": "정말이에요. 여행을 하지 않으면 (적어도 예술이나 학문을 하는 사람은) 초라한 존재일 뿐이에요!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 113 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Denn, ich versichere Sie, / ohne Reisen / (wenigstens Leute von Künsten und Wissenschaften) // ist man wohl ein armseliges Geschöpf!",
+      "en": "For I assure you / that people who do not travel / (especially artists and scientific men) // are but poor creatures.",
+      "ko": "정말이에요. / 여행을 하지 않으면 / (적어도 예술이나 학문을 하는 사람은) // 초라한 존재일 뿐이에요!"
+     }
+    },
+    {
+     "de": "… keinen Geiger gebe ich nicht mehr ab; beim Clavier will ich dirigiren, die Arien accompagniren.",
+     "en": "I will no longer conduct with the violin; I intend to conduct, and also accompany airs, with the piano.",
+     "ko": "…이제 바이올린 주자 노릇은 안 할 거예요. 클라비어에 앉아서 지휘하고, 아리아 반주를 하겠어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 113 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… keinen Geiger gebe ich nicht mehr ab; // beim Clavier will ich dirigiren, / die Arien accompagniren.",
+      "en": "I will no longer conduct with the violin; // I intend to conduct, / and also accompany airs, with the piano.",
+      "ko": "…이제 바이올린 주자 노릇은 안 할 거예요. // 클라비어에 앉아서 지휘하고, / 아리아 반주를 하겠어요."
+     }
+    },
+    {
+     "de": "Allerliebster Vater! ich muß es Ihnen bekennen, wenn es nicht wäre um das Vergnügen zu haben Sie beyde wieder zu sehen, so könnte ich mich wahrhaftig nicht dazu entschließen …",
+     "en": "My dear father, I must decidedly say that I really could not make up my mind to take this step were it not for the pleasure of seeing you both again …",
+     "ko": "사랑하는 아버지! 솔직히 말씀드릴게요. 두 분을 다시 뵙는 기쁨이 아니라면, 저는 정말 이 결정을 내릴 수 없었을 거예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 113 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Allerliebster Vater! / ich muß es Ihnen bekennen, // wenn es nicht wäre um das Vergnügen / zu haben Sie beyde wieder zu sehen, // so könnte ich mich wahrhaftig nicht dazu entschließen …",
+      "en": "My dear father, / I must decidedly say // that I really could not make up my mind to take this step // were it not for the pleasure / of seeing you both again …",
+      "ko": "사랑하는 아버지! / 솔직히 말씀드릴게요. // 두 분을 다시 뵙는 기쁨이 아니라면, // 저는 정말 이 결정을 내릴 수 없었을 거예요."
+     }
+    },
+    {
+     "de": "Denn ich bin jetzt so ziemlich bekannt, — die Leute mir nicht so, aber ich ihnen. Ich habe mir durch meine 2 Sinfonien sehr viele Ehre gemacht …",
+     "en": "I am now pretty well known— that is, the people all know me, even if I don't know them. I acquired considerable fame by my two symphonies …",
+     "ko": "이제 저는 꽤 알려졌어요. 제가 사람들을 다 아는 건 아니어도, 사람들은 저를 알아요. 교향곡 두 곡으로 큰 명성을 얻었거든요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 113 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Denn ich bin jetzt so ziemlich bekannt, / — die Leute mir nicht so, aber ich ihnen. // Ich habe mir durch meine 2 Sinfonien / sehr viele Ehre gemacht …",
+      "en": "I am now pretty well known— / that is, the people all know me, / even if I don't know them. // I acquired considerable fame / by my two symphonies …",
+      "ko": "이제 저는 꽤 알려졌어요. / 제가 사람들을 다 아는 건 아니어도, / 사람들은 저를 알아요. // 교향곡 두 곡으로 / 큰 명성을 얻었거든요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Vater",
+     "pos": "n.m.",
+     "ipa": "ˈfaːtɐ",
+     "en": "father",
+     "ipa_en": "ˈfɑðɚ",
+     "ko": "아버지",
+     "rom_ko": "abeoji"
+    },
+    {
+     "de": "die Schwester",
+     "pos": "n.f.",
+     "ipa": "ˈʃvɛstɐ",
+     "en": "sister",
+     "ipa_en": "ˈsɪstɚ",
+     "ko": "누나",
+     "rom_ko": "nuna"
+    },
+    {
+     "de": "die Ruhe",
+     "pos": "n.f.",
+     "ipa": "ˈʁuːə",
+     "en": "quiet, peace",
+     "ipa_en": "ˈkwaɪət",
+     "ko": "고요",
+     "rom_ko": "goyo"
+    },
+    {
+     "de": "das Reisen",
+     "pos": "n.n.",
+     "ipa": "ˈʁaɪ̯zn̩",
+     "en": "travelling",
+     "ipa_en": "ˈtɹævəlɪŋ",
+     "ko": "여행",
+     "rom_ko": "yeohaeng",
+     "icon": "🧳"
+    },
+    {
+     "de": "der Geiger",
+     "pos": "n.m.",
+     "ipa": "ˈɡaɪ̯ɡɐ",
+     "en": "violinist",
+     "ipa_en": "ˌvaɪəˈlɪnɪst",
+     "ko": "바이올린 연주자",
+     "rom_ko": "baiollin yeonjuja",
+     "icon": "🎻"
+    }
+   ],
+   "note": {
+    "ko": "아버지 레오폴트가 잘츠부르크 궁정에 자리를 마련해 두었다는 편지를 받고 쓴 답장이에요. 모차르트는 파리가 싫다고 털어놓으면서도, 2년마다 여행할 수 있어야 한다는 조건을 내걸어요. 그가 말한 '교향곡 두 곡' 가운데 하나는 「파리」 교향곡 K. 297이에요.",
+    "en": "This answers Leopold's news that a post was waiting for Wolfgang at the Salzburg court. Mozart admits he dislikes Paris, but insists he must be allowed to travel every second year. One of 'my two symphonies' is the 'Paris' Symphony, K. 297.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 113 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Komm heim, wir warten auf dich.",
+    "en": "Come home, we are waiting for you.",
+    "ko": "집으로 오너라, 우리가 기다린다.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 4,
+     "type": "music",
+     "piece": {
+      "de": "Sinfonie D-Dur KV 297 „Pariser“",
+      "en": "Symphony in D, K. 297 'Paris'",
+      "ko": "교향곡 D장조 K. 297 「파리」"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "de": "Bald wieder zu Haus",
+    "en": "Home again soon",
+    "ko": "곧 다시 집으로"
+   },
+   "plate_hint": {
+    "idea": "View of Salzburg from the Kapuzinerberg (18th-c. engraving) — the home he is now returning to.",
+    "search": [
+     "Salzburg Kapuzinerberg 18th century engraving",
+     "Salzburg view 1780",
+     "Ansicht Salzburg Kupferstich 18. Jahrhundert"
+    ],
+    "kind": "place"
+   }
+  }
+ ]
+}
