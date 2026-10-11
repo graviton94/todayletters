@@ -194,11 +194,11 @@
    "id": "c5-l2",
    "wallace_no": 148,
    "nohl_pages": [
+    277,
     278,
     279
    ],
    "date": "1781-05-09",
-   "dateNote": "The opening page of the letter in Nohl (p. 277, with the date line) is missing from our scan; the date follows Nohl's table of contents and Wallace (Vienna, May 9, 1781).",
    "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
    "place": "Wien",
    "to": {
@@ -209,6 +209,30 @@
    "mood": "weary",
    "messages": [
     {
+     "de": "Ich bin noch ganz voll der Galle! — und Sie als mein bester liebster Vater sind es gewiß mit mir.",
+     "en": "I am still filled with the gall of bitterness; and I feel sure that you, my good kind father, will sympathize with me.",
+     "ko": "아직도 울화가 치밀어요! 그리고 제 가장 좋고 사랑하는 아버지께서도 분명 저와 같은 마음이실 거예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich bin noch ganz voll der Galle! — // und Sie als mein bester liebster Vater / sind es gewiß mit mir.",
+      "en": "I am still filled with the gall of bitterness; // and I feel sure that you, my good kind father, / will sympathize with me.",
+      "ko": "아직도 울화가 치밀어요! // 그리고 제 가장 좋고 사랑하는 아버지께서도 / 분명 저와 같은 마음이실 거예요."
+     }
+    },
+    {
+     "de": "Ich bin nicht mehr so unglücklich in salzburgischen Diensten zu sein — heute war der glückliche Tag für mich.",
+     "en": "I have no longer the misfortune to be in the Salzburg service, and to-day is a happy day for me.",
+     "ko": "저는 이제 더는 잘츠부르크 궁정에 매인 불운한 신세가 아니에요. 오늘은 제게 행복한 날이에요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich bin nicht mehr so unglücklich / in salzburgischen Diensten zu sein — // heute war der glückliche Tag für mich.",
+      "en": "I have no longer the misfortune / to be in the Salzburg service, // and to-day is a happy day for me.",
+      "ko": "저는 이제 더는 / 잘츠부르크 궁정에 매인 불운한 신세가 아니에요. // 오늘은 제게 행복한 날이에요."
+     }
+    },
+    {
      "de": "Man konnte nicht zur Rede kommen, das ging fort wie ein Feuer.",
      "en": "It was impossible to get in a syllable, for his words blazed away like a fire.",
      "ko": "말을 한마디도 꺼낼 수가 없었어요. 그분 말이 불길처럼 쏟아졌거든요.",
@@ -218,18 +242,6 @@
       "de": "Man konnte nicht zur Rede kommen, / das ging fort wie ein Feuer.",
       "en": "It was impossible to get in a syllable, / for his words blazed away like a fire.",
       "ko": "말을 한마디도 꺼낼 수가 없었어요. / 그분 말이 불길처럼 쏟아졌거든요."
-     }
-    },
-    {
-     "de": "Endlich sagte ich: „Und ich mit Ihnen auch nichts mehr.“ — „Also geh er“, und ich im Weggehen: „Es soll auch dabei bleiben, morgen werden Sie es schriftlich bekommen.“",
-     "en": "At last I said, \"Nor I with you.\" \"Begone!\" said he; while I replied, as I left the room, \"The thing is settled, and you shall have it to-morrow in writing.\"",
-     "ko": "마침내 제가 말했어요. “저도 더는 당신과 볼일이 없습니다.” “그럼 나가!” 저는 나가면서 말했어요. “그렇게 정해졌습니다. 내일 서면으로 받으실 거예요.”",
-     "verified": true,
-     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
-     "speak": {
-      "de": "Endlich sagte ich: / „Und ich mit Ihnen auch nichts mehr.“ — // „Also geh er“, / und ich im Weggehen: // „Es soll auch dabei bleiben, / morgen werden Sie es schriftlich bekommen.“",
-      "en": "At last I said, / \"Nor I with you.\" // \"Begone!\" said he; / while I replied, as I left the room, // \"The thing is settled, / and you shall have it to-morrow in writing.\"",
-      "ko": "마침내 제가 말했어요. / “저도 더는 당신과 볼일이 없습니다.” // “그럼 나가!” / 저는 나가면서 말했어요. // “그렇게 정해졌습니다. / 내일 서면으로 받으실 거예요.”"
      }
     },
     {
@@ -254,18 +266,6 @@
       "de": "Sorgen Sie sich gar nichts um mich; // ich bin meiner Sache hier so gewiß, / daß ich ohne mindeste Ursache quittirt hätte.",
       "en": "Be under no anxiety on my account; // I am so sure of success here, / that for a much less cause I would have given up my situation.",
       "ko": "제 걱정은 조금도 하지 마세요. // 저는 여기서 잘될 거라고 확신해요. / 이보다 훨씬 작은 이유로도 그만두었을 거예요."
-     }
-    },
-    {
-     "de": "Uebrigens bitte ich Sie munter zu sein, denn jetzt fängt mein Glück an, und ich hoffe daß mein Glück auch das Ihrige sein wird.",
-     "en": "Moreover, I beg you to be cheerful, for my good fortune is now about to begin, and I hope my good fortune will always be yours also.",
-     "ko": "그러니 기운 내세요. 이제 제 행운이 시작되니까요. 그리고 바라요, 제 행운이 아버지의 행운도 되기를.",
-     "verified": true,
-     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
-     "speak": {
-      "de": "Uebrigens bitte ich Sie munter zu sein, / denn jetzt fängt mein Glück an, // und ich hoffe / daß mein Glück auch das Ihrige sein wird.",
-      "en": "Moreover, I beg you to be cheerful, / for my good fortune is now about to begin, // and I hope / my good fortune will always be yours also.",
-      "ko": "그러니 기운 내세요. / 이제 제 행운이 시작되니까요. // 그리고 바라요, / 제 행운이 아버지의 행운도 되기를."
      }
     }
    ],
@@ -301,24 +301,24 @@
      "rom_ko": "hwaksilhan"
     },
     {
-     "de": "das Glück",
-     "pos": "n.n.",
-     "ipa": "ɡlʏk",
-     "en": "good fortune",
-     "ipa_en": "ɡʊd ˈfɔɹtʃən",
-     "ko": "행운",
-     "rom_ko": "haengun",
+     "de": "glücklich",
+     "pos": "adj.",
+     "ipa": "ˈɡlʏklɪç",
+     "en": "happy",
+     "ipa_en": "ˈhæpi",
+     "ko": "행복한",
+     "rom_ko": "haengbokhan",
      "icon": "🍀"
     },
     {
-     "de": "munter",
-     "pos": "adj.",
-     "ipa": "ˈmʊntɐ",
-     "en": "cheerful",
-     "ipa_en": "ˈtʃɪɹfəl",
-     "ko": "명랑한",
-     "rom_ko": "myeongnanghan",
-     "icon": "☀️"
+     "de": "die Galle",
+     "pos": "n.f.",
+     "ipa": "ˈɡalə",
+     "en": "gall",
+     "ipa_en": "ɡɔl",
+     "ko": "울화",
+     "rom_ko": "ulhwa",
+     "icon": "😤"
     }
    ],
    "note": {
@@ -334,12 +334,12 @@
    },
    "moments": [
     {
-     "after": -1,
+     "after": 1,
      "type": "notice",
      "text": {
-      "de": "Neue Wohnung: bei Madame Weber, „im Auge Gottes“",
-      "en": "New lodgings: with Madame Weber, 'im Auge Gottes'",
-      "ko": "새 거처: 베버 부인 댁, ‘신의 눈’ 집"
+      "de": "Die alte Mad. Weber war so gütig mir ihr Haus zu öffnen.",
+      "en": "Old Madame Weber was so kind as to take me into her house.",
+      "ko": "나이 든 베버 부인이 친절하게도 제게 집을 내주었어요."
      }
     }
    ],
@@ -362,11 +362,11 @@
    "id": "c5-l3",
    "wallace_no": 157,
    "nohl_pages": [
+    292,
     293,
     294
    ],
    "date": "1781-06-09",
-   "dateNote": "The letter begins at the foot of Nohl p. 292, which is missing from our scan; the date follows Nohl's table of contents and Wallace (Vienna, June 9, 1781).",
    "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 157 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
    "place": "Wien",
    "to": {
@@ -376,6 +376,18 @@
    },
    "mood": "weary",
    "messages": [
+    {
+     "de": "Nun hat es der Herr Graf Arco recht gut gemacht!",
+     "en": "A pretty business Count Arco has now made of it!",
+     "ko": "아르코 백작이 일을 아주 잘도 해냈네요!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 157 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun hat es der Herr Graf Arco / recht gut gemacht!",
+      "en": "A pretty business / Count Arco has now made of it!",
+      "ko": "아르코 백작이 / 일을 아주 잘도 해냈네요!"
+     }
+    },
     {
      "de": "… und endlich, da derjenige gezwungen ist die Bittschrift selbst zu überreichen, anstatt ihm wenigstens den Zutritt zu verstatten, ihn zur Thür hinaus schmeißt und einen Tritt im Hintern gibt!",
      "en": "… and at last compel me to present the memorial myself, and instead of at least giving me free access to the Prince, to turn me out of doors with a kick!",
@@ -398,18 +410,6 @@
       "de": "Das geschah in den Antichambre; // mithin war kein anderes Mittel / als sich losreißen und laufen — // denn ich wollte für die fürstlichen Zimmer / den Respect nicht verlieren, / wenn ihn schon der Arco verloren hatte.",
       "en": "The scene took place in the anteroom. // Of course there was nothing to be done / but to be gone with all speed, // not wishing to show disrespect / for the Prince's apartments, / though Arco had not scrupled to do so.",
       "ko": "그 일은 대기실에서 벌어졌어요. // 그러니 뿌리치고 달아나는 수밖에 / 없었어요. // 아르코는 이미 예의를 버렸지만, / 저는 대주교님 방에 대한 예의만큼은 / 잃고 싶지 않았거든요."
-     }
-    },
-    {
-     "de": "Ich habe drei Memoriale gemacht; habe sie fünfmal übergeben, und sind mir allezeit zurückgeschlagen worden.",
-     "en": "I have written three different memorials, and which I five times endeavored to present, and each time they have been refused.",
-     "ko": "저는 청원서를 세 통 썼고, 다섯 번이나 냈어요. 그런데 번번이 되돌아왔어요.",
-     "verified": true,
-     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 157 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
-     "speak": {
-      "de": "Ich habe drei Memoriale gemacht; / habe sie fünfmal übergeben, // und sind mir allezeit zurückgeschlagen worden.",
-      "en": "I have written three different memorials, / and which I five times endeavored to present, // and each time they have been refused.",
-      "ko": "저는 청원서를 세 통 썼고, / 다섯 번이나 냈어요. // 그런데 번번이 되돌아왔어요."
      }
     },
     {
@@ -530,10 +530,11 @@
    "id": "c5-l4",
    "wallace_no": 165,
    "nohl_pages": [
+    309,
     310
    ],
    "date": "1781-08-01",
-   "dateNote": "The letter's first page in Nohl (p. 309, with the date line and the news of Stephanie's libretto) is missing from our scan; the date follows Nohl's table of contents and Wallace (Vienna, August 1, 1781).",
+   "dateNote": "Nohl's date line misprints the year as '1761'; his table of contents and Wallace give August 1, 1781.",
    "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
    "place": "Wien",
    "to": {
@@ -544,51 +545,51 @@
    "mood": "bright",
    "messages": [
     {
-     "de": "… der größten Begierde zu meinem Schreibtisch eile und mit größter Freude dabei sitzen bleibe.",
-     "en": "… I eagerly hurry off to my writing-table, and remain seated there in the greatest delight.",
+     "de": "Nun hat mir vorgestern der junge Stephanie ein Buch zu schreiben gegeben.",
+     "en": "Stephanie brought me a libretto the day before yesterday to compose.",
+     "ko": "그저께 젊은 슈테파니가 곡을 붙일 대본을 하나 가져왔어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun hat mir vorgestern der junge Stephanie / ein Buch zu schreiben gegeben.",
+      "en": "Stephanie brought me a libretto / the day before yesterday to compose.",
+      "ko": "그저께 젊은 슈테파니가 / 곡을 붙일 대본을 하나 가져왔어요."
+     }
+    },
+    {
+     "de": "Das Buch ist ganz gut. Das Sujet ist türkisch …",
+     "en": "The libretto is very good indeed; the subject Turkish …",
+     "ko": "대본이 아주 좋아요. 소재는 튀르키예풍이고요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Das Buch ist ganz gut. // Das Sujet ist türkisch …",
+      "en": "The libretto is very good indeed; // the subject Turkish …",
+      "ko": "대본이 아주 좋아요. // 소재는 튀르키예풍이고요…"
+     }
+    },
+    {
+     "de": "Mich freuet es so, das Buch zu schreiben, daß schon die 1. Arie von der Cavalieri und die von Adamberger und das Terzett, welches den 1. Act schließt, fertig sind.",
+     "en": "I am so delighted to write the opera, that I have already finished Cavalieri's first air, and that of Adamberger, as well as the terzett which closes the first act.",
+     "ko": "이 대본에 곡을 쓰는 게 너무 기뻐서, 벌써 카발리에리의 첫 아리아와 아담베르거의 아리아, 그리고 1막을 끝맺는 삼중창을 다 썼어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Mich freuet es so, das Buch zu schreiben, // daß schon die 1. Arie von der Cavalieri / und die von Adamberger / und das Terzett, welches den 1. Act schließt, / fertig sind.",
+      "en": "I am so delighted to write the opera, // that I have already finished Cavalieri's first air, / and that of Adamberger, / as well as the terzett which closes the first act.",
+      "ko": "이 대본에 곡을 쓰는 게 너무 기뻐서, // 벌써 카발리에리의 첫 아리아와 / 아담베르거의 아리아, / 그리고 1막을 끝맺는 삼중창을 / 다 썼어요."
+     }
+    },
+    {
+     "de": "… daß ich mit der größten Begierde zu meinem Schreibtisch eile und mit größter Freude dabei sitzen bleibe.",
+     "en": "… that I eagerly hurry off to my writing-table, and remain seated there in the greatest delight.",
      "ko": "…부푼 마음으로 책상으로 달려가서, 더없이 기쁘게 그 자리에 앉아 있어요.",
      "verified": true,
      "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
      "speak": {
-      "de": "… der größten Begierde / zu meinem Schreibtisch eile // und mit größter Freude / dabei sitzen bleibe.",
-      "en": "… I eagerly hurry off / to my writing-table, // and remain seated there / in the greatest delight.",
+      "de": "… daß ich mit der größten Begierde / zu meinem Schreibtisch eile // und mit größter Freude / dabei sitzen bleibe.",
+      "en": "… that I eagerly hurry off / to my writing-table, // and remain seated there / in the greatest delight.",
       "ko": "…부푼 마음으로 / 책상으로 달려가서, // 더없이 기쁘게 / 그 자리에 앉아 있어요."
-     }
-    },
-    {
-     "de": "Der Großfürst von Rußland wird hierherkommen, und da bat mich Stephanie, ich sollte, wenn es möglich wäre in dieser kurzen Zeit die Oper schreiben …",
-     "en": "The Grand-Duke of Russia is coming here; so Stephanie entreated me, if possible, to complete the opera in that short space of time …",
-     "ko": "러시아 대공이 이곳에 온대요. 그래서 슈테파니가 부탁했어요. 될 수 있으면 이 짧은 기간에 오페라를 써 달라고요…",
-     "verified": true,
-     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
-     "speak": {
-      "de": "Der Großfürst von Rußland wird hierherkommen, // und da bat mich Stephanie, / ich sollte, wenn es möglich wäre / in dieser kurzen Zeit die Oper schreiben …",
-      "en": "The Grand-Duke of Russia is coming here; // so Stephanie entreated me, / if possible, / to complete the opera in that short space of time …",
-      "ko": "러시아 대공이 이곳에 온대요. // 그래서 슈테파니가 부탁했어요. / 될 수 있으면 / 이 짧은 기간에 오페라를 써 달라고요…"
-     }
-    },
-    {
-     "de": "Mein Zimmer wo ich hinziehe ist schon in Bereitschaft; jetzt gehe ich, ein Clavier zu entlehnen, denn bevor das nicht im Zimmer steht, kann ich nicht darin wohnen dermalen …",
-     "en": "The lodging to which I am about to move is now ready, and I am going out to hire a piano, for until it is in my room I cannot live in it …",
-     "ko": "이사 갈 방은 벌써 준비됐어요. 이제 클라비어를 빌리러 가요. 그게 방에 놓이기 전에는 거기서 지낼 수가 없거든요…",
-     "verified": true,
-     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
-     "speak": {
-      "de": "Mein Zimmer wo ich hinziehe / ist schon in Bereitschaft; // jetzt gehe ich, ein Clavier zu entlehnen, / denn bevor das nicht im Zimmer steht, / kann ich nicht darin wohnen dermalen …",
-      "en": "The lodging to which I am about to move / is now ready, // and I am going out to hire a piano, / for until it is in my room / I cannot live in it …",
-      "ko": "이사 갈 방은 / 벌써 준비됐어요. // 이제 클라비어를 빌리러 가요. / 그게 방에 놓이기 전에는 / 거기서 지낼 수가 없거든요…"
-     }
-    },
-    {
-     "de": "… wenn ich recht nothwendig zu schreiben hatte, so wartete man mit dem Essen so lange ich wollte, und ich konnte unangezogen fortschreiben …",
-     "en": "When I had anything very urgent to finish, the Webers always waited dinner for me as long as I chose, and I could go on writing without dressing …",
-     "ko": "…급히 써야 할 게 있을 때면 베버 댁 사람들은 제가 원하는 만큼 식사를 기다려 주었어요. 저는 옷도 갈아입지 않고 계속 쓸 수 있었고요…",
-     "verified": true,
-     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
-     "speak": {
-      "de": "… wenn ich recht nothwendig zu schreiben hatte, / so wartete man mit dem Essen so lange ich wollte, // und ich konnte unangezogen fortschreiben …",
-      "en": "When I had anything very urgent to finish, / the Webers always waited dinner for me as long as I chose, // and I could go on writing without dressing …",
-      "ko": "…급히 써야 할 게 있을 때면 / 베버 댁 사람들은 제가 원하는 만큼 식사를 기다려 주었어요. // 저는 옷도 갈아입지 않고 계속 쓸 수 있었고요…"
      }
     },
     {
@@ -616,35 +617,34 @@
      "icon": "🪶"
     },
     {
-     "de": "die Oper",
+     "de": "das Buch",
+     "pos": "n.n.",
+     "ipa": "buːx",
+     "en": "libretto",
+     "ipa_en": "lɪˈbɹɛtoʊ",
+     "ko": "대본",
+     "rom_ko": "daebon",
+     "icon": "📖"
+    },
+    {
+     "de": "türkisch",
+     "pos": "adj.",
+     "ipa": "ˈtʏʁkɪʃ",
+     "en": "Turkish",
+     "ipa_en": "ˈtɝkɪʃ",
+     "ko": "튀르키예풍의",
+     "rom_ko": "twireukiyepungui",
+     "icon": "🥁"
+    },
+    {
+     "de": "die Freude",
      "pos": "n.f.",
-     "ipa": "ˈoːpɐ",
-     "en": "opera",
-     "ipa_en": "ˈɑpəɹə",
-     "ko": "오페라",
-     "rom_ko": "opera",
-     "icon": "🎭"
-    },
-    {
-     "de": "das Clavier",
-     "de_modern": "das Klavier",
-     "pos": "n.n.",
-     "ipa": "klaˈviːɐ̯",
-     "en": "keyboard",
-     "ipa_en": "ˈkiˌbɔɹd",
-     "ko": "건반 악기",
-     "rom_ko": "geonban akgi",
-     "icon": "🎹"
-    },
-    {
-     "de": "das Essen",
-     "pos": "n.n.",
-     "ipa": "ˈɛsn̩",
-     "en": "meal",
-     "ipa_en": "mil",
-     "ko": "식사",
-     "rom_ko": "siksa",
-     "icon": "🍲"
+     "ipa": "ˈfʁɔɪ̯də",
+     "en": "delight",
+     "ipa_en": "dɪˈlaɪt",
+     "ko": "기쁨",
+     "rom_ko": "gippeum",
+     "icon": "😊"
     },
     {
      "de": "hungrig",
@@ -657,8 +657,8 @@
     }
    ],
    "note": {
-    "ko": "이틀 전 고틀리프 슈테파니가 모차르트에게 오페라 대본 「벨몬테와 콘스탄체, 또는 후궁으로부터의 유괴」를 가져왔어요. 모차르트는 너무 기뻐서 벌써 세 곡을 끝냈다고 써요. 오페라는 9월 중순 러시아 대공의 방문에 맞출 예정이었지만, 실제 초연은 1782년 7월 16일 빈의 부르크테아터에서 열렸어요. 이 무렵 그는 베버 부인 집을 나와 새 방으로 옮겼어요.",
-    "en": "Two days earlier Gottlieb Stephanie had brought Mozart the libretto 'Belmont und Konstanze, oder die Entführung aus dem Serail', and he was so delighted that three numbers were already written. It was meant for the Grand Duke of Russia's visit in mid-September, but the first performance came only on 16 July 1782 at the Burgtheater. At this time he was moving out of Madame Weber's house into a room of his own.",
+    "ko": "‘젊은 슈테파니’, 곧 고틀리프 슈테파니가 그저께 오페라 대본을 가져왔고, 모차르트는 너무 기뻐 벌써 세 곡을 끝냈다고 써요. 놀의 판은 제목을 「벨몬트와 콘스탄체, 또는 후궁으로부터의 유혹(Verführung)」으로 찍었는데, 이 오페라가 바로 「후궁으로부터의 유괴(Entführung)」예요. 편지는 9월 중순 공연을 내다보지만, 실제 초연은 1782년 7월 16일 빈의 부르크테아터에서 열렸어요.",
+    "en": "'Young Stephanie' — Gottlieb Stephanie — had brought Mozart a libretto two days earlier, and he was so delighted that three numbers were already written. Nohl prints the title as 'Belmont und Konstanze, oder: Die Verführung aus dem Serail'; this is the opera known as Die Entführung aus dem Serail. The letter expects a performance in mid-September, but the premiere came only on 16 July 1782 at the Burgtheater in Vienna.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -669,15 +669,6 @@
    },
    "moments": [
     {
-     "after": -1,
-     "type": "notice",
-     "text": {
-      "de": "Stephanie bringt das Buch: „Belmont und Konstanze, oder die Entführung aus dem Serail“",
-      "en": "Stephanie brings the libretto: 'Belmont und Konstanze, oder die Entführung aus dem Serail'",
-      "ko": "슈테파니가 대본을 가져옴: 「벨몬테와 콘스탄체, 또는 후궁으로부터의 유괴」"
-     }
-    },
-    {
      "after": 0,
      "type": "music",
      "piece": {
@@ -686,6 +677,15 @@
       "ko": "「후궁으로부터의 유괴」 K. 384"
      },
      "commons": null
+    },
+    {
+     "after": 1,
+     "type": "notice",
+     "text": {
+      "de": "Das Sujet: „Belmont und Konstanze, oder: Die Verführung aus dem Serail.“",
+      "en": "The subject, as Nohl prints it: 'Belmont und Konstanze, oder: Die Verführung aus dem Serail'",
+      "ko": "제목(놀의 판 그대로): 「벨몬트와 콘스탄체, 또는 후궁으로부터의 유혹」"
+     }
     }
    ],
    "status": {
@@ -707,11 +707,11 @@
    "id": "c5-l5",
    "wallace_no": 172,
    "nohl_pages": [
+    322,
     323,
     324
    ],
    "date": "1781-09-26",
-   "dateNote": "The letter's first page in Nohl (p. 322, with the date line) is missing from our scan; the date follows Nohl's table of contents and Wallace (Vienna, Sept. 26, 1781).",
    "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
    "place": "Wien",
    "to": {
@@ -721,6 +721,18 @@
    },
    "mood": "bright",
    "messages": [
+    {
+     "de": "Da wir die Rolle des Osmin Hrn. Fischer zugedacht haben, welcher gewiß eine vortreffliche Baßstimme hat, obwohl der Erzbischof zu mir gesagt, er singe zu tief für einen Bassisten, und ich ihm aber betheuerte, er würde nächstens höher singen …",
+     "en": "We intend the part of Osmin for Herr Fischer, who certainly has a grand bass voice, (although the Archbishop once assured me that he sang too low for a bass, and I in return promised that he should sing higher next time,) …",
+     "ko": "오스민 역은 피셔 씨에게 맡기기로 했어요. 정말 훌륭한 베이스 목소리를 지녔거든요. 대주교는 언젠가 제게 그가 베이스치고 너무 낮게 부른다고 했지만, 저는 그분께 장담했죠, 다음엔 더 높게 부를 거라고요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Da wir die Rolle des Osmin Hrn. Fischer zugedacht haben, / welcher gewiß eine vortreffliche Baßstimme hat, // obwohl der Erzbischof zu mir gesagt, / er singe zu tief für einen Bassisten, / und ich ihm aber betheuerte, / er würde nächstens höher singen …",
+      "en": "We intend the part of Osmin for Herr Fischer, / who certainly has a grand bass voice, // (although the Archbishop once assured me / that he sang too low for a bass, / and I in return promised / that he should sing higher next time,) …",
+      "ko": "오스민 역은 피셔 씨에게 맡기기로 했어요. / 정말 훌륭한 베이스 목소리를 지녔거든요. // 대주교는 언젠가 제게 / 그가 베이스치고 너무 낮게 부른다고 했지만, / 저는 그분께 장담했죠, / 다음엔 더 높게 부를 거라고요…"
+     }
+    },
     {
      "de": "In der Ausführung der Arie habe ich seine schönen tiefen Töne schimmern lassen.",
      "en": "In working out the aria, I have given full scope to Fischer's fine deep tones to vibrate.",
@@ -768,18 +780,6 @@
       "en": "The Janissary chorus is, as such, / all that can be desired — // short and lively, / and written entirely to please the Viennese.",
       "ko": "예니체리 합창은 / 그 자체로 더 바랄 게 없어요. // 짧고 신나고, / 순전히 빈 사람들을 위해 썼어요."
      }
-    },
-    {
-     "de": "… und ich glaube, man wird dabei nicht schlafen können, und sollte man eine ganze Nacht hindurch nicht geschlafen haben.",
-     "en": "… and I think no one can well go to sleep over it, even if his previous night has been a sleepless one.",
-     "ko": "…그리고 제 생각엔 이 곡을 들으며 졸 사람은 없을 거예요. 밤새 한숨도 못 잔 사람이라도요.",
-     "verified": true,
-     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
-     "speak": {
-      "de": "… und ich glaube, / man wird dabei nicht schlafen können, // und sollte man eine ganze Nacht hindurch / nicht geschlafen haben.",
-      "en": "… and I think / no one can well go to sleep over it, // even if his previous night / has been a sleepless one.",
-      "ko": "…그리고 제 생각엔 / 이 곡을 들으며 졸 사람은 없을 거예요. // 밤새 한숨도 / 못 잔 사람이라도요."
-     }
     }
    ],
    "words": [
@@ -824,19 +824,19 @@
      "icon": "💓"
     },
     {
-     "de": "schlafen",
-     "pos": "v.",
-     "ipa": "ˈʃlaːfn̩",
-     "en": "to sleep",
-     "ipa_en": "tə slip",
-     "ko": "자다",
-     "rom_ko": "jada",
-     "icon": "😴"
+     "de": "die Stimme",
+     "pos": "n.f.",
+     "ipa": "ˈʃtɪmə",
+     "en": "voice",
+     "ipa_en": "vɔɪs",
+     "ko": "목소리",
+     "rom_ko": "moksori",
+     "icon": "🎙️"
     }
    ],
    "note": {
-    "ko": "「후궁으로부터의 유괴」를 쓰는 작업 노트 같은 편지예요. 오스민 역은 베이스 루트비히 피셔를 위해, 벨몬테의 「O wie ängstlich」는 테너 아담베르거의 목소리에 맞춰 썼다고 해요. 음악은 가장 끔찍한 장면에서도 귀를 거슬러서는 안 된다는, 모차르트의 유명한 말이 여기 나와요.",
-    "en": "A workshop letter on the Entführung. Mozart wrote Osmin's part for the bass Ludwig Fischer and Belmonte's 'O wie ängstlich' expressly for the tenor Adamberger's voice. Here too is his famous rule that music, even in the most terrible situations, must never offend the ear.",
+    "ko": "「후궁으로부터의 유괴」를 쓰는 작업 노트 같은 편지예요. 오스민 역은 베이스 루트비히 피셔를 위해, 벨몬테의 「O wie ängstlich」는 테너 아담베르거의 목소리에 맞춰 썼다고 해요. 음악은 가장 끔찍한 장면에서도 귀를 거슬러서는 안 된다는, 모차르트의 유명한 말이 여기 나와요. 놀은 이 편지를 모차르테움 자필본이 아니라 니센의 전기에서 가져왔어요.",
+    "en": "A workshop letter on the Entführung. Mozart wrote Osmin's part for the bass Ludwig Fischer and Belmonte's 'O wie ängstlich' expressly for the tenor Adamberger's voice. Here too is his famous rule that music, even in the most terrible situations, must never offend the ear. Nohl took this letter from Nissen's biography rather than from the Mozarteum autographs.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {

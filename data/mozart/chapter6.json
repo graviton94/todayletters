@@ -9,13 +9,179 @@
  "letters": [
   {
    "id": "c6-l1",
+   "wallace_no": 180,
+   "nohl_pages": [
+    336,
+    337,
+    338
+   ],
+   "date": "1781-12-15",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 180 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "tender",
+   "messages": [
+    {
+     "de": "Mein Bestreben ist unterdessen etwas wenig Gewisses hier zu haben — dann läßt es sich mit der Hülfe des Unsichern ganz gut hier leben — und dann — zu heirathen!",
+     "en": "My endeavors are directed at present to securing a small but certain income, which, together with what chance may put in my way, may enable me to live and — to marry!",
+     "ko": "지금 제가 애쓰는 건 여기서 적더라도 확실한 수입을 얻는 거예요. 그러면 불확실한 수입의 도움을 받아 이곳에서 꽤 잘 살 수 있고, 그다음엔 — 결혼하는 거예요!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 180 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Mein Bestreben ist unterdessen / etwas wenig Gewisses hier zu haben // — dann läßt es sich mit der Hülfe des Unsichern / ganz gut hier leben // — und dann — zu heirathen!",
+      "en": "My endeavors are directed at present / to securing a small but certain income, // which, together with what chance may put in my way, / may enable me to live // and — to marry!",
+      "ko": "지금 제가 애쓰는 건 / 여기서 적더라도 확실한 수입을 얻는 거예요. // 그러면 불확실한 수입의 도움을 받아 / 이곳에서 꽤 잘 살 수 있고, // 그다음엔 — 결혼하는 거예요!"
+     }
+    },
+    {
+     "de": "Ein lediger Mensch lebt in meinen Augen nur halb …",
+     "en": "An unmarried man, in my opinion, enjoys only half a life.",
+     "ko": "제 눈에는 혼자 사는 사람은 반쪽 인생만 사는 거예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 180 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ein lediger Mensch / lebt in meinen Augen nur halb …",
+      "en": "An unmarried man, / in my opinion, enjoys only half a life.",
+      "ko": "제 눈에는 / 혼자 사는 사람은 / 반쪽 인생만 사는 거예요."
+     }
+    },
+    {
+     "de": "Doch nicht eine Weberische? — Ja eine Weberische! — aber nicht Josepha — nicht Sophie — sondern Constanze, die mittelste.",
+     "en": "Not one of the Webers, surely? Yes, one of the Webers, — not Josepha, not Sophie, but the third daughter, Constanze.",
+     "ko": "설마 베버 집안 딸은 아니겠지? 하시겠죠. 네, 베버 집안 딸이에요! 하지만 요제파도, 조피도 아니고 가운데 딸 콘스탄체예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 180 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Doch nicht eine Weberische? // — Ja eine Weberische! // — aber nicht Josepha — nicht Sophie / — sondern Constanze, die mittelste.",
+      "en": "Not one of the Webers, surely? // Yes, one of the Webers, // — not Josepha, not Sophie, / but the third daughter, Constanze.",
+      "ko": "설마 베버 집안 딸은 아니겠지? 하시겠죠. // 네, 베버 집안 딸이에요! // 하지만 요제파도, 조피도 아니고 / 가운데 딸 콘스탄체예요."
+     }
+    },
+    {
+     "de": "Sie ist nicht häßlich, aber auch nichts weniger als schön, — ihre ganze Schönheit besteht in zwei kleinen schwarzen Augen und in einem schönen Wachsthum.",
+     "en": "She is not plain, but at the same time far from being handsome; her whole beauty consists in a pair of bright black eyes and a pretty figure.",
+     "ko": "못생기진 않았지만 미인이라고 하기도 어려워요. 그녀의 아름다움은 전부 작고 까만 두 눈과 고운 몸매에 있어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 180 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Sie ist nicht häßlich, / aber auch nichts weniger als schön, // — ihre ganze Schönheit besteht / in zwei kleinen schwarzen Augen / und in einem schönen Wachsthum.",
+      "en": "She is not plain, / but at the same time far from being handsome; // her whole beauty consists / in a pair of bright black eyes / and a pretty figure.",
+      "ko": "못생기진 않았지만 / 미인이라고 하기도 어려워요. // 그녀의 아름다움은 전부 / 작고 까만 두 눈과 / 고운 몸매에 있어요."
+     }
+    },
+    {
+     "de": "… sie frisirt sich auch alle Tage selbst — versteht die Hauswirthschaft, hat das beste Herz von der Welt — ich liebe sie und sie liebt mich von Herzen",
+     "en": "She dresses her own hair, understands housekeeping, and has the best heart in the world. I love her with my whole soul, as she does me.",
+     "ko": "머리도 날마다 혼자 손질하고, 살림도 잘 알고, 세상에서 가장 착한 마음씨를 가졌어요. 저는 그녀를 사랑하고 그녀도 진심으로 저를 사랑해요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 180 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… sie frisirt sich auch alle Tage selbst / — versteht die Hauswirthschaft, / hat das beste Herz von der Welt // — ich liebe sie / und sie liebt mich von Herzen",
+      "en": "She dresses her own hair, / understands housekeeping, / and has the best heart in the world. // I love her with my whole soul, / as she does me.",
+      "ko": "머리도 날마다 혼자 손질하고, / 살림도 잘 알고, / 세상에서 가장 착한 마음씨를 가졌어요. // 저는 그녀를 사랑하고 / 그녀도 진심으로 저를 사랑해요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "leben",
+     "pos": "v.",
+     "ipa": "ˈleːbn̩",
+     "en": "to live",
+     "ipa_en": "tə lɪv",
+     "ko": "살다",
+     "rom_ko": "salda"
+    },
+    {
+     "de": "das Auge",
+     "pos": "n.n.",
+     "ipa": "ˈaʊ̯ɡə",
+     "en": "eye",
+     "ipa_en": "aɪ",
+     "ko": "눈",
+     "rom_ko": "nun",
+     "icon": "👁️"
+    },
+    {
+     "de": "schwarz",
+     "pos": "adj.",
+     "ipa": "ʃvaʁt͡s",
+     "en": "black",
+     "ipa_en": "blæk",
+     "ko": "까만",
+     "rom_ko": "kkaman",
+     "icon": "⚫"
+    },
+    {
+     "de": "das Herz",
+     "pos": "n.n.",
+     "ipa": "hɛʁt͡s",
+     "en": "heart",
+     "ipa_en": "hɑɹt",
+     "ko": "마음",
+     "rom_ko": "maeum",
+     "icon": "❤️"
+    },
+    {
+     "de": "lieben",
+     "pos": "v.",
+     "ipa": "ˈliːbn̩",
+     "en": "to love",
+     "ipa_en": "tə lʌv",
+     "ko": "사랑하다",
+     "rom_ko": "saranghada",
+     "icon": "💕"
+    }
+   ],
+   "note": {
+    "ko": "아버지가 지난 편지 끝의 말이 무슨 뜻이냐고 묻자, 모차르트는 이 편지에서 처음으로 결혼 계획을 털어놓아요. 상대는 그가 하숙했던 베버 집안의 셋째 딸 콘스탄체였어요. 그는 콘스탄체를 사랑하게 된 건 잘츠부르크 대주교 밑의 자리를 그만둔 뒤 그 집에 살면서부터였다고 써요.",
+    "en": "His father had asked what the closing words of his last letter meant, and in this letter Mozart reveals for the first time that he wants to marry. The girl was Constanze, the third of the Weber daughters, in whose family's house he had lodged. He writes that his love began only after he had left his post, while he was living in their house.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 180 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Mein Sohn, überlege es gut.",
+    "en": "My son, think it over well.",
+    "ko": "아들아, 잘 생각해 보거라.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 2,
+     "type": "notice",
+     "text": {
+      "de": "Constanze Weber, die dritte Tochter",
+      "en": "Constanze Weber, the third daughter",
+      "ko": "콘스탄체 베버, 베버 집안의 셋째 딸"
+     }
+    }
+   ],
+   "status": {
+    "de": "Das Geständniß",
+    "en": "The confession",
+    "ko": "사랑의 고백"
+   },
+   "plate_hint": {
+    "idea": "Portrait of Constanze Mozart by Joseph Lange (1782).",
+    "search": [
+     "Constanze Mozart Joseph Lange 1782",
+     "Constanze Mozart portrait Lange",
+     "Constanze Weber portrait"
+    ],
+    "kind": "person"
+   }
+  },
+  {
+   "id": "c6-l2",
    "wallace_no": 186,
    "nohl_pages": [
-    350,
-    351
+    349,
+    350
    ],
    "date": "1782-01-23",
-   "dateNote": "The heading and date (Wien 23. Jan. 1782) stand on p. 349, which is missing from the scan; the date follows Wallace.",
    "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
    "place": "Wien",
    "to": {
@@ -25,6 +191,30 @@
    },
    "mood": "calm",
    "messages": [
+    {
+     "de": "Es ist nichts Unangehehmeres als wenn man so in Ungewißheit, ohne zu wissen was geschieht, leben muß.",
+     "en": "Nothing more disagreeable than to be obliged to live in uncertainty, not knowing what is to happen.",
+     "ko": "무슨 일이 일어날지 모른 채 불확실 속에 살아야 하는 것만큼 괴로운 일은 없어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Es ist nichts Unangehehmeres / als wenn man so in Ungewißheit, / ohne zu wissen was geschieht, / leben muß.",
+      "en": "Nothing more disagreeable / than to be obliged to live in uncertainty, / not knowing what is to happen.",
+      "ko": "무슨 일이 일어날지 모른 채 / 불확실 속에 살아야 하는 것만큼 / 괴로운 일은 없어요."
+     }
+    },
+    {
+     "de": "— Nun will ich Ihnen wegen dem wenigen Gewissen meine Meinung sagen. — Ich habe hier auf dreierlei mein Augenmerk.",
+     "en": "I must give you my opinion as to the probable sources I may look to for a small income. My eyes are directed to three things.",
+     "ko": "이제 얼마 안 되는 확실한 수입에 대해 제 생각을 말씀드릴게요. 저는 여기서 세 가지를 눈여겨보고 있어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "— Nun will ich Ihnen wegen dem wenigen Gewissen / meine Meinung sagen. // — Ich habe hier auf dreierlei mein Augenmerk.",
+      "en": "I must give you my opinion / as to the probable sources I may look to for a small income. // My eyes are directed to three things.",
+      "ko": "이제 얼마 안 되는 확실한 수입에 대해 / 제 생각을 말씀드릴게요. // 저는 여기서 / 세 가지를 눈여겨보고 있어요."
+     }
+    },
     {
      "de": "Das zweite (welches aber bei mir das erste ist —) ist der Kaiser selbst. — Wer weiß — … doch ist den Hofschranzen niemals zu trauen.",
      "en": "The second (the first, however, in my estimation) is the Emperor himself. Who knows? … but courtiers are never to be trusted.",
@@ -59,30 +249,6 @@
       "de": "Liebster, bester Vater! // — wenn ich von unserm lieben Gott / schriftlich haben könnte, / daß ich gesund bleibe / und nicht krank sein werde, // — o so wollte ich / mein liebes treues Mädchen / noch heute heirathen.",
       "en": "My dear good father, // if I knew for certain / that a kind Providence would ordain / that I should continue to enjoy good health, / and exempt me from illness, // oh! then I would marry / my dear faithful Constanze / this very day.",
       "ko": "사랑하는 아버지! // 제가 건강하고 / 앓지 않으리라는 것을 / 하느님께 문서로 받아 둘 수만 있다면, // 아, 그러면 / 제 사랑스럽고 진실한 아가씨와 / 오늘이라도 결혼할 거예요."
-     }
-    },
-    {
-     "de": "Mit mir kann es nicht schlechter — sondern es muß immer besser gehen.",
-     "en": "Things cannot go worse with me, and will no doubt every day gradually go better.",
-     "ko": "제 형편은 더 나빠질 수 없어요. 앞으로는 나아질 일만 남았어요.",
-     "verified": true,
-     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
-     "speak": {
-      "de": "Mit mir kann es nicht schlechter / — sondern es muß immer besser gehen.",
-      "en": "Things cannot go worse with me, / and will no doubt / every day gradually go better.",
-      "ko": "제 형편은 / 더 나빠질 수 없어요. // 앞으로는 / 나아질 일만 남았어요."
-     }
-    },
-    {
-     "de": "Warum ich aber nicht mehr lange warten kann — ist nicht allein — meinetwegen — sondern hauptsächlich — ihretwegen — ich muß sie so bald möglich erretten",
-     "en": "My reason for wishing to avoid delay is not so much on my own account as on hers. I must rescue her as soon as possible",
-     "ko": "제가 더 오래 기다릴 수 없는 건 저 때문만이 아니라 무엇보다 그녀 때문이에요. 되도록 빨리 그녀를 구해 내야 해요.",
-     "verified": true,
-     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
-     "speak": {
-      "de": "Warum ich aber nicht mehr lange warten kann / — ist nicht allein — meinetwegen / — sondern hauptsächlich — ihretwegen // — ich muß sie so bald möglich erretten",
-      "en": "My reason for wishing to avoid delay / is not so much on my own account / as on hers. // I must rescue her / as soon as possible",
-      "ko": "제가 더 오래 기다릴 수 없는 건 / 저 때문만이 아니라 / 무엇보다 그녀 때문이에요. // 되도록 빨리 / 그녀를 구해 내야 해요."
      }
     }
    ],
@@ -128,14 +294,13 @@
      "icon": "💍"
     },
     {
-     "de": "warten",
+     "de": "wissen",
      "pos": "v.",
-     "ipa": "ˈvaʁtn̩",
-     "en": "to wait",
-     "ipa_en": "tə weɪt",
-     "ko": "기다리다",
-     "rom_ko": "gidarida",
-     "icon": "⏳"
+     "ipa": "ˈvɪsn̩",
+     "en": "to know",
+     "ipa_en": "tə noʊ",
+     "ko": "알다",
+     "rom_ko": "alda"
     }
    ],
    "note": {
@@ -151,7 +316,7 @@
    },
    "moments": [
     {
-     "after": 1,
+     "after": 4,
      "type": "notice",
      "text": {
       "de": "Drei Schülerinnen · 18 Ducaten im Monat",
@@ -176,14 +341,13 @@
    }
   },
   {
-   "id": "c6-l2",
+   "id": "c6-l3",
    "wallace_no": 191,
    "nohl_pages": [
-    358,
-    359
+    357,
+    358
    ],
    "date": "1782-04-20",
-   "dateNote": "The heading and date (Wien 20. April 1782) stand on p. 357, which is missing from the scan; the date follows Wallace.",
    "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
    "place": "Wien",
    "to": {
@@ -193,6 +357,30 @@
    },
    "mood": "bright",
    "messages": [
+    {
+     "de": "Meine liebe Constanze hat sich endlich die Courage genommen dem Triebe ihres guten Herzens zu folgen — nemlich Dir meine liebe Schwester zu schreiben.",
+     "en": "My darling Constanze has at last summoned up courage to follow the impulse of her kind heart, and to write to you.",
+     "ko": "사랑하는 콘스탄체가 마침내 용기를 내서 착한 마음이 이끄는 대로 누나에게 편지를 썼어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Meine liebe Constanze hat sich endlich die Courage genommen / dem Triebe ihres guten Herzens zu folgen // — nemlich Dir meine liebe Schwester zu schreiben.",
+      "en": "My darling Constanze has at last summoned up courage / to follow the impulse of her kind heart, // and to write to you.",
+      "ko": "사랑하는 콘스탄체가 마침내 용기를 내서 / 착한 마음이 이끄는 대로 / 누나에게 편지를 썼어."
+     }
+    },
+    {
+     "de": "Baron van Swieten, zu dem ich alle Sonntage gehe, hat mir alle Werke des Händels und Sebastian Bach (nachdem ich sie ihm durchgespielt) nach Hause gegeben.",
+     "en": "Baron von Swieten, to whom I go every Sunday, gives me all Handel's and Sebastian Bach's fugues (after I have played them to him) to take home with me.",
+     "ko": "내가 일요일마다 찾아가는 판 스비텐 남작이 헨델과 제바스티안 바흐의 작품을 전부 (내가 남작에게 쳐 드린 뒤에) 집에 가져가라고 줬어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Baron van Swieten, zu dem ich alle Sonntage gehe, / hat mir alle Werke des Händels und Sebastian Bach / (nachdem ich sie ihm durchgespielt) / nach Hause gegeben.",
+      "en": "Baron von Swieten, to whom I go every Sunday, / gives me all Handel's and Sebastian Bach's fugues / (after I have played them to him) / to take home with me.",
+      "ko": "내가 일요일마다 찾아가는 판 스비텐 남작이 / 헨델과 제바스티안 바흐의 작품을 전부 / (내가 남작에게 쳐 드린 뒤에) / 집에 가져가라고 줬어."
+     }
+    },
     {
      "de": "Als die Constanze die Fugen hörte, ward sie ganz verliebt darein; — sie will nichts als Fugen hören, besonders aber (in diesem Fach) nichts als Händel und Bach.",
      "en": "When Constanze heard these, she fell in love with them at once; she will listen to nothing but fugues, and particularly the works (in this style) of Handel and Bach.",
@@ -228,30 +416,6 @@
       "en": "I have purposely timed it andante maestoso, / that it may not be played too quick; // for if a fugue is not rather slowly played, / the subject as it comes in / cannot be distinctly and clearly heard",
       "ko": "일부러 안단테 마에스토소라고 적었어. / 너무 빨리 치지 말라고. // 푸가를 천천히 치지 않으면 / 주제가 들어오는 게 / 또렷하게 들리지 않거든."
      }
-    },
-    {
-     "de": "Lerne sie auswendig und spiele sie. Eine Fuge spielt man nicht so leicht nach.",
-     "en": "Learn it by heart and play it. A fugue is not easily caught by another person from merely hearing it.",
-     "ko": "외워서 쳐 봐. 푸가는 듣기만 해서는 쉽게 따라 칠 수 없어.",
-     "verified": true,
-     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
-     "speak": {
-      "de": "Lerne sie auswendig und spiele sie. // Eine Fuge spielt man nicht so leicht nach.",
-      "en": "Learn it by heart and play it. // A fugue is not easily caught by another person / from merely hearing it.",
-      "ko": "외워서 쳐 봐. // 푸가는 듣기만 해서는 / 쉽게 따라 칠 수 없어."
-     }
-    },
-    {
-     "de": "Darf ich Ihnen die meinige (welche ich Ihnen schon längst heimlich in meinem Herzen geschenkt habe) entgegen anbieten? — o ja! ich hoffe es",
-     "en": "I venture to offer you mine, which, indeed, has long been yours in my secret heart. I trust I may do so",
-     "ko": "제 우정을 드려도 될까요? 사실 제 마음속에서는 오래전부터 몰래 당신 것이었어요. 네, 그러길 바라요.",
-     "verified": true,
-     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
-     "speak": {
-      "de": "Darf ich Ihnen die meinige / (welche ich Ihnen schon längst heimlich in meinem Herzen geschenkt habe) / entgegen anbieten? // — o ja! ich hoffe es",
-      "en": "I venture to offer you mine, / which, indeed, has long been yours / in my secret heart. // I trust I may do so",
-      "ko": "제 우정을 드려도 될까요? / 사실 제 마음속에서는 / 오래전부터 몰래 당신 것이었어요. // 네, 그러길 바라요."
-     }
     }
    ],
    "words": [
@@ -286,13 +450,14 @@
      "icon": "🎵"
     },
     {
-     "de": "auswendig",
-     "pos": "adv.",
-     "ipa": "ˈaʊ̯sˌvɛndɪç",
-     "en": "by heart",
-     "ipa_en": "baɪ hɑɹt",
-     "ko": "외워서",
-     "rom_ko": "oewoseo"
+     "de": "der Sonntag",
+     "pos": "n.m.",
+     "ipa": "ˈzɔntaːk",
+     "en": "Sunday",
+     "ipa_en": "ˈsʌndeɪ",
+     "ko": "일요일",
+     "rom_ko": "iryoil",
+     "icon": "📅"
     },
     {
      "de": "das Herz",
@@ -306,8 +471,8 @@
     }
    ],
    "note": {
-    "ko": "모차르트는 일요일마다 판 스비텐 남작의 집에서 헨델과 바흐의 푸가를 연주했어요. 그 푸가에 반한 콘스탄체가 졸라서 쓴 곡이 함께 보낸 전주곡과 3성 푸가(K. 394)예요. 마지막 문장은 모차르트가 아니라 콘스탄체가 난네를에게 처음 쓴 편지에서 나온 말이에요.",
-    "en": "Every Sunday Mozart played Handel and Bach fugues at Baron van Swieten's house. Constanze fell in love with them and begged him to write one: the result was the prelude and three-part fugue (K. 394) he sent with this letter. The last line is not Mozart's but Constanze's, from her first letter to Nannerl, written on the same sheet.",
+    "ko": "모차르트는 일요일마다 판 스비텐 남작의 집에서 헨델과 바흐의 푸가를 연주했어요. 그 푸가에 반한 콘스탄체가 졸라서 쓴 곡이 함께 보낸 전주곡과 3성 푸가(K. 394)예요. 같은 편지에 콘스탄체가 난네를에게 처음 쓴 짧은 편지도 들어 있었어요. 콘스탄체의 어머니와 언니들은 그 편지를 몰랐어요.",
+    "en": "Every Sunday Mozart played Handel and Bach fugues at Baron van Swieten's house. Constanze fell in love with them and begged him to write one: the result was the prelude and three-part fugue (K. 394) he sent with this letter. Constanze's own first letter to Nannerl went in the same envelope, without her mother and sisters knowing.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -318,7 +483,7 @@
    },
    "moments": [
     {
-     "after": 2,
+     "after": 3,
      "type": "music",
      "piece": {
       "de": "Präludium und Fuge C-Dur, KV 394",
@@ -328,7 +493,7 @@
      "commons": null
     },
     {
-     "after": 3,
+     "after": 0,
      "type": "notice",
      "text": {
       "de": "Ein Brief von Constanze liegt bei",
@@ -353,7 +518,7 @@
    }
   },
   {
-   "id": "c6-l3",
+   "id": "c6-l4",
    "wallace_no": 195,
    "nohl_pages": [
     365
@@ -538,7 +703,7 @@
    }
   },
   {
-   "id": "c6-l4",
+   "id": "c6-l5",
    "wallace_no": 196,
    "nohl_pages": [
     367
@@ -712,7 +877,7 @@
    }
   },
   {
-   "id": "c6-l5",
+   "id": "c6-l6",
    "wallace_no": 199,
    "nohl_pages": [
     371
@@ -887,7 +1052,7 @@
    }
   },
   {
-   "id": "c6-l6",
+   "id": "c6-l7",
    "wallace_no": 200,
    "nohl_pages": [
     375,
