@@ -6,3 +6,29 @@
 - 넣지 않은 것: 괴테 인스티투트 A1·A2·B1 낱말 목록은 "Das Werk und seine Teile sind urheberrechtlich geschützt" — 서면 허락 없이 저장·배포 불가라 공개 저장소에 두지 않음.
 - FLELex 는 CC BY-NC-SA 4.0 (비영리) 이라 상업 앱에 못 씀 — 받지 않음.
 - Tatoeba 예문(CC BY 2.0 FR, 문장마다 작성자 표기)은 12낱말 이하 · 영/한 번역 있는 것만 추려도 독일어 44MB · 프랑스어 31MB 라 git 에서 뺌.
+
+## 작품별 어휘 자료 (data/<작품>/lexicon.json · gloss.json · daily.json)
+
+학습 대상은 원문 언어 — 빈센트는 프랑스어(Brieven 1914), 모차르트는 독일어(Nohl 1865, 옛 철자 그대로 두고 표제어만 현대 철자). 뜻풀이 언어는 ko · en. 챕터 JSON 은 건드리지 않았고, 앱 연결은 나중에.
+
+**출처 · 라이선스**
+- 편지 원문: 퍼블릭 도메인 (각 메시지의 source).
+- 표제어 · 품사 · 성 · 뜻풀이(ko/en) · 관용 표현 설명: 이 저장소에서 새로 씀 (편지 문맥에 맞춘 뜻). 다른 사전을 베끼지 않음. 표제어 추출은 simplemma(MIT) 결과를 손으로 고침.
+- 등급: FrequencyWords 순위(CC BY-SA 4.0, 위 참조)에서 계산 → 앱에 등급을 보이면 "FrequencyWords (Hermit Dave), CC BY-SA 4.0" 표기.
+- IPA: 챕터 파일에 손으로 넣은 IPA 가 있으면 그것, 없으면 espeak-ng(GPL 프로그램, 출력물은 자유) 로 만든 근사치. 독일어 합성어 · 접두사 동사는 강세가 틀릴 수 있음.
+- 예문: Tatoeba (CC BY 2.0 FR) — 12낱말 이하, 표제어나 편지 속 꼴이 들어 있고, 영어 번역에 뜻풀이 낱말이 보이는 문장만 (다른 뜻 예문 거르기). 한국어 번역은 Tatoeba 에 있을 때만. **앱에서 예문마다 작성자(author) 와 https://tatoeba.org/sentences/show/<id> 를 표기해야 함.** 예문을 지어내지 않음.
+- 괴테 인스티투트 목록 · FLELex 는 쓰지 않음.
+
+**등급 구간** (표제어와 편지에 찍힌 꼴 가운데 더 높은 순위 기준): A1 ≤500 · A2 ≤1,500 · B1 ≤3,500 · B2 ≤7,000 · C1 ≤15,000 · C2 그 밖 / 목록에 없음. 인명 · 외국어(모차르트의 이탈리아어·프랑스어·라틴어) · 약어는 등급 없음. 자막 말뭉치라 구어 낱말(Teufel, bébé 등)이 쉽게, 옛 문어(gemeiniglich, besogne)는 어렵게 나옴. 동형어(ton 너의 / ton#2 색조)는 순위가 의미를 못 가려 아쉬운 대로 둠.
+
+**파일 형식** (모두 한 줄 JSON, 각 파일 `_doc` 에 설명)
+- `lexicon.json`: `fields` 순서의 배열 한 줄 = 표제어 하나 — lemma, id(동형어만 "ton#2", 아니면 null), forms(인쇄된 꼴), pos(n v adj adv prep conj pron det art num interj name abbr foreign:it|fr|la), gender(m f n pl), ko, en, ipa, level, first(처음 나오는 편지 id), letters(공백으로 이은 편지 id), example([tatoeba id, 문장, en, ko|null, author]), function(기능어면 1). 뒤쪽 null 은 생략.
+- `gloss.json`: `letters[편지 id][메시지 순번]` = 원문 낱말 순서대로의 토큰 목록. 토큰은 문자열(그 자체가 사전 키) 또는 `[인쇄된 꼴, 사전 키]`. 사전 키 = id 가 있으면 id, 없으면 lemma. 숫자 · 문장부호는 토큰 아님. 모든 낱말이 덮여 있어 어느 낱말이든 눌러 뜻을 볼 수 있음.
+- `daily.json`: `letters[편지 id]` = { words: 오늘의 낱말 8개(사전 키), spots: [{i: 그림 점 번호, w: 바꿀 낱말, was: 원래 낱말}], phrases: [{t: 편지에서 그대로 옮긴 표현, m: 메시지 순번, ko, en, note_ko, note_en}] }.
+  - words: 순서 P → I…VIII → E, 챕터 구간 P · I–II: A1–A2, III–V: B1, VI–VIII · E: B2–C1. 모자라면 한 구간 넓힘(그래도 모자라면 8개 미만 — 짧은 프롤로그 등). 앞 편지에서 고른 낱말은 다시 안 고름. 인명 · 한 글자 · 대명사 · 기능어 · 영어와 철자가 같은 낱말(portrait, Arm 등) 제외.
+  - spots: 그림 점 낱말이 약할 때(인명 · 대명사 · 동사 꼴 · 한 글자 · 영어와 같은 철자)만, 인용 메시지 원문에 실제로 있고 그림에 보이는 것을 이름하는 명사로 바꿈 — 손으로 확인. 맞는 게 없으면 바꾸지 않음(목록에 안 들어감).
+- 크기: 작품마다 세 파일 합쳐 약 360 KB (gzip 하면 훨씬 작음).
+
+**다시 만들기**: `pip install simplemma`, `apt install espeak-ng`, Tatoeba 추출본(id, 문장, en, ko, author) 을 한 폴더에 두고
+`TATOEBA_DIR=<폴더> python3 scripts/vocab/build.py vincent fr` → `python3 scripts/vocab/daily.py vincent fr` (mozart de 도 같음) → `python3 scripts/validate_lexicon.py`.
+손으로 고치는 곳은 `scripts/vocab/src/` — `*_tab.txt`(표제어|품사|en|ko|F=기능어), `*_map.txt`(꼴=표제어), `*_occ.txt`(편지:메시지:토큰=표제어, 동형어 구분), `phrases_<작품>.txt`, `daily_override_<작품>.json`(그림 점 바꾸기).

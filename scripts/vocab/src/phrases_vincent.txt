@@ -1,0 +1,119 @@
+p1|0|chaque chambre de la maison|every room of the house|그 집의 방 하나하나|chaque + 단수 명사: '하나하나 모두'.|chaque + singular noun: 'each and every'.
+p2|0|moins noire que|less dark than|~보다 덜 어두운|moins + 형용사 + que: '~보다 덜 …한' (비교).|moins + adjective + que: 'less … than'.
+p3|0|tout d'un trait|in one go|단숨에, 한달음에|쉬지 않고 한 번에 해냈을 때.|Said of doing something without stopping.
+p3|0|à partir de midi|from noon on|정오부터|à partir de + 시간: '~부터'.|à partir de + time: 'from … on'.
+p4|0|se prêterait autant à l'art|would lend itself just as well to art|그만큼 예술에 어울릴 것이다|se prêter à: '~에 알맞다, ~에 잘 맞다'.|se prêter à: 'to lend itself to, to suit'.
+c1-l1|0|pour le moins|at the very least|적어도|숫자·정도를 겸손하게 강조할 때.|Stresses a minimum: 'at least'.
+c1-l1|1|il y a partout au moins 60 centimètres de neige|there's at least 60 centimetres of snow everywhere|어디나 눈이 적어도 60센티미터는 쌓여 있다|il y a + 명사: '~이 있다'; au moins: '적어도'.|il y a + noun: 'there is'; au moins: 'at least'.
+c1-l2|0|Pour ce qui est du travail|As far as work goes|일에 관해서 말하자면|화제를 꺼낼 때: 'pour ce qui est de ~'.|Introduces a topic: 'as for…'.
+c1-l2|2|je me sens au Japon|I feel as if I'm in Japan|일본에 있는 기분이야|se sentir + 장소/형용사: '~한 기분이 들다'.|se sentir + place/adjective: 'to feel (like)'.
+c1-l3|0|en plein air|in the open air|야외에서|화가들이 밖에서 그릴 때 쓰는 말.|What painters say for working outdoors.
+c1-l3|1|un je ne sais quoi|a certain something|뭐라 말할 수 없는 무언가|설명하기 어려운 느낌을 명사처럼 쓸 때.|A noun for a feeling you can't put into words.
+c1-l4|0|je suis dans une rage de travail|I'm in a frenzy of work|일에 미쳐 있다|être dans une rage de + 명사: '~에 열중해 있다'.|'In a frenzy of …': total absorption.
+c1-l4|2|au printemps dernier|last spring|지난봄에|계절 + dernier: '지난 ~'.|Season + dernier: 'last …'.
+c1-l5|0|me donne le plus de mal|gives me the most trouble|가장 애먹이다|donner du mal à qn: '~를 애먹이다'.|donner du mal: 'to give trouble'.
+c1-l5|1|plus ou moins|more or less|어느 정도는|대충 그렇다고 말할 때.|Means 'roughly, to some degree'.
+c1-l6|0|Eh bien|Well then|자, 그럼|말을 시작하거나 바꿀 때.|Opens or turns a remark: 'well'.
+c1-l6|1|à raison de 15 francs par mois|at the rate of 15 francs a month|한 달에 15프랑씩|à raison de: '~의 비율로'.|à raison de: 'at the rate of'.
+c1-l7|0|La santé va mieux|My health is better|건강이 나아졌다|건강 상태를 말할 때: aller mieux.|aller mieux: 'to be getting better'.
+c1-l7|3|j'ai eu du mal à trouver|I had trouble finding|찾느라 애먹었다|avoir du mal à + 동사: '~하느라 고생하다'.|avoir du mal à + verb: 'to struggle to'.
+c2-l1|0|au bord de la Méditerranée|on the shore of the Mediterranean|지중해 바닷가에서|au bord de: '~의 가장자리에, ~가에'.|au bord de: 'at the edge of, by'.
+c2-l1|1|on ne sait pas toujours si|you can't always tell whether|~인지 늘 알 수는 없다|on ne sait pas si ~: '~인지 모르겠다'.|on ne sait pas si: 'one can't tell whether'.
+c2-l2|0|tout à fait|completely|완전히, 정말로|강조하는 부사구.|Emphatic: 'quite, entirely'.
+c2-l2|3|Au bout de quelque temps|After a while|얼마쯤 지나면|au bout de + 시간: '~ 끝에, ~ 후에'.|au bout de + time: 'after'.
+c2-l3|0|il y a bien des choses|there are a good many things|많은 것들이 있다|bien des + 복수 명사: '많은 ~'.|bien des: 'many'.
+c2-l3|4|Parlons d'autre chose|Let's talk about something else|다른 이야기를 하자|화제를 바꿀 때.|To change the subject.
+c2-l4|1|Cela m'a coûté toute ma semaine|It took me my whole week|일주일을 통째로 들였다|coûter: 돈뿐 아니라 시간·수고에도 쓴다.|coûter is used for time and effort too.
+c2-l4|1|pas trop bien portant|not too well|몸이 썩 좋지 않은|être bien portant: '건강하다'.|bien portant: 'in good health'.
+c2-l5|0|je suis en train avec un autre modèle|I'm busy with another model|다른 모델과 작업 중이다|être en train (de): '~하는 중이다'.|être en train (de): 'to be in the middle of'.
+c2-l5|1|rien de neuf|nothing new|새로운 것은 없다|rien de + 형용사: '~한 것은 아무것도'.|rien de + adjective: 'nothing …'.
+c2-l6|0|faire connaissance avec|to get to know|~와 알게 되다|사람을 처음 소개받을 때.|To meet someone for the first time.
+c2-l6|1|au lieu de chercher à rendre exactement|instead of trying to render exactly|정확히 옮기려 하는 대신|au lieu de + 동사: '~하는 대신'.|au lieu de + verb: 'instead of'.
+c2-l7|0|il s'agit de peindre|it's a matter of painting|그리는 일이 문제다|il s'agit de: '~에 관한 것이다, ~해야 한다'.|il s'agit de: 'it is about, it's a question of'.
+c2-l7|2|à partir du lever du soleil|from sunrise|해 뜰 때부터|le lever du soleil: '해돋이'.|le lever du soleil: 'sunrise'.
+c3-l1|0|en me couchant pendant la journée|going to bed during the day|낮에 잠자리에 들면서|en + 현재분사: '~하면서' (제롱디프).|en + present participle: 'while/by …ing'.
+c3-l1|1|il me semble que|it seems to me that|내가 보기엔 ~인 것 같다|자기 생각을 부드럽게 말할 때.|A soft way to give one's impression.
+c3-l2|0|je ne parle que du strict nécessaire|I'm only talking about the bare necessities|꼭 필요한 것만 말하는 거야|ne … que: '~만, ~밖에'.|ne … que: 'only'.
+c3-l2|4|sur place|on the spot|현장에서|그 자리에서 직접 할 때.|Done right there, in situ.
+c3-l3|1|la nuit même|that very night|바로 그날 밤|명사 + même: '바로 그 ~'.|noun + même: 'that very …'.
+c3-l3|4|dirai-je le mot|shall I say the word|감히 그 말을 하자면|말을 고르며 망설일 때.|Hesitating before a strong word.
+c3-l4|0|vice versa|vice versa|반대로도 마찬가지|라틴어에서 온 표현, 프랑스어에서도 그대로.|Latin phrase used as is in French.
+c3-l4|4|à la japonaise|in the Japanese manner|일본식으로|à la + 여성형 형용사: '~식으로'.|à la + feminine adjective: 'in the … style'.
+c3-l5|1|C'est pas de ta faute|It's not your fault|네 잘못이 아니야|구어에서는 ne를 빼고 말하기도 한다.|Spoken French often drops ne.
+c3-l5|4|qui font fort bien|which look very good|아주 잘 어울린다|faire bien: '보기 좋다, 잘 어울리다'.|faire bien: 'to look good'.
+c3-l6|0|tout simplement|quite simply|그저, 단순히|강조하는 부사구.|Emphatic 'simply'.
+c3-l6|3|La table à toilette|The washstand|세면대|à + 명사: 용도를 나타낸다.|à + noun shows purpose.
+c3-l7|2|de jour en jour|any day now|하루하루, 곧|곧 일어날 일을 기다릴 때.|'Any day now'.
+c3-l7|3|une rangée de cyprès verts|a row of green cypresses|초록 사이프러스 한 줄|une rangée de + 명사: '~ 한 줄'.|une rangée de: 'a row of'.
+c4-l1|0|en bonne santé|in good health|건강하게|도착·안부를 전할 때.|Used when reporting someone is well.
+c4-l1|3|ayons tous bon courage|let's all keep our spirits up|모두 힘을 내자|avoir bon courage: '용기를 잃지 않다' (명령형).|avoir bon courage: 'keep heart' (imperative).
+c4-l2|0|non seulement confortable mais aussi|not only comfortable but also|편할 뿐 아니라 ~이기도 하다|non seulement … mais aussi: '~뿐 아니라 …도'.|'Not only … but also'.
+c4-l2|4|en hâte|in haste|서둘러|편지 끝에서 급히 쓴다고 할 때.|Often closes a hurried letter.
+c4-l3|1|dans une heure|in one hour|한 시간 만에|dans + 시간: 여기서는 '~ 만에'.|dans + time: here 'within'.
+c4-l3|4|par ci par là|here and there|여기저기|흩어져 있는 모습을 말할 때.|'Here and there'.
+c4-l4|0|de bonne heure|early|일찍|tôt과 같은 뜻.|Same as tôt: 'early'.
+c4-l4|1|ait l'air d'être|looks like|~처럼 보이다|avoir l'air + 형용사/de + 동사.|avoir l'air: 'to look, to seem'.
+c4-l5|0|composer de tête|to compose from my head|머릿속으로 구상하다|de tête: '기억·상상으로' (보지 않고).|de tête: 'from memory/imagination'.
+c4-l5|1|il aime mieux|he prefers|~을 더 좋아한다|aimer mieux = préférer.|aimer mieux = préférer.
+c4-l6|1|qui m'a fait penser à|which made me think of|~을 떠올리게 했다|faire penser à: '~을 생각나게 하다'.|faire penser à: 'to remind of'.
+c4-l6|3|nous en sortons parfois la tête fatiguée|sometimes we come out of it with tired heads|가끔은 머리가 지쳐서 나온다|en sortir: '거기서 나오다'.|en sortir: 'to come out of it'.
+c4-l7|0|Je te remercie beaucoup de ta lettre|Thank you very much for your letter|편지 정말 고마워|remercier qn de qc: '~에 대해 감사하다'.|remercier de: 'to thank for'.
+c4-l7|3|à cause de cela|because of that|그 때문에|à cause de + 명사: '~ 때문에'.|à cause de + noun: 'because of'.
+c5-l1|0|avaient pris soin de la maison|had looked after the house|집을 돌봐 주었다|prendre soin de: '~을 돌보다'.|prendre soin de: 'to take care of'.
+c5-l1|4|Poignée de main|A handshake|악수를 보내며|편지 끝인사로 쓰는 말.|A letter-closing greeting.
+c5-l2|0|dans tous les cas|in any case|어쨌든|어떤 경우에도.|'In any case'.
+c5-l2|4|sois tout à fait rassuré|don't worry at all|완전히 안심해|être rassuré: '안심하다' (명령형 sois).|être rassuré: 'to be reassured'.
+c5-l3|0|C'était touchant de le voir|It was touching to see him|그를 보니 뭉클했다|c'était + 형용사 + de + 동사.|c'était + adjective + de + verb.
+c5-l3|1|à la fois|at the same time|동시에|두 가지가 함께 있을 때.|'At once, both'.
+c5-l4|0|Lors de ta visite|When you visited|네가 왔을 때|lors de + 명사: '~ 때에'.|lors de + noun: 'at the time of'.
+c5-l4|3|à côté de|beside|~ 옆에|위치를 말할 때.|'Next to'.
+c5-l5|0|sans tarder|without delay|지체 없이|바로 했다고 말할 때.|'Without delay'.
+c5-l5|1|serrer la main|shake hands|악수하다|serrer la main à qn.|serrer la main à qn: 'to shake hands with'.
+c5-l6|0|ce qui m'a fait considérablement du bien|which did me a great deal of good|그게 내게 큰 힘이 되었다|faire du bien: '도움이 되다, 기분 좋게 하다'.|faire du bien: 'to do good'.
+c5-l6|2|voilà tout|that's all|그게 다야|말을 끝맺을 때.|Closes a statement: 'that's all'.
+c5-l7|1|bien des choses de sa part|his best regards|그가 안부 전해 달래|de la part de qn: '~가 보낸'.|de la part de: 'from (someone)'.
+c5-l7|4|quoi qu'il en soit|whatever happens|무슨 일이 있든|어떤 경우라도.|'Be that as it may'.
+c6-l1|0|Depuis que je suis ici|Since I've been here|여기 온 뒤로|depuis que + 현재형: 지금까지 이어지는 일.|depuis que + present: ongoing state.
+c6-l1|4|c'était dommage|it was a pity|아까운 일이었다|c'est dommage: '유감이다, 안타깝다'.|c'est dommage: 'it's a pity'.
+c6-l2|0|le plus tôt possible|as soon as possible|되도록 빨리|부탁할 때 자주 쓴다.|Common in requests.
+c6-l2|0|à peu près|roughly|대략|수량·정도를 어림할 때.|'About, roughly'.
+c6-l3|0|en bon état|in good condition|좋은 상태로|물건이 무사히 도착했을 때.|Said of things that arrived intact.
+c6-l3|4|comme ci comme ça|so-so|그럭저럭|좋지도 나쁘지도 않을 때.|'So-so'.
+c6-l4|2|nous le laissons de côté|we leave it aside|그건 접어 두자|laisser de côté: '제쳐 두다'.|laisser de côté: 'to set aside'.
+c6-l4|4|de temps en temps|from time to time|가끔|빈도를 말할 때.|'Now and then'.
+c6-l5|0|de sorte qu'il y en a|so that there are|그래서 ~이 있다|de sorte que: '그래서, ~하도록'.|de sorte que: 'so that'.
+c6-l5|3|pour mieux dire|or rather|더 정확히 말하면|앞말을 고칠 때.|Correcting oneself: 'or rather'.
+c6-l6|0|Je te remercie également bien cordialement|I thank you very warmly too|진심으로 고마워|정중한 감사 표현.|A warm, formal thank-you.
+c6-l6|4|mieux vaut regarder|it's better to look at|보는 편이 낫다|mieux vaut + 동사: '~하는 편이 낫다'.|mieux vaut + verb: 'better to'.
+c6-l7|0|il y a de quoi|there's reason enough|그럴 만한 이유가 있다|il y a de quoi + 동사: '~할 만하다'.|il y a de quoi + verb: 'there's enough to'.
+c6-l7|3|sans le savoir|without knowing it|자신도 모르게|무의식중에.|'Unawares'.
+c7-l1|0|dans ce moment|at the moment|지금|요즘은 보통 en ce moment.|Today usually en ce moment.
+c7-l1|2|venir à bout de|to get through, to finish|~을 해내다|어려운 일을 끝까지 해낼 때.|'To manage, to finish'.
+c7-l2|1|je ne perdrai pas de vue|I won't lose sight of|놓치지 않겠다|perdre de vue: '시야에서 놓치다'.|perdre de vue: 'to lose sight of'.
+c7-l2|3|par hasard|by chance|우연히|계획 없이 일어난 일.|'By chance'.
+c7-l3|1|il en est résulté|the result was|그 결과 ~이 나왔다|il en résulte: '그 결과 ~이 생기다'.|il en résulte: 'the result is'.
+c7-l3|4|si on veut durer|if one wants to last|오래가려면|on: 일반적인 '사람'.|on: 'one, people'.
+c7-l4|3|je me fais une fête de|I look forward to|~을 몹시 기대한다|se faire une fête de: '~을 즐겁게 기대하다'.|se faire une fête de: 'to look forward to'.
+c7-l4|4|d'habitude|usually|보통|평소의 일.|'Usually'.
+c7-l5|0|tout à fait bien|quite well|아주 괜찮은|건강 상태를 말할 때.|Of health: 'quite well'.
+c7-l5|0|causer avec calme|to talk calmly|차분히 이야기하다|causer: '이야기를 나누다' (구어).|causer: 'to chat'.
+c7-l6|1|que je ne saurais l'exprimer en paroles|than I could put into words|말로는 다 할 수 없을 만큼|ne saurais: 정중한 '할 수 없다'.|ne saurais: polite 'could not'.
+c7-l6|3|tout en terminant ma lettre|while finishing my letter|편지를 마무리하면서|tout en + 현재분사: '~하면서도'.|tout en + participle: 'while'.
+c7-l7|0|un dernier coup de brosse|a last stroke of the brush|마지막 붓질|coup de + 명사: 한 번의 동작.|coup de: 'a stroke, a touch'.
+c7-l7|3|faire la connaissance de|to meet|~와 인사를 나누다|처음 만나는 사람에게.|For meeting someone new.
+c8-l1|0|entre autres|among other things|무엇보다도, 그중에서도|예를 들 때.|'Among others'.
+c8-l1|4|Que je suis content d'avoir vu|How glad I am to have seen|~을 봐서 얼마나 기쁜지|Que + 문장: 감탄문.|Que + clause: exclamation.
+c8-l2|1|cela m'a fait du bien|it did me good|도움이 되었다|faire du bien à qn.|faire du bien: 'to do good'.
+c8-l2|3|C'est en travaillant que l'on se rencontre|It is through working that people meet|함께 일하면서 서로 알게 된다|C'est … que: 강조 구문.|C'est … que: cleft for emphasis.
+c8-l3|0|ont l'air de bien se porter|look healthy|건강해 보인다|se porter bien: '건강하다'.|se porter bien: 'to be well'.
+c8-l3|4|je vis au jour le jour|I live from day to day|하루하루 살아간다|미래를 걱정하지 않고 사는 모습.|Living without planning ahead.
+c8-l4|0|les uns des autres|from one another|서로에게서|les uns … les autres: '서로'.|les uns … les autres: 'one another'.
+c8-l4|2|a bonne mine|looks well|안색이 좋다|avoir bonne mine: '건강해 보이다'.|avoir bonne mine: 'to look well'.
+c8-l5|0|1 mètre de haut sur 50 de large|1 metre high by 50 wide|높이 1미터, 너비 50|치수를 말할 때: de haut sur … de large.|Giving size: 'high by … wide'.
+c8-l5|1|une autre fois|another time|다음에 또|미래의 기회.|'Another time'.
+c8-l6|1|je me suis remis au travail|I got back to work|다시 일을 시작했다|se remettre à: '다시 ~하기 시작하다'.|se remettre à: 'to get back to'.
+c8-l6|3|en paroles|in words|말로|글이나 그림과 대비해.|As opposed to pictures or deeds.
+c8-l7|0|En ce qui me regarde|As far as I'm concerned|나로서는|en ce qui concerne와 비슷한 뜻.|Like en ce qui concerne: 'as for'.
+c8-l7|2|une de mes toiles les plus voulues|one of my most deliberate canvases|가장 공들인 그림 가운데 하나|un(e) de + 최상급: '가장 ~한 것 가운데 하나'.|one of + superlative.
+e1|1|encore une fois|once again|한 번 더|반복해서 말할 때.|For repeating something.
+e1|2|autre chose qu'un simple marchand|something other than a mere dealer|그저 그런 화상 이상의 존재|autre chose que: '~와는 다른 것'.|autre chose que: 'something other than'.

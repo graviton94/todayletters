@@ -1,0 +1,7 @@
+c8-l3:4:3=vivre
+c7-l1:2:35=sens
+c4-l3:3:0=or#2
+c7-l7:0:21=continu
+c8-l2:2:20=Ville-d'Avray
+c4-l2:2:45=Midi
+c8-l2:1:16=Midi

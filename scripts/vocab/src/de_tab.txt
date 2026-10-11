@@ -1,0 +1,1299 @@
+nach|prep|after, to|~ 뒤에, ~로|F
+Gott|n.m|God|하느님
+kommen|v|to come|오다
+gleich|adv|right after, at once; same|곧바로; 같은
+der|art|the; (rel.) who, which|그 (정관사); ~하는 (관계대명사)|F
+Papa|n.m|dad, papa|아빠
+sein|v|to be|~이다, 있다|F
+als|conj|as, when; than|~로서, ~할 때; ~보다|F
+Kind|n.n|child|아이
+mein|det|my|나의|F
+Wahlspruch|n.m|motto|좌우명
+oder|conj|or|또는|F
+Axiom|n.n|axiom, principle|원칙, 공리
+und|conj|and|그리고|F
+bei|prep|at, with, near|~ 곁에, ~에서|F
+bleiben|v|to stay, to remain|머무르다
+ich|pron|I (mich, mir: me)|나 (mich/mir: 나를/나에게)|F
+auch|adv|also, too|~도, 또한|F
+noch|adv|still, yet|아직, 더|F
+denn|conj|for, because; then|왜냐하면; 도대체|F
+man|pron|one, people|사람들 (일반 주어)|F
+sagen|v|to say|말하다
+vor|prep|before, in front of|~ 전에, ~ 앞에|F
+Jahr|n.n|year|해, 년
+hier|adv|here|여기
+wissen|v|to know|알다
+aber|conj|but|하지만|F
+nichts|pron|nothing|아무것도 (않다)|F
+davon|adv|of it, about it|그것에 대해|F
+zu|prep|to, at; too|~로, ~에; 너무|F
+Salzburg|name|Salzburg (Mozart's home town)|잘츠부르크 (모차르트의 고향)
+nicht|adv|not|~않다|F
+wer|pron|who|누구|F
+alle|det|all, everything|모든, 모두|F
+bisweilen|adv|now and then|이따금
+gar|adv|at all, even|전혀, 아주
+freuen|v|to please (sich freuen: to be glad)|기쁘게 하다 (sich freuen: 기뻐하다)
+es|pron|it|그것|F
+recht|adv|right, really|정말, 아주
+von|prep|from, of|~에서, ~의|F
+ganz|adj|whole; quite|온; 아주
+Herz|n.n|heart|마음, 심장
+dass|conj|that|~라는 것|F
+du|pron|you (dich, dir)|너 (dich/dir: 너를/너에게)|F
+Schlittenfahrt|n.f|sleigh ride|썰매 타기
+schreiben|v|to write|쓰다
+so|adv|so, such|그렇게|F
+sehr|adv|very|매우|F
+ergötzen|v|to delight (sich ergötzen: to enjoy oneself)|즐겁게 하다 (sich ergötzen: 즐기다)
+haben|v|to have; (aux.) have|가지다; (조동사) ~했다|F
+wünschen|v|to wish|바라다
+tausend|num|thousand|천
+Gelegenheit|n.f|opportunity|기회
+zur|art|to the (zu + der)|~로 (zu+der)|F
+Ergötzung|n.f|delight, amusement|즐거움
+damit|conj|so that|~하도록|F
+lustig|adj|merry|즐거운
+dein|det|your (familiar)|너의|F
+Leben|n.n|life|삶
+zubringen|v|to spend (time)|보내다
+mögen|v|to like; may (möchte: would like)|좋아하다; ~하고 싶다
+just|adv|just, right then|막, 바로
+ehe|conj|before|~하기 전에|F
+dieser|det|this|이|F
+Brief|n.m|letter|편지
+anfangen|v|to begin|시작하다
+ein|art|a, an; one|하나의 (부정관사)|F
+Arie|n.f|aria|아리아
+aus|prep|out of, from|~에서, ~로부터|F
+Demetrio|name|Demetrio (opera libretto)|〈데메트리오〉 (오페라 대본)
+Metastasio|name|Pietro Metastasio (librettist)|피에트로 메타스타시오 (대본 작가)
+verfertigen|v|to compose, to make|만들다, 짓다
+welcher|pron|which, who|어느; ~하는 (관계대명사)|F
+misero|it|(It.) wretched|(이탈리아어) 비참한
+tu|it|(It.) you|(이탈리아어) 너
+non|it|(It.) not|(이탈리아어) 아니다
+etc|abbr|etc.|등등
+prima|it|(It.) first|(이탈리아어) 첫째
+donna|it|(It.) lady (prima donna)|(이탈리아어) 여인 (프리마 돈나)
+singen|v|to sing|노래하다
+gut|adj|good; well|좋은; 잘
+still|adj|quiet|조용한
+wenn|conj|when, if|~할 때, 만약|F
+sie|pron|she, they; (Sie) you (formal)|그녀, 그들; (Sie) 당신|F
+agieren|v|to act (on stage)|연기하다
+sehen|v|to see|보다
+sondern|conj|but rather|~가 아니라|F
+nur|adv|only|단지|F
+allein|adv|alone; only|혼자; 오직
+meinen|v|to think, to mean|생각하다, 뜻하다
+Mund|n.m|mouth|입
+können|v|can, to be able|~할 수 있다
+öffnen|v|to open|열다
+winseln|v|to whimper|낑낑거리다
+her|adv|here, hither|이쪽으로|F
+seconda|it|(It.) second (seconda donna)|(이탈리아어) 둘째 (세콘다 돈나)
+machen|v|to make, to do|만들다, 하다
+Ansehen|n.n|appearance, look|외모, 모습
+wie|conj|how, like, as|어떻게, ~처럼|F
+Grenadier|n.m|grenadier (soldier)|척탄병
+stark|adj|strong|강한
+Stimme|n.f|voice|목소리
+wahrhaftig|adv|truly|정말로
+übel|adv|badly|나쁘게
+für|prep|for|~을 위해|F
+erst|adj|first; only|첫 번째의; 비로소
+Mal|n.n|time (das erste Mal)|번, 회
+grotesco|it|(It.) grotesque dancer|(이탈리아어) 익살 무용수
+da|adv|there; then; since|거기; 그때; ~이므로|F
+springen|v|to jump|뛰다
+Sau|n.f|sow, pig|돼지
+brumzen|v|to grunt (dialect)|꿀꿀대다 (사투리)
+Lob|n.n|praise (Gott Lob: thank God)|찬양 (Gott Lob: 다행히)
+Dank|n.m|thanks|감사
+nebst|prep|together with|~와 함께|F
+miserabel|adj|wretched, miserable|형편없는
+Feder|n.f|pen, quill|펜, 깃펜
+gesund|adj|healthy|건강한
+küssen|v|to kiss|입 맞추다
+Mama|n.f|mum, mama|엄마
+Nannerl|name|Nannerl (Mozart's sister)|난네를 (모차르트의 누나)
+Schwester|n.f|sister|누나, 누이
+Rom|name|Rome|로마
+ihr|pron|you (pl.); her, their; (Ihr) your|너희; 그녀의, 그들의; (Ihr) 당신의|F
+werden|v|to become; (aux.) will|되다; (조동사) ~할 것이다|F
+Stadt|n.f|town, city|도시
+gewiss|adv|certainly|분명히
+wohl|adv|well; probably|잘; 아마
+gefallen|v|to please|마음에 들다
+indem|conj|since, as|~이므로|F
+Peterskirche|name|St Peter's (Rome)|성 베드로 대성당
+regulär|adj|regular, well-proportioned|반듯한, 균형 잡힌
+viel|det|much, many|많은|F
+ander|adj|other|다른|F
+Sache|n.f|thing|것, 일
+o|interj|oh|오
+Not|n.f|trouble, need|곤란, 궁핍
+in|prep|in|~ 안에|F
+unser|det|our|우리의|F
+Quartier|n.n|lodgings|숙소
+Bett|n.n|bed|침대
+sich|pron|oneself (reflexive)|자기 자신 (재귀)|F
+leicht|adj|easy, light|쉬운, 가벼운
+einbilden|v|to imagine (sich einbilden)|상상하다
+kein|det|no, not any|아무 ~도 없는|F
+Ruhe|n.f|rest, peace|휴식, 평온
+jetzt|adv|now|지금
+heilig|adj|holy, Saint|성스러운, 성(聖)
+Petrus|name|Saint Peter|성 베드로
+mit|prep|with|~와 함께|F
+Schlüsselamt|n.n|office of the keys|천국 열쇠의 직분
+Paulus|name|Saint Paul|성 바울
+Schwert|n.n|sword|칼
+Lukas|name|Saint Luke|성 누가
+abzeichnen|v|to copy (a drawing)|그대로 그리다
+Ehre|n.f|honour|영광
+Fuß|n.m|foot|발
+San|it|(It.) Saint (S.)|(이탈리아어) 성(聖)
+Pietro|name|(San) Pietro: St Peter's|(산) 피에트로: 성 베드로 대성당
+weil|conj|because|왜냐하면|F
+Unglück|n.n|misfortune|불운
+klein|adj|small|작은
+nämlich|adv|namely; same|즉; 같은
+alt|adj|old|늙은, 오래된
+Wolfgang|name|Wolfgang (Mozart)|볼프강 (모차르트)
+Mozart|name|Mozart|모차르트
+hinaufheben|v|to lift up|들어 올리다
+Menuett|n.n|minuet|미뉴에트
+Haydn|name|Michael Haydn (composer)|미하엘 하이든 (작곡가)
+schicken|v|to send|보내다
+Bass|n.m|bass (part)|베이스 (성부)
+unvergleichlich|adj|incomparable|비길 데 없는
+dazu|adv|for it, in addition|거기에, 덧붙여|F
+komponieren|v|to compose|작곡하다
+ohne|prep|without|~ 없이|F
+mindest|adj|least (ohne den mindesten: without the slightest)|최소의
+Fehler|n.m|mistake|실수
+Herr|n.m|Mr, gentleman, lord|~씨, 신사, 주인
+Kanarienvogel|n.m|canary|카나리아
+gehen|v|to go|가다
+er|pron|he, it (ihn, ihm)|그 (ihn/ihm: 그를/그에게)|F
+pfeifen|v|to whistle|휘파람 불다
+warum|adv|why|왜|F
+auf|prep|on, at|~ 위에, ~에|F
+denken|v|to think|생각하다
+Vorzimmer|n.n|anteroom|대기실
+G'seis|n.n|racket, fuss (dialect)|소란 (사투리)
+gestern|adv|yesterday|어제
+wir|pron|we (uns: us)|우리 (uns: 우리를)|F
+neu|adj|new|새로운
+Kleid|n.n|dress, clothes|옷
+anziehen|v|to put on|입다
+schön|adj|beautiful|아름다운
+Engel|n.m|angel|천사
+Königin|n.f|queen|왕비, 여왕
+König|n.m|king|왕
+unter|prep|under, among|~ 아래, ~ 가운데|F
+Messe|n.f|Mass|미사
+Portici|name|Portici (royal palace near Naples)|포르티치 (나폴리 근처 왕궁)
+Hofkapelle|n.f|court chapel|궁정 예배당
+Vesuvius|name|Vesuvius|베수비오 화산
+Neapel|name|Naples|나폴리
+volkreich|adj|populous|사람이 많은
+Wien|name|Vienna|빈
+Paris|name|Paris|파리
+ohnmöglich|adj|impossible (old form)|불가능한 (옛말)
+Notenfeder|n.f|music pen|악보 펜
+Schriftfeder|n.f|writing pen|글씨 펜
+nun|adv|now, well|이제, 자|F
+Geige|n.f|violin|바이올린
+besaiten|v|to string (an instrument)|줄을 매다
+spielen|v|to play|연주하다
+Tag|n.m|day|날
+setzen|v|to set, to put|놓다, 앉히다
+hinzu|adv|in addition|덧붙여|F
+einmal|adv|once|한 번
+verlangen|v|to demand, to ask for|요구하다
+ob|conj|whether, if|~인지|F
+geigen|v|to fiddle|바이올린을 켜다
+mal|adv|times (tausend mal)|~번
+Kirche|n.f|church|교회
+prächtig|adj|splendid|화려한
+Funktion|n.f|service, ceremony (Functiones)|예식
+unterdessen|adv|meanwhile|그사이에
+schon|adv|already|이미
+vier|num|four|넷
+italienisch|adj|Italian|이탈리아의
+Sinfonie|n.f|symphony|교향곡
+Ouvertüre|n.f|overture|서곡
+außer|prep|apart from|~ 외에|F
+Motette|n.f|motet|모테트
+addio|it|(It.) farewell|(이탈리아어) 안녕
+leben|v|to live (lebe wohl: farewell)|살다 (lebe wohl: 잘 있어)
+einzig|adj|only, single|유일한
+Lustbarkeit|n.f|amusement|오락
+bestehen|v|to consist (bestehen in)|~로 이루어지다
+dermalen|adv|at present (old)|지금 (옛말)
+englisch|adj|English|영국의
+Schritt|n.m|step|걸음, 스텝
+Capriole|n.f|caper (leap)|도약
+Spagat|n.m|the splits|다리 찢기
+Italien|name|Italy|이탈리아
+Schlafland|n.n|land of sleep|잠의 나라
+schläfern|v|to make sleepy (es schläfert)|졸리게 하다
+immer|adv|always|늘
+Reise|n.f|journey|여행
+Hitze|n.f|heat|더위
+ausstehen|v|to endure|견디다
+Staub|n.m|dust|먼지
+beständig|adv|constantly|끊임없이
+impertinent|adv|impertinently|무례하게
+sekkieren|v|to pester (Austrian)|괴롭히다 (오스트리아어)
+ersticken|v|to suffocate|숨 막히다
+verschmachten|v|to languish|기진하다
+gescheit|adj|clever, sensible|똑똑한
+Monat|n.m|month|달
+durch|prep|through|~을 통해|F
+Mailänder|n.m|Milanese|밀라노 사람
+regnen|v|to rain|비가 오다
+heute|adv|today|오늘
+wenig|det|little, few|적은|F
+tröpfeln|v|to drizzle|비가 조금씩 내리다
+scheinen|v|to shine; to seem|비치다; ~처럼 보이다
+wieder|adv|again|다시
+Sonne|n.f|sun|해
+warm|adj|warm|따뜻한
+blasen|v|to blow, to puff|불다, 헐떡이다
+reißen|v|to tear (aufreißen: tear open)|찢다
+Leibchen|n.n|bodice, waistcoat|조끼
+ober|prep|above (dialect)|~ 위에 (사투리)|F
+Violinist|n.m|violinist|바이올리니스트
+neben|prep|next to|~ 옆에|F
+Singmeister|n.m|singing master|노래 선생
+Lektion|n.f|lesson|수업
+geben|v|to give (es gibt: there is)|주다 (es gibt: ~이 있다)
+letzt|adj|last|마지막의
+Zimmer|n.n|room|방
+gegen|prep|towards, against|~ 쪽으로, ~에 반대하여|F
+Hautboist|n.m|oboist|오보에 연주자
+zum|art|to the (zu + dem)|~로 (zu+dem)|F
+Gedanke|n.m|thought|생각
+hoffen|v|to hope|바라다
+befinden|v|to be (sich befinden)|(어떤 상태에) 있다
+lieben|v|to love|사랑하다
+erhalten|v|to receive|받다
+derselbe|det|the same|같은|F
+Abend|n.m|evening|저녁
+opera|it|(It.) opera|(이탈리아어) 오페라
+scena|it|(It.) stage (in scena: on stage)|(이탈리아어) 무대
+bilden|v|to form (sich einbilden)|형성하다
+kräftig|adj|strong|힘찬
+hören|v|to hear|듣다
+morgig|adj|tomorrow's|내일의
+Probe|n.f|rehearsal|리허설
+teatro|it|(It.) theatre|(이탈리아어) 극장
+impresario|n.m|impresario|흥행주
+Signore|it|(It.) Signor (Sig.)|(이탈리아어) ~씨
+Cassiglioni|name|Cassiglioni (impresario)|카실리오니 (흥행주)
+ersuchen|v|to request|청하다
+sollen|v|shall, should|~해야 한다
+niemand|pron|nobody|아무도 (않다)|F
+sonst|adv|otherwise|그렇지 않으면|F
+laufen|v|to run|달리다
+Leute|n.pl|people|사람들
+hinein|adv|in, inside|안으로|F
+wollen|v|to want|원하다
+Graf|n.m|count|백작
+Firmian|name|Count Firmian (governor in Milan)|피르미안 백작 (밀라노 총독)
+wecken|v|to wake|깨우다
+um|prep|around, at (time)|~ 주위에, ~시에|F
+Haus|n.n|house|집
+Gasse|n.f|lane, street|골목
+Haustür|n.f|front door|현관문
+was|pron|what|무엇|F
+zutragen|v|to happen (sich zutragen)|일어나다
+glücklich|adj|happy; safely|행복한; 무사히
+Waging|name|Waging (Bavarian village)|바깅 (바이에른 마을)
+Stain|name|Stein (village)|슈타인 (마을)
+Ferbertshaim|name|Frabertsham (village)|프라베르츠함 (마을)
+Wasserburg|name|Wasserburg am Inn|바서부르크 (도시)
+ankommen|v|to arrive|도착하다
+Schinn|name|Schinn (village)|신 (마을)
+begegnen|v|to meet|마주치다
+Anzahl|n.f|number|수
+Kuh|n.f|cow|암소
+worunter|adv|among which|그 가운데|F
+merkwürdig|adj|remarkable, odd|특이한
+einseitig|adj|one-sided|한쪽만의
+niemals|adv|never|결코 (않다)
+ab|adv|off, away (abgehen: be missing)|떨어져
+je|adv|ever (je nun: well then)|대체 (je nun: 그럼 뭐)|F
+drein|adv|into it|그 안으로|F
+acht|num|eight|여덟
+halb|adj|half|반
+Stunde|n.f|hour|시간
+klopfen|v|to knock|두드리다
+Hausknecht|n.m|porter, handyman|하인
+an|prep|at, on|~에|F
+fragen|v|to ask|묻다
+allerlei|det|all sorts of|온갖|F
+antworten|v|to answer|대답하다
+Ernsthaftigkeit|n.f|seriousness|진지함
+im|art|in the (in + dem)|~ 안에 (in+dem)|F
+Porträt|n.n|portrait|초상화
+oft|adv|often|자주
+selbst|pron|myself, himself; even|스스로; 심지어|F
+passioniert|adj|passionate|열정적인
+Liebhaber|n.m|lover, enthusiast|애호가
+Musik|n.f|music|음악
+längst|adv|long since|오래전에
+Geduld|n.f|patience|인내
+Arbeit|n.f|work|일
+verlieren|v|to lose|잃다
+halt|adv|just, simply (dialect)|그냥 (남부 독일어)|F
+Instrument|n.n|instrument|악기
+Spieler|n.m|player|연주자
+ansetzen|v|to apply, to set on|대다, 적용하다
+dauerhaft|adj|durable|오래가는
+stellen|v|to put, to place|세우다, 놓다
+Luft|n.f|air|공기
+Regen|n.m|rain|비
+Schnee|n.m|snow|눈
+Sonnenhitze|n.f|heat of the sun|햇볕 더위
+Teufel|n.m|devil|악마
+zerspringen|v|to crack|금 가다
+dann|adv|then|그다음|F
+legen|v|to lay, to put|놓다
+Span|n.m|wood chip|나뭇조각
+leimen|v|to glue|아교로 붙이다
+fest|adj|firm, solid|단단한
+völlig|adv|completely|완전히
+froh|adj|glad|기쁜
+hernach|adv|afterwards|나중에
+versichern|v|to assure|장담하다
+mehr|adv|more|더|F
+geschehen|v|to happen|일어나다
+München|name|Munich|뮌헨
+Sonate|n.f|sonata|소나타
+auswendig|adv|by heart|외워서
+D|abbr|D (key of D major)|라 (D장조)
+Pianoforte|n.n|pianoforte|피아노포르테
+Stein|name|Johann Andreas Stein (piano maker)|요한 안드레아스 슈타인 (피아노 제작자)
+heraus|adv|out|밖으로|F
+bedeuten|v|to mean|뜻하다
+Orgel|n.f|organ|오르간
+doch|adv|yet, after all|그래도, 역시|F
+Auge|n.n|eye|눈
+Ohr|n.n|ear|귀
+Präsent|n.n|present, gift|선물
+Oboenkonzert|n.n|oboe concerto|오보에 협주곡
+Cannabich|name|Christian Cannabich (Mannheim conductor)|크리스티안 칸나비히 (만하임 악장)
+abschreiben|v|to copy out|베끼다
+Mensch|n.m|person, human|사람
+närrisch|adj|crazy|미친 듯한
+Freude|n.f|joy|기쁨
+groß|adj|big, great|큰
+Orchester|n.n|orchestra|관현악단
+jeder|det|each, every|각각의|F
+Seite|n.f|side|쪽
+bis|prep|until, up to|~까지|F
+Violine|n.f|violin|바이올린
+Bratsche|n.f|viola|비올라
+Oboe|n.f|oboe|오보에
+flauti|it|(It.) flutes|(이탈리아어) 플루트들
+clarinetti|it|(It.) clarinets|(이탈리아어) 클라리넷들
+zweit|adj|second|두 번째의
+beim|art|at the (bei + dem)|~에서 (bei+dem)|F
+Dreck|n.m|dirt, mud|흙탕, 오물
+sein#2|det|his, its|그의|F
+Kunst|n.f|art, skill|예술, 솜씨
+Gesicht|n.n|face|얼굴
+morgen|adv|tomorrow|내일
+müssen|v|must, to have to|~해야 한다
+Hochamt|n.n|High Mass|대미사
+gestreng|adj|stern (gracious: old title)|엄격한 (옛 경칭)
+Frau|n.f|woman; Mrs|여자; 부인
+Kurfürstin|n.f|Electress|선제후 부인
+absolument|fr|(Fr.) absolutely|(프랑스어) 꼭
+filé|fr|(Fr.) spun (filé: knitted?)|(프랑스어) 실로 뜬
+stricken|v|to knit|뜨개질하다
+lehren|v|to teach|가르치다
+Vormittag|n.m|morning|오전
+Rondo|n.n|rondo|론도
+Mademoiselle|n.f|Miss (French title)|아가씨
+Tochter|n.f|daughter|딸
+folglich|adv|consequently|따라서
+weglassen|v|to leave out|빼다
+glauben|v|to believe|믿다
+ja|adv|yes; indeed|네; 정말|F
+euer|det|your (Euer Durchlaucht: Your Highness)|너희의 (Euer Durchlaucht: 전하)|F
+Durchlaucht|n.f|Highness|전하
+Gnade|n.f|grace, favour|은총
+poetisch|adj|poetic|시적인
+Dichter|n.m|poet|시인
+Redensart|n.f|phrase, expression|말투, 관용구
+künstlich|adj|artful|교묘한
+einteilen|v|to divide up|나누다
+Schatten|n.m|shadow|그림자
+Licht|n.n|light|빛
+Maler|n.m|painter|화가
+sogar|adv|even|심지어
+durchs|art|through the (durch + das)|~을 통해 (durch+das)|F
+deuten|v|to point, to gesture|가리키다, 손짓하다
+Pantomime|n.f|mime|무언극
+Gesinnung|n.f|feeling, sentiment|생각, 심정
+ausdrücken|v|to express|표현하다
+Tänzer|n.m|dancer|무용수
+Ton|n.m|tone, note|소리, 음
+Musikus|n.m|musician (old)|음악가 (옛말)
+brauchen|v|to need|필요하다
+Kurfürst|n.m|Elector (prince)|선제후
+vorgestern|adv|the day before yesterday|그저께
+Akademie|n.f|concert (academy)|연주회
+Hof|n.m|court; yard|궁정; 마당
+Antwort|n.f|answer|대답
+bekommen|v|to get|받다
+nu|interj|well (dialect)|글쎄 (사투리)
+gewöhnlich|adj|usual|흔한
+Schicksal|n.n|fate|운명
+vom|art|from the (von + dem)|~에서 (von+dem)|F
+darauf|adv|on it; afterwards|그 위에; 그 뒤|F
+sérieux|fr|(Fr.) serious|(프랑스어) 진지한
+weinen|v|to cry|울다
+enthalten|v|to refrain (sich enthalten)|참다
+endlich|adv|finally|마침내
+Mutter|n.f|mother|어머니
+Schatzmeister|n.m|treasurer|회계관
+Träne|n.f|tear|눈물
+bedenken|v|to consider|곰곰이 생각하다
+allzu|adv|all too|너무나
+Wahrheit|n.f|truth|진실
+tun|v|to do|하다
+lassen|v|to let, to leave|두다, ~하게 하다
+Sinn|n.m|mind, sense|마음, 생각
+kurz|adj|short; in short|짧은; 요컨대
+kriechen|v|to crawl, to grovel|기다, 굽실거리다
+leiden|v|to suffer, to bear|견디다, 괴로워하다
+wert|adj|esteemed, dear|소중한
+Freund|n.m|friend|친구
+Kirchheim-Boland|name|Kirchheimbolanden (town)|키르히하임볼란덴 (도시)
+ergehen|v|to fare|지내다
+Vakanzreise|n.f|holiday trip|휴가 여행
+weiter|adv|further|더 멀리|F
+Stelle|n.f|post, place|자리
+schwer|adj|heavy, difficult|무거운, 어려운
+langsam|adj|slow|느린
+Note|n.f|note|음표
+fehlen|v|to miss|틀리다, 빠지다
+vista|it|(It.) sight (prima vista: at sight)|(이탈리아어) 보기 (초견으로)
+lieb|adj|dear|사랑하는
+Vogler|name|Abbé Georg Joseph Vogler (composer)|게오르크 요제프 포글러 (작곡가)
+bedrücken|v|to oppress|짓누르다
+Familie|n.f|family|가족
+vielleicht|adv|perhaps|아마
+Anliegen|n.n|wish, concern|소망
+Oper|n.f|opera|오페라
+neulich|adv|recently|얼마 전
+melden|v|to report|알리다
+erschrecken|v|to be frightened|놀라다
+lesen|v|to read|읽다
+schlecht|adj|bad|나쁜
+kleiden|v|to dress|옷을 입히다
+daher|adv|therefore|그래서
+allerliebst|adj|dearest|가장 사랑하는
+Schuld|n.f|fault, blame|잘못
+Hoffnung|n.f|hope|희망
+deutsch|adj|German|독일의
+Fürst|n.m|prince|제후, 군주
+Knicker|n.m|skinflint|구두쇠
+Kraft|n.f|strength|힘
+arbeiten|v|to work|일하다
+bald|adv|soon|곧
+Vergnügen|n.n|pleasure|즐거움
+dermalig|adj|present (old)|지금의 (옛말)
+betrüben|v|to sadden|슬프게 하다
+Umstand|n.m|circumstance|사정
+heraushelfen|v|to help out|도와서 빠져나오게 하다
+aushalten|v|to endure|견디다
+Lebtag|n.m|all one's life (mein Lebtag)|평생
+ennuyieren|v|to bore (sich ennuyieren)|지루해하다
+Empfehlung|n.f|regards; recommendation|안부; 추천
+rühren|v|to move, to touch|감동시키다
+Treppe|n.f|stairs|계단
+hinab|adv|down|아래로|F
+stehen|v|to stand|서 있다
+ums|art|around the (um + das)|~ 주위로 (um+das)|F
+Eck|n.n|corner|모퉁이
+herum|adv|around|둘레에|F
+rufen|v|to call|부르다
+adieu|fr|(Fr.) goodbye|(프랑스어) 안녕
+eiskalt|adj|ice-cold|얼음장 같은
+ungeheizt|adj|unheated|난방 안 된
+Kamin|n.m|fireplace|벽난로
+versehen|v|to provide|갖추다
+warten|v|to wait|기다리다
+also|adv|so, therefore|그러니까|F
+Sessel|n.m|chair|의자
+Tisch|n.m|table|탁자
+Mauer|n.f|wall|벽
+Klavier|n.n|piano, keyboard|건반 악기, 피아노
+Europa|name|Europe|유럽
+Zuhörer|n.m|listener|청중
+verstehen|v|to understand|이해하다
+empfinden|v|to feel|느끼다
+möglich|adj|possible|가능한
+überall|adv|everywhere|어디서나
+weit|adj|far|먼
+kotig|adj|muddy|진창인
+unbeschreiblich|adj|indescribable|말할 수 없는
+bitten|v|to ask, to beg|부탁하다
+standhaft|adj|steadfast|굳건한
+Nation|n.f|nation|국민
+unangenehm|adj|unpleasant|불쾌한
+traurig|adj|sad|슬픈
+Nachricht|n.f|news|소식
+Ursache|n.f|cause, reason|원인
+datieren|v|to date|날짜를 쓰다
+eher|adv|sooner|더 일찍
+krank|adj|ill|아픈
+Konzert|n.n|concert; concerto|음악회; 협주곡
+spirituel|fr|(Fr.) Concert spirituel (Paris concert series)|(프랑스어) 콩세르 스피리튀엘 (파리 연주회)
+eröffnen|v|to open|열다
+am|art|at the, on the (an + dem)|~에 (an+dem)|F
+Fronleichnamstag|n.m|Corpus Christi day|성체 축일
+Applaus|n.m|applause|박수
+aufführen|v|to perform|공연하다
+mitten|adv|in the middle|한가운데
+allegro|it|(It.) allegro (fast movement)|(이탈리아어) 알레그로
+Passage|n.f|passage (music)|악절
+hinreißen|v|to carry away|사로잡다
+Applaudissement|fr|(Fr.) applause|(프랑스어) 박수
+ins|art|into the (in + das)|~ 안으로 (in+das)|F
+Palais-Royal|name|Palais-Royal (Paris)|팔레루아얄 (파리)
+nehmen|v|to take|잡다, 가지다
+Gefrorene|n.n|ice cream|아이스크림
+Rosenkranz|n.m|rosary|묵주
+versprechen|v|to promise|약속하다
+Sorge|n.f|care, worry|걱정, 돌봄
+Gesundheit|n.f|health|건강
+verlassen|v|to leave; (sich ~ auf) rely on|떠나다; ~에 의지하다
+Trost|n.m|comfort|위로
+finden|v|to find|찾다
+Hand|n.f|hand|손
+allmächtig|adj|almighty|전능한
+Uhr|n.f|clock, watch; o'clock|시계; 시
+Minute|n.f|minute|분
+selig|adj|blessed|복된
+entschlafen|v|to pass away|숨을 거두다
+Schmerz|n.m|pain|아픔
+genug|adv|enough|충분히
+nützen|v|to be of use|소용 있다
+trösten|v|to comfort|위로하다
+ewig|adj|eternal|영원한
+wiedersehen|v|to see again|다시 만나다
+Madame|n.f|Madame|마담, 부인
+d'Epinay|name|Madame d'Épinay|데피네 부인
+Monsieur|n.m|Monsieur, Mr|무슈, ~씨
+Grimm|name|Baron Melchior Grimm|멜키오르 그림 남작
+wo|adv|where|어디|F
+logieren|v|to lodge|묵다
+hübsch|adj|pretty, nice|예쁜
+Zimmerl|n.n|little room (Austrian)|작은 방 (오스트리아어)
+angenehm|adj|pleasant|기분 좋은
+Aussicht|n.f|view|전망
+Eile|n.f|hurry|서두름
+Bach|name|Johann Christian Bach (composer)|요한 크리스티안 바흐 (작곡가)
+London|name|London|런던
+Johann|name|Johann|요한
+Christian|name|Christian|크리스티안
+vorstellen|v|to introduce; to imagine|소개하다; 상상하다
+Hochachtung|n.f|high esteem|존경
+eilen|v|to hurry|서두르다
+Tenducci|name|Giusto Tenducci (singer)|주스토 텐두치 (가수)
+Szene|n.f|scene (concert aria)|장면, 극적 아리아
+Sonntag|n.m|Sunday|일요일
+Horn|n.n|horn|호른
+Fagott|n.n|bassoon|바순
+lauter|adv|nothing but|순전히
+Marschall|n.m|marshal|원수 (장군)
+Deutsche|n.m|German (person)|독일 사람
+durchlesen|v|to read through|훑어 읽다
+Heina|name|François Heina (Paris friend)|프랑수아 하이나 (파리의 친구)
+beide|det|both|둘 다|F
+empfehlen|v|to recommend (sich empfehlen: send regards)|추천하다 (sich empfehlen: 안부를 전하다)
+zittern|v|to tremble|떨다
+Arm|n.m|arm|팔
+Vater|n.m|father|아버지
+kennen|v|to know|알다
+Glück|n.n|happiness, luck|행복, 운
+wenigstens|adv|at least|적어도
+Wissenschaft|n.f|knowledge, science|학문
+armselig|adj|pitiful|초라한
+Geschöpf|n.n|creature|피조물
+bekennen|v|to confess|고백하다
+entschließen|v|to decide (sich entschließen)|결심하다
+ziemlich|adv|fairly|꽤
+bekannt|adj|known|알려진
+arm|adj|poor|가난한, 불쌍한
+wegen|prep|because of|~ 때문에|F
+Angst|n.f|fear|두려움
+sterben|v|to die|죽다
+Mädel|n.n|girl|아가씨
+Kapuzinerkirche|name|Capuchin church|카푸친 교회
+lachen|v|to laugh|웃다
+dafür|adv|for it|그 대신, 그것을 위해|F
+Bitterkeit|n.f|bitterness|쓰라림
+versüßen|v|to sweeten|달콤하게 하다
+etwas|pron|something|무엇인가|F
+vorbei|adv|over, past|지나서
+Regel|n.f|rule|규칙
+Postwagen|n.m|mail coach|역마차
+fahren|v|to travel, to drive|가다, 타고 가다
+Morgen|n.m|morning|아침
+hin|adv|there, thither|그리로|F
+Becke|name|Johann Baptist Becke (flautist)|요한 밥티스트 베케 (플루트 연주자)
+Seeau|name|Count Seeau (Munich theatre director)|제아우 백작 (뮌헨 극장 감독)
+Mannheimer|n.m|man from Mannheim|만하임 사람
+Wachs|n.n|wax|밀랍
+zusammenschmelzen|v|to melt together|녹아내리다
+verabreden|v|to arrange|약속하다
+andantino|it|(It.) andantino|(이탈리아어) 안단티노
+konzertierend|adj|concertante|협주하는
+Blasinstrument|n.n|wind instrument|관악기
+anbringen|v|to fit in, to place|넣다, 달다
+Flöte|n.f|flute|플루트
+Anfang|n.m|beginning|시작
+schneien|v|to snow|눈이 오다
+vortrefflich|adj|excellent|훌륭한
+Veränderung|n.f|change|변화
+Raaff|name|Anton Raaff (tenor)|안톤 라프 (테너)
+Recht|n.n|right (Recht haben: be right)|권리 (Recht haben: 옳다)
+grau|adj|grey|회색의
+Haar|n.n|hair|머리카락
+Gefallen|n.m|favour (zu Gefallen: to please)|호의 (zu Gefallen: ~을 위해)
+vorreiten|v|to ride ahead|앞서 달리다
+zufrieden|adj|content|만족한
+Mann|n.m|man|남자
+Akt|n.m|act (of an opera)|막 (오페라의)
+fuor|it|(It.) out of|(이탈리아어) ~ 밖에서
+del|it|(It.) of the|(이탈리아어) ~의
+mare|it|(It.) sea|(이탈리아어) 바다
+avere|it|(It.) to have (hò: I have)|(이탈리아어) 가지다
+un|it|(It.) a|(이탈리아어) 하나의
+seno|it|(It.) breast|(이탈리아어) 가슴
+zeigen|v|to show|보여 주다
+ohnedies|adv|anyway|어차피
+Rede|n.f|speech|말, 대사
+Kreta|name|Crete|크레타
+fortunato|it|(It.) fortunate|(이탈리아어) 운 좋은
+me|it|(It.) me|(이탈리아어) 나
+felice|it|(It.) happy|(이탈리아어) 행복한
+anstatt|prep|instead of|~ 대신에|F
+Quartett|n.n|quartet|사중창
+Art|n.f|kind, manner|종류, 방식
+fällen|v|to fall (old form of fallen)|떨어지다
+unnötig|adj|unnecessary|불필요한
+Stück|n.n|piece|작품, 조각
+weg|adv|away|떨어져
+bessern|v|to improve|고치다
+Effekt|n.m|effect|효과
+ruhig|adj|calm|차분한
+Kollation|n.f|light meal|가벼운 식사
+hingehen|v|to go there|그리로 가다
+Seinsheim|name|Count Seinsheim|자인스하임 백작
+erwarten|v|to expect, to await|기다리다
+wahrlich|adv|truly|참으로
+gestehen|v|to confess|고백하다
+solch|det|such|그러한|F
+Impression|n.f|impression|인상
+gedenken|v|to intend; to remember|~할 생각이다
+verliebt|adj|in love|사랑에 빠진
+jung|adj|young|젊은
+feurig|adj|fiery|불같은
+nachts|adv|at night|밤에
+einschlafen|v|to fall asleep|잠들다
+erwachen|v|to wake up|깨어나다
+enfin|fr|(Fr.) in short, anyway|(프랑스어) 아무튼
+Sporn|n.m|spur (papal Order of the Golden Spur)|박차 (황금 박차 훈장)
+trügen|v|(trüge) would wear|(trüge) 달고 다닐까
+Kopf|n.m|head|머리
+tragen|v|to carry, to wear|들다, 달다
+Güte|n.f|kindness|친절
+Leib|n.m|body|몸
+ausbürsten|v|to brush out|솔질하다
+Kavalier|n.m|gentleman|신사
+dürfen|v|may, to be allowed|~해도 된다
+bedienen|v|to serve|섬기다
+sogenannt|adj|so-called|이른바
+populär|adj|popular|대중적인
+sorgen|v|to worry (sich sorgen)|걱정하다
+Gattung|n.f|kind, genre|종류
+ausnehmen|v|to exclude|제외하다
+lange|adv|for a long time|오랫동안
+Welt|n.f|world|세상
+Zeit|n.f|time|시간
+wegkönnen|v|to be able to leave|떠날 수 있다
+Odem|n.m|breath (old)|숨 (옛말)
+holen|v|to fetch (Odem holen: take a breath)|가져오다 (숨 돌리다)
+Unrecht|n.n|wrong|잘못
+herrlich|adj|glorious|멋진
+überlaut|adv|very loudly|아주 크게
+bravo|it|(It.) bravo|(이탈리아어) 브라보
+charmant|adj|charming|매력적인
+freundlich|adj|friendly|친절한
+Beifall|n.m|applause|갈채
+stecken|v|to be stuck|박혀 있다
+Wort|n.n|word|말, 낱말
+funesto|it|(It.) deadly, baleful|(이탈리아어) 불길한
+minacciare|it|(It.) to threaten|(이탈리아어) 위협하다
+drohen|v|to threaten|위협하다
+gänzlich|adv|completely|완전히
+ehrlich|adj|honest|정직한
+Schlendrian|n.m|old rut, routine|타성
+versessen|adj|obsessed|집착하는
+Blut|n.n|blood|피
+dabei|adv|at the same time; there|그러면서; 거기에|F
+schwitzen|v|to sweat|땀 흘리다
+dritt|adj|third|세 번째의
+voll|adj|full|가득한
+Wunder|n.n|wonder|기적, 놀라움
+Accompagnement|fr|(Fr.) accompaniment|(프랑스어) 반주
+unterirdisch|adj|underground|지하의
+Posaune|n.f|trombone|트롬본
+Waldhorn|n.n|French horn|호른
+Ort|n.m|place|장소
+platzieren|v|to place|배치하다
+herkommen|v|to come from|나오다
+stillen|v|to still, to quiet|가라앉히다
+notwendig|adj|necessary|필요한
+Weise|n.f|way (notwendiger Weise)|방식
+Marsch|n.m|march|행진곡
+simpel|adj|simple|단순한
+à|fr|(Fr./It.) at (à mezza voce)|(프랑스어) ~로
+mezzo|it|(It.) half (mezza voce: half voice)|(이탈리아어) 절반 (메차 보체)
+voce|it|(It.) voice|(이탈리아어) 목소리
+Knie|n.n|knee|무릎
+fangen|v|to catch (anfangen: begin)|잡다
+Gebet|n.n|prayer|기도
+erbrechen|v|to break open (a letter)|봉을 뜯다
+eben|adv|just, exactly|바로, 막
+leer|adj|empty|빈
+Papier|n.n|paper|종이
+fallen|v|to fall|떨어지다
+verzeihen|v|to forgive|용서하다
+augenblicklich|adv|instantly|즉시
+vorschreiben|v|to write out in advance|미리 써 두다
+verwünschen|v|to curse|저주하다
+Tanz|n.m|dance|춤
+laus|la|(Lat.) praise (Laus Deo)|(라틴어) 찬양
+deus|la|(Lat.) God (Deo)|(라틴어) 하느님
+überstehen|v|to get through|이겨 내다
+mithin|adv|consequently|따라서
+ausfallen|v|to turn out|결과가 되다
+Poesie|n.f|poetry, libretto text|시, 대본
+darin|adv|in it|그 안에|F
+lang|adj|long|긴
+worüber|adv|about which|그것에 대해|F
+seufzen|v|to sigh|한숨 쉬다
+Tugend|n.f|virtue|덕
+vergessen|v|to forget|잊다
+mitnehmen|v|to take along|가져가다
+hoffentlich|adv|hopefully|바라건대
+Augsburg|name|Augsburg|아우크스부르크
+hinüber|adv|over there|저쪽으로|F
+Kanaille|n.f|scoundrel, rabble|불한당
+richten|v|to judge, to punish|심판하다
+mutterselig|adj|all alone (mutterseelenallein)|외톨이로
+Postchaise|n.f|post-chaise|역마차
+Erzbischof|n.m|archbishop|대주교
+Brunetti|name|Antonio Brunetti (violinist)|안토니오 브루네티 (바이올리니스트)
+Ceccarelli|name|Francesco Ceccarelli (singer)|프란체스코 체카렐리 (가수)
+che|it|(It.) what (che distinzione!)|(이탈리아어) 얼마나
+distinzione|it|(It.) distinction|(이탈리아어) 차별, 영예
+NB|abbr|N.B. (note well)|주의
+Leibkammerdiener|n.m|personal valet|시종
+sitzen|v|to sit|앉아 있다
+oben|adv|above, at the top|위에
+Koch|n.m|cook|요리사
+grob|adj|coarse, rude|거친
+einfältig|adj|simple-minded|어리석은
+Spaß|n.m|joke, fun|농담
+reden|v|to talk|말하다
+P.S.|abbr|P.S. (postscript)|추신
+Fischer|name|Fischer (family / Ludwig Fischer, bass)|피셔 (가족 / 루트비히 피셔, 베이스)
+beschreiben|v|to describe|묘사하다
+Galle|n.f|bile (die Galle: anger)|담즙, 울화
+unglücklich|adj|unhappy|불행한
+salzburgisch|adj|of Salzburg|잘츠부르크의
+Dienst|n.m|service|봉직
+fort|adv|away|떠나|F
+Feuer|n.n|fire|불
+über|prep|over, about|~ 위에, ~에 대해|F
+quittieren|v|to quit (service)|그만두다
+Arco|name|Count Arco (archbishop's chamberlain)|아르코 백작 (대주교의 시종장)
+derjenige|pron|the one who|~하는 그 사람|F
+zwingen|v|to force|강요하다
+Bittschrift|n.f|petition|청원서
+überreichen|v|to hand over|건네다
+Zutritt|n.m|access|출입
+verstatten|v|to permit (old)|허락하다 (옛말)
+Tür|n.f|door|문
+hinaus|adv|out|밖으로|F
+schmeißen|v|to throw|내던지다
+Tritt|n.m|kick|발길질
+Hintern|n.m|backside|엉덩이
+Antichambre|fr|(Fr.) anteroom|(프랑스어) 대기실
+Mittel|n.n|means|수단
+losreißen|v|to tear oneself away|떨쳐 나오다
+fürstlich|adj|princely|군주의
+Respekt|n.m|respect|존경
+Affäre|n.f|affair|사건
+Gulden|n.m|florin (Fl.)|굴덴 (화폐)
+Besoldung|n.f|salary|봉급
+Behandlung|n.f|treatment|대우
+bereden|v|to persuade|설득하다
+Stolz|n.m|pride|자존심
+Grobheit|n.f|rudeness|무례함
+Stephanie|name|Gottlieb Stephanie (librettist)|고틀리프 슈테파니 (대본 작가)
+Buch|n.n|book; libretto|책; 대본
+Sujet|fr|(Fr.) subject, plot|(프랑스어) 줄거리
+türkisch|adj|Turkish|터키의
+Cavalieri|name|Caterina Cavalieri (soprano)|카테리나 카발리에리 (소프라노)
+Adamberger|name|Valentin Adamberger (tenor)|발렌틴 아담베르거 (테너)
+Terzett|n.n|trio (vocal)|삼중창
+schließen|v|to close, to end|닫다, 끝나다
+fertig|adj|finished|끝난
+Begierde|n.f|eagerness|열망
+Schreibtisch|n.m|desk|책상
+gemeiniglich|adv|usually (old)|대개 (옛말)
+hungrig|adj|hungry|배고픈
+soupieren|v|to have supper|저녁을 먹다
+essen|v|to eat|먹다
+längstens|adv|at the latest|늦어도
+Rolle|n.f|role|역할
+Osmin|name|Osmin (role in The Abduction)|오스민 (〈후궁 탈출〉의 배역)
+zugedenken|v|to intend for|~에게 주려고 하다
+Bassstimme|n.f|bass voice|베이스 목소리
+obwohl|conj|although|~이지만|F
+tief|adj|deep, low|깊은, 낮은
+Bassist|n.m|bass singer|베이스 가수
+beteuern|v|to protest, to swear|장담하다
+nächstens|adv|shortly|곧
+hoch|adj|high|높은
+Ausführung|n.f|performance|연주
+schimmern|v|to glimmer|어렴풋이 비치다
+Leidenschaft|n.f|passion|열정
+heftig|adj|violent|격렬한
+Ekel|n.m|disgust|혐오
+schaudervoll|adj|horrifying|소름 끼치는
+Lage|n.f|situation|상황
+beleidigen|v|to offend|불쾌하게 하다
+vergnügen|v|to please|즐겁게 하다
+allzeit|adv|always|언제나
+wanken|v|to waver|흔들리다
+schwellend|adj|swelling|부풀어 오르는
+Brust|n.f|chest|가슴
+heben|v|to lift (sich heben: rise)|들어 올리다
+crescendo|it|(It.) crescendo|(이탈리아어) 점점 세게
+exprimieren|v|to express (old)|표현하다 (옛말)
+Janitscharen-Chor|n.m|Janissary chorus|예니체리 합창
+Wiener|n.m|Viennese|빈 사람
+schlechterdings|adv|absolutely|절대로
+gehorsam|adj|obedient|순종하는
+welsch|adj|Italian (old)|이탈리아의 (옛말)
+komisch|adj|comic|희극의
+Elend|n.n|misery|비참함
+anbelangen|v|to concern|~에 관계되다
+wovon|adv|of which|그것에 대해|F
+Zeuge|n.m|witness|증인
+herrschen|v|to reign|지배하다
+darüber|adv|about it, over it|그것에 대해|F
+Vers|n.m|verse|시구
+unentbehrlich|adj|indispensable|없어서는 안 될
+Reim|n.m|rhyme|운
+reimen|v|to rhyme|운을 맞추다
+schädlich|adj|harmful|해로운
+Poet|n.m|poet|시인
+fast|adv|almost|거의
+Trompeter|n.m|trumpeter|트럼펫 연주자
+Handwerksposse|n.f|trick of the trade|잔재주
+erkundigen|v|to inquire|문의하다
+meist|adj|most|대부분의
+liegen|v|to lie|놓여 있다
+Namenstag|n.m|name day|명명 축일
+Früh|n.f|early morning (in der Früh)|이른 아침
+verrichten|v|to perform|행하다
+Andacht|n.f|devotions|예배
+Menge|n.f|crowd, lot|무리
+Gratulant|n.m|well-wisher|축하객
+Hals|n.m|neck|목
+Nacht|n.f|night|밤
+Nachtmusik|n.f|serenade|세레나데
+Klarinette|n.f|clarinet|클라리넷
+zwar|adv|admittedly|물론|F
+eigen|adj|own|자신의
+Komposition|n.f|composition|작곡
+exekutieren|v|to perform|연주하다
+Schlucker|n.m|wretch (armer Schlucker)|가엾은 녀석
+zusammen|adv|together|함께
+Hauptursache|n.f|main reason|주된 이유
+Strack|name|Johann Kilian Strack (imperial valet)|요한 킬리안 슈트라크 (황제 시종)
+Kaiser|n.m|emperor|황제
+täglich|adv|daily|매일
+dahin|adv|there|그리로|F
+deswegen|adv|for that reason|그 때문에
+vernünftig|adj|sensible|이성적인
+nachdem|conj|after|~한 뒤에|F
+rangieren|v|to arrange|배치하다
+entkleiden|v|to undress|옷을 벗다
+Es|abbr|E flat (key)|E♭ (내림 미)
+Akkord|n.m|chord|화음
+überraschen|v|to surprise|놀라게 하다
+Bestreben|n.n|endeavour|노력
+Hilfe|n.f|help|도움
+unsicher|adj|uncertain|불확실한
+heiraten|v|to marry|결혼하다
+ledig|adj|single|미혼의
+Weber|name|Weber (Constanze's family)|베버 (콘스탄체의 가족)
+Josepha|name|Josepha Weber|요제파 베버
+Sophie|name|Sophie Weber|조피 베버
+Constanze|name|Constanze Weber (Mozart's wife)|콘스탄체 베버 (모차르트의 아내)
+mittelste|adj|middle|가운데의
+hässlich|adj|ugly|못생긴
+Schönheit|n.f|beauty|아름다움
+zwei|num|two|둘
+schwarz|adj|black|검은
+Wachstum|n.n|growth, figure|체구
+frisieren|v|to do one's hair|머리를 손질하다
+Hauswirtschaft|n.f|housekeeping|살림
+Ungewissheit|n.f|uncertainty|불확실함
+Gewissen|n.n|conscience|양심
+Meinung|n.f|opinion|의견
+dreierlei|adj|three kinds of|세 가지의
+Augenmerk|n.n|attention|주목
+Hofschranze|n.f|courtier|아첨꾼 신하
+trauen|v|to trust|믿다
+Versprechen|n.n|promise|약속
+getrauen|v|to dare (sich getrauen)|감히 하다
+herauslocken|v|to coax out|꾀어내다
+helfen|v|to help|돕다
+bar|adj|cash (bares Geld)|현금의
+Geld|n.n|money|돈
+schriftlich|adj|written|서면의
+treu|adj|faithful|충실한
+Mädchen|n.n|girl|소녀
+Courage|n.f|courage|용기
+Trieb|n.m|urge, instinct|충동
+folgen|v|to follow|따르다
+Baron|n.m|baron|남작
+Van|name|van (Swieten)|판 (스비텐)
+Swieten|name|Baron Gottfried van Swieten|고트프리트 판 스비텐 남작
+Werk|n.n|work|작품
+Händel|name|George Frideric Handel|헨델
+Sebastian|name|(Johann) Sebastian Bach|(요한) 제바스티안 바흐
+durchspielen|v|to play through|끝까지 연주하다
+Fuge|n.f|fugue|푸가
+darein|adv|into it|그 안으로|F
+besonders|adv|especially|특히
+Fach|n.n|field, subject|분야
+nein|adv|no|아니|F
+zanken|v|to scold (sich zanken: quarrel)|꾸짖다
+Bitte|n.f|request|부탁
+aufsetzen|v|to write down|적어 두다
+Fleiß|n.m|diligence|부지런함
+andante|it|(It.) andante|(이탈리아어) 안단테
+maestoso|it|(It.) maestoso|(이탈리아어) 장엄하게
+geschwind|adj|fast|빠른
+eintretend|adj|entering|들어오는
+Subjekt|n.n|subject (fugue theme)|주제
+deutlich|adj|clear|분명한
+klar|adj|clear|명확한
+worin|adv|in which|그 안에|F
+Aufnahme|n.f|reception|반응
+berichten|v|to report|보고하다
+richtig|adj|correct|올바른
+vermuten|v|to suppose|짐작하다
+Kabale|n.f|cabal, intrigue|음모
+Wut|n.f|rage|격노
+vorher|adv|before|미리
+Sänger|n.m|singer|가수
+Theater|n.n|theatre|극장
+weder|conj|neither|~도 아니다|F
+Sperrsitz|n.m|reserved seat|지정석
+Nobleparterre|n.n|stalls for nobility|귀족석
+Stock|n.m|tier, floor|층
+Loge|n.f|box (theatre)|박스석
+ausstreichen|v|to cross out|지우다
+Partitur|n.f|score|총보
+kopieren|v|to copy|베끼다
+frei|adj|free|자유로운
+Lauf|n.m|course (freien Lauf lassen)|흐름
+applauso|it|(It.) applause|(이탈리아어) 박수
+drittemal|adv|third time|세 번째로
+ungeachtet|prep|despite|~에도 불구하고|F
+schrecklich|adj|terrible|끔찍한
+strotzen|v|to brim over|넘쳐나다
+Einwilligung|n.f|consent|동의
+unruhig|adj|uneasy|불안한
+verwirren|v|to confuse|혼란시키다
+Posttag|n.m|post day|우편 날
+umsonst|adv|in vain|헛되이
+Kopulation|n.f|wedding ceremony|혼례
+festsetzen|v|to fix|정하다
+Name|n.m|name|이름
+zugleich|adv|at the same time|동시에
+voreilig|adj|rash|성급한
+Vertrauen|n.n|trust|신뢰
+väterlich|adj|fatherly|아버지의
+Liebe|n.f|love; (meine Liebe) my dear|사랑; (meine Liebe) 여보
+Verzeihung|n.f|forgiveness|용서
+verbinden|v|to join|맺다
+sowohl|conj|both (sowohl … als)|~뿐만 아니라|F
+Priester|n.m|priest|사제
+Hochzeitfest|n.n|wedding feast|결혼 잔치
+Souper|n.n|supper|만찬
+Baronin|n.f|baroness|남작 부인
+Waldstädten|name|Baroness Waldstätten|발트슈테텐 남작 부인
+Tat|n.f|deed (in der Tat: indeed)|행위 (in der Tat: 실로)
+baronisch|adj|baronial|남작다운
+hundertmal|adv|a hundred times|백 번
+reisen|v|to travel|여행하다
+letzthin|adv|recently|최근에
+Portiunkulatag|n.m|Portiuncula feast day|포르치운쿨라 축일
+Theatiner|n.m|Theatine (monk)|테아티노 수도회 사람
+beten|v|to pray|기도하다
+andächtig|adj|devout|경건한
+beichten|v|to confess (sins)|고해하다
+kommunizieren|v|to take communion|영성체하다
+einander|pron|each other|서로|F
+schaffen|v|to create|창조하다
+anordnen|v|to arrange|배열하다
+fügen|v|to arrange, to ordain|정해 주다
+danken|v|to thank|감사하다
+Segen|n.m|blessing|축복
+Monarch|n.m|monarch|군주
+dienen|v|to serve|섬기다
+erbetteln|v|to beg for|구걸하다
+Englisch|n.n|English (language)|영어
+passabel|adj|passable|그런대로 괜찮은
+potz|interj|good heavens (potz Sapperment)|이런
+sapperment|interj|confound it|제기랄
+Vestalin|n.f|vestal virgin|베스타의 무녀
+antreffen|v|to come across|마주치다
+Standesveränderung|n.f|change of status (marriage)|신분 변화 (결혼)
+bedauern|v|to regret|유감스러워하다
+freilich|adv|of course|물론
+entfernt|adj|distant|떨어진
+öfters|adv|often|자주
+spazieren|v|to stroll|산책하다
+verfluchen|v|to curse|저주하다
+Kapellhaus|n.n|choir school|성가대 학교
+binden|v|to bind|묶다
+Wunsch|n.m|wish|바람
+geheim|adj|privy (Geheimrat)|비밀의 (추밀 고문관)
+Rat|n.m|councillor|고문관
+anwenden|v|to apply|쓰다
+verdienen|v|to earn, to deserve|벌다, 받을 만하다
+Patriot|n.m|patriot|애국자
+Brett|n.n|board (am Brett: in charge)|판자 (권력 자리)
+Schandfleck|n.m|disgrace|오점
+Deutschland|name|Germany|독일
+Ernst|n.m|seriousness (mit Ernst)|진지함
+handeln|v|to act|행동하다
+überzeugt|adj|convinced|확신하는
+Zunge|n.f|tongue|혀
+Augenblick|n.m|moment|순간
+Ankunft|n.f|arrival|도착
+tanzen|v|to dance|춤추다
+löffeln|v|to spoon|숟가락으로 떠먹다
+müde|adj|tired|피곤한
+angeboren|adj|innate|타고난
+blöd|adj|shy, dim|수줍은, 둔한
+sprechen|v|to speak|말하다
+Figaro|name|Figaro (opera)|피가로 (오페라)
+besuchen|v|to visit|방문하다
+meinetwegen|adv|for all I care|나로서는 상관없이
+Morpheus|name|Morpheus (god of sleep)|모르페우스 (잠의 신)
+Laras|name|Laras (joking nickname for Morpheus?)|라라스 (모르페우스를 부른 장난말)
+Prag|name|Prague|프라하
+günstig|adj|favourable|유리한
+Mittwoch|n.m|Wednesday|수요일
+blind|adj|blind|눈먼
+taub|adj|deaf|귀먹은
+niederschlagen|v|to dishearten|낙담시키다
+Tod|n.m|death|죽음
+genau|adv|exactly|정확히
+wahr|adj|true|참된
+Endzweck|n.m|ultimate purpose|궁극 목적
+seit|prep|since|~ 이래로|F
+paar|det|a few (ein paar)|몇몇|F
+Bild|n.n|image, picture|모습, 그림
+schreckend|adj|frightening|무서운
+beruhigend|adj|soothing|안심시키는
+tröstend|adj|comforting|위로가 되는
+nie|adv|never|결코 (않다)
+Umgang|n.m|company|교제
+mürrisch|adj|morose|시무룩한
+rein|adj|pure|순수한
+menschenmöglich|adj|humanly possible|사람으로서 할 수 있는
+unvermutet|adj|unexpected|뜻밖의
+Todesfall|n.m|death|죽음
+erraten|v|to guess|알아맞히다
+liebend|adj|loving|사랑하는
+schützend|adj|protecting|지켜 주는
+Bruder|n.m|brother|형제
+unversorgt|adj|unprovided for|돌볼 사람 없는
+überlassen|v|to leave to|맡기다
+halten|v|to hold, to keep|잡다, 지키다
+Pflicht|n.f|duty|의무
+Weib|n.n|wife (old)|아내 (옛말)
+nimmer|adv|never|결코
+scheiden|v|to part|헤어지다
+Oktober|n.m|October|10월
+Giovanni|name|Don Giovanni (opera)|돈 조반니 (오페라)
+laut|adj|loud|큰 소리의
+flatterhaft|adj|fickle|변덕스러운
+launig|adj|moody, whimsical|변덕스러운
+himmelweit|adj|vast (difference)|하늘과 땅만큼
+Seligkeit|n.f|bliss|더없는 행복
+unterscheiden|v|to distinguish|구별하다
+wahrhaft|adj|true|참된
+verschaffen|v|to procure|마련하다
+minder|adv|less|덜
+aufhören|v|to stop|그치다
+Lied|n.n|song|노래
+Freundschaft|n.f|friendship|우정
+doppelt|adj|double|이중의
+Petschaft|n.n|seal|도장
+rot|adj|red|빨간
+taugen|v|to be good for|쓸모 있다
+petschieren|v|to seal|봉인하다
+zuversichtlich|adj|confident|확신에 찬
+Erfüllung|n.f|fulfilment|이루어짐
+schöpfen|v|to draw (Odem schöpfen: take breath)|퍼내다 (숨 돌리다)
+Stand|n.m|state (im Stande: able)|상태 (im Stande: ~할 수 있는)
+Ordnung|n.f|order|정리
+bringen|v|to bring|가져오다
+wohnen|v|to live|살다
+Logis|n.n|lodgings|숙소
+Gewalt|n.f|force|힘
+ausschlagen|v|to refuse|거절하다
+vonstatten|adv|von Statten gehen: to go, proceed|진행되다
+bequem|adj|comfortable|편한
+wohlfeil|adj|cheap|값싼
+Mittag|n.m|noon|정오
+Briefchen|n.n|little letter|짧은 편지
+Budwitz|name|Budwitz (Moravian town)|부드비츠 (모라비아 도시)
+Rapport|n.m|report|보고
+kehren|v|to turn (einkehren: stop at an inn)|돌다 (여관에 들다)
+Einhorn|name|the Unicorn (inn in Prague)|아인호른 여관 (프라하)
+barbieren|v|to shave|면도하다
+ankleiden|v|to dress|옷을 입다
+Absicht|n.f|intention|의도
+Kanal|name|Kanal (Prague pleasure garden)|카날 (프라하 유원지)
+speisen|v|to dine|식사하다
+Guardassoni|name|Domenico Guardassoni (impresario)|도메니코 과르다소니 (흥행주)
+künftig|adj|next, future|다가오는
+Herbst|n.m|autumn|가을
+Dukaten|n.m|ducats (Duc.)|두카트 (금화)
+Reisegeld|n.n|travel money|여비
+Weibchen|n.n|little wife|귀여운 아내
+sehnen|v|to long (sich sehnen)|그리워하다
+treffen|v|to meet|만나다
+Dresden|name|Dresden|드레스덴
+Kuss|n.m|kiss|입맞춤
+Carl|name|Carl (Mozart's son)|카를 (모차르트의 아들)
+getreu|adj|faithful|충실한
+Samstag|n.m|Saturday|토요일
+Weg|n.m|way|길
+Duschek|name|Josepha Duschek (singer)|요제파 두셰크 (가수)
+erkennen|v|to recognize|알아보다
+Fenster|n.n|window|창문
+jemand|pron|somebody|누군가|F
+aussehen|v|to look|~처럼 보이다
+erzählen|v|to tell|이야기하다
+hineintun|v|to put in|넣다
+hinunterrutschen|v|to slide down|미끄러져 내려가다
+Nachdruck|n.m|emphasis|강조
+vielbedeutend|adj|meaningful|의미심장한
+erfordern|v|to require|필요로 하다
+schnell|adj|quick|빠른
+Mauserl|n.n|little mouse (pet name)|생쥐 (애칭)
+schlafen|v|to sleep|자다
+sechst|adj|sixth|여섯 번째의
+haarklein|adv|in every detail|하나하나 자세히
+folgend|adj|following|다음의
+Dose|n.f|box (snuffbox)|작은 상자
+Geschmack|n.m|taste|취향
+heiß|adj|hot, ardent|뜨거운
+Sehnsucht|n.f|longing|그리움
+Triumph|n.m|triumph|승리
+unzähligemal|adv|countless times|셀 수 없이
+verschlingen|v|to devour|삼키다
+Wetter|n.n|weather|날씨
+verursachen|v|to cause|일으키다
+Unbequemlichkeit|n.f|discomfort|불편
+Wagen|n.m|carriage|마차
+Busserl|n.n|little kiss (Austrian)|뽀뽀 (오스트리아어)
+Regensburg|name|Regensburg|레겐스부르크
+göttlich|adj|divine|신성한
+Tafelmusik|n.f|table music|식사 음악
+Bewirtung|n.f|hospitality, meal|대접
+Mosler-Wein|n.m|Moselle wine|모젤 와인
+entschlossen|adj|determined|결심한
+herzlich|adj|heartfelt|진심의
+welch|det|what (a)|얼마나|F
+führen|v|to lead, to take|이끌다
+Zufall|n.m|accident, mishap|우연한 일
+fatal|adj|unfortunate|불행한
+ansehen|v|to look at|바라보다
+Versteck|n.n|hiding (Verstecken spielen)|숨기
+zurück|adv|back|뒤로
+schämen|v|to be ashamed (sich schämen)|부끄러워하다
+kalt|adj|cold|차가운
+vorig|adj|previous|지난
+manch|det|many a|여러|F
+aufs|art|onto the (auf + das)|~ 위로 (auf+das)|F
+fliegen|v|to fly|날다
+erstaunlich|adv|astonishingly|놀랍게
+weh|adj|sore (weh tun: to hurt)|아픈
+Linz|name|Linz|린츠
+wirklich|adv|really|정말로
+Distinktion|n.f|distinction, honour|영예
+la|fr|(Fr.) the|(프랑스어) 그
+bonne|fr|(Fr.) good|(프랑스어) 좋은
+Ramm|name|Friedrich Ramm (oboist)|프리드리히 람 (오보에 연주자)
+Marchand|name|Marchand (Munich family)|마르샹 (뮌헨의 가족)
+Borchard|name|Borchard (Munich friend)|보르하르트 (뮌헨의 친구)
+unterhalten|v|to entertain (sich unterhalten)|즐기다
+Ende|n.n|end|끝
+Sommer|n.m|summer|여름
+Tour|n.f|trip, tour|여행
+Bad|n.n|spa, bath|온천, 목욕
+versuchen|v|to try|시도하다
+Unterhaltung|n.f|entertainment|기분 전환
+Motion|n.f|exercise|운동
+Luftveränderung|n.f|change of air|전지 요양
+anschlagen|v|to do good (health)|효과가 있다
+probieren|v|to try|해 보다
+Rechnung|n.f|bill|계산
+Freudengefühl|n.n|feeling of joy|기쁨
+Zurückkunft|n.f|return|귀환
+Büchlein|n.n|little book, libretto|작은 책, 대본
+Hofer|name|Franz de Paula Hofer (violinist, brother-in-law)|프란츠 호퍼 (바이올리니스트, 처남)
+schauen|v|to look|보다
+Papageno|name|Papageno (The Magic Flute)|파파게노 (〈마술피리〉)
+Glockenspiel|n.n|glockenspiel|글로켄슈필
+fühlen|v|to feel|느끼다
+übrigens|adv|by the way|그나저나
+nahe|adj|near|가까운
+Galerie|n.f|gallery|회랑, 갤러리
+sobald|conj|as soon as|~하자마자|F
+zurückkommen|v|to come back|돌아오다
+schlagen|v|to strike, to play|치다
+artig|adj|nice, well-behaved|얌전한, 귀여운
+Aufmerksamkeit|n.f|attention|주의
+Chor|n.m|chorus|합창
+bello|it|(It.) beautiful|(이탈리아어) 아름다운
+entlocken|v|to draw out|끌어내다

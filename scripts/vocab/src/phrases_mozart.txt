@@ -1,0 +1,115 @@
+p1|0|Nach Gott kommt gleich der Papa|After God comes Papa|하느님 다음은 바로 아빠|gleich: 여기서는 '곧바로, 바로 다음'.|gleich here: 'right after'.
+p2|0|ich weiß aber nichts davon|but I know nothing about it|그런데 나는 전혀 기억이 안 나|nichts davon wissen: '그것에 대해 아무것도 모르다'.|nichts davon wissen: 'to know nothing of it'.
+p3|0|ich bin alles und bisweilen auch gar nichts|I am everything and sometimes nothing at all|나는 전부이고 때로는 아무것도 아니다|gar nichts: '전혀 아무것도'.|gar nichts: 'nothing at all'.
+c1-l1|0|von ganzem Herzen|with all my heart|진심으로|감사·기쁨을 강하게 말할 때.|For heartfelt thanks or joy.
+c1-l1|3|nicht übel|not bad|나쁘지 않게, 꽤 잘|칭찬을 조심스럽게 할 때.|Understated praise.
+c1-l2|0|Gott Lob und Dank|thank God|다행히, 하느님 덕분에|옛 편지에 자주 나오는 감사 인사.|A common grateful formula in old letters.
+c1-l2|2|ich habe eine Noth|I have a problem|곤란한 일이 있어|Not haben: '곤란하다' (요즘 철자 Not).|Not: 'trouble' (modern spelling Not).
+c1-l3|1|wie es dem Herrn Canari geht|how Mr Canary is doing|카나리아 씨는 잘 지내는지|Wie geht es + 3격: '~는 어떻게 지내?'.|Wie geht es + dative: 'how is … doing'.
+c1-l3|3|schön wie die Engel|beautiful as angels|천사처럼 아름다운|wie + 명사: 비유.|wie + noun: simile.
+c1-l4|1|alle Tage|every day|날마다|요즘은 jeden Tag가 더 흔하다.|Today jeden Tag is more usual.
+c1-l4|4|Lebe wohl|Farewell|잘 있어|헤어질 때·편지 끝인사.|Goodbye, at the end of a letter.
+c1-l5|1|ein wenig|a little|조금|약간을 말할 때.|'A little'.
+c1-l5|4|Das ist lustig zum Componiren|That's fun for composing|작곡하기엔 재미있네|zum + 명사화 동사: '~하기에'.|zum + verbal noun: 'for …ing'.
+c1-l6|0|Ich hoffe Du wirst Dich gut befinden|I hope you are well|잘 지내고 있길 바라|sich gut befinden: '건강하다, 잘 지내다'.|sich gut befinden: 'to be well'.
+c1-l6|1|meine liebe Schwester|my dear sister|사랑하는 누나|편지에서 부르는 말.|A form of address in letters.
+c2-l1|2|Es wird noch alles gut gehen|Everything will still turn out well|다 잘될 거야|gut gehen: '잘되다'.|gut gehen: 'to go well'.
+c2-l1|3|ich geb auf alles acht|I keep an eye on everything|내가 모든 걸 챙긴다|auf etwas Acht geben: '~에 주의하다'.|auf etwas achtgeben: 'to look after'.
+c2-l2|0|die Geduld bei meiner Arbeit verloren|lost patience with my work|일하다가 인내심을 잃었다|die Geduld verlieren: '참을성을 잃다'.|die Geduld verlieren: 'to lose patience'.
+c2-l2|4|Das hat alles nichts zu bedeuten|None of that means anything|그건 다 아무 의미 없다|nichts zu bedeuten haben: '대수롭지 않다'.|nichts zu bedeuten haben: 'to mean nothing'.
+c2-l3|0|närrisch vor Freude|mad with joy|기뻐서 어쩔 줄 모르는|vor + 감정: '~ 때문에'.|vor + emotion: 'with, for'.
+c2-l3|3|wie das Kind beim Dreck|like a child with mud|흙장난하는 아이처럼|아주 즐겁게 몰두한 모습.|Happily absorbed, like a child at play.
+c2-l4|0|folglich haben sie mich nicht mehr weggelassen|so they wouldn't let me go any more|그래서 나를 놓아주지 않았다|nicht mehr: '더 이상 ~않다'.|nicht mehr: 'no longer'.
+c2-l4|3|ich bin ein Musikus|I am a musician|나는 음악가다|Musikus: 음악가를 뜻하는 옛말.|Musikus: old word for musician.
+c2-l5|3|was man im Sinne hat|what one has in mind|마음먹은 것|im Sinn haben: '~할 생각이다'.|im Sinn haben: 'to have in mind'.
+c2-l5|4|Kurz und gut|In short|요컨대|이야기를 짧게 정리할 때.|To sum up briefly.
+c2-l6|1|Stellen Sie sich vor|Just imagine|상상해 보세요|sich vorstellen: '상상하다' (존댓말 명령).|sich vorstellen: 'to imagine' (polite imperative).
+c2-l6|4|mein größtes Anliegen|my greatest wish|내 가장 큰 소망|Anliegen: '바라는 일, 관심사'.|Anliegen: 'concern, wish'.
+c2-l7|2|mir die Thränen in die Augen kamen|tears came to my eyes|눈물이 났다|Tränen kommen in die Augen: '눈물이 고이다'.|'Tears came to my eyes'.
+c2-l7|4|nach allen meinen Kräften|with all my strength|온 힘을 다해|nach Kräften: '힘껏'.|nach Kräften: 'as best one can'.
+c3-l1|0|mein Lebetag niemals|never in my life|평생 한 번도|mein Lebtag: '평생' (옛말).|mein Lebtag: 'all my life' (old).
+c3-l1|4|bis ich ums Eck herum war|until I was round the corner|내가 모퉁이를 돌 때까지|ums Eck: '모퉁이를 돌아'.|ums Eck: 'round the corner'.
+c3-l2|0|eine halbe Stunde|half an hour|30분|halb + 명사: '반 ~'.|halb: 'half'.
+c3-l2|3|zu Fuß|on foot|걸어서|교통수단 없이 갈 때.|Walking, not riding.
+c3-l3|4|verlassen Sie sich auf Gott|trust in God|하느님께 의지하세요|sich verlassen auf: '~에 의지하다'.|sich verlassen auf: 'to rely on'.
+c3-l3|4|haben Sie Sorg auf Ihre Gesundheit|take care of your health|건강을 잘 챙기세요|오늘날은 auf Ihre Gesundheit achten.|Today: auf die Gesundheit achten.
+c3-l4|2|trösten Sie sich aber endlich|but in the end take comfort|하지만 결국은 마음을 추스르세요|sich trösten: '스스로 위로하다'.|sich trösten: 'to take comfort'.
+c3-l4|3|auf ewig|for ever|영원히|für immer와 같은 뜻.|Same as für immer.
+c3-l5|0|In größter Eile|In the greatest haste|몹시 서둘러|편지 첫머리에 바쁨을 알릴 때.|Opening a hurried letter.
+c3-l5|1|können Sie sich leicht vorstellen|you can easily imagine|쉽게 상상하실 수 있을 거예요|sich vorstellen: '상상하다'.|sich vorstellen: 'to imagine'.
+c3-l6|0|zitterte ich vor Freude|I trembled with joy|기뻐서 떨렸다|vor + 감정: 원인.|vor + emotion: cause.
+c3-l6|4|so ziemlich bekannt|fairly well known|꽤 알려진|so ziemlich: '꽤, 거의'.|so ziemlich: 'pretty much'.
+c3-l7|1|ich kann nicht dafür|I can't help it|어쩔 수가 없다|오늘날은 ich kann nichts dafür.|Today: ich kann nichts dafür.
+c3-l7|4|nicht gar so viel|not all that much|그렇게 많이는 아닌|gar so: '그다지'.|gar so: 'all that'.
+c4-l1|0|Doch genug davon|But enough of that|그 얘긴 그만하자|화제를 끝낼 때.|To close a topic.
+c4-l1|4|schneiet es in Salzburg auch so wie hier|is it snowing in Salzburg as much as here|잘츠부르크에도 여기처럼 눈이 와요?|es schneit: '눈이 온다' (비인칭).|es schneit: impersonal 'it snows'.
+c4-l2|0|er hat aber Recht|but he is right|하지만 그의 말이 옳다|Recht haben: '옳다'.|Recht haben: 'to be right'.
+c4-l2|0|etwas zu Gefallen thun|do something to please|~을 위해 맞춰 주다|jemandem zu Gefallen: '~의 마음에 들도록'.|jemandem zu Gefallen: 'to please someone'.
+c4-l3|0|mit so ruhigem Herzen|with such a calm heart|아주 편안한 마음으로|mit + 3격: 방식.|mit + dative: manner.
+c4-l3|4|zufrieden wie ein König|as happy as a king|왕처럼 만족한|wie + 명사: 비유.|wie + noun: simile.
+c4-l4|1|Er hatte die Güte|He was kind enough|그는 친절하게도 ~해 주었다|die Güte haben, zu ~: '친절하게 ~해 주다'.|die Güte haben zu: 'to be so kind as to'.
+c4-l4|3|um Odem zu holen|to catch one's breath|숨 좀 돌리려고|Atem holen: '숨을 쉬다'.|Atem holen: 'to take a breath'.
+c4-l5|1|er wird gewiß Ehre davon haben|he will surely win honour from it|분명 명예를 얻을 것이다|Ehre haben von: '~로 명예를 얻다'.|'To earn honour from'.
+c4-l5|4|von der Welt|in the world|세상에서|최상급을 강조할 때.|Strengthens a superlative.
+c4-l6|0|kein Wunder|no wonder|놀랄 일도 아니다|es ist kein Wunder, dass ~.|'No wonder that'.
+c4-l6|4|in die Augen fiel|caught my eye|눈에 띄었다|in die Augen fallen: '눈에 들어오다'.|in die Augen fallen: 'to catch the eye'.
+c4-l7|0|Verzeihen Sie mir|Forgive me|용서해 주세요|정중한 사과.|A polite apology.
+c4-l7|3|aus der Noth eine Tugend machen|make a virtue of necessity|궁여지책을 장점으로 삼다|속담.|A proverb.
+c5-l1|0|ganz mutterselig allein|all on my own|완전히 혼자서|mutterseelenallein: '외톨이로'.|mutterseelenallein: 'all alone'.
+c5-l1|3|kein Wort rede|don't say a word|한마디도 하지 않다|kein Wort sagen: '한마디도 안 하다'.|'Not to say a word'.
+c5-l2|0|ganz voll der Galle|still full of rage|화가 잔뜩 나 있는|Galle: 울화 (옛 표현).|Galle: old image for anger.
+c5-l2|3|meine Ehre ist mir über Alles|my honour means everything to me|내 명예가 무엇보다 소중하다|über alles: '무엇보다도'.|über alles: 'above all'.
+c5-l3|1|zur Thür hinaus schmeißt|throws out of the door|문밖으로 내던지다|hinaus: 밖으로 향하는 방향.|hinaus: direction 'out'.
+c5-l3|4|nicht mit Stolz und Grobheit|not with pride and rudeness|오만과 무례로는 안 된다|mit + 명사: 방식.|mit + noun: manner.
+c5-l4|0|ein Buch zu schreiben gegeben|gave me a libretto to set|대본을 맡겼다|zu + 동사: 해야 할 일.|zu + verb: a task to do.
+c5-l4|3|mit größter Freude|with the greatest joy|더없이 기쁘게|mit + 최상급 명사구.|mit + superlative.
+c5-l5|0|zu tief für einen Bassisten|too low for a bass|베이스 가수로도 너무 낮게|zu + 형용사 + für: '~에게는 너무 …한'.|zu + adjective + für: 'too … for'.
+c5-l5|4|Alles was man verlangen kann|everything one could ask for|바랄 수 있는 모든 것|verlangen: '요구하다'.|verlangen: 'to ask for'.
+c5-l6|1|wovon ich selbst Zeuge war|which I witnessed myself|내가 직접 목격한|Zeuge sein: '목격하다'.|Zeuge sein: 'to witness'.
+c5-l6|4|was mir am meisten am Herzen liegt|what matters most to me|내게 가장 중요한 것|am Herzen liegen: '마음에 걸리다, 소중하다'.|am Herzen liegen: 'to matter deeply'.
+c5-l7|0|eine Menge Gratulanten auf den Hals|a crowd of well-wishers on my neck|축하객이 잔뜩 몰려왔다|auf den Hals kommen: '들이닥치다'.|'To descend on someone'.
+c5-l7|4|auf die angenehmste Art von der Welt|in the most pleasant way in the world|세상에서 가장 기분 좋은 방식으로|auf + 형용사 + Art: '~한 방식으로'.|auf … Art: 'in a … way'.
+c6-l1|1|nur halb|only half|반쪽만|부족함을 말할 때.|'Only half'.
+c6-l1|4|von Herzen|from the heart|진심으로|von ganzem Herzen보다 짧은 꼴.|Shorter than von ganzem Herzen.
+c6-l2|0|ohne zu wissen was geschieht|without knowing what is happening|무슨 일이 일어나는지 모른 채|ohne zu + 동사: '~하지 않고'.|ohne zu + verb: 'without …ing'.
+c6-l2|3|baares Geld ist besser|cash is better|현금이 낫다|bares Geld: '현금'.|bares Geld: 'cash'.
+c6-l3|0|die Courage genommen|plucked up courage|용기를 냈다|sich ein Herz fassen과 비슷한 뜻.|Like sich ein Herz fassen.
+c6-l3|3|gab mit Bitten nicht nach|wouldn't stop begging|계속 졸랐다|nicht nachgeben: '물러서지 않다'.|nicht nachgeben: 'not to give in'.
+c6-l4|2|Ich war so in Wuth|I was in such a rage|너무 화가 났다|in Wut sein: '격분하다'.|in Wut sein: 'to be furious'.
+c6-l4|4|ließ ich meinen Gedanken freien Lauf|I gave my thoughts free rein|생각이 흘러가는 대로 두었다|freien Lauf lassen: '마음껏 하게 두다'.|freien Lauf lassen: 'to give free rein'.
+c6-l5|2|Es thut einem doch wohl|It does one good|그래도 기분이 좋다|wohltun: '기분 좋게 하다'.|wohltun: 'to do good'.
+c6-l5|3|um alles in der Welt|for anything in the world|제발, 무슨 일이 있어도|간절히 부탁할 때.|For an urgent plea.
+c6-l6|0|in Gottes Namen|in God's name|하느님의 이름으로|결단을 내릴 때도 쓴다.|Also: 'for heaven's sake, go ahead'.
+c6-l6|3|in der That|indeed|실제로|오늘날 철자 in der Tat.|Modern spelling in der Tat.
+c6-l7|2|Mit Einem Wort|In a word|한마디로|요약할 때.|To sum up.
+c6-l7|2|für einander geschaffen|made for each other|천생연분|füreinander: '서로를 위해'.|füreinander: 'for each other'.
+c7-l1|0|Jetzt ist es Zeit|Now it's time|이제 때가 됐다|es ist Zeit, dass ~.|'It's time that'.
+c7-l1|4|so gut zusammen leben|live so well together|사이좋게 함께 살다|zusammen leben: '함께 살다'.|'To live together'.
+c7-l2|0|die Hände so voll zu thun|my hands so full|일이 너무 많다|alle Hände voll zu tun haben: '몹시 바쁘다'.|alle Hände voll zu tun haben: 'to be very busy'.
+c7-l2|4|ließ ich meiner Zunge freien Lauf|I let my tongue run free|마음 놓고 말했다|freien Lauf lassen: '마음껏 하게 두다'.|'To let run freely'.
+c7-l3|0|aber umsonst|but in vain|하지만 헛일이었다|umsonst: '헛되이' (또는 '공짜로').|umsonst: 'in vain' (also 'free').
+c7-l3|4|wenn ich nicht bis dahin blind und taub werde|if I don't go blind and deaf by then|그때까지 눈멀고 귀먹지 않는다면|bis dahin: '그때까지'.|bis dahin: 'until then'.
+c7-l4|0|Gott Lob, recht wohl befänden|were, thank God, quite well|다행히 아주 건강하시다|sich wohl befinden: '건강하다'.|sich wohl befinden: 'to be well'.
+c7-l4|2|Ich lege mich nie zu Bette|I never go to bed|잠자리에 들 때마다|zu Bett gehen/sich legen: '잠자리에 들다'.|'To go to bed'.
+c7-l5|1|bei jeder Gelegenheit|on every occasion|어떤 때라도|jede + 명사: '모든'.|'At every opportunity'.
+c7-l5|2|tausend Mal|a thousand times|천 번이나|과장된 강조.|Emphatic exaggeration.
+c7-l6|2|zur rechten Zeit aufzuhören|to stop at the right time|알맞은 때에 그치는 것|zur rechten Zeit: '제때에'.|zur rechten Zeit: 'at the right time'.
+c7-l6|3|von meiner wahren Freundschaft überzeugt|convinced of my true friendship|진정한 우정을 믿는|von etwas überzeugt sein: '~을 확신하다'.|überzeugt von: 'convinced of'.
+c7-l7|0|mit Rath und That|with advice and action|말과 행동으로|mit Rat und Tat helfen: '온 힘으로 돕다'.|mit Rat und Tat: 'with word and deed'.
+c7-l7|1|in Erfüllung geht|comes true|이루어지다|ein Wunsch geht in Erfüllung.|'A wish comes true'.
+c8-l1|0|glücklich hier angekommen|arrived here safely|무사히 도착했다|glücklich: 여기서는 '무사히'.|glücklich here: 'safely'.
+c8-l1|3|ich sehne mich so sehr nach|I long so much for|~이 몹시 그립다|sich sehnen nach: '~을 그리워하다'.|sich sehnen nach: 'to long for'.
+c8-l2|0|so schlecht sind die Wege|the roads are that bad|길이 그렇게나 나쁘다|so + 형용사: 강조.|so + adjective: emphasis.
+c8-l2|3|Gute Nacht, Mauserl, schlaf gesund|Good night, little mouse, sleep well|잘 자, 내 생쥐, 푹 자|잠자리 인사.|A bedtime greeting.
+c8-l3|0|ich will Dir alles haarklein erzählen|I'll tell you everything in detail|하나하나 자세히 다 말해 줄게|haarklein: '아주 자세히'.|haarklein: 'in every detail'.
+c8-l3|3|mit heißer Sehnsucht|with burning longing|애타게|그리움을 강하게 말할 때.|For strong longing.
+c8-l4|0|Diesen Augenblick kommen wir an|We are arriving this moment|지금 막 도착했어|diesen Augenblick: '바로 지금'.|diesen Augenblick: 'right now'.
+c8-l4|3|so gut als möglich|as well as possible|되도록 잘|오늘날은 so gut wie möglich.|Today: so gut wie möglich.
+c8-l5|0|dann wäre Alles recht|then everything would be fine|그러면 다 괜찮을 텐데|가정법 wäre: '~일 텐데'.|Subjunctive wäre: 'would be'.
+c8-l5|3|Ich freue mich wie ein Kind|I'm as happy as a child|아이처럼 기쁘다|sich freuen: '기뻐하다'.|sich freuen: 'to be glad'.
+c8-l6|0|Was mir das weh thut|How much it hurts me|얼마나 마음 아픈지|weh tun: '아프게 하다'.|wehtun: 'to hurt'.
+c8-l6|3|Ich habe im Sinne|I have in mind|~할 생각이다|im Sinn haben: '계획하다'.|im Sinn haben: 'to intend'.
+c8-l7|0|Mit größtem Vergnügen|With the greatest pleasure|더없이 기쁘게|기쁨을 강조할 때.|Emphatic pleasure.
+c8-l7|4|wir sehen uns wieder|we'll see each other again|또 만나자|작별 인사.|A parting phrase.
+e1|0|Du kannst nicht glauben|You can't believe|넌 믿지 못할 거야|놀라움을 전할 때.|To share surprise.
+e1|1|mit aller Aufmerksamkeit|with full attention|온 정신을 집중해서|mit aller + 명사: '온 ~을 다해'.|mit aller …: 'with all one's …'.

@@ -1,0 +1,1286 @@
+pendant|prep|during|~ 동안|F
+mon|det|my|나의|F
+maladie|n.f|illness|병
+je|pron|I|나는|F
+avoir|v|to have; (aux.) have|가지다; (조동사) ~했다|F
+revoir|v|to see again|다시 보다
+chaque|det|each, every|각각의, 모든|F
+chambre|n.f|room, bedroom|방, 침실
+de|prep|of, from|~의, ~에서|F
+le|art|the; (pron.) it, him|그 (정관사); 그것을|F
+maison|n.f|house|집
+à|prep|to, at, in|~에, ~로|F
+Zundert|name|Zundert (Vincent's birthplace)|쥔데르트 (빈센트의 고향)
+sentier|n.m|path|오솔길
+plante|n.f|plant|식물
+dans|prep|in, inside|~ 안에|F
+jardin|n.m|garden|정원
+couleur|n.f|colour|색, 색깔
+ce|det|this, that; (c') it|이, 그; 그것|F
+portrait|n.m|portrait|초상화
+paysan|n.m|peasant|농부
+être|v|to be|~이다, 있다|F
+moins|adv|less|덜|F
+noir|adj|black|검은
+que|conj|that; than; what|~라는 것; ~보다|F
+mangeur|n.m|eater|먹는 사람
+pomme|n.f|apple (pomme de terre: potato)|사과 (pomme de terre: 감자)
+terre|n.f|earth, ground, soil|땅, 흙
+Nuenen|name|Nuenen (Dutch village)|뉘넌 (네덜란드 마을)
+ne|adv|not (ne … pas)|~않다 (부정)|F
+me|pron|me, myself|나를, 나에게|F
+en|prep|in; (pron.) of it, some|~에서, ~으로; 그것을|F
+vouloir|v|to want|원하다
+pas|adv|not|~않다 (부정)|F
+venir|v|to come|오다
+tout|det|all, every; quite|모든; 아주|F
+un|art|a, an; one|하나의 (부정관사)|F
+trait|n.m|stroke, line (d'un trait: in one go)|선, 획 (d'un trait: 단숨에)
+au|art|to the, at the (à + le)|~에 (à+le)|F
+Louvre|name|the Louvre (museum)|루브르 (박물관)
+partir|v|to leave|떠나다
+midi|n.m|noon, midday|정오, 한낮
+ou|conj|or|또는|F
+plus|adv|more|더|F
+tôt|adv|early|일찍
+si|conj|if; so|만약; 그렇게|F
+tu|pron|you (familiar)|너는|F
+nous|pron|we, us|우리|F
+mistral|n.m|mistral (cold northern wind)|미스트랄 (프로방스의 차가운 북풍)
+pays|n.m|country, land|나라, 고장
+réellement|adv|really|정말로
+aussi|adv|also, as|또한, 그만큼|F
+beau|adj|beautiful|아름다운
+et|conj|and|그리고|F
+se|pron|oneself (reflexive)|자기 자신 (재귀)|F
+prêter|v|to lend (se prêter à: to lend itself to)|빌려주다 (se prêter à: ~에 알맞다)
+autant|adv|as much|그만큼
+art|n.m|art|예술
+Japon|name|Japan|일본
+cher|adj|dear|사랑하는, 친애하는
+Théo|name|Theo (Vincent's brother)|테오 (빈센트의 동생)
+durant|prep|during|~ 동안|F
+voyage|n.m|journey|여행, 오는 길
+pour|prep|for, in order to|~을 위해|F
+penser|v|to think|생각하다
+toi|pron|you (familiar, stressed)|너|F
+nouveau|adj|new|새로운
+voir|v|to see|보다
+maintenant|adv|now|지금
+te|pron|you, to you (familiar)|너를, 너에게|F
+dire|v|to say, to tell|말하다
+commencer|v|to begin|시작하다
+il|pron|he, it|그는, 그것은|F
+y|pron|there|거기에|F
+partout|adv|everywhere|어디에나
+centimètre|n.m|centimetre|센티미터
+neige|n.f|snow|눈
+tomber|v|to fall|떨어지다, 내리다
+toujours|adv|always, still|늘, 여전히
+apercevoir|v|to catch sight of, to notice|알아보다, 눈에 띄다
+magnifique|adj|magnificent|멋진, 훌륭한
+terrain|n.m|ground, field|땅, 터
+rouge|adj|red|빨간
+planter|v|to plant|심다
+vigne|n.f|vine, vineyard|포도나무, 포도밭
+avec|prep|with|~와 함께|F
+des|art|some; of the (de + les)|몇몇의; (de+les)|F
+fond|n.m|background, bottom|배경, 바닥
+montagne|n.f|mountain|산
+du|art|of the; some (de + le)|(de+le); 약간의|F
+fin|adj|fine, delicate|섬세한, 고운
+lilas|n.m|lilac|라일락, 연보랏빛
+paysage|n.m|landscape|풍경
+cime|n.f|summit, peak|꼭대기
+blanc|adj|white|흰
+contre|prep|against|~에 맞대어, ~에 반대하여|F
+ciel|n.m|sky|하늘
+lumineux|adj|bright, luminous|환한, 빛나는
+bien|adv|well; very|잘; 아주
+comme|conj|like, as|~처럼|F
+hiver|n.m|winter|겨울
+faire|v|to do, to make|하다, 만들다
+japonais|adj|Japanese|일본의
+qui|pron|who, which|누구; ~하는 (관계대명사)|F
+travail|n.m|work|일, 작업
+rapporter|v|to bring back|가져오다
+toile|n.f|canvas|캔버스, 그림
+aujourd'hui|adv|today|오늘
+pont-levis|n.m|drawbridge|도개교
+sur|prep|on|~ 위에|F
+lequel|pron|which|그것 (관계대명사)|F
+passer|v|to pass, to go by|지나가다
+petit|adj|small, little|작은
+voiture|n.f|carriage, cart|마차, 수레
+profiler|v|to stand out in outline (se profiler)|윤곽을 드러내다
+bleu|adj|blue|파란
+rivière|n.f|river|강
+également|adv|also, likewise|또한
+berge|n.f|riverbank|강둑
+orangé|adj|orange-coloured|주황빛의
+verdure|n.f|greenery|푸른 초목
+groupe|n.m|group|무리
+laveuse|n.f|washerwoman|빨래하는 여인
+caraco|n.m|loose blouse|헐렁한 블라우스
+bonnet|n.m|cap, bonnet|두건, 모자
+bariolé|adj|multicoloured, motley|알록달록한
+mais|conj|but|하지만|F
+frère|n.m|brother|형제, 동생
+savoir|v|to know|알다
+sentir|v|to feel|느끼다
+cela|pron|that, it|그것|F
+encore|adv|still, again|아직, 다시
+rien|pron|nothing|아무것도 (않다)|F
+splendeur|n.f|splendour|화려함, 장관
+accoutumé|adj|usual, customary|평소의
+ici|adv|here|여기
+neuf|adj|new (du neuf: something new)|새로운 (du neuf: 새로운 것)
+apprendre|v|to learn|배우다
+traiter|v|to treat|대하다, 다루다
+peu|adv|little, a bit|조금|F
+douceur|n.f|gentleness, softness|부드러움, 다정함
+corps|n.m|body|몸
+refuser|v|to refuse|거부하다
+son|det|his, her, its|그의, 그녀의|F
+service|n.m|service|도움, 봉사
+travailler|v|to work|일하다
+plein|adj|full (en plein air: outdoors)|가득한 (en plein air: 야외에서)
+air|n.m|air; look|공기; 모습
+verger|n.m|orchard|과수원
+labourer|v|to plough|갈다, 경작하다
+clôture|n.f|fence|울타리
+roseau|n.m|reed|갈대
+deux|num|two|둘
+pêcher|n.m|peach tree|복숭아나무
+rose|adj|pink|분홍색의
+glorieux|adj|glorious|영광스러운, 찬란한
+probablement|adv|probably|아마
+meilleur|adj|better, best|더 좋은, 가장 좋은
+seulement|adv|only|단지, 오직
+quoi|pron|what|무엇|F
+empoigner|v|to grip, to seize|움켜쥐다
+serrer|v|to squeeze, to tighten|죄다, 꽉 쥐다
+gorge|n.f|throat|목
+émotion|n.f|emotion|감정, 감동
+écrire|v|to write|쓰다
+tableau|n.m|painting, picture|그림
+souvenir|n.m|memory, souvenir|추억, 기억
+Mauve|name|Anton Mauve (Dutch painter, Vincent's cousin by marriage)|안톤 마우버 (네덜란드 화가)
+Vincent|name|Vincent|빈센트
+exprès|adv|on purpose|일부러
+prendre|v|to take|잡다, 가지다
+étude|n.f|study (painting)|습작
+fabriquer|v|to make|만들다
+sembler|v|to seem|~처럼 보이다
+falloir|v|to be necessary (il faut)|~해야 한다
+mémoire|n.f|memory|기억
+quelque|det|some|어떤, 몇몇|F
+chose|n.f|thing|것, 일
+tendre|adj|tender|부드러운, 다정한
+très|adv|very|매우|F
+gai|adj|cheerful|명랑한
+non|adv|no, not|아니|F
+gamme|n.f|range, scale (of colours)|색조의 범위
+sérieux|adj|serious|진지한
+croire|v|to believe|믿다
+mort|n.m|dead person; death|죽은 이; 죽음
+tant|adv|so much (tant que: as long as)|그토록 (tant que: ~하는 한)
+vivant|adj|living|살아 있는
+vivre|v|to live|살다
+ça|pron|that, it|그것|F
+triste|adj|sad|슬픈
+beaucoup|adv|a lot|많이
+mal|n.m|trouble, pain (avoir du mal: to struggle)|고생, 아픔 (avoir du mal: 애먹다)
+peindre|v|to paint|그리다
+cause|n.f|cause (à cause de: because of)|원인 (à cause de: ~ 때문에)
+vent|n.m|wind|바람
+attacher|v|to tie|묶다
+chevalet|n.m|easel|이젤
+piquet|n.m|stake, peg|말뚝
+quand|conj|when|~할 때|F
+même|adv|even; same|심지어; 같은|F
+trop|adv|too, too much|너무|F
+rage|n.f|rage, fury|격정, 분노
+puisque|conj|since|~이니까|F
+arbre|n.m|tree|나무
+fleur|n.f|flower|꽃
+Provence|name|Provence|프로방스
+gaieté|n.f|cheerfulness|명랑함
+monstre|n.m|monster|괴물
+jaune|adj|yellow|노란
+où|adv|where|어디; ~하는 곳|F
+orange|adj|orange|주황색의
+vif|adj|bright, vivid|선명한
+herbe|n.f|grass|풀
+vert|adj|green|초록의
+eau|n.f|water|물
+pouvoir|v|can, to be able|~할 수 있다
+assurer|v|to assure|확신시키다
+fabrique|n.f|factory|공장
+supérieur|adj|higher, superior|더 나은, 뛰어난
+campagne|n.f|countryside|시골, 들
+Asnières|name|Asnières (near Paris)|아니에르 (파리 근교)
+printemps|n.m|spring|봄
+dernier|adj|last|마지막의, 지난
+puis|adv|then|그다음에
+réussir|v|to succeed|성공하다
+lettre|n.f|letter|편지
+tel|adj|such|그러한|F
+absorber|v|to absorb|빨아들이다, 몰두시키다
+complètement|adv|completely|완전히
+répétition|n.f|repetition, replica|반복, 복제
+donner|v|to give|주다
+par|prep|by, through|~에 의해, ~을 통해|F
+trois|num|three|셋
+carré|adj|square|네모난
+autre|adj|other|다른
+côté|n.m|side|쪽, 옆
+tenir|v|to hold|잡다, 유지하다
+violet|adj|violet|보랏빛의
+mur|n.m|wall|벽
+peuplier|n.m|poplar|포플러
+droit|adj|straight|곧은
+poirier|n.m|pear tree|배나무
+tronc|n.m|trunk|줄기
+grand|adj|big, tall|큰
+papillon|n.m|butterfly|나비
+touffe|n.f|tuft, clump|덤불, 다발
+eh|interj|well, eh|자, 음
+louer|v|to rent|세내다
+aile|n.f|wing|날개, 건물의 날개 동
+droite|n.f|right (side)|오른쪽
+construction|n.f|building|건물
+contenir|v|to contain|담다, 포함하다
+pièce|n.f|room|방
+plutôt|adv|rather|오히려
+cabinet|n.m|small room|작은 방
+dehors|adv|outside|바깥에
+chaux|n.f|lime (whitewash)|석회
+intérieur|n.m|inside, interior|안쪽, 실내
+soleil|n.m|sun|해, 햇빛
+raison|n.f|reason|이유
+franc|n.m|franc (currency)|프랑 (화폐)
+mois|n.m|month|달, 개월
+désir|n.m|desire, wish|바람, 욕망
+meubler|v|to furnish|가구를 들이다
+celui|pron|the one|~인 것 (지시대명사)|F
+premier|adj|first|첫 번째의
+étage|n.m|floor, storey|층
+coucher|v|to sleep (chambre à coucher: bedroom)|눕다, 자다
+trouver|v|to find|찾다, 발견하다
+restaurant|n.m|restaurant|식당
+mieux|adv|better|더 잘
+manger|v|to eat|먹다
+santé|n.f|health|건강
+aller|v|to go|가다
+jour|n.m|day|날
+ci|adv|here (ce …-ci: this)|이 (ce …-ci)|F
+ceci|pron|this|이것|F
+dessin|n.m|drawing|소묘, 그림
+déjà|adv|already|이미
+ferme|n.f|farm|농가
+bord|n.m|edge, side|가장자리
+route|n.f|road|길
+blé|n.m|wheat|밀
+prairie|n.f|meadow|초원
+bouton|n.m|bud (bouton d'or: buttercup)|봉오리 (bouton d'or: 미나리아재비)
+or|n.m|gold|금
+fossé|n.m|ditch|도랑
+iris|n.m|iris|붓꽃
+feuille|n.f|leaf|잎
+ville|n.f|town|도시, 마을
+saule|n.m|willow|버드나무
+gris|adj|grey|회색의
+bande|n.f|strip, band|띠
+on|pron|one, we, people|사람들, 우리|F
+couper|v|to cut, to mow|자르다, 베다
+refaire|v|to do again|다시 하다
+car|conj|because, for|왜냐하면|F
+composition|n.f|composition|구도
+entourer|v|to surround|둘러싸다
+entièrement|adv|entirely|완전히
+fleuri|adj|in bloom|꽃이 핀
+joliment|adv|nicely|예쁘게, 꽤
+rêve|n.m|dream|꿈
+Saintes-Maries|name|Saintes-Maries-de-la-Mer (fishing village)|생트마리드라메르 (바닷가 마을)
+Méditerranée|name|the Mediterranean|지중해
+enfin|adv|finally; well|마침내; 아무튼
+maquereau|n.m|mackerel|고등어
+c'est-à-dire|adv|that is to say|즉|F
+changeant|adj|changing|변하는
+second|adj|second|두 번째의
+après|prep|after|~ 후에|F
+reflet|n.m|reflection, glint|반사광, 비친 빛
+teinte|n.f|tint, hue|색조
+plage|n.f|beach|해변
+sablonneux|adj|sandy|모래가 많은
+falaise|n.f|cliff|절벽
+ni|conj|nor|~도 아니다|F
+rocher|n.m|rock|바위
+Hollande|name|Holland|네덜란드
+dune|n.f|dune|모래언덕
+promener|v|to walk (se promener)|산책하다
+nuit|n.f|night|밤
+mer|n.f|sea|바다
+désert|adj|deserted|인적 없는
+ressentir|v|to feel|느끼다
+importance|n.f|importance|중요성
+rester|v|to stay, to remain|머무르다, 남다
+Midi|name|the Midi (south of France)|미디 (남프랑스)
+outrer|v|to exaggerate|과장하다
+davantage|adv|more|더
+envoyer|v|to send|보내다
+courrier|n.m|post, mail|우편
+cabane|n.f|hut|오두막
+dont|pron|of which, whose|그것의 (관계대명사)|F
+besoin|n.m|need|필요
+suivre|v|to follow|따르다
+bout|n.m|end, bit|끝
+temps|n.m|time; weather|시간; 날씨
+vue|n.f|sight, view|시야, 풍경
+œil|n.m|eye (pl. yeux)|눈 (복수 yeux)
+autrement|adv|differently|다르게
+dessiner|v|to draw|그리다
+vite|adv|fast|빨리
+éclair|n.m|flash of lightning|번개
+consoler|v|to console|위로하다
+regarder|v|to look at; to concern|보다; ~에 관계되다
+autour|adv|around|주위에
+moi|pron|me (stressed)|나|F
+nature|n.f|nature|자연
+laisser|v|to leave, to let|남기다, 내버려 두다
+guère|adv|hardly|거의 (않다)
+juste|adv|just, exactly|딱, 바로
+moment|n.m|moment|순간, 때
+moisson|n.f|harvest|추수
+semaine|n.f|week|주
+raide|adj|stiff|뻣뻣한
+résulter|v|to result|결과로 생기다
+esquisse|n.f|sketch|밑그림
+semeur|n.m|sower|씨 뿌리는 사람
+champ|n.m|field|들판, 밭
+motte|n.f|clod|흙덩이
+monter|v|to rise, to go up|오르다
+vers|prep|towards|~ 쪽으로|F
+horizon|n.m|horizon|지평선
+mûr|adj|ripe|익은
+court|adj|short|짧은
+depuis|prep|since, for|~ 이래로|F
+longtemps|adv|a long time|오랫동안
+accomplir|v|to accomplish|이루다
+donc|conj|so, therefore|그러니까|F
+presque|adv|almost|거의
+peur|n.f|fear|두려움
+parler|v|to speak|말하다
+modèle|n.m|model (sitter)|모델
+zouave|n.m|Zouave (soldier)|주아브 병사
+garçon|n.m|boy, lad|소년, 젊은이
+figure|n.f|figure; face|인물; 얼굴
+cou|n.m|neck|목
+taureau|n.m|bull|황소
+tigre|n.m|tiger|호랑이
+mousmé|n.f|mousmé (young Japanese girl)|무스메 (일본의 젊은 아가씨)
+lorsque|conj|when|~할 때|F
+lire|v|to read|읽다
+madame|n.f|Madame, Mrs|부인
+chrysanthème|n.m|chrysanthemum (Madame Chrysanthème: Loti's novel)|국화 (로티의 소설 제목)
+Loti|name|Pierre Loti (novelist)|피에르 로티 (소설가)
+coûter|v|to cost|비용이 들다
+porter|v|to carry, to wear (se porter bien: to be well)|들다, 입다 (se porter bien: 건강하다)
+fille|n.f|girl, daughter|소녀, 딸
+provençal|adj|Provençal|프로방스의
+cas|n.m|case|경우
+an|n.m|year|해, 살
+elle|pron|she, it|그녀는|F
+train|n.m|train (en train de: in the middle of)|기차 (en train de: ~하는 중)
+facteur|n.m|postman|우체부
+uniforme|n.m|uniform|제복
+agrémenté|adj|trimmed, decorated|장식된
+gros|adj|big, fat|굵은, 큰
+barbu|adj|bearded|수염 난
+socratique|adj|Socratic|소크라테스 같은
+républicain|n.m|republican|공화주의자
+enragé|adj|fanatical, mad|열렬한, 미친 듯한
+père|n.m|father|아버지
+Tanguy|name|Père Tanguy (Paris colour dealer)|탕기 영감 (파리 화방 주인)
+recevoir|v|to receive|받다
+Gauguin|name|Paul Gauguin (painter)|폴 고갱 (화가)
+peinture|n.f|painting; paint|그림; 물감
+plaindre|v|to pity (se plaindre: to complain)|불쌍히 여기다 (se plaindre: 불평하다)
+argent|n.m|money|돈
+nécessaire|adj|necessary|필요한
+changer|v|to change|바꾸다, 변하다
+payer|v|to pay|지불하다
+loyer|n.m|rent|집세
+important|adj|important|중요한
+tête|n.f|head|머리
+buste|n.m|bust|흉상, 상반신
+main|n.f|hand|손
+vieux|adj|old|오래된, 늙은
+foncé|adj|dark|짙은
+intéressant|adj|interesting|흥미로운
+chemin|n.m|path, way|길
+améliorer|v|to improve|나아지게 하다
+confiance|n.f|confidence, trust|믿음
+là|adv|there|거기|F
+sous|prep|under|~ 아래|F
+connaissance|n.f|acquaintance; knowledge|아는 사이; 지식
+sieur|n.m|Mister (old, formal)|~씨 (예스러운 말)
+Patience|name|Patience (Escalier's first name)|파시앙스 (에스칼리에의 이름)
+Escalier|name|Escalier (an old peasant)|에스칼리에 (늙은 농부)
+espèce|n.f|kind, sort|종류
+homme|n.m|man|남자, 사람
+houe|n.f|hoe|괭이
+bouvier|n.m|cowherd|소몰이꾼
+camarguais|adj|from the Camargue|카마르그의
+actuellement|adv|at present|현재
+jardinier|n.m|gardener|정원사
+mas|n.m|Provençal farmhouse|마스 (프로방스 농가)
+Crau|name|the Crau plain|크로 평야
+lieu|n.m|place (au lieu de: instead of)|장소 (au lieu de: ~ 대신에)
+chercher|v|to look for|찾다
+rendre|v|to render, to give back|표현하다, 돌려주다
+exactement|adv|exactly|정확히
+devant|prep|in front of|~ 앞에|F
+servir|v|to serve (se servir de: to use)|쓰이다 (se servir de: ~을 쓰다)
+arbitrairement|adv|arbitrarily|마음대로
+exprimer|v|to express|표현하다
+fortement|adv|strongly|강하게
+derrière|prep|behind|~ 뒤에|F
+banal|adj|commonplace|평범한
+mesquin|adj|petty|옹졸한
+appartement|n.m|flat, apartment|아파트, 집
+infini|n.m|infinity|무한
+simple|adj|simple|단순한
+riche|adj|rich|풍부한
+intense|adj|intense|강렬한
+confectionner|v|to make up|만들다
+supposer|v|to suppose|가정하다, 짐작하다
+terrible|adj|terrible, tremendous|엄청난
+fournaise|n.f|furnace|용광로, 불가마
+fulgurant|adj|dazzling|번쩍이는
+fer|n.m|iron|쇠
+rougir|v|to redden (fer rougi: red-hot iron)|붉게 달구다
+ton#2|n.m|tone (of colour)|색조
+ténèbres|n.f|darkness|어둠
+néanmoins|adv|nevertheless|그럼에도
+étoile|n.f|star|별
+haut|adj|high|높은
+clairement|adv|clearly|분명히
+alors|adv|then, so|그러면, 그때|F
+vie|n.f|life|삶
+enchanté|adj|delighted|아주 기쁜
+ah|interj|ah|아
+impie|n.m|ungodly person|불경한 사람
+entrain|n.m|gusto, zest|활기, 신바람
+marseillais|n.m|man from Marseille|마르세유 사람
+bouillabaisse|n.f|bouillabaisse (fish stew)|부야베스 (생선 스튜)
+étonner|v|to astonish|놀라게 하다
+agir|v|to act (il s'agit de: it is about)|행동하다 (il s'agit de: ~에 관한 것이다)
+tournesol|n.m|sunflower|해바라기
+espoir|n.m|hope|희망
+atelier|n.m|studio|작업실, 화실
+décoration|n.f|decoration|장식
+symphonie|n.f|symphony|교향곡
+matin|n.m|morning|아침
+lever|v|to raise (se lever: to get up)|들다 (se lever: 일어나다)
+faner|v|to wilt|시들다
+ensemble|n.m|whole|전체
+façon|n.f|way, manner|방식
+rigueur|n.f|rigour|엄격함
+monde|n.m|world; people|세상; 사람들
+clair|adj|light, clear|밝은
+veiller|v|to stay up|밤새우다
+couchant|adj|setting (soleil couchant: sunset)|지는 (soleil couchant: 석양)
+journée|n.f|day|하루, 낮
+souvent|adv|often|자주
+richement|adv|richly|풍부하게
+coloré|adj|colourful|색이 풍부한
+passion|n.f|passion|정념, 열정
+humain|adj|human|인간의
+salle|n.f|room, hall|홀, 실내
+sang|n.m|blood|피
+sourd|adj|dull, muted|탁한, 둔한
+billard|n.m|billiard table|당구대
+milieu|n.m|middle|가운데
+lampe|n.f|lamp|램프
+citron|n.m|lemon|레몬
+rayonnement|n.m|radiance|광채
+compter|v|to intend; to count|~할 작정이다; 세다
+habiter|v|to live in|살다
+demain|adv|tomorrow|내일
+acheter|v|to buy|사다
+ajouter|v|to add|덧붙이다
+strict|adj|strict|엄격한
+fois|n.f|time (une fois: once)|번, 회
+catégorie|n.f|category|부류
+représenter|v|to represent, to depict|나타내다, 그리다
+coin|n.m|corner|구석
+pleureur|adj|weeping (saule pleureur)|늘어진 (수양버들)
+buisson|n.m|bush|덤불
+taillé|adj|trimmed|다듬은
+boule|n.f|ball|공, 구
+cèdre|n.m|cedar|삼나무
+laurier|n.m|oleander, laurel|월계수, 협죽도
+deuxième|adj|second|두 번째의
+extérieur|n.m|exterior|바깥
+café|n.m|café|카페
+illuminé|adj|lit up|불 밝힌
+terrasse|n.f|terrace|테라스
+lanterne|n.f|lantern|등불
+gaz|n.m|gas|가스
+étoilé|adj|starry|별이 빛나는
+troisième|adj|third|세 번째의
+décoloré|adj|faded|빛바랜
+cendré|adj|ashen|잿빛의
+véronèse|adj|Veronese green|베로네세 녹색
+pâle|adj|pale|창백한, 연한
+question|n.f|question|질문, 문제
+scène|n.f|scene|장면
+effet|n.m|effect|효과, 인상
+place|n.f|square; place|광장; 자리
+intéresser|v|to interest|흥미를 끌다
+énormément|adv|enormously|엄청나게
+absolument|adv|absolutely|절대로, 완전히
+dormir|v|to sleep|자다
+repas|n.m|meal|식사
+paradis|n.m|paradise|천국
+peintre|n.m|painter|화가
+ci-inclus|adj|enclosed|동봉한
+croquis|n.m|sketch|크로키, 스케치
+bec|n.m|beak; burner (bec de gaz: gas lamp)|부리; (bec de gaz: 가스등)
+roi|n.m|king (bleu de roi: royal blue)|왕 (bleu de roi: 짙은 파랑)
+mauve|adj|mauve|연보라색의
+roux|adj|reddish|불그스름한
+descendre|v|to go down|내려가다
+jusque|prep|up to, until|~까지|F
+bronze|n.m|bronze|청동
+ourse|n.f|she-bear (Grande Ourse: Great Bear)|암곰 (Grande Ourse: 큰곰자리)
+scintillement|n.m|twinkling|반짝임
+pâleur|n.f|paleness|창백함
+discret|adj|discreet, subdued|은은한
+contraste|n.m|contrast|대비
+brutal|adj|harsh, brutal|거친, 강렬한
+figurine|n.f|small figure|작은 인물
+amoureux|n.m|lover|연인
+avant-plan|n.m|foreground|전경
+empêcher|v|to prevent|막다
+mot|n.m|word|낱말
+religion|n.f|religion|종교
+copain|n.m|pal|친구, 동료
+lui|pron|him, to him/her|그에게, 그|F
+Bernard|name|Émile Bernard (painter)|에밀 베르나르 (화가)
+vice|n.m|vice|악덕
+verser|v|to pour (verser dans: to slip into)|붓다 (verser dans: ~에 빠지다)
+général|n.m|general (en général: in general)|일반 (en général: 대체로)
+impressionniste|n.m|Impressionist|인상파 화가
+concevoir|v|to conceive|구상하다
+bonze|n.m|bonze (Buddhist monk)|스님
+adorateur|n.m|worshipper|숭배자
+Bouddha|name|Buddha|부처
+éternel|adj|eternal|영원한
+content|adj|glad, pleased|만족한
+fidèlement|adv|faithfully|충실히
+époque|n.f|time, period|시대, 때
+revenir|v|to come back|돌아오다
+serein|adj|serene|평온한
+vêtement|n.m|garment|옷
+veston|n.m|jacket|웃옷
+brun|adj|brown|갈색의
+border|v|to edge|가장자리를 두르다
+exagéré|adj|exaggerated|과장된
+pourpre|adj|crimson, purple|자줏빛의
+largeur|n.f|width|너비
+bordure|n.f|border|테두리
+modeler|v|to model|빚다, 입체감을 주다
+pâte|n.f|paste; impasto|반죽; 두껍게 바른 물감
+sans|prep|without|~ 없이|F
+ombre|n.f|shadow|그림자
+obliquer|v|to slant|비스듬히 하다
+merci|interj|thank you|고마워
+ton|det|your (familiar)|너의|F
+languir|v|to languish|애태우며 기다리다
+épuisé|adj|exhausted, used up|다 떨어진, 지친
+jeudi|n.m|Thursday|목요일
+ainsi|adv|thus, so|이렇게
+lundi|n.m|Monday|월요일
+bigrement|adv|darned, awfully|무지하게
+long|adj|long|긴
+principalement|adv|mainly|주로
+pain|n.m|bread|빵
+devoir|v|must, to owe|~해야 한다; 빚지다
+faute|n.f|fault|잘못
+mien|pron|mine|나의 것|F
+cadre|n.m|frame|액자
+commander|v|to order|주문하다
+budget|n.m|budget|예산
+femme|n.f|woman; wife|여자; 아내
+jeûne|n.m|fast, fasting|굶주림, 단식
+rigide|adj|rigid|엄격한
+poète|n.m|poet|시인
+noyer|n.m|walnut (wood)|호두나무
+fort|adv|very|아주
+simplement|adv|simply|간단히
+simplification|n.f|simplification|단순화
+style|n.m|style|양식
+suggestif|adj|suggestive|암시적인
+repos|n.m|rest|휴식
+sommeil|n.m|sleep|잠
+reposer|v|to rest|쉬게 하다
+imagination|n.f|imagination|상상력
+sol|n.m|floor, ground|바닥
+carreau|n.m|tile|타일
+bois|n.m|wood|나무 (재목)
+lit|n.m|bed|침대
+chaise|n.f|chair|의자
+beurre|n.m|butter|버터
+frais|adj|fresh|신선한
+drap|n.m|sheet|침대 시트
+oreiller|n.m|pillow|베개
+couverture|n.f|blanket|담요
+écarlate|adj|scarlet|진홍색의
+fenêtre|n.f|window|창문
+table|n.f|table|탁자
+toilette|n.f|washstand (table à toilette)|세면대
+cuvette|n.f|basin|대야
+porte|n.f|door|문
+volet|n.m|shutter|덧문
+clos|adj|closed|닫힌
+mettre|v|to put|놓다, 두다
+cuisine|n.f|kitchen|부엌
+installation|n.f|fitting out|설비
+quinzaine|n.f|about fifteen; fortnight|열다섯 개쯤; 보름
+soir|n.m|evening|저녁
+regagner|v|to win back|되찾다
+ailleurs|adv|elsewhere (d'ailleurs: besides)|다른 곳에 (d'ailleurs: 게다가)
+voici|prep|here is|여기 ~이 있다|F
+vague|adj|vague|흐릿한
+rangée|n.f|row|줄
+cyprès|n.m|cypress|사이프러스
+croissant|n.m|crescent|초승달
+chapeau|n.m|hat|모자
+corsage|n.m|bodice|블라우스
+jupe|n.f|skirt|치마
+quatrième|adj|fourth|네 번째의
+billet|n.m|banknote|지폐
+dépêche|n.f|telegram|전보
+arriver|v|to arrive|도착하다
+bon|adj|good|좋은
+tas|n.m|heap (un tas de: lots of)|더미 (un tas de: 많은)
+produire|v|to produce|만들어 내다
+peut-être|adv|perhaps|아마
+espérer|v|to hope|바라다
+vendre|v|to sell|팔다
+cependant|adv|however|그러나
+valoir|v|to be worth|~의 가치가 있다
+prix|n.m|price|값
+somme|n.f|sum (en somme: in short)|금액 (en somme: 요컨대)
+maigre|adj|meagre|빈약한
+apporter|v|to bring|가져오다
+échanger|v|to exchange|교환하다
+bretonne|n.f|Breton woman|브르타뉴 여인
+pré|n.m|meadow|풀밭
+note|n.f|note|음, 기록
+mat|adj|matt|광택 없는
+chair|n.f|flesh|살, 살결
+courage|n.m|courage|용기
+pressé|adj|in a hurry|바쁜
+sortir|v|to go out|나가다
+remettre|v|to put back (se remettre à: to get back to)|되돌려 놓다 (se remettre à: 다시 시작하다)
+trente|num|thirty|서른
+marcher|v|to walk; to go well|걷다; 잘 돌아가다
+devenir|v|to become|되다
+confortable|adj|comfortable|편안한
+artiste|n.m|artist|예술가
+dépenser|v|to spend|쓰다
+oser|v|to dare|감히 ~하다
+terminer|v|to finish|끝내다
+fonder|v|to found|세우다
+durer|v|to last|지속되다
+poste|n.m|post, station|자리, 거점
+station|n.f|stop, station|정거장
+utile|adj|useful|쓸모 있는
+G|name|G. (Gauguin)|G (고갱)
+aimer|v|to love, to like|사랑하다, 좋아하다
+hâte|n.f|haste (avoir hâte: to be eager)|서두름 (avoir hâte: 몹시 바라다)
+chute|n.f|fall|떨어짐, 낙엽
+ensuite|adv|then, next|그다음|F
+arlésienne|n.f|woman of Arles|아를의 여인
+sabrer|v|to slash (paint fast)|휘갈겨 그리다
+heure|n.f|hour|시간, 시
+visage|n.m|face|얼굴
+habillement|n.m|clothing|옷차림
+Prusse|name|Prussia (bleu de Prusse: Prussian blue)|프로이센 (bleu de Prusse: 감청색)
+cru|adj|raw, harsh|날것의, 강렬한
+heureux|adj|happy|행복한
+seul|adj|alone, only|혼자, 유일한
+or#2|conj|now (narrative)|그런데|F
+couvrir|v|to cover|덮다
+tapis|n.m|carpet|양탄자
+couche|n.f|layer|층
+épais|adj|thick|두꺼운
+flocon|n.m|flake|송이
+dimanche|n.m|Sunday|일요일
+vin|n.m|wine|포도주
+lointain|adj|distant|먼
+pluie|n.f|rain|비
+scintillant|adj|sparkling|반짝이는
+refléter|v|to reflect|비추다
+notre|det|our|우리의|F
+éreinté|adj|worn out|녹초가 된
+voilà|prep|there is, that's|자 ~이다|F
+existence|n.f|existence, life|삶
+famille|n.f|family|가족
+précédemment|adv|previously|앞서
+bébé|n.m|baby|아기
+jeune|adj|young|젊은
+fils|n.m|son|아들
+type|n.m|type, chap|유형, 녀석
+français|adj|French|프랑스의
+quoique|conj|although|~이지만|F
+russe|n.m|Russian|러시아인
+goût|n.m|taste|취향, 맛
+personnel|adj|personal|개인적인
+siège|n.m|siege|포위
+victoire|n.f|victory|승리
+gens|n.m|people|사람들
+avant|prep|before|~ 전에|F
+plan|n.m|plane, ground (avant-plan)|면 (전경)
+entreprise|n.f|undertaking|일, 계획
+issue|n.f|way out (sans issue: hopeless)|출구 (sans issue: 가망 없는)
+malgré|prep|despite|~에도 불구하고|F
+démontrer|v|to demonstrate|증명하다
+varier|v|to vary|바꾸다
+composer|v|to compose|구성하다
+rappeler|v|to remind|떠올리게 하다
+ancien|adj|old, former|예전의
+Claude|name|Claude (Monet)|클로드 (모네)
+Monet|name|Claude Monet (painter)|클로드 모네 (화가)
+vase|n.m|vase|꽃병
+avis|n.m|opinion|의견
+quarante|num|forty|마흔
+position|n.f|position|위치
+importer|v|to matter (n'importe: no matter)|중요하다 (n'importe: 무엇이든)
+persévérance|n.f|perseverance|끈기
+attendre|v|to wait|기다리다
+assez|adv|enough, fairly|충분히, 꽤
+drôle|adj|funny, odd|우스운, 묘한
+paille|n.f|straw|짚
+fauteuil|n.m|armchair|안락의자
+plancher|n.m|floor|마룻바닥
+roman|n.m|novel|소설
+chandelle|n.f|candle|양초
+hier|adv|yesterday|어제
+Montpellier|name|Montpellier|몽펠리에
+musée|n.m|museum|미술관
+surtout|adv|above all|특히
+Bruyas|name|Alfred Bruyas (art collector)|알프레드 브뤼야 (미술 수집가)
+Delacroix|name|Eugène Delacroix (painter)|외젠 들라크루아 (화가)
+monsieur|n.m|Mr, sir|~씨, 선생님
+barbe|n.f|beard|수염
+cheveu|n.m|hair|머리카락
+ressemblance|n.f|likeness|닮음
+poésie|n.f|poetry|시
+Musset|name|Alfred de Musset (poet)|알프레드 드 뮈세 (시인)
+toucher|v|to touch, to move|만지다, 감동시키다
+malheureux|adj|unhappy|불행한
+vêtir|v|to dress|옷을 입히다
+auprès|adv|close to (auprès de)|~ 곁에|F
+asseoir|v|to sit (s'asseoir)|앉다
+discussion|n.f|discussion|토론
+électricité|n.f|electricity|전기
+excessif|adj|excessive|지나친
+parfois|adv|sometimes|가끔
+fatigué|adj|tired|피곤한
+batterie|n.f|battery|전지
+électrique|adj|electric|전기의
+décharge|n.f|discharge|방전
+Degas|name|Edgar Degas (painter)|에드가 드가 (화가)
+hardiment|adv|boldly|대담하게
+ressembler|v|to look like|닮다
+remercier|v|to thank|감사하다
+inclus|adj|enclosed|동봉된
+mandat|n.m|money order|우편환
+découragé|adj|discouraged|낙담한
+Arles|name|Arles|아를
+difficulté|n.f|difficulty|어려움
+grave|adj|serious|심각한
+vaincre|v|to overcome|이기다
+dedans|adv|inside|안에
+part|n.f|share, part (de ma part: from me)|몫 (de ma part: 내 쪽에서)
+créateur|adj|creative|창조적인
+justement|adv|precisely|바로
+paix|n.f|peace|평화
+t|pron|(euphonic t: a-t-il)|(발음 연결용 t)|F
+décision|n.f|decision|결정
+sérénité|n.f|serenity|평온
+absolu|adj|absolute|절대적인
+bientôt|adv|soon|곧
+reprendre|v|to resume|다시 시작하다
+ménage|n.m|household|살림
+ami|n.m|friend|친구
+Roulin|name|Joseph Roulin (postman)|조제프 룰랭 (우체부)
+soin|n.m|care|돌봄
+ordre|n.m|order|질서, 정돈
+saison|n.f|season|계절
+recommencer|v|to start again|다시 시작하다
+navré|adj|deeply sorry|몹시 마음 아픈
+désirer|v|to wish|바라다
+épargner|v|to spare|면하게 하다
+aucun|det|no, none|아무 ~도|F
+déranger|v|to disturb|방해하다
+poignée|n.f|handful (poignée de main: handshake)|한 줌 (poignée de main: 악수)
+rentrer|v|to go back in, to return|돌아가다
+hôpital|n.m|hospital|병원
+chez|prep|at the home of|~의 집에|F
+Rey|name|Dr Félix Rey|펠릭스 레 박사
+médecin|n.m|doctor|의사
+eux|pron|them|그들|F
+comprendre|v|to understand|이해하다
+complémentaire|adj|complementary|보색의
+possiblement|adv|possibly|어쩌면
+dès|prep|as soon as, from|~하자마자|F
+réhabituer|v|to get used to again|다시 익숙해지다
+certes|adv|certainly|물론
+présent|adj|present|곁에 있는
+rassurer|v|to reassure|안심시키다
+guérir|v|to cure|낫게 하다
+touchant|adj|touching|감동적인
+enfant|n.m|child|아이
+rire|v|to laugh|웃다
+sauter|v|to jump, to bounce|뛰다, 튀어 오르게 하다
+genou|n.m|knee|무릎
+chanter|v|to sing|노래하다
+voix|n.f|voice|목소리
+timbre|n.m|tone, timbre|음색
+étrangement|adv|strangely|이상하게
+pur|adj|pure|맑은
+ému|adj|moved|감동한
+oreille|n.f|ear|귀
+doux|adj|soft, sweet|부드러운
+chant|n.m|song|노래
+nourrice|n.f|nurse|유모
+résonnement|n.m|echo, resounding|울림
+clairon|n.m|bugle|나팔
+France|name|France|프랑스
+révolution|n.f|revolution|혁명
+chic|adj|fine, smart|멋진
+panier|n.m|basket|바구니
+osier|n.m|wicker|버들가지
+branche|n.f|branch|가지
+paire|n.f|pair|켤레
+gant|n.m|glove|장갑
+fruit|n.m|fruit|과일
+aspect|n.m|look, aspect|모습
+alentour|adv|around (d'alentour: nearby)|주변의
+voisin|n.m|neighbour|이웃
+cimetière|n.m|cemetery|묘지
+église|n.f|church|교회
+potager|n.m|vegetable garden|텃밭
+nid|n.m|nest|둥지
+pie|n.f|magpie|까치
+acacia|n.m|acacia|아카시아
+Jeannin|name|Georges Jeannin (flower painter)|조르주 자냉 (꽃 화가)
+pivoine|n.f|peony|모란, 작약
+Quost|name|Ernest Quost (flower painter)|에르네스트 코스트 (꽃 화가)
+trémière|adj|rose trémière: hollyhock|접시꽃 (rose trémière)
+lors|adv|lors de: at the time of|~ 때에|F
+visiter|v|to visit|방문하다
+remarquer|v|to notice|알아차리다
+équivalent|adj|equivalent|같은 값의
+pareil|adj|similar, such|비슷한, 그러한
+idée|n.f|idea|생각
+marin|n.m|sailor|선원
+martyr|n.m|martyr|순교자
+cabine|n.f|cabin|선실
+bateau|n.m|boat|배
+pêcheur|n.m|fisherman|어부
+Islande|name|Iceland|아이슬란드
+éprouver|v|to feel|느끼다
+sentiment|n.m|feeling|느낌
+bercement|n.m|rocking, lulling|흔들어 재움
+leur|det|their; to them|그들의; 그들에게|F
+propre|adj|own|자신의
+détacher|v|to stand out (se détacher)|두드러지다
+disparate|n.f|clash, discord|부조화
+aigu|adj|sharp, shrill|날카로운
+attendrir|v|to soften|누그러뜨리다
+bémol|n.m|flat (music)|내림표
+imaginer|v|to imagine|상상하다
+entre|prep|between|~ 사이에|F
+former|v|to form|이루다
+lampadaire|n.m|lamp stand|등잔대
+candélabre|n.m|candelabrum|촛대
+grandeur|n.f|size|크기
+tard|adv|late|늦게
+série|n.f|series|연작
+défiler|v|to file past|줄지어 지나가다
+vitrine|n.f|display window|진열창
+amical|adj|friendly|다정한
+tarder|v|to delay|늦어지다
+répondre|v|to answer|대답하다
+finir|v|to finish|끝내다
+montrer|v|to show|보여 주다
+exemplaire|n.m|copy|한 점, 사본
+berceuse|n.f|lullaby; woman rocking a cradle|자장가; 요람 흔드는 여인
+quatre|num|four|넷
+bouquet|n.m|bunch of flowers|꽃다발
+résister|v|to resist|견디다
+etc|abbr|etc.|등등
+prévenant|adj|considerate|배려심 있는
+patrie|n.f|homeland|조국
+correctement|adv|correctly|정확하게
+Bouguereau|name|William Bouguereau (academic painter)|윌리앙 부그로 (아카데미 화가)
+regretter|v|to regret|아쉬워하다
+correct|adj|correct|정확한
+sérieusement|adv|seriously|진지하게
+tellement|adv|so, so much|너무나
+épaté|adj|amazed|깜짝 놀란
+Signac|name|Paul Signac (painter)|폴 시냐크 (화가)
+considérablement|adv|considerably|상당히
+exaspéré|adj|exasperated|화가 난
+gendarme|n.m|policeman|헌병
+parce|conj|parce que: because|왜냐하면|F
+hareng|n.m|herring|청어
+fumé|adj|smoked|훈제한
+nommer|v|to name|이름 붙이다
+calme|adj|calm|차분한
+violent|adj|violent|난폭한
+quelqu'un|pron|someone|누군가|F
+aplomb|n.m|poise, self-assurance|침착함
+équilibre|n.m|balance|균형
+profiter|v|to make use of|활용하다
+sortie|n.f|outing|외출
+livre|n.m|book|책
+glèbe|n.f|soil (La Glèbe: Lemonnier's book)|흙, 땅 (소설 제목)
+Camille|name|Camille (Lemonnier)|카미유 (르모니에)
+Lemonnier|name|Camille Lemonnier (Belgian writer)|카미유 르모니에 (벨기에 작가)
+dévorer|v|to devour|탐독하다
+chapitre|n.m|chapter|장
+profondeur|n.f|depth|깊이
+parfaitement|adv|perfectly|완벽하게
+vrai|adj|true|진짜의
+souhaiter|v|to wish|바라다
+fiancée|n.f|fiancée|약혼녀
+bonheur|n.m|happiness|행복
+féliciter|v|to congratulate|축하하다
+Alpines|name|the Alpilles hills|알피유 산맥
+heureusement|adv|fortunately|다행히
+momentanément|adv|for the moment|일시적으로
+oublier|v|to forget|잊다
+peine|n.f|sorrow, trouble|슬픔, 수고
+rayonner|v|to radiate, to beam|빛나다
+illusion|n.f|illusion|환상
+parole|n.f|word, speech|말
+paraître|v|to seem, to appear|보이다
+songer|v|to think of|생각하다
+désolé|adj|sorry|미안한, 안타까운
+pin|n.m|pine|소나무
+croître|v|to grow|자라다
+entretenir|v|to maintain|가꾸다
+entremêler|v|to intermingle|뒤섞다
+ivraie|n.f|weed, tares|잡초
+divers|adj|various|여러 가지의
+suffire|v|to be enough|충분하다
+papier|n.m|paper|종이
+rideau|n.m|curtain|커튼
+raviver|v|to revive|되살리다
+mince|adj|thin|가는
+travers|n.m|à travers: through|~을 가로질러
+barrer|v|to bar|가로막다
+enclos|n.m|enclosure|울타리 친 땅
+perspective|n.f|perspective, view|원근, 전망
+Van|name|Van (Goyen)|판 (호이언)
+Goyen|name|Jan van Goyen (Dutch painter)|얀 판 호이언 (네덜란드 화가)
+au-dessus|adv|above|~ 위에|F
+gloire|n.f|glory|영광
+rare|adj|rare|드문
+appeler|v|to call|부르다
+coloration|n.f|colouring|색조
+distingué|adj|refined|기품 있는
+étonnant|adj|astonishing|놀라운
+nuancé|adj|subtly shaded|미묘한 빛깔의
+carminé|adj|carmine-tinted|진홍빛의
+vaguement|adv|vaguely|어렴풋이
+tourner|v|to turn|돌다, 기울다
+olive|adj|olive-green|올리브색의
+tuer|v|to kill|죽이다
+dommage|n.m|pity|유감
+bête|n.f|animal, beast|짐승
+prier|v|to ask, to pray|부탁하다
+possible|adj|possible|가능한
+brosse|n.f|brush|붓
+ordinaire|adj|ordinary|보통의
+près|adv|near|가까이
+grosseur|n.f|size, thickness|굵기
+Daubigny|name|Charles-François Daubigny (painter)|샤를프랑수아 도비니 (화가)
+Rousseau|name|Théodore Rousseau (painter)|테오도르 루소 (화가)
+expression|n.f|expression|표현
+intimité|n.f|intimacy|친밀함
+majesté|n.f|majesty|장엄함
+navrant|adj|heartbreaking|가슴 아픈
+détester|v|to hate|몹시 싫어하다
+quel|det|what, which|어떤|F
+conséquent|adj|par conséquent: consequently|따라서 (par conséquent)
+sage|adj|wise|현명한
+mètre|n.m|metre|미터
+envoi|n.m|consignment|보낸 것, 소포
+tabac|n.m|tobacco|담배
+chocolat|n.m|chocolate|초콜릿
+parvenir|v|to reach|도착하다
+état|n.m|state|상태
+colline|n.f|hill|언덕
+ravager|v|to ravage|휩쓸다
+flanquer|v|to throw, to fling|내던지다
+orage|n.m|storm|폭풍우
+delà|adv|beyond (au delà de)|저편에
+olivier|n.m|olive tree|올리브나무
+nuage|n.m|cloud|구름
+noyé|adj|drowned, steeped|잠긴
+azur|n.m|azure|하늘빛
+simplicité|n.f|simplicity|단순함
+extrême|adj|extreme|극도의
+essentiellement|adv|essentially|본질적으로
+candide|adj|naïve, innocent|순진한
+qualité|n.f|quality|자질
+exister|v|to exist|존재하다
+étendre|v|to stretch out|펼치다
+saint|adj|Saint (St)|성 (聖)
+Saint-Ouen|name|Saint-Ouen (near Paris)|생투앙 (파리 근교)
+consolant|adj|consoling|위로가 되는
+préparer|v|to prepare|준비하다
+agréable|adj|pleasant|기분 좋은
+Shakespeare|name|Shakespeare|셰익스피어
+chaleur|n.f|heat|더위
+sorte|n.f|sort, kind|종류
+chantier|n.m|work in progress|작업 중인 일
+préoccuper|v|to preoccupy|마음을 사로잡다
+ligne|n.f|line|선
+proportion|n.f|proportion|비례
+obélisque|n.m|obelisk|오벨리스크
+égyptien|adj|Egyptian|이집트의
+massif|adj|massive|육중한
+bas|adj|low|낮은
+ronce|n.f|bramble|가시덤불
+broussaille|n.f|scrub|덤불
+lune|n.f|moon|달
+cordialement|adv|cordially|진심으로
+aider|v|to help|돕다
+anglais|adj|English|영국의
+certain|det|certain, some|어떤, 몇몇|F
+romancier|n.m|novelist|소설가
+distance|n.f|distance|거리
+plusieurs|det|several|여러|F
+siècle|n.m|century|세기
+inconnu|adj|unknown|알려지지 않은
+moissonneur|n.m|reaper|추수하는 사람
+exception|n.f|exception|예외
+violacé|adj|purplish|보랏빛 도는
+épi|n.m|ear (of wheat)|이삭
+coquelicot|n.m|poppy|개양귀비
+étoffe|n.f|fabric|천
+écossais|adj|tartan, Scottish|체크무늬의
+empâté|adj|thickly painted|두껍게 칠한
+Monticelli|name|Adolphe Monticelli (painter)|아돌프 몽티셀리 (화가)
+oncle|n.m|uncle|삼촌
+projeter|v|to plan|계획하다
+meule|n.f|haystack|건초 더미
+remplacer|v|to replace|대신하다
+ocre|n.m|ochre|황토색
+cigale|n.f|cicada|매미
+charme|n.m|charm|매력
+grillon|n.m|cricket|귀뚜라미
+foyer|n.m|hearth, home|난롯가, 가정
+brave|adj|good, decent|착한
+capitaine|n.m|captain|선장
+obéir|v|to obey|따르다
+cafard|n.m|cockroach|바퀴벌레
+lutte|n.f|struggle|싸움
+indisposition|n.f|indisposition|몸이 안 좋음
+faucheur|n.m|reaper|풀 베는 사람
+terriblement|adv|terribly|지독하게
+motif|n.m|motif, subject|소재, 모티프
+diable|n.m|devil|악마
+besogne|n.f|task|일
+image|n.f|image|이미지
+sens|n.m|sense, meaning|뜻, 의미
+humanité|n.f|humanity|인류
+faucher|v|to mow|베다
+opposition|n.f|opposite|반대
+essayer|v|to try|시도하다
+auparavant|adv|before|이전에
+lumière|n.f|light|빛
+inonder|v|to flood|가득 채우다
+sauf|prep|except|~을 빼고|F
+blond|adj|fair, golden|금빛의
+copie|n.f|copy|모사
+Pietà|name|Pietà (Delacroix)|피에타 (들라크루아)
+dix|num|ten|열
+Millet|name|Jean-François Millet (painter)|장프랑수아 밀레 (화가)
+pourtant|adv|yet|그런데도
+perdre|v|to lose (perdre de vue: lose sight of)|잃다 (perdre de vue: 놓치다)
+poser|v|to put on; to sit (model)|놓다; 모델을 서다
+improviser|v|to improvise|즉흥으로 하다
+là-dessus|adv|on it, on that|그 위에|F
+copier|v|to copy|모사하다
+hasard|n.m|chance|우연
+pinceau|n.m|brush|붓
+doigt|n.m|finger|손가락
+archet|n.m|bow (violin)|활
+violon|n.m|violin|바이올린
+plaisir|n.m|pleasure|기쁨
+histoire|n.f|story, history|이야기
+semer|v|to sow|씨를 뿌리다
+germer|v|to sprout|싹트다
+moudre|v|to grind|빻다
+enrager|v|to be furious|화가 나다
+Christ|name|Christ|그리스도
+observer|v|to observe|관찰하다
+secouer|v|to shake|흔들다
+froid|adj|cold|차가운
+tripoter|v|to fiddle with|만지작거리다
+têtard|n.m|pollard (willow)|가지 친 버드나무
+nord|n.m|north|북쪽
+pittoresque|adj|picturesque|그림 같은
+monotone|adj|monotonous|단조로운
+caractère|n.m|character|성격
+prétention|n.f|pretension|허세
+cueillir|v|to pick|따다
+loin|adv|far|멀리
+feuillage|n.m|foliage|잎사귀
+adoucir|v|to soften|부드럽게 하다
+fête|n.f|party, feast|잔치
+oliveuse|n.f|olive picker (woman)|올리브 따는 여인
+mère|n.f|mother|어머니
+sœur|n.f|sister|누이
+habitude|n.f|habit (d'habitude: usually)|습관 (d'habitude: 보통)
+superbe|adj|superb|훌륭한
+silhouette|n.f|silhouette|실루엣
+dentelle|n.f|lace|레이스
+exquis|adj|exquisite|정교한
+agréablement|adv|pleasantly|기분 좋게
+surprendre|v|to surprise|놀라게 하다
+causer|v|to cause; to chat|일으키다; 이야기하다
+ravin|n.m|ravine|협곡
+caler|v|to wedge|고정하다
+pierre|n.f|stone|돌
+destiner|v|to intend for|~하기로 정하다
+étudier|v|to study|연구하다
+platane|n.m|plane tree|플라타너스
+rue|n.f|street|거리
+principal|adj|main|주된
+boulevard|n.m|boulevard|대로
+Saint-Rémy|name|Saint-Rémy-de-Provence|생레미드프로방스
+repoussoir|n.m|foil (foreground object)|돋보이게 하는 것
+juger|v|to judge|판단하다
+critique|adj|critical|위급한
+Jo|name|Jo (Theo's wife)|요 (테오의 아내)
+bravo|interj|bravo|브라보
+contraire|n.m|opposite|반대
+pensée|n.f|thought|생각
+vous|pron|you (plural/formal)|당신들, 당신|F
+demeurer|v|to remain|머무르다
+pourquoi|adv|why|왜|F
+continuer|v|to continue|계속되다
+coup|n.m|blow, stroke|일격
+ardeur|n.f|ardour|열의
+continu|adj|continuous|꾸준한
+harmonieux|adj|harmonious|조화로운
+combinaison|n.f|combination|조합
+étrange|adj|strange|이상한
+frapper|v|to strike|강한 인상을 주다
+Seurat|name|Georges Seurat (painter)|조르주 쇠라 (화가)
+révélation|n.f|revelation|계시
+malle|n.f|trunk|여행 가방
+difficile|adj|difficult|어려운
+Auvers|name|Auvers-sur-Oise|오베르쉬르우아즈
+chaume|n.m|thatch|초가지붕
+chance|n.f|luck|운
+séjour|n.m|stay|머묾
+gravement|adv|seriously|심각하게
+caractéristique|adj|characteristic|특징적인
+docteur|n.m|doctor (Dr)|박사, 의사
+Gachet|name|Dr Paul Gachet|폴 가셰 박사
+Pissarro|name|Camille Pissarro (painter)|카미유 피사로 (화가)
+Cézanne|name|Paul Cézanne (painter)|폴 세잔 (화가)
+Belgique|name|Belgium|벨기에
+raidir|v|to stiffen|굳게 하다
+chagrin|n.m|grief|슬픔
+redevenir|v|to become again|다시 ~이 되다
+souriant|adj|smiling|웃는
+toit|n.m|roof|지붕
+pois|n.m|pea|완두
+joli|adj|pretty|예쁜
+bourgeois|adj|middle-class|부르주아의
+Ville-d'Avray|name|Ville-d'Avray (near Paris)|빌다브레 (파리 근교)
+rencontre|n.f|meeting|만남
+manière|n.f|manner, way|방식
+sain|adj|healthy|건강한
+casquette|n.f|cap|모자
+frac|n.m|tailcoat|연미복
+cobalt|n.m|cobalt|코발트
+appuyer|v|to lean|기대다
+digitale|n.f|foxglove|디기탈리스
+fanatique|adj|fanatical|광적인
+tien|pron|yours|너의 것|F
+plupart|n.f|most (la plupart)|대부분
+établir|v|to settle|자리 잡다
+colonie|n.f|colony|무리, 집단
+américain|n.m|American|미국인
+mine|n.f|look (bonne mine: looking well)|안색
+exposition|n.f|exhibition|전시회
+Raffaëlli|name|Jean-François Raffaëlli (painter)|장프랑수아 라파엘리 (화가)
+arrangement|n.m|arrangement|배치
+cretonne|n.f|cretonne (cotton cloth)|크레톤 (면직물)
+moyen|n.m|means|방법
+exposer|v|to exhibit|전시하다
+Chéret|name|Jules Chéret (poster artist)|쥘 셰레 (포스터 화가)
+certainement|adv|certainly|분명히
+avant-hier|adv|the day before yesterday|그저께
+mademoiselle|n.f|Miss|~양
+robe|n.f|dress|드레스
+point|n.m|dot, point|점
+piano|n.m|piano|피아노
+large|adj|wide|넓은
+promettre|v|to promise|약속하다
+orgue|n.m|organ|오르간
+hauteur|n.f|height|높이
+carmin|n.m|carmine|진홍색
+ornement|n.m|ornament|장식
+campagnard|adj|rustic|시골풍의
+hâlé|adj|tanned|햇볕에 그을린
+brûlé|adj|burnt|탄
+évangile|n.m|gospel|복음
+délivrance|n.f|release|해방
+angoisse|n.f|anguish|불안
+laborieux|adj|hard-working|부지런한
+partager|v|to share|나누다
+immense|adj|immense|광대한
+étendue|n.f|expanse|넓은 땅
+trouble|adj|troubled, murky|흐린
+gêner|v|to bother (se gêner: to hold back)|거북하게 하다 (se gêner: 망설이다)
+tristesse|n.f|sadness|슬픔
+solitude|n.f|loneliness|고독
+fortifiant|adj|invigorating|기운 나게 하는
+méditer|v|to ponder|곰곰이 생각하다
+appliquer|v|to apply (s'appliquer: to work hard)|적용하다 (s'appliquer: 열심히 하다)
+attention|n.f|attention|주의
+admirer|v|to admire|감탄하다
+constater|v|to note|확인하다
+Bretagne|name|Brittany|브르타뉴
+là-bas|adv|over there|저기|F
+joindre|v|to enclose|동봉하다
+parterre|n.m|flower bed|화단
+claie|n.f|wattle fence|바자울
+noisetier|n.m|hazel|개암나무
+banc|n.m|bench|벤치
+chat|n.m|cat|고양이
+vraiment|adv|truly|정말
+redire|v|to repeat|되풀이해 말하다
+considérer|v|to consider|여기다
+marchand|n.m|dealer|상인, 화상
+Corot|name|Camille Corot (painter)|카미유 코로 (화가)
+intermédiaire|n.m|intermediary|중개자
+production|n.f|output|작품, 생산물
+débâcle|n.f|collapse|붕괴
+garder|v|to keep|간직하다
