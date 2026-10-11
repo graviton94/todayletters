@@ -811,8 +811,8 @@
     }
    ],
    "note": {
-    "ko": "그림은 이 편지와 같은 해인 1777년에 그려진 볼프강의 초상이에요. 레오폴트 모차르트의 생일은 11월 14일, 영명축일(성 레오폴트 축일)은 11월 15일이라 볼프강은 두 날을 함께 축하해요. 칸나비히의 딸 로자에게 써 준 소나타는 피아노 소나타 C장조 K. 309예요. 이 편지를 쓰기 전에 그는 선제후 카를 테오도어와 궁정 앞에서 연주했어요.",
-    "en": "The picture is a portrait of Wolfgang painted in 1777, the year of this letter. Leopold Mozart's birthday fell on 14 November and his name-day, St Leopold's, on 15 November, so Wolfgang sends a double greeting. The sonata for Cannabich's daughter Rosa is the Piano Sonata in C, K. 309. Shortly before, he had played for the Elector Carl Theodor and his court.",
+    "ko": "그림은 모차르트가 아니라, 이 편지에 나오는 칸나비히를 2년 뒤 만하임에서 새긴 판화예요. 레오폴트 모차르트의 생일은 11월 14일, 영명축일(성 레오폴트 축일)은 11월 15일이라 볼프강은 두 날을 함께 축하해요. 칸나비히의 딸 로자에게 써 준 소나타는 피아노 소나타 C장조 K. 309예요. 이 편지를 쓰기 전에 그는 선제후 카를 테오도어와 궁정 앞에서 연주했어요.",
+    "en": "The picture is not Mozart but Cannabich, named in this letter, engraved in Mannheim two years later. Leopold Mozart's birthday fell on 14 November and his name-day, St Leopold's, on 15 November, so Wolfgang sends a double greeting. The sonata for Cannabich's daughter Rosa is the Piano Sonata in C, K. 309. Shortly before, he had played for the Elector Carl Theodor and his court.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 73 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -839,32 +839,52 @@
     "ko": "소리로 전하는 축하"
    },
    "plate": {
-    "title_de": "Bildnis Wolfgang Amadeus Mozart mit dem Orden vom Goldenen Sporn",
-    "title_en": "Portrait of Wolfgang Amadeus Mozart with the Order of the Golden Spur",
-    "title_ko": "황금 박차 훈장을 단 볼프강 아마데우스 모차르트",
-    "date": "1777",
-    "collection": "Museo internazionale e biblioteca della musica, Bologna",
+    "title_de": "Christian Cannabich",
+    "title_en": "Christian Cannabich",
+    "title_ko": "크리스티안 칸나비히",
+    "date": "1779",
+    "collection": "Wikimedia Commons",
     "imageLicense": "Public domain",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Onbekend_-_Portret_van_Wolfgang_Amadeus_Mozart_(1777)_-_Bologna_Museo_Internationale_e_biblioteca_della_musica_di_bologna_28-04-2012_9-21-040.jpg",
-    "credit": "Unknown artist",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Egid_Verhelst_-_Portrait_of_Christian_Cannabich.jpg",
+    "credit": "Egid Verhelst (engraver)",
     "why": {
-     "ko": "‘저는 음악가예요’라고 쓴 바로 그해, 스물한 살 볼프강의 모습이에요. 건반과 악보 옆에 앉아 있어요.",
-     "en": "Wolfgang at twenty-one, the year he wrote 'I am a musician', seated by a keyboard and music."
+     "ko": "이날 오전 볼프강이 소나타의 론도를 쓴 집의 주인, 만하임 궁정 악단의 칸나비히예요.",
+     "en": "Cannabich, of the Mannheim court orchestra — the house where Wolfgang wrote the sonata's rondo that morning."
     },
     "image": "m-c2-l4.jpg",
-    "kind": "mozart",
+    "kind": "person",
     "spots": [
      {
-      "x": 0.48,
-      "y": 0.27,
+      "x": 0.5,
+      "y": 0.3,
       "title": {
-       "de": "Der Musikus",
-       "en": "The musician",
-       "ko": "음악가"
+       "de": "Herr Cannabich",
+       "en": "Herr Cannabich",
+       "ko": "칸나비히 씨"
       },
       "note": {
-       "ko": "시인도 화가도 무용수도 아니고, ‘소리로 말하는 음악가’예요.",
-       "en": "Not a poet, painter or dancer — a musician, who speaks in tones."
+       "ko": "아래 글자는 ‘선제후 궁정 음악 감독’. 볼프강은 그의 딸 로자를 위해 소나타를 썼어요.",
+       "en": "The lettering below calls him director of music to the Elector Palatine. Wolfgang wrote a sonata for his daughter Rosa."
+      },
+      "word": {
+       "de": "Cannabich",
+       "en": "Cannabich",
+       "ko": "칸나비히",
+       "ipa": "ˈkanabɪç"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.48,
+      "y": 0.68,
+      "title": {
+       "de": "Die Leier",
+       "en": "The lyre",
+       "ko": "리라"
+      },
+      "note": {
+       "ko": "리라와 악보로 엮은 장식. ‘저는 소리로 말해요. 음악가니까요.’",
+       "en": "A trophy of lyre and music: 'I can do it by tones, for I am a musician.'"
       },
       "word": {
        "de": "Musikus",
@@ -873,46 +893,6 @@
        "ipa": "ˈmuːzikʊs"
       },
       "quote": 3
-     },
-     {
-      "x": 0.85,
-      "y": 0.63,
-      "title": {
-       "de": "Das Notenblatt",
-       "en": "The music",
-       "ko": "악보"
-      },
-      "note": {
-       "ko": "보면대의 악보. 이날 오전 그는 로자 칸나비히를 위한 소나타의 론도를 썼어요.",
-       "en": "Music on the stand; that morning he wrote the rondo of the sonata for Rosa Cannabich."
-      },
-      "word": {
-       "de": "Sonate",
-       "en": "sonata",
-       "ko": "소나타",
-       "ipa": "zoˈnaːtə"
-      },
-      "quote": 0
-     },
-     {
-      "x": 0.86,
-      "y": 0.88,
-      "title": {
-       "de": "Die Tasten",
-       "en": "The keys",
-       "ko": "건반"
-      },
-      "note": {
-       "ko": "건반. 선제후는 ‘그대의 연주는 비할 데가 없다’고 했어요.",
-       "en": "The keys: 'You play inimitably', said the Elector."
-      },
-      "word": {
-       "de": "spielt",
-       "en": "play",
-       "ko": "연주",
-       "ipa": "ʃpiːlt"
-      },
-      "quote": 1
      }
     ]
    }

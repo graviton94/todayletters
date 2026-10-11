@@ -831,8 +831,8 @@
     }
    ],
    "note": {
-    "ko": "볼프강은 열네 살이던 1770년 로마에서 교황에게 황금 박차 기사 훈장을 받았어요. 그 ‘박차’로 놀리는 사람에게 재치 있게 받아치지요. 편지 끝에서는 잘츠부르크 대주교 콜로레도의 궁정이 갈수록 견디기 힘들다고 털어놓아요. 그래도 아버지를 위해 참겠다고 하지요.",
-    "en": "In 1770, aged fourteen, Wolfgang had been made a Knight of the Golden Spur by the Pope in Rome; here he turns the 'spur' into a joke against a teasing visitor. At the end he admits that the court of Archbishop Colloredo in Salzburg grows more intolerable every day, and that he stays only for his father's sake.",
+    "ko": "그림은 이 무렵 잘츠부르크에서 그려진 모차르트 가족 초상이에요. 볼프강은 훈장을 달고 있지 않아요. 볼프강은 열네 살이던 1770년 로마에서 교황에게 황금 박차 기사 훈장을 받았어요. 그 ‘박차’로 놀리는 사람에게 재치 있게 받아치지요. 편지 끝에서는 잘츠부르크 대주교 콜로레도의 궁정이 갈수록 견디기 힘들다고 털어놓아요. 그래도 아버지를 위해 참겠다고 하지요.",
+    "en": "The picture is the Mozart family portrait painted in Salzburg around this time; Wolfgang wears no order. In 1770, aged fourteen, Wolfgang had been made a Knight of the Golden Spur by the Pope in Rome; here he turns the 'spur' into a joke against a teasing visitor. At the end he admits that the court of Archbishop Colloredo in Salzburg grows more intolerable every day, and that he stays only for his father's sake.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 134 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -858,52 +858,32 @@
     "ko": "귀 긴 족속만 빼고"
    },
    "plate": {
-    "title_de": "Wolfgang Amadeus Mozart mit dem Orden vom Goldenen Sporn",
-    "title_en": "Wolfgang Amadeus Mozart with the Order of the Golden Spur",
-    "title_ko": "황금 박차 훈장을 단 볼프강 아마데우스 모차르트",
-    "date": "1777",
-    "collection": "Museo internazionale e biblioteca della musica, Bologna",
+    "title_de": "Die Familie Mozart",
+    "title_en": "The Mozart Family",
+    "title_ko": "모차르트 가족",
+    "date": "c. 1780–81",
+    "collection": "Stiftung Mozarteum Salzburg",
     "imageLicense": "Public domain",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:W_A_Mozart_at_21c.jpg",
-    "credit": "Anonymous",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Mozart_Family_Croce.jpg",
+    "credit": "Johann Nepomuk della Croce (attr.)",
     "why": {
-     "ko": "편지에서 놀림감이 된 바로 그 ‘박차’ 훈장을 단 모차르트의 초상이에요.",
-     "en": "Mozart wearing the very 'Spur' that a visitor teases him about in this letter."
+     "ko": "훈장 없이 붉은 웃옷을 입은 볼프강, 그리고 그가 ‘생각하면 슬퍼진다’던 잘츠부르크의 가족이에요.",
+     "en": "Wolfgang in a red coat with no order on it, and the Salzburg family he says he grows sad thinking of."
     },
     "image": "m-c4-l4.jpg",
     "kind": "mozart",
     "spots": [
      {
-      "x": 0.73,
-      "y": 0.91,
-      "title": {
-       "de": "Der Goldene Sporn",
-       "en": "The Golden Spur",
-       "ko": "황금 박차 훈장"
-      },
-      "note": {
-       "ko": "가슴의 십자 훈장. 교황에게 받은 황금 박차 기사 훈장이에요. 볼프강은 ‘머릿속에 단 것만으로도 무겁다’고 받아쳐요.",
-       "en": "The cross on his chest is the papal Order of the Golden Spur; Wolfgang quips that the one in his head is heavy enough."
-      },
-      "word": {
-       "de": "Sporn",
-       "en": "Spur",
-       "ko": "박차",
-       "ipa": "ʃpɔʁn"
-      },
-      "quote": 0
-     },
-     {
-      "x": 0.6,
-      "y": 0.3,
+      "x": 0.36,
+      "y": 0.38,
       "title": {
        "de": "Der Kopf",
        "en": "His head",
        "ko": "머리"
       },
       "note": {
-       "ko": "‘훈장은 머릿속에 단 것으로 충분하다’. 그 머릿속에 이때 〈이도메네오〉가 가득했어요.",
-       "en": "'I have one in my head': at this moment that head was full of Idomeneo."
+       "ko": "‘훈장은 머릿속에 단 것으로 충분히 무거워요.’ 그 머릿속에 이때 〈이도메네오〉가 가득했어요.",
+       "en": "'The one in my head is heavy enough': at this moment that head was full of Idomeneo."
       },
       "word": {
        "de": "Kopf",
@@ -914,16 +894,16 @@
       "quote": 0
      },
      {
-      "x": 0.3,
-      "y": 0.8,
+      "x": 0.37,
+      "y": 0.56,
       "title": {
-       "de": "Der Rock",
+       "de": "Das Kleid",
        "en": "The coat",
        "ko": "웃옷"
       },
       "note": {
        "ko": "붉은 웃옷. 손님은 이런 옷을 털어 주며 ‘기사끼리는 서로 시중들어도 된다’고 했어요.",
-       "en": "The red coat: the visitor dusted one like it, saying 'one cavalier may wait upon another'."
+       "en": "The red coat: the visitor brushed one like it, saying 'one cavalier may wait upon another'."
       },
       "word": {
        "de": "Kleid",
@@ -932,6 +912,26 @@
        "ipa": "klaɪ̯t"
       },
       "quote": 1
+     },
+     {
+      "x": 0.75,
+      "y": 0.42,
+      "title": {
+       "de": "Der Vater",
+       "en": "His father",
+       "ko": "아버지"
+      },
+      "note": {
+       "ko": "바이올린을 든 아버지 레오폴트. 아버지와 누나는 잘츠부르크에 남아 있었고, 벽에는 1778년에 세상을 떠난 어머니의 초상이 걸려 있어요.",
+       "en": "Leopold with his violin. Father and sister stayed in Salzburg; on the wall hangs the portrait of the mother, who died in 1778."
+      },
+      "word": {
+       "de": "Salzburg",
+       "en": "Salzburg",
+       "ko": "잘츠부르크",
+       "ipa": "ˈzaltsbʊʁk"
+      },
+      "quote": 4
      }
     ]
    }

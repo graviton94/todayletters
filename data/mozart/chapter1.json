@@ -823,8 +823,8 @@
     }
    ],
    "note": {
-    "ko": "그림 속 인물은 편지에 나오지 않지만, 볼로냐에서 볼프강을 가르친 마르티니 신부예요. 한여름 볼로냐에서 아버지 편지에 덧붙인 추신이에요. 그해 10월 볼프강은 볼로냐의 아카데미아 필라르모니카에 회원으로 받아들여졌어요. 마르티니 신부가 이끌던 이 도시는 이탈리아 음악 학문의 중심지였어요.",
-    "en": "The man in the picture is not named in the letter: he is Padre Martini, who taught Wolfgang in Bologna. A postscript to his father's letter, written in the summer heat of Bologna. That October Wolfgang was admitted to Bologna's Accademia Filarmonica. The city, home of Padre Martini, was a centre of musical learning in Italy.",
+    "ko": "그림은 마르티니 신부를 1776년에 새긴 판화예요. 신부는 편지에 나오지 않지만, 볼로냐에서 볼프강을 가르친 사람이에요. 한여름 볼로냐에서 아버지 편지에 덧붙인 추신이에요. 그해 10월 볼프강은 볼로냐의 아카데미아 필라르모니카에 회원으로 받아들여졌어요. 마르티니 신부가 이끌던 이 도시는 이탈리아 음악 학문의 중심지였어요.",
+    "en": "The picture is a 1776 engraving of Padre Martini. He is not named in the letter, but he taught Wolfgang in Bologna. A postscript to his father's letter, written in the summer heat of Bologna. That October Wolfgang was admitted to Bologna's Accademia Filarmonica. The city, home of Padre Martini, was a centre of musical learning in Italy.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 19 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -859,49 +859,29 @@
     "title_de": "Bildnis des Padre Giovanni Battista Martini",
     "title_en": "Portrait of Padre Giovanni Battista Martini",
     "title_ko": "조반니 바티스타 마르티니 신부의 초상",
-    "date": "before 1781",
-    "collection": "Museo internazionale e biblioteca della musica, Bologna",
+    "date": "1776 (print)",
+    "collection": "Bibliothèque nationale de France",
     "imageLicense": "Public domain",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Padre_Martini_1.jpg",
-    "credit": "Angelo Crescimbeni (1734–1781)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Giambattista_Martini_-_C._Faucci_-_btv1b84263290.jpg",
+    "credit": "Carlo Faucci (engraver)",
     "why": {
-     "ko": "편지가 쓰인 볼로냐의 음악 학자 마르티니 신부예요. 볼프강은 이 무렵 그에게 대위법을 배웠어요. 펜과 악보가 편지 속 ‘악보 펜’과 이어져요.",
-     "en": "Padre Martini, the music scholar of Bologna, where this letter was written; Wolfgang studied counterpoint with him at this time. His quill and music paper echo the letter's 'music pen'."
+     "ko": "편지가 쓰인 볼로냐의 음악 학자 마르티니 신부를 새긴 판화예요. 볼프강은 이 무렵 볼로냐에서 그에게 대위법을 배웠어요.",
+     "en": "An engraved portrait of Padre Martini, the music scholar of Bologna, where this letter was written; Wolfgang studied counterpoint with him there at this time."
     },
     "image": "m-c1-l4.jpg",
     "kind": "person",
     "spots": [
      {
-      "x": 0.12,
-      "y": 0.74,
+      "x": 0.5,
+      "y": 0.655,
       "title": {
-       "de": "Die Feder",
-       "en": "The pen",
-       "ko": "펜"
+       "de": "Der Kapellmeister",
+       "en": "The maestro di cappella",
+       "ko": "성당 악장"
       },
       "note": {
-       "ko": "잉크병에 꽂힌 깃펜. 볼프강의 펜도 ‘글씨 펜이 아니라 악보 펜’이었지요.",
-       "en": "A quill in the inkpot — Wolfgang's pen, too, was 'for music, not for letters'."
-      },
-      "word": {
-       "de": "Feder",
-       "en": "pen",
-       "ko": "펜",
-       "ipa": "ˈfeːdɐ"
-      },
-      "quote": 0
-     },
-     {
-      "x": 0.27,
-      "y": 0.62,
-      "title": {
-       "de": "Das Notenblatt",
-       "en": "The music sheet",
-       "ko": "악보"
-      },
-      "note": {
-       "ko": "신부가 펼쳐 든 악보. 볼프강도 이 무렵 신포니아와 아리아를 잇달아 지었어요.",
-       "en": "The music the Padre holds open; Wolfgang too was composing symphonies and arias."
+       "ko": "아래 글귀에는 그가 1725년 볼로냐 산프란체스코 성당의 악장이 되었다고 적혀 있어요. 성당 음악을 짓는 사람이었지요.",
+       "en": "The caption says he was made maestro di cappella of the church of San Francesco in Bologna in 1725 — a composer of church music."
       },
       "word": {
        "de": "componirt",
@@ -913,15 +893,15 @@
      },
      {
       "x": 0.5,
-      "y": 0.3,
+      "y": 0.52,
       "title": {
        "de": "Das Ordenskleid",
        "en": "The friar's habit",
        "ko": "수도복"
       },
       "note": {
-       "ko": "검은 수도복과 모자. 마르티니는 프란치스코회 수도사였어요.",
-       "en": "The black habit and cap of a Franciscan friar."
+       "ko": "수도복과 두건. 글귀대로 그는 1721년 프란치스코회 수도복을 입었어요. 볼프강도 혼자 성당 예식을 보러 다녔지요.",
+       "en": "Habit and cap: as the caption says, he took the Franciscan habit in 1721. Wolfgang, too, went to the church ceremonies on his own."
       },
       "word": {
        "de": "Kirchen",

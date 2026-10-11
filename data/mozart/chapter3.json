@@ -1060,8 +1060,8 @@
     }
    ],
    "note": {
-    "ko": "요한 크리스티안 바흐는 요한 제바스티안 바흐의 막내아들이에요. 어린 모차르트가 런던에 머물던 1764~65년에 그를 아껴 준 사람이에요. 이 편지는 파리 근처 생제르맹앙레의 노아유 원수 저택에서 썼고, 모차르트가 카스트라토 가수 텐두치를 위해 쓴 장면 아리아(K. 315b)는 전해지지 않아요.",
-    "en": "Johann Christian Bach, the youngest son of Johann Sebastian Bach, had befriended the child Mozart in London in 1764–65. Mozart wrote this at the Maréchal de Noailles' house in Saint-Germain-en-Laye, near Paris. The scena he wrote there for the castrato Tenducci (K. 315b) is lost.",
+    "ko": "그림은 바흐가 세상을 떠난 뒤 1791년 런던에서 나온 기념 판화예요. 요한 크리스티안 바흐는 요한 제바스티안 바흐의 막내아들이에요. 어린 모차르트가 런던에 머물던 1764~65년에 그를 아껴 준 사람이에요. 이 편지는 파리 근처 생제르맹앙레의 노아유 원수 저택에서 썼고, 모차르트가 카스트라토 가수 텐두치를 위해 쓴 장면 아리아(K. 315b)는 전해지지 않아요.",
+    "en": "The picture is a memorial print published in London in 1791, after Bach's death. Johann Christian Bach, the youngest son of Johann Sebastian Bach, had befriended the child Mozart in London in 1764–65. Mozart wrote this at the Maréchal de Noailles' house in Saint-Germain-en-Laye, near Paris. The scena he wrote there for the castrato Tenducci (K. 315b) is lost.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 112 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -1097,32 +1097,32 @@
     "ko": "바흐와 다시 만나다"
    },
    "plate": {
-    "title_de": "Bildnis Johann Christian Bach",
-    "title_en": "Portrait of Johann Christian Bach",
-    "title_ko": "요한 크리스티안 바흐의 초상",
-    "date": "1776",
-    "collection": "Museo internazionale e biblioteca della musica, Bologna",
+    "title_de": "Denkmal für Johann Christian Bach",
+    "title_en": "Monument to Johann Christian Bach",
+    "title_ko": "요한 크리스티안 바흐 기념비",
+    "date": "1791 (print)",
+    "collection": "Bibliothèque nationale de France",
     "imageLicense": "Public domain",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Johann_Christian_Bach_by_Thomas_Gainsborough.jpg",
-    "credit": "Thomas Gainsborough",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Johann_Christian_Bach_-_Francesco_Bartolozzi,_d'apr%C3%A8s_Aug._Carlini_-_btv1b8415492h.jpg",
+    "credit": "Francesco Bartolozzi after Agostino Carlini",
     "why": {
-     "ko": "편지에서 모차르트가 반갑게 다시 만난 ‘런던의 바흐’, 그 사람의 초상이에요.",
-     "en": "The 'Bach from London' whom Mozart was so glad to meet again in this letter."
+     "ko": "편지에서 모차르트가 반갑게 다시 만난 ‘런던의 바흐’를 기리는 판화예요. 둥근 메달 안에 그의 옆얼굴이 있어요.",
+     "en": "A print honouring the 'Bach from London' whom Mozart was so glad to meet again; his profile is in the medallion."
     },
     "image": "m-c3-l5.jpg",
     "kind": "person",
     "spots": [
      {
-      "x": 0.53,
-      "y": 0.3,
+      "x": 0.5,
+      "y": 0.37,
       "title": {
        "de": "Johann Christian Bach",
        "en": "Johann Christian Bach",
        "ko": "요한 크리스티안 바흐"
       },
       "note": {
-       "ko": "런던에서 어린 모차르트를 아껴 준 사람. 2주 전부터 생제르맹에 와 있었어요.",
-       "en": "The man who befriended the child Mozart in London; he had been at Saint-Germain for a fortnight."
+       "ko": "메달 속 옆얼굴. 런던에서 어린 모차르트를 아껴 준 사람이에요.",
+       "en": "The profile in the medallion: the man who befriended the child Mozart in London."
       },
       "word": {
        "de": "Bach",
@@ -1133,44 +1133,44 @@
       "quote": 0
      },
      {
-      "x": 0.6,
-      "y": 0.27,
+      "x": 0.36,
+      "y": 0.3,
       "title": {
-       "de": "Der Blick",
-       "en": "His glance",
-       "ko": "눈빛"
+       "de": "Der Kranz",
+       "en": "The wreath",
+       "ko": "화관"
       },
       "note": {
-       "ko": "옆을 보는 부드러운 눈빛. 15년 만에 다시 만난 두 사람은 서로 무척 기뻐했어요.",
-       "en": "A sidelong, friendly look. After fifteen years apart, both men were overjoyed to meet again."
+       "ko": "여인이 메달에 화관을 씌워요. 모차르트도 그를 ‘진심으로 사랑하고 깊이 존경한다’고 썼어요.",
+       "en": "A woman lays a wreath on the medallion; Mozart wrote that he loved him and held him in high esteem."
       },
       "word": {
-       "de": "Freude",
-       "en": "joy",
-       "ko": "기뻤",
-       "ipa": "ˈfʁɔʏ̯də"
+       "de": "Hochachtung",
+       "en": "esteem",
+       "ko": "존경",
+       "ipa": "ˈhoːxˌʔaxtʊŋ"
       },
-      "quote": 1
+      "quote": 2
      },
      {
-      "x": 0.52,
-      "y": 0.84,
+      "x": 0.5,
+      "y": 0.72,
       "title": {
-       "de": "Das Notenblatt",
-       "en": "The sheet of music",
-       "ko": "악보"
+       "de": "Londini",
+       "en": "Londini",
+       "ko": "런던에서"
       },
       "note": {
-       "ko": "손에 든 악보. 모차르트도 이때 텐두치를 위한 장면 아리아를 서둘러 쓰고 있었어요.",
-       "en": "The music in his hands; Mozart, too, was hurrying to write a scena for Tenducci."
+       "ko": "라틴어 비문: 작센에서 태어나 런던에서 세상을 떠났다고 적혀 있어요. 1782년 1월 1일이에요.",
+       "en": "The Latin inscription: born in Saxony, he died in London on 1 January 1782."
       },
       "word": {
-       "de": "schreibe",
-       "en": "writing",
-       "ko": "쓰고",
-       "ipa": "ˈʃʁaɪ̯bə"
+       "de": "London",
+       "en": "London",
+       "ko": "런던",
+       "ipa": "ˈlɔndɔn"
       },
-      "quote": 4
+      "quote": 0
      }
     ]
    }
