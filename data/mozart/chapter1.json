@@ -1,0 +1,1031 @@
+{
+ "_doc": "독일어 원문은 루트비히 놀이 엮은 『Mozarts Briefe』(잘츠부르크 1865, 공공 영역) 쪽 스캔을 직접 읽어 옮겼고, 판본의 철자(daß, Theil, -iren 등)와 문장부호를 그대로 두었다. 영어는 레이디 월리스의 1866년 번역(공공 영역)을 그대로 따랐다. 한국어는 이 앱이 새로 옮긴 것이다.",
+ "series": "mozart",
+ "chapter": "I",
+ "title_de": "Italien",
+ "title_en": "Italy",
+ "title_ko": "이탈리아",
+ "original": "de",
+ "letters": [
+  {
+   "id": "c1-l1",
+   "wallace_no": 3,
+   "nohl_pages": [
+    8
+   ],
+   "date": "1770-01-26",
+   "dateNote": "Nohl's date line stands on p. 7, which is missing from the scan set; date as in Wallace (Milan, Jan. 26, 1770).",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 3 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Mailand",
+   "to": {
+    "de": "Schwester",
+    "en": "his sister",
+    "ko": "누나"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Neues weiß ich Nichts, als daß Herr Gellert, der Poet zu Leipzig, gestorben ist und dann nach seinem Tode keine Poesien mehr gemacht hat.",
+     "en": "I know nothing new except that Herr Gellert, the Leipzig poet, is dead, and has written no more poetry since his death.",
+     "ko": "새 소식은 없어. 라이프치히의 시인 겔레르트 씨가 죽었고, 죽은 뒤로는 시를 더 안 썼다는 것 말고는.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 3 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Neues weiß ich Nichts, / als daß Herr Gellert, / der Poet zu Leipzig, / gestorben ist und dann nach seinem Tode keine Poesien mehr gemacht hat.",
+      "en": "I know nothing new except that Herr Gellert, / the Leipzig poet, / is dead, / and has written no more poetry since his death.",
+      "ko": "새 소식은 없어. // 라이프치히의 시인 겔레르트 씨가 죽었고, / 죽은 뒤로는 시를 더 안 썼다는 것 말고는."
+     }
+    },
+    {
+     "de": "Just ehe ich diesen Brief angefangen habe, habe ich eine Arie aus dem Demetrio [von Metastasio] verfertigt, welche so anfängt: Misero tu non sei etc.",
+     "en": "Just before beginning this letter I composed an air from the \"Demetrio\" of Metastasio, which begins thus, \"Misero tu non sei.\"",
+     "ko": "이 편지를 쓰기 바로 전에 메타스타시오의 〈데메트리오〉에 나오는 아리아를 하나 지었어. ‘미제로 투 논 세이’로 시작하는 거야.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 3 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Just ehe ich diesen Brief angefangen habe, / habe ich eine Arie aus dem Demetrio [von Metastasio] verfertigt, / welche so anfängt: // Misero tu non sei etc.",
+      "en": "Just before beginning this letter I composed an air from the \"Demetrio\" of Metastasio, / which begins thus, / \"Misero tu non sei.\"",
+      "ko": "이 편지를 쓰기 바로 전에 메타스타시오의 〈데메트리오〉에 나오는 아리아를 하나 지었어. // ‘미제로 투 논 세이’로 시작하는 거야."
+     }
+    },
+    {
+     "de": "Die prima Donna singt gut, aber still; und wenn man sie nicht agiren sähe, sondern singen nur allein, so meynte man, sie sänge nicht, denn den Mund kann sie nicht öffnen, sondern winselt Alles her …",
+     "en": "The prima donna sings well, but is inanimate, and if you did not see her acting, but only singing, you might suppose she was not singing at all, for she can't open her mouth, and whines out everything.",
+     "ko": "프리마 돈나는 노래는 잘하는데 힘이 없어. 연기하는 걸 안 보고 노래만 들으면 노래를 안 하는 줄 알 거야. 입을 못 벌리고 다 낑낑대듯 부르거든.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 3 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die prima Donna singt gut, / aber still; // und wenn man sie nicht agiren sähe, / sondern singen nur allein, / so meynte man, / sie sänge nicht, / denn den Mund kann sie nicht öffnen, / sondern winselt Alles her …",
+      "en": "The prima donna sings well, / but is inanimate, / and if you did not see her acting, / but only singing, / you might suppose she was not singing at all, / for she can't open her mouth, / and whines out everything.",
+      "ko": "프리마 돈나는 노래는 잘하는데 힘이 없어. // 연기하는 걸 안 보고 노래만 들으면 노래를 안 하는 줄 알 거야. // 입을 못 벌리고 다 낑낑대듯 부르거든."
+     }
+    },
+    {
+     "de": "Die seconda Donna macht ein Ansehen wie ein Grenadier, und hat auch eine starke Stimme; und singt wahrhaftig nicht übel, für das, daß sie das erste Mal agirt.",
+     "en": "The seconda donna looks like a grenadier, and has a very powerful voice; she really does not sing badly, considering that this is her first appearance.",
+     "ko": "세콘다 돈나는 척탄병처럼 생겼고 목소리도 우렁차. 첫 무대인 걸 생각하면 정말 못 부르는 건 아니야.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 3 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die seconda Donna macht ein Ansehen wie ein Grenadier, / und hat auch eine starke Stimme; // und singt wahrhaftig nicht übel, / für das, / daß sie das erste Mal agirt.",
+      "en": "The seconda donna looks like a grenadier, / and has a very powerful voice; // she really does not sing badly, / considering that this is her first appearance.",
+      "ko": "세콘다 돈나는 척탄병처럼 생겼고 목소리도 우렁차. // 첫 무대인 걸 생각하면 정말 못 부르는 건 아니야."
+     }
+    },
+    {
+     "de": "Ein Grotesco ist da, der gut springt, aber nicht so schreibt wie ich: wie die Säue brumzen.",
+     "en": "There is a grotesco who jumps cleverly, but cannot write as I do--just as pigs grunt.",
+     "ko": "그로테스코 무용수가 하나 있는데 점프는 잘해. 그런데 나처럼은 못 써. 돼지가 꿀꿀대듯이 쓰거든.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 3 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ein Grotesco ist da, / der gut springt, / aber nicht so schreibt wie ich: // wie die Säue brumzen.",
+      "en": "There is a grotesco who jumps cleverly, / but cannot write as I do--just as pigs grunt.",
+      "ko": "그로테스코 무용수가 하나 있는데 점프는 잘해. // 그런데 나처럼은 못 써. // 돼지가 꿀꿀대듯이 쓰거든."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Brief",
+     "pos": "n.m.",
+     "ipa": "bʁiːf",
+     "en": "letter",
+     "ipa_en": "ˈlɛtɚ",
+     "ko": "편지",
+     "rom_ko": "pyeon-ji",
+     "icon": "✉️"
+    },
+    {
+     "de": "die Arie",
+     "pos": "n.f.",
+     "ipa": "ˈaːʁi̯ə",
+     "en": "aria",
+     "ipa_en": "ˈɑɹiə",
+     "ko": "아리아",
+     "rom_ko": "a-ri-a",
+     "icon": "🎵"
+    },
+    {
+     "de": "singen",
+     "pos": "v.",
+     "ipa": "ˈzɪŋən",
+     "en": "to sing",
+     "ipa_en": "sɪŋ",
+     "ko": "노래하다",
+     "rom_ko": "no-rae-ha-da",
+     "icon": "🎤"
+    },
+    {
+     "de": "die Stimme",
+     "pos": "n.f.",
+     "ipa": "ˈʃtɪmə",
+     "en": "voice",
+     "ipa_en": "vɔɪs",
+     "ko": "목소리",
+     "rom_ko": "mok-so-ri"
+    },
+    {
+     "de": "springen",
+     "pos": "v.",
+     "ipa": "ˈʃpʁɪŋən",
+     "en": "to jump",
+     "ipa_en": "dʒʌmp",
+     "ko": "뛰다",
+     "rom_ko": "ttwi-da"
+    }
+   ],
+   "note": {
+    "ko": "볼프강은 1769년 12월 아버지 레오폴트와 함께 첫 이탈리아 여행을 떠났어요. 이 편지는 열네 번째 생일 하루 전, 밀라노에서 썼어요. 만토바와 크레모나에서 본 오페라 가수들을 누나에게 장난스럽게 평가해요.",
+    "en": "In December 1769 Wolfgang set off with his father Leopold on his first journey to Italy. He wrote this from Milan the day before his fourteenth birthday, giving his sister a mischievous review of the singers he had heard in Mantua and Cremona.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 3 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Schreib mir mehr von der Oper!",
+    "en": "Write me more about the opera!",
+    "ko": "오페라 얘기 더 써 줘!",
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "music",
+     "piece": {
+      "de": "Arie „Misero tu non sei“ (Metastasio, Demetrio)",
+      "en": "Aria 'Misero tu non sei' (Metastasio, Demetrio)",
+      "ko": "아리아 〈미제로 투 논 세이〉 (메타스타시오, 〈데메트리오〉)"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "de": "Eine Arie, frisch verfertigt",
+    "en": "A new aria, just written",
+    "ko": "갓 지은 아리아 하나"
+   },
+   "plate_hint": {
+    "idea": "Teatro Scientifico (Bibiena) in Mantua, where the Mozarts gave a concert in January 1770, or an 18th-c. engraving of the Teatro Regio Ducale, Milan.",
+    "search": [
+     "Teatro Scientifico Bibiena Mantua",
+     "Teatro Regio Ducale Milano engraving",
+     "Mantova teatro Bibiena 1769"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c1-l2",
+   "wallace_no": 9,
+   "nohl_pages": [
+    13
+   ],
+   "date": "1770-04-14",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 9 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Rom",
+   "to": {
+    "de": "Mutter und Schwester",
+    "en": "his mother and sister",
+    "ko": "엄마와 누나"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Ich bin, Gott Lob und Dank! nebst meiner miserablen Feder gesund und küsse die Mama und die Nannerl tausend oder 1000 Mal.",
+     "en": "I am thankful to say that my stupid pen and I are all right, so we send a thousand kisses to you both.",
+     "ko": "하느님 덕분에 저는 이 엉터리 펜이랑 같이 잘 있어요. 엄마와 누나에게 천 번, 아니 1000번 입맞춤을 보내요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 9 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich bin, / Gott Lob und Dank! // nebst meiner miserablen Feder gesund und küsse die Mama und die Nannerl tausend oder 1000 Mal.",
+      "en": "I am thankful to say that my stupid pen and I are all right, / so we send a thousand kisses to you both.",
+      "ko": "하느님 덕분에 저는 이 엉터리 펜이랑 같이 잘 있어요. // 엄마와 누나에게 천 번, / 아니 1000번 입맞춤을 보내요."
+     }
+    },
+    {
+     "de": "Ich wünschte nur, daß meine Schwester zu Rom wäre, denn ihr würde diese Stadt gewiß wohl gefallen, indem die Peterskirche regulär, und viele andere Sachen zu Rom regulär sind.",
+     "en": "I wish that my sister were in Rome, for this city would assuredly delight her, because St. Peter's is symmetrical, and many other things in Rome are also symmetrical.",
+     "ko": "누나가 로마에 있으면 좋겠어요. 이 도시가 분명 마음에 들 거예요. 성 베드로 대성당이 반듯반듯하고, 로마의 다른 많은 것들도 반듯반듯하거든요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 9 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich wünschte nur, / daß meine Schwester zu Rom wäre, / denn ihr würde diese Stadt gewiß wohl gefallen, / indem die Peterskirche regulär, / und viele andere Sachen zu Rom regulär sind.",
+      "en": "I wish that my sister were in Rome, / for this city would assuredly delight her, / because St. // Peter's is symmetrical, / and many other things in Rome are also symmetrical.",
+      "ko": "누나가 로마에 있으면 좋겠어요. // 이 도시가 분명 마음에 들 거예요. // 성 베드로 대성당이 반듯반듯하고, / 로마의 다른 많은 것들도 반듯반듯하거든요."
+     }
+    },
+    {
+     "de": "O ich habe eine Noth. In unserm Quartier ist nur ein Bett. Das kann die Mama sich leicht einbilden, daß ich bei dem Papa keine Ruhe habe.",
+     "en": "Oh! I have one annoyance--there is only a single bed in our lodgings, so mamma may easily imagine that I get no rest beside papa.",
+     "ko": "아, 곤란한 게 하나 있어요. 우리 숙소엔 침대가 하나뿐이에요. 아빠 옆에서 제가 통 쉬지 못한다는 거, 엄마는 쉽게 짐작하시겠죠.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 9 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "O ich habe eine Noth. // In unserm Quartier ist nur ein Bett. // Das kann die Mama sich leicht einbilden, / daß ich bei dem Papa keine Ruhe habe.",
+      "en": "Oh! // I have one annoyance--there is only a single bed in our lodgings, / so mamma may easily imagine that I get no rest beside papa.",
+      "ko": "아, / 곤란한 게 하나 있어요. // 우리 숙소엔 침대가 하나뿐이에요. // 아빠 옆에서 제가 통 쉬지 못한다는 거, / 엄마는 쉽게 짐작하시겠죠."
+     }
+    },
+    {
+     "de": "Jetzt habe ich just den heil. Petrus mit dem Schlüsselamt, den heiligen Paulus mit dem Schwert, und den heiligen Lukas mit meiner Schwester etc. etc. abgezeichnet.",
+     "en": "I have just finished sketching St. Peter with his keys, St. Paul with his sword, and St. Luke with--my sister, &c., &c.",
+     "ko": "방금 열쇠를 든 성 베드로, 칼을 든 성 바오로, 그리고 성 루카를… 누나랑 같이 그려 봤어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 9 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Jetzt habe ich just den heil. // Petrus mit dem Schlüsselamt, / den heiligen Paulus mit dem Schwert, / und den heiligen Lukas mit meiner Schwester etc. // etc. // abgezeichnet.",
+      "en": "I have just finished sketching St. // Peter with his keys, / St. // Paul with his sword, / and St. // Luke with--my sister, / &c., / &c.",
+      "ko": "방금 열쇠를 든 성 베드로, / 칼을 든 성 바오로, / 그리고 성 루카를… 누나랑 같이 그려 봤어요."
+     }
+    },
+    {
+     "de": "Ich habe die Ehre gehabt, des heil. Petrus Fuß zu S. Pietro zu küssen, und weil ich das Unglück habe, so klein zu sein, so hat man mich als den nämlichen alten Wolfgang Mozart hinaufgehoben.",
+     "en": "I had the honor of kissing St. Peter's foot at San Pietro, and as I have the misfortune to be so short, your good old Wolfgang Mozart was lifted up!",
+     "ko": "산 피에트로 성당에서 성 베드로 상의 발에 입 맞추는 영광을 누렸어요. 그런데 불행히도 제가 키가 너무 작아서, 이 변함없는 볼프강 모차르트를 누가 번쩍 들어 올려 줬어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 9 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich habe die Ehre gehabt, / des heil. // Petrus Fuß zu S. // Pietro zu küssen, / und weil ich das Unglück habe, / so klein zu sein, / so hat man mich als den nämlichen alten Wolfgang Mozart hinaufgehoben.",
+      "en": "I had the honor of kissing St. // Peter's foot at San Pietro, / and as I have the misfortune to be so short, / your good old Wolfgang Mozart was lifted up!",
+      "ko": "산 피에트로 성당에서 성 베드로 상의 발에 입 맞추는 영광을 누렸어요. // 그런데 불행히도 제가 키가 너무 작아서, / 이 변함없는 볼프강 모차르트를 누가 번쩍 들어 올려 줬어요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Feder",
+     "pos": "n.f.",
+     "ipa": "ˈfeːdɐ",
+     "en": "pen",
+     "ipa_en": "pɛn",
+     "ko": "펜",
+     "rom_ko": "pen",
+     "icon": "✒️"
+    },
+    {
+     "de": "die Stadt",
+     "pos": "n.f.",
+     "ipa": "ʃtat",
+     "en": "city",
+     "ipa_en": "ˈsɪti",
+     "ko": "도시",
+     "rom_ko": "do-si",
+     "icon": "🏛️"
+    },
+    {
+     "de": "das Bett",
+     "pos": "n.n.",
+     "ipa": "bɛt",
+     "en": "bed",
+     "ipa_en": "bɛd",
+     "ko": "침대",
+     "rom_ko": "chim-dae",
+     "icon": "🛏️"
+    },
+    {
+     "de": "küssen",
+     "pos": "v.",
+     "ipa": "ˈkʏsən",
+     "en": "to kiss",
+     "ipa_en": "kɪs",
+     "ko": "입 맞추다",
+     "rom_ko": "im mat-chu-da",
+     "icon": "💋"
+    },
+    {
+     "de": "der Fuß",
+     "pos": "n.m.",
+     "ipa": "fuːs",
+     "en": "foot",
+     "ipa_en": "fʊt",
+     "ko": "발",
+     "rom_ko": "bal",
+     "icon": "🦶"
+    }
+   ],
+   "note": {
+    "ko": "부자는 1770년 4월 로마에 머물렀어요. 이 무렵 볼프강은 시스티나 성당에서 알레그리의 〈미제레레〉를 듣고 기억만으로 악보에 옮겨 적은 것으로 유명해요. 이 짧은 글은 아버지 편지 끝에 붙인 추신이에요.",
+    "en": "Father and son spent April 1770 in Rome. It was during these days that Wolfgang famously heard Allegri's Miserere in the Sistine Chapel and wrote it down from memory. This short text is a postscript added to his father's letter.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 9 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Wir küssen Dich auch tausend Mal.",
+    "en": "We kiss you a thousand times too.",
+    "ko": "우리도 천 번 입맞춤을 보내.",
+    "_note": "엄마와 누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Nachschrift zum Brief des Vaters",
+      "en": "A postscript to Papa's letter",
+      "ko": "아빠 편지에 덧붙인 추신"
+     }
+    }
+   ],
+   "status": {
+    "de": "In Rom hinaufgehoben",
+    "en": "Lifted up in Rome",
+    "ko": "로마에서 번쩍 들려"
+   },
+   "plate_hint": {
+    "idea": "Piranesi's 'Veduta della Basilica e Piazza di S. Pietro' or the bronze statue of St Peter (Arnolfo di Cambio) whose foot pilgrims kiss.",
+    "search": [
+     "Piranesi Veduta della Basilica e Piazza di S. Pietro",
+     "Arnolfo di Cambio St Peter bronze statue",
+     "St. Peter's Basilica 18th century engraving"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c1-l3",
+   "wallace_no": 12,
+   "nohl_pages": [
+    15,
+    16
+   ],
+   "date": "1770-05-19",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 12 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Neapel",
+   "to": {
+    "de": "Schwester",
+    "en": "his sister",
+    "ko": "누나"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Der 12te Menuett von Haydn, den Du mir geschickt hast, gefällt mir recht wohl, und den Baß hast du unvergleichlich dazu componirt, und ohne mindesten Fehler.",
+     "en": "Haydn's twelfth minuet, which you sent me, pleases me very much; you have composed an inimitable bass for it, and without the slightest fault.",
+     "ko": "누나가 보내 준 하이든의 열두 번째 미뉴에트, 아주 마음에 들어. 거기 붙인 베이스는 비할 데 없이 잘 지었고, 틀린 데도 하나 없어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 12 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Der 12te Menuett von Haydn, / den Du mir geschickt hast, / gefällt mir recht wohl, / und den Baß hast du unvergleichlich dazu componirt, / und ohne mindesten Fehler.",
+      "en": "Haydn's twelfth minuet, / which you sent me, / pleases me very much; // you have composed an inimitable bass for it, / and without the slightest fault.",
+      "ko": "누나가 보내 준 하이든의 열두 번째 미뉴에트, / 아주 마음에 들어. // 거기 붙인 베이스는 비할 데 없이 잘 지었고, / 틀린 데도 하나 없어."
+     }
+    },
+    {
+     "de": "Schreibe mir, wie es dem Herrn Canari geht. Singt er noch? Pfeift er noch?",
+     "en": "Tell me how Master Canary is? Does he still sing? and still whistle?",
+     "ko": "카나리아 나리는 어떻게 지내는지 알려 줘. 아직 노래해? 아직 휘파람 불어?",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 12 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Schreibe mir, / wie es dem Herrn Canari geht. // Singt er noch? // Pfeift er noch?",
+      "en": "Tell me how Master Canary is? // Does he still sing? // and still whistle?",
+      "ko": "카나리아 나리는 어떻게 지내는지 알려 줘. // 아직 노래해? // 아직 휘파람 불어?"
+     }
+    },
+    {
+     "de": "Weißt Du, warum ich auf den Canari denke? Weil in unserm Vorzimmer einer ist, welcher ein G'seis macht, wie unserer.",
+     "en": "Do you know why I am thinking about the canary? Because we have one in our ante-room that chirps out a G sharp just like ours.",
+     "ko": "내가 왜 카나리아 생각을 하는지 알아? 여기 우리 곁방에도 한 마리 있는데, 우리 애처럼 올림 솔 소리를 내거든.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 12 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Weißt Du, / warum ich auf den Canari denke? // Weil in unserm Vorzimmer einer ist, / welcher ein G'seis macht, / wie unserer.",
+      "en": "Do you know why I am thinking about the canary? // Because we have one in our ante-room that chirps out a G sharp just like ours.",
+      "ko": "내가 왜 카나리아 생각을 하는지 알아? // 여기 우리 곁방에도 한 마리 있는데, / 우리 애처럼 올림 솔 소리를 내거든."
+     }
+    },
+    {
+     "de": "Gestern haben wir unsere neuen Kleider angezogen; wir waren schön wie die Engel.",
+     "en": "Yesterday we wore our new clothes; we were as handsome as angels.",
+     "ko": "어제 새 옷을 입었어. 우리 둘 다 천사처럼 멋졌지.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 12 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Gestern haben wir unsere neuen Kleider angezogen; // wir waren schön wie die Engel.",
+      "en": "Yesterday we wore our new clothes; // we were as handsome as angels.",
+      "ko": "어제 새 옷을 입었어. // 우리 둘 다 천사처럼 멋졌지."
+     }
+    },
+    {
+     "de": "Die Königin und den König haben wir unter der Messe zu Portici in der Hofcapelle gesehen, und den Vesuvius haben wir auch gesehen. Neapel ist schön, ist aber volkreich wie Wien und Paris.",
+     "en": "We saw the king and queen at mass in the court chapel at Portici, and we also saw Vesuvius. Naples is beautiful, but as crowded with people as Vienna or Paris.",
+     "ko": "포르티치 궁정 예배당 미사에서 왕비와 왕을 봤고, 베수비오 화산도 봤어. 나폴리는 아름다운데, 빈이나 파리처럼 사람이 북적여.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 12 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die Königin und den König haben wir unter der Messe zu Portici in der Hofcapelle gesehen, / und den Vesuvius haben wir auch gesehen. // Neapel ist schön, / ist aber volkreich wie Wien und Paris.",
+      "en": "We saw the king and queen at mass in the court chapel at Portici, / and we also saw Vesuvius. // Naples is beautiful, / but as crowded with people as Vienna or Paris.",
+      "ko": "포르티치 궁정 예배당 미사에서 왕비와 왕을 봤고, / 베수비오 화산도 봤어. // 나폴리는 아름다운데, / 빈이나 파리처럼 사람이 북적여."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "das Menuett",
+     "pos": "n.n.",
+     "ipa": "menuˈɛt",
+     "en": "minuet",
+     "ipa_en": "ˌmɪnjuˈɛt",
+     "ko": "미뉴에트",
+     "rom_ko": "mi-nyu-e-teu",
+     "icon": "🎼"
+    },
+    {
+     "de": "der Baß",
+     "de_modern": "der Bass",
+     "pos": "n.m.",
+     "ipa": "bas",
+     "en": "bass",
+     "ipa_en": "beɪs",
+     "ko": "베이스",
+     "rom_ko": "be-i-seu"
+    },
+    {
+     "de": "pfeifen",
+     "pos": "v.",
+     "ipa": "ˈpfaɪ̯fən",
+     "en": "to whistle",
+     "ipa_en": "ˈwɪsəl",
+     "ko": "휘파람 불다",
+     "rom_ko": "hwi-pa-ram bul-da",
+     "icon": "🐤"
+    },
+    {
+     "de": "der Engel",
+     "pos": "n.m.",
+     "ipa": "ˈɛŋl̩",
+     "en": "angel",
+     "ipa_en": "ˈeɪndʒəl",
+     "ko": "천사",
+     "rom_ko": "cheon-sa",
+     "icon": "👼"
+    },
+    {
+     "de": "der König",
+     "pos": "n.m.",
+     "ipa": "ˈkøːnɪç",
+     "en": "king",
+     "ipa_en": "kɪŋ",
+     "ko": "왕",
+     "rom_ko": "wang",
+     "icon": "👑"
+    }
+   ],
+   "note": {
+    "ko": "편지 첫머리는 이탈리아어로, 연습 삼아 썼어요. 나폴리 왕 부부를 본 포르티치는 베수비오 화산 기슭의 왕궁이 있는 곳이에요. 이 편지를 엮은 놀은 모차르트가 동물을 무척 좋아해 나중에도 늘 방에 새를 두었다고 적었어요.",
+    "en": "The opening of the letter is written in Italian, as practice. Portici, where he saw the royal couple, is the site of a royal palace at the foot of Vesuvius. Nohl, who edited the letters, notes that Mozart loved animals and later always kept birds in his room.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 12 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Der Canari singt noch immer!",
+    "en": "The canary is still singing!",
+    "ko": "카나리아는 아직도 노래해!",
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 2,
+     "type": "notice",
+     "text": {
+      "de": "Mozart liebte die Thiere sehr und hatte auch später stets Vögel im Zimmer.",
+      "en": "Mozart loved animals and later always kept birds in his room.",
+      "ko": "모차르트는 동물을 무척 좋아해, 나중에도 늘 방에 새를 두었어요."
+     }
+    }
+   ],
+   "status": {
+    "de": "Schön wie die Engel",
+    "en": "Handsome as angels",
+    "ko": "천사처럼 멋지게"
+   },
+   "plate_hint": {
+    "idea": "Gouache of the Bay of Naples with smoking Vesuvius (Pietro Fabris, 1770s) — the letter names Vesuvius and Portici.",
+    "search": [
+     "Pietro Fabris Vesuvius Bay of Naples",
+     "Fabris Campi Phlegraei Vesuvius eruption",
+     "Reggia di Portici 18th century"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c1-l4",
+   "wallace_no": 19,
+   "nohl_pages": [
+    19,
+    20
+   ],
+   "date": "1770-08-04",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 19 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Bologna",
+   "to": {
+    "de": "Schwester",
+    "en": "his sister",
+    "ko": "누나"
+   },
+   "mood": "weary",
+   "messages": [
+    {
+     "de": "Ich kann ohnmöglich schöner schreiben, denn die Feder ist eine Notenfeder und keine Schriftfeder.",
+     "en": "I can't possibly write better, for my pen is only fit to write music and not a letter.",
+     "ko": "글씨를 더 예쁘게 쓰는 건 도저히 못 하겠어. 이 펜은 악보 펜이지 편지 펜이 아니거든.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 19 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich kann ohnmöglich schöner schreiben, / denn die Feder ist eine Notenfeder und keine Schriftfeder.",
+      "en": "I can't possibly write better, / for my pen is only fit to write music and not a letter.",
+      "ko": "글씨를 더 예쁘게 쓰는 건 도저히 못 하겠어. // 이 펜은 악보 펜이지 편지 펜이 아니거든."
+     }
+    },
+    {
+     "de": "Nun ist meine Geige neu beseitet und ich spiele alle Tage; aber dieses setze ich nur hinzu, weil meine Mama einmal zu wissen verlangte, ob ich noch geige.",
+     "en": "My violin has been newly strung, and I play every day. I only mention this because mamma wished to know whether I still played the violin.",
+     "ko": "이제 내 바이올린에 줄을 새로 매어서 매일 켜. 이건 엄마가 내가 아직 바이올린을 켜는지 알고 싶어 하셔서 덧붙이는 거야.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 19 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun ist meine Geige neu beseitet und ich spiele alle Tage; // aber dieses setze ich nur hinzu, / weil meine Mama einmal zu wissen verlangte, / ob ich noch geige.",
+      "en": "My violin has been newly strung, / and I play every day. // I only mention this because mamma wished to know whether I still played the violin.",
+      "ko": "이제 내 바이올린에 줄을 새로 매어서 매일 켜. // 이건 엄마가 내가 아직 바이올린을 켜는지 알고 싶어 하셔서 덧붙이는 거야."
+     }
+    },
+    {
+     "de": "Gewiß ihrer 6 mal habe ich die Ehre gehabt, allein in die Kirchen und prächtige Functiones zu gehen.",
+     "en": "I have had the honor to go at least six times by myself into the churches to attend their splendid ceremonies.",
+     "ko": "적어도 여섯 번은 혼자서 성당에 가서 화려한 예식을 보는 영광을 누렸어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 19 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Gewiß ihrer 6 mal habe ich die Ehre gehabt, / allein in die Kirchen und prächtige Functiones zu gehen.",
+      "en": "I have had the honor to go at least six times by myself into the churches to attend their splendid ceremonies.",
+      "ko": "적어도 여섯 번은 혼자서 성당에 가서 화려한 예식을 보는 영광을 누렸어."
+     }
+    },
+    {
+     "de": "Unterdessen habe ich schon vier italienische Sinfonien [Ouvertüren] componirt, außer den Arien, deren ich gewiß 5—6 schon gemacht habe, und auch eine Motetten.",
+     "en": "In the mean time I have composed four Italian symphonies [overtures], besides five or six arias, and also a motett.",
+     "ko": "그동안 이탈리아식 신포니아를 벌써 네 곡 지었어. 아리아도 대여섯 곡 썼고, 모테트도 하나 썼어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 19 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Unterdessen habe ich schon vier italienische Sinfonien [Ouvertüren] componirt, / außer den Arien, / deren ich gewiß 5—6 schon gemacht habe, / und auch eine Motetten.",
+      "en": "In the mean time I have composed four Italian symphonies [overtures], / besides five or six arias, / and also a motett.",
+      "ko": "그동안 이탈리아식 신포니아를 벌써 네 곡 지었어. // 아리아도 대여섯 곡 썼고, / 모테트도 하나 썼어."
+     }
+    },
+    {
+     "de": "Addio! Lebe wohl, meine einzige Lustbarkeit besteht dermalen in englischen Schritten, Capriol- und Spaggat-machen. Italien ist ein Schlafland; es schläfert Einen immer.",
+     "en": "Addio--farewell! My sole recreations consist in dancing English hornpipes and cutting capers. Italy is a land of sleep; I am always drowsy here.",
+     "ko": "안녕, 잘 지내. 요즘 내 유일한 낙은 영국식 춤 스텝 밟고 깡충 뛰고 다리 찢기 하는 거야. 이탈리아는 잠의 나라야. 늘 졸려.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 19 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Addio! // Lebe wohl, / meine einzige Lustbarkeit besteht dermalen in englischen Schritten, / Capriol- und Spaggat-machen. // Italien ist ein Schlafland; // es schläfert Einen immer.",
+      "en": "Addio--farewell! // My sole recreations consist in dancing English hornpipes and cutting capers. // Italy is a land of sleep; // I am always drowsy here.",
+      "ko": "안녕, / 잘 지내. // 요즘 내 유일한 낙은 영국식 춤 스텝 밟고 깡충 뛰고 다리 찢기 하는 거야. // 이탈리아는 잠의 나라야. // 늘 졸려."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "schreiben",
+     "pos": "v.",
+     "ipa": "ˈʃʁaɪ̯bən",
+     "en": "to write",
+     "ipa_en": "ɹaɪt",
+     "ko": "쓰다",
+     "rom_ko": "sseu-da",
+     "icon": "✍️"
+    },
+    {
+     "de": "die Geige",
+     "pos": "n.f.",
+     "ipa": "ˈɡaɪ̯ɡə",
+     "en": "violin",
+     "ipa_en": "ˌvaɪəˈlɪn",
+     "ko": "바이올린",
+     "rom_ko": "ba-i-ol-lin",
+     "icon": "🎻"
+    },
+    {
+     "de": "die Kirche",
+     "pos": "n.f.",
+     "ipa": "ˈkɪʁçə",
+     "en": "church",
+     "ipa_en": "tʃɝtʃ",
+     "ko": "성당",
+     "rom_ko": "seong-dang",
+     "icon": "⛪"
+    },
+    {
+     "de": "die Sinfonie",
+     "pos": "n.f.",
+     "ipa": "zɪnfoˈniː",
+     "en": "symphony",
+     "ipa_en": "ˈsɪmfəni",
+     "ko": "교향곡",
+     "rom_ko": "gyo-hyang-gok"
+    },
+    {
+     "de": "der Schlaf",
+     "pos": "n.m.",
+     "ipa": "ʃlaːf",
+     "en": "sleep",
+     "ipa_en": "slip",
+     "ko": "잠",
+     "rom_ko": "jam",
+     "icon": "😴"
+    }
+   ],
+   "note": {
+    "ko": "한여름 볼로냐에서 아버지 편지에 덧붙인 추신이에요. 그해 10월 볼프강은 볼로냐의 아카데미아 필라르모니카에 회원으로 받아들여졌어요. 마르티니 신부가 이끌던 이 도시는 이탈리아 음악 학문의 중심지였어요.",
+    "en": "A postscript to his father's letter, written in the summer heat of Bologna. That October Wolfgang was admitted to Bologna's Accademia Filarmonica. The city, home of Padre Martini, was a centre of musical learning in Italy.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 19 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Schlaf nicht zu viel, lieber Bruder!",
+    "en": "Don't sleep too much, dear brother!",
+    "ko": "너무 많이 자지 마, 동생아!",
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 3,
+     "type": "music",
+     "piece": {
+      "de": "Antiphon „Quaerite primum regnum Dei“, KV 86 (Bologna, Oktober 1770)",
+      "en": "Antiphon 'Quaerite primum regnum Dei', K. 86 (Bologna, October 1770)",
+      "ko": "안티폰 〈먼저 하느님의 나라를 구하라〉 K. 86 (볼로냐, 1770년 10월)"
+     },
+     "commons": "File:Wolfgang Amadeus Mozart (1756-1791) - Quaerite primum regnum Dei à4, K.86 73v (1770).ogg"
+    }
+   ],
+   "status": {
+    "de": "Im Schlafland Italien",
+    "en": "In the land of sleep",
+    "ko": "잠의 나라에서"
+   },
+   "plate_hint": {
+    "idea": "Portrait of Padre Giovanni Battista Martini (Museo della Musica, Bologna) / the Accademia Filarmonica, which admitted Mozart in October 1770.",
+    "search": [
+     "Padre Giovanni Battista Martini portrait",
+     "Accademia Filarmonica di Bologna",
+     "Museo della Musica Bologna Martini"
+    ],
+    "kind": "person"
+   }
+  },
+  {
+   "id": "c1-l5",
+   "wallace_no": 33,
+   "nohl_pages": [
+    25,
+    26
+   ],
+   "date": "1771-08-23",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 33 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Mailand",
+   "to": {
+    "de": "Schwester",
+    "en": "his sister",
+    "ko": "누나"
+   },
+   "mood": "weary",
+   "messages": [
+    {
+     "de": "Wir haben auf der Reise viele Hitz ausgestanden, und der Staub hat uns beständig impertinent seckirt, daß wir gewiß erstickt und verschmachtet wären, wenn wir nicht gescheiter gewesen wären.",
+     "en": "We suffered much from heat in the course of our journey, and the dust constantly dried us up so impertinently that we should have been choked, or died of thirst, if we had not been too sensible for that.",
+     "ko": "오는 길에 더위를 엄청 견뎠어. 먼지가 어찌나 뻔뻔하게 괴롭히던지, 우리가 좀 더 똑똑하지 않았으면 숨 막히고 목말라 죽었을 거야.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 33 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wir haben auf der Reise viele Hitz ausgestanden, / und der Staub hat uns beständig impertinent seckirt, / daß wir gewiß erstickt und verschmachtet wären, / wenn wir nicht gescheiter gewesen wären.",
+      "en": "We suffered much from heat in the course of our journey, / and the dust constantly dried us up so impertinently that we should have been choked, / or died of thirst, / if we had not been too sensible for that.",
+      "ko": "오는 길에 더위를 엄청 견뎠어. // 먼지가 어찌나 뻔뻔하게 괴롭히던지, / 우리가 좀 더 똑똑하지 않았으면 숨 막히고 목말라 죽었을 거야."
+     }
+    },
+    {
+     "de": "Hier hat es ein ganzes Monath durch (sagen die Mayländer) nicht gerenget, heunt hat es angefangen ein wenig zu tröpfeln, jetzt aber scheunt wieder die Sonne und es ist wieder sehr warm.",
+     "en": "For a whole month past (say the Milanese) there has been no rain here; to-day a slight drizzle began, but the sun has now come out again, and it is once more very warm.",
+     "ko": "여기는 (밀라노 사람들 말로는) 한 달 내내 비가 안 왔대. 오늘 빗방울이 조금 떨어지기 시작했는데, 지금은 다시 해가 나서 또 아주 더워.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 33 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Hier hat es ein ganzes Monath durch (sagen die Mayländer) nicht gerenget, / heunt hat es angefangen ein wenig zu tröpfeln, / jetzt aber scheunt wieder die Sonne und es ist wieder sehr warm.",
+      "en": "For a whole month past (say the Milanese) there has been no rain here; // to-day a slight drizzle began, / but the sun has now come out again, / and it is once more very warm.",
+      "ko": "여기는 (밀라노 사람들 말로는) 한 달 내내 비가 안 왔대. // 오늘 빗방울이 조금 떨어지기 시작했는데, / 지금은 다시 해가 나서 또 아주 더워."
+     }
+    },
+    {
+     "de": "Jetzt blas ich just vor Hitz! Nun reiß ich das Leibel auf.",
+     "en": "I am at this moment actually panting from the heat--I tear open my waistcoat!",
+     "ko": "지금 더워서 헉헉대는 중이야! 이제 조끼를 확 풀어 젖힌다.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 33 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Jetzt blas ich just vor Hitz! // Nun reiß ich das Leibel auf.",
+      "en": "I am at this moment actually panting from the heat--I tear open my waistcoat!",
+      "ko": "지금 더워서 헉헉대는 중이야! // 이제 조끼를 확 풀어 젖힌다."
+     }
+    },
+    {
+     "de": "Ober unser ist ein Violinist, unter unser auch einer, neben unser ein Singmeister, der Lection gibt, in dem letzten Zimmer gegen unser ist ein Hautboist.",
+     "en": "Above us we have a violinist, below us is another, next to us a singing-master, who gives lessons, and, in the room opposite, a hautboy-player.",
+     "ko": "우리 위층엔 바이올리니스트, 아래층에도 한 명, 옆방엔 레슨하는 성악 선생, 맞은편 끝방엔 오보에 연주자가 있어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 33 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ober unser ist ein Violinist, / unter unser auch einer, / neben unser ein Singmeister, / der Lection gibt, / in dem letzten Zimmer gegen unser ist ein Hautboist.",
+      "en": "Above us we have a violinist, / below us is another, / next to us a singing-master, / who gives lessons, / and, / in the room opposite, / a hautboy-player.",
+      "ko": "우리 위층엔 바이올리니스트, / 아래층에도 한 명, / 옆방엔 레슨하는 성악 선생, / 맞은편 끝방엔 오보에 연주자가 있어."
+     }
+    },
+    {
+     "de": "Das ist lustig zum Componiren! Giebt einen viel Gedanken.",
+     "en": "This is famous for a composer--it inspires so many fine thoughts.",
+     "ko": "작곡하기엔 딱 신나는 곳이지! 생각이 많이 떠오르거든.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 33 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Das ist lustig zum Componiren! // Giebt einen viel Gedanken.",
+      "en": "This is famous for a composer--it inspires so many fine thoughts.",
+      "ko": "작곡하기엔 딱 신나는 곳이지! // 생각이 많이 떠오르거든."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Hitze",
+     "pos": "n.f.",
+     "ipa": "ˈhɪtsə",
+     "en": "heat",
+     "ipa_en": "hit",
+     "ko": "더위",
+     "rom_ko": "deo-wi",
+     "icon": "🥵"
+    },
+    {
+     "de": "der Staub",
+     "pos": "n.m.",
+     "ipa": "ʃtaʊ̯p",
+     "en": "dust",
+     "ipa_en": "dʌst",
+     "ko": "먼지",
+     "rom_ko": "meon-ji"
+    },
+    {
+     "de": "die Sonne",
+     "pos": "n.f.",
+     "ipa": "ˈzɔnə",
+     "en": "sun",
+     "ipa_en": "sʌn",
+     "ko": "해",
+     "rom_ko": "hae",
+     "icon": "☀️"
+    },
+    {
+     "de": "der Violinist",
+     "pos": "n.m.",
+     "ipa": "vi̯oliˈnɪst",
+     "en": "violinist",
+     "ipa_en": "ˌvaɪəˈlɪnɪst",
+     "ko": "바이올리니스트",
+     "rom_ko": "ba-i-ol-li-ni-seu-teu",
+     "icon": "🎻"
+    },
+    {
+     "de": "der Gedanke",
+     "pos": "n.m.",
+     "ipa": "ɡəˈdaŋkə",
+     "en": "thought",
+     "ipa_en": "θɔt",
+     "ko": "생각",
+     "rom_ko": "saeng-gak",
+     "icon": "💭"
+    }
+   ],
+   "note": {
+    "ko": "1771년 3월 말 잘츠부르크로 돌아왔던 부자는 몇 달 만에 다시 밀라노로 떠났어요. 마리아 테레지아 여제가 페르디난트 대공과 모데나 공녀의 10월 결혼식을 위한 세레나타를 볼프강에게 맡겼기 때문이에요. 그 작품이 〈알바의 아스카니오〉예요.",
+    "en": "Father and son had come home to Salzburg at the end of March 1771, but left for Milan again a few months later. Empress Maria Theresa had commissioned from Wolfgang a theatrical serenata for the October wedding of Archduke Ferdinand and the Princess of Modena: 'Ascanio in Alba'.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 33 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Trink viel Wasser, lieber Bruder!",
+    "en": "Drink lots of water, dear brother!",
+    "ko": "물 많이 마셔, 동생아!",
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "weather",
+     "quote": "jetzt aber scheunt wieder die Sonne",
+     "text": {
+      "de": "Ein Monat ohne Regen, dann wieder Sonne",
+      "en": "A month without rain, then sun again",
+      "ko": "한 달 동안 비 없음, 다시 쨍쨍"
+     }
+    },
+    {
+     "after": 4,
+     "type": "music",
+     "piece": {
+      "de": "Ascanio in Alba, KV 111 (Mailand, Oktober 1771)",
+      "en": "Ascanio in Alba, K. 111 (Milan, October 1771)",
+      "ko": "〈알바의 아스카니오〉 K. 111 (밀라노, 1771년 10월)"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "de": "Heiß, aber voller Musik",
+    "en": "Hot, but full of music",
+    "ko": "덥지만 음악 가득"
+   },
+   "plate_hint": {
+    "idea": "View of Milan Cathedral square (18th-c. veduta); or portrait of J. A. Hasse, the rival composer who arrives in letter 34.",
+    "search": [
+     "Piazza del Duomo Milano 18th century veduta",
+     "Milan Cathedral engraving 1770s",
+     "Johann Adolph Hasse portrait"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c1-l6",
+   "wallace_no": 48,
+   "nohl_pages": [
+    32,
+    33
+   ],
+   "date": "1772-12-18",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 48 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Mailand",
+   "to": {
+    "de": "Schwester",
+    "en": "his sister",
+    "ko": "누나"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Ich hoffe Du wirst Dich gut befinden meine liebe Schwester.",
+     "en": "I hope, dear sister, that you are well, dear sister.",
+     "ko": "잘 지내고 있겠지, 사랑하는 누나.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 48 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich hoffe Du wirst Dich gut befinden meine liebe Schwester.",
+      "en": "I hope, / dear sister, / that you are well, / dear sister.",
+      "ko": "잘 지내고 있겠지, / 사랑하는 누나."
+     }
+    },
+    {
+     "de": "Wenn Du diesen Brief erhaltst meine liebe Schwester, so geht denselbigen Abend meine liebe Schwester meine Opera in scena.",
+     "en": "When this letter reaches you, dear sister, my opera will be in scena, dear sister.",
+     "ko": "이 편지를 받을 때쯤이면, 사랑하는 누나, 바로 그날 저녁에, 사랑하는 누나, 내 오페라가 무대에 올라.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 48 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wenn Du diesen Brief erhaltst meine liebe Schwester, / so geht denselbigen Abend meine liebe Schwester meine Opera in scena.",
+      "en": "When this letter reaches you, / dear sister, / my opera will be in scena, / dear sister.",
+      "ko": "이 편지를 받을 때쯤이면, / 사랑하는 누나, / 바로 그날 저녁에, / 사랑하는 누나, / 내 오페라가 무대에 올라."
+     }
+    },
+    {
+     "de": "Denke auf mich meine liebe Schwester und bilde dir nur meine liebe Schwester kräftig ein, Du siehest und hörest meine liebe Schwester sie auch.",
+     "en": "Think of me, dear sister, and try, dear sister, to imagine with all your might that my dear sister sees and hears it also.",
+     "ko": "나를 생각해 줘, 사랑하는 누나. 그리고 힘껏 상상해 봐, 사랑하는 누나. 사랑하는 누나도 그걸 보고 듣고 있다고.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 48 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Denke auf mich meine liebe Schwester und bilde dir nur meine liebe Schwester kräftig ein, / Du siehest und hörest meine liebe Schwester sie auch.",
+      "en": "Think of me, / dear sister, / and try, / dear sister, / to imagine with all your might that my dear sister sees and hears it also.",
+      "ko": "나를 생각해 줘, / 사랑하는 누나. // 그리고 힘껏 상상해 봐, / 사랑하는 누나. // 사랑하는 누나도 그걸 보고 듣고 있다고."
+     }
+    },
+    {
+     "de": "Die morgige Probe ist auf dem Theatro. Der Impressario aber der Sig. Cassiglioni hat mich ersucht, ich solle niemand nichts darvon sagen, denn sonst lauffen alle Leute hinein, und das wollen wir nicht.",
+     "en": "The rehearsal to-morrow is to be in the theatre. The impresario, Signor Cassiglioni, has entreated me not to say a word of this to a soul, as all kinds of people would come crowding in, and that we don't wish.",
+     "ko": "내일 리허설은 극장에서 해. 그런데 극장주 카스틸리오니 씨가 아무한테도 말하지 말라고 부탁했어. 안 그러면 사람들이 다 몰려들 텐데, 우린 그건 싫거든.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 48 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die morgige Probe ist auf dem Theatro. // Der Impressario aber der Sig. // Cassiglioni hat mich ersucht, / ich solle niemand nichts darvon sagen, / denn sonst lauffen alle Leute hinein, / und das wollen wir nicht.",
+      "en": "The rehearsal to-morrow is to be in the theatre. // The impresario, / Signor Cassiglioni, / has entreated me not to say a word of this to a soul, / as all kinds of people would come crowding in, / and that we don't wish.",
+      "ko": "내일 리허설은 극장에서 해. // 그런데 극장주 카스틸리오니 씨가 아무한테도 말하지 말라고 부탁했어. // 안 그러면 사람들이 다 몰려들 텐데, / 우린 그건 싫거든."
+     }
+    },
+    {
+     "de": "Wir giengen heunt von Graf Firmian weck um nach Haus zu gehen, und als wir in unser Gassen kommen, so machten wir unser Hausthüre auf, und was meinste wohl was sich zugetragen? — Wir giengen hinein.",
+     "en": "We were going home straight from Count Firmiani's, and when we came into our street we opened our door, and what do you think happened? We went in.",
+     "ko": "오늘 피르미안 백작 댁에서 나와 집으로 가는데, 우리 골목에 들어서서 현관문을 열었어. 그랬더니 무슨 일이 벌어졌게? — 우리가 안으로 들어갔지.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 48 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wir giengen heunt von Graf Firmian weck um nach Haus zu gehen, / und als wir in unser Gassen kommen, / so machten wir unser Hausthüre auf, / und was meinste wohl was sich zugetragen? // — / Wir giengen hinein.",
+      "en": "We were going home straight from Count Firmiani's, / and when we came into our street we opened our door, / and what do you think happened? // We went in.",
+      "ko": "오늘 피르미안 백작 댁에서 나와 집으로 가는데, / 우리 골목에 들어서서 현관문을 열었어. // 그랬더니 무슨 일이 벌어졌게? // — / 우리가 안으로 들어갔지."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Schwester",
+     "pos": "n.f.",
+     "ipa": "ˈʃvɛstɐ",
+     "en": "sister",
+     "ipa_en": "ˈsɪstɚ",
+     "ko": "누나",
+     "rom_ko": "nu-na",
+     "icon": "👧"
+    },
+    {
+     "de": "die Oper",
+     "pos": "n.f.",
+     "ipa": "ˈoːpɐ",
+     "en": "opera",
+     "ipa_en": "ˈɑpɹə",
+     "ko": "오페라",
+     "rom_ko": "o-pe-ra",
+     "icon": "🎭"
+    },
+    {
+     "de": "hören",
+     "pos": "v.",
+     "ipa": "ˈhøːʁən",
+     "en": "to hear",
+     "ipa_en": "hɪɹ",
+     "ko": "듣다",
+     "rom_ko": "deut-da",
+     "icon": "👂"
+    },
+    {
+     "de": "die Probe",
+     "pos": "n.f.",
+     "ipa": "ˈpʁoːbə",
+     "en": "rehearsal",
+     "ipa_en": "ɹɪˈhɝsəl",
+     "ko": "리허설",
+     "rom_ko": "ri-heo-seol"
+    },
+    {
+     "de": "die Hausthüre",
+     "de_modern": "die Haustür",
+     "pos": "n.f.",
+     "ipa": "ˈhaʊ̯sˌtyːɐ̯",
+     "en": "front door",
+     "ipa_en": "ˈfɹʌnt ˌdɔɹ",
+     "ko": "현관문",
+     "rom_ko": "hyeon-gwan-mun",
+     "icon": "🚪"
+    }
+   ],
+   "note": {
+    "ko": "세 번째 이탈리아 여행에서 볼프강은 밀라노를 위해 오페라 〈루치오 실라〉를 썼어요. 놀에 따르면 볼프강은 이 편지를 한 줄 쓸 때마다 종이를 뒤집어, 한 줄 걸러 한 줄씩 거꾸로 서 있어요. 오페라는 12월 26일 막을 올려 큰 성공을 거두고 날마다 극장을 채웠어요.",
+    "en": "On his third Italian journey Wolfgang wrote the opera 'Lucio Silla' for Milan. Nohl reports that he turned the sheet round after every line, so every other line of this letter stands on its head. The opera opened on 26 December with great success and filled the house night after night.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 48 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Viel Glück mit Deiner Opera!",
+    "en": "Good luck with your opera!",
+    "ko": "오페라 잘되길 빌어!",
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Jede zweite Zeile steht auf dem Kopfe.",
+      "en": "Every other line is written upside down.",
+      "ko": "한 줄 걸러 한 줄씩 거꾸로 쓴 편지예요."
+     }
+    },
+    {
+     "after": 4,
+     "type": "music",
+     "piece": {
+      "de": "Exsultate, jubilate, KV 165 (Mailand, Januar 1773)",
+      "en": "Exsultate, jubilate, K. 165 (Milan, January 1773)",
+      "ko": "〈엑술타테 유빌라테〉 K. 165 (밀라노, 1773년 1월)"
+     },
+     "commons": "File:Wolfgang Amadeus Mozart - Michele Laporte and Philippe Malgouyres - Exsultate, jubilate.ogg"
+    }
+   ],
+   "status": {
+    "de": "Morgen die Probe",
+    "en": "Rehearsal tomorrow",
+    "ko": "내일은 리허설"
+   },
+   "plate_hint": {
+    "idea": "Printed libretto of 'Lucio Silla' (Milan 1772), or the original lines-turned-upside-down layout of this letter described by Wallace.",
+    "search": [
+     "Lucio Silla libretto 1772 Milano",
+     "Teatro Regio Ducale Milano",
+     "Mozart Lucio Silla K. 135"
+    ],
+    "kind": "score"
+   }
+  }
+ ]
+}
