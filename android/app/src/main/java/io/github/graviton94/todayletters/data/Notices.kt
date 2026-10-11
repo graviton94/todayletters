@@ -24,6 +24,7 @@ import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Breaks
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.ui.AppState
+import io.github.graviton94.todayletters.ui.roman
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -219,7 +220,7 @@ class TodayWidget : AppWidgetProvider() {
             val ko = ctx.resources.configuration.locales[0].language == "ko"
             val date = LocalDate.now().format(if (ko) DateTimeFormatter.ofPattern("M월 d일 EEEE", Locale.KOREAN) else DateTimeFormatter.ofPattern("EEEE d MMMM", Locale.ENGLISH)).uppercase()
             art?.let { v.setImageViewBitmap(R.id.w_art, it) }
-            val no = sum?.letterNo?.takeIf { it > 0 }?.let(io.github.graviton94.todayletters.ui::roman)
+            val no = sum?.letterNo?.takeIf { it > 0 }?.let(::roman)
             if (sum == null) {
                 v.setTextViewText(R.id.w_date, date)
                 v.setTextViewText(R.id.w_line, ctx.getString(R.string.app_name))
