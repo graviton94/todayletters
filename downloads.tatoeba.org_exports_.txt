@@ -1,0 +1,36 @@
+Index of /exports/
+
+Index of /exports/../
+per_language/ 10-Oct-2026 06:28 -
+comments.tar.bz2 10-Oct-2026 06:26 47206298
+contributions.tar.bz2 10-Oct-2026 06:26 593246916
+jpn_indices.csv 10-Oct-2026 06:01 17434534
+jpn_indices.tar.bz2 10-Oct-2026 06:27 2865624
+links.csv 10-Oct-2026 06:02 457285504
+links.tar.bz2 10-Oct-2026 06:15 150048887
+sentences.csv 10-Oct-2026 06:01 759305569
+sentences.tar.bz2 10-Oct-2026 06:17 219065568
+sentences_CC0.csv 10-Oct-2026 06:11 41860119
+sentences_CC0.tar.bz2 10-Oct-2026 06:27 7959741
+sentences_base.csv 10-Oct-2026 06:01 196263555
+sentences_base.tar.bz2 10-Oct-2026 06:28 63843011
+sentences_detailed.csv 10-Oct-2026 06:02 1409238272
+sentences_detailed.tar.bz2 10-Oct-2026 06:14 303565606
+sentences_in_lists.csv 10-Oct-2026 06:04 211532954
+sentences_in_lists.tar.bz2 10-Oct-2026 06:27 41330886
+sentences_with_audio.csv 10-Oct-2026 06:10 71760061
+sentences_with_audio.tar.bz2 10-Oct-2026 06:27 6385582
+tag_metadata.csv 10-Oct-2026 06:04 604863
+tags.csv 10-Oct-2026 06:03 32690377
+tags.tar.bz2 10-Oct-2026 06:26 4884292
+tags_detailed.csv 10-Oct-2026 06:04 67595792
+tags_detailed.tar.bz2 10-Oct-2026 06:27 9084137
+transcriptions.tar.bz2 10-Oct-2026 06:27 8718812
+user_languages.csv 10-Oct-2026 06:10 2423207
+user_languages.tar.bz2 10-Oct-2026 06:27 833149
+user_lists.csv 10-Oct-2026 06:03 886412
+user_lists.tar.bz2 10-Oct-2026 06:26 228940
+users.csv 10-Oct-2026 06:04 5119312
+users_sentences.csv 10-Oct-2026 06:10 98729963
+wall.tar.bz2 10-Oct-2026 06:26 4131169
+wwwjdic.csv 10-Oct-2026 06:11 31651668

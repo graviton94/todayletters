@@ -1,0 +1,282 @@
+CEFRLex · Lexical resources for foreign language learning
+
+ Lexical resources for foreign language (L2) learning, teaching and research graded
+following the Common European Framework of Reference for Languages (CEFR)
+
+ language 6 languages
+
+ layers 7 resources
+
+ list 123,000+ lexical entries
+
+ CEFRLex hosts a collection of machine-readable graded lexical resources that describe the frequency distributions of words observed across the six levels of the Common European Framework of Reference for Languages (CEFR) scale.
+
+Through international collaborations between multiple research groups specialised in linguistics, language acquisition and/or computational linguistics, the CEFRLex project aims to create a lexicon for each one of the main European languages.
+
+The following languages are currently supported or under development:
+
+French (FLELex)
+
+Swedish (SVALex and SweLLex)
+
+English (EFLLex)
+
+Dutch (NT2Lex)
+
+Spanish (ELELex)
+
+German (DAFlex)
+
+For each resource, this website allows you to :
+
+search Search
+
+An online query interface is available to compare the frequency distribution of words along the CEFR scale.
+
+bar_chart Analyse
+
+Automatically analyze a text to determine its difficulty with respect to the different levels of the CEFR.
+
+get_app Download
+
+Download the resources to use them in your own projects (i.a. pedagogical and language assessment purposes).
+
+The lexical frequencies reported in each of the resources have been estimated on a corpus of L2 learning materials. The resources are thus based on materials with which foreign language learners are actually confronted and can therefore be used for pedagogical purposes. 
+
+The resources available on this site are of two types:
+
+ receptive lexicons
+ contain word frequency distributions observed in CEFR-graded textbooks or simplified readers
+ FLELex, SVALex, EFLLex, NT2Lex, ELELex, DAFlex
+ productive lexicons
+ contain word frequency distributions observed in CEFR-graded learner texts
+ SweLLex
+
+Some resources are also available in multiple versions, depending on which tagger was used for preprocessing: e.g. FLELex-TT [TreeTagger] vs. FLELex-CRF [CRF tagger].
+
+Each resource contains an average of 13,000 lexical entries, including both simple and multi-word lemmas with their part of speech, and their observed frequencies per CEFR level. All frequencies have been normalised following a common methodology described in Lété et al. (2004) and François et al. (2014).
+
+ Lemma
+ POS-tag
+ A1
+ A2
+ B1
+ B2
+ C1
+ C2
+ Total
+
+ voiture
+ NOM
+ 633.3
+ 598.5
+ 482.7
+ 202.7
+ 271.9
+ 25.9
+ 461.5
+
+ abandonner
+ VER
+ 35.5
+ 62.3
+ 104.8
+ 79.8
+ 73.6
+ 28.5
+ 78.2
+
+ en bas
+ ADV
+ 34.9
+ 28.5
+ 13
+ 32.8
+ 1.6
+ 0
+ 24
+
+ sous réserve de
+ PREP
+ 0
+ 0
+ 0.361
+ 0
+ 0
+ 0
+ 0.03
+
+ Example of lexical entries with normalised frequencies per CEFR level [FLELex]
+
+Resources
+
+ DAFlex
+
+German L2
+
+receptive
+
+ Find out more
+
+ EFLLex
+
+English L2
+
+receptive
+
+ Find out more
+
+ ELELex
+
+Spanish L2
+
+receptive
+
+ Find out more
+
+ FLELex
+
+French L2
+
+receptive
+
+ Find out more
+
+ NT2Lex
+
+Dutch L2
+
+receptive
+
+ Find out more
+
+ SVALex
+
+Swedish L2
+
+receptive
+
+ Find out more
+
+ SweLLex
+
+Swedish L2
+
+productive
+
+ Find out more
+
+Publications
+
+DAFlex Reference article forthcoming
+
+EFLLex Dürlich, L. and François, T., EFLLex: A Graded Lexical Resource for Learners of English as a Foreign Language. In Proceedings of the 11th International Conference on Language Resources and Evaluation (LREC 2018). Miyazaki, Japan, 7-12 May.
+
+ELELex Reference article forthcoming
+
+FLELex 
+For FLELex (Treetagger and CRF Tagger) :
+
+François, T., Gala, N., Watrin, P. & Fairon, C. FLELex: a graded lexical resource for French foreign learners. In the 9th International Conference on Language Resources and Evaluation (LREC 2014). Reykjavik, Iceland, 26-31 May.
+
+For FLELex / Beacco :
+
+Pintard, A. and François, T. (2020). Combining expert knowledge with frequency information to infer CEFR levels for words. In Proceedings of the 1st Workshop on Tools and Resources to Empower People with REAding DIfficulties (READI) (pp. 85-92).
+
+NT2Lex Tack, A., François, T., Desmet, P. & Fairon, C. (2018). NT2Lex: A CEFR-Graded Lexical Resource for Dutch as a Foreign Language Linked to Open Dutch WordNet. In Proceedings of the Thirteenth Workshop on Innovative Use of NLP for Building Educational Applications (pp. 137-146).
+
+SVALex Thomas François, Elena Volodina, Ildikó Pilán, Anaïs Tack. 2016. SVALex: a CEFR-graded lexical resource for Swedish foreign and second language learners. Proceedings of LREC 2016, Slovenia.
+
+SweLLex Elena Volodina, Ildikó Pilán, Lorena Llozhi, Baptiste Degryse, Thomas François. 2016.
+ SweLLex:
+ second language learners' productive vocabulary. Proceedings of the workshop on
+ NLP4CALL&LA.
+ NEALT Proceedings Series / Linköping Electronic Conference Proceedings
+
+ List of publications using a CEFRLex resource
+
+Team
+
+ Scientific Coordinator
+
+Prof. Dr.
+
+ Thomas FRANÇOIS mail_outline
+
+ Web Development by alphabetical order
+
+ Damien DE MEYERE
+
+ Baptiste DEGRYSE
+
+ Brayan DELMÉE
+
+Prof. Dr.
+
+ Thomas FRANÇOIS
+
+ Dorian RICCI
+
+ Anaïs TACK
+
+ Scientific Team by alphabetical order
+
+ David ALFTER
+
+Prof. Dr.
+
+ Barbara DE COCK
+
+Prof. Dr.
+
+ Piet DESMET
+
+ Luise DÜRLICH
+
+ Stian Rødven EIDE
+
+Prof. Dr.
+
+ Cédrick FAIRON
+
+Prof. Dr.
+
+ Thomas FRANÇOIS
+
+Prof. Dr.
+
+ Núria GALA
+
+ Hannes HEIDARSSON
+
+Dr.
+
+ Ildikó PILÁN
+
+ Anaïs TACK
+
+Dr.
+
+ Elena VOLODINA
+
+Dr.
+
+ Patrick WATRIN
+
+ Other Contributors by alphabetical order
+
+ Danielle-Theresa AMBOMO
+
+ Nina CORNET FONTAINE
+
+ Laura DE MESMAEKER
+
+ Anne-Sophie DESMET
+
+ Mathilde HAUBRECHTS
+
+ Irwing PALACIOS ORTIZ
+
+Partners
+
+Funding

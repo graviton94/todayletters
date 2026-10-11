@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<title>Using the Tatoeba Corpus for Your Own Projects</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    
+    <link
+    href="/css/skins/tatoeba/css/layouts/default.css"
+    rel="stylesheet"
+    type="text/css"
+/>
+
+    
+    
+
+
+    
+    
+    
+
+</head>
+    <body>
+    
+<div id="top_menu_container">
+    <div id="top_menu">
+        
+<ul id="navigation_menu">
+    <li class="menuItem">
+        <a href="/" class="menuSection show">
+            Home
+        </a>
+    </li>
+    <li class="menuItem">
+        <a href="/history/recent-changes" class="menuSection">
+            Recent changes
+        </a>
+    </li>
+</ul>
+
+        
+		<div id="user_menu">
+            <ul>
+            
+                <!-- TODO put here the fancy login box -->
+                    <li class="menuSection" >
+                        <a href="/users/login" >
+                            Login
+                        </a>
+            
+            </ul>
+		</div>
+
+        
+<form
+    class="navbar-search pull-right"
+    method="GET"
+    action="/search/result"
+>
+    <input
+        class="search-query span2"
+        name="query"
+        placeholder="Search"
+        type="text"
+    />
+</form>
+
+    </div>
+</div>
+
+    <div id="container1">
+        <div id="header">
+            
+<a class="brand" href="/">
+    
+        
+    
+</a>
+
+        <!--
+            <a href="/">
+                <img
+    src="/img/skins/tatoeba/img/logo.png"
+    width="72"
+    height="450"
+    alt="Tatowiki's logo"
+/>
+            </a>
+        !-->
+        </div>
+        <div id="container">
+            
+    <div id="main_content">
+        
+    
+
+         
+
+<div class="module">
+    <h1>Using the Tatoeba Corpus for Your Own Projects</h1>
+
+<h2>Terms of Use</h2>
+
+<p><strong>Creative Commons License</strong></p>
+
+<p>Tatoeba's technical infrastructure uses the default <strong>Creative Commons Attribution 2.0 France license (CC-BY 2.0 FR)</strong> for the use of textual sentences. The BY mention implies a single restriction on the use, reuse, modification and distribution of the sentence: a condition of attribution. That is, using, reusing, modifying and distributing the sentence is only allowed if the name of the author is cited.</p>
+
+<p>Read the complete <a href="http://tatoeba.org/eng/terms_of_use">Terms of Use</a>.</p>
+
+<p><strong>License for Audio Files</strong></p>
+
+<p>Note that the terms of use for the <strong>audio files</strong> are not the same as for the text of sentences.</p>
+
+<p>See the <a href="https://tatoeba.org/eng/sentences_lists/of_user/CK/audio%20-/page:1/sort:modified/direction:desc">list of audio lists</a> to see the license, if any, under which these people have offered their files for use outside of tatoeba.org. You should verify these licenses by clicking "audio files" on each member's profile.</p>
+
+<h2>Processing the Tatoeba Corpus</h2>
+
+<p>You will probably want to filter out sentences that:</p>
+
+<ul>
+<li>require correction or improvement</li>
+<li>sound unnatural</li>
+<li>are poor or unnatural translations of other sentences</li>
+</ul>
+
+
+<p>You may also may want to filter out those that:</p>
+
+<ul>
+<li>contain vulgar language or sexual references</li>
+<li>contain archaic or old-fashioned content</li>
+<li>are untrue</li>
+<li>are sexist, are racist, are insulting to others, or otherwise inappropriate for your audience</li>
+<li>are particularly long</li>
+</ul>
+
+
+<p>You can use various forms of metadata to aid with this process:</p>
+
+<ul>
+<li>tags (for instance, "@change", "archaic", "vulgar"; see  <a href="http://tatoeba.org/eng/tags/view_all">Tags</a> for more)</li>
+<li>sentence ratings</li>
+<li>contributors' self-reported skill in the language (as indicated in their profiles). Note that several members rate themselves as native speakers of multiple languages and that self-reported levels may not be accurate.</li>
+</ul>
+
+
+<p>If you are using the data to create language learning materials:</p>
+
+<ul>
+<li><p>You should probably use only sentences that you or someone else has personally proofread and not rejected, since you do not want to be teaching people errors.</p></li>
+<li><p>There is a list of over 900,000 proofread English sentences selected by CK for use in his projects. You might find this list useful. There is an option to download this list.</p></li>
+</ul>
+
+
+<p><a href="https://tatoeba.org/eng/sentences_lists/show/907/und">tatoeba.org/eng/sentences_lists/show/907/und</a></p>
+
+<ul>
+<li><a href="https://tatoeba.org/en/tags/show_sentences_with_tag/7">Sentences Tagged OK</a></li>
+</ul>
+
+
+<p>Note that not all sentences that are OK are explicitly marked with an "OK" rating or tag, and some sentences that do have errors are not marked with a negative rating or tag. Taking all of this into account, you will probably need to perform both custom automated processing and manual review.</p>
+
+<h2>Suggestions for Those Planning to Use the Corpus</h2>
+
+<ul>
+<li>Tell your audience how you selected the sentences.
+
+<ul>
+<li>See an example on this page:<a href="http://www.manythings.org/bilingual/">www.manythings.org/bilingual</a></li>
+</ul>
+</li>
+<li>Since corrections are being made all the time, you should frequently update your project so your audience benefits from these corrections.</li>
+</ul>
+
+
+<h2>Download the Tatoeba Corpus</h2>
+
+<p><a href="http://tatoeba.org/eng/download_tatoeba_example_sentences">Downloads</a> are updated every Saturday.</p>
+
+<h2>FAQ</h2>
+
+<ul>
+<li><a href="https://en.wiki.tatoeba.org/articles/show/faq#i-would-like-to-use-tatoeba's-data-for-my-project.">How do I give proper attribution?</a></li>
+<li><a href="https://en.wiki.tatoeba.org/articles/show/faq#where-can-i-download-tatoeba's-audio-data?">Where can I download Tatoeba's audio data?</a></li>
+<li><a href="https://en.wiki.tatoeba.org/articles/show/faq#how-can-i-download-all-sentences-and-translations-">How can I download all sentences and translations in specific languages?</a></li>
+<li><a href="https://en.wiki.tatoeba.org/articles/show/api">API</a></li>
+</ul>
+
+</div>
+
+
+    </div>
+    <div id="annexe_content">
+        
+<div class="module">
+    <h2>Contents</h2>
+    <ul id="toc"><li></li></ul>
+
+</div>
+
+<div class="module">
+
+    <h2>Actions</h2>
+    
+    <ul class="annexeMenu">
+        <li>
+            <a href="/articles/edit/using-the-tatoeba-corpus">
+                Edit
+            </a>
+        </li>
+        <li>
+            <a href="/articles/translate/using-the-tatoeba-corpus">
+                Translate
+            </a>
+        </li>
+        <li>
+            <a href="/history/all-versions-of/using-the-tatoeba-corpus">
+                History
+            </a>
+        </li> 
+        <li>
+            <a href="/articles/remove/using-the-tatoeba-corpus">
+                Remove
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="module">
+    <h2>Article available in:</h2>
+
+        
+</div>
+
+    </div>
+
+        </div>
+        
+<div id="footer">
+    <ul>
+        <li>
+            Beta
+        </li>
+    </ul>
+</div>
+
+    </div>
+    <div id="footer_container"></div>
+    
+<script
+    src="/js/commons/js/external/jquery.min.js"
+    type="text/javascript"
+></script>
+
+<script
+    src="/js/commons/js/external/jquery.tableofcontents.js"
+    type="text/javascript"
+></script>
+<script
+    src="/js/commons/js/toc.js"
+    type="text/javascript"
+></script>
+
+
+</body>
+</html>

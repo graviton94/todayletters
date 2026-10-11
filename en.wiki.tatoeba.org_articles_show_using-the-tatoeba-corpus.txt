@@ -1,0 +1,103 @@
+Using the Tatoeba Corpus for Your Own Projects
+
+ Home
+
+ Recent changes
+
+ Login
+
+Using the Tatoeba Corpus for Your Own Projects
+
+Terms of Use
+
+Creative Commons License
+
+Tatoeba's technical infrastructure uses the default Creative Commons Attribution 2.0 France license (CC-BY 2.0 FR) for the use of textual sentences. The BY mention implies a single restriction on the use, reuse, modification and distribution of the sentence: a condition of attribution. That is, using, reusing, modifying and distributing the sentence is only allowed if the name of the author is cited.
+
+Read the complete Terms of Use.
+
+License for Audio Files
+
+Note that the terms of use for the audio files are not the same as for the text of sentences.
+
+See the list of audio lists to see the license, if any, under which these people have offered their files for use outside of tatoeba.org. You should verify these licenses by clicking "audio files" on each member's profile.
+
+Processing the Tatoeba Corpus
+
+You will probably want to filter out sentences that:
+
+require correction or improvement
+
+sound unnatural
+
+are poor or unnatural translations of other sentences
+
+You may also may want to filter out those that:
+
+contain vulgar language or sexual references
+
+contain archaic or old-fashioned content
+
+are untrue
+
+are sexist, are racist, are insulting to others, or otherwise inappropriate for your audience
+
+are particularly long
+
+You can use various forms of metadata to aid with this process:
+
+tags (for instance, "@change", "archaic", "vulgar"; see Tags for more)
+
+sentence ratings
+
+contributors' self-reported skill in the language (as indicated in their profiles). Note that several members rate themselves as native speakers of multiple languages and that self-reported levels may not be accurate.
+
+If you are using the data to create language learning materials:
+
+You should probably use only sentences that you or someone else has personally proofread and not rejected, since you do not want to be teaching people errors.
+
+There is a list of over 900,000 proofread English sentences selected by CK for use in his projects. You might find this list useful. There is an option to download this list.
+
+tatoeba.org/eng/sentences_lists/show/907/und
+
+Sentences Tagged OK
+
+Note that not all sentences that are OK are explicitly marked with an "OK" rating or tag, and some sentences that do have errors are not marked with a negative rating or tag. Taking all of this into account, you will probably need to perform both custom automated processing and manual review.
+
+Suggestions for Those Planning to Use the Corpus
+
+Tell your audience how you selected the sentences.
+
+See an example on this page:www.manythings.org/bilingual
+
+Since corrections are being made all the time, you should frequently update your project so your audience benefits from these corrections.
+
+Download the Tatoeba Corpus
+
+Downloads are updated every Saturday.
+
+FAQ
+
+How do I give proper attribution?
+
+Where can I download Tatoeba's audio data?
+
+How can I download all sentences and translations in specific languages?
+
+API
+
+Contents
+
+Actions
+
+ Edit
+
+ Translate
+
+ History
+
+ Remove
+
+Article available in:
+
+ Beta

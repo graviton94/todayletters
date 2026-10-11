@@ -1,0 +1,85 @@
+FLELex · Lexical resources for foreign language learning
+
+Download FLELex
+
+Feel free to download and use FLELex for your own research or teaching.
+
+If you are using FLELex, please cite:
+
+For FLELex (Treetagger and CRF Tagger) :
+
+François, T., Gala, N., Watrin, P. & Fairon, C. FLELex: a graded lexical resource for French foreign learners. In the 9th International Conference on Language Resources and Evaluation (LREC 2014). Reykjavik, Iceland, 26-31 May.
+
+For FLELex / Beacco :
+
+Pintard, A. and François, T. (2020). Combining expert knowledge with frequency information to infer CEFR levels for words. In Proceedings of the 1st Workshop on Tools and Resources to Empower People with REAding DIfficulties (READI) (pp. 85-92).
+
+ FLELex
+
+ / Beacco
+
+ with TreeTagger parts of speech
+ French in receptive context · CEFR levels: A1 A2 B1 B2 C1 C2
+
+ Number of entries
+ 14,236 lemmas
+
+ Tagger used
+
+ TreeTagger (Schmid, 1994)
+
+ Includes multiword expressions
+ No
+
+ Recommended use
+
+ For educational purposes, since this resource transforms the distributional information of each word into a CEFR level. Since the tagset is the one used by TreeTagger, you can also use it in NLP tasks.
+
+ Download
+
+ FLELex
+
+ with TreeTagger parts of speech
+ French in receptive context · CEFR levels: A1 A2 B1 B2 C1 C2
+
+ Number of entries
+ 14,236 lemmas
+
+ Tagger used
+
+ TreeTagger (Schmid, 1994)
+
+ Includes multiword expressions
+ No
+
+ Recommended use
+ For NLP purposes, since the POS-tagset of FLELex-TT is the same as that of the TreeTagger.
+ It is thus very easy to automatically analyse a text using TreeTagger and FLELex.
+
+ Download
+
+ FLELex
+
+ with CRF Tagger parts of speech
+ French in receptive context · CEFR levels: A1 A2 B1 B2 C1 C2
+
+ Number of entries
+ 17,871 lemmas
+
+ Tagger used
+ EarlyTracks CRF Tagger
+
+ Includes multiword expressions
+ Yes
+
+ Recommended use
+ For pedagogical purposes, since this resource includes multiword expressions (very useful
+ for
+ language learners) and the tagging accuracy was higher. However, for NLP use, you should
+ either
+ use the EarlyTracks CRF
+ Tagger or adapt the tagset yourself.
+
+ Download
+
+ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License.
