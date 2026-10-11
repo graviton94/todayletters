@@ -1,5 +1,5 @@
 {
- "_doc": "Chapter VII. 독일어는 루트비히 놀(Ludwig Nohl) 엮음 『Mozarts Briefe』(잘츠부르크 1865, 공공 영역, archive.org 스캔) 쪽 사진에서 인쇄된 그대로 옮겼고, 판의 철자(daß, Rath, vermuthen 등)도 그대로 두었어요. 영어는 레이디 월리스(Lady Wallace)의 1866년 번역을 그대로 썼고, 한국어는 이 앱의 번역이에요. 238번 편지는 스캔에 해당 쪽(427–428)이 없어 이 장에서 빠졌어요.",
+ "_doc": "Chapter VII. 독일어는 루트비히 놀(Ludwig Nohl) 엮음 『Mozarts Briefe』(잘츠부르크 1865, 공공 영역, archive.org 스캔) 쪽 사진에서 인쇄된 그대로 옮겼고, 판의 철자(daß, Rath, vermuthen 등)도 그대로 두었어요. 영어는 레이디 월리스(Lady Wallace)의 1866년 번역을 그대로 썼고, 한국어는 이 앱의 번역이에요.",
  "series": "mozart",
  "chapter": "VII",
  "title_de": "Figaro & Prag",
@@ -9,13 +9,188 @@
  "letters": [
   {
    "id": "c7-l1",
+   "wallace_no": 238,
+   "nohl_pages": [
+    427
+   ],
+   "date": "1784-08-18",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 238 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Schwester",
+    "en": "his sister",
+    "ko": "누나"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Potz Sapperment! — Jetzt ist es Zeit, daß ich schreibe, wenn ich will, daß Dich mein Brief noch als eine Vestalin antreffen soll!",
+     "en": "Potz Sapperment! It is high time I should write, if I wish my letter to reach you before you become a married woman.",
+     "ko": "이런 세상에! 내 편지가 누나가 아직 처녀일 때 닿으려면 지금 당장 써야겠어!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 238 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Potz Sapperment! // — Jetzt ist es Zeit, daß ich schreibe, / wenn ich will, / daß Dich mein Brief noch als eine Vestalin antreffen soll!",
+      "en": "Potz Sapperment! // It is high time I should write, / if I wish my letter to reach you / before you become a married woman.",
+      "ko": "이런 세상에! // 내 편지가 / 누나가 아직 처녀일 때 닿으려면 / 지금 당장 써야겠어!"
+     }
+    },
+    {
+     "de": "— Meine Frau und ich wünschen Dir alles Glück und Vergnügen zu Deiner Standesveränderung",
+     "en": "My wife and I wish you all possible happiness in your change of state",
+     "ko": "내 아내와 나는 누나가 새 삶을 시작하는 데 온갖 행복과 기쁨을 빌어",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 238 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "— Meine Frau und ich / wünschen Dir alles Glück und Vergnügen / zu Deiner Standesveränderung",
+      "en": "My wife and I / wish you all possible happiness / in your change of state",
+      "ko": "내 아내와 나는 / 누나가 새 삶을 시작하는 데 / 온갖 행복과 기쁨을 빌어"
+     }
+    },
+    {
+     "de": "Wir bedauern nun nichts als unsern lieben Vater, welcher nun so ganz allein leben soll!",
+     "en": "Our only regret is our dear father, who must now live quite alone.",
+     "ko": "우리가 마음에 걸리는 건 사랑하는 아버지뿐이야. 이제 아버지 혼자 사셔야 하잖아!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 238 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wir bedauern nun nichts / als unsern lieben Vater, // welcher nun so ganz allein leben soll!",
+      "en": "Our only regret / is our dear father, // who must now live quite alone.",
+      "ko": "우리가 마음에 걸리는 건 / 사랑하는 아버지뿐이야. // 이제 아버지 혼자 사셔야 하잖아!"
+     }
+    },
+    {
+     "de": "— Freilich bist Du nicht weit von ihm entfernt und er kann öfters zu Dir spazieren fahren — allein jetzt ist er wieder an das verfluchte Capellhaus gebunden!",
+     "en": "To be sure, you are not far from him, and he can often walk out to see you, but he is once more tied to that detestable Capellhaus.",
+     "ko": "물론 누나가 아버지랑 멀지 않으니 아버지가 자주 누나한테 놀러 가실 수는 있겠지. 하지만 아버지는 또 그 지긋지긋한 궁정 악단 일에 묶여 계시잖아!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 238 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "— Freilich bist Du nicht weit von ihm entfernt / und er kann öfters zu Dir spazieren fahren // — allein jetzt ist er wieder / an das verfluchte Capellhaus gebunden!",
+      "en": "To be sure, you are not far from him, / and he can often walk out to see you, // but he is once more tied / to that detestable Capellhaus.",
+      "ko": "물론 누나가 아버지랑 멀지 않으니 / 아버지가 자주 누나한테 놀러 가실 수는 있겠지. // 하지만 아버지는 또 / 그 지긋지긋한 궁정 악단 일에 묶여 계시잖아!"
+     }
+    },
+    {
+     "de": "Und nun schicke ich Dir noch 1000 gute Wünsche von Wien nach Salzburg, besonders, daß ihr beide so gut zusammen leben möget, als wie — wir zwei.",
+     "en": "I now send you 1000 kind wishes from Vienna to Salzburg, and particularly that you may both live as happily together as we do.",
+     "ko": "이제 빈에서 잘츠부르크로 좋은 소원 1000가지를 보낼게. 무엇보다 두 사람이 사이좋게 살기를 바라. 우리 둘처럼 말이야.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 238 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Und nun schicke ich Dir noch 1000 gute Wünsche / von Wien nach Salzburg, // besonders, / daß ihr beide so gut zusammen leben möget, / als wie — wir zwei.",
+      "en": "I now send you 1000 kind wishes / from Vienna to Salzburg, // and particularly / that you may both live as happily together / as we do.",
+      "ko": "이제 빈에서 잘츠부르크로 / 좋은 소원 1000가지를 보낼게. // 무엇보다 / 두 사람이 사이좋게 살기를 바라. / 우리 둘처럼 말이야."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Zeit",
+     "pos": "n.f.",
+     "ipa": "tsaɪ̯t",
+     "en": "time",
+     "ipa_en": "taɪm",
+     "ko": "시간, 때",
+     "rom_ko": "sigan, ttae",
+     "icon": "⏰"
+    },
+    {
+     "de": "die Frau",
+     "pos": "n.f.",
+     "ipa": "fʁaʊ̯",
+     "en": "wife, woman",
+     "ipa_en": "waɪf",
+     "ko": "아내, 여자",
+     "rom_ko": "anae, yeoja",
+     "icon": "👩"
+    },
+    {
+     "de": "das Glück",
+     "pos": "n.n.",
+     "ipa": "ɡlʏk",
+     "en": "happiness, luck",
+     "ipa_en": "ˈhæpinəs",
+     "ko": "행복, 행운",
+     "rom_ko": "haengbok, haengun",
+     "icon": "🍀"
+    },
+    {
+     "de": "allein",
+     "pos": "adv.",
+     "ipa": "aˈlaɪ̯n",
+     "en": "alone",
+     "ipa_en": "əˈloʊn",
+     "ko": "혼자",
+     "rom_ko": "honja"
+    },
+    {
+     "de": "zusammen",
+     "pos": "adv.",
+     "ipa": "tsuˈzamən",
+     "en": "together",
+     "ipa_en": "təˈɡɛðɚ",
+     "ko": "함께",
+     "rom_ko": "hamkke",
+     "icon": "💑"
+    }
+   ],
+   "note": {
+    "ko": "1784년 여름, 누나 난네를이 요한 밥티스트 폰 베르히톨트 추 조넨부르크와 결혼해 볼프강 호숫가의 장크트 길겐으로 떠났어요. 모차르트는 혼자 남을 아버지를 걱정하며, 아버지가 대주교에게 연금을 청해 딸 곁이나 빈의 아들 곁으로 오면 좋겠다고 써요. 편지 끝에는 신혼부부에게 주는 짧은 장난스러운 시가 붙어 있어요.",
+    "en": "In summer 1784 Nannerl married Johann Baptist von Berchtold zu Sonnenburg and moved to St. Gilgen on the Wolfgangsee. Mozart worries about their father left alone, and suggests that he ask the Archbishop for a pension and move either to his daughter or to his son in Vienna. The letter ends with a short, teasing poem of advice for the newly-weds.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 238 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Danke, Bruder! Komm nach St. Gilgen!",
+    "en": "Thank you, brother! Come to St. Gilgen!",
+    "ko": "고마워, 동생아! 장크트 길겐에 와!",
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 4,
+     "type": "notice",
+     "text": {
+      "de": "1000 gute Wünsche · Wien → Salzburg",
+      "en": "1000 kind wishes · Vienna → Salzburg",
+      "ko": "좋은 소원 1000가지 · 빈 → 잘츠부르크"
+     }
+    },
+    {
+     "after": 4,
+     "type": "music",
+     "piece": {
+      "de": "Klavierkonzert B-Dur KV 450 (1784)",
+      "en": "Piano Concerto No. 15 in B flat, K. 450 (1784)",
+      "ko": "피아노 협주곡 15번 B♭장조 K. 450 (1784)"
+     },
+     "commons": "File:Mozart Piano Concerto No. 15 in B flat major K450 II. Andante (Mozart) European Archive.ogg"
+    }
+   ],
+   "status": {
+    "de": "Glückwunsch zur Hochzeit",
+    "en": "Wedding wishes",
+    "ko": "누나의 결혼 축하"
+   },
+   "plate_hint": {
+    "idea": "St. Gilgen on the Wolfgangsee (Nannerl's new home, also their mother's birthplace).",
+    "search": [
+     "St. Gilgen Wolfgangsee",
+     "Sankt Gilgen historical view",
+     "Nannerl Mozart Haus St. Gilgen"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c7-l2",
    "wallace_no": 239,
    "nohl_pages": [
+    429,
     430,
     431
    ],
-   "date": "1785-03",
-   "dateNote": "The heading and date stand on p. 429, which is missing from the scan; Wallace's contents date the letter 21 March 1785.",
+   "date": "1785-03-21",
    "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 239 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
    "place": "Wien",
    "to": {
@@ -26,6 +201,18 @@
    "mood": "bright",
    "messages": [
     {
+     "de": "Lieber Hr. gehr. Rath! — Ich habe die Hände so voll zu thun, daß ich fast keine Minute finde, die ich für mich anwenden könnte.",
+     "en": "Dear sir, my hands are so full that I have scarcely a minute I can call my own.",
+     "ko": "고문관님! 일이 너무 많아서 저 자신을 위해 쓸 수 있는 시간이 일 분도 거의 없습니다.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 239 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Lieber Hr. gehr. Rath! // — Ich habe die Hände so voll zu thun, / daß ich fast keine Minute finde, / die ich für mich anwenden könnte.",
+      "en": "Dear sir, // my hands are so full / that I have scarcely a minute / I can call my own.",
+      "ko": "고문관님! // 일이 너무 많아서 / 저 자신을 위해 쓸 수 있는 시간이 / 일 분도 거의 없습니다."
+     }
+    },
+    {
      "de": "— Denn so ein Werk verdiente sowohl von Seiten der Poesie als Musik nicht umsonst gemacht zu sein.",
      "en": "Such a work well deserves, both as regards the poetry and the music, not to have been written in vain.",
      "ko": "이런 작품은 시로 보나 음악으로 보나 헛되이 만들어져서는 안 될 작품입니다.",
@@ -35,18 +222,6 @@
       "de": "— Denn so ein Werk verdiente / sowohl von Seiten der Poesie als Musik // nicht umsonst gemacht zu sein.",
       "en": "Such a work well deserves, / both as regards the poetry and the music, // not to have been written in vain.",
       "ko": "이런 작품은 / 시로 보나 음악으로 보나 // 헛되이 만들어져서는 안 될 작품입니다."
-     }
-    },
-    {
-     "de": "— Die Cavalieri, Adamberger, Teyber, lauter Deutsche, worauf Deutschland stolz sein darf, müssen beim welschen Theater bleiben — müssen gegen ihre eigenen Landsleute kämpfen!",
-     "en": "Cavalieri, Adamberger, Teyber, all Germans, of whom Germany may well be proud, must remain at the Italian opera, and are thus compelled to enter the lists against their own countrymen.",
-     "ko": "카발리에리, 아담베르거, 타이버, 독일이 자랑할 만한 순수한 독일 가수들이 이탈리아 극장에 남아서 자기 동포들과 맞서 싸워야 합니다!",
-     "verified": true,
-     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 239 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
-     "speak": {
-      "de": "— Die Cavalieri, Adamberger, Teyber, / lauter Deutsche, / worauf Deutschland stolz sein darf, // müssen beim welschen Theater bleiben // — müssen gegen ihre eigenen Landsleute kämpfen!",
-      "en": "Cavalieri, Adamberger, Teyber, / all Germans, / of whom Germany may well be proud, // must remain at the Italian opera, // and are thus compelled to enter the lists / against their own countrymen.",
-      "ko": "카발리에리, 아담베르거, 타이버, / 독일이 자랑할 만한 / 순수한 독일 가수들이 // 이탈리아 극장에 남아서 // 자기 동포들과 맞서 싸워야 합니다!"
      }
     },
     {
@@ -150,7 +325,7 @@
    },
    "moments": [
     {
-     "after": 0,
+     "after": 1,
      "type": "notice",
      "text": {
       "de": "Kärnthnerthor-Theater · Anfang October",
@@ -185,7 +360,7 @@
    }
   },
   {
-   "id": "c7-l2",
+   "id": "c7-l3",
    "wallace_no": 242,
    "nohl_pages": [
     434,
@@ -363,7 +538,7 @@
    }
   },
   {
-   "id": "c7-l3",
+   "id": "c7-l4",
    "wallace_no": 243,
    "nohl_pages": [
     437,
@@ -537,7 +712,7 @@
    }
   },
   {
-   "id": "c7-l4",
+   "id": "c7-l5",
    "wallace_no": 244,
    "nohl_pages": [
     439,
@@ -713,7 +888,7 @@
    }
   },
   {
-   "id": "c7-l5",
+   "id": "c7-l6",
    "wallace_no": 245,
    "nohl_pages": [
     440,
@@ -891,7 +1066,7 @@
    }
   },
   {
-   "id": "c7-l6",
+   "id": "c7-l7",
    "wallace_no": 247,
    "nohl_pages": [
     444,
