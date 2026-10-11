@@ -1,0 +1,1223 @@
+{
+ "_doc": "독일어 원문은 루트비히 놀이 엮은 『Mozarts Briefe』(잘츠부르크 1865, 공공 영역) 쪽 스캔을 직접 읽어 옮겼고, 판본의 철자(daß, Noth, bey, -iren 등)와 문장부호를 그대로 두었다. 영어는 레이디 월리스의 1866년 번역(공공 영역)을 그대로 따랐다(1780으로 잘못 찍힌 138·140번의 연도는 1781로 바로잡음). 한국어는 이 앱이 새로 옮긴 것이다.",
+ "series": "mozart",
+ "chapter": "IV",
+ "title_de": "München · Idomeneo",
+ "title_en": "Munich · Idomeneo",
+ "title_ko": "뮌헨 · 이도메네오",
+ "original": "de",
+ "letters": [
+  {
+   "id": "c4-l1",
+   "wallace_no": 126,
+   "nohl_pages": [
+    234,
+    235
+   ],
+   "date": "1780-11-08",
+   "dateNote": "The opening page of this letter in Nohl (p. 233, with the date line and the account of the coach journey) is missing from our scan; the date is Wallace's 'Munich, Nov. 8, 1780'.",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 126 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "München",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Doch genug davon, das ist nun schon vorbei! Aber zur Regel wird es mir sein lieber zu Fuß zu gehen, als in einem Postwagen zu fahren.",
+     "en": "But no matter; it is past now, though it will serve me as a warning in future rather to go on foot than drive in a diligence.",
+     "ko": "그래도 이 얘긴 그만할게요. 이제 다 지난 일이니까요. 하지만 앞으로는 역마차를 타느니 차라리 걸어가는 걸 원칙으로 삼을 거예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 126 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Doch genug davon, / das ist nun schon vorbei! // Aber zur Regel wird es mir sein / lieber zu Fuß zu gehen, / als in einem Postwagen zu fahren.",
+      "en": "But no matter; / it is past now, / though it will serve me as a warning in future / rather to go on foot / than drive in a diligence.",
+      "ko": "그래도 이 얘긴 그만할게요. / 이제 다 지난 일이니까요. // 하지만 앞으로는 / 역마차를 타느니 / 차라리 걸어가는 걸 원칙으로 삼을 거예요."
+     }
+    },
+    {
+     "de": "Den andern Tag Morgens ging ich hin, mit Becke. — Seeau ist von den Mannheimern wie Wachs zusammengeschmolzen worden.",
+     "en": "Next morning I went there with Becke. Seeau has been moulded like wax by the Mannheim people.",
+     "ko": "이튿날 아침에 베케와 함께 찾아갔어요. 제아우 백작은 만하임 사람들 손에서 밀랍처럼 녹아 버렸더군요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 126 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Den andern Tag Morgens ging ich hin, / mit Becke. // — Seeau ist von den Mannheimern / wie Wachs zusammengeschmolzen worden.",
+      "en": "Next morning I went there with Becke. // Seeau has been moulded like wax / by the Mannheim people.",
+      "ko": "이튿날 아침에 / 베케와 함께 찾아갔어요. // 제아우 백작은 만하임 사람들 손에서 / 밀랍처럼 녹아 버렸더군요."
+     }
+    },
+    {
+     "de": "…denn wir haben uns verabredet hier eine Arie Andantino mit vier concertirenden Blasinstrumenten anzubringen, nämlich auf eine Flöte, eine Oboe, ein Horn und ein Fagott …",
+     "en": "…for we agreed to bring in an aria andantino here in concert with four wind instruments, viz. flute, hautboy, horn, and bassoon …",
+     "ko": "…여기에 안단티노 아리아를 하나 넣기로 했거든요. 관악기 네 대가 협주하는 곡으로요. 플루트, 오보에, 호른, 바순이에요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 126 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "…denn wir haben uns verabredet / hier eine Arie Andantino / mit vier concertirenden Blasinstrumenten anzubringen, // nämlich auf eine Flöte, eine Oboe, ein Horn und ein Fagott …",
+      "en": "…for we agreed to bring in an aria andantino here / in concert with four wind instruments, // viz. flute, hautboy, horn, and bassoon …",
+      "ko": "…여기에 안단티노 아리아를 하나 넣기로 했거든요. / 관악기 네 대가 협주하는 곡으로요. // 플루트, 오보에, 호른, 바순이에요…"
+     }
+    },
+    {
+     "de": "Den Anfang machte eine Ouverture von Cannabich, die ich weil sie von den letzten ist, nicht gekannt. Ich versichere Sie, wenn Sie selbe gehört hätten, sie würde Ihnen so sehr gefallen und gerührt haben, wie mich …",
+     "en": "The beginning was an overture by Cannabich, which, as it is one of his last, I did not know. I am sure, if you had heard it you would have been as much pleased and excited as I was …",
+     "ko": "시작은 칸나비히의 서곡이었는데, 최근 작품이라 저도 처음 듣는 곡이었어요. 정말이지, 아버지가 들으셨다면 저만큼이나 마음에 들고 감동하셨을 거예요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 126 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Den Anfang machte eine Ouverture von Cannabich, / die ich weil sie von den letzten ist, nicht gekannt. // Ich versichere Sie, / wenn Sie selbe gehört hätten, / sie würde Ihnen so sehr gefallen und gerührt haben, / wie mich …",
+      "en": "The beginning was an overture by Cannabich, / which, as it is one of his last, I did not know. // I am sure, / if you had heard it / you would have been as much pleased and excited / as I was …",
+      "ko": "시작은 칸나비히의 서곡이었는데, / 최근 작품이라 저도 처음 듣는 곡이었어요. // 정말이지, / 아버지가 들으셨다면 / 저만큼이나 마음에 들고 / 감동하셨을 거예요…"
+     }
+    },
+    {
+     "de": "Sagen Sie, schneiet es in Salzburg auch so wie hier?",
+     "en": "Tell me whether it snows as heavily in Salzburg as here.",
+     "ko": "그런데요, 잘츠부르크에도 여기처럼 눈이 이렇게 와요?",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 126 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Sagen Sie, / schneiet es in Salzburg auch so wie hier?",
+      "en": "Tell me / whether it snows as heavily in Salzburg as here.",
+      "ko": "그런데요, / 잘츠부르크에도 여기처럼 눈이 이렇게 와요?"
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Postwagen",
+     "pos": "n.m.",
+     "ipa": "ˈpɔstˌvaːɡn̩",
+     "en": "stagecoach, diligence",
+     "ipa_en": "ˈsteɪdʒˌkoʊtʃ",
+     "ko": "역마차",
+     "rom_ko": "yeong-ma-cha",
+     "icon": "🐴"
+    },
+    {
+     "de": "das Wachs",
+     "pos": "n.n.",
+     "ipa": "vaks",
+     "en": "wax",
+     "ipa_en": "wæks",
+     "ko": "밀랍",
+     "rom_ko": "mil-lap",
+     "icon": "🕯️"
+    },
+    {
+     "de": "die Flöte",
+     "pos": "n.f.",
+     "ipa": "ˈfløːtə",
+     "en": "flute",
+     "ipa_en": "flut",
+     "ko": "플루트",
+     "rom_ko": "peul-lu-teu",
+     "icon": "🎶"
+    },
+    {
+     "de": "die Ouverture",
+     "de_modern": "die Ouvertüre",
+     "pos": "n.f.",
+     "ipa": "uvɛʁˈtyːʁə",
+     "en": "overture",
+     "ipa_en": "ˈoʊvɚtʃɚ",
+     "ko": "서곡",
+     "rom_ko": "seo-gok"
+    },
+    {
+     "de": "schneien",
+     "pos": "v.",
+     "ipa": "ˈʃnaɪ̯ən",
+     "en": "to snow",
+     "ipa_en": "snoʊ",
+     "ko": "눈이 오다",
+     "rom_ko": "nu-ni o-da",
+     "icon": "❄️"
+    }
+   ],
+   "note": {
+    "ko": "볼프강은 1780년 11월 초, 뮌헨 카니발을 위해 위촉받은 오페라 〈이도메네오〉를 마무리하러 잘츠부르크에서 뮌헨으로 왔어요. 대본을 쓴 바레스코 신부는 잘츠부르크에 있어서, 고칠 곳은 모두 아버지를 거쳐 전해야 했지요. 칸나비히 같은 만하임 음악가들은 선제후를 따라 뮌헨으로 옮겨 와 있었고, 제아우 백작은 뮌헨 궁정 극장의 감독이었어요.",
+    "en": "In early November 1780 Wolfgang came from Salzburg to Munich to finish Idomeneo, commissioned for the Munich carnival. The librettist, Abbate Varesco, stayed in Salzburg, so every change had to go through his father. Mannheim musicians such as Cannabich had followed the Elector to Munich, where Count Seeau ran the court theatre.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 126 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Gut, daß du heil angekommen bist.",
+    "en": "Good that you arrived safe and sound.",
+    "ko": "무사히 도착했다니 다행이구나.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 2,
+     "type": "music",
+     "piece": {
+      "de": "Idomeneo, KV 366 — Arie der Ilia „Se il padre perdei“",
+      "en": "Idomeneo, K. 366 — Ilia's aria 'Se il padre perdei'",
+      "ko": "〈이도메네오〉 K. 366 — 일리아의 아리아 〈세 일 파드레 페르데이〉"
+     },
+     "commons": null
+    },
+    {
+     "after": 4,
+     "type": "weather",
+     "quote": "schneiet es in Salzburg auch so wie hier?",
+     "text": {
+      "de": "Schnee in München",
+      "en": "Snow in Munich",
+      "ko": "뮌헨에 눈"
+     }
+    }
+   ],
+   "status": {
+    "de": "Angekommen in München",
+    "en": "Arrived in Munich",
+    "ko": "뮌헨 도착"
+   },
+   "plate_hint": {
+    "idea": "The Cuvilliés-Theater (Altes Residenztheater), Munich, where 'Idomeneo' premiered on 29 Jan. 1781.",
+    "search": [
+     "Cuvilliés-Theater Munich",
+     "Altes Residenztheater München",
+     "Idomeneo 1781 Munich"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c4-l2",
+   "wallace_no": 128,
+   "nohl_pages": [
+    237
+   ],
+   "date": "1780-11-15",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 128 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "München",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "tender",
+   "messages": [
+    {
+     "de": "Die Arie ist vortrefflich so. Nun gibt es noch eine Veränderung an welcher Raaff Schuld ist; er hat aber Recht, und hätte er nicht, so müßte man doch seinen grauen Haaren etwas zu Gefallen thun.",
+     "en": "The aria is now admirable, but there is still an alteration to be made recommended by Raaff; he is, however, right, and even were he not, some courtesy ought to be shown to his gray hairs.",
+     "ko": "아리아는 이제 아주 훌륭해요. 그런데 라프 때문에 고칠 데가 하나 더 생겼어요. 하지만 그 사람 말이 옳아요. 설령 옳지 않더라도 그 흰머리를 봐서라도 좀 맞춰 드려야지요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 128 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die Arie ist vortrefflich so. // Nun gibt es noch eine Veränderung / an welcher Raaff Schuld ist; // er hat aber Recht, / und hätte er nicht, / so müßte man doch seinen grauen Haaren / etwas zu Gefallen thun.",
+      "en": "The aria is now admirable, // but there is still an alteration to be made / recommended by Raaff; // he is, however, right, / and even were he not, / some courtesy ought to be shown / to his gray hairs.",
+      "ko": "아리아는 이제 아주 훌륭해요. // 그런데 라프 때문에 / 고칠 데가 하나 더 생겼어요. // 하지만 그 사람 말이 옳아요. / 설령 옳지 않더라도 / 그 흰머리를 봐서라도 / 좀 맞춰 드려야지요."
+     }
+    },
+    {
+     "de": "Er war gestern bei mir, ich habe ihm seine 1. Arie vorgeritten und er war sehr damit zufrieden.",
+     "en": "He was with me yesterday, and I played over his first aria to him, with which he was very much pleased.",
+     "ko": "어제 저한테 왔길래 그 사람의 첫 아리아를 쳐 보였더니 아주 흡족해했어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 128 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Er war gestern bei mir, / ich habe ihm seine 1. Arie vorgeritten / und er war sehr damit zufrieden.",
+      "en": "He was with me yesterday, / and I played over his first aria to him, / with which he was very much pleased.",
+      "ko": "어제 저한테 왔길래 / 그 사람의 첫 아리아를 쳐 보였더니 / 아주 흡족해했어요."
+     }
+    },
+    {
+     "de": "Nun, der Mann ist alt, in einer Arie wie selbe im 2. Act Fuor del mar hò un mare in seno etc. kann er sich dermalen nicht mehr zeigen.",
+     "en": "The man is old, and can no longer show off in an aria like that in the second act,—\"Fuor del mar ho un mare in seno,\" &c.",
+     "ko": "그 사람도 이제 늙어서, 2막의 〈푸오르 델 마르〉 같은 아리아로는 더 이상 기량을 뽐낼 수 없어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 128 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun, der Mann ist alt, / in einer Arie wie selbe im 2. Act / Fuor del mar hò un mare in seno etc. / kann er sich dermalen nicht mehr zeigen.",
+      "en": "The man is old, / and can no longer show off in an aria / like that in the second act,—\"Fuor del mar ho un mare in seno,\" &c.",
+      "ko": "그 사람도 이제 늙어서, / 2막의 〈푸오르 델 마르〉 같은 아리아로는 / 더 이상 기량을 뽐낼 수 없어요."
+     }
+    },
+    {
+     "de": "Also weil er im 3. Act ohnedieß keine Arie hat, wünschte er sich … nach seiner letzten Rede O Creta fortunata! O me felice! anstatt dem Quartett eine hübsche Arie zu singen …",
+     "en": "As, moreover, in the third act he has no aria, … he wishes after his last speech, \"O Creta fortunata, O me felice,\" to have a pretty aria to sing instead of the quartet …",
+     "ko": "게다가 3막에는 그의 아리아가 없으니, … 마지막 대사 ‘오 복된 크레타여! 오 행복한 나여!’ 다음에 사중창 대신 예쁜 아리아를 하나 부르고 싶대요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 128 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Also weil er im 3. Act ohnedieß keine Arie hat, / wünschte er sich … / nach seiner letzten Rede O Creta fortunata! O me felice! / anstatt dem Quartett eine hübsche Arie zu singen …",
+      "en": "As, moreover, in the third act he has no aria, / … he wishes after his last speech, / \"O Creta fortunata, O me felice,\" / to have a pretty aria to sing instead of the quartet …",
+      "ko": "게다가 3막에는 그의 아리아가 없으니, / … 마지막 대사 ‘오 복된 크레타여! 오 행복한 나여!’ 다음에 / 사중창 대신 예쁜 아리아를 하나 부르고 싶대요…"
+     }
+    },
+    {
+     "de": "…und auf diese Art fällt auch hier ein unnöthiges Stück weg und der 3. Act wird nun weit bessern Effect machen.",
+     "en": "…in this way a superfluous air would be got rid of, and the third act produce a far better effect.",
+     "ko": "…그러면 쓸데없는 곡 하나가 빠지고 3막은 훨씬 더 좋은 효과를 낼 거예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 128 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "…und auf diese Art fällt auch hier ein unnöthiges Stück weg / und der 3. Act wird nun weit bessern Effect machen.",
+      "en": "…in this way a superfluous air would be got rid of, / and the third act produce a far better effect.",
+      "ko": "…그러면 쓸데없는 곡 하나가 빠지고 / 3막은 훨씬 더 좋은 효과를 낼 거예요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Arie",
+     "pos": "n.f.",
+     "ipa": "ˈaːʁi̯ə",
+     "en": "aria",
+     "ipa_en": "ˈɑɹiə",
+     "ko": "아리아",
+     "rom_ko": "a-ri-a",
+     "icon": "🎤"
+    },
+    {
+     "de": "das Haar",
+     "pos": "n.n.",
+     "ipa": "haːɐ̯",
+     "en": "hair",
+     "ipa_en": "hɛɹ",
+     "ko": "머리카락",
+     "rom_ko": "meo-ri-ka-rak"
+    },
+    {
+     "de": "alt",
+     "pos": "adj.",
+     "ipa": "alt",
+     "en": "old",
+     "ipa_en": "oʊld",
+     "ko": "늙은",
+     "rom_ko": "neul-geun",
+     "icon": "👴"
+    },
+    {
+     "de": "zufrieden",
+     "pos": "adj.",
+     "ipa": "tsuˈfʁiːdn̩",
+     "en": "pleased, content",
+     "ipa_en": "plizd",
+     "ko": "흡족한",
+     "rom_ko": "heup-jo-kan",
+     "icon": "😊"
+    },
+    {
+     "de": "das Quartett",
+     "pos": "n.n.",
+     "ipa": "kvaʁˈtɛt",
+     "en": "quartet",
+     "ipa_en": "kwɔɹˈtɛt",
+     "ko": "사중창",
+     "rom_ko": "sa-jung-chang"
+    }
+   ],
+   "note": {
+    "ko": "안톤 라프는 〈이도메네오〉의 타이틀 롤을 맡은 노장 테너예요. 볼프강은 1777~78년 만하임과 파리에서 그와 가까워졌어요. 그래서 그의 목소리와 나이에 맞춰 아리아를 고쳐 주려 하지요. 2막의 〈푸오르 델 마르〉는 폭풍처럼 몰아치는 화려한 아리아예요.",
+    "en": "Anton Raaff, the veteran tenor who created the title role of Idomeneo, had befriended Wolfgang in Mannheim and Paris in 1777–78. Here Wolfgang reshapes the part to suit the old singer's voice. 'Fuor del mar' in Act II is the opera's great storm-tossed bravura aria.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 128 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Ehre sein graues Haar, mein Sohn.",
+    "en": "Honour his grey hair, my son.",
+    "ko": "그 흰머리를 존중하거라, 아들아.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 2,
+     "type": "music",
+     "piece": {
+      "de": "Idomeneo — Arie „Fuor del mar“",
+      "en": "Idomeneo — aria 'Fuor del mar'",
+      "ko": "〈이도메네오〉 — 아리아 〈푸오르 델 마르〉"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "de": "Für Raaffs graue Haare",
+    "en": "For Raaff's grey hairs",
+    "ko": "라프의 흰머리를 위해"
+   },
+   "plate_hint": {
+    "idea": "Portrait of the tenor Anton Raaff (the first Idomeneo).",
+    "search": [
+     "Anton Raaff tenor portrait",
+     "Anton Raaff Sänger",
+     "Raaff tenor 1714"
+    ],
+    "kind": "person"
+   }
+  },
+  {
+   "id": "c4-l3",
+   "wallace_no": 131,
+   "nohl_pages": [
+    244,
+    245
+   ],
+   "date": "1780-12-01",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 131 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "München",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "…denn ich versichere Sie, ich ging mit so ruhigem Herzen zu dieser Probe, als wenn ich wo auf eine Collation hinginge.",
+     "en": "…for I declare I went to this rehearsal with as quiet a heart as if I had been going to a banquet.",
+     "ko": "…정말이지 저는 잔치에라도 가는 것처럼 아주 편안한 마음으로 그 리허설에 갔어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 131 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "…denn ich versichere Sie, / ich ging mit so ruhigem Herzen zu dieser Probe, / als wenn ich wo auf eine Collation hinginge.",
+      "en": "…for I declare I went to this rehearsal / with as quiet a heart / as if I had been going to a banquet.",
+      "ko": "…정말이지 저는 / 잔치에라도 가는 것처럼 / 아주 편안한 마음으로 그 리허설에 갔어요."
+     }
+    },
+    {
+     "de": "Graf Seinsheim sagte zu mir: „Ich versichere Sie, daß ich mir sehr viel von Ihnen erwartet habe, aber das habe ich wahrlich nicht erwartet.“",
+     "en": "Count Seinsheim said to me, \"I do assure you that though I expected a great deal from you, I can truly say this I did not expect.\"",
+     "ko": "자인스하임 백작이 그러더군요. “당신에게 큰 기대를 했던 건 사실이지만, 정말이지 이 정도일 줄은 몰랐소.”",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 131 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Graf Seinsheim sagte zu mir: / „Ich versichere Sie, / daß ich mir sehr viel von Ihnen erwartet habe, / aber das habe ich wahrlich nicht erwartet.“",
+      "en": "Count Seinsheim said to me, / \"I do assure you that though I expected a great deal from you, / I can truly say this I did not expect.\"",
+      "ko": "자인스하임 백작이 그러더군요. / “당신에게 큰 기대를 했던 건 사실이지만, / 정말이지 이 정도일 줄은 몰랐소.”"
+     }
+    },
+    {
+     "de": "„Das kann ich Ihnen wohl gestehen“, sagte er, „daß mir noch keine Musik solche Impression gemacht hat, und ich versichere Sie, daß ich wohl 50 Mal auf Ihren Herrn Vater gedacht habe, was dieser Mann für eine Freude haben muß, wenn er diese Oper hört.“",
+     "en": "He said to me, \"I must honestly confess that no music ever made such an impression on me, and I assure you I thought of your father fifty times at least, and of the joy he will feel when he hears this opera.\"",
+     "ko": "오보에 주자 람은 이렇게 말했어요. “솔직히 어떤 음악도 내게 이런 인상을 준 적이 없소. 그리고 정말이지, 당신 아버님 생각을 적어도 쉰 번은 했다오. 이 오페라를 들으시면 얼마나 기뻐하실까 하고요.”",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 131 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "„Das kann ich Ihnen wohl gestehen“, sagte er, / „daß mir noch keine Musik solche Impression gemacht hat, // und ich versichere Sie, / daß ich wohl 50 Mal auf Ihren Herrn Vater gedacht habe, / was dieser Mann für eine Freude haben muß, / wenn er diese Oper hört.“",
+      "en": "He said to me, \"I must honestly confess / that no music ever made such an impression on me, // and I assure you / I thought of your father fifty times at least, / and of the joy he will feel / when he hears this opera.\"",
+      "ko": "오보에 주자 람은 이렇게 말했어요. / “솔직히 어떤 음악도 내게 이런 인상을 준 적이 없소. // 그리고 정말이지, / 당신 아버님 생각을 적어도 쉰 번은 했다오. / 이 오페라를 들으시면 / 얼마나 기뻐하실까 하고요.”"
+     }
+    },
+    {
+     "de": "Der Mann ist so in seine Arie verliebt, als es nur immer ein junger feuriger Mann in seine Schöne sein kann.",
+     "en": "The man is as much enamored of his aria as a young passionate lover ever was of his fair one.",
+     "ko": "라프는 자기 아리아에 푹 빠져 있어요. 열정적인 젊은이가 제 연인에게 빠진 것만큼이나요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 131 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Der Mann ist so in seine Arie verliebt, / als es nur immer ein junger feuriger Mann / in seine Schöne sein kann.",
+      "en": "The man is as much enamored of his aria / as a young passionate lover / ever was of his fair one.",
+      "ko": "라프는 자기 아리아에 푹 빠져 있어요. / 열정적인 젊은이가 / 제 연인에게 빠진 것만큼이나요."
+     }
+    },
+    {
+     "de": "Des Nachts, ehe er einschläft und Morgens da er erwacht, singt er sie … Enfin, er ist zufrieden wie ein König.",
+     "en": "He sings it the last thing before he goes to sleep, and the first thing in the morning when he awakes. … In short, he is as happy as a king.",
+     "ko": "밤에 잠들기 전에도, 아침에 눈뜨자마자도 그 노래를 불러요… 한마디로, 왕처럼 흐뭇해하고 있어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 131 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Des Nachts, ehe er einschläft / und Morgens da er erwacht, / singt er sie … // Enfin, / er ist zufrieden wie ein König.",
+      "en": "He sings it the last thing before he goes to sleep, / and the first thing in the morning when he awakes. … // In short, / he is as happy as a king.",
+      "ko": "밤에 잠들기 전에도, / 아침에 눈뜨자마자도 / 그 노래를 불러요… // 한마디로, / 왕처럼 흐뭇해하고 있어요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Probe",
+     "pos": "n.f.",
+     "ipa": "ˈpʁoːbə",
+     "en": "rehearsal",
+     "ipa_en": "ɹɪˈhɝsəl",
+     "ko": "리허설",
+     "rom_ko": "ri-heo-seol",
+     "icon": "🎻"
+    },
+    {
+     "de": "das Herz",
+     "pos": "n.n.",
+     "ipa": "hɛʁts",
+     "en": "heart",
+     "ipa_en": "hɑɹt",
+     "ko": "마음",
+     "rom_ko": "ma-eum",
+     "icon": "❤️"
+    },
+    {
+     "de": "die Musik",
+     "pos": "n.f.",
+     "ipa": "muˈziːk",
+     "en": "music",
+     "ipa_en": "ˈmjuzɪk",
+     "ko": "음악",
+     "rom_ko": "eu-mak",
+     "icon": "🎵"
+    },
+    {
+     "de": "verliebt",
+     "pos": "adj.",
+     "ipa": "fɛɐ̯ˈliːpt",
+     "en": "in love",
+     "ipa_en": "ɪn ˈlʌv",
+     "ko": "사랑에 빠진",
+     "rom_ko": "sa-rang-e ppa-jin",
+     "icon": "💘"
+    },
+    {
+     "de": "der König",
+     "pos": "n.m.",
+     "ipa": "ˈkøːnɪç",
+     "en": "king",
+     "ipa_en": "kɪŋ",
+     "ko": "왕",
+     "rom_ko": "wang",
+     "icon": "👑"
+    }
+   ],
+   "note": {
+    "ko": "이 리허설은 〈이도메네오〉 1막을 오케스트라와 처음 맞춰 본 자리였어요. 바이올린은 여섯 대뿐이었지만 관악기는 다 갖췄지요. 오보에 주자 프리드리히 람은 만하임 시절부터 볼프강의 친구였고, 볼프강은 1781년 초 뮌헨에서 그를 위해 오보에 사중주 F장조 K. 370을 써요.",
+    "en": "This was the first rehearsal of Act I of Idomeneo with orchestra: only six violins, but all the wind instruments. The oboist Friedrich Ramm had been Wolfgang's friend since Mannheim; early in 1781 in Munich Wolfgang wrote the Oboe Quartet in F, K. 370, for him.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 131 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Ich bin so stolz auf dich, mein Sohn.",
+    "en": "I am so proud of you, my son.",
+    "ko": "네가 정말 자랑스럽구나, 아들아.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Probe des 1. Acts: nur 6 Violinen",
+      "en": "Rehearsal of Act I: only six violins",
+      "ko": "1막 리허설 · 바이올린은 여섯 대뿐"
+     }
+    },
+    {
+     "after": 2,
+     "type": "music",
+     "piece": {
+      "de": "Oboenquartett F-Dur, KV 370 — für Friedrich Ramm (München, Anfang 1781)",
+      "en": "Oboe Quartet in F, K. 370 — for Friedrich Ramm (Munich, early 1781)",
+      "ko": "오보에 사중주 F장조 K. 370 — 프리드리히 람을 위해 (뮌헨, 1781년 초)"
+     },
+     "commons": "File:Wolfgang Amadeus Mozart - Oboe Quartet - 1. Allegro.ogg"
+    }
+   ],
+   "status": {
+    "de": "Zufrieden wie ein König",
+    "en": "Happy as a king",
+    "ko": "왕처럼 흐뭇한"
+   },
+   "plate_hint": {
+    "idea": "A classical oboe of the 1780s (for Friedrich Ramm) or a view of Count Seeau's rooms / the Munich Residenz.",
+    "search": [
+     "classical oboe 18th century",
+     "Munich Residenz 18th century",
+     "Friedrich Ramm oboist"
+    ],
+    "kind": "era"
+   }
+  },
+  {
+   "id": "c4-l4",
+   "wallace_no": 134,
+   "nohl_pages": [
+    249,
+    250,
+    251
+   ],
+   "date": "1780-12-16",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 134 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "München",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "weary",
+   "messages": [
+    {
+     "de": "…er fragte mich schon, warum ich den Sporn nicht trüge? Ich sagte, ich hätte an dem im Kopf schwer genug zu tragen.",
+     "en": "He asked me why I did not wear my Order of the Spur. I said I had one in my head quite hard enough to carry.",
+     "ko": "그 사람이 왜 박차 훈장을 달고 다니지 않느냐고 묻더군요. 그래서 머릿속에 단 것만으로도 충분히 무겁다고 했어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 134 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "…er fragte mich schon, / warum ich den Sporn nicht trüge? // Ich sagte, / ich hätte an dem im Kopf schwer genug zu tragen.",
+      "en": "He asked me why I did not wear my Order of the Spur. // I said / I had one in my head quite hard enough to carry.",
+      "ko": "그 사람이 왜 박차 훈장을 달고 다니지 않느냐고 묻더군요. // 그래서 / 머릿속에 단 것만으로도 충분히 무겁다고 했어요."
+     }
+    },
+    {
+     "de": "Er hatte die Güte mein Kleid mir am Leibe ein wenig auszubürsten, und sagte: „Ein Cavalier darf den andern schon bedienen.“",
+     "en": "He was so obliging as to dust my coat a little for me, saying, \"One cavalier may wait upon another.\"",
+     "ko": "친절하게도 제가 입고 있는 옷을 살짝 털어 주면서 이러더군요. “기사끼리는 서로 시중들어도 되는 법이지요.”",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 134 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Er hatte die Güte / mein Kleid mir am Leibe ein wenig auszubürsten, / und sagte: // „Ein Cavalier darf den andern schon bedienen.“",
+      "en": "He was so obliging as to dust my coat a little for me, / saying, // \"One cavalier may wait upon another.\"",
+      "ko": "친절하게도 / 제가 입고 있는 옷을 살짝 털어 주면서 / 이러더군요. // “기사끼리는 서로 시중들어도 되는 법이지요.”"
+     }
+    },
+    {
+     "de": "Wegen dem sogenannten populare sorgen Sie nichts, denn in meiner Oper ist Musik für aller Gattung Leute, ausgenommen für lange Ohren nicht.",
+     "en": "As for what is called the popular taste, do not be uneasy, for in my opera there is music for every class, except for the long-eared.",
+     "ko": "이른바 대중 취향은 걱정하지 마세요. 제 오페라에는 온갖 사람을 위한 음악이 다 있거든요. 귀가 긴 족속만 빼고요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 134 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wegen dem sogenannten populare sorgen Sie nichts, // denn in meiner Oper ist Musik für aller Gattung Leute, / ausgenommen für lange Ohren nicht.",
+      "en": "As for what is called the popular taste, do not be uneasy, // for in my opera there is music for every class, / except for the long-eared.",
+      "ko": "이른바 대중 취향은 걱정하지 마세요. // 제 오페라에는 온갖 사람을 위한 음악이 다 있거든요. / 귀가 긴 족속만 빼고요."
+     }
+    },
+    {
+     "de": "Doch Ihnen zu lieb alles in der Welt, und leichter würde es mir noch ankommen, wenn man doch nur bisweilen auf eine kurze Zeit wegkönnte, um Odem zu holen.",
+     "en": "But anything in the world to please you. It would be less trying to me if I could only occasionally escape from time to time, just to draw my breath.",
+     "ko": "그래도 아버지를 위해서라면 세상 무엇이든 할게요. 다만 가끔이라도 잠깐씩 빠져나와 숨을 돌릴 수 있다면 훨씬 견디기 쉬울 텐데요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 134 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Doch Ihnen zu lieb alles in der Welt, // und leichter würde es mir noch ankommen, / wenn man doch nur bisweilen auf eine kurze Zeit wegkönnte, / um Odem zu holen.",
+      "en": "But anything in the world to please you. // It would be less trying to me / if I could only occasionally escape from time to time, / just to draw my breath.",
+      "ko": "그래도 아버지를 위해서라면 세상 무엇이든 할게요. // 다만 가끔이라도 잠깐씩 빠져나와 / 숨을 돌릴 수 있다면 / 훨씬 견디기 쉬울 텐데요."
+     }
+    },
+    {
+     "de": "Kommen Sie bald zu mir nach München und hören Sie meine Oper und sagen Sie mir dann, ob ich Unrecht habe, traurig zu sein, wenn ich nach Salzburg denke.",
+     "en": "Come soon to see me at Munich and to hear my opera, and then tell me whether I have not a right to feel sad when I think of Salzburg.",
+     "ko": "어서 뮌헨으로 오셔서 제 오페라를 들어 보세요. 그리고 말씀해 주세요. 잘츠부르크를 생각하면 슬퍼지는 제가 틀렸는지를요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 134 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Kommen Sie bald zu mir nach München / und hören Sie meine Oper / und sagen Sie mir dann, / ob ich Unrecht habe, / traurig zu sein, / wenn ich nach Salzburg denke.",
+      "en": "Come soon to see me at Munich / and to hear my opera, / and then tell me / whether I have not a right to feel sad / when I think of Salzburg.",
+      "ko": "어서 뮌헨으로 오셔서 / 제 오페라를 들어 보세요. / 그리고 말씀해 주세요. / 잘츠부르크를 생각하면 슬퍼지는 제가 / 틀렸는지를요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Sporn",
+     "pos": "n.m.",
+     "ipa": "ʃpɔʁn",
+     "en": "spur",
+     "ipa_en": "spɝ",
+     "ko": "박차",
+     "rom_ko": "bak-cha"
+    },
+    {
+     "de": "der Kopf",
+     "pos": "n.m.",
+     "ipa": "kɔpf",
+     "en": "head",
+     "ipa_en": "hɛd",
+     "ko": "머리",
+     "rom_ko": "meo-ri",
+     "icon": "🧠"
+    },
+    {
+     "de": "das Ohr",
+     "pos": "n.n.",
+     "ipa": "oːɐ̯",
+     "en": "ear",
+     "ipa_en": "ɪɹ",
+     "ko": "귀",
+     "rom_ko": "gwi",
+     "icon": "👂"
+    },
+    {
+     "de": "der Odem",
+     "pos": "n.m.",
+     "ipa": "ˈoːdəm",
+     "en": "breath",
+     "ipa_en": "bɹɛθ",
+     "ko": "숨",
+     "rom_ko": "sum",
+     "icon": "🌬️"
+    },
+    {
+     "de": "traurig",
+     "pos": "adj.",
+     "ipa": "ˈtʁaʊ̯ʁɪç",
+     "en": "sad",
+     "ipa_en": "sæd",
+     "ko": "슬픈",
+     "rom_ko": "seul-peun",
+     "icon": "😔"
+    }
+   ],
+   "note": {
+    "ko": "볼프강은 열네 살이던 1770년 로마에서 교황에게 황금 박차 기사 훈장을 받았어요. 그 ‘박차’로 놀리는 사람에게 재치 있게 받아치지요. 편지 끝에서는 잘츠부르크 대주교 콜로레도의 궁정이 갈수록 견디기 힘들다고 털어놓아요. 그래도 아버지를 위해 참겠다고 하지요.",
+    "en": "In 1770, aged fourteen, Wolfgang had been made a Knight of the Golden Spur by the Pope in Rome; here he turns the 'spur' into a joke against a teasing visitor. At the end he admits that the court of Archbishop Colloredo in Salzburg grows more intolerable every day, and that he stays only for his father's sake.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 134 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Wir kommen bald und hören deine Oper.",
+    "en": "We are coming soon to hear your opera.",
+    "ko": "곧 가서 네 오페라를 들으마.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 2,
+     "type": "notice",
+     "text": {
+      "de": "Sechs Wochen fort von Salzburg",
+      "en": "Six weeks away from Salzburg",
+      "ko": "잘츠부르크를 떠난 지 6주"
+     }
+    }
+   ],
+   "status": {
+    "de": "Außer für lange Ohren",
+    "en": "Except for the long-eared",
+    "ko": "귀 긴 족속만 빼고"
+   },
+   "plate_hint": {
+    "idea": "The Order of the Golden Spur cross (as in the 1777 portrait) or a portrait of Archbishop Hieronymus Colloredo.",
+    "search": [
+     "Order of the Golden Spur cross",
+     "Mozart 1777 portrait Golden Spur",
+     "Hieronymus von Colloredo portrait"
+    ],
+    "kind": "mozart"
+   }
+  },
+  {
+   "id": "c4-l5",
+   "wallace_no": 136,
+   "nohl_pages": [
+    252,
+    253
+   ],
+   "date": "1780-12-27",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 136 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "München",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Die letzte Probe ist herrlich gewesen, sie war in einem grossen Zimmer bei Hof, der Churfürst war auch da.",
+     "en": "The last rehearsal was splendid. It took place in a spacious apartment in the palace. The Elector was also within hearing.",
+     "ko": "지난 리허설은 정말 근사했어요. 궁정의 큰 방에서 했는데, 선제후께서도 와 계셨어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 136 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die letzte Probe ist herrlich gewesen, / sie war in einem grossen Zimmer bei Hof, // der Churfürst war auch da.",
+      "en": "The last rehearsal was splendid. // It took place in a spacious apartment in the palace. / The Elector was also within hearing.",
+      "ko": "지난 리허설은 정말 근사했어요. // 궁정의 큰 방에서 했는데, / 선제후께서도 와 계셨어요."
+     }
+    },
+    {
+     "de": "Nach dem 1. Act sagte mir der Churfürst überlaut Bravo, und als ich hinging ihm die Hand zu küssen, sagte er: „Diese Oper wird charmant werden, er wird gewiß Ehre davon haben.“",
+     "en": "After the first act the Elector called out Bravo! rather too audibly, and when I went into the next room to kiss his hand he said, \"Your opera is quite charming, and cannot fail to do you honor.\"",
+     "ko": "1막이 끝나자 선제후께서 큰 소리로 브라보를 외치셨고, 손에 입 맞추러 가자 이렇게 말씀하셨어요. “이 오페라는 멋질 거요. 분명 큰 영예를 얻을 거요.”",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 136 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nach dem 1. Act sagte mir der Churfürst überlaut Bravo, / und als ich hinging ihm die Hand zu küssen, / sagte er: // „Diese Oper wird charmant werden, / er wird gewiß Ehre davon haben.“",
+      "en": "After the first act the Elector called out Bravo! rather too audibly, / and when I went into the next room to kiss his hand / he said, // \"Your opera is quite charming, / and cannot fail to do you honor.\"",
+      "ko": "1막이 끝나자 선제후께서 큰 소리로 브라보를 외치셨고, / 손에 입 맞추러 가자 / 이렇게 말씀하셨어요. // “이 오페라는 멋질 거요. / 분명 큰 영예를 얻을 거요.”"
+     }
+    },
+    {
+     "de": "…nach diesem gab er mir wieder auf das freundlichste seinen Beifall und sagte lachend: „Man sollte nicht meinen, daß in einem so kleinen Kopf so was Großes stecke.“",
+     "en": "…when he again testified his approbation in the kindest manner, and said, laughing, \"Who could believe that such great things could be hidden in so small a head?\"",
+     "ko": "…그 뒤에도 아주 다정하게 칭찬해 주시고는 웃으며 말씀하셨어요. “이렇게 작은 머리에 이토록 큰 것이 들어 있으리라고 누가 생각했겠소.”",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 136 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "…nach diesem gab er mir wieder auf das freundlichste seinen Beifall / und sagte lachend: // „Man sollte nicht meinen, / daß in einem so kleinen Kopf / so was Großes stecke.“",
+      "en": "…when he again testified his approbation in the kindest manner, / and said, laughing, // \"Who could believe / that such great things / could be hidden in so small a head?\"",
+      "ko": "…그 뒤에도 아주 다정하게 칭찬해 주시고는 / 웃으며 말씀하셨어요. // “이렇게 작은 머리에 / 이토록 큰 것이 들어 있으리라고 / 누가 생각했겠소.”"
+     }
+    },
+    {
+     "de": "Die Arie ist ganz gut auf die Worte geschrieben, man hört das mare und das mare funesto und die Passagen sind auf minacciar angebracht, welche dann das minacciar, das Drohen, gänzlich ausdrücken.",
+     "en": "The aria is quite adapted to the words. You hear the mare, and the mare funesto; and the passages dwell on the minacciar, and entirely express minacciar (threatening).",
+     "ko": "그 아리아는 가사에 꼭 맞게 썼어요. ‘바다(마레)’와 ‘불길한 바다’가 들리고, 빠른 패시지는 ‘위협하다(미나차르)’에 붙여서 그 위협을 고스란히 그려 내요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 136 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die Arie ist ganz gut auf die Worte geschrieben, / man hört das mare und das mare funesto / und die Passagen sind auf minacciar angebracht, / welche dann das minacciar, das Drohen, gänzlich ausdrücken.",
+      "en": "The aria is quite adapted to the words. / You hear the mare, and the mare funesto; / and the passages dwell on the minacciar, / and entirely express minacciar (threatening).",
+      "ko": "그 아리아는 가사에 꼭 맞게 썼어요. / ‘바다(마레)’와 ‘불길한 바다’가 들리고, / 빠른 패시지는 ‘위협하다(미나차르)’에 붙여서 / 그 위협을 고스란히 그려 내요."
+     }
+    },
+    {
+     "de": "Hören Sie, der Raaff ist der beste, ehrlichste Mann von der Welt, aber — auf den alten Schlendrian versessen, daß man Blut dabei schwitzen möchte.",
+     "en": "Raaff is the best and most upright man alive, but—so addicted to old-fashioned routine that flesh and blood cannot stand it.",
+     "ko": "들어 보세요, 라프는 세상에서 가장 착하고 정직한 사람이지만, 낡은 관습에 어찌나 매여 있는지 피땀이 날 지경이에요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 136 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Hören Sie, / der Raaff ist der beste, ehrlichste Mann von der Welt, / aber — / auf den alten Schlendrian versessen, / daß man Blut dabei schwitzen möchte.",
+      "en": "Raaff is the best and most upright man alive, / but—so addicted to old-fashioned routine / that flesh and blood cannot stand it.",
+      "ko": "들어 보세요, / 라프는 세상에서 가장 착하고 정직한 사람이지만, / 낡은 관습에 어찌나 매여 있는지 / 피땀이 날 지경이에요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Churfürst",
+     "de_modern": "der Kurfürst",
+     "pos": "n.m.",
+     "ipa": "ˈkuːɐ̯ˌfʏʁst",
+     "en": "Elector",
+     "ipa_en": "ɪˈlɛktɚ",
+     "ko": "선제후",
+     "rom_ko": "seon-je-hu",
+     "icon": "👑"
+    },
+    {
+     "de": "die Hand",
+     "pos": "n.f.",
+     "ipa": "hant",
+     "en": "hand",
+     "ipa_en": "hænd",
+     "ko": "손",
+     "rom_ko": "son",
+     "icon": "✋"
+    },
+    {
+     "de": "die Ehre",
+     "pos": "n.f.",
+     "ipa": "ˈeːʁə",
+     "en": "honour",
+     "ipa_en": "ˈɑnɚ",
+     "ko": "영예",
+     "rom_ko": "yeong-ye",
+     "icon": "🏅"
+    },
+    {
+     "de": "klein",
+     "pos": "adj.",
+     "ipa": "klaɪ̯n",
+     "en": "small",
+     "ipa_en": "smɔl",
+     "ko": "작은",
+     "rom_ko": "ja-geun"
+    },
+    {
+     "de": "das Blut",
+     "pos": "n.n.",
+     "ipa": "bluːt",
+     "en": "blood",
+     "ipa_en": "blʌd",
+     "ko": "피",
+     "rom_ko": "pi",
+     "icon": "🩸"
+    }
+   ],
+   "note": {
+    "ko": "선제후 카를 테오도르는 1778년 바이에른을 물려받으면서 궁정을 만하임에서 뮌헨으로 옮겼어요. 〈이도메네오〉를 위촉한 사람도 그예요. 이 리허설은 궁정의 큰 방에서 열렸고, 선제후는 1막에 이어 협주 아리아와 2막 첫머리의 폭풍 장면을 들었어요. 아리아 가사의 ‘mare’는 바다, ‘minacciar’는 위협하다라는 뜻이에요.",
+    "en": "Elector Karl Theodor had moved his court from Mannheim to Munich when he inherited Bavaria in 1778, and it was he who commissioned Idomeneo. At this rehearsal in a large room at court he heard Act I, then the concerted aria and the storm at the start of Act II. In the aria's text, 'mare' means sea and 'minacciar' to threaten.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 136 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Bravo, mein Sohn! Der Kurfürst hat recht.",
+    "en": "Bravo, my son! The Elector is right.",
+    "ko": "브라보, 아들아! 선제후 말씀이 옳구나.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Probe im großen Zimmer bei Hof",
+      "en": "Rehearsal in a large room at court",
+      "ko": "궁정의 큰 방에서 리허설"
+     }
+    },
+    {
+     "after": 4,
+     "type": "music",
+     "piece": {
+      "de": "Idomeneo — Quartett „Andrò ramingo e solo“",
+      "en": "Idomeneo — quartet 'Andrò ramingo e solo'",
+      "ko": "〈이도메네오〉 — 사중창 〈안드로 라민고 에 솔로〉"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "de": "Kleiner Kopf, große Oper",
+    "en": "Small head, great opera",
+    "ko": "작은 머리, 큰 오페라"
+   },
+   "plate_hint": {
+    "idea": "Portrait of Elector Karl Theodor (now Elector of Bavaria) or the Munich Residenz.",
+    "search": [
+     "Karl Theodor Elector portrait",
+     "Kurfürst Karl Theodor Pfalz-Bayern",
+     "Munich Residenz"
+    ],
+    "kind": "person"
+   }
+  },
+  {
+   "id": "c4-l6",
+   "wallace_no": 138,
+   "nohl_pages": [
+    256,
+    257
+   ],
+   "date": "1781-01-03",
+   "dateNote": "Nohl prints 'München 3. Jan. 1781'. Wallace's heading reads 'Jan. 3, 1780', a misprint: the letter belongs to the final weeks before the Idomeneo premiere of January 1781, and Wallace's own table of contents gives 1781.",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 138 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "München",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "weary",
+   "messages": [
+    {
+     "de": "Kopf und Hände sind mir so von dem dritten Acte voll, daß es kein Wunder wäre, wenn ich selbst zu einem dritten Act würde.",
+     "en": "My head and my hands are so fully occupied with my third act, that it would not be wonderful if I turned into a third act myself.",
+     "ko": "머리도 손도 3막으로 꽉 차 있어서, 제가 아예 3막이 되어 버린대도 이상할 게 없을 거예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 138 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Kopf und Hände sind mir so von dem dritten Acte voll, / daß es kein Wunder wäre, / wenn ich selbst zu einem dritten Act würde.",
+      "en": "My head and my hands are so fully occupied with my third act, / that it would not be wonderful / if I turned into a third act myself.",
+      "ko": "머리도 손도 3막으로 꽉 차 있어서, / 제가 아예 3막이 되어 버린대도 / 이상할 게 없을 거예요."
+     }
+    },
+    {
+     "de": "Das Accompagnement bey der unterirdischen Stimme besteht in nichts als 5 Stimmen, nemlich in 3 Posaunen und 2 Waldhorn, welche an dem nemlichen Orte placirt sind, wo die Stimme herkömmt. — Das ganze Orchester ist bey dieser Stelle stille.",
+     "en": "The accompaniment of the underground music consists merely of five instruments, namely, three trombones and two French horns, which are placed on the spot whence the voice proceeds. The whole orchestra is silent at this part.",
+     "ko": "땅속에서 울리는 목소리의 반주는 악기 다섯뿐이에요. 트롬본 셋과 호른 둘인데, 목소리가 나오는 바로 그 자리에 놓아 두어요. 이 대목에서는 오케스트라 전체가 조용해요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 138 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Das Accompagnement bey der unterirdischen Stimme / besteht in nichts als 5 Stimmen, / nemlich in 3 Posaunen und 2 Waldhorn, / welche an dem nemlichen Orte placirt sind, / wo die Stimme herkömmt. // — Das ganze Orchester ist bey dieser Stelle stille.",
+      "en": "The accompaniment of the underground music / consists merely of five instruments, / namely, three trombones and two French horns, / which are placed on the spot / whence the voice proceeds. // The whole orchestra is silent at this part.",
+      "ko": "땅속에서 울리는 목소리의 반주는 / 악기 다섯뿐이에요. / 트롬본 셋과 호른 둘인데, / 목소리가 나오는 바로 그 자리에 / 놓아 두어요. // 이 대목에서는 오케스트라 전체가 조용해요."
+     }
+    },
+    {
+     "de": "Da muß nun nothwendiger Weise ein Marsch seyn, da hab ich einen ganz simpeln Marsch auf 2 Violin, Bratsche, Baß und 2 Oboen gemacht, welcher à mezza voce gespielt wird …",
+     "en": "A march must necessarily be introduced here, so I have composed a very simple one for two violins, tenor, bass, and two hautboys, to be played a mezza voce …",
+     "ko": "여기엔 행진곡이 꼭 있어야 해서, 바이올린 둘, 비올라, 베이스, 오보에 둘로 아주 소박한 행진곡을 하나 썼어요. 소리를 반쯤 낮춰 연주하는 곡이에요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 138 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Da muß nun nothwendiger Weise ein Marsch seyn, / da hab ich einen ganz simpeln Marsch / auf 2 Violin, Bratsche, Baß und 2 Oboen gemacht, / welcher à mezza voce gespielt wird …",
+      "en": "A march must necessarily be introduced here, / so I have composed a very simple one / for two violins, tenor, bass, and two hautboys, / to be played a mezza voce …",
+      "ko": "여기엔 행진곡이 꼭 있어야 해서, / 바이올린 둘, 비올라, 베이스, 오보에 둘로 / 아주 소박한 행진곡을 하나 썼어요. / 소리를 반쯤 낮춰 연주하는 곡이에요…"
+     }
+    },
+    {
+     "de": "Dann setzt sich der König auf die Knie und fängt das Gebet an.",
+     "en": "The King then kneels down and begins the prayer.",
+     "ko": "그러면 왕이 무릎을 꿇고 기도를 시작해요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 138 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Dann setzt sich der König auf die Knie / und fängt das Gebet an.",
+      "en": "The King then kneels down / and begins the prayer.",
+      "ko": "그러면 왕이 무릎을 꿇고 / 기도를 시작해요."
+     }
+    },
+    {
+     "de": "…wie ich den Brief erbrochen, hatte ich ihn eben so in der Hand daß mir nichts als leeres Papier in die Augen fiel, — endlich — — fand ich es.",
+     "en": "When I opened the letter I chanced to hold it in such a manner that nothing but a blank sheet met my eyes. At last I found the writing.",
+     "ko": "편지를 뜯었는데 하필 손에 쥔 방향이 빈 종이만 눈에 들어오게 되어 있었어요. 한참 만에야 글씨를 찾았답니다.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 138 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "…wie ich den Brief erbrochen, / hatte ich ihn eben so in der Hand / daß mir nichts als leeres Papier in die Augen fiel, // — endlich — — fand ich es.",
+      "en": "When I opened the letter / I chanced to hold it in such a manner / that nothing but a blank sheet met my eyes. // At last I found the writing.",
+      "ko": "편지를 뜯었는데 / 하필 손에 쥔 방향이 / 빈 종이만 눈에 들어오게 되어 있었어요. // 한참 만에야 / 글씨를 찾았답니다."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Act",
+     "de_modern": "der Akt",
+     "pos": "n.m.",
+     "ipa": "akt",
+     "en": "act",
+     "ipa_en": "ækt",
+     "ko": "막",
+     "rom_ko": "mak",
+     "icon": "🎭"
+    },
+    {
+     "de": "die Posaune",
+     "pos": "n.f.",
+     "ipa": "poˈzaʊ̯nə",
+     "en": "trombone",
+     "ipa_en": "tɹɑmˈboʊn",
+     "ko": "트롬본",
+     "rom_ko": "teu-rom-bon",
+     "icon": "🎺"
+    },
+    {
+     "de": "der Marsch",
+     "pos": "n.m.",
+     "ipa": "maʁʃ",
+     "en": "march",
+     "ipa_en": "mɑɹtʃ",
+     "ko": "행진곡",
+     "rom_ko": "haeng-jin-gok",
+     "icon": "🥁"
+    },
+    {
+     "de": "das Gebet",
+     "pos": "n.n.",
+     "ipa": "ɡəˈbeːt",
+     "en": "prayer",
+     "ipa_en": "pɹɛɹ",
+     "ko": "기도",
+     "rom_ko": "gi-do",
+     "icon": "🙏"
+    },
+    {
+     "de": "das Papier",
+     "pos": "n.n.",
+     "ipa": "paˈpiːɐ̯",
+     "en": "paper",
+     "ipa_en": "ˈpeɪpɚ",
+     "ko": "종이",
+     "rom_ko": "jong-i",
+     "icon": "📄"
+    }
+   ],
+   "note": {
+    "ko": "〈이도메네오〉 3막에서는 신탁의 목소리가 땅속에서 울려 나와 왕의 운명을 정해요. 볼프강은 이 목소리에 트롬본 셋과 호른 둘만 붙이고 나머지 오케스트라는 쉬게 했어요. 신전 장면에서 왕이 들어올 때 연주되는 조용한 행진곡도 이때 썼지요. 초연은 1781년 1월 29일 뮌헨에서 열렸어요.",
+    "en": "In Act III of Idomeneo an oracle's voice sounds from underground and decides the king's fate; Wolfgang gives it only three trombones and two horns, with the rest of the orchestra silent. He also wrote the quiet march for the king's entry into the temple. The premiere took place in Munich on 29 January 1781.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 138 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Wir bringen die schwarzen Kleider mit.",
+    "en": "We'll bring the black clothes along.",
+    "ko": "검은 옷 챙겨 가마.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "music",
+     "piece": {
+      "de": "Idomeneo — die unterirdische Stimme („La voce“) und der Marsch",
+      "en": "Idomeneo — the oracle ('La voce') and the March",
+      "ko": "〈이도메네오〉 — 신탁의 목소리 〈라 보체〉와 행진곡"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "de": "Ganz im dritten Act",
+    "en": "Lost in the third act",
+    "ko": "3막에 푹 빠져"
+   },
+   "plate_hint": {
+    "idea": "Period trombones / the 'Voce' page of the Idomeneo autograph; or a stage design for the temple scene (Lorenzo Quaglio, named in No. 127).",
+    "search": [
+     "Idomeneo autograph score",
+     "Lorenzo Quaglio stage design",
+     "sackbut trombone 18th century"
+    ],
+    "kind": "score"
+   }
+  },
+  {
+   "id": "c4-l7",
+   "wallace_no": 140,
+   "nohl_pages": [
+    258,
+    259
+   ],
+   "date": "1781-01-18",
+   "dateNote": "Nohl prints 'München 18. Jan. 1781'. Wallace's heading reads 'Jan. 18, 1780', a misprint: the letter comes just before the Idomeneo premiere of 29 January 1781 (Wallace's table of contents gives 1781).",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 140 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "München",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Verzeihen Sie mir wenn ich Ihnen dermalen recht sehr wenig schreibe, denn ich muß augenblicklich (es ist gleich 10 Uhr — Morgens versteht es sich —) in die Probe; —",
+     "en": "Pray forgive a short letter, for I must go this very moment, ten o'clock (in the forenoon of course), to the rehearsal.",
+     "ko": "이번엔 편지가 아주 짧아도 용서해 주세요. 지금 당장 (곧 10시예요. 물론 아침 10시요) 리허설에 가야 하거든요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 140 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Verzeihen Sie mir wenn ich Ihnen dermalen recht sehr wenig schreibe, / denn ich muß augenblicklich / (es ist gleich 10 Uhr — Morgens versteht es sich —) / in die Probe; —",
+      "en": "Pray forgive a short letter, / for I must go this very moment, / ten o'clock (in the forenoon of course), / to the rehearsal.",
+      "ko": "이번엔 편지가 아주 짧아도 용서해 주세요. / 지금 당장 / (곧 10시예요. 물론 아침 10시요) / 리허설에 가야 하거든요."
+     }
+    },
+    {
+     "de": "Vorschreiben habe ich mir nicht gekönnt, weil ich noch immer mit den verwünschten Tänzen zu thun gehabt habe. Laus deo — nun habe ich es überstanden; mithin nur das nothwendigste.",
+     "en": "I could not write before, having been so incessantly occupied with those confounded dances. Laus Deo, I have got rid of them at last, but only of what was most pressing.",
+     "ko": "그 지긋지긋한 춤곡들에 계속 매달려 있느라 미리 편지를 못 썼어요. 라우스 데오, 드디어 해치웠어요. 급한 것만이긴 하지만요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 140 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Vorschreiben habe ich mir nicht gekönnt, / weil ich noch immer mit den verwünschten Tänzen zu thun gehabt habe. // Laus deo — nun habe ich es überstanden; / mithin nur das nothwendigste.",
+      "en": "I could not write before, / having been so incessantly occupied with those confounded dances. // Laus Deo, I have got rid of them at last, / but only of what was most pressing.",
+      "ko": "그 지긋지긋한 춤곡들에 계속 매달려 있느라 / 미리 편지를 못 썼어요. // 라우스 데오, 드디어 해치웠어요. / 급한 것만이긴 하지만요."
+     }
+    },
+    {
+     "de": "Die Probe mit dem dritten Act ist vortrefflich ausgefallen. … Nur ist die Poesie darin gar zu lang, und folglich die Musik auch (welches ich immer gesagt habe) …",
+     "en": "The rehearsal of the third act went off admirably. … The poetry is, however, thought far too long, and of course the music likewise, (which I always said it was.) …",
+     "ko": "3막 리허설은 아주 훌륭하게 끝났어요. … 다만 대본이 너무 길고, 그러니 음악도 길어요 (제가 늘 그렇게 말했지요)…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 140 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die Probe mit dem dritten Act ist vortrefflich ausgefallen. // … Nur ist die Poesie darin gar zu lang, / und folglich die Musik auch / (welches ich immer gesagt habe) …",
+      "en": "The rehearsal of the third act went off admirably. // … The poetry is, however, thought far too long, / and of course the music likewise, / (which I always said it was.) …",
+      "ko": "3막 리허설은 아주 훌륭하게 끝났어요. // … 다만 대본이 너무 길고, / 그러니 음악도 길어요 / (제가 늘 그렇게 말했지요)…"
+     }
+    },
+    {
+     "de": "…und die letzte von Raaff auch, worüber man noch mehr seufzt; allein man muß aus der Noth eine Tugend machen.",
+     "en": "Raaff's last air, too, is still more regretted, but we must make a virtue of necessity.",
+     "ko": "…라프의 마지막 아리아도 빠지는데, 다들 그걸 더 아쉬워하며 한숨지어요. 하지만 어쩔 수 없는 일이니 좋게 받아들여야지요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 140 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "…und die letzte von Raaff auch, / worüber man noch mehr seufzt; // allein man muß aus der Noth eine Tugend machen.",
+      "en": "Raaff's last air, too, is still more regretted, // but we must make a virtue of necessity.",
+      "ko": "…라프의 마지막 아리아도 빠지는데, / 다들 그걸 더 아쉬워하며 한숨지어요. // 하지만 어쩔 수 없는 일이니 / 좋게 받아들여야지요."
+     }
+    },
+    {
+     "de": "Vergessen Sie nicht meine kleine Uhr mitzunehmen; wir werden hoffentlich nach Augsburg hinüber und da könnte man die Canaglie richten lassen.",
+     "en": "Do not forget to bring my little watch with you. We shall probably make an excursion to Augsburg, where we could have the little silly thing regulated.",
+     "ko": "제 작은 시계 꼭 가져오세요. 아마 아우크스부르크에 다녀올 텐데, 거기서 그 말썽꾸러기를 손볼 수 있을 거예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 140 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Vergessen Sie nicht meine kleine Uhr mitzunehmen; // wir werden hoffentlich nach Augsburg hinüber / und da könnte man die Canaglie richten lassen.",
+      "en": "Do not forget to bring my little watch with you. // We shall probably make an excursion to Augsburg, / where we could have the little silly thing regulated.",
+      "ko": "제 작은 시계 꼭 가져오세요. // 아마 아우크스부르크에 다녀올 텐데, / 거기서 그 말썽꾸러기를 손볼 수 있을 거예요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "verwünscht",
+     "pos": "adj.",
+     "ipa": "fɛɐ̯ˈvʏnʃt",
+     "en": "confounded, cursed",
+     "ipa_en": "kənˈfaʊndɪd",
+     "ko": "지긋지긋한",
+     "rom_ko": "ji-geut-ji-geu-tan"
+    },
+    {
+     "de": "die Poesie",
+     "pos": "n.f.",
+     "ipa": "poeˈziː",
+     "en": "poetry (the libretto)",
+     "ipa_en": "ˈpoʊətɹi",
+     "ko": "대본",
+     "rom_ko": "dae-bon",
+     "icon": "📜"
+    },
+    {
+     "de": "seufzen",
+     "pos": "v.",
+     "ipa": "ˈzɔɪ̯ft͡sn̩",
+     "en": "to sigh",
+     "ipa_en": "saɪ",
+     "ko": "한숨 쉬다",
+     "rom_ko": "han-sum swi-da",
+     "icon": "😮‍💨"
+    },
+    {
+     "de": "aus der Noth eine Tugend machen",
+     "de_modern": "aus der Not eine Tugend machen",
+     "pos": "expr.",
+     "ipa": "aʊ̯s deːɐ̯ noːt ˈaɪ̯nə ˈtuːɡn̩t ˈmaxn̩",
+     "en": "to make a virtue of necessity",
+     "ipa_en": "meɪk ə ˈvɝtʃu əv nəˈsɛsəti",
+     "ko": "어쩔 수 없는 일을 좋게 받아들이다",
+     "rom_ko": "eo-jjeol su eom-neun i-reul jo-ke ba-da-deu-ri-da"
+    },
+    {
+     "de": "die Uhr",
+     "pos": "n.f.",
+     "ipa": "uːɐ̯",
+     "en": "watch, clock",
+     "ipa_en": "wɑtʃ",
+     "ko": "시계",
+     "rom_ko": "si-gye",
+     "icon": "⌚"
+    }
+   ],
+   "note": {
+    "ko": "아버지와 누나가 오기 전 마지막 편지예요. 두 사람은 1월 25일 뮌헨에 도착했고, 〈이도메네오〉는 며칠 뒤인 1월 29일에 초연됐어요. 볼프강이 투덜대는 ‘춤곡’은 오페라 끝에 붙는 발레 음악(K. 367)이에요. 공연 시간이 너무 길어 이다만테와 라프의 아리아는 결국 빠졌어요.",
+    "en": "This is his last letter before his father and sister arrived in Munich on 25 January; Idomeneo had its premiere a few days later, on 29 January 1781. The 'confounded dances' are the ballet music (K. 367) that closes the opera. Because the work ran too long, arias for Idamante and for Raaff were cut.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 140 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Deine kleine Uhr ist schon eingepackt.",
+    "en": "Your little watch is already packed.",
+    "ko": "네 작은 시계, 벌써 챙겨 두었다.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "music",
+     "piece": {
+      "de": "Idomeneo — Ballettmusik, KV 367",
+      "en": "Idomeneo — ballet music, K. 367",
+      "ko": "〈이도메네오〉 — 발레 음악 K. 367"
+     },
+     "commons": null
+    },
+    {
+     "after": 4,
+     "type": "notice",
+     "text": {
+      "de": "Vater und Schwester kommen am 25. Januar",
+      "en": "Father and sister arrive on 25 January",
+      "ko": "1월 25일, 아버지와 누나 도착"
+     }
+    }
+   ],
+   "status": {
+    "de": "Bald kommt der Vater",
+    "en": "Papa arrives soon",
+    "ko": "곧 아버지가 와요"
+   },
+   "plate_hint": {
+    "idea": "Title page of the printed Idomeneo libretto (Munich 1781).",
+    "search": [
+     "Idomeneo libretto 1781 title page",
+     "Idomeneo re di Creta 1781 libretto",
+     "Mozart Idomeneo Munich 1781"
+    ],
+    "kind": "score"
+   }
+  }
+ ]
+}
