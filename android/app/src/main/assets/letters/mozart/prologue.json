@@ -1,0 +1,299 @@
+{
+ "_doc": "프롤로그: 첫 편지 앞의 도슨트 세 장. 편지가 아니라 그 시절을 말하는 모차르트의 독일어 한 줄씩 (Nohl 1865년판에서 옮긴, 본편과 같은 문장). 설명(docent.body)은 이 앱이 쓴 글. 연습 문제 없이 듣기 · 번역 · 낱말 셋.",
+ "series": "mozart",
+ "chapter": "P",
+ "title_de": "Prolog",
+ "title_en": "Prologue",
+ "title_ko": "프롤로그",
+ "original": "de",
+ "letters": [
+  {
+   "id": "p1",
+   "date": "1756-01-27",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 98 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Salzburg",
+   "mood": "tender",
+   "docent": {
+    "period": "1756–1762",
+    "caps": "PROLOG · I · 1756–1762",
+    "heading": {
+     "ko": "궁정 음악가의 아들",
+     "en": "The court musician's son",
+     "de": "Der Sohn des Hofmusikers"
+    },
+    "sub": "Salzburg · München · Wien",
+    "body": {
+     "ko": "1756년 1월 27일 잘츠부르크에서 태어났어요. 아버지 레오폴트는 대주교 궁정 악단의 바이올린 연주자였고, 태어나던 해에 바이올린 교본을 펴냈어요. 네 살 위 누나 난네를과 함께 건반을 배웠고, 여섯 살이던 1762년에는 빈에서 마리아 테레지아 여제 앞에서 연주했어요. 그림 속 궁정 옷은 그때 빈 궁정에서 받은 옷이에요.",
+     "en": "He was born in Salzburg on 27 January 1756. His father Leopold was a violinist in the Prince-Archbishop's court orchestra and published a violin method that same year. Wolfgang learned the keyboard alongside his sister Nannerl, four years older, and at six, in 1762, he played before Empress Maria Theresa in Vienna. The court suit in the picture was a gift from the Viennese court that year."
+    },
+    "source": {
+     "ko": "훗날 만하임에서 아버지에게 · 1778년 3월 7일, Nohl Nr. 98",
+     "en": "Years later, to his father from Mannheim · 7 March 1778, Nohl no. 98"
+    }
+   },
+   "messages": [
+    {
+     "de": "„Nach Gott kommt gleich der Papa!“ das war als Kind mein Wahlspruch oder Axioma und bey dem bleib ich auch noch.",
+     "en": "\"Next to God comes papa\" was my axiom when a child, and I still think the same.",
+     "ko": "“하느님 다음은 바로 아빠!” 어릴 때 제 좌우명이었는데, 지금도 변함없어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 98 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "„Nach Gott kommt gleich der Papa!“ // das war als Kind mein Wahlspruch oder Axioma und bey dem bleib ich auch noch.",
+      "en": "\"Next to God comes papa\" // was my axiom when a child, / and I still think the same.",
+      "ko": "“하느님 다음은 바로 아빠!” 어릴 때 제 좌우명이었는데, / 지금도 변함없어요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Gott",
+     "pos": "n.m.",
+     "ipa": "ɡɔt",
+     "en": "God",
+     "ipa_en": "ɡɑd",
+     "ko": "하느님",
+     "rom_ko": "ha-neu-nim",
+     "icon": "🙏"
+    },
+    {
+     "de": "das Kind",
+     "pos": "n.n.",
+     "ipa": "kɪnt",
+     "en": "child",
+     "ipa_en": "tʃaɪld",
+     "ko": "아이",
+     "rom_ko": "a-i",
+     "icon": "🧒"
+    },
+    {
+     "de": "der Wahlspruch",
+     "pos": "n.m.",
+     "ipa": "ˈvaːlˌʃpʁʊx",
+     "en": "motto",
+     "ipa_en": "ˈmɑtoʊ",
+     "ko": "좌우명",
+     "rom_ko": "jwa-u-myeong"
+    }
+   ],
+   "note": {
+    "ko": "아버지 레오폴트는 아들의 첫 스승이자 매니저였어요. 볼프강은 어른이 되어서도 편지마다 아버지에게 먼저 마음을 털어놓아요.",
+    "en": "Leopold was his son's first teacher and manager; even as a grown man Wolfgang turns to him first in letter after letter."
+   },
+   "plate": {
+    "title_de": "Wolfgang Amadeus Mozart im Galakleid",
+    "title_en": "Wolfgang Amadeus Mozart in court dress",
+    "title_ko": "궁정 옷을 입은 여섯 살 볼프강",
+    "date": "1763",
+    "collection": "Stiftung Mozarteum Salzburg",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Wolfgang-amadeus-mozart_2.jpg",
+    "credit": "Attributed to Pietro Antonio Lorenzoni",
+    "why": {
+     "ko": "아버지가 주문한 초상이에요. 빈 궁정에서 받은 옷을 입은 여섯 살 볼프강이에요.",
+     "en": "A portrait commissioned by his father: Wolfgang at six, in the suit given to him at the Viennese court."
+    },
+    "image": "m-p1.jpg",
+    "kind": "mozart",
+    "spots": []
+   },
+   "status": {
+    "de": "1756–1762",
+    "en": "1756–1762",
+    "ko": "1756–1762"
+   },
+   "moments": []
+  },
+  {
+   "id": "p2",
+   "date": "1763-06-09",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 112 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Paris",
+   "mood": "bright",
+   "docent": {
+    "period": "1763–1766",
+    "caps": "PROLOG · II · 1763–1766",
+    "heading": {
+     "ko": "세 해 반의 연주 여행",
+     "en": "Three and a half years on the road",
+     "de": "Die große Reise"
+    },
+    "sub": "München · Paris · London · Den Haag",
+    "body": {
+     "ko": "일곱 살이던 1763년 여름, 가족은 마차를 타고 긴 연주 여행을 떠나요. 파리와 베르사유에서 연주하고, 파리에서 첫 악보가 인쇄되었어요. 런던에서는 요한 크리스티안 바흐를 만나 음악을 배웠어요. 집에 돌아온 것은 1766년 11월, 세 해 반 만이었어요.",
+     "en": "In the summer of 1763, when he was seven, the family set out by coach on a long concert tour. He played in Paris and at Versailles, and his first works were printed in Paris. In London he met Johann Christian Bach and learned from him. They came home in November 1766, three and a half years later."
+    },
+    "source": {
+     "ko": "열다섯 해 뒤 파리 근처에서 아버지에게 · 1778년 8월 27일, Nohl Nr. 112",
+     "en": "Fifteen years later, near Paris, to his father · 27 August 1778, Nohl no. 112"
+    }
+   },
+   "messages": [
+    {
+     "de": "… denn man sagt, ich sey vor 15 Jahren auch hier gewesen, ich weiß aber nichts davon …",
+     "en": "… for I am told I was here fifteen years ago, though I don't remember it.",
+     "ko": "… 사람들 말로는 제가 15년 전에도 여기 왔었대요. 저는 하나도 기억나지 않지만요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 112 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… denn man sagt, / ich sey vor 15 Jahren auch hier gewesen, // ich weiß aber nichts davon …",
+      "en": "… for I am told / I was here fifteen years ago, // though I don't remember it.",
+      "ko": "… 사람들 말로는 / 제가 15년 전에도 여기 왔었대요. // 저는 하나도 기억나지 않지만요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "das Jahr",
+     "pos": "n.n.",
+     "ipa": "jaːɐ̯",
+     "en": "year",
+     "ipa_en": "jɪɹ",
+     "ko": "해",
+     "rom_ko": "hae",
+     "icon": "📅"
+    },
+    {
+     "de": "sagen",
+     "pos": "v.",
+     "ipa": "ˈzaːɡn̩",
+     "en": "to say",
+     "ipa_en": "tə seɪ",
+     "ko": "말하다",
+     "rom_ko": "mal-ha-da"
+    },
+    {
+     "de": "wissen",
+     "pos": "v.",
+     "ipa": "ˈvɪsn̩",
+     "en": "to know",
+     "ipa_en": "tə noʊ",
+     "ko": "알다",
+     "rom_ko": "al-da"
+    }
+   ],
+   "note": {
+    "ko": "그림 아래 글자는 일곱 살 볼프강을 ‘작곡가이자 음악 선생’, 열한 살 누나를 ‘연주자’라고 소개해요. 파리에서 판화로 찍어 널리 퍼뜨린 홍보 그림이에요.",
+    "en": "The caption calls Wolfgang, aged seven, 'composer and master of music' and his sister, eleven, a 'virtuoso'. The print was made in Paris to spread their fame."
+   },
+   "plate": {
+    "title_de": "Leopold Mozart mit seinen Kindern Maria Anna und Wolfgang",
+    "title_en": "Leopold Mozart and His Children Maria Anna and Wolfgang Giving a Concert in Paris",
+    "title_ko": "파리에서 연주하는 레오폴트 모차르트와 두 아이",
+    "date": "1764",
+    "collection": "The Metropolitan Museum of Art, New York",
+    "imageLicense": "CC0",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/679333",
+    "credit": "Jean-Baptiste Joseph Delafosse after Louis Carrogis Carmontelle",
+    "why": {
+     "ko": "여행 중 파리에서 나온 판화예요. 아버지는 바이올린, 볼프강은 건반, 누나는 악보를 들었어요.",
+     "en": "A print made in Paris during the tour: father on the violin, Wolfgang at the keyboard, his sister holding the music."
+    },
+    "image": "m-p2.jpg",
+    "kind": "mozart",
+    "spots": []
+   },
+   "status": {
+    "de": "1763–1766",
+    "en": "1763–1766",
+    "ko": "1763–1766"
+   },
+   "moments": []
+  },
+  {
+   "id": "p3",
+   "date": "1769-12-13",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 115 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Salzburg",
+   "mood": "calm",
+   "docent": {
+    "period": "1767–1769",
+    "caps": "PROLOG · III · 1767–1769",
+    "heading": {
+     "ko": "잘츠부르크의 어린 악장",
+     "en": "The boy concertmaster of Salzburg",
+     "de": "Der junge Konzertmeister"
+    },
+    "sub": "Wien · Salzburg",
+    "body": {
+     "ko": "1768년 빈에서 열두 살 볼프강은 오페라 〈라 핀타 셈플리체〉를 썼어요. 이듬해 잘츠부르크 대주교 궁정 악단의 콘서트마스터가 되었지만 급료는 없는 자리였어요. 오페라의 본고장은 이탈리아였어요. 1769년 12월 13일, 아버지와 단둘이 이탈리아로 길을 떠나요.",
+     "en": "In Vienna in 1768, aged twelve, Wolfgang wrote the opera La finta semplice. The next year he became concertmaster of the Archbishop's court orchestra in Salzburg — an unpaid post. The home of opera was Italy. On 13 December 1769 he set out for Italy with his father alone."
+    },
+    "source": {
+     "ko": "아홉 해 뒤 스트라스부르에서 아버지에게 · 1778년 10월 15일, Nohl Nr. 115",
+     "en": "Nine years later, from Strasbourg, to his father · 15 October 1778, Nohl no. 115"
+    }
+   },
+   "messages": [
+    {
+     "de": "… zu Salzburg weiß ich nicht, wer ich bin, ich bin alles und bisweilen auch gar nichts.",
+     "en": "At Salzburg I never know how I stand; at one time I am everything, at another absolutely nothing.",
+     "ko": "… 잘츠부르크에서는 제가 누구인지 모르겠어요. 어떤 때는 전부였다가 어떤 때는 아무것도 아니에요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 115 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… zu Salzburg weiß ich nicht, wer ich bin, // ich bin alles / und bisweilen auch gar nichts.",
+      "en": "At Salzburg I never know how I stand; // at one time I am everything, / at another absolutely nothing.",
+      "ko": "… 잘츠부르크에서는 제가 누구인지 모르겠어요. // 어떤 때는 전부였다가 / 어떤 때는 아무것도 아니에요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "alles",
+     "pos": "pron.",
+     "ipa": "ˈaləs",
+     "en": "everything",
+     "ipa_en": "ˈɛvɹiθɪŋ",
+     "ko": "전부",
+     "rom_ko": "jeon-bu"
+    },
+    {
+     "de": "nichts",
+     "pos": "pron.",
+     "ipa": "nɪçts",
+     "en": "nothing",
+     "ipa_en": "ˈnʌθɪŋ",
+     "ko": "아무것도",
+     "rom_ko": "a-mu-geot-do"
+    },
+    {
+     "de": "bisweilen",
+     "pos": "adv.",
+     "ipa": "bɪsˈvaɪ̯lən",
+     "en": "sometimes",
+     "ipa_en": "ˈsʌmtaɪmz",
+     "ko": "때때로",
+     "rom_ko": "ttae-ttae-ro"
+    }
+   ],
+   "note": {
+    "ko": "그림은 모차르트가 태어나기 아흔 해 전에 나온 잘츠부르크 지도 판화예요. 잘차흐강 양쪽의 성당과 궁전, 언덕 위 요새는 그가 자란 도시에도 그대로 있었어요.",
+    "en": "The picture is a map-view of Salzburg printed ninety years before Mozart was born. The churches and palaces on both banks of the Salzach and the fortress on the hill still stood in the town he grew up in."
+   },
+   "plate": {
+    "title_de": "Salzburg",
+    "title_en": "Salzburg",
+    "title_ko": "잘츠부르크",
+    "date": "1665 (print)",
+    "collection": "Universitätsbibliothek Salzburg",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Merian_Salzburg.jpg",
+    "credit": "Matthäus Merian, Topographia Bavariae",
+    "why": {
+     "ko": "볼프강이 자라고, 떠나고, 늘 돌아가야 했던 도시예요.",
+     "en": "The town where Wolfgang grew up, which he left, and to which he always had to return."
+    },
+    "image": "m-p3.jpg",
+    "kind": "era",
+    "spots": []
+   },
+   "status": {
+    "de": "1767–1769",
+    "en": "1767–1769",
+    "ko": "1767–1769"
+   },
+   "moments": []
+  }
+ ]
+}

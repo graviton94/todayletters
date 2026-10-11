@@ -142,6 +142,22 @@
   "collection": [],
   "exhibitions": []
  },
+ "prologue": {
+  "file": "prologue.json",
+  "arrival": {
+   "date": "13 · XII · 1769",
+   "route": "SALZBURG → ITALIEN",
+   "heading": {
+    "ko": "열세 살의 볼프강이\n아버지와 이탈리아로 떠납니다.",
+    "en": "Wolfgang, thirteen,\nsets out for Italy with his father.",
+    "de": "Der dreizehnjährige Wolfgang\nreist mit dem Vater nach Italien."
+   },
+   "body": {
+    "ko": "어머니와 누나는 잘츠부르크에 남았어요. 지금부터 스물두 해, 볼프강이 쓴 편지를 받아요.",
+    "en": "His mother and sister stay behind in Salzburg. For the next twenty-two years, you receive the letters Wolfgang writes."
+   }
+  }
+ },
  "outro": {
   "file": "epilogue.json",
   "image": "m-outro.jpg",
