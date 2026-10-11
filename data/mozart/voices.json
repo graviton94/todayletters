@@ -1,0 +1,58 @@
+{
+ "_doc": "모차르트 배역표 (1판). 목소리 하나: young · old 두 결을 섞고, 챕터마다 old 비율(age)만 옮겨 열네 살에서 서른다섯 살까지를 낸다. 세 언어 같은 비율. mood 는 챕터 기본 감정 (data/voices/presets.json).",
+ "character": "mozart",
+ "young": "M1",
+ "old": "M3",
+ "chapters": {
+  "P": {
+   "age": 0.0,
+   "mood": "bright",
+   "_note": "프롤로그"
+  },
+  "I": {
+   "age": 0.0,
+   "mood": "bright",
+   "_note": "이탈리아 · 열네 살"
+  },
+  "II": {
+   "age": 0.25,
+   "mood": "bright",
+   "_note": "만하임"
+  },
+  "III": {
+   "age": 0.35,
+   "mood": "weary",
+   "_note": "파리 · 어머니의 죽음"
+  },
+  "IV": {
+   "age": 0.4,
+   "mood": "bright",
+   "_note": "뮌헨 · 이도메네오"
+  },
+  "V": {
+   "age": 0.5,
+   "mood": "bright",
+   "_note": "빈 · 대주교와의 결별"
+  },
+  "VI": {
+   "age": 0.55,
+   "mood": "tender",
+   "_note": "콘스탄체"
+  },
+  "VII": {
+   "age": 0.7,
+   "mood": "calm",
+   "_note": "피가로와 프라하"
+  },
+  "VIII": {
+   "age": 0.85,
+   "mood": "weary",
+   "_note": "마술피리"
+  },
+  "E": {
+   "age": 0.9,
+   "mood": "tender",
+   "_note": "맺음 편지"
+  }
+ }
+}
