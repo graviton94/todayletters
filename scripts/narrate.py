@@ -35,9 +35,21 @@ def style_of(name):
     return load_voice_style([os.path.join(assets, "voice_styles", f"{name}.json")])
 
 
-young, old = style_of(cast["young"]), style_of(cast["old"])
+def along(path, age):
+    """목소리 길 [젊은 결, …, 나이 든 결] 위의 age(0~1) 자리: 이웃한 두 결을 섞는다."""
+    styles = [style_of(n) for n in path]
+    if len(styles) == 1:
+        return styles[0]
+    x = min(max(age, 0.0), 1.0) * (len(styles) - 1)
+    i = min(int(x), len(styles) - 2)
+    k = x - i
+    a, b = styles[i], styles[i + 1]
+    return Style((1 - k) * a.ttl + k * b.ttl, (1 - k) * a.dp + k * b.dp)
+
+
+# 배역표의 "path" (셋 이상의 결) 가 있으면 그 길을 따라, 없으면 young → old 두 결
 age = cast["chapters"][chapter]["age"]
-voice = Style((1 - age) * young.ttl + age * old.ttl, (1 - age) * young.dp + age * old.dp)
+voice = along(cast.get("path") or [cast["young"], cast["old"]], age)
 
 
 def phrases(text: str, lang: str):

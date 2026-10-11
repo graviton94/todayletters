@@ -1,7 +1,8 @@
 """
 목소리 견본: Supertonic 3 (Supertone, OpenRAIL-M · 온디바이스 ONNX) 로 편지 발췌(data/<작품>/sample_letter.json)를
 원어 · 영어 · 한국어로, 목소리마다 하나씩 만든다. 듣고 배역을 고르기 위한 것.
-목소리 적는 법: "M3" (하나), "M1+M3@0.5" (두 결을 섞음, 뒤쪽 비율), 끝에 ":0.9" 를 붙이면 빠르기 (기본 0.9).
+목소리 적는 법: "M3" (하나), "M1+M3@0.5" (두 결을 섞음, 뒤쪽 비율), "M1>M3>M5@0.7" (목소리 길 위의 자리),
+끝에 ":0.9" 를 붙이면 빠르기 (기본 0.9).
 높낮이는 손대지 않는다 (만든 뒤에 음을 옮기면 소리가 떨린다).
 숨: 문장부호에서 0.35초, 메시지와 메시지 사이 0.9초.
 GitHub Actions 에서 돌려요: python scripts/tts_sample.py <supertonic/py> <assets> <출력 폴더> [목소리 …]
@@ -41,6 +42,14 @@ def voice(spec):
     """'M1+M3@0.5:1.0' → (Style, 빠르기)."""
     spec, _, speed = spec.partition(":")
     names, _, mix = spec.partition("@")
+    if ">" in names:
+        # 목소리 길 "M1>M3>M5@0.7": 길 위의 자리 (narrate.py 의 path 와 같은 셈)
+        path = [style_of(n) for n in names.split(">")]
+        x = min(max(float(mix or 0), 0.0), 1.0) * (len(path) - 1)
+        i = min(int(x), len(path) - 2)
+        k = x - i
+        a, b = path[i], path[i + 1]
+        return Style((1 - k) * a.ttl + k * b.ttl, (1 - k) * a.dp + k * b.dp), float(speed or 0.9)
     parts = names.split("+")
     if len(parts) == 1:
         st = style_of(parts[0])
@@ -69,6 +78,6 @@ for lang in langs:
                 parts.append(wav[0, : int(sr * dur[0].item())].astype(np.float32))
                 parts.append(silence(0.35))
             parts[-1] = silence(0.9)
-        name = spec.replace("+", "-").replace("@", "_").replace(":", "_s")
+        name = spec.replace("+", "-").replace(">", "-").replace("@", "_").replace(":", "_s")
         sf.write(os.path.join(out, f"{series}_{lang}_{name}.wav"), np.concatenate(parts), sr)
         print("ok", lang, spec, flush=True)
