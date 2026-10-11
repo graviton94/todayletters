@@ -25,8 +25,15 @@ jobs:
           cd out
           for u in $URLS; do
             name=$(echo "$u" | sed -E 's#https?://##; s#[^A-Za-z0-9._-]+#_#g' | cut -c1-120)
-            code=$(curl -sSL -A "Mozilla/5.0" -o "$name.html" -w "%{http_code}" "$u" || echo 000)
+            # 위키미디어는 빠른 연속 요청을 막는다: 앱 이름을 밝히고, 사이사이 쉬고, 429면 한 번 더
+            ua="Mozilla/5.0"; case "$u" in *wikimedia.org*|*wikipedia.org*) ua="LinguaMuseum/1.0 (https://github.com/${{ github.repository }})";; esac
+            for try in 1 2 3; do
+              code=$(curl -sSL -A "$ua" -o "$name.html" -w "%{http_code}" "$u" || echo 000)
+              [ "$code" = "429" ] || grep -q "too many requests" "$name.html" 2>/dev/null || break
+              sleep $((try * 10))
+            done
             echo "$code $u"
+            case "$u" in *wikimedia.org*|*wikipedia.org*) sleep 2;; esac
           done
           ls -la
       - name: Plain text
