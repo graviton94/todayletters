@@ -36,3 +36,22 @@ def tokens(text,lang):
         if lang=='fr': res+=tok_fr(w)
         else: res.append(w)
     return [t for t in res if t.replace("'","").replace("’","").replace("-","").isalpha()]
+
+# ---- English / Korean (target-language learners; see build_tl.py) ----
+CLITIC_EN = re.compile(r"^(.+?)(['’](?:s|m|re|ve|ll|d))$", re.I)
+NEG_EN = re.compile(r"n['’]t$", re.I)
+def tok_en(w):
+    """Split pronoun/possessive clitics off ("I'm" -> I + 'm, "Theo's" -> Theo + 's); keep n't contractions,
+    o'clock, d'Avray and hyphenated words whole."""
+    if NEG_EN.search(w) or w.lower() in ("o'clock", "o’clock"): return [w]
+    m = CLITIC_EN.match(w)
+    if m and m.group(1)[-1:].isalpha(): return [m.group(1), m.group(2)]
+    return [w]
+def tokens_tl(text, lang):
+    """Word tokens of an English (lang='en') or Korean (lang='ko') message, as substrings in reading order.
+    Korean: one token per eojeol run of letters (punctuation and digits split it)."""
+    res = []
+    for m in WORD.finditer(text):
+        w = m.group(0)
+        res += tok_en(w) if lang == 'en' else [w]
+    return res

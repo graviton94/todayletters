@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-"""Check data/<series>/lexicon.json, gloss.json and daily.json against the letters.
+"""Check data/<series>/lexicon[_xx].json, gloss[_xx].json and daily[_xx].json against the letters, for the three
+languages a learner can study: the original (vincent fr, mozart de; files without suffix), English (_en) and Korean (_ko).
 
-  python3 scripts/validate_lexicon.py            # both series
-  python3 scripts/validate_lexicon.py vincent
+  python3 scripts/validate_lexicon.py                 # both series, all three languages
+  python3 scripts/validate_lexicon.py vincent         # one series
+  python3 scripts/validate_lexicon.py vincent ko      # one series, one language (fr|de|en|ko)
 
 Checks: every word of every message is covered by gloss.json (in order, nothing left over);
 gloss keys exist in the lexicon; lexicon forms / first / letters agree with the text;
 daily words exist, occur in that letter, are content words, never repeat across letters and sit in
 the chapter's level band (or one band either side); spot replacements occur in the quoted message;
-phrases are verbatim; examples have an author, <= 12 words and contain the lemma or a printed form.
-Exit code 1 on any error.
+phrases are verbatim; examples have an author, <= 12 words and contain the lemma or a printed form;
+Korean gloss tokens [surface, key, fn] only use tags explained in gloss_ko.json "tags"; each language's three files
+stay under 400 KB per series. Exit code 1 on any error.
 """
 import json, os, re, sys, unicodedata
 
@@ -32,16 +35,23 @@ def widen(b):
     return LEVELS[lo:hi + 1]
 
 
-def check(series):
-    lang = SERIES[series]
+LIMIT_KB = 400
+
+
+def check(series, lang=None):
+    lang = lang or SERIES[series]
+    orig = lang == SERIES[series]
+    sfx = '' if orig else '_' + lang
     errs, warns = [], []
     d = os.path.join(ROOT, 'data', series)
     letters = []
     for f in ORDER:
         letters += json.load(open(os.path.join(d, f + '.json'), encoding='utf-8'))['letters']
-    lex = json.load(open(os.path.join(d, 'lexicon.json'), encoding='utf-8'))
-    gl = json.load(open(os.path.join(d, 'gloss.json'), encoding='utf-8'))['letters']
-    daily = json.load(open(os.path.join(d, 'daily.json'), encoding='utf-8'))['letters']
+    lex = json.load(open(os.path.join(d, f'lexicon{sfx}.json'), encoding='utf-8'))
+    gdoc = json.load(open(os.path.join(d, f'gloss{sfx}.json'), encoding='utf-8'))
+    gl = gdoc['letters']
+    tags = gdoc.get('tags', {})
+    daily = json.load(open(os.path.join(d, f'daily{sfx}.json'), encoding='utf-8'))['letters']
     F = lex['fields']
     ent = {}
     for row in lex['entries']:
@@ -61,8 +71,14 @@ def check(series):
         for mi, (m, toks) in enumerate(zip(l['messages'], gl[lid])):
             text = m[lang]; pos = 0; rest = []
             for t in toks:
-                s, k = (t, t) if isinstance(t, str) else t
+                if isinstance(t, str): s, k, fn = t, t, ''
+                elif len(t) == 2: s, k = t; fn = ''
+                elif len(t) == 3 and lang == 'ko': s, k, fn = t
+                else: errs.append(f'{lid}:{mi}: bad token {t!r}'); continue
                 ntok += 1
+                for part in filter(None, fn.split('+')):
+                    if '/' not in part or part.rsplit('/', 1)[1] not in tags:
+                        errs.append(f'{lid}:{mi}: function info {part!r} of {s!r} has no entry in "tags"')
                 if k not in ent: errs.append(f'{lid}:{mi}: key {k!r} not in lexicon'); continue
                 j = text.find(s, pos)
                 if j < 0: errs.append(f'{lid}:{mi}: token {s!r} not found in order'); continue
@@ -87,18 +103,24 @@ def check(series):
         if e['first'] != seen_letters[k][0]: errs.append(f'lexicon {k}: first mismatch')
         for need in ('pos', 'ko', 'en'):
             if not e.get(need): errs.append(f'lexicon {k}: missing {need}')
-        if e['pos'] == 'n' and not e.get('gender'): errs.append(f'lexicon {k}: noun without gender')
+        if orig and e['pos'] == 'n' and not e.get('gender'): errs.append(f'lexicon {k}: noun without gender')
         if e['pos'] not in ('name', 'abbr') and not e['pos'].startswith('foreign') and e.get('level') not in LEVELS:
             errs.append(f'lexicon {k}: bad level {e.get("level")}')
         ex = e.get('example')
         if ex:
             exd = dict(zip(lex['example_fields'], ex))
             if not (exd.get('author') or '').strip(): errs.append(f'lexicon {k}: example without author')
-            if not exd.get('en'): errs.append(f'lexicon {k}: example without en')
+            if lang != 'en' and not exd.get('en'): errs.append(f'lexicon {k}: example without en')
             if len(exd['text'].split()) > 12: errs.append(f'lexicon {k}: example longer than 12 words')
             words = set(w.lower() for w in re.findall(r"[^\W\d_]+(?:['’][^\W\d_]+)*", exd['text']))
             words |= set(w.split("'")[-1] for w in words if "'" in w)
             cands = set(f.lower() for f in e['forms']) | {e['lemma'].lower()}
+            if lang == 'ko':   # Korean: the stem (lemma minus 다) inside any word of the sentence
+                stem = e['lemma'][:-1] if e['lemma'].endswith('다') and len(e['lemma']) > 1 else e['lemma']
+                cands = {stem[:max(1, len(stem) - 1)]} if len(stem) > 1 else {stem}
+                words = {exd['text']}
+                if not any(c in exd['text'] for c in cands): words = set()
+                else: cands = words
             if not (words & cands) and not any(c in exd['text'].lower() for c in cands if len(c) > 3):
                 warns.append(f'lexicon {k}: example does not show the lemma or a printed form (modern spelling?): {exd["text"]}')
 
@@ -120,11 +142,12 @@ def check(series):
             if k not in keys_here: errs.append(f'daily {lid}: {k} does not occur in this letter')
             if k in used: errs.append(f'daily {lid}: {k} already used in {used[k]}')
             used[k] = lid
-            if e.get('function') or e['pos'] not in ('n', 'v', 'adj', 'adv') or len(e['lemma']) < 2:
+            if e.get('function') or e['pos'] not in ('n', 'v', 'adj', 'adv') or (lang != 'ko' and len(e['lemma']) < 2):
                 errs.append(f'daily {lid}: {k} is not a content word')
             if e.get('level') not in widen(band(lid)):
                 errs.append(f'daily {lid}: {k} level {e.get("level")} outside {widen(band(lid))}')
         spots = (l.get('plate') or {}).get('spots', [])
+        if not orig and r.get('spots'): errs.append(f'daily {lid}: spots must be [] for {lang}')
         for s in r.get('spots', []):
             i, k = s['i'], s['w']
             if i >= len(spots): errs.append(f'daily {lid}: spot {i} out of range'); continue
@@ -141,11 +164,12 @@ def check(series):
             for need in ('ko', 'en', 'note_ko', 'note_en'):
                 if not p.get(need): errs.append(f'daily {lid}: phrase {p["t"]!r} missing {need}')
 
-    size = sum(os.path.getsize(os.path.join(d, f)) for f in ('lexicon.json', 'gloss.json', 'daily.json'))
+    size = sum(os.path.getsize(os.path.join(d, f + sfx + '.json')) for f in ('lexicon', 'gloss', 'daily'))
+    if size > LIMIT_KB * 1024: errs.append(f'{series} {lang}: files total {size/1024:.0f} KB > {LIMIT_KB} KB')
     lv = {}
     for e in ent.values():
         lv[e.get('level') or '-'] = lv.get(e.get('level') or '-', 0) + 1
-    print(f'{series}: {len(ent)} lemmas, {ntok} tokens, {sum(1 for e in ent.values() if e.get("example"))} examples, '
+    print(f'{series} {lang}: {len(ent)} lemmas, {ntok} tokens, {sum(1 for e in ent.values() if e.get("example"))} examples, '
           f'{nwords} daily words ({nshort} short letters), {sum(len(r.get("spots", [])) for r in daily.values())} spot replacements, '
           f'{sum(len(r.get("phrases", [])) for r in daily.values())} phrases, {size/1024:.0f} KB; levels {dict(sorted(lv.items()))}')
     for w in warns: print('  warn:', w)
@@ -154,6 +178,7 @@ def check(series):
 
 
 if __name__ == '__main__':
-    names = sys.argv[1:] or list(SERIES)
-    ok = all([check(s) for s in names])
+    names = [a for a in sys.argv[1:] if a in SERIES] or list(SERIES)
+    langs = [a for a in sys.argv[1:] if a not in SERIES]
+    ok = all([check(s, l if l != SERIES[s] else None) for s in names for l in (langs or [SERIES[s], 'en', 'ko'])])
     sys.exit(0 if ok else 1)

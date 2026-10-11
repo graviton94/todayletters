@@ -1,0 +1,116 @@
+p1|0|풀 한 포기까지|down to every blade of grass|풀 한 포기도 빼놓지 않고|~까지: 작은 것 하나까지 빠짐없이 (강조).|-까지 here stresses "even down to the smallest thing".
+p2|0|〈감자 먹는 사람들〉보다 덜 어두워|less dark than The Potato Eaters|감자 먹는 사람들보다 밝아|A보다 덜 + 형용사: 비교 (덜 = less).|A보다 덜 + adjective = "less … than A".
+p3|0|화내지 마|don't be cross|화를 내지 말아 줘|-지 마: 친구 사이의 부정 명령 ('~하지 마').|-지 마 is the casual "don't".
+p3|0|정오부터|from noon|낮 12시부터|-부터: 시작 시점 ('~부터').|-부터 marks a starting point (from).
+p4|0|미스트랄만 덜 불면|if only the mistral blew less|바람만 약하면|-만 … -면: '~만 하면' 조건 강조.|-만 … -면 = "if only …".
+c1-l1|0|너를 많이 생각했어|I thought about you a lot|네 생각을 많이 했어|~를 생각하다: 사람을 생각하다.|-를 생각하다 = to think of someone.
+c1-l1|1|지금도 계속 내리고 있어|it is still falling now|아직 내리는 중이야|-고 있다: 진행 ('~하는 중').|-고 있다 = present progressive.
+c1-l2|0|일 얘기를 하자면|as for work|일에 관해 말하면|-자면: 화제를 꺼낼 때 ('~하자면').|-자면 introduces a topic: "if I talk about …".
+c1-l2|2|그 말만 할게|that's all I'll say|더는 말하지 않을게|-ㄹ게: 말하는 사람의 약속·의지.|-ㄹ게 = "I will" (promise to the listener).
+c1-l3|1|목이 메게 했어|choked me up|감정이 북받치게 했어|목이 메다: 감정이 북받쳐 말이 막히다.|목이 메다 = to be choked with emotion.
+c1-l3|2|마우버를 기리려면|to honour Mauve's memory|마우버를 추모하려면|-려면: 목적의 조건 ('~하려면').|-려면 = "in order to …, if you want to …".
+c1-l4|0|미친 듯이 일하고 있어|I'm working like mad|정신없이 일하는 중이야|-ㄴ 듯이: '~처럼'.|-ㄴ 듯이 = "as if, like".
+c1-l4|2|낫다고 장담할 수 있을 것 같아|I think I can assure you it's better|더 좋다고 자신 있게 말할 수 있어|-다고 장담하다: 확신하여 말하다.|-다고 장담하다 = to assure that …
+c1-l5|0|제일 애를 먹여|is giving me the most trouble|가장 힘들게 해|애를 먹이다: 남을 힘들게 하다.|애를 먹이다 = to give someone trouble.
+c1-l5|1|대충 한 벌로 어울리는|roughly hang together as a set|얼추 한 세트처럼 어울리는|대충: 대략. 한 벌: 한 세트.|대충 = roughly; 한 벌 = one set.
+c1-l6|1|한 달에 15프랑에 빌렸어|I rented it at 15 francs a month|한 달 15프랑으로 빌렸어|한 달에 + 값: 기간당 가격.|한 달에 + price = "per month".
+c1-l7|0|요즘은 몸도 한결 나아|my health is much better these days|요즘 건강이 훨씬 좋아|한결: 이전보다 훨씬.|한결 = noticeably more.
+c2-l1|0|드디어 지중해 바닷가|on the Mediterranean shore at last|마침내 지중해 해변|드디어: 기다리던 일이 이루어질 때.|드디어 = at last.
+c2-l1|1|늘 알 수가 없어|you can never quite tell|언제나 분명하지 않아|-ㄹ 수가 없다: 불가능 강조.|-ㄹ 수가 없다 = cannot (stressed).
+c2-l2|0|보고 나니|now that I've seen|본 다음에|-고 나니: 어떤 일을 끝낸 뒤 깨달음.|-고 나니 = "having done …, (I realise)".
+c2-l2|1|같은 우편으로 보낼게|I'll send them by the same post|함께 부칠게|-으로: 수단 ('~로').|-(으)로 marks the means.
+c2-l3|0|마침 지금이 추수 때거든|for it's just harvest time now|공교롭게 지금이 수확 철이야|-거든: 이유를 덧붙여 설명.|-거든 adds a reason, like "you see".
+c2-l3|1|빡빡하고 고된 한 주|a tight, hard week|바쁘고 힘든 일주일|형용사 + -고: 나열.|Adjective + -고 links two descriptions.
+c2-l4|1|한 주가 다 갔어|the whole week went|일주일을 다 썼어|시간이 가다: 시간이 지나다.|시간이 가다 = time passes.
+c2-l4|2|열네 살쯤 된|about fourteen years old|열네 살 정도인|-쯤: 대략.|-쯤 = about, approximately.
+c2-l5|2|그리는 중인데|I'm in the middle of painting|그리고 있는데|-는 중이다: 진행.|-는 중이다 = to be in the middle of …
+c2-l6|0|만나게 될 거야|you'll get to meet|만날 거야|-게 되다: 자연스럽게 그렇게 되다.|-게 되다 = to come to (do).
+c2-l6|1|정확히 옮기려 애쓰는 대신|instead of trying to render exactly|정확히 그리려 하지 않고|-는 대신: '~하는 대신'.|-는 대신 = instead of …
+c2-l7|0|놀랍지도 않지?|it's no surprise, is it?|당연하지?|-지도 않다 + -지?: 확인하는 말투.|-지? asks for agreement.
+c2-l7|2|한 번에 다 그려 내야 하거든|I have to paint it all in one go|단숨에 끝내야 해|-아/어 내다: 끝까지 해냄.|-아/어 내다 = to manage to finish.
+c3-l1|0|사흘 밤을 꼬박 새우며|staying up three whole nights|사흘 밤을 한숨도 안 자고|꼬박: 처음부터 끝까지 빠짐없이.|꼬박 = the whole time, without a break.
+c3-l1|1|생각이 자주 들어|it often seems to me|자주 그렇게 느껴|생각이 들다: 어떤 생각이 떠오르다.|생각이 들다 = a thought comes to mind.
+c3-l2|0|들어가 살 생각이야|I'm planning to move in|이사할 계획이야|-ㄹ 생각이다: 계획·의도.|-ㄹ 생각이다 = to intend to.
+c3-l2|2|테라스를 환히 비추고|lights up the terrace brightly|테라스를 밝게 비추고|환히: 밝게.|환히 = brightly.
+c3-l3|0|그야말로 일본 그 자체겠지|it would be Japan itself|정말 일본과 똑같겠지|그야말로: 정말로, 말 그대로.|그야말로 = truly, literally.
+c3-l3|1|바로 그 밤에|on that very night|그날 밤에 곧바로|바로 그: '바로 그 ~' 강조.|바로 그 = "that very".
+c3-l4|1|나만이 아니라|not only myself|나뿐만 아니라|-만이 아니라: '~뿐 아니라'.|-만이 아니라 = not only.
+c3-l4|2|생겨서 정말 기뻐|I'm so glad to have them|갖게 되어 기뻐|-아서 기쁘다: 기쁜 이유.|-아서 기쁘다 = glad because …
+c3-l5|0|돈이 다 떨어져서|my money ran out|돈이 바닥나서|떨어지다: (돈·물건이) 다 없어지다.|돈이 떨어지다 = to run out of money.
+c3-l5|1|잘못이 있다면 내 잘못이지|if anyone is at fault, it's me|탓할 사람이 있다면 나야|-다면: 가정.|-다면 = "if (it is the case that)".
+c3-l6|0|색이 모든 걸 해내야 해|colour has to do everything|색이 다 이루어야 해|-아/어야 하다: 필요·의무.|-아/어야 하다 = must.
+c3-l6|1|상상력이 쉬어야 해|the imagination should rest|머리가 편히 쉬어야 해|-어야 하다: 의무.|-어야 하다 = should, must.
+c3-l7|1|그 돈쯤은 다시 벌지 않겠어?|won't we earn that back?|그만한 돈은 다시 벌겠지|-지 않겠어?: 동의를 구하는 반문.|-지 않겠어? = "won't we …?" (rhetorical).
+c3-l7|2|꼭, 정말 꼭|absolutely, absolutely|반드시, 정말 반드시|반복으로 강조.|Repetition for emphasis.
+c4-l1|0|건강하게 도착했어|arrived in good health|탈 없이 잘 왔어|-게: 부사형 ('~하게').|-게 turns an adjective into an adverb.
+c4-l1|2|나도 어쩔 수가 없어|I can't help it|내 힘으로는 안 돼|어쩔 수 없다: 방법이 없다.|어쩔 수 없다 = there's nothing one can do.
+c4-l2|0|편안해질 뿐 아니라|not only becoming comfortable|편안해지는 것만이 아니라|-ㄹ 뿐 아니라: '~할 뿐만 아니라'.|-ㄹ 뿐 아니라 = not only.
+c4-l2|2|감히 바라 보는데|I dare to hope|조심스럽게 바라는데|감히: 주제넘게도.|감히 = dare to.
+c4-l3|0|낙엽 지는 풍경|a landscape of falling leaves|잎이 떨어지는 경치|낙엽이 지다: 잎이 떨어지다.|낙엽이 지다 = leaves fall.
+c4-l3|1|한 시간 만에|in an hour|딱 한 시간 걸려|시간 + 만에: 그 시간이 지나서.|Time + 만에 = after (only) that long.
+c4-l4|0|녹초가 돼서|being worn out|몹시 지쳐서|녹초가 되다: 기진맥진하다.|녹초가 되다 = to be exhausted.
+c4-l4|2|해낸 셈이 될 거야|it will amount to having done|한 것과 같을 거야|-ㄴ 셈이다: 결국 그렇게 된다고 볼 수 있다.|-ㄴ 셈이다 = it amounts to …
+c4-l5|0|본의 아니게|in spite of himself|뜻하지 않게|본의 아니게: 자기 뜻과 다르게.|본의 아니게 = unintentionally.
+c4-l5|2|손색없는 화가|an artist second to none|뒤지지 않는 화가|손색없다: 다른 것보다 못하지 않다.|손색없다 = not inferior to anyone.
+c4-l6|0|무엇보다 브뤼야스 전시실을|above all the Bruyas room|특히 브뤼야스 방을|무엇보다: 가장 중요한 것.|무엇보다 = above all.
+c4-l6|1|지독하게 닮았어|looks damned like (us)|아주 많이 닮았어|지독하게: 몹시 (구어적 강조).|지독하게 = terribly (strong emphasis).
+c4-l7|0|편지 정말 고마워|many thanks for your letter|편지 고마워|편지 첫인사.|A common way to open a letter.
+c4-l7|2|넘어야 할 큰 어려움|serious difficulties to overcome|이겨 내야 할 큰 문제|-아야 할: 앞으로 해야 할.|-아야 할 = which must be (done).
+c5-l1|0|모든 걸 말끔히 정리해 놓았더라|they had put everything in good order|다 깨끗이 치워 두었어|-아 놓다: 미리 해 두다. -더라: 직접 본 것을 전함.|-아 놓다 = do in advance; -더라 reports what one saw.
+c5-l1|2|정말 미안해|I'm so sorry|진심으로 사과해|사과의 말.|An apology.
+c5-l2|0|한마디는 해야지|I must say a word|짧게라도 말해야지|-아야지: 스스로 다짐.|-아야지 = "I should …" (resolve).
+c5-l2|1|기가 막히게 빨리|amazingly quickly|놀랄 만큼 빨리|기가 막히다: 놀랍다 (구어).|기가 막히게 = amazingly.
+c5-l3|0|참 뭉클했어|it was so touching|정말 감동적이었어|뭉클하다: 가슴이 찡하다.|뭉클하다 = to be moved.
+c5-l3|2|제법 멋을 부린 티가 나|it looks rather smart|꽤 멋있어 보여|티가 나다: 기색이 드러나다.|티가 나다 = it shows.
+c5-l4|0|마지막 붓질을 했어|I put the final touches|마무리 칠을 했어|붓질: 붓으로 칠하는 일.|붓질 = brushwork, stroke.
+c5-l4|1|그런 그림|that kind of picture|그와 같은 그림|그런 + 명사: '그러한 ~'.|그런 + noun = such a …
+c5-l5|0|곧바로 답장했어|I answered straight away|바로 답했어|곧바로: 즉시.|곧바로 = immediately.
+c5-l5|1|참지 못하고|unable to resist|견디지 못하고|-지 못하다: 할 수 없다.|-지 못하다 = cannot.
+c5-l6|0|정말 큰 힘이 됐어|it did me a great deal of good|크게 도움이 됐어|힘이 되다: 도움이 되다.|힘이 되다 = to be a help.
+c5-l6|1|너도 알다시피|as you know|너도 아는 것처럼|-다시피: '~하는 것처럼'.|-다시피 = as (you know).
+c5-l7|0|몇 자 적어|I write a few words|짧게 써|몇 자 적다: 짧은 편지를 쓰다.|몇 자 적다 = to write a few lines.
+c5-l7|1|안부 많이 전하고|sends you his warm regards|인사를 많이 전하고|안부를 전하다: 인사를 대신 전하다.|안부를 전하다 = to send regards.
+c6-l1|0|그림 그리기에 충분했어|it was enough for painting|그리기에 모자람이 없었어|-기에 충분하다: ~하기에 넉넉하다.|-기에 충분하다 = enough for doing.
+c6-l1|2|찬란하게 떠오르는|rising in all its glory|눈부시게 뜨는|찬란하게: 눈부시게.|찬란하게 = gloriously.
+c6-l2|0|될 수 있으면 빨리|as soon as possible|가능한 한 빨리|부탁할 때 쓰는 말.|Used in requests.
+c6-l2|1|해 뜨기 한참 전에|long before sunrise|해가 뜨기 훨씬 전에|한참: 꽤 오랫동안.|한참 = quite a long time.
+c6-l3|0|멀쩡하게 잘 도착했어|it arrived in good condition|상한 데 없이 왔어|멀쩡하다: 탈 없이 온전하다.|멀쩡하다 = intact, fine.
+c6-l3|2|바닥에 쓰러진 밀밭|wheat flattened to the ground|땅에 누운 밀|-ㄴ: 과거 관형형.|-ㄴ forms a past modifier.
+c6-l4|0|내가 보기엔|to my mind|내 생각엔|의견을 말할 때.|"In my view".
+c6-l4|2|그건 제쳐 두자|let's leave that aside|그 문제는 미뤄 두자|제쳐 두다: 다루지 않고 옆으로 두다.|제쳐 두다 = to set aside.
+c6-l5|0|요 며칠|these last few days|최근 며칠|요: 가까운 시간을 가리킴.|요 며칠 = these past few days.
+c6-l5|1|머릿속을 떠나지 않아|won't leave my head|계속 생각나|떠나지 않다: 계속 남아 있다.|"Doesn't leave (my mind)".
+c6-l6|0|정말 고마워|thank you so much|진심으로 감사해|감사 인사.|A thank-you.
+c6-l6|1|낯설지 않다는 거야|that they don't seem strange to us|익숙하다는 거야|-다는 거야: 내용을 설명할 때.|-다는 거야 = "it's that …".
+c6-l7|0|재미를 붙일 이유|a reason to take pleasure again|즐거움을 느낄 까닭|재미를 붙이다: 흥미를 갖게 되다.|재미를 붙이다 = to get to enjoy.
+c6-l7|2|똑같은 매력이 있어|has the same charm|같은 멋이 있어|똑같다: 아주 같다.|똑같다 = exactly the same.
+c7-l1|0|다른 모델이 없으니까|since there's no other model|모델이 따로 없어서|-으니까: 이유.|-(으)니까 = because, since.
+c7-l1|1|씨름하는 중이야|I'm wrestling with|애쓰는 중이야|씨름하다: 어려운 일과 싸우다.|씨름하다 = to struggle with.
+c7-l2|0|바로 그때|just at that moment|정확히 그 순간|바로: 꼭 그.|바로 그때 = right then.
+c7-l2|1|놓치지 않을 거야|I won't lose sight of|잊지 않을 거야|놓치다: 잡지 못하고 잃다.|놓치다 = to miss, lose.
+c7-l3|0|화가 났거든|they made me angry|성이 났었거든|화가 나다: 성나다.|화가 나다 = to get angry.
+c7-l3|1|떨쳐 내려고|in order to shake it off|털어 내려고|-려고: 목적.|-려고 = in order to.
+c7-l4|0|만들기 좋을 것 같아|it would suit being made into|만들기에 알맞을 것 같아|-기 좋다: ~하기에 알맞다.|-기 좋다 = good for doing.
+c7-l4|2|아련한 추억처럼|like a vague memory|흐릿한 기억처럼|-처럼: 비유.|-처럼 = like.
+c7-l5|0|반갑게 놀랐어|I was pleasantly surprised|기쁘게 놀랐어|반갑다: 만나서 기쁘다.|반갑다 = glad to see.
+c7-l5|2|공들인 그림|a picture worked out with care|정성 들인 그림|공들이다: 정성을 쏟다.|공들이다 = to take pains.
+c7-l6|0|드디어 아빠가 됐구나|so you're a father at last|마침내 아버지가 되었구나|-구나: 새로 안 사실에 대한 감탄.|-구나 expresses realisation.
+c7-l6|1|말로 다 못 할 만큼|more than words can say|말로 다 할 수 없을 정도로|-ㄹ 만큼: 정도.|-ㄹ 만큼 = to the extent that.
+c7-l7|0|계속 나아지고 있어|it keeps getting better|점점 좋아지고 있어|-아지다: 변화. -고 있다: 진행.|-아지다 = become; -고 있다 = progressive.
+c7-l7|2|색의 계시 같아|like a revelation of colour|색을 새로 깨닫는 것 같아|같다: 비유 ('~ 같다').|명사 + 같다 = to be like …
+c8-l1|0|보기 드문 거야|it's becoming rare|흔하지 않아|보기 드물다: 흔히 볼 수 없다.|보기 드물다 = rarely seen.
+c8-l1|1|건질 수 있지 않을까|might I not cover (the cost)|되찾을 수 있을 것 같아|-지 않을까: 조심스러운 추측.|-지 않을까 = "might it not …?"
+c8-l2|1|짐작한 대로야|it's as I supposed|예상과 같아|-ㄴ 대로: '~한 것처럼'.|-ㄴ 대로 = just as …
+c8-l2|2|얼마나 많은지|how many there are|정말 많아|얼마나 -ㄴ지: 감탄.|얼마나 …-ㄴ지 = how (very) …!
+c8-l3|0|생각을 자주 해|I often think of|자주 떠올려|생각을 하다: 생각하다.|생각을 하다 = to think of.
+c8-l3|2|완전히 반했어|is completely smitten|아주 좋아하게 됐어|반하다: 홀딱 마음이 끌리다.|반하다 = to fall for.
+c8-l4|0|좋은 추억으로 남았어|left a very pleasant memory|좋은 기억이 됐어|-으로 남다: ~이 되어 남다.|-으로 남다 = to remain as.
+c8-l4|2|얼른 또 와야 해|you must come back soon|빨리 다시 와|-아야 하다: 당부.|-아야 하다 = must (here a warm request).
+c8-l5|1|즐겁게 그린 인물|a figure I enjoyed painting|재미있게 그린 인물|-게: 부사형.|-게 makes an adverb.
+c8-l5|2|아주 잘 어울린다는 걸|that it goes very well with|무척 잘 맞는다는 것을|어울리다: 잘 맞다.|어울리다 = to go well together.
+c8-l6|0|복음 같았어|was like a gospel|아주 반가운 소식 같았어|복음: 기쁜 소식.|복음 = gospel, very good news.
+c8-l6|2|망설이지 않았어|I didn't hold back|주저하지 않았어|망설이다: 머뭇거리다.|망설이다 = to hesitate.
+c8-l7|0|온 정신을 다해|with all my attention|정성을 다 쏟아|온 + 명사: 전부의.|온 = all, whole.
+c8-l7|1|분명 그럴 거야|surely must be so too|틀림없이 그럴 거야|분명: 틀림없이.|분명 = surely.
+e1|0|그림으로만 말할 수 있어|we can only speak through our paintings|그림으로만 뜻을 전할 수 있어|-으로만: 수단 + 한정 ('~로만').|-(으)로만 = only by means of.
+e1|1|한 번 더 말할게|I'll say it once more|다시 말할게|-ㄹ게: 약속·의지.|-ㄹ게 = I will.

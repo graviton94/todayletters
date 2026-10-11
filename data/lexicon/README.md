@@ -1,6 +1,6 @@
 # data/lexicon — 어휘 등급 · 빈도 자료
 
-- `de_freq.tsv`, `fr_freq.tsv`: `낱말<TAB>순위` (상위 50,000개). 출처: hermitdave/FrequencyWords, `content/2018/{de,fr}/{de,fr}_50k.txt` (OpenSubtitles 2018 기반), https://github.com/hermitdave/FrequencyWords
+- `de_freq.tsv`, `fr_freq.tsv`, `en_freq.tsv`, `ko_freq.tsv`: `낱말<TAB>순위` (상위 50,000개). 출처: hermitdave/FrequencyWords, `content/2018/{de,fr,en,ko}/{de,fr,en,ko}_50k.txt` (OpenSubtitles 2018 기반), https://github.com/hermitdave/FrequencyWords. en · ko 는 2026-10-11 fetch-letters.yml 로 받음 (sources 가지).
 - 라이선스: 내용물은 **CC BY-SA 4.0** (저장소 README: "CC-by-sa-4.0 for content"; 코드는 MIT). 앱에 순위·등급 태그를 쓸 때 출처 표기 필요, 이 파일을 고쳐 배포하면 같은 라이선스로.
 - 만든 방법 (2026-10-11): fetch-letters.yml 로 받은 원본에서 횟수 열을 빼고 줄 번호를 순위로 붙임 (`awk 'NF==2{print $1"\t"NR}'`). 소문자 · 활용형 그대로 (표제어 아님).
 - 넣지 않은 것: 괴테 인스티투트 A1·A2·B1 낱말 목록은 "Das Werk und seine Teile sind urheberrechtlich geschützt" — 서면 허락 없이 저장·배포 불가라 공개 저장소에 두지 않음.
@@ -32,3 +32,14 @@
 **다시 만들기**: `pip install simplemma`, `apt install espeak-ng`, Tatoeba 추출본(id, 문장, en, ko, author) 을 한 폴더에 두고
 `TATOEBA_DIR=<폴더> python3 scripts/vocab/build.py vincent fr` → `python3 scripts/vocab/daily.py vincent fr` (mozart de 도 같음) → `python3 scripts/validate_lexicon.py`.
 손으로 고치는 곳은 `scripts/vocab/src/` — `*_tab.txt`(표제어|품사|en|ko|F=기능어), `*_map.txt`(꼴=표제어), `*_occ.txt`(편지:메시지:토큰=표제어, 동형어 구분), `phrases_<작품>.txt`, `daily_override_<작품>.json`(그림 점 바꾸기).
+
+## 영어 · 한국어 학습용 어휘 (data/<작품>/lexicon_en · gloss_en · daily_en, lexicon_ko · gloss_ko · daily_ko)
+
+학습 언어를 영어나 한국어로 고른 사람을 위한 같은 형식의 자료. 텍스트는 각 메시지의 `en` 줄(모차르트는 Wallace 1866, 빈센트는 앱 번역) · `ko` 줄(앱 번역). 다른 점은 각 파일 `_doc` 에 적음.
+
+- **영어**: 표제어는 simplemma(MIT) + 손 고침(`src/en_map.txt`). `'s 'm 're 've 'll 'd` 는 따로 떼어 각자 표제어, `don't` 같은 n't 꼴과 `o'clock`, 하이픈 낱말은 통째로. 뜻풀이는 `ko`(한국어 뜻) + `en`(쉬운 영어 정의, 번역 아님). IPA 는 espeak-ng en-us 근사치. 등급은 en_50k 순위(표제어 · 찍힌 꼴 중 높은 쪽).
+- **한국어**: 토큰은 어절(문장부호 · 숫자에서 끊김). 어절마다 사전 표제어로 — 명사는 조사를 뗀 꼴, 동사 · 형용사는 어간 + 다(공부하다, 즐겁다). 분석은 kiwipiepy(LGPL-3.0 도구, 결과물만 씀) + 손 고침(`src/ko_map.txt` 어절=표제어|기능, `src/ko_occ.txt` 작품/편지:메시지:토큰=표제어, 동형어 `눈#2`(눈 雪) 등). 조사 · 어미는 gloss_ko 토큰의 셋째 칸에 `형태/품사` 를 `+` 로 이어 둠(`["그렸어","그리다","었/EP+어/EF"]`), 품사 뜻은 gloss_ko.json `tags`(ko · en). 뜻풀이는 `en`(영어 뜻) + `ko`(짧은 한국어 풀이). IPA 없음.
+- **한국어 등급**: ko_50k 는 어절 목록이라 그대로는 표제어 순위가 안 됨 → 목록의 어절을 하나씩 같은 규칙으로 분석해 표제어로 모으고, 순위의 역수(1/순위, 지프 근사 — tsv 에 횟수를 안 남겼으므로)를 더한 값으로 다시 순위를 매김. 그 순위와 찍힌 어절의 순위 중 높은 쪽으로 같은 구간(A1 ≤500 … C2). 대략적인 값.
+- **예문**: Tatoeba. 한국어는 kor 문장(작성자 표기, CC BY 2.0 FR) 가운데 분석한 표제어가 들어 있고 영어 번역에 뜻풀이 낱말이 보이는 것. 영어는 Tatoeba 의 CC0 영어 문장만 씀(per-language `eng_sentences_detailed` 가 35 MB 라 작성자를 못 받음 → CC0 라 표기 의무 없음, author 칸은 "CC0"); 한국어 번역이 있으면 ko 칸에(드묾). 예문 형식은 [id, 문장, en|null, ko|null, author].
+- **오늘의 낱말**: 원문과 같은 규칙(편지당 8개, 챕터 구간, 반복 없음, 인명 · 기능어 제외). 영어는 한 글자 · 대문자 · 하이픈 낱말 제외, 한국어는 한 음절 낱말(꽃, 별) 허용. spots 는 늘 `[]`. phrases 는 손으로 고른 편지 문구(`src/phrases_<작품>_<en|ko>.txt`).
+- **다시 만들기**: `pip install simplemma kiwipiepy`, Tatoeba 추출본 `tatoeba_eng.tsv` · `tatoeba_kor.tsv`(id, 문장, en, ko, author) 를 한 폴더에 두고 `TATOEBA_DIR=<폴더> python3 scripts/vocab/build_tl.py vincent ko` → `python3 scripts/vocab/daily_tl.py vincent ko` (en · mozart 도 같음) → `python3 scripts/validate_lexicon.py` (세 언어 모두 검사, 언어별 세 파일 합계 400 KB 미만).

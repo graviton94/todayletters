@@ -1,0 +1,114 @@
+p1|0|I still think the same|my opinion has not changed|지금도 그렇게 생각한다|still: '아직도, 여전히'.|"Still" = even now.
+p2|0|I am told|people say to me|~라고 들었다|be told: (남에게서) 듣다. 전해 들은 말을 할 때.|"I am told" reports what others say.
+p3|0|at one time I am everything, at another absolutely nothing|sometimes I am everything, sometimes nothing|어떤 때는 전부, 어떤 때는 아무것도 아니다|at one time … at another: '어떤 때는 … 또 어떤 때는'.|"At one time … at another" contrasts two moments.
+c1-l1|0|I rejoice in my heart|I am truly glad|진심으로 기뻐|rejoice: '기뻐하다' (옛 문어체).|"Rejoice" is a formal, old word for "be glad".
+c1-l1|1|Just before beginning this letter|right before I started this letter|이 편지를 쓰기 바로 전에|just before + -ing: '~하기 바로 전에'.|"Just before" = immediately before.
+c1-l2|0|I am thankful to say|I'm glad to tell you|다행히도|좋은 소식을 전할 때의 인사말.|A polite way to give good news.
+c1-l2|2|I get no rest|I can't rest at all|통 쉬지 못한다|get no rest: 전혀 쉬지 못하다.|"Get no rest" = not be able to rest.
+c1-l3|0|pleases me very much|I like it a lot|아주 마음에 든다|A pleases me: A가 마음에 들다.|"It pleases me" = I like it.
+c1-l3|2|just like ours|exactly as ours does|우리 것과 꼭 같이|just like: '꼭 ~처럼'.|"Just like" = exactly like.
+c1-l4|0|I can't possibly write better|there's no way I can write better|도저히 더 잘 쓸 수 없어|can't possibly: 도저히 ~할 수 없다.|"Can't possibly" = there is no way to.
+c1-l4|2|at least six times|six times or more|적어도 여섯 번|at least: '적어도'.|"At least" sets a minimum.
+c1-l5|0|in the course of our journey|during our trip|오는 길에, 여행 중에|in the course of: ~하는 동안.|"In the course of" = during.
+c1-l5|1|it is once more very warm|it's very warm again|다시 아주 덥다|once more: 다시 한번.|"Once more" = again.
+c1-l6|1|When this letter reaches you|when you get this letter|이 편지를 받을 때쯤|reach: (편지가) 닿다.|"Reach" = arrive at.
+c1-l6|2|with all your might|as hard as you can|있는 힘껏|might: 힘.|"With all your might" = with all your strength.
+c2-l1|0|God be praised!|thank God!|하느님 덕분에!|감사·안도의 감탄 (옛 표현).|An old exclamation of thanks.
+c2-l1|2|no doubt all will go on right|surely everything will be fine|분명 다 잘될 것이다|no doubt: 틀림없이.|"No doubt" = surely.
+c2-l2|0|lost patience with|got tired and angry with|~에 지치다, 참을성을 잃다|lose patience with: ~을 더는 못 참다.|"Lose patience" = stop being able to wait calmly.
+c2-l2|2|nothing further can happen to it|nothing more can go wrong with it|더는 탈이 없다|nothing further: 더 이상 아무것도.|"Nothing further" = nothing more.
+c2-l3|0|made him a present of|gave him as a gift|~을 선물했다|make someone a present of: 선물하다.|An old way to say "give as a present".
+c2-l3|0|wild with delight|extremely happy|기뻐서 어쩔 줄 모르는|wild with + 감정: 감정에 들뜬.|"Wild with" + feeling = full of it.
+c2-l4|0|they would not let me leave|they kept me there|나를 놓아주지 않았다|let someone + 동사: ~하게 두다.|"Let" + person + verb = allow.
+c2-l4|1|You play inimitably|nobody can play as you do|당신의 연주는 비할 데가 없다|inimitably: 흉내 낼 수 없을 만큼.|"Inimitably" = so well no one can copy it.
+c2-l5|0|for the present|for now|당분간|지금으로서는.|"For the present" = for now.
+c2-l5|0|in the hope of|hoping to|~하기를 바라며|in the hope of + -ing.|"In the hope of" + -ing = hoping to.
+c2-l6|0|nothing more|that's all|그 이상은 아니다|이야기를 줄이며 강조.|Stresses that there is no more.
+c2-l6|1|at sight|without practice, reading it for the first time|처음 보자마자 (초견으로)|play at sight: 악보를 보자마자 연주하다.|"At sight" = playing from the score at first view.
+c2-l7|1|made expressly for her|written especially for her|그녀만을 위해 만든|expressly: 특별히.|"Expressly" = specially.
+c2-l7|2|tears came to my eyes|I began to cry|눈물이 났다|감동하거나 슬플 때.|Said when one starts to cry.
+c3-l1|0|gone through with it|managed to finish it|끝까지 견디다|go through with: 끝까지 해내다.|"Go through with" = complete something hard.
+c3-l2|0|as cold as ice|very cold|얼음장 같은|as + 형용사 + as: 비유적 비교.|"As cold as ice" = extremely cold.
+c3-l2|2|no longer|not any more|더 이상 ~않다|no longer = not anymore.|"No longer" = not any more.
+c3-l3|0|very painful and sad news|terrible, sad news|아주 괴롭고 슬픈 소식|news는 셀 수 없는 명사 (a news ✗).|"News" is uncountable.
+c3-l3|2|carried away|very excited, delighted|넋을 잃은, 열광한|be carried away: 감정에 휩쓸리다.|"Be carried away" = be overcome with excitement.
+c3-l4|0|That very same day|on exactly that day|바로 그날|very same: 강조 ('바로 그').|"Very same" stresses "exactly that".
+c3-l4|1|what did it avail?|what use was it?|무슨 소용이 있었겠는가|avail: 도움이 되다 (문어).|"Avail" (formal) = help, be of use.
+c3-l5|0|for the last fortnight|for the past two weeks|지난 2주 동안|fortnight: 2주 (영국식).|"Fortnight" = two weeks (British).
+c3-l5|1|You may easily imagine|you can easily picture|쉽게 짐작하실 것이다|may: 공손한 '~할 수 있다'.|"May" here is a polite "can".
+c3-l6|0|sends you his regards|sends his greetings|안부를 전한다|regards: 안부.|"Regards" = good wishes.
+c3-l6|1|I care for no other advantage|I want nothing else|다른 이익은 바라지 않는다|care for: 원하다, 좋아하다.|"Care for" = want, like.
+c3-l7|1|I could not help being much touched|I couldn't stop feeling moved|뭉클하지 않을 수 없었다|can't help + -ing: ~하지 않을 수 없다.|"Can't help" + -ing = can't stop oneself.
+c3-l7|2|you alone|only you|오직 당신만|alone이 명사 뒤에서 '~만'.|"Alone" after a noun = only.
+c4-l1|0|no matter|it's not important|상관없다|대수롭지 않다고 넘길 때.|Used to dismiss something.
+c4-l1|0|in future|from now on|앞으로는|영국식 (in the future와 같음).|British for "from now on".
+c4-l2|0|ought to be shown|should be given|보여야 마땅하다|ought to: ~해야 한다 (도리).|"Ought to" = should.
+c4-l2|2|show off|display one's skill proudly|뽐내다|show off: 과시하다.|"Show off" = display proudly.
+c4-l3|0|as if I had been going to a banquet|like going to a feast|잔치에 가는 것처럼|as if + 과거완료: 가정 비교.|"As if" introduces an imagined comparison.
+c4-l3|1|I do assure you|I really promise you|정말로 장담하오|do + 동사: 강조.|"Do" before a verb adds emphasis.
+c4-l4|0|quite hard enough|already hard enough|충분히 단단한|enough는 형용사 뒤에 와요.|"Enough" comes after the adjective.
+c4-l4|2|do not be uneasy|don't worry|걱정하지 마라|uneasy: 불안한.|"Uneasy" = worried.
+c4-l5|0|within hearing|close enough to hear|들리는 곳에|within + 거리: ~ 안에.|"Within hearing" = near enough to hear.
+c4-l5|1|cannot fail to do you honor|will surely bring you honour|분명 영예가 될 것이다|cannot fail to: 반드시 ~하다.|"Cannot fail to" = will certainly.
+c4-l6|0|fully occupied with|completely busy with|~으로 꽉 차 있는|be occupied with: ~에 바쁘다.|"Occupied with" = busy with.
+c4-l6|2|must necessarily be introduced|has to be put in|꼭 들어가야 한다|must necessarily: 반드시.|Strong necessity.
+c4-l7|0|this very moment|right now|지금 당장|very: '바로'.|"This very moment" = right now.
+c4-l7|1|got rid of them|finished them, am free of them|해치웠다|get rid of: 없애다, 처리하다.|"Get rid of" = be free of.
+c5-l1|0|I am happy to say|I'm glad to tell you|기쁘게도|좋은 소식을 전하는 말.|Introduces good news.
+c5-l1|1|Now as to|now about|이제 ~ 이야기|as to: ~에 관해서는.|"As to" = concerning.
+c5-l2|0|filled with the gall of bitterness|full of bitter anger|울화가 치밀다|gall: 쓴맛; 원한. 성경에서 온 표현.|A biblical phrase for deep bitterness.
+c5-l2|1|no longer|not any more|더는 아니다|no longer = not anymore.|"No longer" = not any more.
+c5-l3|0|A pretty business|a fine mess (ironic)|일을 아주 잘도 해냈군|pretty를 반어로 써서 '엉망'.|"Pretty" used ironically = a bad mess.
+c5-l3|1|turn me out of doors|throw me out|문밖으로 내쫓다|turn out: 쫓아내다.|"Turn out of doors" = throw out of the house.
+c5-l4|0|the day before yesterday|two days ago|그저께|어제의 전날.|Two days ago.
+c5-l4|2|as well as|and also|~뿐 아니라|A as well as B: B뿐 아니라 A도.|"As well as" = and also.
+c5-l5|1|given full scope to|allowed full freedom to|마음껏 ~하게 했다|give scope to: 여지를 주다.|"Give scope" = give room.
+c5-l5|2|whether violent or not|violent or calm|거세든 아니든|whether A or not: A이든 아니든.|"Whether … or not" covers both cases.
+c5-l6|0|I should say|I would say, in my view|제 생각엔|의견을 조심스럽게 말할 때.|A careful way to give an opinion.
+c5-l6|2|for rhyming's sake|only to make a rhyme|각운을 위한|for … sake: ~을 위해.|"For the sake of" = for the purpose of.
+c5-l7|0|just as I was going to|exactly when I was about to|막 ~하려던 참에|just as: 바로 ~할 때.|"Just as" = at the same moment as.
+c5-l7|2|play right well together|play very well as a group|호흡이 잘 맞는다|right well: 아주 잘 (옛 표현).|"Right well" is old English for "very well".
+c6-l1|0|at present|now|지금|현재.|"At present" = now.
+c6-l1|1|in my opinion|I think|제 생각에는|의견을 말할 때.|Introduces an opinion.
+c6-l2|0|Nothing more disagreeable than|nothing is worse than|~만큼 괴로운 일은 없다|nothing + 비교급 + than: 최상급 뜻.|"Nothing more … than" = the most …
+c6-l2|2|Who knows?|maybe, nobody can say|누가 알겠어요?|불확실함을 나타내는 반문.|A question expressing uncertainty.
+c6-l3|0|summoned up courage|gathered her courage|용기를 냈다|summon up courage: 용기를 내다.|"Summon up courage" = find the courage.
+c6-l3|2|fell in love with them at once|loved them immediately|완전히 반해 버렸다|fall in love with: ~에 반하다.|"Fall in love with" = start to love.
+c6-l4|0|gave you an account of|told you about|~을 알려 드렸다|give an account of: 경과를 이야기하다.|"Give an account" = describe.
+c6-l4|2|my blood boiled|I was furious|피가 끓을 만큼 화가 났다|격분을 나타내는 비유.|A picture of great anger.
+c6-l5|0|you prefer that key|you like that key better|그 조를 더 좋아한다|prefer: 더 좋아하다.|"Prefer" = like more.
+c6-l5|1|in spite of the frightful heat|although it was terribly hot|끔찍한 더위에도|in spite of + 명사: ~에도 불구하고.|"In spite of" = despite.
+c6-l6|0|in vain|without result|헛되이|기다림이나 노력이 소용없을 때.|"In vain" = without success.
+c6-l6|1|at once|at the same time|한꺼번에|여기선 '동시에'.|Here "at once" = together, at the same time.
+c6-l7|0|performed our devotions|said our prayers|기도를 드렸다|devotions: 기도, 예배.|"Devotions" = prayers.
+c6-l7|2|we are made for each other|we are perfect for each other|서로를 위해 태어났다|천생연분이라는 뜻.|We are a perfect match.
+c7-l1|0|It is high time|it's really time now|이제 정말 ~할 때다|it is high time + 과거형.|"It's high time" = it should happen now.
+c7-l1|2|Our only regret|the only thing we are sorry about|단 하나 마음에 걸리는 것|regret: 유감, 아쉬움.|"Regret" = something one is sorry about.
+c7-l2|0|my hands are so full|I am so busy|일이 너무 많다|have one's hands full: 몹시 바쁘다.|"Hands full" = very busy.
+c7-l2|1|in vain|for nothing|헛되이|노력이 소용없을 때.|"In vain" = without result.
+c7-l3|0|At last I find a moment|finally I have a little time|드디어 짬이 났다|at last: 드디어.|"At last" = finally.
+c7-l3|1|the former because I was too tired|the first one because I was very tired|전자는 너무 피곤해서|the former / the latter: 앞에 나온 둘 중 전자 / 후자.|"The former" / "the latter" = the first / the second of two.
+c7-l4|0|the more so|even more|더욱 그렇다|앞의 이유를 강조.|"All the more" = even more.
+c7-l4|2|I may be no more|I may be dead|나는 이 세상에 없을지도 모른다|be no more: 죽다 (완곡).|"Be no more" = be dead (gentle).
+c7-l5|0|not at all surprised|not surprised in any way|조금도 놀라지 않았다|not at all: 전혀.|"Not at all" = in no way.
+c7-l5|1|Be assured|you can be sure|믿어 줘|강한 약속의 말.|A strong reassurance.
+c7-l6|0|with the most brilliant success|very successfully|큰 성공을 거두며|공연의 성공을 말할 때.|Said of a very successful show.
+c7-l6|2|know the right moment to stop|know when to finish|알맞은 때에 그칠 줄 알다|know + 의문사 + to: ~할 줄 알다.|"Know when to" = understand the right time.
+c7-l7|0|give me a helping hand|help me|도와주다|helping hand: 도움의 손길.|"A helping hand" = help.
+c7-l7|2|pay me a visit|come and see me|들러 주세요|pay a visit: 방문하다.|"Pay a visit" = visit.
+c8-l1|0|half-past one|1:30|한 시 반|half past + 시: ~시 반.|"Half past" = thirty minutes after.
+c8-l1|1|Now for|next, about|이제 ~ 차례|화제를 넘길 때.|Introduces the next topic.
+c8-l2|0|did not arrive till yesterday|arrived only yesterday|어제에야 도착했다|not … till: ~에야 비로소.|"Not … till" = only at that time.
+c8-l2|2|it would make you laugh|you would laugh|너도 웃을 거야|가정: if I were …, it would ….|A conditional result.
+c8-l3|0|as minutely as possible|in as much detail as I can|하나도 빼놓지 않고|as … as possible: 가능한 한 ~.|"As … as possible" = to the greatest degree.
+c8-l3|2|sat down to the organ|sat at the organ to play|오르간 앞에 앉았다|sit down to + 악기: 연주하려고 앉다.|"Sit down to" an instrument = sit to play it.
+c8-l4|0|this moment arrived|just arrived|방금 도착했다|this moment: 방금.|"This moment" = just now.
+c8-l4|1|with the exception of|except|~을 빼고는|with the exception of = except.|"With the exception of" = except.
+c8-l5|0|then all would be right|then everything would be fine|다 괜찮을 텐데|가정의 결과.|An imagined result.
+c8-l5|1|we shall see|we'll find out later|두고 봐야지|결과를 기다려 보자는 말.|Said when the result is not yet known.
+c8-l6|0|It does vex me|it really annoys me|정말 속상하다|does + 동사: 강조.|"Does" adds emphasis.
+c8-l6|1|This is really a distinction|this is a real honour|정말 영예다|distinction: 영예.|"Distinction" = honour.
+c8-l7|0|to my great joy and delight|which made me very happy|정말 기쁘게도|to one's joy: ~에게 기쁘게도.|"To my joy" = which made me glad.
+c8-l7|2|for once|just this one time|이번만은|평소와 달리 한 번.|"For once" = on this occasion only.
+e1|0|You can't conceive|you can't imagine|상상도 못 할 거야|conceive: 상상하다.|"Conceive" = imagine.
+e1|2|from my heart|sincerely|온 마음으로|진심을 나타낼 때.|"From my heart" = sincerely.
