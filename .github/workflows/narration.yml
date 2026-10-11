@@ -7,6 +7,7 @@ on:
     inputs:
       file: { description: "편지 파일", default: "data/vincent/chapter1.json" }
       only: { description: "spots = 그림 산책 낱말만", default: "" }
+      branch: { description: "결과 가지 (여러 장을 함께 돌릴 때 장마다 다르게)", default: "narration" }
 
 jobs:
   narrate:
@@ -31,4 +32,4 @@ jobs:
           cd narration_out && find . -name "*.m4a" | wc -l && du -sh .
           git init -q && git checkout -q -b narration && git add .
           git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Narration: ${{ inputs.file }}"
-          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:narration
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" "HEAD:${{ inputs.branch }}"
