@@ -136,8 +136,8 @@
     }
    ],
    "note": {
-    "ko": "볼프강은 1769년 12월 아버지 레오폴트와 함께 첫 이탈리아 여행을 떠났어요. 이 편지는 열네 번째 생일 하루 전, 밀라노에서 썼어요. 만토바와 크레모나에서 본 오페라 가수들을 누나에게 장난스럽게 평가해요.",
-    "en": "In December 1769 Wolfgang set off with his father Leopold on his first journey to Italy. He wrote this from Milan the day before his fourteenth birthday, giving his sister a mischievous review of the singers he had heard in Mantua and Cremona.",
+    "ko": "그림은 1747년 밀라노 레조 두칼레 극장에서 열린 축하 무도회 장면이에요. 편지 속 만토바·크레모나의 극장은 아니지만, 바로 이 극장에서 그해 12월 볼프강의 오페라 〈미트리다테〉가 막을 올렸어요. 볼프강은 1769년 12월 아버지 레오폴트와 함께 첫 이탈리아 여행을 떠났어요. 이 편지는 열네 번째 생일 하루 전, 밀라노에서 썼어요. 만토바와 크레모나에서 본 오페라 가수들을 누나에게 장난스럽게 평가해요.",
+    "en": "The picture shows a festival ball in Milan's Teatro Regio Ducale in 1747 — not the theatres of Mantua and Cremona in the letter, but the house where Wolfgang's opera 'Mitridate' opened that December. In December 1769 Wolfgang set off with his father Leopold on his first journey to Italy. He wrote this from Milan the day before his fourteenth birthday, giving his sister a mischievous review of the singers he had heard in Mantua and Cremona.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 3 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -163,14 +163,63 @@
     "en": "A new aria, just written",
     "ko": "갓 지은 아리아 하나"
    },
-   "plate_hint": {
-    "idea": "Teatro Scientifico (Bibiena) in Mantua, where the Mozarts gave a concert in January 1770, or an 18th-c. engraving of the Teatro Regio Ducale, Milan.",
-    "search": [
-     "Teatro Scientifico Bibiena Mantua",
-     "Teatro Regio Ducale Milano engraving",
-     "Mantova teatro Bibiena 1769"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Festball im Teatro Regio Ducale, Mailand",
+    "title_en": "Festival ball in the Teatro Regio Ducale, Milan",
+    "title_ko": "밀라노 레조 두칼레 극장의 축하 무도회",
+    "date": "1747",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Teatro_Regio_Ducale_di_Milano.jpg",
+    "credit": "Unknown artist",
+    "why": {
+     "ko": "편지 속 가수들은 만토바와 크레모나에서 노래했지만, 이 그림은 볼프강이 편지를 쓴 밀라노의 큰 오페라 극장이에요. 18세기 이탈리아 극장의 객석과 무대가 어땠는지 보여 줘요.",
+     "en": "The singers in the letter performed in Mantua and Cremona, but this is the great opera house of Milan, where Wolfgang was writing. It shows what an 18th-century Italian theatre, with its tiers of boxes and its stage, looked like."
+    },
+    "image": "m-c1-l1.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.46,
+      "title": {
+       "de": "Die Bühne",
+       "en": "The stage",
+       "ko": "무대"
+      },
+      "note": {
+       "ko": "무대 안쪽 끝. 오페라 날이면 프리마 돈나가 여기 섰어요.",
+       "en": "The far end is the stage, where on opera nights the prima donna stood."
+      },
+      "word": {
+       "de": "prima Donna",
+       "en": "prima donna",
+       "ko": "프리마 돈나",
+       "ipa": "ˈpʁiːma ˈdɔna"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.55,
+      "y": 0.75,
+      "title": {
+       "de": "Die Tänzer",
+       "en": "The dancers",
+       "ko": "춤추는 사람들"
+      },
+      "note": {
+       "ko": "오늘 밤 마루는 무도회장이에요. 볼프강이 놀린 그로테스코 무용수도 이런 무대에서 뛰었어요.",
+       "en": "Tonight the floor is a ballroom. The grotesco dancer Wolfgang teases leapt on stages like this."
+      },
+      "word": {
+       "de": "springt",
+       "en": "jumps",
+       "ko": "점프",
+       "ipa": "ʃpʁɪŋt"
+      },
+      "quote": 4
+     }
+    ]
    }
   },
   {
@@ -329,14 +378,83 @@
     "en": "Lifted up in Rome",
     "ko": "로마에서 번쩍 들려"
    },
-   "plate_hint": {
-    "idea": "Piranesi's 'Veduta della Basilica e Piazza di S. Pietro' or the bronze statue of St Peter (Arnolfo di Cambio) whose foot pilgrims kiss.",
-    "search": [
-     "Piranesi Veduta della Basilica e Piazza di S. Pietro",
-     "Arnolfo di Cambio St Peter bronze statue",
-     "St. Peter's Basilica 18th century engraving"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Ansicht der Basilika und des Petersplatzes im Vatikan",
+    "title_en": "View of the Basilica and Piazza of St. Peter in the Vatican",
+    "title_ko": "바티칸의 성 베드로 대성당과 광장",
+    "date": "c. 1748 (Vedute di Roma)",
+    "collection": "Rijksmuseum, Amsterdam (RP-P-OB-39.301)",
+    "imageLicense": "CC0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Sint-Pietersplein_met_de_Sint-Pietersbasiliek_te_Vaticaanstad_Veduta_della_Basilica,_e_Piazza_di_S._Pietro_in_Vaticano_(titel_op_object)_Gezichten_op_Rome_(serietitel)_Vedute_di_Roma_disegnate_ed_incise_da_Giambattist,_RP-P-OB-39.301.jpg",
+    "credit": "Giovanni Battista Piranesi · Rijksmuseum",
+    "why": {
+     "ko": "볼프강이 누나에게 ‘반듯반듯하다’고 자랑한 성 베드로 대성당을, 같은 세기 피라네시가 동판에 새긴 모습이에요.",
+     "en": "St. Peter's, which Wolfgang praised to his sister as 'symmetrical', etched by Piranesi in the same century."
+    },
+    "image": "m-c1-l2.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.495,
+      "y": 0.3,
+      "title": {
+       "de": "Die Peterskirche",
+       "en": "St. Peter's",
+       "ko": "성 베드로 대성당"
+      },
+      "note": {
+       "ko": "미켈란젤로가 설계한 큰 돔.",
+       "en": "The great dome designed by Michelangelo."
+      },
+      "word": {
+       "de": "Peterskirche",
+       "en": "St. Peter's",
+       "ko": "성 베드로 대성당",
+       "ipa": "ˈpeːtɐsˌkɪʁçə"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.66,
+      "y": 0.47,
+      "title": {
+       "de": "Die Kolonnaden",
+       "en": "The colonnades",
+       "ko": "열주랑"
+      },
+      "note": {
+       "ko": "광장을 양팔처럼 감싸는 열주랑이 좌우로 똑같아요. 볼프강이 말한 ‘반듯함’이에요.",
+       "en": "The colonnades embrace the square like two matching arms — the symmetry Wolfgang liked."
+      },
+      "word": {
+       "de": "regulär",
+       "en": "symmetrical",
+       "ko": "반듯",
+       "ipa": "ʁeɡuˈlɛːɐ̯"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.45,
+      "y": 0.44,
+      "title": {
+       "de": "Der Eingang",
+       "en": "The entrance",
+       "ko": "정문"
+      },
+      "note": {
+       "ko": "이 문 안쪽에 성 베드로 청동상이 있어요. 키 작은 볼프강은 들어 올려져 그 발에 입 맞췄지요.",
+       "en": "Inside these doors stands the bronze St. Peter; little Wolfgang had to be lifted up to kiss its foot."
+      },
+      "word": {
+       "de": "S. Pietro",
+       "en": "San Pietro",
+       "ko": "산 피에트로",
+       "ipa": "ˌsan ˈpi̯eːtʁo"
+      },
+      "quote": 4
+     }
+    ]
    }
   },
   {
@@ -470,8 +588,8 @@
     }
    ],
    "note": {
-    "ko": "편지 첫머리는 이탈리아어로, 연습 삼아 썼어요. 나폴리 왕 부부를 본 포르티치는 베수비오 화산 기슭의 왕궁이 있는 곳이에요. 이 편지를 엮은 놀은 모차르트가 동물을 무척 좋아해 나중에도 늘 방에 새를 두었다고 적었어요.",
-    "en": "The opening of the letter is written in Italian, as practice. Portici, where he saw the royal couple, is the site of a royal palace at the foot of Vesuvius. Nohl, who edited the letters, notes that Mozart loved animals and later always kept birds in his room.",
+    "ko": "그림은 볼프강이 본 바로 그날이 아니라, 같은 시절 베수비오 화산의 분화를 그린 1777년 그림이에요. 편지 첫머리는 이탈리아어로, 연습 삼아 썼어요. 나폴리 왕 부부를 본 포르티치는 베수비오 화산 기슭의 왕궁이 있는 곳이에요. 이 편지를 엮은 놀은 모차르트가 동물을 무척 좋아해 나중에도 늘 방에 새를 두었다고 적었어요.",
+    "en": "A painting of Vesuvius erupting from the same years (1777), not the day Wolfgang saw it. The opening of the letter is written in Italian, as practice. Portici, where he saw the royal couple, is the site of a royal palace at the foot of Vesuvius. Nohl, who edited the letters, notes that Mozart loved animals and later always kept birds in his room.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 12 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -496,14 +614,83 @@
     "en": "Handsome as angels",
     "ko": "천사처럼 멋지게"
    },
-   "plate_hint": {
-    "idea": "Gouache of the Bay of Naples with smoking Vesuvius (Pietro Fabris, 1770s) — the letter names Vesuvius and Portici.",
-    "search": [
-     "Pietro Fabris Vesuvius Bay of Naples",
-     "Fabris Campi Phlegraei Vesuvius eruption",
-     "Reggia di Portici 18th century"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Der Ausbruch des Vesuvs",
+    "title_en": "The Eruption of Vesuvius",
+    "title_ko": "베수비오 화산의 분화",
+    "date": "1777",
+    "collection": "Art Institute of Chicago (1978.426)",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Pierre-Jacques_Volaire_-_The_Eruption_of_Vesuvius_-_1978.426_-_Art_Institute_of_Chicago.jpg",
+    "credit": "Pierre-Jacques Volaire",
+    "why": {
+     "ko": "볼프강이 나폴리에서 ‘베수비오도 봤다’고 쓴 그 화산이에요. 나폴리에 살던 프랑스 화가 볼레르가 몇 해 뒤 그린 밤의 분화 장면이에요.",
+     "en": "The volcano Wolfgang says he saw from Naples, painted a few years later by Volaire, a French painter working in Naples, erupting by night."
+    },
+    "image": "m-c1-l3.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.27,
+      "y": 0.45,
+      "title": {
+       "de": "Der Vesuv",
+       "en": "Vesuvius",
+       "ko": "베수비오"
+      },
+      "note": {
+       "ko": "불을 뿜는 화산 꼭대기. 용암이 산비탈로 흘러내려요.",
+       "en": "The burning summit, with lava pouring down its slopes."
+      },
+      "word": {
+       "de": "Vesuvius",
+       "en": "Vesuvius",
+       "ko": "베수비오",
+       "ipa": "veˈzuːvɪʊs"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.8,
+      "y": 0.62,
+      "title": {
+       "de": "Die Bucht von Neapel",
+       "en": "The Bay of Naples",
+       "ko": "나폴리 만"
+      },
+      "note": {
+       "ko": "달빛 아래 나폴리 만. 볼프강이 ‘아름답다’고 한 도시가 이 바닷가에 있어요.",
+       "en": "The moonlit Bay of Naples; the city Wolfgang called beautiful lies along this shore."
+      },
+      "word": {
+       "de": "Neapel",
+       "en": "Naples",
+       "ko": "나폴리",
+       "ipa": "neˈaːpl̩"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.14,
+      "y": 0.78,
+      "title": {
+       "de": "Die Zuschauer",
+       "en": "The onlookers",
+       "ko": "구경꾼들"
+      },
+      "note": {
+       "ko": "멋지게 차려입은 구경꾼들. 볼프강 부자도 새 옷을 입고 나폴리를 다녔어요.",
+       "en": "Smartly dressed sightseers; father and son, too, went about Naples in new clothes."
+      },
+      "word": {
+       "de": "Kleider",
+       "en": "clothes",
+       "ko": "옷",
+       "ipa": "ˈklaɪ̯dɐ"
+      },
+      "quote": 3
+     }
+    ]
    }
   },
   {
@@ -636,8 +823,8 @@
     }
    ],
    "note": {
-    "ko": "한여름 볼로냐에서 아버지 편지에 덧붙인 추신이에요. 그해 10월 볼프강은 볼로냐의 아카데미아 필라르모니카에 회원으로 받아들여졌어요. 마르티니 신부가 이끌던 이 도시는 이탈리아 음악 학문의 중심지였어요.",
-    "en": "A postscript to his father's letter, written in the summer heat of Bologna. That October Wolfgang was admitted to Bologna's Accademia Filarmonica. The city, home of Padre Martini, was a centre of musical learning in Italy.",
+    "ko": "그림 속 인물은 편지에 나오지 않지만, 볼로냐에서 볼프강을 가르친 마르티니 신부예요. 한여름 볼로냐에서 아버지 편지에 덧붙인 추신이에요. 그해 10월 볼프강은 볼로냐의 아카데미아 필라르모니카에 회원으로 받아들여졌어요. 마르티니 신부가 이끌던 이 도시는 이탈리아 음악 학문의 중심지였어요.",
+    "en": "The man in the picture is not named in the letter: he is Padre Martini, who taught Wolfgang in Bologna. A postscript to his father's letter, written in the summer heat of Bologna. That October Wolfgang was admitted to Bologna's Accademia Filarmonica. The city, home of Padre Martini, was a centre of musical learning in Italy.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 19 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -663,14 +850,83 @@
     "en": "In the land of sleep",
     "ko": "잠의 나라에서"
    },
-   "plate_hint": {
-    "idea": "Portrait of Padre Giovanni Battista Martini (Museo della Musica, Bologna) / the Accademia Filarmonica, which admitted Mozart in October 1770.",
-    "search": [
-     "Padre Giovanni Battista Martini portrait",
-     "Accademia Filarmonica di Bologna",
-     "Museo della Musica Bologna Martini"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Bildnis des Padre Giovanni Battista Martini",
+    "title_en": "Portrait of Padre Giovanni Battista Martini",
+    "title_ko": "조반니 바티스타 마르티니 신부의 초상",
+    "date": "before 1781",
+    "collection": "Museo internazionale e biblioteca della musica, Bologna",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Padre_Martini_1.jpg",
+    "credit": "Angelo Crescimbeni (1734–1781)",
+    "why": {
+     "ko": "편지가 쓰인 볼로냐의 음악 학자 마르티니 신부예요. 볼프강은 이 무렵 그에게 대위법을 배웠어요. 펜과 악보가 편지 속 ‘악보 펜’과 이어져요.",
+     "en": "Padre Martini, the music scholar of Bologna, where this letter was written; Wolfgang studied counterpoint with him at this time. His quill and music paper echo the letter's 'music pen'."
+    },
+    "image": "m-c1-l4.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.12,
+      "y": 0.74,
+      "title": {
+       "de": "Die Feder",
+       "en": "The pen",
+       "ko": "펜"
+      },
+      "note": {
+       "ko": "잉크병에 꽂힌 깃펜. 볼프강의 펜도 ‘글씨 펜이 아니라 악보 펜’이었지요.",
+       "en": "A quill in the inkpot — Wolfgang's pen, too, was 'for music, not for letters'."
+      },
+      "word": {
+       "de": "Feder",
+       "en": "pen",
+       "ko": "펜",
+       "ipa": "ˈfeːdɐ"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.27,
+      "y": 0.62,
+      "title": {
+       "de": "Das Notenblatt",
+       "en": "The music sheet",
+       "ko": "악보"
+      },
+      "note": {
+       "ko": "신부가 펼쳐 든 악보. 볼프강도 이 무렵 신포니아와 아리아를 잇달아 지었어요.",
+       "en": "The music the Padre holds open; Wolfgang too was composing symphonies and arias."
+      },
+      "word": {
+       "de": "componirt",
+       "en": "composed",
+       "ko": "지었어",
+       "ipa": "kɔmpoˈniːɐ̯t"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.5,
+      "y": 0.3,
+      "title": {
+       "de": "Das Ordenskleid",
+       "en": "The friar's habit",
+       "ko": "수도복"
+      },
+      "note": {
+       "ko": "검은 수도복과 모자. 마르티니는 프란치스코회 수도사였어요.",
+       "en": "The black habit and cap of a Franciscan friar."
+      },
+      "word": {
+       "de": "Kirchen",
+       "en": "churches",
+       "ko": "성당",
+       "ipa": "ˈkɪʁçn̩"
+      },
+      "quote": 2
+     }
+    ]
    }
   },
   {
@@ -803,8 +1059,8 @@
     }
    ],
    "note": {
-    "ko": "1771년 3월 말 잘츠부르크로 돌아왔던 부자는 몇 달 만에 다시 밀라노로 떠났어요. 마리아 테레지아 여제가 페르디난트 대공과 모데나 공녀의 10월 결혼식을 위한 세레나타를 볼프강에게 맡겼기 때문이에요. 그 작품이 〈알바의 아스카니오〉예요.",
-    "en": "Father and son had come home to Salzburg at the end of March 1771, but left for Milan again a few months later. Empress Maria Theresa had commissioned from Wolfgang a theatrical serenata for the October wedding of Archduke Ferdinand and the Princess of Modena: 'Ascanio in Alba'.",
+    "ko": "그림은 이 편지와 직접 관계없는, 음악을 연주하는 아이들을 그린 옛 판화예요. 1771년 3월 말 잘츠부르크로 돌아왔던 부자는 몇 달 만에 다시 밀라노로 떠났어요. 마리아 테레지아 여제가 페르디난트 대공과 모데나 공녀의 10월 결혼식을 위한 세레나타를 볼프강에게 맡겼기 때문이에요. 그 작품이 〈알바의 아스카니오〉예요.",
+    "en": "The picture is an old print of children making music, not directly connected with this letter. Father and son had come home to Salzburg at the end of March 1771, but left for Milan again a few months later. Empress Maria Theresa had commissioned from Wolfgang a theatrical serenata for the October wedding of Archduke Ferdinand and the Princess of Modena: 'Ascanio in Alba'.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 33 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -840,14 +1096,83 @@
     "en": "Hot, but full of music",
     "ko": "덥지만 음악 가득"
    },
-   "plate_hint": {
-    "idea": "View of Milan Cathedral square (18th-c. veduta); or portrait of J. A. Hasse, the rival composer who arrives in letter 34.",
-    "search": [
-     "Piazza del Duomo Milano 18th century veduta",
-     "Milan Cathedral engraving 1770s",
-     "Johann Adolph Hasse portrait"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Fünf musizierende Kinder",
+    "title_en": "Five children making music",
+    "title_ko": "음악을 연주하는 다섯 아이",
+    "date": "n.d.",
+    "collection": "Rijksmuseum, Amsterdam (RP-P-1878-A-1795)",
+    "imageLicense": "CC0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vijf_musicerende_kinderen,_RP-P-1878-A-1795.jpg",
+    "credit": "Rijksmuseum",
+    "why": {
+     "ko": "위아래 옆방에서 바이올린, 노래, 오보에 소리가 들려오던 밀라노 숙소처럼, 아이들이 저마다 피리를 불고 노래하는 옛 판화예요.",
+     "en": "An old print of children each piping or singing at once — like the Milan lodging, with music coming from every room around."
+    },
+    "image": "m-c1-l5.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.33,
+      "y": 0.57,
+      "title": {
+       "de": "Die Schalmei",
+       "en": "The pipe",
+       "ko": "피리"
+      },
+      "note": {
+       "ko": "관악기를 부는 아이. 맞은편 방의 오보에 주자 같아요.",
+       "en": "A child blowing a reed pipe, like the oboist across the landing."
+      },
+      "word": {
+       "de": "Hautboist",
+       "en": "hautboy",
+       "ko": "오보에",
+       "ipa": "oboˈɪst"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.5,
+      "y": 0.3,
+      "title": {
+       "de": "Der Sänger",
+       "en": "The singer",
+       "ko": "노래하는 아이"
+      },
+      "note": {
+       "ko": "입을 벌리고 노래하는 아이. 옆방 성악 선생의 레슨 같아요.",
+       "en": "A child singing with mouth wide open — like the singing-master's lesson next door."
+      },
+      "word": {
+       "de": "Singmeister",
+       "en": "singing-master",
+       "ko": "성악 선생",
+       "ipa": "ˈzɪŋˌmaɪ̯stɐ"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.2,
+      "y": 0.6,
+      "title": {
+       "de": "Das Notenbuch",
+       "en": "The music book",
+       "ko": "악보책"
+      },
+      "note": {
+       "ko": "펼친 악보책. 시끄러운 숙소가 오히려 ‘작곡하기에 딱’이라고 했지요.",
+       "en": "An open music book; Wolfgang said the noisy house was just the place for composing."
+      },
+      "word": {
+       "de": "Componiren",
+       "en": "composer",
+       "ko": "작곡",
+       "ipa": "kɔmpoˈniːʁən"
+      },
+      "quote": 4
+     }
+    ]
    }
   },
   {
@@ -1017,14 +1342,63 @@
     "en": "Rehearsal tomorrow",
     "ko": "내일은 리허설"
    },
-   "plate_hint": {
-    "idea": "Printed libretto of 'Lucio Silla' (Milan 1772), or the original lines-turned-upside-down layout of this letter described by Wallace.",
-    "search": [
-     "Lucio Silla libretto 1772 Milano",
-     "Teatro Regio Ducale Milano",
-     "Mozart Lucio Silla K. 135"
-    ],
-    "kind": "score"
+   "plate": {
+    "title_de": "Lucio Silla. Dramma per musica (Libretto, Mailand)",
+    "title_en": "Lucio Silla. Dramma per musica (libretto, Milan)",
+    "title_ko": "〈루치오 실라〉 대본 표지 (밀라노)",
+    "date": "1772",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Lucio_Silla_-_libreto.jpg",
+    "credit": "Printed by Gio. Batista Bianchi, Milan",
+    "why": {
+     "ko": "편지에서 볼프강이 ‘그날 저녁 무대에 오른다’고 한 바로 그 오페라의 인쇄 대본이에요. 레조 두칼 극장, 1773년 카니발 시즌이라고 적혀 있어요.",
+     "en": "The printed libretto of the very opera Wolfgang says will be 'in scena' that evening, for the Regio Ducal Teatro in the Carnival season of 1773."
+    },
+    "image": "m-c1-l6.jpg",
+    "kind": "score",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.06,
+      "title": {
+       "de": "Der Titel",
+       "en": "The title",
+       "ko": "제목"
+      },
+      "note": {
+       "ko": "‘루치오 실라, 음악극’. 볼프강의 오페라 제목이에요.",
+       "en": "'Lucio Silla, dramma per musica' — the title of Wolfgang's opera."
+      },
+      "word": {
+       "de": "Opera",
+       "en": "opera",
+       "ko": "오페라",
+       "ipa": "ˈoːpəʁa"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.5,
+      "y": 0.19,
+      "title": {
+       "de": "Das Theater",
+       "en": "The theatre",
+       "ko": "극장"
+      },
+      "note": {
+       "ko": "‘밀라노 레조 두칼 극장에서 상연’. 리허설도 이 극장에서 했어요.",
+       "en": "'To be performed in the Regio Ducal Teatro of Milan' — where the rehearsal took place too."
+      },
+      "word": {
+       "de": "Theatro",
+       "en": "theatre",
+       "ko": "극장",
+       "ipa": "teˈaːtɐ"
+      },
+      "quote": 3
+     }
+    ]
    }
   }
  ]

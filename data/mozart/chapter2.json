@@ -136,8 +136,8 @@
     }
    ],
    "note": {
-    "ko": "1777년 9월 23일, 볼프강은 대주교의 궁정을 떠나 어머니와 함께 일자리를 찾아 길을 나섰어요. 아버지는 잘츠부르크에 남았지요. 이 편지는 바로 그날 밤 바서부르크의 여관 ‘슈테른’에서, 어머니가 벌써 반쯤 잠든 사이에 쓴 첫 여행 편지예요. 그가 농담처럼 말한 ‘초상화’는 아마 1777년에 그린, 황금 박차 훈장을 단 초상화일 거예요.",
-    "en": "On 23 September 1777 Wolfgang, released from the Archbishop's service, set out with his mother to look for a post; his father stayed in Salzburg. This is his first letter from the road, written that night at the Stern inn in Wasserburg while his mother was already half asleep. The 'portrait' he jokes about is probably the one painted in 1777 showing him with the papal Order of the Golden Spur.",
+    "ko": "그림은 카르몽텔이 1763년 파리에서 그린 모차르트 가족 그림을 1777년에 다시 그린 판으로, 편지 속 ‘초상화’는 아니에요. 1777년 9월 23일, 볼프강은 대주교의 궁정을 떠나 어머니와 함께 일자리를 찾아 길을 나섰어요. 아버지는 잘츠부르크에 남았지요. 이 편지는 바로 그날 밤 바서부르크의 여관 ‘슈테른’에서, 어머니가 벌써 반쯤 잠든 사이에 쓴 첫 여행 편지예요. 그가 농담처럼 말한 ‘초상화’는 아마 1777년에 그린, 황금 박차 훈장을 단 초상화일 거예요.",
+    "en": "The picture is Carmontelle's 1777 version of his 1763 Paris drawing of the Mozart family — not the 'portrait' the letter mentions. On 23 September 1777 Wolfgang, released from the Archbishop's service, set out with his mother to look for a post; his father stayed in Salzburg. This is his first letter from the road, written that night at the Stern inn in Wasserburg while his mother was already half asleep. The 'portrait' he jokes about is probably the one painted in 1777 showing him with the papal Order of the Golden Spur.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 59 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -162,14 +162,63 @@
     "en": "First night on the road",
     "ko": "길 위의 첫날 밤"
    },
-   "plate_hint": {
-    "idea": "The 1777 portrait of Mozart wearing the Order of the Golden Spur (Bologna, Museo della Musica) — 'the same grave air that I have in my portrait'.",
-    "search": [
-     "Mozart 1777 portrait Order of the Golden Spur",
-     "Wolfgang Amadeus Mozart 1777 Bologna portrait",
-     "Wasserburg am Inn historic view"
-    ],
-    "kind": "mozart"
+   "plate": {
+    "title_de": "Mozart père et ses deux enfants (Leopold Mozart mit seinen Kindern)",
+    "title_en": "Mozart père et ses deux enfants (Leopold Mozart and his two children)",
+    "title_ko": "아버지 모차르트와 두 아이",
+    "date": "1777",
+    "collection": "British Museum, London",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Louis_Carrogis_dit_Carmontelle_-_Mozart_p%C3%A8re_et_ses_deux_enfants_(1777)_-_British_Museum.jpg",
+    "credit": "Louis Carrogis Carmontelle",
+    "why": {
+     "ko": "집을 떠나 처음 쓴 편지에서 볼프강은 아버지를 그리워하며 ‘제가 두 번째 아빠예요’라고 해요. 바이올린을 켜는 아버지와 건반 앞의 어린 볼프강, 노래하는 누나가 함께 있는 그림이에요.",
+     "en": "In his first letter from the road Wolfgang misses his father and calls himself 'a second papa'. Here are papa with his violin, little Wolfgang at the keyboard and his sister singing."
+    },
+    "image": "m-c2-l1.jpg",
+    "kind": "mozart",
+    "spots": [
+     {
+      "x": 0.3,
+      "y": 0.6,
+      "title": {
+       "de": "Der Papa",
+       "en": "Papa",
+       "ko": "아빠"
+      },
+      "note": {
+       "ko": "바이올린을 켜는 아버지 레오폴트. 이제 볼프강이 ‘두 번째 아빠’ 노릇을 해요.",
+       "en": "Leopold with his violin; now Wolfgang must play 'second papa'."
+      },
+      "word": {
+       "de": "Papa",
+       "en": "papa",
+       "ko": "아빠",
+       "ipa": "paˈpaː"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.5,
+      "y": 0.62,
+      "title": {
+       "de": "Der kleine Wolfgang",
+       "en": "Little Wolfgang",
+       "ko": "어린 볼프강"
+      },
+      "note": {
+       "ko": "건반 앞의 어린 볼프강. 편지 속 ‘초상화’는 이 그림이 아니라 1777년의 근엄한 초상이에요.",
+       "en": "Little Wolfgang at the keyboard. The 'portrait' in the letter is not this one but the grave portrait of 1777."
+      },
+      "word": {
+       "de": "Portrait",
+       "en": "portrait",
+       "ko": "초상화",
+       "ipa": "pɔʁˈtʁɛː"
+      },
+      "quote": 4
+     }
+    ]
    }
   },
   {
@@ -301,8 +350,8 @@
     }
    ],
    "note": {
-    "ko": "아우크스부르크의 요한 안드레아스 슈타인은 오르간과 피아노포르테를 만든 제작자예요. 볼프강은 슈타인의 악기가 왜 오래가는지 아버지께 설명해요. 공명판을 먼저 날씨에 갈라지게 한 뒤 고쳐 쓰는 거지요. 외워서 쳤다는 소나타 여섯 곡은 피아노 소나타 K. 279–284이고, ‘마지막 D장조’는 K. 284예요.",
-    "en": "Johann Andreas Stein of Augsburg built organs and the fortepianos Mozart praises here. Wolfgang explains to his father why Stein's instruments last: the soundboard is left to crack in the weather first, then mended. The six sonatas he played by heart are his piano sonatas K. 279–284; the 'last in D' is K. 284.",
+    "ko": "사진 속 악기는 편지보다 9년 뒤인 1786년에 슈타인이 만든 피아노포르테예요. 아우크스부르크의 요한 안드레아스 슈타인은 오르간과 피아노포르테를 만든 제작자예요. 볼프강은 슈타인의 악기가 왜 오래가는지 아버지께 설명해요. 공명판을 먼저 날씨에 갈라지게 한 뒤 고쳐 쓰는 거지요. 외워서 쳤다는 소나타 여섯 곡은 피아노 소나타 K. 279–284이고, ‘마지막 D장조’는 K. 284예요.",
+    "en": "The instrument in the photo is a fortepiano Stein built in 1786, nine years after this letter. Johann Andreas Stein of Augsburg built organs and the fortepianos Mozart praises here. Wolfgang explains to his father why Stein's instruments last: the soundboard is left to crack in the weather first, then mended. The six sonatas he played by heart are his piano sonatas K. 279–284; the 'last in D' is K. 284.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 67 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -328,14 +377,83 @@
     "en": "At Stein's in Augsburg",
     "ko": "아우크스부르크, 슈타인의 공방"
    },
-   "plate_hint": {
-    "idea": "A surviving J. A. Stein fortepiano (e.g. 1775/1780s instruments in museum collections) — the letter's whole subject.",
-    "search": [
-     "Johann Andreas Stein fortepiano",
-     "Stein Hammerflügel Augsburg 1775",
-     "Johann Andreas Stein piano 1788"
-    ],
-    "kind": "era"
+   "plate": {
+    "title_de": "Hammerflügel von Johann Andreas Stein, Augsburg 1786",
+    "title_en": "Fortepiano by Johann Andreas Stein, Augsburg, 1786",
+    "title_ko": "요한 안드레아스 슈타인의 피아노포르테 (아우크스부르크, 1786)",
+    "date": "1786 (instrument); photo",
+    "collection": "Musical Instrument Museum, Brussels",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Johann_Andreas_Stein,_Augsburg,_1786_-_Musical_Instrument_Museum,_Brussels_-_IMG_3843.JPG",
+    "credit": "Daderot",
+    "why": {
+     "ko": "편지 내내 볼프강이 칭찬하는 슈타인의 피아노포르테예요. 편지보다 9년 뒤에 만든 악기지만, 같은 공방에서 같은 방식으로 만들었어요.",
+     "en": "A fortepiano by Stein, the maker Wolfgang praises throughout the letter — built nine years later, but in the same Augsburg workshop."
+    },
+    "image": "m-c2-l2.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.22,
+      "y": 0.55,
+      "title": {
+       "de": "Die Tasten",
+       "en": "The keys",
+       "ko": "건반"
+      },
+      "note": {
+       "ko": "건반. 볼프강은 슈타인의 피아노에서 D장조 소나타가 ‘비할 데 없이’ 울린다고 했어요.",
+       "en": "The keyboard: on Stein's pianos, Wolfgang wrote, his D major sonata sounded incomparable."
+      },
+      "word": {
+       "de": "Pianofortes",
+       "en": "pianos",
+       "ko": "피아노포르테",
+       "ipa": "pi̯anoˈfɔʁtəs"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.62,
+      "y": 0.4,
+      "title": {
+       "de": "Der Resonanzboden",
+       "en": "The soundboard",
+       "ko": "공명판"
+      },
+      "note": {
+       "ko": "현 아래의 얇은 나무판이 공명판이에요. 슈타인은 이 판을 일부러 갈라지게 한 뒤 나뭇조각을 끼워 붙였어요.",
+       "en": "Under the strings lies the thin wooden soundboard, which Stein let crack and then mended with slips of wood."
+      },
+      "word": {
+       "de": "Späne",
+       "en": "wood",
+       "ko": "나뭇조각",
+       "ipa": "ˈʃpɛːnə"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.62,
+      "y": 0.68,
+      "title": {
+       "de": "Das Gehäuse",
+       "en": "The case",
+       "ko": "몸통"
+      },
+      "note": {
+       "ko": "단단한 나무 몸통. 슈타인은 ‘오래가는 악기’를 좋아한다고 했어요.",
+       "en": "The sturdy wooden case: Stein liked his instruments 'durable'."
+      },
+      "word": {
+       "de": "Instrumenten",
+       "en": "instruments",
+       "ko": "악기",
+       "ipa": "ɪnstʁuˈmɛntn̩"
+      },
+      "quote": 0
+     }
+    ]
    }
   },
   {
@@ -469,8 +587,8 @@
     }
    ],
    "note": {
-    "ko": "만하임은 팔츠 선제후 카를 테오도어의 궁정이 있던 곳이에요. 볼프강은 오케스트라를 이끄는 크리스티안 칸나비히, 오보에 주자 프리드리히 람과 금세 친해졌어요. 람에게 준 협주곡은 오보에 협주곡 C장조 K. 314예요. 그는 15년 전, 일곱 살 때 가족 연주 여행으로 이곳에 온 적이 있어요.",
-    "en": "Mannheim was the seat of the Elector Palatine Carl Theodor. Wolfgang quickly made friends with the orchestra's leader Christian Cannabich and the oboist Friedrich Ramm; the concerto he gave Ramm is the Oboe Concerto in C, K. 314. He had been in Mannheim fifteen years before, aged seven, on the family's concert tour.",
+    "ko": "그림 속 오보에는 람의 악기가 아니라, 미술관에 있는 옛 오보에예요. 만하임은 팔츠 선제후 카를 테오도어의 궁정이 있던 곳이에요. 볼프강은 오케스트라를 이끄는 크리스티안 칸나비히, 오보에 주자 프리드리히 람과 금세 친해졌어요. 람에게 준 협주곡은 오보에 협주곡 C장조 K. 314예요. 그는 15년 전, 일곱 살 때 가족 연주 여행으로 이곳에 온 적이 있어요.",
+    "en": "The oboe in the picture is not Ramm's own, but an old oboe in a museum collection. Mannheim was the seat of the Elector Palatine Carl Theodor. Wolfgang quickly made friends with the orchestra's leader Christian Cannabich and the oboist Friedrich Ramm; the concerto he gave Ramm is the Oboe Concerto in C, K. 314. He had been in Mannheim fifteen years before, aged seven, on the family's concert tour.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 71 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -496,14 +614,63 @@
     "en": "A concerto for Ramm",
     "ko": "람에게 준 협주곡"
    },
-   "plate_hint": {
-    "idea": "Mannheim Palace (Kurfürstliches Schloss) engraving, or portrait of Christian Cannabich.",
-    "search": [
-     "Mannheim Schloss Kupferstich 18. Jahrhundert",
-     "Christian Cannabich portrait",
-     "Mannheim Palace engraving"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Oboe in D",
+    "title_en": "Oboe in D",
+    "title_ko": "D조 오보에",
+    "date": "n.d.",
+    "collection": "The Metropolitan Museum of Art, New York",
+    "imageLicense": "CC0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Oboe_in_D_MET_DP218085.jpg",
+    "credit": "The Metropolitan Museum of Art",
+    "why": {
+     "ko": "볼프강이 오보에 주자 람에게 협주곡을 선물했다는 편지라서, 옛 오보에 하나를 골랐어요.",
+     "en": "Wolfgang gives the oboist Ramm a concerto in this letter, so the plate shows an old oboe."
+    },
+    "image": "m-c2-l3.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.14,
+      "title": {
+       "de": "Das Rohrblatt",
+       "en": "The reed",
+       "ko": "리드"
+      },
+      "note": {
+       "ko": "두 겹 갈대 리드. 오보에 소리는 여기서 나요.",
+       "en": "The double reed, where the oboe's sound begins."
+      },
+      "word": {
+       "de": "Hautbois",
+       "en": "hautboy",
+       "ko": "오보에",
+       "ipa": "oˈboːə"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.5,
+      "y": 0.85,
+      "title": {
+       "de": "Der Schalltrichter",
+       "en": "The bell",
+       "ko": "벨"
+      },
+      "note": {
+       "ko": "나팔처럼 벌어진 끝. 만하임 오케스트라에는 오보에가 둘 있었어요.",
+       "en": "The flared bell; the Mannheim orchestra had two oboes."
+      },
+      "word": {
+       "de": "Oboen",
+       "en": "hautboys",
+       "ko": "오보에",
+       "ipa": "oˈboːən"
+      },
+      "quote": 2
+     }
+    ]
    }
   },
   {
@@ -639,8 +806,8 @@
     }
    ],
    "note": {
-    "ko": "레오폴트 모차르트의 생일은 11월 14일, 영명축일(성 레오폴트 축일)은 11월 15일이라 볼프강은 두 날을 함께 축하해요. 칸나비히의 딸 로자에게 써 준 소나타는 피아노 소나타 C장조 K. 309예요. 이 편지를 쓰기 전에 그는 선제후 카를 테오도어와 궁정 앞에서 연주했어요.",
-    "en": "Leopold Mozart's birthday fell on 14 November and his name-day, St Leopold's, on 15 November, so Wolfgang sends a double greeting. The sonata for Cannabich's daughter Rosa is the Piano Sonata in C, K. 309. Shortly before, he had played for the Elector Carl Theodor and his court.",
+    "ko": "그림은 이 편지와 같은 해인 1777년에 그려진 볼프강의 초상이에요. 레오폴트 모차르트의 생일은 11월 14일, 영명축일(성 레오폴트 축일)은 11월 15일이라 볼프강은 두 날을 함께 축하해요. 칸나비히의 딸 로자에게 써 준 소나타는 피아노 소나타 C장조 K. 309예요. 이 편지를 쓰기 전에 그는 선제후 카를 테오도어와 궁정 앞에서 연주했어요.",
+    "en": "The picture is a portrait of Wolfgang painted in 1777, the year of this letter. Leopold Mozart's birthday fell on 14 November and his name-day, St Leopold's, on 15 November, so Wolfgang sends a double greeting. The sonata for Cannabich's daughter Rosa is the Piano Sonata in C, K. 309. Shortly before, he had played for the Elector Carl Theodor and his court.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 73 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -666,14 +833,83 @@
     "en": "A birthday wish in tones",
     "ko": "소리로 전하는 축하"
    },
-   "plate_hint": {
-    "idea": "Portrait of Elector Carl Theodor of the Palatinate (Pompeo Batoni / Heinrich Carl Brandt).",
-    "search": [
-     "Karl Theodor Kurfürst Pfalz Batoni",
-     "Carl Theodor Elector Palatine portrait",
-     "Heinrich Carl Brandt Karl Theodor"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Bildnis Wolfgang Amadeus Mozart mit dem Orden vom Goldenen Sporn",
+    "title_en": "Portrait of Wolfgang Amadeus Mozart with the Order of the Golden Spur",
+    "title_ko": "황금 박차 훈장을 단 볼프강 아마데우스 모차르트",
+    "date": "1777",
+    "collection": "Museo internazionale e biblioteca della musica, Bologna",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Onbekend_-_Portret_van_Wolfgang_Amadeus_Mozart_(1777)_-_Bologna_Museo_Internationale_e_biblioteca_della_musica_di_bologna_28-04-2012_9-21-040.jpg",
+    "credit": "Unknown artist",
+    "why": {
+     "ko": "‘저는 음악가예요’라고 쓴 바로 그해, 스물한 살 볼프강의 모습이에요. 건반과 악보 옆에 앉아 있어요.",
+     "en": "Wolfgang at twenty-one, the year he wrote 'I am a musician', seated by a keyboard and music."
+    },
+    "image": "m-c2-l4.jpg",
+    "kind": "mozart",
+    "spots": [
+     {
+      "x": 0.48,
+      "y": 0.27,
+      "title": {
+       "de": "Der Musikus",
+       "en": "The musician",
+       "ko": "음악가"
+      },
+      "note": {
+       "ko": "시인도 화가도 무용수도 아니고, ‘소리로 말하는 음악가’예요.",
+       "en": "Not a poet, painter or dancer — a musician, who speaks in tones."
+      },
+      "word": {
+       "de": "Musikus",
+       "en": "musician",
+       "ko": "음악가",
+       "ipa": "ˈmuːzikʊs"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.85,
+      "y": 0.63,
+      "title": {
+       "de": "Das Notenblatt",
+       "en": "The music",
+       "ko": "악보"
+      },
+      "note": {
+       "ko": "보면대의 악보. 이날 오전 그는 로자 칸나비히를 위한 소나타의 론도를 썼어요.",
+       "en": "Music on the stand; that morning he wrote the rondo of the sonata for Rosa Cannabich."
+      },
+      "word": {
+       "de": "Sonate",
+       "en": "sonata",
+       "ko": "소나타",
+       "ipa": "zoˈnaːtə"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.86,
+      "y": 0.88,
+      "title": {
+       "de": "Die Tasten",
+       "en": "The keys",
+       "ko": "건반"
+      },
+      "note": {
+       "ko": "건반. 선제후는 ‘그대의 연주는 비할 데가 없다’고 했어요.",
+       "en": "The keys: 'You play inimitably', said the Elector."
+      },
+      "word": {
+       "de": "spielt",
+       "en": "play",
+       "ko": "연주",
+       "ipa": "ʃpiːlt"
+      },
+      "quote": 1
+     }
+    ]
    }
   },
   {
@@ -808,8 +1044,8 @@
     }
    ],
    "note": {
-    "ko": "몇 주를 기다린 끝에 볼프강은 선제후가 자리를 주지 않는다는 답을 들었어요. 친구들은 곧바로 그를 만하임에 붙잡아 두려 했어요. 플루트 주자 벤틀링은 네덜란드인 애호가(‘우리 인도 사람’)가 플루트 협주곡과 사중주를 주문한다는 소식을 전했지요. 놀의 판본에는 사례금이 200플로린으로, 월리스의 영어판에는 20플로린으로 적혀 있어요.",
-    "en": "After weeks of waiting, Wolfgang learned that the Elector would not give him a post. His friends at once tried to keep him in Mannheim: the flautist Wendling brought an offer from a Dutch amateur ('our Indian') for flute concertos and quartets. Nohl prints the fee as 200 florins; Wallace's English has 'twenty'.",
+    "ko": "그림 속 플루트는 이 편지에 나오지 않는, 같은 시대의 상아 플루트 한 쌍이에요. 몇 주를 기다린 끝에 볼프강은 선제후가 자리를 주지 않는다는 답을 들었어요. 친구들은 곧바로 그를 만하임에 붙잡아 두려 했어요. 플루트 주자 벤틀링은 네덜란드인 애호가(‘우리 인도 사람’)가 플루트 협주곡과 사중주를 주문한다는 소식을 전했지요. 놀의 판본에는 사례금이 200플로린으로, 월리스의 영어판에는 20플로린으로 적혀 있어요.",
+    "en": "The flutes in the picture do not appear in the letter; they are a pair of ivory flutes from the same century. After weeks of waiting, Wolfgang learned that the Elector would not give him a post. His friends at once tried to keep him in Mannheim: the flautist Wendling brought an offer from a Dutch amateur ('our Indian') for flute concertos and quartets. Nohl prints the fee as 200 florins; Wallace's English has 'twenty'.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 83 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -851,14 +1087,63 @@
     "en": "The Elector says no",
     "ko": "선제후의 거절"
    },
-   "plate_hint": {
-    "idea": "A transverse flute of the period (the 'quattros for a leading flute' commissioned by the Dutchman De Jean) or the Mannheim court theatre.",
-    "search": [
-     "18th century transverse flute museum",
-     "Traversflöte 18. Jahrhundert",
-     "Mannheim Nationaltheater 18th century engraving"
-    ],
-    "kind": "era"
+   "plate": {
+    "title_de": "Zwei Traversflöten",
+    "title_en": "Pair of Transverse Flutes",
+    "title_ko": "가로 플루트 한 쌍",
+    "date": "18th century",
+    "collection": "The Metropolitan Museum of Art, New York",
+    "imageLicense": "CC0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Pair_of_Transverse_Flutes_MET_DP317371.jpg",
+    "credit": "Johann Wilhelm Oberlender the Elder",
+    "why": {
+     "ko": "편지 바로 뒤, 플루트 주자 벤틀링이 네덜란드인 애호가의 플루트 협주곡 주문을 전해 와요. 그 시절 궁정 음악가들이 불던 상아 플루트예요.",
+     "en": "Just after this, the flautist Wendling brings a Dutch amateur's commission for flute concertos; these are ivory flutes of the kind court musicians played."
+    },
+    "image": "m-c2-l5.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.56,
+      "y": 0.52,
+      "title": {
+       "de": "Die Flöte",
+       "en": "The flute",
+       "ko": "플루트"
+      },
+      "note": {
+       "ko": "키 하나짜리 상아 플루트. 이런 악기가 궁정 음악회에서 울렸어요.",
+       "en": "A one-key ivory flute, the kind heard at court concerts."
+      },
+      "word": {
+       "de": "Academie",
+       "en": "concert",
+       "ko": "음악회",
+       "ipa": "akadeˈmiː"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.4,
+      "y": 0.3,
+      "title": {
+       "de": "Die Ersatzstücke",
+       "en": "The spare joints",
+       "ko": "갈아 끼우는 마디"
+      },
+      "note": {
+       "ko": "갈아 끼우는 마디들. 비싼 상아 악기는 궁정과 부유한 애호가의 것이었어요.",
+       "en": "Spare joints in the case; costly ivory instruments belonged to courts and rich amateurs."
+      },
+      "word": {
+       "de": "Hof",
+       "en": "courts",
+       "ko": "궁정",
+       "ipa": "hoːf"
+      },
+      "quote": 1
+     }
+    ]
    }
   },
   {
@@ -994,8 +1279,8 @@
     }
    ],
    "note": {
-    "ko": "볼프강은 베버 가족과 함께 키르히하임볼란덴의 궁정으로 연주 여행을 다녀왔어요. 그가 칭찬하는 가수 알로이지아 베버는 악보 필사가이자 프롬프터였던 베버의 둘째 딸이에요. 그 동생 콘스탄체가 훗날 모차르트의 아내가 되지요. 베버 가족을 데리고 이탈리아로 가겠다는 이 계획에 아버지는 크게 놀랐어요.",
-    "en": "Wolfgang had just made a concert trip with the Weber family to the princely court at Kirchheimbolanden. The singer he praises, Aloysia Weber, was the second daughter of the music copyist and prompter Fridolin Weber; her younger sister Constanze would later become Mozart's wife. His plan to take the Webers to Italy alarmed his father.",
+    "ko": "그림은 몇 해 뒤 빈에서 오페라 의상을 입고 그려진 알로이지아의 초상이에요. 볼프강은 베버 가족과 함께 키르히하임볼란덴의 궁정으로 연주 여행을 다녀왔어요. 그가 칭찬하는 가수 알로이지아 베버는 악보 필사가이자 프롬프터였던 베버의 둘째 딸이에요. 그 동생 콘스탄체가 훗날 모차르트의 아내가 되지요. 베버 가족을 데리고 이탈리아로 가겠다는 이 계획에 아버지는 크게 놀랐어요.",
+    "en": "The picture is a portrait of Aloysia painted a few years later in Vienna, in an operatic costume. Wolfgang had just made a concert trip with the Weber family to the princely court at Kirchheimbolanden. The singer he praises, Aloysia Weber, was the second daughter of the music copyist and prompter Fridolin Weber; her younger sister Constanze would later become Mozart's wife. His plan to take the Webers to Italy alarmed his father.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 91 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -1037,14 +1322,63 @@
     "en": "A holiday trip with the Webers",
     "ko": "베버 가족과 떠난 휴가 여행"
    },
-   "plate_hint": {
-    "idea": "Portrait of Aloysia Weber (later Lange), e.g. the 1784 engraving of her as Zémire by J. E. Nilson.",
-    "search": [
-     "Aloysia Weber Lange Zemire Nilson",
-     "Aloysia Lange engraving 1784",
-     "Aloysia Weber portrait"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Aloysia Weber als Zémire",
+    "title_en": "Aloysia Weber as Zémire",
+    "title_ko": "제미르 역의 알로이지아 베버",
+    "date": "1780s",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Aloysia_Weber_as_Zemire.jpg",
+    "credit": "Johann Baptist von Lampi the Elder",
+    "why": {
+     "ko": "볼프강이 아버지께 칭찬을 쏟아낸 가수 알로이지아예요. 몇 해 뒤 빈에서 오페라 무대 의상을 입고 그려졌어요.",
+     "en": "Aloysia, the singer Wolfgang praises to his father, painted a few years later in Vienna in an operatic costume."
+    },
+    "image": "m-c2-l6.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.55,
+      "y": 0.4,
+      "title": {
+       "de": "Aloysia",
+       "en": "Aloysia",
+       "ko": "알로이지아"
+      },
+      "note": {
+       "ko": "볼프강의 어려운 소나타를 처음 보고도 틀리지 않고 친 그 아가씨예요.",
+       "en": "The young woman who played his difficult sonatas at sight without a wrong note."
+      },
+      "word": {
+       "de": "sie",
+       "en": "her",
+       "ko": "아가씨",
+       "ipa": "ziː"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.65,
+      "y": 0.1,
+      "title": {
+       "de": "Das Bühnenkostüm",
+       "en": "The stage costume",
+       "ko": "무대 의상"
+      },
+      "note": {
+       "ko": "깃털 터번은 오페라 〈제미르와 아조르〉의 의상이에요. 볼프강의 꿈도 오페라였지요.",
+       "en": "The feathered turban is a costume from the opera 'Zémire et Azor' — and opera was Wolfgang's dream too."
+      },
+      "word": {
+       "de": "Opern",
+       "en": "operas",
+       "ko": "오페라",
+       "ipa": "ˈoːpɐn"
+      },
+      "quote": 4
+     }
+    ]
    }
   },
   {
@@ -1174,8 +1508,8 @@
     }
    ],
    "note": {
-    "ko": "만하임을 떠나기 일주일쯤 전의 편지예요. 아버지는 여행 경비 때문에 빚을 지고 옷차림까지 초라해졌다고 써 보냈고, 볼프강은 그 소식에 눈물을 흘렸어요. 새 아리아는 알로이지아 베버를 위해 쓴 〈논 소 돈데 비에네〉 K. 294예요. 1778년 3월 14일, 그는 어머니와 함께 파리로 떠났어요.",
-    "en": "Written a week before leaving Mannheim. Leopold had written that the journey's costs left him going about shabbily dressed, and Wolfgang was moved to tears. The new aria is 'Non so d'onde viene', K. 294, written for Aloysia Weber. On 14 March 1778 he set out with his mother for Paris.",
+    "ko": "그림은 편지보다 열세 해쯤 앞선 1765년 무렵의 아버지 레오폴트예요. 만하임을 떠나기 일주일쯤 전의 편지예요. 아버지는 여행 경비 때문에 빚을 지고 옷차림까지 초라해졌다고 써 보냈고, 볼프강은 그 소식에 눈물을 흘렸어요. 새 아리아는 알로이지아 베버를 위해 쓴 〈논 소 돈데 비에네〉 K. 294예요. 1778년 3월 14일, 그는 어머니와 함께 파리로 떠났어요.",
+    "en": "The picture shows Leopold around 1765, some thirteen years before this letter. Written a week before leaving Mannheim. Leopold had written that the journey's costs left him going about shabbily dressed, and Wolfgang was moved to tears. The new aria is 'Non so d'onde viene', K. 294, written for Aloysia Weber. On 14 March 1778 he set out with his mother for Paris.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 98 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -1201,14 +1535,63 @@
     "en": "All hopes on Paris",
     "ko": "모든 희망은 파리에"
    },
-   "plate_hint": {
-    "idea": "Portrait of Leopold Mozart (P. A. Lorenzoni, c. 1765).",
-    "search": [
-     "Leopold Mozart Lorenzoni portrait",
-     "Leopold Mozart portrait 1765",
-     "Leopold Mozart Gemälde"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Bildnis Leopold Mozart",
+    "title_en": "Portrait of Leopold Mozart",
+    "title_ko": "레오폴트 모차르트의 초상",
+    "date": "c. 1765",
+    "collection": "Internationale Stiftung Mozarteum, Salzburg",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Leopold_Mozart.jpg",
+    "credit": "Pietro Antonio Lorenzoni",
+    "why": {
+     "ko": "‘하느님 다음은 아빠’라고 쓴 그 아버지예요. 이 초상에서는 수놓은 좋은 옷을 입고 있어, 편지 속 초라한 옷차림 소식이 더 아프게 느껴져요.",
+     "en": "The father who comes 'next to God'. Here he wears a fine embroidered coat, which makes the news of his shabby clothes in the letter all the sadder."
+    },
+    "image": "m-c2-l7.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.48,
+      "y": 0.3,
+      "title": {
+       "de": "Der Papa",
+       "en": "Papa",
+       "ko": "아빠"
+      },
+      "note": {
+       "ko": "마흔 무렵의 레오폴트. 볼프강의 첫 스승이자 매니저였어요.",
+       "en": "Leopold in his forties, Wolfgang's first teacher and manager."
+      },
+      "word": {
+       "de": "Papa",
+       "en": "papa",
+       "ko": "아빠",
+       "ipa": "paˈpaː"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.5,
+      "y": 0.56,
+      "title": {
+       "de": "Der Rock",
+       "en": "The coat",
+       "ko": "웃옷"
+      },
+      "note": {
+       "ko": "금실 장식 웃옷. 13년 뒤 그는 빚 때문에 ‘초라한 옷차림’으로 다녀야 했어요.",
+       "en": "A coat with gold frogging; thirteen years later debts left him 'so shabbily dressed'."
+      },
+      "word": {
+       "de": "gekleidet",
+       "en": "dressed",
+       "ko": "옷차림",
+       "ipa": "ɡəˈklaɪ̯dət"
+      },
+      "quote": 2
+     }
+    ]
    }
   }
  ]

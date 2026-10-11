@@ -137,8 +137,8 @@
     }
    ],
    "note": {
-    "ko": "모차르트와 어머니는 만하임을 떠나 9일 반 만인 1778년 3월 23일 파리에 닿았어요. 떠나기 전 칸나비히 집 음악회에서 알로이지아 베버가 그의 새 아리아 「Non so d'onde viene」(K. 294)를 불렀어요. 마지막 문장의 '그'는 알로이지아의 아버지 프리돌린 베버예요.",
-    "en": "Mozart and his mother reached Paris on 23 March 1778, nine and a half days after leaving Mannheim. Before they left, Aloysia Weber sang his new aria 'Non so d'onde viene' (K. 294) at a concert at Cannabich's house. The man waving at the door is her father, Fridolin Weber.",
+    "ko": "그림은 모차르트가 오기 15년 전인 1763년의 파리 풍경이에요. 모차르트와 어머니는 만하임을 떠나 9일 반 만인 1778년 3월 23일 파리에 닿았어요. 떠나기 전 칸나비히 집 음악회에서 알로이지아 베버가 그의 새 아리아 「Non so d'onde viene」(K. 294)를 불렀어요. 마지막 문장의 '그'는 알로이지아의 아버지 프리돌린 베버예요.",
+    "en": "The painting shows Paris in 1763, fifteen years before Mozart arrived. Mozart and his mother reached Paris on 23 March 1778, nine and a half days after leaving Mannheim. Before they left, Aloysia Weber sang his new aria 'Non so d'onde viene' (K. 294) at a concert at Cannabich's house. The man waving at the door is her father, Fridolin Weber.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 100 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -173,14 +173,83 @@
     "en": "Arrived in Paris",
     "ko": "파리에 도착"
    },
-   "plate_hint": {
-    "idea": "Paris view c. 1778 (e.g. Pont Neuf and the Louvre by Nicolas-Jean-Baptiste Raguenet).",
-    "search": [
-     "Raguenet Pont Neuf",
-     "Nicolas-Jean-Baptiste Raguenet Paris",
-     "Paris 1778 view engraving"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Ansicht von Paris vom Pont Neuf",
+    "title_en": "A View of Paris from the Pont Neuf",
+    "title_ko": "퐁뇌프에서 본 파리",
+    "date": "1763",
+    "collection": "J. Paul Getty Museum, Los Angeles",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Nicolas-Jean-Baptiste_Raguenet,_A_View_of_Paris_from_the_Pont_Neuf_-_Getty_Museum.jpg",
+    "credit": "Nicolas-Jean-Baptiste Raguenet",
+    "why": {
+     "ko": "모차르트가 도착하기 15년 전의 파리예요. 그가 처음 마주한 도시의 강변과 거리, 마차를 보여 줘요.",
+     "en": "Paris fifteen years before Mozart arrived: the river, the streets and the carriages of the city he now had to conquer."
+    },
+    "image": "m-c3-l1.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.45,
+      "y": 0.85,
+      "title": {
+       "de": "Die Kutschen",
+       "en": "The carriages",
+       "ko": "마차들"
+      },
+      "note": {
+       "ko": "다리 위를 지나는 마차들. 만하임에서 파리까지 9일 반 마차를 타고 와서 '평생 이렇게 지친 적이 없다'고 했어요.",
+       "en": "Carriages crossing the bridge. After nine and a half days in a coach from Mannheim he had 'never been so wearied'."
+      },
+      "word": {
+       "de": "ennuyirt",
+       "en": "wearied",
+       "ko": "지친",
+       "ipa": "ɑ̃nyˈjiːɐ̯t"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.96,
+      "y": 0.66,
+      "title": {
+       "de": "Die Straßenecke",
+       "en": "The street corner",
+       "ko": "모퉁이"
+      },
+      "note": {
+       "ko": "강가 건물의 모퉁이. 만하임에서 베버 씨는 모차르트가 모퉁이를 돌 때까지 대문 앞에 서 있었어요.",
+       "en": "A corner of the quayside buildings. In Mannheim, Weber stood at his door until Mozart turned the corner."
+      },
+      "word": {
+       "de": "Eck",
+       "en": "corner",
+       "ko": "모퉁이",
+       "ipa": "ɛk"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.6,
+      "y": 0.18,
+      "title": {
+       "de": "Der helle Himmel",
+       "en": "The bright sky",
+       "ko": "밝은 하늘"
+      },
+      "note": {
+       "ko": "넓게 열린 파리의 하늘. ‘저는 언제나 희망을 품고 살아요.’",
+       "en": "The wide, clearing sky over Paris: 'I live always in hope.'"
+      },
+      "word": {
+       "de": "Hoffnung",
+       "en": "hope",
+       "ko": "희망",
+       "ipa": "ˈhɔfnʊŋ"
+      },
+      "quote": 3
+     }
+    ]
    }
   },
   {
@@ -313,8 +382,8 @@
     }
    ],
    "note": {
-    "ko": "그림 남작의 소개장을 들고 샤보 공작부인 댁에 갔다가, 사람들이 그림만 그리는 추운 방에서 연주해야 했던 날의 이야기예요. 같은 편지에서 그는 관악 독주자 네 명(벤틀링, 람, 푼토, 리터)을 위해 쓴 신포니아 콘체르탄테가 콩세르 스피리튀엘에서 끝내 연주되지 않았다고 전해요. 그 악보는 남아 있지 않아요.",
-    "en": "Grimm's letter of introduction took Mozart to the Duchesse de Chabot, where he had to play in a freezing room to guests who went on drawing. In the same letter he reports that the sinfonia concertante he wrote for four wind soloists (Wendling, Ramm, Punto and Ritter) was quietly left unperformed at the Concert Spirituel. That score is lost.",
+    "ko": "그림은 9년 뒤인 1787년 콩세르 스피리튀엘의 포스터예요. 그림 남작의 소개장을 들고 샤보 공작부인 댁에 갔다가, 사람들이 그림만 그리는 추운 방에서 연주해야 했던 날의 이야기예요. 같은 편지에서 그는 관악 독주자 네 명(벤틀링, 람, 푼토, 리터)을 위해 쓴 신포니아 콘체르탄테가 콩세르 스피리튀엘에서 끝내 연주되지 않았다고 전해요. 그 악보는 남아 있지 않아요.",
+    "en": "The poster is from the Concert Spirituel nine years later, in 1787. Grimm's letter of introduction took Mozart to the Duchesse de Chabot, where he had to play in a freezing room to guests who went on drawing. In the same letter he reports that the sinfonia concertante he wrote for four wind soloists (Wendling, Ramm, Punto and Ritter) was quietly left unperformed at the Concert Spirituel. That score is lost.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 102 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -340,14 +409,63 @@
     "en": "Playing to the walls",
     "ko": "벽을 상대로 연주"
    },
-   "plate_hint": {
-    "idea": "Engraving of the Salle des Cent-Suisses in the Tuileries, home of the Concert Spirituel.",
-    "search": [
-     "Salle des Cent-Suisses Tuileries",
-     "Concert Spirituel Tuileries",
-     "Palais des Tuileries engraving 18th century"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Plakat des Concert Spirituel in den Tuilerien, 8. Dezember 1787",
+    "title_en": "Concert Spirituel poster, Château des Tuileries, 8 December 1787",
+    "title_ko": "튈르리 궁 콩세르 스피리튀엘 포스터 (1787년 12월 8일)",
+    "date": "1787",
+    "collection": "Musée Carnavalet, Paris (AFF1496)",
+    "imageLicense": "CC0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:CONCERT_SPIRITUEL,_AU_CHATEAU_DES_TUILERIES,_Aujourd'hui_SAMEDI_8_mbre_1787,_JOUR_DE_LA_CONCEPTION._AFF1496.jpg",
+    "credit": "Anonymous",
+    "why": {
+     "ko": "모차르트가 기대를 걸었던 파리의 연주회 시리즈, 콩세르 스피리튀엘의 9년 뒤 포스터예요. 교향곡과 협주곡, 이탈리아 아리아가 한 저녁에 나란히 올랐어요.",
+     "en": "A poster for the Concert Spirituel, the Paris concert series Mozart pinned his hopes on, nine years later: symphonies, concertos and Italian arias on a single evening."
+    },
+    "image": "m-c3-l2.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.17,
+      "title": {
+       "de": "Concert spirituel, Tuilerien",
+       "en": "Concert Spirituel, Tuileries",
+       "ko": "콩세르 스피리튀엘, 튈르리 궁"
+      },
+      "note": {
+       "ko": "‘튈르리 궁에서’. 파리 한가운데 궁전의 큰 방에서 열린 연주회예요. 모차르트의 신포니아 콘체르탄테는 끝내 이 무대에 오르지 못했어요.",
+       "en": "'At the Château des Tuileries': concerts held in a great hall of the palace in the heart of Paris. Mozart's sinfonia concertante never reached this stage."
+      },
+      "word": {
+       "de": "Paris",
+       "en": "Paris",
+       "ko": "파리",
+       "ipa": "paˈʁiːs"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.3,
+      "y": 0.6,
+      "title": {
+       "de": "Symphonie de M. Haydn",
+       "en": "A symphony by Haydn",
+       "ko": "하이든의 교향곡"
+      },
+      "note": {
+       "ko": "두 번째 순서는 ‘하이든 씨의 교향곡’. 모차르트가 영예를 안겨 주고 싶어 한 독일어권 음악이 파리에서 사랑받고 있었어요.",
+       "en": "The second half opens with 'a symphony by M. Haydn': German music, the kind Mozart hoped to bring honour to, was loved in Paris."
+      },
+      "word": {
+       "de": "deutschen",
+       "en": "German",
+       "ko": "독일",
+       "ipa": "ˈdɔʏtʃn̩"
+      },
+      "quote": 4
+     }
+    ]
    }
   },
   {
@@ -484,8 +602,8 @@
     }
    ],
    "note": {
-    "ko": "모차르트의 어머니 안나 마리아는 1778년 7월 3일 밤 파리에서 세상을 떠났어요. 그는 바로 그날 밤 이 편지를 쓰면서, 아버지가 충격을 한꺼번에 받지 않도록 '많이 편찮으시다'고만 적었어요. 같은 밤 집안의 벗 불링거 신부에게는 사실을 알리고 아버지를 준비시켜 달라고 부탁했어요. 편지 속 교향곡은 「파리」 교향곡 D장조 K. 297이에요.",
-    "en": "Mozart's mother, Anna Maria, died in Paris on the night of 3 July 1778. Writing that same night, he told his father only that she was very ill, so the news would not come all at once; in a second letter that night he told the truth to the family friend Abbé Bullinger and asked him to prepare Leopold. The symphony is the 'Paris' Symphony in D, K. 297.",
+    "ko": "그림은 9년쯤 뒤인 1787년경 팔레루아얄 정원을 그린 소묘예요. 모차르트의 어머니 안나 마리아는 1778년 7월 3일 밤 파리에서 세상을 떠났어요. 그는 바로 그날 밤 이 편지를 쓰면서, 아버지가 충격을 한꺼번에 받지 않도록 '많이 편찮으시다'고만 적었어요. 같은 밤 집안의 벗 불링거 신부에게는 사실을 알리고 아버지를 준비시켜 달라고 부탁했어요. 편지 속 교향곡은 「파리」 교향곡 D장조 K. 297이에요.",
+    "en": "The drawing shows the Palais-Royal garden around 1787, about nine years later. Mozart's mother, Anna Maria, died in Paris on the night of 3 July 1778. Writing that same night, he told his father only that she was very ill, so the news would not come all at once; in a second letter that night he told the truth to the family friend Abbé Bullinger and asked him to prepare Leopold. The symphony is the 'Paris' Symphony in D, K. 297.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 107 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -536,14 +654,63 @@
     "en": "Applause and worry",
     "ko": "박수와 근심"
    },
-   "plate_hint": {
-    "idea": "The Palais-Royal garden c. 1780 (where he 'took a good ice'), or the first page of the 'Paris' Symphony K. 297 autograph.",
-    "search": [
-     "Palais-Royal jardin 18e siècle",
-     "Jardin du Palais-Royal gravure",
-     "Mozart K. 297 Paris symphony autograph"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Die Promenade im Garten des Palais Royal",
+    "title_en": "La Promenade du jardin du Palais Royal",
+    "title_ko": "팔레루아얄 정원의 산책",
+    "date": "c. 1787",
+    "collection": "Musée Carnavalet, Paris (G.12673)",
+    "imageLicense": "CC0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:La_Promenade_du_jardin_du_Palais_Royal,_1787,_G.12673.jpg",
+    "credit": "Attributed to Louis Lecoeur",
+    "why": {
+     "ko": "교향곡이 박수를 받은 날, 모차르트가 기쁜 마음으로 아이스크림을 먹으러 간 팔레루아얄 정원이에요. 그림은 그보다 9년쯤 뒤의 모습이에요.",
+     "en": "The Palais-Royal garden, where Mozart went for an ice on the day his symphony was applauded, drawn about nine years later."
+    },
+    "image": "m-c3-l3.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.28,
+      "title": {
+       "de": "Das Palais Royal",
+       "en": "The Palais Royal",
+       "ko": "팔레루아얄"
+      },
+      "note": {
+       "ko": "나무 너머로 보이는 회랑과 건물. 파리 사람들이 모여 산책하던 팔레루아얄이에요.",
+       "en": "Behind the trees, the arcades and buildings of the Palais Royal, where Parisians came to stroll."
+      },
+      "word": {
+       "de": "Palais Royal",
+       "en": "Palais Royal",
+       "ko": "팔레루아얄",
+       "ipa": "paˈlɛː ʁoaˈjal"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.55,
+      "y": 0.65,
+      "title": {
+       "de": "Spaziergänger",
+       "en": "Strollers",
+       "ko": "산책하는 사람들"
+      },
+      "note": {
+       "ko": "차려입고 정원을 거니는 사람들. 모차르트도 이 틈에 섞여 혼자 기쁨을 누렸어요.",
+       "en": "Fashionable strollers in the garden; Mozart walked among them, alone with his joy."
+      },
+      "word": {
+       "de": "Freude",
+       "en": "joy",
+       "ko": "기쁜",
+       "ipa": "ˈfʁɔʏ̯də"
+      },
+      "quote": 3
+     }
+    ]
    }
   },
   {
@@ -674,8 +841,8 @@
     }
    ],
    "note": {
-    "ko": "안나 마리아 모차르트는 1778년 7월 3일 파리에서 세상을 떠나, 생퇴스타슈 성당에 묻혔어요. 엿새 뒤 모차르트는 아버지에게 사실을 그대로 전하고, 앞선 편지에서 소식을 누그러뜨린 까닭을 설명했어요. 놀(1865)은 시각을 '10시 21분'으로, 월리스의 영역은 '10시 20분'으로 적고 있어요.",
-    "en": "Anna Maria Mozart died in Paris on 3 July 1778 and was buried at Saint-Eustache. Six days later Mozart told his father plainly and explained why he had softened the news in his previous letter. Nohl's German gives the hour as 10.21 p.m.; Wallace's English has 'twenty minutes past ten'.",
+    "ko": "사진은 1953년 잘츠부르크시가 생퇴스타슈 성당에 바친 그녀의 추모 명판이에요. 안나 마리아 모차르트는 1778년 7월 3일 파리에서 세상을 떠나, 생퇴스타슈 성당에 묻혔어요. 엿새 뒤 모차르트는 아버지에게 사실을 그대로 전하고, 앞선 편지에서 소식을 누그러뜨린 까닭을 설명했어요. 놀(1865)은 시각을 '10시 21분'으로, 월리스의 영역은 '10시 20분'으로 적고 있어요.",
+    "en": "The photograph shows the memorial plaque the city of Salzburg placed in Saint-Eustache in 1953. Anna Maria Mozart died in Paris on 3 July 1778 and was buried at Saint-Eustache. Six days later Mozart told his father plainly and explained why he had softened the news in his previous letter. Nohl's German gives the hour as 10.21 p.m.; Wallace's English has 'twenty minutes past ten'.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 108 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -700,14 +867,63 @@
     "en": "Fell asleep in the Lord",
     "ko": "평안히 잠드신 어머니"
    },
-   "plate_hint": {
-    "idea": "Church of Saint-Eustache, Paris, where Anna Maria Mozart was buried (memorial plaque); or her painted medallion in the della Croce family portrait (1780-81).",
-    "search": [
-     "Saint-Eustache Paris Anna Maria Mozart plaque",
-     "Église Saint-Eustache Paris",
-     "Della Croce Mozart family portrait"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Gedenktafel für Anna Maria Mozart",
+    "title_en": "Memorial plaque to Anna Maria Mozart",
+    "title_ko": "안나 마리아 모차르트 추모 명판",
+    "date": "1953 (plaque); photo undated",
+    "collection": "Église Saint-Eustache, Paris · photo on Wikimedia Commons",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Mèremozart.JPG",
+    "credit": "Parisette",
+    "why": {
+     "ko": "모차르트의 어머니를 기리는 라틴어 명판이에요. 1953년 잘츠부르크시가 그녀가 묻힌 파리의 성당에 바쳤어요.",
+     "en": "A Latin plaque in memory of Mozart's mother, given in 1953 by the city of Salzburg to the Paris church where she was buried."
+    },
+    "image": "m-c3-l4.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.47,
+      "y": 0.21,
+      "title": {
+       "de": "Quae mater …",
+       "en": "'Who was the mother …'",
+       "ko": "‘…의 어머니’"
+      },
+      "note": {
+       "ko": "‘더없이 이름난 볼프강 아마데우스 모차르트의 어머니’라고 새겨져 있어요.",
+       "en": "It reads: 'who was the mother of the most celebrated Wolfgang Amadeus Mozart'."
+      },
+      "word": {
+       "de": "Mutter",
+       "en": "mother",
+       "ko": "어머니",
+       "ipa": "ˈmʊtɐ"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.46,
+      "y": 0.67,
+      "title": {
+       "de": "Obiit Lutetiae Parisiorum",
+       "en": "'She died in Paris'",
+       "ko": "‘파리에서 세상을 떠나다’"
+      },
+      "note": {
+       "ko": "‘파리에서 세상을 떠났다 … 1778년’. 편지는 같은 일을 ‘하느님 안에서 평안히 잠드셨다’고 적어요.",
+       "en": "'She died in Paris … 1778.' The letter says the same thing gently: she 'fell asleep peacefully in the Lord'."
+      },
+      "word": {
+       "de": "entschlafen",
+       "en": "asleep",
+       "ko": "잠드셨",
+       "ipa": "ɛntˈʃlaːfn̩"
+      },
+      "quote": 0
+     }
+    ]
    }
   },
   {
@@ -875,14 +1091,83 @@
     "en": "Reunited with Bach",
     "ko": "바흐와 다시 만나다"
    },
-   "plate_hint": {
-    "idea": "Gainsborough's portrait of Johann Christian Bach (1776, Museo della Musica, Bologna).",
-    "search": [
-     "Gainsborough Johann Christian Bach",
-     "Johann Christian Bach portrait Bologna",
-     "Johann Christian Bach Gainsborough 1776"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Bildnis Johann Christian Bach",
+    "title_en": "Portrait of Johann Christian Bach",
+    "title_ko": "요한 크리스티안 바흐의 초상",
+    "date": "1776",
+    "collection": "Museo internazionale e biblioteca della musica, Bologna",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Johann_Christian_Bach_by_Thomas_Gainsborough.jpg",
+    "credit": "Thomas Gainsborough",
+    "why": {
+     "ko": "편지에서 모차르트가 반갑게 다시 만난 ‘런던의 바흐’, 그 사람의 초상이에요.",
+     "en": "The 'Bach from London' whom Mozart was so glad to meet again in this letter."
+    },
+    "image": "m-c3-l5.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.53,
+      "y": 0.3,
+      "title": {
+       "de": "Johann Christian Bach",
+       "en": "Johann Christian Bach",
+       "ko": "요한 크리스티안 바흐"
+      },
+      "note": {
+       "ko": "런던에서 어린 모차르트를 아껴 준 사람. 2주 전부터 생제르맹에 와 있었어요.",
+       "en": "The man who befriended the child Mozart in London; he had been at Saint-Germain for a fortnight."
+      },
+      "word": {
+       "de": "Bach",
+       "en": "Bach",
+       "ko": "바흐",
+       "ipa": "bax"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.6,
+      "y": 0.27,
+      "title": {
+       "de": "Der Blick",
+       "en": "His glance",
+       "ko": "눈빛"
+      },
+      "note": {
+       "ko": "옆을 보는 부드러운 눈빛. 15년 만에 다시 만난 두 사람은 서로 무척 기뻐했어요.",
+       "en": "A sidelong, friendly look. After fifteen years apart, both men were overjoyed to meet again."
+      },
+      "word": {
+       "de": "Freude",
+       "en": "joy",
+       "ko": "기뻤",
+       "ipa": "ˈfʁɔʏ̯də"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.52,
+      "y": 0.84,
+      "title": {
+       "de": "Das Notenblatt",
+       "en": "The sheet of music",
+       "ko": "악보"
+      },
+      "note": {
+       "ko": "손에 든 악보. 모차르트도 이때 텐두치를 위한 장면 아리아를 서둘러 쓰고 있었어요.",
+       "en": "The music in his hands; Mozart, too, was hurrying to write a scena for Tenducci."
+      },
+      "word": {
+       "de": "schreibe",
+       "en": "writing",
+       "ko": "쓰고",
+       "ipa": "ˈʃʁaɪ̯bə"
+      },
+      "quote": 4
+     }
+    ]
    }
   },
   {
@@ -1041,14 +1326,63 @@
     "en": "Home again soon",
     "ko": "곧 다시 집으로"
    },
-   "plate_hint": {
-    "idea": "View of Salzburg from the Kapuzinerberg (18th-c. engraving) — the home he is now returning to.",
-    "search": [
-     "Salzburg Kapuzinerberg 18th century engraving",
-     "Salzburg view 1780",
-     "Ansicht Salzburg Kupferstich 18. Jahrhundert"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Wolfgang Amadeus Mozart (Detail des Familienbildes)",
+    "title_en": "Wolfgang Amadeus Mozart (detail of the family portrait)",
+    "title_ko": "볼프강 아마데우스 모차르트 (가족 초상화 부분)",
+    "date": "c. 1780–81",
+    "collection": "Stiftung Mozarteum, Salzburg",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Mozart_Portrait_Croce.jpg",
+    "credit": "Johann Nepomuk della Croce (attributed)",
+    "why": {
+     "ko": "잘츠부르크로 돌아간 뒤 2년쯤 지나 그린 가족 초상화 속 모차르트예요. 이 편지에서 그는 아버지와 누나 품으로 돌아가기로 마음먹어요.",
+     "en": "Mozart as painted in the family portrait two years or so after he returned to Salzburg; in this letter he decides to go home to his father and sister."
+    },
+    "image": "m-c3-l6.jpg",
+    "kind": "mozart",
+    "spots": [
+     {
+      "x": 0.55,
+      "y": 0.36,
+      "title": {
+       "de": "Sein Gesicht",
+       "en": "His face",
+       "ko": "얼굴"
+      },
+      "note": {
+       "ko": "스물네다섯 살 무렵의 얼굴. 파리에서 ‘이제 사람들은 저를 안다’고 썼던 그 사람이에요.",
+       "en": "His face in his mid-twenties: the man who wrote from Paris that 'the people all know me'."
+      },
+      "word": {
+       "de": "bekannt",
+       "en": "known",
+       "ko": "알려졌",
+       "ipa": "bəˈkant"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.4,
+      "y": 0.75,
+      "title": {
+       "de": "Der rote Rock",
+       "en": "The red coat",
+       "ko": "빨간 웃옷"
+      },
+      "note": {
+       "ko": "수가 놓인 빨간 웃옷. 여행을 사랑한 ‘예술가’의 차림이에요.",
+       "en": "An embroidered red coat, the dress of an artist who believed in travel."
+      },
+      "word": {
+       "de": "Reisen",
+       "en": "travel",
+       "ko": "여행",
+       "ipa": "ˈʁaɪ̯zn̩"
+      },
+      "quote": 2
+     }
+    ]
    }
   },
   {
@@ -1181,8 +1515,8 @@
     }
    ],
    "note": {
-    "ko": "파리를 떠나 잘츠부르크로 돌아가는 길에 슈트라스부르에서 쓴 편지예요. 선제후의 궁정을 따라 뮌헨으로 옮겨 간 베버 가족은 한 달 넘게 소식이 없자 그가 죽은 줄 알았고, '가엾은 아가씨' 알로이지아는 날마다 성당에 가서 기도했대요. 모차르트는 아버지만이 잘츠부르크의 쓴맛을 달게 해 줄 수 있다고 말해요.",
-    "en": "Mozart wrote this in Strasbourg on his way home from Paris to Salzburg. The Webers, who had moved to Munich with the Elector's court, heard nothing from him for a month and feared he was dead; 'the poor girl', Aloysia, went to church every day to pray for him. He tells his father that only he can sweeten the bitterness of Salzburg.",
+    "ko": "그림은 슈트라스부르 대성당 남쪽 문을 17세기 판화와 훗날 사진으로 나란히 보여 줘요. 파리를 떠나 잘츠부르크로 돌아가는 길에 슈트라스부르에서 쓴 편지예요. 선제후의 궁정을 따라 뮌헨으로 옮겨 간 베버 가족은 한 달 넘게 소식이 없자 그가 죽은 줄 알았고, '가엾은 아가씨' 알로이지아는 날마다 성당에 가서 기도했대요. 모차르트는 아버지만이 잘츠부르크의 쓴맛을 달게 해 줄 수 있다고 말해요.",
+    "en": "The image pairs a 17th-century engraving and a later photograph of Strasbourg Cathedral's south portal. Mozart wrote this in Strasbourg on his way home from Paris to Salzburg. The Webers, who had moved to Munich with the Elector's court, heard nothing from him for a month and feared he was dead; 'the poor girl', Aloysia, went to church every day to pray for him. He tells his father that only he can sweeten the bitterness of Salzburg.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 115 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -1217,14 +1551,63 @@
     "en": "On the way home",
     "ko": "집으로 가는 길"
    },
-   "plate_hint": {
-    "idea": "Strasbourg Cathedral (18th-c. engraving).",
-    "search": [
-     "Strasbourg Cathedral 18th century engraving",
-     "Cathédrale de Strasbourg gravure",
-     "Straßburger Münster Kupferstich"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Straßburger Münster, Portal des Südquerhauses: Stich des 17. Jahrhunderts und späteres Foto",
+    "title_en": "Strasbourg Cathedral, south transept portal: 17th-century engraving and later photograph",
+    "title_ko": "슈트라스부르 대성당 남쪽 익랑 문: 17세기 판화와 훗날의 사진",
+    "date": "17th c. (engraving); photo undated",
+    "collection": "Bibliothèque nationale de France (Gallica)",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Cathédrale_de_Strasbourg_-_portail_du_transept-sud,_gravure_du_XVIIe_siècle_et_état_actuel_-_btv1b102142371.jpg",
+    "credit": "Unknown engraver and photographer",
+    "why": {
+     "ko": "모차르트가 이 편지를 쓴 도시 슈트라스부르의 대성당이에요. 위는 17세기 판화, 아래는 훗날 사진이에요.",
+     "en": "The cathedral of Strasbourg, the city where Mozart wrote this letter: a 17th-century engraving above, a later photograph below."
+    },
+    "image": "m-c3-l7.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.3,
+      "y": 0.16,
+      "title": {
+       "de": "Der Tod Mariens",
+       "en": "The Death of the Virgin",
+       "ko": "성모의 죽음"
+      },
+      "note": {
+       "ko": "왼쪽 문 위 돌 조각은 성모의 죽음을 새긴 장면이에요. 베버 가족은 소식이 끊긴 모차르트가 죽은 줄 알았대요.",
+       "en": "The stone tympanum over the left door shows the Death of the Virgin. The Webers, without news, feared Mozart was dead."
+      },
+      "word": {
+       "de": "gestorben",
+       "en": "dead",
+       "ko": "죽은",
+       "ipa": "ɡəˈʃtɔʁbn̩"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.7,
+      "y": 0.36,
+      "title": {
+       "de": "Die Kirchentür",
+       "en": "The church door",
+       "ko": "성당 문"
+      },
+      "note": {
+       "ko": "성당 문. 알로이지아가 날마다 기도하러 간 곳은 뮌헨의 카푸친 성당이었고, 이 문은 아니에요.",
+       "en": "A church door. Aloysia went to pray every day in the Capuchin church in Munich, not here."
+      },
+      "word": {
+       "de": "Kirche",
+       "en": "church",
+       "ko": "성당",
+       "ipa": "ˈkɪʁçə"
+      },
+      "quote": 1
+     }
+    ]
    }
   }
  ]

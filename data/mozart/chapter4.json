@@ -139,8 +139,8 @@
     }
    ],
    "note": {
-    "ko": "볼프강은 1780년 11월 초, 뮌헨 카니발을 위해 위촉받은 오페라 〈이도메네오〉를 마무리하러 잘츠부르크에서 뮌헨으로 왔어요. 대본을 쓴 바레스코 신부는 잘츠부르크에 있어서, 고칠 곳은 모두 아버지를 거쳐 전해야 했지요. 칸나비히 같은 만하임 음악가들은 선제후를 따라 뮌헨으로 옮겨 와 있었고, 제아우 백작은 뮌헨 궁정 극장의 감독이었어요.",
-    "en": "In early November 1780 Wolfgang came from Salzburg to Munich to finish Idomeneo, commissioned for the Munich carnival. The librettist, Abbate Varesco, stayed in Salzburg, so every change had to go through his father. Mannheim musicians such as Cannabich had followed the Elector to Munich, where Count Seeau ran the court theatre.",
+    "ko": "사진은 〈이도메네오〉가 초연된 뮌헨 궁정 극장(퀴비예 극장)을 전쟁 뒤 다시 꾸민 2017년의 모습이에요. 볼프강은 1780년 11월 초, 뮌헨 카니발을 위해 위촉받은 오페라 〈이도메네오〉를 마무리하러 잘츠부르크에서 뮌헨으로 왔어요. 대본을 쓴 바레스코 신부는 잘츠부르크에 있어서, 고칠 곳은 모두 아버지를 거쳐 전해야 했지요. 칸나비히 같은 만하임 음악가들은 선제후를 따라 뮌헨으로 옮겨 와 있었고, 제아우 백작은 뮌헨 궁정 극장의 감독이었어요.",
+    "en": "The photograph shows the Munich court theatre (the Cuvilliés-Theater), where Idomeneo opened, photographed in 2017 after its post-war rebuilding. In early November 1780 Wolfgang came from Salzburg to Munich to finish Idomeneo, commissioned for the Munich carnival. The librettist, Abbate Varesco, stayed in Salzburg, so every change had to go through his father. Mannheim musicians such as Cannabich had followed the Elector to Munich, where Count Seeau ran the court theatre.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 126 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -176,14 +176,83 @@
     "en": "Arrived in Munich",
     "ko": "뮌헨 도착"
    },
-   "plate_hint": {
-    "idea": "The Cuvilliés-Theater (Altes Residenztheater), Munich, where 'Idomeneo' premiered on 29 Jan. 1781.",
-    "search": [
-     "Cuvilliés-Theater Munich",
-     "Altes Residenztheater München",
-     "Idomeneo 1781 Munich"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Cuvilliés-Theater, Residenz München, Innenraum",
+    "title_en": "Interior of the Cuvilliés-Theater, Munich Residenz",
+    "title_ko": "뮌헨 레지덴츠 퀴비예 극장 내부",
+    "date": "2017 (photo)",
+    "collection": "Wikimedia Commons (photo: José Luiz)",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Interior_-_Cuvilliés-Theater_-_Residenz_-_Munich_-_Germany_2017.jpg",
+    "credit": "José Luiz",
+    "why": {
+     "ko": "〈이도메네오〉가 1781년 1월 초연된 뮌헨 궁정 극장이에요. 사진은 전쟁 뒤 옛 실내 장식으로 다시 꾸민 지금의 모습이에요.",
+     "en": "The Munich court theatre where Idomeneo opened in January 1781, as it looks today, rebuilt after the war with its original interior."
+    },
+    "image": "m-c4-l1.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.25,
+      "title": {
+       "de": "Die Logen",
+       "en": "The boxes",
+       "ko": "박스석"
+      },
+      "note": {
+       "ko": "금빛 박스석이 층층이 둘러싼 궁정 극장. 이 극장을 맡은 사람이 제아우 백작이었어요.",
+       "en": "Tier upon tier of gilded boxes. Count Seeau ran this court theatre."
+      },
+      "word": {
+       "de": "Seeau",
+       "en": "Seeau",
+       "ko": "제아우",
+       "ipa": "ˈzeːaʊ̯"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.86,
+      "y": 0.44,
+      "title": {
+       "de": "Instrumente im Schnitzwerk",
+       "en": "Carved instruments",
+       "ko": "악기 조각"
+      },
+      "note": {
+       "ko": "난간에 새긴 악기 장식. 둥글게 감긴 호른처럼 보이는 것도 있어요.",
+       "en": "Carved trophies of instruments on the balcony fronts; one looks like a coiled horn."
+      },
+      "word": {
+       "de": "Horn",
+       "en": "horn",
+       "ko": "호른",
+       "ipa": "hɔʁn"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.5,
+      "y": 0.96,
+      "title": {
+       "de": "Das Parkett",
+       "en": "The stalls",
+       "ko": "1층 객석"
+      },
+      "note": {
+       "ko": "1층 객석. 오페라는 서곡과 함께 시작해요. 이 편지에서도 칸나비히의 새 서곡이 그를 감동시켰어요.",
+       "en": "The stalls. An evening begins with an overture; in this letter it was a new one by Cannabich that moved him."
+      },
+      "word": {
+       "de": "Ouverture",
+       "en": "overture",
+       "ko": "서곡",
+       "ipa": "uvɛʁˈtyːʁə"
+      },
+      "quote": 3
+     }
+    ]
    }
   },
   {
@@ -341,14 +410,63 @@
     "en": "For Raaff's grey hairs",
     "ko": "라프의 흰머리를 위해"
    },
-   "plate_hint": {
-    "idea": "Portrait of the tenor Anton Raaff (the first Idomeneo).",
-    "search": [
-     "Anton Raaff tenor portrait",
-     "Anton Raaff Sänger",
-     "Raaff tenor 1714"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Bildnis des Tenors Anton Raaff",
+    "title_en": "Portrait of the tenor Anton Raaff",
+    "title_ko": "테너 안톤 라프의 초상",
+    "date": "18th century",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Anton_Raaff_Gemälde_von_Clemens_August_Josef_Philippart.jpg",
+    "credit": "Clemens August Josef Philippart",
+    "why": {
+     "ko": "볼프강이 아리아를 고쳐 준 노장 테너 라프의 초상이에요. 손에 든 악보에도 그의 이름이 적혀 있어요.",
+     "en": "The veteran tenor Raaff, for whom Wolfgang reshapes the arias; his name is even written on the music in his hand."
+    },
+    "image": "m-c4-l2.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.42,
+      "y": 0.17,
+      "title": {
+       "de": "Graues Haar",
+       "en": "Grey hair",
+       "ko": "흰머리"
+      },
+      "note": {
+       "ko": "희끗한 머리. 볼프강은 ‘그 흰머리를 봐서라도’ 라프의 말을 들어 주겠다고 해요.",
+       "en": "Grey hair: Wolfgang will humour Raaff 'for the sake of his gray hairs'."
+      },
+      "word": {
+       "de": "grauen Haaren",
+       "en": "gray hairs",
+       "ko": "흰머리",
+       "ipa": "ˈɡʁaʊ̯ən ˈhaːʁən"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.82,
+      "y": 0.7,
+      "title": {
+       "de": "Das Notenblatt",
+       "en": "The sheet of music",
+       "ko": "악보"
+      },
+      "note": {
+       "ko": "‘두 아리아, 대(大)오페라 〈귄터 폰 슈바르츠부르크〉에서, A. 라프 노래’라고 적혀 있어요.",
+       "en": "It reads: 'Two arias from the grand opera Günther von Schwarzburg, sung by A. Raaff'."
+      },
+      "word": {
+       "de": "Arie",
+       "en": "aria",
+       "ko": "아리아",
+       "ipa": "ˈaːʁi̯ə"
+      },
+      "quote": 1
+     }
+    ]
    }
   },
   {
@@ -482,8 +600,8 @@
     }
    ],
    "note": {
-    "ko": "이 리허설은 〈이도메네오〉 1막을 오케스트라와 처음 맞춰 본 자리였어요. 바이올린은 여섯 대뿐이었지만 관악기는 다 갖췄지요. 오보에 주자 프리드리히 람은 만하임 시절부터 볼프강의 친구였고, 볼프강은 1781년 초 뮌헨에서 그를 위해 오보에 사중주 F장조 K. 370을 써요.",
-    "en": "This was the first rehearsal of Act I of Idomeneo with orchestra: only six violins, but all the wind instruments. The oboist Friedrich Ramm had been Wolfgang's friend since Mannheim; early in 1781 in Munich Wolfgang wrote the Oboe Quartet in F, K. 370, for him.",
+    "ko": "사진 속 오보에는 오보에 주자 람을 떠올리게 하는 같은 계열의 악기일 뿐, 람이 불던 악기는 아니에요. 이 리허설은 〈이도메네오〉 1막을 오케스트라와 처음 맞춰 본 자리였어요. 바이올린은 여섯 대뿐이었지만 관악기는 다 갖췄지요. 오보에 주자 프리드리히 람은 만하임 시절부터 볼프강의 친구였고, 볼프강은 1781년 초 뮌헨에서 그를 위해 오보에 사중주 F장조 K. 370을 써요.",
+    "en": "The oboe pictured stands in for the oboist Ramm; it is not his own instrument. This was the first rehearsal of Act I of Idomeneo with orchestra: only six violins, but all the wind instruments. The oboist Friedrich Ramm had been Wolfgang's friend since Mannheim; early in 1781 in Munich Wolfgang wrote the Oboe Quartet in F, K. 370, for him.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 131 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -518,14 +636,63 @@
     "en": "Happy as a king",
     "ko": "왕처럼 흐뭇한"
    },
-   "plate_hint": {
-    "idea": "A classical oboe of the 1780s (for Friedrich Ramm) or a view of Count Seeau's rooms / the Munich Residenz.",
-    "search": [
-     "classical oboe 18th century",
-     "Munich Residenz 18th century",
-     "Friedrich Ramm oboist"
-    ],
-    "kind": "era"
+   "plate": {
+    "title_de": "Oboe in D",
+    "title_en": "Oboe in D",
+    "title_ko": "D조 오보에",
+    "date": "undated",
+    "collection": "The Metropolitan Museum of Art, New York (89.4.2551)",
+    "imageLicense": "CC0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Oboe_in_D_MET_DP220731.jpg",
+    "credit": "The Metropolitan Museum of Art",
+    "why": {
+     "ko": "리허설을 듣고 감격한 오보에 주자 람을 떠올리게 하는 오보에예요. 람이 불던 악기는 아니고, 제작 시기도 확실하지 않아요.",
+     "en": "An oboe, for the oboist Ramm who was so moved at the rehearsal. It is not Ramm's own instrument, and its date is uncertain."
+    },
+    "image": "m-c4-l3.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.14,
+      "title": {
+       "de": "Das Rohrblatt",
+       "en": "The reed",
+       "ko": "리드"
+      },
+      "note": {
+       "ko": "숨이 들어가는 리드. ‘어떤 음악도 내게 이런 인상을 준 적이 없다’고 말한 사람이 오보에 주자 람이에요.",
+       "en": "The reed, where the breath goes in. It was the oboist Ramm who said 'no music ever made such an impression on me'."
+      },
+      "word": {
+       "de": "Musik",
+       "en": "music",
+       "ko": "음악",
+       "ipa": "muˈziːk"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.5,
+      "y": 0.85,
+      "title": {
+       "de": "Der Schallbecher",
+       "en": "The bell",
+       "ko": "나팔 끝"
+      },
+      "note": {
+       "ko": "소리가 퍼져 나오는 나팔 끝. 첫 오케스트라 리허설에서 관악기는 모두 갖춰져 있었어요.",
+       "en": "The bell, where the sound opens out; at this first orchestral rehearsal all the wind instruments were there."
+      },
+      "word": {
+       "de": "Probe",
+       "en": "rehearsal",
+       "ko": "리허설",
+       "ipa": "ˈpʁoːbə"
+      },
+      "quote": 0
+     }
+    ]
    }
   },
   {
@@ -685,14 +852,83 @@
     "en": "Except for the long-eared",
     "ko": "귀 긴 족속만 빼고"
    },
-   "plate_hint": {
-    "idea": "The Order of the Golden Spur cross (as in the 1777 portrait) or a portrait of Archbishop Hieronymus Colloredo.",
-    "search": [
-     "Order of the Golden Spur cross",
-     "Mozart 1777 portrait Golden Spur",
-     "Hieronymus von Colloredo portrait"
-    ],
-    "kind": "mozart"
+   "plate": {
+    "title_de": "Wolfgang Amadeus Mozart mit dem Orden vom Goldenen Sporn",
+    "title_en": "Wolfgang Amadeus Mozart with the Order of the Golden Spur",
+    "title_ko": "황금 박차 훈장을 단 볼프강 아마데우스 모차르트",
+    "date": "1777",
+    "collection": "Museo internazionale e biblioteca della musica, Bologna",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:W_A_Mozart_at_21c.jpg",
+    "credit": "Anonymous",
+    "why": {
+     "ko": "편지에서 놀림감이 된 바로 그 ‘박차’ 훈장을 단 모차르트의 초상이에요.",
+     "en": "Mozart wearing the very 'Spur' that a visitor teases him about in this letter."
+    },
+    "image": "m-c4-l4.jpg",
+    "kind": "mozart",
+    "spots": [
+     {
+      "x": 0.73,
+      "y": 0.91,
+      "title": {
+       "de": "Der Goldene Sporn",
+       "en": "The Golden Spur",
+       "ko": "황금 박차 훈장"
+      },
+      "note": {
+       "ko": "가슴의 십자 훈장. 교황에게 받은 황금 박차 기사 훈장이에요. 볼프강은 ‘머릿속에 단 것만으로도 무겁다’고 받아쳐요.",
+       "en": "The cross on his chest is the papal Order of the Golden Spur; Wolfgang quips that the one in his head is heavy enough."
+      },
+      "word": {
+       "de": "Sporn",
+       "en": "Spur",
+       "ko": "박차",
+       "ipa": "ʃpɔʁn"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.6,
+      "y": 0.3,
+      "title": {
+       "de": "Der Kopf",
+       "en": "His head",
+       "ko": "머리"
+      },
+      "note": {
+       "ko": "‘훈장은 머릿속에 단 것으로 충분하다’. 그 머릿속에 이때 〈이도메네오〉가 가득했어요.",
+       "en": "'I have one in my head': at this moment that head was full of Idomeneo."
+      },
+      "word": {
+       "de": "Kopf",
+       "en": "head",
+       "ko": "머릿속",
+       "ipa": "kɔpf"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.3,
+      "y": 0.8,
+      "title": {
+       "de": "Der Rock",
+       "en": "The coat",
+       "ko": "웃옷"
+      },
+      "note": {
+       "ko": "붉은 웃옷. 손님은 이런 옷을 털어 주며 ‘기사끼리는 서로 시중들어도 된다’고 했어요.",
+       "en": "The red coat: the visitor dusted one like it, saying 'one cavalier may wait upon another'."
+      },
+      "word": {
+       "de": "Kleid",
+       "en": "coat",
+       "ko": "옷",
+       "ipa": "klaɪ̯t"
+      },
+      "quote": 1
+     }
+    ]
    }
   },
   {
@@ -862,14 +1098,83 @@
     "en": "Small head, great opera",
     "ko": "작은 머리, 큰 오페라"
    },
-   "plate_hint": {
-    "idea": "Portrait of Elector Karl Theodor (now Elector of Bavaria) or the Munich Residenz.",
-    "search": [
-     "Karl Theodor Elector portrait",
-     "Kurfürst Karl Theodor Pfalz-Bayern",
-     "Munich Residenz"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Kurfürst Karl Theodor",
+    "title_en": "Elector Karl Theodor",
+    "title_ko": "선제후 카를 테오도르",
+    "date": "18th century",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Kurfürst_Karl_Theodor_(Bayern).jpg",
+    "credit": "Anna Dorothea Therbusch",
+    "why": {
+     "ko": "리허설에서 ‘브라보’를 외치고 웃으며 칭찬한 선제후 카를 테오도르의 초상이에요.",
+     "en": "Elector Karl Theodor, who called out 'Bravo' at the rehearsal and praised Mozart with a laugh."
+    },
+    "image": "m-c4-l5.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.47,
+      "y": 0.2,
+      "title": {
+       "de": "Der Kurfürst",
+       "en": "The Elector",
+       "ko": "선제후"
+      },
+      "note": {
+       "ko": "〈이도메네오〉를 위촉한 선제후. ‘이 오페라는 멋질 거요’라고 했어요.",
+       "en": "The Elector who commissioned Idomeneo: 'Your opera is quite charming.'"
+      },
+      "word": {
+       "de": "Churfürst",
+       "en": "Elector",
+       "ko": "선제후",
+       "ipa": "ˈkuːɐ̯fʏʁst"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.45,
+      "y": 0.86,
+      "title": {
+       "de": "Die Hand",
+       "en": "The hand",
+       "ko": "손"
+      },
+      "note": {
+       "ko": "모차르트가 1막 뒤에 다가가 입 맞춘 손이에요.",
+       "en": "The hand Mozart went up to kiss after the first act."
+      },
+      "word": {
+       "de": "Hand",
+       "en": "hand",
+       "ko": "손",
+       "ipa": "hant"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.2,
+      "y": 0.55,
+      "title": {
+       "de": "Hermelin und Ordenskette",
+       "en": "Ermine and chain of an order",
+       "ko": "담비 모피와 훈장 목걸이"
+      },
+      "note": {
+       "ko": "담비 모피와 훈장 목걸이. 궁정의 주인다운 차림이에요. 마지막 리허설도 궁정의 큰 방에서 열렸어요.",
+       "en": "Ermine and the chain of an order, the dress of the master of the court; the last rehearsal was held in a large room at his palace."
+      },
+      "word": {
+       "de": "Hof",
+       "en": "palace",
+       "ko": "궁정",
+       "ipa": "hoːf"
+      },
+      "quote": 0
+     }
+    ]
    }
   },
   {
@@ -1005,8 +1310,8 @@
     }
    ],
    "note": {
-    "ko": "〈이도메네오〉 3막에서는 신탁의 목소리가 땅속에서 울려 나와 왕의 운명을 정해요. 볼프강은 이 목소리에 트롬본 셋과 호른 둘만 붙이고 나머지 오케스트라는 쉬게 했어요. 신전 장면에서 왕이 들어올 때 연주되는 조용한 행진곡도 이때 썼지요. 초연은 1781년 1월 29일 뮌헨에서 열렸어요.",
-    "en": "In Act III of Idomeneo an oracle's voice sounds from underground and decides the king's fate; Wolfgang gives it only three trombones and two horns, with the rest of the orchestra silent. He also wrote the quiet march for the king's entry into the temple. The premiere took place in Munich on 29 January 1781.",
+    "ko": "그림은 〈이도메네오〉 자필 악보의 한 쪽이지만, 편지에 나오는 땅속 목소리 장면은 아니에요. 〈이도메네오〉 3막에서는 신탁의 목소리가 땅속에서 울려 나와 왕의 운명을 정해요. 볼프강은 이 목소리에 트롬본 셋과 호른 둘만 붙이고 나머지 오케스트라는 쉬게 했어요. 신전 장면에서 왕이 들어올 때 연주되는 조용한 행진곡도 이때 썼지요. 초연은 1781년 1월 29일 뮌헨에서 열렸어요.",
+    "en": "The image is a page of the Idomeneo autograph, though not the underground-voice scene described in the letter. In Act III of Idomeneo an oracle's voice sounds from underground and decides the king's fate; Wolfgang gives it only three trombones and two horns, with the rest of the orchestra silent. He also wrote the quiet march for the king's entry into the temple. The premiere took place in Munich on 29 January 1781.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 138 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -1032,14 +1337,83 @@
     "en": "Lost in the third act",
     "ko": "3막에 푹 빠져"
    },
-   "plate_hint": {
-    "idea": "Period trombones / the 'Voce' page of the Idomeneo autograph; or a stage design for the temple scene (Lorenzo Quaglio, named in No. 127).",
-    "search": [
-     "Idomeneo autograph score",
-     "Lorenzo Quaglio stage design",
-     "sackbut trombone 18th century"
-    ],
-    "kind": "score"
+   "plate": {
+    "title_de": "Idomeneo, Seite der autographen Partitur",
+    "title_en": "Idomeneo, a page of the autograph score",
+    "title_ko": "〈이도메네오〉 자필 악보의 한 쪽",
+    "date": "1780–81",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Idomeneo_score.jpg",
+    "credit": "Wolfgang Amadeus Mozart",
+    "why": {
+     "ko": "볼프강이 ‘머리도 손도 꽉 차 있다’던 바로 그 오페라의 자필 악보예요. 편지 속 신탁 장면의 쪽은 아니에요.",
+     "en": "Wolfgang's own score of the opera that filled his 'head and hands'; this is not the page with the oracle scene."
+    },
+    "image": "m-c4-l6.jpg",
+    "kind": "score",
+    "spots": [
+     {
+      "x": 0.22,
+      "y": 0.3,
+      "title": {
+       "de": "Mozarts Handschrift",
+       "en": "Mozart's handwriting",
+       "ko": "모차르트의 손글씨"
+      },
+      "note": {
+       "ko": "빠르게 써 내려간 음표들. 가운데에는 줄을 그어 지운 마디들도 보여요.",
+       "en": "Notes written at speed; in the middle, bars struck out with cross-hatching."
+      },
+      "word": {
+       "de": "Hände",
+       "en": "hands",
+       "ko": "손",
+       "ipa": "ˈhɛndə"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.25,
+      "y": 0.6,
+      "title": {
+       "de": "Singstimmen",
+       "en": "The voices",
+       "ko": "노랫말과 성부"
+      },
+      "note": {
+       "ko": "노랫말이 적힌 성부들. 이 쪽은 합창이고, 땅속 신탁의 목소리는 다른 쪽에 있어요.",
+       "en": "Vocal lines with words beneath. These are chorus voices; the oracle's underground voice is on another page."
+      },
+      "word": {
+       "de": "Stimme",
+       "en": "voice",
+       "ko": "목소리",
+       "ipa": "ˈʃtɪmə"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.6,
+      "y": 0.54,
+      "title": {
+       "de": "Sotto voce",
+       "en": "Sotto voce",
+       "ko": "소토 보체"
+      },
+      "note": {
+       "ko": "‘sotto voce’, 소리를 낮춰서. 신전 행진곡에 붙인 ‘a mezza voce’(반쯤 낮춘 소리)와 같은 계열의 지시예요.",
+       "en": "'Sotto voce', under the voice: a marking of the same family as the 'a mezza voce' he gave the temple march."
+      },
+      "word": {
+       "de": "voce",
+       "en": "voce",
+       "ko": "소리",
+       "ipa": "ˈvoːtʃe"
+      },
+      "quote": 2
+     }
+    ]
    }
   },
   {
@@ -1209,14 +1583,63 @@
     "en": "Papa arrives soon",
     "ko": "곧 아버지가 와요"
    },
-   "plate_hint": {
-    "idea": "Title page of the printed Idomeneo libretto (Munich 1781).",
-    "search": [
-     "Idomeneo libretto 1781 title page",
-     "Idomeneo re di Creta 1781 libretto",
-     "Mozart Idomeneo Munich 1781"
-    ],
-    "kind": "score"
+   "plate": {
+    "title_de": "Idomeneo, Titelblatt des italienischen Librettos (München 1781)",
+    "title_en": "Idomeneo, title page of the Italian libretto (Munich 1781)",
+    "title_ko": "〈이도메네오〉 이탈리아어 대본 표지 (뮌헨, 1781)",
+    "date": "1781",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Mozart_-_Idomeneo_-_italian_title_page_of_the_libretto_-_Munich_1781.png",
+    "credit": "Giambattista Varesco / Wolfgang Amadeus Mozart",
+    "why": {
+     "ko": "초연에 맞춰 뮌헨에서 찍은 〈이도메네오〉 대본의 표지예요. 편지에서 ‘너무 길다’던 바로 그 대본이에요.",
+     "en": "The title page of the Idomeneo libretto printed in Munich for the premiere: the very text Mozart calls far too long."
+    },
+    "image": "m-c4-l7.jpg",
+    "kind": "score",
+    "spots": [
+     {
+      "x": 0.45,
+      "y": 0.73,
+      "title": {
+       "de": "La Poesia è del Signor Abate Varesco",
+       "en": "'The poetry is by Abbate Varesco'",
+       "ko": "‘시는 바레스코 신부’"
+      },
+      "note": {
+       "ko": "대본은 잘츠부르크의 바레스코 신부가 썼어요. 볼프강은 그 시가 너무 길다고 늘 말했지요.",
+       "en": "The libretto was by Abbate Varesco of Salzburg; Wolfgang always said the poetry was too long."
+      },
+      "word": {
+       "de": "Poesie",
+       "en": "poetry",
+       "ko": "대본",
+       "ipa": "poeˈziː"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.55,
+      "y": 0.785,
+      "title": {
+       "de": "La Musica è del Signor Maestro … Mozart",
+       "en": "'The music is by Maestro … Mozart'",
+       "ko": "‘음악은 모차르트’"
+      },
+      "note": {
+       "ko": "‘음악은 볼로냐 아카데미 회원 볼프강고 아마데오 모차르트’. 대본이 길면 음악도 길어지지요.",
+       "en": "'The music is by Wolfgango Amadeo Mozart, Academician of Bologna.' If the poetry is long, so is the music."
+      },
+      "word": {
+       "de": "Musik",
+       "en": "music",
+       "ko": "음악",
+       "ipa": "muˈziːk"
+      },
+      "quote": 2
+     }
+    ]
    }
   }
  ]
