@@ -11,10 +11,10 @@
    "id": "c1-l1",
    "wallace_no": 3,
    "nohl_pages": [
+    7,
     8
    ],
    "date": "1770-01-26",
-   "dateNote": "Nohl's date line stands on p. 7, which is missing from the scan set; date as in Wallace (Milan, Jan. 26, 1770).",
    "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 3 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
    "place": "Mailand",
    "to": {
@@ -25,15 +25,15 @@
    "mood": "bright",
    "messages": [
     {
-     "de": "Neues weiß ich Nichts, als daß Herr Gellert, der Poet zu Leipzig, gestorben ist und dann nach seinem Tode keine Poesien mehr gemacht hat.",
-     "en": "I know nothing new except that Herr Gellert, the Leipzig poet, is dead, and has written no more poetry since his death.",
-     "ko": "새 소식은 없어. 라이프치히의 시인 겔레르트 씨가 죽었고, 죽은 뒤로는 시를 더 안 썼다는 것 말고는.",
+     "de": "Mich freut es recht von ganzem Herzen, daß Du bei der Schlittenfahrt, von der Du mir schreibst, Dich so sehr ergötzt hast, und ich wünsche Dir tausend Gelegenheiten zur Ergötzung, damit Du recht lustig Dein Leben zubringen mögtest.",
+     "en": "I rejoice in my heart that you were so well amused at the sledging party you write to me about, and I wish you a thousand opportunities of pleasure, so that you may pass your life merrily.",
+     "ko": "누나가 편지에 쓴 썰매 타기가 그렇게 즐거웠다니 진심으로 기뻐. 누나한테 즐거울 일이 천 번은 더 생겨서, 평생 신나게 살면 좋겠어.",
      "verified": true,
      "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 3 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
      "speak": {
-      "de": "Neues weiß ich Nichts, / als daß Herr Gellert, / der Poet zu Leipzig, / gestorben ist und dann nach seinem Tode keine Poesien mehr gemacht hat.",
-      "en": "I know nothing new except that Herr Gellert, / the Leipzig poet, / is dead, / and has written no more poetry since his death.",
-      "ko": "새 소식은 없어. // 라이프치히의 시인 겔레르트 씨가 죽었고, / 죽은 뒤로는 시를 더 안 썼다는 것 말고는."
+      "de": "Mich freut es recht von ganzem Herzen, / daß Du bei der Schlittenfahrt, / von der Du mir schreibst, / Dich so sehr ergötzt hast, / und ich wünsche Dir tausend Gelegenheiten zur Ergötzung, / damit Du recht lustig Dein Leben zubringen mögtest.",
+      "en": "I rejoice in my heart that you were so well amused at the sledging party you write to me about, / and I wish you a thousand opportunities of pleasure, / so that you may pass your life merrily.",
+      "ko": "누나가 편지에 쓴 썰매 타기가 그렇게 즐거웠다니 진심으로 기뻐. // 누나한테 즐거울 일이 천 번은 더 생겨서, / 평생 신나게 살면 좋겠어."
      }
     },
     {
