@@ -569,4 +569,30 @@ class ScreensTest {
         s.save("vincent", "V", l.id, s.progress("vincent", "V", l.id).copy(shown = 2))
         shot("r12_room_c5l3", false, 3000, series = s) { Room(s, Route.Letter("vincent", 5, 3)) }
     }
+
+    // ── 모차르트 (릴리즈 전 점검): '*ScreensTest.mozart*' 로 따로 돌린다.
+    private fun shownAll(s: AppState, ch: Int, n: Int) {
+        val c = s.work("mozart").chapters[ch - 1]; val l = c.letters[n - 1]
+        s.save("mozart", c.id, l.id, s.progress("mozart", c.id, l.id).copy(shown = l.messages.size))
+    }
+    private fun mozartDone(s: AppState) = s.work("mozart").chapters.forEach { c ->
+        c.letters.forEach { l -> s.save("mozart", c.id, l.id, s.progress("mozart", c.id, l.id).copy(shown = l.messages.size, done = true)) }
+    }
+    @Test fun mozartLibrary() { val s = state(true); shot("m01_library", true) { LibraryTab(s) } }
+    @Test fun mozartRoom() { val s = state(true); shownAll(s, 1, 4); shot("m02_room_c1l4", false, 4000, series = s) { Room(s, Route.Letter("mozart", 1, 4)) } }
+    @Test fun mozartMusicSheet() {
+        val s = state(true); shownAll(s, 7, 3)
+        shot("m03_music_sheet", false, 4000, act = {
+            rule.onNodeWithText(ctx.getString(io.github.graviton94.todayletters.R.string.music_chip), substring = true).performClick()
+        }, series = s) { Room(s, Route.Letter("mozart", 7, 3)) }
+    }
+    @Test fun mozartWalkEra() { val s = state(true); shot("m04_walk_era", true, series = s) { Artwork(s, Route.Artwork("mozart", 1, Route.Letter("mozart", 1, 3))) } }
+    @Test fun mozartWalkScore() {
+        val s = state(true)
+        shot("m05_walk_score", false, act = { rule.onNodeWithText(io.github.graviton94.todayletters.core.Breaks.keepAll("산책 시작")).performClick() }, series = s) { Artwork(s, Route.Artwork("mozart", 6, Route.Letter("mozart", 6, 5))) }
+    }
+    @Test fun mozartPrologue() { val s = state(true); shot("m06_prologue_p1", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 0)) } }
+    @Test fun mozartArrival() { val s = state(true); shot("m07_prologue_arrival", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 3)) } }
+    @Test fun mozartOutro() { val s = state(true); mozartDone(s); shot("m08_outro", true, 3000) { io.github.graviton94.todayletters.ui.OutroScreen(s, "mozart") } }
+    @Test fun mozartCover() { val s = state(true); shot("m09_cover", false, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "mozart") } }
 }
