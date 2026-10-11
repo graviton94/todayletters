@@ -378,7 +378,7 @@ fun ChapterRow(
         horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
     ) {
         // 번호 칸은 폭을 고정 (I · III · VIII 이어도 제목이 같은 자리에서 시작)
-        Text(numeral, style = Type.numeral, color = p.giltText, modifier = Modifier.width(36.dp))
+        Text(numeral, style = Type.numeral, color = p.giltText, maxLines = 1, softWrap = false, modifier = Modifier.width(52.dp))
         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
             val balanced = androidx.compose.ui.text.style.LineBreak.Heading
             val keep = io.github.graviton94.todayletters.core.Breaks::keepAll   // 어절 가운데서 끊기지 않게 (몇 번 거쳐도 같음)
