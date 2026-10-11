@@ -164,14 +164,83 @@
     "en": "The confession",
     "ko": "사랑의 고백"
    },
-   "plate_hint": {
-    "idea": "Portrait of Constanze Mozart by Joseph Lange (1782).",
-    "search": [
-     "Constanze Mozart Joseph Lange 1782",
-     "Constanze Mozart portrait Lange",
-     "Constanze Weber portrait"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Constanze Mozart",
+    "title_en": "Constanze Mozart",
+    "title_ko": "콘스탄체 모차르트",
+    "date": "1782",
+    "collection": "Hunterian Museum and Art Gallery, University of Glasgow (GLAHA 43746)",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Joseph_Lange_(1751-1831)_-_Constanze_Mozart_(1762–1842)_(wife_of_Wolfgang_Amadeus_Mozart)_-_GLAHA-43746_-_Hunterian_Museum_and_Art_Gallery.jpg",
+    "credit": "Joseph Lange",
+    "why": {
+     "ko": "모차르트가 이 편지에서 처음 아버지께 소개한 콘스탄체를, 그녀의 형부 요제프 랑게가 결혼하던 해에 그렸어요.",
+     "en": "The Constanze whom Mozart first describes to his father in this letter, painted in the year of their marriage by her brother-in-law Joseph Lange."
+    },
+    "image": "m-c6-l1.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.52,
+      "y": 0.36,
+      "title": {
+       "de": "Die Augen",
+       "en": "The eyes",
+       "ko": "눈"
+      },
+      "note": {
+       "ko": "‘작고 까만 두 눈.’ 모차르트가 꼽은 그녀의 아름다움이에요.",
+       "en": "‘A pair of bright black eyes’: the beauty Mozart names first."
+      },
+      "word": {
+       "de": "Augen",
+       "en": "eyes",
+       "ko": "눈",
+       "ipa": "ˈaʊ̯ɡn̩"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.5,
+      "y": 0.24,
+      "title": {
+       "de": "Das Haar",
+       "en": "The hair",
+       "ko": "머리"
+      },
+      "note": {
+       "ko": "‘머리도 날마다 혼자 손질하고.’ 곱슬곱슬한 검은 머리예요.",
+       "en": "‘She dresses her own hair’: dark curls, done by herself."
+      },
+      "word": {
+       "de": "frisirt",
+       "en": "hair",
+       "ko": "머리",
+       "ipa": "fʁiˈziːɐ̯t"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.62,
+      "y": 0.68,
+      "title": {
+       "de": "Das weiße Kleid",
+       "en": "The white dress",
+       "ko": "하얀 옷"
+      },
+      "note": {
+       "ko": "‘고운 몸매.’ 소박한 하얀 옷차림이에요.",
+       "en": "‘A pretty figure’, in a plain white dress."
+      },
+      "word": {
+       "de": "Wachsthum",
+       "en": "figure",
+       "ko": "몸매",
+       "ipa": "ˈvakstuːm"
+      },
+      "quote": 3
+     }
+    ]
    }
   },
   {
@@ -304,8 +373,8 @@
     }
    ],
    "note": {
-    "ko": "모차르트는 콘스탄체와 결혼하기 위해 확실한 수입을 찾고 있었어요. 이 편지에서 그는 젊은 리히텐슈타인 후작의 관악 합주단, 황제, 그리고 막시밀리안 대공이라는 세 가지 가능성을 따져 봐요. 독일어 원문은 '내 사랑스럽고 진실한 아가씨'라고만 쓰고, 월리스의 영어 번역은 그 자리에 콘스탄체의 이름을 넣었어요.",
-    "en": "Mozart was looking for a steady income so that he could marry Constanze. In this letter he weighs three prospects: a wind band for the young Prince Liechtenstein, the Emperor himself, and Archduke Maximilian. The German says only 'my dear faithful girl'; Wallace's English puts Constanze's name in its place.",
+    "ko": "그림은 1870년에 헐린 케른트너토어 극장을 훗날 다시 그린 수채화예요. 모차르트는 콘스탄체와 결혼하기 위해 확실한 수입을 찾고 있었어요. 이 편지에서 그는 젊은 리히텐슈타인 후작의 관악 합주단, 황제, 그리고 막시밀리안 대공이라는 세 가지 가능성을 따져 봐요. 독일어 원문은 '내 사랑스럽고 진실한 아가씨'라고만 쓰고, 월리스의 영어 번역은 그 자리에 콘스탄체의 이름을 넣었어요.",
+    "en": "The watercolour is a later view of the Kärntnertor Theatre, which was pulled down in 1870. Mozart was looking for a steady income so that he could marry Constanze. In this letter he weighs three prospects: a wind band for the young Prince Liechtenstein, the Emperor himself, and Archduke Maximilian. The German says only 'my dear faithful girl'; Wallace's English puts Constanze's name in its place.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -330,14 +399,83 @@
     "en": "Hoping for steady pay",
     "ko": "고정 수입을 바라며"
    },
-   "plate_hint": {
-    "idea": "Vienna Kärntnertor Theatre / Burgtheater, where he planned his Lent concerts.",
-    "search": [
-     "Kärntnertortheater Wien",
-     "Burgtheater Michaelerplatz 18th century",
-     "Vienna Burgtheater engraving 1780s"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Das Kärntnertortheater in Wien",
+    "title_en": "The Kärntnertor Theatre in Vienna",
+    "title_ko": "빈의 케른트너토어 극장",
+    "date": "c. 1900 (view of the old theatre)",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Karl_Wenzel_Zajicek_Kärtnertortheater_2.jpg",
+    "credit": "Carl Wenzel Zajicek",
+    "why": {
+     "ko": "모차르트가 찾던 ‘확실한 수입’은 황제와 궁정에서 나왔어요. 케른트너토어 극장은 그런 빈의 궁정 극장 가운데 하나였어요.",
+     "en": "The ‘certain income’ Mozart was after would come from the Emperor and his court; the Kärntnertor Theatre was one of Vienna's court theatres."
+    },
+    "image": "m-c6-l2.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.47,
+      "y": 0.13,
+      "title": {
+       "de": "Das kaiserliche Wappen",
+       "en": "The imperial arms",
+       "ko": "황실 문장"
+      },
+      "note": {
+       "ko": "지붕 위 문장. 모차르트가 가장 바란 후원자는 황제 자신이었어요.",
+       "en": "The arms on the roof: the patron Mozart wanted most was the Emperor himself."
+      },
+      "word": {
+       "de": "Kaiser",
+       "en": "Emperor",
+       "ko": "황제",
+       "ipa": "ˈkaɪ̯zɐ"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.63,
+      "y": 0.84,
+      "title": {
+       "de": "Eine Kutsche",
+       "en": "A carriage",
+       "ko": "마차"
+      },
+      "note": {
+       "ko": "마차를 타고 오가는 궁정 사람들. ‘절대 믿을 수가 없어요.’",
+       "en": "Courtiers coming and going by carriage: ‘never to be trusted’."
+      },
+      "word": {
+       "de": "Hofschranzen",
+       "en": "courtiers",
+       "ko": "궁정 사람들",
+       "ipa": "ˈhoːfʃʁantsn̩"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.52,
+      "y": 0.76,
+      "title": {
+       "de": "Der Eingang",
+       "en": "The entrance",
+       "ko": "입구"
+      },
+      "note": {
+       "ko": "공연과 음악회는 모차르트가 바란 ‘현금’을 벌어 주는 길이었어요.",
+       "en": "Performances and concerts were one way to the ‘ready money’ Mozart wanted."
+      },
+      "word": {
+       "de": "Geld",
+       "en": "money",
+       "ko": "현금",
+       "ipa": "ɡɛlt"
+      },
+      "quote": 3
+     }
+    ]
    }
   },
   {
@@ -507,14 +645,63 @@
     "en": "Fugues for Constanze",
     "ko": "콘스탄체를 위한 푸가"
    },
-   "plate_hint": {
-    "idea": "Portrait of Baron Gottfried van Swieten, or the first page of the Prelude and Fugue in C, K. 394 (autograph/first edition).",
-    "search": [
-     "Gottfried van Swieten portrait",
-     "Mozart K. 394 Prelude and Fugue",
-     "Gottfried van Swieten engraving"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Gottfried van Swieten",
+    "title_en": "Gottfried van Swieten",
+    "title_ko": "고트프리트 판 스비텐",
+    "date": "18th century",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Gottried_van_Swieten_(c_clavereau).jpg",
+    "credit": "C. Clavereau",
+    "why": {
+     "ko": "모차르트가 일요일마다 찾아가 헨델과 바흐를 연주한 판 스비텐 남작이에요.",
+     "en": "Baron van Swieten, whose house Mozart visited every Sunday to play Handel and Bach."
+    },
+    "image": "m-c6-l3.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.33,
+      "title": {
+       "de": "Baron van Swieten",
+       "en": "Baron van Swieten",
+       "ko": "판 스비텐 남작"
+      },
+      "note": {
+       "ko": "헨델과 바흐의 악보를 모차르트에게 빌려준 사람이에요.",
+       "en": "The man who lent Mozart his scores of Handel and Bach."
+      },
+      "word": {
+       "de": "Swieten",
+       "en": "Swieten",
+       "ko": "스비텐",
+       "ipa": "ˈsviːtn̩"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.6,
+      "y": 0.8,
+      "title": {
+       "de": "Der bestickte Rock",
+       "en": "The embroidered coat",
+       "ko": "수놓은 옷"
+      },
+      "note": {
+       "ko": "꽃무늬를 수놓은 옷. 궁정의 남작다운 차림이에요.",
+       "en": "An embroidered coat with flowers, the dress of a court baron."
+      },
+      "word": {
+       "de": "Baron",
+       "en": "Baron",
+       "ko": "남작",
+       "ipa": "baˈʁoːn"
+      },
+      "quote": 1
+     }
+    ]
    }
   },
   {
@@ -647,8 +834,8 @@
     }
    ],
    "note": {
-    "ko": "『후궁으로부터의 도주』는 1782년 7월 16일 빈 부르크테아터에서 처음 올려졌어요. 첫 공연을 알린 모차르트의 편지는 남아 있지 않아서, 이 편지가 그가 직접 쓴 두 번째 공연 보고예요. 그는 이틀 공연으로 1200플로린이 들어왔다고 전하며 총보 원본을 아버지께 보냈어요.",
-    "en": "Die Entführung aus dem Serail was first performed at the Burgtheater in Vienna on 16 July 1782. Mozart's letter about the premiere is lost, so this account of the second night is the first report in his own words that survives. He tells his father the two nights brought in 1,200 florins and sends him the original score.",
+    "ko": "그림은 1888년에 헐린 옛 부르크테아터를 훗날 그린 수채화예요. 『후궁으로부터의 도주』는 1782년 7월 16일 빈 부르크테아터에서 처음 올려졌어요. 첫 공연을 알린 모차르트의 편지는 남아 있지 않아서, 이 편지가 그가 직접 쓴 두 번째 공연 보고예요. 그는 이틀 공연으로 1200플로린이 들어왔다고 전하며 총보 원본을 아버지께 보냈어요.",
+    "en": "The watercolour is a later view of the old Burgtheater, which was pulled down in 1888. Die Entführung aus dem Serail was first performed at the Burgtheater in Vienna on 16 July 1782. Mozart's letter about the premiere is lost, so this account of the second night is the first report in his own words that survives. He tells his father the two nights brought in 1,200 florins and sends him the original score.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 195 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -692,14 +879,63 @@
     "en": "Full house, despite a cabal",
     "ko": "방해에도 만원 관객"
    },
-   "plate_hint": {
-    "idea": "Burgtheater, Michaelerplatz (engraving) / title page of the 1782 Entführung libretto.",
-    "search": [
-     "Burgtheater Michaelerplatz engraving",
-     "Die Entführung aus dem Serail 1782 libretto",
-     "Altes Burgtheater Wien"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Das alte Burgtheater am Michaelerplatz in Wien",
+    "title_en": "The Old Burgtheater on the Michaelerplatz in Vienna",
+    "title_ko": "빈 미하엘러 광장의 옛 부르크테아터",
+    "date": "late 19th century",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Ladislaus_Eugen_Petrovits_-_Das_alte_Burgtheater_am_Michaelerplatz_in_Wien.jpg",
+    "credit": "Ladislaus Eugen Petrovits",
+    "why": {
+     "ko": "「후궁으로부터의 도주」가 초연되고, 이 편지가 전하는 두 번째 공연이 열린 극장이에요. 그림은 극장이 헐리기 전 모습을 훗날 그린 거예요.",
+     "en": "The theatre where the Entführung had its premiere and the second night this letter reports; the picture shows it later, before it was pulled down."
+    },
+    "image": "m-c6-l4.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.47,
+      "y": 0.55,
+      "title": {
+       "de": "Das Burgtheater",
+       "en": "The Burgtheater",
+       "ko": "부르크테아터"
+      },
+      "note": {
+       "ko": "광장에 붙은 낮은 건물이 옛 부르크테아터예요.",
+       "en": "The lower building on the square is the old Burgtheater."
+      },
+      "word": {
+       "de": "Theater",
+       "en": "theatre",
+       "ko": "극장",
+       "ipa": "teˈaːtɐ"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.56,
+      "y": 0.8,
+      "title": {
+       "de": "Menschen auf dem Platz",
+       "en": "People in the square",
+       "ko": "광장의 사람들"
+      },
+      "note": {
+       "ko": "‘극장은 첫날보다 더 꽉 찼어요.’ 표는 전날 이미 동났어요.",
+       "en": "‘The theatre was almost more crowded than on the previous evening’: seats were gone the day before."
+      },
+      "word": {
+       "de": "voller",
+       "en": "crowded",
+       "ko": "꽉",
+       "ipa": "ˈfɔlɐ"
+      },
+      "quote": 3
+     }
+    ]
    }
   },
   {
@@ -866,14 +1102,83 @@
     "en": "Begging for consent",
     "ko": "결혼 허락을 청하며"
    },
-   "plate_hint": {
-    "idea": "Haffner family / Salzburg Haffner house, or the autograph of Symphony No. 35 'Haffner' K. 385.",
-    "search": [
-     "Haffner Symphony K. 385 autograph",
-     "Mozart Symphony 35 manuscript",
-     "Sigmund Haffner Salzburg"
-    ],
-    "kind": "score"
+   "plate": {
+    "title_de": "Sinfonie D-Dur „Haffner“, KV 385 – erste Seite des Autographs",
+    "title_en": "Symphony in D, ‘Haffner’, K. 385 – first page of the autograph",
+    "title_ko": "교향곡 D장조 「하프너」 K. 385 – 자필 악보 첫 장",
+    "date": "1782",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:First_page_Mozart_K_385.jpg",
+    "credit": "Wolfgang Amadeus Mozart",
+    "why": {
+     "ko": "이 편지와 함께 보낸 바로 그 첫 알레그로의 자필 악보 첫 장이에요.",
+     "en": "The first page of Mozart's own manuscript of the very first allegro he sent with this letter."
+    },
+    "image": "m-c6-l5.jpg",
+    "kind": "score",
+    "spots": [
+     {
+      "x": 0.07,
+      "y": 0.12,
+      "title": {
+       "de": "Zwei Kreuze: D-Dur",
+       "en": "Two sharps: D major",
+       "ko": "샵 두 개: 라장조"
+      },
+      "note": {
+       "ko": "‘라장조로 썼어요. 아버지가 그 조를 더 좋아하시니까요.’",
+       "en": "‘I wrote it in D because you prefer that key.’"
+      },
+      "word": {
+       "de": "D",
+       "en": "D",
+       "ko": "라장조",
+       "ipa": "deː"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.4,
+      "y": 0.06,
+      "title": {
+       "de": "„Synfonia“",
+       "en": "‘Synfonia’",
+       "ko": "「신포니아」"
+      },
+      "note": {
+       "ko": "맨 위에 모차르트가 직접 쓴 제목이에요.",
+       "en": "The title in Mozart's own hand at the top."
+      },
+      "word": {
+       "de": "gemacht",
+       "en": "wrote",
+       "ko": "썼어요",
+       "ipa": "ɡəˈmaxt"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.82,
+      "y": 0.08,
+      "title": {
+       "de": "„à Vienna nel mese di Luglio 1782“",
+       "en": "‘Vienna, in the month of July 1782’",
+       "ko": "「1782년 7월, 빈에서」"
+      },
+      "note": {
+       "ko": "마음이 불안하고 머리가 어지럽다던 그 7월에 쓴 곡이에요.",
+       "en": "Written in the very July when his heart was troubled and his head confused."
+      },
+      "word": {
+       "de": "arbeiten",
+       "en": "work",
+       "ko": "일",
+       "ipa": "ˈaʁbaɪ̯tn̩"
+      },
+      "quote": 4
+     }
+    ]
    }
   },
   {
@@ -1005,8 +1310,8 @@
     }
    ],
    "note": {
-    "ko": "모차르트와 콘스탄체는 1782년 8월 4일 빈에서 결혼했어요. 아버지의 허락 편지는 결혼식 다음 날에야 도착했어요. 증인으로는 콘스탄체의 어머니와 막내 여동생, 후견인 토르바르트, 그리고 잘츠부르크 출신 길로프스키가 함께했어요.",
-    "en": "Mozart and Constanze were married in Vienna on 4 August 1782. His father's letters of consent arrived only the day after the wedding. Constanze's mother and youngest sister, her guardian von Thorwarth, and Gilofsky from Salzburg were among the few present.",
+    "ko": "같은 시절 벨베데레에서 바라본 빈 그림으로, 결혼식을 그린 것은 아니에요. 모차르트와 콘스탄체는 1782년 8월 4일 빈에서 결혼했어요. 아버지의 허락 편지는 결혼식 다음 날에야 도착했어요. 증인으로는 콘스탄체의 어머니와 막내 여동생, 후견인 토르바르트, 그리고 잘츠부르크 출신 길로프스키가 함께했어요.",
+    "en": "A painting of Vienna seen from the Belvedere in the same era, not a picture of the wedding. Mozart and Constanze were married in Vienna on 4 August 1782. His father's letters of consent arrived only the day after the wedding. Constanze's mother and youngest sister, her guardian von Thorwarth, and Gilofsky from Salzburg were among the few present.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 199 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -1041,14 +1346,83 @@
     "en": "Married at last",
     "ko": "마침내 결혼"
    },
-   "plate_hint": {
-    "idea": "St. Stephen's Cathedral, Vienna (the wedding church, 4 Aug. 1782 — church not named in the letter) or the marriage register entry.",
-    "search": [
-     "Stephansdom Wien 18th century engraving",
-     "St. Stephen's Cathedral Vienna 1780s",
-     "Mozart marriage register Stephansdom"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Wien vom Belvedere aus gesehen",
+    "title_en": "Vienna Viewed from the Belvedere",
+    "title_ko": "벨베데레에서 바라본 빈",
+    "date": "1758–1761",
+    "collection": "Kunsthistorisches Museum, Vienna",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Bernardo_Bellotto,_il_Canaletto_-_View_of_Vienna_from_the_Belvedere_(cropped).jpg",
+    "credit": "Bernardo Bellotto",
+    "why": {
+     "ko": "모차르트와 콘스탄체는 성 슈테판 대성당에서 결혼했어요. 이 그림의 지평선에 그 첨탑이 솟아 있어요.",
+     "en": "Mozart and Constanze were married in St Stephen's Cathedral; its spire rises on the skyline of this painting."
+    },
+    "image": "m-c6-l6.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.2,
+      "y": 0.2,
+      "title": {
+       "de": "Der Stephansdom",
+       "en": "St Stephen's Cathedral",
+       "ko": "성 슈테판 대성당"
+      },
+      "note": {
+       "ko": "높은 첨탑의 성당에서 두 사람은 하느님의 이름으로 부부가 되었어요.",
+       "en": "In the cathedral with the tall spire the two were married ‘by the blessing of God’."
+      },
+      "word": {
+       "de": "trauen",
+       "en": "married",
+       "ko": "결혼",
+       "ipa": "ˈtʁaʊ̯ən"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.66,
+      "y": 0.67,
+      "title": {
+       "de": "Ein Paar im Garten",
+       "en": "A couple in the garden",
+       "ko": "정원의 한 쌍"
+      },
+      "note": {
+       "ko": "‘아내도 저도 울기 시작했어요.’",
+       "en": "‘Both my wife and I shed tears.’"
+      },
+      "word": {
+       "de": "Frau",
+       "en": "wife",
+       "ko": "아내",
+       "ipa": "fʁaʊ̯"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.35,
+      "y": 0.82,
+      "title": {
+       "de": "Gäste in Rot",
+       "en": "Guests in red",
+       "ko": "붉은 옷의 손님들"
+      },
+      "note": {
+       "ko": "결혼 잔치는 저녁 식사 한 번이었지만, ‘제후가의 것 같았어요.’",
+       "en": "The wedding feast was one supper, but ‘more princely than baronial’."
+      },
+      "word": {
+       "de": "fürstlich",
+       "en": "princely",
+       "ko": "제후가",
+       "ipa": "ˈfʏʁstlɪç"
+      },
+      "quote": 3
+     }
+    ]
    }
   },
   {
@@ -1207,14 +1581,63 @@
     "en": "Made for each other",
     "ko": "서로를 위해 태어난 두 사람"
    },
-   "plate_hint": {
-    "idea": "Portrait of Prince Wenzel Anton Kaunitz (quoted in the letter praising Mozart).",
-    "search": [
-     "Wenzel Anton Kaunitz portrait",
-     "Fürst Kaunitz-Rietberg Gemälde",
-     "Kaunitz engraving 18th century"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Wenzel Anton Graf von Kaunitz-Rietberg",
+    "title_en": "Wenzel Anton Count Kaunitz-Rietberg",
+    "title_ko": "벤첼 안톤 카우니츠-리트베르크 백작",
+    "date": "18th century (before 1770)",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Wenzel_Anton_Graf_von_Kaunitz-Riethberg.jpg",
+    "credit": "Martin van Meytens",
+    "why": {
+     "ko": "이 편지에서 카우니츠 후작은 모차르트 같은 사람은 ‘백 년에 한 번 난다’고 말했다고 해요. 초상화는 그가 훨씬 젊었을 때 그린 거예요.",
+     "en": "In this letter Prince Kaunitz is reported to have said that such people ‘only come into the world once in a hundred years’; the portrait shows him decades younger."
+    },
+    "image": "m-c6-l7.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.48,
+      "y": 0.18,
+      "title": {
+       "de": "Fürst Kaunitz",
+       "en": "Prince Kaunitz",
+       "ko": "카우니츠 후작"
+      },
+      "note": {
+       "ko": "황제의 재상 카우니츠. 그도 황제가 천재를 아끼지 않는다며 불만이었대요.",
+       "en": "Kaunitz, the Emperor's chancellor, who was himself displeased that the Emperor did not value genius more."
+      },
+      "word": {
+       "de": "Kaiser",
+       "en": "Emperor",
+       "ko": "황제",
+       "ipa": "ˈkaɪ̯zɐ"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.37,
+      "y": 0.46,
+      "title": {
+       "de": "Der Orden",
+       "en": "The order",
+       "ko": "훈장"
+      },
+      "note": {
+       "ko": "궁정의 높은 자리를 보여 주는 훈장. 모차르트는 자리를 구걸하지 않겠다고 해요.",
+       "en": "An order of high court rank; Mozart will not beg for a post."
+      },
+      "word": {
+       "de": "Dienst",
+       "en": "appointment",
+       "ko": "자리",
+       "ipa": "diːnst"
+      },
+      "quote": 3
+     }
+    ]
    }
   }
  ]

@@ -138,8 +138,8 @@
     }
    ],
    "note": {
-    "ko": "모차르트는 1781년 3월 16일, 대주교 콜로레도의 부름을 받고 뮌헨에서 빈으로 왔어요. 대주교 일행은 징어슈트라세의 ‘독일 기사단 저택(Deutsches Haus)’에 묵었고, 모차르트도 그곳에 방을 얻었지만 식탁에서는 시종들 아래, 요리사들 위에 앉았어요. 편지를 쓴 곳은 어린 시절 인연이 있던 메스머 가의 정원이에요.",
-    "en": "On 16 March 1781 Mozart arrived in Vienna from Munich, summoned by Archbishop Colloredo. The Archbishop's household lodged at the Deutsches Haus in the Singerstrasse, and Mozart had a room there too, but at table he sat below the valets and above the cooks. He wrote this letter in the Mesmers' garden on the Landstrasse.",
+    "ko": "그림은 백 년 남짓 뒤, 1900년대 초에 그린 빈의 징어슈트라세예요. 모차르트는 1781년 3월 16일, 대주교 콜로레도의 부름을 받고 뮌헨에서 빈으로 왔어요. 대주교 일행은 징어슈트라세의 ‘독일 기사단 저택(Deutsches Haus)’에 묵었고, 모차르트도 그곳에 방을 얻었지만 식탁에서는 시종들 아래, 요리사들 위에 앉았어요. 편지를 쓴 곳은 어린 시절 인연이 있던 메스머 가의 정원이에요.",
+    "en": "A view of the Singerstrasse painted more than a century later, in the early 1900s. On 16 March 1781 Mozart arrived in Vienna from Munich, summoned by Archbishop Colloredo. The Archbishop's household lodged at the Deutsches Haus in the Singerstrasse, and Mozart had a room there too, but at table he sat below the valets and above the cooks. He wrote this letter in the Mesmers' garden on the Landstrasse.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 141 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -180,14 +180,63 @@
     "en": "At the Deutsches Haus",
     "ko": "독일 기사단 저택에서"
    },
-   "plate_hint": {
-    "idea": "The Deutschordenshaus (Deutsches Haus), Singerstrasse, Vienna — his address at the end of the letter; or Colloredo's portrait.",
-    "search": [
-     "Deutschordenshaus Singerstraße Wien",
-     "Deutschordenskirche Wien Singerstraße",
-     "Hieronymus von Colloredo portrait"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Die Singerstraße in Wien",
+    "title_en": "The Singerstrasse, Vienna",
+    "title_ko": "빈의 징어슈트라세",
+    "date": "early 20th century",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:August_Mandlick_Wien_Singerstraße.jpg",
+    "credit": "August Mandlick",
+    "why": {
+     "ko": "모차르트가 빈에 도착해 방을 얻은 독일 기사단 저택이 이 거리에 있어요. 그림은 그보다 백 년 넘게 뒤의 거리 모습이에요.",
+     "en": "The Deutsches Haus, where Mozart was given his room on arrival, stands in this street; the painting shows it more than a century later."
+    },
+    "image": "m-c5-l1.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.53,
+      "y": 0.3,
+      "title": {
+       "de": "Der Turm der Deutschordenskirche",
+       "en": "The tower of the Teutonic Order's church",
+       "ko": "독일 기사단 성당의 탑"
+      },
+      "note": {
+       "ko": "이 탑 곁에 독일 기사단 저택이 있어요. 대주교가 묵은 ‘바로 그 집’이에요.",
+       "en": "Beside this tower stands the Deutsches Haus, the very house where the Archbishop lodged."
+      },
+      "word": {
+       "de": "Hause",
+       "en": "house",
+       "ko": "집",
+       "ipa": "ˈhaʊ̯zə"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.46,
+      "y": 0.74,
+      "title": {
+       "de": "Ein Wagen",
+       "en": "A carriage",
+       "ko": "마차"
+      },
+      "note": {
+       "ko": "1781년 3월, 모차르트는 혼자 우편 마차를 타고 빈에 왔어요.",
+       "en": "In March 1781 Mozart came to Vienna alone, in a post-chaise."
+      },
+      "word": {
+       "de": "Postchaise",
+       "en": "post-chaise",
+       "ko": "마차",
+       "ipa": "ˈpɔstʃɛːzə"
+      },
+      "quote": 0
+     }
+    ]
    }
   },
   {
@@ -348,14 +397,63 @@
     "en": "Free of the Salzburg service",
     "ko": "잘츠부르크 궁정에서 벗어나"
    },
-   "plate_hint": {
-    "idea": "Portrait of Prince-Archbishop Hieronymus Colloredo (Johann Michael Greiter, 1775).",
-    "search": [
-     "Hieronymus von Colloredo Greiter",
-     "Hieronymus Colloredo portrait",
-     "Fürsterzbischof Colloredo"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Hieronymus Graf von Colloredo, Fürsterzbischof von Salzburg",
+    "title_en": "Hieronymus Count Colloredo, Prince-Archbishop of Salzburg",
+    "title_ko": "잘츠부르크 대주교 히에로니무스 콜로레도 백작",
+    "date": "1775",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Hieronymus_Graf_von_Colloredo_01.jpg",
+    "credit": "Johann Michael Greiter",
+    "why": {
+     "ko": "이 편지에서 모차르트와 큰 소리로 다툰 사람, 잘츠부르크 대주교 콜로레도예요.",
+     "en": "The man Mozart quarrelled with in this letter: Colloredo, Prince-Archbishop of Salzburg."
+    },
+    "image": "m-c5-l2.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.45,
+      "y": 0.27,
+      "title": {
+       "de": "Der Erzbischof",
+       "en": "The Archbishop",
+       "ko": "대주교"
+      },
+      "note": {
+       "ko": "‘말을 한마디도 꺼낼 수가 없었어요.’ 이 차분한 얼굴의 말이 불길처럼 쏟아졌대요.",
+       "en": "‘It was impossible to get in a syllable’: from this calm face the words blazed away like a fire."
+      },
+      "word": {
+       "de": "Rede",
+       "en": "words",
+       "ko": "말",
+       "ipa": "ˈʁeːdə"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.48,
+      "y": 0.45,
+      "title": {
+       "de": "Das Brustkreuz",
+       "en": "The pectoral cross",
+       "ko": "가슴의 십자가"
+      },
+      "note": {
+       "ko": "대주교의 십자가. 모차르트는 이날 잘츠부르크 궁정을 떠났어요.",
+       "en": "The cross of his office. That day Mozart left the Salzburg service."
+      },
+      "word": {
+       "de": "salzburgischen",
+       "en": "Salzburg",
+       "ko": "잘츠부르크",
+       "ipa": "ˈzaltsbʊʁɡɪʃ"
+      },
+      "quote": 1
+     }
+    ]
    }
   },
   {
@@ -490,8 +588,8 @@
     }
    ],
    "note": {
-    "ko": "모차르트는 사직 청원서를 대주교에게 직접 전하려 했지만, 대주교의 궁정 주방장관(Oberstküchenmeister) 아르코 백작은 몇 주 동안 이를 막다가 결국 그를 대기실에서 발길질로 쫓아냈어요. 이 일로 잘츠부르크 궁정과의 관계는 완전히 끝났고, 모차르트는 다시는 그 자리로 돌아가지 않았어요.",
-    "en": "Mozart tried to hand his petition for discharge to the Archbishop in person; Count Arco, the Archbishop's Oberstküchenmeister (high steward of the kitchen), put him off for weeks and finally threw him out of the antechamber with a kick. With this the break with the Salzburg court was final; Mozart never returned to its service.",
+    "ko": "같은 시절 빈의 프라이웅 광장을 그린 그림으로, 이 편지의 그 저택은 아니에요. 모차르트는 사직 청원서를 대주교에게 직접 전하려 했지만, 대주교의 궁정 주방장관(Oberstküchenmeister) 아르코 백작은 몇 주 동안 이를 막다가 결국 그를 대기실에서 발길질로 쫓아냈어요. 이 일로 잘츠부르크 궁정과의 관계는 완전히 끝났고, 모차르트는 다시는 그 자리로 돌아가지 않았어요.",
+    "en": "A painting of the Freyung in Vienna from the same era, not the house of this letter. Mozart tried to hand his petition for discharge to the Archbishop in person; Count Arco, the Archbishop's Oberstküchenmeister (high steward of the kitchen), put him off for weeks and finally threw him out of the antechamber with a kick. With this the break with the Salzburg court was final; Mozart never returned to its service.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 157 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -516,14 +614,63 @@
     "en": "Shown the door",
     "ko": "문밖으로 쫓겨나"
    },
-   "plate_hint": {
-    "idea": "The Deutsches Haus staircase/antechamber, or a portrait of Count Karl Joseph Felix Arco.",
-    "search": [
-     "Karl Joseph Felix Arco",
-     "Deutschordenshaus Wien Stiege",
-     "Deutsches Haus Singerstraße Wien Hof"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Die Freyung in Wien, Ansicht von Südosten",
+    "title_en": "The Freyung in Vienna, View from the South-East",
+    "title_ko": "빈의 프라이웅 광장, 남동쪽에서 본 모습",
+    "date": "1758–1761",
+    "collection": "Kunsthistorisches Museum, Vienna (GG 1654)",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Bernardo_Bellotto,_gen._Canaletto,_,_Kunsthistorisches_Museum_Wien,_Gemäldegalerie_-_Die_Freyung_in_Wien,_Ansicht_von_Südosten_-_GG_1654_-_Kunsthistorisches_Museum.jpg",
+    "credit": "Bernardo Bellotto",
+    "why": {
+     "ko": "아르코 백작의 발길질은 빈의 귀족 저택 대기실에서 벌어졌어요. 그림은 그보다 스무 해 앞서 그린 빈 귀족들의 광장으로, 그런 문과 방이 늘어선 도시를 보여 줘요.",
+     "en": "Count Arco's kick happened in an antechamber of a noble house in Vienna; this painting, some twenty years earlier, shows a square of such Viennese palaces, doors and rooms."
+    },
+    "image": "m-c5-l3.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.82,
+      "y": 0.67,
+      "title": {
+       "de": "Eine Haustür",
+       "en": "A doorway",
+       "ko": "대문"
+      },
+      "note": {
+       "ko": "‘문밖으로 내던지고 발길질까지.’ 저택 문은 이렇게 넓고 무거웠어요.",
+       "en": "‘To turn me out of doors with a kick!’: palace doors were wide and heavy, like this one."
+      },
+      "word": {
+       "de": "Thür",
+       "en": "doors",
+       "ko": "문",
+       "ipa": "tyːɐ̯"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.88,
+      "y": 0.45,
+      "title": {
+       "de": "Die Fenster der Beletage",
+       "en": "The windows of the main floor",
+       "ko": "2층 창문들"
+      },
+      "note": {
+       "ko": "귀족 저택의 넓은 방들은 이런 창 뒤에 있었어요. 모차르트는 그 방들에 대한 예의를 지켰어요.",
+       "en": "Behind windows like these lay the great rooms of a palace; Mozart kept his respect for them."
+      },
+      "word": {
+       "de": "fürstlichen",
+       "en": "Prince's",
+       "ko": "방",
+       "ipa": "ˈfʏʁstlɪç"
+      },
+      "quote": 2
+     }
+    ]
    }
   },
   {
@@ -657,8 +804,8 @@
     }
    ],
    "note": {
-    "ko": "‘젊은 슈테파니’, 곧 고틀리프 슈테파니가 그저께 오페라 대본을 가져왔고, 모차르트는 너무 기뻐 벌써 세 곡을 끝냈다고 써요. 놀의 판은 제목을 「벨몬트와 콘스탄체, 또는 후궁으로부터의 유혹(Verführung)」으로 찍었는데, 이 오페라가 바로 「후궁으로부터의 유괴(Entführung)」예요. 편지는 9월 중순 공연을 내다보지만, 실제 초연은 1782년 7월 16일 빈의 부르크테아터에서 열렸어요.",
-    "en": "'Young Stephanie' — Gottlieb Stephanie — had brought Mozart a libretto two days earlier, and he was so delighted that three numbers were already written. Nohl prints the title as 'Belmont und Konstanze, oder: Die Verführung aus dem Serail'; this is the opera known as Die Entführung aus dem Serail. The letter expects a performance in mid-September, but the premiere came only on 16 July 1782 at the Burgtheater in Vienna.",
+    "ko": "사진은 극장이 1888년에 헐리기 전에 찍은 옛 부르크테아터예요. ‘젊은 슈테파니’, 곧 고틀리프 슈테파니가 그저께 오페라 대본을 가져왔고, 모차르트는 너무 기뻐 벌써 세 곡을 끝냈다고 써요. 놀의 판은 제목을 「벨몬트와 콘스탄체, 또는 후궁으로부터의 유혹(Verführung)」으로 찍었는데, 이 오페라가 바로 「후궁으로부터의 유괴(Entführung)」예요. 편지는 9월 중순 공연을 내다보지만, 실제 초연은 1782년 7월 16일 빈의 부르크테아터에서 열렸어요.",
+    "en": "The photograph shows the old Burgtheater before it was pulled down in 1888. 'Young Stephanie' — Gottlieb Stephanie — had brought Mozart a libretto two days earlier, and he was so delighted that three numbers were already written. Nohl prints the title as 'Belmont und Konstanze, oder: Die Verführung aus dem Serail'; this is the opera known as Die Entführung aus dem Serail. The letter expects a performance in mid-September, but the premiere came only on 16 July 1782 at the Burgtheater in Vienna.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -693,14 +840,63 @@
     "en": "A libretto to set",
     "ko": "곡을 붙일 대본"
    },
-   "plate_hint": {
-    "idea": "Burgtheater on the Michaelerplatz (engraving, 1780s), where the Entführung premiered 16 July 1782.",
-    "search": [
-     "Altes Burgtheater Michaelerplatz",
-     "Burgtheater Wien 1783 Kupferstich",
-     "Michaelerplatz Burgtheater 18th century"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Das alte Burgtheater am Michaelerplatz",
+    "title_en": "The old Burgtheater on the Michaelerplatz",
+    "title_ko": "미하엘러 광장의 옛 부르크테아터",
+    "date": "before 1888 (photo)",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Michaelerplatz_altes_Burgtheater.jpg",
+    "credit": "Michael Frankenstein",
+    "why": {
+     "ko": "이 편지에서 쓰기 시작한 오페라가 이 극장에서 초연되었어요. 사진은 극장이 헐리기 전에 찍은 거예요.",
+     "en": "The opera begun in this letter had its premiere in this theatre; the photograph was taken before the building was pulled down."
+    },
+    "image": "m-c5-l4.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.66,
+      "y": 0.45,
+      "title": {
+       "de": "Das Burgtheater",
+       "en": "The Burgtheater",
+       "ko": "부르크테아터"
+      },
+      "note": {
+       "ko": "카발리에리와 아담베르거가 이 극장에서 모차르트의 아리아를 불렀어요.",
+       "en": "Cavalieri and Adamberger sang Mozart's arias in this house."
+      },
+      "word": {
+       "de": "Arie",
+       "en": "air",
+       "ko": "아리아",
+       "ipa": "ˈaːʁiə"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.6,
+      "y": 0.74,
+      "title": {
+       "de": "Der Eingang",
+       "en": "The entrance",
+       "ko": "입구"
+      },
+      "note": {
+       "ko": "슈테파니가 가져온 대본은 이 극장의 독일 오페라를 위한 것이었어요.",
+       "en": "The libretto Stephanie brought was meant for this theatre's German opera."
+      },
+      "word": {
+       "de": "Buch",
+       "en": "libretto",
+       "ko": "대본",
+       "ipa": "buːx"
+      },
+      "quote": 0
+     }
+    ]
    }
   },
   {
@@ -835,8 +1031,8 @@
     }
    ],
    "note": {
-    "ko": "「후궁으로부터의 유괴」를 쓰는 작업 노트 같은 편지예요. 오스민 역은 베이스 루트비히 피셔를 위해, 벨몬테의 「O wie ängstlich」는 테너 아담베르거의 목소리에 맞춰 썼다고 해요. 음악은 가장 끔찍한 장면에서도 귀를 거슬러서는 안 된다는, 모차르트의 유명한 말이 여기 나와요. 놀은 이 편지를 모차르테움 자필본이 아니라 니센의 전기에서 가져왔어요.",
-    "en": "A workshop letter on the Entführung. Mozart wrote Osmin's part for the bass Ludwig Fischer and Belmonte's 'O wie ängstlich' expressly for the tenor Adamberger's voice. Here too is his famous rule that music, even in the most terrible situations, must never offend the ear. Nohl took this letter from Nissen's biography rather than from the Mozarteum autographs.",
+    "ko": "같은 시절 빈의 성당 앞 광장을 그린 그림으로, 편지와 직접 이어진 장소는 아니에요. 「후궁으로부터의 유괴」를 쓰는 작업 노트 같은 편지예요. 오스민 역은 베이스 루트비히 피셔를 위해, 벨몬테의 「O wie ängstlich」는 테너 아담베르거의 목소리에 맞춰 썼다고 해요. 음악은 가장 끔찍한 장면에서도 귀를 거슬러서는 안 된다는, 모차르트의 유명한 말이 여기 나와요. 놀은 이 편지를 모차르테움 자필본이 아니라 니센의 전기에서 가져왔어요.",
+    "en": "A painting of a Viennese church square from the same era, not a place named in the letter. A workshop letter on the Entführung. Mozart wrote Osmin's part for the bass Ludwig Fischer and Belmonte's 'O wie ängstlich' expressly for the tenor Adamberger's voice. Here too is his famous rule that music, even in the most terrible situations, must never offend the ear. Nohl took this letter from Nissen's biography rather than from the Mozarteum autographs.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -862,14 +1058,63 @@
     "en": "Osmin rages, Belmonte trembles",
     "ko": "오스민은 성내고, 벨몬테는 떨고"
    },
-   "plate_hint": {
-    "idea": "Portrait of the bass Ludwig Fischer (the first Osmin) or an Entführung autograph page.",
-    "search": [
-     "Ludwig Fischer Bass Sänger",
-     "Johann Ignaz Ludwig Fischer",
-     "Entführung aus dem Serail autograph"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Die Dominikanerkirche in Wien",
+    "title_en": "The Dominican Church in Vienna",
+    "title_ko": "빈의 도미니코 수도회 성당",
+    "date": "1758–1761",
+    "collection": "Kunsthistorisches Museum, Vienna",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Canaletto_(I)_066.jpg",
+    "credit": "Bernardo Bellotto",
+    "why": {
+     "ko": "모차르트는 예니체리 합창을 ‘순전히 빈 사람들을 위해’ 썼다고 해요. 그림은 그보다 스무 해 앞선 빈 사람들이에요.",
+     "en": "Mozart wrote the Janissary chorus ‘entirely to please the Viennese’; here are the Viennese some twenty years earlier."
+    },
+    "image": "m-c5-l5.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.1,
+      "y": 0.85,
+      "title": {
+       "de": "Die Wiener",
+       "en": "The Viennese",
+       "ko": "빈 사람들"
+      },
+      "note": {
+       "ko": "광장에 모인 빈 사람들. 모차르트는 이들의 귀를 위해 썼어요.",
+       "en": "The people of Vienna gathered in the square: the ears Mozart was writing for."
+      },
+      "word": {
+       "de": "Wiener",
+       "en": "Viennese",
+       "ko": "빈 사람들",
+       "ipa": "ˈviːnɐ"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.31,
+      "y": 0.4,
+      "title": {
+       "de": "Die Kirche",
+       "en": "The church",
+       "ko": "성당"
+      },
+      "note": {
+       "ko": "교회 음악도 빈의 일상이었어요. 모차르트에게 음악은 언제나 ‘음악으로 남아야’ 했어요.",
+       "en": "Church music was part of everyday Vienna; for Mozart, music must always ‘remain music’."
+      },
+      "word": {
+       "de": "Musik",
+       "en": "music",
+       "ko": "음악",
+       "ipa": "muˈziːk"
+      },
+      "quote": 2
+     }
+    ]
    }
   },
   {
@@ -1003,8 +1248,8 @@
     }
    ],
    "note": {
-    "ko": "아버지는 슈테파니의 가사가 서툴다고 걱정했고, 모차르트는 이 편지에서 오페라에 대한 자신의 믿음을 밝혀요. 시는 음악의 ‘순종하는 딸’이어야 한다는 거예요. 놀은 각주에서, 이 대목을 니센이 9월 26일 편지에 붙여 실었다고 적었어요.",
-    "en": "His father had worried about Stephanie's verses; here Mozart states his creed that in opera the poetry must be 'the obedient daughter of the music'. Nohl notes that Nissen had printed this whole paragraph as part of the letter of 26 September.",
+    "ko": "판화 속 랑게 부부는 이 편지에 나오지 않지만, 같은 시절 빈 궁정극장의 배우와 가수예요. 아버지는 슈테파니의 가사가 서툴다고 걱정했고, 모차르트는 이 편지에서 오페라에 대한 자신의 믿음을 밝혀요. 시는 음악의 ‘순종하는 딸’이어야 한다는 거예요. 놀은 각주에서, 이 대목을 니센이 9월 26일 편지에 붙여 실었다고 적었어요.",
+    "en": "The Langes in this engraving do not appear in the letter; they were an actor and a singer of the Vienna court theatre at the time. His father had worried about Stephanie's verses; here Mozart states his creed that in opera the poetry must be 'the obedient daughter of the music'. Nohl notes that Nissen had printed this whole paragraph as part of the letter of 26 September.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 174 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -1029,14 +1274,83 @@
     "en": "The obedient daughter",
     "ko": "순종하는 딸"
    },
-   "plate_hint": {
-    "idea": "Title page of the Entführung libretto (Vienna 1782).",
-    "search": [
-     "Die Entführung aus dem Serail 1782 libretto",
-     "Entführung aus dem Serail Titelblatt",
-     "Stephanie Entführung Textbuch"
-    ],
-    "kind": "score"
+   "plate": {
+    "title_de": "Herr und Madame Lange, Mitglieder des K. K. National-Hoftheaters in Wien",
+    "title_en": "Herr and Madame Lange, Members of the Imperial National Court Theatre in Vienna",
+    "title_ko": "랑게 부부, 빈 황실 국민 궁정극장 단원",
+    "date": "1785",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:PPN663945593_Herr_und_Madame_Lange_(1785).jpg",
+    "credit": "Joseph Lange; Daniel Berger",
+    "why": {
+     "ko": "모차르트가 생각한 오페라를 무대에서 살아 낸 사람들이에요. 가수 알로이지아는 콘스탄체의 언니이고, 남편 요제프 랑게는 궁정극장 배우였어요.",
+     "en": "These are the people who carried opera onto the stage: the singer Aloysia, Constanze's sister, and her husband Joseph Lange, an actor of the court theatre."
+    },
+    "image": "m-c5-l6.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.45,
+      "y": 0.38,
+      "title": {
+       "de": "Aloysia Lange",
+       "en": "Aloysia Lange",
+       "ko": "알로이지아 랑게"
+      },
+      "note": {
+       "ko": "오페라 가수 알로이지아. 시는 음악의 ‘순종하는 딸’이어야 한다고 모차르트는 말해요.",
+       "en": "Aloysia, an opera singer. Mozart says the poetry must be the music's ‘obedient daughter’."
+      },
+      "word": {
+       "de": "Oper",
+       "en": "opera",
+       "ko": "오페라",
+       "ipa": "ˈoːpɐ"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.27,
+      "y": 0.4,
+      "title": {
+       "de": "Joseph Lange",
+       "en": "Joseph Lange",
+       "ko": "요제프 랑게"
+      },
+      "note": {
+       "ko": "배우 요제프 랑게는 시인들의 대사를 무대에서 말하는 사람이었어요.",
+       "en": "Joseph Lange, an actor, spoke the poets' lines on stage."
+      },
+      "word": {
+       "de": "Poeten",
+       "en": "Poets",
+       "ko": "시인",
+       "ipa": "poˈeːtn̩"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.5,
+      "y": 0.85,
+      "title": {
+       "de": "Die Inschrift",
+       "en": "The inscription",
+       "ko": "글귀"
+      },
+      "note": {
+       "ko": "‘빈 황실 국민 궁정극장 단원’. 이탈리아 희가극과 겨루던 독일어 무대예요.",
+       "en": "‘Members of the Imperial National Court Theatre’: the German stage that competed with Italian comic opera."
+      },
+      "word": {
+       "de": "Opern",
+       "en": "operas",
+       "ko": "희가극",
+       "ipa": "ˈoːpɐn"
+      },
+      "quote": 1
+     }
+    ]
    }
   },
   {
@@ -1169,8 +1483,8 @@
     }
    ],
    "note": {
-    "ko": "10월 31일 성 볼프강 축일이 모차르트의 영명 축일이에요. 그날 밤 관악기 여섯 대가 안뜰에서 그가 테레지아 축일을 위해 쓴 세레나데를 연주해 주었어요. 놀과 월리스의 각주에 따르면 이 곡은 쾨헬 목록 375번, 내림마장조 세레나데예요.",
-    "en": "Mozart's name-day was the feast of St Wolfgang, 31 October. That night six wind players stood in the courtyard and played him the serenade he had written for St Theresa's day. Nohl's and Wallace's footnotes identify it as Köchel 375, the Serenade in E flat.",
+    "ko": "같은 시대의 클라리넷으로, 그날 밤 연주된 바로 그 악기는 아니에요. 10월 31일 성 볼프강 축일이 모차르트의 영명 축일이에요. 그날 밤 관악기 여섯 대가 안뜰에서 그가 테레지아 축일을 위해 쓴 세레나데를 연주해 주었어요. 놀과 월리스의 각주에 따르면 이 곡은 쾨헬 목록 375번, 내림마장조 세레나데예요.",
+    "en": "A clarinet of the same era, not one of the instruments played that night. Mozart's name-day was the feast of St Wolfgang, 31 October. That night six wind players stood in the courtyard and played him the serenade he had written for St Theresa's day. Nohl's and Wallace's footnotes identify it as Köchel 375, the Serenade in E flat.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 175 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -1205,14 +1519,83 @@
     "en": "A serenade in the courtyard",
     "ko": "안뜰의 세레나데"
    },
-   "plate_hint": {
-    "idea": "A wind sextet / Harmonie ensemble engraving; or a Viennese courtyard (Graben) by night.",
-    "search": [
-     "Harmoniemusik 18th century engraving",
-     "wind ensemble 18th century",
-     "Graben Wien 1781"
-    ],
-    "kind": "era"
+   "plate": {
+    "title_de": "Klarinette",
+    "title_en": "Clarinet",
+    "title_ko": "클라리넷",
+    "date": "late 18th – early 19th century",
+    "collection": "The Metropolitan Museum of Art, New York",
+    "imageLicense": "CC0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Clarinet_MET_203403.jpg",
+    "credit": "Valentine Metzler",
+    "why": {
+     "ko": "그날 밤 안뜰에서 울린 세레나데는 클라리넷 둘, 호른 둘, 바순 둘을 위한 곡이었어요. 이 악기는 같은 시대 런던에서 만든 클라리넷이에요.",
+     "en": "The serenade played in the courtyard that night was for two clarinets, two horns and two bassoons; this is a clarinet of the same era, made in London."
+    },
+    "image": "m-c5-l7.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.35,
+      "y": 0.12,
+      "title": {
+       "de": "Das Mundstück",
+       "en": "The mouthpiece",
+       "ko": "마우스피스"
+      },
+      "note": {
+       "ko": "‘호흡이 아주 잘 맞아요.’ 가난한 연주자 여섯이 이렇게 숨을 불어 넣었어요.",
+       "en": "‘They play right well together’: six poor players breathing into instruments like this."
+      },
+      "word": {
+       "de": "blasen",
+       "en": "play",
+       "ko": "연주",
+       "ipa": "ˈblaːzn̩"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.48,
+      "y": 0.55,
+      "title": {
+       "de": "Klappen und Grifflöcher",
+       "en": "Keys and finger-holes",
+       "ko": "키와 손가락 구멍"
+      },
+      "note": {
+       "ko": "키가 몇 개 없는 옛 클라리넷. 손가락으로 구멍을 막아 소리를 냈어요.",
+       "en": "An early clarinet with only a few keys; most notes came from fingers on the holes."
+      },
+      "word": {
+       "de": "Clarinetten",
+       "en": "clarionets",
+       "ko": "클라리넷",
+       "ipa": "klaʁiˈnɛtən"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.69,
+      "y": 0.9,
+      "title": {
+       "de": "Der Schalltrichter",
+       "en": "The bell",
+       "ko": "나팔 모양 끝"
+      },
+      "note": {
+       "ko": "밤 11시, 이런 나팔 끝에서 첫 E플랫 화음이 울렸어요.",
+       "en": "At eleven at night, the first E-flat chord sounded from bells like this."
+      },
+      "word": {
+       "de": "Accord",
+       "en": "chord",
+       "ko": "화음",
+       "ipa": "aˈkɔʁt"
+      },
+      "quote": 4
+     }
+    ]
    }
   }
  ]
