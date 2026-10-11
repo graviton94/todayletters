@@ -114,11 +114,15 @@ class Store(ctx: Context) {
 
     /** 하루 몫이 차서 미뤄 둔 새 카드 열쇠 (앞이 먼저). */
     var later: List<String>
-        get() = p.getString("later", "")!!.split("\n").filter { it.isNotBlank() }
-        set(v) = p.edit().putString("later", v.joinToString("\n")).apply()
-    /** 그날 새로 들인 카드 수 (다른 날이면 0). */
-    fun addedOn(day: Long): Int = if (p.getLong("intake:day", -1) == day) p.getInt("intake:n", 0) else 0
-    fun setAdded(day: Long, n: Int) = p.edit().putLong("intake:day", day).putInt("intake:n", n).apply()
+        get() = later("")
+        set(v) = setLater("", v)
+    /** 배우는 말마다 ([deck]: "" 원어 · "en" · "ko") 따로 쌓는 나중 줄. */
+    fun later(deck: String): List<String> = p.getString("later" + sfx(deck), "")!!.split("\n").filter { it.isNotBlank() }
+    fun setLater(deck: String, v: List<String>) = p.edit().putString("later" + sfx(deck), v.joinToString("\n")).apply()
+    private fun sfx(deck: String) = if (deck.isEmpty()) "" else ":$deck"
+    /** 그날 새로 들인 카드 수 (다른 날이면 0). 배우는 말마다 따로. */
+    fun addedOn(day: Long, deck: String = ""): Int = if (p.getLong("intake:day" + sfx(deck), -1) == day) p.getInt("intake:n" + sfx(deck), 0) else 0
+    fun setAdded(day: Long, n: Int, deck: String = "") = p.edit().putLong("intake:day" + sfx(deck), day).putInt("intake:n" + sfx(deck), n).apply()
 
     /** 오늘 복습을 마친 날 (오늘 화면 · 우표). */
     var reviewedDay: Long

@@ -7,7 +7,7 @@
 - design/tokens.json  → android/app/.../design/Tokens.kt
                         android/app/src/main/res/values{,-night}/window.xml (창 · 시작 화면 바탕색)
 - design/strings.json → android/app/src/main/res/values{,-ko}/strings.xml
-- data/<작품>/series.json + 챕터 + 어휘 자료(lexicon · gloss · daily.json) → android/app/src/main/assets/letters/<작품>/
+- data/<작품>/series.json + 챕터 + 어휘 자료(lexicon · gloss · daily[_en|_ko].json) → android/app/src/main/assets/letters/<작품>/
 - remote/ (앱 밖에 두는 낭독 · 그림 · 곡) → android/app/src/main/assets/letters/<작품>/remote.json
 """
 import re, glob, json, os, sys
@@ -134,10 +134,12 @@ def letters():
                 check_spots(src, json.loads(text))
                 out[os.path.join(dest, ch["file"])] = text
         # 어휘 자료 (data/lexicon/README.md): 사전 · 눌러서 뜻 보기 토큰 · 오늘의 낱말. 작아서 그대로 넣는다
-        for name in ("lexicon.json", "gloss.json", "daily.json"):
-            src = os.path.join(folder, name)
-            if os.path.exists(src):
-                out[os.path.join(dest, name)] = open(src, encoding="utf-8").read()
+        # 배우는 말마다 한 벌: 원어 lexicon.json …, 영어 lexicon_en.json …, 한국어 lexicon_ko.json … (있는 것만)
+        for base in ("lexicon", "gloss", "daily"):
+            for src in sorted(glob.glob(os.path.join(folder, base + "*.json"))):
+                name = os.path.basename(src)
+                if re.fullmatch(base + r"(_[a-z]{2})?\.json", name):
+                    out[os.path.join(dest, name)] = open(src, encoding="utf-8").read()
     return out
 
 

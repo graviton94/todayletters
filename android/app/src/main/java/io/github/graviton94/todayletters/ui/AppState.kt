@@ -42,6 +42,9 @@ import io.github.graviton94.todayletters.data.Narrator
 import io.github.graviton94.todayletters.data.Recorder
 import io.github.graviton94.todayletters.data.Store
 import io.github.graviton94.todayletters.data.Work
+import io.github.graviton94.todayletters.data.forLearn
+import io.github.graviton94.todayletters.data.learnVocab
+import io.github.graviton94.todayletters.core.CardRef
 import java.time.LocalDate
 
 /**
@@ -50,7 +53,13 @@ import java.time.LocalDate
  */
 class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean = false) {
     val store = Store(ctx)
-    val works: List<Work> = Library.works(ctx)
+    /** 앱에 넣은 작품들 (원어 자료). 영어 · 한국어 자료는 [Work.decks]. */
+    val baseWorks: List<Work> = Library.works(ctx)
+    /**
+     * 지금 배우는 말에 맞춘 작품들: 영어 · 한국어를 배우고 그 언어 자료(*_en · *_ko.json)가 있으면 그 낱말 · 사전 · 표현으로.
+     * 없으면 원어 자료 그대로. 같은 언어면 늘 같은 객체 (화면의 remember · indexOf 가 그대로 맞게).
+     */
+    val works: List<Work> get() = baseWorks.map { w -> if (w.decks.isEmpty()) w else w.forLearn(store.series(w.series.id)?.learn ?: w.series.original) }
     val narrator = Narrator(ctx)
     /** 편지 속 그 곡 (60초 발췌): 낭독과 따로 울리는 재생기. 방을 나가거나 뒤로 가면 멈춘다. */
     val music = io.github.graviton94.todayletters.data.Excerpt(ctx)
@@ -167,6 +176,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         private set
 
     fun go(r: Route) {
+        gloss = null
         forward = r != Route.Library && (r !is Route.Tab || stack.size > 2 || (stack.lastOrNull() as? Route.Tab)?.let { tabIndex(it) < tabIndex(r) } ?: true)
         when {
             r == Route.Library -> { narrator.stop(); music.stop(); stack.clear(); stack.add(r) }
@@ -194,6 +204,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 뒤로: 스택을 하나 내리고, 비면 계층의 부모로. 맨 위(서재)면 false (앱을 나감). */
     fun back(): Boolean {
         narrator.stop(); music.stop()
+        gloss = null
         forward = false
         if (stack.size > 1) { stack.removeAt(stack.lastIndex); return true }
         val up = Nav.up(route) ?: return false
@@ -268,23 +279,37 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     val today: Long get() = LocalDate.now().toEpochDay()
 
     /** 낱말 카드 키 "작품:챕터:편지:낱말번호". */
-    fun cardKey(series: String, chapter: String, letter: String, word: Int) = "$series:$chapter:$letter:$word"
+    fun cardKey(series: String, chapter: String, letter: String, word: Int) = CardRef.word(series, chapter, letter, word, deckOf(series))
+
+    /** 이 작품에서 지금 쓰는 어휘 자료 꼬리 ("" 원어 · "en" · "ko"): 카드 열쇠 · 하루 몫 · 나중 줄이 배우는 말마다 따로. */
+    fun deckOf(series: String): String = works.firstOrNull { it.series.id == series }?.deck.orEmpty()
+
+    /** 카드 열쇠의 자료에 맞는 작품 (원어 자료 카드는 배우는 말을 바꿔도 원어 자료에서 찾는다). */
+    private fun workFor(series: String, deck: String): Work? {
+        val base = baseWorks.firstOrNull { it.series.id == series } ?: return null
+        if (deck.isEmpty()) return base
+        return base.decks.values.firstOrNull { it.deck == deck }
+    }
 
     /** 카드 한 장이 가리키는 낱말: 작품 · (장, 편지) · 낱말 · 편지 안 번호(카드 낱말이면 0부터, 아니면 -1). [own] 은 내가 눌러 담은 낱말. */
     data class CardWord(val work: Work, val at: Pair<String, Letter>, val word: io.github.graviton94.todayletters.core.Word, val index: Int = -1, val own: Boolean = false)
 
     private fun letterFor(w: Work, ch: String, lid: String): Letter? =
-        (if (ch == "P") w.prologueChapter else w.chapters.firstOrNull { it.id == ch })?.letters?.firstOrNull { it.id == lid }
+        when (ch) {
+            "P" -> w.prologueChapter?.letters
+            "E" -> listOfNotNull(w.outro?.epilogue)
+            else -> w.chapters.firstOrNull { it.id == ch }?.letters
+        }?.firstOrNull { it.id == lid }
 
     /** 카드 키 → 낱말. 없어진 낱말이면 null. 키 꼴은 [io.github.graviton94.todayletters.core.CardRef]. */
     fun cardWord(key: String): CardWord? {
         val ref = io.github.graviton94.todayletters.core.CardRef.parse(key) ?: return null
-        val w = works.firstOrNull { it.series.id == ref.series } ?: return null
+        val w = workFor(ref.series, ref.deck) ?: return null
         val l = letterFor(w, ref.chapter, ref.letter) ?: return null
         return when {
             ref.index >= 0 -> l.words.getOrNull(ref.index)?.let { CardWord(w, ref.chapter to l, it, ref.index) }
             ref.phrase >= 0 -> l.phrases.getOrNull(ref.phrase)?.let { CardWord(w, ref.chapter to l, it) }
-            else -> w.lexicon?.get(ref.own)?.let { e -> CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Vocab.wordFor(e, l.source, w.series.original), own = true) }
+            else -> w.lexicon?.get(ref.own)?.let { e -> CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Vocab.wordFor(e, l.source, w.learnVocab, w.series.original), own = true) }
         }
     }
 
@@ -296,7 +321,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 편지를 다 읽으면 그 편지의 낱말 · 표현이 카드함에 들어간다 (내일부터 복습). 하루 새 카드는 [io.github.graviton94.todayletters.core.Intake.DAILY_NEW] 장까지. */
     fun collectWords(series: String, chapter: String, letter: Letter) {
         admit(letter.words.indices.map { cardKey(series, chapter, letter.id, it) } +
-            letter.phrases.indices.map { io.github.graviton94.todayletters.core.CardRef.phrase(series, chapter, letter.id, it) })
+            letter.phrases.indices.map { CardRef.phrase(series, chapter, letter.id, it, deckOf(series)) })
         version++
     }
 
@@ -304,36 +329,68 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
      * 새 카드 들이기: 나중 줄(어제 넘친 것)부터 오늘 몫까지 카드함에 넣고 나머지는 나중 줄로. 이미 있는 카드는 건너뛴다.
      * 반환: 이번에 넣은 열쇠.
      */
-    fun admit(keys: List<String>): List<String> {
+    fun admit(keys: List<String>): List<String> =
+        keys.groupBy { CardRef.deckOf(it) }.ifEmpty { mapOf("" to emptyList<String>()) }.flatMap { (deck, ks) -> admit(ks, deck) }
+
+    /** 배우는 말 한 벌([deck])의 하루 몫 · 나중 줄로 들인다. */
+    private fun admit(keys: List<String>, deck: String): List<String> {
         val day = today
         val fresh = keys.filter { !store.hasCard(it) }
-        val queue = (store.later + fresh).filter { !store.hasCard(it) }.distinct()
-        val (now, later) = io.github.graviton94.todayletters.core.Intake.split(queue, store.addedOn(day))
+        val queue = (store.later(deck) + fresh).filter { !store.hasCard(it) }.distinct()
+        val (now, later) = io.github.graviton94.todayletters.core.Intake.split(queue, store.addedOn(day, deck))
         now.forEach { store.save(io.github.graviton94.todayletters.core.Memory.added(it, day)) }
-        store.later = later
-        if (now.isNotEmpty()) store.setAdded(day, store.addedOn(day) + now.size)
+        store.setLater(deck, later)
+        if (now.isNotEmpty()) store.setAdded(day, store.addedOn(day, deck) + now.size, deck)
         return now
     }
 
-    /** 날이 바뀌면 나중 줄을 오늘 몫만큼 카드함으로. */
-    fun drainLater() { if (store.later.isNotEmpty()) { admit(emptyList()); version++ } }
+    private val DECKS = listOf("", "en", "ko")
+
+    /** 날이 바뀌면 나중 줄을 오늘 몫만큼 카드함으로 (배우는 말마다). */
+    fun drainLater() {
+        val waiting = DECKS.filter { store.later(it).isNotEmpty() }
+        if (waiting.isEmpty()) return
+        waiting.forEach { admit(emptyList(), it) }
+        version++
+    }
 
     /** 나중 줄에 있는가 (하루 몫이 차서 내일 들어갈 카드). */
-    fun isLater(key: String) = run { @Suppress("UNUSED_EXPRESSION") version; key in store.later }
+    fun isLater(key: String) = run { @Suppress("UNUSED_EXPRESSION") version; key in store.later(CardRef.deckOf(key)) }
+
+    /** 편지에서 눌러 본 낱말을 내 카드로 담는 열쇠 (지금 배우는 말의 자료). */
+    fun ownKey(series: String, chapter: String, letter: Letter, lex: String) = CardRef.own(series, chapter, letter.id, lex, deckOf(series))
 
     /** 편지에서 눌러 본 낱말을 내 카드로 담는다. 오늘 몫이 찼으면 나중 줄로 (false). */
     fun addOwn(series: String, chapter: String, letter: Letter, lex: String): Boolean {
-        val key = io.github.graviton94.todayletters.core.CardRef.own(series, chapter, letter.id, lex)
+        val key = ownKey(series, chapter, letter, lex)
         val now = admit(listOf(key)).contains(key)
         version++
         return now
     }
 
-    /** 이 사전 열쇠가 이미 카드함(또는 나중 줄)에 있나: 이 편지의 카드 낱말이거나, 어느 편지에서든 내가 담은 낱말. */
+    /** 이 사전 열쇠가 이미 카드함(또는 나중 줄)에 있나: 이 편지의 카드 낱말이거나, 어느 편지에서든 내가 담은 낱말 (지금 배우는 말의 자료에서). */
     fun hasLex(series: String, lex: String): Boolean = run {
         @Suppress("UNUSED_EXPRESSION") version
-        val keys = store.cardKeys() + store.later
-        keys.any { k -> k.startsWith("$series:") && (k.endsWith(":+$lex") || cardWord(k)?.word?.lex == lex) }
+        val deck = deckOf(series)
+        val keys = store.cardKeys() + store.later(deck)
+        keys.any { k -> CardRef.parse(k)?.takeIf { it.series == series && it.deck == deck }?.let { ref -> ref.own == lex || cardWord(k)?.word?.lex == lex } == true }
+    }
+
+    // ── 눌러서 뜻 보기 (편지 · 프롤로그 · 맺음말 · 따라 읽기 · 복습 문장 · 내 구절 어디서든) ──
+    /** 펼친 낱말: 작품 · 장 · 편지 · 메시지 번호 · 토큰 번호 · 사전 열쇠. 화면 맨 위의 [GlossHost] 가 작은 카드를 띄운다. */
+    data class GlossPick(val series: String, val chapter: String, val letter: Letter, val msg: Int, val token: Int, val key: String)
+    var gloss by mutableStateOf<GlossPick?>(null)
+    /** 지금 열린 전체 화면 창(낱말 카드 상세)의 층 수: 뜻 카드는 맨 위 층에만 뜬다. */
+    var glossLayers by mutableStateOf(0)
+
+    /**
+     * 이 편지 메시지의 눌러서 뜻 보기 토큰: 지금 배우는 말이 이 작품 어휘 자료의 언어일 때만 (원어 · 그리고 *_en · *_ko 자료가 있는 영어 · 한국어).
+     * 없으면 null (그 자리는 그냥 글자).
+     */
+    fun glossTokens(series: String, letterId: String, msg: Int): List<io.github.graviton94.todayletters.core.Token>? {
+        val w = works.firstOrNull { it.series.id == series } ?: return null
+        if (w.lexicon == null || room(series).learn != w.learnVocab) return null
+        return Library.gloss(ctx, series, w.deck)[letterId]?.getOrNull(msg)
     }
 
     fun cards() = run { @Suppress("UNUSED_EXPRESSION") version; store.cards().filter { cardWord(it.key) != null } }
@@ -810,5 +867,5 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     var settingsOpen by mutableStateOf(false)
 
     // 어제 하루 몫이 넘쳐 미뤄 둔 카드: 앱을 켤 때 오늘 몫만큼 들인다 (모든 상태가 준비된 뒤)
-    init { runCatching { if (store.later.isNotEmpty()) admit(emptyList()) } }
+    init { runCatching { DECKS.forEach { if (store.later(it).isNotEmpty()) admit(emptyList(), it) } } }
 }

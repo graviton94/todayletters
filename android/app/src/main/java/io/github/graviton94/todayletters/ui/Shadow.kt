@@ -183,7 +183,8 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
             PracticeTitle("READ ALONG", null)
             Text(stringResource(R.string.read_where, flat.size.let { if (only == null) mi + 1 else at + 1 }, if (only == null) units.size else flat.size),
                 style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.align(Alignment.CenterHorizontally))
-            Text(readAlong(sentence, pos, p.ink, p.inkSoft.copy(alpha = 0.7f), p.gilt.copy(alpha = 0.35f)), style = Type.target.of(view.learn))
+            // 읽는 자리 칠하기 그대로, 낱말을 누르면 뜻 (눌러서 뜻 보기)
+            GlossText(s, id, chapter, letter, mi, readAlong(sentence, pos, p.ink, p.inkSoft.copy(alpha = 0.7f), p.gilt.copy(alpha = 0.35f)), style = Type.target.of(view.learn))
             if (view.showRead) Text(letter.messages[mi].text[view.read], style = Type.base.of(view.read), color = p.inkSoft)
             if (!hasAudio) Text(stringResource(R.string.shadow_noaudio), style = Type.small.ui(), color = p.inkSoft)
             // 판: 녹음 중이면 실시간 파형 + 내 음높이, 녹음 뒤에는 두 선과 점수

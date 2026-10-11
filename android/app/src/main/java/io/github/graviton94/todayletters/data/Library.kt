@@ -55,9 +55,40 @@ data class Work(
     val arrival: Arrival? = null,
     /** 맺음말 · 아웃트로. */
     val outro: Outro? = null,
-    /** 어휘 사전 (lexicon.json, 원어 낱말 → 뜻 · 등급 · 발음 · 예문). 없으면 null. */
+    /** 어휘 사전 (lexicon.json, 원어 낱말 → 뜻 · 등급 · 발음 · 예문). 없으면 null. 영어 · 한국어 자료의 작품이면 그 사전 (lexicon_en · _ko). */
     val lexicon: Lexicon? = null,
+    /** 편지 낱말 · 사전이 어느 배우는 말의 것인가 (null = 원어). */
+    val vocabLang: Lang? = null,
+    /** 어휘 자료 꼬리 ("" = 원어, "en" · "ko"): gloss 파일 · 카드 열쇠에 쓴다. */
+    val deck: String = "",
+    /** 영어 · 한국어를 배울 때의 같은 작품 (그 언어 자료 *_en · *_ko.json 이 있을 때만). 없으면 원어 자료 그대로 (지금처럼). */
+    val decks: Map<Lang, Work> = emptyMap(),
 )
+
+/** 편지 낱말 · 사전 · 눌러서 뜻 보기의 언어 (원어 자료면 원어). */
+val Work.learnVocab: Lang get() = vocabLang ?: series.original
+
+/** 배우는 말 [learn] 에 맞는 작품: 그 언어 자료가 있으면 그것, 없으면 원어 자료 그대로. */
+fun Work.forLearn(learn: Lang): Work = if (learn == series.original) this else decks[learn] ?: this
+
+/** 모든 배우는 말의 사전 (출처 화면). */
+val Work.lexicons: List<Lexicon> get() = listOfNotNull(lexicon) + decks.values.mapNotNull { it.lexicon }
+
+/** 편지마다 어휘 자료를 입힌다 (프롤로그 · 챕터 · 맺음말 편지). [set] 이 null 이면 챕터 낱말 그대로. */
+fun Work.withVocab(set: io.github.graviton94.todayletters.core.VocabSet?): Work {
+    val lang = set?.lang ?: series.original
+    fun ap(l: Letter) = Vocab.apply(l, set?.daily?.get(l.id), set?.lexicon, lang, series.original)
+    val pro = prologue.map { it.copy(letter = ap(it.letter)) }
+    return copy(
+        chapters = chapters.map { c -> c.copy(letters = c.letters.map(::ap)) },
+        prologue = pro,
+        prologueChapter = prologueChapter?.copy(letters = pro.map { it.letter }),
+        outro = outro?.copy(epilogue = outro.epilogue?.let(::ap)),
+        lexicon = set?.lexicon,
+        vocabLang = set?.lang?.takeIf { it != series.original },
+        deck = set?.deck.orEmpty(),
+    )
+}
 
 /** 이 편지를 받는 사람: 편지에 적힌 사람(아버지 · 누나 · 콘스탄체…)이 있으면 그 사람, 없으면 작품의 받는 사람(테오). */
 fun Work.recipientOf(letter: Letter): Tri = letter.to ?: recipient
@@ -87,10 +118,7 @@ object Library {
         return ids.mapNotNull { id ->
             val meta = runCatching { JSONObject(am.open("letters/$id/series.json").bufferedReader().readText()) }.getOrNull() ?: return@mapNotNull null
             val original = Lang.valueOf(meta.getString("original").uppercase())
-            // 어휘 자료: 사전 · 오늘의 낱말 (없으면 챕터 파일의 낱말 그대로)
-            val lexicon = runCatching { lexicon(am.open("letters/$id/lexicon.json").bufferedReader().readText()) }.getOrNull()
-            val daily = runCatching { daily(am.open("letters/$id/daily.json").bufferedReader().readText()) }.getOrNull() ?: emptyMap()
-            fun letters(data: JSONObject) = parseLetters(data).map { Vocab.apply(it, daily[it.id], lexicon, original) }
+            fun letters(data: JSONObject) = parseLetters(data)
             val prologue = meta.optJSONObject("prologue")?.optString("file")?.takeIf { it.isNotEmpty() }?.let { f ->
                 runCatching {
                     val data = JSONObject(am.open("letters/$id/$f").bufferedReader().readText())
@@ -111,7 +139,7 @@ object Library {
                 }
             }
             if (chapters.isEmpty()) return@mapNotNull null
-            Work(
+            val raw = Work(
                 Series(id, original), meta.getString("sender"), tri(meta.getJSONObject("title")), meta.optString("years"), meta.optString("seal", id), chapters,
                 portrait = meta.optString("portrait"), credit = meta.optString("credit"),
                 fullName = meta.optString("fullName", meta.getString("sender")), recipient = meta.optJSONObject("recipient")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to meta.optString("recipient"))),
@@ -136,10 +164,25 @@ object Library {
                         o.optJSONArray("body")?.let { b -> (0 until b.length()).map { tri(b.getJSONObject(it)) } } ?: emptyList(),
                         first?.optJSONObject("head")?.let { tri(it) }, ep?.let { letters(it).firstOrNull() })
                 },
-                lexicon = lexicon,
             )
+            // 어휘 자료: 배우는 말마다 한 벌 (원어 lexicon · daily.json, 영어 *_en, 한국어 *_ko). 없으면 챕터 파일의 낱말 그대로
+            val sets = vocabSets(original) { name -> runCatching { am.open("letters/$id/$name").bufferedReader().readText() }.getOrNull() }
+            raw.withVocab(sets[original]).copy(decks = sets.filterKeys { it != original }.mapValues { (_, set) -> raw.withVocab(set) })
         }
     }
+
+    /**
+     * 작품의 어휘 자료들: 배우는 말 → 자료 한 벌. 원어는 lexicon.json · daily.json, 영어 · 한국어는 lexicon_en.json · daily_en.json …
+     * 사전 파일이 없는 언어는 빠진다 (그 언어를 배울 때는 원어 자료 그대로 = 지금처럼). [read] 는 파일 이름 → 내용 (없으면 null).
+     */
+    fun vocabSets(original: Lang, read: (String) -> String?): Map<Lang, io.github.graviton94.todayletters.core.VocabSet> =
+        listOf(original, Lang.EN, Lang.KO).distinct().mapNotNull { lang ->
+            val deck = io.github.graviton94.todayletters.core.VocabSet.deckFor(lang, original)
+            fun f(base: String) = io.github.graviton94.todayletters.core.VocabSet.file(base, deck)
+            val lex = read(f("lexicon"))?.let { runCatching { lexicon(it) }.getOrNull() } ?: return@mapNotNull null
+            val daily = read(f("daily"))?.let { runCatching { daily(it) }.getOrNull() } ?: emptyMap()
+            lang to io.github.graviton94.todayletters.core.VocabSet(lang, deck, lex, daily)
+        }.toMap()
 
     private fun color(s: String?, fallback: Long): Long =
         s?.removePrefix("#")?.takeIf { it.length == 6 }?.toLongOrNull(16)?.let { 0xFF000000 or it } ?: fallback
@@ -305,8 +348,8 @@ object Library {
 
     private val glosses = java.util.concurrent.ConcurrentHashMap<String, Map<String, List<List<Token>>>>()
 
-    /** 눌러서 뜻 보기 토큰 (작품마다 처음 쓸 때 읽는다). 없으면 빈 것. */
-    fun gloss(ctx: Context, series: String): Map<String, List<List<Token>>> = glosses.getOrPut(series) {
-        runCatching { gloss(ctx.assets.open("letters/$series/gloss.json").bufferedReader().readText()) }.getOrDefault(emptyMap())
+    /** 눌러서 뜻 보기 토큰 (작품 · 자료마다 처음 쓸 때 읽는다). [deck] 은 "" (원어) · "en" · "ko". 없으면 빈 것. */
+    fun gloss(ctx: Context, series: String, deck: String = ""): Map<String, List<List<Token>>> = glosses.getOrPut("$series/$deck") {
+        runCatching { gloss(ctx.assets.open("letters/$series/${io.github.graviton94.todayletters.core.VocabSet.file("gloss", deck)}").bufferedReader().readText()) }.getOrDefault(emptyMap())
     }
 }

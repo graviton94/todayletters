@@ -3,6 +3,10 @@ package io.github.graviton94.todayletters
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Moment
 import io.github.graviton94.todayletters.data.Library
+import io.github.graviton94.todayletters.data.forLearn
+import io.github.graviton94.todayletters.data.learnVocab
+import io.github.graviton94.todayletters.data.lexicons
+import io.github.graviton94.todayletters.data.withVocab
 import org.json.JSONObject
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -112,5 +116,60 @@ class LibraryTest {
             val g = Library.gloss(ctx, id)
             assertEquals(l.messages.size, g.getValue(l.id).size)
         }
+    }
+
+    private val lexFields = """"fields": ["lemma","id","forms","pos","gender","ko","en","ipa","level","first","letters","example","function"]"""
+
+    /** 배우는 말마다 자료 한 벌: 원어 lexicon.json, 영어 lexicon_en.json, 한국어 lexicon_ko.json. 사전이 없는 언어는 빠진다 (= 원어 자료 그대로). */
+    @Test fun vocabSetsFollowTheLearnLanguage() {
+        val files = mapOf(
+            "lexicon.json" to """{"lang": "fr", $lexFields, "entries": [["jardin", null, ["jardin"], "n", "m", "정원", "garden"]]}""",
+            "daily.json" to """{"lang": "fr", "letters": {"c1-l1": {"words": ["jardin"], "spots": [], "phrases": []}}}""",
+            "lexicon_en.json" to """{"lang": "en", $lexFields, "entries": [["garden", null, ["garden", "gardens"], "n", null, "정원", "", "ˈɡɑːdən", "A2"]]}""",
+            "daily_en.json" to """{"lang": "en", "letters": {"c1-l1": {"words": ["garden"], "spots": [], "phrases": []}}}""",
+            // 한국어: 오늘의 낱말만 있고 사전이 없으면 그 언어 자료는 없는 것
+            "daily_ko.json" to """{"lang": "ko", "letters": {}}""",
+        )
+        val sets = Library.vocabSets(Lang.FR) { files[it] }
+        assertEquals(setOf(Lang.FR, Lang.EN), sets.keys)
+        assertEquals("", sets.getValue(Lang.FR).deck)
+        assertEquals("en", sets.getValue(Lang.EN).deck)
+        assertEquals("garden", sets.getValue(Lang.EN).lexicon!!["garden"]!!.lemma)
+        assertEquals(listOf("garden"), sets.getValue(Lang.EN).daily.getValue("c1-l1").words)
+        assertEquals(listOf("jardin"), sets.getValue(Lang.FR).daily.getValue("c1-l1").words)
+        // 영어 오늘의 낱말이 없어도 사전만 있으면 그 자료 (낱말은 챕터 낱말 그대로)
+        val noDaily = Library.vocabSets(Lang.FR) { if (it == "daily_en.json") null else files[it] }
+        assertTrue(noDaily.getValue(Lang.EN).daily.isEmpty())
+        // 아무것도 없으면 빈 것
+        assertTrue(Library.vocabSets(Lang.DE) { null }.isEmpty())
+        assertEquals("gloss_ko.json", io.github.graviton94.todayletters.core.VocabSet.file("gloss", "ko"))
+        assertEquals("gloss.json", io.github.graviton94.todayletters.core.VocabSet.file("gloss", ""))
+    }
+
+    /** 작품을 배우는 말에 맞추기: 그 언어 자료가 있으면 그 낱말 · 사전, 없으면 원어 자료 그대로 (지금처럼). */
+    @Test fun workFollowsTheLearnLanguageWithFallback() {
+        val ctx = androidx.test.core.app.ApplicationProvider.getApplicationContext<android.content.Context>()
+        val base = Library.works(ctx).first { it.series.id == "vincent" }
+        // 지금 앱에 영어 · 한국어 자료가 없으면: 원어 자료 그대로
+        for (lang in listOf(Lang.EN, Lang.KO)) if (lang !in base.decks) assertTrue(base.forLearn(lang) === base)
+        assertTrue(base.forLearn(Lang.FR) === base)
+        assertEquals(Lang.FR, base.learnVocab)
+        assertEquals("", base.deck)
+        // 영어 자료를 입히면: 편지 낱말 · 사전 · 자료 꼬리가 영어
+        val l0 = base.chapters.first().letters.first()
+        val en = l0.source.first().text[Lang.EN]
+        val set = io.github.graviton94.todayletters.core.VocabSet(Lang.EN, "en",
+            io.github.graviton94.todayletters.core.Lexicon(Lang.EN, listOf(io.github.graviton94.todayletters.core.LexEntry(en, forms = listOf(en), ko = "뜻", ipa = "x", level = "A1"))),
+            mapOf(l0.id to io.github.graviton94.todayletters.core.Daily(words = listOf(en))))
+        val enWork = base.copy(decks = mapOf(Lang.EN to base.withVocab(set)))
+        val w = enWork.forLearn(Lang.EN)
+        assertEquals(Lang.EN, w.learnVocab)
+        assertEquals("en", w.deck)
+        val word = w.chapters.first().letters.first().words.single()
+        assertEquals(en, word.text[Lang.EN])
+        assertEquals(l0.source.first().audio, word.audio)       // 챕터 낱말과 같으면 그 낭독 (w1_en)
+        assertEquals("x", word.ipa)                              // 발음기호는 영어 사전 것
+        assertTrue(enWork.forLearn(Lang.KO) === enWork)          // 한국어 자료는 없음 → 원어 그대로
+        assertEquals(2, enWork.lexicons.size)
     }
 }

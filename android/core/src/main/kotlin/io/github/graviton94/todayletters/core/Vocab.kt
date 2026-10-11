@@ -34,6 +34,20 @@ data class Daily(val words: List<String> = emptyList(), val spots: List<DailySpo
 data class Token(val surface: String, val key: String)
 
 /**
+ * 배우는 언어 한 벌의 어휘 자료: 원어는 lexicon · gloss · daily.json, 영어 · 한국어는 *_en · *_ko.json.
+ * [deck] 은 파일 꼬리 · 카드 열쇠 머리 ("" = 원어, "en", "ko").
+ */
+class VocabSet(val lang: Lang, val deck: String, val lexicon: Lexicon?, val daily: Map<String, Daily>) {
+    /** gloss 파일 이름 (gloss.json · gloss_en.json …). */
+    fun file(base: String) = VocabSet.file(base, deck)
+    companion object {
+        fun file(base: String, deck: String) = if (deck.isEmpty()) "$base.json" else "${base}_$deck.json"
+        /** 배우는 언어 [learn] 의 자료 꼬리: 원어면 "", 아니면 언어 코드. */
+        fun deckFor(learn: Lang, original: Lang) = if (learn == original) "" else learn.code
+    }
+}
+
+/**
  * 어휘 자료를 편지에 잇기: 오늘의 낱말 · 표현 카드 · 그림 점 낱말 · 눌러서 뜻 보기.
  * 모두 순수 함수 (앱은 Library 에서 JSON 만 읽어 넘긴다).
  */
@@ -58,39 +72,58 @@ object Vocab {
         else -> "${e.pos}."
     }
 
-    /** 사전 한 줄 → 낱말 (원어 · 영어 · 한국어). [audio] 는 그 편지에 있는 낱말 낭독 (없으면 ""). */
-    fun word(e: LexEntry, original: Lang, audio: String = ""): Word = Word(
-        Tri(mapOf(original to display(e, original), Lang.EN to e.en, Lang.KO to Breaks.keepAll(e.ko))),
+    /** 사전 한 줄 → 낱말 (배우는 말 · 영어 · 한국어). [lang] 은 사전의 언어 (원어 · 영어 · 한국어 사전 모두). [audio] 는 그 편지에 있는 낱말 낭독 (없으면 ""). */
+    fun word(e: LexEntry, lang: Lang, audio: String = ""): Word = Word(
+        Tri(glosses(e.en, Breaks.keepAll(e.ko), lang, display(e, lang))),
         pos = posLabel(e), ipa = e.ipa, audio = audio, lex = e.key, level = e.level, forms = e.forms,
     )
 
+    /** 뜻 줄 (en · ko) 위에 배우는 말 [lang] 의 글자를 얹는다: 영어 · 한국어 사전이면 그 언어 줄은 표제어가 된다. */
+    private fun glosses(en: String, ko: String, lang: Lang, own: String): Map<Lang, String> =
+        linkedMapOf<Lang, String>().apply {
+            put(lang, own)
+            if (lang != Lang.EN) put(Lang.EN, en)
+            if (lang != Lang.KO) put(Lang.KO, ko)
+        }
+
+    /**
+     * 뜻풀이 언어: 앱 글자 언어 [ui] (영어 · 한국어). 배우는 말이 바로 그 언어면 (한국어로 한국어를 배우는 경우) 다른 하나.
+     */
+    fun glossLang(ui: Lang, learn: Lang): Lang = if (ui != learn) ui else if (ui == Lang.KO) Lang.EN else Lang.KO
+
+    /** 사전 한 줄의 뜻 ([glossLang] 언어, 비면 다른 하나). */
+    fun meaning(e: LexEntry, lang: Lang): String = if (lang == Lang.KO) e.ko.ifEmpty { e.en } else e.en.ifEmpty { e.ko }
+
     /** 챕터 낱말 [w] 가 사전 줄 [e] 와 같은 낱말인가 (관사 · 대소문자 무시, 표제어나 편지 속 꼴). */
-    fun same(w: Word, e: LexEntry, original: Lang): Boolean {
+    fun same(w: Word, e: LexEntry, original: Lang, modern: Boolean = true): Boolean {
         val names = (listOf(e.lemma) + e.forms).map { bare(it) }.toSet()
-        return bare(w.text[original]) in names || (w.modern.isNotEmpty() && bare(w.modern) in names)
+        return bare(w.text[original]) in names || (modern && w.modern.isNotEmpty() && bare(w.modern) in names)
     }
 
     /** 이 편지의 낱말 가운데 [e] 와 같은 것 (낭독 · 손으로 쓴 번역을 그대로 쓰려고). */
-    fun match(e: LexEntry, source: List<Word>, original: Lang): Word? = source.firstOrNull { same(it, e, original) }
+    fun match(e: LexEntry, source: List<Word>, original: Lang, series: Lang = original): Word? = source.firstOrNull { same(it, e, original, modern = original == series) }
 
     /** 눌러서 담은 낱말 · 오늘의 낱말: 편지의 챕터 낱말과 같으면 그 낱말(낭독 포함)에 사전 정보를 더하고, 아니면 사전에서 만든다. */
-    fun wordFor(e: LexEntry, source: List<Word>, original: Lang): Word =
-        match(e, source, original)?.let { it.copy(lex = e.key, level = e.level, forms = e.forms, ipa = it.ipa.ifEmpty { e.ipa }) }
-            ?: word(e, original)
+    fun wordFor(e: LexEntry, source: List<Word>, original: Lang, series: Lang = original): Word =
+        match(e, source, original, series)?.let {
+            // 영어 · 한국어를 배울 때: 챕터 낱말의 발음기호는 원어 것이라 사전 것으로 (영어는 챕터의 영어 발음기호가 다음)
+            val ipa = if (original == series) it.ipa.ifEmpty { e.ipa } else e.ipa.ifEmpty { if (original == Lang.EN) it.ipaEn else "" }
+            it.copy(lex = e.key, level = e.level, forms = e.forms, ipa = ipa)
+        } ?: word(e, original)
 
     /**
      * 편지의 카드 낱말: daily.json 의 낱말(등급별 8개, 앞 편지와 겹치지 않음)이 있으면 그것, 없으면 챕터 파일의 낱말.
      * 사전에 없는 열쇠는 건너뛰고, 같은 낱말은 한 번만.
      */
-    fun deckWords(daily: Daily?, source: List<Word>, lexicon: Lexicon?, original: Lang): List<Word> {
+    fun deckWords(daily: Daily?, source: List<Word>, lexicon: Lexicon?, original: Lang, series: Lang = original): List<Word> {
         if (daily == null || lexicon == null || daily.words.isEmpty()) return source
-        val out = daily.words.distinct().mapNotNull { k -> lexicon[k]?.let { wordFor(it, source, original) } }.distinctBy { it.lex }
+        val out = daily.words.distinct().mapNotNull { k -> lexicon[k]?.let { wordFor(it, source, original, series) } }.distinctBy { it.lex }
         return out.ifEmpty { source }
     }
 
     /** 표현 → 표현 카드 (원어 표현 · 영어 · 한국어, 쓰임 설명). */
     fun phraseWord(p: Phrase, original: Lang): Word = Word(
-        Tri(mapOf(original to p.text, Lang.EN to p.en, Lang.KO to Breaks.keepAll(p.ko))),
+        Tri(glosses(p.en, Breaks.keepAll(p.ko), original, p.text)),
         note = Tri(mapOf(Lang.EN to p.noteEn, Lang.KO to Breaks.keepAll(p.noteKo))),
     )
 
@@ -106,13 +139,13 @@ object Vocab {
         }
     }
 
-    /** 편지 한 통에 daily.json 을 입힌다: 카드 낱말 · 표현 · 그림 점. 챕터 낱말은 [Letter.source] 에 남는다. */
-    fun apply(letter: Letter, daily: Daily?, lexicon: Lexicon?, original: Lang): Letter {
+    /** 편지 한 통에 daily.json 을 입힌다. [original] 은 그 자료의 언어 (영어 · 한국어 자료면 EN · KO), [series] 는 작품의 원어: 카드 낱말 · 표현 · 그림 점. 챕터 낱말은 [Letter.source] 에 남는다. */
+    fun apply(letter: Letter, daily: Daily?, lexicon: Lexicon?, original: Lang, series: Lang = original): Letter {
         val source = letter.source.ifEmpty { letter.words }
         if (daily == null) return letter.copy(source = source)
         return letter.copy(
             source = source,
-            words = deckWords(daily, source, lexicon, original),
+            words = deckWords(daily, source, lexicon, original, series),
             phrases = daily.phrases.map { phraseWord(it, original) },
             plate = letter.plate?.let { pl -> pl.copy(spots = spots(pl.spots, daily, lexicon, original)) },
         )
@@ -148,19 +181,29 @@ object Vocab {
 /**
  * 낱말 카드 열쇠: "작품:장:편지:<꼬리>". 꼬리가 숫자면 그 편지의 카드 낱말, "p<n>" 이면 표현 카드, "+<사전 열쇠>" 면 내가 눌러 담은 낱말.
  */
-data class CardRef(val series: String, val chapter: String, val letter: String, val index: Int = -1, val phrase: Int = -1, val own: String = "") {
+data class CardRef(val series: String, val chapter: String, val letter: String, val index: Int = -1, val phrase: Int = -1, val own: String = "",
+                   /** 어휘 자료 꼬리 ([VocabSet.deck]): "" 는 원어, "en" · "ko" 는 영어 · 한국어를 배울 때의 낱말. 꼬리 앞에 "en/" 처럼 붙는다. */
+                   val deck: String = "") {
     companion object {
+        private val DECK = Regex("^([a-z]{2})/(.+)$")
         fun parse(key: String): CardRef? {
             val parts = key.split(":", limit = 4).takeIf { it.size == 4 } ?: return null
-            val (s, c, l, t) = parts
+            val (s, c, l, tail) = parts
+            val m = DECK.find(tail)
+            val deck = m?.groupValues?.get(1).orEmpty()
+            val t = m?.groupValues?.get(2) ?: tail
             return when {
-                t.startsWith("+") -> t.drop(1).takeIf { it.isNotEmpty() }?.let { CardRef(s, c, l, own = it) }
-                t.startsWith("p") -> t.drop(1).toIntOrNull()?.let { CardRef(s, c, l, phrase = it) }
-                else -> t.toIntOrNull()?.let { CardRef(s, c, l, index = it) }
+                t.startsWith("+") -> t.drop(1).takeIf { it.isNotEmpty() }?.let { CardRef(s, c, l, own = it, deck = deck) }
+                t.startsWith("p") -> t.drop(1).toIntOrNull()?.let { CardRef(s, c, l, phrase = it, deck = deck) }
+                else -> t.toIntOrNull()?.let { CardRef(s, c, l, index = it, deck = deck) }
             }
         }
-        fun phrase(series: String, chapter: String, letter: String, n: Int) = "$series:$chapter:$letter:p$n"
-        fun own(series: String, chapter: String, letter: String, lex: String) = "$series:$chapter:$letter:+$lex"
+        private fun pre(deck: String) = if (deck.isEmpty()) "" else "$deck/"
+        fun word(series: String, chapter: String, letter: String, n: Int, deck: String = "") = "$series:$chapter:$letter:${pre(deck)}$n"
+        fun phrase(series: String, chapter: String, letter: String, n: Int, deck: String = "") = "$series:$chapter:$letter:${pre(deck)}p$n"
+        fun own(series: String, chapter: String, letter: String, lex: String, deck: String = "") = "$series:$chapter:$letter:${pre(deck)}+$lex"
+        /** 열쇠의 자료 꼬리 (원어면 ""). */
+        fun deckOf(key: String): String = parse(key)?.deck.orEmpty()
     }
 }
 

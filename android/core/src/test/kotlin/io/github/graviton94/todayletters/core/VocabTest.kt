@@ -98,4 +98,38 @@ class VocabTest {
         assertEquals(emptyList(), Intake.split(listOf("a"), addedToday = 15).first)
         assertEquals(listOf("a"), Intake.split(listOf("a", "a"), addedToday = 0).first)
     }
+
+    @Test fun cardKeysCarryTheLearnLanguageDeck() {
+        assertEquals("vincent:I:c1-l1:3", CardRef.word("vincent", "I", "c1-l1", 3))
+        assertEquals("vincent:I:c1-l1:en/3", CardRef.word("vincent", "I", "c1-l1", 3, "en"))
+        assertEquals(CardRef("vincent", "I", "c1-l1", index = 3, deck = "en"), CardRef.parse("vincent:I:c1-l1:en/3"))
+        assertEquals(CardRef("vincent", "I", "c1-l1", phrase = 0, deck = "ko"), CardRef.parse(CardRef.phrase("vincent", "I", "c1-l1", 0, "ko")))
+        assertEquals(CardRef("mozart", "P", "p1", own = "ton#2", deck = "en"), CardRef.parse(CardRef.own("mozart", "P", "p1", "ton#2", "en")))
+        assertEquals("", CardRef.deckOf("vincent:I:c1-l1:p1"))
+        assertEquals("ko", CardRef.deckOf("vincent:I:c1-l1:ko/+정원"))
+    }
+
+    @Test fun englishAndKoreanDecks() {
+        // 영어 사전: 표제어가 영어 줄, 뜻은 한국어
+        val g = LexEntry("garden", forms = listOf("garden"), pos = "n", ko = "정원", en = "", level = "A2")
+        val w = Vocab.word(g, Lang.EN)
+        assertEquals("garden", w.text[Lang.EN])
+        assertEquals("정원", w.text[Lang.KO])
+        // 챕터 낱말과 같으면 그 낭독 그대로, 원어 철자(modern)로는 맞추지 않는다
+        val l = Vocab.apply(letter(), Daily(words = listOf("garden")), Lexicon(Lang.EN, listOf(g)), Lang.EN, Lang.FR)
+        assertEquals("w1", l.words.single().audio)
+        assertEquals("garden", l.words.single().lex)
+        // 한국어 사전: 표제어가 한국어 줄, 뜻은 영어
+        val k = LexEntry("정원", ko = "", en = "garden")
+        assertEquals("정원", Vocab.word(k, Lang.KO).text[Lang.KO])
+        assertEquals("garden", Vocab.word(k, Lang.KO).text[Lang.EN])
+        // 뜻풀이 언어: 앱 글자 언어, 배우는 말과 같으면 다른 하나
+        assertEquals(Lang.KO, Vocab.glossLang(Lang.KO, Lang.EN))
+        assertEquals(Lang.EN, Vocab.glossLang(Lang.KO, Lang.KO))
+        assertEquals(Lang.KO, Vocab.glossLang(Lang.EN, Lang.EN))
+        assertEquals(Lang.EN, Vocab.glossLang(Lang.EN, Lang.FR))
+        assertEquals("garden", Vocab.meaning(k, Lang.KO))   // 한국어 뜻이 비면 영어
+        assertEquals(VocabSet.deckFor(Lang.FR, Lang.FR), "")
+        assertEquals(VocabSet.deckFor(Lang.KO, Lang.FR), "ko")
+    }
 }

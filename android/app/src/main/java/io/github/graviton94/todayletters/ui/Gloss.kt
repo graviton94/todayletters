@@ -24,10 +24,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.foundation.gestures.awaitEachGesture
+import androidx.compose.foundation.gestures.awaitFirstDown
+import androidx.compose.foundation.gestures.waitForUpOrCancellation
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
+import io.github.graviton94.todayletters.data.learnVocab
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Letter
 import io.github.graviton94.todayletters.core.Route
@@ -56,13 +61,15 @@ fun LevelPill(level: String) {
 fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key: String, onClose: () -> Unit) {
     val p = Ink.palette
     val work = s.work(series)
-    val original = work.series.original
+    // 사전의 언어: 원어 자료면 원어, 영어 · 한국어 자료(*_en · *_ko)면 그 언어
+    val original = work.learnVocab
     val e = work.lexicon?.get(key) ?: return
-    val ui = uiLang()
-    val word = remember(series, letter.id, key) { Vocab.match(e, letter.source, original) }
+    // 뜻은 앱 글자 언어로. 배우는 말이 바로 그 언어면 다른 하나로
+    val ui = Vocab.glossLang(uiLang(), original)
+    val word = remember(series, letter.id, key, original) { Vocab.match(e, letter.source, original, work.series.original) }
     val audio = word?.let { s.wordAudio(series, chapter, letter, it, original) }.orEmpty()
     val has = remember(series, key, s.version) { s.hasLex(series, e.key) }
-    val ownKey = io.github.graviton94.todayletters.core.CardRef.own(series, chapter, letter.id, e.key)
+    val ownKey = s.ownKey(series, chapter, letter, e.key)
     var later by remember(key) { mutableStateOf(false) }
     val waiting = later || s.isLater(ownKey)
     LaunchedEffect(key) { if (audio.isNotEmpty()) s.narrator.play(audio) }
@@ -84,13 +91,14 @@ fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key
                 }
                 if (audio.isNotEmpty() && s.narrator.has(audio)) SpeakerButton(false, stringResource(R.string.a11y_listen_word), onDark = true) { s.narrator.play(audio) }
             }
-            Text(if (ui == Lang.KO) e.ko.ifEmpty { e.en } else e.en.ifEmpty { e.ko }, style = Type.heading.of(ui), color = p.ink)
+            Text(Vocab.meaning(e, ui), style = Type.heading.of(ui), color = p.ink)
             e.example?.let { ex ->
                 Hair()
                 Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     Text(ex.text, style = Type.base.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic).of(original), color = p.ink)
-                    val tr = if (ui == Lang.KO) ex.ko ?: ex.en else ex.en
-                    if (tr.isNotEmpty()) Text(tr, style = Type.small.of(if (ui == Lang.KO && ex.ko != null) Lang.KO else Lang.EN), color = p.inkSoft)
+                    val trLang = if (ui == Lang.KO && !ex.ko.isNullOrEmpty()) Lang.KO else Lang.EN
+                    val tr = if (trLang == Lang.KO) ex.ko.orEmpty() else ex.en
+                    if (tr.isNotEmpty() && tr != ex.text) Text(tr, style = Type.small.of(trLang), color = p.inkSoft)
                     Text("Tatoeba · ${ex.author}", style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
                 }
             }
@@ -117,7 +125,7 @@ fun PhraseCards(s: AppState, r: Route.Play, onFinish: () -> Unit) {
     val p = Ink.palette
     val (_, letter) = s.letterOf(r.room)
     val work = s.work(r.room.series)
-    val original = work.series.original
+    val original = work.learnVocab
     val view = s.room(r.room.series)
     val tr = if (view.read == Lang.EN || view.read == Lang.KO) view.read else uiLang()
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
@@ -125,7 +133,7 @@ fun PhraseCards(s: AppState, r: Route.Play, onFinish: () -> Unit) {
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
-            PracticeTitle(deco(original, "EXPRESSIONS", "AUSDRÜCKE"), stringResource(R.string.phrase_title))
+            PracticeTitle(deco(work.series.original, "EXPRESSIONS", "AUSDRÜCKE"), stringResource(R.string.phrase_title))
             letter.phrases.forEach { ph -> PhraseCard(ph, original, tr) }
             Text(stringResource(R.string.phrase_note), style = Type.small.ui(), color = p.inkSoft)
         }
@@ -149,3 +157,66 @@ fun PhraseCard(ph: Word, original: Lang, tr: Lang) {
         }
     }
 }
+
+/** 화면 맨 위: 어디서든 펼친 낱말([AppState.gloss])의 작은 카드. 전체 화면 창 안이면 [layer] 는 그 창의 층 (1부터). */
+@Composable
+fun GlossHost(s: AppState, layer: Int = 0) {
+    // 전체 화면 창(낱말 카드 상세) 안에서 열었으면 그 창 안의 것만 띄운다
+    if (layer != s.glossLayers) return
+    val g = s.gloss ?: return
+    GlossSheet(s, g.series, g.chapter, g.letter, g.key) { s.gloss = null }
+}
+
+/**
+ * 눌러서 뜻 보기 글자: 편지 원문(배우는 말)의 한 메시지가 보이는 곳이면 어디서든 (프롤로그 · 맺음말 · 따라 읽기 · 복습 문장 · 낱말 카드 · 내 구절).
+ * [text] 는 그 메시지를 보이는 그대로 (따옴표 · 빈칸 · 칠하기 포함, AnnotatedString 이면 그 꾸밈 그대로). 토큰은 보이는 글자에 맞춰 찾는다.
+ * 토큰이 없으면 (그 언어의 자료가 없을 때) 그냥 글자. 낱말이 아닌 곳을 누르면 부모의 누르기(낭독 등)가 그대로 받는다.
+ */
+@Composable
+fun GlossText(
+    s: AppState, series: String, chapter: String, letter: Letter, msg: Int,
+    text: androidx.compose.ui.text.AnnotatedString, style: androidx.compose.ui.text.TextStyle,
+    modifier: Modifier = Modifier, color: androidx.compose.ui.graphics.Color = androidx.compose.ui.graphics.Color.Unspecified,
+    maxLines: Int = Int.MAX_VALUE, textAlign: androidx.compose.ui.text.style.TextAlign? = null,
+) {
+    val tokens = remember(series, letter.id, msg, s.room(series).learn, s.work(series).deck) { s.glossTokens(series, letter.id, msg) }
+    if (tokens.isNullOrEmpty()) {
+        Text(text, style = style, color = color, modifier = modifier, maxLines = maxLines, textAlign = textAlign,
+            overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+        return
+    }
+    val ranges = remember(text.text, tokens) { Vocab.align(text.text, tokens) }
+    val picked = s.gloss?.takeIf { it.series == series && it.letter.id == letter.id && it.msg == msg }?.let { ranges.getOrNull(it.token) }
+    val shown = remember(text, picked) {
+        if (picked == null || picked.isEmpty()) text else androidx.compose.ui.text.AnnotatedString.Builder(text).apply {
+            addStyle(androidx.compose.ui.text.SpanStyle(background = androidx.compose.ui.graphics.Color(0x55D2A955)), picked.first, (picked.last + 1).coerceAtMost(text.length))
+        }.toAnnotatedString()
+    }
+    var layout by remember { mutableStateOf<androidx.compose.ui.text.TextLayoutResult?>(null) }
+    Text(
+        shown, style = style, color = color, maxLines = maxLines, textAlign = textAlign,
+        overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, onTextLayout = { layout = it },
+        modifier = modifier.pointerInput(ranges) {
+            // 낱말 위를 누를 때만 받는다 (그 밖은 부모에게)
+            awaitEachGesture {
+                val down = awaitFirstDown(requireUnconsumed = false)
+                val up = waitForUpOrCancellation() ?: return@awaitEachGesture
+                val l = layout ?: return@awaitEachGesture
+                if ((up.position - down.position).getDistance() > viewConfiguration.touchSlop) return@awaitEachGesture
+                val off = l.getOffsetForPosition(up.position)
+                val j = ranges.indexOfFirst { !it.isEmpty() && off in it.first..(it.last + 1) }
+                if (j < 0) return@awaitEachGesture
+                up.consume()
+                s.gloss = AppState.GlossPick(series, chapter, letter, msg, j, tokens[j].key)
+            }
+        },
+    )
+}
+
+/** [GlossText] 의 글자 꼴 (꾸밈 없는 글). */
+@Composable
+fun GlossText(
+    s: AppState, series: String, chapter: String, letter: Letter, msg: Int, text: String, style: androidx.compose.ui.text.TextStyle,
+    modifier: Modifier = Modifier, color: androidx.compose.ui.graphics.Color = androidx.compose.ui.graphics.Color.Unspecified,
+    maxLines: Int = Int.MAX_VALUE, textAlign: androidx.compose.ui.text.style.TextAlign? = null,
+) = GlossText(s, series, chapter, letter, msg, androidx.compose.ui.text.AnnotatedString(text), style, modifier, color, maxLines, textAlign)

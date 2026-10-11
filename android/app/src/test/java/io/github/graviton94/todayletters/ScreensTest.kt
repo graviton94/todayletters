@@ -630,4 +630,36 @@ class ScreensTest {
         val s = state(true)
         shot("m16_phrase_cards", true, series = s) { io.github.graviton94.todayletters.ui.PhraseCards(s, Route.Play(Route.Letter("mozart", 1, 1), ReplyMode.MATCH)) { } }
     }
+    /** 눌러서 뜻 보기 공통 (GlossText): 이 메시지에서 뜻 카드를 펼칠 낱말 하나 (기능어가 아니고 사전에 있는 것). */
+    private fun pick(s: AppState, series: String, chapter: String, l: io.github.graviton94.todayletters.core.Letter, msg: Int): AppState.GlossPick {
+        val toks = s.glossTokens(series, l.id, msg)!!
+        val lex = s.work(series).lexicon!!
+        val j = toks.indices.first { lex[toks[it].key]?.function == false }
+        return AppState.GlossPick(series, chapter, l, msg, j, toks[j].key)
+    }
+    /** 프롤로그의 원문 한 줄에서 낱말을 눌렀을 때 (금빛 바탕 + 아래 뜻 카드). */
+    @Test fun mozartPrologueGloss() {
+        val s = state(true)
+        val l = s.work("mozart").prologue.first().letter
+        s.gloss = pick(s, "mozart", "P", l, 0)
+        shot("m17_prologue_gloss", true, 3000) {
+            Box(Modifier.fillMaxSize()) {
+                io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 0))
+                io.github.graviton94.todayletters.ui.GlossHost(s)
+            }
+        }
+    }
+    /** 따라 읽기 화면의 문장에서 낱말을 눌렀을 때 (읽는 자리 칠하기는 그대로). */
+    @Test fun mozartReadAlongGloss() {
+        val s = state(true)
+        val room = Route.Letter("mozart", 1, 1)
+        val (ch, l) = s.letterOf(room)
+        s.gloss = pick(s, "mozart", ch, l, 0)
+        shot("m18_read_along_gloss", false, 2000, series = s) {
+            Box(Modifier.fillMaxSize()) {
+                io.github.graviton94.todayletters.ui.ShadowScreen(s, Route.Shadow(room, only = 0))
+                io.github.graviton94.todayletters.ui.GlossHost(s)
+            }
+        }
+    }
 }

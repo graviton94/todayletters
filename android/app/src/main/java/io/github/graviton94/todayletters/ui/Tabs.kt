@@ -78,7 +78,7 @@ fun WordListScreen(s: AppState) {
             }
         }.plus(
             // 편지에서 눌러 내 카드로 담은 낱말 · 표현 카드
-            s.cards().filter { it.key.substringAfterLast(':').let { t -> t.startsWith("+") || t.startsWith("p") } }.mapNotNull { c ->
+            s.cards().filter { c -> io.github.graviton94.todayletters.core.CardRef.parse(c.key)?.let { it.own.isNotEmpty() || it.phrase >= 0 } == true }.mapNotNull { c ->
                 s.cardWord(c.key)?.let { cw ->
                     val room = s.room(cw.work.series.id)
                     Entry(cw.word.text[room.learn], cw.word.text[room.read], if (room.learn == cw.work.series.original) cw.word.ipa else "", cw.at.second.date,

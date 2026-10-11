@@ -128,6 +128,8 @@ private fun Main(s: AppState, onExit: () -> Unit) {
             }
             if (s.route is Route.Tab) Tabs(s)
         }
+        // 눌러서 뜻 보기: 어느 화면에서 눌렀든 맨 위에 작은 카드
+        GlossHost(s)
         if (s.settingsOpen) SettingsScreen(s)
         // 앱 밖에 둔 장의 낭독 받기 (크기 안내 · 진행률 · 뒤로)
         s.downloadAsk?.let { DownloadSheet(s, it) }

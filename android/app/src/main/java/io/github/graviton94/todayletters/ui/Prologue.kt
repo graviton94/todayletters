@@ -117,7 +117,7 @@ fun PrologueScreen(s: AppState, r: Route.Prologue) {
                         Box(Modifier.width(2.dp).heightIn(min = 60.dp).background(Gilt))
                         Column(Modifier.weight(1f).padding(start = 12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                             val line = Breaks.plain(m.text[view.learn])
-                            Text(spokenText(line, spokenRange(s.narrator, audio, line), Gilt), style = Type.body.of(view.learn).copy(fontStyle = FontStyle.Italic), color = Light)
+                            GlossText(s, r.series, "P", l, 0, spokenText(line, spokenRange(s.narrator, audio, line), Gilt), style = Type.body.of(view.learn).copy(fontStyle = FontStyle.Italic), color = Light)
                             if (view.read != view.learn) Text(Breaks.plain(m.text[view.read]), style = Type.small.of(view.read), color = Soft)
                             Text(d.source[ui], style = Type.small.ui(), color = Faint)
                         }
@@ -201,7 +201,7 @@ fun OutroScreen(s: AppState, series: String) {
                             Box(Modifier.width(2.dp).heightIn(min = 40.dp).background(Gilt))
                             Column(Modifier.padding(start = 12.dp), verticalArrangement = Arrangement.spacedBy(3.dp)) {
                                 val line = Breaks.plain(m.text[view.learn])
-                                Text(spokenText(line, spokenRange(s.narrator, audio, line), Gilt), style = Type.body.of(view.learn).copy(fontStyle = FontStyle.Italic), color = Light)
+                                GlossText(s, series, "E", e, i, spokenText(line, spokenRange(s.narrator, audio, line), Gilt), style = Type.body.of(view.learn).copy(fontStyle = FontStyle.Italic), color = Light)
                                 if (view.read != view.learn) Text(Breaks.plain(m.text[view.read]), style = Type.small.of(view.read), color = Soft)
                             }
                         }

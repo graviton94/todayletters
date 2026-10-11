@@ -30,6 +30,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
+import io.github.graviton94.todayletters.data.learnVocab
 import io.github.graviton94.todayletters.core.Breaks
 import io.github.graviton94.todayletters.core.Memory
 import io.github.graviton94.todayletters.core.ReviewKind
@@ -48,7 +49,13 @@ import io.github.graviton94.todayletters.design.Type
 fun WordDetail(s: AppState, key: String, onClose: () -> Unit) {
     // 어느 화면에서 열든 맨 위에 (전체 화면 창)
     FullDialog(onDismissRequest = onClose) {
-        WordDetailBody(s, key, onClose)
+        // 이 창 안에서 누른 낱말의 뜻 카드는 이 창 안에 (창 밖의 GlossHost 는 가려지므로)
+        val layer = remember { s.glossLayers + 1 }
+        androidx.compose.runtime.DisposableEffect(Unit) { s.glossLayers = layer; onDispose { s.glossLayers = layer - 1; s.gloss = null } }
+        Box(Modifier.fillMaxSize()) {
+            WordDetailBody(s, key, onClose)
+            GlossHost(s, layer)
+        }
     }
 }
 
@@ -73,7 +80,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
     // 그 낱말이 나온 문장 (편지 속 꼴로 찾는다)
     val stem = Breaks.plain(learn).substringBefore(" (").substringBefore(",").trim().lowercase()
     val mi = letter.messages.indexOfFirst { Breaks.plain(it.text[view.learn]).lowercase().contains(stem.take(maxOf(3, stem.length - 2))) }
-        .takeIf { it >= 0 || view.learn != w.series.original }
+        .takeIf { it >= 0 || view.learn != w.learnVocab }
         ?: letter.messages.indexOfFirst { m -> wordMarks(m.text[view.learn], word.forms).isNotEmpty() }
     Box(Modifier.fillMaxSize().background(p.paper).statusBarsSafe().navigationBarsSafe()) {
         Column(Modifier.fillMaxSize()) {
@@ -96,7 +103,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
                     if (audio.isNotEmpty() || word.ipa.isNotEmpty()) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                         if (audio.isNotEmpty()) Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
                         if (audio.isNotEmpty()) Box(Modifier.heightIn(min = 48.dp).semantics { contentDescription = slowA11y }.pressable { s.narrator.play(audio, speed = 0.7f) }, contentAlignment = Alignment.Center) { Capsule("0.7×") }
-                        if (word.ipa.isNotEmpty() && view.learn == w.series.original) Text("[${word.ipa}]" + if (word.pos.isNotEmpty()) " · ${word.pos}" else "", style = Type.small, color = p.inkSoft)
+                        if (word.ipa.isNotEmpty() && view.learn == w.learnVocab) Text("[${word.ipa}]" + if (word.pos.isNotEmpty()) " · ${word.pos}" else "", style = Type.small, color = p.inkSoft)
                     }
                     Text(word.text[view.read], style = Type.title.of(view.read), color = p.ink)
                 }
@@ -132,7 +139,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
                     }
                     Column(Modifier.fillMaxWidth().background(p.leaf).padding(Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         Box(Modifier.fillMaxWidth().height(0.dp))
-                        Text(marked, style = Type.base.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic).of(view.learn), color = p.ink)
+                        GlossText(s, id, chapter, letter, mi, marked, style = Type.base.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic).of(view.learn), color = p.ink)
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Text((if (n == 0) "Prologue" else stringResource(R.string.letter_n, roman(n))) + " · " + dateLine(letter.date, letter.place) + " · " + letter.place,
                                 style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, modifier = Modifier.weight(1f))

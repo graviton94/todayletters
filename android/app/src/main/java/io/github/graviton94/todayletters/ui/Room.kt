@@ -90,11 +90,11 @@ fun Room(s: AppState, r: Route.Letter) {
     var writing by remember(letter.id) { mutableStateOf(false) }
     var words by remember { mutableStateOf(false) }
     var wordFocus by remember { mutableStateOf<Int?>(null) }
-    // 눌러서 뜻 보기: 펼친 낱말 (메시지 번호, 토큰 번호). 원문을 배우는 때만 (gloss.json 토큰은 원문 낱말)
-    var glossAt by remember(letter.id) { mutableStateOf<Pair<Int, Int>?>(null) }
-    val glossTokens = remember(id, letter.id, view.learn) {
-        if (view.learn == work.series.original) io.github.graviton94.todayletters.data.Library.gloss(s.ctx, id)[letter.id]?.takeIf { it.size == letter.messages.size } else null
+    // 펼친 낱말은 [AppState.gloss] (화면 맨 위의 GlossHost 가 카드를 띄운다). 배우는 말이 이 작품 어휘 자료의 언어일 때만
+    val glossTokens = remember(id, letter.id, view.learn, work.deck) {
+        letter.messages.indices.map { s.glossTokens(id, letter.id, it) }.takeIf { t -> t.any { it != null } }
     }
+    val glossAt = s.gloss?.takeIf { it.series == id && it.letter.id == letter.id }?.let { it.msg to it.token }
     var playing by remember(letter.id) { mutableStateOf<Int?>(null) }
     var all by remember { mutableStateOf<Job?>(null) }
     val controlsRef = remember { arrayOfNulls<Playback.Controls>(1) }
@@ -319,7 +319,7 @@ fun Room(s: AppState, r: Route.Letter) {
                         onPlay = { speak(i) }, onWritten = { if (written < i + 1) written = i + 1 },
                         marks = sentMarks,
                         onWord = { wordFocus = it },
-                        taps = ranges, onTap = if (toks != null) ({ j: Int -> glossAt = i to j }) else null, hints = hints,
+                        taps = ranges, onTap = if (toks != null) ({ j: Int -> s.gloss = AppState.GlossPick(id, chapter, letter, i, j, toks[j].key) }) else null, hints = hints,
                         picked = glossAt?.takeIf { it.first == i }?.let { ranges.getOrNull(it.second) },
                         fold = fade.first, glosses = fade.second,
                         saved = s.isSaved(s.quoteKey(id, chapter, letter.id, i)),
@@ -422,7 +422,6 @@ fun Room(s: AppState, r: Route.Letter) {
     if (words) WordSheet(s, r, onClose = { words = false })
     listening?.let { m -> MusicSheet(s, work, m, onClose = { listening = null }) }
     wordFocus?.let { k -> val (ch, lt) = s.letterOf(r); WordDetail(s, s.cardKey(id, ch, lt.id, k)) { wordFocus = null } }
-    glossAt?.let { (mi, tj) -> glossTokens?.getOrNull(mi)?.getOrNull(tj)?.let { t -> GlossSheet(s, id, chapter, letter, t.key) { glossAt = null } } }
     // 다 읽은 편지의 낱말은 낱말 카드함으로 (내일부터 복습)
     LaunchedEffect(finished) { if (finished) s.collectWords(id, chapter, letter) }
 }
@@ -747,7 +746,7 @@ fun WordSheet(s: AppState, r: Route.Letter, onClose: () -> Unit) {
                 val tr = if (view.read == Lang.EN || view.read == Lang.KO) view.read else uiLang()
                 letter.phrases.forEach { ph ->
                     Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                        Text(ph.text[s.work(r.series).series.original], style = Type.heading.of(s.work(r.series).series.original), color = p.ink)
+                        Text(ph.text[view.learn], style = Type.heading.of(view.learn), color = p.ink)
                         Text(ph.text[tr], style = Type.body.of(tr), color = p.inkSoft)
                     }
                     Hair()

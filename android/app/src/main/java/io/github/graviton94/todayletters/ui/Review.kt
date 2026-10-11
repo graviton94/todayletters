@@ -60,6 +60,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.isImeVisible
 import io.github.graviton94.todayletters.R
+import io.github.graviton94.todayletters.data.learnVocab
 import io.github.graviton94.todayletters.core.Breaks
 import io.github.graviton94.todayletters.core.Card
 import io.github.graviton94.todayletters.core.Lang
@@ -228,7 +229,17 @@ private data class Q(val card: Card, val kind: ReviewKind, val word: String, val
                      /** 편지 번호 (로마 숫자) · 날짜 · 그림: 이름표와 출처 줄에. */
                      val letterNo: String = "", val date: String = "", val place: String = "", val plate: String = "",
                      /** 내 구절에서 나온 빈칸 (v21 2단계 F5). */
-                     val fromQuote: Boolean = false)
+                     val fromQuote: Boolean = false,
+                     /** 문장이 나온 자리 (눌러서 뜻 보기): 작품 · 장 · 편지 · 메시지 번호. */
+                     val series: String = "", val chapter: String = "", val letter: io.github.graviton94.todayletters.core.Letter? = null, val msg: Int = -1)
+
+/** 복습 문장 (빈칸 · 문장 힌트): 낱말을 누르면 뜻. 문장이 나온 자리를 모르면 그냥 글자. */
+@Composable
+private fun QText(s: AppState, q: Q, text: androidx.compose.ui.text.AnnotatedString, style: androidx.compose.ui.text.TextStyle, color: Color) {
+    val l = q.letter
+    if (l == null || q.msg < 0) Text(text, style = style, color = color)
+    else GlossText(s, q.series, q.chapter, l, q.msg, text, style = style, color = color)
+}
 
 /**
  * 복습 한 판: 듣고 쓰기 · 빈칸 채우기 · 뜻 고르기. [Route.Session.kind] 가 없으면 오늘의 복습 (칸에 맞춰 섞어서).
@@ -410,11 +421,11 @@ fun Session(s: AppState, r: Route.Session) {
                     )
                     if (!compact) Text(listOfNotNull(q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, stringResource(R.string.dict_letters, answer.count { it != ' ' })).joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
                     if (compact && !hint && mark == null) Unit
-                    else if (hint || mark != null) SentenceHint(q) else Text(stringResource(R.string.dict_hint), style = Type.small.ui(), color = p.giltText, modifier = Modifier.pressable { hint = true }.padding(Tokens.Space.s2))
+                    else if (hint || mark != null) SentenceHint(s, q) else Text(stringResource(R.string.dict_hint), style = Type.small.ui(), color = p.giltText, modifier = Modifier.pressable { hint = true }.padding(Tokens.Space.s2))
                 }
                 ReviewKind.BLANK -> {
                     Text(stringResource(R.string.blank_prompt), style = Type.heading.ui(), color = p.ink)
-                    BlankPaper(q, filled = mark != null, highlight = hint || mark != null)
+                    BlankPaper(s, q, filled = mark != null, highlight = hint || mark != null)
                     if (q.fromQuote) Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                         PlateThumb(q.plate, true, Modifier.size(28.dp))
                         Text(stringResource(R.string.letter_n, q.letterNo) + " · " + dateLine(q.date, q.place) + " · " + stringResource(R.string.quote_mine),
@@ -561,7 +572,7 @@ fun Session(s: AppState, r: Route.Session) {
 }
 
 @Composable
-private fun SentenceHint(q: Q, filled: Boolean = true, highlight: Boolean = false) {
+private fun SentenceHint(s: AppState, q: Q, filled: Boolean = true, highlight: Boolean = false) {
     val p = Ink.palette
     if (q.sentence == null) return
     Slip(seed = 13, modifier = Modifier.fillMaxWidth()) {
@@ -581,7 +592,7 @@ private fun SentenceHint(q: Q, filled: Boolean = true, highlight: Boolean = fals
                     }
                 }
             }
-            Text(marked, style = Type.target.of(q.learn), color = p.slipInk)
+            QText(s, q, marked, style = Type.target.of(q.learn), color = p.slipInk)
             if (q.sentenceRead != null) Text(
                 if (highlight) meaningMarks(q.sentenceRead, q.meaning, p.slipInk) else androidx.compose.ui.text.AnnotatedString(q.sentenceRead),
                 style = Type.base.of(q.read), color = p.slipSoft,
@@ -846,7 +857,7 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         val view = s.room(w.series.id)
         val learnWord = word.text[view.learn]
         // “study (sketch)”, “country, land” 처럼 뜻이 여럿이면 뜻마다 편지 문장에서 찾는다. 사전에서 온 낱말은 편지에 찍힌 꼴로도
-        val senses = senses(learnWord) + (if (view.learn == w.series.original) word.forms else emptyList())
+        val senses = senses(learnWord) + (if (view.learn == w.learnVocab) word.forms else emptyList())
         fun has(mi: Int) = l.messages.getOrNull(mi)?.let { m -> wordMarks(m.text[view.learn], senses).isNotEmpty() } == true
         var k = kind ?: Memory.kindFor(card)
         // 내 구절에서: 그 구절 연습이면 늘, 오늘의 복습이면 빈칸 · 뜻 고르기 차례에 가끔
@@ -881,14 +892,14 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         val others = all.filter { it.word != word }.map { it.word.text[if (k == ReviewKind.MEANING) view.read else view.learn] }
             .distinct().filter { it != answerWord && it != word.text[view.read] }.shuffled(java.util.Random(card.key.hashCode().toLong())).take(3)
         val right = if (k == ReviewKind.MEANING) word.text[view.read] else answerWord
-        Q(card, k, answerWord, word.text[view.read], if (view.learn == w.series.original) word.ipa else "",
+        Q(card, k, answerWord, word.text[view.read], if (view.learn == w.learnVocab) word.ipa else "",
             s.wordAudio(found, view.learn),
             sentenceLearn, l.messages.getOrNull(hit)?.text?.get(view.read), sentenceAudio,
             (others + right).shuffled(java.util.Random(card.key.hashCode().toLong() + 7)), view.learn, view.read,
             full = if (k == ReviewKind.DICTATION) plainFull else answerWord, typeFrom = if (k == ReviewKind.DICTATION) typeFrom else 0, inText = formInText,
             phrase = phrase?.text?.trim()?.split(Regex("\\s+")), range = phrase?.let { it.start..it.end },
             letterNo = roman(w.chapters.flatMap { it.letters }.indexOf(l) + 1), date = l.date, place = l.place, plate = l.plate?.image.orEmpty(),
-            fromQuote = mine != null)
+            fromQuote = mine != null, series = w.series.id, chapter = ch, letter = l, msg = hit)
     }
 }
 
@@ -1012,7 +1023,7 @@ fun QuotesScreen(s: AppState) {
                                 Text(dateLine(l.date, l.place) + " · " + stringResource(R.string.letter_n, roman(n)), style = Type.small.ui(), color = p.slipSoft, modifier = Modifier.weight(1f))
                                 IconButton(stringResource(R.string.quote_saved), onClick = { s.toggleQuote(k) }) { Bookmark(true) }
                             }
-                            Text(m.text[view.learn], style = Type.target.of(view.learn), color = p.slipInk, modifier = Modifier.padding(end = Tokens.Space.s2))
+                            GlossText(s, w.series.id, ch, l, mi, m.text[view.learn], style = Type.target.of(view.learn), color = p.slipInk, modifier = Modifier.padding(end = Tokens.Space.s2))
                             if (view.read != view.learn) Text(m.text[view.read], style = Type.base.of(view.read), color = p.slipSoft, modifier = Modifier.padding(end = Tokens.Space.s2))
                         }
                         Box(Modifier.padding(top = Tokens.Space.s3).fillMaxWidth().height(1.dp).background(p.hair))
@@ -1130,7 +1141,7 @@ private fun IndexOptions(q: Q, picked: String?, mark: Memory.Mark?, missed: Set<
 
 /** 빈칸 채우기의 문장: 편지지 위에, 빈칸은 금빛 밑줄. 맞으면 그 자리에 낱말이 끼워지고 번역 쪽 말도 금빛. */
 @Composable
-private fun BlankPaper(q: Q, filled: Boolean, highlight: Boolean) {
+private fun BlankPaper(s: AppState, q: Q, filled: Boolean, highlight: Boolean) {
     val p = Ink.palette
     if (q.sentence == null) return
     val key = q.inText ?: q.word
@@ -1146,7 +1157,7 @@ private fun BlankPaper(q: Q, filled: Boolean, highlight: Boolean) {
         append(q.sentence.substring(i + key.length))
     }
     Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-        Text(text, style = Type.target.copy(fontFamily = Faces.display, fontStyle = androidx.compose.ui.text.font.FontStyle.Italic).of(q.learn), color = p.ink)
+        QText(s, q, text, style = Type.target.copy(fontFamily = Faces.display, fontStyle = androidx.compose.ui.text.font.FontStyle.Italic).of(q.learn), color = p.ink)
         if (q.sentenceRead != null) Text(
             if (highlight) meaningMarks(q.sentenceRead, q.meaning, p.ink) else androidx.compose.ui.text.AnnotatedString(q.sentenceRead),
             style = Type.small.of(q.read), color = p.inkSoft,
