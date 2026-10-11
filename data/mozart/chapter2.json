@@ -606,7 +606,12 @@
       "en": "Oboe Concerto in C, K. 314 (271k)",
       "ko": "오보에 협주곡 C장조, K. 314 (271k)"
      },
-     "commons": "File:Oboe Concerto in C K.314 271k II. Andantino (Mozart) European Archive.ogg"
+     "commons": "File:Oboe Concerto in C K.314 271k II. Andantino (Mozart) European Archive.ogg",
+     "audio": "m-c2-l3.m4a",
+     "performer": "European Archive · Musopen",
+     "audioLicense": "Public domain",
+     "audioSource": "https://commons.wikimedia.org/wiki/File:Oboe_Concerto_in_C_K.314_271k_II._Andantino_(Mozart)_European_Archive.ogg",
+     "excerpt": "60 s excerpt, faded and level-matched"
     }
    ],
    "status": {
@@ -1079,7 +1084,12 @@
       "en": "Flute Quartet No. 1 in D, K. 285",
       "ko": "플루트 사중주 1번 D장조, K. 285"
      },
-     "commons": "File:Wolfgang Amadeus Mozart - Flute Quartet No. 1 in D Major - 2. Adagio.ogg"
+     "commons": "File:Wolfgang Amadeus Mozart - Flute Quartet No. 1 in D Major - 2. Adagio.ogg",
+     "audio": "m-c2-l5.m4a",
+     "performer": "Felix Skowronek, Philadelphia Quartet (1973) · Al Goldstein collection, ibiblio",
+     "audioLicense": "CC BY-SA 2.0",
+     "audioSource": "https://commons.wikimedia.org/wiki/File:Wolfgang_Amadeus_Mozart_-_Flute_Quartet_No._1_in_D_Major_-_2._Adagio.ogg",
+     "excerpt": "60 s excerpt, faded and level-matched"
     }
    ],
    "status": {
@@ -1314,7 +1324,12 @@
       "en": "Flute Concerto in G, K. 313 (music for De Jean)",
       "ko": "플루트 협주곡 G장조, K. 313 (드 장을 위한 곡)"
      },
-     "commons": "File:Wolfgang Amadeus Mozart - flute concerto in g major, k. 313 - i. allegro maestoso.ogg"
+     "commons": "File:Wolfgang Amadeus Mozart - flute concerto in g major, k. 313 - i. allegro maestoso.ogg",
+     "audio": "m-c2-l6.m4a",
+     "performer": "Musopen",
+     "audioLicense": "Public domain",
+     "audioSource": "https://commons.wikimedia.org/wiki/File:Wolfgang_Amadeus_Mozart_-_flute_concerto_in_g_major,_k._313_-_i._allegro_maestoso.ogg",
+     "excerpt": "60 s excerpt, faded and level-matched"
     }
    ],
    "status": {

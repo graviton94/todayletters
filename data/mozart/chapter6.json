@@ -1084,7 +1084,12 @@
       "en": "Symphony in D, 'Haffner', K. 385 – first movement",
       "ko": "교향곡 D장조 「하프너」 K. 385 – 1악장"
      },
-     "commons": "File:Symphony no. 35 in D 'Haffner' K. 385 I. Allegro con spirito (Mozart) European Archive.ogg"
+     "commons": "File:Symphony no. 35 in D 'Haffner' K. 385 I. Allegro con spirito (Mozart) European Archive.ogg",
+     "audio": "m-c6-l5.m4a",
+     "performer": "European Archive · Musopen",
+     "audioLicense": "Public domain",
+     "audioSource": "https://commons.wikimedia.org/wiki/File:Symphony_no._35_in_D_'Haffner'_K._385_I._Allegro_con_spirito_(Mozart)_European_Archive.ogg",
+     "excerpt": "60 s excerpt, faded and level-matched"
     },
     {
      "after": 1,
@@ -1338,7 +1343,12 @@
       "en": "Mass in C minor, K. 427 – Kyrie",
       "ko": "미사 C단조 K. 427 – 키리에"
      },
-     "commons": "File:Mozart - Mass in C minor K.427 - I. Kyrie.mp3"
+     "commons": "File:Mozart - Mass in C minor K.427 - I. Kyrie.mp3",
+     "audio": "m-c6-l6.m4a",
+     "performer": "Musopen",
+     "audioLicense": "CC0",
+     "audioSource": "https://commons.wikimedia.org/wiki/File:Mozart_-_Mass_in_C_minor_K.427_-_I._Kyrie.mp3",
+     "excerpt": "60 s excerpt, faded and level-matched"
     }
    ],
    "status": {

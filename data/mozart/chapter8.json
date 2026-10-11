@@ -824,7 +824,12 @@
       "en": "Piano Concerto in F, K. 459 (played in Frankfurt, 15 October 1790)",
       "ko": "피아노 협주곡 F장조, K. 459 (1790년 10월 15일 프랑크푸르트 연주회)"
      },
-     "commons": "File:Mozart Concerto pour piano No.19 F major I. Allegro (Mozart) European Archive.ogg"
+     "commons": "File:Mozart Concerto pour piano No.19 F major I. Allegro (Mozart) European Archive.ogg",
+     "audio": "m-c8-l4.m4a",
+     "performer": "European Archive · Musopen",
+     "audioLicense": "Public domain",
+     "audioSource": "https://commons.wikimedia.org/wiki/File:Mozart_Concerto_pour_piano_No.19_F_major_I._Allegro_(Mozart)_European_Archive.ogg",
+     "excerpt": "60 s excerpt, faded and level-matched"
     }
    ],
    "status": {
@@ -1478,7 +1483,12 @@
       "en": "Die Zauberflöte, K. 620 — Overture",
       "ko": "〈마술피리〉, K. 620 — 서곡"
      },
-     "commons": "File:Mozart - Die Zauberflöte, K620 - Overture (Musopen Symphony).flac"
+     "commons": "File:Mozart - Die Zauberflöte, K620 - Overture (Musopen Symphony).flac",
+     "audio": "m-c8-l7.m4a",
+     "performer": "Musopen Symphony",
+     "audioLicense": "Public domain",
+     "audioSource": "https://commons.wikimedia.org/wiki/File:Mozart_-_Die_Zauberfl%C3%B6te,_K620_-_Overture_(Musopen_Symphony).flac",
+     "excerpt": "60 s excerpt, faded and level-matched"
     },
     {
      "after": 3,
