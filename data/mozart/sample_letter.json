@@ -1,0 +1,17 @@
+{
+  "_doc": "목소리 견본용 발췌: 모차르트 → 아버지 (Nohl 1865, Nr. 73 · Nr. 98). 영어는 Wallace 1866, 한국어는 이 앱의 번역. 본편과 같은 문장.",
+  "series": "mozart",
+  "original": "de",
+  "messages": [
+    {
+      "de": "Ich kann sogar durchs Deuten und durch Pantomime meine Gesinnungen und Gedanken nicht ausdrücken; ich bin kein Tänzer. Ich kann es aber durch Töne; ich bin ein Musikus.",
+      "en": "I can neither by signs nor by pantomime express my thoughts and feelings, for I am no dancer; but I can by tones, for I am a musician.",
+      "ko": "몸짓이나 무언극으로 제 마음과 생각을 나타낼 줄도 몰라요. 무용수가 아니니까요. 하지만 소리로는 할 수 있어요. 저는 음악가니까요."
+    },
+    {
+      "de": "„Nach Gott kommt gleich der Papa!“ das war als Kind mein Wahlspruch oder Axioma und bey dem bleib ich auch noch.",
+      "en": "\"Next to God comes papa\" was my axiom when a child, and I still think the same.",
+      "ko": "“하느님 다음은 바로 아빠!” 어릴 때 제 좌우명이었는데, 지금도 변함없어요."
+    }
+  ]
+}

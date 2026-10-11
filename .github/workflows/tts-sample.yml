@@ -1,10 +1,15 @@
 name: TTS sample
 
-# 빈센트 배역 고르기용 목소리 견본 (원어 · 영어 · 한국어 × 남성 목소리 5). 결과는 tts-sample 가지에.
+# 배역 고르기용 목소리 견본 (원어 · 영어 · 한국어 × 목소리). 결과는 tts-sample 가지에 (branch 로 바꿀 수 있음).
+# push 로 돌 때는 아래 기본값 (모차르트 비교 견본).
 on:
   workflow_dispatch:
+    inputs:
+      series: { description: "작품", default: "mozart" }
+      voices: { description: "목소리 (띄어쓰기로 구분, M1+M3@0.5:1.0)", default: "M1+M3@0.5:0.9 M1+M3@0.5:1.0 M3:0.9 M3:1.0 M4:0.9 M4:1.0 M1+M4@0.5:0.9 M1+M4@0.5:1.0 M3+M4@0.5:0.9 M3+M4@0.5:1.0 M1:0.9 M1:1.0" }
+      branch: { description: "결과 가지", default: "tts-sample-mozart" }
   push:
-    paths: ["scripts/tts_sample.py", "data/vincent/sample_letter.json", ".github/workflows/tts-sample.yml"]
+    paths: ["scripts/tts_sample.py", "data/*/sample_letter.json", ".github/workflows/tts-sample.yml"]
 
 jobs:
   sample:
@@ -22,7 +27,10 @@ jobs:
           hf download supertone-oss-archive/supertonic-3 --revision aafc6e32416a594460b32413efc49d7fe4ce6d46 --local-dir /tmp/st/assets
           ls /tmp/st/assets /tmp/st/assets/voice_styles
       - name: Make the letter in every voice
-        run: python scripts/tts_sample.py /tmp/st/py /tmp/st/assets tts_out
+        run: python scripts/tts_sample.py /tmp/st/py /tmp/st/assets tts_out $VOICES
+        env:
+          SAMPLE_SERIES: ${{ inputs.series || 'mozart' }}
+          VOICES: ${{ inputs.voices || 'M1+M3@0.5:0.9 M1+M3@0.5:1.0 M3:0.9 M3:1.0 M4:0.9 M4:1.0 M1+M4@0.5:0.9 M1+M4@0.5:1.0 M3+M4@0.5:0.9 M3+M4@0.5:1.0 M1:0.9 M1:1.0' }}
       - name: Encode (32kHz mono AAC, same as the app) and publish to tts-sample branch
         run: |
           sudo apt-get install -y -qq ffmpeg >/dev/null
@@ -30,5 +38,5 @@ jobs:
           for f in *.wav; do ffmpeg -loglevel error -y -i "$f" -ar 32000 -ac 1 -c:a aac -b:a 48k "${f%.wav}.m4a"; done
           rm *.wav; ls -la
           git init -q && git checkout -q -b tts-sample && git add .
-          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Vincent letter voice samples"
-          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:tts-sample
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Voice samples"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:${{ inputs.branch || 'tts-sample-mozart' }}
