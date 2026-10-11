@@ -843,7 +843,7 @@
     <string name="catalogue_title">My catalogue</string>
     <string name="catalogue_name">Mon %1$s</string>
     <string name="catalogue_sub">The paintings from your letters · %1$s</string>
-    <string name="catalogue_complete">Complete: all %1$d of %2$d paintings collected.</string>
+    <string name="catalogue_complete">Complete: all %2$d paintings collected.</string>
     <string name="catalogue_progress">%1$d of %2$d paintings</string>
     <string name="cover_prologue">Before Arles</string>
     <string name="cover_prologue_meta">%1$d pages · docent</string>
@@ -851,4 +851,5 @@
     <string name="cover_epilogue_open">His last letter and his life</string>
     <string name="cover_epilogue_locked">Opens after the last letter</string>
     <string name="done_outro">Read the afterword</string>
+    <string name="done_series_end">That was his last letter. The afterword is waiting.</string>
 </resources>

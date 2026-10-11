@@ -3369,8 +3369,8 @@
     "ko": "편지로 모은 그림 · %1$s"
   },
   "catalogue_complete": {
-    "en": "Complete: all %1$d of %2$d paintings collected.",
-    "ko": "완성: 그림 %2$d점을 모두 모았어요 (%1$d/%2$d)."
+    "en": "Complete: all %2$d paintings collected.",
+    "ko": "완성: 그림 %2$d점을 모두 모았어요."
   },
   "catalogue_progress": {
     "en": "%1$d of %2$d paintings",
@@ -3399,5 +3399,9 @@
   "done_outro": {
     "en": "Read the afterword",
     "ko": "맺음말 읽기"
+  },
+  "done_series_end": {
+    "en": "That was his last letter. The afterword is waiting.",
+    "ko": "그의 마지막 편지였어요. 맺음말이 기다리고 있어요."
   }
 }

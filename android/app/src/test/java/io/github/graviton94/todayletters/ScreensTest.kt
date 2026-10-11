@@ -544,6 +544,7 @@ class ScreensTest {
     @Test fun releasePrologueFirst() { val s = state(true); shot("r01_prologue_p1", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("vincent", 0)) } }
     @Test fun releasePrologueLast() { val s = state(true); shot("r02_prologue_p4", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("vincent", 3)) } }
     @Test fun releaseArrival() { val s = state(true); shot("r03_prologue_arrival", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("vincent", 4)) } }
+    @Config(qualifiers = "+h1700dp")
     @Test fun releaseCover() { val s = state(true); allDone(s, 3); shot("r04_cover_rows", false, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "vincent") } }
     @Test fun releaseDoneLast() { val s = state(true); allDone(s); shot("r05_done_last", false, 4000, series = s) { Done(s, Route.Letter("vincent", 8, 7)) } }
     @Config(qualifiers = "+h1900dp")

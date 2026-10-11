@@ -123,7 +123,7 @@ fun Done(s: AppState, room: Route.Letter) {
                     Stat("+${letter.words.size}", stringResource(R.string.done_stat_cards))
                     Stat("$got/${plates.size}", stringResource(R.string.tab_gallery))
                 }
-                Text(stringResource(if (waiting > 0) R.string.done_next_now else if (got >= plates.size) R.string.done_chapter_end else R.string.done_next_tomorrow), style = Type.small.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                Text(stringResource(if (waiting > 0) R.string.done_next_now else if (got >= plates.size && work.outro != null) R.string.done_series_end else if (got >= plates.size) R.string.done_chapter_end else R.string.done_next_tomorrow), style = Type.small.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
             }
         }
         Column(Modifier.background(p.paper).navigationBarsPadding().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {

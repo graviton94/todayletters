@@ -258,7 +258,7 @@ fun CatalogueScreen(s: AppState, series: String) {
                                 if (done && l.plate != null) AssetImage("plates/${l.plate!!.image}", Modifier.fillMaxSize(), sample = 8)
                                 else Text(roman(li + 1), style = Type.heading.copy(fontFamily = Faces.display), color = Color(0xFF4A3F31))
                             }
-                            Text(if (done) l.plate?.title?.get(ui).orEmpty() else "", style = Type.caps, color = Soft, maxLines = 1, modifier = Modifier.padding(top = 4.dp))
+                            Text(if (done) l.plate?.title?.get(ui).orEmpty() else "", style = Type.small.ui().copy(fontSize = Tokens.Text.caps, lineHeight = Tokens.Text.caps * 1.3f), color = Soft, maxLines = 2, minLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, modifier = Modifier.padding(top = 4.dp))
                         }
                     }
                     repeat(4 - chunk.size) { Box(Modifier.weight(1f)) }
