@@ -1,0 +1,1056 @@
+{
+ "_doc": "Chapter VI. 독일어는 루트비히 놀(Ludwig Nohl) 엮음 『Mozarts Briefe』(잘츠부르크 1865, 공공 영역, archive.org 스캔) 쪽 사진에서 인쇄된 그대로 옮겼고, 판의 철자(daß, heirathen, Wuth 등)도 그대로 두었어요. 영어는 레이디 월리스(Lady Wallace)의 1866년 번역을 그대로 썼고, 한국어는 이 앱의 번역이에요.",
+ "series": "mozart",
+ "chapter": "VI",
+ "title_de": "Constanze",
+ "title_en": "Constanze",
+ "title_ko": "콘스탄체",
+ "original": "de",
+ "letters": [
+  {
+   "id": "c6-l1",
+   "wallace_no": 186,
+   "nohl_pages": [
+    350,
+    351
+   ],
+   "date": "1782-01-23",
+   "dateNote": "The heading and date (Wien 23. Jan. 1782) stand on p. 349, which is missing from the scan; the date follows Wallace.",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "calm",
+   "messages": [
+    {
+     "de": "Das zweite (welches aber bei mir das erste ist —) ist der Kaiser selbst. — Wer weiß — … doch ist den Hofschranzen niemals zu trauen.",
+     "en": "The second (the first, however, in my estimation) is the Emperor himself. Who knows? … but courtiers are never to be trusted.",
+     "ko": "두 번째는 (제게는 사실 첫 번째지만) 황제 폐하 자신이에요. 누가 알겠어요… 하지만 궁정 사람들은 절대 믿을 수가 없어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Das zweite (welches aber bei mir das erste ist —) / ist der Kaiser selbst. // — Wer weiß — … / doch ist den Hofschranzen / niemals zu trauen.",
+      "en": "The second (the first, however, in my estimation) / is the Emperor himself. // Who knows? … / but courtiers / are never to be trusted.",
+      "ko": "두 번째는 / (제게는 사실 첫 번째지만) / 황제 폐하 자신이에요. // 누가 알겠어요… / 하지만 궁정 사람들은 / 절대 믿을 수가 없어요."
+     }
+    },
+    {
+     "de": "Das simple Versprechen getraute ich mir schon herauszulocken, — allein was hilft mir das für jetzt? — baares Geld ist besser.",
+     "en": "I could easily manage to extract a simple promise from him, but how would that benefit me at present? Ready money is better.",
+     "ko": "그냥 약속 한마디쯤은 얼마든지 받아 낼 수 있어요. 하지만 지금 그게 무슨 소용이에요? 현금이 더 나아요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Das simple Versprechen / getraute ich mir schon herauszulocken, // — allein was hilft mir das für jetzt? // — baares Geld ist besser.",
+      "en": "I could easily manage / to extract a simple promise from him, // but how would that benefit me at present? // Ready money is better.",
+      "ko": "그냥 약속 한마디쯤은 / 얼마든지 받아 낼 수 있어요. // 하지만 지금 그게 무슨 소용이에요? // 현금이 더 나아요."
+     }
+    },
+    {
+     "de": "Liebster, bester Vater! — wenn ich von unserm lieben Gott schriftlich haben könnte, daß ich gesund bleibe und nicht krank sein werde, — o so wollte ich mein liebes treues Mädchen noch heute heirathen.",
+     "en": "My dear good father, if I knew for certain that a kind Providence would ordain that I should continue to enjoy good health, and exempt me from illness, oh! then I would marry my dear faithful Constanze this very day.",
+     "ko": "사랑하는 아버지! 제가 건강하고 앓지 않으리라는 것을 하느님께 문서로 받아 둘 수만 있다면, 아, 그러면 제 사랑스럽고 진실한 아가씨와 오늘이라도 결혼할 거예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Liebster, bester Vater! // — wenn ich von unserm lieben Gott / schriftlich haben könnte, / daß ich gesund bleibe / und nicht krank sein werde, // — o so wollte ich / mein liebes treues Mädchen / noch heute heirathen.",
+      "en": "My dear good father, // if I knew for certain / that a kind Providence would ordain / that I should continue to enjoy good health, / and exempt me from illness, // oh! then I would marry / my dear faithful Constanze / this very day.",
+      "ko": "사랑하는 아버지! // 제가 건강하고 / 앓지 않으리라는 것을 / 하느님께 문서로 받아 둘 수만 있다면, // 아, 그러면 / 제 사랑스럽고 진실한 아가씨와 / 오늘이라도 결혼할 거예요."
+     }
+    },
+    {
+     "de": "Mit mir kann es nicht schlechter — sondern es muß immer besser gehen.",
+     "en": "Things cannot go worse with me, and will no doubt every day gradually go better.",
+     "ko": "제 형편은 더 나빠질 수 없어요. 앞으로는 나아질 일만 남았어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Mit mir kann es nicht schlechter / — sondern es muß immer besser gehen.",
+      "en": "Things cannot go worse with me, / and will no doubt / every day gradually go better.",
+      "ko": "제 형편은 / 더 나빠질 수 없어요. // 앞으로는 / 나아질 일만 남았어요."
+     }
+    },
+    {
+     "de": "Warum ich aber nicht mehr lange warten kann — ist nicht allein — meinetwegen — sondern hauptsächlich — ihretwegen — ich muß sie so bald möglich erretten",
+     "en": "My reason for wishing to avoid delay is not so much on my own account as on hers. I must rescue her as soon as possible",
+     "ko": "제가 더 오래 기다릴 수 없는 건 저 때문만이 아니라 무엇보다 그녀 때문이에요. 되도록 빨리 그녀를 구해 내야 해요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Warum ich aber nicht mehr lange warten kann / — ist nicht allein — meinetwegen / — sondern hauptsächlich — ihretwegen // — ich muß sie so bald möglich erretten",
+      "en": "My reason for wishing to avoid delay / is not so much on my own account / as on hers. // I must rescue her / as soon as possible",
+      "ko": "제가 더 오래 기다릴 수 없는 건 / 저 때문만이 아니라 / 무엇보다 그녀 때문이에요. // 되도록 빨리 / 그녀를 구해 내야 해요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Kaiser",
+     "pos": "n.m.",
+     "ipa": "ˈkaɪ̯zɐ",
+     "en": "emperor",
+     "ipa_en": "ˈɛmpəɹɚ",
+     "ko": "황제",
+     "rom_ko": "hwangje",
+     "icon": "👑"
+    },
+    {
+     "de": "das Geld",
+     "pos": "n.n.",
+     "ipa": "ɡɛlt",
+     "en": "money",
+     "ipa_en": "ˈmʌni",
+     "ko": "돈",
+     "rom_ko": "don",
+     "icon": "💰"
+    },
+    {
+     "de": "gesund",
+     "pos": "adj.",
+     "ipa": "ɡəˈzʊnt",
+     "en": "healthy",
+     "ipa_en": "ˈhɛlθi",
+     "ko": "건강한",
+     "rom_ko": "geonganghan"
+    },
+    {
+     "de": "heirathen",
+     "de_modern": "heiraten",
+     "pos": "v.",
+     "ipa": "ˈhaɪ̯ʁaːtn̩",
+     "en": "to marry",
+     "ipa_en": "tə ˈmæɹi",
+     "ko": "결혼하다",
+     "rom_ko": "gyeolhonhada",
+     "icon": "💍"
+    },
+    {
+     "de": "warten",
+     "pos": "v.",
+     "ipa": "ˈvaʁtn̩",
+     "en": "to wait",
+     "ipa_en": "tə weɪt",
+     "ko": "기다리다",
+     "rom_ko": "gidarida",
+     "icon": "⏳"
+    }
+   ],
+   "note": {
+    "ko": "모차르트는 콘스탄체와 결혼하기 위해 확실한 수입을 찾고 있었어요. 이 편지에서 그는 젊은 리히텐슈타인 후작의 관악 합주단, 황제, 그리고 막시밀리안 대공이라는 세 가지 가능성을 따져 봐요. 독일어 원문은 '내 사랑스럽고 진실한 아가씨'라고만 쓰고, 월리스의 영어 번역은 그 자리에 콘스탄체의 이름을 넣었어요.",
+    "en": "Mozart was looking for a steady income so that he could marry Constanze. In this letter he weighs three prospects: a wind band for the young Prince Liechtenstein, the Emperor himself, and Archduke Maximilian. The German says only 'my dear faithful girl'; Wallace's English puts Constanze's name in its place.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Geduld, mein Sohn, und Vernunft.",
+    "en": "Patience, my son, and good sense.",
+    "ko": "참아라, 아들아. 그리고 분별을 잃지 마라.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "notice",
+     "text": {
+      "de": "Drei Schülerinnen · 18 Ducaten im Monat",
+      "en": "Three pupils · 18 ducats a month",
+      "ko": "제자 셋 · 한 달에 18두카트"
+     }
+    }
+   ],
+   "status": {
+    "de": "Auf sicheres Geld hoffen",
+    "en": "Hoping for steady pay",
+    "ko": "고정 수입을 바라며"
+   },
+   "plate_hint": {
+    "idea": "Vienna Kärntnertor Theatre / Burgtheater, where he planned his Lent concerts.",
+    "search": [
+     "Kärntnertortheater Wien",
+     "Burgtheater Michaelerplatz 18th century",
+     "Vienna Burgtheater engraving 1780s"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c6-l2",
+   "wallace_no": 191,
+   "nohl_pages": [
+    358,
+    359
+   ],
+   "date": "1782-04-20",
+   "dateNote": "The heading and date (Wien 20. April 1782) stand on p. 357, which is missing from the scan; the date follows Wallace.",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Schwester",
+    "en": "his sister (Nannerl)",
+    "ko": "누나"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Als die Constanze die Fugen hörte, ward sie ganz verliebt darein; — sie will nichts als Fugen hören, besonders aber (in diesem Fach) nichts als Händel und Bach.",
+     "en": "When Constanze heard these, she fell in love with them at once; she will listen to nothing but fugues, and particularly the works (in this style) of Handel and Bach.",
+     "ko": "콘스탄체가 그 푸가들을 듣더니 완전히 반해 버렸어. 이제 푸가만 듣겠대. 특히 이 분야에선 헨델과 바흐만.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Als die Constanze die Fugen hörte, / ward sie ganz verliebt darein; // — sie will nichts als Fugen hören, / besonders aber (in diesem Fach) / nichts als Händel und Bach.",
+      "en": "When Constanze heard these, / she fell in love with them at once; // she will listen to nothing but fugues, / and particularly the works (in this style) / of Handel and Bach.",
+      "ko": "콘스탄체가 그 푸가들을 듣더니 / 완전히 반해 버렸어. // 이제 푸가만 듣겠대. / 특히 이 분야에선 / 헨델과 바흐만."
+     }
+    },
+    {
+     "de": "… und als ich ihr nein sagte, so zankte sie mich recht sehr daß ich eben das Künstlichste und Schönste in der Musik nicht schreiben wollte, und gab mit Bitten nicht nach, bis ich ihr eine Fuge aufsetzte und so ward sie.",
+     "en": "and when I said I never did, she reproached me for not having composed this most artistic and beautiful style of music, and never ceased her entreaties till I wrote a fugue for her. So this is its origin.",
+     "ko": "내가 안 썼다고 하니까 음악에서 가장 정교하고 아름다운 걸 왜 안 쓰냐고 나를 엄청 나무랐어. 그러고는 내가 푸가를 하나 써 줄 때까지 조르기를 멈추지 않았지. 이 곡은 그렇게 태어났어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… und als ich ihr nein sagte, / so zankte sie mich recht sehr / daß ich eben das Künstlichste und Schönste in der Musik / nicht schreiben wollte, // und gab mit Bitten nicht nach, / bis ich ihr eine Fuge aufsetzte / und so ward sie.",
+      "en": "and when I said I never did, / she reproached me / for not having composed this most artistic and beautiful style of music, // and never ceased her entreaties / till I wrote a fugue for her. // So this is its origin.",
+      "ko": "내가 안 썼다고 하니까 / 음악에서 가장 정교하고 아름다운 걸 / 왜 안 쓰냐고 / 나를 엄청 나무랐어. // 그러고는 내가 푸가를 하나 써 줄 때까지 / 조르기를 멈추지 않았지. // 이 곡은 그렇게 태어났어."
+     }
+    },
+    {
+     "de": "Ich habe mit Fleiß Andante maestoso darauf geschrieben, damit man sie nur nicht geschwind spiele; — denn wenn eine Fuge nicht langsam gespielt wird, so kann man das eintretende Subject nicht deutlich und klar ausnehmen",
+     "en": "I have purposely timed it andante maestoso, that it may not be played too quick; for if a fugue is not rather slowly played, the subject as it comes in cannot be distinctly and clearly heard",
+     "ko": "일부러 안단테 마에스토소라고 적었어. 너무 빨리 치지 말라고. 푸가를 천천히 치지 않으면 주제가 들어오는 게 또렷하게 들리지 않거든.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich habe mit Fleiß Andante maestoso darauf geschrieben, / damit man sie nur nicht geschwind spiele; // — denn wenn eine Fuge nicht langsam gespielt wird, / so kann man das eintretende Subject / nicht deutlich und klar ausnehmen",
+      "en": "I have purposely timed it andante maestoso, / that it may not be played too quick; // for if a fugue is not rather slowly played, / the subject as it comes in / cannot be distinctly and clearly heard",
+      "ko": "일부러 안단테 마에스토소라고 적었어. / 너무 빨리 치지 말라고. // 푸가를 천천히 치지 않으면 / 주제가 들어오는 게 / 또렷하게 들리지 않거든."
+     }
+    },
+    {
+     "de": "Lerne sie auswendig und spiele sie. Eine Fuge spielt man nicht so leicht nach.",
+     "en": "Learn it by heart and play it. A fugue is not easily caught by another person from merely hearing it.",
+     "ko": "외워서 쳐 봐. 푸가는 듣기만 해서는 쉽게 따라 칠 수 없어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Lerne sie auswendig und spiele sie. // Eine Fuge spielt man nicht so leicht nach.",
+      "en": "Learn it by heart and play it. // A fugue is not easily caught by another person / from merely hearing it.",
+      "ko": "외워서 쳐 봐. // 푸가는 듣기만 해서는 / 쉽게 따라 칠 수 없어."
+     }
+    },
+    {
+     "de": "Darf ich Ihnen die meinige (welche ich Ihnen schon längst heimlich in meinem Herzen geschenkt habe) entgegen anbieten? — o ja! ich hoffe es",
+     "en": "I venture to offer you mine, which, indeed, has long been yours in my secret heart. I trust I may do so",
+     "ko": "제 우정을 드려도 될까요? 사실 제 마음속에서는 오래전부터 몰래 당신 것이었어요. 네, 그러길 바라요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Darf ich Ihnen die meinige / (welche ich Ihnen schon längst heimlich in meinem Herzen geschenkt habe) / entgegen anbieten? // — o ja! ich hoffe es",
+      "en": "I venture to offer you mine, / which, indeed, has long been yours / in my secret heart. // I trust I may do so",
+      "ko": "제 우정을 드려도 될까요? / 사실 제 마음속에서는 / 오래전부터 몰래 당신 것이었어요. // 네, 그러길 바라요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Fuge",
+     "pos": "n.f.",
+     "ipa": "ˈfuːɡə",
+     "en": "fugue",
+     "ipa_en": "fjuɡ",
+     "ko": "푸가",
+     "rom_ko": "puga",
+     "icon": "🎼"
+    },
+    {
+     "de": "hören",
+     "pos": "v.",
+     "ipa": "ˈhøːʁən",
+     "en": "to hear",
+     "ipa_en": "tə hɪɹ",
+     "ko": "듣다",
+     "rom_ko": "deutda",
+     "icon": "👂"
+    },
+    {
+     "de": "die Musik",
+     "pos": "n.f.",
+     "ipa": "muˈziːk",
+     "en": "music",
+     "ipa_en": "ˈmjuzɪk",
+     "ko": "음악",
+     "rom_ko": "eumak",
+     "icon": "🎵"
+    },
+    {
+     "de": "auswendig",
+     "pos": "adv.",
+     "ipa": "ˈaʊ̯sˌvɛndɪç",
+     "en": "by heart",
+     "ipa_en": "baɪ hɑɹt",
+     "ko": "외워서",
+     "rom_ko": "oewoseo"
+    },
+    {
+     "de": "das Herz",
+     "pos": "n.n.",
+     "ipa": "hɛʁt͡s",
+     "en": "heart",
+     "ipa_en": "hɑɹt",
+     "ko": "마음",
+     "rom_ko": "maeum",
+     "icon": "❤️"
+    }
+   ],
+   "note": {
+    "ko": "모차르트는 일요일마다 판 스비텐 남작의 집에서 헨델과 바흐의 푸가를 연주했어요. 그 푸가에 반한 콘스탄체가 졸라서 쓴 곡이 함께 보낸 전주곡과 3성 푸가(K. 394)예요. 마지막 문장은 모차르트가 아니라 콘스탄체가 난네를에게 처음 쓴 편지에서 나온 말이에요.",
+    "en": "Every Sunday Mozart played Handel and Bach fugues at Baron van Swieten's house. Constanze fell in love with them and begged him to write one: the result was the prelude and three-part fugue (K. 394) he sent with this letter. The last line is not Mozart's but Constanze's, from her first letter to Nannerl, written on the same sheet.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Ich spiele deine Fuge langsam.",
+    "en": "I play your fugue slowly.",
+    "ko": "네 푸가, 천천히 칠게.",
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 2,
+     "type": "music",
+     "piece": {
+      "de": "Präludium und Fuge C-Dur, KV 394",
+      "en": "Prelude and Fugue in C, K. 394",
+      "ko": "전주곡과 푸가 C장조 K. 394"
+     },
+     "commons": null
+    },
+    {
+     "after": 3,
+     "type": "notice",
+     "text": {
+      "de": "Ein Brief von Constanze liegt bei",
+      "en": "A letter from Constanze is enclosed",
+      "ko": "콘스탄체의 편지가 함께 들어 있어요"
+     }
+    }
+   ],
+   "status": {
+    "de": "Fugen für Constanze",
+    "en": "Fugues for Constanze",
+    "ko": "콘스탄체를 위한 푸가"
+   },
+   "plate_hint": {
+    "idea": "Portrait of Baron Gottfried van Swieten, or the first page of the Prelude and Fugue in C, K. 394 (autograph/first edition).",
+    "search": [
+     "Gottfried van Swieten portrait",
+     "Mozart K. 394 Prelude and Fugue",
+     "Gottfried van Swieten engraving"
+    ],
+    "kind": "person"
+   }
+  },
+  {
+   "id": "c6-l3",
+   "wallace_no": 195,
+   "nohl_pages": [
+    365
+   ],
+   "date": "1782-07-20",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 195 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Ich hoffe, Sie werden meinen letzten Brief, worin ich Ihnen die gute Aufnahme meiner Oper berichtet habe, richtig erhalten haben.",
+     "en": "I hope you safely received my last letter, in which I gave you an account of the good reception of my opera.",
+     "ko": "제 오페라가 좋은 반응을 얻었다고 알려 드린 지난 편지를 잘 받으셨기를 바라요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 195 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich hoffe, Sie werden meinen letzten Brief, / worin ich Ihnen die gute Aufnahme meiner Oper berichtet habe, / richtig erhalten haben.",
+      "en": "I hope you safely received my last letter, / in which I gave you an account / of the good reception of my opera.",
+      "ko": "제 오페라가 좋은 반응을 얻었다고 알려 드린 / 지난 편지를 / 잘 받으셨기를 바라요."
+     }
+    },
+    {
+     "de": "Könnten Sie wohl vermuthen, daß gestern noch eine stärkere Kabale war, als am ersten Abend?",
+     "en": "perhaps you will scarcely believe that there was even a stronger cabal against it than on the first evening.",
+     "ko": "믿기 어려우시겠지만 어제는 첫날 밤보다 방해 공작이 더 심했어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 195 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Könnten Sie wohl vermuthen, / daß gestern noch eine stärkere Kabale war, / als am ersten Abend?",
+      "en": "perhaps you will scarcely believe / that there was even a stronger cabal against it / than on the first evening.",
+      "ko": "믿기 어려우시겠지만 / 어제는 첫날 밤보다 / 방해 공작이 더 심했어요."
+     }
+    },
+    {
+     "de": "Ich war so in Wuth, daß ich mich nicht kannte, wie auch Adamberger, und sagte gleich, daß ich die Oper nicht geben lasse ohne vorher eine kleine Probe (für die Sänger) zu machen.",
+     "en": "I was in such a rage (and so was Adamberger) that my blood boiled, and I said that I never again would allow the opera to be given without a previous rehearsal for the singers.",
+     "ko": "저는 너무 화가 나서 제정신이 아니었어요. 아담베르거도 그랬고요. 그래서 바로 말했어요. 가수들 리허설을 먼저 하지 않으면 다시는 오페라를 올리지 않겠다고요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 195 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich war so in Wuth, daß ich mich nicht kannte, / wie auch Adamberger, // und sagte gleich, / daß ich die Oper nicht geben lasse / ohne vorher eine kleine Probe (für die Sänger) zu machen.",
+      "en": "I was in such a rage (and so was Adamberger) / that my blood boiled, // and I said / that I never again would allow the opera to be given / without a previous rehearsal for the singers.",
+      "ko": "저는 너무 화가 나서 / 제정신이 아니었어요. 아담베르거도 그랬고요. // 그래서 바로 말했어요. / 가수들 리허설을 먼저 하지 않으면 / 다시는 오페라를 올리지 않겠다고요."
+     }
+    },
+    {
+     "de": "Das Theater war fast noch voller, als das erste Mal. Den Tag vorher konnte man keine Sperrsitze mehr haben, weder auf dem Nobleparterre noch im 3. Stock und auch keine Loge mehr.",
+     "en": "The theatre was almost more crowded than on the previous evening. Not a stall was to be had the day before, either in the pit or in the third gallery, nor a box of any kind.",
+     "ko": "극장은 첫날보다 더 꽉 찼어요. 전날부터 이미 좌석이 없었어요. 귀족석에도, 3층 객석에도, 칸막이 특별석에도요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 195 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Das Theater war fast noch voller, / als das erste Mal. // Den Tag vorher konnte man keine Sperrsitze mehr haben, / weder auf dem Nobleparterre noch im 3. Stock / und auch keine Loge mehr.",
+      "en": "The theatre was almost more crowded / than on the previous evening. // Not a stall was to be had the day before, / either in the pit or in the third gallery, / nor a box of any kind.",
+      "ko": "극장은 첫날보다 / 더 꽉 찼어요. // 전날부터 이미 좌석이 없었어요. / 귀족석에도, 3층 객석에도, / 칸막이 특별석에도요."
+     }
+    },
+    {
+     "de": "Sie werden viel Ausgestrichenes darin finden, — das ist, weil ich gewußt habe, daß hier gleich die Partitur copirt wird; mithin ließ ich meinen Gedanken freien Lauf",
+     "en": "you will find a great many erasures, knowing that the score would be instantly copied out here; I therefore gave free course to my thoughts",
+     "ko": "지운 데가 아주 많을 거예요. 여기서 곧바로 총보를 베껴 쓸 줄 알았거든요. 그래서 생각 가는 대로 마음껏 썼어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 195 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Sie werden viel Ausgestrichenes darin finden, / — das ist, weil ich gewußt habe, / daß hier gleich die Partitur copirt wird; // mithin ließ ich meinen Gedanken freien Lauf",
+      "en": "you will find a great many erasures, / knowing that the score / would be instantly copied out here; // I therefore gave free course to my thoughts",
+      "ko": "지운 데가 아주 많을 거예요. / 여기서 곧바로 / 총보를 베껴 쓸 줄 알았거든요. // 그래서 생각 가는 대로 / 마음껏 썼어요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Oper",
+     "pos": "n.f.",
+     "ipa": "ˈoːpɐ",
+     "en": "opera",
+     "ipa_en": "ˈɑpəɹə",
+     "ko": "오페라",
+     "rom_ko": "opera",
+     "icon": "🎭"
+    },
+    {
+     "de": "der Brief",
+     "pos": "n.m.",
+     "ipa": "bʁiːf",
+     "en": "letter",
+     "ipa_en": "ˈlɛtɚ",
+     "ko": "편지",
+     "rom_ko": "pyeonji",
+     "icon": "✉️"
+    },
+    {
+     "de": "die Wuth",
+     "de_modern": "die Wut",
+     "pos": "n.f.",
+     "ipa": "vuːt",
+     "en": "rage",
+     "ipa_en": "ɹeɪdʒ",
+     "ko": "분노",
+     "rom_ko": "bunno",
+     "icon": "😠"
+    },
+    {
+     "de": "das Theater",
+     "pos": "n.n.",
+     "ipa": "teˈaːtɐ",
+     "en": "theatre",
+     "ipa_en": "ˈθiətɚ",
+     "ko": "극장",
+     "rom_ko": "geukjang",
+     "icon": "🏛️"
+    },
+    {
+     "de": "die Probe",
+     "pos": "n.f.",
+     "ipa": "ˈpʁoːbə",
+     "en": "rehearsal",
+     "ipa_en": "ɹɪˈhɝsəl",
+     "ko": "리허설",
+     "rom_ko": "rihoseol"
+    }
+   ],
+   "note": {
+    "ko": "『후궁으로부터의 도주』는 1782년 7월 16일 빈 부르크테아터에서 처음 올려졌어요. 첫 공연을 알린 모차르트의 편지는 남아 있지 않아서, 이 편지가 그가 직접 쓴 두 번째 공연 보고예요. 그는 이틀 공연으로 1200플로린이 들어왔다고 전하며 총보 원본을 아버지께 보냈어요.",
+    "en": "Die Entführung aus dem Serail was first performed at the Burgtheater in Vienna on 16 July 1782. Mozart's letter about the premiere is lost, so this account of the second night is the first report in his own words that survives. He tells his father the two nights brought in 1,200 florins and sends him the original score.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 195 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Bravo! Ich freue mich mit dir.",
+    "en": "Bravo! I am glad with you.",
+    "ko": "브라보! 나도 함께 기쁘구나.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Die Entführung aus dem Serail · zweite Vorstellung, 19. Juli 1782",
+      "en": "The Abduction from the Seraglio · second performance, 19 July 1782",
+      "ko": "『후궁으로부터의 도주』 · 두 번째 공연, 1782년 7월 19일"
+     }
+    },
+    {
+     "after": 2,
+     "type": "music",
+     "piece": {
+      "de": "Die Entführung aus dem Serail, KV 384",
+      "en": "Die Entführung aus dem Serail, K. 384",
+      "ko": "『후궁으로부터의 도주』 K. 384"
+     },
+     "commons": null
+    },
+    {
+     "after": 3,
+     "type": "notice",
+     "text": {
+      "de": "Einnahme in zwei Tagen: 1200 Fl.",
+      "en": "Takings in two days: 1,200 florins",
+      "ko": "이틀 수입: 1200플로린"
+     }
+    }
+   ],
+   "status": {
+    "de": "Volles Haus, trotz Kabale",
+    "en": "Full house, despite a cabal",
+    "ko": "방해에도 만원 관객"
+   },
+   "plate_hint": {
+    "idea": "Burgtheater, Michaelerplatz (engraving) / title page of the 1782 Entführung libretto.",
+    "search": [
+     "Burgtheater Michaelerplatz engraving",
+     "Die Entführung aus dem Serail 1782 libretto",
+     "Altes Burgtheater Wien"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c6-l4",
+   "wallace_no": 196,
+   "nohl_pages": [
+    367
+   ],
+   "date": "1782-07-27",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 196 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "tender",
+   "messages": [
+    {
+     "de": "Ich habe sie aus D gemacht, weil es Ihnen lieber ist.",
+     "en": "I wrote it in D because you prefer that key.",
+     "ko": "라장조로 썼어요. 아버지가 그 조를 더 좋아하시니까요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 196 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich habe sie aus D gemacht, / weil es Ihnen lieber ist.",
+      "en": "I wrote it in D / because you prefer that key.",
+      "ko": "라장조로 썼어요. / 아버지가 그 조를 더 좋아하시니까요."
+     }
+    },
+    {
+     "de": "Meine Oper ist gestern allen Nannerln zu Ehren mit allem Applauso das drittemal gegeben worden, und das Theater war wieder, ungeachtet der schrecklichen Hitze, gestrotzt voll.",
+     "en": "My opera was given yesterday [St. Anne's Day] with all possible applause, in honour of all the Nannerls, for the third time; and, in spite of the frightful heat, the theatre was again crowded to suffocation.",
+     "ko": "어제 제 오페라가 세상의 모든 난네를을 기리며 큰 박수 속에 세 번째로 올려졌어요. 끔찍한 더위에도 극장은 또 숨 막힐 만큼 꽉 찼어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 196 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Meine Oper ist gestern allen Nannerln zu Ehren / mit allem Applauso das drittemal gegeben worden, // und das Theater war wieder, / ungeachtet der schrecklichen Hitze, / gestrotzt voll.",
+      "en": "My opera was given yesterday [St. Anne's Day] with all possible applause, / in honour of all the Nannerls, for the third time; // and, in spite of the frightful heat, / the theatre was again / crowded to suffocation.",
+      "ko": "어제 제 오페라가 / 세상의 모든 난네를을 기리며 / 큰 박수 속에 세 번째로 올려졌어요. // 끔찍한 더위에도 / 극장은 또 / 숨 막힐 만큼 꽉 찼어요."
+     }
+    },
+    {
+     "de": "Die Leute, kann ich sagen, sind recht närrisch auf diese Oper. Es thut einem doch wohl, wenn man solchen Beifall erhält.",
+     "en": "I may really say that people are quite wild about this opera. It is very gratifying to receive such approbation.",
+     "ko": "정말이지 사람들이 이 오페라에 푹 빠져 있어요. 이런 박수를 받으면 참 기분이 좋아요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 196 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die Leute, kann ich sagen, / sind recht närrisch auf diese Oper. // Es thut einem doch wohl, / wenn man solchen Beifall erhält.",
+      "en": "I may really say / that people are quite wild about this opera. // It is very gratifying / to receive such approbation.",
+      "ko": "정말이지 사람들이 / 이 오페라에 푹 빠져 있어요. // 이런 박수를 받으면 / 참 기분이 좋아요."
+     }
+    },
+    {
+     "de": "Liebster bester Vater! ich muß Sie bitten, um alles in der Welt bitten, geben Sie mir Ihre Einwilligung, daß ich meine liebe Constanze heirathen kann.",
+     "en": "My dear kind father, I do implore you, by all you hold dear in the world, to give me your consent to my marrying my beloved Constanze.",
+     "ko": "사랑하는 아버지! 부탁드려요. 세상 무엇을 걸고라도 부탁드려요. 제가 사랑하는 콘스탄체와 결혼할 수 있도록 허락해 주세요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 196 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Liebster bester Vater! // ich muß Sie bitten, / um alles in der Welt bitten, // geben Sie mir Ihre Einwilligung, / daß ich meine liebe Constanze heirathen kann.",
+      "en": "My dear kind father, // I do implore you, / by all you hold dear in the world, // to give me your consent / to my marrying my beloved Constanze.",
+      "ko": "사랑하는 아버지! // 부탁드려요. / 세상 무엇을 걸고라도 부탁드려요. // 제가 사랑하는 콘스탄체와 결혼할 수 있도록 / 허락해 주세요."
+     }
+    },
+    {
+     "de": "Mein Herz ist unruhig, mein Kopf verwirrt, wie kann man da etwas Gescheidtes denken und arbeiten?",
+     "en": "my heart is troubled, my head confused; in such a state how is it possible either to think or to work to any good purpose?",
+     "ko": "마음은 불안하고 머리는 어지러워요. 이래서야 어떻게 제대로 생각하고 일할 수 있겠어요?",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 196 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Mein Herz ist unruhig, / mein Kopf verwirrt, // wie kann man da etwas Gescheidtes / denken und arbeiten?",
+      "en": "my heart is troubled, / my head confused; // in such a state how is it possible / either to think or to work to any good purpose?",
+      "ko": "마음은 불안하고 / 머리는 어지러워요. // 이래서야 어떻게 / 제대로 생각하고 일할 수 있겠어요?"
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Hitze",
+     "pos": "n.f.",
+     "ipa": "ˈhɪt͡sə",
+     "en": "heat",
+     "ipa_en": "hit",
+     "ko": "더위",
+     "rom_ko": "deowi",
+     "icon": "🔥"
+    },
+    {
+     "de": "voll",
+     "pos": "adj.",
+     "ipa": "fɔl",
+     "en": "full",
+     "ipa_en": "fʊl",
+     "ko": "가득 찬",
+     "rom_ko": "gadeuk chan"
+    },
+    {
+     "de": "der Beifall",
+     "pos": "n.m.",
+     "ipa": "ˈbaɪ̯fal",
+     "en": "applause",
+     "ipa_en": "əˈplɔz",
+     "ko": "박수",
+     "rom_ko": "baksu",
+     "icon": "👏"
+    },
+    {
+     "de": "die Einwilligung",
+     "pos": "n.f.",
+     "ipa": "ˈaɪ̯nvɪlɪɡʊŋ",
+     "en": "consent",
+     "ipa_en": "kənˈsɛnt",
+     "ko": "허락",
+     "rom_ko": "heorak"
+    },
+    {
+     "de": "der Kopf",
+     "pos": "n.m.",
+     "ipa": "kɔpf",
+     "en": "head",
+     "ipa_en": "hɛd",
+     "ko": "머리",
+     "rom_ko": "meori"
+    }
+   ],
+   "note": {
+    "ko": "아버지는 잘츠부르크 하프너 집안의 축하 행사를 위해 새 교향곡을 부탁했고, 모차르트는 이 편지와 함께 첫 알레그로를 보냈어요. 이 곡이 훗날 교향곡 35번 '하프너'(K. 385)가 되었어요. 7월 26일은 성 안나 축일, 곧 안나라는 이름을 가진 모든 '난네를'의 영명 축일이었어요.",
+    "en": "His father had asked for a new symphony for a celebration in the Haffner family in Salzburg, and Mozart sent its first allegro with this letter; it became the 'Haffner' Symphony, K. 385. 26 July is St Anne's Day, the name day of every Anna, every 'Nannerl'.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 196 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Gib mir Zeit, mein Sohn.",
+    "en": "Give me time, my son.",
+    "ko": "시간을 다오, 아들아.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "music",
+     "piece": {
+      "de": "Sinfonie D-Dur „Haffner“, KV 385 – 1. Satz",
+      "en": "Symphony in D, 'Haffner', K. 385 – first movement",
+      "ko": "교향곡 D장조 「하프너」 K. 385 – 1악장"
+     },
+     "commons": "File:Symphony no. 35 in D 'Haffner' K. 385 I. Allegro con spirito (Mozart) European Archive.ogg"
+    },
+    {
+     "after": 1,
+     "type": "weather",
+     "quote": "ungeachtet der schrecklichen Hitze",
+     "text": {
+      "de": "Sommerhitze in Wien",
+      "en": "Summer heat in Vienna",
+      "ko": "빈의 한여름 더위"
+     }
+    }
+   ],
+   "status": {
+    "de": "Um Einwilligung bitten",
+    "en": "Begging for consent",
+    "ko": "결혼 허락을 청하며"
+   },
+   "plate_hint": {
+    "idea": "Haffner family / Salzburg Haffner house, or the autograph of Symphony No. 35 'Haffner' K. 385.",
+    "search": [
+     "Haffner Symphony K. 385 autograph",
+     "Mozart Symphony 35 manuscript",
+     "Sigmund Haffner Salzburg"
+    ],
+    "kind": "score"
+   }
+  },
+  {
+   "id": "c6-l5",
+   "wallace_no": 199,
+   "nohl_pages": [
+    371
+   ],
+   "date": "1782-08-07",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 199 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "tender",
+   "messages": [
+    {
+     "de": "… da ich 2 Posttage umsonst auf eine Antwort wartete und die Copulation schon auf den Tag … festgesetzt war, ich Ihrer Einwilligung schon ganz versichert und getröstet, mich in Gottes Namen mit meiner geliebten Constanze trauen ließ.",
+     "en": "After waiting two posts in vain for your answer, the day of our wedding having been finally settled …, being quite assured of your consent, I was married, by the blessing of God, to my beloved Constanze.",
+     "ko": "두 번의 우편일 동안 답장을 헛되이 기다렸고 결혼식 날짜는 이미 정해져 있었어요. 아버지가 허락하시리라 굳게 믿고 마음을 놓은 채, 하느님의 이름으로 사랑하는 콘스탄체와 결혼했어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 199 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… da ich 2 Posttage umsonst auf eine Antwort wartete / und die Copulation schon auf den Tag … festgesetzt war, // ich Ihrer Einwilligung schon ganz versichert und getröstet, / mich in Gottes Namen / mit meiner geliebten Constanze trauen ließ.",
+      "en": "After waiting two posts in vain for your answer, / the day of our wedding having been finally settled …, // being quite assured of your consent, / I was married, by the blessing of God, / to my beloved Constanze.",
+      "ko": "두 번의 우편일 동안 답장을 헛되이 기다렸고 / 결혼식 날짜는 이미 정해져 있었어요. // 아버지가 허락하시리라 굳게 믿고 마음을 놓은 채, / 하느님의 이름으로 / 사랑하는 콘스탄체와 결혼했어요."
+     }
+    },
+    {
+     "de": "Den andern Tag bekam ich die 2 Briefe zugleich. — Nun ist es vorbei! — Ich bitte Sie nun nur um mein zu voreiliges Vertrauen auf Ihre väterliche Liebe um Verzeihung;",
+     "en": "Next day I received both your letters at once. Now the event has taken place, and I entreat your forgiveness for my perhaps too hasty trust in your fatherly love.",
+     "ko": "그다음 날 아버지 편지 두 통을 한꺼번에 받았어요. 이제 다 끝난 일이에요! 아버지의 사랑을 너무 서둘러 믿은 것을 용서해 주세요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 199 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Den andern Tag bekam ich die 2 Briefe zugleich. // — Nun ist es vorbei! // — Ich bitte Sie nun nur / um mein zu voreiliges Vertrauen auf Ihre väterliche Liebe / um Verzeihung;",
+      "en": "Next day I received both your letters at once. // Now the event has taken place, // and I entreat your forgiveness / for my perhaps too hasty trust / in your fatherly love.",
+      "ko": "그다음 날 아버지 편지 두 통을 한꺼번에 받았어요. // 이제 다 끝난 일이에요! // 아버지의 사랑을 너무 서둘러 믿은 것을 / 용서해 주세요."
+     }
+    },
+    {
+     "de": "Als wir zusammen verbunden wurden, fing sowohl meine Frau als ich an zu weinen; davon wurden Alle, sogar der Priester gerührt, und alle weinten, da sie Zeuge unserer gerührten Herzen waren.",
+     "en": "When the ceremony was over, both my wife and I shed tears; all present (even the priest) were touched on seeing the emotion of our hearts.",
+     "ko": "우리가 부부로 맺어지는 순간 아내도 저도 울기 시작했어요. 그걸 보고 모두가, 신부님까지 감동했고 우리 마음이 벅찬 걸 지켜보며 다들 함께 울었어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 199 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Als wir zusammen verbunden wurden, / fing sowohl meine Frau als ich an zu weinen; // davon wurden Alle, sogar der Priester gerührt, / und alle weinten, / da sie Zeuge unserer gerührten Herzen waren.",
+      "en": "When the ceremony was over, / both my wife and I shed tears; // all present (even the priest) were touched / on seeing the emotion of our hearts.",
+      "ko": "우리가 부부로 맺어지는 순간 / 아내도 저도 울기 시작했어요. // 그걸 보고 모두가, 신부님까지 감동했고 / 우리 마음이 벅찬 걸 지켜보며 / 다들 함께 울었어요."
+     }
+    },
+    {
+     "de": "Unser ganzes Hochzeitfest bestund aus einem Souper, welches uns die Frau Baronin von Waldstädten gab, — welches in der That mehr fürstlich als baronisch war.",
+     "en": "Our sole wedding festivities consisted of a supper, which Baroness Waldstadten gave us, and indeed it was more princely than baronial.",
+     "ko": "결혼 잔치는 발트슈테텐 남작 부인이 차려 준 저녁 식사가 전부였어요. 그런데 그 식사는 정말 남작가가 아니라 제후가의 것 같았어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 199 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Unser ganzes Hochzeitfest bestund aus einem Souper, / welches uns die Frau Baronin von Waldstädten gab, // — welches in der That / mehr fürstlich als baronisch war.",
+      "en": "Our sole wedding festivities consisted of a supper, / which Baroness Waldstadten gave us, // and indeed it was / more princely than baronial.",
+      "ko": "결혼 잔치는 / 발트슈테텐 남작 부인이 차려 준 저녁 식사가 전부였어요. // 그런데 그 식사는 정말 / 남작가가 아니라 제후가의 것 같았어요."
+     }
+    },
+    {
+     "de": "Nun freuet sich meine liebe Constanze noch hundertmal mehr nach Salzburg zu reisen!",
+     "en": "My darling is now a hundred times more joyful at the idea of going to Salzburg;",
+     "ko": "이제 사랑하는 콘스탄체는 잘츠부르크에 갈 날을 백 배는 더 기다리고 있어요!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 199 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun freuet sich meine liebe Constanze / noch hundertmal mehr / nach Salzburg zu reisen!",
+      "en": "My darling is now / a hundred times more joyful / at the idea of going to Salzburg;",
+      "ko": "이제 사랑하는 콘스탄체는 / 잘츠부르크에 갈 날을 / 백 배는 더 기다리고 있어요!"
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Brief",
+     "pos": "n.m.",
+     "ipa": "bʁiːf",
+     "en": "letter",
+     "ipa_en": "ˈlɛtɚ",
+     "ko": "편지",
+     "rom_ko": "pyeonji",
+     "icon": "✉️"
+    },
+    {
+     "de": "die Verzeihung",
+     "pos": "n.f.",
+     "ipa": "fɛɐ̯ˈt͡saɪ̯ʊŋ",
+     "en": "forgiveness",
+     "ipa_en": "fɚˈɡɪvnəs",
+     "ko": "용서",
+     "rom_ko": "yongseo"
+    },
+    {
+     "de": "weinen",
+     "pos": "v.",
+     "ipa": "ˈvaɪ̯nən",
+     "en": "to cry",
+     "ipa_en": "tə kɹaɪ",
+     "ko": "울다",
+     "rom_ko": "ulda",
+     "icon": "😢"
+    },
+    {
+     "de": "der Priester",
+     "pos": "n.m.",
+     "ipa": "ˈpʁiːstɐ",
+     "en": "priest",
+     "ipa_en": "pɹist",
+     "ko": "사제",
+     "rom_ko": "saje",
+     "icon": "⛪"
+    },
+    {
+     "de": "reisen",
+     "pos": "v.",
+     "ipa": "ˈʁaɪ̯zn̩",
+     "en": "to travel",
+     "ipa_en": "tə ˈtɹævəl",
+     "ko": "여행하다",
+     "rom_ko": "yeohaenghada",
+     "icon": "🧳"
+    }
+   ],
+   "note": {
+    "ko": "모차르트와 콘스탄체는 1782년 8월 4일 빈에서 결혼했어요. 아버지의 허락 편지는 결혼식 다음 날에야 도착했어요. 증인으로는 콘스탄체의 어머니와 막내 여동생, 후견인 토르바르트, 그리고 잘츠부르크 출신 길로프스키가 함께했어요.",
+    "en": "Mozart and Constanze were married in Vienna on 4 August 1782. His father's letters of consent arrived only the day after the wedding. Constanze's mother and youngest sister, her guardian von Thorwarth, and Gilofsky from Salzburg were among the few present.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 199 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Gott segne euch beide.",
+    "en": "God bless you both.",
+    "ko": "하느님이 너희 둘을 축복하시길.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Getraut · Wien, 4. August 1782",
+      "en": "Married · Vienna, 4 August 1782",
+      "ko": "결혼 · 빈, 1782년 8월 4일"
+     }
+    },
+    {
+     "after": 2,
+     "type": "music",
+     "piece": {
+      "de": "Messe c-Moll, KV 427 – Kyrie",
+      "en": "Mass in C minor, K. 427 – Kyrie",
+      "ko": "미사 C단조 K. 427 – 키리에"
+     },
+     "commons": "File:Mozart - Mass in C minor K.427 - I. Kyrie.mp3"
+    }
+   ],
+   "status": {
+    "de": "Endlich verheirathet",
+    "en": "Married at last",
+    "ko": "마침내 결혼"
+   },
+   "plate_hint": {
+    "idea": "St. Stephen's Cathedral, Vienna (the wedding church, 4 Aug. 1782 — church not named in the letter) or the marriage register entry.",
+    "search": [
+     "Stephansdom Wien 18th century engraving",
+     "St. Stephen's Cathedral Vienna 1780s",
+     "Mozart marriage register Stephansdom"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c6-l6",
+   "wallace_no": 200,
+   "nohl_pages": [
+    375,
+    377
+   ],
+   "date": "1782-08-17",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 200 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "calm",
+   "messages": [
+    {
+     "de": "Ich habe letzthin vergessen Ihnen zu schreiben, daß meine Frau und ich zusammen am Portiunculatage bei den Theatinern unsere Andacht verrichtet haben.",
+     "en": "I forgot, when I wrote to you lately, to say that on the feast of Portiuncula, my wife and I performed our devotions at the Theatines.",
+     "ko": "지난번에 깜빡하고 못 썼는데요, 포르치운쿨라 축일에 아내와 저는 테아티노 성당에서 함께 기도를 드렸어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 200 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich habe letzthin vergessen Ihnen zu schreiben, / daß meine Frau und ich zusammen am Portiunculatage / bei den Theatinern / unsere Andacht verrichtet haben.",
+      "en": "I forgot, when I wrote to you lately, to say / that on the feast of Portiuncula, / my wife and I performed our devotions / at the Theatines.",
+      "ko": "지난번에 깜빡하고 못 썼는데요, / 포르치운쿨라 축일에 / 아내와 저는 테아티노 성당에서 / 함께 기도를 드렸어요."
+     }
+    },
+    {
+     "de": "… und ich habe gefunden, daß ich niemals so kräftig gebetet, so andächtig gebeichtet und communicirt hätte, als an ihrer Seite; — und so ging es ihr auch.",
+     "en": "and I found that I never prayed so fervently, nor confessed so piously, as by her side, and she felt the same.",
+     "ko": "그리고 깨달았어요. 그녀 곁에서처럼 그렇게 간절히 기도하고 경건하게 고해한 적은 한 번도 없었다는 걸요. 그녀도 마찬가지였어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 200 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… und ich habe gefunden, / daß ich niemals so kräftig gebetet, / so andächtig gebeichtet und communicirt hätte, / als an ihrer Seite; // — und so ging es ihr auch.",
+      "en": "and I found / that I never prayed so fervently, / nor confessed so piously, / as by her side, // and she felt the same.",
+      "ko": "그리고 깨달았어요. / 그녀 곁에서처럼 / 그렇게 간절히 기도하고 경건하게 고해한 적은 / 한 번도 없었다는 걸요. // 그녀도 마찬가지였어요."
+     }
+    },
+    {
+     "de": "Mit Einem Wort, wir sind für einander geschaffen, und Gott, der alles anordnet und folglich auch dieses alles also gefüget hat, wird uns nicht verlassen. Wir beide danken Ihnen auf das Gehorsamste für Ihren väterlichen Segen.",
+     "en": "In short, we are made for each other, and God, who orders all things, and consequently this also, will not forsake us. We both thank you truly for your fatherly blessing.",
+     "ko": "한마디로 우리는 서로를 위해 태어났어요. 모든 것을 정하시고 이 일도 이렇게 이끌어 주신 하느님께서 우리를 버리지 않으실 거예요. 아버지의 축복에 우리 둘 다 진심으로 감사드려요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 200 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Mit Einem Wort, / wir sind für einander geschaffen, // und Gott, der alles anordnet / und folglich auch dieses alles also gefüget hat, / wird uns nicht verlassen. // Wir beide danken Ihnen auf das Gehorsamste / für Ihren väterlichen Segen.",
+      "en": "In short, / we are made for each other, // and God, who orders all things, / and consequently this also, / will not forsake us. // We both thank you truly / for your fatherly blessing.",
+      "ko": "한마디로 / 우리는 서로를 위해 태어났어요. // 모든 것을 정하시고 / 이 일도 이렇게 이끌어 주신 하느님께서 / 우리를 버리지 않으실 거예요. // 아버지의 축복에 / 우리 둘 다 진심으로 감사드려요."
+     }
+    },
+    {
+     "de": "Keinem Monarchen in der Welt diene ich lieber, als dem Kaiser, aber erbetteln will ich keinen Dienst.",
+     "en": "There is no monarch whom I would be more glad to serve than the Emperor, but I cannot humbly solicit an appointment.",
+     "ko": "세상 어느 군주보다 황제 폐하를 섬기고 싶어요. 하지만 자리를 구걸하지는 않을 거예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 200 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Keinem Monarchen in der Welt / diene ich lieber, als dem Kaiser, // aber erbetteln / will ich keinen Dienst.",
+      "en": "There is no monarch / whom I would be more glad to serve than the Emperor, // but I cannot humbly solicit / an appointment.",
+      "ko": "세상 어느 군주보다 / 황제 폐하를 섬기고 싶어요. // 하지만 자리를 / 구걸하지는 않을 거예요."
+     }
+    },
+    {
+     "de": "… und nun schon 3 Lectionen im Englischen genommen. — In 3 Monaten hoffe ich so ganz passable die engländischen Bücher lesen und verstehen zu können.",
+     "en": "and have now taken three lessons in English. I hope, in the course of three months, to be able to read and understand English books very tolerably.",
+     "ko": "그리고 벌써 영어 수업을 세 번 받았어요. 석 달 뒤에는 영어 책을 꽤 괜찮게 읽고 이해할 수 있으면 좋겠어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 200 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… und nun schon 3 Lectionen im Englischen genommen. // — In 3 Monaten hoffe ich / so ganz passable die engländischen Bücher / lesen und verstehen zu können.",
+      "en": "and have now taken three lessons in English. // I hope, in the course of three months, / to be able to read and understand English books / very tolerably.",
+      "ko": "그리고 벌써 영어 수업을 세 번 받았어요. // 석 달 뒤에는 / 영어 책을 꽤 괜찮게 / 읽고 이해할 수 있으면 좋겠어요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "beten",
+     "pos": "v.",
+     "ipa": "ˈbeːtn̩",
+     "en": "to pray",
+     "ipa_en": "tə pɹeɪ",
+     "ko": "기도하다",
+     "rom_ko": "gidohada",
+     "icon": "🙏"
+    },
+    {
+     "de": "die Seite",
+     "pos": "n.f.",
+     "ipa": "ˈzaɪ̯tə",
+     "en": "side",
+     "ipa_en": "saɪd",
+     "ko": "곁",
+     "rom_ko": "gyeot"
+    },
+    {
+     "de": "der Segen",
+     "pos": "n.m.",
+     "ipa": "ˈzeːɡn̩",
+     "en": "blessing",
+     "ipa_en": "ˈblɛsɪŋ",
+     "ko": "축복",
+     "rom_ko": "chukbok",
+     "icon": "✨"
+    },
+    {
+     "de": "der Monarch",
+     "pos": "n.m.",
+     "ipa": "moˈnaʁç",
+     "en": "monarch",
+     "ipa_en": "ˈmɑnɚk",
+     "ko": "군주",
+     "rom_ko": "gunju",
+     "icon": "👑"
+    },
+    {
+     "de": "lesen",
+     "pos": "v.",
+     "ipa": "ˈleːzn̩",
+     "en": "to read",
+     "ipa_en": "tə ɹid",
+     "ko": "읽다",
+     "rom_ko": "ikda",
+     "icon": "📖"
+    }
+   ],
+   "note": {
+    "ko": "결혼 열흘 남짓 뒤에 쓴 편지예요. 모차르트는 황제에게 자리를 구걸하지 않겠다며, 독일이 받아 주지 않으면 프랑스나 영국으로 가겠다고 말해요. 그래서 다음 부활절에 파리에 갈 생각으로 르 그로에게 편지를 썼고, 영어 수업도 받기 시작했어요.",
+    "en": "Written less than two weeks after the wedding. Mozart says he will not beg the Emperor for a post, and that if Germany will not have him, France or England may. With an eye on Paris next Easter he had written to Le Gros, and he had begun English lessons.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 200 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Bleibt fromm und fleißig, Kinder.",
+    "en": "Stay devout and diligent, children.",
+    "ko": "얘들아, 경건하고 부지런히 살아라.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Portiunculatag · 2. August 1782, bei den Theatinern",
+      "en": "Feast of Portiuncula · 2 August 1782, at the Theatines",
+      "ko": "포르치운쿨라 축일 · 1782년 8월 2일, 테아티노 성당"
+     }
+    }
+   ],
+   "status": {
+    "de": "Für einander geschaffen",
+    "en": "Made for each other",
+    "ko": "서로를 위해 태어난 두 사람"
+   },
+   "plate_hint": {
+    "idea": "Portrait of Prince Wenzel Anton Kaunitz (quoted in the letter praising Mozart).",
+    "search": [
+     "Wenzel Anton Kaunitz portrait",
+     "Fürst Kaunitz-Rietberg Gemälde",
+     "Kaunitz engraving 18th century"
+    ],
+    "kind": "person"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1219 @@
+{
+ "_doc": "Chapter V. 독일어는 루트비히 놀(Ludwig Nohl) 엮음 『Mozarts Briefe』(잘츠부르크 1865, 공공 영역, archive.org 스캔) 쪽 사진에서 인쇄된 그대로 옮겼고, 판의 철자(daß, Thür, -iren 등)도 그대로 두었어요. 영어는 레이디 월리스(Lady Wallace)의 1866년 번역을 그대로 썼고, en_own 표시가 있는 문장만 이 앱이 직접 옮겼어요. 한국어는 이 앱의 번역이에요.",
+ "series": "mozart",
+ "chapter": "V",
+ "title_de": "Wien · Der Bruch mit dem Erzbischof",
+ "title_en": "Vienna · Break with the Archbishop",
+ "title_ko": "빈 · 대주교와의 결별",
+ "original": "de",
+ "letters": [
+  {
+   "id": "c5-l1",
+   "wallace_no": 141,
+   "nohl_pages": [
+    263,
+    264
+   ],
+   "date": "1781-03-17",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 141 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Gestern als den 16. bin ich Lob und Dank ganz mutterselig allein in einer Postchaise hier angekommen.",
+     "en": "Yesterday, the 16th, I am happy to say I arrived here all alone in a post-chaise.",
+     "ko": "어제, 16일에 감사하게도 저 혼자 우편 마차를 타고 여기 도착했어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 141 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Gestern als den 16. / bin ich Lob und Dank / ganz mutterselig allein / in einer Postchaise hier angekommen.",
+      "en": "Yesterday, the 16th, / I am happy to say / I arrived here all alone / in a post-chaise.",
+      "ko": "어제, 16일에 / 감사하게도 / 저 혼자 / 우편 마차를 타고 여기 도착했어요."
+     }
+    },
+    {
+     "de": "Nun vom Erzbischof. Ich hab ein charmantes Zimmer im nämlichen Hause wo der Erzbischof logirt; Brunetti und Ceccarelli logiren in einem andern Hause, — che distinzione!",
+     "en": "Now as to the Archbishop. I have a charming room in his house; Brunetti and Cecarelli lodge in another — che distinzione!",
+     "ko": "이제 대주교 이야기예요. 저는 대주교가 묵는 바로 그 집에 근사한 방을 얻었어요. 브루네티와 체카렐리는 다른 집에 묵고요. 이 얼마나 특별한 대우인지!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 141 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun vom Erzbischof. // Ich hab ein charmantes Zimmer / im nämlichen Hause wo der Erzbischof logirt; // Brunetti und Ceccarelli / logiren in einem andern Hause, — / che distinzione!",
+      "en": "Now as to the Archbishop. // I have a charming room / in his house; // Brunetti and Cecarelli / lodge in another — / che distinzione!",
+      "ko": "이제 대주교 이야기예요. // 저는 대주교가 묵는 바로 그 집에 / 근사한 방을 얻었어요. // 브루네티와 체카렐리는 / 다른 집에 묵고요. / 이 얼마나 특별한 대우인지!"
+     }
+    },
+    {
+     "de": "NB. die 2 Herrn Leibkammerdiener sitzen oben an. Ich habe doch wenigstens die Ehre vor den Köchen zu sitzen. Nu — ich denke halt ich bin in Salzburg.",
+     "en": "N. B. The two valets sit at the head of the table. I have, at all events, the honor to be placed above the cooks; I almost believe I am back in Salzburg!",
+     "ko": "참고로, 시종 두 분이 상석에 앉아요. 그래도 저는 요리사들보다는 윗자리에 앉는 영광을 누려요. 뭐, 꼭 잘츠부르크에 돌아온 것 같아요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 141 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "NB. die 2 Herrn Leibkammerdiener / sitzen oben an. // Ich habe doch wenigstens die Ehre / vor den Köchen zu sitzen. // Nu — / ich denke halt / ich bin in Salzburg.",
+      "en": "N. B. The two valets / sit at the head of the table. // I have, at all events, the honor / to be placed above the cooks; // I almost believe / I am back in Salzburg!",
+      "ko": "참고로, 시종 두 분이 / 상석에 앉아요. // 그래도 저는 / 요리사들보다는 윗자리에 앉는 영광을 누려요. // 뭐, / 꼭 잘츠부르크에 / 돌아온 것 같아요."
+     }
+    },
+    {
+     "de": "Bei Tische werden grobe einfältige Späße gemacht; mit mir macht keiner Späße, weil ich kein Wort rede …",
+     "en": "At table all kinds of coarse silly joking go on; but no one jokes with me, for I never say a word …",
+     "ko": "식탁에서는 거칠고 유치한 농담이 오가요. 하지만 저한테는 아무도 농담을 안 해요. 제가 한마디도 안 하거든요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 141 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Bei Tische / werden grobe einfältige Späße gemacht; // mit mir macht keiner Späße, / weil ich kein Wort rede …",
+      "en": "At table / all kinds of coarse silly joking go on; // but no one jokes with me, / for I never say a word …",
+      "ko": "식탁에서는 / 거칠고 유치한 농담이 오가요. // 하지만 저한테는 아무도 농담을 안 해요. / 제가 한마디도 안 하거든요…"
+     }
+    },
+    {
+     "de": "P. S. Bei den Fischerischen war ich, — die Freude kann ich nicht beschreiben, die diese Leute gehabt haben.",
+     "en": "P. S. — I went to see the Fischers; I cannot describe their joy.",
+     "ko": "추신. 피셔 씨 댁에 다녀왔어요. 그분들이 얼마나 기뻐했는지 말로 다 못 하겠어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 141 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "P. S. / Bei den Fischerischen war ich, — // die Freude kann ich nicht beschreiben, / die diese Leute gehabt haben.",
+      "en": "P. S. — / I went to see the Fischers; // I cannot describe / their joy.",
+      "ko": "추신. / 피셔 씨 댁에 다녀왔어요. // 그분들이 얼마나 기뻐했는지 / 말로 다 못 하겠어요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "allein",
+     "pos": "adj.",
+     "ipa": "aˈlaɪ̯n",
+     "en": "alone",
+     "ipa_en": "əˈloʊn",
+     "ko": "혼자",
+     "rom_ko": "honja",
+     "icon": "🧳"
+    },
+    {
+     "de": "das Zimmer",
+     "pos": "n.n.",
+     "ipa": "ˈtsɪmɐ",
+     "en": "room",
+     "ipa_en": "ɹum",
+     "ko": "방",
+     "rom_ko": "bang",
+     "icon": "🛏️"
+    },
+    {
+     "de": "der Tisch",
+     "pos": "n.m.",
+     "ipa": "tɪʃ",
+     "en": "table",
+     "ipa_en": "ˈteɪbəl",
+     "ko": "식탁",
+     "rom_ko": "siktak",
+     "icon": "🍽️"
+    },
+    {
+     "de": "das Wort",
+     "pos": "n.n.",
+     "ipa": "vɔʁt",
+     "en": "word",
+     "ipa_en": "wɝd",
+     "ko": "말",
+     "rom_ko": "mal",
+     "icon": "💬"
+    },
+    {
+     "de": "die Freude",
+     "pos": "n.f.",
+     "ipa": "ˈfʁɔɪ̯də",
+     "en": "joy",
+     "ipa_en": "dʒɔɪ",
+     "ko": "기쁨",
+     "rom_ko": "gippeum",
+     "icon": "😊"
+    }
+   ],
+   "note": {
+    "ko": "모차르트는 1781년 3월 16일, 대주교 콜로레도의 부름을 받고 뮌헨에서 빈으로 왔어요. 대주교 일행은 징어슈트라세의 ‘독일 기사단 저택(Deutsches Haus)’에 묵었고, 모차르트도 그곳에 방을 얻었지만 식탁에서는 시종들 아래, 요리사들 위에 앉았어요. 편지를 쓴 곳은 어린 시절 인연이 있던 메스머 가의 정원이에요.",
+    "en": "On 16 March 1781 Mozart arrived in Vienna from Munich, summoned by Archbishop Colloredo. The Archbishop's household lodged at the Deutsches Haus in the Singerstrasse, and Mozart had a room there too, but at table he sat below the valets and above the cooks. He wrote this letter in the Mesmers' garden on the Landstrasse.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 141 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Halte aus, mein Sohn, und sei klug.",
+    "en": "Hold out, my son, and be wise.",
+    "ko": "잘 견디거라, 아들아. 그리고 지혜롭게.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Angekommen in Wien · 16. März 1781",
+      "en": "Arrived in Vienna · 16 March 1781",
+      "ko": "빈 도착 · 1781년 3월 16일"
+     }
+    },
+    {
+     "after": 3,
+     "type": "transfer",
+     "amount": "3 Ducaten",
+     "label": {
+      "de": "Statt der Abendtafel",
+      "en": "Instead of supper at table",
+      "ko": "저녁 식사 대신"
+     },
+     "memo": {
+      "de": "Abends haben wir keine Tafel, sondern jeder bekommt 3 Ducaten",
+      "en": "No supper-table at night, but we each receive three ducats",
+      "ko": "저녁 식탁은 없고, 각자 3두카트를 받아요"
+     },
+     "outgoing": false
+    }
+   ],
+   "status": {
+    "de": "Im Deutschen Hause",
+    "en": "At the Deutsches Haus",
+    "ko": "독일 기사단 저택에서"
+   },
+   "plate_hint": {
+    "idea": "The Deutschordenshaus (Deutsches Haus), Singerstrasse, Vienna — his address at the end of the letter; or Colloredo's portrait.",
+    "search": [
+     "Deutschordenshaus Singerstraße Wien",
+     "Deutschordenskirche Wien Singerstraße",
+     "Hieronymus von Colloredo portrait"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c5-l2",
+   "wallace_no": 148,
+   "nohl_pages": [
+    278,
+    279
+   ],
+   "date": "1781-05-09",
+   "dateNote": "The opening page of the letter in Nohl (p. 277, with the date line) is missing from our scan; the date follows Nohl's table of contents and Wallace (Vienna, May 9, 1781).",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "weary",
+   "messages": [
+    {
+     "de": "Man konnte nicht zur Rede kommen, das ging fort wie ein Feuer.",
+     "en": "It was impossible to get in a syllable, for his words blazed away like a fire.",
+     "ko": "말을 한마디도 꺼낼 수가 없었어요. 그분 말이 불길처럼 쏟아졌거든요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Man konnte nicht zur Rede kommen, / das ging fort wie ein Feuer.",
+      "en": "It was impossible to get in a syllable, / for his words blazed away like a fire.",
+      "ko": "말을 한마디도 꺼낼 수가 없었어요. / 그분 말이 불길처럼 쏟아졌거든요."
+     }
+    },
+    {
+     "de": "Endlich sagte ich: „Und ich mit Ihnen auch nichts mehr.“ — „Also geh er“, und ich im Weggehen: „Es soll auch dabei bleiben, morgen werden Sie es schriftlich bekommen.“",
+     "en": "At last I said, \"Nor I with you.\" \"Begone!\" said he; while I replied, as I left the room, \"The thing is settled, and you shall have it to-morrow in writing.\"",
+     "ko": "마침내 제가 말했어요. “저도 더는 당신과 볼일이 없습니다.” “그럼 나가!” 저는 나가면서 말했어요. “그렇게 정해졌습니다. 내일 서면으로 받으실 거예요.”",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Endlich sagte ich: / „Und ich mit Ihnen auch nichts mehr.“ — // „Also geh er“, / und ich im Weggehen: // „Es soll auch dabei bleiben, / morgen werden Sie es schriftlich bekommen.“",
+      "en": "At last I said, / \"Nor I with you.\" // \"Begone!\" said he; / while I replied, as I left the room, // \"The thing is settled, / and you shall have it to-morrow in writing.\"",
+      "ko": "마침내 제가 말했어요. / “저도 더는 당신과 볼일이 없습니다.” // “그럼 나가!” / 저는 나가면서 말했어요. // “그렇게 정해졌습니다. / 내일 서면으로 받으실 거예요.”"
+     }
+    },
+    {
+     "de": "Nun hören Sie; meine Ehre ist mir über Alles, und ich weiß daß es Ihnen auch so ist.",
+     "en": "My honor is more precious to me than all else, and I know it is the same to you.",
+     "ko": "들어 보세요. 제게는 명예가 무엇보다 소중해요. 그리고 저는 알아요, 아버지께도 그렇다는 걸요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun hören Sie; / meine Ehre ist mir über Alles, // und ich weiß / daß es Ihnen auch so ist.",
+      "en": "My honor / is more precious to me than all else, // and I know / it is the same to you.",
+      "ko": "들어 보세요. / 제게는 명예가 무엇보다 소중해요. // 그리고 저는 알아요, / 아버지께도 그렇다는 걸요."
+     }
+    },
+    {
+     "de": "Sorgen Sie sich gar nichts um mich; ich bin meiner Sache hier so gewiß, daß ich ohne mindeste Ursache quittirt hätte.",
+     "en": "Be under no anxiety on my account; I am so sure of success here, that for a much less cause I would have given up my situation.",
+     "ko": "제 걱정은 조금도 하지 마세요. 저는 여기서 잘될 거라고 확신해요. 이보다 훨씬 작은 이유로도 그만두었을 거예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Sorgen Sie sich gar nichts um mich; // ich bin meiner Sache hier so gewiß, / daß ich ohne mindeste Ursache quittirt hätte.",
+      "en": "Be under no anxiety on my account; // I am so sure of success here, / that for a much less cause I would have given up my situation.",
+      "ko": "제 걱정은 조금도 하지 마세요. // 저는 여기서 잘될 거라고 확신해요. / 이보다 훨씬 작은 이유로도 그만두었을 거예요."
+     }
+    },
+    {
+     "de": "Uebrigens bitte ich Sie munter zu sein, denn jetzt fängt mein Glück an, und ich hoffe daß mein Glück auch das Ihrige sein wird.",
+     "en": "Moreover, I beg you to be cheerful, for my good fortune is now about to begin, and I hope my good fortune will always be yours also.",
+     "ko": "그러니 기운 내세요. 이제 제 행운이 시작되니까요. 그리고 바라요, 제 행운이 아버지의 행운도 되기를.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Uebrigens bitte ich Sie munter zu sein, / denn jetzt fängt mein Glück an, // und ich hoffe / daß mein Glück auch das Ihrige sein wird.",
+      "en": "Moreover, I beg you to be cheerful, / for my good fortune is now about to begin, // and I hope / my good fortune will always be yours also.",
+      "ko": "그러니 기운 내세요. / 이제 제 행운이 시작되니까요. // 그리고 바라요, / 제 행운이 아버지의 행운도 되기를."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "das Feuer",
+     "pos": "n.n.",
+     "ipa": "ˈfɔɪ̯ɐ",
+     "en": "fire",
+     "ipa_en": "ˈfaɪɚ",
+     "ko": "불",
+     "rom_ko": "bul",
+     "icon": "🔥"
+    },
+    {
+     "de": "die Ehre",
+     "pos": "n.f.",
+     "ipa": "ˈeːʁə",
+     "en": "honor",
+     "ipa_en": "ˈɑnɚ",
+     "ko": "명예",
+     "rom_ko": "myeongye",
+     "icon": "🎖️"
+    },
+    {
+     "de": "gewiß",
+     "de_modern": "gewiss",
+     "pos": "adj.",
+     "ipa": "ɡəˈvɪs",
+     "en": "sure",
+     "ipa_en": "ʃʊɹ",
+     "ko": "확실한",
+     "rom_ko": "hwaksilhan"
+    },
+    {
+     "de": "das Glück",
+     "pos": "n.n.",
+     "ipa": "ɡlʏk",
+     "en": "good fortune",
+     "ipa_en": "ɡʊd ˈfɔɹtʃən",
+     "ko": "행운",
+     "rom_ko": "haengun",
+     "icon": "🍀"
+    },
+    {
+     "de": "munter",
+     "pos": "adj.",
+     "ipa": "ˈmʊntɐ",
+     "en": "cheerful",
+     "ipa_en": "ˈtʃɪɹfəl",
+     "ko": "명랑한",
+     "rom_ko": "myeongnanghan",
+     "icon": "☀️"
+    }
+   ],
+   "note": {
+    "ko": "1781년 5월 9일, 대주교 콜로레도와의 알현은 고성으로 끝났고, 모차르트는 그날로 잘츠부르크 궁정을 떠나겠다고 선언했어요. 독일 기사단 저택에서 나가라는 통보를 받은 뒤, 그는 베버 부인의 집 ‘신의 눈(Auge Gottes)’으로 옮겼어요. 편지는 아버지에게, 남들 앞에서는 자기를 꾸짖어도 좋다고까지 말해요.",
+    "en": "On 9 May 1781 an audience with Archbishop Colloredo ended in a shouting match, and Mozart declared that day that he was leaving the Salzburg service. Turned out of the Deutsches Haus, he had moved in with Madame Weber at the house 'Zum Auge Gottes'. He even tells his father to scold him publicly, so that no blame falls on him.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Deine Ehre ist auch meine Ehre.",
+    "en": "Your honor is my honor too.",
+    "ko": "네 명예가 곧 내 명예다.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Neue Wohnung: bei Madame Weber, „im Auge Gottes“",
+      "en": "New lodgings: with Madame Weber, 'im Auge Gottes'",
+      "ko": "새 거처: 베버 부인 댁, ‘신의 눈’ 집"
+     }
+    }
+   ],
+   "status": {
+    "de": "Frei vom Salzburger Dienst",
+    "en": "Free of the Salzburg service",
+    "ko": "잘츠부르크 궁정에서 벗어나"
+   },
+   "plate_hint": {
+    "idea": "Portrait of Prince-Archbishop Hieronymus Colloredo (Johann Michael Greiter, 1775).",
+    "search": [
+     "Hieronymus von Colloredo Greiter",
+     "Hieronymus Colloredo portrait",
+     "Fürsterzbischof Colloredo"
+    ],
+    "kind": "person"
+   }
+  },
+  {
+   "id": "c5-l3",
+   "wallace_no": 157,
+   "nohl_pages": [
+    293,
+    294
+   ],
+   "date": "1781-06-09",
+   "dateNote": "The letter begins at the foot of Nohl p. 292, which is missing from our scan; the date follows Nohl's table of contents and Wallace (Vienna, June 9, 1781).",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 157 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "weary",
+   "messages": [
+    {
+     "de": "… und endlich, da derjenige gezwungen ist die Bittschrift selbst zu überreichen, anstatt ihm wenigstens den Zutritt zu verstatten, ihn zur Thür hinaus schmeißt und einen Tritt im Hintern gibt!",
+     "en": "… and at last compel me to present the memorial myself, and instead of at least giving me free access to the Prince, to turn me out of doors with a kick!",
+     "ko": "…그리고 끝내 청원서를 직접 내밀 수밖에 없게 만들어 놓고는, 들여보내 주기는커녕 문밖으로 내던지고 발길질까지 하다니요!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 157 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… und endlich, / da derjenige gezwungen ist die Bittschrift selbst zu überreichen, // anstatt ihm wenigstens den Zutritt zu verstatten, / ihn zur Thür hinaus schmeißt / und einen Tritt im Hintern gibt!",
+      "en": "… and at last / compel me to present the memorial myself, // and instead of at least giving me free access to the Prince, / to turn me out of doors / with a kick!",
+      "ko": "…그리고 끝내 / 청원서를 직접 내밀 수밖에 없게 만들어 놓고는, // 들여보내 주기는커녕 / 문밖으로 내던지고 / 발길질까지 하다니요!"
+     }
+    },
+    {
+     "de": "Das geschah in den Antichambre; mithin war kein anderes Mittel als sich losreißen und laufen — denn ich wollte für die fürstlichen Zimmer den Respect nicht verlieren, wenn ihn schon der Arco verloren hatte.",
+     "en": "The scene took place in the anteroom. Of course there was nothing to be done but to be gone with all speed, not wishing to show disrespect for the Prince's apartments, though Arco had not scrupled to do so.",
+     "ko": "그 일은 대기실에서 벌어졌어요. 그러니 뿌리치고 달아나는 수밖에 없었어요. 아르코는 이미 예의를 버렸지만, 저는 대주교님 방에 대한 예의만큼은 잃고 싶지 않았거든요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 157 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Das geschah in den Antichambre; // mithin war kein anderes Mittel / als sich losreißen und laufen — // denn ich wollte für die fürstlichen Zimmer / den Respect nicht verlieren, / wenn ihn schon der Arco verloren hatte.",
+      "en": "The scene took place in the anteroom. // Of course there was nothing to be done / but to be gone with all speed, // not wishing to show disrespect / for the Prince's apartments, / though Arco had not scrupled to do so.",
+      "ko": "그 일은 대기실에서 벌어졌어요. // 그러니 뿌리치고 달아나는 수밖에 / 없었어요. // 아르코는 이미 예의를 버렸지만, / 저는 대주교님 방에 대한 예의만큼은 / 잃고 싶지 않았거든요."
+     }
+    },
+    {
+     "de": "Ich habe drei Memoriale gemacht; habe sie fünfmal übergeben, und sind mir allezeit zurückgeschlagen worden.",
+     "en": "I have written three different memorials, and which I five times endeavored to present, and each time they have been refused.",
+     "ko": "저는 청원서를 세 통 썼고, 다섯 번이나 냈어요. 그런데 번번이 되돌아왔어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 157 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich habe drei Memoriale gemacht; / habe sie fünfmal übergeben, // und sind mir allezeit zurückgeschlagen worden.",
+      "en": "I have written three different memorials, / and which I five times endeavored to present, // and each time they have been refused.",
+      "ko": "저는 청원서를 세 통 썼고, / 다섯 번이나 냈어요. // 그런데 번번이 되돌아왔어요."
+     }
+    },
+    {
+     "de": "Ich will von der ganzen Affaire nichts mehr schreiben, und wenn mir der Erzbischof nun 1200 Fl. Besoldung gäbe, so ging ich nicht nach einer solchen Behandlung.",
+     "en": "I shall write no more on the subject, and if the Archbishop were now to offer me 1200 florins of salary, I would never serve him again after such treatment.",
+     "ko": "이 일에 대해서는 더 쓰지 않을래요. 이제 대주교가 봉급 1200플로린을 준대도, 가지 않겠어요. 그런 대접을 받고 나서는요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 157 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich will von der ganzen Affaire nichts mehr schreiben, // und wenn mir der Erzbischof nun 1200 Fl. Besoldung gäbe, / so ging ich nicht / nach einer solchen Behandlung.",
+      "en": "I shall write no more on the subject, // and if the Archbishop were now to offer me 1200 florins of salary, / I would never serve him again / after such treatment.",
+      "ko": "이 일에 대해서는 더 쓰지 않을래요. // 이제 대주교가 봉급 1200플로린을 준대도, / 가지 않겠어요. / 그런 대접을 받고 나서는요."
+     }
+    },
+    {
+     "de": "Wie leicht wäre ich nicht zu bereden gewesen! Aber mit Art, nicht mit Stolz und Grobheit.",
+     "en": "How easily I might have been persuaded to remain! — by kindness, but not by insolence and violence.",
+     "ko": "저를 붙잡기는 얼마나 쉬웠을까요! 다만 정중하게였지, 오만과 무례로는 아니에요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 157 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wie leicht wäre ich nicht zu bereden gewesen! // Aber mit Art, / nicht mit Stolz und Grobheit.",
+      "en": "How easily I might have been persuaded to remain! — // by kindness, / but not by insolence and violence.",
+      "ko": "저를 붙잡기는 얼마나 쉬웠을까요! // 다만 정중하게였지, / 오만과 무례로는 아니에요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Bittschrift",
+     "pos": "n.f.",
+     "ipa": "ˈbɪtʃʁɪft",
+     "en": "petition",
+     "ipa_en": "pəˈtɪʃən",
+     "ko": "청원서",
+     "rom_ko": "cheongwonseo",
+     "icon": "📜"
+    },
+    {
+     "de": "die Thür",
+     "de_modern": "die Tür",
+     "pos": "n.f.",
+     "ipa": "tyːɐ̯",
+     "en": "door",
+     "ipa_en": "dɔɹ",
+     "ko": "문",
+     "rom_ko": "mun",
+     "icon": "🚪"
+    },
+    {
+     "de": "der Tritt",
+     "pos": "n.m.",
+     "ipa": "tʁɪt",
+     "en": "kick",
+     "ipa_en": "kɪk",
+     "ko": "발길질",
+     "rom_ko": "balgiljil",
+     "icon": "🦶"
+    },
+    {
+     "de": "die Besoldung",
+     "pos": "n.f.",
+     "ipa": "bəˈzɔldʊŋ",
+     "en": "salary",
+     "ipa_en": "ˈsæləɹi",
+     "ko": "봉급",
+     "rom_ko": "bonggeup",
+     "icon": "💰"
+    },
+    {
+     "de": "leicht",
+     "pos": "adj.",
+     "ipa": "laɪ̯çt",
+     "en": "easy",
+     "ipa_en": "ˈizi",
+     "ko": "쉬운",
+     "rom_ko": "swiun"
+    }
+   ],
+   "note": {
+    "ko": "모차르트는 사직 청원서를 대주교에게 직접 전하려 했지만, 대주교의 궁정 주방장관(Oberstküchenmeister) 아르코 백작은 몇 주 동안 이를 막다가 결국 그를 대기실에서 발길질로 쫓아냈어요. 이 일로 잘츠부르크 궁정과의 관계는 완전히 끝났고, 모차르트는 다시는 그 자리로 돌아가지 않았어요.",
+    "en": "Mozart tried to hand his petition for discharge to the Archbishop in person; Count Arco, the Archbishop's Oberstküchenmeister (high steward of the kitchen), put him off for weeks and finally threw him out of the antechamber with a kick. With this the break with the Salzburg court was final; Mozart never returned to its service.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 157 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Bleib ruhig, mein Sohn, Gott sieht alles.",
+    "en": "Stay calm, my son; God sees all.",
+    "ko": "침착하거라, 아들아. 하느님은 다 보신다.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Das Ende des Salzburger Dienstes",
+      "en": "The end of the Salzburg service",
+      "ko": "잘츠부르크 궁정 근무의 끝"
+     }
+    }
+   ],
+   "status": {
+    "de": "Zur Thür hinaus",
+    "en": "Shown the door",
+    "ko": "문밖으로 쫓겨나"
+   },
+   "plate_hint": {
+    "idea": "The Deutsches Haus staircase/antechamber, or a portrait of Count Karl Joseph Felix Arco.",
+    "search": [
+     "Karl Joseph Felix Arco",
+     "Deutschordenshaus Wien Stiege",
+     "Deutsches Haus Singerstraße Wien Hof"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c5-l4",
+   "wallace_no": 165,
+   "nohl_pages": [
+    310
+   ],
+   "date": "1781-08-01",
+   "dateNote": "The letter's first page in Nohl (p. 309, with the date line and the news of Stephanie's libretto) is missing from our scan; the date follows Nohl's table of contents and Wallace (Vienna, August 1, 1781).",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "… der größten Begierde zu meinem Schreibtisch eile und mit größter Freude dabei sitzen bleibe.",
+     "en": "… I eagerly hurry off to my writing-table, and remain seated there in the greatest delight.",
+     "ko": "…부푼 마음으로 책상으로 달려가서, 더없이 기쁘게 그 자리에 앉아 있어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… der größten Begierde / zu meinem Schreibtisch eile // und mit größter Freude / dabei sitzen bleibe.",
+      "en": "… I eagerly hurry off / to my writing-table, // and remain seated there / in the greatest delight.",
+      "ko": "…부푼 마음으로 / 책상으로 달려가서, // 더없이 기쁘게 / 그 자리에 앉아 있어요."
+     }
+    },
+    {
+     "de": "Der Großfürst von Rußland wird hierherkommen, und da bat mich Stephanie, ich sollte, wenn es möglich wäre in dieser kurzen Zeit die Oper schreiben …",
+     "en": "The Grand-Duke of Russia is coming here; so Stephanie entreated me, if possible, to complete the opera in that short space of time …",
+     "ko": "러시아 대공이 이곳에 온대요. 그래서 슈테파니가 부탁했어요. 될 수 있으면 이 짧은 기간에 오페라를 써 달라고요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Der Großfürst von Rußland wird hierherkommen, // und da bat mich Stephanie, / ich sollte, wenn es möglich wäre / in dieser kurzen Zeit die Oper schreiben …",
+      "en": "The Grand-Duke of Russia is coming here; // so Stephanie entreated me, / if possible, / to complete the opera in that short space of time …",
+      "ko": "러시아 대공이 이곳에 온대요. // 그래서 슈테파니가 부탁했어요. / 될 수 있으면 / 이 짧은 기간에 오페라를 써 달라고요…"
+     }
+    },
+    {
+     "de": "Mein Zimmer wo ich hinziehe ist schon in Bereitschaft; jetzt gehe ich, ein Clavier zu entlehnen, denn bevor das nicht im Zimmer steht, kann ich nicht darin wohnen dermalen …",
+     "en": "The lodging to which I am about to move is now ready, and I am going out to hire a piano, for until it is in my room I cannot live in it …",
+     "ko": "이사 갈 방은 벌써 준비됐어요. 이제 클라비어를 빌리러 가요. 그게 방에 놓이기 전에는 거기서 지낼 수가 없거든요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Mein Zimmer wo ich hinziehe / ist schon in Bereitschaft; // jetzt gehe ich, ein Clavier zu entlehnen, / denn bevor das nicht im Zimmer steht, / kann ich nicht darin wohnen dermalen …",
+      "en": "The lodging to which I am about to move / is now ready, // and I am going out to hire a piano, / for until it is in my room / I cannot live in it …",
+      "ko": "이사 갈 방은 / 벌써 준비됐어요. // 이제 클라비어를 빌리러 가요. / 그게 방에 놓이기 전에는 / 거기서 지낼 수가 없거든요…"
+     }
+    },
+    {
+     "de": "… wenn ich recht nothwendig zu schreiben hatte, so wartete man mit dem Essen so lange ich wollte, und ich konnte unangezogen fortschreiben …",
+     "en": "When I had anything very urgent to finish, the Webers always waited dinner for me as long as I chose, and I could go on writing without dressing …",
+     "ko": "…급히 써야 할 게 있을 때면 베버 댁 사람들은 제가 원하는 만큼 식사를 기다려 주었어요. 저는 옷도 갈아입지 않고 계속 쓸 수 있었고요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… wenn ich recht nothwendig zu schreiben hatte, / so wartete man mit dem Essen so lange ich wollte, // und ich konnte unangezogen fortschreiben …",
+      "en": "When I had anything very urgent to finish, / the Webers always waited dinner for me as long as I chose, // and I could go on writing without dressing …",
+      "ko": "…급히 써야 할 게 있을 때면 / 베버 댁 사람들은 제가 원하는 만큼 식사를 기다려 주었어요. // 저는 옷도 갈아입지 않고 계속 쓸 수 있었고요…"
+     }
+    },
+    {
+     "de": "Sie wissen, daß ich mich gemeiniglich hungrig schreibe; die guten Freunde, wo ich soupiren könnte, essen schon um 8 Uhr oder längstens ½9.",
+     "en": "You know that writing usually makes me very hungry, and the kind friends with whom I could sup do so at eight o'clock, or half-past eight at latest.",
+     "ko": "아시다시피 저는 곡을 쓰면 늘 배가 고파요. 그런데 제가 저녁을 함께할 수 있는 친구들은 8시, 늦어도 8시 반이면 식사를 해요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Sie wissen, / daß ich mich gemeiniglich hungrig schreibe; // die guten Freunde, wo ich soupiren könnte, / essen schon um 8 Uhr / oder längstens ½9.",
+      "en": "You know / that writing usually makes me very hungry, // and the kind friends with whom I could sup / do so at eight o'clock, / or half-past eight at latest.",
+      "ko": "아시다시피 / 저는 곡을 쓰면 늘 배가 고파요. // 그런데 제가 저녁을 함께할 수 있는 친구들은 / 8시, / 늦어도 8시 반이면 식사를 해요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Schreibtisch",
+     "pos": "n.m.",
+     "ipa": "ˈʃʁaɪ̯ptɪʃ",
+     "en": "writing desk",
+     "ipa_en": "ˈɹaɪtɪŋ dɛsk",
+     "ko": "책상",
+     "rom_ko": "chaeksang",
+     "icon": "🪶"
+    },
+    {
+     "de": "die Oper",
+     "pos": "n.f.",
+     "ipa": "ˈoːpɐ",
+     "en": "opera",
+     "ipa_en": "ˈɑpəɹə",
+     "ko": "오페라",
+     "rom_ko": "opera",
+     "icon": "🎭"
+    },
+    {
+     "de": "das Clavier",
+     "de_modern": "das Klavier",
+     "pos": "n.n.",
+     "ipa": "klaˈviːɐ̯",
+     "en": "keyboard",
+     "ipa_en": "ˈkiˌbɔɹd",
+     "ko": "건반 악기",
+     "rom_ko": "geonban akgi",
+     "icon": "🎹"
+    },
+    {
+     "de": "das Essen",
+     "pos": "n.n.",
+     "ipa": "ˈɛsn̩",
+     "en": "meal",
+     "ipa_en": "mil",
+     "ko": "식사",
+     "rom_ko": "siksa",
+     "icon": "🍲"
+    },
+    {
+     "de": "hungrig",
+     "pos": "adj.",
+     "ipa": "ˈhʊŋʁɪç",
+     "en": "hungry",
+     "ipa_en": "ˈhʌŋɡɹi",
+     "ko": "배고픈",
+     "rom_ko": "baegopeun"
+    }
+   ],
+   "note": {
+    "ko": "이틀 전 고틀리프 슈테파니가 모차르트에게 오페라 대본 「벨몬테와 콘스탄체, 또는 후궁으로부터의 유괴」를 가져왔어요. 모차르트는 너무 기뻐서 벌써 세 곡을 끝냈다고 써요. 오페라는 9월 중순 러시아 대공의 방문에 맞출 예정이었지만, 실제 초연은 1782년 7월 16일 빈의 부르크테아터에서 열렸어요. 이 무렵 그는 베버 부인 집을 나와 새 방으로 옮겼어요.",
+    "en": "Two days earlier Gottlieb Stephanie had brought Mozart the libretto 'Belmont und Konstanze, oder die Entführung aus dem Serail', and he was so delighted that three numbers were already written. It was meant for the Grand Duke of Russia's visit in mid-September, but the first performance came only on 16 July 1782 at the Burgtheater. At this time he was moving out of Madame Weber's house into a room of his own.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Schreib fröhlich, aber iß auch!",
+    "en": "Write happily, but eat too!",
+    "ko": "즐겁게 쓰되, 밥도 챙겨 먹거라!",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Stephanie bringt das Buch: „Belmont und Konstanze, oder die Entführung aus dem Serail“",
+      "en": "Stephanie brings the libretto: 'Belmont und Konstanze, oder die Entführung aus dem Serail'",
+      "ko": "슈테파니가 대본을 가져옴: 「벨몬테와 콘스탄체, 또는 후궁으로부터의 유괴」"
+     }
+    },
+    {
+     "after": 0,
+     "type": "music",
+     "piece": {
+      "de": "Die Entführung aus dem Serail, KV 384",
+      "en": "Die Entführung aus dem Serail, K. 384",
+      "ko": "「후궁으로부터의 유괴」 K. 384"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "de": "Ein Buch zu schreiben",
+    "en": "A libretto to set",
+    "ko": "곡을 붙일 대본"
+   },
+   "plate_hint": {
+    "idea": "Burgtheater on the Michaelerplatz (engraving, 1780s), where the Entführung premiered 16 July 1782.",
+    "search": [
+     "Altes Burgtheater Michaelerplatz",
+     "Burgtheater Wien 1783 Kupferstich",
+     "Michaelerplatz Burgtheater 18th century"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c5-l5",
+   "wallace_no": 172,
+   "nohl_pages": [
+    323,
+    324
+   ],
+   "date": "1781-09-26",
+   "dateNote": "The letter's first page in Nohl (p. 322, with the date line) is missing from our scan; the date follows Nohl's table of contents and Wallace (Vienna, Sept. 26, 1781).",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "In der Ausführung der Arie habe ich seine schönen tiefen Töne schimmern lassen.",
+     "en": "In working out the aria, I have given full scope to Fischer's fine deep tones to vibrate.",
+     "ko": "아리아를 다듬으면서 피셔의 아름다운 저음이 마음껏 빛나게 했어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "In der Ausführung der Arie / habe ich seine schönen tiefen Töne / schimmern lassen.",
+      "en": "In working out the aria, / I have given full scope / to Fischer's fine deep tones to vibrate.",
+      "ko": "아리아를 다듬으면서 / 피셔의 아름다운 저음이 / 마음껏 빛나게 했어요."
+     }
+    },
+    {
+     "de": "Weil aber die Leidenschaften, heftig oder nicht, niemals bis zum Ekel ausgedrückt sein müssen, und die Musik, auch in der schaudervollsten Lage, das Ohr niemals beleidigen, sondern doch dabei vergnügen, folglich allzeit Musik bleiben muß …",
+     "en": "But as the passions, whether violent or not, must never be expressed so as to become revolting, and the music even in the most appalling situations never offend the ear, but continue to please and be melodious …",
+     "ko": "하지만 격정은, 거세든 아니든, 결코 역겨울 만큼 드러나서는 안 되고, 음악은 아무리 소름 끼치는 장면에서도 귀를 거슬러서는 안 되며, 여전히 즐거움을 주어야, 곧 언제나 음악으로 남아야 하니까요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Weil aber die Leidenschaften, heftig oder nicht, / niemals bis zum Ekel ausgedrückt sein müssen, // und die Musik, auch in der schaudervollsten Lage, / das Ohr niemals beleidigen, / sondern doch dabei vergnügen, / folglich allzeit Musik bleiben muß …",
+      "en": "But as the passions, whether violent or not, / must never be expressed so as to become revolting, // and the music even in the most appalling situations / never offend the ear, / but continue to please / and be melodious …",
+      "ko": "하지만 격정은, 거세든 아니든, / 결코 역겨울 만큼 드러나서는 안 되고, // 음악은 아무리 소름 끼치는 장면에서도 / 귀를 거슬러서는 안 되며, / 여전히 즐거움을 주어야, / 곧 언제나 음악으로 남아야 하니까요…"
+     }
+    },
+    {
+     "de": "Man sieht das Zittern, Wanken, man sieht wie sich die schwellende Brust hebt, welches durch ein Crescendo exprimirt ist …",
+     "en": "You hear the trembling, throbbing, swelling breast expressed by a crescendo …",
+     "ko": "떨림과 흔들림, 부풀어 오르는 가슴이 크레셴도로 그려져 있어요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Man sieht das Zittern, Wanken, / man sieht wie sich die schwellende Brust hebt, / welches durch ein Crescendo exprimirt ist …",
+      "en": "You hear the trembling, throbbing, / swelling breast / expressed by a crescendo …",
+      "ko": "떨림과 흔들림, / 부풀어 오르는 가슴이 / 크레셴도로 그려져 있어요…"
+     }
+    },
+    {
+     "de": "Der Janitscharen-Chor ist als solcher Alles was man verlangen kann, kurz und lustig und ganz für die Wiener geschrieben.",
+     "en": "The Janissary chorus is, as such, all that can be desired — short and lively, and written entirely to please the Viennese.",
+     "ko": "예니체리 합창은 그 자체로 더 바랄 게 없어요. 짧고 신나고, 순전히 빈 사람들을 위해 썼어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Der Janitscharen-Chor / ist als solcher Alles was man verlangen kann, // kurz und lustig / und ganz für die Wiener geschrieben.",
+      "en": "The Janissary chorus is, as such, / all that can be desired — // short and lively, / and written entirely to please the Viennese.",
+      "ko": "예니체리 합창은 / 그 자체로 더 바랄 게 없어요. // 짧고 신나고, / 순전히 빈 사람들을 위해 썼어요."
+     }
+    },
+    {
+     "de": "… und ich glaube, man wird dabei nicht schlafen können, und sollte man eine ganze Nacht hindurch nicht geschlafen haben.",
+     "en": "… and I think no one can well go to sleep over it, even if his previous night has been a sleepless one.",
+     "ko": "…그리고 제 생각엔 이 곡을 들으며 졸 사람은 없을 거예요. 밤새 한숨도 못 잔 사람이라도요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… und ich glaube, / man wird dabei nicht schlafen können, // und sollte man eine ganze Nacht hindurch / nicht geschlafen haben.",
+      "en": "… and I think / no one can well go to sleep over it, // even if his previous night / has been a sleepless one.",
+      "ko": "…그리고 제 생각엔 / 이 곡을 들으며 졸 사람은 없을 거예요. // 밤새 한숨도 / 못 잔 사람이라도요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Arie",
+     "pos": "n.f.",
+     "ipa": "ˈaːʁi̯ə",
+     "en": "aria",
+     "ipa_en": "ˈɑɹiə",
+     "ko": "아리아",
+     "rom_ko": "aria",
+     "icon": "🎶"
+    },
+    {
+     "de": "das Ohr",
+     "pos": "n.n.",
+     "ipa": "oːɐ̯",
+     "en": "ear",
+     "ipa_en": "ɪɹ",
+     "ko": "귀",
+     "rom_ko": "gwi",
+     "icon": "👂"
+    },
+    {
+     "de": "die Musik",
+     "pos": "n.f.",
+     "ipa": "muˈziːk",
+     "en": "music",
+     "ipa_en": "ˈmjuzɪk",
+     "ko": "음악",
+     "rom_ko": "eumak",
+     "icon": "🎼"
+    },
+    {
+     "de": "die Brust",
+     "pos": "n.f.",
+     "ipa": "bʁʊst",
+     "en": "breast",
+     "ipa_en": "bɹɛst",
+     "ko": "가슴",
+     "rom_ko": "gaseum",
+     "icon": "💓"
+    },
+    {
+     "de": "schlafen",
+     "pos": "v.",
+     "ipa": "ˈʃlaːfn̩",
+     "en": "to sleep",
+     "ipa_en": "tə slip",
+     "ko": "자다",
+     "rom_ko": "jada",
+     "icon": "😴"
+    }
+   ],
+   "note": {
+    "ko": "「후궁으로부터의 유괴」를 쓰는 작업 노트 같은 편지예요. 오스민 역은 베이스 루트비히 피셔를 위해, 벨몬테의 「O wie ängstlich」는 테너 아담베르거의 목소리에 맞춰 썼다고 해요. 음악은 가장 끔찍한 장면에서도 귀를 거슬러서는 안 된다는, 모차르트의 유명한 말이 여기 나와요.",
+    "en": "A workshop letter on the Entführung. Mozart wrote Osmin's part for the bass Ludwig Fischer and Belmonte's 'O wie ängstlich' expressly for the tenor Adamberger's voice. Here too is his famous rule that music, even in the most terrible situations, must never offend the ear.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Ich höre die Musik schon.",
+    "en": "I can already hear the music.",
+    "ko": "벌써 그 음악이 들리는구나.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "music",
+     "piece": {
+      "de": "Osmins Arie „Solche hergelauf'ne Laffen“ (Die Entführung aus dem Serail)",
+      "en": "Osmin's aria 'Solche hergelauf'ne Laffen' (Die Entführung aus dem Serail)",
+      "ko": "오스민의 아리아 「Solche hergelauf'ne Laffen」 (「후궁으로부터의 유괴」)"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "de": "Osmin tobt, Belmonte bebt",
+    "en": "Osmin rages, Belmonte trembles",
+    "ko": "오스민은 성내고, 벨몬테는 떨고"
+   },
+   "plate_hint": {
+    "idea": "Portrait of the bass Ludwig Fischer (the first Osmin) or an Entführung autograph page.",
+    "search": [
+     "Ludwig Fischer Bass Sänger",
+     "Johann Ignaz Ludwig Fischer",
+     "Entführung aus dem Serail autograph"
+    ],
+    "kind": "person"
+   }
+  },
+  {
+   "id": "c5-l6",
+   "wallace_no": 174,
+   "nohl_pages": [
+    327,
+    328
+   ],
+   "date": "1781-10-13",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 174 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "calm",
+   "messages": [
+    {
+     "de": "Und ich weiß nicht, bei einer Oper muß schlechterdings die Poesie der Musik gehorsame Tochter sein.",
+     "en": "I should say that in an opera the poetry must necessarily be the obedient daughter of the music.",
+     "ko": "제 생각엔 오페라에서는 시가 반드시 음악의 순종하는 딸이 되어야 해요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 174 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Und ich weiß nicht, / bei einer Oper / muß schlechterdings die Poesie / der Musik gehorsame Tochter sein.",
+      "en": "I should say / that in an opera / the poetry must necessarily be / the obedient daughter of the music.",
+      "ko": "제 생각엔 / 오페라에서는 / 시가 반드시 / 음악의 순종하는 딸이 되어야 해요."
+     }
+    },
+    {
+     "de": "Warum gefallen denn die wälschen komischen Opern überall? — mit all dem Elend, was das Buch anbelangt! — sogar in Paris, wovon ich selbst Zeuge war. — Weil da ganz die Musik herrscht, und man darüber alles vergißt.",
+     "en": "Why do the Italian comic operas everywhere please, — with all their wretched poetry, — even in Paris, where I myself witnessed the fact? Because music rules there supreme, and all else is forgotten.",
+     "ko": "이탈리아 희가극은 왜 어디서나 사랑받을까요? 대본은 그렇게 형편없는데도요! 제가 직접 본 파리에서까지요. 거기서는 음악이 모든 걸 다스리고, 그래서 다른 건 다 잊게 되거든요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 174 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Warum gefallen denn die wälschen komischen Opern überall? — / mit all dem Elend, was das Buch anbelangt! — / sogar in Paris, wovon ich selbst Zeuge war. — // Weil da ganz die Musik herrscht, / und man darüber alles vergißt.",
+      "en": "Why do the Italian comic operas everywhere please, — / with all their wretched poetry, — / even in Paris, where I myself witnessed the fact? // Because music rules there supreme, / and all else is forgotten.",
+      "ko": "이탈리아 희가극은 왜 어디서나 사랑받을까요? / 대본은 그렇게 형편없는데도요! / 제가 직접 본 파리에서까지요. // 거기서는 음악이 모든 걸 다스리고, / 그래서 다른 건 다 잊게 되거든요."
+     }
+    },
+    {
+     "de": "Verse sind wohl für die Musik das Unentbehrlichste, aber Reime — des Reimens wegen — das Schädlichste.",
+     "en": "Versification is, indeed, indispensable for music, but rhyme, solely for rhyming's sake, most pernicious.",
+     "ko": "운문은 음악에 꼭 필요하지만, 각운을 위한 각운은 가장 해로워요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 174 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Verse sind wohl für die Musik das Unentbehrlichste, // aber Reime — des Reimens wegen — / das Schädlichste.",
+      "en": "Versification is, indeed, indispensable for music, // but rhyme, solely for rhyming's sake, / most pernicious.",
+      "ko": "운문은 음악에 꼭 필요하지만, // 각운을 위한 각운은 / 가장 해로워요."
+     }
+    },
+    {
+     "de": "Die Poeten kommen mir fast vor, wie die Trompeter mit ihren Handwerkspossen!",
+     "en": "Poets seem to me somewhat like trumpeters with their mechanical tricks!",
+     "ko": "시인들은 제 눈엔 꼭 판에 박힌 재주만 부리는 나팔수 같아요!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 174 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die Poeten kommen mir fast vor, / wie die Trompeter mit ihren Handwerkspossen!",
+      "en": "Poets seem to me somewhat / like trumpeters with their mechanical tricks!",
+      "ko": "시인들은 제 눈엔 꼭 / 판에 박힌 재주만 부리는 나팔수 같아요!"
+     }
+    },
+    {
+     "de": "… nun muß ich mich um das erkundigen, was mir am meisten am Herzen liegt, nämlich Ihre Gesundheit mein bester Vater!",
+     "en": "… I must now inquire about what I have always most at heart — your health, dearest father.",
+     "ko": "…이제 여쭤봐야겠어요. 제 마음에 가장 걸리는 것, 바로 아버지의 건강이요, 사랑하는 아버지!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 174 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… nun muß ich mich um das erkundigen, / was mir am meisten am Herzen liegt, // nämlich Ihre Gesundheit / mein bester Vater!",
+      "en": "… I must now inquire about / what I have always most at heart — // your health, / dearest father.",
+      "ko": "…이제 여쭤봐야겠어요. / 제 마음에 가장 걸리는 것, // 바로 아버지의 건강이요, / 사랑하는 아버지!"
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Poesie",
+     "pos": "n.f.",
+     "ipa": "poeˈziː",
+     "en": "poetry",
+     "ipa_en": "ˈpoʊətɹi",
+     "ko": "시",
+     "rom_ko": "si",
+     "icon": "📖"
+    },
+    {
+     "de": "die Tochter",
+     "pos": "n.f.",
+     "ipa": "ˈtɔxtɐ",
+     "en": "daughter",
+     "ipa_en": "ˈdɔtɚ",
+     "ko": "딸",
+     "rom_ko": "ttal",
+     "icon": "👧"
+    },
+    {
+     "de": "der Reim",
+     "pos": "n.m.",
+     "ipa": "ʁaɪ̯m",
+     "en": "rhyme",
+     "ipa_en": "ɹaɪm",
+     "ko": "각운",
+     "rom_ko": "gagun",
+     "icon": "🔁"
+    },
+    {
+     "de": "der Trompeter",
+     "pos": "n.m.",
+     "ipa": "tʁɔmˈpeːtɐ",
+     "en": "trumpeter",
+     "ipa_en": "ˈtɹʌmpɪtɚ",
+     "ko": "나팔수",
+     "rom_ko": "napalsu",
+     "icon": "🎺"
+    },
+    {
+     "de": "die Gesundheit",
+     "pos": "n.f.",
+     "ipa": "ɡəˈzʊnthaɪ̯t",
+     "en": "health",
+     "ipa_en": "hɛlθ",
+     "ko": "건강",
+     "rom_ko": "geongang",
+     "icon": "❤️"
+    }
+   ],
+   "note": {
+    "ko": "아버지는 슈테파니의 가사가 서툴다고 걱정했고, 모차르트는 이 편지에서 오페라에 대한 자신의 믿음을 밝혀요. 시는 음악의 ‘순종하는 딸’이어야 한다는 거예요. 놀은 각주에서, 이 대목을 니센이 9월 26일 편지에 붙여 실었다고 적었어요.",
+    "en": "His father had worried about Stephanie's verses; here Mozart states his creed that in opera the poetry must be 'the obedient daughter of the music'. Nohl notes that Nissen had printed this whole paragraph as part of the letter of 26 September.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 174 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Die Musik ist deine Königin.",
+    "en": "Music is your queen.",
+    "ko": "음악이 네 여왕이로구나.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "notice",
+     "text": {
+      "de": "Nohl: Diesen Absatz hatte Nissen unter den Brief vom 26. Sept. 1781 gezogen.",
+      "en": "Nohl: Nissen had printed this paragraph under the letter of 26 Sept. 1781.",
+      "ko": "놀의 각주: 니센은 이 단락을 1781년 9월 26일 편지에 붙여 실었어요."
+     }
+    }
+   ],
+   "status": {
+    "de": "Die gehorsame Tochter",
+    "en": "The obedient daughter",
+    "ko": "순종하는 딸"
+   },
+   "plate_hint": {
+    "idea": "Title page of the Entführung libretto (Vienna 1782).",
+    "search": [
+     "Die Entführung aus dem Serail 1782 libretto",
+     "Entführung aus dem Serail Titelblatt",
+     "Stephanie Entführung Textbuch"
+    ],
+    "kind": "score"
+   }
+  },
+  {
+   "id": "c5-l7",
+   "wallace_no": 175,
+   "nohl_pages": [
+    328,
+    329
+   ],
+   "date": "1781-11-03",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 175 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "… es war aber eben mein Namenstag. In der Früh verrichtete ich also meine Andacht, und da ich eben schreiben wollte, so kamen mir eine Menge Gratulanten auf den Hals.",
+     "en": "It was my name-day, so I performed my religious duties very early in the morning, and just as I was going to write to you, a number of congratulating friends besieged me.",
+     "ko": "…그날이 마침 제 영명 축일이었어요. 그래서 아침 일찍 기도를 드리고, 막 편지를 쓰려는데, 축하객들이 우르르 몰려왔어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 175 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… es war aber eben mein Namenstag. // In der Früh verrichtete ich also meine Andacht, / und da ich eben schreiben wollte, / so kamen mir eine Menge Gratulanten auf den Hals.",
+      "en": "It was my name-day, // so I performed my religious duties very early in the morning, / and just as I was going to write to you, / a number of congratulating friends besieged me.",
+      "ko": "…그날이 마침 제 영명 축일이었어요. // 그래서 아침 일찍 기도를 드리고, / 막 편지를 쓰려는데, / 축하객들이 우르르 몰려왔어요."
+     }
+    },
+    {
+     "de": "Auf die Nacht um 11 Uhr bekam ich eine Nachtmusik von 2 Clarinetten, 2 Horn und 2 Fagott und zwar von meiner eigenen Composition …",
+     "en": "At eleven o'clock at night I was treated to a serenade of two clarionets, two horns, and two bassoons, and indeed it was a composition of my own …",
+     "ko": "밤 11시에 세레나데 선물을 받았어요. 클라리넷 둘, 호른 둘, 바순 둘이었죠. 게다가 제가 쓴 곡이었어요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 175 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Auf die Nacht um 11 Uhr / bekam ich eine Nachtmusik / von 2 Clarinetten, 2 Horn und 2 Fagott // und zwar von meiner eigenen Composition …",
+      "en": "At eleven o'clock at night / I was treated to a serenade / of two clarionets, two horns, and two bassoons, // and indeed it was a composition of my own …",
+      "ko": "밤 11시에 / 세레나데 선물을 받았어요. / 클라리넷 둘, 호른 둘, 바순 둘이었죠. // 게다가 제가 쓴 곡이었어요…"
+     }
+    },
+    {
+     "de": "Die 6 Herrn die solche exequiren, sind arme Schlucker, die aber ganz hübsch zusammen blasen …",
+     "en": "The six men who executed it are poor fellows, but play right well together …",
+     "ko": "연주한 여섯 사람은 가난한 사람들이지만, 호흡이 아주 잘 맞아요…",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 175 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die 6 Herrn die solche exequiren, / sind arme Schlucker, // die aber ganz hübsch zusammen blasen …",
+      "en": "The six men who executed it / are poor fellows, // but play right well together …",
+      "ko": "연주한 여섯 사람은 / 가난한 사람들이지만, // 호흡이 아주 잘 맞아요…"
+     }
+    },
+    {
+     "de": "Die Hauptursache aber, warum ich sie gemacht, war, um dem Hr. v. Strack [Leibkammerdiener des Kaisers] (welcher täglich dahin kommt) etwas von mir hören zu lassen und deßwegen habe ich sie auch ein wenig vernünftig geschrieben.",
+     "en": "The chief reason why I composed it was that I wished Herr von Strack [one of the Emperor's gentlemen] (who goes there daily) to hear something of mine; so I wrote it rather carefully.",
+     "ko": "제가 이 곡을 쓴 가장 큰 이유는, 황제의 시종인 슈트라크 씨에게 (그분이 날마다 그 댁에 오거든요) 제 음악을 들려 드리고 싶어서였어요. 그래서 꽤 공들여 썼어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 175 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die Hauptursache aber, warum ich sie gemacht, / war, um dem Hr. v. Strack [Leibkammerdiener des Kaisers] / (welcher täglich dahin kommt) / etwas von mir hören zu lassen // und deßwegen habe ich sie auch / ein wenig vernünftig geschrieben.",
+      "en": "The chief reason why I composed it / was that I wished Herr von Strack [one of the Emperor's gentlemen] / (who goes there daily) / to hear something of mine; // so I wrote it / rather carefully.",
+      "ko": "제가 이 곡을 쓴 가장 큰 이유는, / 황제의 시종인 슈트라크 씨에게 / (그분이 날마다 그 댁에 오거든요) / 제 음악을 들려 드리고 싶어서였어요. // 그래서 / 꽤 공들여 썼어요."
+     }
+    },
+    {
+     "de": "Die Herrn also haben sich die Hausthüre öffnen lassen, und nachdem sie sich mitten im Hof rangirt, mich, der ich mich eben entkleiden wollte, mit dem ersten Eb Accord auf die angenehmste Art von der Welt überrascht.",
+     "en": "The musicians begged that the gates might be thrown open, and, placing themselves in the centre of the court-yard, surprised me (just about to undress) in the most agreeable way in the world by the first chord in E flat.",
+     "ko": "연주자들은 대문을 열게 하더니, 안뜰 한가운데 자리를 잡고, 막 옷을 벗으려던 저를 첫 E플랫 화음으로 세상에서 가장 기분 좋게 놀라게 해 주었어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 175 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die Herrn also haben sich die Hausthüre öffnen lassen, / und nachdem sie sich mitten im Hof rangirt, // mich, der ich mich eben entkleiden wollte, / mit dem ersten Eb Accord / auf die angenehmste Art von der Welt überrascht.",
+      "en": "The musicians begged that the gates might be thrown open, / and, placing themselves in the centre of the court-yard, // surprised me (just about to undress) / in the most agreeable way in the world / by the first chord in E flat.",
+      "ko": "연주자들은 대문을 열게 하더니, / 안뜰 한가운데 자리를 잡고, // 막 옷을 벗으려던 저를 / 첫 E플랫 화음으로 / 세상에서 가장 기분 좋게 놀라게 해 주었어요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Namenstag",
+     "pos": "n.m.",
+     "ipa": "ˈnaːmənsˌtaːk",
+     "en": "name day",
+     "ipa_en": "ˈneɪm deɪ",
+     "ko": "영명 축일",
+     "rom_ko": "yeongmyeong chugil",
+     "icon": "🎉"
+    },
+    {
+     "de": "die Nachtmusik",
+     "pos": "n.f.",
+     "ipa": "ˈnaxtmuˌziːk",
+     "en": "serenade",
+     "ipa_en": "ˌsɛɹəˈneɪd",
+     "ko": "세레나데",
+     "rom_ko": "serenade",
+     "icon": "🌙"
+    },
+    {
+     "de": "arm",
+     "pos": "adj.",
+     "ipa": "aʁm",
+     "en": "poor",
+     "ipa_en": "pʊɹ",
+     "ko": "가난한",
+     "rom_ko": "gananhan"
+    },
+    {
+     "de": "der Hof",
+     "pos": "n.m.",
+     "ipa": "hoːf",
+     "en": "courtyard",
+     "ipa_en": "ˈkɔɹtjɑɹd",
+     "ko": "안뜰",
+     "rom_ko": "antteul",
+     "icon": "🏛️"
+    },
+    {
+     "de": "überraschen",
+     "pos": "v.",
+     "ipa": "yːbɐˈʁaʃn̩",
+     "en": "to surprise",
+     "ipa_en": "tə sɚˈpɹaɪz",
+     "ko": "놀라게 하다",
+     "rom_ko": "nollage hada",
+     "icon": "🎁"
+    }
+   ],
+   "note": {
+    "ko": "10월 31일 성 볼프강 축일이 모차르트의 영명 축일이에요. 그날 밤 관악기 여섯 대가 안뜰에서 그가 테레지아 축일을 위해 쓴 세레나데를 연주해 주었어요. 놀과 월리스의 각주에 따르면 이 곡은 쾨헬 목록 375번, 내림마장조 세레나데예요.",
+    "en": "Mozart's name-day was the feast of St Wolfgang, 31 October. That night six wind players stood in the courtyard and played him the serenade he had written for St Theresa's day. Nohl's and Wallace's footnotes identify it as Köchel 375, the Serenade in E flat.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 175 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Alles Gute zum Namenstag, Wolfgang!",
+    "en": "Happy name-day, Wolfgang!",
+    "ko": "영명 축일 축하한다, 볼프강!",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Namenstag: Wolfgang, 31. Oktober",
+      "en": "Name-day: St Wolfgang, 31 October",
+      "ko": "영명 축일: 성 볼프강, 10월 31일"
+     }
+    },
+    {
+     "after": 1,
+     "type": "music",
+     "piece": {
+      "de": "Serenade Es-Dur, KV 375",
+      "en": "Serenade in E flat, K. 375",
+      "ko": "세레나데 내림마장조 K. 375"
+     },
+     "commons": "File:Wolfgang Amadeus Mozart - Serenade K.375 - 3. Adagio.ogg"
+    }
+   ],
+   "status": {
+    "de": "Eine Nachtmusik im Hof",
+    "en": "A serenade in the courtyard",
+    "ko": "안뜰의 세레나데"
+   },
+   "plate_hint": {
+    "idea": "A wind sextet / Harmonie ensemble engraving; or a Viennese courtyard (Graben) by night.",
+    "search": [
+     "Harmoniemusik 18th century engraving",
+     "wind ensemble 18th century",
+     "Graben Wien 1781"
+    ],
+    "kind": "era"
+   }
+  }
+ ]
+}
