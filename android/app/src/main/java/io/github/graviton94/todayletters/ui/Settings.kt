@@ -246,7 +246,7 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
 
             Caps(stringResource(R.string.credits_images_h), p.giltText)
             Text(stringResource(R.string.credits_images_note), style = Type.small.ui(), color = p.inkSoft)
-            s.works.forEach { w -> w.chapters.forEach { c -> c.letters.forEach { l ->
+            s.works.forEach { w -> (w.prologue.map { it.letter } + w.chapters.flatMap { it.letters }).distinctBy { it.plate?.image ?: it.id }.forEach { l ->
                 l.plate?.let { pl ->
                     Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                         Text("${pl.title[ui]} · ${pl.date}", style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
@@ -254,13 +254,21 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
                         if (pl.source.isNotEmpty()) Text(pl.source, style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
                     }
                 }
-                l.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Photo>().filter { it.sketch && it.credit.isNotEmpty() }.forEach { m ->
+                l.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Photo>().filter { it.credit.isNotEmpty() }.forEach { m ->
                     Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                         Text(m.caption[ui], style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
                         Text(m.credit, style = Type.small.ui(), color = p.inkSoft)
                     }
                 }
-            } } }
+            }
+                // 맺음말의 그림
+                w.outro?.let { o ->
+                    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Text("Épilogue", style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+                        Text(o.credit, style = Type.small.ui(), color = p.inkSoft)
+                    }
+                }
+            }
             // 갤러리 소장품 (오늘의 자료로 걸리는 작품)
             s.works.forEach { w -> w.kit.collection.forEach { pc ->
                 Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
