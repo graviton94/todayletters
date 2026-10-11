@@ -138,8 +138,8 @@
     }
    ],
    "note": {
-    "ko": "1789년 봄, 모차르트는 제자이자 친구인 카를 리히노프스키 공작의 편한 마차를 얻어 타고 베를린 쪽으로 연주 여행을 떠났어요. 첫 기착지 프라하에서는 흥행주 과르다소니가 새 오페라를 거의 약속했어요. 베를린에서 막 돌아온 람은 프로이센 왕이 모차르트가 정말 오느냐고 여러 번 물었다고 전해요.",
-    "en": "In spring 1789 Mozart set out on a concert tour towards Berlin in the comfortable carriage of his friend and pupil Prince Carl Lichnowsky. At the first stop, Prague, the impresario Guardasoni all but promised him a new opera. Ramm, just back from Berlin, reported that the King had asked again and again whether Mozart was really coming.",
+    "ko": "오늘날의 프라하 스타보브스케 극장(옛 노스티츠 극장)을 찍은 사진이에요. 1789년 봄, 모차르트는 제자이자 친구인 카를 리히노프스키 공작의 편한 마차를 얻어 타고 베를린 쪽으로 연주 여행을 떠났어요. 첫 기착지 프라하에서는 흥행주 과르다소니가 새 오페라를 거의 약속했어요. 베를린에서 막 돌아온 람은 프로이센 왕이 모차르트가 정말 오느냐고 여러 번 물었다고 전해요.",
+    "en": "A modern photo of the Estates Theatre (formerly the Nostitz Theatre) in Prague. In spring 1789 Mozart set out on a concert tour towards Berlin in the comfortable carriage of his friend and pupil Prince Carl Lichnowsky. At the first stop, Prague, the impresario Guardasoni all but promised him a new opera. Ramm, just back from Berlin, reported that the King had asked again and again whether Mozart was really coming.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 249 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -171,14 +171,63 @@
     "en": "On the road north",
     "ko": "북쪽으로 가는 길"
    },
-   "plate_hint": {
-    "idea": "Prague, Charles Bridge and Hradčany (18th-c. veduta).",
-    "search": [
-     "Prague Charles Bridge Hradčany veduta 18th century",
-     "Prag Karlsbrücke Kupferstich",
-     "Prague view engraving 1780s"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Das Ständetheater in Prag",
+    "title_en": "The Estates Theatre, Prague",
+    "title_ko": "프라하의 스타보브스케 극장",
+    "date": "modern photo",
+    "collection": "Wikimedia Commons · photo by VitVit",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Praha_Stavovské_divadlo_1.jpg",
+    "credit": "VitVit",
+    "why": {
+     "ko": "과르다소니가 이끌던 프라하의 오페라 극장이에요. 『돈 조반니』도 이곳에서 처음 무대에 올랐어요.",
+     "en": "Prague's opera house, run by Guardasoni; Don Giovanni had its first performance here."
+    },
+    "image": "m-c8-l1.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.45,
+      "y": 0.83,
+      "title": {
+       "de": "Der Eingang",
+       "en": "The entrance",
+       "ko": "극장 입구"
+      },
+      "note": {
+       "ko": "새 오페라를 약속받은 극장의 문.",
+       "en": "The doors of the theatre that all but promised him a new opera."
+      },
+      "word": {
+       "de": "Oper",
+       "en": "opera",
+       "ko": "오페라",
+       "ipa": "ˈoːpɐ"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.55,
+      "y": 0.4,
+      "title": {
+       "de": "Die Säulen",
+       "en": "The columns",
+       "ko": "기둥"
+      },
+      "note": {
+       "ko": "‘여기 무사히 도착했어.’ 프라하에서 모차르트가 맨 먼저 찾을 만한 곳이에요.",
+       "en": "‘We arrived here safely’: in Prague, a place Mozart knew well."
+      },
+      "word": {
+       "de": "hier",
+       "en": "here",
+       "ko": "여기",
+       "ipa": "hiːɐ̯"
+      },
+      "quote": 0
+     }
+    ]
    }
   },
   {
@@ -313,8 +362,8 @@
     }
    ],
    "note": {
-    "ko": "드레스덴에서 모차르트는 프라하 친구 두셰크의 아내인 가수 요제파 두셰크를 놀래 주려다, 창밖을 보던 그녀에게 먼저 들키고 말아요. 그는 콘스탄체의 작은 초상화를 상자에 넣어 다니며 말을 걸어요. ‘슐루크 운트 드루크’ 같은 애칭은 모차르트가 지은 장난스러운 카논에서 따온 말이라고 놀의 각주가 알려 줘요.",
-    "en": "In Dresden Mozart meant to surprise the singer Josepha Duschek, wife of his Prague friend Duschek, but she spotted him first from her window. He carried a small portrait of Constanze in a case and talked to it. Nohl's footnote says the pet names ('schluck und druck') allude to a jocular canon of Mozart's.",
+    "ko": "요제프 랑에가 1782년에 그린 콘스탄체의 초상이에요. 모차르트가 지니고 다닌 작은 초상화와 같은 그림인지는 알 수 없어요. 드레스덴에서 모차르트는 프라하 친구 두셰크의 아내인 가수 요제파 두셰크를 놀래 주려다, 창밖을 보던 그녀에게 먼저 들키고 말아요. 그는 콘스탄체의 작은 초상화를 상자에 넣어 다니며 말을 걸어요. ‘슐루크 운트 드루크’ 같은 애칭은 모차르트가 지은 장난스러운 카논에서 따온 말이라고 놀의 각주가 알려 줘요.",
+    "en": "Joseph Lange's 1782 portrait of Constanze; whether it is the image Mozart carried with him is not known. In Dresden Mozart meant to surprise the singer Josepha Duschek, wife of his Prague friend Duschek, but she spotted him first from her window. He carried a small portrait of Constanze in a case and talked to it. Nohl's footnote says the pet names ('schluck und druck') allude to a jocular canon of Mozart's.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 250 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -339,14 +388,63 @@
     "en": "Six days without you",
     "ko": "너 없이 엿새째"
    },
-   "plate_hint": {
-    "idea": "Constanze's miniature portrait / Dresden view (Bellotto).",
-    "search": [
-     "Constanze Mozart portrait Lange",
-     "Bellotto Dresden Elbe view",
-     "Dresden 18th century veduta"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Constanze Mozart",
+    "title_en": "Constanze Mozart",
+    "title_ko": "콘스탄체 모차르트",
+    "date": "1782",
+    "collection": "Hunterian Art Gallery, University of Glasgow",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Constanze_Mozart_by_Lange_1782.jpg",
+    "credit": "Joseph Lange",
+    "why": {
+     "ko": "모차르트가 초상화를 꺼내 말을 거는 아내 콘스탄체를, 형부 요제프 랑에가 그린 그림이에요.",
+     "en": "Constanze, the wife whose portrait Mozart talks to, painted by her brother-in-law Joseph Lange."
+    },
+    "image": "m-c8-l2.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.53,
+      "y": 0.35,
+      "title": {
+       "de": "Das Gesicht",
+       "en": "The face",
+       "ko": "얼굴"
+      },
+      "note": {
+       "ko": "‘잘 자, 생쥐야.’ 모차르트가 아내를 부르던 애칭이에요.",
+       "en": "‘Good night, darling mouse’: his pet name for her."
+      },
+      "word": {
+       "de": "Mauserl",
+       "en": "mouse",
+       "ko": "생쥐",
+       "ipa": "ˈmaʊ̯zɐl"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.62,
+      "y": 0.62,
+      "title": {
+       "de": "Das Bildnis",
+       "en": "The portrait",
+       "ko": "초상화"
+      },
+      "note": {
+       "ko": "흰 옷의 콘스탄체. 모차르트가 지니고 다닌 것은 이보다 작은 초상화였어요.",
+       "en": "Constanze in white; the one he carried was a small portrait."
+      },
+      "word": {
+       "de": "Portrait",
+       "en": "portrait",
+       "ko": "초상화",
+       "ipa": "pɔʁˈtʁɛː"
+      },
+      "quote": 2
+     }
+    ]
    }
   },
   {
@@ -481,8 +579,8 @@
     }
    ],
    "note": {
-    "ko": "드레스덴 궁정에서 모차르트는 새 D장조 협주곡을 연주하고 선물로 담뱃갑을 받았어요. 이 곡은 오늘날 ‘대관식’ 협주곡(K. 537)으로 불리는 곡으로 여겨져요. 오르간 겨루기 상대 헤슬러는 에르푸르트의 오르가니스트로, 편지에 따르면 바흐 제자의 제자였어요.",
-    "en": "At the Dresden court Mozart played his new concerto in D and was given a snuffbox; it is taken to be the concerto now called the 'Coronation' (K. 537). His rival at the organ, Hässler, was the organist of Erfurt and, as the letter says, a pupil of a pupil of Bach.",
+    "ko": "모차르트가 오기 40년쯤 전, 벨로토가 그린 드레스덴 풍경이에요. 드레스덴 궁정에서 모차르트는 새 D장조 협주곡을 연주하고 선물로 담뱃갑을 받았어요. 이 곡은 오늘날 ‘대관식’ 협주곡(K. 537)으로 불리는 곡으로 여겨져요. 오르간 겨루기 상대 헤슬러는 에르푸르트의 오르가니스트로, 편지에 따르면 바흐 제자의 제자였어요.",
+    "en": "A view of Dresden painted by Bellotto some forty years before Mozart's visit. At the Dresden court Mozart played his new concerto in D and was given a snuffbox; it is taken to be the concerto now called the 'Coronation' (K. 537). His rival at the organ, Hässler, was the organist of Erfurt and, as the letter says, a pupil of a pupil of Bach.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 251 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -508,14 +606,63 @@
     "en": "Still in Dresden",
     "ko": "아직 드레스덴"
    },
-   "plate_hint": {
-    "idea": "Dresden Hofkirche / Bellotto's view of Dresden from the Elbe.",
-    "search": [
-     "Bellotto Dresden from the right bank of the Elbe",
-     "Dresden Katholische Hofkirche Bellotto",
-     "Dresden Hofkirche 18th century"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Dresden vom rechten Elbufer unterhalb der Augustusbrücke",
+    "title_en": "Dresden from the Right Bank of the Elbe below the Augustus Bridge",
+    "title_ko": "아우구스투스 다리 아래 엘베강 오른쪽 기슭에서 본 드레스덴",
+    "date": "1748",
+    "collection": "Gemäldegalerie Alte Meister, Dresden",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Canaletto_-_Dresden_seen_from_the_Right_Bank_of_the_Elbe,_beneath_the_Augusts_Bridge_-_Google_Art_Project.jpg",
+    "credit": "Bernardo Bellotto",
+    "why": {
+     "ko": "모차르트가 궁정에서 연주하고 편지를 받은 드레스덴을, 벨로토가 엘베강 건너편에서 그렸어요.",
+     "en": "Dresden, where Mozart played at court and found his wife's letter, seen by Bellotto from across the Elbe."
+    },
+    "image": "m-c8-l3.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.73,
+      "y": 0.5,
+      "title": {
+       "de": "Hofkirche und Schloss",
+       "en": "Court church and palace",
+       "ko": "궁정 교회와 궁전"
+      },
+      "note": {
+       "ko": "비계에 싸인 궁정 교회와 그 뒤의 궁전. 모차르트가 ‘궁정에서’ 새 협주곡을 연주한 도시의 중심이에요.",
+       "en": "The court church in scaffolding and the palace behind: the heart of the court where he played his new concerto."
+      },
+      "word": {
+       "de": "Hofe",
+       "en": "court",
+       "ko": "궁정",
+       "ipa": "hoːf"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.4,
+      "y": 0.66,
+      "title": {
+       "de": "Die Augustusbrücke",
+       "en": "The Augustus Bridge",
+       "ko": "아우구스투스 다리"
+      },
+      "note": {
+       "ko": "엘베강을 건너는 긴 돌다리. ‘아직 드레스덴이냐고?’",
+       "en": "The long stone bridge over the Elbe: ‘Still in Dresden?’"
+      },
+      "word": {
+       "de": "Dresden",
+       "en": "Dresden",
+       "ko": "드레스덴",
+       "ipa": "ˈdʁeːsdn̩"
+      },
+      "quote": 0
+     }
+    ]
    }
   },
   {
@@ -648,8 +795,8 @@
     }
    ],
    "note": {
-    "ko": "1790년 가을, 모차르트는 레오폴트 2세의 황제 대관식으로 사람들이 몰려드는 프랑크푸르트로 갔어요. 놀의 해설에 따르면 그는 은그릇 일부를 저당 잡혀 마차를 사고, 9월 24일 처남인 바이올리니스트 호퍼와 함께 떠났어요. 10월 15일에는 이곳에서 연주회를 열었어요.",
-    "en": "In autumn 1790 Mozart went to Frankfurt, crowded for the coronation of Leopold II. According to Nohl he pawned part of his silver plate, bought a carriage and left on 24 September with his brother-in-law, the violinist Hofer. On 15 October he gave a concert there.",
+    "ko": "모차르트가 도착하기 이틀 전, 대관식에 쓸 제국 보물이 프랑크푸르트로 옮겨지는 행렬을 새긴 같은 해의 판화예요. 1790년 가을, 모차르트는 레오폴트 2세의 황제 대관식으로 사람들이 몰려드는 프랑크푸르트로 갔어요. 놀의 해설에 따르면 그는 은그릇 일부를 저당 잡혀 마차를 사고, 9월 24일 처남인 바이올리니스트 호퍼와 함께 떠났어요. 10월 15일에는 이곳에서 연주회를 열었어요.",
+    "en": "A print from the same weeks: the imperial regalia escorted to Frankfurt two days before Mozart arrived. In autumn 1790 Mozart went to Frankfurt, crowded for the coronation of Leopold II. According to Nohl he pawned part of his silver plate, bought a carriage and left on 24 September with his brother-in-law, the violinist Hofer. On 15 October he gave a concert there.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 258 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -685,14 +832,63 @@
     "en": "Arrived in Frankfurt",
     "ko": "프랑크푸르트 도착"
    },
-   "plate_hint": {
-    "idea": "Frankfurt Römerberg during the 1790 coronation (engraving).",
-    "search": [
-     "Frankfurt Römerberg Krönung Leopold II 1790",
-     "Kaiserkrönung Frankfurt 1790 Kupferstich",
-     "Frankfurt am Main Römer 18th century engraving"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Feierliche Begleitung der Reichsinsignien von Nürnberg nach Frankfurt am Main, 27. September 1790",
+    "title_en": "Ceremonial escort of the imperial regalia from Nuremberg to Frankfurt, 27 September 1790",
+    "title_ko": "뉘른베르크에서 프랑크푸르트로 가는 제국 보물 호송 행렬 (1790년 9월 27일)",
+    "date": "1790",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Stich_-_Begleitung_Reichskleinodien_von_Nürnberg_nach_Frankfurt_-_1790.jpg",
+    "credit": "Unknown author",
+    "why": {
+     "ko": "모차르트가 마차를 타고 프랑크푸르트로 가던 바로 그 며칠, 대관식에 쓸 제국 보물도 같은 도시로 옮겨지고 있었어요.",
+     "en": "In the very days Mozart drove to Frankfurt, the imperial regalia for the coronation were being carried to the same city."
+    },
+    "image": "m-c8-l4.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.43,
+      "y": 0.58,
+      "title": {
+       "de": "Die Kutsche",
+       "en": "The coach",
+       "ko": "마차"
+      },
+      "note": {
+       "ko": "행렬 속의 마차. 모차르트는 제 마차가 ‘뽀뽀해 주고 싶을 만큼’ 좋다고 자랑해요.",
+       "en": "A coach in the procession; Mozart boasts that his own carriage is first-rate."
+      },
+      "word": {
+       "de": "Wagen",
+       "en": "carriage",
+       "ko": "마차",
+       "ipa": "ˈvaːɡn̩"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.5,
+      "y": 0.12,
+      "title": {
+       "de": "Der Himmel",
+       "en": "The sky",
+       "ko": "하늘"
+      },
+      "note": {
+       "ko": "구름이 조금 낀 하늘. 엿새 길에 날씨는 딱 하루 빼고 좋았대요.",
+       "en": "A lightly clouded sky: on his six-day journey the weather was fine but for one day."
+      },
+      "word": {
+       "de": "Wetter",
+       "en": "weather",
+       "ko": "날씨",
+       "ipa": "ˈvɛtɐ"
+      },
+      "quote": 1
+     }
+    ]
    }
   },
   {
@@ -828,8 +1024,8 @@
     }
    ],
    "note": {
-    "ko": "대관식으로 붐비는 프랑크푸르트에서 쓴 편지예요. 모차르트는 처남 호퍼와 함께 뵘의 집에 한 달 30플로린을 내고 묵었어요. ‘하느님의 눈’은 빈에서 베버 집안, 곧 콘스탄체네 식구가 살던 집이에요. 놀의 판에는 날짜가 편지 끝, 추신 앞에 적혀 있어요.",
-    "en": "Written in Frankfurt during the coronation crowds. Mozart lodged with Hofer at Böhm's, paying 30 florins a month. The 'Auge Gottes' was the house in Vienna where Constanze's family, the Webers, had lived. Nohl prints the date at the end, before the postscript.",
+    "ko": "26년 전 같은 프랑크푸르트 대성당에서 열린 요제프 2세의 대관식을 그린 그림이에요. 대관식으로 붐비는 프랑크푸르트에서 쓴 편지예요. 모차르트는 처남 호퍼와 함께 뵘의 집에 한 달 30플로린을 내고 묵었어요. ‘하느님의 눈’은 빈에서 베버 집안, 곧 콘스탄체네 식구가 살던 집이에요. 놀의 판에는 날짜가 편지 끝, 추신 앞에 적혀 있어요.",
+    "en": "A painting of Joseph II's coronation in the same Frankfurt cathedral, twenty-six years earlier. Written in Frankfurt during the coronation crowds. Mozart lodged with Hofer at Böhm's, paying 30 florins a month. The 'Auge Gottes' was the house in Vienna where Constanze's family, the Webers, had lived. Nohl prints the date at the end, before the postscript.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 259 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -854,14 +1050,63 @@
     "en": "Cold as ice",
     "ko": "얼음장처럼"
    },
-   "plate_hint": {
-    "idea": "Frankfurt cathedral (coronation church).",
-    "search": [
-     "Frankfurt Kaiserdom 18th century",
-     "Frankfurter Dom St. Bartholomäus Kupferstich",
-     "Frankfurt cathedral engraving"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Krönung Josephs II. in Frankfurt",
+    "title_en": "Investiture of Joseph II in Frankfurt",
+    "title_ko": "프랑크푸르트에서 열린 요제프 2세의 대관식",
+    "date": "c. 1764",
+    "collection": "Schloss Schönbrunn, Vienna",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Investiture_of_Joseph_II_in_Frankfurt.jpg",
+    "credit": "Martin van Meytens",
+    "why": {
+     "ko": "모차르트가 찾아간 1790년 대관식도 이 그림처럼 프랑크푸르트 대성당에서 열렸어요. 화려한 의식과, ‘얼음장처럼 차갑다’는 그의 마음이 맞닿아 있어요.",
+     "en": "The 1790 coronation Mozart came for was held in the same Frankfurt cathedral; the splendour sits against his heart ‘cold as ice’."
+    },
+    "image": "m-c8-l5.jpg",
+    "kind": "era",
+    "spots": [
+     {
+      "x": 0.6,
+      "y": 0.85,
+      "title": {
+       "de": "Die Menge",
+       "en": "The crowd",
+       "ko": "군중"
+      },
+      "note": {
+       "ko": "대관식에 몰려든 사람들. ‘사람들이 내 마음속을 들여다볼 수 있다면.’",
+       "en": "The crowds at the coronation: ‘If people could see into my heart.’"
+      },
+      "word": {
+       "de": "Leute",
+       "en": "people",
+       "ko": "사람들",
+       "ipa": "ˈlɔɪ̯tə"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.62,
+      "y": 0.15,
+      "title": {
+       "de": "Das Gewölbe",
+       "en": "The vaults",
+       "ko": "돌 천장"
+      },
+      "note": {
+       "ko": "높고 서늘한 고딕 천장. ‘모든 게 나한텐 차가워.’",
+       "en": "The tall, cool Gothic vaults: ‘All there is cold.’"
+      },
+      "word": {
+       "de": "kalt",
+       "en": "cold",
+       "ko": "차가워",
+       "ipa": "kalt"
+      },
+      "quote": 3
+     }
+    ]
    }
   },
   {
@@ -996,8 +1241,8 @@
     }
    ],
    "note": {
-    "ko": "프랑크푸르트에서 돌아오는 길에 모차르트는 뮌헨에 들렀어요. 선제후가 나폴리 왕을 위한 연주회에 그를 불러 하루만 머물려던 계획이 길어졌어요. 칸나비히, 람, 마르샹은 만하임 시절부터의 오랜 친구들이에요. 편지에서 ‘내년 여름 끝’에 함께하자던 여행은 끝내 이루어지지 못했어요. 모차르트는 이듬해 12월에 세상을 떠나요.",
-    "en": "On the way home from Frankfurt Mozart stopped in Munich, where the Elector kept him for a concert for the King of Naples. Cannabich, Ramm and Marchand were old friends from his Mannheim days. The journey he planned for 'the end of next summer' never happened: Mozart died the following December.",
+    "ko": "1715년의 뮌헨 궁전(레지덴츠)을 새긴 옛 동판화예요. 프랑크푸르트에서 돌아오는 길에 모차르트는 뮌헨에 들렀어요. 선제후가 나폴리 왕을 위한 연주회에 그를 불러 하루만 머물려던 계획이 길어졌어요. 칸나비히, 람, 마르샹은 만하임 시절부터의 오랜 친구들이에요. 편지에서 ‘내년 여름 끝’에 함께하자던 여행은 끝내 이루어지지 못했어요. 모차르트는 이듬해 12월에 세상을 떠나요.",
+    "en": "An old engraving of the Munich Residenz from 1715. On the way home from Frankfurt Mozart stopped in Munich, where the Elector kept him for a concert for the King of Naples. Cannabich, Ramm and Marchand were old friends from his Mannheim days. The journey he planned for 'the end of next summer' never happened: Mozart died the following December.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 260 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -1022,14 +1267,63 @@
     "en": "Among old friends",
     "ko": "옛 친구들 곁에서"
    },
-   "plate_hint": {
-    "idea": "Munich Residenz — callback to chapters II and IV (Cannabich, Ramm).",
-    "search": [
-     "Munich Residenz 18th century engraving",
-     "Münchner Residenz Kupferstich",
-     "Christian Cannabich portrait"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Die Westfassade der Münchner Residenz",
+    "title_en": "The west façade of the Munich Residenz",
+    "title_ko": "뮌헨 레지덴츠 궁전의 서쪽 정면",
+    "date": "1715",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:München_Residenz_Westfassade_1715.jpg",
+    "credit": "Kupferstich von I. A. Corvinus nach C. Asam",
+    "why": {
+     "ko": "모차르트를 붙잡은 선제후의 궁전이에요. 판화는 그보다 70여 년 앞선 모습이에요.",
+     "en": "The palace of the Elector who kept Mozart in Munich, shown some 75 years earlier."
+    },
+    "image": "m-c8-l6.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.3,
+      "y": 0.28,
+      "title": {
+       "de": "Das Reiterbild",
+       "en": "The equestrian figure",
+       "ko": "기마상"
+      },
+      "note": {
+       "ko": "판화 속 기마상은 1715년의 선제후 막시밀리안 2세 에마누엘. 1790년의 선제후는 카를 테오도르예요.",
+       "en": "The rider is the Elector of 1715, Max II Emanuel; in 1790 the Elector was Karl Theodor."
+      },
+      "word": {
+       "de": "Churfürst",
+       "en": "Elector",
+       "ko": "선제후",
+       "ipa": "ˈkuːɐ̯fʏʁst"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.62,
+      "y": 0.45,
+      "title": {
+       "de": "Die Residenz",
+       "en": "The Residenz",
+       "ko": "레지덴츠 궁전"
+      },
+      "note": {
+       "ko": "선제후의 궁전. 편지는 연주회가 어디서 열렸는지는 말하지 않아요.",
+       "en": "The Elector's palace; the letter does not say where the concert was held."
+      },
+      "word": {
+       "de": "Academie",
+       "en": "concert",
+       "ko": "연주회",
+       "ipa": "akadeˈmiː"
+      },
+      "quote": 1
+     }
+    ]
    }
   },
   {
@@ -1165,8 +1459,8 @@
     }
    ],
    "note": {
-    "ko": "〈마술피리〉는 1791년 9월 30일에 처음 무대에 올랐고, 모차르트가 직접 피아노 앞에서 지휘했어요. 이 편지에서 그는 파파게노의 아리아 때 무대 뒤에서 글로켄슈필을 몰래 쳐서, 쉬카네더가 ‘입 다물어!’ 하는 바람에 객석이 웃음바다가 되었다고 전해요. 놀은 이 편지 끝의 ‘시간이 됐어 … 우리 다시 만나!’가 〈마술피리〉 삼중창의 가사이며, 모차르트가 편지로 남긴 마지막 말로 알려져 있다고 적었어요.",
-    "en": "Die Zauberflöte opened on 30 September 1791, with Mozart conducting at the keyboard. Here he tells how he slipped backstage during Papageno's bell aria and played the glockenspiel himself, until Schikaneder cried 'Halt's Maul!' and the house laughed. Nohl notes that the closing words come from the great trio of the Zauberflöte and are the last known words Mozart wrote in a letter.",
+    "ko": "〈마술피리〉 첫 공연 날인 1791년 9월 30일의 극장 전단이에요. 이날 모차르트가 직접 피아노 앞에서 지휘했어요. 이 편지에서 그는 파파게노의 아리아 때 무대 뒤에서 글로켄슈필을 몰래 쳐서, 쉬카네더가 ‘입 다물어!’ 하는 바람에 객석이 웃음바다가 되었다고 전해요. 놀은 이 편지 끝의 ‘시간이 됐어 … 우리 다시 만나!’가 〈마술피리〉 삼중창의 가사이며, 모차르트가 편지로 남긴 마지막 말로 알려져 있다고 적었어요.",
+    "en": "This is the playbill of the opening night of Die Zauberflöte, 30 September 1791, when Mozart conducted at the keyboard. Here he tells how he slipped backstage during Papageno's bell aria and played the glockenspiel himself, until Schikaneder cried 'Halt's Maul!' and the house laughed. Nohl notes that the closing words come from the great trio of the Zauberflöte and are the last known words Mozart wrote in a letter.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 268 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -1202,14 +1496,83 @@
     "en": "The Magic Flute plays on",
     "ko": "〈마술피리〉 상연 중"
    },
-   "plate_hint": {
-    "idea": "Theater auf der Wieden / the 30 Sept. 1791 Zauberflöte playbill; a period glockenspiel.",
-    "search": [
-     "Zauberflöte Theaterzettel 1791",
-     "Theater auf der Wieden Wien",
-     "Papageno Schikaneder 1791 engraving"
-    ],
-    "kind": "era"
+   "plate": {
+    "title_de": "Theaterzettel der Uraufführung der Zauberflöte, 30. September 1791",
+    "title_en": "Playbill for the first performance of Die Zauberflöte, 30 September 1791",
+    "title_ko": "〈마술피리〉 초연 전단 (1791년 9월 30일)",
+    "date": "1791",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Zauberflöte-Theaterzettel1791.jpg",
+    "credit": "Unknown author",
+    "why": {
+     "ko": "편지 속 공연보다 며칠 앞선 첫날 밤의 전단이에요. 모차르트가 직접 지휘한다고 적혀 있어요.",
+     "en": "The playbill of the opening night, a few days before the performance in the letter; it announces that Mozart will conduct."
+    },
+    "image": "m-c8-l7.jpg",
+    "kind": "score",
+    "spots": [
+     {
+      "x": 0.47,
+      "y": 0.455,
+      "title": {
+       "de": "Eine grosse Oper",
+       "en": "A grand opera",
+       "ko": "큰 오페라"
+      },
+      "note": {
+       "ko": "‘2막의 큰 오페라, 에마누엘 쉬카네더 작.’",
+       "en": "‘A grand opera in 2 acts, by Emanuel Schikaneder.’"
+      },
+      "word": {
+       "de": "Oper",
+       "en": "opera",
+       "ko": "오페라",
+       "ipa": "ˈoːpɐ"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.2,
+      "y": 0.655,
+      "title": {
+       "de": "Papageno",
+       "en": "Papageno",
+       "ko": "파파게노"
+      },
+      "note": {
+       "ko": "출연진 목록 속 파파게노. 모차르트가 무대 뒤에서 글로켄슈필을 쳐 준 그 역이에요.",
+       "en": "Papageno in the cast list: the part Mozart played the bells for from behind the scenes."
+      },
+      "word": {
+       "de": "Papageno",
+       "en": "Papageno",
+       "ko": "파파게노",
+       "ipa": "papaˈɡeːno"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.55,
+      "y": 0.77,
+      "title": {
+       "de": "Das Orchester",
+       "en": "The orchestra",
+       "ko": "오케스트라"
+      },
+      "note": {
+       "ko": "‘모차르트 씨가 오늘 오케스트라를 직접 지휘합니다.’",
+       "en": "‘Herr Mozart will conduct the orchestra himself today.’"
+      },
+      "word": {
+       "de": "Orchester",
+       "en": "orchestra",
+       "ko": "오케스트라",
+       "ipa": "ɔʁˈkɛstɐ"
+      },
+      "quote": 3
+     }
+    ]
    }
   }
  ]

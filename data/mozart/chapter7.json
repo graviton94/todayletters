@@ -136,8 +136,8 @@
     }
    ],
    "note": {
-    "ko": "1784년 여름, 누나 난네를이 요한 밥티스트 폰 베르히톨트 추 조넨부르크와 결혼해 볼프강 호숫가의 장크트 길겐으로 떠났어요. 모차르트는 혼자 남을 아버지를 걱정하며, 아버지가 대주교에게 연금을 청해 딸 곁이나 빈의 아들 곁으로 오면 좋겠다고 써요. 편지 끝에는 신혼부부에게 주는 짧은 장난스러운 시가 붙어 있어요.",
-    "en": "In summer 1784 Nannerl married Johann Baptist von Berchtold zu Sonnenburg and moved to St. Gilgen on the Wolfgangsee. Mozart worries about their father left alone, and suggests that he ask the Archbishop for a pension and move either to his daughter or to his son in Vienna. The letter ends with a short, teasing poem of advice for the newly-weds.",
+    "ko": "누나와 모차르트의 어린 시절 초상화를 찍은 사진이에요. 편지보다 스무 해쯤 앞서 그린 그림이에요. 1784년 여름, 누나 난네를이 요한 밥티스트 폰 베르히톨트 추 조넨부르크와 결혼해 볼프강 호숫가의 장크트 길겐으로 떠났어요. 모차르트는 혼자 남을 아버지를 걱정하며, 아버지가 대주교에게 연금을 청해 딸 곁이나 빈의 아들 곁으로 오면 좋겠다고 써요. 편지 끝에는 신혼부부에게 주는 짧은 장난스러운 시가 붙어 있어요.",
+    "en": "A photo of childhood portraits of Nannerl and Wolfgang, painted some twenty years before this letter. In summer 1784 Nannerl married Johann Baptist von Berchtold zu Sonnenburg and moved to St. Gilgen on the Wolfgangsee. Mozart worries about their father left alone, and suggests that he ask the Archbishop for a pension and move either to his daughter or to his son in Vienna. The letter ends with a short, teasing poem of advice for the newly-weds.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 238 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -172,14 +172,63 @@
     "en": "Wedding wishes",
     "ko": "누나의 결혼 축하"
    },
-   "plate_hint": {
-    "idea": "St. Gilgen on the Wolfgangsee (Nannerl's new home, also their mother's birthplace).",
-    "search": [
-     "St. Gilgen Wolfgangsee",
-     "Sankt Gilgen historical view",
-     "Nannerl Mozart Haus St. Gilgen"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Maria Anna und Wolfgang Amadeus Mozart im Kindesalter",
+    "title_en": "Maria Anna and Wolfgang Amadeus Mozart as children",
+    "title_ko": "어린 시절의 난네를과 볼프강",
+    "date": "c. 1763 (paintings); 2022 (photo)",
+    "collection": "Leopold-Mozart-Haus, Augsburg · photo by Mateus2019 (Wikimedia Commons)",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:GER_—_BY_—_Schwaben_—_Augsburg_—_Frauentorstraße_30_—_Lorenzoni,_Pietro_Antonio_—_Maria_Anna_und_Wolfgang_Amadeus_Mozart_im_Kindesalter_—_um_1763_(Leopold-Mozart-Haus)_—_Mattes_2022-02-04.jpg",
+    "credit": "Pietro Antonio Lorenzoni (paintings); photo: User:Mateus2019",
+    "why": {
+     "ko": "결혼해 집을 떠나는 누나에게 쓴 편지라, 함께 자란 두 남매의 어린 시절 초상을 곁에 두었어요.",
+     "en": "A letter to his sister on her marriage, set beside portraits of the two siblings as children."
+    },
+    "image": "m-c7-l1.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.27,
+      "y": 0.22,
+      "title": {
+       "de": "Nannerl",
+       "en": "Nannerl",
+       "ko": "난네를"
+      },
+      "note": {
+       "ko": "왼쪽이 누나 난네를. 스무 해쯤 뒤, 이 아이가 신부가 돼요.",
+       "en": "On the left, Nannerl; some twenty years later this girl is the bride."
+      },
+      "word": {
+       "de": "Dir",
+       "en": "you",
+       "ko": "누나",
+       "ipa": "diːɐ̯"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.75,
+      "y": 0.24,
+      "title": {
+       "de": "Wolfgang",
+       "en": "Wolfgang",
+       "ko": "볼프강"
+      },
+      "note": {
+       "ko": "오른쪽이 일곱 살 무렵의 볼프강. 지금 편지를 쓰는 동생이에요.",
+       "en": "On the right, Wolfgang at about seven: the brother now writing."
+      },
+      "word": {
+       "de": "ich",
+       "en": "I",
+       "ko": "내",
+       "ipa": "ɪç"
+      },
+      "quote": 0
+     }
+    ]
    }
   },
   {
@@ -313,8 +362,8 @@
     }
    ],
    "note": {
-    "ko": "만하임의 극작가 안톤 클라인이 모차르트에게 오페라 대본을 보냈고, 이 편지는 그 답장이에요. 모차르트는 빈에 새로 세워질 독일어 오페라 무대가 처음부터 시들고 있다고 한탄하며, 독일 가수들이 이탈리아 극장에 묶여 있다고 꼬집어요. 놀은 편지 뒤에 '이 오페라 작곡은 결국 이루어지지 않았다'고 적었어요.",
-    "en": "The Mannheim dramatist Anton Klein had sent Mozart an opera libretto; this is his reply. He complains that the planned German opera stage in Vienna is being undermined from the start, while the best German singers are kept at the Italian theatre. Nohl adds after the letter that nothing came of the opera.",
+    "ko": "모차르트 시절보다 한참 뒤인 1830년 무렵의 케른트너토어 극장 그림이에요. 만하임의 극작가 안톤 클라인이 모차르트에게 오페라 대본을 보냈고, 이 편지는 그 답장이에요. 모차르트는 빈에 새로 세워질 독일어 오페라 무대가 처음부터 시들고 있다고 한탄하며, 독일 가수들이 이탈리아 극장에 묶여 있다고 꼬집어요. 놀은 편지 뒤에 '이 오페라 작곡은 결국 이루어지지 않았다'고 적었어요.",
+    "en": "A view of the Kärntnertor Theatre from around 1830, long after Mozart's time. The Mannheim dramatist Anton Klein had sent Mozart an opera libretto; this is his reply. He complains that the planned German opera stage in Vienna is being undermined from the start, while the best German singers are kept at the Italian theatre. Nohl adds after the letter that nothing came of the opera.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 239 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -349,14 +398,63 @@
     "en": "For German opera",
     "ko": "독일어 오페라를 위해"
    },
-   "plate_hint": {
-    "idea": "Kärntnertor Theatre, Vienna (the 'German operatic stage' he mentions).",
-    "search": [
-     "Kärntnertortheater Wien",
-     "Theater am Kärntnertor 18th century engraving",
-     "Kärntnertortheater Stich"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Das Kärntnertortheater in Wien",
+    "title_en": "The Kärntnertor Theatre, Vienna",
+    "title_ko": "빈의 케른트너토어 극장",
+    "date": "c. 1830",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Kärntnertortheater_1830.jpg",
+    "credit": "Unknown author",
+    "why": {
+     "ko": "빈의 두 궁정 극장 가운데 하나로, 1780년대 후반 독일어 오페라가 공연된 곳이에요. 그림은 편지보다 마흔다섯 해쯤 뒤의 모습이에요.",
+     "en": "One of Vienna's two court theatres, where German opera was staged in the later 1780s; the view dates from about 45 years after the letter."
+    },
+    "image": "m-c7-l2.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.58,
+      "y": 0.76,
+      "title": {
+       "de": "Der Eingang",
+       "en": "The entrance",
+       "ko": "극장 입구"
+      },
+      "note": {
+       "ko": "관객이 마차를 타고 드나들던 입구. ‘독일어로 노래하기’를 꿈꾼 무대가 이 안에 있었어요.",
+       "en": "The entrance where carriages drew up; inside was the stage where he dreamed of singing in German."
+      },
+      "word": {
+       "de": "singen",
+       "en": "sing",
+       "ko": "노래",
+       "ipa": "ˈzɪŋən"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.5,
+      "y": 0.4,
+      "title": {
+       "de": "Die Fassade",
+       "en": "The façade",
+       "ko": "극장 정면"
+      },
+      "note": {
+       "ko": "시로 보나 음악으로 보나 헛되이 만들어져선 안 될 작품, 그런 작품이 오르길 바란 극장이에요.",
+       "en": "A theatre for works that deserve, in poetry and music, not to be written in vain."
+      },
+      "word": {
+       "de": "Musik",
+       "en": "music",
+       "ko": "음악",
+       "ipa": "muˈziːk"
+      },
+      "quote": 1
+     }
+    ]
    }
   },
   {
@@ -491,8 +589,8 @@
     }
    ],
    "note": {
-    "ko": "1787년 1월, 『후궁 탈출』과 『피가로의 결혼』에 열광하던 프라하 음악 애호가들이 모차르트를 초청했어요. 편지를 받은 고트프리트 폰 자캥은 이름난 식물학자의 아들로, 모차르트와 아주 가까웠던 집안의 사람이에요. 모차르트는 프라하에서 툰 백작의 저택에 묵었고, 19일 금요일에 극장에서 연주회를 열 예정이었어요.",
-    "en": "In January 1787 Prague music lovers, who adored both Die Entführung and Figaro, invited Mozart to come and give concerts. Gottfried von Jacquin, son of the famous botanist, belonged to a family Mozart was very close to. In Prague Mozart stayed at Count Thun's palace, and his concert in the theatre was set for Friday the 19th.",
+    "ko": "오늘날의 프라하 스타보브스케 극장(옛 노스티츠 극장)을 찍은 사진이에요. 1787년 1월, 『후궁 탈출』과 『피가로의 결혼』에 열광하던 프라하 음악 애호가들이 모차르트를 초청했어요. 편지를 받은 고트프리트 폰 자캥은 이름난 식물학자의 아들로, 모차르트와 아주 가까웠던 집안의 사람이에요. 모차르트는 프라하에서 툰 백작의 저택에 묵었고, 19일 금요일에 극장에서 연주회를 열 예정이었어요.",
+    "en": "A modern photo of the Estates Theatre (formerly the Nostitz Theatre) in Prague. In January 1787 Prague music lovers, who adored both Die Entführung and Figaro, invited Mozart to come and give concerts. Gottfried von Jacquin, son of the famous botanist, belonged to a family Mozart was very close to. In Prague Mozart stayed at Count Thun's palace, and his concert in the theatre was set for Friday the 19th.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 242 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -527,14 +625,63 @@
     "en": "All Prague sings Figaro",
     "ko": "온 프라하가 피가로"
    },
-   "plate_hint": {
-    "idea": "Estates (Nostitz) Theatre, Prague, c. 1790 engraving.",
-    "search": [
-     "Nostitz Theatre Prague engraving",
-     "Estates Theatre Prague 18th century",
-     "Ständetheater Prag Stich"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Das Ständetheater (Nostitz-Theater) in Prag",
+    "title_en": "The Estates Theatre (Nostitz Theatre), Prague",
+    "title_ko": "프라하의 스타보브스케 극장 (옛 노스티츠 극장)",
+    "date": "modern photo",
+    "collection": "Wikimedia Commons · photo by Eixo",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Estates_Theatre,_Prague_cropped.jpg",
+    "credit": "en:User:Eixo",
+    "why": {
+     "ko": "프라하가 ‘피가로’로 들끓던 그 겨울, 이 극장에서 『피가로의 결혼』이 공연되고 있었어요.",
+     "en": "In the winter when Prague talked of nothing but Figaro, the opera was playing in this theatre."
+    },
+    "image": "m-c7-l3.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.65,
+      "y": 0.84,
+      "title": {
+       "de": "Die Eingänge",
+       "en": "The entrances",
+       "ko": "극장 입구"
+      },
+      "note": {
+       "ko": "수요일에 모차르트가 ‘보고 들으러’ 들어갈 문.",
+       "en": "The doors he would walk through on Wednesday to see and hear Figaro."
+      },
+      "word": {
+       "de": "Figaro",
+       "en": "Figaro",
+       "ko": "피가로",
+       "ipa": "ˈfiːɡaʁo"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.6,
+      "y": 0.25,
+      "title": {
+       "de": "Der Giebel",
+       "en": "The pediment",
+       "ko": "박공"
+      },
+      "note": {
+       "ko": "기둥과 박공으로 꾸민 정면. 사람들이 몰려든 오페라 극장이에요.",
+       "en": "Columns and pediment: the opera house the crowds flocked to."
+      },
+      "word": {
+       "de": "Oper",
+       "en": "opera",
+       "ko": "오페라",
+       "ipa": "ˈoːpɐ"
+      },
+      "quote": 2
+     }
+    ]
    }
   },
   {
@@ -665,8 +812,8 @@
     }
    ],
    "note": {
-    "ko": "모차르트가 『돈 조반니』를 구상하던 무렵, 오래 앓아 온 아버지 레오폴트가 위중하다는 소식이 왔어요. 놀은 이 편지를 아버지에게 보낸 '마지막 편지'라고 소개해요. 편지에는 서른한 살에 세상을 떠난 친구 하츠펠트 백작의 이야기도 나와요. 레오폴트는 1787년 5월 28일에 세상을 떠났어요.",
-    "en": "While Mozart was busy with Don Giovanni, news came that his father Leopold, ailing for months, was seriously ill. Nohl introduces this as Mozart's last letter to his father. It also mentions his friend Count Hatzfeld, who had died at thirty-one. Leopold died on 28 May 1787.",
+    "ko": "1763–64년 파리 시절, 아버지와 두 아이를 그린 그림이에요. 편지보다 스무 해 넘게 앞선 모습이에요. 모차르트가 『돈 조반니』를 구상하던 무렵, 오래 앓아 온 아버지 레오폴트가 위중하다는 소식이 왔어요. 놀은 이 편지를 아버지에게 보낸 '마지막 편지'라고 소개해요. 편지에는 서른한 살에 세상을 떠난 친구 하츠펠트 백작의 이야기도 나와요. 레오폴트는 1787년 5월 28일에 세상을 떠났어요.",
+    "en": "A picture of father and children from the Paris visit of 1763–64, more than twenty years before this letter. While Mozart was busy with Don Giovanni, news came that his father Leopold, ailing for months, was seriously ill. Nohl introduces this as Mozart's last letter to his father. It also mentions his friend Count Hatzfeld, who had died at thirty-one. Leopold died on 28 May 1787.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 243 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -701,14 +848,63 @@
     "en": "Worried for his father",
     "ko": "아버지 걱정"
    },
-   "plate_hint": {
-    "idea": "Portrait of Leopold Mozart (della Croce family portrait, 1780-81).",
-    "search": [
-     "Leopold Mozart portrait",
-     "Mozart family portrait della Croce",
-     "Leopold Mozart Bildnis"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Leopold Mozart mit seinen Kindern Marianne und Wolfgang",
+    "title_en": "Leopold Mozart with his children Marianne and Wolfgang",
+    "title_ko": "두 아이와 함께한 레오폴트 모차르트",
+    "date": "1764",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Leopold_Mozart_Pere_de_Marianne_Mozart_virtuose_âgée_de_onze_ans_et_de_J._G._Wolfgang_Mozart_Compositeur_et_Maitre_de_Musique_âgé_de_sept_ans.jpg",
+    "credit": "Jean-Baptiste Delafosse / After Louis Carrogis Carmontelle",
+    "why": {
+     "ko": "아버지에게 보낸 마지막 편지 곁에, 아버지가 두 아이를 데리고 연주 여행을 다니던 시절의 모습을 두었어요.",
+     "en": "Beside his last letter to his father: the father who once took both children on tour."
+    },
+    "image": "m-c7-l4.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.31,
+      "y": 0.58,
+      "title": {
+       "de": "Leopold",
+       "en": "Leopold",
+       "ko": "레오폴트"
+      },
+      "note": {
+       "ko": "바이올린을 든 아버지 레오폴트. 아들은 ‘아버지 품’으로 달려가고 싶다고 써요.",
+       "en": "Leopold with his violin; his son longs to be ‘in your arms’."
+      },
+      "word": {
+       "de": "Armen",
+       "en": "arms",
+       "ko": "품",
+       "ipa": "ˈaʁmən"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.5,
+      "y": 0.65,
+      "title": {
+       "de": "Wolfgang",
+       "en": "Wolfgang",
+       "ko": "볼프강"
+      },
+      "note": {
+       "ko": "건반 앞의 일곱 살 볼프강. 편지를 쓸 때는 서른한 살이었어요.",
+       "en": "Wolfgang at seven, at the keyboard; he was thirty-one when he wrote this."
+      },
+      "word": {
+       "de": "jung",
+       "en": "young",
+       "ko": "젊",
+       "ipa": "jʊŋ"
+      },
+      "quote": 2
+     }
+    ]
    }
   },
   {
@@ -841,8 +1037,8 @@
     }
    ],
    "note": {
-    "ko": "레오폴트 모차르트는 1787년 5월 28일 잘츠부르크에서 세상을 떠났어요. 모차르트는 그날 친구 자캥에게 '제 처지를 짐작하실 거예요'라고 짧게 알렸고, 6월 16일에 누나 난네를에게 이 편지를 썼어요. 마지막 문장은 편지가 아니라, 같은 해 9월 3일 친구 바리자니를 잃고 그의 방명록 시 아래 적은 글이에요.",
-    "en": "Leopold Mozart died in Salzburg on 28 May 1787. That day Mozart told his friend Jacquin briefly, 'You can imagine my state'; on 16 June he wrote this letter to his sister Nannerl. The last excerpt is not from the letter: it is what he wrote on 3 September of the same year under Barisani's verses in his album, after losing that friend.",
+    "ko": "레오폴트가 묻힌 잘츠부르크 장크트 제바스티안 묘지의 오늘날 모습이에요. 레오폴트 모차르트는 1787년 5월 28일 잘츠부르크에서 세상을 떠났어요. 모차르트는 그날 친구 자캥에게 '제 처지를 짐작하실 거예요'라고 짧게 알렸고, 6월 16일에 누나 난네를에게 이 편지를 썼어요. 마지막 문장은 편지가 아니라, 같은 해 9월 3일 친구 바리자니를 잃고 그의 방명록 시 아래 적은 글이에요.",
+    "en": "A present-day photo of St. Sebastian's Cemetery in Salzburg, where Leopold is buried. Leopold Mozart died in Salzburg on 28 May 1787. That day Mozart told his friend Jacquin briefly, 'You can imagine my state'; on 16 June he wrote this letter to his sister Nannerl. The last excerpt is not from the letter: it is what he wrote on 3 September of the same year under Barisani's verses in his album, after losing that friend.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 244 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -877,14 +1073,63 @@
     "en": "Farewell to his father",
     "ko": "아버지와의 이별"
    },
-   "plate_hint": {
-    "idea": "Leopold Mozart's grave, St. Sebastian cemetery, Salzburg.",
-    "search": [
-     "Sebastiansfriedhof Salzburg",
-     "St. Sebastian cemetery Salzburg Mozart grave",
-     "Leopold Mozart Grab"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Der Sebastiansfriedhof in Salzburg",
+    "title_en": "St. Sebastian's Cemetery, Salzburg",
+    "title_ko": "잘츠부르크 장크트 제바스티안 묘지",
+    "date": "modern photo",
+    "collection": "Wikimedia Commons · photo by Arne Müseler",
+    "imageLicense": "CC BY-SA 3.0 at",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Sebastiansfriedhof_salzburg_2.jpg",
+    "credit": "Arne Müseler / www.arne-mueseler.de",
+    "why": {
+     "ko": "레오폴트 모차르트는 이 묘지에 묻혔어요.",
+     "en": "Leopold Mozart was buried in this cemetery."
+    },
+    "image": "m-c7-l5.jpg",
+    "kind": "place",
+    "spots": [
+     {
+      "x": 0.195,
+      "y": 0.46,
+      "title": {
+       "de": "Das Kreuz",
+       "en": "The cross",
+       "ko": "십자가"
+      },
+      "note": {
+       "ko": "회랑 끝의 십자가. ‘하느님이 그를 곁에 두시기를!’",
+       "en": "The cross at the end of the arcade: ‘I trust he is safe with God.’"
+      },
+      "word": {
+       "de": "Gott",
+       "en": "God",
+       "ko": "하느님",
+       "ipa": "ɡɔt"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.65,
+      "y": 0.43,
+      "title": {
+       "de": "Die Grabtafeln",
+       "en": "The memorial tablets",
+       "ko": "묘비"
+      },
+      "note": {
+       "ko": "회랑 벽을 따라 늘어선 묘비들. 사랑하는 아버지가 이곳에 잠들었어요.",
+       "en": "Memorial tablets line the arcade; here their beloved father was laid to rest."
+      },
+      "word": {
+       "de": "Vater",
+       "en": "father",
+       "ko": "아버지",
+       "ipa": "ˈfaːtɐ"
+      },
+      "quote": 0
+     }
+    ]
    }
   },
   {
@@ -1055,14 +1300,63 @@
     "en": "Don Giovanni triumphs",
     "ko": "돈 조반니 대성공"
    },
-   "plate_hint": {
-    "idea": "Estates Theatre, Prague / Don Giovanni first-performance playbill (29 Oct. 1787).",
-    "search": [
-     "Don Giovanni 1787 Prague playbill",
-     "Estates Theatre Prague Don Giovanni premiere",
-     "Nostitz Theater Prag 1787"
-    ],
-    "kind": "place"
+   "plate": {
+    "title_de": "Don Giovanni, Autograph: Ouvertüre (erste Seite)",
+    "title_en": "Don Giovanni, autograph score: Overture (first page)",
+    "title_ko": "『돈 조반니』 자필 악보: 서곡 첫 쪽",
+    "date": "1787",
+    "collection": "Bibliothèque nationale de France, Ms. 1548",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Don_Juan_-_Mozarts_eigene_Handschrift._1_-_btv1b55002493z_(05_of_36).jpg",
+    "credit": "Wolfgang Amadeus Mozart",
+    "why": {
+     "ko": "10월 29일 프라하에서 막을 올린 바로 그 오페라를 모차르트가 손으로 쓴 악보예요.",
+     "en": "Mozart's own score of the opera that opened in Prague on 29 October."
+    },
+    "image": "m-c7-l6.jpg",
+    "kind": "score",
+    "spots": [
+     {
+      "x": 0.32,
+      "y": 0.03,
+      "title": {
+       "de": "Der Titel",
+       "en": "The title",
+       "ko": "제목"
+      },
+      "note": {
+       "ko": "맨 위에 적힌 ‘Don Juan’. 돈 조반니의 독일식 이름이에요.",
+       "en": "‘Don Juan’ at the top: the German name for Don Giovanni."
+      },
+      "word": {
+       "de": "Giovanni",
+       "en": "Giovanni",
+       "ko": "돈 조반니",
+       "ipa": "dʒoˈvani"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.45,
+      "y": 0.03,
+      "title": {
+       "de": "Ouvertura",
+       "en": "Ouvertura",
+       "ko": "서곡"
+      },
+      "note": {
+       "ko": "‘Ouvertura’, 곧 서곡. 오페라가 이 쪽에서 시작해요.",
+       "en": "‘Ouvertura’: the overture, where the opera begins."
+      },
+      "word": {
+       "de": "Opera",
+       "en": "opera",
+       "ko": "오페라",
+       "ipa": "ˈoːpɐ"
+      },
+      "quote": 0
+     }
+    ]
    }
   },
   {
@@ -1196,8 +1490,8 @@
     }
    ],
    "note": {
-    "ko": "미하엘 푸흐베르크는 빈의 상인이자 모차르트의 프리메이슨 형제였어요. 모차르트는 이 무렵 거듭 그에게 돈을 빌려 달라고 부탁했고, 이 편지도 그런 부탁의 하나예요. 새 집으로 옮긴 지 열흘 만에 '두 달 치보다 많이 일했다'고 쓴 이 여름, 그는 C장조, G단조, E♭장조의 큰 교향곡 세 곡을 썼어요.",
-    "en": "Michael Puchberg was a Viennese merchant and Mozart's brother Freemason. Around this time Mozart repeatedly asked him for loans, and this letter is one such request. In the summer when he wrote that he had worked more in ten days in his new lodging than in two months before, he wrote the three great symphonies in C major, G minor and E flat.",
+    "ko": "이 편지를 쓴 여름에 완성한 G단조 교향곡(K. 550)의 자필 악보 한 쪽이에요. 미하엘 푸흐베르크는 빈의 상인이자 모차르트의 프리메이슨 형제였어요. 모차르트는 이 무렵 거듭 그에게 돈을 빌려 달라고 부탁했고, 이 편지도 그런 부탁의 하나예요. 새 집으로 옮긴 지 열흘 만에 '두 달 치보다 많이 일했다'고 쓴 이 여름, 그는 C장조, G단조, E♭장조의 큰 교향곡 세 곡을 썼어요.",
+    "en": "A page of the autograph of the G minor Symphony (K. 550), finished in the summer of this letter. Michael Puchberg was a Viennese merchant and Mozart's brother Freemason. Around this time Mozart repeatedly asked him for loans, and this letter is one such request. In the summer when he wrote that he had worked more in ten days in his new lodging than in two months before, he wrote the three great symphonies in C major, G minor and E flat.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 247 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
    "reply": {
@@ -1232,14 +1526,63 @@
     "en": "New rooms, heavy thoughts",
     "ko": "새 집, 무거운 생각"
    },
-   "plate_hint": {
-    "idea": "Autograph of Symphony No. 40 (finished 25 July 1788) or the Währinger Gasse district.",
-    "search": [
-     "Mozart Symphony 40 autograph K. 550",
-     "Währinger Gasse Wien 18. Jahrhundert",
-     "Mozart Sinfonie g-Moll Autograph"
-    ],
-    "kind": "score"
+   "plate": {
+    "title_de": "Sinfonie g-Moll KV 550: Menuetto (Autograph)",
+    "title_en": "Symphony in G minor, K. 550: Menuetto (autograph)",
+    "title_ko": "G단조 교향곡 K. 550: 미뉴에트 (자필 악보)",
+    "date": "1788",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Menuet_from_Mozart_Symphony_40_k_550.jpg",
+    "credit": "Wolfgang Amadeus Mozart",
+    "why": {
+     "ko": "새 집에서 ‘열흘 동안 두 달 치보다 많이’ 일하던 그 여름에 쓴 교향곡이에요.",
+     "en": "A symphony from the summer when he worked ‘more in ten days than in two months’ in his new lodging."
+    },
+    "image": "m-c7-l7.jpg",
+    "kind": "score",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.3,
+      "title": {
+       "de": "Die Noten",
+       "en": "The notes",
+       "ko": "음표"
+      },
+      "note": {
+       "ko": "빽빽한 음표. 새 집에서 일이 잘 풀린 흔적이에요.",
+       "en": "Dense lines of notes: the work that flowed in the new lodging."
+      },
+      "word": {
+       "de": "gearbeitet",
+       "en": "worked",
+       "ko": "일했",
+       "ipa": "ɡəˈʔaʁbaɪ̯tət"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.12,
+      "y": 0.25,
+      "title": {
+       "de": "Die Vorzeichen",
+       "en": "The key signature",
+       "ko": "조표"
+      },
+      "note": {
+       "ko": "플랫 두 개, G단조. ‘어두운 생각’을 떨쳐 내던 여름에 쓴 단조예요.",
+       "en": "Two flats: G minor, written in the summer of the ‘dismal thoughts’ he fought off."
+      },
+      "word": {
+       "de": "schwarze Gedanken",
+       "en": "dismal thoughts",
+       "ko": "어두운 생각",
+       "ipa": "ˈʃvaʁtsə ɡəˈdaŋkn̩"
+      },
+      "quote": 4
+     }
+    ]
    }
   }
  ]

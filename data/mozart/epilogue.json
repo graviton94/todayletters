@@ -69,18 +69,67 @@
     }
    ],
    "note": {
-    "ko": "날짜가 적힌 모차르트의 마지막 편지예요. 그는 궁정 악장 살리에리와 가수 카발리에리를 마차로 데리러 가서 자기 칸막이 관람석에서 〈마술피리〉를 보여 주었고, 기숙학교에 있던 큰아들 카를도 오페라에 데려갔어요. 모차르트는 이해 12월 5일 빈에서 세상을 떠났어요.",
-    "en": "Mozart's last dated letter. He fetched Salieri and the singer Cavalieri in his carriage and showed them Die Zauberflöte from his box, and took his elder son Carl, then at boarding school, to the opera too. Mozart died in Vienna on 5 December 1791.",
+    "ko": "훗날, 1815년 무렵에 그려진 살리에리의 초상이에요. 날짜가 적힌 모차르트의 마지막 편지예요. 그는 궁정 악장 살리에리와 가수 카발리에리를 마차로 데리러 가서 자기 칸막이 관람석에서 〈마술피리〉를 보여 주었고, 기숙학교에 있던 큰아들 카를도 오페라에 데려갔어요. 모차르트는 이해 12월 5일 빈에서 세상을 떠났어요.",
+    "en": "A portrait of Salieri painted later, around 1815. Mozart's last dated letter. He fetched Salieri and the singer Cavalieri in his carriage and showed them Die Zauberflöte from his box, and took his elder son Carl, then at boarding school, to the opera too. Mozart died in Vienna on 5 December 1791.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 267 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "plate_hint": {
-    "idea": "Portrait of Antonio Salieri, or the Theater auf der Wieden.",
-    "search": [
-     "Antonio Salieri portrait",
-     "Theater auf der Wieden",
-     "Freihaustheater Wien"
-    ],
-    "kind": "person"
+   "plate": {
+    "title_de": "Antonio Salieri",
+    "title_en": "Antonio Salieri",
+    "title_ko": "안토니오 살리에리",
+    "date": "c. 1815",
+    "collection": "Wikimedia Commons",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Antonio_Salieri_painted_by_Joseph_Willibrord_Mähler.jpg",
+    "credit": "Joseph Willibrord Mähler",
+    "why": {
+     "ko": "모차르트가 자기 칸막이 관람석에 앉혀 〈마술피리〉를 보여 준 궁정 악장 살리에리예요.",
+     "en": "Salieri, the court Kapellmeister whom Mozart took to see Die Zauberflöte from his box."
+    },
+    "image": "m-e1.jpg",
+    "kind": "person",
+    "spots": [
+     {
+      "x": 0.55,
+      "y": 0.31,
+      "title": {
+       "de": "Die Augen",
+       "en": "The eyes",
+       "ko": "눈"
+      },
+      "note": {
+       "ko": "‘온 정신을 기울여 듣고 보았어.’",
+       "en": "‘He both listened and looked attentively.’"
+      },
+      "word": {
+       "de": "sah",
+       "en": "looked",
+       "ko": "보았",
+       "ipa": "zaː"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.55,
+      "y": 0.43,
+      "title": {
+       "de": "Der Mund",
+       "en": "The mouth",
+       "ko": "입"
+      },
+      "note": {
+       "ko": "곡마다 이 입에서 ‘브라보!’ ‘벨로!’가 나왔대요.",
+       "en": "From this mouth came a bravo or bello for every number."
+      },
+      "word": {
+       "de": "bravo",
+       "en": "bravo",
+       "ko": "브라보",
+       "ipa": "ˈbʁaːvo"
+      },
+      "quote": 1
+     }
+    ]
    }
   }
  ]
