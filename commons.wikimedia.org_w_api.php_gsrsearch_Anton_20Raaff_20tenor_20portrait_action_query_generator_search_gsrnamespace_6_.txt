@@ -1,5 +1,1 @@
-You are making too many requests to the API.
-Please follow the best practices at .
-If you are unsure how to get the access you need, contact .
-
-request-id: f38e8331-42bb-492b-ac2d-a3c25f2a6b48
+{"continue":{"iistart":"2012-06-07T21:38:27Z","continue":"||"},"query":{"pages":{"19808559":{"pageid":19808559,"ns":6,"title":"File:Anton Raaff Gem\u00e4lde von Clemens August Josef Philippart.jpg","index":1,"imagerepository":"local","imageinfo":[{"size":127925,"width":465,"height":611,"url":"https://upload.wikimedia.org/wikipedia/commons/1/19/Anton_Raaff_Gem%C3%A4lde_von_Clemens_August_Josef_Philippart.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original","descriptionurl":"https://commons.wikimedia.org/wiki/File:Anton_Raaff_Gem%C3%A4lde_von_Clemens_August_Josef_Philippart.jpg","descriptionshorturl":"https://commons.wikimedia.org/w/index.php?curid=19808559","extmetadata":{"Artist":{"value":"Clemens August Josef Philippart","source":"commons-desc-page"},"LicenseShortName":{"value":"Public domain","source":"commons-desc-page","hidden":""}}}]}}}}
