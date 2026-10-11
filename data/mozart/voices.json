@@ -1,8 +1,13 @@
 {
- "_doc": "모차르트 배역표 (1판). 목소리 하나: young · old 두 결을 섞고, 챕터마다 old 비율(age)만 옮겨 열네 살에서 서른다섯 살까지를 낸다. 세 언어 같은 비율. mood 는 챕터 기본 감정 (data/voices/presets.json).",
+ "_doc": "모차르트 배역표 (2판, 사용자 확정). 목소리 길 M1 → M3 → M5: 장마다 길 위의 자리(age, 0~1)에서 이웃한 두 결을 섞어 열네 살에서 서른다섯 살까지 나이 들어감을 낸다 (narrate.py 의 path). 세 언어 같은 비율. mood 는 챕터 기본 감정 (data/voices/presets.json).",
  "character": "mozart",
+ "path": [
+  "M1",
+  "M3",
+  "M5"
+ ],
  "young": "M1",
- "old": "M3",
+ "old": "M5",
  "chapters": {
   "P": {
    "age": 0.0,
@@ -20,12 +25,12 @@
    "_note": "만하임"
   },
   "III": {
-   "age": 0.35,
+   "age": 0.25,
    "mood": "weary",
    "_note": "파리 · 어머니의 죽음"
   },
   "IV": {
-   "age": 0.4,
+   "age": 0.5,
    "mood": "bright",
    "_note": "뮌헨 · 이도메네오"
   },
@@ -35,7 +40,7 @@
    "_note": "빈 · 대주교와의 결별"
   },
   "VI": {
-   "age": 0.55,
+   "age": 0.7,
    "mood": "tender",
    "_note": "콘스탄체"
   },
@@ -50,7 +55,7 @@
    "_note": "마술피리"
   },
   "E": {
-   "age": 0.9,
+   "age": 1.0,
    "mood": "tender",
    "_note": "맺음 편지"
   }
