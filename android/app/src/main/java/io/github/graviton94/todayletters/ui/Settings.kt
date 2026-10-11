@@ -100,7 +100,7 @@ fun SettingsScreen(s: AppState) {
                     }
                 }
                 SetRow(stringResource(R.string.set_read_lang2)) {
-                    Seg(listOf(Lang.KO, Lang.EN, Lang.FR).map { it to langName(it) }, a.read) { s.update(a.copy(read = it)) }
+                    Seg((listOf(Lang.KO, Lang.EN) + s.works.map { it.series.original }).distinct().map { it to langName(it) }, a.read) { s.update(a.copy(read = it)) }
                 }
             }
             // 알림: 도착 (작품마다 켜고 끄던 것을 한 번에) · 저녁 (이어 읽기 지키기)
@@ -242,15 +242,17 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
             Caps(stringResource(R.string.credits_text_h), p.giltText)
-            Text(stringResource(R.string.credits_text), style = Type.small.ui(), color = p.ink)
+            if (s.works.any { it.series.original == Lang.FR }) Text(stringResource(R.string.credits_text), style = Type.small.ui(), color = p.ink)
+            if (s.works.any { it.series.original == Lang.DE }) Text(stringResource(R.string.credits_text_de), style = Type.small.ui(), color = p.ink)
 
             Caps(stringResource(R.string.credits_images_h), p.giltText)
             Text(stringResource(R.string.credits_images_note), style = Type.small.ui(), color = p.inkSoft)
-            s.works.forEach { w -> (w.prologue.map { it.letter } + w.chapters.flatMap { it.letters }).distinctBy { it.plate?.image ?: it.id }.forEach { l ->
+            s.works.forEach { w -> (w.prologue.map { it.letter } + w.chapters.flatMap { it.letters } + listOfNotNull(w.outro?.epilogue)).distinctBy { it.plate?.image ?: it.id }.forEach { l ->
                 l.plate?.let { pl ->
                     Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                         Text("${pl.title[ui]} · ${pl.date}", style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
-                        Text(pl.collection, style = Type.small.ui(), color = p.inkSoft)
+                        // 작가 · 소장처 · 라이선스 (짧게). 라이선스가 따로 없으면 소장처 줄에 들어 있다 (“… · CC0”)
+                        Text(listOf(pl.credit, pl.collection, pl.license).filter { it.isNotBlank() }.joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
                         if (pl.source.isNotEmpty()) Text(pl.source, style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
                     }
                 }
@@ -264,8 +266,20 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
                 // 맺음말의 그림
                 w.outro?.let { o ->
                     Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                        Text("Épilogue", style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+                        Text(deco(w.series.original, "Épilogue", "Epilog"), style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
                         Text(o.credit, style = Type.small.ui(), color = p.inkSoft)
+                    }
+                }
+            }
+            // 편지 속 그 곡: 곡 · 연주 · 라이선스 (녹음이 있는 것만)
+            val music = s.works.flatMap { w -> w.chapters.flatMap { it.letters }.flatMap { l -> l.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Music>() } }
+                .filter { it.playable }.distinctBy { it.audio }
+            if (music.isNotEmpty()) {
+                Caps(stringResource(R.string.credits_music_h), p.giltText)
+                music.forEach { m ->
+                    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Text(m.piece[ui], style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+                        Text(listOf(m.performer, m.license).filter { it.isNotBlank() }.joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
                     }
                 }
             }
@@ -304,6 +318,11 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
                     if (open) Text(text, style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
                 }
             }
+            // 맨 끝: 전체 출처와 라이선스 (누리집)
+            Text(stringResource(R.string.credits_full), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.ink,
+                modifier = Modifier.heightIn(min = 44.dp).pressable {
+                    runCatching { ctx.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse("https://graviton94.github.io/todayletters/")).addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)) }
+                }.padding(vertical = 12.dp))
         }
     }
 }

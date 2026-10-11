@@ -45,6 +45,8 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Lang
@@ -60,7 +62,7 @@ import io.github.graviton94.todayletters.design.Type
  * 위치는 손으로 그린 1888년 아를 지도에 핀, 사진은 그날 그린 그림 (누르면 그림 속 산책).
  */
 @Composable
-fun MomentCard(s: AppState, work: Work, m: Moment, onMap: () -> Unit, onPhoto: () -> Unit) {
+fun MomentCard(s: AppState, work: Work, m: Moment, onMap: () -> Unit, onPhoto: () -> Unit, onMusic: (Moment.Music) -> Unit = {}) {
     val p = Ink.palette
     val lang = uiLang()
     when (m) {
@@ -96,8 +98,135 @@ fun MomentCard(s: AppState, work: Work, m: Moment, onMap: () -> Unit, onPhoto: (
         }
         is Moment.Transfer -> TransferCard(m, lang, work)
         is Moment.Weather -> WeatherCard(m, lang)
+        // 편지 속 그 곡: 녹음이 없으면 아무것도 놓지 않는다
+        is Moment.Music -> if (m.playable) MusicChip(m, lang) { onMusic(m) }
     }
 }
+
+/** ‘편지 속 그 곡 듣기’ 칩: 둥근 재생 단추 · 이름 · 곡 이름과 길이. 누르면 듣기 시트. */
+@Composable
+private fun MusicChip(m: Moment.Music, lang: Lang, onClick: () -> Unit) {
+    val p = Ink.palette
+    Row(
+        Modifier.fillMaxWidth().border(1.dp, p.giltText.copy(alpha = 0.6f)).background(p.leaf).pressable(onClick = onClick)
+            .padding(horizontal = Tokens.Space.s3, vertical = 10.dp),
+        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
+    ) {
+        Box(Modifier.size(40.dp).background(p.ink, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) { PlayGlyph(p.paper, false) }
+        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(1.dp)) {
+            Text(stringResource(R.string.music_chip), style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+            Text(stringResource(R.string.music_chip_sub, m.piece[lang]), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, maxLines = 1,
+                overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+        }
+    }
+}
+
+/** 재생 ▶ · 멈춤 ❚❚ 모양. */
+@Composable
+fun PlayGlyph(c: Color, pause: Boolean, size: androidx.compose.ui.unit.Dp = 14.dp) = Canvas(Modifier.size(size)) {
+    val w = this.size.width
+    if (pause) {
+        drawRect(c, Offset(w * 0.18f, w * 0.1f), androidx.compose.ui.geometry.Size(w * 0.22f, w * 0.8f))
+        drawRect(c, Offset(w * 0.6f, w * 0.1f), androidx.compose.ui.geometry.Size(w * 0.22f, w * 0.8f))
+    } else drawPath(Path().apply { moveTo(w * 0.22f, w * 0.08f); lineTo(w * 0.92f, w * 0.5f); lineTo(w * 0.22f, w * 0.92f); close() }, c)
+}
+
+/** 유튜브에서 그 곡 찾기 (앱 안에 넣지 않고 브라우저 · 유튜브 앱으로). */
+fun openYouTube(ctx: android.content.Context, query: String) {
+    val uri = android.net.Uri.parse("https://www.youtube.com/results?search_query=" + java.net.URLEncoder.encode(query, "UTF-8"))
+    runCatching { ctx.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, uri).addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)) }
+}
+
+/** 0:24 꼴. */
+private fun clock(ms: Int): String { val t = (ms / 1000).coerceAtLeast(0); return "${t / 60}:${(t % 60).toString().padStart(2, '0')}" }
+
+/**
+ * 편지 속 그 곡 듣기 시트: 곡 이름(원어 · 앱 글자) · 60초 발췌의 진행 · 10초 앞뒤 · 재생/멈춤 · 출처 한 줄(연주 · 라이선스)
+ * · 유튜브에서 전곡 듣기. 여는 동안 편지 낭독은 잠깐 멈추고(이어 듣기 중이었으면 닫을 때 다시), 닫으면 발췌도 멈춘다.
+ */
+@Composable
+fun MusicSheet(s: AppState, work: Work, m: Moment.Music, onClose: () -> Unit) {
+    val p = Ink.palette
+    val ui = uiLang()
+    val original = work.series.original
+    val ctx = androidx.compose.ui.platform.LocalContext.current
+    var playing by remember(m) { mutableStateOf(false) }
+    var at by remember(m) { androidx.compose.runtime.mutableIntStateOf(0) }
+    var total by remember(m) { androidx.compose.runtime.mutableIntStateOf(60_000) }
+    androidx.compose.runtime.DisposableEffect(m) {
+        // 낭독을 멈춘다: 이어 듣기(알림이 있는 것)는 잠깐 멈춤, 한 문장 듣기는 그만
+        val resume = io.github.graviton94.todayletters.data.Playback.now != null && !io.github.graviton94.todayletters.data.Playback.paused
+        if (resume) io.github.graviton94.todayletters.data.Playback.pause() else s.narrator.stop()
+        playing = s.music.play(m.path(work.series.id)) { playing = false; at = total }
+        total = s.music.duration()
+        onDispose {
+            s.music.stop()
+            if (resume) io.github.graviton94.todayletters.data.Playback.play()
+        }
+    }
+    androidx.compose.runtime.LaunchedEffect(m) {
+        while (true) {
+            kotlinx.coroutines.delay(200)
+            if (s.music.loaded != null) { at = s.music.position(); playing = s.music.playing }
+        }
+    }
+    androidx.activity.compose.BackHandler(onBack = onClose)
+    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose), contentAlignment = Alignment.BottomCenter) {
+        Column(
+            Modifier.fillMaxWidth().background(p.paper).clickable(enabled = false) {}.navigationBarsPadding()
+                .padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
+        ) {
+            Box(Modifier.align(Alignment.CenterHorizontally).size(40.dp, 4.dp).background(p.hair))
+            Caps(deco(original, "Écouter", "Hören").uppercase() + " · " + stringResource(R.string.music_caps), p.giltText, small = true)
+            Text(m.piece[original], style = Type.title.copy(fontFamily = Faces.display).of(original), color = p.ink)
+            if (ui != original) Text(m.piece[ui], style = Type.small.ui(), color = p.inkSoft)
+            // 진행: 막대 무늬 (곡마다 같은 모양) 위에 들은 만큼 금빛
+            val frac = if (total > 0) (at.toFloat() / total).coerceIn(0f, 1f) else 0f
+            val bars = remember(m.audio) { java.util.Random(m.audio.hashCode().toLong()).let { r -> List(40) { 0.25f + r.nextFloat() * 0.75f } } }
+            Canvas(Modifier.fillMaxWidth().height(36.dp).padding(top = Tokens.Space.s2)) {
+                val step = size.width / bars.size
+                bars.forEachIndexed { k, h ->
+                    val bh = size.height * h
+                    drawRect(if ((k + 0.5f) / bars.size <= frac) p.giltText else p.giltText.copy(alpha = 0.3f),
+                        Offset(k * step + step * 0.2f, (size.height - bh) / 2), androidx.compose.ui.geometry.Size(step * 0.6f, bh))
+                }
+            }
+            Row(Modifier.fillMaxWidth()) {
+                Text(clock(at), style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.inkSoft, modifier = Modifier.weight(1f))
+                Text(stringResource(R.string.music_excerpt, clock(total)), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+            }
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.CenterVertically) {
+                Box(Modifier.heightIn(min = 44.dp).pressable { s.music.skip(-10_000); at = s.music.position() }.padding(horizontal = Tokens.Space.s3), contentAlignment = Alignment.Center) {
+                    Text(stringResource(R.string.music_back10), style = Type.small.ui(), color = p.inkSoft)
+                }
+                val label = stringResource(if (playing) R.string.narration_pause else R.string.narration_play)
+                Box(Modifier.size(64.dp).background(p.ink, androidx.compose.foundation.shape.CircleShape)
+                    .androidx_desc(label).pressable {
+                        when {
+                            s.music.loaded == null -> { playing = s.music.play(m.path(work.series.id)) { playing = false; at = total }; total = s.music.duration() }
+                            playing -> { s.music.pause(); playing = false }
+                            else -> { s.music.resume(); playing = true }
+                        }
+                    }, contentAlignment = Alignment.Center) { PlayGlyph(p.paper, playing, 22.dp) }
+                Box(Modifier.heightIn(min = 44.dp).pressable { s.music.skip(10_000); at = s.music.position() }.padding(horizontal = Tokens.Space.s3), contentAlignment = Alignment.Center) {
+                    Text(stringResource(R.string.music_fwd10), style = Type.small.ui(), color = p.inkSoft)
+                }
+            }
+            // 출처 한 줄: 연주 · 라이선스
+            val credit = listOf(m.performer, m.license).filter { it.isNotBlank() }.joinToString(" · ")
+            if (credit.isNotEmpty()) Text(credit, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+            val composer = work.fullName.trim().split(" ").lastOrNull().orEmpty().ifEmpty { work.sender }
+            Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.buttonSm).border(1.dp, p.ink)
+                .pressable { openYouTube(ctx, composer + " " + io.github.graviton94.todayletters.core.Breaks.plain(m.piece[Lang.EN])) },
+                contentAlignment = Alignment.Center) {
+                Text(stringResource(R.string.music_youtube), style = Type.body.ui(), color = p.ink)
+            }
+        }
+    }
+}
+
+private fun Modifier.androidx_desc(label: String) = this.then(Modifier.semantics { contentDescription = label })
 
 /** 송금 카드: 테오가 보낸 돈은 오른쪽 푸른 쪽지(테오 쪽), 빈센트가 낸 돈은 왼쪽 편지지. */
 @Composable
@@ -135,8 +264,10 @@ private fun WeatherCard(m: Moment.Weather, lang: Lang) {
     Column(Modifier.widthIn(max = 270.dp).fillMaxWidth(0.74f).clip(androidx.compose.foundation.shape.RoundedCornerShape(4.dp, 14.dp, 14.dp, 14.dp)).background(bg)) {
         Row(Modifier.padding(horizontal = 14.dp, vertical = 12.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             Column(verticalArrangement = Arrangement.spacedBy(1.dp)) {
-                Text(m.title[lang], style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = soft)
-                Text(m.value[lang], style = Type.title.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = ink)
+                // 큰 값이 없는 날씨(한 줄 글뿐인 것)는 그 글을 조금 크게
+                val value = m.value[lang]
+                Text(m.title[lang], style = if (value.isBlank()) Type.body.ui() else Type.small.ui().copy(fontSize = Tokens.Text.caps), color = if (value.isBlank()) ink else soft)
+                if (value.isNotBlank()) Text(value, style = Type.title.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = ink)
             }
         }
         if (m.quote.isNotEmpty()) Text("“${m.quote}”", style = Type.small.copy(fontFamily = Faces.text, fontStyle = androidx.compose.ui.text.font.FontStyle.Italic), color = soft,

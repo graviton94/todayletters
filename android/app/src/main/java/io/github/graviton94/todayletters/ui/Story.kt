@@ -104,7 +104,8 @@ fun Done(s: AppState, room: Route.Letter) {
             Column(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                 Text(stringResource(R.string.done_title), style = Type.title.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center, modifier = Modifier.graphicsLayer { alpha = win(0.3f, 0.5f) })
                 letter.plate?.let { pl ->
-                    // 원제와 번역은 두 줄 (v20)
+                    // 원제와 번역은 두 줄 (v20). 같은 시절을 보여 주려고 곁에 둔 그림이면 ‘시대의 그림’
+                    if (pl.era) EraTag()
                     Text(pl.title[work.series.original], style = Type.small.of(work.series.original), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
                     if (pl.title[view.read] != pl.title[work.series.original]) Text(pl.title[view.read], style = Type.small.of(view.read), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
                 }
@@ -157,7 +158,8 @@ fun RoomInfo(s: AppState, room: Route.Letter) {
                 Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     Text(w.fullName, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.ink)
                     if (w.credit.isNotEmpty()) Text(w.credit, style = Type.signature.copy(fontSize = Tokens.Text.small), color = p.inkSoft)
-                    Text(stringResource(R.string.info_vincent), style = Type.small.ui(), color = p.inkSoft)
+                    // 한 줄 소개는 아직 빈센트 것만 (다른 작품은 이름 · 초상 출처만)
+                    if (w.series.id == "vincent") Text(stringResource(R.string.info_vincent), style = Type.small.ui(), color = p.inkSoft)
                 }
             }
             Rule()

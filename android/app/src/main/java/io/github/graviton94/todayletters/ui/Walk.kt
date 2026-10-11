@@ -96,9 +96,18 @@ fun Artwork(s: AppState, r: Route.Artwork) {
     val ty = remember { Animatable(0f) }
     val scope = rememberCoroutineScope()
     androidx.activity.compose.BackHandler(enabled = at >= 0) { at = -1 }
-    androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
+    androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.narrator.stop(); s.music.stop() } }
+    // 악보 속 산책: 이 편지의 ‘편지 속 그 곡’ 발췌를 그 악보 위에서 듣는다 (녹음이 있을 때만)
+    val excerpt = letter?.music?.takeIf { pl?.score == true }
+    var hearing by remember { mutableStateOf(false) }
+    fun hear() {
+        if (hearing) { s.music.stop(); hearing = false; return }
+        s.narrator.stop(); playing = null
+        hearing = excerpt != null && s.music.play(excerpt.path(r.series)) { hearing = false }
+    }
 
     fun play(asset: String) {
+        if (hearing) { s.music.stop(); hearing = false }
         if (playing == asset) { s.narrator.stop(); playing = null; return }
         s.narrator.stop()
         if (s.narrator.play(asset) { playing = null }) playing = asset
@@ -184,7 +193,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
                 verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(4.dp),
             ) {
                 Canvas(Modifier.size(14.dp)) { drawLine(Gilt, Offset(size.width * 0.7f, 0f), Offset(size.width * 0.25f, size.height / 2), 1.6.dp.toPx()); drawLine(Gilt, Offset(size.width * 0.25f, size.height / 2), Offset(size.width * 0.7f, size.height), 1.6.dp.toPx()) }
-                Text(stringResource(R.string.walk_back_whole), style = Type.small.ui(), color = Gilt)
+                Text(stringResource(if (pl?.score == true) R.string.walk_back_score else R.string.walk_back_whole), style = Type.small.ui(), color = Gilt)
             } else IconButton(stringResource(R.string.close), onClick = { s.back() }) {
                 Canvas(Modifier.size(18.dp)) {
                     val st = Stroke(1.6.dp.toPx())
@@ -192,7 +201,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
                     drawLine(Wall, Offset(size.width, 0f), Offset(0f, size.height), st.width)
                 }
             }
-            Text(stringResource(R.string.walk_title), style = Type.body.ui(), color = if (at >= 0) WallSoft else Wall, modifier = Modifier.weight(1f))
+            Text(stringResource(if (pl?.score == true) R.string.walk_title_score else R.string.walk_title), style = Type.body.ui(), color = if (at >= 0) WallSoft else Wall, modifier = Modifier.weight(1f))
             if (spots.isNotEmpty()) Text(
                 if (at >= 0) "${at + 1} / ${spots.size}" else "· ${spots.size} ·",
                 style = Type.caps, color = Gilt, modifier = Modifier.padding(end = Tokens.Space.s3),
@@ -206,7 +215,8 @@ fun Artwork(s: AppState, r: Route.Artwork) {
                 Slip(seed = 41, modifier = Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                         pl?.let {
-                            Text(it.date.uppercase() + " · " + it.collection, style = Type.caps, color = Color(0xFF7A5A20))
+                            if (it.era) EraTag()
+                            Text(listOf(it.credit, it.date.uppercase(), it.collection).filter { x -> x.isNotBlank() }.joinToString(" · "), style = Type.caps, color = Color(0xFF7A5A20))
                             Text(it.title[work.series.original], style = Type.title.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic), color = Ink.palette.slipInk)
                             if (ui != work.series.original) Text(it.title[ui], style = Type.small.ui(), color = Ink.palette.slipSoft)
                         }
@@ -225,6 +235,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
                                 modifier = Modifier.pressable { more = !more }.padding(vertical = 4.dp),
                             )
                         }
+                        if (excerpt != null) ListenButton(hearing, Modifier.fillMaxWidth()) { hear() }
                         if (spots.isNotEmpty()) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                             Text(stringResource(R.string.walk_hint), style = Type.small.ui(), color = Ink.palette.slipSoft, modifier = Modifier.weight(1f))
                             Box(Modifier.heightIn(min = 44.dp).background(Ink.palette.slipInk).pressable { focus(0) }.padding(horizontal = Tokens.Space.s4), contentAlignment = Alignment.Center) {
@@ -240,6 +251,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
                     quoteAsset = pair?.let { (ch, l) -> sp.quote?.let { q -> s.narrator.path(r.series, ch, l.id, "m${q + 1}_${view.learn.code}") } },
                     quote = sp.quote?.let { letter?.messages?.getOrNull(it) }?.text,
                     playing = playing, onPlay = ::play,
+                    era = pl?.era == true, hearing = hearing, onHear = if (excerpt != null) ({ hear() }) else null,
                     onPrev = { focus(if (at > 0) at - 1 else -1) }, onNext = { focus(if (at + 1 < spots.size) at + 1 else -1) },
                 )
             }
@@ -272,11 +284,13 @@ private fun SpotCard(
     learn: io.github.graviton94.todayletters.core.Lang, read: io.github.graviton94.todayletters.core.Lang,
     wordAsset: String?, quoteAsset: String?, quote: io.github.graviton94.todayletters.core.Tri?,
     playing: String?, onPlay: (String) -> Unit, onPrev: () -> Unit, onNext: () -> Unit,
+    era: Boolean = false, hearing: Boolean = false, onHear: (() -> Unit)? = null,
 ) {
     val p = Ink.palette
     val ui = uiLang()
     Slip(seed = 60 + at, modifier = Modifier.fillMaxWidth()) {
         Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            if (era) EraTag()
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     Text(sp.title[ui], style = Type.heading.ui(), color = p.slipInk)
@@ -311,7 +325,9 @@ private fun SpotCard(
                 }
             }
             Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                Box(Modifier.weight(1f).heightIn(min = 44.dp).border(1.dp, p.slipInk.copy(alpha = 0.5f)).pressable { onPrev() }, contentAlignment = Alignment.Center) {
+                // 악보 위에서는 왼쪽이 ‘이 부분 듣기’ (전체 악보로는 위의 단추로)
+                if (onHear != null) ListenButton(hearing, Modifier.weight(1f), onHear)
+                else Box(Modifier.weight(1f).heightIn(min = 44.dp).border(1.dp, p.slipInk.copy(alpha = 0.5f)).pressable { onPrev() }, contentAlignment = Alignment.Center) {
                     Text(stringResource(if (at > 0) R.string.walk_prev else R.string.walk_to_whole), style = Type.small.ui(), color = p.slipInk)
                 }
                 Box(Modifier.weight(1f).heightIn(min = 44.dp).background(p.slipInk).pressable { onNext() }, contentAlignment = Alignment.Center) {
@@ -320,4 +336,21 @@ private fun SpotCard(
             }
         }
     }
+}
+
+/** ‘이 부분 듣기’ 단추 (악보 속 산책): 편지 속 그 곡의 발췌를 재생 · 멈춤. */
+@Composable
+private fun ListenButton(on: Boolean, modifier: Modifier = Modifier, onClick: () -> Unit) {
+    val p = Ink.palette
+    Box(modifier.heightIn(min = 44.dp).border(1.dp, p.slipInk.copy(alpha = 0.5f)).background(if (on) p.slipInk.copy(alpha = 0.08f) else Color.Transparent).pressable { onClick() },
+        contentAlignment = Alignment.Center) {
+        Text(stringResource(if (on) R.string.walk_listen_stop else R.string.walk_listen), style = Type.small.ui(), color = p.slipInk)
+    }
+}
+
+/** ‘시대의 그림’ 꼬리표: 편지에 나온 그 그림이 아니라, 같은 시절을 보여 주려고 곁에 둔 그림 (kind = era). */
+@Composable
+fun EraTag(modifier: Modifier = Modifier) {
+    Text(stringResource(R.string.plate_era), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = Color(0xFFF3EAD6),
+        modifier = modifier.background(Color(0xFF3A2E22)).padding(horizontal = 8.dp, vertical = 3.dp))
 }

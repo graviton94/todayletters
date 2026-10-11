@@ -6,13 +6,29 @@ data class Tri(val lines: Map<Lang, String>) {
 }
 
 data class Message(val text: Tri)
-/** 낱말. [icon] 이 있으면 ‘편지 속 물건’으로 수집 앨범에 들어간다. */
-data class Word(val text: Tri, val pos: String = "", val ipa: String = "", val icon: String = "")
+/**
+ * 낱말. [icon] 이 있으면 ‘편지 속 물건’으로 수집 앨범에 들어간다.
+ * [modern] 은 오늘의 철자 (de_modern · fr_modern): 편지는 판의 철자(daß)를 그대로 보여 주고, 쓰기 채점은 이 철자(dass)로 한다.
+ * [ipaEn] · [romKo] 는 영어 발음 · 한국어 로마자 (카드에 보이는 것은 다음 단계).
+ */
+data class Word(val text: Tri, val pos: String = "", val ipa: String = "", val icon: String = "",
+                val modern: String = "", val ipaEn: String = "", val romKo: String = "") {
+    /** 쓰기 · 말하기 채점에 쓰는 원어 철자: 오늘의 철자가 있으면 그것, 없으면 편지의 철자. */
+    fun answer(learn: Lang, original: Lang): String = if (learn == original && modern.isNotEmpty()) modern else text[learn]
+}
 /** 그림 속 산책의 한 자리: 그림 위의 위치(0~1), 이름, 큐레이터 설명, 낱말, 그 요소가 나오는 편지 문장 번호. */
 data class Spot(val x: Float, val y: Float, val title: Tri, val note: Tri, val word: Word?, val quote: Int? = null)
 
-/** 그림 한 점. [collection] 은 소장처와 라이선스 (“… · CC0”), [source] 는 소장처의 작품 페이지 (출처 화면). */
-data class Plate(val title: Tri, val date: String, val collection: String, val image: String = "", val spots: List<Spot> = emptyList(), val source: String = "")
+/**
+ * 그림 한 점. [collection] 은 소장처와 라이선스 (“… · CC0”), [source] 는 소장처의 작품 페이지 (출처 화면).
+ * [kind] 는 그림의 갈래 (mozart · score · era · place · person; 비면 편지 속 그 그림): era 는 ‘시대의 그림’ 꼬리표, score 는 ‘악보 속 산책’.
+ * [credit] 은 작가 · 사진가, [license] 는 이미지 라이선스, [why] 는 이 편지 곁에 둔 까닭.
+ */
+data class Plate(val title: Tri, val date: String, val collection: String, val image: String = "", val spots: List<Spot> = emptyList(), val source: String = "",
+                 val kind: String = "", val credit: String = "", val license: String = "", val why: Tri? = null) {
+    val era get() = kind == "era"
+    val score get() = kind == "score"
+}
 
 /**
  * 메신저 같은 순간: 문장 [after] 다음에 끼어든다 (-1 이면 첫 문장 앞). 모두 편지에 실제로 나온 일에서만 만든다.
@@ -29,6 +45,14 @@ sealed interface Moment {
     data class Notice(override val after: Int, val text: Tri) : Moment
     /** 날씨 공유: [value] 는 큰 글자 (눈 60cm), [quote] 는 편지 원문 한 토막. */
     data class Weather(override val after: Int, val title: Tri, val value: Tri, val quote: String, val icon: String = "snow") : Moment
+    /**
+     * 편지 속 그 곡: 편지가 이름을 댄 곡의 60초 발췌 (assets/audio/<작품>/music/[audio]).
+     * [audio] 가 비면 녹음이 없는 것이라 대화방에 아무것도 놓지 않는다. [performer] · [license] · [source] 는 출처 줄.
+     */
+    data class Music(override val after: Int, val piece: Tri, val audio: String = "", val performer: String = "", val license: String = "", val source: String = "") : Moment {
+        val playable get() = audio.isNotEmpty()
+        fun path(series: String) = "audio/$series/music/$audio"
+    }
 }
 
 /** 작품의 장소 (손으로 그린 지도 위 0~1 위치, 실제 위도 · 경도). */
@@ -51,7 +75,12 @@ data class Letter(
     val moments: List<Moment> = emptyList(),
     /** 대화방 위의 상태 메시지 (그 무렵 빈센트의 한마디). */
     val status: Tri? = null,
-)
+    /** 이 편지를 받는 사람 (아버지 · 누나 · 콘스탄체…). 없으면 작품의 받는 사람. */
+    val to: Tri? = null,
+) {
+    /** 녹음이 있는 ‘편지 속 그 곡’. */
+    val music: Moment.Music? get() = moments.firstOrNull { it is Moment.Music && it.playable } as Moment.Music?
+}
 
 data class Chapter(val series: String, val id: String, val title: Tri, val free: Boolean, val letters: List<Letter>)
 

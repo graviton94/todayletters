@@ -48,6 +48,12 @@ data class Work(
     val outro: Outro? = null,
 )
 
+/** 이 편지를 받는 사람: 편지에 적힌 사람(아버지 · 누나 · 콘스탄체…)이 있으면 그 사람, 없으면 작품의 받는 사람(테오). */
+fun Work.recipientOf(letter: Letter): Tri = letter.to ?: recipient
+
+/** 이 작품에 ‘편지 속 그 곡’ 녹음이 하나라도 있는가 (서재 카드의 ‘듣기 있음’). */
+val Work.hasMusic: Boolean get() = chapters.any { c -> c.letters.any { it.music != null } }
+
 /** 프롤로그 한 장: 그 시절 · 제목 · 설명 + 그 시절을 말하는 원문 한 줄([letter] 의 첫 문장 · 낱말 · 그림). */
 data class Docent(val period: String, val caps: String, val heading: Tri, val sub: String, val body: Tri, val source: Tri, val letter: Letter)
 data class Arrival(val date: String, val route: String, val heading: Tri, val body: Tri)
@@ -80,13 +86,15 @@ object Library {
                     }
                 }.getOrNull()
             } ?: emptyList()
+            // 챕터 파일이 아직 없으면(작업 중인 작품) 그 장만 건너뛴다: 한 작품의 빈 장 때문에 서재 전체가 비지 않게
             val chapters = meta.getJSONArray("chapters").let { arr ->
-                (0 until arr.length()).map { i ->
+                (0 until arr.length()).mapNotNull { i ->
                     val c = arr.getJSONObject(i)
-                    val data = JSONObject(am.open("letters/$id/${c.getString("file")}").bufferedReader().readText())
+                    val data = runCatching { JSONObject(am.open("letters/$id/${c.getString("file")}").bufferedReader().readText()) }.getOrNull() ?: return@mapNotNull null
                     Chapter(id, c.getString("id"), tri(c.getJSONObject("title")), c.optBoolean("free", false), letters(data))
                 }
             }
+            if (chapters.isEmpty()) return@mapNotNull null
             Work(
                 Series(id, original), meta.getString("sender"), tri(meta.getJSONObject("title")), meta.optString("years"), meta.optString("seal", id), chapters,
                 portrait = meta.optString("portrait"), credit = meta.optString("credit"),
@@ -141,6 +149,34 @@ object Library {
         )
     }
 
+    /** 글자 하나 (없거나 JSON null 이면 빈 글자: optString 은 null 을 "null" 로 돌려준다). */
+    private fun JSONObject.str(key: String): String = if (isNull(key)) "" else optString(key)
+
+    /** 오늘의 철자: 원어 코드에 _modern 을 붙인 칸 (de_modern · fr_modern). */
+    private fun modern(o: JSONObject): String = Lang.entries.firstNotNullOfOrNull { l -> o.str(l.code + "_modern").takeIf { it.isNotEmpty() } }.orEmpty()
+
+    /** 낱말 한 줄: 세 언어 · 품사 · 발음 · 물건 그림 · 오늘의 철자 · 영어 발음 · 한국어 로마자. */
+    internal fun word(o: JSONObject): Word = Word(tri(o), o.str("pos"), o.str("ipa"), o.str("icon"), modern(o), o.str("ipa_en"), o.str("rom_ko"))
+
+    /** 순간 하나. 모르는 꼴이거나 칸이 모자라면 null (편지 한 통의 순간 하나 때문에 작품 전체를 못 읽는 일이 없게). */
+    internal fun moment(m: JSONObject): Moment? = runCatching {
+        when (m.optString("type")) {
+            "location" -> Moment.Location(m.getInt("after"), m.getString("place"), tri(m.getJSONObject("title")), m.optString("address"))
+            "photo" -> Moment.Photo(m.getInt("after"), m.getString("image"), tri(m.getJSONObject("caption")))
+            "sketch" -> Moment.Photo(m.getInt("after"), m.getString("image"), tri(m.getJSONObject("caption")), sketch = true, credit = m.optString("credit"))
+            "transfer" -> Moment.Transfer(m.getInt("after"), m.getString("amount"), tri(m.getJSONObject("label")), tri(m.getJSONObject("memo")), m.optBoolean("outgoing"))
+            "notice" -> Moment.Notice(m.getInt("after"), tri(m.getJSONObject("text")))
+            // 날씨: 제목 · 큰 값 둘로 나뉜 것(빈센트)과 한 줄 글(text)만 있는 것(모차르트) 둘 다
+            "weather" -> {
+                val text = m.optJSONObject("text")?.let { tri(it) }
+                Moment.Weather(m.getInt("after"), m.optJSONObject("title")?.let { tri(it) } ?: text!!,
+                    m.optJSONObject("value")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")), m.str("quote"), m.optString("icon", "snow"))
+            }
+            "music" -> Moment.Music(m.getInt("after"), tri(m.getJSONObject("piece")), m.str("audio"), m.str("performer"), m.str("audioLicense"), m.str("audioSource"))
+            else -> null
+        }
+    }.getOrNull()
+
     /** 세 언어 글자. 한국어가 낱말 가운데서 줄이 바뀌지 않게 [Breaks.keepAll] 을 거친다. */
     private fun tri(o: JSONObject, prefix: String = ""): Tri =
         Tri(Lang.entries.mapNotNull { l -> o.optString(prefix + l.code, "").takeIf { it.isNotEmpty() }?.let { l to Breaks.keepAll(it) } }.toMap())
@@ -151,7 +187,7 @@ object Library {
             val l = arr.getJSONObject(i)
             val msgs = l.getJSONArray("messages").let { m -> (0 until m.length()).map { Message(tri(m.getJSONObject(it))) } }
             val words = l.optJSONArray("words")?.let { w ->
-                (0 until w.length()).map { j -> w.getJSONObject(j).let { Word(tri(it), it.optString("pos"), it.optString("ipa"), it.optString("icon")) } }
+                (0 until w.length()).map { j -> word(w.getJSONObject(j)) }
             } ?: emptyList()
             val plate = l.optJSONObject("plate")?.let { pl ->
                 val spots = pl.optJSONArray("spots")?.let { a ->
@@ -161,26 +197,18 @@ object Library {
                             if (sp.has("quote")) sp.getInt("quote") else null)
                     } }
                 } ?: emptyList()
-                Plate(tri(pl, "title_"), pl.optString("date"), pl.optString("collection"), pl.optString("image"), spots, pl.optString("imageSource"))
+                Plate(tri(pl, "title_"), pl.optString("date"), pl.optString("collection"), pl.optString("image"), spots, pl.str("imageSource"),
+                    kind = pl.str("kind"), credit = pl.str("credit"), license = pl.str("imageLicense"), why = pl.optJSONObject("why")?.let { tri(it) })
             }
             val moments = l.optJSONArray("moments")?.let { a ->
-                (0 until a.length()).mapNotNull { k -> a.getJSONObject(k).let { m ->
-                    when (m.optString("type")) {
-                        "location" -> Moment.Location(m.getInt("after"), m.getString("place"), tri(m.getJSONObject("title")), m.optString("address"))
-                        "photo" -> Moment.Photo(m.getInt("after"), m.getString("image"), tri(m.getJSONObject("caption")))
-                        "sketch" -> Moment.Photo(m.getInt("after"), m.getString("image"), tri(m.getJSONObject("caption")), sketch = true, credit = m.optString("credit"))
-                        "transfer" -> Moment.Transfer(m.getInt("after"), m.getString("amount"), tri(m.getJSONObject("label")), tri(m.getJSONObject("memo")), m.optBoolean("outgoing"))
-                        "notice" -> Moment.Notice(m.getInt("after"), tri(m.getJSONObject("text")))
-                        "weather" -> Moment.Weather(m.getInt("after"), tri(m.getJSONObject("title")), tri(m.getJSONObject("value")), m.optString("quote"), m.optString("icon", "snow"))
-                        else -> null
-                    }
-                } }
+                (0 until a.length()).mapNotNull { k -> moment(a.getJSONObject(k)) }
             } ?: emptyList()
             Letter(
                 id = l.getString("id"), date = l.optString("date"), place = l.optString("place"), mood = l.optString("mood", "calm"),
                 messages = msgs, words = words, note = l.optJSONObject("note")?.let { tri(it) }, plate = plate,
                 reply = l.optJSONObject("reply")?.let { tri(it) }, moments = moments,
                 status = l.optJSONObject("status")?.let { tri(it) },
+                to = l.optJSONObject("to")?.let { tri(it) },
             )
         }
     }

@@ -1,5 +1,6 @@
 package io.github.graviton94.todayletters.ui
 
+import io.github.graviton94.todayletters.data.recipientOf
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.animateFloatAsState
@@ -125,9 +126,9 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
                 Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding().padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
                     verticalArrangement = Arrangement.Bottom) {
                     Column(Modifier.graphicsLayer { alpha = reveal.value }, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                        Caps("LETTRE ${roman(n)} · ${letter.place}", Gilt, small = true, decorative = true)
+                        Caps("${deco(work.series.original, "LETTRE", "BRIEF")} ${roman(n)} · ${letter.place}", Gilt, small = true, decorative = true)
                         Text(stringResource(R.string.arrival_title, work.name[uiLang()]), style = Type.title.ui(), color = Light)
-                        Text(stringResource(R.string.arrival_sub, dateLine(letter.date, letter.place), work.name[uiLang()], work.recipient[uiLang()]),
+                        Text(stringResource(R.string.arrival_sub, dateLine(letter.date, letter.place), work.name[uiLang()], work.recipientOf(letter)[uiLang()]),
                             style = Type.small.ui(), color = Soft)
                     }
                     Row(Modifier.fillMaxWidth().padding(top = Tokens.Space.s8), verticalAlignment = Alignment.Bottom) {
@@ -144,7 +145,7 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
         Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()
             .pressable(enabled = stage == 1, haptic = false) { shown = line.length; stage = 2 }) {
             Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s7, end = Tokens.Space.s7, top = Tokens.Space.s8), verticalAlignment = Alignment.CenterVertically) {
-                Caps("LETTRE ${roman(n)}", Gilt, small = true, decorative = true, modifier = Modifier.weight(1f))
+                Caps("${deco(work.series.original, "LETTRE", "BRIEF")} ${roman(n)}", Gilt, small = true, decorative = true, modifier = Modifier.weight(1f))
                 Text(dateLine(letter.date, letter.place), style = Type.small.ui().copy(fontStyle = FontStyle.Italic), color = Soft)
             }
             Box(Modifier.padding(horizontal = Tokens.Space.s7, vertical = Tokens.Space.s3).fillMaxWidth().height(1.dp).background(Soft.copy(alpha = 0.25f)))
@@ -185,7 +186,8 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
 private fun PlateCredit(letter: Letter, modifier: Modifier, center: Boolean = false) {
     val pl = letter.plate ?: return
     val where = pl.collection.substringBefore(" · ").trim()
-    Text(listOf(pl.title[uiLang()], pl.date).filter { it.isNotBlank() }.joinToString(" · ") + if (where.isNotEmpty()) "\n$where" else "",
+    val era = if (pl.era) stringResource(R.string.plate_era) + " · " else ""
+    Text(era + listOf(pl.title[uiLang()], pl.date).filter { it.isNotBlank() }.joinToString(" · ") + if (where.isNotEmpty()) "\n$where" else "",
         style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = Faint, modifier = modifier,
         textAlign = if (center) androidx.compose.ui.text.style.TextAlign.Center else null)
 }

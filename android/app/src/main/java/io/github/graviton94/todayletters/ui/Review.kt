@@ -280,7 +280,7 @@ fun Session(s: AppState, r: Route.Session) {
     val tag = remember(q.card.key) {
         s.cardWord(q.card.key)?.let { (w, cl, wi) ->
             val n = w.chapters.flatMap { it.letters }.indexOf(cl.second) + 1
-            "N° ${"%03d".format(wi + 1)} · LETTRE ${roman(n)}"
+            "N° ${"%03d".format(wi + 1)} · ${deco(w.series.original, "LETTRE", "BRIEF")} ${roman(n)}"
         }.orEmpty()
     }
     androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
@@ -860,9 +860,12 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         val sentenceLearn = l.messages.getOrNull(hit)?.text?.get(view.learn)
         val marks = sentenceLearn?.let { wordMarks(it, senses) }
         val formInText = marks?.firstOrNull()?.first?.let { sentenceLearn.substring(it.first, it.last + 1) }
+        // 쓰기 · 말하기 채점은 오늘의 철자로 (편지는 판의 철자 daß, 답은 dass). 없으면 편지의 철자 그대로
+        val typeWord = word.answer(view.learn, w.series.original)
+        val typeSenses = senses(typeWord)
         // 받아쓸 뜻: 문장에 나온 뜻, 없으면 첫 뜻. 소리는 전체를 읽으니 화면에도 전체를 두고 그 뜻만 칸으로
-        val dictSense = marks?.firstOrNull()?.second?.let { senses.getOrNull(it) } ?: senses.firstOrNull() ?: learnWord
-        val plainFull = Breaks.plain(learnWord)
+        val dictSense = marks?.firstOrNull()?.second?.let { typeSenses.getOrNull(it) } ?: typeSenses.firstOrNull() ?: typeWord
+        val plainFull = Breaks.plain(typeWord)
         val typeFrom = plainFull.indexOf(dictSense).coerceAtLeast(0)
         if (k == ReviewKind.BLANK && formInText == null) k = ReviewKind.MEANING
         val sentenceAudio = if (hit >= 0) s.narrator.path(w.series.id, ch, l.id, "m${hit + 1}_${view.learn.code}") else null

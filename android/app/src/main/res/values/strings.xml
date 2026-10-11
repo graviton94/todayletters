@@ -484,7 +484,7 @@
     <string name="credits_images_h">Pictures</string>
     <string name="credits_images_note">Images of public-domain originals only, chosen in two tiers: by default, images whose holders release them for free use (including commercial); for a few essential masterpieces, faithful public-domain reproductions (PD-Art). We never use pictures we have drawn ourselves.</string>
     <string name="credits_portraits_h">Portraits</string>
-    <string name="credits_portraits">Vincent van Gogh, Self-Portrait, 1887 · Art Institute of Chicago · CC0\nLeopold Mozart and His Children (after Carmontelle), 1764 · The Metropolitan Museum of Art · CC0\nJacques-Louis David, The Emperor Napoleon in His Study at the Tuileries, 1812 · National Gallery of Art, Washington · Open Access\nThe Poet Bashō · Rijksmuseum, Amsterdam · CC0</string>
+    <string name="credits_portraits">Vincent van Gogh, Self-Portrait, 1887 · Art Institute of Chicago · CC0\nJohann Nepomuk della Croce (attr.), The Mozart Family (detail), c. 1780–81 · Stiftung Mozarteum Salzburg · Public domain\nJacques-Louis David, The Emperor Napoleon in His Study at the Tuileries, 1812 · National Gallery of Art, Washington · Open Access\nThe Poet Bashō · Rijksmuseum, Amsterdam · CC0</string>
     <string name="credits_voice_h">Narration</string>
     <string name="credits_voice">Voices generated with Supertonic 3 by Supertone Inc. The model is licensed under OpenRAIL-M and is not included in the app.</string>
     <string name="credits_fonts_h">Fonts · SIL Open Font License 1.1</string>
@@ -852,4 +852,20 @@
     <string name="cover_epilogue_locked">Opens after the last letter</string>
     <string name="done_outro">Read the afterword</string>
     <string name="done_series_end">That was his last letter. The afterword is waiting.</string>
+    <string name="lib_listening">Listening</string>
+    <string name="music_chip">Hear the piece in this letter</string>
+    <string name="music_chip_sub">%1$s · 1 min</string>
+    <string name="music_caps">The piece in the letter</string>
+    <string name="music_excerpt">%1$s excerpt</string>
+    <string name="music_back10">‹ 10 s</string>
+    <string name="music_fwd10">10 s ›</string>
+    <string name="music_youtube">Full piece on YouTube</string>
+    <string name="walk_listen">♪ Listen to this passage</string>
+    <string name="walk_listen_stop">■ Stop listening</string>
+    <string name="walk_title_score">A walk in the score</string>
+    <string name="walk_back_score">Whole score</string>
+    <string name="plate_era">Art of the time</string>
+    <string name="credits_music_h">Music</string>
+    <string name="credits_full">Full sources and licences ›</string>
+    <string name="credits_text_de">German text of Mozart\'s letters: Mozarts Briefe, edited by Ludwig Nohl (Salzburg, 1865, public domain), from the Internet Archive scan, keeping the edition\'s spelling. English: Lady Wallace\'s translation (1866). Korean translations are written for this app.</string>
 </resources>

@@ -52,6 +52,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     val store = Store(ctx)
     val works: List<Work> = Library.works(ctx)
     val narrator = Narrator(ctx)
+    /** 편지 속 그 곡 (60초 발췌): 낭독과 따로 울리는 재생기. 방을 나가거나 뒤로 가면 멈춘다. */
+    val music = io.github.graviton94.todayletters.data.Excerpt(ctx)
     private val effects = io.github.graviton94.todayletters.data.Effects(ctx)
     /** 맞음 · 틀림 효과음 (설정 › 효과음이 켜져 있을 때만). */
     fun cue(ok: Boolean) { if (app.effects) runCatching { effects.play(ok) } }
@@ -146,7 +148,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun go(r: Route) {
         forward = r != Route.Library && (r !is Route.Tab || stack.size > 2 || (stack.lastOrNull() as? Route.Tab)?.let { tabIndex(it) < tabIndex(r) } ?: true)
         when {
-            r == Route.Library -> { narrator.stop(); stack.clear(); stack.add(r) }
+            r == Route.Library -> { narrator.stop(); music.stop(); stack.clear(); stack.add(r) }
             r is Route.Tab -> { stack.clear(); stack.addAll(Nav.trail(r)) }
             else -> stack.add(r)
         }
@@ -163,13 +165,14 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 앱을 벗어날 때: 이어 듣는 편지 낭독(알림이 있는 것)만 두고, 짧은 소리 · 녹음 · 내 녹음 듣기는 멈춘다 (마이크를 뒤에서 켜 두지 않는다). */
     fun leftApp() {
         if (io.github.graviton94.todayletters.data.Playback.now == null) narrator.stop()
+        music.pause()
         pcm.stop(); recorder.stop(); recorder.stopPlaying()
         away++
     }
 
     /** 뒤로: 스택을 하나 내리고, 비면 계층의 부모로. 맨 위(서재)면 false (앱을 나감). */
     fun back(): Boolean {
-        narrator.stop()
+        narrator.stop(); music.stop()
         forward = false
         if (stack.size > 1) { stack.removeAt(stack.lastIndex); return true }
         val up = Nav.up(route) ?: return false

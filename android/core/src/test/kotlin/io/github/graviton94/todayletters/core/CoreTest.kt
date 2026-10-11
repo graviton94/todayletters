@@ -323,4 +323,43 @@ class CoreTest {
         assertTrue(good.passed && good.intonation >= 80, "good $good")
         assertTrue(bad.intonation < 60 && bad.intonation < good.intonation, "bad $bad")
     }
+    // 모차르트 (독일어 원어): 판의 철자는 편지에, 오늘의 철자는 채점에
+    @Test fun modernSpellingIsTheAnswer() {
+        val w = Word(Tri(mapOf(Lang.DE to "daß", Lang.EN to "that", Lang.KO to "~라는 것")), modern = "dass")
+        assertEquals("dass", w.answer(Lang.DE, Lang.DE))
+        assertEquals("that", w.answer(Lang.EN, Lang.DE))
+        assertEquals("daß", w.text[Lang.DE])
+        val plain = Word(Tri(mapOf(Lang.DE to "Zeit", Lang.EN to "time")))
+        assertEquals("Zeit", plain.answer(Lang.DE, Lang.DE))
+        // ß ↔ ss 는 악상처럼 너그럽게
+        assertEquals(Memory.Mark.RIGHT, Memory.grade(w.answer(Lang.DE, Lang.DE), "dass"))
+        assertEquals(Memory.Mark.ACCENT, Memory.grade(w.answer(Lang.DE, Lang.DE), "daß"))
+        assertEquals(Memory.Mark.ACCENT, Memory.grade("Glück", "Gluck"))
+        assertEquals(Memory.Mark.WRONG, Memory.grade("dass", "das"))
+    }
+
+    @Test fun musicMomentNeedsARecording() {
+        val piece = Tri(mapOf(Lang.DE to "Sinfonie", Lang.EN to "Symphony"))
+        val none = Moment.Music(1, piece)
+        val rec = Moment.Music(2, piece, audio = "m-c7-l3.m4a", performer = "Musopen Symphony", license = "Public domain")
+        assertFalse(none.playable)
+        assertTrue(rec.playable)
+        assertEquals("audio/mozart/music/m-c7-l3.m4a", rec.path("mozart"))
+        val msg = listOf(Message(piece))
+        assertNull(Letter("a", "", "", "", msg, emptyList(), null, null, moments = listOf(none)).music)
+        assertEquals(rec, Letter("b", "", "", "", msg, emptyList(), null, null, moments = listOf(none, rec)).music)
+    }
+
+    @Test fun plateKinds() {
+        val t = Tri(mapOf(Lang.EN to "x"))
+        assertTrue(Plate(t, "", "", kind = "era").era)
+        assertTrue(Plate(t, "", "", kind = "score").score)
+        assertFalse(Plate(t, "", "").era)
+    }
+
+    @Test fun germanSeriesLearnsGermanFirst() {
+        val mozart = Series("mozart", Lang.DE)
+        assertEquals(listOf(Lang.DE, Lang.EN), Langs.learnChoices(mozart, Lang.KO))
+        assertEquals(Lang.DE, Langs.defaultLearn(mozart, Lang.EN))
+    }
 }

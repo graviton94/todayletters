@@ -43,6 +43,7 @@ import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Achievements
 import io.github.graviton94.todayletters.core.Route
 import io.github.graviton94.todayletters.data.Work
+import io.github.graviton94.todayletters.data.hasMusic
 import io.github.graviton94.todayletters.design.Faces
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
@@ -115,7 +116,9 @@ private fun SeriesCard(s: AppState, w: Work) {
                 Box(Modifier.border(1.5.dp, t.accent, CircleShape).padding(1.5.dp)) { Portrait(w.portrait, w.fullName, 40.dp) }
                 Text("${w.name[uiLang()]} → ${w.recipient[uiLang()]}", style = Type.heading.ui(), color = t.ink)
             }
-            Text("${stringResource(langLabel(w.series.original))} · ${w.years}", style = Type.small.ui(), color = t.soft)
+            // 원어 · 햇수, 그리고 ‘편지 속 그 곡’ 녹음이 있는 작품이면 ‘듣기 있음’
+            val listening = remember(id) { w.hasMusic }
+            Text("${stringResource(langLabel(w.series.original))} · ${w.years}" + (if (listening) " · ♪ " + stringResource(R.string.lib_listening) else ""), style = Type.small.ui(), color = t.soft)
             Spacer(Modifier.weight(1f))
             Row(verticalAlignment = Alignment.Bottom) {
                 Column(Modifier.weight(0.5f), verticalArrangement = Arrangement.spacedBy(6.dp)) {

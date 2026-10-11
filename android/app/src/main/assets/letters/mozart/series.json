@@ -1,0 +1,167 @@
+{
+ "_doc": "모차르트 시리즈 표지 정보와 챕터 목록. 독일어는 Nohl 1865년판(공공 영역), 영어는 Wallace 1866년 번역(공공 영역), 한국어는 이 앱의 번역.",
+ "id": "mozart",
+ "order": 2,
+ "original": "de",
+ "sender": "Wolfgang",
+ "name": {
+  "de": "Wolfgang",
+  "en": "Wolfgang",
+  "ko": "볼프강"
+ },
+ "seal": "mozart",
+ "years": "1770–1791",
+ "fullName": "Wolfgang Amadeus Mozart",
+ "recipient": {
+  "de": "Vater",
+  "en": "his father",
+  "ko": "아버지"
+ },
+ "portrait": "mozart.jpg",
+ "credit": "The Mozart Family (detail), c. 1780–81 · Johann Nepomuk della Croce (attr.) · Stiftung Mozarteum Salzburg · Public domain",
+ "title": {
+  "de": "Briefe von Mozart",
+  "en": "Letters from Mozart",
+  "ko": "모차르트의 편지"
+ },
+ "chapters": [
+  {
+   "id": "I",
+   "file": "chapter1.json",
+   "free": true,
+   "title": {
+    "de": "Italien",
+    "en": "Italy",
+    "ko": "이탈리아"
+   }
+  },
+  {
+   "id": "II",
+   "file": "chapter2.json",
+   "free": false,
+   "title": {
+    "de": "Mannheim",
+    "en": "Mannheim",
+    "ko": "만하임"
+   }
+  },
+  {
+   "id": "III",
+   "file": "chapter3.json",
+   "free": false,
+   "title": {
+    "de": "Paris",
+    "en": "Paris",
+    "ko": "파리"
+   }
+  },
+  {
+   "id": "IV",
+   "file": "chapter4.json",
+   "free": false,
+   "title": {
+    "de": "München · Idomeneo",
+    "en": "Munich · Idomeneo",
+    "ko": "뮌헨 · 이도메네오"
+   }
+  },
+  {
+   "id": "V",
+   "file": "chapter5.json",
+   "free": false,
+   "title": {
+    "de": "Wien · Der Bruch mit dem Erzbischof",
+    "en": "Vienna · Break with the Archbishop",
+    "ko": "빈 · 대주교와의 결별"
+   }
+  },
+  {
+   "id": "VI",
+   "file": "chapter6.json",
+   "free": false,
+   "title": {
+    "de": "Constanze",
+    "en": "Constanze",
+    "ko": "콘스탄체"
+   }
+  },
+  {
+   "id": "VII",
+   "file": "chapter7.json",
+   "free": false,
+   "title": {
+    "de": "Figaro & Prag",
+    "en": "Figaro & Prague",
+    "ko": "피가로와 프라하"
+   }
+  },
+  {
+   "id": "VIII",
+   "file": "chapter8.json",
+   "free": false,
+   "title": {
+    "de": "Die Zauberflöte",
+    "en": "The Magic Flute",
+    "ko": "마술피리"
+   }
+  }
+ ],
+ "kit": {
+  "_doc": "시리즈 키트: 모차르트의 빛깔(자줏빛 봉랍 · 연분홍 종이) · 대표 그림(벨로토의 빈) · 화폐(두카트).",
+  "theme": {
+   "light": {
+    "paper": "#F2E9E7",
+    "ink": "#2A1418",
+    "soft": "#7A5F63",
+    "faint": "#B39CA0",
+    "accent": "#8A2B3A"
+   },
+   "dark": {
+    "paper": "#1A1012",
+    "ink": "#F2E4E4",
+    "soft": "#BBA1A5",
+    "faint": "#7C6367",
+    "accent": "#D98C9A"
+   }
+  },
+  "hero": "plates/m-c6-l6.jpg",
+  "place": "SALZBURG · WIEN",
+  "world": {
+   "de": "In Mozarts Welt",
+   "en": "Into Mozart's world",
+   "ko": "모차르트의 세상으로 떠납니다"
+  },
+  "currency": {
+   "name": {
+    "de": "Dukaten",
+    "en": "ducats",
+    "ko": "두카트"
+   }
+  },
+  "weekdays": "MDMDFSS",
+  "collection": [],
+  "exhibitions": []
+ },
+ "outro": {
+  "file": "epilogue.json",
+  "image": "m-outro.jpg",
+  "credit": "Requiem, K. 626 · last page of Mozart's working score (Hostias: “fac eas, Domine, de morte transire ad vitam”), 1791 · Österreichische Nationalbibliothek, Vienna · Public domain",
+  "caps": "EPILOG",
+  "name": "Wolfgang Amadeus Mozart",
+  "years": "27. Januar 1756 — 5. Dezember 1791",
+  "body": [
+   {
+    "ko": "1791년 12월 5일 새벽, 모차르트는 빈의 집에서 세상을 떠났습니다. 서른다섯 살이었습니다. 그해 늦가을부터 앓아누운 병은 끝내 낫지 않았습니다.",
+    "en": "In the early hours of 5 December 1791 Mozart died at his home in Vienna. He was thirty-five. The illness that had kept him in bed since late autumn never lifted."
+   },
+   {
+    "ko": "책상 위에는 끝내지 못한 〈레퀴엠〉이 남았습니다. 콘스탄체의 부탁으로 제자 쥐스마이어가 곡을 마무리했습니다.",
+    "en": "On his desk lay the unfinished Requiem. At Constanze's request his pupil Süssmayr completed it."
+   },
+   {
+    "ko": "그가 남긴 곡은 600곡이 넘습니다. 1862년 쾨헬이 정리한 목록의 번호(K.)로, 우리는 지금도 그 곡들을 부릅니다.",
+    "en": "He left more than six hundred works. We still call them by the numbers (K.) of the catalogue Köchel drew up in 1862."
+   }
+  ]
+ }
+}

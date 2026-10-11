@@ -80,11 +80,12 @@ object Memory {
 
     /**
      * 받아쓰기 채점 (너그럽게): 대소문자 · 앞뒤 문장부호는 보지 않는다. 악상(é 등)만 틀리면 맞은 것으로 치되 [Mark.ACCENT] 로 알려 준다.
+     * 독일어 ß 를 ss 로 쓴 것(또는 그 반대: 옛 판의 daß ↔ 오늘의 dass)도 [Mark.ACCENT].
      */
     enum class Mark { RIGHT, ACCENT, WRONG }
     fun grade(answer: String, typed: String): Mark {
         fun clean(x: String) = Breaks.plain(x).trim().trim('.', ',', ';', ':', '!', '?', '…', '«', '»', '"').lowercase()
-        fun bare(x: String) = java.text.Normalizer.normalize(x, java.text.Normalizer.Form.NFD).replace(Regex("\\p{M}"), "")
+        fun bare(x: String) = java.text.Normalizer.normalize(x, java.text.Normalizer.Form.NFD).replace(Regex("\\p{M}"), "").replace("ß", "ss")
         val a = clean(answer); val t = clean(typed)
         return when {
             a == t -> Mark.RIGHT

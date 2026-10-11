@@ -250,7 +250,7 @@ fun artCard(ctx: Context, w: Work, l: Letter, m: Message, learn: Lang, read: Lan
     val footH = H * 0.09f
     var top = artRect.bottom + H * 0.035f
     val room = H - pad - footH - top
-    val q = if (learn == Lang.FR) "« ${Breaks(m.text[learn])} »" else "“${Breaks(m.text[learn])}”"
+    val q = when (learn) { Lang.FR -> "« ${Breaks(m.text[learn])} »"; Lang.DE -> "„${Breaks(m.text[learn])}“"; else -> "“${Breaks(m.text[learn])}”" }
     val lp = TextPaint(Paint.ANTI_ALIAS_FLAG).apply { typeface = learnFace; color = ink }
     val rp = TextPaint(Paint.ANTI_ALIAS_FLAG).apply { typeface = body; color = soft }
     var size = W * 0.05f

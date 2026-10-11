@@ -18,6 +18,7 @@ object Tokens {
         val vincent = Seal(Color(0xFF8E2A22), Color(0xFF7A231C), Color(0xFFEAD0C2))
         val emile = Seal(Color(0xFF2F4A3A), Color(0xFF263D30), Color(0xFFD6E2D2))
         val theo = Seal(Color(0xFF3C4A6B), Color(0xFF323E5A), Color(0xFFDCE2EE))
+        val mozart = Seal(Color(0xFF7A2430), Color(0xFF66202A), Color(0xFFEED6DA))
     }
     object Space {
         val s1 = 4.dp

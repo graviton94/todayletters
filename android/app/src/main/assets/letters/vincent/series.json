@@ -1,6 +1,7 @@
 {
  "_doc": "작품 표지 정보와 챕터 목록. 챕터 파일은 같은 폴더의 chapter<번호>.json (검토 전에는 .draft.json).",
  "id": "vincent",
+ "order": 1,
  "original": "fr",
  "sender": "Vincent",
  "name": {

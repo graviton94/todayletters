@@ -85,7 +85,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
             Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
                 // 이름표
                 Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    Caps("N° ${"%03d".format(wi + 1)} · " + (if (n == 0) "PROLOGUE" else "LETTRE ${roman(n)}"), p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
+                    Caps("N° ${"%03d".format(wi + 1)} · " + (if (n == 0) deco(w.series.original, "PROLOGUE", "PROLOG") else "${deco(w.series.original, "LETTRE", "BRIEF")} ${roman(n)}"), p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
                     Text(learn, style = Type.display.copy(fontFamily = Faces.display).of(view.learn), color = p.ink)
                     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                         Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }

@@ -484,7 +484,7 @@
     <string name="credits_images_h">그⁠림</string>
     <string name="credits_images_note">공⁠공 영⁠역 원⁠작⁠의 이⁠미⁠지⁠만⁠, 두 단⁠계 원⁠칙⁠으⁠로 써⁠요⁠. 기⁠본⁠은 소⁠장⁠처⁠가 상⁠업 이⁠용⁠까⁠지 자⁠유 이⁠용⁠을 밝⁠힌 이⁠미⁠지⁠이⁠고⁠, 꼭 필⁠요⁠한 대⁠표⁠작⁠만 공⁠공 영⁠역 평⁠면 작⁠품⁠의 충⁠실⁠한 복⁠제 사⁠진⁠(PD-Art)⁠을 써⁠요⁠. 저⁠희⁠가 그⁠린 그⁠림⁠은 쓰⁠지 않⁠아⁠요⁠.</string>
     <string name="credits_portraits_h">초⁠상</string>
-    <string name="credits_portraits">빈⁠센⁠트 반 고⁠흐⁠, 「⁠자⁠화⁠상⁠」 1887 · 시⁠카⁠고 미⁠술⁠관 · CC0\n「⁠레⁠오⁠폴⁠트 모⁠차⁠르⁠트⁠와 아⁠이⁠들⁠」(⁠카⁠르⁠몽⁠텔 원⁠화⁠) 1764 · 메⁠트⁠로⁠폴⁠리⁠탄 미⁠술⁠관 · CC0\n자⁠크⁠루⁠이 다⁠비⁠드⁠, 「⁠튈⁠르⁠리 궁 서⁠재⁠의 나⁠폴⁠레⁠옹⁠」 1812 · 미⁠국 국⁠립⁠미⁠술⁠관 · 오⁠픈 액⁠세⁠스\n「⁠시⁠인 바⁠쇼⁠」 · 레⁠이⁠크⁠스 미⁠술⁠관 · CC0</string>
+    <string name="credits_portraits">빈⁠센⁠트 반 고⁠흐⁠, 「⁠자⁠화⁠상⁠」 1887 · 시⁠카⁠고 미⁠술⁠관 · CC0\n요⁠한 네⁠포⁠무⁠크 델⁠라 크⁠로⁠체⁠(⁠추⁠정⁠), 「⁠모⁠차⁠르⁠트 가⁠족⁠」 부⁠분 1780–81⁠년 무⁠렵 · 모⁠차⁠르⁠테⁠움 재⁠단 · 공⁠공 영⁠역\n자⁠크⁠루⁠이 다⁠비⁠드⁠, 「⁠튈⁠르⁠리 궁 서⁠재⁠의 나⁠폴⁠레⁠옹⁠」 1812 · 미⁠국 국⁠립⁠미⁠술⁠관 · 오⁠픈 액⁠세⁠스\n「⁠시⁠인 바⁠쇼⁠」 · 레⁠이⁠크⁠스 미⁠술⁠관 · CC0</string>
     <string name="credits_voice_h">낭⁠독</string>
     <string name="credits_voice">낭⁠독 음⁠성⁠은 Supertone⁠사⁠의 Supertonic 3⁠로 만⁠들⁠었⁠어⁠요⁠. 모⁠델 라⁠이⁠선⁠스⁠는 OpenRAIL-M⁠이⁠고⁠, 모⁠델 자⁠체⁠는 앱⁠에 들⁠어 있⁠지 않⁠아⁠요⁠.</string>
     <string name="credits_fonts_h">글⁠꼴 · SIL 오⁠픈 폰⁠트 라⁠이⁠선⁠스 1.1</string>
@@ -852,4 +852,20 @@
     <string name="cover_epilogue_locked">마⁠지⁠막 편⁠지⁠를 읽⁠으⁠면 열⁠려⁠요</string>
     <string name="done_outro">맺⁠음⁠말 읽⁠기</string>
     <string name="done_series_end">그⁠의 마⁠지⁠막 편⁠지⁠였⁠어⁠요⁠. 맺⁠음⁠말⁠이 기⁠다⁠리⁠고 있⁠어⁠요⁠.</string>
+    <string name="lib_listening">듣⁠기 있⁠음</string>
+    <string name="music_chip">편⁠지 속 그 곡 듣⁠기</string>
+    <string name="music_chip_sub">%1$s · 1⁠분</string>
+    <string name="music_caps">편⁠지 속 그 곡</string>
+    <string name="music_excerpt">%1$s 발⁠췌</string>
+    <string name="music_back10">‹ 10⁠초</string>
+    <string name="music_fwd10">10⁠초 ›</string>
+    <string name="music_youtube">유⁠튜⁠브⁠에⁠서 전⁠곡 듣⁠기</string>
+    <string name="walk_listen">♪ 이 부⁠분 듣⁠기</string>
+    <string name="walk_listen_stop">■ 그⁠만 듣⁠기</string>
+    <string name="walk_title_score">악⁠보 속 산⁠책</string>
+    <string name="walk_back_score">전⁠체 악⁠보</string>
+    <string name="plate_era">시⁠대⁠의 그⁠림</string>
+    <string name="credits_music_h">음⁠악</string>
+    <string name="credits_full">전⁠체 출⁠처⁠와 라⁠이⁠선⁠스 ›</string>
+    <string name="credits_text_de">모⁠차⁠르⁠트 편⁠지⁠의 독⁠일⁠어 원⁠문⁠: 루⁠트⁠비⁠히 놀 엮⁠음 『Mozarts Briefe』(⁠잘⁠츠⁠부⁠르⁠크⁠, 1865, 공⁠공 영⁠역⁠), 인⁠터⁠넷 아⁠카⁠이⁠브 스⁠캔⁠본⁠, 판⁠의 철⁠자 그⁠대⁠로⁠. 영⁠어⁠는 레⁠이⁠디 월⁠리⁠스⁠의 1866⁠년 번⁠역⁠이⁠고⁠, 한⁠국⁠어 번⁠역⁠은 이 앱⁠이 새⁠로 썼⁠어⁠요⁠.</string>
 </resources>

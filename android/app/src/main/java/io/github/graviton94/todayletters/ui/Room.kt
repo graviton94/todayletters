@@ -56,6 +56,7 @@ import io.github.graviton94.todayletters.core.Plays
 import io.github.graviton94.todayletters.core.ReplyMode
 import io.github.graviton94.todayletters.core.Route
 import io.github.graviton94.todayletters.core.TypingPace
+import io.github.graviton94.todayletters.data.recipientOf
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
@@ -97,6 +98,8 @@ fun Room(s: AppState, r: Route.Letter) {
     val pace = when (view.pace) { TypingPace.CALM -> 1f; TypingPace.QUICK -> 0.55f; TypingPace.INSTANT -> 0f }
     val animate = pace > 0f && !s.reducedMotion
     fun audio(i: Int) = s.narrator.path(id, chapter, letter.id, "m${i + 1}_${view.learn.code}")
+    // 낭독이 아직 없는 편지 (모차르트 등): 듣기 단추를 숨기고, 자동 낭독 · 알림창 재생도 시작하지 않는다 (읽기는 그대로)
+    val narrated = remember(letter.id, view.learn) { total > 0 && s.narrator.has(audio(0)) }
 
     // 낭독 이어 듣기: 앱을 벗어나도 알림창 · 잠금 화면 · 이어폰 단추로 멈추고 넘긴다 (data/Playback)
     val appCtx = androidx.compose.ui.platform.LocalContext.current.applicationContext
@@ -106,7 +109,8 @@ fun Room(s: AppState, r: Route.Letter) {
     val jump = remember(letter.id) { intArrayOf(0) }   // 단추로 넘길 곳: 1 다음 문장, -1 이전 문장, 2 이 문장 처음부터
     var muted by remember(letter.id) { mutableStateOf(false) }   // 알림을 밀어 지우면 이 방에서는 더 읽지 않는다
     val nowTitle = dateLine(letter.date, letter.place)
-    val nowSub = stringResource(R.string.narration_sub, work.name[uiLang()], work.recipient[uiLang()],
+    val toWhom = remember(letter.id) { work.recipientOf(letter) }   // 이 편지를 받는 사람 (편지에 적혀 있으면 그 사람)
+    val nowSub = stringResource(R.string.narration_sub, work.name[uiLang()], toWhom[uiLang()],
         work.chapters.firstOrNull { it.id == chapter }?.title?.get(uiLang()).orEmpty())
     fun session() {
         if (Playback.now == null) Playback.start(appCtx, s.narrator,
@@ -137,6 +141,7 @@ fun Room(s: AppState, r: Route.Letter) {
     }
     fun speakAll(from: Int = 0, after: (() -> Unit)? = null) {
         if (all != null) { stopAll(); return }
+        if (!narrated) { after?.invoke(); return }
         stopAll(); muted = false
         all = scope.launch {
             say(from, written)
@@ -152,11 +157,13 @@ fun Room(s: AppState, r: Route.Letter) {
         override fun prev() { jump[0] = if (s.narrator.position() > 1500) 2 else -1; s.narrator.stop() }
         override fun stop() { muted = true; stopAll() }
     }
-    DisposableEffect(letter.id) { onDispose { s.narrator.stop(); Playback.end(appCtx) } }
+    DisposableEffect(letter.id) { onDispose { s.narrator.stop(); s.music.stop(); Playback.end(appCtx) } }
+    // 편지 속 그 곡 듣기 시트 (열려 있는 동안 낭독은 잠깐 멈춤)
+    var listening by remember(letter.id) { mutableStateOf<io.github.graviton94.todayletters.core.Moment.Music?>(null) }
 
     // 다시 열 때: 듣다 멈춘 문장이 있으면 묻는다 (이어서 듣기 · 처음부터). 소리를 끈 사람에게는 묻지 않고 전처럼 이어서 도착.
     val resumeAt = remember(letter.id) {
-        if (!s.app.sound) null
+        if (!s.app.sound || !narrated) null
         else if (already in 1 until total) already
         else s.store.heard(key).takeIf { it in 1 until total && already >= total }
     }
@@ -187,7 +194,7 @@ fun Room(s: AppState, r: Route.Letter) {
             if (animate && fg()) delay((Tokens.Motion.typingDotsMs * pace).toLong())
             arrived = i + 1
             toEnd(animated = animate)
-            val voice = if (s.app.sound && all == null && !muted && !(i == 0 && arrivalVoiced)) launch { voiced = true; say(i, i + 1) } else null
+            val voice = if (narrated && s.app.sound && all == null && !muted && !(i == 0 && arrivalVoiced)) launch { voiced = true; say(i, i + 1) } else null
             // 쓰는 동안 끝을 따라간다 (손으로 넘기는 중이면 기다림)
             val follow = launch {
                 while (true) {
@@ -227,7 +234,7 @@ fun Room(s: AppState, r: Route.Letter) {
         val notYet = stringResource(R.string.step_not_yet)
         val nLetter = remember(letter.id) { work.chapters.flatMap { it.letters }.indexOf(letter) + 1 }
         StepBar(read = written, total = total, modes = modes, replied = progress.replied, done = progress.done,
-            words = letter.words.size, recipient = work.recipient[uiLang()], number = roman(nLetter)) { step ->
+            words = letter.words.size, recipient = toWhom[uiLang()], number = roman(nLetter)) { step ->
             // 0 = 읽기, 1..modes = 연습, 마지막 = 그림. 다 한 걸음과 지금 걸음만 이동
             val readDone = written >= total
             val nextMode = if (!readDone) null else modes.firstOrNull { it !in progress.replied }
@@ -268,8 +275,8 @@ fun Room(s: AppState, r: Route.Letter) {
                     Text(stringResource(R.string.reread_banner, g.known, g.total), style = Type.small.ui(), color = p.onFill, modifier = Modifier.weight(1f))
                 }
             } }
-            letter.moments.filter { it.after < 0 }.forEachIndexed { k, mo ->
-                item(key = "${letter.id}:pre:$k") { MomentCard(s, work, mo, onMap = { }, onPhoto = { s.go(Route.Artwork(id, r.letter, r)) }) }
+            letter.moments.filter { it.after < 0 && it.shows() }.forEachIndexed { k, mo ->
+                item(key = "${letter.id}:pre:$k") { MomentCard(s, work, mo, onMap = { }, onPhoto = { s.go(Route.Artwork(id, r.letter, r)) }, onMusic = { listening = it }) }
             }
             itemsIndexed(letter.messages.take(arrived), key = { i, _ -> "${letter.id}:$i" }) { i, m ->
                 val sentMarks = wordMarks(m.text[view.learn], letter.words.map { it.text[view.learn] })
@@ -289,8 +296,8 @@ fun Room(s: AppState, r: Route.Letter) {
                         index = i, learn = m.text[view.learn], learnLang = view.learn,
                         read = if (view.showRead) m.text[view.read] else null, readLang = view.read,
                         animate = fresh, lineMs = (Tokens.Motion.inkLineMs * pace.coerceAtLeast(0.3f)).toInt(),
-                        signature = if (i == total - 1) "t. à t. ${work.sender}" else null,
-                        playing = playing == i, canPlay = i < written,
+                        signature = if (i == total - 1) signOff(work.series.original, work.sender) else null,
+                        playing = playing == i, canPlay = i < written, canListen = narrated,
                         onPlay = { speak(i) }, onWritten = { if (written < i + 1) written = i + 1 },
                         marks = sentMarks,
                         onWord = { wordFocus = it },
@@ -300,11 +307,11 @@ fun Room(s: AppState, r: Route.Letter) {
                     )
                 }
                 // 메신저 같은 순간: 이 문장 다음의 위치 공유 · 사진 공유 (문장이 다 써진 뒤에)
-                if (i < written) letter.moments.filter { it.after == i }.forEach { mo ->
+                if (i < written) letter.moments.filter { it.after == i && it.shows() }.forEach { mo ->
                     Box(Modifier.padding(top = Tokens.Space.s4)) {
                         MomentCard(s, work, mo, onMap = { }, onPhoto = {
                             s.go(Route.Artwork(id, r.letter, r))
-                        })
+                        }, onMusic = { listening = it })
                     }
                 }
                 }
@@ -326,7 +333,7 @@ fun Room(s: AppState, r: Route.Letter) {
                     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End, verticalAlignment = Alignment.Bottom) {
                         if (unreadByHim) Text("1", style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.giltText,
                             modifier = Modifier.padding(end = 6.dp, bottom = 2.dp))
-                        TheoNote(reply[view.learn], view.learn, if (view.showRead) reply[view.read] else null, view.read, work.recipient[view.learn])
+                        TheoNote(reply[view.learn], view.learn, if (view.showRead) reply[view.read] else null, view.read, toWhom[view.learn])
                     }
                 }
             }
@@ -392,6 +399,7 @@ fun Room(s: AppState, r: Route.Letter) {
         s.store.markArrived(key); arrivalVoiced = heard; arriving = false
     }
     if (words) WordSheet(s, r, onClose = { words = false })
+    listening?.let { m -> MusicSheet(s, work, m, onClose = { listening = null }) }
     wordFocus?.let { k -> val (ch, lt) = s.letterOf(r); WordDetail(s, s.cardKey(id, ch, lt.id, k)) { wordFocus = null } }
     // 다 읽은 편지의 낱말은 낱말 카드함으로 (내일부터 복습)
     LaunchedEffect(finished) { if (finished) s.collectWords(id, chapter, letter) }
@@ -615,7 +623,7 @@ private fun CuratorNote(text: String, lang: Lang) {
 @Composable
 private fun LetterSlip(
     index: Int, learn: String, learnLang: Lang, read: String?, readLang: Lang,
-    animate: Boolean, lineMs: Int, signature: String?, playing: Boolean, canPlay: Boolean,
+    animate: Boolean, lineMs: Int, signature: String?, playing: Boolean, canPlay: Boolean, canListen: Boolean = true,
     onPlay: () -> Unit, onWritten: () -> Unit,
     marks: List<Pair<IntRange, Int>> = emptyList(), onWord: (Int) -> Unit = {},
     saved: Boolean = false, onSave: () -> Unit = {},
@@ -649,7 +657,7 @@ private fun LetterSlip(
                 if (signature != null) Text(signature, style = Type.signature, color = p.slipSoft, modifier = Modifier.align(Alignment.End).padding(top = Tokens.Space.s1))
             }
             Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
-                if (canPlay) SpeakerButton(playing, stringResource(R.string.listen_line), onClick = onPlay)
+                if (canPlay && canListen) SpeakerButton(playing, stringResource(R.string.listen_line), onClick = onPlay)
                 else Box(Modifier.size(Tokens.Size.speaker))
                 // 내 구절에 담기
                 if (canPlay) IconButton(stringResource(if (saved) R.string.quote_saved else R.string.quote_save), onClick = onSave) { Bookmark(saved) }
@@ -691,7 +699,7 @@ fun WordSheet(s: AppState, r: Route.Letter, onClose: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
             Rule()
-            Caps("Mots · ${letter.date}", p.giltText)
+            Caps("${deco(s.work(r.series).series.original, "Mots", "Wörter")} · ${letter.date}", p.giltText)
             letter.words.forEachIndexed { i, w ->
                 Row(
                     Modifier.fillMaxWidth().heightIn(min = Tokens.Size.touch).clickable(role = Role.Button) {
@@ -746,6 +754,15 @@ fun Lines(c: androidx.compose.ui.graphics.Color) = Canvas(Modifier.size(Tokens.S
     val w = size.width; val h = size.height
     for (k in 0..2) drawLine(c, Offset(0f, h * (0.25f + k * 0.25f)), Offset(w, h * (0.25f + k * 0.25f)), 1.5f * density)
 }
+
+/** 대화방에 놓을 순간인가: ‘편지 속 그 곡’은 녹음이 있을 때만. */
+private fun io.github.graviton94.todayletters.core.Moment.shows() = (this as? io.github.graviton94.todayletters.core.Moment.Music)?.playable ?: true
+
+/** 장식 글자(머리글 · 갈래 이름)를 작품의 원어로: 독일어 작품은 [de], 그 밖(프랑스어 작품)은 [fr]. */
+fun deco(original: Lang, fr: String, de: String) = if (original == Lang.DE) de else fr
+
+/** 마지막 조각의 서명: 프랑스어 편지는 “t. à t. Vincent”, 독일어 편지는 “— Wolfgang”. */
+fun signOff(original: Lang, sender: String) = if (original == Lang.FR) "t. à t. $sender" else "— $sender"
 
 /** "1888-02-21" → "21 FÉVR." (소인용, 프랑스어 약자). */
 fun dayOf(date: String): String = runCatching {

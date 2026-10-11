@@ -37,6 +37,15 @@ class NavTest {
 
     private fun AppState.backTo(r: Route) { assertTrue(back()); assertEquals(r, route) }
 
+    /** 프롤로그가 없는 작품 (모차르트): 처음 열면 바로 편지 I. */
+    @Test fun noPrologueGoesStraightToLetterOne() {
+        val s = state(onboarded = false)
+        if (s.works.none { it.series.id == "mozart" }) return
+        assertTrue(s.work("mozart").prologue.isEmpty())
+        s.startFirstLetter("mozart")
+        assertEquals(Route.Letter("mozart", 1, 1, Route.Inbox), s.route)
+    }
+
     @Test fun firstRunGoesStraightToLetterOne() {
         val s = state(onboarded = false)
         assertEquals(Route.Library, s.route)

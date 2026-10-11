@@ -1933,8 +1933,8 @@
     "ko": "초상"
   },
   "credits_portraits": {
-    "en": "Vincent van Gogh, Self-Portrait, 1887 · Art Institute of Chicago · CC0\nLeopold Mozart and His Children (after Carmontelle), 1764 · The Metropolitan Museum of Art · CC0\nJacques-Louis David, The Emperor Napoleon in His Study at the Tuileries, 1812 · National Gallery of Art, Washington · Open Access\nThe Poet Bashō · Rijksmuseum, Amsterdam · CC0",
-    "ko": "빈센트 반 고흐, 「자화상」 1887 · 시카고 미술관 · CC0\n「레오폴트 모차르트와 아이들」(카르몽텔 원화) 1764 · 메트로폴리탄 미술관 · CC0\n자크루이 다비드, 「튈르리 궁 서재의 나폴레옹」 1812 · 미국 국립미술관 · 오픈 액세스\n「시인 바쇼」 · 레이크스 미술관 · CC0"
+    "en": "Vincent van Gogh, Self-Portrait, 1887 · Art Institute of Chicago · CC0\nJohann Nepomuk della Croce (attr.), The Mozart Family (detail), c. 1780–81 · Stiftung Mozarteum Salzburg · Public domain\nJacques-Louis David, The Emperor Napoleon in His Study at the Tuileries, 1812 · National Gallery of Art, Washington · Open Access\nThe Poet Bashō · Rijksmuseum, Amsterdam · CC0",
+    "ko": "빈센트 반 고흐, 「자화상」 1887 · 시카고 미술관 · CC0\n요한 네포무크 델라 크로체(추정), 「모차르트 가족」 부분 1780–81년 무렵 · 모차르테움 재단 · 공공 영역\n자크루이 다비드, 「튈르리 궁 서재의 나폴레옹」 1812 · 미국 국립미술관 · 오픈 액세스\n「시인 바쇼」 · 레이크스 미술관 · CC0"
   },
   "credits_voice_h": {
     "en": "Narration",
@@ -3403,5 +3403,69 @@
   "done_series_end": {
     "en": "That was his last letter. The afterword is waiting.",
     "ko": "그의 마지막 편지였어요. 맺음말이 기다리고 있어요."
+  },
+  "lib_listening": {
+    "en": "Listening",
+    "ko": "듣기 있음"
+  },
+  "music_chip": {
+    "en": "Hear the piece in this letter",
+    "ko": "편지 속 그 곡 듣기"
+  },
+  "music_chip_sub": {
+    "en": "%1$s · 1 min",
+    "ko": "%1$s · 1분"
+  },
+  "music_caps": {
+    "en": "The piece in the letter",
+    "ko": "편지 속 그 곡"
+  },
+  "music_excerpt": {
+    "en": "%1$s excerpt",
+    "ko": "%1$s 발췌"
+  },
+  "music_back10": {
+    "en": "‹ 10 s",
+    "ko": "‹ 10초"
+  },
+  "music_fwd10": {
+    "en": "10 s ›",
+    "ko": "10초 ›"
+  },
+  "music_youtube": {
+    "en": "Full piece on YouTube",
+    "ko": "유튜브에서 전곡 듣기"
+  },
+  "walk_listen": {
+    "en": "♪ Listen to this passage",
+    "ko": "♪ 이 부분 듣기"
+  },
+  "walk_listen_stop": {
+    "en": "■ Stop listening",
+    "ko": "■ 그만 듣기"
+  },
+  "walk_title_score": {
+    "en": "A walk in the score",
+    "ko": "악보 속 산책"
+  },
+  "walk_back_score": {
+    "en": "Whole score",
+    "ko": "전체 악보"
+  },
+  "plate_era": {
+    "en": "Art of the time",
+    "ko": "시대의 그림"
+  },
+  "credits_music_h": {
+    "en": "Music",
+    "ko": "음악"
+  },
+  "credits_full": {
+    "en": "Full sources and licences ›",
+    "ko": "전체 출처와 라이선스 ›"
+  },
+  "credits_text_de": {
+    "en": "German text of Mozart's letters: Mozarts Briefe, edited by Ludwig Nohl (Salzburg, 1865, public domain), from the Internet Archive scan, keeping the edition's spelling. English: Lady Wallace's translation (1866). Korean translations are written for this app.",
+    "ko": "모차르트 편지의 독일어 원문: 루트비히 놀 엮음 『Mozarts Briefe』(잘츠부르크, 1865, 공공 영역), 인터넷 아카이브 스캔본, 판의 철자 그대로. 영어는 레이디 월리스의 1866년 번역이고, 한국어 번역은 이 앱이 새로 썼어요."
   }
 }

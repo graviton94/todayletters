@@ -131,6 +131,49 @@ class Narrator(private val ctx: Context) {
 }
 
 /**
+ * 편지 속 그 곡 (60초 발췌): assets/audio/<작품>/music/<파일>. 낭독([Narrator])과 따로 울리는 재생기 하나.
+ * 재생 · 멈춤 · 10초 앞뒤 · 위치를 화면(듣기 시트 · 악보 속 산책)이 직접 다룬다. 파일이 없으면 조용히 false.
+ */
+class Excerpt(private val ctx: Context) {
+    private var player: MediaPlayer? = null
+    /** 지금 걸어 둔 파일 (멈춘 것 포함). */
+    var loaded: String? = null
+        private set
+    private var done: (() -> Unit)? = null
+
+    /** [asset] 을 처음부터. 끝까지 들으면 [onDone]. */
+    fun play(asset: String, onDone: () -> Unit = {}): Boolean {
+        stop()
+        val fd = AudioFiles.fd(ctx, asset) ?: return false
+        done = onDone
+        player = runCatching {
+            MediaPlayer().apply {
+                setAudioAttributes(AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(AudioAttributes.CONTENT_TYPE_MUSIC).build())
+                setDataSource(fd.fileDescriptor, fd.startOffset, fd.length)
+                setOnCompletionListener { val d = done; done = null; d?.invoke() }
+                prepare(); start()
+            }
+        }.getOrNull()
+        runCatching { fd.close() }
+        if (player != null) loaded = asset
+        return player != null
+    }
+
+    val playing get() = player?.runCatching { isPlaying }?.getOrNull() == true
+    fun pause() { player?.runCatching { if (isPlaying) pause() } }
+    fun resume() { player?.runCatching { if (!isPlaying) start() } }
+    /** [ms] 만큼 앞뒤로 (끝을 넘지 않게). */
+    fun skip(ms: Int) { player?.runCatching { seekTo((currentPosition + ms).coerceIn(0, (duration - 200).coerceAtLeast(0))) } }
+    fun position(): Int = player?.runCatching { currentPosition }?.getOrNull() ?: 0
+    fun duration(): Int = player?.runCatching { duration }?.getOrNull()?.takeIf { it > 0 } ?: 60_000
+
+    fun stop() {
+        player?.runCatching { stop(); release() }
+        player = null; loaded = null; done = null
+    }
+}
+
+/**
  * 따라 읽기 녹음: 기기 안에만 둔다 (사용자가 목소리 엽서로 보낼 때만 밖으로).
  * 마디 녹음은 AAC(ADTS)라서 파일을 차례로 이어 붙이면 그대로 한 편의 낭독이 된다.
  */

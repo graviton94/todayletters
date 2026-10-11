@@ -139,14 +139,14 @@ fun SeriesCover(s: AppState, id: String) {
             IconButton(stringResource(R.string.series_settings), onClick = { s.go(Route.SeriesSettings(id)) }) { Gear(p.ink) }
         }
         Page {
-            Caps("Saison I · Table des matières", decorative = true)
+            Caps(deco(w.series.original, "Saison I · Table des matières", "Band I · Inhalt"), decorative = true)
             Text(w.title[w.series.original], style = Type.display, color = p.ink)
             Text(w.title[s.app.read], style = Type.body.of(s.app.read), color = p.inkSoft)
             Rule()
             // 프롤로그: 아를 이전 (언제든 다시 보기)
             if (w.prologue.isNotEmpty()) {
                 ChapterRow(
-                    numeral = "P", original = "Prologue", read = stringResource(R.string.cover_prologue),
+                    numeral = "P", original = deco(w.series.original, "Prologue", "Prolog"), read = stringResource(R.string.cover_prologue),
                     readLang = s.app.read, originalLang = w.series.original,
                     meta = stringResource(R.string.cover_prologue_meta, w.prologue.size),
                     onClick = { s.go(Route.Prologue(id)) },
@@ -170,7 +170,7 @@ fun SeriesCover(s: AppState, id: String) {
             if (w.outro != null) {
                 val done = s.seriesDone(id)
                 ChapterRow(
-                    numeral = "É", original = "Épilogue", read = stringResource(R.string.cover_epilogue),
+                    numeral = deco(w.series.original, "É", "E"), original = deco(w.series.original, "Épilogue", "Epilog"), read = stringResource(R.string.cover_epilogue),
                     readLang = s.app.read, originalLang = w.series.original,
                     meta = stringResource(if (done) R.string.cover_epilogue_open else R.string.cover_epilogue_locked),
                     onClick = { if (done) s.go(Route.Outro(id)) },
@@ -178,7 +178,7 @@ fun SeriesCover(s: AppState, id: String) {
                 Hair()
             }
             ChapterRow(
-                numeral = "✦", original = "Catalogue", read = stringResource(R.string.catalogue_title),
+                numeral = "✦", original = deco(w.series.original, "Catalogue", "Katalog"), read = stringResource(R.string.catalogue_title),
                 readLang = s.app.read, originalLang = w.series.original,
                 meta = stringResource(R.string.catalogue_progress, w.chapters.sumOf { c -> c.letters.count { s.progress(id, c.id, it.id).done } }, w.chapters.sumOf { it.letters.size }),
                 onClick = { s.go(Route.Catalogue(id)) },
@@ -203,7 +203,7 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
             Box(Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Brush.verticalGradient(0f to androidx.compose.ui.graphics.Color(0x73170F0A), 0.45f to androidx.compose.ui.graphics.Color(0x0D170F0A), 1f to p.paper)))
             IconButton(stringResource(R.string.back), onClick = { s.back() }) { Chevron(androidx.compose.ui.graphics.Color(0xFFF7F0E1)) }
             Column(Modifier.align(Alignment.BottomStart).padding(start = Tokens.Space.s5, bottom = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                Caps("Chapitre ${roman(r.chapter)} · ${c.letters.firstOrNull()?.place ?: ""} ${c.letters.firstOrNull()?.date?.take(4) ?: ""}", p.giltText, small = true, decorative = true)
+                Caps("${deco(w.series.original, "Chapitre", "Kapitel")} ${roman(r.chapter)} · ${c.letters.firstOrNull()?.place ?: ""} ${c.letters.firstOrNull()?.date?.take(4) ?: ""}", p.giltText, small = true, decorative = true)
                 Text(c.title[w.series.original], style = Type.display, color = p.ink)
                 Text(stringResource(R.string.chapter_meta, c.letters.size, readN) + " · " + c.title[uiLang()], style = Type.small.ui(), color = p.inkSoft)
             }
@@ -230,7 +230,7 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
                         verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
                     ) {
                         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                            Text("LETTRE ${roman(i + 1)}", style = Type.capsSm, color = p.giltText)
+                            Text("${deco(w.series.original, "LETTRE", "BRIEF")} ${roman(i + 1)}", style = Type.capsSm, color = p.giltText)
                             Text(dateLine(l.date, l.place), style = Type.body.ui(), color = if (can) p.ink else p.hideInk)
                             Text(
                                 when {
