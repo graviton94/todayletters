@@ -536,4 +536,36 @@ class ScreensTest {
         s.reward = AppState.RewardMoment("vincent", 28, pc, listOf("pieces_12"), null, listOf(io.github.graviton94.todayletters.core.Earn.LETTER to 6))
         large("89_reward", 2000) { io.github.graviton94.todayletters.ui.RewardOverlay(s) }
     }
+
+    // ── 릴리즈 전 점검 (반 고흐 완결): 새 화면과 확인이 필요한 편지만. screens 워크플로에서 '*ScreensTest.release*' 로 따로 돌린다.
+    private fun allDone(s: AppState, upTo: Int = 8) = s.work("vincent").chapters.take(upTo).forEach { c ->
+        c.letters.forEach { l -> s.save("vincent", c.id, l.id, s.progress("vincent", c.id, l.id).copy(shown = l.messages.size, done = true)) }
+    }
+    @Test fun releasePrologueFirst() { val s = state(true); shot("r01_prologue_p1", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("vincent", 0)) } }
+    @Test fun releasePrologueLast() { val s = state(true); shot("r02_prologue_p4", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("vincent", 3)) } }
+    @Test fun releaseArrival() { val s = state(true); shot("r03_prologue_arrival", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("vincent", 4)) } }
+    @Test fun releaseCover() { val s = state(true); allDone(s, 3); shot("r04_cover_rows", false, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "vincent") } }
+    @Test fun releaseDoneLast() { val s = state(true); allDone(s); shot("r05_done_last", false, 4000, series = s) { Done(s, Route.Letter("vincent", 8, 7)) } }
+    @Config(qualifiers = "+h1900dp")
+    @Test fun releaseOutro() { val s = state(true); allDone(s); shot("r06_outro_full", true, 3000) { io.github.graviton94.todayletters.ui.OutroScreen(s, "vincent") } }
+    @Config(qualifiers = "+h1600dp")
+    @Test fun releaseCatalogue() { val s = state(true); allDone(s, 3); shot("r07_catalogue_partial", true, 2000) { io.github.graviton94.todayletters.ui.CatalogueScreen(s, "vincent") } }
+    @Config(qualifiers = "+h1600dp")
+    @Test fun releaseCatalogueDone() { val s = state(true); allDone(s); shot("r08_catalogue_complete", true, 2000) { io.github.graviton94.todayletters.ui.CatalogueScreen(s, "vincent") } }
+    @Test fun releasePrologueWord() { val s = state(true); shot("r09_prologue_word", false, series = s) { io.github.graviton94.todayletters.ui.WordDetailBody(s, "vincent:P:p1:0") { } } }
+    /** c1-l1 밀짚모자: 편지가 그림을 묘사하지 않아 색 두 자리로 이은 것. */
+    @Test fun releaseWalkStrawHat() {
+        val s = state(true)
+        shot("r10_walk_c1l1", false, act = { rule.onNodeWithText(io.github.graviton94.todayletters.core.Breaks.keepAll("산책 시작")).performClick() }, series = s) { Artwork(s, Route.Artwork("vincent", 1, Route.Letter("vincent", 1, 1))) }
+    }
+    /** c2-l6 Patience Escalier: 걸린 그림(파란 배경)과 편지(주황)의 차이를 해설이 말하는지. */
+    @Test fun releasePatience() { val s = state(true); shot("r11_artwork_c2l6", false, series = s) { Artwork(s, Route.Artwork("vincent", 6, Route.Letter("vincent", 2, 6))) } }
+    /** c5-l3 (573): 룰랭의 목소리 · ‘pour mon oreille’ 문장. */
+    @Config(qualifiers = "+h1400dp")
+    @Test fun releaseRoom573() {
+        val s = state(true)
+        val l = s.work("vincent").chapters[4].letters[2]
+        s.save("vincent", "V", l.id, s.progress("vincent", "V", l.id).copy(shown = 2))
+        shot("r12_room_c5l3", false, 3000, series = s) { Room(s, Route.Letter("vincent", 5, 3)) }
+    }
 }

@@ -3,6 +3,8 @@ name: Screens
 # 화면 사진: 기기 없이 주요 화면을 PNG 로 그려 screens 가지에 올린다 (검토용). 직접 실행할 때만.
 on:
   workflow_dispatch:
+    inputs:
+      tests: { description: "찍을 사진 (예: *ScreensTest.release* = 릴리즈 전 점검만)", default: "*ScreensTest*" }
 
 jobs:
   shots:
@@ -18,7 +20,7 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - name: Draw screens
         working-directory: android
-        run: ./gradlew :app:testDebugUnitTest --tests '*ScreensTest*' --continue
+        run: ./gradlew :app:testDebugUnitTest --tests '${{ inputs.tests }}' --continue
       - name: Show failures
         if: failure()
         run: |
