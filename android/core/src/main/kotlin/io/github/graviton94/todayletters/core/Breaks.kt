@@ -28,3 +28,37 @@ object Breaks {
     /** 이음표를 뺀 글자 (비교 · 검색용). */
     fun plain(text: String) = text.replace(JOIN.toString(), "")
 }
+
+/**
+ * 낭독 중인 자리 칠하기: 낭독 마디(narrate.py 의 m<i>_<언어>.json 덩어리)를 화면 문장의 글자 범위로 옮긴다.
+ * 마디 글은 낭독용 철자(끊음 표시 · 구두점)가 화면과 조금 달라서, 글자(문자 · 숫자) 수를 차례로 세어 나눈다.
+ */
+object Spoken {
+    /** [chunks] 의 글들을 [text] 안의 범위로 (마디마다 하나, 앞 띄어쓰기는 뺀다). 마디가 없으면 빈 목록. */
+    fun ranges(text: String, chunks: List<String>): List<IntRange> {
+        if (chunks.isEmpty() || text.isEmpty()) return emptyList()
+        val counts = chunks.map { c -> c.count { it.isLetterOrDigit() } }
+        val total = counts.sum()
+        val letters = text.count { it.isLetterOrDigit() }
+        if (total == 0 || letters == 0) return listOf(text.indices)
+        val out = mutableListOf<IntRange>()
+        var start = 0; var seen = 0; var cum = 0
+        counts.forEachIndexed { k, n ->
+            cum += n
+            val goal = (cum.toLong() * letters / total).toInt()
+            var j = start
+            while (j < text.length && seen < goal) { if (text[j].isLetterOrDigit()) seen++; j++ }
+            // 마디 끝의 구두점까지 함께 (다음 띄어쓰기 · 글자 앞에서 멈춤)
+            while (j < text.length && !text[j].isLetterOrDigit() && !text[j].isWhitespace()) j++
+            if (k == counts.lastIndex) j = text.length
+            var a = start
+            while (a < j && text[a].isWhitespace()) a++
+            out += a until j
+            start = j
+        }
+        return out
+    }
+
+    /** 재생 위치 [at] (밀리초) 에 읽고 있는 마디 번호: 시작이 지난 마지막 마디 (마디 사이 숨에서는 앞 마디). */
+    fun at(starts: List<Int>, at: Int): Int = starts.indexOfLast { it <= at }.coerceAtLeast(0)
+}

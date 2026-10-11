@@ -56,6 +56,7 @@ class CoreTest {
         assertEquals(letter, Nav.up(Route.Play(letter, ReplyMode.CONSTELLATION)))
         assertNull(Nav.up(Route.Library))
         assertEquals(Route.Library, Nav.up(Route.Enter("vincent")))
+        assertEquals(Route.Library, Nav.up(Route.Welcome("mozart")))
         assertEquals(listOf(Route.Library, Route.Gallery, Route.Exhibition), Nav.trail(Route.Exhibition))
         assertFalse(Nav.inSeries(Route.Overall))
         assertTrue(Nav.inSeries(Route.Milestones))
@@ -290,6 +291,38 @@ class CoreTest {
         assertEquals(6, Recital.weekday(3))      // 1970-01-04 은 일요일
         assertTrue(Recital.isSunday(3))
         assertEquals(-3, Recital.weekStart(3))   // 그 주 월요일 1969-12-29
+    }
+
+    /** 오늘의 할 일은 시리즈마다 따로: 한 시리즈의 진행이 다른 시리즈에 번지지 않고, 날이 바뀌면 0 부터, 보너스는 하루 한 번. */
+    @Test fun questsArePerSeries() {
+        val day = 20000L
+        val logs = mutableMapOf("vincent" to QuestLog(), "mozart" to QuestLog())
+        val q = Quests.today(day)
+        logs["vincent"] = logs.getValue("vincent").add(day, q[0])
+        assertEquals(1, logs.getValue("vincent").count(day, q[0]))
+        assertEquals(0, logs.getValue("mozart").count(day, q[0]))
+        assertEquals(0, logs.getValue("vincent").count(day + 1, q[0]))
+        assertEquals(1, logs.getValue("vincent").add(day + 1, q[1]).counts.size)
+        var v = logs.getValue("vincent")
+        q.forEach { v = v.atLeast(day, it, it.goal) }
+        assertTrue(v.payable(day))
+        assertFalse(v.copy(paid = day).payable(day))
+        assertFalse(logs.getValue("mozart").payable(day))
+        assertEquals(v, v.atLeast(day, q[0], 1))
+    }
+
+    /** 낭독 마디 → 화면 글자 범위: 구두점 · 끊음 표시가 달라도 글자 수로 맞춘다. */
+    @Test fun spokenChunksMapToText() {
+        val text = "Ich bin, Gott Lob und Dank! nebst meiner Feder gesund."
+        val r = Spoken.ranges(text, listOf("Ich bin, Gott Lob und Dank!", "nebst meiner / Feder gesund."))
+        assertEquals(2, r.size)
+        assertEquals("Ich bin, Gott Lob und Dank!", text.substring(r[0]))
+        assertEquals("nebst meiner Feder gesund.", text.substring(r[1]))
+        assertEquals(listOf(text.indices), Spoken.ranges(text, listOf(text)))
+        assertTrue(Spoken.ranges(text, emptyList()).isEmpty())
+        assertEquals(0, Spoken.at(listOf(200, 3268), 0))
+        assertEquals(0, Spoken.at(listOf(200, 3268), 3000))
+        assertEquals(1, Spoken.at(listOf(200, 3268), 3300))
     }
 
     /** 가짜 목소리: 시간에 따른 음높이 [pitch] 와 크기 [amp] 로 배음 셋을 합친 소리. */

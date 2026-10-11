@@ -594,4 +594,21 @@ class ScreensTest {
     @Test fun mozartArrival() { val s = state(true); shot("m07_prologue_arrival", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 3)) } }
     @Test fun mozartOutro() { val s = state(true); mozartDone(s); shot("m08_outro", true, 3000) { io.github.graviton94.todayletters.ui.OutroScreen(s, "mozart") } }
     @Test fun mozartCover() { val s = state(true); shot("m09_cover", false, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "mozart") } }
+    /** 모차르트에 처음 들어갈 때: 무엇을 배울지 (처음 소개와 같은 장). */
+    @Test fun mozartWelcome() { val s = state(true); shot("m10_welcome", true, series = s.also { it.enter("mozart") }) { io.github.graviton94.todayletters.ui.LearnChoice(s, s.work("mozart")) { } } }
+    /** 오늘: 편지 카드의 단추 하나 · 장마다 읽은 수 줄의 글자 링크 · 번역 줄. */
+    @Test fun mozartToday() { val s = state(true); s.enter("mozart"); shot("m11_today", true, series = s) { io.github.graviton94.todayletters.ui.Inbox(s) } }
+    /** 편지 도착: 첫 줄이 다 쓰인 뒤 (아래 ‘편지 읽기’ 단추). */
+    @Test fun mozartArrivalLine() {
+        val s = state(true); val l = s.work("mozart").chapters.first().letters.first()
+        shot("m12_arrival_line", true, series = s) { io.github.graviton94.todayletters.ui.ArrivalBody(s, "mozart", "I", l, 1, { }, startAt = 2) }
+    }
+    /** 낮은 화면의 편지 도착 그림 (글 묶음이 넘치지 않고 굴러야 한다). */
+    @Config(sdk = [34], qualifiers = "ko-rKR-w393dp-h560dp-xxhdpi")
+    @Test fun mozartArrivalSmall() {
+        val s = state(true); val l = s.work("mozart").chapters.first().letters.first()
+        shot("m13_arrival_painting_small", true, series = s) { io.github.graviton94.todayletters.ui.ArrivalBody(s, "mozart", "I", l, 1, { }, startAt = 0) }
+    }
+    /** 프롤로그 둘째 장: ‘이전’ · ‘건너뛰기’ · ‘다음’. */
+    @Test fun mozartProloguePrev() { val s = state(true); shot("m14_prologue_p2", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 1)) } }
 }

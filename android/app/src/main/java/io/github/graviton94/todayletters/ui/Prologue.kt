@@ -25,6 +25,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -88,13 +89,16 @@ fun PrologueScreen(s: AppState, r: Route.Prologue) {
     var detail by remember { mutableStateOf<String?>(null) }
     DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
     BackHandler { if (page > 0) { s.narrator.stop(); page-- } else s.back() }
+    // 다른 장으로 넘기면 맨 위부터
+    val scroll = rememberScrollState()
+    LaunchedEffect(page) { scroll.scrollTo(0) }
     Column(Modifier.fillMaxSize().background(Night).statusBarsPadding().navigationBarsPadding()) {
         val last = page >= pages.size
         w.arrival?.let { a -> Timeline(a.years, a.at.getOrElse(page) { a.years.lastIndex }) }
         if (!last) {
             val d = pages[page]
             val l = d.letter
-            Column(Modifier.weight(1f).verticalScroll(rememberScrollState())) {
+            Column(Modifier.weight(1f).verticalScroll(scroll)) {
                 l.plate?.let { pl ->
                     Box(Modifier.padding(horizontal = 24.dp).padding(top = 18.dp).fillMaxWidth().background(Brush.verticalGradient(listOf(Color(0xFF2B2117), Wall))).border(1.dp, Color(0xFF4A3B28)).padding(10.dp), contentAlignment = Alignment.Center) {
                         AssetImage("plates/${pl.image}", Modifier.fillMaxWidth().heightIn(max = 250.dp).aspectRatio(1.3f, matchHeightConstraintsFirst = false), sample = 2)
@@ -112,7 +116,8 @@ fun PrologueScreen(s: AppState, r: Route.Prologue) {
                     Row(Modifier.padding(horizontal = 26.dp).padding(top = 14.dp).fillMaxWidth()) {
                         Box(Modifier.width(2.dp).heightIn(min = 60.dp).background(Gilt))
                         Column(Modifier.weight(1f).padding(start = 12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                            Text(Breaks.plain(m.text[view.learn]), style = Type.body.of(view.learn).copy(fontStyle = FontStyle.Italic), color = Light)
+                            val line = Breaks.plain(m.text[view.learn])
+                            Text(spokenText(line, spokenRange(s.narrator, audio, line), Gilt), style = Type.body.of(view.learn).copy(fontStyle = FontStyle.Italic), color = Light)
                             if (view.read != view.learn) Text(Breaks.plain(m.text[view.read]), style = Type.small.of(view.read), color = Soft)
                             Text(d.source[ui], style = Type.small.ui(), color = Faint)
                         }
@@ -148,8 +153,12 @@ fun PrologueScreen(s: AppState, r: Route.Prologue) {
             }
         }
         Row(Modifier.fillMaxWidth().padding(horizontal = 22.dp, vertical = 14.dp), verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.weight(1f)) {
-                if (!last) Text(stringResource(R.string.prologue_skip), style = Type.small.ui(), color = Soft, modifier = Modifier.heightIn(min = 48.dp).pressable { s.narrator.stop(); s.finishPrologue(r.series) }.padding(vertical = 14.dp))
+            // 이전 (첫 장 뒤로) · 건너뛰기 (마지막 장 앞까지)
+            Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                if (page > 0) Box(Modifier.heightIn(min = 48.dp).border(1.dp, Gilt).pressable { s.narrator.stop(); page-- }.padding(horizontal = 14.dp, vertical = 12.dp), contentAlignment = Alignment.Center) {
+                    Text(stringResource(R.string.prologue_prev), style = Type.body.ui(), color = Gilt)
+                }
+                if (!last) Text(stringResource(R.string.prologue_skip), style = Type.small.ui(), color = Soft, maxLines = 1, modifier = Modifier.heightIn(min = 48.dp).pressable { s.narrator.stop(); s.finishPrologue(r.series) }.padding(vertical = 14.dp))
             }
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.padding(horizontal = 12.dp)) {
                 (0..pages.size).forEach { k -> Box(Modifier.size(6.dp).background(if (k == page) Gilt else Color(0xFF4A3F31), CircleShape)) }
@@ -191,7 +200,8 @@ fun OutroScreen(s: AppState, series: String) {
                         Row(Modifier.fillMaxWidth().pressable { s.narrator.play(audio) }.padding(vertical = 4.dp)) {
                             Box(Modifier.width(2.dp).heightIn(min = 40.dp).background(Gilt))
                             Column(Modifier.padding(start = 12.dp), verticalArrangement = Arrangement.spacedBy(3.dp)) {
-                                Text(Breaks.plain(m.text[view.learn]), style = Type.body.of(view.learn).copy(fontStyle = FontStyle.Italic), color = Light)
+                                val line = Breaks.plain(m.text[view.learn])
+                                Text(spokenText(line, spokenRange(s.narrator, audio, line), Gilt), style = Type.body.of(view.learn).copy(fontStyle = FontStyle.Italic), color = Light)
                                 if (view.read != view.learn) Text(Breaks.plain(m.text[view.read]), style = Type.small.of(view.read), color = Soft)
                             }
                         }

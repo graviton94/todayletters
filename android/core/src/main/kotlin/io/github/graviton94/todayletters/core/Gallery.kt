@@ -71,6 +71,19 @@ object Quests {
     fun done(q: Quest, count: Int) = count >= q.goal
 }
 
+/**
+ * 한 시리즈의 오늘의 할 일 진행. 시리즈마다 따로 센다 (보상 화폐가 시리즈마다 달라서, 그 시리즈에서 한 일만).
+ * [day] 가 오늘이 아니면 모두 0 부터. [paid] 는 셋 다 해서 보너스를 받은 날.
+ */
+data class QuestLog(val day: Long = -1, val counts: Map<Quest, Int> = emptyMap(), val paid: Long = -1) {
+    fun count(today: Long, q: Quest) = if (day == today) counts[q] ?: 0 else 0
+    fun set(today: Long, q: Quest, n: Int) = QuestLog(today, (if (day == today) counts else emptyMap()) + (q to n), paid)
+    fun add(today: Long, q: Quest, n: Int = 1) = set(today, q, count(today, q) + n)
+    fun atLeast(today: Long, q: Quest, n: Int) = if (count(today, q) >= n) this else set(today, q, n)
+    /** 오늘의 셋을 다 했고 오늘 보너스를 아직 안 받았다. */
+    fun payable(today: Long) = paid != today && Quests.today(today).all { Quests.done(it, count(today, it)) }
+}
+
 /** 일요일 낭독회: 한 주 (월~일) 의 첫날과, 오늘이 낭독회 날인가. */
 object Recital {
     /** epoch day 의 요일: 0=월 … 6=일 (1970-01-01 은 목요일). */

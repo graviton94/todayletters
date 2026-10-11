@@ -304,6 +304,7 @@ fun Room(s: AppState, r: Route.Letter) {
                         fold = fade.first, glosses = fade.second,
                         saved = s.isSaved(s.quoteKey(id, chapter, letter.id, i)),
                         onSave = { s.toggleQuote(s.quoteKey(id, chapter, letter.id, i)) },
+                        spoken = spokenRange(s.narrator, audio(i), m.text[view.learn]),
                     )
                 }
                 // 메신저 같은 순간: 이 문장 다음의 위치 공유 · 사진 공유 (문장이 다 써진 뒤에)
@@ -628,6 +629,8 @@ private fun LetterSlip(
     marks: List<Pair<IntRange, Int>> = emptyList(), onWord: (Int) -> Unit = {},
     saved: Boolean = false, onSave: () -> Unit = {},
     fold: Boolean = false, glosses: List<Pair<String, String>> = emptyList(),
+    /** 지금 낭독 중인 마디의 글자 범위 (없으면 null). */
+    spoken: IntRange? = null,
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
@@ -642,7 +645,7 @@ private fun LetterSlip(
                 InkText(learn, Type.target.of(learnLang), p.slipInk, animate, lineMs = lineMs, onDone = {
                     learnDone = true
                     if (read == null || fold) onWritten()
-                }, marks = marks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { k -> onWord(marks[k].second) })
+                }, marks = marks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { k -> onWord(marks[k].second) }, spoken = spoken)
                 // 번역이 사라지는 편지: 익힌 낱말이 많은 문장은 번역을 접고, 아직인 낱말만 작은 뜻풀이로
                 if (read != null && fold) {
                     if (glosses.isNotEmpty()) androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {

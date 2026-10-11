@@ -16,10 +16,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -69,8 +67,7 @@ private val Gilt = Color(0xFFC9B48C)
 @Composable
 fun LetterArrival(s: AppState, series: String, chapter: String, letter: Letter, n: Int, onBack: () -> Unit, onDone: (heardFirst: Boolean) -> Unit) {
     // 뒤로 가기 (U5): 편지 방으로 들어가지 않고 들어온 곳으로. 도착 장면은 다음에 열 때 다시
-    androidx.compose.ui.window.Dialog(onDismissRequest = onBack,
-        properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
+    FullDialog(onDismissRequest = onBack) {
         ArrivalBody(s, series, chapter, letter, n, onDone, onBack = onBack)
     }
 }
@@ -123,17 +120,20 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
                 }, contentScale = ContentScale.Crop, alignment = BiasAlignment(0f, -0.4f))
                 Box(Modifier.fillMaxWidth().height(h * 0.74f).background(Brush.verticalGradient(0.45f to Color.Transparent, 1f to Night)))
                 Box(Modifier.fillMaxWidth().height(120.dp).background(Brush.verticalGradient(listOf(Night.copy(alpha = 0.6f), Color.Transparent))))
-                Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding().padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
-                    verticalArrangement = Arrangement.Bottom) {
-                    Column(Modifier.graphicsLayer { alpha = reveal.value }, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                        Caps("${deco(work.series.original, "LETTRE", "BRIEF")} ${roman(n)} · ${letter.place}", Gilt, small = true, decorative = true)
-                        Text(stringResource(R.string.arrival_title, work.name[uiLang()]), style = Type.title.ui(), color = Light)
-                        Text(stringResource(R.string.arrival_sub, dateLine(letter.date, letter.place), work.name[uiLang()], work.recipientOf(letter)[uiLang()]),
-                            style = Type.small.ui(), color = Soft)
-                    }
-                    Row(Modifier.fillMaxWidth().padding(top = Tokens.Space.s8), verticalAlignment = Alignment.Bottom) {
-                        PlateCredit(letter, Modifier.weight(1f))
-                        Text(stringResource(R.string.arrival_tap), style = Type.small.ui(), color = Light)
+                // 낮은 화면에서는 글이 넘치지 않게 굴려 본다 (평소에는 아래에 붙어 있다)
+                Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
+                    Column(Modifier.fillMaxWidth().heightIn(min = h).statusBarsSafe().navigationBarsSafe().padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
+                        verticalArrangement = Arrangement.Bottom) {
+                        Column(Modifier.graphicsLayer { alpha = reveal.value }, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                            Caps("${deco(work.series.original, "LETTRE", "BRIEF")} ${roman(n)} · ${letter.place}", Gilt, small = true, decorative = true)
+                            Text(stringResource(R.string.arrival_title, work.name[uiLang()]), style = Type.title.ui(), color = Light)
+                            Text(stringResource(R.string.arrival_sub, dateLine(letter.date, letter.place), work.name[uiLang()], work.recipientOf(letter)[uiLang()]),
+                                style = Type.small.ui(), color = Soft)
+                        }
+                        Row(Modifier.fillMaxWidth().padding(top = Tokens.Space.s8), verticalAlignment = Alignment.Bottom) {
+                            PlateCredit(letter, Modifier.weight(1f))
+                            Text(stringResource(R.string.arrival_tap), style = Type.small.ui(), color = Light)
+                        }
                     }
                 }
             }
@@ -142,7 +142,7 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
         // 2 · 3: 그림은 가라앉고 그 위에 첫 줄
         if (plate != null) Image(plate, null, Modifier.fillMaxSize().graphicsLayer { alpha = 0.34f }, contentScale = ContentScale.Crop, alignment = BiasAlignment(0f, -0.4f))
         Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Night.copy(alpha = 0.3f), Night.copy(alpha = 0.85f)))))
-        Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()
+        Column(Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe()
             .pressable(enabled = stage == 1, haptic = false) { shown = line.length; stage = 2 }) {
             Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s7, end = Tokens.Space.s7, top = Tokens.Space.s8), verticalAlignment = Alignment.CenterVertically) {
                 Caps("${deco(work.series.original, "LETTRE", "BRIEF")} ${roman(n)}", Gilt, small = true, decorative = true, modifier = Modifier.weight(1f))

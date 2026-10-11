@@ -59,6 +59,8 @@ sealed interface Route {
     data object Week : Route
     /** 프롤로그: 첫 편지 앞의 도슨트 (아를 이전 35년). [page] 0..4. */
     data class Prologue(val series: String, val page: Int = 0) : Route
+    /** 작품에 처음 들어갈 때 한 번: 무엇을 배울지 고른다 (처음 소개와 같은 고르기). 고르면 프롤로그 → 첫 편지. */
+    data class Welcome(val series: String) : Route
     /** 맺음말 · 아웃트로: 마지막 편지 뒤 (그가 지니고 있던 편지 + 생애를 맺는 글). */
     data class Outro(val series: String) : Route
     /** 나의 도록: 편지마다 받은 그림을 날짜 순으로 (완결이면 표지와 메달). */
@@ -69,7 +71,7 @@ sealed interface Route {
 object Nav {
     fun up(r: Route): Route? = when (r) {
         Route.Library -> null
-        Route.Overall, is Route.Enter, Route.Settings -> Route.Library
+        Route.Overall, is Route.Enter, Route.Settings, is Route.Welcome -> Route.Library
         Route.Inbox, Route.Words, Route.Gallery, Route.Milestones -> Route.Library
         is Route.Series -> Route.Inbox
         is Route.SeriesSettings -> Route.Series(r.series)

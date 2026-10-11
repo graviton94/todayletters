@@ -29,21 +29,31 @@ class NavTest {
 
     private val ctx: Context get() = ApplicationProvider.getApplicationContext()
 
-    private fun state(onboarded: Boolean = true, deepLink: Boolean = false): AppState {
+    /** [seen] 이면 두 작품 모두 배울 말을 골랐고 프롤로그도 본 것으로 (오늘부터 걷는 길). */
+    private fun state(onboarded: Boolean = true, deepLink: Boolean = false, seen: Boolean = onboarded): AppState {
         ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().clear().commit()
         if (onboarded) Store(ctx).onboarded = true
+        if (seen) listOf("vincent", "mozart").forEach { Store(ctx).markLearnChosen(it); Store(ctx).markPrologueSeen(it) }
         return AppState(ctx, deepLink = deepLink)
     }
 
     private fun AppState.backTo(r: Route) { assertTrue(back()); assertEquals(r, route) }
 
-    /** 프롤로그가 없는 작품 (모차르트): 처음 열면 바로 편지 I. */
-    @Test fun noPrologueGoesStraightToLetterOne() {
-        val s = state(onboarded = false)
-        if (s.works.none { it.series.id == "mozart" }) return
-        assertTrue(s.work("mozart").prologue.isEmpty())
-        s.startFirstLetter("mozart")
+    /** 처음 들어가는 작품 (모차르트): 무엇을 배울지 고르고 → 그 작품의 프롤로그 (한 번) → 편지 I. 다음부터는 오늘로. */
+    @Test fun firstEntryAsksLanguageThenPrologue() {
+        val s = state(seen = false)
+        if (s.works.none { it.series.id == "mozart" } || s.work("mozart").prologue.isEmpty()) return
+        s.enter("mozart")
+        assertEquals(Route.Welcome("mozart"), s.route)
+        s.backTo(Route.Library)
+        s.enter("mozart")
+        s.chooseLearn("mozart", io.github.graviton94.todayletters.core.Lang.DE)
+        assertEquals(io.github.graviton94.todayletters.core.Lang.DE, s.seriesSettings("mozart").learn)
+        assertEquals(Route.Prologue("mozart"), s.route)
+        s.finishPrologue("mozart")
         assertEquals(Route.Letter("mozart", 1, 1, Route.Inbox), s.route)
+        s.enter("mozart")
+        assertEquals(Route.Inbox, s.route)
     }
 
     @Test fun firstRunGoesStraightToLetterOne() {
@@ -100,7 +110,7 @@ class NavTest {
 
     /** 편지 도착 장면에서 뒤로: 들어온 곳(오늘)으로, 도착은 본 것으로 치지 않는다 (다음에 다시 온다). */
     @Test fun arrivalBackReturnsToEntry() {
-        val s = state()
+        val s = state(seen = false)
         s.startFirstLetter("vincent")
         val c = s.work("vincent").chapters.first(); val l = c.letters.first()
         val key = s.key("vincent", c.id, l.id)

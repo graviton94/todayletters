@@ -7,6 +7,7 @@ import android.media.MediaRecorder
 import android.os.Build
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import java.io.File
 
@@ -79,7 +80,7 @@ class Narrator(private val ctx: Context) {
             MediaPlayer().apply {
                 setAudioAttributes(media)
                 setDataSource(fd.fileDescriptor, fd.startOffset, fd.length)
-                setOnCompletionListener { finish() }
+                setOnCompletionListener { if (player === this) now = null; finish() }
                 prepare()
                 if (speed != 1f) playbackParams = playbackParams.setSpeed(speed)
                 start()
@@ -87,8 +88,13 @@ class Narrator(private val ctx: Context) {
         }.getOrNull()
         runCatching { fd.close() }
         if (player == null) { finish(); return false }
+        now = asset
         return true
     }
+
+    /** 지금 소리를 내는 파일 (멈춘 것 포함, 끝나거나 멈추면 null). 화면이 읽는 자리를 칠할 때 이것을 본다. */
+    var now by mutableStateOf<String?>(null)
+        private set
 
     /** 끝났을 때 부를 것. 멈춰도(다른 소리로 바뀌어도) 한 번은 불러서, 기다리던 쪽이 멈춰 서지 않게 한다. */
     private var pending: (() -> Unit)? = null
@@ -98,6 +104,7 @@ class Narrator(private val ctx: Context) {
         player?.runCatching { stop(); release() }
         player = null
         playing = null
+        now = null
         paused = false
         finish()
     }

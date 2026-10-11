@@ -195,16 +195,30 @@ class Store(ctx: Context) {
     fun heard(key: String) = p.getInt("heard:$key", -1)
     fun setHeard(key: String, i: Int) = p.edit().apply { if (i < 0) remove("heard:$key") else putInt("heard:$key", i) }.apply()
 
-    /** 오늘의 할 일 진행 (날마다 새로) · 다 해서 보너스를 받은 날. */
-    fun quest(day: Long, q: io.github.graviton94.todayletters.core.Quest) = if (p.getLong("quest:day", -1) == day) p.getInt("quest:${q.name}", 0) else 0
-    fun setQuest(day: Long, q: io.github.graviton94.todayletters.core.Quest, n: Int) {
-        val e = p.edit()
-        if (p.getLong("quest:day", -1) != day) io.github.graviton94.todayletters.core.Quest.entries.forEach { e.remove("quest:${it.name}") }
-        e.putLong("quest:day", day).putInt("quest:${q.name}", n).apply()
+    /** 오늘의 할 일 진행: 시리즈마다 따로 (날마다 새로) · 다 해서 보너스를 받은 날. */
+    fun questLog(series: String): io.github.graviton94.todayletters.core.QuestLog {
+        val k = "quest:$series:"
+        return io.github.graviton94.todayletters.core.QuestLog(p.getLong("${k}day", -1),
+            io.github.graviton94.todayletters.core.Quest.entries.mapNotNull { q -> p.getInt("$k${q.name}", 0).takeIf { it > 0 }?.let { q to it } }.toMap(),
+            p.getLong("${k}paid", -1))
     }
-    var questsPaidDay: Long
-        get() = p.getLong("quest:paid", -1)
-        set(v) = p.edit().putLong("quest:paid", v).apply()
+    fun saveQuestLog(series: String, log: io.github.graviton94.todayletters.core.QuestLog) {
+        val k = "quest:$series:"
+        val e = p.edit().putLong("${k}day", log.day).putLong("${k}paid", log.paid)
+        io.github.graviton94.todayletters.core.Quest.entries.forEach { q -> log.counts[q]?.let { e.putInt("$k${q.name}", it) } ?: e.remove("$k${q.name}") }
+        e.apply()
+    }
+    /** 예전 (시리즈 구분 없이 하나로 세던) 진행을 [series] 로 옮긴다. 옮길 것이 있을 때 한 번만. */
+    fun migrateQuests(series: String) {
+        if (!p.contains("quest:day") && !p.contains("quest:paid")) return
+        val old = io.github.graviton94.todayletters.core.QuestLog(p.getLong("quest:day", -1),
+            io.github.graviton94.todayletters.core.Quest.entries.mapNotNull { q -> p.getInt("quest:${q.name}", 0).takeIf { it > 0 }?.let { q to it } }.toMap(),
+            p.getLong("quest:paid", -1))
+        if (questLog(series).day < 0) saveQuestLog(series, old)
+        val e = p.edit().remove("quest:day").remove("quest:paid")
+        io.github.graviton94.todayletters.core.Quest.entries.forEach { e.remove("quest:${it.name}") }
+        e.apply()
+    }
 
     /** 따라 읽기 점수 기록: 날 → (억양 합, 리듬 합, 마디 수). 최근 120일. */
     fun scores(): Map<Long, Triple<Int, Int, Int>> = set("scores").mapNotNull { e ->
@@ -274,4 +288,7 @@ class Store(ctx: Context) {
     /** 프롤로그를 끝까지 본 작품 (첫 편지 앞에서 한 번만 저절로 나온다). */
     fun prologueSeen(series: String) = series in set("prologue_seen")
     fun markPrologueSeen(series: String) = add("prologue_seen", series)
+    /** 무엇을 배울지 고른 작품 (처음 소개 · 작품에 처음 들어갈 때). */
+    fun learnChosen(series: String) = series in set("learn_chosen")
+    fun markLearnChosen(series: String) = add("learn_chosen", series)
 }

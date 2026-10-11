@@ -104,19 +104,39 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         private set
     val currentWork: Work get() = work(current)
 
-    /** 서재에서 고른 시리즈로 들어간다 (전환 화면의 ‘눌러서 들어가기’). */
+    // 예전에 시리즈 구분 없이 세던 오늘의 할 일은 마지막으로 들어간 시리즈 (보너스가 들어간 곳) 로, 없으면 반 고흐로
+    init { store.migrateQuests(store.lastSeries?.takeIf { id -> works.any { it.series.id == id } } ?: "vincent") }
+
+    /**
+     * 서재에서 고른 시리즈로 들어간다 (전환 화면의 ‘눌러서 들어가기’).
+     * 처음 들어가는 작품이면 무엇을 배울지부터 고르고 ([Route.Welcome]), 프롤로그를 아직 안 봤으면 그것부터 (한 번).
+     */
     fun enter(id: String) {
         current = id; store.lastSeries = id
         forward = true
-        stack.clear(); stack.addAll(Nav.trail(Route.Inbox))
+        stack.clear()
+        if (needsWelcome(id)) { stack.addAll(listOf(Route.Library, Route.Welcome(id))); return }
+        stack.addAll(Nav.trail(Route.Inbox))
+        // 프롤로그가 있으면 그것부터: 끝나면 첫 편지로 (finishPrologue)
+        if (work(id).prologue.isNotEmpty() && !store.prologueSeen(id)) stack.add(Route.Prologue(id))
     }
 
-    /** 처음 설치 (U4): 서재 · 전환 · 오늘을 건너 그 작품의 첫 편지로. 뒤로 가면 오늘. */
-    fun startFirstLetter(id: String) {
+    /** 아직 무엇을 배울지 고르지 않았고, 한 통도 열지 않은 작품 (이미 읽던 작품에는 묻지 않는다). */
+    fun needsWelcome(id: String) = !store.learnChosen(id) && startedCount(id) == 0
+
+    /** 처음 들어간 작품에서 배울 말을 골랐다: 그 작품 설정에 담고 프롤로그 (없으면 오늘) 로. */
+    fun chooseLearn(id: String, learn: io.github.graviton94.todayletters.core.Lang) {
+        update(id, seriesSettings(id).copy(learn = learn))
+        store.markLearnChosen(id)
         enter(id)
-        // 프롤로그(아를 이전)가 있으면 그것부터: 끝나면 첫 편지로 (finishPrologue)
-        if (work(id).prologue.isNotEmpty() && !store.prologueSeen(id)) { go(Route.Prologue(id)); return }
-        openFirst(id)
+    }
+
+    /** 처음 설치 (U4): 서재 · 전환 · 오늘을 건너 그 작품의 첫 편지로 (프롤로그가 있으면 그것부터). 뒤로 가면 오늘. */
+    fun startFirstLetter(id: String) {
+        // 처음 소개에서 이미 배울 말을 골랐다
+        store.markLearnChosen(id)
+        enter(id)
+        if (route == Route.Inbox) openFirst(id)
     }
 
     private fun openFirst(id: String) {
@@ -277,15 +297,16 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         if (correct) earn(Earn.REVIEW_RIGHT)
         version++
     }
-    /** 복습 문제 하나의 결과 (오늘의 할 일: 듣고 쓰기 연속 · 뜻 고르기). */
-    private var answerRun = ReviewKind.MEANING to 0
-    fun judged(kind: ReviewKind, ok: Boolean) {
-        answerRun = if (ok) kind to (if (answerRun.first == kind) answerRun.second + 1 else 1) else kind to 0
-        if (ok && kind == ReviewKind.DICTATION) questAtLeast(Quest.DICTATION_RUN, answerRun.second)
-        if (ok && kind == ReviewKind.MEANING) questAdd(Quest.MEANING_RUN)
+    /** 복습 문제 하나의 결과 (오늘의 할 일: 듣고 쓰기 연속 · 뜻 고르기). [series] 는 그 낱말의 작품: 그 작품의 할 일로 센다. */
+    private var answerRun = Triple("", ReviewKind.MEANING, 0)
+    fun judged(kind: ReviewKind, ok: Boolean, series: String = current) {
+        val same = answerRun.first == series && answerRun.second == kind
+        answerRun = Triple(series, kind, if (ok) (if (same) answerRun.third + 1 else 1) else 0)
+        if (ok && kind == ReviewKind.DICTATION) questAtLeast(Quest.DICTATION_RUN, answerRun.third, series)
+        if (ok && kind == ReviewKind.MEANING) questAdd(Quest.MEANING_RUN, series)
     }
     fun reviewDone() {
-        store.reviewedDay = today; questAdd(Quest.REVIEW_DONE); finished()
+        store.reviewedDay = today; questAdd(Quest.REVIEW_DONE, current); finished()
         draw(current, "review")
         version++; settle()
     }
@@ -326,7 +347,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             downloadAsk = DownloadAsk(pack, id, chapter, letter, from); return
         }
         val p = progress(id, chapter, letter.id)
-        if (p.done) questAdd(Quest.REREAD)
+        if (p.done) questAdd(Quest.REREAD, id)
         current = id
         if (!store.started(key(id, chapter, letter.id)) && p.shown == 0 && !p.done) store.markOpened(id)
         store.markStarted(key(id, chapter, letter.id))
@@ -484,17 +505,21 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         return p
     }
 
-    // ── 오늘의 할 일 ─────────────────────────────────────────
+    // ── 오늘의 할 일 (시리즈마다 따로: 그 시리즈에서 한 일만 세고, 보너스도 그 시리즈 화폐로) ──
     val quests: List<Quest> get() = Quests.today(today)
-    fun questCount(q: Quest) = run { @Suppress("UNUSED_EXPRESSION") version; store.quest(today, q) }
-    fun questDone(q: Quest) = Quests.done(q, questCount(q))
-    private fun questAdd(q: Quest, n: Int = 1) { if (q in quests) { store.setQuest(today, q, store.quest(today, q) + n); questsCheck() } }
-    private fun questAtLeast(q: Quest, n: Int) { if (q in quests && store.quest(today, q) < n) { store.setQuest(today, q, n); questsCheck() } }
-    private fun questsCheck() {
+    fun questCount(q: Quest, id: String = current) = run { @Suppress("UNUSED_EXPRESSION") version; store.questLog(id).count(today, q) }
+    fun questDone(q: Quest, id: String = current) = Quests.done(q, questCount(q, id))
+    private fun questAdd(q: Quest, id: String, n: Int = 1) { if (q in quests) { store.saveQuestLog(id, store.questLog(id).add(today, q, n)); questsCheck(id) } }
+    private fun questAtLeast(q: Quest, n: Int, id: String) {
+        val log = store.questLog(id)
+        if (q in quests && log.count(today, q) < n) { store.saveQuestLog(id, log.atLeast(today, q, n)); questsCheck(id) }
+    }
+    private fun questsCheck(id: String) {
         version++
-        if (quests.all { questDone(it) } && store.questsPaidDay != today) {
-            store.questsPaidDay = today
-            earn(Earn.QUESTS); draw(current, "quests")
+        val log = store.questLog(id)
+        if (log.payable(today)) {
+            store.saveQuestLog(id, log.copy(paid = today))
+            earn(Earn.QUESTS, id = id); draw(id, "quests")
             settle()
         }
     }
@@ -621,7 +646,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun markPassed(id: String, chapter: String, letter: String, msg: Int, chunk: Int) {
         val k = "${key(id, chapter, letter)}:$msg:$chunk"
         if (k !in store.passed) { store.markPassed(k); earn(Earn.SHADOW_PASS, id = id) }
-        questAdd(Quest.SHADOW_PASS); finished()
+        questAdd(Quest.SHADOW_PASS, id); finished()
         version++
     }
 
@@ -731,7 +756,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun coachReset() { coach.reset(); store.coachSeen = coach.seen; coachTick++ }
 
     fun finishOnboarding(a: AppSettings, seriesId: String, s: SeriesSettings) {
-        update(a); update(seriesId, s); store.onboarded = true; nextStage()
+        update(a); update(seriesId, s); store.markLearnChosen(seriesId); store.onboarded = true; nextStage()
     }
 
     var settingsOpen by mutableStateOf(false)

@@ -16,7 +16,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.ui.composed
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -84,6 +90,36 @@ private fun named(name: String): Int {
 fun text(name: String, fallback: String = ""): String = named(name).let { if (it != 0) stringResource(it) else fallback }
 
 fun tone(t: Tone) = SeriesTone(Color(t.paper), Color(t.ink), Color(t.soft), Color(t.faint), Color(t.accent))
+
+/** 대화창 밖(액티비티 화면)에서 잰 시스템 막대 두께. [FullDialog] 안에서만 값이 있다. */
+private val LocalOuterBars = androidx.compose.runtime.staticCompositionLocalOf<androidx.compose.foundation.layout.PaddingValues?> { null }
+
+/**
+ * 화면을 가득 덮는 대화창 (편지 도착 · 낱말 상세 · 사진 크게 보기). 기기에 따라 대화창 창은 상태 바 · 내비게이션 바 두께를
+ * 0 으로 받아서 아래 단추가 막대 밑에 깔린다. 그래서 바깥에서 잰 두께를 함께 넘기고, 안에서는 [statusBarsSafe] · [navigationBarsSafe] 를 쓴다.
+ */
+@Composable
+fun FullDialog(onDismissRequest: () -> Unit, content: @Composable () -> Unit) {
+    val bars = WindowInsets.systemBars.asPaddingValues()
+    androidx.compose.ui.window.Dialog(onDismissRequest = onDismissRequest,
+        properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
+        androidx.compose.runtime.CompositionLocalProvider(LocalOuterBars provides bars, content = content)
+    }
+}
+
+/** 상태 바 아래로: [statusBarsPadding] 과 같고, [FullDialog] 안에서는 바깥에서 잰 두께와 대화창이 받은 두께 중 큰 쪽. */
+fun Modifier.statusBarsSafe(): Modifier = composed {
+    val outer = LocalOuterBars.current
+    if (outer == null) statusBarsPadding()
+    else padding(top = maxOf(outer.calculateTopPadding(), WindowInsets.statusBars.asPaddingValues().calculateTopPadding()))
+}
+
+/** 내비게이션 바 위로: [navigationBarsPadding] 과 같고, [FullDialog] 안에서는 바깥에서 잰 두께와 대화창이 받은 두께 중 큰 쪽. */
+fun Modifier.navigationBarsSafe(): Modifier = composed {
+    val outer = LocalOuterBars.current
+    if (outer == null) navigationBarsPadding()
+    else padding(bottom = maxOf(outer.calculateBottomPadding(), WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()))
+}
 
 /** 이 시리즈의 빛깔로 칠한다. */
 @Composable

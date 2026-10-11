@@ -70,17 +70,30 @@ fun langLabel(l: Lang) = when (l) {
  */
 @Composable
 fun Onboarding(s: AppState) {
-    val p = Ink.palette
     val work = s.works.first()
+    LearnChoice(s, work) { learn ->
+        s.narrator.stop()
+        s.finishOnboarding(s.app, work.series.id, Langs.start(work.series, s.app).copy(learn = learn))
+        s.startFirstLetter(work.series.id)
+    }
+}
+
+/**
+ * 처음 소개의 한 장: [work] 가 무엇인지 · 하루가 어떻게 흐르는지 · 무엇을 배울지 (원어 · 읽는 언어가 아닌 쪽).
+ * 첫 설치 때는 첫 작품으로, 다른 작품에 처음 들어갈 때 ([Route.Welcome]) 는 그 작품으로 같은 장을 보여 준다.
+ */
+@Composable
+fun LearnChoice(s: AppState, work: io.github.graviton94.todayletters.data.Work, onGo: (Lang) -> Unit) {
+    val p = Ink.palette
     val read = s.app.read
-    var learn by remember { mutableStateOf(Langs.defaultLearn(work.series, read)) }
+    var learn by remember(work.series.id) { mutableStateOf(Langs.defaultLearn(work.series, read)) }
     val line = work.chapters.first().letters.first().messages.first().text
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f).statusBarsPadding().navigationBarsPadding()) {
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                 Portrait(work.portrait, work.fullName, 46.dp)
-                Caps("BIENVENUE", p.giltText, small = true, decorative = true)
+                Caps(deco(work.series.original, "BIENVENUE", "WILLKOMMEN"), p.giltText, small = true, decorative = true)
             }
             Text(stringResource(R.string.ob_one_title, if (uiLang() == Lang.KO) josa(work.fullName, "이", "가") else work.fullName),
                 style = Type.title.ui(), color = p.ink, modifier = Modifier.padding(top = Tokens.Space.s2))
@@ -117,11 +130,7 @@ fun Onboarding(s: AppState) {
             Text(stringResource(R.string.ob_one_note, stringResource(langLabel(read))), style = Type.small.ui(), color = p.hideInk)
         }
         Box(Modifier.padding(Tokens.Space.s4)) {
-            Primary(stringResource(R.string.ob_one_go)) {
-                s.narrator.stop()
-                s.finishOnboarding(s.app, work.series.id, Langs.start(work.series, s.app).copy(learn = learn))
-                s.startFirstLetter(work.series.id)
-            }
+            Primary(stringResource(R.string.ob_one_go)) { onGo(learn) }
         }
     }
 }

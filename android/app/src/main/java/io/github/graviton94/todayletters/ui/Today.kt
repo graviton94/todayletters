@@ -68,7 +68,9 @@ fun Inbox(s: AppState) {
     LaunchedEffect(Unit) { s.settle() }
     val work = s.currentWork
     val id = work.series.id
-    val learn = s.seriesSettings(id).learn
+    // 편지 방과 같은 언어로: 큰 줄은 배우는 말, 작은 줄은 읽는 말 (방에서 번역 줄을 가렸으면 여기서도)
+    val view = s.room(id)
+    val learn = view.learn
     val modes = Plays.inLetter.filter { it in s.seriesSettings(id).modes }
     val open = s.openable(id)
     val letters = work.chapters.flatMap { it.letters }
@@ -91,40 +93,44 @@ fun Inbox(s: AppState) {
                 val idx = letters.indexOf(l) + 1
                 val g = s.letterGrowth(id, c, l)
                 val room = Route.Letter(id, work.chapters.indexOfFirst { it.id == c } + 1, work.chapters.first { it.id == c }.letters.indexOf(l) + 1, Route.Inbox)
-                Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    Caps("${work.kit.place.substringBefore(" ")} · ${stringResource(R.string.letter_n, roman(idx))}".uppercase(), p.giltText, small = true, decorative = true)
-                    Text(l.status?.get(uiLang()) ?: dateLine(l.date, l.place), style = Type.title.ui(), color = p.ink)
-                    Text(dateLine(l.date, l.place) + if (pr.done) " · " + stringResource(R.string.focus_alone, g.known, g.total) else "", style = Type.small.ui(), color = p.inkSoft)
-                }
-                if (pr.done) {
-                    Bar(g.pct / 100f)
-                    // 첫 문장: 아직 혼자 못 읽는 낱말에 점선 밑줄
-                    val first = l.messages.first().text[learn]
-                    val cm = s.cardMap()
-                    val marks = wordMarks(first, l.words.map { it.text[learn] })
-                    val text = androidx.compose.ui.text.buildAnnotatedString {
-                        append(first)
-                        marks.forEach { (range, k) ->
-                            if (!io.github.graviton94.todayletters.core.Growth.known(cm[s.cardKey(id, c, l.id, k)]))
-                                addStyle(androidx.compose.ui.text.SpanStyle(color = p.giltText, textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), range.first, range.last + 1)
+                // 편지 한 장: 머리 · 첫 줄 · 그 편지의 단추 하나를 한 덩어리로
+                Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                    Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                        Caps("${work.kit.place.substringBefore(" ")} · ${stringResource(R.string.letter_n, roman(idx))}".uppercase(), p.giltText, small = true, decorative = true)
+                        Text(l.status?.get(uiLang()) ?: dateLine(l.date, l.place), style = Type.title.ui(), color = p.ink)
+                        Text(dateLine(l.date, l.place) + if (pr.done) " · " + stringResource(R.string.focus_alone, g.known, g.total) else "", style = Type.small.ui(), color = p.inkSoft)
+                    }
+                    if (pr.done) {
+                        Bar(g.pct / 100f)
+                        // 첫 문장: 아직 혼자 못 읽는 낱말에 점선 밑줄
+                        val first = l.messages.first().text[learn]
+                        val cm = s.cardMap()
+                        val marks = wordMarks(first, l.words.map { it.text[learn] })
+                        val text = androidx.compose.ui.text.buildAnnotatedString {
+                            append(first)
+                            marks.forEach { (range, k) ->
+                                if (!io.github.graviton94.todayletters.core.Growth.known(cm[s.cardKey(id, c, l.id, k)]))
+                                    addStyle(androidx.compose.ui.text.SpanStyle(color = p.giltText, textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), range.first, range.last + 1)
+                            }
+                        }
+                        Text(text, style = Type.target.of(learn), color = p.ink, maxLines = 3)
+                    } else {
+                        Text(l.messages.first().text[learn], style = Type.target.of(learn), color = p.ink, maxLines = 2)
+                    }
+                    if (view.showRead && view.read != learn) Text(l.messages.first().text[view.read], style = Type.small.of(view.read), color = p.inkSoft, maxLines = 2)
+                    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        when {
+                            !pr.done -> Primary(if (pr.shown < l.messages.size) stringResource(R.string.today_open)
+                                else modes.firstOrNull { it !in pr.replied }?.let { stringResource(R.string.room_next, stringResource(modeLabel(it))) } ?: stringResource(R.string.room_done_today)) { s.open(id, c, l, Route.Inbox) }
+                            s.isSealed(id, c, l) -> Primary(stringResource(R.string.focus_sealed)) { s.go(Route.Seal(room)) }
+                            g.known == g.total && g.total > 0 && !s.isShadowed(id, c, l) -> Primary(stringResource(R.string.focus_shadow)) { s.go(Route.Shadow(room)) }
+                            due > 0 -> Primary(stringResource(R.string.focus_review, due)) { s.go(Route.Session()) }
+                            else -> g.nextDue?.let { d -> Text(if (d <= 1) stringResource(R.string.focus_due_tomorrow) else stringResource(R.string.focus_due_in, d), style = Type.small.ui(), color = p.inkSoft) }
                         }
                     }
-                    Text(text, style = Type.target.of(learn), color = p.ink, maxLines = 3)
-                } else {
-                    Text(l.messages.first().text[learn], style = Type.target.of(learn), color = p.ink, maxLines = 2)
                 }
-                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                    when {
-                        !pr.done -> Primary(if (pr.shown < l.messages.size) stringResource(R.string.today_open)
-                            else modes.firstOrNull { it !in pr.replied }?.let { stringResource(R.string.room_next, stringResource(modeLabel(it))) } ?: stringResource(R.string.room_done_today)) { s.open(id, c, l, Route.Inbox) }
-                        s.isSealed(id, c, l) -> Primary(stringResource(R.string.focus_sealed)) { s.go(Route.Seal(room)) }
-                        g.known == g.total && g.total > 0 && !s.isShadowed(id, c, l) -> Primary(stringResource(R.string.focus_shadow)) { s.go(Route.Shadow(room)) }
-                        due > 0 -> Primary(stringResource(R.string.focus_review, due)) { s.go(Route.Session()) }
-                        else -> g.nextDue?.let { d -> Text(if (d <= 1) stringResource(R.string.focus_due_tomorrow) else stringResource(R.string.focus_due_in, d), style = Type.small.ui(), color = p.inkSoft) }
-                    }
-                }
-                // 편지 목록을 위로 (v18): 왼쪽 오늘의 편지 다시 읽기 · 오른쪽 전체 편지 목록
-                LetterLinks(s, id, work, reread = if (pr.shown > 0) ({ s.open(id, c, l, Route.Inbox) }) else null)
+                // 장마다 읽은 수 · 전체 편지 목록 (다 읽은 편지면 다시 읽기도, 아직이면 위 단추가 그 편지를 연다)
+                LetterLinks(s, id, work, reread = if (pr.done) ({ s.open(id, c, l, Route.Inbox) }) else null)
             } else {
                 Text(stringResource(if (s.doneCount(id) >= letters.size) R.string.chapter_end_next else R.string.today_all_done), style = Type.heading.ui(), color = p.ink)
                 if (due > 0) Primary(stringResource(R.string.focus_review, due)) { s.go(Route.Session()) }
@@ -237,29 +243,32 @@ fun PlateThumb(file: String, unlocked: Boolean, modifier: Modifier) {
 }
 
 
-/** 오늘 화면의 두 단추: 오늘의 편지 다시 읽기 (있을 때) | 전체 편지 목록, 아래에 장마다 읽은 수. */
+/**
+ * 편지 카드 아래 한 줄: 장마다 읽은 수 · 조용한 글자 링크 (오늘의 편지 다시 읽기 (있을 때) · 전체 편지 목록).
+ * 단추는 편지 카드의 하나만 (채운 단추).
+ */
 @Composable
 private fun LetterLinks(s: AppState, id: String, work: io.github.graviton94.todayletters.data.Work, reread: (() -> Unit)?) {
     val p = Ink.palette
-    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            if (reread != null) OutlineButton(stringResource(R.string.today_reread), Modifier.weight(1f), reread)
-            OutlineButton(stringResource(R.string.today_all_letters), Modifier.weight(1f)) { s.go(Route.Series(id)) }
-        }
-        val counts = work.chapters.mapIndexed { k, ch ->
-            stringResource(R.string.today_chapter_count, "${k + 1}", ch.letters.count { s.progress(id, ch.id, it.id).done }, ch.letters.size)
-        }
+    val counts = work.chapters.mapIndexed { k, ch ->
+        stringResource(R.string.today_chapter_count, "${k + 1}", ch.letters.count { s.progress(id, ch.id, it.id).done }, ch.letters.size)
+    }
+    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Top, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
         Text(counts.joinToString("  ·  "), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft,
-            modifier = Modifier.align(Alignment.End))
+            modifier = Modifier.weight(1f).padding(top = 2.dp))
+        Column(horizontalAlignment = Alignment.End) {
+            if (reread != null) TextLink(stringResource(R.string.today_reread), reread)
+            TextLink(stringResource(R.string.today_all_letters)) { s.go(Route.Series(id)) }
+        }
     }
 }
 
+/** 조용한 글자 링크 (밑줄, 흐린 색). 누르는 자리는 44dp. */
 @Composable
-private fun OutlineButton(text: String, modifier: Modifier, onClick: () -> Unit) {
+private fun TextLink(text: String, onClick: () -> Unit) {
     val p = Ink.palette
-    Box(modifier.heightIn(min = Tokens.Size.buttonSm).border(1.dp, p.ink).pressable { onClick() }.padding(horizontal = Tokens.Space.s2),
-        contentAlignment = Alignment.Center) {
-        Text(text, style = Type.small.ui(), color = p.ink, maxLines = 1)
+    Box(Modifier.heightIn(min = 44.dp).pressable { onClick() }, contentAlignment = Alignment.TopEnd) {
+        Text(text, style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.inkSoft, maxLines = 1)
     }
 }
 

@@ -13,10 +13,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -61,7 +59,7 @@ fun ZoomViewer(bmp: ImageBitmap?, caption: String?, credit: String?, onClose: ()
     BackHandler { onClose() }
     var scale by remember(bmp) { mutableFloatStateOf(1f) }
     var off by remember(bmp) { mutableStateOf(Offset.Zero) }
-    Column(Modifier.fillMaxSize().background(Color(0xF7120D09)).statusBarsPadding().navigationBarsPadding()) {
+    Column(Modifier.fillMaxSize().background(Color(0xF7120D09)).statusBarsSafe().navigationBarsSafe()) {
         Row(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s2), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.size(48.dp).pressable { onClose() }, contentAlignment = Alignment.Center) {
                 Text("✕", style = Type.body, color = ink)

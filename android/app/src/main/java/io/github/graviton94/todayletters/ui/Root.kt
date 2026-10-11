@@ -111,6 +111,7 @@ private fun Main(s: AppState, onExit: () -> Unit) {
                         is Route.Play -> Play(s, r)
                         is Route.Done -> Done(s, r.room)
                         is Route.Prologue -> PrologueScreen(s, r)
+                        is Route.Welcome -> LearnChoice(s, s.work(r.series)) { s.chooseLearn(r.series, it) }
                         is Route.Outro -> OutroScreen(s, r.series)
                         is Route.Catalogue -> CatalogueScreen(s, r.series)
                         is Route.Shadow -> ShadowScreen(s, r)

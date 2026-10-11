@@ -11,10 +11,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -49,8 +47,7 @@ import io.github.graviton94.todayletters.design.Type
 @Composable
 fun WordDetail(s: AppState, key: String, onClose: () -> Unit) {
     // 어느 화면에서 열든 맨 위에 (전체 화면 창)
-    androidx.compose.ui.window.Dialog(onDismissRequest = onClose,
-        properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
+    FullDialog(onDismissRequest = onClose) {
         WordDetailBody(s, key, onClose)
     }
 }
@@ -76,7 +73,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
     // 그 낱말이 나온 문장 (편지 속 꼴로 찾는다)
     val stem = Breaks.plain(learn).substringBefore(" (").substringBefore(",").trim().lowercase()
     val mi = letter.messages.indexOfFirst { Breaks.plain(it.text[view.learn]).lowercase().contains(stem.take(maxOf(3, stem.length - 2))) }
-    Box(Modifier.fillMaxSize().background(p.paper).statusBarsPadding().navigationBarsPadding()) {
+    Box(Modifier.fillMaxSize().background(p.paper).statusBarsSafe().navigationBarsSafe()) {
         Column(Modifier.fillMaxSize()) {
             Row(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s2), verticalAlignment = Alignment.CenterVertically) {
                 IconButton(stringResource(R.string.close), onClick = onClose) { Text("×", style = Type.title, color = p.ink) }

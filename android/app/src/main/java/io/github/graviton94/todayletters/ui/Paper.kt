@@ -201,6 +201,8 @@ fun InkText(
     text: String, style: TextStyle, color: Color, animate: Boolean, modifier: Modifier = Modifier,
     go: Boolean = true, lineMs: Int = Tokens.Motion.inkLineMs, onDone: () -> Unit = {},
     marks: List<IntRange> = emptyList(), markColor: Color = Color.Unspecified, onMark: ((Int) -> Unit)? = null,
+    /** 지금 낭독 중인 자리 ([spokenRange]): 옅은 바탕과 밑줄. */
+    spoken: IntRange? = null, spokenColor: Color = markColor,
 ) {
     var layout by remember { mutableStateOf<TextLayoutResult?>(null) }
     val progress = remember(text) { Animatable(if (animate) 0f else 1f) }
@@ -223,6 +225,22 @@ fun InkText(
             } else Modifier)
             .graphicsLayer(compositingStrategy = CompositingStrategy.Offscreen)
             .drawWithContent {
+                val l0 = layout
+                // 낭독 중인 마디: 글자 뒤에 옅은 바탕, 아래에 가는 밑줄
+                if (spoken != null && l0 != null && !spoken.isEmpty()) {
+                    val end = (spoken.last + 1).coerceAtMost(l0.layoutInput.text.length)
+                    var a = spoken.first.coerceAtLeast(0)
+                    while (a < end) {
+                        val line = l0.getLineForOffset(a)
+                        val lineEnd = minOf(end, l0.getLineEnd(line, visibleEnd = true))
+                        val x1 = l0.getHorizontalPosition(a, true); val x2 = l0.getHorizontalPosition(lineEnd, true)
+                        val top = l0.getLineTop(line); val base = l0.getLineBaseline(line)
+                        drawRect(spokenColor.copy(alpha = 0.12f), Offset(minOf(x1, x2), top), Size(kotlin.math.abs(x2 - x1), l0.getLineBottom(line) - top))
+                        drawLine(spokenColor, Offset(minOf(x1, x2), base + 4.dp.toPx()), Offset(maxOf(x1, x2), base + 4.dp.toPx()), 1.5.dp.toPx())
+                        if (lineEnd <= a) break
+                        a = lineEnd
+                    }
+                }
                 drawContent()
                 val l = layout ?: return@drawWithContent
                 // 단어장 낱말: 점선 밑줄 (글자와 함께 잉크로 번진다)
@@ -258,6 +276,38 @@ fun InkText(
                     )
                 }
             },
+    )
+}
+
+/**
+ * 지금 [asset] 을 낭독하고 있으면 [text] 안에서 읽는 중인 마디의 글자 범위, 아니면 null.
+ * 마디 시각 파일 (m<i>_<언어>.json) 이 없거나 마디가 하나면 문장 전체. 재생 위치를 화면마다 한 번 본다.
+ */
+@Composable
+fun spokenRange(narrator: io.github.graviton94.todayletters.data.Narrator, asset: String, text: String): IntRange? {
+    val on = narrator.now == asset
+    if (!on) return null
+    val chunks = remember(asset) { narrator.chunks(asset) }
+    val ranges = remember(asset, text) { io.github.graviton94.todayletters.core.Spoken.ranges(text, chunks.map { it.text }) }
+    var k by remember(asset) { mutableStateOf(0) }
+    LaunchedEffect(asset, ranges) {
+        if (ranges.size < 2) return@LaunchedEffect
+        val starts = chunks.map { it.start }
+        while (true) {
+            androidx.compose.runtime.withFrameMillis { }
+            val at = narrator.position()
+            if (at >= 0) io.github.graviton94.todayletters.core.Spoken.at(starts, at).let { if (it != k) k = it }
+        }
+    }
+    return ranges.getOrNull(k)?.takeIf { ranges.size > 1 && !it.isEmpty() } ?: text.indices
+}
+
+/** [text] 에서 [range] 를 칠한 글 (낭독 중인 자리: 색과 밑줄). [range] 가 null 이면 그대로. */
+fun spokenText(text: String, range: IntRange?, color: Color): androidx.compose.ui.text.AnnotatedString = androidx.compose.ui.text.buildAnnotatedString {
+    append(text)
+    if (range != null && !range.isEmpty()) addStyle(
+        androidx.compose.ui.text.SpanStyle(color = color, textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline),
+        range.first.coerceIn(0, text.length), (range.last + 1).coerceIn(0, text.length),
     )
 }
 

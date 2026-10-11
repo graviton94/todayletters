@@ -289,8 +289,7 @@ private fun SketchCard(m: Moment.Photo, lang: Lang) {
         }
         Text(m.caption[lang], style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
     }
-    if (full && bmp != null) androidx.compose.ui.window.Dialog(onDismissRequest = { full = false },
-        properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
+    if (full && bmp != null) FullDialog(onDismissRequest = { full = false }) {
         ZoomViewer(bmp, m.caption[lang], m.credit, onClose = { full = false })
     }
 }
