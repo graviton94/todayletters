@@ -1046,6 +1046,170 @@
     ],
     "kind": "person"
    }
+  },
+  {
+   "id": "c2-l7",
+   "wallace_no": 98,
+   "nohl_pages": [
+    142
+   ],
+   "date": "1778-03-07",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 98 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Mannheim",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "tender",
+   "messages": [
+    {
+     "de": "„Nach Gott kommt gleich der Papa!“ das war als Kind mein Wahlspruch oder Axioma und bey dem bleib ich auch noch.",
+     "en": "\"Next to God comes papa\" was my axiom when a child, and I still think the same.",
+     "ko": "“하느님 다음은 바로 아빠!” 어릴 때 제 좌우명이었는데, 지금도 변함없어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 98 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "„Nach Gott kommt gleich der Papa!“ // das war als Kind mein Wahlspruch oder Axioma und bey dem bleib ich auch noch.",
+      "en": "\"Next to God comes papa\" // was my axiom when a child, / and I still think the same.",
+      "ko": "“하느님 다음은 바로 아빠!” 어릴 때 제 좌우명이었는데, / 지금도 변함없어요."
+     }
+    },
+    {
+     "de": "Ich wollte nur wünschen daß Sie meine neue Arie, von welcher ich Ihnen neulich gemeldet habe, von ihr singen hörten, … denn sie ist ganz für sie gemacht …",
+     "en": "I only wish that you could hear her sing my new aria which I lately mentioned to you, … because it seems made expressly for her …",
+     "ko": "얼마 전에 말씀드린 제 새 아리아를 그 아가씨가 부르는 걸 아버지가 들어 보시면 좋겠어요. … 그 곡은 온전히 그 아가씨를 위해 만든 거니까요 …",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 98 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich wollte nur wünschen daß Sie meine neue Arie, / von welcher ich Ihnen neulich gemeldet habe, / von ihr singen hörten, / … // denn sie ist ganz für sie gemacht …",
+      "en": "I only wish that you could hear her sing my new aria which I lately mentioned to you, / … // because it seems made expressly for her …",
+      "ko": "얼마 전에 말씀드린 제 새 아리아를 그 아가씨가 부르는 걸 아버지가 들어 보시면 좋겠어요. // … // 그 곡은 온전히 그 아가씨를 위해 만든 거니까요 …"
+     }
+    },
+    {
+     "de": "Nun muß ich Ihnen aber sagen, daß ich so erschrocken war und mir die Thränen in die Augen kamen, als ich in Ihrem letzten Brief las, daß Sie so schlecht gekleidet daher gehen müssen.",
+     "en": "I must now tell you I was so shocked that tears came to my eyes, on reading in your last letter that you are obliged to go about so shabbily dressed.",
+     "ko": "그런데 꼭 말씀드려야겠어요. 지난 편지에서 아버지가 그렇게 초라한 옷차림으로 다니셔야 한다는 걸 읽고, 너무 놀라서 눈물이 났어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 98 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun muß ich Ihnen aber sagen, / daß ich so erschrocken war und mir die Thränen in die Augen kamen, / als ich in Ihrem letzten Brief las, / daß Sie so schlecht gekleidet daher gehen müssen.",
+      "en": "I must now tell you I was so shocked that tears came to my eyes, / on reading in your last letter that you are obliged to go about so shabbily dressed.",
+      "ko": "그런데 꼭 말씀드려야겠어요. // 지난 편지에서 아버지가 그렇게 초라한 옷차림으로 다니셔야 한다는 걸 읽고, / 너무 놀라서 눈물이 났어요."
+     }
+    },
+    {
+     "de": "Mein allerliebster Papa! meine Schuld ist das gewiß nicht — das wissen Sie.",
+     "en": "My very dearest papa, this is certainly not my fault; you know it is not.",
+     "ko": "사랑하는 아빠! 그건 정말 제 탓이 아니에요. 아버지도 아시잖아요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 98 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Mein allerliebster Papa! // meine Schuld ist das gewiß nicht — / das wissen Sie.",
+      "en": "My very dearest papa, / this is certainly not my fault; / you know it is not.",
+      "ko": "사랑하는 아빠! // 그건 정말 제 탓이 아니에요. // 아버지도 아시잖아요."
+     }
+    },
+    {
+     "de": "Ich habe nun meine ganze Hoffnung nach Paris, denn die deutschen Fürsten sind alle Knicker. Ich werde nach allen meinen Kräften arbeiten um bald das Vergnügen zu haben Ihnen aus den dermaligen betrübten Umständen herauszuhelfen.",
+     "en": "My whole hopes are now centred in Paris, for German princes are all niggards. I mean to work with all my strength, that I may soon have the happiness of extricating you from your present distressing circumstances.",
+     "ko": "이제 제 희망은 모두 파리에 걸려 있어요. 독일의 군주들은 다 구두쇠니까요. 온 힘을 다해 일해서, 하루빨리 아버지를 지금의 딱한 형편에서 건져 드리는 기쁨을 누리고 싶어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 98 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich habe nun meine ganze Hoffnung nach Paris, / denn die deutschen Fürsten sind alle Knicker. // Ich werde nach allen meinen Kräften arbeiten um bald das Vergnügen zu haben Ihnen aus den dermaligen betrübten Umständen herauszuhelfen.",
+      "en": "My whole hopes are now centred in Paris, / for German princes are all niggards. // I mean to work with all my strength, / that I may soon have the happiness of extricating you from your present distressing circumstances.",
+      "ko": "이제 제 희망은 모두 파리에 걸려 있어요. // 독일의 군주들은 다 구두쇠니까요. // 온 힘을 다해 일해서, / 하루빨리 아버지를 지금의 딱한 형편에서 건져 드리는 기쁨을 누리고 싶어요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Wahlspruch",
+     "pos": "n.m.",
+     "ipa": "ˈvaːlˌʃpʁʊx",
+     "en": "motto",
+     "ipa_en": "ˈmɑtoʊ",
+     "ko": "좌우명",
+     "rom_ko": "jwa-u-myeong"
+    },
+    {
+     "de": "die Arie",
+     "pos": "n.f.",
+     "ipa": "ˈaːʁi̯ə",
+     "en": "aria",
+     "ipa_en": "ˈɑɹiə",
+     "ko": "아리아",
+     "rom_ko": "a-ri-a",
+     "icon": "🎵"
+    },
+    {
+     "de": "gekleidet",
+     "pos": "adj.",
+     "ipa": "ɡəˈklaɪ̯dət",
+     "en": "dressed",
+     "ipa_en": "dɹɛst",
+     "ko": "옷을 입은",
+     "rom_ko": "o-seul i-beun",
+     "icon": "🧥"
+    },
+    {
+     "de": "die Hoffnung",
+     "pos": "n.f.",
+     "ipa": "ˈhɔfnʊŋ",
+     "en": "hope",
+     "ipa_en": "hoʊp",
+     "ko": "희망",
+     "rom_ko": "hui-mang"
+    },
+    {
+     "de": "der Knicker",
+     "pos": "n.m.",
+     "ipa": "ˈknɪkɐ",
+     "en": "miser, niggard",
+     "ipa_en": "ˈmaɪzɚ",
+     "ko": "구두쇠",
+     "rom_ko": "gu-du-soe"
+    }
+   ],
+   "note": {
+    "ko": "만하임을 떠나기 일주일쯤 전의 편지예요. 아버지는 여행 경비 때문에 빚을 지고 옷차림까지 초라해졌다고 써 보냈고, 볼프강은 그 소식에 눈물을 흘렸어요. 새 아리아는 알로이지아 베버를 위해 쓴 〈논 소 돈데 비에네〉 K. 294예요. 1778년 3월 14일, 그는 어머니와 함께 파리로 떠났어요.",
+    "en": "Written a week before leaving Mannheim. Leopold had written that the journey's costs left him going about shabbily dressed, and Wolfgang was moved to tears. The new aria is 'Non so d'onde viene', K. 294, written for Aloysia Weber. On 14 March 1778 he set out with his mother for Paris.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 98 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Gott segne dich in Paris, mein Sohn.",
+    "en": "God bless you in Paris, my son.",
+    "ko": "파리에서도 하느님이 지켜 주시길, 아들아.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "music",
+     "piece": {
+      "de": "Arie „Non so d'onde viene“, KV 294 (für Aloysia Weber)",
+      "en": "Aria 'Non so d'onde viene', K. 294 (for Aloysia Weber)",
+      "ko": "아리아 〈논 소 돈데 비에네〉, K. 294 (알로이지아 베버를 위해)"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "de": "Alle Hoffnung auf Paris",
+    "en": "All hopes on Paris",
+    "ko": "모든 희망은 파리에"
+   },
+   "plate_hint": {
+    "idea": "Portrait of Leopold Mozart (P. A. Lorenzoni, c. 1765).",
+    "search": [
+     "Leopold Mozart Lorenzoni portrait",
+     "Leopold Mozart portrait 1765",
+     "Leopold Mozart Gemälde"
+    ],
+    "kind": "person"
+   }
   }
  ]
 }
