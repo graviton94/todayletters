@@ -2425,12 +2425,12 @@
     "ko": "눌러서 입장하기"
   },
   "dl_title": {
-    "en": "Narration for “%1$s”",
-    "ko": "「%1$s」 낭독"
+    "en": "Narration and pictures for “%1$s”",
+    "ko": "「%1$s」 낭독 · 그림"
   },
   "dl_body": {
-    "en": "This chapter's narration (Vincent's voice) is not inside the app yet. Download it once (%1$s) and it plays offline from then on.",
-    "ko": "이 장의 낭독(빈센트 목소리)은 아직 앱에 없어요. 한 번 받아 두면(%1$s) 그다음부터는 인터넷 없이 들려요."
+    "en": "This chapter's narration (Vincent's voice) and pictures are not inside the app yet. Download them once (%1$s) and they work offline from then on.",
+    "ko": "이 장의 낭독(빈센트 목소리)과 그림은 아직 앱에 없어요. 한 번 받아 두면(%1$s) 그다음부터는 인터넷 없이 보고 들려요."
   },
   "dl_mobile": {
     "en": "You are on mobile data. Wi-Fi is better if your data plan is limited.",
@@ -2573,24 +2573,24 @@
     "ko": "모든 장"
   },
   "dl_body_ahead": {
-    "en": "You can download the reading of letters that haven't arrived yet (%1$s). Then they play without data on the day they arrive.",
-    "ko": "아직 도착하지 않은 편지의 낭독도 미리 받아 둘 수 있어요 (%1$s). 받아 두면 편지가 도착한 날 데이터 없이 바로 들려요."
+    "en": "You can download the reading and pictures of letters that haven't arrived yet (%1$s). Then they open without data on the day they arrive.",
+    "ko": "아직 도착하지 않은 편지의 낭독 · 그림도 미리 받아 둘 수 있어요 (%1$s). 받아 두면 편지가 도착한 날 데이터 없이 바로 열려요."
   },
   "set_storage": {
     "en": "Storage",
     "ko": "저장 공간"
   },
   "set_storage_used": {
-    "en": "Downloaded readings: %1$s",
-    "ko": "받아 둔 낭독: %1$s"
+    "en": "Downloaded readings and pictures: %1$s",
+    "ko": "받아 둔 낭독 · 그림: %1$s"
   },
   "set_storage_all": {
-    "en": "Download all readings · %1$s",
-    "ko": "모든 낭독 받기 · %1$s"
+    "en": "Download all chapters · %1$s",
+    "ko": "모든 장 받기 · %1$s"
   },
   "set_storage_clear": {
-    "en": "Delete downloaded readings",
-    "ko": "받아 둔 낭독 지우기"
+    "en": "Delete downloaded readings and pictures",
+    "ko": "받아 둔 낭독 · 그림 지우기"
   },
   "set_storage_clear_sure": {
     "en": "Tap again to delete",
@@ -3289,8 +3289,8 @@
     "ko": "그날 아무것도 안 했을 때만 한 번"
   },
   "set_storage_row": {
-    "en": "Downloaded readings",
-    "ko": "받아 둔 낭독"
+    "en": "Downloaded readings and pictures",
+    "ko": "받아 둔 낭독 · 그림"
   },
   "set_storage_left": {
     "en": "Still to download · %1$s",

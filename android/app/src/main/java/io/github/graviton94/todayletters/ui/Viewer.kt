@@ -42,12 +42,12 @@ import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 
-/** assets 안 그림을 원래 크기 그대로 (크게 보기용). */
+/** 그림을 원래 크기 그대로 (크게 보기용). 받아 둔 것 먼저, 없으면 앱 안. */
 @Composable
 fun rememberAsset(path: String): ImageBitmap? {
     val ctx = LocalContext.current
-    return remember(path) {
-        if (path.isBlank()) null else runCatching { ctx.assets.open(path).use { android.graphics.BitmapFactory.decodeStream(it)?.asImageBitmap() } }.getOrNull()
+    return remember(path, io.github.graviton94.todayletters.data.AssetFiles.generation) {
+        if (path.isBlank()) null else runCatching { io.github.graviton94.todayletters.data.AssetFiles.open(ctx, path).use { android.graphics.BitmapFactory.decodeStream(it)?.asImageBitmap() } }.getOrNull()
     }
 }
 

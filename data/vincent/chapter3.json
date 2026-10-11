@@ -110,7 +110,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://artgallery.yale.edu/collections/objects/12507",
     "why": "The painting this letter describes; Yale's open-access policy needs no permission for public-domain works.",
-    "image": "c2-l5.jpg",
+    "image": "c2-l5.webp",
     "spots": [
      {
       "x": 0.65,
@@ -211,7 +211,7 @@
     {
      "after": 3,
      "type": "photo",
-     "image": "c2-l5.jpg",
+     "image": "c2-l5.webp",
      "caption": {
       "fr": "Le café de nuit",
       "en": "The night café",
@@ -339,7 +339,7 @@
     "imageSource": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Terrace_of_a_Café_at_Night_(Place_du_Forum)_1888.jpg",
     "why": "The café terrace this letter describes; PD-Art from Wikimedia Commons.",
     "exception": "pd-art",
-    "image": "v537.jpg",
+    "image": "v537.webp",
     "spots": [
      {
       "x": 0.385,
@@ -433,7 +433,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "v537.jpg",
+     "image": "v537.webp",
      "caption": {
       "fr": "La terrasse du café, dans la nuit bleue",
       "en": "The café terrace, in the blue night",
@@ -560,7 +560,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Starry_Night_Over_the_Rhone.jpg",
     "why": "The painting this letter describes; a public-domain image from Wikimedia Commons.",
-    "image": "c3-l1.jpg",
+    "image": "c3-l1.webp",
     "spots": [
      {
       "x": 0.55,
@@ -666,7 +666,7 @@
     {
      "after": 3,
      "type": "photo",
-     "image": "c3-l1.jpg",
+     "image": "c3-l1.webp",
      "caption": {
       "fr": "Le ciel étoilé",
       "en": "The starry sky",
@@ -793,7 +793,7 @@
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Self-Portrait_Dedicated_to_Paul_Gauguin_-_1951.65_-_Fogg_Museum.jpg",
     "why": "The self-portrait as a Bonze that this letter describes; PD-Art from Wikimedia Commons.",
     "exception": "pd-art",
-    "image": "v545.jpg",
+    "image": "v545.webp",
     "spots": [
      {
       "x": 0.4,
@@ -876,7 +876,7 @@
     {
      "after": 4,
      "type": "photo",
-     "image": "v545.jpg",
+     "image": "v545.webp",
      "caption": {
       "fr": "Le portrait en Bonze",
       "en": "The portrait as a bonze",
@@ -1004,7 +1004,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.artic.edu/artworks/14586",
     "why": "A canvas of the ‘poet's garden’ series this letter mentions; the Art Institute of Chicago releases it under CC0.",
-    "image": "c3-l2.jpg",
+    "image": "c3-l2.webp",
     "spots": [
      {
       "x": 0.5,
@@ -1083,7 +1083,7 @@
     {
      "after": 4,
      "type": "photo",
-     "image": "c3-l2.jpg",
+     "image": "c3-l2.webp",
      "caption": {
       "fr": "Le jardin du poète",
       "en": "The poet's garden",
@@ -1210,7 +1210,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.artic.edu/artworks/28560",
     "why": "The bedroom this letter describes, in the repetition Vincent painted in 1889; the Art Institute of Chicago releases it under CC0.",
-    "image": "c3-l4.jpg",
+    "image": "c3-l4.webp",
     "spots": [
      {
       "x": 0.68,
@@ -1284,7 +1284,7 @@
     {
      "after": 0,
      "type": "photo",
-     "image": "c3-l4.jpg",
+     "image": "c3-l4.webp",
      "caption": {
       "fr": "Ma chambre à coucher",
       "en": "My bedroom",
@@ -1412,7 +1412,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_The_yellow_house_(%27The_street%27).jpg",
     "why": "The house where the gas was put in, painted that September; a public-domain image from Wikimedia Commons.",
-    "image": "c3-l5.jpg",
+    "image": "c3-l5.webp",
     "spots": [
      {
       "x": 0.6,
@@ -1518,7 +1518,7 @@
     {
      "after": 4,
      "type": "photo",
-     "image": "c3-l5.jpg",
+     "image": "c3-l5.webp",
      "caption": {
       "fr": "La maison jaune",
       "en": "The Yellow House",

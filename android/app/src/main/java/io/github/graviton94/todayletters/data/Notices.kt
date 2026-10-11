@@ -209,10 +209,10 @@ class TodayWidget : AppWidgetProvider() {
         /** 위젯에 넣을 그림: 큰 비트맵은 위젯에 못 실으니 짧은 변을 400px 남짓으로 줄여 읽는다. */
         internal fun plate(ctx: Context, path: String): Bitmap? = runCatching {
             val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-            ctx.assets.open(path).use { BitmapFactory.decodeStream(it, null, bounds) }
+            AssetFiles.open(ctx, path).use { BitmapFactory.decodeStream(it, null, bounds) }
             var sample = 1
             while (minOf(bounds.outWidth, bounds.outHeight) / (sample * 2) >= 400) sample *= 2
-            ctx.assets.open(path).use { BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = sample }) }
+            AssetFiles.open(ctx, path).use { BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = sample }) }
         }.getOrNull()
 
         internal fun views(ctx: Context, sum: TodaySummary?, art: Bitmap?, small: Boolean): RemoteViews {

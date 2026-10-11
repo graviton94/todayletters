@@ -5,16 +5,25 @@ import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.os.Build
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.setValue
 import java.io.File
 
 /** 낭독 한 덩어리: 시작 · 끝(밀리초) · 글자. */
 data class Chunk(val start: Int, val end: Int, val text: String)
 
 /**
- * 낭독 파일 찾기: 앱 밖(R2)에서 받아 둔 파일(files/<경로>)이 있으면 그것을, 없으면 앱 안 assets/<경로> 를.
- * 그래서 화면 코드는 장이 앱 안에 있든 받아 온 것이든 같은 경로("audio/작품/장/편지/파일.m4a")만 쓴다.
+ * 파일 찾기 (낭독 · 그림 · 곡): 앱 밖(R2)에서 받아 둔 파일(files/<경로>)이 있으면 그것을, 없으면 앱 안 assets/<경로> 를.
+ * 그래서 화면 코드는 장이 앱 안에 있든 받아 온 것이든 같은 경로("audio/작품/장/편지/파일.m4a" · "plates/파일.webp")만 쓴다.
+ * 둘 다 없으면 (아직 받지 않은 장) 그림은 빈 액자 · 소리는 조용히.
  */
-object AudioFiles {
+object AssetFiles {
+    /** 받기가 끝나거나 지울 때마다 하나씩 늘어난다. 그림을 읽는 화면이 이것을 열쇠로 다시 읽는다. */
+    var generation by mutableIntStateOf(0)
+        private set
+    fun changed() { generation++ }
+
     fun local(ctx: Context, path: String) = File(ctx.filesDir, path)
     fun fd(ctx: Context, path: String): android.content.res.AssetFileDescriptor? {
         val f = local(ctx, path)
@@ -28,6 +37,20 @@ object AudioFiles {
         if (f.isFile) return runCatching { f.readText() }.getOrNull()
         return runCatching { ctx.assets.open(path).bufferedReader().readText() }.getOrNull()
     }
+    /** 읽기 (받아 둔 것 먼저). 없으면 예외 (부르는 쪽이 runCatching). */
+    fun open(ctx: Context, path: String): java.io.InputStream {
+        val f = local(ctx, path)
+        return if (f.isFile) f.inputStream() else ctx.assets.open(path)
+    }
+    /** 이 파일이 지금 기기에 있는가 (앱 안이든 받아 둔 것이든). 앱 안 목록은 폴더마다 한 번만 읽는다. */
+    fun has(ctx: Context, path: String): Boolean {
+        if (path.isBlank()) return false
+        if (local(ctx, path).isFile) return true
+        val dir = path.substringBeforeLast('/', ""); val name = path.substringAfterLast('/')
+        val names = synchronized(listed) { listed.getOrPut(dir) { runCatching { ctx.assets.list(dir)?.toSet() }.getOrNull() ?: emptySet() } }
+        return name in names
+    }
+    private val listed = HashMap<String, Set<String>>()
 }
 
 /** 앱의 모든 소리는 미디어 볼륨으로 (사용자가 녹음하는 마이크 입력만 예외). */
@@ -45,11 +68,11 @@ class Narrator(private val ctx: Context) {
 
     fun path(series: String, chapter: String, letter: String, file: String) = "audio/$series/$chapter/$letter/$file.m4a"
 
-    fun has(asset: String) = AudioFiles.fd(ctx, asset)?.also { runCatching { it.close() } } != null
+    fun has(asset: String) = AssetFiles.fd(ctx, asset)?.also { runCatching { it.close() } } != null
 
     fun play(asset: String, speed: Float = 1f, onDone: () -> Unit = {}): Boolean {
         stop()
-        val fd = AudioFiles.fd(ctx, asset) ?: run { onDone(); return false }
+        val fd = AssetFiles.fd(ctx, asset) ?: run { onDone(); return false }
         pending = onDone
         // 소리 파일이 깨졌거나 재생기가 거절하면 조용히 넘어간다 (대화는 계속)
         player = runCatching {
@@ -114,7 +137,7 @@ class Narrator(private val ctx: Context) {
 
     /** 낭독의 덩어리 시각: assets/....m<번호>_<언어>.json (narrate.py 가 씀). 없으면 빈 목록. */
     fun chunks(asset: String): List<Chunk> = runCatching {
-        val o = org.json.JSONObject(AudioFiles.text(ctx, asset.removeSuffix(".m4a") + ".json")!!)
+        val o = org.json.JSONObject(AssetFiles.text(ctx, asset.removeSuffix(".m4a") + ".json")!!)
         val a = o.getJSONArray("chunks")
         (0 until a.length()).map { a.getJSONObject(it).let { c -> Chunk((c.getDouble("s") * 1000).toInt(), (c.getDouble("e") * 1000).toInt(), c.getString("text")) } }
     }.getOrDefault(emptyList())
@@ -144,7 +167,7 @@ class Excerpt(private val ctx: Context) {
     /** [asset] 을 처음부터. 끝까지 들으면 [onDone]. */
     fun play(asset: String, onDone: () -> Unit = {}): Boolean {
         stop()
-        val fd = AudioFiles.fd(ctx, asset) ?: return false
+        val fd = AssetFiles.fd(ctx, asset) ?: return false
         done = onDone
         player = runCatching {
             MediaPlayer().apply {
@@ -317,7 +340,7 @@ class PcmRecorder {
  * 무거운 일이라 화면 스레드가 아닌 곳에서 부른다.
  */
 fun decodeRange(ctx: Context, asset: String, fromMs: Int, toMs: Int): FloatArray? = runCatching {
-    val fd = AudioFiles.fd(ctx, asset)!!
+    val fd = AssetFiles.fd(ctx, asset)!!
     val ex = android.media.MediaExtractor().apply { setDataSource(fd.fileDescriptor, fd.startOffset, fd.length) }
     fd.close()
     val track = (0 until ex.trackCount).first { ex.getTrackFormat(it).getString(android.media.MediaFormat.KEY_MIME)!!.startsWith("audio/") }

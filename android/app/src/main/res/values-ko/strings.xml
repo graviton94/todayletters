@@ -607,8 +607,8 @@
     <string name="opening_tagline">명⁠화⁠와 역⁠사 속 편⁠지⁠로 배⁠우⁠는 외⁠국⁠어</string>
     <string name="opening_piece">오⁠늘⁠의 작⁠품 · 〈%1$s〉 %2$s</string>
     <string name="opening_enter">눌⁠러⁠서 입⁠장⁠하⁠기</string>
-    <string name="dl_title">「%1$s」 낭⁠독</string>
-    <string name="dl_body">이 장⁠의 낭⁠독⁠(⁠빈⁠센⁠트 목⁠소⁠리⁠)⁠은 아⁠직 앱⁠에 없⁠어⁠요⁠. 한 번 받⁠아 두⁠면⁠(%1$s) 그⁠다⁠음⁠부⁠터⁠는 인⁠터⁠넷 없⁠이 들⁠려⁠요⁠.</string>
+    <string name="dl_title">「%1$s」 낭⁠독 · 그⁠림</string>
+    <string name="dl_body">이 장⁠의 낭⁠독⁠(⁠빈⁠센⁠트 목⁠소⁠리⁠)⁠과 그⁠림⁠은 아⁠직 앱⁠에 없⁠어⁠요⁠. 한 번 받⁠아 두⁠면⁠(%1$s) 그⁠다⁠음⁠부⁠터⁠는 인⁠터⁠넷 없⁠이 보⁠고 들⁠려⁠요⁠.</string>
     <string name="dl_mobile">지⁠금 모⁠바⁠일 데⁠이⁠터⁠로 연⁠결⁠돼 있⁠어⁠요⁠. 데⁠이⁠터⁠가 넉⁠넉⁠하⁠지 않⁠다⁠면 와⁠이⁠파⁠이⁠에⁠서 받⁠는 게 좋⁠아⁠요⁠.</string>
     <string name="dl_go">받⁠기 · %1$s</string>
     <string name="dl_silent">소⁠리 없⁠이 읽⁠기</string>
@@ -644,11 +644,11 @@
     <string name="today_chapter_count">%1$s⁠장 %2$d/%3$d</string>
     <string name="meaning_prompt">이 낱⁠말⁠의 뜻⁠은⁠?</string>
     <string name="dl_all_chapters">모⁠든 장</string>
-    <string name="dl_body_ahead">아⁠직 도⁠착⁠하⁠지 않⁠은 편⁠지⁠의 낭⁠독⁠도 미⁠리 받⁠아 둘 수 있⁠어⁠요 (%1$s). 받⁠아 두⁠면 편⁠지⁠가 도⁠착⁠한 날 데⁠이⁠터 없⁠이 바⁠로 들⁠려⁠요⁠.</string>
+    <string name="dl_body_ahead">아⁠직 도⁠착⁠하⁠지 않⁠은 편⁠지⁠의 낭⁠독 · 그⁠림⁠도 미⁠리 받⁠아 둘 수 있⁠어⁠요 (%1$s). 받⁠아 두⁠면 편⁠지⁠가 도⁠착⁠한 날 데⁠이⁠터 없⁠이 바⁠로 열⁠려⁠요⁠.</string>
     <string name="set_storage">저⁠장 공⁠간</string>
-    <string name="set_storage_used">받⁠아 둔 낭⁠독⁠: %1$s</string>
-    <string name="set_storage_all">모⁠든 낭⁠독 받⁠기 · %1$s</string>
-    <string name="set_storage_clear">받⁠아 둔 낭⁠독 지⁠우⁠기</string>
+    <string name="set_storage_used">받⁠아 둔 낭⁠독 · 그⁠림⁠: %1$s</string>
+    <string name="set_storage_all">모⁠든 장 받⁠기 · %1$s</string>
+    <string name="set_storage_clear">받⁠아 둔 낭⁠독 · 그⁠림 지⁠우⁠기</string>
     <string name="set_storage_clear_sure">한 번 더 누⁠르⁠면 지⁠워⁠요</string>
     <string name="audio_ready">✓ 낭⁠독 있⁠음</string>
     <string name="audio_getting">받⁠는 중⁠…</string>
@@ -823,7 +823,7 @@
     <string name="set_arrival_d">새 편⁠지⁠가 오⁠는 시⁠각</string>
     <string name="set_evening2">이⁠어 읽⁠기 지⁠키⁠기</string>
     <string name="set_evening_d">그⁠날 아⁠무⁠것⁠도 안 했⁠을 때⁠만 한 번</string>
-    <string name="set_storage_row">받⁠아 둔 낭⁠독</string>
+    <string name="set_storage_row">받⁠아 둔 낭⁠독 · 그⁠림</string>
     <string name="set_storage_left">남⁠은 장 · %1$s</string>
     <string name="set_g_help">도⁠움 · 출⁠처</string>
     <string name="set_privacy_row">개⁠인⁠정⁠보</string>

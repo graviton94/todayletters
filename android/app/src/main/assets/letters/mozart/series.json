@@ -17,7 +17,7 @@
   "en": "his father",
   "ko": "아버지"
  },
- "portrait": "mozart.jpg",
+ "portrait": "mozart.webp",
  "credit": "The Mozart Family (detail), c. 1780–81 · Johann Nepomuk della Croce (attr.) · Stiftung Mozarteum Salzburg · Public domain",
  "title": {
   "de": "Briefe von Mozart",
@@ -124,7 +124,7 @@
     "accent": "#D98C9A"
    }
   },
-  "hero": "plates/m-c6-l6.jpg",
+  "hero": "plates/m-c6-l6.webp",
   "place": "SALZBURG · WIEN",
   "world": {
    "de": "In Mozarts Welt",
@@ -178,7 +178,7 @@
  },
  "outro": {
   "file": "epilogue.json",
-  "image": "m-outro.jpg",
+  "image": "m-outro.webp",
   "credit": "Requiem, K. 626 · last page of Mozart's working score (Hostias: “fac eas, Domine, de morte transire ad vitam”), 1791 · Österreichische Nationalbibliothek, Vienna · Public domain",
   "caps": "EPILOG",
   "name": "Wolfgang Amadeus Mozart",

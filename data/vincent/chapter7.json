@@ -121,7 +121,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Korenveld_met_maaier_-_s0049V1962_-_Van_Gogh_Museum.jpg",
     "why": "The reaper the letter describes; PD-Art from Wikimedia Commons.",
-    "image": "v604.jpg",
+    "image": "v604.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -196,7 +196,7 @@
     {
      "after": 0,
      "type": "photo",
-     "image": "v604b.jpg",
+     "image": "v604b.webp",
      "caption": {
       "fr": "Autoportrait, septembre 1889",
       "en": "Self-portrait, September 1889",
@@ -208,7 +208,7 @@
     {
      "after": 3,
      "type": "photo",
-     "image": "v604.jpg",
+     "image": "v604.webp",
      "caption": {
       "fr": "Le faucheur dans les blés jaunes",
       "en": "The reaper in the yellow wheat",
@@ -336,7 +336,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_083.jpg",
     "why": "His copy after Delacroix’s Pietà, mentioned in the letter; PD-Art from Wikimedia Commons.",
-    "image": "v607.jpg",
+    "image": "v607.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -411,7 +411,7 @@
     {
      "after": 0,
      "type": "photo",
-     "image": "v607.jpg",
+     "image": "v607.webp",
      "caption": {
       "fr": "Pietà, d'après Delacroix",
       "en": "Pietà, after Delacroix",
@@ -538,7 +538,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Olive_Trees_-_Google_Art_Project_(Minneapolis_Institute_of_Arts).jpg",
     "why": "An olive grove of 1889 like the ones the letter describes; PD-Art from Wikimedia Commons.",
-    "image": "v615.jpg",
+    "image": "v615.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -629,7 +629,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "v615.jpg",
+     "image": "v615.webp",
      "caption": {
       "fr": "Les oliviers",
       "en": "The olive trees",
@@ -756,7 +756,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.metmuseum.org/art/collection/search/436536",
     "why": "A version of the olive-pickers the letter describes; the Met releases it under CC0.",
-    "image": "v617.jpg",
+    "image": "v617.webp",
     "spots": [
      {
       "x": 0.5,
@@ -830,7 +830,7 @@
     {
      "after": 1,
      "type": "photo",
-     "image": "v617.jpg",
+     "image": "v617.webp",
      "caption": {
       "fr": "Les cueilleuses d'olives",
       "en": "Women picking olives",
@@ -973,7 +973,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.clevelandart.org/art/1947.209",
     "why": "“Les grands platanes — la rue principale ou boulevard de St. Remy”, listed in the letter; the Cleveland Museum of Art releases it under CC0.",
-    "image": "v621.jpg",
+    "image": "v621.webp",
     "spots": [
      {
       "x": 0.3,
@@ -1052,7 +1052,7 @@
     {
      "after": 3,
      "type": "photo",
-     "image": "v621.jpg",
+     "image": "v621.webp",
      "caption": {
       "fr": "Les grands platanes",
       "en": "The large plane trees",
@@ -1178,7 +1178,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Amandelbloesem_-_s0176V1962_-_Van_Gogh_Museum.jpg",
     "why": "The painting he made for the newborn (he tells his mother so in a Dutch letter of 15 February 1890, n° 627); PD-Art from Wikimedia Commons.",
-    "image": "v625.jpg",
+    "image": "v625.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -1242,7 +1242,7 @@
     {
      "after": 4,
      "type": "photo",
-     "image": "v625.jpg",
+     "image": "v625.webp",
      "caption": {
       "fr": "Branches d'amandier en fleur",
       "en": "Almond blossom",
@@ -1370,7 +1370,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.metmuseum.org/art/collection/search/436528",
     "why": "One of the two iris bouquets the letter describes; the Met releases it under CC0.",
-    "image": "v633.jpg",
+    "image": "v633.webp",
     "spots": [
      {
       "x": 0.5,
@@ -1460,7 +1460,7 @@
     {
      "after": 1,
      "type": "photo",
-     "image": "v633b.jpg",
+     "image": "v633b.webp",
      "caption": {
       "fr": "Roses sur fond vert clair",
       "en": "Roses on a light green background",

@@ -1,7 +1,8 @@
 name: Narration to R2
 
-# 앱에 들어 있는 낭독과 앱 밖에 두는 장의 낭독 (android/app/src/main/assets/audio/ · remote/audio/작품/챕터/편지/*.m4a · 마디 시각 *.json) 을 Cloudflare R2 의 audio/ 로 올리고,
-# 공개 주소로 하나 받아 같은 파일인지 확인해요. (narration 가지는 마지막에 만든 장만 들고 있어서, 모든 장이 있는 앱 쪽을 기준으로)
+# 앱에 들어 있는 낭독(android/app/src/main/assets/audio/)과 앱 밖에 두는 파일(remote/ — assets 와 같은 모양:
+# remote/audio/작품/챕터/편지/*.m4a · 마디 시각 *.json · remote/audio/작품/music/*.m4a · remote/plates · remote/sketches · remote/gallery/*.webp)
+# 을 Cloudflare R2 의 같은 경로(audio/ · plates/ · sketches/ · gallery/)로 올리고, 공개 주소로 몇 개 받아 같은 파일인지 확인해요.
 # 키는 GitHub Secrets (CF_ACCOUNT_ID · CF_R2_ACCESS_KEY_ID · CF_R2_SECRET_ACCESS_KEY · CF_R2_BUCKET),
 # 공개 주소는 Variables (CF_R2_PUBLIC_URL). 하루의 성경과 같은 이름이에요.
 on:
@@ -29,23 +30,28 @@ jobs:
           done
           [ $ok = 1 ]
       - uses: actions/checkout@v4
-      - name: Upload to R2 (audio/)
+      - name: Upload to R2 (audio/ · plates/ · sketches/ · gallery/)
         run: |
           src=android/app/src/main/assets/audio
           ep="https://$ACCOUNT.r2.cloudflarestorage.com"
           aws s3 sync "$src" "s3://$BUCKET/audio/" --only-show-errors --exclude "*" --include "*.m4a" --content-type audio/mp4 --endpoint-url "$ep"
           aws s3 sync "$src" "s3://$BUCKET/audio/" --only-show-errors --exclude "*" --include "*.json" --content-type application/json --endpoint-url "$ep"
-          # 앱 밖에 두는 장 (그 장을 처음 열 때 받는다)
-          aws s3 sync remote/audio "s3://$BUCKET/audio/" --only-show-errors --exclude "*" --include "*.m4a" --content-type audio/mp4 --endpoint-url "$ep"
-          aws s3 sync remote/audio "s3://$BUCKET/audio/" --only-show-errors --exclude "*" --include "*.json" --content-type application/json --endpoint-url "$ep"
-          echo "local: $(( $(find "$src" -type f | wc -l) + $(find remote/audio -type f | wc -l) )) files"
-          echo "R2:    $(aws s3 ls "s3://$BUCKET/audio/" --recursive --endpoint-url "$ep" | wc -l) files"
+          # 앱 밖에 두는 것 (그 장을 처음 열 때 받는다): remote/ 의 경로 그대로
+          aws s3 sync remote "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.m4a" --content-type audio/mp4 --endpoint-url "$ep"
+          aws s3 sync remote "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.json" --content-type application/json --endpoint-url "$ep"
+          aws s3 sync remote "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.webp" --content-type image/webp --endpoint-url "$ep"
+          echo "local: $(( $(find "$src" -type f | wc -l) + $(find remote -type f | wc -l) )) files"
+          for d in audio plates sketches gallery; do
+            echo "R2 $d/: $(aws s3 ls "s3://$BUCKET/$d/" --recursive --endpoint-url "$ep" | wc -l) files"
+          done
       - name: Check public download
         run: |
-          src=android/app/src/main/assets/audio
-          src=remote/audio
-          for f in $(cd $src && find . -name "*.m4a" | sort | sed -n '1p;$p' | sed 's#^\./##'); do
-            code=$(curl -s -o /tmp/t -w "%{http_code}" "${PUBLIC%/}/audio/$f")
-            echo "GET $f → $code ($(stat -c%s /tmp/t) bytes)"
-            [ "$code" = 200 ] && cmp -s /tmp/t "$src/$f" && echo "same file ✓" || { echo "::error::public download differs or failed"; exit 1; }
+          # 앱 밖 낭독의 처음 · 끝, 곡 하나, 그림 · 스케치 · 소장품 하나씩 (앱의 remote.json 경로 그대로)
+          files="$(cd remote && { find audio -name "*.m4a" -not -path "*/music/*" | sort | sed -n '1p;$p'; find audio -path "*/music/*" -name "*.m4a" | sort | head -1; for d in plates sketches gallery; do find $d -name "*.webp" | sort | head -1; done; })"
+          for f in $files; do
+            code=$(curl -s -o /tmp/t -D /tmp/h -w "%{http_code}" "${PUBLIC%/}/$f")
+            type=$(grep -i '^content-type:' /tmp/h | tr -d '\r' | cut -d' ' -f2)
+            echo "GET $f → $code ($(stat -c%s /tmp/t) bytes, $type)"
+            [ "$code" = 200 ] && cmp -s /tmp/t "remote/$f" && echo "same file ✓" || { echo "::error::public download differs or failed"; exit 1; }
+            case "$f" in *.webp) [ "$type" = image/webp ];; *.m4a) [ "$type" = audio/mp4 ];; esac || { echo "::error::content type $type"; exit 1; }
           done

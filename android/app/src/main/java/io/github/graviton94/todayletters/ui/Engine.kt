@@ -92,13 +92,13 @@ fun InSeries(w: Work, content: @Composable () -> Unit) = SeriesTheme(w.kit.light
 /** 어두운 쪽 빛깔 (서재 카드 · 전환 화면은 테마와 상관없이 늘 어둡게). */
 fun darkTone(w: Work): SeriesTone = w.kit.dark?.let(::tone) ?: SeriesTone(Color(0xFF121110), Color(0xFFECE7DE), Color(0xFFA29B90), Color(0xFF6A645B), Color(0xFFC9B48C))
 
-/** assets 안 그림 하나 (아무 경로). 가볍게 줄여서 읽는다. */
+/** 그림 하나 (assets 와 같은 경로, 받아 둔 것 먼저). 가볍게 줄여서 읽는다. 아직 받지 않았으면 빈 자리. */
 @Composable
 fun AssetImage(path: String, modifier: Modifier, gray: Boolean = false, sample: Int = 2, alignment: Alignment = Alignment.Center) {
     val ctx = LocalContext.current
-    val bmp: ImageBitmap? = remember(path, sample) {
+    val bmp: ImageBitmap? = remember(path, sample, io.github.graviton94.todayletters.data.AssetFiles.generation) {
         if (path.isBlank()) null else runCatching {
-            ctx.assets.open(path).use { android.graphics.BitmapFactory.decodeStream(it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = sample })?.asImageBitmap() }
+            io.github.graviton94.todayletters.data.AssetFiles.open(ctx, path).use { android.graphics.BitmapFactory.decodeStream(it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = sample })?.asImageBitmap() }
         }.getOrNull()
     }
     if (bmp == null) Box(modifier.background(Ink.palette.hide))
@@ -188,7 +188,7 @@ fun frameName(k: io.github.graviton94.todayletters.data.Frames.Kind) = stringRes
 @Composable
 fun rememberFramed(art: String, kind: io.github.graviton94.todayletters.data.Frames.Kind): ImageBitmap? {
     val ctx = LocalContext.current
-    return remember(art, kind) { io.github.graviton94.todayletters.data.Frames.framed(ctx, art, kind)?.asImageBitmap() }
+    return remember(art, kind, io.github.graviton94.todayletters.data.AssetFiles.generation) { io.github.graviton94.todayletters.data.Frames.framed(ctx, art, kind)?.asImageBitmap() }
 }
 
 /**
@@ -391,7 +391,7 @@ fun GalleryTab(s: AppState) {
                     row.forEach { pc ->
                         val have = s.owns(id, pc)
                         Box(Modifier.weight(1f).aspectRatio(1f).then(if (have) Modifier else Modifier.border(1.dp, p.hair))
-                            .pressable { if (have) open = pc else if (pc.tier != Tier.LETTER) buying = pc }) {
+                            .pressable { if (have) open = pc else if (pc.tier != Tier.LETTER && s.available(pc)) buying = pc }) {
                             if (have) AssetImage(pc.image, Modifier.fillMaxSize(), sample = 4)
                         }
                     }

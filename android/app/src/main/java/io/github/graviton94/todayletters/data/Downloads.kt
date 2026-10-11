@@ -16,9 +16,9 @@ import java.net.URL
 import java.util.concurrent.atomic.AtomicLong
 
 /**
- * 앱 밖(Cloudflare R2)에 두는 장의 낭독 받기.
- * 목록은 assets/letters/<작품>/remote.json (generate.py 가 씀): 장마다 파일 경로 · 크기 · 합.
- * 받은 파일은 files/audio/... 에 두고, [AudioFiles] 가 앱 안 파일보다 먼저 찾는다.
+ * 앱 밖(Cloudflare R2)에 두는 장의 낭독 · 그림 · 곡 받기.
+ * 목록은 assets/letters/<작품>/remote.json (generate.py 가 씀): 장마다 파일 경로(assets 와 같은 경로) · 크기 · 합.
+ * 받은 파일은 files/<경로> (files/audio/... · files/plates/... · files/gallery/...) 에 두고, [AssetFiles] 가 앱 안 파일보다 먼저 찾는다.
  * 계정 · 학습 기록 같은 것은 보내지 않는다: 공개 주소에서 파일을 받기만 한다.
  */
 class Downloads(private val ctx: Context) {
@@ -45,19 +45,23 @@ class Downloads(private val ctx: Context) {
     fun all(series: String): Pack? {
         val packs = load(series)?.second?.values?.sortedBy { it.chapter }.orEmpty()
         if (packs.isEmpty()) return null
-        return Pack(series, ALL, packs.sumOf { it.bytes }, packs.flatMap { it.parts })
+        val parts = packs.flatMap { it.parts }.distinctBy { it.path }
+        return Pack(series, ALL, parts.sumOf { it.size }, parts)
     }
 
-    /** 받아 둔 낭독의 크기 (바이트). */
-    fun stored(): Long = File(ctx.filesDir, "audio").walkTopDown().filter { it.isFile }.sumOf { it.length() }
+    /** 받은 파일이 놓이는 폴더들 (files/ 아래, assets 와 같은 이름). */
+    private val roots = listOf("audio", "plates", "sketches", "gallery")
 
-    /** 받아 둔 낭독을 모두 지운다 (앱 안에 든 1장 낭독은 그대로). */
-    fun clear() { File(ctx.filesDir, "audio").deleteRecursively() }
+    /** 받아 둔 낭독 · 그림의 크기 (바이트). */
+    fun stored(): Long = roots.sumOf { r -> File(ctx.filesDir, r).walkTopDown().filter { it.isFile }.sumOf { it.length() } }
 
-    /** 이 장의 낭독이 앱 밖에 있는가. 없으면 null (앱 안에 들어 있는 장). */
+    /** 받아 둔 것을 모두 지운다 (앱 안에 든 맛보기 장은 그대로). */
+    fun clear() { roots.forEach { File(ctx.filesDir, it).deleteRecursively() }; AssetFiles.changed() }
+
+    /** 이 장의 낭독 · 그림이 앱 밖에 있는가. 없으면 null (앱 안에 들어 있는 장). */
     fun pack(series: String, chapter: String): Pack? = load(series)?.second?.get(chapter)
 
-    private fun file(p: Part) = File(ctx.filesDir, "audio/${p.path}")
+    private fun file(p: Part) = File(ctx.filesDir, p.path)
 
     /** 이 장을 다 받아 두었는가. */
     fun ready(pack: Pack) = pack.parts.all { file(it).length() == it.size }
@@ -83,7 +87,8 @@ class Downloads(private val ctx: Context) {
         val done = AtomicLong(total - todo.sumOf { it.size })
         progress(done.get(), total)
         val lock = Mutex()
-        coroutineScope {
+        // 받은 만큼은 (멈추거나 실패해도) 화면이 다시 찾도록, 끝에 한 번 알린다
+        try { coroutineScope {
             // 네 갈래로 나눠 받는다 (작은 파일이 많아서)
             todo.chunked(((todo.size + 3) / 4).coerceAtLeast(1)).map { group ->
                 async {
@@ -114,6 +119,6 @@ class Downloads(private val ctx: Context) {
                     }
                 }
             }.awaitAll()
-        }
+        } } finally { AssetFiles.changed() }
     }
 }

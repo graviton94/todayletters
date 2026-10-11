@@ -155,7 +155,7 @@ class NarrationService : Service() {
         if (path == null) return null
         art?.let { if (it.first == path) return it.second }
         val b = runCatching {
-            assets.open(path).use { android.graphics.BitmapFactory.decodeStream(it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = 2 }) }
+            AssetFiles.open(this, path).use { android.graphics.BitmapFactory.decodeStream(it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = 2 }) }
         }.getOrNull()
         art = path to b
         return b

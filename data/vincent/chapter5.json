@@ -120,7 +120,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Self-Portrait_with_a_Bandaged_Ear_-_Vincent_van_Gogh.jpg",
     "why": "The self-portrait painted in January 1889 after the crisis of 23 December; PD-Art from Wikimedia Commons.",
-    "image": "v566.jpg",
+    "image": "v566.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -184,7 +184,7 @@
     {
      "after": 4,
      "type": "photo",
-     "image": "v566.jpg",
+     "image": "v566.webp",
      "caption": {
       "fr": "Autoportrait, janvier 1889",
       "en": "Self-portrait, January 1889",
@@ -311,7 +311,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Portrait_of_Doctor_Félix_Rey_(F500).jpg",
     "why": "The portrait of Dr Rey that the letter plans; PD-Art from Wikimedia Commons.",
-    "image": "v568.jpg",
+    "image": "v568.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -377,7 +377,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "v568.jpg",
+     "image": "v568.webp",
      "caption": {
       "fr": "Portrait de M. Rey",
       "en": "Portrait of Mr Rey",
@@ -505,7 +505,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh,_Still_Life_of_Oranges_and_Lemons_with_Blue_Gloves,_1889,_NGA_164923.jpg",
     "why": "The still life this letter describes; the National Gallery of Art releases it under CC0 (Open Access).",
-    "image": "v573.jpg",
+    "image": "v573.webp",
     "spots": [
      {
       "x": 0.79,
@@ -604,7 +604,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "v573.jpg",
+     "image": "v573.webp",
      "caption": {
       "fr": "Citrons, oranges et gants bleus",
       "en": "Lemons, oranges and blue gloves",
@@ -729,7 +729,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.metmuseum.org/art/collection/search/437984",
     "why": "One of the Berceuse canvases the letter describes; the Met releases it under CC0.",
-    "image": "v574.jpg",
+    "image": "v574.webp",
     "spots": [
      {
       "x": 0.53,
@@ -803,7 +803,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "v574.jpg",
+     "image": "v574.webp",
      "caption": {
       "fr": "La Berceuse",
       "en": "La Berceuse",
@@ -813,7 +813,7 @@
     {
      "after": 3,
      "type": "sketch",
-     "image": "v592-berceuse.jpg",
+     "image": "v592-berceuse.webp",
      "caption": {
       "fr": "La Berceuse entre deux tournesols · croquis d'une lettre plus tardive (n° 592)",
       "en": "La Berceuse between two sunflowers · sketch from a later letter (no. 592)",
@@ -939,7 +939,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh,_Dutch_-_Sunflowers_-_Google_Art_Project.jpg",
     "why": "One of the January 1889 repetitions of the sunflowers that the letter speaks of; PD-Art from Wikimedia Commons.",
-    "image": "v575.jpg",
+    "image": "v575.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -994,7 +994,7 @@
     {
      "after": 0,
      "type": "photo",
-     "image": "v575.jpg",
+     "image": "v575.webp",
      "caption": {
       "fr": "Tournesols, répétition",
       "en": "Sunflowers, repetition",
@@ -1145,7 +1145,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Deux_harengs_1889_V_Van_Gogh_(1).jpg",
     "why": "A herring still life of early 1889, like the one with “deux harengs fumés” the letter says he gave Signac (not necessarily that very canvas — say so); PD-Art from Wikimedia Commons.",
-    "image": "v581.jpg",
+    "image": "v581.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -1209,7 +1209,7 @@
     {
      "after": 1,
      "type": "photo",
-     "image": "v581.jpg",
+     "image": "v581.webp",
      "caption": {
       "fr": "Deux harengs fumés",
       "en": "Two smoked herrings",
@@ -1336,7 +1336,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Perzikbomen_in_bloei.jpg",
     "why": "The peach orchard with the Alpilles that the letter says is on the easel; PD-Art from Wikimedia Commons.",
-    "image": "v583.jpg",
+    "image": "v583.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -1420,7 +1420,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "v583.jpg",
+     "image": "v583.webp",
      "caption": {
       "fr": "Pêchers en fleurs",
       "en": "Peach trees in blossom",

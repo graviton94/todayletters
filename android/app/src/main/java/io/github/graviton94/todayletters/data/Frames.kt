@@ -42,13 +42,13 @@ object Frames {
 
     private fun load(ctx: Context, path: String, max: Int): Bitmap? = runCatching {
         val o = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-        ctx.assets.open(path).use { BitmapFactory.decodeStream(it, null, o) }
+        AssetFiles.open(ctx, path).use { BitmapFactory.decodeStream(it, null, o) }
         var sample = 1
         while (maxOf(o.outWidth, o.outHeight) / (sample * 2) >= max) sample *= 2
-        ctx.assets.open(path).use { BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = sample }) }
+        AssetFiles.open(ctx, path).use { BitmapFactory.decodeStream(it, null, BitmapFactory.Options().apply { inSampleSize = sample }) }
     }.getOrNull()
 
-    /** [art] (assets 경로) 를 [kind] 액자에 끼운 그림. 액자가 없으면 작품만. */
+    /** [art] (assets 경로, 받아 둔 것 먼저) 를 [kind] 액자에 끼운 그림. 액자가 없으면 작품만. */
     fun framed(ctx: Context, art: String, kind: Kind): Bitmap? {
         val key = "$art|$kind"
         cache.get(key)?.let { return it }

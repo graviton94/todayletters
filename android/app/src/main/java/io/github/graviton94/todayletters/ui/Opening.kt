@@ -47,9 +47,9 @@ private fun Modifier.rise(a: Float) = graphicsLayer { alpha = a; translationY = 
 @Composable
 fun Opening(s: AppState) {
     val ink = Color(0xFFECE7DE); val soft = Color(0xFFA29B90); val gilt = Color(0xFFC9B48C); val ground = Color(0xFF121110)
-    // 오늘의 작품: 모든 시리즈의 유화 · 명작을 날마다 돌아가며
+    // 오늘의 작품: 모든 시리즈의 유화 · 명작 (기기에 있는 것) 을 날마다 돌아가며
     val piece = remember {
-        val pool = s.works.flatMap { w -> w.kit.collection.filter { it.tier == Tier.PAINTING || it.tier == Tier.MASTER } }
+        val pool = s.works.flatMap { w -> w.kit.collection.filter { (it.tier == Tier.PAINTING || it.tier == Tier.MASTER) && s.available(it) } }
         pool.getOrNull(Math.floorMod(s.today, pool.size.coerceAtLeast(1).toLong()).toInt())
     }
     val still = s.reducedMotion

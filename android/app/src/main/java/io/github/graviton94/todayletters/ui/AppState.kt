@@ -435,7 +435,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         when (what) {
             Spend.REST -> if (store.rests >= Streak.MAX_RESTS) return false
             Spend.EARLY_LETTER -> if (store.earlyDay(id) == today || all(id).size <= openable(id).size) return false
-            Spend.PICK_PIECE -> if (piece == null || owns(id, piece)) return false
+            Spend.PICK_PIECE -> if (piece == null || owns(id, piece) || !available(piece)) return false
             Spend.FRAME -> if (piece == null || option == null || !owns(id, piece) || frameKind(piece).name == option) return false
             Spend.BORDER -> if (option == null || option in store.borders()) return false
         }
@@ -465,6 +465,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun owns(id: String, p: Piece) = run { @Suppress("UNUSED_EXPRESSION") version; p.id in store.pieces(id) || p.id in ownedLetterPieces(id) }
     /** 이 시리즈 갤러리 전체 (편지 자료 + 소장품) 와 가진 수. */
     fun gallery(id: String): List<Piece> = letterPieces(id) + work(id).kit.collection
+    /** 이 작품의 그림이 지금 기기에 있는가 (앱 안 맛보기이거나 받아 둔 장의 것). 없는 소장품은 뽑기 · 고르기에 넣지 않는다. */
+    fun available(p: Piece) = io.github.graviton94.todayletters.data.AssetFiles.has(ctx, p.image)
     fun ownedCount(id: String) = gallery(id).count { owns(id, it) }
 
     /**
@@ -474,7 +476,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun draw(id: String, reason: String, minTier: Tier = Tier.SKETCH): Piece? {
         val tag = "$today:$reason"
         if (tag in store.drawTags(id)) return null
-        val pool = work(id).kit.collection
+        val pool = work(id).kit.collection.filter { available(it) }
         val p = Draws.pick(pool, store.pieces(id), (today * 131 + reason.hashCode()).toLong() xor id.hashCode().toLong(), exhibition(id)?.theme, minTier) ?: return null
         store.addPiece(id, p.id); store.addDrawTag(id, tag); store.logDay("pieces", today, "$id|${p.id}")
         pendingPiece = p

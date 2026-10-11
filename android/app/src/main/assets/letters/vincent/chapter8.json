@@ -120,7 +120,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Houses_and_Figure_-_BF136_-_Barnes_Foundation.jpg",
     "why": "Old thatched houses of Auvers like those the letter admires; PD-Art from Wikimedia Commons.",
-    "image": "v635.jpg",
+    "image": "v635.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -184,7 +184,7 @@
     {
      "after": 0,
      "type": "photo",
-     "image": "v635.jpg",
+     "image": "v635.webp",
      "caption": {
       "fr": "Vieux chaumes à Auvers",
       "en": "Old thatch at Auvers",
@@ -328,7 +328,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Houses_at_Auvers_-_Google_Art_Project.jpg",
     "why": "Houses of Auvers painted in his first weeks there; PD-Art from Wikimedia Commons.",
-    "image": "v636.jpg",
+    "image": "v636.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -412,7 +412,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "v636.jpg",
+     "image": "v636.webp",
      "caption": {
       "fr": "Maisons à Auvers",
       "en": "Houses at Auvers",
@@ -538,7 +538,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Dr_Paul_Gachet_-_Google_Art_Project.jpg",
     "why": "The second version of the portrait the letter describes (the first, with the yellow books, is in a private collection — say so); PD-Art from Wikimedia Commons.",
-    "image": "v638.jpg",
+    "image": "v638.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -629,7 +629,7 @@
     {
      "after": 1,
      "type": "photo",
-     "image": "v638.jpg",
+     "image": "v638.webp",
      "caption": {
       "fr": "Le docteur Gachet · la seconde version",
       "en": "Dr Gachet · the second version",
@@ -771,7 +771,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Stairway_at_Auvers_(1890).jpg",
     "why": "A street of Auvers with figures, painted that summer; public-domain image from Wikimedia Commons.",
-    "image": "v640.jpg",
+    "image": "v640.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -835,7 +835,7 @@
     {
      "after": 1,
      "type": "photo",
-     "image": "v640.jpg",
+     "image": "v640.webp",
      "caption": {
       "fr": "L'escalier d'Auvers",
       "en": "Stairway at Auvers",
@@ -952,7 +952,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Mademoiselle_Gachet_au_piano.jpg",
     "why": "The portrait the letter describes; PD-Art from Wikimedia Commons.",
-    "image": "v645.jpg",
+    "image": "v645.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -1027,7 +1027,7 @@
     {
      "after": 0,
      "type": "photo",
-     "image": "v645.jpg",
+     "image": "v645.webp",
      "caption": {
       "fr": "Marguerite Gachet au piano",
       "en": "Marguerite Gachet at the piano",
@@ -1153,7 +1153,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Korenveld_met_kraaien_-_s0149V1962_-_Van_Gogh_Museum.jpg",
     "why": "One of the wheat fields under troubled skies the letter speaks of; PD-Art from Wikimedia Commons.",
-    "image": "v649.jpg",
+    "image": "v649.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -1217,7 +1217,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "v649.jpg",
+     "image": "v649.webp",
      "caption": {
       "fr": "Champ de blé sous un ciel trouble",
       "en": "Wheat field under a troubled sky",
@@ -1345,7 +1345,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:De_tuin_van_Daubigny_-_s0104V1962_-_Van_Gogh_Museum.jpg",
     "why": "A version of the garden the letter describes and sketches; PD-Art from Wikimedia Commons.",
-    "image": "v651.jpg",
+    "image": "v651.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -1420,7 +1420,7 @@
     {
      "after": 2,
      "type": "sketch",
-     "image": "v651-daubigny.jpg",
+     "image": "v651-daubigny.webp",
      "caption": {
       "fr": "Croquis du jardin de Daubigny",
       "en": "Sketch of Daubigny's garden",
@@ -1431,7 +1431,7 @@
     {
      "after": 2,
      "type": "sketch",
-     "image": "v651-bles.jpg",
+     "image": "v651-bles.webp",
      "caption": {
       "fr": "Étendues de blé après la pluie",
       "en": "Stretches of wheat after the rain",
@@ -1442,7 +1442,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "v651b.jpg",
+     "image": "v651b.webp",
      "caption": {
       "fr": "Champs de blé après la pluie (La Plaine d'Auvers)",
       "en": "Wheat Fields after the Rain (The Plain of Auvers)",

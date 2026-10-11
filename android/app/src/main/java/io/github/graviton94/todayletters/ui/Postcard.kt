@@ -78,7 +78,7 @@ fun postcard(ctx: Context, w: Work, l: Letter, m: Message, learn: Lang, read: La
     val pad = 48f
     val frame = RectF(pad, pad, half, H - pad)
     l.plate?.image?.takeIf { it.isNotEmpty() }?.let { file ->
-        runCatching { ctx.assets.open("plates/$file").use { BitmapFactory.decodeStream(it) } }.getOrNull()?.let { art ->
+        runCatching { io.github.graviton94.todayletters.data.AssetFiles.open(ctx, "plates/$file").use { BitmapFactory.decodeStream(it) } }.getOrNull()?.let { art ->
             val scale = maxOf(frame.width() / art.width, frame.height() / art.height)
             val sw = (frame.width() / scale).toInt(); val sh = (frame.height() / scale).toInt()
             val sx = (art.width - sw) / 2; val sy = (art.height - sh) / 2
@@ -105,7 +105,7 @@ fun postcard(ctx: Context, w: Work, l: Letter, m: Message, learn: Lang, read: La
     var y = stamp.top; while (y <= stamp.bottom) { c.drawCircle(stamp.left, y, 7f, hole); c.drawCircle(stamp.right, y, 7f, hole); y += 21f }
     val inner = RectF(stamp.left + 16, stamp.top + 16, stamp.right - 16, stamp.bottom - 16)
     w.portrait.takeIf { it.isNotEmpty() }?.let { file ->
-        runCatching { ctx.assets.open("portraits/$file").use { BitmapFactory.decodeStream(it) } }.getOrNull()?.let { pic ->
+        runCatching { io.github.graviton94.todayletters.data.AssetFiles.open(ctx, "portraits/$file").use { BitmapFactory.decodeStream(it) } }.getOrNull()?.let { pic ->
             val sc = maxOf(inner.width() / pic.width, inner.height() / pic.height)
             val sw = (inner.width() / sc).toInt(); val sh = (inner.height() / sc).toInt()
             val sx = (pic.width - sw) / 2; val sy = ((pic.height - sh) / 4)
@@ -232,7 +232,7 @@ fun artCard(ctx: Context, w: Work, l: Letter, m: Message, learn: Lang, read: Lan
     val pad = W * 0.09f
     val artRect = RectF(pad, pad, W - pad, pad + H * format.art)
     l.plate?.image?.takeIf { it.isNotEmpty() }?.let { file ->
-        runCatching { ctx.assets.open("plates/$file").use { BitmapFactory.decodeStream(it) } }.getOrNull()?.let { art ->
+        runCatching { io.github.graviton94.todayletters.data.AssetFiles.open(ctx, "plates/$file").use { BitmapFactory.decodeStream(it) } }.getOrNull()?.let { art ->
             val scale = maxOf(artRect.width() / art.width, artRect.height() / art.height)
             val sw = (artRect.width() / scale).toInt(); val sh = (artRect.height() / scale).toInt()
             val sx = (art.width - sw) / 2; val sy = (art.height - sh) / 2

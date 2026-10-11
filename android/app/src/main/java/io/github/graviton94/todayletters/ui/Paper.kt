@@ -131,7 +131,7 @@ fun Portrait(file: String, name: String, size: Dp = Tokens.Size.avatar, modifier
     val ctx = LocalContext.current
     val bmp: ImageBitmap? = remember(file) {
         if (file.isBlank()) null else runCatching {
-            ctx.assets.open("portraits/$file").use { android.graphics.BitmapFactory.decodeStream(it).asImageBitmap() }
+            io.github.graviton94.todayletters.data.AssetFiles.open(ctx, "portraits/$file").use { android.graphics.BitmapFactory.decodeStream(it).asImageBitmap() }
         }.getOrNull()
     }
     val m = modifier.size(size).clip(CircleShape).border(1.dp, p.gilt.copy(alpha = 0.45f), CircleShape).semantics { contentDescription = name }

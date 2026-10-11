@@ -607,8 +607,8 @@
     <string name="opening_tagline">Learn languages through real letters from art and history</string>
     <string name="opening_piece">Today\'s piece · %1$s · %2$s</string>
     <string name="opening_enter">Tap to enter</string>
-    <string name="dl_title">Narration for “%1$s”</string>
-    <string name="dl_body">This chapter\'s narration (Vincent\'s voice) is not inside the app yet. Download it once (%1$s) and it plays offline from then on.</string>
+    <string name="dl_title">Narration and pictures for “%1$s”</string>
+    <string name="dl_body">This chapter\'s narration (Vincent\'s voice) and pictures are not inside the app yet. Download them once (%1$s) and they work offline from then on.</string>
     <string name="dl_mobile">You are on mobile data. Wi-Fi is better if your data plan is limited.</string>
     <string name="dl_go">Download · %1$s</string>
     <string name="dl_silent">Read without sound</string>
@@ -644,11 +644,11 @@
     <string name="today_chapter_count">Ch. %1$s %2$d/%3$d</string>
     <string name="meaning_prompt">What does this word mean?</string>
     <string name="dl_all_chapters">All chapters</string>
-    <string name="dl_body_ahead">You can download the reading of letters that haven\'t arrived yet (%1$s). Then they play without data on the day they arrive.</string>
+    <string name="dl_body_ahead">You can download the reading and pictures of letters that haven\'t arrived yet (%1$s). Then they open without data on the day they arrive.</string>
     <string name="set_storage">Storage</string>
-    <string name="set_storage_used">Downloaded readings: %1$s</string>
-    <string name="set_storage_all">Download all readings · %1$s</string>
-    <string name="set_storage_clear">Delete downloaded readings</string>
+    <string name="set_storage_used">Downloaded readings and pictures: %1$s</string>
+    <string name="set_storage_all">Download all chapters · %1$s</string>
+    <string name="set_storage_clear">Delete downloaded readings and pictures</string>
     <string name="set_storage_clear_sure">Tap again to delete</string>
     <string name="audio_ready">✓ Reading here</string>
     <string name="audio_getting">Downloading…</string>
@@ -823,7 +823,7 @@
     <string name="set_arrival_d">When a new letter comes</string>
     <string name="set_evening2">Keep your streak</string>
     <string name="set_evening_d">Once, only on days you haven\'t read</string>
-    <string name="set_storage_row">Downloaded readings</string>
+    <string name="set_storage_row">Downloaded readings and pictures</string>
     <string name="set_storage_left">Still to download · %1$s</string>
     <string name="set_g_help">Help · sources</string>
     <string name="set_privacy_row">Privacy</string>

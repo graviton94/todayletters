@@ -121,7 +121,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_zonnebloemen_schilderend_-_s0225V1962_-_Van_Gogh_Museum.jpg",
     "why": "Gauguin’s portrait of Vincent at work, painted in Arles during the weeks these letters cover; PD-Art from Wikimedia Commons.",
-    "image": "v557.jpg",
+    "image": "v557.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -221,7 +221,7 @@
     {
      "after": 4,
      "type": "photo",
-     "image": "v557.jpg",
+     "image": "v557.webp",
      "caption": {
       "fr": "Vincent peignant des tournesols, vu par Gauguin",
       "en": "Vincent painting sunflowers, as Gauguin saw him",
@@ -348,7 +348,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Le_Semeur_au_soleil_couchant_-_49_-_Foundation_E.G._Bührle_Collection.jpg",
     "why": "A “new sower” of autumn 1888 like the one the letter mentions; PD-Art from Wikimedia Commons.",
-    "image": "v558.jpg",
+    "image": "v558.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -412,7 +412,7 @@
     {
      "after": 4,
      "type": "photo",
-     "image": "v558.jpg",
+     "image": "v558.webp",
      "caption": {
       "fr": "Le nouveau semeur",
       "en": "The new sower",
@@ -540,7 +540,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Red_Vineyard_at_Arles_(1888).jpg",
     "why": "The red vineyard the letter describes (“toute rouge comme du vin rouge”); PD-Art from Wikimedia Commons.",
-    "image": "v559.jpg",
+    "image": "v559.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -631,7 +631,7 @@
     {
      "after": 1,
      "type": "photo",
-     "image": "v559b.jpg",
+     "image": "v559b.webp",
      "caption": {
       "fr": "L'Arlésienne (Madame Ginoux)",
       "en": "The Arlésienne (Madame Ginoux)",
@@ -643,7 +643,7 @@
     {
      "after": 4,
      "type": "photo",
-     "image": "v559.jpg",
+     "image": "v559.webp",
      "caption": {
       "fr": "La vigne rouge",
       "en": "The red vineyard",
@@ -770,7 +770,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.metmuseum.org/art/collection/search/459123",
     "why": "One of the portraits of the postman’s family the letter mentions; the Met releases it under CC0.",
-    "image": "v560.jpg",
+    "image": "v560.webp",
     "spots": [
      {
       "x": 0.42,
@@ -840,7 +840,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "v560.jpg",
+     "image": "v560.webp",
      "caption": {
       "fr": "Madame Roulin et son bébé",
       "en": "Madame Roulin and her baby",
@@ -975,7 +975,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_138.jpg",
     "why": "The yellow chair on red tiles the letter describes; PD-Art from Wikimedia Commons.",
-    "image": "v563.jpg",
+    "image": "v563.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -1050,7 +1050,7 @@
     {
      "after": 3,
      "type": "photo",
-     "image": "v563.jpg",
+     "image": "v563.webp",
      "caption": {
       "fr": "La chaise de Vincent (le jour)",
       "en": "Vincent's chair (daytime)",
@@ -1177,7 +1177,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Delacroix_-_Portrait_d'Alfred_Bruyas,_1853.jpg",
     "why": "The Delacroix portrait the two painters saw in Montpellier and that the letter mentions; PD-Art from Wikimedia Commons.",
-    "image": "v564.jpg",
+    "image": "v564.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -1241,7 +1241,7 @@
     {
      "after": 1,
      "type": "photo",
-     "image": "v564.jpg",
+     "image": "v564.webp",
      "caption": {
       "fr": "Alfred Bruyas, par Delacroix",
       "en": "Alfred Bruyas, by Delacroix",
@@ -1366,7 +1366,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_De_stoel_van_Gauguin_-_Google_Art_Project.jpg",
     "why": "Gauguin’s armchair, painted by night in the Yellow House (described in letter 563); PD-Art from Wikimedia Commons.",
-    "image": "v565.jpg",
+    "image": "v565.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -1437,7 +1437,7 @@
     {
      "after": 4,
      "type": "photo",
-     "image": "v565.jpg",
+     "image": "v565.webp",
      "caption": {
       "fr": "Le fauteuil de Gauguin",
       "en": "Gauguin's armchair",

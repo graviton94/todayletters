@@ -81,7 +81,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.metmuseum.org/art/collection/search/459193",
     "why": "An early drawing from his first year as an artist; the Met releases it under CC0.",
-    "image": "p1.jpg",
+    "image": "p1.webp",
     "spots": []
    },
    "status": {
@@ -166,7 +166,7 @@
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_The_potato_eaters_-_Google_Art_Project.jpg",
     "why": "His great Nuenen picture; PD-Art from Wikimedia Commons.",
     "exception": "pd-art",
-    "image": "p2.jpg",
+    "image": "p2.webp",
     "spots": []
    },
    "status": {
@@ -249,7 +249,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.metmuseum.org/art/collection/search/436532",
     "why": "One of the Paris self-portraits; the Met releases it under CC0.",
-    "image": "p3.jpg",
+    "image": "p3.webp",
     "spots": []
    },
    "status": {
@@ -333,7 +333,7 @@
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Bloeiende_pruimenboomgaard-_naar_Hiroshige_-_Google_Art_Project.jpg",
     "why": "His copy after Hiroshige; PD-Art from Wikimedia Commons.",
     "exception": "pd-art",
-    "image": "p4.jpg",
+    "image": "p4.webp",
     "spots": []
    },
    "status": {

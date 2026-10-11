@@ -109,7 +109,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.slam.org/collection/objects/18228/",
     "why": "Van Gogh's pen drawing of the boats at sea off Saintes-Maries; the museum marks it public domain, free for any use.",
-    "image": "c2-l1.jpg",
+    "image": "c2-l1.webp",
     "spots": [
      {
       "x": 0.5,
@@ -172,7 +172,7 @@
     {
      "after": 1,
      "type": "photo",
-     "image": "c2-l1.jpg",
+     "image": "c2-l1.webp",
      "caption": {
       "fr": "Barques en mer",
       "en": "Boats at sea",
@@ -314,7 +314,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.metmuseum.org/art/collection/search/336318",
     "why": "Van Gogh's pen drawing of the village and its cottages; the Met releases it under CC0.",
-    "image": "c2-l2.jpg",
+    "image": "c2-l2.webp",
     "spots": [
      {
       "x": 0.2,
@@ -384,7 +384,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "c2-l2.jpg",
+     "image": "c2-l2.webp",
      "caption": {
       "fr": "Une rue aux Saintes-Maries",
       "en": "A street in Saintes-Maries",
@@ -510,7 +510,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Sower_at_Sunset_-_Vincent_Van_Gogh.jpg",
     "why": "The Sower this letter announces (violet ploughed field, sower in blue and white); PD-Art from Wikimedia Commons.",
-    "image": "v501.jpg",
+    "image": "v501.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -585,7 +585,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "v501.jpg",
+     "image": "v501.webp",
      "caption": {
       "fr": "Le Semeur",
       "en": "The Sower",
@@ -717,7 +717,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.nga.gov/collection/art-object-page.46626.html",
     "why": "The portrait this letter announces; the National Gallery of Art releases it as open access.",
-    "image": "c2-l3.jpg",
+    "image": "c2-l3.webp",
     "spots": [
      {
       "x": 0.47,
@@ -771,7 +771,7 @@
     {
      "after": 0,
      "type": "photo",
-     "image": "c2-l3.jpg",
+     "image": "c2-l3.webp",
      "caption": {
       "fr": "La mousmé",
       "en": "The mousmé",
@@ -897,7 +897,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Portret_van_de_postbode_Joseph_Roulin.jpg",
     "why": "The half-length portrait with hands that the letter describes; PD-Art from Wikimedia Commons.",
-    "image": "v517.jpg",
+    "image": "v517.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -981,7 +981,7 @@
     {
      "after": 3,
      "type": "photo",
-     "image": "v517.jpg",
+     "image": "v517.webp",
      "caption": {
       "fr": "Le Facteur Joseph Roulin",
       "en": "Postman Joseph Roulin",
@@ -1108,7 +1108,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Bildnis_Patience_Escalier1.jpeg",
     "why": "The portrait of the old peasant the letter describes; PD-Art from Wikimedia Commons.",
-    "image": "v520.jpg",
+    "image": "v520.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -1192,7 +1192,7 @@
     {
      "after": 2,
      "type": "photo",
-     "image": "v520.jpg",
+     "image": "v520.webp",
      "caption": {
       "fr": "Portrait de Patience Escalier",
       "en": "Portrait of Patience Escalier",
@@ -1324,7 +1324,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Sunflowers_(1888,_National_Gallery_London).jpg",
     "why": "One of the sunflower canvases painted in August 1888 for the studio this letter describes; PD-Art from Wikimedia Commons.",
-    "image": "v526.jpg",
+    "image": "v526.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -1399,7 +1399,7 @@
     {
      "after": 0,
      "type": "photo",
-     "image": "v526.jpg",
+     "image": "v526.webp",
      "caption": {
       "fr": "Tournesols",
       "en": "Sunflowers",

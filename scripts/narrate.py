@@ -8,7 +8,7 @@
           마디 사이에는 긴 숨을 둔다. 짧은 끊음("/")은 이어 읽는다. 마디마다 시작 · 끝 시각을
           m<번호>_<언어>.json 에 적어, 앱이 따라 읽기에서 읽는 자리의 낱말을 칠한다.
   결과:   <출력>/<작품>/<챕터>/<편지 id>/m<번호>_<언어>.m4a (+ .json), w<번호>_<언어>.m4a
-          32kHz 모노 AAC 48k (하루의 성경과 같은 결). 메시지 사이 쉼은 앱이 넣는다.
+          32kHz 모노 AAC 32k. 메시지 사이 쉼은 앱이 넣는다.
 
 GitHub Actions 에서 돌려요:
   python scripts/narrate.py <supertonic/py> <assets> <편지 파일.json> <출력 폴더> [언어 …]
@@ -101,8 +101,10 @@ def save(path, audio, pitch):
     with tempfile.NamedTemporaryFile(suffix=".wav") as w:
         sf.write(w.name, audio, sr)
         flt = f"asetrate={int(sr * pitch)},aresample={sr},atempo={1 / pitch:.5f}," if pitch != 1.0 else ""
+        # AAC 32k 모노 32kHz (.m4a): 앱이 MediaPlayer 로 마디만 골라 듣고(seekTo) 따라 읽기 채점이 MediaCodec 으로 원음을 푼다.
+        # Opus(.ogg) 는 쪽(page) 단위로만 찾아가서 마디의 시작이 어긋날 수 있어 쓰지 않는다.
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", w.name, "-af", flt + "aresample=32000",
-                        "-ac", "1", "-c:a", "aac", "-b:a", "48k", path], check=True)
+                        "-ac", "1", "-c:a", "aac", "-b:a", "32k", path], check=True)
 
 
 # NARRATE_ONLY=spots: 그림 속 산책 낱말만 만든다 (편지 낭독은 그대로 둠)

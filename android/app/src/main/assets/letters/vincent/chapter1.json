@@ -118,7 +118,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.metmuseum.org/art/collection/search/436532",
     "why": "Painted in Paris in the months before he left for Arles; the Met releases it under CC0.",
-    "image": "c1-l1.jpg",
+    "image": "c1-l1.webp",
     "spots": [
      {
       "x": 0.12,
@@ -323,7 +323,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://collections.lacma.org/node/229816",
     "why": "Van Gogh's own pen drawing of the drawbridge in this letter; LACMA marks it public domain, free for any use.",
-    "image": "c1-l2.jpg",
+    "image": "c1-l2.webp",
     "spots": [
      {
       "x": 0.53,
@@ -417,7 +417,7 @@
     {
      "after": 0,
      "type": "photo",
-     "image": "c1-l2.jpg",
+     "image": "c1-l2.webp",
      "caption": {
       "fr": "Le pont de Langlois",
       "en": "The Langlois bridge",
@@ -555,7 +555,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Blühender_Pfirsichbaum.jpeg",
     "why": "The canvas this letter describes, inscribed “Souvenir de Mauve”; faithful public-domain reproduction (PD-Art) from Wikimedia Commons.",
-    "image": "v472.jpg",
+    "image": "v472.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -777,7 +777,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://www.metmuseum.org/art/collection/search/436527",
     "why": "One of the flowering orchards of spring 1888; the Met releases it under CC0.",
-    "image": "c1-l3.jpg",
+    "image": "c1-l3.webp",
     "spots": [
      {
       "x": 0.6,
@@ -851,7 +851,7 @@
     {
      "after": 0,
      "type": "photo",
-     "image": "c1-l3.jpg",
+     "image": "c1-l3.webp",
      "caption": {
       "fr": "Verger en fleurs",
       "en": "The flowering orchard",
@@ -976,7 +976,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://archive.org/details/brievenaanzijnbr03gogh",
     "why": "Van Gogh's own sketch inside this letter, reproduced in the public-domain 1914 edition.",
-    "image": "c1-l4.jpg",
+    "image": "c1-l4.webp",
     "spots": [
      {
       "x": 0.17,
@@ -1050,7 +1050,7 @@
     {
      "after": 3,
      "type": "sketch",
-     "image": "c1-l4-poirier.jpg",
+     "image": "c1-l4-poirier.webp",
      "caption": {
       "fr": "Croquis du petit poirier, dans la même lettre",
       "en": "Sketch of the little pear tree, in the same letter",
@@ -1165,7 +1165,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://archive.org/details/brievenaanzijnbr03gogh",
     "why": "The house as Vincent sketched it in this very letter: ‘qui contient 4 pièces’.",
-    "image": "c1-l5.jpg",
+    "image": "c1-l5.webp",
     "spots": [
      {
       "x": 0.62,
@@ -1363,7 +1363,7 @@
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Veld_met_bloemen_bij_Arles_-_Google_Art_Project.jpg",
     "why": "The study this letter describes (buttercups, a ditch of irises, the town behind); PD-Art from Wikimedia Commons.",
-    "image": "v487.jpg",
+    "image": "v487.webp",
     "exception": "pd-art",
     "spots": [
      {
@@ -1438,7 +1438,7 @@
     {
      "after": 1,
      "type": "sketch",
-     "image": "v487-prairie.jpg",
+     "image": "v487-prairie.webp",
      "caption": {
       "fr": "Deux nouvelles études, comme ceci",
       "en": "Two new studies, like this",

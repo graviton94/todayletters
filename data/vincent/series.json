@@ -17,7 +17,7 @@
   "en": "Theo",
   "ko": "테오"
  },
- "portrait": "vincent.jpg",
+ "portrait": "vincent.webp",
  "credit": "Self-Portrait, 1887 · Art Institute of Chicago · CC0",
  "title": {
   "fr": "Lettres de Vincent",
@@ -216,7 +216,7 @@
     "accent": "#D9AE55"
    }
   },
-  "hero": "plates/c1-l3.jpg",
+  "hero": "plates/c1-l3.webp",
   "place": "ARLES · 1888",
   "world": {
    "fr": "Vers le monde de Vincent",
@@ -234,7 +234,7 @@
   "collection": [
    {
     "id": "met-436528",
-    "image": "gallery/met-436528.jpg",
+    "image": "gallery/met-436528.webp",
     "title": {
      "en": "Irises",
      "ko": "붓꽃"
@@ -248,7 +248,7 @@
    },
    {
     "id": "met-436535",
-    "image": "gallery/met-436535.jpg",
+    "image": "gallery/met-436535.webp",
     "title": {
      "en": "Wheat Field with Cypresses",
      "ko": "사이프러스가 있는 밀밭"
@@ -262,7 +262,7 @@
    },
    {
     "id": "met-437980",
-    "image": "gallery/met-437980.jpg",
+    "image": "gallery/met-437980.webp",
     "title": {
      "en": "Cypresses",
      "ko": "사이프러스"
@@ -276,7 +276,7 @@
    },
    {
     "id": "met-436534",
-    "image": "gallery/met-436534.jpg",
+    "image": "gallery/met-436534.webp",
     "title": {
      "en": "Roses",
      "ko": "장미"
@@ -290,7 +290,7 @@
    },
    {
     "id": "met-436529",
-    "image": "gallery/met-436529.jpg",
+    "image": "gallery/met-436529.webp",
     "title": {
      "en": "L'Arlésienne: Madame Joseph-Michel Ginoux",
      "ko": "아를의 여인: 지누 부인"
@@ -304,7 +304,7 @@
    },
    {
     "id": "met-459123",
-    "image": "gallery/met-459123.jpg",
+    "image": "gallery/met-459123.webp",
     "title": {
      "en": "Madame Roulin and Her Baby",
      "ko": "룰랭 부인과 아기"
@@ -318,7 +318,7 @@
    },
    {
     "id": "met-437984",
-    "image": "gallery/met-437984.jpg",
+    "image": "gallery/met-437984.webp",
     "title": {
      "en": "La Berceuse (Augustine Roulin)",
      "ko": "자장가 (오귀스틴 룰랭)"
@@ -332,7 +332,7 @@
    },
    {
     "id": "met-436525",
-    "image": "gallery/met-436525.jpg",
+    "image": "gallery/met-436525.webp",
     "title": {
      "en": "Bouquet of Flowers in a Vase",
      "ko": "꽃병의 꽃다발"
@@ -346,7 +346,7 @@
    },
    {
     "id": "met-436530",
-    "image": "gallery/met-436530.jpg",
+    "image": "gallery/met-436530.webp",
     "title": {
      "en": "Oleanders",
      "ko": "협죽도"
@@ -360,7 +360,7 @@
    },
    {
     "id": "met-436533",
-    "image": "gallery/met-436533.jpg",
+    "image": "gallery/met-436533.webp",
     "title": {
      "en": "Shoes",
      "ko": "구두"
@@ -372,7 +372,7 @@
    },
    {
     "id": "met-436536",
-    "image": "gallery/met-436536.jpg",
+    "image": "gallery/met-436536.webp",
     "title": {
      "en": "Women Picking Olives",
      "ko": "올리브를 따는 여인들"
@@ -387,7 +387,7 @@
    },
    {
     "id": "met-437998",
-    "image": "gallery/met-437998.jpg",
+    "image": "gallery/met-437998.webp",
     "title": {
      "en": "Olive Trees",
      "ko": "올리브 나무"
@@ -401,7 +401,7 @@
    },
    {
     "id": "met-436526",
-    "image": "gallery/met-436526.jpg",
+    "image": "gallery/met-436526.webp",
     "title": {
      "en": "First Steps, after Millet",
      "ko": "첫걸음 (밀레를 따라)"
@@ -415,7 +415,7 @@
    },
    {
     "id": "met-436531",
-    "image": "gallery/met-436531.jpg",
+    "image": "gallery/met-436531.webp",
     "title": {
      "en": "Peasant Woman Cooking by a Fireplace",
      "ko": "화롯가에서 요리하는 농부 여인"
@@ -429,7 +429,7 @@
    },
    {
     "id": "met-438722",
-    "image": "gallery/met-438722.jpg",
+    "image": "gallery/met-438722.webp",
     "title": {
      "en": "The Potato Peeler",
      "ko": "감자 깎는 여인"
@@ -443,7 +443,7 @@
    },
    {
     "id": "met-335536",
-    "image": "gallery/met-335536.jpg",
+    "image": "gallery/met-335536.webp",
     "title": {
      "en": "The Zouave",
      "ko": "주아브 병사"
@@ -457,7 +457,7 @@
    },
    {
     "id": "met-335537",
-    "image": "gallery/met-335537.jpg",
+    "image": "gallery/met-335537.webp",
     "title": {
      "en": "Wheat Field",
      "ko": "밀밭"
@@ -471,7 +471,7 @@
    },
    {
     "id": "met-336327",
-    "image": "gallery/met-336327.jpg",
+    "image": "gallery/met-336327.webp",
     "title": {
      "en": "Corridor in the Asylum",
      "ko": "요양원 복도"
@@ -483,7 +483,7 @@
    },
    {
     "id": "met-335538",
-    "image": "gallery/met-335538.jpg",
+    "image": "gallery/met-335538.webp",
     "title": {
      "en": "Nursery on Schenkweg",
      "ko": "스헹크베흐의 묘목밭"
@@ -497,7 +497,7 @@
    },
    {
     "id": "met-459193",
-    "image": "gallery/met-459193.jpg",
+    "image": "gallery/met-459193.webp",
     "title": {
      "en": "Road in Etten",
      "ko": "에텐의 길"
@@ -511,7 +511,7 @@
    },
    {
     "id": "met-829372",
-    "image": "gallery/met-829372.jpg",
+    "image": "gallery/met-829372.webp",
     "title": {
      "en": "Peasant Woman Kneeling and Pulling Carrots",
      "ko": "당근을 뽑는 농부 여인"
@@ -526,7 +526,7 @@
    },
    {
     "id": "met-849052",
-    "image": "gallery/met-849052.jpg",
+    "image": "gallery/met-849052.webp",
     "title": {
      "en": "At Eternity's Gate (lithograph)",
      "ko": "영원의 문에서 (석판화)"
@@ -540,7 +540,7 @@
    },
    {
     "id": "met-849054",
-    "image": "gallery/met-849054.jpg",
+    "image": "gallery/met-849054.webp",
     "title": {
      "en": "Gardener by an Apple Tree (lithograph)",
      "ko": "사과나무 옆 정원사 (석판화)"
@@ -555,7 +555,7 @@
    },
    {
     "id": "met-849055",
-    "image": "gallery/met-849055.jpg",
+    "image": "gallery/met-849055.webp",
     "title": {
      "en": "Burning Weeds (lithograph)",
      "ko": "잡초 태우기 (석판화)"
@@ -569,7 +569,7 @@
    },
    {
     "id": "met-849056",
-    "image": "gallery/met-849056.jpg",
+    "image": "gallery/met-849056.webp",
     "title": {
      "en": "Portrait of Doctor Gachet (etching)",
      "ko": "가셰 박사 (에칭)"
@@ -583,7 +583,7 @@
    },
    {
     "id": "brieven-009",
-    "image": "gallery/brieven-009.jpg",
+    "image": "gallery/brieven-009.webp",
     "title": {
      "en": "Vincent van Gogh, after Toulouse-Lautrec's pastel",
      "ko": "빈센트 반 고흐 (툴루즈로트레크의 파스텔)"
@@ -597,7 +597,7 @@
    },
    {
     "id": "brieven-238",
-    "image": "gallery/brieven-238.jpg",
+    "image": "gallery/brieven-238.webp",
     "title": {
      "en": "The bedroom",
      "ko": "아를의 침실"
@@ -609,7 +609,7 @@
    },
    {
     "id": "brieven-329",
-    "image": "gallery/brieven-329.jpg",
+    "image": "gallery/brieven-329.webp",
     "title": {
      "en": "La Berceuse between two sunflowers",
      "ko": "자장가와 해바라기 세 폭"
@@ -624,7 +624,7 @@
    },
    {
     "id": "brieven-254",
-    "image": "gallery/brieven-254.jpg",
+    "image": "gallery/brieven-254.webp",
     "title": {
      "en": "Laval's self-portrait, sketched by Vincent",
      "ko": "라발의 자화상 (빈센트가 옮겨 그림)"
@@ -638,7 +638,7 @@
    },
    {
     "id": "brieven-044",
-    "image": "gallery/brieven-044.jpg",
+    "image": "gallery/brieven-044.webp",
     "title": {
      "en": "A pear tree in blossom",
      "ko": "꽃 핀 배나무"
@@ -652,7 +652,7 @@
    },
    {
     "id": "brieven-065",
-    "image": "gallery/brieven-065.jpg",
+    "image": "gallery/brieven-065.webp",
     "title": {
      "en": "A meadow full of buttercups",
      "ko": "버터컵이 가득한 들판"
@@ -667,7 +667,7 @@
    },
    {
     "id": "brieven-070",
-    "image": "gallery/brieven-070.jpg",
+    "image": "gallery/brieven-070.webp",
     "title": {
      "en": "Still life with coffee pot",
      "ko": "커피포트가 있는 정물"
@@ -679,7 +679,7 @@
    },
    {
     "id": "brieven-108",
-    "image": "gallery/brieven-108.jpg",
+    "image": "gallery/brieven-108.webp",
     "title": {
      "en": "Cicada",
      "ko": "매미"
@@ -691,7 +691,7 @@
    },
    {
     "id": "brieven-115",
-    "image": "gallery/brieven-115.jpg",
+    "image": "gallery/brieven-115.webp",
     "title": {
      "en": "A field",
      "ko": "들판"
@@ -705,7 +705,7 @@
    },
    {
     "id": "brieven-125",
-    "image": "gallery/brieven-125.jpg",
+    "image": "gallery/brieven-125.webp",
     "title": {
      "en": "Flower garden",
      "ko": "꽃밭"
@@ -719,7 +719,7 @@
    },
    {
     "id": "brieven-156",
-    "image": "gallery/brieven-156.jpg",
+    "image": "gallery/brieven-156.webp",
     "title": {
      "en": "Fishing boats at Saintes-Maries",
      "ko": "생트마리의 고깃배"
@@ -731,7 +731,7 @@
    },
    {
     "id": "brieven-231a",
-    "image": "gallery/brieven-231a.jpg",
+    "image": "gallery/brieven-231a.webp",
     "title": {
      "en": "The Tarascon diligence",
      "ko": "타라스콩 승합마차"
@@ -743,7 +743,7 @@
    },
    {
     "id": "brieven-231b",
-    "image": "gallery/brieven-231b.jpg",
+    "image": "gallery/brieven-231b.webp",
     "title": {
      "en": "Corner of a garden with geraniums",
      "ko": "제라늄 꽃밭이 있는 정원 구석"
@@ -757,7 +757,7 @@
    },
    {
     "id": "brieven-233",
-    "image": "gallery/brieven-233.jpg",
+    "image": "gallery/brieven-233.webp",
     "title": {
      "en": "The Trinquetaille bridge",
      "ko": "트랭크타유 다리"
@@ -771,7 +771,7 @@
    },
    {
     "id": "brieven-262",
-    "image": "gallery/brieven-262.jpg",
+    "image": "gallery/brieven-262.webp",
     "title": {
      "en": "A letter from the Arles hospital, 2 January 1889",
      "ko": "아를 병원에서 쓴 편지 (1889년 1월 2일)"
@@ -783,7 +783,7 @@
    },
    {
     "id": "brieven-330",
-    "image": "gallery/brieven-330.jpg",
+    "image": "gallery/brieven-330.webp",
     "title": {
      "en": "The asylum garden at Saint-Rémy",
      "ko": "생레미 요양원 정원"
@@ -797,7 +797,7 @@
    },
    {
     "id": "brieven-332",
-    "image": "gallery/brieven-332.jpg",
+    "image": "gallery/brieven-332.webp",
     "title": {
      "en": "Emperor moth",
      "ko": "산누에나방"
@@ -809,7 +809,7 @@
    },
    {
     "id": "brieven-335",
-    "image": "gallery/brieven-335.jpg",
+    "image": "gallery/brieven-335.webp",
     "title": {
      "en": "Brushes",
      "ko": "붓"
@@ -821,7 +821,7 @@
    },
    {
     "id": "aic-28560",
-    "image": "gallery/aic-28560.jpg",
+    "image": "gallery/aic-28560.webp",
     "title": {
      "en": "The Bedroom",
      "ko": "침실"
@@ -833,7 +833,7 @@
    },
    {
     "id": "aic-14586",
-    "image": "gallery/aic-14586.jpg",
+    "image": "gallery/aic-14586.webp",
     "title": {
      "en": "The Poet's Garden",
      "ko": "시인의 정원"
@@ -847,7 +847,7 @@
    },
    {
     "id": "wmc-starry-rhone",
-    "image": "gallery/wmc-starry-rhone.jpg",
+    "image": "gallery/wmc-starry-rhone.webp",
     "title": {
      "en": "Starry Night over the Rhône",
      "ko": "론강의 별이 빛나는 밤"
@@ -861,7 +861,7 @@
    },
    {
     "id": "wmc-yellow-house",
-    "image": "gallery/wmc-yellow-house.jpg",
+    "image": "gallery/wmc-yellow-house.webp",
     "title": {
      "en": "The Yellow House",
      "ko": "노란 집"
@@ -944,7 +944,7 @@
  },
  "outro": {
   "file": "epilogue.json",
-  "image": "outro.jpg",
+  "image": "outro.webp",
   "credit": "Racines d’arbres · Tree Roots, July 1890 · Van Gogh Museum, Amsterdam · Public domain",
   "caps": "ÉPILOGUE",
   "name": "Vincent van Gogh",

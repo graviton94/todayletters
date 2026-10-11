@@ -8,6 +8,7 @@
                         android/app/src/main/res/values{,-night}/window.xml (창 · 시작 화면 바탕색)
 - design/strings.json → android/app/src/main/res/values{,-ko}/strings.xml
 - data/<작품>/series.json + 챕터 → android/app/src/main/assets/letters/<작품>/
+- remote/ (앱 밖에 두는 낭독 · 그림 · 곡) → android/app/src/main/assets/letters/<작품>/remote.json
 """
 import re, glob, json, os, sys
 from xml.sax.saxutils import escape
@@ -136,20 +137,57 @@ def letters():
 
 
 def remote():
-    """앱 밖(R2)에 두는 낭독의 목록: remote/audio/<작품>/<장>/... → assets/letters/<작품>/remote.json (장마다 파일 · 크기 · 합)."""
+    """앱 밖(R2)에 두는 파일의 목록 → assets/letters/<작품>/remote.json (장마다 파일 · 크기 · 합).
+    remote/ 는 assets/ 와 같은 모양이다 (remote/audio/<작품>/<장>/... · remote/plates/ · remote/sketches/ · remote/gallery/ · remote/audio/<작품>/music/).
+    한 장의 묶음: 그 장의 낭독 + 그 장의 편지가 쓰는 그림 · 스케치 · 곡 가운데 remote/ 에 있는 것.
+    소장품(kit.collection) 가운데 remote/ 에 둔 것은 앱 밖 장들에 차례로 나눠 담는다 (그 장을 받으면 뽑기에 들어온다).
+    어느 장에도 들지 않는 파일이 remote/ 에 있으면 멈춘다 (받을 길이 없는 파일)."""
     out = {}
     cfg = json.load(open(os.path.join(ROOT, "data", "remote.json"), encoding="utf-8"))
-    for sdir in sorted(glob.glob(os.path.join(ROOT, "remote", "audio", "*"))):
-        sid = os.path.basename(sdir)
+    R = os.path.join(ROOT, "remote")
+    there = lambda rel: os.path.isfile(os.path.join(R, rel))
+    every = {os.path.relpath(f, R).replace(os.sep, "/") for f in glob.glob(os.path.join(R, "**", "*"), recursive=True) if os.path.isfile(f)}
+    used = set()
+    for meta_path in sorted(glob.glob(os.path.join(ROOT, "data", "*", "series.json"))):
+        folder = os.path.dirname(meta_path)
+        sid = os.path.basename(folder)
+        meta = json.load(open(meta_path, encoding="utf-8"))
+        packs = {}
+        for ch in meta["chapters"]:
+            rels = sorted(r for r in every if r.startswith(f"audio/{sid}/{ch['id']}/"))
+            src = os.path.join(folder, ch["file"])
+            if not os.path.exists(src):
+                src = src.replace(".json", ".draft.json")
+            letters = json.load(open(src, encoding="utf-8")).get("letters", []) if os.path.exists(src) else []
+            for letter in letters:
+                want = []
+                if (letter.get("plate") or {}).get("image"):
+                    want.append("plates/" + letter["plate"]["image"])
+                for m in letter.get("moments", []):
+                    if m.get("image"):
+                        want += ["plates/" + m["image"], "sketches/" + m["image"]]
+                    if m.get("audio"):
+                        want.append(f"audio/{sid}/music/" + m["audio"])
+                rels += [r for r in want if there(r) and r not in rels]
+            packs[ch["id"]] = rels
+        late = [c for c, rels in packs.items() if rels]
+        pieces = [p["image"] for p in meta.get("kit", {}).get("collection", []) if there(p["image"])]
+        if pieces and not late:
+            sys.exit(f"remote/: {sid} 의 소장품을 담을 앱 밖 장이 없음")
+        per = -(-len(pieces) // max(1, len(late)))
+        for i, c in enumerate(late):
+            packs[c] += pieces[i * per:(i + 1) * per]
         chapters = {}
-        for cdir in sorted(glob.glob(os.path.join(sdir, "*"))):
-            files = []
-            for f in sorted(glob.glob(os.path.join(cdir, "**", "*"), recursive=True)):
-                if os.path.isfile(f):
-                    files.append([os.path.relpath(f, os.path.join(ROOT, "remote", "audio")).replace(os.sep, "/"), os.path.getsize(f)])
-            chapters[os.path.basename(cdir)] = {"bytes": sum(x[1] for x in files), "files": files}
-        doc = {"base": cfg["base"], "chapters": chapters}
-        out[os.path.join(APP, "assets", "letters", sid, "remote.json")] = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
+        for c, rels in packs.items():
+            if rels:
+                files = [[r, os.path.getsize(os.path.join(R, r))] for r in rels]
+                chapters[c] = {"bytes": sum(x[1] for x in files), "files": files}
+                used.update(rels)
+        if chapters:
+            doc = {"base": cfg["base"], "chapters": chapters}
+            out[os.path.join(APP, "assets", "letters", sid, "remote.json")] = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
+    if every - used:
+        sys.exit("remote/: 어느 장에도 들지 않는 파일 (받을 길이 없음)\n  " + "\n  ".join(sorted(every - used)[:20]))
     return out
 
 

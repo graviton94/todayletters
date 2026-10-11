@@ -274,14 +274,14 @@ fun Gear(c: Color) = Canvas(Modifier.size(Tokens.Size.icon)) {
     drawCircle(c, r * 0.64f, style = Stroke(1.5.dp.toPx()))
 }
 
-/** 그림: assets/plates/<파일>. 아직 고르지 않았으면 빈 액자에 "그림 준비 중" (임시 그림은 그리지 않는다). */
+/** 그림: plates/<파일> (받아 둔 것 먼저, 없으면 앱 안). 아직 고르지 않았거나 받지 않았으면 빈 액자에 "그림 준비 중" (임시 그림은 그리지 않는다). */
 @Composable
 fun PlateImage(file: String, modifier: Modifier) {
     val p = Ink.palette
     val ctx = LocalContext.current
-    val bmp: ImageBitmap? = remember(file) {
+    val bmp: ImageBitmap? = remember(file, io.github.graviton94.todayletters.data.AssetFiles.generation) {
         if (file.isBlank()) null else runCatching {
-            ctx.assets.open("plates/$file").use { android.graphics.BitmapFactory.decodeStream(it).asImageBitmap() }
+            io.github.graviton94.todayletters.data.AssetFiles.open(ctx, "plates/$file").use { android.graphics.BitmapFactory.decodeStream(it).asImageBitmap() }
         }.getOrNull()
     }
     if (bmp != null) Image(bmp, null, modifier, contentScale = ContentScale.Crop)

@@ -226,8 +226,8 @@ private fun questGo(s: AppState, q: io.github.graviton94.todayletters.core.Quest
 @Composable
 fun PlateThumb(file: String, unlocked: Boolean, modifier: Modifier) {
     val ctx = androidx.compose.ui.platform.LocalContext.current
-    val bmp = androidx.compose.runtime.remember(file) {
-        runCatching { ctx.assets.open("plates/$file").use { android.graphics.BitmapFactory.decodeStream(it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = 4 })?.asImageBitmap() } }.getOrNull()
+    val bmp = androidx.compose.runtime.remember(file, io.github.graviton94.todayletters.data.AssetFiles.generation) {
+        runCatching { io.github.graviton94.todayletters.data.AssetFiles.open(ctx, "plates/$file").use { android.graphics.BitmapFactory.decodeStream(it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = 4 })?.asImageBitmap() } }.getOrNull()
     }
     if (bmp == null) Box(modifier.background(Ink.palette.hide)) else Image(
         bmp, null, modifier, contentScale = ContentScale.Crop,
