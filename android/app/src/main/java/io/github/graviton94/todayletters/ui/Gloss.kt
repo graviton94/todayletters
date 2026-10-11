@@ -58,7 +58,7 @@ fun LevelPill(level: String) {
  * 낱말 낭독은 그 편지에 그 낱말의 녹음(w<i>_<언어>)이 있을 때만 (기기 TTS 는 쓰지 않는다).
  */
 @Composable
-fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key: String, onClose: () -> Unit) {
+fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key: String, top: Boolean = false, onClose: () -> Unit) {
     val p = Ink.palette
     val work = s.work(series)
     // 사전의 언어: 원어 자료면 원어, 영어 · 한국어 자료(*_en · *_ko)면 그 언어
@@ -74,9 +74,12 @@ fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key
     val waiting = later || s.isLater(ownKey)
     LaunchedEffect(key) { if (audio.isNotEmpty()) s.narrator.play(audio) }
     androidx.activity.compose.BackHandler(onBack = onClose)
-    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose), contentAlignment = Alignment.BottomCenter) {
+    // 누른 낱말이 화면 아래 절반이면 카드는 위에 (그 낱말을 가리지 않게 화면의 절반 안쪽으로)
+    val half = (androidx.compose.ui.platform.LocalConfiguration.current.screenHeightDp * 0.45f).dp
+    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose), contentAlignment = if (top) Alignment.TopCenter else Alignment.BottomCenter) {
         Column(
-            Modifier.fillMaxWidth().background(p.paper).clickable(enabled = false) {}.navigationBarsPadding()
+            Modifier.fillMaxWidth().then(if (top) Modifier.heightIn(max = half) else Modifier).background(p.paper).clickable(enabled = false) {}
+                .then(if (top) Modifier.statusBarsSafe() else Modifier.navigationBarsPadding())
                 .verticalScroll(rememberScrollState()).padding(Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
@@ -164,7 +167,21 @@ fun GlossHost(s: AppState, layer: Int = 0) {
     // 전체 화면 창(낱말 카드 상세) 안에서 열었으면 그 창 안의 것만 띄운다
     if (layer != s.glossLayers) return
     val g = s.gloss ?: return
-    GlossSheet(s, g.series, g.chapter, g.letter, g.key) { s.gloss = null }
+    GlossSheet(s, g.series, g.chapter, g.letter, g.key, top = s.glossLow) { s.gloss = null }
+}
+
+/** 펼친 낱말([picked], 글 배치 [layout])이 화면 아래 절반에 있는지 [onLow] 로 알린다 ([AppState.glossLow]). */
+fun Modifier.glossSpot(picked: IntRange?, layout: androidx.compose.ui.text.TextLayoutResult?, onLow: (Boolean) -> Unit): Modifier = androidx.compose.ui.composed {
+    var at by remember { mutableStateOf<androidx.compose.ui.layout.LayoutCoordinates?>(null) }
+    LaunchedEffect(picked, layout, at) {
+        val l = layout ?: return@LaunchedEffect
+        val c = at?.takeIf { it.isAttached } ?: return@LaunchedEffect
+        if (picked == null || picked.isEmpty()) return@LaunchedEffect
+        val line = l.getLineForOffset(picked.first.coerceIn(0, l.layoutInput.text.length))
+        val mid = c.localToRoot(androidx.compose.ui.geometry.Offset(0f, (l.getLineTop(line) + l.getLineBottom(line)) / 2f)).y
+        onLow(mid > c.findRootCoordinates().size.height / 2f)
+    }
+    androidx.compose.ui.layout.onGloballyPositioned { at = it }
 }
 
 /**
@@ -196,7 +213,7 @@ fun GlossText(
     Text(
         shown, style = style, color = color, maxLines = maxLines, textAlign = textAlign,
         overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, onTextLayout = { layout = it },
-        modifier = modifier.pointerInput(ranges) {
+        modifier = modifier.glossSpot(picked, layout) { s.glossLow = it }.pointerInput(ranges) {
             // 낱말 위를 누를 때만 받는다 (그 밖은 부모에게)
             awaitEachGesture {
                 val down = awaitFirstDown(requireUnconsumed = false)

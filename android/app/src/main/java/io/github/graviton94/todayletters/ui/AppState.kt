@@ -380,6 +380,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 펼친 낱말: 작품 · 장 · 편지 · 메시지 번호 · 토큰 번호 · 사전 열쇠. 화면 맨 위의 [GlossHost] 가 작은 카드를 띄운다. */
     data class GlossPick(val series: String, val chapter: String, val letter: Letter, val msg: Int, val token: Int, val key: String)
     var gloss by mutableStateOf<GlossPick?>(null)
+    /** 펼친 낱말이 화면 아래 절반에 있는가 (그러면 뜻 카드를 위에 띄워 그 낱말을 가리지 않는다). */
+    var glossLow by mutableStateOf(false)
     /** 지금 열린 전체 화면 창(낱말 카드 상세)의 층 수: 뜻 카드는 맨 위 층에만 뜬다. */
     var glossLayers by mutableStateOf(0)
 

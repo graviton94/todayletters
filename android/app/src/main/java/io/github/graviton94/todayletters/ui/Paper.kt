@@ -205,6 +205,8 @@ fun InkText(
     spoken: IntRange? = null, spokenColor: Color = markColor,
     /** 눌러서 뜻 보기: 모든 낱말의 자리 ([marks] 가 아닌 곳을 누르면 [onTap]). [hints] 는 옅은 점선 밑줄을 그을 자리, [picked] 는 지금 펼친 낱말. */
     taps: List<IntRange> = emptyList(), onTap: ((Int) -> Unit)? = null, hints: List<IntRange> = emptyList(), picked: IntRange? = null,
+    /** [picked] 가 화면 아래 절반에 있는가 ([glossSpot]). */
+    onPickedLow: (Boolean) -> Unit = {},
 ) {
     var layout by remember { mutableStateOf<TextLayoutResult?>(null) }
     val progress = remember(text) { Animatable(if (animate) 0f else 1f) }
@@ -218,6 +220,7 @@ fun InkText(
     Text(
         text, style = style, color = color, onTextLayout = { layout = it },
         modifier = modifier
+            .glossSpot(picked, layout, onPickedLow)
             .then(if ((onMark != null && marks.isNotEmpty()) || (onTap != null && taps.isNotEmpty())) Modifier.pointerInput(marks, taps) {
                 detectTapGestures { pos ->
                     val l = layout ?: return@detectTapGestures

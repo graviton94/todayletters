@@ -68,7 +68,13 @@ private val Gilt = Color(0xFFC9B48C)
 fun LetterArrival(s: AppState, series: String, chapter: String, letter: Letter, n: Int, onBack: () -> Unit, onDone: (heardFirst: Boolean) -> Unit) {
     // 뒤로 가기 (U5): 편지 방으로 들어가지 않고 들어온 곳으로. 도착 장면은 다음에 열 때 다시
     FullDialog(onDismissRequest = onBack) {
-        ArrivalBody(s, series, chapter, letter, n, onDone, onBack = onBack)
+        // 첫 줄에서 누른 낱말의 뜻 카드는 이 창 안에 (창 밖의 GlossHost 는 가려지므로)
+        val layer = remember { s.glossLayers + 1 }
+        DisposableEffect(Unit) { s.glossLayers = layer; onDispose { s.glossLayers = layer - 1; s.gloss = null } }
+        Box(Modifier.fillMaxSize()) {
+            ArrivalBody(s, series, chapter, letter, n, onDone, onBack = onBack)
+            GlossHost(s, layer)
+        }
     }
 }
 
@@ -158,7 +164,10 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
                     withStyle(SpanStyle(color = Light.copy(alpha = 0.35f))) { append(soft) }
                     withStyle(SpanStyle(color = Color.Transparent)) { append(line.drop(shown + soft.length)) }
                 }
-                Text(typed, style = Type.title.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic, fontSize = 29.sp, lineHeight = 38.sp).of(view.learn), color = Light)
+                val big = Type.title.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic, fontSize = 29.sp, lineHeight = 38.sp).of(view.learn)
+                // 다 쓰인 뒤에는 눌러서 뜻 보기
+                if (stage == 2 && first != null) GlossText(s, series, chapter, letter, 0, typed, style = big, color = Light)
+                else Text(typed, style = big, color = Light)
                 val translation by animateFloatAsState(if (stage == 2) 1f else 0f, tween(if (still) 0 else Tokens.Motion.introFadeMs), label = "ko")
                 if (first != null && view.read != view.learn) Text(first.text[view.read], style = Type.body.of(view.read), color = Soft,
                     modifier = Modifier.graphicsLayer { alpha = translation })

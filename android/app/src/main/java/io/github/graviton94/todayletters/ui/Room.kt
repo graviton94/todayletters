@@ -320,7 +320,7 @@ fun Room(s: AppState, r: Route.Letter) {
                         marks = sentMarks,
                         onWord = { wordFocus = it },
                         taps = ranges, onTap = if (toks != null) ({ j: Int -> s.gloss = AppState.GlossPick(id, chapter, letter, i, j, toks[j].key) }) else null, hints = hints,
-                        picked = glossAt?.takeIf { it.first == i }?.let { ranges.getOrNull(it.second) },
+                        picked = glossAt?.takeIf { it.first == i }?.let { ranges.getOrNull(it.second) }, onPickedLow = { s.glossLow = it },
                         fold = fade.first, glosses = fade.second,
                         saved = s.isSaved(s.quoteKey(id, chapter, letter.id, i)),
                         onSave = { s.toggleQuote(s.quoteKey(id, chapter, letter.id, i)) },
@@ -652,6 +652,7 @@ private fun LetterSlip(
     /** 지금 낭독 중인 마디의 글자 범위 (없으면 null). */
     spoken: IntRange? = null,
     taps: List<IntRange> = emptyList(), onTap: ((Int) -> Unit)? = null, hints: List<IntRange> = emptyList(), picked: IntRange? = null,
+    onPickedLow: (Boolean) -> Unit = {},
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
@@ -667,7 +668,7 @@ private fun LetterSlip(
                     learnDone = true
                     if (read == null || fold) onWritten()
                 }, marks = marks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { k -> onWord(marks[k].second) }, spoken = spoken,
-                    taps = taps, onTap = onTap, hints = hints, picked = picked)
+                    taps = taps, onTap = onTap, hints = hints, picked = picked, onPickedLow = onPickedLow)
                 // 번역이 사라지는 편지: 익힌 낱말이 많은 문장은 번역을 접고, 아직인 낱말만 작은 뜻풀이로
                 if (read != null && fold) {
                     if (glosses.isNotEmpty()) androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
