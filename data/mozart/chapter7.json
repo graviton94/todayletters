@@ -1,0 +1,1071 @@
+{
+ "_doc": "Chapter VII. 독일어는 루트비히 놀(Ludwig Nohl) 엮음 『Mozarts Briefe』(잘츠부르크 1865, 공공 영역, archive.org 스캔) 쪽 사진에서 인쇄된 그대로 옮겼고, 판의 철자(daß, Rath, vermuthen 등)도 그대로 두었어요. 영어는 레이디 월리스(Lady Wallace)의 1866년 번역을 그대로 썼고, 한국어는 이 앱의 번역이에요. 238번 편지는 스캔에 해당 쪽(427–428)이 없어 이 장에서 빠졌어요.",
+ "series": "mozart",
+ "chapter": "VII",
+ "title_de": "Figaro & Prag",
+ "title_en": "Figaro & Prague",
+ "title_ko": "피가로와 프라하",
+ "original": "de",
+ "letters": [
+  {
+   "id": "c7-l1",
+   "wallace_no": 239,
+   "nohl_pages": [
+    430,
+    431
+   ],
+   "date": "1785-03",
+   "dateNote": "The heading and date stand on p. 429, which is missing from the scan; Wallace's contents date the letter 21 March 1785.",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 239 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Herr geheimer Rath (Anton Klein, Mannheim)",
+    "en": "Herr Geheimer Rath (Anton Klein, Mannheim)",
+    "ko": "클라인 고문관 (만하임)"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "— Denn so ein Werk verdiente sowohl von Seiten der Poesie als Musik nicht umsonst gemacht zu sein.",
+     "en": "Such a work well deserves, both as regards the poetry and the music, not to have been written in vain.",
+     "ko": "이런 작품은 시로 보나 음악으로 보나 헛되이 만들어져서는 안 될 작품입니다.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 239 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "— Denn so ein Werk verdiente / sowohl von Seiten der Poesie als Musik // nicht umsonst gemacht zu sein.",
+      "en": "Such a work well deserves, / both as regards the poetry and the music, // not to have been written in vain.",
+      "ko": "이런 작품은 / 시로 보나 음악으로 보나 // 헛되이 만들어져서는 안 될 작품입니다."
+     }
+    },
+    {
+     "de": "— Die Cavalieri, Adamberger, Teyber, lauter Deutsche, worauf Deutschland stolz sein darf, müssen beim welschen Theater bleiben — müssen gegen ihre eigenen Landsleute kämpfen!",
+     "en": "Cavalieri, Adamberger, Teyber, all Germans, of whom Germany may well be proud, must remain at the Italian opera, and are thus compelled to enter the lists against their own countrymen.",
+     "ko": "카발리에리, 아담베르거, 타이버, 독일이 자랑할 만한 순수한 독일 가수들이 이탈리아 극장에 남아서 자기 동포들과 맞서 싸워야 합니다!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 239 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "— Die Cavalieri, Adamberger, Teyber, / lauter Deutsche, / worauf Deutschland stolz sein darf, // müssen beim welschen Theater bleiben // — müssen gegen ihre eigenen Landsleute kämpfen!",
+      "en": "Cavalieri, Adamberger, Teyber, / all Germans, / of whom Germany may well be proud, // must remain at the Italian opera, // and are thus compelled to enter the lists / against their own countrymen.",
+      "ko": "카발리에리, 아담베르거, 타이버, / 독일이 자랑할 만한 / 순수한 독일 가수들이 // 이탈리아 극장에 남아서 // 자기 동포들과 맞서 싸워야 합니다!"
+     }
+    },
+    {
+     "de": "Wäre nur ein einziger Patriot mit am Brette — es sollte ein anderes Gesicht bekommen!",
+     "en": "If there were even one good patriot on the same raft, the affair would soon assume another aspect.",
+     "ko": "그 판에 애국자가 단 한 사람만 함께 있어도 사정은 완전히 달라질 겁니다!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 239 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wäre nur ein einziger Patriot mit am Brette // — es sollte ein anderes Gesicht bekommen!",
+      "en": "If there were even one good patriot / on the same raft, // the affair would soon assume another aspect.",
+      "ko": "그 판에 애국자가 / 단 한 사람만 함께 있어도 // 사정은 완전히 달라질 겁니다!"
+     }
+    },
+    {
+     "de": "… und das wäre ja ein ewiger Schandfleck für Deutschland, wenn wir Deutsche einmal mit Ernst anfingen deutsch zu denken — deutsch zu handeln — deutsch zu reden und gar deutsch — zu singen!!!",
+     "en": "It would be thought an everlasting blot on Germany, if we Germans were ever really to begin to think in German, and to act like Germans, to speak German, and above all to sing in German!!!",
+     "ko": "우리 독일 사람이 정말로 독일식으로 생각하고, 독일식으로 행동하고, 독일어로 말하고, 게다가 독일어로 노래하기까지 한다면, 그야말로 독일의 영원한 수치가 되겠지요!!!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 239 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… und das wäre ja ein ewiger Schandfleck für Deutschland, // wenn wir Deutsche einmal mit Ernst anfingen / deutsch zu denken — / deutsch zu handeln — / deutsch zu reden / und gar deutsch — zu singen!!!",
+      "en": "It would be thought an everlasting blot on Germany, // if we Germans were ever really to begin / to think in German, / and to act like Germans, / to speak German, / and above all to sing in German!!!",
+      "ko": "우리 독일 사람이 / 정말로 독일식으로 생각하고, / 독일식으로 행동하고, / 독일어로 말하고, / 게다가 독일어로 노래하기까지 한다면, // 그야말로 독일의 영원한 수치가 되겠지요!!!"
+     }
+    },
+    {
+     "de": "Gänzlich überzeugt mit einem deutschen Manne zu reden ließ ich meiner Zunge freien Lauf",
+     "en": "Fully persuaded that I am addressing a true German, I have allowed my tongue free course",
+     "ko": "참된 독일 사람과 이야기하고 있다고 굳게 믿었기에 제 혀가 가는 대로 내버려 두었습니다",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 239 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Gänzlich überzeugt / mit einem deutschen Manne zu reden // ließ ich meiner Zunge freien Lauf",
+      "en": "Fully persuaded / that I am addressing a true German, // I have allowed my tongue free course",
+      "ko": "참된 독일 사람과 이야기하고 있다고 / 굳게 믿었기에 // 제 혀가 가는 대로 내버려 두었습니다"
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "das Werk",
+     "pos": "n.n.",
+     "ipa": "vɛʁk",
+     "en": "work",
+     "ipa_en": "wɝk",
+     "ko": "작품",
+     "rom_ko": "jakpum",
+     "icon": "📜"
+    },
+    {
+     "de": "die Musik",
+     "pos": "n.f.",
+     "ipa": "muˈziːk",
+     "en": "music",
+     "ipa_en": "ˈmjuzɪk",
+     "ko": "음악",
+     "rom_ko": "eumak",
+     "icon": "🎼"
+    },
+    {
+     "de": "der Schandfleck",
+     "pos": "n.m.",
+     "ipa": "ˈʃantflɛk",
+     "en": "blot, disgrace",
+     "ipa_en": "blɑt",
+     "ko": "오점",
+     "rom_ko": "ojeom"
+    },
+    {
+     "de": "singen",
+     "pos": "v.",
+     "ipa": "ˈzɪŋən",
+     "en": "to sing",
+     "ipa_en": "tə sɪŋ",
+     "ko": "노래하다",
+     "rom_ko": "noraehada",
+     "icon": "🎤"
+    },
+    {
+     "de": "die Zunge",
+     "pos": "n.f.",
+     "ipa": "ˈtsʊŋə",
+     "en": "tongue",
+     "ipa_en": "tʌŋ",
+     "ko": "혀",
+     "rom_ko": "hyeo",
+     "icon": "👅"
+    }
+   ],
+   "note": {
+    "ko": "만하임의 극작가 안톤 클라인이 모차르트에게 오페라 대본을 보냈고, 이 편지는 그 답장이에요. 모차르트는 빈에 새로 세워질 독일어 오페라 무대가 처음부터 시들고 있다고 한탄하며, 독일 가수들이 이탈리아 극장에 묶여 있다고 꼬집어요. 놀은 편지 뒤에 '이 오페라 작곡은 결국 이루어지지 않았다'고 적었어요.",
+    "en": "The Mannheim dramatist Anton Klein had sent Mozart an opera libretto; this is his reply. He complains that the planned German opera stage in Vienna is being undermined from the start, while the best German singers are kept at the Italian theatre. Nohl adds after the letter that nothing came of the opera.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 239 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Singen Sie deutsch, lieber Mozart!",
+    "en": "Sing in German, dear Mozart!",
+    "ko": "독일어로 노래해 주세요, 모차르트 씨!",
+    "_note": "클라인 고문관의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "notice",
+     "text": {
+      "de": "Kärnthnerthor-Theater · Anfang October",
+      "en": "Kärntnertor Theatre · opening early October",
+      "ko": "케른트너토어 극장 · 10월 초 개관"
+     }
+    },
+    {
+     "after": 4,
+     "type": "music",
+     "piece": {
+      "de": "Streichquartett C-Dur KV 465 „Dissonanzen“ (1785)",
+      "en": "String Quartet in C, K. 465 'Dissonance' (1785)",
+      "ko": "현악 4중주 C장조 K. 465 '불협화음' (1785)"
+     },
+     "commons": "File:Mozart - String Quartet No. 19 in C major, K465 'Dissonance' - I. Adagio - Allegro (Musopen String Quartet).flac"
+    }
+   ],
+   "status": {
+    "de": "Für die deutsche Oper",
+    "en": "For German opera",
+    "ko": "독일어 오페라를 위해"
+   },
+   "plate_hint": {
+    "idea": "Kärntnertor Theatre, Vienna (the 'German operatic stage' he mentions).",
+    "search": [
+     "Kärntnertortheater Wien",
+     "Theater am Kärntnertor 18th century engraving",
+     "Kärntnertortheater Stich"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c7-l2",
+   "wallace_no": 242,
+   "nohl_pages": [
+    434,
+    435,
+    436,
+    437
+   ],
+   "date": "1787-01-15",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 242 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Prag",
+   "to": {
+    "de": "Gottfried von Jacquin",
+    "en": "Gottfried von Jacquin",
+    "ko": "고트프리트 폰 자캥"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Endlich finde ich einen Augenblick an Sie schreiben zu können; — ich nahm mir vor gleich bei meiner Ankunft vier Briefe nach Wien zu schreiben, aber umsonst!",
+     "en": "At last I find a moment to write to you. Soon after my arrival I intended to have written four letters to Vienna, but in vain!",
+     "ko": "드디어 당신에게 편지 쓸 짬이 났어요. 도착하자마자 빈에 편지 네 통을 쓰려고 했는데, 헛일이었어요!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 242 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Endlich finde ich einen Augenblick / an Sie schreiben zu können; // — ich nahm mir vor / gleich bei meiner Ankunft / vier Briefe nach Wien zu schreiben, // aber umsonst!",
+      "en": "At last I find a moment to write to you. // Soon after my arrival / I intended to have written / four letters to Vienna, // but in vain!",
+      "ko": "드디어 / 당신에게 편지 쓸 짬이 났어요. // 도착하자마자 / 빈에 편지 네 통을 쓰려고 했는데, // 헛일이었어요!"
+     }
+    },
+    {
+     "de": "Ich tanzte nicht und löffelte nicht. Das erstere, weil ich zu müde war, und das letzte aus meiner angebornen Blöde;",
+     "en": "I neither danced nor flirted with any of them, — the former because I was too tired, and the latter from my natural bashfulness.",
+     "ko": "저는 춤도 안 추고 수작도 안 걸었어요. 춤은 너무 피곤해서, 수작은 타고난 수줍음 때문에요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 242 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich tanzte nicht und löffelte nicht. // Das erstere, / weil ich zu müde war, / und das letzte / aus meiner angebornen Blöde;",
+      "en": "I neither danced nor flirted with any of them, // — the former / because I was too tired, / and the latter / from my natural bashfulness.",
+      "ko": "저는 춤도 안 추고 / 수작도 안 걸었어요. // 춤은 / 너무 피곤해서, / 수작은 / 타고난 수줍음 때문에요."
+     }
+    },
+    {
+     "de": "… denn hier wird von nichts gesprochen als von — Figaro, nichts gespielt, geblasen, gesungen und gepfiffen als — Figaro; keine Oper besucht als Figaro, und ewig Figaro; gewiß große Ehre für mich.",
+     "en": "… for here nothing is talked of but “Figaro,” nothing played but “Figaro,” nothing whistled or sung but “Figaro,” no opera so crowded as “Figaro,” nothing but “Figaro,” — very flattering to me, certainly.",
+     "ko": "… 여기서는 피가로 말고는 아무 얘기도 안 하고, 피가로 말고는 연주하지도, 불지도, 노래하지도, 휘파람 불지도 않아요. 보러 가는 오페라도 피가로뿐, 언제나 피가로예요. 저로서는 정말 큰 영광이죠.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 242 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… denn hier wird von nichts gesprochen / als von — Figaro, // nichts gespielt, geblasen, gesungen und gepfiffen / als — Figaro; // keine Oper besucht als Figaro, / und ewig Figaro; // gewiß große Ehre für mich.",
+      "en": "… for here nothing is talked of but “Figaro,” / nothing played but “Figaro,” / nothing whistled or sung but “Figaro,” // no opera so crowded as “Figaro,” / nothing but “Figaro,” // — very flattering to me, certainly.",
+      "ko": "… 여기서는 / 피가로 말고는 아무 얘기도 안 하고, // 피가로 말고는 / 연주하지도, 불지도, 노래하지도, 휘파람 불지도 않아요. // 보러 가는 오페라도 피가로뿐, / 언제나 피가로예요. // 저로서는 정말 큰 영광이죠."
+     }
+    },
+    {
+     "de": "Nun zanken Sie sich meinetwegen mit Morpheus; dieser Laras ist uns beiden in Prag sehr günstig;",
+     "en": "You must chide Morpheus, not me, — a deity who is only too kind to us in Prague.",
+     "ko": "그러니 탓하려거든 저 말고 잠의 신 모르페우스를 탓하세요. 이 신은 프라하에서 우리 둘에게 너무나 너그럽거든요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 242 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun zanken Sie sich meinetwegen mit Morpheus; // dieser Laras ist uns beiden in Prag / sehr günstig;",
+      "en": "You must chide Morpheus, not me, // — a deity who is only too kind / to us in Prague.",
+      "ko": "그러니 탓하려거든 / 저 말고 잠의 신 모르페우스를 탓하세요. // 이 신은 프라하에서 / 우리 둘에게 너무나 너그럽거든요."
+     }
+    },
+    {
+     "de": "Mitwoch werde ich hier den Figaro sehen und hören, wenn ich nicht bis dahin blind und taub werde.",
+     "en": "On Wednesday next I am to see and hear “Figaro,” unless I become blind and deaf before then.",
+     "ko": "수요일에는 여기서 피가로를 보고 들을 거예요. 그때까지 눈멀고 귀먹지 않는다면요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 242 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Mitwoch werde ich hier den Figaro sehen und hören, // wenn ich nicht bis dahin / blind und taub werde.",
+      "en": "On Wednesday next / I am to see and hear “Figaro,” // unless I become blind and deaf / before then.",
+      "ko": "수요일에는 여기서 / 피가로를 보고 들을 거예요. // 그때까지 / 눈멀고 귀먹지 않는다면요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Augenblick",
+     "pos": "n.m.",
+     "ipa": "ˈaʊ̯ɡŋ̍ˌblɪk",
+     "en": "moment",
+     "ipa_en": "ˈmoʊmənt",
+     "ko": "순간",
+     "rom_ko": "sungan",
+     "icon": "⏱️"
+    },
+    {
+     "de": "der Brief",
+     "pos": "n.m.",
+     "ipa": "bʁiːf",
+     "en": "letter",
+     "ipa_en": "ˈlɛtɚ",
+     "ko": "편지",
+     "rom_ko": "pyeonji",
+     "icon": "✉️"
+    },
+    {
+     "de": "müde",
+     "pos": "adj.",
+     "ipa": "ˈmyːdə",
+     "en": "tired",
+     "ipa_en": "taɪɚd",
+     "ko": "피곤한",
+     "rom_ko": "pigonhan",
+     "icon": "😴"
+    },
+    {
+     "de": "die Oper",
+     "pos": "n.f.",
+     "ipa": "ˈoːpɐ",
+     "en": "opera",
+     "ipa_en": "ˈɑpɹə",
+     "ko": "오페라",
+     "rom_ko": "opera",
+     "icon": "🎭"
+    },
+    {
+     "de": "taub",
+     "pos": "adj.",
+     "ipa": "taʊ̯p",
+     "en": "deaf",
+     "ipa_en": "dɛf",
+     "ko": "귀먹은",
+     "rom_ko": "gwimeogeun"
+    }
+   ],
+   "note": {
+    "ko": "1787년 1월, 『후궁 탈출』과 『피가로의 결혼』에 열광하던 프라하 음악 애호가들이 모차르트를 초청했어요. 편지를 받은 고트프리트 폰 자캥은 이름난 식물학자의 아들로, 모차르트와 아주 가까웠던 집안의 사람이에요. 모차르트는 프라하에서 툰 백작의 저택에 묵었고, 19일 금요일에 극장에서 연주회를 열 예정이었어요.",
+    "en": "In January 1787 Prague music lovers, who adored both Die Entführung and Figaro, invited Mozart to come and give concerts. Gottfried von Jacquin, son of the famous botanist, belonged to a family Mozart was very close to. In Prague Mozart stayed at Count Thun's palace, and his concert in the theatre was set for Friday the 19th.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 242 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Grüße an Figaro und Prag!",
+    "en": "Greetings to Figaro and Prague!",
+    "ko": "피가로와 프라하에 안부를!",
+    "_note": "자캥의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "notice",
+     "text": {
+      "de": "Breitfeldischer Ball · 6 Uhr",
+      "en": "The Breitfeld Ball · six o'clock",
+      "ko": "브라이트펠트 무도회 · 6시"
+     }
+    },
+    {
+     "after": 2,
+     "type": "music",
+     "piece": {
+      "de": "Le nozze di Figaro, KV 492 — Ouvertüre",
+      "en": "Le nozze di Figaro, K. 492 — Overture",
+      "ko": "피가로의 결혼 K. 492 — 서곡"
+     },
+     "commons": "File:Mozart - Le nozze di Figaro, K492 - Overture (Musopen Symphony).flac"
+    }
+   ],
+   "status": {
+    "de": "Ganz Prag singt Figaro",
+    "en": "All Prague sings Figaro",
+    "ko": "온 프라하가 피가로"
+   },
+   "plate_hint": {
+    "idea": "Estates (Nostitz) Theatre, Prague, c. 1790 engraving.",
+    "search": [
+     "Nostitz Theatre Prague engraving",
+     "Estates Theatre Prague 18th century",
+     "Ständetheater Prag Stich"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c7-l3",
+   "wallace_no": 243,
+   "nohl_pages": [
+    437,
+    438
+   ],
+   "date": "1787-04-04",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 243 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Vater",
+    "en": "his father",
+    "ko": "아버지"
+   },
+   "mood": "tender",
+   "messages": [
+    {
+     "de": "Diesen Augenblick höre ich eine Nachricht, die mich sehr niederschlägt — um so mehr, als ich aus Ihrem letzten Briefe vermuthen konnte, daß Sie sich, Gott Lob, recht wohl befänden.",
+     "en": "I have this moment heard tidings which distress me exceedingly, and the more so that your last letter led me to suppose you were so well.",
+     "ko": "방금 들은 소식에 마음이 몹시 무거워요. 지난번 편지를 보고는 하느님 덕분에 아버지께서 아주 건강하신 줄 알았기에 더욱 그래요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 243 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Diesen Augenblick höre ich eine Nachricht, / die mich sehr niederschlägt // — um so mehr, / als ich aus Ihrem letzten Briefe vermuthen konnte, / daß Sie sich, Gott Lob, / recht wohl befänden.",
+      "en": "I have this moment heard tidings / which distress me exceedingly, // and the more so / that your last letter led me to suppose / you were so well.",
+      "ko": "방금 들은 소식에 / 마음이 몹시 무거워요. // 지난번 편지를 보고는 / 하느님 덕분에 아버지께서 / 아주 건강하신 줄 알았기에 / 더욱 그래요."
+     }
+    },
+    {
+     "de": "Da der Tod (genau zu nehmen) der wahre Endzweck unseres Lebens ist, so habe ich mich seit ein paar Jahren mit diesem wahren, besten Freunde des Menschen so bekannt gemacht, daß sein Bild nicht allein nichts Schreckendes mehr für mich hat, sondern sehr viel Beruhigendes und Tröstendes!",
+     "en": "As death (when closely considered) is the true goal of our life, I have made myself so thoroughly acquainted with this good and faithful friend of man, that not only has its image no longer anything alarming to me, but rather something most peaceful and consolatory.",
+     "ko": "죽음은 (곰곰이 생각해 보면) 우리 삶의 참된 목적지이니, 저는 몇 해 전부터 사람의 이 참되고 가장 좋은 친구와 아주 가까워졌어요. 그래서 이제 그 모습이 조금도 두렵지 않고, 오히려 큰 평안과 위로가 돼요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 243 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Da der Tod (genau zu nehmen) / der wahre Endzweck unseres Lebens ist, // so habe ich mich seit ein paar Jahren / mit diesem wahren, besten Freunde des Menschen / so bekannt gemacht, // daß sein Bild nicht allein nichts Schreckendes mehr für mich hat, / sondern sehr viel Beruhigendes und Tröstendes!",
+      "en": "As death (when closely considered) / is the true goal of our life, // I have made myself so thoroughly acquainted / with this good and faithful friend of man, // that not only has its image / no longer anything alarming to me, / but rather something most peaceful and consolatory.",
+      "ko": "죽음은 (곰곰이 생각해 보면) / 우리 삶의 참된 목적지이니, // 저는 몇 해 전부터 / 사람의 이 참되고 가장 좋은 친구와 / 아주 가까워졌어요. // 그래서 이제 그 모습이 / 조금도 두렵지 않고, / 오히려 큰 평안과 위로가 돼요."
+     }
+    },
+    {
+     "de": "Ich lege mich nie zu Bette, ohne zu bedenken, daß ich vielleicht (so jung als ich bin) der andern Tag nicht mehr sein werde;",
+     "en": "I never lie down at night without thinking that (young as I am) I may be no more before the next morning dawns.",
+     "ko": "저는 잠자리에 들 때마다 생각해요. (이렇게 젊지만) 어쩌면 다음 날엔 제가 없을지도 모른다고요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 243 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich lege mich nie zu Bette, / ohne zu bedenken, // daß ich vielleicht (so jung als ich bin) / der andern Tag nicht mehr sein werde;",
+      "en": "I never lie down at night / without thinking // that (young as I am) / I may be no more / before the next morning dawns.",
+      "ko": "저는 잠자리에 들 때마다 / 생각해요. // (이렇게 젊지만) / 어쩌면 다음 날엔 / 제가 없을지도 모른다고요."
+     }
+    },
+    {
+     "de": "und es wird doch kein Mensch von Allen, die mich kennen, sagen können, daß ich im Umgange mürrisch oder traurig wäre;",
+     "en": "And yet not one of all those who know me can say that I ever was morose or melancholy in my intercourse with them.",
+     "ko": "그래도 저를 아는 사람 가운데 누구도 제가 사람들과 어울릴 때 시무룩하거나 우울했다고는 말하지 못할 거예요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 243 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "und es wird doch kein Mensch von Allen, die mich kennen, / sagen können, // daß ich im Umgange / mürrisch oder traurig wäre;",
+      "en": "And yet not one of all those who know me / can say // that I ever was morose or melancholy / in my intercourse with them.",
+      "ko": "그래도 저를 아는 사람 가운데 / 누구도 // 제가 사람들과 어울릴 때 / 시무룩하거나 우울했다고는 / 말하지 못할 거예요."
+     }
+    },
+    {
+     "de": "… mir die reine Wahrheit zu schreiben oder schreiben zu lassen, damit ich so geschwind als es menschenmöglich ist, in Ihren Armen sein kann",
+     "en": "… either to write me the exact truth yourself, or cause some one else to do so, that I may be in your arms with as much speed as possible.",
+     "ko": "…사실 그대로를 직접 쓰시든 남에게 쓰게 하시든 알려 주세요. 사람이 할 수 있는 한 빨리 아버지 품에 달려갈 수 있도록요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 243 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… mir die reine Wahrheit zu schreiben / oder schreiben zu lassen, // damit ich so geschwind als es menschenmöglich ist, / in Ihren Armen sein kann",
+      "en": "… either to write me the exact truth yourself, / or cause some one else to do so, // that I may be in your arms / with as much speed as possible.",
+      "ko": "…사실 그대로를 / 직접 쓰시든 남에게 쓰게 하시든 / 알려 주세요. // 사람이 할 수 있는 한 빨리 / 아버지 품에 달려갈 수 있도록요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Nachricht",
+     "pos": "n.f.",
+     "ipa": "ˈnaːxˌʁɪçt",
+     "en": "news",
+     "ipa_en": "nuz",
+     "ko": "소식",
+     "rom_ko": "sosik",
+     "icon": "📨"
+    },
+    {
+     "de": "der Tod",
+     "pos": "n.m.",
+     "ipa": "toːt",
+     "en": "death",
+     "ipa_en": "dɛθ",
+     "ko": "죽음",
+     "rom_ko": "jugeum"
+    },
+    {
+     "de": "der Freund",
+     "pos": "n.m.",
+     "ipa": "fʁɔɪ̯nt",
+     "en": "friend",
+     "ipa_en": "fɹɛnd",
+     "ko": "친구",
+     "rom_ko": "chingu",
+     "icon": "🤝"
+    },
+    {
+     "de": "jung",
+     "pos": "adj.",
+     "ipa": "jʊŋ",
+     "en": "young",
+     "ipa_en": "jʌŋ",
+     "ko": "젊은",
+     "rom_ko": "jeolmeun"
+    },
+    {
+     "de": "traurig",
+     "pos": "adj.",
+     "ipa": "ˈtʁaʊ̯ʁɪç",
+     "en": "sad",
+     "ipa_en": "sæd",
+     "ko": "슬픈",
+     "rom_ko": "seulpeun"
+    }
+   ],
+   "note": {
+    "ko": "모차르트가 『돈 조반니』를 구상하던 무렵, 오래 앓아 온 아버지 레오폴트가 위중하다는 소식이 왔어요. 놀은 이 편지를 아버지에게 보낸 '마지막 편지'라고 소개해요. 편지에는 서른한 살에 세상을 떠난 친구 하츠펠트 백작의 이야기도 나와요. 레오폴트는 1787년 5월 28일에 세상을 떠났어요.",
+    "en": "While Mozart was busy with Don Giovanni, news came that his father Leopold, ailing for months, was seriously ill. Nohl introduces this as Mozart's last letter to his father. It also mentions his friend Count Hatzfeld, who had died at thirty-one. Leopold died on 28 May 1787.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 243 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Sei ruhig, mein lieber Sohn.",
+    "en": "Be at peace, my dear son.",
+    "ko": "마음 편히 가지거라, 사랑하는 아들아.",
+    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 4,
+     "type": "notice",
+     "text": {
+      "de": "1000 Mal die Hände · Ihr gehorsamer Sohn",
+      "en": "A thousand kisses on your hands · your dutiful son",
+      "ko": "손에 천 번 입맞춤 · 아버지의 순종하는 아들"
+     }
+    },
+    {
+     "after": 4,
+     "type": "music",
+     "piece": {
+      "de": "Streichquintett g-Moll KV 516 (Mai 1787)",
+      "en": "String Quintet in G minor, K. 516 (May 1787)",
+      "ko": "현악 5중주 G단조 K. 516 (1787년 5월)"
+     },
+     "commons": "File:Wolfgang Amadeus mozart - String Quintet No. 4 K.516 - 3. Adagio ma non troppo.ogg"
+    }
+   ],
+   "status": {
+    "de": "Sorge um den Vater",
+    "en": "Worried for his father",
+    "ko": "아버지 걱정"
+   },
+   "plate_hint": {
+    "idea": "Portrait of Leopold Mozart (della Croce family portrait, 1780-81).",
+    "search": [
+     "Leopold Mozart portrait",
+     "Mozart family portrait della Croce",
+     "Leopold Mozart Bildnis"
+    ],
+    "kind": "person"
+   }
+  },
+  {
+   "id": "c7-l4",
+   "wallace_no": 244,
+   "nohl_pages": [
+    439,
+    440
+   ],
+   "date": "1787-06-16",
+   "dateNote": "The letter itself is undated; Nohl's introduction on p. 439 gives 16 June 1787. Message 5 is not from the letter but from Mozart's album entry of 3 September 1787 on the death of his friend Barisani, which Nohl prints right after it.",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 244 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Schwester",
+    "en": "his sister",
+    "ko": "누나"
+   },
+   "mood": "tender",
+   "messages": [
+    {
+     "de": "Daß Du mir den traurigen und mir ganz unvermutheten Todesfall unseres liebsten Vaters nicht selbst berichtet hast, fiel mir gar nicht auf, da ich die Ursache leicht errathen konnte.",
+     "en": "I was not at all surprised that you did not yourself announce to me the most unexpected death of our beloved father, for I could easily guess the reason.",
+     "ko": "우리 사랑하는 아버지의 슬프고 너무나 뜻밖인 죽음을 누나가 직접 알려 주지 않은 건 조금도 이상하지 않았어. 그 까닭은 쉽게 짐작할 수 있었으니까.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 244 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Daß Du mir den traurigen und mir ganz unvermutheten Todesfall / unseres liebsten Vaters / nicht selbst berichtet hast, // fiel mir gar nicht auf, / da ich die Ursache leicht errathen konnte.",
+      "en": "I was not at all surprised / that you did not yourself announce to me / the most unexpected death / of our beloved father, // for I could easily guess the reason.",
+      "ko": "우리 사랑하는 아버지의 / 슬프고 너무나 뜻밖인 죽음을 / 누나가 직접 알려 주지 않은 건 // 조금도 이상하지 않았어. / 그 까닭은 쉽게 짐작할 수 있었으니까."
+     }
+    },
+    {
+     "de": "Gott habe ihn bei sich! — Sei versichert, meine Liebe, daß, wenn Du Dir einen guten, Dich liebenden und schützenden Bruder wünschest, Du ihn gewiß bei jeder Gelegenheit in mir finden wirst.",
+     "en": "I trust he is safe with God. Be assured, my darling sister, that if you wish for a loving brother as a protector, you will always find such a brother in me.",
+     "ko": "하느님이 아버지를 곁에 두시기를! 누나, 믿어 줘. 누나를 아끼고 지켜 줄 좋은 동생이 필요하다면, 언제든 나에게서 그런 동생을 찾게 될 거야.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 244 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Gott habe ihn bei sich! // — Sei versichert, meine Liebe, / daß, wenn Du Dir einen guten, / Dich liebenden und schützenden Bruder wünschest, // Du ihn gewiß bei jeder Gelegenheit / in mir finden wirst.",
+      "en": "I trust he is safe with God. // Be assured, my darling sister, / that if you wish for a loving brother / as a protector, // you will always find such a brother / in me.",
+      "ko": "하느님이 아버지를 곁에 두시기를! // 누나, 믿어 줘. / 누나를 아끼고 지켜 줄 / 좋은 동생이 필요하다면, // 언제든 / 나에게서 그런 동생을 찾게 될 거야."
+     }
+    },
+    {
+     "de": "Meine liebste, beste Schwester! wenn Du noch unversorgt wärest, so brauchte es dieses Alles nicht. Ich würde, was ich schon tausend Mal gedacht und gesagt habe, Dir Alles mit wahrem Vergnügen überlassen;",
+     "en": "My dear good sister, if you were still unprovided for, I should not have to say one word, further than what I have said and thought a thousand times before, that I would gladly leave you everything I had;",
+     "ko": "사랑하는 누나! 누나가 아직 기댈 데가 없다면 이런 말은 다 필요 없을 거야. 천 번은 생각하고 말했던 대로 나는 기꺼이 누나한테 전부 넘겨줄 테니까.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 244 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Meine liebste, beste Schwester! // wenn Du noch unversorgt wärest, / so brauchte es dieses Alles nicht. // Ich würde, / was ich schon tausend Mal gedacht und gesagt habe, / Dir Alles mit wahrem Vergnügen überlassen;",
+      "en": "My dear good sister, // if you were still unprovided for, / I should not have to say one word, / further than what I have said and thought / a thousand times before, // that I would gladly leave you / everything I had;",
+      "ko": "사랑하는 누나! // 누나가 아직 기댈 데가 없다면 / 이런 말은 다 필요 없을 거야. // 천 번은 생각하고 말했던 대로 / 나는 기꺼이 / 누나한테 전부 넘겨줄 테니까."
+     }
+    },
+    {
+     "de": "… so halte ich es für Pflicht, auf mein Weib und Kind zu denken.",
+     "en": "… as it is my duty to provide for my wife and child.",
+     "ko": "… 이제는 아내와 아이를 생각하는 게 내 의무라고 여겨.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 244 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… so halte ich es für Pflicht, / auf mein Weib und Kind zu denken.",
+      "en": "… as it is my duty / to provide for my wife and child.",
+      "ko": "… 이제는 아내와 아이를 생각하는 게 / 내 의무라고 여겨."
+     }
+    },
+    {
+     "de": "Ihm ist wohl! — — aber mir — uns — und allen die ihn genau kannten — uns wird es nimmer wohl werden — bis wir so glücklich sind ihn in einer bessern Welt — wieder — und auf nimmer scheiden zu sehen.",
+     "en": "For him all is well; but for me, for us, and for all who knew him intimately, it never will be well, till we are so happy as to meet him again in a better world, to part no more.",
+     "ko": "그는 이제 평안해! 하지만 나에게, 우리에게, 그를 가까이 알던 모든 이에게는 평안이 오지 않을 거야. 더 나은 세상에서 그를 다시 만나 다시는 헤어지지 않게 되는 날까지는.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 244 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ihm ist wohl! // — — aber mir — uns — / und allen die ihn genau kannten — // uns wird es nimmer wohl werden — // bis wir so glücklich sind / ihn in einer bessern Welt — wieder — / und auf nimmer scheiden zu sehen.",
+      "en": "For him all is well; // but for me, for us, / and for all who knew him intimately, // it never will be well, // till we are so happy / as to meet him again in a better world, / to part no more.",
+      "ko": "그는 이제 평안해! // 하지만 나에게, 우리에게, / 그를 가까이 알던 모든 이에게는 // 평안이 오지 않을 거야. // 더 나은 세상에서 / 그를 다시 만나 / 다시는 헤어지지 않게 되는 날까지는."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Vater",
+     "pos": "n.m.",
+     "ipa": "ˈfaːtɐ",
+     "en": "father",
+     "ipa_en": "ˈfɑðɚ",
+     "ko": "아버지",
+     "rom_ko": "abeoji",
+     "icon": "👨"
+    },
+    {
+     "de": "der Bruder",
+     "pos": "n.m.",
+     "ipa": "ˈbʁuːdɐ",
+     "en": "brother",
+     "ipa_en": "ˈbɹʌðɚ",
+     "ko": "형제, 동생",
+     "rom_ko": "hyeongje, dongsaeng"
+    },
+    {
+     "de": "die Schwester",
+     "pos": "n.f.",
+     "ipa": "ˈʃvɛstɐ",
+     "en": "sister",
+     "ipa_en": "ˈsɪstɚ",
+     "ko": "누나, 자매",
+     "rom_ko": "nuna, jamae"
+    },
+    {
+     "de": "das Kind",
+     "pos": "n.n.",
+     "ipa": "kɪnt",
+     "en": "child",
+     "ipa_en": "tʃaɪld",
+     "ko": "아이",
+     "rom_ko": "ai",
+     "icon": "👶"
+    },
+    {
+     "de": "die Welt",
+     "pos": "n.f.",
+     "ipa": "vɛlt",
+     "en": "world",
+     "ipa_en": "wɝld",
+     "ko": "세상",
+     "rom_ko": "sesang",
+     "icon": "🌍"
+    }
+   ],
+   "note": {
+    "ko": "레오폴트 모차르트는 1787년 5월 28일 잘츠부르크에서 세상을 떠났어요. 모차르트는 그날 친구 자캥에게 '제 처지를 짐작하실 거예요'라고 짧게 알렸고, 6월 16일에 누나 난네를에게 이 편지를 썼어요. 마지막 문장은 편지가 아니라, 같은 해 9월 3일 친구 바리자니를 잃고 그의 방명록 시 아래 적은 글이에요.",
+    "en": "Leopold Mozart died in Salzburg on 28 May 1787. That day Mozart told his friend Jacquin briefly, 'You can imagine my state'; on 16 June he wrote this letter to his sister Nannerl. The last excerpt is not from the letter: it is what he wrote on 3 September of the same year under Barisani's verses in his album, after losing that friend.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 244 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Danke, lieber Bruder. Gott mit Dir.",
+    "en": "Thank you, dear brother. God be with you.",
+    "ko": "고마워, 동생아. 하느님이 함께하시길.",
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 3,
+     "type": "notice",
+     "text": {
+      "de": "3. September 1787 · für Barisani",
+      "en": "3 September 1787 · for Barisani",
+      "ko": "1787년 9월 3일 · 바리자니를 기리며"
+     }
+    },
+    {
+     "after": 4,
+     "type": "music",
+     "piece": {
+      "de": "Eine kleine Nachtmusik, KV 525 (August 1787)",
+      "en": "Eine kleine Nachtmusik, K. 525 (August 1787)",
+      "ko": "아이네 클라이네 나흐트무지크 K. 525 (1787년 8월)"
+     },
+     "commons": "File:Mozart K525 Serenade in G Major 2 - Romance.ogg"
+    }
+   ],
+   "status": {
+    "de": "Abschied vom Vater",
+    "en": "Farewell to his father",
+    "ko": "아버지와의 이별"
+   },
+   "plate_hint": {
+    "idea": "Leopold Mozart's grave, St. Sebastian cemetery, Salzburg.",
+    "search": [
+     "Sebastiansfriedhof Salzburg",
+     "St. Sebastian cemetery Salzburg Mozart grave",
+     "Leopold Mozart Grab"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c7-l5",
+   "wallace_no": 245,
+   "nohl_pages": [
+    440,
+    441
+   ],
+   "date": "1787-11-04",
+   "dateNote": "Page 440 survives only as a low-resolution, faded scan; its heading reads Prag 4. Nov. 1787, as in Wallace.",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 245 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Prag",
+   "to": {
+    "de": "Gottfried von Jacquin",
+    "en": "Gottfried von Jacquin",
+    "ko": "고트프리트 폰 자캥"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Den 29. October ging meine Opera D. Giovanni in Scene, und zwar mit dem lautesten Beifall.",
+     "en": "My opera, “Don Giovanni,” was given here on the 29th of October, with the most brilliant success.",
+     "ko": "10월 29일에 제 오페라 돈 조반니가 무대에 올랐어요. 그것도 우레 같은 박수 속에서요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 245 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Den 29. October / ging meine Opera D. Giovanni in Scene, // und zwar mit dem lautesten Beifall.",
+      "en": "My opera, “Don Giovanni,” / was given here on the 29th of October, // with the most brilliant success.",
+      "ko": "10월 29일에 / 제 오페라 돈 조반니가 무대에 올랐어요. // 그것도 우레 같은 박수 속에서요."
+     }
+    },
+    {
+     "de": "Ist das Vergnügen einer flatterhaften launigten Liebe nicht himmelweit von der Seeligkeit unterschieden, welche eine wahrhafte, vernünftige Liebe verschafft?",
+     "en": "Are not the pleasures of a transient capricious passion widely different from the happiness produced by rational and true love?",
+     "ko": "들뜨고 변덕스러운 사랑의 즐거움은 참되고 분별 있는 사랑이 주는 행복과 하늘과 땅만큼 다르지 않나요?",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 245 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ist das Vergnügen / einer flatterhaften launigten Liebe // nicht himmelweit von der Seeligkeit unterschieden, // welche eine wahrhafte, vernünftige Liebe verschafft?",
+      "en": "Are not the pleasures / of a transient capricious passion // widely different from the happiness // produced by rational and true love?",
+      "ko": "들뜨고 변덕스러운 사랑의 즐거움은 // 참되고 분별 있는 사랑이 주는 행복과 // 하늘과 땅만큼 / 다르지 않나요?"
+     }
+    },
+    {
+     "de": "… daß es eine sehr große Kunst sei, wohl und schön zu reden, aber wohl eine nicht minder große zur rechten Zeit aufzuhören.",
+     "en": "… that it was a very great art to talk eloquently and well, but an equally great one to know the right moment to stop.",
+     "ko": "…말을 잘하고 아름답게 하는 건 아주 큰 기술이지만, 알맞은 때에 그치는 것도 그 못지않게 큰 기술이라고요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 245 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… daß es eine sehr große Kunst sei, / wohl und schön zu reden, // aber wohl eine nicht minder große / zur rechten Zeit aufzuhören.",
+      "en": "… that it was a very great art / to talk eloquently and well, // but an equally great one / to know the right moment to stop.",
+      "ko": "…말을 잘하고 아름답게 하는 건 / 아주 큰 기술이지만, // 알맞은 때에 그치는 것도 / 그 못지않게 큰 기술이라고요."
+     }
+    },
+    {
+     "de": "— Ich hoffe aber, daß Sie auch ohne diesem Liede von meiner wahren Freundschaft überzeugt sind,",
+     "en": "But I trust that, even without the song, you are convinced of my true friendship,",
+     "ko": "하지만 그 노래가 없어도 제 참된 우정을 믿어 주시리라 바라요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 245 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "— Ich hoffe aber, / daß Sie auch ohne diesem Liede / von meiner wahren Freundschaft überzeugt sind,",
+      "en": "But I trust that, / even without the song, / you are convinced of my true friendship,",
+      "ko": "하지만 / 그 노래가 없어도 / 제 참된 우정을 믿어 주시리라 바라요."
+     }
+    },
+    {
+     "de": "Wegen dem doppelten Petschier ist es also: das rothe … taugte nichts — ich petschirte also schwarz darauf,",
+     "en": "The double seal was owing to this: the red wax was good for nothing, so I put black wax on the top of it.",
+     "ko": "봉인이 두 겹인 건 이래서예요. 빨간 밀랍이 쓸모가 없어서 그 위에 검은 밀랍으로 다시 봉했어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 245 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wegen dem doppelten Petschier ist es also: // das rothe … taugte nichts // — ich petschirte also schwarz darauf,",
+      "en": "The double seal was owing to this: // the red wax was good for nothing, // so I put black wax on the top of it.",
+      "ko": "봉인이 두 겹인 건 이래서예요. // 빨간 밀랍이 쓸모가 없어서 // 그 위에 검은 밀랍으로 다시 봉했어요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Beifall",
+     "pos": "n.m.",
+     "ipa": "ˈbaɪ̯fal",
+     "en": "applause",
+     "ipa_en": "əˈplɔz",
+     "ko": "박수갈채",
+     "rom_ko": "baksugalchae",
+     "icon": "👏"
+    },
+    {
+     "de": "die Liebe",
+     "pos": "n.f.",
+     "ipa": "ˈliːbə",
+     "en": "love",
+     "ipa_en": "lʌv",
+     "ko": "사랑",
+     "rom_ko": "sarang",
+     "icon": "❤️"
+    },
+    {
+     "de": "die Kunst",
+     "pos": "n.f.",
+     "ipa": "kʊnst",
+     "en": "art",
+     "ipa_en": "ɑɹt",
+     "ko": "기술, 예술",
+     "rom_ko": "gisul, yesul",
+     "icon": "🎨"
+    },
+    {
+     "de": "die Freundschaft",
+     "pos": "n.f.",
+     "ipa": "ˈfʁɔɪ̯ntʃaft",
+     "en": "friendship",
+     "ipa_en": "ˈfɹɛndʃɪp",
+     "ko": "우정",
+     "rom_ko": "ujeong",
+     "icon": "🤝"
+    },
+    {
+     "de": "schwarz",
+     "pos": "adj.",
+     "ipa": "ʃvaʁts",
+     "en": "black",
+     "ipa_en": "blæk",
+     "ko": "검은",
+     "rom_ko": "geomeun",
+     "icon": "⚫"
+    }
+   ],
+   "note": {
+    "ko": "모차르트는 『돈 조반니』를 완성해 무대에 올리려고 1787년 가을 다시 프라하로 갔고, 10월 29일 초연이 열렸어요. 편지에서 그는 연애에 빠진 젊은 친구 자캥에게 참된 사랑을 두고 '작은 설교'를 늘어놓아요. 11월 9일에 덧붙인 부분에서는 자캥을 위해 노래 한 곡(쾨헬 530)을 함께 보낸다고 해요.",
+    "en": "Mozart went back to Prague in autumn 1787 to finish and stage Don Giovanni, which opened on 29 October. In the letter he gives his young friend Jacquin a 'little sermon' on true love. In the part added on 9 November he sends Jacquin a song (Köchel 530).",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 245 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Bravo, Freund! Bravo, Don Giovanni!",
+    "en": "Bravo, my friend! Bravo, Don Giovanni!",
+    "ko": "브라보, 친구! 브라보, 돈 조반니!",
+    "_note": "자캥의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "music",
+     "piece": {
+      "de": "Don Giovanni, KV 527 — Ouvertüre",
+      "en": "Don Giovanni, K. 527 — Overture",
+      "ko": "돈 조반니 K. 527 — 서곡"
+     },
+     "commons": "File:Wolfgang Amadeus Mozart - Don Giovanni - Overtüre.ogg"
+    },
+    {
+     "after": 4,
+     "type": "notice",
+     "text": {
+      "de": "Doppeltes Petschier · roth und schwarz",
+      "en": "A double seal · red and black",
+      "ko": "두 겹 봉인 · 빨강과 검정"
+     }
+    }
+   ],
+   "status": {
+    "de": "Don Giovanni gefeiert",
+    "en": "Don Giovanni triumphs",
+    "ko": "돈 조반니 대성공"
+   },
+   "plate_hint": {
+    "idea": "Estates Theatre, Prague / Don Giovanni first-performance playbill (29 Oct. 1787).",
+    "search": [
+     "Don Giovanni 1787 Prague playbill",
+     "Estates Theatre Prague Don Giovanni premiere",
+     "Nostitz Theater Prag 1787"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c7-l6",
+   "wallace_no": 247,
+   "nohl_pages": [
+    444,
+    445
+   ],
+   "date": "1788-06-27",
+   "dateNote": "The heading on p. 444 (Wien 27. Juni 1788) is faint in the scan but agrees with Wallace; the opening of the letter on that page is too faded to quote, so the excerpts begin on p. 445.",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 247 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Michael Puchberg",
+    "en": "Michael Puchberg",
+    "ko": "미하엘 푸흐베르크"
+   },
+   "mood": "weary",
+   "messages": [
+    {
+     "de": "… und erwarte zuversichtlich daß Sie mir mit Rath und That an die Hand gehen werden.",
+     "en": "… and confidently hope that you will give me a helping hand both by word and deed.",
+     "ko": "… 조언으로도 행동으로도 저를 도와주시리라 굳게 믿어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 247 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… und erwarte zuversichtlich / daß Sie mir mit Rath und That / an die Hand gehen werden.",
+      "en": "… and confidently hope / that you will give me a helping hand / both by word and deed.",
+      "ko": "… 조언으로도 행동으로도 / 저를 도와주시리라 / 굳게 믿어요."
+     }
+    },
+    {
+     "de": "Wenn mein Wunsch in Erfüllung geht, so kann ich frei Odem schöpfen, weil ich dann im Stande sein werde, mich in Ordnung zu bringen und auch darinnen zu erhalten.",
+     "en": "If my wish be fulfilled, I shall be able to breathe again, for I should then be able to put my affairs into good order and to keep them so.",
+     "ko": "제 바람이 이루어지면 마음껏 숨을 쉴 수 있을 거예요. 그러면 제 형편을 바로잡고 그대로 지켜 갈 수 있을 테니까요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 247 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wenn mein Wunsch in Erfüllung geht, / so kann ich frei Odem schöpfen, // weil ich dann im Stande sein werde, / mich in Ordnung zu bringen / und auch darinnen zu erhalten.",
+      "en": "If my wish be fulfilled, / I shall be able to breathe again, // for I should then be able / to put my affairs into good order / and to keep them so.",
+      "ko": "제 바람이 이루어지면 / 마음껏 숨을 쉴 수 있을 거예요. // 그러면 / 제 형편을 바로잡고 / 그대로 지켜 갈 수 있을 테니까요."
+     }
+    },
+    {
+     "de": "— Kommen Sie doch zu mir und besuchen Sie mich, ich bin immer zu Hause.",
+     "en": "Come here and pay me a visit; I am always at home.",
+     "ko": "저한테 한번 들러 주세요. 저는 늘 집에 있어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 247 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "— Kommen Sie doch zu mir / und besuchen Sie mich, // ich bin immer zu Hause.",
+      "en": "Come here / and pay me a visit; // I am always at home.",
+      "ko": "저한테 / 한번 들러 주세요. // 저는 늘 집에 있어요."
+     }
+    },
+    {
+     "de": "— Ich habe in den 10 Tagen daß ich hier wohne mehr gearbeitet als im andern Logis die 2 Monate,",
+     "en": "I have worked more during the ten days I have lived here than in two months in my former apartment;",
+     "ko": "여기 산 지 열흘 동안 예전 집에서 두 달 동안보다 더 많이 일했어요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 247 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "— Ich habe in den 10 Tagen daß ich hier wohne / mehr gearbeitet // als im andern Logis die 2 Monate,",
+      "en": "I have worked more / during the ten days I have lived here // than in two months in my former apartment;",
+      "ko": "여기 산 지 열흘 동안 / 예전 집에서 두 달 동안보다 // 더 많이 일했어요."
+     }
+    },
+    {
+     "de": "und kämen mir nicht so oft schwarze Gedanken (die ich mir mit Gewalt ausschlagen muß), würde es mir noch besser von Statten gehen, denn ich wohne angenehm — bequem — und — wohlfeil.",
+     "en": "and if dismal thoughts did not so often intrude, (which I strive forcibly to dismiss,) I should be very well off here, for I live agreeably, comfortably, and, above all, cheaply.",
+     "ko": "어두운 생각이 이렇게 자주 찾아오지만 않는다면 (억지로라도 떨쳐 내야 하는 생각이에요) 일이 더 잘 풀릴 거예요. 이곳은 쾌적하고, 편하고, 게다가 값도 싸거든요.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 247 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "und kämen mir nicht so oft schwarze Gedanken / (die ich mir mit Gewalt ausschlagen muß), // würde es mir noch besser von Statten gehen, // denn ich wohne angenehm — bequem — / und — wohlfeil.",
+      "en": "and if dismal thoughts did not so often intrude, / (which I strive forcibly to dismiss,) // I should be very well off here, // for I live agreeably, comfortably, / and, above all, cheaply.",
+      "ko": "어두운 생각이 / 이렇게 자주 찾아오지만 않는다면 / (억지로라도 떨쳐 내야 하는 생각이에요) // 일이 더 잘 풀릴 거예요. // 이곳은 쾌적하고, 편하고, / 게다가 값도 싸거든요."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Wunsch",
+     "pos": "n.m.",
+     "ipa": "vʊnʃ",
+     "en": "wish",
+     "ipa_en": "wɪʃ",
+     "ko": "바람, 소원",
+     "rom_ko": "baram, sowon",
+     "icon": "🌠"
+    },
+    {
+     "de": "die Ordnung",
+     "pos": "n.f.",
+     "ipa": "ˈɔʁdnʊŋ",
+     "en": "order",
+     "ipa_en": "ˈɔɹdɚ",
+     "ko": "질서, 정돈",
+     "rom_ko": "jilseo, jeongdon"
+    },
+    {
+     "de": "zu Hause",
+     "pos": "expr.",
+     "ipa": "tsuː ˈhaʊ̯zə",
+     "en": "at home",
+     "ipa_en": "æt hoʊm",
+     "ko": "집에",
+     "rom_ko": "jibe",
+     "icon": "🏠"
+    },
+    {
+     "de": "arbeiten",
+     "pos": "v.",
+     "ipa": "ˈaʁbaɪ̯tn̩",
+     "en": "to work",
+     "ipa_en": "tə wɝk",
+     "ko": "일하다",
+     "rom_ko": "ilhada",
+     "icon": "✍️"
+    },
+    {
+     "de": "der Gedanke",
+     "pos": "n.m.",
+     "ipa": "ɡəˈdaŋkə",
+     "en": "thought",
+     "ipa_en": "θɔt",
+     "ko": "생각",
+     "rom_ko": "saenggak",
+     "icon": "💭"
+    }
+   ],
+   "note": {
+    "ko": "미하엘 푸흐베르크는 빈의 상인이자 모차르트의 프리메이슨 형제였어요. 모차르트는 이 무렵 거듭 그에게 돈을 빌려 달라고 부탁했고, 이 편지도 그런 부탁의 하나예요. 새 집으로 옮긴 지 열흘 만에 '두 달 치보다 많이 일했다'고 쓴 이 여름, 그는 C장조, G단조, E♭장조의 큰 교향곡 세 곡을 썼어요.",
+    "en": "Michael Puchberg was a Viennese merchant and Mozart's brother Freemason. Around this time Mozart repeatedly asked him for loans, and this letter is one such request. In the summer when he wrote that he had worked more in ten days in his new lodging than in two months before, he wrote the three great symphonies in C major, G minor and E flat.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 247 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Mut, lieber Bruder! Ich helfe gern.",
+    "en": "Courage, dear brother! I am glad to help.",
+    "ko": "힘내요, 형제여! 기꺼이 도울게요.",
+    "_note": "푸흐베르크의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 3,
+     "type": "notice",
+     "text": {
+      "de": "10 Tage · 2 Monate",
+      "en": "10 days · 2 months",
+      "ko": "열흘 · 두 달"
+     }
+    },
+    {
+     "after": 4,
+     "type": "music",
+     "piece": {
+      "de": "Sinfonie g-Moll KV 550 (Sommer 1788)",
+      "en": "Symphony No. 40 in G minor, K. 550 (summer 1788)",
+      "ko": "교향곡 40번 G단조 K. 550 (1788년 여름)"
+     },
+     "commons": "File:Mozart - Symphony No. 40 in G minor, K550 - I. Molto allegro (Musopen Symphony).flac"
+    }
+   ],
+   "status": {
+    "de": "Neue Wohnung, schwere Gedanken",
+    "en": "New rooms, heavy thoughts",
+    "ko": "새 집, 무거운 생각"
+   },
+   "plate_hint": {
+    "idea": "Autograph of Symphony No. 40 (finished 25 July 1788) or the Währinger Gasse district.",
+    "search": [
+     "Mozart Symphony 40 autograph K. 550",
+     "Währinger Gasse Wien 18. Jahrhundert",
+     "Mozart Sinfonie g-Moll Autograph"
+    ],
+    "kind": "score"
+   }
+  }
+ ]
+}
