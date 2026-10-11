@@ -1,0 +1,25 @@
+Redirect by file, user, page, revision, or log ID - Wikimedia Commons
+
+Jump to content
+
+This special page redirects to a file (given the filename), a page (given a revision ID or page ID), a user page (given a numeric user ID), or a log entry (given the log ID). Usage: Special:Redirect/file/Example.jpg, Special:Redirect/page/64308, Special:Redirect/revision/328429, Special:Redirect/user/101, or Special:Redirect/logid/186.
+
+Value not found
+
+Lookup:
+
+User IDPage IDPage revisionFilenameLog ID
+
+Value:
+
+Go
+
+Retrieved from "https://commons.wikimedia.org/wiki/Special:Redirect/file/La_Berceuse_(Woman_Rocking_a_Cradle)_MET_DT1502.jpg"
+
+Search
+
+ Search
+
+Redirect by file, user, page, revision, or log ID
+
+Add topic
