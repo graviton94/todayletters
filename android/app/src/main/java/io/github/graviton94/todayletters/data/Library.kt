@@ -56,7 +56,8 @@ val Work.hasMusic: Boolean get() = chapters.any { c -> c.letters.any { it.music 
 
 /** 프롤로그 한 장: 그 시절 · 제목 · 설명 + 그 시절을 말하는 원문 한 줄([letter] 의 첫 문장 · 낱말 · 그림). */
 data class Docent(val period: String, val caps: String, val heading: Tri, val sub: String, val body: Tri, val source: Tri, val letter: Letter)
-data class Arrival(val date: String, val route: String, val heading: Tri, val body: Tri)
+/** [years] 는 프롤로그 위 연표, [at] 은 도슨트 쪽마다 (그리고 마지막 도착 화면의) 연표 자리. [label] 은 표지의 프롤로그 줄 이름 (아를 이전). */
+data class Arrival(val date: String, val route: String, val heading: Tri, val body: Tri, val years: List<String> = emptyList(), val at: List<Int> = emptyList(), val label: Tri? = null)
 /** 아웃트로: 맺음말 편지([epilogue], 장 "E") 와 생애를 맺는 글. */
 data class Outro(val image: String, val credit: String, val caps: String, val name: String, val years: String, val body: List<Tri>, val head: Tri?, val epilogue: Letter?)
 
@@ -106,7 +107,13 @@ object Library {
                 kit = meta.optJSONObject("kit")?.let { kit(it) } ?: Kit(),
                 prologue = prologue,
                 prologueChapter = prologue.takeIf { it.isNotEmpty() }?.let { d -> Chapter(id, "P", Tri(mapOf(Lang.EN to "Prologue")), true, d.map { it.letter }) },
-                arrival = meta.optJSONObject("prologue")?.optJSONObject("arrival")?.let { a -> Arrival(a.optString("date"), a.optString("route"), tri(a.getJSONObject("heading")), tri(a.getJSONObject("body"))) },
+                arrival = meta.optJSONObject("prologue")?.let { pr -> pr.optJSONObject("arrival")?.let { a ->
+                    val tl = pr.optJSONObject("timeline")
+                    Arrival(a.optString("date"), a.optString("route"), tri(a.getJSONObject("heading")), tri(a.getJSONObject("body")),
+                        years = tl?.optJSONArray("years")?.let { y -> (0 until y.length()).map { y.getString(it) } } ?: emptyList(),
+                        at = tl?.optJSONArray("at")?.let { y -> (0 until y.length()).map { y.getInt(it) } } ?: emptyList(),
+                        label = pr.optJSONObject("label")?.let { tri(it) })
+                } },
                 outro = meta.optJSONObject("outro")?.let { o ->
                     val ep = runCatching { JSONObject(am.open("letters/$id/${o.getString("file")}").bufferedReader().readText()) }.getOrNull()
                     val first = ep?.getJSONArray("letters")?.optJSONObject(0)

@@ -156,6 +156,24 @@
     "ko": "어머니와 누나는 잘츠부르크에 남았어요. 지금부터 스물두 해, 볼프강이 쓴 편지를 받아요.",
     "en": "His mother and sister stay behind in Salzburg. For the next twenty-two years, you receive the letters Wolfgang writes."
    }
+  },
+  "timeline": {
+   "years": [
+    "1756",
+    "1763",
+    "1767",
+    "1769"
+   ],
+   "at": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  "label": {
+   "ko": "이탈리아 이전",
+   "en": "Before Italy"
   }
  },
  "outro": {

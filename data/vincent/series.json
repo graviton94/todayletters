@@ -919,6 +919,27 @@
     "en": "There was snow on the ground in Arles that day. The next day he writes Theo his first letter. For the next two and a half years, you are Theo, and fifty-six letters will come to you.",
     "fr": "Ce jour-là, la neige couvrait Arles. Le lendemain, il écrit sa première lettre à Théo."
    }
+  },
+  "timeline": {
+   "years": [
+    "1853",
+    "1880",
+    "1885",
+    "1887",
+    "1888",
+    "1890"
+   ],
+   "at": [
+    0,
+    2,
+    3,
+    3,
+    4
+   ]
+  },
+  "label": {
+   "ko": "아를 이전",
+   "en": "Before Arles"
   }
  },
  "outro": {

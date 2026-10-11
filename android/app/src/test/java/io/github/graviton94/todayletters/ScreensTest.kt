@@ -581,10 +581,9 @@ class ScreensTest {
     @Test fun mozartLibrary() { val s = state(true); shot("m01_library", true) { LibraryTab(s) } }
     @Test fun mozartRoom() { val s = state(true); shownAll(s, 1, 4); shot("m02_room_c1l4", false, 4000, series = s) { Room(s, Route.Letter("mozart", 1, 4)) } }
     @Test fun mozartMusicSheet() {
-        val s = state(true); shownAll(s, 7, 3)
-        shot("m03_music_sheet", false, 4000, act = {
-            rule.onNodeWithText(ctx.getString(io.github.graviton94.todayletters.R.string.music_chip), substring = true).performClick()
-        }, series = s) { Room(s, Route.Letter("mozart", 7, 3)) }
+        val s = state(true); val w = s.work("mozart")
+        val m = w.chapters[6].letters[2].moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Music>().first()
+        shot("m03_music_sheet", false, 3000, series = s) { io.github.graviton94.todayletters.ui.MusicSheet(s, w, m) {} }
     }
     @Test fun mozartWalkEra() { val s = state(true); shot("m04_walk_era", true, series = s) { Artwork(s, Route.Artwork("mozart", 1, Route.Letter("mozart", 1, 3))) } }
     @Test fun mozartWalkScore() {

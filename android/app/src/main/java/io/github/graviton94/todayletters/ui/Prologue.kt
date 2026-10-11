@@ -60,10 +60,10 @@ private val Faint = Color(0xFF8A7C62)
 private val Gilt = Color(0xFFD9AE55)
 private val Wall = Color(0xFF1B150F)
 
-/** 연표 1853 → 1890: [at] 번째 마디가 지금. */
+/** 연표 (series.json 의 prologue.timeline): [at] 번째 마디가 지금. 연표가 없으면 그리지 않는다. */
 @Composable
-private fun Timeline(at: Int) {
-    val years = listOf("1853", "1880", "1885", "1887", "1888", "1890")
+private fun Timeline(years: List<String>, at: Int) {
+    if (years.size < 2) return
     Column(Modifier.fillMaxWidth().padding(horizontal = 18.dp).padding(top = 14.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             years.indices.forEach { k ->
@@ -90,7 +90,7 @@ fun PrologueScreen(s: AppState, r: Route.Prologue) {
     BackHandler { if (page > 0) { s.narrator.stop(); page-- } else s.back() }
     Column(Modifier.fillMaxSize().background(Night).statusBarsPadding().navigationBarsPadding()) {
         val last = page >= pages.size
-        Timeline(if (last) 4 else listOf(0, 2, 3, 3).getOrElse(page) { 3 })
+        w.arrival?.let { a -> Timeline(a.years, a.at.getOrElse(page) { a.years.lastIndex }) }
         if (!last) {
             val d = pages[page]
             val l = d.letter

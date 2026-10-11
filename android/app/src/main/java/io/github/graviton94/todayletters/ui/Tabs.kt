@@ -146,7 +146,7 @@ fun SeriesCover(s: AppState, id: String) {
             // 프롤로그: 아를 이전 (언제든 다시 보기)
             if (w.prologue.isNotEmpty()) {
                 ChapterRow(
-                    numeral = "P", original = deco(w.series.original, "Prologue", "Prolog"), read = stringResource(R.string.cover_prologue),
+                    numeral = "P", original = deco(w.series.original, "Prologue", "Prolog"), read = w.arrival?.label?.get(uiLang()) ?: stringResource(R.string.cover_prologue),
                     readLang = s.app.read, originalLang = w.series.original,
                     meta = stringResource(R.string.cover_prologue_meta, w.prologue.size),
                     onClick = { s.go(Route.Prologue(id)) },
