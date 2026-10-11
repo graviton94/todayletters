@@ -12,12 +12,20 @@ data class Message(val text: Tri)
  * [ipaEn] · [romKo] 는 영어 발음 · 한국어 로마자 (카드에 보이는 것은 다음 단계).
  */
 data class Word(val text: Tri, val pos: String = "", val ipa: String = "", val icon: String = "",
-                val modern: String = "", val ipaEn: String = "", val romKo: String = "") {
+                val modern: String = "", val ipaEn: String = "", val romKo: String = "",
+                /** 낱말 낭독 파일 이름 앞부분 (편지 폴더의 "w3" → w3_<언어>.m4a). 비면 소리 없음. */
+                val audio: String = "",
+                /** 어휘 사전 열쇠 (lexicon id||lemma) · 등급 (A1…C2) · 편지에 찍힌 꼴들. 사전에서 온 낱말만. */
+                val lex: String = "", val level: String = "", val forms: List<String> = emptyList(),
+                /** 표현 카드면 쓰임 설명 (ko · en). */
+                val note: Tri? = null) {
+    /** 표현 카드 (여러 낱말의 관용 표현). */
+    val phrase get() = note != null
     /** 쓰기 · 말하기 채점에 쓰는 원어 철자: 오늘의 철자가 있으면 그것, 없으면 편지의 철자. */
     fun answer(learn: Lang, original: Lang): String = if (learn == original && modern.isNotEmpty()) modern else text[learn]
 }
 /** 그림 속 산책의 한 자리: 그림 위의 위치(0~1), 이름, 큐레이터 설명, 낱말, 그 요소가 나오는 편지 문장 번호. */
-data class Spot(val x: Float, val y: Float, val title: Tri, val note: Tri, val word: Word?, val quote: Int? = null)
+data class Spot(val x: Float, val y: Float, val title: Tri, val note: Tri, val word: Word?, val quote: Int? = null, val voiced: Boolean = true)
 
 /**
  * 그림 한 점. [collection] 은 소장처와 라이선스 (“… · CC0”), [source] 는 소장처의 작품 페이지 (출처 화면).
@@ -77,6 +85,10 @@ data class Letter(
     val status: Tri? = null,
     /** 이 편지를 받는 사람 (아버지 · 누나 · 콘스탄체…). 없으면 작품의 받는 사람. */
     val to: Tri? = null,
+    /** 오늘의 표현 (daily.json phrases): 낱말 맞추기 뒤의 표현 카드 · 복습 카드. */
+    val phrases: List<Word> = emptyList(),
+    /** 챕터 파일의 낱말 그대로 (낭독 w<i> 가 붙은 것). [words] 가 daily.json 의 낱말로 바뀌어도 소리를 찾을 때 쓴다. */
+    val source: List<Word> = emptyList(),
 ) {
     /** 녹음이 있는 ‘편지 속 그 곡’. */
     val music: Moment.Music? get() = moments.firstOrNull { it is Moment.Music && it.playable } as Moment.Music?
@@ -148,7 +160,7 @@ object Exercises {
     fun pairs(letter: Letter, learn: Lang, read: Lang) = letter.words.map { it.text[learn] to it.text[read] }
 
     /** 낱말 맞추기 판: 왼쪽은 편지 순서, 오른쪽 뜻은 섞어서 (같은 편지는 늘 같은 순서). 최대 [max] 짝. */
-    fun matchBoard(letter: Letter, learn: Lang, read: Lang, max: Int = 6): Pair<List<Pair<String, String>>, List<Int>> {
+    fun matchBoard(letter: Letter, learn: Lang, read: Lang, max: Int = 8): Pair<List<Pair<String, String>>, List<Int>> {
         val pairs = pairs(letter, learn, read).take(max)
         val order = pairs.indices.shuffled(java.util.Random(letter.id.hashCode().toLong()))
         return pairs to (if (order == pairs.indices.toList() && pairs.size > 1) order.reversed() else order)

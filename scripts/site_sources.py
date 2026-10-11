@@ -65,6 +65,9 @@ T = {
         "music_sa": "발췌본도 같은 라이선스({lic})로 공유합니다",
         "gallery_note": "학습을 마칠 때 갤러리에 걸리는 작품들입니다.",
         "count": "{n}점",
+        "vocab": "낱말 자료",
+        "vocab_freq": "낱말 등급(A1–C2): Hermit Dave 의 {fw} (OpenSubtitles 2018 빈도 목록) 순위에서 계산 · CC BY-SA 4.0",
+        "vocab_tatoeba": "예문 {n}개: {tt} · CC BY 2.0 FR · 작성자 {a}명 (앱에서 문장마다 작성자를 표기)",
     },
     "en": {
         "letters": "Letter text", "plates": "Pictures", "music": "Music", "gallery": "Gallery pieces",
@@ -76,6 +79,9 @@ T = {
         "music_sa": "the excerpt is shared under the same licence ({lic})",
         "gallery_note": "Works hung in the gallery as you finish lessons.",
         "count": "{n}",
+        "vocab": "Vocabulary",
+        "vocab_freq": "Word levels (A1–C2) computed from the ranks in {fw} by Hermit Dave (OpenSubtitles 2018 frequency lists) · CC BY-SA 4.0",
+        "vocab_tatoeba": "{n} example sentences from {tt} · CC BY 2.0 FR · by {a} authors (the app credits the author with each sentence)",
     },
 }
 
@@ -256,8 +262,16 @@ def collect(sid):
     outro = meta.get("outro") or {}
     if outro.get("image") and not outro.get("credit"):
         warn(f"{sid}: outro.credit (맺음말 그림 {outro['image']} 출처) 없음 — 페이지에서 뺌")
+    # 낱말 자료 (data/<작품>/lexicon.json): Tatoeba 예문 수 · 작성자 수
+    vocab = None
+    lp = os.path.join(DATA, sid, "lexicon.json")
+    if os.path.exists(lp):
+        lx = load(lp)
+        ix = lx["fields"].index("example")
+        ex = {r[ix][0]: r[ix][4] for r in lx["entries"] if len(r) > ix and r[ix]}
+        vocab = {"examples": len(ex), "authors": len(set(ex.values()))}
     return {"id": sid, "meta": meta, "orig": orig, "plates": plates, "music": music, "gallery": gallery,
-            "portrait": portrait, "outro": outro.get("credit", "")}
+            "portrait": portrait, "outro": outro.get("credit", ""), "vocab": vocab}
 
 
 # ── 그리기 ───────────────────────────────────────────────────────────────
@@ -367,6 +381,13 @@ def block(S, lang):
         out.append(f'<p class="soft">{t["gallery_note"]}</p>')
         out.append("<ul>")
         out += [gallery_li(g, lang) for g in S["gallery"]]
+        out.append("</ul>")
+    if S.get("vocab"):
+        v = S["vocab"]
+        out.append(f'<h3>{t["vocab"]}</h3>')
+        out.append("<ul>")
+        out.append("<li>" + t["vocab_freq"].format(fw=link("https://github.com/hermitdave/FrequencyWords", "FrequencyWords")) + "</li>")
+        out.append("<li>" + t["vocab_tatoeba"].format(n=v["examples"], a=v["authors"], tt=link("https://tatoeba.org", "Tatoeba")) + "</li>")
         out.append("</ul>")
     lines = []
     if S["portrait"]:

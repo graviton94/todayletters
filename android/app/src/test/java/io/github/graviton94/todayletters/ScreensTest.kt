@@ -611,4 +611,23 @@ class ScreensTest {
     }
     /** 프롤로그 둘째 장: ‘이전’ · ‘건너뛰기’ · ‘다음’. */
     @Test fun mozartProloguePrev() { val s = state(true); shot("m14_prologue_p2", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 1)) } }
+    /** 눌러서 뜻 보기: 편지 방에서 낱말 하나의 작은 카드 (표제어 · 등급 · 발음기호 · 뜻 · Tatoeba 예문 · 카드에 담기). */
+    @Test fun mozartGloss() {
+        val s = state(true); shownAll(s, 1, 4)
+        val w = s.work("mozart"); val (ch, l) = s.letterOf(Route.Letter("mozart", 1, 4))
+        val key = io.github.graviton94.todayletters.data.Library.gloss(ctx, "mozart").getValue(l.id).flatten().first { t ->
+            w.lexicon!![t.key]?.let { e -> !e.function && e.example != null && l.words.none { it.lex == e.key } } == true
+        }.key
+        shot("m15_gloss_card", false, 4000, series = s) {
+            Box(Modifier.fillMaxSize()) {
+                Room(s, Route.Letter("mozart", 1, 4))
+                io.github.graviton94.todayletters.ui.GlossSheet(s, "mozart", ch, l, key) { }
+            }
+        }
+    }
+    /** 낱말 맞추기 다음의 표현 카드 (편지 속 표현 · 번역 · 쓰임). */
+    @Test fun mozartPhrases() {
+        val s = state(true)
+        shot("m16_phrase_cards", true, series = s) { io.github.graviton94.todayletters.ui.PhraseCards(s, Route.Play(Route.Letter("mozart", 1, 1), ReplyMode.MATCH)) { } }
+    }
 }

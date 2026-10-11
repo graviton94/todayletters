@@ -3471,5 +3471,49 @@
   "credits_text_de": {
     "en": "German text of Mozart's letters: Mozarts Briefe, edited by Ludwig Nohl (Salzburg, 1865, public domain), from the Internet Archive scan, keeping the edition's spelling. English: Lady Wallace's translation (1866). Korean translations are written for this app.",
     "ko": "모차르트 편지의 독일어 원문: 루트비히 놀 엮음 『Mozarts Briefe』(잘츠부르크, 1865, 공공 영역), 인터넷 아카이브 스캔본, 판의 철자 그대로. 영어는 레이디 월리스의 1866년 번역이고, 한국어 번역은 이 앱이 새로 썼어요."
+  },
+  "gloss_add": {
+    "en": "Add to cards",
+    "ko": "카드에 담기"
+  },
+  "gloss_in_cards": {
+    "en": "In your cards",
+    "ko": "카드에 있어요"
+  },
+  "gloss_later": {
+    "en": "Today's new cards are full, so it joins your cards tomorrow.",
+    "ko": "오늘 새 카드가 다 차서, 내일 카드에 들어가요."
+  },
+  "gloss_own": {
+    "en": "Added by you",
+    "ko": "내가 담은 낱말"
+  },
+  "phrase_card": {
+    "en": "Phrase card",
+    "ko": "표현 카드"
+  },
+  "phrase_title": {
+    "en": "Phrases from this letter",
+    "ko": "이 편지 속 표현"
+  },
+  "phrase_note": {
+    "en": "These phrases join your cards when you finish the letter.",
+    "ko": "편지를 마치면 이 표현도 카드에 들어가요."
+  },
+  "phrase_next": {
+    "en": "Next: phrases",
+    "ko": "다음: 편지 속 표현"
+  },
+  "credits_vocab_h": {
+    "en": "Vocabulary",
+    "ko": "낱말 자료"
+  },
+  "credits_vocab": {
+    "en": "Word levels (A1–C2) are computed from FrequencyWords by Hermit Dave (OpenSubtitles 2018 frequency lists), CC BY-SA 4.0.\nExample sentences come from Tatoeba (tatoeba.org), CC BY 2.0 FR; each sentence shows its author, and the sentence page is tatoeba.org/sentences/show/<id>.\nHeadwords, glosses and phrase notes are written for this app.",
+    "ko": "낱말 등급(A1–C2)은 Hermit Dave 의 FrequencyWords (OpenSubtitles 2018 빈도 목록, CC BY-SA 4.0)에서 계산했어요.\n예문은 Tatoeba (tatoeba.org, CC BY 2.0 FR)에서 가져왔고, 문장마다 작성자를 함께 적어요. 문장 페이지: tatoeba.org/sentences/show/<번호>.\n표제어 · 뜻풀이 · 표현 설명은 이 앱이 새로 썼어요."
+  },
+  "credits_vocab_examples": {
+    "en": "Tatoeba sentences and authors",
+    "ko": "Tatoeba 예문과 작성자"
   }
 }

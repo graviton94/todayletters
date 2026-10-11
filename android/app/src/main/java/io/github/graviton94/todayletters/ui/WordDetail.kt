@@ -57,13 +57,13 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
     val p = Ink.palette
     BackHandler(onBack = onClose)
     val found = remember(key) { s.cardWord(key) } ?: return
-    val (w, cl, wi) = found
+    val (w, cl, word) = found
+    val wi = found.index
     val (chapter, letter) = cl
     val id = w.series.id
     val view = s.room(id)
-    val word = letter.words.getOrNull(wi) ?: return
     val learn = word.text[view.learn]
-    val audio = s.narrator.path(id, chapter, letter.id, "w${wi + 1}_${view.learn.code}")
+    val audio = s.wordAudio(found, view.learn)
     val card = remember(key, s.version) { s.cardMap()[key] }
     val letters = w.chapters.flatMap { it.letters }
     val n = letters.indexOf(letter) + 1  // 0: 프롤로그의 낱말
@@ -73,6 +73,8 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
     // 그 낱말이 나온 문장 (편지 속 꼴로 찾는다)
     val stem = Breaks.plain(learn).substringBefore(" (").substringBefore(",").trim().lowercase()
     val mi = letter.messages.indexOfFirst { Breaks.plain(it.text[view.learn]).lowercase().contains(stem.take(maxOf(3, stem.length - 2))) }
+        .takeIf { it >= 0 || view.learn != w.series.original }
+        ?: letter.messages.indexOfFirst { m -> wordMarks(m.text[view.learn], word.forms).isNotEmpty() }
     Box(Modifier.fillMaxSize().background(p.paper).statusBarsSafe().navigationBarsSafe()) {
         Column(Modifier.fillMaxSize()) {
             Row(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s2), verticalAlignment = Alignment.CenterVertically) {
@@ -82,11 +84,18 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
             Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
                 // 이름표
                 Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    Caps("N° ${"%03d".format(wi + 1)} · " + (if (n == 0) deco(w.series.original, "PROLOGUE", "PROLOG") else "${deco(w.series.original, "LETTRE", "BRIEF")} ${roman(n)}"), p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
+                    Caps((if (wi >= 0) "N° ${"%03d".format(wi + 1)} · " else "") + (if (n == 0) deco(w.series.original, "PROLOGUE", "PROLOG") else "${deco(w.series.original, "LETTRE", "BRIEF")} ${roman(n)}"), p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
+                    // 내가 편지에서 눌러 담은 낱말 · 표현 카드 · 등급
+                    if (found.own || word.phrase || word.level.isNotEmpty()) Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                        if (found.own) Capsule(stringResource(R.string.gloss_own))
+                        if (word.phrase) Capsule(stringResource(R.string.phrase_card))
+                        if (word.level.isNotEmpty()) LevelPill(word.level)
+                    }
                     Text(learn, style = Type.display.copy(fontFamily = Faces.display).of(view.learn), color = p.ink)
-                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                        Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
-                        Box(Modifier.heightIn(min = 48.dp).semantics { contentDescription = slowA11y }.pressable { s.narrator.play(audio, speed = 0.7f) }, contentAlignment = Alignment.Center) { Capsule("0.7×") }
+                    word.note?.let { Text(it[uiLang()], style = Type.small.ui(), color = p.inkSoft) }
+                    if (audio.isNotEmpty() || word.ipa.isNotEmpty()) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                        if (audio.isNotEmpty()) Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
+                        if (audio.isNotEmpty()) Box(Modifier.heightIn(min = 48.dp).semantics { contentDescription = slowA11y }.pressable { s.narrator.play(audio, speed = 0.7f) }, contentAlignment = Alignment.Center) { Capsule("0.7×") }
                         if (word.ipa.isNotEmpty() && view.learn == w.series.original) Text("[${word.ipa}]" + if (word.pos.isNotEmpty()) " · ${word.pos}" else "", style = Type.small, color = p.inkSoft)
                     }
                     Text(word.text[view.read], style = Type.title.of(view.read), color = p.ink)

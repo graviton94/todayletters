@@ -110,6 +110,15 @@ class Store(ctx: Context) {
     fun roomSpeed(series: String) = p.getFloat("speed:$series", 1f)
     fun setRoomSpeed(series: String, v: Float) = p.edit().putFloat("speed:$series", v).apply()
     fun hasCard(key: String) = p.contains("c:$key")
+    fun cardKeys(): List<String> = p.all.keys.filter { it.startsWith("c:") }.map { it.removePrefix("c:") }
+
+    /** 하루 몫이 차서 미뤄 둔 새 카드 열쇠 (앞이 먼저). */
+    var later: List<String>
+        get() = p.getString("later", "")!!.split("\n").filter { it.isNotBlank() }
+        set(v) = p.edit().putString("later", v.joinToString("\n")).apply()
+    /** 그날 새로 들인 카드 수 (다른 날이면 0). */
+    fun addedOn(day: Long): Int = if (p.getLong("intake:day", -1) == day) p.getInt("intake:n", 0) else 0
+    fun setAdded(day: Long, n: Int) = p.edit().putLong("intake:day", day).putInt("intake:n", n).apply()
 
     /** 오늘 복습을 마친 날 (오늘 화면 · 우표). */
     var reviewedDay: Long

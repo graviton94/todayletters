@@ -291,6 +291,19 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
                 }
             } }
 
+            // 낱말 자료: 등급(FrequencyWords) · 예문(Tatoeba, 문장마다 작성자)
+            if (s.works.any { it.lexicon != null }) {
+                Caps(stringResource(R.string.credits_vocab_h), p.giltText)
+                Text(stringResource(R.string.credits_vocab), style = Type.small.ui(), color = p.ink)
+                val examples = androidx.compose.runtime.remember { s.works.flatMap { w -> w.lexicon?.entries.orEmpty().mapNotNull { it.example } }.distinctBy { it.id }.sortedBy { it.author.lowercase() } }
+                var openEx by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
+                if (examples.isNotEmpty()) {
+                    Text(stringResource(R.string.credits_vocab_examples) + " (${examples.size})" + if (openEx) " ▴" else " ▾", style = Type.small.ui(), color = p.giltText,
+                        modifier = Modifier.pressable { openEx = !openEx }.padding(vertical = 6.dp))
+                    if (openEx) Text(examples.joinToString("\n") { "#${it.id} · ${it.author} — ${it.text}" }, style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+                }
+            }
+
             Caps(stringResource(R.string.credits_museum_h), p.giltText)
             Text(stringResource(R.string.credits_museum), style = Type.small.ui(), color = p.ink)
             Caps(stringResource(R.string.credits_sound_h), p.giltText)

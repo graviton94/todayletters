@@ -72,11 +72,20 @@ fun WordListScreen(s: AppState) {
                 c.letters.filter { s.progress(id, c.id, it.id).shown > 0 }.flatMap { l ->
                     l.words.mapIndexed { i, word ->
                         Entry(word.text[room.learn], word.text[room.read], if (room.learn == w.series.original) word.ipa else "", l.date,
-                            s.narrator.path(id, c.id, l.id, "w${i + 1}_${room.learn.code}"), room.learn, room.read, s.cardKey(id, c.id, l.id, i))
+                            s.wordAudio(id, c.id, l, word, room.learn), room.learn, room.read, s.cardKey(id, c.id, l.id, i))
                     }
                 }
             }
-        }.distinctBy { it.learn.lowercase() }
+        }.plus(
+            // 편지에서 눌러 내 카드로 담은 낱말 · 표현 카드
+            s.cards().filter { it.key.substringAfterLast(':').let { t -> t.startsWith("+") || t.startsWith("p") } }.mapNotNull { c ->
+                s.cardWord(c.key)?.let { cw ->
+                    val room = s.room(cw.work.series.id)
+                    Entry(cw.word.text[room.learn], cw.word.text[room.read], if (room.learn == cw.work.series.original) cw.word.ipa else "", cw.at.second.date,
+                        s.wordAudio(cw, room.learn), room.learn, room.read, c.key)
+                }
+            }
+        ).distinctBy { it.learn.lowercase() }
     }
     fun norm(x: String) = java.text.Normalizer.normalize(io.github.graviton94.todayletters.core.Breaks.plain(x).lowercase(), java.text.Normalizer.Form.NFD).replace(Regex("\\p{M}"), "")
     val shown = if (query.isBlank()) all else all.filter { norm(it.learn).contains(norm(query)) || norm(it.read).contains(norm(query)) }

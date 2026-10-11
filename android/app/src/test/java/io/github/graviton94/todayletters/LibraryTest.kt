@@ -53,4 +53,64 @@ class LibraryTest {
         assertEquals("ra-neun geot", w.romKo)
         assertEquals("", w.icon)
     }
+
+    @Test fun lexiconRowsFollowFields() {
+        val lex = Library.lexicon("""{"_doc": "x", "lang": "fr", "fields": ["lemma","id","forms","pos","gender","ko","en","ipa","level","first","letters","example","function"],
+            "entries": [["pendant", null, ["Pendant","pendant"], "prep", null, "~ 동안", "during", "pɑ̃dɑ̃", "A1", "p1", "p1 c3-l1", null, 1],
+                        ["maladie", null, ["maladie"], "n", "f", "병", "illness", "maladi", "B1", "p1", "p1 c5-l3", [350877, "Il a soigné ma maladie.", "He cured my illness.", null, "Barbiche0"]],
+                        ["ton", "ton#2", ["ton"], "n", "m", "색조", "tone"]]}""")
+        assertEquals(Lang.FR, lex.lang)
+        assertEquals(3, lex.size)
+        val p = lex["pendant"]!!
+        assertTrue(p.function)
+        assertEquals(listOf("p1", "c3-l1"), p.letters)
+        assertEquals("", p.gender)
+        val m = lex["maladie"]!!
+        assertFalse(m.function)
+        assertEquals(350877L, m.example!!.id)
+        assertEquals("Barbiche0", m.example!!.author)
+        assertNull(m.example!!.ko)
+        assertEquals("tone", lex["ton#2"]!!.en)   // 동형어는 id 로
+        assertEquals("", lex["ton#2"]!!.level)    // 뒤쪽 null 생략
+    }
+
+    @Test fun glossTokensAreStringsOrPairs() {
+        val g = Library.gloss("""{"_doc": "x", "lang": "de", "letters": {"c1-l1": [[["Mich", "ich"], "es", ["daß", "dass"]], []]}}""")
+        val msgs = g.getValue("c1-l1")
+        assertEquals(2, msgs.size)
+        assertEquals(listOf("ich", "es", "dass"), msgs[0].map { it.key })
+        assertEquals(listOf("Mich", "es", "daß"), msgs[0].map { it.surface })
+        assertTrue(msgs[1].isEmpty())
+    }
+
+    @Test fun dailyWordsSpotsAndPhrases() {
+        val d = Library.daily("""{"_doc": "x", "lang": "fr", "letters": {
+            "c1-l3": {"words": ["tableau", "jour"], "spots": [{"i": 2, "w": "tableau", "was": "Souvenir de Mauve"}, {"i": 0, "w": [], "was": "Vincent"}],
+                      "phrases": [{"t": "tout de même", "m": 1, "ko": "그래도", "en": "all the same", "note_ko": "양보", "note_en": "Conceding"}]},
+            "p1": {"words": [], "spots": [], "phrases": []}}}""")
+        val l = d.getValue("c1-l3")
+        assertEquals(listOf("tableau", "jour"), l.words)
+        assertEquals(2, l.spots[0].index)
+        assertEquals("tableau", l.spots[0].word)
+        assertNull(l.spots[1].word)   // [] → 그 점에는 낱말 없음
+        assertEquals("Conceding", l.phrases.single().noteEn)
+        assertEquals(1, l.phrases.single().msg)
+        assertTrue(d.getValue("p1").words.isEmpty())
+    }
+
+    /** 앱에 넣은 실제 자료: 두 작품 모두 사전 · 토큰 · 오늘의 낱말을 읽고, 편지 낱말이 daily.json 으로 바뀐다. */
+    @Test fun bundledVocabularyLoads() {
+        val ctx = androidx.test.core.app.ApplicationProvider.getApplicationContext<android.content.Context>()
+        val works = Library.works(ctx)
+        for (id in listOf("vincent", "mozart")) {
+            val w = works.first { it.series.id == id }
+            assertTrue(w.lexicon!!.size > 1000)
+            val l = w.chapters.first().letters.first()
+            assertTrue(l.words.isNotEmpty() && l.words.all { it.lex.isNotEmpty() })
+            assertTrue(l.source.isNotEmpty())
+            assertEquals(l.words.size, l.words.distinctBy { it.lex }.size)
+            val g = Library.gloss(ctx, id)
+            assertEquals(l.messages.size, g.getValue(l.id).size)
+        }
+    }
 }

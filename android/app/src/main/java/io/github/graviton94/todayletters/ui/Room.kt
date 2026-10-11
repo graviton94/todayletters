@@ -8,6 +8,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -88,6 +90,11 @@ fun Room(s: AppState, r: Route.Letter) {
     var writing by remember(letter.id) { mutableStateOf(false) }
     var words by remember { mutableStateOf(false) }
     var wordFocus by remember { mutableStateOf<Int?>(null) }
+    // 눌러서 뜻 보기: 펼친 낱말 (메시지 번호, 토큰 번호). 원문을 배우는 때만 (gloss.json 토큰은 원문 낱말)
+    var glossAt by remember(letter.id) { mutableStateOf<Pair<Int, Int>?>(null) }
+    val glossTokens = remember(id, letter.id, view.learn) {
+        if (view.learn == work.series.original) io.github.graviton94.todayletters.data.Library.gloss(s.ctx, id)[letter.id]?.takeIf { it.size == letter.messages.size } else null
+    }
     var playing by remember(letter.id) { mutableStateOf<Int?>(null) }
     var all by remember { mutableStateOf<Job?>(null) }
     val controlsRef = remember { arrayOfNulls<Playback.Controls>(1) }
@@ -279,7 +286,18 @@ fun Room(s: AppState, r: Route.Letter) {
                 item(key = "${letter.id}:pre:$k") { MomentCard(s, work, mo, onMap = { }, onPhoto = { s.go(Route.Artwork(id, r.letter, r)) }, onMusic = { listening = it }) }
             }
             itemsIndexed(letter.messages.take(arrived), key = { i, _ -> "${letter.id}:$i" }) { i, m ->
-                val sentMarks = wordMarks(m.text[view.learn], letter.words.map { it.text[view.learn] })
+                val toks = glossTokens?.getOrNull(i)
+                val ranges = remember(letter.id, i, toks) { toks?.let { io.github.graviton94.todayletters.core.Vocab.align(m.text[view.learn], it) } ?: emptyList() }
+                // 오늘의 낱말: 사전 열쇠가 있으면 토큰으로 (편지에 찍힌 꼴 그대로), 없으면 글자 맞추기로. 문장마다 낱말 하나에 한 번
+                val sentMarks = remember(letter.id, i, view.learn, toks) {
+                    if (toks != null && letter.words.any { it.lex.isNotEmpty() }) buildList {
+                        toks.forEachIndexed { j, t ->
+                            val k = letter.words.indexOfFirst { it.lex == t.key }
+                            if (k >= 0 && !ranges[j].isEmpty() && none { it.second == k }) add(ranges[j] to k)
+                        }
+                    } else wordMarks(m.text[view.learn], letter.words.map { it.text[view.learn] })
+                }
+                val hints = remember(letter.id, i, toks, sentMarks) { toks?.let { ts -> ranges.filterIndexed { j, r -> work.lexicon?.get(ts[j].key)?.function != true && sentMarks.none { it.first == r } } } ?: emptyList() }
                 // 번역이 사라지는 편지 (엔진 공통): 이 문장 낱말의 절반 이상을 혼자 읽으면 번역을 접고 아직인 낱말만 뜻풀이
                 val fade = remember(s.version, i) {
                     val idx = sentMarks.map { it.second }.distinct()
@@ -301,6 +319,8 @@ fun Room(s: AppState, r: Route.Letter) {
                         onPlay = { speak(i) }, onWritten = { if (written < i + 1) written = i + 1 },
                         marks = sentMarks,
                         onWord = { wordFocus = it },
+                        taps = ranges, onTap = if (toks != null) ({ j: Int -> glossAt = i to j }) else null, hints = hints,
+                        picked = glossAt?.takeIf { it.first == i }?.let { ranges.getOrNull(it.second) },
                         fold = fade.first, glosses = fade.second,
                         saved = s.isSaved(s.quoteKey(id, chapter, letter.id, i)),
                         onSave = { s.toggleQuote(s.quoteKey(id, chapter, letter.id, i)) },
@@ -402,6 +422,7 @@ fun Room(s: AppState, r: Route.Letter) {
     if (words) WordSheet(s, r, onClose = { words = false })
     listening?.let { m -> MusicSheet(s, work, m, onClose = { listening = null }) }
     wordFocus?.let { k -> val (ch, lt) = s.letterOf(r); WordDetail(s, s.cardKey(id, ch, lt.id, k)) { wordFocus = null } }
+    glossAt?.let { (mi, tj) -> glossTokens?.getOrNull(mi)?.getOrNull(tj)?.let { t -> GlossSheet(s, id, chapter, letter, t.key) { glossAt = null } } }
     // 다 읽은 편지의 낱말은 낱말 카드함으로 (내일부터 복습)
     LaunchedEffect(finished) { if (finished) s.collectWords(id, chapter, letter) }
 }
@@ -631,6 +652,7 @@ private fun LetterSlip(
     fold: Boolean = false, glosses: List<Pair<String, String>> = emptyList(),
     /** 지금 낭독 중인 마디의 글자 범위 (없으면 null). */
     spoken: IntRange? = null,
+    taps: List<IntRange> = emptyList(), onTap: ((Int) -> Unit)? = null, hints: List<IntRange> = emptyList(), picked: IntRange? = null,
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
@@ -645,7 +667,8 @@ private fun LetterSlip(
                 InkText(learn, Type.target.of(learnLang), p.slipInk, animate, lineMs = lineMs, onDone = {
                     learnDone = true
                     if (read == null || fold) onWritten()
-                }, marks = marks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { k -> onWord(marks[k].second) }, spoken = spoken)
+                }, marks = marks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { k -> onWord(marks[k].second) }, spoken = spoken,
+                    taps = taps, onTap = onTap, hints = hints, picked = picked)
                 // 번역이 사라지는 편지: 익힌 낱말이 많은 문장은 번역을 접고, 아직인 낱말만 작은 뜻풀이로
                 if (read != null && fold) {
                     if (glosses.isNotEmpty()) androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -698,7 +721,8 @@ fun WordSheet(s: AppState, r: Route.Letter, onClose: () -> Unit) {
     androidx.activity.compose.BackHandler(onBack = onClose)
     Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose), contentAlignment = Alignment.BottomCenter) {
         Column(
-            Modifier.fillMaxWidth().background(p.paper).clickable(enabled = false) {}.padding(Tokens.Space.s5),
+            Modifier.fillMaxWidth().background(p.paper).clickable(enabled = false) {}.navigationBarsPadding()
+                .verticalScroll(rememberScrollState()).padding(Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
             Rule()
@@ -706,7 +730,7 @@ fun WordSheet(s: AppState, r: Route.Letter, onClose: () -> Unit) {
             letter.words.forEachIndexed { i, w ->
                 Row(
                     Modifier.fillMaxWidth().heightIn(min = Tokens.Size.touch).clickable(role = Role.Button) {
-                        s.narrator.play(s.narrator.path(r.series, chapter, letter.id, "w${i + 1}_${view.learn.code}"))
+                        s.narrator.play(s.wordAudio(r.series, chapter, letter, w, view.learn))
                     },
                     verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
                 ) {
@@ -717,6 +741,17 @@ fun WordSheet(s: AppState, r: Route.Letter, onClose: () -> Unit) {
                     Text(w.text[view.read], style = Type.body.of(view.read), color = p.inkSoft)
                 }
                 Hair()
+            }
+            // 편지 속 표현
+            if (letter.phrases.isNotEmpty()) {
+                val tr = if (view.read == Lang.EN || view.read == Lang.KO) view.read else uiLang()
+                letter.phrases.forEach { ph ->
+                    Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Text(ph.text[s.work(r.series).series.original], style = Type.heading.of(s.work(r.series).series.original), color = p.ink)
+                        Text(ph.text[tr], style = Type.body.of(tr), color = p.inkSoft)
+                    }
+                    Hair()
+                }
             }
             Secondary(stringResource(R.string.close), onClick = onClose)
         }
@@ -730,7 +765,7 @@ fun WordCard(s: AppState, r: Route.Letter, index: Int, onClose: () -> Unit) {
     val (chapter, letter) = s.letterOf(r)
     val view = s.room(r.series)
     val w = letter.words.getOrNull(index) ?: return
-    val audio = s.narrator.path(r.series, chapter, letter.id, "w${index + 1}_${view.learn.code}")
+    val audio = s.wordAudio(r.series, chapter, letter, w, view.learn)
     LaunchedEffect(index) { s.narrator.play(audio) }
     androidx.activity.compose.BackHandler(onBack = onClose)
     Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose), contentAlignment = Alignment.BottomCenter) {

@@ -280,12 +280,11 @@ private fun TextLink(text: String, onClick: () -> Unit) {
 private fun SurpriseCard(s: AppState, c: io.github.graviton94.todayletters.core.Card) {
     val p = Ink.palette
     val found = remember(c.key) { s.cardWord(c.key) } ?: return
-    val (w, cl, wi) = found
+    val (w, _, word) = found
     val view = s.room(w.series.id)
-    val word = cl.second.words.getOrNull(wi) ?: return
     var open by remember(c.key) { mutableStateOf(false) }
     val listenA11y = stringResource(R.string.a11y_listen_word)
-    val audio = s.narrator.path(w.series.id, cl.first, cl.second.id, "w${wi + 1}_${view.learn.code}")
+    val audio = s.wordAudio(found, view.learn)
     Column(Modifier.fillMaxWidth().border(1.dp, p.giltText).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
         Caps("SOUVENIR", p.giltText, small = true, decorative = true)
         Text(stringResource(R.string.surprise_title), style = Type.small.ui(), color = p.inkSoft)

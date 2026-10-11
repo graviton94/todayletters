@@ -92,6 +92,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val today = LocalDate.now().toEpochDay()
         if (today == seenDay) return
         seenDay = today
+        drainLater()
         version++
     }
     fun nextStage() {
@@ -269,23 +270,70 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 낱말 카드 키 "작품:챕터:편지:낱말번호". */
     fun cardKey(series: String, chapter: String, letter: String, word: Int) = "$series:$chapter:$letter:$word"
 
-    /** 카드 키 → (작품, 챕터, 편지, 낱말). 없어진 낱말이면 null. */
-    fun cardWord(key: String): Triple<Work, Pair<String, Letter>, Int>? {
-        val (sid, ch, lid, wi) = key.split(":").takeIf { it.size == 4 } ?: return null
-        val w = works.firstOrNull { it.series.id == sid } ?: return null
-        val c = (if (ch == "P") w.prologueChapter else w.chapters.firstOrNull { it.id == ch }) ?: return null
-        val l = c.letters.firstOrNull { it.id == lid } ?: return null
-        val i = wi.toIntOrNull()?.takeIf { it in l.words.indices } ?: return null
-        return Triple(w, ch to l, i)
+    /** 카드 한 장이 가리키는 낱말: 작품 · (장, 편지) · 낱말 · 편지 안 번호(카드 낱말이면 0부터, 아니면 -1). [own] 은 내가 눌러 담은 낱말. */
+    data class CardWord(val work: Work, val at: Pair<String, Letter>, val word: io.github.graviton94.todayletters.core.Word, val index: Int = -1, val own: Boolean = false)
+
+    private fun letterFor(w: Work, ch: String, lid: String): Letter? =
+        (if (ch == "P") w.prologueChapter else w.chapters.firstOrNull { it.id == ch })?.letters?.firstOrNull { it.id == lid }
+
+    /** 카드 키 → 낱말. 없어진 낱말이면 null. 키 꼴은 [io.github.graviton94.todayletters.core.CardRef]. */
+    fun cardWord(key: String): CardWord? {
+        val ref = io.github.graviton94.todayletters.core.CardRef.parse(key) ?: return null
+        val w = works.firstOrNull { it.series.id == ref.series } ?: return null
+        val l = letterFor(w, ref.chapter, ref.letter) ?: return null
+        return when {
+            ref.index >= 0 -> l.words.getOrNull(ref.index)?.let { CardWord(w, ref.chapter to l, it, ref.index) }
+            ref.phrase >= 0 -> l.phrases.getOrNull(ref.phrase)?.let { CardWord(w, ref.chapter to l, it) }
+            else -> w.lexicon?.get(ref.own)?.let { e -> CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Vocab.wordFor(e, l.source, w.series.original), own = true) }
+        }
     }
 
-    /** 편지를 다 읽으면 그 편지의 낱말이 카드함에 들어간다 (내일부터 복습). */
+    /** 낱말 낭독 (그 편지 폴더의 w<i>_<언어>.m4a). 낭독이 없는 낱말이면 "" (기기 TTS 는 쓰지 않는다). */
+    fun wordAudio(series: String, chapter: String, letter: Letter, word: io.github.graviton94.todayletters.core.Word, lang: io.github.graviton94.todayletters.core.Lang): String =
+        if (word.audio.isEmpty()) "" else narrator.path(series, chapter, letter.id, "${word.audio}_${lang.code}")
+    fun wordAudio(c: CardWord, lang: io.github.graviton94.todayletters.core.Lang) = wordAudio(c.work.series.id, c.at.first, c.at.second, c.word, lang)
+
+    /** 편지를 다 읽으면 그 편지의 낱말 · 표현이 카드함에 들어간다 (내일부터 복습). 하루 새 카드는 [io.github.graviton94.todayletters.core.Intake.DAILY_NEW] 장까지. */
     fun collectWords(series: String, chapter: String, letter: Letter) {
-        letter.words.indices.forEach { i ->
-            val k = cardKey(series, chapter, letter.id, i)
-            if (!store.hasCard(k)) store.save(io.github.graviton94.todayletters.core.Memory.added(k, today))
-        }
+        admit(letter.words.indices.map { cardKey(series, chapter, letter.id, it) } +
+            letter.phrases.indices.map { io.github.graviton94.todayletters.core.CardRef.phrase(series, chapter, letter.id, it) })
         version++
+    }
+
+    /**
+     * 새 카드 들이기: 나중 줄(어제 넘친 것)부터 오늘 몫까지 카드함에 넣고 나머지는 나중 줄로. 이미 있는 카드는 건너뛴다.
+     * 반환: 이번에 넣은 열쇠.
+     */
+    fun admit(keys: List<String>): List<String> {
+        val day = today
+        val fresh = keys.filter { !store.hasCard(it) }
+        val queue = (store.later + fresh).filter { !store.hasCard(it) }.distinct()
+        val (now, later) = io.github.graviton94.todayletters.core.Intake.split(queue, store.addedOn(day))
+        now.forEach { store.save(io.github.graviton94.todayletters.core.Memory.added(it, day)) }
+        store.later = later
+        if (now.isNotEmpty()) store.setAdded(day, store.addedOn(day) + now.size)
+        return now
+    }
+
+    /** 날이 바뀌면 나중 줄을 오늘 몫만큼 카드함으로. */
+    fun drainLater() { if (store.later.isNotEmpty()) { admit(emptyList()); version++ } }
+
+    /** 나중 줄에 있는가 (하루 몫이 차서 내일 들어갈 카드). */
+    fun isLater(key: String) = run { @Suppress("UNUSED_EXPRESSION") version; key in store.later }
+
+    /** 편지에서 눌러 본 낱말을 내 카드로 담는다. 오늘 몫이 찼으면 나중 줄로 (false). */
+    fun addOwn(series: String, chapter: String, letter: Letter, lex: String): Boolean {
+        val key = io.github.graviton94.todayletters.core.CardRef.own(series, chapter, letter.id, lex)
+        val now = admit(listOf(key)).contains(key)
+        version++
+        return now
+    }
+
+    /** 이 사전 열쇠가 이미 카드함(또는 나중 줄)에 있나: 이 편지의 카드 낱말이거나, 어느 편지에서든 내가 담은 낱말. */
+    fun hasLex(series: String, lex: String): Boolean = run {
+        @Suppress("UNUSED_EXPRESSION") version
+        val keys = store.cardKeys() + store.later
+        keys.any { k -> k.startsWith("$series:") && (k.endsWith(":+$lex") || cardWord(k)?.word?.lex == lex) }
     }
 
     fun cards() = run { @Suppress("UNUSED_EXPRESSION") version; store.cards().filter { cardWord(it.key) != null } }
@@ -760,4 +808,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     }
 
     var settingsOpen by mutableStateOf(false)
+
+    // 어제 하루 몫이 넘쳐 미뤄 둔 카드: 앱을 켤 때 오늘 몫만큼 들인다 (모든 상태가 준비된 뒤)
+    init { runCatching { if (store.later.isNotEmpty()) admit(emptyList()) } }
 }

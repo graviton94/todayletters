@@ -869,4 +869,15 @@
     <string name="credits_music_h">음⁠악</string>
     <string name="credits_full">전⁠체 출⁠처⁠와 라⁠이⁠선⁠스 ›</string>
     <string name="credits_text_de">모⁠차⁠르⁠트 편⁠지⁠의 독⁠일⁠어 원⁠문⁠: 루⁠트⁠비⁠히 놀 엮⁠음 『Mozarts Briefe』(⁠잘⁠츠⁠부⁠르⁠크⁠, 1865, 공⁠공 영⁠역⁠), 인⁠터⁠넷 아⁠카⁠이⁠브 스⁠캔⁠본⁠, 판⁠의 철⁠자 그⁠대⁠로⁠. 영⁠어⁠는 레⁠이⁠디 월⁠리⁠스⁠의 1866⁠년 번⁠역⁠이⁠고⁠, 한⁠국⁠어 번⁠역⁠은 이 앱⁠이 새⁠로 썼⁠어⁠요⁠.</string>
+    <string name="gloss_add">카⁠드⁠에 담⁠기</string>
+    <string name="gloss_in_cards">카⁠드⁠에 있⁠어⁠요</string>
+    <string name="gloss_later">오⁠늘 새 카⁠드⁠가 다 차⁠서⁠, 내⁠일 카⁠드⁠에 들⁠어⁠가⁠요⁠.</string>
+    <string name="gloss_own">내⁠가 담⁠은 낱⁠말</string>
+    <string name="phrase_card">표⁠현 카⁠드</string>
+    <string name="phrase_title">이 편⁠지 속 표⁠현</string>
+    <string name="phrase_note">편⁠지⁠를 마⁠치⁠면 이 표⁠현⁠도 카⁠드⁠에 들⁠어⁠가⁠요⁠.</string>
+    <string name="phrase_next">다⁠음⁠: 편⁠지 속 표⁠현</string>
+    <string name="credits_vocab_h">낱⁠말 자⁠료</string>
+    <string name="credits_vocab">낱⁠말 등⁠급⁠(A1–C2)⁠은 Hermit Dave 의 FrequencyWords (OpenSubtitles 2018 빈⁠도 목⁠록⁠, CC BY-SA 4.0)⁠에⁠서 계⁠산⁠했⁠어⁠요⁠.\n예⁠문⁠은 Tatoeba (tatoeba.org, CC BY 2.0 FR)⁠에⁠서 가⁠져⁠왔⁠고⁠, 문⁠장⁠마⁠다 작⁠성⁠자⁠를 함⁠께 적⁠어⁠요⁠. 문⁠장 페⁠이⁠지⁠: tatoeba.org/sentences/show/&lt;⁠번⁠호⁠&gt;.\n표⁠제⁠어 · 뜻⁠풀⁠이 · 표⁠현 설⁠명⁠은 이 앱⁠이 새⁠로 썼⁠어⁠요⁠.</string>
+    <string name="credits_vocab_examples">Tatoeba 예⁠문⁠과 작⁠성⁠자</string>
 </resources>

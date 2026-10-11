@@ -115,7 +115,7 @@ fun WordsTab(s: AppState) {
     val cards = s.cards()
     val counts = Memory.counts(cards)
     val due = s.dueCards()
-    val sample = (0..Memory.TOP).map { b -> cards.firstOrNull { it.box == b }?.let { s.cardWord(it.key) }?.let { (w, cl, i) -> cl.second.words[i].text[s.room(w.series.id).learn] } }
+    val sample = (0..Memory.TOP).map { b -> cards.firstOrNull { it.box == b }?.let { s.cardWord(it.key) }?.let { (w, _, word) -> word.text[s.room(w.series.id).learn] } }
     Column(Modifier.fillMaxSize()) {
         Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s5, end = Tokens.Space.s1, top = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
@@ -278,9 +278,10 @@ fun Session(s: AppState, r: Route.Session) {
     val q = questions[at]
     // 이름표의 번호: 그 낱말이 나온 편지 (N° 027 · LETTRE I)
     val tag = remember(q.card.key) {
-        s.cardWord(q.card.key)?.let { (w, cl, wi) ->
-            val n = w.chapters.flatMap { it.letters }.indexOf(cl.second) + 1
-            "N° ${"%03d".format(wi + 1)} · ${deco(w.series.original, "LETTRE", "BRIEF")} ${roman(n)}"
+        s.cardWord(q.card.key)?.let { cw ->
+            val w = cw.work
+            val n = w.chapters.flatMap { it.letters }.indexOf(cw.at.second) + 1
+            (if (cw.index >= 0) "N° ${"%03d".format(cw.index + 1)} · " else "") + "${deco(w.series.original, "LETTRE", "BRIEF")} ${roman(n)}"
         }.orEmpty()
     }
     androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
@@ -443,7 +444,7 @@ fun Session(s: AppState, r: Route.Session) {
             if (mark == Memory.Mark.RIGHT || mark == Memory.Mark.ACCENT) CorrectBurst(still = s.reducedMotion)
         }
         if (q.kind == ReviewKind.DICTATION && mark == null) {
-            val helpers = if (q.learn == Lang.KO) remember(at) { koSyllables(Breaks.plain(q.word), s.cards().mapNotNull { c -> s.cardWord(c.key)?.let { (_, cl, i) -> cl.second.words[i].text[Lang.KO] } }, at) } else inputHelpers(q.learn)
+            val helpers = if (q.learn == Lang.KO) remember(at) { koSyllables(Breaks.plain(q.word), s.cards().mapNotNull { c -> s.cardWord(c.key)?.word?.text?.get(Lang.KO) }, at) } else inputHelpers(q.learn)
             val label = stringResource(langLabel(q.learn))
             if (helpers.isNotEmpty() && !pad) Row(
                 Modifier.fillMaxWidth().background(p.hide).padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s2),
@@ -839,13 +840,13 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
     val saved = s.store.quotes.mapNotNull { quoteRef(it) }
     var fromQuotes = 0
     return pool.mapNotNull { card ->
-        val (w, cl, i) = s.cardWord(card.key) ?: return@mapNotNull null
+        val found = s.cardWord(card.key) ?: return@mapNotNull null
+        val (w, cl, word) = found
         val (ch, l) = cl
         val view = s.room(w.series.id)
-        val word = l.words[i]
         val learnWord = word.text[view.learn]
-        // “study (sketch)”, “country, land” 처럼 뜻이 여럿이면 뜻마다 편지 문장에서 찾는다
-        val senses = senses(learnWord)
+        // “study (sketch)”, “country, land” 처럼 뜻이 여럿이면 뜻마다 편지 문장에서 찾는다. 사전에서 온 낱말은 편지에 찍힌 꼴로도
+        val senses = senses(learnWord) + (if (view.learn == w.series.original) word.forms else emptyList())
         fun has(mi: Int) = l.messages.getOrNull(mi)?.let { m -> wordMarks(m.text[view.learn], senses).isNotEmpty() } == true
         var k = kind ?: Memory.kindFor(card)
         // 내 구절에서: 그 구절 연습이면 늘, 오늘의 복습이면 빈칸 · 뜻 고르기 차례에 가끔
@@ -877,11 +878,11 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
             } else null
         // 듣고 쓰기는 첫 뜻 하나만 (“flower, blossom” → flower): 쉼표 · 괄호까지 치지 않게
         val answerWord = when (k) { ReviewKind.BLANK -> formInText!!; ReviewKind.DICTATION, ReviewKind.SPEAK -> dictSense; else -> learnWord }
-        val others = all.filter { it.third != i || it.second.second.id != l.id }.map { (ow, ocl, oi) -> ocl.second.words[oi].text[if (k == ReviewKind.MEANING) view.read else view.learn] }
+        val others = all.filter { it.word != word }.map { it.word.text[if (k == ReviewKind.MEANING) view.read else view.learn] }
             .distinct().filter { it != answerWord && it != word.text[view.read] }.shuffled(java.util.Random(card.key.hashCode().toLong())).take(3)
         val right = if (k == ReviewKind.MEANING) word.text[view.read] else answerWord
         Q(card, k, answerWord, word.text[view.read], if (view.learn == w.series.original) word.ipa else "",
-            s.narrator.path(w.series.id, ch, l.id, "w${i + 1}_${view.learn.code}"),
+            s.wordAudio(found, view.learn),
             sentenceLearn, l.messages.getOrNull(hit)?.text?.get(view.read), sentenceAudio,
             (others + right).shuffled(java.util.Random(card.key.hashCode().toLong() + 7)), view.learn, view.read,
             full = if (k == ReviewKind.DICTATION) plainFull else answerWord, typeFrom = if (k == ReviewKind.DICTATION) typeFrom else 0, inText = formInText,
@@ -1018,7 +1019,7 @@ fun QuotesScreen(s: AppState) {
                         Row(Modifier.fillMaxWidth().height(androidx.compose.foundation.layout.IntrinsicSize.Min)) {
                             val blanks = remember(k, s.version) {
                                 s.cards().filter { it.key.startsWith("${w.series.id}:$ch:${l.id}:") }.filter { c ->
-                                    s.cardWord(c.key)?.let { (_, cl, wi) -> wordMarks(m.text[view.learn], senses(cl.second.words[wi].text[view.learn])).isNotEmpty() } == true
+                                    s.cardWord(c.key)?.let { cw -> wordMarks(m.text[view.learn], senses(cw.word.text[view.learn]) + cw.word.forms).isNotEmpty() } == true
                                 }.map { it.key }
                             }
                             val none = stringResource(R.string.quote_blank_none)

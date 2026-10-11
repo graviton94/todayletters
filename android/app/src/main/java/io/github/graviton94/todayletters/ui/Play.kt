@@ -255,6 +255,9 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val (chapter, letter) = s.letterOf(r.room)
     val view = s.room(r.room.series)
     val (pairs, order) = remember(letter.id, view.learn, view.read) { Exercises.matchBoard(letter, view.learn, view.read) }
+    // 낱말을 다 이으면 편지 속 표현 카드 (있을 때만), 그다음 마침
+    var phrases by remember(letter.id) { mutableStateOf(false) }
+    if (phrases) { PhraseCards(s, r) { s.replyAndContinue(r.room, ReplyMode.MATCH) }; return }
     var sel by remember { mutableStateOf<Int?>(null) }
     var matched by remember(letter.id) { mutableStateOf(setOf<Int>()) }
     var wrongLine by remember { mutableStateOf<Pair<Int, Int>?>(null) }
@@ -264,7 +267,7 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val done = matched.size == pairs.size
     LaunchedEffect(wrongLine) { if (wrongLine != null) { delay(650); wrongLine = null } }
     LaunchedEffect(done) { if (done && !s.reducedMotion) { glow.animateTo(1f, tween(450)); glow.animateTo(0f, tween(900)) } }
-    fun say(k: Int) = s.narrator.play(s.narrator.path(r.room.series, chapter, letter.id, "w${k + 1}_${view.learn.code}"))
+    fun say(k: Int) = letter.words.getOrNull(k)?.let { s.narrator.play(s.wordAudio(r.room.series, chapter, letter, it, view.learn)) }
     fun connect(l: Int, row: Int) {
         val k = order[row]
         if (k in matched || l in matched) return
@@ -354,7 +357,8 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
             Text(stringResource(if (done) R.string.match_done else R.string.match_hint), style = Type.small.ui(), color = if (done) p.correct else p.inkSoft, textAlign = TextAlign.Center)
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            Primary(stringResource(R.string.play_finish), enabled = done) { s.replyAndContinue(r.room, ReplyMode.MATCH) }
+            if (letter.phrases.isNotEmpty()) Primary(stringResource(R.string.phrase_next), enabled = done) { phrases = true }
+            else Primary(stringResource(R.string.play_finish), enabled = done) { s.replyAndContinue(r.room, ReplyMode.MATCH) }
         }
     }
 }

@@ -247,7 +247,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
             } else {
                 SpotCard(
                     s, sp, at, spots.size, work.series.original, view.learn, view.read,
-                    wordAsset = pair?.let { (ch, l) -> s.narrator.path(r.series, ch, l.id, "s${at + 1}_${view.learn.code}") },
+                    wordAsset = pair?.takeIf { sp.voiced }?.let { (ch, l) -> s.narrator.path(r.series, ch, l.id, "s${at + 1}_${view.learn.code}") },
                     quoteAsset = pair?.let { (ch, l) -> sp.quote?.let { q -> s.narrator.path(r.series, ch, l.id, "m${q + 1}_${view.learn.code}") } },
                     quote = sp.quote?.let { letter?.messages?.getOrNull(it) }?.text,
                     playing = playing, onPlay = ::play,
@@ -318,7 +318,7 @@ private fun SpotCard(
                     val line = "“${quote[learn]}”"
                     val marked = androidx.compose.ui.text.buildAnnotatedString {
                         append(line)
-                        sp.word?.let { wd -> wordMarks(line, wd.text[learn].split(Regex("[\\s\\-’']+")).filter { it.length > 1 }).forEach { (range, _) -> addStyle(androidx.compose.ui.text.SpanStyle(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold, color = Color(0xFF7A5A20)), range.first, range.last + 1) } }
+                        sp.word?.let { wd -> wordMarks(line, wd.forms.takeIf { it.isNotEmpty() && learn == original } ?: wd.text[learn].split(Regex("[\\s\\-’']+")).filter { it.length > 1 }).forEach { (range, _) -> addStyle(androidx.compose.ui.text.SpanStyle(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold, color = Color(0xFF7A5A20)), range.first, range.last + 1) } }
                     }
                     Text(marked, style = Type.base.of(learn).copy(fontStyle = FontStyle.Italic), color = p.slipInk, maxLines = 3, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
                     if (read != learn) Text(quote[read], style = Type.small.of(read), color = p.slipSoft, maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)

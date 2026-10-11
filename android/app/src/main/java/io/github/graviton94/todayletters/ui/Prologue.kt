@@ -130,7 +130,7 @@ fun PrologueScreen(s: AppState, r: Route.Prologue) {
                             val key = s.cardKey(r.series, "P", l.id, i)
                             val mine = s.store.hasCard(key)
                             Row(Modifier.heightIn(min = 40.dp).border(1.dp, if (mine) Gilt else Color(0xFF4A3F31)).pressable {
-                                if (!s.store.hasCard(key)) { s.store.save(io.github.graviton94.todayletters.core.Memory.added(key, s.today)); s.bump() }
+                                if (!s.store.hasCard(key)) { s.admit(listOf(key)); s.bump() }
                                 detail = key
                             }.padding(horizontal = 10.dp, vertical = 6.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                                 Text(wd.text[view.learn], style = Type.small.of(view.learn), color = Light)

@@ -18,6 +18,15 @@ import io.github.graviton94.todayletters.core.Tone
 import io.github.graviton94.todayletters.core.Piece
 import io.github.graviton94.todayletters.core.Tier
 import io.github.graviton94.todayletters.core.Exhibition
+import io.github.graviton94.todayletters.core.Daily
+import io.github.graviton94.todayletters.core.DailySpot
+import io.github.graviton94.todayletters.core.Example
+import io.github.graviton94.todayletters.core.LexEntry
+import io.github.graviton94.todayletters.core.Lexicon
+import io.github.graviton94.todayletters.core.Phrase
+import io.github.graviton94.todayletters.core.Token
+import io.github.graviton94.todayletters.core.Vocab
+import org.json.JSONArray
 import org.json.JSONObject
 
 /** 작품 하나: 표지 정보 + 챕터들. assets/letters/<작품>/series.json 과 챕터 파일들. */
@@ -46,6 +55,8 @@ data class Work(
     val arrival: Arrival? = null,
     /** 맺음말 · 아웃트로. */
     val outro: Outro? = null,
+    /** 어휘 사전 (lexicon.json, 원어 낱말 → 뜻 · 등급 · 발음 · 예문). 없으면 null. */
+    val lexicon: Lexicon? = null,
 )
 
 /** 이 편지를 받는 사람: 편지에 적힌 사람(아버지 · 누나 · 콘스탄체…)이 있으면 그 사람, 없으면 작품의 받는 사람(테오). */
@@ -76,6 +87,10 @@ object Library {
         return ids.mapNotNull { id ->
             val meta = runCatching { JSONObject(am.open("letters/$id/series.json").bufferedReader().readText()) }.getOrNull() ?: return@mapNotNull null
             val original = Lang.valueOf(meta.getString("original").uppercase())
+            // 어휘 자료: 사전 · 오늘의 낱말 (없으면 챕터 파일의 낱말 그대로)
+            val lexicon = runCatching { lexicon(am.open("letters/$id/lexicon.json").bufferedReader().readText()) }.getOrNull()
+            val daily = runCatching { daily(am.open("letters/$id/daily.json").bufferedReader().readText()) }.getOrNull() ?: emptyMap()
+            fun letters(data: JSONObject) = parseLetters(data).map { Vocab.apply(it, daily[it.id], lexicon, original) }
             val prologue = meta.optJSONObject("prologue")?.optString("file")?.takeIf { it.isNotEmpty() }?.let { f ->
                 runCatching {
                     val data = JSONObject(am.open("letters/$id/$f").bufferedReader().readText())
@@ -121,6 +136,7 @@ object Library {
                         o.optJSONArray("body")?.let { b -> (0 until b.length()).map { tri(b.getJSONObject(it)) } } ?: emptyList(),
                         first?.optJSONObject("head")?.let { tri(it) }, ep?.let { letters(it).firstOrNull() })
                 },
+                lexicon = lexicon,
             )
         }
     }
@@ -188,13 +204,13 @@ object Library {
     private fun tri(o: JSONObject, prefix: String = ""): Tri =
         Tri(Lang.entries.mapNotNull { l -> o.optString(prefix + l.code, "").takeIf { it.isNotEmpty() }?.let { l to Breaks.keepAll(it) } }.toMap())
 
-    private fun letters(data: JSONObject): List<Letter> {
+    private fun parseLetters(data: JSONObject): List<Letter> {
         val arr = data.getJSONArray("letters")
         return (0 until arr.length()).map { i ->
             val l = arr.getJSONObject(i)
             val msgs = l.getJSONArray("messages").let { m -> (0 until m.length()).map { Message(tri(m.getJSONObject(it))) } }
             val words = l.optJSONArray("words")?.let { w ->
-                (0 until w.length()).map { j -> word(w.getJSONObject(j)) }
+                (0 until w.length()).map { j -> word(w.getJSONObject(j)).copy(audio = "w${j + 1}") }
             } ?: emptyList()
             val plate = l.optJSONObject("plate")?.let { pl ->
                 val spots = pl.optJSONArray("spots")?.let { a ->
@@ -218,5 +234,79 @@ object Library {
                 to = l.optJSONObject("to")?.let { tri(it) },
             )
         }
+    }
+
+    // ── 어휘 자료 (data/lexicon/README.md) ─────────────────────
+    private fun JSONArray.strAt(i: Int): String = if (i >= length() || isNull(i)) "" else optString(i)
+
+    /** lexicon.json: "fields" 순서의 배열 한 줄 = 표제어 하나 (뒤쪽 null 은 생략). */
+    fun lexicon(json: String): Lexicon {
+        val o = JSONObject(json)
+        val lang = runCatching { Lang.valueOf(o.getString("lang").uppercase()) }.getOrDefault(Lang.FR)
+        val fields = o.getJSONArray("fields").let { f -> (0 until f.length()).map { f.getString(it) } }
+        fun at(name: String) = fields.indexOf(name)
+        val iLemma = at("lemma"); val iId = at("id"); val iForms = at("forms"); val iPos = at("pos"); val iGender = at("gender")
+        val iKo = at("ko"); val iEn = at("en"); val iIpa = at("ipa"); val iLevel = at("level"); val iFirst = at("first")
+        val iLetters = at("letters"); val iEx = at("example"); val iFn = at("function")
+        val rows = o.getJSONArray("entries")
+        val entries = (0 until rows.length()).mapNotNull { r ->
+            val a = rows.optJSONArray(r) ?: return@mapNotNull null
+            fun s(i: Int) = if (i < 0) "" else a.strAt(i)
+            val ex = if (iEx >= 0 && iEx < a.length()) a.optJSONArray(iEx)?.let { e ->
+                runCatching { Example(e.getLong(0), e.strAt(1), e.strAt(2), e.strAt(3).takeIf { it.isNotEmpty() }, e.strAt(4)) }.getOrNull()
+            } else null
+            LexEntry(
+                lemma = s(iLemma).takeIf { it.isNotEmpty() } ?: return@mapNotNull null,
+                id = s(iId).takeIf { it.isNotEmpty() },
+                forms = if (iForms >= 0 && iForms < a.length()) a.optJSONArray(iForms)?.let { f -> (0 until f.length()).map { f.getString(it) } } ?: emptyList() else emptyList(),
+                pos = s(iPos), gender = s(iGender), ko = s(iKo), en = s(iEn), ipa = s(iIpa), level = s(iLevel), first = s(iFirst),
+                letters = s(iLetters).split(" ").filter { it.isNotEmpty() },
+                example = ex,
+                function = iFn >= 0 && iFn < a.length() && !a.isNull(iFn) && a.optInt(iFn, 0) == 1,
+            )
+        }
+        return Lexicon(lang, entries)
+    }
+
+    /** daily.json: 편지 id → 오늘의 낱말 · 그림 점 바꾸기 · 표현. 그림 점의 w 가 [] · null · "" 이면 그 점에 낱말을 두지 않는다. */
+    fun daily(json: String): Map<String, Daily> {
+        val ls = JSONObject(json).getJSONObject("letters")
+        return ls.keys().asSequence().associateWith { k ->
+            val d = ls.getJSONObject(k)
+            Daily(
+                words = d.optJSONArray("words")?.let { w -> (0 until w.length()).map { w.getString(it) } } ?: emptyList(),
+                spots = d.optJSONArray("spots")?.let { a -> (0 until a.length()).mapNotNull { i -> a.optJSONObject(i)?.let { sp ->
+                    val w = if (sp.isNull("w")) null else (sp.opt("w") as? String)?.takeIf { it.isNotBlank() }
+                    DailySpot(sp.optInt("i", -1), w, sp.str("was"))
+                } } } ?: emptyList(),
+                phrases = d.optJSONArray("phrases")?.let { a -> (0 until a.length()).mapNotNull { i -> a.optJSONObject(i)?.let { ph ->
+                    Phrase(ph.str("t"), ph.optInt("m", -1), ph.str("ko"), ph.str("en"), ph.str("note_ko"), ph.str("note_en"))
+                } } } ?: emptyList(),
+            )
+        }
+    }
+
+    /** gloss.json: 편지 id → 메시지마다 토큰 (편지에 찍힌 꼴, 사전 열쇠). */
+    fun gloss(json: String): Map<String, List<List<Token>>> {
+        val ls = JSONObject(json).getJSONObject("letters")
+        return ls.keys().asSequence().associateWith { k ->
+            val msgs = ls.getJSONArray(k)
+            (0 until msgs.length()).map { m ->
+                val toks = msgs.getJSONArray(m)
+                (0 until toks.length()).map { t ->
+                    when (val x = toks.get(t)) {
+                        is JSONArray -> Token(x.getString(0), x.getString(1))
+                        else -> x.toString().let { Token(it, it) }
+                    }
+                }
+            }
+        }
+    }
+
+    private val glosses = java.util.concurrent.ConcurrentHashMap<String, Map<String, List<List<Token>>>>()
+
+    /** 눌러서 뜻 보기 토큰 (작품마다 처음 쓸 때 읽는다). 없으면 빈 것. */
+    fun gloss(ctx: Context, series: String): Map<String, List<List<Token>>> = glosses.getOrPut(series) {
+        runCatching { gloss(ctx.assets.open("letters/$series/gloss.json").bufferedReader().readText()) }.getOrDefault(emptyMap())
     }
 }

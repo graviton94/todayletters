@@ -203,6 +203,8 @@ fun InkText(
     marks: List<IntRange> = emptyList(), markColor: Color = Color.Unspecified, onMark: ((Int) -> Unit)? = null,
     /** 지금 낭독 중인 자리 ([spokenRange]): 옅은 바탕과 밑줄. */
     spoken: IntRange? = null, spokenColor: Color = markColor,
+    /** 눌러서 뜻 보기: 모든 낱말의 자리 ([marks] 가 아닌 곳을 누르면 [onTap]). [hints] 는 옅은 점선 밑줄을 그을 자리, [picked] 는 지금 펼친 낱말. */
+    taps: List<IntRange> = emptyList(), onTap: ((Int) -> Unit)? = null, hints: List<IntRange> = emptyList(), picked: IntRange? = null,
 ) {
     var layout by remember { mutableStateOf<TextLayoutResult?>(null) }
     val progress = remember(text) { Animatable(if (animate) 0f else 1f) }
@@ -216,11 +218,13 @@ fun InkText(
     Text(
         text, style = style, color = color, onTextLayout = { layout = it },
         modifier = modifier
-            .then(if (onMark != null && marks.isNotEmpty()) Modifier.pointerInput(marks) {
+            .then(if ((onMark != null && marks.isNotEmpty()) || (onTap != null && taps.isNotEmpty())) Modifier.pointerInput(marks, taps) {
                 detectTapGestures { pos ->
                     val l = layout ?: return@detectTapGestures
                     val off = l.getOffsetForPosition(pos)
-                    marks.indexOfFirst { off in it.first..(it.last + 1) }.takeIf { it >= 0 }?.let(onMark)
+                    val m = if (onMark != null) marks.indexOfFirst { off in it.first..(it.last + 1) } else -1
+                    if (m >= 0) onMark?.invoke(m)
+                    else if (onTap != null) taps.indexOfFirst { !it.isEmpty() && off in it.first..(it.last + 1) }.takeIf { it >= 0 }?.let(onTap)
                 }
             } else Modifier)
             .graphicsLayer(compositingStrategy = CompositingStrategy.Offscreen)
@@ -241,8 +245,35 @@ fun InkText(
                         a = lineEnd
                     }
                 }
+                // 펼친 낱말: 옅은 금빛 바탕
+                if (picked != null && l0 != null && !picked.isEmpty()) {
+                    val end = (picked.last + 1).coerceAtMost(l0.layoutInput.text.length)
+                    val line = l0.getLineForOffset(picked.first)
+                    val x1 = l0.getHorizontalPosition(picked.first, true); val x2 = l0.getHorizontalPosition(minOf(end, l0.getLineEnd(line, visibleEnd = true)), true)
+                    val top = l0.getLineTop(line)
+                    drawRect(Color(0x55D2A955), Offset(minOf(x1, x2) - 2.dp.toPx(), top), Size(kotlin.math.abs(x2 - x1) + 4.dp.toPx(), l0.getLineBottom(line) - top))
+                }
                 drawContent()
                 val l = layout ?: return@drawWithContent
+                // 눌러서 뜻을 볼 수 있는 낱말: 아주 옅은 점선 (오늘의 낱말 밑줄보다 흐리게)
+                if (hints.isNotEmpty()) {
+                    val dash = PathEffect.dashPathEffect(floatArrayOf(1.5.dp.toPx(), 2.5.dp.toPx()))
+                    val faint = color.copy(alpha = 0.28f)
+                    hints.forEach { r ->
+                        if (r.isEmpty()) return@forEach
+                        val end = (r.last + 1).coerceAtMost(l.layoutInput.text.length)
+                        var a = r.first
+                        while (a < end) {
+                            val line = l.getLineForOffset(a)
+                            val lineEnd = minOf(end, l.getLineEnd(line, visibleEnd = true))
+                            val x1 = l.getHorizontalPosition(a, true); val x2 = l.getHorizontalPosition(lineEnd, true)
+                            val y = l.getLineBaseline(line) + 3.dp.toPx()
+                            drawLine(faint, Offset(minOf(x1, x2), y), Offset(maxOf(x1, x2), y), 0.8.dp.toPx(), pathEffect = dash)
+                            if (lineEnd <= a) break
+                            a = lineEnd
+                        }
+                    }
+                }
                 // 단어장 낱말: 점선 밑줄 (글자와 함께 잉크로 번진다)
                 if (marks.isNotEmpty()) {
                     val dash = PathEffect.dashPathEffect(floatArrayOf(2.5.dp.toPx(), 2.5.dp.toPx()))
