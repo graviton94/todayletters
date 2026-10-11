@@ -24,6 +24,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
+import androidx.compose.ui.layout.findRootCoordinates
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.gestures.waitForUpOrCancellation
@@ -171,7 +174,7 @@ fun GlossHost(s: AppState, layer: Int = 0) {
 }
 
 /** 펼친 낱말([picked], 글 배치 [layout])이 화면 아래 절반에 있는지 [onLow] 로 알린다 ([AppState.glossLow]). */
-fun Modifier.glossSpot(picked: IntRange?, layout: androidx.compose.ui.text.TextLayoutResult?, onLow: (Boolean) -> Unit): Modifier = androidx.compose.ui.composed {
+fun Modifier.glossSpot(picked: IntRange?, layout: androidx.compose.ui.text.TextLayoutResult?, onLow: (Boolean) -> Unit): Modifier = composed {
     var at by remember { mutableStateOf<androidx.compose.ui.layout.LayoutCoordinates?>(null) }
     LaunchedEffect(picked, layout, at) {
         val l = layout ?: return@LaunchedEffect
@@ -181,7 +184,7 @@ fun Modifier.glossSpot(picked: IntRange?, layout: androidx.compose.ui.text.TextL
         val mid = c.localToRoot(androidx.compose.ui.geometry.Offset(0f, (l.getLineTop(line) + l.getLineBottom(line)) / 2f)).y
         onLow(mid > c.findRootCoordinates().size.height / 2f)
     }
-    androidx.compose.ui.layout.onGloballyPositioned { at = it }
+    onGloballyPositioned { at = it }
 }
 
 /**
