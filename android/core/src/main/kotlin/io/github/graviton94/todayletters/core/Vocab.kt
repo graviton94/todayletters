@@ -81,7 +81,7 @@ object Vocab {
     /** 뜻 줄 (en · ko) 위에 배우는 말 [lang] 의 글자를 얹는다: 영어 · 한국어 사전이면 그 언어 줄은 표제어가 된다. */
     private fun glosses(en: String, ko: String, lang: Lang, own: String): Map<Lang, String> =
         linkedMapOf<Lang, String>().apply {
-            put(lang, own)
+            put(lang, if (lang == Lang.KO) Breaks.keepAll(own) else own)
             if (lang != Lang.EN) put(Lang.EN, en)
             if (lang != Lang.KO) put(Lang.KO, ko)
         }

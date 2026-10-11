@@ -114,14 +114,14 @@ class VocabTest {
         val g = LexEntry("garden", forms = listOf("garden"), pos = "n", ko = "정원", en = "", level = "A2")
         val w = Vocab.word(g, Lang.EN)
         assertEquals("garden", w.text[Lang.EN])
-        assertEquals("정원", w.text[Lang.KO])
+        assertEquals("정원", Breaks.plain(w.text[Lang.KO]))
         // 챕터 낱말과 같으면 그 낭독 그대로, 원어 철자(modern)로는 맞추지 않는다
         val l = Vocab.apply(letter(), Daily(words = listOf("garden")), Lexicon(Lang.EN, listOf(g)), Lang.EN, Lang.FR)
         assertEquals("w1", l.words.single().audio)
         assertEquals("garden", l.words.single().lex)
         // 한국어 사전: 표제어가 한국어 줄, 뜻은 영어
         val k = LexEntry("정원", ko = "", en = "garden")
-        assertEquals("정원", Vocab.word(k, Lang.KO).text[Lang.KO])
+        assertEquals("정원", Breaks.plain(Vocab.word(k, Lang.KO).text[Lang.KO]))
         assertEquals("garden", Vocab.word(k, Lang.KO).text[Lang.EN])
         // 뜻풀이 언어: 앱 글자 언어, 배우는 말과 같으면 다른 하나
         assertEquals(Lang.KO, Vocab.glossLang(Lang.KO, Lang.EN))
