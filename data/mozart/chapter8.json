@@ -1,0 +1,1216 @@
+{
+ "_doc": "Chapter VIII. 독일어는 루트비히 놀(Ludwig Nohl) 엮음 『Mozarts Briefe』(잘츠부르크 1865, 공공 영역, archive.org 스캔) 쪽 사진에서 인쇄된 그대로 옮겼고, 판의 철자(daß, Thräne, Bewirthung 등)도 그대로 두었어요. 영어는 레이디 월리스(Lady Wallace)의 1866년 번역을 그대로 썼고, 한국어는 이 앱의 번역이에요.",
+ "series": "mozart",
+ "chapter": "VIII",
+ "title_de": "Die Zauberflöte",
+ "title_en": "The Magic Flute",
+ "title_ko": "마술피리",
+ "original": "de",
+ "letters": [
+  {
+   "id": "c8-l1",
+   "wallace_no": 249,
+   "nohl_pages": [
+    446,
+    447
+   ],
+   "date": "1789-04-10",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 249 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Prag",
+   "to": {
+    "de": "Constanze",
+    "en": "his wife Constanze",
+    "ko": "콘스탄체"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Heute Mittag um ½2 Uhr sind wir glücklich hier angekommen; unterdessen hoffe ich, daß Du gewiß mein Briefchen aus Budwitz wirst erhalten haben.",
+     "en": "We arrived here safely at half-past one o'clock this forenoon, and I hope you got my note from Budwitz.",
+     "ko": "오늘 낮 한 시 반에 여기 무사히 도착했어. 부트비츠에서 보낸 쪽지는 잘 받았겠지?",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 249 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Heute Mittag um ½2 Uhr sind wir glücklich hier angekommen; // unterdessen hoffe ich, / daß Du gewiß mein Briefchen aus Budwitz wirst erhalten haben.",
+      "en": "We arrived here safely at half-past one o'clock this forenoon, / and I hope you got my note from Budwitz.",
+      "ko": "오늘 낮 한 시 반에 여기 무사히 도착했어. // 부트비츠에서 보낸 쪽지는 잘 받았겠지?"
+     }
+    },
+    {
+     "de": "Nun folgt der Rapport von Prag. — Wir kehrten ein beim Einhorn; nachdem ich balbirt, frisirt und angekleidet war, fuhr ich aus in der Absicht, beim Canal zu speisen …",
+     "en": "Now for my account of Prague. We drove up to the \"Unicorn,\" and after being shaved, frisé, and dressed, I drove to Canal's, intending to dine with him …",
+     "ko": "자, 이제 프라하 보고야. 우리는 ‘일각수’ 여관에 들었어. 면도하고 머리 손질하고 옷을 차려입은 다음, 카날 댁에서 점심을 먹을 생각으로 나섰지 …",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 249 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun folgt der Rapport von Prag. // — Wir kehrten ein beim Einhorn; // nachdem ich balbirt, frisirt und angekleidet war, / fuhr ich aus in der Absicht, / beim Canal zu speisen …",
+      "en": "Now for my account of Prague. // We drove up to the \"Unicorn,\" / and after being shaved, frisé, and dressed, / I drove to Canal's, / intending to dine with him …",
+      "ko": "자, 이제 프라하 보고야. // 우리는 ‘일각수’ 여관에 들었어. // 면도하고 머리 손질하고 옷을 차려입은 다음, / 카날 댁에서 점심을 먹을 생각으로 나섰지 …"
+     }
+    },
+    {
+     "de": "… ich ging also zu Guardassoni [Impresario], welcher es auf künftigen Herbst fast richtig machte mir für die Oper 200 Duc. und 50 Duc. Reisegeld zu geben.",
+     "en": "… so I went to see Guardassoni [impresario], who almost agreed to give me 200 ducats next autumn for an opera, and fifty ducats for travelling expenses.",
+     "ko": "… 그래서 흥행주 과르다소니한테 갔더니, 다가오는 가을에 오페라 한 편 값으로 200두카트, 여비로 50두카트를 주기로 거의 확정했어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 249 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… ich ging also zu Guardassoni [Impresario], / welcher es auf künftigen Herbst fast richtig machte / mir für die Oper 200 Duc. / und 50 Duc. Reisegeld zu geben.",
+      "en": "… so I went to see Guardassoni [impresario], / who almost agreed to give me 200 ducats next autumn for an opera, / and fifty ducats for travelling expenses.",
+      "ko": "… 그래서 흥행주 과르다소니한테 갔더니, / 다가오는 가을에 오페라 한 편 값으로 200두카트, / 여비로 50두카트를 주기로 거의 확정했어."
+     }
+    },
+    {
+     "de": "Liebstes Weibchen! ich sehne mich so sehr nach Nachrichten von Dir. — Vielleicht treffe ich in Dresden einen Brief an. — O Gott! mache meine Wünsche wahr!",
+     "en": "My darling wife, I do so long for news of you! Perhaps I may find a letter from you in Dresden. May Providence realize this wish!",
+     "ko": "사랑하는 아내야! 네 소식이 너무너무 그리워. 드레스덴에 가면 편지가 와 있을지도 몰라. 오 하느님, 제 바람을 이루어 주세요!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 249 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Liebstes Weibchen! // ich sehne mich so sehr nach Nachrichten von Dir. // — Vielleicht treffe ich in Dresden einen Brief an. // — O Gott! // mache meine Wünsche wahr!",
+      "en": "My darling wife, / I do so long for news of you! // Perhaps I may find a letter from you in Dresden. // May Providence realize this wish!",
+      "ko": "사랑하는 아내야! // 네 소식이 너무너무 그리워. // 드레스덴에 가면 편지가 와 있을지도 몰라. // 오 하느님, / 제 바람을 이루어 주세요!"
+     }
+    },
+    {
+     "de": "Küsse tausend mal unsern Carl, und ich bin Dich von ganzem Herzen küssend Dein ewig getreuer Mozart.",
+     "en": "Kiss our Carl a thousand times from me, and I am ever, with kisses innumerable, your faithful Mozart.",
+     "ko": "우리 카를한테 천 번 뽀뽀해 줘. 온 마음으로 너에게 입 맞추며, 영원히 너의 충실한 모차르트가.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 249 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Küsse tausend mal unsern Carl, / und ich bin Dich von ganzem Herzen küssend Dein ewig getreuer Mozart.",
+      "en": "Kiss our Carl a thousand times from me, / and I am ever, / with kisses innumerable, / your faithful Mozart.",
+      "ko": "우리 카를한테 천 번 뽀뽀해 줘. // 온 마음으로 너에게 입 맞추며, / 영원히 너의 충실한 모차르트가."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "der Brief",
+     "pos": "n.m.",
+     "ipa": "bʁiːf",
+     "en": "letter",
+     "ipa_en": "ˈlɛtɚ",
+     "ko": "편지",
+     "rom_ko": "pyeonji",
+     "icon": "✉️"
+    },
+    {
+     "de": "der Herbst",
+     "pos": "n.m.",
+     "ipa": "hɛʁpst",
+     "en": "autumn",
+     "ipa_en": "ˈɔtəm",
+     "ko": "가을",
+     "rom_ko": "gaeul",
+     "icon": "🍂"
+    },
+    {
+     "de": "die Oper",
+     "pos": "n.f.",
+     "ipa": "ˈoːpɐ",
+     "en": "opera",
+     "ipa_en": "ˈɑpɚə",
+     "ko": "오페라",
+     "rom_ko": "opera",
+     "icon": "🎭"
+    },
+    {
+     "de": "das Herz",
+     "pos": "n.n.",
+     "ipa": "hɛʁt͡s",
+     "en": "heart",
+     "ipa_en": "hɑɹt",
+     "ko": "마음",
+     "rom_ko": "maeum",
+     "icon": "❤️"
+    },
+    {
+     "de": "küssen",
+     "pos": "v.",
+     "ipa": "ˈkʏsn̩",
+     "en": "to kiss",
+     "ipa_en": "tə kɪs",
+     "ko": "뽀뽀하다",
+     "rom_ko": "ppoppohada",
+     "icon": "💋"
+    }
+   ],
+   "note": {
+    "ko": "1789년 봄, 모차르트는 제자이자 친구인 카를 리히노프스키 공작의 편한 마차를 얻어 타고 베를린 쪽으로 연주 여행을 떠났어요. 첫 기착지 프라하에서는 흥행주 과르다소니가 새 오페라를 거의 약속했어요. 베를린에서 막 돌아온 람은 프로이센 왕이 모차르트가 정말 오느냐고 여러 번 물었다고 전해요.",
+    "en": "In spring 1789 Mozart set out on a concert tour towards Berlin in the comfortable carriage of his friend and pupil Prince Carl Lichnowsky. At the first stop, Prague, the impresario Guardasoni all but promised him a new opera. Ramm, just back from Berlin, reported that the King had asked again and again whether Mozart was really coming.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 249 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Ich schreibe dir nach Dresden, Liebster!",
+    "en": "I'll write to you in Dresden, dearest!",
+    "ko": "드레스덴으로 편지할게, 여보!",
+    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 2,
+     "type": "transfer",
+     "amount": "200 Duc. + 50 Duc.",
+     "label": {
+      "de": "Guardassonis Angebot (fast richtig)",
+      "en": "Guardasoni's offer (almost agreed)",
+      "ko": "과르다소니의 제안 (거의 확정)"
+     },
+     "memo": {
+      "de": "eine Oper auf künftigen Herbst, dazu Reisegeld",
+      "en": "an opera for next autumn, plus travelling money",
+      "ko": "가을 오페라 한 편, 그리고 여비"
+     },
+     "outgoing": false
+    }
+   ],
+   "status": {
+    "de": "Unterwegs nach Norden",
+    "en": "On the road north",
+    "ko": "북쪽으로 가는 길"
+   },
+   "plate_hint": {
+    "idea": "Prague, Charles Bridge and Hradčany (18th-c. veduta).",
+    "search": [
+     "Prague Charles Bridge Hradčany veduta 18th century",
+     "Prag Karlsbrücke Kupferstich",
+     "Prague view engraving 1780s"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c8-l2",
+   "wallace_no": 250,
+   "nohl_pages": [
+    447,
+    448
+   ],
+   "date": "1789-04-13",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 250 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Dresden",
+   "to": {
+    "de": "Constanze",
+    "en": "his wife Constanze",
+    "ko": "콘스탄체"
+   },
+   "mood": "tender",
+   "messages": [
+    {
+     "de": "Wir glaubten Samstags nach Tisch in Dresden zu sein, kamen aber erst gestern Sonntags um 6 Uhr Abends an; — so schlecht sind die Wege.",
+     "en": "We expected to be in Dresden on Saturday after dinner, but did not arrive till yesterday — the roads were so bad.",
+     "ko": "토요일 점심 뒤면 드레스덴에 닿을 줄 알았는데, 어제 일요일 저녁 6시에야 도착했어. 길이 그렇게나 나빠.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 250 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wir glaubten Samstags nach Tisch in Dresden zu sein, / kamen aber erst gestern Sonntags um 6 Uhr Abends an; // — so schlecht sind die Wege.",
+      "en": "We expected to be in Dresden on Saturday after dinner, / but did not arrive till yesterday — / the roads were so bad.",
+      "ko": "토요일 점심 뒤면 드레스덴에 닿을 줄 알았는데, / 어제 일요일 저녁 6시에야 도착했어. // 길이 그렇게나 나빠."
+     }
+    },
+    {
+     "de": "… in diesem Augenblick stand aber schon Mad. Duschek vor meiner; denn sie erkannte mich vom Fenster aus und sagte gleich, da kommt jemand der aussieht, wie Mozart. — Nun war alles voll Freude.",
+     "en": "… but at the same moment Madame Duschek stood before me, having recognized me from her window, when she at once said, \"I see some one coming who looks very like Mozart.\" All was now joy.",
+     "ko": "… 그런데 그 순간 벌써 두셰크 부인이 내 앞에 서 있는 거야. 창문으로 나를 알아보고는 곧바로 ‘모차르트처럼 생긴 사람이 오네’ 했대. 그다음엔 온통 기쁨이었지.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 250 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… in diesem Augenblick / stand aber schon Mad. Duschek vor meiner; // denn sie erkannte mich vom Fenster aus / und sagte gleich, / da kommt jemand der aussieht, wie Mozart. // — Nun war alles voll Freude.",
+      "en": "… but at the same moment / Madame Duschek stood before me, / having recognized me from her window, / when she at once said, / \"I see some one coming who looks very like Mozart.\" // All was now joy.",
+      "ko": "… 그런데 그 순간 벌써 두셰크 부인이 내 앞에 서 있는 거야. // 창문으로 나를 알아보고는 곧바로 ‘모차르트처럼 생긴 사람이 오네’ 했대. // 그다음엔 온통 기쁨이었지."
+     }
+    },
+    {
+     "de": "Wenn ich Dir alles erzählen wollte was ich mit Deinem lieben Portrait anfange, würdest Du wohl oft lachen.",
+     "en": "If I were to tell you all my follies about your dear portrait, it would make you laugh.",
+     "ko": "내가 네 소중한 초상화를 두고 하는 짓을 다 얘기하면, 너 아마 자꾸 웃을걸.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 250 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wenn ich Dir alles erzählen wollte was ich mit Deinem lieben Portrait anfange, / würdest Du wohl oft lachen.",
+      "en": "If I were to tell you all my follies about your dear portrait, / it would make you laugh.",
+      "ko": "내가 네 소중한 초상화를 두고 하는 짓을 다 얘기하면, / 너 아마 자꾸 웃을걸."
+     }
+    },
+    {
+     "de": "… und wenn ich es wieder hineinthue so lasse ich es so nach und nach hinunterrutschen, und sage immer Nu — Nu — Nu — Nu! aber mit dem gewissen Nachdruck den dieses so vielbedeutende Wort erfordert und bei dem letzten schnell: Gute Nacht, Mauserl, schlaf gesund!",
+     "en": "… and when I put it away again, I let it slip gently into its hiding-place, saying, Now, now, now! but with an appropriate emphasis on this significant word; and at the last one I say quickly, Good night, darling mouse, sleep soundly!",
+     "ko": "… 다시 넣을 때는 조금씩 조금씩 미끄러뜨리면서 ‘누 — 누 — 누 — 누!’ 해. 이 뜻 깊은 말에 걸맞게 힘을 꾹 주어서. 그리고 마지막엔 재빨리 ‘잘 자, 생쥐야, 푹 자!’",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 250 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… und wenn ich es wieder hineinthue / so lasse ich es so nach und nach hinunterrutschen, / und sage immer Nu — Nu — Nu — Nu! // aber mit dem gewissen Nachdruck / den dieses so vielbedeutende Wort erfordert / und bei dem letzten schnell: // Gute Nacht, / Mauserl, / schlaf gesund!",
+      "en": "… and when I put it away again, / I let it slip gently into its hiding-place, / saying, Now, now, now! // but with an appropriate emphasis on this significant word; // and at the last one I say quickly, / Good night, darling mouse, / sleep soundly!",
+      "ko": "… 다시 넣을 때는 / 조금씩 조금씩 미끄러뜨리면서 / ‘누 — 누 — 누 — 누!’ 해. // 이 뜻 깊은 말에 걸맞게 / 힘을 꾹 주어서. // 그리고 마지막엔 재빨리 / ‘잘 자, / 생쥐야, / 푹 자!’"
+     }
+    },
+    {
+     "de": "Heute ist der sechste Tag daß ich von Dir weg bin, und bei Gott mir scheint es schon ein Jahr zu sein.",
+     "en": "This is the sixth day that I have been absent from you, and, by heavens! it seems to me a year.",
+     "ko": "오늘이 너와 떨어진 지 엿새째인데, 맹세코 벌써 일 년은 된 것 같아.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 250 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Heute ist der sechste Tag / daß ich von Dir weg bin, // und bei Gott / mir scheint es schon ein Jahr zu sein.",
+      "en": "This is the sixth day / that I have been absent from you, // and, by heavens! / it seems to me a year.",
+      "ko": "오늘이 너와 떨어진 지 엿새째인데, / 맹세코 벌써 일 년은 된 것 같아."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "das Fenster",
+     "pos": "n.n.",
+     "ipa": "ˈfɛnstɐ",
+     "en": "window",
+     "ipa_en": "ˈwɪndoʊ",
+     "ko": "창문",
+     "rom_ko": "changmun",
+     "icon": "🪟"
+    },
+    {
+     "de": "das Portrait",
+     "de_modern": "das Porträt",
+     "pos": "n.n.",
+     "ipa": "pɔʁˈtʁɛː",
+     "en": "portrait",
+     "ipa_en": "ˈpɔɹtɹət",
+     "ko": "초상화",
+     "rom_ko": "chosanghwa",
+     "icon": "🖼️"
+    },
+    {
+     "de": "lachen",
+     "pos": "v.",
+     "ipa": "ˈlaxn̩",
+     "en": "to laugh",
+     "ipa_en": "tə læf",
+     "ko": "웃다",
+     "rom_ko": "utda",
+     "icon": "😄"
+    },
+    {
+     "de": "die Nacht",
+     "pos": "n.f.",
+     "ipa": "naxt",
+     "en": "night",
+     "ipa_en": "naɪt",
+     "ko": "밤",
+     "rom_ko": "bam",
+     "icon": "🌙"
+    },
+    {
+     "de": "das Jahr",
+     "pos": "n.n.",
+     "ipa": "jaːɐ̯",
+     "en": "year",
+     "ipa_en": "jɪɹ",
+     "ko": "해",
+     "rom_ko": "hae",
+     "icon": "📅"
+    }
+   ],
+   "note": {
+    "ko": "드레스덴에서 모차르트는 프라하 친구 두셰크의 아내인 가수 요제파 두셰크를 놀래 주려다, 창밖을 보던 그녀에게 먼저 들키고 말아요. 그는 콘스탄체의 작은 초상화를 상자에 넣어 다니며 말을 걸어요. ‘슐루크 운트 드루크’ 같은 애칭은 모차르트가 지은 장난스러운 카논에서 따온 말이라고 놀의 각주가 알려 줘요.",
+    "en": "In Dresden Mozart meant to surprise the singer Josepha Duschek, wife of his Prague friend Duschek, but she spotted him first from her window. He carried a small portrait of Constanze in a case and talked to it. Nohl's footnote says the pet names ('schluck und druck') allude to a jocular canon of Mozart's.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 250 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Gute Nacht, mein lieber Narr!",
+    "en": "Good night, my dear fool!",
+    "ko": "잘 자, 내 사랑스러운 바보!",
+    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "de": "Ankunft in Dresden · Sonntag, 6 Uhr abends",
+      "en": "Arrival in Dresden · Sunday, 6 p.m.",
+      "ko": "드레스덴 도착 · 일요일 저녁 6시"
+     }
+    }
+   ],
+   "status": {
+    "de": "Sechs Tage ohne Dich",
+    "en": "Six days without you",
+    "ko": "너 없이 엿새째"
+   },
+   "plate_hint": {
+    "idea": "Constanze's miniature portrait / Dresden view (Bellotto).",
+    "search": [
+     "Constanze Mozart portrait Lange",
+     "Bellotto Dresden Elbe view",
+     "Dresden 18th century veduta"
+    ],
+    "kind": "person"
+   }
+  },
+  {
+   "id": "c8-l3",
+   "wallace_no": 251,
+   "nohl_pages": [
+    449,
+    450
+   ],
+   "date": "1789-04-16",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 251 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Dresden",
+   "to": {
+    "de": "Constanze",
+    "en": "his wife Constanze",
+    "ko": "콘스탄체"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Wie? — noch in Dresden? — Ja, meine Liebe, — ich will Dir alles haarklein erzählen …",
+     "en": "How? still in Dresden? Yes, my love. I will tell you everything as minutely as possible.",
+     "ko": "뭐? 아직 드레스덴이냐고? 응, 내 사랑. 하나도 빼놓지 않고 다 얘기해 줄게.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 251 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wie? // — noch in Dresden? // — Ja, meine Liebe, // — ich will Dir alles haarklein erzählen …",
+      "en": "How? / still in Dresden? // Yes, my love. // I will tell you everything / as minutely as possible.",
+      "ko": "뭐? // 아직 드레스덴이냐고? // 응, / 내 사랑. // 하나도 빼놓지 않고 다 얘기해 줄게."
+     }
+    },
+    {
+     "de": "Des andern Tages spielte ich bei Hofe das neue Concert in D; folgenden Tags Mittwochs den 15. vor Mittag erhielt ich eine recht schöne Dose …",
+     "en": "Next day, at court, I played my new concerto in D; and the day after, Wednesday the 15th, I received in the forenoon a very beautiful snuffbox.",
+     "ko": "다음 날 궁정에서 새 D장조 협주곡을 연주했어. 그다음 날인 15일 수요일 오전에는 아주 예쁜 담뱃갑을 받았지.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 251 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Des andern Tages / spielte ich bei Hofe / das neue Concert in D; // folgenden Tags Mittwochs den 15. / vor Mittag / erhielt ich eine recht schöne Dose …",
+      "en": "Next day, / at court, / I played my new concerto in D; // and the day after, / Wednesday the 15th, / I received in the forenoon a very beautiful snuffbox.",
+      "ko": "다음 날 궁정에서 새 D장조 협주곡을 연주했어. // 그다음 날인 15일 수요일 오전에는 아주 예쁜 담뱃갑을 받았지."
+     }
+    },
+    {
+     "de": "Nun glauben die Leute hier, weil ich von Wien komme, daß ich diesen Geschmack und diese Art zu spielen gar nicht kenne. — Ich setzte mich also zur Orgel und spielte.",
+     "en": "Now people here think that because I come from Vienna I must be utterly unacquainted with this style and mode of playing, so I sat down to the organ and played.",
+     "ko": "여기 사람들은 내가 빈에서 왔으니 이런 취향, 이런 연주법은 전혀 모를 거라고 생각하거든. 그래서 오르간 앞에 앉아 쳤지.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 251 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun glauben die Leute hier, / weil ich von Wien komme, / daß ich diesen Geschmack und diese Art zu spielen gar nicht kenne. // — Ich setzte mich also zur Orgel und spielte.",
+      "en": "Now people here think that because I come from Vienna I must be utterly unacquainted with this style and mode of playing, / so I sat down to the organ and played.",
+      "ko": "여기 사람들은 내가 빈에서 왔으니 이런 취향, / 이런 연주법은 전혀 모를 거라고 생각하거든. // 그래서 오르간 앞에 앉아 쳤지."
+     }
+    },
+    {
+     "de": "Nun kömmt der glücklichste Augenblick für mich; — ich fand einen so lange mit heißer Sehnsucht gewunschenen Brief von Dir Liebste! Beste!",
+     "en": "Then came the happiest of all moments for me; I found the long and ardently wished-for letter from you, my darling, my beloved!",
+     "ko": "그리고 나한테 가장 행복한 순간이 왔어. 그토록 오래 애타게 기다리던 네 편지가 와 있었던 거야. 내 사랑! 내 최고!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 251 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun kömmt der glücklichste Augenblick für mich; // — ich fand einen so lange mit heißer Sehnsucht gewunschenen Brief von Dir Liebste! // Beste!",
+      "en": "Then came the happiest of all moments for me; // I found the long and ardently wished-for letter from you, / my darling, / my beloved!",
+      "ko": "그리고 나한테 가장 행복한 순간이 왔어. // 그토록 오래 애타게 기다리던 네 편지가 와 있었던 거야. // 내 사랑! // 내 최고!"
+     }
+    },
+    {
+     "de": "… ich ging gleich im Triumphe in mein Zimmer, küßte den Brief unzähligemale, ehe ich ihn erbrach, dann — verschlang ich ihn mehr als ich ihn las.",
+     "en": "… I carried off the letter in triumph to my room, and kissed it over and over again before I broke it open, and then rather devoured than read it.",
+     "ko": "… 나는 편지를 들고 의기양양하게 곧장 내 방으로 가서, 봉인을 뜯기 전에 수없이 입 맞췄어. 그러고는 — 읽었다기보다 삼켜 버렸지.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 251 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… ich ging gleich im Triumphe in mein Zimmer, / küßte den Brief unzähligemale, / ehe ich ihn erbrach, / dann — / verschlang ich ihn mehr als ich ihn las.",
+      "en": "… I carried off the letter in triumph to my room, / and kissed it over and over again before I broke it open, / and then rather devoured than read it.",
+      "ko": "… 나는 편지를 들고 의기양양하게 곧장 내 방으로 가서, / 봉인을 뜯기 전에 수없이 입 맞췄어. // 그러고는 — / 읽었다기보다 삼켜 버렸지."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "das Concert",
+     "de_modern": "das Konzert",
+     "pos": "n.n.",
+     "ipa": "kɔnˈt͡sɛʁt",
+     "en": "concerto",
+     "ipa_en": "kənˈtʃɛɹtoʊ",
+     "ko": "협주곡",
+     "rom_ko": "hyeopjugok",
+     "icon": "🎹"
+    },
+    {
+     "de": "die Dose",
+     "pos": "n.f.",
+     "ipa": "ˈdoːzə",
+     "en": "snuffbox",
+     "ipa_en": "ˈsnʌfbɑks",
+     "ko": "담뱃갑",
+     "rom_ko": "dambaetgap",
+     "icon": "🎁"
+    },
+    {
+     "de": "die Orgel",
+     "pos": "n.f.",
+     "ipa": "ˈɔʁɡl̩",
+     "en": "organ",
+     "ipa_en": "ˈɔɹɡən",
+     "ko": "오르간",
+     "rom_ko": "oreugan",
+     "icon": "🎶"
+    },
+    {
+     "de": "der Augenblick",
+     "pos": "n.m.",
+     "ipa": "ˈaʊ̯ɡn̩ˌblɪk",
+     "en": "moment",
+     "ipa_en": "ˈmoʊmənt",
+     "ko": "순간",
+     "rom_ko": "sungan",
+     "icon": "✨"
+    },
+    {
+     "de": "das Zimmer",
+     "pos": "n.n.",
+     "ipa": "ˈt͡sɪmɐ",
+     "en": "room",
+     "ipa_en": "ɹum",
+     "ko": "방",
+     "rom_ko": "bang",
+     "icon": "🚪"
+    }
+   ],
+   "note": {
+    "ko": "드레스덴 궁정에서 모차르트는 새 D장조 협주곡을 연주하고 선물로 담뱃갑을 받았어요. 이 곡은 오늘날 ‘대관식’ 협주곡(K. 537)으로 불리는 곡으로 여겨져요. 오르간 겨루기 상대 헤슬러는 에르푸르트의 오르가니스트로, 편지에 따르면 바흐 제자의 제자였어요.",
+    "en": "At the Dresden court Mozart played his new concerto in D and was given a snuffbox; it is taken to be the concerto now called the 'Coronation' (K. 537). His rival at the organ, Hässler, was the organist of Erfurt and, as the letter says, a pupil of a pupil of Bach.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 251 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Ich küsse dich zurück, tausendmal!",
+    "en": "I kiss you back, a thousand times!",
+    "ko": "나도 천 번 입 맞춰 보낼게!",
+    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "music",
+     "piece": {
+      "de": "Klavierkonzert D-dur, KV 537 („Krönungskonzert“)",
+      "en": "Piano Concerto in D, K. 537 ('Coronation')",
+      "ko": "피아노 협주곡 D장조, K. 537 〈대관식〉"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "de": "Noch in Dresden",
+    "en": "Still in Dresden",
+    "ko": "아직 드레스덴"
+   },
+   "plate_hint": {
+    "idea": "Dresden Hofkirche / Bellotto's view of Dresden from the Elbe.",
+    "search": [
+     "Bellotto Dresden from the right bank of the Elbe",
+     "Dresden Katholische Hofkirche Bellotto",
+     "Dresden Hofkirche 18th century"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c8-l4",
+   "wallace_no": 258,
+   "nohl_pages": [
+    460
+   ],
+   "date": "1790-09-29",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 258 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Frankfurt am Main",
+   "to": {
+    "de": "Constanze",
+    "en": "his wife Constanze",
+    "ko": "콘스탄체"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Diesen Augenblick kommen wir an — das ist um 1 Uhr Mittag — wir haben also nur 6 Tage gebraucht.",
+     "en": "We are this moment arrived — one o'clock in the forenoon; so we have only been six days on the road.",
+     "ko": "우리 방금 도착했어. 낮 1시야. 그러니까 엿새밖에 안 걸린 거지.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 258 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Diesen Augenblick kommen wir an — / das ist um 1 Uhr Mittag — / wir haben also nur 6 Tage gebraucht.",
+      "en": "We are this moment arrived — / one o'clock in the forenoon; // so we have only been six days on the road.",
+      "ko": "우리 방금 도착했어. // 낮 1시야. // 그러니까 엿새밖에 안 걸린 거지."
+     }
+    },
+    {
+     "de": "Die Reise war sehr angenehm; wir hatten bis auf einen einzigen Tag schönes Wetter — und dieser einzige Tag verursachte uns keine Unbequemlichkeit, weil mein Wagen (ich möcht ihm ein Busserl geben) herrlich ist.",
+     "en": "Our travelling was very agreeable, for we had fine weather, with the exception of one day, and even that day did not cause us any discomfort, for my carriage (to my great comfort) is first-rate.",
+     "ko": "여행은 아주 즐거웠어. 딱 하루 빼고는 날씨가 좋았고, 그 하루도 전혀 불편하지 않았어. 내 마차가 (뽀뽀해 주고 싶을 만큼) 끝내주거든.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 258 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Die Reise war sehr angenehm; // wir hatten bis auf einen einzigen Tag schönes Wetter — / und dieser einzige Tag verursachte uns keine Unbequemlichkeit, / weil mein Wagen (ich möcht ihm ein Busserl geben) herrlich ist.",
+      "en": "Our travelling was very agreeable, / for we had fine weather, / with the exception of one day, / and even that day did not cause us any discomfort, / for my carriage (to my great comfort) is first-rate.",
+      "ko": "여행은 아주 즐거웠어. // 딱 하루 빼고는 날씨가 좋았고, / 그 하루도 전혀 불편하지 않았어. // 내 마차가 (뽀뽀해 주고 싶을 만큼) 끝내주거든."
+     }
+    },
+    {
+     "de": "In Regensburg speisten wir prächtig zu Mittag, hatten eine göttliche Tafelmusik, eine englische Bewirthung und einen herrlichen Mosler-Wein.",
+     "en": "We had a capital dinner at Ratisbon, divine music, English cheer, and splendid Moselle.",
+     "ko": "레겐스부르크에서는 점심을 근사하게 먹었어. 식탁 음악은 천상의 소리였고, 영국식 대접에 훌륭한 모젤 와인까지.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 258 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "In Regensburg / speisten wir prächtig zu Mittag, / hatten eine göttliche Tafelmusik, / eine englische Bewirthung / und einen herrlichen Mosler-Wein.",
+      "en": "We had a capital dinner at Ratisbon, / divine music, / English cheer, / and splendid Moselle.",
+      "ko": "레겐스부르크에서는 점심을 근사하게 먹었어. // 식탁 음악은 천상의 소리였고, / 영국식 대접에 훌륭한 모젤 와인까지."
+     }
+    },
+    {
+     "de": "Nun bin ich fest entschlossen meine Sachen hier so gut als möglich zu machen und freue mich dann herzlich wieder zu Dir.",
+     "en": "I am quite determined to do the best I can for myself here, and shall then be heartily glad to return to you.",
+     "ko": "이제 여기서 할 수 있는 한 잘 해내기로 굳게 마음먹었어. 그러고 나서 기쁜 마음으로 너한테 돌아갈 거야.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 258 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun bin ich fest entschlossen / meine Sachen hier so gut als möglich zu machen / und freue mich dann herzlich / wieder zu Dir.",
+      "en": "I am quite determined to do the best I can for myself here, / and shall then be heartily glad to return to you.",
+      "ko": "이제 여기서 할 수 있는 한 잘 해내기로 굳게 마음먹었어. // 그러고 나서 기쁜 마음으로 너한테 돌아갈 거야."
+     }
+    },
+    {
+     "de": "Welch herrliches Leben wollen wir führen, — ich will arbeiten — so arbeiten — um damit ich durch unvermuthete Zufälle nicht wieder in so eine fatale Lage komme.",
+     "en": "What a delightful life we shall lead! I will work, and work in such a manner that I may never again be placed by unforeseen events in so distressing a position.",
+     "ko": "우리 얼마나 멋지게 살게 될까! 나 일할 거야. 정말 열심히. 뜻밖의 일 때문에 다시는 이런 난처한 처지에 빠지지 않도록.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 258 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Welch herrliches Leben wollen wir führen, // — ich will arbeiten — / so arbeiten — / um damit ich durch unvermuthete Zufälle / nicht wieder in so eine fatale Lage komme.",
+      "en": "What a delightful life we shall lead! // I will work, / and work in such a manner that I may never again be placed by unforeseen events in so distressing a position.",
+      "ko": "우리 얼마나 멋지게 살게 될까! // 나 일할 거야. // 정말 열심히. // 뜻밖의 일 때문에 다시는 이런 난처한 처지에 빠지지 않도록."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "die Reise",
+     "pos": "n.f.",
+     "ipa": "ˈʁaɪ̯zə",
+     "en": "journey",
+     "ipa_en": "ˈdʒɝni",
+     "ko": "여행",
+     "rom_ko": "yeohaeng",
+     "icon": "🧳"
+    },
+    {
+     "de": "das Wetter",
+     "pos": "n.n.",
+     "ipa": "ˈvɛtɐ",
+     "en": "weather",
+     "ipa_en": "ˈwɛðɚ",
+     "ko": "날씨",
+     "rom_ko": "nalssi",
+     "icon": "⛅"
+    },
+    {
+     "de": "der Wagen",
+     "pos": "n.m.",
+     "ipa": "ˈvaːɡn̩",
+     "en": "carriage",
+     "ipa_en": "ˈkæɹɪdʒ",
+     "ko": "마차",
+     "rom_ko": "macha",
+     "icon": "🐎"
+    },
+    {
+     "de": "das Leben",
+     "pos": "n.n.",
+     "ipa": "ˈleːbn̩",
+     "en": "life",
+     "ipa_en": "laɪf",
+     "ko": "삶",
+     "rom_ko": "sam",
+     "icon": "🌱"
+    },
+    {
+     "de": "arbeiten",
+     "pos": "v.",
+     "ipa": "ˈaʁbaɪ̯tn̩",
+     "en": "to work",
+     "ipa_en": "tə wɝk",
+     "ko": "일하다",
+     "rom_ko": "ilhada",
+     "icon": "✍️"
+    }
+   ],
+   "note": {
+    "ko": "1790년 가을, 모차르트는 레오폴트 2세의 황제 대관식으로 사람들이 몰려드는 프랑크푸르트로 갔어요. 놀의 해설에 따르면 그는 은그릇 일부를 저당 잡혀 마차를 사고, 9월 24일 처남인 바이올리니스트 호퍼와 함께 떠났어요. 10월 15일에는 이곳에서 연주회를 열었어요.",
+    "en": "In autumn 1790 Mozart went to Frankfurt, crowded for the coronation of Leopold II. According to Nohl he pawned part of his silver plate, bought a carriage and left on 24 September with his brother-in-law, the violinist Hofer. On 15 October he gave a concert there.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 258 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Komm bald heim, mein fleißiger Mann!",
+    "en": "Come home soon, my hard-working husband!",
+    "ko": "어서 돌아와, 부지런한 우리 남편!",
+    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "weather",
+     "quote": "bis auf einen einzigen Tag schönes Wetter",
+     "text": {
+      "de": "Sechs Tage unterwegs, bis auf einen Tag schönes Wetter",
+      "en": "Six days on the road, fine weather but for one day",
+      "ko": "엿새 여행, 하루 빼고 맑음"
+     }
+    },
+    {
+     "after": 4,
+     "type": "music",
+     "piece": {
+      "de": "Klavierkonzert F-dur, KV 459 (in Frankfurt gespielt, 15. Oktober 1790)",
+      "en": "Piano Concerto in F, K. 459 (played in Frankfurt, 15 October 1790)",
+      "ko": "피아노 협주곡 F장조, K. 459 (1790년 10월 15일 프랑크푸르트 연주회)"
+     },
+     "commons": "File:Mozart Concerto pour piano No.19 F major I. Allegro (Mozart) European Archive.ogg"
+    }
+   ],
+   "status": {
+    "de": "Angekommen in Frankfurt",
+    "en": "Arrived in Frankfurt",
+    "ko": "프랑크푸르트 도착"
+   },
+   "plate_hint": {
+    "idea": "Frankfurt Römerberg during the 1790 coronation (engraving).",
+    "search": [
+     "Frankfurt Römerberg Krönung Leopold II 1790",
+     "Kaiserkrönung Frankfurt 1790 Kupferstich",
+     "Frankfurt am Main Römer 18th century engraving"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c8-l5",
+   "wallace_no": 259,
+   "nohl_pages": [
+    461,
+    462
+   ],
+   "date": "1790-09-30",
+   "dateNote": "Nohl prints the date at the end of the letter ('Frankfurt am Main 30. Sept. 1790'), before the postscript.",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 259 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Frankfurt am Main",
+   "to": {
+    "de": "Constanze",
+    "en": "his wife Constanze",
+    "ko": "콘스탄체"
+   },
+   "mood": "weary",
+   "messages": [
+    {
+     "de": "Wenn ich nur schon einen Brief von Dir hätte, dann wäre Alles recht.",
+     "en": "If I only had a letter from you, then all would be right.",
+     "ko": "너한테서 편지 한 통만 와 있으면, 다 괜찮을 텐데.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 259 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wenn ich nur schon einen Brief von Dir hätte, / dann wäre Alles recht.",
+      "en": "If I only had a letter from you, / then all would be right.",
+      "ko": "너한테서 편지 한 통만 와 있으면, / 다 괜찮을 텐데."
+     }
+    },
+    {
+     "de": "Bekannt und angesehen bin ich hier genug, das ist gewiß. — Nun — wir wollen sehen.",
+     "en": "That I am both known and respected here is undeniable; still — well, we shall see.",
+     "ko": "내가 여기서 이름도 알려져 있고 대접도 받는 건 분명해. 뭐 — 두고 봐야지.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 259 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Bekannt und angesehen bin ich hier genug, / das ist gewiß. // — Nun — / wir wollen sehen.",
+      "en": "That I am both known and respected here / is undeniable; // still — / well, we shall see.",
+      "ko": "내가 여기서 이름도 알려져 있고 / 대접도 받는 건 분명해. // 뭐 — / 두고 봐야지."
+     }
+    },
+    {
+     "de": "Wen glaubst Du daß ich hier angetroffen? — Das Mädchen, welches so oft mit uns im Auge Gottes … Verstecken gespielt hat …",
+     "en": "Whom do you think I met here? The girl who so often played at hide-and-seek with us in the Auge Gottes …",
+     "ko": "내가 여기서 누굴 만났는지 알아? ‘하느님의 눈’ 집에서 우리랑 숨바꼭질을 그렇게 자주 하던 그 아가씨야 …",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 259 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Wen glaubst Du / daß ich hier angetroffen? // — Das Mädchen, / welches so oft mit uns im Auge Gottes … / Verstecken gespielt hat …",
+      "en": "Whom do you think I met here? // The girl / who so often played at hide-and-seek with us / in the Auge Gottes …",
+      "ko": "내가 여기서 누굴 만났는지 알아? // ‘하느님의 눈’ 집에서 / 우리랑 숨바꼭질을 그렇게 자주 하던 / 그 아가씨야 …"
+     }
+    },
+    {
+     "de": "Ich freue mich wie ein Kind wieder zu Dir zurück; — wenn die Leute in mein Herz sehen könnten, so müßte ich mich fast schämen, — es ist alles kalt für mich — eiskalt.",
+     "en": "I am as happy as a child at the thoughts of returning to you. If people could see into my heart, I should almost feel ashamed — all there is cold, cold as ice.",
+     "ko": "너한테 돌아갈 생각에 어린애처럼 들떠 있어. 사람들이 내 마음속을 들여다볼 수 있다면 나는 부끄러울 지경일 거야. 모든 게 나한텐 차가워. 얼음장처럼.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 259 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich freue mich wie ein Kind / wieder zu Dir zurück; // — wenn die Leute in mein Herz sehen könnten, / so müßte ich mich fast schämen, // — es ist alles kalt für mich / — eiskalt.",
+      "en": "I am as happy as a child at the thoughts of returning to you. // If people could see into my heart, / I should almost feel ashamed — / all there is cold, / cold as ice.",
+      "ko": "너한테 돌아갈 생각에 어린애처럼 들떠 있어. // 사람들이 내 마음속을 들여다볼 수 있다면 나는 부끄러울 지경일 거야. // 모든 게 나한텐 차가워. // 얼음장처럼."
+     }
+    },
+    {
+     "de": "Als ich die vorige Seite schrieb, fiel mir auch manche Thräne aufs Papier; nun aber lustig — fange auf — es fliegen erstaunlich viele Busserl herum …",
+     "en": "While writing the last page, many a tear has fallen on it. But now let us be merry. Look! Swarms of kisses are flying about — quick! catch some!",
+     "ko": "앞 장을 쓰는 동안 눈물이 몇 방울 종이에 떨어졌어. 하지만 이제 즐겁게 — 받아 — 뽀뽀가 엄청나게 많이 날아다녀 …",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 259 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Als ich die vorige Seite schrieb, / fiel mir auch manche Thräne aufs Papier; // nun aber lustig — / fange auf — / es fliegen erstaunlich viele Busserl herum …",
+      "en": "While writing the last page, / many a tear has fallen on it. // But now let us be merry. // Look! // Swarms of kisses are flying about — / quick! // catch some!",
+      "ko": "앞 장을 쓰는 동안 / 눈물이 몇 방울 종이에 떨어졌어. // 하지만 이제 즐겁게 — / 받아 — / 뽀뽀가 엄청나게 많이 날아다녀 …"
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "das Mädchen",
+     "pos": "n.n.",
+     "ipa": "ˈmɛːtçən",
+     "en": "girl",
+     "ipa_en": "ɡɝl",
+     "ko": "아가씨",
+     "rom_ko": "agassi",
+     "icon": "👧"
+    },
+    {
+     "de": "das Kind",
+     "pos": "n.n.",
+     "ipa": "kɪnt",
+     "en": "child",
+     "ipa_en": "tʃaɪld",
+     "ko": "아이",
+     "rom_ko": "ai",
+     "icon": "🧒"
+    },
+    {
+     "de": "eiskalt",
+     "pos": "adj.",
+     "ipa": "ˈaɪ̯sˈkalt",
+     "en": "ice-cold",
+     "ipa_en": "ˈaɪsˈkoʊld",
+     "ko": "얼음장 같은",
+     "rom_ko": "eoreumjang gateun",
+     "icon": "❄️"
+    },
+    {
+     "de": "die Thräne",
+     "de_modern": "die Träne",
+     "pos": "n.f.",
+     "ipa": "ˈtʁɛːnə",
+     "en": "tear",
+     "ipa_en": "tɪɹ",
+     "ko": "눈물",
+     "rom_ko": "nunmul",
+     "icon": "💧"
+    },
+    {
+     "de": "das Papier",
+     "pos": "n.n.",
+     "ipa": "paˈpiːɐ̯",
+     "en": "paper",
+     "ipa_en": "ˈpeɪpɚ",
+     "ko": "종이",
+     "rom_ko": "jongi",
+     "icon": "📜"
+    }
+   ],
+   "note": {
+    "ko": "대관식으로 붐비는 프랑크푸르트에서 쓴 편지예요. 모차르트는 처남 호퍼와 함께 뵘의 집에 한 달 30플로린을 내고 묵었어요. ‘하느님의 눈’은 빈에서 베버 집안, 곧 콘스탄체네 식구가 살던 집이에요. 놀의 판에는 날짜가 편지 끝, 추신 앞에 적혀 있어요.",
+    "en": "Written in Frankfurt during the coronation crowds. Mozart lodged with Hofer at Böhm's, paying 30 florins a month. The 'Auge Gottes' was the house in Vienna where Constanze's family, the Webers, had lived. Nohl prints the date at the end, before the postscript.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 259 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Ich fange alle deine Busserl auf!",
+    "en": "I catch all your kisses!",
+    "ko": "네 뽀뽀, 내가 다 받을게!",
+    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "notice",
+     "text": {
+      "de": "Quartier bei Böhm, mit Hofer · 30 Fl. im Monat",
+      "en": "Lodging at Böhm's, with Hofer · 30 florins a month",
+      "ko": "호퍼와 함께 뵘의 집에 묵음 · 한 달 30플로린"
+     }
+    }
+   ],
+   "status": {
+    "de": "Kalt wie Eis",
+    "en": "Cold as ice",
+    "ko": "얼음장처럼"
+   },
+   "plate_hint": {
+    "idea": "Frankfurt cathedral (coronation church).",
+    "search": [
+     "Frankfurt Kaiserdom 18th century",
+     "Frankfurter Dom St. Bartholomäus Kupferstich",
+     "Frankfurt cathedral engraving"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c8-l6",
+   "wallace_no": 260,
+   "nohl_pages": [
+    462,
+    463
+   ],
+   "date": "1790-11",
+   "dateNote": "Nohl prints 'München Nov.mber 1790' (no day); Wallace 'Munich, Nov., 1790'.",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 260 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "München",
+   "to": {
+    "de": "Constanze",
+    "en": "his wife Constanze",
+    "ko": "콘스탄체"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Was mir das weh thut daß ich bis Linz warten muß um von Dir Nachricht zu haben das kannst Du nicht glauben.",
+     "en": "It does vex me to think that I must wait till I get to Linz to hear from you.",
+     "ko": "린츠까지 가야 네 소식을 들을 수 있다니, 그게 얼마나 속상한지 넌 모를 거야.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 260 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Was mir das weh thut / daß ich bis Linz warten muß / um von Dir Nachricht zu haben // das kannst Du nicht glauben.",
+      "en": "It does vex me to think / that I must wait till I get to Linz / to hear from you.",
+      "ko": "린츠까지 가야 네 소식을 들을 수 있다니, / 그게 얼마나 속상한지 넌 모를 거야."
+     }
+    },
+    {
+     "de": "… nun muß ich aber bis den 5. oder 6. bleiben, weil mich der Churfürst wegen des Königs von Neapel zur Academie gebeten hat. Das ist wirklich eine Distinction.",
+     "en": "… and now I am obliged to remain till the 5th or 6th, the Elector having requested me to attend the concert he is to give to the King of Naples. This is really a distinction.",
+     "ko": "… 그런데 5일이나 6일까지 머물러야 해. 선제후께서 나폴리 왕을 위한 연주회에 나를 불러 주셨거든. 이건 정말 영예야.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 260 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… nun muß ich aber bis den 5. oder 6. bleiben, / weil mich der Churfürst / wegen des Königs von Neapel / zur Academie gebeten hat. // Das ist wirklich eine Distinction.",
+      "en": "… and now I am obliged to remain till the 5th or 6th, / the Elector having requested me to attend the concert / he is to give to the King of Naples. // This is really a distinction.",
+      "ko": "… 그런데 5일이나 6일까지 머물러야 해. // 선제후께서 나폴리 왕을 위한 연주회에 나를 불러 주셨거든. // 이건 정말 영예야."
+     }
+    },
+    {
+     "de": "Daß ich mich mit Cannabich'schen, la bonne Ramm, Marchand und Borchard gut unterhalte und recht viel von Dir, meine Liebe, gesprochen wird, kannst Du Dir wohl einbilden.",
+     "en": "You can easily imagine how happy I have been with the Cannabichs, the worthy Ramm, Marchand, and Borchard, and how much, my love, we talked about you.",
+     "ko": "칸나비히 댁 식구들, 착한 람, 마르샹, 보르하르트와 얼마나 즐겁게 지내는지, 그리고 내 사랑, 네 얘기를 얼마나 많이 하는지 짐작이 가지?",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 260 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Daß ich mich mit Cannabich'schen, / la bonne Ramm, / Marchand und Borchard gut unterhalte und recht viel von Dir, / meine Liebe, / gesprochen wird, / kannst Du Dir wohl einbilden.",
+      "en": "You can easily imagine how happy I have been with the Cannabichs, / the worthy Ramm, / Marchand, / and Borchard, / and how much, / my love, / we talked about you.",
+      "ko": "칸나비히 댁 식구들, / 착한 람, / 마르샹, / 보르하르트와 얼마나 즐겁게 지내는지, / 그리고 내 사랑, / 네 얘기를 얼마나 많이 하는지 짐작이 가지?"
+     }
+    },
+    {
+     "de": "Ich habe im Sinne zu Ende künftigen Sommers diese Tour mit Dir, meine Liebe, zu machen, damit Du ein anderes Bad versuchest, dabei wird Dir auch die Unterhaltung, Motion und Luftveränderung gut thun, so wie es mir herrlich anschlägt …",
+     "en": "My idea is to make this same journey with you, my darling, towards the end of next summer, that you may try some other waters; besides, amusement, change of scene and air, and moving about will do you good, for it has agreed famously with me.",
+     "ko": "내년 여름이 끝날 무렵에 이 여행을 너랑 같이 할 생각이야, 내 사랑. 너도 다른 온천을 한번 써 보게. 게다가 기분 전환, 몸 움직이기, 공기 바꾸기가 너한테도 좋을 거야. 나한테 아주 잘 맞았던 것처럼.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 260 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Ich habe im Sinne / zu Ende künftigen Sommers / diese Tour mit Dir, / meine Liebe, / zu machen, // damit Du ein anderes Bad versuchest, / dabei wird Dir auch die Unterhaltung, / Motion und Luftveränderung gut thun, / so wie es mir herrlich anschlägt …",
+      "en": "My idea is to make this same journey with you, / my darling, / towards the end of next summer, / that you may try some other waters; // besides, / amusement, / change of scene and air, / and moving about will do you good, / for it has agreed famously with me.",
+      "ko": "내년 여름이 끝날 무렵에 이 여행을 너랑 같이 할 생각이야, / 내 사랑. // 너도 다른 온천을 한번 써 보게. // 게다가 기분 전환, / 몸 움직이기, / 공기 바꾸기가 너한테도 좋을 거야. // 나한테 아주 잘 맞았던 것처럼."
+     }
+    },
+    {
+     "de": "Nun muß ich zu Cannabich, denn es wird ein Concert probirt. Adieu, liebes Weibchen; auf diesen Brief kann ich nach meiner Rechnung keine Antwort hoffen.",
+     "en": "I must now be off to Cannabich's, where a concerto is to be tried over. Adieu, my darling wife! According to my calculation, I can receive no answer to this letter.",
+     "ko": "이제 칸나비히 댁에 가야 해. 협주곡을 맞춰 보기로 했거든. 잘 있어, 사랑하는 아내야. 내 계산으로는 이 편지에 답장을 받을 수는 없겠어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 260 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun muß ich zu Cannabich, / denn es wird ein Concert probirt. // Adieu, / liebes Weibchen; // auf diesen Brief kann ich nach meiner Rechnung keine Antwort hoffen.",
+      "en": "I must now be off to Cannabich's, / where a concerto is to be tried over. // Adieu, / my darling wife! // According to my calculation, / I can receive no answer to this letter.",
+      "ko": "이제 칸나비히 댁에 가야 해. // 협주곡을 맞춰 보기로 했거든. // 잘 있어, / 사랑하는 아내야. // 내 계산으로는 이 편지에 답장을 받을 수는 없겠어."
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "warten",
+     "pos": "v.",
+     "ipa": "ˈvaʁtn̩",
+     "en": "to wait",
+     "ipa_en": "tə weɪt",
+     "ko": "기다리다",
+     "rom_ko": "gidarida",
+     "icon": "⏳"
+    },
+    {
+     "de": "der König",
+     "pos": "n.m.",
+     "ipa": "ˈkøːnɪç",
+     "en": "king",
+     "ipa_en": "kɪŋ",
+     "ko": "왕",
+     "rom_ko": "wang",
+     "icon": "👑"
+    },
+    {
+     "de": "der Sommer",
+     "pos": "n.m.",
+     "ipa": "ˈzɔmɐ",
+     "en": "summer",
+     "ipa_en": "ˈsʌmɚ",
+     "ko": "여름",
+     "rom_ko": "yeoreum",
+     "icon": "☀️"
+    },
+    {
+     "de": "das Bad",
+     "pos": "n.n.",
+     "ipa": "baːt",
+     "en": "spa",
+     "ipa_en": "spɑ",
+     "ko": "온천",
+     "rom_ko": "oncheon",
+     "icon": "♨️"
+    },
+    {
+     "de": "die Antwort",
+     "pos": "n.f.",
+     "ipa": "ˈantvɔʁt",
+     "en": "answer",
+     "ipa_en": "ˈænsɚ",
+     "ko": "답장",
+     "rom_ko": "dapjang",
+     "icon": "📨"
+    }
+   ],
+   "note": {
+    "ko": "프랑크푸르트에서 돌아오는 길에 모차르트는 뮌헨에 들렀어요. 선제후가 나폴리 왕을 위한 연주회에 그를 불러 하루만 머물려던 계획이 길어졌어요. 칸나비히, 람, 마르샹은 만하임 시절부터의 오랜 친구들이에요. 편지에서 ‘내년 여름 끝’에 함께하자던 여행은 끝내 이루어지지 못했어요. 모차르트는 이듬해 12월에 세상을 떠나요.",
+    "en": "On the way home from Frankfurt Mozart stopped in Munich, where the Elector kept him for a concert for the King of Naples. Cannabich, Ramm and Marchand were old friends from his Mannheim days. The journey he planned for 'the end of next summer' never happened: Mozart died the following December.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 260 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Ja, nächsten Sommer reisen wir zusammen!",
+    "en": "Yes, next summer we travel together!",
+    "ko": "응, 내년 여름엔 같이 여행 가!",
+    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "notice",
+     "text": {
+      "de": "Academie für den König von Neapel · München, November 1790",
+      "en": "Concert for the King of Naples · Munich, November 1790",
+      "ko": "나폴리 왕을 위한 연주회 · 1790년 11월, 뮌헨"
+     }
+    }
+   ],
+   "status": {
+    "de": "Bei alten Freunden",
+    "en": "Among old friends",
+    "ko": "옛 친구들 곁에서"
+   },
+   "plate_hint": {
+    "idea": "Munich Residenz — callback to chapters II and IV (Cannabich, Ramm).",
+    "search": [
+     "Munich Residenz 18th century engraving",
+     "Münchner Residenz Kupferstich",
+     "Christian Cannabich portrait"
+    ],
+    "kind": "place"
+   }
+  },
+  {
+   "id": "c8-l7",
+   "wallace_no": 268,
+   "nohl_pages": [
+    473,
+    474,
+    475
+   ],
+   "date": "1791-10",
+   "dateNote": "Nohl heads it only 'Samstags Nachts um ½11 Uhr' (continued 'Sonntag um 7 frühe'); Wallace's contents give 'Oct. 1791'. Both editions print it after No. 267 (14 Oct. 1791); here it closes chapter VIII as the Saturday letter that appears to come before 267.",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 268 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Constanze",
+    "en": "his wife Constanze",
+    "ko": "콘스탄체"
+   },
+   "mood": "bright",
+   "messages": [
+    {
+     "de": "Mit größtem Vergnügen und Freudengefühle fand ich bei Zurückkunft aus der Oper Deinen Brief.",
+     "en": "On my return from the opera, to my great joy and delight, I found your letter.",
+     "ko": "오페라에서 돌아와 보니 네 편지가 와 있어서, 정말 기쁘고 즐거웠어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 268 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Mit größtem Vergnügen und Freudengefühle / fand ich bei Zurückkunft aus der Oper / Deinen Brief.",
+      "en": "On my return from the opera, / to my great joy and delight, / I found your letter.",
+      "ko": "오페라에서 돌아와 보니 / 네 편지가 와 있어서, / 정말 기쁘고 즐거웠어."
+     }
+    },
+    {
+     "de": "Morgen führe ich die Mama hinein; das Büchel hat ihr schon vorher Hofer zu lesen gegeben. Bei der Mama wirds wohl heißen, die schaut die Oper, aber nicht, die hört die Oper.",
+     "en": "To-morrow your mamma is to go with me; Hofer has given her the libretto to read previously. We may well say of mamma that she sees the opera, but not that she hears it!",
+     "ko": "내일은 장모님을 모시고 가. 호퍼가 미리 대본을 읽어 보시라고 드렸어. 장모님은 아마 오페라를 ‘보시긴’ 해도 ‘듣지는’ 않으실 거야.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 268 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Morgen führe ich die Mama hinein; // das Büchel hat ihr schon vorher Hofer zu lesen gegeben. // Bei der Mama wirds wohl heißen, / die schaut die Oper, / aber nicht, / die hört die Oper.",
+      "en": "To-morrow your mamma is to go with me; // Hofer has given her the libretto to read previously. // We may well say of mamma that she sees the opera, / but not that she hears it!",
+      "ko": "내일은 장모님을 모시고 가. // 호퍼가 미리 대본을 읽어 보시라고 드렸어. // 장모님은 아마 오페라를 ‘보시긴’ 해도 ‘듣지는’ 않으실 거야."
+     }
+    },
+    {
+     "de": "Nun ging ich auf das Theater bei der Arie des Papageno mit dem Glocken-Spiel, weil ich heute so einen Trieb fühlte, es selbst zu spielen.",
+     "en": "I went behind the scenes when Papageno's air accompanied by bells began, feeling such a strong impulse to play the bells myself for once.",
+     "ko": "파파게노가 글로켄슈필에 맞춰 부르는 아리아 때 무대 뒤로 갔어. 오늘은 그걸 내가 직접 쳐 보고 싶은 마음이 너무 들었거든.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 268 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Nun ging ich auf das Theater / bei der Arie des Papageno / mit dem Glocken-Spiel, // weil ich heute so einen Trieb fühlte, / es selbst zu spielen.",
+      "en": "I went behind the scenes / when Papageno's air accompanied by bells began, // feeling such a strong impulse / to play the bells myself for once.",
+      "ko": "파파게노가 글로켄슈필에 맞춰 부르는 아리아 때 무대 뒤로 갔어. // 오늘은 그걸 내가 직접 쳐 보고 싶은 마음이 너무 들었거든."
+     }
+    },
+    {
+     "de": "Uebrigens kannst Du nicht glauben, wie charmant man die Musik ausnimmt in einer Loge, die nahe am Orchester ist — viel besser als auf der Gallerie. Sobald Du zurückkommst, mußt Du es versuchen.",
+     "en": "You cannot think what a charming effect the music has from a box close to the orchestra, far better than from the gallery; as soon as you return you must try this.",
+     "ko": "그런데 오케스트라 가까운 칸막이 관람석에서 들으면 음악이 얼마나 근사한지 넌 상상도 못 할 거야. 위층 갤러리보다 훨씬 좋아. 돌아오면 꼭 들어 봐.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 268 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Uebrigens kannst Du nicht glauben, / wie charmant man die Musik ausnimmt in einer Loge, / die nahe am Orchester ist — / viel besser als auf der Gallerie. // Sobald Du zurückkommst, / mußt Du es versuchen.",
+      "en": "You cannot think what a charming effect the music has from a box close to the orchestra, / far better than from the gallery; // as soon as you return you must try this.",
+      "ko": "그런데 오케스트라 가까운 칸막이 관람석에서 들으면 음악이 얼마나 근사한지 넌 상상도 못 할 거야. // 위층 갤러리보다 훨씬 좋아. // 돌아오면 꼭 들어 봐."
+     }
+    },
+    {
+     "de": "Adieu. — Die Stunde schlägt — — lebe wohl! — wir sehen uns wieder!",
+     "en": "Adieu! \"The hour strikes! Farewell! We shall meet again!\"",
+     "ko": "안녕. — 시간이 됐어 — 잘 있어! — 우리 다시 만나!",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 268 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Adieu. // — Die Stunde schlägt — — / lebe wohl! // — wir sehen uns wieder!",
+      "en": "Adieu! // \"The hour strikes! // Farewell! // We shall meet again!\"",
+      "ko": "안녕. // — 시간이 됐어 — / 잘 있어! // — 우리 다시 만나!"
+     }
+    }
+   ],
+   "words": [
+    {
+     "de": "das Vergnügen",
+     "pos": "n.n.",
+     "ipa": "fɛɐ̯ˈɡnyːɡn̩",
+     "en": "pleasure",
+     "ipa_en": "ˈplɛʒɚ",
+     "ko": "기쁨",
+     "rom_ko": "gippeum",
+     "icon": "😊"
+    },
+    {
+     "de": "die Glocke",
+     "pos": "n.f.",
+     "ipa": "ˈɡlɔkə",
+     "en": "bell",
+     "ipa_en": "bɛl",
+     "ko": "종",
+     "rom_ko": "jong",
+     "icon": "🔔"
+    },
+    {
+     "de": "die Loge",
+     "pos": "n.f.",
+     "ipa": "ˈloːʒə",
+     "en": "box (in a theatre)",
+     "ipa_en": "bɑks",
+     "ko": "칸막이 관람석",
+     "rom_ko": "kanmagi gwallamseok",
+     "icon": "🎭"
+    },
+    {
+     "de": "das Orchester",
+     "pos": "n.n.",
+     "ipa": "ɔʁˈkɛstɐ",
+     "en": "orchestra",
+     "ipa_en": "ˈɔɹkəstɹə",
+     "ko": "오케스트라",
+     "rom_ko": "okeseuteura",
+     "icon": "🎻"
+    },
+    {
+     "de": "die Stunde",
+     "pos": "n.f.",
+     "ipa": "ˈʃtʊndə",
+     "en": "hour",
+     "ipa_en": "ˈaʊɚ",
+     "ko": "시간",
+     "rom_ko": "sigan",
+     "icon": "⏰"
+    }
+   ],
+   "note": {
+    "ko": "〈마술피리〉는 1791년 9월 30일에 처음 무대에 올랐고, 모차르트가 직접 피아노 앞에서 지휘했어요. 이 편지에서 그는 파파게노의 아리아 때 무대 뒤에서 글로켄슈필을 몰래 쳐서, 쉬카네더가 ‘입 다물어!’ 하는 바람에 객석이 웃음바다가 되었다고 전해요. 놀은 이 편지 끝의 ‘시간이 됐어 … 우리 다시 만나!’가 〈마술피리〉 삼중창의 가사이며, 모차르트가 편지로 남긴 마지막 말로 알려져 있다고 적었어요.",
+    "en": "Die Zauberflöte opened on 30 September 1791, with Mozart conducting at the keyboard. Here he tells how he slipped backstage during Papageno's bell aria and played the glockenspiel himself, until Schikaneder cried 'Halt's Maul!' and the house laughed. Nohl notes that the closing words come from the great trio of the Zauberflöte and are the last known words Mozart wrote in a letter.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 268 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "reply": {
+    "de": "Ich höre die Oper mit dir!",
+    "en": "I'll hear the opera with you!",
+    "ko": "오페라, 너랑 같이 들을게!",
+    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 2,
+     "type": "music",
+     "piece": {
+      "de": "Die Zauberflöte, KV 620 — Ouvertüre",
+      "en": "Die Zauberflöte, K. 620 — Overture",
+      "ko": "〈마술피리〉, K. 620 — 서곡"
+     },
+     "commons": "File:Mozart - Die Zauberflöte, K620 - Overture (Musopen Symphony).flac"
+    },
+    {
+     "after": 3,
+     "type": "weather",
+     "quote": "trau nur der Witterung nicht",
+     "text": {
+      "de": "Sonntag, 7 Uhr früh · Wetter in Baden unsicher",
+      "en": "Sunday, 7 a.m. · uncertain weather in Baden",
+      "ko": "일요일 아침 7시 · 바덴 날씨 조심"
+     }
+    }
+   ],
+   "status": {
+    "de": "Die Zauberflöte läuft",
+    "en": "The Magic Flute plays on",
+    "ko": "〈마술피리〉 상연 중"
+   },
+   "plate_hint": {
+    "idea": "Theater auf der Wieden / the 30 Sept. 1791 Zauberflöte playbill; a period glockenspiel.",
+    "search": [
+     "Zauberflöte Theaterzettel 1791",
+     "Theater auf der Wieden Wien",
+     "Papageno Schikaneder 1791 engraving"
+    ],
+    "kind": "era"
+   }
+  }
+ ]
+}

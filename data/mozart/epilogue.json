@@ -1,0 +1,87 @@
+{
+ "_doc": "맺음말: 1791년 10월 14일, 날짜가 적힌 모차르트의 마지막 편지 (놀 1865, Nr. 267, 471–473쪽, 쪽 사진과 맞춤). 독일어는 판의 표기 그대로, 영어는 월리스 1866, 한국어는 이 앱의 번역. 연습 없이 읽기 · 듣기만.",
+ "series": "mozart",
+ "chapter": "E",
+ "title_de": "Epilog",
+ "title_en": "Epilogue",
+ "title_ko": "맺음말",
+ "original": "de",
+ "letters": [
+  {
+   "id": "e1",
+   "wallace_no": 267,
+   "nohl_pages": [
+    471,
+    472,
+    473
+   ],
+   "date": "1791-10-14",
+   "dateNote": "Nohl prints the date at the end ('Den 14. October 1791').",
+   "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 267 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+   "place": "Wien",
+   "to": {
+    "de": "Constanze",
+    "en": "his wife Constanze",
+    "ko": "콘스탄체"
+   },
+   "mood": "tender",
+   "head": {
+    "de": "(Sein letzter datierter Brief, 14. October 1791)",
+    "en": "(His last dated letter, 14 October 1791)",
+    "ko": "(날짜가 적힌 마지막 편지, 1791년 10월 14일)"
+   },
+   "messages": [
+    {
+     "de": "Du kannst nicht glauben, wie artig beide waren, — wie sehr ihnen nicht nur meine Musik, sondern das Buch und alles zusammen gefiel.",
+     "en": "You can't conceive how polite both were, and how much pleased, not only with my music, but with the libretto, and in short with everything.",
+     "ko": "두 사람이 얼마나 친절했는지 넌 상상도 못 할 거야. 내 음악뿐 아니라 대본이며 뭐며 다 마음에 들어 했어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 267 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Du kannst nicht glauben, / wie artig beide waren, // — wie sehr ihnen nicht nur meine Musik, / sondern das Buch und alles zusammen gefiel.",
+      "en": "You can't conceive how polite both were, / and how much pleased, / not only with my music, / but with the libretto, / and in short with everything.",
+      "ko": "두 사람이 얼마나 친절했는지 넌 상상도 못 할 거야. // 내 음악뿐 아니라 대본이며 뭐며 다 마음에 들어 했어."
+     }
+    },
+    {
+     "de": "Er hörte und sah mit aller Aufmerksamkeit, und von der Sinfonie bis zum letzten Chor war kein Stück, welches ihm nicht ein bravo oder bello entlockte …",
+     "en": "Salieri both listened and looked attentively at everything, and from the symphony to the last chorus there was not a single piece that did not call forth from him a bravo! or bello!",
+     "ko": "살리에리는 온 정신을 기울여 듣고 보았어. 서곡부터 마지막 합창까지, 그한테서 ‘브라보!’나 ‘벨로!’가 안 나온 곡이 하나도 없었어.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 267 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "Er hörte und sah mit aller Aufmerksamkeit, // und von der Sinfonie bis zum letzten Chor / war kein Stück, / welches ihm nicht ein bravo oder bello entlockte …",
+      "en": "Salieri both listened and looked attentively at everything, // and from the symphony to the last chorus / there was not a single piece / that did not call forth from him / a bravo! or bello!",
+      "ko": "살리에리는 온 정신을 기울여 듣고 보았어. // 서곡부터 마지막 합창까지, / 그한테서 ‘브라보!’나 ‘벨로!’가 안 나온 곡이 하나도 없었어."
+     }
+    },
+    {
+     "de": "… heute hoffe aber gewiß Nachricht von Dir zu erhalten und morgen selbst mit Dir zu sprechen und Dich von Herzen zu küssen.",
+     "en": "But to-day I hope certainly to hear from you, and to-morrow to see you myself, and to embrace you from my heart.",
+     "ko": "… 그래도 오늘은 꼭 네 소식을 듣겠지. 그리고 내일은 직접 만나 이야기하고, 온 마음으로 너를 안아 줄 거야.",
+     "verified": true,
+     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 267 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
+     "speak": {
+      "de": "… heute hoffe aber gewiß / Nachricht von Dir zu erhalten // und morgen selbst mit Dir zu sprechen / und Dich von Herzen zu küssen.",
+      "en": "But to-day I hope certainly to hear from you, / and to-morrow to see you myself, / and to embrace you from my heart.",
+      "ko": "… 그래도 오늘은 꼭 네 소식을 듣겠지. // 그리고 내일은 직접 만나 이야기하고, / 온 마음으로 너를 안아 줄 거야."
+     }
+    }
+   ],
+   "note": {
+    "ko": "날짜가 적힌 모차르트의 마지막 편지예요. 그는 궁정 악장 살리에리와 가수 카발리에리를 마차로 데리러 가서 자기 칸막이 관람석에서 〈마술피리〉를 보여 주었고, 기숙학교에 있던 큰아들 카를도 오페라에 데려갔어요. 모차르트는 이해 12월 5일 빈에서 세상을 떠났어요.",
+    "en": "Mozart's last dated letter. He fetched Salieri and the singer Cavalieri in his carriage and showed them Die Zauberflöte from his box, and took his elder son Carl, then at boarding school, to the opera too. Mozart died in Vienna on 5 December 1791.",
+    "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 267 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
+   },
+   "plate_hint": {
+    "idea": "Portrait of Antonio Salieri, or the Theater auf der Wieden.",
+    "search": [
+     "Antonio Salieri portrait",
+     "Theater auf der Wieden",
+     "Freihaustheater Wien"
+    ],
+    "kind": "person"
+   }
+  }
+ ]
+}
