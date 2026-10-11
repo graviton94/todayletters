@@ -1,0 +1,1453 @@
+{
+ "_doc": "Chapter IV 초안 (v1). 프랑스어는 1914년판 『Brieven aan zijn broeder』(요 반 고흐-봉어 엮음, 공공 영역, archive.org 스캔) 230–250쪽을 옮긴 전사본에서 발췌함. 빈센트의 비표준 철자만 표준 프랑스어로 고침 (comfortable→confortable, chûte→chute, réflétait→reflétait, aie→ait, personelle→personnelle, prusse→Prusse, autre-part→autre part, 인명 Brias→Bruyas); 따옴표 ,,…''는 « … »로. 영어 · 한국어는 이 앱의 새 번역. 그림은 소장처가 직접 자유 사용(상업 포함)을 밝힌 것, 또는 위키미디어 공용의 공공 영역(PD-Art) 이미지.",
+ "series": "vincent",
+ "chapter": "IV",
+ "title_fr": "L’ami Gauguin",
+ "title_en": "Gauguin, My Friend",
+ "title_ko": "고갱과 함께",
+ "original": "fr",
+ "letters": [
+  {
+   "id": "c4-l1",
+   "date": "1888-10-20",
+   "dateNote": "Dated (20 October.) in the 1914 edition; the printed date is kept, although Gauguin reached Arles on 23 October 1888.",
+   "ref": "Brieven 1914, n° 557 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 557 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Merci de ta lettre et du billet de 50 fr. Comme tu l'as appris par ma dépêche Gauguin est arrivé en bonne santé. Il me fait même l'effet de se porter mieux que moi.",
+     "en": "Thanks for your letter and the 50-franc note. As you learned from my telegram, Gauguin has arrived in good health. He even strikes me as being in better shape than I am.",
+     "ko": "편지랑 50프랑 지폐 고마워. 내 전보로 알았겠지만, 고갱이 건강하게 도착했어. 오히려 나보다 더 건강해 보일 정도야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 557 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Merci de ta lettre / et du billet de 50 fr. // Comme tu l'as appris par ma dépêche / Gauguin est arrivé en bonne santé. // Il me fait même l'effet / de se porter mieux que moi."
+     }
+    },
+    {
+     "fr": "Il est très très intéressant comme homme, et j'ai toute confiance qu'avec lui nous ferons des tas de choses. Il produira probablement beaucoup ici, et peut-être j'espère moi aussi.",
+     "en": "He is very, very interesting as a man, and I have every confidence that with him we'll do heaps of things. He will probably produce a lot here, and perhaps, I hope, so will I.",
+     "ko": "사람으로서 정말, 정말 흥미로운 사람이야. 이 사람이랑 함께라면 많은 걸 해낼 거라고 굳게 믿어. 고갱은 여기서 아마 많이 그릴 거고, 나도 그랬으면 좋겠어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 557 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Il est très très intéressant comme homme, // et j'ai toute confiance / qu'avec lui / nous ferons des tas de choses. // Il produira probablement beaucoup ici, // et peut-être / j'espère moi aussi."
+     }
+    },
+    {
+     "fr": "Je n'y puis rien que mes tableaux ne se vendent pas. Le jour viendra cependant où l'on verra que cela vaut plus que le prix de la couleur et de ma vie en somme très maigre, que nous y mettons.",
+     "en": "I can't help it that my pictures don't sell. Yet the day will come when people will see that they are worth more than the price of the paint, and of my life, all in all a very lean one, that we put into them.",
+     "ko": "내 그림이 팔리지 않는 건 나도 어쩔 수가 없어. 그래도 언젠가는 사람들이 알게 될 거야. 그림이 우리가 들인 물감 값보다, 따지고 보면 무척 궁핍한 내 삶보다 더 값지다는 걸.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 557 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je n'y puis rien / que mes tableaux ne se vendent pas. // Le jour viendra cependant / où l'on verra que cela vaut plus / que le prix de la couleur / et de ma vie en somme très maigre, / que nous y mettons."
+     }
+    },
+    {
+     "fr": "Gauguin a apporté une magnifique toile, qu'il a échangé avec Bernard, des Bretonnes dans un pré vert — blanc, noir, vert, et une note rouge et les tons mats de la chair. Enfin ayons tous bon courage.",
+     "en": "Gauguin has brought a magnificent canvas that he swapped with Bernard: Breton women in a green meadow — white, black, green, and a note of red, and the matt tones of the flesh. Well, let's all keep our courage up.",
+     "ko": "고갱이 멋진 캔버스를 하나 가져왔어. 베르나르와 맞바꾼 그림인데, 초록 풀밭의 브르타뉴 여인들이야. 하양, 검정, 초록에 빨강 한 점, 그리고 무광의 살빛. 자, 우리 모두 힘내자.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 557 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Gauguin a apporté une magnifique toile, // qu'il a échangé avec Bernard, // des Bretonnes dans un pré vert // — blanc, noir, vert, / et une note rouge / et les tons mats de la chair. // Enfin ayons tous bon courage."
+     }
+    },
+    {
+     "fr": "Enfin je suis pressé et dois sortir pour me remettre au travail à une autre toile de trente.",
+     "en": "Anyway, I'm in a hurry and must go out to get back to work on another size-30 canvas.",
+     "ko": "아무튼 나 급해. 나가서 다른 30호 캔버스로 다시 작업하러 가야 해.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 557 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Enfin je suis pressé / et dois sortir / pour me remettre au travail / à une autre toile de trente."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "dépêche",
+     "pos": "n.f.",
+     "ipa": "depɛʃ",
+     "en": "telegram",
+     "ko": "전보",
+     "icon": "✉️"
+    },
+    {
+     "fr": "santé",
+     "pos": "n.f.",
+     "ipa": "sɑ̃te",
+     "en": "health",
+     "ko": "건강"
+    },
+    {
+     "fr": "couleur",
+     "pos": "n.f.",
+     "ipa": "kulœʁ",
+     "en": "colour, paint",
+     "ko": "색, 물감",
+     "icon": "🎨"
+    },
+    {
+     "fr": "pré",
+     "pos": "n.m.",
+     "ipa": "pʁe",
+     "en": "meadow",
+     "ko": "풀밭",
+     "icon": "🌿"
+    },
+    {
+     "fr": "toile",
+     "pos": "n.f.",
+     "ipa": "twal",
+     "en": "canvas",
+     "ko": "캔버스",
+     "icon": "🖼️"
+    }
+   ],
+   "note": {
+    "ko": "고갱은 1888년 10월 23일 아를에 도착했어요. 여기 실린 그림은 이 편지가 말하는 그림이 아니라, 고갱이 아를에 머물던 그해 12월에 그린 빈센트의 초상이에요. 해바라기를 그리는 빈센트를 고갱의 눈으로 보여 줘요. 편지 속 ‘초록 풀밭의 브르타뉴 여인들’은 에밀 베르나르의 그림으로, 두 화가가 서로 맞바꾼 캔버스예요.",
+    "en": "Gauguin arrived in Arles on 23 October 1888. The picture shown here is not one this letter talks about: it is Gauguin's portrait of Vincent, painted in Arles that December, showing him at work on sunflowers through Gauguin's eyes. The ‘Breton women in a green meadow’ of the letter is a canvas by Émile Bernard that the two painters had swapped.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 557 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_zonnebloemen_schilderend_-_s0225V1962_-_Van_Gogh_Museum.jpg"
+   },
+   "plate": {
+    "title_fr": "Van Gogh peignant des tournesols (Paul Gauguin)",
+    "title_en": "Van Gogh Painting Sunflowers (by Paul Gauguin)",
+    "title_ko": "해바라기를 그리는 반 고흐 (폴 고갱 그림)",
+    "date": "December 1888",
+    "collection": "Van Gogh Museum, Amsterdam · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_zonnebloemen_schilderend_-_s0225V1962_-_Van_Gogh_Museum.jpg",
+    "why": "Gauguin’s portrait of Vincent at work, painted in Arles during the weeks these letters cover; PD-Art from Wikimedia Commons.",
+    "image": "v557.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.13,
+      "y": 0.2,
+      "title": {
+       "fr": "La toile",
+       "en": "The canvas",
+       "ko": "캔버스"
+      },
+      "note": {
+       "ko": "화면 왼쪽 끝, 이젤에 걸린 캔버스. 편지 끝에서 빈센트는 ‘다른 30호 캔버스’로 작업하러 나가.",
+       "en": "The canvas on the easel at the far left. At the end of the letter Vincent hurries out to work on ‘another size-30 canvas’."
+      },
+      "word": {
+       "fr": "toile",
+       "en": "canvas",
+       "ko": "캔버스",
+       "ipa": "twal"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.37,
+      "y": 0.53,
+      "title": {
+       "fr": "Au travail",
+       "en": "At work",
+       "ko": "작업 중"
+      },
+      "note": {
+       "ko": "붓을 쥐고 캔버스로 뻗은 빈센트의 손.",
+       "en": "Vincent's hand, brush raised, reaching toward the canvas."
+      },
+      "word": {
+       "fr": "travail",
+       "en": "work",
+       "ko": "작업",
+       "ipa": "tʁavaj"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.62,
+      "y": 0.87,
+      "title": {
+       "fr": "La palette",
+       "en": "The palette",
+       "ko": "팔레트"
+      },
+      "note": {
+       "ko": "오른쪽 아래, 물감을 짠 팔레트. ‘물감 값’ 이야기가 편지에 나와.",
+       "en": "The palette at lower right, loaded with paint; the letter speaks of ‘the price of the paint’."
+      },
+      "word": {
+       "fr": "couleur",
+       "en": "paint",
+       "ko": "물감",
+       "ipa": "kulœʁ"
+      },
+      "quote": 2
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Salue bien Gauguin de ma part.",
+    "en": "Give Gauguin my regards.",
+    "ko": "고갱에게 내 안부 전해 줘, 형.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "transfer",
+     "amount": "50 francs",
+     "label": {
+      "fr": "Théo a envoyé",
+      "en": "Theo sent",
+      "ko": "테오가 보냄"
+     },
+     "memo": {
+      "fr": "Paris → Arles",
+      "en": "Paris → Arles",
+      "ko": "파리 → 아를"
+     },
+     "outgoing": false
+    },
+    {
+     "after": 0,
+     "type": "notice",
+     "text": {
+      "fr": "Gauguin est arrivé à Arles",
+      "en": "Gauguin has arrived in Arles",
+      "ko": "고갱이 아를에 도착했어"
+     }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "v557.jpg",
+     "caption": {
+      "fr": "Vincent peignant des tournesols, vu par Gauguin",
+      "en": "Vincent painting sunflowers, as Gauguin saw him",
+      "ko": "고갱이 본, 해바라기를 그리는 빈센트"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Gauguin est arrivé",
+    "en": "Gauguin has arrived",
+    "ko": "고갱이 왔어"
+   }
+  },
+  {
+   "id": "c4-l2",
+   "date": "1888-10-22",
+   "dateNote": "Dated (22 October.) in the 1914 edition; the printed date is kept, although Gauguin reached Arles on 23 October 1888.",
+   "ref": "Brieven 1914, n° 558 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 558 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "La maison marche fort fort bien et devient non seulement confortable mais aussi une maison d'artiste.",
+     "en": "The house is going very, very well, and is becoming not only comfortable but an artist's house as well.",
+     "ko": "집은 아주, 아주 잘 돌아가. 편안해질 뿐 아니라 화가의 집이 되어 가고 있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 558 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "La maison marche fort fort bien / et devient non seulement confortable / mais aussi une maison d'artiste."
+     }
+    },
+    {
+     "fr": "Nous ne dépenserons à deux pas plus de fr. 250 par mois. Et dépenserons beaucoup moins en couleur, puisque nous allons en faire nous-mêmes.",
+     "en": "The two of us won't spend more than 250 francs a month. And we'll spend much less on paint, since we're going to make it ourselves.",
+     "ko": "우리 둘이서 한 달에 250프랑 넘게는 안 쓸 거야. 물감에도 훨씬 덜 쓸 거고. 우리가 직접 만들 거니까.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 558 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Nous ne dépenserons à deux / pas plus de fr. 250 par mois. // Et dépenserons beaucoup moins en couleur, // puisque nous allons en faire nous-mêmes."
+     }
+    },
+    {
+     "fr": "Maintenant j'ose espérer en terminant, que dans 6 mois et Gauguin et toi et moi nous verrons que nous avons fondé un petit atelier qui durera et qui restera un poste ou une station nécessaire, au moins utile, pour tous ceux qui voudront voir le midi.",
+     "en": "Now, to finish, I dare hope that in 6 months Gauguin and you and I will see that we have founded a little studio that will last, and will remain a post or a station that is necessary, or at least useful, for all those who will want to see the South.",
+     "ko": "이제 끝으로 감히 바라 보는데, 여섯 달 뒤에는 고갱도 너도 나도 알게 될 거야. 우리가 오래갈 작은 작업실을 세웠다는 걸. 남쪽을 보고 싶어 하는 모든 이들에게 꼭 필요한, 적어도 쓸모 있는 거점이자 정거장으로 남을 작업실 말이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 558 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant j'ose espérer en terminant, // que dans 6 mois / et Gauguin et toi et moi / nous verrons que nous avons fondé un petit atelier / qui durera // et qui restera un poste ou une station nécessaire, // au moins utile, // pour tous ceux qui voudront voir le midi."
+     }
+    },
+    {
+     "fr": "Ce que pense G. de ma décoration en général je ne le sais pas encore, je sais seulement qu'il y a déjà quelques études qu'il aime réellement, ainsi le semeur, les tournesols, la chambre à coucher.",
+     "en": "What G. thinks of my decoration as a whole I don't know yet; I only know there are already a few studies he really likes, such as the sower, the sunflowers, the bedroom.",
+     "ko": "고갱이 내 장식 그림 전체를 어떻게 생각하는지는 아직 몰라. 다만 그가 정말 좋아하는 습작이 벌써 몇 점 있다는 건 알아. 씨 뿌리는 사람, 해바라기, 침실 같은 거.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 558 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Ce que pense G. de ma décoration en général / je ne le sais pas encore, // je sais seulement / qu'il y a déjà quelques études qu'il aime réellement, // ainsi le semeur, / les tournesols, / la chambre à coucher."
+     }
+    },
+    {
+     "fr": "J'ose croire que tu aimeras le nouveau semeur, j'écris en hâte nous avons des tas de travail…",
+     "en": "I dare believe you'll like the new sower; I'm writing in haste, we have heaps of work…",
+     "ko": "새로 그린 씨 뿌리는 사람, 네 마음에 들 거라고 믿어. 서둘러 쓰는 중이야. 우리 일이 산더미거든…",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 558 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ose croire / que tu aimeras le nouveau semeur, // j'écris en hâte / nous avons des tas de travail…"
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "maison",
+     "pos": "n.f.",
+     "ipa": "mɛzɔ̃",
+     "en": "house",
+     "ko": "집",
+     "icon": "🏠"
+    },
+    {
+     "fr": "atelier",
+     "pos": "n.m.",
+     "ipa": "atəlje",
+     "en": "studio",
+     "ko": "작업실"
+    },
+    {
+     "fr": "midi",
+     "pos": "n.m.",
+     "ipa": "midi",
+     "en": "the South (of France)",
+     "ko": "남쪽, 남프랑스",
+     "icon": "☀️"
+    },
+    {
+     "fr": "tournesol",
+     "pos": "n.m.",
+     "ipa": "tuʁnəsɔl",
+     "en": "sunflower",
+     "ko": "해바라기",
+     "icon": "🌻"
+    },
+    {
+     "fr": "semeur",
+     "pos": "n.m.",
+     "ipa": "səmœʁ",
+     "en": "sower",
+     "ko": "씨 뿌리는 사람"
+    }
+   ],
+   "note": {
+    "ko": "편지 끝에 나오는 ‘새 씨 뿌리는 사람’과 같은 시기, 1888년 가을에 그린 씨 뿌리는 사람 그림이에요. 편지가 가리키는 바로 그 캔버스인지는 편지만으로는 알 수 없어요. 빈센트는 고갱이 씨 뿌리는 사람, 해바라기, 침실 그림을 정말 좋아한다고 썼어요.",
+    "en": "A sower painted in autumn 1888, at the time of the ‘new sower’ mentioned at the end of the letter; the letter alone does not tell us whether it is that very canvas. Vincent writes that Gauguin really likes the sower, the sunflowers and the bedroom.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 558 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Le_Semeur_au_soleil_couchant_-_49_-_Foundation_E.G._Bührle_Collection.jpg"
+   },
+   "plate": {
+    "title_fr": "Le Semeur au soleil couchant",
+    "title_en": "The Sower (Sower with Setting Sun)",
+    "title_ko": "해 질 녘 씨 뿌리는 사람",
+    "date": "November 1888",
+    "collection": "Foundation E.G. Bührle Collection, Zürich · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Le_Semeur_au_soleil_couchant_-_49_-_Foundation_E.G._Bührle_Collection.jpg",
+    "why": "A “new sower” of autumn 1888 like the one the letter mentions; PD-Art from Wikimedia Commons.",
+    "image": "v558.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.22,
+      "y": 0.66,
+      "title": {
+       "fr": "Le semeur",
+       "en": "The sower",
+       "ko": "씨 뿌리는 사람"
+      },
+      "note": {
+       "ko": "해를 등지고 씨를 뿌리는 어두운 사람.",
+       "en": "A dark figure sowing, his back to the sun."
+      },
+      "word": {
+       "fr": "semeur",
+       "en": "sower",
+       "ko": "씨 뿌리는 사람",
+       "ipa": "səmœʁ"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.24,
+      "y": 0.37,
+      "title": {
+       "fr": "Le soleil jaune",
+       "en": "The yellow sun",
+       "ko": "노란 해"
+      },
+      "note": {
+       "ko": "크고 노란 해와 노란 하늘. 이제 둘은 물감을 직접 만들겠다고 해.",
+       "en": "A huge yellow sun in a yellow sky; now the two painters plan to make their own paint."
+      },
+      "word": {
+       "fr": "couleur",
+       "en": "paint",
+       "ko": "물감",
+       "ipa": "kulœʁ"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "J'ai hâte de voir le semeur.",
+    "en": "I can't wait to see the sower.",
+    "ko": "새 씨 뿌리는 사람, 얼른 보고 싶어.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "notice",
+     "text": {
+      "fr": "À deux, pas plus de 250 francs par mois",
+      "en": "Two of them, no more than 250 francs a month",
+      "ko": "둘이서 한 달에 250프랑 이하"
+     }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "v558.jpg",
+     "caption": {
+      "fr": "Le nouveau semeur",
+      "en": "The new sower",
+      "ko": "새 씨 뿌리는 사람"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Une maison d'artiste",
+    "en": "An artist's house",
+    "ko": "화가의 집"
+   }
+  },
+  {
+   "id": "c4-l3",
+   "date": "1888-11",
+   "dateNote": "Undated in the 1914 edition beyond its header (November.); written in Arles in November 1888.",
+   "ref": "Brieven 1914, n° 559 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 559 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Moi j'ai fait deux toiles d'une chute des feuilles, que Gauguin aimait je crois, et travaille actuellement à une vigne toute pourpre et jaune.",
+     "en": "I've done two canvases of falling leaves, which Gauguin liked, I think, and I'm now working on a vineyard all purple and yellow.",
+     "ko": "나는 낙엽 지는 풍경을 캔버스 두 점에 그렸어. 고갱도 좋아한 것 같아. 지금은 온통 자줏빛과 노란빛인 포도밭을 그리고 있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 559 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Moi j'ai fait deux toiles d'une chute des feuilles, // que Gauguin aimait je crois, // et travaille actuellement / à une vigne toute pourpre et jaune."
+     }
+    },
+    {
+     "fr": "Ensuite j'ai enfin une Arlésienne, une figure (toile de 30) sabrée dans une heure, fond citron pâle, le visage gris, l'habillement noir, noir noir, du bleu de Prusse tout cru.",
+     "en": "Then at last I have an Arlésienne, a figure (size-30 canvas) slashed off in an hour: pale lemon background, grey face, the clothes black, black black, raw Prussian blue.",
+     "ko": "그리고 드디어 아를의 여인을 그렸어. 30호 캔버스에 한 시간 만에 휘둘러 그린 인물화야. 바탕은 옅은 레몬색, 얼굴은 회색, 옷은 검정, 검정 또 검정, 날것 그대로의 프러시안 블루.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 559 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Ensuite j'ai enfin une Arlésienne, // une figure (toile de 30) / sabrée dans une heure, // fond citron pâle, / le visage gris, / l'habillement noir, / noir noir, // du bleu de Prusse tout cru."
+     }
+    },
+    {
+     "fr": "Nous travaillons beaucoup et la vie à deux marche très bien. Je suis bien heureux de savoir que tu n'es pas seul dans l'appartement.",
+     "en": "We're working hard and life together is going very well. I'm very glad to know you're not alone in the apartment.",
+     "ko": "우리 둘 다 열심히 일하고, 둘이 사는 것도 아주 잘 돼 가. 네가 아파트에 혼자 있지 않다니 정말 기뻐.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 559 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Nous travaillons beaucoup / et la vie à deux marche très bien. // Je suis bien heureux de savoir / que tu n'es pas seul dans l'appartement."
+     }
+    },
+    {
+     "fr": "Or le sol est couvert, comme d'un tapis, par une couche épaisse de feuilles orangées et jaunes tombées. Comme des flocons de neige il en tombe toujours encore.",
+     "en": "And the ground is covered, as if by a carpet, with a thick layer of fallen orange and yellow leaves. They keep on falling, like snowflakes.",
+     "ko": "그리고 땅은 양탄자를 깐 듯, 떨어진 주황빛, 노란빛 잎으로 두껍게 덮여 있어. 눈송이처럼 잎이 지금도 계속 떨어져.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 559 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Or le sol est couvert, // comme d'un tapis, / par une couche épaisse / de feuilles orangées et jaunes tombées. // Comme des flocons de neige / il en tombe toujours encore."
+     }
+    },
+    {
+     "fr": "Mais dimanche si tu avais été avec nous, nous avons vu une vigne rouge, toute rouge comme du vin rouge. Dans le lointain elle devenait jaune, et puis un ciel vert avec un soleil, des terrains, après la pluie, violets et scintillant jaune par ci par là où se reflétait le soleil couchant.",
+     "en": "But on Sunday, if only you'd been with us: we saw a red vineyard, all red like red wine. In the distance it turned yellow, and then a green sky with a sun, and the ground, after the rain, violet and glittering yellow here and there where the setting sun was reflected.",
+     "ko": "그런데 일요일에 너도 같이 있었더라면! 붉은 포도밭을 봤어. 레드 와인처럼 온통 붉은 포도밭. 멀리서는 노랗게 변하고, 그 위로 해가 걸린 초록 하늘, 그리고 비 온 뒤의 보랏빛 땅이 지는 해가 비치는 곳마다 여기저기 노랗게 반짝였어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 559 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mais dimanche si tu avais été avec nous, // nous avons vu une vigne rouge, / toute rouge comme du vin rouge. // Dans le lointain elle devenait jaune, // et puis un ciel vert avec un soleil, // des terrains, / après la pluie, / violets / et scintillant jaune par ci par là / où se reflétait le soleil couchant."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "vigne",
+     "pos": "n.f.",
+     "ipa": "viɲ",
+     "en": "vineyard, vine",
+     "ko": "포도밭",
+     "icon": "🍇"
+    },
+    {
+     "fr": "feuille",
+     "pos": "n.f.",
+     "ipa": "fœj",
+     "en": "leaf",
+     "ko": "잎",
+     "icon": "🍂"
+    },
+    {
+     "fr": "tapis",
+     "pos": "n.m.",
+     "ipa": "tapi",
+     "en": "carpet",
+     "ko": "양탄자"
+    },
+    {
+     "fr": "neige",
+     "pos": "n.f.",
+     "ipa": "nɛʒ",
+     "en": "snow",
+     "ko": "눈",
+     "icon": "❄️"
+    },
+    {
+     "fr": "vin",
+     "pos": "n.m.",
+     "ipa": "vɛ̃",
+     "en": "wine",
+     "ko": "와인, 포도주",
+     "icon": "🍷"
+    }
+   ],
+   "note": {
+    "ko": "편지 끝에서 빈센트가 테오에게 들려주는 ‘레드 와인처럼 온통 붉은 포도밭’을 그린 그림이에요. 이 그림은 1890년 브뤼셀의 ‘20인회’ 전시에서 화가 안나 보흐가 샀어요. 편지 속 아를의 여인은 아를의 카페 주인 지누 부인이에요.",
+    "en": "This is the vineyard Vincent describes to Theo at the end of the letter, ‘all red like red wine’. The painting was bought by the painter Anna Boch at the exhibition of Les XX in Brussels in 1890. The Arlésienne of the letter is Madame Ginoux, who kept a café in Arles.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 559 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Red_Vineyard_at_Arles_(1888).jpg"
+   },
+   "plate": {
+    "title_fr": "La Vigne rouge",
+    "title_en": "The Red Vineyard",
+    "title_ko": "붉은 포도밭",
+    "date": "November 1888",
+    "collection": "Pushkin State Museum of Fine Arts, Moscow · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Red_Vineyard_at_Arles_(1888).jpg",
+    "why": "The red vineyard the letter describes (“toute rouge comme du vin rouge”); PD-Art from Wikimedia Commons.",
+    "image": "v559.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.3,
+      "y": 0.42,
+      "title": {
+       "fr": "La vigne rouge",
+       "en": "The red vineyard",
+       "ko": "붉은 포도밭"
+      },
+      "note": {
+       "ko": "포도를 따는 사람들 사이로 불타듯 붉은 포도밭. ‘레드 와인처럼 온통 붉은’.",
+       "en": "The vines blaze red around the grape pickers: ‘all red like red wine’."
+      },
+      "word": {
+       "fr": "vigne",
+       "en": "vineyard",
+       "ko": "포도밭",
+       "ipa": "viɲ"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.8,
+      "y": 0.06,
+      "title": {
+       "fr": "Le soleil",
+       "en": "The sun",
+       "ko": "해"
+      },
+      "note": {
+       "ko": "초록빛이 도는 노란 하늘에 걸린 하얀 해.",
+       "en": "A white sun hanging in the yellow-green sky."
+      },
+      "word": {
+       "fr": "soleil",
+       "en": "sun",
+       "ko": "해",
+       "ipa": "sɔlɛj"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.84,
+      "y": 0.35,
+      "title": {
+       "fr": "Les reflets",
+       "en": "The reflections",
+       "ko": "반짝이는 빛"
+      },
+      "note": {
+       "ko": "비 온 뒤 길 위로 지는 해가 노랗게 비쳐.",
+       "en": "After the rain, the setting sun is reflected yellow on the wet ground."
+      },
+      "word": {
+       "fr": "soleil couchant",
+       "en": "setting sun",
+       "ko": "지는 해",
+       "ipa": "sɔlɛj kuʃɑ̃"
+      },
+      "quote": 4
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Je voudrais voir cette vigne rouge.",
+    "en": "I'd like to see that red vineyard.",
+    "ko": "그 붉은 포도밭, 나도 보고 싶어.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "transfer",
+     "amount": "100 francs",
+     "label": {
+      "fr": "Théo a envoyé",
+      "en": "Theo sent",
+      "ko": "테오가 보냄"
+     },
+     "memo": {
+      "fr": "Paris → Arles",
+      "en": "Paris → Arles",
+      "ko": "파리 → 아를"
+     },
+     "outgoing": false
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "v559b.jpg",
+     "caption": {
+      "fr": "L'Arlésienne (Madame Ginoux)",
+      "en": "The Arlésienne (Madame Ginoux)",
+      "ko": "아를의 여인 (지누 부인)"
+     }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "v559.jpg",
+     "caption": {
+      "fr": "La vigne rouge",
+      "en": "The red vineyard",
+      "ko": "붉은 포도밭"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Une vigne toute rouge",
+    "en": "A vineyard all red",
+    "ko": "온통 붉은 포도밭"
+   }
+  },
+  {
+   "id": "c4-l4",
+   "date": "1888-11",
+   "dateNote": "Undated in the 1914 edition beyond its header (November.); written in Arles in November 1888.",
+   "ref": "Brieven 1914, n° 560 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 560 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "tender",
+   "messages": [
+    {
+     "fr": "Nos journées se passent à travailler, travailler toujours, le soir nous sommes éreintés et nous allons au café, pour nous coucher de bonne heure après ! Voilà l'existence.",
+     "en": "Our days go by in working, working all the time; in the evening we're worn out and we go to the café, and then to bed early! That's our life.",
+     "ko": "우리 하루는 일하고, 또 일하면서 지나가. 저녁이면 녹초가 돼서 카페에 갔다가 일찍 잠자리에 들어! 이게 우리 사는 모습이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 560 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Nos journées se passent à travailler, / travailler toujours, // le soir nous sommes éreintés / et nous allons au café, / pour nous coucher de bonne heure après ! // Voilà l'existence."
+     }
+    },
+    {
+     "fr": "Mais j'ai fait des portraits de toute une famille, celle du facteur dont j'ai déjà précédemment fait la tête — l'homme, la femme, le bébé, le jeune garçon, et le fils de 16 ans, tous des types et bien français quoique cela ait l'air d'être des Russes.",
+     "en": "But I've done portraits of a whole family, that of the postman whose head I had already done before — the man, the wife, the baby, the young boy and the 16-year-old son, all of them real types and very French, though they look like Russians.",
+     "ko": "그런데 한 가족 전부의 초상을 그렸어. 전에 얼굴을 그린 적 있는 우편배달부네 가족이야. 남편, 아내, 아기, 어린 아들, 그리고 열여섯 살 큰아들. 다들 개성 있고 정말 프랑스 사람다운데, 꼭 러시아 사람들처럼 보여.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 560 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mais j'ai fait des portraits de toute une famille, // celle du facteur / dont j'ai déjà précédemment fait la tête // — l'homme, / la femme, / le bébé, / le jeune garçon, / et le fils de 16 ans, // tous des types et bien français / quoique cela ait l'air d'être des Russes."
+     }
+    },
+    {
+     "fr": "Et si j'arrive à faire encore mieux toute cette famille-là j'aurai fait au moins une chose à mon goût et personnelle.",
+     "en": "And if I manage to do that whole family even better, I'll have done at least one thing to my taste and my own.",
+     "ko": "그 가족을 더 잘 그려 낼 수 있다면, 적어도 하나는 내 마음에 들고 나다운 걸 해낸 셈이 될 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 560 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Et si j'arrive à faire encore mieux / toute cette famille-là // j'aurai fait au moins une chose / à mon goût et personnelle."
+     }
+    },
+    {
+     "fr": "Si nous pouvons tenir le siège, un jour de victoire viendra pour nous, quand bien même qu'on ne serait pas dans les gens desquels on parle.",
+     "en": "If we can hold out through the siege, a day of victory will come for us, even if we are not among the people who are talked about.",
+     "ko": "우리가 이 포위를 버텨 낼 수만 있다면, 우리에게도 승리의 날이 올 거야. 사람들 입에 오르내리는 축에 끼지 못한다 해도 말이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 560 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Si nous pouvons tenir le siège, // un jour de victoire viendra pour nous, // quand bien même / qu'on ne serait pas dans les gens / desquels on parle."
+     }
+    },
+    {
+     "fr": "Gauguin travaille beaucoup, j'aime beaucoup une nature morte à fond et avant plan jaunes, il a en train un portrait de moi que je ne compte pas dans ses entreprises sans issue…",
+     "en": "Gauguin is working a lot. I very much like a still life of his with a yellow background and foreground; he has a portrait of me under way that I don't count among his dead-end ventures…",
+     "ko": "고갱은 많이 그려. 바탕도 앞쪽도 노란 정물화 한 점이 난 무척 좋아. 그리고 내 초상화를 그리고 있는데, 그건 헛수고로 끝날 작업이라고는 생각하지 않아…",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 560 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Gauguin travaille beaucoup, // j'aime beaucoup une nature morte / à fond et avant plan jaunes, // il a en train un portrait de moi / que je ne compte pas / dans ses entreprises sans issue…"
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "facteur",
+     "pos": "n.m.",
+     "ipa": "faktœʁ",
+     "en": "postman",
+     "ko": "우편배달부",
+     "icon": "📮"
+    },
+    {
+     "fr": "bébé",
+     "pos": "n.m.",
+     "ipa": "bebe",
+     "en": "baby",
+     "ko": "아기",
+     "icon": "👶"
+    },
+    {
+     "fr": "famille",
+     "pos": "n.f.",
+     "ipa": "famij",
+     "en": "family",
+     "ko": "가족"
+    },
+    {
+     "fr": "portrait",
+     "pos": "n.m.",
+     "ipa": "pɔʁtʁɛ",
+     "en": "portrait",
+     "ko": "초상화",
+     "icon": "🖼️"
+    },
+    {
+     "fr": "victoire",
+     "pos": "n.f.",
+     "ipa": "viktwaʁ",
+     "en": "victory",
+     "ko": "승리"
+    }
+   ],
+   "note": {
+    "ko": "편지에서 말하는 우편배달부 조제프 룰랭의 가족 초상 가운데 한 점이에요. 아기는 그해 여름에 태어난 막내 마르셀이고, 오른쪽에서 아기를 안고 있는 사람이 엄마 오귀스틴이에요. 편지 끝에서 빈센트가 말한 ‘고갱이 그리고 있는 내 초상’은 이 장 첫 편지에 실린 해바라기를 그리는 빈센트예요.",
+    "en": "One of the portraits of the family of the postman Joseph Roulin that the letter mentions. The baby is Marcelle, the youngest, born that summer; the woman holding her at the right is her mother, Augustine. The ‘portrait of me’ Gauguin is working on, at the end of the letter, is the picture of Vincent painting sunflowers shown with the first letter of this chapter.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 560 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.metmuseum.org/art/collection/search/459123"
+   },
+   "plate": {
+    "title_fr": "Madame Roulin et son bébé",
+    "title_en": "Madame Roulin and Her Baby",
+    "title_ko": "룰랭 부인과 아기",
+    "date": "1888",
+    "collection": "The Metropolitan Museum of Art, New York · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/459123",
+    "why": "One of the portraits of the postman’s family the letter mentions; the Met releases it under CC0.",
+    "image": "v560.jpg",
+    "spots": [
+     {
+      "x": 0.42,
+      "y": 0.32,
+      "title": {
+       "fr": "Le bébé",
+       "en": "The baby",
+       "ko": "아기"
+      },
+      "note": {
+       "ko": "하얀 옷과 모자를 쓴 아기가 똑바로 앞을 봐.",
+       "en": "The baby in a white dress and bonnet looks straight out at us."
+      },
+      "word": {
+       "fr": "bébé",
+       "en": "baby",
+       "ko": "아기",
+       "ipa": "bebe"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.82,
+      "y": 0.2,
+      "title": {
+       "fr": "La mère",
+       "en": "The mother",
+       "ko": "엄마"
+      },
+      "note": {
+       "ko": "오른쪽에서 고개를 숙이고 아기를 받쳐 안은 룰랭의 아내.",
+       "en": "At the right, Roulin's wife bends her head and holds the baby up."
+      },
+      "word": {
+       "fr": "femme",
+       "en": "wife",
+       "ko": "아내",
+       "ipa": "fam"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Embrasse le bébé Roulin pour moi.",
+    "en": "Give the Roulin baby a kiss for me.",
+    "ko": "룰랭네 아기, 나 대신 꼭 안아 줘.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "transfer",
+     "amount": "100 francs",
+     "label": {
+      "fr": "Théo a envoyé",
+      "en": "Theo sent",
+      "ko": "테오가 보냄"
+     },
+     "memo": {
+      "fr": "Paris → Arles",
+      "en": "Paris → Arles",
+      "ko": "파리 → 아를"
+     },
+     "outgoing": false
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "v560.jpg",
+     "caption": {
+      "fr": "Madame Roulin et son bébé",
+      "en": "Madame Roulin and her baby",
+      "ko": "룰랭 부인과 아기"
+     }
+    },
+    {
+     "after": 4,
+     "type": "notice",
+     "text": {
+      "fr": "Gauguin peint un portrait de Vincent",
+      "en": "Gauguin is painting a portrait of Vincent",
+      "ko": "고갱이 빈센트의 초상을 그리는 중"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Toute la famille du facteur",
+    "en": "The postman's whole family",
+    "ko": "우편배달부네 온 가족"
+   }
+  },
+  {
+   "id": "c4-l5",
+   "date": "1888-12",
+   "dateNote": "Undated in the 1914 edition beyond its header (December.); written in Arles in December 1888.",
+   "ref": "Brieven 1914, n° 563 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 563 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Gauguin malgré lui et malgré moi m'a un peu démontré qu'il était temps que je varie un peu, je commence à composer de tête, et pour ce travail-là toutes mes études me seront toujours utiles, lorsqu'elles me rappelleront d'anciennes choses vues.",
+     "en": "Gauguin, in spite of himself and in spite of me, has shown me a little that it was time I varied things a bit. I'm starting to compose from memory, and for that work all my studies will always be useful to me, when they remind me of things seen long ago.",
+     "ko": "고갱이 본의 아니게, 나도 모르는 새에, 이제 조금 변화를 줄 때라는 걸 보여 줬어. 그래서 머릿속으로 구성하는 걸 시작했어. 그런 작업엔 내 습작들이 언제나 쓸모 있을 거야. 예전에 본 것들을 떠올리게 해 줄 테니까.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 563 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Gauguin malgré lui et malgré moi / m'a un peu démontré / qu'il était temps que je varie un peu, // je commence à composer de tête, // et pour ce travail-là / toutes mes études me seront toujours utiles, // lorsqu'elles me rappelleront / d'anciennes choses vues."
+     }
+    },
+    {
+     "fr": "Gauguin me disait l'autre jour, qu'il avait vu de Claude Monet un tableau de tournesols dans un grand vase japonais très beau, mais — il aime mieux les miens. Je ne suis pas de cet avis…",
+     "en": "Gauguin was telling me the other day that he had seen a picture of sunflowers by Claude Monet in a big Japanese vase, very beautiful, but — he prefers mine. I don't agree…",
+     "ko": "고갱이 며칠 전에 그러더라. 클로드 모네가 커다란 일본 꽃병에 꽂힌 해바라기를 그린 그림을 봤는데 아주 아름다웠대. 그런데 내 해바라기가 더 좋대. 난 그렇게 생각 안 해…",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 563 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Gauguin me disait l'autre jour, / qu'il avait vu de Claude Monet / un tableau de tournesols / dans un grand vase japonais / très beau, // mais — il aime mieux les miens. // Je ne suis pas de cet avis…"
+     }
+    },
+    {
+     "fr": "Si à quarante ans je fais un tableau de figures tel que les fleurs dont parlait Gauguin, j'aurai une position d'artiste à côté de n'importe qui. Donc persévérance.",
+     "en": "If at forty I make a picture of figures like the flowers Gauguin was talking about, I'll hold a position as an artist beside anybody. So, perseverance.",
+     "ko": "마흔 살에 고갱이 말한 그 꽃 그림만 한 인물화를 그린다면, 나도 누구와 나란히 서도 손색없는 화가가 될 거야. 그러니 끈기 있게.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 563 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Si à quarante ans / je fais un tableau de figures / tel que les fleurs dont parlait Gauguin, // j'aurai une position d'artiste / à côté de n'importe qui. // Donc persévérance."
+     }
+    },
+    {
+     "fr": "En attendant je peux toujours te dire que les deux dernières études sont assez drôles. Toiles de 30, une chaise en bois et en paille toute jaune sur des carreaux rouges contre un mur (le jour).",
+     "en": "Meanwhile I can tell you that the last two studies are rather odd. Size-30 canvases: a wooden chair with a straw seat, all yellow, on red tiles against a wall (daytime).",
+     "ko": "그동안 그린 마지막 습작 두 점이 꽤 재미있어. 30호 캔버스야. 하나는 온통 노란 나무 의자인데, 짚으로 엮은 자리에 빨간 타일 바닥, 벽에 붙어 있어 (낮).",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 563 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "En attendant je peux toujours te dire / que les deux dernières études sont assez drôles. // Toiles de 30, // une chaise en bois et en paille / toute jaune / sur des carreaux rouges / contre un mur (le jour)."
+     }
+    },
+    {
+     "fr": "Ensuite le fauteuil de Gauguin rouge et vert, effet de nuit, mur et plancher rouge et vert aussi, sur le siège deux romans et une chandelle.",
+     "en": "Then Gauguin's armchair, red and green, a night effect, wall and floor red and green too, on the seat two novels and a candle.",
+     "ko": "그다음은 고갱의 팔걸이의자. 빨강과 초록, 밤 풍경이야. 벽과 바닥도 빨강과 초록이고, 의자 위엔 소설책 두 권과 촛불 하나.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 563 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Ensuite le fauteuil de Gauguin / rouge et vert, / effet de nuit, // mur et plancher / rouge et vert aussi, // sur le siège / deux romans et une chandelle."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "chaise",
+     "pos": "n.f.",
+     "ipa": "ʃɛz",
+     "en": "chair",
+     "ko": "의자",
+     "icon": "🪑"
+    },
+    {
+     "fr": "paille",
+     "pos": "n.f.",
+     "ipa": "paj",
+     "en": "straw",
+     "ko": "짚"
+    },
+    {
+     "fr": "carreau",
+     "pos": "n.m.",
+     "ipa": "kaʁo",
+     "en": "floor tile",
+     "ko": "타일"
+    },
+    {
+     "fr": "fauteuil",
+     "pos": "n.m.",
+     "ipa": "fotœj",
+     "en": "armchair",
+     "ko": "팔걸이의자"
+    },
+    {
+     "fr": "chandelle",
+     "pos": "n.f.",
+     "ipa": "ʃɑ̃dɛl",
+     "en": "candle",
+     "ko": "초",
+     "icon": "🕯️"
+    }
+   ],
+   "note": {
+    "ko": "편지에서 ‘낮’이라고 적은 바로 그 그림, 빨간 타일 위에 놓인 노란 의자예요. 빈센트는 이 그림을 밤 풍경인 고갱의 팔걸이의자 그림과 짝으로 그렸어요. 짚 의자 위에는 파이프와 담배가 놓여 있어요.",
+    "en": "This is the very canvas the letter marks ‘daytime’: the yellow chair on red tiles. Vincent painted it as a pair with the night scene of Gauguin's armchair. On the straw seat lie a pipe and tobacco.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 563 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_138.jpg"
+   },
+   "plate": {
+    "title_fr": "La Chaise de Vincent",
+    "title_en": "Van Gogh’s Chair",
+    "title_ko": "빈센트의 의자",
+    "date": "November–December 1888",
+    "collection": "The National Gallery, London · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_138.jpg",
+    "why": "The yellow chair on red tiles the letter describes; PD-Art from Wikimedia Commons.",
+    "image": "v563.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.38,
+      "y": 0.22,
+      "title": {
+       "fr": "La chaise",
+       "en": "The chair",
+       "ko": "의자"
+      },
+      "note": {
+       "ko": "등받이 살이 셋인 소박한 나무 의자, 온통 노랑.",
+       "en": "A plain wooden chair with three back rails, all yellow."
+      },
+      "word": {
+       "fr": "chaise",
+       "en": "chair",
+       "ko": "의자",
+       "ipa": "ʃɛz"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.58,
+      "y": 0.4,
+      "title": {
+       "fr": "La paille",
+       "en": "The straw seat",
+       "ko": "짚으로 엮은 자리"
+      },
+      "note": {
+       "ko": "짚으로 엮은 자리 위에 파이프와 담배.",
+       "en": "A pipe and tobacco on the woven straw seat."
+      },
+      "word": {
+       "fr": "paille",
+       "en": "straw",
+       "ko": "짚",
+       "ipa": "paj"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.75,
+      "y": 0.85,
+      "title": {
+       "fr": "Les carreaux rouges",
+       "en": "The red tiles",
+       "ko": "빨간 타일"
+      },
+      "note": {
+       "ko": "의자 아래 붉은 타일 바닥.",
+       "en": "The red tiled floor under the chair."
+      },
+      "word": {
+       "fr": "carreaux",
+       "en": "tiles",
+       "ko": "타일",
+       "ipa": "kaʁo"
+      },
+      "quote": 3
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Envoie-moi un croquis de ta chaise.",
+    "en": "Send me a sketch of your chair.",
+    "ko": "형 의자, 스케치로 보내 줘.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "v563.jpg",
+     "caption": {
+      "fr": "La chaise de Vincent (le jour)",
+      "en": "Vincent's chair (daytime)",
+      "ko": "빈센트의 의자 (낮)"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Une chaise toute jaune",
+    "en": "A chair all yellow",
+    "ko": "온통 노란 의자"
+   }
+  },
+  {
+   "id": "c4-l6",
+   "date": "1888-12",
+   "dateNote": "Undated in the 1914 edition; December 1888, between letters 563 (December.) and 565 (23 December.).",
+   "ref": "Brieven 1914, n° 564 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 564 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Gauguin et moi avons hier été à Montpellier pour y voir le musée et surtout la salle Bruyas.",
+     "en": "Gauguin and I went to Montpellier yesterday to see the museum there, and above all the Bruyas room.",
+     "ko": "고갱이랑 나, 어제 몽펠리에에 가서 미술관을 봤어. 무엇보다 브뤼야스 전시실을.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 564 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Gauguin et moi / avons hier été à Montpellier / pour y voir le musée / et surtout la salle Bruyas."
+     }
+    },
+    {
+     "fr": "Dans le portrait de Delacroix c'est un monsieur à barbe et cheveux roux, qui a bigrement de la ressemblance avec toi ou avec moi, et qui m'a fait penser à cette poésie de Musset.",
+     "en": "In Delacroix's portrait he is a gentleman with a red beard and red hair, who looks damned like you or me, and who made me think of that poem by Musset.",
+     "ko": "들라크루아가 그린 초상 속 그는 붉은 수염에 붉은 머리를 한 신사인데, 너나 나랑 지독하게 닮았어. 그래서 뮈세의 그 시가 떠올랐어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 564 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Dans le portrait de Delacroix / c'est un monsieur à barbe et cheveux roux, // qui a bigrement de la ressemblance / avec toi ou avec moi, // et qui m'a fait penser / à cette poésie de Musset."
+     }
+    },
+    {
+     "fr": "« partout où j'ai touché la terre — un malheureux vêtu de noir, auprès de nous venait s'asseoir, qui nous regardait comme un frère. »",
+     "en": "‘wherever I have touched the earth — an unhappy man dressed in black came to sit down beside us, who looked at us like a brother.’",
+     "ko": "“내가 땅을 디딘 곳마다 — 검은 옷을 입은 불행한 사람 하나가 우리 곁에 와 앉아, 형제처럼 우리를 바라보았네.”",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 564 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "« partout où j'ai touché la terre // — un malheureux vêtu de noir, / auprès de nous venait s'asseoir, // qui nous regardait comme un frère. »"
+     }
+    },
+    {
+     "fr": "La discussion est d'une électricité excessive, nous en sortons parfois la tête fatiguée comme une batterie électrique après la décharge.",
+     "en": "The discussion is excessively electric; sometimes we come out of it with our heads as tired as an electric battery after discharging.",
+     "ko": "우리 토론은 지나치게 전기가 흘러. 가끔은 끝나고 나면 머리가 방전된 전지처럼 지쳐 있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 564 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "La discussion est d'une électricité excessive, // nous en sortons parfois / la tête fatiguée / comme une batterie électrique / après la décharge."
+     }
+    },
+    {
+     "fr": "Dis cela à Degas que Gauguin et moi avons été voir le portrait de Bruyas par Delacroix à Montpellier, car il faut hardiment croire que ce qui est est, et le portrait de Bruyas par Delacroix nous ressemble à toi et à moi comme un nouveau frère.",
+     "en": "Tell Degas that Gauguin and I went to see Delacroix's portrait of Bruyas at Montpellier, for one must boldly believe that what is, is, and Delacroix's portrait of Bruyas resembles you and me like a new brother.",
+     "ko": "드가에게 전해 줘. 고갱이랑 내가 몽펠리에에서 들라크루아가 그린 브뤼야스의 초상을 보고 왔다고. 있는 건 있는 거라고 과감히 믿어야 하니까. 들라크루아의 브뤼야스 초상은 새 형제처럼 너와 나를 닮았어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 564 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Dis cela à Degas / que Gauguin et moi / avons été voir le portrait de Bruyas par Delacroix / à Montpellier, // car il faut hardiment croire / que ce qui est est, // et le portrait de Bruyas par Delacroix / nous ressemble à toi et à moi / comme un nouveau frère."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "musée",
+     "pos": "n.m.",
+     "ipa": "myze",
+     "en": "museum",
+     "ko": "미술관",
+     "icon": "🏛️"
+    },
+    {
+     "fr": "barbe",
+     "pos": "n.f.",
+     "ipa": "baʁb",
+     "en": "beard",
+     "ko": "수염",
+     "icon": "🧔"
+    },
+    {
+     "fr": "poésie",
+     "pos": "n.f.",
+     "ipa": "pɔezi",
+     "en": "poem, poetry",
+     "ko": "시"
+    },
+    {
+     "fr": "frère",
+     "pos": "n.m.",
+     "ipa": "fʁɛʁ",
+     "en": "brother",
+     "ko": "형제"
+    },
+    {
+     "fr": "électricité",
+     "pos": "n.f.",
+     "ipa": "elɛktʁisite",
+     "en": "electricity",
+     "ko": "전기",
+     "icon": "⚡"
+    }
+   ],
+   "note": {
+    "ko": "빈센트와 고갱이 몽펠리에의 파브르 미술관에서 본 들라크루아의 ‘알프레드 브뤼야스의 초상’(1853)이에요. 브뤼야스는 몽펠리에의 미술 수집가로, 편지 말대로 화가들을 도운 후원자였고 자기 소장품을 이 미술관에 기증했어요. 빈센트는 붉은 수염의 이 신사가 자기와 테오를 닮았다고 썼어요.",
+    "en": "This is Delacroix's Portrait of Alfred Bruyas (1853), which Vincent and Gauguin saw at the Musée Fabre in Montpellier. Bruyas was a Montpellier collector and, as the letter says, a benefactor of artists; he gave his collection to this museum. Vincent writes that the red-bearded gentleman looks like himself and Theo.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 564 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Delacroix_-_Portrait_d'Alfred_Bruyas,_1853.jpg"
+   },
+   "plate": {
+    "title_fr": "Portrait d’Alfred Bruyas (Eugène Delacroix)",
+    "title_en": "Portrait of Alfred Bruyas (by Eugène Delacroix)",
+    "title_ko": "알프레드 브뤼야스의 초상 (외젠 들라크루아 그림)",
+    "date": "1853",
+    "collection": "Musée Fabre, Montpellier · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Delacroix_-_Portrait_d'Alfred_Bruyas,_1853.jpg",
+    "why": "The Delacroix portrait the two painters saw in Montpellier and that the letter mentions; PD-Art from Wikimedia Commons.",
+    "image": "v564.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.45,
+      "y": 0.36,
+      "title": {
+       "fr": "La barbe rousse",
+       "en": "The red beard",
+       "ko": "붉은 수염"
+      },
+      "note": {
+       "ko": "붉은 수염과 붉은 머리. 빈센트는 ‘너나 나랑 지독하게 닮았다’고 했어.",
+       "en": "Red beard and red hair: ‘damned like you or me’, Vincent says."
+      },
+      "word": {
+       "fr": "barbe",
+       "en": "beard",
+       "ko": "수염",
+       "ipa": "baʁb"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.35,
+      "y": 0.55,
+      "title": {
+       "fr": "Vêtu de noir",
+       "en": "Dressed in black",
+       "ko": "검은 옷"
+      },
+      "note": {
+       "ko": "어둡고 검은 외투. 뮈세의 시 속 ‘검은 옷을 입은 불행한 사람’.",
+       "en": "The dark black coat: Musset's ‘unhappy man dressed in black’."
+      },
+      "word": {
+       "fr": "noir",
+       "en": "black",
+       "ko": "검은",
+       "ipa": "nwaʁ"
+      },
+      "quote": 2
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Je voudrais voir ce portrait.",
+    "en": "I'd love to see that portrait.",
+    "ko": "그 초상화, 나도 보고 싶어.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Vincent et Gauguin à Montpellier",
+      "en": "Vincent and Gauguin in Montpellier",
+      "ko": "빈센트와 고갱, 몽펠리에에 다녀옴"
+     }
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "v564.jpg",
+     "caption": {
+      "fr": "Alfred Bruyas, par Delacroix",
+      "en": "Alfred Bruyas, by Delacroix",
+      "ko": "들라크루아가 그린 알프레드 브뤼야스"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Un nouveau frère",
+    "en": "A new brother",
+    "ko": "새 형제"
+   }
+  },
+  {
+   "id": "c4-l7",
+   "date": "1888-12-23",
+   "ref": "Brieven 1914, n° 565 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 565 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "weary",
+   "messages": [
+    {
+     "fr": "Je te remercie beaucoup de ta lettre, du billet de 100 fr. y inclus et également du mandat de 50 fr.",
+     "en": "Many thanks for your letter, for the 100-franc note enclosed in it, and also for the 50-franc money order.",
+     "ko": "편지 정말 고마워. 같이 넣어 준 100프랑 지폐도, 50프랑 우편환도.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 565 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je te remercie beaucoup de ta lettre, // du billet de 100 fr. y inclus / et également du mandat de 50 fr."
+     }
+    },
+    {
+     "fr": "Je crois moi que Gauguin s'était un peu découragé de la bonne ville d'Arles, de la petite maison jaune où nous travaillons, et surtout de moi.",
+     "en": "I think Gauguin had become a little discouraged with the good town of Arles, with the little Yellow House where we work, and above all with me.",
+     "ko": "내 생각엔 고갱이 좀 실망한 것 같아. 이 좋은 도시 아를에도, 우리가 일하는 작은 노란 집에도, 그리고 무엇보다 나한테.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 565 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je crois moi / que Gauguin s'était un peu découragé / de la bonne ville d'Arles, // de la petite maison jaune / où nous travaillons, // et surtout de moi."
+     }
+    },
+    {
+     "fr": "En effet il y aurait pour lui comme pour moi des difficultés graves à vaincre encore ici. Mais ces difficultés sont plutôt en dedans de nous-mêmes qu'autre part.",
+     "en": "Indeed, for him as for me there would still be serious difficulties to overcome here. But those difficulties are inside ourselves rather than anywhere else.",
+     "ko": "사실 여기선 고갱에게도 나에게도 아직 넘어야 할 큰 어려움이 있을 거야. 하지만 그 어려움은 다른 데보다 우리 자신 안에 있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 565 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "En effet il y aurait pour lui comme pour moi / des difficultés graves à vaincre encore ici. // Mais ces difficultés sont plutôt / en dedans de nous-mêmes / qu'autre part."
+     }
+    },
+    {
+     "fr": "Gauguin est très fort, très créateur, mais justement à cause de cela il lui faut de la paix. La trouvera-t-il ailleurs s'il ne la trouve pas ici ?",
+     "en": "Gauguin is very strong, very creative, but precisely because of that he needs peace. Will he find it elsewhere if he doesn't find it here?",
+     "ko": "고갱은 아주 강하고, 아주 창의적인 사람이야. 바로 그래서 평화가 필요해. 여기서 그걸 못 찾는다면 다른 데서는 찾을 수 있을까?",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 565 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Gauguin est très fort, / très créateur, // mais justement à cause de cela / il lui faut de la paix. // La trouvera-t-il ailleurs / s'il ne la trouve pas ici ?"
+     }
+    },
+    {
+     "fr": "J'attends qu'il prenne une décision avec une sérénité absolue.",
+     "en": "I am waiting for him to make a decision with absolute serenity.",
+     "ko": "나는 아주 평온하게, 고갱이 결정을 내리기를 기다리고 있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 565 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'attends qu'il prenne une décision / avec une sérénité absolue."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "billet",
+     "pos": "n.m.",
+     "ipa": "bijɛ",
+     "en": "banknote",
+     "ko": "지폐",
+     "icon": "💵"
+    },
+    {
+     "fr": "mandat",
+     "pos": "n.m.",
+     "ipa": "mɑ̃da",
+     "en": "money order",
+     "ko": "우편환"
+    },
+    {
+     "fr": "difficulté",
+     "pos": "n.f.",
+     "ipa": "difikylte",
+     "en": "difficulty",
+     "ko": "어려움"
+    },
+    {
+     "fr": "paix",
+     "pos": "n.f.",
+     "ipa": "pɛ",
+     "en": "peace",
+     "ko": "평화",
+     "icon": "🕊️"
+    },
+    {
+     "fr": "sérénité",
+     "pos": "n.f.",
+     "ipa": "seʁenite",
+     "en": "serenity",
+     "ko": "평온"
+    }
+   ],
+   "note": {
+    "ko": "여기 실린 고갱의 팔걸이의자는 이 편지가 아니라 앞서 563번 편지에서 빈센트가 설명한 그림이에요. ‘빨강과 초록, 밤 풍경, 의자 위엔 소설책 두 권과 촛불’. 이 짧은 편지를 쓰고 며칠 뒤 고갱은 아를을 떠나 파리로 돌아갔어요.",
+    "en": "Gauguin's armchair, shown here, is not described in this letter but in letter 563: ‘red and green, a night effect… on the seat two novels and a candle’. A few days after this short letter, Gauguin left Arles and went back to Paris.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 565 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 563 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_De_stoel_van_Gauguin_-_Google_Art_Project.jpg"
+   },
+   "plate": {
+    "title_fr": "Le Fauteuil de Gauguin",
+    "title_en": "Gauguin’s Chair",
+    "title_ko": "고갱의 의자",
+    "date": "November 1888",
+    "collection": "Van Gogh Museum, Amsterdam · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_De_stoel_van_Gauguin_-_Google_Art_Project.jpg",
+    "why": "Gauguin’s armchair, painted by night in the Yellow House (described in letter 563); PD-Art from Wikimedia Commons.",
+    "image": "v565.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.72,
+      "y": 0.3,
+      "title": {
+       "fr": "Le fauteuil de Gauguin",
+       "en": "Gauguin's armchair",
+       "ko": "고갱의 의자"
+      },
+      "note": {
+       "ko": "주인 없이 비어 있는 고갱의 팔걸이의자. 의자 위엔 촛불과 책 두 권.",
+       "en": "Gauguin's armchair, empty, with a candle and two books on the seat."
+      },
+      "word": {
+       "fr": "Gauguin",
+       "en": "Gauguin",
+       "ko": "고갱",
+       "ipa": "ɡoɡɛ̃"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.3,
+      "y": 0.85,
+      "title": {
+       "fr": "Dans la maison jaune",
+       "en": "In the Yellow House",
+       "ko": "노란 집 안"
+      },
+      "note": {
+       "ko": "밤의 노란 집, 빨강과 초록이 섞인 바닥.",
+       "en": "The Yellow House at night: a floor of red and green."
+      },
+      "word": {
+       "fr": "maison jaune",
+       "en": "Yellow House",
+       "ko": "노란 집",
+       "ipa": "mɛzɔ̃ ʒon"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Courage, mon frère, je suis là.",
+    "en": "Courage, brother, I'm here.",
+    "ko": "힘내, 형. 내가 있잖아.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "transfer",
+     "amount": "150 francs",
+     "label": {
+      "fr": "Théo a envoyé",
+      "en": "Theo sent",
+      "ko": "테오가 보냄"
+     },
+     "memo": {
+      "fr": "Un billet de 100 fr. et un mandat de 50 fr.",
+      "en": "A 100-franc note and a 50-franc money order",
+      "ko": "100프랑 지폐와 50프랑 우편환"
+     },
+     "outgoing": false
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "v565.jpg",
+     "caption": {
+      "fr": "Le fauteuil de Gauguin",
+      "en": "Gauguin's armchair",
+      "ko": "고갱의 의자"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Gauguin hésite",
+    "en": "Gauguin is wavering",
+    "ko": "고갱이 망설여"
+   }
+  }
+ ]
+}

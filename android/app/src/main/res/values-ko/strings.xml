@@ -834,4 +834,21 @@
     <string name="widget_caps">AUJOURD\'HUI · LETTRE %1$s</string>
     <string name="widget_streak">이⁠어 읽⁠기 %1$d⁠일</string>
     <string name="widget_recital">오⁠늘⁠은 낭⁠독⁠회</string>
+    <string name="prologue_skip">건⁠너⁠뛰⁠기</string>
+    <string name="prologue_next">다⁠음</string>
+    <string name="prologue_go">첫 편⁠지 받⁠기</string>
+    <string name="outro_listen">문⁠장⁠을 누⁠르⁠면 들⁠려⁠요</string>
+    <string name="outro_close">닫⁠기</string>
+    <string name="outro_catalogue">도⁠록</string>
+    <string name="catalogue_title">나⁠의 도⁠록</string>
+    <string name="catalogue_name">Mon %1$s</string>
+    <string name="catalogue_sub">편⁠지⁠로 모⁠은 그⁠림 · %1$s</string>
+    <string name="catalogue_complete">완⁠성⁠: 그⁠림 %2$d⁠점⁠을 모⁠두 모⁠았⁠어⁠요 (%1$d/%2$d).</string>
+    <string name="catalogue_progress">그⁠림 %2$d⁠점 중 %1$d⁠점</string>
+    <string name="cover_prologue">아⁠를 이⁠전</string>
+    <string name="cover_prologue_meta">도⁠슨⁠트 %1$d⁠쪽</string>
+    <string name="cover_epilogue">맺⁠음⁠말</string>
+    <string name="cover_epilogue_open">마⁠지⁠막 편⁠지⁠와 그⁠의 삶</string>
+    <string name="cover_epilogue_locked">마⁠지⁠막 편⁠지⁠를 읽⁠으⁠면 열⁠려⁠요</string>
+    <string name="done_outro">맺⁠음⁠말 읽⁠기</string>
 </resources>

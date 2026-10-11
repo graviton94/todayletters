@@ -834,4 +834,21 @@
     <string name="widget_caps">TODAY · LETTRE %1$s</string>
     <string name="widget_streak">%1$d-day streak</string>
     <string name="widget_recital">Sunday reading today</string>
+    <string name="prologue_skip">Skip</string>
+    <string name="prologue_next">Next</string>
+    <string name="prologue_go">Receive the first letter</string>
+    <string name="outro_listen">Tap a line to hear it</string>
+    <string name="outro_close">Close</string>
+    <string name="outro_catalogue">Catalogue</string>
+    <string name="catalogue_title">My catalogue</string>
+    <string name="catalogue_name">Mon %1$s</string>
+    <string name="catalogue_sub">The paintings from your letters · %1$s</string>
+    <string name="catalogue_complete">Complete: all %1$d of %2$d paintings collected.</string>
+    <string name="catalogue_progress">%1$d of %2$d paintings</string>
+    <string name="cover_prologue">Before Arles</string>
+    <string name="cover_prologue_meta">%1$d pages · docent</string>
+    <string name="cover_epilogue">Afterword</string>
+    <string name="cover_epilogue_open">His last letter and his life</string>
+    <string name="cover_epilogue_locked">Opens after the last letter</string>
+    <string name="done_outro">Read the afterword</string>
 </resources>

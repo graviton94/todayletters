@@ -1,0 +1,1454 @@
+{
+ "_doc": "Chapter V 초안 (v1). 프랑스어는 1914년판 『Brieven aan zijn broeder』(요 반 고흐-봉어 엮음, 공공 영역, archive.org 스캔) 제3권에서 옮김. OCR이 떨어뜨린 악센트와 글자 오류만 바로잡고(eher→cher, eile→elle, de ja→déjà, 6/ä→é/à 등), 빈센트의 비표준 철자 몇 개는 표준 프랑스어로 고침 (accacia→acacia, détâche→détache, aigues→aiguës, candelabres→candélabres, gensd'armes/gensdarmes→gendarmes); 문장은 편지에서 발췌. 영어 · 한국어는 이 앱의 새 번역. 그림은 소장처가 직접 자유 사용을 밝힌 것(CC0), 또는 위키미디어 공용의 공공 영역(PD-Art) 이미지.",
+ "series": "vincent",
+ "chapter": "V",
+ "title_fr": "La Berceuse",
+ "title_en": "The Lullaby",
+ "title_ko": "자장가",
+ "original": "fr",
+ "letters": [
+  {
+   "id": "c5-l1",
+   "date": "1889-01-01",
+   "ref": "Brieven 1914, n° 566 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 566 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "tender",
+   "messages": [
+    {
+     "fr": "Je compte bientôt reprendre le travail. La femme de ménage et mon ami Roulin avaient pris soin de la maison, avaient tout mis en bon ordre.",
+     "en": "I expect to take up my work again soon. The housekeeper and my friend Roulin had looked after the house and put everything in good order.",
+     "ko": "곧 다시 일을 시작할 생각이야. 집안일 해 주는 아주머니랑 내 친구 룰랭이 집을 돌봐 줬어. 모든 걸 말끔히 정리해 놓았더라.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 566 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je compte bientôt reprendre le travail. // La femme de ménage / et mon ami Roulin / avaient pris soin de la maison, // avaient tout mis en bon ordre."
+     }
+    },
+    {
+     "fr": "Lorsque je sortirai je pourrai reprendre mon petit chemin ici et bientôt la belle saison va venir et je recommencerai les vergers en fleur.",
+     "en": "When I come out I'll be able to go my own little way here again, and soon the fine season will come and I'll start on the orchards in blossom once more.",
+     "ko": "여기서 나가면 이곳에서 다시 내 작은 길을 걸을 수 있을 거야. 곧 좋은 계절이 오면 꽃 핀 과수원을 다시 그리기 시작할 거고.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 566 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Lorsque je sortirai / je pourrai reprendre mon petit chemin ici // et bientôt la belle saison va venir // et je recommencerai les vergers en fleur."
+     }
+    },
+    {
+     "fr": "Je suis mon cher frère si navré de ton voyage, j'eusse désiré que cela t'eût été épargné, car en somme aucun mal ne m'est arrivé et il n'y avait pas de quoi te déranger.",
+     "en": "My dear brother, I am so sorry about your journey; I wish you had been spared it, for after all no harm has come to me and there was no reason to trouble you.",
+     "ko": "사랑하는 동생아, 너를 여기까지 오게 해서 정말 미안해. 그 길만은 너한테 없었으면 했어. 결국 나한테 나쁜 일은 없었고, 네가 그렇게 애쓸 일도 아니었는데.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 566 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je suis mon cher frère / si navré de ton voyage, // j'eusse désiré / que cela t'eût été épargné, // car en somme / aucun mal ne m'est arrivé // et il n'y avait pas de quoi te déranger."
+     }
+    },
+    {
+     "fr": "Que n'aurais-je pas donné que tu eusses vu Arles lorsqu'il y fait beau, maintenant tu l'as vu en noir.",
+     "en": "What wouldn't I have given for you to see Arles when the weather is fine; as it is, you have seen it in black.",
+     "ko": "날씨 좋을 때의 아를을 네가 봤더라면, 뭐든 내줬을 거야. 그런데 넌 아를을 어두운 빛으로만 봤구나.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 566 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Que n'aurais-je pas donné / que tu eusses vu Arles / lorsqu'il y fait beau, // maintenant tu l'as vu en noir."
+     }
+    },
+    {
+     "fr": "Poignée de main, je dois encore rentrer à l'hôpital, mais sous peu j'en sortirai tout à fait.",
+     "en": "A handshake; I have to go back into the hospital again, but very soon I'll be out of it for good.",
+     "ko": "악수를 보낼게. 아직은 병원으로 돌아가야 하지만, 곧 완전히 나올 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 566 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Poignée de main, // je dois encore rentrer à l'hôpital, // mais sous peu / j'en sortirai tout à fait."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "travail",
+     "pos": "n.m.",
+     "ipa": "tʁavaj",
+     "en": "work",
+     "ko": "일, 작업"
+    },
+    {
+     "fr": "maison",
+     "pos": "n.f.",
+     "ipa": "mɛzɔ̃",
+     "en": "house",
+     "ko": "집",
+     "icon": "🏠"
+    },
+    {
+     "fr": "verger",
+     "pos": "n.m.",
+     "ipa": "vɛʁʒe",
+     "en": "orchard",
+     "ko": "과수원",
+     "icon": "🌳"
+    },
+    {
+     "fr": "fleur",
+     "pos": "n.f.",
+     "ipa": "flœʁ",
+     "en": "flower, blossom",
+     "ko": "꽃",
+     "icon": "🌸"
+    },
+    {
+     "fr": "hôpital",
+     "pos": "n.m.",
+     "ipa": "opital",
+     "en": "hospital",
+     "ko": "병원",
+     "icon": "🏥"
+    }
+   ],
+   "note": {
+    "ko": "1888년 12월, 빈센트는 위기를 겪던 중 자기 귀를 다쳐 아를의 병원에 실려 갔어요. 이 편지는 1889년 1월 1일, 병원에서 연필로 쓴 것이에요. 소식을 듣고 테오가 파리에서 아를까지 내려왔고, 빈센트는 그 길을 미안해해요. 그림은 그달, 집에 돌아온 뒤 그린 자화상이에요.",
+    "en": "In December 1888, during a crisis, Vincent injured his own ear and was taken to hospital in Arles. This letter was written in pencil at the hospital on 1 January 1889. Theo had come down from Paris on hearing the news, and Vincent is sorry for the journey. The picture is the self-portrait he painted that month, after coming home.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 566 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Self-Portrait_with_a_Bandaged_Ear_-_Vincent_van_Gogh.jpg"
+   },
+   "plate": {
+    "title_fr": "Autoportrait à l’oreille bandée",
+    "title_en": "Self-Portrait with Bandaged Ear",
+    "title_ko": "귀에 붕대를 감은 자화상",
+    "date": "January 1889",
+    "collection": "The Courtauld, London · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Self-Portrait_with_a_Bandaged_Ear_-_Vincent_van_Gogh.jpg",
+    "why": "The self-portrait painted in January 1889 after the crisis of 23 December; PD-Art from Wikimedia Commons.",
+    "image": "v566.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.1,
+      "y": 0.36,
+      "title": {
+       "fr": "Le chevalet",
+       "en": "The easel",
+       "ko": "이젤"
+      },
+      "note": {
+       "ko": "뒤쪽 이젤 위의 캔버스. ‘곧 다시 일을 시작할 생각이야.’",
+       "en": "A canvas on the easel behind him: ‘I expect to take up my work again soon.’"
+      },
+      "word": {
+       "fr": "travail",
+       "en": "work",
+       "ko": "일",
+       "ipa": "tʁavaj"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.93,
+      "y": 0.3,
+      "title": {
+       "fr": "La porte",
+       "en": "The door",
+       "ko": "문"
+      },
+      "note": {
+       "ko": "오른쪽, 방의 문. 집에 돌아온 뒤 그린 그림이에요.",
+       "en": "The door of the room on the right; the picture was painted after he came home."
+      },
+      "word": {
+       "fr": "maison",
+       "en": "house",
+       "ko": "집",
+       "ipa": "mɛzɔ̃"
+      },
+      "quote": 0
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Repose-toi bien, je pense à toi.",
+    "en": "Rest well, I'm thinking of you.",
+    "ko": "푹 쉬어, 형 생각하고 있어.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Écrit au crayon, à l'hôpital d'Arles · 1er janvier 1889",
+      "en": "Written in pencil at the hospital in Arles · 1 January 1889",
+      "ko": "아를 병원에서 연필로 쓴 편지 · 1889년 1월 1일"
+     }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "v566.jpg",
+     "caption": {
+      "fr": "Autoportrait, janvier 1889",
+      "en": "Self-portrait, January 1889",
+      "ko": "자화상, 1889년 1월"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Bientôt les vergers en fleur",
+    "en": "Soon, the orchards in blossom",
+    "ko": "곧, 꽃 핀 과수원"
+   }
+  },
+  {
+   "id": "c5-l2",
+   "date": "1889-01",
+   "dateNote": "Undated in the 1914 edition; written the day Vincent came home from the hospital (7 January 1889), after letter 567 of 2 January 1889.",
+   "ref": "Brieven 1914, n° 568 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 568 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "tender",
+   "messages": [
+    {
+     "fr": "Peut-être je ne t'écrirai pas une bien longue lettre aujourd'hui, mais dans tous les cas un mot pour te faire savoir que je suis rentré chez moi aujourd'hui.",
+     "en": "Perhaps I won't write you a very long letter today, but at any rate a word to let you know that I came home today.",
+     "ko": "오늘은 편지를 길게 못 쓸지도 몰라. 그래도 한마디는 해야지. 나 오늘 집에 돌아왔어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 568 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Peut-être je ne t'écrirai pas une bien longue lettre aujourd'hui, // mais dans tous les cas un mot / pour te faire savoir / que je suis rentré chez moi aujourd'hui."
+     }
+    },
+    {
+     "fr": "Monsieur Rey est venu voir la peinture avec deux de ses amis médecins, et eux comprennent au moins bigrement vite ce que c'est que des complémentaires.",
+     "en": "Monsieur Rey came to see the paintings with two of his doctor friends, and they, at least, understand damned quickly what complementaries are.",
+     "ko": "레 선생이 의사 친구 두 명이랑 그림을 보러 왔어. 그 사람들은 적어도 보색이 뭔지는 기가 막히게 빨리 알아듣더라.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 568 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Monsieur Rey est venu voir la peinture / avec deux de ses amis médecins, // et eux comprennent / au moins bigrement vite / ce que c'est que des complémentaires."
+     }
+    },
+    {
+     "fr": "Maintenant je compte faire le portrait de Mr. Rey et possiblement d'autres portraits dès que je me serai un peu réhabitué à la peinture.",
+     "en": "Now I mean to do Mr Rey's portrait, and possibly other portraits, as soon as I've got a little used to painting again.",
+     "ko": "이제 레 선생의 초상을 그릴 생각이야. 그림에 조금 다시 익숙해지면 다른 초상도 그릴 수 있겠지.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 568 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant je compte faire le portrait de Mr. Rey // et possiblement d'autres portraits // dès que je me serai / un peu réhabitué à la peinture."
+     }
+    },
+    {
+     "fr": "Merci de ta dernière lettre, certes je te sens toujours présent, mais de ton côté sache aussi que je travaille à la même chose que toi-même.",
+     "en": "Thank you for your last letter; I certainly always feel you near me, but know too, on your side, that I am working at the same thing as you.",
+     "ko": "지난 편지 고마워. 난 언제나 네가 곁에 있는 것 같아. 그리고 너도 알아 줘, 나도 너랑 같은 일을 하고 있다는 걸.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 568 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Merci de ta dernière lettre, // certes je te sens toujours présent, // mais de ton côté sache aussi / que je travaille à la même chose que toi-même."
+     }
+    },
+    {
+     "fr": "Ecris-moi bientôt, et sois tout à fait rassuré sur ma santé, cela me guérira complètement de savoir que cela marche bien pour toi.",
+     "en": "Write to me soon, and don't worry at all about my health; knowing that things are going well for you will make me completely well.",
+     "ko": "곧 편지해 줘. 내 건강은 정말 걱정하지 마. 너한테 일이 잘 풀린다는 걸 알면, 그게 나를 완전히 낫게 할 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 568 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Ecris-moi bientôt, // et sois tout à fait rassuré sur ma santé, // cela me guérira complètement / de savoir que cela marche bien pour toi."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "médecin",
+     "pos": "n.m.",
+     "ipa": "medsɛ̃",
+     "en": "doctor",
+     "ko": "의사",
+     "icon": "🩺"
+    },
+    {
+     "fr": "complémentaire",
+     "pos": "n.f.",
+     "ipa": "kɔ̃plemɑ̃tɛʁ",
+     "en": "complementary (colour)",
+     "ko": "보색"
+    },
+    {
+     "fr": "portrait",
+     "pos": "n.m.",
+     "ipa": "pɔʁtʁɛ",
+     "en": "portrait",
+     "ko": "초상(화)",
+     "icon": "🖼️"
+    },
+    {
+     "fr": "peinture",
+     "pos": "n.f.",
+     "ipa": "pɛ̃tyʁ",
+     "en": "painting",
+     "ko": "그림, 회화",
+     "icon": "🎨"
+    },
+    {
+     "fr": "santé",
+     "pos": "n.f.",
+     "ipa": "sɑ̃te",
+     "en": "health",
+     "ko": "건강"
+    }
+   ],
+   "note": {
+    "ko": "펠릭스 레는 아를 병원의 젊은 인턴으로, 병원에 있던 빈센트를 돌본 의사예요. 빈센트는 1889년 1월 7일 병원을 나와 노란 집으로 돌아왔어요. 편지에서 그리겠다고 한 레의 초상을 빈센트는 그달에 그려 레에게 주었어요. 초록 바탕에 빨강을 흩뿌린 배경이 편지가 말한 ‘보색’이에요.",
+    "en": "Félix Rey was the young intern at the Arles hospital who looked after Vincent there. Vincent left the hospital and went back to the Yellow House on 7 January 1889. He painted the portrait of Rey that this letter plans that same month and gave it to him. The background, green scattered with red, shows the ‘complementaries’ of the letter.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 568 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Portrait_of_Doctor_Félix_Rey_(F500).jpg"
+   },
+   "plate": {
+    "title_fr": "Portrait du docteur Félix Rey",
+    "title_en": "Portrait of Doctor Félix Rey",
+    "title_ko": "펠릭스 레 박사의 초상",
+    "date": "January 1889",
+    "collection": "Pushkin State Museum of Fine Arts, Moscow · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Portrait_of_Doctor_Félix_Rey_(F500).jpg",
+    "why": "The portrait of Dr Rey that the letter plans; PD-Art from Wikimedia Commons.",
+    "image": "v568.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.47,
+      "y": 0.38,
+      "title": {
+       "fr": "Le portrait de M. Rey",
+       "en": "Mr Rey's portrait",
+       "ko": "레 선생의 초상"
+      },
+      "note": {
+       "ko": "편지에서 ‘이제 그리겠다’고 한 레 선생의 얼굴.",
+       "en": "The face of Mr Rey, whose portrait the letter says he now means to paint."
+      },
+      "word": {
+       "fr": "portrait",
+       "en": "portrait",
+       "ko": "초상",
+       "ipa": "pɔʁtʁɛ"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.86,
+      "y": 0.3,
+      "title": {
+       "fr": "Les complémentaires",
+       "en": "The complementaries",
+       "ko": "보색"
+      },
+      "note": {
+       "ko": "초록 바탕 위에 빨간 점과 주황 덩굴무늬. 빨강과 초록은 서로 보색이에요.",
+       "en": "Red dots and orange scrolls on a green ground: red and green are complementaries."
+      },
+      "word": {
+       "fr": "complémentaires",
+       "en": "complementaries",
+       "ko": "보색",
+       "ipa": "kɔ̃plemɑ̃tɛʁ"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Quelle joie, tu es chez toi.",
+    "en": "What joy, you're home.",
+    "ko": "집에 돌아왔다니, 정말 기뻐.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "location",
+     "place": "yellow",
+     "title": {
+      "fr": "La maison jaune",
+      "en": "The Yellow House",
+      "ko": "노란 집"
+     },
+     "address": "2, place Lamartine"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "v568.jpg",
+     "caption": {
+      "fr": "Portrait de M. Rey",
+      "en": "Portrait of Mr Rey",
+      "ko": "레 선생의 초상"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Rentré chez moi aujourd'hui",
+    "en": "Home again today",
+    "ko": "오늘 집에 돌아왔어"
+   }
+  },
+  {
+   "id": "c5-l3",
+   "date": "1889-01-23",
+   "ref": "Brieven 1914, n° 573 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 573 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "tender",
+   "messages": [
+    {
+     "fr": "Hier Roulin est parti (…). C'était touchant de le voir avec ses enfants ce dernier jour, surtout avec la toute petite quand il la faisait rire et sauter sur ses genoux et chantait pour elle.",
+     "en": "Yesterday Roulin left (…). It was touching to see him with his children that last day, above all with the very little one, when he made her laugh and bounce on his knees and sang for her.",
+     "ko": "어제 룰랭이 떠났어 (…). 마지막 날 아이들이랑 있는 모습이 참 뭉클했어. 특히 막내를 무릎에 앉혀 들썩여 주며 웃기고, 노래를 불러 줄 때.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 573 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Hier Roulin est parti (…). // C'était touchant de le voir avec ses enfants / ce dernier jour, // surtout avec la toute petite / quand il la faisait rire / et sauter sur ses genoux / et chantait pour elle."
+     }
+    },
+    {
+     "fr": "Sa voix avait un timbre étrangement pur et ému où il y avait à la fois pour mon oreille un doux et navré chant de nourrice et comme un lointain résonnement du clairon de la France de la révolution.",
+     "en": "His voice had a strangely pure and moving ring, in which, to my ear, there was at once a sweet, sorrowful lullaby and something like a far-off echo of the bugle of revolutionary France.",
+     "ko": "그 목소리는 이상하리만치 맑고 뭉클했어. 내 귀엔 다정하고 애틋한 자장가 같기도 하고, 저 멀리 혁명 시절 프랑스의 나팔 소리가 울리는 것 같기도 했어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 573 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Sa voix avait un timbre étrangement pur et ému // où il y avait à la fois pour mon oreille / un doux et navré chant de nourrice // et comme un lointain résonnement du clairon / de la France de la révolution."
+     }
+    },
+    {
+     "fr": "Je viens de terminer une nouvelle toile qui a un petit air presque chic, un panier d'osier avec citrons et oranges — une branche de cyprès et une paire de gants bleus, tu as déjà vu de ces paniers de fruits de moi.",
+     "en": "I have just finished a new canvas that looks almost a bit smart: a wicker basket with lemons and oranges, a cypress branch and a pair of blue gloves; you've seen baskets of fruit like these from me before.",
+     "ko": "새 캔버스를 막 끝냈어. 제법 멋을 부린 티가 나. 버들 바구니에 레몬과 오렌지, 사이프러스 가지 하나, 그리고 파란 장갑 한 켤레. 내가 그린 과일 바구니는 너도 본 적 있지.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 573 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je viens de terminer une nouvelle toile / qui a un petit air presque chic, // un panier d'osier avec citrons et oranges // — une branche de cyprès / et une paire de gants bleus, // tu as déjà vu de ces paniers de fruits de moi."
+     }
+    },
+    {
+     "fr": "Pendant ma maladie j'ai revu chaque chambre de la maison à Zundert, chaque sentier, chaque plante dans le jardin, les aspects d'alentour les champs, les voisins, le cimetière, l'église, notre jardin potager derrière — jusqu'au nid de pie dans un haut acacia dans le cimetière.",
+     "en": "While I was ill I saw again every room of the house at Zundert, every path, every plant in the garden, the views around, the fields, the neighbours, the graveyard, the church, our kitchen garden behind — down to the magpie's nest in a tall acacia in the graveyard.",
+     "ko": "아픈 동안 쥔더르트 집의 방 하나하나를 다시 봤어. 오솔길 하나하나, 마당의 풀 한 포기 한 포기, 둘레의 들판, 이웃들, 묘지, 교회, 집 뒤 우리 텃밭까지. 묘지의 키 큰 아카시아에 있던 까치 둥지까지.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 573 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Pendant ma maladie / j'ai revu chaque chambre de la maison à Zundert, // chaque sentier, / chaque plante dans le jardin, // les aspects d'alentour les champs, / les voisins, / le cimetière, / l'église, / notre jardin potager derrière // — jusqu'au nid de pie / dans un haut acacia dans le cimetière."
+     }
+    },
+    {
+     "fr": "Tu sais que Jeannin a la pivoine, que Quost a la rose trémière, mais moi j'ai un peu le tournesol.",
+     "en": "You know that Jeannin has the peony, Quost has the hollyhock, but I, I have rather got the sunflower.",
+     "ko": "자냉에겐 작약이 있고, 코스트에겐 접시꽃이 있잖아. 그런데 나한텐, 말하자면 해바라기가 있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 573 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Tu sais que Jeannin a la pivoine, // que Quost a la rose trémière, // mais moi / j'ai un peu le tournesol."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "panier",
+     "pos": "n.m.",
+     "ipa": "panje",
+     "en": "basket",
+     "ko": "바구니",
+     "icon": "🧺"
+    },
+    {
+     "fr": "citron",
+     "pos": "n.m.",
+     "ipa": "sitʁɔ̃",
+     "en": "lemon",
+     "ko": "레몬",
+     "icon": "🍋"
+    },
+    {
+     "fr": "gant",
+     "pos": "n.m.",
+     "ipa": "ɡɑ̃",
+     "en": "glove",
+     "ko": "장갑",
+     "icon": "🧤"
+    },
+    {
+     "fr": "nid",
+     "pos": "n.m.",
+     "ipa": "ni",
+     "en": "nest",
+     "ko": "둥지",
+     "icon": "🪺"
+    },
+    {
+     "fr": "tournesol",
+     "pos": "n.m.",
+     "ipa": "tuʁnəsɔl",
+     "en": "sunflower",
+     "ko": "해바라기",
+     "icon": "🌻"
+    }
+   ],
+   "note": {
+    "ko": "우체부 조제프 룰랭은 아를에서 빈센트의 가장 가까운 친구였는데, 1889년 1월 마르세유로 근무지를 옮겨 떠났어요. 그림은 편지가 말하는 바로 그 정물로, 버들 바구니의 레몬과 오렌지, 가지, 파란 장갑이 다 보여요. 쥔더르트는 빈센트가 태어나 어린 시절을 보낸 네덜란드 마을이에요.",
+    "en": "The postman Joseph Roulin, Vincent's closest friend in Arles, left in January 1889 on being transferred to Marseille. The picture is the very still life the letter describes: the lemons and oranges in a wicker basket, the branch and the blue gloves are all there. Zundert is the Dutch village where Vincent was born and spent his childhood.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 573 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh,_Still_Life_of_Oranges_and_Lemons_with_Blue_Gloves,_1889,_NGA_164923.jpg"
+   },
+   "plate": {
+    "title_fr": "Nature morte : oranges, citrons et gants bleus",
+    "title_en": "Still Life of Oranges and Lemons with Blue Gloves",
+    "title_ko": "오렌지 · 레몬과 파란 장갑",
+    "date": "January 1889",
+    "collection": "National Gallery of Art, Washington · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh,_Still_Life_of_Oranges_and_Lemons_with_Blue_Gloves,_1889,_NGA_164923.jpg",
+    "why": "The still life this letter describes; the National Gallery of Art releases it under CC0 (Open Access).",
+    "image": "v573.jpg",
+    "spots": [
+     {
+      "x": 0.79,
+      "y": 0.75,
+      "title": {
+       "fr": "Les gants bleus",
+       "en": "The blue gloves",
+       "ko": "파란 장갑"
+      },
+      "note": {
+       "ko": "바구니 옆에 놓인 파란 장갑 한 켤레.",
+       "en": "A pair of blue gloves beside the basket."
+      },
+      "word": {
+       "fr": "gants",
+       "en": "gloves",
+       "ko": "장갑",
+       "ipa": "ɡɑ̃"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.63,
+      "y": 0.59,
+      "title": {
+       "fr": "Les citrons",
+       "en": "The lemons",
+       "ko": "레몬"
+      },
+      "note": {
+       "ko": "오렌지 사이의 밝은 노랑, 레몬.",
+       "en": "The bright yellow of the lemons among the oranges."
+      },
+      "word": {
+       "fr": "citrons",
+       "en": "lemons",
+       "ko": "레몬",
+       "ipa": "sitʁɔ̃"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.3,
+      "y": 0.2,
+      "title": {
+       "fr": "La branche",
+       "en": "The branch",
+       "ko": "가지"
+      },
+      "note": {
+       "ko": "바구니 뒤로 뻗은 푸른 가지. 편지는 ‘사이프러스 가지’라고 해요.",
+       "en": "The green branch behind the basket; the letter calls it ‘a cypress branch’."
+      },
+      "word": {
+       "fr": "branche",
+       "en": "branch",
+       "ko": "가지",
+       "ipa": "bʁɑ̃ʃ"
+      },
+      "quote": 2
+     }
+    ]
+   },
+   "reply": {
+    "fr": "J'aimerais voir tes citrons et tes gants.",
+    "en": "I'd love to see your lemons and gloves.",
+    "ko": "레몬이랑 파란 장갑, 보고 싶다.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "transfer",
+     "amount": "50 francs",
+     "label": {
+      "fr": "Théo a envoyé",
+      "en": "Theo sent",
+      "ko": "테오가 보냄"
+     },
+     "memo": {
+      "fr": "Paris → Arles",
+      "en": "Paris → Arles",
+      "ko": "파리 → 아를"
+     },
+     "outgoing": false
+    },
+    {
+     "after": 0,
+     "type": "notice",
+     "text": {
+      "fr": "Roulin a quitté Arles · 22 janvier",
+      "en": "Roulin has left Arles · 22 January",
+      "ko": "룰랭이 아를을 떠났어요 · 1월 22일"
+     }
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "v573.jpg",
+     "caption": {
+      "fr": "Citrons, oranges et gants bleus",
+      "en": "Lemons, oranges and blue gloves",
+      "ko": "레몬, 오렌지와 파란 장갑"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Un panier de citrons et d'oranges",
+    "en": "A basket of lemons and oranges",
+    "ko": "레몬과 오렌지 한 바구니"
+   }
+  },
+  {
+   "id": "c5-l4",
+   "date": "1889-01-28",
+   "ref": "Brieven 1914, n° 574 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 574 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "tender",
+   "messages": [
+    {
+     "fr": "Lors de ta visite je crois que tu dois avoir remarqué dans la chambre de Gauguin les deux toiles de 30 des tournesols. Je viens de mettre les dernières touches aux répétitions absolument équivalentes et pareilles.",
+     "en": "When you came, I think you must have noticed the two size-30 canvases of sunflowers in Gauguin's room. I have just put the last touches to the repetitions, absolutely equivalent and alike.",
+     "ko": "네가 왔을 때 고갱 방에 걸린 30호 해바라기 두 점을 봤을 거야. 그걸 똑같이, 꼭 그대로 다시 그린 그림에 방금 마지막 붓질을 했어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 574 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Lors de ta visite / je crois que tu dois avoir remarqué / dans la chambre de Gauguin / les deux toiles de 30 des tournesols. // Je viens de mettre les dernières touches / aux répétitions / absolument équivalentes et pareilles."
+     }
+    },
+    {
+     "fr": "… il m'était venu l'idée de peindre un tel tableau, que des marins, à la fois enfants et martyrs, le voyant dans la cabine d'un bateau de pêcheurs d'Islande, éprouveraient un sentiment de bercement leur rappelant leur propre chant de nourrice.",
+     "en": "… the idea had come to me to paint a picture such that sailors, at once children and martyrs, seeing it in the cabin of an Iceland fishing boat, would feel a sense of being rocked, reminding them of their own lullaby.",
+     "ko": "…이런 그림을 그리고 싶다는 생각이 들었어. 아이이자 순교자인 뱃사람들이 아이슬란드 고깃배 선실에서 이 그림을 보면, 요람에 흔들리는 느낌이 들어 자기들이 듣던 자장가가 떠오르는 그런 그림.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 574 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "… il m'était venu l'idée de peindre un tel tableau, // que des marins, / à la fois enfants et martyrs, // le voyant dans la cabine / d'un bateau de pêcheurs d'Islande, // éprouveraient un sentiment de bercement / leur rappelant / leur propre chant de nourrice."
+     }
+    },
+    {
+     "fr": "Une femme vêtue de vert à cheveux orangés se détache contre un fond vert à fleurs roses. Maintenant ces disparates aiguës de rose cru, orangé cru, vert cru sont attendris par des bémols des rouges et verts.",
+     "en": "A woman dressed in green, with orange hair, stands out against a green background with pink flowers. Now these sharp clashes of raw pink, raw orange, raw green are softened by flats of reds and greens.",
+     "ko": "초록 옷을 입은 주황빛 머리의 여인이 분홍 꽃무늬 초록 바탕 위로 또렷이 떠올라. 날것의 분홍, 날것의 주황, 날것의 초록이 날카롭게 부딪치는 걸 빨강과 초록의 낮은 음이 누그러뜨려.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 574 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Une femme vêtue de vert / à cheveux orangés / se détache contre un fond vert / à fleurs roses. // Maintenant ces disparates aiguës / de rose cru, / orangé cru, / vert cru // sont attendris par des bémols / des rouges et verts."
+     }
+    },
+    {
+     "fr": "Je m'imagine ces toiles juste entre celles des tournesols, qui ainsi forment des lampadaires ou candélabres à côté de même grandeur, et le tout ainsi se compose de 7 ou de 9 toiles.",
+     "en": "I imagine these canvases right between those of the sunflowers, which thus form lamp-stands or candelabra beside them, of the same size; and so the whole is made up of 7 or 9 canvases.",
+     "ko": "이 그림들을 해바라기 그림들 바로 사이에 두는 걸 상상해. 그러면 같은 크기의 해바라기가 양옆에서 등불이나 촛대처럼 서게 되지. 그렇게 전부 일곱 점이나 아홉 점으로 이루어지는 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 574 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je m'imagine ces toiles / juste entre celles des tournesols, // qui ainsi forment des lampadaires ou candélabres / à côté de même grandeur, // et le tout ainsi se compose / de 7 ou de 9 toiles."
+     }
+    },
+    {
+     "fr": "Mon grand désir serait que toi tu eusses plus tôt ou plus tard une série de toiles de moi, lesquelles pourraient elles aussi défiler juste dans la même vitrine.",
+     "en": "My great wish would be for you to have, sooner or later, a series of canvases of mine that could also file past in that very same shop window.",
+     "ko": "내 큰 바람은, 머지않아 너한테 내 그림이 한 연작쯤 생기는 거야. 그 그림들도 바로 그 진열창 안을 차례로 지나갈 수 있게.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 574 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mon grand désir serait / que toi tu eusses / plus tôt ou plus tard / une série de toiles de moi, // lesquelles pourraient elles aussi / défiler juste dans la même vitrine."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "marin",
+     "pos": "n.m.",
+     "ipa": "maʁɛ̃",
+     "en": "sailor",
+     "ko": "뱃사람, 선원",
+     "icon": "⚓"
+    },
+    {
+     "fr": "bateau",
+     "pos": "n.m.",
+     "ipa": "bato",
+     "en": "boat",
+     "ko": "배",
+     "icon": "⛵"
+    },
+    {
+     "fr": "bercement",
+     "pos": "n.m.",
+     "ipa": "bɛʁsəmɑ̃",
+     "en": "rocking (of a cradle)",
+     "ko": "흔들어 재움"
+    },
+    {
+     "fr": "cheveux",
+     "pos": "n.m.",
+     "ipa": "ʃəvø",
+     "en": "hair",
+     "ko": "머리카락"
+    },
+    {
+     "fr": "vitrine",
+     "pos": "n.f.",
+     "ipa": "vitʁin",
+     "en": "shop window",
+     "ko": "진열창"
+    }
+   ],
+   "note": {
+    "ko": "‘베르쇠즈’(자장가)는 우체부 룰랭의 아내 오귀스틴 룰랭을 그린 그림이에요. 그녀는 보이지 않는 요람에 이어진 줄을 쥐고 있어요. ‘아이슬란드 어부’는 피에르 로티의 소설 『아이슬란드의 어부』를 떠올린 말이에요. 빈센트는 이 그림을 여러 점 그렸는데, 여기 실린 메트로폴리탄 미술관의 그림이 편지 속 바로 그 한 점인지는 편지로 알 수 없어요.",
+    "en": "‘La Berceuse’ (the lullaby) is a portrait of Augustine Roulin, the postman's wife. She holds a cord tied to an unseen cradle. The ‘Iceland fishermen’ recall Pierre Loti's novel Pêcheur d'Islande. Vincent painted several versions; the letter does not tell us whether the Metropolitan Museum canvas shown here is the very one he means.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 574 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.metmuseum.org/art/collection/search/437984"
+   },
+   "plate": {
+    "title_fr": "La Berceuse",
+    "title_en": "La Berceuse (Woman Rocking a Cradle)",
+    "title_ko": "자장가 (요람을 흔드는 여인)",
+    "date": "1889",
+    "collection": "The Metropolitan Museum of Art, New York · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/437984",
+    "why": "One of the Berceuse canvases the letter describes; the Met releases it under CC0.",
+    "image": "v574.jpg",
+    "spots": [
+     {
+      "x": 0.53,
+      "y": 0.18,
+      "title": {
+       "fr": "Les cheveux orangés",
+       "en": "The orange hair",
+       "ko": "주황빛 머리"
+      },
+      "note": {
+       "ko": "‘주황빛 머리의 여인’. 짙은 초록 옷과 맞부딪치는 주황.",
+       "en": "‘With orange hair’: the orange set against the dark green dress."
+      },
+      "word": {
+       "fr": "cheveux",
+       "en": "hair",
+       "ko": "머리",
+       "ipa": "ʃəvø"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.1,
+      "y": 0.3,
+      "title": {
+       "fr": "Les fleurs roses",
+       "en": "The pink flowers",
+       "ko": "분홍 꽃"
+      },
+      "note": {
+       "ko": "초록 바탕 위의 분홍 꽃무늬.",
+       "en": "The pink flowers on the green background."
+      },
+      "word": {
+       "fr": "fleurs",
+       "en": "flowers",
+       "ko": "꽃",
+       "ipa": "flœʁ"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.45,
+      "y": 0.48,
+      "title": {
+       "fr": "Vêtue de vert",
+       "en": "Dressed in green",
+       "ko": "초록 옷"
+      },
+      "note": {
+       "ko": "짙은 초록 상의와 밝은 초록 치마.",
+       "en": "A dark green bodice and a lighter green skirt."
+      },
+      "word": {
+       "fr": "vert",
+       "en": "green",
+       "ko": "초록",
+       "ipa": "vɛʁ"
+      },
+      "quote": 2
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Je verrai ta Berceuse entre les tournesols.",
+    "en": "I'll see your Berceuse between the sunflowers.",
+    "ko": "해바라기 사이의 자장가, 꼭 볼게.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "v574.jpg",
+     "caption": {
+      "fr": "La Berceuse",
+      "en": "La Berceuse",
+      "ko": "자장가"
+     }
+    },
+    {
+     "after": 3,
+     "type": "sketch",
+     "image": "v592-berceuse.jpg",
+     "caption": {
+      "fr": "La Berceuse entre deux tournesols · croquis d'une lettre plus tardive (n° 592)",
+      "en": "La Berceuse between two sunflowers · sketch from a later letter (no. 592)",
+      "ko": "해바라기 두 점 사이의 자장가 · 나중 편지(592번)의 스케치"
+     },
+     "credit": "La Berceuse entre deux tournesols · croquis, Brieven aan zijn broeder (1914), p. 318"
+    }
+   ],
+   "status": {
+    "fr": "La Berceuse entre les tournesols",
+    "en": "The Berceuse between the sunflowers",
+    "ko": "해바라기 사이의 자장가"
+   }
+  },
+  {
+   "id": "c5-l5",
+   "date": "1889-01-30",
+   "ref": "Brieven 1914, n° 575 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 575 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "J'ai eu ce matin une bien amicale lettre de Gauguin, à laquelle sans tarder j'ai répondu. Lorsque Roulin est venu j'avais juste fini la répétition de mes tournesols, et je lui ai montré les deux exemplaires de la Berceuse entre ces quatre bouquets-là.",
+     "en": "This morning I had a very friendly letter from Gauguin, which I answered straight away. When Roulin came I had just finished the repetition of my sunflowers, and I showed him the two copies of the Berceuse between those four bouquets.",
+     "ko": "오늘 아침 고갱한테서 아주 다정한 편지가 와서 곧바로 답장했어. 룰랭이 왔을 때 마침 해바라기를 다시 그린 걸 끝낸 참이라, 그 네 다발 사이에 자장가 두 점을 놓고 보여 줬어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 575 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai eu ce matin / une bien amicale lettre de Gauguin, // à laquelle sans tarder j'ai répondu. // Lorsque Roulin est venu / j'avais juste fini la répétition de mes tournesols, // et je lui ai montré / les deux exemplaires de la Berceuse / entre ces quatre bouquets-là."
+     }
+    },
+    {
+     "fr": "Tout en étant très fatigué il n'avait pas pu résister au désir de venir à Arles pour revoir sa famille, et tombant presque de sommeil et tout pâle il est venu nous serrer la main.",
+     "en": "Though he was very tired he couldn't resist the wish to come to Arles to see his family again, and, nearly dropping with sleep and quite pale, he came to shake our hands.",
+     "ko": "많이 지쳤는데도 가족을 다시 보고 싶은 마음을 참지 못하고 아를에 왔대. 졸음에 쓰러질 듯 창백한 얼굴로 우리 손을 잡으러 와 줬어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 575 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Tout en étant très fatigué / il n'avait pas pu résister au désir / de venir à Arles pour revoir sa famille, // et tombant presque de sommeil et tout pâle / il est venu nous serrer la main."
+     }
+    },
+    {
+     "fr": "Tout le monde ici est bon pour moi, les voisins etc., bon et prévenant comme dans une patrie.",
+     "en": "Everyone here is good to me, the neighbours and so on, good and thoughtful, as in one's own country.",
+     "ko": "여기 사람들은 다 나한테 잘해 줘. 이웃들이며 다들. 고향에 있는 것처럼 친절하고 세심해.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 575 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Tout le monde ici est bon pour moi, // les voisins etc., // bon et prévenant / comme dans une patrie."
+     }
+    },
+    {
+     "fr": "J'ai mis aujourd'hui une 3me Berceuse en train. Je sais bien que ce n'est ni dessiné ni peint aussi correctement que du Bouguereau, ce que je regrette presque, ayant le désir d'être correct sérieusement.",
+     "en": "Today I started a 3rd Berceuse. I know very well it's neither drawn nor painted as correctly as a Bouguereau, which I almost regret, since I do seriously want to be correct.",
+     "ko": "오늘 세 번째 자장가를 시작했어. 부그로만큼 정확하게 그리지도 칠하지도 못한 건 나도 잘 알아. 그게 좀 아쉬워. 나도 정말 제대로 정확하게 하고 싶거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 575 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai mis aujourd'hui / une 3me Berceuse en train. // Je sais bien / que ce n'est ni dessiné ni peint / aussi correctement que du Bouguereau, // ce que je regrette presque, // ayant le désir d'être correct sérieusement."
+     }
+    },
+    {
+     "fr": "Il a fait aujourd'hui un temps magnifique sans vent, et j'ai tellement le désir de travailler que j'en suis épaté, n'y ayant plus compté.",
+     "en": "Today the weather was magnificent, without wind, and I so want to work that I'm amazed at it, having stopped counting on it.",
+     "ko": "오늘은 바람 한 점 없이 날씨가 근사했어. 일하고 싶은 마음이 어찌나 큰지 나도 놀랄 정도야. 이젠 기대도 안 했었는데.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 575 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Il a fait aujourd'hui / un temps magnifique sans vent, // et j'ai tellement le désir de travailler / que j'en suis épaté, // n'y ayant plus compté."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "répétition",
+     "pos": "n.f.",
+     "ipa": "ʁepetisjɔ̃",
+     "en": "repetition (a repeated version)",
+     "ko": "반복작, 다시 그린 그림"
+    },
+    {
+     "fr": "bouquet",
+     "pos": "n.m.",
+     "ipa": "bukɛ",
+     "en": "bouquet",
+     "ko": "꽃다발",
+     "icon": "💐"
+    },
+    {
+     "fr": "famille",
+     "pos": "n.f.",
+     "ipa": "famij",
+     "en": "family",
+     "ko": "가족"
+    },
+    {
+     "fr": "voisin",
+     "pos": "n.m.",
+     "ipa": "vwazɛ̃",
+     "en": "neighbour",
+     "ko": "이웃"
+    },
+    {
+     "fr": "vent",
+     "pos": "n.m.",
+     "ipa": "vɑ̃",
+     "en": "wind",
+     "ko": "바람",
+     "icon": "🌬️"
+    }
+   ],
+   "note": {
+    "ko": "1889년 1월, 빈센트는 해바라기 그림을 다시 그렸어요. 필라델피아 미술관의 이 그림이 그때 그린 반복작 가운데 한 점이에요. 마르세유로 옮겨 간 룰랭은 가족을 보러 아를에 들렀다가, 해바라기 사이에 놓인 자장가와 아내의 초상 두 점을 보았어요.",
+    "en": "In January 1889 Vincent repainted his sunflowers; this picture in the Philadelphia Museum of Art is one of those repetitions. Roulin, now posted to Marseille, stopped in Arles to see his family and was shown the Berceuse between the sunflowers, two versions of his wife's portrait.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 575 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh,_Dutch_-_Sunflowers_-_Google_Art_Project.jpg"
+   },
+   "plate": {
+    "title_fr": "Tournesols (répétition)",
+    "title_en": "Sunflowers (repetition)",
+    "title_ko": "해바라기 (다시 그린 것)",
+    "date": "January 1889",
+    "collection": "Philadelphia Museum of Art · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh,_Dutch_-_Sunflowers_-_Google_Art_Project.jpg",
+    "why": "One of the January 1889 repetitions of the sunflowers that the letter speaks of; PD-Art from Wikimedia Commons.",
+    "image": "v575.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.27,
+      "y": 0.24,
+      "title": {
+       "fr": "Les tournesols",
+       "en": "The sunflowers",
+       "ko": "해바라기"
+      },
+      "note": {
+       "ko": "활짝 핀 해바라기. ‘해바라기를 다시 그린 걸 막 끝냈어.’",
+       "en": "A sunflower in full bloom: ‘I had just finished the repetition of my sunflowers.’"
+      },
+      "word": {
+       "fr": "tournesols",
+       "en": "sunflowers",
+       "ko": "해바라기",
+       "ipa": "tuʁnəsɔl"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.5,
+      "y": 0.55,
+      "title": {
+       "fr": "Le bouquet",
+       "en": "The bouquet",
+       "ko": "꽃다발"
+      },
+      "note": {
+       "ko": "화병에 꽂힌 노란 다발. 자장가 양옆에 둘 ‘네 다발’의 하나.",
+       "en": "The yellow bunch in its vase, one of the ‘four bouquets’ to flank the Berceuse."
+      },
+      "word": {
+       "fr": "bouquets",
+       "en": "bouquets",
+       "ko": "다발",
+       "ipa": "bukɛ"
+      },
+      "quote": 0
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Bravo pour la troisième Berceuse.",
+    "en": "Well done on the third Berceuse.",
+    "ko": "세 번째 자장가, 멋지다.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "v575.jpg",
+     "caption": {
+      "fr": "Tournesols, répétition",
+      "en": "Sunflowers, repetition",
+      "ko": "다시 그린 해바라기"
+     }
+    },
+    {
+     "after": 1,
+     "type": "notice",
+     "text": {
+      "fr": "Roulin est venu de Marseille voir sa famille",
+      "en": "Roulin came from Marseille to see his family",
+      "ko": "룰랭이 가족을 보러 마르세유에서 왔어요"
+     }
+    },
+    {
+     "after": 4,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Arles",
+      "en": "Weather in Arles",
+      "ko": "아를의 날씨"
+     },
+     "value": {
+      "fr": "magnifique, sans vent",
+      "en": "magnificent, no wind",
+      "ko": "맑음, 바람 없음"
+     },
+     "quote": "un temps magnifique sans vent",
+     "icon": "sun"
+    }
+   ],
+   "status": {
+    "fr": "Un temps magnifique sans vent",
+    "en": "Magnificent weather, no wind",
+    "ko": "바람 없이 근사한 날씨"
+   }
+  },
+  {
+   "id": "c5-l6",
+   "date": "1889-03-24",
+   "ref": "Brieven 1914, n° 581 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 581 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Je t'écris pour te dire que j'ai vu Signac, ce qui m'a fait considérablement du bien.",
+     "en": "I'm writing to tell you that I've seen Signac, which has done me a great deal of good.",
+     "ko": "시냐크를 만났다는 얘기를 하려고 편지해. 그게 나한테 정말 큰 힘이 됐어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 581 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je t'écris pour te dire / que j'ai vu Signac, // ce qui m'a fait considérablement du bien."
+     }
+    },
+    {
+     "fr": "Je lui ai donné en souvenir une nature morte qui avait exaspéré les bons gendarmes de la ville d'Arles, parce que cela représentait deux harengs fumés, qu'on nomme gendarmes comme tu sais.",
+     "en": "I gave him as a keepsake a still life that had exasperated the good gendarmes of the town of Arles, because it showed two smoked herrings, which are called gendarmes, as you know.",
+     "ko": "기념으로 정물화 한 점을 줬어. 아를의 착한 헌병 나리들을 화나게 했던 그림이야. 훈제 청어 두 마리를 그렸거든. 너도 알다시피 청어를 ‘헌병’이라고 부르잖아.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 581 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je lui ai donné en souvenir une nature morte / qui avait exaspéré / les bons gendarmes de la ville d'Arles, // parce que cela représentait deux harengs fumés, // qu'on nomme gendarmes / comme tu sais."
+     }
+    },
+    {
+     "fr": "Je trouve Signac bien calme, alors qu'on le dit si violent, il me fait l'effet de quelqu'un qui a son aplomb et équilibre, voilà tout.",
+     "en": "I find Signac very calm, though people say he is so violent; he strikes me as someone who has his poise and balance, that's all.",
+     "ko": "시냐크는 아주 차분하더라. 다들 그렇게 거칠다고 하는데 말이야. 내가 보기엔 침착하고 균형 잡힌 사람이야. 그게 다야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 581 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je trouve Signac bien calme, // alors qu'on le dit si violent, // il me fait l'effet de quelqu'un / qui a son aplomb et équilibre, // voilà tout."
+     }
+    },
+    {
+     "fr": "J'ai profité de ma sortie pour acheter un livre: Ceux de la glèbe de Camille Lemonnier. J'en ai dévoré deux chapitres — c'est d'une grave, c'est d'une profondeur!",
+     "en": "I took the chance of going out to buy a book: Ceux de la glèbe by Camille Lemonnier. I've devoured two chapters of it — it's so grave, so deep!",
+     "ko": "밖에 나간 김에 책을 한 권 샀어. 카미유 르모니에의 『땅의 사람들』. 벌써 두 장을 단숨에 읽었어. 어찌나 진지하고, 어찌나 깊은지!",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 581 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai profité de ma sortie / pour acheter un livre: / Ceux de la glèbe de Camille Lemonnier. // J'en ai dévoré deux chapitres // — c'est d'une grave, / c'est d'une profondeur!"
+     }
+    },
+    {
+     "fr": "Signac trouvait et c'est parfaitement vrai, que j'avais l'air de me porter bien. Avec cela j'ai le désir et le goût du travail.",
+     "en": "Signac thought, and it's perfectly true, that I looked well. And with that, I have the wish and the taste for work.",
+     "ko": "시냐크가 내가 건강해 보인다고 했는데, 정말 그래. 게다가 일하고 싶은 마음도, 일할 맛도 나.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 581 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Signac trouvait / et c'est parfaitement vrai, // que j'avais l'air de me porter bien. // Avec cela / j'ai le désir et le goût du travail."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "souvenir",
+     "pos": "n.m.",
+     "ipa": "suvniʁ",
+     "en": "keepsake, memory",
+     "ko": "기념(품), 추억",
+     "icon": "🎁"
+    },
+    {
+     "fr": "nature morte",
+     "pos": "n.f.",
+     "ipa": "natyʁ mɔʁt",
+     "en": "still life",
+     "ko": "정물화"
+    },
+    {
+     "fr": "hareng",
+     "pos": "n.m.",
+     "ipa": "aʁɑ̃",
+     "en": "herring",
+     "ko": "청어",
+     "icon": "🐟"
+    },
+    {
+     "fr": "livre",
+     "pos": "n.m.",
+     "ipa": "livʁ",
+     "en": "book",
+     "ko": "책",
+     "icon": "📖"
+    },
+    {
+     "fr": "chapitre",
+     "pos": "n.m.",
+     "ipa": "ʃapitʁ",
+     "en": "chapter",
+     "ko": "(책의) 장"
+    }
+   ],
+   "note": {
+    "ko": "점묘법으로 이름난 화가 폴 시냐크가 3월에 아를로 빈센트를 찾아왔어요. 둘은 함께 닫혀 있던 노란 집에 들어가 그림을 보았어요. 훈제 청어를 ‘헌병’이라 부르는 프랑스 속어 덕분에 생긴 농담이에요. 여기 실린 그림은 1889년 초의 청어 정물로, 빈센트가 시냐크에게 준 바로 그 그림인지는 확실하지 않아요.",
+    "en": "In March the painter Paul Signac, known for his pointillist technique, came to see Vincent in Arles, and together they went into the closed-up Yellow House to look at the paintings. The joke rests on French slang that calls smoked herrings ‘gendarmes’. The picture is a herring still life of early 1889; it is not certain that it is the very canvas Vincent gave Signac.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 581 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Deux_harengs_1889_V_Van_Gogh_(1).jpg"
+   },
+   "plate": {
+    "title_fr": "Deux harengs saurs",
+    "title_en": "Still Life: Bloaters on a Piece of Yellow Paper",
+    "title_ko": "노란 종이 위의 훈제 청어",
+    "date": "January 1889",
+    "collection": "Private collection · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Deux_harengs_1889_V_Van_Gogh_(1).jpg",
+    "why": "A herring still life of early 1889, like the one with “deux harengs fumés” the letter says he gave Signac (not necessarily that very canvas — say so); PD-Art from Wikimedia Commons.",
+    "image": "v581.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.45,
+      "y": 0.3,
+      "title": {
+       "fr": "Les harengs fumés",
+       "en": "The smoked herrings",
+       "ko": "훈제 청어"
+      },
+      "note": {
+       "ko": "노란 종이 위에 놓인 훈제 청어.",
+       "en": "A smoked herring lying on yellow paper."
+      },
+      "word": {
+       "fr": "harengs",
+       "en": "herrings",
+       "ko": "청어",
+       "ipa": "aʁɑ̃"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.5,
+      "y": 0.56,
+      "title": {
+       "fr": "Les « gendarmes »",
+       "en": "The ‘gendarmes’",
+       "ko": "‘헌병’"
+      },
+      "note": {
+       "ko": "아래쪽의 검푸른 청어. 프랑스 사람들은 훈제 청어를 ‘헌병’이라고 불렀어요.",
+       "en": "The dark blue herring below; in French slang smoked herrings were called ‘gendarmes’."
+      },
+      "word": {
+       "fr": "gendarmes",
+       "en": "gendarmes",
+       "ko": "헌병",
+       "ipa": "ʒɑ̃daʁm"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Je suis content que Signac soit venu.",
+    "en": "I'm glad Signac came.",
+    "ko": "시냐크가 와 줘서 정말 다행이야.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Paul Signac est venu voir Vincent à Arles",
+      "en": "Paul Signac came to see Vincent in Arles",
+      "ko": "폴 시냐크가 아를로 빈센트를 찾아왔어요"
+     }
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "v581.jpg",
+     "caption": {
+      "fr": "Deux harengs fumés",
+      "en": "Two smoked herrings",
+      "ko": "훈제 청어 두 마리"
+     }
+    }
+   ],
+   "status": {
+    "fr": "La visite de Signac",
+    "en": "Signac's visit",
+    "ko": "시냐크가 다녀갔어"
+   }
+  },
+  {
+   "id": "c5-l7",
+   "date": "1889-04",
+   "dateNote": "The 1914 edition heads it only (begin April.); written in Arles in early April 1889, shortly before Theo's wedding.",
+   "ref": "Brieven 1914, n° 583 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 583 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Quelques mots pour te souhaiter à toi et à ta fiancée bien du bonheur de ces jours-ci.",
+     "en": "A few words to wish you and your fiancée every happiness in these days.",
+     "ko": "요즘 너와 네 약혼녀에게 행복이 가득하길 빌며 몇 자 적어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 583 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Quelques mots / pour te souhaiter à toi et à ta fiancée / bien du bonheur de ces jours-ci."
+     }
+    },
+    {
+     "fr": "Tenez — juste aujourd'hui l'ami Roulin est venu me voir, il m'a dit de te dire bien des choses de sa part et de te féliciter.",
+     "en": "Look — just today my friend Roulin came to see me; he told me to give you his warm regards and his congratulations.",
+     "ko": "있잖아, 마침 오늘 친구 룰랭이 날 보러 왔어. 너한테 안부 많이 전하고 축하한다고 꼭 말해 달래.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 583 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Tenez // — juste aujourd'hui l'ami Roulin est venu me voir, // il m'a dit de te dire / bien des choses de sa part / et de te féliciter."
+     }
+    },
+    {
+     "fr": "J'ai justement sur le chevalet un verger de pêchers au bord d'un chemin avec les Alpines dans le fond.",
+     "en": "Just now I have on the easel an orchard of peach trees beside a road, with the Alpilles in the background.",
+     "ko": "지금 이젤 위엔 길가의 복숭아나무 과수원이 있어. 뒤로는 알피유 산맥이 보여.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 583 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai justement sur le chevalet / un verger de pêchers / au bord d'un chemin // avec les Alpines dans le fond."
+     }
+    },
+    {
+     "fr": "Heureusement le temps est beau et le soleil glorieux, et les gens d'ici momentanément oublient vite toutes leurs peines et alors rayonnent d'entrain et d'illusions.",
+     "en": "Luckily the weather is fine and the sun glorious, and the people here quickly forget all their troubles for a while and then shine with high spirits and hopes.",
+     "ko": "다행히 날씨가 좋고 햇살이 찬란해. 여기 사람들은 그럴 땐 시름을 금세 잊고, 신이 나서 꿈에 부풀어 환하게 빛나.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 583 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Heureusement le temps est beau / et le soleil glorieux, // et les gens d'ici / momentanément oublient vite toutes leurs peines // et alors rayonnent d'entrain et d'illusions."
+     }
+    },
+    {
+     "fr": "Toujours — mais sans une parole — un je ne sais quoi qui paraît vouloir dire: nous ne savons pas ce qui nous arrivera demain, mais quoi qu'il en soit, songe à moi.",
+     "en": "Always — but without a word — a certain something that seems to say: we don't know what will happen to us tomorrow, but whatever it may be, think of me.",
+     "ko": "늘, 하지만 말 한마디 없이, 이렇게 말하는 듯한 무언가가 있어. 내일 우리에게 무슨 일이 생길지는 몰라. 하지만 무슨 일이 있어도, 나를 생각해 줘.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 583 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Toujours // — mais sans une parole — // un je ne sais quoi / qui paraît vouloir dire: // nous ne savons pas / ce qui nous arrivera demain, // mais quoi qu'il en soit, / songe à moi."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "bonheur",
+     "pos": "n.m.",
+     "ipa": "bɔnœʁ",
+     "en": "happiness",
+     "ko": "행복"
+    },
+    {
+     "fr": "chevalet",
+     "pos": "n.m.",
+     "ipa": "ʃəvalɛ",
+     "en": "easel",
+     "ko": "이젤",
+     "icon": "🖼️"
+    },
+    {
+     "fr": "pêcher",
+     "pos": "n.m.",
+     "ipa": "peʃe",
+     "en": "peach tree",
+     "ko": "복숭아나무",
+     "icon": "🍑"
+    },
+    {
+     "fr": "chemin",
+     "pos": "n.m.",
+     "ipa": "ʃəmɛ̃",
+     "en": "road, path",
+     "ko": "길"
+    },
+    {
+     "fr": "soleil",
+     "pos": "n.m.",
+     "ipa": "sɔlɛj",
+     "en": "sun",
+     "ko": "해, 햇살",
+     "icon": "☀️"
+    }
+   ],
+   "note": {
+    "ko": "테오는 1889년 4월 17일 암스테르담에서 요한나(요) 봉어와 결혼했어요. 빈센트는 그 직전에 이 축하 편지를 보냈어요. 이젤 위에 있다던 그림이 바로 이 그림으로, 울타리 너머 꽃 핀 복숭아나무들 뒤로 알피유 산맥이 보여요. 편지 속 ‘Alpines’는 이 산맥을 부르던 이름이에요.",
+    "en": "Theo married Johanna (Jo) Bonger in Amsterdam on 17 April 1889, and Vincent sent this letter of good wishes shortly before. The picture on the easel is this one: blossoming peach trees behind a fence, with the Alpilles beyond. The letter's ‘Alpines’ is a name for those hills.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 583 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Perzikbomen_in_bloei.jpg"
+   },
+   "plate": {
+    "title_fr": "Pêchers en fleurs",
+    "title_en": "Peach Trees in Blossom",
+    "title_ko": "꽃 핀 복숭아나무들",
+    "date": "April 1889",
+    "collection": "The Courtauld, London · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Perzikbomen_in_bloei.jpg",
+    "why": "The peach orchard with the Alpilles that the letter says is on the easel; PD-Art from Wikimedia Commons.",
+    "image": "v583.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.62,
+      "y": 0.58,
+      "title": {
+       "fr": "Le verger de pêchers",
+       "en": "The peach orchard",
+       "ko": "복숭아나무 과수원"
+      },
+      "note": {
+       "ko": "울타리 너머 하얗고 분홍빛으로 꽃 핀 복숭아나무들.",
+       "en": "Peach trees in white and pink blossom behind the fence."
+      },
+      "word": {
+       "fr": "verger",
+       "en": "orchard",
+       "ko": "과수원",
+       "ipa": "vɛʁʒe"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.85,
+      "y": 0.88,
+      "title": {
+       "fr": "Le chemin",
+       "en": "The road",
+       "ko": "길"
+      },
+      "note": {
+       "ko": "앞쪽, 파랑과 주황이 섞인 길. ‘길가의 과수원’.",
+       "en": "The road in front, flecked blue and orange: ‘beside a road’."
+      },
+      "word": {
+       "fr": "chemin",
+       "en": "road",
+       "ko": "길",
+       "ipa": "ʃəmɛ̃"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.3,
+      "y": 0.41,
+      "title": {
+       "fr": "Les Alpilles",
+       "en": "The Alpilles",
+       "ko": "알피유 산맥"
+      },
+      "note": {
+       "ko": "멀리 지평선의 푸른 산줄기.",
+       "en": "The blue line of hills on the far horizon."
+      },
+      "word": {
+       "fr": "Alpines",
+       "en": "Alpilles",
+       "ko": "알피유",
+       "ipa": "alpin"
+      },
+      "quote": 2
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Merci pour tes vœux, mon frère.",
+    "en": "Thank you for your wishes, brother.",
+    "ko": "축하해 줘서 고마워, 형.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "notice",
+     "text": {
+      "fr": "Théo va se marier · avril 1889",
+      "en": "Theo is about to marry · April 1889",
+      "ko": "테오의 결혼이 다가와요 · 1889년 4월"
+     }
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "v583.jpg",
+     "caption": {
+      "fr": "Pêchers en fleurs",
+      "en": "Peach trees in blossom",
+      "ko": "꽃 핀 복숭아나무"
+     }
+    },
+    {
+     "after": 3,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Arles",
+      "en": "Weather in Arles",
+      "ko": "아를의 날씨"
+     },
+     "value": {
+      "fr": "beau temps, soleil glorieux",
+      "en": "fine weather, glorious sun",
+      "ko": "맑음, 찬란한 햇살"
+     },
+     "quote": "le temps est beau et le soleil glorieux",
+     "icon": "sun"
+    }
+   ],
+   "status": {
+    "fr": "Un verger de pêchers",
+    "en": "A peach orchard",
+    "ko": "복숭아나무 과수원"
+   }
+  }
+ ]
+}

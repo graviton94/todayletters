@@ -57,6 +57,12 @@ sealed interface Route {
     data object Recital : Route
     /** 이번 주 돌아보기 (v21 3단계 E1): 읽은 날 · 편지 · 내 것 · 따라 읽기 점수 · 모은 작품. */
     data object Week : Route
+    /** 프롤로그: 첫 편지 앞의 도슨트 (아를 이전 35년). [page] 0..4. */
+    data class Prologue(val series: String, val page: Int = 0) : Route
+    /** 맺음말 · 아웃트로: 마지막 편지 뒤 (그가 지니고 있던 편지 + 생애를 맺는 글). */
+    data class Outro(val series: String) : Route
+    /** 나의 도록: 편지마다 받은 그림을 날짜 순으로 (완결이면 표지와 메달). */
+    data class Catalogue(val series: String) : Route
     data object Settings : Route
 }
 
@@ -81,6 +87,9 @@ object Nav {
         Route.Exhibition -> Route.Gallery
         Route.Recital -> Route.Inbox
         Route.Week -> Route.Inbox
+        is Route.Prologue -> Route.Inbox
+        is Route.Outro -> Route.Inbox
+        is Route.Catalogue -> Route.Gallery
     }
 
     /** 맨 위(서재)까지 거슬러 오르는 길. 알림으로 바로 들어왔을 때 뒤로 가기 스택을 만든다. */

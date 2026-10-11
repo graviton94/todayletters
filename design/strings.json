@@ -3331,5 +3331,73 @@
   "widget_recital": {
     "en": "Sunday reading today",
     "ko": "오늘은 낭독회"
+  },
+  "prologue_skip": {
+    "en": "Skip",
+    "ko": "건너뛰기"
+  },
+  "prologue_next": {
+    "en": "Next",
+    "ko": "다음"
+  },
+  "prologue_go": {
+    "en": "Receive the first letter",
+    "ko": "첫 편지 받기"
+  },
+  "outro_listen": {
+    "en": "Tap a line to hear it",
+    "ko": "문장을 누르면 들려요"
+  },
+  "outro_close": {
+    "en": "Close",
+    "ko": "닫기"
+  },
+  "outro_catalogue": {
+    "en": "Catalogue",
+    "ko": "도록"
+  },
+  "catalogue_title": {
+    "en": "My catalogue",
+    "ko": "나의 도록"
+  },
+  "catalogue_name": {
+    "en": "Mon %1$s",
+    "ko": "Mon %1$s"
+  },
+  "catalogue_sub": {
+    "en": "The paintings from your letters · %1$s",
+    "ko": "편지로 모은 그림 · %1$s"
+  },
+  "catalogue_complete": {
+    "en": "Complete: all %1$d of %2$d paintings collected.",
+    "ko": "완성: 그림 %2$d점을 모두 모았어요 (%1$d/%2$d)."
+  },
+  "catalogue_progress": {
+    "en": "%1$d of %2$d paintings",
+    "ko": "그림 %2$d점 중 %1$d점"
+  },
+  "cover_prologue": {
+    "en": "Before Arles",
+    "ko": "아를 이전"
+  },
+  "cover_prologue_meta": {
+    "en": "%1$d pages · docent",
+    "ko": "도슨트 %1$d쪽"
+  },
+  "cover_epilogue": {
+    "en": "Afterword",
+    "ko": "맺음말"
+  },
+  "cover_epilogue_open": {
+    "en": "His last letter and his life",
+    "ko": "마지막 편지와 그의 삶"
+  },
+  "cover_epilogue_locked": {
+    "en": "Opens after the last letter",
+    "ko": "마지막 편지를 읽으면 열려요"
+  },
+  "done_outro": {
+    "en": "Read the afterword",
+    "ko": "맺음말 읽기"
   }
 }

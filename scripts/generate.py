@@ -121,7 +121,8 @@ def letters():
         meta = json.load(open(meta_path, encoding="utf-8"))
         dest = os.path.join(APP, "assets", "letters", sid)
         out[os.path.join(dest, "series.json")] = open(meta_path, encoding="utf-8").read()
-        for ch in meta["chapters"]:
+        extra = [meta[k] for k in ("prologue", "outro") if k in meta and "file" in meta[k]]
+        for ch in meta["chapters"] + extra:
             src = os.path.join(folder, ch["file"])
             if not os.path.exists(src):
                 src = src.replace(".json", ".draft.json")

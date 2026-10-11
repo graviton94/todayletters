@@ -270,4 +270,8 @@ class Store(ctx: Context) {
     var notifyAsked: Boolean
         get() = p.getBoolean("notify_asked", false)
         set(v) = p.edit().putBoolean("notify_asked", v).apply()
+
+    /** 프롤로그를 끝까지 본 작품 (첫 편지 앞에서 한 번만 저절로 나온다). */
+    fun prologueSeen(series: String) = series in set("prologue_seen")
+    fun markPrologueSeen(series: String) = add("prologue_seen", series)
 }

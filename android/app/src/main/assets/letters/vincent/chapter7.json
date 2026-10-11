@@ -1,0 +1,1485 @@
+{
+ "_doc": "Chapter VII 초안 (v1). 프랑스어는 1914년판 『Brieven aan zijn broeder』(요 반 고흐-봉어 엮음, 공공 영역, archive.org 스캔) 3권의 생레미 편지(604–633)에서 옮김. 스캔 OCR이 떨어뜨린 악센트와 글자 오류만 바로잡고 (eher→cher, Pieta→Pietà, Travauxdes→Travaux des, ce qe→ce que, Souvenir→souvenir, soeur→sœur, A présent→À présent, 6/ä/q→é/à/ç 등) 표기 하나를 표준으로 다듬음 (l'appelez vous→l'appelez-vous). 문장은 편지에서 발췌. 영어 · 한국어는 이 앱의 새 번역. 그림은 소장처가 CC0로 공개한 것(메트로폴리탄 미술관, 클리블랜드 미술관), 또는 위키미디어 공용의 공공 영역(PD-Art) 이미지.",
+ "series": "vincent",
+ "chapter": "VII",
+ "title_fr": "Les oliviers",
+ "title_en": "The Olive Trees",
+ "title_ko": "올리브 나무",
+ "original": "fr",
+ "letters": [
+  {
+   "id": "c7-l1",
+   "date": "1889-09",
+   "dateNote": "Headed only (September.) in the 1914 edition; written at the asylum in Saint-Rémy in September 1889.",
+   "ref": "Brieven 1914, n° 604 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 604 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Ainsi je travaille à deux portraits de moi dans ce moment — faute d'autre modèle — parce qu'il est plus que temps que je fasse un peu de figure.",
+     "en": "So at the moment I'm working on two portraits of myself — for want of another model — because it's high time I did a little figure work.",
+     "ko": "그래서 지금 내 초상화를 두 점 그리고 있어. 다른 모델이 없으니까. 이제는 정말 인물을 좀 그려야 할 때거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 604 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Ainsi je travaille / à deux portraits de moi / dans ce moment // — faute d'autre modèle — // parce qu'il est plus que temps / que je fasse un peu de figure."
+     }
+    },
+    {
+     "fr": "Le travail va assez bien — je lutte avec une toile commencée quelques jours avant mon indisposition, un faucheur, l'étude est toute jaune, terriblement empâtée, mais le motif était beau et simple.",
+     "en": "The work is going fairly well — I'm struggling with a canvas begun a few days before my indisposition, a reaper; the study is all yellow, terribly thick with paint, but the subject was fine and simple.",
+     "ko": "작업은 꽤 잘 되고 있어. 몸이 안 좋아지기 며칠 전에 시작한 캔버스와 씨름하는 중이야. 수확하는 사람인데, 습작은 온통 노랗고 물감을 지독하게 두껍게 발랐어. 그래도 모티프는 아름답고 단순했어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 604 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Le travail va assez bien // — je lutte avec une toile / commencée quelques jours avant mon indisposition, // un faucheur, // l'étude est toute jaune, / terriblement empâtée, // mais le motif était beau et simple."
+     }
+    },
+    {
+     "fr": "J'y vis alors dans ce faucheur — vague figure qui lutte comme un diable en pleine chaleur pour venir à bout de sa besogne — j'y vis alors l'image de la mort, dans ce sens que l'humanité serait le blé qu'on fauche.",
+     "en": "Then I saw in this reaper — a vague figure struggling like a devil in the full heat to get to the end of his task — I saw in it the image of death, in the sense that humanity would be the wheat being reaped.",
+     "ko": "그때 이 수확하는 사람에게서 죽음의 모습을 봤어. 한낮 더위 속에서 일을 끝내려고 악마처럼 애쓰는 흐릿한 형체 말이야. 인류가 베어지는 밀이라는 뜻에서.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 604 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'y vis alors dans ce faucheur // — vague figure / qui lutte comme un diable en pleine chaleur / pour venir à bout de sa besogne — // j'y vis alors l'image de la mort, // dans ce sens / que l'humanité serait le blé qu'on fauche."
+     }
+    },
+    {
+     "fr": "C'est donc — si tu veux — l'opposition de ce semeur que j'avais essayé auparavant. Mais dans cette mort rien de triste, cela se passe en pleine lumière avec un soleil qui inonde tout d'une lumière d'or fin.",
+     "en": "So it is — if you like — the opposite of the sower I tried before. But there's nothing sad in this death; it happens in broad daylight, with a sun that floods everything with a light of fine gold.",
+     "ko": "그러니까 이건, 말하자면 전에 그려 본 씨 뿌리는 사람의 반대야. 하지만 이 죽음엔 슬픈 게 하나도 없어. 모든 게 환한 빛 속에서 일어나. 해가 모든 걸 순금 같은 빛으로 적시거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 604 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "C'est donc // — si tu veux — // l'opposition de ce semeur / que j'avais essayé auparavant. // Mais dans cette mort / rien de triste, // cela se passe en pleine lumière / avec un soleil / qui inonde tout / d'une lumière d'or fin."
+     }
+    },
+    {
+     "fr": "C'est tout jaune, sauf une ligne de collines violettes, d'un jaune pâle et blond.",
+     "en": "It's all yellow, except for a line of violet hills — a pale, blond yellow.",
+     "ko": "온통 노래. 보랏빛 언덕이 한 줄 있는 것만 빼고. 옅은 금빛이 도는 노랑이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 604 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "C'est tout jaune, // sauf une ligne de collines violettes, // d'un jaune pâle et blond."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "faucheur",
+     "pos": "n.m.",
+     "ipa": "foʃœʁ",
+     "en": "reaper",
+     "ko": "수확하는 사람"
+    },
+    {
+     "fr": "blé",
+     "pos": "n.m.",
+     "ipa": "ble",
+     "en": "wheat",
+     "ko": "밀",
+     "icon": "🌾"
+    },
+    {
+     "fr": "soleil",
+     "pos": "n.m.",
+     "ipa": "sɔlɛj",
+     "en": "sun",
+     "ko": "해",
+     "icon": "☀️"
+    },
+    {
+     "fr": "colline",
+     "pos": "n.f.",
+     "ipa": "kɔlin",
+     "en": "hill",
+     "ko": "언덕",
+     "icon": "⛰️"
+    },
+    {
+     "fr": "portrait",
+     "pos": "n.m.",
+     "ipa": "pɔʁtʁɛ",
+     "en": "portrait",
+     "ko": "초상화",
+     "icon": "🖼️"
+    }
+   ],
+   "note": {
+    "ko": "빈센트는 1889년 5월부터 생레미의 생폴 드 모졸 요양원에 머물렀고, 발작과 발작 사이에 그림을 그렸어요. 편지에 쓴 대로, 이 밀밭은 방의 쇠창살 너머로 보이던 풍경이에요. 그는 수확하는 사람을 여러 번 그렸는데, 여기 실린 반 고흐 미술관의 그림은 1889년 9월의 것이에요.",
+    "en": "From May 1889 Vincent lived at the asylum of Saint-Paul-de-Mausole in Saint-Rémy, and painted between attacks of his illness. As the letter says, this wheatfield was the view through the iron bars of his room. He painted the reaper more than once; the Van Gogh Museum canvas shown here is from September 1889.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 604 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Korenveld_met_maaier_-_s0049V1962_-_Van_Gogh_Museum.jpg"
+   },
+   "plate": {
+    "title_fr": "Champ de blé avec un moissonneur",
+    "title_en": "Wheatfield with a Reaper",
+    "title_ko": "수확하는 사람이 있는 밀밭",
+    "date": "September 1889",
+    "collection": "Van Gogh Museum, Amsterdam · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Korenveld_met_maaier_-_s0049V1962_-_Van_Gogh_Museum.jpg",
+    "why": "The reaper the letter describes; PD-Art from Wikimedia Commons.",
+    "image": "v604.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.2,
+      "y": 0.55,
+      "title": {
+       "fr": "Le faucheur",
+       "en": "The reaper",
+       "ko": "수확하는 사람"
+      },
+      "note": {
+       "ko": "밀밭 왼쪽에서 낫을 휘두르는 작은 형체. ‘흐릿한 형체’.",
+       "en": "The small figure swinging his sickle on the left: ‘a vague figure’."
+      },
+      "word": {
+       "fr": "faucheur",
+       "en": "reaper",
+       "ko": "수확하는 사람",
+       "ipa": "foʃœʁ"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.38,
+      "y": 0.06,
+      "title": {
+       "fr": "Le soleil",
+       "en": "The sun",
+       "ko": "해"
+      },
+      "note": {
+       "ko": "‘모든 걸 순금 같은 빛으로 적시는’ 해.",
+       "en": "The sun ‘that floods everything with a light of fine gold’."
+      },
+      "word": {
+       "fr": "soleil",
+       "en": "sun",
+       "ko": "해",
+       "ipa": "sɔlɛj"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.7,
+      "y": 0.17,
+      "title": {
+       "fr": "Les collines",
+       "en": "The hills",
+       "ko": "언덕"
+      },
+      "note": {
+       "ko": "노란 그림 속 단 하나의 보랏빛 줄, 언덕.",
+       "en": "The one violet line in the yellow picture: the hills."
+      },
+      "word": {
+       "fr": "collines",
+       "en": "hills",
+       "ko": "언덕",
+       "ipa": "kɔlin"
+      },
+      "quote": 4
+     }
+    ]
+   },
+   "reply": {
+    "fr": "J'attends ton faucheur avec impatience.",
+    "en": "I can't wait to see your reaper.",
+    "ko": "형의 수확하는 사람, 얼른 보고 싶어.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "v604b.jpg",
+     "caption": {
+      "fr": "Autoportrait, septembre 1889",
+      "en": "Self-portrait, September 1889",
+      "ko": "자화상, 1889년 9월"
+     }
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "v604.jpg",
+     "caption": {
+      "fr": "Le faucheur dans les blés jaunes",
+      "en": "The reaper in the yellow wheat",
+      "ko": "노란 밀밭의 수확하는 사람"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Le faucheur, tout jaune",
+    "en": "The reaper, all yellow",
+    "ko": "온통 노란 밀밭"
+   }
+  },
+  {
+   "id": "c7-l2",
+   "date": "1889-09",
+   "dateNote": "Undated in the 1914 edition; September 1889, printed after letter 605, headed (10 September.).",
+   "ref": "Brieven 1914, n° 607 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 607 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "C'est drôle juste au moment où je faisais cette copie de la Pietà de Delacroix, j'ai trouvé où est passée cette toile.",
+     "en": "Funny: just as I was making this copy of Delacroix's Pietà, I found out where that canvas has gone.",
+     "ko": "재밌지. 들라크루아의 「피에타」를 따라 그리고 있던 바로 그때, 그 그림이 어디로 갔는지 알게 됐어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 607 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "C'est drôle // juste au moment / où je faisais cette copie / de la Pietà de Delacroix, // j'ai trouvé / où est passée cette toile."
+     }
+    },
+    {
+     "fr": "J'ai à présent 7 copies sur les dix des Travaux des champs de Millet. Je peux t'assurer que cela m'intéresse énormément de faire des copies et que n'ayant pour le moment pas des modèles, cela fera que pourtant je ne perdrai pas de vue la figure.",
+     "en": "I now have 7 copies out of the ten of Millet's Labours of the Fields. I can assure you that making copies interests me enormously, and that, having no models for the moment, it will mean I still don't lose sight of the figure.",
+     "ko": "이제 밀레의 「들일」 열 점 가운데 일곱 점을 따라 그렸어. 따라 그리는 게 정말 재미있어. 지금은 모델이 없지만, 덕분에 인물을 놓치지 않을 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 607 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai à présent 7 copies / sur les dix des Travaux des champs de Millet. // Je peux t'assurer / que cela m'intéresse énormément / de faire des copies // et que n'ayant pour le moment pas des modèles, // cela fera que pourtant / je ne perdrai pas de vue la figure."
+     }
+    },
+    {
+     "fr": "Je pose le blanc et noir de Delacroix ou de Millet ou d'après eux devant moi comme motif. Et puis j'improvise de la couleur là-dessus…",
+     "en": "I set the black and white of Delacroix or Millet, or prints after them, in front of me as a subject. And then I improvise colour on top of it…",
+     "ko": "들라크루아나 밀레의 흑백 그림, 아니면 그걸 옮긴 판화를 모티프로 앞에 놓아. 그리고 그 위에 색을 즉흥으로 얹어…",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 607 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je pose le blanc et noir / de Delacroix ou de Millet / ou d'après eux / devant moi comme motif. // Et puis j'improvise de la couleur là-dessus…"
+     }
+    },
+    {
+     "fr": "Un tas de gens ne copient pas, un tas d'autres copient — moi je m'y suis mis par hasard et je trouve que cela apprend et surtout parfois console. Aussi alors mon pinceau va entre mes doigts comme serait un archet sur le violon et absolument pour mon plaisir.",
+     "en": "Lots of people don't copy, lots of others do — I took it up by chance, and I find it teaches, and above all sometimes consoles. And then my brush moves between my fingers as a bow would on the violin, purely for my own pleasure.",
+     "ko": "따라 그리지 않는 사람도 많고, 따라 그리는 사람도 많지. 나는 우연히 시작했는데, 배우는 것도 있고 무엇보다 가끔 위로가 돼. 그럴 때면 붓이 손가락 사이에서 바이올린 활처럼 움직여. 순전히 내 즐거움을 위해서.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 607 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Un tas de gens ne copient pas, // un tas d'autres copient // — moi je m'y suis mis par hasard / et je trouve que cela apprend / et surtout parfois console. // Aussi alors mon pinceau / va entre mes doigts / comme serait un archet sur le violon // et absolument pour mon plaisir."
+     }
+    },
+    {
+     "fr": "Je sens tellement que l'histoire des gens est comme l'histoire du blé, si on n'est pas semé en terre pour y germer, qu'est-ce que ça fait, on est moulu pour devenir du pain.",
+     "en": "I feel so strongly that the story of people is like the story of wheat: if you're not sown in the earth to sprout there, what does it matter — you're ground to become bread.",
+     "ko": "사람의 이야기는 밀의 이야기 같다는 생각이 정말 많이 들어. 땅에 뿌려져 싹을 틔우지 못하면 어때. 빻아져서 빵이 되는 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 607 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je sens tellement / que l'histoire des gens / est comme l'histoire du blé, // si on n'est pas semé en terre / pour y germer, // qu'est-ce que ça fait, // on est moulu / pour devenir du pain."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "copie",
+     "pos": "n.f.",
+     "ipa": "kɔpi",
+     "en": "copy",
+     "ko": "따라 그린 그림, 모사"
+    },
+    {
+     "fr": "couleur",
+     "pos": "n.f.",
+     "ipa": "kulœʁ",
+     "en": "colour",
+     "ko": "색",
+     "icon": "🎨"
+    },
+    {
+     "fr": "pinceau",
+     "pos": "n.m.",
+     "ipa": "pɛ̃so",
+     "en": "paintbrush",
+     "ko": "붓",
+     "icon": "🖌️"
+    },
+    {
+     "fr": "violon",
+     "pos": "n.m.",
+     "ipa": "vjɔlɔ̃",
+     "en": "violin",
+     "ko": "바이올린",
+     "icon": "🎻"
+    },
+    {
+     "fr": "pain",
+     "pos": "n.m.",
+     "ipa": "pɛ̃",
+     "en": "bread",
+     "ko": "빵",
+     "icon": "🍞"
+    }
+   ],
+   "note": {
+    "ko": "빈센트는 들라크루아의 「피에타」를 흑백 판화를 보고, 색은 스스로 새로 입혀 따라 그렸어요. 편지에서 말한 그대로, 흑백을 앞에 두고 그 위에 색을 즉흥으로 얹은 거예요. 편지 속 ‘카르멘 실바’는 루마니아 왕비 엘리자베트가 시를 쓸 때 쓴 이름이에요.",
+    "en": "Vincent copied Delacroix's Pietà from a black-and-white print and invented the colour himself, just as the letter says: the black and white in front of him, colour improvised on top. The ‘Carmen Sylva’ of the letter was the pen name under which Queen Elisabeth of Romania wrote her poems.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 607 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_083.jpg"
+   },
+   "plate": {
+    "title_fr": "Pietà (d’après Delacroix)",
+    "title_en": "Pietà (after Delacroix)",
+    "title_ko": "피에타 (들라크루아를 따라)",
+    "date": "September 1889",
+    "collection": "Van Gogh Museum, Amsterdam · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_083.jpg",
+    "why": "His copy after Delacroix’s Pietà, mentioned in the letter; PD-Art from Wikimedia Commons.",
+    "image": "v607.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.33,
+      "y": 0.2,
+      "title": {
+       "fr": "La Pietà",
+       "en": "The Pietà",
+       "ko": "피에타"
+      },
+      "note": {
+       "ko": "두 팔을 벌린 성모. 들라크루아의 「피에타」를 따라 그렸어요.",
+       "en": "The Virgin with outstretched arms, after Delacroix's Pietà."
+      },
+      "word": {
+       "fr": "Pietà",
+       "en": "Pietà",
+       "ko": "피에타",
+       "ipa": "pjeta"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.15,
+      "y": 0.45,
+      "title": {
+       "fr": "La couleur",
+       "en": "The colour",
+       "ko": "색"
+      },
+      "note": {
+       "ko": "흑백 판화에는 없던 파란 옷. 색은 빈센트가 ‘즉흥으로’ 얹었어요.",
+       "en": "The blue robe was not in the black-and-white print: Vincent ‘improvised’ the colour."
+      },
+      "word": {
+       "fr": "couleur",
+       "en": "colour",
+       "ko": "색",
+       "ipa": "kulœʁ"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.55,
+      "y": 0.5,
+      "title": {
+       "fr": "La figure",
+       "en": "The figure",
+       "ko": "인물"
+      },
+      "note": {
+       "ko": "축 늘어진 그리스도의 몸. 모델이 없던 그가 인물을 연습한 방법이에요.",
+       "en": "Christ's limp body: with no models, this was how he kept practising the figure."
+      },
+      "word": {
+       "fr": "figure",
+       "en": "figure",
+       "ko": "인물",
+       "ipa": "fiɡyʁ"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Ton pinceau chante comme un violon.",
+    "en": "Your brush sings like a violin.",
+    "ko": "형의 붓이 바이올린처럼 노래하네.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "v607.jpg",
+     "caption": {
+      "fr": "Pietà, d'après Delacroix",
+      "en": "Pietà, after Delacroix",
+      "ko": "피에타, 들라크루아를 따라"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Mon pinceau comme un archet",
+    "en": "My brush like a bow",
+    "ko": "바이올린 활 같은 붓"
+   }
+  },
+  {
+   "id": "c7-l3",
+   "date": "1889-11",
+   "dateNote": "Undated in the 1914 edition; late November 1889, printed after letter 614, headed (November.).",
+   "ref": "Brieven 1914, n° 615 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 615 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "C'est que j'ai travaillé ce mois-ci dans les vergers d'oliviers, car ils m'avaient fait enrager avec leurs Christs au jardin, où rien n'est observé.",
+     "en": "The thing is, this month I've been working in the olive orchards, because they had made me furious with their Christs in the Garden, where nothing is observed.",
+     "ko": "실은 이번 달에 올리브 과수원에서 그림을 그렸어. 그 친구들이 그린 ‘동산의 그리스도’ 때문에 화가 났거든. 거기엔 관찰한 게 하나도 없어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 615 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "C'est que j'ai travaillé ce mois-ci / dans les vergers d'oliviers, // car ils m'avaient fait enrager / avec leurs Christs au jardin, // où rien n'est observé."
+     }
+    },
+    {
+     "fr": "Eh bien pour secouer cela, matin et soir de ces jours clairs et froids, mais par un bien beau et franc soleil, je suis allé tripoter dans les vergers et il en est résulté 5 toiles de 30…",
+     "en": "Well, to shake that off, morning and evening on these clear, cold days, but under a fine, frank sun, I went messing about in the orchards, and five size-30 canvases came of it…",
+     "ko": "그래서 그걸 떨쳐 내려고, 맑고 추운 요즘, 해가 아주 곱고 환한 날 아침저녁으로 과수원에 나가 이것저것 그려 봤어. 그렇게 30호 캔버스가 다섯 점 나왔어…",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 615 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Eh bien pour secouer cela, // matin et soir / de ces jours clairs et froids, // mais par un bien beau et franc soleil, // je suis allé tripoter dans les vergers // et il en est résulté 5 toiles de 30…"
+     }
+    },
+    {
+     "fr": "L'olivier est changeant comme notre saule ou têtard du Nord. Tu sais que les saules sont fort pittoresques, malgré que cela paraisse monotone, c'est l'arbre dans le caractère du pays.",
+     "en": "The olive tree is as changeable as our willow, our pollard willow of the North. You know willows are very picturesque, even though it seems monotonous; it's the tree with the character of the country.",
+     "ko": "올리브 나무는 우리 북쪽의 버드나무, 가지 친 버드나무처럼 변화무쌍해. 버드나무가 단조로워 보여도 무척 그림 같다는 거 알지. 그 고장다운 성격을 지닌 나무야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 615 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "L'olivier est changeant / comme notre saule ou têtard du Nord. // Tu sais que les saules sont fort pittoresques, // malgré que cela paraisse monotone, // c'est l'arbre / dans le caractère du pays."
+     }
+    },
+    {
+     "fr": "Or ce que le saule est chez nous, exactement la même importance a l'olivier et le cyprès ici.",
+     "en": "Now, what the willow is back home, the olive tree and the cypress are here, with exactly the same importance.",
+     "ko": "우리 고향에서 버드나무가 그렇듯, 여기선 올리브 나무와 사이프러스가 꼭 그만큼 중요해.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 615 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Or ce que le saule est chez nous, // exactement la même importance / a l'olivier et le cyprès ici."
+     }
+    },
+    {
+     "fr": "Il faut travailler autant et avec aussi peu de prétentions qu'un paysan, si on veut durer.",
+     "en": "You have to work as hard, and with as few pretensions, as a peasant, if you want to last.",
+     "ko": "오래가고 싶으면, 농부만큼 일하고 농부만큼 욕심 없이 일해야 해.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 615 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Il faut travailler autant / et avec aussi peu de prétentions / qu'un paysan, // si on veut durer."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "olivier",
+     "pos": "n.m.",
+     "ipa": "ɔlivje",
+     "en": "olive tree",
+     "ko": "올리브 나무",
+     "icon": "🫒"
+    },
+    {
+     "fr": "verger",
+     "pos": "n.m.",
+     "ipa": "vɛʁʒe",
+     "en": "orchard",
+     "ko": "과수원"
+    },
+    {
+     "fr": "saule",
+     "pos": "n.m.",
+     "ipa": "sol",
+     "en": "willow",
+     "ko": "버드나무",
+     "icon": "🌳"
+    },
+    {
+     "fr": "cyprès",
+     "pos": "n.m.",
+     "ipa": "sipʁɛ",
+     "en": "cypress",
+     "ko": "사이프러스"
+    },
+    {
+     "fr": "paysan",
+     "pos": "n.m.",
+     "ipa": "peizɑ̃",
+     "en": "peasant",
+     "ko": "농부",
+     "icon": "👨‍🌾"
+    }
+   ],
+   "note": {
+    "ko": "베르나르와 고갱은 ‘올리브 동산의 그리스도’를 그렸는데, 빈센트는 거기에 관찰이 없다고 느꼈어요. 그래서 그는 진짜 올리브 과수원에 나가 그렸어요. 편지에서 그는 올리브 나무를 고향 네덜란드의 버드나무에 견줘요. 여기 실린 미니애폴리스 미술관의 그림은 1889년에 그린 올리브 숲 가운데 하나로, 편지가 말하는 다섯 점 가운데 어느 것인지는 확실하지 않아요.",
+    "en": "Bernard and Gauguin had painted Christ in the Garden of Olives, and Vincent felt nothing in them was observed; so he went out to paint the real olive orchards. In the letter he compares the olive tree to the willow of his native Holland. The Minneapolis canvas shown here is one of his 1889 olive groves; it is not certain which, if any, of the five canvases in the letter it is.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 615 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Olive_Trees_-_Google_Art_Project_(Minneapolis_Institute_of_Arts).jpg"
+   },
+   "plate": {
+    "title_fr": "Oliviers",
+    "title_en": "Olive Trees",
+    "title_ko": "올리브 나무",
+    "date": "1889",
+    "collection": "Minneapolis Institute of Art · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Olive_Trees_-_Google_Art_Project_(Minneapolis_Institute_of_Arts).jpg",
+    "why": "An olive grove of 1889 like the ones the letter describes; PD-Art from Wikimedia Commons.",
+    "image": "v615.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.55,
+      "y": 0.07,
+      "title": {
+       "fr": "Le soleil",
+       "en": "The sun",
+       "ko": "해"
+      },
+      "note": {
+       "ko": "맑고 추운 날의 ‘곱고 환한’ 해.",
+       "en": "The ‘fine, frank sun’ of the clear, cold days."
+      },
+      "word": {
+       "fr": "soleil",
+       "en": "sun",
+       "ko": "해",
+       "ipa": "sɔlɛj"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.24,
+      "y": 0.68,
+      "title": {
+       "fr": "L'olivier",
+       "en": "The olive tree",
+       "ko": "올리브 나무"
+      },
+      "note": {
+       "ko": "뒤틀린 줄기. 고향의 버드나무처럼 ‘변화무쌍한’ 나무.",
+       "en": "A twisted trunk: a tree as ‘changeable’ as the willows back home."
+      },
+      "word": {
+       "fr": "olivier",
+       "en": "olive tree",
+       "ko": "올리브 나무",
+       "ipa": "ɔlivje"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.5,
+      "y": 0.8,
+      "title": {
+       "fr": "Le verger",
+       "en": "The orchard",
+       "ko": "과수원"
+      },
+      "note": {
+       "ko": "나무 사이로 파란 그림자가 길게 누운 과수원.",
+       "en": "The orchard floor, with long blue shadows between the trees."
+      },
+      "word": {
+       "fr": "vergers",
+       "en": "orchards",
+       "ko": "과수원",
+       "ipa": "vɛʁʒe"
+      },
+      "quote": 0
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Tes oliviers sentiront le Midi.",
+    "en": "Your olive trees will smell of the South.",
+    "ko": "형의 올리브 나무엔 남쪽 냄새가 나겠다.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Saint-Rémy",
+      "en": "Weather in Saint-Rémy",
+      "ko": "생레미의 날씨"
+     },
+     "value": {
+      "fr": "clair et froid",
+      "en": "clear and cold",
+      "ko": "맑고 추움"
+     },
+     "quote": "ces jours clairs et froids",
+     "icon": "sun"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "v615.jpg",
+     "caption": {
+      "fr": "Les oliviers",
+      "en": "The olive trees",
+      "ko": "올리브 나무"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Dans les vergers d'oliviers",
+    "en": "In the olive orchards",
+    "ko": "올리브 과수원에서"
+   }
+  },
+  {
+   "id": "c7-l4",
+   "date": "1889-12",
+   "dateNote": "Undated in the 1914 edition; December 1889 — the letter speaks of New Year tips for the staff and of ‘last year at this time’.",
+   "ref": "Brieven 1914, n° 617 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 617 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Ainsi je travaille à un tableau dans ce moment : des femmes cueillant des olives, qui s'y prêterait je crois.",
+     "en": "So right now I'm working on a picture, women picking olives, which would lend itself to that, I think.",
+     "ko": "그래서 지금 그림 하나를 그리고 있어. 올리브 따는 여인들인데, 그런 판화로 만들기 좋을 것 같아.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 617 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Ainsi je travaille à un tableau dans ce moment : // des femmes cueillant des olives, // qui s'y prêterait je crois."
+     }
+    },
+    {
+     "fr": "Voici les couleurs : le terrain est violet et plus loin ocre jaune, les oliviers aux troncs bronze ont un feuillage vert gris, le ciel est entièrement rose et 3 figurines rose aussi. Le tout dans une gamme fort discrète.",
+     "en": "Here are the colours: the ground is violet and, further off, yellow ochre; the olive trees with bronze trunks have grey-green foliage; the sky is entirely pink, and three little figures pink too. The whole in a very discreet range.",
+     "ko": "색은 이래. 땅은 보라, 더 멀리는 황토색. 청동빛 줄기의 올리브 나무엔 회록색 잎. 하늘은 온통 분홍이고 작은 인물 셋도 분홍이야. 전체가 아주 차분한 색조야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 617 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Voici les couleurs : // le terrain est violet / et plus loin ocre jaune, // les oliviers aux troncs bronze / ont un feuillage vert gris, // le ciel est entièrement rose / et 3 figurines rose aussi. // Le tout / dans une gamme fort discrète."
+     }
+    },
+    {
+     "fr": "C'est une toile que je travaille de tête d'après l'étude de même grandeur faite sur place, parce que je veux une chose lointaine comme un vague souvenir adouci par le temps.",
+     "en": "It's a canvas I'm working on from memory, after the study of the same size made on the spot, because I want something distant, like a vague memory softened by time.",
+     "ko": "현장에서 그린 같은 크기의 습작을 보고 기억으로 그리는 캔버스야. 시간이 부드럽게 만든 아련한 추억처럼, 아득한 느낌을 원하거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 617 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "C'est une toile que je travaille de tête / d'après l'étude de même grandeur / faite sur place, // parce que je veux une chose lointaine / comme un vague souvenir / adouci par le temps."
+     }
+    },
+    {
+     "fr": "… et ainsi je me fais une fête de refaire encore les oliveuses pour la mère et la sœur.",
+     "en": "…and so I'm looking forward to doing the olive pickers again for Mother and our sister.",
+     "ko": "…그래서 어머니와 누이를 위해 올리브 따는 여인들을 한 번 더 그릴 생각에 신이 나.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 617 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "… et ainsi je me fais une fête / de refaire encore les oliveuses / pour la mère et la sœur."
+     }
+    },
+    {
+     "fr": "Vers le moment du coucher du soleil cela se calme un peu d'habitude, alors il y a des effets superbes de ciels citron pâle et les pins désolés détachent leurs silhouettes là contre avec des effets de dentelle noire exquise.",
+     "en": "Towards sunset it usually calms down a little, and then there are superb effects of pale lemon skies, and the desolate pines stand out against them in silhouette, like exquisite black lace.",
+     "ko": "해 질 무렵이면 보통 바람이 좀 잦아들어. 그러면 옅은 레몬빛 하늘이 기막히고, 쓸쓸한 소나무들이 그 하늘에 실루엣을 드러내. 정교한 검은 레이스 같아.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 617 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Vers le moment du coucher du soleil / cela se calme un peu d'habitude, // alors il y a des effets superbes / de ciels citron pâle // et les pins désolés / détachent leurs silhouettes là contre // avec des effets de dentelle noire exquise."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "olive",
+     "pos": "n.f.",
+     "ipa": "ɔliv",
+     "en": "olive",
+     "ko": "올리브",
+     "icon": "🫒"
+    },
+    {
+     "fr": "terrain",
+     "pos": "n.m.",
+     "ipa": "tɛʁɛ̃",
+     "en": "ground",
+     "ko": "땅"
+    },
+    {
+     "fr": "tronc",
+     "pos": "n.m.",
+     "ipa": "tʁɔ̃",
+     "en": "trunk",
+     "ko": "줄기",
+     "icon": "🪵"
+    },
+    {
+     "fr": "souvenir",
+     "pos": "n.m.",
+     "ipa": "suv(ə)niʁ",
+     "en": "memory",
+     "ko": "추억, 기억"
+    },
+    {
+     "fr": "pin",
+     "pos": "n.m.",
+     "ipa": "pɛ̃",
+     "en": "pine",
+     "ko": "소나무",
+     "icon": "🌲"
+    }
+   ],
+   "note": {
+    "ko": "편지에서 빈센트는 현장에서 그린 습작을 보고, 방 안에서 기억으로 이 그림을 다시 그리고 있다고 말해요. 그는 올리브 따는 여인들을 여러 번 그렸고, 그중 한 점은 어머니와 누이에게 주려 했어요. 여기 실린 메트로폴리탄 미술관의 그림도 그 가운데 한 점이에요.",
+    "en": "In the letter Vincent says he is painting this picture indoors from memory, after a study made on the spot. He painted the olive pickers several times and meant one version for his mother and sister. The Metropolitan Museum canvas shown here is one of these versions.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 617 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.metmuseum.org/art/collection/search/436536"
+   },
+   "plate": {
+    "title_fr": "Les Cueilleuses d’olives",
+    "title_en": "Women Picking Olives",
+    "title_ko": "올리브 따는 여인들",
+    "date": "December 1889",
+    "collection": "The Metropolitan Museum of Art, New York · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/436536",
+    "why": "A version of the olive-pickers the letter describes; the Met releases it under CC0.",
+    "image": "v617.jpg",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.12,
+      "title": {
+       "fr": "Le ciel rose",
+       "en": "The pink sky",
+       "ko": "분홍 하늘"
+      },
+      "note": {
+       "ko": "‘하늘은 온통 분홍’.",
+       "en": "‘The sky is entirely pink’."
+      },
+      "word": {
+       "fr": "ciel",
+       "en": "sky",
+       "ko": "하늘",
+       "ipa": "sjɛl"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.5,
+      "y": 0.6,
+      "title": {
+       "fr": "Les figurines",
+       "en": "The little figures",
+       "ko": "인물 셋"
+      },
+      "note": {
+       "ko": "사다리 옆에서 올리브를 따는 세 여인.",
+       "en": "Three women picking olives by the ladder."
+      },
+      "word": {
+       "fr": "figurines",
+       "en": "figures",
+       "ko": "인물",
+       "ipa": "fiɡyʁin"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.82,
+      "y": 0.72,
+      "title": {
+       "fr": "Les troncs",
+       "en": "The trunks",
+       "ko": "줄기"
+      },
+      "note": {
+       "ko": "‘청동빛 줄기’의 올리브 나무.",
+       "en": "An olive tree ‘with bronze trunks’."
+      },
+      "word": {
+       "fr": "troncs",
+       "en": "trunks",
+       "ko": "줄기",
+       "ipa": "tʁɔ̃"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "J'aime déjà ton ciel rose.",
+    "en": "I already love your pink sky.",
+    "ko": "형의 분홍 하늘, 벌써 좋아.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "v617.jpg",
+     "caption": {
+      "fr": "Les cueilleuses d'olives",
+      "en": "Women picking olives",
+      "ko": "올리브 따는 여인들"
+     }
+    },
+    {
+     "after": 3,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Saint-Rémy",
+      "en": "Weather in Saint-Rémy",
+      "ko": "생레미의 날씨"
+     },
+     "value": {
+      "fr": "mistral",
+      "en": "mistral (wind)",
+      "ko": "미스트랄 (바람)"
+     },
+     "quote": "il fait du mistral",
+     "icon": "wind"
+    }
+   ],
+   "status": {
+    "fr": "Un ciel entièrement rose",
+    "en": "A sky entirely pink",
+    "ko": "온통 분홍빛 하늘"
+   }
+  },
+  {
+   "id": "c7-l5",
+   "date": "1890-01",
+   "dateNote": "Undated in the 1914 edition; probably early January 1890, printed just before letter 622, headed (Januari 1890.).",
+   "ref": "Brieven 1914, n° 621 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 621 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Hier j'ai été agréablement surpris par la visite de M. Salles, qui je crois, avait eu une lettre de toi. J'étais tout à fait bien quand il est venu, donc nous avons pu causer avec calme.",
+     "en": "Yesterday I was pleasantly surprised by a visit from M. Salles, who, I think, had had a letter from you. I was quite well when he came, so we were able to talk calmly.",
+     "ko": "어제 살 목사님이 찾아와서 반갑게 놀랐어. 네 편지를 받으셨던 것 같아. 그분이 왔을 때 나는 아주 괜찮았고, 그래서 차분히 이야기를 나눌 수 있었어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 621 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Hier j'ai été agréablement surpris / par la visite de M. Salles, // qui je crois, / avait eu une lettre de toi. // J'étais tout à fait bien / quand il est venu, // donc nous avons pu causer avec calme."
+     }
+    },
+    {
+     "fr": "Le ravin — c'est l'étude faite par une journée de mistral — j'avais calé mon chevalet avec des grosses pierres…",
+     "en": "The ravine — that's the study made on a day of mistral — I had wedged my easel with big stones…",
+     "ko": "「협곡」. 미스트랄이 불던 날 그린 습작이야. 이젤을 큰 돌로 받쳐 놨었지…",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 621 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Le ravin // — c'est l'étude faite / par une journée de mistral — // j'avais calé mon chevalet / avec des grosses pierres…"
+     }
+    },
+    {
+     "fr": "Les oliveuses — j'avais destiné ce tableau-là à la mère et la sœur, pour qu'ils aient une chose un peu étudiée.",
+     "en": "The olive pickers — I had meant that picture for Mother and our sister, so that they'd have something a little worked out.",
+     "ko": "「올리브 따는 여인들」. 이 그림은 어머니와 누이에게 주려고 했어. 조금은 공들인 그림을 갖게 해 드리고 싶어서.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 621 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Les oliveuses // — j'avais destiné ce tableau-là / à la mère et la sœur, // pour qu'ils aient / une chose un peu étudiée."
+     }
+    },
+    {
+     "fr": "Les grands platanes — la rue principale ou boulevard de St. Rémy, étude sur nature — j'en ai une répétition peut-être plus faite ici.",
+     "en": "The large plane trees — the main street, or boulevard, of St. Rémy, a study from nature — I have a repetition of it here, perhaps more finished.",
+     "ko": "「큰 플라타너스」. 생레미의 큰길, 그러니까 대로를 그린 현장 습작이야. 여기 다시 그린 그림도 하나 있는데, 그게 더 완성된 것 같아.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 621 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Les grands platanes // — la rue principale / ou boulevard de St. Rémy, // étude sur nature — // j'en ai une répétition / peut-être plus faite ici."
+     }
+    },
+    {
+     "fr": "Car il faut aux colorations absolument le repoussoir du cadre blanc pour juger de l'ensemble.",
+     "en": "For the colouring absolutely needs the foil of a white frame, to judge the whole.",
+     "ko": "색들은 흰 액자가 받쳐 줘야만 전체를 제대로 볼 수 있거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 621 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Car il faut aux colorations absolument / le repoussoir du cadre blanc // pour juger de l'ensemble."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "chevalet",
+     "pos": "n.m.",
+     "ipa": "ʃ(ə)valɛ",
+     "en": "easel",
+     "ko": "이젤"
+    },
+    {
+     "fr": "pierre",
+     "pos": "n.f.",
+     "ipa": "pjɛʁ",
+     "en": "stone",
+     "ko": "돌",
+     "icon": "🪨"
+    },
+    {
+     "fr": "platane",
+     "pos": "n.m.",
+     "ipa": "platan",
+     "en": "plane tree",
+     "ko": "플라타너스",
+     "icon": "🌳"
+    },
+    {
+     "fr": "rue",
+     "pos": "n.f.",
+     "ipa": "ʁy",
+     "en": "street",
+     "ko": "거리, 길"
+    },
+    {
+     "fr": "cadre",
+     "pos": "n.m.",
+     "ipa": "kadʁ",
+     "en": "frame",
+     "ko": "액자",
+     "icon": "🖼️"
+    }
+   ],
+   "note": {
+    "ko": "살 목사는 아를의 개신교 목사로, 아를 시절 빈센트를 돌봐 준 사람이에요. 편지 속 그림 목록에 나오는 ‘큰 플라타너스’는 생레미의 큰길에서 길을 고치는 사람들을 그린 그림이에요. 빈센트는 현장 습작과 다시 그린 그림이 있다고 쓰는데, 여기 실린 것은 클리블랜드 미술관의 그림이에요.",
+    "en": "M. Salles was the Protestant pastor in Arles who had looked after Vincent there. ‘Les grands platanes’ in the letter's list of canvases shows road menders at work on the main boulevard of Saint-Rémy. Vincent says there is a study from nature and a repetition; the picture shown here is the one in Cleveland.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 621 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.clevelandart.org/art/1947.209"
+   },
+   "plate": {
+    "title_fr": "Les Grands Platanes (Les Cantonniers)",
+    "title_en": "The Large Plane Trees (Road Menders at Saint-Rémy)",
+    "title_ko": "큰 플라타너스 (길 고치는 사람들)",
+    "date": "November 1889",
+    "collection": "Cleveland Museum of Art · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.clevelandart.org/art/1947.209",
+    "why": "“Les grands platanes — la rue principale ou boulevard de St. Remy”, listed in the letter; the Cleveland Museum of Art releases it under CC0.",
+    "image": "v621.jpg",
+    "spots": [
+     {
+      "x": 0.3,
+      "y": 0.4,
+      "title": {
+       "fr": "Les grands platanes",
+       "en": "The large plane trees",
+       "ko": "큰 플라타너스"
+      },
+      "note": {
+       "ko": "화면을 꽉 채운 거대한 플라타너스 줄기.",
+       "en": "The huge plane-tree trunks that fill the picture."
+      },
+      "word": {
+       "fr": "platanes",
+       "en": "plane trees",
+       "ko": "플라타너스",
+       "ipa": "platan"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.55,
+      "y": 0.5,
+      "title": {
+       "fr": "La rue principale",
+       "en": "The main street",
+       "ko": "큰길"
+      },
+      "note": {
+       "ko": "나무 사이로 보이는 생레미의 큰길과 일하는 사람들.",
+       "en": "Saint-Rémy's main street between the trees, with men at work."
+      },
+      "word": {
+       "fr": "rue",
+       "en": "main street",
+       "ko": "큰길",
+       "ipa": "ʁy"
+      },
+      "quote": 3
+     }
+    ]
+   },
+   "reply": {
+    "fr": "J'encadrerai tes toiles de blanc.",
+    "en": "I'll frame your canvases in white.",
+    "ko": "형 그림, 흰 액자에 넣어 볼게.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Visite de M. Salles",
+      "en": "A visit from M. Salles",
+      "ko": "살 목사님의 방문"
+     }
+    },
+    {
+     "after": 1,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Saint-Rémy",
+      "en": "Weather in Saint-Rémy",
+      "ko": "생레미의 날씨"
+     },
+     "value": {
+      "fr": "mistral",
+      "en": "mistral (wind)",
+      "ko": "미스트랄 (바람)"
+     },
+     "quote": "une journée de mistral",
+     "icon": "wind"
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "v621.jpg",
+     "caption": {
+      "fr": "Les grands platanes",
+      "en": "The large plane trees",
+      "ko": "큰 플라타너스"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Un rouleau de toiles",
+    "en": "A roll of canvases",
+    "ko": "그림 꾸러미를 보내며"
+   }
+  },
+  {
+   "id": "c7-l6",
+   "date": "1890-02-01",
+   "ref": "Brieven 1914, n° 625 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 625 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "tender",
+   "messages": [
+    {
+     "fr": "Aujourd'hui je viens de recevoir ta bonne nouvelle que tu es père enfin, que le plus critique moment est passé pour Jo, qu'enfin le petit est bien portant.",
+     "en": "Today I've just received your good news: that you're a father at last, that the most critical moment is over for Jo, that the little one is well at last.",
+     "ko": "오늘 네 기쁜 소식을 받았어. 드디어 아빠가 됐구나. 조에게 가장 위험한 순간은 지나갔고, 아기도 건강하다니.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 625 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Aujourd'hui je viens de recevoir ta bonne nouvelle // que tu es père enfin, // que le plus critique moment / est passé pour Jo, // qu'enfin le petit est bien portant."
+     }
+    },
+    {
+     "fr": "Cela me fait à moi aussi davantage de bien et de plaisir, que je ne saurais l'exprimer en paroles. Bravo — et comme la mère va être contente.",
+     "en": "It does me more good, and gives me more pleasure, than I could ever put into words. Bravo — and how happy Mother will be.",
+     "ko": "나한테도 말로 다 못 할 만큼 힘이 되고 기뻐. 잘했어. 어머니도 얼마나 기뻐하실까.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 625 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Cela me fait à moi aussi / davantage de bien et de plaisir, // que je ne saurais l'exprimer en paroles. // Bravo // — et comme la mère va être contente."
+     }
+    },
+    {
+     "fr": "Lorsque j'avais fait ces tournesols, je cherchais le contraire et pourtant l'équivalent et je disais : c'est le cyprès.",
+     "en": "When I had done those sunflowers, I was looking for their opposite and yet their equivalent, and I said: it's the cypress.",
+     "ko": "그 해바라기를 그렸을 때, 나는 그 반대이면서도 맞먹는 것을 찾고 있었어. 그리고 말했지. 그건 사이프러스라고.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 625 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Lorsque j'avais fait ces tournesols, // je cherchais le contraire / et pourtant l'équivalent // et je disais : // c'est le cyprès."
+     }
+    },
+    {
+     "fr": "Maintenant en pensée je reste avec vous autres, tout en terminant ma lettre. Puisse Jo demeurer longtemps pour nous ce qu'elle est.",
+     "en": "Now, in my thoughts, I stay with you both as I finish my letter. May Jo long remain for us what she is.",
+     "ko": "이제 편지를 마무리하면서도 마음은 너희 곁에 있어. 조가 오래도록 지금 그대로 우리 곁에 있기를.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 625 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant en pensée / je reste avec vous autres, // tout en terminant ma lettre. // Puisse Jo demeurer longtemps pour nous / ce qu'elle est."
+     }
+    },
+    {
+     "fr": "Maintenant pour le petit, pourquoi donc ne l'appelez-vous pas Théo en mémoire de notre père, à moi certes cela me ferait tant de plaisir.",
+     "en": "Now, as for the little one, why don't you call him Theo, in memory of our father? It would certainly give me so much pleasure.",
+     "ko": "그리고 아기 말인데, 우리 아버지를 기리는 뜻에서 테오라고 부르면 어때. 나는 정말 기쁠 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 625 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant pour le petit, // pourquoi donc ne l'appelez-vous pas Théo / en mémoire de notre père, // à moi certes / cela me ferait tant de plaisir."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "nouvelle",
+     "pos": "n.f.",
+     "ipa": "nuvɛl",
+     "en": "news",
+     "ko": "소식",
+     "icon": "✉️"
+    },
+    {
+     "fr": "père",
+     "pos": "n.m.",
+     "ipa": "pɛʁ",
+     "en": "father",
+     "ko": "아버지, 아빠"
+    },
+    {
+     "fr": "petit",
+     "pos": "n.m.",
+     "ipa": "p(ə)ti",
+     "en": "little one (baby)",
+     "ko": "아기",
+     "icon": "👶"
+    },
+    {
+     "fr": "tournesol",
+     "pos": "n.m.",
+     "ipa": "tuʁnəsɔl",
+     "en": "sunflower",
+     "ko": "해바라기",
+     "icon": "🌻"
+    },
+    {
+     "fr": "plaisir",
+     "pos": "n.m.",
+     "ipa": "plɛziʁ",
+     "en": "pleasure",
+     "ko": "기쁨"
+    }
+   ],
+   "note": {
+    "ko": "테오와 조의 아들은 1890년 1월 31일에 태어났고, 큰아버지의 이름을 따 빈센트 빌럼이라는 이름을 얻었어요. 아몬드 꽃 그림은 이 편지에 나오지 않아요. 빈센트는 1890년 2월 15일 어머니에게 보낸 편지(627번)에서 아기를 위해 이 그림을 그리기 시작했다고 써요.",
+    "en": "Theo and Jo's son was born on 31 January 1890 and was named Vincent Willem, after his uncle. The almond blossom is not mentioned in this letter: Vincent tells his mother in a letter of 15 February 1890 (n° 627) that he has begun it for the baby.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 625 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 627 ; https://commons.wikimedia.org/wiki/File:Amandelbloesem_-_s0176V1962_-_Van_Gogh_Museum.jpg"
+   },
+   "plate": {
+    "title_fr": "Branches d’amandier en fleur",
+    "title_en": "Almond Blossom",
+    "title_ko": "꽃 피는 아몬드 나무",
+    "date": "February 1890",
+    "collection": "Van Gogh Museum, Amsterdam · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Amandelbloesem_-_s0176V1962_-_Van_Gogh_Museum.jpg",
+    "why": "The painting he made for the newborn (he tells his mother so in a Dutch letter of 15 February 1890, n° 627); PD-Art from Wikimedia Commons.",
+    "image": "v625.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.33,
+      "y": 0.07,
+      "title": {
+       "fr": "Pour le petit",
+       "en": "For the little one",
+       "ko": "아기를 위해"
+      },
+      "note": {
+       "ko": "갓 태어난 조카를 위해 그린 흰 아몬드 꽃.",
+       "en": "White almond blossom, painted for the newborn nephew."
+      },
+      "word": {
+       "fr": "petit",
+       "en": "little one",
+       "ko": "아기",
+       "ipa": "p(ə)ti"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.5,
+      "y": 0.88,
+      "title": {
+       "fr": "Pour le jeune père",
+       "en": "For the new father",
+       "ko": "아빠가 된 테오에게"
+      },
+      "note": {
+       "ko": "파란 하늘을 가로지르는 굵은 가지. 아빠가 된 동생에게 보낸 그림이에요.",
+       "en": "A sturdy branch across the blue sky: a picture for the brother who has just become a father."
+      },
+      "word": {
+       "fr": "père",
+       "en": "father",
+       "ko": "아빠",
+       "ipa": "pɛʁ"
+      },
+      "quote": 0
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Il s'appellera Vincent, comme toi.",
+    "en": "He'll be called Vincent, like you.",
+    "ko": "아기 이름은 빈센트야, 형처럼.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Le fils de Théo et Jo est né le 31 janvier 1890.",
+      "en": "Theo and Jo's son was born on 31 January 1890.",
+      "ko": "1890년 1월 31일, 테오와 조의 아들이 태어났어요."
+     }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "v625.jpg",
+     "caption": {
+      "fr": "Branches d'amandier en fleur",
+      "en": "Almond blossom",
+      "ko": "꽃 피는 아몬드 나무"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Tu es père enfin",
+    "en": "A father at last",
+    "ko": "드디어 아빠가 된 너에게"
+   }
+  },
+  {
+   "id": "c7-l7",
+   "date": "1890-05",
+   "dateNote": "Undated in the 1914 edition; May 1890, between letter 632, headed (Mei.), and letter 634, headed (14 Mei.).",
+   "ref": "Brieven 1914, n° 633 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 633 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "À présent le mieux continue … et je travaille pour donner un dernier coup de brosse ici avec une ardeur calme et continue.",
+     "en": "Now the improvement goes on… and I'm working to give a last stroke of the brush here, with a calm, steady ardour.",
+     "ko": "지금은 계속 나아지고 있어… 그리고 여기서 마지막 붓질을 하려고, 차분하고 꾸준한 열정으로 그리고 있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 633 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "À présent le mieux continue … // et je travaille pour donner / un dernier coup de brosse ici // avec une ardeur calme et continue."
+     }
+    },
+    {
+     "fr": "J'ai en train une toile de roses sur fond vert clair et deux toiles représentant de grands bouquets de fleurs d'iris violets, les unes contre un fond rose où l'effet est harmonieux et doux par la combinaison des verts, roses, violets.",
+     "en": "I have on the go a canvas of roses on a light green background, and two canvases of big bouquets of violet irises, one of them against a pink background, where the effect is harmonious and soft through the combination of greens, pinks and violets.",
+     "ko": "지금 연둣빛 배경에 장미를 그린 캔버스 하나, 그리고 보랏빛 붓꽃 큰 다발을 그린 캔버스 두 점을 그리고 있어. 하나는 분홍 배경이라, 초록과 분홍과 보라가 어울려 조화롭고 부드러워.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 633 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai en train une toile de roses / sur fond vert clair // et deux toiles représentant / de grands bouquets de fleurs d'iris violets, // les unes contre un fond rose / où l'effet est harmonieux et doux // par la combinaison des verts, roses, violets."
+     }
+    },
+    {
+     "fr": "Mais étrange de nouveau, que de même que ce jour-là nous étions si frappés des toiles de Seurat, ces derniers jours ici me sont de nouveau comme une révélation de couleur.",
+     "en": "But strange again: just as that day we were so struck by Seurat's canvases, these last days here are once more like a revelation of colour to me.",
+     "ko": "그런데 또 이상하지. 그날 우리가 쇠라의 그림에 그렇게 놀랐던 것처럼, 여기서 보내는 이 마지막 며칠이 다시 색의 계시 같아.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 633 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mais étrange de nouveau, // que de même que ce jour-là / nous étions si frappés des toiles de Seurat, // ces derniers jours ici / me sont de nouveau / comme une révélation de couleur."
+     }
+    },
+    {
+     "fr": "Comme je désire te revoir et faire la connaissance de Jo et du bébé.",
+     "en": "How I long to see you again, and to meet Jo and the baby.",
+     "ko": "너를 다시 보고, 조와 아기를 만날 날이 얼마나 기다려지는지 몰라.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 633 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Comme je désire te revoir // et faire la connaissance / de Jo et du bébé."
+     }
+    },
+    {
+     "fr": "… à ces dernières je travaille avec tant d'entrain que faire la malle me paraît plus difficile que de faire les tableaux.",
+     "en": "…I'm working on these last ones with such zest that packing my trunk seems harder than making the pictures.",
+     "ko": "…마지막 그림들을 얼마나 신나게 그리는지, 짐 싸는 게 그림 그리는 것보다 더 어려워 보여.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 633 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "… à ces dernières je travaille / avec tant d'entrain // que faire la malle / me paraît plus difficile / que de faire les tableaux."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "brosse",
+     "pos": "n.f.",
+     "ipa": "bʁɔs",
+     "en": "brush (paintbrush)",
+     "ko": "붓",
+     "icon": "🖌️"
+    },
+    {
+     "fr": "iris",
+     "pos": "n.m.",
+     "ipa": "iʁis",
+     "en": "iris",
+     "ko": "붓꽃",
+     "icon": "🪻"
+    },
+    {
+     "fr": "rose",
+     "pos": "n.f.",
+     "ipa": "ʁoz",
+     "en": "rose",
+     "ko": "장미",
+     "icon": "🌹"
+    },
+    {
+     "fr": "révélation",
+     "pos": "n.f.",
+     "ipa": "ʁevelasjɔ̃",
+     "en": "revelation",
+     "ko": "계시, 깨달음"
+    },
+    {
+     "fr": "malle",
+     "pos": "n.f.",
+     "ipa": "mal",
+     "en": "trunk (luggage)",
+     "ko": "트렁크, 짐 가방",
+     "icon": "🧳"
+    }
+   ],
+   "note": {
+    "ko": "생레미를 떠나기 직전인 1890년 5월에 그린 그림이에요. 편지 속 ‘분홍 배경’의 붓꽃이 바로 이 그림인데, 분홍빛이 세월에 바래 지금은 배경이 거의 흰색으로 보여요. 노란 배경의 다른 붓꽃 그림은 암스테르담 반 고흐 미술관에 있어요.",
+    "en": "Vincent painted this in May 1890, just before leaving Saint-Rémy. It is the iris bouquet ‘against a pink background’ of the letter; the pink has faded over time, and the background now looks almost white. The other bouquet, on yellow, is in the Van Gogh Museum, Amsterdam.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 633 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.metmuseum.org/art/collection/search/436528"
+   },
+   "plate": {
+    "title_fr": "Iris",
+    "title_en": "Irises",
+    "title_ko": "붓꽃",
+    "date": "May 1890",
+    "collection": "The Metropolitan Museum of Art, New York · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/436528",
+    "why": "One of the two iris bouquets the letter describes; the Met releases it under CC0.",
+    "image": "v633.jpg",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.3,
+      "title": {
+       "fr": "Les iris",
+       "en": "The irises",
+       "ko": "붓꽃"
+      },
+      "note": {
+       "ko": "커다란 보랏빛 붓꽃 다발.",
+       "en": "A big bouquet of violet irises."
+      },
+      "word": {
+       "fr": "iris",
+       "en": "irises",
+       "ko": "붓꽃",
+       "ipa": "iʁis"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.1,
+      "y": 0.1,
+      "title": {
+       "fr": "Le fond rose",
+       "en": "The pink background",
+       "ko": "분홍 배경"
+      },
+      "note": {
+       "ko": "원래는 분홍이었던 배경. 세월에 바래 지금은 거의 흰색이에요.",
+       "en": "Once pink, the background has faded almost to white."
+      },
+      "word": {
+       "fr": "fond",
+       "en": "background",
+       "ko": "배경",
+       "ipa": "fɔ̃"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.88,
+      "y": 0.6,
+      "title": {
+       "fr": "Les verts",
+       "en": "The greens",
+       "ko": "초록"
+      },
+      "note": {
+       "ko": "길게 뻗은 초록 잎. ‘초록과 분홍과 보라’의 어울림.",
+       "en": "Long green leaves: ‘the combination of greens, pinks and violets’."
+      },
+      "word": {
+       "fr": "verts",
+       "en": "greens",
+       "ko": "초록",
+       "ipa": "vɛʁ"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Je t'attends à la gare.",
+    "en": "I'll be waiting for you at the station.",
+    "ko": "역에서 기다릴게, 형.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "transfer",
+     "amount": "150 francs",
+     "label": {
+      "fr": "Théo a envoyé",
+      "en": "Theo sent",
+      "ko": "테오가 보냄"
+     },
+     "memo": {
+      "fr": "Paris → Saint-Rémy",
+      "en": "Paris → Saint-Rémy",
+      "ko": "파리 → 생레미"
+     },
+     "outgoing": false
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "v633b.jpg",
+     "caption": {
+      "fr": "Roses sur fond vert clair",
+      "en": "Roses on a light green background",
+      "ko": "연둣빛 배경의 장미"
+     }
+    },
+    {
+     "after": 3,
+     "type": "notice",
+     "text": {
+      "fr": "Vincent fait sa malle : il part pour Paris.",
+      "en": "Vincent is packing his trunk: he is leaving for Paris.",
+      "ko": "빈센트가 짐을 싸요. 파리로 떠나요."
+     }
+    }
+   ],
+   "status": {
+    "fr": "Un dernier coup de brosse",
+    "en": "A last stroke of the brush",
+    "ko": "마지막 붓질"
+   }
+  }
+ ]
+}

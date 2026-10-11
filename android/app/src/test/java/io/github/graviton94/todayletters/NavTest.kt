@@ -41,6 +41,9 @@ class NavTest {
         val s = state(onboarded = false)
         assertEquals(Route.Library, s.route)
         s.startFirstLetter("vincent")
+        // 프롤로그(아를 이전)를 지나 첫 편지로
+        assertEquals(Route.Prologue("vincent"), s.route)
+        s.finishPrologue("vincent")
         assertEquals(Route.Letter("vincent", 1, 1, Route.Inbox), s.route)
         s.backTo(Route.Inbox)
         s.backTo(Route.Library)

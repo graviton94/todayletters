@@ -1,0 +1,1494 @@
+{
+ "_doc": "Chapter VI 초안. 프랑스어는 1914년판 『Brieven aan zijn broeder』(요 반 고흐-봉어 엮음, 공공 영역, archive.org 스캔) 제3권에서 옮겼고, OCR이 떨어뜨리거나 망가뜨린 악센트와 글자만 바로잡음 (eher→cher, 9a/qa→ça, aperqois→aperçois, ala VanGoyen→à la Van Goyen, ravivie→ravivés, 6/£/ö→é 등). 이 장의 발췌문에는 고칠 비표준 철자가 없었고, 빈센트의 문법(une obélisque, ne les ait pas encore fait 등)은 그대로 둠. 영어 · 한국어는 이 앱의 새 번역. 그림은 소장처가 자유 사용을 밝힌 것(메트로폴리탄 미술관 CC0)이나 위키미디어 공용의 공공 영역 이미지, 스케치는 1914년판 인쇄본의 편지 속 그림.",
+ "series": "vincent",
+ "chapter": "VI",
+ "title_fr": "L’étoile du matin",
+ "title_en": "The Morning Star",
+ "title_ko": "샛별",
+ "original": "fr",
+ "letters": [
+  {
+   "id": "c6-l1",
+   "date": "1889-05-25",
+   "ref": "Brieven 1914, n° 592 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 592 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Depuis que je suis ici, le jardin désolé, planté de grands pins sous lesquels croît haute et mal entretenue, une herbe entremêlée d'ivraies diverses, m'a suffi pour travailler et je ne suis pas encore sorti dehors.",
+     "en": "Since I've been here, the desolate garden, planted with big pines under which grows tall, ill-kept grass mixed with all sorts of weeds, has been enough for me to work in, and I haven't yet gone outside.",
+     "ko": "여기 온 뒤로는 황량한 정원만으로도 그림 그리기에 충분했어. 큰 소나무들이 서 있고, 그 아래엔 온갖 잡초가 뒤섞인 풀이 손질도 안 된 채 높이 자라 있지. 아직 바깥으로는 한 번도 안 나가 봤어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 592 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Depuis que je suis ici, // le jardin désolé, / planté de grands pins / sous lesquels croît haute et mal entretenue, // une herbe entremêlée d'ivraies diverses, // m'a suffi pour travailler // et je ne suis pas encore sorti dehors."
+     }
+    },
+    {
+     "fr": "J'ai une petite chambre à papier gris vert avec deux rideaux vert d'eau à dessins de roses très pâles, ravivés de minces traits de rouge sang.",
+     "en": "I have a little room with grey-green wallpaper and two water-green curtains with a pattern of very pale roses, brightened with thin lines of blood red.",
+     "ko": "나한텐 회녹색 벽지를 바른 작은 방이 있어. 물빛 초록 커튼이 두 장 걸려 있는데, 아주 옅은 장미 무늬에 핏빛 빨강의 가는 선이 생기를 더해 줘.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 592 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai une petite chambre / à papier gris vert // avec deux rideaux vert d'eau / à dessins de roses très pâles, // ravivés de minces traits / de rouge sang."
+     }
+    },
+    {
+     "fr": "… à travers la fenêtre barrée de fer j'aperçois un carré de blé dans un enclos, une perspective à la Van Goyen, au-dessus de laquelle le matin je vois le soleil se lever dans sa gloire.",
+     "en": "… through the iron-barred window I can see a square of wheat in an enclosure, a view like a Van Goyen, above which, in the morning, I watch the sun rise in all its glory.",
+     "ko": "… 쇠창살 달린 창문 너머로 담 안의 네모난 밀밭이 보여. 판 호이언 그림 같은 풍경이야. 그 위로 아침마다 해가 찬란하게 떠오르는 걸 봐.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 592 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "… à travers la fenêtre barrée de fer / j'aperçois un carré de blé / dans un enclos, // une perspective à la Van Goyen, // au-dessus de laquelle le matin / je vois le soleil se lever / dans sa gloire."
+     }
+    },
+    {
+     "fr": "J'y ai dessiné hier un très grand papillon de nuit assez rare, qu'on appelle la tête de mort, d'une coloration d'un distingué étonnant, noir, gris, blanc nuancé et à reflets carminés ou vaguement tournant sur le vert olive; il est très grand.",
+     "en": "Yesterday I drew a very big and rather rare moth there, the one they call the death's-head, with astonishingly distinguished colouring: black, grey, shaded white, with carmine glints or vaguely turning to olive green; it is very big.",
+     "ko": "어제 거기서 아주 큰 나방을 하나 그렸어. 꽤 드문 녀석인데 ‘해골’이라고 불러. 색이 놀랄 만큼 기품 있어. 검정, 회색, 미묘한 흰색에, 진홍빛이나 어렴풋이 올리브 초록으로 넘어가는 광택이 돌아. 정말 커.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 592 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'y ai dessiné hier / un très grand papillon de nuit assez rare, // qu'on appelle la tête de mort, // d'une coloration d'un distingué étonnant, // noir, gris, blanc nuancé / et à reflets carminés / ou vaguement tournant sur le vert olive; // il est très grand."
+     }
+    },
+    {
+     "fr": "Pour la peindre il aurait fallu le tuer et c'était dommage, tellement la bête était belle.",
+     "en": "To paint it I would have had to kill it, and that was a pity, the creature was so beautiful.",
+     "ko": "그걸 그리려면 죽여야 했을 텐데, 그러기엔 아까웠어. 그만큼 아름다운 녀석이었거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 592 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Pour la peindre / il aurait fallu le tuer // et c'était dommage, // tellement la bête était belle."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "jardin",
+     "pos": "n.m.",
+     "ipa": "ʒaʁdɛ̃",
+     "en": "garden",
+     "ko": "정원",
+     "icon": "🌿"
+    },
+    {
+     "fr": "chambre",
+     "pos": "n.f.",
+     "ipa": "ʃɑ̃bʁ",
+     "en": "room, bedroom",
+     "ko": "방",
+     "icon": "🛏️"
+    },
+    {
+     "fr": "fenêtre",
+     "pos": "n.f.",
+     "ipa": "fənɛtʁ",
+     "en": "window",
+     "ko": "창문",
+     "icon": "🪟"
+    },
+    {
+     "fr": "soleil",
+     "pos": "n.m.",
+     "ipa": "sɔlɛj",
+     "en": "sun",
+     "ko": "해",
+     "icon": "☀️"
+    },
+    {
+     "fr": "papillon de nuit",
+     "pos": "n.m.",
+     "ipa": "papijɔ̃ də nɥi",
+     "en": "moth",
+     "ko": "나방",
+     "icon": "🦋"
+    }
+   ],
+   "note": {
+    "ko": "1889년 5월, 빈센트는 스스로 원해서 생레미드프로방스의 생폴드모졸 요양원에 들어갔어요. 이 편지에서 그는 아직 요양원 정원 밖으로 나가 본 적이 없다고 적었어요. 붓꽃은 이 편지에 나오지 않지만, 생레미에서 보낸 첫 편지에 나오고, 이 첫 몇 주 동안 요양원 정원에서 그린 그림이에요. 편지가 말하는 ‘정원 그림 네 점’이 어느 것인지는 편지가 밝히지 않아요.",
+    "en": "In May 1889 Vincent entered the asylum of Saint-Paul-de-Mausole at Saint-Rémy-de-Provence of his own accord. In this letter he says he has not yet gone outside the asylum garden. The irises are not mentioned in this letter, but they appear in his first Saint-Rémy letter, and he painted them in the asylum garden in these first weeks. The letter does not say which canvases are the ‘4 canvases of the garden’ he has under way.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 592 · public domain · https://archive.org/details/brievenaanzijnbr03gogh"
+   },
+   "plate": {
+    "title_fr": "Iris",
+    "title_en": "Irises",
+    "title_ko": "붓꽃",
+    "date": "May 1889",
+    "collection": "J. Paul Getty Museum, Los Angeles · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Irises-Vincent_van_Gogh.jpg",
+    "why": "Painted in the asylum garden in his first weeks there (irises are mentioned in his first Saint-Rémy letter); public-domain image from Wikimedia Commons.",
+    "image": "v592.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.42,
+      "title": {
+       "fr": "Le jardin",
+       "en": "The garden",
+       "ko": "정원"
+      },
+      "note": {
+       "ko": "요양원 정원의 붓꽃 화단. 빈센트는 처음 몇 주 동안 이 정원만 그렸어요.",
+       "en": "An iris bed in the asylum garden, the only place Vincent painted in his first weeks."
+      },
+      "word": {
+       "fr": "jardin",
+       "en": "garden",
+       "ko": "정원",
+       "ipa": "ʒaʁdɛ̃"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.62,
+      "y": 0.06,
+      "title": {
+       "fr": "L'herbe haute",
+       "en": "The tall grass",
+       "ko": "높이 자란 풀"
+      },
+      "note": {
+       "ko": "붓꽃 뒤로 보이는 초록 풀밭. 편지 속 정원은 ‘손질도 안 된 채 높이 자란 풀’로 덮여 있었어요.",
+       "en": "The green growth behind the irises; the garden of the letter was full of ‘tall, ill-kept grass’."
+      },
+      "word": {
+       "fr": "herbe",
+       "en": "grass",
+       "ko": "풀",
+       "ipa": "ɛʁb"
+      },
+      "quote": 0
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Je suis content que tu travailles.",
+    "en": "I'm glad you are working.",
+    "ko": "형이 그림을 그린다니 기뻐.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Vincent est à l'asile Saint-Paul-de-Mausole · Saint-Rémy-de-Provence, mai 1889",
+      "en": "Vincent is at the Saint-Paul-de-Mausole asylum · Saint-Rémy-de-Provence, May 1889",
+      "ko": "빈센트가 생폴드모졸 요양원에 있어요 · 생레미드프로방스, 1889년 5월"
+     }
+    },
+    {
+     "after": -1,
+     "type": "sketch",
+     "image": "v592-berceuse.jpg",
+     "caption": {
+      "fr": "La Berceuse au milieu, les tournesols à droite et à gauche",
+      "en": "La Berceuse in the middle, the sunflowers left and right",
+      "ko": "가운데 자장가, 양옆에 해바라기"
+     },
+     "credit": "La Berceuse entre deux tournesols · Brieven aan zijn broeder (1914), p. 318"
+    },
+    {
+     "after": 3,
+     "type": "sketch",
+     "image": "v592-papillon.jpg",
+     "caption": {
+      "fr": "Le papillon de nuit, dessiné dans la lettre",
+      "en": "The moth, drawn in the letter",
+      "ko": "편지 속에 그린 나방"
+     },
+     "credit": "Croquis du papillon de nuit · Brieven aan zijn broeder (1914), p. 321"
+    }
+   ],
+   "status": {
+    "fr": "Un carré de blé à la fenêtre",
+    "en": "A square of wheat at the window",
+    "ko": "창밖의 네모난 밀밭"
+   }
+  },
+  {
+   "id": "c6-l2",
+   "date": "1889-06",
+   "dateNote": "Undated in the 1914 edition; it comes between letter 592 (25 May) and letter 594 (9 June 1889), and Vincent writes that he has been at Saint-Rémy almost a month, so about the beginning of June 1889.",
+   "ref": "Brieven 1914, n° 593 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 593 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Il faut que je te prie encore de m'envoyer le plus tôt possible quelques brosses ordinaires, dont voici à peu près les grosseurs.",
+     "en": "I must ask you once more to send me, as soon as possible, a few ordinary brushes, of roughly these sizes.",
+     "ko": "또 부탁해야겠어. 될 수 있으면 빨리 보통 붓을 몇 자루 보내 줘. 굵기는 대략 이 정도야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 593 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Il faut que je te prie encore / de m'envoyer le plus tôt possible / quelques brosses ordinaires, // dont voici à peu près les grosseurs."
+     }
+    },
+    {
+     "fr": "Ce matin j'ai vu la campagne de ma fenêtre longtemps avant le lever du soleil, avec rien que l'étoile du matin, laquelle paraissait très grande.",
+     "en": "This morning I looked at the countryside from my window long before sunrise, with nothing but the morning star, which looked very big.",
+     "ko": "오늘 아침, 해 뜨기 한참 전에 창밖으로 들판을 바라봤어. 샛별 하나만 떠 있었는데, 아주 커 보였어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 593 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Ce matin / j'ai vu la campagne de ma fenêtre / longtemps avant le lever du soleil, // avec rien que l'étoile du matin, // laquelle paraissait très grande."
+     }
+    },
+    {
+     "fr": "Daubigny et Rousseau ont fait ça cependant avec l'expression de toute l'intimité et toute la grande paix et majesté que cela a, en y ajoutant un sentiment si navrant, si personnel. Ces émotions-là je ne les déteste pas.",
+     "en": "Daubigny and Rousseau painted just that, though, expressing all its intimacy and all the great peace and majesty it has, and adding a feeling so heartbreaking, so personal. Those emotions I don't dislike.",
+     "ko": "그런데 도비니와 루소가 바로 그걸 그렸지. 그 풍경이 지닌 온갖 친밀함과 크나큰 평화, 장엄함을 담아내고, 거기에 가슴 저미도록 사적인 감정을 더해서. 그런 감정, 난 싫지 않아.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 593 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Daubigny et Rousseau ont fait ça cependant / avec l'expression de toute l'intimité / et toute la grande paix et majesté / que cela a, // en y ajoutant un sentiment / si navrant, / si personnel. // Ces émotions-là / je ne les déteste pas."
+     }
+    },
+    {
+     "fr": "Mais quel beau pays et quel beau bleu et quel soleil! Et encore je n'ai vu que le jardin et ce que j'aperçois à travers la fenêtre.",
+     "en": "But what a beautiful country, and what a beautiful blue, and what a sun! And yet I have seen only the garden and what I can glimpse through the window.",
+     "ko": "그래도 얼마나 아름다운 고장인지, 얼마나 아름다운 파랑인지, 그리고 이 햇빛! 그런데 난 아직 정원이랑 창문 너머로 보이는 것밖에 못 봤어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 593 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mais quel beau pays / et quel beau bleu / et quel soleil! // Et encore je n'ai vu que le jardin / et ce que j'aperçois / à travers la fenêtre."
+     }
+    },
+    {
+     "fr": "Puisque c'est juste la saison où il y a beaucoup de fleurs et par conséquent des effets de couleur, il sera peut-être sage de m'envoyer encore 5 mètres de toile en plus.",
+     "en": "Since this is just the season when there are lots of flowers, and so effects of colour, it might be wise to send me another 5 metres of canvas.",
+     "ko": "마침 꽃이 많이 피는 철이라 색의 효과도 많으니까, 캔버스 천을 5미터 더 보내 주는 게 좋겠어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 593 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Puisque c'est juste la saison / où il y a beaucoup de fleurs / et par conséquent des effets de couleur, // il sera peut-être sage / de m'envoyer encore / 5 mètres de toile en plus."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "brosse",
+     "pos": "n.f.",
+     "ipa": "bʁɔs",
+     "en": "brush (for painting)",
+     "ko": "붓",
+     "icon": "🖌️"
+    },
+    {
+     "fr": "étoile du matin",
+     "pos": "expr.",
+     "ipa": "etwal dy matɛ̃",
+     "en": "morning star",
+     "ko": "샛별",
+     "icon": "⭐"
+    },
+    {
+     "fr": "lever du soleil",
+     "pos": "n.m.",
+     "ipa": "ləve dy sɔlɛj",
+     "en": "sunrise",
+     "ko": "해돋이",
+     "icon": "🌅"
+    },
+    {
+     "fr": "paix",
+     "pos": "n.f.",
+     "ipa": "pɛ",
+     "en": "peace",
+     "ko": "평화"
+    },
+    {
+     "fr": "fleur",
+     "pos": "n.f.",
+     "ipa": "flœʁ",
+     "en": "flower",
+     "ko": "꽃",
+     "icon": "🌸"
+    }
+   ],
+   "note": {
+    "ko": "여기 실린 그림은 1914년판에 인쇄된, 편지 속 빈센트의 붓 스케치예요. 그는 필요한 붓의 굵기를 직접 그려 보이며 종류마다 반 다스씩 부탁했어요. 이 편지에서 그는 생레미에 온 지 거의 한 달이 되었다고 적고, 새 캔버스와 물감이 오면 들판에 나가 보겠다고 해요. 도비니와 루소는 그가 오래 존경한 프랑스 풍경화가들이에요.",
+    "en": "The picture here is Vincent's own sketch of brushes, printed inside this letter in the 1914 edition. He drew the sizes he needed and asked for half a dozen of each. In this letter he says he has been at Saint-Rémy almost a month, and that once the new canvas and paints arrive he will go and look at the countryside. Daubigny and Rousseau were French landscape painters he had long admired.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 593 · public domain · https://archive.org/details/brievenaanzijnbr03gogh"
+   },
+   "plate": {
+    "title_fr": "Croquis des brosses (dans la lettre)",
+    "title_en": "Sketch of brushes (in the letter)",
+    "title_ko": "붓 스케치 (편지 속)",
+    "date": "June 1889",
+    "collection": "Brieven aan zijn broeder (1914), p. 324 · public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://archive.org/details/brievenaanzijnbr03gogh",
+    "why": "Van Gogh’s own sketch of the brushes he asks for, printed in this letter in the 1914 edition.",
+    "image": "v593.jpg",
+    "spots": [
+     {
+      "x": 0.3,
+      "y": 0.12,
+      "title": {
+       "fr": "Les brosses",
+       "en": "The brushes",
+       "ko": "붓"
+      },
+      "note": {
+       "ko": "빈센트가 펜으로 그린 붓. ‘보통 붓을 몇 자루’ 부탁하며 크기를 보여 주려고 그렸어요.",
+       "en": "Brushes drawn in pen, to show the ‘ordinary brushes’ he needed."
+      },
+      "word": {
+       "fr": "brosses",
+       "en": "brushes",
+       "ko": "붓",
+       "ipa": "bʁɔs"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.88,
+      "y": 0.82,
+      "title": {
+       "fr": "La plus fine",
+       "en": "The thinnest",
+       "ko": "가장 가는 붓"
+      },
+      "note": {
+       "ko": "맨 아래의 가늘고 뾰족한 붓. 굵기가 저마다 달라요.",
+       "en": "The thin, pointed brush at the bottom: each one is a different size."
+      },
+      "word": {
+       "fr": "grosseurs",
+       "en": "sizes",
+       "ko": "굵기",
+       "ipa": "ɡʁosœʁ"
+      },
+      "quote": 0
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Je t'envoie les brosses demain.",
+    "en": "I'll send you the brushes tomorrow.",
+    "ko": "붓은 내일 보낼게.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "v593.jpg",
+     "caption": {
+      "fr": "Les brosses, à peu près les grosseurs",
+      "en": "The brushes, roughly their sizes",
+      "ko": "붓, 대략 이 굵기"
+     }
+    },
+    {
+     "after": 3,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Saint-Rémy",
+      "en": "Weather in Saint-Rémy",
+      "ko": "생레미의 날씨"
+     },
+     "value": {
+      "fr": "soleil splendide",
+      "en": "splendid sun",
+      "ko": "눈부신 햇빛"
+     },
+     "quote": "quel beau bleu et quel soleil!",
+     "icon": "sun"
+    }
+   ],
+   "status": {
+    "fr": "L'étoile du matin",
+    "en": "The morning star",
+    "ko": "샛별"
+   }
+  },
+  {
+   "id": "c6-l3",
+   "date": "1889-06-09",
+   "ref": "Brieven 1914, n° 594 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 594 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Merci beaucoup de l'envoi de toiles, couleurs, brosses, tabac et chocolat qui m'est parvenu en bon état.",
+     "en": "Many thanks for the parcel of canvas, paints, brushes, tobacco and chocolate, which reached me in good condition.",
+     "ko": "캔버스, 물감, 붓, 담배, 초콜릿 꾸러미 정말 고마워. 멀쩡하게 잘 도착했어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 594 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Merci beaucoup de l'envoi / de toiles, couleurs, brosses, tabac et chocolat // qui m'est parvenu en bon état."
+     }
+    },
+    {
+     "fr": "J'ai en train deux paysages (toiles de 30), de vues prises dans les collines, l'un est la campagne que j'aperçois de la fenêtre de ma chambre à coucher.",
+     "en": "I have two landscapes under way (size-30 canvases), views taken in the hills; one is the countryside I see from my bedroom window.",
+     "ko": "풍경화 두 점을 그리고 있어(30호 캔버스). 언덕에서 바라본 풍경인데, 하나는 내 침실 창문으로 보이는 들판이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 594 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai en train deux paysages / (toiles de 30), // de vues prises dans les collines, // l'un est la campagne que j'aperçois / de la fenêtre de ma chambre à coucher."
+     }
+    },
+    {
+     "fr": "Sur l'avant-plan un champ de blé ravagé et flanqué par terre après un orage. Un mur de clôture et au delà de la verdure grise de quelques oliviers, des cabanes et des collines.",
+     "en": "In the foreground, a field of wheat laid waste and flattened to the ground after a storm. A boundary wall, and beyond it the grey greenery of a few olive trees, some huts and the hills.",
+     "ko": "앞쪽엔 폭풍우가 지나간 뒤 엉망이 되어 바닥에 쓰러진 밀밭. 둘레의 담이 있고, 그 너머로 올리브나무 몇 그루의 회색빛 초록, 오두막 몇 채, 그리고 언덕들.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 594 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Sur l'avant-plan / un champ de blé ravagé / et flanqué par terre / après un orage. // Un mur de clôture / et au delà / de la verdure grise de quelques oliviers, // des cabanes et des collines."
+     }
+    },
+    {
+     "fr": "Enfin dans le haut de la toile un grand nuage blanc et gris noyé dans l'azur. C'est un paysage d'une simplicité extrême — aussi de coloration.",
+     "en": "Then at the top of the canvas, a big white and grey cloud drowned in the azure. It is a landscape of extreme simplicity — in its colour too.",
+     "ko": "그리고 캔버스 위쪽엔 하늘빛 속에 잠긴 크고 희끗한 회색 구름. 더없이 단순한 풍경이야. 색도 그렇고.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 594 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Enfin dans le haut de la toile / un grand nuage blanc et gris / noyé dans l'azur. // C'est un paysage / d'une simplicité extrême // — aussi de coloration."
+     }
+    },
+    {
+     "fr": "La santé va bien, comme ci comme ça, je me sens avec mon travail plus heureux ici que je ne pourrais l'être dehors.",
+     "en": "My health is fine, so-so; with my work I feel happier here than I could be outside.",
+     "ko": "건강은 괜찮아, 그럭저럭. 여기서 그림을 그리고 있으면, 바깥에서보다 더 행복해.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 594 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "La santé va bien, / comme ci comme ça, // je me sens avec mon travail / plus heureux ici / que je ne pourrais l'être dehors."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "blé",
+     "pos": "n.m.",
+     "ipa": "ble",
+     "en": "wheat",
+     "ko": "밀",
+     "icon": "🌾"
+    },
+    {
+     "fr": "orage",
+     "pos": "n.m.",
+     "ipa": "ɔʁaʒ",
+     "en": "storm",
+     "ko": "폭풍우",
+     "icon": "⛈️"
+    },
+    {
+     "fr": "mur",
+     "pos": "n.m.",
+     "ipa": "myʁ",
+     "en": "wall",
+     "ko": "담",
+     "icon": "🧱"
+    },
+    {
+     "fr": "nuage",
+     "pos": "n.m.",
+     "ipa": "nɥaʒ",
+     "en": "cloud",
+     "ko": "구름",
+     "icon": "☁️"
+    },
+    {
+     "fr": "colline",
+     "pos": "n.f.",
+     "ipa": "kɔlin",
+     "en": "hill",
+     "ko": "언덕",
+     "icon": "⛰️"
+    }
+   ],
+   "note": {
+    "ko": "빈센트는 며칠 전부터 요양원 밖 근처에 나가 그림을 그리기 시작했어요. 여기 실린 그림은 같은 달 요양원 뒤쪽 언덕을 바라보며 그린 풍경으로, 편지가 말하는 바로 그 캔버스인지는 확실하지 않아요. 그래도 담, 밀밭, 오두막, 언덕, 커다란 구름처럼 편지에 나오는 것들이 모두 보여요.",
+    "en": "For a few days Vincent had been going out to work in the surroundings of the asylum. The picture here is a landscape of the hills behind the asylum painted the same month; it is not certain that it is the very canvas the letter describes. Still, the wall, the wheat field, the huts, the hills and the big cloud of the letter are all there.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 594 · public domain · https://archive.org/details/brievenaanzijnbr03gogh"
+   },
+   "plate": {
+    "title_fr": "Paysage montagneux derrière l’hospice Saint-Paul",
+    "title_en": "Mountainous Landscape behind Saint-Paul Hospital",
+    "title_ko": "생폴 병원 뒤의 산 풍경",
+    "date": "June 1889",
+    "collection": "Ny Carlsberg Glyptotek, Copenhagen · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Landscape_from_Saint-Rémy_-_Google_Art_Project.jpg",
+    "why": "The view from his window toward the hills, painted the same month (not necessarily the very canvas the letter describes — say so); PD-Art from Wikimedia Commons.",
+    "image": "v594.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.6,
+      "y": 0.78,
+      "title": {
+       "fr": "Le champ de blé",
+       "en": "The wheat field",
+       "ko": "밀밭"
+      },
+      "note": {
+       "ko": "앞쪽의 밀밭. 이삭이 이리저리 휘어져 바람과 비가 지나간 듯해요.",
+       "en": "The wheat in the foreground, bent every which way, as if wind and rain had just passed."
+      },
+      "word": {
+       "fr": "blé",
+       "en": "wheat",
+       "ko": "밀밭",
+       "ipa": "ble"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.32,
+      "y": 0.5,
+      "title": {
+       "fr": "Le mur de clôture",
+       "en": "The boundary wall",
+       "ko": "둘레의 담"
+      },
+      "note": {
+       "ko": "밀밭을 가로지르는 회색 담. 그 너머로 올리브나무와 오두막이 보여요.",
+       "en": "The grey wall across the field, with olive trees and huts beyond."
+      },
+      "word": {
+       "fr": "mur",
+       "en": "wall",
+       "ko": "담",
+       "ipa": "myʁ"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.4,
+      "y": 0.14,
+      "title": {
+       "fr": "Le grand nuage",
+       "en": "The big cloud",
+       "ko": "큰 구름"
+      },
+      "note": {
+       "ko": "하늘을 가득 채운 크고 흰 구름. ‘하늘빛 속에 잠긴’ 모습이에요.",
+       "en": "A huge white cloud filling the sky, ‘drowned in the azure’."
+      },
+      "word": {
+       "fr": "nuage",
+       "en": "cloud",
+       "ko": "구름",
+       "ipa": "nɥaʒ"
+      },
+      "quote": 3
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Ton champ après l'orage me plaît.",
+    "en": "I like your field after the storm.",
+    "ko": "폭풍우 지난 밀밭, 좋다.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "notice",
+     "text": {
+      "fr": "Un colis de Paris · toiles, couleurs, brosses, tabac et chocolat",
+      "en": "A parcel from Paris · canvas, paints, brushes, tobacco and chocolate",
+      "ko": "파리에서 온 꾸러미 · 캔버스, 물감, 붓, 담배, 초콜릿"
+     }
+    },
+    {
+     "after": 1,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Saint-Rémy",
+      "en": "Weather in Saint-Rémy",
+      "ko": "생레미의 날씨"
+     },
+     "value": {
+      "fr": "après l'orage",
+      "en": "after the storm",
+      "ko": "폭풍우 뒤"
+     },
+     "quote": "après un orage",
+     "icon": "rain"
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "v594.jpg",
+     "caption": {
+      "fr": "La campagne, vue des collines",
+      "en": "The countryside, seen from the hills",
+      "ko": "언덕에서 본 들판"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Le blé après l'orage",
+    "en": "Wheat after the storm",
+    "ko": "폭풍우 지난 밀밭"
+   }
+  },
+  {
+   "id": "c6-l4",
+   "date": "1889-06-19",
+   "ref": "Brieven 1914, n° 595 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 595 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Le petit Bernard — pour moi — a déjà fait quelques toiles absolument étonnantes où il y a une douceur et quelque chose d'essentiellement français et candide de qualité rare.",
+     "en": "Little Bernard — to my mind — has already made a few absolutely astonishing canvases, with a gentleness in them and something essentially French and candid, of a rare quality.",
+     "ko": "꼬마 베르나르는, 내가 보기엔, 벌써 정말 놀라운 그림을 몇 점 그렸어. 부드러움이 있고, 본질적으로 프랑스다운 꾸밈없는 무언가가 있어. 보기 드문 자질이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 595 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Le petit Bernard // — pour moi — // a déjà fait quelques toiles / absolument étonnantes // où il y a une douceur / et quelque chose d'essentiellement français et candide / de qualité rare."
+     }
+    },
+    {
+     "fr": "Enfin j'ai un paysage avec des oliviers et aussi une nouvelle étude de ciel étoilé.",
+     "en": "Anyway, I have a landscape with olive trees, and also a new study of a starry sky.",
+     "ko": "그리고 올리브나무가 있는 풍경화가 한 점, 또 별이 빛나는 하늘을 그린 새 습작이 하나 있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 595 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Enfin j'ai un paysage avec des oliviers // et aussi une nouvelle étude / de ciel étoilé."
+     }
+    },
+    {
+     "fr": "Que cela existe ou n'existe pas, nous le laissons de côté, mais nous croyons que la nature s'étend au delà de St. Ouen.",
+     "en": "Whether that exists or not, we leave aside, but we believe that nature extends beyond Saint-Ouen.",
+     "ko": "그런 게 있든 없든, 그건 제쳐 두자. 다만 우린 자연이 생투앙 너머까지 펼쳐져 있다고 믿어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 595 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Que cela existe ou n'existe pas, // nous le laissons de côté, // mais nous croyons / que la nature s'étend / au delà de St. Ouen."
+     }
+    },
+    {
+     "fr": "Gauguin, Bernard ou moi, nous y resterons tous peut-être et ne vaincrons pas, mais pas non plus serons-nous vaincus, nous sommes peut-être pas là pour l'un ou pour l'autre, étant là pour consoler ou pour préparer de la peinture plus consolante.",
+     "en": "Gauguin, Bernard or I, perhaps we shall all go under and not win, but we shall not be beaten either; perhaps we are not here for the one or the other, being here to console, or to prepare a more consoling painting.",
+     "ko": "고갱이든 베르나르든 나든, 우린 모두 쓰러져서 이기지 못할지도 몰라. 그래도 지지도 않을 거야. 어쩌면 우린 이기려고도 지려고도 여기 있는 게 아니야. 위로하려고, 아니면 더 위로가 되는 그림을 준비하려고 있는 거지.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 595 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Gauguin, Bernard ou moi, // nous y resterons tous peut-être / et ne vaincrons pas, // mais pas non plus serons-nous vaincus, // nous sommes peut-être pas là / pour l'un ou pour l'autre, // étant là pour consoler / ou pour préparer / de la peinture plus consolante."
+     }
+    },
+    {
+     "fr": "Ce qu'il me serait fort agréable d'avoir ici pour lire de temps en temps, ce serait un Shakespeare.",
+     "en": "What I would very much like to have here, to read from time to time, is a Shakespeare.",
+     "ko": "여기서 가끔 읽을 수 있게 셰익스피어 한 권이 있으면 정말 좋겠어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 595 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Ce qu'il me serait fort agréable d'avoir ici / pour lire de temps en temps, // ce serait un Shakespeare."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "ciel étoilé",
+     "pos": "expr.",
+     "ipa": "sjɛl etwale",
+     "en": "starry sky",
+     "ko": "별이 빛나는 하늘",
+     "icon": "🌌"
+    },
+    {
+     "fr": "olivier",
+     "pos": "n.m.",
+     "ipa": "ɔlivje",
+     "en": "olive tree",
+     "ko": "올리브나무",
+     "icon": "🫒"
+    },
+    {
+     "fr": "nature",
+     "pos": "n.f.",
+     "ipa": "natyʁ",
+     "en": "nature",
+     "ko": "자연"
+    },
+    {
+     "fr": "douceur",
+     "pos": "n.f.",
+     "ipa": "dusœʁ",
+     "en": "gentleness, softness",
+     "ko": "부드러움"
+    },
+    {
+     "fr": "consoler",
+     "pos": "v.",
+     "ipa": "kɔ̃sɔle",
+     "en": "to console, to comfort",
+     "ko": "위로하다"
+    }
+   ],
+   "note": {
+    "ko": "편지가 알리는 ‘별이 빛나는 하늘의 새 습작’이 바로 이 그림, 지금 뉴욕 현대미술관(MoMA)에 있는 〈별이 빛나는 밤〉이에요. 빈센트는 이 그림을 그저 ‘습작’이라고 불렀어요. 편지에서 그는 이 그림과 올리브나무 풍경이 고갱, 베르나르의 최근 그림과 ‘나란한 감정’ 속에 있을 거라고 적었어요.",
+    "en": "The ‘new study of a starry sky’ this letter announces is this very picture, The Starry Night, now at the Museum of Modern Art in New York. Vincent simply called it a ‘study’. In the letter he writes that this canvas and the olive-tree landscape are, he believes, ‘in a parallel feeling’ to the latest work of Gauguin and Bernard.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 595 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.moma.org/collection/works/79802"
+   },
+   "plate": {
+    "title_fr": "La Nuit étoilée",
+    "title_en": "The Starry Night",
+    "title_ko": "별이 빛나는 밤",
+    "date": "June 1889",
+    "collection": "The Museum of Modern Art, New York · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+    "why": "The “new study of a starry sky” the letter announces; PD-Art from Wikimedia Commons.",
+    "image": "v595.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.55,
+      "y": 0.32,
+      "title": {
+       "fr": "Le ciel",
+       "en": "The sky",
+       "ko": "하늘"
+      },
+      "note": {
+       "ko": "소용돌이치는 밤하늘. 빈센트가 ‘새 습작’이라고 부른 하늘이에요.",
+       "en": "The swirling night sky of the ‘new study’."
+      },
+      "word": {
+       "fr": "ciel",
+       "en": "sky",
+       "ko": "하늘",
+       "ipa": "sjɛl"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.35,
+      "y": 0.53,
+      "title": {
+       "fr": "Une étoile",
+       "en": "A star",
+       "ko": "별"
+      },
+      "note": {
+       "ko": "빛무리에 둘러싸인 큰 별. 하늘엔 이런 별이 열 개 남짓 떠 있어요.",
+       "en": "A big star wrapped in a halo; about a dozen like it fill the sky."
+      },
+      "word": {
+       "fr": "étoilé",
+       "en": "starry",
+       "ko": "별",
+       "ipa": "etwale"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Je t'envoie bientôt un Shakespeare.",
+    "en": "I'll send you a Shakespeare soon.",
+    "ko": "셰익스피어, 곧 보낼게.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "v595.jpg",
+     "caption": {
+      "fr": "Une nouvelle étude de ciel étoilé",
+      "en": "A new study of a starry sky",
+      "ko": "별이 빛나는 하늘의 새 습작"
+     }
+    },
+    {
+     "after": 4,
+     "type": "notice",
+     "text": {
+      "fr": "Vincent demande un Shakespeare · pas plus de trois francs",
+      "en": "Vincent asks for a Shakespeare · no more than three francs",
+      "ko": "빈센트가 셰익스피어를 부탁해요 · 3프랑을 넘지 않는 것으로"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Un nouveau ciel étoilé",
+    "en": "A new starry sky",
+    "ko": "새로운 별밤"
+   }
+  },
+  {
+   "id": "c6-l5",
+   "date": "1889-06-25",
+   "ref": "Brieven 1914, n° 596 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 596 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Nous avons eu des journées de belle chaleur et j'ai mis encore d'autres toiles en train, de sorte qu'il y en a 12 de toiles de 30 sur le chantier.",
+     "en": "We have had some days of fine heat, and I have started still more canvases, so that there are 12 size-30 canvases on the go.",
+     "ko": "요 며칠 날이 화창하게 더웠어. 그래서 캔버스를 또 몇 점 시작했더니, 지금 작업 중인 30호 캔버스가 12점이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 596 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Nous avons eu des journées de belle chaleur // et j'ai mis encore d'autres toiles en train, // de sorte qu'il y en a 12 de toiles de 30 / sur le chantier."
+     }
+    },
+    {
+     "fr": "Les cyprès me préoccupent toujours, je voudrais en faire une chose comme les toiles des tournesols, parce que cela m'étonne qu'on ne les ait pas encore fait comme je les vois.",
+     "en": "The cypresses still preoccupy me; I would like to make something of them like the canvases of the sunflowers, because it astonishes me that no one has yet done them as I see them.",
+     "ko": "사이프러스가 계속 머릿속을 떠나지 않아. 해바라기 그림들처럼 뭔가를 만들어 보고 싶어. 내가 보는 대로 사이프러스를 그린 사람이 아직 없다는 게 놀라워.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 596 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Les cyprès me préoccupent toujours, // je voudrais en faire une chose / comme les toiles des tournesols, // parce que cela m'étonne / qu'on ne les ait pas encore fait / comme je les vois."
+     }
+    },
+    {
+     "fr": "C'est beau comme lignes et comme proportions comme une obélisque égyptienne. Et le vert est d'une qualité si distinguée.",
+     "en": "It is as beautiful in its lines and proportions as an Egyptian obelisk. And the green is of such a distinguished quality.",
+     "ko": "선이며 비례며, 이집트 오벨리스크처럼 아름다워. 그리고 그 초록은 얼마나 기품 있는지.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 596 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "C'est beau comme lignes et comme proportions / comme une obélisque égyptienne. // Et le vert / est d'une qualité si distinguée."
+     }
+    },
+    {
+     "fr": "Or il faut les voir ici contre le bleu, dans le bleu pour mieux dire.",
+     "en": "Now, you have to see them here against the blue — in the blue, to put it better.",
+     "ko": "그런데 여기선 파랑을 배경으로 봐야 해. 아니, 파랑 속에 있는 걸 봐야 해.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 596 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Or il faut les voir ici / contre le bleu, // dans le bleu / pour mieux dire."
+     }
+    },
+    {
+     "fr": "Les arbres y sont très grands et massifs. L'avant-plan très bas des ronces et broussailles. Derrière des collines violettes un ciel vert et rose avec un croissant de lune.",
+     "en": "The trees in it are very big and massive. The foreground very low, brambles and undergrowth. Behind violet hills, a green and pink sky with a crescent moon.",
+     "ko": "그 그림에선 나무가 아주 크고 육중해. 앞쪽은 아주 낮게, 가시덤불과 잡목. 보랏빛 언덕 뒤로 초록과 분홍의 하늘, 그리고 초승달.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 596 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Les arbres y sont très grands et massifs. // L'avant-plan très bas / des ronces et broussailles. // Derrière des collines violettes / un ciel vert et rose / avec un croissant de lune."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "cyprès",
+     "pos": "n.m.",
+     "ipa": "sipʁɛ",
+     "en": "cypress",
+     "ko": "사이프러스",
+     "icon": "🌲"
+    },
+    {
+     "fr": "obélisque",
+     "pos": "n.m.",
+     "ipa": "ɔbelisk",
+     "en": "obelisk",
+     "ko": "오벨리스크"
+    },
+    {
+     "fr": "vert",
+     "pos": "n.m.",
+     "ipa": "vɛʁ",
+     "en": "green",
+     "ko": "초록"
+    },
+    {
+     "fr": "croissant de lune",
+     "pos": "expr.",
+     "ipa": "kʁwasɑ̃ də lyn",
+     "en": "crescent moon",
+     "ko": "초승달",
+     "icon": "🌙"
+    },
+    {
+     "fr": "chaleur",
+     "pos": "n.f.",
+     "ipa": "ʃalœʁ",
+     "en": "heat",
+     "ko": "더위",
+     "icon": "☀️"
+    }
+   ],
+   "note": {
+    "ko": "빈센트는 사이프러스로 해바라기 연작 같은 그림을 만들고 싶어 했어요. 여기 실린 메트로폴리탄 미술관의 〈사이프러스〉는 편지가 말하는 사이프러스 습작 두 점 가운데 하나예요. 편지 속 스케치처럼 커다란 두 그루 위, 오른쪽 하늘에 초승달이 떠 있어요.",
+    "en": "Vincent wanted to make something of the cypresses like his sunflower series. The Metropolitan Museum's Cypresses shown here is one of the two cypress studies the letter describes. As in the sketch inside the letter, a crescent moon hangs in the sky to the right of the two great trees.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 596 · public domain · https://archive.org/details/brievenaanzijnbr03gogh"
+   },
+   "plate": {
+    "title_fr": "Cyprès",
+    "title_en": "Cypresses",
+    "title_ko": "사이프러스",
+    "date": "June 1889",
+    "collection": "The Metropolitan Museum of Art, New York · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/437980",
+    "why": "One of the two cypress studies the letter describes; the Met releases it under CC0.",
+    "image": "v596.jpg",
+    "spots": [
+     {
+      "x": 0.36,
+      "y": 0.42,
+      "title": {
+       "fr": "Les cyprès",
+       "en": "The cypresses",
+       "ko": "사이프러스"
+      },
+      "note": {
+       "ko": "화면을 꽉 채운 두 그루의 사이프러스. ‘아주 크고 육중한’ 나무예요.",
+       "en": "Two cypresses filling the canvas, ‘very big and massive’."
+      },
+      "word": {
+       "fr": "cyprès",
+       "en": "cypresses",
+       "ko": "사이프러스",
+       "ipa": "sipʁɛ"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.8,
+      "y": 0.11,
+      "title": {
+       "fr": "Le croissant de lune",
+       "en": "The crescent moon",
+       "ko": "초승달"
+      },
+      "note": {
+       "ko": "오른쪽 위 하늘의 노란 초승달.",
+       "en": "The yellow crescent moon at top right."
+      },
+      "word": {
+       "fr": "croissant de lune",
+       "en": "crescent moon",
+       "ko": "초승달",
+       "ipa": "kʁwasɑ̃ də lyn"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.28,
+      "y": 0.9,
+      "title": {
+       "fr": "Les ronces",
+       "en": "The brambles",
+       "ko": "가시덤불"
+      },
+      "note": {
+       "ko": "앞쪽의 낮은 덤불. 물감을 아주 두껍게 발라 노랑, 초록 광택이 돌아요.",
+       "en": "The low undergrowth in front, thickly painted, with yellow and green glints."
+      },
+      "word": {
+       "fr": "ronces",
+       "en": "brambles",
+       "ko": "덤불",
+       "ipa": "ʁɔ̃s"
+      },
+      "quote": 4
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Tes cyprès me font rêver.",
+    "en": "Your cypresses make me dream.",
+    "ko": "형의 사이프러스, 꿈에 나올 것 같아.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Saint-Rémy",
+      "en": "Weather in Saint-Rémy",
+      "ko": "생레미의 날씨"
+     },
+     "value": {
+      "fr": "belle chaleur",
+      "en": "fine heat",
+      "ko": "화창한 더위"
+     },
+     "quote": "des journées de belle chaleur",
+     "icon": "sun"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "v596.jpg",
+     "caption": {
+      "fr": "Les cyprès",
+      "en": "The cypresses",
+      "ko": "사이프러스"
+     }
+    },
+    {
+     "after": 4,
+     "type": "sketch",
+     "image": "v596-cypres.jpg",
+     "caption": {
+      "fr": "Le croquis des cyprès, dans la lettre",
+      "en": "The sketch of the cypresses, in the letter",
+      "ko": "편지 속 사이프러스 스케치"
+     },
+     "credit": "Croquis dans la lettre · Brieven aan zijn broeder (1914), p. 335"
+    }
+   ],
+   "status": {
+    "fr": "Des cyprès dans le bleu",
+    "en": "Cypresses in the blue",
+    "ko": "파랑 속의 사이프러스"
+   }
+  },
+  {
+   "id": "c6-l6",
+   "date": "1889-07",
+   "dateNote": "Undated in the 1914 edition; it follows letter 596 (25 June) and precedes letter 599 (5 July 1889), and it thanks Theo for the Shakespeare asked for in letter 595, so about the beginning of July 1889.",
+   "ref": "Brieven 1914, n° 597 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 597 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "tender",
+   "messages": [
+    {
+     "fr": "Je te remercie également bien cordialement du Shakespeare. Cela va m'aider à ne pas oublier le peu d'anglais que je sais, mais surtout c'est si beau.",
+     "en": "I also thank you most warmly for the Shakespeare. It will help me not to forget the little English I know, but above all, it is so beautiful.",
+     "ko": "셰익스피어도 정말 고마워. 내가 아는 얼마 안 되는 영어를 잊지 않는 데 도움이 될 거야. 그렇지만 무엇보다, 너무 아름다워.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 597 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je te remercie également bien cordialement / du Shakespeare. // Cela va m'aider à ne pas oublier / le peu d'anglais que je sais, // mais surtout / c'est si beau."
+     }
+    },
+    {
+     "fr": "Mais ce qui m'y touche, comme dans de certains romanciers de notre temps, c'est que les voix de ces gens, qui dans ce cas de Shakespeare nous parviennent d'une distance de plusieurs siècles, ne nous paraissent pas inconnues.",
+     "en": "But what touches me in it, as in certain novelists of our own time, is that the voices of these people, which in Shakespeare's case reach us from a distance of several centuries, do not seem unknown to us.",
+     "ko": "그런데 나를 울리는 건, 우리 시대의 몇몇 소설가들에게서처럼, 그 사람들의 목소리가 낯설지 않다는 거야. 셰익스피어의 경우엔 몇 세기나 떨어진 곳에서 들려오는 목소리인데도.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 597 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mais ce qui m'y touche, // comme dans de certains romanciers de notre temps, // c'est que les voix de ces gens, // qui dans ce cas de Shakespeare / nous parviennent d'une distance de plusieurs siècles, // ne nous paraissent pas inconnues."
+     }
+    },
+    {
+     "fr": "La dernière commencée est le champ de blé où il y a un petit moissonneur et un grand soleil. La toile est toute jaune à l'exception du mur et du fond de collines violacés.",
+     "en": "The last one I started is the wheat field with a little reaper and a big sun. The canvas is all yellow except for the wall and the background of violet-tinged hills.",
+     "ko": "제일 최근에 시작한 건 작은 추수꾼과 커다란 해가 있는 밀밭이야. 담과 보랏빛 도는 언덕 배경만 빼면 캔버스가 온통 노랑이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 597 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "La dernière commencée / est le champ de blé / où il y a un petit moissonneur / et un grand soleil. // La toile est toute jaune / à l'exception du mur / et du fond de collines violacés."
+     }
+    },
+    {
+     "fr": "J'ai une toile de cyprès avec quelques épis de blé, des coquelicots, un ciel bleu qui est comme une étoffe bariolée écossaise; celle-là qui est empâtée comme les Monticelli …",
+     "en": "I have a canvas of cypresses with a few ears of wheat, poppies, and a blue sky like a multicoloured Scotch plaid; that one, thickly painted like the Monticellis …",
+     "ko": "사이프러스 그림도 한 점 있어. 밀 이삭 몇 개와 양귀비, 그리고 알록달록한 스코틀랜드 체크무늬 천 같은 파란 하늘. 몽티셀리 그림처럼 물감을 두껍게 바른 그림이야 …",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 597 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai une toile de cyprès / avec quelques épis de blé, / des coquelicots, // un ciel bleu / qui est comme une étoffe bariolée écossaise; // celle-là qui est empâtée / comme les Monticelli …"
+     }
+    },
+    {
+     "fr": "De cela nous en savons fort peu, des proportions et mieux vaut regarder un champ de blé, même à l'état de tableau.",
+     "en": "Of that we know very little, of the proportions, and it is better to look at a field of wheat, even in the form of a picture.",
+     "ko": "그런 것에 대해서도, 그 크기에 대해서도 우린 아는 게 거의 없어. 차라리 밀밭을 바라보는 게 나아. 그림으로라도.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 597 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "De cela nous en savons fort peu, / des proportions // et mieux vaut regarder un champ de blé, // même à l'état de tableau."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "moissonneur",
+     "pos": "n.m.",
+     "ipa": "mwasɔnœʁ",
+     "en": "reaper, harvester",
+     "ko": "추수꾼",
+     "icon": "🌾"
+    },
+    {
+     "fr": "coquelicot",
+     "pos": "n.m.",
+     "ipa": "kɔkliko",
+     "en": "poppy",
+     "ko": "양귀비",
+     "icon": "🌺"
+    },
+    {
+     "fr": "épi",
+     "pos": "n.m.",
+     "ipa": "epi",
+     "en": "ear (of grain)",
+     "ko": "이삭"
+    },
+    {
+     "fr": "jaune",
+     "pos": "adj.",
+     "ipa": "ʒon",
+     "en": "yellow",
+     "ko": "노란"
+    },
+    {
+     "fr": "voix",
+     "pos": "n.f.",
+     "ipa": "vwa",
+     "en": "voice",
+     "ko": "목소리"
+    }
+   ],
+   "note": {
+    "ko": "편지가 말하는 ‘밀 이삭과 양귀비가 있는 사이프러스 그림’과 여기 실린 메트로폴리탄 미술관의 〈사이프러스가 있는 밀밭〉은 같은 여름의 같은 주제지만, 편지 속 바로 그 캔버스라고 단정할 수는 없어요. 빈센트는 이 편지와 함께, 그리고 있는 그림들을 옮겨 그린 소묘 열 점쯤을 보냈어요. ‘작은 추수꾼과 커다란 해’가 있는 밀밭은 이 장의 마지막 편지에서 볼 수 있어요.",
+    "en": "The letter's ‘canvas of cypresses with a few ears of wheat, poppies’ and the Metropolitan Museum's Wheat Field with Cypresses shown here share the same summer and the same subject, but it cannot be said for certain that this is the very canvas of the letter. With this letter Vincent sent about ten drawings after the canvases he had under way. The wheat field with ‘a little reaper and a big sun’ appears with the last letter of this chapter.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 597 · public domain · https://archive.org/details/brievenaanzijnbr03gogh"
+   },
+   "plate": {
+    "title_fr": "Champ de blé avec cyprès",
+    "title_en": "Wheat Field with Cypresses",
+    "title_ko": "사이프러스가 있는 밀밭",
+    "date": "1889",
+    "collection": "The Metropolitan Museum of Art, New York · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/436535",
+    "why": "A wheat field with cypresses of summer 1889 like the canvas the letter describes; the Met releases it under CC0.",
+    "image": "v597.jpg",
+    "spots": [
+     {
+      "x": 0.84,
+      "y": 0.35,
+      "title": {
+       "fr": "Le cyprès",
+       "en": "The cypress",
+       "ko": "사이프러스"
+      },
+      "note": {
+       "ko": "오른쪽에 높이 솟은 짙은 초록의 사이프러스.",
+       "en": "The dark green cypress rising on the right."
+      },
+      "word": {
+       "fr": "cyprès",
+       "en": "cypresses",
+       "ko": "사이프러스",
+       "ipa": "sipʁɛ"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.3,
+      "y": 0.22,
+      "title": {
+       "fr": "Le ciel",
+       "en": "The sky",
+       "ko": "하늘"
+      },
+      "note": {
+       "ko": "흰 구름이 소용돌이치는 파란 하늘. 편지는 ‘알록달록한 체크무늬 천 같은’ 하늘이라고 했어요.",
+       "en": "A blue sky of swirling white clouds, ‘like a multicoloured Scotch plaid’, the letter says."
+      },
+      "word": {
+       "fr": "ciel",
+       "en": "sky",
+       "ko": "하늘",
+       "ipa": "sjɛl"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.33,
+      "y": 0.9,
+      "title": {
+       "fr": "Les coquelicots",
+       "en": "The poppies",
+       "ko": "양귀비"
+      },
+      "note": {
+       "ko": "밀밭 아래쪽에 점점이 찍힌 붉은 양귀비.",
+       "en": "Red dots of poppies at the bottom of the wheat field."
+      },
+      "word": {
+       "fr": "coquelicots",
+       "en": "poppies",
+       "ko": "양귀비",
+       "ipa": "kɔkliko"
+      },
+      "quote": 3
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Je suis heureux que Shakespeare te plaise.",
+    "en": "I'm happy you like Shakespeare.",
+    "ko": "셰익스피어가 마음에 든다니 기뻐.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Ci-inclus · une lettre de la mère",
+      "en": "Enclosed · a letter from their mother",
+      "ko": "같이 넣은 것 · 어머니의 편지"
+     }
+    },
+    {
+     "after": 1,
+     "type": "notice",
+     "text": {
+      "fr": "Envoyé aujourd'hui · une dizaine de dessins",
+      "en": "Sent today · about ten drawings",
+      "ko": "오늘 보냄 · 소묘 열 점쯤"
+     }
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "v597.jpg",
+     "caption": {
+      "fr": "Un champ de blé avec des cyprès",
+      "en": "A wheat field with cypresses",
+      "ko": "사이프러스가 있는 밀밭"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Une toile toute jaune",
+    "en": "An all-yellow canvas",
+    "ko": "온통 노란 캔버스"
+   }
+  },
+  {
+   "id": "c6-l7",
+   "date": "1889-08",
+   "dateNote": "Undated in the 1914 edition; it is printed between letter 602 (headed August) and letter 604 (headed September 1889), so late summer 1889.",
+   "ref": "Brieven 1914, n° 603 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 603 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saint-Rémy-de-Provence",
+   "mood": "tender",
+   "messages": [
+    {
+     "fr": "Enfin il y a de quoi reprendre un peu de goût à la vie, quand j'y songe que moi je vais passer à l'état d'oncle de ce garçon projeté par ta femme.",
+     "en": "Well, there is reason enough to regain a little taste for life, when I think that I am going to become the uncle of this boy your wife has planned.",
+     "ko": "그래, 삶에 다시 조금 재미를 붙일 이유가 생겼어. 네 아내가 계획한 그 사내아이의 삼촌이 된다고 생각하면 말이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 603 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Enfin il y a de quoi / reprendre un peu de goût à la vie, // quand j'y songe / que moi je vais passer à l'état d'oncle / de ce garçon projeté par ta femme."
+     }
+    },
+    {
+     "fr": "… j'en ai un en train d'un lever de lune sur le même champ du croquis dans la lettre de Gauguin, mais où des meules remplacent le blé. C'est jaune d'ocre sourd et violet.",
+     "en": "… I have one under way of a moonrise over the same field as the sketch in the letter to Gauguin, but where stacks replace the wheat. It is dull ochre yellow and violet.",
+     "ko": "… 달이 떠오르는 그림을 하나 그리고 있어. 고갱에게 보낸 편지 속 스케치와 같은 밭인데, 밀 대신 곡식 더미가 있어. 흐릿한 황토 노랑과 보라야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 603 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "… j'en ai un en train / d'un lever de lune / sur le même champ / du croquis dans la lettre de Gauguin, // mais où des meules remplacent le blé. // C'est jaune d'ocre sourd et violet."
+     }
+    },
+    {
+     "fr": "Je t'envoie ci-inclus un croquis de cigales d'ici. Leur chant dans les grandes chaleurs a pour moi le même charme que le grillon dans le foyer du paysan chez nous.",
+     "en": "Enclosed I am sending you a sketch of the cicadas here. Their song in the great heat has the same charm for me as the cricket on the peasant's hearth back home.",
+     "ko": "여기 매미를 그린 스케치를 같이 넣었어. 한여름 더위 속 매미 소리는 나한텐 고향 농가 화롯가의 귀뚜라미 소리랑 똑같은 매력이 있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 603 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je t'envoie ci-inclus / un croquis de cigales d'ici. // Leur chant dans les grandes chaleurs / a pour moi le même charme / que le grillon dans le foyer du paysan / chez nous."
+     }
+    },
+    {
+     "fr": "Mon brave — n'oublions pas que les petites émotions sont les grands capitaines de nos vies et qu'à celles-là nous y obéissons sans le savoir.",
+     "en": "My dear fellow — let us not forget that the little emotions are the great captains of our lives, and that we obey them without knowing it.",
+     "ko": "있잖아 — 잊지 말자. 작은 감정들이 우리 삶의 위대한 대장이고, 우린 모르는 사이에 그 감정들을 따른다는 걸.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 603 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mon brave // — n'oublions pas / que les petites émotions / sont les grands capitaines de nos vies // et qu'à celles-là / nous y obéissons / sans le savoir."
+     }
+    },
+    {
+     "fr": "Vrai j'en suis si content de ce que si ici parfois il y a des cafards dans le manger, chez toi il y a femme et enfant.",
+     "en": "Truly, I am so glad that, if here there are sometimes cockroaches in the food, at your home there are a wife and child.",
+     "ko": "정말이지 너무 기뻐. 여기선 가끔 밥에 바퀴벌레가 나와도, 네 집엔 아내와 아이가 있잖아.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 603 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Vrai / j'en suis si content // de ce que si ici parfois / il y a des cafards dans le manger, // chez toi / il y a femme et enfant."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "oncle",
+     "pos": "n.m.",
+     "ipa": "ɔ̃kl",
+     "en": "uncle",
+     "ko": "삼촌"
+    },
+    {
+     "fr": "lever de lune",
+     "pos": "n.m.",
+     "ipa": "ləve də lyn",
+     "en": "moonrise",
+     "ko": "월출",
+     "icon": "🌕"
+    },
+    {
+     "fr": "cigale",
+     "pos": "n.f.",
+     "ipa": "siɡal",
+     "en": "cicada",
+     "ko": "매미"
+    },
+    {
+     "fr": "grillon",
+     "pos": "n.m.",
+     "ipa": "ɡʁijɔ̃",
+     "en": "cricket",
+     "ko": "귀뚜라미",
+     "icon": "🦗"
+    },
+    {
+     "fr": "émotion",
+     "pos": "n.f.",
+     "ipa": "emɔsjɔ̃",
+     "en": "emotion, feeling",
+     "ko": "감정"
+    }
+   ],
+   "note": {
+    "ko": "1889년 여름, 테오와 요는 첫아이를 기다리고 있었어요. 아이는 이듬해 1월에 태어났고, 큰아버지의 이름을 따 빈센트 빌럼이라고 불렸어요. 여기 실린 그림은 요양원 뒤 담장 안 밀밭을 그린 〈수확하는 사람이 있는 밀밭〉으로, 597번 편지가 말한 ‘작은 추수꾼과 커다란 해’가 있는 그림이자 이 편지가 말하는 ‘같은 밭’이에요. 달이 떠오르는 그림 자체는 여기 실리지 않았어요.",
+    "en": "In the summer of 1889 Theo and Jo were expecting their first child. The baby was born the following January and named Vincent Willem, after his uncle. The picture here is Wheat Field with a Reaper, the walled field behind the asylum: the canvas with ‘a little reaper and a big sun’ of letter 597, and the ‘same field’ this letter mentions. The moonrise canvas itself is not shown here.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 603 · public domain · https://archive.org/details/brievenaanzijnbr03gogh"
+   },
+   "plate": {
+    "title_fr": "Champ de blé avec un moissonneur",
+    "title_en": "Wheat Field with a Reaper",
+    "title_ko": "수확하는 사람이 있는 밀밭",
+    "date": "June 1889",
+    "collection": "Kröller-Müller Museum, Otterlo · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Wheat_Field_with_Reaper_and_Sun_(June_1989)_Kröller-Müller_Museum.jpg",
+    "why": "The walled wheat field behind the asylum — the “same field” the letter mentions; PD-Art from Wikimedia Commons. (The moonrise canvas itself is not shown — say so.)",
+    "image": "v603.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.4,
+      "y": 0.5,
+      "title": {
+       "fr": "Le champ",
+       "en": "The field",
+       "ko": "밭"
+      },
+      "note": {
+       "ko": "담장으로 둘러싸인 요양원 뒤의 밀밭. 달이 떠오르는 그림도 같은 밭을 그렸어요.",
+       "en": "The walled wheat field behind the asylum; the moonrise canvas shows the same field."
+      },
+      "word": {
+       "fr": "champ",
+       "en": "field",
+       "ko": "밭",
+       "ipa": "ʃɑ̃"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.8,
+      "y": 0.45,
+      "title": {
+       "fr": "Le blé",
+       "en": "The wheat",
+       "ko": "밀"
+      },
+      "note": {
+       "ko": "아직 베지 않은 노란 밀. 달이 뜨는 그림에선 곡식 더미가 밀을 대신해요.",
+       "en": "Yellow wheat still standing; in the moonrise canvas, stacks take its place."
+      },
+      "word": {
+       "fr": "blé",
+       "en": "wheat",
+       "ko": "밀",
+       "ipa": "ble"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.84,
+      "y": 0.13,
+      "title": {
+       "fr": "Les collines violettes",
+       "en": "The violet hills",
+       "ko": "보랏빛 언덕"
+      },
+      "note": {
+       "ko": "밭 너머의 보랏빛 언덕. 달이 뜨는 그림도 ‘황토 노랑과 보라’였어요.",
+       "en": "The violet hills beyond the field; the moonrise canvas, too, was ‘ochre yellow and violet’."
+      },
+      "word": {
+       "fr": "violet",
+       "en": "violet",
+       "ko": "보라",
+       "ipa": "vjɔlɛ"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Tu seras un oncle merveilleux.",
+    "en": "You'll be a wonderful uncle.",
+    "ko": "형은 멋진 삼촌이 될 거야.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Ci-inclus · quelques mots pour l'ami Gauguin",
+      "en": "Enclosed · a few words for his friend Gauguin",
+      "ko": "같이 넣은 것 · 친구 고갱에게 쓴 몇 마디"
+     }
+    },
+    {
+     "after": 0,
+     "type": "notice",
+     "text": {
+      "fr": "Théo et Jo attendent un enfant",
+      "en": "Theo and Jo are expecting a child",
+      "ko": "테오와 요가 아이를 기다려요"
+     }
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "v603.jpg",
+     "caption": {
+      "fr": "Le même champ, avec un moissonneur",
+      "en": "The same field, with a reaper",
+      "ko": "같은 밭, 수확하는 사람과 함께"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Bientôt oncle",
+    "en": "Soon an uncle",
+    "ko": "곧 삼촌"
+   }
+  }
+ ]
+}

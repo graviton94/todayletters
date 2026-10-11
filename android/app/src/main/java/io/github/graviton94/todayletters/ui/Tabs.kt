@@ -143,6 +143,16 @@ fun SeriesCover(s: AppState, id: String) {
             Text(w.title[w.series.original], style = Type.display, color = p.ink)
             Text(w.title[s.app.read], style = Type.body.of(s.app.read), color = p.inkSoft)
             Rule()
+            // 프롤로그: 아를 이전 (언제든 다시 보기)
+            if (w.prologue.isNotEmpty()) {
+                ChapterRow(
+                    numeral = "P", original = "Prologue", read = stringResource(R.string.cover_prologue),
+                    readLang = s.app.read, originalLang = w.series.original,
+                    meta = stringResource(R.string.cover_prologue_meta, w.prologue.size),
+                    onClick = { s.go(Route.Prologue(id)) },
+                ) {}
+                Hair()
+            }
             w.chapters.forEachIndexed { i, c ->
                 val done = c.letters.count { s.progress(id, c.id, it.id).done }
                 ChapterRow(
@@ -156,6 +166,24 @@ fun SeriesCover(s: AppState, id: String) {
                 }
                 Hair()
             }
+            // 맺음말과 도록: 맺음말은 마지막 편지를 읽은 뒤에, 도록은 언제든
+            if (w.outro != null) {
+                val done = s.seriesDone(id)
+                ChapterRow(
+                    numeral = "É", original = "Épilogue", read = stringResource(R.string.cover_epilogue),
+                    readLang = s.app.read, originalLang = w.series.original,
+                    meta = stringResource(if (done) R.string.cover_epilogue_open else R.string.cover_epilogue_locked),
+                    onClick = { if (done) s.go(Route.Outro(id)) },
+                ) {}
+                Hair()
+            }
+            ChapterRow(
+                numeral = "✦", original = "Catalogue", read = stringResource(R.string.catalogue_title),
+                readLang = s.app.read, originalLang = w.series.original,
+                meta = stringResource(R.string.catalogue_progress, w.chapters.sumOf { c -> c.letters.count { s.progress(id, c.id, it.id).done } }, w.chapters.sumOf { it.letters.size }),
+                onClick = { s.go(Route.Catalogue(id)) },
+            ) {}
+            Hair()
         }
     }
 }

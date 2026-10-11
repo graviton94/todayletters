@@ -1,0 +1,347 @@
+{
+ "_doc": "프롤로그: 첫 편지 앞의 도슨트 다섯 장 가운데 앞의 넷. 편지가 아니라 그 시절을 말하는 빈센트의 프랑스어 한 줄씩 (1914년판에서, 쪽 사진과 맞춤). 설명(docent.body)은 이 앱이 쓴 글. 연습 문제 없이 듣기 · 번역 · 낱말 셋.",
+ "series": "vincent",
+ "chapter": "P",
+ "title_fr": "Avant le Midi",
+ "title_en": "Before the South",
+ "title_ko": "아를 이전",
+ "original": "fr",
+ "letters": [
+  {
+   "id": "p1",
+   "date": "1853-03-30",
+   "ref": "Brieven 1914, n° 573",
+   "place": "Zundert",
+   "mood": "tender",
+   "docent": {
+    "period": "1853–1880",
+    "caps": "AVANT LE MIDI · I · 1853–1880",
+    "heading": {
+     "ko": "목사의 아들, 화랑의 점원",
+     "en": "The pastor’s son, the art dealer’s clerk",
+     "fr": "Le fils du pasteur, le commis de Goupil"
+    },
+    "sub": "Zundert · La Haye · Londres · Paris",
+    "body": {
+     "ko": "1853년 3월 30일 네덜란드 쥔더르트의 목사관에서 태어났어요. 열여섯 살에 미술상 구필 화랑의 점원이 되어 헤이그 · 런던 · 파리에서 일했고, 영국의 학교 교사, 벨기에 탄광촌의 전도사를 거쳐 스물일곱 살에 화가가 되기로 해요. 네 살 아래 동생 테오도 같은 화랑에서 일하며 평생 형을 도왔어요.",
+     "en": "He was born on 30 March 1853 in the parsonage at Zundert in the Netherlands. At sixteen he became a clerk at the art dealers Goupil & Cie in The Hague, London and Paris; then a teacher in England and a preacher in the Belgian mining country, until at twenty-seven he decided to become a painter. His brother Theo, four years younger, worked for the same firm and supported him all his life."
+    },
+    "source": {
+     "ko": "훗날 아를에서 어린 시절 집을 떠올리며 · 편지 n° 573, 1889년 1월",
+     "en": "Remembering his childhood home, years later in Arles · letter n° 573, January 1889"
+    }
+   },
+   "messages": [
+    {
+     "fr": "Pendant ma maladie j'ai revu chaque chambre de la maison à Zundert, chaque sentier, chaque plante dans le jardin…",
+     "en": "During my illness I saw again every room of the house at Zundert, every path, every plant in the garden…",
+     "ko": "아플 때 쥔더르트 집의 방 하나하나, 오솔길 하나하나, 정원의 풀 한 포기까지 다시 봤어 …",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 573 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Pendant ma maladie / j'ai revu chaque chambre / de la maison à Zundert, // chaque sentier, // chaque plante dans le jardin…"
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "chambre",
+     "pos": "n.f.",
+     "ipa": "ʃɑ̃bʁ",
+     "en": "room",
+     "ko": "방",
+     "icon": "🚪"
+    },
+    {
+     "fr": "sentier",
+     "pos": "n.m.",
+     "ipa": "sɑ̃tje",
+     "en": "path",
+     "ko": "오솔길"
+    },
+    {
+     "fr": "jardin",
+     "pos": "n.m.",
+     "ipa": "ʒaʁdɛ̃",
+     "en": "garden",
+     "ko": "정원",
+     "icon": "🌿"
+    }
+   ],
+   "note": {
+    "ko": "1853년 3월 30일 네덜란드 쥔더르트의 목사관에서 태어났어요. 열여섯 살에 미술상 구필 화랑의 점원이 되어 헤이그 · 런던 · 파리에서 일했고, 영국의 학교 교사, 벨기에 탄광촌의 전도사를 거쳐 스물일곱 살에 화가가 되기로 해요. 네 살 아래 동생 테오도 같은 화랑에서 일하며 평생 형을 도왔어요.",
+    "en": "He was born on 30 March 1853 in the parsonage at Zundert in the Netherlands. At sixteen he became a clerk at the art dealers Goupil & Cie in The Hague, London and Paris; then a teacher in England and a preacher in the Belgian mining country, until at twenty-seven he decided to become a painter. His brother Theo, four years younger, worked for the same firm and supported him all his life."
+   },
+   "plate": {
+    "title_fr": "La Route d’Etten",
+    "title_en": "Road in Etten",
+    "title_ko": "에턴의 길",
+    "date": "1881",
+    "collection": "The Metropolitan Museum of Art, New York · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/459193",
+    "why": "An early drawing from his first year as an artist; the Met releases it under CC0.",
+    "image": "p1.jpg",
+    "spots": []
+   },
+   "status": {
+    "fr": "1853–1880",
+    "en": "1853–1880",
+    "ko": "1853–1880"
+   },
+   "moments": []
+  },
+  {
+   "id": "p2",
+   "date": "1885-04",
+   "ref": "Brieven 1914, n° 520",
+   "place": "Nuenen",
+   "mood": "calm",
+   "docent": {
+    "period": "1883–1885",
+    "caps": "AVANT LE MIDI · II · 1883–1885",
+    "heading": {
+     "ko": "농부를 그리는 화가",
+     "en": "A painter of peasants",
+     "fr": "Le peintre des paysans"
+    },
+    "sub": "Nuenen · Les mangeurs de pommes de terre",
+    "body": {
+     "ko": "부모가 사는 뉘넌에서 2년 동안 농부와 직조공을 그렸어요. 1885년의 〈감자 먹는 사람들〉은 등불 아래 감자를 나눠 먹는 농가 식구들이에요. 어둡고 거친 이 그림을 빈센트는 오래 자랑스러워했어요.",
+     "en": "In Nuenen, where his parents lived, he spent two years painting peasants and weavers. The Potato Eaters of 1885 shows a farming family sharing potatoes under a lamp. He remained proud of this dark, rough picture for a long time."
+    },
+    "source": {
+     "ko": "아를에서 그 그림을 떠올리며 · 편지 n° 520, 1888년 8월",
+     "en": "Remembering that painting in Arles · letter n° 520, August 1888"
+    }
+   },
+   "messages": [
+    {
+     "fr": "La couleur de ce portrait de paysan est moins noire que les mangeurs de pommes de terre de Nuenen…",
+     "en": "The colour of this portrait of a peasant is less black than the potato eaters of Nuenen…",
+     "ko": "이 농부 초상의 색은 뉘넌의 〈감자 먹는 사람들〉보다 덜 어두워 …",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 520 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "La couleur / de ce portrait de paysan // est moins noire / que les mangeurs de pommes de terre / de Nuenen…"
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "paysan",
+     "pos": "n.m.",
+     "ipa": "pɛizɑ̃",
+     "en": "peasant",
+     "ko": "농부",
+     "icon": "👨‍🌾"
+    },
+    {
+     "fr": "pommes de terre",
+     "pos": "n.f. pl.",
+     "ipa": "pɔm də tɛʁ",
+     "en": "potatoes",
+     "ko": "감자",
+     "icon": "🥔"
+    },
+    {
+     "fr": "noire",
+     "pos": "adj.",
+     "ipa": "nwaʁ",
+     "en": "black",
+     "ko": "검은"
+    }
+   ],
+   "note": {
+    "ko": "부모가 사는 뉘넌에서 2년 동안 농부와 직조공을 그렸어요. 1885년의 〈감자 먹는 사람들〉은 등불 아래 감자를 나눠 먹는 농가 식구들이에요. 어둡고 거친 이 그림을 빈센트는 오래 자랑스러워했어요.",
+    "en": "In Nuenen, where his parents lived, he spent two years painting peasants and weavers. The Potato Eaters of 1885 shows a farming family sharing potatoes under a lamp. He remained proud of this dark, rough picture for a long time."
+   },
+   "plate": {
+    "title_fr": "Les Mangeurs de pommes de terre",
+    "title_en": "The Potato Eaters",
+    "title_ko": "감자 먹는 사람들",
+    "date": "April 1885",
+    "collection": "Van Gogh Museum, Amsterdam · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_The_potato_eaters_-_Google_Art_Project.jpg",
+    "why": "His great Nuenen picture; PD-Art from Wikimedia Commons.",
+    "exception": "pd-art",
+    "image": "p2.jpg",
+    "spots": []
+   },
+   "status": {
+    "fr": "1883–1885",
+    "en": "1883–1885",
+    "ko": "1883–1885"
+   },
+   "moments": []
+  },
+  {
+   "id": "p3",
+   "date": "1886-03",
+   "ref": "Brieven 1914, n° 459",
+   "place": "Paris",
+   "mood": "bright",
+   "docent": {
+    "period": "1886–1887",
+    "caps": "AVANT LE MIDI · III · 1886–1887",
+    "heading": {
+     "ko": "파리, 색을 만나다",
+     "en": "Paris: meeting colour",
+     "fr": "Paris, la couleur"
+    },
+    "sub": "Paris · chez Théo",
+    "body": {
+     "ko": "1886년 3월, 예고 없이 파리에 와서 역에서 검은 분필로 쪽지를 써 짐꾼 편에 테오에게 보냈어요(요의 주석). 그렇게 테오 집에 살며 인상주의와 점묘를 만나 팔레트가 밝아졌고, 모델 살 돈이 없어 거울을 보며 자화상을 스무 점 넘게 그렸어요.",
+     "en": "In March 1886 he arrived in Paris unannounced, wrote a note in black chalk at the station and had a porter take it to Theo (Jo’s note in the 1914 edition). Living with Theo, he met Impressionism and pointillism and his palette grew bright; with no money for models, he painted more than twenty self-portraits in the mirror."
+    },
+    "source": {
+     "ko": "파리에 도착한 날의 쪽지 · 편지 n° 459, 1886년 3월",
+     "en": "The note on the day he reached Paris · letter n° 459, March 1886"
+    }
+   },
+   "messages": [
+    {
+     "fr": "Ne m'en veux pas d'être venu tout d'un trait … Serai au Louvre à partir de midi ou plus tôt si tu veux.",
+     "en": "Don’t be cross with me for coming all of a sudden… I’ll be at the Louvre from noon, or earlier if you like.",
+     "ko": "갑자기 와 버렸다고 화내지 마 … 정오부터, 원하면 더 일찍부터 루브르에 있을게.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 459 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Ne m'en veux pas / d'être venu tout d'un trait … // Serai au Louvre / à partir de midi // ou plus tôt / si tu veux."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "venu",
+     "pos": "v. (venir)",
+     "ipa": "vəny",
+     "en": "come (came)",
+     "ko": "오다 (온)"
+    },
+    {
+     "fr": "midi",
+     "pos": "n.m.",
+     "ipa": "midi",
+     "en": "noon",
+     "ko": "정오",
+     "icon": "🕛"
+    },
+    {
+     "fr": "tôt",
+     "pos": "adv.",
+     "ipa": "to",
+     "en": "early",
+     "ko": "일찍"
+    }
+   ],
+   "note": {
+    "ko": "1886년 3월, 예고 없이 파리에 와서 역에서 검은 분필로 쪽지를 써 짐꾼 편에 테오에게 보냈어요(요의 주석). 그렇게 테오 집에 살며 인상주의와 점묘를 만나 팔레트가 밝아졌고, 모델 살 돈이 없어 거울을 보며 자화상을 스무 점 넘게 그렸어요.",
+    "en": "In March 1886 he arrived in Paris unannounced, wrote a note in black chalk at the station and had a porter take it to Theo (Jo’s note in the 1914 edition). Living with Theo, he met Impressionism and pointillism and his palette grew bright; with no money for models, he painted more than twenty self-portraits in the mirror."
+   },
+   "plate": {
+    "title_fr": "Autoportrait au chapeau de paille",
+    "title_en": "Self-Portrait with a Straw Hat",
+    "title_ko": "밀짚모자를 쓴 자화상",
+    "date": "1887",
+    "collection": "The Metropolitan Museum of Art, New York · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/436532",
+    "why": "One of the Paris self-portraits; the Met releases it under CC0.",
+    "image": "p3.jpg",
+    "spots": []
+   },
+   "status": {
+    "fr": "1886–1887",
+    "en": "1886–1887",
+    "ko": "1886–1887"
+   },
+   "moments": []
+  },
+  {
+   "id": "p4",
+   "date": "1887",
+   "ref": "Brieven 1914, n° 538",
+   "place": "Paris",
+   "mood": "bright",
+   "docent": {
+    "period": "1887",
+    "caps": "AVANT LE MIDI · IV · 1887",
+    "heading": {
+     "ko": "일본을 꿈꾸다",
+     "en": "Dreaming of Japan",
+     "fr": "Le rêve du Japon"
+    },
+    "sub": "Japonaiserie · d’après Hiroshige",
+    "body": {
+     "ko": "일본 판화를 수백 장 모으고 히로시게를 유화로 옮겨 그렸어요. 맑은 빛과 또렷한 색 — 그는 그런 일본을 남프랑스에서 찾기로 해요.",
+     "en": "He collected Japanese prints by the hundred and copied Hiroshige in oils. Clear light, frank colour: he decided to look for that Japan in the south of France."
+    },
+    "source": {
+     "ko": "아를에서 · 편지 n° 538, 1888년 9월",
+     "en": "From Arles · letter n° 538, September 1888"
+    }
+   },
+   "messages": [
+    {
+     "fr": "Si nous avions moins de mistral, ce pays serait réellement aussi beau et se prêterait autant à l'art que le Japon.",
+     "en": "If we had less mistral, this country would really be as beautiful, and lend itself to art as much, as Japan.",
+     "ko": "미스트랄만 덜 불면, 이 고장은 정말 일본만큼 아름답고 그림 그리기에 좋을 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 538 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Si nous avions moins de mistral, // ce pays serait réellement aussi beau / et se prêterait autant à l'art // que le Japon."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "mistral",
+     "pos": "n.m.",
+     "ipa": "mistʁal",
+     "en": "mistral (north wind)",
+     "ko": "미스트랄 (북풍)",
+     "icon": "🌬️"
+    },
+    {
+     "fr": "pays",
+     "pos": "n.m.",
+     "ipa": "pei",
+     "en": "country, region",
+     "ko": "고장, 나라"
+    },
+    {
+     "fr": "beau",
+     "pos": "adj.",
+     "ipa": "bo",
+     "en": "beautiful",
+     "ko": "아름다운"
+    }
+   ],
+   "note": {
+    "ko": "일본 판화를 수백 장 모으고 히로시게를 유화로 옮겨 그렸어요. 맑은 빛과 또렷한 색 — 그는 그런 일본을 남프랑스에서 찾기로 해요.",
+    "en": "He collected Japanese prints by the hundred and copied Hiroshige in oils. Clear light, frank colour: he decided to look for that Japan in the south of France."
+   },
+   "plate": {
+    "title_fr": "Japonaiserie : prunier en fleurs (d’après Hiroshige)",
+    "title_en": "Flowering Plum Orchard (after Hiroshige)",
+    "title_ko": "꽃 피는 자두나무 (히로시게를 따라)",
+    "date": "1887",
+    "collection": "Van Gogh Museum, Amsterdam · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Bloeiende_pruimenboomgaard-_naar_Hiroshige_-_Google_Art_Project.jpg",
+    "why": "His copy after Hiroshige; PD-Art from Wikimedia Commons.",
+    "exception": "pd-art",
+    "image": "p4.jpg",
+    "spots": []
+   },
+   "status": {
+    "fr": "1887",
+    "en": "1887",
+    "ko": "1887"
+   },
+   "moments": []
+  }
+ ]
+}

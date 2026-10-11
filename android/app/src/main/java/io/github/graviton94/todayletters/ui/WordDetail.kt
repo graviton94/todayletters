@@ -69,7 +69,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
     val audio = s.narrator.path(id, chapter, letter.id, "w${wi + 1}_${view.learn.code}")
     val card = remember(key, s.version) { s.cardMap()[key] }
     val letters = w.chapters.flatMap { it.letters }
-    val n = letters.indexOf(letter) + 1
+    val n = letters.indexOf(letter) + 1  // 0: 프롤로그의 낱말
     val listenA11y = stringResource(R.string.a11y_listen_word)
     val slowA11y = stringResource(R.string.a11y_listen_slow)
     LaunchedEffect(key) { s.narrator.play(audio) }
@@ -85,7 +85,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
             Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
                 // 이름표
                 Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    Caps("N° ${"%03d".format(wi + 1)} · LETTRE ${roman(n)}", p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
+                    Caps("N° ${"%03d".format(wi + 1)} · " + (if (n == 0) "PROLOGUE" else "LETTRE ${roman(n)}"), p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
                     Text(learn, style = Type.display.copy(fontFamily = Faces.display).of(view.learn), color = p.ink)
                     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                         Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
@@ -128,7 +128,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
                         Box(Modifier.fillMaxWidth().height(0.dp))
                         Text(marked, style = Type.base.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic).of(view.learn), color = p.ink)
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text(stringResource(R.string.letter_n, roman(n)) + " · " + dateLine(letter.date, letter.place) + " · " + letter.place,
+                            Text((if (n == 0) "Prologue" else stringResource(R.string.letter_n, roman(n))) + " · " + dateLine(letter.date, letter.place) + " · " + letter.place,
                                 style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, modifier = Modifier.weight(1f))
                             Box(Modifier.heightIn(min = 36.dp).pressable { s.narrator.play(s.narrator.path(id, chapter, letter.id, "m${mi + 1}_${view.learn.code}")) },
                                 contentAlignment = Alignment.Center) { Capsule(stringResource(R.string.word_hear_sentence)) }

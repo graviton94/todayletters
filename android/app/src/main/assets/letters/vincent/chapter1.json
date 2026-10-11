@@ -1,1035 +1,1482 @@
 {
-  "_doc": "Chapter I 초안 (v13). 프랑스어는 1914년판 『Brieven aan zijn broeder』(요 반 고흐-봉어 엮음, 공공 영역, archive.org 스캔)에서 옮김. 악센트 · 철자만 지금 표기로 다듬고 (Theo→Théo, Stes Maries→Saintes-Maries, symfonie→symphonie, bouillasbaisse→bouillabaisse, sabloneuse→sablonneuse) 명백한 오식 둘을 바로잡음 (plus au moins→plus ou moins, peupliers droites→droits). 문장은 편지에서 발췌. 영어 · 한국어는 이 앱의 새 번역. 그림은 소장처가 직접 자유 사용(상업 포함)을 밝힌 것만, 또는 1914년판의 편지 속 스케치.",
-  "series": "vincent",
-  "chapter": "I",
-  "title_fr": "Le Midi",
-  "title_ko": "남쪽으로",
-  "original": "fr",
-  "letters": [
+ "_doc": "Chapter I 초안 (v14). 프랑스어는 1914년판 『Brieven aan zijn broeder』(요 반 고흐-봉어 엮음, 공공 영역, archive.org 스캔)에서 옮김. 스캔 OCR이 떨어뜨린 악센트와 글자 오류만 바로잡고 철자를 지금 표기로 다듬음 (Theo→Théo, eher→cher, Stes Maries→Saintes-Maries, symfonie→symphonie, bouillasbaisse→bouillabaisse, sabloneuse→sablonneuse, au feuilles→aux feuilles, Campagne→campagne), 명백한 오식 둘도 바로잡음 (plus au moins→plus ou moins, peupliers droites→droits). 문장은 편지에서 발췌, 영어 · 한국어는 이 앱의 새 번역. 그림은 소장처가 직접 자유 사용(상업 포함)을 밝힌 것, 위키미디어 공용의 공공 영역 복제(PD-Art), 또는 1914년판의 편지 속 스케치.",
+ "series": "vincent",
+ "chapter": "I",
+ "title_fr": "Le Midi",
+ "title_en": "The South",
+ "title_ko": "남쪽으로",
+ "original": "fr",
+ "letters": [
+  {
+   "id": "c1-l1",
+   "date": "1888-02-21",
+   "dateNote": "Dated (21/2 '88) in the 1914 edition.",
+   "ref": "Brieven 1914, n° 463 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 463 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "calm",
+   "messages": [
     {
-      "id": "c1-l1",
-      "date": "1888-02-21",
-      "dateNote": "Dated (21/2 '88) in the 1914 edition.",
-      "ref": "Brieven 1914, n° 463 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 463 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-      "place": "Arles",
-      "mood": "calm",
-      "messages": [
-        {
-          "fr": "Mon cher Théo, durant le voyage j'ai pour le moins autant pensé à toi, qu'au nouveau pays que je voyais.",
-          "en": "My dear Theo, on the journey I thought about you at least as much as about the new country I was seeing.",
-          "ko": "사랑하는 테오에게. 오는 길에 나는 처음 보는 이 고장만큼이나 너를 많이 생각했어.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 463 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Mon cher Théo, // durant le voyage / j'ai pour le moins autant pensé à toi, // qu'au nouveau pays / que je voyais."
-          }
-        },
-        {
-          "fr": "Maintenant je te dirai que pour commencer il y a partout au moins 60 centimètres de neige de tombée, et il en tombe toujours.",
-          "en": "Now I'll tell you that, to begin with, there's at least 60 centimetres of snow everywhere, and it's still falling.",
-          "ko": "먼저 말해 둘게. 여기는 온통 눈이 60센티미터나 쌓였고, 지금도 계속 내리고 있어.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 463 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Maintenant je te dirai / que pour commencer // il y a partout / au moins 60 centimètres de neige de tombée, // et il en tombe toujours."
-          }
-        },
-        {
-          "fr": "J'ai aperçu de magnifiques terrains rouges plantés de vignes, avec des fonds de montagnes du plus fin lilas.",
-          "en": "I glimpsed magnificent red fields planted with vines, with mountains behind them of the finest lilac.",
-          "ko": "포도나무를 심은 붉은 밭이 정말 멋졌어. 그 뒤로는 아주 고운 연보랏빛 산이 이어졌고.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 463 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "J'ai aperçu / de magnifiques terrains rouges / plantés de vignes, // avec des fonds de montagnes / du plus fin lilas."
-          }
-        },
-        {
-          "fr": "Et les paysages dans la neige avec les cimes blanches contre un ciel aussi lumineux que la neige, étaient bien comme les paysages d'hiver qu'ont fait les Japonais.",
-          "en": "And the landscapes in the snow, with white peaks against a sky as bright as the snow, were just like the winter landscapes the Japanese made.",
-          "ko": "눈 덮인 풍경은, 눈만큼 환한 하늘에 하얀 봉우리가 솟은 모습이 꼭 일본 사람들이 그린 겨울 풍경 같았어.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 463 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Et les paysages dans la neige / avec les cimes blanches // contre un ciel aussi lumineux que la neige, // étaient bien comme les paysages d'hiver / qu'ont fait les Japonais."
-          }
-        }
-      ],
-      "words": [
-        {
-          "fr": "voyage",
-          "pos": "n.m.",
-          "ipa": "vwajaʒ",
-          "en": "journey",
-          "ko": "여행, 오는 길",
-          "icon": "🚂"
-        },
-        {
-          "fr": "pays",
-          "pos": "n.m.",
-          "ipa": "pei",
-          "en": "country, land",
-          "ko": "고장, 나라"
-        },
-        {
-          "fr": "neige",
-          "pos": "n.f.",
-          "ipa": "nɛʒ",
-          "en": "snow",
-          "ko": "눈",
-          "icon": "❄️"
-        },
-        {
-          "fr": "vigne",
-          "pos": "n.f.",
-          "ipa": "viɲ",
-          "en": "vine",
-          "ko": "포도나무",
-          "icon": "🍇"
-        },
-        {
-          "fr": "ciel",
-          "pos": "n.m.",
-          "ipa": "sjɛl",
-          "en": "sky",
-          "ko": "하늘",
-          "icon": "🌤️"
-        },
-        {
-          "fr": "lumineux",
-          "pos": "adj.",
-          "ipa": "lyminø",
-          "en": "bright",
-          "ko": "환한, 밝은"
-        }
-      ],
-      "note": {
-        "ko": "빈센트는 1888년 2월 19일 파리를 떠나 20일에 아를에 닿았어요. 남쪽의 햇빛을 찾아왔지만, 그해 아를은 보기 드문 폭설에 덮여 있었어요. 그림은 떠나기 몇 달 전 파리에서 그린 자화상이에요.",
-        "en": "Vincent left Paris on 19 February 1888 and reached Arles on the 20th. He came south for the sunlight, but that year Arles lay under a rare heavy snowfall. The picture is a self-portrait painted in Paris a few months before he left.",
-        "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 463 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.metmuseum.org/art/collection/search/436532"
-      },
-      "plate": {
-        "title_fr": "Autoportrait au chapeau de paille",
-        "title_en": "Self-Portrait with a Straw Hat",
-        "title_ko": "밀짚모자를 쓴 자화상",
-        "date": "1887 (Paris)",
-        "collection": "The Metropolitan Museum of Art, New York · CC0",
-        "imageLicense": "Public domain",
-        "imageSource": "https://www.metmuseum.org/art/collection/search/436532",
-        "why": "Painted in Paris in the months before he left for Arles; the Met releases it under CC0.",
-        "image": "c1-l1.jpg",
-        "spots": [
-          {
-            "x": 0.5,
-            "y": 0.17,
-            "title": {
-              "fr": "Le chapeau de paille",
-              "en": "The straw hat",
-              "ko": "밀짚모자"
-            },
-            "note": {
-              "ko": "파리의 여름에 쓰던 밀짚모자. 남쪽으로 가기 전의 빈센트예요.",
-              "en": "The straw hat of a Paris summer: Vincent before he went south."
-            },
-            "word": {
-              "fr": "chapeau",
-              "en": "hat",
-              "ko": "모자",
-              "ipa": "ʃapo"
-            }
-          },
-          {
-            "x": 0.48,
-            "y": 0.58,
-            "title": {
-              "fr": "La barbe rousse",
-              "en": "The red beard",
-              "ko": "붉은 수염"
-            },
-            "note": {
-              "ko": "짧은 붓질을 촘촘히 겹쳐 그린 수염.",
-              "en": "A beard built from short, dense strokes."
-            },
-            "word": {
-              "fr": "barbe",
-              "en": "beard",
-              "ko": "수염",
-              "ipa": "baʁb"
-            }
-          }
-        ]
-      },
-      "reply": {
-        "fr": "Moi aussi, j'ai pensé à toi.",
-        "en": "I thought of you too.",
-        "ko": "나도 형 생각 많이 했어.",
-        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-      },
-      "moments": [
-        {
-          "after": -1,
-          "type": "notice",
-          "text": {
-            "fr": "Vincent est arrivé à Arles · 20 février, par le train de Paris",
-            "en": "Vincent has arrived in Arles · 20 February, by train from Paris",
-            "ko": "빈센트가 아를에 도착했어요 · 2월 20일, 파리에서 기차로"
-          }
-        },
-        {
-          "after": 0,
-          "type": "location",
-          "place": "carrel",
-          "title": {
-            "fr": "Restaurant Carrel",
-            "en": "Restaurant Carrel",
-            "ko": "카렐 식당"
-          },
-          "address": "30, rue Cavalerie"
-        },
-        {
-          "after": 1,
-          "type": "weather",
-          "title": {
-            "fr": "Le temps à Arles",
-            "en": "Weather in Arles",
-            "ko": "아를의 날씨"
-          },
-          "value": {
-            "fr": "60 cm de neige",
-            "en": "60 cm of snow",
-            "ko": "눈 60cm"
-          },
-          "quote": "il en tombe toujours",
-          "icon": "snow"
-        }
-      ],
-      "status": {
-        "fr": "À la recherche du soleil du Midi",
-        "en": "Looking for the southern sun",
-        "ko": "남쪽의 햇빛을 찾아서"
-      }
+     "fr": "Mon cher Théo, durant le voyage j'ai pour le moins autant pensé à toi, qu'au nouveau pays que je voyais.",
+     "en": "My dear Theo, on the journey I thought about you at least as much as about the new country I was seeing.",
+     "ko": "사랑하는 테오에게. 오는 길에 나는 처음 보는 이 고장만큼이나 너를 많이 생각했어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 463 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mon cher Théo, // durant le voyage / j'ai pour le moins autant pensé à toi, // qu'au nouveau pays / que je voyais."
+     }
     },
     {
-      "id": "c1-l2",
-      "date": "1888-03-16",
-      "dateNote": "Undated in the 1914 edition; mid-March 1888 (between letters 468 and 470).",
-      "ref": "Brieven 1914, n° 469 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 469 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-      "place": "Arles",
-      "mood": "calm",
-      "messages": [
-        {
-          "fr": "Pour ce qui est du travail, j'ai rapporté une toile de 15 aujourd'hui, c'est un pont-levis sur lequel passe une petite voiture, qui se profile sur un ciel bleu.",
-          "en": "As for work, today I brought back a size 15 canvas: a drawbridge with a little carriage going over it, outlined against a blue sky.",
-          "ko": "일 얘기를 하자면, 오늘 15호 캔버스를 하나 들고 왔어. 작은 마차가 건너는 도개교가 파란 하늘을 배경으로 서 있는 그림이야.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 469 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Pour ce qui est du travail, // j'ai rapporté une toile de 15 aujourd'hui, // c'est un pont-levis / sur lequel passe une petite voiture, // qui se profile / sur un ciel bleu."
-          }
-        },
-        {
-          "fr": "La rivière bleue également, des berges orangées avec verdure, un groupe de laveuses aux caracos et bonnets bariolés.",
-          "en": "The river blue as well, orange banks with greenery, a group of washerwomen in bright smocks and bonnets.",
-          "ko": "강도 파랗고, 주황빛 강둑에는 풀이 돋았고, 알록달록한 윗옷과 모자를 쓴 빨래하는 여자들이 모여 있어.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 469 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "La rivière bleue également, // des berges orangées avec verdure, // un groupe de laveuses / aux caracos et bonnets bariolés."
-          }
-        },
-        {
-          "fr": "Mais, mon cher frère — tu sais je me sens au Japon — je ne te dis que cela et encore je n'ai encore rien vu dans la splendeur accoutumée.",
-          "en": "But, my dear brother — you know, I feel I'm in Japan — that's all I'll say, and I haven't yet seen anything in its usual splendour.",
-          "ko": "그런데 동생아, 있잖아, 나는 일본에 와 있는 것 같아. 그 말만 할게. 그것도 아직 제대로 빛나는 모습은 하나도 못 봤는데 말이야.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 469 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Mais, mon cher frère // — tu sais je me sens au Japon — // je ne te dis que cela // et encore je n'ai encore rien vu / dans la splendeur accoutumée."
-          }
-        },
-        {
-          "fr": "Ici je vois du neuf, j'apprends, et étant traité avec un peu de douceur, mon corps ne me refuse pas ses services.",
-          "en": "Here I see new things, I learn, and treated with a little gentleness, my body doesn't refuse to serve me.",
-          "ko": "여기서는 새로운 걸 보고 배우고 있어. 몸도 조금 살살 다뤄 주니까 말을 잘 들어.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 469 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Ici je vois du neuf, // j'apprends, // et étant traité avec un peu de douceur, // mon corps ne me refuse pas ses services."
-          }
-        }
-      ],
-      "words": [
-        {
-          "fr": "toile",
-          "pos": "n.f.",
-          "ipa": "twal",
-          "en": "canvas",
-          "ko": "캔버스",
-          "icon": "🖼️"
-        },
-        {
-          "fr": "pont-levis",
-          "pos": "n.m.",
-          "ipa": "pɔ̃ləvi",
-          "en": "drawbridge",
-          "ko": "도개교",
-          "icon": "🌉"
-        },
-        {
-          "fr": "rivière",
-          "pos": "n.f.",
-          "ipa": "ʁivjɛʁ",
-          "en": "river",
-          "ko": "강",
-          "icon": "🌊"
-        },
-        {
-          "fr": "laveuse",
-          "pos": "n.f.",
-          "ipa": "lavøz",
-          "en": "washerwoman",
-          "ko": "빨래하는 여자",
-          "icon": "🧺"
-        },
-        {
-          "fr": "frère",
-          "pos": "n.m.",
-          "ipa": "fʁɛʁ",
-          "en": "brother",
-          "ko": "형제, 동생"
-        },
-        {
-          "fr": "apprendre",
-          "pos": "v.",
-          "ipa": "apʁɑ̃dʁ",
-          "en": "to learn",
-          "ko": "배우다"
-        }
-      ],
-      "note": {
-        "ko": "랑글루아 다리는 아를 남쪽 운하에 놓인 도개교로, 다리지기의 이름을 따서 불렸어요. 빈센트는 이 다리를 유화와 펜 소묘로 여러 번 그렸어요. 그림은 그 소묘 가운데 하나예요.",
-        "en": "The Langlois bridge was a drawbridge on the canal south of Arles, named after its keeper. Vincent drew and painted it several times; the picture here is one of his pen drawings of it.",
-        "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 469 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://collections.lacma.org/node/229816"
-      },
-      "plate": {
-        "title_fr": "Le Pont de Langlois",
-        "title_en": "The Langlois Bridge",
-        "title_ko": "랑글루아 다리",
-        "date": "1888 (dessin à la plume)",
-        "collection": "Los Angeles County Museum of Art · Public domain",
-        "imageLicense": "Public domain",
-        "imageSource": "https://collections.lacma.org/node/229816",
-        "why": "Van Gogh's own pen drawing of the drawbridge in this letter; LACMA marks it public domain, free for any use.",
-        "image": "c1-l2.jpg",
-        "spots": [
-          {
-            "x": 0.53,
-            "y": 0.32,
-            "title": {
-              "fr": "Le pont-levis",
-              "en": "The drawbridge",
-              "ko": "도개교"
-            },
-            "note": {
-              "ko": "배가 지나가면 들어 올리는 다리. 운하 위의 랑글루아 다리예요.",
-              "en": "A bridge that lifts for boats: the Langlois bridge over the canal."
-            },
-            "word": {
-              "fr": "pont-levis",
-              "en": "drawbridge",
-              "ko": "도개교",
-              "ipa": "pɔ̃ ləvi"
-            },
-            "quote": 0
-          },
-          {
-            "x": 0.5,
-            "y": 0.08,
-            "title": {
-              "fr": "Le ciel",
-              "en": "The sky",
-              "ko": "하늘"
-            },
-            "note": {
-              "ko": "‘파란 하늘을 배경으로’. 소묘에서는 비워 둔 종이가 하늘이에요.",
-              "en": "‘Against a blue sky’: in the drawing, the bare paper is the sky."
-            },
-            "word": {
-              "fr": "ciel",
-              "en": "sky",
-              "ko": "하늘",
-              "ipa": "sjɛl"
-            },
-            "quote": 0
-          },
-          {
-            "x": 0.42,
-            "y": 0.78,
-            "title": {
-              "fr": "La rivière",
-              "en": "The river",
-              "ko": "강"
-            },
-            "note": {
-              "ko": "다리 아래 운하의 물. 짧은 펜 선으로 물결을 그렸어요.",
-              "en": "The canal water under the bridge, drawn in short pen strokes."
-            },
-            "word": {
-              "fr": "rivière",
-              "en": "river",
-              "ko": "강",
-              "ipa": "ʁivjɛʁ"
-            },
-            "quote": 1
-          },
-          {
-            "x": 0.86,
-            "y": 0.7,
-            "title": {
-              "fr": "La berge",
-              "en": "The bank",
-              "ko": "강둑"
-            },
-            "note": {
-              "ko": "편지에서는 ‘주황빛 강둑’. 소묘에서는 빽빽한 풀 선이에요.",
-              "en": "‘Orange banks’ in the letter; dense strokes of grass in the drawing."
-            },
-            "word": {
-              "fr": "berge",
-              "en": "bank",
-              "ko": "강둑",
-              "ipa": "bɛʁʒ"
-            },
-            "quote": 1
-          }
-        ]
-      },
-      "reply": {
-        "fr": "Envoie-moi un dessin du pont.",
-        "en": "Send me a drawing of the bridge.",
-        "ko": "그 다리 그림 하나 보내 줘.",
-        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-      },
-      "moments": [
-        {
-          "after": 0,
-          "type": "photo",
-          "image": "c1-l2.jpg",
-          "caption": {
-            "fr": "Le pont de Langlois",
-            "en": "The Langlois bridge",
-            "ko": "랑글루아 다리"
-          }
-        },
-        {
-          "after": 3,
-          "type": "location",
-          "place": "langlois",
-          "title": {
-            "fr": "Pont de Langlois",
-            "en": "The Langlois bridge",
-            "ko": "랑글루아 다리"
-          },
-          "address": "Canal d’Arles à Bouc"
-        }
-      ],
-      "status": {
-        "fr": "Je me sens au Japon",
-        "en": "I feel I'm in Japan",
-        "ko": "일본에 와 있는 것 같아"
-      }
+     "fr": "Maintenant je te dirai que pour commencer il y a partout au moins 60 centimètres de neige de tombée, et il en tombe toujours.",
+     "en": "Now I'll tell you that, to begin with, there's at least 60 centimetres of snow everywhere, and it's still falling.",
+     "ko": "먼저 말해 둘게. 여기는 온통 눈이 60센티미터나 쌓였고, 지금도 계속 내리고 있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 463 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant je te dirai / que pour commencer // il y a partout / au moins 60 centimètres de neige de tombée, // et il en tombe toujours."
+     }
     },
     {
-      "id": "c1-l3",
-      "date": "1888-04-03",
-      "dateNote": "Undated in the 1914 edition; early April 1888 (orchards in blossom).",
-      "ref": "Brieven 1914, n° 473 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 473 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-      "place": "Arles",
-      "mood": "bright",
-      "messages": [
-        {
-          "fr": "Mon cher Théo, je suis dans une rage de travail, puisque les arbres sont en fleurs et que je voulais faire un verger de Provence d'une gaieté monstre.",
-          "en": "My dear Theo, I'm in a frenzy of work, because the trees are in blossom and I wanted to paint a Provençal orchard of enormous cheerfulness.",
-          "ko": "사랑하는 테오에게. 나무에 꽃이 피어서 나는 미친 듯이 일하고 있어. 엄청나게 밝은 프로방스 과수원을 그리고 싶었거든.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 473 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Mon cher Théo, // je suis dans une rage de travail, // puisque les arbres sont en fleurs // et que je voulais faire / un verger de Provence / d'une gaieté monstre."
-          }
-        },
-        {
-          "fr": "C'est le pont-levis avec petite voiture jaune et groupe de laveuses, une étude où les terrains sont orange vif, l'herbe très verte, le ciel et l'eau bleu.",
-          "en": "It's the drawbridge with the little yellow carriage and the group of washerwomen, a study where the ground is bright orange, the grass very green, the sky and the water blue.",
-          "ko": "그 도개교 그림 말이야. 작은 노란 마차와 빨래하는 여자들이 있고, 땅은 선명한 주황, 풀은 아주 초록, 하늘과 물은 파란 습작이야.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 473 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "C'est le pont-levis / avec petite voiture jaune / et groupe de laveuses, // une étude où les terrains sont orange vif, // l'herbe très verte, // le ciel et l'eau bleu."
-          }
-        },
-        {
-          "fr": "Je crois pouvoir t'assurer que ce que je fabrique ici est supérieur à la campagne d'Asnières au printemps dernier.",
-          "en": "I think I can assure you that what I'm making here is better than the Asnières countryside last spring.",
-          "ko": "여기서 그리는 그림이 지난봄 아니에르 시골 풍경보다 낫다고 장담할 수 있을 것 같아.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 473 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Je crois pouvoir t'assurer // que ce que je fabrique ici / est supérieur // à la campagne d'Asnières / au printemps dernier."
-          }
-        },
-        {
-          "fr": "Je ne puis pas encore te réussir une lettre telle que je voudrais, le travail m'absorbe complètement.",
-          "en": "I can't yet manage a letter the way I'd like; work absorbs me completely.",
-          "ko": "아직 마음먹은 대로 편지를 쓰지 못하겠어. 일에 완전히 빠져 있거든.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 473 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Je ne puis pas encore te réussir une lettre / telle que je voudrais, // le travail m'absorbe complètement."
-          }
-        }
-      ],
-      "words": [
-        {
-          "fr": "travail",
-          "pos": "n.m.",
-          "ipa": "tʁavaj",
-          "en": "work",
-          "ko": "일"
-        },
-        {
-          "fr": "arbre",
-          "pos": "n.m.",
-          "ipa": "aʁbʁ",
-          "en": "tree",
-          "ko": "나무",
-          "icon": "🌳"
-        },
-        {
-          "fr": "fleur",
-          "pos": "n.f.",
-          "ipa": "flœʁ",
-          "en": "flower, blossom",
-          "ko": "꽃",
-          "icon": "🌸"
-        },
-        {
-          "fr": "herbe",
-          "pos": "n.f.",
-          "ipa": "ɛʁb",
-          "en": "grass",
-          "ko": "풀"
-        },
-        {
-          "fr": "printemps",
-          "pos": "n.m.",
-          "ipa": "pʁɛ̃tɑ̃",
-          "en": "spring",
-          "ko": "봄"
-        }
-      ],
-      "note": {
-        "ko": "1888년 3월 말부터 4월까지 아를 둘레의 과수원에 살구꽃, 복숭아꽃, 배꽃이 피자 빈센트는 꽃 핀 과수원을 연이어 그렸어요. 꽃이 지기 전에 끝내려고 서둘렀어요.",
-        "en": "From late March into April 1888, as apricot, peach and pear trees blossomed around Arles, Vincent painted a run of flowering-orchard canvases, racing to finish before the blossom fell.",
-        "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 473 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.metmuseum.org/art/collection/search/436527"
-      },
-      "plate": {
-        "title_fr": "Le Verger en fleurs",
-        "title_en": "The Flowering Orchard",
-        "title_ko": "꽃 핀 과수원",
-        "date": "1888",
-        "collection": "The Metropolitan Museum of Art, New York · CC0",
-        "imageLicense": "Public domain",
-        "imageSource": "https://www.metmuseum.org/art/collection/search/436527",
-        "why": "One of the flowering orchards of spring 1888; the Met releases it under CC0.",
-        "image": "c1-l3.jpg",
-        "spots": [
-          {
-            "x": 0.6,
-            "y": 0.3,
-            "title": {
-              "fr": "Les arbres en fleurs",
-              "en": "Trees in blossom",
-              "ko": "꽃 핀 나무"
-            },
-            "note": {
-              "ko": "‘나무에 꽃이 피어서’. 하얀 꽃이 가지마다 번져요.",
-              "en": "‘The trees are in blossom’: white flowers spread along every branch."
-            },
-            "word": {
-              "fr": "arbre",
-              "en": "tree",
-              "ko": "나무",
-              "ipa": "aʁbʁ"
-            },
-            "quote": 0
-          },
-          {
-            "x": 0.66,
-            "y": 0.16,
-            "title": {
-              "fr": "Les fleurs",
-              "en": "The blossom",
-              "ko": "꽃"
-            },
-            "note": {
-              "ko": "꽃은 금방 져서, 그 전에 그려야 했어요.",
-              "en": "The blossom falls fast, so he had to paint quickly."
-            },
-            "word": {
-              "fr": "fleur",
-              "en": "blossom",
-              "ko": "꽃",
-              "ipa": "flœʁ"
-            },
-            "quote": 0
-          },
-          {
-            "x": 0.35,
-            "y": 0.78,
-            "title": {
-              "fr": "L'herbe",
-              "en": "The grass",
-              "ko": "풀"
-            },
-            "note": {
-              "ko": "‘풀은 아주 초록’. 굵은 붓으로 세워 그린 풀.",
-              "en": "‘The grass very green’, laid on in upright strokes."
-            },
-            "word": {
-              "fr": "herbe",
-              "en": "grass",
-              "ko": "풀",
-              "ipa": "ɛʁb"
-            },
-            "quote": 1
-          }
-        ]
-      },
-      "reply": {
-        "fr": "Je veux voir ces arbres en fleurs.",
-        "en": "I want to see those trees in blossom.",
-        "ko": "꽃 핀 그 나무들을 보고 싶어.",
-        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-      },
-      "moments": [
-        {
-          "after": 0,
-          "type": "photo",
-          "image": "c1-l3.jpg",
-          "caption": {
-            "fr": "Verger en fleurs",
-            "en": "The flowering orchard",
-            "ko": "꽃 핀 과수원"
-          }
-        }
-      ],
-      "status": {
-        "fr": "Dans une rage de travail",
-        "en": "In a frenzy of work",
-        "ko": "미친 듯이 그리는 중"
-      }
+     "fr": "J'ai aperçu de magnifiques terrains rouges plantés de vignes, avec des fonds de montagnes du plus fin lilas.",
+     "en": "I glimpsed magnificent red fields planted with vines, with mountains behind them of the finest lilac.",
+     "ko": "포도나무를 심은 붉은 밭이 정말 멋졌어. 그 뒤로는 아주 고운 연보랏빛 산이 이어졌고.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 463 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai aperçu / de magnifiques terrains rouges / plantés de vignes, // avec des fonds de montagnes / du plus fin lilas."
+     }
     },
     {
-      "id": "c1-l4",
-      "date": "1888-04",
-      "dateNote": "Undated in the 1914 edition; April 1888, between letters 473 and 480.",
-      "ref": "Brieven 1914, n° 477 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 477 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-      "place": "Arles",
-      "mood": "bright",
-      "messages": [
-        {
-          "fr": "Maintenant je te dirai que je travaille aux 2 tableaux desquels je voulais faire des répétitions. Le pêcher rose me donne le plus de mal.",
-          "en": "Now I'll tell you that I'm working on the 2 paintings I wanted to repeat. The pink peach tree is giving me the most trouble.",
-          "ko": "이제 말할게. 다시 한 번 그리고 싶던 그림 두 점을 그리는 중이야. 분홍 복숭아나무가 제일 애를 먹여.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 477 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Maintenant je te dirai / que je travaille aux 2 tableaux // desquels je voulais faire des répétitions. // Le pêcher rose / me donne le plus de mal."
-          }
-        },
-        {
-          "fr": "Tu vois par les trois carrés de l'autre côté que les trois vergers se tiennent plus ou moins.",
-          "en": "You can see from the three squares overleaf that the three orchards more or less hang together.",
-          "ko": "뒷장의 네모 세 개를 보면 과수원 세 폭이 대충 한 벌로 어울리는 게 보일 거야.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 477 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Tu vois par les trois carrés / de l'autre côté // que les trois vergers / se tiennent plus ou moins."
-          }
-        },
-        {
-          "fr": "Terrain violet, dans le fond un mur avec des peupliers droits et un ciel très bleu.",
-          "en": "Violet ground, at the back a wall with straight poplars and a very blue sky.",
-          "ko": "땅은 보라, 뒤쪽에는 곧은 포플러가 선 담과 아주 파란 하늘.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 477 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Terrain violet, // dans le fond / un mur avec des peupliers droits // et un ciel très bleu."
-          }
-        },
-        {
-          "fr": "Le petit poirier a un tronc violet et des fleurs blanches, un grand papillon jaune sur une des touffes.",
-          "en": "The little pear tree has a violet trunk and white flowers, a big yellow butterfly on one of the clusters.",
-          "ko": "작은 배나무는 줄기가 보라고 꽃은 하얘. 꽃송이 하나에 커다란 노랑나비가 앉아 있어.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 477 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Le petit poirier / a un tronc violet et des fleurs blanches, // un grand papillon jaune / sur une des touffes."
-          }
-        }
-      ],
-      "words": [
-        {
-          "fr": "pêcher",
-          "pos": "n.m.",
-          "ipa": "peʃe",
-          "en": "peach tree",
-          "ko": "복숭아나무",
-          "icon": "🍑"
-        },
-        {
-          "fr": "carré",
-          "pos": "n.m.",
-          "ipa": "kaʁe",
-          "en": "square",
-          "ko": "네모"
-        },
-        {
-          "fr": "verger",
-          "pos": "n.m.",
-          "ipa": "vɛʁʒe",
-          "en": "orchard",
-          "ko": "과수원",
-          "icon": "🌿"
-        },
-        {
-          "fr": "mur",
-          "pos": "n.m.",
-          "ipa": "myʁ",
-          "en": "wall",
-          "ko": "담, 벽"
-        },
-        {
-          "fr": "poirier",
-          "pos": "n.m.",
-          "ipa": "pwaʁje",
-          "en": "pear tree",
-          "ko": "배나무",
-          "icon": "🍐"
-        },
-        {
-          "fr": "papillon",
-          "pos": "n.m.",
-          "ipa": "papijɔ̃",
-          "en": "butterfly",
-          "ko": "나비",
-          "icon": "🦋"
-        }
-      ],
-      "note": {
-        "ko": "이 편지에는 빈센트가 직접 그려 넣은 과수원 스케치가 있어요. 살구나무 · 복숭아나무 · 자두나무 과수원 세 폭을 한 벌로 걸 생각이었어요. 그림은 1914년판에 실린 그 스케치예요.",
-        "en": "Vincent drew the orchards into this letter: apricot, peach and plum, three canvases meant to hang as a set. The picture is that sketch as printed in the 1914 edition.",
-        "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 477 · public domain · https://archive.org/details/brievenaanzijnbr03gogh"
-      },
-      "plate": {
-        "title_fr": "Trois vergers (croquis dans la lettre)",
-        "title_en": "Three orchards (sketch in the letter)",
-        "title_ko": "과수원 세 폭 (편지 속 스케치)",
-        "date": "April 1888",
-        "collection": "Brieven aan zijn broeder (1914), p. 32 · public domain",
-        "imageLicense": "Public domain",
-        "imageSource": "https://archive.org/details/brievenaanzijnbr03gogh",
-        "why": "Van Gogh's own sketch inside this letter, reproduced in the public-domain 1914 edition.",
-        "image": "c1-l4.jpg",
-        "spots": [
-          {
-            "x": 0.17,
-            "y": 0.55,
-            "title": {
-              "fr": "Les abricotiers",
-              "en": "Apricot trees",
-              "ko": "살구나무"
-            },
-            "note": {
-              "ko": "왼쪽 칸: 살구나무 과수원.",
-              "en": "Left square: the apricot orchard."
-            },
-            "word": {
-              "fr": "abricotier",
-              "en": "apricot tree",
-              "ko": "살구나무",
-              "ipa": "abʁikɔtje"
-            }
-          },
-          {
-            "x": 0.5,
-            "y": 0.55,
-            "title": {
-              "fr": "Le pêcher rose",
-              "en": "The pink peach tree",
-              "ko": "분홍 복숭아나무"
-            },
-            "note": {
-              "ko": "가운데 칸. ‘분홍 복숭아나무가 제일 애를 먹여’.",
-              "en": "The middle square: ‘the pink peach tree is giving me the most trouble’."
-            },
-            "word": {
-              "fr": "pêcher",
-              "en": "peach tree",
-              "ko": "복숭아나무",
-              "ipa": "peʃe"
-            },
-            "quote": 0
-          },
-          {
-            "x": 0.83,
-            "y": 0.55,
-            "title": {
-              "fr": "Les pruniers",
-              "en": "Plum trees",
-              "ko": "자두나무"
-            },
-            "note": {
-              "ko": "오른쪽 칸: 자두나무, 보라와 초록 땅.",
-              "en": "Right square: plum trees on violet and green ground."
-            },
-            "word": {
-              "fr": "prunier",
-              "en": "plum tree",
-              "ko": "자두나무",
-              "ipa": "pʁynje"
-            }
-          }
-        ]
-      },
-      "reply": {
-        "fr": "J'ai hâte de voir les trois vergers.",
-        "en": "I can't wait to see the three orchards.",
-        "ko": "과수원 세 폭, 얼른 보고 싶어.",
-        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-      },
-      "moments": [
-        {
-          "after": 3,
-          "type": "sketch",
-          "image": "c1-l4-poirier.jpg",
-          "caption": {
-            "fr": "Croquis du petit poirier, dans la même lettre",
-            "en": "Sketch of the little pear tree, in the same letter",
-            "ko": "같은 편지 속 스케치 · 작은 배나무"
-          },
-          "credit": "Brieven aan zijn broeder (1914), p. 33 · domaine public · https://archive.org/details/brievenaanzijnbr03gogh"
-        }
-      ],
-      "status": {
-        "fr": "Le pêcher rose",
-        "en": "The pink peach tree",
-        "ko": "분홍 복숭아나무"
-      }
-    },
-    {
-      "id": "c1-l5",
-      "date": "1888-05-01",
-      "dateNote": "Dated (Mei '88) in the 1914 edition; the lease began on 1 May.",
-      "ref": "Brieven 1914, n° 480 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 480 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-      "place": "Arles",
-      "mood": "tender",
-      "messages": [
-        {
-          "fr": "Eh bien, j'ai aujourd'hui loué l'aile droite de cette construction, qui contient 4 pièces ou plutôt deux avec deux cabinets.",
-          "en": "Well, today I've rented the right wing of this building, which has 4 rooms, or rather two, with two small rooms.",
-          "ko": "그래서 말인데, 오늘 이 건물의 오른쪽 채를 빌렸어. 방이 네 개, 아니 큰 방 둘에 작은 방 둘이야.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 480 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Eh bien, // j'ai aujourd'hui loué / l'aile droite de cette construction, // qui contient 4 pièces // ou plutôt deux / avec deux cabinets."
-          }
-        },
-        {
-          "fr": "C'est peint en jaune dehors, blanche à la chaux à l'intérieur, en plein soleil, je l'ai loué à raison de 15 francs par mois.",
-          "en": "It's painted yellow outside, whitewashed inside, in full sun; I've rented it at 15 francs a month.",
-          "ko": "바깥은 노랗게 칠했고, 안은 하얗게 회칠했어. 햇빛이 가득 들어. 한 달에 15프랑에 빌렸어.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 480 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "C'est peint en jaune dehors, // blanche à la chaux à l'intérieur, // en plein soleil, // je l'ai loué / à raison de 15 francs par mois."
-          }
-        },
-        {
-          "fr": "Maintenant mon désir serait de meubler une pièce, celle du premier étage, pour pouvoir y coucher.",
-          "en": "Now what I'd like is to furnish one room, the one on the first floor, so I can sleep there.",
-          "ko": "이제 바라는 건 방 하나, 2층 방에 가구를 들여서 거기서 자는 거야.",
-          "verified": true,
-          "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 480 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
-          "speak": {
-            "fr": "Maintenant mon désir serait / de meubler une pièce, // celle du premier étage, // pour pouvoir y coucher."
-          }
-        }
-      ],
-      "words": [
-        {
-          "fr": "louer",
-          "pos": "v.",
-          "ipa": "lwe",
-          "en": "to rent",
-          "ko": "빌리다, 세내다"
-        },
-        {
-          "fr": "construction",
-          "pos": "n.f.",
-          "ipa": "kɔ̃stʁyksjɔ̃",
-          "en": "building",
-          "ko": "건물",
-          "icon": "🏠"
-        },
-        {
-          "fr": "pièce",
-          "pos": "n.f.",
-          "ipa": "pjɛs",
-          "en": "room",
-          "ko": "방",
-          "icon": "🚪"
-        },
-        {
-          "fr": "jaune",
-          "pos": "adj.",
-          "ipa": "ʒon",
-          "en": "yellow",
-          "ko": "노란"
-        },
-        {
-          "fr": "soleil",
-          "pos": "n.m.",
-          "ipa": "sɔlɛj",
-          "en": "sun",
-          "ko": "해, 햇빛",
-          "icon": "☀️"
-        },
-        {
-          "fr": "mois",
-          "pos": "n.m.",
-          "ipa": "mwa",
-          "en": "month",
-          "ko": "달"
-        }
-      ],
-      "note": {
-        "ko": "빈센트가 빌린 곳은 라마르틴 광장 2번지 건물의 오른쪽 채였어요. 처음에는 작업실로만 쓰다가, 집을 손보고 가구를 들인 뒤 1888년 9월에야 들어가 살았어요. 그림은 이 편지에 직접 그린 노란 집 스케치예요.",
-        "en": "Vincent rented the right wing of 2 Place Lamartine. At first he used it only as a studio; he moved in to live there in September 1888, once it had been repainted and furnished. The picture is the sketch of the house he drew in this letter.",
-        "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 480 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://en.wikipedia.org/wiki/The_Yellow_House"
-      },
-      "plate": {
-        "title_fr": "La maison jaune (croquis dans la lettre)",
-        "title_en": "The Yellow House (sketch in the letter)",
-        "title_ko": "노란 집 (편지 속 스케치)",
-        "date": "May 1888",
-        "collection": "Brieven aan zijn broeder (1914), p. 39 · public domain",
-        "imageLicense": "Public domain",
-        "imageSource": "https://archive.org/details/brievenaanzijnbr03gogh",
-        "why": "The house as Vincent sketched it in this very letter: ‘qui contient 4 pièces’.",
-        "image": "c1-l5.jpg",
-        "spots": [
-          {
-            "x": 0.62,
-            "y": 0.45,
-            "title": {
-              "fr": "L'aile droite",
-              "en": "The right wing",
-              "ko": "오른쪽 채"
-            },
-            "note": {
-              "ko": "빈센트가 빌린 오른쪽 채. ‘바깥은 노랗게’.",
-              "en": "The right wing he rented, ‘painted yellow outside’."
-            },
-            "word": {
-              "fr": "jaune",
-              "en": "yellow",
-              "ko": "노랗게",
-              "ipa": "ʒon"
-            },
-            "quote": 1
-          },
-          {
-            "x": 0.6,
-            "y": 0.9,
-            "title": {
-              "fr": "« qui contient 4 pièces »",
-              "en": "‘which has 4 rooms’",
-              "ko": "‘방이 네 개’"
-            },
-            "note": {
-              "ko": "스케치 아래에 직접 적은 말.",
-              "en": "Written under the sketch in his own hand."
-            },
-            "word": {
-              "fr": "pièce",
-              "en": "room",
-              "ko": "방",
-              "ipa": "pjɛs"
-            },
-            "quote": 0
-          },
-          {
-            "x": 0.08,
-            "y": 0.35,
-            "title": {
-              "fr": "Ses mots",
-              "en": "His notes",
-              "ko": "빈센트의 메모"
-            },
-            "note": {
-              "ko": "그림 왼쪽에 색과 자리를 적어 두었어요.",
-              "en": "Notes on colours and places along the left edge."
-            },
-            "word": {
-              "fr": "papier",
-              "en": "paper",
-              "ko": "종이",
-              "ipa": "papje"
-            }
-          }
-        ]
-      },
-      "reply": {
-        "fr": "Une maison jaune au soleil, c'est parfait.",
-        "en": "A yellow house in the sun, that's perfect.",
-        "ko": "햇살 아래 노란 집이라니, 딱 좋아.",
-        "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-      },
-      "moments": [
-        {
-          "after": 0,
-          "type": "location",
-          "place": "yellow",
-          "title": {
-            "fr": "La maison jaune",
-            "en": "The Yellow House",
-            "ko": "노란 집"
-          },
-          "address": "2, place Lamartine"
-        },
-        {
-          "after": 1,
-          "type": "transfer",
-          "amount": "15 francs",
-          "label": {
-            "fr": "Loyer · par mois",
-            "en": "Rent · per month",
-            "ko": "월세 · 한 달"
-          },
-          "memo": {
-            "fr": "Maison jaune, 2 place Lamartine",
-            "en": "The Yellow House, 2 place Lamartine",
-            "ko": "노란 집, 라마르틴 광장 2번지"
-          },
-          "outgoing": true
-        }
-      ],
-      "status": {
-        "fr": "Enfin un atelier à moi",
-        "en": "A studio of my own at last",
-        "ko": "드디어 내 작업실"
-      }
+     "fr": "Et les paysages dans la neige avec les cimes blanches contre un ciel aussi lumineux que la neige, étaient bien comme les paysages d'hiver qu'ont fait les Japonais.",
+     "en": "And the landscapes in the snow, with white peaks against a sky as bright as the snow, were just like the winter landscapes the Japanese made.",
+     "ko": "눈 덮인 풍경은, 눈만큼 환한 하늘에 하얀 봉우리가 솟은 모습이 꼭 일본 사람들이 그린 겨울 풍경 같았어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 463 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Et les paysages dans la neige / avec les cimes blanches // contre un ciel aussi lumineux que la neige, // étaient bien comme les paysages d'hiver / qu'ont fait les Japonais."
+     }
     }
-  ]
+   ],
+   "words": [
+    {
+     "fr": "voyage",
+     "pos": "n.m.",
+     "ipa": "vwajaʒ",
+     "en": "journey",
+     "ko": "여행, 오는 길",
+     "icon": "🚂"
+    },
+    {
+     "fr": "pays",
+     "pos": "n.m.",
+     "ipa": "pei",
+     "en": "country, land",
+     "ko": "고장, 나라"
+    },
+    {
+     "fr": "neige",
+     "pos": "n.f.",
+     "ipa": "nɛʒ",
+     "en": "snow",
+     "ko": "눈",
+     "icon": "❄️"
+    },
+    {
+     "fr": "vigne",
+     "pos": "n.f.",
+     "ipa": "viɲ",
+     "en": "vine",
+     "ko": "포도나무",
+     "icon": "🍇"
+    },
+    {
+     "fr": "ciel",
+     "pos": "n.m.",
+     "ipa": "sjɛl",
+     "en": "sky",
+     "ko": "하늘",
+     "icon": "🌤️"
+    },
+    {
+     "fr": "lumineux",
+     "pos": "adj.",
+     "ipa": "lyminø",
+     "en": "bright",
+     "ko": "환한, 밝은"
+    }
+   ],
+   "note": {
+    "ko": "빈센트는 1888년 2월 19일 파리를 떠나 20일에 아를에 닿았어요. 남쪽의 햇빛을 찾아왔지만, 그해 아를은 보기 드문 폭설에 덮여 있었어요. 그림은 떠나기 몇 달 전 파리에서 그린 자화상이에요.",
+    "en": "Vincent left Paris on 19 February 1888 and reached Arles on the 20th. He came south for the sunlight, but that year Arles lay under a rare heavy snowfall. The picture is a self-portrait painted in Paris a few months before he left.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 463 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.metmuseum.org/art/collection/search/436532"
+   },
+   "plate": {
+    "title_fr": "Autoportrait au chapeau de paille",
+    "title_en": "Self-Portrait with a Straw Hat",
+    "title_ko": "밀짚모자를 쓴 자화상",
+    "date": "1887 (Paris)",
+    "collection": "The Metropolitan Museum of Art, New York · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/436532",
+    "why": "Painted in Paris in the months before he left for Arles; the Met releases it under CC0.",
+    "image": "c1-l1.jpg",
+    "spots": [
+     {
+      "x": 0.12,
+      "y": 0.42,
+      "title": {
+       "fr": "Le fond lilas",
+       "en": "The lilac background",
+       "ko": "연보랏빛 배경"
+      },
+      "note": {
+       "ko": "배경에 섞인 연보랏빛 · 파란 붓질. 편지 속 남쪽 산도 ‘아주 고운 연보랏빛’이었어요.",
+       "en": "Lilac and blue dashes in the background; the southern mountains in the letter were ‘of the finest lilac’."
+      },
+      "word": {
+       "fr": "lilas",
+       "en": "lilac",
+       "ko": "연보랏빛",
+       "ipa": "lila"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.48,
+      "y": 0.6,
+      "title": {
+       "fr": "La barbe rousse",
+       "en": "The red beard",
+       "ko": "붉은 수염"
+      },
+      "note": {
+       "ko": "짧은 붓질을 촘촘히 겹쳐 그린 붉은 수염. 편지 속 남쪽 땅도 ‘붉은’ 밭이었어요.",
+       "en": "A red beard built from short, dense strokes; the southern fields in the letter were ‘red’ too."
+      },
+      "word": {
+       "fr": "rouges",
+       "en": "red",
+       "ko": "붉은",
+       "ipa": "ʁuʒ"
+      },
+      "quote": 2
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Moi aussi, j'ai pensé à toi.",
+    "en": "I thought of you too.",
+    "ko": "나도 형 생각 많이 했어.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Vincent est arrivé à Arles · 20 février, par le train de Paris",
+      "en": "Vincent has arrived in Arles · 20 February, by train from Paris",
+      "ko": "빈센트가 아를에 도착했어요 · 2월 20일, 파리에서 기차로"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "carrel",
+     "title": {
+      "fr": "Restaurant Carrel",
+      "en": "Restaurant Carrel",
+      "ko": "카렐 식당"
+     },
+     "address": "30, rue Cavalerie"
+    },
+    {
+     "after": 1,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Arles",
+      "en": "Weather in Arles",
+      "ko": "아를의 날씨"
+     },
+     "value": {
+      "fr": "60 cm de neige",
+      "en": "60 cm of snow",
+      "ko": "눈 60cm"
+     },
+     "quote": "il en tombe toujours",
+     "icon": "snow"
+    }
+   ],
+   "status": {
+    "fr": "À la recherche du soleil du Midi",
+    "en": "Looking for the southern sun",
+    "ko": "남쪽의 햇빛을 찾아서"
+   }
+  },
+  {
+   "id": "c1-l2",
+   "date": "1888-03-16",
+   "dateNote": "Undated in the 1914 edition; mid-March 1888 (between letters 468 and 470).",
+   "ref": "Brieven 1914, n° 469 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 469 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Pour ce qui est du travail, j'ai rapporté une toile de 15 aujourd'hui, c'est un pont-levis sur lequel passe une petite voiture, qui se profile sur un ciel bleu.",
+     "en": "As for work, today I brought back a size 15 canvas: a drawbridge with a little carriage going over it, outlined against a blue sky.",
+     "ko": "일 얘기를 하자면, 오늘 15호 캔버스를 하나 들고 왔어. 작은 마차가 건너는 도개교가 파란 하늘을 배경으로 서 있는 그림이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 469 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Pour ce qui est du travail, // j'ai rapporté une toile de 15 aujourd'hui, // c'est un pont-levis / sur lequel passe une petite voiture, // qui se profile / sur un ciel bleu."
+     }
+    },
+    {
+     "fr": "La rivière bleue également, des berges orangées avec verdure, un groupe de laveuses aux caracos et bonnets bariolés.",
+     "en": "The river blue as well, orange banks with greenery, a group of washerwomen in bright smocks and bonnets.",
+     "ko": "강도 파랗고, 주황빛 강둑에는 풀이 돋았고, 알록달록한 윗옷과 모자를 쓴 빨래하는 여자들이 모여 있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 469 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "La rivière bleue également, // des berges orangées avec verdure, // un groupe de laveuses / aux caracos et bonnets bariolés."
+     }
+    },
+    {
+     "fr": "Mais, mon cher frère — tu sais je me sens au Japon — je ne te dis que cela et encore je n'ai encore rien vu dans la splendeur accoutumée.",
+     "en": "But, my dear brother — you know, I feel I'm in Japan — that's all I'll say, and I haven't yet seen anything in its usual splendour.",
+     "ko": "그런데 동생아, 있잖아, 나는 일본에 와 있는 것 같아. 그 말만 할게. 그것도 아직 제대로 빛나는 모습은 하나도 못 봤는데 말이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 469 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mais, mon cher frère // — tu sais je me sens au Japon — // je ne te dis que cela // et encore je n'ai encore rien vu / dans la splendeur accoutumée."
+     }
+    },
+    {
+     "fr": "Ici je vois du neuf, j'apprends, et étant traité avec un peu de douceur, mon corps ne me refuse pas ses services.",
+     "en": "Here I see new things, I learn, and treated with a little gentleness, my body doesn't refuse to serve me.",
+     "ko": "여기서는 새로운 걸 보고 배우고 있어. 몸도 조금 살살 다뤄 주니까 말을 잘 들어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 469 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Ici je vois du neuf, // j'apprends, // et étant traité avec un peu de douceur, // mon corps ne me refuse pas ses services."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "toile",
+     "pos": "n.f.",
+     "ipa": "twal",
+     "en": "canvas",
+     "ko": "캔버스",
+     "icon": "🖼️"
+    },
+    {
+     "fr": "pont-levis",
+     "pos": "n.m.",
+     "ipa": "pɔ̃ləvi",
+     "en": "drawbridge",
+     "ko": "도개교",
+     "icon": "🌉"
+    },
+    {
+     "fr": "rivière",
+     "pos": "n.f.",
+     "ipa": "ʁivjɛʁ",
+     "en": "river",
+     "ko": "강",
+     "icon": "🌊"
+    },
+    {
+     "fr": "laveuse",
+     "pos": "n.f.",
+     "ipa": "lavøz",
+     "en": "washerwoman",
+     "ko": "빨래하는 여자",
+     "icon": "🧺"
+    },
+    {
+     "fr": "frère",
+     "pos": "n.m.",
+     "ipa": "fʁɛʁ",
+     "en": "brother",
+     "ko": "형제, 동생"
+    },
+    {
+     "fr": "apprendre",
+     "pos": "v.",
+     "ipa": "apʁɑ̃dʁ",
+     "en": "to learn",
+     "ko": "배우다"
+    }
+   ],
+   "note": {
+    "ko": "랑글루아 다리는 아를 남쪽 운하에 놓인 도개교로, 다리지기의 이름을 따서 불렸어요. 빈센트는 이 다리를 유화와 펜 소묘로 여러 번 그렸어요. 그림은 그 소묘 가운데 하나예요.",
+    "en": "The Langlois bridge was a drawbridge on the canal south of Arles, named after its keeper. Vincent drew and painted it several times; the picture here is one of his pen drawings of it.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 469 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://collections.lacma.org/node/229816"
+   },
+   "plate": {
+    "title_fr": "Le Pont de Langlois",
+    "title_en": "The Langlois Bridge",
+    "title_ko": "랑글루아 다리",
+    "date": "1888 (dessin à la plume)",
+    "collection": "Los Angeles County Museum of Art · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://collections.lacma.org/node/229816",
+    "why": "Van Gogh's own pen drawing of the drawbridge in this letter; LACMA marks it public domain, free for any use.",
+    "image": "c1-l2.jpg",
+    "spots": [
+     {
+      "x": 0.53,
+      "y": 0.32,
+      "title": {
+       "fr": "Le pont-levis",
+       "en": "The drawbridge",
+       "ko": "도개교"
+      },
+      "note": {
+       "ko": "배가 지나가면 들어 올리는 다리. 운하 위의 랑글루아 다리예요.",
+       "en": "A bridge that lifts for boats: the Langlois bridge over the canal."
+      },
+      "word": {
+       "fr": "pont-levis",
+       "en": "drawbridge",
+       "ko": "도개교",
+       "ipa": "pɔ̃ ləvi"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.5,
+      "y": 0.08,
+      "title": {
+       "fr": "Le ciel",
+       "en": "The sky",
+       "ko": "하늘"
+      },
+      "note": {
+       "ko": "‘파란 하늘을 배경으로’. 소묘에서는 비워 둔 종이가 하늘이에요.",
+       "en": "‘Against a blue sky’: in the drawing, the bare paper is the sky."
+      },
+      "word": {
+       "fr": "ciel",
+       "en": "sky",
+       "ko": "하늘",
+       "ipa": "sjɛl"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.42,
+      "y": 0.78,
+      "title": {
+       "fr": "La rivière",
+       "en": "The river",
+       "ko": "강"
+      },
+      "note": {
+       "ko": "다리 아래 운하의 물. 짧은 펜 선으로 물결을 그렸어요.",
+       "en": "The canal water under the bridge, drawn in short pen strokes."
+      },
+      "word": {
+       "fr": "rivière",
+       "en": "river",
+       "ko": "강",
+       "ipa": "ʁivjɛʁ"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.86,
+      "y": 0.7,
+      "title": {
+       "fr": "La berge",
+       "en": "The bank",
+       "ko": "강둑"
+      },
+      "note": {
+       "ko": "편지에서는 ‘주황빛 강둑’. 소묘에서는 빽빽한 풀 선이에요.",
+       "en": "‘Orange banks’ in the letter; dense strokes of grass in the drawing."
+      },
+      "word": {
+       "fr": "berge",
+       "en": "bank",
+       "ko": "강둑",
+       "ipa": "bɛʁʒ"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Envoie-moi un dessin du pont.",
+    "en": "Send me a drawing of the bridge.",
+    "ko": "그 다리 그림 하나 보내 줘.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "c1-l2.jpg",
+     "caption": {
+      "fr": "Le pont de Langlois",
+      "en": "The Langlois bridge",
+      "ko": "랑글루아 다리"
+     }
+    },
+    {
+     "after": 3,
+     "type": "location",
+     "place": "langlois",
+     "title": {
+      "fr": "Pont de Langlois",
+      "en": "The Langlois bridge",
+      "ko": "랑글루아 다리"
+     },
+     "address": "Canal d’Arles à Bouc"
+    }
+   ],
+   "status": {
+    "fr": "Je me sens au Japon",
+    "en": "I feel I'm in Japan",
+    "ko": "일본에 와 있는 것 같아"
+   }
+  },
+  {
+   "id": "c1-l3",
+   "date": "1888-03",
+   "dateNote": "Undated in the 1914 edition; late March 1888, between letter 469 (mid-March) and letter 473 (orchards in full bloom).",
+   "ref": "Brieven 1914, n° 472 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 472 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "tender",
+   "messages": [
+    {
+     "fr": "J'avais travaillé une toile de 20 en plein air dans un verger, un terrain lilas labouré, une clôture en roseaux, deux pêchers roses contre un ciel glorieux bleu et blanc. Probablement le meilleur paysage que j'aie fait.",
+     "en": "I had worked on a size-20 canvas outdoors in an orchard: ploughed lilac ground, a fence of reeds, two pink peach trees against a glorious blue and white sky. Probably the best landscape I have done.",
+     "ko": "과수원에 나가서 20호 캔버스를 하나 그렸어. 갈아 놓은 연보라 땅, 갈대 울타리, 그리고 눈부신 파랑과 흰빛 하늘을 배경으로 선 분홍 복숭아나무 두 그루. 아마 내가 그린 풍경화 중에 제일 좋을 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 472 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'avais travaillé une toile de 20 / en plein air dans un verger, // un terrain lilas labouré, // une clôture en roseaux, // deux pêchers roses / contre un ciel glorieux bleu et blanc. // Probablement le meilleur paysage / que j'aie fait."
+     }
+    },
+    {
+     "fr": "Seulement un je ne sais quoi m'a empoigné et serré la gorge d'émotion, et j'ai écrit sur mon tableau: Souvenir de Mauve, Vincent & Théo.",
+     "en": "But a certain something seized me and tightened my throat with emotion, and I wrote on my picture: Souvenir de Mauve, Vincent & Theo.",
+     "ko": "그런데 뭐라 말할 수 없는 무언가가 나를 붙잡고 목이 메게 했어. 그래서 그림에 이렇게 썼어. ‘Souvenir de Mauve(마우버를 추억하며), Vincent & Théo’.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 472 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Seulement un je ne sais quoi / m'a empoigné / et serré la gorge d'émotion, // et j'ai écrit sur mon tableau: // Souvenir de Mauve, // Vincent & Théo."
+     }
+    },
+    {
+     "fr": "J'ai exprès pris la meilleure étude que j'ai fabriquée ici; … il me semblait qu'il fallait en mémoire de Mauve quelque chose et de tendre et de très gai, et non pas une étude dans une gamme plus sérieuse que cela.",
+     "en": "I deliberately took the best study I have made here; … it seemed to me that in memory of Mauve there should be something both tender and very cheerful, and not a study in a more serious key than that.",
+     "ko": "일부러 여기서 그린 것 중 제일 좋은 습작을 골랐어. 마우버를 기리려면 다정하면서도 아주 밝은 게 있어야 할 것 같았거든. 그보다 무거운 색조의 습작 말고.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 472 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai exprès pris la meilleure étude / que j'ai fabriquée ici; // … il me semblait / qu'il fallait en mémoire de Mauve / quelque chose et de tendre / et de très gai, // et non pas une étude / dans une gamme plus sérieuse que cela."
+     }
+    },
+    {
+     "fr": "„Ne crois pas que les morts soient morts, Tant qu'il y aura des vivants, Les morts vivront, les morts vivront.” C'est comme ça que je sens la chose, pas plus triste que cela.",
+     "en": "“Do not believe that the dead are dead; as long as there are the living, the dead will live, the dead will live.” That is how I feel about it, no sadder than that.",
+     "ko": "“죽은 이들이 죽었다고 생각하지 마. 산 사람이 있는 한, 죽은 이들은 살아 있을 거야, 살아 있을 거야.” 나는 이 일을 그렇게 느껴. 그보다 더 슬프게는 아니야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 472 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "„Ne crois pas / que les morts soient morts, // Tant qu'il y aura des vivants, // Les morts vivront, // les morts vivront.” // C'est comme ça / que je sens la chose, // pas plus triste que cela."
+     }
+    },
+    {
+     "fr": "J'ai beaucoup de mal en peignant à cause du vent, mais j'attache mon chevalet à des piquets plantés dans le terrain, et travaille quand même, c'est trop beau.",
+     "en": "Painting is very hard going because of the wind, but I tie my easel to stakes driven into the ground and work all the same; it's too beautiful.",
+     "ko": "바람 때문에 그리기가 정말 힘들어. 그래도 땅에 말뚝을 박고 이젤을 묶어 둔 채 어떻게든 그려. 너무 아름다우니까.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 472 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai beaucoup de mal en peignant / à cause du vent, // mais j'attache mon chevalet / à des piquets plantés dans le terrain, // et travaille quand même, // c'est trop beau."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "pêcher",
+     "pos": "n.m.",
+     "ipa": "peʃe",
+     "en": "peach tree",
+     "ko": "복숭아나무",
+     "icon": "🌸"
+    },
+    {
+     "fr": "verger",
+     "pos": "n.m.",
+     "ipa": "vɛʁʒe",
+     "en": "orchard",
+     "ko": "과수원"
+    },
+    {
+     "fr": "clôture",
+     "pos": "n.f.",
+     "ipa": "klotyʁ",
+     "en": "fence",
+     "ko": "울타리"
+    },
+    {
+     "fr": "chevalet",
+     "pos": "n.m.",
+     "ipa": "ʃəvalɛ",
+     "en": "easel",
+     "ko": "이젤",
+     "icon": "🎨"
+    },
+    {
+     "fr": "vent",
+     "pos": "n.m.",
+     "ipa": "vɑ̃",
+     "en": "wind",
+     "ko": "바람",
+     "icon": "🌬️"
+    }
+   ],
+   "note": {
+    "ko": "안톤 마우버는 헤이그 시절 빈센트에게 그림을 가르쳐 준 네덜란드 화가로, 1888년 2월에 세상을 떠났어요. 빈센트는 막 그린 이 과수원 그림에 ‘Souvenir de Mauve’라고 써서, 테오와 함께 마우버 부인에게 보내자고 해요. 캔버스 왼쪽 아래에 ‘Souvenir de Mauve’와 ‘Vincent’ 서명이 보여요. 편지는 복숭아나무 두 그루를 말하지만, 그림에서 눈에 띄는 건 앞쪽의 한 그루예요.",
+    "en": "Anton Mauve, the Dutch painter who had taught Vincent in The Hague, died in February 1888. Vincent wrote ‘Souvenir de Mauve’ on this freshly painted orchard and proposed that he and Theo send it together to Mauve's widow. At the lower left of the canvas you can read ‘Souvenir de Mauve’ and the signature ‘Vincent’. The letter speaks of two peach trees; in the picture it is the one tree in front that holds the eye.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 472 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://en.wikipedia.org/wiki/Anton_Mauve"
+   },
+   "plate": {
+    "title_fr": "Le Pêcher rose (Souvenir de Mauve)",
+    "title_en": "Pink Peach Tree in Blossom (Reminiscence of Mauve)",
+    "title_ko": "꽃 핀 분홍 복숭아나무 (마우버를 추억하며)",
+    "date": "March 1888",
+    "collection": "Kröller-Müller Museum, Otterlo · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Blühender_Pfirsichbaum.jpeg",
+    "why": "The canvas this letter describes, inscribed “Souvenir de Mauve”; faithful public-domain reproduction (PD-Art) from Wikimedia Commons.",
+    "image": "v472.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.3,
+      "title": {
+       "fr": "Le pêcher rose",
+       "en": "The pink peach tree",
+       "ko": "분홍 복숭아나무"
+      },
+      "note": {
+       "ko": "푸른 하늘을 가득 채운 분홍 꽃가지.",
+       "en": "Pink blossoming branches filling the blue sky."
+      },
+      "word": {
+       "fr": "pêchers",
+       "en": "peach trees",
+       "ko": "복숭아나무",
+       "ipa": "peʃe"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.86,
+      "y": 0.74,
+      "title": {
+       "fr": "La clôture en roseaux",
+       "en": "The reed fence",
+       "ko": "갈대 울타리"
+      },
+      "note": {
+       "ko": "오른쪽으로 이어지는 노란 갈대 울타리.",
+       "en": "The yellow fence of reeds running along the right."
+      },
+      "word": {
+       "fr": "clôture",
+       "en": "fence",
+       "ko": "울타리",
+       "ipa": "klotyʁ"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.22,
+      "y": 0.94,
+      "title": {
+       "fr": "Souvenir de Mauve",
+       "en": "Souvenir de Mauve",
+       "ko": "마우버를 추억하며"
+      },
+      "note": {
+       "ko": "왼쪽 아래 글씨: ‘Souvenir de Mauve’, 그 아래 ‘Vincent’.",
+       "en": "Lower left: ‘Souvenir de Mauve’, with ‘Vincent’ beneath."
+      },
+      "word": {
+       "fr": "Souvenir de Mauve",
+       "en": "Souvenir de Mauve",
+       "ko": "Souvenir de Mauve",
+       "ipa": "suvniʁ də mov"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Oui, envoyons-le à Mme Mauve.",
+    "en": "Yes, let's send it to Mrs Mauve.",
+    "ko": "응, 마우버 부인께 같이 보내자.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "transfer",
+     "amount": "50 francs",
+     "label": {
+      "fr": "Théo a envoyé",
+      "en": "Theo sent",
+      "ko": "테오가 보냄"
+     },
+     "memo": {
+      "fr": "Paris → Arles",
+      "en": "Paris → Arles",
+      "ko": "파리 → 아를"
+     },
+     "outgoing": false
+    },
+    {
+     "after": 0,
+     "type": "notice",
+     "text": {
+      "fr": "De Hollande arrive un écrit à la mémoire de Mauve",
+      "en": "From Holland comes a booklet in memory of Mauve",
+      "ko": "네덜란드에서 마우버를 기리는 글이 도착했어요"
+     }
+    },
+    {
+     "after": 3,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Arles",
+      "en": "Weather in Arles",
+      "ko": "아를의 날씨"
+     },
+     "value": {
+      "fr": "du vent",
+      "en": "windy",
+      "ko": "바람"
+     },
+     "quote": "3 jours de vent sur une journée tranquille",
+     "icon": "wind"
+    }
+   ],
+   "status": {
+    "fr": "Souvenir de Mauve",
+    "en": "In memory of Mauve",
+    "ko": "마우버를 추억하며"
+   }
+  },
+  {
+   "id": "c1-l4",
+   "date": "1888-04-03",
+   "dateNote": "Undated in the 1914 edition; early April 1888 (orchards in blossom).",
+   "ref": "Brieven 1914, n° 473 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 473 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Mon cher Théo, je suis dans une rage de travail, puisque les arbres sont en fleurs et que je voulais faire un verger de Provence d'une gaieté monstre.",
+     "en": "My dear Theo, I'm in a frenzy of work, because the trees are in blossom and I wanted to paint a Provençal orchard of enormous cheerfulness.",
+     "ko": "사랑하는 테오에게. 나무에 꽃이 피어서 나는 미친 듯이 일하고 있어. 엄청나게 밝은 프로방스 과수원을 그리고 싶었거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 473 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mon cher Théo, // je suis dans une rage de travail, // puisque les arbres sont en fleurs // et que je voulais faire / un verger de Provence / d'une gaieté monstre."
+     }
+    },
+    {
+     "fr": "C'est le pont-levis avec petite voiture jaune et groupe de laveuses, une étude où les terrains sont orange vif, l'herbe très verte, le ciel et l'eau bleu.",
+     "en": "It's the drawbridge with the little yellow carriage and the group of washerwomen, a study where the ground is bright orange, the grass very green, the sky and the water blue.",
+     "ko": "그 도개교 그림 말이야. 작은 노란 마차와 빨래하는 여자들이 있고, 땅은 선명한 주황, 풀은 아주 초록, 하늘과 물은 파란 습작이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 473 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "C'est le pont-levis / avec petite voiture jaune / et groupe de laveuses, // une étude où les terrains sont orange vif, // l'herbe très verte, // le ciel et l'eau bleu."
+     }
+    },
+    {
+     "fr": "Je crois pouvoir t'assurer que ce que je fabrique ici est supérieur à la campagne d'Asnières au printemps dernier.",
+     "en": "I think I can assure you that what I'm making here is better than the Asnières countryside last spring.",
+     "ko": "여기서 그리는 그림이 지난봄 아니에르 시골 풍경보다 낫다고 장담할 수 있을 것 같아.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 473 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je crois pouvoir t'assurer // que ce que je fabrique ici / est supérieur // à la campagne d'Asnières / au printemps dernier."
+     }
+    },
+    {
+     "fr": "Je ne puis pas encore te réussir une lettre telle que je voudrais, le travail m'absorbe complètement.",
+     "en": "I can't yet manage a letter the way I'd like; work absorbs me completely.",
+     "ko": "아직 마음먹은 대로 편지를 쓰지 못하겠어. 일에 완전히 빠져 있거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 473 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je ne puis pas encore te réussir une lettre / telle que je voudrais, // le travail m'absorbe complètement."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "travail",
+     "pos": "n.m.",
+     "ipa": "tʁavaj",
+     "en": "work",
+     "ko": "일"
+    },
+    {
+     "fr": "arbre",
+     "pos": "n.m.",
+     "ipa": "aʁbʁ",
+     "en": "tree",
+     "ko": "나무",
+     "icon": "🌳"
+    },
+    {
+     "fr": "fleur",
+     "pos": "n.f.",
+     "ipa": "flœʁ",
+     "en": "flower, blossom",
+     "ko": "꽃",
+     "icon": "🌸"
+    },
+    {
+     "fr": "herbe",
+     "pos": "n.f.",
+     "ipa": "ɛʁb",
+     "en": "grass",
+     "ko": "풀"
+    },
+    {
+     "fr": "printemps",
+     "pos": "n.m.",
+     "ipa": "pʁɛ̃tɑ̃",
+     "en": "spring",
+     "ko": "봄"
+    }
+   ],
+   "note": {
+    "ko": "1888년 3월 말부터 4월까지 아를 둘레의 과수원에 살구꽃, 복숭아꽃, 배꽃이 피자 빈센트는 꽃 핀 과수원을 연이어 그렸어요. 꽃이 지기 전에 끝내려고 서둘렀어요.",
+    "en": "From late March into April 1888, as apricot, peach and pear trees blossomed around Arles, Vincent painted a run of flowering-orchard canvases, racing to finish before the blossom fell.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 473 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.metmuseum.org/art/collection/search/436527"
+   },
+   "plate": {
+    "title_fr": "Le Verger en fleurs",
+    "title_en": "The Flowering Orchard",
+    "title_ko": "꽃 핀 과수원",
+    "date": "1888",
+    "collection": "The Metropolitan Museum of Art, New York · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/436527",
+    "why": "One of the flowering orchards of spring 1888; the Met releases it under CC0.",
+    "image": "c1-l3.jpg",
+    "spots": [
+     {
+      "x": 0.6,
+      "y": 0.3,
+      "title": {
+       "fr": "Les arbres en fleurs",
+       "en": "Trees in blossom",
+       "ko": "꽃 핀 나무"
+      },
+      "note": {
+       "ko": "‘나무에 꽃이 피어서’. 하얀 꽃이 가지마다 번져요.",
+       "en": "‘The trees are in blossom’: white flowers spread along every branch."
+      },
+      "word": {
+       "fr": "arbre",
+       "en": "tree",
+       "ko": "나무",
+       "ipa": "aʁbʁ"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.66,
+      "y": 0.16,
+      "title": {
+       "fr": "Les fleurs",
+       "en": "The blossom",
+       "ko": "꽃"
+      },
+      "note": {
+       "ko": "꽃은 금방 져서, 그 전에 그려야 했어요.",
+       "en": "The blossom falls fast, so he had to paint quickly."
+      },
+      "word": {
+       "fr": "fleur",
+       "en": "blossom",
+       "ko": "꽃",
+       "ipa": "flœʁ"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.35,
+      "y": 0.78,
+      "title": {
+       "fr": "L'herbe",
+       "en": "The grass",
+       "ko": "풀"
+      },
+      "note": {
+       "ko": "‘풀은 아주 초록’. 굵은 붓으로 세워 그린 풀.",
+       "en": "‘The grass very green’, laid on in upright strokes."
+      },
+      "word": {
+       "fr": "herbe",
+       "en": "grass",
+       "ko": "풀",
+       "ipa": "ɛʁb"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Je veux voir ces arbres en fleurs.",
+    "en": "I want to see those trees in blossom.",
+    "ko": "꽃 핀 그 나무들을 보고 싶어.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "c1-l3.jpg",
+     "caption": {
+      "fr": "Verger en fleurs",
+      "en": "The flowering orchard",
+      "ko": "꽃 핀 과수원"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Dans une rage de travail",
+    "en": "In a frenzy of work",
+    "ko": "미친 듯이 그리는 중"
+   }
+  },
+  {
+   "id": "c1-l5",
+   "date": "1888-04",
+   "dateNote": "Undated in the 1914 edition; April 1888, between letters 473 and 480.",
+   "ref": "Brieven 1914, n° 477 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 477 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Maintenant je te dirai que je travaille aux 2 tableaux desquels je voulais faire des répétitions. Le pêcher rose me donne le plus de mal.",
+     "en": "Now I'll tell you that I'm working on the 2 paintings I wanted to repeat. The pink peach tree is giving me the most trouble.",
+     "ko": "이제 말할게. 다시 한 번 그리고 싶던 그림 두 점을 그리는 중이야. 분홍 복숭아나무가 제일 애를 먹여.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 477 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant je te dirai / que je travaille aux 2 tableaux // desquels je voulais faire des répétitions. // Le pêcher rose / me donne le plus de mal."
+     }
+    },
+    {
+     "fr": "Tu vois par les trois carrés de l'autre côté que les trois vergers se tiennent plus ou moins.",
+     "en": "You can see from the three squares overleaf that the three orchards more or less hang together.",
+     "ko": "뒷장의 네모 세 개를 보면 과수원 세 폭이 대충 한 벌로 어울리는 게 보일 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 477 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Tu vois par les trois carrés / de l'autre côté // que les trois vergers / se tiennent plus ou moins."
+     }
+    },
+    {
+     "fr": "Terrain violet, dans le fond un mur avec des peupliers droits et un ciel très bleu.",
+     "en": "Violet ground, at the back a wall with straight poplars and a very blue sky.",
+     "ko": "땅은 보라, 뒤쪽에는 곧은 포플러가 선 담과 아주 파란 하늘.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 477 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Terrain violet, // dans le fond / un mur avec des peupliers droits // et un ciel très bleu."
+     }
+    },
+    {
+     "fr": "Le petit poirier a un tronc violet et des fleurs blanches, un grand papillon jaune sur une des touffes.",
+     "en": "The little pear tree has a violet trunk and white flowers, a big yellow butterfly on one of the clusters.",
+     "ko": "작은 배나무는 줄기가 보라고 꽃은 하얘. 꽃송이 하나에 커다란 노랑나비가 앉아 있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 477 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Le petit poirier / a un tronc violet et des fleurs blanches, // un grand papillon jaune / sur une des touffes."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "pêcher",
+     "pos": "n.m.",
+     "ipa": "peʃe",
+     "en": "peach tree",
+     "ko": "복숭아나무",
+     "icon": "🍑"
+    },
+    {
+     "fr": "carré",
+     "pos": "n.m.",
+     "ipa": "kaʁe",
+     "en": "square",
+     "ko": "네모"
+    },
+    {
+     "fr": "verger",
+     "pos": "n.m.",
+     "ipa": "vɛʁʒe",
+     "en": "orchard",
+     "ko": "과수원",
+     "icon": "🌿"
+    },
+    {
+     "fr": "mur",
+     "pos": "n.m.",
+     "ipa": "myʁ",
+     "en": "wall",
+     "ko": "담, 벽"
+    },
+    {
+     "fr": "poirier",
+     "pos": "n.m.",
+     "ipa": "pwaʁje",
+     "en": "pear tree",
+     "ko": "배나무",
+     "icon": "🍐"
+    },
+    {
+     "fr": "papillon",
+     "pos": "n.m.",
+     "ipa": "papijɔ̃",
+     "en": "butterfly",
+     "ko": "나비",
+     "icon": "🦋"
+    }
+   ],
+   "note": {
+    "ko": "이 편지에는 빈센트가 직접 그려 넣은 과수원 스케치가 있어요. 살구나무 · 복숭아나무 · 자두나무 과수원 세 폭을 한 벌로 걸 생각이었어요. 그림은 1914년판에 실린 그 스케치예요.",
+    "en": "Vincent drew the orchards into this letter: apricot, peach and plum, three canvases meant to hang as a set. The picture is that sketch as printed in the 1914 edition.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 477 · public domain · https://archive.org/details/brievenaanzijnbr03gogh"
+   },
+   "plate": {
+    "title_fr": "Trois vergers (croquis dans la lettre)",
+    "title_en": "Three orchards (sketch in the letter)",
+    "title_ko": "과수원 세 폭 (편지 속 스케치)",
+    "date": "April 1888",
+    "collection": "Brieven aan zijn broeder (1914), p. 32 · public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://archive.org/details/brievenaanzijnbr03gogh",
+    "why": "Van Gogh's own sketch inside this letter, reproduced in the public-domain 1914 edition.",
+    "image": "c1-l4.jpg",
+    "spots": [
+     {
+      "x": 0.17,
+      "y": 0.55,
+      "title": {
+       "fr": "Les abricotiers",
+       "en": "Apricot trees",
+       "ko": "살구나무"
+      },
+      "note": {
+       "ko": "왼쪽 칸: 살구나무 과수원.",
+       "en": "Left square: the apricot orchard."
+      },
+      "word": {
+       "fr": "vergers",
+       "en": "orchards",
+       "ko": "과수원",
+       "ipa": "vɛʁʒe"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.5,
+      "y": 0.55,
+      "title": {
+       "fr": "Le pêcher rose",
+       "en": "The pink peach tree",
+       "ko": "분홍 복숭아나무"
+      },
+      "note": {
+       "ko": "가운데 칸. ‘분홍 복숭아나무가 제일 애를 먹여’.",
+       "en": "The middle square: ‘the pink peach tree is giving me the most trouble’."
+      },
+      "word": {
+       "fr": "pêcher",
+       "en": "peach tree",
+       "ko": "복숭아나무",
+       "ipa": "peʃe"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.83,
+      "y": 0.55,
+      "title": {
+       "fr": "Les pruniers",
+       "en": "Plum trees",
+       "ko": "자두나무"
+      },
+      "note": {
+       "ko": "오른쪽 칸: 자두나무, 보라와 초록 땅.",
+       "en": "Right square: plum trees on violet and green ground."
+      },
+      "word": {
+       "fr": "vergers",
+       "en": "orchards",
+       "ko": "과수원",
+       "ipa": "vɛʁʒe"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "J'ai hâte de voir les trois vergers.",
+    "en": "I can't wait to see the three orchards.",
+    "ko": "과수원 세 폭, 얼른 보고 싶어.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 3,
+     "type": "sketch",
+     "image": "c1-l4-poirier.jpg",
+     "caption": {
+      "fr": "Croquis du petit poirier, dans la même lettre",
+      "en": "Sketch of the little pear tree, in the same letter",
+      "ko": "같은 편지 속 스케치 · 작은 배나무"
+     },
+     "credit": "Brieven aan zijn broeder (1914), p. 33 · domaine public · https://archive.org/details/brievenaanzijnbr03gogh"
+    }
+   ],
+   "status": {
+    "fr": "Le pêcher rose",
+    "en": "The pink peach tree",
+    "ko": "분홍 복숭아나무"
+   }
+  },
+  {
+   "id": "c1-l6",
+   "date": "1888-05-01",
+   "dateNote": "Dated (Mei '88) in the 1914 edition; the lease began on 1 May.",
+   "ref": "Brieven 1914, n° 480 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 480 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "tender",
+   "messages": [
+    {
+     "fr": "Eh bien, j'ai aujourd'hui loué l'aile droite de cette construction, qui contient 4 pièces ou plutôt deux avec deux cabinets.",
+     "en": "Well, today I've rented the right wing of this building, which has 4 rooms, or rather two, with two small rooms.",
+     "ko": "그래서 말인데, 오늘 이 건물의 오른쪽 채를 빌렸어. 방이 네 개, 아니 큰 방 둘에 작은 방 둘이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 480 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Eh bien, // j'ai aujourd'hui loué / l'aile droite de cette construction, // qui contient 4 pièces // ou plutôt deux / avec deux cabinets."
+     }
+    },
+    {
+     "fr": "C'est peint en jaune dehors, blanche à la chaux à l'intérieur, en plein soleil, je l'ai loué à raison de 15 francs par mois.",
+     "en": "It's painted yellow outside, whitewashed inside, in full sun; I've rented it at 15 francs a month.",
+     "ko": "바깥은 노랗게 칠했고, 안은 하얗게 회칠했어. 햇빛이 가득 들어. 한 달에 15프랑에 빌렸어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 480 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "C'est peint en jaune dehors, // blanche à la chaux à l'intérieur, // en plein soleil, // je l'ai loué / à raison de 15 francs par mois."
+     }
+    },
+    {
+     "fr": "Maintenant mon désir serait de meubler une pièce, celle du premier étage, pour pouvoir y coucher.",
+     "en": "Now what I'd like is to furnish one room, the one on the first floor, so I can sleep there.",
+     "ko": "이제 바라는 건 방 하나, 2층 방에 가구를 들여서 거기서 자는 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 480 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant mon désir serait / de meubler une pièce, // celle du premier étage, // pour pouvoir y coucher."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "louer",
+     "pos": "v.",
+     "ipa": "lwe",
+     "en": "to rent",
+     "ko": "빌리다, 세내다"
+    },
+    {
+     "fr": "construction",
+     "pos": "n.f.",
+     "ipa": "kɔ̃stʁyksjɔ̃",
+     "en": "building",
+     "ko": "건물",
+     "icon": "🏠"
+    },
+    {
+     "fr": "pièce",
+     "pos": "n.f.",
+     "ipa": "pjɛs",
+     "en": "room",
+     "ko": "방",
+     "icon": "🚪"
+    },
+    {
+     "fr": "jaune",
+     "pos": "adj.",
+     "ipa": "ʒon",
+     "en": "yellow",
+     "ko": "노란"
+    },
+    {
+     "fr": "soleil",
+     "pos": "n.m.",
+     "ipa": "sɔlɛj",
+     "en": "sun",
+     "ko": "해, 햇빛",
+     "icon": "☀️"
+    },
+    {
+     "fr": "mois",
+     "pos": "n.m.",
+     "ipa": "mwa",
+     "en": "month",
+     "ko": "달"
+    }
+   ],
+   "note": {
+    "ko": "빈센트가 빌린 곳은 라마르틴 광장 2번지 건물의 오른쪽 채였어요. 처음에는 작업실로만 쓰다가, 집을 손보고 가구를 들인 뒤 1888년 9월에야 들어가 살았어요. 그림은 이 편지에 직접 그린 노란 집 스케치예요.",
+    "en": "Vincent rented the right wing of 2 Place Lamartine. At first he used it only as a studio; he moved in to live there in September 1888, once it had been repainted and furnished. The picture is the sketch of the house he drew in this letter.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 480 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://en.wikipedia.org/wiki/The_Yellow_House"
+   },
+   "plate": {
+    "title_fr": "La maison jaune (croquis dans la lettre)",
+    "title_en": "The Yellow House (sketch in the letter)",
+    "title_ko": "노란 집 (편지 속 스케치)",
+    "date": "May 1888",
+    "collection": "Brieven aan zijn broeder (1914), p. 39 · public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://archive.org/details/brievenaanzijnbr03gogh",
+    "why": "The house as Vincent sketched it in this very letter: ‘qui contient 4 pièces’.",
+    "image": "c1-l5.jpg",
+    "spots": [
+     {
+      "x": 0.62,
+      "y": 0.45,
+      "title": {
+       "fr": "L'aile droite",
+       "en": "The right wing",
+       "ko": "오른쪽 채"
+      },
+      "note": {
+       "ko": "빈센트가 빌린 오른쪽 채. ‘바깥은 노랗게’.",
+       "en": "The right wing he rented, ‘painted yellow outside’."
+      },
+      "word": {
+       "fr": "jaune",
+       "en": "yellow",
+       "ko": "노랗게",
+       "ipa": "ʒon"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.6,
+      "y": 0.9,
+      "title": {
+       "fr": "« qui contient 4 pièces »",
+       "en": "‘which has 4 rooms’",
+       "ko": "‘방이 네 개’"
+      },
+      "note": {
+       "ko": "스케치 아래에 직접 적은 말.",
+       "en": "Written under the sketch in his own hand."
+      },
+      "word": {
+       "fr": "pièce",
+       "en": "room",
+       "ko": "방",
+       "ipa": "pjɛs"
+      },
+      "quote": 0
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Une maison jaune au soleil, c'est parfait.",
+    "en": "A yellow house in the sun, that's perfect.",
+    "ko": "햇살 아래 노란 집이라니, 딱 좋아.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "location",
+     "place": "yellow",
+     "title": {
+      "fr": "La maison jaune",
+      "en": "The Yellow House",
+      "ko": "노란 집"
+     },
+     "address": "2, place Lamartine"
+    },
+    {
+     "after": 1,
+     "type": "transfer",
+     "amount": "15 francs",
+     "label": {
+      "fr": "Loyer · par mois",
+      "en": "Rent · per month",
+      "ko": "월세 · 한 달"
+     },
+     "memo": {
+      "fr": "Maison jaune, 2 place Lamartine",
+      "en": "The Yellow House, 2 place Lamartine",
+      "ko": "노란 집, 라마르틴 광장 2번지"
+     },
+     "outgoing": true
+    }
+   ],
+   "status": {
+    "fr": "Enfin un atelier à moi",
+    "en": "A studio of my own at last",
+    "ko": "드디어 내 작업실"
+   }
+  },
+  {
+   "id": "c1-l7",
+   "date": "1888-05",
+   "dateNote": "Undated in the 1914 edition; May 1888, shortly after letter 485 (dated 10 May).",
+   "ref": "Brieven 1914, n° 487 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 487 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "J'ai trouvé un restaurant mieux, où je mange pour 1 franc. La santé va mieux ces jours-ci.",
+     "en": "I've found a better restaurant, where I eat for 1 franc. My health is better these days.",
+     "ko": "더 나은 식당을 찾았어. 1프랑이면 밥을 먹을 수 있어. 요즘은 몸도 한결 나아.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 487 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai trouvé un restaurant mieux, // où je mange pour 1 franc. // La santé va mieux / ces jours-ci."
+     }
+    },
+    {
+     "fr": "Maintenant j'ai deux nouvelles études comme ceci : tu en as un dessin déjà, d'une ferme au bord de la grande route dans les blés.",
+     "en": "Now I have two new studies, like this: you already have a drawing of one, a farm by the main road among the wheat.",
+     "ko": "이제 새 습작이 두 점 있어. 이런 거야. 하나는 너도 이미 소묘로 갖고 있지. 밀밭 속 큰길가의 농가.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 487 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant j'ai deux nouvelles études / comme ceci : // tu en as un dessin déjà, // d'une ferme / au bord de la grande route / dans les blés."
+     }
+    },
+    {
+     "fr": "Une prairie pleine de boutons d'or très jaune, un fossé avec des plantes d'iris aux feuilles vertes à fleurs violettes, dans le fond la ville, quelques saules gris, une bande de ciel bleu.",
+     "en": "A meadow full of very yellow buttercups, a ditch with iris plants, green leaves and violet flowers, the town in the background, a few grey willows, a strip of blue sky.",
+     "ko": "샛노란 미나리아재비가 가득한 풀밭, 초록 잎에 보랏빛 꽃을 단 붓꽃이 자라는 도랑, 저 뒤로는 도시, 회색 버드나무 몇 그루, 파란 하늘 한 줄기.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 487 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Une prairie / pleine de boutons d'or très jaune, // un fossé avec des plantes d'iris / aux feuilles vertes / à fleurs violettes, // dans le fond la ville, // quelques saules gris, // une bande de ciel bleu."
+     }
+    },
+    {
+     "fr": "Si on ne coupe pas la prairie je voudrais refaire cette étude, car la donnée était bien belle, et j'ai eu du mal à trouver la composition.",
+     "en": "If they don't mow the meadow I'd like to do this study again, for the subject was very beautiful, and I had trouble finding the composition.",
+     "ko": "풀밭을 베어 버리지 않으면 이 습작을 다시 그리고 싶어. 소재가 정말 아름다웠고, 구도를 찾느라 애를 먹었거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 487 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Si on ne coupe pas la prairie / je voudrais refaire cette étude, // car la donnée était bien belle, // et j'ai eu du mal / à trouver la composition."
+     }
+    },
+    {
+     "fr": "Une petite ville entourée d'une campagne entièrement fleurie de jaune et de violet, tu sais ce serait joliment un rêve japonais.",
+     "en": "A little town surrounded by countryside all in flower, yellow and violet: you know, that would be a real Japanese dream.",
+     "ko": "온통 노랑과 보라로 꽃핀 들판에 둘러싸인 작은 도시. 있잖아, 그건 정말 일본의 꿈 같을 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 487 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Une petite ville / entourée d'une campagne / entièrement fleurie de jaune et de violet, // tu sais / ce serait joliment / un rêve japonais."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "prairie",
+     "pos": "n.f.",
+     "ipa": "pʁɛʁi",
+     "en": "meadow",
+     "ko": "풀밭"
+    },
+    {
+     "fr": "boutons d'or",
+     "pos": "n.m.",
+     "ipa": "butɔ̃ dɔʁ",
+     "en": "buttercups",
+     "ko": "미나리아재비",
+     "icon": "🌼"
+    },
+    {
+     "fr": "iris",
+     "pos": "n.m.",
+     "ipa": "iʁis",
+     "en": "iris",
+     "ko": "붓꽃",
+     "icon": "🪻"
+    },
+    {
+     "fr": "saule",
+     "pos": "n.m.",
+     "ipa": "sol",
+     "en": "willow",
+     "ko": "버드나무",
+     "icon": "🌳"
+    },
+    {
+     "fr": "rêve",
+     "pos": "n.m.",
+     "ipa": "ʁɛv",
+     "en": "dream",
+     "ko": "꿈"
+    }
+   ],
+   "note": {
+    "ko": "편지에 적은 두 번째 습작이 바로 이 그림이에요. 앞쪽 도랑의 붓꽃, 가운데의 노란 미나리아재비 풀밭, 그 너머 버드나무와 아를 시내가 편지 속 묘사대로 담겨 있어요. 빈센트는 두 습작을 편지에 펜으로 작게 그려 넣기도 했어요.",
+    "en": "This is the second study the letter describes: irises along the ditch in front, the meadow of yellow buttercups in the middle, and beyond them the willows and the town of Arles, just as the letter lists them. Vincent also drew both studies in small pen sketches inside the letter.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 487 · public domain · https://archive.org/details/brievenaanzijnbr03gogh"
+   },
+   "plate": {
+    "title_fr": "Vue d’Arles aux iris",
+    "title_en": "View of Arles with Irises",
+    "title_ko": "붓꽃이 있는 아를 풍경",
+    "date": "May 1888",
+    "collection": "Van Gogh Museum, Amsterdam · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Veld_met_bloemen_bij_Arles_-_Google_Art_Project.jpg",
+    "why": "The study this letter describes (buttercups, a ditch of irises, the town behind); PD-Art from Wikimedia Commons.",
+    "image": "v487.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.44,
+      "title": {
+       "fr": "Les boutons d'or",
+       "en": "The buttercups",
+       "ko": "미나리아재비"
+      },
+      "note": {
+       "ko": "화면 가운데를 가득 채운 노란 꽃밭. ‘샛노란 미나리아재비가 가득한 풀밭’.",
+       "en": "The yellow field filling the middle: ‘a meadow full of very yellow buttercups’."
+      },
+      "word": {
+       "fr": "boutons d'or",
+       "en": "buttercups",
+       "ko": "미나리아재비",
+       "ipa": "butɔ̃ dɔʁ"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.47,
+      "y": 0.74,
+      "title": {
+       "fr": "Les iris",
+       "en": "The irises",
+       "ko": "붓꽃"
+      },
+      "note": {
+       "ko": "앞쪽 도랑을 따라 핀 보랏빛 붓꽃과 초록 잎.",
+       "en": "Violet irises and green leaves along the ditch in front."
+      },
+      "word": {
+       "fr": "iris",
+       "en": "iris",
+       "ko": "붓꽃",
+       "ipa": "iʁis"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.47,
+      "y": 0.21,
+      "title": {
+       "fr": "La ville",
+       "en": "The town",
+       "ko": "도시"
+      },
+      "note": {
+       "ko": "버드나무 너머, 지붕과 탑이 보이는 아를 시내.",
+       "en": "Arles beyond the willows: roofs and towers."
+      },
+      "word": {
+       "fr": "ville",
+       "en": "town",
+       "ko": "도시",
+       "ipa": "vil"
+      },
+      "quote": 2
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Envoie-moi ton rêve japonais.",
+    "en": "Send me your Japanese dream.",
+    "ko": "형의 일본의 꿈, 보내 줘.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 1,
+     "type": "sketch",
+     "image": "v487-prairie.jpg",
+     "caption": {
+      "fr": "Deux nouvelles études, comme ceci",
+      "en": "Two new studies, like this",
+      "ko": "새 습작 두 점, 이런 거야"
+     },
+     "credit": "Croquis dans la lettre · Brieven aan zijn broeder (1914), p. 54"
+    },
+    {
+     "after": 4,
+     "type": "notice",
+     "text": {
+      "fr": "La caisse d'études est partie pour Paris",
+      "en": "The crate of studies has left for Paris",
+      "ko": "그림 상자가 파리로 떠났어요"
+     }
+    },
+    {
+     "after": 4,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Arles",
+      "en": "Weather in Arles",
+      "ko": "아를의 날씨"
+     },
+     "value": {
+      "fr": "le mistral",
+      "en": "the mistral",
+      "ko": "미스트랄"
+     },
+     "quote": "Hier et aujourd'hui nous avons de nouveau le mistral",
+     "icon": "wind"
+    }
+   ],
+   "status": {
+    "fr": "Un rêve japonais",
+    "en": "A Japanese dream",
+    "ko": "일본의 꿈"
+   }
+  }
+ ]
 }

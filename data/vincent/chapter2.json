@@ -1,0 +1,1417 @@
+{
+ "_doc": "Chapter II (v14). 프랑스어는 1914년판 『Brieven aan zijn broeder』(요 반 고흐-봉어 엮음, 공공 영역, archive.org 스캔)에서 옮김. 스캔 OCR이 떨어뜨린 악센트와 글자 오류만 바로잡고 (Theo→Théo, eher→cher, chcses→choses, garqon→garçon, enplein→en plein, oeil→œil, A→À 등), 철자를 지금 표기로 다듬음 (Stes Maries→Saintes-Maries, symfonie→symphonie, bouillasbaisse→bouillabaisse, sabloneuse→sablonneuse, pres qu'enchantée→presque enchantée; 명백한 오식 plus au moins→plus ou moins, peupliers droites→droits). 문장은 편지에서 발췌. 영어 · 한국어는 이 앱의 새 번역. 그림은 소장처가 직접 자유 사용을 밝힌 것, 또는 위키미디어 공용의 공공 영역(PD-Art) 이미지.",
+ "series": "vincent",
+ "chapter": "II",
+ "title_fr": "Les tournesols",
+ "title_en": "The Sunflowers",
+ "title_ko": "해바라기",
+ "original": "fr",
+ "letters": [
+  {
+   "id": "c2-l1",
+   "date": "1888-06-03",
+   "dateNote": "Undated in the 1914 edition; written at Saintes-Maries in early June 1888.",
+   "ref": "Brieven 1914, n° 499 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 499 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Saintes-Maries",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Mon cher Théo, je t'écris des Saintes-Maries au bord de la Méditerranée enfin.",
+     "en": "My dear Theo, I'm writing to you from Saintes-Maries, on the shore of the Mediterranean at last.",
+     "ko": "사랑하는 테오에게. 드디어 지중해 바닷가, 생트마리에서 편지를 써.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 499 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mon cher Théo, // je t'écris des Saintes-Maries / au bord de la Méditerranée / enfin."
+     }
+    },
+    {
+     "fr": "La Méditerranée a une couleur comme les maquereaux, c'est-à-dire changeante, on ne sait pas toujours si c'est vert ou violet, on ne sait pas toujours si c'est bleu, car la seconde après, le reflet changeant a pris une teinte rose ou grise.",
+     "en": "The Mediterranean has a colour like mackerel, changing, that is: you can't always tell if it's green or violet, you can't always tell if it's blue, because a second later the shifting reflection has taken on a pink or grey tint.",
+     "ko": "지중해는 고등어 같은 색이야. 그러니까 자꾸 변해. 초록인지 보라인지, 파랑인지 늘 알 수가 없어. 다음 순간이면 일렁이는 빛이 분홍이나 회색으로 바뀌어 있거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 499 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "La Méditerranée / a une couleur comme les maquereaux, // c'est-à-dire changeante, // on ne sait pas toujours / si c'est vert ou violet, // on ne sait pas toujours / si c'est bleu, // car la seconde après, / le reflet changeant / a pris une teinte rose ou grise."
+     }
+    },
+    {
+     "fr": "La plage ici est sablonneuse, pas de falaises ni de rochers — comme la Hollande moins les dunes et plus le bleu.",
+     "en": "The beach here is sandy, no cliffs or rocks, like Holland, minus the dunes and with more blue.",
+     "ko": "여기 해변은 모래밭이야. 절벽도 바위도 없어. 네덜란드 같은데, 모래 언덕은 없고 파랑은 더 많아.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 499 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "La plage ici est sablonneuse, // pas de falaises / ni de rochers // — comme la Hollande / moins les dunes / et plus le bleu."
+     }
+    },
+    {
+     "fr": "Je me suis promené une nuit au bord de la mer sur la plage déserte. C'était pas gai, mais pas non plus triste, c'était — beau.",
+     "en": "One night I walked by the sea on the empty beach. It wasn't cheerful, but it wasn't sad either. It was beautiful.",
+     "ko": "어느 밤엔 바다를 따라 아무도 없는 해변을 걸었어. 즐겁지도 슬프지도 않았어. 그냥, 아름다웠어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 499 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je me suis promené une nuit / au bord de la mer / sur la plage déserte. // C'était pas gai, / mais pas non plus triste, // c'était — beau."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "mer",
+     "pos": "n.f.",
+     "ipa": "mɛʁ",
+     "en": "sea",
+     "ko": "바다",
+     "icon": "🌊"
+    },
+    {
+     "fr": "couleur",
+     "pos": "n.f.",
+     "ipa": "kulœʁ",
+     "en": "colour",
+     "ko": "색"
+    },
+    {
+     "fr": "changeant",
+     "pos": "adj.",
+     "ipa": "ʃɑ̃ʒɑ̃",
+     "en": "changing",
+     "ko": "변하는"
+    },
+    {
+     "fr": "plage",
+     "pos": "n.f.",
+     "ipa": "plaʒ",
+     "en": "beach",
+     "ko": "해변",
+     "icon": "🐚"
+    },
+    {
+     "fr": "beau",
+     "pos": "adj.",
+     "ipa": "bo",
+     "en": "beautiful",
+     "ko": "아름다운"
+    }
+   ],
+   "note": {
+    "ko": "생트마리드라메르는 아를 남서쪽, 카마르그 습지를 지나 지중해에 닿는 바닷가 마을이에요. 빈센트는 1888년 6월 초 이곳에서 며칠을 지내며 바다와 배를 그렸어요. 그림은 그 바다 그림을 다시 펜으로 옮긴 소묘예요.",
+    "en": "Saintes-Maries-de-la-Mer is a seaside village south-west of Arles, across the Camargue marshes. Vincent spent a few days there in early June 1888 painting the sea and the boats. The picture is his pen drawing after that seascape.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 499 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.slam.org/collection/objects/18228/"
+   },
+   "plate": {
+    "title_fr": "Barques de pêche aux Saintes-Maries-de-la-Mer",
+    "title_en": "Fishing Boats at Saintes-Maries-de-la-Mer",
+    "title_ko": "생트마리의 고깃배",
+    "date": "1888 (dessin à la plume)",
+    "collection": "Saint Louis Art Museum · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.slam.org/collection/objects/18228/",
+    "why": "Van Gogh's pen drawing of the boats at sea off Saintes-Maries; the museum marks it public domain, free for any use.",
+    "image": "c2-l1.jpg",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.68,
+      "title": {
+       "fr": "La mer",
+       "en": "The sea",
+       "ko": "바다"
+      },
+      "note": {
+       "ko": "물결을 짧은 펜 선으로 겹겹이. ‘바닷가를 걸었어’.",
+       "en": "Waves in layers of short pen strokes: ‘I walked by the sea’."
+      },
+      "word": {
+       "fr": "mer",
+       "en": "sea",
+       "ko": "바다",
+       "ipa": "mɛʁ"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.75,
+      "y": 0.28,
+      "title": {
+       "fr": "La Méditerranée",
+       "en": "The Mediterranean",
+       "ko": "지중해"
+      },
+      "note": {
+       "ko": "수평선까지 펜 선으로 겹겹이 이어지는 지중해. 멀리 돛단배 두 척.",
+       "en": "The Mediterranean in layer upon layer of pen strokes out to the horizon, two sails in the distance."
+      },
+      "word": {
+       "fr": "Méditerranée",
+       "en": "Mediterranean",
+       "ko": "지중해",
+       "ipa": "meditɛʁane"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Envoie-moi tes dessins de la mer.",
+    "en": "Send me your drawings of the sea.",
+    "ko": "바다 그림들 보내 줘.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Vincent est aux Saintes-Maries-de-la-Mer · à cinq heures de voiture d'Arles",
+      "en": "Vincent is at Saintes-Maries-de-la-Mer · five hours by coach from Arles",
+      "ko": "빈센트가 생트마리드라메르에 왔어요 · 아를에서 마차로 다섯 시간"
+     }
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "c2-l1.jpg",
+     "caption": {
+      "fr": "Barques en mer",
+      "en": "Boats at sea",
+      "ko": "바다의 배들"
+     }
+    },
+    {
+     "after": 3,
+     "type": "weather",
+     "title": {
+      "fr": "La nuit aux Saintes-Maries",
+      "en": "Night at Saintes-Maries",
+      "ko": "생트마리의 밤"
+     },
+     "value": {
+      "fr": "nuit étoilée",
+      "en": "starry night",
+      "ko": "별이 총총"
+     },
+     "quote": "c'était — beau",
+     "icon": "stars"
+    }
+   ],
+   "status": {
+    "fr": "Au bord de la Méditerranée",
+    "en": "By the Mediterranean",
+    "ko": "지중해 바닷가에서"
+   }
+  },
+  {
+   "id": "c2-l2",
+   "date": "1888-06-05",
+   "dateNote": "Undated in the 1914 edition; just back in Arles, early June 1888.",
+   "ref": "Brieven 1914, n° 500 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 500 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Maintenant que j'ai vu la mer ici, je ressens tout à fait l'importance qu'il y a de rester dans le Midi, et de sentir qu'il faut encore outrer la couleur davantage.",
+     "en": "Now that I've seen the sea here, I really feel how important it is to stay in the South, and to feel that colour must be pushed even further.",
+     "ko": "여기서 바다를 보고 나니, 남쪽에 머무는 게 얼마나 중요한지, 색을 더 과감하게 밀어붙여야 한다는 게 정말 느껴져.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 500 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant que j'ai vu la mer ici, // je ressens tout à fait / l'importance qu'il y a / de rester dans le Midi, // et de sentir / qu'il faut encore outrer la couleur davantage."
+     }
+    },
+    {
+     "fr": "Je t'envoie par même courrier les dessins des Saintes-Maries.",
+     "en": "I'm sending you the Saintes-Maries drawings by the same post.",
+     "ko": "생트마리에서 그린 소묘들은 같은 우편으로 보낼게.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 500 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je t'envoie par même courrier // les dessins des Saintes-Maries."
+     }
+    },
+    {
+     "fr": "J'ai encore 3 dessins de cabanes, dont j'ai encore besoin et qui suivront ceux-ci.",
+     "en": "I still have 3 drawings of cottages that I need for now, and they'll follow these.",
+     "ko": "오두막 소묘가 세 점 더 있는데, 아직 쓸 데가 있어서 나중에 보낼게.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 500 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai encore 3 dessins de cabanes, // dont j'ai encore besoin // et qui suivront ceux-ci."
+     }
+    },
+    {
+     "fr": "Au bout de quelque temps, la vue change, on voit avec un œil plus japonais, on sent autrement la couleur.",
+     "en": "After a while your sight changes: you see with a more Japanese eye, you feel colour differently.",
+     "ko": "얼마쯤 지나면 보는 눈이 달라져. 더 일본 사람 같은 눈으로 보고, 색을 다르게 느끼게 돼.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 500 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Au bout de quelque temps, / la vue change, // on voit avec un œil plus japonais, // on sent autrement la couleur."
+     }
+    },
+    {
+     "fr": "Le Japonais dessine vite, très vite, comme un éclair.",
+     "en": "The Japanese draw quickly, very quickly, like a flash of lightning.",
+     "ko": "일본 사람은 빨리, 아주 빨리, 번개처럼 그려.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 500 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Le Japonais dessine vite, // très vite, // comme un éclair."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "dessin",
+     "pos": "n.m.",
+     "ipa": "desɛ̃",
+     "en": "drawing",
+     "ko": "소묘, 드로잉",
+     "icon": "✏️"
+    },
+    {
+     "fr": "cabane",
+     "pos": "n.f.",
+     "ipa": "kaban",
+     "en": "cottage, hut",
+     "ko": "오두막",
+     "icon": "🛖"
+    },
+    {
+     "fr": "œil",
+     "pos": "n.m.",
+     "ipa": "œj",
+     "en": "eye",
+     "ko": "눈"
+    },
+    {
+     "fr": "vite",
+     "pos": "adv.",
+     "ipa": "vit",
+     "en": "quickly",
+     "ko": "빨리"
+    },
+    {
+     "fr": "éclair",
+     "pos": "n.m.",
+     "ipa": "eklɛʁ",
+     "en": "flash of lightning",
+     "ko": "번개"
+    }
+   ],
+   "note": {
+    "ko": "생트마리의 하얀 오두막은 카마르그 목동들의 집이에요. 빈센트는 마을 거리와 오두막을 펜으로 여러 장 그려 테오에게 보냈어요. 그림은 그 가운데 한 장이에요.",
+    "en": "The white thatched cottages of Saintes-Maries were the homes of Camargue herdsmen. Vincent made several pen drawings of the village street and its cottages for Theo; the picture is one of them.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 500 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.metmuseum.org/art/collection/search/336318"
+   },
+   "plate": {
+    "title_fr": "Rue aux Saintes-Maries-de-la-Mer",
+    "title_en": "Street in Saintes-Maries-de-la-Mer",
+    "title_ko": "생트마리의 거리",
+    "date": "1888 (dessin à la plume)",
+    "collection": "The Metropolitan Museum of Art, New York · CC0",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/336318",
+    "why": "Van Gogh's pen drawing of the village and its cottages; the Met releases it under CC0.",
+    "image": "c2-l2.jpg",
+    "spots": [
+     {
+      "x": 0.2,
+      "y": 0.35,
+      "title": {
+       "fr": "Les cabanes",
+       "en": "The cottages",
+       "ko": "오두막"
+      },
+      "note": {
+       "ko": "초가지붕을 얹은 하얀 오두막. ‘오두막 소묘가 세 점 더 있어’.",
+       "en": "White cottages with thatched roofs: ‘I still have 3 drawings of cottages’."
+      },
+      "word": {
+       "fr": "cabane",
+       "en": "cottage",
+       "ko": "오두막",
+       "ipa": "kaban"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.75,
+      "y": 0.25,
+      "title": {
+       "fr": "Le dessin",
+       "en": "The drawing",
+       "ko": "소묘"
+      },
+      "note": {
+       "ko": "갈대 펜으로 빠르게. ‘번개처럼 그려’.",
+       "en": "Quick reed-pen work: ‘like a flash of lightning’."
+      },
+      "word": {
+       "fr": "dessin",
+       "en": "drawing",
+       "ko": "소묘",
+       "ipa": "desɛ̃"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "J'aimerais voir la mer avec toi.",
+    "en": "I'd like to see the sea with you.",
+    "ko": "형이랑 같이 바다 보고 싶다.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "transfer",
+     "amount": "50 francs",
+     "label": {
+      "fr": "Théo a envoyé",
+      "en": "Theo sent",
+      "ko": "테오가 보냄"
+     },
+     "memo": {
+      "fr": "Paris → Arles",
+      "en": "Paris → Arles",
+      "ko": "파리 → 아를"
+     },
+     "outgoing": false
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "c2-l2.jpg",
+     "caption": {
+      "fr": "Une rue aux Saintes-Maries",
+      "en": "A street in Saintes-Maries",
+      "ko": "생트마리의 거리"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Un œil plus japonais",
+    "en": "A more Japanese eye",
+    "ko": "더 일본 사람 같은 눈"
+   }
+  },
+  {
+   "id": "c2-l3",
+   "date": "1888-06",
+   "dateNote": "Undated in the 1914 edition; written in Arles in June 1888, during the wheat harvest (‘c'est juste le moment de la moisson’), between letters 500 and 502.",
+   "ref": "Brieven 1914, n° 501 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 501 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Si je m'en console de ne pas la voir, c'est qu'en regardant autour de moi il y a bien des choses dans la nature, qui ne me laissent guère le temps de penser à autre chose, car c'est juste le moment de la moisson.",
+     "en": "If I console myself for not seeing it, it's because when I look around me there are so many things in nature that hardly leave me time to think of anything else, for it's just harvest time.",
+     "ko": "그 전시를 못 봐도 위로가 되는 건, 둘러보면 자연 속에 다른 생각을 할 틈도 안 주는 것들이 가득하기 때문이야. 마침 지금이 추수 때거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 501 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Si je m'en console de ne pas la voir, // c'est qu'en regardant autour de moi / il y a bien des choses dans la nature, // qui ne me laissent guère le temps / de penser à autre chose, // car c'est juste le moment de la moisson."
+     }
+    },
+    {
+     "fr": "J'ai eu une semaine d'un travail serré et raide dans les blés en plein soleil, il en est résulté des études de blés, paysages et — une esquisse de semeur.",
+     "en": "I've had a week of tight, hard work in the wheat fields in full sun; out of it came studies of wheat, landscapes and — a sketch of a sower.",
+     "ko": "땡볕 아래 밀밭에서 빡빡하고 고된 한 주를 보냈어. 그 덕에 밀밭 습작, 풍경, 그리고 — 씨 뿌리는 사람의 밑그림이 나왔어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 501 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai eu une semaine / d'un travail serré et raide / dans les blés en plein soleil, // il en est résulté des études de blés, / paysages // et — une esquisse de semeur."
+     }
+    },
+    {
+     "fr": "Sur un champ labouré un grand champ de mottes de terre violettes — montant vers l'horizon un semeur en bleu et blanc. À l'horizon un champ de blé mûr court. Sur tout cela un ciel jaune avec un soleil jaune.",
+     "en": "On a ploughed field, a great field of violet clods of earth — rising towards the horizon, a sower in blue and white. On the horizon a field of short, ripe wheat. Over it all, a yellow sky with a yellow sun.",
+     "ko": "갈아엎은 밭, 보랏빛 흙덩이가 가득한 넓은 밭이야. 지평선 쪽으로 올라가는 파랑과 하양 옷의 씨 뿌리는 사람. 지평선엔 키 작은 잘 익은 밀밭. 그 모든 것 위로 노란 하늘과 노란 해.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 501 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Sur un champ labouré / un grand champ de mottes de terre violettes // — montant vers l'horizon / un semeur en bleu et blanc. // À l'horizon / un champ de blé mûr court. // Sur tout cela / un ciel jaune / avec un soleil jaune."
+     }
+    },
+    {
+     "fr": "Cela a déjà depuis si longtemps été mon désir de faire un semeur, mais les désirs que j'ai depuis longtemps ne s'accomplissent pas toujours. J'en ai donc presque peur.",
+     "en": "It has been my wish for so long already to do a sower, but the wishes I've had for a long time don't always come true. So I'm almost afraid of it.",
+     "ko": "씨 뿌리는 사람을 그리는 건 벌써 아주 오래된 내 바람이었어. 그런데 오래 품은 바람은 늘 이루어지지는 않잖아. 그래서 조금 겁이 나.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 501 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Cela a déjà depuis si longtemps été mon désir / de faire un semeur, // mais les désirs que j'ai depuis longtemps / ne s'accomplissent pas toujours. // J'en ai donc presque peur."
+     }
+    },
+    {
+     "fr": "Parlons d'autre chose — j'ai enfin un modèle — un Zouave — c'est un garçon à petite figure, à cou de taureau, à l'œil de tigre…",
+     "en": "Let's talk about something else — at last I have a model — a Zouave — a fellow with a small face, a bull's neck, a tiger's eye…",
+     "ko": "다른 얘기 하자. 드디어 모델이 생겼어. 주아브 병사야. 얼굴은 작고, 목은 황소 같고, 눈은 호랑이 같은 녀석이야…",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 501 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Parlons d'autre chose // — j'ai enfin un modèle // — un Zouave // — c'est un garçon à petite figure, / à cou de taureau, / à l'œil de tigre…"
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "moisson",
+     "pos": "n.f.",
+     "ipa": "mwasɔ̃",
+     "en": "harvest",
+     "ko": "추수"
+    },
+    {
+     "fr": "blé",
+     "pos": "n.m.",
+     "ipa": "ble",
+     "en": "wheat",
+     "ko": "밀",
+     "icon": "🌾"
+    },
+    {
+     "fr": "semeur",
+     "pos": "n.m.",
+     "ipa": "səmœʁ",
+     "en": "sower",
+     "ko": "씨 뿌리는 사람"
+    },
+    {
+     "fr": "horizon",
+     "pos": "n.m.",
+     "ipa": "ɔʁizɔ̃",
+     "en": "horizon",
+     "ko": "지평선"
+    },
+    {
+     "fr": "soleil",
+     "pos": "n.m.",
+     "ipa": "sɔlɛj",
+     "en": "sun",
+     "ko": "해",
+     "icon": "☀️"
+    }
+   ],
+   "note": {
+    "ko": "빈센트는 이 편지에서 처음으로 씨 뿌리는 사람 그림을 알려요. 밀레와 레르미트 다음에 남은 일은 ‘색채로, 큰 화면에’ 씨 뿌리는 사람을 그리는 것이라고 썼어요. 여기 실린 그림이 바로 편지가 묘사하는 그 그림이에요. 보랏빛 밭, 파랑과 하양의 사람, 노란 하늘과 노란 해.",
+    "en": "In this letter Vincent first announces his Sower. After Millet and Lhermitte, he writes, what remains to be done is the sower ‘with colour and in a large format’. The picture shown here is the one the letter describes: the violet field, the figure in blue and white, the yellow sky and yellow sun.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 501 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Sower_at_Sunset_-_Vincent_Van_Gogh.jpg"
+   },
+   "plate": {
+    "title_fr": "Le Semeur",
+    "title_en": "The Sower",
+    "title_ko": "씨 뿌리는 사람",
+    "date": "June 1888",
+    "collection": "Kröller-Müller Museum, Otterlo · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Sower_at_Sunset_-_Vincent_Van_Gogh.jpg",
+    "why": "The Sower this letter announces (violet ploughed field, sower in blue and white); PD-Art from Wikimedia Commons.",
+    "image": "v501.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.475,
+      "y": 0.12,
+      "title": {
+       "fr": "Un soleil jaune",
+       "en": "A yellow sun",
+       "ko": "노란 해"
+      },
+      "note": {
+       "ko": "노란 하늘 한가운데 두껍게 칠한 커다란 해. ‘노란 하늘과 노란 해’.",
+       "en": "A great, thickly painted sun in the yellow sky: ‘a yellow sky with a yellow sun’."
+      },
+      "word": {
+       "fr": "soleil",
+       "en": "sun",
+       "ko": "해",
+       "ipa": "sɔlɛj"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.74,
+      "y": 0.34,
+      "title": {
+       "fr": "Le semeur",
+       "en": "The sower",
+       "ko": "씨 뿌리는 사람"
+      },
+      "note": {
+       "ko": "팔을 뻗어 씨를 뿌리며 걸어가는 사람. ‘파랑과 하양 옷의 씨 뿌리는 사람’.",
+       "en": "A man striding as he flings out the seed: ‘a sower in blue and white’."
+      },
+      "word": {
+       "fr": "semeur",
+       "en": "sower",
+       "ko": "씨 뿌리는 사람",
+       "ipa": "səmœʁ"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.45,
+      "y": 0.62,
+      "title": {
+       "fr": "Les mottes violettes",
+       "en": "The violet clods",
+       "ko": "보랏빛 흙덩이"
+      },
+      "note": {
+       "ko": "파랑, 보라, 주황 붓질로 쌓은 갈아엎은 흙. ‘보랏빛 흙덩이가 가득한 넓은 밭’.",
+       "en": "Ploughed earth built up from strokes of blue, violet and orange: ‘a great field of violet clods of earth’."
+      },
+      "word": {
+       "fr": "terre",
+       "en": "earth",
+       "ko": "흙",
+       "ipa": "tɛʁ"
+      },
+      "quote": 2
+     }
+    ]
+   },
+   "reply": {
+    "fr": "N'aie pas peur, fais ton semeur.",
+    "en": "Don't be afraid, paint your sower.",
+    "ko": "겁내지 말고, 그 씨 뿌리는 사람 그려 봐.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "v501.jpg",
+     "caption": {
+      "fr": "Le Semeur",
+      "en": "The Sower",
+      "ko": "씨 뿌리는 사람"
+     }
+    },
+    {
+     "after": 4,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Arles",
+      "en": "Weather in Arles",
+      "ko": "아를의 날씨"
+     },
+     "value": {
+      "fr": "pluie torrentielle",
+      "en": "torrential rain",
+      "ko": "폭우"
+     },
+     "quote": "une pluie torrentielle",
+     "icon": "rain"
+    }
+   ],
+   "status": {
+    "fr": "Un semeur en bleu et blanc",
+    "en": "A sower in blue and white",
+    "ko": "파랑과 하양의 씨 뿌리는 사람"
+   }
+  },
+  {
+   "id": "c2-l4",
+   "date": "1888-07-29",
+   "dateNote": "Dated (29 Juli) in the 1914 edition.",
+   "ref": "Brieven 1914, n° 514 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 514 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "tender",
+   "messages": [
+    {
+     "fr": "Maintenant si tu sais ce que c'est qu'une « mousmé » (tu le sauras lorsque tu auras lu Madame Chrysanthème de Loti), je viens d'en peindre une.",
+     "en": "Now if you know what a ‘mousmé’ is (you will once you've read Loti's Madame Chrysanthème), I've just painted one.",
+     "ko": "‘무스메’가 뭔지 알아? (로티의 『국화 부인』을 읽으면 알게 될 거야.) 방금 한 명을 그렸어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 514 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant si tu sais / ce que c'est qu'une « mousmé » // (tu le sauras / lorsque tu auras lu / Madame Chrysanthème de Loti), // je viens d'en peindre une."
+     }
+    },
+    {
+     "fr": "Cela m'a coûté toute ma semaine, je n'ai rien pu faire d'autre chose, ayant encore été pas trop bien portant.",
+     "en": "It took my whole week; I couldn't do anything else, not having been very well again.",
+     "ko": "그거 하나에 한 주가 다 갔어. 다른 건 아무것도 못 했어. 몸이 또 썩 좋지 않았거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 514 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Cela m'a coûté toute ma semaine, // je n'ai rien pu faire d'autre chose, // ayant encore été / pas trop bien portant."
+     }
+    },
+    {
+     "fr": "Une mousmé est une fille japonaise — provençale dans ce cas — de 12 à 14 ans.",
+     "en": "A mousmé is a Japanese girl — a Provençal one in this case — of 12 to 14.",
+     "ko": "무스메는 열두 살에서 열네 살쯤 된 일본 소녀야. 이번엔 프로방스 소녀지만.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 514 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Une mousmé / est une fille japonaise // — provençale dans ce cas — // de 12 à 14 ans."
+     }
+    },
+    {
+     "fr": "Cela fait 2 figures, le zouave et elle, que j'ai.",
+     "en": "That makes 2 figures I have, the Zouave and her.",
+     "ko": "이제 인물화가 두 점이야. 주아브 병사, 그리고 이 아이.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 514 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Cela fait 2 figures, // le zouave et elle, / que j'ai."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "fille",
+     "pos": "n.f.",
+     "ipa": "fij",
+     "en": "girl",
+     "ko": "소녀",
+     "icon": "👧"
+    },
+    {
+     "fr": "semaine",
+     "pos": "n.f.",
+     "ipa": "s(ə)mɛn",
+     "en": "week",
+     "ko": "한 주"
+    },
+    {
+     "fr": "peindre",
+     "pos": "v.",
+     "ipa": "pɛ̃dʁ",
+     "en": "to paint",
+     "ko": "그리다, 칠하다",
+     "icon": "🖌️"
+    },
+    {
+     "fr": "figure",
+     "pos": "n.f.",
+     "ipa": "fiɡyʁ",
+     "en": "figure (portrait)",
+     "ko": "인물(화)"
+    },
+    {
+     "fr": "ans",
+     "pos": "n.m.pl.",
+     "ipa": "ɑ̃",
+     "en": "years (of age)",
+     "ko": "살"
+    }
+   ],
+   "note": {
+    "ko": "‘무스메’는 피에르 로티의 소설 『국화 부인』에 나오는 일본어로, 어린 소녀를 뜻해요. 빈센트는 일본 판화와 이 소설에 빠져 있었고, 아를의 소녀를 그리며 이 이름을 붙였어요.",
+    "en": "‘Mousmé’ is a Japanese word for a young girl, used in Pierre Loti's novel Madame Chrysanthème. Vincent, absorbed in Japanese prints and in the novel, gave the name to his portrait of a girl from Arles.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 514 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://www.nga.gov/collection/art-object-page.46626.html"
+   },
+   "plate": {
+    "title_fr": "La Mousmé",
+    "title_en": "La Mousmé",
+    "title_ko": "무스메",
+    "date": "1888",
+    "collection": "National Gallery of Art, Washington · Open Access",
+    "imageLicense": "Public domain",
+    "imageSource": "https://www.nga.gov/collection/art-object-page.46626.html",
+    "why": "The portrait this letter announces; the National Gallery of Art releases it as open access.",
+    "image": "c2-l3.jpg",
+    "spots": [
+     {
+      "x": 0.47,
+      "y": 0.2,
+      "title": {
+       "fr": "La jeune fille",
+       "en": "The girl",
+       "ko": "소녀"
+      },
+      "note": {
+       "ko": "열두에서 열네 살쯤 된 아를의 소녀.",
+       "en": "A girl of Arles, twelve to fourteen."
+      },
+      "word": {
+       "fr": "fille",
+       "en": "girl",
+       "ko": "소녀",
+       "ipa": "fij"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.4,
+      "y": 0.55,
+      "title": {
+       "fr": "La mousmé",
+       "en": "The mousmé",
+       "ko": "무스메"
+      },
+      "note": {
+       "ko": "줄무늬 윗옷에 주황 물방울 치마를 입은 아를 소녀. ‘방금 한 명을 그렸어’.",
+       "en": "A girl of Arles in a striped bodice and an orange-dotted skirt: ‘I've just painted one’."
+      },
+      "word": {
+       "fr": "mousmé",
+       "en": "mousmé",
+       "ko": "무스메",
+       "ipa": "muzme"
+      },
+      "quote": 0
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Je vais lire Madame Chrysanthème.",
+    "en": "I'm going to read Madame Chrysanthème.",
+    "ko": "『국화 부인』 읽어 볼게.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "c2-l3.jpg",
+     "caption": {
+      "fr": "La mousmé",
+      "en": "The mousmé",
+      "ko": "무스메"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Une mousmé",
+    "en": "A mousmé",
+    "ko": "무스메"
+   }
+  },
+  {
+   "id": "c2-l5",
+   "date": "1888-08",
+   "dateNote": "Undated in the 1914 edition; it follows letter 516, headed ‘begin Augustus’, so early August 1888. The first excerpt is from letter 516.",
+   "ref": "Brieven 1914, n° 517 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 517 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Maintenant je suis en train avec un autre modèle: un facteur en uniforme bleu, agrémenté d'or, grosse figure barbue, très socratique. Républicain enragé comme le père Tanguy.",
+     "en": "Now I'm at work with another model: a postman in a blue uniform trimmed with gold, a big bearded face, very Socratic. A raging republican, like old Tanguy.",
+     "ko": "지금은 다른 모델이랑 작업 중이야. 금빛 장식을 단 파란 제복의 우편배달부야. 수염이 덥수룩한 큰 얼굴, 꼭 소크라테스 같아. 탕기 영감처럼 열렬한 공화주의자고.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 516 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant je suis en train avec un autre modèle: // un facteur en uniforme bleu, / agrémenté d'or, // grosse figure barbue, / très socratique. // Républicain enragé / comme le père Tanguy."
+     }
+    },
+    {
+     "fr": "J'ai reçu une lettre de Gauguin dans laquelle il parle de la peinture et se plaint de ne pas encore avoir l'argent nécessaire pour venir ici, mais rien de neuf ou de changé.",
+     "en": "I've had a letter from Gauguin in which he talks about painting and complains he still doesn't have the money he needs to come here, but nothing new or changed.",
+     "ko": "고갱한테서 편지가 왔어. 그림 얘기를 하면서, 여기 올 돈이 아직 없다고 하소연하더라. 그 밖엔 새로운 것도, 달라진 것도 없어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 517 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai reçu une lettre de Gauguin / dans laquelle il parle de la peinture // et se plaint de ne pas encore avoir l'argent nécessaire / pour venir ici, // mais rien de neuf ou de changé."
+     }
+    },
+    {
+     "fr": "Je ne pouvais payer mon loyer le 1er, ayant modèle pour toute la semaine, j'ai deux portraits du même modèle en train, qui sont plus importants pour moi que le reste.",
+     "en": "I couldn't pay my rent on the 1st, having a model for the whole week; I have two portraits of the same model under way, which matter more to me than everything else.",
+     "ko": "1일에 집세를 못 냈어. 한 주 내내 모델을 썼거든. 같은 모델로 초상화 두 점을 그리는 중인데, 나한텐 그게 다른 무엇보다 중요해.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 517 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je ne pouvais payer mon loyer le 1er, // ayant modèle pour toute la semaine, // j'ai deux portraits du même modèle en train, // qui sont plus importants pour moi / que le reste."
+     }
+    },
+    {
+     "fr": "Maintenant j'ai deux figures donc en train, une tête et un buste avec les mains d'un vieux facteur en uniforme bleu foncé. Il a une tête socratique intéressante à peindre.",
+     "en": "So now I have two figures under way: a head, and a half-length with the hands, of an old postman in a dark blue uniform. He has a Socratic head, interesting to paint.",
+     "ko": "그러니까 지금 인물화 두 점을 그리고 있어. 짙은 파란 제복을 입은 늙은 우편배달부의 얼굴 하나, 그리고 손까지 나오는 반신상 하나. 소크라테스 같은 얼굴이라 그리기 재미있어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 517 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant j'ai deux figures donc en train, // une tête / et un buste avec les mains / d'un vieux facteur / en uniforme bleu foncé. // Il a une tête socratique / intéressante à peindre."
+     }
+    },
+    {
+     "fr": "Il n'y a pas de meilleur et plus court chemin pour améliorer le travail que de faire la figure. Aussi je me sens toujours de la confiance en faisant des portraits, sachant que ce travail-là est bien plus sérieux…",
+     "en": "There's no better, shorter road to improving the work than doing the figure. So I always feel confident when I'm doing portraits, knowing that this work is far more serious…",
+     "ko": "그림을 나아지게 하는 데 인물을 그리는 것보다 더 좋고 빠른 길은 없어. 그래서 초상화를 그릴 때면 늘 자신감이 생겨. 이 일이 훨씬 더 진지하다는 걸 아니까…",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 517 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Il n'y a pas de meilleur et plus court chemin / pour améliorer le travail / que de faire la figure. // Aussi je me sens toujours de la confiance / en faisant des portraits, // sachant que ce travail-là / est bien plus sérieux…"
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "facteur",
+     "pos": "n.m.",
+     "ipa": "faktœʁ",
+     "en": "postman",
+     "ko": "우편배달부",
+     "icon": "📮"
+    },
+    {
+     "fr": "uniforme",
+     "pos": "n.m.",
+     "ipa": "ynifɔʁm",
+     "en": "uniform",
+     "ko": "제복"
+    },
+    {
+     "fr": "barbu",
+     "pos": "adj.",
+     "ipa": "baʁby",
+     "en": "bearded",
+     "ko": "수염 난"
+    },
+    {
+     "fr": "loyer",
+     "pos": "n.m.",
+     "ipa": "lwaje",
+     "en": "rent",
+     "ko": "집세"
+    },
+    {
+     "fr": "portrait",
+     "pos": "n.m.",
+     "ipa": "pɔʁtʁɛ",
+     "en": "portrait",
+     "ko": "초상화",
+     "icon": "🖼️"
+    }
+   ],
+   "note": {
+    "ko": "1914년판은 앞 편지(516)의 주석에서 이 우편배달부가 룰랭이며, 빈센트의 충실한 친구가 되었다고 적어요. 여기 실린 보스턴 미술관의 그림이 편지가 말하는 ‘손까지 나오는 반신상’이에요. 모자에는 ‘POSTES’라는 글자가 보여요.",
+    "en": "The 1914 edition's footnote to the previous letter (516) names the postman as Roulin, who became a faithful friend of Vincent's. The Boston picture shown here is the ‘half-length with the hands’ the letter mentions. His cap reads ‘POSTES’.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 517 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 516 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Portret_van_de_postbode_Joseph_Roulin.jpg"
+   },
+   "plate": {
+    "title_fr": "Le Facteur Joseph Roulin",
+    "title_en": "Postman Joseph Roulin",
+    "title_ko": "우편배달부 조제프 룰랭",
+    "date": "August 1888",
+    "collection": "Museum of Fine Arts, Boston · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Portret_van_de_postbode_Joseph_Roulin.jpg",
+    "why": "The half-length portrait with hands that the letter describes; PD-Art from Wikimedia Commons.",
+    "image": "v517.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.43,
+      "y": 0.27,
+      "title": {
+       "fr": "La barbe",
+       "en": "The beard",
+       "ko": "수염"
+      },
+      "note": {
+       "ko": "얼굴을 덮은 큼직한 수염. ‘수염이 덥수룩한 큰 얼굴, 꼭 소크라테스 같아’.",
+       "en": "A great spreading beard: ‘a big bearded face, very Socratic’."
+      },
+      "word": {
+       "fr": "barbu",
+       "en": "bearded",
+       "ko": "수염",
+       "ipa": "baʁby"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.45,
+      "y": 0.55,
+      "title": {
+       "fr": "L'uniforme",
+       "en": "The uniform",
+       "ko": "제복"
+      },
+      "note": {
+       "ko": "짙은 파랑 제복에 금빛 단추와 소매의 금실 장식. ‘금빛 장식을 단 파란 제복’.",
+       "en": "A dark blue uniform with gold buttons and gold braid on the cuffs: ‘a blue uniform trimmed with gold’."
+      },
+      "word": {
+       "fr": "uniforme",
+       "en": "uniform",
+       "ko": "제복",
+       "ipa": "ynifɔʁm"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.8,
+      "y": 0.67,
+      "title": {
+       "fr": "Les mains",
+       "en": "The hands",
+       "ko": "손"
+      },
+      "note": {
+       "ko": "탁자 위에 걸친 오른손과 무릎 위의 왼손. ‘손까지 나오는 반신상’.",
+       "en": "One hand over the table, the other on his knee: ‘a half-length with the hands’."
+      },
+      "word": {
+       "fr": "mains",
+       "en": "hands",
+       "ko": "손",
+       "ipa": "mɛ̃"
+      },
+      "quote": 3
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Salue le facteur Roulin de ma part.",
+    "en": "Say hello to Roulin the postman for me.",
+    "ko": "우편배달부 룰랭 씨한테 안부 전해 줘.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 2,
+     "type": "notice",
+     "text": {
+      "fr": "Le loyer du mois · remis à lundi",
+      "en": "This month's rent · put off until Monday",
+      "ko": "이번 달 집세 · 월요일로 미룸"
+     }
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "v517.jpg",
+     "caption": {
+      "fr": "Le Facteur Joseph Roulin",
+      "en": "Postman Joseph Roulin",
+      "ko": "우편배달부 조제프 룰랭"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Un facteur très socratique",
+    "en": "A very Socratic postman",
+    "ko": "소크라테스 같은 우편배달부"
+   }
+  },
+  {
+   "id": "c2-l6",
+   "date": "1888-08",
+   "dateNote": "Undated in the 1914 edition; it comes between letter 516 (‘begin Augustus’) and letter 525 (15 August), so the first half of August 1888.",
+   "ref": "Brieven 1914, n° 520 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 520 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Sous peu tu vas faire connaissance avec le sieur Patience Escalier, espèce d'homme à la houe, vieux bouvier camarguais, actuellement jardinier dans un Mas de la Crau.",
+     "en": "Soon you'll make the acquaintance of one Patience Escalier, a sort of ‘man with the hoe’, an old Camargue cowherd, now a gardener at a farmhouse in the Crau.",
+     "ko": "곧 파시앙스 에스칼리에 씨를 만나게 될 거야. 일종의 ‘괭이 든 사람’이지. 늙은 카마르그 소몰이꾼인데, 지금은 크로 평야의 한 농가에서 정원사로 일해.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 520 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Sous peu tu vas faire connaissance / avec le sieur Patience Escalier, // espèce d'homme à la houe, // vieux bouvier camarguais, // actuellement jardinier / dans un Mas de la Crau."
+     }
+    },
+    {
+     "fr": "Car au lieu de chercher à rendre exactement ce que j'ai devant les yeux, je me sers de la couleur plus arbitrairement pour m'exprimer fortement.",
+     "en": "For instead of trying to render exactly what I have before my eyes, I use colour more arbitrarily, to express myself forcefully.",
+     "ko": "눈앞에 있는 걸 정확히 옮기려 애쓰는 대신, 나는 색을 더 자유롭게 써. 나를 힘 있게 표현하려고.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 520 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Car au lieu de chercher à rendre exactement / ce que j'ai devant les yeux, // je me sers de la couleur / plus arbitrairement // pour m'exprimer fortement."
+     }
+    },
+    {
+     "fr": "Derrière la tête, au lieu de peindre le mur banal du mesquin appartement, je peins l'infini, je fais un fond simple du bleu le plus riche, le plus intense, que je puisse confectionner…",
+     "en": "Behind the head, instead of painting the dull wall of the shabby flat, I paint the infinite: I make a simple background of the richest, most intense blue I can mix…",
+     "ko": "머리 뒤에는 초라한 셋방의 밋밋한 벽 대신 무한을 그려. 내가 만들 수 있는 가장 짙고 강렬한 파랑으로 단순한 배경을 깔아…",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 520 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Derrière la tête, // au lieu de peindre le mur banal / du mesquin appartement, // je peins l'infini, // je fais un fond simple / du bleu le plus riche, / le plus intense, / que je puisse confectionner…"
+     }
+    },
+    {
+     "fr": "Mais en supposant l'homme terrible que j'avais à faire en pleine fournaise de la moisson, en plein midi. De là des orangés fulgurants comme du fer rougi, de là des tons de vieil or lumineux dans les ténèbres.",
+     "en": "But imagining the formidable man I had to paint in the full furnace of the harvest, at high noon. Hence the blazing oranges like red-hot iron, hence the tones of old gold glowing in the dark.",
+     "ko": "대신 내가 그려야 할 그 굉장한 사람을, 추수의 불가마 한가운데, 한낮에 있다고 생각했어. 그래서 달군 쇠 같은 번쩍이는 주황, 그래서 어둠 속에서 빛나는 오래된 금빛이 나온 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 520 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mais en supposant l'homme terrible / que j'avais à faire / en pleine fournaise de la moisson, / en plein midi. // De là des orangés fulgurants / comme du fer rougi, // de là des tons de vieil or / lumineux dans les ténèbres."
+     }
+    },
+    {
+     "fr": "Et sentir néanmoins les étoiles et l'infini en haut clairement. Alors la vie est tout de même presque enchantée. Ah! ceux qui ne croient pas au soleil d'ici sont bien impies.",
+     "en": "And still to feel the stars and the infinite clearly up above. Then life is almost enchanted after all. Ah! those who don't believe in the sun here are real infidels.",
+     "ko": "그러면서도 저 위의 별과 무한을 또렷이 느끼는 거야. 그러면 삶은 그래도 거의 마법 같아. 아! 여기 햇빛을 믿지 않는 사람들은 정말 믿음이 없는 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 520 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Et sentir néanmoins les étoiles / et l'infini en haut clairement. // Alors la vie est tout de même / presque enchantée. // Ah! ceux qui ne croient pas / au soleil d'ici / sont bien impies."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "jardinier",
+     "pos": "n.m.",
+     "ipa": "ʒaʁdinje",
+     "en": "gardener",
+     "ko": "정원사",
+     "icon": "🧑‍🌾"
+    },
+    {
+     "fr": "couleur",
+     "pos": "n.f.",
+     "ipa": "kulœʁ",
+     "en": "colour",
+     "ko": "색",
+     "icon": "🎨"
+    },
+    {
+     "fr": "fond",
+     "pos": "n.m.",
+     "ipa": "fɔ̃",
+     "en": "background",
+     "ko": "배경"
+    },
+    {
+     "fr": "infini",
+     "pos": "n.m.",
+     "ipa": "ɛ̃fini",
+     "en": "the infinite",
+     "ko": "무한"
+    },
+    {
+     "fr": "fournaise",
+     "pos": "n.f.",
+     "ipa": "fuʁnɛz",
+     "en": "furnace",
+     "ko": "불가마",
+     "icon": "🔥"
+    }
+   ],
+   "note": {
+    "ko": "빈센트는 1888년 8월 이 늙은 정원사의 초상을 두 점 그렸어요. 편지가 ‘달군 쇠 같은 주황’이라 말하는 그림은 주황 바탕의 다른 판이고, 여기 실린 노턴 사이먼 미술관의 그림은 바탕이 짙은 파랑이에요. 편지에서 파란 ‘무한’의 배경은 금발의 화가 친구를 그리고 싶다는 상상 속 초상을 위한 생각이에요.",
+    "en": "Vincent painted two portraits of this old gardener in August 1888. The one the letter describes, with ‘oranges like red-hot iron’, is the other version with an orange ground; the Norton Simon picture shown here has a deep blue background. In the letter, the blue ‘infinite’ behind the head is an idea for an imagined portrait of a blond artist friend.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 520 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Bildnis_Patience_Escalier1.jpeg"
+   },
+   "plate": {
+    "title_fr": "Portrait de Patience Escalier",
+    "title_en": "Portrait of Patience Escalier",
+    "title_ko": "파시앙스 에스칼리에의 초상",
+    "date": "August 1888",
+    "collection": "Norton Simon Museum, Pasadena · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Bildnis_Patience_Escalier1.jpeg",
+    "why": "The portrait of the old peasant the letter describes; PD-Art from Wikimedia Commons.",
+    "image": "v520.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.58,
+      "title": {
+       "fr": "Le vieux bouvier",
+       "en": "The old cowherd",
+       "ko": "늙은 소몰이꾼"
+      },
+      "note": {
+       "ko": "햇볕에 그을린 얼굴, 하얀 수염, 깊은 눈. ‘늙은 카마르그 소몰이꾼’.",
+       "en": "A sunburnt face, white stubble, deep-set eyes: ‘an old Camargue cowherd’."
+      },
+      "word": {
+       "fr": "bouvier",
+       "en": "cowherd",
+       "ko": "소몰이",
+       "ipa": "buvje"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.88,
+      "y": 0.3,
+      "title": {
+       "fr": "Le fond bleu",
+       "en": "The blue background",
+       "ko": "파란 배경"
+      },
+      "note": {
+       "ko": "머리 뒤를 채운 짙은 파랑 붓질. 편지에서 이 파랑은 화가 친구의 초상을 위한 생각이지만, 이 판본의 노인 뒤에도 깔렸어요.",
+       "en": "Deep blue strokes fill the space behind the head. In the letter this blue is meant for the portrait of an artist friend, but it lies behind the old man in this version too."
+      },
+      "word": {
+       "fr": "bleu",
+       "en": "blue",
+       "ko": "파랑",
+       "ipa": "blø"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.33,
+      "y": 0.43,
+      "title": {
+       "fr": "Les orangés",
+       "en": "The oranges",
+       "ko": "주황"
+      },
+      "note": {
+       "ko": "얼굴 그늘 속의 주황과 빨강. ‘달군 쇠 같은 번쩍이는 주황’.",
+       "en": "Orange and red in the shadows of the face: ‘blazing oranges like red-hot iron’."
+      },
+      "word": {
+       "fr": "orangés",
+       "en": "oranges",
+       "ko": "주황",
+       "ipa": "ɔʁɑ̃ʒe"
+      },
+      "quote": 3
+     }
+    ]
+   },
+   "reply": {
+    "fr": "J'ai hâte de voir ton paysan.",
+    "en": "I can't wait to see your peasant.",
+    "ko": "형이 그린 농부, 얼른 보고 싶다.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "notice",
+     "text": {
+      "fr": "Envoyés à Théo · les dessins d'Escalier et du facteur Roulin",
+      "en": "Sent to Theo · the drawings of Escalier and of Roulin the postman",
+      "ko": "테오에게 보냄 · 에스칼리에와 우편배달부 룰랭의 드로잉"
+     }
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "v520.jpg",
+     "caption": {
+      "fr": "Portrait de Patience Escalier",
+      "en": "Portrait of Patience Escalier",
+      "ko": "파시앙스 에스칼리에의 초상"
+     }
+    },
+    {
+     "after": 4,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Arles",
+      "en": "Weather in Arles",
+      "ko": "아를의 날씨"
+     },
+     "value": {
+      "fr": "soleil et mistral",
+      "en": "sun and mistral",
+      "ko": "해, 그리고 미스트랄"
+     },
+     "quote": "le diable mistral",
+     "icon": "wind"
+    }
+   ],
+   "status": {
+    "fr": "Je peins l'infini",
+    "en": "I paint the infinite",
+    "ko": "나는 무한을 그려"
+   }
+  },
+  {
+   "id": "c2-l7",
+   "date": "1888-08-21",
+   "dateNote": "Undated in the 1914 edition; late August 1888.",
+   "ref": "Brieven 1914, n° 526 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 526 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Arles",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Je suis en train de peindre avec l'entrain d'un Marseillais mangeant la bouillabaisse, ce qui ne t'étonnera pas, lorsqu'il s'agit de peindre des grands tournesols.",
+     "en": "I'm painting with the gusto of a Marseillais eating bouillabaisse, which won't surprise you when it's a matter of painting big sunflowers.",
+     "ko": "부야베스를 먹는 마르세유 사람처럼 신나게 그리는 중이야. 커다란 해바라기를 그리는 일이니 놀랍지도 않지?",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 526 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je suis en train de peindre / avec l'entrain d'un Marseillais / mangeant la bouillabaisse, // ce qui ne t'étonnera pas, // lorsqu'il s'agit de peindre / des grands tournesols."
+     }
+    },
+    {
+     "fr": "Dans l'espoir de vivre dans un atelier à nous avec Gauguin, je voudrais faire une décoration pour l'atelier. Rien que des grands tournesols.",
+     "en": "In the hope of living in a studio of our own with Gauguin, I'd like to make a decoration for the studio. Nothing but big sunflowers.",
+     "ko": "고갱과 함께 우리 작업실에서 살 날을 바라며, 작업실을 꾸밀 그림을 그리고 싶어. 온통 커다란 해바라기로만.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 526 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Dans l'espoir de vivre / dans un atelier à nous / avec Gauguin, // je voudrais faire une décoration / pour l'atelier. // Rien que des grands tournesols."
+     }
+    },
+    {
+     "fr": "Le tout sera une symphonie en bleu et jaune donc. J'y travaille tous ces matins à partir du lever du soleil, car les fleurs se fanent vite et il s'agit de faire l'ensemble d'un trait.",
+     "en": "So the whole thing will be a symphony in blue and yellow. I work on it every morning from sunrise, because the flowers wilt quickly and the thing is to do the whole in one go.",
+     "ko": "그러니까 전체가 파랑과 노랑의 교향곡이 될 거야. 요즘은 매일 아침 해 뜰 때부터 그려. 꽃은 금방 시드니까 한 번에 다 그려 내야 하거든.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 526 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Le tout sera une symphonie / en bleu et jaune donc. // J'y travaille tous ces matins / à partir du lever du soleil, // car les fleurs se fanent vite // et il s'agit de faire l'ensemble / d'un trait."
+     }
+    },
+    {
+     "fr": "Je voudrais peindre de façon, qu'à la rigueur tout le monde qui a des yeux, puisse y voir clair.",
+     "en": "I'd like to paint in such a way that, if need be, everyone who has eyes could see it clearly.",
+     "ko": "눈이 있는 사람이라면 누구나 또렷하게 알아볼 수 있게 그리고 싶어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 526 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je voudrais peindre de façon, // qu'à la rigueur / tout le monde qui a des yeux, // puisse y voir clair."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "tournesol",
+     "pos": "n.m.",
+     "ipa": "tuʁnəsɔl",
+     "en": "sunflower",
+     "ko": "해바라기",
+     "icon": "🌻"
+    },
+    {
+     "fr": "atelier",
+     "pos": "n.m.",
+     "ipa": "atəlje",
+     "en": "studio",
+     "ko": "작업실",
+     "icon": "🎨"
+    },
+    {
+     "fr": "matin",
+     "pos": "n.m.",
+     "ipa": "matɛ̃",
+     "en": "morning",
+     "ko": "아침"
+    },
+    {
+     "fr": "se faner",
+     "pos": "v.",
+     "ipa": "sə fane",
+     "en": "to wilt",
+     "ko": "시들다"
+    },
+    {
+     "fr": "clair",
+     "pos": "adj.",
+     "ipa": "klɛʁ",
+     "en": "clear",
+     "ko": "또렷한"
+    }
+   ],
+   "note": {
+    "ko": "빈센트는 고갱과 함께 지낼 노란 집 작업실을 해바라기 그림으로 꾸미려 했어요. 이 편지를 쓸 때 그리던 해바라기는 세 점이었고, 그중 하나는 짙은 파랑 바탕이에요. 여기 실린 런던 내셔널 갤러리의 그림은 바로 다음 편지(527)에서 알린 네 번째 그림, ‘노란 바탕 위의 14송이 꽃다발’이에요.",
+    "en": "Vincent wanted to decorate the Yellow House studio he hoped to share with Gauguin with paintings of sunflowers. When he wrote this letter he had three sunflower canvases under way, one of them on a royal-blue ground. The London picture shown here is the fourth, announced in the very next letter (527): ‘a bouquet of 14 flowers, on a yellow ground’.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 526 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 527 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Sunflowers_(1888,_National_Gallery_London).jpg"
+   },
+   "plate": {
+    "title_fr": "Tournesols",
+    "title_en": "Sunflowers",
+    "title_ko": "해바라기",
+    "date": "August 1888",
+    "collection": "The National Gallery, London · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Sunflowers_(1888,_National_Gallery_London).jpg",
+    "why": "One of the sunflower canvases painted in August 1888 for the studio this letter describes; PD-Art from Wikimedia Commons.",
+    "image": "v526.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.58,
+      "y": 0.11,
+      "title": {
+       "fr": "Les tournesols",
+       "en": "The sunflowers",
+       "ko": "해바라기"
+      },
+      "note": {
+       "ko": "꽃병 위로 솟은 커다란 해바라기 머리. ‘커다란 해바라기를 그리는 일’.",
+       "en": "A big sunflower head rising above the vase: ‘painting big sunflowers’."
+      },
+      "word": {
+       "fr": "tournesol",
+       "en": "sunflower",
+       "ko": "해바라기",
+       "ipa": "tuʁnəsɔl"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.2,
+      "y": 0.75,
+      "title": {
+       "fr": "Une fleur fanée",
+       "en": "A wilting flower",
+       "ko": "시드는 꽃"
+      },
+      "note": {
+       "ko": "꽃잎이 말려 늘어진 해바라기. ‘꽃은 금방 시드니까’.",
+       "en": "A sunflower with curling, drooping petals: ‘the flowers wilt quickly’."
+      },
+      "word": {
+       "fr": "fleur",
+       "en": "flower",
+       "ko": "꽃",
+       "ipa": "flœʁ"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.88,
+      "y": 0.12,
+      "title": {
+       "fr": "Le fond jaune",
+       "en": "The yellow ground",
+       "ko": "노란 바탕"
+      },
+      "note": {
+       "ko": "노란 꽃 뒤의 노란 바탕, 탁자 가장자리엔 가는 파란 선. ‘파랑과 노랑의 교향곡’.",
+       "en": "Yellow flowers on a yellow ground, with a thin blue line along the table edge: ‘a symphony in blue and yellow’."
+      },
+      "word": {
+       "fr": "jaune",
+       "en": "yellow",
+       "ko": "노랑",
+       "ipa": "ʒon"
+      },
+      "quote": 2
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Garde une place pour un tournesol chez moi.",
+    "en": "Keep a sunflower for my place too.",
+    "ko": "내 방에 걸 해바라기도 하나 남겨 줘.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "v526.jpg",
+     "caption": {
+      "fr": "Tournesols",
+      "en": "Sunflowers",
+      "ko": "해바라기"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Rien que des grands tournesols",
+    "en": "Nothing but big sunflowers",
+    "ko": "온통 커다란 해바라기"
+   }
+  }
+ ]
+}

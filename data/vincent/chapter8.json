@@ -1,0 +1,1460 @@
+{
+ "_doc": "Chapter VIII 초안 (v1). 프랑스어는 1914년판 『Brieven aan zijn broeder』(요 반 고흐-봉어 엮음, 공공 영역, archive.org 스캔) 3권의 오베르 편지(635–651)에서 옮김. 스캔 OCR이 떨어뜨린 악센트와 글자 오류만 바로잡고 (Theo→Théo, eher→cher, surlaquelle→sur laquelle, Raffaelli→Raffaëlli, 6/ä/q→é/à/ç 등) 철자 하나를 지금 표기로 다듬음 (au dessus→au-dessus); 각주 표시(*)는 뺌. 문장은 편지에서 발췌. 영어 · 한국어는 이 앱의 새 번역. 그림은 위키미디어 공용의 공공 영역(PD-Art) 이미지, 또는 1914년판의 편지 속 스케치.",
+ "series": "vincent",
+ "chapter": "VIII",
+ "title_fr": "Auvers",
+ "title_en": "Auvers",
+ "title_ko": "오베르",
+ "original": "fr",
+ "letters": [
+  {
+   "id": "c8-l1",
+   "date": "1890-05",
+   "dateNote": "Undated in the 1914 edition beyond the section header (Auvers s/Oise, 21 Mei – 29 Juli 1890); written in his first days at Auvers-sur-Oise, where he arrived on 20 May 1890.",
+   "ref": "Brieven 1914, n° 635 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 635 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Auvers-sur-Oise",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Auvers est bien beau, beaucoup de vieux chaume entre autres, ce qui devient rare.",
+     "en": "Auvers is very beautiful, lots of old thatch among other things, which is becoming rare.",
+     "ko": "오베르는 정말 아름다워. 무엇보다 오래된 초가지붕이 많은데, 이젠 보기 드문 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 635 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Auvers est bien beau, // beaucoup de vieux chaume entre autres, // ce qui devient rare."
+     }
+    },
+    {
+     "fr": "J'espérerais donc qu'en faisant quelques toiles de cela bien sérieusement, il y aurait une chance de rentrer dans les frais du séjour — car réellement c'est gravement beau, c'est de la pleine campagne caractéristique et pittoresque.",
+     "en": "So I'd hope that by doing a few canvases of it, very seriously, there'd be a chance of covering the cost of my stay — for really it is solemnly beautiful; it's the real countryside, characteristic and picturesque.",
+     "ko": "그래서 이걸 아주 진지하게 몇 점 그리면 여기 머무는 비용쯤은 건질 수 있지 않을까 해. 정말이지 엄숙할 만큼 아름다워. 개성 있고 그림 같은, 진짜 시골이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 635 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'espérerais donc / qu'en faisant quelques toiles de cela / bien sérieusement, // il y aurait une chance / de rentrer dans les frais du séjour // — car réellement c'est gravement beau, // c'est de la pleine campagne / caractéristique et pittoresque."
+     }
+    },
+    {
+     "fr": "Probablement tu verras le Dr. Gachet cette semaine — il a un très beau Pissarro, hiver avec maison rouge dans la neige, et deux beaux bouquets de Cézanne.",
+     "en": "You'll probably see Dr Gachet this week — he has a very fine Pissarro, winter with a red house in the snow, and two fine bouquets by Cézanne.",
+     "ko": "이번 주에 아마 가셰 박사를 보게 될 거야. 그 사람한테 아주 멋진 피사로가 있어. 눈 속의 빨간 집이 있는 겨울 그림이야. 세잔의 근사한 꽃다발 그림도 두 점 있고.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 635 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Probablement tu verras le Dr. Gachet cette semaine // — il a un très beau Pissarro, // hiver avec maison rouge dans la neige, // et deux beaux bouquets de Cézanne."
+     }
+    },
+    {
+     "fr": "Causant de la Belgique et des jours des anciens peintres, sa figure raidie par le chagrin redevient souriante, et je crois bien que je resterai amis avec lui et que je ferai son portrait.",
+     "en": "Talking about Belgium and the days of the old painters, his face, stiffened by grief, smiles again, and I really think I'll stay friends with him and that I'll paint his portrait.",
+     "ko": "벨기에 얘기, 옛 화가들 시절 얘기를 하다 보면 슬픔으로 굳은 그 얼굴이 다시 웃음을 띠어. 그 사람이랑은 계속 친구로 지낼 것 같고, 그의 초상화도 그리게 될 것 같아.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 635 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Causant de la Belgique / et des jours des anciens peintres, // sa figure raidie par le chagrin / redevient souriante, // et je crois bien / que je resterai amis avec lui // et que je ferai son portrait."
+     }
+    },
+    {
+     "fr": "Que je suis content d'avoir vu Jo et le petit et ton appartement, qui certes est mieux que l'autre.",
+     "en": "How glad I am to have seen Jo and the little one, and your flat, which is certainly better than the other one.",
+     "ko": "조랑 아기랑 너희 집을 보고 와서 얼마나 기쁜지 몰라. 새 집이 전 집보다 확실히 낫더라.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 635 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Que je suis content / d'avoir vu Jo et le petit / et ton appartement, // qui certes est mieux que l'autre."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "chaume",
+     "pos": "n.m.",
+     "ipa": "ʃom",
+     "en": "thatch",
+     "ko": "초가지붕",
+     "icon": "🛖"
+    },
+    {
+     "fr": "toile",
+     "pos": "n.f.",
+     "ipa": "twal",
+     "en": "canvas",
+     "ko": "캔버스"
+    },
+    {
+     "fr": "campagne",
+     "pos": "n.f.",
+     "ipa": "kɑ̃paɲ",
+     "en": "countryside",
+     "ko": "시골"
+    },
+    {
+     "fr": "neige",
+     "pos": "n.f.",
+     "ipa": "nɛʒ",
+     "en": "snow",
+     "ko": "눈",
+     "icon": "❄️"
+    },
+    {
+     "fr": "portrait",
+     "pos": "n.m.",
+     "ipa": "pɔʁtʁɛ",
+     "en": "portrait",
+     "ko": "초상화",
+     "icon": "🖼️"
+    }
+   ],
+   "note": {
+    "ko": "빈센트는 파리에서 테오, 조, 갓난 조카와 며칠을 보낸 뒤 1890년 5월 20일 오베르쉬르우아즈에 왔어요. 이제부터는 테오와 조 두 사람에게 프랑스어로 편지를 써요. 1914년판 각주에서 조는 ‘네덜란드 사람 셋이 프랑스어로 이야기한다’고 그를 놀렸다고 적었어요. 그림은 편지에 이름이 나오는 작품은 아니고, 그 무렵 오베르의 초가집들을 그린 한 점이에요.",
+    "en": "Vincent came to Auvers-sur-Oise on 20 May 1890, after a few days in Paris with Theo, Jo and their baby son. From now on he writes in French to both of them; in a footnote to the 1914 edition Jo recalls teasing him that three Dutch people were speaking French together. The picture is not named in the letter; it is one of the thatched cottages of Auvers he painted in those weeks.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 635 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Houses_and_Figure_-_BF136_-_Barnes_Foundation.jpg"
+   },
+   "plate": {
+    "title_fr": "Chaumières au soleil",
+    "title_en": "Thatched Cottages in the Sunshine",
+    "title_ko": "햇빛 속 초가집들",
+    "date": "May–June 1890",
+    "collection": "Barnes Foundation, Philadelphia · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Houses_and_Figure_-_BF136_-_Barnes_Foundation.jpg",
+    "why": "Old thatched houses of Auvers like those the letter admires; PD-Art from Wikimedia Commons.",
+    "image": "v635.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.62,
+      "y": 0.52,
+      "title": {
+       "fr": "Les vieux chaumes",
+       "en": "The old thatch",
+       "ko": "오래된 초가지붕"
+      },
+      "note": {
+       "ko": "이끼 낀 초록빛 초가지붕들이 줄지어 있어요. ‘이젠 보기 드문 것’.",
+       "en": "A row of mossy green thatched roofs: ‘which is becoming rare’."
+      },
+      "word": {
+       "fr": "chaume",
+       "en": "thatch",
+       "ko": "초가지붕",
+       "ipa": "ʃom"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.3,
+      "y": 0.88,
+      "title": {
+       "fr": "La pleine campagne",
+       "en": "The real countryside",
+       "ko": "진짜 시골"
+      },
+      "note": {
+       "ko": "집 앞으로 펼쳐진 풀밭과 덤불. ‘개성 있고 그림 같은, 진짜 시골’.",
+       "en": "Grass and scrub in front of the houses: ‘the real countryside, characteristic and picturesque’."
+      },
+      "word": {
+       "fr": "campagne",
+       "en": "countryside",
+       "ko": "시골",
+       "ipa": "kɑ̃paɲ"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Gachet m'a beaucoup plu aussi.",
+    "en": "I liked Gachet a lot too.",
+    "ko": "나도 가셰 박사가 참 좋더라.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Arrivée à Auvers-sur-Oise · 20 mai 1890",
+      "en": "Arrival in Auvers-sur-Oise · 20 May 1890",
+      "ko": "오베르쉬르우아즈 도착 · 1890년 5월 20일"
+     }
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "v635.jpg",
+     "caption": {
+      "fr": "Vieux chaumes à Auvers",
+      "en": "Old thatch at Auvers",
+      "ko": "오베르의 오래된 초가집"
+     }
+    },
+    {
+     "after": 1,
+     "type": "transfer",
+     "amount": "3,50 francs",
+     "label": {
+      "fr": "L'auberge · par jour",
+      "en": "The inn · per day",
+      "ko": "여관 · 하루치"
+     },
+     "memo": {
+      "fr": "Au lieu de 6 francs",
+      "en": "Instead of 6 francs",
+      "ko": "6프랑 대신"
+     },
+     "outgoing": true
+    }
+   ],
+   "status": {
+    "fr": "Auvers est bien beau",
+    "en": "Auvers is very beautiful",
+    "ko": "오베르는 정말 아름다워"
+   }
+  },
+  {
+   "id": "c8-l2",
+   "date": "1890-05",
+   "dateNote": "Undated in the 1914 edition; late May 1890, between letter 635 (his first days in Auvers) and letter 638 (4 June). The letter itself says it is near the end of the month.",
+   "ref": "Brieven 1914, n° 636 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 636 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Auvers-sur-Oise",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "À présent j'ai une étude de vieux toits de chaume avec sur l'avant-plan un champ de pois en fleur et du blé, fond de colline, une étude que je crois que tu aimeras.",
+     "en": "Now I have a study of old thatched roofs with, in the foreground, a field of peas in flower and some wheat, a hill behind: a study I think you'll like.",
+     "ko": "지금은 오래된 초가지붕을 그린 습작이 하나 있어. 앞쪽엔 꽃 핀 완두 밭이랑 밀, 뒤로는 언덕. 네 마음에 들 것 같아.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 636 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "À présent / j'ai une étude de vieux toits de chaume / avec sur l'avant-plan / un champ de pois en fleur et du blé, // fond de colline, // une étude que je crois que tu aimeras."
+     }
+    },
+    {
+     "fr": "Et je m'aperçois déjà que cela m'a fait du bien d'aller dans le midi pour mieux voir le nord. C'est comme je le supposais, je vois des violets davantage où ils sont.",
+     "en": "And I'm already noticing that going to the south has done me good, so as to see the north better. It's as I supposed: I see violets more, where they are.",
+     "ko": "벌써 느껴져. 남쪽에 다녀온 덕분에 북쪽이 더 잘 보여. 짐작한 대로야. 보라가 있는 곳에서 보라가 더 많이 보여.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 636 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Et je m'aperçois déjà / que cela m'a fait du bien / d'aller dans le midi / pour mieux voir le nord. // C'est comme je le supposais, // je vois des violets davantage / où ils sont."
+     }
+    },
+    {
+     "fr": "C'est très coloré ici — mais comme il y a de jolies maisons de campagne bourgeoises, bien plus joli que Ville d'Avray, etc. à mon goût.",
+     "en": "It's very colourful here — and what pretty middle-class country houses there are, much prettier than Ville d'Avray and so on, to my taste.",
+     "ko": "여긴 색이 참 많아. 그리고 예쁜 시골 저택들이 얼마나 많은지. 내 취향엔 빌다브레 같은 데보다 훨씬 예뻐.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 636 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "C'est très coloré ici // — mais comme il y a de jolies maisons / de campagne bourgeoises, // bien plus joli que Ville d'Avray, etc. / à mon goût."
+     }
+    },
+    {
+     "fr": "C'est en travaillant que l'on se rencontre, et ça c'est la meilleure manière.",
+     "en": "It's by working that people meet, and that's the best way.",
+     "ko": "사람은 일하면서 만나게 되는 거야. 그게 제일 좋은 방법이고.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 636 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "C'est en travaillant / que l'on se rencontre, // et ça c'est la meilleure manière."
+     }
+    },
+    {
+     "fr": "Serai bien content si d'ici quelque temps tu viennes un dimanche ici avec ta famille.",
+     "en": "I'll be very glad if before long you come here one Sunday with your family.",
+     "ko": "머지않아 일요일에 가족이랑 여기 한번 와 주면 정말 좋겠어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 636 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Serai bien content / si d'ici quelque temps / tu viennes un dimanche ici / avec ta famille."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "pois",
+     "pos": "n.m.",
+     "ipa": "pwa",
+     "en": "pea",
+     "ko": "완두",
+     "icon": "🫛"
+    },
+    {
+     "fr": "blé",
+     "pos": "n.m.",
+     "ipa": "ble",
+     "en": "wheat",
+     "ko": "밀",
+     "icon": "🌾"
+    },
+    {
+     "fr": "colline",
+     "pos": "n.f.",
+     "ipa": "kɔlin",
+     "en": "hill",
+     "ko": "언덕",
+     "icon": "⛰️"
+    },
+    {
+     "fr": "nord",
+     "pos": "n.m.",
+     "ipa": "nɔʁ",
+     "en": "north",
+     "ko": "북쪽",
+     "icon": "🧭"
+    },
+    {
+     "fr": "dimanche",
+     "pos": "n.m.",
+     "ipa": "dimɑ̃ʃ",
+     "en": "Sunday",
+     "ko": "일요일"
+    }
+   ],
+   "note": {
+    "ko": "편지 첫머리에서 빈센트는 깜빡한 주소를 알려 줘요. 시청 광장의 라부 여관이에요. 편지가 말하는 습작, 완두 밭과 언덕이 있는 초가지붕 그림은 여기 실린 그림과 다른 작품이에요. 톨레도 미술관의 이 그림도 오베르에 온 첫 몇 주에 그린 것으로, 초가지붕 옆에 푸르스름한 지붕의 집이 서 있어요.",
+    "en": "At the start of the letter Vincent gives the address he forgot last time: the Ravoux inn on the Place de la Mairie. The study he describes, thatched roofs with a field of peas and a hill, is a different canvas from the one shown here. This Toledo picture also dates from his first weeks in Auvers: a thatched roof beside a house with a bluish roof.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 636 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Houses_at_Auvers_-_Google_Art_Project.jpg"
+   },
+   "plate": {
+    "title_fr": "Maisons à Auvers",
+    "title_en": "Houses at Auvers",
+    "title_ko": "오베르의 집들",
+    "date": "June 1890",
+    "collection": "Toledo Museum of Art · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Houses_at_Auvers_-_Google_Art_Project.jpg",
+    "why": "Houses of Auvers painted in his first weeks there; PD-Art from Wikimedia Commons.",
+    "image": "v636.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.22,
+      "y": 0.43,
+      "title": {
+       "fr": "Le toit de chaume",
+       "en": "The thatched roof",
+       "ko": "초가지붕"
+      },
+      "note": {
+       "ko": "보라와 초록이 섞인 두꺼운 초가지붕.",
+       "en": "A thick thatched roof streaked with violet and green."
+      },
+      "word": {
+       "fr": "chaume",
+       "en": "thatched",
+       "ko": "초가지붕",
+       "ipa": "ʃom"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.6,
+      "y": 0.33,
+      "title": {
+       "fr": "Des violets",
+       "en": "Violets",
+       "ko": "보라"
+      },
+      "note": {
+       "ko": "푸른 보랏빛 지붕. ‘보라가 있는 곳에서 보라가 더 많이 보여’.",
+       "en": "A blue-violet roof: ‘I see violets more, where they are’."
+      },
+      "word": {
+       "fr": "violets",
+       "en": "violets",
+       "ko": "보라",
+       "ipa": "vjɔlɛ"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.5,
+      "y": 0.5,
+      "title": {
+       "fr": "Une maison de campagne",
+       "en": "A country house",
+       "ko": "시골 저택"
+      },
+      "note": {
+       "ko": "초록 덧창이 달린 흰 집과 앞뜰의 나무들.",
+       "en": "A white house with green shutters and young trees in front."
+      },
+      "word": {
+       "fr": "maisons",
+       "en": "houses",
+       "ko": "저택",
+       "ipa": "mɛzɔ̃"
+      },
+      "quote": 2
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Nous viendrons un dimanche, promis.",
+    "en": "We'll come one Sunday, promise.",
+    "ko": "일요일에 꼭 갈게, 약속해.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Adresse : Place de la Mairie, chez Ravoux",
+      "en": "Address: Place de la Mairie, at Ravoux's",
+      "ko": "주소 · 시청 광장, 라부네 여관"
+     }
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "v636.jpg",
+     "caption": {
+      "fr": "Maisons à Auvers",
+      "en": "Houses at Auvers",
+      "ko": "오베르의 집들"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Je vois des violets",
+    "en": "I see violets",
+    "ko": "보라가 보여"
+   }
+  },
+  {
+   "id": "c8-l3",
+   "date": "1890-06-04",
+   "ref": "Brieven 1914, n° 638 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 638 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Auvers-sur-Oise",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "Je pense souvent à toi, à Jo et au petit, et je vois que les enfants ici au grand air sain ont l'air de bien se porter.",
+     "en": "I often think of you, of Jo and the little one, and I see that the children here, in the healthy open air, look very well.",
+     "ko": "너랑 조랑 아기 생각을 자주 해. 여기 아이들은 맑은 바깥 공기 속에서 아주 튼튼해 보여.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 638 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je pense souvent à toi, / à Jo et au petit, // et je vois que les enfants ici / au grand air sain / ont l'air de bien se porter."
+     }
+    },
+    {
+     "fr": "Je travaille à son portrait, la tête avec une casquette blanche, très blonde, très claire, … un frac bleu et un fond bleu cobalt, appuyé sur une table rouge, sur laquelle un livre jaune et une plante de digitale à fleurs pourpres.",
+     "en": "I'm working on his portrait: the head with a white cap, very fair, very light, … a blue frock coat and a cobalt blue background, leaning on a red table, on which there's a yellow book and a foxglove plant with purple flowers.",
+     "ko": "그 사람 초상화를 그리고 있어. 흰 모자를 쓴 머리는 아주 밝은 금빛, … 파란 프록코트에 코발트블루 배경. 빨간 탁자에 기대 있고, 탁자 위엔 노란 책 한 권과 보랏빛 꽃이 핀 디기탈리스.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 638 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je travaille à son portrait, // la tête avec une casquette blanche, / très blonde, très claire, // … un frac bleu / et un fond bleu cobalt, // appuyé sur une table rouge, // sur laquelle un livre jaune / et une plante de digitale / à fleurs pourpres."
+     }
+    },
+    {
+     "fr": "M. Gachet est absolument fanatique pour ce portrait et veut que j'en fasse un pour lui, si je peux, absolument comme cela, ce que je désire faire aussi.",
+     "en": "M. Gachet is absolutely fanatical about this portrait and wants me to do one for him, if I can, exactly like it, which I want to do too.",
+     "ko": "가셰 씨가 이 초상화에 완전히 반했어. 할 수 있으면 똑같이 하나 그려 달래. 나도 그러고 싶어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 638 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "M. Gachet est absolument fanatique / pour ce portrait // et veut que j'en fasse un pour lui, / si je peux, / absolument comme cela, // ce que je désire faire aussi."
+     }
+    },
+    {
+     "fr": "Alors je m'en fais une fête de faire les portraits de vous tous en plein air : le tien, celui de Jo et celui du petit.",
+     "en": "So I'm looking forward to painting portraits of all of you in the open air: yours, Jo's and the little one's.",
+     "ko": "그래서 너희 모두를 바깥에서 그릴 생각에 벌써 신이 나. 네 초상, 조의 초상, 그리고 아기 초상.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 638 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Alors je m'en fais une fête / de faire les portraits de vous tous en plein air : // le tien, / celui de Jo / et celui du petit."
+     }
+    },
+    {
+     "fr": "Mais enfin je vis au jour le jour — il fait si beau. Et la santé va bien, je me couche à 9 heures, mais me lève à 5 heures la plupart du temps.",
+     "en": "But anyway I live from day to day — the weather is so fine. And my health is good: I go to bed at 9 but get up at 5 most of the time.",
+     "ko": "아무튼 나는 하루하루 살아. 날씨가 정말 좋아. 건강도 괜찮고. 9시에 자서 대개 5시에 일어나.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 638 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Mais enfin je vis au jour le jour // — il fait si beau. // Et la santé va bien, // je me couche à 9 heures, / mais me lève à 5 heures / la plupart du temps."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "casquette",
+     "pos": "n.f.",
+     "ipa": "kaskɛt",
+     "en": "cap",
+     "ko": "모자",
+     "icon": "🧢"
+    },
+    {
+     "fr": "digitale",
+     "pos": "n.f.",
+     "ipa": "diʒital",
+     "en": "foxglove",
+     "ko": "디기탈리스",
+     "icon": "🌸"
+    },
+    {
+     "fr": "livre",
+     "pos": "n.m.",
+     "ipa": "livʁ",
+     "en": "book",
+     "ko": "책",
+     "icon": "📖"
+    },
+    {
+     "fr": "plein air",
+     "pos": "expr.",
+     "ipa": "plɛn‿ɛʁ",
+     "en": "(in the) open air",
+     "ko": "바깥, 야외"
+    },
+    {
+     "fr": "santé",
+     "pos": "n.f.",
+     "ipa": "sɑ̃te",
+     "en": "health",
+     "ko": "건강"
+    }
+   ],
+   "note": {
+    "ko": "편지가 그리는 것은 탁자 위에 노란 책이 놓인 첫 번째 초상화로, 지금은 개인 소장이에요. 여기 실린 오르세 미술관의 그림은 두 번째 판본이에요. 가셰가 ‘똑같이 하나’ 원했다는 그 그림으로, 디기탈리스는 있지만 노란 책은 없어요.",
+    "en": "The letter describes the first version of the portrait, with the yellow book on the table, which is now in a private collection. The picture here is the second version, in the Musée d'Orsay: the one Gachet wanted ‘exactly like it’. The foxglove is there, but the yellow book is not.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 638 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Dr_Paul_Gachet_-_Google_Art_Project.jpg"
+   },
+   "plate": {
+    "title_fr": "Le Docteur Paul Gachet",
+    "title_en": "Portrait of Dr Paul Gachet",
+    "title_ko": "가셰 박사의 초상",
+    "date": "June 1890",
+    "collection": "Musée d’Orsay, Paris · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Dr_Paul_Gachet_-_Google_Art_Project.jpg",
+    "why": "The second version of the portrait the letter describes (the first, with the yellow books, is in a private collection — say so); PD-Art from Wikimedia Commons.",
+    "image": "v638.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.28,
+      "y": 0.12,
+      "title": {
+       "fr": "La casquette blanche",
+       "en": "The white cap",
+       "ko": "흰 모자"
+      },
+      "note": {
+       "ko": "흰 모자 아래로 밝은 금빛 머리카락.",
+       "en": "Light, fair hair under the white cap."
+      },
+      "word": {
+       "fr": "casquette",
+       "en": "cap",
+       "ko": "모자",
+       "ipa": "kaskɛt"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.12,
+      "y": 0.8,
+      "title": {
+       "fr": "La digitale",
+       "en": "The foxglove",
+       "ko": "디기탈리스"
+      },
+      "note": {
+       "ko": "빨간 탁자 위에 놓인 디기탈리스 가지. 이 판본에선 꽃이 푸른 보랏빛이에요.",
+       "en": "A sprig of foxglove on the red table; in this version the flowers are a bluish purple."
+      },
+      "word": {
+       "fr": "digitale",
+       "en": "foxglove",
+       "ko": "디기탈리스",
+       "ipa": "diʒital"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.82,
+      "y": 0.12,
+      "title": {
+       "fr": "Le fond bleu cobalt",
+       "en": "The cobalt blue background",
+       "ko": "코발트블루 배경"
+      },
+      "note": {
+       "ko": "언덕처럼 굽이치는 짙은 파랑의 배경.",
+       "en": "A deep blue background rolling like hills."
+      },
+      "word": {
+       "fr": "bleu cobalt",
+       "en": "cobalt",
+       "ko": "코발트블루",
+       "ipa": "blø kɔbalt"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Nous poserons pour toi en plein air.",
+    "en": "We'll sit for you in the open air.",
+    "ko": "우리, 바깥에서 형 모델 해 줄게.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "transfer",
+     "amount": "50 francs",
+     "label": {
+      "fr": "Théo a envoyé",
+      "en": "Theo sent",
+      "ko": "테오가 보냄"
+     },
+     "memo": {
+      "fr": "Paris → Auvers",
+      "en": "Paris → Auvers",
+      "ko": "파리 → 오베르"
+     },
+     "outgoing": false
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "v638.jpg",
+     "caption": {
+      "fr": "Le docteur Gachet · la seconde version",
+      "en": "Dr Gachet · the second version",
+      "ko": "가셰 박사 · 두 번째 판본"
+     }
+    },
+    {
+     "after": 4,
+     "type": "weather",
+     "title": {
+      "fr": "Le temps à Auvers",
+      "en": "Weather in Auvers",
+      "ko": "오베르의 날씨"
+     },
+     "value": {
+      "fr": "beau temps",
+      "en": "fine weather",
+      "ko": "맑음"
+     },
+     "quote": "il fait si beau",
+     "icon": "sun"
+    }
+   ],
+   "status": {
+    "fr": "Le portrait du docteur",
+    "en": "The doctor's portrait",
+    "ko": "의사 선생의 초상"
+   }
+  },
+  {
+   "id": "c8-l4",
+   "date": "1890-06-10",
+   "ref": "Brieven 1914, n° 640 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 640 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Auvers-sur-Oise",
+   "mood": "tender",
+   "messages": [
+    {
+     "fr": "La journée de dimanche m'a laissé un souvenir bien agréable, ainsi on sent bien qu'on est moins loin les uns des autres, et j'espère que nous nous reverrons souvent.",
+     "en": "Sunday has left me a very pleasant memory; that way we really feel we are less far from one another, and I hope we'll see each other often.",
+     "ko": "일요일은 정말 좋은 추억으로 남았어. 이렇게 보니 우리가 서로 그리 멀지 않다는 게 느껴져. 자주 다시 보자.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 640 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "La journée de dimanche / m'a laissé un souvenir bien agréable, // ainsi on sent bien / qu'on est moins loin les uns des autres, // et j'espère / que nous nous reverrons souvent."
+     }
+    },
+    {
+     "fr": "Depuis dimanche j'ai fait deux études de maisons dans la verdure ; à côté de la maison où je suis il est venu s'établir toute une colonie d'Américains qui font de la peinture, mais je n'ai pas encore vu ce qu'ils font.",
+     "en": "Since Sunday I've done two studies of houses among the greenery; next door to the house where I'm staying a whole colony of Americans who paint has come to settle, but I haven't seen what they do yet.",
+     "ko": "일요일 이후로 초록 속의 집들을 습작 두 점으로 그렸어. 내가 묵는 집 옆에 그림 그리는 미국 사람들이 한 무리 들어와 자리를 잡았는데, 뭘 그리는지는 아직 못 봤어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 640 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Depuis dimanche / j'ai fait deux études de maisons dans la verdure ; // à côté de la maison où je suis / il est venu s'établir / toute une colonie d'Américains / qui font de la peinture, // mais je n'ai pas encore vu / ce qu'ils font."
+     }
+    },
+    {
+     "fr": "Je trouvais que le petit a bonne mine et vous autres aussi ; il faudra vite revenir.",
+     "en": "I thought the little one was looking well, and you two as well; you must come back soon.",
+     "ko": "아기도 얼굴이 좋아 보였고 너희 둘도 그랬어. 얼른 또 와야 해.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 640 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je trouvais que le petit a bonne mine / et vous autres aussi ; // il faudra vite revenir."
+     }
+    },
+    {
+     "fr": "Je regrette bien ne pas voir l'exposition Raffaëlli ; surtout je voudrais aussi voir ton arrangement de ces dessins sur de la cretonne, comme tu disais.",
+     "en": "I'm sorry not to see the Raffaëlli exhibition; above all I'd also like to see your arrangement of those drawings on cretonne, as you were saying.",
+     "ko": "라파엘리 전시를 못 보는 게 참 아쉬워. 무엇보다 네가 말한 대로 그 소묘들을 크레톤 천 위에 배치한 걸 보고 싶어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 640 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Je regrette bien / ne pas voir l'exposition Raffaëlli ; // surtout je voudrais aussi voir / ton arrangement de ces dessins / sur de la cretonne, / comme tu disais."
+     }
+    },
+    {
+     "fr": "Un jour ou un autre je crois que je trouverai moyen de faire une exposition à moi dans un café, je ne détesterais pas d'exposer avec Chéret, qui doit avoir des idées là-dessus certainement.",
+     "en": "One day or another I think I'll find a way to have an exhibition of my own in a café; I wouldn't mind exhibiting with Chéret, who must certainly have ideas about that.",
+     "ko": "언젠가는 카페에서 내 전시를 열 방법을 찾을 거야. 셰레랑 같이 전시해도 좋겠어. 그 사람이라면 분명 생각이 있을 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 640 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Un jour ou un autre / je crois que je trouverai moyen / de faire une exposition à moi dans un café, // je ne détesterais pas / d'exposer avec Chéret, // qui doit avoir des idées là-dessus / certainement."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "souvenir",
+     "pos": "n.m.",
+     "ipa": "suvniʁ",
+     "en": "memory",
+     "ko": "추억"
+    },
+    {
+     "fr": "verdure",
+     "pos": "n.f.",
+     "ipa": "vɛʁdyʁ",
+     "en": "greenery",
+     "ko": "초록, 푸른 나무와 풀",
+     "icon": "🌿"
+    },
+    {
+     "fr": "bonne mine",
+     "pos": "expr.",
+     "ipa": "bɔn min",
+     "en": "looking well",
+     "ko": "얼굴이 좋음"
+    },
+    {
+     "fr": "exposition",
+     "pos": "n.f.",
+     "ipa": "ɛkspozisjɔ̃",
+     "en": "exhibition",
+     "ko": "전시회",
+     "icon": "🖼️"
+    },
+    {
+     "fr": "café",
+     "pos": "n.m.",
+     "ipa": "kafe",
+     "en": "café",
+     "ko": "카페",
+     "icon": "☕"
+    }
+   ],
+   "note": {
+    "ko": "1914년판 각주에서 조는 그 일요일에 아기와 함께 오베르의 가셰 박사 집에서 빈센트와 하루를 보냈다고 적었어요. 편지가 말하는 ‘초록 속의 집들’ 습작 두 점은 여기 실린 그림과 다른 작품이에요. 이 계단 그림은 그해 7월, 같은 오베르의 길과 집들을 그린 것이에요.",
+    "en": "In a footnote to the 1914 edition Jo explains that on that Sunday she and Theo spent the day with the baby and Vincent at Dr Gachet's in Auvers. The two studies of ‘houses among the greenery’ he mentions are different canvases from the one shown here; this stairway picture, of the same village streets and houses, was painted that July.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 640 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Stairway_at_Auvers_(1890).jpg"
+   },
+   "plate": {
+    "title_fr": "L’Escalier d’Auvers",
+    "title_en": "Stairway at Auvers",
+    "title_ko": "오베르의 계단",
+    "date": "July 1890",
+    "collection": "Saint Louis Art Museum · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Stairway_at_Auvers_(1890).jpg",
+    "why": "A street of Auvers with figures, painted that summer; public-domain image from Wikimedia Commons.",
+    "image": "v640.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.6,
+      "y": 0.15,
+      "title": {
+       "fr": "Une maison dans la verdure",
+       "en": "A house among the greenery",
+       "ko": "초록 속의 집"
+      },
+      "note": {
+       "ko": "빨간 지붕의 흰 집이 나무들 사이에 서 있어요.",
+       "en": "A white house with a red roof standing among the trees."
+      },
+      "word": {
+       "fr": "maisons",
+       "en": "houses",
+       "ko": "집",
+       "ipa": "mɛzɔ̃"
+      },
+      "quote": 1
+     },
+     {
+      "x": 0.2,
+      "y": 0.3,
+      "title": {
+       "fr": "La verdure",
+       "en": "The greenery",
+       "ko": "초록"
+      },
+      "note": {
+       "ko": "꿈틀거리는 붓질로 그린 덤불과 나무.",
+       "en": "Bushes and trees in writhing brushstrokes."
+      },
+      "word": {
+       "fr": "verdure",
+       "en": "greenery",
+       "ko": "초록",
+       "ipa": "vɛʁdyʁ"
+      },
+      "quote": 1
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Nous reviendrons très vite te voir.",
+    "en": "We'll come back to see you very soon.",
+    "ko": "곧 또 보러 갈게.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Dimanche 8 juin · Théo, Jo et le petit à Auvers",
+      "en": "Sunday 8 June · Theo, Jo and the baby in Auvers",
+      "ko": "6월 8일 일요일 · 테오와 조, 아기가 오베르에"
+     }
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "v640.jpg",
+     "caption": {
+      "fr": "L'escalier d'Auvers",
+      "en": "Stairway at Auvers",
+      "ko": "오베르의 계단"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Un dimanche ensemble",
+    "en": "A Sunday together",
+    "ko": "함께한 일요일"
+   }
+  },
+  {
+   "id": "c8-l5",
+   "date": "1890-06",
+   "dateNote": "Undated in the 1914 edition; late June 1890, between letter 644 (24 June) and letter 646 (30 June).",
+   "ref": "Brieven 1914, n° 645 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 645 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Auvers-sur-Oise",
+   "mood": "bright",
+   "messages": [
+    {
+     "fr": "Hier et avant-hier j'ai peint le portrait de Mlle Gachet … ; la robe est rose, le mur dans le fond vert avec un point orange, le tapis rouge avec un point vert, le piano violet foncé, cela a 1 mètre de haut sur 50 de large.",
+     "en": "Yesterday and the day before I painted the portrait of Mlle Gachet …: the dress is pink, the wall in the background green with an orange dot, the carpet red with a green dot, the piano dark violet; it's 1 metre high by 50 wide.",
+     "ko": "어제랑 그제 가셰 양의 초상화를 그렸어. … 드레스는 분홍, 뒤쪽 벽은 초록에 주황 점, 양탄자는 빨강에 초록 점, 피아노는 짙은 보라. 높이 1미터, 너비 50센티야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 645 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Hier et avant-hier / j'ai peint le portrait de Mlle Gachet … ; // la robe est rose, // le mur dans le fond vert / avec un point orange, // le tapis rouge / avec un point vert, // le piano violet foncé, // cela a 1 mètre de haut / sur 50 de large."
+     }
+    },
+    {
+     "fr": "C'est une figure que j'ai peinte avec plaisir — mais c'est difficile. Il m'a promis de me la faire poser une autre fois avec un petit orgue. J'en ferai un pour toi.",
+     "en": "It's a figure I enjoyed painting — but it's difficult. He has promised to have her sit for me another time with a small organ. I'll do one for you.",
+     "ko": "즐겁게 그린 인물이야. 그래도 어려워. 다음엔 작은 오르간 앞에서 포즈를 서게 해 주겠다고 약속했어. 그건 너한테 하나 그려 줄게.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 645 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "C'est une figure / que j'ai peinte avec plaisir // — mais c'est difficile. // Il m'a promis / de me la faire poser une autre fois / avec un petit orgue. // J'en ferai un pour toi."
+     }
+    },
+    {
+     "fr": "J'ai remarqué que cette toile fait très bien avec une autre en largeur, de blés, ainsi l'une toile étant en hauteur et rose, l'autre d'un vert pâle et jaune vert complémentaire du rose.",
+     "en": "I've noticed that this canvas goes very well with another, horizontal one of wheat: the one canvas upright and pink, the other pale green and yellow-green, complementary to the pink.",
+     "ko": "이 그림이 가로로 긴 밀밭 그림이랑 아주 잘 어울린다는 걸 알았어. 하나는 세로에 분홍, 다른 하나는 연두와 노란 초록. 분홍의 보색이지.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 645 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai remarqué / que cette toile fait très bien / avec une autre en largeur, de blés, // ainsi l'une toile étant en hauteur et rose, // l'autre d'un vert pâle / et jaune vert / complémentaire du rose."
+     }
+    },
+    {
+     "fr": "Ainsi hier je vis deux figures : la mère en robe carmin foncé, la fille en rose pâle avec un chapeau jaune sans ornement aucun, des figures très saines campagnardes, bien hâlées par le grand air, brûlées par le soleil.",
+     "en": "Yesterday, for instance, I saw two figures: the mother in a dark carmine dress, the daughter in pale pink with a yellow hat without any ornament, very healthy country figures, well tanned by the open air, burnt by the sun.",
+     "ko": "어제는 두 사람을 봤어. 엄마는 짙은 진홍색 옷, 딸은 연분홍 옷에 아무 장식 없는 노란 모자. 바깥바람에 그을리고 햇볕에 탄, 아주 건강한 시골 사람들이었어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 645 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Ainsi hier je vis deux figures : // la mère en robe carmin foncé, // la fille en rose pâle / avec un chapeau jaune / sans ornement aucun, // des figures très saines campagnardes, // bien hâlées par le grand air, / brûlées par le soleil."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "robe",
+     "pos": "n.f.",
+     "ipa": "ʁɔb",
+     "en": "dress",
+     "ko": "드레스, 원피스",
+     "icon": "👗"
+    },
+    {
+     "fr": "piano",
+     "pos": "n.m.",
+     "ipa": "pjano",
+     "en": "piano",
+     "ko": "피아노",
+     "icon": "🎹"
+    },
+    {
+     "fr": "tapis",
+     "pos": "n.m.",
+     "ipa": "tapi",
+     "en": "carpet",
+     "ko": "양탄자"
+    },
+    {
+     "fr": "orgue",
+     "pos": "n.m.",
+     "ipa": "ɔʁɡ",
+     "en": "organ",
+     "ko": "오르간"
+    },
+    {
+     "fr": "soleil",
+     "pos": "n.m.",
+     "ipa": "sɔlɛj",
+     "en": "sun",
+     "ko": "해, 햇볕",
+     "icon": "☀️"
+    }
+   ],
+   "note": {
+    "ko": "모델은 가셰 박사의 딸 마르그리트예요. 638번 편지에서 빈센트는 그녀가 열아홉 살이라고 적었어요. 여기 실린 그림이 바로 편지가 그리는 그 초상화로, 지금은 바젤 미술관에 있어요. 편지에 적은 대로 세로로 길쭉한 캔버스예요.",
+    "en": "The sitter is Marguerite, Dr Gachet's daughter; in letter 638 Vincent says she is nineteen. The picture shown here is the very portrait this letter describes, now in the Kunstmuseum Basel: a tall, narrow canvas, just as the letter's measurements say.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 645 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 638 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Mademoiselle_Gachet_au_piano.jpg"
+   },
+   "plate": {
+    "title_fr": "Marguerite Gachet au piano",
+    "title_en": "Marguerite Gachet at the Piano",
+    "title_ko": "피아노 앞의 마르그리트 가셰",
+    "date": "June 1890",
+    "collection": "Kunstmuseum Basel · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Mademoiselle_Gachet_au_piano.jpg",
+    "why": "The portrait the letter describes; PD-Art from Wikimedia Commons.",
+    "image": "v645.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.75,
+      "title": {
+       "fr": "La robe rose",
+       "en": "The pink dress",
+       "ko": "분홍 드레스"
+      },
+      "note": {
+       "ko": "분홍빛이 감도는 긴 흰 드레스와 허리의 분홍 띠.",
+       "en": "A long whitish dress shot with pink, and a pink sash at the waist."
+      },
+      "word": {
+       "fr": "robe",
+       "en": "dress",
+       "ko": "드레스",
+       "ipa": "ʁɔb"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.8,
+      "y": 0.25,
+      "title": {
+       "fr": "Le mur vert",
+       "en": "The green wall",
+       "ko": "초록 벽"
+      },
+      "note": {
+       "ko": "초록 벽 위에 주황 점이 촘촘히 찍혀 있어요.",
+       "en": "The green wall, dotted all over with orange."
+      },
+      "word": {
+       "fr": "mur",
+       "en": "wall",
+       "ko": "벽",
+       "ipa": "myʁ"
+      },
+      "quote": 0
+     },
+     {
+      "x": 0.15,
+      "y": 0.55,
+      "title": {
+       "fr": "Le piano violet foncé",
+       "en": "The dark violet piano",
+       "ko": "짙은 보라 피아노"
+      },
+      "note": {
+       "ko": "짙은 보랏빛 갈색의 피아노와 건반 위의 두 손.",
+       "en": "The dark violet-brown piano, with her two hands on the keys."
+      },
+      "word": {
+       "fr": "piano",
+       "en": "piano",
+       "ko": "피아노",
+       "ipa": "pjano"
+      },
+      "quote": 0
+     }
+    ]
+   },
+   "reply": {
+    "fr": "J'ai hâte de voir Mlle Gachet.",
+    "en": "I can't wait to see Mlle Gachet.",
+    "ko": "가셰 양 그림, 어서 보고 싶다.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "v645.jpg",
+     "caption": {
+      "fr": "Marguerite Gachet au piano",
+      "en": "Marguerite Gachet at the piano",
+      "ko": "피아노 앞의 마르그리트 가셰"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Une robe rose, un piano violet",
+    "en": "A pink dress, a violet piano",
+    "ko": "분홍 드레스, 보라 피아노"
+   }
+  },
+  {
+   "id": "c8-l6",
+   "date": "1890-07",
+   "dateNote": "Undated in the 1914 edition; July 1890, between letter 646 (30 June) and letter 651 (23 July), after his return from a visit to Paris.",
+   "ref": "Brieven 1914, n° 649 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 649 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Auvers-sur-Oise",
+   "mood": "weary",
+   "messages": [
+    {
+     "fr": "La lettre de Jo a été pour moi réellement comme un évangile, une délivrance d'angoisse, que m'avaient causée les heures un peu difficiles et laborieuses pour nous tous, que j'ai partagées avec vous.",
+     "en": "Jo's letter was truly like a gospel to me, a release from the anguish caused by the rather difficult and laborious hours for all of us that I shared with you.",
+     "ko": "조의 편지는 나한테 정말 복음 같았어. 우리 모두에게 좀 힘들고 고단했던, 너희와 함께 보낸 그 시간들이 남긴 불안에서 풀려난 기분이야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 649 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "La lettre de Jo / a été pour moi réellement comme un évangile, // une délivrance d'angoisse, // que m'avaient causée les heures / un peu difficiles et laborieuses / pour nous tous, // que j'ai partagées avec vous."
+     }
+    },
+    {
+     "fr": "Là — revenu ici je me suis remis au travail — le pinceau pourtant me tombant presque des mains et — sachant bien ce que je voulais, j'ai encore depuis peint trois grandes toiles.",
+     "en": "There — back here, I set to work again — the brush almost falling from my hands, yet — knowing well what I wanted, I've since painted three more large canvases.",
+     "ko": "그래, 여기 돌아와서 다시 일을 시작했어. 붓이 손에서 떨어질 것 같았지만, 내가 뭘 원하는지는 잘 알았으니까. 그 뒤로 큰 캔버스를 세 점 더 그렸어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 649 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Là — revenu ici / je me suis remis au travail // — le pinceau pourtant / me tombant presque des mains // et — sachant bien ce que je voulais, // j'ai encore depuis / peint trois grandes toiles."
+     }
+    },
+    {
+     "fr": "Ce sont d'immenses étendues de blés sous des ciels troubles et je ne me suis pas gêné pour chercher à exprimer de la tristesse, de la solitude extrême.",
+     "en": "They are immense stretches of wheat under troubled skies, and I didn't hold back from trying to express sadness, extreme loneliness.",
+     "ko": "어지러운 하늘 아래 끝없이 펼쳐진 밀밭이야. 슬픔을, 지독한 고독을 담아 보려고 망설이지 않았어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 649 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Ce sont d'immenses étendues de blés / sous des ciels troubles // et je ne me suis pas gêné / pour chercher à exprimer de la tristesse, / de la solitude extrême."
+     }
+    },
+    {
+     "fr": "… je croirais presque que ces toiles vous diront, ce que je ne sais dire en paroles, ce que je vois de sain et de fortifiant dans la campagne.",
+     "en": "… I'd almost believe these canvases will tell you what I can't say in words, what I see that is healthy and strengthening in the countryside.",
+     "ko": "… 이 그림들이 내가 말로는 못 하는 걸 대신 말해 줄 것 같아. 내가 시골에서 보는 건강하고 힘이 되는 것들을.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 649 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "… je croirais presque / que ces toiles vous diront, // ce que je ne sais dire en paroles, // ce que je vois de sain et de fortifiant / dans la campagne."
+     }
+    },
+    {
+     "fr": "Maintenant la troisième toile est le jardin de Daubigny, tableau que je méditais depuis que je suis ici.",
+     "en": "Now, the third canvas is Daubigny's garden, a picture I had been thinking about ever since I came here.",
+     "ko": "그리고 세 번째 그림은 도비니의 정원이야. 여기 온 뒤로 줄곧 구상해 온 그림이지.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 649 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Maintenant la troisième toile / est le jardin de Daubigny, // tableau que je méditais / depuis que je suis ici."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "pinceau",
+     "pos": "n.m.",
+     "ipa": "pɛ̃so",
+     "en": "brush",
+     "ko": "붓",
+     "icon": "🖌️"
+    },
+    {
+     "fr": "étendue",
+     "pos": "n.f.",
+     "ipa": "etɑ̃dy",
+     "en": "expanse, stretch",
+     "ko": "펼쳐진 곳"
+    },
+    {
+     "fr": "trouble",
+     "pos": "adj.",
+     "ipa": "tʁubl",
+     "en": "troubled, murky",
+     "ko": "어지러운, 흐린"
+    },
+    {
+     "fr": "sain",
+     "pos": "adj.",
+     "ipa": "sɛ̃",
+     "en": "healthy",
+     "ko": "건강한"
+    },
+    {
+     "fr": "jardin",
+     "pos": "n.m.",
+     "ipa": "ʒaʁdɛ̃",
+     "en": "garden",
+     "ko": "정원",
+     "icon": "🌳"
+    }
+   ],
+   "note": {
+    "ko": "7월 초 빈센트는 파리의 테오와 조를 보러 갔다가 오베르로 돌아왔어요. 편지는 그 직후 두 사람에게 쓴 거예요. 편지는 밀밭 그림이 어느 것인지 이름을 대지 않아요. 여기 실린 ‘까마귀가 나는 밀밭’은 그달 오베르에서 그린, 어지러운 하늘 아래 밀밭 그림 가운데 하나예요. 세 번째 그림 ‘도비니의 정원’은 다음 편지에 다시 나와요.",
+    "en": "In early July Vincent went to see Theo and Jo in Paris and came back to Auvers; this letter to them both was written soon after. The letter does not name the wheat-field canvases; Wheatfield with Crows, shown here, is one of the wheat fields under troubled skies he painted in Auvers that month. The third canvas, Daubigny's garden, comes back in the next letter.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 649 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:Korenveld_met_kraaien_-_s0149V1962_-_Van_Gogh_Museum.jpg"
+   },
+   "plate": {
+    "title_fr": "Champ de blé aux corbeaux",
+    "title_en": "Wheatfield with Crows",
+    "title_ko": "까마귀가 나는 밀밭",
+    "date": "July 1890",
+    "collection": "Van Gogh Museum, Amsterdam · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Korenveld_met_kraaien_-_s0149V1962_-_Van_Gogh_Museum.jpg",
+    "why": "One of the wheat fields under troubled skies the letter speaks of; PD-Art from Wikimedia Commons.",
+    "image": "v649.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.3,
+      "y": 0.5,
+      "title": {
+       "fr": "Les étendues de blé",
+       "en": "The stretches of wheat",
+       "ko": "펼쳐진 밀밭"
+      },
+      "note": {
+       "ko": "화면 가득 출렁이는 노란 밀.",
+       "en": "Yellow wheat surging across the whole canvas."
+      },
+      "word": {
+       "fr": "blés",
+       "en": "wheat",
+       "ko": "밀밭",
+       "ipa": "ble"
+      },
+      "quote": 2
+     },
+     {
+      "x": 0.45,
+      "y": 0.12,
+      "title": {
+       "fr": "Un ciel trouble",
+       "en": "A troubled sky",
+       "ko": "어지러운 하늘"
+      },
+      "note": {
+       "ko": "짙은 파랑이 소용돌이치는 하늘과 흰 구름 두 덩이.",
+       "en": "A swirling deep-blue sky with two white clouds."
+      },
+      "word": {
+       "fr": "ciels",
+       "en": "skies",
+       "ko": "하늘",
+       "ipa": "sjɛl"
+      },
+      "quote": 2
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Apporte-nous vite ces toiles.",
+    "en": "Bring us those canvases soon.",
+    "ko": "그 그림들, 어서 가져와.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "De retour à Auvers après une visite à Paris",
+      "en": "Back in Auvers after a visit to Paris",
+      "ko": "파리에 다녀와 오베르로 돌아옴"
+     }
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "v649.jpg",
+     "caption": {
+      "fr": "Champ de blé sous un ciel trouble",
+      "en": "Wheat field under a troubled sky",
+      "ko": "어지러운 하늘 아래 밀밭"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Des blés sous des ciels troubles",
+    "en": "Wheat under troubled skies",
+    "ko": "어지러운 하늘 아래 밀밭"
+   }
+  },
+  {
+   "id": "c8-l7",
+   "date": "1890-07-23",
+   "ref": "Brieven 1914, n° 651 · Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 651 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+   "place": "Auvers-sur-Oise",
+   "mood": "calm",
+   "messages": [
+    {
+     "fr": "En ce qui me regarde, je m'applique sur mes toiles avec toute mon attention, je cherche à faire aussi bien que de certains peintres, que j'ai beaucoup aimé et admiré.",
+     "en": "As far as I'm concerned, I'm putting all my attention into my canvases; I'm trying to do as well as certain painters I have much loved and admired.",
+     "ko": "나는 온 정신을 다해 그림에 매달리고 있어. 내가 무척 사랑하고 존경해 온 몇몇 화가들만큼 잘 그려 보려고 해.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 651 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "En ce qui me regarde, // je m'applique sur mes toiles / avec toute mon attention, // je cherche à faire aussi bien / que de certains peintres, // que j'ai beaucoup aimé et admiré."
+     }
+    },
+    {
+     "fr": "J'ai constaté avec plaisir que le Gauguin de Bretagne, que j'ai vu, était très beau et il me semble que les autres, qu'il a fait là-bas, doivent l'être aussi.",
+     "en": "I was pleased to find that the Gauguin from Brittany that I saw was very beautiful, and it seems to me the others he did there must be too.",
+     "ko": "내가 본 고갱의 브르타뉴 그림은 정말 아름다워서 기뻤어. 거기서 그린 다른 그림들도 분명 그럴 거야.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 651 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "J'ai constaté avec plaisir / que le Gauguin de Bretagne, / que j'ai vu, / était très beau // et il me semble / que les autres, / qu'il a fait là-bas, / doivent l'être aussi."
+     }
+    },
+    {
+     "fr": "Peut-être verras-tu ce croquis du jardin de Daubigny — c'est une de mes toiles les plus voulues — j'y joins un croquis de vieux chaumes et les croquis de 2 toiles de 30 représentant d'immenses étendues de blé après la pluie.",
+     "en": "Perhaps you'll look at this sketch of Daubigny's garden — it's one of my most deliberate canvases — I'm adding a sketch of old thatched roofs and the sketches of 2 size-30 canvases showing immense stretches of wheat after the rain.",
+     "ko": "도비니의 정원 스케치를 한번 봐 줘. 내가 가장 공들여 그린 그림 가운데 하나야. 오래된 초가지붕 스케치랑, 비 온 뒤 끝없이 펼쳐진 밀밭을 그린 30호 캔버스 두 점의 스케치도 같이 넣었어.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 651 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Peut-être verras-tu / ce croquis du jardin de Daubigny // — c'est une de mes toiles les plus voulues — // j'y joins un croquis de vieux chaumes / et les croquis de 2 toiles de 30 / représentant d'immenses étendues de blé / après la pluie."
+     }
+    },
+    {
+     "fr": "Le jardin de Daubigny avant-plan d'herbe verte et rose. … Au milieu un parterre de roses, à droite une claie, un mur, et au-dessus du mur un noisetier à feuillage violet.",
+     "en": "Daubigny's garden: foreground of green and pink grass. … In the middle a bed of roses, on the right a wattle fence, a wall, and above the wall a hazel tree with violet foliage.",
+     "ko": "도비니의 정원. 앞쪽은 초록과 분홍의 풀밭. … 가운데엔 장미 화단, 오른쪽엔 바자 울타리와 담, 담 위로는 잎이 보랏빛인 개암나무.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 651 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Le jardin de Daubigny / avant-plan d'herbe verte et rose. // … Au milieu un parterre de roses, // à droite une claie, / un mur, // et au-dessus du mur / un noisetier à feuillage violet."
+     }
+    },
+    {
+     "fr": "Un banc et 3 chaises, une figure noire à chapeau jaune et sur l'avant-plan un chat noir. Ciel vert pâle.",
+     "en": "A bench and 3 chairs, a black figure in a yellow hat, and in the foreground a black cat. Pale green sky.",
+     "ko": "벤치 하나와 의자 셋, 노란 모자를 쓴 검은 인물, 앞쪽엔 검은 고양이. 하늘은 연한 초록.",
+     "verified": true,
+     "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 651 · public domain · https://archive.org/details/brievenaanzijnbr03gogh",
+     "speak": {
+      "fr": "Un banc et 3 chaises, // une figure noire à chapeau jaune / et sur l'avant-plan un chat noir. // Ciel vert pâle."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "croquis",
+     "pos": "n.m.",
+     "ipa": "kʁɔki",
+     "en": "sketch",
+     "ko": "스케치",
+     "icon": "✏️"
+    },
+    {
+     "fr": "pluie",
+     "pos": "n.f.",
+     "ipa": "plɥi",
+     "en": "rain",
+     "ko": "비",
+     "icon": "🌧️"
+    },
+    {
+     "fr": "herbe",
+     "pos": "n.f.",
+     "ipa": "ɛʁb",
+     "en": "grass",
+     "ko": "풀",
+     "icon": "🌱"
+    },
+    {
+     "fr": "banc",
+     "pos": "n.m.",
+     "ipa": "bɑ̃",
+     "en": "bench",
+     "ko": "벤치",
+     "icon": "🪑"
+    },
+    {
+     "fr": "chat",
+     "pos": "n.m.",
+     "ipa": "ʃa",
+     "en": "cat",
+     "ko": "고양이",
+     "icon": "🐈‍⬛"
+    }
+   ],
+   "note": {
+    "ko": "7월 23일에 쓴 이 편지는 빈센트가 테오에게 부친 마지막 편지예요. 1914년판은 편지에 함께 넣은 스케치들을 다음 쪽들에 실었어요. 편지가 그리는 것은 인물과 검은 고양이가 있는 큰 ‘도비니의 정원’이에요. 여기 실린 반 고흐 미술관의 그림은 같은 정원을 그린 작은 판본이라, 인물도 고양이도 없어요.",
+    "en": "Written on 23 July, this is the last letter Vincent sent to Theo. The 1914 edition reproduces the sketches he enclosed on the pages that follow it. The letter describes the large Daubigny's Garden, with a figure and a black cat; the Van Gogh Museum picture shown here is a smaller version of the same garden, without the figure or the cat.",
+    "source": "Brieven aan zijn broeder (J. van Gogh-Bonger, 1914), deel III, brief 651 · public domain · https://archive.org/details/brievenaanzijnbr03gogh ; https://commons.wikimedia.org/wiki/File:De_tuin_van_Daubigny_-_s0104V1962_-_Van_Gogh_Museum.jpg"
+   },
+   "plate": {
+    "title_fr": "Le Jardin de Daubigny",
+    "title_en": "Daubigny’s Garden",
+    "title_ko": "도비니의 정원",
+    "date": "July 1890",
+    "collection": "Van Gogh Museum, Amsterdam · Public domain",
+    "imageLicense": "Public domain",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:De_tuin_van_Daubigny_-_s0104V1962_-_Van_Gogh_Museum.jpg",
+    "why": "A version of the garden the letter describes and sketches; PD-Art from Wikimedia Commons.",
+    "image": "v651.jpg",
+    "exception": "pd-art",
+    "spots": [
+     {
+      "x": 0.62,
+      "y": 0.62,
+      "title": {
+       "fr": "L'herbe verte et rose",
+       "en": "The green and pink grass",
+       "ko": "초록과 분홍의 풀밭"
+      },
+      "note": {
+       "ko": "앞쪽을 가득 채운 풀밭. ‘초록과 분홍의 풀’.",
+       "en": "The grass filling the foreground: ‘green and pink grass’."
+      },
+      "word": {
+       "fr": "herbe",
+       "en": "grass",
+       "ko": "풀밭",
+       "ipa": "ɛʁb"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.3,
+      "y": 0.8,
+      "title": {
+       "fr": "Le parterre de roses",
+       "en": "The bed of roses",
+       "ko": "장미 화단"
+      },
+      "note": {
+       "ko": "흰색, 분홍, 빨강 장미가 핀 화단.",
+       "en": "A flower bed of white, pink and red roses."
+      },
+      "word": {
+       "fr": "roses",
+       "en": "roses",
+       "ko": "장미",
+       "ipa": "ʁoz"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.88,
+      "y": 0.45,
+      "title": {
+       "fr": "La claie",
+       "en": "The wattle fence",
+       "ko": "바자 울타리"
+      },
+      "note": {
+       "ko": "오른쪽 나무들 사이로 보이는 격자 울타리.",
+       "en": "A lattice fence on the right, among the trees."
+      },
+      "word": {
+       "fr": "claie",
+       "en": "fence",
+       "ko": "울타리",
+       "ipa": "klɛ"
+      },
+      "quote": 3
+     }
+    ]
+   },
+   "reply": {
+    "fr": "Ton jardin de Daubigny est magnifique.",
+    "en": "Your Daubigny's garden is magnificent.",
+    "ko": "형의 도비니 정원, 정말 멋지다.",
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+   },
+   "moments": [
+    {
+     "after": 2,
+     "type": "sketch",
+     "image": "v651-daubigny.jpg",
+     "caption": {
+      "fr": "Croquis du jardin de Daubigny",
+      "en": "Sketch of Daubigny's garden",
+      "ko": "도비니의 정원 스케치"
+     },
+     "credit": "Croquis du jardin de Daubigny · Brieven aan zijn broeder (1914), p. 463"
+    },
+    {
+     "after": 2,
+     "type": "sketch",
+     "image": "v651-bles.jpg",
+     "caption": {
+      "fr": "Étendues de blé après la pluie",
+      "en": "Stretches of wheat after the rain",
+      "ko": "비 온 뒤의 밀밭"
+     },
+     "credit": "Croquis : étendues de blé après la pluie · Brieven aan zijn broeder (1914), p. 465"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "v651b.jpg",
+     "caption": {
+      "fr": "Champs de blé après la pluie (La Plaine d'Auvers)",
+      "en": "Wheat Fields after the Rain (The Plain of Auvers)",
+      "ko": "비 온 뒤의 밀밭 (오베르 평원)"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Le jardin de Daubigny",
+    "en": "Daubigny's garden",
+    "ko": "도비니의 정원"
+   }
+  }
+ ]
+}

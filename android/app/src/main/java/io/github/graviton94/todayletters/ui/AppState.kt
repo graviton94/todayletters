@@ -112,9 +112,28 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 처음 설치 (U4): 서재 · 전환 · 오늘을 건너 그 작품의 첫 편지로. 뒤로 가면 오늘. */
     fun startFirstLetter(id: String) {
         enter(id)
+        // 프롤로그(아를 이전)가 있으면 그것부터: 끝나면 첫 편지로 (finishPrologue)
+        if (work(id).prologue.isNotEmpty() && !store.prologueSeen(id)) { go(Route.Prologue(id)); return }
+        openFirst(id)
+    }
+
+    private fun openFirst(id: String) {
         val c = work(id).chapters.firstOrNull() ?: return
         c.letters.firstOrNull()?.let { open(id, c.id, it, Route.Inbox) }
     }
+
+    /** 프롤로그를 다 봤거나 건너뛰었다. 처음이면 첫 편지로, 다시 본 것이면 들어온 곳으로. */
+    fun finishPrologue(id: String) {
+        val first = !store.prologueSeen(id)
+        store.markPrologueSeen(id)
+        if (first && !progress(id, work(id).chapters.first().id, work(id).chapters.first().letters.first().id).done) {
+            stack.removeAll { it is Route.Prologue }
+            openFirst(id)
+        } else back()
+    }
+
+    /** 이 작품의 모든 편지를 다 읽었나 (맺음말 · 완결 도록). */
+    fun seriesDone(id: String) = work(id).chapters.all { c -> c.letters.all { progress(id, c.id, it.id).done } }
 
     /** 화면 스택. 맨 끝이 지금 화면. 알림으로 들어오면 그 시리즈의 오늘부터. */
     val stack = mutableStateListOf<Route>().apply { addAll(if (deepLink && store.onboarded) Nav.trail(Route.Inbox) else listOf(Route.Library)) }
@@ -231,7 +250,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun cardWord(key: String): Triple<Work, Pair<String, Letter>, Int>? {
         val (sid, ch, lid, wi) = key.split(":").takeIf { it.size == 4 } ?: return null
         val w = works.firstOrNull { it.series.id == sid } ?: return null
-        val c = w.chapters.firstOrNull { it.id == ch } ?: return null
+        val c = (if (ch == "P") w.prologueChapter else w.chapters.firstOrNull { it.id == ch }) ?: return null
         val l = c.letters.firstOrNull { it.id == lid } ?: return null
         val i = wi.toIntOrNull()?.takeIf { it in l.words.indices } ?: return null
         return Triple(w, ch to l, i)

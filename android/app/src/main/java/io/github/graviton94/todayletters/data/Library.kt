@@ -39,7 +39,20 @@ data class Work(
     val places: List<Place> = emptyList(),
     /** 시리즈 키트 (빛깔 · 대표 그림 · 화폐 이름 · 갤러리 소장품 · 이달의 전시). */
     val kit: Kit = Kit(),
+    /** 프롤로그 (첫 편지 앞의 도슨트). 낱말 카드 열쇠는 장 "P". */
+    val prologue: List<Docent> = emptyList(),
+    val prologueChapter: Chapter? = null,
+    /** 프롤로그 끝의 도착 화면 (파리 → 아를). */
+    val arrival: Arrival? = null,
+    /** 맺음말 · 아웃트로. */
+    val outro: Outro? = null,
 )
+
+/** 프롤로그 한 장: 그 시절 · 제목 · 설명 + 그 시절을 말하는 원문 한 줄([letter] 의 첫 문장 · 낱말 · 그림). */
+data class Docent(val period: String, val caps: String, val heading: Tri, val sub: String, val body: Tri, val source: Tri, val letter: Letter)
+data class Arrival(val date: String, val route: String, val heading: Tri, val body: Tri)
+/** 아웃트로: 맺음말 편지([epilogue], 장 "E") 와 생애를 맺는 글. */
+data class Outro(val image: String, val credit: String, val caps: String, val name: String, val years: String, val body: List<Tri>, val head: Tri?, val epilogue: Letter?)
 
 /** 앱 안에 넣은 편지 데이터 읽기 (scripts/generate.py 가 data/ 에서 assets/letters/ 로 옮김). */
 object Library {
@@ -56,6 +69,17 @@ object Library {
         return ids.mapNotNull { id ->
             val meta = runCatching { JSONObject(am.open("letters/$id/series.json").bufferedReader().readText()) }.getOrNull() ?: return@mapNotNull null
             val original = Lang.valueOf(meta.getString("original").uppercase())
+            val prologue = meta.optJSONObject("prologue")?.optString("file")?.takeIf { it.isNotEmpty() }?.let { f ->
+                runCatching {
+                    val data = JSONObject(am.open("letters/$id/$f").bufferedReader().readText())
+                    val ls = letters(data)
+                    val arr = data.getJSONArray("letters")
+                    ls.mapIndexed { i, l ->
+                        val d = arr.getJSONObject(i).getJSONObject("docent")
+                        Docent(d.optString("period"), d.optString("caps"), tri(d.getJSONObject("heading")), d.optString("sub"), tri(d.getJSONObject("body")), tri(d.getJSONObject("source")), l)
+                    }
+                }.getOrNull()
+            } ?: emptyList()
             val chapters = meta.getJSONArray("chapters").let { arr ->
                 (0 until arr.length()).map { i ->
                     val c = arr.getJSONObject(i)
@@ -72,6 +96,16 @@ object Library {
                     o.keys().asSequence().map { k -> o.getJSONObject(k).let { p -> Place(k, p.getDouble("x").toFloat(), p.getDouble("y").toFloat(), tri(p.getJSONObject("name")), tri(p.getJSONObject("note")), p.optDouble("lat", 0.0), p.optDouble("lng", 0.0)) } }.toList()
                 } ?: emptyList(),
                 kit = meta.optJSONObject("kit")?.let { kit(it) } ?: Kit(),
+                prologue = prologue,
+                prologueChapter = prologue.takeIf { it.isNotEmpty() }?.let { d -> Chapter(id, "P", Tri(mapOf(Lang.EN to "Prologue")), true, d.map { it.letter }) },
+                arrival = meta.optJSONObject("prologue")?.optJSONObject("arrival")?.let { a -> Arrival(a.optString("date"), a.optString("route"), tri(a.getJSONObject("heading")), tri(a.getJSONObject("body"))) },
+                outro = meta.optJSONObject("outro")?.let { o ->
+                    val ep = runCatching { JSONObject(am.open("letters/$id/${o.getString("file")}").bufferedReader().readText()) }.getOrNull()
+                    val first = ep?.getJSONArray("letters")?.optJSONObject(0)
+                    Outro(o.optString("image"), o.optString("credit"), o.optString("caps"), o.optString("name"), o.optString("years"),
+                        o.optJSONArray("body")?.let { b -> (0 until b.length()).map { tri(b.getJSONObject(it)) } } ?: emptyList(),
+                        first?.optJSONObject("head")?.let { tri(it) }, ep?.let { letters(it).firstOrNull() })
+                },
             )
         }
     }
