@@ -9,6 +9,10 @@
           m<번호>_<언어>.json 에 적어, 앱이 따라 읽기에서 읽는 자리의 낱말을 칠한다.
   결과:   <출력>/<작품>/<챕터>/<편지 id>/m<번호>_<언어>.m4a (+ .json), w<번호>_<언어>.m4a
           32kHz 모노 AAC 32k. 메시지 사이 쉼은 앱이 넣는다.
+  NARRATE_ONLY=vocab: 오늘의 낱말 · 표현만 (data/<작품>/daily.json · daily_en.json · daily_ko.json, 학습 언어마다)
+          v_<언어>_<slug>.m4a  오늘의 낱말 (그 언어의 표제어를 읽음, 사전 키의 "#2" 같은 동형어 표시는 읽지 않음)
+          ph<번호>_<언어>.m4a  오늘의 표현 (phrases 의 t, 번호는 그 언어 phrases 목록에서 1부터)
+          차분한(calm) 프리셋, 높낮이 그대로. 편지 낭독 · 낱말 · 그림 점은 만들지 않는다.
 
 GitHub Actions 에서 돌려요:
   python scripts/narrate.py <supertonic/py> <assets> <편지 파일.json> <출력 폴더> [언어 …]
@@ -96,6 +100,13 @@ def speak(text, lang, pr, lead="", spoken=None):
     return np.concatenate(parts), times
 
 
+def slug(key):
+    """사전 키 → 파일 이름 조각. 영어 소문자 a-z · 숫자 0-9 · '-' 는 그대로, 그 밖의 글자(대문자 · 악센트 · 한글 · '#' 등)는
+    _<유니코드 코드포인트 16진 소문자>_ 로 바꾼다. 대소문자가 다른 키(Leben / leben)도 겹치지 않고, 어느 파일 시스템 · URL 에서도 안전하다.
+      Leben → _4c_eben · côté → c_f4_t_e9_ · ton#2 → ton_23_2 · 누나 → _b204__b098_ · avant-hier → avant-hier"""
+    return "".join(c if ("a" <= c <= "z" or "0" <= c <= "9" or c == "-") else f"_{ord(c):x}_" for c in key)
+
+
 def save(path, audio, pitch):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with tempfile.NamedTemporaryFile(suffix=".wav") as w:
@@ -109,6 +120,22 @@ def save(path, audio, pitch):
 
 # NARRATE_ONLY=spots: 그림 속 산책 낱말만 만든다 (편지 낭독은 그대로 둠)
 ONLY = os.environ.get("NARRATE_ONLY", "")
+if ONLY == "vocab":
+    daily = {lg: json.load(open(f"data/{series}/daily{'' if lg == book['original'] else '_' + lg}.json",
+                                encoding="utf-8"))["letters"] for lg in langs}
+    n = 0
+    for letter in book["letters"]:
+        base = os.path.join(out, series, chapter, letter["id"])
+        for lang in langs:
+            d = daily[lang].get(letter["id"]) or {}
+            for key in d.get("words", []):
+                save(os.path.join(base, f"v_{lang}_{slug(key)}.m4a"),
+                     speak(key.split("#")[0], lang, presets["calm"])[0], 1.0); n += 1
+            for i, ph in enumerate(d.get("phrases", []), 1):
+                save(os.path.join(base, f"ph{i}_{lang}.m4a"), speak(ph["t"], lang, presets["calm"])[0], 1.0); n += 1
+        print("ok", letter["id"], flush=True)
+    print("vocab files", n)
+    sys.exit(0)
 for letter in book["letters"]:
     pr = presets[letter.get("mood") or cast["chapters"][chapter]["mood"]]
     base = os.path.join(out, series, chapter, letter["id"])

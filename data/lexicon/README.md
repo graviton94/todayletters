@@ -43,3 +43,12 @@
 - **예문**: Tatoeba. 한국어는 kor 문장(작성자 표기, CC BY 2.0 FR) 가운데 분석한 표제어가 들어 있고 영어 번역에 뜻풀이 낱말이 보이는 것. 영어는 Tatoeba 의 CC0 영어 문장만 씀(per-language `eng_sentences_detailed` 가 35 MB 라 작성자를 못 받음 → CC0 라 표기 의무 없음, author 칸은 "CC0"); 한국어 번역이 있으면 ko 칸에(드묾). 예문 형식은 [id, 문장, en|null, ko|null, author].
 - **오늘의 낱말**: 원문과 같은 규칙(편지당 8개, 챕터 구간, 반복 없음, 인명 · 기능어 제외). 영어는 한 글자 · 대문자 · 하이픈 낱말 제외, 한국어는 한 음절 낱말(꽃, 별) 허용. spots 는 늘 `[]`. phrases 는 손으로 고른 편지 문구(`src/phrases_<작품>_<en|ko>.txt`).
 - **다시 만들기**: `pip install simplemma kiwipiepy`, Tatoeba 추출본 `tatoeba_eng.tsv` · `tatoeba_kor.tsv`(id, 문장, en, ko, author) 를 한 폴더에 두고 `TATOEBA_DIR=<폴더> python3 scripts/vocab/build_tl.py vincent ko` → `python3 scripts/vocab/daily_tl.py vincent ko` (en · mozart 도 같음) → `python3 scripts/validate_lexicon.py` (세 언어 모두 검사, 언어별 세 파일 합계 400 KB 미만).
+
+## 오늘의 낱말 · 표현 소리 (scripts/narrate.py, `NARRATE_ONLY=vocab`)
+
+편지의 낭독 폴더(`audio/<작품>/<챕터>/<편지 id>/` — P · I · E 는 앱 assets, II–VIII 은 remote/ → R2)에 함께 둔다. 목소리는 그 장의 낭독과 같고(배역표 · 나이), 차분한(calm) 프리셋, 높낮이 그대로.
+
+- `v_<언어>_<slug>.m4a`: 그 언어 daily 파일(`daily.json` = 원문 de/fr, `daily_en.json`, `daily_ko.json`)의 `words` 낱말 하나. 언어는 실제 코드(de · fr · en · ko). 사전 키의 표제어를 읽는다(`ton#2` 는 "ton").
+- `ph<번호>_<언어>.m4a`: 같은 파일 `phrases` 의 표현(`t`) 하나. 번호는 그 언어 phrases 목록에서 **1부터** (첫 표현 = ph1).
+- **slug 규칙** (사전 키 → 파일 이름): 영어 소문자 `a-z` · 숫자 `0-9` · `-` 는 그대로, 그 밖의 글자는 모두 `_<유니코드 코드포인트 16진 소문자>_`. 예: `Leben` → `_4c_eben`, `côté` → `c_f4_t_e9_`, `ton#2` → `ton_23_2`, `누나` → `_b204__b098_`, `avant-hier` → `avant-hier`. Kotlin: `key.codePoints().toArray().joinToString("") { c -> if (c in 'a'.code..'z'.code || c in '0'.code..'9'.code || c == '-'.code) c.toChar().toString() else "_" + Integer.toHexString(c) + "_" }`.
+- 오늘의 낱말이 아닌 낱말(눌러 본 낱말 등)은 소리 파일이 없다 → 앱은 소리 없이 보여 준다.

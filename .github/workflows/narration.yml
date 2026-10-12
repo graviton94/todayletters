@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       file: { description: "편지 파일", default: "data/vincent/chapter1.json" }
-      only: { description: "spots = 그림 산책 낱말만", default: "" }
+      only: { description: "spots = 그림 산책 낱말만, vocab = 오늘의 낱말 · 표현만", default: "" }
       branch: { description: "결과 가지 (여러 장을 함께 돌릴 때 장마다 다르게)", default: "narration" }
 
 jobs:
