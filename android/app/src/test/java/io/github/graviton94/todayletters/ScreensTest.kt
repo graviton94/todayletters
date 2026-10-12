@@ -591,6 +591,9 @@ class ScreensTest {
     @Test fun mozartWalkEra() { val s = state(true); shot("m04_walk_era", true, series = s) { Artwork(s, Route.Artwork("mozart", 1, Route.Letter("mozart", 1, 3))) } }
     @Test fun mozartWalkScore() {
         val s = state(true)
+        // 앱 밖에 둔 장의 그림: 받아 둔 것으로 (받기 전에는 산책 점을 띄우지 않는다, F12)
+        java.io.File("../../remote/plates/m-c6-l5.webp").takeIf { it.exists() }?.copyTo(java.io.File(ctx.filesDir, "plates/m-c6-l5.webp").apply { parentFile?.mkdirs() }, overwrite = true)
+        io.github.graviton94.todayletters.data.AssetFiles.changed()
         shot("m05_walk_score", false, act = { rule.onNodeWithText(io.github.graviton94.todayletters.core.Breaks.keepAll("산책 시작")).performClick() }, series = s) { Artwork(s, Route.Artwork("mozart", 6, Route.Letter("mozart", 6, 5))) }
     }
     @Test fun mozartPrologue() { val s = state(true); shot("m06_prologue_p1", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 0)) } }

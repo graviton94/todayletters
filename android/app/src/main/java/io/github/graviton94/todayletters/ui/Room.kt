@@ -282,8 +282,7 @@ fun Room(s: AppState, r: Route.Letter) {
                     Box(Modifier.weight(1f)) { Hair() }
                 }
             }
-            // 튜토리얼 (편지 I): 읽기 걸음의 안내 한 줄 (도착 장면을 지난 뒤, 처음 한 번)
-            if (!arriving && glossTokens != null) item(key = "${letter.id}:guide") { GuideLine(s, "read") }
+
             // 그 무렵 빈센트의 상태 메시지 (메신저 프로필 한마디처럼)
             letter.status?.let { st -> item(key = "${letter.id}:status") {
                 Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
@@ -404,6 +403,8 @@ fun Room(s: AppState, r: Route.Letter) {
             Modifier.fillMaxWidth().background(p.paper).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
+            // 튜토리얼 (편지 I): 읽기 걸음의 안내 한 줄, 아래 단추 위에 붙여 둔다 (도착 장면을 지난 뒤, 처음 한 번)
+            if (!arriving && glossTokens != null) GuideLine(s, "read")
             when {
                 !finished -> Row(
                     Modifier.fillMaxWidth().heightIn(min = Tokens.Size.buttonSm).dashed(p.line),

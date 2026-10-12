@@ -72,12 +72,13 @@ fun Onboarding(s: AppState) {
     val p = Ink.palette
     val work = s.works.first()
     val ko = uiLang() == Lang.KO
+    val name = work.kit.fullName[uiLang()].ifBlank { work.fullName }
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f).statusBarsPadding().navigationBarsPadding()) {
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s8),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4, Alignment.CenterVertically)) {
             Box(Modifier.border(1.5.dp, p.giltText, CircleShape).padding(3.dp)) { Portrait(work.portrait, work.fullName, 88.dp) }
             Text(stringResource(R.string.welcome_title), style = Type.title.ui(), color = p.ink, modifier = Modifier.padding(top = Tokens.Space.s3))
-            Text(stringResource(R.string.welcome_body, if (ko) josa(work.fullName, "과", "와") else work.fullName), style = Type.body.ui(), color = p.inkSoft)
+            Text(stringResource(R.string.welcome_body, if (ko) josa(name, "과", "와") else name), style = Type.body.ui(), color = p.inkSoft)
             Text(stringResource(R.string.welcome_note), style = Type.small.ui(), color = p.inkSoft)
         }
         Box(Modifier.padding(Tokens.Space.s4)) {

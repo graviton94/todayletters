@@ -158,7 +158,7 @@ private fun TutorialCard(s: AppState, w: Work) {
                     modifier = Modifier.background(t.accent).padding(horizontal = 8.dp, vertical = 2.dp))
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     Box(Modifier.border(1.5.dp, t.accent, CircleShape).padding(1.5.dp)) { Portrait(w.portrait, w.fullName, 40.dp) }
-                    Text(w.fullName, style = Type.heading.ui(), color = t.ink, modifier = Modifier.weight(1f))
+                    Text(w.kit.fullName[uiLang()].ifBlank { w.fullName }, style = Type.heading.ui(), color = t.ink, modifier = Modifier.weight(1f))
                 }
             }
         }

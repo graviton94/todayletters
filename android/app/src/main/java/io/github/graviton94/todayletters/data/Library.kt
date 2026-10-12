@@ -204,6 +204,7 @@ object Library {
             weekdays = o.optString("weekdays", "MTWTFSS"),
             tag = o.optJSONObject("tag")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")),
             about = o.optJSONObject("about")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")),
+            fullName = o.optJSONObject("fullName")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")),
             collection = o.optJSONArray("collection")?.let { a ->
                 (0 until a.length()).mapNotNull { i -> a.getJSONObject(i).let { c ->
                     val tier = runCatching { Tier.valueOf(c.getString("tier").uppercase()) }.getOrNull() ?: return@mapNotNull null

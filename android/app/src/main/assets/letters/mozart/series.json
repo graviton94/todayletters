@@ -103,6 +103,7 @@
   }
  ],
  "kit": {
+  "fullName": {"en": "Wolfgang Amadeus Mozart", "ko": "볼프강 아마데우스 모차르트", "de": "Wolfgang Amadeus Mozart"},
   "about": {"de": "Komponist · von der ersten Italienreise mit 14 bis zum letzten Jahr in Wien", "en": "Composer · from his first Italian journey at 14 to his last year in Vienna · letters home", "ko": "작곡가 · 열네 살의 첫 이탈리아 여행부터 빈의 마지막 해까지 · 집으로 보낸 편지"},
   "_doc": "시리즈 키트: 모차르트의 빛깔(자줏빛 봉랍 · 연분홍 종이) · 대표 그림(벨로토의 빈) · 화폐(두카트).",
   "_tag": "서재 카드의 작품 주제 꼬리표 (미술관 · 오페라): 앱 글자 언어로 보인다.",

@@ -225,6 +225,8 @@ data class Kit(
     val tag: Tri = Tri(mapOf(Lang.EN to "")),
     /** 대화방 정보의 한 줄 소개 (빈센트: 35세 · 화가 · …). 앱 글자 언어로. 없으면 빈 글자 (F21). */
     val about: Tri = Tri(mapOf(Lang.EN to "")),
+    /** 앱 글자 언어로 쓴 온이름 (빈센트 반 고흐). 없으면 빈 글자 → 원래 이름. */
+    val fullName: Tri = Tri(mapOf(Lang.EN to "")),
 )
 
 /** 시리즈 빛깔 한 벌. */
