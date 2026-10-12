@@ -68,6 +68,7 @@ T = {
         "vocab": "낱말 자료",
         "vocab_freq": "낱말 등급(A1–C2): Hermit Dave 의 {fw} (OpenSubtitles 2018 빈도 목록) 순위에서 계산 · CC BY-SA 4.0",
         "vocab_tatoeba": "예문 {n}개: {tt} · CC BY 2.0 FR · 작성자 {a}명 (앱에서 문장마다 작성자를 표기)",
+        "medals": "메달 진열장", "medals_note": "고대 그리스 · 로마 동전과 붉은 그림 잔의 둥근 그림(톤도)을 오려 낸 메달입니다. 원본 사진은 모두 소장처의 공개 이미지(CC0)입니다.",
     },
     "en": {
         "letters": "Letter text", "plates": "Pictures", "music": "Music", "gallery": "Gallery pieces",
@@ -82,6 +83,7 @@ T = {
         "vocab": "Vocabulary",
         "vocab_freq": "Word levels (A1–C2) computed from the ranks in {fw} by Hermit Dave (OpenSubtitles 2018 frequency lists) · CC BY-SA 4.0",
         "vocab_tatoeba": "{n} example sentences from {tt} · CC BY 2.0 FR · by {a} authors (the app credits the author with each sentence)",
+        "medals": "Medal cabinet", "medals_note": "Medals cut out from ancient Greek and Roman coins and the round interior paintings (tondi) of red-figure cups. Every source photo is an open-access image (CC0) from the holding museum.",
     },
 }
 
@@ -400,11 +402,44 @@ def block(S, lang):
     return out
 
 
+def medals_block(lang):
+    """data/medals.json 의 메달 그림 출처: 소장처 · 작품 하나에 한 줄."""
+    path = os.path.join(DATA, "medals.json")
+    if not os.path.exists(path):
+        return []
+    doc = load(path)
+    t = T[lang]
+    seen, items = set(), []
+    for m in doc.get("medals", []) + [doc.get("seriesSpare") or {}]:
+        src = m.get("source") or {}
+        key = (src.get("museum"), src.get("objectID"))
+        if not src or key in seen:
+            continue
+        seen.add(key)
+        for f in ("museum", "objectID", "license", "url"):
+            if not src.get(f):
+                warn(f"medals: {m.get('id', 'seriesSpare')} source.{f} 없음")
+        head = [f"<b>{escape(src.get('title', ''))}</b>"]
+        if src.get("artist"):
+            head.append(escape(src["artist"]))
+        if src.get("date"):
+            head.append(escape(src["date"]))
+        if m.get("title"):
+            head.append(escape(m["title"].get(lang, "")))
+        soft = [escape(src.get("museum", "")), escape(str(src.get("objectID", ""))), escape(src.get("license", "")), link(src.get("url", ""))]
+        items.append(f'<li>{" · ".join(head)}<br><span class="soft">{" · ".join(x for x in soft if x)}</span></li>')
+    if not items:
+        return []
+    return [f'<h2 id="medals-{lang}">{t["medals"]} ({t["count"].format(n=len(items))})</h2>',
+            f'<p class="soft">{t["medals_note"]}</p>', "<ul>"] + items + ["</ul>"]
+
+
 def render(all_series, lang):
     head = f"<!-- 자동 생성: scripts/site_sources.py (앱 저장소 data/). 이 표시 사이는 손으로 고치지 말 것. -->"
     body = [head]
     for S in all_series:
         body += block(S, lang)
+    body += medals_block(lang)
     return "\n".join(body)
 
 

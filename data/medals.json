@@ -1,0 +1,1057 @@
+{
+ "_doc": "메달 진열장과 끝없는 레벨 (데이터만). 이미지는 assets/medals/<id>.webp (256×256, 투명 배경). 모든 그림은 메트로폴리탄 미술관 Open Access (CC0) 소장품 사진을 동전 · 잔 안쪽 둥근 그림(톤도)만 오려 낸 것. 등급(tier)은 금속에 맞춤: bronze = 청동 · 황동, silver = 은, gold = 금. series 메달은 붉은 그림 잔의 톤도. metric 은 core Stats 이름(없는 것은 새로 둘 것: readAlongStars, walksDone, seriesCompleted). 설명은 data/medals.md.",
+ "families": [
+  {
+   "id": "streak",
+   "title": {
+    "ko": "이어 읽기",
+    "en": "Reading streak"
+   },
+   "metric": "bestStreak",
+   "unit": {
+    "ko": "일",
+    "en": "days"
+   }
+  },
+  {
+   "id": "letters",
+   "title": {
+    "ko": "읽은 편지",
+    "en": "Letters read"
+   },
+   "metric": "lettersDone",
+   "unit": {
+    "ko": "통",
+    "en": "letters"
+   }
+  },
+  {
+   "id": "words",
+   "title": {
+    "ko": "익힌 낱말",
+    "en": "Words learned"
+   },
+   "metric": "wordsKnown",
+   "unit": {
+    "ko": "개",
+    "en": "words"
+   }
+  },
+  {
+   "id": "stars",
+   "title": {
+    "ko": "따라 읽기 별",
+    "en": "Read-along stars"
+   },
+   "metric": "readAlongStars",
+   "unit": {
+    "ko": "개",
+    "en": "stars"
+   }
+  },
+  {
+   "id": "walks",
+   "title": {
+    "ko": "감상한 그림",
+    "en": "Paintings appreciated"
+   },
+   "metric": "walksDone",
+   "unit": {
+    "ko": "점",
+    "en": "walks"
+   }
+  },
+  {
+   "id": "series",
+   "title": {
+    "ko": "완주한 시리즈",
+    "en": "Series completed"
+   },
+   "metric": "seriesCompleted:<id>",
+   "unit": {
+    "ko": "",
+    "en": ""
+   }
+  }
+ ],
+ "medals": [
+  {
+   "id": "streak_3",
+   "family": "streak",
+   "tier": "bronze",
+   "threshold": 3,
+   "title": {
+    "ko": "첫 등불",
+    "en": "First Lamp"
+   },
+   "image": "medals/streak_3.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 248041,
+    "title": "Bronze dupondius of Nerva",
+    "date": "97 CE",
+    "url": "https://www.metmuseum.org/art/collection/search/248041",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "streak_7",
+   "family": "streak",
+   "tier": "bronze",
+   "threshold": 7,
+   "title": {
+    "ko": "이레의 순례",
+    "en": "Seven-Day Pilgrim"
+   },
+   "image": "medals/streak_7.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 247169,
+    "title": "Bronze sestertius of Trebonianus Gallus",
+    "date": "251–253 CE",
+    "url": "https://www.metmuseum.org/art/collection/search/247169",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "streak_14",
+   "family": "streak",
+   "tier": "silver",
+   "threshold": 14,
+   "title": {
+    "ko": "헤라클레스의 끈기",
+    "en": "Labours of Herakles"
+   },
+   "image": "medals/streak_14.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 247146,
+    "title": "Silver tetradrachm",
+    "date": "315–308 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/247146",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "streak_30",
+   "family": "streak",
+   "tier": "silver",
+   "threshold": 30,
+   "title": {
+    "ko": "한 달의 행군",
+    "en": "A Month's March"
+   },
+   "image": "medals/streak_30.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 255259,
+    "title": "Silver tetradrachm of Perseus",
+    "date": "ca. 178–168 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/255259",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "streak_60",
+   "family": "streak",
+   "tier": "gold",
+   "threshold": 60,
+   "title": {
+    "ko": "빛의 관",
+    "en": "Radiant Crown"
+   },
+   "image": "medals/streak_60.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 253072,
+    "title": "Gold oktadrachm of Ptolemy IV Philopator",
+    "date": "221–204 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/253072",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "streak_100",
+   "family": "streak",
+   "tier": "gold",
+   "threshold": 100,
+   "title": {
+    "ko": "백 일의 여신",
+    "en": "Diva of a Hundred Days"
+   },
+   "image": "medals/streak_100.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 246882,
+    "title": "Gold aureus of Antoninus Pius",
+    "date": "141 CE",
+    "url": "https://www.metmuseum.org/art/collection/search/246882",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "streak_365",
+   "family": "streak",
+   "tier": "gold",
+   "threshold": 365,
+   "title": {
+    "ko": "아테나의 한 해",
+    "en": "Athena's Year"
+   },
+   "image": "medals/streak_365.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 330140,
+    "title": "Gold stater",
+    "date": "ca. 330–320 BC",
+    "url": "https://www.metmuseum.org/art/collection/search/330140",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "letters_1",
+   "family": "letters",
+   "tier": "bronze",
+   "threshold": 1,
+   "title": {
+    "ko": "첫 봉인",
+    "en": "First Seal"
+   },
+   "image": "medals/letters_1.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 246889,
+    "title": "Bronze sestertius of Gaius (Caligula)",
+    "date": "37–38 CE",
+    "url": "https://www.metmuseum.org/art/collection/search/246889",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "letters_7",
+   "family": "letters",
+   "tier": "bronze",
+   "threshold": 7,
+   "title": {
+    "ko": "일곱 통의 편지",
+    "en": "Seven Letters"
+   },
+   "image": "medals/letters_7.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 248042,
+    "title": "Bronze sestertius of Trajan",
+    "date": "103–111 CE",
+    "url": "https://www.metmuseum.org/art/collection/search/248042",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "letters_28",
+   "family": "letters",
+   "tier": "silver",
+   "threshold": 28,
+   "title": {
+    "ko": "아이네아스의 길",
+    "en": "Road of Aeneas"
+   },
+   "image": "medals/letters_28.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 248033,
+    "title": "Silver denarius of Julius Caesar",
+    "date": "47–46 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/248033",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "letters_56",
+   "family": "letters",
+   "tier": "silver",
+   "threshold": 56,
+   "title": {
+    "ko": "왕의 서신",
+    "en": "Royal Correspondence"
+   },
+   "image": "medals/letters_56.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 255258,
+    "title": "Silver tetradrachm of Demetrios Poliorketes",
+    "date": "ca. 289–288 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/255258",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "letters_112",
+   "family": "letters",
+   "tier": "gold",
+   "threshold": 112,
+   "title": {
+    "ko": "카이사르의 문서고",
+    "en": "Caesar's Archive"
+   },
+   "image": "medals/letters_112.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 246872,
+    "title": "Gold aureus of Octavian",
+    "date": "39 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/246872",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "words_25",
+   "family": "words",
+   "tier": "bronze",
+   "threshold": 25,
+   "title": {
+    "ko": "첫 낱말들",
+    "en": "First Words"
+   },
+   "image": "medals/words_25.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 248045,
+    "title": "Bronze sestertius of Lucius Verus",
+    "date": "163–164 CE",
+    "url": "https://www.metmuseum.org/art/collection/search/248045",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "words_100",
+   "family": "words",
+   "tier": "silver",
+   "threshold": 100,
+   "title": {
+    "ko": "돌고래의 바다",
+    "en": "Sea of Dolphins"
+   },
+   "image": "medals/words_100.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 247136,
+    "title": "Tetradrachm",
+    "date": "ca. 460 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/247136",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "words_300",
+   "family": "words",
+   "tier": "silver",
+   "threshold": 300,
+   "title": {
+    "ko": "곱슬머리 웅변가",
+    "en": "The Curled Orator"
+   },
+   "image": "medals/words_300.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 330170,
+    "title": "Silver Tetradrachm of Antiochus VIII",
+    "date": "ca. 121–97 BC",
+    "url": "https://www.metmuseum.org/art/collection/search/330170",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "words_700",
+   "family": "words",
+   "tier": "gold",
+   "threshold": 700,
+   "title": {
+    "ko": "알렉산드리아의 서가",
+    "en": "Shelves of Alexandria"
+   },
+   "image": "medals/words_700.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 248131,
+    "title": "Gold stater of Alexander the Great",
+    "date": "336–323 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/248131",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "words_1500",
+   "family": "words",
+   "tier": "gold",
+   "threshold": 1500,
+   "title": {
+    "ko": "베일 쓴 여왕의 사전",
+    "en": "The Veiled Queen's Lexicon"
+   },
+   "image": "medals/words_1500.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 253074,
+    "title": "Gold oktadrachm of Ptolemy II Philadelphos",
+    "date": "ca. 261–246 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/253074",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "stars_10",
+   "family": "stars",
+   "tier": "bronze",
+   "threshold": 10,
+   "title": {
+    "ko": "첫 낭송",
+    "en": "First Recital"
+   },
+   "image": "medals/stars_10.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 248038,
+    "title": "Bronze dupondius of Vespasian",
+    "date": "72 CE",
+    "url": "https://www.metmuseum.org/art/collection/search/248038",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "stars_50",
+   "family": "stars",
+   "tier": "silver",
+   "threshold": 50,
+   "title": {
+    "ko": "시라쿠사의 노래",
+    "en": "Song of Syracuse"
+   },
+   "image": "medals/stars_50.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 247140,
+    "title": "Silver dekadrachm",
+    "date": "400–390 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/247140",
+    "license": "CC0 1.0 (Met Open Access)",
+    "artist": "Euainetos"
+   }
+  },
+  {
+   "id": "stars_150",
+   "family": "stars",
+   "tier": "gold",
+   "threshold": 150,
+   "title": {
+    "ko": "아폴론의 리라",
+    "en": "Lyre of Apollo"
+   },
+   "image": "medals/stars_150.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 247144,
+    "title": "Gold stater",
+    "date": "ca. 323/2–315 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/247144",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "stars_400",
+   "family": "stars",
+   "tier": "gold",
+   "threshold": 400,
+   "title": {
+    "ko": "이중창",
+    "en": "Duet in Gold"
+   },
+   "image": "medals/stars_400.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 253073,
+    "title": "Gold oktadrachm of Ptolemy III Euergetes",
+    "date": "ca. 246–221 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/253073",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "walks_5",
+   "family": "walks",
+   "tier": "bronze",
+   "threshold": 5,
+   "title": {
+    "ko": "회랑 산책",
+    "en": "Stroll in the Stoa"
+   },
+   "image": "medals/walks_5.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 246888,
+    "title": "Bronze as of Nero",
+    "date": "64–66 CE",
+    "url": "https://www.metmuseum.org/art/collection/search/246888",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "walks_20",
+   "family": "walks",
+   "tier": "silver",
+   "threshold": 20,
+   "title": {
+    "ko": "아고라 산책",
+    "en": "Walk in the Agora"
+   },
+   "image": "medals/walks_20.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 247148,
+    "title": "Silver tetradrachm of Lysimachos",
+    "date": "297–281 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/247148",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "walks_60",
+   "family": "walks",
+   "tier": "gold",
+   "threshold": 60,
+   "title": {
+    "ko": "황궁의 열주",
+    "en": "Palace Colonnade"
+   },
+   "image": "medals/walks_60.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 248069,
+    "title": "Gold aureus of Diocletian",
+    "date": "293 CE",
+    "url": "https://www.metmuseum.org/art/collection/search/248069",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "walks_120",
+   "family": "walks",
+   "tier": "gold",
+   "threshold": 120,
+   "title": {
+    "ko": "하드리아누스의 별장",
+    "en": "Hadrian's Villa"
+   },
+   "image": "medals/walks_120.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 246880,
+    "title": "Gold aureus of Hadrian",
+    "date": "134–138 CE",
+    "url": "https://www.metmuseum.org/art/collection/search/246880",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "series_vincent",
+   "family": "series",
+   "tier": "gold",
+   "threshold": 1,
+   "series": "vincent",
+   "title": {
+    "ko": "마이나스의 춤",
+    "en": "Dance of the Maenad"
+   },
+   "image": "medals/series_vincent.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 247570,
+    "title": "Terracotta kylix (drinking cup)",
+    "date": "ca. 490–480 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/247570",
+    "license": "CC0 1.0 (Met Open Access)",
+    "artist": "Makron"
+   }
+  },
+  {
+   "id": "series_mozart",
+   "family": "series",
+   "tier": "gold",
+   "threshold": 1,
+   "series": "mozart",
+   "title": {
+    "ko": "리라를 든 가인",
+    "en": "The Lyre Singer"
+   },
+   "image": "medals/series_mozart.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 246647,
+    "title": "Terracotta kylix (drinking cup)",
+    "date": "ca. 480–470 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/246647",
+    "license": "CC0 1.0 (Met Open Access)",
+    "artist": "Pistoxenos Painter"
+   }
+  }
+ ],
+ "seriesSpare": {
+  "_doc": "새 시리즈가 생기면 쓸 예비 톤도",
+  "image": "medals/series_spare.webp",
+  "source": {
+   "museum": "The Metropolitan Museum of Art",
+   "objectID": 254284,
+   "title": "Terracotta kylix (drinking cup)",
+   "date": "ca. 510 BCE",
+   "url": "https://www.metmuseum.org/art/collection/search/254284",
+   "license": "CC0 1.0 (Met Open Access)",
+   "artist": "Epiktetos"
+  }
+ },
+ "levels": {
+  "_doc": "끝없는 레벨. 레벨 n 에서 n+1 로 가는 데 xpToNext(n) = round(100 · n^1.4) XP. 레벨 1 은 0 XP 에서 시작. XP 는 여정의 걸음마다 (xp 표). 칭호는 3 레벨씩 한 등급 (I·II·III), 30 레벨이 관장 III. 31 레벨부터는 관장 IV, V, … 로 로마 숫자만 오른다 (roman(n − 27)). 5 레벨마다 입구 장식 하나: decorations[(n/5 − 1) % 12], 13 번째부터는 이름 뒤에 II, III … (한 바퀴마다 하나씩).",
+  "formula": {
+   "xpToNext": "round(100 * n^1.4)",
+   "base": 100,
+   "exponent": 1.4,
+   "start": 1
+  },
+  "xp": {
+   "_doc": "여정의 한 걸음당 XP (하루 상한은 앱에서 Earn 과 같은 방식으로 둘 수 있음).",
+   "letter_read": 30,
+   "letter_sealed": 40,
+   "practice": 10,
+   "review_right": 2,
+   "word_learned": 3,
+   "readalong_star": 5,
+   "walk_done": 15,
+   "quests_done": 25,
+   "streak_day": 10,
+   "medal": 50,
+   "series_completed": 300
+  },
+  "ranks": [
+   {
+    "levels": [
+     1,
+     3
+    ],
+    "ko": "견습 관람객",
+    "en": "Apprentice Visitor"
+   },
+   {
+    "levels": [
+     4,
+     6
+    ],
+    "ko": "관람객",
+    "en": "Visitor"
+   },
+   {
+    "levels": [
+     7,
+     9
+    ],
+    "ko": "단골 관람객",
+    "en": "Regular Patron"
+   },
+   {
+    "levels": [
+     10,
+     12
+    ],
+    "ko": "안내인",
+    "en": "Guide"
+   },
+   {
+    "levels": [
+     13,
+     15
+    ],
+    "ko": "해설사",
+    "en": "Docent"
+   },
+   {
+    "levels": [
+     16,
+     18
+    ],
+    "ko": "학예 보조",
+    "en": "Assistant Curator"
+   },
+   {
+    "levels": [
+     19,
+     21
+    ],
+    "ko": "학예사",
+    "en": "Curator"
+   },
+   {
+    "levels": [
+     22,
+     24
+    ],
+    "ko": "수석 학예사",
+    "en": "Chief Curator"
+   },
+   {
+    "levels": [
+     25,
+     27
+    ],
+    "ko": "부관장",
+    "en": "Deputy Director"
+   },
+   {
+    "levels": [
+     28,
+     30
+    ],
+    "ko": "관장",
+    "en": "Director"
+   }
+  ],
+  "afterMax": {
+   "rank": {
+    "ko": "관장",
+    "en": "Director"
+   },
+   "roman": "level - 27"
+  },
+  "decorations": [
+   {
+    "level": 5,
+    "ko": "월계관 문패",
+    "en": "Laurel nameplate"
+   },
+   {
+    "level": 10,
+    "ko": "청동 등잔",
+    "en": "Bronze oil lamp"
+   },
+   {
+    "level": 15,
+    "ko": "대리석 기둥 한 쌍",
+    "en": "Pair of marble columns"
+   },
+   {
+    "level": 20,
+    "ko": "모자이크 문턱",
+    "en": "Mosaic threshold"
+   },
+   {
+    "level": 25,
+    "ko": "암포라 화분",
+    "en": "Amphora planters"
+   },
+   {
+    "level": 30,
+    "ko": "아칸서스 주두",
+    "en": "Acanthus capitals"
+   },
+   {
+    "level": 35,
+    "ko": "부조 프리즈",
+    "en": "Relief frieze"
+   },
+   {
+    "level": 40,
+    "ko": "올리브 화환",
+    "en": "Olive garland"
+   },
+   {
+    "level": 45,
+    "ko": "청동 문고리",
+    "en": "Bronze lion knocker"
+   },
+   {
+    "level": 50,
+    "ko": "대리석 흉상",
+    "en": "Marble bust"
+   },
+   {
+    "level": 55,
+    "ko": "작은 분수",
+    "en": "Little fountain"
+   },
+   {
+    "level": 60,
+    "ko": "개선 아치",
+    "en": "Triumphal arch"
+   }
+  ],
+  "decorationRepeat": "level > 60: decorations[((level/5) - 1) % 12] + ' ' + roman(((level/5) - 1) // 12 + 1)",
+  "table": [
+   {
+    "level": 1,
+    "title": {
+     "ko": "견습 관람객 I",
+     "en": "Apprentice Visitor I"
+    },
+    "xpTotal": 0,
+    "xpToNext": 100
+   },
+   {
+    "level": 2,
+    "title": {
+     "ko": "견습 관람객 II",
+     "en": "Apprentice Visitor II"
+    },
+    "xpTotal": 100,
+    "xpToNext": 264
+   },
+   {
+    "level": 3,
+    "title": {
+     "ko": "견습 관람객 III",
+     "en": "Apprentice Visitor III"
+    },
+    "xpTotal": 364,
+    "xpToNext": 466
+   },
+   {
+    "level": 4,
+    "title": {
+     "ko": "관람객 I",
+     "en": "Visitor I"
+    },
+    "xpTotal": 830,
+    "xpToNext": 696
+   },
+   {
+    "level": 5,
+    "title": {
+     "ko": "관람객 II",
+     "en": "Visitor II"
+    },
+    "xpTotal": 1526,
+    "xpToNext": 952
+   },
+   {
+    "level": 6,
+    "title": {
+     "ko": "관람객 III",
+     "en": "Visitor III"
+    },
+    "xpTotal": 2478,
+    "xpToNext": 1229
+   },
+   {
+    "level": 7,
+    "title": {
+     "ko": "단골 관람객 I",
+     "en": "Regular Patron I"
+    },
+    "xpTotal": 3707,
+    "xpToNext": 1525
+   },
+   {
+    "level": 8,
+    "title": {
+     "ko": "단골 관람객 II",
+     "en": "Regular Patron II"
+    },
+    "xpTotal": 5232,
+    "xpToNext": 1838
+   },
+   {
+    "level": 9,
+    "title": {
+     "ko": "단골 관람객 III",
+     "en": "Regular Patron III"
+    },
+    "xpTotal": 7070,
+    "xpToNext": 2167
+   },
+   {
+    "level": 10,
+    "title": {
+     "ko": "안내인 I",
+     "en": "Guide I"
+    },
+    "xpTotal": 9237,
+    "xpToNext": 2512
+   },
+   {
+    "level": 11,
+    "title": {
+     "ko": "안내인 II",
+     "en": "Guide II"
+    },
+    "xpTotal": 11749,
+    "xpToNext": 2870
+   },
+   {
+    "level": 12,
+    "title": {
+     "ko": "안내인 III",
+     "en": "Guide III"
+    },
+    "xpTotal": 14619,
+    "xpToNext": 3242
+   },
+   {
+    "level": 13,
+    "title": {
+     "ko": "해설사 I",
+     "en": "Docent I"
+    },
+    "xpTotal": 17861,
+    "xpToNext": 3627
+   },
+   {
+    "level": 14,
+    "title": {
+     "ko": "해설사 II",
+     "en": "Docent II"
+    },
+    "xpTotal": 21488,
+    "xpToNext": 4023
+   },
+   {
+    "level": 15,
+    "title": {
+     "ko": "해설사 III",
+     "en": "Docent III"
+    },
+    "xpTotal": 25511,
+    "xpToNext": 4431
+   },
+   {
+    "level": 16,
+    "title": {
+     "ko": "학예 보조 I",
+     "en": "Assistant Curator I"
+    },
+    "xpTotal": 29942,
+    "xpToNext": 4850
+   },
+   {
+    "level": 17,
+    "title": {
+     "ko": "학예 보조 II",
+     "en": "Assistant Curator II"
+    },
+    "xpTotal": 34792,
+    "xpToNext": 5280
+   },
+   {
+    "level": 18,
+    "title": {
+     "ko": "학예 보조 III",
+     "en": "Assistant Curator III"
+    },
+    "xpTotal": 40072,
+    "xpToNext": 5720
+   },
+   {
+    "level": 19,
+    "title": {
+     "ko": "학예사 I",
+     "en": "Curator I"
+    },
+    "xpTotal": 45792,
+    "xpToNext": 6170
+   },
+   {
+    "level": 20,
+    "title": {
+     "ko": "학예사 II",
+     "en": "Curator II"
+    },
+    "xpTotal": 51962,
+    "xpToNext": 6629
+   },
+   {
+    "level": 21,
+    "title": {
+     "ko": "학예사 III",
+     "en": "Curator III"
+    },
+    "xpTotal": 58591,
+    "xpToNext": 7098
+   },
+   {
+    "level": 22,
+    "title": {
+     "ko": "수석 학예사 I",
+     "en": "Chief Curator I"
+    },
+    "xpTotal": 65689,
+    "xpToNext": 7575
+   },
+   {
+    "level": 23,
+    "title": {
+     "ko": "수석 학예사 II",
+     "en": "Chief Curator II"
+    },
+    "xpTotal": 73264,
+    "xpToNext": 8062
+   },
+   {
+    "level": 24,
+    "title": {
+     "ko": "수석 학예사 III",
+     "en": "Chief Curator III"
+    },
+    "xpTotal": 81326,
+    "xpToNext": 8556
+   },
+   {
+    "level": 25,
+    "title": {
+     "ko": "부관장 I",
+     "en": "Deputy Director I"
+    },
+    "xpTotal": 89882,
+    "xpToNext": 9060
+   },
+   {
+    "level": 26,
+    "title": {
+     "ko": "부관장 II",
+     "en": "Deputy Director II"
+    },
+    "xpTotal": 98942,
+    "xpToNext": 9571
+   },
+   {
+    "level": 27,
+    "title": {
+     "ko": "부관장 III",
+     "en": "Deputy Director III"
+    },
+    "xpTotal": 108513,
+    "xpToNext": 10090
+   },
+   {
+    "level": 28,
+    "title": {
+     "ko": "관장 I",
+     "en": "Director I"
+    },
+    "xpTotal": 118603,
+    "xpToNext": 10617
+   },
+   {
+    "level": 29,
+    "title": {
+     "ko": "관장 II",
+     "en": "Director II"
+    },
+    "xpTotal": 129220,
+    "xpToNext": 11152
+   },
+   {
+    "level": 30,
+    "title": {
+     "ko": "관장 III",
+     "en": "Director III"
+    },
+    "xpTotal": 140372,
+    "xpToNext": 11694
+   }
+  ]
+ }
+}
