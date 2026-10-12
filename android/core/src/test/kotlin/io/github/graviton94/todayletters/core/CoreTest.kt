@@ -356,6 +356,56 @@ class CoreTest {
         assertTrue(good.passed && good.intonation >= 80, "good $good")
         assertTrue(bad.intonation < 60 && bad.intonation < good.intonation, "bad $bad")
     }
+
+    // ── 북돋우는 채점 (v23) ──
+    private fun melody(scale: Double) = { t: Double -> val u = t / scale; if (u < 0.6) 150 + 120 * u else 222 - 100 * (u - 0.6) }
+    private fun env(scale: Double) = { t: Double -> val u = t / scale; if (u > 0.55 && u < 0.7) 0.0 else 0.5 }
+    private val rate = 16000
+    private val ref by lazy { Prosody.analyze(voice(1.3, rate, melody(1.0), env(1.0)), rate) }
+
+    @Test fun prosodySelfIs100() {
+        val s = Prosody.score(ref, ref)
+        assertEquals(100, s.total, "self $s")
+        assertEquals(3, s.stars)
+    }
+
+    @Test fun prosodyTransposedFourSemitones() {
+        for (k in listOf(-4, 4)) {
+            val f = Math.pow(2.0, k / 12.0)
+            val moved = Prosody.analyze(voice(1.3, rate, { t -> f * melody(1.0)(t) }, env(1.0)), rate)
+            val s = Prosody.score(ref, moved)
+            assertTrue(s.total >= 95, "$k semitones $s")
+        }
+    }
+
+    @Test fun prosodyFlattenedLow() {
+        val flat = Prosody.analyze(voice(1.3, rate, { 180.0 }, env(1.0)), rate)
+        val s = Prosody.score(ref, flat)
+        assertTrue(s.intonation <= 45, "flat $s")
+    }
+
+    @Test fun prosodySilenceZero() {
+        val s = Prosody.score(ref, Prosody.analyze(FloatArray(rate), rate))
+        assertEquals(0, s.total, "silence $s")
+        assertEquals(0, s.stars)
+        assertTrue(!s.passed)
+    }
+
+    @Test fun prosodyStarsAndFloor() {
+        assertEquals(listOf(0, 1, 1, 2, 2, 3), listOf(49, 50, 69, 70, 84, 85).map { Prosody.stars(it) })
+        assertEquals(Prosody.FLOOR, Prosody.Score(0, 0, 100).total)
+        assertTrue(Prosody.Score(0, 0, 40).total < Prosody.FLOOR)
+        assertEquals(55, Prosody.PASS)
+    }
+
+    @Test fun prosodySpans() {
+        assertEquals(listOf(0..1), Prosody.spans(listOf(4, 5)))
+        // 3+4 | 5+4 | 6 — 6~10 낱말씩, 덩어리는 쪼개지 않음
+        assertEquals(listOf(0..1, 2..3, 4..4), Prosody.spans(listOf(3, 4, 5, 4, 6)))
+        // 끝에 남은 두 낱말은 앞 마디로
+        assertEquals(listOf(0..0, 1..2), Prosody.spans(listOf(8, 9, 2)))
+        assertEquals(listOf(0..0), Prosody.spans(listOf(14)))
+    }
     // 모차르트 (독일어 원어): 판의 철자는 편지에, 오늘의 철자는 채점에
     @Test fun modernSpellingIsTheAnswer() {
         val w = Word(Tri(mapOf(Lang.DE to "daß", Lang.EN to "that", Lang.KO to "~라는 것")), modern = "dass")
