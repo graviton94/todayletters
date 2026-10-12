@@ -268,7 +268,7 @@ fun Session(s: AppState, r: Route.Session) {
     // 중간에 나갔다 오면 그 자리부터 (같은 날 · 같은 문제 순서)
     // 오늘의 복습은 작품의 진도 이름마다 한 판 (여정 II). 자유 연습 · 꼴별 연습은 따로
     val journey = r.kind == null && r.only == null && r.quote == null && !r.free
-    val sessionName = when { r.only != null || r.quote != null -> "again"; r.free -> "free"; r.kind != null -> r.kind.name; else -> s.reviewSession() }
+    val sessionName = when { r.only != null || r.quote != null -> "again"; r.free -> "free"; else -> r.kind?.name ?: s.reviewSession() }
     val saved = remember(r) { if (r.only != null || r.quote != null) null else s.store.session(sessionName)?.takeIf { it.day == s.today && it.at > 0 } }
     val questions = remember(r) { buildQuestions(s, r.kind, r.only ?: saved?.keys, r.quote, free = r.free) }
     var at by remember { mutableIntStateOf((saved?.at ?: 0).coerceAtMost(questions.size)) }
