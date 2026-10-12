@@ -64,8 +64,12 @@ class Store(ctx: Context) {
         raw.split(",").filter { it.isNotBlank() }.mapNotNull { n -> ReplyMode.entries.firstOrNull { it.name == n } }.toSet()
 
     /** 편지 진도: "보인 수|한 걸음|완료|건너뛴 걸음". */
-    fun progress(key: String): LetterProgress {
-        val raw = p.getString("p:$key", null) ?: return LetterProgress()
+    fun progress(key: String): LetterProgress = decode(p.getString("p:$key", null))
+
+    fun save(key: String, pr: LetterProgress) = p.edit().putString("p:$key", encode(pr)).apply()
+
+    private fun decode(raw: String?): LetterProgress {
+        raw ?: return LetterProgress()
         val parts = raw.split("|")
         return LetterProgress(
             shown = parts.getOrNull(0)?.toIntOrNull() ?: 0,
@@ -74,9 +78,19 @@ class Store(ctx: Context) {
             skipped = modes(parts.getOrNull(3).orEmpty()),
         )
     }
+    private fun encode(pr: LetterProgress) = "${pr.shown}|${pr.replied.joinToString(",") { it.name }}|${if (pr.done) 1 else 0}|${pr.skipped.joinToString(",") { it.name }}"
 
-    fun save(key: String, pr: LetterProgress) =
-        p.edit().putString("p:$key", "${pr.shown}|${pr.replied.joinToString(",") { it.name }}|${if (pr.done) 1 else 0}|${pr.skipped.joinToString(",") { it.name }}").apply()
+    /**
+     * 튜토리얼 다시 하기 (설정 › 도움): 연습하는 편지 (빈센트 편지 I) 의 진도 열쇠. 비었으면 다시 하는 중이 아니다.
+     * 그동안 그 편지의 진도는 [replayProgress] 에 따로 두어서, 저장된 진도는 그대로 남는다.
+     */
+    var replayKey: String
+        get() = p.getString("replay_key", "")!!
+        set(v) = p.edit().putString("replay_key", v).apply()
+    var replayProgress: LetterProgress
+        get() = decode(p.getString("replay_p", null))
+        set(v) = p.edit().putString("replay_p", encode(v)).apply()
+    fun endReplay() = p.edit().remove("replay_key").remove("replay_p").apply()
 
     /** 진도 열쇠 전부 ("p:" 뒤): 건너뛴 걸음 모으기 · 튜토리얼을 마친 것으로 볼지. */
     fun progressKeys(): List<String> = p.all.keys.filter { it.startsWith("p:") }.map { it.removePrefix("p:") }
@@ -174,10 +188,14 @@ class Store(ctx: Context) {
         get() = p.getString("quotes", "")!!.split("\n").filter { it.isNotBlank() }
         set(v) = p.edit().putString("quotes", v.joinToString("\n")).apply()
 
-    /** 도착 알림 시각 (시). */
+    /** 도착 알림 시각 (시, 0–23). */
     var noticeHour: Int
         get() = p.getInt("notice:hour", 8)
         set(v) = p.edit().putInt("notice:hour", v).apply()
+    /** 도착 알림 시각 (분, 5분 단위). */
+    var noticeMinute: Int
+        get() = p.getInt("notice:minute", 0)
+        set(v) = p.edit().putInt("notice:minute", v).apply()
 
     var coachSeen: Set<String>
         get() = p.getString("coach_seen", "")!!.split(",").filter { it.isNotBlank() }.toSet()

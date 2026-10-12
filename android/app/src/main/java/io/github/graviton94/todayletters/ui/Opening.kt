@@ -107,10 +107,11 @@ fun Opening(s: AppState) {
                 modifier = Modifier.rise(steps[3].value))
             // 입구 장식 (5 레벨마다 하나): 이름과 작은 문양만, 조용히
             deco?.let { name ->
-                Column(Modifier.padding(top = 6.dp).rise(steps[3].value * 0.85f), horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Ornament(gilt.copy(alpha = 0.7f))
-                    Text(stringResource(R.string.opening_deco, name), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = gilt.copy(alpha = 0.85f))
+                // 밝은 그림 위에서도 읽히게 옅은 어둠 한 겹 (글자 둘레만)
+                Column(Modifier.padding(top = 6.dp).rise(steps[3].value * 0.85f).background(ground.copy(alpha = 0.55f)).padding(horizontal = 14.dp, vertical = 6.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Ornament(gilt.copy(alpha = 0.8f))
+                    Text(stringResource(R.string.opening_deco, name), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = gilt)
                 }
             }
         }

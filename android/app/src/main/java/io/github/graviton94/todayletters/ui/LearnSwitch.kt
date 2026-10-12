@@ -67,6 +67,8 @@ fun LearnPicker(s: AppState, id: String, onClose: () -> Unit) {
     val w = s.work(id)
     val cur = s.room(id).learn
     val total = w.chapters.sumOf { it.letters.size }
+    // 바꾸기 전에 한 번 묻는다 (진도는 언어마다 따로라 화면의 편지 · 카드가 바뀐다)
+    var confirm by remember { mutableStateOf<Lang?>(null) }
     BackHandler(onBack = onClose)
     androidx.compose.ui.window.Popup(onDismissRequest = onClose, properties = androidx.compose.ui.window.PopupProperties(focusable = true)) {
         Box(Modifier.fillMaxSize().background(p.scrim).clickable(interactionSource = remember { MutableInteractionSource() }, indication = null, onClick = onClose),
@@ -87,7 +89,7 @@ fun LearnPicker(s: AppState, id: String, onClose: () -> Unit) {
                         Row(
                             Modifier.fillMaxWidth().heightIn(min = 60.dp).semantics { selected = on }
                                 .background(if (on) q.leaf else Color.Transparent).border(if (on) 1.6.dp else 1.dp, if (on) q.ink else q.line)
-                                .clickable(role = Role.RadioButton) { s.switchLearn(id, l); onClose() }
+                                .clickable(role = Role.RadioButton) { if (l == cur) onClose() else confirm = l }
                                 .padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
                             verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
                         ) {
@@ -101,6 +103,11 @@ fun LearnPicker(s: AppState, id: String, onClose: () -> Unit) {
                     }
                     Secondary(stringResource(R.string.close), onClick = onClose)
                 }
+            }
+            confirm?.let { l ->
+                Ask(stringResource(R.string.learn_confirm_t), stringResource(R.string.learn_confirm_yes), stringResource(R.string.cancel),
+                    onYes = { confirm = null; s.switchLearn(id, l); onClose() }, onNo = { confirm = null },
+                    body = stringResource(R.string.learn_confirm_b, stringResource(langLabel(cur)), stringResource(langLabel(l))))
             }
         }
     }

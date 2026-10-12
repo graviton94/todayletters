@@ -76,10 +76,15 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
             Caps("AUDIO", p.giltText, small = true, decorative = true)
-            Text(stringResource(R.string.dl_title, chapterTitle), style = Type.heading.ui(), color = p.ink)
+            // 미리 받기 (설정 · 목차): 묻는 말로, 어느 장 · 얼마나인지 먼저
+            if (ask.letter == null) {
+                Text(stringResource(R.string.dl_ahead_t), style = Type.heading.ui(), color = p.ink)
+                Text("$chapterTitle · ${sizeLabel(remaining)}", style = Type.body.ui(), color = p.ink)
+            } else Text(stringResource(R.string.dl_title, chapterTitle), style = Type.heading.ui(), color = p.ink)
             if (job == null) {
                 Text(stringResource(if (failed) R.string.dl_failed else if (ask.letter == null) R.string.dl_body_ahead else R.string.dl_body, sizeLabel(remaining), s.work(ask.series).name[uiLang()]), style = Type.small.ui(), color = p.inkSoft)
-                if (mobile && !failed) Text(stringResource(R.string.dl_mobile), style = Type.small.ui(), color = p.giltText)
+                // 데이터 요금: 모바일 데이터면 지금 그렇다고, 아니어도 와이파이가 아니면 요금이 나올 수 있다고
+                if (!failed) Text(stringResource(if (mobile) R.string.dl_mobile else R.string.dl_data), style = Type.small.ui(), color = p.giltText)
                 Box(Modifier.height(Tokens.Space.s2))
                 Primary(stringResource(if (failed) R.string.dl_retry else R.string.dl_go, sizeLabel(remaining))) { start() }
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {

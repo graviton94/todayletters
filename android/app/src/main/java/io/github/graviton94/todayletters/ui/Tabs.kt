@@ -187,7 +187,7 @@ fun SeriesCover(s: AppState, id: String) {
                 Hair()
             }
             ChapterRow(
-                numeral = "✦", original = deco(w.series.original, "Catalogue", "Katalog"), read = stringResource(R.string.catalogue_title),
+                numeral = "✦", original = deco(w.series.original, "Catalogue", "Katalog"), read = stringResource(R.string.plates_title),
                 readLang = s.app.read, originalLang = w.series.original,
                 meta = stringResource(R.string.catalogue_progress, w.chapters.sumOf { c -> c.letters.count { s.progress(id, c.id, it.id).done } }, w.chapters.sumOf { it.letters.size }),
                 onClick = { s.go(Route.Catalogue(id)) },
@@ -280,6 +280,8 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
     val w = s.work(id)
     s.version
     val cur = s.seriesSettings(id)
+    // 배우는 말 바꾸기는 한 번 묻고 (진도가 언어마다 따로라서)
+    var learnAsk by remember { mutableStateOf<io.github.graviton94.todayletters.core.Lang?>(null) }
     Column(Modifier.fillMaxSize()) {
         TopBar(stringResource(R.string.series_settings), s, help = null, showBack = true, showSettings = false)
         Page {
@@ -288,7 +290,7 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
                 Text(w.title[uiLang()], style = Type.heading.ui(), color = p.ink)
             }
             Caps(stringResource(R.string.set_learn), p.giltText, small = true)
-            Choices(Langs.learnChoices(w.series, s.app.read).map { it to stringResource(langLabel(it)) }, cur.learn) { s.switchLearn(id, it) }
+            Choices(Langs.learnChoices(w.series, s.app.read).map { it to stringResource(langLabel(it)) }, cur.learn) { if (it != cur.learn) learnAsk = it }
             Text(stringResource(R.string.lang_notice_title), style = Type.small.ui(), color = p.inkSoft)
 
             Caps(stringResource(R.string.ob_modes), p.giltText, small = true)
@@ -334,6 +336,11 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
             // 알림(도착 · 저녁)은 앱 설정으로 옮김 (v21 4단계 U3)
             Text(stringResource(R.string.set_notice_moved), style = Type.small.ui(), color = p.inkSoft)
         }
+    }
+    learnAsk?.let { l ->
+        Ask(stringResource(R.string.learn_confirm_t), stringResource(R.string.learn_confirm_yes), stringResource(R.string.cancel),
+            onYes = { learnAsk = null; s.switchLearn(id, l) }, onNo = { learnAsk = null },
+            body = stringResource(R.string.learn_confirm_b, stringResource(langLabel(cur.learn)), stringResource(langLabel(l))))
     }
 }
 

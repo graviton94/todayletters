@@ -42,7 +42,7 @@ private val steps: Map<String, List<Int>> = mapOf(
     "library" to listOf(R.string.coach_library, R.string.coach_library_learn),
     "words" to listOf(R.string.coach_words),
     "gallery" to listOf(R.string.coach_gallery),
-    "milestones" to listOf(R.string.coach_milestones),
+    "shop" to listOf(R.string.coach_shop),
     "series" to listOf(R.string.coach_series),
     "room" to listOf(R.string.coach_room_bubble, R.string.coach_room_hide, R.string.coach_room_info),
     "play_aloud" to listOf(R.string.coach_play_aloud),

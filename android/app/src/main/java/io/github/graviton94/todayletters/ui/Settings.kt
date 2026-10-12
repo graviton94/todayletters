@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -37,6 +38,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import io.github.graviton94.todayletters.R
+import kotlinx.coroutines.launch
 import io.github.graviton94.todayletters.data.lexicons
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.ThemeMode
@@ -55,6 +57,10 @@ fun SettingsScreen(s: AppState) {
     val p = Ink.palette
     val a = s.app
     var credits by androidx.compose.runtime.saveable.rememberSaveable { androidx.compose.runtime.mutableStateOf(false) }
+    // 되돌리기 어렵거나 데이터가 드는 일은 한 번 묻는다
+    var askTutorial by remember { mutableStateOf(false) }
+    var askClear by remember { mutableStateOf(false) }
+    var timeSheet by remember { mutableStateOf(false) }
     if (credits) { CreditsScreen(s) { credits = false }; return }
     BackHandler { s.settingsOpen = false }
     s.version
@@ -106,18 +112,10 @@ fun SettingsScreen(s: AppState) {
             }
             // 알림: 도착 (작품마다 켜고 끄던 것을 한 번에) · 저녁 (이어 읽기 지키기)
             Group(stringResource(R.string.set_g_notice)) {
+                // 도착 알림 시각: 누르면 시계 바퀴 (오전/오후 · 시 · 5분 단위) · 저장 / 끄기
                 val arrivalOn = s.works.any { s.seriesSettings(it.series.id).arrivalNotice }
-                var hour by remember { mutableStateOf(s.store.noticeHour) }
-                var openArrival by remember { mutableStateOf(false) }
-                SetRow(stringResource(R.string.set_arrival), stringResource(R.string.set_arrival_d), onClick = { openArrival = !openArrival },
-                    below = if (!openArrival) null else ({
-                        Seg(listOf(-1 to stringResource(R.string.off)) + listOf(7, 8, 12, 19, 21).map { it to stringResource(R.string.notice_hour, it) }, if (arrivalOn) hour else -1) { h ->
-                            s.works.forEach { wk -> s.update(wk.series.id, s.seriesSettings(wk.series.id).copy(arrivalNotice = h >= 0)) }
-                            if (h >= 0) { hour = h; s.store.noticeHour = h }
-                            io.github.graviton94.todayletters.data.Notices.schedule(s.ctx)
-                        }
-                    })) {
-                    Value(if (arrivalOn) stringResource(R.string.notice_hour, hour) else stringResource(R.string.off))
+                SetRow(stringResource(R.string.set_arrival), stringResource(R.string.set_arrival_d), onClick = { timeSheet = true }) {
+                    Value(if (arrivalOn) noticeTime(s.store.noticeHour, s.store.noticeMinute) else stringResource(R.string.off))
                 }
                 var eh by remember { mutableStateOf(s.store.eveningHour) }
                 var openEvening by remember { mutableStateOf(false) }
@@ -144,18 +142,11 @@ fun SettingsScreen(s: AppState) {
                 ahead.firstOrNull()?.let { pk ->
                     SetRow(stringResource(R.string.set_storage_all, sizeLabel(left)), onClick = { s.settingsOpen = false; s.predownload(pk.series, null) }) { Chev() }
                 }
-                var sure by remember { mutableStateOf(false) }
-                if (stored > 0) SetRow(stringResource(if (sure) R.string.set_storage_clear_sure else R.string.set_storage_clear), danger = true,
-                    onClick = { if (sure) { s.clearDownloads(); sure = false } else sure = true }) { }
+                if (stored > 0) SetRow(stringResource(R.string.set_storage_clear), danger = true, onClick = { askClear = true }) { }
             }
             Group(stringResource(R.string.set_g_help)) {
-                // 사용법 다시 보기: 화면마다 안내를 처음 상태로 (지금 화면으로 돌아가고, 다음에 여는 화면마다 그 화면 안내가 다시 뜬다)
-                val ctx = androidx.compose.ui.platform.LocalContext.current
-                val resetDone = stringResource(R.string.help_reset_done)
-                SetRow(stringResource(R.string.set_help_again), onClick = {
-                    s.coachReset(); s.settingsOpen = false
-                    android.widget.Toast.makeText(ctx, resetDone, android.widget.Toast.LENGTH_LONG).show()
-                }) { Chev() }
+                // 튜토리얼 다시 하기: 묻고 → 빈센트의 편지 I 로 처음부터 (진도는 그대로, AppState.replayTutorial)
+                SetRow(stringResource(R.string.set_help_again), onClick = { askTutorial = true }) { Chev() }
                 var privacy by remember { mutableStateOf(false) }
                 SetRow(stringResource(R.string.set_privacy_row), stringResource(R.string.set_privacy_d), onClick = { privacy = !privacy },
                     below = if (!privacy) null else ({ Text(stringResource(R.string.set_privacy), style = Type.small.ui(), color = p.inkSoft) })) { Chev() }
@@ -167,6 +158,100 @@ fun SettingsScreen(s: AppState) {
             ver?.let { (n, c) ->
                 Text(stringResource(R.string.set_version, n, c.toInt()), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.hideInk,
                     textAlign = androidx.compose.ui.text.style.TextAlign.Center, modifier = Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s5))
+            }
+        }
+    }
+    if (timeSheet) NoticeTimeSheet(s) { timeSheet = false }
+    if (askTutorial) Ask(stringResource(R.string.tutorial_again_t), stringResource(R.string.tutorial_again_yes), stringResource(R.string.cancel),
+        onYes = { askTutorial = false; s.replayTutorial() }, onNo = { askTutorial = false }, body = stringResource(R.string.tutorial_again_b))
+    if (askClear) Ask(stringResource(R.string.clear_t), stringResource(R.string.clear_yes), stringResource(R.string.cancel),
+        onYes = { askClear = false; s.clearDownloads() }, onNo = { askClear = false }, body = stringResource(R.string.clear_b, sizeLabel(s.downloads.stored())))
+}
+
+/** 알림 시각 글자: 오전 8:30 · 8:30 AM. */
+@Composable
+private fun noticeTime(h24: Int, m: Int): String {
+    val h12 = (h24 % 12).let { if (it == 0) 12 else it }
+    return stringResource(if (h24 < 12) R.string.notice_at_am else R.string.notice_at_pm, h12, m)
+}
+
+/**
+ * 편지 알림 시각 (APK 20 피드백 7): 위아래로 굴리는 시계 바퀴 셋 — 오전/오후 · 시 · 분 (5분 단위).
+ * 저장하면 모든 작품의 도착 알림을 켜고 그 시각에 맞춰 다시 건다. 끄기는 모든 작품의 도착 알림을 끈다.
+ */
+@Composable
+fun NoticeTimeSheet(s: AppState, onClose: () -> Unit) {
+    val p = Ink.palette
+    BackHandler(onBack = onClose)
+    val h24 = s.store.noticeHour.coerceIn(0, 23)
+    var pm by remember { mutableStateOf(h24 >= 12) }
+    var hour by remember { mutableStateOf((h24 % 12).let { if (it == 0) 12 else it }) }
+    var minute by remember { mutableStateOf((s.store.noticeMinute.coerceIn(0, 59) / 5) * 5) }
+    val hours = (1..12).toList()
+    val minutes = (0..55 step 5).toList()
+    fun commit(on: Boolean) {
+        if (on) { s.store.noticeHour = (hour % 12) + if (pm) 12 else 0; s.store.noticeMinute = minute }
+        s.works.forEach { wk -> s.update(wk.series.id, s.seriesSettings(wk.series.id).copy(arrivalNotice = on)) }
+        io.github.graviton94.todayletters.data.Notices.schedule(s.ctx)
+        onClose()
+    }
+    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose), contentAlignment = Alignment.BottomCenter) {
+        Column(
+            Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsPadding().padding(Tokens.Space.s5),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
+        ) {
+            Text(stringResource(R.string.notice_sheet_t), style = Type.heading.ui(), color = p.ink)
+            Text(stringResource(R.string.notice_sheet_d), style = Type.small.ui(), color = p.inkSoft)
+            Row(Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s2), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                Wheel(listOf(stringResource(R.string.notice_am), stringResource(R.string.notice_pm)), if (pm) 1 else 0, Modifier.weight(1f)) { pm = it == 1 }
+                Wheel(hours.map { "$it" }, hours.indexOf(hour).coerceAtLeast(0), Modifier.weight(1f)) { hour = hours[it] }
+                Wheel(minutes.map { it.toString().padStart(2, '0') }, minutes.indexOf(minute).coerceAtLeast(0), Modifier.weight(1f)) { minute = minutes[it] }
+            }
+            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                Box(Modifier.weight(1f)) { Secondary(stringResource(R.string.off), small = true) { commit(false) } }
+                Box(Modifier.weight(1f)) { Primary(stringResource(R.string.save), small = true) { commit(true) } }
+            }
+        }
+    }
+}
+
+/**
+ * 시계 바퀴 한 줄: 세 칸이 보이고 가운데 칸이 고른 값. 굴리면 칸에 맞춰 멈춘다 (snap). 칸을 눌러도 그 값으로.
+ */
+@OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class)
+@androidx.compose.runtime.Composable
+private fun Wheel(labels: List<String>, start: Int, modifier: Modifier = Modifier, onSelect: (Int) -> Unit) {
+    val p = Ink.palette
+    val rowH = 44.dp
+    val state = androidx.compose.foundation.lazy.rememberLazyListState(initialFirstVisibleItemIndex = start.coerceIn(0, (labels.size - 1).coerceAtLeast(0)))
+    val fling = androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior(lazyListState = state)
+    val scope = androidx.compose.runtime.rememberCoroutineScope()
+    // 가운데에 가장 가까운 칸
+    val center by androidx.compose.runtime.remember {
+        androidx.compose.runtime.derivedStateOf {
+            val info = state.layoutInfo
+            val mid = (info.viewportStartOffset + info.viewportEndOffset) / 2
+            info.visibleItemsInfo.minByOrNull { kotlin.math.abs(it.offset + it.size / 2 - mid) }?.index ?: start
+        }
+    }
+    androidx.compose.runtime.LaunchedEffect(center) { if (center in labels.indices) onSelect(center) }
+    Box(modifier.height(rowH * 3)) {
+        // 가운데 칸 표시: 위아래 가는 선
+        Box(Modifier.align(Alignment.Center).fillMaxWidth().height(rowH).drawBehind {
+            drawLine(p.line, androidx.compose.ui.geometry.Offset(0f, 0f), androidx.compose.ui.geometry.Offset(size.width, 0f), 1.dp.toPx())
+            drawLine(p.line, androidx.compose.ui.geometry.Offset(0f, size.height), androidx.compose.ui.geometry.Offset(size.width, size.height), 1.dp.toPx())
+        })
+        androidx.compose.foundation.lazy.LazyColumn(
+            Modifier.fillMaxSize(), state = state, flingBehavior = fling,
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(vertical = rowH),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            items(labels.size) { i ->
+                val on = i == center
+                Box(Modifier.fillMaxWidth().height(rowH).semantics { this.selected = on }
+                    .pressable(haptic = false) { scope.launch { state.animateScrollToItem(i) } }, contentAlignment = Alignment.Center) {
+                    Text(labels[i], style = if (on) Type.heading.ui() else Type.body.ui(), color = if (on) p.ink else p.hideInk, maxLines = 1)
+                }
             }
         }
     }

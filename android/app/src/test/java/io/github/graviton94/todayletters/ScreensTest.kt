@@ -16,6 +16,7 @@ import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import androidx.test.core.app.ApplicationProvider
 import com.github.takahirom.roborazzi.captureRoboImage
 import io.github.graviton94.todayletters.core.Exercises
@@ -281,8 +282,8 @@ class ScreensTest {
         return s
     }
     @Test fun gallery() { val s = engineState(); s.reward = null; shot("40_gallery_dark", true, series = s) { io.github.graviton94.todayletters.ui.GalleryTab(s) } }
-    @Test fun milestones() { val s = engineState(); s.reward = null; shot("41_milestones_light", false, series = s) { io.github.graviton94.todayletters.ui.MilestonesTab(s) } }
-    @Test fun overall() { val s = engineState(); s.reward = null; shot("42_overall_light", false) { io.github.graviton94.todayletters.ui.OverallScreen(s) } }
+    @Test fun shop() { val s = engineState(); s.reward = null; shot("41_shop_light", false, series = s) { io.github.graviton94.todayletters.ui.ShopTab(s) } }
+    @Test fun record() { val s = engineState(); s.reward = null; shot("42_record_light", false) { io.github.graviton94.todayletters.ui.RecordScreen(s) } }
     @Test fun exhibition() { val s = engineState(); s.reward = null; shot("44_exhibition_dark", true, series = s) { io.github.graviton94.todayletters.ui.ExhibitionScreen(s) } }
     @Test fun reward() {
         val s = engineState()
@@ -478,7 +479,7 @@ class ScreensTest {
         (0..3).forEach { d -> s.store.addScore(start + d, 60 + d * 5, 55 + d * 4) }
         shot("76_week_dark", true, series = s) { io.github.graviton94.todayletters.ui.WeekScreen(s) }
     }
-    @Test fun medalsDark() { val s = engineState(); s.reward = null; shot("77_milestones_dark", true, series = s) { io.github.graviton94.todayletters.ui.MilestonesTab(s) } }
+    @Test fun shopDark() { val s = engineState(); s.reward = null; shot("77_shop_dark", true, series = s) { io.github.graviton94.todayletters.ui.ShopTab(s) } }
     @Test fun artCardDark() {
         val s = engineState(); s.reward = null
         val w = s.work("vincent"); val l = w.chapters[2].letters[0]
@@ -738,8 +739,8 @@ class ScreensTest {
 
     // ── 메달 진열장 · 끝없는 레벨 ──
     /** 메달 진열장: 받은 메달은 금속과 등급 테, 다음 메달은 석고 본과 진행 ("12/14일"). */
-    @Test fun cabinet() { val s = engineState(); s.reward = null; shot("c01_cabinet_ko_light", false, series = s) { io.github.graviton94.todayletters.ui.MilestonesTab(s) } }
-    @Test fun cabinetDark() { val s = engineState(); s.reward = null; shot("c02_cabinet_ko_dark", true, series = s) { io.github.graviton94.todayletters.ui.MilestonesTab(s) } }
+    @Test fun cabinet() { val s = engineState(); s.reward = null; shot("c01_cabinet_ko_light", false) { io.github.graviton94.todayletters.ui.MedalsScreen(s) } }
+    @Test fun cabinetDark() { val s = engineState(); s.reward = null; shot("c02_cabinet_ko_dark", true) { io.github.graviton94.todayletters.ui.MedalsScreen(s) } }
     /** 메달 자세히: 받은 메달 (유물 이름 · 시기 · 소장처 · 받은 까닭). */
     @Test fun medalDetail() {
         val s = engineState(); s.reward = null
@@ -771,4 +772,62 @@ class ScreensTest {
     }
     /** 입구 장식: 레벨 17 이면 ‘대리석 기둥 한 쌍’ (15 레벨) 이 입구에 조용히. */
     @Test fun openingDecoration() { val s = engineState(); s.reward = null; shot("c09_opening_decoration_ko_dark", true, 4500) { io.github.graviton94.todayletters.ui.Opening(s) } }
+
+    // ── APK 20 피드백: 상점 · 구독 · 나의 기록 · 갤러리 세 묶음 · 알림 시계 바퀴 · 확인 창 ──
+    @Test fun purchase() { val s = engineState(); s.reward = null; shot("p01_purchase_light", false, series = s) { io.github.graviton94.todayletters.ui.PurchaseScreen(s) } }
+    @Test fun purchaseDark() { val s = engineState(); s.reward = null; shot("p02_purchase_dark", true, series = s) { io.github.graviton94.todayletters.ui.PurchaseScreen(s) } }
+    @Test fun recordDark() { val s = engineState(); s.reward = null; shot("p03_record_dark", true) { io.github.graviton94.todayletters.ui.RecordScreen(s) } }
+    @Test fun galleryGroups() { val s = engineState(); s.reward = null; shot("p04_gallery_groups_light", false, series = s) { io.github.graviton94.todayletters.ui.GalleryTab(s) } }
+    @Test fun galleryEmpty() { val s = state(true); shot("p05_gallery_empty_light", false, series = s) { io.github.graviton94.todayletters.ui.GalleryTab(s) } }
+    @Test fun collection() { val s = engineState(); s.reward = null; shot("p06_collection_light", false, series = s) { io.github.graviton94.todayletters.ui.CollectionScreen(s, "vincent") } }
+    @Test fun alarmWheel() {
+        val s = state(true)
+        shot("p07_alarm_wheel_light", false, act = {
+            rule.onNodeWithText(ctx.getString(R.string.set_arrival)).performScrollTo().performClick()
+        }) { io.github.graviton94.todayletters.ui.SettingsScreen(s) }
+    }
+    @Test fun alarmWheelDark() {
+        val s = state(true)
+        s.store.noticeHour = 19; s.store.noticeMinute = 35
+        shot("p08_alarm_wheel_dark", true) {
+            io.github.graviton94.todayletters.ui.SettingsScreen(s)
+            io.github.graviton94.todayletters.ui.NoticeTimeSheet(s) { }
+        }
+    }
+    @Test fun tutorialConfirm() {
+        val s = state(true)
+        shot("p09_tutorial_confirm_light", false, act = {
+            rule.onNodeWithText(ctx.getString(R.string.set_help_again)).performScrollTo().performClick()
+        }) { io.github.graviton94.todayletters.ui.SettingsScreen(s) }
+    }
+    @Test fun clearConfirm() {
+        val s = state(true)
+        shot("p10_clear_confirm_dark", true) {
+            io.github.graviton94.todayletters.ui.SettingsScreen(s)
+            io.github.graviton94.todayletters.ui.Ask(ctx.getString(R.string.clear_t), ctx.getString(R.string.clear_yes), ctx.getString(R.string.cancel), { }, { },
+                body = ctx.getString(R.string.clear_b, "64.0MB"))
+        }
+    }
+    @Test fun predownloadAsk() {
+        val s = state(true)
+        val ch = s.work("vincent").chapters[1]
+        s.downloadAsk = AppState.DownloadAsk(s.downloads.pack("vincent", ch.id)!!, "vincent", ch.id, null, null)
+        shot("p11_predownload_ask_light", false, series = s) { io.github.graviton94.todayletters.ui.DownloadSheet(s, s.downloadAsk!!) }
+    }
+    @Test fun learnConfirm() {
+        val s = state(true)
+        shot("p12_learn_confirm_light", false, series = s) {
+            SeriesSettingsScreen(s, "vincent")
+            io.github.graviton94.todayletters.ui.Ask(ctx.getString(R.string.learn_confirm_t), ctx.getString(R.string.learn_confirm_yes), ctx.getString(R.string.cancel), { }, { },
+                body = ctx.getString(R.string.learn_confirm_b, ctx.getString(R.string.lang_en), ctx.getString(R.string.lang_fr)))
+        }
+    }
+    @Test fun todayFooter() { val s = withCards(); shot("p13_today_footer_light", false, 2000, act = {
+        rule.onNodeWithText(ctx.getString(R.string.today_all_letters)).performScrollTo()
+    }, series = s) { Inbox(s) } }
+    @Test fun openingScrim() {
+        val s = engineState(); s.reward = null
+        // 밝은 그림 셋 이상을 가진 상태 (입구 장식 줄이 밝은 그림 위에)
+        shot("p14_opening_scrim_dark", true, 4500) { io.github.graviton94.todayletters.ui.Opening(s) }
+    }
 }

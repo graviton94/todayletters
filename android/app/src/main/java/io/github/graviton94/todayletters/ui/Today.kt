@@ -106,7 +106,7 @@ fun Inbox(s: AppState) {
                     Journey.Step.NONE -> Text(stringResource(if (s.seriesCards(id).isEmpty()) R.string.review_empty else R.string.journey_review_none), style = Type.small.ui(), color = p.inkSoft)
                     Journey.Step.DONE -> Text(stringResource(R.string.journey_review_done, total), style = Type.small.ui(), color = p.inkSoft)
                     else -> {
-                        Text(stringResource(R.string.journey_review_d, n, total), style = Type.small.ui(), color = p.inkSoft)
+                        Text(stringResource(R.string.review_words_n, total), style = Type.small.ui(), color = p.inkSoft)
                         if (n > 0) Bar(n.toFloat() / total.coerceAtLeast(1))
                         Primary(stringResource(if (n > 0) R.string.journey_review_continue else R.string.review_start), small = true) { s.go(Route.Session()) }
                     }
@@ -118,10 +118,13 @@ fun Inbox(s: AppState) {
                     style = Type.small.ui(), color = if (j.paid) p.giltText else p.inkSoft)
             }
             Hair()
-            // 진도 한 줄 (F29) · 목차
+            // 진도 한 줄 (F29) · 목차: 한 줄에 높이를 맞추고, 목록은 테두리 단추로 뚜렷하게
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                Text(stringResource(R.string.lib_letters, s.doneCount(id), letters.size), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.weight(1f))
-                TextLink(stringResource(R.string.today_all_letters)) { s.go(Route.Series(id)) }
+                Text(stringResource(R.string.lib_letters, s.doneCount(id), letters.size), style = Type.body.ui(), color = p.inkSoft, modifier = Modifier.weight(1f))
+                Box(
+                    Modifier.heightIn(min = 44.dp).border(1.dp, p.ink).pressable { s.go(Route.Series(id)) }.padding(horizontal = 14.dp),
+                    contentAlignment = Alignment.Center,
+                ) { Text(stringResource(R.string.today_all_letters), style = Type.body.ui(), color = p.ink, maxLines = 1) }
             }
         }
     }

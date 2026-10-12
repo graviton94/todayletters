@@ -117,8 +117,8 @@
     "ko": "빠르게"
   },
   "set_help_again": {
-    "en": "Show the guides again",
-    "ko": "사용법 다시 보기"
+    "en": "Restart the tutorial",
+    "ko": "튜토리얼 다시 하기"
   },
   "set_learn": {
     "en": "Language you learn",
@@ -1072,10 +1072,6 @@
     "en": "Sources and licences: graviton94.github.io/todayletters\nTerms and image policy: graviton94.github.io/todayletters/terms\nPrivacy policy: graviton94.github.io/todayletters/privacy",
     "ko": "출처와 라이선스: graviton94.github.io/todayletters\n이용약관 · 이미지 사용 원칙: graviton94.github.io/todayletters/terms\n개인정보처리방침: graviton94.github.io/todayletters/privacy"
   },
-  "tab_milestones": {
-    "en": "Medals",
-    "ko": "메달"
-  },
   "streak_label": {
     "en": "Reading on",
     "ko": "이어 읽기"
@@ -1164,14 +1160,6 @@
     "en": "Good",
     "ko": "좋아요"
   },
-  "expo_line": {
-    "en": "This month's exhibition · %1$s",
-    "ko": "이달의 전시 · %1$s"
-  },
-  "expo_meta": {
-    "en": "%1$d days left · %2$d / %3$d pieces",
-    "ko": "%1$d일 남음 · 전시 자료 %2$d / %3$d"
-  },
   "expo_days": {
     "en": "Until the end of the month · %1$d days left",
     "ko": "이달 말까지 · %1$d일 남음"
@@ -1188,14 +1176,6 @@
     "en": "Exhibition complete · the catalogue cover is in My records",
     "ko": "전시 완성 · 도록 표지가 내 기록에 남았어요"
   },
-  "gallery_letter_note": {
-    "en": "A letter's piece goes up when you finish reading that letter.",
-    "ko": "편지를 다 읽으면 그 편지의 자료가 걸려요."
-  },
-  "gallery_draw_note": {
-    "en": "One piece goes up each day you finish your review, and one more when you finish today's three tasks. An empty frame can also be opened with your coins.",
-    "ko": "복습을 마친 날마다 한 점, 오늘의 할 일 셋을 다 하면 한 점 더 걸려요. 빈칸은 화폐로 열 수도 있어요."
-  },
   "pick_title": {
     "en": "Open this frame for %1$d %2$s?",
     "ko": "%1$d %2$s로 이 칸을 열까요?"
@@ -1208,33 +1188,25 @@
     "en": "Not now",
     "ko": "다음에"
   },
-  "spend_title": {
-    "en": "Spend %1$s",
-    "ko": "%1$s 쓰기"
-  },
   "spend_rest": {
     "en": "Rest",
     "ko": "쉼표"
   },
   "spend_rest_d": {
-    "en": "Skip a day and keep your streak · %1$d / %2$d",
-    "ko": "하루 쉬어도 이어 읽기가 끊기지 않아요 · %1$d / %2$d"
+    "en": "Keeps your streak on a day off · %1$d/%2$d",
+    "ko": "하루 쉬어도 이어 읽기 유지 · %1$d/%2$d"
   },
   "spend_early": {
     "en": "Open tomorrow's letter",
     "ko": "내일 편지 미리 열기"
   },
-  "spend_early_d": {
-    "en": "The next letter arrives today",
-    "ko": "다음 편지가 오늘 도착해요"
-  },
   "spend_pick": {
-    "en": "Choose a gallery piece",
-    "ko": "갤러리 칸 하나 열기"
+    "en": "Open a gallery slot",
+    "ko": "갤러리 칸 열기"
   },
   "spend_pick_d": {
-    "en": "Tap an empty frame in the gallery",
-    "ko": "갤러리에서 빈칸을 누르세요"
+    "en": "Choose the picture to hang",
+    "ko": "원하는 그림을 직접 골라 걸기"
   },
   "spend_confirm": {
     "en": "Use %1$d %2$s?",
@@ -1305,8 +1277,8 @@
     "ko": "메달"
   },
   "lib_overall": {
-    "en": "My record",
-    "ko": "내 기록"
+    "en": "My Record",
+    "ko": "나의 기록"
   },
   "lib_soon": {
     "en": "Coming soon",
@@ -1343,34 +1315,6 @@
   "enter_ready": {
     "en": "%1$d new letter(s) · %2$d to review",
     "ko": "새 편지 %1$d통 · 복습 %2$d개"
-  },
-  "overall_title": {
-    "en": "My record · all",
-    "ko": "내 기록 · 전체"
-  },
-  "overall_streak": {
-    "en": "days reading",
-    "ko": "일째 이어 읽기"
-  },
-  "overall_streak_note": {
-    "en": "Any series keeps it going",
-    "ko": "어느 시리즈든 이어져요"
-  },
-  "overall_gallery": {
-    "en": "My gallery",
-    "ko": "내 갤러리"
-  },
-  "overall_all": {
-    "en": "All",
-    "ko": "전체"
-  },
-  "overall_gallery_empty": {
-    "en": "Finish a letter and its piece hangs here.",
-    "ko": "편지를 다 읽으면 그 자료가 여기 걸려요."
-  },
-  "overall_milestones": {
-    "en": "Medal cabinet",
-    "ko": "메달 진열장"
   },
   "seal_line": {
     "en": "Read without translation · %1$s",
@@ -1568,10 +1512,6 @@
     "en": "Delete downloaded readings and pictures",
     "ko": "받아 둔 낭독 · 그림 지우기"
   },
-  "set_storage_clear_sure": {
-    "en": "Tap again to delete",
-    "ko": "한 번 더 누르면 지워요"
-  },
   "audio_ready": {
     "en": "✓ Reading here",
     "ko": "✓ 낭독 있음"
@@ -1603,14 +1543,6 @@
   "plates_title": {
     "en": "Paintings from the letters",
     "ko": "편지의 그림"
-  },
-  "plates_spots": {
-    "en": "%1$d spots",
-    "ko": "자리 %1$d"
-  },
-  "plates_locked": {
-    "en": "After the letter",
-    "ko": "편지를 읽으면"
   },
   "word_card": {
     "en": "Word card",
@@ -1679,14 +1611,6 @@
   "surprise_yes": {
     "en": "I remembered",
     "ko": "기억났어요"
-  },
-  "empty_gallery_t": {
-    "en": "No pieces on the wall yet",
-    "ko": "아직 걸린 작품이 없어요"
-  },
-  "empty_gallery_b": {
-    "en": "Read a letter and finish its practice: the day’s piece will hang on this wall.",
-    "ko": "편지 한 통을 읽고 연습을 마치면 그날의 작품 한 점이 이 벽에 걸려요."
   },
   "empty_quotes_t": {
     "en": "No lines saved yet",
@@ -1892,45 +1816,21 @@
     "en": "When you get it: 10 %1$s · 50 XP",
     "ko": "받으면: %1$s 10 · 50 XP"
   },
-  "spend_g_streak": {
-    "en": "Reading days",
-    "ko": "이어 읽기"
-  },
-  "spend_g_letter": {
-    "en": "Letters",
-    "ko": "편지"
-  },
-  "spend_g_gallery": {
-    "en": "Gallery",
-    "ko": "갤러리"
-  },
-  "spend_g_card": {
-    "en": "Cards",
-    "ko": "카드"
-  },
   "spend_frame": {
     "en": "Change a frame",
     "ko": "액자 바꾸기"
   },
   "spend_frame_d": {
-    "en": "Put one of your pieces in another frame (wood · gilt · ornate gilt)",
-    "ko": "가진 작품 하나에 다른 액자 (나무 · 도금 · 장식 금박)"
-  },
-  "spend_frame_hint": {
-    "en": "Open a piece in the gallery and choose ‘Change frame’.",
-    "ko": "갤러리에서 작품을 열고 ‘액자 바꾸기’를 눌러요."
+    "en": "Wood · gilt · ornate gilt",
+    "ko": "나무 · 도금 · 장식 금박"
   },
   "spend_border": {
     "en": "Card borders",
     "ko": "카드 테두리"
   },
   "spend_border_d": {
-    "en": "Borders for painting cards · buy once, keep it",
-    "ko": "작품 카드에 쓰는 테두리 · 한 번 사면 계속"
-  },
-  "spend_free_note": {
-    "en": "Letters, review and hints are always free; %1$s only buy decorations and conveniences.",
-    "ko": "배움(편지 · 복습 · 힌트)은 늘 무료예요. %1$s 쓰는 곳은 꾸미기와 편의뿐이에요."
+    "en": "Buy once, keep it",
+    "ko": "한 번 사면 계속"
   },
   "border_note": {
     "en": "Tap one you own to use it.",
@@ -2224,10 +2124,6 @@
     "en": "Catalogue",
     "ko": "도록"
   },
-  "catalogue_title": {
-    "en": "My catalogue",
-    "ko": "나의 도록"
-  },
   "catalogue_name": {
     "en": "Mon %1$s",
     "ko": "Mon %1$s"
@@ -2416,14 +2312,6 @@
     "en": "Each letter you finish hangs its painting here. Tap a picture to look closer.",
     "ko": "다 읽은 편지마다 그림이 여기 걸려요. 그림을 누르면 가까이 볼 수 있어요."
   },
-  "coach_milestones": {
-    "en": "Your medal cabinet: medals cut from ancient coins and cups. Tap one to see the object behind it and how it is earned.",
-    "ko": "메달 진열장이에요. 고대 동전과 잔으로 만든 메달을 누르면 유물 이야기와 받는 법을 볼 수 있어요."
-  },
-  "help_reset_done": {
-    "en": "Each letter step shows its one-line hint again once. Screen help is always under (?).",
-    "ko": "편지 걸음마다 한 줄 안내가 다시 한 번 나와요. 화면 도움말은 언제든 (?)에."
-  },
   "set_fade_read": {
     "en": "Fold translations as you learn",
     "ko": "익힌 만큼 번역 접기"
@@ -2564,10 +2452,6 @@
     "en": "%1$d skipped · redo",
     "ko": "건너뛴 걸음 %1$d · 다시 하기"
   },
-  "journey_review_d": {
-    "en": "This work's words %1$d / %2$d · meaning → blanks → dictation",
-    "ko": "이 작품 낱말 %1$d / %2$d · 뜻 → 빈칸 → 듣고 쓰기"
-  },
   "journey_review_done": {
     "en": "✓ All %1$d reviewed",
     "ko": "✓ %1$d개 모두 복습했어요"
@@ -2601,8 +2485,8 @@
     "ko": "자유 연습"
   },
   "free_d": {
-    "en": "This work's words, one round · counts toward your review",
-    "ko": "이 작품 낱말로 한 판 · 기록도 돼요"
+    "en": "A random round from the chapters you've opened",
+    "ko": "연 장들에서 무작위로 한 판 · 기록돼요"
   },
   "free_note": {
     "en": "Recorded. Words that were due move on; the rest keep their schedule.",
@@ -2627,10 +2511,6 @@
   "cabinet_title": {
     "en": "Medal cabinet",
     "ko": "메달 진열장"
-  },
-  "cabinet_note": {
-    "en": "%2$d of %1$d · cut from ancient Greek and Roman coins and cups · every third brings a painting",
-    "ko": "%1$d개 중 %2$d개 · 고대 그리스 · 로마의 동전과 잔에서 오려 낸 메달 · 셋째마다 유화 한 점"
   },
   "medal_tier_bronze": {
     "en": "Bronze",
@@ -2715,5 +2595,177 @@
   "credits_medals_note": {
     "en": "Medal images are cut from photographs of ancient coins and red-figure cup tondi in the Open Access collection of The Metropolitan Museum of Art (public domain, CC0). The app only removes the background and lightens the medals not yet earned.",
     "ko": "메달 그림은 메트로폴리탄 미술관 Open Access(공공 영역 · CC0)의 고대 동전과 붉은 그림 잔 안쪽 둥근 그림(톤도) 사진을 오려 낸 것입니다. 앱은 배경을 지우고, 아직 받지 않은 메달을 하얗게만 바꿉니다."
+  },
+  "tab_shop": {
+    "en": "Shop",
+    "ko": "상점"
+  },
+  "shop_plans": {
+    "en": "Subscription · Series",
+    "ko": "구독 · 시리즈"
+  },
+  "pick_sheet_title": {
+    "en": "Choose a picture to hang",
+    "ko": "걸 그림 고르기"
+  },
+  "pick_none": {
+    "en": "Every picture is already on your wall",
+    "ko": "걸 수 있는 그림을 모두 걸었어요"
+  },
+  "frame_pick_title": {
+    "en": "Which piece gets a new frame?",
+    "ko": "어느 작품의 액자를 바꿀까요?"
+  },
+  "frame_none": {
+    "en": "No pieces to frame yet",
+    "ko": "아직 액자를 바꿀 작품이 없어요"
+  },
+  "buy_series_h": {
+    "en": "Series",
+    "ko": "시리즈"
+  },
+  "buy_free_ch": {
+    "en": "Chapter I free",
+    "ko": "1장 무료"
+  },
+  "buy_series_full": {
+    "en": "Unlock the full series",
+    "ko": "전체 시리즈 열기"
+  },
+  "buy_sub_h": {
+    "en": "Subscription",
+    "ko": "구독"
+  },
+  "buy_sub_t": {
+    "en": "Every series, every letter",
+    "ko": "모든 작품 · 모든 편지"
+  },
+  "buy_sub_d": {
+    "en": "New series included as they arrive",
+    "ko": "새 작품이 도착하면 그대로 이어서"
+  },
+  "buy_soon": {
+    "en": "Coming soon",
+    "ko": "곧 열려요"
+  },
+  "record_title": {
+    "en": "My Record",
+    "ko": "나의 기록"
+  },
+  "record_letters": {
+    "en": "letters",
+    "ko": "편지"
+  },
+  "record_words": {
+    "en": "words learned",
+    "ko": "익힌 낱말"
+  },
+  "record_medals": {
+    "en": "Medals",
+    "ko": "메달"
+  },
+  "record_all": {
+    "en": "See all",
+    "ko": "전체 보기"
+  },
+  "gallery_collected": {
+    "en": "Collected pieces",
+    "ko": "모은 작품"
+  },
+  "gallery_expo": {
+    "en": "This month's exhibition",
+    "ko": "이달의 전시"
+  },
+  "gallery_more": {
+    "en": "More",
+    "ko": "더 보기"
+  },
+  "gallery_none": {
+    "en": "None yet",
+    "ko": "아직 없어요"
+  },
+  "review_words_n": {
+    "en": "%1$d words",
+    "ko": "낱말 %1$d개"
+  },
+  "notice_sheet_t": {
+    "en": "Letter notification",
+    "ko": "편지 알림"
+  },
+  "notice_sheet_d": {
+    "en": "Every day at this time, we'll tell you a letter has arrived",
+    "ko": "매일 이 시간에 편지가 도착했다고 알려요"
+  },
+  "notice_am": {
+    "en": "AM",
+    "ko": "오전"
+  },
+  "notice_pm": {
+    "en": "PM",
+    "ko": "오후"
+  },
+  "notice_at_am": {
+    "en": "%1$d:%2$02d AM",
+    "ko": "오전 %1$d:%2$02d"
+  },
+  "notice_at_pm": {
+    "en": "%1$d:%2$02d PM",
+    "ko": "오후 %1$d:%2$02d"
+  },
+  "save": {
+    "en": "Save",
+    "ko": "저장"
+  },
+  "cancel": {
+    "en": "Cancel",
+    "ko": "취소"
+  },
+  "tutorial_again_t": {
+    "en": "Restart the tutorial?",
+    "ko": "튜토리얼을 다시 시작할까요?"
+  },
+  "tutorial_again_b": {
+    "en": "We'll guide you from Vincent's first letter again. Your learning progress won't change.",
+    "ko": "빈센트의 첫 편지로 처음부터 안내해요. 지금까지의 학습 진도에는 영향이 없어요."
+  },
+  "tutorial_again_yes": {
+    "en": "Start again",
+    "ko": "다시 시작"
+  },
+  "clear_t": {
+    "en": "Delete downloaded readings and pictures?",
+    "ko": "받아 둔 낭독 · 그림을 지울까요?"
+  },
+  "clear_b": {
+    "en": "This frees %1$s. You can download them again any time.",
+    "ko": "%1$s를 비워요. 언제든 다시 받을 수 있어요."
+  },
+  "clear_yes": {
+    "en": "Delete",
+    "ko": "지우기"
+  },
+  "dl_ahead_t": {
+    "en": "Download the readings ahead?",
+    "ko": "낭독을 미리 받을까요?"
+  },
+  "dl_data": {
+    "en": "Without Wi-Fi, this may use your mobile data.",
+    "ko": "와이파이가 아니면 데이터 요금이 나올 수 있어요."
+  },
+  "learn_confirm_t": {
+    "en": "Switch the language you learn?",
+    "ko": "배우는 말을 바꿀까요?"
+  },
+  "learn_confirm_b": {
+    "en": "%1$s → %2$s. Progress is kept for each language; switch back any time to pick up where you left off.",
+    "ko": "%1$s → %2$s. 진도는 언어마다 따로 남아요. 다시 바꾸면 그 자리에서 이어져요."
+  },
+  "learn_confirm_yes": {
+    "en": "Switch",
+    "ko": "바꾸기"
+  },
+  "coach_shop": {
+    "en": "The shop: spend what you earn on a gallery slot, a new frame, an early letter, a rest day or a card border. Subscriptions and series are at the bottom.",
+    "ko": "상점이에요. 모은 화폐로 갤러리 칸 · 액자 · 미리 열기 · 쉼표 · 카드 테두리를 사요. 구독 · 시리즈는 맨 아래에 있어요."
   }
 }

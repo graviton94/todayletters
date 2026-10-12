@@ -149,7 +149,7 @@ fun cabinetMedals(s: AppState): List<MedalDef> =
     s.medalBook.medals.filter { m -> m.series == null || s.baseWorks.any { it.series.id == m.series } }
 
 /**
- * 메달 진열장 (이정표 탭 맨 위): 가족마다 이름 · 받은 수, 그 아래 메달 칸 (한 줄에 넷).
+ * 메달 진열장 (나의 기록 › 전체 보기): 가족마다 이름 · 받은 수, 그 아래 메달 칸 (한 줄에 넷).
  * 받은 메달은 금속과 이름, 다음 메달은 석고 본과 진행 ("12/30일"), 그 뒤는 흐린 석고 본과 문턱.
  */
 @Composable
@@ -160,8 +160,6 @@ fun MedalCabinet(s: AppState, onOpen: (MedalDef) -> Unit) {
     val have = s.medalsOwned
     val all = cabinetMedals(s)
     Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
-        Text(stringResource(R.string.cabinet_note, all.size, all.count { it.id in have }), style = Type.small.ui(), color = p.inkSoft,
-            modifier = Modifier.padding(horizontal = 4.dp))
         s.medalBook.families.forEach { f ->
             val ms = all.filter { it.family == f.id }.sortedBy { it.threshold }
             if (ms.isEmpty()) return@forEach
@@ -174,22 +172,8 @@ fun MedalCabinet(s: AppState, onOpen: (MedalDef) -> Unit) {
                 ms.chunked(4).forEach { row ->
                     Row(Modifier.fillMaxWidth()) {
                         row.forEach { m ->
-                            val earned = m.id in have
-                            val isNext = m == next || (m.series != null && !earned)
-                            Column(Modifier.weight(1f).pressable { onOpen(m) }.padding(horizontal = 2.dp, vertical = 4.dp),
-                                horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                                MedalImage(m, earned, 66.dp, progress = if (isNext) medalCount(s, m, st).let { (a, b) -> a.toFloat() / b.coerceAtLeast(1) } else null,
-                                    faint = !earned && !isNext)
-                                Text(
-                                    when {
-                                        earned -> m.title[ui]
-                                        isNext -> countText(s, m, st)
-                                        else -> stringResource(R.string.medal_count, m.threshold, m.threshold, unitOf(s, m, ui)).trim().substringAfter("/")   // 문턱만 ("60일")
-                                    },
-                                    style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = if (earned) FontWeight.SemiBold else FontWeight.Normal),
-                                    color = when { earned -> p.ink; isNext -> p.giltText; else -> p.hideInk }, textAlign = TextAlign.Center, maxLines = 2,
-                                )
-                            }
+                            MedalCell(s, m, st, earned = m.id in have, isNext = m == next || (m.series != null && m.id !in have), size = 66.dp,
+                                modifier = Modifier.weight(1f)) { onOpen(m) }
                         }
                         repeat(4 - row.size) { Spacer(Modifier.weight(1f)) }
                     }
@@ -198,6 +182,38 @@ fun MedalCabinet(s: AppState, onOpen: (MedalDef) -> Unit) {
             Hair()
         }
     }
+}
+
+/** 메달 칸 하나: 메달 · 아래에 이름 (받음) / 진행 (다음) / 문턱 (그 뒤). 진열장과 나의 기록이 같이 쓴다. */
+@Composable
+fun MedalCell(s: AppState, m: MedalDef, st: Stats, earned: Boolean, isNext: Boolean, size: Dp, modifier: Modifier = Modifier, onOpen: () -> Unit) {
+    val p = Ink.palette
+    val ui = uiLang()
+    Column(modifier.pressable(onClick = onOpen).padding(horizontal = 2.dp, vertical = 4.dp),
+        horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        MedalImage(m, earned, size, progress = if (isNext) medalCount(s, m, st).let { (a, b) -> a.toFloat() / b.coerceAtLeast(1) } else null,
+            faint = !earned && !isNext)
+        Text(
+            when {
+                earned -> m.title[ui]
+                isNext -> countText(s, m, st)
+                else -> stringResource(R.string.medal_count, m.threshold, m.threshold, unitOf(s, m, ui)).trim().substringAfter("/")   // 문턱만 ("60일")
+            },
+            style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = if (earned) FontWeight.SemiBold else FontWeight.Normal),
+            color = when { earned -> p.ink; isNext -> p.giltText; else -> p.hideInk }, textAlign = TextAlign.Center, maxLines = 2,
+        )
+    }
+}
+
+/**
+ * 나의 기록에 먼저 보여 줄 메달 [n] 개: 받은 메달 (최근 것부터) → 가족마다 다음 메달 → 나머지.
+ */
+fun featuredMedals(s: AppState, n: Int = 6): List<MedalDef> {
+    val all = cabinetMedals(s)
+    val have = s.medalsOwned
+    val got = all.filter { it.id in have }.sortedByDescending { s.medalDay(it.id) ?: -1L }
+    val next = all.filter { it.id !in have && it.series == null }.groupBy { it.family }.values.mapNotNull { ms -> ms.minByOrNull { it.threshold } }
+    return (got + next + all).distinct().take(n)
 }
 
 /** 메달 자세히: 메달 · 등급 · 이름 · 받은 날 (또는 진행), 받는 법, 메달이 된 유물 (이름 · 시기 · 소장처 · 라이선스). */
@@ -243,7 +259,7 @@ fun MedalDetail(s: AppState, m: MedalDef, onClose: () -> Unit) {
 }
 
 /**
- * 칭호 줄 (서재 · 작품 머리): "학예 보조 II · Lv 14" 와 다음 레벨까지 얇은 막대.
+ * 칭호 줄 (서재 · 작품 머리): "학예 보조 II · Lv 14" 와 다음 레벨까지 얇은 막대. 누르면 나의 기록 (부르는 곳에서 [modifier] 로).
  */
 @Composable
 fun RankLine(s: AppState, modifier: Modifier = Modifier) {

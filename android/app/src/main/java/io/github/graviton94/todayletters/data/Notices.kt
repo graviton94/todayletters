@@ -88,7 +88,7 @@ object Notices {
         val store = Store(ctx)
         val am = ctx.getSystemService(AlarmManager::class.java) ?: return
         val now = LocalDateTime.now()
-        var at = now.toLocalDate().atTime(store.noticeHour, 0)
+        var at = now.toLocalDate().atTime(store.noticeHour.coerceIn(0, 23), store.noticeMinute.coerceIn(0, 59))
         if (!at.isAfter(now)) at = at.plusDays(1)
         val ms = at.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
         am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, ms, pending(ctx))

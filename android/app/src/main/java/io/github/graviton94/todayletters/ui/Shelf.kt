@@ -65,22 +65,24 @@ fun LibraryTab(s: AppState) {
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s5, end = Tokens.Space.s1, top = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
             Caps("LINGUA MUSEUM", p.inkSoft, small = true, decorative = true, modifier = Modifier.weight(1f))
+            // 나의 기록 (칭호 · 메달 · 이어 읽기, 모든 작품 합산)
+            Box(Modifier.heightIn(min = 44.dp).pressable { s.go(Route.Record) }, contentAlignment = Alignment.Center) {
+                Text(stringResource(R.string.lib_overall), style = Type.small.ui(), color = p.ink, maxLines = 1,
+                    modifier = Modifier.border(1.dp, p.line).padding(horizontal = 10.dp, vertical = 4.dp))
+            }
             HeaderIcons(s)
         }
         Column(Modifier.padding(horizontal = Tokens.Space.s5), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
             Text(stringResource(R.string.lib_title), style = Type.title.ui(), color = p.ink)
-            // 칭호 · 레벨
-            RankLine(s, Modifier.fillMaxWidth())
-            Row(Modifier.fillMaxWidth()) {
+            // 칭호 · 레벨 · 요약 (누르면 나의 기록)
+            RankLine(s, Modifier.fillMaxWidth().pressable { s.go(Route.Record) })
+            Row(Modifier.fillMaxWidth().pressable { s.go(Route.Record) }) {
                 listOf("${s.streak}" to R.string.lib_stat_streak, "$pieces" to R.string.lib_stat_pieces, "$medalsGot / ${cabinet.size}" to R.string.lib_stat_ach).forEach { (v, l) ->
                     Column(Modifier.weight(1f)) {
                         Text(v, style = Type.title.copy(fontFamily = Faces.display), color = p.ink)
                         Text(stringResource(l), style = Type.small.ui(), color = p.inkSoft)
                     }
                 }
-            }
-            Box(Modifier.heightIn(min = 40.dp).pressable { s.go(Route.Overall) }, contentAlignment = Alignment.CenterStart) {
-                Text(stringResource(R.string.lib_overall) + " ›", style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.ink)
             }
             // 처음 설치 (튜토리얼): 첫 작품 카드를 강조하고, 배울 말은 그 카드에서 고른다 → 바로 편지 I
             s.works.forEach { w -> if (!s.tutorialDone && w.series.id == s.tutorialSeries && s.needsWelcome(w.series.id)) TutorialCard(s, w) else SeriesCard(s, w) }
@@ -213,100 +215,5 @@ fun EnterScreen(s: AppState, id: String) {
                 Text(stringResource(R.string.enter_ready, s.unread(id), s.dueCards(id).size), style = Type.small.ui(), color = t.soft)
             }
         }
-    }
-}
-
-/** 서재 › 내 기록 · 전체: 이어 읽기 하나 · 시리즈별 화폐 · 합친 갤러리 (시리즈로 거르기) · 전체 이정표. */
-@Composable
-fun OverallScreen(s: AppState) {
-    val p = Ink.palette
-    s.version
-    var filter by rememberSaveable { mutableStateOf<String?>(null) }
-    var open by remember { mutableStateOf<io.github.graviton94.todayletters.core.Piece?>(null) }
-    Column(Modifier.fillMaxSize()) {
-        TopBar(stringResource(R.string.overall_title), s, help = null, showBack = true, showSettings = false)
-        Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
-            Row(verticalAlignment = Alignment.Bottom) {
-                Text("${s.streak}", style = Type.display.copy(fontFamily = Faces.display), color = p.ink)
-                Text(" " + stringResource(R.string.overall_streak), style = Type.body.ui(), color = p.ink, modifier = Modifier.weight(1f).padding(bottom = 4.dp))
-                Text(stringResource(R.string.overall_streak_note), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(bottom = 6.dp))
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                s.works.forEach { w ->
-                    val t = w.kit.light?.let(::tone)
-                    Row(Modifier.weight(1f).background(t?.paper ?: p.hide).border(width = 0.dp, color = Color.Transparent).padding(Tokens.Space.s3),
-                        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                        Box(Modifier.width(3.dp).height(30.dp).background(t?.accent ?: p.ink))
-                        Portrait(w.portrait, w.fullName, 28.dp)
-                        Column {
-                            Text("${s.wallet(w.series.id).balance}", style = Type.heading.copy(fontFamily = Faces.display), color = t?.accent ?: p.ink)
-                            Text(w.kit.currency[uiLang()], style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
-                        }
-                    }
-                }
-                if (s.works.size == 1) Spacer(Modifier.weight(1f))
-            }
-            // 합친 갤러리
-            val all = s.works.flatMap { w -> s.gallery(w.series.id).filter { s.owns(w.series.id, it) }.map { w to it } }
-            Row(verticalAlignment = Alignment.Bottom) {
-                Text(stringResource(R.string.overall_gallery), style = Type.heading.ui(), color = p.ink, modifier = Modifier.weight(1f))
-                Text("${all.size} / ${s.works.sumOf { s.gallery(it.series.id).size }}", style = Type.small, color = p.inkSoft)
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                Chip(stringResource(R.string.overall_all), filter == null, p.ink) { filter = null }
-                s.works.forEach { w -> Chip(w.name[uiLang()], filter == w.series.id, w.kit.light?.let(::tone)?.accent ?: p.ink) { filter = w.series.id } }
-            }
-            all.filter { filter == null || it.first.series.id == filter }.chunked(4).forEach { row ->
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    row.forEach { (w, pc) ->
-                        Column(Modifier.weight(1f).pressable { open = pc }) {
-                            AssetImage(pc.image, Modifier.fillMaxWidth().aspectRatio(1f), sample = 8)
-                            Box(Modifier.fillMaxWidth().height(3.dp).background(w.kit.light?.let(::tone)?.accent ?: p.ink))
-                        }
-                    }
-                    repeat(4 - row.size) { Spacer(Modifier.weight(1f)) }
-                }
-            }
-            if (all.isEmpty()) Text(stringResource(R.string.overall_gallery_empty), style = Type.small.ui(), color = p.inkSoft)
-            // 도록 (E4): 다 모은 이달의 전시
-            val cats = s.works.flatMap { w -> s.catalogues(w.series.id).map { w to it } }
-            if (cats.isNotEmpty()) {
-                Text(stringResource(R.string.overall_catalogues), style = Type.heading.ui(), color = p.ink, modifier = Modifier.padding(top = Tokens.Space.s2))
-                cats.forEachIndexed { k, (w, c) -> CatalogueCover(s, w, c.first, c.second, c.third, k + 1) }
-            }
-            // 메달 진열장: 가족마다 받은 수 (자세한 진열장은 작품 안 ‘메달’ 이름표)
-            Text(stringResource(R.string.overall_milestones), style = Type.heading.ui(), color = p.ink, modifier = Modifier.padding(top = Tokens.Space.s2))
-            RankLine(s, Modifier.fillMaxWidth())
-            Column {
-                val have = s.medalsOwned
-                val cab = cabinetMedals(s)
-                s.medalBook.families.forEach { f ->
-                    val ms = cab.filter { it.family == f.id }
-                    if (ms.isEmpty()) return@forEach
-                    val got = ms.filter { it.id in have }
-                    Row(Modifier.fillMaxWidth().padding(vertical = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                        val top = got.maxByOrNull { it.threshold } ?: ms.first()
-                        MedalImage(top, got.isNotEmpty(), 40.dp, faint = got.isEmpty())
-                        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                            Text(f.title[uiLang()], style = Type.body.ui(), color = p.ink)
-                            Bar(got.size.toFloat() / ms.size)
-                        }
-                        Text("${got.size} / ${ms.size}", style = Type.small, color = p.inkSoft)
-                    }
-                    Hair()
-                }
-            }
-            Spacer(Modifier.height(Tokens.Space.s5))
-        }
-    }
-    open?.let { pc -> PieceView(pc, frame = s.frameKind(pc)) { open = null } }
-}
-
-@Composable
-private fun Chip(label: String, on: Boolean, color: Color, onClick: () -> Unit) {
-    val p = Ink.palette
-    Box(Modifier.heightIn(min = 36.dp).then(if (on) Modifier.background(color) else Modifier.border(1.5.dp, color)).pressable(onClick = onClick).padding(horizontal = 12.dp),
-        contentAlignment = Alignment.Center) {
-        Text(label, style = Type.small.ui().copy(fontWeight = FontWeight.SemiBold), color = if (on) p.paper else color, textAlign = TextAlign.Center)
     }
 }

@@ -94,12 +94,14 @@ private fun Main(s: AppState, onExit: () -> Unit) {
                 ) { r ->
                     when (r) {
                         Route.Library -> LibraryTab(s)
-                        Route.Overall -> OverallScreen(s)
+                        Route.Record -> RecordScreen(s)
+                        Route.Medals -> MedalsScreen(s)
+                        Route.Purchase -> PurchaseScreen(s)
                         is Route.Enter -> EnterScreen(s, r.series)
                         Route.Inbox -> Inbox(s)
                         Route.Words -> WordsTab(s)
                         Route.Gallery -> GalleryTab(s)
-                        Route.Milestones -> MilestonesTab(s)
+                        Route.Shop -> ShopTab(s)
                         Route.Exhibition -> ExhibitionScreen(s)
                         Route.Recital -> RecitalScreen(s)
                         Route.Week -> WeekScreen(s)
@@ -114,6 +116,7 @@ private fun Main(s: AppState, onExit: () -> Unit) {
                         is Route.Welcome -> WelcomeSheet(s, r.series)
                         is Route.Outro -> OutroScreen(s, r.series)
                         is Route.Catalogue -> CatalogueScreen(s, r.series)
+                        is Route.Collection -> CollectionScreen(s, r.series)
                         is Route.Shadow -> ShadowScreen(s, r)
                         is Route.Seal -> SealScreen(s, r)
                         is Route.Artwork -> Artwork(s, r)
@@ -147,7 +150,7 @@ private fun Tabs(s: AppState) {
     Column {
         Hair()
         Row(Modifier.fillMaxWidth().background(p.paper)) {
-            listOf(Route.Inbox to R.string.tab_inbox, Route.Words to R.string.tab_words, Route.Gallery to R.string.tab_gallery, Route.Milestones to R.string.tab_milestones)
+            listOf(Route.Inbox to R.string.tab_inbox, Route.Words to R.string.tab_words, Route.Gallery to R.string.tab_gallery, Route.Shop to R.string.tab_shop)
                 .forEach { (r, label) ->
                     val on = s.route == r
                     Box(
@@ -170,7 +173,7 @@ fun helpId(r: Route): String? = when (r) {
     Route.Inbox -> "inbox"
     Route.Words -> "words"
     Route.Gallery -> "gallery"
-    Route.Milestones -> "milestones"
+    Route.Shop -> "shop"
     Route.Library -> "library"
     is Route.Series -> "series"
     is Route.Letter -> "room"

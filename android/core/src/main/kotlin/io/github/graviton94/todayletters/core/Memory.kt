@@ -74,6 +74,20 @@ object Memory {
         if (c.due <= today) after(c, correct, today) else surpriseAnswered(c, correct, today)
 
     /**
+     * 자유 연습 한 판 (한 번 누르면 바로): [chapters] (연 장, "작품:장") 에서 나온 카드 가운데 무작위로 [n] 장, 꼴도 무작위.
+     * 어느 편지 · 어느 꼴이든 나올 수 있다. 같은 [seed] 면 같은 판 (화면을 다시 그려도 그대로).
+     * 꼴은 [freeKind] (카드 · 날마다 정해져서, 하다 나갔다 와도 같은 꼴로 이어진다).
+     */
+    fun freeSet(cards: Collection<Card>, chapters: Set<String>, seed: Long, day: Long, n: Int = DAILY): List<Pair<Card, ReviewKind>> {
+        val pool = cards.filter { c -> CardRef.parse(c.key)?.let { "${it.series}:${it.chapter}" in chapters } == true }.sortedBy { it.key }
+        return pool.shuffled(java.util.Random(seed)).take(n).map { it to freeKind(it.key, day) }
+    }
+
+    /** 자유 연습의 꼴: 뜻 고르기 · 빈칸 · 듣고 쓰기 · 말하기 가운데 하나 (카드와 날로 정해진다). */
+    fun freeKind(key: String, day: Long): ReviewKind =
+        ReviewKind.entries[java.util.Random(key.hashCode() * 31L + day * 7L).nextInt(ReviewKind.entries.size)]
+
+    /**
      * 문제 꼴 = 성장 곡선: 알아보기(뜻 고르기) → 떠올리기(빈칸) → 쓰기(듣고 쓰기) → 말하기.
      * 위 단계는 쓰기와 말하기를 번갈아 (오래 안 쓰면 잊는 쪽부터).
      */

@@ -369,7 +369,7 @@ fun CatalogueCover(s: AppState, w: Work, e: io.github.graviton94.todayletters.co
  * 그 아래 한 줄: 배우는 말 바꾸기 단추 · 화폐.
  */
 @Composable
-fun SeriesHeader(s: AppState, title: String? = null, caps: String? = null) {
+fun SeriesHeader(s: AppState, title: String? = null, caps: String? = null, currency: Boolean = true) {
     val p = Ink.palette
     val w = s.currentWork
     Column {
@@ -384,10 +384,10 @@ fun SeriesHeader(s: AppState, title: String? = null, caps: String? = null) {
         Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s5, end = Tokens.Space.s5), verticalAlignment = Alignment.CenterVertically) {
             LearnChip(s, w.series.id)
             Spacer(Modifier.weight(1f))
-            CurrencyLine(s, w)
+            if (currency) CurrencyLine(s, w)
         }
-        // 칭호 · 레벨 (모든 작품 공통)
-        RankLine(s, Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s5).padding(top = 2.dp, bottom = 2.dp))
+        // 칭호 · 레벨 (모든 작품 공통): 얇게, 누르면 서재의 나의 기록
+        RankLine(s, Modifier.fillMaxWidth().pressable { s.go(Route.Record) }.padding(horizontal = Tokens.Space.s5).padding(top = 2.dp, bottom = 2.dp))
         if (title != null) Column(Modifier.padding(horizontal = Tokens.Space.s6).padding(top = Tokens.Space.s2), verticalArrangement = Arrangement.spacedBy(4.dp)) {
             if (caps != null) Caps(caps, p.giltText, small = true, decorative = true)
             Text(title, style = Type.title.ui(), color = p.ink)
@@ -404,86 +404,111 @@ fun HeaderIcons(s: AppState) {
     IconButton(stringResource(R.string.settings), onClick = { s.settingsOpen = true }) { Gear(p.ink) }
 }
 
-/** 갤러리 (시리즈 안 이름표): 희귀도별 칸 · 이달의 전시 · 다음 이정표까지. */
+/**
+ * 갤러리 (시리즈 안 이름표, APK 20 피드백): 세 묶음만 — 편지의 그림 (읽은 편지) · 모은 작품 (뽑기 · 상점) · 이달의 전시.
+ * 묶음마다 가진 것만 세 칸, 나머지는 ‘더 보기’ (빈칸 줄은 두지 않는다).
+ */
 @Composable
 fun GalleryTab(s: AppState) {
     val p = Ink.palette
     val w = s.currentWork
     val id = w.series.id
     s.version
-    val all = s.gallery(id)
-    var tier by rememberSaveable { mutableStateOf(Tier.LETTER) }
     var open by remember { mutableStateOf<Piece?>(null) }
-    var buying by remember { mutableStateOf<Piece?>(null) }
+    var framing by remember { mutableStateOf<Piece?>(null) }
+    val plates = w.chapters.flatMapIndexed { ci, c -> c.letters.mapIndexedNotNull { li, l -> l.plate?.let { Triple(ci, li, c to l) } } }
+    val opened = plates.filter { (_, _, cl) -> s.progress(id, cl.first.id, cl.second.id).let { it.shown > 0 || it.done } }
+    val collected = w.kit.collection.filter { s.owns(id, it) }
     Column(Modifier.fillMaxSize()) {
         SeriesHeader(s, stringResource(R.string.tab_gallery))
-        Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
-            Row(verticalAlignment = Alignment.Bottom) {
-                Text("${s.ownedCount(id)}", style = Type.title.copy(fontFamily = Faces.display), color = p.ink)
-                Text(" / ${all.size}", style = Type.small, color = p.inkSoft, modifier = Modifier.padding(bottom = 3.dp))
+        Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s5)) {
+            // 편지의 그림: 연 편지의 그림, 최근 것부터 셋 → 그림 산책
+            GalleryGroup(stringResource(R.string.plates_title), "${opened.size} / ${plates.size}", onMore = { s.go(Route.Catalogue(id)) }) {
+                Thumbs(opened.takeLast(3).reversed().map { (ci, li, cl) ->
+                    "plates/${cl.second.plate!!.image}" to { s.go(Route.Artwork(id, li + 1, Route.Letter(id, ci + 1, li + 1, Route.Gallery))) }
+                })
             }
-            // 편지의 그림 (v21): 읽은 편지의 그림 → 그림 산책 (자리별 설명)
-            LetterPlates(s, w)
+            // 모은 작품 (예전 ‘나의 도록’과 합침): 뽑기 · 상점으로 모은 소장품
+            GalleryGroup(stringResource(R.string.gallery_collected), "${collected.size} / ${w.kit.collection.size}", onMore = { s.go(Route.Collection(id)) }) {
+                Thumbs(collected.takeLast(3).reversed().map { pc -> pc.image to { open = pc } })
+            }
             // 이달의 전시
             s.exhibition(id)?.let { e ->
                 val ep = s.exhibitionPieces(id)
-                Row(Modifier.fillMaxWidth().background(p.hide).pressable { s.go(Route.Exhibition) }.padding(Tokens.Space.s3),
-                    verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                    AssetImage(ep.firstOrNull()?.image.orEmpty(), Modifier.size(44.dp), sample = 8)
-                    Column(Modifier.weight(1f)) {
-                        Text(stringResource(R.string.expo_line, e.title[uiLang()]), style = Type.small.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink)
-                        Text(stringResource(R.string.expo_meta, s.daysLeftInMonth, ep.count { s.owns(id, it) }, ep.size), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
-                    }
-                    Text("›", style = Type.heading, color = p.inkSoft)
+                val have = ep.filter { s.owns(id, it) }
+                GalleryGroup(stringResource(R.string.gallery_expo), "${e.title[uiLang()]} · ${have.size} / ${ep.size}", onMore = { s.go(Route.Exhibition) }) {
+                    Thumbs(have.take(3).map { pc -> pc.image to { open = pc } })
                 }
             }
-            // 나의 도록 (편지마다 받은 그림, 다 모은 전시)
-            Row(Modifier.fillMaxWidth().background(p.hide).pressable { s.go(Route.Catalogue(id)) }.padding(Tokens.Space.s3),
-                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                Column(Modifier.weight(1f)) {
-                    Text(stringResource(R.string.catalogue_title), style = Type.small.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink)
-                    Text(stringResource(R.string.catalogue_progress, s.doneCount(id), w.chapters.sumOf { it.letters.size }), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
-                }
-                Text("›", style = Type.heading, color = p.inkSoft)
+            Spacer(Modifier.height(Tokens.Space.s3))
+        }
+    }
+    open?.let { pc -> PieceView(pc, walk = s.plateWalk(id, pc), frame = s.frameKind(pc), onFrame = { framing = pc }) { open = null } }
+    framing?.let { pc -> FramePicker(s, w, pc) { framing = null } }
+}
+
+/** 갤러리의 한 묶음: 이름 · 가진 수 · 더 보기 ›, 그 아래 그림 칸. */
+@Composable
+private fun GalleryGroup(title: String, count: String, onMore: () -> Unit, content: @Composable () -> Unit) {
+    val p = Ink.palette
+    Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(title, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink)
+                Text(count, style = Type.small.ui(), color = p.giltText, maxLines = 1)
             }
-            // 아직 한 점도 없으면: 왜 비었는지 + 오늘의 편지로 (U2)
-            if (s.ownedCount(id) == 0) EmptyState(stringResource(R.string.empty_gallery_t), stringResource(R.string.empty_gallery_b), stringResource(R.string.today_open)) { s.go(Route.Inbox) }
-            // 희귀도 칸
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
-                Tier.entries.forEach { t ->
-                    val inTier = all.filter { it.tier == t }
-                    if (inTier.isEmpty()) return@forEach
-                    Column(Modifier.pressable { tier = t }.padding(vertical = 4.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                        Text(tierName(t), style = Type.small.ui(), color = if (tier == t) p.ink else p.inkSoft)
-                        Text("${inTier.count { s.owns(id, it) }} / ${inTier.size}", style = Type.small.copy(fontFamily = Faces.display), color = p.inkSoft)
-                        Box(Modifier.width(24.dp).height(2.dp).background(if (tier == t) p.giltText else Color.Transparent))
-                    }
-                }
+            Box(Modifier.heightIn(min = 44.dp).pressable(onClick = onMore).padding(start = Tokens.Space.s3), contentAlignment = Alignment.CenterEnd) {
+                Text(stringResource(R.string.gallery_more) + " ›", style = Type.small.ui(), color = p.ink)
             }
-            val shown = all.filter { it.tier == tier }
-            shown.chunked(3).forEach { row ->
-                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    row.forEach { pc ->
-                        val have = s.owns(id, pc)
-                        Box(Modifier.weight(1f).aspectRatio(1f).then(if (have) Modifier else Modifier.border(1.dp, p.hair))
-                            .pressable { if (have) open = pc else if (pc.tier != Tier.LETTER && s.available(pc)) buying = pc }) {
-                            if (have) AssetImage(pc.image, Modifier.fillMaxSize(), sample = 4)
-                        }
-                    }
+        }
+        content()
+    }
+}
+
+/** 가진 그림만 세 칸 (모자라면 빈자리 없이 비워 둔다). 하나도 없으면 한 줄. */
+@Composable
+private fun Thumbs(items: List<Pair<String, () -> Unit>>) {
+    val p = Ink.palette
+    if (items.isEmpty()) { Text(stringResource(R.string.gallery_none), style = Type.small.ui(), color = p.hideInk); return }
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        items.take(3).forEach { (image, go) ->
+            AssetImage(image, Modifier.weight(1f).aspectRatio(1f).border(Tokens.Stroke.hair, p.hair).pressable(onClick = go), sample = 4)
+        }
+        repeat(3 - items.size.coerceAtMost(3)) { Spacer(Modifier.weight(1f)) }
+    }
+}
+
+/** 갤러리 › 모은 작품 전부: 가진 소장품 (등급 순) 과 다 모은 이달의 전시의 도록 표지. */
+@Composable
+fun CollectionScreen(s: AppState, series: String) {
+    val p = Ink.palette
+    val w = s.work(series)
+    s.version
+    var open by remember { mutableStateOf<Piece?>(null) }
+    var framing by remember { mutableStateOf<Piece?>(null) }
+    val owned = w.kit.collection.filter { s.owns(series, it) }.sortedByDescending { it.tier.ordinal }
+    Column(Modifier.fillMaxSize()) {
+        TopBar(stringResource(R.string.gallery_collected), s, help = null, showBack = true, showSettings = false)
+        Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            Text("${owned.size} / ${w.kit.collection.size}", style = Type.small.ui(), color = p.giltText)
+            if (owned.isEmpty()) Text(stringResource(R.string.gallery_none), style = Type.small.ui(), color = p.hideInk)
+            owned.chunked(3).forEach { row ->
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    row.forEach { pc -> AssetImage(pc.image, Modifier.weight(1f).aspectRatio(1f).pressable { open = pc }, sample = 4) }
                     repeat(3 - row.size) { Spacer(Modifier.weight(1f)) }
                 }
             }
-            Text(stringResource(if (tier == Tier.LETTER) R.string.gallery_letter_note else R.string.gallery_draw_note), style = Type.small.ui(), color = p.inkSoft)
+            // 도록 (E4): 다 모은 이달의 전시
+            val cats = s.catalogues(series)
+            if (cats.isNotEmpty()) {
+                Text(stringResource(R.string.overall_catalogues), style = Type.heading.ui(), color = p.ink, modifier = Modifier.padding(top = Tokens.Space.s3))
+                cats.forEachIndexed { k, c -> CatalogueCover(s, w, c.first, c.second, c.third, k + 1) }
+            }
+            Spacer(Modifier.height(Tokens.Space.s5))
         }
     }
-    var framing by remember { mutableStateOf<Piece?>(null) }
-    open?.let { pc -> PieceView(pc, walk = s.plateWalk(id, pc), frame = s.frameKind(pc), onFrame = { framing = pc }) { open = null } }
+    open?.let { pc -> PieceView(pc, walk = s.plateWalk(series, pc), frame = s.frameKind(pc), onFrame = { framing = pc }) { open = null } }
     framing?.let { pc -> FramePicker(s, w, pc) { framing = null } }
-    buying?.let { pc ->
-        val cost = Spend.PICK_PIECE.cost
-        Ask(stringResource(R.string.pick_title, cost, w.kit.currency[uiLang()]), stringResource(R.string.pick_yes), stringResource(R.string.not_now),
-            onYes = { s.buy(Spend.PICK_PIECE, id, pc); buying = null }, onNo = { buying = null })
-    }
 }
 
 /** 걸린 작품 크게 보기: 액자에 끼운 채로 전체를, 확대 · 끌어 보기 (ZoomViewer). 편지의 그림이기도 하면 ‘그림 산책’, [onFrame] 이 있으면 ‘액자 바꾸기’. */
@@ -529,141 +554,6 @@ fun FramePicker(s: AppState, w: Work, pc: Piece, onClose: () -> Unit) {
         Ask(stringResource(R.string.spend_confirm, Spend.FRAME.cost, w.kit.currency[uiLang()]), stringResource(R.string.spend_yes), stringResource(R.string.not_now),
             onYes = { s.buy(Spend.FRAME, w.series.id, pc, k.name); pick = null; onClose() }, onNo = { pick = null })
     }
-}
-
-/**
- * 갤러리 맨 위 ‘편지의 그림’ (v21): 연 편지의 그림을 가로 줄로 (편지 번호 · 그림 이름 · 자리 수), 누르면 그림 산책.
- * 아직 안 연 편지의 그림은 미리 보이지 않게 빈 테두리 (다음 두 통까지만).
- */
-@Composable
-private fun LetterPlates(s: AppState, w: io.github.graviton94.todayletters.data.Work) {
-    val p = Ink.palette
-    val id = w.series.id
-    val all = w.chapters.flatMapIndexed { ci, c -> c.letters.mapIndexed { li, l -> Triple(ci, li, c to l) } }.filter { it.third.second.plate != null }
-    if (all.isEmpty()) return
-    val opened = all.filter { (_, _, cl) -> s.progress(id, cl.first.id, cl.second.id).let { it.shown > 0 || it.done } }
-    val ahead = all.filter { it !in opened }.take(2)
-    Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-        Row(verticalAlignment = Alignment.Bottom) {
-            Text(stringResource(R.string.plates_title), style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink, modifier = Modifier.weight(1f))
-            Text("${opened.size} / ${all.size}", style = Type.small.copy(fontFamily = Faces.display), color = p.giltText)
-        }
-        Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            val letters = w.chapters.flatMap { it.letters }
-            opened.forEach { (ci, li, cl) ->
-                val pl = cl.second.plate!!
-                Column(Modifier.width(112.dp).pressable { s.go(Route.Artwork(id, li + 1, Route.Letter(id, ci + 1, li + 1, Route.Gallery))) },
-                    verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    AssetImage("plates/${pl.image}", Modifier.fillMaxWidth().height(84.dp).border(Tokens.Stroke.hair, p.hair), sample = 4)
-                    Text(stringResource(R.string.letter_n, roman(letters.indexOf(cl.second) + 1)) + " · " + pl.title[uiLang()],
-                        style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, maxLines = 2)
-                    // 그림이 이 기기에 있을 때만 산책 (F12)
-                    if (pl.spots.isNotEmpty() && io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${pl.image}")) Capsule(stringResource(R.string.plates_spots, pl.spots.size))
-                }
-            }
-            ahead.forEach { (_, _, cl) ->
-                Column(Modifier.width(112.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Box(Modifier.fillMaxWidth().height(84.dp).border(1.dp, p.hair), contentAlignment = Alignment.Center) {
-                        Text(stringResource(R.string.plates_locked), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.hideInk)
-                    }
-                    Text(stringResource(R.string.letter_n, roman(letters.indexOf(cl.second) + 1)), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.hideInk)
-                }
-            }
-        }
-    }
-}
-
-/** 메달 (시리즈 안 이름표): 메달 진열장 (누르면 유물 이야기) · 이번 주 · 일요일 낭독회 · 화폐 쓰기. */
-@Composable
-fun MilestonesTab(s: AppState) {
-    val w = s.currentWork
-    val id = w.series.id
-    s.version
-    var detail by rememberSaveable { mutableStateOf<String?>(null) }
-    Column(Modifier.fillMaxSize()) {
-        SeriesHeader(s, stringResource(R.string.cabinet_title))
-        Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            MedalCabinet(s) { detail = it.id }
-            Spacer(Modifier.height(Tokens.Space.s2))
-            // 이번 주 · 일요일 낭독회 (오늘 화면에서 옮겨 옴)
-            run {
-                val wk = s.week(id)
-                MoreRow(stringResource(R.string.week_title), stringResource(R.string.week_line, wk.done.size, wk.letters, wk.owned)) { s.go(Route.Week) }
-            }
-            val sunday = io.github.graviton94.todayletters.core.Recital.isSunday(s.today)
-            MoreRow(stringResource(R.string.recital_title), stringResource(if (s.recitalDone) R.string.recital_done else if (sunday) R.string.recital_today else R.string.recital_sunday)) { s.go(Route.Recital) }
-            Spacer(Modifier.height(Tokens.Space.s4))
-            Shop(s, w)
-        }
-    }
-    detail?.let { mid -> s.medalBook.medal(mid)?.let { m -> MedalDetail(s, m) { detail = null } } }
-}
-
-/** 이정표 탭의 한 줄 (이번 주 · 낭독회): 이름 · 한 줄 · ›. */
-@Composable
-private fun MoreRow(title: String, line: String, onClick: () -> Unit) {
-    val p = Ink.palette
-    Row(Modifier.fillMaxWidth().heightIn(min = 56.dp).pressable(onClick = onClick).padding(vertical = 6.dp, horizontal = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-        Column(Modifier.weight(1f)) {
-            Text(title, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink)
-            Text(line, style = Type.small.ui(), color = p.inkSoft)
-        }
-        Text("›", style = Type.heading, color = p.inkSoft)
-    }
-    Hair()
-}
-
-/** 우표 쓰기 (E3): 이어 읽기 · 편지 · 갤러리 · 카드로 묶어서. 배움은 늘 무료. */
-@Composable
-private fun Shop(s: AppState, w: Work) {
-    val p = Ink.palette
-    val id = w.series.id
-    val ctx = LocalContext.current
-    var asked by remember { mutableStateOf<Spend?>(null) }
-    var borders by remember { mutableStateOf(false) }
-    Row(verticalAlignment = Alignment.Bottom, modifier = Modifier.padding(top = 4.dp, bottom = 4.dp)) {
-        Text(stringResource(R.string.spend_title, w.kit.currency[uiLang()]), style = Type.heading.ui(), color = p.ink, modifier = Modifier.weight(1f))
-        CurrencyLine(s, w)
-    }
-    val frameHint = stringResource(R.string.spend_frame_hint)
-    listOf(
-        R.string.spend_g_streak to listOf(Triple(Spend.REST, R.string.spend_rest, stringResource(R.string.spend_rest_d, s.rests, Streak.MAX_RESTS))),
-        R.string.spend_g_letter to listOf(Triple(Spend.EARLY_LETTER, R.string.spend_early, stringResource(R.string.spend_early_d))),
-        R.string.spend_g_gallery to listOf(Triple(Spend.PICK_PIECE, R.string.spend_pick, stringResource(R.string.spend_pick_d)),
-            Triple(Spend.FRAME, R.string.spend_frame, stringResource(R.string.spend_frame_d))),
-        R.string.spend_g_card to listOf(Triple(Spend.BORDER, R.string.spend_border, stringResource(R.string.spend_border_d))),
-    ).forEach { (group, items) ->
-        Caps(stringResource(group), p.giltText, small = true, modifier = Modifier.padding(top = Tokens.Space.s4, bottom = 2.dp))
-        items.forEach { (sp, title, desc) ->
-            val can = s.wallet(id).balance >= sp.cost
-            Hair()
-            Row(Modifier.fillMaxWidth().padding(vertical = 11.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                    Text(stringResource(title), style = Type.body.ui(), color = p.ink)
-                    Text(desc, style = Type.small.ui(), color = p.inkSoft)
-                }
-                Box(Modifier.heightIn(min = 40.dp).border(1.dp, if (can || sp == Spend.BORDER) p.ink else p.hair)
-                    .pressable(enabled = can || sp == Spend.BORDER) {
-                        when (sp) {
-                            Spend.PICK_PIECE -> s.go(Route.Gallery)
-                            Spend.FRAME -> { android.widget.Toast.makeText(ctx, frameHint, android.widget.Toast.LENGTH_LONG).show(); s.go(Route.Gallery) }
-                            Spend.BORDER -> borders = true
-                            else -> asked = sp
-                        }
-                    }.padding(horizontal = 12.dp),
-                    contentAlignment = Alignment.Center) {
-                    Text("${sp.cost} ${w.kit.currency[uiLang()]}", style = Type.small.ui(), color = if (can || sp == Spend.BORDER) p.ink else p.hideInk)
-                }
-            }
-        }
-    }
-    Hair()
-    Text(stringResource(R.string.spend_free_note, w.kit.currency[uiLang()]), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(top = Tokens.Space.s3, bottom = Tokens.Space.s6))
-    asked?.let { sp ->
-        Ask(stringResource(R.string.spend_confirm, sp.cost, w.kit.currency[uiLang()]), stringResource(R.string.spend_yes), stringResource(R.string.not_now),
-            onYes = { s.buy(sp, id); asked = null }, onNo = { asked = null })
-    }
-    if (borders) BorderSheet(s, w) { borders = false }
 }
 
 /** 카드 테두리 고르기 · 사기 (E3 · E5). */

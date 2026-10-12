@@ -133,7 +133,31 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun guideDue(step: String) = Tutorial.guide(step, store.tutorialDone, store.guideSeen)
     fun guideShown(step: String) { store.markGuideSeen(step) }
     /** 튜토리얼 끝: 그 뒤로는 어느 작품에서도 도움말이 저절로 뜨지 않는다 ((?) 로만). */
-    fun graduate() { store.tutorialDone = true; store.tutorialReplay = false; version++ }
+    fun graduate() { store.tutorialDone = true; store.tutorialReplay = false; store.endReplay(); version++ }
+
+    /**
+     * 설정 › 튜토리얼 다시 하기: (?) 도움말과 편지 걸음의 한 줄 안내를 처음 상태로 돌리고 빈센트의 편지 I 로 바로 들어간다.
+     * 그 편지의 진도는 따로 둔 연습 진도로 처음부터 (저장된 진도 · 화폐 · 이어 읽기는 그대로, [replaying]).
+     * 아직 빈센트를 시작하지 않았으면 처음 설치처럼 서재의 튜토리얼 카드부터.
+     */
+    fun replayTutorial() {
+        coach.reset(); store.coachSeen = coach.seen; coachTick++
+        store.clearGuideSeen(); store.tutorialDone = false; store.tutorialReplay = true; store.endReplay()
+        settingsOpen = false
+        val id = tutorialSeries
+        val c = works.firstOrNull()?.chapters?.firstOrNull()
+        val l = c?.letters?.firstOrNull()
+        if (c == null || l == null || needsWelcome(id)) { version++; go(Route.Library); return }
+        store.replayKey = key(id, c.id, l.id)
+        version++
+        enter(id)
+        open(id, c.id, l, Route.Inbox)
+    }
+
+    /** 튜토리얼을 다시 하는 중인 그 편지인가 (진도는 따로, 화폐 · 이어 읽기 · 하루 편지 수는 세지 않는다). */
+    fun replaying(series: String, chapter: String, letter: String): Boolean =
+        store.tutorialReplay && store.replayKey.isNotEmpty() && store.replayKey == key(series, chapter, letter)
+    private fun replaying(r: Route.Letter): Boolean = letterOf(r).let { (ch, l) -> replaying(r.series, ch, l.id) }
 
     /**
      * 튜토리얼: 서재의 첫 작품 카드에서 배울 말을 골랐다 → 전환 · 오늘을 건너 그 작품의 편지 I 로 (프롤로그는 목차에서 언제든).
@@ -215,7 +239,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         }
     }
 
-    private fun tabIndex(r: Route) = listOf(Route.Inbox, Route.Words, Route.Gallery, Route.Milestones).indexOf(r)
+    private fun tabIndex(r: Route) = listOf(Route.Inbox, Route.Words, Route.Gallery, Route.Shop).indexOf(r)
 
     /** 앱을 닫을지 묻는 중. */
     var askingExit by mutableStateOf(false)
@@ -275,10 +299,13 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun key(series: String, chapter: String, letter: String) = "${space(series)}:$chapter:$letter"
     fun progress(series: String, chapter: String, letter: String): LetterProgress {
         @Suppress("UNUSED_EXPRESSION") version
+        if (replaying(series, chapter, letter)) return store.replayProgress
         return store.progress(key(series, chapter, letter))
     }
 
     fun save(series: String, chapter: String, letter: String, p: LetterProgress) {
+        // 튜토리얼 다시 하기: 연습 진도에만 (저장된 진도는 그대로)
+        if (replaying(series, chapter, letter)) { store.replayProgress = p; version++; return }
         val k = key(series, chapter, letter)
         val newlyDone = p.done && !store.progress(k).done
         if (newlyDone) store.logDay("letters", today, k)   // 이번 주 돌아보기 (E1)
@@ -300,6 +327,11 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         .count { (c, l) -> progress(id, c, l.id).done }
 
     private fun all(id: String) = work(id).chapters.flatMap { c -> c.letters.map { c.id to it } }
+
+    /** 연 장 ("작품:장"): 한 통이라도 연 편지가 있는 장. 자유 연습은 이 장들의 카드에서 무작위로 고른다. */
+    fun openedChapters(id: String = current): Set<String> = work(id).chapters
+        .filter { c -> c.letters.any { l -> store.started(key(id, c.id, l.id)) || progress(id, c.id, l.id).let { it.shown > 0 || it.done } } }
+        .map { "$id:${it.id}" }.toSet()
 
     /** 한 번이라도 연 편지 수 (다 읽은 것 포함). */
     fun startedCount(id: String) = all(id).count { (c, l) -> store.started(key(id, c, l.id)) || progress(id, c, l.id).let { it.shown > 0 || it.done } }
@@ -609,7 +641,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         }
         val p = progress(id, chapter, letter.id)
         current = id
-        if (!store.started(key(id, chapter, letter.id)) && p.shown == 0 && !p.done) store.markOpened(space(id))
+        if (!replaying(id, chapter, letter.id) && !store.started(key(id, chapter, letter.id)) && p.shown == 0 && !p.done) store.markOpened(space(id))
         store.markStarted(key(id, chapter, letter.id))
         val idx = work(id).chapters.indexOfFirst { it.id == chapter } + 1
         go(Route.Letter(id, idx, work(id).chapters[idx - 1].letters.indexOf(letter) + 1, from))
@@ -680,7 +712,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun replyAndContinue(r: Route.Letter, mode: ReplyMode) {
         val (ch, l) = letterOf(r)
         val before = progress(r.series, ch, l.id)
-        if (mode !in before.replied) earn(Earn.PRACTICE, id = r.series)
+        if (mode !in before.replied && !replaying(r)) earn(Earn.PRACTICE, id = r.series)
         replied(r, mode)
         stepEnded(r, before.done)
     }
@@ -697,7 +729,10 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val (ch, l) = letterOf(r)
         recorder.stop()
         back()
-        if (!was && progress(r.series, ch, l.id).done) { finished(); earn(Earn.LETTER, id = r.series); go(Route.Done(r)) }
+        if (!was && progress(r.series, ch, l.id).done) {
+            if (!replaying(r)) { finished(); earn(Earn.LETTER, id = r.series) }
+            go(Route.Done(r))
+        }
         settle()
     }
 
@@ -815,6 +850,18 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun spend(cost: Int, id: String = current): Boolean {
         val w = Rewards.spend(store.wallet(id), cost) ?: return false
         store.saveWallet(id, w); version++; return true
+    }
+
+    /** 상점에서 지금 살 수 있나 (화폐와 조건). 고르는 것 (갤러리 칸 · 액자) 은 고를 것이 있는지만 본다. */
+    fun canBuy(what: Spend, id: String = current): Boolean {
+        if (wallet(id).balance < what.cost) return false
+        return when (what) {
+            Spend.REST -> store.rests < Streak.MAX_RESTS
+            Spend.EARLY_LETTER -> store.earlyDay(space(id)) != today && all(id).size > openable(id).size
+            Spend.PICK_PIECE -> work(id).kit.collection.any { !owns(id, it) && available(it) }
+            Spend.FRAME -> gallery(id).any { owns(id, it) && available(it) }
+            Spend.BORDER -> true
+        }
     }
 
     /** 화폐로 사기. 쉼표는 [Streak.MAX_RESTS] 개까지. */
@@ -1109,12 +1156,6 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         private set
     fun coachDone(screen: String) { coach.done(screen); store.coachSeen = coach.seen; coachTick++ }
     fun coachAgain(screen: String) { coach.again(screen); store.coachSeen = coach.seen; coachTick++ }
-    /** 설정 › 사용법 다시 보기: (?) 도움말을 처음 상태로, 편지 걸음의 안내 한 줄도 다시 한 번 (다음 편지를 마치면 다시 끝). */
-    fun coachReset() {
-        coach.reset(); store.coachSeen = coach.seen; coachTick++
-        store.clearGuideSeen(); store.tutorialDone = false; store.tutorialReplay = true; version++
-    }
-
     /** 환영 한 장을 지나 서재로 (배울 말은 서재의 첫 작품 카드에서 고른다). */
     fun finishWelcome() { store.onboarded = true; nextStage() }
 

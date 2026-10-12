@@ -3,6 +3,9 @@ package io.github.graviton94.todayletters
 import android.content.Context
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import androidx.test.core.app.ApplicationProvider
 import io.github.graviton94.todayletters.core.Route
 import io.github.graviton94.todayletters.core.ThemeMode
@@ -149,7 +152,7 @@ class NavTest {
 
     @Test fun libraryBranches() {
         val s = state()
-        s.go(Route.Overall); s.backTo(Route.Library)
+        s.go(Route.Record); s.go(Route.Medals); s.backTo(Route.Record); s.backTo(Route.Library)
         s.go(Route.Enter("vincent")); s.backTo(Route.Library)
     }
 
@@ -171,11 +174,11 @@ class NavTest {
     @Test fun todayShortcuts() {
         val s = state()
         s.enter("vincent")
-        // 이번 주 · 낭독회는 이정표 탭에서
-        s.go(Route.Milestones)
-        s.go(Route.Week); s.backTo(Route.Milestones)
-        s.go(Route.Recital); s.backTo(Route.Milestones)
+        // 상점 › 구독 · 시리즈
+        s.go(Route.Shop)
+        s.go(Route.Purchase); s.backTo(Route.Shop)
         s.go(Route.Gallery); s.go(Route.Catalogue("vincent")); s.backTo(Route.Gallery)
+        s.go(Route.Collection("vincent")); s.backTo(Route.Gallery)
         s.go(Route.Words); s.go(Route.Session(free = true)); s.backTo(Route.Words)
         s.go(Route.Words); s.go(Route.Quotes); s.backTo(Route.Words)
         s.go(Route.Session()); s.backTo(Route.Words)
@@ -249,5 +252,74 @@ class NavTest {
         assertTrue(s.store.started(s.key("vincent", c.id, l.id)))
         s.switchLearn("vincent", io.github.graviton94.todayletters.core.Lang.FR)
         assertFalse(s.progress("vincent", c.id, l.id).done)
+    }
+
+    /** 상점 (넷째 이름표) 맨 아래 ‘구독 · 시리즈’ → 구매 화면, 뒤로 가면 상점. 결제는 아직 열리지 않았다. */
+    @Test fun shopLeadsToPurchase() {
+        val s = state()
+        s.enter("vincent")
+        s.go(Route.Shop)
+        assertEquals(listOf(Route.Library, Route.Shop), s.stack.toList())
+        rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { io.github.graviton94.todayletters.ui.ShopTab(s) } }
+        rule.onNodeWithText(ctx.getString(R.string.shop_plans)).performScrollTo().performClick()
+        rule.waitForIdle()
+        assertEquals(Route.Purchase, s.route)
+        assertFalse(io.github.graviton94.todayletters.data.Billing.ready)
+        s.backTo(Route.Shop)
+        s.backTo(Route.Library)
+    }
+
+    /** 나의 기록은 서재 머리에서 (하나뿐, 모든 작품 합산). 작품 머리의 칭호 줄로 들어가면 뒤로 가기는 그 작품으로. */
+    @Test fun libraryLeadsToMyRecord() {
+        val s = state()
+        rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { io.github.graviton94.todayletters.ui.LibraryTab(s) } }
+        rule.onNodeWithText(ctx.getString(R.string.lib_overall)).performClick()
+        rule.waitForIdle()
+        assertEquals(Route.Record, s.route)
+        s.go(Route.Medals); s.backTo(Route.Record)
+        s.go(Route.Week); s.backTo(Route.Record)
+        s.backTo(Route.Library)
+        // 작품 안 (오늘) 의 칭호 줄 → 나의 기록 → 뒤로 오늘
+        s.enter("vincent")
+        s.go(Route.Record)
+        s.backTo(Route.Inbox)
+    }
+
+    /**
+     * 설정 › 튜토리얼 다시 하기: 확인 뒤 빈센트의 편지 I 로 바로, 걸음마다 한 줄 안내가 다시. 그 편지는 연습 진도로 처음부터 하고
+     * 저장된 진도 · 화폐는 그대로. 마치면 (“이제 혼자서도 괜찮아요”) 원래 진도로 돌아온다.
+     */
+    @Test fun tutorialReplayKeepsProgress() {
+        val s = state()
+        s.enter("vincent")
+        val c = s.work("vincent").chapters.first(); val l = c.letters.first()
+        val k = s.key("vincent", c.id, l.id)
+        s.save("vincent", c.id, l.id, s.progress("vincent", c.id, l.id).copy(shown = l.messages.size, done = true))
+        s.store.markStarted(k)
+        s.settle(); s.reward = null; s.levelUp = null
+        val balance = s.wallet("vincent").balance
+        val done = s.doneCount("vincent")
+        s.settingsOpen = true
+        s.replayTutorial()
+        assertFalse(s.settingsOpen)
+        val room = Route.Letter("vincent", 1, 1, Route.Inbox)
+        assertEquals(room, s.route)
+        assertEquals(listOf(Route.Library, Route.Inbox, room), s.stack.toList())
+        assertFalse(s.tutorialDone)
+        assertTrue(s.guideDue("read"))
+        // 연습 진도는 처음부터, 저장된 진도는 그대로
+        assertEquals(0, s.progress("vincent", c.id, l.id).shown)
+        assertFalse(s.progress("vincent", c.id, l.id).done)
+        assertTrue(s.store.progress(k).done)
+        s.walkLetter(room)
+        assertEquals(Route.Done(room), s.route)
+        assertTrue(s.store.progress(k).done)
+        assertEquals(l.messages.size, s.store.progress(k).shown)
+        assertEquals(balance, s.wallet("vincent").balance)   // 다시 하는 편지로는 화폐를 세지 않는다
+        s.graduate()
+        assertTrue(s.tutorialDone)
+        assertTrue(s.progress("vincent", c.id, l.id).done)
+        assertEquals(done, s.doneCount("vincent"))
+        assertFalse(s.guideDue("match"))
     }
 }

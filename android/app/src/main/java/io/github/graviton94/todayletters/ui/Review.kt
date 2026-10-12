@@ -149,7 +149,7 @@ fun WordsTab(s: AppState) {
                             when (j.review) {
                                 io.github.graviton94.todayletters.core.Journey.Step.NONE -> stringResource(if (cards.isEmpty()) R.string.review_empty else R.string.review_none_today)
                                 io.github.graviton94.todayletters.core.Journey.Step.DONE -> stringResource(R.string.journey_review_done, total)
-                                else -> stringResource(R.string.journey_review_d, n, total)
+                                else -> stringResource(R.string.review_words_n, total)
                             },
                             style = Type.heading.ui(), color = p.slipInk,
                         )
@@ -163,7 +163,7 @@ fun WordsTab(s: AppState) {
             // 기억 확인 (F7): 오래전 ‘내 것’ 낱말 하나, 하루 한 번
             s.surprise()?.let { c -> SurpriseCard(s, c) }
             Column {
-                ModeRow(stringResource(R.string.free_title), stringResource(R.string.free_d), null, enabled = cards.isNotEmpty()) { s.go(Route.Session(free = true)) }
+                ModeRow(stringResource(R.string.free_title), stringResource(R.string.free_d), null, enabled = cards.isNotEmpty()) { s.go(Route.Session(free = true, seed = System.nanoTime())) }
                 ModeRow(stringResource(R.string.quotes_title), stringResource(R.string.quotes_count, myQuotes(s).size), null, enabled = true) { s.go(Route.Quotes) }
             }
             // 다시 하기: 편지에서 건너뛴 걸음 (낱말 맞추기 · 따라 읽기 · 답장)
@@ -270,7 +270,7 @@ fun Session(s: AppState, r: Route.Session) {
     val journey = r.kind == null && r.only == null && r.quote == null && !r.free
     val sessionName = when { r.only != null || r.quote != null -> "again"; r.free -> "free"; else -> r.kind?.name ?: s.reviewSession() }
     val saved = remember(r) { if (r.only != null || r.quote != null) null else s.store.session(sessionName)?.takeIf { it.day == s.today && it.at > 0 } }
-    val questions = remember(r) { buildQuestions(s, r.kind, r.only ?: saved?.keys, r.quote, free = r.free) }
+    val questions = remember(r) { buildQuestions(s, r.kind, r.only ?: saved?.keys, r.quote, free = r.free, seed = r.seed) }
     var at by remember { mutableIntStateOf((saved?.at ?: 0).coerceAtMost(questions.size)) }
     // 문제를 푸는 동안만 ‘그만할까요?’ (결과 화면에서는 결과 화면의 뒤로 가기)
     BackHandler(enabled = at < questions.size) { asking = true }
@@ -896,7 +896,7 @@ private fun myQuotes(s: AppState): List<String> = s.store.quotes.filter { k -> q
  *   F5 내 구절: 오늘의 복습에서 빈칸 · 뜻 고르기 차례인 낱말이 내가 모은 구절에 있으면 그 구절로 빈칸 (한 판에 둘까지).
  *      [quote] 가 있으면 그 구절 하나로 빈칸 연습.
  */
-private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? = null, quote: String? = null, free: Boolean = false): List<Q> {
+private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? = null, quote: String? = null, free: Boolean = false, seed: Long = 0): List<Q> {
     val cards = s.cards()
     val only = quote?.let { quoteRef(it) }
     // 연습(꼴별 · 자유)이면 (소리 없는 낱말을 건너뛰고도) 하루 몫만큼 채우도록 전부 보고 뒤에서 자른다
@@ -906,7 +906,9 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
     val pool = if (only != null) cards.filter { it.key in (keys ?: emptyList()) }
         else keys?.mapNotNull { k -> cards.firstOrNull { it.key == k } }?.takeIf { it.isNotEmpty() }
         ?: if (fresh) s.dueCards(s.current)
-        // 자유 연습 · 꼴별 연습: 지금 작품의 카드, 낮은 칸 · 오래된 것부터 (F08)
+        // 자유 연습: 연 장들의 카드에서 무작위로 (어느 편지든), 넉넉히 뽑아 소리 없는 것을 건너뛰고도 한 판이 차게
+        else if (free) Memory.freeSet(s.seriesCards(), s.openedChapters(), seed, s.today, n = Memory.DAILY * 2).map { it.first }
+        // 꼴별 연습: 지금 작품의 카드, 낮은 칸 · 오래된 것부터 (F08)
         else s.seriesCards().sortedWith(compareBy({ it.box }, { it.due }))
     val all = s.cards().mapNotNull { c -> s.cardWord(c.key) }
     val saved = myQuotes(s).mapNotNull { quoteRef(it) }
@@ -920,7 +922,8 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         // “study (sketch)”, “country, land” 처럼 뜻이 여럿이면 뜻마다 편지 문장에서 찾는다. 사전에서 온 낱말은 편지에 찍힌 꼴로도
         val senses = senses(learnWord) + (if (view.learn == w.learnVocab) word.forms else emptyList())
         fun has(mi: Int) = l.messages.getOrNull(mi)?.let { m -> wordMarks(m.text[view.learn], senses).isNotEmpty() } == true
-        var k = kind ?: Memory.kindFor(card)
+        // 자유 연습은 꼴도 무작위 (카드 · 날로 정해져서 이어 풀어도 같은 꼴)
+        var k = kind ?: if (free) Memory.freeKind(card.key, s.today) else Memory.kindFor(card)
         // 내 구절에서: 그 구절 연습이면 늘, 오늘의 복습이면 빈칸 · 뜻 고르기 차례에 가끔
         val mine = when {
             only != null -> only.takeIf { it.series == w.series.id && it.chapter == ch && it.letter == l.id && has(it.msg) }

@@ -58,8 +58,14 @@ class CoreTest {
         assertEquals(Route.Library, Nav.up(Route.Enter("vincent")))
         assertEquals(Route.Library, Nav.up(Route.Welcome("mozart")))
         assertEquals(listOf(Route.Library, Route.Gallery, Route.Exhibition), Nav.trail(Route.Exhibition))
-        assertFalse(Nav.inSeries(Route.Overall))
-        assertTrue(Nav.inSeries(Route.Milestones))
+        assertFalse(Nav.inSeries(Route.Record))
+        assertFalse(Nav.inSeries(Route.Medals))
+        assertTrue(Nav.inSeries(Route.Shop))
+        // 나의 기록은 서재 아래 하나, 메달 전체 · 이번 주 · 낭독회는 그 아래. 구독 · 시리즈는 상점 아래
+        assertEquals(listOf(Route.Library, Route.Record, Route.Medals), Nav.trail(Route.Medals))
+        assertEquals(listOf(Route.Library, Route.Record, Route.Week), Nav.trail(Route.Week))
+        assertEquals(listOf(Route.Library, Route.Shop, Route.Purchase), Nav.trail(Route.Purchase))
+        assertEquals(listOf(Route.Library, Route.Gallery, Route.Collection("vincent")), Nav.trail(Route.Collection("vincent")))
     }
 
     @Test fun settingsAreReachedFromTheRightPlaces() {

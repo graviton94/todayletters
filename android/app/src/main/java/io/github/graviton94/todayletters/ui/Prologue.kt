@@ -237,7 +237,7 @@ fun CatalogueScreen(s: AppState, series: String) {
     Column(Modifier.fillMaxSize().background(Night).statusBarsPadding().navigationBarsPadding().verticalScroll(rememberScrollState())) {
         Row(Modifier.fillMaxWidth().padding(horizontal = 8.dp), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.size(48.dp).pressable { s.back() }, contentAlignment = Alignment.Center) { Text("‹", style = Type.title, color = Light) }
-            Text(stringResource(R.string.catalogue_title), style = Type.small.ui(), color = Soft)
+            Text(stringResource(R.string.plates_title), style = Type.small.ui(), color = Soft)
         }
         // 표지: 책 한 권 + (완결이면) 메달
         Column(Modifier.fillMaxWidth().padding(top = 8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
@@ -248,7 +248,8 @@ fun CatalogueScreen(s: AppState, series: String) {
                 Text(stringResource(R.string.catalogue_name, w.fullName.substringAfter(' ')), style = Type.title.copy(fontFamily = Faces.display), color = Light, textAlign = TextAlign.Center)
                 Text(stringResource(R.string.catalogue_sub, w.years), style = Type.small.ui(), color = Soft)
             }
-            if (complete) AssetImage("medals/m8.webp", Modifier.size(72.dp).padding(top = 0.dp), sample = 1)
+            // 완결이면 그 작품의 완주 메달 (메달 진열장의 것)
+            if (complete) s.medalBook.medals.firstOrNull { it.series == series }?.let { MedalImage(it, true, 72.dp) }
             Text(stringResource(if (complete) R.string.catalogue_complete else R.string.catalogue_progress, got, all.size), style = Type.body.ui(), color = Light, textAlign = TextAlign.Center, modifier = Modifier.padding(top = 10.dp, start = 30.dp, end = 30.dp))
         }
         // 펼친 면: 장마다, 날짜 순
