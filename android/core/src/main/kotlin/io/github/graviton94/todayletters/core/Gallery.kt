@@ -51,36 +51,6 @@ object Draws {
     fun exhibitionPieces(pool: List<Piece>, e: Exhibition): List<Piece> = pool.filter { e.theme in it.themes }
 }
 
-/**
- * 오늘의 할 일 (v22): 날마다 같은 셋을 같은 차례로 — 오늘의 편지 읽기 → 뜻 고르기 → 듣고 쓰기. 셋 다 하면 ‘모든 할 일 마치기’ 보너스
- * (오늘의 자료를 한 번 더 뽑는다). 예전 할 일(따라 읽기 · 다시 읽기 · 복습 끝내기)은 저장된 값만 남고 쓰지 않는다.
- */
-enum class Quest(val goal: Int) {
-    LETTER(1),          // 오늘의 편지 끝까지 읽기 (답장까지 마쳐 편지 완료)
-    MEANING_RUN(5),     // 뜻 고르기 5개 맞히기
-    DICTATION_RUN(3),   // 듣고 쓰기 3개 맞히기 (힌트를 받고 맞혀도 맞힘)
-}
-
-object Quests {
-    /** 오늘의 셋: 늘 이 차례. */
-    fun today(@Suppress("UNUSED_PARAMETER") day: Long = 0): List<Quest> = Quest.entries.toList()
-
-    fun done(q: Quest, count: Int) = count >= q.goal
-}
-
-/**
- * 한 시리즈의 오늘의 할 일 진행. 시리즈마다 따로 센다 (보상 화폐가 시리즈마다 달라서, 그 시리즈에서 한 일만).
- * [day] 가 오늘이 아니면 모두 0 부터. [paid] 는 셋 다 해서 보너스를 받은 날.
- */
-data class QuestLog(val day: Long = -1, val counts: Map<Quest, Int> = emptyMap(), val paid: Long = -1) {
-    fun count(today: Long, q: Quest) = if (day == today) counts[q] ?: 0 else 0
-    fun set(today: Long, q: Quest, n: Int) = QuestLog(today, (if (day == today) counts else emptyMap()) + (q to n), paid)
-    fun add(today: Long, q: Quest, n: Int = 1) = set(today, q, count(today, q) + n)
-    fun atLeast(today: Long, q: Quest, n: Int) = if (count(today, q) >= n) this else set(today, q, n)
-    /** 오늘의 셋을 다 했고 오늘 보너스를 아직 안 받았다. */
-    fun payable(today: Long) = paid != today && Quests.today(today).all { Quests.done(it, count(today, it)) }
-}
-
 /** 일요일 낭독회: 한 주 (월~일) 의 첫날과, 오늘이 낭독회 날인가. */
 object Recital {
     /** epoch day 의 요일: 0=월 … 6=일 (1970-01-01 은 목요일). */

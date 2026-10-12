@@ -20,8 +20,8 @@ enum class UiLang(val code: String) {
 /** 타이핑 효과의 빠르기. 바로 보기는 움직임 줄이기와 같다. */
 enum class TypingPace { CALM, QUICK, INSTANT }
 
-/** 답장(학습) 방식. */
-enum class ReplyMode { MATCH, CONSTELLATION, ALOUD, DICTATION }
+/** 편지 안 걸음(학습) 방식: 낱말 맞추기 · 답장 쓰기(별자리 잇기) · 따라 읽기. 듣고 쓰기는 복습에서 (편지 걸음이 아니다). */
+enum class ReplyMode { MATCH, CONSTELLATION, ALOUD }
 
 /** 작품(시리즈). 원어는 작품마다 다르다: 고흐 아를 시기는 프랑스어, 모차르트는 독일어. */
 data class Series(val id: String, val original: Lang)

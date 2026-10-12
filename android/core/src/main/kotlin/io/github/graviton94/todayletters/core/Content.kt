@@ -169,13 +169,21 @@ object Exercises {
     }
 }
 
-/** 편지 한 통의 진도: 몇 번째 메시지까지 받았는지, 답장을 마쳤는지. 메시지 단위로 저장해 중간에 나가도 이어진다. */
-data class LetterProgress(val shown: Int = 0, val replied: Set<ReplyMode> = emptySet(), val done: Boolean = false) {
+/**
+ * 편지 한 통의 진도: 몇 번째 메시지까지 받았는지, 어떤 걸음을 마쳤는지 · 건너뛰었는지. 메시지 단위로 저장해 중간에 나가도 이어진다.
+ * 건너뛴 걸음([skipped])도 편지를 마치는 데는 한 것으로 치지만, 따로 남겨 두어 편지 목록 · 복습에서 ‘다시 하기’로 언제든 한다.
+ */
+data class LetterProgress(val shown: Int = 0, val replied: Set<ReplyMode> = emptySet(), val done: Boolean = false, val skipped: Set<ReplyMode> = emptySet()) {
     fun reveal(total: Int) = copy(shown = (shown + 1).coerceAtMost(total))
     fun allShown(total: Int) = shown >= total
-    fun reply(mode: ReplyMode) = copy(replied = replied + mode)
-    /** 고른 답장 방식 중 이 편지에서 하는 것 (별자리 잇기 · 따라 읽기). 다 하면 편지 완료. */
-    fun complete(modes: Set<ReplyMode>) = copy(done = modes.filter { it in Plays.inLetter }.all { it in replied })
+    /** 걸음을 실제로 했다 (건너뛰었던 것이면 건너뜀 표시를 지운다). */
+    fun reply(mode: ReplyMode) = copy(replied = replied + mode, skipped = skipped - mode)
+    /** 걸음을 건너뛰었다 (이미 한 걸음은 그대로). */
+    fun skip(mode: ReplyMode) = if (mode in replied) this else copy(skipped = skipped + mode)
+    /** 이 편지에서 하는 걸음([modes], [Plays.forLetter]) 이 모두 했거나 건너뛰었으면 편지 완료. */
+    fun complete(modes: Collection<ReplyMode>) = copy(done = modes.filter { it in Plays.inLetter }.all { it in replied || it in skipped })
+    /** 아직 다시 하지 않은 건너뛴 걸음 (편지 순서대로). */
+    val toRedo: List<ReplyMode> get() = Plays.inLetter.filter { it in skipped && it !in replied }
 }
 
 object Plays {
@@ -184,6 +192,10 @@ object Plays {
      * 작품 설정에서 끈 것은 건너뛴다. 듣고 쓰기는 단어장 복습에서.
      */
     val inLetter = listOf(ReplyMode.MATCH, ReplyMode.ALOUD, ReplyMode.CONSTELLATION)
+
+    /** 이 편지에서 할 걸음: 작품 설정에서 켠 것 가운데, 낭독이 없는 편지([narrated] = false)는 따라 읽기를 뺀다 (따라 할 소리가 없다). */
+    fun forLetter(modes: Set<ReplyMode>, narrated: Boolean): List<ReplyMode> =
+        inLetter.filter { it in modes && (narrated || it != ReplyMode.ALOUD) }
 }
 
 /**
@@ -211,6 +223,8 @@ data class Kit(
     val exhibitions: List<Exhibition> = emptyList(),
     /** 서재 카드의 작품 주제 꼬리표 (빈센트: 미술관 · 모차르트: 오페라). 앱 글자 언어로. 없으면 빈 글자. */
     val tag: Tri = Tri(mapOf(Lang.EN to "")),
+    /** 대화방 정보의 한 줄 소개 (빈센트: 35세 · 화가 · …). 앱 글자 언어로. 없으면 빈 글자 (F21). */
+    val about: Tri = Tri(mapOf(Lang.EN to "")),
 )
 
 /** 시리즈 빛깔 한 벌. */

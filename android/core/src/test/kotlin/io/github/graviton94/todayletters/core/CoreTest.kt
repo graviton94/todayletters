@@ -149,20 +149,27 @@ class CoreTest {
         assertFalse(p.done)
         p = p.reply(ReplyMode.MATCH).complete(modes)
         assertTrue(p.done)
-        assertTrue(LetterProgress().complete(setOf(ReplyMode.DICTATION)).done)
+        // 편지 걸음이 아닌 것만 고른 설정이면 (낱말도 답장도 없음) 읽기만으로 완료
+        assertTrue(LetterProgress().complete(emptySet()).done)
     }
 
     @Test fun helpReplaysOnlyThatScreen() {
         val c = Coach()
-        assertTrue(c.due("room", calm = true))
-        assertFalse(c.due("room", calm = false))
-        c.done("room"); c.done("library")
+        // 저절로는 뜨지 않는다 (튜토리얼 뒤로는 (?) 로만)
         assertFalse(c.due("room", calm = true))
+        assertTrue(c.due("room", calm = true, auto = true))
+        assertFalse(c.due("room", calm = false, auto = true))
+        c.done("room"); c.done("library")
+        assertFalse(c.due("room", calm = true, auto = true))
         c.again("room")
         assertTrue(c.due("room", calm = true))
+        assertFalse(c.due("room", calm = false))
         assertFalse(c.due("library", calm = true))
+        c.done("room")
+        assertFalse(c.due("room", calm = true))
         c.reset()
-        assertTrue(c.due("library", calm = true))
+        assertTrue(c.due("library", calm = true, auto = true))
+        assertFalse(c.due("library", calm = true))
     }
 
     /** F7: ‘내 것’이 된 낱말도 계속 다시 나오고, 간격은 늘어나되 흔들리며, 하루 몫에서 밀리지 않는다. */
@@ -284,31 +291,10 @@ class CoreTest {
         assertEquals(e, Draws.exhibition(listOf(e), 9))
     }
 
-    @Test fun questsAndRecital() {
-        val q = Quests.today(20000)
-        assertEquals(3, q.size); assertEquals(3, q.toSet().size)
-        assertEquals(q, Quests.today(20000))
+    @Test fun recitalWeek() {
         assertEquals(6, Recital.weekday(3))      // 1970-01-04 은 일요일
         assertTrue(Recital.isSunday(3))
         assertEquals(-3, Recital.weekStart(3))   // 그 주 월요일 1969-12-29
-    }
-
-    /** 오늘의 할 일은 시리즈마다 따로: 한 시리즈의 진행이 다른 시리즈에 번지지 않고, 날이 바뀌면 0 부터, 보너스는 하루 한 번. */
-    @Test fun questsArePerSeries() {
-        val day = 20000L
-        val logs = mutableMapOf("vincent" to QuestLog(), "mozart" to QuestLog())
-        val q = Quests.today(day)
-        logs["vincent"] = logs.getValue("vincent").add(day, q[0])
-        assertEquals(1, logs.getValue("vincent").count(day, q[0]))
-        assertEquals(0, logs.getValue("mozart").count(day, q[0]))
-        assertEquals(0, logs.getValue("vincent").count(day + 1, q[0]))
-        assertEquals(1, logs.getValue("vincent").add(day + 1, q[1]).counts.size)
-        var v = logs.getValue("vincent")
-        q.forEach { v = v.atLeast(day, it, it.goal) }
-        assertTrue(v.payable(day))
-        assertFalse(v.copy(paid = day).payable(day))
-        assertFalse(logs.getValue("mozart").payable(day))
-        assertEquals(v, v.atLeast(day, q[0], 1))
     }
 
     /** 낭독 마디 → 화면 글자 범위: 구두점 · 끊음 표시가 달라도 글자 수로 맞춘다. */

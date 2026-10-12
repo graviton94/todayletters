@@ -67,6 +67,13 @@ object Memory {
     fun surpriseAnswered(c: Card, correct: Boolean, today: Long): Card = if (correct) c.copy(last = today, seen = c.seen + 1) else after(c, false, today)
 
     /**
+     * 자유 연습의 기록: 볼 날이 된 카드는 오늘의 복습과 똑같이 ([after]). 아직 볼 날이 아닌 카드는 맞혀도 일정은 그대로
+     * (미리 맞혔다고 간격을 건너뛰지 않게, 본 횟수와 마지막 본 날만), 틀리면 [after] 처럼 내려가 내일 다시.
+     */
+    fun practiced(c: Card, correct: Boolean, today: Long): Card =
+        if (c.due <= today) after(c, correct, today) else surpriseAnswered(c, correct, today)
+
+    /**
      * 문제 꼴 = 성장 곡선: 알아보기(뜻 고르기) → 떠올리기(빈칸) → 쓰기(듣고 쓰기) → 말하기.
      * 위 단계는 쓰기와 말하기를 번갈아 (오래 안 쓰면 잊는 쪽부터).
      */

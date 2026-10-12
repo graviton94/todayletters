@@ -6,17 +6,8 @@ import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-/** v22 (APK #18 검토): 할 일 차례 · 힌트 받은 받아쓰기 · 언어마다 진도 · 문장 짝 · 소리 파일 이름 · 따옴표 · 낭독 칠하기 시각. */
+/** v22 (APK #18 검토): 힌트 받은 받아쓰기 · 언어마다 진도 · 문장 짝 · 소리 파일 이름 · 따옴표 · 낭독 칠하기 시각. */
 class V22Test {
-    @Test fun questsInFixedOrder() {
-        assertEquals(listOf(Quest.LETTER, Quest.MEANING_RUN, Quest.DICTATION_RUN), Quests.today(20000))
-        assertEquals(Quests.today(1), Quests.today(99999))
-        var log = QuestLog()
-        Quests.today(5).forEach { log = log.atLeast(5, it, it.goal) }
-        assertTrue(log.payable(5))
-        assertFalse(QuestLog().add(5, Quest.LETTER).payable(5))
-    }
-
     @Test fun hintedDictationCountsAsRight() {
         // 힌트로 첫 글자를 보여 줬고 나머지만 썼다
         assertEquals(Memory.Mark.RIGHT, Memory.gradeHinted("kommen", "ommen", 1))

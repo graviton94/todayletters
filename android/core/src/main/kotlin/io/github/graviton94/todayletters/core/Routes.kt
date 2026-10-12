@@ -5,9 +5,11 @@ package io.github.graviton94.todayletters.core
  *
  *   서재 (앱을 열면 여기: 전체 기록 + 시리즈 카드)
  *   ├ 내 기록 · 전체 (이어 읽기 · 시리즈별 화폐 · 합친 갤러리 · 전체 이정표)
- *   └ 시리즈로 들어가는 전환 → 시리즈 안 이름표: 오늘 · 복습 · 갤러리 · 이정표
- *        오늘 → 목차 → 챕터 → 편지(대화방) → 답장 / 편지 완료 / 따라 읽기 / 봉인
- *        오늘 → 편지(대화방)  (지름길: 뒤로 가면 오늘)
+ *   └ 시리즈로 들어가는 짧은 전환 → (처음이면 배울 말 고르기 → 편지 I) → 시리즈 안 이름표: 오늘 · 복습 · 갤러리 · 이정표
+ *        오늘 = 오늘의 여정 (편지 → 복습 → 완료) → 편지(대화방) → 걸음 / 편지 완료 / 따라 읽기 / 봉인
+ *        오늘 → 목차 → (프롤로그) · 챕터 → 편지
+ *        복습 → 오늘의 복습 · 자유 연습 · 다시 하기 (건너뛴 걸음) · 내 구절 · 모은 낱말
+ *        갤러리 → 이달의 전시 · 도록,  이정표 → 이번 주 · 일요일 낭독회 · 화폐 쓰기
  *
  * 시리즈 안 화면은 지금 들어간 시리즈 하나를 본다 (AppState.current). 이름표 코드 이름은 Inbox · Words · Gallery · Milestones.
  * [up] 은 "뒤로"가 갈 곳. 화면 상태가 어디서 왔든 계층은 하나라서, 알림으로 바로 들어와도 뒤로 가기가 길을 잃지 않는다.
@@ -29,7 +31,6 @@ sealed interface Route {
 
     data class Series(val series: String) : Route
     data class SeriesSettings(val series: String) : Route
-    data class Purchase(val series: String) : Route
     data class Chapter(val series: String, val chapter: Int) : Route
 
     /** 편지 = 대화방. [from] 은 들어온 곳 (오늘에서 바로 들어왔으면 Inbox). */
@@ -43,11 +44,13 @@ sealed interface Route {
     data class Seal(val room: Letter) : Route
 
     data class Artwork(val series: String, val plate: Int, val from: Route) : Route
-    data class Review(val series: String?) : Route
-    /** 복습 한 판. [kind] 가 null 이면 오늘의 복습 (섞어서). */
-    /** 복습 한 판. [only] 가 있으면 그 낱말만 (틀린 것 다시 · 낱말 카드에서 말해 보기), 연습이라 기억 칸은 움직이지 않는다. */
-    /** [quote] 가 있으면 그 구절(내 구절 열쇠)로 빈칸 연습 (v21 2단계 F5). */
-    data class Session(val kind: ReviewKind? = null, val only: List<String>? = null, val quote: String? = null) : Route
+    /**
+     * 복습 한 판. 아무것도 없으면 오늘의 복습 (오늘의 여정 II: 지금 작품의 카드만, 뜻 → 빈칸 → 듣고 쓰기).
+     * [free] 면 자유 연습 (지금 작품의 카드로 한 판, 기록도 된다: core 의 Memory.practiced).
+     * [only] 가 있으면 그 낱말만 (틀린 것 다시 · 낱말 카드에서 말해 보기), [kind] 가 있으면 그 꼴로만.
+     * [quote] 가 있으면 그 구절(내 구절 열쇠)로 빈칸 연습 (v21 2단계 F5).
+     */
+    data class Session(val kind: ReviewKind? = null, val only: List<String>? = null, val quote: String? = null, val free: Boolean = false) : Route
     /** 모은 낱말 찾기 · 내 구절. */
     data object WordList : Route
     data object Quotes : Route
@@ -57,25 +60,23 @@ sealed interface Route {
     data object Recital : Route
     /** 이번 주 돌아보기 (v21 3단계 E1): 읽은 날 · 편지 · 내 것 · 따라 읽기 점수 · 모은 작품. */
     data object Week : Route
-    /** 프롤로그: 첫 편지 앞의 도슨트 (아를 이전 35년). [page] 0..4. */
+    /** 프롤로그: 첫 편지 앞의 도슨트 (아를 이전 35년). [page] 0..4. 목차에서 언제든 (처음에 저절로 띄우지 않는다). */
     data class Prologue(val series: String, val page: Int = 0) : Route
-    /** 작품에 처음 들어갈 때 한 번: 무엇을 배울지 고른다 (처음 소개와 같은 고르기). 고르면 프롤로그 → 첫 편지. */
+    /** 작품에 처음 들어갈 때 한 번: 무엇을 배울지만 고른다. 고르면 바로 첫 편지. */
     data class Welcome(val series: String) : Route
     /** 맺음말 · 아웃트로: 마지막 편지 뒤 (그가 지니고 있던 편지 + 생애를 맺는 글). */
     data class Outro(val series: String) : Route
     /** 나의 도록: 편지마다 받은 그림을 날짜 순으로 (완결이면 표지와 메달). */
     data class Catalogue(val series: String) : Route
-    data object Settings : Route
 }
 
 object Nav {
     fun up(r: Route): Route? = when (r) {
         Route.Library -> null
-        Route.Overall, is Route.Enter, Route.Settings, is Route.Welcome -> Route.Library
+        Route.Overall, is Route.Enter, is Route.Welcome -> Route.Library
         Route.Inbox, Route.Words, Route.Gallery, Route.Milestones -> Route.Library
         is Route.Series -> Route.Inbox
         is Route.SeriesSettings -> Route.Series(r.series)
-        is Route.Purchase -> Route.Series(r.series)
         is Route.Chapter -> Route.Series(r.series)
         is Route.Letter -> r.from ?: Route.Chapter(r.series, r.chapter)
         is Route.RoomInfo -> r.room
@@ -84,12 +85,11 @@ object Nav {
         is Route.Shadow -> r.room
         is Route.Seal -> r.room
         is Route.Artwork -> r.from
-        is Route.Review -> Route.Words
         is Route.Session, Route.WordList, Route.Quotes -> Route.Words
         Route.Exhibition -> Route.Gallery
-        Route.Recital -> Route.Inbox
-        Route.Week -> Route.Inbox
-        is Route.Prologue -> Route.Inbox
+        Route.Recital -> Route.Milestones
+        Route.Week -> Route.Milestones
+        is Route.Prologue -> Route.Series(r.series)
         is Route.Outro -> Route.Inbox
         is Route.Catalogue -> Route.Gallery
     }
@@ -107,5 +107,5 @@ object Nav {
     fun asksBeforeLeaving(r: Route) = r is Route.Play || r is Route.Session
 
     /** 시리즈 안 화면인가 (그 시리즈의 색으로 칠한다). 서재 · 내 기록 · 설정은 공통 색. */
-    fun inSeries(r: Route) = r != Route.Library && r != Route.Overall && r != Route.Settings
+    fun inSeries(r: Route) = r != Route.Library && r != Route.Overall
 }
