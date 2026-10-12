@@ -29,6 +29,7 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -91,6 +92,8 @@ fun Artwork(s: AppState, r: Route.Artwork) {
     // 그림이 이 기기에 없으면 (아직 받지 않은 장) 산책 자리를 빈 그림 위에 두지 않는다 (F12)
     val spots = if (bmp == null) emptyList() else pl?.spots.orEmpty()
     var at by remember { mutableStateOf(-1) }
+    // 마지막 자리까지 걸었으면 그림 산책 하나 (메달 진열장의 ‘감상한 그림’, 편지마다 한 번)
+    LaunchedEffect(at) { if (letter != null && spots.isNotEmpty() && at == spots.lastIndex) s.walkDone(r.series, letter.id) }
     var playing by remember { mutableStateOf<String?>(null) }
     val scale = remember { Animatable(1f) }
     val tx = remember { Animatable(0f) }

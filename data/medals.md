@@ -1,7 +1,7 @@
 # 메달 진열장 · 끝없는 레벨
 
 데이터는 `data/medals.json`, 그림은 `android/app/src/main/assets/medals/<메달 id>.webp`.
-기존 이정표 메달 `m1~m8.webp` 는 그대로 둔다 (앱이 아직 쓴다).
+예전 이정표 메달 `m1~m8.webp` 는 메달 진열장으로 바뀌어 앱이 더는 쓰지 않는다 (지워도 된다).
 
 ## 메달
 

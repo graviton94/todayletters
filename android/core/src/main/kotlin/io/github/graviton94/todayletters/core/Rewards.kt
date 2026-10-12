@@ -15,7 +15,7 @@ enum class Earn(val amount: Int, val dailyCap: Int) {
     JOURNEY(10, 10),        // 오늘의 여정 완료 (작품마다 하루 한 번)
     RECITAL(15, 15),        // 일요일 낭독회
     STREAK(4, 4),           // 이어 읽은 날 (하루 한 번)
-    ACHIEVEMENT(10, 100),   // 이정표
+    ACHIEVEMENT(10, 100),   // 메달 (열쇠 이름은 예전 이정표 그대로: 지갑에 저장된 이름)
     SEAL(20, 100),          // 편지 한 통 완독 봉인 (낱말을 다 떠올리고 따라 읽기를 함)
     EXHIBITION(50, 50),     // 이달의 전시를 다 모음 (v21 3단계 E4, 전시마다 한 번)
 }
@@ -56,7 +56,11 @@ enum class Spend(val cost: Int) {
 /** 작품 카드 테두리 (E5). 기본은 처음부터 있다. */
 enum class Border { PLAIN, POSTMARK, GILT, PAINT }
 
-/** 이정표 판정에 쓰는 숫자들. 시리즈 하나의 것이거나 (시리즈 이정표) 모두 합친 것 (전체 이정표). */
+/**
+ * 메달 · 레벨 판정에 쓰는 숫자들 (모든 작품을 합친 것, 또는 작품 하나의 것).
+ * [readAlongStars] 는 따라 읽기 마디마다 받은 가장 많은 별의 합 ([Prosody.Score.stars]), [walksDone] 은 끝까지 걸은 그림 산책 수,
+ * [seriesCompleted] 는 편지를 다 읽은 작품 id.
+ */
 data class Stats(
     val lettersDone: Int = 0,
     val streak: Int = 0,
@@ -69,48 +73,10 @@ data class Stats(
     val chapters: Int = 0,
     val shadowPassed: Int = 0,
     val pieces: Int = 0,
-    /** 한 번이라도 시작한 시리즈 수 · 따라 읽기를 한 언어 수 (전체 이정표용). */
-    val seriesStarted: Int = 0,
-    val langsSpoken: Int = 0,
+    val readAlongStars: Int = 0,
+    val walksDone: Int = 0,
+    val seriesCompleted: Set<String> = emptySet(),
 )
-
-/** 이정표 하나: [metric] 이 [goal] 이상이면 받는다. 이름은 글자 목록의 ach_<id>. [all] 이면 전체 이정표. */
-data class Achievement(val id: String, val goal: Int, val all: Boolean = false, val metric: (Stats) -> Int)
-
-object Achievements {
-    /** 시리즈 이정표: 어느 시리즈에나 같은 틀. 몇 개마다 갤러리에 명작 한 점이 확정으로 걸린다. */
-    val series = listOf(
-        Achievement("alone_1", 1) { it.lettersSealed },
-        Achievement("streak_7", 7) { it.bestStreak },
-        Achievement("words_50", 50) { it.wordsKnown },
-        Achievement("chapter_1", 1) { it.chapters },
-        Achievement("shadow_100", 50) { it.shadowPassed },   // 열쇠는 그대로, v18 부터 문장 50개
-        Achievement("pieces_12", 12) { it.pieces },
-        Achievement("read_50", 50) { it.readAlone },
-        Achievement("read_90", 90) { it.readAlone },
-    )
-
-    /** 전체 이정표: 모든 시리즈를 합쳐서. */
-    val overall = listOf(
-        Achievement("all_series_2", 2, true) { it.seriesStarted },
-        Achievement("all_langs_2", 2, true) { it.langsSpoken },
-        Achievement("all_letters_30", 30, true) { it.lettersDone },
-        Achievement("all_streak_30", 30, true) { it.bestStreak },
-        Achievement("all_streak_100", 100, true) { it.bestStreak },
-    )
-
-    /** 지금 숫자로 받을 수 있는데 아직 안 받은 이정표. [have] 의 키는 시리즈 것은 "<시리즈>:<id>", 전체는 "<id>". */
-    fun newly(list: List<Achievement>, stats: Stats, have: Set<String>, series: String? = null): List<Achievement> =
-        list.filter { key(it, series) !in have && it.metric(stats) >= it.goal }
-
-    fun key(a: Achievement, series: String?) = if (a.all || series == null) a.id else "$series:${a.id}"
-
-    /** 이정표의 진행 (0~1). */
-    fun progress(a: Achievement, stats: Stats): Float = (a.metric(stats).toFloat() / a.goal).coerceIn(0f, 1f)
-
-    /** 이 이정표를 받으면 명작 한 점이 확정인가: 시리즈 이정표 세 개마다. */
-    fun grantsMasterpiece(index: Int) = (index + 1) % 3 == 0
-}
 
 /** 이어 읽기. 하루를 건너뛰어도 쉼표가 있으면 이어진다. */
 object Streak {

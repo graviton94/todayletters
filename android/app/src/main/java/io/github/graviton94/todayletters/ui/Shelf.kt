@@ -40,7 +40,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
-import io.github.graviton94.todayletters.core.Achievements
 import io.github.graviton94.todayletters.core.Route
 import io.github.graviton94.todayletters.data.Work
 import io.github.graviton94.todayletters.design.Faces
@@ -61,7 +60,8 @@ fun LibraryTab(s: AppState) {
     s.version
     LaunchedEffect(Unit) { s.settle() }
     val pieces = s.works.sumOf { s.ownedCount(it.series.id) }
-    val overallDone = Achievements.overall.count { it.id in s.store.achievements }
+    val cabinet = cabinetMedals(s)
+    val medalsGot = cabinet.count { it.id in s.medalsOwned }
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s5, end = Tokens.Space.s1, top = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
             Caps("LINGUA MUSEUM", p.inkSoft, small = true, decorative = true, modifier = Modifier.weight(1f))
@@ -69,8 +69,10 @@ fun LibraryTab(s: AppState) {
         }
         Column(Modifier.padding(horizontal = Tokens.Space.s5), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
             Text(stringResource(R.string.lib_title), style = Type.title.ui(), color = p.ink)
+            // 칭호 · 레벨
+            RankLine(s, Modifier.fillMaxWidth())
             Row(Modifier.fillMaxWidth()) {
-                listOf("${s.streak}" to R.string.lib_stat_streak, "$pieces" to R.string.lib_stat_pieces, "$overallDone / ${Achievements.overall.size}" to R.string.lib_stat_ach).forEach { (v, l) ->
+                listOf("${s.streak}" to R.string.lib_stat_streak, "$pieces" to R.string.lib_stat_pieces, "$medalsGot / ${cabinet.size}" to R.string.lib_stat_ach).forEach { (v, l) ->
                     Column(Modifier.weight(1f)) {
                         Text(v, style = Type.title.copy(fontFamily = Faces.display), color = p.ink)
                         Text(stringResource(l), style = Type.small.ui(), color = p.inkSoft)
@@ -221,7 +223,6 @@ fun OverallScreen(s: AppState) {
     s.version
     var filter by rememberSaveable { mutableStateOf<String?>(null) }
     var open by remember { mutableStateOf<io.github.graviton94.todayletters.core.Piece?>(null) }
-    val st = s.stats()
     Column(Modifier.fillMaxSize()) {
         TopBar(stringResource(R.string.overall_title), s, help = null, showBack = true, showSettings = false)
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
@@ -273,18 +274,24 @@ fun OverallScreen(s: AppState) {
                 Text(stringResource(R.string.overall_catalogues), style = Type.heading.ui(), color = p.ink, modifier = Modifier.padding(top = Tokens.Space.s2))
                 cats.forEachIndexed { k, (w, c) -> CatalogueCover(s, w, c.first, c.second, c.third, k + 1) }
             }
-            // 전체 이정표
+            // 메달 진열장: 가족마다 받은 수 (자세한 진열장은 작품 안 ‘메달’ 이름표)
             Text(stringResource(R.string.overall_milestones), style = Type.heading.ui(), color = p.ink, modifier = Modifier.padding(top = Tokens.Space.s2))
+            RankLine(s, Modifier.fillMaxWidth())
             Column {
-                Achievements.overall.forEachIndexed { i, a ->
-                    val day = s.achievedOn(a.id)
-                    Row(Modifier.fillMaxWidth().padding(vertical = 10.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                        Text(roman(i + 1), style = Type.capsSm, color = if (day != null) p.ink else p.hideInk, modifier = Modifier.width(28.dp))
+                val have = s.medalsOwned
+                val cab = cabinetMedals(s)
+                s.medalBook.families.forEach { f ->
+                    val ms = cab.filter { it.family == f.id }
+                    if (ms.isEmpty()) return@forEach
+                    val got = ms.filter { it.id in have }
+                    Row(Modifier.fillMaxWidth().padding(vertical = 8.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                        val top = got.maxByOrNull { it.threshold } ?: ms.first()
+                        MedalImage(top, got.isNotEmpty(), 40.dp, faint = got.isEmpty())
                         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                            Text(text("ach_${a.id}", a.id), style = Type.body.ui(), color = p.ink)
-                            if (day == null) Bar(Achievements.progress(a, st))
+                            Text(f.title[uiLang()], style = Type.body.ui(), color = p.ink)
+                            Bar(got.size.toFloat() / ms.size)
                         }
-                        Text(if (day != null && day >= 0) shortDate(day) else if (day != null) "✓" else "${a.metric(st).coerceAtMost(a.goal)} / ${a.goal}", style = Type.small, color = p.inkSoft)
+                        Text("${got.size} / ${ms.size}", style = Type.small, color = p.inkSoft)
                     }
                     Hair()
                 }

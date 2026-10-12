@@ -231,7 +231,7 @@ private fun Toggle(on: Boolean, onChange: (Boolean) -> Unit) {
 @Composable private fun Chev() = Text("›", style = Type.heading, color = Ink.palette.hideInk)
 
 /**
- * 출처 · 오픈소스 고지: 편지 글(1914년판), 그림마다 소장처와 라이선스(편지 데이터에서), 초상, 낭독 모델, 글꼴 OFL 전문.
+ * 출처 · 오픈소스 고지: 편지 글(1914년판), 그림마다 소장처와 라이선스(편지 데이터에서), 메달이 된 유물(medals.json), 초상, 낭독 모델, 글꼴 OFL 전문.
  * 그림 목록은 작품 데이터에서 만들어서, 편지가 늘어도 이 화면을 고칠 일이 없다.
  */
 @Composable
@@ -297,6 +297,17 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
                     Text(pc.collection, style = Type.small.ui(), color = p.inkSoft)
                 }
             } }
+
+            // 메달 진열장: 메달이 된 고대 유물 (소장처 · 소장품 번호 · 라이선스, data/medals.json)
+            Caps(stringResource(R.string.credits_medals_h), p.giltText)
+            Text(stringResource(R.string.credits_medals_note), style = Type.small.ui(), color = p.inkSoft)
+            (s.medalBook.medals.map { it.source } + listOfNotNull(s.medalBook.spare)).distinctBy { it.objectId }.forEach { src ->
+                Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text("${src.title} · ${src.date}", style = Type.small.copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+                    Text(listOf(src.artist, src.museum, "#${src.objectId}", src.license).filter { it.isNotBlank() }.joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
+                    Text(src.url, style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+                }
+            }
 
             // 낱말 자료: 등급(FrequencyWords) · 예문(Tatoeba, 문장마다 작성자)
             if (s.baseWorks.any { it.lexicons.isNotEmpty() }) {

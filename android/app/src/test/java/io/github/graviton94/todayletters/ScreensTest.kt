@@ -272,8 +272,10 @@ class ScreensTest {
         s.cards().forEachIndexed { k, c -> s.store.save(c.copy(box = k % 6)) }
         s.store.saveWallet("vincent", io.github.graviton94.todayletters.core.Wallet(balance = 146))
         listOf("met-436529", "met-459123", "brieven-238", "brieven-108", "met-335537", "brieven-070").forEach { s.store.addPiece("vincent", it) }
-        s.store.unlock("vincent:alone_1"); s.store.setAchievedDay("vincent:alone_1", s.today - 8)
-        s.store.unlock("vincent:streak_7"); s.store.setAchievedDay("vincent:streak_7", s.today - 3)
+        // 메달 진열장: 받은 메달 넷 · 레벨 17 (학예 보조 II)
+        listOf("streak_3" to 20L, "streak_7" to 8L, "letters_1" to 9L, "walks_5" to 2L).forEach { (m, d) -> s.store.awardMedal(m, s.today - d) }
+        s.store.saveXp(io.github.graviton94.todayletters.core.XpLedger(total = io.github.graviton94.todayletters.core.Levels.totalFor(17) + 820))
+        s.store.levelSeen = 17
         s.store.markDoneDay(s.today); s.store.markDoneDay(s.today - 1); s.store.markDoneDay(s.today - 3)
         s.store.saveStreak(s.today, 12); s.store.rests = 1
         return s
@@ -435,7 +437,7 @@ class ScreensTest {
     @Test fun rewardMaster() {
         val s = engineState()
         val pc = s.work("vincent").kit.collection.first { it.id == "met-436528" }
-        s.reward = AppState.RewardMoment("vincent", 28, pc, listOf("pieces_12"), null,
+        s.reward = AppState.RewardMoment("vincent", 28, pc, listOf("words_25"), null,
             listOf(io.github.graviton94.todayletters.core.Earn.ACHIEVEMENT to 10, io.github.graviton94.todayletters.core.Earn.LETTER to 6, io.github.graviton94.todayletters.core.Earn.STREAK to 4, io.github.graviton94.todayletters.core.Earn.REVIEW_RIGHT to 8))
         shot("69_reward_master", true, 2000) { io.github.graviton94.todayletters.ui.RewardOverlay(s) }
     }
@@ -536,7 +538,7 @@ class ScreensTest {
     @Test fun largeReward() {
         val s = engineState()
         val pc = s.work("vincent").kit.collection.first { it.id == "met-436528" }
-        s.reward = AppState.RewardMoment("vincent", 28, pc, listOf("pieces_12"), null, listOf(io.github.graviton94.todayletters.core.Earn.LETTER to 6))
+        s.reward = AppState.RewardMoment("vincent", 28, pc, listOf("words_25"), null, listOf(io.github.graviton94.todayletters.core.Earn.LETTER to 6))
         large("89_reward", 2000) { io.github.graviton94.todayletters.ui.RewardOverlay(s) }
     }
 
@@ -733,4 +735,40 @@ class ScreensTest {
         s.reward = null
         shot("t11_graduate_ko_light", false, 4000, series = s) { Done(s, Route.Letter("vincent", 1, 1)) }
     }
+
+    // ── 메달 진열장 · 끝없는 레벨 ──
+    /** 메달 진열장: 받은 메달은 금속과 등급 테, 다음 메달은 석고 본과 진행 ("12/14일"). */
+    @Test fun cabinet() { val s = engineState(); s.reward = null; shot("c01_cabinet_ko_light", false, series = s) { io.github.graviton94.todayletters.ui.MilestonesTab(s) } }
+    @Test fun cabinetDark() { val s = engineState(); s.reward = null; shot("c02_cabinet_ko_dark", true, series = s) { io.github.graviton94.todayletters.ui.MilestonesTab(s) } }
+    /** 메달 자세히: 받은 메달 (유물 이름 · 시기 · 소장처 · 받은 까닭). */
+    @Test fun medalDetail() {
+        val s = engineState(); s.reward = null
+        val m = s.medalBook.medal("streak_7")!!
+        shot("c03_medal_detail_ko_light", false, series = s) { io.github.graviton94.todayletters.ui.MedalDetail(s, m) { } }
+    }
+    /** 메달 자세히: 다음 메달 (석고 본 · 진행 · 받는 법). */
+    @Test fun medalDetailNext() {
+        val s = engineState(); s.reward = null
+        val m = s.medalBook.medal("streak_14")!!
+        shot("c04_medal_detail_next_ko_dark", true, series = s) { io.github.graviton94.todayletters.ui.MedalDetail(s, m) { } }
+    }
+    /** 칭호 줄: 서재 머리 (“학예 보조 II · Lv 17” 과 얇은 막대). */
+    @Test fun levelLine() { val s = engineState(); s.reward = null; shot("c05_level_line_library_ko_light", false, 3000) { LibraryTab(s) } }
+    /** 칭호 줄: 작품 머리 (오늘). */
+    @Test fun levelLineSeries() { val s = engineState(); s.reward = null; shot("c06_level_line_series_ko_light", false, 3000, series = s) { Inbox(s) } }
+    /** 레벨 업 순간: 보상 순간과 같은 전시실 벽, 새 칭호와 새 입구 장식 (15 레벨). */
+    @Test fun levelUp() {
+        val s = engineState(); s.reward = null
+        s.store.saveXp(io.github.graviton94.todayletters.core.XpLedger(total = io.github.graviton94.todayletters.core.Levels.totalFor(15) + 40))
+        s.levelUp = AppState.LevelUp(14, 15)
+        shot("c07_level_up_ko_dark", true, 2000) { io.github.graviton94.todayletters.ui.LevelUpOverlay(s) }
+    }
+    /** 보상 순간의 새 메달 (금속 메달과 이름). */
+    @Test fun rewardMedal() {
+        val s = engineState()
+        s.reward = AppState.RewardMoment("vincent", 10, null, listOf("streak_7"), null, listOf(io.github.graviton94.todayletters.core.Earn.ACHIEVEMENT to 10))
+        shot("c08_reward_medal_ko_dark", true, 2000) { io.github.graviton94.todayletters.ui.RewardOverlay(s) }
+    }
+    /** 입구 장식: 레벨 17 이면 ‘대리석 기둥 한 쌍’ (15 레벨) 이 입구에 조용히. */
+    @Test fun openingDecoration() { val s = engineState(); s.reward = null; shot("c09_opening_decoration_ko_dark", true, 4500) { io.github.graviton94.todayletters.ui.Opening(s) } }
 }

@@ -133,6 +133,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
         result?.first?.let {
             s.recordScore(it); s.cue(it.passed || (step && it.total > 0))
             if (it.stars >= 1) s.markStar(id, chapter, letter.id)   // 봉인 조건: 따라 읽기 별 하나 이상 (F13)
+            s.recordStars(id, chapter, letter.id, mi, cj, it.stars)   // 메달 진열장의 따라 읽기 별 (마디마다 가장 많이 받은 별)
             if (it.passed || (step && it.total > 0)) s.markPassed(id, chapter, letter.id, mi, cj) else if (tick > 0) tries[at] = (tries[at] ?: 0) + 1
         }
     }

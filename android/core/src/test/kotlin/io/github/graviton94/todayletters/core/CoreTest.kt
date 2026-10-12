@@ -262,15 +262,6 @@ class CoreTest {
         assertEquals(3, Rewards.spend(w, 10)!!.balance)
     }
 
-    @Test fun achievementsUnlock() {
-        val s = Stats(lettersDone = 5, bestStreak = 7, wordsKnown = 30, readAlone = 52, lettersSealed = 1)
-        val ids = Achievements.newly(Achievements.series, s, setOf("vincent:alone_1"), "vincent").map { it.id }
-        assertEquals(listOf("streak_7", "read_50"), ids)
-        val all = Achievements.newly(Achievements.overall, Stats(seriesStarted = 2, langsSpoken = 1), emptySet()).map { it.id }
-        assertEquals(listOf("all_series_2"), all)
-        assertEquals("all_series_2", Achievements.key(Achievements.overall.first(), "vincent"))
-    }
-
     @Test fun streakRests() {
         assertEquals(4 to 1, Streak.afterWithRest(lastDay = 10, count = 3, today = 12, rests = 1))
         assertEquals(1 to 0, Streak.afterWithRest(lastDay = 10, count = 3, today = 12, rests = 0))

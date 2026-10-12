@@ -58,7 +58,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.graviton94.todayletters.R
-import io.github.graviton94.todayletters.core.Achievements
 import io.github.graviton94.todayletters.core.Earn
 import io.github.graviton94.todayletters.core.Piece
 import io.github.graviton94.todayletters.core.Route
@@ -297,12 +296,16 @@ fun RewardOverlay(s: AppState) {
                         Text(frameName(kind) + if (pc.tier.weight > 0) " · " + stringResource(R.string.reward_odds, pc.tier.weight) else "",
                             style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = t.soft)
                     }
-                    if (m.achievements.isNotEmpty() && pc.tier >= Tier.PAINTING) Text(stringResource(R.string.reward_from_ach), style = Type.small.ui(), color = t.soft)
+                    if (m.medals.isNotEmpty() && pc.tier >= Tier.PAINTING) Text(stringResource(R.string.reward_from_ach), style = Type.small.ui(), color = t.soft)
                 }
             }
             if (m.milestone != null) Text(stringResource(R.string.reward_alone, m.milestone), style = Type.body.ui(), color = t.ink, textAlign = TextAlign.Center)
-            m.achievements.forEach { id ->
-                Text(stringResource(R.string.reward_ach, text("ach_$id", id)), style = Type.body.ui(), color = t.accent, textAlign = TextAlign.Center)
+            // 새 메달: 금속 메달과 이름 (메달 진열장)
+            m.medals.mapNotNull { s.medalBook.medal(it) }.forEach { md ->
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                    MedalImage(md, true, 44.dp)
+                    Text(stringResource(R.string.reward_ach, md.title[uiLang()]), style = Type.body.ui(), color = t.accent)
+                }
             }
             Spacer(Modifier.height(Tokens.Space.s2))
             if (m.gain > 0) Column(Modifier.fillMaxWidth()) {
@@ -383,6 +386,8 @@ fun SeriesHeader(s: AppState, title: String? = null, caps: String? = null) {
             Spacer(Modifier.weight(1f))
             CurrencyLine(s, w)
         }
+        // 칭호 · 레벨 (모든 작품 공통)
+        RankLine(s, Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s5).padding(top = 2.dp, bottom = 2.dp))
         if (title != null) Column(Modifier.padding(horizontal = Tokens.Space.s6).padding(top = Tokens.Space.s2), verticalArrangement = Arrangement.spacedBy(4.dp)) {
             if (caps != null) Caps(caps, p.giltText, small = true, decorative = true)
             Text(title, style = Type.title.ui(), color = p.ink)
@@ -469,12 +474,6 @@ fun GalleryTab(s: AppState) {
                 }
             }
             Text(stringResource(if (tier == Tier.LETTER) R.string.gallery_letter_note else R.string.gallery_draw_note), style = Type.small.ui(), color = p.inkSoft)
-            val next = Achievements.series.first { it.id == "pieces_12" }
-            if (s.ownedCount(id) < next.goal) Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Row { Text(stringResource(R.string.gallery_next, next.goal), style = Type.small.ui(), color = p.ink, modifier = Modifier.weight(1f))
-                    Text(stringResource(R.string.gallery_next_gift), style = Type.small.ui(), color = p.inkSoft) }
-                Bar(s.ownedCount(id).toFloat() / next.goal)
-            }
         }
     }
     var framing by remember { mutableStateOf<Piece?>(null) }
@@ -574,67 +573,17 @@ private fun LetterPlates(s: AppState, w: io.github.graviton94.todayletters.data.
     }
 }
 
-/** 이정표 메달 (D5): 레이크스 미술관의 실제 19세기 전람회 메달 여덟 (CC0, assets/medals/m1~8). 이름은 medal_1~8. */
-private val medalNames = listOf(R.string.medal_1, R.string.medal_2, R.string.medal_3, R.string.medal_4, R.string.medal_5, R.string.medal_6, R.string.medal_7, R.string.medal_8)
-
-/** 석고 본 (아직 받지 않은 메달): 흑백 · 밝게 · 대비 낮게, 따뜻한 흰빛. */
-private val plaster = ColorFilter.colorMatrix(ColorMatrix(floatArrayOf(
-    0.2f, 0.2f, 0.2f, 0f, 140f,
-    0.195f, 0.195f, 0.195f, 0f, 136f,
-    0.185f, 0.185f, 0.185f, 0f, 127f,
-    0f, 0f, 0f, 1f, 0f,
-)))
-
-/** 메달 하나: 받았으면 금속 그대로 (그림자), 아직이면 석고 본 + 진행 고리. */
-@Composable
-fun Medal(index: Int, earned: Boolean, progress: Float, size: androidx.compose.ui.unit.Dp) {
-    val p = Ink.palette
-    val bmp = rememberAsset("medals/m${(index % 8) + 1}.webp")
-    Box(Modifier.size(size), contentAlignment = Alignment.Center) {
-        if (!earned) androidx.compose.foundation.Canvas(Modifier.fillMaxSize()) {
-            val st = 2.5.dp.toPx(); val r = this.size.minDimension / 2 - st
-            drawCircle(p.hair, r, style = androidx.compose.ui.graphics.drawscope.Stroke(st))
-            if (progress > 0f) drawArc(p.giltText, -90f, 360f * progress.coerceIn(0f, 1f), false,
-                topLeft = androidx.compose.ui.geometry.Offset(center.x - r, center.y - r), size = androidx.compose.ui.geometry.Size(r * 2, r * 2),
-                style = androidx.compose.ui.graphics.drawscope.Stroke(st, cap = androidx.compose.ui.graphics.StrokeCap.Round))
-        }
-        if (bmp != null) Image(bmp, null, Modifier.size(size * 0.82f).then(if (earned) Modifier.shadow(5.dp, CircleShape) else Modifier),
-            colorFilter = if (earned) null else plaster)
-    }
-}
-
-/** 이정표 (시리즈 안 이름표): 메달 여덟 (누르면 자세히) 과 우표 쓰기. */
+/** 메달 (시리즈 안 이름표): 메달 진열장 (누르면 유물 이야기) · 이번 주 · 일요일 낭독회 · 화폐 쓰기. */
 @Composable
 fun MilestonesTab(s: AppState) {
-    val p = Ink.palette
     val w = s.currentWork
     val id = w.series.id
     s.version
-    val st = s.stats(id)
-    var detail by remember { mutableStateOf<Int?>(null) }
-    val got = Achievements.series.count { s.achievedOn(Achievements.key(it, id)) != null }
+    var detail by rememberSaveable { mutableStateOf<String?>(null) }
     Column(Modifier.fillMaxSize()) {
-        SeriesHeader(s, stringResource(R.string.tab_milestones))
+        SeriesHeader(s, stringResource(R.string.cabinet_title))
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            Text(stringResource(R.string.medals_note, Achievements.series.size, got), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(horizontal = 4.dp))
-            Spacer(Modifier.height(Tokens.Space.s4))
-            Achievements.series.chunked(3).forEachIndexed { r, row ->
-                Row(Modifier.fillMaxWidth().padding(bottom = Tokens.Space.s4)) {
-                    row.forEachIndexed { k, a ->
-                        val i = r * 3 + k
-                        val day = s.achievedOn(Achievements.key(a, id))
-                        Column(Modifier.weight(1f).pressable { detail = i }.padding(horizontal = 2.dp), horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                            Medal(i, day != null, Achievements.progress(a, st), 92.dp)
-                            Text(text("ach_${a.id}", a.id), style = Type.small.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink, textAlign = TextAlign.Center, maxLines = 2)
-                            Text(if (day != null) (if (day >= 0) stringResource(R.string.medal_got, shortDate(day)) else "✓") else "${a.metric(st).coerceAtMost(a.goal)} / ${a.goal}",
-                                style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
-                            if (Achievements.grantsMasterpiece(i) && day == null) Text(stringResource(R.string.medal_master), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.giltText)
-                        }
-                    }
-                    repeat(3 - row.size) { Spacer(Modifier.weight(1f)) }
-                }
-            }
+            MedalCabinet(s) { detail = it.id }
             Spacer(Modifier.height(Tokens.Space.s2))
             // 이번 주 · 일요일 낭독회 (오늘 화면에서 옮겨 옴)
             run {
@@ -647,7 +596,7 @@ fun MilestonesTab(s: AppState) {
             Shop(s, w)
         }
     }
-    detail?.let { i -> MedalSheet(s, w, i) { detail = null } }
+    detail?.let { mid -> s.medalBook.medal(mid)?.let { m -> MedalDetail(s, m) { detail = null } } }
 }
 
 /** 이정표 탭의 한 줄 (이번 주 · 낭독회): 이름 · 한 줄 · ›. */
@@ -662,35 +611,6 @@ private fun MoreRow(title: String, line: String, onClick: () -> Unit) {
         Text("›", style = Type.heading, color = p.inkSoft)
     }
     Hair()
-}
-
-/** 메달 자세히: 이름 · 지금 몇 · 남은 만큼 (또는 받은 날) · 그 메달이 무엇인지 · 받으면 생기는 것. */
-@Composable
-private fun MedalSheet(s: AppState, w: Work, i: Int, onClose: () -> Unit) {
-    val p = Ink.palette
-    val a = Achievements.series[i]
-    val st = s.stats(w.series.id)
-    val day = s.achievedOn(Achievements.key(a, w.series.id))
-    androidx.activity.compose.BackHandler(onBack = onClose)
-    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose), contentAlignment = Alignment.BottomCenter) {
-        Column(Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsPadding().padding(Tokens.Space.s6),
-            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            Medal(i, day != null, Achievements.progress(a, st), 170.dp)
-            Caps(stringResource(R.string.caps_milestone, roman(i + 1)), p.giltText, small = true, decorative = true)
-            Text(text("ach_${a.id}", a.id), style = Type.title.ui(), color = p.ink, textAlign = TextAlign.Center)
-            val now = a.metric(st).coerceAtMost(a.goal)
-            Text(if (day != null) stringResource(R.string.medal_got, if (day >= 0) shortDate(day) else "✓") else stringResource(R.string.medal_left, now, a.goal - now),
-                style = Type.small.ui(), color = p.inkSoft)
-            if (day == null) Bar(Achievements.progress(a, st), Modifier.padding(vertical = 4.dp))
-            Text(stringResource(R.string.medal_credit, stringResource(medalNames[i % 8])) + if (day == null) "\n" + stringResource(R.string.medal_cast) else "",
-                style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.hideInk, textAlign = TextAlign.Center)
-            Row(Modifier.fillMaxWidth().border(1.dp, p.line).padding(Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
-                Text(stringResource(if (Achievements.grantsMasterpiece(i)) R.string.medal_gift_master else R.string.medal_gift, w.kit.currency[uiLang()]),
-                    style = Type.small.ui(), color = p.ink)
-            }
-            Secondary(stringResource(R.string.close), onClick = onClose)
-        }
-    }
 }
 
 /** 우표 쓰기 (E3): 이어 읽기 · 편지 · 갤러리 · 카드로 묶어서. 배움은 늘 무료. */

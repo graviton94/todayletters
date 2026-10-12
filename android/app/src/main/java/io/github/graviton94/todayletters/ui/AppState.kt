@@ -13,8 +13,12 @@ import io.github.graviton94.todayletters.core.Coach
 import io.github.graviton94.todayletters.core.Langs
 import io.github.graviton94.todayletters.core.Launch
 import io.github.graviton94.todayletters.core.Memory
-import io.github.graviton94.todayletters.core.Achievements
-import io.github.graviton94.todayletters.core.Achievement
+import io.github.graviton94.todayletters.core.Medals
+import io.github.graviton94.todayletters.core.MedalBook
+import io.github.graviton94.todayletters.core.Levels
+import io.github.graviton94.todayletters.core.Level
+import io.github.graviton94.todayletters.core.Xp
+import io.github.graviton94.todayletters.core.XpAction
 import io.github.graviton94.todayletters.core.Draws
 import io.github.graviton94.todayletters.core.Piece
 import io.github.graviton94.todayletters.core.Tier
@@ -703,13 +707,17 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val series: String,
         val gain: Int,
         val piece: Piece?,
-        val achievements: List<String>,
+        /** 새로 받은 메달 id (core 의 Medals). */
+        val medals: List<String>,
         val milestone: Int?,
         val lines: List<Pair<Earn, Int>> = emptyList(),
         /** 이달의 전시를 방금 다 모았으면 그 전시 (도록 표지, E4). */
         val catalogue: Exhibition? = null,
     )
     var reward by mutableStateOf<RewardMoment?>(null)
+    /** 레벨 업 순간: [from] → [to] (한 번에 여러 레벨을 올라도 하나만). 보상 순간이 닫힌 뒤에 뜬다. */
+    data class LevelUp(val from: Int, val to: Int)
+    var levelUp by mutableStateOf<LevelUp?>(null)
     private var pending = mutableMapOf<Earn, Int>()
     private var pendingPiece: Piece? = null
 
@@ -718,10 +726,92 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     val wallet: Wallet get() = wallet(current)
 
     fun earn(e: Earn, times: Int = 1, id: String = current): Int {
+        xpFor(e)?.let { xp(it, times) }
         val (w, g) = Rewards.earn(store.wallet(id), e, today, times)
         store.saveWallet(id, w); if (g > 0) pending[e] = (pending[e] ?: 0) + g
         return g
     }
+    /** 화폐를 받는 일 가운데 XP 도 받는 것 (medals.json 의 levels.xp). */
+    private fun xpFor(e: Earn): XpAction? = when (e) {
+        Earn.LETTER -> XpAction.LETTER_READ
+        Earn.PRACTICE -> XpAction.PRACTICE
+        Earn.REVIEW_RIGHT -> XpAction.REVIEW_RIGHT
+        Earn.JOURNEY -> XpAction.QUESTS_DONE
+        Earn.STREAK -> XpAction.STREAK_DAY
+        Earn.ACHIEVEMENT -> XpAction.MEDAL
+        Earn.SEAL -> XpAction.LETTER_SEALED
+        else -> null
+    }
+
+    // ── 메달 진열장 · 끝없는 레벨 (core 의 Medals · Levels, assets/medals/medals.json) ─────────
+    val medalBook: MedalBook by lazy {
+        runCatching { Medals.parse(ctx.assets.open("medals/medals.json").bufferedReader().readText()) }.getOrDefault(MedalBook(emptyList(), emptyList()))
+    }
+
+    /** XP 받기 (하루 상한 안에서). 레벨 업 순간은 [settle] 이 한 번에 띄운다. */
+    fun xp(a: XpAction, times: Int = 1): Int {
+        val (l, g) = Xp.gain(store.xp(), a, today, times)
+        if (g > 0) store.saveXp(l)
+        return g
+    }
+    val level: Level get() = run { @Suppress("UNUSED_EXPRESSION") version; Levels.of(store.xp().total) }
+
+    /** 메달 숫자: 모든 작품 · 모든 배우는 말을 합쳐서 (한 번 한 일은 언어를 바꿔도 남는다). */
+    fun medalStats(): Stats {
+        @Suppress("UNUSED_EXPRESSION") version
+        return Stats(
+            lettersDone = store.progressKeys().count { store.progress(it).done },
+            streak = streak, bestStreak = maxOf(store.bestStreak, streak),
+            wordsKnown = store.cards().count { Growth.known(it) },
+            lettersSealed = store.sealed.size,
+            readAlongStars = maxOf(store.stars().values.sum(), store.starred.size),
+            walksDone = store.walks.size,
+            seriesCompleted = store.seriesDone + baseWorks.map { it.series.id }.filter { id -> work(id).chapters.isNotEmpty() && seriesDone(id) },
+        )
+    }
+    /** 받은 메달 (id) · 받은 날. */
+    val medalsOwned: Set<String> get() = run { @Suppress("UNUSED_EXPRESSION") version; store.medals }
+    fun medalDay(id: String): Long? = run { @Suppress("UNUSED_EXPRESSION") version; store.medalDay(id) }
+
+    /** 따라 읽기 별: 마디마다 가장 많이 받은 별만 센다 (같은 마디를 되풀이해 별을 불리지 않게). 새로 늘어난 별만큼 XP. */
+    fun recordStars(id: String, chapter: String, letter: String, msg: Int, chunk: Int, n: Int) {
+        if (n <= 0) return
+        val k = "${key(id, chapter, letter)}:$msg:$chunk"
+        val old = store.stars()[k] ?: 0
+        if (n > old) { store.setStars(k, n); xp(XpAction.READALONG_STAR, n - old); version++ }
+    }
+
+    /** 그림 산책을 마지막 자리까지 걸었다 (편지마다 한 번 센다). */
+    fun walkDone(series: String, letterId: String) {
+        val k = "$series:$letterId"
+        if (k in store.walks) return
+        store.addWalk(k); xp(XpAction.WALK_DONE); version++
+    }
+
+    /**
+     * 예전 이정표 → 메달 (한 번): 겹치는 이정표는 그 메달로 (받은 날 그대로). 그리고 처음 레벨이 생길 때 그동안의 기록으로 XP 를 채운다
+     * (레벨 업 순간 없이, 조용히).
+     */
+    private fun migrateMedals() {
+        if (!store.medalsMigrated) {
+            val old = store.achievements
+            Medals.migrate(old).forEach { mid ->
+                val day = old.filter { mid in Medals.migrate(setOf(it)) }.mapNotNull { store.achievedDay(it)?.takeIf { d -> d >= 0 } }.minOrNull() ?: today
+                store.awardMedal(mid, day)
+            }
+            store.medalsMigrated = true
+        }
+        if (!store.xpSeeded) {
+            val ms = medalStats()
+            val seed = Xp.seed(ms, ms.lettersSealed, store.medals.size, store.doneDays().size)
+            if (seed > 0) store.saveXp(store.xp().copy(total = store.xp().total + seed))
+            store.wordsSeen = ms.wordsKnown
+            store.seriesDone.let { done -> ms.seriesCompleted.filter { it !in done }.forEach(store::addSeriesDone) }
+            store.levelSeen = Levels.of(store.xp().total).level
+            store.xpSeeded = true
+        }
+    }
+
     fun spend(cost: Int, id: String = current): Boolean {
         val w = Rewards.spend(store.wallet(id), cost) ?: return false
         store.saveWallet(id, w); version++; return true
@@ -953,21 +1043,13 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             lettersAlone = alone, lettersSealed = store.sealed.count { k -> prefixes.any { k.startsWith(it) } }, chapters = chapters,
             shadowPassed = store.passed.count { k -> prefixes.any { k.startsWith(it) } },
             pieces = ws.sumOf { ownedCount(it.series.id) },
-            seriesStarted = works.count { startedCount(it.series.id) > 0 },
-            // 따라 읽기를 한 언어 수: 통과한 마디 열쇠의 진도 이름 ("vincent" 원어 · "vincent@en") 에서 언어를 읽는다
-            langsSpoken = store.passed.mapNotNull { k ->
-                val (sid, code) = io.github.graviton94.todayletters.core.Spaces.parse(k.substringBefore(":"))
-                code ?: baseWorks.firstOrNull { it.series.id == sid }?.series?.original?.code
-            }.distinct().size,
         )
     }
 
-    /** 이정표 받은 날 (epoch day), 못 받았으면 null. */
-    fun achievedOn(key: String): Long? = run { @Suppress("UNUSED_EXPRESSION") version; store.achievedDay(key) }
 
     /**
-     * 정산: 혼자 읽기가 오른 만큼 · 봉인 · 새 이정표 (시리즈 · 전체) 를 모아 한 번의 보상 순간으로 보여 준다.
-     * 이정표 세 개마다 명작 한 점이 확정. 아무 것도 없으면 조용히.
+     * 정산: 혼자 읽기가 오른 만큼 · 봉인 · 새 메달 · 완주한 작품 · 새로 익힌 낱말을 모아 한 번의 보상 순간으로 보여 준다.
+     * 메달 셋째마다 유화 한 점이 확정. 레벨이 올랐으면 그 뒤에 레벨 업 순간 하나. 아무 것도 없으면 조용히.
      */
     fun settle() {
         val cm = cardMap()
@@ -987,16 +1069,19 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             milestone = Growth.crossed(seen, now).lastOrNull()
             store.readAloneSeen = now
         }
-        // 이정표: 이 시리즈 + 전체
-        val got = mutableListOf<String>()
-        if (id.isNotEmpty()) Achievements.newly(Achievements.series, stats(id), store.achievements, id).forEach { a ->
-            val k = Achievements.key(a, id)
-            store.unlock(k); store.setAchievedDay(k, today); earn(Earn.ACHIEVEMENT); got += a.id
-            val n = store.achievements.count { it.startsWith("$id:") }
-            if (Achievements.grantsMasterpiece(n - 1)) draw(id, "ach:${a.id}", Tier.PAINTING)
+        // 다 읽은 작품 (시리즈 메달 · XP 300)
+        baseWorks.forEach { w ->
+            val sid = w.series.id
+            if (sid !in store.seriesDone && work(sid).chapters.isNotEmpty() && seriesDone(sid)) { store.addSeriesDone(sid); xp(XpAction.SERIES_COMPLETED) }
         }
-        Achievements.newly(Achievements.overall, stats(), store.achievements).forEach { a ->
-            store.unlock(a.id); store.setAchievedDay(a.id, today); earn(Earn.ACHIEVEMENT); got += a.id
+        // 새로 익힌 낱말 (가장 높은 기록을 넘은 만큼만)
+        val ms = medalStats()
+        if (ms.wordsKnown > store.wordsSeen) { xp(XpAction.WORD_LEARNED, ms.wordsKnown - store.wordsSeen); store.wordsSeen = ms.wordsKnown }
+        // 메달 (모든 작품 합쳐서): 화폐 · XP 50, 셋째마다 유화 한 점
+        val got = mutableListOf<String>()
+        Medals.newly(medalBook, ms, store.medals, baseWorks.map { it.series.id }.toSet()).forEach { m ->
+            store.awardMedal(m.id, today); earn(Earn.ACHIEVEMENT); got += m.id
+            if (id.isNotEmpty() && Medals.grantsPainting(store.medals.size)) draw(id, "medal:${m.id}", Tier.PAINTING)
         }
         // 이달의 전시를 다 모았으면 (전시마다 한 번): 도록 표지 + 화폐 (E4)
         var catalogue: Exhibition? = null
@@ -1012,6 +1097,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             reward = RewardMoment(id, gain, pendingPiece, got, milestone, pending.toList(), catalogue)
         }
         pending = mutableMapOf(); pendingPiece = null
+        // 레벨 업: 이번 일로 오른 만큼 한 번 (보상 순간이 있으면 그 뒤에)
+        val lv = Levels.of(store.xp().total).level
+        if (lv > store.levelSeen) { levelUp = LevelUp(store.levelSeen, lv); store.levelSeen = lv }
         version++
     }
 
@@ -1034,4 +1122,6 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     // 어제 하루 몫이 넘쳐 미뤄 둔 카드: 앱을 켤 때 오늘 몫만큼 들인다 (모든 상태가 준비된 뒤)
     init { runCatching { DECKS.forEach { if (store.later(it).isNotEmpty()) admit(emptyList(), it) } } }
+    // 예전 이정표 → 메달, 처음 레벨 (모든 상태가 준비된 뒤 한 번)
+    init { runCatching { migrateMedals() } }
 }

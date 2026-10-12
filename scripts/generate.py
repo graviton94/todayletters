@@ -9,6 +9,7 @@
 - design/strings.json → android/app/src/main/res/values{,-ko}/strings.xml
 - data/<작품>/series.json + 챕터 + 어휘 자료(lexicon · gloss · daily[_en|_ko].json) → android/app/src/main/assets/letters/<작품>/
 - remote/ (앱 밖에 두는 낭독 · 그림 · 곡) → android/app/src/main/assets/letters/<작품>/remote.json
+- data/medals.json (메달 진열장 · 레벨) → android/app/src/main/assets/medals/medals.json
 """
 import re, glob, json, os, sys
 from xml.sax.saxutils import escape
@@ -198,6 +199,14 @@ def remote():
     return out
 
 
+def medals():
+    """data/medals.json (메달 진열장 · 끝없는 레벨) → assets/medals/medals.json. 그림은 이미 assets/medals/<id>.webp 에 있다."""
+    src = os.path.join(ROOT, "data", "medals.json")
+    if not os.path.exists(src):
+        return {}
+    return {os.path.join(APP, "assets", "medals", "medals.json"): open(src, encoding="utf-8").read()}
+
+
 def check_spots(src, chapter):
     """그림 속 산책: 자리의 낱말이 그 자리의 '편지 속 문장'에 정말 나오는지 (세 언어 모두). 어긋나면 멈춘다."""
     bad = []
@@ -219,7 +228,7 @@ def check_spots(src, chapter):
 
 def main():
     check = "--check" in sys.argv
-    files = {**tokens(), **strings(), **letters(), **remote()}
+    files = {**tokens(), **strings(), **letters(), **remote(), **medals()}
     stale = []
     for path, text in files.items():
         old = open(path, encoding="utf-8").read() if os.path.exists(path) else None

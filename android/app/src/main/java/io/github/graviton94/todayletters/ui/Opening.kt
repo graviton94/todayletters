@@ -43,6 +43,7 @@ private fun Modifier.rise(a: Float) = graphicsLayer { alpha = a; translationY = 
  * 첫 화면: 언어 미술관 입구 (앱을 켤 때마다). 내가 모은 그림들이 화면 가득 천천히 바뀌며 지나가고 (모을수록 입구가 풍성해지는 보상),
  * 아직 모은 것이 적으면 날마다 바뀌는 ‘오늘의 작품’ 한 점. 그 위로
  * 이름 · 앱 이름 · 한 줄 소개 · 작품 설명 · 입장 단추가 차례로 떠오른다. 그동안 뒤에서 편지와 낱말 카드를 불러 둔다.
+ * 레벨이 5 를 넘으면 한 줄 소개 아래에 그동안 연 입구 장식 (가장 새 것) 의 이름이 작은 문양과 함께 조용히.
  * 누르면 책장 넘기는 소리와 함께 시간의 서재가 서서히 나타난다.
  */
 @Composable
@@ -57,6 +58,9 @@ fun Opening(s: AppState) {
             listOfNotNull(pool.getOrNull(Math.floorMod(s.today, pool.size.coerceAtLeast(1).toLong()).toInt()))
         }
     }
+    // 레벨로 열린 입구 장식 (가장 새 것 하나)
+    val ui = uiLang()
+    val deco = remember(ui) { io.github.graviton94.todayletters.core.Levels.decoration(s.level.level)?.let { io.github.graviton94.todayletters.core.Levels.decorationName(s.medalBook.levels, it, ui) } }
     var shownAt by remember { androidx.compose.runtime.mutableIntStateOf(0) }
     val piece = pieces.getOrNull(shownAt % pieces.size.coerceAtLeast(1))
     val still = s.reducedMotion
@@ -101,6 +105,14 @@ fun Opening(s: AppState) {
             Text(stringResource(R.string.app_name), style = Type.display.ui(), color = ink, modifier = Modifier.rise(steps[2].value))
             Text(stringResource(R.string.opening_tagline), style = Type.small.ui(), color = ink, textAlign = TextAlign.Center,
                 modifier = Modifier.rise(steps[3].value))
+            // 입구 장식 (5 레벨마다 하나): 이름과 작은 문양만, 조용히
+            deco?.let { name ->
+                Column(Modifier.padding(top = 6.dp).rise(steps[3].value * 0.85f), horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    Ornament(gilt.copy(alpha = 0.7f))
+                    Text(stringResource(R.string.opening_deco, name), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = gilt.copy(alpha = 0.85f))
+                }
+            }
         }
         Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().navigationBarsPadding().padding(horizontal = 32.dp, vertical = 48.dp),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(14.dp)) {

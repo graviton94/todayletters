@@ -220,11 +220,50 @@ class Store(ctx: Context) {
     private fun set(key: String): Set<String> = p.getStringSet(key, emptySet())!!.toSet()
     private fun add(key: String, v: String) = p.edit().putStringSet(key, set(key) + v).apply()
 
-    /** 받은 이정표: 시리즈 것은 "시리즈:id", 전체는 "id". 받은 날도 함께. */
+    /** 예전 이정표 (메달 진열장 전): 시리즈 것은 "시리즈:id", 전체는 "id". 메달로 옮길 때만 읽는다 ([io.github.graviton94.todayletters.core.Medals.migrate]). */
     val achievements: Set<String> get() = set("ach")
     fun unlock(id: String) = add("ach", id)
     fun achievedDay(key: String): Long? = p.getLong("ach:$key:day", -1).takeIf { it >= 0 } ?: if (key in achievements) -1L else null
     fun setAchievedDay(key: String, day: Long) = p.edit().putLong("ach:$key:day", day).apply()
+
+    // ── 메달 진열장 · 레벨 (core 의 Medals · Levels) ─────────────────
+    /** 받은 메달 id (모든 작품 공통, 시리즈 메달은 "series_<작품>") 와 받은 날. */
+    val medals: Set<String> get() = set("medals")
+    fun awardMedal(id: String, day: Long) = p.edit().putStringSet("medals", set("medals") + id).putLong("medal:$id:day", day).apply()
+    fun medalDay(id: String): Long? = if (id in medals) p.getLong("medal:$id:day", -1) else null
+    /** 예전 이정표를 메달로 옮겼나 (한 번만). */
+    var medalsMigrated: Boolean
+        get() = p.getBoolean("medals:migrated", false)
+        set(v) = p.edit().putBoolean("medals:migrated", v).apply()
+    /** 따라 읽기 별: 마디 ("편지키:문장:마디") 마다 가장 많이 받은 별 (0~3). */
+    fun stars(): Map<String, Int> = set("stars").mapNotNull { e -> e.substringAfterLast("=").toIntOrNull()?.let { e.substringBeforeLast("=") to it } }.toMap()
+    fun setStars(key: String, n: Int) = p.edit().putStringSet("stars", set("stars").filterNot { it.substringBeforeLast("=") == key }.toSet() + "$key=$n").apply()
+    /** 끝까지 걸은 그림 산책 ("작품:편지"). */
+    val walks: Set<String> get() = set("walks")
+    fun addWalk(key: String) = add("walks", key)
+    /** 편지를 다 읽은 작품 (한 번 다 읽으면 남는다). */
+    val seriesDone: Set<String> get() = set("series_done")
+    fun addSeriesDone(id: String) = add("series_done", id)
+    /** XP 장부: 누적 · 날 · 오늘 일마다. */
+    fun xp(): io.github.graviton94.todayletters.core.XpLedger {
+        val map = (p.getString("xp:today", "") ?: "").split(";").mapNotNull { e -> e.split("=").takeIf { it.size == 2 }?.let { (x, v) ->
+            runCatching { io.github.graviton94.todayletters.core.XpAction.valueOf(x) to v.toInt() }.getOrNull() } }.toMap()
+        return io.github.graviton94.todayletters.core.XpLedger(p.getLong("xp:total", 0), p.getLong("xp:day", -1), map)
+    }
+    fun saveXp(l: io.github.graviton94.todayletters.core.XpLedger) = p.edit().putLong("xp:total", l.total).putLong("xp:day", l.day)
+        .putString("xp:today", l.today.entries.joinToString(";") { "${it.key.name}=${it.value}" }).apply()
+    /** XP 를 처음 채웠나 (예전 사용자의 기록으로 한 번). */
+    var xpSeeded: Boolean
+        get() = p.getBoolean("xp:seeded", false)
+        set(v) = p.edit().putBoolean("xp:seeded", v).apply()
+    /** 마지막으로 레벨 업 순간을 보여 준 레벨 (같은 레벨을 두 번 축하하지 않는다). */
+    var levelSeen: Int
+        get() = p.getInt("level:seen", 1)
+        set(v) = p.edit().putInt("level:seen", v).apply()
+    /** 익힌 낱말 수의 가장 높은 기록 (새로 익힌 만큼만 XP). */
+    var wordsSeen: Int
+        get() = p.getInt("xp:words", 0)
+        set(v) = p.edit().putInt("xp:words", v).apply()
 
     /** 갤러리: 시리즈마다 건 소장품 id · 오늘의 자료를 뽑은 표시 ("날:까닭"). */
     fun pieces(series: String): Set<String> = set("pieces:$series")

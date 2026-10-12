@@ -812,10 +812,6 @@
     "en": "Met → recognize → recall → write → speak → mine. Each step is reviewed further apart.",
     "ko": "만남 → 알아보기 → 떠올리기 → 쓰기 → 말하기 → 내 것. 단계가 오를수록 더 길게 기억해요."
   },
-  "ach_title": {
-    "en": "Achievements %1$d / %2$d",
-    "ko": "업적 %1$d / %2$d"
-  },
   "gap_3": {
     "en": "in 3 days",
     "ko": "사흘 뒤"
@@ -864,177 +860,9 @@
     "en": "Show translation",
     "ko": "번역 보기"
   },
-  "ach_first_letter": {
-    "en": "First letter",
-    "ko": "첫 편지"
-  },
-  "ach_first_letter_d": {
-    "en": "Finish your first letter.",
-    "ko": "편지 한 통을 끝까지."
-  },
-  "ach_letters_5": {
-    "en": "Five letters",
-    "ko": "편지 다섯 통"
-  },
-  "ach_letters_5_d": {
-    "en": "Finish 5 letters.",
-    "ko": "편지 다섯 통을 끝까지."
-  },
-  "ach_letters_20": {
-    "en": "Twenty letters",
-    "ko": "편지 스무 통"
-  },
-  "ach_letters_20_d": {
-    "en": "Finish 20 letters.",
-    "ko": "편지 스무 통을 끝까지."
-  },
-  "ach_streak_3": {
-    "en": "3 days running",
-    "ko": "3일 연속"
-  },
-  "ach_streak_3_d": {
-    "en": "Read 3 days in a row.",
-    "ko": "사흘 이어 읽기."
-  },
-  "ach_streak_7": {
-    "en": "Seven days of reading",
-    "ko": "이어 읽기 7일"
-  },
-  "ach_streak_7_d": {
-    "en": "Read 7 days in a row.",
-    "ko": "일주일 이어 읽기."
-  },
-  "ach_streak_30": {
-    "en": "A month running",
-    "ko": "30일 연속"
-  },
-  "ach_streak_30_d": {
-    "en": "Read 30 days in a row.",
-    "ko": "한 달 이어 읽기."
-  },
-  "ach_words_25": {
-    "en": "25 words",
-    "ko": "낱말 25"
-  },
-  "ach_words_25_d": {
-    "en": "Recall 25 words.",
-    "ko": "낱말 25개를 떠올리기까지."
-  },
-  "ach_words_100": {
-    "en": "100 words",
-    "ko": "낱말 100"
-  },
-  "ach_words_100_d": {
-    "en": "Recall 100 words.",
-    "ko": "낱말 100개를 떠올리기까지."
-  },
-  "ach_words_300": {
-    "en": "300 words",
-    "ko": "낱말 300"
-  },
-  "ach_words_300_d": {
-    "en": "Recall 300 words.",
-    "ko": "낱말 300개를 떠올리기까지."
-  },
-  "ach_own_10": {
-    "en": "10 words mine",
-    "ko": "내 것 10"
-  },
-  "ach_own_10_d": {
-    "en": "10 words at the top stage.",
-    "ko": "낱말 10개를 ‘내 것’까지."
-  },
-  "ach_own_50": {
-    "en": "50 words mine",
-    "ko": "내 것 50"
-  },
-  "ach_own_50_d": {
-    "en": "50 words at the top stage.",
-    "ko": "낱말 50개를 ‘내 것’까지."
-  },
-  "ach_alone_1": {
-    "en": "First letter sealed",
-    "ko": "첫 편지 봉인"
-  },
-  "ach_alone_1_d": {
-    "en": "Read a whole letter without translation.",
-    "ko": "편지 한 통을 번역 없이."
-  },
-  "ach_alone_5": {
-    "en": "Five alone",
-    "ko": "혼자 다섯 통"
-  },
-  "ach_alone_5_d": {
-    "en": "Read 5 letters without translation.",
-    "ko": "편지 다섯 통을 번역 없이."
-  },
-  "ach_read_50": {
-    "en": "Half the letters, on your own",
-    "ko": "혼자 읽기 50%"
-  },
-  "ach_read_50_d": {
-    "en": "Read half the words alone.",
-    "ko": "낱말 절반을 혼자 읽기."
-  },
-  "ach_read_90": {
-    "en": "Nearly everything, on your own",
-    "ko": "혼자 읽기 90%"
-  },
-  "ach_read_90_d": {
-    "en": "Read 90% of the words alone.",
-    "ko": "낱말 90%를 혼자 읽기."
-  },
-  "ach_visitors_5": {
-    "en": "Five visitors",
-    "ko": "손님 다섯"
-  },
-  "ach_visitors_5_d": {
-    "en": "Welcome 5 visitors.",
-    "ko": "손님 다섯 명 맞이하기."
-  },
-  "ach_visitors_30": {
-    "en": "Regular house",
-    "ko": "단골 서른"
-  },
-  "ach_visitors_30_d": {
-    "en": "Welcome 30 visitors.",
-    "ko": "손님 서른 명 맞이하기."
-  },
-  "ach_parcel_1": {
-    "en": "First parcel",
-    "ko": "첫 소포"
-  },
-  "ach_parcel_1_d": {
-    "en": "Send your first parcel.",
-    "ko": "첫 정기 소포 보내기."
-  },
-  "ach_parcel_6": {
-    "en": "Half a year",
-    "ko": "소포 여섯"
-  },
-  "ach_parcel_6_d": {
-    "en": "Send 6 parcels.",
-    "ko": "정기 소포 여섯 번."
-  },
-  "ach_chapter_1": {
-    "en": "A whole chapter",
-    "ko": "한 장을 다 읽기"
-  },
-  "ach_chapter_1_d": {
-    "en": "Finish a whole chapter.",
-    "ko": "한 장을 끝까지."
-  },
   "speak_reveal": {
     "en": "I said it — play the original",
     "ko": "말해 봤어요 · 원래 소리 듣기"
-  },
-  "ach_read_25": {
-    "en": "A quarter on your own",
-    "ko": "혼자 읽기 25%"
-  },
-  "ach_read_25_d": {
-    "en": "Read a quarter of the words alone.",
-    "ko": "낱말 4분의 1을 혼자 읽기."
   },
   "next_title": {
     "en": "Next letter",
@@ -1245,8 +1073,8 @@
     "ko": "출처와 라이선스: graviton94.github.io/todayletters\n이용약관 · 이미지 사용 원칙: graviton94.github.io/todayletters/terms\n개인정보처리방침: graviton94.github.io/todayletters/privacy"
   },
   "tab_milestones": {
-    "en": "Milestones",
-    "ko": "이정표"
+    "en": "Medals",
+    "ko": "메달"
   },
   "streak_label": {
     "en": "Reading on",
@@ -1321,8 +1149,8 @@
     "ko": "잘 읽었어요"
   },
   "reward_ach": {
-    "en": "Milestone · %1$s",
-    "ko": "이정표 · %1$s"
+    "en": "Medal · %1$s",
+    "ko": "메달 · %1$s"
   },
   "reward_total": {
     "en": "%1$s today",
@@ -1367,14 +1195,6 @@
   "gallery_draw_note": {
     "en": "One piece goes up each day you finish your review, and one more when you finish today's three tasks. An empty frame can also be opened with your coins.",
     "ko": "복습을 마친 날마다 한 점, 오늘의 할 일 셋을 다 하면 한 점 더 걸려요. 빈칸은 화폐로 열 수도 있어요."
-  },
-  "gallery_next": {
-    "en": "Next milestone · %1$d pieces",
-    "ko": "다음 이정표 · 자료 %1$d점"
-  },
-  "gallery_next_gift": {
-    "en": "A painting guaranteed",
-    "ko": "유화 한 점 확정"
   },
   "pick_title": {
     "en": "Open this frame for %1$d %2$s?",
@@ -1423,42 +1243,6 @@
   "spend_yes": {
     "en": "Use",
     "ko": "쓰기"
-  },
-  "ach_gift": {
-    "en": "A painting goes up with it",
-    "ko": "받으면 유화 한 점이 걸려요"
-  },
-  "ach_words_50": {
-    "en": "50 words you can read alone",
-    "ko": "혼자 읽는 낱말 50개"
-  },
-  "ach_shadow_100": {
-    "en": "50 sentences read aloud",
-    "ko": "따라 읽기 50문장"
-  },
-  "ach_pieces_12": {
-    "en": "12 pieces in the gallery",
-    "ko": "갤러리 자료 12점"
-  },
-  "ach_all_series_2": {
-    "en": "A second series begun",
-    "ko": "두 번째 시리즈 시작"
-  },
-  "ach_all_langs_2": {
-    "en": "Read aloud in two languages",
-    "ko": "두 언어로 따라 읽기"
-  },
-  "ach_all_letters_30": {
-    "en": "30 letters across all series",
-    "ko": "모든 시리즈 합쳐 편지 30통"
-  },
-  "ach_all_streak_30": {
-    "en": "30 days of reading",
-    "ko": "이어 읽기 30일"
-  },
-  "ach_all_streak_100": {
-    "en": "100 days of reading",
-    "ko": "이어 읽기 100일"
   },
   "recital_title": {
     "en": "Sunday reading",
@@ -1517,8 +1301,8 @@
     "ko": "모은 자료"
   },
   "lib_stat_ach": {
-    "en": "milestones",
-    "ko": "전체 이정표"
+    "en": "medals",
+    "ko": "메달"
   },
   "lib_overall": {
     "en": "My record",
@@ -1585,8 +1369,8 @@
     "ko": "편지를 다 읽으면 그 자료가 여기 걸려요."
   },
   "overall_milestones": {
-    "en": "All-series milestones",
-    "ko": "전체 이정표"
+    "en": "Medal cabinet",
+    "ko": "메달 진열장"
   },
   "seal_line": {
     "en": "Read without translation · %1$s",
@@ -2085,8 +1869,8 @@
     "ko": "뽑기 100번 중 %1$d번꼴"
   },
   "reward_from_ach": {
-    "en": "Every third milestone brings a guaranteed masterpiece.",
-    "ko": "셋째 이정표마다 확정으로 오는 작품이에요."
+    "en": "Every third medal brings a guaranteed painting.",
+    "ko": "메달 셋째마다 확정으로 오는 유화예요."
   },
   "reward_lines": {
     "en": "details",
@@ -2096,69 +1880,17 @@
     "en": "Lingua Museum · %1$s room",
     "ko": "언어 미술관 · %1$s 전시실"
   },
-  "medal_1": {
-    "en": "Medal of the national applied-arts exhibition, The Hague 1888",
-    "ko": "1888 헤이그 국립 공예 전람회 메달"
-  },
-  "medal_2": {
-    "en": "Prize medal of the Arnhem art exhibition, 1901",
-    "ko": "아른험 미술 전람회 상패 (1901)"
-  },
-  "medal_3": {
-    "en": "Medal of the international art exhibition in Munich",
-    "ko": "뮌헨 국제 미술 전람회 메달"
-  },
-  "medal_4": {
-    "en": "Medal of the international painting exhibition, Amsterdam",
-    "ko": "암스테르담 국제 회화 전람회 메달"
-  },
-  "medal_5": {
-    "en": "Medal of the international photography exhibition, Amsterdam 1891",
-    "ko": "1891 암스테르담 국제 사진 전람회 메달"
-  },
-  "medal_6": {
-    "en": "Prize medal of the Arnhem art exhibition, 1901 (reverse)",
-    "ko": "아른험 미술 전람회 상패 (1901, 뒷면)"
-  },
-  "medal_7": {
-    "en": "Drawing prize of the 's-Hertogenbosch academy",
-    "ko": "스헤르토헨보스 미술 아카데미 데생 상패"
-  },
-  "medal_8": {
-    "en": "Prize medal of a society for art and science",
-    "ko": "예술 · 학문 진흥 협회 상패"
-  },
-  "medals_note": {
-    "en": "%2$d of %1$d · each milestone is a real exhibition medal · every third brings a masterpiece",
-    "ko": "%1$d개 중 %2$d개 · 이정표마다 실제 전람회 메달 한 점 · 셋째마다 명작"
-  },
   "medal_got": {
     "en": "Received · %1$s",
     "ko": "받음 · %1$s"
-  },
-  "medal_master": {
-    "en": "Masterpiece guaranteed",
-    "ko": "명작 확정"
   },
   "medal_left": {
     "en": "%1$d now · %2$d to go",
     "ko": "지금 %1$d · %2$d 남았어요"
   },
-  "medal_credit": {
-    "en": "Medal: %1$s · Rijksmuseum · CC0",
-    "ko": "메달: %1$s · Rijksmuseum · CC0"
-  },
-  "medal_cast": {
-    "en": "When you get it, the plaster model turns to metal",
-    "ko": "받으면 석고 본이 금속 메달로 바뀌어요"
-  },
   "medal_gift": {
-    "en": "When you get it: 10 %1$s",
-    "ko": "받으면: %1$s 10"
-  },
-  "medal_gift_master": {
-    "en": "When you get it: a guaranteed masterpiece in the gallery · 10 %1$s",
-    "ko": "받으면: 갤러리에 명작 한 점 확정 · %1$s 10"
+    "en": "When you get it: 10 %1$s · 50 XP",
+    "ko": "받으면: %1$s 10 · 50 XP"
   },
   "spend_g_streak": {
     "en": "Reading days",
@@ -2357,12 +2089,12 @@
     "ko": "번역 줄 빼기"
   },
   "credits_museum_h": {
-    "en": "Frames and medals",
-    "ko": "액자와 메달"
+    "en": "Frames",
+    "ko": "액자"
   },
   "credits_museum": {
-    "en": "Gallery frames: four empty frames photographed by the Rijksmuseum, Amsterdam (RP-L-534, SK-L-6754, RP-L-513, RP-L-515), CC0. Milestone medals: eight 19th- and early 20th-century exhibition and prize medals from the Rijksmuseum (NG-2004-75-A, NG-423, NG-429, NG-VG-6-1, NG-2014-22-1, NG-VG-1-4109, NG-VG-6-125), CC0; the app only cuts them out and lightens the not-yet-earned ones. Reward sounds are made by the app.",
-    "ko": "갤러리 액자: 암스테르담 레이크스 미술관이 찍은 빈 액자 넷 (RP-L-534, SK-L-6754, RP-L-513, RP-L-515), CC0. 이정표 메달: 레이크스 미술관의 19세기 · 20세기 초 전람회 · 상패 메달 여덟 (NG-2004-75-A, NG-423, NG-429, NG-VG-6-1, NG-2014-22-1, NG-VG-1-4109, NG-VG-6-125), CC0. 앱은 오려 내고, 아직 받지 않은 메달을 하얗게만 바꿉니다. 보상 소리는 앱이 직접 만든 것입니다."
+    "en": "Gallery frames: four empty frames photographed by the Rijksmuseum, Amsterdam (RP-L-534, SK-L-6754, RP-L-513, RP-L-515), CC0. Reward sounds are made by the app.",
+    "ko": "갤러리 액자: 암스테르담 레이크스 미술관이 찍은 빈 액자 넷 (RP-L-534, SK-L-6754, RP-L-513, RP-L-515), CC0. 보상 소리는 앱이 직접 만든 것입니다."
   },
   "ob_one_go": {
     "en": "Receive the first letter",
@@ -2685,8 +2417,8 @@
     "ko": "다 읽은 편지마다 그림이 여기 걸려요. 그림을 누르면 가까이 볼 수 있어요."
   },
   "coach_milestones": {
-    "en": "Milestones for this series. Every third one brings a masterpiece.",
-    "ko": "이 작품의 이정표예요. 세 개마다 명작 한 점이 걸려요."
+    "en": "Your medal cabinet: medals cut from ancient coins and cups. Tap one to see the object behind it and how it is earned.",
+    "ko": "메달 진열장이에요. 고대 동전과 잔으로 만든 메달을 누르면 유물 이야기와 받는 법을 볼 수 있어요."
   },
   "help_reset_done": {
     "en": "Each letter step shows its one-line hint again once. Screen help is always under (?).",
@@ -2731,10 +2463,6 @@
   "caps_catalogue": {
     "en": "Catalogue",
     "ko": "도록"
-  },
-  "caps_milestone": {
-    "en": "Milestone %1$s",
-    "ko": "이정표 %1$s"
   },
   "caps_exhibition": {
     "en": "Exhibition",
@@ -2895,5 +2623,97 @@
   "graduate_go": {
     "en": "Got it",
     "ko": "좋아요"
+  },
+  "cabinet_title": {
+    "en": "Medal cabinet",
+    "ko": "메달 진열장"
+  },
+  "cabinet_note": {
+    "en": "%2$d of %1$d · cut from ancient Greek and Roman coins and cups · every third brings a painting",
+    "ko": "%1$d개 중 %2$d개 · 고대 그리스 · 로마의 동전과 잔에서 오려 낸 메달 · 셋째마다 유화 한 점"
+  },
+  "medal_tier_bronze": {
+    "en": "Bronze",
+    "ko": "청동"
+  },
+  "medal_tier_silver": {
+    "en": "Silver",
+    "ko": "은"
+  },
+  "medal_tier_gold": {
+    "en": "Gold",
+    "ko": "금"
+  },
+  "medal_count": {
+    "en": "%1$d/%2$d %3$s",
+    "ko": "%1$d/%2$d%3$s"
+  },
+  "medal_how_streak": {
+    "en": "Read %1$d days in a row",
+    "ko": "%1$d일 이어 읽기"
+  },
+  "medal_how_letters": {
+    "en": "Read %1$d letters to the end",
+    "ko": "편지 %1$d통을 끝까지 읽기"
+  },
+  "medal_how_words": {
+    "en": "Learn %1$d words (recall stage or above)",
+    "ko": "낱말 %1$d개 익히기 (떠올리기 단계부터)"
+  },
+  "medal_how_stars": {
+    "en": "Earn %1$d read-along stars",
+    "ko": "따라 읽기 별 %1$d개 모으기"
+  },
+  "medal_how_walks": {
+    "en": "Walk through %1$d paintings to the last spot",
+    "ko": "그림 산책 %1$d번을 마지막 자리까지"
+  },
+  "medal_how_series": {
+    "en": "Read every letter of %1$s",
+    "ko": "%1$s 의 편지를 끝까지 모두 읽기"
+  },
+  "medal_how_h": {
+    "en": "How it is earned",
+    "ko": "받는 법"
+  },
+  "medal_how_got_h": {
+    "en": "How you earned it",
+    "ko": "받은 까닭"
+  },
+  "medal_object_h": {
+    "en": "The ancient object",
+    "ko": "메달이 된 유물"
+  },
+  "level_line": {
+    "en": "%1$s · Lv %2$d",
+    "ko": "%1$s · Lv %2$d"
+  },
+  "level_left": {
+    "en": "%1$d XP to Lv %2$d",
+    "ko": "Lv %2$d 까지 %1$d XP"
+  },
+  "levelup_caps": {
+    "en": "Level up",
+    "ko": "레벨 업"
+  },
+  "levelup_title": {
+    "en": "A new level",
+    "ko": "한 단계 올랐어요"
+  },
+  "levelup_deco": {
+    "en": "New at the entrance · %1$s",
+    "ko": "입구에 새 장식 · %1$s"
+  },
+  "opening_deco": {
+    "en": "Entrance · %1$s",
+    "ko": "입구 장식 · %1$s"
+  },
+  "credits_medals_h": {
+    "en": "Medals",
+    "ko": "메달"
+  },
+  "credits_medals_note": {
+    "en": "Medal images are cut from photographs of ancient coins and red-figure cup tondi in the Open Access collection of The Metropolitan Museum of Art (public domain, CC0). The app only removes the background and lightens the medals not yet earned.",
+    "ko": "메달 그림은 메트로폴리탄 미술관 Open Access(공공 영역 · CC0)의 고대 동전과 붉은 그림 잔 안쪽 둥근 그림(톤도) 사진을 오려 낸 것입니다. 앱은 배경을 지우고, 아직 받지 않은 메달을 하얗게만 바꿉니다."
   }
 }

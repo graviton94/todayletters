@@ -71,7 +71,7 @@ fun Root(s: AppState, onExit: () -> Unit) {
 @Composable
 private fun Main(s: AppState, onExit: () -> Unit) {
     // 맨 위 화면(서재)에서 뒤로: 바로 나가지 않고 닫을지 묻는다 (홈 단추로 내리는 건 묻지 않음)
-    BackHandler(enabled = !s.settingsOpen && !s.askingExit && s.reward == null && s.downloadAsk == null) { if (!s.back()) s.askingExit = true }
+    BackHandler(enabled = !s.settingsOpen && !s.askingExit && s.reward == null && s.levelUp == null && s.downloadAsk == null) { if (!s.back()) s.askingExit = true }
     val inSeries = Nav.inSeries(s.route) && s.route !is Route.Enter && s.current.isNotEmpty()
     // 시리즈 안 화면은 그 시리즈의 빛깔로 (서재 · 내 기록 · 전환은 제 색)
     val body: @Composable () -> Unit = {
@@ -135,6 +135,8 @@ private fun Main(s: AppState, onExit: () -> Unit) {
         LangNoticeHost(s)
         // 보상 순간: 어느 화면에서든 맨 위에
         RewardOverlay(s)
+        // 레벨 업: 보상 순간이 닫힌 뒤 한 장
+        LevelUpOverlay(s)
     }
     if (inSeries) InSeries(s.currentWork) { body() } else body()
 }
