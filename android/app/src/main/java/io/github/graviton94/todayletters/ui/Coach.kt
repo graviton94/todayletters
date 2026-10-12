@@ -1,5 +1,7 @@
 package io.github.graviton94.todayletters.ui
 
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -58,17 +60,19 @@ fun CoachLayer(s: AppState) {
     if (!ready) return
     val alpha = Tokens.Alpha.coachScrim * 0.5f
     Box(
+        // 바탕은 터치만 막고 (단추가 아님), 넘기기는 카드에서만
         Modifier.fillMaxSize().background(Color.Black.copy(alpha = alpha))
-            .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null) {
-                if (i < list.lastIndex) i++ else s.coachDone(screen)
-            },
+            .pointerInput(Unit) { detectTapGestures { } },
         contentAlignment = Alignment.BottomCenter,
     ) {
         Column(
-            Modifier.fillMaxWidth().navigationBarsPadding().padding(Tokens.Space.s5).background(p.paper).border(Tokens.Stroke.hair, p.gilt).padding(Tokens.Space.s5),
+            Modifier.fillMaxWidth().navigationBarsPadding().padding(Tokens.Space.s5).background(p.paper).border(Tokens.Stroke.hair, p.gilt)
+                .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null) {
+                    if (i < list.lastIndex) i++ else s.coachDone(screen)
+                }.padding(Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
-            Caps("Guide", p.giltText, small = true)
+            Caps(stringResource(R.string.help), p.giltText, small = true)
             Text(stringResource(list[i]), style = Type.body.ui(), color = p.ink)
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                 Text(

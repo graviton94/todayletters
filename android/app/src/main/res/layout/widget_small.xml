@@ -9,7 +9,7 @@
     <ImageView android:id="@+id/w_art"
         android:layout_width="match_parent" android:layout_height="match_parent"
         android:scaleType="centerCrop" android:importantForAccessibility="no" />
-    <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/widget_shade" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/widget_shade" />
     <LinearLayout
         android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="bottom"
         android:orientation="vertical" android:padding="14dp">

@@ -205,9 +205,10 @@ private fun ModeRow(title: String, desc: String, badge: String?, enabled: Boolea
                 Text(title, style = Type.body.ui(), color = if (enabled) p.ink else p.hideInk)
                 if (badge != null) Capsule(badge, CapsuleKind.FILLED)
             }
-            Text(desc, style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
+            Text(desc, style = Type.small.ui(), color = p.inkSoft)
         }
-        Chevron(p.hideInk)
+        // 들어가는 줄: › (Chevron 은 뒤로 ‹ 모양이라 뒤집는다)
+        Box(Modifier.graphicsLayer { rotationZ = 180f }) { Chevron(p.hideInk) }
     }
     Hair()
 }

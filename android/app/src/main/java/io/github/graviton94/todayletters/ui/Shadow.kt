@@ -365,7 +365,8 @@ private fun LiveTrace(levels: List<Float>, pitches: List<Float>, ref: FloatArray
 
 @Composable
 private fun Meter(label: String, value: Int, modifier: Modifier, gold: Color, text: Color, soft: Color) {
-    Column(modifier, verticalArrangement = Arrangement.spacedBy(4.dp)) {
+    // 화면 읽기: “억양 72” 한 덩어리로
+    Column(modifier.semantics(mergeDescendants = true) { contentDescription = "$label $value" }, verticalArrangement = Arrangement.spacedBy(4.dp)) {
         Text(label, style = Type.small.ui(), color = soft)
         Text("$value", style = Type.title.copy(fontFamily = Faces.display), color = text)
         Box(Modifier.fillMaxWidth().height(4.dp).background(Ink.palette.hair)) { Box(Modifier.fillMaxWidth(value / 100f).height(4.dp).background(gold)) }

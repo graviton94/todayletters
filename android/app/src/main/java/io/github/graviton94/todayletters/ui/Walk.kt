@@ -320,8 +320,8 @@ private fun SpotCard(
                         append(line)
                         sp.word?.let { wd -> wordMarks(line, wd.forms.takeIf { it.isNotEmpty() && learn == original } ?: wd.text[learn].split(Regex("[\\s\\-’']+")).filter { it.length > 1 }).forEach { (range, _) -> addStyle(androidx.compose.ui.text.SpanStyle(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold, color = Color(0xFF7A5A20)), range.first, range.last + 1) } }
                     }
-                    Text(marked, style = Type.base.of(learn).copy(fontStyle = FontStyle.Italic), color = p.slipInk, maxLines = 3, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
-                    if (read != learn) Text(quote[read], style = Type.small.of(read), color = p.slipSoft, maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+                    Text(marked, style = Type.base.of(learn).copy(fontStyle = FontStyle.Italic), color = p.slipInk)
+                    if (read != learn) Text(quote[read], style = Type.small.of(read), color = p.slipSoft)
                 }
             }
             Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {

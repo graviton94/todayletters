@@ -166,7 +166,7 @@ private fun Constellation(s: AppState, r: Route.Play, onClose: () -> Unit) {
             }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (done) Primary(stringResource(R.string.play_send)) { s.replyAndContinue(r.room, ReplyMode.CONSTELLATION) }
+            if (done) Primary(stringResource(R.string.play_send)) { finishPlay(s, r, ReplyMode.CONSTELLATION) }
             else Secondary(stringResource(R.string.play_show)) { showAnswer = true }
         }
     }
@@ -257,7 +257,7 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val (pairs, order) = remember(letter.id, view.learn, view.read) { Exercises.matchBoard(letter, view.learn, view.read) }
     // 낱말을 다 이으면 편지 속 표현 카드 (있을 때만), 그다음 마침
     var phrases by remember(letter.id) { mutableStateOf(false) }
-    if (phrases) { PhraseCards(s, r) { s.replyAndContinue(r.room, ReplyMode.MATCH) }; return }
+    if (phrases) { PhraseCards(s, r) { finishPlay(s, r, ReplyMode.MATCH) }; return }
     var sel by remember { mutableStateOf<Int?>(null) }
     var matched by remember(letter.id) { mutableStateOf(setOf<Int>()) }
     var wrongLine by remember { mutableStateOf<Pair<Int, Int>?>(null) }
@@ -291,7 +291,7 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
         ) {
             PracticeTitle("MATCH", stringResource(R.string.match_prompt))
             Text(if (combo >= 2) stringResource(R.string.match_combo, combo) else " ", style = Type.small.ui(), color = p.giltText)
-            val rowH = 58.dp
+            val rowH = 76.dp   // 뜻이 세 줄이어도 자르지 않게
             val density = androidx.compose.ui.platform.LocalDensity.current
             androidx.compose.foundation.layout.BoxWithConstraints(
                 Modifier.fillMaxWidth().height(rowH * pairs.size + 16.dp).background(p.sky).border(Tokens.Stroke.hair, p.hair),
@@ -341,7 +341,7 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
                     Box(Modifier.offset(y = 8.dp + rowH * i).width(lw).height(rowH).clickable(enabled = i !in matched, role = Role.Button) { sel = i; say(i) },
                         contentAlignment = Alignment.CenterEnd) {
                         Text(word, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display).of(view.learn),
-                            color = if (i in matched) p.giltText else p.ink, maxLines = 2, textAlign = TextAlign.End)
+                            color = if (i in matched) p.giltText else p.ink, textAlign = TextAlign.End)
                     }
                 }
                 order.forEachIndexed { row, k ->
@@ -349,7 +349,7 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
                     Box(Modifier.offset(x = rStart, y = 8.dp + rowH * row).width(rw).height(rowH)
                         .clickable(enabled = k !in matched, role = Role.Button) { sel?.let { connect(it, row) } },
                         contentAlignment = Alignment.CenterStart) {
-                        Text(pairs[k].second, style = Type.small.of(view.read), maxLines = 2,
+                        Text(pairs[k].second, style = Type.small.of(view.read),
                             color = when { bad -> p.wrong; k in matched -> p.giltText; else -> p.ink })
                     }
                 }
@@ -358,7 +358,7 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
             if (letter.phrases.isNotEmpty()) Primary(stringResource(R.string.phrase_next), enabled = done) { phrases = true }
-            else Primary(stringResource(R.string.play_finish), enabled = done) { s.replyAndContinue(r.room, ReplyMode.MATCH) }
+            else Primary(stringResource(R.string.play_finish), enabled = done) { finishPlay(s, r, ReplyMode.MATCH) }
         }
     }
 }
@@ -375,7 +375,7 @@ private fun Aloud(s: AppState, r: Route.Play, onClose: () -> Unit) {
         letter.messages.indices.filter { letter.messages[it].text[view.learn].split(" ").size in 4..14 }
             .minByOrNull { letter.messages[it].text[view.learn].length } ?: letter.messages.lastIndex
     }
-    ReadAlong(s, r.room, only = listOf(i), onClose = onClose, onFinish = { s.replyAndContinue(r.room, ReplyMode.ALOUD) })
+    ReadAlong(s, r.room, only = listOf(i), onClose = onClose, onFinish = { finishPlay(s, r, ReplyMode.ALOUD) })
 }
 
 /** 읽는 자리 칠하기: 읽은 낱말은 먹색, 지금 낱말은 금빛 바탕, 남은 낱말은 흐리게. [pos] < 0 이면 모두 먹색. */
@@ -396,6 +396,12 @@ internal fun readAlong(text: String, pos: Int, done: Color, rest: Color, now: Co
         }
         append(text.substring(last))
     }
+
+/** 답장 놀이를 끝냈을 때: 연습 화폐 (Earn.PRACTICE, 하루 상한 안에서) 를 받고 편지로. */
+private fun finishPlay(s: AppState, r: Route.Play, mode: ReplyMode) {
+    s.earn(io.github.graviton94.todayletters.core.Earn.PRACTICE, id = r.room.series)
+    s.replyAndContinue(r.room, mode)
+}
 
 /** 화면 안에서 묻기 (시스템 대화상자 대신). */
 @Composable

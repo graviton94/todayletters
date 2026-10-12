@@ -77,8 +77,8 @@ fun SettingsScreen(s: AppState) {
                         val m = wk.chapters.first().letters.first().messages.first().text
                         val view = s.room(wk.series.id)
                         Column(Modifier.fillMaxWidth().background(p.paper).padding(Tokens.Space.s3)) {
-                            Text(m[view.learn].take(32) + "…", style = Type.target.of(view.learn), color = p.ink, maxLines = 1)
-                            Text(m[view.read].take(20) + "…", style = Type.base.of(view.read), color = p.inkSoft, maxLines = 1)
+                            Text(m[view.learn], style = Type.target.of(view.learn), color = p.ink)
+                            Text(m[view.read], style = Type.base.of(view.read), color = p.inkSoft)
                         }
                     }
                 }) {
