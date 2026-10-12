@@ -189,6 +189,10 @@ class NarrationService : Service() {
             .setOngoing(playing)
             .setSilent(true)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            // 미디어 알림: 바로 보이게 (안드로이드 12+ 는 포그라운드 알림을 10초까지 미룰 수 있다 — 짧은 한 문장 낭독은 그 사이에 끝난다)
+            .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
+            .setCategory(NotificationCompat.CATEGORY_TRANSPORT)
+            .setShowWhen(false)
             .addAction(android.R.drawable.ic_media_previous, getString(R.string.narration_prev), action(ACT_PREV))
             .addAction(if (playing) android.R.drawable.ic_media_pause else android.R.drawable.ic_media_play,
                 getString(if (playing) R.string.narration_pause else R.string.narration_play), action(ACT_TOGGLE))

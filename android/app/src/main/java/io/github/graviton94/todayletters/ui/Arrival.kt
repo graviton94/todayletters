@@ -104,11 +104,16 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
         val voiced = s.app.sound && s.narrator.play(audio) { heardAll = true }
         val start = System.currentTimeMillis()
         val plain = (line.length * Tokens.Motion.typeCharMs * 2L).coerceAtLeast(1200L)
+        // 목소리가 나오는 구간: 마디 시각의 처음(앞 쉼만큼 늦춤) ~ 끝(뒤 쉼 뺌). 없으면 파일 처음 ~ 끝
+        val cs = s.narrator.chunks(audio)
+        val from = cs.firstOrNull()?.let { it.start + io.github.graviton94.todayletters.core.Spoken.LEAD_MS } ?: 0
+        val to = cs.lastOrNull()?.let { (it.end - 300).coerceAtLeast(from + 500) }
         while (shown < line.length) {
             androidx.compose.runtime.withFrameMillis { }
             val frac = if (voiced) {
                 val d = s.narrator.duration(); val at = s.narrator.position()
-                if (at < 0) 1f else if (d > 0) at.toFloat() / d else 0f
+                val end = to ?: d
+                if (at < 0) 1f else if (end > from) (at - from).toFloat() / (end - from) else 0f
             } else (System.currentTimeMillis() - start).toFloat() / plain
             heard = frac.coerceIn(0f, 1f)
             shown = maxOf(shown, (line.length * heard).toInt())
@@ -157,20 +162,29 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
             Box(Modifier.padding(horizontal = Tokens.Space.s7, vertical = Tokens.Space.s3).fillMaxWidth().height(1.dp).background(Soft.copy(alpha = 0.25f)))
             Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s7, vertical = Tokens.Space.s8),
                 verticalArrangement = Arrangement.spacedBy(Tokens.Space.s5)) {
-                // 아직 안 쓴 글자도 자리는 차지한다 (줄이 쓰이는 동안 글이 움직이지 않게)
-                val typed = buildAnnotatedString {
-                    append(line.take(shown))
-                    val soft = line.drop(shown).take(2)
-                    withStyle(SpanStyle(color = Light.copy(alpha = 0.35f))) { append(soft) }
-                    withStyle(SpanStyle(color = Color.Transparent)) { append(line.drop(shown + soft.length)) }
-                }
+                // 문장 짝 (v22): 배우는 말 한 문장이 쓰이면 바로 아래에 그 번역이 스민다 (원문 한 덩이 · 번역 한 덩이가 아니라 짝마다)
                 val big = Type.title.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic, fontSize = 29.sp, lineHeight = 38.sp).of(view.learn)
-                // 다 쓰인 뒤에는 눌러서 뜻 보기
-                if (stage == 2 && first != null) GlossText(s, series, chapter, letter, 0, typed, style = big, color = Light)
-                else Text(typed, style = big, color = Light)
-                val translation by animateFloatAsState(if (stage == 2) 1f else 0f, tween(if (still) 0 else Tokens.Motion.introFadeMs), label = "ko")
-                if (first != null && view.read != view.learn) Text(first.text[view.read], style = Type.body.of(view.read), color = Soft,
-                    modifier = Modifier.graphicsLayer { alpha = translation })
+                val readLine = first?.takeIf { view.read != view.learn && view.showRead }?.text?.get(view.read)
+                val pairs = remember(line, readLine) { io.github.graviton94.todayletters.core.Pairs.of(line, readLine, clauses = true) }
+                pairs.forEach { (r, tr) ->
+                    val seg = line.substring(r.first.coerceAtLeast(0), (r.last + 1).coerceAtMost(line.length))
+                    val local = (shown - r.first).coerceIn(0, seg.length)
+                    // 아직 안 쓴 글자도 자리는 차지한다 (줄이 쓰이는 동안 글이 움직이지 않게)
+                    val typed = buildAnnotatedString {
+                        append(seg.take(local))
+                        val soft = seg.drop(local).take(2)
+                        withStyle(SpanStyle(color = Light.copy(alpha = 0.35f))) { append(soft) }
+                        withStyle(SpanStyle(color = Color.Transparent)) { append(seg.drop(local + soft.length)) }
+                    }
+                    Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                        // 다 쓰인 뒤에는 눌러서 뜻 보기
+                        if (stage == 2 && first != null) GlossText(s, series, chapter, letter, 0, typed, style = big, color = Light, full = line, offset = r.first)
+                        else Text(typed, style = big, color = Light)
+                        val ready = stage == 2 || shown > r.last
+                        val translation by animateFloatAsState(if (ready) 1f else 0f, tween(if (still) 0 else Tokens.Motion.introFadeMs), label = "tr")
+                        if (tr.isNotBlank()) Text(tr, style = Type.body.of(view.read), color = Soft, modifier = Modifier.graphicsLayer { alpha = translation })
+                    }
+                }
             }
             if (stage == 1) Column(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s7, vertical = Tokens.Space.s7), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {

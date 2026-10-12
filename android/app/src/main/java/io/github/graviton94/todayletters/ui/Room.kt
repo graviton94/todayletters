@@ -125,24 +125,38 @@ fun Room(s: AppState, r: Route.Letter) {
     }
 
     fun stopAll() { all?.cancel(); all = null; s.narrator.stop(); playing = null; Playback.end(appCtx) }
+    /**
+     * 조각 하나 듣기: 이것도 낭독 세션으로 (알림창 · 잠금 화면 · 이어폰 단추에 재생/멈춤 · 이전/다음, v22).
+     * 알림에서 ‘다음’을 누르면 다음 조각으로 이어진다 (쓰인 조각까지).
+     */
     fun speak(i: Int) {
         if (playing == i) { stopAll(); return }
-        stopAll()
-        if (s.narrator.play(audio(i), speed) { if (playing == i) playing = null }) playing = i
+        stopAll(); muted = false
+        all = scope.launch {
+            say(i, i + 1, extend = true, mark = false)
+            all = null
+            Playback.end(appCtx)
+        }
     }
-    /** [from] 번째부터 [until] 앞까지 차례로 읽는다. 멈춰 두면 기다리고, 단추로 앞뒤 문장을 오간다. */
-    suspend fun say(from: Int, until: Int) {
+    /**
+     * [from] 번째부터 [until] 앞까지 차례로 읽는다. 멈춰 두면 기다리고, 단추로 앞뒤 문장을 오간다.
+     * [extend] 면 ‘다음’ 단추로 [until] 너머(쓰인 조각까지)로도 간다. [mark] 면 듣다 멈춘 자리를 남긴다.
+     */
+    suspend fun say(from: Int, until: Int, extend: Boolean = false, mark: Boolean = true) {
         var k = from
-        while (k < until && !muted) {
+        var end = until
+        while (k < end && !muted) {
             snapshotFlow { Playback.paused }.first { !it }
             session()
-            playing = k; Playback.update(k); s.store.setHeard(key, k)
+            playing = k; Playback.update(k); if (mark) s.store.setHeard(key, k)
             jump[0] = 0
             suspendCancellableCoroutine { c ->
                 c.invokeOnCancellation { s.narrator.stop() }
                 if (!s.narrator.play(audio(k), speed) { if (c.isActive) c.resume(Unit) } && c.isActive) c.resume(Unit)
             }
-            k = when (jump[0]) { -1 -> (k - 1).coerceAtLeast(0); 2 -> k; else -> k + 1 }
+            val j = jump[0]
+            k = when (j) { -1 -> (k - 1).coerceAtLeast(0); 2 -> k; else -> k + 1 }
+            if (extend && j == 1 && k >= end && k < written) end = k + 1
         }
         if (playing != null) playing = null
     }
@@ -178,7 +192,6 @@ fun Room(s: AppState, r: Route.Letter) {
     var gate by remember(letter.id) { mutableStateOf(resumeAt == null || already >= total) }
     // 편지 도착 (v21 2단계 D1): 처음 여는 새 편지만. 도착 화면이 첫 줄을 읽었으면 방에서는 첫 줄을 다시 읽지 않는다
     var arriving by remember(letter.id) { mutableStateOf(already == 0 && !s.progress(id, chapter, letter.id).done && !s.store.arrived(key) && total > 0) }
-    var arrivalVoiced by remember(letter.id) { mutableStateOf(false) }
 
     // 도착: 남은 문장을 한 조각씩. 조각이 놓이면 바로 쓰기 시작하면서 빈센트 목소리로 읽고 (자동 낭독), 화면은 쓰이는 끝을 따라 내려간다.
     // 글자도 다 써지고 낭독도 끝나면 다음 조각. 조각이 화면 밖이라 ‘다 써짐’ 알림이 오지 않아도 시간이 지나면 다음으로 넘어간다.
@@ -201,7 +214,8 @@ fun Room(s: AppState, r: Route.Letter) {
             if (animate && fg()) delay((Tokens.Motion.typingDotsMs * pace).toLong())
             arrived = i + 1
             toEnd(animated = animate)
-            val voice = if (narrated && s.app.sound && all == null && !muted && !(i == 0 && arrivalVoiced)) launch { voiced = true; say(i, i + 1) } else null
+            // 도착 화면이 첫 줄을 읽었어도 방에서는 다른 조각처럼 다시 읽는다 (v22: 첫 메시지도 방에서 듣고 따라갈 수 있게)
+            val voice = if (narrated && s.app.sound && all == null && !muted) launch { voiced = true; say(i, i + 1) } else null
             // 쓰는 동안 끝을 따라간다 (손으로 넘기는 중이면 기다림)
             val follow = launch {
                 while (true) {
@@ -299,13 +313,14 @@ fun Room(s: AppState, r: Route.Letter) {
                 }
                 val hints = remember(letter.id, i, toks, sentMarks) { toks?.let { ts -> ranges.filterIndexed { j, r -> work.lexicon?.get(ts[j].key)?.function != true && sentMarks.none { it.first == r } } } ?: emptyList() }
                 // 번역이 사라지는 편지 (엔진 공통): 이 문장 낱말의 절반 이상을 혼자 읽으면 번역을 접고 아직인 낱말만 뜻풀이
-                val fade = remember(s.version, i) {
+                val fade = if (!s.seriesSettings(id).fadeRead) false to emptyList<Pair<String, String>>() else remember(s.version, i) {
                     val idx = sentMarks.map { it.second }.distinct()
                     val known = idx.filter { k -> io.github.graviton94.todayletters.core.Growth.known(cardMap[s.cardKey(id, chapter, letter.id, k)]) }
                     val fold = idx.isNotEmpty() && known.size * 2 >= idx.size
                     fold to (idx - known.toSet()).map { k -> letter.words[k].let { firstSense(it.text[view.learn]) to firstSense(it.text[view.read]) } }
                 }
-                val fresh = i >= already && animate
+                // 한 번만 쓴다: 다 써진 조각은 (스크롤로 화면 밖에 나갔다 돌아와도) 다시 쓰지 않는다
+                val fresh = i >= already && animate && i >= written
                 var shownIn by remember { mutableStateOf(!fresh) }
                 LaunchedEffect(Unit) { shownIn = true }
                 Column {
@@ -416,8 +431,8 @@ fun Room(s: AppState, r: Route.Letter) {
         }
     }
     if (arriving) LetterArrival(s, id, chapter, letter, remember(letter.id) { work.chapters.flatMap { it.letters }.indexOf(letter) + 1 },
-        onBack = { arriving = false; s.narrator.stop(); s.back() }) { heard ->
-        s.store.markArrived(key); arrivalVoiced = heard; arriving = false
+        onBack = { arriving = false; s.narrator.stop(); s.back() }) { _ ->
+        s.store.markArrived(key); arriving = false
     }
     if (words) WordSheet(s, r, onClose = { words = false })
     listening?.let { m -> MusicSheet(s, work, m, onClose = { listening = null }) }
@@ -664,6 +679,12 @@ private fun LetterSlip(
             horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
+                // 문장 짝 (v22): 배우는 말 한 문장 바로 아래에 그 번역 (번역을 접는 편지가 아니면)
+                val pairs = remember(learn, read, fold) { if (read != null && !fold) io.github.graviton94.todayletters.core.Pairs.of(learn, read) else emptyList() }
+                if (pairs.size > 1) SentencePairs(
+                    learn, learnLang, readLang, pairs, animate, lineMs, onWritten,
+                    marks, onWord, spoken, taps, onTap, hints, picked, onPickedLow,
+                ) else {
                 InkText(learn, Type.target.of(learnLang), p.slipInk, animate, lineMs = lineMs, onDone = {
                     learnDone = true
                     if (read == null || fold) onWritten()
@@ -680,6 +701,7 @@ private fun LetterSlip(
                     if (reveal) Text(read, style = Type.base.of(readLang), color = p.slipSoft)
                     else Text(stringResource(R.string.fade_show), style = Type.small.ui(), color = p.slipSoft, modifier = Modifier.pressable(haptic = false) { reveal = true }.padding(vertical = 4.dp))
                 } else if (read != null) InkText(read, Type.base.of(readLang), p.slipSoft, animate, go = learnDone, lineMs = (lineMs * 0.7f).toInt(), onDone = onWritten)
+                }
                 if (signature != null) Text(signature, style = Type.signature, color = p.slipSoft, modifier = Modifier.align(Alignment.End).padding(top = Tokens.Space.s1))
             }
             Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
@@ -689,6 +711,37 @@ private fun LetterSlip(
                 if (canPlay) IconButton(stringResource(if (saved) R.string.quote_saved else R.string.quote_save), onClick = onSave) { Bookmark(saved) }
             }
         }
+    }
+}
+
+/** [r] 안의 범위를 [r] 첫 글자 기준으로 (밖에 걸치면 null). */
+private fun IntRange.inside(r: IntRange): IntRange? = if (isEmpty() || first < r.first || last > r.last) null else (first - r.first)..(last - r.first)
+
+/**
+ * 문장 짝 (v22): 메시지 하나를 (배우는 말 문장 · 바로 아래 번역) 짝으로. 짝마다 배우는 말이 써지고 이어서 번역이 써진다 (한 번만).
+ * 밑줄 낱말 · 눌러서 뜻 보기 · 낭독 칠하기는 메시지 전체의 글자 범위를 문장마다 옮겨서 그대로 쓴다.
+ */
+@Composable
+private fun SentencePairs(
+    learn: String, learnLang: Lang, readLang: Lang, pairs: List<Pair<IntRange, String>>, animate: Boolean, lineMs: Int, onWritten: () -> Unit,
+    marks: List<Pair<IntRange, Int>>, onWord: (Int) -> Unit, spoken: IntRange?,
+    taps: List<IntRange>, onTap: ((Int) -> Unit)?, hints: List<IntRange>, picked: IntRange?, onPickedLow: (Boolean) -> Unit,
+) {
+    val p = Ink.palette
+    var stage by remember(learn) { mutableIntStateOf(if (animate) 0 else pairs.size * 2) }
+    pairs.forEachIndexed { k, (r, tr) ->
+        val seg = learn.substring(r.first.coerceAtLeast(0), (r.last + 1).coerceAtMost(learn.length))
+        val segMarks = marks.mapNotNull { (m, w) -> m.inside(r)?.let { it to w } }
+        val segSpoken = spoken?.takeIf { !it.isEmpty() && it.first <= r.last && it.last >= r.first }?.let { maxOf(it.first, r.first) - r.first..minOf(it.last, r.last) - r.first }
+        if (k > 0) Box(Modifier.height(Tokens.Space.s1))
+        InkText(seg, Type.target.of(learnLang), p.slipInk, animate, go = stage >= 2 * k, lineMs = lineMs, onDone = { if (stage == 2 * k) stage = 2 * k + 1 },
+            marks = segMarks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { j -> onWord(segMarks[j].second) }, spoken = segSpoken,
+            taps = taps.map { it.inside(r) ?: IntRange.EMPTY }, onTap = onTap, hints = hints.mapNotNull { it.inside(r) },
+            picked = picked?.inside(r), onPickedLow = onPickedLow)
+        if (tr.isNotBlank()) InkText(tr, Type.base.of(readLang), p.slipSoft, animate, go = stage >= 2 * k + 1, lineMs = (lineMs * 0.7f).toInt(),
+            onDone = { if (stage == 2 * k + 1) stage = 2 * k + 2; if (k == pairs.lastIndex) onWritten() })
+        else if (k == pairs.lastIndex) LaunchedEffect(stage) { if (stage >= 2 * k + 1) onWritten() }
+        else LaunchedEffect(stage) { if (stage == 2 * k + 1) stage = 2 * k + 2 }
     }
 }
 

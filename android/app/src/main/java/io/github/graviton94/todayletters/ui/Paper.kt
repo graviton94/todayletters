@@ -330,7 +330,8 @@ fun spokenRange(narrator: io.github.graviton94.todayletters.data.Narrator, asset
         while (true) {
             androidx.compose.runtime.withFrameMillis { }
             val at = narrator.position()
-            if (at >= 0) io.github.graviton94.todayletters.core.Spoken.at(starts, at).let { if (it != k) k = it }
+            // 마디 시각은 TTS 조각의 시작(앞 쉼 포함)이라 실제 목소리보다 이르다: LEAD_MS 만큼 늦춰 칠한다
+            if (at >= 0) io.github.graviton94.todayletters.core.Spoken.at(starts, at, io.github.graviton94.todayletters.core.Spoken.LEAD_MS).let { if (it != k) k = it }
         }
     }
     return ranges.getOrNull(k)?.takeIf { ranges.size > 1 && !it.isEmpty() } ?: text.indices
