@@ -18,7 +18,9 @@ data class Word(val text: Tri, val pos: String = "", val ipa: String = "", val i
                 /** 어휘 사전 열쇠 (lexicon id||lemma) · 등급 (A1…C2) · 편지에 찍힌 꼴들. 사전에서 온 낱말만. */
                 val lex: String = "", val level: String = "", val forms: List<String> = emptyList(),
                 /** 표현 카드면 쓰임 설명 (ko · en). */
-                val note: Tri? = null) {
+                val note: Tri? = null,
+                /** 표현 카드면 그 표현이 나온 메시지 번호 (0부터, 모르면 -1). */
+                val msg: Int = -1) {
     /** 표현 카드 (여러 낱말의 관용 표현). */
     val phrase get() = note != null
     /** 쓰기 · 말하기 채점에 쓰는 원어 철자: 오늘의 철자가 있으면 그것, 없으면 편지의 철자. */
@@ -207,6 +209,8 @@ data class Kit(
     val collection: List<Piece> = emptyList(),
     /** 이달의 전시 (달마다 돌아가며). */
     val exhibitions: List<Exhibition> = emptyList(),
+    /** 서재 카드의 작품 주제 꼬리표 (빈센트: 미술관 · 모차르트: 오페라). 앱 글자 언어로. 없으면 빈 글자. */
+    val tag: Tri = Tri(mapOf(Lang.EN to "")),
 )
 
 /** 시리즈 빛깔 한 벌. */

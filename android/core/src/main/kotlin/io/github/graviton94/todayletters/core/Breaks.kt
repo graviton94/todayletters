@@ -59,6 +59,107 @@ object Spoken {
         return out
     }
 
-    /** 재생 위치 [at] (밀리초) 에 읽고 있는 마디 번호: 시작이 지난 마지막 마디 (마디 사이 숨에서는 앞 마디). */
-    fun at(starts: List<Int>, at: Int): Int = starts.indexOfLast { it <= at }.coerceAtLeast(0)
+    /**
+     * 마디 시각(s)은 TTS 조각의 시작이라 앞에 쉼이 붙어 있다: 실제 목소리는 s 보다 0.4–0.8초 (평균 0.57초) 늦게 나온다
+     * (낭독 40개를 무음 검출로 잰 값). 칠하기는 이만큼 늦춰야 목소리와 맞는다.
+     */
+    const val LEAD_MS = 500
+
+    /** 재생 위치 [at] (밀리초) 에 읽고 있는 마디 번호: 시작([lead] 만큼 늦춘)이 지난 마지막 마디 (마디 사이 숨에서는 앞 마디). */
+    fun at(starts: List<Int>, at: Int, lead: Int = 0): Int = starts.indexOfLast { it + lead <= at }.coerceAtLeast(0)
+}
+
+/**
+ * 따옴표: 배우는 말의 꼴로. 영어 · 한국어 “…”, 독일어 „…“, 프랑스어 « … ».
+ */
+object Quote {
+    fun wrap(text: String, lang: Lang): String = when (lang) {
+        Lang.FR -> "« $text »"
+        Lang.DE -> "„$text“"
+        else -> "“$text”"
+    }
+}
+
+/**
+ * 문장 짝 (배우는 말 한 문장 + 바로 아래 번역 한 줄): 메시지 하나를 문장으로 나누고, 번역 문장을 길이 비율로 차례대로 붙인다.
+ * 두 언어의 문장 수가 같으면 하나씩, 다르면 누적 길이가 가장 가깝게 (순서는 늘 지킨다). 번역이 없으면 배우는 말만.
+ */
+object Pairs {
+    private val END = Regex("""(?<=[.!?…;])[\"”»’)\]]*\s+""")
+
+    /** [text] 의 문장 범위 (끝 구두점 · 닫는 따옴표 포함, 뒤 띄어쓰기 뺌). */
+    fun sentences(text: String): List<IntRange> {
+        if (text.isBlank()) return emptyList()
+        val out = mutableListOf<IntRange>()
+        var start = 0
+        END.findAll(text).forEach { m ->
+            val end = m.range.first + m.value.trimEnd().length
+            if (end > start && text.substring(start, end).any { it.isLetterOrDigit() }) { out += start until end; start = m.range.last + 1 }
+        }
+        if (start < text.length && text.substring(start).any { it.isLetterOrDigit() }) out += start until text.trimEnd().length
+        else if (out.isNotEmpty() && start < text.length) out[out.lastIndex] = out.last().first until text.trimEnd().length
+        return out.ifEmpty { listOf(text.indices) }
+    }
+
+    private val CLAUSE = Regex("""(?<=[,;:—–])\s+""")
+
+    /** [r] 안을 쉼표 · 쌍점 · 줄표 뒤에서 나눈 마디 범위들. */
+    fun clauses(text: String, r: IntRange): List<IntRange> {
+        val sub = text.substring(r.first, r.last + 1)
+        val out = mutableListOf<IntRange>()
+        var start = 0
+        CLAUSE.findAll(sub).forEach { m ->
+            if (sub.substring(start, m.range.first).any { it.isLetterOrDigit() }) { out += (r.first + start) until (r.first + m.range.first); start = m.range.last + 1 }
+        }
+        if (start < sub.length) {
+            if (sub.substring(start).any { it.isLetterOrDigit() } || out.isEmpty()) out += (r.first + start)..r.last
+            else out[out.lastIndex] = out.last().first..r.last
+        }
+        return out
+    }
+
+    /**
+     * (배우는 말 범위, 그 아래 둘 번역 글) 짝들. [read] 가 null 이면 번역은 "".
+     * 문장 수가 같으면 문장마다. 번역 문장이 더 많으면 배우는 말을 마디(쉼표)로 나눠 번역 문장마다 묶고, 더 적으면 배우는 말 문장을 묶는다.
+     * [clauses] 면 (도착 화면처럼 한 문장을 크게 보일 때) 둘 다 한 문장이어도 마디끼리 짝을 짓는다.
+     */
+    fun of(learn: String, read: String?, clauses: Boolean = false): List<Pair<IntRange, String>> {
+        val ls = sentences(learn)
+        if (read.isNullOrBlank()) return ls.map { it to "" }
+        val rsR = sentences(read)
+        val rs = rsR.map { read.substring(it) }
+        if (rs.size == ls.size && (ls.size > 1 || !clauses)) return ls.zip(rs)
+        fun len(r: IntRange) = r.last - r.first + 1
+        // 배우는 말 단위: 번역 문장이 더 많거나 마디로 짝지을 때는 마디까지 나눈다
+        val lu = if (rs.size > ls.size || clauses) ls.flatMap { clauses(learn, it) } else ls
+        val ru = if (clauses && rs.size <= 1) rsR.flatMap { clauses(read, it) }.map { read.substring(it) } else rs
+        if (ru.size <= 1 || lu.size <= 1) return listOf((ls.first().first..ls.last().last) to rs.joinToString(" "))
+        return if (ru.size <= lu.size) {
+            group(ru.map { it.length }, lu.map(::len)).mapIndexed { i, g -> (lu[g.first].first..lu[g.last].last) to ru[i] }
+        } else {
+            group(lu.map(::len), ru.map { it.length }).mapIndexed { i, g -> lu[i] to ru.subList(g.first, g.last + 1).joinToString(" ") }
+        }
+    }
+
+    /**
+     * 긴 쪽([many], n 개)을 짧은 쪽([few], k 개, k ≤ n) 수만큼 차례로 묶는다: 묶음마다 하나 이상, 누적 비율이 가장 가깝게.
+     * 반환은 [few] 의 i 번째에 붙는 [many] 의 번호 범위.
+     */
+    internal fun group(few: List<Int>, many: List<Int>): List<IntRange> {
+        val k = few.size; val n = many.size
+        val fTot = few.sum().coerceAtLeast(1).toDouble(); val mTot = many.sum().coerceAtLeast(1).toDouble()
+        val out = mutableListOf<IntRange>()
+        var j = 0; var fCum = 0.0; var mCum = 0.0
+        for (i in 0 until k) {
+            fCum += few[i] / fTot
+            val start = j
+            mCum += many[j] / mTot; j++
+            // 남은 것이 남은 묶음 수보다 많을 때만 더 붙인다
+            while (j < n && n - j > k - 1 - i && (i == k - 1 || kotlin.math.abs(mCum + many[j] / mTot - fCum) < kotlin.math.abs(mCum - fCum))) {
+                mCum += many[j] / mTot; j++
+            }
+            out += start until j
+        }
+        return out
+    }
 }

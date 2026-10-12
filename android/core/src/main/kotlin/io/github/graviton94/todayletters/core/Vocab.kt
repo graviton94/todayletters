@@ -121,10 +121,15 @@ object Vocab {
         return out.ifEmpty { source }
     }
 
-    /** 표현 → 표현 카드 (원어 표현 · 영어 · 한국어, 쓰임 설명). */
-    fun phraseWord(p: Phrase, original: Lang): Word = Word(
+    /**
+     * 표현 → 표현 카드 (원어 표현 · 영어 · 한국어, 쓰임 설명). [index] 는 그 언어 phrases 의 번호 (0부터):
+     * 소리는 편지 폴더의 ph<index+1>_<언어>.m4a ([Word.audio] = "ph<n>"), 나온 문장은 [Phrase.msg].
+     */
+    fun phraseWord(p: Phrase, original: Lang, index: Int = -1): Word = Word(
         Tri(glosses(p.en, Breaks.keepAll(p.ko), original, p.text)),
+        audio = if (index >= 0) "ph${index + 1}" else "",
         note = Tri(mapOf(Lang.EN to p.noteEn, Lang.KO to Breaks.keepAll(p.noteKo))),
+        msg = p.msg,
     )
 
     /** 그림 점 낱말 바꾸기: 바꾼 점은 사전의 표제어를 낱말로 (그 점의 옛 낭독은 쓰지 않는다), 빈 낱말이면 낱말을 뺀다. */
@@ -146,7 +151,7 @@ object Vocab {
         return letter.copy(
             source = source,
             words = deckWords(daily, source, lexicon, original, series),
-            phrases = daily.phrases.map { phraseWord(it, original) },
+            phrases = daily.phrases.mapIndexed { i, ph -> phraseWord(ph, original, i) },
             plate = letter.plate?.let { pl -> pl.copy(spots = spots(pl.spots, daily, lexicon, original)) },
         )
     }

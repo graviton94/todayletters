@@ -94,6 +94,18 @@ object Memory {
         }
     }
 
+    /**
+     * 힌트를 받은 받아쓰기 (v22): 힌트로 보여 준 앞 [hinted] 글자는 화면에 이미 적혀 있으니, 쓴 것이 그 뒤만이어도 맞은 것.
+     * 힌트를 받고 끝까지 맞게 쓰면 틀림이 되지 않는다 (화면은 ‘힌트 받고 맞힘’으로 알려 준다).
+     */
+    fun gradeHinted(answer: String, typed: String, hinted: Int): Mark {
+        val g = grade(answer, typed)
+        if (g != Mark.WRONG || hinted <= 0) return g
+        val pre = Breaks.plain(answer).trim().take(hinted)
+        val t = typed.trimStart()
+        return if (t.startsWith(pre, ignoreCase = true)) g else grade(answer, pre + t)
+    }
+
     /** 단계별 장 수 (0 만남 … 5 내 것). */
     fun counts(cards: Collection<Card>) = IntArray(TOP + 1).also { a -> cards.forEach { a[it.box.coerceIn(0, TOP)]++ } }
 }

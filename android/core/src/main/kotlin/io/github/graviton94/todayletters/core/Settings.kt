@@ -49,6 +49,11 @@ data class AppSettings(
 data class SeriesSettings(
     val learn: Lang,
     val showRead: Boolean = true,
+    /**
+     * 번역이 사라지는 편지: 익힌 낱말이 많은 문장은 번역 줄을 접고 아직인 낱말만 뜻풀이로. 기본은 꺼짐
+     * (처음 배우는 사람은 문장마다 번역 줄을 바로 아래에 늘 본다, v22).
+     */
+    val fadeRead: Boolean = false,
     val modes: Set<ReplyMode> = setOf(ReplyMode.MATCH, ReplyMode.CONSTELLATION, ReplyMode.ALOUD),
     val lettersPerDay: Int = 1,
     val arrivalNotice: Boolean = true,

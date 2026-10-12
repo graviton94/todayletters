@@ -51,22 +51,19 @@ object Draws {
     fun exhibitionPieces(pool: List<Piece>, e: Exhibition): List<Piece> = pool.filter { e.theme in it.themes }
 }
 
-/** 오늘의 할 일: 날마다 세 가지. 셋 다 하면 오늘의 자료를 한 번 더 뽑는다. */
+/**
+ * 오늘의 할 일 (v22): 날마다 같은 셋을 같은 차례로 — 오늘의 편지 읽기 → 뜻 고르기 → 듣고 쓰기. 셋 다 하면 ‘모든 할 일 마치기’ 보너스
+ * (오늘의 자료를 한 번 더 뽑는다). 예전 할 일(따라 읽기 · 다시 읽기 · 복습 끝내기)은 저장된 값만 남고 쓰지 않는다.
+ */
 enum class Quest(val goal: Int) {
-    SHADOW_PASS(3),     // 따라 읽기 3문장 통과 (v18: 문장 통째)
-    REREAD(1),          // 어제 (또는 지난) 편지 다시 읽기
-    DICTATION_RUN(3),   // 듣고 쓰기 3개 연속 정답
-    REVIEW_DONE(1),     // 오늘의 복습 끝내기
+    LETTER(1),          // 오늘의 편지 끝까지 읽기 (답장까지 마쳐 편지 완료)
     MEANING_RUN(5),     // 뜻 고르기 5개 맞히기
+    DICTATION_RUN(3),   // 듣고 쓰기 3개 맞히기 (힌트를 받고 맞혀도 맞힘)
 }
 
 object Quests {
-    /** [day] 의 세 가지. 날마다 바뀌고, 같은 날은 늘 같다. 따라 읽기는 사흘에 이틀. */
-    fun today(day: Long): List<Quest> {
-        val rnd = java.util.Random(day * 7919L)
-        val rest = Quest.entries.filter { it != Quest.SHADOW_PASS }.shuffled(rnd)
-        return if (Math.floorMod(day, 3L) != 2L) listOf(Quest.SHADOW_PASS) + rest.take(2) else rest.take(3)
-    }
+    /** 오늘의 셋: 늘 이 차례. */
+    fun today(@Suppress("UNUSED_PARAMETER") day: Long = 0): List<Quest> = Quest.entries.toList()
 
     fun done(q: Quest, count: Int) = count >= q.goal
 }
