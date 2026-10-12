@@ -119,7 +119,7 @@ fun WordsTab(s: AppState) {
     val sample = (0..Memory.TOP).map { b -> cards.firstOrNull { it.box == b }?.let { s.cardWord(it.key) }?.let { (w, _, word) -> word.text[s.room(w.series.id).learn] } }
     Column(Modifier.fillMaxSize()) {
         // 맨 위 줄은 다른 이름표와 같이 (‹ 서재 · (?) · ⚙ · 배우는 말 · 화폐)
-        SeriesHeader(s, stringResource(R.string.cards_title), deco(s.currentWork.series.original, "MÉMOIRE", "GEDÄCHTNIS"))
+        SeriesHeader(s, stringResource(R.string.cards_title))
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
@@ -295,14 +295,8 @@ fun Session(s: AppState, r: Route.Session) {
     }
     if (at >= questions.size) { LaunchedEffect(Unit) { s.store.clearSession(sessionName) }; SessionResult(s, r, results); return }
     val q = questions[at]
-    // 이름표의 번호: 그 낱말이 나온 편지 (N° 027 · LETTRE I)
-    val tag = remember(q.card.key) {
-        s.cardWord(q.card.key)?.let { cw ->
-            val w = cw.work
-            val n = w.chapters.flatMap { it.letters }.indexOf(cw.at.second) + 1
-            (if (cw.index >= 0) "N° ${"%03d".format(cw.index + 1)} · " else "") + "${deco(w.series.original, "LETTRE", "BRIEF")} ${roman(n)}"
-        }.orEmpty()
-    }
+    // 이름표: 그 낱말이 나온 편지, 앱 글자 언어로 (편지 6 · 1888년 5월)
+    val tag = letterTag(s, q.card.key)
     androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
     // 새 문제로 오면 앞 문제의 소리(빈칸 문장 등)는 멈추고, 듣는 문제만 새 소리를
     fun playPhrase(speed: Float = 1f) { val a = q.sentenceAudio; val rg = q.range; if (a != null && rg != null) s.narrator.playRange(a, rg.first, rg.last, speed) }
@@ -539,7 +533,9 @@ fun Session(s: AppState, r: Route.Session) {
         val nextLabel = stringResource(if (at == questions.lastIndex) R.string.review_finish else R.string.ob_next)
         // 그 낱말의 뜻 · 발음 (뜻 고르기는 고른 것이 뜻이니 낱말을)
         val detail = (q.phrase?.let { it.joinToString(" ") + "\n" } ?: "") + listOfNotNull(q.word, q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, q.meaning).joinToString("  ·  ") +
-            (if (q.kind == ReviewKind.MEANING) snippet(q)?.let { "\n“$it” · $tag" }.orEmpty() else "")
+            // 뜻 고르기: 그 낱말이 나온 문장을 자르지 않고 통째로 + 번역 한 줄 + 어느 편지
+            (if (q.kind == ReviewKind.MEANING && q.sentence != null) "\n" + quoted(q.sentence, q.learn) +
+                (q.sentenceRead?.takeIf { q.read != q.learn && it.isNotBlank() }?.let { "\n$it" } ?: "") + (if (tag.isNotEmpty()) "\n$tag" else "") else "")
         when {
             retry && q.phrase != null -> FeedbackBar(
                 ok = false, title = stringResource(R.string.dict_phrase_retry, wrongShown.size),
@@ -721,7 +717,7 @@ private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Ma
     // 뜻(내 언어)을 보고 배우는 언어로 말한다: 무엇을 어느 말로 할지 분명히 (v21)
     Text(stringResource(R.string.speak_prompt_lang, stringResource(langLabel(q.learn))), style = Type.heading.ui(), color = p.ink, textAlign = TextAlign.Center)
     Caps(stringResource(R.string.speak_meaning), p.giltText, small = true)
-    Text("“${q.meaning}”", style = Type.display.of(q.read), color = p.ink, textAlign = TextAlign.Center)
+    Text(quoted(q.meaning, q.read), style = Type.display.of(q.read), color = p.ink, textAlign = TextAlign.Center)
     val plainWord = io.github.graviton94.todayletters.core.Breaks.plain(q.word)
     if (mark == null && !selfCheck) Text(stringResource(R.string.speak_hint_letters, plainWord.take(1), plainWord.count { it != ' ' }),
         style = Type.small.ui(), color = p.inkSoft)
@@ -1006,7 +1002,7 @@ private fun PhraseDictation(
     }
     if ((hint || mark != null) && q.sentenceRead != null) Column(Modifier.fillMaxWidth().background(p.leaf).padding(Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(4.dp)) {
         Text(q.sentenceRead, style = Type.small.of(q.read), color = p.inkSoft)
-        if (mark != null) Text("“${words.joinToString(" ")}”", style = Type.small.copy(fontFamily = Faces.text).of(q.learn), color = p.ink)
+        if (mark != null) Text(quoted(words.joinToString(" "), q.learn), style = Type.small.copy(fontFamily = Faces.text).of(q.learn), color = p.ink)
     }
     LaunchedEffect(q) { runCatching { focus.requestFocus() } }
     BasicTextField(
@@ -1123,14 +1119,13 @@ private fun PostcardGlyph(c: Color) = Canvas(Modifier.size(18.dp)) {
     drawLine(c, Offset(w * 0.14f, w * 0.6f), Offset(w * 0.48f, w * 0.6f), sw)
 }
 
-/** 편지 문장에서 그 낱말 둘레 한 토막 (앞뒤 30자 남짓). */
-private fun snippet(q: Q): String? {
-    val sen = q.sentence ?: return null
-    val key = q.inText ?: q.word
-    val i = sen.indexOf(key, ignoreCase = true).takeIf { it >= 0 } ?: return null
-    val a = (i - 30).coerceAtLeast(0).let { k -> sen.lastIndexOf(' ', k).takeIf { it in 0 until i }?.plus(1) ?: k }
-    val b = (i + key.length + 30).coerceAtMost(sen.length).let { k -> sen.indexOf(' ', k).takeIf { it >= 0 } ?: sen.length }
-    return (if (a > 0) "…" else "") + sen.substring(a, b).trim() + (if (b < sen.length) "…" else "")
+/** 그 낱말이 나온 편지의 이름표, 앱 글자 언어로: “편지 6 · 1888년 5월” (모르면 빈 글자). */
+@Composable
+internal fun letterTag(s: AppState, cardKey: String): String {
+    val cw = remember(cardKey) { s.cardWord(cardKey) } ?: return ""
+    val n = remember(cardKey) { cw.work.chapters.flatMap { it.letters }.indexOf(cw.at.second) + 1 }
+    val date = cw.at.second.date.takeIf { it.length >= 7 }?.let { dateLine(it.take(7), "") }
+    return listOfNotNull(if (n > 0) stringResource(R.string.letter_n, "$n") else null, date).joinToString(" · ")
 }
 
 /** 뜻 고르기의 낱말: 작품 이름표처럼 (번호 · 어느 편지 · 큰 낱말 · 듣기 · 발음). */

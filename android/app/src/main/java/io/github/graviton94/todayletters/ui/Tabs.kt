@@ -239,7 +239,7 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
                         verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
                     ) {
                         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                            Text("${deco(w.series.original, "LETTRE", "BRIEF")} ${roman(i + 1)}", style = Type.capsSm, color = p.giltText)
+                            Caps(stringResource(R.string.letter_n, roman(i + 1)), p.giltText, small = true)
                             Text(dateLine(l.date, l.place), style = Type.body.ui(), color = if (can) p.ink else p.hideInk)
                             Text(
                                 when {
@@ -306,7 +306,7 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
                         CheckMark(on)
                         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                             Text(stringResource(label), style = Type.body.ui(), color = p.ink)
-                            Text(stringResource(desc), style = Type.small.ui(), color = p.inkSoft)
+                            Text(stringResource(desc, w.name[uiLang()]), style = Type.small.ui(), color = p.inkSoft)
                         }
                         ModePreview(m)
                     }

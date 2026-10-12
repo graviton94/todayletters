@@ -65,7 +65,7 @@
     <string name="free">Free</string>
     <string name="letters_n">%1$d a day</string>
     <string name="inbox_all_read">All letters read for today</string>
-    <string name="inbox_you_are_theo">You are Theo. Vincent\'s letters arrive here as messages.</string>
+    <string name="inbox_you_are_theo">You are %2$s. %1$s\'s letters arrive here as messages.</string>
     <string name="library_next">Coming soon: Mozart · Napoléon · Bashō</string>
     <string name="words_note">Words from the letters you have read.</string>
     <string name="gallery_empty">Finish a letter to receive its painting.</string>
@@ -74,15 +74,12 @@
     <string name="letter_open">Waiting for you</string>
     <string name="letter_tomorrow">Arrives on a later day</string>
     <string name="toggle_small_line">Show or hide the small line</string>
-    <string name="room_writing">Vincent is writing</string>
     <string name="room_words">Words in this letter · %1$d</string>
     <string name="room_finish">Finish the letter</string>
     <string name="play_check">Check</string>
     <string name="play_send">Send the reply</string>
-    <string name="play_right">Well done. Send it to Vincent.</string>
+    <string name="play_right">Well done. Send it to %1$s.</string>
     <string name="play_wrong">Not quite. The sentence is: %1$s</string>
-    <string name="aloud_prompt">Follow the words as Vincent reads, then read it aloud yourself.</string>
-    <string name="aloud_listen">Listen to Vincent</string>
     <string name="aloud_tap">Tap to record</string>
     <string name="aloud_recording">Recording… tap to stop</string>
     <string name="aloud_recorded">Recorded. Listen or send.</string>
@@ -113,8 +110,8 @@
     <string name="open_cta">Tap to open</string>
     <string name="today_title">A letter from %1$s has arrived</string>
     <string name="ob1_title">This is how letters arrive</string>
-    <string name="ob1_note">The first line of the letter Vincent sent the day he reached Arles.</string>
-    <string name="ob1_listen">Tap the button and Vincent reads it to you</string>
+    <string name="ob1_note">The first line of the first letter %1$s sent.</string>
+    <string name="ob1_listen">Tap the button and %1$s reads it to you</string>
     <string name="ob1_a_t">The large line is the language you learn</string>
     <string name="ob1_a_d">Each letter has word cards with meanings and sounds.</string>
     <string name="ob1_b_t">The small line is the translation</string>
@@ -155,7 +152,7 @@
     <string name="play_show">Show the answer</string>
     <string name="play_meaning">Meaning</string>
     <string name="mode_constellation_d">Join the words in order to build the sentence</string>
-    <string name="mode_aloud_d">Follow Vincent\'s voice, then record yourself. Gentle scoring</string>
+    <string name="mode_aloud_d">Follow %1$s\'s voice, then record yourself. Gentle scoring</string>
     <string name="modes_note">Each letter uses the modes you keep on. Keep at least one.</string>
     <string name="perday_note">How many new letters arrive each day.</string>
     <string name="plate_soon">Painting coming soon</string>
@@ -172,7 +169,7 @@
     <string name="room_next">Next · %1$s</string>
     <string name="room_done_today">Finish today\'s letter</string>
     <string name="first_guide_title">First time? Try all three</string>
-    <string name="first_guide_body">Learn the meanings with Match the words, the sounds with Read along, then write Theo\'s reply by joining the stars. Later you can choose in the series settings.</string>
+    <string name="first_guide_body">Learn the meanings with Match the words, the sounds with Read along, then write %2$s\'s reply by joining the stars. Later you can choose in the series settings.</string>
     <string name="mode_match_d">Pair the letter\'s words with their meanings</string>
     <string name="match_hint">Tap a word to hear it · drag from dot to dot</string>
     <string name="match_done">All matched.</string>
@@ -191,16 +188,16 @@
     <string name="words_none">No matching words.</string>
     <string name="ob0_hello">Welcome</string>
     <string name="ob0_title">Welcome to Lingua Museum</string>
-    <string name="ob0_body">From today you receive letters from people in history. The first are the real letters Vincent van Gogh wrote to his brother Theo. You reply as Theo.</string>
+    <string name="ob0_body">From today you receive letters from people in history: the real letters %1$s wrote to %2$s. You reply as %2$s.</string>
     <string name="ob0_day">A day goes like this · five minutes is enough</string>
     <string name="ob0_d1">Read the letter</string>
-    <string name="ob0_d1d">Original and translation side by side, Vincent\'s voice on tap.</string>
+    <string name="ob0_d1d">Original and translation side by side, %1$s\'s voice on tap.</string>
     <string name="ob0_d2">Match the words</string>
     <string name="ob0_d2d">Pair the letter\'s words with their meanings.</string>
     <string name="ob0_d3">Read along</string>
-    <string name="ob0_d3d">Follow Vincent\'s reading, then say it yourself.</string>
+    <string name="ob0_d3d">Follow %1$s\'s reading, then say it yourself.</string>
     <string name="ob0_d4">Write back</string>
-    <string name="ob0_d4d">Join the word stars to finish Theo\'s reply.</string>
+    <string name="ob0_d4d">Join the word stars to finish %2$s\'s reply.</string>
     <string name="ob0_d5">A painting arrives</string>
     <string name="ob0_d5d">The painting from the letter and its story join your Gallery.</string>
     <string name="ob_start_hello">Let\'s begin</string>
@@ -223,7 +220,6 @@
     <string name="step_read_short">Read</string>
     <string name="moment_location">%1$s shared a location</string>
     <string name="moment_photo">Photo from %1$s</string>
-    <string name="map_title">Vincent\'s Arles, 1888</string>
     <string name="quote_save">Save to my lines</string>
     <string name="quote_saved">Remove from my lines</string>
     <string name="done_stat_streak">days in a row</string>
@@ -326,17 +322,14 @@
     <string name="a11y_record_stop">Stop recording</string>
     <string name="a11y_listen_word">Listen to the word</string>
     <string name="a11y_listen_slow">Listen slowly</string>
-    <string name="reward_caps">TODAY</string>
-    <string name="reward_stamps">+ %1$d stamps</string>
+    <string name="reward_caps">Today</string>
     <string name="reward_alone">You now read %1$d%% on your own</string>
     <string name="reward_alone_d">Translations fade from the words you know.</string>
     <string name="reward_item">An object from the letters is now gold</string>
-    <string name="reward_gift">Commemorative stamp: %1$s</string>
     <string name="reward_album">Open the album</string>
     <string name="album_cabinet">Cabinet</string>
     <string name="album_items">Objects</string>
     <string name="album_journal">Journal</string>
-    <string name="album_stamps">Stamps</string>
     <string name="album_progress">Progress</string>
     <string name="cabinet_gold">A gold double frame means you can read that letter alone.</string>
     <string name="parcel_title">Monthly parcel</string>
@@ -358,8 +351,6 @@
     <string name="stage_speak">Speak</string>
     <string name="stage_own">Mine</string>
     <string name="journal_note">Places fill in as they appear in the letters. A full page gets the city postmark.</string>
-    <string name="stamps_count">Commemorative stamps: %1$d / %2$d</string>
-    <string name="stamps_note">Every achievement brings a stamp.</string>
     <string name="alone_title">Reading alone: %1$d%%</string>
     <string name="alone_next">Next milestone: %1$d%%</string>
     <string name="alone_all">You can read every word on your own.</string>
@@ -368,10 +359,7 @@
     <string name="weeks_title">Last 4 weeks · streak %1$d · best %2$d</string>
     <string name="ach_title">Achievements %1$d / %2$d</string>
     <string name="parcel_none">No parcel for this series yet.</string>
-    <string name="parcel_how">Costs %1$d stamps. Once a calendar month.</string>
     <string name="parcel_sent">Sent this month. The next one opens on %1$s.</string>
-    <string name="parcel_send">Send · %1$d stamps</string>
-    <string name="parcel_short">%1$d more stamps to go.</string>
     <string name="visitor_finish">Done</string>
     <string name="game_try">Not that one — listen again.</string>
     <string name="game_again">Try again</string>
@@ -380,7 +368,6 @@
     <string name="task_letter">Today\'s letter</string>
     <string name="task_review">Today\'s review</string>
     <string name="task_visitor">Today\'s visitor</string>
-    <string name="tasks_bonus">All three: +5 bonus stamps</string>
     <string name="gap_3">in 3 days</string>
     <string name="gap_7">in a week</string>
     <string name="gap_16">in 16 days</string>
@@ -605,7 +592,7 @@
     <string name="opening_piece">Today\'s piece · %1$s · %2$s</string>
     <string name="opening_enter">Tap to enter</string>
     <string name="dl_title">Narration and pictures for “%1$s”</string>
-    <string name="dl_body">This chapter\'s narration (Vincent\'s voice) and pictures are not inside the app yet. Download them once (%1$s) and they work offline from then on.</string>
+    <string name="dl_body">This chapter\'s narration (%2$s\'s voice) and pictures are not inside the app yet. Download them once (%1$s) and they work offline from then on.</string>
     <string name="dl_mobile">You are on mobile data. Wi-Fi is better if your data plan is limited.</string>
     <string name="dl_go">Download · %1$s</string>
     <string name="dl_silent">Read without sound</string>
@@ -756,7 +743,7 @@
     <string name="spend_frame_hint">Open a piece in the gallery and choose ‘Change frame’.</string>
     <string name="spend_border">Card borders</string>
     <string name="spend_border_d">Borders for painting cards · buy once, keep it</string>
-    <string name="spend_free_note">Letters, review and hints are always free. Stamps only buy decorations and conveniences.</string>
+    <string name="spend_free_note">Letters, review and hints are always free; %1$s only buy decorations and conveniences.</string>
     <string name="border_note">Tap one you own to use it.</string>
     <string name="border_on">In use</string>
     <string name="border_owned">Owned</string>
@@ -829,7 +816,7 @@
     <string name="set_credits_d">Letters · paintings · frames · medals · fonts · voices</string>
     <string name="set_version">Lingua Museum · version %1$s (%2$d)</string>
     <string name="set_notice_moved">Notifications are now in Settings › Notifications.</string>
-    <string name="widget_caps">TODAY · LETTRE %1$s</string>
+    <string name="widget_caps">Today · Letter %1$s</string>
     <string name="widget_streak">%1$d-day streak</string>
     <string name="widget_recital">Sunday reading today</string>
     <string name="prologue_skip">Skip</string>
@@ -844,7 +831,7 @@
     <string name="catalogue_sub">The paintings from your letters · %1$s</string>
     <string name="catalogue_complete">Complete: all %2$d paintings collected.</string>
     <string name="catalogue_progress">%1$d of %2$d paintings</string>
-    <string name="cover_prologue">Before Arles</string>
+    <string name="cover_prologue">Prologue</string>
     <string name="cover_prologue_meta">%1$d pages · docent</string>
     <string name="cover_epilogue">Afterword</string>
     <string name="cover_epilogue_open">His last letter and his life</string>
@@ -899,4 +886,10 @@
     <string name="phrase_where">Letter %1$s · %2$s · line %3$d</string>
     <string name="phrase_listen">Listen to the phrase</string>
     <string name="dict_none">Nothing to write yet: none of these words has a recording on this phone.</string>
+    <string name="widget_sunday">Sunday</string>
+    <string name="story_received">Letter %1$s · received</string>
+    <string name="caps_catalogue">Catalogue</string>
+    <string name="caps_milestone">Milestone %1$s</string>
+    <string name="caps_exhibition">Exhibition</string>
+    <string name="caps_resume">Resume</string>
 </resources>

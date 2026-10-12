@@ -257,8 +257,8 @@
     "ko": "오늘 편지는 다 읽었어요"
   },
   "inbox_you_are_theo": {
-    "en": "You are Theo. Vincent's letters arrive here as messages.",
-    "ko": "당신은 테오예요. 빈센트의 편지가 메시지로 도착해요."
+    "en": "You are %2$s. %1$s's letters arrive here as messages.",
+    "ko": "당신은 %2$s예요. %1$s의 편지가 메시지로 도착해요."
   },
   "library_next": {
     "ko": "곧 도착: 모차르트 · 나폴레옹 · 바쇼",
@@ -292,10 +292,6 @@
     "en": "Show or hide the small line",
     "ko": "작은 줄 보이기 · 가리기"
   },
-  "room_writing": {
-    "en": "Vincent is writing",
-    "ko": "빈센트가 쓰는 중이에요"
-  },
   "room_words": {
     "en": "Words in this letter · %1$d",
     "ko": "이 편지의 낱말 · %1$d"
@@ -313,20 +309,12 @@
     "ko": "답장 보내기"
   },
   "play_right": {
-    "en": "Well done. Send it to Vincent.",
-    "ko": "잘했어요. 빈센트에게 보내요."
+    "en": "Well done. Send it to %1$s.",
+    "ko": "잘했어요. %1$s에게 보내요."
   },
   "play_wrong": {
     "en": "Not quite. The sentence is: %1$s",
     "ko": "아쉬워요. 정답은 이래요: %1$s"
-  },
-  "aloud_prompt": {
-    "en": "Follow the words as Vincent reads, then read it aloud yourself.",
-    "ko": "빈센트가 읽는 자리를 눈으로 따라가고, 이어서 소리 내어 읽어 봐요."
-  },
-  "aloud_listen": {
-    "en": "Listen to Vincent",
-    "ko": "빈센트 목소리로 듣기"
   },
   "aloud_tap": {
     "en": "Tap to record",
@@ -449,12 +437,12 @@
     "ko": "편지는 이렇게 도착해요"
   },
   "ob1_note": {
-    "en": "The first line of the letter Vincent sent the day he reached Arles.",
-    "ko": "빈센트가 아를에 도착한 날 보낸 편지의 첫 문장이에요."
+    "en": "The first line of the first letter %1$s sent.",
+    "ko": "%1$s이(가) 보낸 첫 편지의 첫 문장이에요."
   },
   "ob1_listen": {
-    "en": "Tap the button and Vincent reads it to you",
-    "ko": "버튼을 누르면 빈센트가 직접 읽어 줘요"
+    "en": "Tap the button and %1$s reads it to you",
+    "ko": "버튼을 누르면 %1$s이(가) 직접 읽어 줘요"
   },
   "ob1_a_t": {
     "en": "The large line is the language you learn",
@@ -617,8 +605,8 @@
     "ko": "낱말을 순서대로 이어 문장을 만들어요"
   },
   "mode_aloud_d": {
-    "en": "Follow Vincent's voice, then record yourself. Gentle scoring",
-    "ko": "빈센트 목소리를 따라 읽고 녹음해요. 채점은 너그럽게"
+    "en": "Follow %1$s's voice, then record yourself. Gentle scoring",
+    "ko": "%1$s 목소리를 따라 읽고 녹음해요. 채점은 너그럽게"
   },
   "modes_note": {
     "en": "Each letter uses the modes you keep on. Keep at least one.",
@@ -685,8 +673,8 @@
     "ko": "처음이니 세 가지 모두 해 봐요"
   },
   "first_guide_body": {
-    "en": "Learn the meanings with Match the words, the sounds with Read along, then write Theo's reply by joining the stars. Later you can choose in the series settings.",
-    "ko": "낱말 맞추기로 뜻을 익히고, 따라 읽기로 소리를 익히고, 별자리 잇기로 테오의 답장을 써요. 다음부터는 작품 설정에서 고를 수 있어요."
+    "en": "Learn the meanings with Match the words, the sounds with Read along, then write %2$s's reply by joining the stars. Later you can choose in the series settings.",
+    "ko": "낱말 맞추기로 뜻을 익히고, 따라 읽기로 소리를 익히고, 별자리 잇기로 %2$s의 답장을 써요. 다음부터는 작품 설정에서 고를 수 있어요."
   },
   "mode_match_d": {
     "en": "Pair the letter's words with their meanings",
@@ -761,8 +749,8 @@
     "ko": "언어 미술관에 오신 걸 환영해요"
   },
   "ob0_body": {
-    "en": "From today you receive letters from people in history. The first are the real letters Vincent van Gogh wrote to his brother Theo. You reply as Theo.",
-    "ko": "이제부터 당신은 역사 속 인물에게서 편지를 받는 사람이에요. 첫 편지는 빈센트 반 고흐가 동생 테오에게 보낸 진짜 편지예요. 당신은 테오가 되어 답장을 써요."
+    "en": "From today you receive letters from people in history: the real letters %1$s wrote to %2$s. You reply as %2$s.",
+    "ko": "이제부터 당신은 역사 속 인물에게서 편지를 받는 사람이에요. %1$s이(가) %2$s에게 보낸 진짜 편지예요. 당신은 %2$s이(가) 되어 답장을 써요."
   },
   "ob0_day": {
     "en": "A day goes like this · five minutes is enough",
@@ -773,8 +761,8 @@
     "ko": "편지 읽기"
   },
   "ob0_d1d": {
-    "en": "Original and translation side by side, Vincent's voice on tap.",
-    "ko": "원문과 번역이 나란히. 듣기 단추를 누르면 빈센트 목소리로."
+    "en": "Original and translation side by side, %1$s's voice on tap.",
+    "ko": "원문과 번역이 나란히. 듣기 단추를 누르면 %1$s 목소리로."
   },
   "ob0_d2": {
     "en": "Match the words",
@@ -789,16 +777,16 @@
     "ko": "따라 읽기"
   },
   "ob0_d3d": {
-    "en": "Follow Vincent's reading, then say it yourself.",
-    "ko": "빈센트가 읽는 자리를 따라가고, 소리 내어 읽어요."
+    "en": "Follow %1$s's reading, then say it yourself.",
+    "ko": "%1$s이(가) 읽는 자리를 따라가고, 소리 내어 읽어요."
   },
   "ob0_d4": {
     "en": "Write back",
     "ko": "답장 쓰기"
   },
   "ob0_d4d": {
-    "en": "Join the word stars to finish Theo's reply.",
-    "ko": "낱말 별을 순서대로 이어 테오의 답장을 완성해요."
+    "en": "Join the word stars to finish %2$s's reply.",
+    "ko": "낱말 별을 순서대로 이어 %2$s의 답장을 완성해요."
   },
   "ob0_d5": {
     "en": "A painting arrives",
@@ -887,10 +875,6 @@
   "moment_photo": {
     "en": "Photo from %1$s",
     "ko": "%1$s의 사진"
-  },
-  "map_title": {
-    "en": "Vincent's Arles, 1888",
-    "ko": "빈센트의 아를, 1888"
   },
   "quote_save": {
     "en": "Save to my lines",
@@ -1301,12 +1285,8 @@
     "ko": "느리게 듣기"
   },
   "reward_caps": {
-    "en": "TODAY",
-    "ko": "AUJOURD'HUI"
-  },
-  "reward_stamps": {
-    "en": "+ %1$d stamps",
-    "ko": "+ 우표 %1$d장"
+    "en": "Today",
+    "ko": "오늘"
   },
   "reward_alone": {
     "en": "You now read %1$d%% on your own",
@@ -1319,10 +1299,6 @@
   "reward_item": {
     "en": "An object from the letters is now gold",
     "ko": "편지 속 물건이 금빛이 됐어요"
-  },
-  "reward_gift": {
-    "en": "Commemorative stamp: %1$s",
-    "ko": "기념 우표 ‘%1$s’를 받았어요"
   },
   "reward_album": {
     "en": "Open the album",
@@ -1339,10 +1315,6 @@
   "album_journal": {
     "en": "Journal",
     "ko": "여행기"
-  },
-  "album_stamps": {
-    "en": "Stamps",
-    "ko": "기념 우표"
   },
   "album_progress": {
     "en": "Progress",
@@ -1428,14 +1400,6 @@
     "en": "Places fill in as they appear in the letters. A full page gets the city postmark.",
     "ko": "편지에 나온 장소가 차요. 다 차면 도시 소인."
   },
-  "stamps_count": {
-    "en": "Commemorative stamps: %1$d / %2$d",
-    "ko": "기념 우표 %1$d / %2$d"
-  },
-  "stamps_note": {
-    "en": "Every achievement brings a stamp.",
-    "ko": "업적마다 한 장씩 받아요."
-  },
   "alone_title": {
     "en": "Reading alone: %1$d%%",
     "ko": "혼자 읽기 %1$d%%"
@@ -1468,21 +1432,9 @@
     "en": "No parcel for this series yet.",
     "ko": "이 작품은 아직 소포가 없어요."
   },
-  "parcel_how": {
-    "en": "Costs %1$d stamps. Once a calendar month.",
-    "ko": "우표 %1$d장 · 달마다 한 번"
-  },
   "parcel_sent": {
     "en": "Sent this month. The next one opens on %1$s.",
     "ko": "이번 달은 보냈어요. 다음은 %1$s부터."
-  },
-  "parcel_send": {
-    "en": "Send · %1$d stamps",
-    "ko": "보내기 · 우표 %1$d장"
-  },
-  "parcel_short": {
-    "en": "%1$d more stamps to go.",
-    "ko": "우표 %1$d장 더 모으면 돼요."
   },
   "visitor_finish": {
     "en": "Done",
@@ -1515,10 +1467,6 @@
   "task_visitor": {
     "en": "Today's visitor",
     "ko": "오늘의 손님"
-  },
-  "tasks_bonus": {
-    "en": "All three: +5 bonus stamps",
-    "ko": "셋 다 하면 우표 +5"
   },
   "gap_3": {
     "en": "in 3 days",
@@ -2417,8 +2365,8 @@
     "ko": "「%1$s」 낭독 · 그림"
   },
   "dl_body": {
-    "en": "This chapter's narration (Vincent's voice) and pictures are not inside the app yet. Download them once (%1$s) and they work offline from then on.",
-    "ko": "이 장의 낭독(빈센트 목소리)과 그림은 아직 앱에 없어요. 한 번 받아 두면(%1$s) 그다음부터는 인터넷 없이 보고 들려요."
+    "en": "This chapter's narration (%2$s's voice) and pictures are not inside the app yet. Download them once (%1$s) and they work offline from then on.",
+    "ko": "이 장의 낭독(%2$s 목소리)과 그림은 아직 앱에 없어요. 한 번 받아 두면(%1$s) 그다음부터는 인터넷 없이 보고 들려요."
   },
   "dl_mobile": {
     "en": "You are on mobile data. Wi-Fi is better if your data plan is limited.",
@@ -3021,8 +2969,8 @@
     "ko": "작품 카드에 쓰는 테두리 · 한 번 사면 계속"
   },
   "spend_free_note": {
-    "en": "Letters, review and hints are always free. Stamps only buy decorations and conveniences.",
-    "ko": "배움(편지 · 복습 · 힌트)은 우표 없이 늘 열려 있어요. 우표로는 꾸미기와 편의만 사요."
+    "en": "Letters, review and hints are always free; %1$s only buy decorations and conveniences.",
+    "ko": "배움(편지 · 복습 · 힌트)은 늘 무료예요. %1$s 쓰는 곳은 꾸미기와 편의뿐이에요."
   },
   "border_note": {
     "en": "Tap one you own to use it.",
@@ -3313,8 +3261,8 @@
     "ko": "알림은 이제 설정 › 알림에서 정해요."
   },
   "widget_caps": {
-    "en": "TODAY · LETTRE %1$s",
-    "ko": "AUJOURD'HUI · LETTRE %1$s"
+    "en": "Today · Letter %1$s",
+    "ko": "오늘 · 편지 %1$s"
   },
   "widget_streak": {
     "en": "%1$d-day streak",
@@ -3373,8 +3321,8 @@
     "ko": "그림 %2$d점 중 %1$d점"
   },
   "cover_prologue": {
-    "en": "Before Arles",
-    "ko": "아를 이전"
+    "en": "Prologue",
+    "ko": "프롤로그"
   },
   "cover_prologue_meta": {
     "en": "%1$d pages · docent",
@@ -3591,5 +3539,29 @@
   "dict_none": {
     "en": "Nothing to write yet: none of these words has a recording on this phone.",
     "ko": "아직 받아쓸 낱말이 없어요. 이 폰에 소리가 있는 낱말이 모이면 열려요."
+  },
+  "widget_sunday": {
+    "en": "Sunday",
+    "ko": "일요일"
+  },
+  "story_received": {
+    "en": "Letter %1$s · received",
+    "ko": "편지 %1$s · 도착"
+  },
+  "caps_catalogue": {
+    "en": "Catalogue",
+    "ko": "도록"
+  },
+  "caps_milestone": {
+    "en": "Milestone %1$s",
+    "ko": "이정표 %1$s"
+  },
+  "caps_exhibition": {
+    "en": "Exhibition",
+    "ko": "전시"
+  },
+  "caps_resume": {
+    "en": "Resume",
+    "ko": "이어 읽기"
   }
 }

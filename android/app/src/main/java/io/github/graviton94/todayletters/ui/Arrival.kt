@@ -136,7 +136,7 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
                     Column(Modifier.fillMaxWidth().heightIn(min = h).statusBarsSafe().navigationBarsSafe().padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
                         verticalArrangement = Arrangement.Bottom) {
                         Column(Modifier.graphicsLayer { alpha = reveal.value }, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                            Caps("${deco(work.series.original, "LETTRE", "BRIEF")} ${roman(n)} · ${letter.place}", Gilt, small = true, decorative = true)
+                            Caps(stringResource(R.string.letter_n, roman(n)) + " · ${letter.place}", Gilt, small = true, decorative = true)
                             Text(stringResource(R.string.arrival_title, work.name[uiLang()]), style = Type.title.ui(), color = Light)
                             Text(stringResource(R.string.arrival_sub, dateLine(letter.date, letter.place), work.name[uiLang()], work.recipientOf(letter)[uiLang()]),
                                 style = Type.small.ui(), color = Soft)
@@ -156,7 +156,7 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
         Column(Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe()
             .pressable(enabled = stage == 1, haptic = false) { shown = line.length; stage = 2 }) {
             Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s7, end = Tokens.Space.s7, top = Tokens.Space.s8), verticalAlignment = Alignment.CenterVertically) {
-                Caps("${deco(work.series.original, "LETTRE", "BRIEF")} ${roman(n)}", Gilt, small = true, decorative = true, modifier = Modifier.weight(1f))
+                Caps(stringResource(R.string.letter_n, roman(n)), Gilt, small = true, decorative = true, modifier = Modifier.weight(1f))
                 Text(dateLine(letter.date, letter.place), style = Type.small.ui().copy(fontStyle = FontStyle.Italic), color = Soft)
             }
             Box(Modifier.padding(horizontal = Tokens.Space.s7, vertical = Tokens.Space.s3).fillMaxWidth().height(1.dp).background(Soft.copy(alpha = 0.25f)))

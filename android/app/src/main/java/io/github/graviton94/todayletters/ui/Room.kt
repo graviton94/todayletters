@@ -380,7 +380,7 @@ fun Room(s: AppState, r: Route.Letter) {
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
             Hair()
-            Caps("RESUME", p.giltText, small = true, decorative = true)
+            Caps(stringResource(R.string.caps_resume), p.giltText, small = true, decorative = true)
             Text(stringResource(R.string.room_resume, resumeAt + 1), style = Type.body.ui(), color = p.ink)
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
                 Box(Modifier.heightIn(min = 44.dp).pressable {
@@ -851,6 +851,14 @@ private fun io.github.graviton94.todayletters.core.Moment.shows() = (this as? io
 
 /** 장식 글자(머리글 · 갈래 이름)를 작품의 원어로: 독일어 작품은 [de], 그 밖(프랑스어 작품)은 [fr]. */
 fun deco(original: Lang, fr: String, de: String) = if (original == Lang.DE) de else fr
+
+/** 인용 부호 (앱 전체 하나, 그 글의 언어대로): « … » · „…“ · 「…」 · “…”. */
+fun quoted(text: String, lang: Lang): String = when (lang) {
+    Lang.FR -> "«\u202F$text\u202F»"
+    Lang.DE -> "„$text“"
+    Lang.JA -> "「$text」"
+    else -> "“$text”"
+}
 
 /** 마지막 조각의 서명: 프랑스어 편지는 “t. à t. Vincent”, 독일어 편지는 “— Wolfgang”. */
 fun signOff(original: Lang, sender: String) = if (original == Lang.FR) "t. à t. $sender" else "— $sender"

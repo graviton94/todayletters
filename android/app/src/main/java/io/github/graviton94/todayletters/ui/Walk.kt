@@ -315,7 +315,7 @@ private fun SpotCard(
                     verticalArrangement = Arrangement.spacedBy(2.dp),
                 ) {
                     Text(stringResource(R.string.walk_from_letter), style = Type.caps.copy(fontSize = Tokens.Text.caps), color = Color(0xFF7A5A20))
-                    val line = "“${quote[learn]}”"
+                    val line = quoted(quote[learn], learn)
                     val marked = androidx.compose.ui.text.buildAnnotatedString {
                         append(line)
                         sp.word?.let { wd -> wordMarks(line, wd.forms.takeIf { it.isNotEmpty() && learn == original } ?: wd.text[learn].split(Regex("[\\s\\-’']+")).filter { it.length > 1 }).forEach { (range, _) -> addStyle(androidx.compose.ui.text.SpanStyle(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold, color = Color(0xFF7A5A20)), range.first, range.last + 1) } }

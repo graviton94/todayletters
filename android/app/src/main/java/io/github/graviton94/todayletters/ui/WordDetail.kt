@@ -65,7 +65,6 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
     BackHandler(onBack = onClose)
     val found = remember(key) { s.cardWord(key) } ?: return
     val (w, cl, word) = found
-    val wi = found.index
     val (chapter, letter) = cl
     val id = w.series.id
     val view = s.room(id)
@@ -94,7 +93,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
             Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
                 // 이름표
                 Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    Caps((if (wi >= 0) "N° ${"%03d".format(wi + 1)} · " else "") + (if (n == 0) deco(w.series.original, "PROLOGUE", "PROLOG") else "${deco(w.series.original, "LETTRE", "BRIEF")} ${roman(n)}"), p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
+                    Caps(if (n == 0) stringResource(R.string.cover_prologue) else letterTag(s, key), p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
                     // 내가 편지에서 눌러 담은 낱말 · 표현 카드 · 등급
                     if (found.own || word.phrase || word.level.isNotEmpty()) Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                         if (found.own) Capsule(stringResource(R.string.gloss_own))

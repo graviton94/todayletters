@@ -78,7 +78,7 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
             Caps("AUDIO", p.giltText, small = true, decorative = true)
             Text(stringResource(R.string.dl_title, chapterTitle), style = Type.heading.ui(), color = p.ink)
             if (job == null) {
-                Text(stringResource(if (failed) R.string.dl_failed else if (ask.letter == null) R.string.dl_body_ahead else R.string.dl_body, sizeLabel(remaining)), style = Type.small.ui(), color = p.inkSoft)
+                Text(stringResource(if (failed) R.string.dl_failed else if (ask.letter == null) R.string.dl_body_ahead else R.string.dl_body, sizeLabel(remaining), s.work(ask.series).name[uiLang()]), style = Type.small.ui(), color = p.inkSoft)
                 if (mobile && !failed) Text(stringResource(R.string.dl_mobile), style = Type.small.ui(), color = p.giltText)
                 Box(Modifier.height(Tokens.Space.s2))
                 Primary(stringResource(if (failed) R.string.dl_retry else R.string.dl_go, sizeLabel(remaining))) { start() }

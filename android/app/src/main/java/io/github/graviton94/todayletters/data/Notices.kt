@@ -226,7 +226,7 @@ class TodayWidget : AppWidgetProvider() {
                 v.setTextViewText(R.id.w_line, ctx.getString(R.string.app_name))
             } else if (small) {
                 // 2×2: 편지 번호 · 오늘의 편지 · 이어 읽기. 일요일엔 낭독회.
-                v.setTextViewText(R.id.w_date, if (sum.recital) "DIMANCHE" else no?.let { "LETTRE $it" } ?: date)
+                v.setTextViewText(R.id.w_date, if (sum.recital) ctx.getString(R.string.widget_sunday) else no?.let { ctx.getString(R.string.letter_n, it) } ?: date)
                 v.setTextViewText(R.id.w_line, ctx.getString(if (sum.recital) R.string.widget_recital else R.string.widget_name))
                 v.setTextViewText(
                     R.id.w_status,

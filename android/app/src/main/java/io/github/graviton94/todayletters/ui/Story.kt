@@ -90,7 +90,7 @@ fun Done(s: AppState, room: Route.Letter) {
                 PlateImage(letter.plate?.image.orEmpty(), Modifier.fillMaxSize().graphicsLayer { alpha = win(0.1f, 0.45f); val k = 1.06f - 0.06f * win(0.1f, 0.6f); scaleX = k; scaleY = k })
                 Box(Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Brush.verticalGradient(0f to Color(0x59170F0A), 0.3f to Color.Transparent, 0.65f to Color.Transparent, 1f to p.paper)))
                 Row(Modifier.fillMaxWidth().statusBarsPadding().padding(Tokens.Space.s4)) {
-                    Text("PL. ${roman(room.letter)} · REÇUE", style = Type.caps, color = Color(0xFFF7F0E1), modifier = Modifier.weight(1f).clearAndSetSemantics { })
+                    Caps(stringResource(R.string.story_received, roman(room.letter)), Color(0xFFF7F0E1), modifier = Modifier.weight(1f), decorative = true)
                     letter.plate?.let { Text(it.date.uppercase(), style = Type.caps, color = Color(0xFFF7F0E1)) }
                 }
                 Box(

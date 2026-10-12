@@ -48,7 +48,7 @@ fun sharePostcard(ctx: Context, w: Work, l: Letter, m: Message, learn: Lang, rea
     val send = Intent(Intent.ACTION_SEND).apply {
         type = "image/jpeg"
         putExtra(Intent.EXTRA_STREAM, uri)
-        putExtra(Intent.EXTRA_TEXT, "“${Breaks(m.text[learn])}” — ${w.fullName}, ${l.date.take(4)}")
+        putExtra(Intent.EXTRA_TEXT, "${quoted(Breaks(m.text[learn]), learn)} — ${w.fullName}, ${l.date.take(4)}")
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     }
     ctx.startActivity(Intent.createChooser(send, ctx.getString(R.string.postcard_send)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
@@ -132,7 +132,7 @@ fun postcard(ctx: Context, w: Work, l: Letter, m: Message, learn: Lang, read: La
     // 원문 (배우는 언어) — 길면 글자를 줄인다
     val mainWidth = (right - left).toInt()
     val learnPaint = TextPaint(Paint.ANTI_ALIAS_FLAG).apply { typeface = learnFace; color = ink }
-    val original = "“${m.text[learn]}”"
+    val original = quoted(m.text[learn], learn)
     var size = 64f
     var layout: StaticLayout
     while (true) {
@@ -250,7 +250,7 @@ fun artCard(ctx: Context, w: Work, l: Letter, m: Message, learn: Lang, read: Lan
     val footH = H * 0.09f
     var top = artRect.bottom + H * 0.035f
     val room = H - pad - footH - top
-    val q = when (learn) { Lang.FR -> "« ${Breaks(m.text[learn])} »"; Lang.DE -> "„${Breaks(m.text[learn])}“"; else -> "“${Breaks(m.text[learn])}”" }
+    val q = quoted(Breaks(m.text[learn]), learn)
     val lp = TextPaint(Paint.ANTI_ALIAS_FLAG).apply { typeface = learnFace; color = ink }
     val rp = TextPaint(Paint.ANTI_ALIAS_FLAG).apply { typeface = body; color = soft }
     var size = W * 0.05f
@@ -342,7 +342,7 @@ fun ArtCardSheet(s: AppState, w: Work, l: Letter, m: Message, onClose: () -> Uni
         }
         androidx.compose.foundation.layout.Box(androidx.compose.ui.Modifier.padding(16.dp)) {
             Primary(androidx.compose.ui.res.stringResource(R.string.card_share)) {
-                bmp?.let { shareImage(ctx, it, "card-${l.id}", "“${Breaks(m.text[view.learn])}” — ${w.fullName}, ${l.date.take(4)}") }
+                bmp?.let { shareImage(ctx, it, "card-${l.id}", "${quoted(Breaks(m.text[view.learn]), view.learn)} — ${w.fullName}, ${l.date.take(4)}") }
             }
         }
     }

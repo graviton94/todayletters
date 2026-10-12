@@ -140,7 +140,7 @@ private fun Constellation(s: AppState, r: Route.Play, onClose: () -> Unit) {
                 Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                     Text(stringResource(if (guided) R.string.guide_title else R.string.play_meaning), style = Type.capsSm.ui(), color = Color(0xFF7A5A20))
                     if (guided) Text(stringResource(R.string.guide_body), style = Type.body.ui(), color = p.slipInk)
-                    Text("“${tri[view.read]}”", style = Type.heading.of(view.read), color = p.slipInk)
+                    Text(quoted(tri[view.read], view.read), style = Type.heading.of(view.read), color = p.slipInk)
                 }
             }
             Sky(
@@ -159,7 +159,7 @@ private fun Constellation(s: AppState, r: Route.Play, onClose: () -> Unit) {
                 )
             }
             when {
-                done -> Text(stringResource(R.string.play_right), style = Type.small.ui(), color = p.correct)
+                done -> Text(stringResource(R.string.play_right, s.work(r.room.series).name[uiLang()]), style = Type.small.ui(), color = p.correct)
                 wrong != null -> Text(stringResource(R.string.play_wrong_star), style = Type.small.ui(), color = p.wrong)
                 showAnswer -> Text(answer.joinToString(" "), style = Type.small.of(view.learn), color = p.inkSoft)
                 guided -> Text(stringResource(R.string.guide_after), style = Type.small.ui(), color = p.inkSoft)

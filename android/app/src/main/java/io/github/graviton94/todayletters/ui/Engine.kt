@@ -74,6 +74,7 @@ import io.github.graviton94.todayletters.design.SeriesTone
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 import io.github.graviton94.todayletters.design.uiHangul
+import io.github.graviton94.todayletters.design.hangul
 
 /**
  * 보상 · 갤러리 엔진의 화면들. 모두 시리즈 공통 틀이고, 이름 · 색 · 소장품만 키트([io.github.graviton94.todayletters.core.Kit])에서 온다.
@@ -152,17 +153,24 @@ fun CurrencyLine(s: AppState, w: Work = s.currentWork) {
     }
 }
 
-/** 이번 주: 그 시리즈 언어의 요일 머리글자와 점 (배운 날 · 오늘 · 남은 날). */
+/** 요일 머리글자 (월~일), 앱 글자 언어로: M T W T F S S · 월 화 수 목 금 토 일. */
+@Composable
+fun weekLetters(): List<String> {
+    val locale = if (uiHangul()) java.util.Locale.KOREAN else java.util.Locale.ENGLISH
+    return java.time.DayOfWeek.entries.map { it.getDisplayName(java.time.format.TextStyle.NARROW, locale) }
+}
+
+/** 이번 주: 요일 머리글자(앱 글자 언어)와 점 (배운 날 · 오늘 · 남은 날). */
 @Composable
 fun WeekDots(s: AppState, w: Work) {
     val p = Ink.palette
     val done = s.weekDone()
     val today = io.github.graviton94.todayletters.core.Recital.weekday(s.today)
-    val letters = w.kit.weekdays.padEnd(7).take(7)
+    val letters = weekLetters()
     Row(Modifier.fillMaxWidth()) {
         letters.forEachIndexed { i, ch ->
             Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Text("$ch", style = Type.capsSm, color = if (i <= today) p.ink else p.hideInk)
+                Text(ch, style = Type.capsSm.hangul(uiHangul()), color = if (i <= today) p.ink else p.hideInk)
                 Box(Modifier.size(12.dp).then(when {
                     i in done -> Modifier.background(p.giltText, CircleShape)
                     i == today -> Modifier.border(1.5.dp, p.giltText, CircleShape)
@@ -257,7 +265,7 @@ fun RewardOverlay(s: AppState) {
                 .padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
-            Caps(when { m.catalogue != null -> "EXPOSITION COMPLÈTE"; master -> "CHEF-D'ŒUVRE"; else -> stringResource(R.string.reward_caps) }, if (master) gold else t.accent, decorative = true)
+            Caps(stringResource(R.string.reward_caps), if (master) gold else t.accent, decorative = true)
             Text(stringResource(when { m.catalogue != null -> R.string.reward_catalogue; master -> R.string.reward_master; m.piece != null -> R.string.reward_piece; else -> R.string.reward_title }),
                 style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
             val cat = m.catalogue
@@ -333,7 +341,7 @@ fun CatalogueCover(s: AppState, w: Work, e: io.github.graviton94.todayletters.co
     val ink = Color(0xFF2A1F10); val soft = Color(0xFF76674F); val seal = Color(0xFF8E2A22)
     val ep = remember(e) { io.github.graviton94.todayletters.core.Draws.exhibitionPieces(w.kit.collection, e) }
     Column(modifier.fillMaxWidth().shadow(16.dp).background(Color(0xFFF3EAD6)).padding(18.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-        Row { Caps("CATALOGUE", Color(0xFF7A5C2C), small = true, decorative = true, modifier = Modifier.weight(1f)); Caps("N° $number", Color(0xFF7A5C2C), small = true, decorative = true) }
+        Row { Caps(stringResource(R.string.caps_catalogue), Color(0xFF7A5C2C), small = true, decorative = true, modifier = Modifier.weight(1f)); Caps("N° $number", Color(0xFF7A5C2C), small = true, decorative = true) }
         Text(e.title[w.series.original], style = Type.title.copy(fontFamily = Faces.display, fontStyle = androidx.compose.ui.text.font.FontStyle.Italic).of(w.series.original), color = ink)
         if (uiLang() != w.series.original) Text(e.title[uiLang()], style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = ink)
         Column(Modifier.padding(top = 6.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -403,7 +411,7 @@ fun GalleryTab(s: AppState) {
     var open by remember { mutableStateOf<Piece?>(null) }
     var buying by remember { mutableStateOf<Piece?>(null) }
     Column(Modifier.fillMaxSize()) {
-        SeriesHeader(s, stringResource(R.string.tab_gallery), "COLLECTION")
+        SeriesHeader(s, stringResource(R.string.tab_gallery))
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
             Row(verticalAlignment = Alignment.Bottom) {
                 Text("${s.ownedCount(id)}", style = Type.title.copy(fontFamily = Faces.display), color = p.ink)
@@ -596,7 +604,7 @@ fun MilestonesTab(s: AppState) {
     var detail by remember { mutableStateOf<Int?>(null) }
     val got = Achievements.series.count { s.achievedOn(Achievements.key(it, id)) != null }
     Column(Modifier.fillMaxSize()) {
-        SeriesHeader(s, stringResource(R.string.tab_milestones), "JALONS")
+        SeriesHeader(s, stringResource(R.string.tab_milestones))
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
             Text(stringResource(R.string.medals_note, Achievements.series.size, got), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(horizontal = 4.dp))
             Spacer(Modifier.height(Tokens.Space.s4))
@@ -636,7 +644,7 @@ private fun MedalSheet(s: AppState, w: Work, i: Int, onClose: () -> Unit) {
         Column(Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsPadding().padding(Tokens.Space.s6),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Medal(i, day != null, Achievements.progress(a, st), 170.dp)
-            Caps("JALON ${roman(i + 1)}", p.giltText, small = true, decorative = true)
+            Caps(stringResource(R.string.caps_milestone, roman(i + 1)), p.giltText, small = true, decorative = true)
             Text(text("ach_${a.id}", a.id), style = Type.title.ui(), color = p.ink, textAlign = TextAlign.Center)
             val now = a.metric(st).coerceAtMost(a.goal)
             Text(if (day != null) stringResource(R.string.medal_got, if (day >= 0) shortDate(day) else "✓") else stringResource(R.string.medal_left, now, a.goal - now),
@@ -661,7 +669,6 @@ private fun Shop(s: AppState, w: Work) {
     val ctx = LocalContext.current
     var asked by remember { mutableStateOf<Spend?>(null) }
     var borders by remember { mutableStateOf(false) }
-    Caps("SPEND", p.inkSoft, small = true, decorative = true)
     Row(verticalAlignment = Alignment.Bottom, modifier = Modifier.padding(top = 4.dp, bottom = 4.dp)) {
         Text(stringResource(R.string.spend_title, w.kit.currency[uiLang()]), style = Type.heading.ui(), color = p.ink, modifier = Modifier.weight(1f))
         CurrencyLine(s, w)
@@ -699,7 +706,7 @@ private fun Shop(s: AppState, w: Work) {
         }
     }
     Hair()
-    Text(stringResource(R.string.spend_free_note), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(top = Tokens.Space.s3, bottom = Tokens.Space.s6))
+    Text(stringResource(R.string.spend_free_note, w.kit.currency[uiLang()]), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(top = Tokens.Space.s3, bottom = Tokens.Space.s6))
     asked?.let { sp ->
         Ask(stringResource(R.string.spend_confirm, sp.cost, w.kit.currency[uiLang()]), stringResource(R.string.spend_yes), stringResource(R.string.not_now),
             onYes = { s.buy(sp, id); asked = null }, onNo = { asked = null })
@@ -784,7 +791,7 @@ fun ExhibitionScreen(s: AppState) {
             IconButton(stringResource(R.string.back), onClick = { s.back() }) { Chevron(Color(0xFFF7F0E1)) }
         }
         Column(Modifier.padding(horizontal = Tokens.Space.s6), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            Caps("EXPOSITION", p.giltText, small = true, decorative = true)
+            Caps(stringResource(R.string.caps_exhibition), p.giltText, small = true, decorative = true)
             Text(e.title[uiLang()], style = Type.title.ui(), color = p.ink)
             Text(stringResource(R.string.expo_days, s.daysLeftInMonth), style = Type.small.ui(), color = p.inkSoft)
             Text(stringResource(R.string.expo_note), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(top = Tokens.Space.s2))
@@ -818,16 +825,16 @@ fun WeekScreen(s: AppState) {
     val w = s.currentWork
     val wk = s.week(w.series.id)
     val todayIdx = io.github.graviton94.todayletters.core.Recital.weekday(s.today)
-    val letters = w.kit.weekdays.padEnd(7).take(7)
+    val letters = weekLetters()
     var open by remember { mutableStateOf<Piece?>(null) }
     Column(Modifier.fillMaxSize()) {
-        SeriesHeader(s, stringResource(R.string.week_title), "CETTE SEMAINE")
+        SeriesHeader(s, stringResource(R.string.week_title))
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
             Text(stringResource(R.string.week_range, shortDate(wk.start), shortDate(wk.start + 6)), style = Type.small.ui(), color = p.inkSoft)
             Row(Modifier.fillMaxWidth()) {
                 letters.forEachIndexed { i, ch ->
                     Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(5.dp)) {
-                        Text("$ch", style = Type.capsSm, color = if (i == todayIdx) p.ink else p.inkSoft)
+                        Text(ch, style = Type.capsSm.hangul(uiHangul()), color = if (i == todayIdx) p.ink else p.inkSoft)
                         Box(Modifier.size(30.dp).then(when {
                             i in wk.done -> Modifier.background(p.ink, CircleShape)
                             i in wk.rests -> { val g = p.giltText; Modifier.drawBehind { drawCircle(g, size.minDimension / 2 - 1.dp.toPx(), style = androidx.compose.ui.graphics.drawscope.Stroke(1.3.dp.toPx(), pathEffect = androidx.compose.ui.graphics.PathEffect.dashPathEffect(floatArrayOf(5f, 4f)))) } }
@@ -909,7 +916,7 @@ fun RecitalScreen(s: AppState) {
         if (takes.isEmpty()) null else java.io.File(s.ctx.filesDir, "readings/week.wav").also { runCatching { io.github.graviton94.todayletters.data.Wav.join(takes, it) } }
     }
     Column(Modifier.fillMaxSize()) {
-        SeriesHeader(s, stringResource(R.string.recital_title), "DIMANCHE · LECTURE")
+        SeriesHeader(s, stringResource(R.string.recital_title))
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
             Text(stringResource(R.string.recital_meta, takes.size, secs / 60, secs % 60), style = Type.small.ui(), color = p.inkSoft)
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {

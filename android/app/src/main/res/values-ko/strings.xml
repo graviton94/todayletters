@@ -65,7 +65,7 @@
     <string name="free">무⁠료</string>
     <string name="letters_n">하⁠루 %1$d⁠통</string>
     <string name="inbox_all_read">오⁠늘 편⁠지⁠는 다 읽⁠었⁠어⁠요</string>
-    <string name="inbox_you_are_theo">당⁠신⁠은 테⁠오⁠예⁠요⁠. 빈⁠센⁠트⁠의 편⁠지⁠가 메⁠시⁠지⁠로 도⁠착⁠해⁠요⁠.</string>
+    <string name="inbox_you_are_theo">당⁠신⁠은 %2$s⁠예⁠요⁠. %1$s⁠의 편⁠지⁠가 메⁠시⁠지⁠로 도⁠착⁠해⁠요⁠.</string>
     <string name="library_next">곧 도⁠착⁠: 모⁠차⁠르⁠트 · 나⁠폴⁠레⁠옹 · 바⁠쇼</string>
     <string name="words_note">읽⁠은 편⁠지⁠에⁠서 모⁠은 낱⁠말⁠이⁠에⁠요⁠.</string>
     <string name="gallery_empty">편⁠지⁠를 끝⁠까⁠지 받⁠으⁠면 그⁠림⁠이 도⁠착⁠해⁠요⁠.</string>
@@ -74,15 +74,12 @@
     <string name="letter_open">기⁠다⁠리⁠는 편⁠지</string>
     <string name="letter_tomorrow">다⁠음 날 도⁠착</string>
     <string name="toggle_small_line">작⁠은 줄 보⁠이⁠기 · 가⁠리⁠기</string>
-    <string name="room_writing">빈⁠센⁠트⁠가 쓰⁠는 중⁠이⁠에⁠요</string>
     <string name="room_words">이 편⁠지⁠의 낱⁠말 · %1$d</string>
     <string name="room_finish">편⁠지 마⁠치⁠기</string>
     <string name="play_check">확⁠인</string>
     <string name="play_send">답⁠장 보⁠내⁠기</string>
-    <string name="play_right">잘⁠했⁠어⁠요⁠. 빈⁠센⁠트⁠에⁠게 보⁠내⁠요⁠.</string>
+    <string name="play_right">잘⁠했⁠어⁠요⁠. %1$s⁠에⁠게 보⁠내⁠요⁠.</string>
     <string name="play_wrong">아⁠쉬⁠워⁠요⁠. 정⁠답⁠은 이⁠래⁠요⁠: %1$s</string>
-    <string name="aloud_prompt">빈⁠센⁠트⁠가 읽⁠는 자⁠리⁠를 눈⁠으⁠로 따⁠라⁠가⁠고⁠, 이⁠어⁠서 소⁠리 내⁠어 읽⁠어 봐⁠요⁠.</string>
-    <string name="aloud_listen">빈⁠센⁠트 목⁠소⁠리⁠로 듣⁠기</string>
     <string name="aloud_tap">눌⁠러⁠서 녹⁠음</string>
     <string name="aloud_recording">녹⁠음 중⁠… 누⁠르⁠면 멈⁠춰⁠요</string>
     <string name="aloud_recorded">녹⁠음⁠했⁠어⁠요⁠. 들⁠어 보⁠거⁠나 보⁠내⁠요⁠.</string>
@@ -113,8 +110,8 @@
     <string name="open_cta">눌⁠러⁠서 열⁠기</string>
     <string name="today_title">%1$s⁠의 편⁠지⁠가 도⁠착⁠했⁠어⁠요</string>
     <string name="ob1_title">편⁠지⁠는 이⁠렇⁠게 도⁠착⁠해⁠요</string>
-    <string name="ob1_note">빈⁠센⁠트⁠가 아⁠를⁠에 도⁠착⁠한 날 보⁠낸 편⁠지⁠의 첫 문⁠장⁠이⁠에⁠요⁠.</string>
-    <string name="ob1_listen">버⁠튼⁠을 누⁠르⁠면 빈⁠센⁠트⁠가 직⁠접 읽⁠어 줘⁠요</string>
+    <string name="ob1_note">%1$s⁠이⁠(⁠가⁠) 보⁠낸 첫 편⁠지⁠의 첫 문⁠장⁠이⁠에⁠요⁠.</string>
+    <string name="ob1_listen">버⁠튼⁠을 누⁠르⁠면 %1$s⁠이⁠(⁠가⁠) 직⁠접 읽⁠어 줘⁠요</string>
     <string name="ob1_a_t">큰 글⁠씨⁠는 배⁠울 언⁠어</string>
     <string name="ob1_a_d">편⁠지⁠마⁠다 낱⁠말 카⁠드⁠에⁠서 뜻⁠과 발⁠음⁠을 볼 수 있⁠어⁠요⁠.</string>
     <string name="ob1_b_t">작⁠은 글⁠씨⁠는 번⁠역</string>
@@ -155,7 +152,7 @@
     <string name="play_show">정⁠답 보⁠기</string>
     <string name="play_meaning">뜻</string>
     <string name="mode_constellation_d">낱⁠말⁠을 순⁠서⁠대⁠로 이⁠어 문⁠장⁠을 만⁠들⁠어⁠요</string>
-    <string name="mode_aloud_d">빈⁠센⁠트 목⁠소⁠리⁠를 따⁠라 읽⁠고 녹⁠음⁠해⁠요⁠. 채⁠점⁠은 너⁠그⁠럽⁠게</string>
+    <string name="mode_aloud_d">%1$s 목⁠소⁠리⁠를 따⁠라 읽⁠고 녹⁠음⁠해⁠요⁠. 채⁠점⁠은 너⁠그⁠럽⁠게</string>
     <string name="modes_note">켠 방⁠식⁠이 편⁠지⁠마⁠다 차⁠례⁠로 나⁠와⁠요⁠. 하⁠나 이⁠상 켜 두⁠세⁠요⁠.</string>
     <string name="perday_note">하⁠루⁠에 새⁠로 도⁠착⁠하⁠는 편⁠지 수⁠예⁠요⁠.</string>
     <string name="plate_soon">그⁠림 준⁠비 중</string>
@@ -172,7 +169,7 @@
     <string name="room_next">다⁠음 · %1$s</string>
     <string name="room_done_today">오⁠늘⁠의 편⁠지 마⁠치⁠기</string>
     <string name="first_guide_title">처⁠음⁠이⁠니 세 가⁠지 모⁠두 해 봐⁠요</string>
-    <string name="first_guide_body">낱⁠말 맞⁠추⁠기⁠로 뜻⁠을 익⁠히⁠고⁠, 따⁠라 읽⁠기⁠로 소⁠리⁠를 익⁠히⁠고⁠, 별⁠자⁠리 잇⁠기⁠로 테⁠오⁠의 답⁠장⁠을 써⁠요⁠. 다⁠음⁠부⁠터⁠는 작⁠품 설⁠정⁠에⁠서 고⁠를 수 있⁠어⁠요⁠.</string>
+    <string name="first_guide_body">낱⁠말 맞⁠추⁠기⁠로 뜻⁠을 익⁠히⁠고⁠, 따⁠라 읽⁠기⁠로 소⁠리⁠를 익⁠히⁠고⁠, 별⁠자⁠리 잇⁠기⁠로 %2$s⁠의 답⁠장⁠을 써⁠요⁠. 다⁠음⁠부⁠터⁠는 작⁠품 설⁠정⁠에⁠서 고⁠를 수 있⁠어⁠요⁠.</string>
     <string name="mode_match_d">편⁠지⁠에 나⁠온 낱⁠말⁠과 뜻⁠을 짝⁠지⁠어⁠요</string>
     <string name="match_hint">낱⁠말⁠을 누⁠르⁠면 소⁠리 · 점⁠에⁠서 점⁠으⁠로 끌⁠어 이⁠어⁠요</string>
     <string name="match_done">다 맞⁠혔⁠어⁠요⁠.</string>
@@ -191,16 +188,16 @@
     <string name="words_none">찾⁠는 낱⁠말⁠이 없⁠어⁠요⁠.</string>
     <string name="ob0_hello">반⁠가⁠워⁠요</string>
     <string name="ob0_title">언⁠어 미⁠술⁠관⁠에 오⁠신 걸 환⁠영⁠해⁠요</string>
-    <string name="ob0_body">이⁠제⁠부⁠터 당⁠신⁠은 역⁠사 속 인⁠물⁠에⁠게⁠서 편⁠지⁠를 받⁠는 사⁠람⁠이⁠에⁠요⁠. 첫 편⁠지⁠는 빈⁠센⁠트 반 고⁠흐⁠가 동⁠생 테⁠오⁠에⁠게 보⁠낸 진⁠짜 편⁠지⁠예⁠요⁠. 당⁠신⁠은 테⁠오⁠가 되⁠어 답⁠장⁠을 써⁠요⁠.</string>
+    <string name="ob0_body">이⁠제⁠부⁠터 당⁠신⁠은 역⁠사 속 인⁠물⁠에⁠게⁠서 편⁠지⁠를 받⁠는 사⁠람⁠이⁠에⁠요⁠. %1$s⁠이⁠(⁠가⁠) %2$s⁠에⁠게 보⁠낸 진⁠짜 편⁠지⁠예⁠요⁠. 당⁠신⁠은 %2$s⁠이⁠(⁠가⁠) 되⁠어 답⁠장⁠을 써⁠요⁠.</string>
     <string name="ob0_day">하⁠루⁠는 이⁠렇⁠게 흘⁠러⁠가⁠요 · 5⁠분⁠이⁠면 충⁠분⁠해⁠요</string>
     <string name="ob0_d1">편⁠지 읽⁠기</string>
-    <string name="ob0_d1d">원⁠문⁠과 번⁠역⁠이 나⁠란⁠히⁠. 듣⁠기 단⁠추⁠를 누⁠르⁠면 빈⁠센⁠트 목⁠소⁠리⁠로⁠.</string>
+    <string name="ob0_d1d">원⁠문⁠과 번⁠역⁠이 나⁠란⁠히⁠. 듣⁠기 단⁠추⁠를 누⁠르⁠면 %1$s 목⁠소⁠리⁠로⁠.</string>
     <string name="ob0_d2">낱⁠말 맞⁠추⁠기</string>
     <string name="ob0_d2d">편⁠지⁠에 나⁠온 낱⁠말⁠과 뜻⁠을 짝⁠지⁠어⁠요⁠.</string>
     <string name="ob0_d3">따⁠라 읽⁠기</string>
-    <string name="ob0_d3d">빈⁠센⁠트⁠가 읽⁠는 자⁠리⁠를 따⁠라⁠가⁠고⁠, 소⁠리 내⁠어 읽⁠어⁠요⁠.</string>
+    <string name="ob0_d3d">%1$s⁠이⁠(⁠가⁠) 읽⁠는 자⁠리⁠를 따⁠라⁠가⁠고⁠, 소⁠리 내⁠어 읽⁠어⁠요⁠.</string>
     <string name="ob0_d4">답⁠장 쓰⁠기</string>
-    <string name="ob0_d4d">낱⁠말 별⁠을 순⁠서⁠대⁠로 이⁠어 테⁠오⁠의 답⁠장⁠을 완⁠성⁠해⁠요⁠.</string>
+    <string name="ob0_d4d">낱⁠말 별⁠을 순⁠서⁠대⁠로 이⁠어 %2$s⁠의 답⁠장⁠을 완⁠성⁠해⁠요⁠.</string>
     <string name="ob0_d5">그⁠림 도⁠착</string>
     <string name="ob0_d5d">편⁠지 속 그⁠림⁠과 그 시⁠절 이⁠야⁠기⁠가 갤⁠러⁠리⁠에 쌓⁠여⁠요⁠.</string>
     <string name="ob_start_hello">시⁠작⁠하⁠기</string>
@@ -223,7 +220,6 @@
     <string name="step_read_short">읽⁠기</string>
     <string name="moment_location">%1$s⁠의 위⁠치 공⁠유</string>
     <string name="moment_photo">%1$s⁠의 사⁠진</string>
-    <string name="map_title">빈⁠센⁠트⁠의 아⁠를⁠, 1888</string>
     <string name="quote_save">내 구⁠절⁠에 담⁠기</string>
     <string name="quote_saved">내 구⁠절⁠에⁠서 빼⁠기</string>
     <string name="done_stat_streak">일⁠째 이⁠어 읽⁠기</string>
@@ -326,17 +322,14 @@
     <string name="a11y_record_stop">녹⁠음 멈⁠추⁠기</string>
     <string name="a11y_listen_word">낱⁠말 듣⁠기</string>
     <string name="a11y_listen_slow">느⁠리⁠게 듣⁠기</string>
-    <string name="reward_caps">AUJOURD\'HUI</string>
-    <string name="reward_stamps">+ 우⁠표 %1$d⁠장</string>
+    <string name="reward_caps">오⁠늘</string>
     <string name="reward_alone">이⁠제 %1$d%%⁠를 혼⁠자 읽⁠어⁠요</string>
     <string name="reward_alone_d">익⁠힌 낱⁠말⁠은 편⁠지⁠에⁠서 뜻⁠풀⁠이⁠가 사⁠라⁠져⁠요⁠.</string>
     <string name="reward_item">편⁠지 속 물⁠건⁠이 금⁠빛⁠이 됐⁠어⁠요</string>
-    <string name="reward_gift">기⁠념 우⁠표 ‘%1$s’⁠를 받⁠았⁠어⁠요</string>
     <string name="reward_album">수⁠집 앨⁠범 보⁠기</string>
     <string name="album_cabinet">진⁠열⁠장</string>
     <string name="album_items">물⁠건</string>
     <string name="album_journal">여⁠행⁠기</string>
-    <string name="album_stamps">기⁠념 우⁠표</string>
     <string name="album_progress">진⁠도 · 업⁠적</string>
     <string name="cabinet_gold">금⁠빛 이⁠중 액⁠자 = 그 편⁠지⁠를 혼⁠자 읽⁠을 수 있⁠어⁠요⁠.</string>
     <string name="parcel_title">정⁠기 소⁠포</string>
@@ -358,8 +351,6 @@
     <string name="stage_speak">말⁠하⁠기</string>
     <string name="stage_own">내 것</string>
     <string name="journal_note">편⁠지⁠에 나⁠온 장⁠소⁠가 차⁠요⁠. 다 차⁠면 도⁠시 소⁠인⁠.</string>
-    <string name="stamps_count">기⁠념 우⁠표 %1$d / %2$d</string>
-    <string name="stamps_note">업⁠적⁠마⁠다 한 장⁠씩 받⁠아⁠요⁠.</string>
     <string name="alone_title">혼⁠자 읽⁠기 %1$d%%</string>
     <string name="alone_next">다⁠음 이⁠정⁠표 %1$d%%</string>
     <string name="alone_all">모⁠든 낱⁠말⁠을 혼⁠자 읽⁠어⁠요⁠.</string>
@@ -368,10 +359,7 @@
     <string name="weeks_title">지⁠난 4⁠주 · 이⁠어 읽⁠기 %1$d⁠일 · 최⁠고 %2$d⁠일</string>
     <string name="ach_title">업⁠적 %1$d / %2$d</string>
     <string name="parcel_none">이 작⁠품⁠은 아⁠직 소⁠포⁠가 없⁠어⁠요⁠.</string>
-    <string name="parcel_how">우⁠표 %1$d⁠장 · 달⁠마⁠다 한 번</string>
     <string name="parcel_sent">이⁠번 달⁠은 보⁠냈⁠어⁠요⁠. 다⁠음⁠은 %1$s⁠부⁠터⁠.</string>
-    <string name="parcel_send">보⁠내⁠기 · 우⁠표 %1$d⁠장</string>
-    <string name="parcel_short">우⁠표 %1$d⁠장 더 모⁠으⁠면 돼⁠요⁠.</string>
     <string name="visitor_finish">마⁠치⁠기</string>
     <string name="game_try">그 그⁠림⁠이 아⁠니⁠에⁠요⁠. 다⁠시 들⁠어 봐⁠요⁠.</string>
     <string name="game_again">다⁠시</string>
@@ -380,7 +368,6 @@
     <string name="task_letter">오⁠늘⁠의 편⁠지</string>
     <string name="task_review">오⁠늘⁠의 복⁠습</string>
     <string name="task_visitor">오⁠늘⁠의 손⁠님</string>
-    <string name="tasks_bonus">셋 다 하⁠면 우⁠표 +5</string>
     <string name="gap_3">사⁠흘 뒤</string>
     <string name="gap_7">일⁠주⁠일 뒤</string>
     <string name="gap_16">16⁠일 뒤</string>
@@ -605,7 +592,7 @@
     <string name="opening_piece">오⁠늘⁠의 작⁠품 · 〈%1$s〉 %2$s</string>
     <string name="opening_enter">눌⁠러⁠서 입⁠장⁠하⁠기</string>
     <string name="dl_title">「%1$s」 낭⁠독 · 그⁠림</string>
-    <string name="dl_body">이 장⁠의 낭⁠독⁠(⁠빈⁠센⁠트 목⁠소⁠리⁠)⁠과 그⁠림⁠은 아⁠직 앱⁠에 없⁠어⁠요⁠. 한 번 받⁠아 두⁠면⁠(%1$s) 그⁠다⁠음⁠부⁠터⁠는 인⁠터⁠넷 없⁠이 보⁠고 들⁠려⁠요⁠.</string>
+    <string name="dl_body">이 장⁠의 낭⁠독⁠(%2$s 목⁠소⁠리⁠)⁠과 그⁠림⁠은 아⁠직 앱⁠에 없⁠어⁠요⁠. 한 번 받⁠아 두⁠면⁠(%1$s) 그⁠다⁠음⁠부⁠터⁠는 인⁠터⁠넷 없⁠이 보⁠고 들⁠려⁠요⁠.</string>
     <string name="dl_mobile">지⁠금 모⁠바⁠일 데⁠이⁠터⁠로 연⁠결⁠돼 있⁠어⁠요⁠. 데⁠이⁠터⁠가 넉⁠넉⁠하⁠지 않⁠다⁠면 와⁠이⁠파⁠이⁠에⁠서 받⁠는 게 좋⁠아⁠요⁠.</string>
     <string name="dl_go">받⁠기 · %1$s</string>
     <string name="dl_silent">소⁠리 없⁠이 읽⁠기</string>
@@ -756,7 +743,7 @@
     <string name="spend_frame_hint">갤⁠러⁠리⁠에⁠서 작⁠품⁠을 열⁠고 ‘⁠액⁠자 바⁠꾸⁠기⁠’⁠를 눌⁠러⁠요⁠.</string>
     <string name="spend_border">카⁠드 테⁠두⁠리</string>
     <string name="spend_border_d">작⁠품 카⁠드⁠에 쓰⁠는 테⁠두⁠리 · 한 번 사⁠면 계⁠속</string>
-    <string name="spend_free_note">배⁠움⁠(⁠편⁠지 · 복⁠습 · 힌⁠트⁠)⁠은 우⁠표 없⁠이 늘 열⁠려 있⁠어⁠요⁠. 우⁠표⁠로⁠는 꾸⁠미⁠기⁠와 편⁠의⁠만 사⁠요⁠.</string>
+    <string name="spend_free_note">배⁠움⁠(⁠편⁠지 · 복⁠습 · 힌⁠트⁠)⁠은 늘 무⁠료⁠예⁠요⁠. %1$s 쓰⁠는 곳⁠은 꾸⁠미⁠기⁠와 편⁠의⁠뿐⁠이⁠에⁠요⁠.</string>
     <string name="border_note">가⁠진 테⁠두⁠리⁠는 눌⁠러⁠서 바⁠로 써⁠요⁠.</string>
     <string name="border_on">쓰⁠는 중</string>
     <string name="border_owned">가⁠짐</string>
@@ -829,7 +816,7 @@
     <string name="set_credits_d">편⁠지 · 그⁠림 · 액⁠자 · 메⁠달 · 글⁠꼴 · 목⁠소⁠리</string>
     <string name="set_version">언⁠어 미⁠술⁠관 · 버⁠전 %1$s (%2$d)</string>
     <string name="set_notice_moved">알⁠림⁠은 이⁠제 설⁠정 › 알⁠림⁠에⁠서 정⁠해⁠요⁠.</string>
-    <string name="widget_caps">AUJOURD\'HUI · LETTRE %1$s</string>
+    <string name="widget_caps">오⁠늘 · 편⁠지 %1$s</string>
     <string name="widget_streak">이⁠어 읽⁠기 %1$d⁠일</string>
     <string name="widget_recital">오⁠늘⁠은 낭⁠독⁠회</string>
     <string name="prologue_skip">건⁠너⁠뛰⁠기</string>
@@ -844,7 +831,7 @@
     <string name="catalogue_sub">편⁠지⁠로 모⁠은 그⁠림 · %1$s</string>
     <string name="catalogue_complete">완⁠성⁠: 그⁠림 %2$d⁠점⁠을 모⁠두 모⁠았⁠어⁠요⁠.</string>
     <string name="catalogue_progress">그⁠림 %2$d⁠점 중 %1$d⁠점</string>
-    <string name="cover_prologue">아⁠를 이⁠전</string>
+    <string name="cover_prologue">프⁠롤⁠로⁠그</string>
     <string name="cover_prologue_meta">도⁠슨⁠트 %1$d⁠쪽</string>
     <string name="cover_epilogue">맺⁠음⁠말</string>
     <string name="cover_epilogue_open">마⁠지⁠막 편⁠지⁠와 그⁠의 삶</string>
@@ -899,4 +886,10 @@
     <string name="phrase_where">편⁠지 %1$s · %2$s · %3$d⁠번⁠째 줄</string>
     <string name="phrase_listen">표⁠현 듣⁠기</string>
     <string name="dict_none">아⁠직 받⁠아⁠쓸 낱⁠말⁠이 없⁠어⁠요⁠. 이 폰⁠에 소⁠리⁠가 있⁠는 낱⁠말⁠이 모⁠이⁠면 열⁠려⁠요⁠.</string>
+    <string name="widget_sunday">일⁠요⁠일</string>
+    <string name="story_received">편⁠지 %1$s · 도⁠착</string>
+    <string name="caps_catalogue">도⁠록</string>
+    <string name="caps_milestone">이⁠정⁠표 %1$s</string>
+    <string name="caps_exhibition">전⁠시</string>
+    <string name="caps_resume">이⁠어 읽⁠기</string>
 </resources>
