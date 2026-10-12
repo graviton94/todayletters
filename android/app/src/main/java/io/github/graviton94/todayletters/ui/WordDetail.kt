@@ -70,16 +70,19 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
     val id = w.series.id
     val view = s.room(id)
     val learn = word.text[view.learn]
-    val audio = s.wordAudio(found, view.learn)
+    // 표현 카드는 ph<n> 소리, 없으면 그 문장 낭독에서 표현이 든 마디만 (v22)
+    val sound = remember(key) { if (word.phrase) s.phraseAudio(id, chapter, letter, word, view.learn) else s.wordAudio(found, view.learn).takeIf { it.isNotEmpty() }?.let { it to null } }
+    val audio = sound?.first.orEmpty()
+    fun say(speed: Float = 1f) { sound?.let { (a, rg) -> if (rg != null) s.narrator.playRange(a, rg.first, rg.last, speed) else s.narrator.play(a, speed) } }
     val card = remember(key, s.version) { s.cardMap()[key] }
     val letters = w.chapters.flatMap { it.letters }
     val n = letters.indexOf(letter) + 1  // 0: 프롤로그의 낱말
     val listenA11y = stringResource(R.string.a11y_listen_word)
     val slowA11y = stringResource(R.string.a11y_listen_slow)
-    LaunchedEffect(key) { s.narrator.play(audio) }
+    LaunchedEffect(key) { say() }
     // 그 낱말이 나온 문장 (편지 속 꼴로 찾는다)
     val stem = Breaks.plain(learn).substringBefore(" (").substringBefore(",").trim().lowercase()
-    val mi = letter.messages.indexOfFirst { Breaks.plain(it.text[view.learn]).lowercase().contains(stem.take(maxOf(3, stem.length - 2))) }
+    val mi = if (word.phrase && word.msg in letter.messages.indices) word.msg else letter.messages.indexOfFirst { Breaks.plain(it.text[view.learn]).lowercase().contains(stem.take(maxOf(3, stem.length - 2))) }
         .takeIf { it >= 0 || view.learn != w.learnVocab }
         ?: letter.messages.indexOfFirst { m -> wordMarks(m.text[view.learn], word.forms).isNotEmpty() }
     Box(Modifier.fillMaxSize().background(p.paper).statusBarsSafe().navigationBarsSafe()) {
@@ -98,11 +101,11 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
                         if (word.phrase) Capsule(stringResource(R.string.phrase_card))
                         if (word.level.isNotEmpty()) LevelPill(word.level)
                     }
-                    Text(learn, style = Type.display.copy(fontFamily = Faces.display).of(view.learn), color = p.ink)
+                    Text(if (word.phrase) io.github.graviton94.todayletters.core.Quote.wrap(learn, view.learn) else learn, style = Type.display.copy(fontFamily = Faces.display).of(view.learn), color = p.ink)
                     word.note?.let { Text(it[uiLang()], style = Type.small.ui(), color = p.inkSoft) }
                     if (audio.isNotEmpty() || word.ipa.isNotEmpty()) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                        if (audio.isNotEmpty()) Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
-                        if (audio.isNotEmpty()) Box(Modifier.heightIn(min = 48.dp).semantics { contentDescription = slowA11y }.pressable { s.narrator.play(audio, speed = 0.7f) }, contentAlignment = Alignment.Center) { Capsule("0.7×") }
+                        if (audio.isNotEmpty()) Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { say() }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
+                        if (audio.isNotEmpty()) Box(Modifier.heightIn(min = 48.dp).semantics { contentDescription = slowA11y }.pressable { say(0.7f) }, contentAlignment = Alignment.Center) { Capsule("0.7×") }
                         if (word.ipa.isNotEmpty() && view.learn == w.learnVocab) Text("[${word.ipa}]" + if (word.pos.isNotEmpty()) " · ${word.pos}" else "", style = Type.small, color = p.inkSoft)
                     }
                     Text(word.text[view.read], style = Type.title.of(view.read), color = p.ink)
@@ -160,7 +163,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
                 }
                 Box(Modifier.weight(1f)) {
                     Primary(stringResource(R.string.word_say), small = true) {
-                        if (card != null) { onClose(); s.go(Route.Session(ReviewKind.SPEAK, only = listOf(key))) } else s.narrator.play(audio)
+                        if (card != null) { onClose(); s.go(Route.Session(ReviewKind.SPEAK, only = listOf(key))) } else say()
                     }
                 }
             }

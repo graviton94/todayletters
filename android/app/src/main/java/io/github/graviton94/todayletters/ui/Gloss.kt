@@ -10,6 +10,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.height
+import androidx.compose.ui.graphics.Color
+import io.github.graviton94.todayletters.core.Breaks
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -58,7 +61,7 @@ fun LevelPill(level: String) {
 /**
  * 눌러서 뜻 보기: 편지 원문의 낱말 하나를 누르면 아래에 작은 카드.
  * 표제어 · 등급 · 발음기호 · 뜻(앱 글자 언어) · Tatoeba 예문(작성자 표기) · 카드에 담기 (기능어는 뜻만).
- * 낱말 낭독은 그 편지에 그 낱말의 녹음(w<i>_<언어>)이 있을 때만 (기기 TTS 는 쓰지 않는다).
+ * 낱말 낭독은 그 낱말의 녹음(w<i>_<언어> · 오늘의 낱말 v_<언어>_<slug>)이 이 기기에 있을 때만 (기기 TTS 는 쓰지 않는다).
  */
 @Composable
 fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key: String, top: Boolean = false, onClose: () -> Unit) {
@@ -70,7 +73,8 @@ fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key
     // 뜻은 앱 글자 언어로. 배우는 말이 바로 그 언어면 다른 하나로
     val ui = Vocab.glossLang(uiLang(), original)
     val word = remember(series, letter.id, key, original) { Vocab.match(e, letter.source, original, work.series.original) }
-    val audio = word?.let { s.wordAudio(series, chapter, letter, it, original) }.orEmpty()
+    // 챕터 낱말의 녹음이 없으면 오늘의 낱말 소리 (v_<언어>_<slug>) 로
+    val audio = remember(series, letter.id, key, original) { s.wordAudio(series, chapter, letter, word ?: Vocab.word(e, original), original, work) }
     val has = remember(series, key, s.version) { s.hasLex(series, e.key) }
     val ownKey = s.ownKey(series, chapter, letter, e.key)
     var later by remember(key) { mutableStateOf(false) }
@@ -140,7 +144,8 @@ fun PhraseCards(s: AppState, r: Route.Play, onFinish: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
             PracticeTitle(deco(work.series.original, "EXPRESSIONS", "AUSDRÜCKE"), stringResource(R.string.phrase_title))
-            letter.phrases.forEach { ph -> PhraseCard(ph, original, tr) }
+            val (chapter, _) = s.letterOf(r.room)
+            letter.phrases.forEach { ph -> PhraseCard(s, r.room.series, chapter, letter, ph, original, tr) }
             Text(stringResource(R.string.phrase_note), style = Type.small.ui(), color = p.inkSoft)
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
@@ -149,17 +154,46 @@ fun PhraseCards(s: AppState, r: Route.Play, onFinish: () -> Unit) {
     }
 }
 
-/** 표현 카드 한 장. */
+/**
+ * 표현 카드 한 장 (v22): 표현 (배우는 말의 따옴표로) · 번역 · 쓰임 설명 · 듣기, 그리고 그 표현이 나온 편지 문장(번역과 함께)과
+ * 자리 (편지 번호 · 날짜 · 몇 번째 줄). 소리는 ph<n>_<언어>, 없으면 낭독에서 그 표현이 든 마디만.
+ */
 @Composable
-fun PhraseCard(ph: Word, original: Lang, tr: Lang) {
+fun PhraseCard(s: AppState, series: String, chapter: String, letter: Letter, ph: Word, original: Lang, tr: Lang) {
     val p = Ink.palette
+    val w = s.work(series)
+    val sound = remember(series, letter.id, ph, original) { s.phraseAudio(series, chapter, letter, ph, original) }
+    val listen = stringResource(R.string.phrase_listen)
     Slip(seed = ph.hashCode(), modifier = Modifier.fillMaxWidth()) {
         Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Caps(stringResource(R.string.phrase_card), p.giltText, small = true)
-            Text("„${ph.text[original]}“".let { if (original == Lang.FR) "« ${ph.text[original]} »" else it },
-                style = Type.title.copy(fontFamily = Faces.display).of(original), color = p.slipInk)
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                Text(io.github.graviton94.todayletters.core.Quote.wrap(ph.text[original], original),
+                    style = Type.title.copy(fontFamily = Faces.display).of(original), color = p.slipInk, modifier = Modifier.weight(1f))
+                if (sound != null) SpeakerButton(s.narrator.now == sound.first, listen) {
+                    if (s.narrator.now == sound.first) s.narrator.stop()
+                    else sound.second?.let { rg -> s.narrator.playRange(sound.first, rg.first, rg.last) } ?: s.narrator.play(sound.first)
+                }
+            }
             Text(ph.text[tr], style = Type.heading.of(tr), color = p.slipInk)
             ph.note?.get(uiLang())?.takeIf { it.isNotEmpty() }?.let { Text(it, style = Type.small.ui(), color = p.slipSoft) }
+            // 나온 문장 · 자리
+            letter.messages.getOrNull(ph.msg)?.let { m ->
+                Box(Modifier.fillMaxWidth().height(1.dp).background(p.slipSoft.copy(alpha = 0.3f)))
+                Text(stringResource(R.string.phrase_example), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.slipSoft)
+                val line = m.text[original]
+                val at = Breaks.plain(line).lowercase().indexOf(Breaks.plain(ph.text[original]).lowercase())
+                val marked = androidx.compose.ui.text.buildAnnotatedString {
+                    val plain = Breaks.plain(line)
+                    append(plain)
+                    if (at >= 0) addStyle(androidx.compose.ui.text.SpanStyle(background = Color(0x55D2A955)), at, (at + Breaks.plain(ph.text[original]).length).coerceAtMost(plain.length))
+                }
+                Text(marked, style = Type.base.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic).of(original), color = p.slipInk)
+                if (tr != original) Text(m.text[tr], style = Type.small.of(tr), color = p.slipSoft)
+                val n = w.chapters.flatMap { it.letters }.indexOf(letter) + 1
+                Text(stringResource(R.string.phrase_where, if (n > 0) roman(n) else "P", dateLine(letter.date, letter.place), ph.msg + 1),
+                    style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.slipSoft)
+            }
         }
     }
 }
@@ -198,6 +232,8 @@ fun GlossText(
     text: androidx.compose.ui.text.AnnotatedString, style: androidx.compose.ui.text.TextStyle,
     modifier: Modifier = Modifier, color: androidx.compose.ui.graphics.Color = androidx.compose.ui.graphics.Color.Unspecified,
     maxLines: Int = Int.MAX_VALUE, textAlign: androidx.compose.ui.text.style.TextAlign? = null,
+    /** [text] 가 메시지의 한 토막이면: 메시지 전체 글 [full] 과 그 안에서 [text] 가 시작하는 자리 [offset] (토큰은 전체 글에 맞춘다). */
+    full: String? = null, offset: Int = 0,
 ) {
     val tokens = remember(series, letter.id, msg, s.room(series).learn, s.work(series).deck) { s.glossTokens(series, letter.id, msg) }
     if (tokens.isNullOrEmpty()) {
@@ -205,7 +241,10 @@ fun GlossText(
             overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
         return
     }
-    val ranges = remember(text.text, tokens) { Vocab.align(text.text, tokens) }
+    val ranges = remember(text.text, tokens, full, offset) {
+        if (full == null) Vocab.align(text.text, tokens)
+        else Vocab.align(full, tokens).map { r -> if (r.isEmpty() || r.first < offset || r.last >= offset + text.length) IntRange.EMPTY else (r.first - offset)..(r.last - offset) }
+    }
     val picked = s.gloss?.takeIf { it.series == series && it.letter.id == letter.id && it.msg == msg }?.let { ranges.getOrNull(it.token) }
     val shown = remember(text, picked) {
         if (picked == null || picked.isEmpty()) text else androidx.compose.ui.text.AnnotatedString.Builder(text).apply {

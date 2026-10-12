@@ -118,18 +118,13 @@ fun WordsTab(s: AppState) {
     val due = s.dueCards()
     val sample = (0..Memory.TOP).map { b -> cards.firstOrNull { it.box == b }?.let { s.cardWord(it.key) }?.let { (w, _, word) -> word.text[s.room(w.series.id).learn] } }
     Column(Modifier.fillMaxSize()) {
-        Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s5, end = Tokens.Space.s1, top = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
-            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                Caps("Mémoire", p.giltText, decorative = true)
-                Text(stringResource(R.string.cards_title), style = Type.title.ui(), color = p.ink)
-                Text(stringResource(R.string.words_count, cards.size), style = Type.small.ui(), color = p.inkSoft)
-            }
-            IconButton(stringResource(R.string.settings), onClick = { s.settingsOpen = true }) { Gear(p.ink) }
-        }
+        // 맨 위 줄은 다른 이름표와 같이 (‹ 서재 · (?) · ⚙ · 배우는 말 · 화폐)
+        SeriesHeader(s, stringResource(R.string.cards_title), deco(s.currentWork.series.original, "MÉMOIRE", "GEDÄCHTNIS"))
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
+            Text(stringResource(R.string.words_count, cards.size), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(horizontal = Tokens.Space.s2))
             // 성장 곡선 여섯 단계: 만남 → 알아보기 → 떠올리기 → 쓰기 → 말하기 → 내 것 (단계마다 카드 묶음)
             listOf(0..2, 3..5).forEach { range ->
                 Row(Modifier.fillMaxWidth()) {
@@ -271,6 +266,8 @@ fun Session(s: AppState, r: Route.Session) {
     var shakeKey by remember { mutableIntStateOf(0) }
     // 다시 듣기를 누를수록 힌트가 조금씩: 1번째 첫 글자, 2번째 문장 힌트, 그 뒤로 한 글자씩 (마지막 한 글자는 남김)
     var replays by remember { mutableIntStateOf(0) }
+    // 힌트를 받고 맞혔는가 (맞음으로 치되 알려 준다)
+    var hinted by remember { mutableStateOf(false) }
     // 글자판: 특수 문자를 고를 때는 시스템 키보드를 내리고 그 자리에 큰 글자판
     var pad by remember { mutableStateOf(false) }
     // 문장 받아쓰기: 맞힌 낱말은 잠그고 (초록), 틀린 낱말만 다시 쓴다. 다 끝나면 낱말마다 쓴 것
@@ -284,7 +281,18 @@ fun Session(s: AppState, r: Route.Session) {
     fun showPad() { keyboard?.hide(); pad = true }
     fun put(t: String) { typed = TextFieldValue(t, TextRange(t.length)) }
 
-    if (questions.isEmpty()) { LaunchedEffect(Unit) { s.back() }; return }
+    // 낼 문제가 없으면 (카드가 없거나, 듣고 쓰기인데 소리 있는 낱말이 없으면) 왜 비었는지 알려 주고 돌아가기
+    if (questions.isEmpty()) {
+        BackHandler { s.back() }
+        Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f)) {
+            PracticeHeader(0, 1, onClose = { s.back() })
+            Box(Modifier.weight(1f).fillMaxWidth().padding(Tokens.Space.s5), contentAlignment = Alignment.Center) {
+                if (r.kind == ReviewKind.DICTATION && s.cards().isNotEmpty()) EmptyState(stringResource(R.string.kind_dictation), stringResource(R.string.dict_none), stringResource(R.string.back)) { s.back() }
+                else EmptyState(stringResource(R.string.empty_words_t), stringResource(R.string.empty_words_b), stringResource(R.string.today_open)) { s.go(Route.Inbox) }
+            }
+        }
+        return
+    }
     if (at >= questions.size) { LaunchedEffect(Unit) { s.store.clearSession(sessionName) }; SessionResult(s, r, results); return }
     val q = questions[at]
     // 이름표의 번호: 그 낱말이 나온 편지 (N° 027 · LETTRE I)
@@ -332,6 +340,18 @@ fun Session(s: AppState, r: Route.Session) {
         } else judge(Memory.Mark.WRONG)
     }
 
+    /**
+     * 낱말 받아쓰기 채점 (v22): 다시 듣기로 보여 준 힌트 글자는 화면에 이미 적힌 것이라, 그 뒤만 써도 맞은 것.
+     * 힌트(글자 · 문장)를 받고 맞히면 맞음 (‘힌트를 받았어요’라고 알려 줄 뿐, 틀림으로 치지 않는다).
+     */
+    fun check() {
+        val answer = Breaks.plain(q.word)
+        val shownHint = ((if (replays >= 1) 1 else 0) + (replays - 2).coerceAtLeast(0)).coerceAtMost((answer.length - 1).coerceAtLeast(0))
+        val g = Memory.gradeHinted(q.word, typed.text, shownHint)
+        if (g == Memory.Mark.WRONG) miss(null) else { hinted = shownHint > 0 || hint; judge(g) }
+    }
+
+
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f).imePadding()) {
         PracticeHeader(at, questions.size, onClose = { asking = true })
         // 키보드가 올라오면 위쪽을 한 줄로 접는다 (듣기 · 0.7× · 안내), 확인은 키보드 바로 위
@@ -355,7 +375,15 @@ fun Session(s: AppState, r: Route.Session) {
                     compact, focus, onPlay = { playPhrase(it) }, onTap = { showKeyboard() },
                     onDone = { /* 확인 단추로 */ },
                 ) else {
-                    fun replay() { if (mark == null) { replays++; if (replays >= 2) hint = true } }
+                    fun replay() {
+                        if (mark != null) return
+                        replays++; if (replays >= 2) hint = true
+                        // 힌트 글자는 칸에 바로 적어 준다 (그 뒤부터 이어 쓰면 된다)
+                        val ans = Breaks.plain(q.word)
+                        val n = ((if (replays >= 1) 1 else 0) + (replays - 2).coerceAtLeast(0)).coerceAtMost((ans.length - 1).coerceAtLeast(0))
+                        val pre = ans.take(n)
+                        if (n > 0 && pre.startsWith(typed.text, ignoreCase = true)) put(pre)
+                    }
                     val listenLabel = stringResource(R.string.a11y_listen_word); val slowLabel = stringResource(R.string.a11y_listen_slow)
                     if (compact) Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
                         Box(Modifier.size(52.dp).background(p.fill, CircleShape).semantics { contentDescription = listenLabel }.pressable { s.narrator.play(q.audio); replay() }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.onFill, 22.dp) }
@@ -416,7 +444,7 @@ fun Session(s: AppState, r: Route.Session) {
                         typed, { if (mark == null) typed = it.copy(text = it.text.take(answer.length + 2)) },
                         singleLine = true, textStyle = Type.body.copy(color = Color.Transparent), cursorBrush = SolidColor(Color.Transparent),
                         keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.None, autoCorrectEnabled = false, imeAction = ImeAction.Done),
-                        keyboardActions = KeyboardActions(onDone = { if (mark == null && typed.text.isNotBlank()) judge(Memory.grade(q.word, typed.text)) }),
+                        keyboardActions = KeyboardActions(onDone = { if (mark == null && !retry && typed.text.isNotBlank()) check() }),
                         modifier = Modifier.size(1.dp).focusRequester(focus),
                     )
                     if (!compact) Text(listOfNotNull(q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, stringResource(R.string.dict_letters, answer.count { it != ' ' })).joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
@@ -502,7 +530,7 @@ fun Session(s: AppState, r: Route.Session) {
             val ok = mark != Memory.Mark.WRONG
             if (r.kind == null && r.only == null) s.answer(q.card, ok)   // 기억 칸은 오늘의 복습에서만 움직인다 (따로 연습 · 다시 하기는 기록하지 않음)
             results = results + (q to ok)
-            mark = null; picked = null; typed = TextFieldValue(""); hint = false; pad = false; replays = 0
+            mark = null; picked = null; typed = TextFieldValue(""); hint = false; pad = false; replays = 0; hinted = false
             locked = emptyMap(); wrongShown = emptyMap(); finalTyped = emptyMap(); accentWord = null
             tries = 0; retry = false; missed = emptySet()
             at++
@@ -530,7 +558,7 @@ fun Session(s: AppState, r: Route.Session) {
             )
             mark == Memory.Mark.WRONG -> FeedbackBar(false, stringResource(R.string.practice_answer), detail, nextLabel, ::next)
             mark != null -> FeedbackBar(true,
-                if (mark == Memory.Mark.RIGHT) stringResource(R.string.review_right) else stringResource(R.string.review_accent, accentWord ?: q.word),
+                if (mark == Memory.Mark.RIGHT) stringResource(if (hinted) R.string.review_right_hint else R.string.review_right) else stringResource(R.string.review_accent, accentWord ?: q.word),
                 detail, nextLabel, ::next)
             q.kind == ReviewKind.DICTATION && q.phrase != null -> Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
                 Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank()) {
@@ -560,10 +588,7 @@ fun Session(s: AppState, r: Route.Session) {
                 }
             }
             q.kind == ReviewKind.DICTATION -> Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-                Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank()) {
-                    val g = Memory.grade(q.word, typed.text)
-                    if (g == Memory.Mark.WRONG) miss(null) else judge(g)
-                }
+                Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank()) { check() }
             }
         }
     }
@@ -844,13 +869,15 @@ private fun quoteRef(k: String): QuoteRef? = k.split(":").takeIf { it.size == 4 
 private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? = null, quote: String? = null): List<Q> {
     val cards = s.cards()
     val only = quote?.let { quoteRef(it) }
+    // 한 가지씩 연습이면 (소리 없는 낱말을 건너뛰고도) 하루 몫만큼 채우도록 전부 보고 뒤에서 자른다
+    val practice = only == null && keys.isNullOrEmpty() && kind != null
     val pool = if (only != null) cards.filter { it.key in (keys ?: emptyList()) }
         else keys?.mapNotNull { k -> cards.firstOrNull { it.key == k } }?.takeIf { it.isNotEmpty() }
-        ?: if (kind == null) s.dueCards() else cards.sortedWith(compareBy({ it.box }, { it.due })).take(Memory.DAILY)
+        ?: if (kind == null) s.dueCards() else cards.sortedWith(compareBy({ it.box }, { it.due }))
     val all = s.cards().mapNotNull { c -> s.cardWord(c.key) }
     val saved = s.store.quotes.mapNotNull { quoteRef(it) }
     var fromQuotes = 0
-    return pool.mapNotNull { card ->
+    return pool.asSequence().mapNotNull { card ->
         val found = s.cardWord(card.key) ?: return@mapNotNull null
         val (w, cl, word) = found
         val (ch, l) = cl
@@ -880,27 +907,34 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         val plainFull = Breaks.plain(typeWord)
         val typeFrom = plainFull.indexOf(dictSense).coerceAtLeast(0)
         if (k == ReviewKind.BLANK && formInText == null) k = ReviewKind.MEANING
-        val sentenceAudio = if (hit >= 0) s.narrator.path(w.series.id, ch, l.id, "m${hit + 1}_${view.learn.code}") else null
+        // 소리는 이 기기에 있는 것만 (앱 밖 장을 아직 받지 않았으면 없음)
+        val sentenceAudio = if (hit >= 0) s.narrator.path(w.series.id, ch, l.id, "m${hit + 1}_${view.learn.code}").takeIf { io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, it) } else null
+        val wordSound = s.wordAudio(found, view.learn)
         // 문장 받아쓰기: 낭독 마디 가운데 이 낱말이 든 짧은 마디 (마디 시각이 있는 낭독만)
         val phrase = if (k == ReviewKind.DICTATION && card.box >= 4 && view.learn != Lang.KO && sentenceAudio != null)
             s.narrator.chunks(sentenceAudio).firstOrNull { c ->
                 val n = c.text.trim().split(Regex("\\s+")).size
                 n in 3..9 && c.end > c.start && wordMarks(c.text, senses).isNotEmpty()
             } else null
+        // 듣고 쓰기는 소리가 있어야 한다 (v22): 낱말 소리도 문장 마디도 없으면 건너뛴다 (오늘의 복습이면 다른 꼴로)
+        if (k == ReviewKind.DICTATION && phrase == null && wordSound.isEmpty()) {
+            if (kind == ReviewKind.DICTATION) return@mapNotNull null
+            k = if (formInText != null) ReviewKind.BLANK else ReviewKind.MEANING
+        }
         // 듣고 쓰기는 첫 뜻 하나만 (“flower, blossom” → flower): 쉼표 · 괄호까지 치지 않게
         val answerWord = when (k) { ReviewKind.BLANK -> formInText!!; ReviewKind.DICTATION, ReviewKind.SPEAK -> dictSense; else -> learnWord }
         val others = all.filter { it.word != word }.map { it.word.text[if (k == ReviewKind.MEANING) view.read else view.learn] }
             .distinct().filter { it != answerWord && it != word.text[view.read] }.shuffled(java.util.Random(card.key.hashCode().toLong())).take(3)
         val right = if (k == ReviewKind.MEANING) word.text[view.read] else answerWord
         Q(card, k, answerWord, word.text[view.read], if (view.learn == w.learnVocab) word.ipa else "",
-            s.wordAudio(found, view.learn),
+            wordSound,
             sentenceLearn, l.messages.getOrNull(hit)?.text?.get(view.read), sentenceAudio,
             (others + right).shuffled(java.util.Random(card.key.hashCode().toLong() + 7)), view.learn, view.read,
             full = if (k == ReviewKind.DICTATION) plainFull else answerWord, typeFrom = if (k == ReviewKind.DICTATION) typeFrom else 0, inText = formInText,
             phrase = phrase?.text?.trim()?.split(Regex("\\s+")), range = phrase?.let { it.start..it.end },
             letterNo = roman(w.chapters.flatMap { it.letters }.indexOf(l) + 1), date = l.date, place = l.place, plate = l.plate?.image.orEmpty(),
             fromQuote = mine != null, series = w.series.id, chapter = ch, letter = l, msg = hit)
-    }
+    }.let { if (practice) it.take(Memory.DAILY) else it }.toList()
 }
 
 /**
