@@ -126,19 +126,6 @@ fun Room(s: AppState, r: Route.Letter) {
 
     fun stopAll() { all?.cancel(); all = null; s.narrator.stop(); playing = null; Playback.end(appCtx) }
     /**
-     * 조각 하나 듣기: 이것도 낭독 세션으로 (알림창 · 잠금 화면 · 이어폰 단추에 재생/멈춤 · 이전/다음, v22).
-     * 알림에서 ‘다음’을 누르면 다음 조각으로 이어진다 (쓰인 조각까지).
-     */
-    fun speak(i: Int) {
-        if (playing == i) { stopAll(); return }
-        stopAll(); muted = false
-        all = scope.launch {
-            say(i, i + 1, extend = true, mark = false)
-            all = null
-            Playback.end(appCtx)
-        }
-    }
-    /**
      * [from] 번째부터 [until] 앞까지 차례로 읽는다. 멈춰 두면 기다리고, 단추로 앞뒤 문장을 오간다.
      * [extend] 면 ‘다음’ 단추로 [until] 너머(쓰인 조각까지)로도 간다. [mark] 면 듣다 멈춘 자리를 남긴다.
      */
@@ -159,6 +146,19 @@ fun Room(s: AppState, r: Route.Letter) {
             if (extend && j == 1 && k >= end && k < written) end = k + 1
         }
         if (playing != null) playing = null
+    }
+    /**
+     * 조각 하나 듣기: 이것도 낭독 세션으로 (알림창 · 잠금 화면 · 이어폰 단추에 재생/멈춤 · 이전/다음, v22).
+     * 알림에서 ‘다음’을 누르면 다음 조각으로 이어진다 (쓰인 조각까지).
+     */
+    fun speak(i: Int) {
+        if (playing == i) { stopAll(); return }
+        stopAll(); muted = false
+        all = scope.launch {
+            say(i, i + 1, extend = true, mark = false)
+            all = null
+            Playback.end(appCtx)
+        }
     }
     fun speakAll(from: Int = 0, after: (() -> Unit)? = null) {
         if (all != null) { stopAll(); return }
