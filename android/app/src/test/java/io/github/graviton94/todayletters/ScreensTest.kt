@@ -62,9 +62,11 @@ class ScreensTest {
 
     private val ctx: Context get() = ApplicationProvider.getApplicationContext()
 
-    private fun state(onboarded: Boolean): AppState {
+    /** [tutorial] 이면 처음 설치의 튜토리얼 중 (서재 강조 · 걸음마다 안내 한 줄). 아니면 마친 것으로 (예전 화면 사진 그대로). */
+    private fun state(onboarded: Boolean, tutorial: Boolean = false): AppState {
         ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().clear().commit()
         if (onboarded) Store(ctx).onboarded = true
+        if (onboarded && !tutorial) Store(ctx).tutorialDone = true
         val s = AppState(ctx, deepLink = false)
         s.update(s.app.copy(pace = TypingPace.INSTANT))
         // 편지 도착 연출(2단계 D1)은 따로 찍는다: 다른 편지 방 사진에서는 이미 본 것으로
@@ -377,11 +379,12 @@ class ScreensTest {
         shot("62_word_detail_light", false, series = s) { io.github.graviton94.todayletters.ui.WordDetailBody(s, key) { } }
     }
     /** 1단계 F7: 오늘 화면의 ‘기억 확인’ (오래전 내 것 낱말). */
+    /** 기억 확인은 복습 탭으로 옮겼다 (오늘은 여정 하나). */
     @Test fun todaySurprise() {
         val s = loopState()
         val l = s.work("vincent").chapters.first().letters.first()
         s.store.save(io.github.graviton94.todayletters.core.Card(s.cardKey("vincent", "I", l.id, 1), box = 5, due = s.today + 30, seen = 8, last = s.today - 40))
-        shot("63_today_surprise_light", false, 2000, series = s) { Inbox(s) }
+        shot("63_review_surprise_light", false, 2000, series = s) { WordsTab(s) }
     }
     // ── 2단계: 진행 줄 · 편지 도착 · 문장 받아쓰기 · 내 구절 ──
     /** U1: 펼친 걸음 목록 (읽기 끝 · 지금 낱말 맞추기). */
@@ -455,7 +458,7 @@ class ScreensTest {
     /** E5: 작품 카드 (테두리 소인). */
     @Test fun artCard() {
         val s = engineState(); s.reward = null
-        s.store.addBorder("POSTMARK"); s.store.border = "POSTMARK"
+        s.store.addBorder("vincent", "POSTMARK"); s.store.setBorder("vincent", "POSTMARK")
         val w = s.work("vincent"); val l = w.chapters[2].letters[0]
         shot("72_art_card_light", false, series = s) { io.github.graviton94.todayletters.ui.ArtCardSheet(s, w, l, l.messages[1]) { } }
     }
@@ -594,8 +597,8 @@ class ScreensTest {
     @Test fun mozartArrival() { val s = state(true); shot("m07_prologue_arrival", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 3)) } }
     @Test fun mozartOutro() { val s = state(true); mozartDone(s); shot("m08_outro", true, 3000) { io.github.graviton94.todayletters.ui.OutroScreen(s, "mozart") } }
     @Test fun mozartCover() { val s = state(true); shot("m09_cover", false, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "mozart") } }
-    /** 모차르트에 처음 들어갈 때: 무엇을 배울지 (처음 소개와 같은 장). */
-    @Test fun mozartWelcome() { val s = state(true); shot("m10_welcome", true, series = s.also { it.enter("mozart") }) { io.github.graviton94.todayletters.ui.LearnChoice(s, s.work("mozart")) { } } }
+    /** 모차르트에 처음 들어갈 때 (튜토리얼 뒤): 배울 말만 고르는 시트 → 바로 편지 I. */
+    @Test fun mozartWelcome() { val s = state(true); shot("m10_welcome", true, series = s.also { it.enter("mozart") }) { io.github.graviton94.todayletters.ui.WelcomeSheet(s, "mozart") } }
     /** 오늘: 편지 카드의 단추 하나 · 장마다 읽은 수 줄의 글자 링크 · 번역 줄. */
     @Test fun mozartToday() { val s = state(true); s.enter("mozart"); shot("m11_today", true, series = s) { io.github.graviton94.todayletters.ui.Inbox(s) } }
     /** 편지 도착: 첫 줄이 다 쓰인 뒤 (아래 ‘편지 읽기’ 단추). */
@@ -661,5 +664,70 @@ class ScreensTest {
                 io.github.graviton94.todayletters.ui.GlossHost(s)
             }
         }
+    }
+
+    // ── 흐름 개편: 튜토리얼 · 오늘의 여정 · 건너뛰기 ──
+    /** 튜토리얼 1: 환영 한 장. */
+    @Test fun tutorialWelcome() { val s = state(false); shot("t01_welcome_ko_light", false) { Onboarding(s) } }
+    /** 튜토리얼 2: 서재, 빈센트 카드 강조 + 카드 안에서 배울 말 고르기. */
+    @Test fun tutorialLibrary() { val s = state(true, tutorial = true); shot("t02_library_tutorial_ko_light", false) { LibraryTab(s) } }
+    @Test fun tutorialLibraryDark() { val s = state(true, tutorial = true); shot("t02b_library_tutorial_ko_dark", true) { LibraryTab(s) } }
+    /** 튜토리얼 3: 편지 I 의 읽기 걸음, 안내 한 줄. */
+    @Test fun tutorialRoom() {
+        val s = state(true, tutorial = true)
+        s.startTutorial(s.seriesSettings("vincent").learn)
+        shot("t03_room_guide_ko_light", false, 6000, series = s) { Room(s, Route.Letter("vincent", 1, 1, Route.Inbox)) }
+    }
+    /** 도착 한 장: 위에 그림, 아래에 첫 줄이 쓰이는 중. */
+    @Test fun arrivalOne() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters.first()
+        shot("t04_arrival_one", false, 1800, series = s) { io.github.graviton94.todayletters.ui.ArrivalBody(s, "vincent", "I", l, 1, { }) }
+    }
+    /** 튜토리얼 4: 낱말 맞추기의 안내 한 줄과 ‘건너뛰기’. */
+    @Test fun tutorialMatchSkip() {
+        val s = state(true, tutorial = true)
+        s.store.markGuideSeen("read")
+        shot("t05_match_skip_ko_light", false, series = s) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.MATCH)) }
+    }
+    /** 따라 읽기 걸음: 안내 한 줄 (녹음만 해도 통과) · 건너뛰기. */
+    @Test fun tutorialAloudSkip() {
+        val s = state(true, tutorial = true)
+        shot("t06_aloud_skip_ko_dark", true, series = s) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.ALOUD)) }
+    }
+    /** 오늘의 여정: 편지는 마침 (따라 읽기 · 답장은 건너뜀), 복습은 다섯 중 둘, 완료는 아직. */
+    private fun journeyState(): AppState {
+        val s = withCards()
+        val l = s.work("vincent").chapters.first().letters.first()
+        s.store.markStarted(s.key("vincent", "I", l.id)); s.store.markOpened(s.space("vincent"))
+        s.save("vincent", "I", l.id, io.github.graviton94.todayletters.core.LetterProgress(shown = l.messages.size, replied = setOf(ReplyMode.MATCH),
+            skipped = setOf(ReplyMode.ALOUD, ReplyMode.CONSTELLATION), done = true))
+        val keys = s.dueCards("vincent").map { it.key }
+        s.store.saveSession(s.reviewSession("vincent"), Store.SavedSession(s.today, keys, 2.coerceAtMost(keys.size), List(2.coerceAtMost(keys.size)) { true }))
+        s.reward = null
+        return s
+    }
+    @Test fun todayJourney() { val s = journeyState(); shot("t07_today_journey_ko_light", false, 2000, series = s) { Inbox(s) } }
+    @Test fun todayJourneyDark() { val s = journeyState(); shot("t07b_today_journey_ko_dark", true, 2000, series = s) { Inbox(s) } }
+    /** 첫날: 편지를 마쳤고 복습할 카드가 아직 없음 → 여정 완료 (보너스 · 편지 그림). */
+    @Test fun todayJourneyDone() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters.first()
+        s.store.markStarted(s.key("vincent", "I", l.id)); s.store.markOpened(s.space("vincent"))
+        s.save("vincent", "I", l.id, io.github.graviton94.todayletters.core.LetterProgress(shown = l.messages.size, replied = setOf(ReplyMode.MATCH, ReplyMode.ALOUD, ReplyMode.CONSTELLATION), done = true))
+        s.reward = null
+        shot("t08_today_journey_done_ko_light", false, 2000, series = s) { Inbox(s) }
+    }
+    /** 복습 탭: 오늘의 복습 (이 작품만) · 자유 연습 · 다시 하기 (건너뛴 걸음). */
+    @Test fun reviewRedo() { val s = journeyState(); shot("t09_review_redo_ko_light", false, 2000, series = s) { WordsTab(s) } }
+    /** 편지 방: 다 읽은 편지의 걸음 목록에 ‘다시 하기’ (건너뛴 걸음). */
+    @Test fun roomRedo() { val s = journeyState(); shot("t10_room_redo_ko_light", false, 4000, series = s) { Room(s, Route.Letter("vincent", 1, 1, Route.Inbox)) } }
+    /** 튜토리얼 끝: 편지 I 완료 위에 “이제 혼자서도 괜찮아요”. */
+    @Test fun graduate() {
+        val s = state(true, tutorial = true)
+        val l = s.work("vincent").chapters.first().letters.first()
+        s.save("vincent", "I", l.id, io.github.graviton94.todayletters.core.LetterProgress(shown = l.messages.size, replied = setOf(ReplyMode.MATCH), skipped = setOf(ReplyMode.ALOUD, ReplyMode.CONSTELLATION), done = true))
+        s.reward = null
+        shot("t11_graduate_ko_light", false, 4000, series = s) { Done(s, Route.Letter("vincent", 1, 1)) }
     }
 }

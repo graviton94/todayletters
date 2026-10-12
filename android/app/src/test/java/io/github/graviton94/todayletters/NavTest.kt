@@ -29,50 +29,127 @@ class NavTest {
 
     private val ctx: Context get() = ApplicationProvider.getApplicationContext()
 
-    /** [seen] 이면 두 작품 모두 배울 말을 골랐고 프롤로그도 본 것으로 (오늘부터 걷는 길). */
+    /** [seen] 이면 두 작품 모두 배울 말을 골랐고 프롤로그도 본 것으로, 튜토리얼도 마친 것으로 (오늘부터 걷는 길). */
     private fun state(onboarded: Boolean = true, deepLink: Boolean = false, seen: Boolean = onboarded): AppState {
         ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().clear().commit()
         if (onboarded) Store(ctx).onboarded = true
-        if (seen) listOf("vincent", "mozart").forEach { Store(ctx).markLearnChosen(it); Store(ctx).markPrologueSeen(it) }
+        if (seen) { listOf("vincent", "mozart").forEach { Store(ctx).markLearnChosen(it); Store(ctx).markPrologueSeen(it) }; Store(ctx).tutorialDone = true }
         return AppState(ctx, deepLink = deepLink)
+    }
+
+    /** 편지 방의 걸음을 차례로: [skip] 에 든 걸음은 건너뛰고 나머지는 한다. 마지막 걸음 뒤에는 편지 완료 화면. */
+    private fun AppState.walkLetter(room: Route.Letter, skip: Set<io.github.graviton94.todayletters.core.ReplyMode> = emptySet()) {
+        val (c, l) = letterOf(room)
+        save(room.series, c, l.id, progress(room.series, c, l.id).copy(shown = l.messages.size))
+        letterModes(room.series, c, l).forEach { m ->
+            go(Route.Play(room, m))
+            if (m in skip) skipStep(room, m) else replyAndContinue(room, m)
+        }
     }
 
     private fun AppState.backTo(r: Route) { assertTrue(back()); assertEquals(r, route) }
 
-    /** 처음 들어가는 작품 (모차르트): 무엇을 배울지 고르고 → 그 작품의 프롤로그 (한 번) → 편지 I. 다음부터는 오늘로. */
-    @Test fun firstEntryAsksLanguageThenPrologue() {
+    /**
+     * 튜토리얼 뒤 다른 작품 (모차르트) 에 처음 들어갈 때: 배울 말만 고르는 시트 → 바로 편지 I (프롤로그는 저절로 띄우지 않고 목차에서).
+     * 도움말 · 안내 한 줄은 저절로 뜨지 않는다. 다음부터는 오늘로.
+     */
+    @Test fun secondSeriesEntryAsksOnlyLanguage() {
         val s = state(seen = false)
-        if (s.works.none { it.series.id == "mozart" } || s.work("mozart").prologue.isEmpty()) return
+        s.store.markLearnChosen("vincent"); s.store.tutorialDone = true
+        if (s.works.none { it.series.id == "mozart" }) return
         s.enter("mozart")
         assertEquals(Route.Welcome("mozart"), s.route)
         s.backTo(Route.Library)
         s.enter("mozart")
         s.chooseLearn("mozart", io.github.graviton94.todayletters.core.Lang.DE)
         assertEquals(io.github.graviton94.todayletters.core.Lang.DE, s.seriesSettings("mozart").learn)
-        assertEquals(Route.Prologue("mozart"), s.route)
-        s.finishPrologue("mozart")
         assertEquals(Route.Letter("mozart", 1, 1, Route.Inbox), s.route)
+        assertTrue(s.stack.none { it is Route.Prologue })
+        assertFalse(s.guideDue("read")); assertFalse(s.guideDue("match"))
+        assertFalse(s.coach.due("room", calm = true))
+        s.backTo(Route.Inbox)
+        // 프롤로그는 목차에서 언제든, 다 보면 목차로
+        if (s.work("mozart").prologue.isNotEmpty()) {
+            s.go(Route.Series("mozart")); s.go(Route.Prologue("mozart"))
+            s.finishPrologue("mozart")
+            assertEquals(Route.Series("mozart"), s.route)
+        }
         s.enter("mozart")
         assertEquals(Route.Inbox, s.route)
     }
 
-    @Test fun firstRunGoesStraightToLetterOne() {
+    /**
+     * 처음 설치 (튜토리얼): 입구 → 환영 → 서재 (빈센트 카드에서 배울 말) → 편지 I (걸음마다 처음 한 번 안내 한 줄, 건너뛰기 가능)
+     * → 편지 완료 + “이제 혼자서도 괜찮아요” → 끝. 그 뒤로는 어느 화면에서도 도움말이 저절로 뜨지 않는다.
+     */
+    @Test fun firstInstallTutorial() {
         val s = state(onboarded = false)
+        assertEquals(io.github.graviton94.todayletters.core.Stage.OPENING, s.stage)
+        s.nextStage()
+        assertEquals(io.github.graviton94.todayletters.core.Stage.ONBOARDING, s.stage)
+        s.finishWelcome()
+        assertEquals(io.github.graviton94.todayletters.core.Stage.MAIN, s.stage)
+        assertTrue(s.store.onboarded)
         assertEquals(Route.Library, s.route)
-        s.startFirstLetter("vincent")
-        // 프롤로그(아를 이전)를 지나 첫 편지로
-        assertEquals(Route.Prologue("vincent"), s.route)
-        s.finishPrologue("vincent")
-        assertEquals(Route.Letter("vincent", 1, 1, Route.Inbox), s.route)
+        assertFalse(s.tutorialDone)
+        assertEquals("vincent", s.tutorialSeries)
+        assertTrue(s.needsWelcome("vincent"))   // 서재가 빈센트 카드를 강조하고 그 카드에서 고른다
+        val learn = io.github.graviton94.todayletters.core.Langs.defaultLearn(s.work("vincent").series, s.app.read)
+        s.startTutorial(learn)
+        val room = Route.Letter("vincent", 1, 1, Route.Inbox)
+        assertEquals(room, s.route)
+        assertEquals(learn, s.seriesSettings("vincent").learn)
+        assertTrue(s.stack.none { it is Route.Prologue })
+        // 안내 한 줄: 그 걸음에 처음 들어갈 때만
+        assertTrue(s.guideDue("read")); s.guideShown("read"); assertFalse(s.guideDue("read"))
+        assertTrue(s.guideDue("match"))
+        // 따라 읽기는 건너뛰고 나머지는 한다 → 편지 완료
+        s.walkLetter(room, skip = setOf(io.github.graviton94.todayletters.core.ReplyMode.ALOUD))
+        assertEquals(Route.Done(room), s.route)
+        val (c, l) = s.letterOf(room)
+        assertTrue(s.progress("vincent", c, l.id).done)
+        val modes = s.letterModes("vincent", c, l)
+        if (io.github.graviton94.todayletters.core.ReplyMode.ALOUD in modes) {
+            assertEquals(listOf(io.github.graviton94.todayletters.core.ReplyMode.ALOUD), s.progress("vincent", c, l.id).toRedo)
+            assertEquals(1, s.redos("vincent").size)
+        }
+        // 오늘의 여정: 편지는 마침, 복습할 카드는 아직 (내일부터) → 여정 완료 · 보너스
+        val j = s.journey("vincent")
+        assertEquals(io.github.graviton94.todayletters.core.Journey.Step.DONE, j.letter)
+        assertEquals(io.github.graviton94.todayletters.core.Journey.Step.NONE, j.review)
+        assertTrue(j.paid)
+        assertTrue(s.wallet("vincent").balance > 0)
+        // 편지 완료 화면에서 “이제 혼자서도 괜찮아요” → 튜토리얼 끝
+        assertFalse(s.tutorialDone)
+        s.graduate()
+        assertTrue(s.tutorialDone)
+        assertFalse(s.guideDue("match")); assertFalse(s.guideDue("reply"))
+        assertFalse(s.coach.due("room", calm = true)); assertFalse(s.coach.due("library", calm = true))
+        // (?) 로는 언제든
+        s.coachAgain("room"); assertTrue(s.coach.due("room", calm = true))
+        s.reward = null
+        s.backTo(room)
         s.backTo(Route.Inbox)
         s.backTo(Route.Library)
         assertFalse(s.back())
     }
 
+    /** 예전 사용자: 편지를 한 통이라도 마쳤으면 튜토리얼은 끝난 것 (안내 · 서재 강조 없이). */
+    @Test fun existingUsersSkipTutorial() {
+        ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().clear().commit()
+        val st = Store(ctx)
+        st.onboarded = true
+        val probe = AppState(ctx)
+        val c = probe.work("vincent").chapters.first(); val l = c.letters.first()
+        st.save(probe.key("vincent", c.id, l.id), io.github.graviton94.todayletters.core.LetterProgress(shown = l.messages.size, done = true))
+        val s = AppState(ctx)
+        assertTrue(s.tutorialDone)
+        assertFalse(s.guideDue("read"))
+    }
+
     @Test fun libraryBranches() {
         val s = state()
         s.go(Route.Overall); s.backTo(Route.Library)
-        s.go(Route.Settings); s.backTo(Route.Library)
         s.go(Route.Enter("vincent")); s.backTo(Route.Library)
     }
 
@@ -94,8 +171,12 @@ class NavTest {
     @Test fun todayShortcuts() {
         val s = state()
         s.enter("vincent")
-        s.go(Route.Week); s.backTo(Route.Inbox)
-        s.go(Route.Recital); s.backTo(Route.Inbox)
+        // 이번 주 · 낭독회는 이정표 탭에서
+        s.go(Route.Milestones)
+        s.go(Route.Week); s.backTo(Route.Milestones)
+        s.go(Route.Recital); s.backTo(Route.Milestones)
+        s.go(Route.Gallery); s.go(Route.Catalogue("vincent")); s.backTo(Route.Gallery)
+        s.go(Route.Words); s.go(Route.Session(free = true)); s.backTo(Route.Words)
         s.go(Route.Words); s.go(Route.Quotes); s.backTo(Route.Words)
         s.go(Route.Session()); s.backTo(Route.Words)
         s.backTo(Route.Library)
@@ -111,7 +192,7 @@ class NavTest {
     /** 편지 도착 장면에서 뒤로: 들어온 곳(오늘)으로, 도착은 본 것으로 치지 않는다 (다음에 다시 온다). */
     @Test fun arrivalBackReturnsToEntry() {
         val s = state(seen = false)
-        s.startFirstLetter("vincent")
+        s.startTutorial(io.github.graviton94.todayletters.core.Langs.defaultLearn(s.work("vincent").series, s.app.read))
         val c = s.work("vincent").chapters.first(); val l = c.letters.first()
         val key = s.key("vincent", c.id, l.id)
         rule.mainClock.autoAdvance = false
