@@ -158,7 +158,7 @@ fun WordsTab(s: AppState) {
                 ModeRow(stringResource(R.string.kind_blank), stringResource(R.string.kind_blank_d), null, enabled = cards.isNotEmpty()) { s.go(Route.Session(ReviewKind.BLANK)) }
                 ModeRow(stringResource(R.string.kind_speak), stringResource(R.string.kind_speak_d), null, enabled = cards.isNotEmpty()) { s.go(Route.Session(ReviewKind.SPEAK)) }
                 ModeRow(stringResource(R.string.kind_meaning), stringResource(R.string.kind_meaning_d), null, enabled = cards.isNotEmpty()) { s.go(Route.Session(ReviewKind.MEANING)) }
-                ModeRow(stringResource(R.string.quotes_title), stringResource(R.string.quotes_count, s.store.quotes.size), null, enabled = true) { s.go(Route.Quotes) }
+                ModeRow(stringResource(R.string.quotes_title), stringResource(R.string.quotes_count, myQuotes(s).size), null, enabled = true) { s.go(Route.Quotes) }
             }
             Row(
                 Modifier.fillMaxWidth().heightIn(min = 46.dp).background(p.leaf).border(Tokens.Stroke.hair, p.line).pressable { s.go(Route.WordList) }.padding(horizontal = Tokens.Space.s3),
@@ -857,8 +857,13 @@ fun SpeakerGlyph(c: Color, size: androidx.compose.ui.unit.Dp) = androidx.compose
 }
 
 /** 내 구절 열쇠 (작품:장:편지:문장) → 나눈 조각. */
-private data class QuoteRef(val series: String, val chapter: String, val letter: String, val msg: Int)
-private fun quoteRef(k: String): QuoteRef? = k.split(":").takeIf { it.size == 4 }?.let { (a, b, c, d) -> d.toIntOrNull()?.let { QuoteRef(a, b, c, it) } }
+/** 내 구절 열쇠 "<진도 이름>:<장>:<편지>:<문장>" ([AppState.quoteKey]). 진도 이름은 배우는 말마다 다르다 ("vincent" · "vincent@en"). */
+private data class QuoteRef(val space: String, val series: String, val chapter: String, val letter: String, val msg: Int)
+private fun quoteRef(k: String): QuoteRef? = k.split(":").takeIf { it.size == 4 }?.let { (a, b, c, d) ->
+    d.toIntOrNull()?.let { QuoteRef(a, io.github.graviton94.todayletters.core.Spaces.parse(a).first, b, c, it) }
+}
+/** 지금 배우는 말로 모은 구절만 (다른 말로 모은 구절은 그 말로 돌아가면 다시 보인다). */
+private fun myQuotes(s: AppState): List<String> = s.store.quotes.filter { k -> quoteRef(k)?.let { it.space == s.space(it.series) } == true }
 
 /**
  * 문제 만들기: 카드 → 문제. 문장은 그 낱말이 나온 편지 문장 (없으면 빈칸 대신 뜻 고르기).
@@ -875,7 +880,7 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         else keys?.mapNotNull { k -> cards.firstOrNull { it.key == k } }?.takeIf { it.isNotEmpty() }
         ?: if (kind == null) s.dueCards() else cards.sortedWith(compareBy({ it.box }, { it.due }))
     val all = s.cards().mapNotNull { c -> s.cardWord(c.key) }
-    val saved = s.store.quotes.mapNotNull { quoteRef(it) }
+    val saved = myQuotes(s).mapNotNull { quoteRef(it) }
     var fromQuotes = 0
     return pool.asSequence().mapNotNull { card ->
         val found = s.cardWord(card.key) ?: return@mapNotNull null
@@ -1024,7 +1029,7 @@ fun QuotesScreen(s: AppState) {
     Column(Modifier.fillMaxSize()) {
         TopBar(stringResource(R.string.quotes_title), s, help = null, showBack = true, showSettings = false)
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
-            val items = s.store.quotes.mapNotNull { k ->
+            val items = myQuotes(s).mapNotNull { k ->
                 val ref = quoteRef(k) ?: return@mapNotNull null
                 val w = s.works.firstOrNull { it.series.id == ref.series } ?: return@mapNotNull null
                 val ci = w.chapters.indexOfFirst { it.id == ref.chapter }.takeIf { it >= 0 } ?: return@mapNotNull null

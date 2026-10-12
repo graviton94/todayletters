@@ -453,7 +453,7 @@
     <string name="reread_banner">You read %1$d of the %2$d words in this letter alone, and the translation folds by that much.</string>
     <string name="shadow_title">Read along</string>
     <string name="shadow_count">%1$d / %2$d</string>
-    <string name="shadow_hint">Hear the sentence, then say the whole of it in your own voice.</string>
+    <string name="shadow_hint">Hear the sentence, then say it in your own voice. Long sentences come in short parts.</string>
     <string name="shadow_noaudio">This letter has no reading yet. Read the sentence aloud from the text.</string>
     <string name="shadow_tap">Tap the microphone and read the sentence.</string>
     <string name="shadow_recording">Listening… tap again when you\'ve finished.</string>
@@ -462,7 +462,7 @@
     <string name="shadow_mine">My voice</string>
     <string name="shadow_talk">Speak</string>
     <string name="shadow_stop">Done</string>
-    <string name="shadow_next">Next sentence</string>
+    <string name="shadow_next">Next</string>
     <string name="shadow_finish">I\'ve read it all along</string>
     <string name="shadow_done_title">You\'ve read the whole letter along</string>
     <string name="shadow_done_body">You read %2$d of its %1$d words alone. When you read them all alone, this letter is sealed.</string>
@@ -494,12 +494,12 @@
     <string name="shadow_scoring">Listening and comparing…</string>
     <string name="shadow_noscore">Couldn\'t compare this take. Try once more, a little louder.</string>
     <string name="shadow_pass">Passed: this sentence turns gold.</string>
-    <string name="shadow_retry">60 passes. Listen once more and try again?</string>
-    <string name="shadow_note">This scores the rise and fall of your voice and its rhythm, not pronunciation.</string>
+    <string name="shadow_retry">Stars start at 50, and %1$d is kept as passed. Listen once more and try again?</string>
+    <string name="shadow_note">This scores the rise and fall of your voice and its rhythm, not pronunciation. Stars at 50 · 70 · 85.</string>
     <string name="shadow_again">Say it again</string>
-    <string name="shadow_unpassed_title">Some sentences haven\'t passed yet</string>
-    <string name="shadow_unpassed_body">%1$d sentences are under 60. Every sentence needs to pass for the seal.</string>
-    <string name="shadow_go">Go to that sentence</string>
+    <string name="shadow_unpassed_title">Some parts haven\'t passed yet</string>
+    <string name="shadow_unpassed_body">%1$d parts are under %2$d. Every part needs to pass for the seal.</string>
+    <string name="shadow_go">Go to that part</string>
     <string name="credits_about_h">No affiliation · rights questions</string>
     <string name="credits_about">This app is not affiliated with, sponsored or endorsed by the Van Gogh Museum, the Vincent van Gogh Foundation or any museum or library named here; their names appear only to credit sources. Rights holders are welcome to contact us at ruahn49@gmail.com: we acknowledge within 2 business days, take the item down while we check, and reply with the outcome within 7 days.</string>
     <string name="credits_links">Sources and licences: graviton94.github.io/todayletters\nTerms and image policy: graviton94.github.io/todayletters/terms\nPrivacy policy: graviton94.github.io/todayletters/privacy</string>
@@ -631,7 +631,8 @@
     <string name="practice_reveal">Show answer</string>
     <string name="practice_answer">The answer</string>
     <string name="read_where">Sentence %1$d / %2$d</string>
-    <string name="read_pass_line">Pass %1$d</string>
+    <string name="read_where_part">Sentence %1$d / %2$d · part %3$d / %4$d</string>
+    <string name="a11y_score">Score %1$d, %2$d of 3 stars</string>
     <string name="read_pass">Passed!</string>
     <string name="read_good">Good!</string>
     <string name="read_great">Excellent!</string>

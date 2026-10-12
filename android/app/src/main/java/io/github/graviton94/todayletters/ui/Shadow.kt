@@ -56,11 +56,11 @@ import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 
 /**
- * 따라 읽기 (v18, 모든 시리즈 · 모든 자리 공통): 편지 문장을 통째로. 원래 소리 → 내 목소리.
+ * 따라 읽기 (v23, 모든 시리즈 · 모든 자리 공통): 문장마다, 긴 문장은 6~10 낱말 마디로. 원래 소리(0.8배) → 내 목소리.
  * 편지 안 연습(한 문장), 오늘의 할 일 · 봉인(편지 전체) 모두 이 화면 하나를 쓴다.
  * 읽는 자리가 금빛으로 따라가고, 녹음하는 동안 파형과 내 음높이 선이 원래 낭독 선 위에 실시간으로 그려진다.
- * 채점은 억양 · 리듬 (core 의 Prosody, 기기 안에서): 60점이면 통과 (75 좋아요 · 90 훌륭해요). 봉인은 모든 문장 통과.
- * 세 번 해도 60점이 안 되면 ‘넘어가기’ (통과로는 세지 않음).
+ * 채점은 억양 · 리듬 · 완성도 (core 의 Prosody, 기기 안에서): 별 1~3 (50 · 70 · 85), 55점이면 통과로 기록. 빨간 ‘실패’는 없다.
+ * 편지 걸음([onFinish] 가 있을 때)에서는 녹음하면 통과. 봉인은 모든 마디 통과. 세 번 해도 안 되면 ‘넘어가기’.
  */
 @Composable
 fun ShadowScreen(s: AppState, r: Route.Shadow) = ReadAlong(s, r.room, only = r.only?.let { listOf(it) }, onClose = { s.back() }, onFinish = null)
@@ -73,9 +73,11 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
     val id = room.series
     val view = s.room(id)
     val units = remember(letter.id) { s.shadowChunks(id, chapter, letter) }
-    // 문장 하나 = 한 칸 (shadowChunks 가 문장마다 하나를 준다)
-    val flat = remember(units, only) { units.indices.filter { only == null || it in only }.map { it to 0 } }
-    fun ok(i: Int, j: Int) = s.take(id, chapter, letter.id, i, j).exists() && (units[i][j].start < 0 || s.passed(id, chapter, letter.id, i, j))
+    // 마디 하나 = 한 칸 (shadowChunks 가 문장마다 6~10 낱말 마디를 준다)
+    val flat = remember(units, only) { units.indices.filter { only == null || it in only }.flatMap { i -> units[i].indices.map { i to it } } }
+    // 편지 걸음에서는 녹음하면 통과
+    val step = onFinish != null
+    fun ok(i: Int, j: Int) = s.take(id, chapter, letter.id, i, j).exists() && (step || units[i][j].start < 0 || s.passed(id, chapter, letter.id, i, j))
     val first = remember(flat) { flat.indexOfFirst { (i, j) -> !ok(i, j) }.let { if (it < 0) flat.lastIndex else it } }
     var at by remember(letter.id) { mutableIntStateOf(first.coerceAtLeast(0)) }
     var recording by remember { mutableStateOf(false) }
@@ -127,8 +129,8 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
         }
         scoring = false
         result?.first?.let {
-            s.recordScore(it); s.cue(it.passed)
-            if (it.passed) s.markPassed(id, chapter, letter.id, mi, cj) else if (tick > 0) tries[mi] = (tries[mi] ?: 0) + 1
+            s.recordScore(it); s.cue(it.passed || (step && it.total > 0))
+            if (it.passed || (step && it.total > 0)) s.markPassed(id, chapter, letter.id, mi, cj) else if (tick > 0) tries[at] = (tries[at] ?: 0) + 1
         }
     }
 
@@ -161,7 +163,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
         if (recording) { s.pcm.onFrame = null; s.pcm.stop(); recording = false; tick++ }
         if (!hasAudio) return
         s.recorder.stopPlaying()
-        playing = s.narrator.play(audio) { playing = false; pos = -1 }
+        playing = s.narrator.playRange(audio, unit.start, unit.end, io.github.graviton94.todayletters.core.Prosody.ORIGINAL_SPEED) { playing = false; pos = -1 }
     }
     fun record() {
         if (!allowed) { ask.launch(Manifest.permission.RECORD_AUDIO); return }
@@ -180,11 +182,21 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
-            PracticeTitle("READ ALONG", null)
-            Text(stringResource(R.string.read_where, flat.size.let { if (only == null) mi + 1 else at + 1 }, if (only == null) units.size else flat.size),
+            PracticeTitle(stringResource(R.string.shadow_title).uppercase(), null)
+            val nth = if (only == null) mi + 1 else only.indexOf(mi) + 1
+            val of = if (only == null) units.size else only.size
+            Text(if (units[mi].size > 1) stringResource(R.string.read_where_part, nth, of, cj + 1, units[mi].size) else stringResource(R.string.read_where, nth, of),
                 style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.align(Alignment.CenterHorizontally))
-            // 읽는 자리 칠하기 그대로, 낱말을 누르면 뜻 (눌러서 뜻 보기)
-            GlossText(s, id, chapter, letter, mi, readAlong(sentence, pos, p.ink, p.inkSoft.copy(alpha = 0.7f), p.gilt.copy(alpha = 0.35f)), style = Type.target.of(view.learn))
+            // 읽는 자리 칠하기 그대로, 낱말을 누르면 뜻 (눌러서 뜻 보기). 긴 문장은 이번 마디 밖을 흐리게.
+            val part = remember(sentence, unit) { if (units[mi].size <= 1) null else sentence.indexOf(unit.text).takeIf { it >= 0 }?.let { it until it + unit.text.length } }
+            val painted = readAlong(sentence, pos, p.ink, p.inkSoft.copy(alpha = 0.7f), p.gilt.copy(alpha = 0.35f)).let { a ->
+                if (part == null) a else androidx.compose.ui.text.AnnotatedString.Builder(a).apply {
+                    val dim = androidx.compose.ui.text.SpanStyle(color = p.inkSoft.copy(alpha = 0.35f))
+                    if (part.first > 0) addStyle(dim, 0, part.first)
+                    if (part.last + 1 < sentence.length) addStyle(dim, part.last + 1, sentence.length)
+                }.toAnnotatedString()
+            }
+            GlossText(s, id, chapter, letter, mi, painted, style = Type.target.of(view.learn))
             if (view.showRead) Text(letter.messages[mi].text[view.read], style = Type.base.of(view.read), color = p.inkSoft)
             if (!hasAudio) Text(stringResource(R.string.shadow_noaudio), style = Type.small.ui(), color = p.inkSoft)
             // 판: 녹음 중이면 실시간 파형 + 내 음높이, 녹음 뒤에는 두 선과 점수
@@ -201,31 +213,42 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
                         drawCurve(res.second, p.inkSoft, dotted = true); drawCurve(res.third, p.giltText, dotted = false)
                     }
                     val total = res.first.total
-                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                        Text("$total", style = Type.display.copy(fontFamily = Faces.display), color = if (res.first.passed) p.correct else p.wrong)
+                    val stars = res.first.stars
+                    val P = io.github.graviton94.todayletters.core.Prosody
+                    // 점수 · 별 (빨간 ‘실패’ 없음): 화면 읽기는 한 덩어리로 “점수 72, 별 셋 중 둘”
+                    val said = stringResource(R.string.a11y_score, total, stars)
+                    Row(Modifier.semantics(mergeDescendants = true) { contentDescription = said },
+                        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                        Text("$total", style = Type.display.copy(fontFamily = Faces.display), color = p.ink)
+                        Text("★".repeat(stars) + "☆".repeat(3 - stars), style = Type.title, color = p.giltText)
                         Box(Modifier.weight(1f).height(6.dp).background(p.hair)) {
-                            Box(Modifier.fillMaxWidth(total / 100f).height(6.dp).background(if (res.first.passed) p.correct else p.wrong))
-                            Box(Modifier.fillMaxWidth(io.github.graviton94.todayletters.core.Prosody.PASS / 100f).height(6.dp)) {
-                                Box(Modifier.align(Alignment.CenterEnd).size(2.dp, 14.dp).background(p.ink))
+                            Box(Modifier.fillMaxWidth(total / 100f).height(6.dp).background(p.gilt))
+                            // 별 문턱 셋
+                            listOf(P.STAR1, P.STAR2, P.STAR3).forEach { t ->
+                                Box(Modifier.fillMaxWidth(t / 100f).height(6.dp)) { Box(Modifier.align(Alignment.CenterEnd).size(1.dp, 10.dp).background(p.inkSoft)) }
                             }
                         }
-                        Text(stringResource(R.string.read_pass_line, io.github.graviton94.todayletters.core.Prosody.PASS), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
                     }
                     Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                         Meter(stringResource(R.string.shadow_intonation), res.first.intonation, Modifier.weight(1f), p.giltText, p.ink, p.inkSoft)
                         Meter(stringResource(R.string.shadow_rhythm), res.first.rhythm, Modifier.weight(1f), p.giltText, p.ink, p.inkSoft)
                     }
-                    val P = io.github.graviton94.todayletters.core.Prosody
-                    Text(stringResource(when { total >= P.GREAT -> R.string.read_great; total >= P.GOOD -> R.string.read_good; res.first.passed -> R.string.read_pass; else -> R.string.shadow_retry }),
-                        style = Type.small.ui(), color = if (res.first.passed) p.correct else p.wrong)
+                    Text(when {
+                        stars >= 3 -> stringResource(R.string.read_great)
+                        stars == 2 -> stringResource(R.string.read_good)
+                        res.first.passed || (step && total > 0) -> stringResource(R.string.read_pass)
+                        else -> stringResource(R.string.shadow_retry, P.PASS)
+                    }, style = Type.small.ui(), color = if (res.first.passed) p.giltText else p.inkSoft)
                 }
                 Text(stringResource(R.string.shadow_note), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
             }
-            Text(
-                stringResource(if (recording) R.string.shadow_recording else if (have) R.string.shadow_check else R.string.shadow_tap),
-                style = Type.small.ui(), color = if (recording) p.wrong else p.inkSoft, modifier = Modifier.align(Alignment.CenterHorizontally),
-            )
         }
+        // 안내 한 줄: 스크롤 밖, 단추 바로 위 (단추에 가리지 않게)
+        Text(
+            stringResource(if (recording) R.string.shadow_recording else if (have) R.string.shadow_check else R.string.shadow_tap),
+            style = Type.small.ui(), color = if (recording) p.giltText else p.inkSoft, textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s5).padding(top = Tokens.Space.s2),
+        )
         // 원래 소리 · 말하기 · 내 소리
         Row(Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s3), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.Bottom) {
             RoundButton(stringResource(R.string.shadow_orig), 56.dp, if (playing) p.giltText else Color.Transparent, p.giltText, enabled = hasAudio, onDark = p.paper) {
@@ -250,7 +273,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
         Column(Modifier.padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             val last = at == flat.lastIndex
             val allTried = flat.all { (i, j) -> s.take(id, chapter, letter.id, i, j).exists() }
-            val stuck = (tries[mi] ?: 0) >= 3 && !ok(mi, cj) && !last
+            val stuck = (tries[at] ?: 0) >= 3 && !ok(mi, cj) && !last
             fun advance() {
                 s.narrator.stop(); s.recorder.stopPlaying(); playing = false
                 when {
@@ -276,7 +299,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
         title = stringResource(R.string.shadow_unpassed_title),
         yes = stringResource(R.string.shadow_go), no = stringResource(R.string.shadow_stay),
         onYes = { at = flat.indexOfFirst { (i, j) -> !ok(i, j) }.coerceAtLeast(0); unpassed = 0 }, onNo = { unpassed = 0 },
-        body = stringResource(R.string.shadow_unpassed_body, unpassed),
+        body = stringResource(R.string.shadow_unpassed_body, unpassed, io.github.graviton94.todayletters.core.Prosody.PASS),
     )
     // 다 따라 읽었지만 아직 혼자 다 읽지 못하는 편지: 봉인까지 남은 길
     if (finished && !s.isSealed(id, chapter, letter)) {
@@ -294,9 +317,11 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
 private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCurve(c: FloatArray?, color: Color, dotted: Boolean, upTo: Float = 1f) {
     if (c == null || c.size < 2) return
     val path = androidx.compose.ui.graphics.Path()
+    var started = false
     c.forEachIndexed { k, v ->
+        if (v.isNaN()) { started = false; return@forEachIndexed }   // 긴 쉼: 선을 끊는다
         val x = size.width * upTo * k / (c.size - 1); val y = size.height / 2 - v.coerceIn(-8f, 8f) / 8f * size.height / 2.2f
-        if (k == 0) path.moveTo(x, y) else path.lineTo(x, y)
+        if (!started) { path.moveTo(x, y); started = true } else path.lineTo(x, y)
     }
     drawPath(path, color, style = androidx.compose.ui.graphics.drawscope.Stroke(if (dotted) 1.5.dp.toPx() else 2.5.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round,
         pathEffect = if (dotted) androidx.compose.ui.graphics.PathEffect.dashPathEffect(floatArrayOf(4f, 8f)) else null))

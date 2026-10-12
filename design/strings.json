@@ -1809,8 +1809,8 @@
     "ko": "%1$d / %2$d 문장"
   },
   "shadow_hint": {
-    "en": "Hear the sentence, then say the whole of it in your own voice.",
-    "ko": "원래 소리로 문장을 듣고, 내 목소리로 통째로 읽어요."
+    "en": "Hear the sentence, then say it in your own voice. Long sentences come in short parts.",
+    "ko": "원래 소리로 듣고, 내 목소리로 따라 읽어요. 긴 문장은 짧은 마디로 나눠요."
   },
   "shadow_noaudio": {
     "en": "This letter has no reading yet. Read the sentence aloud from the text.",
@@ -1845,8 +1845,8 @@
     "ko": "다 말했어요"
   },
   "shadow_next": {
-    "en": "Next sentence",
-    "ko": "다음 문장"
+    "en": "Next",
+    "ko": "다음"
   },
   "shadow_finish": {
     "en": "I've read it all along",
@@ -1973,28 +1973,28 @@
     "ko": "통과! 이 문장은 금빛이 돼요."
   },
   "shadow_retry": {
-    "en": "60 passes. Listen once more and try again?",
-    "ko": "60점이면 통과예요. 한 번 더 듣고 해 볼까요?"
+    "en": "Stars start at 50, and %1$d is kept as passed. Listen once more and try again?",
+    "ko": "50점부터 별을 받고, %1$d점이면 통과로 남아요. 한 번 더 듣고 해 볼까요?"
   },
   "shadow_note": {
-    "en": "This scores the rise and fall of your voice and its rhythm, not pronunciation.",
-    "ko": "목소리의 오르내림과 리듬을 봐요. 발음이 맞는지는 채점하지 않아요."
+    "en": "This scores the rise and fall of your voice and its rhythm, not pronunciation. Stars at 50 · 70 · 85.",
+    "ko": "목소리의 오르내림과 리듬을 봐요. 발음은 채점하지 않아요. 별은 50 · 70 · 85점."
   },
   "shadow_again": {
     "en": "Say it again",
     "ko": "다시 말하기"
   },
   "shadow_unpassed_title": {
-    "en": "Some sentences haven't passed yet",
-    "ko": "아직 통과 못 한 문장이 있어요"
+    "en": "Some parts haven't passed yet",
+    "ko": "아직 통과 못 한 마디가 있어요"
   },
   "shadow_unpassed_body": {
-    "en": "%1$d sentences are under 60. Every sentence needs to pass for the seal.",
-    "ko": "%1$d문장이 60점에 못 미쳤어요. 모든 문장을 통과해야 봉인돼요."
+    "en": "%1$d parts are under %2$d. Every part needs to pass for the seal.",
+    "ko": "%1$d마디가 %2$d점에 못 미쳤어요. 모든 마디를 통과해야 봉인돼요."
   },
   "shadow_go": {
-    "en": "Go to that sentence",
-    "ko": "그 문장으로"
+    "en": "Go to that part",
+    "ko": "그 마디로"
   },
   "credits_about_h": {
     "en": "No affiliation · rights questions",
@@ -2520,9 +2520,13 @@
     "en": "Sentence %1$d / %2$d",
     "ko": "문장 %1$d / %2$d"
   },
-  "read_pass_line": {
-    "en": "Pass %1$d",
-    "ko": "통과 %1$d"
+  "read_where_part": {
+    "en": "Sentence %1$d / %2$d · part %3$d / %4$d",
+    "ko": "문장 %1$d / %2$d · 마디 %3$d / %4$d"
+  },
+  "a11y_score": {
+    "en": "Score %1$d, %2$d of 3 stars",
+    "ko": "%1$d점, 별 셋 중 %2$d개"
   },
   "read_pass": {
     "en": "Passed!",

@@ -506,7 +506,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     val reviewedToday: Boolean get() = run { @Suppress("UNUSED_EXPRESSION") version; store.reviewedDay == today }
 
     // ── 내 구절 ──────────────────────────────────────────────
-    fun quoteKey(series: String, chapter: String, letter: String, msg: Int) = "$series:$chapter:$letter:$msg"
+    /** 구절 열쇠: 진도처럼 배우는 말마다 따로 ("vincent@en:I:c1-l2:0", [space]). */
+    fun quoteKey(series: String, chapter: String, letter: String, msg: Int) = "${space(series)}:$chapter:$letter:$msg"
     fun isSaved(k: String) = run { @Suppress("UNUSED_EXPRESSION") version; k in store.quotes }
     fun toggleQuote(k: String) { store.quotes = if (k in store.quotes) store.quotes - k else listOf(k) + store.quotes; version++ }
 
@@ -816,13 +817,21 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     }
 
     // ── 따라 읽기 · 완독 봉인 (모든 시리즈 공통) ─────────────────
-    /** 따라 읽기의 칸: 문장(메시지)마다 하나, 문장 통째 (v18). 낭독 시각이 있으면 첫 마디 시작 ~ 끝 마디 끝. */
+    /**
+     * 따라 읽기의 칸: 문장(메시지)마다, 긴 문장은 낭독 덩어리를 묶은 6~10 낱말 마디로 (v23, [io.github.graviton94.todayletters.core.Prosody.spans]).
+     * 낭독 시각이 없으면 문장 통째 하나 (시각 −1).
+     */
     fun shadowChunks(id: String, chapter: String, l: Letter): List<List<io.github.graviton94.todayletters.data.Chunk>> {
         val learn = seriesSettings(id).learn
+        // 낱말 수: 띄어 쓰지 않는 일본어는 세 글자를 한 낱말로 어림
+        fun words(t: String) = if (learn == io.github.graviton94.todayletters.core.Lang.JA) (t.count { !it.isWhitespace() } + 2) / 3 else t.split(Regex("\\s+")).count { it.isNotBlank() }
         return l.messages.mapIndexed { i, m ->
             val text = io.github.graviton94.todayletters.core.Breaks.plain(m.text[learn])
             val cs = narrator.chunks(narrator.path(id, chapter, l.id, "m${i + 1}_${learn.code}"))
-            listOf(if (cs.isEmpty()) io.github.graviton94.todayletters.data.Chunk(-1, -1, text) else io.github.graviton94.todayletters.data.Chunk(cs.first().start, cs.last().end, text))
+            if (cs.isEmpty()) listOf(io.github.graviton94.todayletters.data.Chunk(-1, -1, text))
+            else io.github.graviton94.todayletters.core.Prosody.spans(cs.map { words(it.text) }).map { r ->
+                io.github.graviton94.todayletters.data.Chunk(cs[r.first].start, cs[r.last].end, r.joinToString(" ") { cs[it].text })
+            }
         }
     }
 
@@ -844,7 +853,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun myReading(id: String, chapter: String, l: Letter): java.io.File? {
         val parts = shadowChunks(id, chapter, l).flatMapIndexed { i, cs -> cs.indices.map { j -> take(id, chapter, l.id, i, j) } }.filter { it.exists() }
         if (parts.isEmpty()) return null
-        val out = java.io.File(ctx.filesDir, "readings/${id}_${chapter}_${l.id}.wav")
+        val out = java.io.File(ctx.filesDir, "readings/${space(id)}_${chapter}_${l.id}.wav")
         runCatching { io.github.graviton94.todayletters.data.Wav.join(parts, out) }.onFailure { return null }
         return out
     }
