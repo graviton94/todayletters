@@ -48,6 +48,9 @@ import io.github.graviton94.todayletters.core.Plays
 import io.github.graviton94.todayletters.core.ReplyMode
 import io.github.graviton94.todayletters.core.Route
 import io.github.graviton94.todayletters.design.Faces
+import io.github.graviton94.todayletters.core.Journey
+import io.github.graviton94.todayletters.core.Earn
+import androidx.compose.foundation.layout.fillMaxHeight
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
@@ -57,8 +60,9 @@ import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 /**
- * 오늘 (시리즈 안 첫 이름표): 이어 읽기 · 오늘의 편지 한 장 (채운 단추 하나) · 오늘의 할 일 셋 · 일요일 낭독회 · 이달의 전시.
- * 그림 없이 활자와 여백만 (그림은 편지가 도착할 때 · 봉인 · 갤러리에서).
+ * 오늘 (시리즈 안 첫 이름표) = 오늘의 여정 하나 (core 의 Journey): 차례가 있는 세 걸음.
+ *   I 오늘의 편지 (걸음마다 점, 건너뛴 걸음은 빈 점) → II 오늘의 복습 (이 작품 카드만) → III 여정 완료 (보너스 화폐 + 편지 그림).
+ * 이번 주 · 낭독회 · 이달의 전시 · 화폐 쓰기는 갤러리 · 이정표 이름표로 옮겼다. 세는 것은 실제로 한 일뿐.
  */
 @Composable
 fun Inbox(s: AppState) {
@@ -68,171 +72,131 @@ fun Inbox(s: AppState) {
     LaunchedEffect(Unit) { s.settle() }
     val work = s.currentWork
     val id = work.series.id
-    // 편지 방과 같은 언어로: 큰 줄은 배우는 말, 작은 줄은 읽는 말 (방에서 번역 줄을 가렸으면 여기서도)
-    val view = s.room(id)
-    val learn = view.learn
-    val modes = Plays.inLetter.filter { it in s.seriesSettings(id).modes }
-    val open = s.openable(id)
     val letters = work.chapters.flatMap { it.letters }
-    val current = open.firstOrNull { (c, l) -> !s.progress(id, c, l.id).done }
-    val focus = if (current == null) s.focusLetter(id) else null
-    val due = s.dueCards().count { it.key.startsWith("$id:") }
+    val j = s.journey(id)
+    val tl = s.todayLetter(id)
 
     Column(Modifier.fillMaxSize()) {
         SeriesHeader(s)
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s4),
-            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s5),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
             StreakBlock(s, work)
             Hair()
-            // 오늘의 편지
-            val (c, l) = current ?: focus ?: (null to null)
-            if (c != null && l != null) {
-                val pr = s.progress(id, c, l.id)
-                val idx = letters.indexOf(l) + 1
-                val g = s.letterGrowth(id, c, l)
-                val room = Route.Letter(id, work.chapters.indexOfFirst { it.id == c } + 1, work.chapters.first { it.id == c }.letters.indexOf(l) + 1, Route.Inbox)
-                // 편지 한 장: 머리 · 첫 줄 · 그 편지의 단추 하나를 한 덩어리로
-                Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                    Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                        Caps("${work.kit.place.substringBefore(" ")} · ${stringResource(R.string.letter_n, roman(idx))}".uppercase(), p.giltText, small = true, decorative = true)
-                        Text(l.status?.get(uiLang()) ?: dateLine(l.date, l.place), style = Type.title.ui(), color = p.ink)
-                        Text(dateLine(l.date, l.place) + if (pr.done) " · " + stringResource(R.string.focus_alone, g.known, g.total) else "", style = Type.small.ui(), color = p.inkSoft)
-                    }
-                    if (pr.done) {
-                        Bar(g.pct / 100f)
-                        // 첫 문장: 아직 혼자 못 읽는 낱말에 점선 밑줄
-                        val first = l.messages.first().text[learn]
-                        val cm = s.cardMap()
-                        val marks = wordMarks(first, l.words.map { it.text[learn] })
-                        val text = androidx.compose.ui.text.buildAnnotatedString {
-                            append(first)
-                            marks.forEach { (range, k) ->
-                                if (!io.github.graviton94.todayletters.core.Growth.known(cm[s.cardKey(id, c, l.id, k)]))
-                                    addStyle(androidx.compose.ui.text.SpanStyle(color = p.giltText, textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), range.first, range.last + 1)
-                            }
-                        }
-                        Text(text, style = Type.target.of(learn), color = p.ink, maxLines = 3)
-                    } else {
-                        Text(l.messages.first().text[learn], style = Type.target.of(learn), color = p.ink, maxLines = 2)
-                    }
-                    if (view.showRead && view.read != learn) Text(l.messages.first().text[view.read], style = Type.small.of(view.read), color = p.inkSoft, maxLines = 2)
-                    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                        when {
-                            !pr.done -> Primary(if (pr.shown < l.messages.size) stringResource(R.string.today_open)
-                                else modes.firstOrNull { it !in pr.replied }?.let { stringResource(R.string.room_next, stringResource(modeLabel(it))) } ?: stringResource(R.string.room_done_today)) { s.open(id, c, l, Route.Inbox) }
-                            s.isSealed(id, c, l) -> Primary(stringResource(R.string.focus_sealed)) { s.go(Route.Seal(room)) }
-                            g.known == g.total && g.total > 0 && !s.isShadowed(id, c, l) -> Primary(stringResource(R.string.focus_shadow)) { s.go(Route.Shadow(room)) }
-                            due > 0 -> Primary(stringResource(R.string.focus_review, due)) { s.go(Route.Session()) }
-                            else -> g.nextDue?.let { d -> Text(if (d <= 1) stringResource(R.string.focus_due_tomorrow) else stringResource(R.string.focus_due_in, d), style = Type.small.ui(), color = p.inkSoft) }
-                        }
-                    }
-                }
-                // 장마다 읽은 수 · 전체 편지 목록 (다 읽은 편지면 다시 읽기도, 아직이면 위 단추가 그 편지를 연다)
-                LetterLinks(s, id, work, reread = if (pr.done) ({ s.open(id, c, l, Route.Inbox) }) else null)
-            } else {
-                Text(stringResource(if (s.doneCount(id) >= letters.size) R.string.chapter_end_next else R.string.today_all_done), style = Type.heading.ui(), color = p.ink)
-                if (due > 0) Primary(stringResource(R.string.focus_review, due)) { s.go(Route.Session()) }
-                LetterLinks(s, id, work, reread = null)
+            Row(verticalAlignment = Alignment.Bottom) {
+                Text(stringResource(R.string.journey_title), style = Type.heading.ui(), color = p.ink, modifier = Modifier.weight(1f))
+                Text("${j.done} / 3", style = Type.heading.copy(fontFamily = Faces.display), color = p.giltText)
             }
-            // 갑자기 한 문제 (F7): 오래전 ‘내 것’ 낱말, 하루 한 번
-            s.surprise()?.let { c -> SurpriseCard(s, c) }
-            // 오늘의 할 일
-            Column {
-                Row(verticalAlignment = Alignment.Bottom, modifier = Modifier.padding(bottom = 4.dp)) {
-                    Text(stringResource(R.string.quests_title), style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink, modifier = Modifier.weight(1f))
-                    Text(stringResource(R.string.quests_bonus), style = Type.small.ui(), color = p.giltText)
-                }
-                // 늘 같은 차례: 오늘의 편지 읽기 → 뜻 고르기 → 듣고 쓰기 → (보너스) 모든 할 일 마치기
-                s.quests.forEachIndexed { i, q ->
-                    val n = s.questCount(q).coerceAtMost(q.goal)
-                    val done = s.questDone(q)
-                    QuestRow(roman(i + 1), stringResource(questLabel(q), q.goal), done, if (done) "✓" else "$n / ${q.goal}", enabled = !done) { questGo(s, q) }
-                }
-                val allDone = s.quests.all { s.questDone(it) }
-                QuestRow("✦", stringResource(R.string.quest_all), allDone, if (allDone) "✓" else stringResource(R.string.quest_bonus_tag), enabled = false) { }
-            }
-            // 이번 주 돌아보기 (E1)
-            run {
-                val wk = s.week(id)
-                Row(Modifier.fillMaxWidth().pressable { s.go(Route.Week) }.padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Column(Modifier.weight(1f)) {
-                        Text(stringResource(R.string.week_title), style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
-                        Text(stringResource(R.string.week_line, wk.done.size, wk.letters, wk.owned), style = Type.small.ui(), color = p.inkSoft)
-                    }
-                    Text("›", style = Type.heading, color = p.inkSoft)
+            // I 오늘의 편지
+            JourneyStep("I", stringResource(R.string.journey_letter), j.letter, last = false) {
+                if (tl != null) TodayLetter(s, id, work, tl.first, tl.second, letters)
+                else {
+                    val upcoming = letters.firstOrNull { l -> s.openable(id).none { it.second == l } }
+                    val days = upcoming?.let { s.daysUntil(id, it.id) }
+                    Text(stringResource(if (s.doneCount(id) >= letters.size) R.string.chapter_end_next else R.string.today_all_done), style = Type.body.ui(), color = p.ink)
+                    Text(stringResource(R.string.next_title) + " · " + when { days == null -> stringResource(R.string.next_none); days <= 1 -> stringResource(R.string.letter_eta); else -> stringResource(R.string.next_in, days) },
+                        style = Type.small.ui(), color = p.inkSoft)
                 }
             }
-            // 일요일 낭독회 (일요일, 또는 이번 주 녹음이 있으면)
-            val sunday = io.github.graviton94.todayletters.core.Recital.isSunday(s.today)
-            if (sunday || (!s.recitalDone && s.weekTakes().isNotEmpty())) {
-                Row(Modifier.fillMaxWidth().pressable { s.go(Route.Recital) }.padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Column(Modifier.weight(1f)) {
-                        Text(stringResource(R.string.recital_title), style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
-                        Text(stringResource(if (s.recitalDone) R.string.recital_done else if (sunday) R.string.recital_today else R.string.recital_sunday), style = Type.small.ui(), color = p.inkSoft)
+            // II 오늘의 복습 (이 작품 카드만, 한 판)
+            JourneyStep("II", stringResource(R.string.review_today), j.review, last = false) {
+                val (n, total) = j.reviewCount
+                when (j.review) {
+                    Journey.Step.NONE -> Text(stringResource(if (s.seriesCards(id).isEmpty()) R.string.review_empty else R.string.journey_review_none), style = Type.small.ui(), color = p.inkSoft)
+                    Journey.Step.DONE -> Text(stringResource(R.string.journey_review_done, total), style = Type.small.ui(), color = p.inkSoft)
+                    else -> {
+                        Text(stringResource(R.string.journey_review_d, n, total), style = Type.small.ui(), color = p.inkSoft)
+                        if (n > 0) Bar(n.toFloat() / total.coerceAtLeast(1))
+                        Primary(stringResource(if (n > 0) R.string.journey_review_continue else R.string.review_start), small = true) { s.go(Route.Session()) }
                     }
-                    Text("›", style = Type.heading, color = p.inkSoft)
                 }
             }
-            // 이달의 전시
-            s.exhibition(id)?.let { e ->
-                val ep = s.exhibitionPieces(id)
-                Row(Modifier.fillMaxWidth().background(p.hide).pressable { s.go(Route.Exhibition) }.padding(Tokens.Space.s3),
-                    verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                    AssetImage((ep.firstOrNull { s.owns(id, it) } ?: ep.firstOrNull())?.image.orEmpty(), Modifier.size(44.dp), sample = 8)
-                    Column(Modifier.weight(1f)) {
-                        Text(stringResource(R.string.expo_line, e.title[uiLang()]), style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
-                        Text(stringResource(R.string.expo_meta, s.daysLeftInMonth, ep.count { s.owns(id, it) }, ep.size), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
-                    }
-                    Text("›", style = Type.heading, color = p.inkSoft)
-                }
+            // III 여정 완료: 보너스 화폐 + 오늘 편지의 그림
+            JourneyStep("III", stringResource(R.string.journey_bonus), if (j.paid) Journey.Step.DONE else Journey.Step.TODO, last = true) {
+                Text(stringResource(if (j.paid) R.string.journey_bonus_paid else R.string.journey_bonus_d, Earn.JOURNEY.amount, work.kit.currency[uiLang()]),
+                    style = Type.small.ui(), color = if (j.paid) p.giltText else p.inkSoft)
             }
-            // 목차 · 다음 편지
+            Hair()
+            // 진도 한 줄 (F29) · 목차
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                val upcoming = letters.firstOrNull { l -> open.none { it.second == l } }
-                val days = upcoming?.let { s.daysUntil(id, it.id) }
-                Text(stringResource(R.string.next_title) + " · " + when { days == null -> stringResource(R.string.next_none); days <= 1 -> stringResource(R.string.letter_eta); else -> stringResource(R.string.next_in, days) },
-                    style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.weight(1f))
+                Text(stringResource(R.string.lib_letters, s.doneCount(id), letters.size), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.weight(1f))
+                TextLink(stringResource(R.string.today_all_letters)) { s.go(Route.Series(id)) }
             }
         }
     }
 }
 
-private fun questLabel(q: io.github.graviton94.todayletters.core.Quest) = when (q) {
-    io.github.graviton94.todayletters.core.Quest.LETTER -> R.string.quest_letter
-    io.github.graviton94.todayletters.core.Quest.MEANING_RUN -> R.string.quest_meaning
-    io.github.graviton94.todayletters.core.Quest.DICTATION_RUN -> R.string.quest_dictation
-}
-
-/** 할 일 한 줄: 차례 번호 · 이름 · 진행 (다 하면 금빛 점과 줄 긋기). */
+/** 여정의 한 걸음: 왼쪽 로마 숫자 동그라미 (다 하면 금빛, 할 것이 없으면 점선) · 이름 · 내용. 걸음 사이를 세로 선이 잇는다. */
 @Composable
-private fun QuestRow(num: String, label: String, done: Boolean, count: String, enabled: Boolean, onClick: () -> Unit) {
+private fun JourneyStep(num: String, title: String, state: Journey.Step, last: Boolean, content: @Composable () -> Unit) {
     val p = Ink.palette
-    Row(Modifier.fillMaxWidth().heightIn(min = 48.dp).pressable(enabled = enabled, onClick = onClick),
-        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-        Box(Modifier.size(22.dp).then(if (done) Modifier.background(p.giltText, CircleShape) else Modifier.border(1.5.dp, p.hideInk, CircleShape)),
-            contentAlignment = Alignment.Center) {
-            Text(num, style = Type.small.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display, fontSize = Tokens.Text.caps), color = if (done) p.paper else p.inkSoft)
+    val done = state == Journey.Step.DONE
+    Row(Modifier.fillMaxWidth().height(androidx.compose.foundation.layout.IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+        Column(Modifier.width(28.dp).fillMaxHeight(), horizontalAlignment = Alignment.CenterHorizontally) {
+            Box(Modifier.size(28.dp).then(when (state) {
+                Journey.Step.DONE -> Modifier.background(p.giltText, CircleShape)
+                Journey.Step.NONE -> Modifier.dashed(p.line)
+                Journey.Step.NOW -> Modifier.border(2.dp, p.ink, CircleShape)
+                else -> Modifier.border(1.5.dp, p.hideInk, CircleShape)
+            }), contentAlignment = Alignment.Center) {
+                Text(if (done) "✓" else num, style = Type.small.copy(fontFamily = Faces.display, fontSize = Tokens.Text.caps), color = if (done) p.paper else p.inkSoft)
+            }
+            if (!last) Box(Modifier.width(1.5.dp).weight(1f).background(if (done) p.giltText else p.line))
         }
-        Text(label, style = Type.body.ui().copy(textDecoration = if (done) androidx.compose.ui.text.style.TextDecoration.LineThrough else null),
-            color = if (done) p.inkSoft else p.ink, modifier = Modifier.weight(1f))
-        Text(count, style = Type.small.ui(), color = if (done) p.giltText else p.inkSoft)
+        Column(Modifier.weight(1f).padding(bottom = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            Text(title, style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = if (state == Journey.Step.NONE) p.inkSoft else p.ink)
+            content()
+        }
     }
-    Hair()
 }
 
-/** 할 일을 누르면 그 일을 하러 간다. */
-private fun questGo(s: AppState, q: io.github.graviton94.todayletters.core.Quest) {
-    val id = s.current
-    val done = s.openable(id).filter { (c, l) -> s.progress(id, c, l.id).done }
-    val last = done.lastOrNull()
-    when (q) {
-        // 오늘의 편지: 아직 다 읽지 않은 첫 편지 (없으면 마지막으로 읽은 편지를 다시)
-        io.github.graviton94.todayletters.core.Quest.LETTER ->
-            (s.openable(id).firstOrNull { (c, l) -> !s.progress(id, c, l.id).done } ?: last)?.let { (c, l) -> s.open(id, c, l, Route.Inbox) }
-        io.github.graviton94.todayletters.core.Quest.DICTATION_RUN -> s.go(Route.Session(io.github.graviton94.todayletters.core.ReviewKind.DICTATION))
-        io.github.graviton94.todayletters.core.Quest.MEANING_RUN -> s.go(Route.Session(io.github.graviton94.todayletters.core.ReviewKind.MEANING))
+/** 오늘의 편지 한 장: 머리 · 첫 줄 (자르지 않음) · 걸음 점 (읽기 · 낱말 · 따라 읽기 · 답장 · 그림, 건너뛴 걸음은 빈 점) · 단추. */
+@Composable
+private fun TodayLetter(s: AppState, id: String, work: io.github.graviton94.todayletters.data.Work, c: String, l: io.github.graviton94.todayletters.core.Letter,
+                        letters: List<io.github.graviton94.todayletters.core.Letter>) {
+    val p = Ink.palette
+    val view = s.room(id)
+    val pr = s.progress(id, c, l.id)
+    val modes = s.letterModes(id, c, l)
+    val idx = letters.indexOf(l) + 1
+    Caps("${work.kit.place.substringBefore(" ")} · ${stringResource(R.string.letter_n, roman(idx))}".uppercase(), p.giltText, small = true, decorative = true)
+    Text(l.status?.get(uiLang()) ?: dateLine(l.date, l.place), style = Type.title.ui(), color = p.ink)
+    Text(dateLine(l.date, l.place), style = Type.small.ui(), color = p.inkSoft)
+    Text(l.messages.first().text[view.learn], style = Type.target.of(view.learn), color = p.ink)
+    if (view.showRead && view.read != view.learn) Text(l.messages.first().text[view.read], style = Type.small.of(view.read), color = p.inkSoft)
+    // 걸음 점
+    val dots = Journey.letterDots(pr.shown, l.messages.size, modes, pr)
+    val labels = listOf(stringResource(R.string.step_read_short)) + modes.map { stringResource(when (it) {
+        io.github.graviton94.todayletters.core.ReplyMode.MATCH -> R.string.step_match
+        io.github.graviton94.todayletters.core.ReplyMode.ALOUD -> R.string.step_aloud
+        io.github.graviton94.todayletters.core.ReplyMode.CONSTELLATION -> R.string.step_reply
+    }) } + stringResource(R.string.step_plate)
+    Row(Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s1)) {
+        dots.forEachIndexed { k, st ->
+            Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Box(Modifier.size(if (st == Journey.Step.NOW) 12.dp else 10.dp).then(when (st) {
+                    Journey.Step.DONE -> Modifier.background(p.giltText, CircleShape)
+                    Journey.Step.NOW -> Modifier.background(p.ink, CircleShape)
+                    Journey.Step.SKIPPED -> Modifier.border(1.5.dp, p.giltText, CircleShape)
+                    else -> Modifier.border(1.dp, p.hideInk, CircleShape)
+                }))
+                Text(labels.getOrElse(k) { "" }, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = if (st == Journey.Step.TODO) p.hideInk else p.inkSoft,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+            }
+        }
+    }
+    when {
+        !pr.done -> {
+            val next = modes.firstOrNull { it !in pr.replied && it !in pr.skipped }
+            Primary(if (pr.shown < l.messages.size) stringResource(R.string.today_open)
+                else next?.let { stringResource(R.string.room_next, stringResource(modeLabel(it))) } ?: stringResource(R.string.room_done_today), small = true) { s.open(id, c, l, Route.Inbox) }
+        }
+        else -> Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+            Text(stringResource(R.string.journey_letter_done), style = Type.small.ui(), color = p.giltText, modifier = Modifier.weight(1f))
+            val redo = pr.toRedo.filter { it in modes }
+            TextLink(if (redo.isNotEmpty()) stringResource(R.string.journey_redo, redo.size) else stringResource(R.string.today_reread)) { s.open(id, c, l, Route.Inbox) }
+        }
     }
 }
 
@@ -251,29 +215,9 @@ fun PlateThumb(file: String, unlocked: Boolean, modifier: Modifier) {
 }
 
 
-/**
- * 편지 카드 아래 한 줄: 장마다 읽은 수 · 조용한 글자 링크 (오늘의 편지 다시 읽기 (있을 때) · 전체 편지 목록).
- * 단추는 편지 카드의 하나만 (채운 단추).
- */
-@Composable
-private fun LetterLinks(s: AppState, id: String, work: io.github.graviton94.todayletters.data.Work, reread: (() -> Unit)?) {
-    val p = Ink.palette
-    val counts = work.chapters.mapIndexed { k, ch ->
-        stringResource(R.string.today_chapter_count, "${k + 1}", ch.letters.count { s.progress(id, ch.id, it.id).done }, ch.letters.size)
-    }
-    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Top, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-        Text(counts.joinToString("  ·  "), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft,
-            modifier = Modifier.weight(1f).padding(top = 2.dp))
-        Column(horizontalAlignment = Alignment.End) {
-            if (reread != null) TextLink(stringResource(R.string.today_reread), reread)
-            TextLink(stringResource(R.string.today_all_letters)) { s.go(Route.Series(id)) }
-        }
-    }
-}
-
 /** 조용한 글자 링크 (밑줄, 흐린 색). 누르는 자리는 44dp. */
 @Composable
-private fun TextLink(text: String, onClick: () -> Unit) {
+internal fun TextLink(text: String, onClick: () -> Unit) {
     val p = Ink.palette
     Box(Modifier.heightIn(min = 44.dp).pressable { onClick() }, contentAlignment = Alignment.TopEnd) {
         Text(text, style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.inkSoft, maxLines = 1)
@@ -282,10 +226,10 @@ private fun TextLink(text: String, onClick: () -> Unit) {
 
 /**
  * 기억 확인 (F7): ‘내 것’이 된 지 오래된 낱말 하나를 툭. 낱말을 보고 뜻을 떠올린 뒤 펼쳐서 스스로 판정.
- * 기억났어요 → 일정 그대로 + 우표 하나, 가물가물 → 두 단계 내려가 내일 다시.
+ * 기억났어요 → 일정 그대로, 가물가물 → 두 단계 내려가 내일 다시. 복습 탭에.
  */
 @Composable
-private fun SurpriseCard(s: AppState, c: io.github.graviton94.todayletters.core.Card) {
+internal fun SurpriseCard(s: AppState, c: io.github.graviton94.todayletters.core.Card) {
     val p = Ink.palette
     val found = remember(c.key) { s.cardWord(c.key) } ?: return
     val (w, _, word) = found
@@ -294,7 +238,6 @@ private fun SurpriseCard(s: AppState, c: io.github.graviton94.todayletters.core.
     val listenA11y = stringResource(R.string.a11y_listen_word)
     val audio = s.wordAudio(found, view.learn)
     Column(Modifier.fillMaxWidth().border(1.dp, p.giltText).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-        Caps("SOUVENIR", p.giltText, small = true, decorative = true)
         Text(stringResource(R.string.surprise_title), style = Type.small.ui(), color = p.inkSoft)
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Text(word.text[view.learn], style = Type.title.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display).of(view.learn), color = p.ink, modifier = Modifier.weight(1f))

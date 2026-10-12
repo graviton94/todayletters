@@ -88,7 +88,8 @@ fun Artwork(s: AppState, r: Route.Artwork) {
     val bmp: ImageBitmap? = remember(pl?.image, io.github.graviton94.todayletters.data.AssetFiles.generation) {
         pl?.image?.takeIf { it.isNotBlank() }?.let { f -> runCatching { io.github.graviton94.todayletters.data.AssetFiles.open(ctx, "plates/$f").use { android.graphics.BitmapFactory.decodeStream(it).asImageBitmap() } }.getOrNull() }
     }
-    val spots = pl?.spots.orEmpty()
+    // 그림이 이 기기에 없으면 (아직 받지 않은 장) 산책 자리를 빈 그림 위에 두지 않는다 (F12)
+    val spots = if (bmp == null) emptyList() else pl?.spots.orEmpty()
     var at by remember { mutableStateOf(-1) }
     var playing by remember { mutableStateOf<String?>(null) }
     val scale = remember { Animatable(1f) }
@@ -211,6 +212,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
         // 아래: 쪽지
         Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().navigationBarsPadding().padding(Tokens.Space.s3)) {
             val sp = spots.getOrNull(at)
+            if (sp == null && spots.isNotEmpty()) GuideLine(s, "walk", Modifier.padding(bottom = Tokens.Space.s2))
             if (sp == null) {
                 Slip(seed = 41, modifier = Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {

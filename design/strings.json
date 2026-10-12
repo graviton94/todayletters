@@ -3497,8 +3497,8 @@
     "ko": "이 작품의 이정표예요. 세 개마다 명작 한 점이 걸려요."
   },
   "help_reset_done": {
-    "en": "Each screen shows its guide again the next time you open it.",
-    "ko": "화면마다 다음에 열 때 안내가 다시 나와요."
+    "en": "Each letter step shows its one-line hint again once. Screen help is always under (?).",
+    "ko": "편지 걸음마다 한 줄 안내가 다시 한 번 나와요. 화면 도움말은 언제든 (?)에."
   },
   "set_fade_read": {
     "en": "Fold translations as you learn",
@@ -3563,5 +3563,157 @@
   "caps_resume": {
     "en": "Resume",
     "ko": "이어 읽기"
+  },
+  "welcome_title": {
+    "en": "Welcome — this is your first visit.",
+    "ko": "첫 방문을 환영해요."
+  },
+  "welcome_body": {
+    "en": "Let's practise first with my friend %1$s.",
+    "ko": "우선, 처음이니 제 친구 %1$s 함께 연습해 봐요."
+  },
+  "welcome_note": {
+    "en": "One letter, step by step, with a short hint at each step. After that you're on your own — help is always under (?).",
+    "ko": "편지 한 통을 걸음마다 한 줄씩 안내하며 같이 읽어요. 그다음부터는 혼자서, 도움말은 언제든 (?)에."
+  },
+  "welcome_go": {
+    "en": "Go to the library",
+    "ko": "서재로 들어가기"
+  },
+  "tutorial_card_caps": {
+    "en": "Start here",
+    "ko": "여기서 시작해요"
+  },
+  "learn_sheet_q": {
+    "en": "Which language will you learn here?",
+    "ko": "이 작품에서 무엇을 배울까요?"
+  },
+  "learn_sheet_note": {
+    "en": "Each language keeps its own progress. You can switch anytime.",
+    "ko": "언어마다 진도가 따로 저장되고, 언제든 바꿀 수 있어요."
+  },
+  "guide_read": {
+    "en": "Tap a word in this sentence — its meaning appears.",
+    "ko": "이 문장을 눌러 보세요 — 낱말 뜻이 나와요."
+  },
+  "guide_match": {
+    "en": "Join each word on the left to its meaning on the right.",
+    "ko": "왼쪽 낱말을 오른쪽 뜻과 이어요."
+  },
+  "guide_aloud": {
+    "en": "Say it aloud after the voice. Just recording counts as a pass.",
+    "ko": "소리 내어 따라 해 봐요. 녹음만 해도 통과예요."
+  },
+  "guide_reply": {
+    "en": "Tap the word stars in order to write the reply.",
+    "ko": "뜻에 맞게 낱말 별을 순서대로 눌러 답장을 써요."
+  },
+  "guide_walk": {
+    "en": "Tap the glowing dots to walk through the painting.",
+    "ko": "빛나는 점을 눌러 그림 속을 걸어 봐요."
+  },
+  "step_skip": {
+    "en": "Skip for now · redo it later from Review",
+    "ko": "건너뛰기 · 나중에 복습에서 다시 할 수 있어요"
+  },
+  "step_redo": {
+    "en": "Redo",
+    "ko": "다시 하기"
+  },
+  "step_later": {
+    "en": "later",
+    "ko": "나중에"
+  },
+  "step_aloud_one": {
+    "en": "One sentence aloud · recording counts",
+    "ko": "한 문장을 소리 내어 · 녹음만 해도 통과"
+  },
+  "redo_step": {
+    "en": "Redo · %1$s",
+    "ko": "다시 하기 · %1$s"
+  },
+  "redo_title": {
+    "en": "Redo",
+    "ko": "다시 하기"
+  },
+  "redo_d": {
+    "en": "Steps you skipped in a letter",
+    "ko": "편지에서 건너뛴 걸음"
+  },
+  "journey_title": {
+    "en": "Today's journey",
+    "ko": "오늘의 여정"
+  },
+  "journey_letter": {
+    "en": "Today's letter",
+    "ko": "오늘의 편지"
+  },
+  "journey_letter_done": {
+    "en": "✓ Read",
+    "ko": "✓ 다 읽었어요"
+  },
+  "journey_redo": {
+    "en": "%1$d skipped · redo",
+    "ko": "건너뛴 걸음 %1$d · 다시 하기"
+  },
+  "journey_review_d": {
+    "en": "This work's words %1$d / %2$d · meaning → blanks → dictation",
+    "ko": "이 작품 낱말 %1$d / %2$d · 뜻 → 빈칸 → 듣고 쓰기"
+  },
+  "journey_review_done": {
+    "en": "✓ All %1$d reviewed",
+    "ko": "✓ %1$d개 모두 복습했어요"
+  },
+  "journey_review_none": {
+    "en": "No words from this work to review today",
+    "ko": "오늘 복습할 이 작품 낱말이 없어요"
+  },
+  "journey_review_continue": {
+    "en": "Continue review",
+    "ko": "이어서 복습"
+  },
+  "journey_bonus": {
+    "en": "Journey complete",
+    "ko": "여정 완료"
+  },
+  "journey_bonus_d": {
+    "en": "+%1$d %2$s · today's letter painting goes up in the gallery",
+    "ko": "+%1$d %2$s · 오늘 편지의 그림이 갤러리에 걸려요"
+  },
+  "journey_bonus_paid": {
+    "en": "+%1$d %2$s received · the painting is in your gallery",
+    "ko": "+%1$d %2$s 받았어요 · 그림이 갤러리에 걸렸어요"
+  },
+  "earn_journey": {
+    "en": "Today's journey",
+    "ko": "오늘의 여정"
+  },
+  "free_title": {
+    "en": "Free practice",
+    "ko": "자유 연습"
+  },
+  "free_d": {
+    "en": "This work's words, one round · counts toward your review",
+    "ko": "이 작품 낱말로 한 판 · 기록도 돼요"
+  },
+  "free_note": {
+    "en": "Recorded. Words that were due move on; the rest keep their schedule.",
+    "ko": "기록됐어요. 볼 날이 된 낱말은 일정이 움직이고, 나머지는 그대로예요."
+  },
+  "recital_compare_empty": {
+    "en": "Read along once and your first scores appear here.",
+    "ko": "한 번 따라 읽으면 첫 점수가 여기에 나와요."
+  },
+  "graduate_title": {
+    "en": "You're ready on your own now",
+    "ko": "이제 혼자서도 괜찮아요"
+  },
+  "graduate_body": {
+    "en": "From here on there are no hints. If you get stuck, tap (?) at the top of any screen.",
+    "ko": "이제부터는 안내 없이 읽어요. 막히면 화면 위의 (?)를 눌러 보세요."
+  },
+  "graduate_go": {
+    "en": "Got it",
+    "ko": "좋아요"
   }
 }

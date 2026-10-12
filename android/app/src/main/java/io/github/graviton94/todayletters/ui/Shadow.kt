@@ -66,7 +66,9 @@ import io.github.graviton94.todayletters.design.Type
 fun ShadowScreen(s: AppState, r: Route.Shadow) = ReadAlong(s, r.room, only = r.only?.let { listOf(it) }, onClose = { s.back() }, onFinish = null)
 
 @Composable
-fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> Unit, onFinish: (() -> Unit)?) {
+fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> Unit, onFinish: (() -> Unit)?,
+              /** 편지 걸음이면 건너뛰기 (편지 목록 · 복습 탭에서 다시 하기). */ onSkip: (() -> Unit)? = null,
+              /** 튜토리얼의 안내 한 줄 (core 의 Tutorial 걸음 이름). */ guide: String? = null) {
     val p = Ink.palette
     val ctx = LocalContext.current
     val (chapter, letter) = s.letterOf(room)
@@ -130,6 +132,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
         scoring = false
         result?.first?.let {
             s.recordScore(it); s.cue(it.passed || (step && it.total > 0))
+            if (it.stars >= 1) s.markStar(id, chapter, letter.id)   // 봉인 조건: 따라 읽기 별 하나 이상 (F13)
             if (it.passed || (step && it.total > 0)) s.markPassed(id, chapter, letter.id, mi, cj) else if (tick > 0) tries[at] = (tries[at] ?: 0) + 1
         }
     }
@@ -185,7 +188,9 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
             PracticeTitle(stringResource(R.string.shadow_title).uppercase(), null)
             val nth = if (only == null) mi + 1 else only.indexOf(mi) + 1
             val of = if (only == null) units.size else only.size
-            Text(if (units[mi].size > 1) stringResource(R.string.read_where_part, nth, of, cj + 1, units[mi].size) else stringResource(R.string.read_where, nth, of),
+            if (guide != null) GuideLine(s, guide)
+            // 한 문장 · 한 마디뿐이면 "1 / 1" 은 위의 진행 숫자와 겹친다 (F14)
+            if (flat.size > 1) Text(if (units[mi].size > 1) stringResource(R.string.read_where_part, nth, of, cj + 1, units[mi].size) else stringResource(R.string.read_where, nth, of),
                 style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.align(Alignment.CenterHorizontally))
             // 읽는 자리 칠하기 그대로, 낱말을 누르면 뜻 (눌러서 뜻 보기). 긴 문장은 이번 마디 밖을 흐리게.
             val part = remember(sentence, unit) { if (units[mi].size <= 1) null else sentence.indexOf(unit.text).takeIf { it >= 0 }?.let { it until it + unit.text.length } }
@@ -290,8 +295,10 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
                 }
             }
             if (stuck) Secondary(stringResource(R.string.read_skip), small = true) { advance() }
-            Primary(stringResource(if (last && allTried) (if (onFinish != null) R.string.aloud_finish else R.string.shadow_finish) else R.string.shadow_next),
+            // 편지 걸음(한 문장)은 녹음하면 바로 ‘마치기’ (F14: ‘다음 문장’이 아니라)
+            Primary(stringResource(if (last && (allTried || onFinish != null)) (if (onFinish != null) R.string.aloud_finish else R.string.shadow_finish) else R.string.shadow_next),
                 enabled = have && !recording && !scoring) { advance() }
+            if (onSkip != null && !have) SkipLink(onSkip)
         }
     }
     // 아직 통과 못 한 문장이 있으면: 그 문장으로 (봉인은 모든 문장 통과)

@@ -40,19 +40,28 @@ import kotlinx.coroutines.launch
 private fun Modifier.rise(a: Float) = graphicsLayer { alpha = a; translationY = (1f - a) * 18.dp.toPx() }
 
 /**
- * 첫 화면: 언어 미술관 입구. 날마다 바뀌는 ‘오늘의 작품’ 한 점이 화면 가득 천천히 밝아지고,
+ * 첫 화면: 언어 미술관 입구 (앱을 켤 때마다). 내가 모은 그림들이 화면 가득 천천히 바뀌며 지나가고 (모을수록 입구가 풍성해지는 보상),
+ * 아직 모은 것이 적으면 날마다 바뀌는 ‘오늘의 작품’ 한 점. 그 위로
  * 이름 · 앱 이름 · 한 줄 소개 · 작품 설명 · 입장 단추가 차례로 떠오른다. 그동안 뒤에서 편지와 낱말 카드를 불러 둔다.
  * 누르면 책장 넘기는 소리와 함께 시간의 서재가 서서히 나타난다.
  */
 @Composable
 fun Opening(s: AppState) {
     val ink = Color(0xFFECE7DE); val soft = Color(0xFFA29B90); val gilt = Color(0xFFC9B48C); val ground = Color(0xFF121110)
-    // 오늘의 작품: 모든 시리즈의 유화 · 명작 (기기에 있는 것) 을 날마다 돌아가며
-    val piece = remember {
-        val pool = s.works.flatMap { w -> w.kit.collection.filter { (it.tier == Tier.PAINTING || it.tier == Tier.MASTER) && s.available(it) } }
-        pool.getOrNull(Math.floorMod(s.today, pool.size.coerceAtLeast(1).toLong()).toInt())
+    // 모은 그림 (편지 그림 · 소장품, 기기에 있는 것) 이 셋 넘으면 그것들을 차례로, 아니면 오늘의 작품 (유화 · 명작을 날마다 돌아가며)
+    val pieces = remember {
+        val owned = s.works.flatMap { w -> s.gallery(w.series.id).filter { s.owns(w.series.id, it) && s.available(it) } }
+        if (owned.size >= 3) owned.shuffled(java.util.Random(s.today)).take(8)
+        else {
+            val pool = s.works.flatMap { w -> w.kit.collection.filter { (it.tier == Tier.PAINTING || it.tier == Tier.MASTER) && s.available(it) } }
+            listOfNotNull(pool.getOrNull(Math.floorMod(s.today, pool.size.coerceAtLeast(1).toLong()).toInt()))
+        }
     }
+    var shownAt by remember { androidx.compose.runtime.mutableIntStateOf(0) }
+    val piece = pieces.getOrNull(shownAt % pieces.size.coerceAtLeast(1))
     val still = s.reducedMotion
+    // 천천히 바뀌는 전시: 한 점씩 4초 남짓 (움직임 줄이기면 한 점에 머문다)
+    LaunchedEffect(pieces) { if (!still && pieces.size > 1) while (true) { delay(4200); shownAt++ } }
     val steps = remember { List(6) { Animatable(if (still) 1f else 0f) } }
     var ready by remember { mutableStateOf(still) }
     var leaving by remember { mutableStateOf(false) }
@@ -77,17 +86,20 @@ fun Opening(s: AppState) {
         s.nextStage()
     }
     Box(Modifier.fillMaxSize().background(ground)) {
-        if (piece != null) AssetImage(piece.image, Modifier.fillMaxSize().graphicsLayer {
-            alpha = steps[0].value; val k = 1.06f - 0.06f * steps[0].value; scaleX = k; scaleY = k
-        }, sample = 1)
+        androidx.compose.animation.Crossfade(piece, animationSpec = tween(1600), label = "gallery") { pc ->
+            if (pc != null) AssetImage(pc.image, Modifier.fillMaxSize().graphicsLayer {
+                alpha = steps[0].value; val k = 1.06f - 0.06f * steps[0].value; scaleX = k; scaleY = k
+            }, sample = 1)
+        }
+        // 위는 이름과 한 줄 소개가 그림 위에서도 읽히게 더 어둡게 (F29 대비)
         Box(Modifier.fillMaxSize().background(Brush.verticalGradient(
-            0f to ground.copy(alpha = 0.6f), 0.3f to ground.copy(alpha = 0.1f), 0.55f to ground.copy(alpha = 0.15f), 0.88f to ground,
+            0f to ground.copy(alpha = 0.78f), 0.32f to ground.copy(alpha = 0.3f), 0.55f to ground.copy(alpha = 0.15f), 0.88f to ground,
         )))
         Column(Modifier.fillMaxWidth().statusBarsPadding().padding(top = 56.dp, start = 24.dp, end = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Text("LINGUA MUSEUM", style = Type.caps, color = gilt, modifier = Modifier.rise(steps[1].value))
             Text(stringResource(R.string.app_name), style = Type.display.ui(), color = ink, modifier = Modifier.rise(steps[2].value))
-            Text(stringResource(R.string.opening_tagline), style = Type.small.ui(), color = ink.copy(alpha = 0.85f), textAlign = TextAlign.Center,
+            Text(stringResource(R.string.opening_tagline), style = Type.small.ui(), color = ink, textAlign = TextAlign.Center,
                 modifier = Modifier.rise(steps[3].value))
         }
         Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().navigationBarsPadding().padding(horizontal = 32.dp, vertical = 48.dp),

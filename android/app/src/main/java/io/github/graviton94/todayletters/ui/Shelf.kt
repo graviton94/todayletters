@@ -80,7 +80,8 @@ fun LibraryTab(s: AppState) {
             Box(Modifier.heightIn(min = 40.dp).pressable { s.go(Route.Overall) }, contentAlignment = Alignment.CenterStart) {
                 Text(stringResource(R.string.lib_overall) + " ›", style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.ink)
             }
-            s.works.forEach { w -> SeriesCard(s, w) }
+            // 처음 설치 (튜토리얼): 첫 작품 카드를 강조하고, 배울 말은 그 카드에서 고른다 → 바로 편지 I
+            s.works.forEach { w -> if (!s.tutorialDone && w.series.id == s.tutorialSeries && s.needsWelcome(w.series.id)) TutorialCard(s, w) else SeriesCard(s, w) }
             Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                 upcoming.filter { (id, _) -> s.works.none { it.series.id == id } }.forEach { (file, name) ->
                     Column(Modifier.weight(1f).heightIn(min = 96.dp).dashed(p.hair).padding(vertical = Tokens.Space.s3),
@@ -104,7 +105,7 @@ private fun SeriesCard(s: AppState, w: Work) {
     val total = w.chapters.sumOf { it.letters.size }
     val done = s.doneCount(id)
     val unread = s.unread(id)
-    val due = s.dueCards().count { it.key.startsWith("$id:") }
+    val due = s.dueCards(id).size
     Box(Modifier.fillMaxWidth().height(228.dp).clip(androidx.compose.foundation.shape.RoundedCornerShape(2.dp)).background(t.paper).pressable { s.go(Route.Enter(id)) }) {
         AssetImage(w.kit.hero, Modifier.fillMaxSize(), sample = 2, alignment = Alignment.CenterEnd)
         Box(Modifier.fillMaxSize().background(Brush.horizontalGradient(0f to t.paper, 0.32f to t.paper.copy(alpha = 0.9f), 0.62f to t.paper.copy(alpha = 0.5f), 1f to t.paper.copy(alpha = 0.1f))))
@@ -142,8 +143,39 @@ private fun SeriesCard(s: AppState, w: Work) {
 }
 
 /**
- * 시리즈로 들어가는 전환: 책장 넘기는 소리와 함께 카드가 화면 가득 펼쳐지고, 대표 그림 위에서
- * “OO의 세상으로 떠납니다”와 함께 편지 꾸러미를 편다 (불러오기). 준비가 끝나면 ‘눌러서 들어가기’.
+ * 튜토리얼의 서재 카드 (처음 설치 한 번): 금빛 테로 강조한 첫 작품 카드 안에서 배울 말을 고르고 ‘첫 편지 받기’ → 편지 I.
+ */
+@Composable
+private fun TutorialCard(s: AppState, w: Work) {
+    val t = darkTone(w)
+    var learn by remember(w.series.id) { mutableStateOf(io.github.graviton94.todayletters.core.Langs.defaultLearn(w.series, s.app.read)) }
+    Column(Modifier.fillMaxWidth().border(2.dp, t.accent).padding(3.dp).background(t.paper)) {
+        Box(Modifier.fillMaxWidth().height(150.dp)) {
+            AssetImage(w.kit.hero, Modifier.fillMaxSize(), sample = 2, alignment = Alignment.CenterEnd)
+            Box(Modifier.fillMaxSize().background(Brush.verticalGradient(0f to t.paper.copy(alpha = 0.2f), 1f to t.paper)))
+            Column(Modifier.align(Alignment.BottomStart).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                Text(stringResource(R.string.tutorial_card_caps), style = Type.small.ui().copy(fontWeight = FontWeight.SemiBold), color = t.paper,
+                    modifier = Modifier.background(t.accent).padding(horizontal = 8.dp, vertical = 2.dp))
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Box(Modifier.border(1.5.dp, t.accent, CircleShape).padding(1.5.dp)) { Portrait(w.portrait, w.fullName, 40.dp) }
+                    Text(w.fullName, style = Type.heading.ui(), color = t.ink, modifier = Modifier.weight(1f))
+                }
+            }
+        }
+        Column(Modifier.padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+            Text(stringResource(R.string.learn_sheet_q), style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = t.ink)
+            LearnPicker(s, w, learn, ink = t.ink, soft = t.soft, line = t.ink.copy(alpha = 0.35f), fill = t.ink.copy(alpha = 0.08f)) { learn = it }
+            Text(stringResource(R.string.learn_sheet_note), style = Type.small.ui(), color = t.soft)
+            Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).background(t.ink).pressable { s.startTutorial(learn) }, contentAlignment = Alignment.Center) {
+                Text(stringResource(R.string.ob_one_go), style = Type.body.ui(), color = t.paper)
+            }
+        }
+    }
+}
+
+/**
+ * 시리즈로 들어가는 짧은 전환: 책장 넘기는 소리와 함께 카드가 화면 가득 펼쳐지고, 대표 그림 위에서
+ * “OO의 세상으로 떠납니다”와 함께 편지 꾸러미를 편 뒤 (불러오기) 저절로 들어간다 (누르는 횟수 하나 줄임, F07). 누르면 바로.
  */
 @Composable
 fun EnterScreen(s: AppState, id: String) {
@@ -152,15 +184,19 @@ fun EnterScreen(s: AppState, id: String) {
     val grow = remember { Animatable(if (s.reducedMotion) 1f else 0.88f) }
     val load = remember { Animatable(0f) }
     var ready by rememberSaveable { mutableStateOf(false) }
+    var gone by remember { mutableStateOf(false) }
+    fun go() { if (!gone) { gone = true; s.enter(id) } }
     LaunchedEffect(id) {
         if (s.app.sound) s.narrator.play("sounds/page.m4a")
-        grow.animateTo(1f, tween(if (s.reducedMotion) 0 else 500))
+        grow.animateTo(1f, tween(if (s.reducedMotion) 0 else 450))
         // 편지 꾸러미 펴기: 이 시리즈의 낱말 카드 · 도착한 편지를 미리 셈해 둔다
-        s.openable(id); s.dueCards()
-        load.animateTo(1f, tween(if (s.reducedMotion) 0 else 1100, easing = LinearEasing))
+        s.openable(id); s.dueCards(id)
+        load.animateTo(1f, tween(if (s.reducedMotion) 0 else 700, easing = LinearEasing))
         ready = true
+        kotlinx.coroutines.delay(if (s.reducedMotion) 0 else 450)
+        go()
     }
-    Box(Modifier.fillMaxSize().background(t.paper).graphicsLayer { scaleX = grow.value; scaleY = grow.value; alpha = (grow.value - 0.88f) / 0.12f * 0.7f + 0.3f }) {
+    Box(Modifier.fillMaxSize().background(t.paper).pressable(haptic = false) { go() }.graphicsLayer { scaleX = grow.value; scaleY = grow.value; alpha = (grow.value - 0.88f) / 0.12f * 0.7f + 0.3f }) {
         AssetImage(w.kit.hero, Modifier.fillMaxSize(), sample = 1)
         Box(Modifier.fillMaxSize().background(Brush.verticalGradient(0f to Color(0x26000000), 0.42f to Color(0x0D000000), 0.9f to t.paper)))
         Column(Modifier.align(Alignment.BottomStart).fillMaxWidth().padding(horizontal = 28.dp, vertical = 64.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -172,12 +208,7 @@ fun EnterScreen(s: AppState, id: String) {
                 }
                 Text(stringResource(R.string.enter_loading), style = Type.small.ui(), color = t.soft)
             } else {
-                val due = s.dueCards().count { it.key.startsWith("$id:") }
-                Text(stringResource(R.string.enter_ready, s.unread(id), due), style = Type.small.ui(), color = t.soft)
-                Box(Modifier.padding(top = 14.dp).fillMaxWidth().heightIn(min = Tokens.Size.button).border(1.5.dp, t.accent).pressable { s.enter(id) },
-                    contentAlignment = Alignment.Center) {
-                    Text(stringResource(R.string.enter_go), style = Type.body.ui(), color = t.ink)
-                }
+                Text(stringResource(R.string.enter_ready, s.unread(id), s.dueCards(id).size), style = Type.small.ui(), color = t.soft)
             }
         }
     }

@@ -64,73 +64,83 @@ fun langLabel(l: Lang) = when (l) {
 }
 
 /**
- * 처음 소개 (첫 설치 한 번, v21 4단계 U4): 한 장. 무엇인지 · 하루가 어떻게 흐르는지 · 어떤 말로 읽을지.
- * ‘첫 편지 받기’면 서재 · 전환 · 오늘을 건너 바로 첫 편지 (도착 장면부터). 입구에서 첫 편지까지 두 번.
- * 번역 언어는 폰 언어로 시작하고, 답장 방식 · 하루 편지 수는 묻지 않는다 (작품 설정에서).
+ * 처음 설치의 환영 한 장 (튜토리얼 1, core 의 Tutorial): “첫 방문을 환영해요. 우선, 처음이니 제 친구 빈센트 반 고흐와 함께 연습해 봐요.”
+ * 누르면 서재로 — 서재가 첫 작품 카드를 강조하고, 배울 말은 그 카드에서 고른다.
  */
 @Composable
 fun Onboarding(s: AppState) {
+    val p = Ink.palette
     val work = s.works.first()
-    LearnChoice(s, work) { learn ->
-        s.narrator.stop()
-        s.finishOnboarding(s.app, work.series.id, Langs.start(work.series, s.app).copy(learn = learn))
-        s.startFirstLetter(work.series.id)
+    val ko = uiLang() == Lang.KO
+    Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f).statusBarsPadding().navigationBarsPadding()) {
+        Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s8),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4, Alignment.CenterVertically)) {
+            Box(Modifier.border(1.5.dp, p.giltText, CircleShape).padding(3.dp)) { Portrait(work.portrait, work.fullName, 88.dp) }
+            Text(stringResource(R.string.welcome_title), style = Type.title.ui(), color = p.ink, modifier = Modifier.padding(top = Tokens.Space.s3))
+            Text(stringResource(R.string.welcome_body, if (ko) josa(work.fullName, "과", "와") else work.fullName), style = Type.body.ui(), color = p.inkSoft)
+            Text(stringResource(R.string.welcome_note), style = Type.small.ui(), color = p.inkSoft)
+        }
+        Box(Modifier.padding(Tokens.Space.s4)) {
+            Primary(stringResource(R.string.welcome_go)) { s.narrator.stop(); s.finishWelcome() }
+        }
     }
 }
 
 /**
- * 처음 소개의 한 장: [work] 가 무엇인지 · 하루가 어떻게 흐르는지 · 무엇을 배울지 (원어 · 읽는 언어가 아닌 쪽).
- * 첫 설치 때는 첫 작품으로, 다른 작품에 처음 들어갈 때 ([Route.Welcome]) 는 그 작품으로 같은 장을 보여 준다.
+ * 배울 말 고르기 (작품마다): 원어 · 영어 · 한국어 가운데 읽는 언어를 뺀 것, 그 말로 쓴 첫 줄 맛보기와 함께.
+ * 서재의 튜토리얼 카드 · 다른 작품에 처음 들어갈 때의 시트 ([WelcomeSheet]) 가 같이 쓴다.
  */
 @Composable
-fun LearnChoice(s: AppState, work: io.github.graviton94.todayletters.data.Work, onGo: (Lang) -> Unit) {
-    val p = Ink.palette
-    val read = s.app.read
-    var learn by remember(work.series.id) { mutableStateOf(Langs.defaultLearn(work.series, read)) }
-    val line = work.chapters.first().letters.first().messages.first().text
-    Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f).statusBarsPadding().navigationBarsPadding()) {
-        Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
+fun LearnPicker(s: AppState, work: io.github.graviton94.todayletters.data.Work, learn: Lang, ink: Color = Ink.palette.ink, soft: Color = Ink.palette.inkSoft,
+                line: Color = Ink.palette.line, fill: Color = Ink.palette.leaf, onPick: (Lang) -> Unit) {
+    val sample = work.chapters.first().letters.first().messages.first().text
+    Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        Langs.learnChoices(work.series, s.app.read).forEach { l ->
+            val on = l == learn
+            Row(
+                Modifier.fillMaxWidth().heightIn(min = 56.dp).semantics { selected = on }
+                    .background(if (on) fill else Color.Transparent).border(if (on) 1.6.dp else 1.dp, if (on) ink else line)
+                    .clickable(role = Role.RadioButton) { onPick(l) }.padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s2),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(stringResource(langLabel(l)) + if (l == work.series.original) " · " + stringResource(R.string.ob2_original) else "",
+                        style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = ink)
+                    // 첫 줄 맛보기: 배우는 문장은 자르지 않는다 (F05)
+                    Text(io.github.graviton94.todayletters.core.Breaks.plain(sample[l]), style = Type.small.of(l).copy(fontStyle = androidx.compose.ui.text.font.FontStyle.Italic), color = soft)
+                }
+                Box(Modifier.size(18.dp).then(if (on) Modifier.background(ink, CircleShape) else Modifier.border(1.4.dp, line, CircleShape)))
+            }
+        }
+    }
+}
+
+/**
+ * 다른 작품에 처음 들어갈 때 (튜토리얼 뒤): 대표 그림 위에 배울 말만 고르는 시트. 고르면 바로 편지 I (프롤로그는 목차에서).
+ */
+@Composable
+fun WelcomeSheet(s: AppState, id: String) {
+    val w = s.work(id)
+    val t = darkTone(w)
+    var learn by remember(id) { mutableStateOf(Langs.defaultLearn(w.series, s.app.read)) }
+    Box(Modifier.fillMaxSize().background(t.paper)) {
+        AssetImage(w.kit.hero, Modifier.fillMaxSize(), sample = 2)
+        Box(Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Brush.verticalGradient(0f to Color(0x33000000), 0.4f to Color(0x1A000000), 0.75f to t.paper)))
+        Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().navigationBarsPadding().padding(Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                Portrait(work.portrait, work.fullName, 46.dp)
-                Caps(deco(work.series.original, "BIENVENUE", "WILLKOMMEN"), p.giltText, small = true, decorative = true)
-            }
-            Text(stringResource(R.string.ob_one_title, if (uiLang() == Lang.KO) josa(work.fullName, "이", "가") else work.fullName),
-                style = Type.title.ui(), color = p.ink, modifier = Modifier.padding(top = Tokens.Space.s2))
-            Text(stringResource(R.string.ob_one_body, work.recipient[uiLang()], if (uiLang() == Lang.KO) josa(work.recipient[uiLang()], "이", "가") else work.recipient[uiLang()]),
-                style = Type.body.ui(), color = p.inkSoft)
-            Column(Modifier.padding(top = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                listOf(stringResource(R.string.ob_one_1, work.name[uiLang()]), stringResource(R.string.ob_one_2), stringResource(R.string.ob_one_3)).forEachIndexed { i, t ->
-                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                        Box(Modifier.size(28.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) {
-                            Text(roman(i + 1), style = Type.small.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.giltText)
-                        }
-                        Text(t, style = Type.body.ui(), color = p.ink)
-                    }
+                Box(Modifier.border(1.5.dp, t.accent, CircleShape).padding(1.5.dp)) { Portrait(w.portrait, w.fullName, 40.dp) }
+                Column(Modifier.weight(1f)) {
+                    Text(w.kit.place, style = Type.capsSm, color = t.accent)
+                    Text(w.fullName, style = Type.heading.ui(), color = t.ink)
                 }
             }
-            Text(stringResource(R.string.ob_one_q), style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink,
-                modifier = Modifier.padding(top = Tokens.Space.s5))
-            Langs.learnChoices(work.series, read).forEach { l ->
-                val on = l == learn
-                Row(
-                    Modifier.fillMaxWidth().heightIn(min = 64.dp).semantics { selected = on }
-                        .background(if (on) p.leaf else Color.Transparent).border(if (on) 1.6.dp else 1.dp, if (on) p.ink else p.line)
-                        .clickable(role = Role.RadioButton) { learn = l }.padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                        Text(stringResource(langLabel(l)) + if (l == work.series.original) " " + stringResource(R.string.ob2_original) else "",
-                            style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
-                        Text(line[l].take(34) + "…", style = Type.small.of(l).copy(fontStyle = androidx.compose.ui.text.font.FontStyle.Italic), color = p.inkSoft, maxLines = 1)
-                    }
-                    Box(Modifier.size(18.dp).then(if (on) Modifier.background(p.ink, CircleShape) else Modifier.border(1.4.dp, p.line, CircleShape)))
-                }
+            Text(stringResource(R.string.learn_sheet_q), style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = t.ink)
+            LearnPicker(s, w, learn, ink = t.ink, soft = t.soft, line = t.ink.copy(alpha = 0.35f), fill = t.ink.copy(alpha = 0.08f)) { learn = it }
+            Text(stringResource(R.string.learn_sheet_note), style = Type.small.ui(), color = t.soft)
+            Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).background(t.ink).pressable { s.chooseLearn(id, learn) }, contentAlignment = Alignment.Center) {
+                Text(stringResource(R.string.ob_one_go), style = Type.body.ui(), color = t.paper)
             }
-            Text(stringResource(R.string.ob_one_note, stringResource(langLabel(read))), style = Type.small.ui(), color = p.hideInk)
-        }
-        Box(Modifier.padding(Tokens.Space.s4)) {
-            Primary(stringResource(R.string.ob_one_go)) { onGo(learn) }
         }
     }
 }

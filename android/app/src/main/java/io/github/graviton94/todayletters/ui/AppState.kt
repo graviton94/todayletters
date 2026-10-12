@@ -18,8 +18,9 @@ import io.github.graviton94.todayletters.core.Achievement
 import io.github.graviton94.todayletters.core.Draws
 import io.github.graviton94.todayletters.core.Piece
 import io.github.graviton94.todayletters.core.Tier
-import io.github.graviton94.todayletters.core.Quest
-import io.github.graviton94.todayletters.core.Quests
+import io.github.graviton94.todayletters.core.Journey
+import io.github.graviton94.todayletters.core.Plays
+import io.github.graviton94.todayletters.core.Tutorial
 import io.github.graviton94.todayletters.core.Spend
 import io.github.graviton94.todayletters.core.Streak
 import io.github.graviton94.todayletters.core.Wallet
@@ -75,8 +76,6 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 낭독 받기 묻기. [letter] 가 있으면 받은 뒤 그 편지를 열고, 없으면 미리 받기 (받고 끝). */
     data class DownloadAsk(val pack: io.github.graviton94.todayletters.data.Downloads.Pack, val series: String, val chapter: String, val letter: Letter?, val from: Route.Tab?)
     var downloadAsk by mutableStateOf<DownloadAsk?>(null)
-    /** 이번 실행에서 ‘소리 없이 읽기’를 고른 장 (다시 묻지 않음). */
-    private val silentChapters = mutableSetOf<String>()
 
     val reducedMotion: Boolean =
         Settings.Global.getFloat(ctx.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) == 0f
@@ -114,12 +113,29 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         private set
     val currentWork: Work get() = work(current)
 
-    // 예전에 시리즈 구분 없이 세던 오늘의 할 일은 마지막으로 들어간 시리즈 (보너스가 들어간 곳) 로, 없으면 반 고흐로
     init {
-        store.migrateQuests(store.lastSeries?.takeIf { id -> works.any { it.series.id == id } } ?: "vincent")
         // 언어마다 진도 (v22): 예전 진도는 그때 배우던 말의 것으로 옮긴다 (작품마다 한 번)
         baseWorks.forEach { w -> runCatching { store.migrateSpace(w.series.id, space(w.series.id)) } }
+        // 예전 사용자: 편지를 한 통이라도 마쳤으면 튜토리얼은 끝난 것으로 (안내 한 줄 · 서재 강조 없이)
+        if (!store.tutorialDone && !store.tutorialReplay && Tutorial.done(false, store.progressKeys().count { store.progress(it).done })) store.tutorialDone = true
     }
+
+    // ── 처음 설치의 튜토리얼 (core 의 Tutorial) ─────────────────
+    /** 튜토리얼을 마쳤나. 마치기 전에는 서재가 첫 작품 카드를 강조하고, 편지 I 의 걸음마다 한 줄 안내가 처음 한 번 나온다. */
+    val tutorialDone: Boolean get() = run { @Suppress("UNUSED_EXPRESSION") version; store.tutorialDone }
+    /** 튜토리얼의 작품 (서재의 첫 작품, 빈센트). */
+    val tutorialSeries: String get() = works.firstOrNull()?.series?.id.orEmpty()
+    /** 이 걸음의 안내 한 줄을 보여 줄 차례인가 (튜토리얼 중, 처음 들어왔을 때). */
+    fun guideDue(step: String) = Tutorial.guide(step, store.tutorialDone, store.guideSeen)
+    fun guideShown(step: String) { store.markGuideSeen(step) }
+    /** 튜토리얼 끝: 그 뒤로는 어느 작품에서도 도움말이 저절로 뜨지 않는다 ((?) 로만). */
+    fun graduate() { store.tutorialDone = true; store.tutorialReplay = false; version++ }
+
+    /**
+     * 튜토리얼: 서재의 첫 작품 카드에서 배울 말을 골랐다 → 전환 · 오늘을 건너 그 작품의 편지 I 로 (프롤로그는 목차에서 언제든).
+     * 뒤로 가면 오늘.
+     */
+    fun startTutorial(learn: io.github.graviton94.todayletters.core.Lang) = chooseLearn(tutorialSeries, learn)
 
     /** ‘언어마다 진도가 따로 저장돼요’ 알림 (처음 배우는 말을 바꿀 때 한 번). */
     var langNotice by mutableStateOf(false)
@@ -140,8 +156,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     }
 
     /**
-     * 서재에서 고른 시리즈로 들어간다 (전환 화면의 ‘눌러서 들어가기’).
-     * 처음 들어가는 작품이면 무엇을 배울지부터 고르고 ([Route.Welcome]), 프롤로그를 아직 안 봤으면 그것부터 (한 번).
+     * 서재에서 고른 시리즈로 들어간다 (짧은 전환 뒤 저절로). 처음 들어가는 작품이면 무엇을 배울지만 고르고 ([Route.Welcome])
+     * 고르면 바로 편지 I. 그 밖에는 오늘. 프롤로그는 목차에서 언제든 (저절로 띄우지 않는다).
      */
     fun enter(id: String) {
         current = id; store.lastSeries = id
@@ -149,24 +165,16 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         stack.clear()
         if (needsWelcome(id)) { stack.addAll(listOf(Route.Library, Route.Welcome(id))); return }
         stack.addAll(Nav.trail(Route.Inbox))
-        // 프롤로그가 있으면 그것부터: 끝나면 첫 편지로 (finishPrologue)
-        if (work(id).prologue.isNotEmpty() && !store.prologueSeen(id)) stack.add(Route.Prologue(id))
     }
 
     /** 아직 무엇을 배울지 고르지 않았고, 한 통도 열지 않은 작품 (이미 읽던 작품에는 묻지 않는다). */
     fun needsWelcome(id: String) = !store.learnChosen(id) && startedCount(id) == 0
 
-    /** 처음 들어간 작품에서 배울 말을 골랐다: 그 작품 설정에 담고 프롤로그 (없으면 오늘) 로. */
+    /** 처음 들어간 작품에서 배울 말을 골랐다: 그 작품 설정에 담고 바로 첫 편지로 (뒤로 가면 오늘). */
     fun chooseLearn(id: String, learn: io.github.graviton94.todayletters.core.Lang) {
         update(id, seriesSettings(id).copy(learn = learn))
         store.markLearnChosen(id)
-        enter(id)
-    }
-
-    /** 처음 설치 (U4): 서재 · 전환 · 오늘을 건너 그 작품의 첫 편지로 (프롤로그가 있으면 그것부터). 뒤로 가면 오늘. */
-    fun startFirstLetter(id: String) {
-        // 처음 소개에서 이미 배울 말을 골랐다
-        store.markLearnChosen(id)
+        store.migrateSpace(id, space(id))
         enter(id)
         if (route == Route.Inbox) openFirst(id)
     }
@@ -176,14 +184,10 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         c.letters.firstOrNull()?.let { open(id, c.id, it, Route.Inbox) }
     }
 
-    /** 프롤로그를 다 봤거나 건너뛰었다. 처음이면 첫 편지로, 다시 본 것이면 들어온 곳으로. */
+    /** 프롤로그를 다 봤거나 건너뛰었다: 들어온 곳(목차)으로. */
     fun finishPrologue(id: String) {
-        val first = !store.prologueSeen(id)
         store.markPrologueSeen(id)
-        if (first && !progress(id, work(id).chapters.first().id, work(id).chapters.first().letters.first().id).done) {
-            stack.removeAll { it is Route.Prologue }
-            openFirst(id)
-        } else back()
+        back()
     }
 
     /** 이 작품의 모든 편지를 다 읽었나 (맺음말 · 완결 도록). */
@@ -275,8 +279,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val newlyDone = p.done && !store.progress(k).done
         if (newlyDone) store.logDay("letters", today, k)   // 이번 주 돌아보기 (E1)
         store.save(k, p); version++
-        // 오늘의 할 일 ①: 오늘의 편지 끝까지 읽기
-        if (newlyDone) questAdd(Quest.LETTER, series)
+        // 오늘의 여정 I: 편지를 마쳤다 (여정을 다 했으면 보너스 · 그림)
+        if (newlyDone) journeyCheck(series)
     }
 
     /** 배우는 말 [learn] 으로 다 읽은 편지 수 (언어 고르기 시트에서 언어마다 진도를 보여 줄 때). */
@@ -482,28 +486,87 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val decks = works.associate { it.series.id to it.deck }
         store.cards().filter { c -> CardRef.parse(c.key)?.let { decks[it.series] == it.deck } == true && cardWord(c.key) != null }
     }
-    fun dueCards() = io.github.graviton94.todayletters.core.Memory.dueToday(cards(), today)
-    fun answer(c: io.github.graviton94.todayletters.core.Card, correct: Boolean) {
-        val next = io.github.graviton94.todayletters.core.Memory.after(c, correct, today)
+    /** 오늘 볼 카드: [id] 가 있으면 그 작품의 카드만 (오늘의 여정 II · 서재 카드의 숫자), 없으면 모든 작품. */
+    fun dueCards(id: String? = null) = io.github.graviton94.todayletters.core.Memory.dueToday(
+        cards().filter { c -> id == null || CardRef.parse(c.key)?.series == id }, today)
+    /** 지금 배우는 말의 이 작품 카드 (복습 탭 · 자유 연습은 지금 작품의 것만, F08). */
+    fun seriesCards(id: String = current) = cards().filter { c -> CardRef.parse(c.key)?.series == id }
+
+    /** 오늘의 복습 (여정 II) 의 답: 기억 칸이 움직이고, 맞히면 그 작품 화폐 하나. */
+    fun answer(c: io.github.graviton94.todayletters.core.Card, correct: Boolean) = record(io.github.graviton94.todayletters.core.Memory.after(c, correct, today), c, if (correct) Earn.REVIEW_RIGHT else null)
+    /** 자유 연습의 답 (F09): 기록은 되지만 (core 의 Memory.practiced) 화폐는 여정에서만. */
+    fun practiced(c: io.github.graviton94.todayletters.core.Card, correct: Boolean) = record(io.github.graviton94.todayletters.core.Memory.practiced(c, correct, today), c, null)
+    private fun record(next: io.github.graviton94.todayletters.core.Card, c: io.github.graviton94.todayletters.core.Card, e: Earn?) {
         if (next.box == io.github.graviton94.todayletters.core.Memory.TOP && c.box < io.github.graviton94.todayletters.core.Memory.TOP) store.logDay("own", today, c.key)
         store.save(next)
-        if (correct) earn(Earn.REVIEW_RIGHT)
+        if (e != null) earn(e, id = c.key.substringBefore(":"))
         version++
     }
-    /** 복습 문제 하나의 결과 (오늘의 할 일: 듣고 쓰기 연속 · 뜻 고르기). [series] 는 그 낱말의 작품: 그 작품의 할 일로 센다. */
-    private var answerRun = Triple("", ReviewKind.MEANING, 0)
-    fun judged(kind: ReviewKind, ok: Boolean, series: String = current) {
-        val same = answerRun.first == series && answerRun.second == kind
-        answerRun = Triple(series, kind, if (ok) (if (same) answerRun.third + 1 else 1) else 0)
-        if (ok && kind == ReviewKind.DICTATION) questAdd(Quest.DICTATION_RUN, series)
-        if (ok && kind == ReviewKind.MEANING) questAdd(Quest.MEANING_RUN, series)
-    }
+
+    /** 오늘의 복습 한 판의 저장 이름: 작품의 진도 이름마다 (빈센트를 프랑스어 · 영어로 따로). */
+    fun reviewSession(id: String = current) = "today:${space(id)}"
+
+    /** 오늘의 복습 (여정 II) 을 끝까지 풀었다. */
     fun reviewDone() {
-        store.reviewedDay = today; finished()
+        store.setReviewedOn(space(current), today); finished()
         draw(current, "review")
+        journeyCheck(current)
         version++; settle()
     }
-    val reviewedToday: Boolean get() = run { @Suppress("UNUSED_EXPRESSION") version; store.reviewedDay == today }
+
+    // ── 오늘의 여정 (core 의 Journey): 오늘의 편지 → 오늘의 복습 → 여정 완료 ─────────────
+    /** 이 작품에서 오늘 마친 편지 열쇠 (이번 주 기록에서). */
+    private fun doneToday(id: String): List<String> = store.dayLog("letters").filter { it.first == today && it.second.startsWith("${space(id)}:") }.map { it.second }
+
+    /** 오늘의 편지: 열 수 있는 편지 가운데 아직 안 마친 첫 편지, 없으면 오늘 마친 편지. 둘 다 없으면 null (내일 온다). */
+    fun todayLetter(id: String): Pair<String, Letter>? {
+        val open = openable(id)
+        open.firstOrNull { (c, l) -> !progress(id, c, l.id).done }?.let { return it }
+        val keys = doneToday(id).toSet()
+        return open.lastOrNull { (c, l) -> key(id, c, l.id) in keys }
+    }
+
+    /** 오늘의 여정 한 장의 상태. [reviewCount] 는 (이 판에서 답한 수, 이 판의 문제 수). */
+    data class JourneyView(val letter: Journey.Step, val review: Journey.Step, val reviewCount: Pair<Int, Int>, val paid: Boolean) {
+        val complete get() = Journey.complete(letter, review)
+        val done get() = Journey.doneCount(letter, review, paid)
+    }
+
+    fun journey(id: String = current): JourneyView = run {
+        @Suppress("UNUSED_EXPRESSION") version
+        val sp = space(id)
+        val tl = todayLetter(id)
+        val letterStep = Journey.letter(
+            doneToday = doneToday(id).isNotEmpty(),
+            available = tl != null && !progress(id, tl.first, tl.second.id).done,
+            started = tl != null && progress(id, tl.first, tl.second.id).shown > 0,
+        )
+        val saved = store.session(reviewSession(id))?.takeIf { it.day == today }
+        val finished = store.reviewedOn(sp) == today
+        val total = if (saved != null) saved.keys.size else if (finished) 0 else dueCards(id).size
+        val answered = saved?.at ?: 0
+        val reviewStep = Journey.review(total, answered, finished)
+        JourneyView(letterStep, reviewStep, Journey.reviewCount(total, answered, finished), store.journeyPaid(sp) == today)
+    }
+
+    /** 여정을 다 했으면 (하루 한 번): 보너스 화폐 + 오늘 편지의 그림이 갤러리에 (보상 순간은 [settle] 이 띄운다). */
+    fun journeyCheck(id: String) {
+        val j = journey(id)
+        if (!Journey.payable(j.letter, j.review, store.journeyPaid(space(id)), today)) return
+        store.setJourneyPaid(space(id), today)
+        earn(Earn.JOURNEY, id = id)
+        todayLetter(id)?.second?.let { l -> letterPieces(id).firstOrNull { it.id == "letter:${l.id}" } }?.let { pendingPiece = it }
+        version++
+    }
+
+    /** 건너뛴 걸음 (복습 탭의 ‘다시 하기’): 이 작품에서 마친 편지 가운데 아직 다시 하지 않은 걸음, 편지 차례대로. */
+    data class Redo(val room: Route.Letter, val letter: Letter, val mode: ReplyMode)
+    fun redos(id: String = current): List<Redo> = run {
+        @Suppress("UNUSED_EXPRESSION") version
+        work(id).chapters.flatMapIndexed { ci, c -> c.letters.flatMapIndexed { li, l ->
+            progress(id, c.id, l.id).toRedo.filter { it in letterModes(id, c.id, l) }.map { Redo(Route.Letter(id, ci + 1, li + 1), l, it) }
+        } }
+    }
 
     // ── 내 구절 ──────────────────────────────────────────────
     /** 구절 열쇠: 진도처럼 배우는 말마다 따로 ("vincent@en:I:c1-l2:0", [space]). */
@@ -537,7 +600,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun open(id: String, chapter: String, letter: Letter, from: Route.Tab?, skipAudio: Boolean = false) {
         // 앱 밖(R2)에 둔 장이고 아직 받지 않았으면: 먼저 크기를 알려 주고 받을지 묻는다
         val pack = downloads.pack(id, chapter)
-        if (!skipAudio && pack != null && "$id:$chapter" !in silentChapters && !downloads.ready(pack)) {
+        if (!skipAudio && pack != null && !store.silent("$id:$chapter") && !downloads.ready(pack)) {
             downloadAsk = DownloadAsk(pack, id, chapter, letter, from); return
         }
         val p = progress(id, chapter, letter.id)
@@ -554,7 +617,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         downloadAsk = null
         version++
         val l = a.letter ?: return
-        if (silent) silentChapters += "${a.series}:${a.chapter}"
+        if (silent) store.markSilent("${a.series}:${a.chapter}")
         open(a.series, a.chapter, l, a.from, skipAudio = true)
     }
     /**
@@ -574,14 +637,13 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         }
         return null
     }
-    /** 갑자기 한 문제 (F7): 오늘 아직 안 냈으면, 오래전 ‘내 것’ 낱말 하나. */
+    /** 기억 확인 (F7, 복습 탭): 오늘 아직 안 냈으면, 오래전 ‘내 것’ 낱말 하나 (이 작품의 것). */
     fun surprise(): io.github.graviton94.todayletters.core.Card? =
-        if (store.surpriseDay == today) null else io.github.graviton94.todayletters.core.Memory.surprise(cards(), today)
-    /** 기억났는가: 맞으면 일정은 그대로 + 우표 하나, 아니면 내려가서 내일 다시. 하루 한 번. */
+        if (store.surpriseDay == today) null else io.github.graviton94.todayletters.core.Memory.surprise(seriesCards(), today)
+    /** 기억났는가: 맞으면 일정은 그대로, 아니면 내려가서 내일 다시. 하루 한 번 (화폐는 여정에서만). */
     fun surpriseDone(c: io.github.graviton94.todayletters.core.Card, ok: Boolean) {
         store.save(io.github.graviton94.todayletters.core.Memory.surpriseAnswered(c, ok, today))
         store.surpriseDay = today
-        if (ok) earn(Earn.REVIEW_RIGHT, id = c.key.substringBefore(":"))
         cue(ok)
         version++
     }
@@ -599,18 +661,39 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         return ch.id to ch.letters[r.letter - 1]
     }
 
+    /** 이 편지 낭독이 이 기기에 있나 (첫 문장, 지금 배우는 말). */
+    fun narrated(id: String, chapter: String, l: Letter) = l.messages.isNotEmpty() && narrator.has(narrator.path(id, chapter, l.id, "m1_${seriesSettings(id).learn.code}"))
+
+    /** 이 편지에서 하는 걸음: 작품 설정에서 켠 것, 낭독이 없는 편지는 따라 읽기 없이 (F11). */
+    fun letterModes(id: String, chapter: String, l: Letter): List<ReplyMode> = Plays.forLetter(seriesSettings(id).modes, narrated(id, chapter, l))
+
     fun replied(r: Route.Letter, mode: ReplyMode) {
         val (ch, l) = letterOf(r)
-        save(r.series, ch, l.id, progress(r.series, ch, l.id).reply(mode).complete(seriesSettings(r.series).modes))
+        save(r.series, ch, l.id, progress(r.series, ch, l.id).reply(mode).complete(letterModes(r.series, ch, l)))
     }
 
-    /** 연습을 마치고 대화방으로. 이 연습으로 편지가 끝났으면 (처음 한 번) 이어 읽은 날을 세고 편지 완료 화면으로. */
+    /** 걸음을 마치고 대화방으로 (건너뛴 걸음을 다시 한 것이면 들어온 곳으로). 이 걸음으로 편지가 끝났으면 이어 읽은 날을 세고 편지 완료 화면으로. */
     fun replyAndContinue(r: Route.Letter, mode: ReplyMode) {
         val (ch, l) = letterOf(r)
-        val was = progress(r.series, ch, l.id).done
+        val before = progress(r.series, ch, l.id)
+        if (mode !in before.replied) earn(Earn.PRACTICE, id = r.series)
         replied(r, mode)
+        stepEnded(r, before.done)
+    }
+
+    /** 걸음 건너뛰기: 편지를 마치는 데는 한 것으로, 건너뛴 표시는 남겨 ‘다시 하기’로 (편지 목록 · 복습 탭). */
+    fun skipStep(r: Route.Letter, mode: ReplyMode) {
+        val (ch, l) = letterOf(r)
+        val before = progress(r.series, ch, l.id)
+        save(r.series, ch, l.id, before.skip(mode).complete(letterModes(r.series, ch, l)))
+        stepEnded(r, before.done)
+    }
+
+    private fun stepEnded(r: Route.Letter, was: Boolean) {
+        val (ch, l) = letterOf(r)
+        recorder.stop()
         back()
-        if (!was && progress(r.series, ch, l.id).done) { finished(); earn(Earn.LETTER); go(Route.Done(r)) }
+        if (!was && progress(r.series, ch, l.id).done) { finished(); earn(Earn.LETTER, id = r.series); go(Route.Done(r)) }
         settle()
     }
 
@@ -651,7 +734,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             Spend.EARLY_LETTER -> if (store.earlyDay(space(id)) == today || all(id).size <= openable(id).size) return false
             Spend.PICK_PIECE -> if (piece == null || owns(id, piece) || !available(piece)) return false
             Spend.FRAME -> if (piece == null || option == null || !owns(id, piece) || frameKind(piece).name == option) return false
-            Spend.BORDER -> if (option == null || option in store.borders()) return false
+            Spend.BORDER -> if (option == null || option in store.borders(id)) return false
         }
         if (!spend(what.cost, id)) return false
         when (what) {
@@ -659,7 +742,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             Spend.EARLY_LETTER -> store.setEarlyDay(space(id), today)
             Spend.PICK_PIECE -> { store.addPiece(id, piece!!.id); store.logDay("pieces", today, "$id|${piece.id}") }
             Spend.FRAME -> store.setFrame(piece!!.id, option!!)
-            Spend.BORDER -> { store.addBorder(option!!); store.border = option }
+            Spend.BORDER -> { store.addBorder(id, option!!); store.setBorder(id, option) }
         }
         version++; settle(); return true
     }
@@ -696,23 +779,6 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         pendingPiece = p
         version++
         return p
-    }
-
-    // ── 오늘의 할 일 (시리즈마다 따로: 그 시리즈에서 한 일만 세고, 보너스도 그 시리즈 화폐로) ──
-    val quests: List<Quest> get() = Quests.today(today)
-    fun questCount(q: Quest, id: String = current) = run { @Suppress("UNUSED_EXPRESSION") version; store.questLog(space(id)).count(today, q).let { if (q == Quest.LETTER && seriesDone(id)) q.goal else it } }
-    fun questDone(q: Quest, id: String = current) = Quests.done(q, questCount(q, id))
-    private fun questAdd(q: Quest, id: String, n: Int = 1) { if (q in quests) { store.saveQuestLog(space(id), store.questLog(space(id)).add(today, q, n)); questsCheck(id) } }
-    private fun questsCheck(id: String) {
-        version++
-        var log = store.questLog(space(id))
-        // 작품을 다 읽었으면 ‘오늘의 편지’는 한 것으로 (더 읽을 편지가 없다)
-        if (seriesDone(id) && log.count(today, Quest.LETTER) < 1) log = log.atLeast(today, Quest.LETTER, 1)
-        if (log.payable(today)) {
-            store.saveQuestLog(space(id), log.copy(paid = today))
-            earn(Earn.QUESTS, id = id); draw(id, "quests")
-            settle()
-        }
     }
 
     // ── 이달의 전시 ──────────────────────────────────────────
@@ -806,16 +872,6 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         return LetterGrowth(cs.count { Growth.known(it) }, l.words.size, next)
     }
 
-    /**
-     * 오늘 화면의 주인공 편지 (북극성 = ‘이 편지를 얼마나 혼자 읽나’). 읽는 중인 편지가 없을 때:
-     * 봉인했지만 봉인 화면을 아직 못 본 편지 → 다 읽었지만 아직 봉인 못 한 가장 최근 편지.
-     */
-    fun focusLetter(id: String): Pair<String, Letter>? {
-        val done = openable(id).filter { (c, l) -> progress(id, c, l.id).done }
-        return done.firstOrNull { (c, l) -> isSealed(id, c, l) && key(id, c, l.id) !in store.sealSeen }
-            ?: done.lastOrNull { (c, l) -> !isSealed(id, c, l) }
-    }
-
     // ── 따라 읽기 · 완독 봉인 (모든 시리즈 공통) ─────────────────
     /**
      * 따라 읽기의 칸: 문장(메시지)마다, 긴 문장은 낭독 덩어리를 묶은 6~10 낱말 마디로 (v23, [io.github.graviton94.todayletters.core.Prosody.spans]).
@@ -860,6 +916,14 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     fun isShadowed(id: String, chapter: String, l: Letter) = run { @Suppress("UNUSED_EXPRESSION") version; key(id, chapter, l.id) in store.shadowed }
     fun isSealed(id: String, chapter: String, l: Letter) = run { @Suppress("UNUSED_EXPRESSION") version; key(id, chapter, l.id) in store.sealed }
+
+    /** 이 편지를 따라 읽어 별을 하나 이상 받았나 (봉인 조건, F13: core 의 Prosody.stars). 끝까지 다 따라 읽은 편지도. */
+    fun readAloud(id: String, chapter: String, l: Letter): Boolean = run {
+        @Suppress("UNUSED_EXPRESSION") version
+        val k = key(id, chapter, l.id)
+        k in store.starred || k in store.shadowed
+    }
+    fun markStar(id: String, chapter: String, letter: String) { store.markStar(key(id, chapter, letter)); version++ }
 
     /** 따라 읽기를 끝까지 했을 때. 이미 혼자 다 읽는 편지라면 봉인까지. 봉인됐으면 true. */
     fun shadowDone(id: String, chapter: String, l: Letter): Boolean {
@@ -908,10 +972,10 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun settle() {
         val cm = cardMap()
         val id = current
-        // 완독 봉인: 혼자 다 읽고 (낱말 모두 떠올리기 이상) 다 따라 읽은 편지
+        // 완독 봉인 (F13): 낱말을 모두 떠올리고 (떠올리기 이상) 소리 내어 읽은 (따라 읽기 별 하나 이상 · 녹음만 해도) 편지
         works.forEach { w -> w.chapters.forEach { c -> c.letters.forEach { l ->
             val k = key(w.series.id, c.id, l.id)
-            if (k !in store.sealed && k in store.shadowed && progress(w.series.id, c.id, l.id).done &&
+            if (k !in store.sealed && progress(w.series.id, c.id, l.id).done && readAloud(w.series.id, c.id, l) &&
                 Growth.letterAlone(l.words.indices.map { cardKey(w.series.id, c.id, l.id, it) }, cm)) { store.seal(k); earn(Earn.SEAL, id = w.series.id) }
         } } }
         // 혼자 읽기
@@ -957,11 +1021,14 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         private set
     fun coachDone(screen: String) { coach.done(screen); store.coachSeen = coach.seen; coachTick++ }
     fun coachAgain(screen: String) { coach.again(screen); store.coachSeen = coach.seen; coachTick++ }
-    fun coachReset() { coach.reset(); store.coachSeen = coach.seen; coachTick++ }
-
-    fun finishOnboarding(a: AppSettings, seriesId: String, s: SeriesSettings) {
-        update(a); update(seriesId, s); store.markLearnChosen(seriesId); store.onboarded = true; nextStage()
+    /** 설정 › 사용법 다시 보기: (?) 도움말을 처음 상태로, 편지 걸음의 안내 한 줄도 다시 한 번 (다음 편지를 마치면 다시 끝). */
+    fun coachReset() {
+        coach.reset(); store.coachSeen = coach.seen; coachTick++
+        store.clearGuideSeen(); store.tutorialDone = false; store.tutorialReplay = true; version++
     }
+
+    /** 환영 한 장을 지나 서재로 (배울 말은 서재의 첫 작품 카드에서 고른다). */
+    fun finishWelcome() { store.onboarded = true; nextStage() }
 
     var settingsOpen by mutableStateOf(false)
 

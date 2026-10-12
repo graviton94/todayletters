@@ -77,7 +77,8 @@ fun Done(s: AppState, room: Route.Letter) {
     }
     fun win(a: Float, b: Float) = androidx.compose.animation.core.FastOutSlowInEasing.transform(((t.value - a) / (b - a)).coerceIn(0f, 1f))
     val stamp = win(0f, 0.35f)
-    val modes = io.github.graviton94.todayletters.core.Plays.inLetter.filter { it in s.seriesSettings(room.series).modes }
+    val modes = s.letterModes(room.series, chapter, letter)
+    val pr = s.progress(room.series, chapter, letter.id)
     val waiting = s.waiting(room.series)
     val next = s.openable(room.series).firstOrNull { (c, l) -> !s.progress(room.series, c, l.id).done }
 
@@ -90,7 +91,7 @@ fun Done(s: AppState, room: Route.Letter) {
                 PlateImage(letter.plate?.image.orEmpty(), Modifier.fillMaxSize().graphicsLayer { alpha = win(0.1f, 0.45f); val k = 1.06f - 0.06f * win(0.1f, 0.6f); scaleX = k; scaleY = k })
                 Box(Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Brush.verticalGradient(0f to Color(0x59170F0A), 0.3f to Color.Transparent, 0.65f to Color.Transparent, 1f to p.paper)))
                 Row(Modifier.fillMaxWidth().statusBarsPadding().padding(Tokens.Space.s4)) {
-                    Caps(stringResource(R.string.story_received, roman(room.letter)), Color(0xFFF7F0E1), modifier = Modifier.weight(1f), decorative = true)
+                    Caps(stringResource(R.string.story_received, roman(plates.indexOf(letter) + 1)), Color(0xFFF7F0E1), modifier = Modifier.weight(1f), decorative = true)
                     letter.plate?.let { Text(it.date.uppercase(), style = Type.caps, color = Color(0xFFF7F0E1)) }
                 }
                 Box(
@@ -111,11 +112,13 @@ fun Done(s: AppState, room: Route.Letter) {
                 }
                 // 오늘 한 일 (작은 칩)
                 androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    (listOf(R.string.step_read_short) + modes.map { when (it) { io.github.graviton94.todayletters.core.ReplyMode.MATCH -> R.string.step_match; io.github.graviton94.todayletters.core.ReplyMode.ALOUD -> R.string.step_aloud; else -> R.string.step_reply } }).forEachIndexed { k, label ->
+                    // 실제로 한 걸음만 체크, 건너뛴 걸음은 ‘나중에’ (복습 탭 · 편지 목록에서 다시 하기)
+                    (listOf(null to R.string.step_read_short) + modes.map { it to when (it) { io.github.graviton94.todayletters.core.ReplyMode.MATCH -> R.string.step_match; io.github.graviton94.todayletters.core.ReplyMode.ALOUD -> R.string.step_aloud; else -> R.string.step_reply } }).forEachIndexed { k, (m, label) ->
+                        val skipped = m != null && m in pr.skipped && m !in pr.replied
                         Row(Modifier.graphicsLayer { alpha = win(0.45f + k * 0.07f, 0.55f + k * 0.07f) }.background(p.leaf).border(Tokens.Stroke.hair, p.hair).padding(horizontal = 10.dp, vertical = 6.dp),
                             verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(5.dp)) {
-                            CheckMark(true, 14.dp)
-                            Text(stringResource(label), style = Type.small.ui(), color = p.ink)
+                            CheckMark(!skipped, 14.dp)
+                            Text(stringResource(label) + if (skipped) " · " + stringResource(R.string.step_later) else "", style = Type.small.ui(), color = if (skipped) p.inkSoft else p.ink)
                         }
                     }
                 }
@@ -132,6 +135,23 @@ fun Done(s: AppState, room: Route.Letter) {
             if (next != null) Primary(stringResource(R.string.done_open_next)) { s.open(room.series, next.first, next.second, Route.Inbox) }
             else if (work.outro != null && s.seriesDone(room.series)) Primary(stringResource(R.string.done_outro)) { s.go(Route.Outro(room.series)) }
             else Primary(stringResource(R.string.done_home), onClick = home)
+        }
+    }
+    // 튜토리얼 끝 (편지 I 을 마친 뒤 한 번): “이제 혼자서도 괜찮아요” → 그 뒤로는 도움말이 저절로 뜨지 않는다
+    if (!s.tutorialDone) Graduate(s)
+}
+
+/** 튜토리얼을 맺는 한 장. */
+@Composable
+private fun Graduate(s: AppState) {
+    val p = Ink.palette
+    androidx.activity.compose.BackHandler { s.graduate() }
+    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false) { }, contentAlignment = Alignment.Center) {
+        Column(Modifier.fillMaxWidth(0.86f).background(p.paper).border(1.dp, p.giltText).padding(Tokens.Space.s6),
+            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+            Text(stringResource(R.string.graduate_title), style = Type.title.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+            Text(stringResource(R.string.graduate_body), style = Type.body.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+            Primary(stringResource(R.string.graduate_go)) { s.graduate() }
         }
     }
 }
@@ -158,8 +178,8 @@ fun RoomInfo(s: AppState, room: Route.Letter) {
                 Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     Text(w.fullName, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.ink)
                     if (w.credit.isNotEmpty()) Text(w.credit, style = Type.signature.copy(fontSize = Tokens.Text.small), color = p.inkSoft)
-                    // 한 줄 소개는 아직 빈센트 것만 (다른 작품은 이름 · 초상 출처만)
-                    if (w.series.id == "vincent") Text(stringResource(R.string.info_vincent), style = Type.small.ui(), color = p.inkSoft)
+                    // 한 줄 소개: 작품 키트에서 (series.json kit.about, F21)
+                    w.kit.about[uiLang()].takeIf { it.isNotBlank() }?.let { Text(it, style = Type.small.ui(), color = p.inkSoft) }
                 }
             }
             Rule()

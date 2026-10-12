@@ -48,7 +48,7 @@ class Store(ctx: Context) {
             learn = Lang.valueOf(learn),
             showRead = p.getBoolean("s:$id:show", true),
             fadeRead = p.getBoolean("s:$id:fade", false),
-            modes = (p.getString("s:$id:modes", null) ?: "MATCH,CONSTELLATION,ALOUD").split(",").filter { it.isNotBlank() }.map { ReplyMode.valueOf(it) }.toSet(),
+            modes = modes(p.getString("s:$id:modes", null) ?: "MATCH,CONSTELLATION,ALOUD"),
             lettersPerDay = p.getInt("s:$id:perDay", 1),
             arrivalNotice = p.getBoolean("s:$id:notice", true),
         )
@@ -59,18 +59,53 @@ class Store(ctx: Context) {
         .putString("s:$id:modes", s.modes.joinToString(",") { it.name }).putInt("s:$id:perDay", s.lettersPerDay)
         .putBoolean("s:$id:notice", s.arrivalNotice).apply()
 
+    /** 걸음 이름 목록 → 걸음들. 예전 판의 이름(DICTATION 등 지금은 없는 걸음)은 건너뛴다. */
+    private fun modes(raw: String): Set<ReplyMode> =
+        raw.split(",").filter { it.isNotBlank() }.mapNotNull { n -> ReplyMode.entries.firstOrNull { it.name == n } }.toSet()
+
+    /** 편지 진도: "보인 수|한 걸음|완료|건너뛴 걸음". */
     fun progress(key: String): LetterProgress {
         val raw = p.getString("p:$key", null) ?: return LetterProgress()
         val parts = raw.split("|")
         return LetterProgress(
             shown = parts.getOrNull(0)?.toIntOrNull() ?: 0,
-            replied = parts.getOrNull(1).orEmpty().split(",").filter { it.isNotBlank() }.map { ReplyMode.valueOf(it) }.toSet(),
+            replied = modes(parts.getOrNull(1).orEmpty()),
             done = parts.getOrNull(2) == "1",
+            skipped = modes(parts.getOrNull(3).orEmpty()),
         )
     }
 
     fun save(key: String, pr: LetterProgress) =
-        p.edit().putString("p:$key", "${pr.shown}|${pr.replied.joinToString(",") { it.name }}|${if (pr.done) 1 else 0}").apply()
+        p.edit().putString("p:$key", "${pr.shown}|${pr.replied.joinToString(",") { it.name }}|${if (pr.done) 1 else 0}|${pr.skipped.joinToString(",") { it.name }}").apply()
+
+    /** 진도 열쇠 전부 ("p:" 뒤): 건너뛴 걸음 모으기 · 튜토리얼을 마친 것으로 볼지. */
+    fun progressKeys(): List<String> = p.all.keys.filter { it.startsWith("p:") }.map { it.removePrefix("p:") }
+
+    // ── 처음 설치의 튜토리얼 (core 의 Tutorial) ──────────────
+    /** 튜토리얼을 마쳤나 (편지 I 뒤 “이제 혼자서도 괜찮아요”). */
+    var tutorialDone: Boolean
+        get() = p.getBoolean("tutorial_done", false)
+        set(v) = p.edit().putBoolean("tutorial_done", v).apply()
+    /** 튜토리얼에서 안내 한 줄을 이미 본 걸음. */
+    val guideSeen: Set<String> get() = set("guide_seen")
+    fun markGuideSeen(step: String) = add("guide_seen", step)
+    /** 설정 › 사용법 다시 보기: 안내 한 줄을 다시 (편지를 마친 사람이어도 튜토리얼을 한 번 더). */
+    var tutorialReplay: Boolean
+        get() = p.getBoolean("tutorial_replay", false)
+        set(v) = p.edit().putBoolean("tutorial_replay", v).apply()
+    fun clearGuideSeen() = p.edit().remove("guide_seen").apply()
+
+    // ── 오늘의 여정 (작품의 진도 이름 [space] 마다) ─────────────
+    /** 오늘의 복습을 마친 날. */
+    fun reviewedOn(space: String) = p.getLong("reviewed:$space", -1)
+    fun setReviewedOn(space: String, day: Long) = p.edit().putLong("reviewed:$space", day).apply()
+    /** 여정 보너스를 받은 날. */
+    fun journeyPaid(space: String) = p.getLong("journey:$space:paid", -1)
+    fun setJourneyPaid(space: String, day: Long) = p.edit().putLong("journey:$space:paid", day).apply()
+
+    /** ‘소리 없이 읽기’를 고른 장 (작품:장): 다시 묻지 않는다 (F12). */
+    fun silent(chapter: String) = chapter in set("silent")
+    fun markSilent(chapter: String) = add("silent", chapter)
 
     /** 오늘 새로 연 편지 수 (작품마다). 날이 바뀌면 0. */
     fun openedToday(series: String): Int =
@@ -209,31 +244,6 @@ class Store(ctx: Context) {
     fun heard(key: String) = p.getInt("heard:$key", -1)
     fun setHeard(key: String, i: Int) = p.edit().apply { if (i < 0) remove("heard:$key") else putInt("heard:$key", i) }.apply()
 
-    /** 오늘의 할 일 진행: 시리즈마다 따로 (날마다 새로) · 다 해서 보너스를 받은 날. */
-    fun questLog(series: String): io.github.graviton94.todayletters.core.QuestLog {
-        val k = "quest:$series:"
-        return io.github.graviton94.todayletters.core.QuestLog(p.getLong("${k}day", -1),
-            io.github.graviton94.todayletters.core.Quest.entries.mapNotNull { q -> p.getInt("$k${q.name}", 0).takeIf { it > 0 }?.let { q to it } }.toMap(),
-            p.getLong("${k}paid", -1))
-    }
-    fun saveQuestLog(series: String, log: io.github.graviton94.todayletters.core.QuestLog) {
-        val k = "quest:$series:"
-        val e = p.edit().putLong("${k}day", log.day).putLong("${k}paid", log.paid)
-        io.github.graviton94.todayletters.core.Quest.entries.forEach { q -> log.counts[q]?.let { e.putInt("$k${q.name}", it) } ?: e.remove("$k${q.name}") }
-        e.apply()
-    }
-    /** 예전 (시리즈 구분 없이 하나로 세던) 진행을 [series] 로 옮긴다. 옮길 것이 있을 때 한 번만. */
-    fun migrateQuests(series: String) {
-        if (!p.contains("quest:day") && !p.contains("quest:paid")) return
-        val old = io.github.graviton94.todayletters.core.QuestLog(p.getLong("quest:day", -1),
-            io.github.graviton94.todayletters.core.Quest.entries.mapNotNull { q -> p.getInt("quest:${q.name}", 0).takeIf { it > 0 }?.let { q to it } }.toMap(),
-            p.getLong("quest:paid", -1))
-        if (questLog(series).day < 0) saveQuestLog(series, old)
-        val e = p.edit().remove("quest:day").remove("quest:paid")
-        io.github.graviton94.todayletters.core.Quest.entries.forEach { e.remove("quest:${it.name}") }
-        e.apply()
-    }
-
     /** 따라 읽기 점수 기록: 날 → (억양 합, 리듬 합, 마디 수). 최근 120일. */
     fun scores(): Map<Long, Triple<Int, Int, Int>> = set("scores").mapNotNull { e ->
         e.split("|").takeIf { it.size == 4 }?.let { (d, a, b, n) -> runCatching { d.toLong() to Triple(a.toInt(), b.toInt(), n.toInt()) }.getOrNull() }
@@ -259,18 +269,22 @@ class Store(ctx: Context) {
     /** 따라 읽기에서 억양 · 리듬 70점을 넘은 마디 ("편지키:문장:마디"). */
     val passed: Set<String> get() = set("pass")
     fun markPassed(key: String) = add("pass", key)
+    /** 따라 읽기에서 별을 하나 이상 받은 편지 (편지 키): 봉인 조건 (F13). */
+    val starred: Set<String> get() = set("starred")
+    fun markStar(key: String) = add("starred", key)
     val sealSeen: Set<String> get() = set("sealseen")
     fun markSealSeen(key: String) = add("sealseen", key)
     // ── v21 3단계 ─────────────────────────────────────────
     /** 작품마다 고른 액자 (Frames.Kind 이름). 없으면 등급의 기본 액자. */
     fun frameOf(piece: String): String? = p.getString("frame:$piece", null)
     fun setFrame(piece: String, kind: String) = p.edit().putString("frame:$piece", kind).apply()
-    /** 산 작품 카드 테두리 · 지금 쓰는 테두리. */
-    fun borders(): Set<String> = set("borders") + "PLAIN"
-    fun addBorder(b: String) = add("borders", b)
-    var border: String
-        get() = p.getString("border", "PLAIN")!!
-        set(v) = p.edit().putString("border", v).apply()
+    /**
+     * 산 작품 카드 테두리 · 지금 쓰는 테두리: 작품마다 (그 작품의 화폐로 사니까, F19). 예전에 하나로 산 테두리는 모든 작품에 그대로.
+     */
+    fun borders(series: String): Set<String> = set("borders:$series") + set("borders") + "PLAIN"
+    fun addBorder(series: String, b: String) = add("borders:$series", b)
+    fun border(series: String): String = p.getString("border:$series", null) ?: p.getString("border", "PLAIN")!!
+    fun setBorder(series: String, b: String) = p.edit().putString("border:$series", b).apply()
     /** 다 모은 전시 (전시 id:연월) — 도록 표지. */
     fun catalogues(): Set<String> = set("catalogues")
     fun addCatalogue(k: String) = add("catalogues", k)

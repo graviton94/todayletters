@@ -34,7 +34,7 @@ import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 
-/** 앱의 뿌리: 첫 화면 (그날 처음) → 처음 소개 (처음 한 번) → 서재와 시리즈 안 화면들. */
+/** 앱의 뿌리: 첫 화면 (켤 때마다) → 환영 한 장 (처음 설치 한 번) → 서재와 시리즈 안 화면들. */
 @Composable
 fun Root(s: AppState, onExit: () -> Unit) {
     val p = Ink.palette
@@ -111,18 +111,15 @@ private fun Main(s: AppState, onExit: () -> Unit) {
                         is Route.Play -> Play(s, r)
                         is Route.Done -> Done(s, r.room)
                         is Route.Prologue -> PrologueScreen(s, r)
-                        is Route.Welcome -> LearnChoice(s, s.work(r.series)) { s.chooseLearn(r.series, it) }
+                        is Route.Welcome -> WelcomeSheet(s, r.series)
                         is Route.Outro -> OutroScreen(s, r.series)
                         is Route.Catalogue -> CatalogueScreen(s, r.series)
                         is Route.Shadow -> ShadowScreen(s, r)
                         is Route.Seal -> SealScreen(s, r)
                         is Route.Artwork -> Artwork(s, r)
-                        is Route.Review -> WordsTab(s)
                         is Route.Session -> Session(s, r)
                         Route.WordList -> WordListScreen(s)
                         Route.Quotes -> QuotesScreen(s)
-                        is Route.Purchase -> SeriesCover(s, r.series)
-                        Route.Settings -> LibraryTab(s)
                     }
                 }
             }

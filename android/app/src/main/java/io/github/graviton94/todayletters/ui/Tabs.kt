@@ -251,6 +251,9 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
                                 },
                                 style = Type.small.ui(), color = when { pr.done -> p.giltText; can -> p.ink; else -> p.hideInk }, maxLines = 1,
                             )
+                            // 건너뛴 걸음: 편지 목록에서도 다시 하기 (편지를 열면 걸음 목록에 ‘다시 하기’)
+                            val redo = if (pr.done) pr.toRedo.filter { it in s.letterModes(r.series, c.id, l) } else emptyList()
+                            if (redo.isNotEmpty()) Text(stringResource(R.string.journey_redo, redo.size), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.inkSoft)
                         }
                         if (pr.done) PlateThumb(l.plate?.image.orEmpty(), true, Modifier.size(52.dp))
                         else if (!can) Lock(p.hideInk)

@@ -106,8 +106,9 @@ private fun Constellation(s: AppState, r: Route.Play, onClose: () -> Unit) {
     var picked by remember(letter.id, view.learn) { mutableStateOf(listOf<Int>()) }
     var wrong by remember { mutableStateOf<Int?>(null) }
     var showAnswer by remember { mutableStateOf(false) }
-    s.coachTick
-    val guided = s.coach.due("play_constellation", calm = true)
+    // 튜토리얼 (편지 I) 의 답장 걸음: 처음 한 번 안내와 다음 별의 빛 고리. 그 뒤로는 어느 작품에서도 없이
+    val guided = remember(letter.id) { s.guideDue("reply") }
+    LaunchedEffect(guided) { if (guided) s.guideShown("reply") }
     val link = remember { Animatable(1f) }
     val pulse = rememberInfiniteTransition(label = "pulse").animateFloat(0f, 1f, infiniteRepeatable(tween(1400)), label = "k")
     val done = picked.size == answer.size
@@ -121,7 +122,6 @@ private fun Constellation(s: AppState, r: Route.Play, onClose: () -> Unit) {
             if (s.app.haptics) haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
             picked = picked + idx
             scope.launch { link.snapTo(0f); link.animateTo(1f, tween(Tokens.Motion.starLinkMs, easing = FastOutSlowInEasing)) }
-            if (picked.size == answer.size && guided) s.coachDone("play_constellation")
         } else {
             if (s.app.haptics) haptic.performHapticFeedback(HapticFeedbackType.LongPress)
             s.cue(false)
@@ -138,8 +138,8 @@ private fun Constellation(s: AppState, r: Route.Play, onClose: () -> Unit) {
             PracticeTitle("CONSTELLATION", stringResource(R.string.mode_constellation))
             Slip(seed = 5, modifier = Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    Text(stringResource(if (guided) R.string.guide_title else R.string.play_meaning), style = Type.capsSm.ui(), color = Color(0xFF7A5A20))
-                    if (guided) Text(stringResource(R.string.guide_body), style = Type.body.ui(), color = p.slipInk)
+                    Text(stringResource(R.string.play_meaning), style = Type.capsSm.ui(), color = Color(0xFF7A5A20))
+                    if (guided) Text(stringResource(R.string.guide_reply), style = Type.body.ui(), color = p.slipInk)
                     Text(quoted(tri[view.read], view.read), style = Type.heading.of(view.read), color = p.slipInk)
                 }
             }
@@ -166,8 +166,11 @@ private fun Constellation(s: AppState, r: Route.Play, onClose: () -> Unit) {
             }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (done) Primary(stringResource(R.string.play_send)) { finishPlay(s, r, ReplyMode.CONSTELLATION) }
-            else Secondary(stringResource(R.string.play_show)) { showAnswer = true }
+            if (done) Primary(stringResource(R.string.play_send)) { s.replyAndContinue(r.room, ReplyMode.CONSTELLATION) }
+            else {
+                Secondary(stringResource(R.string.play_show)) { showAnswer = true }
+                SkipLink { s.skipStep(r.room, ReplyMode.CONSTELLATION) }
+            }
         }
     }
 }
@@ -257,7 +260,7 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val (pairs, order) = remember(letter.id, view.learn, view.read) { Exercises.matchBoard(letter, view.learn, view.read) }
     // 낱말을 다 이으면 편지 속 표현 카드 (있을 때만), 그다음 마침
     var phrases by remember(letter.id) { mutableStateOf(false) }
-    if (phrases) { PhraseCards(s, r) { finishPlay(s, r, ReplyMode.MATCH) }; return }
+    if (phrases) { PhraseCards(s, r) { s.replyAndContinue(r.room, ReplyMode.MATCH) }; return }
     var sel by remember { mutableStateOf<Int?>(null) }
     var matched by remember(letter.id) { mutableStateOf(setOf<Int>()) }
     var wrongLine by remember { mutableStateOf<Pair<Int, Int>?>(null) }
@@ -290,6 +293,7 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3), horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             PracticeTitle("MATCH", stringResource(R.string.match_prompt))
+            GuideLine(s, "match")
             Text(if (combo >= 2) stringResource(R.string.match_combo, combo) else " ", style = Type.small.ui(), color = p.giltText)
             val rowH = 76.dp   // 뜻이 세 줄이어도 자르지 않게
             val density = androidx.compose.ui.platform.LocalDensity.current
@@ -358,7 +362,8 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
             if (letter.phrases.isNotEmpty()) Primary(stringResource(R.string.phrase_next), enabled = done) { phrases = true }
-            else Primary(stringResource(R.string.play_finish), enabled = done) { finishPlay(s, r, ReplyMode.MATCH) }
+            else Primary(stringResource(R.string.play_finish), enabled = done) { s.replyAndContinue(r.room, ReplyMode.MATCH) }
+            if (!done) SkipLink { s.skipStep(r.room, ReplyMode.MATCH) }
         }
     }
 }
@@ -375,7 +380,19 @@ private fun Aloud(s: AppState, r: Route.Play, onClose: () -> Unit) {
         letter.messages.indices.filter { letter.messages[it].text[view.learn].split(" ").size in 4..14 }
             .minByOrNull { letter.messages[it].text[view.learn].length } ?: letter.messages.lastIndex
     }
-    ReadAlong(s, r.room, only = listOf(i), onClose = onClose, onFinish = { finishPlay(s, r, ReplyMode.ALOUD) })
+    ReadAlong(s, r.room, only = listOf(i), onClose = onClose, onFinish = { s.replyAndContinue(r.room, ReplyMode.ALOUD) },
+        onSkip = { s.skipStep(r.room, ReplyMode.ALOUD) }, guide = "aloud")
+}
+
+/**
+ * 편지 걸음 건너뛰기 (낱말 맞추기 · 따라 읽기 · 답장): 편지는 계속 이어지고, 건너뛴 걸음은 편지 목록 · 복습 탭의 ‘다시 하기’로 언제든.
+ */
+@Composable
+fun SkipLink(onSkip: () -> Unit) {
+    val p = Ink.palette
+    Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).clickable(role = Role.Button, onClick = onSkip), contentAlignment = Alignment.Center) {
+        Text(stringResource(R.string.step_skip), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.inkSoft)
+    }
 }
 
 /** 읽는 자리 칠하기: 읽은 낱말은 먹색, 지금 낱말은 금빛 바탕, 남은 낱말은 흐리게. [pos] < 0 이면 모두 먹색. */
@@ -396,12 +413,6 @@ internal fun readAlong(text: String, pos: Int, done: Color, rest: Color, now: Co
         }
         append(text.substring(last))
     }
-
-/** 답장 놀이를 끝냈을 때: 연습 화폐 (Earn.PRACTICE, 하루 상한 안에서) 를 받고 편지로. */
-private fun finishPlay(s: AppState, r: Route.Play, mode: ReplyMode) {
-    s.earn(io.github.graviton94.todayletters.core.Earn.PRACTICE, id = r.room.series)
-    s.replyAndContinue(r.room, mode)
-}
 
 /** 화면 안에서 묻기 (시스템 대화상자 대신). */
 @Composable

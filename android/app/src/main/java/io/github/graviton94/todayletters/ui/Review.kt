@@ -107,15 +107,16 @@ fun koSyllables(answer: String, pool: List<String>, seed: Int): List<String> {
 }
 
 /**
- * 복습 (이름표): 낱말 카드 네 칸, 오늘의 복습, 문제 꼴별로 따로 하기, 내 구절, 모은 낱말 찾기.
+ * 복습 (이름표): 지금 작품의 낱말 카드 여섯 칸 (F08: 다른 작품 카드는 섞지 않는다), 오늘의 복습 (여정 II),
+ * 자유 연습 하나 (기록도 된다, F09), 다시 하기 (건너뛴 편지 걸음), 기억 확인, 내 구절, 모은 낱말 찾기.
  */
 @Composable
 fun WordsTab(s: AppState) {
     val p = Ink.palette
     s.version
-    val cards = s.cards()
+    val cards = s.seriesCards()
     val counts = Memory.counts(cards)
-    val due = s.dueCards()
+    val j = s.journey()
     val sample = (0..Memory.TOP).map { b -> cards.firstOrNull { it.box == b }?.let { s.cardWord(it.key) }?.let { (w, _, word) -> word.text[s.room(w.series.id).learn] } }
     Column(Modifier.fillMaxSize()) {
         // 맨 위 줄은 다른 이름표와 같이 (‹ 서재 · (?) · ⚙ · 배우는 말 · 화폐)
@@ -138,27 +139,43 @@ fun WordsTab(s: AppState) {
                 }
             }
             Text(stringResource(R.string.growth_note), style = Type.small.ui(), color = p.inkSoft)
+            // 오늘의 복습 = 오늘의 여정 II (이 작품 카드만, 한 판: 뜻 → 빈칸 → 듣고 쓰기). 센 것은 이 판에서 답한 수뿐
             Slip(seed = 41, modifier = Modifier.fillMaxWidth()) {
                 Row(Modifier.padding(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                    val (n, total) = j.reviewCount
                     Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                         Text(stringResource(R.string.review_today), style = Type.small.ui(), color = Color(0xFF7A5A20))
                         Text(
-                            if (due.isEmpty()) stringResource(if (cards.isEmpty()) R.string.review_empty else R.string.review_none_today)
-                            else stringResource(R.string.review_count, due.size, (due.size / 4).coerceAtLeast(1)),
+                            when (j.review) {
+                                io.github.graviton94.todayletters.core.Journey.Step.NONE -> stringResource(if (cards.isEmpty()) R.string.review_empty else R.string.review_none_today)
+                                io.github.graviton94.todayletters.core.Journey.Step.DONE -> stringResource(R.string.journey_review_done, total)
+                                else -> stringResource(R.string.journey_review_d, n, total)
+                            },
                             style = Type.heading.ui(), color = p.slipInk,
                         )
                     }
-                    if (due.isNotEmpty()) Box(Modifier.heightIn(min = 46.dp).pressable { s.go(Route.Session()) }.background(p.slipInk).padding(horizontal = Tokens.Space.s4), contentAlignment = Alignment.Center) {
-                        Text(stringResource(R.string.review_start), style = Type.body.ui(), color = p.slip)
-                    }
+                    if (j.review == io.github.graviton94.todayletters.core.Journey.Step.TODO || j.review == io.github.graviton94.todayletters.core.Journey.Step.NOW)
+                        Box(Modifier.heightIn(min = 46.dp).pressable { s.go(Route.Session()) }.background(p.slipInk).padding(horizontal = Tokens.Space.s4), contentAlignment = Alignment.Center) {
+                            Text(stringResource(if (n > 0) R.string.journey_review_continue else R.string.review_start), style = Type.body.ui(), color = p.slip)
+                        }
                 }
             }
+            // 기억 확인 (F7): 오래전 ‘내 것’ 낱말 하나, 하루 한 번
+            s.surprise()?.let { c -> SurpriseCard(s, c) }
             Column {
-                ModeRow(stringResource(R.string.kind_dictation), stringResource(R.string.kind_dictation_d), stringResource(R.string.badge_default), enabled = cards.isNotEmpty()) { s.go(Route.Session(ReviewKind.DICTATION)) }
-                ModeRow(stringResource(R.string.kind_blank), stringResource(R.string.kind_blank_d), null, enabled = cards.isNotEmpty()) { s.go(Route.Session(ReviewKind.BLANK)) }
-                ModeRow(stringResource(R.string.kind_speak), stringResource(R.string.kind_speak_d), null, enabled = cards.isNotEmpty()) { s.go(Route.Session(ReviewKind.SPEAK)) }
-                ModeRow(stringResource(R.string.kind_meaning), stringResource(R.string.kind_meaning_d), null, enabled = cards.isNotEmpty()) { s.go(Route.Session(ReviewKind.MEANING)) }
+                ModeRow(stringResource(R.string.free_title), stringResource(R.string.free_d), null, enabled = cards.isNotEmpty()) { s.go(Route.Session(free = true)) }
                 ModeRow(stringResource(R.string.quotes_title), stringResource(R.string.quotes_count, myQuotes(s).size), null, enabled = true) { s.go(Route.Quotes) }
+            }
+            // 다시 하기: 편지에서 건너뛴 걸음 (낱말 맞추기 · 따라 읽기 · 답장)
+            val redos = s.redos()
+            if (redos.isNotEmpty()) Column {
+                Text(stringResource(R.string.redo_title), style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+                Text(stringResource(R.string.redo_d), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(bottom = Tokens.Space.s2))
+                val all = s.currentWork.chapters.flatMap { it.letters }
+                redos.take(6).forEach { rd ->
+                    ModeRow(stringResource(modeLabel(rd.mode)), stringResource(R.string.letter_n, roman(all.indexOf(rd.letter) + 1)) + " · " + dateLine(rd.letter.date, rd.letter.place),
+                        stringResource(R.string.step_redo), enabled = true) { s.go(Route.Play(rd.room, rd.mode)) }
+                }
             }
             Row(
                 Modifier.fillMaxWidth().heightIn(min = 46.dp).background(p.leaf).border(Tokens.Stroke.hair, p.line).pressable { s.go(Route.WordList) }.padding(horizontal = Tokens.Space.s3),
@@ -249,9 +266,11 @@ fun Session(s: AppState, r: Route.Session) {
     val view = androidx.compose.ui.platform.LocalView.current
     var asking by remember { mutableStateOf(false) }
     // 중간에 나갔다 오면 그 자리부터 (같은 날 · 같은 문제 순서)
-    val sessionName = if (r.only != null || r.quote != null) "again" else r.kind?.name ?: "today"
+    // 오늘의 복습은 작품의 진도 이름마다 한 판 (여정 II). 자유 연습 · 꼴별 연습은 따로
+    val journey = r.kind == null && r.only == null && r.quote == null && !r.free
+    val sessionName = when { r.only != null || r.quote != null -> "again"; r.free -> "free"; r.kind != null -> r.kind.name; else -> s.reviewSession() }
     val saved = remember(r) { if (r.only != null || r.quote != null) null else s.store.session(sessionName)?.takeIf { it.day == s.today && it.at > 0 } }
-    val questions = remember(r) { buildQuestions(s, r.kind, r.only ?: saved?.keys, r.quote) }
+    val questions = remember(r) { buildQuestions(s, r.kind, r.only ?: saved?.keys, r.quote, free = r.free) }
     var at by remember { mutableIntStateOf((saved?.at ?: 0).coerceAtMost(questions.size)) }
     // 문제를 푸는 동안만 ‘그만할까요?’ (결과 화면에서는 결과 화면의 뒤로 가기)
     BackHandler(enabled = at < questions.size) { asking = true }
@@ -315,7 +334,6 @@ fun Session(s: AppState, r: Route.Session) {
         // 답을 보면 키보드 · 글자판을 내려 문장과 ‘다음’ 단추가 가려지지 않게
         keyboard?.hide(); focusManager.clearFocus(); pad = false
         val ok = m != Memory.Mark.WRONG
-        s.judged(q.kind, ok, q.card.key.substringBefore(":"))
         s.cue(ok)
         // 맞으면 ‘확인’ 진동 (Android 11+), 아니면 길게 한 번
         if (s.app.haptics) {
@@ -523,7 +541,11 @@ fun Session(s: AppState, r: Route.Session) {
         }
         fun next() {
             val ok = mark != Memory.Mark.WRONG
-            if (r.kind == null && r.only == null) s.answer(q.card, ok)   // 기억 칸은 오늘의 복습에서만 움직인다 (따로 연습 · 다시 하기는 기록하지 않음)
+            // 오늘의 복습은 기억 칸이 움직이고 화폐도 (여정), 자유 연습도 기록은 된다 (F09). 틀린 것 다시 · 구절 연습은 이미 센 것이라 기록하지 않는다
+            when {
+                journey -> s.answer(q.card, ok)
+                r.only == null && r.quote == null -> s.practiced(q.card, ok)
+            }
             results = results + (q to ok)
             mark = null; picked = null; typed = TextFieldValue(""); hint = false; pad = false; replays = 0; hinted = false
             locked = emptyMap(); wrongShown = emptyMap(); finalTyped = emptyMap(); accentWord = null
@@ -786,22 +808,28 @@ private fun CorrectBurst(still: Boolean) {
 @Composable
 private fun SessionResult(s: AppState, r: Route.Session, results: List<Pair<Q, Boolean>>) {
     val p = Ink.palette
-    LaunchedEffect(Unit) { if (r.kind == null && r.only == null) s.reviewDone() }
+    val journey = r.kind == null && r.only == null && r.quote == null && !r.free
+    LaunchedEffect(Unit) { if (journey) s.reviewDone() }
     BackHandler { s.back() }
-    val practice = r.kind != null || r.only != null
+    val practice = !journey
     var detail by remember { mutableStateOf<String?>(null) }
     val right = results.count { it.second }
     val wrong = results.filter { !it.second }
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f)) {
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s6), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
             Text(stringResource(R.string.result_caps), style = Type.caps, color = p.giltText, modifier = Modifier.clearAndSetSemantics { })
-            Text(stringResource(when (r.kind) { null -> R.string.review_today; ReviewKind.DICTATION -> R.string.kind_dictation; ReviewKind.BLANK -> R.string.kind_blank; ReviewKind.MEANING -> R.string.kind_meaning; ReviewKind.SPEAK -> R.string.kind_speak }), style = Type.title.ui(), color = p.ink)
+            Text(stringResource(when {
+                r.free -> R.string.free_title
+                r.kind == null -> R.string.review_today
+                r.kind == ReviewKind.DICTATION -> R.string.kind_dictation; r.kind == ReviewKind.BLANK -> R.string.kind_blank; r.kind == ReviewKind.MEANING -> R.string.kind_meaning
+                else -> R.string.kind_speak
+            }), style = Type.title.ui(), color = p.ink)
             Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s6)) {
                 Big("$right/${results.size}", stringResource(R.string.result_right), p.giltText)
                 if (!practice) Big("$right", stringResource(R.string.result_done), p.correct)
                 if (!practice) Big("${wrong.size}", stringResource(R.string.result_tomorrow), p.giltText)
             }
-            if (practice) Text(stringResource(R.string.result_practice_note), style = Type.small.ui(), color = p.inkSoft)
+            if (practice) Text(stringResource(if (r.only != null || r.quote != null) R.string.result_practice_note else R.string.free_note), style = Type.small.ui(), color = p.inkSoft)
             if (!practice) Slip(seed = 17, modifier = Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s2)) {
                     Text(stringResource(R.string.result_moved), style = Type.small.ui(), color = Color(0xFF7A5A20), modifier = Modifier.padding(vertical = Tokens.Space.s2))
@@ -868,14 +896,18 @@ private fun myQuotes(s: AppState): List<String> = s.store.quotes.filter { k -> q
  *   F5 내 구절: 오늘의 복습에서 빈칸 · 뜻 고르기 차례인 낱말이 내가 모은 구절에 있으면 그 구절로 빈칸 (한 판에 둘까지).
  *      [quote] 가 있으면 그 구절 하나로 빈칸 연습.
  */
-private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? = null, quote: String? = null): List<Q> {
+private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? = null, quote: String? = null, free: Boolean = false): List<Q> {
     val cards = s.cards()
     val only = quote?.let { quoteRef(it) }
-    // 한 가지씩 연습이면 (소리 없는 낱말을 건너뛰고도) 하루 몫만큼 채우도록 전부 보고 뒤에서 자른다
-    val practice = only == null && keys.isNullOrEmpty() && kind != null
+    // 연습(꼴별 · 자유)이면 (소리 없는 낱말을 건너뛰고도) 하루 몫만큼 채우도록 전부 보고 뒤에서 자른다
+    val practice = only == null && keys.isNullOrEmpty() && (kind != null || free)
+    // 오늘의 복습 (여정 II) 의 새 판: 지금 작품의 볼 날이 된 카드, 뜻 → 빈칸 → 듣고 쓰기 차례로 (이어 풀 때는 저장된 차례 그대로)
+    val fresh = only == null && keys.isNullOrEmpty() && kind == null && !free
     val pool = if (only != null) cards.filter { it.key in (keys ?: emptyList()) }
         else keys?.mapNotNull { k -> cards.firstOrNull { it.key == k } }?.takeIf { it.isNotEmpty() }
-        ?: if (kind == null) s.dueCards() else cards.sortedWith(compareBy({ it.box }, { it.due }))
+        ?: if (fresh) s.dueCards(s.current)
+        // 자유 연습 · 꼴별 연습: 지금 작품의 카드, 낮은 칸 · 오래된 것부터 (F08)
+        else s.seriesCards().sortedWith(compareBy({ it.box }, { it.due }))
     val all = s.cards().mapNotNull { c -> s.cardWord(c.key) }
     val saved = myQuotes(s).mapNotNull { quoteRef(it) }
     var fromQuotes = 0
@@ -937,6 +969,7 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
             letterNo = roman(w.chapters.flatMap { it.letters }.indexOf(l) + 1), date = l.date, place = l.place, plate = l.plate?.image.orEmpty(),
             fromQuote = mine != null, series = w.series.id, chapter = ch, letter = l, msg = hit)
     }.let { if (practice) it.take(Memory.DAILY) else it }.toList()
+        .let { qs -> if (fresh) qs.sortedBy { io.github.graviton94.todayletters.core.Journey.order(it.kind) } else qs }
 }
 
 /**

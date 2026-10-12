@@ -306,7 +306,7 @@ fun ArtCardSheet(s: AppState, w: Work, l: Letter, m: Message, onClose: () -> Uni
     var translation by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(true) }
     var borders by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
     s.version
-    val border = io.github.graviton94.todayletters.core.Border.entries.firstOrNull { it.name == s.store.border } ?: io.github.graviton94.todayletters.core.Border.PLAIN
+    val border = io.github.graviton94.todayletters.core.Border.entries.firstOrNull { it.name == s.store.border(w.series.id) } ?: io.github.graviton94.todayletters.core.Border.PLAIN
     val bmp = androidx.compose.runtime.remember(format, translation, border, l.id, m) {
         runCatching { artCard(ctx, w, l, m, view.learn, view.read, format, border, translation) }.getOrNull()
     }

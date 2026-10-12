@@ -187,9 +187,11 @@ fun Twinkle(still: Boolean) {
 fun Primary(text: String, modifier: Modifier = Modifier, enabled: Boolean = true, small: Boolean = false, onClick: () -> Unit) {
     val p = Ink.palette
     Box(
-        modifier.fillMaxWidth().heightIn(min = if (small) Tokens.Size.buttonSm else Tokens.Size.button).pressable(enabled, onClick = onClick).background(if (enabled) p.fill else p.hide),
+        modifier.fillMaxWidth().heightIn(min = if (small) Tokens.Size.buttonSm else Tokens.Size.button).pressable(enabled, onClick = onClick)
+            // 아직 누를 수 없는 단추: 흐린 바탕 대신 테두리와 읽을 수 있는 글자 (F24 대비)
+            .then(if (enabled) Modifier.background(p.fill) else Modifier.border(1.dp, p.line)),
         contentAlignment = Alignment.Center,
-    ) { Text(text, style = Type.body.ui().copy(fontSize = if (small) 15.sp else 17.sp), color = if (enabled) p.onFill else p.hideInk) }
+    ) { Text(text, style = Type.body.ui().copy(fontSize = if (small) 15.sp else 17.sp), color = if (enabled) p.onFill else p.inkSoft) }
 }
 
 /** 둘째 행동: 상자 없는 밑줄 글자 (채운 단추는 한 화면에 [Primary] 하나). */

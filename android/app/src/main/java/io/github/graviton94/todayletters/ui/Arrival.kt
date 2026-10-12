@@ -52,11 +52,10 @@ import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 
 /*
- * 편지 도착 (v21 2단계 D1): 새 편지를 처음 열 때만.
- *   1. 어두운 화면에 그 편지의 그림이 천천히 밝아지며 다가온다 (새 편지 · 날짜 · 그림 이름). 누르면 다음.
- *   2. 그림이 가라앉고, 그 위에 첫 줄이 낭독에 맞춰 한 글자씩 쓰인다 (누르면 바로 끝까지).
- *   3. 다 쓰이면 우리말이 스며 나오고 ‘편지 읽기’.
- * 움직임 줄이기면 3만. 그림이 없는 편지는 2부터. 색은 테마와 상관없이 밤의 전시실.
+ * 편지 도착 (흐름 개편: 한 장): 새 편지를 처음 열 때만.
+ *   위에 그 편지의 그림이 천천히 밝아지고, 그 아래에 첫 줄이 낭독에 맞춰 한 글자씩 쓰이며 문장마다 번역이 스민다 (누르면 바로 끝까지).
+ *   다 쓰이면 ‘편지 읽기’. 예전의 두 장(그림 → 첫 줄)을 한 장으로 합쳐 누르는 횟수를 줄였다 (F07 · F25).
+ * 움직임 줄이기면 처음부터 다 쓰인 채로. 그림이 없는 편지는 첫 줄만. 색은 테마와 상관없이 밤의 전시실.
  */
 private val Night = Color(0xFF120E0A) // 뷰어와 같은 밤색 (D4)
 private val Light = Color(0xFFF3EAD6)
@@ -84,7 +83,8 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
     val view = s.room(series)
     val still = s.reducedMotion
     val plate = rememberAsset(letter.plate?.image?.takeIf { it.isNotBlank() }?.let { "plates/$it" } ?: "")
-    var stage by remember(letter.id) { mutableIntStateOf(startAt ?: if (still) 2 else if (plate == null) 1 else 0) }
+    // 1 첫 줄이 쓰이는 중 · 2 다 쓰임 ([startAt] 2 는 처음부터 다 쓰인 채로: 화면 사진 · 움직임 줄이기)
+    var stage by remember(letter.id) { mutableIntStateOf(if (still || startAt == 2) 2 else 1) }
     val first = letter.messages.firstOrNull()
     val line = first?.let { Breaks.plain(it.text[view.learn]) }.orEmpty()
     val audio = s.narrator.path(series, chapter, letter.id, "m1_${view.learn.code}")
@@ -95,12 +95,13 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
     BackHandler(onBack = onBack)
     DisposableEffect(letter.id) { onDispose { s.narrator.stop() } }
 
-    // 1. 그림이 밝아지며 다가온다
-    val reveal = remember(letter.id) { Animatable(if (still || startAt != null) 1f else 0f) }
-    LaunchedEffect(letter.id) { if (reveal.value < 1f) reveal.animateTo(1f, tween(Tokens.Motion.introHoldMs + Tokens.Motion.introFadeMs)) }
-    // 2. 첫 줄이 낭독에 맞춰 쓰인다 (소리를 껐거나 낭독이 없으면 글자 빠르기로)
+    // 그림이 밝아지며 다가온다 (첫 줄과 함께)
+    val reveal = remember(letter.id) { Animatable(if (still || startAt == 2) 1f else 0f) }
+    LaunchedEffect(letter.id) { if (reveal.value < 1f) reveal.animateTo(1f, tween(Tokens.Motion.introFadeMs * 2)) }
+    // 첫 줄이 낭독에 맞춰 쓰인다 (소리를 껐거나 낭독이 없으면 글자 빠르기로). 그림이 먼저 조금 밝아진 뒤
     LaunchedEffect(stage) {
         if (stage != 1) return@LaunchedEffect
+        if (plate != null && !still) kotlinx.coroutines.delay(Tokens.Motion.introFadeMs.toLong())
         val voiced = s.app.sound && s.narrator.play(audio) { heardAll = true }
         val start = System.currentTimeMillis()
         val plain = (line.length * Tokens.Motion.typeCharMs * 2L).coerceAtLeast(1200L)
@@ -123,47 +124,26 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
 
     BoxWithConstraints(Modifier.fillMaxSize().background(Night)) {
         val h = maxHeight
-        if (stage == 0) {
-            // 그림이 먼저
-            Box(Modifier.fillMaxSize().pressable(haptic = false) { stage = 1 }) {
-                if (plate != null) Image(plate, null, Modifier.fillMaxWidth().height(h * 0.74f).graphicsLayer {
-                    alpha = reveal.value; val k = 1.08f - 0.08f * reveal.value; scaleX = k; scaleY = k
-                }, contentScale = ContentScale.Crop, alignment = BiasAlignment(0f, -0.4f))
-                Box(Modifier.fillMaxWidth().height(h * 0.74f).background(Brush.verticalGradient(0.45f to Color.Transparent, 1f to Night)))
-                Box(Modifier.fillMaxWidth().height(120.dp).background(Brush.verticalGradient(listOf(Night.copy(alpha = 0.6f), Color.Transparent))))
-                // 낮은 화면에서는 글이 넘치지 않게 굴려 본다 (평소에는 아래에 붙어 있다)
-                Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
-                    Column(Modifier.fillMaxWidth().heightIn(min = h).statusBarsSafe().navigationBarsSafe().padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
-                        verticalArrangement = Arrangement.Bottom) {
-                        Column(Modifier.graphicsLayer { alpha = reveal.value }, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                            Caps(stringResource(R.string.letter_n, roman(n)) + " · ${letter.place}", Gilt, small = true, decorative = true)
-                            Text(stringResource(R.string.arrival_title, work.name[uiLang()]), style = Type.title.ui(), color = Light)
-                            Text(stringResource(R.string.arrival_sub, dateLine(letter.date, letter.place), work.name[uiLang()], work.recipientOf(letter)[uiLang()]),
-                                style = Type.small.ui(), color = Soft)
-                        }
-                        Row(Modifier.fillMaxWidth().padding(top = Tokens.Space.s8), verticalAlignment = Alignment.Bottom) {
-                            PlateCredit(letter, Modifier.weight(1f))
-                            Text(stringResource(R.string.arrival_tap), style = Type.small.ui(), color = Light)
-                        }
-                    }
+        Column(Modifier.fillMaxSize().pressable(enabled = stage == 1, haptic = false) { shown = line.length; stage = 2 }) {
+            // 위: 그림 (화면의 4할, 아래로 밤빛에 스며든다)
+            if (plate != null) Box(Modifier.fillMaxWidth().height(h * 0.4f)) {
+                Image(plate, letter.plate?.title?.get(uiLang()), Modifier.fillMaxSize().graphicsLayer {
+                    alpha = reveal.value; val k = 1.06f - 0.06f * reveal.value; scaleX = k; scaleY = k
+                }, contentScale = ContentScale.Crop, alignment = BiasAlignment(0f, -0.3f))
+                Box(Modifier.fillMaxSize().background(Brush.verticalGradient(0f to Night.copy(alpha = 0.55f), 0.25f to Color.Transparent, 0.7f to Color.Transparent, 1f to Night)))
+            } else Box(Modifier.statusBarsSafe().height(Tokens.Space.s8))
+            Column(Modifier.padding(horizontal = Tokens.Space.s7).padding(top = Tokens.Space.s2), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Caps(stringResource(R.string.letter_n, roman(n)), Gilt, small = true, decorative = true, modifier = Modifier.weight(1f))
+                    Text(dateLine(letter.date, letter.place), style = Type.small.ui().copy(fontStyle = FontStyle.Italic), color = Soft)
                 }
-            }
-            return@BoxWithConstraints
-        }
-        // 2 · 3: 그림은 가라앉고 그 위에 첫 줄
-        if (plate != null) Image(plate, null, Modifier.fillMaxSize().graphicsLayer { alpha = 0.34f }, contentScale = ContentScale.Crop, alignment = BiasAlignment(0f, -0.4f))
-        Box(Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Night.copy(alpha = 0.3f), Night.copy(alpha = 0.85f)))))
-        Column(Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe()
-            .pressable(enabled = stage == 1, haptic = false) { shown = line.length; stage = 2 }) {
-            Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s7, end = Tokens.Space.s7, top = Tokens.Space.s8), verticalAlignment = Alignment.CenterVertically) {
-                Caps(stringResource(R.string.letter_n, roman(n)), Gilt, small = true, decorative = true, modifier = Modifier.weight(1f))
-                Text(dateLine(letter.date, letter.place), style = Type.small.ui().copy(fontStyle = FontStyle.Italic), color = Soft)
+                Text(stringResource(R.string.arrival_title, work.name[uiLang()]), style = Type.heading.ui(), color = Light)
             }
             Box(Modifier.padding(horizontal = Tokens.Space.s7, vertical = Tokens.Space.s3).fillMaxWidth().height(1.dp).background(Soft.copy(alpha = 0.25f)))
-            Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s7, vertical = Tokens.Space.s8),
-                verticalArrangement = Arrangement.spacedBy(Tokens.Space.s5)) {
-                // 문장 짝 (v22): 배우는 말 한 문장이 쓰이면 바로 아래에 그 번역이 스민다 (원문 한 덩이 · 번역 한 덩이가 아니라 짝마다)
-                val big = Type.title.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic, fontSize = 29.sp, lineHeight = 38.sp).of(view.learn)
+            // 첫 줄: 문장 짝 (v22) — 배우는 말 한 문장이 쓰이면 바로 아래에 그 번역이 스민다
+            Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s7, vertical = Tokens.Space.s2),
+                verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
+                val big = Type.title.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic, fontSize = 27.sp, lineHeight = 36.sp).of(view.learn)
                 val readLine = first?.takeIf { view.read != view.learn && view.showRead }?.text?.get(view.read)
                 val pairs = remember(line, readLine) { io.github.graviton94.todayletters.core.Pairs.of(line, readLine, clauses = true) }
                 pairs.forEach { (r, tr) ->
@@ -186,7 +166,7 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
                     }
                 }
             }
-            if (stage == 1) Column(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s7, vertical = Tokens.Space.s7), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+            if (stage == 1) Column(Modifier.fillMaxWidth().navigationBarsSafe().padding(horizontal = Tokens.Space.s7, vertical = Tokens.Space.s6), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                     Box(Modifier.size(8.dp).background(Color(0xFFC25546), CircleShape))
                     Text(stringResource(R.string.arrival_voice, work.name[uiLang()]), style = Type.small.ui(), color = Soft)
@@ -194,7 +174,7 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
                 Box(Modifier.fillMaxWidth().height(2.dp).background(Soft.copy(alpha = 0.2f))) {
                     Box(Modifier.fillMaxWidth(heard).height(2.dp).background(Light))
                 }
-            } else Column(Modifier.fillMaxWidth().padding(Tokens.Space.s4), horizontalAlignment = Alignment.CenterHorizontally,
+            } else Column(Modifier.fillMaxWidth().navigationBarsSafe().padding(Tokens.Space.s4), horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                 PlateCredit(letter, Modifier, center = true)
                 Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).background(Light).pressable { onDone(heardAll) },

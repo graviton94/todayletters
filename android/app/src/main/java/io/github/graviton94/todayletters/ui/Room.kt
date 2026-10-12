@@ -241,8 +241,9 @@ fun Room(s: AppState, r: Route.Letter) {
     }
 
     val progress = s.progress(id, chapter, letter.id)
-    val modes = Plays.inLetter.filter { it in s.seriesSettings(id).modes }
-    val nextPlay = modes.firstOrNull { it !in progress.replied }
+    // 이 편지에서 하는 걸음 (낭독이 없는 편지는 따라 읽기 없이, F11). 건너뛴 걸음은 지나간 것으로
+    val modes = remember(letter.id, view.learn, s.version) { s.letterModes(id, chapter, letter) }
+    val nextPlay = modes.firstOrNull { it !in progress.replied && it !in progress.skipped }
     val reply = Exercises.replyFor(letter, view.learn).second
     val finished = written >= total
     val cardMap = remember(s.version) { s.cardMap() }
@@ -254,15 +255,15 @@ fun Room(s: AppState, r: Route.Letter) {
         val ctx = androidx.compose.ui.platform.LocalContext.current
         val notYet = stringResource(R.string.step_not_yet)
         val nLetter = remember(letter.id) { work.chapters.flatMap { it.letters }.indexOf(letter) + 1 }
-        StepBar(read = written, total = total, modes = modes, replied = progress.replied, done = progress.done,
+        StepBar(read = written, total = total, modes = modes, progress = progress,
             words = letter.words.size, recipient = toWhom[uiLang()], number = roman(nLetter)) { step ->
-            // 0 = 읽기, 1..modes = 연습, 마지막 = 그림. 다 한 걸음과 지금 걸음만 이동
+            // 0 = 읽기, 1..modes = 연습, 마지막 = 그림. 다 한 걸음 · 건너뛴 걸음(다시 하기) · 지금 걸음만 이동
             val readDone = written >= total
-            val nextMode = if (!readDone) null else modes.firstOrNull { it !in progress.replied }
+            val nextMode = if (!readDone) null else nextPlay
             when {
                 step == 0 -> scope.launch { list.animateScrollToItem(0) }
                 step <= modes.size -> modes[step - 1].let { m ->
-                    if (readDone && (m in progress.replied || m == nextMode)) { stopAll(); s.go(Route.Play(r, m)) }
+                    if (readDone && (m in progress.replied || m in progress.skipped || m == nextMode)) { stopAll(); s.go(Route.Play(r, m)) }
                     else android.widget.Toast.makeText(ctx, notYet, android.widget.Toast.LENGTH_SHORT).show()
                 }
                 else -> if (progress.done || (readDone && nextMode == null)) { stopAll(); s.go(Route.Artwork(id, r.letter, r)) }
@@ -281,6 +282,8 @@ fun Room(s: AppState, r: Route.Letter) {
                     Box(Modifier.weight(1f)) { Hair() }
                 }
             }
+            // 튜토리얼 (편지 I): 읽기 걸음의 안내 한 줄 (도착 장면을 지난 뒤, 처음 한 번)
+            if (!arriving && glossTokens != null) item(key = "${letter.id}:guide") { GuideLine(s, "read") }
             // 그 무렵 빈센트의 상태 메시지 (메신저 프로필 한마디처럼)
             letter.status?.let { st -> item(key = "${letter.id}:status") {
                 Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
@@ -411,7 +414,10 @@ fun Room(s: AppState, r: Route.Letter) {
                     Text(stringResource(R.string.room_locked), style = Type.small.ui(), color = p.inkSoft)
                 }
                 progress.done -> {
-                    if (letter.words.isNotEmpty()) Secondary(stringResource(R.string.room_words, letter.words.size)) { words = true }
+                    // 건너뛴 걸음은 언제든 다시 (편지 목록 · 복습 탭에서도)
+                    progress.toRedo.firstOrNull { it in modes }?.let { m ->
+                        Secondary(stringResource(R.string.redo_step, stringResource(modeLabel(m)))) { stopAll(); s.go(Route.Play(r, m)) }
+                    } ?: if (letter.words.isNotEmpty()) Secondary(stringResource(R.string.room_words, letter.words.size)) { words = true } else Unit
                     Primary(stringResource(R.string.done_home)) { stopAll(); s.go(r.from ?: Route.Inbox) }
                 }
                 else -> {
@@ -419,12 +425,14 @@ fun Room(s: AppState, r: Route.Letter) {
                     when (nextPlay) {
                         null -> Primary(stringResource(R.string.room_done_today)) {
                             stopAll()
-                            s.save(id, chapter, letter.id, progress.complete(s.seriesSettings(id).modes).copy(done = true))
+                            s.save(id, chapter, letter.id, progress.complete(modes).copy(done = true))
                             s.finished()
+                            s.earn(io.github.graviton94.todayletters.core.Earn.LETTER, id = id)
                             s.go(Route.Done(r))
+                            s.settle()
                         }
-                        ReplyMode.CONSTELLATION -> Primary(stringResource(R.string.room_reply, stringResource(modeLabel(nextPlay)))) { stopAll(); s.coachDone("first_steps"); s.go(Route.Play(r, nextPlay)) }
-                        else -> Primary(stringResource(R.string.room_next, stringResource(modeLabel(nextPlay)))) { stopAll(); s.coachDone("first_steps"); s.go(Route.Play(r, nextPlay)) }
+                        ReplyMode.CONSTELLATION -> Primary(stringResource(R.string.room_reply, stringResource(modeLabel(nextPlay)))) { stopAll(); s.go(Route.Play(r, nextPlay)) }
+                        else -> Primary(stringResource(R.string.room_next, stringResource(modeLabel(nextPlay)))) { stopAll(); s.go(Route.Play(r, nextPlay)) }
                     }
                 }
             }
@@ -445,7 +453,6 @@ fun modeLabel(m: ReplyMode) = when (m) {
     ReplyMode.MATCH -> R.string.mode_match
     ReplyMode.CONSTELLATION -> R.string.mode_constellation
     ReplyMode.ALOUD -> R.string.mode_aloud
-    ReplyMode.DICTATION -> R.string.mode_dictation
 }
 
 /** 쓰는 중…: 펜이 끄적이는 작은 거품 (움직임 줄이기면 멈춰 있음). */
@@ -516,24 +523,31 @@ private fun RoomHeader(
     }
 }
 
-/** 걸음 하나: 이름 · 한 줄 설명 · 상태 (0 남음 · 1 지금 · 2 끝남). */
+/** 걸음 하나: 이름 · 한 줄 설명 · 상태 (0 남음 · 1 지금 · 2 끝남 · 3 건너뜀). */
 internal data class Step(val label: String, val desc: String, val state: Int)
 
 @Composable
-private fun steps(read: Int, total: Int, modes: List<ReplyMode>, replied: Set<ReplyMode>, done: Boolean, words: Int, recipient: String): List<Step> {
+private fun steps(read: Int, total: Int, modes: List<ReplyMode>, progress: io.github.graviton94.todayletters.core.LetterProgress, words: Int, recipient: String): List<Step> {
     val readDone = read >= total
-    val next = if (!readDone) null else modes.firstOrNull { it !in replied }
+    val marks = io.github.graviton94.todayletters.core.Journey.letterDots(read, total, modes, progress)
+    fun state(k: Int) = when (marks[k]) {
+        io.github.graviton94.todayletters.core.Journey.Step.DONE -> 2
+        io.github.graviton94.todayletters.core.Journey.Step.NOW -> 1
+        io.github.graviton94.todayletters.core.Journey.Step.SKIPPED -> 3
+        else -> 0
+    }
     return buildList {
         add(Step(stringResource(R.string.step_read_short),
-            if (readDone) stringResource(R.string.step_read_d_done, total) else stringResource(R.string.step_read_d, total, read), if (readDone) 2 else 1))
-        modes.forEach { m ->
+            if (readDone) stringResource(R.string.step_read_d_done, total) else stringResource(R.string.step_read_d, total, read), state(0)))
+        modes.forEachIndexed { k, m ->
             add(Step(stringResource(modeLabel(m)), when (m) {
                 ReplyMode.MATCH -> stringResource(R.string.step_match_d, words)
-                ReplyMode.ALOUD -> stringResource(R.string.step_aloud_d, total)
+                // 편지 안 따라 읽기는 한 문장 (F14)
+                ReplyMode.ALOUD -> stringResource(R.string.step_aloud_one)
                 else -> stringResource(R.string.step_reply_d, recipient)
-            }, when { m in replied -> 2; m == next -> 1; else -> 0 }))
+            }, state(k + 1)))
         }
-        add(Step(stringResource(R.string.step_plate), stringResource(R.string.step_plate_d), if (done) 2 else if (readDone && next == null) 1 else 0))
+        add(Step(stringResource(R.string.step_plate), stringResource(R.string.step_plate_d), state(modes.size + 1)))
     }
 }
 
@@ -542,10 +556,10 @@ private fun steps(read: Int, total: Int, modes: List<ReplyMode>, replied: Set<Re
  * 누르면 위에서 걸음 목록이 내려온다 (끝난 것 ✓ · 지금 · 남은 것). 끝난 걸음 · 지금 걸음만 바로 간다.
  */
 @Composable
-private fun StepBar(read: Int, total: Int, modes: List<ReplyMode>, replied: Set<ReplyMode>, done: Boolean,
+private fun StepBar(read: Int, total: Int, modes: List<ReplyMode>, progress: io.github.graviton94.todayletters.core.LetterProgress,
                     words: Int, recipient: String, number: String, onStep: (Int) -> Unit) {
     val p = Ink.palette
-    val list = steps(read, total, modes, replied, done, words, recipient)
+    val list = steps(read, total, modes, progress, words, recipient)
     var open by remember { mutableStateOf(false) }
     val cur = list.indexOfFirst { it.state == 1 }.let { if (it < 0) list.lastIndex else it }
     val openLabel = stringResource(R.string.steps_open)
@@ -559,7 +573,7 @@ private fun StepBar(read: Int, total: Int, modes: List<ReplyMode>, replied: Set<
                 modifier = Modifier.width(34.dp))
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(1.dp)) {
                 Text(list[cur].label, style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink, maxLines = 1)
-                Text(stringResource(R.string.step_of, list.size, cur + 1) + (if (cur > 0 && list[cur - 1].state == 2) " · " + stringResource(R.string.step_after, list[cur - 1].label) else ""),
+                Text(stringResource(R.string.step_of, list.size, cur + 1) + (if (cur > 0 && list[cur - 1].state >= 2) " · " + stringResource(R.string.step_after, list[cur - 1].label) else ""),
                     style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, maxLines = 1)
             }
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -567,14 +581,14 @@ private fun StepBar(read: Int, total: Int, modes: List<ReplyMode>, replied: Set<
                     val d = if (st.state == 1) 9.dp else 7.dp
                     Box(Modifier.size(d).graphicsLayer { rotationZ = 45f }
                         .background(when (st.state) { 2 -> p.giltText; 1 -> p.ink; else -> Color.Transparent })
-                        .border(1.dp, when (st.state) { 2 -> p.giltText; 1 -> p.ink; else -> p.hideInk }))
+                        .border(1.dp, when (st.state) { 2, 3 -> p.giltText; 1 -> p.ink; else -> p.hideInk }))
                 }
             }
             Box(Modifier.graphicsLayer { rotationZ = if (open) 90f else -90f }) { Chevron(p.inkSoft) }
         }
         // 한 것만큼 금빛 (가는 줄)
         Box(Modifier.fillMaxWidth().height(2.dp).background(p.hair)) {
-            Box(Modifier.fillMaxWidth(list.count { it.state == 2 }.toFloat() / list.size).height(2.dp).background(p.giltText))
+            Box(Modifier.fillMaxWidth(list.count { it.state >= 2 }.toFloat() / list.size).height(2.dp).background(p.giltText))
         }
         if (open) androidx.compose.ui.window.Popup(onDismissRequest = { open = false },
             properties = androidx.compose.ui.window.PopupProperties(focusable = true)) {
@@ -593,7 +607,7 @@ internal fun StepSheet(list: List<Step>, number: String, onStep: (Int) -> Unit) 
     Column(Modifier.fillMaxWidth().background(p.paper)) {
         Row(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
             Caps(stringResource(R.string.steps_caps, number, list.size), p.giltText, small = true, modifier = Modifier.weight(1f))
-            Text(stringResource(R.string.steps_count, list.count { it.state == 2 }, list.count { it.state < 2 }), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+            Text(stringResource(R.string.steps_count, list.count { it.state >= 2 }, list.count { it.state < 2 }), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
         }
         list.forEachIndexed { i, st ->
             Hair()
@@ -620,6 +634,7 @@ internal fun StepSheet(list: List<Step>, number: String, onStep: (Int) -> Unit) 
                 }
                 when (st.state) {
                     2 -> Capsule(stringResource(if (i == 0) R.string.step_again_read else R.string.step_again))
+                    3 -> Capsule(stringResource(R.string.step_redo), CapsuleKind.FILLED)
                     1 -> Capsule(stringResource(R.string.step_now), CapsuleKind.FILLED)
                 }
             }

@@ -214,7 +214,7 @@ private fun tierName(t: Tier) = stringResource(when (t) {
 @Composable
 private fun earnName(e: Earn) = stringResource(when (e) {
     Earn.LETTER -> R.string.earn_letter; Earn.PRACTICE -> R.string.earn_practice; Earn.REVIEW_RIGHT -> R.string.earn_review
-    Earn.SHADOW_PASS -> R.string.earn_shadow; Earn.READ_ALONE -> R.string.earn_alone; Earn.QUESTS -> R.string.earn_quests
+    Earn.SHADOW_PASS -> R.string.earn_shadow; Earn.READ_ALONE -> R.string.earn_alone; Earn.JOURNEY -> R.string.earn_journey
     Earn.RECITAL -> R.string.earn_recital; Earn.STREAK -> R.string.earn_streak; Earn.ACHIEVEMENT -> R.string.earn_achievement
     Earn.SEAL -> R.string.earn_seal; Earn.EXHIBITION -> R.string.earn_exhibition
 })
@@ -432,6 +432,15 @@ fun GalleryTab(s: AppState) {
                     Text("›", style = Type.heading, color = p.inkSoft)
                 }
             }
+            // 나의 도록 (편지마다 받은 그림, 다 모은 전시)
+            Row(Modifier.fillMaxWidth().background(p.hide).pressable { s.go(Route.Catalogue(id)) }.padding(Tokens.Space.s3),
+                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                Column(Modifier.weight(1f)) {
+                    Text(stringResource(R.string.catalogue_title), style = Type.small.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink)
+                    Text(stringResource(R.string.catalogue_progress, s.doneCount(id), w.chapters.sumOf { it.letters.size }), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+                }
+                Text("›", style = Type.heading, color = p.inkSoft)
+            }
             // 아직 한 점도 없으면: 왜 비었는지 + 오늘의 편지로 (U2)
             if (s.ownedCount(id) == 0) EmptyState(stringResource(R.string.empty_gallery_t), stringResource(R.string.empty_gallery_b), stringResource(R.string.today_open)) { s.go(Route.Inbox) }
             // 희귀도 칸
@@ -549,7 +558,8 @@ private fun LetterPlates(s: AppState, w: io.github.graviton94.todayletters.data.
                     AssetImage("plates/${pl.image}", Modifier.fillMaxWidth().height(84.dp).border(Tokens.Stroke.hair, p.hair), sample = 4)
                     Text(stringResource(R.string.letter_n, roman(letters.indexOf(cl.second) + 1)) + " · " + pl.title[uiLang()],
                         style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, maxLines = 2)
-                    if (pl.spots.isNotEmpty()) Capsule(stringResource(R.string.plates_spots, pl.spots.size))
+                    // 그림이 이 기기에 있을 때만 산책 (F12)
+                    if (pl.spots.isNotEmpty() && io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${pl.image}")) Capsule(stringResource(R.string.plates_spots, pl.spots.size))
                 }
             }
             ahead.forEach { (_, _, cl) ->
@@ -625,11 +635,33 @@ fun MilestonesTab(s: AppState) {
                     repeat(3 - row.size) { Spacer(Modifier.weight(1f)) }
                 }
             }
+            Spacer(Modifier.height(Tokens.Space.s2))
+            // 이번 주 · 일요일 낭독회 (오늘 화면에서 옮겨 옴)
+            run {
+                val wk = s.week(id)
+                MoreRow(stringResource(R.string.week_title), stringResource(R.string.week_line, wk.done.size, wk.letters, wk.owned)) { s.go(Route.Week) }
+            }
+            val sunday = io.github.graviton94.todayletters.core.Recital.isSunday(s.today)
+            MoreRow(stringResource(R.string.recital_title), stringResource(if (s.recitalDone) R.string.recital_done else if (sunday) R.string.recital_today else R.string.recital_sunday)) { s.go(Route.Recital) }
             Spacer(Modifier.height(Tokens.Space.s4))
             Shop(s, w)
         }
     }
     detail?.let { i -> MedalSheet(s, w, i) { detail = null } }
+}
+
+/** 이정표 탭의 한 줄 (이번 주 · 낭독회): 이름 · 한 줄 · ›. */
+@Composable
+private fun MoreRow(title: String, line: String, onClick: () -> Unit) {
+    val p = Ink.palette
+    Row(Modifier.fillMaxWidth().heightIn(min = 56.dp).pressable(onClick = onClick).padding(vertical = 6.dp, horizontal = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+        Column(Modifier.weight(1f)) {
+            Text(title, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink)
+            Text(line, style = Type.small.ui(), color = p.inkSoft)
+        }
+        Text("›", style = Type.heading, color = p.inkSoft)
+    }
+    Hair()
 }
 
 /** 메달 자세히: 이름 · 지금 몇 · 남은 만큼 (또는 받은 날) · 그 메달이 무엇인지 · 받으면 생기는 것. */
@@ -728,9 +760,10 @@ fun BorderSheet(s: AppState, w: Work, onClose: () -> Unit) {
             Text(stringResource(R.string.border_note), style = Type.small.ui(), color = p.inkSoft)
             Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                 io.github.graviton94.todayletters.core.Border.entries.forEach { b ->
-                    val owned = b.name in s.store.borders()
-                    val on = s.store.border == b.name
-                    Column(Modifier.weight(1f).pressable { if (owned) { s.store.border = b.name; s.bump() } else buying = b },
+                    // 테두리는 작품마다 (그 작품의 화폐로 사니까, F19)
+                    val owned = b.name in s.store.borders(w.series.id)
+                    val on = s.store.border(w.series.id) == b.name
+                    Column(Modifier.weight(1f).pressable { if (owned) { s.store.setBorder(w.series.id, b.name); s.bump() } else buying = b },
                         horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         BorderSwatch(b, Modifier.fillMaxWidth().aspectRatio(1.3f), selected = on)
                         Text(stringResource(borderName(b)), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.ink, maxLines = 1)
@@ -927,7 +960,9 @@ fun RecitalScreen(s: AppState) {
             }
             Hair()
             Text(stringResource(R.string.recital_compare), style = Type.heading.ui(), color = p.ink)
-            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s6)) {
+            // 기록이 없으면 "– → –" 대신 한 줄 (F24)
+            if (first == null && now == null) Text(stringResource(R.string.recital_compare_empty), style = Type.small.ui(), color = p.inkSoft)
+            else Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s6)) {
                 listOf(R.string.score_intonation to (first?.first to now?.first), R.string.score_rhythm to (first?.second to now?.second)).forEach { (label, v) ->
                     Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                         Text(stringResource(label), style = Type.small.ui(), color = p.inkSoft)
