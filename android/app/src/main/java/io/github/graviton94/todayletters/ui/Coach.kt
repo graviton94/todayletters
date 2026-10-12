@@ -34,8 +34,11 @@ import kotlinx.coroutines.delay
 
 /** 화면마다의 도움말 묶음 (strings 의 coach_*). 처음 한 번 저절로, (?) 로 다시. */
 private val steps: Map<String, List<Int>> = mapOf(
-    "inbox" to listOf(R.string.coach_inbox_row, R.string.coach_inbox_settings),
-    "library" to listOf(R.string.coach_library),
+    "inbox" to listOf(R.string.coach_inbox_row, R.string.coach_inbox_learn, R.string.coach_inbox_settings),
+    "library" to listOf(R.string.coach_library, R.string.coach_library_learn),
+    "words" to listOf(R.string.coach_words),
+    "gallery" to listOf(R.string.coach_gallery),
+    "milestones" to listOf(R.string.coach_milestones),
     "series" to listOf(R.string.coach_series),
     "room" to listOf(R.string.coach_room_bubble, R.string.coach_room_hide, R.string.coach_room_info),
     "play_aloud" to listOf(R.string.coach_play_aloud),

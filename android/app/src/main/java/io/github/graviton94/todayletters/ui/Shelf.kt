@@ -43,7 +43,6 @@ import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Achievements
 import io.github.graviton94.todayletters.core.Route
 import io.github.graviton94.todayletters.data.Work
-import io.github.graviton94.todayletters.data.hasMusic
 import io.github.graviton94.todayletters.design.Faces
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
@@ -66,8 +65,7 @@ fun LibraryTab(s: AppState) {
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s5, end = Tokens.Space.s1, top = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
             Caps("LINGUA MUSEUM", p.inkSoft, small = true, decorative = true, modifier = Modifier.weight(1f))
-            IconButton(stringResource(R.string.help), onClick = { s.coachAgain("library") }) { HelpGlyph(p.ink) }
-            IconButton(stringResource(R.string.settings), onClick = { s.settingsOpen = true }) { Gear(p.ink) }
+            HeaderIcons(s)
         }
         Column(Modifier.padding(horizontal = Tokens.Space.s5), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
             Text(stringResource(R.string.lib_title), style = Type.title.ui(), color = p.ink)
@@ -107,18 +105,26 @@ private fun SeriesCard(s: AppState, w: Work) {
     val done = s.doneCount(id)
     val unread = s.unread(id)
     val due = s.dueCards().count { it.key.startsWith("$id:") }
-    Box(Modifier.fillMaxWidth().height(208.dp).clip(androidx.compose.foundation.shape.RoundedCornerShape(2.dp)).background(t.paper).pressable { s.go(Route.Enter(id)) }) {
+    Box(Modifier.fillMaxWidth().height(228.dp).clip(androidx.compose.foundation.shape.RoundedCornerShape(2.dp)).background(t.paper).pressable { s.go(Route.Enter(id)) }) {
         AssetImage(w.kit.hero, Modifier.fillMaxSize(), sample = 2, alignment = Alignment.CenterEnd)
         Box(Modifier.fillMaxSize().background(Brush.horizontalGradient(0f to t.paper, 0.32f to t.paper.copy(alpha = 0.9f), 0.62f to t.paper.copy(alpha = 0.5f), 1f to t.paper.copy(alpha = 0.1f))))
         Column(Modifier.fillMaxSize().padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Text(w.kit.place, style = Type.capsSm, color = t.accent)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(w.kit.place, style = Type.capsSm, color = t.accent, modifier = Modifier.weight(1f), maxLines = 1)
+                // 작품 주제 꼬리표 (series.json kit.tag: 미술관 · 오페라)
+                val tag = w.kit.tag[uiLang()]
+                if (tag.isNotBlank()) Text(tag, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = t.paper, maxLines = 1,
+                    modifier = Modifier.background(t.accent).padding(horizontal = 8.dp, vertical = 2.dp))
+            }
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 Box(Modifier.border(1.5.dp, t.accent, CircleShape).padding(1.5.dp)) { Portrait(w.portrait, w.fullName, 40.dp) }
-                Text("${w.name[uiLang()]} → ${w.recipient[uiLang()]}", style = Type.heading.ui(), color = t.ink)
+                Text("${w.name[uiLang()]} → ${w.recipient[uiLang()]}", style = Type.heading.ui(), color = t.ink, modifier = Modifier.weight(1f))
             }
-            // 원어 · 햇수, 그리고 ‘편지 속 그 곡’ 녹음이 있는 작품이면 ‘듣기 있음’
-            val listening = remember(id) { w.hasMusic }
-            Text("${stringResource(langLabel(w.series.original))} · ${w.years}" + (if (listening) " · ♪ " + stringResource(R.string.lib_listening) else ""), style = Type.small.ui(), color = t.soft)
+            // 원어 · 햇수 · 배우는 말 (눌러서 바꾸기: 진도는 언어마다 따로)
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                Text("${stringResource(langLabel(w.series.original))} · ${w.years}", style = Type.small.ui(), color = t.soft, maxLines = 1, modifier = Modifier.weight(1f, fill = false))
+                if (s.store.learnChosen(id) || s.startedCount(id) > 0) LearnChip(s, id, ink = t.ink, line = t.accent)
+            }
             Spacer(Modifier.weight(1f))
             Row(verticalAlignment = Alignment.Bottom) {
                 Column(Modifier.weight(0.5f), verticalArrangement = Arrangement.spacedBy(6.dp)) {

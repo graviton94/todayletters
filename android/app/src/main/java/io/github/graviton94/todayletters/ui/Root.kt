@@ -134,6 +134,8 @@ private fun Main(s: AppState, onExit: () -> Unit) {
         // 앱 밖에 둔 장의 낭독 받기 (크기 안내 · 진행률 · 뒤로)
         s.downloadAsk?.let { DownloadSheet(s, it) }
         CoachLayer(s)
+        // 배우는 말을 처음 바꿨을 때 한 번: 언어마다 진도가 따로
+        LangNoticeHost(s)
         // 보상 순간: 어느 화면에서든 맨 위에
         RewardOverlay(s)
     }
@@ -167,6 +169,9 @@ private fun Tabs(s: AppState) {
 /** 지금 화면의 도움말 id (core 의 Coach 와 strings 의 coach_<id>_*). */
 fun helpId(r: Route): String? = when (r) {
     Route.Inbox -> "inbox"
+    Route.Words -> "words"
+    Route.Gallery -> "gallery"
+    Route.Milestones -> "milestones"
     Route.Library -> "library"
     is Route.Series -> "series"
     is Route.Letter -> "room"

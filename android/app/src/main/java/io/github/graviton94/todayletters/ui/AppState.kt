@@ -115,7 +115,29 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     val currentWork: Work get() = work(current)
 
     // 예전에 시리즈 구분 없이 세던 오늘의 할 일은 마지막으로 들어간 시리즈 (보너스가 들어간 곳) 로, 없으면 반 고흐로
-    init { store.migrateQuests(store.lastSeries?.takeIf { id -> works.any { it.series.id == id } } ?: "vincent") }
+    init {
+        store.migrateQuests(store.lastSeries?.takeIf { id -> works.any { it.series.id == id } } ?: "vincent")
+        // 언어마다 진도 (v22): 예전 진도는 그때 배우던 말의 것으로 옮긴다 (작품마다 한 번)
+        baseWorks.forEach { w -> runCatching { store.migrateSpace(w.series.id, space(w.series.id)) } }
+    }
+
+    /** ‘언어마다 진도가 따로 저장돼요’ 알림 (처음 배우는 말을 바꿀 때 한 번). */
+    var langNotice by mutableStateOf(false)
+
+    /**
+     * 배우는 말 바꾸기 (서재 카드 · 시리즈 머리 · 작품 설정 어디서든). 진도는 언어마다 따로라 바꾸면 그 언어의 진도로 건너간다.
+     * 처음 바꿀 때 한 번 알림. 낭독 · 곡은 멈춘다 (다른 언어의 소리라서).
+     */
+    fun switchLearn(id: String, learn: io.github.graviton94.todayletters.core.Lang) {
+        val cur = seriesSettings(id)
+        if (cur.learn == learn) return
+        narrator.stop(); music.stop(); gloss = null
+        update(id, cur.copy(learn = learn))
+        store.markLearnChosen(id)
+        // 새 언어의 진도 공간은 옮길 것이 없다 (이미 옮겼거나 새로 시작)
+        store.migrateSpace(id, space(id))
+        if (!store.langNoticeSeen) { store.langNoticeSeen = true; langNotice = true }
+    }
 
     /**
      * 서재에서 고른 시리즈로 들어간다 (전환 화면의 ‘눌러서 들어가기’).
@@ -232,7 +254,17 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     fun work(id: String) = works.first { it.series.id == id }
 
-    fun key(series: String, chapter: String, letter: String) = "$series:$chapter:$letter"
+    /**
+     * 진도 열쇠의 작품 이름: 배우는 말마다 따로 ("vincent" 원어 · "vincent@en" · "vincent@ko", [io.github.graviton94.todayletters.core.Spaces]).
+     * 편지 진도 · 연 편지 · 오늘의 할 일 · 하루 편지 수 · 따라 읽기 · 봉인이 모두 이 이름으로 갈린다.
+     */
+    fun space(series: String): String {
+        val w = baseWorks.firstOrNull { it.series.id == series } ?: return series
+        val learn = store.series(series)?.learn ?: return series
+        return io.github.graviton94.todayletters.core.Spaces.of(series, learn, w.series.original)
+    }
+
+    fun key(series: String, chapter: String, letter: String) = "${space(series)}:$chapter:$letter"
     fun progress(series: String, chapter: String, letter: String): LetterProgress {
         @Suppress("UNUSED_EXPRESSION") version
         return store.progress(key(series, chapter, letter))
@@ -240,8 +272,19 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     fun save(series: String, chapter: String, letter: String, p: LetterProgress) {
         val k = key(series, chapter, letter)
-        if (p.done && !store.progress(k).done) store.logDay("letters", today, k)   // 이번 주 돌아보기 (E1)
+        val newlyDone = p.done && !store.progress(k).done
+        if (newlyDone) store.logDay("letters", today, k)   // 이번 주 돌아보기 (E1)
         store.save(k, p); version++
+        // 오늘의 할 일 ①: 오늘의 편지 끝까지 읽기
+        if (newlyDone) questAdd(Quest.LETTER, series)
+    }
+
+    /** 배우는 말 [learn] 으로 다 읽은 편지 수 (언어 고르기 시트에서 언어마다 진도를 보여 줄 때). */
+    fun doneIn(id: String, learn: io.github.graviton94.todayletters.core.Lang): Int = run {
+        @Suppress("UNUSED_EXPRESSION") version
+        val w = baseWorks.firstOrNull { it.series.id == id } ?: return@run 0
+        val sp = io.github.graviton94.todayletters.core.Spaces.of(id, learn, w.series.original)
+        w.chapters.sumOf { c -> c.letters.count { store.progress("$sp:${c.id}:${it.id}").done } }
     }
 
     /** 이 작품에서 다 읽은 편지 수와 지금 열 수 있는 편지 (순서대로). */
@@ -255,8 +298,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     fun openable(id: String): List<Pair<String, Letter>> {
         val all = all(id)
-        val n = Arrivals.openable(all.size, startedCount(id), store.openedToday(id), seriesSettings(id).lettersPerDay) +
-            (if (store.earlyDay(id) == today) 1 else 0)
+        val n = Arrivals.openable(all.size, startedCount(id), store.openedToday(space(id)), seriesSettings(id).lettersPerDay) +
+            (if (store.earlyDay(space(id)) == today) 1 else 0)
         return all.take(n.coerceAtMost(all.size))
     }
 
@@ -264,10 +307,10 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun unread(id: String): Int = openable(id).count { (c, l) -> !store.started(key(id, c, l.id)) && progress(id, c, l.id).shown == 0 }
 
     /** 열지 않은 다음 편지가 도착한 날 (epoch day). */
-    fun arrivedOn(id: String): Long? = store.lastOpen(id).let { (d, n) -> Arrivals.arrivedOn(d, n, seriesSettings(id).lettersPerDay) }
+    fun arrivedOn(id: String): Long? = store.lastOpen(space(id)).let { (d, n) -> Arrivals.arrivedOn(d, n, seriesSettings(id).lettersPerDay) }
 
     fun waiting(id: String): Int =
-        Arrivals.waiting(all(id).size, doneCount(id), startedCount(id), store.openedToday(id), seriesSettings(id).lettersPerDay)
+        Arrivals.waiting(all(id).size, doneCount(id), startedCount(id), store.openedToday(space(id)), seriesSettings(id).lettersPerDay)
 
     /** 이 편지가 며칠 뒤에 오는가 (0 이면 이미 왔다). */
     fun daysUntil(id: String, letterId: String): Int {
@@ -313,10 +356,48 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         }
     }
 
-    /** 낱말 낭독 (그 편지 폴더의 w<i>_<언어>.m4a). 낭독이 없는 낱말이면 "" (기기 TTS 는 쓰지 않는다). */
-    fun wordAudio(series: String, chapter: String, letter: Letter, word: io.github.graviton94.todayletters.core.Word, lang: io.github.graviton94.todayletters.core.Lang): String =
-        if (word.audio.isEmpty()) "" else narrator.path(series, chapter, letter.id, "${word.audio}_${lang.code}")
-    fun wordAudio(c: CardWord, lang: io.github.graviton94.todayletters.core.Lang) = wordAudio(c.work.series.id, c.at.first, c.at.second, c.word, lang)
+    /**
+     * 낱말 · 표현 소리. 차례로 찾아 이 기기에 있는 첫 파일 (없으면 "": 기기 TTS 는 쓰지 않는다, 듣기 단추를 숨긴다):
+     *  1. 그 편지 폴더의 챕터 낱말 w<i>_<언어> · 표현 ph<n>_<언어> ([io.github.graviton94.todayletters.core.Word.audio])
+     *  2. 오늘의 낱말 소리 v_<언어>_<slug> (data/lexicon/README.md): 그 편지 폴더, 없으면 그 낱말이 오늘의 낱말인 다른 편지 폴더
+     * 앱 밖(R2)에 둔 장은 받아 둔 뒤에만 찾힌다.
+     */
+    fun wordAudio(series: String, chapter: String, letter: Letter, word: io.github.graviton94.todayletters.core.Word, lang: io.github.graviton94.todayletters.core.Lang,
+                  work: io.github.graviton94.todayletters.data.Work? = null): String {
+        fun has(path: String) = io.github.graviton94.todayletters.data.AssetFiles.has(ctx, path)
+        if (word.audio.isNotEmpty()) narrator.path(series, chapter, letter.id, "${word.audio}_${lang.code}").let { if (has(it)) return it }
+        if (word.lex.isEmpty() || word.phrase) return ""
+        val name = io.github.graviton94.todayletters.core.VocabAudio.word(word.lex, lang)
+        narrator.path(series, chapter, letter.id, name).let { if (has(it)) return it }
+        val w = work ?: works.firstOrNull { it.series.id == series } ?: return ""
+        fun scan(ch: String, ls: List<Letter>): String? = ls.firstOrNull { l -> l.id != letter.id && l.words.any { it.lex == word.lex } }
+            ?.let { l -> narrator.path(series, ch, l.id, name).takeIf(::has) }
+        return w.chapters.firstNotNullOfOrNull { c -> scan(c.id, c.letters) }
+            ?: w.prologueChapter?.let { scan("P", it.letters) }
+            ?: w.outro?.epilogue?.let { scan("E", listOf(it)) }
+            ?: ""
+    }
+    fun wordAudio(c: CardWord, lang: io.github.graviton94.todayletters.core.Lang) = wordAudio(c.work.series.id, c.at.first, c.at.second, c.word, lang, c.work)
+
+    /**
+     * 표현 카드의 소리 (v22): ph<n>_<언어> 가 있으면 그것 (범위 없음). 없으면 그 표현이 나온 문장의 낭독에서
+     * 표현이 든 마디만 (마디 시각이 있을 때), 그것도 없으면 문장 전체. 이 기기에 소리가 없으면 null.
+     */
+    fun phraseAudio(series: String, chapter: String, letter: Letter, ph: io.github.graviton94.todayletters.core.Word,
+                    lang: io.github.graviton94.todayletters.core.Lang): Pair<String, IntRange?>? {
+        wordAudio(series, chapter, letter, ph, lang).takeIf { it.isNotEmpty() }?.let { return it to null }
+        if (ph.msg < 0) return null
+        val m = narrator.path(series, chapter, letter.id, "m${ph.msg + 1}_${lang.code}")
+        if (!io.github.graviton94.todayletters.data.AssetFiles.has(ctx, m)) return null
+        fun norm(x: String) = io.github.graviton94.todayletters.core.Breaks.plain(x).lowercase().filter { it.isLetterOrDigit() || it == ' ' }.replace(Regex("\\s+"), " ").trim()
+        val words = norm(ph.text[lang]).split(" ").filter { it.isNotEmpty() }
+        val cs = narrator.chunks(m)
+        if (words.isEmpty() || cs.isEmpty()) return m to null
+        val first = cs.indexOfFirst { norm(it.text).split(" ").contains(words.first()) }
+        val last = cs.indexOfLast { norm(it.text).split(" ").contains(words.last()) }
+        if (first < 0 || last < first) return m to null
+        return m to (cs[first].start..cs[last].end)
+    }
 
     /** 편지를 다 읽으면 그 편지의 낱말 · 표현이 카드함에 들어간다 (내일부터 복습). 하루 새 카드는 [io.github.graviton94.todayletters.core.Intake.DAILY_NEW] 장까지. */
     fun collectWords(series: String, chapter: String, letter: Letter) {
@@ -395,7 +476,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         return Library.gloss(ctx, series, w.deck)[letterId]?.getOrNull(msg)
     }
 
-    fun cards() = run { @Suppress("UNUSED_EXPRESSION") version; store.cards().filter { cardWord(it.key) != null } }
+    /** 지금 배우는 말의 카드만 (언어마다 진도가 따로, v22): 영어로 배우는 동안에는 프랑스어 카드가 복습에 나오지 않는다. */
+    fun cards() = run {
+        @Suppress("UNUSED_EXPRESSION") version
+        val decks = works.associate { it.series.id to it.deck }
+        store.cards().filter { c -> CardRef.parse(c.key)?.let { decks[it.series] == it.deck } == true && cardWord(c.key) != null }
+    }
     fun dueCards() = io.github.graviton94.todayletters.core.Memory.dueToday(cards(), today)
     fun answer(c: io.github.graviton94.todayletters.core.Card, correct: Boolean) {
         val next = io.github.graviton94.todayletters.core.Memory.after(c, correct, today)
@@ -409,11 +495,11 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun judged(kind: ReviewKind, ok: Boolean, series: String = current) {
         val same = answerRun.first == series && answerRun.second == kind
         answerRun = Triple(series, kind, if (ok) (if (same) answerRun.third + 1 else 1) else 0)
-        if (ok && kind == ReviewKind.DICTATION) questAtLeast(Quest.DICTATION_RUN, answerRun.third, series)
+        if (ok && kind == ReviewKind.DICTATION) questAdd(Quest.DICTATION_RUN, series)
         if (ok && kind == ReviewKind.MEANING) questAdd(Quest.MEANING_RUN, series)
     }
     fun reviewDone() {
-        store.reviewedDay = today; questAdd(Quest.REVIEW_DONE, current); finished()
+        store.reviewedDay = today; finished()
         draw(current, "review")
         version++; settle()
     }
@@ -454,9 +540,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             downloadAsk = DownloadAsk(pack, id, chapter, letter, from); return
         }
         val p = progress(id, chapter, letter.id)
-        if (p.done) questAdd(Quest.REREAD, id)
         current = id
-        if (!store.started(key(id, chapter, letter.id)) && p.shown == 0 && !p.done) store.markOpened(id)
+        if (!store.started(key(id, chapter, letter.id)) && p.shown == 0 && !p.done) store.markOpened(space(id))
         store.markStarted(key(id, chapter, letter.id))
         val idx = work(id).chapters.indexOfFirst { it.id == chapter } + 1
         go(Route.Letter(id, idx, work(id).chapters[idx - 1].letters.indexOf(letter) + 1, from))
@@ -562,7 +647,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun buy(what: Spend, id: String = current, piece: Piece? = null, option: String? = null): Boolean {
         when (what) {
             Spend.REST -> if (store.rests >= Streak.MAX_RESTS) return false
-            Spend.EARLY_LETTER -> if (store.earlyDay(id) == today || all(id).size <= openable(id).size) return false
+            Spend.EARLY_LETTER -> if (store.earlyDay(space(id)) == today || all(id).size <= openable(id).size) return false
             Spend.PICK_PIECE -> if (piece == null || owns(id, piece) || !available(piece)) return false
             Spend.FRAME -> if (piece == null || option == null || !owns(id, piece) || frameKind(piece).name == option) return false
             Spend.BORDER -> if (option == null || option in store.borders()) return false
@@ -570,7 +655,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         if (!spend(what.cost, id)) return false
         when (what) {
             Spend.REST -> store.rests = store.rests + 1
-            Spend.EARLY_LETTER -> store.setEarlyDay(id, today)
+            Spend.EARLY_LETTER -> store.setEarlyDay(space(id), today)
             Spend.PICK_PIECE -> { store.addPiece(id, piece!!.id); store.logDay("pieces", today, "$id|${piece.id}") }
             Spend.FRAME -> store.setFrame(piece!!.id, option!!)
             Spend.BORDER -> { store.addBorder(option!!); store.border = option }
@@ -614,18 +699,16 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     // ── 오늘의 할 일 (시리즈마다 따로: 그 시리즈에서 한 일만 세고, 보너스도 그 시리즈 화폐로) ──
     val quests: List<Quest> get() = Quests.today(today)
-    fun questCount(q: Quest, id: String = current) = run { @Suppress("UNUSED_EXPRESSION") version; store.questLog(id).count(today, q) }
+    fun questCount(q: Quest, id: String = current) = run { @Suppress("UNUSED_EXPRESSION") version; store.questLog(space(id)).count(today, q).let { if (q == Quest.LETTER && seriesDone(id)) q.goal else it } }
     fun questDone(q: Quest, id: String = current) = Quests.done(q, questCount(q, id))
-    private fun questAdd(q: Quest, id: String, n: Int = 1) { if (q in quests) { store.saveQuestLog(id, store.questLog(id).add(today, q, n)); questsCheck(id) } }
-    private fun questAtLeast(q: Quest, n: Int, id: String) {
-        val log = store.questLog(id)
-        if (q in quests && log.count(today, q) < n) { store.saveQuestLog(id, log.atLeast(today, q, n)); questsCheck(id) }
-    }
+    private fun questAdd(q: Quest, id: String, n: Int = 1) { if (q in quests) { store.saveQuestLog(space(id), store.questLog(space(id)).add(today, q, n)); questsCheck(id) } }
     private fun questsCheck(id: String) {
         version++
-        val log = store.questLog(id)
+        var log = store.questLog(space(id))
+        // 작품을 다 읽었으면 ‘오늘의 편지’는 한 것으로 (더 읽을 편지가 없다)
+        if (seriesDone(id) && log.count(today, Quest.LETTER) < 1) log = log.atLeast(today, Quest.LETTER, 1)
         if (log.payable(today)) {
-            store.saveQuestLog(id, log.copy(paid = today))
+            store.saveQuestLog(space(id), log.copy(paid = today))
             earn(Earn.QUESTS, id = id); draw(id, "quests")
             settle()
         }
@@ -663,7 +746,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val last = sc.filterKeys { it in (start - 7) until start }.values.let { v -> v.sumOf { it.third }.takeIf { it > 0 }?.let { n -> v.sumOf { it.first } / n to v.sumOf { it.second } / n } }
         val pieceIds = inWeek("pieces").map { it.second }.filter { it.startsWith("$id|") }.map { it.substringAfter("|") }.toSet()
         Week(start, weekDone(), inWeek("rest").map { (it.first - start).toInt() }.toSet(),
-            inWeek("letters").count { it.second.startsWith("$id:") }, inWeek("own").count { it.second.startsWith("$id:") },
+            inWeek("letters").count { it.second.startsWith("${space(id)}:") }, inWeek("own").count { k -> CardRef.parse(k.second)?.let { it.series == id && it.deck == deckOf(id) } == true },
             sc.filterKeys { it in range }.values.sumOf { it.third }, days, last,
             gallery(id).filter { it.id in pieceIds })
     }
@@ -744,7 +827,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     }
 
     /** 마디 녹음 파일: files/readings/<편지>/m<문장>_c<마디>.wav (원음이라 억양 · 리듬을 잴 수 있다) */
-    fun readingDir(id: String, chapter: String, letter: String) = java.io.File(ctx.filesDir, "readings/${id}_${chapter}_$letter")
+    fun readingDir(id: String, chapter: String, letter: String) = java.io.File(ctx.filesDir, "readings/${space(id)}_${chapter}_$letter")
     fun take(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = java.io.File(readingDir(id, chapter, letter), "m${msg}_c$chunk.wav")
     val pcm = io.github.graviton94.todayletters.data.PcmRecorder()
 
@@ -753,7 +836,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun markPassed(id: String, chapter: String, letter: String, msg: Int, chunk: Int) {
         val k = "${key(id, chapter, letter)}:$msg:$chunk"
         if (k !in store.passed) { store.markPassed(k); earn(Earn.SHADOW_PASS, id = id) }
-        questAdd(Quest.SHADOW_PASS, id); finished()
+        finished()
         version++
     }
 
@@ -787,8 +870,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             done += ds; if (ds == c.letters.size && ds > 0) chapters++
             alone += c.letters.count { l -> progress(w.series.id, c.id, l.id).done && Growth.letterAlone(l.words.indices.map { cardKey(w.series.id, c.id, l.id, it) }, cm) }
         } }
-        val prefixes = ws.map { it.series.id + ":" }
-        cm.values.filter { c -> prefixes.any { c.key.startsWith(it) } }.forEach { if (Growth.known(it)) known++; if (it.box >= Memory.TOP) owned++ }
+        val prefixes = ws.map { space(it.series.id) + ":" }
+        val ids = ws.map { it.series.id }.toSet()
+        cm.values.filter { c -> CardRef.parse(c.key)?.series in ids }.forEach { if (Growth.known(it)) known++; if (it.box >= Memory.TOP) owned++ }
         return Stats(
             lettersDone = done, streak = streak, bestStreak = maxOf(store.bestStreak, streak),
             wordsKnown = known, wordsOwned = owned,
@@ -797,7 +881,11 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             shadowPassed = store.passed.count { k -> prefixes.any { k.startsWith(it) } },
             pieces = ws.sumOf { ownedCount(it.series.id) },
             seriesStarted = works.count { startedCount(it.series.id) > 0 },
-            langsSpoken = works.filter { w -> store.passed.any { it.startsWith(w.series.id + ":") } }.map { seriesSettings(it.series.id).learn }.distinct().size,
+            // 따라 읽기를 한 언어 수: 통과한 마디 열쇠의 진도 이름 ("vincent" 원어 · "vincent@en") 에서 언어를 읽는다
+            langsSpoken = store.passed.mapNotNull { k ->
+                val (sid, code) = io.github.graviton94.todayletters.core.Spaces.parse(k.substringBefore(":"))
+                code ?: baseWorks.firstOrNull { it.series.id == sid }?.series?.original?.code
+            }.distinct().size,
         )
     }
 

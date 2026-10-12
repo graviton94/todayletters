@@ -197,24 +197,24 @@
     "ko": "번역 줄 보이기"
   },
   "coach_inbox_row": {
-    "en": "Each series is one conversation. New letters wait here.",
-    "ko": "작품 하나가 대화방 하나예요. 새 편지는 여기서 기다려요."
+    "en": "Today's letter and today's tasks wait here.",
+    "ko": "오늘의 편지와 오늘의 할 일이 여기서 기다려요."
   },
   "coach_inbox_settings": {
     "en": "Theme, text size and your reading language live here.",
     "ko": "테마 · 글자 크기 · 읽는 언어는 여기서 바꿔요."
   },
   "coach_room_bubble": {
-    "en": "The large line is the language you learn, the small line is the translation. Tap the speaker on any slip and Vincent reads it to you.",
-    "ko": "큰 줄은 배울 언어, 작은 줄은 번역이에요. 조각의 듣기 단추를 누르면 빈센트가 직접 읽어 줘요."
+    "en": "The large line is the language you learn, the translation sits right below it. Tap the speaker on any slip to hear the writer read it.",
+    "ko": "큰 줄은 배울 언어, 바로 아래 작은 줄은 번역이에요. 조각의 듣기 단추를 누르면 편지 쓴 사람의 목소리로 읽어 줘요."
   },
   "coach_room_hide": {
     "en": "You can hide the translation line in the series settings.",
     "ko": "번역 줄은 작품 설정에서 숨길 수 있어요."
   },
   "coach_room_info": {
-    "en": "Time, place and the people around Vincent.",
-    "ko": "그때 그곳, 빈센트 곁의 사람들을 볼 수 있어요."
+    "en": "Time, place and the people around the writer.",
+    "ko": "그때 그곳, 편지 쓴 사람 곁의 사람들을 볼 수 있어요."
   },
   "coach_play_stars": {
     "en": "Tap the words in order. They join like a constellation.",
@@ -2277,28 +2277,16 @@
     "ko": "일요일 · 이번 주 낭독을 한 편으로"
   },
   "quests_title": {
-    "en": "Today's three",
+    "en": "Today's tasks",
     "ko": "오늘의 할 일"
   },
   "quests_bonus": {
-    "en": "All three · one more piece",
-    "ko": "셋 다 하면 자료 한 번 더"
-  },
-  "quest_shadow": {
-    "en": "Pass %1$d sentences in read-along",
-    "ko": "따라 읽기 %1$d문장 통과"
-  },
-  "quest_reread": {
-    "en": "Reread a letter you've finished",
-    "ko": "다 읽은 편지 다시 읽기"
+    "en": "Finish all · one more piece",
+    "ko": "다 하면 자료 한 번 더"
   },
   "quest_dictation": {
-    "en": "%1$d dictations right in a row",
-    "ko": "듣고 쓰기 %1$d개 연속 정답"
-  },
-  "quest_review": {
-    "en": "Finish today's review",
-    "ko": "오늘의 복습 끝내기"
+    "en": "Get %1$d dictations right",
+    "ko": "듣고 쓰기 %1$d개 맞히기"
   },
   "quest_meaning": {
     "en": "Choose %1$d meanings right",
@@ -3408,10 +3396,6 @@
     "en": "That was his last letter. The afterword is waiting.",
     "ko": "그의 마지막 편지였어요. 맺음말이 기다리고 있어요."
   },
-  "lib_listening": {
-    "en": "Listening",
-    "ko": "듣기 있음"
-  },
   "music_chip": {
     "en": "Hear the piece in this letter",
     "ko": "편지 속 그 곡 듣기"
@@ -3515,5 +3499,93 @@
   "credits_vocab_examples": {
     "en": "Tatoeba sentences and authors",
     "ko": "Tatoeba 예문과 작성자"
+  },
+  "learn_switch": {
+    "en": "Learning: %1$s",
+    "ko": "배우는 말: %1$s"
+  },
+  "learn_switch_a11y": {
+    "en": "Language you learn: %1$s. Change it",
+    "ko": "배우는 말 %1$s, 바꾸기"
+  },
+  "learn_switch_title": {
+    "en": "Which language do you learn in this series?",
+    "ko": "이 작품에서 무엇을 배울까요?"
+  },
+  "learn_switch_now": {
+    "en": "Now",
+    "ko": "지금"
+  },
+  "lang_notice_title": {
+    "en": "Progress is saved separately for each language",
+    "ko": "언어마다 진도가 따로 저장돼요"
+  },
+  "lang_notice_body": {
+    "en": "Letters you've read, word cards and today's tasks stay with the language you learned them in. Switch back any time and you pick up where you left off.",
+    "ko": "읽은 편지 · 낱말 카드 · 오늘의 할 일은 그 언어에 남아요. 언제든 다시 바꾸면 그 자리에서 이어져요."
+  },
+  "coach_library_learn": {
+    "en": "The small button on each cover changes the language you learn in that series.",
+    "ko": "표지의 작은 단추로 그 작품에서 배울 말을 바꿔요."
+  },
+  "coach_inbox_learn": {
+    "en": "Tap “Learning” to switch languages. Each language keeps its own progress.",
+    "ko": "‘배우는 말’을 누르면 언어를 바꿔요. 언어마다 진도가 따로예요."
+  },
+  "coach_words": {
+    "en": "Cards grow in six steps. Start today's review here, or practise one kind at a time.",
+    "ko": "카드는 여섯 단계로 자라요. 여기서 오늘의 복습을 시작하거나 한 가지씩 연습해요."
+  },
+  "coach_gallery": {
+    "en": "Each letter you finish hangs its painting here. Tap a picture to look closer.",
+    "ko": "다 읽은 편지마다 그림이 여기 걸려요. 그림을 누르면 가까이 볼 수 있어요."
+  },
+  "coach_milestones": {
+    "en": "Milestones for this series. Every third one brings a masterpiece.",
+    "ko": "이 작품의 이정표예요. 세 개마다 명작 한 점이 걸려요."
+  },
+  "help_reset_done": {
+    "en": "Each screen shows its guide again the next time you open it.",
+    "ko": "화면마다 다음에 열 때 안내가 다시 나와요."
+  },
+  "set_fade_read": {
+    "en": "Fold translations as you learn",
+    "ko": "익힌 만큼 번역 접기"
+  },
+  "set_fade_read_d": {
+    "en": "Off: every sentence keeps its translation right below. On: sentences you can read alone fold their translation.",
+    "ko": "끄면 문장마다 바로 아래에 번역이 늘 보여요. 켜면 혼자 읽을 수 있는 문장은 번역을 접어요."
+  },
+  "review_right_hint": {
+    "en": "Right — with hints.",
+    "ko": "맞았어요. 힌트를 받았어요."
+  },
+  "quest_letter": {
+    "en": "Read today's letter to the end",
+    "ko": "오늘의 편지 읽기"
+  },
+  "quest_all": {
+    "en": "Finish all tasks",
+    "ko": "모든 할 일 마치기"
+  },
+  "quest_bonus_tag": {
+    "en": "Bonus",
+    "ko": "보너스"
+  },
+  "phrase_example": {
+    "en": "From the letter",
+    "ko": "편지 속 문장"
+  },
+  "phrase_where": {
+    "en": "Letter %1$s · %2$s · line %3$d",
+    "ko": "편지 %1$s · %2$s · %3$d번째 줄"
+  },
+  "phrase_listen": {
+    "en": "Listen to the phrase",
+    "ko": "표현 듣기"
+  },
+  "dict_none": {
+    "en": "Nothing to write yet: none of these words has a recording on this phone.",
+    "ko": "아직 받아쓸 낱말이 없어요. 이 폰에 소리가 있는 낱말이 모이면 열려요."
   }
 }

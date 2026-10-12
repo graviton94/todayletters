@@ -285,7 +285,8 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
                 Text(w.title[uiLang()], style = Type.heading.ui(), color = p.ink)
             }
             Caps(stringResource(R.string.set_learn), p.giltText, small = true)
-            Choices(Langs.learnChoices(w.series, s.app.read).map { it to stringResource(langLabel(it)) }, cur.learn) { s.update(id, cur.copy(learn = it)) }
+            Choices(Langs.learnChoices(w.series, s.app.read).map { it to stringResource(langLabel(it)) }, cur.learn) { s.switchLearn(id, it) }
+            Text(stringResource(R.string.lang_notice_title), style = Type.small.ui(), color = p.inkSoft)
 
             Caps(stringResource(R.string.ob_modes), p.giltText, small = true)
             Column {
@@ -316,6 +317,12 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
 
             Caps(stringResource(R.string.set_show_read), p.giltText, small = true)
             Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.showRead) { s.update(id, cur.copy(showRead = it)) }
+            // 번역이 사라지는 편지 (v22: 기본은 꺼짐, 문장마다 번역이 바로 아래에)
+            if (cur.showRead) {
+                Caps(stringResource(R.string.set_fade_read), p.giltText, small = true)
+                Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.fadeRead) { s.update(id, cur.copy(fadeRead = it)) }
+                Text(stringResource(R.string.set_fade_read_d), style = Type.small.ui(), color = p.inkSoft)
+            }
 
             Caps(stringResource(R.string.ob_pace), p.giltText, small = true)
             Choices(listOf(1, 2, 3).map { it to stringResource(R.string.letters_n, it) }, cur.lettersPerDay) { s.update(id, cur.copy(lettersPerDay = it)) }

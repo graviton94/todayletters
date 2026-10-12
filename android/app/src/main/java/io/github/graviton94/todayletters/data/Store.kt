@@ -47,6 +47,7 @@ class Store(ctx: Context) {
         return SeriesSettings(
             learn = Lang.valueOf(learn),
             showRead = p.getBoolean("s:$id:show", true),
+            fadeRead = p.getBoolean("s:$id:fade", false),
             modes = (p.getString("s:$id:modes", null) ?: "MATCH,CONSTELLATION,ALOUD").split(",").filter { it.isNotBlank() }.map { ReplyMode.valueOf(it) }.toSet(),
             lettersPerDay = p.getInt("s:$id:perDay", 1),
             arrivalNotice = p.getBoolean("s:$id:notice", true),
@@ -54,7 +55,7 @@ class Store(ctx: Context) {
     }
 
     fun save(id: String, s: SeriesSettings) = p.edit()
-        .putString("s:$id:learn", s.learn.name).putBoolean("s:$id:show", s.showRead)
+        .putString("s:$id:learn", s.learn.name).putBoolean("s:$id:show", s.showRead).putBoolean("s:$id:fade", s.fadeRead)
         .putString("s:$id:modes", s.modes.joinToString(",") { it.name }).putInt("s:$id:perDay", s.lettersPerDay)
         .putBoolean("s:$id:notice", s.arrivalNotice).apply()
 
@@ -301,6 +302,57 @@ class Store(ctx: Context) {
     /** 프롤로그를 끝까지 본 작품 (첫 편지 앞에서 한 번만 저절로 나온다). */
     fun prologueSeen(series: String) = series in set("prologue_seen")
     fun markPrologueSeen(series: String) = add("prologue_seen", series)
+    /** ‘언어마다 진도가 따로 저장돼요’ 알림을 본 적이 있나 (한 번만). */
+    var langNoticeSeen: Boolean
+        get() = p.getBoolean("lang_notice_seen", false)
+        set(v) = p.edit().putBoolean("lang_notice_seen", v).apply()
+
+    /**
+     * 언어마다 진도 (v22): 예전에 언어 구분 없이 쌓은 진도를 그때 배우던 말([space], "vincent@en")의 열쇠로 옮긴다.
+     * 원어로 배우던 작품은 열쇠가 그대로라 부르지 않는다. 작품마다 한 번만 (옮긴 표시 "spaces:<작품>").
+     * 옮기는 것: 편지 진도 · 연 편지 · 듣다 멈춘 자리 · 도착을 본 편지 · 따라 읽기 · 봉인 · 통과한 마디 · 이번 주 편지 기록 · 오늘의 할 일 · 하루 편지 수 · 미리 연 날.
+     * 남는 것: 낱말 카드 (열쇠에 이미 배우는 말이 있다) · 지갑 · 이정표 · 갤러리 · 내 구절 (작품 하나에 하나).
+     */
+    fun migrateSpace(series: String, space: String) {
+        val flag = "spaces:$series"
+        if (p.getBoolean(flag, false)) return
+        val e = p.edit()
+        if (space != series) {
+            val all = p.all
+            fun mv(prefix: String) = all.keys.filter { it.startsWith(prefix) }.forEach { k ->
+                val rest = k.removePrefix(prefix)
+                io.github.graviton94.todayletters.core.Spaces.move(rest, series, space)?.let { to ->
+                    when (val v = all[k]) {
+                        is String -> e.putString(prefix + to, v); is Int -> e.putInt(prefix + to, v); is Long -> e.putLong(prefix + to, v)
+                        is Boolean -> e.putBoolean(prefix + to, v); is Float -> e.putFloat(prefix + to, v)
+                        else -> return@forEach
+                    }
+                    e.remove(k)
+                }
+            }
+            listOf("p:", "st:", "heard:").forEach(::mv)
+            // 작품 열쇠: 오늘의 할 일 "quest:<작품>:" · 하루 편지 수 "o:<작품>:" · 미리 연 날 "early:<작품>"
+            listOf("quest:", "o:").forEach { pre ->
+                all.keys.filter { it.startsWith("$pre$series:") }.forEach { k ->
+                    val to = "$pre$space:" + k.removePrefix("$pre$series:")
+                    when (val v = all[k]) { is Int -> e.putInt(to, v); is Long -> e.putLong(to, v); is String -> e.putString(to, v); else -> return@forEach }
+                    e.remove(k)
+                }
+            }
+            if (p.contains("early:$series")) { e.putLong("early:$space", p.getLong("early:$series", -1)); e.remove("early:$series") }
+            fun mvSet(key: String, sep: String = "") {
+                val v = set(key).ifEmpty { return }
+                e.putStringSet(key, v.map { x ->
+                    if (sep.isEmpty()) io.github.graviton94.todayletters.core.Spaces.move(x, series, space) ?: x
+                    else x.substringBefore(sep) + sep + (io.github.graviton94.todayletters.core.Spaces.move(x.substringAfter(sep), series, space) ?: x.substringAfter(sep))
+                }.toSet())
+            }
+            listOf("arrived", "shadow", "sealed", "pass", "sealseen").forEach { mvSet(it) }
+            mvSet("log:letters", ":")
+        }
+        e.putBoolean(flag, true).apply()
+    }
+
     /** 무엇을 배울지 고른 작품 (처음 소개 · 작품에 처음 들어갈 때). */
     fun learnChosen(series: String) = series in set("learn_chosen")
     fun markLearnChosen(series: String) = add("learn_chosen", series)

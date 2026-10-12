@@ -127,4 +127,46 @@ class NavTest {
         assertEquals(Route.Inbox, s.route)
         assertFalse(s.store.arrived(key))
     }
+
+    /** 배우는 말 바꾸기 (v22): 진도는 언어마다 따로, 바꾸면 그 언어의 진도로 건너가고 처음 한 번 알림. 화면은 그대로. */
+    @Test fun languageSwitchKeepsProgressPerLanguage() {
+        val s = state()
+        s.enter("vincent")
+        val c = s.work("vincent").chapters.first(); val l = c.letters.first()
+        val original = s.seriesSettings("vincent").learn
+        s.save("vincent", c.id, l.id, s.progress("vincent", c.id, l.id).copy(shown = l.messages.size, done = true))
+        assertEquals(1, s.doneCount("vincent"))
+        val other = io.github.graviton94.todayletters.core.Langs.learnChoices(s.work("vincent").series, s.app.read).first { it != original }
+        s.switchLearn("vincent", other)
+        assertEquals(Route.Inbox, s.route)
+        assertTrue(s.langNotice)
+        assertEquals(0, s.doneCount("vincent"))
+        assertFalse(s.progress("vincent", c.id, l.id).done)
+        s.langNotice = false
+        s.switchLearn("vincent", original)
+        assertFalse(s.langNotice)   // 알림은 한 번만
+        assertTrue(s.progress("vincent", c.id, l.id).done)
+        assertEquals(1, s.doneIn("vincent", original)); assertEquals(0, s.doneIn("vincent", other))
+    }
+
+    /** 예전 (언어 구분 없던) 진도는 그때 배우던 말의 것으로 옮겨진다. */
+    @Test fun oldProgressMovesToItsLanguage() {
+        ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().clear().commit()
+        val st = Store(ctx)
+        st.onboarded = true
+        listOf("vincent", "mozart").forEach { st.markLearnChosen(it); st.markPrologueSeen(it) }
+        st.save("vincent", io.github.graviton94.todayletters.core.SeriesSettings(learn = io.github.graviton94.todayletters.core.Lang.EN))
+        val probe = AppState(ctx)
+        val c = probe.work("vincent").chapters.first(); val l = c.letters.first()
+        // 앱이 처음 켜지기 전의 열쇠로 다시 써 두고 (옮긴 표시도 지우고) 새로 켠다
+        ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().remove("spaces:vincent").commit()
+        st.save("vincent:${c.id}:${l.id}", io.github.graviton94.todayletters.core.LetterProgress(shown = l.messages.size, done = true))
+        st.markStarted("vincent:${c.id}:${l.id}")
+        val s = AppState(ctx)
+        assertEquals("vincent@en:${c.id}:${l.id}", s.key("vincent", c.id, l.id))
+        assertTrue(s.progress("vincent", c.id, l.id).done)
+        assertTrue(s.store.started(s.key("vincent", c.id, l.id)))
+        s.switchLearn("vincent", io.github.graviton94.todayletters.core.Lang.FR)
+        assertFalse(s.progress("vincent", c.id, l.id).done)
+    }
 }

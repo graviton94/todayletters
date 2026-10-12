@@ -149,7 +149,13 @@ fun SettingsScreen(s: AppState) {
                     onClick = { if (sure) { s.clearDownloads(); sure = false } else sure = true }) { }
             }
             Group(stringResource(R.string.set_g_help)) {
-                SetRow(stringResource(R.string.set_help_again), onClick = { s.coachReset(); s.settingsOpen = false }) { Chev() }
+                // 사용법 다시 보기: 화면마다 안내를 처음 상태로 (지금 화면으로 돌아가고, 다음에 여는 화면마다 그 화면 안내가 다시 뜬다)
+                val ctx = androidx.compose.ui.platform.LocalContext.current
+                val resetDone = stringResource(R.string.help_reset_done)
+                SetRow(stringResource(R.string.set_help_again), onClick = {
+                    s.coachReset(); s.settingsOpen = false
+                    android.widget.Toast.makeText(ctx, resetDone, android.widget.Toast.LENGTH_LONG).show()
+                }) { Chev() }
                 var privacy by remember { mutableStateOf(false) }
                 SetRow(stringResource(R.string.set_privacy_row), stringResource(R.string.set_privacy_d), onClick = { privacy = !privacy },
                     below = if (!privacy) null else ({ Text(stringResource(R.string.set_privacy), style = Type.small.ui(), color = p.inkSoft) })) { Chev() }

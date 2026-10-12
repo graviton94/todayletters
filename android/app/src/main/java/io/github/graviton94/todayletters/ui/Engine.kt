@@ -353,25 +353,42 @@ fun CatalogueCover(s: AppState, w: Work, e: io.github.graviton94.todayletters.co
     }
 }
 
-/** 시리즈 안 맨 위 줄: ‹ 서재 · 지명 · 화폐. */
+/**
+ * 시리즈 안 맨 위 줄 (v22): ‹ 서재 · 지명 · (?) · ⚙ — (?) 와 ⚙ 는 서재와 같이 늘 오른쪽 위.
+ * 그 아래 한 줄: 배우는 말 바꾸기 단추 · 화폐.
+ */
 @Composable
 fun SeriesHeader(s: AppState, title: String? = null, caps: String? = null) {
     val p = Ink.palette
     val w = s.currentWork
     Column {
         if (w.kit.hero.isNotEmpty()) AssetImage(w.kit.hero, Modifier.fillMaxWidth().height(6.dp), sample = 8)
-        Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s2, end = Tokens.Space.s5, top = Tokens.Space.s2), verticalAlignment = Alignment.CenterVertically) {
+        Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s2, end = Tokens.Space.s1, top = Tokens.Space.s1), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.heightIn(min = 44.dp).pressable { s.go(Route.Library) }.padding(horizontal = Tokens.Space.s3), contentAlignment = Alignment.Center) {
-                Text("‹ " + stringResource(R.string.tab_library), style = Type.small.ui(), color = p.inkSoft)
+                Text("‹ " + stringResource(R.string.tab_library), style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
             }
-            Text(w.kit.place, style = Type.capsSm, color = p.giltText, modifier = Modifier.weight(1f), textAlign = TextAlign.Center)
+            Text(w.kit.place, style = Type.capsSm, color = p.giltText, modifier = Modifier.weight(1f), textAlign = TextAlign.Center, maxLines = 1)
+            HeaderIcons(s)
+        }
+        Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s5, end = Tokens.Space.s5), verticalAlignment = Alignment.CenterVertically) {
+            LearnChip(s, w.series.id)
+            Spacer(Modifier.weight(1f))
             CurrencyLine(s, w)
         }
-        if (title != null) Column(Modifier.padding(horizontal = Tokens.Space.s6).padding(top = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        if (title != null) Column(Modifier.padding(horizontal = Tokens.Space.s6).padding(top = Tokens.Space.s2), verticalArrangement = Arrangement.spacedBy(4.dp)) {
             if (caps != null) Caps(caps, p.giltText, small = true, decorative = true)
             Text(title, style = Type.title.ui(), color = p.ink)
         }
     }
+}
+
+/** 맨 위 화면의 오른쪽 위: (?) 이 화면 도움말 (있을 때) · ⚙ 앱 설정. 서재와 시리즈 안 이름표가 같은 자리에. */
+@Composable
+fun HeaderIcons(s: AppState) {
+    val p = Ink.palette
+    val help = helpId(s.route)
+    if (help != null) IconButton(stringResource(R.string.help), onClick = { s.coachAgain(help) }) { HelpGlyph(p.ink) }
+    IconButton(stringResource(R.string.settings), onClick = { s.settingsOpen = true }) { Gear(p.ink) }
 }
 
 /** 갤러리 (시리즈 안 이름표): 희귀도별 칸 · 이달의 전시 · 다음 이정표까지. */

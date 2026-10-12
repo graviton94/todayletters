@@ -144,18 +144,14 @@ fun Inbox(s: AppState) {
                     Text(stringResource(R.string.quests_title), style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink, modifier = Modifier.weight(1f))
                     Text(stringResource(R.string.quests_bonus), style = Type.small.ui(), color = p.giltText)
                 }
-                s.quests.forEach { q ->
+                // 늘 같은 차례: 오늘의 편지 읽기 → 뜻 고르기 → 듣고 쓰기 → (보너스) 모든 할 일 마치기
+                s.quests.forEachIndexed { i, q ->
                     val n = s.questCount(q).coerceAtMost(q.goal)
                     val done = s.questDone(q)
-                    Row(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable(enabled = !done) { questGo(s, q) },
-                        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                        Box(Modifier.size(16.dp).then(if (done) Modifier.background(p.giltText, CircleShape) else Modifier.border(1.5.dp, p.hideInk, CircleShape)))
-                        Text(stringResource(questLabel(q), q.goal), style = Type.body.ui().copy(textDecoration = if (done) androidx.compose.ui.text.style.TextDecoration.LineThrough else null),
-                            color = if (done) p.inkSoft else p.ink, modifier = Modifier.weight(1f))
-                        Text(if (done) "✓" else "$n / ${q.goal}", style = Type.small, color = p.inkSoft)
-                    }
-                    Hair()
+                    QuestRow(roman(i + 1), stringResource(questLabel(q), q.goal), done, if (done) "✓" else "$n / ${q.goal}", enabled = !done) { questGo(s, q) }
                 }
+                val allDone = s.quests.all { s.questDone(it) }
+                QuestRow("✦", stringResource(R.string.quest_all), allDone, if (allDone) "✓" else stringResource(R.string.quest_bonus_tag), enabled = false) { }
             }
             // 이번 주 돌아보기 (E1)
             run {
@@ -204,27 +200,39 @@ fun Inbox(s: AppState) {
 }
 
 private fun questLabel(q: io.github.graviton94.todayletters.core.Quest) = when (q) {
-    io.github.graviton94.todayletters.core.Quest.SHADOW_PASS -> R.string.quest_shadow
-    io.github.graviton94.todayletters.core.Quest.REREAD -> R.string.quest_reread
-    io.github.graviton94.todayletters.core.Quest.DICTATION_RUN -> R.string.quest_dictation
-    io.github.graviton94.todayletters.core.Quest.REVIEW_DONE -> R.string.quest_review
+    io.github.graviton94.todayletters.core.Quest.LETTER -> R.string.quest_letter
     io.github.graviton94.todayletters.core.Quest.MEANING_RUN -> R.string.quest_meaning
+    io.github.graviton94.todayletters.core.Quest.DICTATION_RUN -> R.string.quest_dictation
+}
+
+/** 할 일 한 줄: 차례 번호 · 이름 · 진행 (다 하면 금빛 점과 줄 긋기). */
+@Composable
+private fun QuestRow(num: String, label: String, done: Boolean, count: String, enabled: Boolean, onClick: () -> Unit) {
+    val p = Ink.palette
+    Row(Modifier.fillMaxWidth().heightIn(min = 48.dp).pressable(enabled = enabled, onClick = onClick),
+        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+        Box(Modifier.size(22.dp).then(if (done) Modifier.background(p.giltText, CircleShape) else Modifier.border(1.5.dp, p.hideInk, CircleShape)),
+            contentAlignment = Alignment.Center) {
+            Text(num, style = Type.small.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display, fontSize = Tokens.Text.caps), color = if (done) p.paper else p.inkSoft)
+        }
+        Text(label, style = Type.body.ui().copy(textDecoration = if (done) androidx.compose.ui.text.style.TextDecoration.LineThrough else null),
+            color = if (done) p.inkSoft else p.ink, modifier = Modifier.weight(1f))
+        Text(count, style = Type.small.ui(), color = if (done) p.giltText else p.inkSoft)
+    }
+    Hair()
 }
 
 /** 할 일을 누르면 그 일을 하러 간다. */
 private fun questGo(s: AppState, q: io.github.graviton94.todayletters.core.Quest) {
     val id = s.current
-    val w = s.currentWork
     val done = s.openable(id).filter { (c, l) -> s.progress(id, c, l.id).done }
     val last = done.lastOrNull()
-    fun room(c: String, l: io.github.graviton94.todayletters.core.Letter) =
-        Route.Letter(id, w.chapters.indexOfFirst { it.id == c } + 1, w.chapters.first { it.id == c }.letters.indexOf(l) + 1, Route.Inbox)
     when (q) {
-        io.github.graviton94.todayletters.core.Quest.SHADOW_PASS -> last?.let { (c, l) -> s.go(Route.Shadow(room(c, l))) } ?: s.go(Route.Words)
-        io.github.graviton94.todayletters.core.Quest.REREAD -> last?.let { (c, l) -> s.open(id, c, l, Route.Inbox) }
+        // 오늘의 편지: 아직 다 읽지 않은 첫 편지 (없으면 마지막으로 읽은 편지를 다시)
+        io.github.graviton94.todayletters.core.Quest.LETTER ->
+            (s.openable(id).firstOrNull { (c, l) -> !s.progress(id, c, l.id).done } ?: last)?.let { (c, l) -> s.open(id, c, l, Route.Inbox) }
         io.github.graviton94.todayletters.core.Quest.DICTATION_RUN -> s.go(Route.Session(io.github.graviton94.todayletters.core.ReviewKind.DICTATION))
         io.github.graviton94.todayletters.core.Quest.MEANING_RUN -> s.go(Route.Session(io.github.graviton94.todayletters.core.ReviewKind.MEANING))
-        io.github.graviton94.todayletters.core.Quest.REVIEW_DONE -> s.go(Route.Session())
     }
 }
 

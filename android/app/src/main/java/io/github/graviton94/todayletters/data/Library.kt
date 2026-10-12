@@ -93,7 +93,7 @@ fun Work.withVocab(set: io.github.graviton94.todayletters.core.VocabSet?): Work 
 /** 이 편지를 받는 사람: 편지에 적힌 사람(아버지 · 누나 · 콘스탄체…)이 있으면 그 사람, 없으면 작품의 받는 사람(테오). */
 fun Work.recipientOf(letter: Letter): Tri = letter.to ?: recipient
 
-/** 이 작품에 ‘편지 속 그 곡’ 녹음이 하나라도 있는가 (서재 카드의 ‘듣기 있음’). */
+/** 이 작품에 ‘편지 속 그 곡’ 녹음이 하나라도 있는가. */
 val Work.hasMusic: Boolean get() = chapters.any { c -> c.letters.any { it.music != null } }
 
 /** 프롤로그 한 장: 그 시절 · 제목 · 설명 + 그 시절을 말하는 원문 한 줄([letter] 의 첫 문장 · 낱말 · 그림). */
@@ -202,6 +202,7 @@ object Library {
             world = o.optJSONObject("world")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")),
             currency = o.optJSONObject("currency")?.optJSONObject("name")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")),
             weekdays = o.optString("weekdays", "MTWTFSS"),
+            tag = o.optJSONObject("tag")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")),
             collection = o.optJSONArray("collection")?.let { a ->
                 (0 until a.length()).mapNotNull { i -> a.getJSONObject(i).let { c ->
                     val tier = runCatching { Tier.valueOf(c.getString("tier").uppercase()) }.getOrNull() ?: return@mapNotNull null
