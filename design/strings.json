@@ -4,18 +4,6 @@
     "en": "Lingua Museum",
     "ko": "언어 미술관"
   },
-  "intro_tap": {
-    "en": "Tap to enter",
-    "ko": "눌러서 들어가기"
-  },
-  "intro_new": {
-    "en": "New letters: %1$d",
-    "ko": "새 편지 %1$d통"
-  },
-  "intro_seal": {
-    "en": "Break the seal",
-    "ko": "봉랍을 눌러 열어요"
-  },
   "tab_inbox": {
     "en": "Today",
     "ko": "오늘"
@@ -48,26 +36,6 @@
     "en": "About this conversation",
     "ko": "대화방 정보"
   },
-  "ob_read": {
-    "en": "Which language do you read in?",
-    "ko": "어떤 언어로 읽을까요?"
-  },
-  "ob_read_note": {
-    "en": "Every letter has the original, English and Korean. This is the small line in each bubble.",
-    "ko": "모든 편지에는 원어 · 영어 · 한국어가 다 있어요. 말풍선의 작은 줄이 이 언어로 나와요."
-  },
-  "ob_series": {
-    "en": "Whose letters first?",
-    "ko": "누구의 편지부터 받을까요?"
-  },
-  "ob_learn": {
-    "en": "Which language will you learn here?",
-    "ko": "이 작품에서 어떤 언어를 배울까요?"
-  },
-  "ob_learn_note": {
-    "en": "Each series keeps its own choice. Change it any time from the series page.",
-    "ko": "작품마다 따로 정해요. 작품 표지에서 언제든 바꿀 수 있어요."
-  },
   "ob_modes": {
     "en": "How will you reply?",
     "ko": "답장은 어떻게 쓸까요?"
@@ -75,22 +43,6 @@
   "ob_pace": {
     "en": "Letters a day",
     "ko": "하루 편지 수"
-  },
-  "ob_notify": {
-    "en": "Shall we tell you when a letter arrives?",
-    "ko": "편지가 오면 알려 드릴까요?"
-  },
-  "ob_notify_yes": {
-    "en": "Tell me",
-    "ko": "알려 주세요"
-  },
-  "ob_notify_no": {
-    "en": "Not now",
-    "ko": "괜찮아요"
-  },
-  "ob_continue": {
-    "en": "Continue",
-    "ko": "계속"
   },
   "mode_match": {
     "en": "Match the words",
@@ -103,10 +55,6 @@
   "mode_aloud": {
     "en": "Read aloud",
     "ko": "따라 읽기"
-  },
-  "mode_dictation": {
-    "en": "Listen and write",
-    "ko": "듣고 쓰기"
   },
   "room_typing": {
     "en": "writing…",
@@ -127,10 +75,6 @@
   "play_leave_no": {
     "en": "Keep writing",
     "ko": "계속 쓰기"
-  },
-  "voice_done": {
-    "en": "You replied in your own voice",
-    "ko": "목소리로 답장했어요"
   },
   "set_display": {
     "en": "Display",
@@ -164,10 +108,6 @@
     "en": "Large",
     "ko": "크게"
   },
-  "set_pace": {
-    "en": "Typing",
-    "ko": "타이핑"
-  },
   "set_pace_calm": {
     "en": "Calm",
     "ko": "차분하게"
@@ -176,17 +116,9 @@
     "en": "Quick",
     "ko": "빠르게"
   },
-  "set_pace_instant": {
-    "en": "Show at once",
-    "ko": "바로 보기"
-  },
   "set_help_again": {
     "en": "Show the guides again",
     "ko": "사용법 다시 보기"
-  },
-  "set_tour_again": {
-    "en": "Replay the introduction",
-    "ko": "소개 다시 보기"
   },
   "set_learn": {
     "en": "Language you learn",
@@ -216,18 +148,6 @@
     "en": "Time, place and the people around the writer.",
     "ko": "그때 그곳, 편지 쓴 사람 곁의 사람들을 볼 수 있어요."
   },
-  "coach_play_stars": {
-    "en": "Tap the words in order. They join like a constellation.",
-    "ko": "낱말을 차례로 누르면 별자리처럼 이어져요."
-  },
-  "set_ui_lang": {
-    "en": "App language",
-    "ko": "앱 글자 언어"
-  },
-  "set_read_lang": {
-    "en": "Translation language",
-    "ko": "번역 언어"
-  },
   "back": {
     "en": "Back",
     "ko": "뒤로"
@@ -252,26 +172,6 @@
     "en": "%1$d a day",
     "ko": "하루 %1$d통"
   },
-  "inbox_all_read": {
-    "en": "All letters read for today",
-    "ko": "오늘 편지는 다 읽었어요"
-  },
-  "inbox_you_are_theo": {
-    "en": "You are %2$s. %1$s's letters arrive here as messages.",
-    "ko": "당신은 %2$s예요. %1$s의 편지가 메시지로 도착해요."
-  },
-  "library_next": {
-    "ko": "곧 도착: 모차르트 · 나폴레옹 · 바쇼",
-    "en": "Coming soon: Mozart · Napoléon · Bashō"
-  },
-  "words_note": {
-    "en": "Words from the letters you have read.",
-    "ko": "읽은 편지에서 모은 낱말이에요."
-  },
-  "gallery_empty": {
-    "en": "Finish a letter to receive its painting.",
-    "ko": "편지를 끝까지 받으면 그림이 도착해요."
-  },
   "chapter_meta": {
     "en": "Letters %1$d · read %2$d",
     "ko": "편지 %1$d통 · %2$d통 읽음"
@@ -280,25 +180,9 @@
     "en": "Read",
     "ko": "다 읽음"
   },
-  "letter_open": {
-    "en": "Waiting for you",
-    "ko": "기다리는 편지"
-  },
-  "letter_tomorrow": {
-    "en": "Arrives on a later day",
-    "ko": "다음 날 도착"
-  },
-  "toggle_small_line": {
-    "en": "Show or hide the small line",
-    "ko": "작은 줄 보이기 · 가리기"
-  },
   "room_words": {
     "en": "Words in this letter · %1$d",
     "ko": "이 편지의 낱말 · %1$d"
-  },
-  "room_finish": {
-    "en": "Finish the letter",
-    "ko": "편지 마치기"
   },
   "play_check": {
     "en": "Check",
@@ -312,53 +196,9 @@
     "en": "Well done. Send it to %1$s.",
     "ko": "잘했어요. %1$s에게 보내요."
   },
-  "play_wrong": {
-    "en": "Not quite. The sentence is: %1$s",
-    "ko": "아쉬워요. 정답은 이래요: %1$s"
-  },
-  "aloud_tap": {
-    "en": "Tap to record",
-    "ko": "눌러서 녹음"
-  },
-  "aloud_recording": {
-    "en": "Recording… tap to stop",
-    "ko": "녹음 중… 누르면 멈춰요"
-  },
-  "aloud_recorded": {
-    "en": "Recorded. Listen or send.",
-    "ko": "녹음했어요. 들어 보거나 보내요."
-  },
-  "aloud_mine": {
-    "en": "Hear my voice",
-    "ko": "내 목소리 듣기"
-  },
   "done_title": {
     "en": "Today's letter is complete",
     "ko": "오늘의 편지를 마쳤어요"
-  },
-  "done_story": {
-    "en": "The painting's story",
-    "ko": "그림 이야기"
-  },
-  "done_next": {
-    "en": "The next letter arrives tomorrow morning. The painting is in your Gallery.",
-    "ko": "다음 편지는 내일 아침에 도착해요. 그림은 갤러리에 들어갔어요."
-  },
-  "stat_words": {
-    "en": "new words",
-    "ko": "새 낱말"
-  },
-  "stat_replies": {
-    "en": "replies",
-    "ko": "보낸 답장"
-  },
-  "stat_letters": {
-    "en": "letters read",
-    "ko": "읽은 편지"
-  },
-  "info_vincent": {
-    "en": "35 · painter · alone in Arles · your elder brother",
-    "ko": "35세 · 화가 · 아를에서 혼자 지내는 중 · 네 살 위의 형"
   },
   "info_future": {
     "en": "Still to come",
@@ -380,17 +220,9 @@
     "en": "Vibration",
     "ko": "진동"
   },
-  "set_help": {
-    "en": "Help",
-    "ko": "도움"
-  },
   "set_privacy": {
     "en": "Your record stays on this phone. The app connects to the internet only to download a chapter's narration when you choose to, and sends nothing about you. Your recordings leave the phone only when you send one as a voice postcard yourself.",
     "ko": "학습 기록은 이 폰에만 남아요. 인터넷은 장의 낭독을 직접 받을 때만 쓰고, 나에 대한 정보는 보내지 않아요. 녹음한 목소리는 직접 목소리 엽서로 보낼 때만 밖으로 나가요."
-  },
-  "set_sources": {
-    "en": "Every letter, picture, font and voice in the app, with where it comes from and its licence:",
-    "ko": "앱에 들어 있는 편지 · 그림 · 글꼴 · 목소리의 출처와 라이선스:"
   },
   "coach_library": {
     "en": "Each cover is one series. The first chapters are free.",
@@ -416,101 +248,13 @@
     "en": "Got it",
     "ko": "알겠어요"
   },
-  "open_caps": {
-    "en": "A LETTER EVERY MORNING",
-    "ko": "LINGUA MUSEUM"
-  },
-  "open_tagline": {
-    "en": "Exchange letters with people from history, every day. Learn their language naturally, through the history and art of their time.",
-    "ko": "매일 역사 속 인물들과 편지를 주고받아요. 그 시대의 역사와 미술과 함께하며 자연스레 언어를 학습해요."
-  },
-  "open_cta": {
-    "en": "Tap to open",
-    "ko": "눌러서 열기"
-  },
-  "today_title": {
-    "en": "A letter from %1$s has arrived",
-    "ko": "%1$s의 편지가 도착했어요"
-  },
-  "ob1_title": {
-    "en": "This is how letters arrive",
-    "ko": "편지는 이렇게 도착해요"
-  },
-  "ob1_note": {
-    "en": "The first line of the first letter %1$s sent.",
-    "ko": "%1$s이(가) 보낸 첫 편지의 첫 문장이에요."
-  },
-  "ob1_listen": {
-    "en": "Tap the button and %1$s reads it to you",
-    "ko": "버튼을 누르면 %1$s이(가) 직접 읽어 줘요"
-  },
-  "ob1_a_t": {
-    "en": "The large line is the language you learn",
-    "ko": "큰 글씨는 배울 언어"
-  },
-  "ob1_a_d": {
-    "en": "Each letter has word cards with meanings and sounds.",
-    "ko": "편지마다 낱말 카드에서 뜻과 발음을 볼 수 있어요."
-  },
-  "ob1_b_t": {
-    "en": "The small line is the translation",
-    "ko": "작은 글씨는 번역"
-  },
-  "ob1_b_d": {
-    "en": "Hide it in the series settings once you are ready.",
-    "ko": "익숙해지면 작품 설정에서 숨길 수 있어요."
-  },
-  "ob1_c_t": {
-    "en": "Reply when you finish reading",
-    "ko": "다 읽으면 답장을 써요"
-  },
-  "ob1_c_d": {
-    "en": "One letter a day, every morning. A reply takes three minutes.",
-    "ko": "하루 한 통, 아침에 도착해요. 답장은 3분이면 돼요."
-  },
   "ob_next": {
     "en": "Next",
     "ko": "다음"
   },
-  "ob2_meta": {
-    "en": "%1$s · one letter a day · about a month · original in %2$s",
-    "ko": "%1$s · 하루에 한 통 · 약 한 달 분량 · 원어 %2$s"
-  },
-  "ob2_learn": {
-    "en": "Language to learn",
-    "ko": "배울 언어"
-  },
   "ob2_original": {
     "en": "the original",
     "ko": "원문"
-  },
-  "ob2_translation": {
-    "en": "translation",
-    "ko": "번역"
-  },
-  "ob2_note": {
-    "en": "Translations appear in your system language (%1$s). You can change this in Settings.",
-    "ko": "번역은 시스템 언어(%1$s)로 보여요. 설정에서 바꿀 수 있어요."
-  },
-  "ob2_soon": {
-    "en": "Coming soon",
-    "ko": "곧 도착"
-  },
-  "ob2_start": {
-    "en": "Start receiving letters",
-    "ko": "편지 받기 시작"
-  },
-  "soon_mozart": {
-    "en": "Mozart → his father",
-    "ko": "모차르트 → 아버지"
-  },
-  "soon_napoleon": {
-    "en": "Napoléon → Joséphine",
-    "ko": "나폴레옹 → 조제핀"
-  },
-  "soon_basho": {
-    "en": "Bashō's journey",
-    "ko": "바쇼의 여행"
   },
   "lang_ko": {
     "en": "Korean",
@@ -536,26 +280,6 @@
     "en": "Dutch",
     "ko": "네덜란드어"
   },
-  "room_listen_all": {
-    "en": "Listen",
-    "ko": "전체 듣기"
-  },
-  "room_stop": {
-    "en": "Stop",
-    "ko": "멈추기"
-  },
-  "room_today": {
-    "en": "Today",
-    "ko": "오늘"
-  },
-  "step_read": {
-    "en": "Read %1$d/%2$d",
-    "ko": "읽기 %1$d/%2$d"
-  },
-  "step_words": {
-    "en": "Words %1$d",
-    "ko": "낱말 %1$d"
-  },
   "step_reply": {
     "en": "Reply",
     "ko": "답장"
@@ -571,14 +295,6 @@
   "listen_line": {
     "en": "Listen to this line",
     "ko": "이 문장 듣기"
-  },
-  "guide_title": {
-    "en": "Let's do the first one together",
-    "ko": "처음이니까 같이 해 봐요"
-  },
-  "guide_body": {
-    "en": "Tap the stars in order so they say this.",
-    "ko": "이 뜻이 되도록 별을 순서대로 눌러 이어요."
   },
   "guide_after": {
     "en": "Next time there is no guide. Tap (?) above to see it again.",
@@ -668,14 +384,6 @@
     "en": "Finish today's letter",
     "ko": "오늘의 편지 마치기"
   },
-  "first_guide_title": {
-    "en": "First time? Try all three",
-    "ko": "처음이니 세 가지 모두 해 봐요"
-  },
-  "first_guide_body": {
-    "en": "Learn the meanings with Match the words, the sounds with Read along, then write %2$s's reply by joining the stars. Later you can choose in the series settings.",
-    "ko": "낱말 맞추기로 뜻을 익히고, 따라 읽기로 소리를 익히고, 별자리 잇기로 %2$s의 답장을 써요. 다음부터는 작품 설정에서 고를 수 있어요."
-  },
   "mode_match_d": {
     "en": "Pair the letter's words with their meanings",
     "ko": "편지에 나온 낱말과 뜻을 짝지어요"
@@ -688,14 +396,6 @@
     "en": "All matched.",
     "ko": "다 맞혔어요."
   },
-  "match_wrong": {
-    "en": "Not a pair. Try again.",
-    "ko": "짝이 아니에요. 다시 골라 봐요."
-  },
-  "aloud_again": {
-    "en": "Listen again",
-    "ko": "다시 듣기"
-  },
   "aloud_finish": {
     "en": "Finish reading along",
     "ko": "따라 읽기 마치기"
@@ -703,10 +403,6 @@
   "play_finish": {
     "en": "Done",
     "ko": "마치기"
-  },
-  "done_streak": {
-    "en": "%1$d-day streak",
-    "ko": "%1$d일째 이어 읽는 중"
   },
   "done_next_now": {
     "en": "The next letter has already arrived.",
@@ -740,66 +436,6 @@
     "en": "No matching words.",
     "ko": "찾는 낱말이 없어요."
   },
-  "ob0_hello": {
-    "en": "Welcome",
-    "ko": "반가워요"
-  },
-  "ob0_title": {
-    "en": "Welcome to Lingua Museum",
-    "ko": "언어 미술관에 오신 걸 환영해요"
-  },
-  "ob0_body": {
-    "en": "From today you receive letters from people in history: the real letters %1$s wrote to %2$s. You reply as %2$s.",
-    "ko": "이제부터 당신은 역사 속 인물에게서 편지를 받는 사람이에요. %1$s이(가) %2$s에게 보낸 진짜 편지예요. 당신은 %2$s이(가) 되어 답장을 써요."
-  },
-  "ob0_day": {
-    "en": "A day goes like this · five minutes is enough",
-    "ko": "하루는 이렇게 흘러가요 · 5분이면 충분해요"
-  },
-  "ob0_d1": {
-    "en": "Read the letter",
-    "ko": "편지 읽기"
-  },
-  "ob0_d1d": {
-    "en": "Original and translation side by side, %1$s's voice on tap.",
-    "ko": "원문과 번역이 나란히. 듣기 단추를 누르면 %1$s 목소리로."
-  },
-  "ob0_d2": {
-    "en": "Match the words",
-    "ko": "낱말 맞추기"
-  },
-  "ob0_d2d": {
-    "en": "Pair the letter's words with their meanings.",
-    "ko": "편지에 나온 낱말과 뜻을 짝지어요."
-  },
-  "ob0_d3": {
-    "en": "Read along",
-    "ko": "따라 읽기"
-  },
-  "ob0_d3d": {
-    "en": "Follow %1$s's reading, then say it yourself.",
-    "ko": "%1$s이(가) 읽는 자리를 따라가고, 소리 내어 읽어요."
-  },
-  "ob0_d4": {
-    "en": "Write back",
-    "ko": "답장 쓰기"
-  },
-  "ob0_d4d": {
-    "en": "Join the word stars to finish %2$s's reply.",
-    "ko": "낱말 별을 순서대로 이어 %2$s의 답장을 완성해요."
-  },
-  "ob0_d5": {
-    "en": "A painting arrives",
-    "ko": "그림 도착"
-  },
-  "ob0_d5d": {
-    "en": "The painting from the letter and its story join your Gallery.",
-    "ko": "편지 속 그림과 그 시절 이야기가 갤러리에 쌓여요."
-  },
-  "ob_start_hello": {
-    "en": "Let's begin",
-    "ko": "시작하기"
-  },
   "room_auto_on": {
     "ko": "자동 낭독 켜짐 · 누르면 꺼요",
     "en": "Auto narration on · tap to turn off"
@@ -808,25 +444,9 @@
     "ko": "자동 낭독 꺼짐 · 누르면 켜요",
     "en": "Auto narration off · tap to turn on"
   },
-  "greet_morning": {
-    "en": "Good morning, %1$s",
-    "ko": "좋은 아침이에요, %1$s"
-  },
-  "greet_day": {
-    "en": "Hello, %1$s",
-    "ko": "안녕하세요, %1$s"
-  },
-  "greet_evening": {
-    "en": "Good evening, %1$s",
-    "ko": "좋은 저녁이에요, %1$s"
-  },
   "letter_n": {
     "en": "Letter %1$s",
     "ko": "편지 %1$s"
-  },
-  "today_letter_title": {
-    "en": "A letter from %1$s",
-    "ko": "%1$s의 편지"
   },
   "today_open": {
     "en": "Open the letter",
@@ -840,29 +460,9 @@
     "en": "Today's review",
     "ko": "오늘의 복습"
   },
-  "review_minutes": {
-    "en": "words · about %1$d min",
-    "ko": "낱말 · 약 %1$d분"
-  },
-  "streak_title": {
-    "en": "In a row",
-    "ko": "이어 읽기"
-  },
   "streak_days": {
     "en": " days",
     "ko": "일"
-  },
-  "gallery_peek": {
-    "en": "Gallery · %1$d / %2$d",
-    "ko": "갤러리 · %1$d / %2$d"
-  },
-  "week_days": {
-    "en": "M,T,W,T,F,S,S",
-    "ko": "월,화,수,목,금,토,일"
-  },
-  "today_short": {
-    "en": "Today",
-    "ko": "오늘"
   },
   "step_read_short": {
     "en": "Read",
@@ -900,22 +500,6 @@
     "en": "Word cards",
     "ko": "낱말 카드"
   },
-  "box_new": {
-    "en": "New",
-    "ko": "새 낱말"
-  },
-  "box_learning": {
-    "en": "Learning",
-    "ko": "익히는 중"
-  },
-  "box_almost": {
-    "en": "Almost",
-    "ko": "거의 앎"
-  },
-  "box_known": {
-    "en": "Known",
-    "ko": "익힌 낱말"
-  },
   "gap_today": {
     "en": "today",
     "ko": "오늘"
@@ -923,14 +507,6 @@
   "gap_1": {
     "en": "in 1 day",
     "ko": "하루 뒤"
-  },
-  "gap_4": {
-    "en": "in 4 days",
-    "ko": "나흘 뒤"
-  },
-  "gap_14": {
-    "en": "in 2 weeks",
-    "ko": "2주 뒤"
   },
   "review_empty": {
     "en": "Finish a letter and its words arrive here.",
@@ -940,10 +516,6 @@
     "en": "All done for today.",
     "ko": "오늘 복습은 다 했어요."
   },
-  "review_count": {
-    "en": "Words: %1$d · about %2$d min",
-    "ko": "낱말 %1$d개 · 약 %2$d분"
-  },
   "review_start": {
     "en": "Start review",
     "ko": "복습 시작"
@@ -952,29 +524,13 @@
     "en": "Listen and write",
     "ko": "듣고 쓰기"
   },
-  "kind_dictation_d": {
-    "en": "Hear the word, type it.",
-    "ko": "듣고 낱말을 써요."
-  },
   "kind_blank": {
     "en": "Fill the blank",
     "ko": "빈칸 채우기"
   },
-  "kind_blank_d": {
-    "en": "Find the missing word in the letter.",
-    "ko": "편지 문장의 빈칸을 채워요."
-  },
   "kind_meaning": {
     "en": "Meaning",
     "ko": "뜻 고르기"
-  },
-  "kind_meaning_d": {
-    "en": "Pick what the word means.",
-    "ko": "낱말의 뜻을 골라요."
-  },
-  "badge_default": {
-    "en": "Default",
-    "ko": "기본"
   },
   "quotes_title": {
     "en": "My lines",
@@ -1016,10 +572,6 @@
     "en": "Right — mind the accent: %1$s",
     "ko": "맞았어요. 철자 부호만 확인: %1$s"
   },
-  "review_wrong": {
-    "en": "%1$s · %2$s",
-    "ko": "%1$s · %2$s"
-  },
   "input_helper": {
     "en": "%1$s letters",
     "ko": "%1$s 글자"
@@ -1052,10 +604,6 @@
     "en": "Missed words come back tomorrow.",
     "ko": "틀린 낱말은 내일 다시 나와요."
   },
-  "result_again": {
-    "en": "Try the missed ones",
-    "ko": "틀린 것만 다시"
-  },
   "postcard_send": {
     "en": "Send as postcard",
     "ko": "엽서로 보내기"
@@ -1075,14 +623,6 @@
   "notice_text_review": {
     "en": "Today's letter, plus words to review: %1$d.",
     "ko": "오늘의 편지와 복습 낱말 %1$d개."
-  },
-  "set_notice": {
-    "en": "Arrival notice",
-    "ko": "도착 알림"
-  },
-  "notice_note": {
-    "en": "Once a day, around this hour. Not on days you've finished.",
-    "ko": "하루 한 번, 이 무렵에 알려요. 다 읽은 날은 조용히."
   },
   "notice_hour": {
     "en": "%1$d:00",
@@ -1172,33 +712,9 @@
     "en": "Less",
     "ko": "접기"
   },
-  "lib_today": {
-    "en": "Today",
-    "ko": "오늘"
-  },
-  "lib_yesterday": {
-    "en": "Yesterday",
-    "ko": "어제"
-  },
-  "lib_days_ago": {
-    "en": "%1$d days ago",
-    "ko": "%1$d일 전"
-  },
-  "lib_missed": {
-    "en": "Missed: %1$d · %2$s",
-    "ko": "부재중 편지 %1$d통 · %2$s"
-  },
-  "lib_progress": {
-    "en": "Ch. %1$s · %2$d / %3$d",
-    "ko": "%1$s장 %2$d / %3$d"
-  },
   "map_open": {
     "en": "Open in Maps",
     "ko": "지도에서 보기"
-  },
-  "map_places": {
-    "en": "Places so far",
-    "ko": "다녀간 곳"
   },
   "transfer_received": {
     "en": "Received ✓",
@@ -1207,10 +723,6 @@
   "transfer_paid": {
     "en": "Paid",
     "ko": "보냄"
-  },
-  "read_mark": {
-    "en": "Unread until the next letter",
-    "ko": "다음 편지가 오면 읽음"
   },
   "typing_bubble": {
     "en": "%1$s is writing…",
@@ -1240,29 +752,9 @@
     "en": "Practice only — your review schedule stays the same.",
     "ko": "연습이라 복습 일정은 그대로예요."
   },
-  "chapter_end_caps": {
-    "en": "SAISON I · CHAPITRE I · FIN",
-    "ko": "SAISON I · CHAPITRE I · FIN"
-  },
-  "chapter_end_title": {
-    "en": "You've read “%1$s”",
-    "ko": "‘%1$s’ 장을 다 읽었어요"
-  },
-  "chapter_end_stats": {
-    "en": "Letters %1$d · words %2$d · paintings %3$d",
-    "ko": "편지 %1$d통 · 낱말 %2$d개 · 그림 %3$d점"
-  },
   "chapter_end_next": {
     "en": "The next chapter is on its way. We'll let you know when it arrives.",
     "ko": "다음 장은 준비 중이에요. 오면 알림으로 알려 드릴게요."
-  },
-  "chapter_end_review": {
-    "en": "Review meanwhile · words: %1$d",
-    "ko": "그동안 복습하기 · 낱말 %1$d개"
-  },
-  "chapter_end_again": {
-    "en": "Read again from the start",
-    "ko": "처음부터 다시 읽기"
   },
   "done_chapter_end": {
     "en": "That was the last letter of chapter I. The next chapter is on its way.",
@@ -1292,86 +784,6 @@
     "en": "You now read %1$d%% on your own",
     "ko": "이제 %1$d%%를 혼자 읽어요"
   },
-  "reward_alone_d": {
-    "en": "Translations fade from the words you know.",
-    "ko": "익힌 낱말은 편지에서 뜻풀이가 사라져요."
-  },
-  "reward_item": {
-    "en": "An object from the letters is now gold",
-    "ko": "편지 속 물건이 금빛이 됐어요"
-  },
-  "reward_album": {
-    "en": "Open the album",
-    "ko": "수집 앨범 보기"
-  },
-  "album_cabinet": {
-    "en": "Cabinet",
-    "ko": "진열장"
-  },
-  "album_items": {
-    "en": "Objects",
-    "ko": "물건"
-  },
-  "album_journal": {
-    "en": "Journal",
-    "ko": "여행기"
-  },
-  "album_progress": {
-    "en": "Progress",
-    "ko": "진도 · 업적"
-  },
-  "cabinet_gold": {
-    "en": "A gold double frame means you can read that letter alone.",
-    "ko": "금빛 이중 액자 = 그 편지를 혼자 읽을 수 있어요."
-  },
-  "parcel_title": {
-    "en": "Monthly parcel",
-    "ko": "정기 소포"
-  },
-  "parcel_sent_short": {
-    "en": "Sent ✓",
-    "ko": "보냄 ✓"
-  },
-  "parcel_line": {
-    "en": "Send %1$s to %2$s once a month — a reply comes back.",
-    "ko": "한 달에 한 번, %2$s에게 %1$s 보내기 · 답례가 와요"
-  },
-  "visitor_today": {
-    "en": "Today's visitor",
-    "ko": "오늘의 손님"
-  },
-  "game_listen": {
-    "en": "Listen and pick the painting",
-    "ko": "듣고 그림 고르기"
-  },
-  "game_torn": {
-    "en": "Piece a torn letter together",
-    "ko": "찢어진 편지 잇기"
-  },
-  "game_telegram": {
-    "en": "Take down a telegram",
-    "ko": "전보 받아 적기"
-  },
-  "game_listen_d": {
-    "en": "Hear a word from a painting, then pick the painting it's in.",
-    "ko": "그림 속 낱말을 듣고, 그 낱말이 있는 그림을 골라요."
-  },
-  "game_torn_d": {
-    "en": "Tap the scraps of a sentence in order.",
-    "ko": "찢긴 문장 조각을 순서대로 눌러요."
-  },
-  "game_telegram_d": {
-    "en": "Listen to three words and write them down.",
-    "ko": "낱말 셋을 듣고 받아 적어요."
-  },
-  "items_count": {
-    "en": "Objects found: %1$d / %2$d",
-    "ko": "편지 속 물건 %1$d / %2$d"
-  },
-  "items_note": {
-    "en": "Each object is a word from the letters. It turns gold when you can recall it.",
-    "ko": "물건 = 편지 속 낱말. 떠올리기 단계에 오르면 금빛."
-  },
   "stage_meet": {
     "en": "Met",
     "ko": "만남"
@@ -1396,77 +808,13 @@
     "en": "Mine",
     "ko": "내 것"
   },
-  "journal_note": {
-    "en": "Places fill in as they appear in the letters. A full page gets the city postmark.",
-    "ko": "편지에 나온 장소가 차요. 다 차면 도시 소인."
-  },
-  "alone_title": {
-    "en": "Reading alone: %1$d%%",
-    "ko": "혼자 읽기 %1$d%%"
-  },
-  "alone_next": {
-    "en": "Next milestone: %1$d%%",
-    "ko": "다음 이정표 %1$d%%"
-  },
-  "alone_all": {
-    "en": "You can read every word on your own.",
-    "ko": "모든 낱말을 혼자 읽어요."
-  },
-  "growth_title": {
-    "en": "Your words, stage by stage",
-    "ko": "단계별 낱말 · 성장 곡선"
-  },
   "growth_note": {
     "en": "Met → recognize → recall → write → speak → mine. Each step is reviewed further apart.",
     "ko": "만남 → 알아보기 → 떠올리기 → 쓰기 → 말하기 → 내 것. 단계가 오를수록 더 길게 기억해요."
   },
-  "weeks_title": {
-    "en": "Last 4 weeks · streak %1$d · best %2$d",
-    "ko": "지난 4주 · 이어 읽기 %1$d일 · 최고 %2$d일"
-  },
   "ach_title": {
     "en": "Achievements %1$d / %2$d",
     "ko": "업적 %1$d / %2$d"
-  },
-  "parcel_none": {
-    "en": "No parcel for this series yet.",
-    "ko": "이 작품은 아직 소포가 없어요."
-  },
-  "parcel_sent": {
-    "en": "Sent this month. The next one opens on %1$s.",
-    "ko": "이번 달은 보냈어요. 다음은 %1$s부터."
-  },
-  "visitor_finish": {
-    "en": "Done",
-    "ko": "마치기"
-  },
-  "game_try": {
-    "en": "Not that one — listen again.",
-    "ko": "그 그림이 아니에요. 다시 들어 봐요."
-  },
-  "game_again": {
-    "en": "Try again",
-    "ko": "다시"
-  },
-  "tasks_title": {
-    "en": "Today",
-    "ko": "오늘의 일"
-  },
-  "tasks_today": {
-    "en": "Today +%1$d",
-    "ko": "오늘 +%1$d"
-  },
-  "task_letter": {
-    "en": "Today's letter",
-    "ko": "오늘의 편지"
-  },
-  "task_review": {
-    "en": "Today's review",
-    "ko": "오늘의 복습"
-  },
-  "task_visitor": {
-    "en": "Today's visitor",
-    "ko": "오늘의 손님"
   },
   "gap_3": {
     "en": "in 3 days",
@@ -1487,14 +835,6 @@
   "kind_speak": {
     "en": "Speak",
     "ko": "말하기"
-  },
-  "kind_speak_d": {
-    "en": "See the meaning, say the word.",
-    "ko": "뜻을 보고 소리 내어 말해요."
-  },
-  "speak_prompt": {
-    "en": "Say it aloud",
-    "ko": "소리 내어 말해 보세요"
   },
   "speak_listening": {
     "en": "Listening…",
@@ -1696,34 +1036,6 @@
     "en": "Read a quarter of the words alone.",
     "ko": "낱말 4분의 1을 혼자 읽기."
   },
-  "focus_ring": {
-    "en": "read alone",
-    "ko": "혼자 읽어요"
-  },
-  "focus_alone": {
-    "en": "You read %1$d of its %2$d words alone",
-    "ko": "낱말 %2$d개 중 %1$d개를 혼자 읽어요"
-  },
-  "focus_hint": {
-    "en": "Underlined words are the ones you can't read alone yet. Each review moves them on.",
-    "ko": "밑줄 = 아직 혼자 못 읽는 낱말. 복습할 때마다 한 칸씩 사라져요."
-  },
-  "focus_review": {
-    "en": "Today's review · %1$d words",
-    "ko": "오늘의 복습 · 낱말 %1$d개"
-  },
-  "focus_due_tomorrow": {
-    "en": "Its words come back for review tomorrow",
-    "ko": "이 편지 낱말은 내일 복습에 다시 와요"
-  },
-  "focus_due_in": {
-    "en": "Its words come back for review in %1$d days",
-    "ko": "이 편지 낱말은 %1$d일 뒤 복습에 다시 와요"
-  },
-  "focus_reread": {
-    "en": "Read the letter again",
-    "ko": "편지 다시 읽기"
-  },
   "next_title": {
     "en": "Next letter",
     "ko": "다음 편지"
@@ -1740,10 +1052,6 @@
     "en": "Next chapter soon",
     "ko": "다음 장 준비 중"
   },
-  "streak_line": {
-    "en": "%1$d days in a row",
-    "ko": "이어 읽기 %1$d일"
-  },
   "reread_banner": {
     "en": "You read %1$d of the %2$d words in this letter alone, and the translation folds by that much.",
     "ko": "이 편지 낱말 %2$d개 중 %1$d개를 혼자 읽어요. 번역이 그만큼 접혀요."
@@ -1751,14 +1059,6 @@
   "shadow_title": {
     "en": "Read along",
     "ko": "따라 읽기"
-  },
-  "shadow_count": {
-    "en": "%1$d / %2$d",
-    "ko": "%1$d / %2$d 문장"
-  },
-  "shadow_hint": {
-    "en": "Hear the sentence, then say it in your own voice. Long sentences come in short parts.",
-    "ko": "원래 소리로 듣고, 내 목소리로 따라 읽어요. 긴 문장은 짧은 마디로 나눠요."
   },
   "shadow_noaudio": {
     "en": "This letter has no reading yet. Read the sentence aloud from the text.",
@@ -1828,10 +1128,6 @@
     "en": "You read this letter all on your own",
     "ko": "이 편지를 혼자 다 읽었어요"
   },
-  "seal_stats": {
-    "en": "No translation · %1$d words · %2$d sentences read along",
-    "ko": "번역 없이 · 낱말 %1$d개 · %2$d문장 따라 읽음"
-  },
   "seal_mine": {
     "en": "Letter %1$s, in my voice",
     "ko": "내가 읽은 편지 %1$s"
@@ -1847,10 +1143,6 @@
   "seal_share_text": {
     "en": "“%1$s” — a letter by %2$s, read in my voice (Lingua Museum)",
     "ko": "“%1$s” — 내 목소리로 읽은 %2$s의 편지 (언어 미술관)"
-  },
-  "focus_shadow": {
-    "en": "Read it along · towards the seal",
-    "ko": "따라 읽기 · 봉인까지 한 걸음"
   },
   "focus_sealed": {
     "en": "Sealed · see it",
@@ -1915,10 +1207,6 @@
   "shadow_noscore": {
     "en": "Couldn't compare this take. Try once more, a little louder.",
     "ko": "이번 녹음은 비교하지 못했어요. 조금 크게 한 번 더 해 보세요."
-  },
-  "shadow_pass": {
-    "en": "Passed: this sentence turns gold.",
-    "ko": "통과! 이 문장은 금빛이 돼요."
   },
   "shadow_retry": {
     "en": "Stars start at 50, and %1$d is kept as passed. Listen once more and try again?",
@@ -2007,10 +1295,6 @@
   "earn_alone": {
     "en": "Reading on your own",
     "ko": "혼자 읽기"
-  },
-  "earn_quests": {
-    "en": "Today's three tasks",
-    "ko": "오늘의 할 일 셋"
   },
   "earn_recital": {
     "en": "Sunday reading",
@@ -2224,26 +1508,6 @@
     "en": "On Sunday · your week in one reading",
     "ko": "일요일 · 이번 주 낭독을 한 편으로"
   },
-  "quests_title": {
-    "en": "Today's tasks",
-    "ko": "오늘의 할 일"
-  },
-  "quests_bonus": {
-    "en": "Finish all · one more piece",
-    "ko": "다 하면 자료 한 번 더"
-  },
-  "quest_dictation": {
-    "en": "Get %1$d dictations right",
-    "ko": "듣고 쓰기 %1$d개 맞히기"
-  },
-  "quest_meaning": {
-    "en": "Choose %1$d meanings right",
-    "ko": "뜻 고르기 %1$d개 맞히기"
-  },
-  "today_contents": {
-    "en": "All letters",
-    "ko": "편지 목록"
-  },
   "lib_stat_streak": {
     "en": "days reading",
     "ko": "이어 읽기"
@@ -2295,10 +1559,6 @@
   "enter_ready": {
     "en": "%1$d new letter(s) · %2$d to review",
     "ko": "새 편지 %1$d통 · 복습 %2$d개"
-  },
-  "enter_go": {
-    "en": "Tap to enter",
-    "ko": "눌러서 들어가기"
   },
   "overall_title": {
     "en": "My record · all",
@@ -2500,10 +1760,6 @@
     "en": "All letters ›",
     "ko": "전체 편지 목록 ›"
   },
-  "today_chapter_count": {
-    "en": "Ch. %1$s %2$d/%3$d",
-    "ko": "%1$s장 %2$d/%3$d"
-  },
   "meaning_prompt": {
     "en": "What does this word mean?",
     "ko": "이 낱말의 뜻은?"
@@ -2519,10 +1775,6 @@
   "set_storage": {
     "en": "Storage",
     "ko": "저장 공간"
-  },
-  "set_storage_used": {
-    "en": "Downloaded readings and pictures: %1$s",
-    "ko": "받아 둔 낭독 · 그림: %1$s"
   },
   "set_storage_all": {
     "en": "Download all chapters · %1$s",
@@ -2575,10 +1827,6 @@
   "plates_locked": {
     "en": "After the letter",
     "ko": "편지를 읽으면"
-  },
-  "set_effects": {
-    "en": "Sound effects (right · wrong)",
-    "ko": "효과음 (맞음 · 틀림)"
   },
   "word_card": {
     "en": "Word card",
@@ -2696,10 +1944,6 @@
     "en": "%1$d words · pair meaning and sound",
     "ko": "낱말 %1$d개 · 뜻과 소리를 짝지어요"
   },
-  "step_aloud_d": {
-    "en": "Say the %1$d lines aloud",
-    "ko": "%1$d문장을 소리 내어"
-  },
   "step_reply_d": {
     "en": "Write %1$s's reply",
     "ko": "%1$s의 답장을 써요"
@@ -2731,14 +1975,6 @@
   "arrival_title": {
     "en": "A new letter from %1$s",
     "ko": "%1$s의 새 편지"
-  },
-  "arrival_sub": {
-    "en": "%1$s · %2$s → %3$s",
-    "ko": "%1$s · %2$s → %3$s"
-  },
-  "arrival_tap": {
-    "en": "Tap to open ›",
-    "ko": "눌러서 열기 ›"
   },
   "arrival_voice": {
     "en": "In %1$s's voice · tap to skip",
@@ -2776,10 +2012,6 @@
     "en": "Rewrite those words",
     "ko": "그 낱말만 다시 쓰기"
   },
-  "dict_phrase_score": {
-    "en": "%2$d of %1$d words right",
-    "ko": "%1$d 낱말 중 %2$d 맞음"
-  },
   "quote_from": {
     "en": "From my lines",
     "ko": "내 구절에서"
@@ -2811,10 +2043,6 @@
   "quote_blank_none": {
     "en": "None of this line's words are in your cards yet",
     "ko": "이 구절의 낱말이 아직 카드함에 없어요"
-  },
-  "quotes_n": {
-    "en": "%1$d",
-    "ko": "%1$d개"
   },
   "earn_exhibition": {
     "en": "Exhibition complete",
@@ -3096,14 +2324,6 @@
     "en": "You have %1$d rest(s), so your %2$d-day run carries on to tomorrow.",
     "ko": "쉼표 %1$d개가 있어서 이어 읽기 %2$d일은 내일까지 이어져요."
   },
-  "set_evening": {
-    "en": "Evening reminder",
-    "ko": "저녁 알림"
-  },
-  "evening_note": {
-    "en": "Only once, only on days you haven't read yet.",
-    "ko": "그날 아무것도 안 했을 때만, 한 번."
-  },
   "card_title": {
     "en": "Send as a painting card",
     "ko": "작품 카드로 보내기"
@@ -3143,34 +2363,6 @@
   "credits_museum": {
     "en": "Gallery frames: four empty frames photographed by the Rijksmuseum, Amsterdam (RP-L-534, SK-L-6754, RP-L-513, RP-L-515), CC0. Milestone medals: eight 19th- and early 20th-century exhibition and prize medals from the Rijksmuseum (NG-2004-75-A, NG-423, NG-429, NG-VG-6-1, NG-2014-22-1, NG-VG-1-4109, NG-VG-6-125), CC0; the app only cuts them out and lightens the not-yet-earned ones. Reward sounds are made by the app.",
     "ko": "갤러리 액자: 암스테르담 레이크스 미술관이 찍은 빈 액자 넷 (RP-L-534, SK-L-6754, RP-L-513, RP-L-515), CC0. 이정표 메달: 레이크스 미술관의 19세기 · 20세기 초 전람회 · 상패 메달 여덟 (NG-2004-75-A, NG-423, NG-429, NG-VG-6-1, NG-2014-22-1, NG-VG-1-4109, NG-VG-6-125), CC0. 앱은 오려 내고, 아직 받지 않은 메달을 하얗게만 바꿉니다. 보상 소리는 앱이 직접 만든 것입니다."
-  },
-  "ob_one_title": {
-    "en": "Real letters\nfrom %1$s",
-    "ko": "%1$s 보낸\n진짜 편지를 받아요"
-  },
-  "ob_one_body": {
-    "en": "Letters written to %1$s. One a day — you become %2$s, read, and reply.",
-    "ko": "%1$s에게 쓴 편지예요. 하루 한 통, 당신이 %2$s 되어 읽고 답장해요."
-  },
-  "ob_one_1": {
-    "en": "A letter arrives · in %1$s's voice",
-    "ko": "편지가 도착해요 · %1$s 목소리로"
-  },
-  "ob_one_2": {
-    "en": "Learn the words and read aloud",
-    "ko": "낱말을 익히고 소리 내어 읽어요"
-  },
-  "ob_one_3": {
-    "en": "Reply, and that letter's painting is hung",
-    "ko": "답장하면 그 편지의 그림이 걸려요"
-  },
-  "ob_one_q": {
-    "en": "Which language will you read in?",
-    "ko": "어떤 말로 읽을까요?"
-  },
-  "ob_one_note": {
-    "en": "You can change this later in the work's settings · translation in your phone's language (%1$s)",
-    "ko": "나중에 작품 설정에서 바꿀 수 있어요 · 번역은 폰 언어(%1$s)로"
   },
   "ob_one_go": {
     "en": "Receive the first letter",
@@ -3511,18 +2703,6 @@
   "review_right_hint": {
     "en": "Right — with hints.",
     "ko": "맞았어요. 힌트를 받았어요."
-  },
-  "quest_letter": {
-    "en": "Read today's letter to the end",
-    "ko": "오늘의 편지 읽기"
-  },
-  "quest_all": {
-    "en": "Finish all tasks",
-    "ko": "모든 할 일 마치기"
-  },
-  "quest_bonus_tag": {
-    "en": "Bonus",
-    "ko": "보너스"
   },
   "phrase_example": {
     "en": "From the letter",
