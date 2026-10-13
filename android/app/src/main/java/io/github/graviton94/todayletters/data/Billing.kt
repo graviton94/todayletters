@@ -66,6 +66,8 @@ class Billing(ctx: Context, private val store: Store) {
     private var client: BillingClient? = null
     private var connecting = false
     private var series: List<String> = emptyList()
+    /** 결제 창에서 고른 구독 요금제 (결제가 끝나면 이용권에 적는다). Play 의 Purchase 에는 요금제 id 가 없어서. */
+    private var buyingBase: String? = null
 
     /** Play 에 붙는다 (이미 붙었으면 산 것만 다시 읽는다). [seriesIds] 는 소장 상품을 찾을 작품들. */
     fun connect(seriesIds: List<String>) {
@@ -134,17 +136,19 @@ class Billing(ctx: Context, private val store: Store) {
         val o = _offers.value[plan.key] ?: return false
         val pp = BillingFlowParams.ProductDetailsParams.newBuilder().setProductDetails(o.details)
             .apply { o.token?.let { setOfferToken(it) } }.build()
+        buyingBase = plan.basePlan
         return runCatching {
             c.launchBillingFlow(activity, BillingFlowParams.newBuilder().setProductDetailsParamsList(listOf(pp)).build()).responseCode ==
                 BillingClient.BillingResponseCode.OK
-        }.getOrDefault(false)
+        }.getOrDefault(false).also { if (!it) buyingBase = null }
     }
 
     private fun onPurchases(r: BillingResult, list: List<Purchase>?) {
         when (r.responseCode) {
-            BillingClient.BillingResponseCode.OK -> if (list != null) grant(list, full = false)
+            BillingClient.BillingResponseCode.OK -> if (list != null) grant(list, full = false, chosen = buyingBase)
             BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED -> refresh()
         }
+        buyingBase = null
     }
 
     /** 산 것을 Play 에서 다시 읽는다 (구독 · 소장 둘 다 읽혀야 이용권을 바꾼다: 하나라도 못 읽으면 저장한 것 그대로). */
@@ -171,13 +175,22 @@ class Billing(ctx: Context, private val store: Store) {
      * 결제가 끝난 것만 (대기 중은 빼고) 이용권으로. 아직 확인하지 않은 것은 확인한다 (3일 안에 하지 않으면 Play 가 환불).
      * [full] 이면 이것이 산 것 전부 (구독이 끝났으면 꺼진다), 아니면 지금 이용권에 더한다.
      */
-    private fun grant(purchases: List<Purchase>, full: Boolean) {
+    private fun grant(purchases: List<Purchase>, full: Boolean, chosen: String? = null) {
         val done = purchases.filter { it.purchaseState == Purchase.PurchaseState.PURCHASED }
         done.filter { !it.isAcknowledged }.forEach { p ->
             runCatching { client?.acknowledgePurchase(AcknowledgePurchaseParams.newBuilder().setPurchaseToken(p.purchaseToken).build()) { } }
         }
-        val got = Entitlement.of(done.flatMap { it.products })
-        val next = if (full) got else Entitlement(_entitlement.value.subscribed || got.subscribed, _entitlement.value.owned + got.owned)
+        // 구독 요금제: 방금 결제 창에서 고른 것이면 그것 (구매 토큰과 함께 저장), 아니면 저장한 토큰과 같을 때만 저장한 요금제, 다르면 모름
+        val sub = done.firstOrNull { Products.SUB in it.products }
+        val base = when {
+            sub == null -> null
+            chosen != null -> chosen.also { store.subToken = sub.purchaseToken }
+            sub.purchaseToken == store.subToken -> _entitlement.value.basePlan
+            else -> null
+        }
+        val got = Entitlement.of(done.flatMap { it.products }).copy(basePlan = base)
+        val next = if (full) got else Entitlement(_entitlement.value.subscribed || got.subscribed, _entitlement.value.owned + got.owned,
+            if (got.subscribed) base else _entitlement.value.basePlan)
         if (next == _entitlement.value) return
         _entitlement.value = next
         store.entitlement = next

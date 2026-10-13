@@ -1,5 +1,6 @@
 package io.github.graviton94.todayletters.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -22,7 +23,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Levels
@@ -33,8 +37,8 @@ import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 
 /**
- * 서재 › 나의 기록 (모든 작품 합산, 하나뿐): 칭호 · 레벨 막대, 이어 읽기 · 편지 · 익힌 낱말, 메달 여섯 (→ 전체 보기),
- * 시리즈마다 진도 (배우는 말), 이번 주 · 일요일 낭독회, 지금 이용권 (→ 구매 화면). 작품 머리의 칭호 줄을 눌러도 여기로 온다.
+ * 서재 › 나의 기록 (모든 작품 합산, 하나뿐): 칭호 · 레벨 막대, 이어 읽기 · 편지 · 익힌 낱말, 지금 이용권 (→ 구매 화면),
+ * 시리즈마다 진도 (배우는 말), 메달 여섯 (→ 전체 보기), 이번 주 · 일요일 낭독회. 작품 머리의 칭호 줄을 눌러도 여기로 온다.
  */
 @Composable
 fun RecordScreen(s: AppState) {
@@ -51,12 +55,15 @@ fun RecordScreen(s: AppState) {
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
-            // 칭호 · 레벨
-            Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Row(verticalAlignment = Alignment.Bottom) {
-                    Text(Levels.title(s.medalBook.levels, lv.level, uiLang()), style = Type.title.ui(), color = p.ink, modifier = Modifier.weight(1f))
-                    Text("Lv ${lv.level}", style = Type.title.copy(fontFamily = Faces.display), color = p.giltText)
-                }
+            // 칭호 · 레벨: 맨 위에서 (굴리지 않아도) 칭호 · Lv, 막대, 남은 XP 가 모두 보인다
+            Column(Modifier.fillMaxWidth().padding(top = Tokens.Space.s2), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                Text(
+                    buildAnnotatedString {
+                        append(Levels.title(s.medalBook.levels, lv.level, uiLang()))
+                        withStyle(SpanStyle(color = p.giltText)) { append(" · Lv ${lv.level}") }
+                    },
+                    style = Type.title.ui(), color = p.ink,
+                )
                 Bar(lv.frac)
                 Text(stringResource(R.string.level_left, lv.left, lv.level + 1), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.align(Alignment.End))
             }
@@ -68,6 +75,23 @@ fun RecordScreen(s: AppState) {
                         Text(stringResource(l), style = Type.small.ui(), color = p.inkSoft)
                     }
                 }
+            }
+            // 지금 이용권: 무료 · 소장한 시리즈 · 구독 (숫자 셋 바로 아래, 누르면 구매 화면)
+            val ent = s.entitlement
+            val pass = when {
+                ent.subscribed -> stringResource(R.string.pass_sub)
+                ent.owned.isNotEmpty() -> s.baseWorks.filter { it.series.id in ent.owned }.map { stringResource(R.string.pass_owned, it.name[uiLang()]) }.joinToString(" · ")
+                else -> stringResource(R.string.pass_free)
+            }
+            Row(
+                Modifier.fillMaxWidth().heightIn(min = 52.dp).background(p.leaf).border(1.dp, if (ent.subscribed) p.line else p.gilt)
+                    .pressable { s.go(Route.Purchase) }.padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s2),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
+            ) {
+                Text(stringResource(R.string.pass_line, pass), style = Type.body.ui(), color = p.ink, modifier = Modifier.weight(1f))
+                if (!ent.subscribed) Text(stringResource(R.string.unlock_all), style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.giltText)
+                Text("›", style = Type.heading, color = p.giltText)
             }
             // 시리즈마다 진도 (배우는 말과 함께)
             Column {
@@ -108,17 +132,6 @@ fun RecordScreen(s: AppState) {
             }
             val sunday = io.github.graviton94.todayletters.core.Recital.isSunday(s.today)
             RecordRow(stringResource(R.string.recital_title), stringResource(if (s.recitalDone) R.string.recital_done else if (sunday) R.string.recital_today else R.string.recital_sunday)) { s.go(Route.Recital) }
-            // 지금 이용권: 무료 · 소장한 시리즈 · 구독 (누르면 구매 화면)
-            val ent = s.entitlement
-            val pass = when {
-                ent.subscribed -> stringResource(R.string.pass_sub)
-                ent.owned.isNotEmpty() -> s.baseWorks.filter { it.series.id in ent.owned }.map { stringResource(R.string.pass_owned, it.name[uiLang()]) }.joinToString(" · ")
-                else -> stringResource(R.string.pass_free)
-            }
-            Box(Modifier.fillMaxWidth().heightIn(min = 48.dp).pressable { s.go(Route.Purchase) }, contentAlignment = Alignment.Center) {
-                Text(stringResource(R.string.pass_line, pass) + if (ent.subscribed) " ›" else " · " + stringResource(R.string.unlock_all) + " ›",
-                    style = Type.small.ui(), color = p.inkSoft)
-            }
             Spacer(Modifier.height(Tokens.Space.s5))
         }
     }

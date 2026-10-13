@@ -805,10 +805,10 @@ class ScreensTest {
         val t = AppState(ctx)
         shot("p18_purchase_owned_dark", true, series = t) { io.github.graviton94.todayletters.ui.PurchaseScreen(t) }
     }
-    /** 구독 중: 이용 중 표시 · Play 스토어에서 구독 관리, 나의 기록의 이용권 줄. */
+    /** 연 구독 중: 연 구독 칸에만 이용 중 표시 · Play 스토어에서 구독 관리, 나의 기록의 이용권 줄. */
     @Test fun purchaseSubscribed() {
         val s = engineState(); s.reward = null
-        s.store.entitlement = io.github.graviton94.todayletters.core.Entitlement.of(listOf("sub_all"))
+        s.store.entitlement = io.github.graviton94.todayletters.core.Entitlement.of(listOf("sub_all")).copy(basePlan = io.github.graviton94.todayletters.core.Products.YEARLY)
         val t = AppState(ctx)
         shot("p19_purchase_subscribed_light", false, series = t) { io.github.graviton94.todayletters.ui.PurchaseScreen(t) }
     }

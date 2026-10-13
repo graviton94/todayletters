@@ -7,11 +7,9 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -33,6 +31,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
@@ -42,11 +41,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Border
@@ -66,7 +67,7 @@ import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 
 /**
- * 상점 (작품 안 넷째 이름표, APK 20 피드백): 위에 가진 화폐, 아래로 그림이 있는 카드 —
+ * 상점 (작품 안 넷째 이름표, v4 시안): 이름 아래 가진 화폐 한 줄 (92 우표), 아래로 작은 그림 · 이름 · 한 줄 · 금빛 값의 줄 —
  * 갤러리 칸 열기 · 액자 바꾸기 · 내일 편지 미리 열기 · 쉼표 · 카드 테두리. 설명 글은 두지 않는다.
  * 맨 아래 금테 배너 ‘모든 편지 열기’ → 구매 화면 ([Route.Purchase]).
  */
@@ -94,41 +95,39 @@ fun ShopTab(s: AppState) {
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
-            // 가진 화폐
-            Row(Modifier.padding(horizontal = 4.dp), verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                Text("${s.wallet(id).balance}", style = Type.display.copy(fontFamily = Faces.display), color = p.giltText)
-                Text(cur, style = Type.body.ui(), color = p.inkSoft, modifier = Modifier.padding(bottom = 8.dp))
+            // 가진 화폐: 상점 이름 아래 한 줄 (92 우표)
+            Row(Modifier.padding(start = Tokens.Space.s6 - Tokens.Space.s5).semantics(mergeDescendants = true) { },
+                verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text("${s.wallet(id).balance}", style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.giltText)
+                Text(cur, style = Type.small.ui(), color = p.inkSoft)
             }
             val items = listOf(
                 ShopItem(Spend.PICK_PIECE, stringResource(R.string.spend_pick), stringResource(R.string.spend_pick_d)) {
-                    if (previewPick != null) AssetImage(previewPick.image, Modifier.fillMaxSize(), sample = 4) else ShopGlyph(Spend.PICK_PIECE)
+                    if (previewPick != null) AssetImage(previewPick.image, Modifier.fillMaxSize(), sample = 8) else ShopGlyph(Spend.PICK_PIECE)
                 },
                 ShopItem(Spend.FRAME, stringResource(R.string.spend_frame), stringResource(R.string.spend_frame_d)) {
                     val framed = previewFrame?.let { rememberFramed(it, Frames.Kind.MASTER) }
-                    Box(Modifier.fillMaxSize().background(Color(0xFF1E1811)).padding(8.dp), contentAlignment = Alignment.Center) {
+                    Box(Modifier.fillMaxSize().background(Color(0xFF1E1811)).padding(3.dp), contentAlignment = Alignment.Center) {
                         if (framed != null) Image(framed, null, Modifier.fillMaxSize(), contentScale = ContentScale.Fit) else ShopGlyph(Spend.FRAME)
                     }
                 },
                 ShopItem(Spend.EARLY_LETTER, stringResource(R.string.spend_early), null) { ShopGlyph(Spend.EARLY_LETTER) },
                 ShopItem(Spend.REST, stringResource(R.string.spend_rest), stringResource(R.string.spend_rest_d, s.rests, Streak.MAX_RESTS)) { ShopGlyph(Spend.REST) },
                 ShopItem(Spend.BORDER, stringResource(R.string.spend_border), stringResource(R.string.spend_border_d)) {
-                    BorderSwatch(Border.GILT, Modifier.size(width = 84.dp, height = 62.dp))
+                    BorderSwatch(Border.GILT, Modifier.size(width = 34.dp, height = 26.dp))
                 },
             )
-            items.chunked(2).forEach { row ->
-                Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                    row.forEach { item ->
-                        val can = s.canBuy(item.sp, id)
-                        ShopCard(item.title, item.sub, "${item.sp.cost} $cur", can, Modifier.weight(1f).fillMaxHeight(), onClick = {
-                            when (item.sp) {
-                                Spend.PICK_PIECE -> picking = true
-                                Spend.FRAME -> framingPick = true
-                                Spend.BORDER -> borders = true
-                                else -> asked = item.sp
-                            }
-                        }, art = item.art)
-                    }
-                    if (row.size == 1) Spacer(Modifier.weight(1f))
+            Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                items.forEach { item ->
+                    val can = s.canBuy(item.sp, id)
+                    ShopRow(item.title, item.sub, item.sp.cost, cur, can, onClick = {
+                        when (item.sp) {
+                            Spend.PICK_PIECE -> picking = true
+                            Spend.FRAME -> framingPick = true
+                            Spend.BORDER -> borders = true
+                            else -> asked = item.sp
+                        }
+                    }, art = item.art)
                 }
             }
             // 맨 아래 금테 배너 하나: 모든 편지 열기 → 구매 화면
@@ -153,21 +152,31 @@ fun ShopTab(s: AppState) {
 /** 상점의 물건 하나: 무엇을 사는가 · 이름 · 짧은 한 줄 · 미리 보기 그림. */
 private class ShopItem(val sp: Spend, val title: String, val sub: String?, val art: @Composable () -> Unit)
 
-/** 상점 카드: 위에 그림 (미리 보기), 아래에 이름 · 짧은 한 줄 · 값 단추. 살 수 없으면 값은 테두리만. */
+/**
+ * 상점 줄 (v4 시안): 둥근 테두리 줄 하나에 왼쪽 작은 네모 그림 (44dp) · 이름과 흐린 한 줄 · 오른쪽 금빛 값 알약.
+ * 살 수 없으면 줄은 누를 수 없고 값 알약은 테두리만. 값은 숫자만 보이고, 읽어 줄 때는 ‘120 우표’.
+ */
 @Composable
-private fun ShopCard(title: String, sub: String?, price: String, can: Boolean, modifier: Modifier, onClick: () -> Unit, art: @Composable () -> Unit) {
+private fun ShopRow(title: String, sub: String?, cost: Int, cur: String, can: Boolean, onClick: () -> Unit, art: @Composable () -> Unit) {
     val p = Ink.palette
-    Column(modifier.background(p.leaf).border(Tokens.Stroke.hair, p.line).pressable(enabled = can, onClick = onClick)) {
-        Box(Modifier.fillMaxWidth().aspectRatio(1.45f).background(p.hide), contentAlignment = Alignment.Center) { art() }
-        Column(Modifier.weight(1f).fillMaxWidth().padding(Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            Text(title, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink)
-            if (sub != null) Text(sub, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
-            Spacer(Modifier.weight(1f))
-            Box(
-                Modifier.padding(top = 6.dp).fillMaxWidth().heightIn(min = 40.dp).then(if (can) Modifier.background(p.ink) else Modifier.border(1.dp, p.hair)),
-                contentAlignment = Alignment.Center,
-            ) { Text(price, style = Type.small.ui().copy(fontWeight = FontWeight.SemiBold), color = if (can) p.paper else p.hideInk) }
+    val shape = RoundedCornerShape(10.dp)
+    Row(
+        Modifier.fillMaxWidth().heightIn(min = 60.dp).background(p.leaf, shape).border(Tokens.Stroke.hair, p.line, shape).clip(shape)
+            .pressable(enabled = can, onClick = onClick).padding(8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        Box(Modifier.size(44.dp).clip(RoundedCornerShape(8.dp)).background(p.hide), contentAlignment = Alignment.Center) { art() }
+        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            Text(title, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            if (sub != null) Text(sub, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
+        val pill = RoundedCornerShape(Tokens.Radius.round)
+        Box(
+            Modifier.heightIn(min = 24.dp).then(if (can) Modifier.background(p.gilt, pill) else Modifier.border(1.dp, p.hair, pill))
+                .padding(horizontal = 10.dp, vertical = 2.dp).semantics { contentDescription = "$cost $cur" },
+            contentAlignment = Alignment.Center,
+        ) { Text("$cost", style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = FontWeight.SemiBold), color = if (can) p.onFill else p.hideInk, maxLines = 1) }
     }
 }
 
@@ -177,13 +186,13 @@ private fun ShopGlyph(sp: Spend) {
     val p = Ink.palette
     val wax = Color(0xFF9A3027)
     when (sp) {
-        Spend.REST -> Row(horizontalArrangement = Arrangement.spacedBy(7.dp), verticalAlignment = Alignment.CenterVertically) {
-            repeat(7) { i ->
-                Box(Modifier.size(12.dp).then(if (i == 4) Modifier.border(1.5.dp, p.giltText, CircleShape) else Modifier.background(if (i < 4) p.giltText else p.hair, CircleShape)))
+        Spend.REST -> Row(horizontalArrangement = Arrangement.spacedBy(3.dp), verticalAlignment = Alignment.CenterVertically) {
+            repeat(4) { i ->
+                Box(Modifier.size(6.dp).then(if (i == 3) Modifier.border(1.5.dp, p.giltText, CircleShape) else Modifier.background(if (i < 3) p.giltText else p.hair, CircleShape)))
             }
         }
-        else -> Canvas(Modifier.size(width = 96.dp, height = 64.dp)) {
-            val st = Stroke(1.4.dp.toPx())
+        else -> Canvas(Modifier.size(width = 32.dp, height = 22.dp)) {
+            val st = Stroke(1.dp.toPx())
             val w = size.width; val h = size.height
             drawRect(p.paper, Offset.Zero, Size(w, h))
             drawRect(p.inkSoft, Offset.Zero, Size(w, h), style = st)
@@ -267,7 +276,7 @@ fun PurchaseScreen(s: AppState) {
     val b = s.billing
     val own = w.seriesPlan
     val plans = listOf(Plan.Yearly, Plan.Monthly, own)
-    var pick by rememberSaveable { mutableIntStateOf(0) }
+    var pick by rememberSaveable { mutableIntStateOf(if (ent.onPlan(Plan.Monthly)) 1 else 0) }
     var note by remember { mutableStateOf<Int?>(null) }
     val yearly = b.price(Plan.Yearly)
     val monthly = b.price(Plan.Monthly)
@@ -284,9 +293,9 @@ fun PurchaseScreen(s: AppState) {
             Text(stringResource(R.string.buy_title), style = Type.title.ui(), color = p.ink, modifier = Modifier.padding(bottom = Tokens.Space.s2))
             PlanCard(stringResource(R.string.plan_yearly), off.takeIf { it > 0 }?.let { stringResource(R.string.plan_off, it) }, yearly.formatted,
                 stringResource(R.string.plan_yearly_d, perMonth(yearly)), pick == 0,
-                if (ent.subscribed) stringResource(R.string.plan_active) else null) { pick = 0 }
+                if (ent.onPlan(Plan.Yearly)) stringResource(R.string.plan_active) else null) { pick = 0 }
             PlanCard(stringResource(R.string.plan_monthly), null, monthly.formatted, stringResource(R.string.plan_monthly_d), pick == 1,
-                if (ent.subscribed) stringResource(R.string.plan_active) else null) { pick = 1 }
+                if (ent.onPlan(Plan.Monthly)) stringResource(R.string.plan_active) else null) { pick = 1 }
             PlanCard(stringResource(R.string.plan_series, name), null, b.price(own).formatted,
                 range?.let { stringResource(R.string.plan_series_d, roman(it.first), roman(it.last)) } ?: stringResource(R.string.fine_series), pick == 2,
                 if (w.series.id in ent.owned) stringResource(R.string.plan_owned) else null) { pick = 2 }

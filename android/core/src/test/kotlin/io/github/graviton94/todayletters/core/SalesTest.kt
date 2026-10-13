@@ -28,6 +28,14 @@ class SalesTest {
         assertTrue(Access.open(ch(2, true, "mozart"), e))
     }
 
+    @Test fun onlyTheActiveBasePlanIsMarked() {
+        val yearly = Entitlement.of(listOf(Products.SUB)).copy(basePlan = Products.YEARLY)
+        assertTrue(yearly.onPlan(Plan.Yearly)); assertFalse(yearly.onPlan(Plan.Monthly)); assertFalse(yearly.onPlan(Plan.Series("vincent")))
+        val unknown = Entitlement.of(listOf(Products.SUB))
+        assertFalse(unknown.onPlan(Plan.Yearly)); assertFalse(unknown.onPlan(Plan.Monthly))
+        assertFalse(Entitlement(basePlan = Products.MONTHLY).onPlan(Plan.Monthly))
+    }
+
     @Test fun subscriptionOpensEverySeriesAndEndingItKeepsOwned() {
         val sub = Entitlement.of(listOf(Products.SUB, "series_mozart"))
         assertTrue(sub.subscribed)

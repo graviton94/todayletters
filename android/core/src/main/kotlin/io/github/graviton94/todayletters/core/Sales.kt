@@ -72,10 +72,12 @@ data class Price(val micros: Long, val currency: String, val formatted: String, 
 
 /**
  * 지금 쓸 수 있는 것: 구독 중인가 · 소장한 시리즈들. 기기 안에 저장해 두어 결제 서버에 닿지 않아도 (비행기 모드) 그대로.
- * 구독이 끝나면 [subscribed] 만 꺼진다 (소장 · 진도는 그대로).
+ * 구독이 끝나면 [subscribed] 만 꺼진다 (소장 · 진도는 그대로). [basePlan] 은 구독 중인 기본 요금제 (이 기기에서 결제할 때 고른 것), 모르면 null.
  */
-data class Entitlement(val subscribed: Boolean = false, val owned: Set<String> = emptySet()) {
+data class Entitlement(val subscribed: Boolean = false, val owned: Set<String> = emptySet(), val basePlan: String? = null) {
     fun owns(series: String) = subscribed || series in owned
+    /** 지금 쓰고 있는 구독 요금제가 이것인가 ([Products.MONTHLY] · [Products.YEARLY]). 어느 요금제인지 모르면 (다른 기기에서 샀거나 Play 에서 바꿈) 둘 다 false. */
+    fun onPlan(plan: Plan) = subscribed && plan.basePlan != null && plan.basePlan == basePlan
     val free: Boolean get() = !subscribed && owned.isEmpty()
 
     companion object {

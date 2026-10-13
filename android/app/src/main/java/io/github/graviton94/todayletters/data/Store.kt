@@ -431,8 +431,13 @@ class Store(ctx: Context) {
     // ── 이용권 (data/Billing, core 의 Entitlement) ─────────────────
     /** 마지막으로 Play 에서 확인한 이용권. 결제 서버에 닿지 않을 때 (비행기 모드) 이것으로 연다. */
     var entitlement: io.github.graviton94.todayletters.core.Entitlement
-        get() = io.github.graviton94.todayletters.core.Entitlement(p.getBoolean("ent:sub", false), set("ent:owned"))
-        set(v) = p.edit().putBoolean("ent:sub", v.subscribed).putStringSet("ent:owned", v.owned).apply()
+        get() = io.github.graviton94.todayletters.core.Entitlement(p.getBoolean("ent:sub", false), set("ent:owned"), p.getString("ent:base", null))
+        set(v) = p.edit().putBoolean("ent:sub", v.subscribed).putStringSet("ent:owned", v.owned).putString("ent:base", v.basePlan).apply()
+
+    /** 구독의 구매 토큰 (이 기기에서 결제했을 때). 같은 토큰이면 저장한 요금제 ([entitlement] 의 basePlan) 가 아직 맞다. */
+    var subToken: String?
+        get() = p.getString("ent:sub_token", null)
+        set(v) = p.edit().putString("ent:sub_token", v).apply()
 
     /** 개발용: 모든 시리즈 열기 (debug 빌드에서만 읽는다, [Billing.effective]). */
     var debugUnlockAll: Boolean
