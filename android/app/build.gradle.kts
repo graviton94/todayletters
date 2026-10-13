@@ -65,6 +65,8 @@ dependencies {
     // 낭독 알림 · 잠금 화면 · 이어폰 단추 (MediaSessionCompat · MediaStyle)
     implementation("androidx.media:media:1.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+    // 구독 · 시리즈 소장 (data/Billing.kt, docs/billing.md)
+    implementation("com.android.billingclient:billing:8.0.0")
 
     testImplementation(platform("androidx.compose:compose-bom:2024.12.01"))
     testImplementation("junit:junit:4.13.2")

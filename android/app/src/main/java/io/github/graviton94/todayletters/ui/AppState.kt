@@ -75,6 +75,14 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun cueTier(t: io.github.graviton94.todayletters.core.Tier) { if (app.effects) runCatching { effects.tier(io.github.graviton94.todayletters.data.Frames.kindOf(t).sound) } }
     val recorder = Recorder(ctx)
     val downloads = io.github.graviton94.todayletters.data.Downloads(ctx)
+    /** 결제 (구독 · 시리즈 소장). Play 에 붙는 것은 MainActivity 가 ([io.github.graviton94.todayletters.data.Billing.connect]). */
+    val billing = io.github.graviton94.todayletters.data.Billing(ctx, store).also { it.onChange = { version++ } }
+    /** 지금 이용권 (구독 · 소장한 시리즈). 바뀌면 화면을 다시 그린다. */
+    val entitlement: io.github.graviton94.todayletters.core.Entitlement get() = run { @Suppress("UNUSED_EXPRESSION") version; billing.effective }
+    /** 이 장을 읽을 수 있나 (프롤로그 · I · II장은 늘, 그 뒤는 소장 · 구독). */
+    fun chapterOpen(c: io.github.graviton94.todayletters.core.Chapter) = io.github.graviton94.todayletters.core.Access.open(c, entitlement)
+    /** 장 id ("I" · "P" · "E") 로: 이 작품의 장 목록에 없는 것 (프롤로그 · 맺음말) 은 늘 열림. */
+    fun chapterIdOpen(series: String): (String) -> Boolean = { ch -> work(series).chapters.firstOrNull { it.id == ch }?.let(::chapterOpen) ?: true }
 
     /** 앱 밖에 둔 장의 낭독을 받을지 묻는 중: 받고 나면 (또는 소리 없이 읽기를 고르면) 이 편지를 연다. */
     /** 낭독 받기 묻기. [letter] 가 있으면 받은 뒤 그 편지를 열고, 없으면 미리 받기 (받고 끝). */
@@ -634,6 +642,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     /** 새 편지를 처음 열 때 한 번 센다 (하루 편지 수). */
     fun open(id: String, chapter: String, letter: Letter, from: Route.Tab?, skipAudio: Boolean = false) {
+        // 잠긴 장 (III장부터, 소장 · 구독 전): 편지 대신 구매 화면 (이 시리즈 소장이 셋째 칸)
+        work(id).chapters.firstOrNull { it.id == chapter }?.let { c -> if (!chapterOpen(c)) { current = id; go(Route.Purchase); return } }
         // 앱 밖(R2)에 둔 장이고 아직 받지 않았으면: 먼저 크기를 알려 주고 받을지 묻는다
         val pack = downloads.pack(id, chapter)
         if (!skipAudio && pack != null && !store.silent("$id:$chapter") && !downloads.ready(pack)) {
@@ -685,9 +695,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     }
     /** 받아 둔 낭독을 모두 지운다 (설정 › 저장 공간). */
     fun clearDownloads() { downloads.clear(); version++ }
-    /** 미리 받기: 아직 도착하지 않은 장도 (지금은 유료로 막힌 장이 없음). [chapter] 가 null 이면 모든 장. */
+    /** 미리 받기: 아직 도착하지 않은 장도 (무료 장 · 소장 · 구독한 장). [chapter] 가 null 이면 모든 장. */
     fun predownload(series: String, chapter: String?) {
-        val pack = if (chapter == null) downloads.all(series) else downloads.pack(series, chapter)
+        val pack = if (chapter == null) downloads.all(series, chapterIdOpen(series)) else downloads.pack(series, chapter)?.takeIf { chapterIdOpen(series)(chapter) }
         if (pack == null || downloads.ready(pack)) return
         downloadAsk = DownloadAsk(pack, series, pack.chapter, null, null)
     }

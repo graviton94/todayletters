@@ -254,19 +254,64 @@ class NavTest {
         assertFalse(s.progress("vincent", c.id, l.id).done)
     }
 
-    /** 상점 (넷째 이름표) 맨 아래 ‘구독 · 시리즈’ → 구매 화면, 뒤로 가면 상점. 결제는 아직 열리지 않았다. */
+    /** 상점 (넷째 이름표) 맨 아래 금테 배너 ‘모든 편지 열기’ → 구매 화면, 뒤로 가면 상점. Play 상품이 없으면 살 수 없다 (곧 열려요). */
     @Test fun shopLeadsToPurchase() {
         val s = state()
         s.enter("vincent")
         s.go(Route.Shop)
         assertEquals(listOf(Route.Library, Route.Shop), s.stack.toList())
         rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { io.github.graviton94.todayletters.ui.ShopTab(s) } }
-        rule.onNodeWithText(ctx.getString(R.string.shop_plans)).performScrollTo().performClick()
+        rule.onNodeWithText(ctx.getString(R.string.unlock_all)).performScrollTo().performClick()
         rule.waitForIdle()
         assertEquals(Route.Purchase, s.route)
-        assertFalse(io.github.graviton94.todayletters.data.Billing.ready)
+        assertFalse(s.billing.available(io.github.graviton94.todayletters.core.Plan.Yearly))
         s.backTo(Route.Shop)
         s.backTo(Route.Library)
+    }
+
+    /** 무료는 프롤로그 + I · II장. III장의 편지를 열면 구매 화면, 뒤로 가면 들어온 곳. 소장하면 (저장된 이용권) 열린다. */
+    @Test fun lockedChapterLeadsToPurchase() {
+        val s = state()
+        s.enter("vincent")
+        val w = s.work("vincent")
+        assertTrue(s.chapterOpen(w.chapters[0])); assertTrue(s.chapterOpen(w.chapters[1])); assertFalse(s.chapterOpen(w.chapters[2]))
+        s.open("vincent", w.chapters[2].id, w.chapters[2].letters[0], Route.Inbox, skipAudio = true)
+        assertEquals(Route.Purchase, s.route)
+        s.backTo(Route.Inbox)
+        // II장은 무료: 편지가 열린다
+        s.open("vincent", w.chapters[1].id, w.chapters[1].letters[0], Route.Inbox, skipAudio = true)
+        assertEquals(Route.Letter("vincent", 2, 1, Route.Inbox), s.route)
+        // 소장 (기기에 저장된 이용권): 다시 켜도 그대로, 모차르트 III장은 여전히 잠김
+        s.store.entitlement = io.github.graviton94.todayletters.core.Entitlement.of(listOf("series_vincent"))
+        val t = AppState(ctx)
+        assertTrue(t.chapterOpen(t.work("vincent").chapters[2]))
+        assertFalse(t.chapterOpen(t.work("mozart").chapters[2]))
+        t.enter("vincent")
+        t.open("vincent", w.chapters[2].id, w.chapters[2].letters[0], Route.Inbox, skipAudio = true)
+        assertEquals(Route.Letter("vincent", 3, 1, Route.Inbox), t.route)
+    }
+
+    /** 목차의 잠긴 장 (III장부터) 을 누르면 구매 화면. */
+    @Test fun lockedChapterRowLeadsToPurchase() {
+        val s = state()
+        s.enter("vincent")
+        s.go(Route.Series("vincent"))
+        rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { io.github.graviton94.todayletters.ui.SeriesCover(s, "vincent") } }
+        rule.onNodeWithText(io.github.graviton94.todayletters.core.Breaks.keepAll(s.work("vincent").chapters[2].title[io.github.graviton94.todayletters.core.Lang.FR])).performScrollTo().performClick()
+        rule.waitForIdle()
+        assertEquals(Route.Purchase, s.route)
+        s.backTo(Route.Series("vincent"))
+    }
+
+    /** 나의 기록의 이용권 줄 → 구매 화면, 뒤로 가면 나의 기록. */
+    @Test fun recordLeadsToPurchase() {
+        val s = state()
+        s.go(Route.Record)
+        rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { io.github.graviton94.todayletters.ui.RecordScreen(s) } }
+        rule.onNodeWithText(ctx.getString(R.string.unlock_all), substring = true).performScrollTo().performClick()
+        rule.waitForIdle()
+        assertEquals(Route.Purchase, s.route)
+        s.backTo(Route.Record)
     }
 
     /** 나의 기록은 서재 머리에서 (하나뿐, 모든 작품 합산). 작품 머리의 칭호 줄로 들어가면 뒤로 가기는 그 작품으로. */

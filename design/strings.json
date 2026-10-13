@@ -2600,10 +2600,6 @@
     "en": "Shop",
     "ko": "상점"
   },
-  "shop_plans": {
-    "en": "Subscription · Series",
-    "ko": "구독 · 시리즈"
-  },
   "pick_sheet_title": {
     "en": "Choose a picture to hang",
     "ko": "걸 그림 고르기"
@@ -2620,33 +2616,125 @@
     "en": "No pieces to frame yet",
     "ko": "아직 액자를 바꿀 작품이 없어요"
   },
-  "buy_series_h": {
-    "en": "Series",
-    "ko": "시리즈"
-  },
-  "buy_free_ch": {
-    "en": "Chapter I free",
-    "ko": "1장 무료"
-  },
-  "buy_series_full": {
-    "en": "Unlock the full series",
-    "ko": "전체 시리즈 열기"
-  },
-  "buy_sub_h": {
-    "en": "Subscription",
-    "ko": "구독"
-  },
-  "buy_sub_t": {
-    "en": "Every series, every letter",
-    "ko": "모든 작품 · 모든 편지"
-  },
-  "buy_sub_d": {
-    "en": "New series included as they arrive",
-    "ko": "새 작품이 도착하면 그대로 이어서"
-  },
   "buy_soon": {
     "en": "Coming soon",
     "ko": "곧 열려요"
+  },
+  "unlock_all": {
+    "en": "Open every letter",
+    "ko": "모든 편지 열기"
+  },
+  "unlock_range": {
+    "en": "%1$s %2$s–%3$s",
+    "ko": "%1$s %2$s–%3$s장"
+  },
+  "unlock_prices": {
+    "en": "Subscription %1$s a month · Series %2$s",
+    "ko": "구독 월 %1$s · 시리즈 %2$s"
+  },
+  "unlock_open": {
+    "en": "Every letter is open",
+    "ko": "모든 편지가 열려 있어요"
+  },
+  "buy_title": {
+    "en": "Keep reading?",
+    "ko": "계속 읽어 볼까요"
+  },
+  "plan_yearly": {
+    "en": "Yearly",
+    "ko": "연 구독"
+  },
+  "plan_monthly": {
+    "en": "Monthly",
+    "ko": "월 구독"
+  },
+  "plan_series": {
+    "en": "Own %1$s",
+    "ko": "%1$s만 소장"
+  },
+  "plan_off": {
+    "en": "%1$d%% off",
+    "ko": "%1$d%% 할인"
+  },
+  "plan_yearly_d": {
+    "en": "Every series · new series included · about %1$s a month",
+    "ko": "모든 시리즈 · 새 시리즈 포함 · 월 약 %1$s"
+  },
+  "plan_monthly_d": {
+    "en": "Every series · cancel anytime",
+    "ko": "모든 시리즈 · 언제든 해지"
+  },
+  "plan_series_d": {
+    "en": "Chapters %1$s–%2$s + closing letter · one payment",
+    "ko": "%1$s–%2$s장 + 맺음 편지 · 한 번 결제"
+  },
+  "plan_active": {
+    "en": "Active",
+    "ko": "이용 중"
+  },
+  "plan_owned": {
+    "en": "Owned",
+    "ko": "소장함"
+  },
+  "cta_yearly": {
+    "en": "Start yearly",
+    "ko": "연 구독 시작"
+  },
+  "cta_monthly": {
+    "en": "Start monthly",
+    "ko": "월 구독 시작"
+  },
+  "cta_series": {
+    "en": "Buy %1$s",
+    "ko": "%1$s 소장하기"
+  },
+  "buy_manage": {
+    "en": "Manage in the Play Store",
+    "ko": "Play 스토어에서 구독 관리"
+  },
+  "fine_yearly": {
+    "en": "Renews every year · cancel in the Play Store",
+    "ko": "1년마다 자동 결제 · Play 스토어에서 해지"
+  },
+  "fine_monthly": {
+    "en": "Renews every month · cancel in the Play Store",
+    "ko": "매달 자동 결제 · Play 스토어에서 해지"
+  },
+  "fine_series": {
+    "en": "One payment · yours to keep",
+    "ko": "한 번 결제 · 계속 내 것"
+  },
+  "buy_restore": {
+    "en": "Restore purchases",
+    "ko": "구매 복원"
+  },
+  "buy_restored": {
+    "en": "Purchases checked",
+    "ko": "구매를 다시 확인했어요"
+  },
+  "buy_offline": {
+    "en": "Can't reach the Play Store",
+    "ko": "Play 스토어에 닿지 않아요"
+  },
+  "pass_line": {
+    "en": "Pass: %1$s",
+    "ko": "이용권: %1$s"
+  },
+  "pass_free": {
+    "en": "Free",
+    "ko": "무료"
+  },
+  "pass_sub": {
+    "en": "Subscription · every series",
+    "ko": "구독 · 모든 시리즈"
+  },
+  "pass_owned": {
+    "en": "%1$s owned",
+    "ko": "%1$s 소장"
+  },
+  "chapter_locked": {
+    "en": "Locked",
+    "ko": "잠김"
   },
   "record_title": {
     "en": "My Record",
@@ -2765,7 +2853,7 @@
     "ko": "바꾸기"
   },
   "coach_shop": {
-    "en": "The shop: spend what you earn on a gallery slot, a new frame, an early letter, a rest day or a card border. Subscriptions and series are at the bottom.",
-    "ko": "상점이에요. 모은 화폐로 갤러리 칸 · 액자 · 미리 열기 · 쉼표 · 카드 테두리를 사요. 구독 · 시리즈는 맨 아래에 있어요."
+    "en": "The shop: spend what you earn on a gallery slot, a new frame, an early letter, a rest day or a card border. Opening every letter is at the bottom.",
+    "ko": "상점이에요. 모은 화폐로 갤러리 칸 · 액자 · 미리 열기 · 쉼표 · 카드 테두리를 사요. 모든 편지 열기는 맨 아래에 있어요."
   }
 }

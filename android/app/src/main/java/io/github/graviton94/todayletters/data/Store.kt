@@ -427,4 +427,15 @@ class Store(ctx: Context) {
     /** 무엇을 배울지 고른 작품 (처음 소개 · 작품에 처음 들어갈 때). */
     fun learnChosen(series: String) = series in set("learn_chosen")
     fun markLearnChosen(series: String) = add("learn_chosen", series)
+
+    // ── 이용권 (data/Billing, core 의 Entitlement) ─────────────────
+    /** 마지막으로 Play 에서 확인한 이용권. 결제 서버에 닿지 않을 때 (비행기 모드) 이것으로 연다. */
+    var entitlement: io.github.graviton94.todayletters.core.Entitlement
+        get() = io.github.graviton94.todayletters.core.Entitlement(p.getBoolean("ent:sub", false), set("ent:owned"))
+        set(v) = p.edit().putBoolean("ent:sub", v.subscribed).putStringSet("ent:owned", v.owned).apply()
+
+    /** 개발용: 모든 시리즈 열기 (debug 빌드에서만 읽는다, [Billing.effective]). */
+    var debugUnlockAll: Boolean
+        get() = p.getBoolean("debug:unlock_all", false)
+        set(v) = p.edit().putBoolean("debug:unlock_all", v).apply()
 }

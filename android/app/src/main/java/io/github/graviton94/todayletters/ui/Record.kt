@@ -34,7 +34,7 @@ import io.github.graviton94.todayletters.design.Type
 
 /**
  * 서재 › 나의 기록 (모든 작품 합산, 하나뿐): 칭호 · 레벨 막대, 이어 읽기 · 편지 · 익힌 낱말, 메달 여섯 (→ 전체 보기),
- * 이번 주 · 일요일 낭독회. 작품 머리의 칭호 줄을 눌러도 여기로 온다.
+ * 시리즈마다 진도 (배우는 말), 이번 주 · 일요일 낭독회, 지금 이용권 (→ 구매 화면). 작품 머리의 칭호 줄을 눌러도 여기로 온다.
  */
 @Composable
 fun RecordScreen(s: AppState) {
@@ -69,7 +69,18 @@ fun RecordScreen(s: AppState) {
                     }
                 }
             }
-            Hair()
+            // 시리즈마다 진도 (배우는 말과 함께)
+            Column {
+                s.baseWorks.forEach { w ->
+                    val id = w.series.id
+                    val learn = s.store.series(id)?.learn ?: w.series.original
+                    Row(Modifier.fillMaxWidth().heightIn(min = 40.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Text("${w.name[uiLang()]} · ${stringResource(langLabel(learn))}", style = Type.body.ui(), color = p.ink, modifier = Modifier.weight(1f))
+                        Text(stringResource(R.string.lib_letters, s.doneCount(id), w.chapters.sumOf { it.letters.size }), style = Type.small.ui(), color = p.inkSoft)
+                    }
+                    Hair()
+                }
+            }
             // 메달: 여섯 칸 (받은 것 → 다음 것), 나머지는 전체 보기
             Row(verticalAlignment = Alignment.Bottom) {
                 Text(stringResource(R.string.record_medals), style = Type.heading.ui(), color = p.ink, modifier = Modifier.weight(1f))
@@ -97,6 +108,17 @@ fun RecordScreen(s: AppState) {
             }
             val sunday = io.github.graviton94.todayletters.core.Recital.isSunday(s.today)
             RecordRow(stringResource(R.string.recital_title), stringResource(if (s.recitalDone) R.string.recital_done else if (sunday) R.string.recital_today else R.string.recital_sunday)) { s.go(Route.Recital) }
+            // 지금 이용권: 무료 · 소장한 시리즈 · 구독 (누르면 구매 화면)
+            val ent = s.entitlement
+            val pass = when {
+                ent.subscribed -> stringResource(R.string.pass_sub)
+                ent.owned.isNotEmpty() -> s.baseWorks.filter { it.series.id in ent.owned }.map { stringResource(R.string.pass_owned, it.name[uiLang()]) }.joinToString(" · ")
+                else -> stringResource(R.string.pass_free)
+            }
+            Box(Modifier.fillMaxWidth().heightIn(min = 48.dp).pressable { s.go(Route.Purchase) }, contentAlignment = Alignment.Center) {
+                Text(stringResource(R.string.pass_line, pass) + if (ent.subscribed) " ›" else " · " + stringResource(R.string.unlock_all) + " ›",
+                    style = Type.small.ui(), color = p.inkSoft)
+            }
             Spacer(Modifier.height(Tokens.Space.s5))
         }
     }

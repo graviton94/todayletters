@@ -41,9 +41,9 @@ class Downloads(private val ctx: Context) {
         }
     }
 
-    /** 이 작품에서 앱 밖에 둔 모든 장을 한 묶음으로 (설정 › 저장 공간의 ‘모두 받기’). 없으면 null. */
-    fun all(series: String): Pack? {
-        val packs = load(series)?.second?.values?.sortedBy { it.chapter }.orEmpty()
+    /** 이 작품에서 앱 밖에 둔 모든 장을 한 묶음으로 (설정 › 저장 공간의 ‘모두 받기’). [open] 은 읽을 수 있는 장만 (잠긴 장은 받지 않는다). 없으면 null. */
+    fun all(series: String, open: (String) -> Boolean = { true }): Pack? {
+        val packs = load(series)?.second?.values?.filter { open(it.chapter) }?.sortedBy { it.chapter }.orEmpty()
         if (packs.isEmpty()) return null
         val parts = packs.flatMap { it.parts }.distinctBy { it.path }
         return Pack(series, ALL, parts.sumOf { it.size }, parts)

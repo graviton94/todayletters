@@ -63,7 +63,12 @@ data class Work(
     val deck: String = "",
     /** 영어 · 한국어를 배울 때의 같은 작품 (그 언어 자료 *_en · *_ko.json 이 있을 때만). 없으면 원어 자료 그대로 (지금처럼). */
     val decks: Map<Lang, Work> = emptyMap(),
+    /** 시리즈 소장 값 (series.json 의 "tier", docs/billing.md). 상품 id 는 core.Products.series(id). */
+    val tier: io.github.graviton94.todayletters.core.PriceTier = io.github.graviton94.todayletters.core.PriceTier.T2,
 )
+
+/** 이 시리즈를 소장하는 상품 (구매 화면의 셋째 칸). */
+val Work.seriesPlan: io.github.graviton94.todayletters.core.Plan.Series get() = io.github.graviton94.todayletters.core.Plan.Series(series.id, tier)
 
 /** 편지 낱말 · 사전 · 눌러서 뜻 보기의 언어 (원어 자료면 원어). */
 val Work.learnVocab: Lang get() = vocabLang ?: series.original
@@ -148,6 +153,7 @@ object Library {
                     o.keys().asSequence().map { k -> o.getJSONObject(k).let { p -> Place(k, p.getDouble("x").toFloat(), p.getDouble("y").toFloat(), tri(p.getJSONObject("name")), tri(p.getJSONObject("note")), p.optDouble("lat", 0.0), p.optDouble("lng", 0.0)) } }.toList()
                 } ?: emptyList(),
                 kit = meta.optJSONObject("kit")?.let { kit(it) } ?: Kit(),
+                tier = io.github.graviton94.todayletters.core.PriceTier.of(meta.optInt("tier", 2)),
                 prologue = prologue,
                 prologueChapter = prologue.takeIf { it.isNotEmpty() }?.let { d -> Chapter(id, "P", Tri(mapOf(Lang.EN to "Prologue")), true, d.map { it.letter }) },
                 arrival = meta.optJSONObject("prologue")?.let { pr -> pr.optJSONObject("arrival")?.let { a ->

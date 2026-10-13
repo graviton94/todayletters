@@ -21,11 +21,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -38,7 +41,12 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Border
@@ -46,9 +54,12 @@ import io.github.graviton94.todayletters.core.Piece
 import io.github.graviton94.todayletters.core.Route
 import io.github.graviton94.todayletters.core.Spend
 import io.github.graviton94.todayletters.core.Streak
+import io.github.graviton94.todayletters.core.Access
+import io.github.graviton94.todayletters.core.Plan
+import io.github.graviton94.todayletters.core.Price
 import io.github.graviton94.todayletters.data.Billing
+import io.github.graviton94.todayletters.data.seriesPlan
 import io.github.graviton94.todayletters.data.Frames
-import io.github.graviton94.todayletters.data.Work
 import io.github.graviton94.todayletters.design.Faces
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
@@ -57,7 +68,7 @@ import io.github.graviton94.todayletters.design.Type
 /**
  * 상점 (작품 안 넷째 이름표, APK 20 피드백): 위에 가진 화폐, 아래로 그림이 있는 카드 —
  * 갤러리 칸 열기 · 액자 바꾸기 · 내일 편지 미리 열기 · 쉼표 · 카드 테두리. 설명 글은 두지 않는다.
- * 맨 아래 ‘구독 · 시리즈’ → 작품 사기 · 구독 화면 ([Route.Purchase]).
+ * 맨 아래 금테 배너 ‘모든 편지 열기’ → 구매 화면 ([Route.Purchase]).
  */
 @Composable
 fun ShopTab(s: AppState) {
@@ -120,15 +131,8 @@ fun ShopTab(s: AppState) {
                     if (row.size == 1) Spacer(Modifier.weight(1f))
                 }
             }
-            // 구독 · 시리즈 (작품 사기 · 구독)
-            Row(
-                Modifier.padding(top = Tokens.Space.s3).fillMaxWidth().heightIn(min = 60.dp).border(1.5.dp, p.ink).pressable { s.go(Route.Purchase) }
-                    .padding(horizontal = Tokens.Space.s4),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(stringResource(R.string.shop_plans), style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink, modifier = Modifier.weight(1f))
-                Text("›", style = Type.heading, color = p.ink)
-            }
+            // 맨 아래 금테 배너 하나: 모든 편지 열기 → 구매 화면
+            UnlockBanner(s, Modifier.padding(top = Tokens.Space.s3))
             Spacer(Modifier.height(Tokens.Space.s5))
         }
     }
@@ -220,57 +224,143 @@ private fun PiecePicker(title: String, pieces: List<Piece>, empty: String, onPic
 }
 
 /**
- * 상점 › 구독 · 시리즈: 구독 (모든 작품) 과 작품마다 사기 (1장은 무료). 결제는 [Billing] 한 곳에서 —
- * 아직 열리지 않아서 단추는 ‘곧 열려요’.
+ * 상점 맨 아래 금테 배너 하나: 모든 편지 열기 · 시리즈마다 잠긴 장 · 구독 월 값 · 이 시리즈 값 ›. 누르면 구매 화면.
+ * 모두 열려 있으면 (구독 · 다 소장) 그렇다고만.
+ */
+@Composable
+fun UnlockBanner(s: AppState, modifier: Modifier = Modifier) {
+    val p = Ink.palette
+    s.version
+    val ent = s.entitlement
+    val ranges = s.works.filter { !ent.owns(it.series.id) }.mapNotNull { w ->
+        Access.lockedRange(w.chapters)?.let { r -> stringResource(R.string.unlock_range, w.name[uiLang()], roman(r.first), roman(r.last)) }
+    }
+    Row(
+        modifier.fillMaxWidth().background(p.leaf).border(1.5.dp, p.gilt).pressable { s.go(Route.Purchase) }.padding(Tokens.Space.s4),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Text(stringResource(R.string.unlock_all), style = Type.heading.ui(), color = p.giltText)
+            if (ranges.isEmpty()) Text(stringResource(R.string.unlock_open), style = Type.small.ui(), color = p.inkSoft)
+            else {
+                Text(ranges.joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
+                Text(stringResource(R.string.unlock_prices, s.billing.price(Plan.Monthly).formatted, s.billing.price(s.currentWork.seriesPlan).formatted),
+                    style = Type.small.ui(), color = p.ink)
+            }
+        }
+        Text("›", style = Type.heading, color = p.giltText)
+    }
+}
+
+/**
+ * 구매 화면 (모든 편지 열기): 연 구독 (기본 선택 · 할인) · 월 구독 · 지금 시리즈 소장. 결제는 [Billing] 한 곳에서.
+ * 들어오는 곳: 잠긴 장 (III장부터) · 상점 배너 · 나의 기록의 이용권 줄. 값은 Play 값, Play 상품이 없으면 계획한 값과 ‘곧 열려요’.
+ * 자동 결제 · 해지 · 구매 복원은 Play 정책상 작은 글씨로 늘 보인다.
  */
 @Composable
 fun PurchaseScreen(s: AppState) {
     val p = Ink.palette
+    s.version
+    val ctx = LocalContext.current
+    val w = s.currentWork
+    val ent = s.entitlement
+    val b = s.billing
+    val own = w.seriesPlan
+    val plans = listOf(Plan.Yearly, Plan.Monthly, own)
+    var pick by rememberSaveable { mutableIntStateOf(0) }
+    var note by remember { mutableStateOf<Int?>(null) }
+    val yearly = b.price(Plan.Yearly)
+    val monthly = b.price(Plan.Monthly)
+    // 할인은 두 값에서 계산한다 (둘 다 Play 값이거나 둘 다 계획한 값이고 같은 돈일 때만)
+    val off = if (yearly.fromPlay == monthly.fromPlay && yearly.currency == monthly.currency) Access.yearlyDiscount(monthly.micros, yearly.micros) else 0
+    val range = Access.lockedRange(w.chapters)
+    val name = w.name[uiLang()]
     Column(Modifier.fillMaxSize()) {
-        TopBar(stringResource(R.string.shop_plans), s, help = null, showBack = true, showSettings = false)
+        TopBar(stringResource(R.string.unlock_all), s, help = null, showBack = true, showSettings = false)
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
-            Caps(stringResource(R.string.buy_sub_h), p.giltText, small = true)
-            Column(Modifier.fillMaxWidth().background(p.leaf).border(1.5.dp, p.giltText).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                Text(stringResource(R.string.buy_sub_t), style = Type.heading.ui(), color = p.ink)
-                Text(stringResource(R.string.buy_sub_d), style = Type.small.ui(), color = p.inkSoft)
-                BuyButton(stringResource(R.string.buy_sub_h), Billing.Product.Subscription)
+            Text(stringResource(R.string.buy_title), style = Type.title.ui(), color = p.ink, modifier = Modifier.padding(bottom = Tokens.Space.s2))
+            PlanCard(stringResource(R.string.plan_yearly), off.takeIf { it > 0 }?.let { stringResource(R.string.plan_off, it) }, yearly.formatted,
+                stringResource(R.string.plan_yearly_d, perMonth(yearly)), pick == 0,
+                if (ent.subscribed) stringResource(R.string.plan_active) else null) { pick = 0 }
+            PlanCard(stringResource(R.string.plan_monthly), null, monthly.formatted, stringResource(R.string.plan_monthly_d), pick == 1,
+                if (ent.subscribed) stringResource(R.string.plan_active) else null) { pick = 1 }
+            PlanCard(stringResource(R.string.plan_series, name), null, b.price(own).formatted,
+                range?.let { stringResource(R.string.plan_series_d, roman(it.first), roman(it.last)) } ?: stringResource(R.string.fine_series), pick == 2,
+                if (w.series.id in ent.owned) stringResource(R.string.plan_owned) else null) { pick = 2 }
+            val plan = plans[pick]
+            val sub = plan !is Plan.Series
+            when {
+                sub && ent.subscribed -> Cta(stringResource(R.string.buy_manage), true) {
+                    runCatching { ctx.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(Billing.manageUrl(ctx.packageName)))
+                        .addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)) }
+                }
+                !sub && w.series.id in ent.owned -> Cta(stringResource(R.string.plan_owned), false) { }
+                b.available(plan) -> Cta(when (plan) {
+                    Plan.Yearly -> stringResource(R.string.cta_yearly)
+                    Plan.Monthly -> stringResource(R.string.cta_monthly)
+                    is Plan.Series -> stringResource(R.string.cta_series, name)
+                }, true) { Billing.activityOf(ctx)?.let { b.buy(it, plan) } }
+                else -> Cta(stringResource(R.string.buy_soon), false) { }
             }
-            Caps(stringResource(R.string.buy_series_h), p.giltText, small = true, modifier = Modifier.padding(top = Tokens.Space.s3))
-            s.works.forEach { w -> SeriesOffer(s, w) }
+            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(stringResource(when (plan) { Plan.Yearly -> R.string.fine_yearly; Plan.Monthly -> R.string.fine_monthly; is Plan.Series -> R.string.fine_series }),
+                    style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, textAlign = TextAlign.Center)
+                Box(Modifier.heightIn(min = 48.dp).pressable { b.restore { e -> note = if (e == null) R.string.buy_offline else R.string.buy_restored } }
+                    .padding(horizontal = Tokens.Space.s4), contentAlignment = Alignment.Center) {
+                    Text(stringResource(R.string.buy_restore), style = Type.small.ui().copy(fontSize = Tokens.Text.caps, textDecoration = TextDecoration.Underline), color = p.inkSoft)
+                }
+                note?.let { Text(stringResource(it), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft) }
+            }
             Spacer(Modifier.height(Tokens.Space.s5))
         }
     }
 }
 
+/** 연 구독을 달로 나눈 값: Play 값이면 그 돈의 표기로, 아니면 ₩. */
+private fun perMonth(y: Price): String {
+    val micros = Access.perMonth(y.micros)
+    if (!y.fromPlay) return Price.won(micros / 1_000_000)
+    return runCatching {
+        val cur = java.util.Currency.getInstance(y.currency)
+        java.text.NumberFormat.getCurrencyInstance(java.util.Locale.getDefault()).apply {
+            currency = cur; maximumFractionDigits = cur.defaultFractionDigits.coerceAtLeast(0); minimumFractionDigits = maximumFractionDigits
+        }.format(micros / 1_000_000.0)
+    }.getOrElse { Price.won(micros / 1_000_000) }
+}
+
+/** 고르는 칸 하나: 이름 (할인 표 · 이용 중) · 값 · 한 줄. 고른 칸은 금테. */
 @Composable
-private fun SeriesOffer(s: AppState, w: Work) {
+private fun PlanCard(title: String, tag: String?, price: String, sub: String, on: Boolean, state: String?, onClick: () -> Unit) {
     val p = Ink.palette
-    Column(Modifier.fillMaxWidth().border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-            Portrait(w.portrait, w.fullName, 44.dp)
-            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                Text("${w.name[uiLang()]} → ${w.recipient[uiLang()]}", style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink)
-                Text(stringResource(R.string.lib_letters, s.doneCount(w.series.id), w.chapters.sumOf { it.letters.size }), style = Type.small.ui(), color = p.inkSoft)
+    Column(
+        Modifier.fillMaxWidth().background(p.leaf).border(if (on) 2.dp else Tokens.Stroke.hair, if (on) p.gilt else p.line)
+            .pressable(role = Role.RadioButton, onClick = onClick).semantics { selected = on }.padding(Tokens.Space.s4),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            Text(title, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink)
+            if (tag != null) Box(Modifier.background(p.gilt, RoundedCornerShape(Tokens.Radius.round)).padding(horizontal = 8.dp, vertical = 2.dp)) {
+                Text(tag, style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = FontWeight.SemiBold), color = p.onFill)
             }
-            Capsule(stringResource(R.string.buy_free_ch), CapsuleKind.FILLED)
+            if (state != null) Capsule(state, CapsuleKind.DONE)
+            Spacer(Modifier.weight(1f))
+            Text(price, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink, maxLines = 1)
         }
-        Text(stringResource(R.string.buy_series_full), style = Type.small.ui(), color = p.ink)
-        BuyButton(stringResource(R.string.buy_series_full), Billing.Product.Series(w.series.id))
+        Text(sub, style = Type.small.ui(), color = p.inkSoft)
     }
 }
 
-/** 사기 단추: 결제가 열리면 채운 단추, 그 전에는 테두리와 ‘곧 열려요’. */
+/** 결제 단추: 살 수 있으면 금빛으로 채운 단추, 아니면 테두리만 (‘곧 열려요’ · 소장함). */
 @Composable
-private fun BuyButton(label: String, product: Billing.Product) {
+private fun Cta(label: String, enabled: Boolean, onClick: () -> Unit) {
     val p = Ink.palette
-    val ctx = LocalContext.current
-    val ready = Billing.ready
     Box(
-        Modifier.fillMaxWidth().heightIn(min = 48.dp).then(if (ready) Modifier.background(p.ink) else Modifier.border(1.dp, p.line))
-            .pressable(enabled = ready) { Billing.buy(ctx, product) },
+        Modifier.padding(top = Tokens.Space.s2).fillMaxWidth().heightIn(min = Tokens.Size.button)
+            .then(if (enabled) Modifier.background(p.gilt) else Modifier.border(1.dp, p.line))
+            .pressable(enabled = enabled, onClick = onClick),
         contentAlignment = Alignment.Center,
-    ) { Text(if (ready) label else stringResource(R.string.buy_soon), style = Type.body.ui(), color = if (ready) p.paper else p.inkSoft) }
+    ) { Text(label, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = if (enabled) p.onFill else p.inkSoft) }
 }

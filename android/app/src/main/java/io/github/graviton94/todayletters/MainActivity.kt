@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         // 도착 알림을 다음 그 시각으로 다시 잡는다 (권한이 없으면 울릴 때 조용히 넘어감)
         runCatching { io.github.graviton94.todayletters.data.Notices.schedule(applicationContext) }
         setContent {
-            val s = remember { AppState(applicationContext, deepLink = fromNotice || recreated, recreated = recreated).also { state = it } }
+            val s = remember { AppState(applicationContext, deepLink = fromNotice || recreated, recreated = recreated).also { state = it; connectBilling(it) } }
             TodayLettersTheme(s.app.theme, s.app.largeText) {
                 Root(s, onExit = { finish() })
             }
@@ -36,5 +36,14 @@ class MainActivity : ComponentActivity() {
     override fun onResume() {
         super.onResume()
         state?.resumed()
+        // 결제: Play 에 붙어 값과 산 것을 다시 읽는다 (밖에서 구독을 해지 · 결제했을 수 있다). Play 가 없어도 조용히 넘어간다.
+        state?.let(::connectBilling)
+    }
+
+    private fun connectBilling(s: AppState) { runCatching { s.billing.connect(s.baseWorks.map { it.series.id }) } }
+
+    override fun onDestroy() {
+        state?.billing?.end()
+        super.onDestroy()
     }
 }

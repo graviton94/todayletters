@@ -784,6 +784,40 @@ class ScreensTest {
     // ── APK 20 피드백: 상점 · 구독 · 나의 기록 · 갤러리 세 묶음 · 알림 시계 바퀴 · 확인 창 ──
     @Test fun purchase() { val s = engineState(); s.reward = null; shot("p01_purchase_light", false, series = s) { io.github.graviton94.todayletters.ui.PurchaseScreen(s) } }
     @Test fun purchaseDark() { val s = engineState(); s.reward = null; shot("p02_purchase_dark", true, series = s) { io.github.graviton94.todayletters.ui.PurchaseScreen(s) } }
+    // ── 판매 정책 (v4 시안): 상점 금테 배너 · 구매 화면 셋 칸 · 나의 기록의 시리즈 진도와 이용권 ──
+    @Test fun shopBanner() { val s = engineState(); s.reward = null; shot("p15_shop_banner_light", false, act = {
+        scrolled { rule.onNodeWithText(ctx.getString(R.string.unlock_all)).performScrollTo() }
+    }, series = s) { io.github.graviton94.todayletters.ui.ShopTab(s) } }
+    @Test fun shopBannerDark() { val s = engineState(); s.reward = null; shot("p16_shop_banner_dark", true, act = {
+        scrolled { rule.onNodeWithText(ctx.getString(R.string.unlock_all)).performScrollTo() }
+    }, series = s) { io.github.graviton94.todayletters.ui.ShopTab(s) } }
+    /** 구매 화면에서 시리즈 소장 칸을 고른 모습 (모차르트에서 들어옴). */
+    @Test fun purchaseSeries() {
+        val s = engineState(); s.reward = null; s.enter("mozart")
+        shot("p17_purchase_series_light", false, act = {
+            rule.onNodeWithText(ctx.getString(R.string.plan_series, s.work("mozart").name[io.github.graviton94.todayletters.core.Lang.KO])).performClick()
+        }, series = s) { io.github.graviton94.todayletters.ui.PurchaseScreen(s) }
+    }
+    /** 빈센트를 소장한 뒤: 소장함 표시, 배너에는 모차르트만. */
+    @Test fun purchaseOwned() {
+        val s = engineState(); s.reward = null
+        s.store.entitlement = io.github.graviton94.todayletters.core.Entitlement.of(listOf("series_vincent"))
+        val t = AppState(ctx)
+        shot("p18_purchase_owned_dark", true, series = t) { io.github.graviton94.todayletters.ui.PurchaseScreen(t) }
+    }
+    /** 구독 중: 이용 중 표시 · Play 스토어에서 구독 관리, 나의 기록의 이용권 줄. */
+    @Test fun purchaseSubscribed() {
+        val s = engineState(); s.reward = null
+        s.store.entitlement = io.github.graviton94.todayletters.core.Entitlement.of(listOf("sub_all"))
+        val t = AppState(ctx)
+        shot("p19_purchase_subscribed_light", false, series = t) { io.github.graviton94.todayletters.ui.PurchaseScreen(t) }
+    }
+    @Test fun recordPass() { val s = engineState(); s.reward = null; shot("p20_record_pass_light", false, act = {
+        scrolled { rule.onNodeWithText(ctx.getString(R.string.unlock_all), substring = true).performScrollTo() }
+    }) { io.github.graviton94.todayletters.ui.RecordScreen(s) } }
+    @Test fun seriesCoverLocked() { val s = engineState(); s.reward = null; shot("p21_cover_locked_light", false, act = {
+        scrolled { rule.onAllNodes(hasText(ctx.getString(R.string.chapter_locked))).onFirst().performScrollTo() }
+    }, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "vincent") } }
     @Test fun recordDark() { val s = engineState(); s.reward = null; shot("p03_record_dark", true) { io.github.graviton94.todayletters.ui.RecordScreen(s) } }
     @Test fun galleryGroups() { val s = engineState(); s.reward = null; shot("p04_gallery_groups_light", false, series = s) { io.github.graviton94.todayletters.ui.GalleryTab(s) } }
     @Test fun galleryEmpty() { val s = state(true); shot("p05_gallery_empty_light", false, series = s) { io.github.graviton94.todayletters.ui.GalleryTab(s) } }
