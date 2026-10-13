@@ -43,6 +43,7 @@ import io.github.graviton94.todayletters.ui.Session
 import io.github.graviton94.todayletters.ui.QuotesScreen
 import io.github.graviton94.todayletters.ui.Artwork
 import io.github.graviton94.todayletters.ui.postcard
+import io.github.graviton94.todayletters.data.DownloadJob
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -901,10 +902,9 @@ class ScreensTest {
     @Test fun predownloadRunning() {
         val s = state(true)
         val ch = s.work("vincent").chapters[1]
-        val D = io.github.graviton94.todayletters.data.DownloadJob
-        D.show(D.State("vincent", ch.id, s.work("vincent").name[io.github.graviton94.todayletters.core.Lang.KO], 23_000_000, 64_000_000, D.Phase.RUNNING))
+        DownloadJob.show(DownloadJob.State("vincent", ch.id, s.work("vincent").name[io.github.graviton94.todayletters.core.Lang.KO], 23_000_000, 64_000_000, DownloadJob.Phase.RUNNING))
         s.downloadAsk = AppState.DownloadAsk(s.downloads.pack("vincent", ch.id)!!, "vincent", ch.id, null, null)
         try { shot("p18_predownload_running_light", false, series = s) { io.github.graviton94.todayletters.ui.DownloadSheet(s, s.downloadAsk!!) } }
-        finally { D.show(null) }
+        finally { DownloadJob.show(null) }
     }
 }
