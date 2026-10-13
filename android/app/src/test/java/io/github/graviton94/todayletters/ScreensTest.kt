@@ -608,6 +608,8 @@ class ScreensTest {
     /** 모차르트에 처음 들어갈 때 (튜토리얼 뒤): 배울 말만 고르는 시트 → 바로 편지 I. */
     @Test fun mozartWelcome() { val s = state(true); shot("m10_welcome", true, series = s.also { it.enter("mozart") }) { io.github.graviton94.todayletters.ui.WelcomeSheet(s, "mozart") } }
     /** 오늘: 편지 카드의 단추 하나 · 장마다 읽은 수 줄의 글자 링크 · 번역 줄. */
+    /** 상점 (v5 통합 그림): 소장품이 없어 ‘갤러리 칸 열기’ 줄이 없다. */
+    @Test fun mozartShop() { val s = state(true); s.enter("mozart"); s.reward = null; shot("m19_shop", true, series = s) { io.github.graviton94.todayletters.ui.ShopTab(s) } }
     @Test fun mozartToday() { val s = state(true); s.enter("mozart"); shot("m11_today", true, series = s) { io.github.graviton94.todayletters.ui.Inbox(s) } }
     /** 편지 도착: 첫 줄이 다 쓰인 뒤 (아래 ‘편지 읽기’ 단추). */
     @Test fun mozartArrivalLine() {

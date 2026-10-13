@@ -10,6 +10,7 @@
   <!-- sources:en:start --> … <!-- sources:en:end --> 사이만 다시 쓴다.
   표시 밖의 글(소개 · 라이선스 묶음 · 권리 문의 · 관계 없음)은 손으로 고친다.
 - 작품마다: 편지 글 · 그림(이미지 하나에 한 줄) · 음악 · 갤러리 소장품 · 초상과 맺음말 그림.
+- 작품 밖: 상점 그림(data/shop.json) · 메달 진열장(data/medals.json).
 - 출처나 라이선스가 빠진 데이터는 지어내지 않고 표준 오류로 알린다 (페이지에는 빠진 채로).
 """
 import glob, json, os, re, sys
@@ -68,6 +69,7 @@ T = {
         "vocab": "낱말 자료",
         "vocab_freq": "낱말 등급(A1–C2): Hermit Dave 의 {fw} (OpenSubtitles 2018 빈도 목록) 순위에서 계산 · CC BY-SA 4.0",
         "vocab_tatoeba": "예문 {n}개: {tt} · CC BY 2.0 FR · 작성자 {a}명 (앱에서 문장마다 작성자를 표기)",
+        "shop": "상점 그림", "shop_note": "상점 줄의 작은 그림입니다. 모든 작품이 같은 그림을 쓰고, 원본의 정사각 부분만 작게 오려 냈습니다.",
         "medals": "메달 진열장", "medals_note": "고대 그리스 · 로마 동전과 붉은 그림 잔의 둥근 그림(톤도)을 오려 낸 메달입니다. 원본 사진은 모두 소장처의 공개 이미지(CC0)입니다.",
     },
     "en": {
@@ -83,6 +85,7 @@ T = {
         "vocab": "Vocabulary",
         "vocab_freq": "Word levels (A1–C2) computed from the ranks in {fw} by Hermit Dave (OpenSubtitles 2018 frequency lists) · CC BY-SA 4.0",
         "vocab_tatoeba": "{n} example sentences from {tt} · CC BY 2.0 FR · by {a} authors (the app credits the author with each sentence)",
+        "shop": "Shop pictures", "shop_note": "The small pictures on the shop rows, shared by every series; each is a small square detail of the original.",
         "medals": "Medal cabinet", "medals_note": "Medals cut out from ancient Greek and Roman coins and the round interior paintings (tondi) of red-figure cups. Every source photo is an open-access image (CC0) from the holding museum.",
     },
 }
@@ -434,11 +437,33 @@ def medals_block(lang):
             f'<p class="soft">{t["medals_note"]}</p>', "<ul>"] + items + ["</ul>"]
 
 
+def shop_block(lang):
+    """data/shop.json 의 상점 그림 출처: 그림 하나에 한 줄."""
+    path = os.path.join(DATA, "shop.json")
+    if not os.path.exists(path):
+        return []
+    t = T[lang]
+    items = []
+    for pc in load(path).get("pictures", []):
+        for f in ("museum", "objectID", "license", "url"):
+            if not pc.get(f):
+                warn(f"shop: {pc.get('image', '?')} {f} 없음")
+        head = [f"<b>{escape((pc.get('title') or {}).get(lang, ''))}</b>"] + [escape(pc[k]) for k in ("artist", "date") if pc.get(k)]
+        soft = [escape(pc.get("museum", "")), escape(pc.get("objectID", "")), escape(pc.get("license", "")),
+                escape((pc.get("detail") or {}).get(lang, "")), link(pc.get("url", ""))]
+        items.append(f'<li>{" · ".join(head)}<br><span class="soft">{" · ".join(x for x in soft if x)}</span></li>')
+    if not items:
+        return []
+    return [f'<h2 id="shop-{lang}">{t["shop"]} ({t["count"].format(n=len(items))})</h2>',
+            f'<p class="soft">{t["shop_note"]}</p>', "<ul>"] + items + ["</ul>"]
+
+
 def render(all_series, lang):
     head = f"<!-- 자동 생성: scripts/site_sources.py (앱 저장소 data/). 이 표시 사이는 손으로 고치지 말 것. -->"
     body = [head]
     for S in all_series:
         body += block(S, lang)
+    body += shop_block(lang)
     body += medals_block(lang)
     return "\n".join(body)
 

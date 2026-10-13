@@ -383,6 +383,20 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
                 }
             } }
 
+            // 상점 줄의 작은 그림 (모든 시리즈가 같은 그림, data/shop.json): 작품 · 작가 · 때 / 소장처 · 번호 · 라이선스 · 부분 / 주소
+            val shopArt = androidx.compose.runtime.remember { io.github.graviton94.todayletters.data.ShopArt.all(ctx) }
+            if (shopArt.isNotEmpty()) {
+                Caps(stringResource(R.string.credits_shop_h), p.giltText)
+                shopArt.forEach { pc ->
+                    Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Text(listOf(pc.title(ui), pc.artist, pc.date).filter { it.isNotBlank() }.joinToString(" · "),
+                            style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+                        Text(listOf(pc.museum, pc.objectId, pc.license, pc.detail(ui)).filter { it.isNotBlank() }.joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
+                        if (pc.url.isNotEmpty()) Text(pc.url, style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+                    }
+                }
+            }
+
             // 메달 진열장: 메달이 된 고대 유물 (소장처 · 소장품 번호 · 라이선스, data/medals.json)
             Caps(stringResource(R.string.credits_medals_h), p.giltText)
             Text(stringResource(R.string.credits_medals_note), style = Type.small.ui(), color = p.inkSoft)

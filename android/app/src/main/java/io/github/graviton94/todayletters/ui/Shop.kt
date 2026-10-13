@@ -61,6 +61,7 @@ import io.github.graviton94.todayletters.core.Price
 import io.github.graviton94.todayletters.data.Billing
 import io.github.graviton94.todayletters.data.seriesPlan
 import io.github.graviton94.todayletters.data.Frames
+import io.github.graviton94.todayletters.data.ShopArt
 import io.github.graviton94.todayletters.design.Faces
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
@@ -69,6 +70,8 @@ import io.github.graviton94.todayletters.design.Type
 /**
  * 상점 (작품 안 넷째 이름표, v4 시안): 이름 아래 가진 화폐 한 줄 (92 우표), 아래로 작은 그림 · 이름 · 한 줄 · 금빛 값의 줄 —
  * 갤러리 칸 열기 · 액자 바꾸기 · 내일 편지 미리 열기 · 쉼표 · 카드 테두리. 설명 글은 두지 않는다.
+ * 그림 (v5 통합 시안): 미리 열기 · 쉼표 · 카드 테두리는 모든 시리즈가 같은 그림 ([ShopArt]), 갤러리 칸은 시리즈 소장품
+ * (소장품이 없는 시리즈는 그 줄을 숨김), 액자는 가진 작품을 금 액자에.
  * 맨 아래 금테 배너 ‘모든 편지 열기’ → 구매 화면 ([Route.Purchase]).
  */
 @Composable
@@ -101,8 +104,9 @@ fun ShopTab(s: AppState) {
                 Text("${s.wallet(id).balance}", style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.giltText)
                 Text(cur, style = Type.small.ui(), color = p.inkSoft)
             }
-            val items = listOf(
-                ShopItem(Spend.PICK_PIECE, stringResource(R.string.spend_pick), stringResource(R.string.spend_pick_d)) {
+            val items = listOfNotNull(
+                // 갤러리 칸 열기: 시리즈의 소장품 그림. 소장품이 없는 시리즈 (모차르트) 에서는 줄을 숨긴다
+                if (w.kit.collection.isEmpty()) null else ShopItem(Spend.PICK_PIECE, stringResource(R.string.spend_pick), stringResource(R.string.spend_pick_d)) {
                     if (previewPick != null) AssetImage(previewPick.image, Modifier.fillMaxSize(), sample = 8) else ShopGlyph(Spend.PICK_PIECE)
                 },
                 ShopItem(Spend.FRAME, stringResource(R.string.spend_frame), stringResource(R.string.spend_frame_d)) {
@@ -111,10 +115,10 @@ fun ShopTab(s: AppState) {
                         if (framed != null) Image(framed, null, Modifier.fillMaxSize(), contentScale = ContentScale.Fit) else ShopGlyph(Spend.FRAME)
                     }
                 },
-                ShopItem(Spend.EARLY_LETTER, stringResource(R.string.spend_early), null) { ShopGlyph(Spend.EARLY_LETTER) },
-                ShopItem(Spend.REST, stringResource(R.string.spend_rest), stringResource(R.string.spend_rest_d, s.rests, Streak.MAX_RESTS)) { ShopGlyph(Spend.REST) },
+                ShopItem(Spend.EARLY_LETTER, stringResource(R.string.spend_early), null) { SharedThumb(Spend.EARLY_LETTER) { ShopGlyph(Spend.EARLY_LETTER) } },
+                ShopItem(Spend.REST, stringResource(R.string.spend_rest), stringResource(R.string.spend_rest_d, s.rests, Streak.MAX_RESTS)) { SharedThumb(Spend.REST) { ShopGlyph(Spend.REST) } },
                 ShopItem(Spend.BORDER, stringResource(R.string.spend_border), stringResource(R.string.spend_border_d)) {
-                    BorderSwatch(Border.GILT, Modifier.size(width = 34.dp, height = 26.dp))
+                    SharedThumb(Spend.BORDER) { BorderSwatch(Border.GILT, Modifier.size(width = 34.dp, height = 26.dp)) }
                 },
             )
             Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
@@ -178,6 +182,14 @@ private fun ShopRow(title: String, sub: String?, cost: Int, cur: String, can: Bo
             contentAlignment = Alignment.Center,
         ) { Text("$cost", style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = FontWeight.SemiBold), color = if (can) p.onFill else p.hideInk, maxLines = 1) }
     }
+}
+
+/** 모든 시리즈가 같은 상점 그림 (미리 열기 · 쉼표 · 카드 테두리, data/shop.json). 데이터가 없으면 [fallback]. */
+@Composable
+private fun SharedThumb(sp: Spend, fallback: @Composable () -> Unit) {
+    val ctx = LocalContext.current
+    val pic = remember(sp) { ShopArt.of(ctx, sp) }
+    if (pic != null) AssetImage(pic.image, Modifier.fillMaxSize(), sample = 1) else fallback()
 }
 
 /** 그림이 없는 상점 카드의 작은 그림: 편지 봉투와 봉랍 (미리 열기) · 이번 주 점 하나가 빈 고리 (쉼표). */

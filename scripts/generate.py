@@ -10,6 +10,7 @@
 - data/<작품>/series.json + 챕터 + 어휘 자료(lexicon · gloss · daily[_en|_ko].json) → android/app/src/main/assets/letters/<작품>/
 - remote/ (앱 밖에 두는 낭독 · 그림 · 곡) → android/app/src/main/assets/letters/<작품>/remote.json
 - data/medals.json (메달 진열장 · 레벨) → android/app/src/main/assets/medals/medals.json
+- data/shop.json (상점 줄의 작은 그림과 출처) → android/app/src/main/assets/shop/shop.json
 """
 import re, glob, json, os, sys
 from xml.sax.saxutils import escape
@@ -234,6 +235,18 @@ def medals():
     return {os.path.join(APP, "assets", "medals", "medals.json"): open(src, encoding="utf-8").read()}
 
 
+def shop():
+    """data/shop.json (상점 줄의 작은 그림 · 출처) → assets/shop/shop.json. 그림은 이미 assets/shop/<image> 에 있다."""
+    src = os.path.join(ROOT, "data", "shop.json")
+    if not os.path.exists(src):
+        return {}
+    doc = json.load(open(src, encoding="utf-8"))
+    for pc in doc.get("pictures", []):
+        if not os.path.exists(os.path.join(APP, "assets", "shop", pc.get("image", ""))):
+            sys.exit(f"data/shop.json: assets/shop/{pc.get('image')} 없음")
+    return {os.path.join(APP, "assets", "shop", "shop.json"): open(src, encoding="utf-8").read()}
+
+
 def check_spots(src, chapter):
     """그림 속 산책: 자리의 낱말이 그 자리의 '편지 속 문장'에 정말 나오는지 (세 언어 모두). 어긋나면 멈춘다."""
     bad = []
@@ -255,7 +268,7 @@ def check_spots(src, chapter):
 
 def main():
     check = "--check" in sys.argv
-    files = {**tokens(), **strings(), **letters(), **remote(), **medals()}
+    files = {**tokens(), **strings(), **letters(), **remote(), **medals(), **shop()}
     stale = []
     for path, text in files.items():
         old = open(path, encoding="utf-8").read() if os.path.exists(path) else None

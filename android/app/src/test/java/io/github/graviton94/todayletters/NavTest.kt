@@ -2,6 +2,8 @@ package io.github.graviton94.todayletters
 
 import android.content.Context
 import androidx.activity.ComponentActivity
+import androidx.compose.ui.test.assertDoesNotExist
+import androidx.compose.ui.test.assertExists
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -267,6 +269,16 @@ class NavTest {
         assertFalse(s.billing.available(io.github.graviton94.todayletters.core.Plan.Yearly))
         s.backTo(Route.Shop)
         s.backTo(Route.Library)
+    }
+
+    /** 상점 그림 (v5): 소장품이 없는 시리즈 (모차르트) 에서는 ‘갤러리 칸 열기’ 줄이 없고, 고흐에는 있다. */
+    @Test fun shopHidesPickWithoutCollection() {
+        val s = state()
+        s.enter("mozart")
+        assertTrue(s.currentWork.kit.collection.isEmpty())
+        rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { io.github.graviton94.todayletters.ui.ShopTab(s) } }
+        rule.onNodeWithText(ctx.getString(R.string.spend_pick)).assertDoesNotExist()
+        rule.onNodeWithText(ctx.getString(R.string.spend_rest)).assertExists()
     }
 
     /** 무료는 프롤로그 + I · II장. III장의 편지를 열면 구매 화면, 뒤로 가면 들어온 곳. 소장하면 (저장된 이용권) 열린다. */

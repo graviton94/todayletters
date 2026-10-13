@@ -1,0 +1,41 @@
+{
+ "_doc": "상점 줄의 작은 그림 (모든 시리즈가 같은 그림). 이미지는 assets/shop/<image> (132×132 WebP, 원본의 정사각 부분). spend 는 core Spend 이름. 갤러리 칸 열기 · 액자 바꾸기는 시리즈 그림을 그대로 써서 여기 없다. 출처는 앱의 이미지 출처 화면과 사이트(scripts/site_sources.py)에 그대로 나간다.",
+ "pictures": [
+  {
+   "spend": "EARLY_LETTER",
+   "image": "vermeer-letter.webp",
+   "title": {"ko": "편지를 읽는 푸른 옷의 여인", "en": "Woman Reading a Letter"},
+   "artist": "Johannes Vermeer",
+   "date": "c. 1663",
+   "museum": "Rijksmuseum, Amsterdam",
+   "objectID": "SK-C-251",
+   "license": "Public Domain Mark 1.0",
+   "url": "https://www.rijksmuseum.nl/en/collection/SK-C-251",
+   "detail": {"ko": "부분 · 위키미디어 공용의 사진", "en": "detail · photo from Wikimedia Commons"}
+  },
+  {
+   "spend": "REST",
+   "image": "rest-children.webp",
+   "title": {"ko": "음악을 연주하는 다섯 아이", "en": "Five children making music"},
+   "artist": "",
+   "date": "n.d.",
+   "museum": "Rijksmuseum, Amsterdam",
+   "objectID": "RP-P-1878-A-1795",
+   "license": "CC0",
+   "url": "https://www.rijksmuseum.nl/en/collection/RP-P-1878-A-1795",
+   "detail": {"ko": "부분", "en": "detail"}
+  },
+  {
+   "spend": "BORDER",
+   "image": "border-corner.webp",
+   "title": {"ko": "도금 조각 액자 (모서리)", "en": "Carved gilt frame (corner)"},
+   "artist": "",
+   "date": "",
+   "museum": "Rijksmuseum, Amsterdam",
+   "objectID": "RP-L-513",
+   "license": "CC0",
+   "url": "https://www.rijksmuseum.nl/en/collection/RP-L-513",
+   "detail": {"ko": "부분", "en": "detail"}
+  }
+ ]
+}
