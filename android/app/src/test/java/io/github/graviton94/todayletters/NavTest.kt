@@ -428,4 +428,28 @@ class NavTest {
         io.github.graviton94.todayletters.data.CrashLog.clear(ctx)
         assertEquals(0, io.github.graviton94.todayletters.data.CrashLog.count(ctx))
     }
+
+    /**
+     * 미리 받기: 받는 중이면 시트는 진행 (23 / 64MB) 과 ‘멈추기’. 멈추면 받은 데부터 다시 받기. 시트를 닫아도 받기 상태는 남는다 (알림 · 서비스가 이어서).
+     */
+    @Test fun downloadSheetStopAndResume() {
+        val s = state()
+        val ch = s.work("vincent").chapters[1]
+        val pack = s.downloads.pack("vincent", ch.id) ?: return
+        val D = io.github.graviton94.todayletters.data.DownloadJob
+        D.show(D.State("vincent", ch.id, "Vincent", 23_000_000, 64_000_000, D.Phase.RUNNING))
+        s.downloadAsk = AppState.DownloadAsk(pack, "vincent", ch.id, null, null)
+        rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { s.downloadAsk?.let { io.github.graviton94.todayletters.ui.DownloadSheet(s, it) } } }
+        rule.onNodeWithText("23 / 64MB", substring = true).assertExists()
+        rule.onNodeWithText(ctx.getString(R.string.dl_pause)).performClick()
+        rule.waitForIdle()
+        assertEquals(D.Phase.STOPPED, D.state?.phase)
+        rule.onNodeWithText(ctx.getString(R.string.dl_retry, io.github.graviton94.todayletters.ui.sizeLabel(s.downloads.remaining(pack)))).assertExists()
+        // 뒤로: 시트만 닫힌다
+        rule.runOnUiThread { rule.activity.onBackPressedDispatcher.onBackPressed() }
+        rule.waitForIdle()
+        assertEquals(null, s.downloadAsk)
+        assertEquals(D.Phase.STOPPED, D.state?.phase)
+        D.show(null)
+    }
 }

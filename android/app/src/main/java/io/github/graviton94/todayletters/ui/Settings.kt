@@ -130,8 +130,10 @@ fun SettingsScreen(s: AppState) {
             }
             // 저장 공간 (v19): 받아 둔 낭독 · 남은 것 모두 받기 · 지우기
             Group(stringResource(R.string.set_storage)) {
-                val stored = remember(s.version) { s.downloads.stored() }
-                val ahead = remember(s.version) { s.works.mapNotNull { wk -> s.downloads.all(wk.series.id, s.chapterIdOpen(wk.series.id))?.takeIf { !s.downloads.ready(it) } } }
+                // 받기가 뒤에서 끝나도 (앱을 닫았다 열어도) 새로 센다
+                val gen = io.github.graviton94.todayletters.data.AssetFiles.generation
+                val stored = remember(s.version, gen) { s.downloads.stored() }
+                val ahead = remember(s.version, gen) { s.works.mapNotNull { wk -> s.downloads.all(wk.series.id, s.chapterIdOpen(wk.series.id))?.takeIf { !s.downloads.ready(it) } } }
                 val left = ahead.sumOf { s.downloads.remaining(it) }
                 SetRow(stringResource(R.string.set_storage_row), below = {
                     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {

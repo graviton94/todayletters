@@ -9,6 +9,7 @@ import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import io.github.graviton94.todayletters.core.Fetching
 import org.json.JSONObject
 import java.io.File
 import java.net.HttpURLConnection
@@ -66,8 +67,11 @@ class Downloads(private val ctx: Context) {
     /** 이 장을 다 받아 두었는가. */
     fun ready(pack: Pack) = pack.parts.all { file(it).length() == it.size }
 
-    /** 아직 받을 양 (바이트). */
-    fun remaining(pack: Pack) = pack.parts.filter { file(it).length() != it.size }.sumOf { it.size }
+    /** 받다 만 파일 (files/<경로>.part) 의 크기: 다시 받을 때 여기서부터 잇는다. */
+    private fun partial(p: Part): Long = File(file(p).path + ".part").length().takeIf { it in 1 until p.size } ?: 0L
+
+    /** 아직 받을 양 (바이트, 받다 만 것은 뺀다). */
+    fun remaining(pack: Pack) = pack.parts.filter { file(it).length() != it.size }.sumOf { it.size - partial(it) }
 
     /** 지금 모바일 데이터로 연결돼 있는가 (와이파이가 아니면 안내에 적는다). */
     fun onMobileData(): Boolean = runCatching {
@@ -76,15 +80,22 @@ class Downloads(private val ctx: Context) {
         caps.hasTransport(android.net.NetworkCapabilities.TRANSPORT_CELLULAR) && !caps.hasTransport(android.net.NetworkCapabilities.TRANSPORT_WIFI)
     }.getOrDefault(false)
 
+    /** 지금 인터넷에 연결돼 있는가 (끊겼으면 받기는 기다렸다가 잇는다). */
+    fun online(): Boolean = runCatching {
+        val cm = ctx.getSystemService(android.net.ConnectivityManager::class.java)
+        cm.getNetworkCapabilities(cm.activeNetwork)?.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+    }.getOrDefault(true)
+
     /**
-     * 받기. 이미 받은 파일은 건너뛴다. [progress] 는 (받은 바이트, 전체 바이트).
-     * 코루틴을 취소하면 (뒤로 · 그만 받기) 받다 만 파일은 지우고 멈춘다. 실패하면 예외.
+     * 받기. 이미 받은 파일은 건너뛰고, 받다 만 파일(.part)은 서버가 이어 받기(HTTP Range)를 받아 주면 그 뒤부터, 아니면 그 파일만 처음부터.
+     * [progress] 는 (받은 바이트, 전체 바이트). 코루틴을 취소하거나 (멈추기) 인터넷이 끊겨 실패해도 받다 만 파일은 남겨 둔다 (다음에 잇는다).
+     * 실패하면 예외.
      */
     suspend fun fetch(pack: Pack, progress: (Long, Long) -> Unit) = withContext(Dispatchers.IO) {
         val base = load(pack.series)?.first ?: error("no base")
         val todo = pack.parts.filter { file(it).length() != it.size }
         val total = pack.bytes
-        val done = AtomicLong(total - todo.sumOf { it.size })
+        val done = AtomicLong(total - todo.sumOf { it.size - partial(it) })
         progress(done.get(), total)
         val lock = Mutex()
         // 받은 만큼은 (멈추거나 실패해도) 화면이 다시 찾도록, 끝에 한 번 알린다
@@ -96,11 +107,26 @@ class Downloads(private val ctx: Context) {
                         ensureActive()
                         val out = file(p); out.parentFile?.mkdirs()
                         val tmp = File(out.path + ".part")
-                        val conn = (URL(base + p.path).openConnection() as HttpURLConnection).apply { connectTimeout = 15_000; readTimeout = 20_000 }
+                        // 다 받아 놓고 이름만 못 바꾼 것 / 너무 큰 것
+                        if (tmp.length() == p.size && tmp.renameTo(out)) { lock.withLock { progress(done.addAndGet(p.size), total) }; return@forEach }
+                        if (tmp.length() > p.size) tmp.delete()
+                        var have = tmp.length()
+                        val conn = (URL(base + p.path).openConnection() as HttpURLConnection).apply {
+                            connectTimeout = 15_000; readTimeout = 20_000
+                            if (have > 0) setRequestProperty("Range", "bytes=$have-")
+                        }
                         try {
-                            if (conn.responseCode != 200) error("HTTP ${conn.responseCode}")
+                            val code = conn.responseCode
+                            when (Fetching.resume(have, code)) {
+                                Fetching.Resume.APPEND -> Unit
+                                // 서버가 이어 받기를 모른다: 이 파일만 처음부터
+                                Fetching.Resume.RESTART -> { if (have > 0) done.addAndGet(-have); have = 0 }
+                                // 받다 만 것이 서버 파일과 맞지 않는다: 버리고 다음 번에 처음부터
+                                Fetching.Resume.DISCARD -> { tmp.delete(); done.addAndGet(-have); error("HTTP 416") }
+                                Fetching.Resume.FAIL -> error("HTTP $code")
+                            }
                             conn.inputStream.use { inp ->
-                                tmp.outputStream().use { o ->
+                                java.io.FileOutputStream(tmp, have > 0).use { o ->
                                     val buf = ByteArray(16 * 1024)
                                     while (true) {
                                         ensureActive()
@@ -111,10 +137,9 @@ class Downloads(private val ctx: Context) {
                                     }
                                 }
                             }
-                            if (tmp.length() != p.size) error("size")
-                            tmp.renameTo(out)
-                        } catch (e: Throwable) {
-                            tmp.delete(); throw e
+                            if (tmp.length() > p.size) { tmp.delete(); error("size") }
+                            if (tmp.length() != p.size) error("short")
+                            if (!tmp.renameTo(out)) error("rename")
                         } finally { conn.disconnect() }
                     }
                 }

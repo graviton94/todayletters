@@ -705,7 +705,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         version++
     }
     /** 받아 둔 낭독을 모두 지운다 (설정 › 저장 공간). */
-    fun clearDownloads() { downloads.clear(); version++ }
+    fun clearDownloads() { io.github.graviton94.todayletters.data.DownloadJob.stop(); downloads.clear(); version++ }
     /** 미리 받기: 아직 도착하지 않은 장도 (무료 장 · 소장 · 구독한 장). [chapter] 가 null 이면 모든 장. */
     fun predownload(series: String, chapter: String?) {
         val pack = if (chapter == null) downloads.all(series, chapterIdOpen(series)) else downloads.pack(series, chapter)?.takeIf { chapterIdOpen(series)(chapter) }

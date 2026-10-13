@@ -195,7 +195,7 @@ class NarrationService : Service() {
                     // 잠깐 (전화 · 알림음 · 길 안내 음성): 멈췄다가 끝나면 저절로 이어서
                     AudioManager.AUDIOFOCUS_LOSS_TRANSIENT, AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK ->
                         if (!Playback.paused) { resumeOnGain = true; Playback.pause() }
-                    // 다른 앱이 음악 · 영상을 틂: 멈춤, 알림과 세션은 남김. ▶ 를 누르면 그 문장부터 (소리 차례를 다시 받고)
+                    // 다른 앱이 음악 · 영상을 틀었다: 멈춤, 알림과 세션은 남김. ▶ 를 누르면 그 문장부터 (소리 차례를 다시 받고)
                     AudioManager.AUDIOFOCUS_LOSS -> { resumeOnGain = false; Playback.pause() }
                     AudioManager.AUDIOFOCUS_GAIN -> if (resumeOnGain) { resumeOnGain = false; Playback.play() }
                 }
