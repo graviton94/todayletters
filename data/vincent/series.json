@@ -19,6 +19,8 @@
  },
  "portrait": "vincent.webp",
  "credit": "Self-Portrait, 1887 · Art Institute of Chicago · CC0",
+ "product": "series_vincent",
+ "tier": 2,
  "title": {
   "fr": "Lettres de Vincent",
   "en": "Letters from Vincent",
@@ -38,7 +40,7 @@
   {
    "id": "II",
    "file": "chapter2.json",
-   "free": false,
+   "free": true,
    "title": {
     "fr": "Les tournesols",
     "en": "The Sunflowers",

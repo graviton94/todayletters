@@ -125,6 +125,7 @@ def letters():
         meta = json.load(open(meta_path, encoding="utf-8"))
         dest = os.path.join(APP, "assets", "letters", sid)
         out[os.path.join(dest, "series.json")] = open(meta_path, encoding="utf-8").read()
+        check_sale(folder, sid, meta)
         extra = [meta[k] for k in ("prologue", "outro") if k in meta and "file" in meta[k]]
         for ch in meta["chapters"] + extra:
             src = os.path.join(folder, ch["file"])
@@ -142,6 +143,32 @@ def letters():
                 if re.fullmatch(base + r"(_[a-z]{2})?\.json", name):
                     out[os.path.join(dest, name)] = open(src, encoding="utf-8").read()
     return out
+
+
+# 시리즈 소장 값 (docs/billing.md): 편지 40통 미만 1 · 40–70통 2 · 70통 넘거나 기능이 더 붙으면 ("extra": true) 3
+TIER_WON = {1: 1900, 2: 2900, 3: 3900}
+
+
+def check_sale(folder, sid, meta):
+    """판매 정책과 맞는가: 무료는 I · II장뿐, "product" 는 series_<작품>, "tier" 는 편지 수 (프롤로그 · 맺음 편지 포함) 에 맞게."""
+    def count(name):
+        path = os.path.join(folder, name)
+        if not os.path.exists(path):
+            path = path.replace(".json", ".draft.json")
+        return len(json.load(open(path, encoding="utf-8")).get("letters", [])) if os.path.exists(path) else 0
+    bad = []
+    free = [bool(c.get("free")) for c in meta["chapters"]]
+    if free != [i < 2 for i in range(len(free))]:
+        bad.append(f"무료 장은 I · II장뿐이어야 해요: {free}")
+    if meta.get("product") != f"series_{sid}":
+        bad.append(f'"product" 는 "series_{sid}" 여야 해요')
+    n = sum(count(meta[k]["file"]) for k in ("prologue",) if k in meta and "file" in meta[k]) + sum(count(c["file"]) for c in meta["chapters"])
+    n += 1 if "outro" in meta and "file" in meta["outro"] and os.path.exists(os.path.join(folder, meta["outro"]["file"])) else 0
+    want = 3 if meta.get("extra") or n > 70 else 2 if n >= 40 else 1
+    if meta.get("tier") != want:
+        bad.append(f'"tier" 는 {want} (₩{TIER_WON[want]:,}) 여야 해요: 편지 {n}통')
+    if bad:
+        sys.exit(f"data/{sid}/series.json: 판매 정책과 어긋남\n  " + "\n  ".join(bad))
 
 
 def remote():
