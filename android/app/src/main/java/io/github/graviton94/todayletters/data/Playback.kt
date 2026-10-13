@@ -25,11 +25,20 @@ import androidx.compose.runtime.setValue
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import io.github.graviton94.todayletters.R
+import androidx.compose.runtime.snapshotFlow
+import androidx.core.app.ServiceCompat
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
 
 /**
  * 편지 낭독을 이어서 들려주는 동안의 상태. 편지 방이 낭독을 시작하면 [start], 끝나거나 방을 나가면 [end].
  * 그동안 [NarrationService] 가 알림창 · 잠금 화면 · 이어폰 단추에 재생/멈춤 · 이전/다음 문장을 걸어 두어서,
  * 앱을 벗어나도 낭독이 이어지고 어디서든 멈출 수 있다. 짧은 소리(낱말 발음 등)는 여기에 오지 않는다.
+ *
+ * 최근 앱에서 앱을 밀어 닫으면 화면(편지 방)은 사라지지만 낭독은 이어진다: 방이 사라지기 직전에 남은 문장을 [handOff] 로 넘기고,
+ * 그 뒤로는 여기(앱 프로세스)가 이 편지 끝까지 읽는다. 알림의 ✕ 로 끈다.
  */
 object Playback {
     /** 알림에 보일 것: 제목(날짜 · 장소), 부제(누가 누구에게 · 장), 그림(assets 경로), 몇 번째 문장 / 몇 문장. */
@@ -47,11 +56,20 @@ object Playback {
     /** 사용자가 (또는 전화 · 다른 앱 소리 때문에) 멈춰 둔 상태. 편지 방은 다음 문장으로 가기 전에 풀리기를 기다린다. */
     var paused by mutableStateOf(false)
         private set
+    /** 화면 없이 (앱을 밀어 닫은 뒤) 이 편지 끝까지 여기서 읽는 중. */
+    var detached = false
+        private set
     private var controls: Controls? = null
     private var narrator: Narrator? = null
     private var listener: (() -> Unit)? = null
+    /** 다시 재생하기 전에 소리 차례(오디오 포커스)를 다시 받는다 (다른 앱이 음악을 틀어 멈췄던 경우). 못 받으면 false. 서비스가 건다. */
+    internal var focus: (() -> Boolean)? = null
+    private val main = kotlinx.coroutines.MainScope()
+    private var tail: kotlinx.coroutines.Job? = null
 
     fun start(ctx: Context, narrator: Narrator, now: Now, controls: Controls) {
+        // 밀어 닫은 뒤 이어 읽던 것이 있으면 새 방이 가져간다
+        if (detached) { tail?.cancel(); tail = null; detached = false; this.narrator?.takeIf { it !== narrator }?.stop() }
         this.narrator = narrator; this.controls = controls; this.now = now; paused = false
         runCatching { ContextCompat.startForegroundService(ctx, Intent(ctx, NarrationService::class.java)) }
         listener?.invoke()
@@ -64,18 +82,72 @@ object Playback {
 
     fun end(ctx: Context) {
         if (now == null) return
-        now = null; controls = null; paused = false
+        val wasDetached = detached
+        now = null; controls = null; paused = false; detached = false
+        tail?.cancel(); tail = null
+        if (wasDetached) narrator?.stop()
         runCatching { ctx.stopService(Intent(ctx, NarrationService::class.java)) }
     }
 
     fun pause() { if (now == null) return; paused = true; narrator?.pause(); listener?.invoke() }
-    fun play() { if (now == null) return; paused = false; narrator?.resume(); listener?.invoke() }
+    fun play() {
+        if (now == null) return
+        if (focus?.invoke() == false) return
+        paused = false; narrator?.resume(); listener?.invoke()
+    }
     fun toggle() = if (paused) play() else pause()
     fun next() { if (paused) play(); controls?.next() }
     fun prev() { if (paused) play(); controls?.prev() }
     fun stop() { controls?.stop() }
 
     internal fun listen(l: (() -> Unit)?) { listener = l }
+
+    /**
+     * 화면이 사라질 때 (최근 앱에서 밀어 닫음): [files] 의 [at] 번째 문장부터 끝까지 여기서 이어 읽는다.
+     * 지금 문장이 소리 나는 중이면 끊지 않고 끝나기를 기다린 뒤 다음으로. [heard] 는 들은 문장 (끝까지 들으면 -1).
+     * 다른 소리가 이 재생기를 가져가면 (앱을 다시 열어 낱말을 들음 등) 거기서 멈춘다.
+     */
+    fun handOff(ctx: Context, files: List<String>, at: Int, speed: Float, heard: ((Int) -> Unit)?) {
+        val n = narrator ?: return
+        if (now == null || detached || at !in files.indices) return
+        val app = ctx.applicationContext
+        detached = true
+        val jump = intArrayOf(0)
+        controls = object : Controls {
+            override fun next() { jump[0] = 1; n.stop() }
+            override fun prev() { jump[0] = if (n.position() > 1500) 2 else -1; n.stop() }
+            override fun stop() { end(app) }
+        }
+        // 지금 문장: 소리 나는 중이면 (멈춤 포함) 끝나기를 기다린다
+        val current = kotlinx.coroutines.CompletableDeferred<Unit>()
+        val playing = n.now == files[at]
+        if (playing) n.follow { current.complete(Unit) }
+        tail = main.launch {
+            var k = at
+            var first = playing
+            var finished = false
+            while (true) {
+                if (k >= files.size) { finished = true; break }
+                if (!first) {
+                    snapshotFlow { paused }.first { !it }
+                    update(k); heard?.invoke(k)
+                    jump[0] = 0
+                    suspendCancellableCoroutine<Unit> { c ->
+                        val done = { if (c.isActive) c.resume(Unit) }
+                        if (!n.play(files[k], speed) { done() }) done()
+                    }
+                } else current.await()
+                first = false
+                // 다른 소리가 재생기를 가져갔다 → 여기서 그만 (그 소리는 그대로)
+                if (n.now != null) break
+                k = when (jump[0]) { -1 -> (k - 1).coerceAtLeast(0); 2 -> k; else -> k + 1 }
+                jump[0] = 0
+            }
+            if (finished) heard?.invoke(-1)
+            tail = null
+            if (detached) { detached = false; end(app) }
+        }
+    }
 }
 
 /**
@@ -85,12 +157,17 @@ object Playback {
 class NarrationService : Service() {
     private lateinit var session: MediaSessionCompat
     private val am by lazy { getSystemService(AudioManager::class.java) }
+    private val nm by lazy { getSystemService(NotificationManager::class.java) }
     private var focus: AudioFocusRequest? = null
+    /** 전화 · 알림음 · 길 안내처럼 잠깐 소리 차례를 빼앗겨 멈춘 것: 돌려받으면 저절로 이어서. */
     private var resumeOnGain = false
+    /** 지금 포그라운드(알림을 밀어 지울 수 없음)인가. 사용자가 멈춰 두면 내려와서 알림은 남기되 지울 수 있게 한다. */
+    private var foreground = false
     private var art: Pair<String, Bitmap?>? = null
 
     private val noisy = object : BroadcastReceiver() {
-        override fun onReceive(c: Context?, i: Intent?) { if (i?.action == AudioManager.ACTION_AUDIO_BECOMING_NOISY) Playback.pause() }
+        // 이어폰이 뽑힘: 멈춤 (알림은 남김, 저절로 다시 틀지 않음)
+        override fun onReceive(c: Context?, i: Intent?) { if (i?.action == AudioManager.ACTION_AUDIO_BECOMING_NOISY) { resumeOnGain = false; Playback.pause() } }
     }
 
     override fun onBind(intent: Intent?): IBinder? = null
@@ -99,8 +176,8 @@ class NarrationService : Service() {
         super.onCreate()
         session = MediaSessionCompat(this, "narration").apply {
             setCallback(object : MediaSessionCompat.Callback() {
-                override fun onPlay() = Playback.play()
-                override fun onPause() = Playback.pause()
+                override fun onPlay() { resumeOnGain = false; Playback.play() }
+                override fun onPause() { resumeOnGain = false; Playback.pause() }
                 override fun onSkipToNext() = Playback.next()
                 override fun onSkipToPrevious() = Playback.prev()
                 override fun onStop() = Playback.stop()
@@ -111,44 +188,82 @@ class NarrationService : Service() {
         ContextCompat.registerReceiver(this, noisy, IntentFilter(AudioManager.ACTION_AUDIO_BECOMING_NOISY), ContextCompat.RECEIVER_NOT_EXPORTED)
         val req = AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN)
             .setAudioAttributes(AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(AudioAttributes.CONTENT_TYPE_SPEECH).build())
+            // 말소리라 줄여서 겹쳐 듣기보다 잠깐 멈추는 게 낫다 (돌려받으면 이어서)
+            .setWillPauseWhenDucked(true)
             .setOnAudioFocusChangeListener { change ->
                 when (change) {
+                    // 잠깐 (전화 · 알림음 · 길 안내 음성): 멈췄다가 끝나면 저절로 이어서
                     AudioManager.AUDIOFOCUS_LOSS_TRANSIENT, AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK ->
                         if (!Playback.paused) { resumeOnGain = true; Playback.pause() }
+                    // 다른 앱이 음악 · 영상을 틂: 멈춤, 알림과 세션은 남김. ▶ 를 누르면 그 문장부터 (소리 차례를 다시 받고)
                     AudioManager.AUDIOFOCUS_LOSS -> { resumeOnGain = false; Playback.pause() }
                     AudioManager.AUDIOFOCUS_GAIN -> if (resumeOnGain) { resumeOnGain = false; Playback.play() }
                 }
             }.build()
         focus = req
         am.requestAudioFocus(req)
+        Playback.focus = { am.requestAudioFocus(req) != AudioManager.AUDIOFOCUS_REQUEST_FAILED }
         Playback.listen { refresh() }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         when (intent?.action) {
-            ACT_TOGGLE -> Playback.toggle()
+            ACT_TOGGLE -> { resumeOnGain = false; Playback.toggle() }
             ACT_NEXT -> Playback.next()
             ACT_PREV -> Playback.prev()
             ACT_STOP -> Playback.stop()
         }
-        val n = notification()
-        if (Build.VERSION.SDK_INT >= 29) startForeground(ID, n, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK) else startForeground(ID, n)
-        if (Playback.now == null) stopSelf()
+        if (Playback.now == null) {
+            // 낭독이 끝났거나 (앱이 다시 켜져) 기억이 없다: 알림을 걷고 끝낸다.
+            // startForegroundService 로 켜졌다면 약속대로 한 번은 앞에 서야 한다 (못 서도 조용히).
+            if (intent?.action == null) runCatching { goForeground(notification()) }
+            ServiceCompat.stopForeground(this, ServiceCompat.STOP_FOREGROUND_REMOVE)
+            foreground = false
+            nm.cancel(ID)
+            stopSelf()
+            return START_NOT_STICKY
+        }
+        if (intent?.action == null) goForeground(notification()) else refresh()
         return START_NOT_STICKY
+    }
+
+    /** 최근 앱에서 앱을 밀어 닫음: 낭독은 계속 (편지 방이 남은 문장을 [Playback.handOff] 로 넘겼다). ✕ 로 끈다. 낭독이 없으면 끝. */
+    override fun onTaskRemoved(rootIntent: Intent?) {
+        if (Playback.now == null) stopSelf()
+        super.onTaskRemoved(rootIntent)
     }
 
     override fun onDestroy() {
         Playback.listen(null)
+        Playback.focus = null
         focus?.let { am.abandonAudioFocusRequest(it) }
         runCatching { unregisterReceiver(noisy) }
         session.isActive = false
         session.release()
+        // 멈춰 둔 채 (포그라운드에서 내려온) 알림은 서비스가 끝나도 남는다: 낭독도 끝났으면 걷는다
+        if (Playback.now == null) runCatching { nm.cancel(ID) }
         super.onDestroy()
     }
 
+    private fun goForeground(n: Notification) {
+        foreground = runCatching {
+            ServiceCompat.startForeground(this, ID, n, if (Build.VERSION.SDK_INT >= 29) ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK else 0)
+            true
+        }.getOrElse { runCatching { nm.notify(ID, n) }; false }
+    }
+
+    /**
+     * 알림을 지금 상태로. 재생 중이면 포그라운드 (지울 수 없는 알림). 사용자가 멈췄거나 다른 앱이 소리를 가져가 멈추면
+     * 포그라운드에서 내려와 알림만 남긴다 (지울 수 있고, ▶ 로 그 문장부터). 잠깐 멈춤 (전화 등) 은 그대로 앞에 둔다.
+     */
     private fun refresh() {
         if (Playback.now == null) return
-        runCatching { getSystemService(NotificationManager::class.java).notify(ID, notification()) }
+        val n = notification()
+        if (Playback.paused && !resumeOnGain) {
+            if (foreground) { ServiceCompat.stopForeground(this, ServiceCompat.STOP_FOREGROUND_DETACH); foreground = false }
+            runCatching { nm.notify(ID, n) }
+        } else if (!foreground) goForeground(n)
+        else runCatching { nm.notify(ID, n) }
     }
 
     private fun bitmap(path: String?): Bitmap? {
@@ -162,7 +277,6 @@ class NarrationService : Service() {
     }
 
     private fun notification(): Notification {
-        val nm = getSystemService(NotificationManager::class.java)
         if (Build.VERSION.SDK_INT >= 26 && nm.getNotificationChannel(CHANNEL) == null) {
             nm.createNotificationChannel(NotificationChannel(CHANNEL, getString(R.string.narration_channel), NotificationManager.IMPORTANCE_LOW).apply { setShowBadge(false) })
         }

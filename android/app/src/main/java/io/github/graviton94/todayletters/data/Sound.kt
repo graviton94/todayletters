@@ -65,6 +65,17 @@ private val media: AudioAttributes = AudioAttributes.Builder()
  * 파일이 없으면 조용히 넘어간다 (낭독이 아직 없는 편지도 읽을 수 있게).
  */
 class Narrator(private val ctx: Context) {
+    companion object {
+        @Volatile private var one: Narrator? = null
+        /**
+         * 앱에 하나뿐인 낭독 재생기: 화면(액티비티)이 다시 만들어져도 같은 것을 쓴다. 그래서 앱을 밀어 닫은 뒤 이어 읽던 낭독([Playback.handOff])을
+         * 다시 연 앱의 소리가 자연스럽게 넘겨받는다 (두 소리가 겹치지 않음).
+         */
+        fun shared(ctx: Context): Narrator {
+            val app = ctx.applicationContext ?: ctx
+            return one?.takeIf { it.ctx === app } ?: synchronized(this) { one?.takeIf { it.ctx === app } ?: Narrator(app).also { one = it } }
+        }
+    }
     private var player: MediaPlayer? = null
 
     fun path(series: String, chapter: String, letter: String, file: String) = "audio/$series/$chapter/$letter/$file.m4a"
@@ -108,6 +119,9 @@ class Narrator(private val ctx: Context) {
         paused = false
         finish()
     }
+
+    /** 지금 소리가 끝나면 (또는 멈추면) [onDone] (기다리던 것을 바꾼다). 지금 소리가 없으면 바로. */
+    fun follow(onDone: () -> Unit) { if (now == null) onDone() else pending = onDone }
 
     /** 잠깐 멈춤 · 이어서 (알림창 · 이어폰 단추). 멈춘 동안에는 ‘끝났을 때’를 부르지 않는다. */
     var paused = false

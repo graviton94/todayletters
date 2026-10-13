@@ -65,7 +65,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
      * 없으면 원어 자료 그대로. 같은 언어면 늘 같은 객체 (화면의 remember · indexOf 가 그대로 맞게).
      */
     val works: List<Work> get() = baseWorks.map { w -> if (w.decks.isEmpty()) w else w.forLearn(store.series(w.series.id)?.learn ?: w.series.original) }
-    val narrator = Narrator(ctx)
+    val narrator = Narrator.shared(ctx)
     /** 편지 속 그 곡 (60초 발췌): 낭독과 따로 울리는 재생기. 방을 나가거나 뒤로 가면 멈춘다. */
     val music = io.github.graviton94.todayletters.data.Excerpt(ctx)
     private val effects = io.github.graviton94.todayletters.data.Effects(ctx)

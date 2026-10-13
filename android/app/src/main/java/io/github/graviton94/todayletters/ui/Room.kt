@@ -120,11 +120,13 @@ fun Room(s: AppState, r: Route.Letter) {
     val nowSub = stringResource(R.string.narration_sub, work.name[uiLang()], toWhom[uiLang()],
         work.chapters.firstOrNull { it.id == chapter }?.title?.get(uiLang()).orEmpty())
     fun session() {
-        if (Playback.now == null) Playback.start(appCtx, s.narrator,
+        if (Playback.now == null || Playback.detached) Playback.start(appCtx, s.narrator,
             Playback.Now(nowTitle, nowSub, letter.plate?.image?.takeIf { it.isNotBlank() }?.let { "plates/$it" }, 0, total), controlsRef[0]!!)
     }
 
     fun stopAll() { all?.cancel(); all = null; s.narrator.stop(); playing = null; Playback.end(appCtx) }
+    // 이어 읽을 끝 (앱을 밀어 닫았을 때 여기까지 Playback 이 이어 읽는다): 도착 낭독은 편지 끝, 모두 듣기는 쓰인 데까지, 한 조각은 그 조각
+    val queue = remember(letter.id) { intArrayOf(total, 1) }   // [끝, 들은 자리 남기기 1/0]
     /**
      * [from] 번째부터 [until] 앞까지 차례로 읽는다. 멈춰 두면 기다리고, 단추로 앞뒤 문장을 오간다.
      * [extend] 면 ‘다음’ 단추로 [until] 너머(쓰인 조각까지)로도 간다. [mark] 면 듣다 멈춘 자리를 남긴다.
@@ -138,7 +140,8 @@ fun Room(s: AppState, r: Route.Letter) {
             playing = k; Playback.update(k); if (mark) s.store.setHeard(key, k)
             jump[0] = 0
             suspendCancellableCoroutine { c ->
-                c.invokeOnCancellation { s.narrator.stop() }
+                // 앱을 밀어 닫아 Playback 이 넘겨받았으면 소리를 끊지 않는다
+                c.invokeOnCancellation { if (!Playback.detached) s.narrator.stop() }
                 if (!s.narrator.play(audio(k), speed) { if (c.isActive) c.resume(Unit) } && c.isActive) c.resume(Unit)
             }
             val j = jump[0]
@@ -154,6 +157,7 @@ fun Room(s: AppState, r: Route.Letter) {
     fun speak(i: Int) {
         if (playing == i) { stopAll(); return }
         stopAll(); muted = false
+        queue[0] = i + 1; queue[1] = 0
         all = scope.launch {
             say(i, i + 1, extend = true, mark = false)
             all = null
@@ -164,6 +168,7 @@ fun Room(s: AppState, r: Route.Letter) {
         if (all != null) { stopAll(); return }
         if (!narrated) { after?.invoke(); return }
         stopAll(); muted = false
+        queue[0] = written; queue[1] = 1
         all = scope.launch {
             say(from, written)
             all = null
@@ -178,7 +183,22 @@ fun Room(s: AppState, r: Route.Letter) {
         override fun prev() { jump[0] = if (s.narrator.position() > 1500) 2 else -1; s.narrator.stop() }
         override fun stop() { muted = true; stopAll() }
     }
-    DisposableEffect(letter.id) { onDispose { s.narrator.stop(); s.music.stop(); Playback.end(appCtx) } }
+    DisposableEffect(letter.id) { onDispose { s.music.stop(); if (!Playback.detached) { s.narrator.stop(); Playback.end(appCtx) } } }
+    // 최근 앱에서 앱을 밀어 닫음 (화면이 사라짐, 언어를 바꿔 다시 그리는 것은 빼고): 남은 문장을 Playback 에 넘겨 이 편지 끝까지 이어 읽는다.
+    // 앱 안에서 방을 나가면 지금처럼 멈춘다.
+    val activity = androidx.compose.ui.platform.LocalContext.current as? android.app.Activity
+    DisposableEffect(letter.id, lifecycle) {
+        val obs = androidx.lifecycle.LifecycleEventObserver { _, e ->
+            if (e != androidx.lifecycle.Lifecycle.Event.ON_DESTROY || activity?.isChangingConfigurations == true) return@LifecycleEventObserver
+            val at = playing ?: return@LifecycleEventObserver
+            if (Playback.now == null || muted) return@LifecycleEventObserver
+            val mark = queue[1] == 1
+            Playback.handOff(appCtx, (0 until queue[0].coerceIn(at + 1, total)).map(::audio), at, speed,
+                heard = if (mark) ({ k: Int -> s.store.setHeard(key, k) }) else null)
+        }
+        lifecycle.addObserver(obs)
+        onDispose { lifecycle.removeObserver(obs) }
+    }
     // 편지 속 그 곡 듣기 시트 (열려 있는 동안 낭독은 잠깐 멈춤)
     var listening by remember(letter.id) { mutableStateOf<io.github.graviton94.todayletters.core.Moment.Music?>(null) }
 
@@ -215,7 +235,7 @@ fun Room(s: AppState, r: Route.Letter) {
             arrived = i + 1
             toEnd(animated = animate)
             // 도착 화면이 첫 줄을 읽었어도 방에서는 다른 조각처럼 다시 읽는다 (v22: 첫 메시지도 방에서 듣고 따라갈 수 있게)
-            val voice = if (narrated && s.app.sound && all == null && !muted) launch { voiced = true; say(i, i + 1) } else null
+            val voice = if (narrated && s.app.sound && all == null && !muted) launch { voiced = true; queue[0] = total; queue[1] = 1; say(i, i + 1) } else null
             // 쓰는 동안 끝을 따라간다 (손으로 넘기는 중이면 기다림)
             val follow = launch {
                 while (true) {
