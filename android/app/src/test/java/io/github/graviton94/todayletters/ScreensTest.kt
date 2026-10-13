@@ -773,6 +773,12 @@ class ScreensTest {
     /** 입구 장식: 레벨 17 이면 ‘대리석 기둥 한 쌍’ (15 레벨) 이 입구에 조용히. */
     @Test fun openingDecoration() { val s = engineState(); s.reward = null; shot("c09_opening_decoration_ko_dark", true, 4500) { io.github.graviton94.todayletters.ui.Opening(s) } }
 
+    /** 굴려서 찾기는 굴리는 움직임이 끝나야 돌아오므로, 그동안만 시계를 흘린다 (멈춘 시계면 끝나지 않는다). */
+    private fun scrolled(block: () -> Unit) {
+        rule.mainClock.autoAdvance = true
+        try { block() } finally { rule.mainClock.autoAdvance = false }
+    }
+
     // ── APK 20 피드백: 상점 · 구독 · 나의 기록 · 갤러리 세 묶음 · 알림 시계 바퀴 · 확인 창 ──
     @Test fun purchase() { val s = engineState(); s.reward = null; shot("p01_purchase_light", false, series = s) { io.github.graviton94.todayletters.ui.PurchaseScreen(s) } }
     @Test fun purchaseDark() { val s = engineState(); s.reward = null; shot("p02_purchase_dark", true, series = s) { io.github.graviton94.todayletters.ui.PurchaseScreen(s) } }
@@ -783,7 +789,7 @@ class ScreensTest {
     @Test fun alarmWheel() {
         val s = state(true)
         shot("p07_alarm_wheel_light", false, act = {
-            rule.onNodeWithText(ctx.getString(R.string.set_arrival)).performScrollTo().performClick()
+            scrolled { rule.onNodeWithText(ctx.getString(R.string.set_arrival)).performScrollTo().performClick() }
         }) { io.github.graviton94.todayletters.ui.SettingsScreen(s) }
     }
     @Test fun alarmWheelDark() {
@@ -797,7 +803,7 @@ class ScreensTest {
     @Test fun tutorialConfirm() {
         val s = state(true)
         shot("p09_tutorial_confirm_light", false, act = {
-            rule.onNodeWithText(ctx.getString(R.string.set_help_again)).performScrollTo().performClick()
+            scrolled { rule.onNodeWithText(ctx.getString(R.string.set_help_again)).performScrollTo().performClick() }
         }) { io.github.graviton94.todayletters.ui.SettingsScreen(s) }
     }
     @Test fun clearConfirm() {
@@ -823,7 +829,7 @@ class ScreensTest {
         }
     }
     @Test fun todayFooter() { val s = withCards(); shot("p13_today_footer_light", false, 2000, act = {
-        rule.onNodeWithText(ctx.getString(R.string.today_all_letters)).performScrollTo()
+        scrolled { rule.onNodeWithText(ctx.getString(R.string.today_all_letters)).performScrollTo() }
     }, series = s) { Inbox(s) } }
     @Test fun openingScrim() {
         val s = engineState(); s.reward = null
