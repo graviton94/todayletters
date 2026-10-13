@@ -17,6 +17,8 @@ import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
+import androidx.compose.ui.test.performTouchInput
+import androidx.compose.ui.test.swipeUp
 import androidx.test.core.app.ApplicationProvider
 import com.github.takahirom.roborazzi.captureRoboImage
 import io.github.graviton94.todayletters.core.Exercises
@@ -829,7 +831,7 @@ class ScreensTest {
         }
     }
     @Test fun todayFooter() { val s = withCards(); shot("p13_today_footer_light", false, 2000, act = {
-        scrolled { rule.onNodeWithText(ctx.getString(R.string.today_all_letters)).performScrollTo() }
+        repeat(3) { rule.onRoot().performTouchInput { swipeUp() }; rule.mainClock.advanceTimeBy(1200) }
     }, series = s) { Inbox(s) } }
     @Test fun openingScrim() {
         val s = engineState(); s.reward = null
