@@ -4,62 +4,59 @@ name: Android AAB
 # 비밀값과 키 만들기는 docs/release.md. 결과: 이 실행의 Artifacts 와 Releases 의 'android-aab-latest'.
 on:
   workflow_dispatch:
+    inputs:
+      version: { description: "version name (예: 1.0.0)", default: "1.0.0" }
 
 permissions:
   contents: write
 
 env:
-  TL_VERSION_NAME: "0.1.0"
+  TL_VERSION_NAME: ${{ inputs.version }}
 jobs:
   aab:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - name: Upload key from secrets
-        env:
-          KEYSTORE_B64: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_B64 }}
-          STORE_PASSWORD: ${{ secrets.ANDROID_UPLOAD_STORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.ANDROID_UPLOAD_KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.ANDROID_UPLOAD_KEY_PASSWORD }}
+      - name: Unlock the upload key
+        env: { P: "${{ secrets.ANDROID_UPLOAD_PASSPHRASE }}" }
         run: |
-          missing=""
-          [ -n "$KEYSTORE_B64" ] || missing="$missing ANDROID_UPLOAD_KEYSTORE_B64"
-          [ -n "$STORE_PASSWORD" ] || missing="$missing ANDROID_UPLOAD_STORE_PASSWORD"
-          [ -n "$KEY_ALIAS" ] || missing="$missing ANDROID_UPLOAD_KEY_ALIAS"
-          [ -n "$KEY_PASSWORD" ] || missing="$missing ANDROID_UPLOAD_KEY_PASSWORD"
-          if [ -n "$missing" ]; then
-            echo "::error::업로드 키 비밀값이 없어요:$missing (Settings › Secrets and variables › Actions, docs/release.md)"
-            exit 1
-          fi
-          ks="$RUNNER_TEMP/upload.jks"
-          echo "$KEYSTORE_B64" | base64 -d > "$ks"
-          [ -s "$ks" ] || { echo "::error::ANDROID_UPLOAD_KEYSTORE_B64 를 풀지 못했어요 (base64 확인)"; exit 1; }
+          if [ -z "$P" ] || [ ! -f android/keystore/upload.jks.gpg ]; then echo "::error::올리기 키가 없어요 (Secrets 의 ANDROID_UPLOAD_PASSPHRASE 와 ‘Android signing key’ 워크플로 실행, docs/release.md)"; exit 1; fi
+          gpg --batch --yes --pinentry-mode loopback --passphrase-fd 3 -d -o "$RUNNER_TEMP/upload.jks" android/keystore/upload.jks.gpg 3<<<"$P"
           {
-            echo "ANDROID_UPLOAD_KEYSTORE=$ks"
-            echo "ANDROID_UPLOAD_STORE_PASSWORD=$STORE_PASSWORD"
-            echo "ANDROID_UPLOAD_KEY_ALIAS=$KEY_ALIAS"
-            echo "ANDROID_UPLOAD_KEY_PASSWORD=$KEY_PASSWORD"
+            echo "ANDROID_UPLOAD_KEYSTORE=$RUNNER_TEMP/upload.jks"
+            echo "ANDROID_UPLOAD_KEY_ALIAS=upload"
           } >> "$GITHUB_ENV"
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
       - uses: gradle/actions/setup-gradle@v4
-      # versionCode = GITHUB_RUN_NUMBER (android-apk.yml 과 같은 방식)
+      # versionCode = 1000 + 실행 번호 (시험 APK 번호와 겹치지 않고 계속 커지게)
       - name: Build release bundle
         working-directory: android
-        run: ./gradlew :core:test :app:bundleRelease
+        env:
+          ANDROID_UPLOAD_STORE_PASSWORD: ${{ secrets.ANDROID_UPLOAD_PASSPHRASE }}
+          ANDROID_UPLOAD_KEY_PASSWORD: ${{ secrets.ANDROID_UPLOAD_PASSPHRASE }}
+        run: |
+          export GITHUB_RUN_NUMBER=$((1000 + ${{ github.run_number }}))
+          ./gradlew :core:test :app:bundleRelease
       - name: Check it is signed with the upload key
         run: |
           aab=android/app/build/outputs/bundle/release/app-release.aab
           jarsigner -verify -verbose -certs "$aab" | grep -q "CN=sideload" && { echo "::error::sideload 키로 서명됐어요 (업로드 키가 쓰이지 않음)"; exit 1; } || true
           mkdir -p out
           cp "$aab" "out/TodayLetters-${{ github.run_number }}.aab"
+      - name: Forget the unlocked key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/upload.jks"
       - uses: actions/upload-artifact@v4
         with:
           name: TodayLetters-aab
-          path: out/*.aab
+          path: |
+            out/*.aab
+            android/app/build/outputs/mapping/release/mapping.txt
+          retention-days: 14
       - name: Publish to android-aab-latest
         env:
           GH_TOKEN: ${{ github.token }}
