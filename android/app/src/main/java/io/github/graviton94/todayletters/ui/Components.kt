@@ -280,15 +280,12 @@ fun Gear(c: Color) = Canvas(Modifier.size(Tokens.Size.icon)) {
 @Composable
 fun PlateImage(file: String, modifier: Modifier) {
     val p = Ink.palette
-    val ctx = LocalContext.current
-    val bmp: ImageBitmap? = remember(file, io.github.graviton94.todayletters.data.AssetFiles.generation) {
-        if (file.isBlank()) null else runCatching {
-            io.github.graviton94.todayletters.data.AssetFiles.open(ctx, "plates/$file").use { android.graphics.BitmapFactory.decodeStream(it).asImageBitmap() }
-        }.getOrNull()
-    }
+    val pic = rememberPicture(if (file.isBlank()) "" else "plates/$file")
+    val bmp: ImageBitmap? = pic.bmp
     if (bmp != null) Image(bmp, null, modifier, contentScale = ContentScale.Crop)
     else Box(modifier.background(p.hide).border(Tokens.Stroke.hair, p.hair), contentAlignment = Alignment.Center) {
-        Text(stringResource(R.string.plate_soon), style = Type.small.ui(), color = p.hideInk)
+        // 푸는 동안은 빈 자리만 (‘곧 걸려요’ 가 잠깐 비치지 않게)
+        if (pic.done) Text(stringResource(R.string.plate_soon), style = Type.small.ui(), color = p.hideInk)
     }
 }
 

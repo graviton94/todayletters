@@ -206,10 +206,7 @@ private fun TodayLetter(s: AppState, id: String, work: io.github.graviton94.toda
 /** 그림 썸네일: 받은 그림은 원래 색, 아직이면 흐린 흑백. */
 @Composable
 fun PlateThumb(file: String, unlocked: Boolean, modifier: Modifier) {
-    val ctx = androidx.compose.ui.platform.LocalContext.current
-    val bmp = androidx.compose.runtime.remember(file, io.github.graviton94.todayletters.data.AssetFiles.generation) {
-        runCatching { io.github.graviton94.todayletters.data.AssetFiles.open(ctx, "plates/$file").use { android.graphics.BitmapFactory.decodeStream(it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = 4 })?.asImageBitmap() } }.getOrNull()
-    }
+    val bmp = rememberPicture("plates/$file", 4).bmp
     if (bmp == null) Box(modifier.background(Ink.palette.hide)) else Image(
         bmp, null, modifier, contentScale = ContentScale.Crop,
         colorFilter = if (unlocked) null else ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(0f) }),

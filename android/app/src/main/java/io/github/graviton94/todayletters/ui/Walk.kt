@@ -86,9 +86,8 @@ fun Artwork(s: AppState, r: Route.Artwork) {
     val view = s.room(r.series)
     val ui = uiLang()
     val ctx = LocalContext.current
-    val bmp: ImageBitmap? = remember(pl?.image, io.github.graviton94.todayletters.data.AssetFiles.generation) {
-        pl?.image?.takeIf { it.isNotBlank() }?.let { f -> runCatching { io.github.graviton94.todayletters.data.AssetFiles.open(ctx, "plates/$f").use { android.graphics.BitmapFactory.decodeStream(it).asImageBitmap() } }.getOrNull() }
-    }
+    val pic = rememberPicture(pl?.image?.takeIf { it.isNotBlank() }?.let { "plates/$it" }.orEmpty())
+    val bmp: ImageBitmap? = pic.bmp
     // 그림이 이 기기에 없으면 (아직 받지 않은 장) 산책 자리를 빈 그림 위에 두지 않는다 (F12)
     val spots = if (bmp == null) emptyList() else pl?.spots.orEmpty()
     var at by remember { mutableStateOf(-1) }

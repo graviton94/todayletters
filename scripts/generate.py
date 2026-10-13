@@ -172,18 +172,30 @@ def check_sale(folder, sid, meta):
         sys.exit(f"data/{sid}/series.json: 판매 정책과 어긋남\n  " + "\n  ".join(bad))
 
 
+def r2_key(rel, revs):
+    """R2 에 놓이는 이름: 고친 파일은 rev/<판>/<경로>, 나머지는 경로 그대로 (scripts/r2_guard.py 와 같은 규칙)."""
+    n = int(revs.get(rel, 1))
+    return rel if n <= 1 else f"rev/{n}/{rel}"
+
+
 def remote():
     """앱 밖(R2)에 두는 파일의 목록 → assets/letters/<작품>/remote.json (장마다 파일 · 크기 · 합).
     remote/ 는 assets/ 와 같은 모양이다 (remote/audio/<작품>/<장>/... · remote/plates/ · remote/sketches/ · remote/gallery/ · remote/audio/<작품>/music/).
     한 장의 묶음: 그 장의 낭독 + 그 장의 편지가 쓰는 그림 · 스케치 · 곡 가운데 remote/ 에 있는 것.
     소장품(kit.collection) 가운데 remote/ 에 둔 것은 앱 밖 장들에 차례로 나눠 담는다 (그 장을 받으면 뽑기에 들어온다).
-    어느 장에도 들지 않는 파일이 remote/ 에 있으면 멈춘다 (받을 길이 없는 파일)."""
+    어느 장에도 들지 않는 파일이 remote/ 에 있으면 멈춘다 (받을 길이 없는 파일).
+    고친 파일 (data/remote.json 의 "revisions": {경로: 판}) 은 R2 의 rev/<판>/<경로> 에 두고, 목록에 그 주소를 셋째 칸으로 적는다
+    (폰 안 경로는 그대로라 화면 코드는 바뀌지 않고, 옛 버전 앱은 옛 주소의 옛 파일을 계속 받는다. docs/release.md 5)."""
     out = {}
     cfg = json.load(open(os.path.join(ROOT, "data", "remote.json"), encoding="utf-8"))
     R = os.path.join(ROOT, "remote")
     there = lambda rel: os.path.isfile(os.path.join(R, rel))
     every = {os.path.relpath(f, R).replace(os.sep, "/") for f in glob.glob(os.path.join(R, "**", "*"), recursive=True) if os.path.isfile(f)}
     used = set()
+    revs = cfg.get("revisions", {})
+    unknown = sorted(set(revs) - every)
+    if unknown:
+        sys.exit("data/remote.json revisions: remote/ 에 없는 파일\n  " + "\n  ".join(unknown[:20]))
     for meta_path in sorted(glob.glob(os.path.join(ROOT, "data", "*", "series.json"))):
         folder = os.path.dirname(meta_path)
         sid = os.path.basename(folder)
@@ -216,7 +228,7 @@ def remote():
         chapters = {}
         for c, rels in packs.items():
             if rels:
-                files = [[r, os.path.getsize(os.path.join(R, r))] for r in rels]
+                files = [[r, os.path.getsize(os.path.join(R, r))] + ([r2_key(r, revs)] if r in revs else []) for r in rels]
                 chapters[c] = {"bytes": sum(x[1] for x in files), "files": files}
                 used.update(rels)
         if chapters:

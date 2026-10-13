@@ -331,10 +331,6 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
                 Text(stringResource(R.string.set_fade_read_d), style = Type.small.ui(), color = p.inkSoft)
             }
 
-            Caps(stringResource(R.string.ob_pace), p.giltText, small = true)
-            Choices(listOf(1, 2, 3).map { it to stringResource(R.string.letters_n, it) }, cur.lettersPerDay) { s.update(id, cur.copy(lettersPerDay = it)) }
-            Text(stringResource(R.string.perday_note), style = Type.small.ui(), color = p.inkSoft)
-
             // 알림(도착 · 저녁)은 앱 설정으로 옮김 (v21 4단계 U3)
             Text(stringResource(R.string.set_notice_moved), style = Type.small.ui(), color = p.inkSoft)
         }

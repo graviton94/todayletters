@@ -40,10 +40,6 @@
     "en": "How will you reply?",
     "ko": "답장은 어떻게 쓸까요?"
   },
-  "ob_pace": {
-    "en": "Letters a day",
-    "ko": "하루 편지 수"
-  },
   "mode_match": {
     "en": "Match the words",
     "ko": "낱말 맞추기"
@@ -167,10 +163,6 @@
   "free": {
     "en": "Free",
     "ko": "무료"
-  },
-  "letters_n": {
-    "en": "%1$d a day",
-    "ko": "하루 %1$d통"
   },
   "chapter_meta": {
     "en": "Letters %1$d · read %2$d",
@@ -327,10 +319,6 @@
   "modes_note": {
     "en": "Each letter uses the modes you keep on. Keep at least one.",
     "ko": "켠 방식이 편지마다 차례로 나와요. 하나 이상 켜 두세요."
-  },
-  "perday_note": {
-    "en": "How many new letters arrive each day.",
-    "ko": "하루에 새로 도착하는 편지 수예요."
   },
   "plate_soon": {
     "en": "Painting coming soon",

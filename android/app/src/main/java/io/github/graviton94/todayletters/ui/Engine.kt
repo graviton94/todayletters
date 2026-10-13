@@ -131,12 +131,7 @@ fun darkTone(w: Work): SeriesTone = w.kit.dark?.let(::tone) ?: SeriesTone(Color(
 /** 그림 하나 (assets 와 같은 경로, 받아 둔 것 먼저). 가볍게 줄여서 읽는다. 아직 받지 않았으면 빈 자리. */
 @Composable
 fun AssetImage(path: String, modifier: Modifier, gray: Boolean = false, sample: Int = 2, alignment: Alignment = Alignment.Center) {
-    val ctx = LocalContext.current
-    val bmp: ImageBitmap? = remember(path, sample, io.github.graviton94.todayletters.data.AssetFiles.generation) {
-        if (path.isBlank()) null else runCatching {
-            io.github.graviton94.todayletters.data.AssetFiles.open(ctx, path).use { android.graphics.BitmapFactory.decodeStream(it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = sample })?.asImageBitmap() }
-        }.getOrNull()
-    }
+    val bmp: ImageBitmap? = rememberPicture(path, sample).bmp
     if (bmp == null) Box(modifier.background(Ink.palette.hide))
     else Image(bmp, null, modifier, contentScale = ContentScale.Crop, alignment = alignment,
         colorFilter = if (gray) ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(0f) }) else null, alpha = if (gray) 0.45f else 1f)

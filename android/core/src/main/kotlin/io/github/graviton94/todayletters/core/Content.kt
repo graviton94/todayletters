@@ -127,6 +127,23 @@ object Arrivals {
 
     /** 부재중: 도착한 날이 오늘보다 앞인데 아직 열지 않은 편지. */
     fun missed(arrived: Long?, today: Long, unread: Int): Boolean = arrived != null && arrived < today && unread > 0
+
+    /**
+     * 하루에 새로 오는 편지 수: 작품마다 1통 (고르는 설정 없음. 더 받기는 상점의 ‘오늘 편지 더 받기’).
+     * 처음 앱을 연 날([firstDay])에만 튜토리얼 작품([tutorial], 빈센트)은 2통 (튜토리얼 편지 I 과 그다음 한 통).
+     */
+    fun perDay(series: String, tutorial: String, firstDay: Long, day: Long): Int =
+        if (series == tutorial && firstDay >= 0 && day == firstDay) 2 else 1
+
+    /**
+     * 알림 · 위젯이 말할 작품: 마지막으로 들어간 작품([last])에 기다리는 편지가 있으면 그것,
+     * 없으면 기다리는 편지가 있는 첫 작품, 그것도 없으면 마지막 작품 (없으면 첫 작품). [ids] 는 서재 순서.
+     */
+    fun pick(last: String?, ids: List<String>, waiting: (String) -> Int): String? {
+        val home = last?.takeIf { it in ids } ?: ids.firstOrNull() ?: return null
+        if (waiting(home) > 0) return home
+        return ids.firstOrNull { waiting(it) > 0 } ?: home
+    }
 }
 
 /** 답장 문제 만들기. 편지 데이터에서 저절로 만든다 (사람이 문제를 따로 쓰지 않음). */

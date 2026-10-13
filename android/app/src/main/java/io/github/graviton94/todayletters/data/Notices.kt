@@ -21,6 +21,7 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import io.github.graviton94.todayletters.MainActivity
 import io.github.graviton94.todayletters.R
+import io.github.graviton94.todayletters.core.Arrivals
 import io.github.graviton94.todayletters.core.Breaks
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.ui.AppState
@@ -47,12 +48,17 @@ data class TodaySummary(
     val letterNo: Int = 0,
     /** 일요일이고 이번 주 낭독회를 아직 안 했으면. */
     val recital: Boolean = false,
+    /** 이 요약이 말하는 작품 (알림을 누르면 이 작품으로 연다). */
+    val series: String = "",
+    /** 이 작품의 도착 알림이 켜져 있나. */
+    val notice: Boolean = true,
 ) {
     companion object {
         fun of(ctx: Context): TodaySummary? {
             val s = runCatching { AppState(ctx.applicationContext, deepLink = true) }.getOrNull() ?: return null
-            val work = s.works.firstOrNull() ?: return null
-            val id = work.series.id
+            // 마지막으로 들어간 작품, 거기에 기다리는 편지가 없으면 기다리는 편지가 있는 다른 작품 (서재의 첫 작품만 보지 않는다)
+            val id = Arrivals.pick(s.store.lastSeries, s.works.map { it.series.id }) { s.waiting(it) } ?: return null
+            val work = s.work(id)
             val view = s.room(id)
             val open = s.openable(id)
             val current = open.firstOrNull { (c, l) -> !s.progress(id, c, l.id).done } ?: open.lastOrNull()
@@ -69,6 +75,8 @@ data class TodaySummary(
                 plate = current?.second?.plate?.image?.takeIf { it.isNotEmpty() }?.let { "plates/$it" },
                 letterNo = current?.let { (_, l) -> work.chapters.flatMap { it.letters }.indexOfFirst { it.id == l.id } + 1 } ?: 0,
                 recital = io.github.graviton94.todayletters.core.Recital.isSunday(s.today) && !s.recitalDone,
+                series = id,
+                notice = s.seriesSettings(id).arrivalNotice,
             )
         }
     }
@@ -119,7 +127,7 @@ object Notices {
             NotificationChannel(CHANNEL_EVENING, ctx.getString(R.string.evening_channel), NotificationManager.IMPORTANCE_DEFAULT),
         )
         val open = PendingIntent.getActivity(
-            ctx, 1, Intent(ctx, MainActivity::class.java).putExtra(MainActivity.FROM_NOTICE, true).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP),
+            ctx, 1, Intent(ctx, MainActivity::class.java).putExtra(MainActivity.FROM_NOTICE, true).putExtra(MainActivity.SERIES, sum.series).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         val rest = store.rests > 0
@@ -145,16 +153,14 @@ object Notices {
         ContextCompat.checkSelfPermission(ctx, android.Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
 
     fun arrive(ctx: Context) {
-        val store = Store(ctx)
         val sum = TodaySummary.of(ctx) ?: return
-        val on = Library.works(ctx).firstOrNull()?.let { store.series(it.series.id)?.arrivalNotice ?: true } ?: false
-        if (!on || sum.doneToday || sum.waiting == 0 || !canPost(ctx)) return
+        if (!sum.notice || sum.doneToday || sum.waiting == 0 || !canPost(ctx)) return
         val nm = ctx.getSystemService(NotificationManager::class.java)
         if (Build.VERSION.SDK_INT >= 26) nm.createNotificationChannel(
             NotificationChannel(CHANNEL, ctx.getString(R.string.notice_channel), NotificationManager.IMPORTANCE_DEFAULT),
         )
         val open = PendingIntent.getActivity(
-            ctx, 0, Intent(ctx, MainActivity::class.java).putExtra(MainActivity.FROM_NOTICE, true).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP),
+            ctx, 0, Intent(ctx, MainActivity::class.java).putExtra(MainActivity.FROM_NOTICE, true).putExtra(MainActivity.SERIES, sum.series).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
         val text = if (sum.due > 0) ctx.getString(R.string.notice_text_review, sum.due) else ctx.getString(R.string.notice_text)

@@ -128,6 +128,33 @@ class CoreTest {
         assertEquals(2, Streak.after(lastDay = 11, count = 2, today = 11))
     }
 
+    @Test fun oneLetterADayExceptTheTutorialFirstDay() {
+        // 작품마다 하루 1통. 처음 연 날의 튜토리얼 작품(빈센트)만 2통 (편지 I + 한 통)
+        assertEquals(2, Arrivals.perDay("vincent", "vincent", firstDay = 100, day = 100))
+        assertEquals(1, Arrivals.perDay("vincent", "vincent", firstDay = 100, day = 101))
+        assertEquals(1, Arrivals.perDay("mozart", "vincent", firstDay = 100, day = 100))
+        // 예전 사용자 (처음 연 날 모름 = -1) 는 덤이 없다
+        assertEquals(1, Arrivals.perDay("vincent", "vincent", firstDay = -1, day = 100))
+        // 첫날: 편지 I 을 열고도 한 통 더, 둘을 열면 끝
+        assertEquals(2, Arrivals.openable(total = 14, started = 1, openedToday = 1, perDay = 2))
+        assertEquals(2, Arrivals.openable(total = 14, started = 2, openedToday = 2, perDay = 2))
+        // 첫날 두 통을 열었으면 다음 편지는 이튿날
+        assertEquals(101L, Arrivals.arrivedOn(lastDay = 100, openedThatDay = 2, perDay = 2))
+    }
+
+    @Test fun noticesSpeakForTheSeriesInUse() {
+        val ids = listOf("vincent", "mozart")
+        val waiting = mapOf("vincent" to 1, "mozart" to 1)
+        assertEquals("mozart", Arrivals.pick("mozart", ids) { waiting.getValue(it) })
+        // 마지막 작품에 기다리는 편지가 없으면 기다리는 편지가 있는 작품
+        assertEquals("vincent", Arrivals.pick("mozart", ids) { if (it == "mozart") 0 else 1 })
+        // 아무 데도 없으면 마지막 작품, 모르는 작품이면 서재의 첫 작품
+        assertEquals("mozart", Arrivals.pick("mozart", ids) { 0 })
+        assertEquals("vincent", Arrivals.pick("napoleon", ids) { 0 })
+        assertEquals("vincent", Arrivals.pick(null, ids) { 1 })
+        assertEquals(null, Arrivals.pick(null, emptyList()) { 1 })
+    }
+
     @Test fun constellationShufflesButKeepsTheAnswer() {
         val (answer, pieces) = Exercises.constellation("La vue des étoiles me fait rêver", seed = 7)
         assertEquals(listOf("La", "vue", "des", "étoiles", "me", "fait", "rêver"), answer)

@@ -68,7 +68,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     val narrator = Narrator.shared(ctx)
     /** 편지 속 그 곡 (60초 발췌): 낭독과 따로 울리는 재생기. 방을 나가거나 뒤로 가면 멈춘다. */
     val music = io.github.graviton94.todayletters.data.Excerpt(ctx)
-    private val effects = io.github.graviton94.todayletters.data.Effects(ctx)
+    // 효과음 재생기는 처음 울릴 때 만든다 (알림 · 위젯이 이 상태를 만들 때마다 SoundPool 을 새로 열지 않게)
+    private val effects by lazy { io.github.graviton94.todayletters.data.Effects(ctx) }
     /** 맞음 · 틀림 효과음 (설정 › 효과음이 켜져 있을 때만). */
     fun cue(ok: Boolean) { if (app.effects) runCatching { effects.play(ok) } }
     /** 자료가 걸리는 소리 (등급마다). */
@@ -139,6 +140,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     init {
         // 언어마다 진도 (v22): 예전 진도는 그때 배우던 말의 것으로 옮긴다 (작품마다 한 번)
         baseWorks.forEach { w -> runCatching { store.migrateSpace(w.series.id, space(w.series.id)) } }
+        // 처음 연 날 (그날만 튜토리얼 작품 2통): 처음 설치면 오늘, 이미 쓰던 사람이면 -1 (덤 없음)
+        if (!store.hasFirstDay()) store.firstDay = if (store.onboarded || store.progressKeys().isNotEmpty()) -1 else LocalDate.now().toEpochDay()
         // 예전 사용자: 편지를 한 통이라도 마쳤으면 튜토리얼은 끝난 것으로 (안내 한 줄 · 서재 강조 없이)
         if (!store.tutorialDone && !store.tutorialReplay && Tutorial.done(false, store.progressKeys().count { store.progress(it).done })) store.tutorialDone = true
     }
@@ -355,9 +358,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 한 번이라도 연 편지 수 (다 읽은 것 포함). */
     fun startedCount(id: String) = all(id).count { (c, l) -> store.started(key(id, c, l.id)) || progress(id, c, l.id).let { it.shown > 0 || it.done } }
 
+    /** 그날 새로 오는 편지 수 (작품마다 1통, 처음 연 날의 튜토리얼 작품만 2통). */
+    fun perDay(id: String, day: Long = today): Int = Arrivals.perDay(id, tutorialSeries, store.firstDay, day)
+
     fun openable(id: String): List<Pair<String, Letter>> {
         val all = all(id)
-        val n = Arrivals.openable(all.size, startedCount(id), store.openedToday(space(id)), seriesSettings(id).lettersPerDay) +
+        val n = Arrivals.openable(all.size, startedCount(id), store.openedToday(space(id)), perDay(id)) +
             (if (store.earlyDay(space(id)) == today) 1 else 0)
         return all.take(n.coerceAtMost(all.size))
     }
@@ -366,15 +372,15 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun unread(id: String): Int = openable(id).count { (c, l) -> !store.started(key(id, c, l.id)) && progress(id, c, l.id).shown == 0 }
 
     /** 열지 않은 다음 편지가 도착한 날 (epoch day). */
-    fun arrivedOn(id: String): Long? = store.lastOpen(space(id)).let { (d, n) -> Arrivals.arrivedOn(d, n, seriesSettings(id).lettersPerDay) }
+    fun arrivedOn(id: String): Long? = store.lastOpen(space(id)).let { (d, n) -> Arrivals.arrivedOn(d, n, perDay(id, d)) }
 
     fun waiting(id: String): Int =
-        Arrivals.waiting(all(id).size, doneCount(id), startedCount(id), store.openedToday(space(id)), seriesSettings(id).lettersPerDay)
+        Arrivals.waiting(all(id).size, doneCount(id), startedCount(id), store.openedToday(space(id)), perDay(id))
 
     /** 이 편지가 며칠 뒤에 오는가 (0 이면 이미 왔다). */
     fun daysUntil(id: String, letterId: String): Int {
         val idx = all(id).indexOfFirst { it.second.id == letterId }
-        return Arrivals.daysUntil(idx, openable(id).size, seriesSettings(id).lettersPerDay)
+        return Arrivals.daysUntil(idx, openable(id).size, 1)
     }
 
     // ── 복습 (낱말 카드) ─────────────────────────────────────

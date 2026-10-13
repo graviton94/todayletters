@@ -42,11 +42,38 @@ import io.github.graviton94.todayletters.design.Type
 
 /** 그림을 원래 크기 그대로 (크게 보기용). 받아 둔 것 먼저, 없으면 앱 안. */
 @Composable
-fun rememberAsset(path: String): ImageBitmap? {
-    val ctx = LocalContext.current
-    return remember(path, io.github.graviton94.todayletters.data.AssetFiles.generation) {
-        if (path.isBlank()) null else runCatching { io.github.graviton94.todayletters.data.AssetFiles.open(ctx, path).use { android.graphics.BitmapFactory.decodeStream(it)?.asImageBitmap() } }.getOrNull()
-    }
+fun rememberAsset(path: String): ImageBitmap? = rememberPicture(path).bmp
+
+/** 그림 읽기의 결과: [done] 이 false 면 아직 푸는 중 (빈 자리만), true 인데 [bmp] 가 null 이면 이 기기에 없는 그림. */
+class Picture(val bmp: ImageBitmap?, val done: Boolean)
+
+/** 한 번 푼 그림 (경로 · 줄임 · 받은 파일 세대마다). 화면을 다시 열 때 기다리지 않게. 앱 메모리의 1/8 까지. */
+private val pictures = object : android.util.LruCache<String, ImageBitmap>((Runtime.getRuntime().maxMemory() / 8).coerceAtMost(Int.MAX_VALUE.toLong()).toInt()) {
+    override fun sizeOf(key: String, value: ImageBitmap) = value.width * value.height * 4
+}
+
+/** 화면 사진(Robolectric)에서는 그 자리에서 푼다 (테스트가 백그라운드 풀기를 기다리지 않아서). */
+private val decodeInPlace = android.os.Build.FINGERPRINT == "robolectric"
+
+/**
+ * 그림 하나를 백그라운드에서 푼다 (화면을 그리는 메인 스레드에서 풀면 큰 그림을 여는 순간 저가 폰이 한 박자 멈춘다).
+ * 받아 둔 것 먼저, 없으면 앱 안. [sample] 은 줄임 (1 이면 원래 크기). 한 번 푼 것은 바로 나온다.
+ */
+@Composable
+fun rememberPicture(path: String, sample: Int = 1): Picture {
+    val ctx = LocalContext.current.applicationContext
+    val gen = io.github.graviton94.todayletters.data.AssetFiles.generation
+    val key = "$gen|$sample|$path"
+    fun decode(): ImageBitmap? = if (path.isBlank()) null else runCatching {
+        io.github.graviton94.todayletters.data.AssetFiles.open(ctx, path).use {
+            android.graphics.BitmapFactory.decodeStream(it, null, android.graphics.BitmapFactory.Options().apply { inSampleSize = sample.coerceAtLeast(1) })?.asImageBitmap()
+        }
+    }.getOrNull()?.also { pictures.put(key, it) }
+    val ready = remember(key) { pictures.get(key)?.let { Picture(it, true) } ?: if (path.isBlank()) Picture(null, true) else if (decodeInPlace) Picture(decode(), true) else null }
+    if (ready != null) return ready
+    return androidx.compose.runtime.produceState(Picture(null, false), key) {
+        value = Picture(kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) { decode() }, true)
+    }.value
 }
 
 /**

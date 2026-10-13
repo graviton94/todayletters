@@ -128,12 +128,7 @@ fun Slip(@Suppress("UNUSED_PARAMETER") seed: Int, @Suppress("UNUSED_PARAMETER") 
 @Composable
 fun Portrait(file: String, name: String, size: Dp = Tokens.Size.avatar, modifier: Modifier = Modifier) {
     val p = Ink.palette
-    val ctx = LocalContext.current
-    val bmp: ImageBitmap? = remember(file) {
-        if (file.isBlank()) null else runCatching {
-            io.github.graviton94.todayletters.data.AssetFiles.open(ctx, "portraits/$file").use { android.graphics.BitmapFactory.decodeStream(it).asImageBitmap() }
-        }.getOrNull()
-    }
+    val bmp: ImageBitmap? = rememberPicture(if (file.isBlank()) "" else "portraits/$file").bmp
     val m = modifier.size(size).clip(CircleShape).border(1.dp, p.gilt.copy(alpha = 0.45f), CircleShape).semantics { contentDescription = name }
     if (bmp != null) Image(bmp, null, m, contentScale = ContentScale.Crop)
     else Box(m.background(p.hide), contentAlignment = Alignment.Center) {

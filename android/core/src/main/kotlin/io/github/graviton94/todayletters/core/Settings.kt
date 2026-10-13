@@ -55,7 +55,6 @@ data class SeriesSettings(
      */
     val fadeRead: Boolean = false,
     val modes: Set<ReplyMode> = setOf(ReplyMode.MATCH, ReplyMode.CONSTELLATION, ReplyMode.ALOUD),
-    val lettersPerDay: Int = 1,
     val arrivalNotice: Boolean = true,
 )
 

@@ -24,7 +24,8 @@ import java.util.concurrent.atomic.AtomicLong
  */
 class Downloads(private val ctx: Context) {
     companion object { const val ALL = "*" }
-    data class Part(val path: String, val size: Long)
+    /** 받을 파일 하나: 폰 안 경로 · 크기 · R2 주소 꼬리 (고친 파일은 rev/<판>/<경로>, 나머지는 경로 그대로). */
+    data class Part(val path: String, val size: Long, val src: String = path)
     data class Pack(val series: String, val chapter: String, val bytes: Long, val parts: List<Part>)
 
     // 작품마다 처음 물을 때 한 번 읽는다 (assets.list 에 기대지 않는다)
@@ -36,7 +37,7 @@ class Downloads(private val ctx: Context) {
                 val chs = o.getJSONObject("chapters")
                 o.getString("base") to chs.keys().asSequence().associateWith { c ->
                     val co = chs.getJSONObject(c); val fa = co.getJSONArray("files")
-                    Pack(sid, c, co.getLong("bytes"), (0 until fa.length()).map { i -> fa.getJSONArray(i).let { Part(it.getString(0), it.getLong(1)) } })
+                    Pack(sid, c, co.getLong("bytes"), (0 until fa.length()).map { i -> fa.getJSONArray(i).let { Part(it.getString(0), it.getLong(1), it.optString(2).ifEmpty { it.getString(0) }) } })
                 }
             }.getOrNull()
         }
@@ -111,7 +112,7 @@ class Downloads(private val ctx: Context) {
                         if (tmp.length() == p.size && tmp.renameTo(out)) { lock.withLock { progress(done.addAndGet(p.size), total) }; return@forEach }
                         if (tmp.length() > p.size) tmp.delete()
                         var have = tmp.length()
-                        val conn = (URL(base + p.path).openConnection() as HttpURLConnection).apply {
+                        val conn = (URL(base + p.src).openConnection() as HttpURLConnection).apply {
                             connectTimeout = 15_000; readTimeout = 20_000
                             if (have > 0) setRequestProperty("Range", "bytes=$have-")
                         }

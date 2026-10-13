@@ -11,7 +11,6 @@
     <string name="series_settings">Settings for this series</string>
     <string name="room_info">About this conversation</string>
     <string name="ob_modes">How will you reply?</string>
-    <string name="ob_pace">Letters a day</string>
     <string name="mode_match">Match the words</string>
     <string name="mode_constellation">Join the stars</string>
     <string name="mode_aloud">Read aloud</string>
@@ -43,7 +42,6 @@
     <string name="on">On</string>
     <string name="off">Off</string>
     <string name="free">Free</string>
-    <string name="letters_n">%1$d a day</string>
     <string name="chapter_meta">Letters %1$d · read %2$d</string>
     <string name="letter_done">Read</string>
     <string name="room_words">Words in this letter · %1$d</string>
@@ -83,7 +81,6 @@
     <string name="mode_constellation_d">Join the words in order to build the sentence</string>
     <string name="mode_aloud_d">Follow %1$s\'s voice, then record yourself. Gentle scoring</string>
     <string name="modes_note">Each letter uses the modes you keep on. Keep at least one.</string>
-    <string name="perday_note">How many new letters arrive each day.</string>
     <string name="plate_soon">Painting coming soon</string>
     <string name="note_title">Curator\'s note</string>
     <string name="letter_eta">Arrives tomorrow</string>

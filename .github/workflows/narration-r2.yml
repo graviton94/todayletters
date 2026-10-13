@@ -30,16 +30,22 @@ jobs:
           done
           [ $ok = 1 ]
       - uses: actions/checkout@v4
+      # 앱 밖 파일은 덮어쓰지 않는다: 올릴 모양(고친 파일은 rev/<판>/)을 만들고, 이미 있는 주소의 크기 · 내용이 다르면 멈춘다 (docs/release.md 5)
+      - name: Remote files are never replaced
+        run: |
+          python3 scripts/r2_guard.py stage remote "$RUNNER_TEMP/r2"
+          aws s3api list-objects-v2 --bucket "$BUCKET" --output json --endpoint-url "https://$ACCOUNT.r2.cloudflarestorage.com" \
+            | python3 scripts/r2_guard.py check "$RUNNER_TEMP/r2"
       - name: Upload to R2 (audio/ · plates/ · sketches/ · gallery/)
         run: |
           src=android/app/src/main/assets/audio
           ep="https://$ACCOUNT.r2.cloudflarestorage.com"
           aws s3 sync "$src" "s3://$BUCKET/audio/" --only-show-errors --exclude "*" --include "*.m4a" --content-type audio/mp4 --endpoint-url "$ep"
           aws s3 sync "$src" "s3://$BUCKET/audio/" --only-show-errors --exclude "*" --include "*.json" --content-type application/json --endpoint-url "$ep"
-          # 앱 밖에 두는 것 (그 장을 처음 열 때 받는다): remote/ 의 경로 그대로
-          aws s3 sync remote "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.m4a" --content-type audio/mp4 --endpoint-url "$ep"
-          aws s3 sync remote "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.json" --content-type application/json --endpoint-url "$ep"
-          aws s3 sync remote "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.webp" --content-type image/webp --endpoint-url "$ep"
+          # 앱 밖에 두는 것 (그 장을 처음 열 때 받는다): remote/ 의 경로 그대로, 고친 파일은 rev/<판>/<경로>
+          aws s3 sync "$RUNNER_TEMP/r2" "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.m4a" --content-type audio/mp4 --endpoint-url "$ep"
+          aws s3 sync "$RUNNER_TEMP/r2" "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.json" --content-type application/json --endpoint-url "$ep"
+          aws s3 sync "$RUNNER_TEMP/r2" "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.webp" --content-type image/webp --endpoint-url "$ep"
           echo "local: $(( $(find "$src" -type f | wc -l) + $(find remote -type f | wc -l) )) files"
           for d in audio plates sketches gallery; do
             echo "R2 $d/: $(aws s3 ls "s3://$BUCKET/$d/" --recursive --endpoint-url "$ep" | wc -l) files"
@@ -47,11 +53,11 @@ jobs:
       - name: Check public download
         run: |
           # 앱 밖 낭독의 처음 · 끝, 곡 하나, 그림 · 스케치 · 소장품 하나씩 (앱의 remote.json 경로 그대로)
-          files="$(cd remote && { find audio -name "*.m4a" -not -path "*/music/*" | sort | sed -n '1p;$p'; find audio -path "*/music/*" -name "*.m4a" | sort | head -1; for d in plates sketches gallery; do find $d -name "*.webp" | sort | head -1; done; })"
+          files="$(cd "$RUNNER_TEMP/r2" && { find audio -name "*.m4a" -not -path "*/music/*" | sort | sed -n '1p;$p'; find audio -path "*/music/*" -name "*.m4a" | sort | head -1; for d in plates sketches gallery; do find $d -name "*.webp" | sort | head -1; done; })"
           for f in $files; do
             code=$(curl -s -o /tmp/t -D /tmp/h -w "%{http_code}" "${PUBLIC%/}/$f")
             type=$(grep -i '^content-type:' /tmp/h | tr -d '\r' | cut -d' ' -f2)
             echo "GET $f → $code ($(stat -c%s /tmp/t) bytes, $type)"
-            [ "$code" = 200 ] && cmp -s /tmp/t "remote/$f" && echo "same file ✓" || { echo "::error::public download differs or failed"; exit 1; }
+            [ "$code" = 200 ] && cmp -s /tmp/t "$RUNNER_TEMP/r2/$f" && echo "same file ✓" || { echo "::error::public download differs or failed"; exit 1; }
             case "$f" in *.webp) [ "$type" = image/webp ];; *.m4a) [ "$type" = audio/mp4 ];; esac || { echo "::error::content type $type"; exit 1; }
           done

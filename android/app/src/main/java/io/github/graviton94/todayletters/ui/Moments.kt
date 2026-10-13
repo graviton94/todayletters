@@ -280,7 +280,7 @@ private fun WeatherCard(m: Moment.Weather, lang: Lang) {
 private fun SketchCard(m: Moment.Photo, lang: Lang) {
     val p = Ink.palette
     val ctx = androidx.compose.ui.platform.LocalContext.current
-    val bmp = remember(m.image, io.github.graviton94.todayletters.data.AssetFiles.generation) { runCatching { io.github.graviton94.todayletters.data.AssetFiles.open(ctx, "sketches/${m.image}").use { android.graphics.BitmapFactory.decodeStream(it).asImageBitmap() } }.getOrNull() }
+    val bmp = rememberPicture("sketches/${m.image}").bmp
     var full by remember { mutableStateOf(false) }
     Column(Modifier.widthIn(max = 260.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
         Box(Modifier.graphicsLayer { rotationZ = -0.8f }.background(Color(0xFFF4EBD5)).padding(6.dp).pressable { full = true }) {

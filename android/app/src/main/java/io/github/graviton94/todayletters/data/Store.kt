@@ -19,6 +19,15 @@ class Store(ctx: Context) {
         get() = p.getBoolean("onboarded", false)
         set(v) = p.edit().putBoolean("onboarded", v).apply()
 
+    /**
+     * 처음 앱을 연 날 (epoch day): 그날만 튜토리얼 작품이 2통 ([io.github.graviton94.todayletters.core.Arrivals.perDay]).
+     * 없으면 -1 (예전 사용자는 -1 로 정해 두어 덤이 없다, [AppState] 의 init).
+     */
+    var firstDay: Long
+        get() = p.getLong("first_day", -1)
+        set(v) = p.edit().putLong("first_day", v).apply()
+    fun hasFirstDay() = p.contains("first_day")
+
     /** 마지막으로 앱을 연 날 (그날 첫 실행이면 봉투 인트로). */
     var openedDay: Long
         get() = p.getLong("opened_day", -1)
@@ -49,14 +58,13 @@ class Store(ctx: Context) {
             showRead = p.getBoolean("s:$id:show", true),
             fadeRead = p.getBoolean("s:$id:fade", false),
             modes = modes(p.getString("s:$id:modes", null) ?: "MATCH,CONSTELLATION,ALOUD"),
-            lettersPerDay = p.getInt("s:$id:perDay", 1),
             arrivalNotice = p.getBoolean("s:$id:notice", true),
         )
     }
 
     fun save(id: String, s: SeriesSettings) = p.edit()
         .putString("s:$id:learn", s.learn.name).putBoolean("s:$id:show", s.showRead).putBoolean("s:$id:fade", s.fadeRead)
-        .putString("s:$id:modes", s.modes.joinToString(",") { it.name }).putInt("s:$id:perDay", s.lettersPerDay)
+        .putString("s:$id:modes", s.modes.joinToString(",") { it.name })
         .putBoolean("s:$id:notice", s.arrivalNotice).apply()
 
     /** 걸음 이름 목록 → 걸음들. 예전 판의 이름(DICTATION 등 지금은 없는 걸음)은 건너뛴다. */

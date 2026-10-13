@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  백업 (Android 12+): 진도 · 설정 (SharedPreferences "letters") 만. 받은 낭독 · 그림 · 곡, 따라 읽기 녹음, 오류 기록은 넣지 않는다.
+  받은 파일까지 넣으면 백업 한도(25MB)를 넘어 백업이 통째로 멈추고, 녹음 · 오류 기록은 폰 밖으로 나가지 않는다고 약속했다 (개인정보처리방침).
+  Android 11 이하는 backup_rules.xml (같은 내용).
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <include domain="sharedpref" path="letters.xml" />
+    </cloud-backup>
+    <device-transfer>
+        <include domain="sharedpref" path="letters.xml" />
+    </device-transfer>
+</data-extraction-rules>
