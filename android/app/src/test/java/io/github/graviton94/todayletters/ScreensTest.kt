@@ -874,4 +874,28 @@ class ScreensTest {
         // 밝은 그림 셋 이상을 가진 상태 (입구 장식 줄이 밝은 그림 위에)
         shot("p14_opening_scrim_dark", true, 4500) { io.github.graviton94.todayletters.ui.Opening(s) }
     }
+    @Test fun feedbackSheet() {
+        val s = state(true)
+        s.feedback = AppState.FeedbackAsk()
+        shot("p15_feedback_light", false) {
+            io.github.graviton94.todayletters.ui.SettingsScreen(s)
+            io.github.graviton94.todayletters.ui.FeedbackSheet(s, s.feedback!!)
+        }
+    }
+    @Test fun feedbackSheetDark() {
+        val s = state(true)
+        s.feedback = AppState.FeedbackAsk(io.github.graviton94.todayletters.core.Feedback.Kind.IDEA)
+        shot("p16_feedback_dark", true) {
+            io.github.graviton94.todayletters.ui.SettingsScreen(s)
+            io.github.graviton94.todayletters.ui.FeedbackSheet(s, s.feedback!!)
+        }
+    }
+    @Test fun crashAsk() {
+        val s = state(true)
+        s.crashAsk = true
+        shot("p17_crash_ask_light", false, series = s) {
+            Inbox(s)
+            io.github.graviton94.todayletters.ui.CrashAsk(s)
+        }
+    }
 }

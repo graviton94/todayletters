@@ -2859,5 +2859,121 @@
   "coach_shop": {
     "en": "The shop: spend what you earn on a gallery slot, a new frame, an early letter, a rest day or a card border. Opening every letter is at the bottom.",
     "ko": "상점이에요. 모은 화폐로 갤러리 칸 · 액자 · 미리 열기 · 쉼표 · 카드 테두리를 사요. 모든 편지 열기는 맨 아래에 있어요."
+  },
+  "set_feedback": {
+    "en": "Send feedback",
+    "ko": "의견 보내기"
+  },
+  "set_feedback_d": {
+    "en": "Report a problem or suggest something by email",
+    "ko": "오류 · 제안을 메일로"
+  },
+  "fb_title": {
+    "en": "Send feedback",
+    "ko": "의견 보내기"
+  },
+  "fb_bug": {
+    "en": "Problem",
+    "ko": "오류"
+  },
+  "fb_idea": {
+    "en": "Idea",
+    "ko": "제안"
+  },
+  "fb_other": {
+    "en": "Other",
+    "ko": "기타"
+  },
+  "fb_hint": {
+    "en": "On which screen, while doing what…",
+    "ko": "어떤 화면에서 무엇을 하다가…"
+  },
+  "fb_attach": {
+    "en": "Include device info and the latest error log",
+    "ko": "기기 정보와 최근 오류 기록 함께 보내기"
+  },
+  "fb_device": {
+    "en": "Android %1$s · %2$s · app %3$s · learning %4$s · errors %5$d",
+    "ko": "Android %1$s · %2$s · 앱 %3$s · 배우는 말 %4$s · 오류 %5$d건"
+  },
+  "fb_send": {
+    "en": "Open in mail app",
+    "ko": "메일 앱으로 보내기"
+  },
+  "fb_note": {
+    "en": "Your mail app opens with this filled in. You press send yourself.",
+    "ko": "메일 앱이 열리고 내용이 채워져 있어요. 보내기는 직접 눌러 주세요."
+  },
+  "fb_no_mail": {
+    "en": "No mail app found. Please write to %1$s.",
+    "ko": "메일 앱을 찾지 못했어요. %1$s 로 보내 주세요."
+  },
+  "fb_crash_head": {
+    "en": "Latest error log",
+    "ko": "최근 오류 기록"
+  },
+  "crash_t": {
+    "en": "The app stopped last time",
+    "ko": "지난번에 앱이 멈췄어요"
+  },
+  "crash_b": {
+    "en": "Sending the error log helps a lot in fixing it.",
+    "ko": "오류 기록을 보내 주시면 고치는 데 큰 도움이 돼요."
+  },
+  "crash_send": {
+    "en": "Send",
+    "ko": "보내기"
+  },
+  "crash_no": {
+    "en": "No thanks",
+    "ko": "괜찮아요"
+  },
+  "dl_channel": {
+    "en": "Narration downloads",
+    "ko": "낭독 받기"
+  },
+  "dl_note_t": {
+    "en": "Downloading narration",
+    "ko": "낭독 받는 중"
+  },
+  "dl_note_wait": {
+    "en": "Waiting for the internet",
+    "ko": "인터넷을 기다리는 중"
+  },
+  "dl_note_done": {
+    "en": "Download complete",
+    "ko": "받기 끝"
+  },
+  "dl_note_done_b": {
+    "en": "%1$s · plays without internet now",
+    "ko": "%1$s · 이제 인터넷 없이 들려요"
+  },
+  "dl_note_paused": {
+    "en": "Stopped — download again",
+    "ko": "멈췄어요, 다시 받기"
+  },
+  "dl_note_paused_b": {
+    "en": "Open the app to continue from where it stopped",
+    "ko": "앱을 열면 받은 데부터 이어 받아요"
+  },
+  "dl_pause": {
+    "en": "Stop",
+    "ko": "멈추기"
+  },
+  "dl_bg": {
+    "en": "It keeps going if you close the app. You can stop it from the notification too.",
+    "ko": "앱을 닫아도 이어서 받아요. 알림에서도 멈출 수 있어요."
+  },
+  "dl_waiting": {
+    "en": "The connection dropped. It continues from where it stopped once you are back online.",
+    "ko": "인터넷이 끊겼어요. 다시 이어지면 받은 데부터 이어 받아요."
+  },
+  "dl_wifi": {
+    "en": "Wi-Fi",
+    "ko": "와이파이"
+  },
+  "dl_cell": {
+    "en": "mobile data",
+    "ko": "모바일 데이터"
   }
 }

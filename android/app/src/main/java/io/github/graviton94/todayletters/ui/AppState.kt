@@ -89,6 +89,17 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     data class DownloadAsk(val pack: io.github.graviton94.todayletters.data.Downloads.Pack, val series: String, val chapter: String, val letter: Letter?, val from: Route.Tab?)
     var downloadAsk by mutableStateOf<DownloadAsk?>(null)
 
+    /** 의견 보내기 시트 (설정 › 의견 보내기, 멈춘 뒤 ‘보내기’). [kind] 는 처음 고른 칸. */
+    data class FeedbackAsk(val kind: io.github.graviton94.todayletters.core.Feedback.Kind = io.github.graviton94.todayletters.core.Feedback.Kind.BUG)
+    var feedback by mutableStateOf<FeedbackAsk?>(null)
+    /** 지난번에 앱이 멈췄으면 이번에 한 번만 묻는다 (data/CrashLog). */
+    var crashAsk by mutableStateOf(runCatching { io.github.graviton94.todayletters.data.CrashLog.shouldAsk(ctx) }.getOrDefault(false))
+    fun answerCrash(send: Boolean) {
+        crashAsk = false
+        io.github.graviton94.todayletters.data.CrashLog.asked(ctx)
+        if (send) feedback = FeedbackAsk(io.github.graviton94.todayletters.core.Feedback.Kind.BUG)
+    }
+
     val reducedMotion: Boolean =
         Settings.Global.getFloat(ctx.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) == 0f
 

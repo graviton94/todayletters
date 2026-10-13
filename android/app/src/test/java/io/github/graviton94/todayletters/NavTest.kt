@@ -379,4 +379,53 @@ class NavTest {
         assertEquals(done, s.doneCount("vincent"))
         assertFalse(s.guideDue("match"))
     }
+
+    /** 설정 › 의견 보내기: 시트가 열리고 (오류 · 제안 · 기타, 함께 보내기 미리 보기), 뒤로 가면 닫히고 설정은 그대로. */
+    @Test fun feedbackSheetFromSettings() {
+        val s = state()
+        s.settingsOpen = true
+        rule.setContent {
+            TodayLettersTheme(ThemeMode.LIGHT) {
+                io.github.graviton94.todayletters.ui.SettingsScreen(s)
+                s.feedback?.let { io.github.graviton94.todayletters.ui.FeedbackSheet(s, it) }
+            }
+        }
+        rule.onNodeWithText(ctx.getString(R.string.set_feedback)).performScrollTo().performClick()
+        rule.waitForIdle()
+        assertEquals(io.github.graviton94.todayletters.core.Feedback.Kind.BUG, s.feedback?.kind)
+        rule.onNodeWithText(ctx.getString(R.string.fb_idea)).assertExists()
+        rule.onNodeWithText(ctx.getString(R.string.fb_attach)).assertExists()
+        rule.onNodeWithText(ctx.getString(R.string.fb_send)).assertExists()
+        rule.runOnUiThread { rule.activity.onBackPressedDispatcher.onBackPressed() }
+        rule.waitForIdle()
+        assertEquals(null, s.feedback)
+        assertTrue(s.settingsOpen)
+    }
+
+    /** 앱이 멈춘 기록이 있으면 다음에 열 때 한 번만 묻는다. ‘보내기’ 는 의견 보내기 (오류) 로, 다시 열면 묻지 않는다. */
+    @Test fun crashAskOnceThenFeedback() {
+        ctx.getSharedPreferences("crash", Context.MODE_PRIVATE).edit().clear().commit()
+        assertFalse(state().crashAsk)
+        io.github.graviton94.todayletters.data.CrashLog.record(ctx, Thread.currentThread(), IllegalStateException("boom"))
+        assertEquals(1, io.github.graviton94.todayletters.data.CrashLog.count(ctx))
+        assertTrue(io.github.graviton94.todayletters.data.CrashLog.last(ctx)!!.contains("IllegalStateException: boom"))
+        val s = state()
+        assertTrue(s.crashAsk)
+        rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { io.github.graviton94.todayletters.ui.CrashAsk(s) } }
+        rule.onNodeWithText(ctx.getString(R.string.crash_t)).assertExists()
+        rule.onNodeWithText(ctx.getString(R.string.crash_send)).performClick()
+        rule.waitForIdle()
+        assertFalse(s.crashAsk)
+        assertEquals(io.github.graviton94.todayletters.core.Feedback.Kind.BUG, s.feedback?.kind)
+        assertFalse(state().crashAsk)
+        // 괜찮아요도 한 번으로 끝
+        io.github.graviton94.todayletters.data.CrashLog.record(ctx, Thread.currentThread(), RuntimeException("again"))
+        val t = state()
+        assertTrue(t.crashAsk)
+        t.answerCrash(send = false)
+        assertEquals(null, t.feedback)
+        assertFalse(state().crashAsk)
+        io.github.graviton94.todayletters.data.CrashLog.clear(ctx)
+        assertEquals(0, io.github.graviton94.todayletters.data.CrashLog.count(ctx))
+    }
 }

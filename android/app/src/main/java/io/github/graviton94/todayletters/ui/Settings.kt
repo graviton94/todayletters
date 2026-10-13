@@ -150,6 +150,8 @@ fun SettingsScreen(s: AppState) {
                 var privacy by remember { mutableStateOf(false) }
                 SetRow(stringResource(R.string.set_privacy_row), stringResource(R.string.set_privacy_d), onClick = { privacy = !privacy },
                     below = if (!privacy) null else ({ Text(stringResource(R.string.set_privacy), style = Type.small.ui(), color = p.inkSoft) })) { Chev() }
+                // 의견 보내기: 메일 앱으로 (오류 · 제안 · 기타, 기기 정보와 최근 오류 기록은 고를 때만)
+                SetRow(stringResource(R.string.set_feedback), stringResource(R.string.set_feedback_d), onClick = { s.feedback = AppState.FeedbackAsk() }) { Chev() }
                 SetRow(stringResource(R.string.set_credits), stringResource(R.string.set_credits_d), onClick = { credits = true }) { Chev() }
             }
             val ver = remember {
