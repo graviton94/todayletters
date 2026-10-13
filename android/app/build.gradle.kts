@@ -24,6 +24,15 @@ android {
             storeFile = file("../keystore/sideload.jks")
             storePassword = "android"; keyAlias = "sideload"; keyPassword = "android"
         }
+        // Play 스토어 올리기용 (업로드 키): 환경 변수가 다 있을 때만 (.github/workflows/android-aab.yml, docs/release.md). 없으면 release 는 sideload 키로.
+        val uploadStore = System.getenv("ANDROID_UPLOAD_KEYSTORE")?.takeIf { it.isNotBlank() && file(it).exists() }
+        val uploadVars = listOf("ANDROID_UPLOAD_STORE_PASSWORD", "ANDROID_UPLOAD_KEY_ALIAS", "ANDROID_UPLOAD_KEY_PASSWORD").map { System.getenv(it).orEmpty() }
+        if (uploadStore != null && uploadVars.all { it.isNotBlank() }) {
+            create("upload") {
+                storeFile = file(uploadStore)
+                storePassword = uploadVars[0]; keyAlias = uploadVars[1]; keyPassword = uploadVars[2]
+            }
+        }
     }
 
     buildTypes {
@@ -32,7 +41,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            signingConfig = signingConfigs.getByName("sideload")
+            signingConfig = signingConfigs.findByName("upload") ?: signingConfigs.getByName("sideload")
             buildConfigField("boolean", "DEV_TOOLS", "false")
         }
     }
