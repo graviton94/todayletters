@@ -417,6 +417,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         return when {
             ref.index >= 0 -> l.words.getOrNull(ref.index)?.let { CardWord(w, ref.chapter to l, it, ref.index) }
             ref.phrase >= 0 -> l.phrases.getOrNull(ref.phrase)?.let { CardWord(w, ref.chapter to l, it) }
+            // 내가 쓴 답장: 표현 카드처럼 (문장 하나, 소리 없음 · 쓰임 설명은 ‘내가 쓴 답장’)
+            ref.reply -> l.reply?.let { CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Word(it, note = replyNote)) }
             else -> w.lexicon?.get(ref.own)?.let { e -> CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Vocab.wordFor(e, l.source, w.learnVocab, w.series.original), own = true) }
         }
     }
@@ -742,6 +744,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val (ch, l) = letterOf(r)
         val before = progress(r.series, ch, l.id)
         if (mode !in before.replied && !replaying(r)) earn(Earn.PRACTICE, id = r.series)
+        // 쓴 답장은 오늘의 루틴(복습 · 말하기)에서 다시 본다
+        if (mode == ReplyMode.CONSTELLATION && l.reply != null && !replaying(r)) admit(listOf(CardRef.reply(r.series, ch, l.id, deckOf(r.series))))
         replied(r, mode)
         stepEnded(r, before.done)
     }
@@ -1132,6 +1136,54 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         }
         lastWeekCoverage = prev
         best?.let { gradeUp = it }
+    }
+
+    // ── 답장 사다리 (core 의 Ladder) ─────────────────────────
+    /** 답장 카드의 쓰임 설명. */
+    private val replyNote = io.github.graviton94.todayletters.core.Tri(mapOf(
+        io.github.graviton94.todayletters.core.Lang.KO to ctx.getString(io.github.graviton94.todayletters.R.string.ladder_card_note_ko),
+        io.github.graviton94.todayletters.core.Lang.EN to ctx.getString(io.github.graviton94.todayletters.R.string.ladder_card_note_en),
+    ))
+
+    /** 이 작품의 답장 도움 (지금 배우는 말의 언어 등급만큼). */
+    fun replyHelp(series: String): io.github.graviton94.todayletters.core.Ladder.Help =
+        io.github.graviton94.todayletters.core.Ladder.help(grade(room(series).learn))
+
+    private val formIndex = HashMap<io.github.graviton94.todayletters.core.Lexicon, Map<String, io.github.graviton94.todayletters.core.LexEntry>>()
+    /** 사전에서 이 꼴의 표제어 (꼴 · 표제어, 대소문자 무시). */
+    fun lexOf(series: String, form: String): io.github.graviton94.todayletters.core.LexEntry? {
+        val lex = vocabWork(series)?.lexicon ?: return null
+        val idx = synchronized(formIndex) {
+            formIndex.getOrPut(lex) { buildMap { lex.entries.forEach { e -> (e.forms + e.lemma).forEach { f -> putIfAbsent(f.lowercase(), e) } } } }
+        }
+        return idx[form.lowercase()]
+    }
+
+    /**
+     * 답장 낱말의 빈칸 점수: 기능어 · 이름은 0, 사전에 있는 낱말은 3 + (오늘의 낱말이면 2) + 길이,
+     * 사전에 없으면 두 글자 이상이고 대문자로 시작하지 않을 때만 1 + 길이.
+     */
+    fun replyScore(series: String, letter: Letter): (String) -> Int {
+        val learn = room(series).learn
+        val today = letter.words.flatMap { w -> listOf(w.text[learn]) + w.forms }.map { io.github.graviton94.todayletters.core.Ladder.core(it).lowercase() }.toSet()
+        return { c ->
+            val e = lexOf(series, c)
+            when {
+                c.length < 2 -> 0
+                e != null && io.github.graviton94.todayletters.core.Reading.free(e) -> 0
+                e != null -> 3 + (if (c.lowercase() in today) 2 else 0) + c.length / 4
+                c.first().isUpperCase() -> 0
+                else -> 1 + c.length / 4
+            }
+        }
+    }
+
+    /** 고르기의 미끼: (같은 낱말의 다른 꼴, 그 밖의 후보 = 이 편지의 오늘의 낱말 · 답장의 다른 낱말). */
+    fun replyDecoys(series: String, letter: Letter, answer: String, others: List<String>): Pair<List<String>, List<String>> {
+        val learn = room(series).learn
+        val near = lexOf(series, answer)?.forms.orEmpty().filter { !it.equals(answer, ignoreCase = true) && !it.first().isUpperCase() }
+        val pool = letter.words.map { io.github.graviton94.todayletters.core.Ladder.core(it.text[learn].substringAfterLast(' ')) } + others
+        return near to pool.filter { it.isNotEmpty() }
     }
 
     // ── 따라 읽기 · 완독 봉인 (모든 시리즈 공통) ─────────────────

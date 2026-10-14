@@ -91,6 +91,8 @@ data class Letter(
     val phrases: List<Word> = emptyList(),
     /** 챕터 파일의 낱말 그대로 (낭독 w<i> 가 붙은 것). [words] 가 daily.json 의 낱말로 바뀌어도 소리를 찾을 때 쓴다. */
     val source: List<Word> = emptyList(),
+    /** 답장이 대답하는 편지 문장 (메시지 번호, 0부터): 메신저의 ‘답장(인용)’처럼 그 문장을 집어 보여 준다. 없으면 -1. */
+    val replyQuote: Int = -1,
 ) {
     /** 녹음이 있는 ‘편지 속 그 곡’. */
     val music: Moment.Music? get() = moments.firstOrNull { it is Moment.Music && it.playable } as Moment.Music?

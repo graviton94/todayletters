@@ -460,7 +460,15 @@ fun Room(s: AppState, r: Route.Letter) {
                             s.go(Route.Done(r))
                             s.settle()
                         }
-                        ReplyMode.CONSTELLATION -> Primary(stringResource(R.string.room_reply, stringResource(modeLabel(nextPlay)))) { stopAll(); s.go(Route.Play(r, nextPlay)) }
+                        ReplyMode.CONSTELLATION -> {
+                            val help = s.replyHelp(id)
+                            val how = when {
+                                help == io.github.graviton94.todayletters.core.Ladder.Help.LINK || letter.reply == null -> modeLabel(nextPlay)
+                                help == io.github.graviton94.todayletters.core.Ladder.Help.WRITE -> R.string.ladder_write_mode
+                                else -> R.string.ladder_choose_mode
+                            }
+                            Primary(stringResource(R.string.room_reply, stringResource(how))) { stopAll(); s.go(Route.Play(r, nextPlay)) }
+                        }
                         else -> Primary(stringResource(R.string.room_next, stringResource(modeLabel(nextPlay)))) { stopAll(); s.go(Route.Play(r, nextPlay)) }
                     }
                 }

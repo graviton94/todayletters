@@ -282,6 +282,7 @@ object Library {
                 id = l.getString("id"), date = l.optString("date"), place = l.optString("place"), mood = l.optString("mood", "calm"),
                 messages = msgs, words = words, note = l.optJSONObject("note")?.let { tri(it) }, plate = plate,
                 reply = l.optJSONObject("reply")?.let { tri(it) }, moments = moments,
+                replyQuote = l.optJSONObject("reply")?.optInt("quote", -1) ?: -1,
                 status = l.optJSONObject("status")?.let { tri(it) },
                 to = l.optJSONObject("to")?.let { tri(it) },
             )

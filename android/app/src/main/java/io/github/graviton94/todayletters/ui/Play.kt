@@ -82,7 +82,12 @@ fun Play(s: AppState, r: Route.Play) {
     when (r.mode) {
         ReplyMode.MATCH -> Match(s, r, onClose = { asking = true })
         ReplyMode.ALOUD -> Aloud(s, r, onClose = { asking = true })
-        else -> Constellation(s, r, onClose = { asking = true })
+        // 답장: 언어 등급이 A1 · 1~2단이거나 비울 낱말이 없으면 별자리 잇기, 그 위로는 답장 사다리 (빈칸 · 직접 쓰기)
+        else -> {
+            val help = s.replyHelp(r.room.series)
+            if (help == io.github.graviton94.todayletters.core.Ladder.Help.LINK || s.letterOf(r.room).second.reply == null) Constellation(s, r, onClose = { asking = true })
+            else ReplyLadder(s, r, help, onClose = { asking = true })
+        }
     }
     if (asking) Ask(
         stringResource(R.string.play_leave_title), stringResource(R.string.play_leave_yes), stringResource(R.string.play_leave_no),

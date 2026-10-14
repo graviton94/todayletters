@@ -157,7 +157,8 @@
     "fr": "Envoie-moi tes dessins de la mer.",
     "en": "Send me your drawings of the sea.",
     "ko": "바다 그림들 보내 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 1
    },
    "moments": [
     {
@@ -362,7 +363,8 @@
     "fr": "J'aimerais voir la mer avec toi.",
     "en": "I'd like to see the sea with you.",
     "ko": "형이랑 같이 바다 보고 싶다.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 0
    },
    "moments": [
     {
@@ -579,7 +581,8 @@
     "fr": "N'aie pas peur, fais ton semeur.",
     "en": "Don't be afraid, paint your sower.",
     "ko": "겁내지 말고, 그 씨 뿌리는 사람 그려 봐.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 3
    },
    "moments": [
     {
@@ -765,7 +768,8 @@
     "fr": "Je vais lire Madame Chrysanthème.",
     "en": "I'm going to read Madame Chrysanthème.",
     "ko": "『국화 부인』 읽어 볼게.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 0
    },
    "moments": [
     {
@@ -966,7 +970,8 @@
     "fr": "Salue le facteur Roulin de ma part.",
     "en": "Say hello to Roulin the postman for me.",
     "ko": "우편배달부 룰랭 씨한테 안부 전해 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 0
    },
    "moments": [
     {
@@ -1177,7 +1182,8 @@
     "fr": "J'ai hâte de voir ton paysan.",
     "en": "I can't wait to see your peasant.",
     "ko": "형이 그린 농부, 얼른 보고 싶다.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 0
    },
    "moments": [
     {
@@ -1393,7 +1399,8 @@
     "fr": "Garde une place pour un tournesol chez moi.",
     "en": "Keep a sunflower for my place too.",
     "ko": "내 방에 걸 해바라기도 하나 남겨 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 1
    },
    "moments": [
     {

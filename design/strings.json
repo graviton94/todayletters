@@ -60,6 +60,46 @@
     "en": "Write back · %1$s",
     "ko": "답장 쓰기 · %1$s"
   },
+  "ladder_prompt": {
+    "en": "Imagine you are %1$s. Shall we write back?",
+    "ko": "당신이 %1$s라고 생각하고 답장해 볼까요?"
+  },
+  "ladder_choose_mode": {
+    "en": "Fill the blanks",
+    "ko": "빈칸 채우기"
+  },
+  "ladder_write_mode": {
+    "en": "Write it",
+    "ko": "직접 쓰기"
+  },
+  "ladder_choose": {
+    "en": "Pick the word for the blank",
+    "ko": "빈칸에 맞는 낱말을 골라요"
+  },
+  "ladder_write": {
+    "en": "Write the missing word",
+    "ko": "빈칸에 들어갈 낱말을 써요"
+  },
+  "ladder_check": {
+    "en": "Check",
+    "ko": "확인"
+  },
+  "ladder_wrong": {
+    "en": "Not that one. Try again.",
+    "ko": "그 낱말은 아니에요. 다시 해 봐요."
+  },
+  "ladder_hint": {
+    "en": "Hint: it starts with %1$s",
+    "ko": "힌트: %1$s(으)로 시작해요"
+  },
+  "ladder_card_note_ko": {
+    "en": "내가 쓴 답장",
+    "ko": "내가 쓴 답장"
+  },
+  "ladder_card_note_en": {
+    "en": "My reply",
+    "ko": "My reply"
+  },
   "play_leave_title": {
     "en": "Write the reply later?",
     "ko": "답장은 나중에 쓸까요?"

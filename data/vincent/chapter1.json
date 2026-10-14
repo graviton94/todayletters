@@ -166,7 +166,8 @@
     "fr": "Moi aussi, j'ai pensé à toi.",
     "en": "I thought of you too.",
     "ko": "나도 형 생각 많이 했어.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 0
    },
    "moments": [
     {
@@ -411,7 +412,8 @@
     "fr": "Envoie-moi un dessin du pont.",
     "en": "Send me a drawing of the bridge.",
     "ko": "그 다리 그림 하나 보내 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 0
    },
    "moments": [
     {
@@ -624,7 +626,8 @@
     "fr": "Oui, envoyons-le à Mme Mauve.",
     "en": "Yes, let's send it to Mrs Mauve.",
     "ko": "응, 마우버 부인께 같이 보내자.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 1
    },
    "moments": [
     {
@@ -845,7 +848,8 @@
     "fr": "Je veux voir ces arbres en fleurs.",
     "en": "I want to see those trees in blossom.",
     "ko": "꽃 핀 그 나무들을 보고 싶어.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 0
    },
    "moments": [
     {
@@ -1044,7 +1048,8 @@
     "fr": "J'ai hâte de voir les trois vergers.",
     "en": "I can't wait to see the three orchards.",
     "ko": "과수원 세 폭, 얼른 보고 싶어.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 1
    },
    "moments": [
     {
@@ -1213,7 +1218,8 @@
     "fr": "Une maison jaune au soleil, c'est parfait.",
     "en": "A yellow house in the sun, that's perfect.",
     "ko": "햇살 아래 노란 집이라니, 딱 좋아.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 1
    },
    "moments": [
     {
@@ -1432,7 +1438,8 @@
     "fr": "Envoie-moi ton rêve japonais.",
     "en": "Send me your Japanese dream.",
     "ko": "형의 일본의 꿈, 보내 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 4
    },
    "moments": [
     {

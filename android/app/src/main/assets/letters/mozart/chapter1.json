@@ -144,7 +144,8 @@
     "de": "Schreib mir mehr von der Oper!",
     "en": "Write me more about the opera!",
     "ko": "오페라 얘기 더 써 줘!",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 1
    },
    "moments": [
     {
@@ -360,7 +361,8 @@
     "de": "Wir küssen Dich auch tausend Mal.",
     "en": "We kiss you a thousand times too.",
     "ko": "우리도 천 번 입맞춤을 보내.",
-    "_note": "엄마와 누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "엄마와 누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 0
    },
    "moments": [
     {
@@ -596,7 +598,8 @@
     "de": "Der Canari singt noch immer!",
     "en": "The canary is still singing!",
     "ko": "카나리아는 아직도 노래해!",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 1
    },
    "moments": [
     {
@@ -831,7 +834,8 @@
     "de": "Schlaf nicht zu viel, lieber Bruder!",
     "en": "Don't sleep too much, dear brother!",
     "ko": "너무 많이 자지 마, 동생아!",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 4
    },
    "moments": [
     {
@@ -1052,7 +1056,8 @@
     "de": "Trink viel Wasser, lieber Bruder!",
     "en": "Drink lots of water, dear brother!",
     "ko": "물 많이 마셔, 동생아!",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 2
    },
    "moments": [
     {
@@ -1299,7 +1304,8 @@
     "de": "Viel Glück mit Deiner Opera!",
     "en": "Good luck with your opera!",
     "ko": "오페라 잘되길 빌어!",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
+    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
+    "quote": 1
    },
    "moments": [
     {

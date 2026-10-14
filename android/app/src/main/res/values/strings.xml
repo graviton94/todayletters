@@ -16,6 +16,16 @@
     <string name="mode_aloud">Read aloud</string>
     <string name="room_typing">writing…</string>
     <string name="room_reply">Write back · %1$s</string>
+    <string name="ladder_prompt">Imagine you are %1$s. Shall we write back?</string>
+    <string name="ladder_choose_mode">Fill the blanks</string>
+    <string name="ladder_write_mode">Write it</string>
+    <string name="ladder_choose">Pick the word for the blank</string>
+    <string name="ladder_write">Write the missing word</string>
+    <string name="ladder_check">Check</string>
+    <string name="ladder_wrong">Not that one. Try again.</string>
+    <string name="ladder_hint">Hint: it starts with %1$s</string>
+    <string name="ladder_card_note_ko">내⁠가 쓴 답⁠장</string>
+    <string name="ladder_card_note_en">My reply</string>
     <string name="play_leave_title">Write the reply later?</string>
     <string name="play_leave_yes">Later</string>
     <string name="play_leave_no">Keep writing</string>

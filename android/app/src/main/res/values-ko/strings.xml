@@ -16,6 +16,16 @@
     <string name="mode_aloud">따⁠라 읽⁠기</string>
     <string name="room_typing">쓰⁠는 중⁠…</string>
     <string name="room_reply">답⁠장 쓰⁠기 · %1$s</string>
+    <string name="ladder_prompt">당⁠신⁠이 %1$s⁠라⁠고 생⁠각⁠하⁠고 답⁠장⁠해 볼⁠까⁠요⁠?</string>
+    <string name="ladder_choose_mode">빈⁠칸 채⁠우⁠기</string>
+    <string name="ladder_write_mode">직⁠접 쓰⁠기</string>
+    <string name="ladder_choose">빈⁠칸⁠에 맞⁠는 낱⁠말⁠을 골⁠라⁠요</string>
+    <string name="ladder_write">빈⁠칸⁠에 들⁠어⁠갈 낱⁠말⁠을 써⁠요</string>
+    <string name="ladder_check">확⁠인</string>
+    <string name="ladder_wrong">그 낱⁠말⁠은 아⁠니⁠에⁠요⁠. 다⁠시 해 봐⁠요⁠.</string>
+    <string name="ladder_hint">힌⁠트⁠: %1$s(⁠으⁠)⁠로 시⁠작⁠해⁠요</string>
+    <string name="ladder_card_note_ko">내⁠가 쓴 답⁠장</string>
+    <string name="ladder_card_note_en">My reply</string>
     <string name="play_leave_title">답⁠장⁠은 나⁠중⁠에 쓸⁠까⁠요⁠?</string>
     <string name="play_leave_yes">나⁠중⁠에</string>
     <string name="play_leave_no">계⁠속 쓰⁠기</string>
