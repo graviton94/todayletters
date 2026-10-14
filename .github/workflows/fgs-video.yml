@@ -111,6 +111,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add design/store/play/fgs_*.mp4
-          git commit -qm "Play Console FGS demo videos (run ${{ github.run_number }})" || exit 0
+          git commit -q -m "Play Console FGS demo videos (run ${{ github.run_number }})" \
+            -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+          Claude-Session: https://claude.ai/code/session_01PVMN8RoLUqSRLLNDrEeoam" || exit 0
           git pull -q --rebase origin "${GITHUB_REF_NAME}"
           git push -q origin "HEAD:${GITHUB_REF_NAME}"
