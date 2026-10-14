@@ -1,2 +1,2 @@
-85_room_large.png
-a11y.txt
+82_widget_4x2.png
+83_widget_2x2.png
