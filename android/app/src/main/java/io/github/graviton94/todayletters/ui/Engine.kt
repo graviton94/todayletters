@@ -447,21 +447,23 @@ fun GalleryTab(s: AppState) {
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s5)) {
             // 편지의 그림: 연 편지의 그림, 최근 것부터 셋 → 그림 산책
             GalleryGroup(stringResource(R.string.plates_title), "${opened.size} / ${plates.size}", onMore = { s.go(Route.Catalogue(id)) }) {
-                Thumbs(opened.filter { (_, _, cl) -> io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${cl.second.plate!!.image}") }.takeLast(3).reversed().map { (ci, li, cl) ->
+                // 받아 둔 그림을 먼저, 모자라면 아직 받지 않은 그림은 빈 자리 (종이색 칸 · 옅은 자물쇠)로
+                val recent = opened.reversed().sortedBy { (_, _, cl) -> !io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${cl.second.plate!!.image}") }.take(3)
+                Thumbs(recent.map { (ci, li, cl) ->
                     "plates/${cl.second.plate!!.image}" to { s.go(Route.Artwork(id, li + 1, Route.Letter(id, ci + 1, li + 1, Route.Gallery))) }
                 })
             }
             // 모은 작품 (예전 ‘나의 도록’과 합침): 뽑기 · 상점으로 모은 소장품
             GalleryGroup(stringResource(R.string.gallery_collected), "${collected.size} / ${w.kit.collection.size}", onMore = { s.go(Route.Collection(id)) }) {
-                // 칸에는 그림이 이 기기에 있는 것만 (받지 않은 장의 소장품은 빈 칸이 되지 않게)
-                Thumbs(collected.filter { s.available(it) }.takeLast(3).reversed().map { pc -> pc.image to { open = pc } })
+                // 가진 것 그대로 (수와 칸이 맞게): 이 기기에 있는 그림 먼저, 받지 않은 것은 빈 자리
+                Thumbs(collected.reversed().sortedBy { !s.available(it) }.take(3).map { pc -> pc.image to { if (s.available(pc)) open = pc } })
             }
             // 이달의 전시
             s.exhibition(id)?.let { e ->
                 val ep = s.exhibitionPieces(id)
                 val have = ep.filter { s.owns(id, it) }
                 GalleryGroup(stringResource(R.string.gallery_expo), "${e.title[uiLang()]} · ${have.size} / ${ep.size}", onMore = { s.go(Route.Exhibition) }) {
-                    Thumbs(have.filter { s.available(it) }.take(3).map { pc -> pc.image to { open = pc } })
+                    Thumbs(have.sortedBy { !s.available(it) }.take(3).map { pc -> pc.image to { if (s.available(pc)) open = pc } })
                 }
             }
             Spacer(Modifier.height(Tokens.Space.s3))
@@ -511,8 +513,8 @@ fun CollectionScreen(s: AppState, series: String) {
     var open by remember { mutableStateOf<Piece?>(null) }
     var framing by remember { mutableStateOf<Piece?>(null) }
     val all = w.kit.collection.filter { s.owns(series, it) }
-    // 그림이 이 기기에 있는 것만 칸으로 (수는 가진 것 전부)
-    val owned = all.filter { s.available(it) }.sortedByDescending { it.tier.ordinal }
+    // 가진 것 전부 칸으로 (수와 칸이 맞게): 이 기기에 있는 그림 먼저 (등급 순), 받지 않은 것은 빈 자리
+    val owned = all.sortedWith(compareBy<Piece> { !s.available(it) }.thenByDescending { it.tier.ordinal })
     Column(Modifier.fillMaxSize()) {
         TopBar(stringResource(R.string.gallery_collected), s, help = null, showBack = true, showSettings = false)
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -520,7 +522,7 @@ fun CollectionScreen(s: AppState, series: String) {
             if (all.isEmpty()) Text(stringResource(R.string.gallery_none), style = Type.small.ui(), color = p.hideInk)
             owned.chunked(3).forEach { row ->
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    row.forEach { pc -> AssetImage(pc.image, Modifier.weight(1f).aspectRatio(1f).pressable { open = pc }, sample = 4) }
+                    row.forEach { pc -> AssetImage(pc.image, Modifier.weight(1f).aspectRatio(1f).pressable { if (s.available(pc)) open = pc }, sample = 4) }
                     repeat(3 - row.size) { Spacer(Modifier.weight(1f)) }
                 }
             }
