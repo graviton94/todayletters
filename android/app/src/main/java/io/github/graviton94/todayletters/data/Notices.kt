@@ -264,14 +264,15 @@ class TodayWidget : AppWidgetProvider() {
                 // 2×2: 편지 번호 · 오늘의 편지 · 이어 읽기. 일요일엔 낭독회.
                 v.setTextViewText(R.id.w_date, if (sum.recital) ctx.getString(R.string.widget_sunday) else no?.let { ctx.getString(R.string.letter_n, it) } ?: date)
                 v.setTextViewText(R.id.w_line, ctx.getString(if (sum.recital) R.string.widget_recital else R.string.widget_name))
-                v.setTextViewText(
-                    R.id.w_status,
-                    when {
-                        sum.doneToday -> ctx.getString(R.string.widget_done, sum.streak)
-                        sum.recital -> ctx.getString(R.string.recital_today)
-                        else -> ctx.getString(R.string.widget_streak, sum.streak)
-                    },
-                )
+                // 이어 읽기가 0일이면 그 줄은 숨긴다 (다 읽음 화면과 같은 규칙)
+                val line = when {
+                    sum.doneToday && sum.streak > 0 -> ctx.getString(R.string.widget_done, sum.streak)
+                    sum.recital -> ctx.getString(R.string.recital_today)
+                    sum.streak > 0 -> ctx.getString(R.string.widget_streak, sum.streak)
+                    else -> ""
+                }
+                v.setTextViewText(R.id.w_status, line)
+                v.setViewVisibility(R.id.w_status, if (line.isEmpty()) android.view.View.GONE else android.view.View.VISIBLE)
             } else {
                 v.setTextViewText(R.id.w_date, no?.let { ctx.getString(R.string.widget_caps, it) } ?: date)
                 v.setTextViewText(R.id.w_line, if (sum.line.isNotEmpty()) "“${sum.line}”" else ctx.getString(R.string.app_name))
@@ -280,7 +281,7 @@ class TodayWidget : AppWidgetProvider() {
                 v.setTextViewText(
                     R.id.w_status,
                     when {
-                        sum.doneToday -> ctx.getString(R.string.widget_done, sum.streak)
+                        sum.doneToday && sum.streak > 0 -> ctx.getString(R.string.widget_done, sum.streak)
                         sum.recital -> status + " · " + ctx.getString(R.string.widget_recital)
                         sum.streak > 0 -> status + " · " + ctx.getString(R.string.widget_streak, sum.streak)
                         else -> status

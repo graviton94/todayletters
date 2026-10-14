@@ -1011,6 +1011,25 @@ class ScreensTest {
         // 머리 줄은 한 줄로 잘리므로, 사진에 % 가 안 보이면 값이 없는 것인지 잘린 것인지 여기서 가린다
         org.junit.Assert.assertNotNull("coverage", s.coverage("vincent", l.id))
     }
+    /** 편지 머리의 더 보기 메뉴 (대화방 정보 · 읽기 빠르기): 메뉴는 따로 뜬 창이라 화면 전체를 찍는다. 빠르기를 한 번 눌러 0.7× 로. */
+    @OptIn(com.github.takahirom.roborazzi.ExperimentalRoborazziApi::class)
+    @Test fun roomMenu() {
+        val s = state(true)
+        rule.mainClock.autoAdvance = false
+        rule.setContent {
+            TodayLettersTheme(ThemeMode.LIGHT) {
+                io.github.graviton94.todayletters.ui.InSeries(s.currentWork) { Box(Modifier.fillMaxSize().background(Ink.palette.paper)) { Room(s, Route.Letter("vincent", 1, 1)) } }
+            }
+        }
+        rule.mainClock.advanceTimeBy(4000)
+        rule.onNode(androidx.compose.ui.test.hasContentDescription(ctx.getString(R.string.room_more))).performClick()
+        rule.mainClock.advanceTimeBy(300)
+        rule.onNode(hasText(ctx.getString(R.string.room_speed, "1×"))).performClick()
+        rule.mainClock.advanceTimeBy(600)
+        rule.onNode(hasText(ctx.getString(R.string.room_speed, "0.7×"))).assertExists()
+        org.junit.Assert.assertEquals(0.7f, s.store.roomSpeed("vincent"), 0.001f)
+        com.github.takahirom.roborazzi.captureScreenRoboImage("build/screens/g02_room_menu_light.png")
+    }
     /** 다 읽은 편지의 ‘처음 읽을 때 → 지금’ (다시 읽기 띠). */
     @Test fun rereadCoverage() {
         val s = engineState(); s.reward = null

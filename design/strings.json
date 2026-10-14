@@ -36,6 +36,14 @@
     "en": "About this conversation",
     "ko": "대화방 정보"
   },
+  "room_more": {
+    "en": "More",
+    "ko": "더 보기"
+  },
+  "room_speed": {
+    "en": "Reading speed · %1$s",
+    "ko": "읽기 빠르기 · %1$s"
+  },
   "ob_modes": {
     "en": "How will you reply?",
     "ko": "답장은 어떻게 쓸까요?"

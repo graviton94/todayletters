@@ -26,6 +26,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -517,7 +518,7 @@ private fun TypingBubble(name: String, still: Boolean) {
     }
 }
 
-/** 대화방 맨 위: 뒤로 · 동그란 초상 · 이름과 날짜 · 전체 듣기 · (?) · 대화방 정보. */
+/** 대화방 맨 위: 뒤로 · 동그란 초상 · 이름(첫 줄) · 날짜와 아는 낱말 %(둘째 줄) · 자동 낭독 · (?) · 더 보기(대화방 정보 · 낭독 빠르기). */
 @OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
 private fun RoomHeader(
@@ -534,18 +535,15 @@ private fun RoomHeader(
             Column(Modifier.weight(1f).padding(start = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(1.dp)) {
                 Text(name, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.ink, maxLines = 1,
                     overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
-                // 짧은 날짜 · 아는 낱말 % (작은 금빛 표). 한 줄에 다 들어가지 않으면 표가 날짜 아래로 내려간다 (자르지 않는다)
+                // 짧은 날짜 · 아는 낱말 % (작은 금빛 표)를 한 줄에. 큰 글자에서 넘치면 표가 날짜 아래로 내려간다 (자르지 않는다)
                 androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                    Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+                    Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
+                        modifier = Modifier.align(Alignment.CenterVertically))
                     if (known != null) Text("$known%", style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold),
                         color = p.giltText, maxLines = 1, softWrap = false,
                         modifier = Modifier.align(Alignment.CenterVertically).border(1.dp, p.giltText.copy(alpha = 0.6f), androidx.compose.foundation.shape.RoundedCornerShape(50))
                             .padding(horizontal = 6.dp).then(if (knownLabel != null) Modifier.androidx_semantics(knownLabel) else Modifier))
                 }
-            }
-            // 낭독 빠르기 (v21 F6): 1× ↔ 0.7×, 시리즈마다 기억
-            Box(Modifier.heightIn(min = 44.dp).pressable { onSpeed() }.padding(horizontal = 4.dp), contentAlignment = Alignment.Center) {
-                Capsule(if (speed < 1f) "0.7×" else "1×", if (speed < 1f) CapsuleKind.FILLED else CapsuleKind.OUTLINE)
             }
             // 자동 낭독 켜기 · 끄기: 켜져 있으면 금빛으로 채운 스피커, 꺼져 있으면 빗금
             IconButton(stringResource(if (auto) R.string.room_auto_on else R.string.room_auto_off), onClick = onAuto) {
@@ -565,9 +563,41 @@ private fun RoomHeader(
                 }
             }
             IconButton(stringResource(R.string.help), onClick = { s.coachAgain("room") }) { HelpGlyph(p.ink) }
-            IconButton(stringResource(R.string.room_info), onClick = onInfo) { Lines(p.ink) }
+            // 더 보기: 대화방 정보 · 낭독 빠르기 (v21 F6: 1× ↔ 0.7×, 시리즈마다 기억). 빠르기는 머리 줄에서 빼 이름 · 날짜 자리를 넓힌다
+            Box {
+                var menu by remember { mutableStateOf(false) }
+                IconButton(stringResource(R.string.room_more), onClick = { menu = true }) { Lines(p.ink) }
+                if (menu) RoomMenu(speed, onInfo = { menu = false; onInfo() }, onSpeed = onSpeed, onClose = { menu = false })
+            }
         }
         Hair()
+    }
+}
+
+/** 머리 오른쪽 더 보기 메뉴: 대화방 정보 · 낭독 빠르기 (누를 때마다 1× ↔ 0.7×, 메뉴는 열린 채로). */
+@Composable
+private fun RoomMenu(speed: Float, onInfo: () -> Unit, onSpeed: () -> Unit, onClose: () -> Unit) {
+    val p = Ink.palette
+    val d = androidx.compose.ui.platform.LocalDensity.current
+    androidx.compose.ui.window.Popup(alignment = Alignment.TopEnd, offset = androidx.compose.ui.unit.IntOffset(0, with(d) { 48.dp.roundToPx() }),
+        onDismissRequest = onClose, properties = androidx.compose.ui.window.PopupProperties(focusable = true)) {
+        Column(Modifier.width(androidx.compose.foundation.layout.IntrinsicSize.Max).widthIn(min = 200.dp, max = 300.dp).background(p.paper).border(1.dp, p.line)) {
+            MenuItem(stringResource(R.string.room_info), onClick = onInfo)
+            Hair()
+            val slow = speed < 1f
+            val v = if (slow) "0.7×" else "1×"
+            MenuItem(stringResource(R.string.room_speed, v), trailing = { Capsule(v, if (slow) CapsuleKind.FILLED else CapsuleKind.OUTLINE) }, onClick = onSpeed)
+        }
+    }
+}
+
+@Composable
+private fun MenuItem(label: String, trailing: (@Composable () -> Unit)? = null, onClick: () -> Unit) {
+    val p = Ink.palette
+    Row(Modifier.fillMaxWidth().heightIn(min = 52.dp).pressable(haptic = false) { onClick() }.padding(horizontal = Tokens.Space.s4, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+        Text(label, style = Type.body.ui(), color = p.ink, modifier = Modifier.weight(1f))
+        trailing?.invoke()
     }
 }
 

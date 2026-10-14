@@ -10,6 +10,8 @@
     <string name="settings">설⁠정</string>
     <string name="series_settings">이 작⁠품 설⁠정</string>
     <string name="room_info">대⁠화⁠방 정⁠보</string>
+    <string name="room_more">더 보⁠기</string>
+    <string name="room_speed">읽⁠기 빠⁠르⁠기 · %1$s</string>
     <string name="ob_modes">답⁠장⁠은 어⁠떻⁠게 쓸⁠까⁠요⁠?</string>
     <string name="mode_match">낱⁠말 맞⁠추⁠기</string>
     <string name="mode_constellation">별⁠자⁠리 잇⁠기</string>

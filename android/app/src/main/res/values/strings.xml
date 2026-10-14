@@ -10,6 +10,8 @@
     <string name="settings">Settings</string>
     <string name="series_settings">Settings for this series</string>
     <string name="room_info">About this conversation</string>
+    <string name="room_more">More</string>
+    <string name="room_speed">Reading speed · %1$s</string>
     <string name="ob_modes">How will you reply?</string>
     <string name="mode_match">Match the words</string>
     <string name="mode_constellation">Join the stars</string>
