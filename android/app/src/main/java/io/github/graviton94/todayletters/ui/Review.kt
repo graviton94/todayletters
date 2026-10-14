@@ -62,6 +62,7 @@ import androidx.compose.foundation.layout.isImeVisible
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.data.learnVocab
 import io.github.graviton94.todayletters.core.Breaks
+import io.github.graviton94.todayletters.core.CardRef
 import io.github.graviton94.todayletters.core.Card
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Memory
@@ -919,8 +920,10 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         val (ch, l) = cl
         val view = s.room(w.series.id)
         val learnWord = word.text[view.learn]
+        // 내가 쓴 답장 카드: 문장 통째가 하나의 답 (쉼표로 뜻을 나누지 않는다). 편지 문장에는 없으니 빈칸 · 받아쓰기 대신 뜻 고르기 · 말하기로
+        val isReply = CardRef.parse(card.key)?.reply == true
         // “study (sketch)”, “country, land” 처럼 뜻이 여럿이면 뜻마다 편지 문장에서 찾는다. 사전에서 온 낱말은 편지에 찍힌 꼴로도
-        val senses = senses(learnWord) + (if (view.learn == w.learnVocab) word.forms else emptyList())
+        val senses = if (isReply) listOf(Breaks.plain(learnWord)) else senses(learnWord) + (if (view.learn == w.learnVocab) word.forms else emptyList())
         fun has(mi: Int) = l.messages.getOrNull(mi)?.let { m -> wordMarks(m.text[view.learn], senses).isNotEmpty() } == true
         // 자유 연습은 꼴도 무작위 (카드 · 날로 정해져서 이어 풀어도 같은 꼴)
         var k = kind ?: if (free) Memory.freeKind(card.key, s.today) else Memory.kindFor(card)
@@ -938,7 +941,7 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         val formInText = marks?.firstOrNull()?.first?.let { sentenceLearn.substring(it.first, it.last + 1) }
         // 쓰기 · 말하기 채점은 오늘의 철자로 (편지는 판의 철자 daß, 답은 dass). 없으면 편지의 철자 그대로
         val typeWord = word.answer(view.learn, w.series.original)
-        val typeSenses = senses(typeWord)
+        val typeSenses = if (isReply) listOf(Breaks.plain(typeWord)) else senses(typeWord)
         // 받아쓸 뜻: 문장에 나온 뜻, 없으면 첫 뜻. 소리는 전체를 읽으니 화면에도 전체를 두고 그 뜻만 칸으로
         val dictSense = marks?.firstOrNull()?.second?.let { typeSenses.getOrNull(it) } ?: typeSenses.firstOrNull() ?: typeWord
         val plainFull = Breaks.plain(typeWord)
@@ -960,7 +963,10 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         }
         // 듣고 쓰기는 첫 뜻 하나만 (“flower, blossom” → flower): 쉼표 · 괄호까지 치지 않게
         val answerWord = when (k) { ReviewKind.BLANK -> formInText!!; ReviewKind.DICTATION, ReviewKind.SPEAK -> dictSense; else -> learnWord }
-        val others = all.filter { it.word != word }.map { it.word.text[if (k == ReviewKind.MEANING) view.read else view.learn] }
+        val side = if (k == ReviewKind.MEANING) view.read else view.learn
+        // 답장 카드의 미끼는 낱말이 아니라 문장: 다른 답장들, 모자라면 같은 편지의 문장들
+        val others = (if (isReply) all.filter { it.word.note == word.note && it.word != word }.map { it.word.text[side] } + l.messages.map { Breaks.plain(it.text[side]) }
+            else all.filter { it.word != word }.map { it.word.text[side] })
             .distinct().filter { it != answerWord && it != word.text[view.read] }.shuffled(java.util.Random(card.key.hashCode().toLong())).take(3)
         val right = if (k == ReviewKind.MEANING) word.text[view.read] else answerWord
         Q(card, k, answerWord, word.text[view.read], if (view.learn == w.learnVocab) word.ipa else "",
