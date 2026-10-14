@@ -125,9 +125,9 @@ private fun SeriesCard(s: AppState, w: Work) {
                 Box(Modifier.border(1.5.dp, t.accent, CircleShape).padding(1.5.dp)) { Portrait(w.portrait, w.fullName, 40.dp) }
                 Text("${w.name[uiLang()]} → ${w.recipient[uiLang()]}", style = Type.heading.ui(), color = t.ink, modifier = Modifier.weight(1f))
             }
-            // 원어 · 햇수 · 배우는 말 (눌러서 바꾸기: 진도는 언어마다 따로)
+            // 햇수 · 배우는 말 (언어는 칩 하나에만) (눌러서 바꾸기: 진도는 언어마다 따로)
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                Text("${stringResource(langLabel(w.series.original))} · ${w.years}", style = Type.small.ui(), color = t.soft, maxLines = 1, modifier = Modifier.weight(1f, fill = false))
+                Text(w.years, style = Type.small.ui(), color = t.soft, maxLines = 1, modifier = Modifier.weight(1f, fill = false))
                 if (s.store.learnChosen(id) || s.startedCount(id) > 0) LearnChip(s, id, ink = t.ink, line = t.accent)
             }
             Spacer(Modifier.weight(1f))

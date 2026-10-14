@@ -44,17 +44,25 @@ import io.github.graviton94.todayletters.design.Type
  * 진도는 언어마다 따로라, 고르면 그 언어의 진도(읽은 편지 · 카드 · 오늘의 할 일)로 건너간다. 처음 바꿀 때 한 번 알림.
  */
 
-/** 작은 단추: “배우는 말 · Deutsch ▾”. [ink] · [line] 은 그 자리의 글자 · 테 색. */
+/** 배우는 말 이름: 앱 글자 언어 이름 + (그 말 스스로의 이름, 다를 때만) — “프랑스어 (Français)”, “한국어”. */
+@Composable
+fun learnLabel(l: io.github.graviton94.todayletters.core.Lang): String {
+    val ui = stringResource(langLabel(l)); val own = langName(l)
+    return if (io.github.graviton94.todayletters.core.Breaks.plain(ui) == own) ui else "$ui ($own)"
+}
+
+/** 작은 단추: “배우는 말: 프랑스어 (Français) ▾”. [ink] · [line] 은 그 자리의 글자 · 테 색. */
 @Composable
 fun LearnChip(s: AppState, id: String, ink: Color = Ink.palette.ink, line: Color = Ink.palette.line) {
     var open by remember(id) { mutableStateOf(false) }
     val learn = s.room(id).learn
-    val a11y = stringResource(R.string.learn_switch_a11y, langName(learn))
+    val label = learnLabel(learn)
+    val a11y = stringResource(R.string.learn_switch_a11y, label)
     Box(
         Modifier.heightIn(min = 44.dp).semantics(mergeDescendants = true) { contentDescription = a11y }.pressable { open = true },
         contentAlignment = Alignment.Center,
     ) {
-        Text(stringResource(R.string.learn_switch, langName(learn)) + " ▾", style = Type.small.ui(), color = ink, maxLines = 1,
+        Text(stringResource(R.string.learn_switch, label) + " ▾", style = Type.small.ui(), color = ink, maxLines = 1,
             modifier = Modifier.border(1.dp, line).padding(horizontal = 10.dp, vertical = 4.dp))
     }
     if (open) LearnPicker(s, id) { open = false }
