@@ -38,17 +38,11 @@ jobs:
       - name: Build debug APK
         working-directory: android
         run: ./gradlew :app:assembleDebug
-      - name: Virtual speaker (PulseAudio null sink)
+      - name: Audio to a file (emulator audio backend)
+        # 러너에는 소리 장치가 없다. 기본(pa → 없음)으로는 앱 소리가 멈추고 몇 초 뒤 (오디오 대기 전환 때) 에뮬레이터가 죽었다.
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq pulseaudio >/dev/null
-          # 에뮬레이터가 찾을 수 있게 소켓 자리를 정해 둔다 (기본 자리로는 "Could not init pa audio driver")
-          pulseaudio -D -n --exit-idle-time=-1 \
-            --load="module-null-sink sink_name=null" \
-            --load="module-native-protocol-unix socket=/tmp/pulse.sock auth-anonymous=1"
-          echo "PULSE_SERVER=unix:/tmp/pulse.sock" >> "$GITHUB_ENV"
-          sleep 1
-          PULSE_SERVER=unix:/tmp/pulse.sock pactl set-default-sink null
-          PULSE_SERVER=unix:/tmp/pulse.sock pactl info
+          echo "QEMU_AUDIO_DRV=wav" >> "$GITHUB_ENV"
+          echo "QEMU_WAV_PATH=/tmp/emu-audio.wav" >> "$GITHUB_ENV"
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -60,7 +54,7 @@ jobs:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-34-google_apis-x86_64-pixel_6-fgs-v5
+          key: avd-34-google_apis-x86_64-pixel_6-fgs-v6
       - name: Create AVD snapshot
         if: steps.avd.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2
@@ -86,7 +80,7 @@ jobs:
           disk-size: 4096M
           cores: 2
           force-avd-creation: false
-          # 소리: 러너에 가짜 스피커(PulseAudio null sink)를 두고 켠다. 소리 장치가 없으면 (-noaudio 든 아니든) 앱이 처음 소리를 낼 때 에뮬레이터가 죽었다.
+          # 소리는 QEMU 의 wav 드라이버로 파일에 흘려보낸다 (위 단계). 영상은 소리 없음.
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -no-boot-anim -camera-back none
           disable-animations: false
           script: adb install -r android/app/build/outputs/apk/debug/app-debug.apk && (timeout 15m bash scripts/fgs_video.sh fgs || echo "stopped early" > fgs/STOPPED.txt); mkdir -p fgs; timeout 30 adb logcat -d | tail -n 3000 > fgs/logcat_tail.txt; true
