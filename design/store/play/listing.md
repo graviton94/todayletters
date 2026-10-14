@@ -162,7 +162,7 @@ Contact: ruahn49@gmail.com
 
 | 파일 | 무엇 | 크기 |
 |---|---|---|
-| `icon_512.png` | 앱 아이콘 — 512 × 512 · 32비트 PNG (알파 채널) · design/store/icon-512.png (런처 적응형 아이콘과 같은 그림: 봉투에서 나오는 〈해바라기〉 · 〈밀짚모자를 쓴 자화상〉, 메트로폴리탄 미술관 CC0). 모서리 둥글리기는 Play 가 해요. en · ko 공통. | 213 KB |
+| `icon_512.png` | 앱 아이콘 — 512 × 512 PNG · 우표 안의 〈별이 빛나는 밤〉(빈센트 반 고흐, 1889, 뉴욕 현대미술관 · 공공 영역 PD-Art, Wikimedia Commons) · 밤하늘색 바탕 · 소인 “1889 · LINGUA MUSEUM”. 앱 런처 아이콘(AAB 안)은 아직 예전 그림. en · ko 공통. | 312 KB |
 | `feature2/feature2_1_en.png` | Feature graphic · en-US (기본) — 1024 × 500 · 알파 없음 · 시안 1 (편지 말풍선 · 낱말 뜻 · 답장). 그림: Vincent van Gogh, 〈밀짚모자를 쓴 자화상 Self-Portrait with a Straw Hat〉, 1887 — The Metropolitan Museum of Art, New York, CC0 (Open Access), metmuseum.org/art/collection/search/436532 · 앱 plates/c1-l1.webp. 그림은 자르거나 색을 바꾸지 않고 크기만 줄였어요. | 345 KB |
 | `feature2/feature2_1_ko.png` | 그래픽 이미지 · ko-KR — 1024 × 500 · 알파 없음 · 시안 1 한국어판. 그림: 위와 같음. | 348 KB |
 | `final/en_1.png` | 휴대전화 스크린샷 · en-US (기본) 1: “Talk with history / through real letters” — Letters of Van Gogh and Mozart (앱 화면 `07_room_ko_light`) | 1080×1920 · 337 KB |
