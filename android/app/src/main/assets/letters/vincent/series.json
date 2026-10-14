@@ -18,7 +18,7 @@
   "ko": "테오"
  },
  "portrait": "vincent.webp",
- "credit": "Self-Portrait, 1887 · Art Institute of Chicago · CC0",
+ "credit": "Autoportrait, 1887 · Art Institute of Chicago · CC0",
  "product": "series_vincent",
  "tier": 2,
  "title": {
@@ -951,7 +951,7 @@
  "outro": {
   "file": "epilogue.json",
   "image": "outro.webp",
-  "credit": "Racines d’arbres · Tree Roots, July 1890 · Van Gogh Museum, Amsterdam · Public domain",
+  "credit": "Racines d’arbres, juillet 1890 · Van Gogh Museum, Amsterdam · domaine public",
   "caps": "ÉPILOGUE",
   "name": "Vincent van Gogh",
   "years": "30 mars 1853 — 29 juillet 1890",
