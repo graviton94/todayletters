@@ -1,0 +1,2 @@
+  * ServiceRecord{cd95625 u0 io.github.graviton94.todayletters/.data.DownloadService}
+    isForeground=true foregroundId=7302 types=00000001 foregroundNoti=Notification(channel=downloads shortcut=null contentView=null vibrate=null sound=null defaults=0x0 flags=0x6a color=0x00000000 category=progress groupKey=silent actions=1 vis=PRIVATE)

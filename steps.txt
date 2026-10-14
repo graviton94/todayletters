@@ -1,0 +1,13 @@
+[22:55:28] record fgs_media_playback
+[22:55:46] tap 'Tap to enter' at 540,2140
+[22:55:53] tap '^Open the letter$' at 593,1692
+[22:56:10] tap '^Read the letter$' at 540,2162
+[22:56:30] tap '^Pause$' at 933,736
+-rw-r--r-- 1 runner runner 5174791 Oct 14 22:56 fgs/fgs_media_playback.mp4
+[22:56:44] record fgs_data_sync
+[22:56:54] tap '^Settings$' at 995,228
+[22:57:06] tap '^Download all chapters' at 369,1691
+[22:57:12] tap '^Download · ' at 540,2055
+[22:57:28] process after close: 4174
+[22:57:50] NOT FOUND: '^(Stop|STOP)$' (adb: device)
+-rw-r--r-- 1 runner runner 3151077 Oct 14 22:57 fgs/fgs_data_sync.mp4
