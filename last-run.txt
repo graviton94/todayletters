@@ -1,2 +1,8 @@
-82_widget_4x2.png
-83_widget_2x2.png
+a11y.txt
+grammar01_ladder_turn1_b1_light.png
+grammar02_ladder_turn2_b1_dark.png
+grammar03_korean_style_note_light.png
+grammar04_style_card_light.png
+grammar05_style_card_right_dark.png
+grammar06_outro_reply_dark.png
+grammar07_epilogue_ladder_b1_light.png
