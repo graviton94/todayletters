@@ -42,7 +42,13 @@ sealed interface Route {
     data class Chapter(val series: String, val chapter: Int) : Route
 
     /** 편지 = 대화방. [from] 은 들어온 곳 (오늘에서 바로 들어왔으면 Inbox). */
-    data class Letter(val series: String, val chapter: Int, val letter: Int, val from: Tab? = null) : Route
+    data class Letter(val series: String, val chapter: Int, val letter: Int, val from: Tab? = null) : Route {
+        companion object {
+            /** 맺음 편지 (장 "E") 의 장 번호: 답장 걸음 (Play) 만 이 번호로 들어간다 (대화방 · 목차에는 없다). */
+            const val EPILOGUE = 99
+        }
+        val epilogue get() = chapter == EPILOGUE
+    }
     data class RoomInfo(val room: Letter) : Route
     data class Play(val room: Letter, val mode: ReplyMode) : Route
     data class Done(val room: Letter) : Route

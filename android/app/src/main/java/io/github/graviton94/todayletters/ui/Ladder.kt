@@ -213,7 +213,7 @@ fun ReplyLadder(s: AppState, r: Route.Play, help: Ladder.Help, turn: Int, turns:
 }
 
 /** 점선 테두리 (오늘의 문법 줄). */
-private fun Modifier.dashed(c: androidx.compose.ui.graphics.Color) = drawBehind {
+private fun Modifier.dashedRound(c: androidx.compose.ui.graphics.Color) = drawBehind {
     drawRoundRect(c, cornerRadius = CornerRadius(8.dp.toPx()),
         style = Stroke(width = 1.dp.toPx(), pathEffect = PathEffect.dashPathEffect(floatArrayOf(5.dp.toPx(), 3.dp.toPx()))))
 }
@@ -237,7 +237,7 @@ internal fun GrammarNote(s: AppState, series: String, t: ReplyTurn, learn: Lang)
         if (hint.isNotBlank()) withStyle(SpanStyle(color = p.inkSoft)) { append(" — $hint") }
     }
     Text(text, style = Type.small.ui(), color = p.ink,
-        modifier = Modifier.fillMaxWidth().dashed(p.giltText).padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s2))
+        modifier = Modifier.fillMaxWidth().dashedRound(p.giltText).padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s2))
 }
 
 /**

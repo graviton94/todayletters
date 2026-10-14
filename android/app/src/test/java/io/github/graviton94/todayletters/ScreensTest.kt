@@ -1171,6 +1171,7 @@ class ScreensTest {
         fun patch(w: io.github.graviton94.todayletters.data.Work): io.github.graviton94.todayletters.data.Work = w.copy(
             chapters = w.chapters.mapIndexed { i, c -> if (i > 0) c else c.copy(grammar = grammar, letters = c.letters.mapIndexed { j, l -> if (j == 0) l.copy(replies = turns) else l }) },
             decks = w.decks.mapValues { patch(it.value) },
+            outro = w.outro?.let { o -> o.copy(epilogue = o.epilogue?.copy(replies = turns + turns.first().copy(quote = 0))) },
         )
     }
 
@@ -1239,5 +1240,32 @@ class ScreensTest {
         listOf(io.github.graviton94.todayletters.core.CardRef.reply("vincent", c, l.id, deck, 0), io.github.graviton94.todayletters.core.CardRef.reply("vincent", c, l.id, deck, 1),
             io.github.graviton94.todayletters.core.CardRef.style("vincent", c, l.id, deck, 0)).forEach { k -> org.junit.Assert.assertTrue(k, k in keys) }
         org.junit.Assert.assertNotNull(s.cardWord(io.github.graviton94.todayletters.core.CardRef.reply("vincent", c, l.id, deck, 1)))
+    }
+
+    private val epilogueRoute get() = Route.Play(Route.Letter("vincent", Route.Letter.EPILOGUE, 1), ReplyMode.CONSTELLATION)
+    /** 맺음 편지에도 답장 (턴 셋): 아웃트로 화면의 답장 단추. */
+    @Test fun grammarOutroReply() = withGrammar {
+        val s = graded(state(true), 5)
+        shot("grammar06_outro_reply_dark", true, act = {
+            rule.onAllNodes(hasText(ctx.getString(R.string.outro_reply))).onFirst().performScrollTo()
+        }) { io.github.graviton94.todayletters.ui.OutroScreen(s, "vincent") }
+    }
+    /** 맺음 편지의 답장 사다리 (턴 1 / 3). */
+    @Test fun grammarEpilogueLadder() = withGrammar {
+        val s = graded(state(true), 8)
+        shot("grammar07_epilogue_ladder_b1_light", false, series = s) { Play(s, epilogueRoute) }
+    }
+    /** 맺음 편지 답장을 보내면 진도에 남고 (장 "E"), 턴마다 복습 카드. */
+    @Test fun grammarEpilogueProgress() = withGrammar {
+        val s = state(true)
+        val r = Route.Letter("vincent", Route.Letter.EPILOGUE, 1)
+        val (c, l) = s.letterOf(r)
+        org.junit.Assert.assertEquals("E", c)
+        s.go(Route.Outro("vincent")); s.go(Route.Play(r, ReplyMode.CONSTELLATION))
+        (0..2).forEach { s.replyTurnDone(r, it) }
+        s.replyAndContinue(r, ReplyMode.CONSTELLATION)
+        org.junit.Assert.assertTrue(ReplyMode.CONSTELLATION in s.progress("vincent", "E", l.id).replied)
+        org.junit.Assert.assertEquals(Route.Outro("vincent"), s.route)
+        org.junit.Assert.assertNotNull(s.cardWord(io.github.graviton94.todayletters.core.CardRef.reply("vincent", "E", l.id, s.deckOf("vincent"), 2)))
     }
 }

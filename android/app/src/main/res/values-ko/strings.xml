@@ -568,6 +568,8 @@
     <string name="prologue_next">다⁠음</string>
     <string name="prologue_prev">이⁠전</string>
     <string name="prologue_go">첫 편⁠지 받⁠기</string>
+    <string name="outro_reply">이 마⁠지⁠막 편⁠지⁠에⁠도 답⁠장⁠해 볼⁠까⁠요⁠?</string>
+    <string name="outro_replied">답⁠장⁠을 보⁠냈⁠어⁠요 ✓</string>
     <string name="outro_listen">문⁠장⁠을 누⁠르⁠면 들⁠려⁠요</string>
     <string name="outro_close">닫⁠기</string>
     <string name="outro_catalogue">도⁠록</string>

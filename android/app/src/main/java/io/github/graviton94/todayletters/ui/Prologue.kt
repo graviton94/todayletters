@@ -44,6 +44,7 @@ import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Breaks
 import io.github.graviton94.todayletters.core.Route
+import io.github.graviton94.todayletters.core.ReplyMode
 import io.github.graviton94.todayletters.design.Faces
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
@@ -214,6 +215,20 @@ fun OutroScreen(s: AppState, series: String) {
                         }
                     }
                     Text(stringResource(R.string.outro_listen), style = Type.small.ui(), color = Faint)
+                    // 맺음 편지에도 답장 (턴 셋 · VIII 장 문법): 답장 사다리로, 보내면 이 화면으로 돌아온다
+                    if (e.replies.isNotEmpty()) {
+                        val sent = ReplyMode.CONSTELLATION in s.progress(series, "E", e.id).replied
+                        val help = s.replyHelp(series)
+                        val how = when (help) {
+                            io.github.graviton94.todayletters.core.Ladder.Help.LINK -> R.string.mode_constellation
+                            io.github.graviton94.todayletters.core.Ladder.Help.WRITE -> R.string.ladder_write_mode
+                            else -> R.string.ladder_choose_mode
+                        }
+                        Text(stringResource(if (sent) R.string.outro_replied else R.string.outro_reply), style = Type.small.ui(), color = if (sent) Gilt else Soft, modifier = Modifier.padding(top = 8.dp))
+                        Box(Modifier.fillMaxWidth().heightIn(min = 48.dp).border(1.dp, Gilt).pressable {
+                            s.narrator.stop(); s.go(Route.Play(Route.Letter(series, Route.Letter.EPILOGUE, 1), ReplyMode.CONSTELLATION))
+                        }, contentAlignment = Alignment.Center) { Text(stringResource(R.string.room_reply, stringResource(how)), style = Type.body.ui(), color = Gilt) }
+                    }
                 }
                 Text(o.caps, style = Type.caps, color = Gilt, modifier = Modifier.padding(top = 18.dp))
                 Text(o.name, style = Type.display.copy(fontFamily = Faces.display), color = Light)

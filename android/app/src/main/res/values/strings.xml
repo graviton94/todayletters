@@ -568,6 +568,8 @@
     <string name="prologue_next">Next</string>
     <string name="prologue_prev">Back</string>
     <string name="prologue_go">Receive the first letter</string>
+    <string name="outro_reply">Write back to this last letter, too.</string>
+    <string name="outro_replied">Reply sent ✓</string>
     <string name="outro_listen">Tap a line to hear it</string>
     <string name="outro_close">Close</string>
     <string name="outro_catalogue">Catalogue</string>

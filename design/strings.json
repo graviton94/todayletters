@@ -2268,6 +2268,14 @@
     "en": "Receive the first letter",
     "ko": "첫 편지 받기"
   },
+  "outro_reply": {
+    "en": "Write back to this last letter, too.",
+    "ko": "이 마지막 편지에도 답장해 볼까요?"
+  },
+  "outro_replied": {
+    "en": "Reply sent ✓",
+    "ko": "답장을 보냈어요 ✓"
+  },
   "outro_listen": {
     "en": "Tap a line to hear it",
     "ko": "문장을 누르면 들려요"

@@ -729,6 +729,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     }
 
     fun letterOf(r: Route.Letter): Pair<String, Letter> {
+        // 맺음 편지: 아웃트로 화면에서 답장 걸음만 (장 "E")
+        if (r.epilogue) return "E" to work(r.series).outro!!.epilogue!!
         val ch = work(r.series).chapters[r.chapter - 1]
         return ch.id to ch.letters[r.letter - 1]
     }
@@ -741,7 +743,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     fun replied(r: Route.Letter, mode: ReplyMode) {
         val (ch, l) = letterOf(r)
-        save(r.series, ch, l.id, progress(r.series, ch, l.id).reply(mode).complete(letterModes(r.series, ch, l)))
+        save(r.series, ch, l.id, progress(r.series, ch, l.id).reply(mode).complete(stepsOf(r)))
     }
 
     /** 걸음을 마치고 대화방으로 (건너뛴 걸음을 다시 한 것이면 들어온 곳으로). 이 걸음으로 편지가 끝났으면 이어 읽은 날을 세고 편지 완료 화면으로. */
@@ -770,14 +772,20 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun skipStep(r: Route.Letter, mode: ReplyMode) {
         val (ch, l) = letterOf(r)
         val before = progress(r.series, ch, l.id)
-        save(r.series, ch, l.id, before.skip(mode).complete(letterModes(r.series, ch, l)))
+        save(r.series, ch, l.id, before.skip(mode).complete(stepsOf(r)))
         stepEnded(r, before.done)
     }
+
+    /** 이 편지에서 하는 걸음 (맺음 편지는 답장 하나). */
+    private fun stepsOf(r: Route.Letter): List<ReplyMode> =
+        if (r.epilogue) listOf(ReplyMode.CONSTELLATION) else letterOf(r).let { (ch, l) -> letterModes(r.series, ch, l) }
 
     private fun stepEnded(r: Route.Letter, was: Boolean) {
         val (ch, l) = letterOf(r)
         recorder.stop()
         back()
+        // 맺음 편지의 답장: 아웃트로로 돌아갈 뿐 (편지 완료 화면 · 편지 보상 없음)
+        if (r.epilogue) { settle(); return }
         if (!was && progress(r.series, ch, l.id).done) {
             if (!replaying(r)) { finished(); earn(Earn.LETTER, id = r.series) }
             go(Route.Done(r))
