@@ -955,6 +955,8 @@ class ScreensTest {
         val l = s.work("vincent").chapters.first().letters[3]
         s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = 2))
         shot("g01_room_known_pct_light", false, 4000, series = s) { Room(s, Route.Letter("vincent", 1, 4)) }
+        // 머리 줄은 한 줄로 잘리므로, 사진에 % 가 안 보이면 값이 없는 것인지 잘린 것인지 여기서 가린다
+        org.junit.Assert.assertNotNull("coverage", s.coverage("vincent", l.id))
     }
     /** 다 읽은 편지의 ‘처음 읽을 때 → 지금’ (다시 읽기 띠). */
     @Test fun rereadCoverage() {
@@ -962,19 +964,23 @@ class ScreensTest {
         val l = s.work("vincent").chapters.first().letters.first()
         s.store.setFirstCoverage(s.key("vincent", "I", l.id), 58)
         knowWords(s, l, listOf(0, 1))
-        shot("g02_room_reread_cov_light", false, 3000, series = s) { Room(s, room(1)) }
+        // 다 읽은 편지는 끝으로 내려가 있으므로 맨 위의 다시 읽기 띠로 올린다
+        shot("g02_room_reread_cov_light", false, 3000, act = {
+            scrolled { rule.onAllNodes(hasText("58%", substring = true)).onFirst().performScrollTo() }
+        }, series = s) { Room(s, room(1)) }
     }
-    /** 번역 줄 물러나기: B1 에서 다 아는 문장(첫 두 문장)은 번역을 접고, 나머지는 번역 그대로. */
+    /** 번역 줄 물러나기: B1 에서 다 아는 문장(첫 문장 빼고 모두)은 번역을 접고, 첫 문장은 번역 그대로. 다 읽은 편지라 끝 쪽이 보인다. */
     @Test fun foldedTranslation() {
         val s = graded(engineState().also { it.reward = null }, 7)
         val l = s.work("vincent").chapters.first().letters.first()
-        knowWords(s, l, listOf(0, 1))
+        knowWords(s, l, (1 until l.messages.size).toList())
         shot("g03_room_folded_b1_light", false, 3000, series = s) { Room(s, room(1)) }
+        org.junit.Assert.assertTrue("last sentence folds", s.folds("vincent", l.id, l.messages.size - 1))
     }
     @Test fun foldedTranslationDark() {
         val s = graded(engineState().also { it.reward = null }, 10)
         val l = s.work("vincent").chapters.first().letters.first()
-        knowWords(s, l, listOf(0, 1, 2))
+        knowWords(s, l, l.messages.indices.toList())
         shot("g04_room_folded_b2_dark", true, 3000, series = s) { Room(s, room(1)) }
     }
     /** 나의 기록의 언어 등급 블록 (등급 · 단, 막대, 떠올릴 수 있는 낱말 · 읽을 수 있는 비율, 다음에 필요한 것). */
