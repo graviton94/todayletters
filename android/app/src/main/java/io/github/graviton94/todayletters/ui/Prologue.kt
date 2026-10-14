@@ -189,7 +189,12 @@ fun OutroScreen(s: AppState, series: String) {
     BackHandler { s.back() }
     val done = w.chapters.flatMap { c -> c.letters.filter { s.progress(series, c.id, it.id).done } }
     Box(Modifier.fillMaxSize().background(Night)) {
-        AssetImage("plates/${o.image}", Modifier.fillMaxWidth().height(300.dp), sample = 2, alignment = Alignment.TopCenter)
+        // 맺음 그림: 이 기기에 없으면 대표 그림 · 받아 둔 읽은 그림으로
+        val ctx = androidx.compose.ui.platform.LocalContext.current
+        val outroImg = remember(o.image, io.github.graviton94.todayletters.data.AssetFiles.generation) {
+            firstAvailable(ctx, listOf("plates/${o.image}", w.kit.hero) + done.mapNotNull { it.plate?.image?.let { i -> "plates/$i" } }.reversed())
+        }
+        AssetImage(outroImg, Modifier.fillMaxWidth().height(300.dp), sample = 2, alignment = Alignment.TopCenter)
         Box(Modifier.fillMaxWidth().height(300.dp).background(Brush.verticalGradient(0f to Night.copy(alpha = 0.25f), 0.7f to Night.copy(alpha = 0.85f), 1f to Night)))
         Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
             Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = 26.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -244,8 +249,13 @@ fun CatalogueScreen(s: AppState, series: String) {
         // 표지: 책 한 권 + (완결이면) 메달
         Column(Modifier.fillMaxWidth().padding(top = 8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             Column(Modifier.width(250.dp).background(Color(0xFF2A2017)).border(1.dp, Color(0xFF5A4630)).padding(horizontal = 20.dp, vertical = 22.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-                val cover = all.lastOrNull { (_, _, cl) -> s.progress(series, cl.first.id, cl.second.id).done }?.third?.second?.plate?.image ?: w.kit.hero
-                Box(Modifier.size(width = 186.dp, height = 140.dp).background(Color(0xFFE9DCC0)).padding(6.dp)) { AssetImage("plates/$cover", Modifier.fillMaxSize(), gray = !complete, sample = 4) }
+                // 표지 그림: 마지막으로 읽은 편지의 그림, 이 기기에 없으면 받아 둔 다른 읽은 그림 · 대표 그림 순으로
+                val ctx = androidx.compose.ui.platform.LocalContext.current
+                val cover = remember(got, io.github.graviton94.todayletters.data.AssetFiles.generation) {
+                    val read = all.filter { (_, _, cl) -> s.progress(series, cl.first.id, cl.second.id).done }.mapNotNull { it.third.second.plate?.image?.let { i -> "plates/$i" } }.reversed()
+                    firstAvailable(ctx, read + w.kit.hero)
+                }
+                Box(Modifier.size(width = 186.dp, height = 140.dp).background(Color(0xFFE9DCC0)).padding(6.dp)) { AssetImage(cover, Modifier.fillMaxSize(), gray = !complete, sample = 4) }
                 Text("CATALOGUE", style = Type.caps, color = Gilt, modifier = Modifier.padding(top = 22.dp))
                 Text(stringResource(R.string.catalogue_name, w.fullName.substringAfter(' ')), style = Type.title.copy(fontFamily = Faces.display), color = Light, textAlign = TextAlign.Center)
                 Text(stringResource(R.string.catalogue_sub, w.years), style = Type.small.ui(), color = Soft)

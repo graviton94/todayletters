@@ -36,6 +36,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -128,14 +129,41 @@ fun InSeries(w: Work, content: @Composable () -> Unit) = SeriesTheme(w.kit.light
 /** 어두운 쪽 빛깔 (서재 카드 · 전환 화면은 테마와 상관없이 늘 어둡게). */
 fun darkTone(w: Work): SeriesTone = w.kit.dark?.let(::tone) ?: SeriesTone(Color(0xFF121110), Color(0xFFECE7DE), Color(0xFFA29B90), Color(0xFF6A645B), Color(0xFFC9B48C))
 
-/** 그림 하나 (assets 와 같은 경로, 받아 둔 것 먼저). 가볍게 줄여서 읽는다. 아직 받지 않았으면 빈 자리. */
+/**
+ * 그림 하나 (assets 와 같은 경로, 받아 둔 것 먼저). 가볍게 줄여서 읽는다.
+ * 아직 받지 않았으면 [PictureSlot] (종이색 칸 · 아주 옅은 자물쇠). [gray] (아직 못 가진 그림) 는 흑백 · 35% 로, 가진 그림보다 밝아 보이지 않게.
+ */
 @Composable
 fun AssetImage(path: String, modifier: Modifier, gray: Boolean = false, sample: Int = 2, alignment: Alignment = Alignment.Center) {
     val bmp: ImageBitmap? = rememberPicture(path, sample).bmp
-    if (bmp == null) Box(modifier.background(Ink.palette.hide))
+    if (bmp == null) PictureSlot(modifier)
     else Image(bmp, null, modifier, contentScale = ContentScale.Crop, alignment = alignment,
-        colorFilter = if (gray) ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(0f) }) else null, alpha = if (gray) 0.45f else 1f)
+        colorFilter = if (gray) ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(0f) }) else null, alpha = if (gray) 0.35f else 1f)
 }
+
+/** 가졌지만 아직 이 기기에 없는 그림 자리: 종이색 칸에 13% 자물쇠 그림자 하나 (글자 없음). */
+@Composable
+fun PictureSlot(modifier: Modifier) {
+    val p = Ink.palette
+    val cell = androidx.compose.ui.graphics.lerp(p.hide, p.ink, 0.12f)
+    Box(modifier.background(cell), contentAlignment = Alignment.Center) {
+        androidx.compose.foundation.Canvas(Modifier.fillMaxSize(0.32f).aspectRatio(1f)) {
+            val w = size.minDimension; val c = p.ink.copy(alpha = 0.13f)
+            val ox = (size.width - w) / 2; val oy = (size.height - w) / 2
+            // 고리
+            drawArc(c, 180f, 180f, false, Offset(ox + w * 0.27f, oy + w * 0.08f), androidx.compose.ui.geometry.Size(w * 0.46f, w * 0.46f),
+                style = androidx.compose.ui.graphics.drawscope.Stroke(w * 0.09f))
+            drawLine(c, Offset(ox + w * 0.315f, oy + w * 0.31f), Offset(ox + w * 0.315f, oy + w * 0.44f), w * 0.09f)
+            drawLine(c, Offset(ox + w * 0.685f, oy + w * 0.31f), Offset(ox + w * 0.685f, oy + w * 0.44f), w * 0.09f)
+            // 몸통
+            drawRoundRect(c, Offset(ox + w * 0.18f, oy + w * 0.42f), androidx.compose.ui.geometry.Size(w * 0.64f, w * 0.5f), androidx.compose.ui.geometry.CornerRadius(w * 0.05f))
+        }
+    }
+}
+
+/** [paths] 가운데 지금 기기에 있는 첫 그림 (없으면 첫 것: 빈 자리로 그린다). 표지 · 맺음 그림이 받지 않은 그림을 고르지 않게. */
+fun firstAvailable(ctx: android.content.Context, paths: List<String>): String =
+    paths.firstOrNull { io.github.graviton94.todayletters.data.AssetFiles.has(ctx, it) } ?: paths.firstOrNull().orEmpty()
 
 /** 화폐: 숫자 + 이름 (146 우표). */
 @Composable
@@ -627,7 +655,11 @@ fun ExhibitionScreen(s: AppState) {
     val have = ep.count { s.owns(id, it) }
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         Box(Modifier.fillMaxWidth().height(250.dp)) {
-            AssetImage((ep.firstOrNull { s.owns(id, it) } ?: ep.firstOrNull())?.image.orEmpty(), Modifier.fillMaxSize(), sample = 2, alignment = Alignment.TopCenter)
+            val ctx = LocalContext.current
+            val headImg = remember(id, have, io.github.graviton94.todayletters.data.AssetFiles.generation) {
+                firstAvailable(ctx, ep.filter { s.owns(id, it) }.map { it.image } + w.kit.hero + ep.map { it.image })
+            }
+            AssetImage(headImg, Modifier.fillMaxSize(), sample = 2, alignment = Alignment.TopCenter)
             Box(Modifier.fillMaxSize().background(Brush.verticalGradient(0f to Color(0x55000000), 0.4f to Color.Transparent, 1f to p.paper)))
             IconButton(stringResource(R.string.back), onClick = { s.back() }) { Chevron(Color(0xFFF7F0E1)) }
         }
