@@ -1,13 +1,2 @@
-07_room_ko_light.png
-08_room_ko_dark.png
-18_room_finished_ko_light.png
-32_room_location_ko_dark.png
-35_room_transfer_ko_light.png
-36_room_rent_ko_dark.png
-50_room_fade_ko_light.png
-57_room_resume_light.png
-60_room_c3_light.png
-64_room_steps_light.png
 a11y.txt
-g02_room_menu_light.png
-t10_room_redo_ko_light.png
+g01_room_known_pct_light.png
