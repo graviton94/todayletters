@@ -38,6 +38,13 @@ jobs:
       - name: Build debug APK
         working-directory: android
         run: ./gradlew :app:assembleDebug
+      - name: Virtual speaker (PulseAudio null sink)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq pulseaudio >/dev/null
+          pulseaudio -D --exit-idle-time=-1 --system=false || true
+          pactl load-module module-null-sink sink_name=null || true
+          pactl set-default-sink null || true
+          pactl info | head -20 || true
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -49,7 +56,7 @@ jobs:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-34-google_apis-x86_64-pixel_6-fgs-v3
+          key: avd-34-google_apis-x86_64-pixel_6-fgs-v4
       - name: Create AVD snapshot
         if: steps.avd.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2
@@ -61,7 +68,7 @@ jobs:
           disk-size: 4096M
           cores: 2
           force-avd-creation: false
-          emulator-options: -no-window -gpu guest -noaudio -no-boot-anim -camera-back none
+          emulator-options: -no-window -gpu swiftshader_indirect -no-boot-anim -camera-back none
           disable-animations: false
           script: echo "snapshot ready"
       - name: Record on emulator
@@ -75,8 +82,8 @@ jobs:
           disk-size: 4096M
           cores: 2
           force-avd-creation: false
-          # 소리 장치 없이 · 그림은 기기 안 소프트웨어로 (-gpu guest): swiftshader_indirect 로는 서재에 들어가자 에뮬레이터가 멈췄다.
-          emulator-options: -no-snapshot-save -no-window -gpu guest -noaudio -no-boot-anim -camera-back none
+          # 소리: 러너에 가짜 스피커(PulseAudio null sink)를 두고 켠다. 소리 장치가 없으면 (-noaudio 든 아니든) 앱이 처음 소리를 낼 때 에뮬레이터가 죽었다.
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -no-boot-anim -camera-back none
           disable-animations: false
           script: adb install -r android/app/build/outputs/apk/debug/app-debug.apk && (timeout 15m bash scripts/fgs_video.sh fgs || echo "stopped early" > fgs/STOPPED.txt); mkdir -p fgs; timeout 30 adb logcat -d | tail -n 3000 > fgs/logcat_tail.txt; true
       - name: Frames for review
