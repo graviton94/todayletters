@@ -1,0 +1,17 @@
+[16:05:36] record fgs_media_playback
+[16:05:52] tap 'Tap to enter' at 540,2140
+[16:06:21] NOT FOUND: 'Vincent → '
+[16:06:50] NOT FOUND: '^Open the letter$'
+[16:07:18] NOT FOUND: '^Read the letter$'
+[16:07:27] NOT FOUND: '^Read the letter$'
+[16:07:48] NOT FOUND: '^Pause$'
+[16:07:52] NOT FOUND: 'actionPlayPause'
+[16:08:00] NOT FOUND: '^Play$'
+[16:08:08] record fgs_data_sync
+[16:08:26] NOT FOUND: 'Tap to enter'
+[16:08:39] NOT FOUND: 'Vincent → '
+[16:08:50] NOT FOUND: '^Settings$'
+[16:09:17] NOT FOUND: '^Download all chapters'
+[16:09:27] NOT FOUND: '^Download · '
+[16:09:40] process after close: 
+[16:09:55] NOT FOUND: '^(Stop|STOP)$'
