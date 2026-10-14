@@ -110,7 +110,7 @@ tap '^Download all chapters' 25 1; sleep 2.5
 tap '^Download · ' 8; sleep 6; snap d1_progress
 # 최근 앱에서 밀어 닫기 (사용자가 앱을 닫는 것과 같게)
 adb shell input keyevent KEYCODE_APP_SWITCH; sleep 4; snap d2_recents
-adb shell input swipe 540 1150 540 80 300; sleep 2.5; snap d3_closed
+tap '^Clear all$' 4 || adb shell input swipe 760 1150 760 80 300; sleep 2.5; snap d3_closed
 adb shell input keyevent KEYCODE_HOME; sleep 2
 log "process after close: $(adb shell pidof $P)"
 adb shell cmd statusbar expand-notifications; sleep 9; snap d4_shade
