@@ -58,6 +58,10 @@ Play Console › 앱 콘텐츠 › **포그라운드 서비스 권한**. 매니�
 - `design/store/play/fgs_media_playback.mp4` — 앱 열기 → 빈센트의 편지 열기 → 낭독 시작 → 홈으로 나가도 낭독 → 알림판의 재생 알림 (⏮ ⏸ ⏭) → 알림에서 멈춤.
 - `design/store/play/fgs_data_sync.mp4` — 설정 › 저장 공간 › 모든 장 받기 → 확인 → 진행 → 최근 앱에서 밀어 닫기 → 알림이 계속 진행 → 알림의 Stop.
 
+> **상태 (2026-10-14): 영상은 아직 없다.** 7번 돌렸는데 매번 입구(“Tap to enter”)에서 서재로 들어가고 3~4초 뒤 에뮬레이터(37.2.12 · API 34 google_apis · swiftshader)가 통째로 멈췄다.
+> 소리 장치 유무 · PulseAudio · wav · `-gpu guest` · 무음 재생 유지로는 바뀌지 않았다 (소리 대기 전환 탓은 아님). 실행 기록은 `fgs-review-<번호>` 가지 (`steps.txt` · `logcat_live.txt`).
+> 다음에 해 볼 것: 서재를 거치지 않고 편지로 바로 여는 debug 실행 옵션, 에뮬레이터 빌드 고정(`emulator-build`) 또는 API 33/35 이미지, 녹화 없이 같은 경로를 먼저 시험. 급하면 실기기 화면 녹화로 같은 장면을 찍는다.
+
 영상은 YouTube **일부 공개** 또는 Google 드라이브 공유 링크로 올려 신고서에 붙인다. 녹화는 debug 빌드만 읽는 실행 옵션(`tl.ready` · `tl.unlock`, `DevHooks.kt`)으로 처음 소개 · 튜토리얼을 건너뛰고 모든 장을 연다 (release 빌드는 읽지 않음).
 
 ## 5. 앱 밖 파일 (R2) 은 덮어쓰지 않아요

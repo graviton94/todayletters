@@ -5,6 +5,8 @@ name: FGS demo video
 #   design/store/play/fgs_media_playback.mp4 (FOREGROUND_SERVICE_MEDIA_PLAYBACK)
 #   design/store/play/fgs_data_sync.mp4      (FOREGROUND_SERVICE_DATA_SYNC)
 # 직접 실행할 때만 돈다. commit 을 켜면 영상을 이 가지에 커밋한다 (강제 푸시 없음).
+# 알려진 문제 (2026-10-14, 에뮬레이터 37.2.12 · API 34): 입구에서 서재로 들어가고 몇 초 뒤 가상 기기가 통째로 멈춰
+# 아직 영상이 나오지 않았다. 실행마다 기록(steps.txt · logcat_live.txt)은 fgs-review-<번호> 가지에 남는다. docs/release.md 4-1.
 on:
   workflow_dispatch:
     inputs:

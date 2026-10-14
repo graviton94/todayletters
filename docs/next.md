@@ -29,6 +29,11 @@
 
 **아직 사람이 화면으로 본 적이 없다.** 위 패치는 모두 `android.yml` (core 테스트 + debug APK 컴파일) 만 통과했다.
 
+## 2026-10-14 추가 (런처 아이콘 · FGS 영상)
+
+- 런처 아이콘을 스토어 아이콘과 같은 〈별이 빛나는 밤〉 우표로 바꿨다 (적응형: 밤하늘색 한 빛깔 바탕 + 우표 · 소인 앞 그림, 예전 PNG 도). `docs/image-policy.md` 3 에 PD-Art 아이콘 결정 한 줄.
+- Play Console FGS 시연 영상 워크플로 `fgs-video.yml` + `scripts/fgs_video.sh` + debug 전용 `DevHooks.kt` 를 넣었지만, 에뮬레이터가 서재에서 멈춰 **영상은 아직 없다** (`docs/release.md` 4-1 의 상태 · 다음 시도).
+
 ## 다음 할 일 (차례대로)
 
 ### 1. 스크린샷 점검 (사용자 허락 뒤 `screens.yml`)

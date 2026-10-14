@@ -87,8 +87,7 @@ adb shell cmd statusbar collapse; sleep 2
 # ── 1. 미디어 재생 ────────────────────────────────
 rec_start fgs_media_playback
 sleep 1
-# tl.keepAudio: 이 가상 기기는 소리 출력이 쉬는 순간 멈춘다 → 녹화 내내 무음을 흘려 둔다 (DevHooks). 그래서 장면 사이에 앱을 끄지 않는다.
-enter_vincent --ez tl.keepAudio true
+enter_vincent
 tap '^Open the letter$' 10; sleep 3
 # 도착 화면: 그림 · 첫 줄을 빈센트 목소리로 쓴 뒤 ‘Read the letter’
 tap '^Read the letter$' 25 || { adb shell input tap 540 1200; sleep 1; tap '^Read the letter$' 8; }
