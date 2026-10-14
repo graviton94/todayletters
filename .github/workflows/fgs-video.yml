@@ -41,10 +41,14 @@ jobs:
       - name: Virtual speaker (PulseAudio null sink)
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq pulseaudio >/dev/null
-          pulseaudio -D --exit-idle-time=-1 --system=false || true
-          pactl load-module module-null-sink sink_name=null || true
-          pactl set-default-sink null || true
-          pactl info | head -20 || true
+          # 에뮬레이터가 찾을 수 있게 소켓 자리를 정해 둔다 (기본 자리로는 "Could not init pa audio driver")
+          pulseaudio -D -n --exit-idle-time=-1 \
+            --load="module-null-sink sink_name=null" \
+            --load="module-native-protocol-unix socket=/tmp/pulse.sock auth-anonymous=1"
+          echo "PULSE_SERVER=unix:/tmp/pulse.sock" >> "$GITHUB_ENV"
+          sleep 1
+          PULSE_SERVER=unix:/tmp/pulse.sock pactl set-default-sink null
+          PULSE_SERVER=unix:/tmp/pulse.sock pactl info
       - name: Enable KVM
         run: |
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
@@ -56,7 +60,7 @@ jobs:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-34-google_apis-x86_64-pixel_6-fgs-v4
+          key: avd-34-google_apis-x86_64-pixel_6-fgs-v5
       - name: Create AVD snapshot
         if: steps.avd.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2
