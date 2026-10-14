@@ -545,7 +545,7 @@ private fun RoomHeader(
                 }
             }
             // 자동 낭독 켜기 · 끄기: 켜져 있으면 금빛으로 채운 스피커, 꺼져 있으면 빗금
-            IconButton(stringResource(if (auto) R.string.room_auto_on else R.string.room_auto_off), onClick = onAuto) {
+            HeadButton(stringResource(if (auto) R.string.room_auto_on else R.string.room_auto_off), onClick = onAuto) {
                 Box(Modifier.size(34.dp).background(if (auto) p.giltText else Color.Transparent, androidx.compose.foundation.shape.CircleShape)
                     .border(1.dp, p.giltText, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) {
                     Canvas(Modifier.size(16.dp)) {
@@ -561,17 +561,22 @@ private fun RoomHeader(
                     }
                 }
             }
-            IconButton(stringResource(R.string.help), onClick = { s.coachAgain("room") }) { HelpGlyph(p.ink) }
+            HeadButton(stringResource(R.string.help), onClick = { s.coachAgain("room") }) { HelpGlyph(p.ink) }
             // 더 보기: 대화방 정보 · 낭독 빠르기 (v21 F6: 1× ↔ 0.7×, 시리즈마다 기억). 빠르기는 머리 줄에서 빼 이름 · 날짜 자리를 넓힌다
             Box {
                 var menu by remember { mutableStateOf(false) }
-                IconButton(stringResource(R.string.room_more), onClick = { menu = true }) { Lines(p.ink) }
+                HeadButton(stringResource(R.string.room_more), onClick = { menu = true }) { Lines(p.ink) }
                 if (menu) RoomMenu(speed, onInfo = { menu = false; onInfo() }, onSpeed = onSpeed, onClose = { menu = false })
             }
         }
         Hair()
     }
 }
+
+/** 머리 오른쪽 단추: 너비 48dp (손가락 크기 기준은 지킨다) · 높이 56dp. 이름 · 날짜 자리를 넓히려고 앱의 56dp 단추보다 좁게. */
+@Composable
+private fun HeadButton(label: String, onClick: () -> Unit, content: @Composable () -> Unit) =
+    Box(Modifier.size(48.dp, Tokens.Size.touch).androidx_semantics(label).pressable(onClick = onClick), contentAlignment = Alignment.Center) { content() }
 
 /**
  * 날짜 · 금빛 % 표: 한 줄에 들어가면 나란히 (표는 세로 가운데), 넘치면(큰 글자) 날짜 아래로 표를 내린다.
