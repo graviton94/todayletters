@@ -13,6 +13,16 @@
  "years": "1770–1791",
  "fullName": "Wolfgang Amadeus Mozart",
  "recipient": {"de": "Familie", "en": "his family", "ko": "가족"},
+ "register": {
+  "_doc": "말투 노트의 한 줄 (한국어를 배울 때): 답장을 쓰는 사람과 받는 사람이 실제로 어떤 사이인지. 열쇠는 편지 \"to\" 의 원어 글자, 없으면 \"default\".",
+  "Schwester": {"ko": "난네를은 누나라 동생 볼프강에게 실제로는 반말을 썼어요.", "en": "Nannerl was Wolfgang's older sister, so to him it would really be 반말 (casual speech)."},
+  "Mutter und Schwester": {"ko": "엄마와 누나가 쓰는 답장이라 실제로는 반말이에요.", "en": "His mother and sister are writing back, so it would really be 반말 (casual speech)."},
+  "Vater": {"ko": "레오폴트는 아버지라 아들에게 실제로는 반말을 썼어요.", "en": "Leopold was his father, so to his son it would really be 반말 (casual speech)."},
+  "Constanze": {"ko": "콘스탄체와 볼프강은 부부라 실제로는 반말을 썼어요.", "en": "Constanze and Wolfgang were married, so between them it would really be 반말 (casual speech)."},
+  "Gottfried von Jacquin": {"ko": "자캥은 가까운 친구라 실제로는 반말을 썼어요.", "en": "Jacquin was a close friend, so it would really be 반말 (casual speech)."},
+  "Michael Puchberg": {"ko": "푸흐베르크는 손위 벗이라 볼프강에게는 반말이 자연스러워요.", "en": "Puchberg was an older friend, so 반말 (casual speech) to Wolfgang feels natural."},
+  "Herr geheimer Rath (Anton Klein, Mannheim)": {"ko": "클라인 고문관과는 공적인 사이라 높임이 맞아요.", "en": "Councillor Klein and Mozart were on formal terms, so 높임 (polite speech) fits."}
+ },
  "portrait": "mozart.webp",
  "credit": "The Mozart Family (detail), c. 1780–81 · Johann Nepomuk della Croce (attr.) · Stiftung Mozarteum Salzburg · Public domain",
  "product": "series_mozart",

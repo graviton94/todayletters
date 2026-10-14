@@ -69,8 +69,36 @@ sealed interface Moment {
 data class Place(val id: String, val x: Float, val y: Float, val name: Tri, val note: Tri, val lat: Double = 0.0, val lng: Double = 0.0)
 
 /**
+ * 오늘의 문법 (장마다 셋, 챕터 파일의 "grammar"): 배우는 말마다 그 언어 사다리의 이름 · 한 줄 설명 ([GrammarLine], 앱 글자 언어 ko · en).
+ * id 는 "III.0" 처럼 장 · 순번. 답장 턴이 이 id 를 가리킨다 ([ReplyTurn.grammar]).
+ */
+data class Grammar(val id: String, val lines: Map<Lang, GrammarLine>) {
+    /** 이 배우는 말의 칸 (없으면 null: 그 말의 줄을 아직 쓰지 않은 것). */
+    fun line(learn: Lang): GrammarLine? = lines[learn]
+}
+data class GrammarLine(val name: Tri, val hint: Tri)
+
+/**
+ * 답장 한 턴 (편지의 "replies"): 편지 문장 하나([quote], 메시지 번호)에 대답하는 한 줄. 각 언어 줄은 그 언어 사다리의 [grammar] 를 쓴다.
+ * [focus] 는 언어마다 빈칸으로 비울 1~2 덩어리 (그 줄에 그대로 있는 글자). 한국어 줄은 해요체이고,
+ * [koLow] · [koHigh] 는 같은 뜻의 반말 · 높임 (한국어를 배울 때 말투 노트 · 말투 바꿔 보기 카드).
+ * 예전 형식 ("reply" 하나 + "quote") 은 문법 없는 한 턴으로 읽는다.
+ */
+data class ReplyTurn(
+    val quote: Int,
+    val grammar: String,
+    val text: Tri,
+    val koLow: String = "",
+    val koHigh: String = "",
+    val focus: Map<Lang, List<String>> = emptyMap(),
+) {
+    /** 말투 노트를 보여 줄 수 있나 (반말 · 높임 둘 다 있을 때). */
+    val styled get() = koLow.isNotBlank() && koHigh.isNotBlank()
+}
+
+/**
  * 편지 한 통 = 대화방 한 번.
- * [reply] 는 별자리 잇기로 만들 답장 문장 (테오가 쓰는 말). 없으면 편지의 짧은 문장 하나로 대신한다.
+ * [replies] 는 답장 턴들 (받는 사람이 쓰는 말, 차례로). 없으면 편지의 짧은 문장 하나로 대신한다 ([Exercises.turns]).
  */
 data class Letter(
     val id: String,
@@ -81,7 +109,7 @@ data class Letter(
     val words: List<Word>,
     val note: Tri?,
     val plate: Plate?,
-    val reply: Tri? = null,
+    val replies: List<ReplyTurn> = emptyList(),
     val moments: List<Moment> = emptyList(),
     /** 대화방 위의 상태 메시지 (그 무렵 빈센트의 한마디). */
     val status: Tri? = null,
@@ -91,14 +119,16 @@ data class Letter(
     val phrases: List<Word> = emptyList(),
     /** 챕터 파일의 낱말 그대로 (낭독 w<i> 가 붙은 것). [words] 가 daily.json 의 낱말로 바뀌어도 소리를 찾을 때 쓴다. */
     val source: List<Word> = emptyList(),
-    /** 답장이 대답하는 편지 문장 (메시지 번호, 0부터): 메신저의 ‘답장(인용)’처럼 그 문장을 집어 보여 준다. 없으면 -1. */
-    val replyQuote: Int = -1,
 ) {
     /** 녹음이 있는 ‘편지 속 그 곡’. */
     val music: Moment.Music? get() = moments.firstOrNull { it is Moment.Music && it.playable } as Moment.Music?
 }
 
-data class Chapter(val series: String, val id: String, val title: Tri, val free: Boolean, val letters: List<Letter>)
+/** [grammar] 는 이 장의 오늘의 문법 셋 (없으면 빈 목록). */
+data class Chapter(val series: String, val id: String, val title: Tri, val free: Boolean, val letters: List<Letter>, val grammar: List<Grammar> = emptyList())
+
+/** 문법 id 로 찾기: 여러 장의 문법 셋에서 처음 나오는 것 (앞 장 문법 복습 · 맺음 편지가 VIII 장 문법을 가리킬 때도). */
+fun List<Chapter>.grammar(id: String): Grammar? = if (id.isEmpty()) null else firstNotNullOfOrNull { c -> c.grammar.firstOrNull { it.id == id } }
 
 /**
  * 하루 도착 규칙: 하루에 새 편지를 [perDay] 통까지 열 수 있다.
@@ -168,13 +198,24 @@ object Exercises {
     /** 별자리 잇기에서 이 낱말이 다음 차례인가. 같은 낱말이 두 번 나와도 글자로 비교하므로 어느 쪽을 눌러도 된다. */
     fun isNext(answer: List<String>, done: Int, word: String) = answer.getOrNull(done) == word
 
-    /** 답장 문장: 저자가 쓴 [Letter.reply] 가 있으면 그것, 없으면 낱말 수가 4~10개인 가장 짧은 메시지. */
-    fun replyFor(letter: Letter, learn: Lang): Pair<String, Tri> {
-        letter.reply?.let { return it[learn] to it }
+    /**
+     * 답장 턴들: 저자가 쓴 [Letter.replies] 가 있으면 그것 (차례로), 없으면 낱말 수가 4~10개인 가장 짧은 메시지 하나 (인용 없음 · 문법 없음).
+     * [learn] 은 그 짧은 메시지를 고를 때만 쓴다.
+     */
+    fun turns(letter: Letter, learn: Lang): List<ReplyTurn> {
+        if (letter.replies.isNotEmpty()) return letter.replies
+        if (letter.messages.isEmpty()) return emptyList()
         val pick = letter.messages.map { it.text }
             .filter { it[learn].split(Regex("\\s+")).size in 4..10 }
             .minByOrNull { it[learn].length } ?: letter.messages.last().text
-        return pick[learn] to pick
+        return listOf(ReplyTurn(-1, "", pick))
+    }
+
+    /** 답장 문장 (턴 [turn], 0부터): (배우는 말 줄, 세 언어). 턴이 없으면 마지막 턴. */
+    fun replyFor(letter: Letter, learn: Lang, turn: Int = 0): Pair<String, Tri> {
+        val ts = turns(letter, learn)
+        val t = ts.getOrNull(turn) ?: ts.lastOrNull() ?: return "" to Tri(mapOf(learn to ""))
+        return t.text[learn] to t.text
     }
 
     /** 낱말 맞추기: (배우는 언어, 읽는 언어) 짝. */

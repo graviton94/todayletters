@@ -26,6 +26,7 @@ import io.github.graviton94.todayletters.core.Lexicon
 import io.github.graviton94.todayletters.core.Phrase
 import io.github.graviton94.todayletters.core.Token
 import io.github.graviton94.todayletters.core.Vocab
+import io.github.graviton94.todayletters.core.grammar
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -65,7 +66,20 @@ data class Work(
     val decks: Map<Lang, Work> = emptyMap(),
     /** 시리즈 소장 값 (series.json 의 "tier", docs/billing.md). 상품 id 는 core.Products.series(id). */
     val tier: io.github.graviton94.todayletters.core.PriceTier = io.github.graviton94.todayletters.core.PriceTier.T2,
+    /** 말투 노트의 ‘실제 사이’ 한 줄 (series.json "register"): 편지 "to" 의 원어 글자 → ko · en, "default" 는 받는 사람이 없을 때. */
+    val register: Map<String, Tri> = emptyMap(),
 )
+
+/** 이 편지에 답하는 사람과 보낸 사람이 실제로 어떤 사이인지 (말투 노트 한 줄). 없으면 null. */
+fun Work.registerOf(letter: Letter): Tri? =
+    letter.to?.lines?.get(series.original)?.let { register[Breaks.plain(it)] } ?: register["default"]
+
+/** 이 작품의 모든 장 (프롤로그 · 챕터 · 맺음) 의 오늘의 문법에서 [id] 찾기. */
+fun Work.grammarOf(id: String): io.github.graviton94.todayletters.core.Grammar? {
+    if (id.isEmpty()) return null
+    val all = listOfNotNull(prologueChapter) + chapters + listOfNotNull(outro?.let { Chapter(series.id, "E", Tri(mapOf(Lang.EN to "")), false, emptyList(), it.grammar) })
+    return all.grammar(id)
+}
 
 /** 이 시리즈를 소장하는 상품 (구매 화면의 셋째 칸). */
 val Work.seriesPlan: io.github.graviton94.todayletters.core.Plan.Series get() = io.github.graviton94.todayletters.core.Plan.Series(series.id, tier)
@@ -106,13 +120,20 @@ data class Docent(val period: String, val caps: String, val heading: Tri, val su
 /** [years] 는 프롤로그 위 연표, [at] 은 도슨트 쪽마다 (그리고 마지막 도착 화면의) 연표 자리. [label] 은 표지의 프롤로그 줄 이름 (아를 이전). */
 data class Arrival(val date: String, val route: String, val heading: Tri, val body: Tri, val years: List<String> = emptyList(), val at: List<Int> = emptyList(), val label: Tri? = null)
 /** 아웃트로: 맺음말 편지([epilogue], 장 "E") 와 생애를 맺는 글. */
-data class Outro(val image: String, val credit: String, val caps: String, val name: String, val years: String, val body: List<Tri>, val head: Tri?, val epilogue: Letter?)
+data class Outro(val image: String, val credit: String, val caps: String, val name: String, val years: String, val body: List<Tri>, val head: Tri?, val epilogue: Letter?,
+                 /** 맺음 편지의 오늘의 문법 (epilogue.json 의 "grammar", 없으면 VIII 장 것을 id 로 가리킨다). */
+                 val grammar: List<io.github.graviton94.todayletters.core.Grammar> = emptyList())
 
 /** 앱 안에 넣은 편지 데이터 읽기 (scripts/generate.py 가 data/ 에서 assets/letters/ 로 옮김). */
 object Library {
     @Volatile private var cache: List<Work>? = null
 
     fun works(ctx: Context): List<Work> = cache ?: load(ctx).also { if (it.isNotEmpty()) cache = it }
+
+    /**
+     * 시험 · 화면 사진용: 읽어 둔 작품을 [f] 로 바꿔 끼운다 (실제 데이터가 아직 없는 화면을 찍을 때, 끝나면 되돌린다). 앱에서는 쓰지 않는다.
+     */
+    fun swapForTest(ctx: Context, f: (List<Work>) -> List<Work>) { cache = f(works(ctx)) }
 
     private fun load(ctx: Context): List<Work> {
         val am = ctx.assets
@@ -140,7 +161,7 @@ object Library {
                 (0 until arr.length()).mapNotNull { i ->
                     val c = arr.getJSONObject(i)
                     val data = runCatching { JSONObject(am.open("letters/$id/${c.getString("file")}").bufferedReader().readText()) }.getOrNull() ?: return@mapNotNull null
-                    Chapter(id, c.getString("id"), tri(c.getJSONObject("title")), c.optBoolean("free", false), letters(data))
+                    Chapter(id, c.getString("id"), tri(c.getJSONObject("title")), c.optBoolean("free", false), letters(data), grammar(data))
                 }
             }
             if (chapters.isEmpty()) return@mapNotNull null
@@ -154,6 +175,7 @@ object Library {
                 } ?: emptyList(),
                 kit = meta.optJSONObject("kit")?.let { kit(it) } ?: Kit(),
                 tier = io.github.graviton94.todayletters.core.PriceTier.of(meta.optInt("tier", 2)),
+                register = meta.optJSONObject("register")?.let { o -> o.keys().asSequence().filter { !it.startsWith("_") }.mapNotNull { k -> o.optJSONObject(k)?.let { k to tri(it) } }.toMap() } ?: emptyMap(),
                 prologue = prologue,
                 prologueChapter = prologue.takeIf { it.isNotEmpty() }?.let { d -> Chapter(id, "P", Tri(mapOf(Lang.EN to "Prologue")), true, d.map { it.letter }) },
                 arrival = meta.optJSONObject("prologue")?.let { pr -> pr.optJSONObject("arrival")?.let { a ->
@@ -168,7 +190,7 @@ object Library {
                     val first = ep?.getJSONArray("letters")?.optJSONObject(0)
                     Outro(o.optString("image"), o.optString("credit"), o.optString("caps"), o.optString("name"), o.optString("years"),
                         o.optJSONArray("body")?.let { b -> (0 until b.length()).map { tri(b.getJSONObject(it)) } } ?: emptyList(),
-                        first?.optJSONObject("head")?.let { tri(it) }, ep?.let { letters(it).firstOrNull() })
+                        first?.optJSONObject("head")?.let { tri(it) }, ep?.let { letters(it).firstOrNull() }, ep?.let { grammar(it) } ?: emptyList())
                 },
             )
             // 어휘 자료: 배우는 말마다 한 벌 (원어 lexicon · daily.json, 영어 *_en, 한국어 *_ko). 없으면 챕터 파일의 낱말 그대로
@@ -256,7 +278,43 @@ object Library {
     private fun tri(o: JSONObject, prefix: String = ""): Tri =
         Tri(Lang.entries.mapNotNull { l -> o.optString(prefix + l.code, "").takeIf { it.isNotEmpty() }?.let { l to Breaks.keepAll(it) } }.toMap())
 
-    private fun parseLetters(data: JSONObject): List<Letter> {
+    /**
+     * 장의 오늘의 문법 셋 ("grammar": [{id, fr|de|en|ko: {name: {ko, en}, hint: {ko, en}}}]). 칸이 모자란 것은 건너뛴다.
+     */
+    internal fun grammar(data: JSONObject): List<io.github.graviton94.todayletters.core.Grammar> {
+        val a = data.optJSONArray("grammar") ?: return emptyList()
+        return (0 until a.length()).mapNotNull { i ->
+            val g = a.optJSONObject(i) ?: return@mapNotNull null
+            val id = g.str("id").takeIf { it.isNotEmpty() } ?: return@mapNotNull null
+            val lines = Lang.entries.mapNotNull { lang ->
+                g.optJSONObject(lang.code)?.let { o ->
+                    val name = o.optJSONObject("name")?.let { tri(it) } ?: return@let null
+                    lang to io.github.graviton94.todayletters.core.GrammarLine(name, o.optJSONObject("hint")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")))
+                }
+            }.toMap()
+            io.github.graviton94.todayletters.core.Grammar(id, lines)
+        }
+    }
+
+    /**
+     * 답장 턴들: "replies" (턴마다 quote · grammar · 언어 줄 · koLow · koHigh · focus), 없으면 예전 "reply" (+ "quote") 하나를 문법 없는 한 턴으로.
+     */
+    internal fun replies(l: JSONObject): List<io.github.graviton94.todayletters.core.ReplyTurn> {
+        l.optJSONArray("replies")?.let { a ->
+            return (0 until a.length()).mapNotNull { i ->
+                val o = a.optJSONObject(i) ?: return@mapNotNull null
+                val text = tri(o).takeIf { it.lines.isNotEmpty() } ?: return@mapNotNull null
+                val focus = o.optJSONObject("focus")?.let { f ->
+                    Lang.entries.mapNotNull { lang -> f.optJSONArray(lang.code)?.let { arr -> lang to (0 until arr.length()).map { arr.optString(it) }.filter { it.isNotBlank() } } }.toMap()
+                } ?: emptyMap()
+                io.github.graviton94.todayletters.core.ReplyTurn(o.optInt("quote", -1), o.str("grammar"), text,
+                    Breaks.keepAll(o.str("koLow")), Breaks.keepAll(o.str("koHigh")), focus)
+            }
+        }
+        return l.optJSONObject("reply")?.let { r -> tri(r).takeIf { it.lines.isNotEmpty() }?.let { listOf(io.github.graviton94.todayletters.core.ReplyTurn(r.optInt("quote", -1), "", it)) } } ?: emptyList()
+    }
+
+    internal fun parseLetters(data: JSONObject): List<Letter> {
         val arr = data.getJSONArray("letters")
         return (0 until arr.length()).map { i ->
             val l = arr.getJSONObject(i)
@@ -281,8 +339,7 @@ object Library {
             Letter(
                 id = l.getString("id"), date = l.optString("date"), place = l.optString("place"), mood = l.optString("mood", "calm"),
                 messages = msgs, words = words, note = l.optJSONObject("note")?.let { tri(it) }, plate = plate,
-                reply = l.optJSONObject("reply")?.let { tri(it) }, moments = moments,
-                replyQuote = l.optJSONObject("reply")?.optInt("quote", -1) ?: -1,
+                replies = replies(l), moments = moments,
                 status = l.optJSONObject("status")?.let { tri(it) },
                 to = l.optJSONObject("to")?.let { tri(it) },
             )

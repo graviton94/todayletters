@@ -17,6 +17,10 @@
   "en": "Theo",
   "ko": "테오"
  },
+ "register": {
+  "_doc": "말투 노트의 한 줄 (한국어를 배울 때): 답장을 쓰는 사람과 받는 사람이 실제로 어떤 사이인지. 열쇠는 편지 \"to\" 의 원어 글자, 없으면 \"default\".",
+  "default": {"ko": "테오와 빈센트는 형제라 실제로는 반말을 썼어요.", "en": "Theo and Vincent were brothers, so between them it would really be 반말 (casual speech)."}
+ },
  "portrait": "vincent.webp",
  "credit": "Autoportrait, 1887 · Art Institute of Chicago · CC0",
  "product": "series_vincent",

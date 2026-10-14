@@ -465,7 +465,7 @@ fun Room(s: AppState, r: Route.Letter) {
                         ReplyMode.CONSTELLATION -> {
                             val help = s.replyHelp(id)
                             val how = when {
-                                help == io.github.graviton94.todayletters.core.Ladder.Help.LINK || letter.reply == null -> modeLabel(nextPlay)
+                                help == io.github.graviton94.todayletters.core.Ladder.Help.LINK || letter.replies.isEmpty() -> modeLabel(nextPlay)
                                 help == io.github.graviton94.todayletters.core.Ladder.Help.WRITE -> R.string.ladder_write_mode
                                 else -> R.string.ladder_choose_mode
                             }

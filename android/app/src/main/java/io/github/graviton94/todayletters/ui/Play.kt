@@ -82,11 +82,20 @@ fun Play(s: AppState, r: Route.Play) {
     when (r.mode) {
         ReplyMode.MATCH -> Match(s, r, onClose = { asking = true })
         ReplyMode.ALOUD -> Aloud(s, r, onClose = { asking = true })
-        // 답장: 언어 등급이 A1 · 1단이거나 비울 낱말이 없으면 별자리 잇기, 그 위로는 답장 사다리 (빈칸 · 직접 쓰기)
+        // 답장: 언어 등급이 A1 · 1단이거나 저자 답장이 없으면 별자리 잇기, 그 위로는 답장 사다리 (빈칸 · 직접 쓰기).
+        // 턴이 여럿이면 차례로 (턴마다 복습 카드), 마지막 턴을 보내면 답장 걸음 끝
         else -> {
             val help = s.replyHelp(r.room.series)
-            if (help == io.github.graviton94.todayletters.core.Ladder.Help.LINK || s.letterOf(r.room).second.reply == null) Constellation(s, r, onClose = { asking = true })
-            else ReplyLadder(s, r, help, onClose = { asking = true })
+            val letter = s.letterOf(r.room).second
+            val turns = Exercises.turns(letter, s.room(r.room.series).learn).size.coerceAtLeast(1)
+            var turn by androidx.compose.runtime.saveable.rememberSaveable(r) { mutableIntStateOf(0) }
+            val t = turn.coerceIn(0, turns - 1)
+            val next: () -> Unit = {
+                s.replyTurnDone(r.room, t)
+                if (t < turns - 1) turn = t + 1 else s.replyAndContinue(r.room, ReplyMode.CONSTELLATION)
+            }
+            if (help == io.github.graviton94.todayletters.core.Ladder.Help.LINK || letter.replies.isEmpty()) Constellation(s, r, t, turns, next, onClose = { asking = true })
+            else ReplyLadder(s, r, help, t, turns, next, onClose = { asking = true })
         }
     }
     if (asking) Ask(
@@ -101,16 +110,16 @@ fun Play(s: AppState, r: Route.Play) {
  * 라이트 · 다크 모두 같은 모양, 색만 다르다.
  */
 @Composable
-private fun Constellation(s: AppState, r: Route.Play, onClose: () -> Unit) {
+private fun Constellation(s: AppState, r: Route.Play, turn: Int, turns: Int, onDone: () -> Unit, onClose: () -> Unit) {
     val p = Ink.palette
     val haptic = LocalHapticFeedback.current
     val (_, letter) = s.letterOf(r.room)
     val view = s.room(r.room.series)
-    val (sentence, tri) = Exercises.replyFor(letter, view.learn)
-    val (answer, pieces) = remember(letter.id, view.learn) { Exercises.constellation(sentence, letter.id.hashCode()) }
-    var picked by remember(letter.id, view.learn) { mutableStateOf(listOf<Int>()) }
+    val (sentence, tri) = Exercises.replyFor(letter, view.learn, turn)
+    val (answer, pieces) = remember(letter.id, view.learn, turn) { Exercises.constellation(sentence, letter.id.hashCode() + turn) }
+    var picked by remember(letter.id, view.learn, turn) { mutableStateOf(listOf<Int>()) }
     var wrong by remember { mutableStateOf<Int?>(null) }
-    var showAnswer by remember { mutableStateOf(false) }
+    var showAnswer by remember(turn) { mutableStateOf(false) }
     // 튜토리얼 (편지 I) 의 답장 걸음: 처음 한 번 안내와 다음 별의 빛 고리. 그 뒤로는 어느 작품에서도 없이
     val guided = remember(letter.id) { s.guideDue("reply") }
     LaunchedEffect(guided) { if (guided) s.guideShown("reply") }
@@ -135,12 +144,14 @@ private fun Constellation(s: AppState, r: Route.Play, onClose: () -> Unit) {
     }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PracticeHeader(picked.size, answer.size, onClose = onClose, onHelp = { helpId(s.route)?.let { s.coachAgain(it) } }, count = "${picked.size} / ${answer.size}")
+        val turnLabel = if (turns > 1) stringResource(R.string.ladder_turn, turn + 1, turns) + " · " else ""
+        PracticeHeader(picked.size, answer.size, onClose = onClose, onHelp = { helpId(s.route)?.let { s.coachAgain(it) } }, count = "$turnLabel${picked.size} / ${answer.size}")
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
             PracticeTitle("CONSTELLATION", stringResource(R.string.mode_constellation))
+            letter.replies.getOrNull(turn)?.let { GrammarNote(s, r.room.series, it, view.learn) }
             Slip(seed = 5, modifier = Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                     Text(stringResource(R.string.play_meaning), style = Type.capsSm.ui(), color = Color(0xFF7A5A20))
@@ -171,7 +182,7 @@ private fun Constellation(s: AppState, r: Route.Play, onClose: () -> Unit) {
             }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (done) Primary(stringResource(R.string.play_send)) { s.replyAndContinue(r.room, ReplyMode.CONSTELLATION) }
+            if (done) Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.play_send)) { onDone() }
             else {
                 Secondary(stringResource(R.string.play_show)) { showAnswer = true }
                 SkipLink { s.skipStep(r.room, ReplyMode.CONSTELLATION) }

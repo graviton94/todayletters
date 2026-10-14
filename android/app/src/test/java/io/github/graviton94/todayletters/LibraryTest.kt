@@ -172,4 +172,50 @@ class LibraryTest {
         assertTrue(enWork.forLearn(Lang.KO) === enWork)          // 한국어 자료는 없음 → 원어 그대로
         assertEquals(2, enWork.lexicons.size)
     }
+
+    // ── 답장 턴 · 오늘의 문법 (문법 사다리) ──────────────────
+    @Test fun repliesParseTurnsInOrder() {
+        val l = JSONObject("""{"replies": [
+            {"quote": 0, "grammar": "III.0", "fr": "J'ai lu ta lettre deux fois.", "en": "I read your letter twice.", "ko": "형 편지를 두 번 읽었어요.",
+             "koLow": "형 편지를 두 번 읽었어.", "koHigh": "형님 편지를 두 번 읽었습니다.",
+             "focus": {"fr": ["ai lu"], "en": ["read"], "ko": ["읽었어요"]}, "_note": "이 앱이 쓴 답장"},
+            {"quote": 2, "grammar": "II.1", "fr": "Tu as choisi.", "en": "You chose.", "ko": "형이 골랐네요."}]}""")
+        val t = Library.replies(l)
+        assertEquals(2, t.size)
+        assertEquals(0, t[0].quote); assertEquals("III.0", t[0].grammar)
+        assertEquals("J'ai lu ta lettre deux fois.", t[0].text[Lang.FR])
+        assertEquals("형 편지를 두 번 읽었어요.", io.github.graviton94.todayletters.core.Breaks.plain(t[0].text[Lang.KO]))
+        assertEquals("형 편지를 두 번 읽었어.", io.github.graviton94.todayletters.core.Breaks.plain(t[0].koLow))
+        assertEquals(listOf("ai lu"), t[0].focus[Lang.FR]); assertEquals(listOf("읽었어요"), t[0].focus[Lang.KO])
+        assertTrue(t[0].styled); assertFalse(t[1].styled)
+        assertEquals(2, t[1].quote); assertTrue(t[1].focus.isEmpty())
+    }
+
+    @Test fun oldReplyIsOneTurnWithoutGrammar() {
+        val t = Library.replies(JSONObject("""{"reply": {"fr": "Moi aussi, j'ai pensé à toi.", "en": "I thought of you too.", "ko": "나도 형 생각 많이 했어.", "quote": 1}}"""))
+        assertEquals(1, t.size)
+        assertEquals(1, t[0].quote); assertEquals("", t[0].grammar)
+        assertEquals("I thought of you too.", t[0].text[Lang.EN])
+        assertTrue(Library.replies(JSONObject("{}")).isEmpty())
+    }
+
+    @Test fun chapterGrammarParses() {
+        val g = Library.grammar(JSONObject("""{"grammar": [
+            {"id": "III.0", "fr": {"name": {"ko": "복합과거 (avoir)", "en": "Passé composé with avoir"}, "hint": {"ko": "지난 일을 말해요", "en": "Talk about what happened"}},
+             "ko": {"name": {"ko": "-아서/어서", "en": "-아서/어서"}}},
+            {"fr": {"name": {"en": "no id"}}}], "letters": []}"""))
+        assertEquals(1, g.size)
+        assertEquals("Passé composé with avoir", g[0].line(Lang.FR)!!.name[Lang.EN])
+        assertEquals("지난 일을 말해요", io.github.graviton94.todayletters.core.Breaks.plain(g[0].line(Lang.FR)!!.hint[Lang.KO]))
+        assertEquals(null, g[0].line(Lang.EN))
+        assertTrue(Library.grammar(JSONObject("""{"letters": []}""")).isEmpty())
+    }
+
+    /** 실제 데이터: 예전 "reply" 를 쓰는 장도 그대로 한 턴으로 읽힌다 (I장 첫 편지는 인용이 있다). */
+    @Test fun realDataStillHasOneTurn() {
+        val w = Library.works(androidx.test.core.app.ApplicationProvider.getApplicationContext()).first { it.series.id == "vincent" }
+        val l = w.chapters.first().letters.first()
+        assertTrue(l.replies.isNotEmpty())
+        assertTrue(l.replies.first().quote >= 0)
+    }
 }

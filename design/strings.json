@@ -100,6 +100,50 @@
     "en": "Hint: it starts with ‘%1$s’",
     "ko": "힌트: 첫 글자는 ‘%1$s’"
   },
+  "ladder_turn": {
+    "en": "Turn %1$d / %2$d",
+    "ko": "턴 %1$d / %2$d"
+  },
+  "ladder_grammar": {
+    "en": "Today's grammar",
+    "ko": "오늘의 문법"
+  },
+  "ladder_next_turn": {
+    "en": "Next turn",
+    "ko": "다음 턴으로"
+  },
+  "style_note": {
+    "en": "Speech-style note",
+    "ko": "말투 노트"
+  },
+  "style_low": {
+    "en": "Friends · younger siblings · family (반말, casual)",
+    "ko": "친구 · 동생 · 가족끼리 (반말)"
+  },
+  "style_high": {
+    "en": "Elders · strangers · formal (높임, polite)",
+    "ko": "윗사람 · 처음 보는 사람 · 공식 (높임)"
+  },
+  "style_kind": {
+    "en": "Switch the speech style",
+    "ko": "말투 바꿔 보기"
+  },
+  "style_ask_low": {
+    "en": "Which one is the 반말 (casual) version?",
+    "ko": "반말로 바꾸면 어느 것일까요?"
+  },
+  "style_ask_high": {
+    "en": "Which one is the 높임 (polite) version?",
+    "ko": "높임으로 바꾸면 어느 것일까요?"
+  },
+  "style_card_note_ko": {
+    "en": "말투 바꿔 보기",
+    "ko": "말투 바꿔 보기"
+  },
+  "style_card_note_en": {
+    "en": "Switch the speech style",
+    "ko": "Switch the speech style"
+  },
   "ladder_card_note_ko": {
     "en": "내가 쓴 답장",
     "ko": "내가 쓴 답장"

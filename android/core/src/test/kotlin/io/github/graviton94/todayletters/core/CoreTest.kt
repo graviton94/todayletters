@@ -166,7 +166,7 @@ class CoreTest {
     @Test fun replyFallsBackToAShortMessage() {
         val (text, _) = Exercises.replyFor(letter, Lang.FR)
         assertEquals("Mais la vue des étoiles me fait toujours rêver,", text)
-        val authored = letter.copy(reply = tri("La vue des étoiles te fait rêver ?"))
+        val authored = letter.copy(replies = listOf(ReplyTurn(1, "", tri("La vue des étoiles te fait rêver ?"))))
         assertEquals("La vue des étoiles te fait rêver ?", Exercises.replyFor(authored, Lang.FR).first)
         assertEquals(listOf("étoile" to "별"), Exercises.pairs(letter, Lang.FR, Lang.KO))
     }

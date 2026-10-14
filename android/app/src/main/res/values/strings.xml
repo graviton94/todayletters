@@ -26,6 +26,17 @@
     <string name="ladder_check">Check</string>
     <string name="ladder_wrong">Not that one. Try again.</string>
     <string name="ladder_hint">Hint: it starts with ‘%1$s’</string>
+    <string name="ladder_turn">Turn %1$d / %2$d</string>
+    <string name="ladder_grammar">Today\'s grammar</string>
+    <string name="ladder_next_turn">Next turn</string>
+    <string name="style_note">Speech-style note</string>
+    <string name="style_low">Friends · younger siblings · family (⁠반⁠말⁠, casual)</string>
+    <string name="style_high">Elders · strangers · formal (⁠높⁠임⁠, polite)</string>
+    <string name="style_kind">Switch the speech style</string>
+    <string name="style_ask_low">Which one is the 반⁠말 (casual) version?</string>
+    <string name="style_ask_high">Which one is the 높⁠임 (polite) version?</string>
+    <string name="style_card_note_ko">말⁠투 바⁠꿔 보⁠기</string>
+    <string name="style_card_note_en">Switch the speech style</string>
     <string name="ladder_card_note_ko">내⁠가 쓴 답⁠장</string>
     <string name="ladder_card_note_en">My reply</string>
     <string name="play_leave_title">Write the reply later?</string>

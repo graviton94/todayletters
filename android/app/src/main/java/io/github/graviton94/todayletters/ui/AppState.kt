@@ -418,7 +418,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             ref.index >= 0 -> l.words.getOrNull(ref.index)?.let { CardWord(w, ref.chapter to l, it, ref.index) }
             ref.phrase >= 0 -> l.phrases.getOrNull(ref.phrase)?.let { CardWord(w, ref.chapter to l, it) }
             // 내가 쓴 답장: 표현 카드처럼 (문장 하나, 소리 없음 · 쓰임 설명은 ‘내가 쓴 답장’)
-            ref.reply -> l.reply?.let { CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Word(it, note = replyNote)) }
+            ref.reply -> l.replies.getOrNull(ref.turn)?.let { CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Word(it.text, note = replyNote)) }
+            // 말투 바꿔 보기: 그 턴의 해요체 문장 (반말 · 높임이 있을 때만)
+            ref.style -> l.replies.getOrNull(ref.turn)?.takeIf { it.styled }?.let { CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Word(it.text, note = styleNote)) }
             else -> w.lexicon?.get(ref.own)?.let { e -> CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Vocab.wordFor(e, l.source, w.learnVocab, w.series.original), own = true) }
         }
     }
@@ -747,10 +749,21 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val (ch, l) = letterOf(r)
         val before = progress(r.series, ch, l.id)
         if (mode !in before.replied && !replaying(r)) earn(Earn.PRACTICE, id = r.series)
-        // 쓴 답장은 오늘의 루틴(복습 · 말하기)에서 다시 본다
-        if (mode == ReplyMode.CONSTELLATION && l.reply != null && !replaying(r)) admit(listOf(CardRef.reply(r.series, ch, l.id, deckOf(r.series))))
         replied(r, mode)
         stepEnded(r, before.done)
+    }
+
+    /**
+     * 답장 한 턴을 마쳤다: 쓴 답장은 턴마다 오늘의 루틴(복습 · 말하기)에서 다시 본다 ([CardRef.reply] 턴 번호까지).
+     * 한국어를 배우면 그 턴의 말투 바꿔 보기 카드도 ([CardRef.style], 반말 · 높임이 있을 때). 다시 하기 · 저자 답장이 없는 편지는 들이지 않는다.
+     */
+    fun replyTurnDone(r: Route.Letter, turn: Int) {
+        if (replaying(r)) return
+        val (ch, l) = letterOf(r)
+        val t = l.replies.getOrNull(turn) ?: return
+        val deck = deckOf(r.series)
+        admit(listOfNotNull(CardRef.reply(r.series, ch, l.id, deck, turn),
+            if (room(r.series).learn == io.github.graviton94.todayletters.core.Lang.KO && t.styled) CardRef.style(r.series, ch, l.id, deck, turn) else null))
     }
 
     /** 걸음 건너뛰기: 편지를 마치는 데는 한 것으로, 건너뛴 표시는 남겨 ‘다시 하기’로 (편지 목록 · 복습 탭). */
@@ -1149,6 +1162,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         io.github.graviton94.todayletters.core.Lang.EN to ctx.getString(io.github.graviton94.todayletters.R.string.ladder_card_note_en),
     ))
 
+    /** 말투 바꿔 보기 카드의 쓰임 설명. */
+    val styleNote = io.github.graviton94.todayletters.core.Tri(mapOf(
+        io.github.graviton94.todayletters.core.Lang.KO to ctx.getString(io.github.graviton94.todayletters.R.string.style_card_note_ko),
+        io.github.graviton94.todayletters.core.Lang.EN to ctx.getString(io.github.graviton94.todayletters.R.string.style_card_note_en),
+    ))
+
     /** 이 작품의 답장 도움 (지금 배우는 말의 언어 등급만큼). */
     fun replyHelp(series: String): io.github.graviton94.todayletters.core.Ladder.Help =
         io.github.graviton94.todayletters.core.Ladder.help(grade(room(series).learn))
@@ -1182,10 +1201,15 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         }
     }
 
-    /** 고르기의 미끼: (같은 낱말의 다른 꼴, 그 밖의 후보 = 이 편지의 오늘의 낱말 · 답장의 다른 낱말). */
-    fun replyDecoys(series: String, letter: Letter, answer: String, others: List<String>): Pair<List<String>, List<String>> {
+    /**
+     * 고르기의 미끼: (같은 낱말의 다른 꼴, 그 밖의 후보 = 이 편지의 오늘의 낱말 · 답장의 다른 낱말).
+     * 문법 덩어리 빈칸 ([focus]) 이면 덩어리의 낱말마다 다른 꼴 ([io.github.graviton94.todayletters.core.Ladder.nearForms]: ai lu → lis · lire · lu).
+     */
+    fun replyDecoys(series: String, letter: Letter, answer: String, others: List<String>, focus: Boolean = false): Pair<List<String>, List<String>> {
         val learn = room(series).learn
-        val near = lexOf(series, answer)?.forms.orEmpty().filter { !it.equals(answer, ignoreCase = true) && !it.first().isUpperCase() }
+        fun forms(w: String) = lexOf(series, w)?.let { it.forms + it.lemma }.orEmpty().filter { it.isNotEmpty() && !it.first().isUpperCase() }
+        val near = (if (focus) io.github.graviton94.todayletters.core.Ladder.nearForms(answer, ::forms) else forms(answer))
+            .filter { !it.equals(answer, ignoreCase = true) }
         val pool = letter.words.map { io.github.graviton94.todayletters.core.Ladder.core(it.text[learn].substringAfterLast(' ')) } + others
         return near to pool.filter { it.isNotEmpty() }
     }

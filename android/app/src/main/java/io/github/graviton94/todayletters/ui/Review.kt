@@ -245,7 +245,9 @@ private data class Q(val card: Card, val kind: ReviewKind, val word: String, val
                      /** 내 구절에서 나온 빈칸 (v21 2단계 F5). */
                      val fromQuote: Boolean = false,
                      /** 문장이 나온 자리 (눌러서 뜻 보기): 작품 · 장 · 편지 · 메시지 번호. */
-                     val series: String = "", val chapter: String = "", val letter: io.github.graviton94.todayletters.core.Letter? = null, val msg: Int = -1)
+                     val series: String = "", val chapter: String = "", val letter: io.github.graviton94.todayletters.core.Letter? = null, val msg: Int = -1,
+                     /** 말투 바꿔 보기 ([CardRef.style]): 0 아님, 1 반말로, 2 높임으로. [word] 는 해요체 문장, [meaning] 은 정답 말투 문장. */
+                     val style: Int = 0)
 
 /** 복습 문장 (빈칸 · 문장 힌트): 낱말을 누르면 뜻. 문장이 나온 자리를 모르면 그냥 글자. */
 @Composable
@@ -380,6 +382,7 @@ fun Session(s: AppState, r: Route.Session) {
         ) {
             if (!compact) Text(stringResource(when {
                 q.phrase != null -> R.string.dict_phrase_kind
+                q.style > 0 -> R.string.style_kind
                 q.fromQuote -> R.string.quote_from
                 else -> when (q.kind) { ReviewKind.DICTATION -> R.string.kind_dictation; ReviewKind.BLANK -> R.string.kind_blank; ReviewKind.MEANING -> R.string.kind_meaning; ReviewKind.SPEAK -> R.string.kind_speak }
             }), style = Type.small.ui(), color = p.giltText)
@@ -481,7 +484,14 @@ fun Session(s: AppState, r: Route.Session) {
                     )
                 }
                 ReviewKind.SPEAK -> SpeakPane(s, q, mark) { judge(it) }
-                ReviewKind.MEANING -> {
+                ReviewKind.MEANING -> if (q.style > 0) {
+                    // 말투 바꿔 보기: 해요체 문장 → 반말 · 높임 가운데 고르기
+                    Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                        if (tag.isNotEmpty()) Caps(tag, p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
+                        Text(q.word, style = Type.heading.of(Lang.KO), color = p.ink)
+                    }
+                    Text(stringResource(if (q.style == 1) R.string.style_ask_low else R.string.style_ask_high), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth())
+                } else {
                     LabelCard(q, tag) { s.narrator.play(q.audio) }
                     Text(stringResource(R.string.meaning_prompt), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth())
                 }
@@ -919,6 +929,19 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         val (w, cl, word) = found
         val (ch, l) = cl
         val view = s.room(w.series.id)
+        // 말투 바꿔 보기 (한국어를 배울 때): 해요체 문장을 보고 반말 · 높임 문장 고르기 (뜻 고르기 꼴). 다른 꼴 연습이면 건너뛴다
+        val ref = CardRef.parse(card.key)
+        if (ref?.style == true) {
+            if (kind != null && kind != ReviewKind.MEANING) return@mapNotNull null
+            val t = l.replies.getOrNull(ref.turn)?.takeIf { it.styled } ?: return@mapNotNull null
+            val low = io.github.graviton94.todayletters.core.Ladder.askLow(card.key, s.today)
+            val target = Breaks.plain(if (low) t.koLow else t.koHigh)
+            val other = Breaks.plain(if (low) t.koHigh else t.koLow)
+            return@mapNotNull Q(card, ReviewKind.MEANING, Breaks.plain(t.text[Lang.KO]), target, "", "", null, null, null,
+                io.github.graviton94.todayletters.core.Ladder.styleOptions(target, other, card.key.hashCode() + s.today.toInt()), Lang.KO, Lang.KO,
+                letterNo = roman(w.chapters.flatMap { it.letters }.indexOf(l) + 1), date = l.date, place = l.place, plate = l.plate?.image.orEmpty(),
+                series = w.series.id, chapter = ch, letter = l, style = if (low) 1 else 2)
+        }
         val learnWord = word.text[view.learn]
         // 내가 쓴 답장 카드: 문장 통째가 하나의 답 (쉼표로 뜻을 나누지 않는다). 편지 문장에는 없으니 빈칸 · 받아쓰기 대신 뜻 고르기 · 말하기로
         val isReply = CardRef.parse(card.key)?.reply == true

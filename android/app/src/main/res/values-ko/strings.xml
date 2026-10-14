@@ -26,6 +26,17 @@
     <string name="ladder_check">확⁠인</string>
     <string name="ladder_wrong">그 낱⁠말⁠은 아⁠니⁠에⁠요⁠. 다⁠시 해 봐⁠요⁠.</string>
     <string name="ladder_hint">힌⁠트⁠: 첫 글⁠자⁠는 ‘%1$s’</string>
+    <string name="ladder_turn">턴 %1$d / %2$d</string>
+    <string name="ladder_grammar">오⁠늘⁠의 문⁠법</string>
+    <string name="ladder_next_turn">다⁠음 턴⁠으⁠로</string>
+    <string name="style_note">말⁠투 노⁠트</string>
+    <string name="style_low">친⁠구 · 동⁠생 · 가⁠족⁠끼⁠리 (⁠반⁠말⁠)</string>
+    <string name="style_high">윗⁠사⁠람 · 처⁠음 보⁠는 사⁠람 · 공⁠식 (⁠높⁠임⁠)</string>
+    <string name="style_kind">말⁠투 바⁠꿔 보⁠기</string>
+    <string name="style_ask_low">반⁠말⁠로 바⁠꾸⁠면 어⁠느 것⁠일⁠까⁠요⁠?</string>
+    <string name="style_ask_high">높⁠임⁠으⁠로 바⁠꾸⁠면 어⁠느 것⁠일⁠까⁠요⁠?</string>
+    <string name="style_card_note_ko">말⁠투 바⁠꿔 보⁠기</string>
+    <string name="style_card_note_en">Switch the speech style</string>
     <string name="ladder_card_note_ko">내⁠가 쓴 답⁠장</string>
     <string name="ladder_card_note_en">My reply</string>
     <string name="play_leave_title">답⁠장⁠은 나⁠중⁠에 쓸⁠까⁠요⁠?</string>
