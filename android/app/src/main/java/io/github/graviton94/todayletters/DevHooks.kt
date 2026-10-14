@@ -6,7 +6,7 @@ import io.github.graviton94.todayletters.data.Library
 import io.github.graviton94.todayletters.data.Store
 
 /**
- * 개발자 도구 (debug 빌드에만, [BuildConfig.DEV_TOOLS]): 에뮬레이터 녹화 (scripts/fgs_video.sh) 가
+ * 개발자 도구 (debug 빌드에만, [BuildConfig.DEV_TOOLS]): 가상 기기 녹화 (scripts/fgs_video.sh) 가
  * 처음 소개 · 튜토리얼을 건너뛰고 바로 쓰는 사람의 화면에서 시작하게 한다. release 빌드에서는 읽지 않는다.
  *
  *   adb shell am start -n …/.MainActivity --ez tl.ready true [--ez tl.unlock true]
