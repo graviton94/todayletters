@@ -19,6 +19,7 @@ import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
+import androidx.compose.ui.test.performScrollToIndex
 import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.swipeUp
 import androidx.test.core.app.ApplicationProvider
@@ -966,7 +967,8 @@ class ScreensTest {
         knowWords(s, l, listOf(0, 1))
         // 다 읽은 편지는 끝으로 내려가 있으므로 맨 위의 다시 읽기 띠로 올린다
         shot("g02_room_reread_cov_light", false, 3000, act = {
-            scrolled { rule.onAllNodes(hasText("58%", substring = true)).onFirst().performScrollTo() }
+            // 편지 목록은 LazyColumn 이라 화면 밖 띠는 아직 그려지지 않았다: 목록을 맨 위로 굴린다
+            scrolled { rule.onAllNodes(androidx.compose.ui.test.hasScrollToIndexAction()).onFirst().performScrollToIndex(0) }
         }, series = s) { Room(s, room(1)) }
     }
     /** 번역 줄 물러나기: B1 에서 다 아는 문장(첫 문장 빼고 모두)은 번역을 접고, 첫 문장은 번역 그대로. 다 읽은 편지라 끝 쪽이 보인다. */
