@@ -1020,7 +1020,11 @@ class ScreensTest {
         val s = gradeMedals()
         val title = s.medalBook.family("grade")!!.title[io.github.graviton94.todayletters.core.Lang.KO]
         shot("g09_cabinet_grade_light", false, act = {
-            scrolled { rule.onAllNodes(hasText(title)).onFirst().performScrollTo() }
+            // 가족 이름이 화면 아래 끝에 걸리므로 반 화면쯤 더 올린다
+            scrolled {
+                rule.onAllNodes(hasText(title)).onFirst().performScrollTo()
+                rule.onRoot().performTouchInput { swipeUp(startY = bottom * 0.85f, endY = bottom * 0.35f) }
+            }
         }) { io.github.graviton94.todayletters.ui.MedalsScreen(s) }
     }
     @Test fun medalDetailGrade() {
