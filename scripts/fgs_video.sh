@@ -48,7 +48,7 @@ tap() {
     [ "$scroll" = 1 ] && adb shell input swipe 540 1700 540 900 400
     sleep 1
   done
-  log "NOT FOUND: '$re'"; cp "$OUT/ui.xml" "$OUT/notfound_$(echo "$re" | tr -cd 'A-Za-z0-9' | head -c 20).xml" 2>/dev/null
+  log "NOT FOUND: '$re' (adb: $(timeout 5 adb get-state 2>&1))"; cp "$OUT/ui.xml" "$OUT/notfound_$(echo "$re" | tr -cd 'A-Za-z0-9' | head -c 20).xml" 2>/dev/null
   return 1
 }
 snap() { timeout 20 adb exec-out screencap -p > "$OUT/$1.png" 2>/dev/null; }

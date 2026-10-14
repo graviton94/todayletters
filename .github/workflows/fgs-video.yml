@@ -49,7 +49,7 @@ jobs:
           path: |
             ~/.android/avd/*
             ~/.android/adb*
-          key: avd-34-google_apis-x86_64-pixel_6-fgs-v1
+          key: avd-34-google_apis-x86_64-pixel_6-fgs-v2
       - name: Create AVD snapshot
         if: steps.avd.outputs.cache-hit != 'true'
         uses: reactivecircus/android-emulator-runner@v2
@@ -61,7 +61,7 @@ jobs:
           disk-size: 4096M
           cores: 2
           force-avd-creation: false
-          emulator-options: -no-window -gpu swiftshader_indirect -no-boot-anim -camera-back none
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: false
           script: echo "snapshot ready"
       - name: Record on emulator
@@ -74,8 +74,8 @@ jobs:
           disk-size: 4096M
           cores: 2
           force-avd-creation: false
-          # 소리 장치는 둔다 (낭독이 실제 길이만큼 재생되게). 영상에는 소리를 담지 않는다.
-          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -no-boot-anim -camera-back none
+          # 소리 장치 없이 (소리 장치를 켜 두면 앱이 처음 소리를 낼 때 에뮬레이터가 멈췄다). 영상은 소리 없음.
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: false
           script: adb install -r android/app/build/outputs/apk/debug/app-debug.apk && (timeout 25m bash scripts/fgs_video.sh fgs || echo "stopped early" > fgs/STOPPED.txt); mkdir -p fgs; adb logcat -d | tail -n 3000 > fgs/logcat_tail.txt; true
       - name: Frames for review
