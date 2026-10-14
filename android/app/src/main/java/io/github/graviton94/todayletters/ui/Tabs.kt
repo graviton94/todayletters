@@ -324,10 +324,10 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
 
             Caps(stringResource(R.string.set_show_read), p.giltText, small = true)
             Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.showRead) { s.update(id, cur.copy(showRead = it)) }
-            // 번역이 사라지는 편지 (v22: 기본은 꺼짐, 문장마다 번역이 바로 아래에)
+            // 번역 줄 물러나기 (언어 등급에 맞춰, 기본 켜짐: A1 에서는 접지 않는다)
             if (cur.showRead) {
                 Caps(stringResource(R.string.set_fade_read), p.giltText, small = true)
-                Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.fadeRead) { s.update(id, cur.copy(fadeRead = it)) }
+                Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.autoFold) { s.update(id, cur.copy(autoFold = it)) }
                 Text(stringResource(R.string.set_fade_read_d), style = Type.small.ui(), color = p.inkSoft)
             }
 

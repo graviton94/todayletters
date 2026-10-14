@@ -50,10 +50,10 @@ data class SeriesSettings(
     val learn: Lang,
     val showRead: Boolean = true,
     /**
-     * 번역이 사라지는 편지: 익힌 낱말이 많은 문장은 번역 줄을 접고 아직인 낱말만 뜻풀이로. 기본은 꺼짐
-     * (처음 배우는 사람은 문장마다 번역 줄을 바로 아래에 늘 본다, v22).
+     * 번역 줄 물러나기: 언어 등급이 오를수록 거의 다 아는 문장부터 번역 줄을 접는다 ([Reading.foldAt], A1 은 접지 않음).
+     * 접힌 줄은 눌러서 펼친다. 끄면 번역이 늘 보인다. 기본은 켜짐 (A1 에서는 어차피 접지 않으니 처음 배우는 사람은 그대로).
      */
-    val fadeRead: Boolean = false,
+    val autoFold: Boolean = true,
     val modes: Set<ReplyMode> = setOf(ReplyMode.MATCH, ReplyMode.CONSTELLATION, ReplyMode.ALOUD),
     val arrivalNotice: Boolean = true,
 )

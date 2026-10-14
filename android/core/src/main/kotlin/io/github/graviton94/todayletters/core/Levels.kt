@@ -102,6 +102,8 @@ enum class XpAction(val key: String, val amount: Int, val dailyCap: Int = 0) {
     STREAK_DAY("streak_day", 10, 10),
     MEDAL("medal", 50),
     SERIES_COMPLETED("series_completed", 300),
+    /** 언어 등급이 한 단 오름 ([Reading.grade]). */
+    GRADE_UP("grade_up", 100),
 }
 
 /** XP 장부: 누적 · 오늘 날짜 · 오늘 일마다 받은 XP. */

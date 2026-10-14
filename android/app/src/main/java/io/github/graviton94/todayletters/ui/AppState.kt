@@ -670,6 +670,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         current = id
         if (!replaying(id, chapter, letter.id) && !store.started(key(id, chapter, letter.id)) && p.shown == 0 && !p.done) store.markOpened(space(id))
         store.markStarted(key(id, chapter, letter.id))
+        // 처음 열 때의 읽을 수 있는 비율 (다시 읽을 때 견준다)
+        if (store.firstCoverage(key(id, chapter, letter.id)) < 0) coverage(id, letter.id)?.let { store.setFirstCoverage(key(id, chapter, letter.id), it) }
         val idx = work(id).chapters.indexOfFirst { it.id == chapter } + 1
         go(Route.Letter(id, idx, work(id).chapters[idx - 1].letters.indexOf(letter) + 1, from))
     }
@@ -1036,6 +1038,102 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         return LetterGrowth(cs.count { Growth.known(it) }, l.words.size, next)
     }
 
+    // ── 읽을 수 있는 비율 · 언어 등급 (core 의 Reading) ─────────────
+    /** 이 작품의 어휘 자료가 지금 배우는 말의 것이면 그 작품 (아니면 null: 셀 낱말이 없다). */
+    private fun vocabWork(series: String): Work? =
+        works.firstOrNull { it.series.id == series }?.takeIf { it.lexicon != null && room(series).learn == it.learnVocab }
+
+    private var mineMemo: Pair<Int, Map<io.github.graviton94.todayletters.core.Lang, Set<String>>> = -1 to emptyMap()
+    /** 배우는 말 [lang] 에서 내 것이 된 낱말 (사전 열쇠): 그 말을 배우는 모든 작품의 카드 가운데 떠올리기 이상. */
+    fun mine(lang: io.github.graviton94.todayletters.core.Lang): Set<String> {
+        if (mineMemo.first != version) mineMemo = version to emptyMap()
+        mineMemo.second[lang]?.let { return it }
+        val got = cards().filter { Growth.known(it) }.mapNotNull { c ->
+            val ref = CardRef.parse(c.key) ?: return@mapNotNull null
+            if (seriesSettings(ref.series).learn != lang) return@mapNotNull null
+            if (ref.own.isNotEmpty()) ref.own else cardWord(c.key)?.word?.takeIf { !it.phrase }?.lex?.takeIf { it.isNotEmpty() }
+        }.toSet()
+        mineMemo = version to (mineMemo.second + (lang to got))
+        return got
+    }
+
+    /** 이 작품에서 아는 낱말인가 (기능어 · 이름 · 숫자, 또는 내 것이 된 낱말). */
+    fun knows(series: String): (String) -> Boolean {
+        val w = vocabWork(series) ?: return { false }
+        val m = mine(room(series).learn)
+        return { k -> k in m || io.github.graviton94.todayletters.core.Reading.free(w.lexicon?.get(k)) }
+    }
+
+    /** 편지 한 통 (또는 그 문장 [msg]) 의 낱말 사전 열쇠, 나온 차례대로. 어휘 자료가 없으면 null. */
+    fun letterKeys(series: String, letterId: String, msg: Int? = null): List<String>? {
+        val w = vocabWork(series) ?: return null
+        val ms = Library.gloss(ctx, series, w.deck)[letterId] ?: return null
+        return (if (msg == null) ms.flatten() else ms.getOrNull(msg).orEmpty()).map { it.key }
+    }
+
+    /** 이 편지의 읽을 수 있는 비율 (%). 셀 낱말이 없으면 null. */
+    fun coverage(series: String, letterId: String): Int? =
+        letterKeys(series, letterId)?.takeIf { it.isNotEmpty() }?.let { io.github.graviton94.todayletters.core.Reading.pct(it, knows(series)) }
+
+    /** 이 편지를 처음 열 때의 비율 (없으면 null). */
+    fun firstCoverage(series: String, chapter: String, letterId: String): Int? = store.firstCoverage(key(series, chapter, letterId)).takeIf { it >= 0 }
+
+    /** 지금 배우는 말들 (편지를 연 작품의 것, 서재 순서로 겹치지 않게). 아무 데도 시작하지 않았으면 지금 작품의 말. */
+    val learning: List<io.github.graviton94.todayletters.core.Lang>
+        get() = works.filter { startedCount(it.series.id) > 0 }.map { room(it.series.id).learn }.distinct()
+            .ifEmpty { listOfNotNull(current.takeIf { id -> works.any { it.series.id == id } }?.let { room(it).learn }) }
+
+    /** 배우는 말 [lang] 의 최근 [io.github.graviton94.todayletters.core.Reading.RECENT] 통 (다 읽은 편지) 의 읽을 수 있는 비율 평균. */
+    fun recentCoverage(lang: io.github.graviton94.todayletters.core.Lang): Int =
+        io.github.graviton94.todayletters.core.Reading.average(works.filter { room(it.series.id).learn == lang }.flatMap { w ->
+            val id = w.series.id
+            w.chapters.flatMap { c -> c.letters.filter { progress(id, c.id, it.id).done }.mapNotNull { coverage(id, it.id) } }
+        })
+
+    /** 배우는 말 [lang] 의 언어 등급 (닿았던 등급 아래로는 내려가지 않는다). */
+    fun grade(lang: io.github.graviton94.todayletters.core.Lang): io.github.graviton94.todayletters.core.Reading.Grade {
+        if (gradeMemo.first != version) gradeMemo = version to emptyMap()
+        gradeMemo.second[lang]?.let { return it }
+        val g = io.github.graviton94.todayletters.core.Reading.grade(mine(lang).size, recentCoverage(lang), store.grade(lang.code).coerceAtLeast(1))
+        gradeMemo = version to (gradeMemo.second + (lang to g))
+        return g
+    }
+    private var gradeMemo: Pair<Int, Map<io.github.graviton94.todayletters.core.Lang, io.github.graviton94.todayletters.core.Reading.Grade>> = -1 to emptyMap()
+
+    /** 이 작품에서 번역 줄을 접을 문장인가 ([msg] 번째 메시지). 작품 설정에서 껐거나 셀 낱말이 없으면 false. */
+    fun folds(series: String, letterId: String, msg: Int): Boolean {
+        if (!seriesSettings(series).autoFold) return false
+        val keys = letterKeys(series, letterId, msg) ?: return false
+        return io.github.graviton94.todayletters.core.Reading.folds(grade(room(series).learn).band, keys, knows(series))
+    }
+
+    /** 언어 등급이 오른 순간 (레벨 업과 같은 자리, 레벨 업보다 먼저). */
+    data class GradeUp(val lang: io.github.graviton94.todayletters.core.Lang, val from: io.github.graviton94.todayletters.core.Reading.Grade, val to: io.github.graviton94.todayletters.core.Reading.Grade)
+    var gradeUp by mutableStateOf<GradeUp?>(null)
+    /** 배우는 말마다 지난주의 읽을 수 있는 비율 (정산 때 잰다, 없으면 빠짐). */
+    var lastWeekCoverage by mutableStateOf<Map<io.github.graviton94.todayletters.core.Lang, Int>>(emptyMap())
+        private set
+
+    /** 정산의 한 부분: 언어 등급이 오른 만큼 XP, 가장 많이 오른 말 하나를 축하. 처음 재는 날은 조용히 적어만 둔다 (예전 사용자). */
+    private fun settleGrades() {
+        var best: GradeUp? = null
+        val week = today / 7
+        val prev = mutableMapOf<io.github.graviton94.todayletters.core.Lang, Int>()
+        learning.forEach { lang ->
+            val g = grade(lang)
+            val was = store.grade(lang.code)
+            if (was == 0) store.setGrade(lang.code, g.index)
+            else if (g.index > was) {
+                xp(XpAction.GRADE_UP, g.index - was)
+                store.setGrade(lang.code, g.index)
+                if (best == null || g.index - was > best!!.to.index - best!!.from.index) best = GradeUp(lang, io.github.graviton94.todayletters.core.Reading.Grade.of(was), g)
+            }
+            store.weekCoverage(lang.code, week, recentCoverage(lang))?.let { prev[lang] = it }
+        }
+        lastWeekCoverage = prev
+        best?.let { gradeUp = it }
+    }
+
     // ── 따라 읽기 · 완독 봉인 (모든 시리즈 공통) ─────────────────
     /**
      * 따라 읽기의 칸: 문장(메시지)마다, 긴 문장은 낭독 덩어리를 묶은 6~10 낱말 마디로 (v23, [io.github.graviton94.todayletters.core.Prosody.spans]).
@@ -1171,6 +1269,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             reward = RewardMoment(id, gain, pendingPiece, got, milestone, pending.toList(), catalogue)
         }
         pending = mutableMapOf(); pendingPiece = null
+        // 언어 등급 (오르면 XP 가 붙으니 레벨 업보다 먼저)
+        settleGrades()
         // 레벨 업: 이번 일로 오른 만큼 한 번 (보상 순간이 있으면 그 뒤에)
         val lv = Levels.of(store.xp().total).level
         if (lv > store.levelSeen) { levelUp = LevelUp(store.levelSeen, lv); store.levelSeen = lv }

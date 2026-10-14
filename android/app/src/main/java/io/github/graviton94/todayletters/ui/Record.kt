@@ -76,6 +76,8 @@ fun RecordScreen(s: AppState) {
                     }
                 }
             }
+            // 언어 등급 (배우는 말마다): 관람 레벨이 ‘얼마나 했나’라면 이것은 ‘얼마나 읽을 수 있나’
+            GradeBlock(s)
             // 지금 이용권: 무료 · 소장한 시리즈 · 구독 (숫자 셋 바로 아래, 누르면 구매 화면)
             val ent = s.entitlement
             val pass = when {
@@ -165,4 +167,46 @@ private fun RecordRow(title: String, line: String, onClick: () -> Unit) {
         Text("›", style = Type.heading, color = p.inkSoft)
     }
     Hair()
+}
+
+/** 나의 기록 › 언어 등급: 배우는 말마다 등급 · 단, 다음 단까지의 막대, 떠올릴 수 있는 낱말 · 읽을 수 있는 비율 (지난주와 견줘), 다음에 필요한 것. */
+@Composable
+private fun GradeBlock(s: AppState) {
+    val p = Ink.palette
+    val langs = s.learning
+    if (langs.isEmpty()) return
+    Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        Text(stringResource(R.string.grade_title), style = Type.heading.ui(), color = p.ink)
+        langs.forEach { lang ->
+            val g = s.grade(lang)
+            val known = s.mine(lang).size
+            val recent = s.recentCoverage(lang)
+            val words = io.github.graviton94.todayletters.core.Reading.words
+            val from = words[g.index - 1]
+            val to = words.getOrNull(g.index)
+            Text(
+                buildAnnotatedString {
+                    append(stringResource(R.string.grade_line, stringResource(langLabel(lang)), g.band.name, g.step))
+                },
+                style = Type.title.ui(), color = p.ink,
+            )
+            Bar(if (to == null) 1f else ((known - from).toFloat() / (to - from)).coerceIn(0f, 1f))
+            Text(stringResource(R.string.grade_words, known), style = Type.small.ui(), color = p.inkSoft)
+            val delta = s.lastWeekCoverage[lang]?.let { recent - it }
+            Text(stringResource(R.string.grade_cov, recent) + (delta?.let { " · " + stringResource(R.string.grade_delta, it) } ?: ""),
+                style = Type.small.ui(), color = p.inkSoft)
+            val needCov = io.github.graviton94.todayletters.core.Reading.coverageToNext(g)?.takeIf { recent < it }
+            val needWords = io.github.graviton94.todayletters.core.Reading.wordsToNext(g, known)
+            Text(
+                when {
+                    needWords == null -> stringResource(R.string.grade_top)
+                    needWords == 0 && needCov != null -> stringResource(R.string.grade_next_cov, needCov)
+                    else -> stringResource(R.string.grade_next_words, needWords)
+                },
+                style = Type.small.ui(), color = p.giltText,
+            )
+        }
+        Text(stringResource(R.string.grade_note), style = Type.small.ui(), color = p.inkSoft)
+        Hair()
+    }
 }

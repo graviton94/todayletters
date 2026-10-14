@@ -56,14 +56,14 @@ class Store(ctx: Context) {
         return SeriesSettings(
             learn = Lang.valueOf(learn),
             showRead = p.getBoolean("s:$id:show", true),
-            fadeRead = p.getBoolean("s:$id:fade", false),
+            autoFold = p.getBoolean("s:$id:fold", true),
             modes = modes(p.getString("s:$id:modes", null) ?: "MATCH,CONSTELLATION,ALOUD"),
             arrivalNotice = p.getBoolean("s:$id:notice", true),
         )
     }
 
     fun save(id: String, s: SeriesSettings) = p.edit()
-        .putString("s:$id:learn", s.learn.name).putBoolean("s:$id:show", s.showRead).putBoolean("s:$id:fade", s.fadeRead)
+        .putString("s:$id:learn", s.learn.name).putBoolean("s:$id:show", s.showRead).putBoolean("s:$id:fold", s.autoFold)
         .putString("s:$id:modes", s.modes.joinToString(",") { it.name })
         .putBoolean("s:$id:notice", s.arrivalNotice).apply()
 
@@ -373,6 +373,26 @@ class Store(ctx: Context) {
     var readAloneSeen: Int
         get() = p.getInt("alone:seen", 0)
         set(v) = p.edit().putInt("alone:seen", v).apply()
+
+    /** 배우는 말 [lang] (언어 코드) 에서 닿았던 가장 높은 언어 등급 ([io.github.graviton94.todayletters.core.Reading.Grade.index], 없으면 0). 내려가지 않는다. */
+    fun grade(lang: String) = p.getInt("grade:$lang", 0)
+    fun setGrade(lang: String, index: Int) = p.edit().putInt("grade:$lang", index).apply()
+
+    /** 이 편지를 처음 열 때의 읽을 수 있는 비율 (편지 진도 열쇠마다, 없으면 -1): 다시 읽을 때 견준다. */
+    fun firstCoverage(key: String) = p.getInt("cov0:$key", -1)
+    fun setFirstCoverage(key: String, pct: Int) = p.edit().putInt("cov0:$key", pct).apply()
+
+    /**
+     * 주마다 읽을 수 있는 비율 (배우는 말마다): 이번 주 (epoch day / 7) 의 값과 지난주 값. 주가 바뀌면 이번 값이 지난주 값이 된다.
+     * 반환은 지난주 값 (없으면 null).
+     */
+    fun weekCoverage(lang: String, week: Long, now: Int): Int? {
+        val parts = p.getString("covwk:$lang", null)?.split("|")
+        val w = parts?.getOrNull(0)?.toLongOrNull(); val cur = parts?.getOrNull(1)?.toIntOrNull(); val prev = parts?.getOrNull(2)?.toIntOrNull()
+        val last = if (w == null) null else if (w == week) prev else cur
+        p.edit().putString("covwk:$lang", "$week|$now|${last ?: ""}").apply()
+        return last
+    }
 
     var notifyAsked: Boolean
         get() = p.getBoolean("notify_asked", false)

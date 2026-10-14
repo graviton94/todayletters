@@ -298,7 +298,7 @@ fun Ornament(color: Color, modifier: Modifier = Modifier) {
 @Composable
 fun LevelUpOverlay(s: AppState) {
     val up = s.levelUp ?: return
-    if (s.reward != null) return
+    if (s.reward != null || s.gradeUp != null) return
     val w = s.currentWork
     val t = darkTone(w)
     val ui = uiLang()
@@ -337,6 +337,49 @@ fun LevelUpOverlay(s: AppState) {
             }
             Spacer(Modifier.height(Tokens.Space.s3))
             Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).background(gold).pressable { s.levelUp = null }, contentAlignment = Alignment.Center) {
+                Text(stringResource(R.string.reward_ok), style = Type.body.ui(), color = Color(0xFF15110C))
+            }
+        }
+    }
+}
+
+/**
+ * 언어 등급이 오른 순간: 레벨 업과 같은 전시실 벽 위에 배우는 말 · 새 등급 · 단. 보상 순간이 닫힌 뒤, 레벨 업보다 먼저.
+ * 새 등급(A2 · B1 · B2)에 들어섰으면 번역 줄이 어디까지 물러나는지 한 줄로 알려 준다.
+ */
+@Composable
+fun GradeUpOverlay(s: AppState) {
+    val up = s.gradeUp ?: return
+    if (s.reward != null) return
+    val t = darkTone(s.currentWork)
+    val gold = Color(0xFFE7C878)
+    val a = remember(up) { Animatable(if (s.reducedMotion) 1f else 0f) }
+    LaunchedEffect(up) { a.animateTo(1f, tween(if (s.reducedMotion) 0 else 900)) }
+    androidx.activity.compose.BackHandler { s.gradeUp = null }
+    val langName = stringResource(langLabel(up.lang))
+    BoxWithConstraints(Modifier.fillMaxSize().background(t.paper).pressable(haptic = false) { }) {
+        val wpx = constraints.maxWidth.toFloat(); val hpx = constraints.maxHeight.toFloat()
+        Box(Modifier.fillMaxSize().graphicsLayer { alpha = a.value }.background(Brush.radialGradient(
+            listOf(Color(0xFFFFE2AA).copy(alpha = 0.22f), Color.Transparent), center = Offset(wpx / 2, hpx * 0.28f), radius = hpx * 0.5f)))
+        Column(
+            Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding().verticalScroll(rememberScrollState())
+                .padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
+            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3, Alignment.CenterVertically),
+        ) {
+            Spacer(Modifier.height(Tokens.Space.s6))
+            Caps(stringResource(R.string.gradeup_caps), gold, decorative = true)
+            Text(stringResource(R.string.gradeup_title, langName), style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
+            Box(Modifier.graphicsLayer { alpha = a.value; val k = 0.94f + 0.06f * a.value; scaleX = k; scaleY = k }.padding(vertical = Tokens.Space.s3),
+                contentAlignment = Alignment.Center) {
+                Text(up.to.band.name, style = Type.display.copy(fontFamily = Faces.display), color = gold)
+            }
+            Ornament(gold.copy(alpha = 0.8f))
+            Text(stringResource(R.string.grade_line, langName, up.to.band.name, up.to.step), style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
+            if (up.to.band != up.from.band) io.github.graviton94.todayletters.core.Reading.foldAt(up.to.band)?.let { at ->
+                Text(stringResource(R.string.gradeup_fold, at), style = Type.body.ui(), color = t.accent, textAlign = TextAlign.Center)
+            }
+            Spacer(Modifier.height(Tokens.Space.s3))
+            Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).background(gold).pressable { s.gradeUp = null }, contentAlignment = Alignment.Center) {
                 Text(stringResource(R.string.reward_ok), style = Type.body.ui(), color = Color(0xFF15110C))
             }
         }

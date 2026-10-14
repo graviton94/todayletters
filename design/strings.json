@@ -869,8 +869,64 @@
     "ko": "다음 장 준비 중"
   },
   "reread_banner": {
-    "en": "You read %1$d of the %2$d words in this letter alone, and the translation folds by that much.",
-    "ko": "이 편지 낱말 %2$d개 중 %1$d개를 혼자 읽어요. 번역이 그만큼 접혀요."
+    "en": "You read %1$d of today's %2$d words in this letter on your own.",
+    "ko": "이 편지의 오늘의 낱말 %2$d개 중 %1$d개를 혼자 읽어요."
+  },
+  "known_pct": {
+    "en": "Known words %1$d%%",
+    "ko": "아는 낱말 %1$d%%"
+  },
+  "reread_cov": {
+    "en": "First reading %1$d%% → now %2$d%%",
+    "ko": "처음 읽을 때 %1$d%% → 지금 %2$d%%"
+  },
+  "grade_title": {
+    "en": "Language level",
+    "ko": "언어 등급"
+  },
+  "grade_line": {
+    "en": "%1$s %2$s · step %3$d",
+    "ko": "%1$s %2$s · %3$d단"
+  },
+  "grade_words": {
+    "en": "Words you can recall: %1$d",
+    "ko": "떠올릴 수 있는 낱말 %1$d개"
+  },
+  "grade_cov": {
+    "en": "Readable share, last 5 letters: %1$d%%",
+    "ko": "읽을 수 있는 비율 (최근 5통) %1$d%%"
+  },
+  "grade_delta": {
+    "en": "%1$+d vs last week",
+    "ko": "지난주보다 %1$+d"
+  },
+  "grade_next_words": {
+    "en": "%1$d more words to the next step",
+    "ko": "다음 단까지 낱말 %1$d개"
+  },
+  "grade_next_cov": {
+    "en": "The next level opens at %1$d%% readable",
+    "ko": "다음 등급은 읽을 수 있는 비율 %1$d%%부터"
+  },
+  "grade_top": {
+    "en": "The top step for now",
+    "ko": "지금 기준의 맨 위 단이에요"
+  },
+  "grade_note": {
+    "en": "Levels A1–B2 are this app's own measure of the letters you read here, not an official exam grade.",
+    "ko": "A1~B2 는 이 앱에서 읽은 편지로 잰 이 앱만의 기준이에요. 공인 시험 등급과 같지 않아요."
+  },
+  "gradeup_caps": {
+    "en": "Language level",
+    "ko": "언어 등급"
+  },
+  "gradeup_title": {
+    "en": "Your %1$s has grown",
+    "ko": "%1$s 실력이 한 단 올랐어요"
+  },
+  "gradeup_fold": {
+    "en": "From now on, sentences where you know %1$d%% of the words fold their translation. Tap to open.",
+    "ko": "이제 아는 낱말이 %1$d%% 이상인 문장은 번역을 접어요. 눌러서 펼쳐요."
   },
   "shadow_title": {
     "en": "Read along",
@@ -2305,12 +2361,12 @@
     "ko": "다 읽은 편지마다 그림이 여기 걸려요. 그림을 누르면 가까이 볼 수 있어요."
   },
   "set_fade_read": {
-    "en": "Fold translations as you learn",
-    "ko": "익힌 만큼 번역 접기"
+    "en": "Step back translations as you grow",
+    "ko": "실력만큼 번역 물러나기"
   },
   "set_fade_read_d": {
-    "en": "Off: every sentence keeps its translation right below. On: sentences you can read alone fold their translation.",
-    "ko": "끄면 문장마다 바로 아래에 번역이 늘 보여요. 켜면 혼자 읽을 수 있는 문장은 번역을 접어요."
+    "en": "On: as your level rises, sentences you know almost every word of fold their translation (tap to open). From A2: only sentences you know fully; B1: 95%; B2: 90%. Off: translations always show.",
+    "ko": "켜면 언어 등급이 오를수록 거의 다 아는 문장부터 번역을 접어요 (눌러서 펼쳐요). A2 는 모두 아는 문장만, B1 은 95%, B2 는 90% 이상. 끄면 번역이 늘 보여요."
   },
   "review_right_hint": {
     "en": "Right — with hints.",

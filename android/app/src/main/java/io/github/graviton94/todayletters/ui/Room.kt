@@ -267,9 +267,12 @@ fun Room(s: AppState, r: Route.Letter) {
     val reply = Exercises.replyFor(letter, view.learn).second
     val finished = written >= total
     val cardMap = remember(s.version) { s.cardMap() }
+    // 이 편지의 읽을 수 있는 비율 (아는 낱말 %): 머리의 날짜 옆에
+    val known = remember(s.version, letter.id, view.learn) { s.coverage(id, letter.id) }
+    val knownLine = known?.let { stringResource(R.string.known_pct, it) }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
-        RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else dateLine(letter.date, letter.place),
+        RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else listOfNotNull(dateLine(letter.date, letter.place), knownLine).joinToString(" · "),
             auto = s.app.sound, onAuto = { if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }, onInfo = { s.go(Route.RoomInfo(r)) },
             speed = speed, onSpeed = { speed = if (speed < 1f) 1f else 0.7f; s.store.setRoomSpeed(id, speed) })
         val ctx = androidx.compose.ui.platform.LocalContext.current
@@ -310,12 +313,16 @@ fun Room(s: AppState, r: Route.Letter) {
                         textAlign = androidx.compose.ui.text.style.TextAlign.Center)
                 }
             } }
-            // 다시 읽기: 다 읽은 편지라면 지금 얼마나 혼자 읽는지 (번역이 그만큼 접힌다)
-            if (progress.done) s.letterGrowth(id, chapter, letter).takeIf { it.total > 0 }?.let { g -> item(key = "${letter.id}:growth") {
+            // 다시 읽기: 다 읽은 편지라면 지금 이 편지의 아는 낱말 % (처음 읽을 때와 견줘) · 오늘의 낱말을 몇 개 혼자 읽는지
+            if (progress.done) s.letterGrowth(id, chapter, letter).takeIf { it.total > 0 || known != null }?.let { g -> item(key = "${letter.id}:growth") {
+                val first = remember(letter.id) { s.firstCoverage(id, chapter, letter.id) }
                 Row(Modifier.fillMaxWidth().background(p.fill).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
                     verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                    Text("${g.pct}%", style = Type.title.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = Color(0xFFD2A955))
-                    Text(stringResource(R.string.reread_banner, g.known, g.total), style = Type.small.ui(), color = p.onFill, modifier = Modifier.weight(1f))
+                    Text("${known ?: g.pct}%", style = Type.title.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = Color(0xFFD2A955))
+                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        if (known != null && first != null) Text(stringResource(R.string.reread_cov, first, known), style = Type.small.ui(), color = p.onFill)
+                        if (g.total > 0) Text(stringResource(R.string.reread_banner, g.known, g.total), style = Type.small.ui(), color = p.onFill)
+                    }
                 }
             } }
             letter.moments.filter { it.after < 0 && it.shows() }.forEachIndexed { k, mo ->
@@ -334,12 +341,13 @@ fun Room(s: AppState, r: Route.Letter) {
                     } else wordMarks(m.text[view.learn], letter.words.map { it.text[view.learn] })
                 }
                 val hints = remember(letter.id, i, toks, sentMarks) { toks?.let { ts -> ranges.filterIndexed { j, r -> work.lexicon?.get(ts[j].key)?.function != true && sentMarks.none { it.first == r } } } ?: emptyList() }
-                // 번역이 사라지는 편지 (엔진 공통): 이 문장 낱말의 절반 이상을 혼자 읽으면 번역을 접고 아직인 낱말만 뜻풀이
-                val fade = if (!s.seriesSettings(id).fadeRead) false to emptyList<Pair<String, String>>() else remember(s.version, i) {
-                    val idx = sentMarks.map { it.second }.distinct()
-                    val known = idx.filter { k -> io.github.graviton94.todayletters.core.Growth.known(cardMap[s.cardKey(id, chapter, letter.id, k)]) }
-                    val fold = idx.isNotEmpty() && known.size * 2 >= idx.size
-                    fold to (idx - known.toSet()).map { k -> letter.words[k].let { firstSense(it.text[view.learn]) to firstSense(it.text[view.read]) } }
+                // 번역 줄 물러나기 (core 의 Reading): 언어 등급만큼 거의 다 아는 문장은 번역을 접고, 그 문장의 아직인 오늘의 낱말만 뜻풀이
+                val fade = remember(s.version, letter.id, i, view.learn) {
+                    if (!s.folds(id, letter.id, i)) false to emptyList<Pair<String, String>>() else {
+                        val idx = sentMarks.map { it.second }.distinct()
+                        val known = idx.filter { k -> io.github.graviton94.todayletters.core.Growth.known(cardMap[s.cardKey(id, chapter, letter.id, k)]) }
+                        true to (idx - known.toSet()).map { k -> letter.words[k].let { firstSense(it.text[view.learn]) to firstSense(it.text[view.read]) } }
+                    }
                 }
                 // 한 번만 쓴다: 다 써진 조각은 (스크롤로 화면 밖에 나갔다 돌아와도) 다시 쓰지 않는다
                 val fresh = i >= already && animate && i >= written
