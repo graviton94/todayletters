@@ -116,6 +116,6 @@ tap '^(Stop|STOP)$' 6; sleep 3; snap d5_stopped
 adb shell cmd statusbar collapse; sleep 1.5
 rec_stop fgs_data_sync
 
-adb shell dumpsys activity services $P | grep -iE "ServiceRecord|isForeground" > "$OUT/services.txt" 2>/dev/null || true
-adb logcat -d -s AndroidRuntime:E > "$OUT/crash.txt" 2>/dev/null || true
+timeout 20 adb shell dumpsys activity services $P | grep -iE "ServiceRecord|isForeground" > "$OUT/services.txt" 2>/dev/null || true
+timeout 20 adb logcat -d -s AndroidRuntime:E > "$OUT/crash.txt" 2>/dev/null || true
 ls -la "$OUT"
