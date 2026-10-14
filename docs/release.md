@@ -41,7 +41,24 @@ AAB 가 `sideload` 키로 서명됐으면 실패시켜요. 결과: `.aab` 와 `m
 1. Actions › **Android AAB** › Run workflow, `version` 입력 (사용자가 “릴리즈하자” 고 한 뒤).
 2. 실행이 끝나면 Artifacts 의 `TodayLetters-aab` 또는 Releases 의 `android-aab-latest` 에서 `.aab` 를 받아요.
 3. Play Console › 테스트(내부 · 비공개) 또는 프로덕션 › 새 버전 만들기 → `.aab` 업로드 → 출시 노트.
-4. 앱 콘텐츠 › 포그라운드 서비스 신고: 미디어 재생 (편지 낭독) · 데이터 동기화 (낭독 미리 받기). 문구는 배포 준비 시안 ⑤, 시연 영상은 시험 APK 로 짧게.
+4. 앱 콘텐츠 › 포그라운드 서비스 신고: 미디어 재생 (편지 낭독) · 데이터 동기화 (낭독 미리 받기). 문구 · 영상은 아래 4-1.
+
+### 4-1. 포그라운드 서비스 신고 (문구 · 시연 영상)
+
+Play Console › 앱 콘텐츠 › **포그라운드 서비스 권한**. 매니페스트: `NarrationService` = mediaPlayback, `DownloadService` = dataSync. 두 유형 모두 신고하고 유형마다 영상 링크를 넣는다.
+문구는 승인된 그대로 `design/store/play/listing.md` 8장에 있다 (아래는 같은 글).
+
+| 유형 | 설명 (en) | 설명 (ko) |
+|---|---|---|
+| 미디어 재생 `FOREGROUND_SERVICE_MEDIA_PLAYBACK` | Continues playing the narration of a letter while the screen is off or the user is in another app. Playback is always started by the user, who can pause, skip and stop it from the notification. | 편지 낭독을 화면이 꺼지거나 다른 앱을 쓰는 중에도 이어서 들려줍니다. 재생은 사용자가 직접 시작하고, 알림에서 멈추고 넘기고 끌 수 있습니다. |
+| 데이터 동기화 `FOREGROUND_SERVICE_DATA_SYNC` | Downloads audio files to the device so they can be played without an internet connection. The download is always started by the user, shows its progress in a notification for its whole duration and continues if the app is closed. The user can stop it at any time from the download screen. | 오디오 파일을, 인터넷 없이 들을 수 있도록 기기에 내려받습니다. 받기는 사용자가 직접 시작하고, 진행 상황을 알림으로 계속 보여 주며, 앱을 닫아도 이어집니다. 받기 화면에서 언제든 멈출 수 있습니다. |
+
+**시연 영상** (영어 화면 · 소리 없음, 에뮬레이터 녹화): Actions › **FGS demo video** (`fgs-video.yml`) 를 직접 돌리면 debug APK 를 에뮬레이터에서 열어 `scripts/fgs_video.sh` 로 두 장면을 녹화하고, `commit` 을 켜 두면 이 가지에 커밋한다 (Artifacts `fgs-video` 에도 있음).
+
+- `design/store/play/fgs_media_playback.mp4` — 앱 열기 → 빈센트의 편지 열기 → 낭독 시작 → 홈으로 나가도 낭독 → 알림판의 재생 알림 (⏮ ⏸ ⏭) → 알림에서 멈춤.
+- `design/store/play/fgs_data_sync.mp4` — 설정 › 저장 공간 › 모든 장 받기 → 확인 → 진행 → 최근 앱에서 밀어 닫기 → 알림이 계속 진행 → 알림의 Stop.
+
+영상은 YouTube **일부 공개** 또는 Google 드라이브 공유 링크로 올려 신고서에 붙인다. 녹화는 debug 빌드만 읽는 실행 옵션(`tl.ready` · `tl.unlock`, `DevHooks.kt`)으로 처음 소개 · 튜토리얼을 건너뛰고 모든 장을 연다 (release 빌드는 읽지 않음).
 
 ## 5. 앱 밖 파일 (R2) 은 덮어쓰지 않아요
 

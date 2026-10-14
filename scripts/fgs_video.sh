@@ -65,7 +65,7 @@ rec_stop() {
 launch() { adb shell am start -W -n $P/.MainActivity -a android.intent.action.MAIN -c android.intent.category.LAUNCHER "$@" >/dev/null; }
 # 앱 열기 → 입구 → 서재 → 빈센트 (오늘)
 enter_vincent() {
-  launch; sleep 2
+  launch "$@"; sleep 2
   tap 'Tap to enter' 15; sleep 2.5
   tap 'Vincent → ' 10; sleep 3.5
 }
@@ -87,7 +87,8 @@ adb shell cmd statusbar collapse; sleep 2
 # ── 1. 미디어 재생 ────────────────────────────────
 rec_start fgs_media_playback
 sleep 1
-enter_vincent
+# tl.keepAudio: 이 가상 기기는 소리 출력이 쉬는 순간 멈춘다 → 녹화 내내 무음을 흘려 둔다 (DevHooks). 그래서 장면 사이에 앱을 끄지 않는다.
+enter_vincent --ez tl.keepAudio true
 tap '^Open the letter$' 10; sleep 3
 # 도착 화면: 그림 · 첫 줄을 빈센트 목소리로 쓴 뒤 ‘Read the letter’
 tap '^Read the letter$' 25 || { adb shell input tap 540 1200; sleep 1; tap '^Read the letter$' 8; }
@@ -95,17 +96,17 @@ sleep 7; snap m1_room
 adb shell input keyevent KEYCODE_HOME; sleep 3.5
 adb shell cmd statusbar expand-notifications; sleep 4.5; snap m2_shade
 tap '^Pause$' 6 || tap 'actionPlayPause' 4; sleep 3.5; snap m3_paused
-tap '^Play$' 4 && { sleep 3; tap '^Pause$' 4; sleep 2; }
 adb shell cmd statusbar collapse; sleep 1.5
 rec_stop fgs_media_playback
-adb shell am force-stop $P; sleep 1
 
 # ── 2. 데이터 동기화 (미리 받기) ──────────────────
-adb shell input keyevent KEYCODE_HOME; adb shell cmd statusbar collapse; sleep 1
 rec_start fgs_data_sync
 sleep 1
-enter_vincent
-tap '^Settings$' 8; sleep 2
+# 앱으로 돌아오면 편지 방 → 뒤로 → 오늘 (설정 단추)
+launch; sleep 3
+adb shell input keyevent KEYCODE_BACK; sleep 2.5
+tap '^Settings$' 6 || { adb shell input keyevent KEYCODE_BACK; sleep 2.5; tap '^Settings$' 8; }
+sleep 2
 tap '^Download all chapters' 25 1; sleep 2.5
 tap '^Download · ' 8; sleep 6; snap d1_progress
 # 최근 앱에서 밀어 닫기 (사용자가 앱을 닫는 것과 같게)
