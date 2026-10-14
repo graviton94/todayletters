@@ -2,8 +2,6 @@ package io.github.graviton94.todayletters
 
 import android.content.Context
 import androidx.activity.ComponentActivity
-import androidx.compose.ui.test.assertDoesNotExist
-import androidx.compose.ui.test.assertExists
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
