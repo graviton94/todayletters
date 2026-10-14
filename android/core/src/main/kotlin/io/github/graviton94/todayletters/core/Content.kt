@@ -82,6 +82,7 @@ data class GrammarLine(val name: Tri, val hint: Tri)
  * 답장 한 턴 (편지의 "replies"): 편지 문장 하나([quote], 메시지 번호)에 대답하는 한 줄. 각 언어 줄은 그 언어 사다리의 [grammar] 를 쓴다.
  * [focus] 는 언어마다 빈칸으로 비울 1~2 덩어리 (그 줄에 그대로 있는 글자). 한국어 줄은 해요체이고,
  * [koLow] · [koHigh] 는 같은 뜻의 반말 · 높임 (한국어를 배울 때 말투 노트 · 말투 바꿔 보기 카드).
+ * [wrong] 은 언어마다 덩어리마다 틀린 보기 2개 ([focus] 와 같은 차례, 없으면 사전 꼴로 미끼를 만든다: [Ladder.authored]).
  * 예전 형식 ("reply" 하나 + "quote") 은 문법 없는 한 턴으로 읽는다.
  */
 data class ReplyTurn(
@@ -91,6 +92,7 @@ data class ReplyTurn(
     val koLow: String = "",
     val koHigh: String = "",
     val focus: Map<Lang, List<String>> = emptyMap(),
+    val wrong: Map<Lang, List<List<String>>> = emptyMap(),
 ) {
     /** 말투 노트를 보여 줄 수 있나 (반말 · 높임 둘 다 있을 때). */
     val styled get() = koLow.isNotBlank() && koHigh.isNotBlank()

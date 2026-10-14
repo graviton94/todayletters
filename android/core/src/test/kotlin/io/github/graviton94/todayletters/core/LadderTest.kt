@@ -83,7 +83,9 @@ class LadderTest {
             "형 편지를 두 번 읽었어요. 밤새 그렸다는 얘기에 형 생각을 많이 했어요."),
             koLow = "형 편지를 두 번 읽었어. 밤새 그렸다는 얘기에 형 생각을 많이 했어.",
             koHigh = "형님 편지를 두 번 읽었습니다. 밤새 그리셨다는 말씀에 형님 생각을 많이 했습니다.",
-            focus = mapOf(Lang.FR to listOf("ai lu", "pensé"), Lang.EN to listOf("read", "thought"), Lang.KO to listOf("읽었어요"))),
+            focus = mapOf(Lang.FR to listOf("ai lu", "pensé"), Lang.EN to listOf("read", "thought"), Lang.KO to listOf("읽었어요")),
+            wrong = mapOf(Lang.FR to listOf(listOf("lis", "lirai"), listOf("pense", "penser")), Lang.EN to listOf(listOf("reads", "reading"), listOf("think", "thinks")),
+                Lang.KO to listOf(listOf("읽어요", "읽을게요")))),
         ReplyTurn(2, "II.1", tri("Tu as choisi des couleurs très fortes.", "You chose very strong colours.", "형이 아주 강한 색을 골랐네요.")),
     )
     private val letter = Letter("c3-l1", "1888", "Arles", "calm",
@@ -148,6 +150,36 @@ class LadderTest {
         assertEquals(listOf("lire", "lis"), near)   // 두 글자 낱말 (lu) 혼자는 미끼로 너무 짧다
         val c = Ladder.chips("pensé", Ladder.nearForms("pensé") { lex[it].orEmpty() }, listOf("maison"), seed = 1)
         assertEquals(setOf("pensé", "penser", "pense"), c.toSet())
+    }
+
+    @Test fun authoredWrongOptionsComeFirst() {
+        val fr = turns[0].text[Lang.FR]
+        val focus = turns[0].focus[Lang.FR]!!
+        val wrong = turns[0].wrong[Lang.FR]!!
+        val score: (String) -> Int = { if (it.length > 3) it.length else 0 }
+        // 빈칸 하나: 정답 + 그 덩어리의 틀린 보기 둘
+        val one = Ladder.holes(fr, focus, 1, score)
+        val a1 = one.map { fr.substring(it) }
+        val w1 = Ladder.wrongsFor(fr, one, focus, wrong)
+        assertEquals(listOf(listOf("lis", "lirai")), w1)
+        val c1 = Ladder.authored(a1, w1, 0, two = false, seed = 3)!!
+        assertEquals(setOf("ai lu", "lis", "lirai"), c1.toSet()); assertEquals(3, c1.size)
+        assertEquals(c1, Ladder.authored(a1, w1, 0, two = false, seed = 3))
+        // 빈칸 둘 (B1): 두 정답 + 두 덩어리의 틀린 보기, 겹치면 하나로
+        val two = Ladder.holes(fr, focus, 2, score)
+        val a2 = two.map { fr.substring(it) }
+        val w2 = Ladder.wrongsFor(fr, two, focus, wrong)
+        assertEquals(setOf("ai lu", "pensé", "lis", "lirai", "pense", "penser"), Ladder.authored(a2, w2, 1, two = true, seed = 1)!!.toSet())
+        assertEquals(5, Ladder.authored(a2, listOf(listOf("lis", "pensé"), listOf("Lis", "penser")), 0, two = true, seed = 1)!!.size)
+        // 적힌 보기가 없으면 null (사전 꼴 미끼로): wrong 이 없는 턴 · 덩어리가 아닌 빈칸
+        assertEquals(null, Ladder.authored(a1, Ladder.wrongsFor(fr, one, focus, emptyList()), 0, two = false, seed = 3))
+        val loose = Ladder.holes(fr, emptyList(), 1, score)
+        assertEquals(listOf<List<String>?>(null), Ladder.wrongsFor(fr, loose, focus, wrong))
+        // 한국어: 덩어리 하나 + 낱말 점수 빈칸 하나 → 덩어리 빈칸만 적힌 보기
+        val ko = turns[0].text[Lang.KO]
+        val kh = Ladder.holes(ko, turns[0].focus[Lang.KO]!!, 1, score)
+        assertEquals(setOf("읽었어요", "읽어요", "읽을게요"),
+            Ladder.authored(kh.map { ko.substring(it) }, Ladder.wrongsFor(ko, kh, turns[0].focus[Lang.KO]!!, turns[0].wrong[Lang.KO]!!), 0, false, 2)!!.toSet())
     }
 
     @Test fun styleOptionsHoldTheTargetTheOtherAndAMix() {

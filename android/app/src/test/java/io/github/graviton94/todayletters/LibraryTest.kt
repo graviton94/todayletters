@@ -178,7 +178,8 @@ class LibraryTest {
         val l = JSONObject("""{"replies": [
             {"quote": 0, "grammar": "III.0", "fr": "J'ai lu ta lettre deux fois.", "en": "I read your letter twice.", "ko": "형 편지를 두 번 읽었어요.",
              "koLow": "형 편지를 두 번 읽었어.", "koHigh": "형님 편지를 두 번 읽었습니다.",
-             "focus": {"fr": ["ai lu"], "en": ["read"], "ko": ["읽었어요"]}, "_note": "이 앱이 쓴 답장"},
+             "focus": {"fr": ["ai lu"], "en": ["read"], "ko": ["읽었어요"]},
+             "wrong": {"fr": [["lis", "lirai"]], "en": [["reads", "reading"]], "ko": [["읽어요", "읽을게요"]]}, "_note": "이 앱이 쓴 답장"},
             {"quote": 2, "grammar": "II.1", "fr": "Tu as choisi.", "en": "You chose.", "ko": "형이 골랐네요."}]}""")
         val t = Library.replies(l)
         assertEquals(2, t.size)
@@ -188,7 +189,8 @@ class LibraryTest {
         assertEquals("형 편지를 두 번 읽었어.", io.github.graviton94.todayletters.core.Breaks.plain(t[0].koLow))
         assertEquals(listOf("ai lu"), t[0].focus[Lang.FR]); assertEquals(listOf("읽었어요"), t[0].focus[Lang.KO])
         assertTrue(t[0].styled); assertFalse(t[1].styled)
-        assertEquals(2, t[1].quote); assertTrue(t[1].focus.isEmpty())
+        assertEquals(listOf(listOf("lis", "lirai")), t[0].wrong[Lang.FR]); assertEquals(listOf(listOf("읽어요", "읽을게요")), t[0].wrong[Lang.KO])
+        assertEquals(2, t[1].quote); assertTrue(t[1].focus.isEmpty()); assertTrue(t[1].wrong.isEmpty())
     }
 
     @Test fun oldReplyIsOneTurnWithoutGrammar() {

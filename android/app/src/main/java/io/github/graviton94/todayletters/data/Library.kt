@@ -297,7 +297,7 @@ object Library {
     }
 
     /**
-     * 답장 턴들: "replies" (턴마다 quote · grammar · 언어 줄 · koLow · koHigh · focus), 없으면 예전 "reply" (+ "quote") 하나를 문법 없는 한 턴으로.
+     * 답장 턴들: "replies" (턴마다 quote · grammar · 언어 줄 · koLow · koHigh · focus · wrong), 없으면 예전 "reply" (+ "quote") 하나를 문법 없는 한 턴으로.
      */
     internal fun replies(l: JSONObject): List<io.github.graviton94.todayletters.core.ReplyTurn> {
         l.optJSONArray("replies")?.let { a ->
@@ -307,8 +307,14 @@ object Library {
                 val focus = o.optJSONObject("focus")?.let { f ->
                     Lang.entries.mapNotNull { lang -> f.optJSONArray(lang.code)?.let { arr -> lang to (0 until arr.length()).map { arr.optString(it) }.filter { it.isNotBlank() } } }.toMap()
                 } ?: emptyMap()
+                // 덩어리마다 틀린 보기 2개 (focus 와 같은 차례): {"fr": [["lis", "lirai"], ...]}
+                val wrong = o.optJSONObject("wrong")?.let { w ->
+                    Lang.entries.mapNotNull { lang -> w.optJSONArray(lang.code)?.let { arr ->
+                        lang to (0 until arr.length()).map { i -> arr.optJSONArray(i)?.let { p -> (0 until p.length()).map { p.optString(it) }.filter { it.isNotBlank() } }.orEmpty() }
+                    } }.toMap()
+                } ?: emptyMap()
                 io.github.graviton94.todayletters.core.ReplyTurn(o.optInt("quote", -1), o.str("grammar"), text,
-                    Breaks.keepAll(o.str("koLow")), Breaks.keepAll(o.str("koHigh")), focus)
+                    Breaks.keepAll(o.str("koLow")), Breaks.keepAll(o.str("koHigh")), focus, wrong)
             }
         }
         return l.optJSONObject("reply")?.let { r -> tri(r).takeIf { it.lines.isNotEmpty() }?.let { listOf(io.github.graviton94.todayletters.core.ReplyTurn(r.optInt("quote", -1), "", it)) } } ?: emptyList()

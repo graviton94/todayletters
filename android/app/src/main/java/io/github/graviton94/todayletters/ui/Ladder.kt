@@ -64,7 +64,7 @@ import kotlinx.coroutines.delay
 /**
  * 답장 사다리 (core 의 [Ladder]): 받는 사람이 되어 빈센트(모차르트)의 문장에 대답한다. 턴이 여럿이면 차례로 (“턴 1 / 2”),
  * 턴마다 위에는 그 턴이 집어 온 문장 (메신저의 ‘답장(인용)’), 그 위에 오늘의 문법 한 줄 (점선), 아래에는 내 답장 말풍선.
- * 빈칸은 언어 등급만큼, 그 턴의 문법 덩어리 ([ReplyTurn.focus]) 먼저: 고르기 (덩어리면 같은 낱말의 다른 꼴이 미끼) · 둘 고르기 · 직접 쓰기 (틀리면 한 글자씩 힌트).
+ * 빈칸은 언어 등급만큼, 그 턴의 문법 덩어리 ([ReplyTurn.focus]) 먼저: 고르기 (덩어리면 답장에 적힌 틀린 보기 [ReplyTurn.wrong], 없으면 같은 낱말의 다른 꼴이 미끼) · 둘 고르기 · 직접 쓰기 (틀리면 한 글자씩 힌트).
  * 한국어를 배우면 해요체로 쓰고, 맞힌 뒤 말투 노트 (반말 · 높임 · 실제 사이) 가 펼쳐진다.
  * 다 채우면 [onDone] (다음 턴, 마지막 턴이면 보내기 → 답장 걸음 끝). 턴마다 복습 카드가 된다 ([AppState.replyTurnDone]).
  */
@@ -87,7 +87,10 @@ fun ReplyLadder(s: AppState, r: Route.Play, help: Ladder.Help, turn: Int, turns:
     val units = remember(sentence, holes) { Ladder.layout(sentence, holes) }
     val choices = remember(letter.id, view.learn, help, turn) {
         val spans = Ladder.spans(sentence)
+        // 답장에 적힌 틀린 보기 (덩어리마다 2개) 가 있으면 그것으로, 없으면 사전 꼴 미끼로
+        val wrongs = Ladder.wrongsFor(sentence, holes, focus, t?.wrong?.get(view.learn).orEmpty().map { w -> w.map { Breaks.plain(it) } })
         answers.mapIndexed { k, a ->
+            Ladder.authored(answers, wrongs, k, help == Ladder.Help.CHOOSE_TWO, letter.id.hashCode() + k + turn * 7)?.let { return@mapIndexed it }
             val fromFocus = focus.any { f -> Ladder.find(sentence, f) == holes[k] }
             val others = answers.filterIndexed { j, _ -> j != k } +
                 spans.filter { sp -> !sp.isEmpty() && holes.none { h -> h.first <= sp.last && sp.first <= h.last } }.map { sentence.substring(it) }.filter { score(it) > 0 }

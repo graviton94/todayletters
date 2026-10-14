@@ -9,7 +9,8 @@
     {"series": "vincent", "chapter": 3,            # 숫자 · 로마 숫자 "III" · 맺음 "E" · 프롤로그 "P"
      "grammar": [{"id": "III.0", "fr": {"name": {"ko", "en"}, "hint": {"ko", "en"}}, "en": {...}, "ko": {...}}, ...],
      "letters": {"c3-l1": [{"quote": 0, "grammar": "III.0", "fr": "...", "en": "...", "ko": "...(해요체)",
-                            "koLow": "...(반말)", "koHigh": "...(높임)", "focus": {"fr": ["ai lu"], "en": [...], "ko": [...]}}, ...]}}
+                            "koLow": "...(반말)", "koHigh": "...(높임)", "focus": {"fr": ["ai lu"], "en": [...], "ko": [...]},
+                            "wrong": {"fr": [["lis", "lirai"]], "en": [[...]], "ko": [[...]]}}, ...]}}
 
 넣을 때: 장 파일에 "grammar" 를 두고 (letters 앞), 편지마다 예전 "reply" (+ "quote") 를 지우고 "replies" 를 둔다.
 검사 (하나라도 어긋나면 아무 파일도 쓰지 않고 0 이 아닌 값으로 끝난다):
@@ -18,6 +19,8 @@
   - quote 가 그 편지 메시지 번호 안인가
   - grammar id 가 이 장 또는 앞 장의 문법에 있는가 (맺음은 모든 장, 같은 실행의 다른 입력 파일도 센다)
   - focus 덩어리 (언어마다 1~2개) 가 그 언어 줄에 글자 그대로 있는가
+  - wrong (덩어리마다 틀린 보기 2개, focus 와 같은 차례) 이 있으면: 언어마다 focus 와 길이가 같고, 보기는 빈 글자가 아니며 정답과 같지 않은가
+턴에 wrong 이 없으면 알리기만 한다 (앱은 사전 꼴로 미끼를 만든다).
   - 문법 셋: id 가 겹치지 않고, 언어마다 name · hint 의 ko · en 이 있는가
 턴 수가 장의 기준 (I~II 1 · III~V 2 · VI~ 3) 과 다르면 알리기만 한다.
 """
@@ -199,6 +202,27 @@ def main():
                     for c in chunks:
                         if not isinstance(c, str) or not c.strip() or c not in line:
                             errors.append(f"{tt}: focus.{lang} {c!r} 가 {lang} 줄에 그대로 없음")
+                wrong = turn.get("wrong")
+                if wrong is None:
+                    notes.append(f"{tt}: wrong 이 없음 (사전 꼴 미끼로)")
+                    continue
+                if not isinstance(wrong, dict):
+                    errors.append(f"{tt}: wrong 은 언어마다 목록인 객체여야 함")
+                    continue
+                for lang in langs:
+                    chunks = focus.get(lang)
+                    if not isinstance(chunks, list):
+                        continue
+                    opts = wrong.get(lang)
+                    if not isinstance(opts, list) or len(opts) != len(chunks):
+                        errors.append(f"{tt}: wrong.{lang} 는 focus.{lang} 와 같은 수 ({len(chunks)}) 의 목록이어야 함")
+                        continue
+                    for c, pair in zip(chunks, opts):
+                        if not isinstance(pair, list) or len(pair) != 2 or not all(isinstance(w, str) and w.strip() for w in pair):
+                            errors.append(f"{tt}: wrong.{lang} {c!r} 의 보기는 빈 글자가 아닌 2개여야 함: {pair!r}")
+                            continue
+                        if isinstance(c, str) and any(w.strip().lower() == c.strip().lower() for w in pair):
+                            errors.append(f"{tt}: wrong.{lang} {c!r} 의 보기에 정답이 있음: {pair!r}")
         missing = [lid for lid in letters if lid not in replies]
         if missing and replies:
             notes.append(f"{where}: 이 입력에 없는 편지 {len(missing)}통 (그대로 둠): {', '.join(missing)}")

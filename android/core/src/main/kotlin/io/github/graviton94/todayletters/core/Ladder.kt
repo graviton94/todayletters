@@ -167,6 +167,24 @@ object Ladder {
         return (forms + if (words.size > 1) words.filter { it.length > 2 } else emptyList()).distinctBy { it.lowercase() }
     }
 
+    /**
+     * 답장에 적힌 틀린 보기로 만든 고르기 낱말 ([ReplyTurn.wrong]). [answers] 는 빈칸마다 정답, [wrongs] 는 빈칸마다
+     * 그 덩어리의 틀린 보기 (덩어리 빈칸이 아니거나 적힌 것이 없으면 null). 빈칸 [k] 의 보기가 없으면 null (사전 꼴 미끼 [chips] 로).
+     * 빈칸 하나: 정답 + 그 덩어리의 틀린 보기 둘. 빈칸 둘 ([two], B1): 두 정답 + 두 덩어리의 틀린 보기 (겹치는 것은 하나로).
+     * 같은 [seed] 면 늘 같은 차례.
+     */
+    fun authored(answers: List<String>, wrongs: List<List<String>?>, k: Int, two: Boolean, seed: Int): List<String>? {
+        val a = answers.getOrNull(k) ?: return null
+        val own = wrongs.getOrNull(k)?.map { it.trim() }?.filter { it.isNotEmpty() }.orEmpty()
+        if (own.isEmpty()) return null
+        val items = if (two) listOf(a) + answers + wrongs.flatMap { it.orEmpty() } else listOf(a) + own
+        return items.map { it.trim() }.filter { it.isNotEmpty() }.distinctBy { it.lowercase() }.shuffled(java.util.Random(seed * 17L + 3))
+    }
+
+    /** 빈칸마다 그 덩어리의 틀린 보기: 빈칸 범위가 [focus] 덩어리 i 의 자리면 [wrong] 의 i 번째, 아니면 null. */
+    fun wrongsFor(sentence: String, holes: List<IntRange>, focus: List<String>, wrong: List<List<String>>): List<List<String>?> =
+        holes.map { h -> focus.indexOfFirst { f -> find(sentence, f) == h }.takeIf { it >= 0 }?.let { wrong.getOrNull(it) } }
+
     // ── 말투 바꿔 보기 (한국어를 배울 때만) ─────────────────────
     /** 이 카드가 오늘 묻는 말투: 반말이면 true, 높임이면 false (카드 열쇠 · 날로 번갈아). */
     fun askLow(key: String, day: Long): Boolean = ((key.hashCode().toLong() + day) and 1L) == 0L
