@@ -11,6 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.hasClickAction
 import androidx.compose.ui.test.hasText
+import androidx.compose.ui.test.hasSetTextAction
+import androidx.compose.ui.test.performTextInput
 import androidx.compose.ui.test.isEnabled
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onRoot
@@ -906,5 +908,130 @@ class ScreensTest {
         s.downloadAsk = AppState.DownloadAsk(s.downloads.pack("vincent", ch.id)!!, "vincent", ch.id, null, null)
         try { shot("p18_predownload_running_light", false, series = s) { io.github.graviton94.todayletters.ui.DownloadSheet(s, s.downloadAsk!!) } }
         finally { DownloadJob.show(null) }
+    }
+
+    // ── 언어 등급 · 답장 사다리 (docs/next.md 다음 할 일 1): 사다리 · 아는 낱말 % · 처음 → 지금 · 번역 접기 · 등급 블록 · 축하 · 메달 가족 · 작품 설정 ──
+    /** 지금 배우는 말(빈센트)의 언어 등급을 [index] (1 = A1 · 1단 … 12 = B2 · 3단) 로. 닿았던 등급 아래로는 내려가지 않으므로 바닥으로 넣는다. */
+    private fun graded(s: AppState, index: Int): AppState {
+        s.store.setGrade(s.seriesSettings("vincent").learn.code, index); s.bump()
+        return s
+    }
+    /** 편지 [l] (I장) 의 문장 [msgs] 에 나오는 낱말을 모두 내 것으로 (떠올리기 이상): 아는 낱말 % 를 올리고 그 문장의 번역을 접게 한다. */
+    private fun knowWords(s: AppState, l: io.github.graviton94.todayletters.core.Letter, msgs: List<Int>) {
+        val lex = s.work("vincent").lexicon
+        msgs.flatMap { s.letterKeys("vincent", l.id, it).orEmpty() }.distinct().filter { lex?.get(it) != null }.forEach { k ->
+            s.store.save(io.github.graviton94.todayletters.core.Card(s.ownKey("vincent", "I", l, k), box = 5, due = s.today + 30, seen = 6))
+        }
+        s.bump()
+    }
+    private val replyRoute get() = Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.CONSTELLATION)
+    /** 답장 사다리 A1 · 2단: 빈칸 하나, 낱말 셋 가운데 고르기 (A1 · 1단 잇기는 09 · 10 별자리 사진). */
+    @Test fun ladderChoose() { val s = graded(state(true), 2); shot("l01_ladder_choose_a1_light", false, series = s) { Play(s, replyRoute) } }
+    /** A2 · 2단: 여전히 빈칸 하나 (어두운 화면). */
+    @Test fun ladderChooseDark() { val s = graded(state(true), 5); shot("l02_ladder_choose_a2_dark", true, series = s) { Play(s, replyRoute) } }
+    /** B1 · 2단: 빈칸 둘, 같은 낱말의 다른 꼴이 미끼로. */
+    @Test fun ladderChooseTwo() { val s = graded(state(true), 8); shot("l03_ladder_choose_two_b1_light", false, series = s) { Play(s, replyRoute) } }
+    /** B1: ‘정답 보기’ 로 다 채운 뒤 (밑줄 친 답장 · 보내기 단추). */
+    @Test fun ladderFilled() {
+        val s = graded(state(true), 8)
+        shot("l04_ladder_filled_b1_dark", true, act = {
+            rule.onAllNodes(hasText(ctx.getString(R.string.play_show)) and hasClickAction()).onFirst().performClick()
+        }, series = s) { Play(s, replyRoute) }
+    }
+    /** B2 · 2단: 직접 쓰기 (빈칸에 쳐서). */
+    @Test fun ladderWrite() { val s = graded(state(true), 11); shot("l05_ladder_write_b2_light", false, series = s) { Play(s, replyRoute) } }
+    /** B2: 틀리게 쓰고 확인 → 한 글자 힌트. */
+    @Test fun ladderWriteHint() {
+        val s = graded(state(true), 11)
+        shot("l06_ladder_write_hint_b2_dark", true, act = {
+            rule.onAllNodes(hasSetTextAction()).onFirst().performTextInput("zzz")
+            rule.mainClock.advanceTimeBy(300)
+            rule.onAllNodes(hasText(ctx.getString(R.string.ladder_check)) and hasClickAction()).onFirst().performClick()
+        }, series = s) { Play(s, replyRoute) }
+    }
+    /** 편지 머리의 ‘아는 낱말 %’ (날짜 옆): 세 통을 읽고 낱말을 모은 뒤 넷째 편지. */
+    @Test fun knownPct() {
+        val s = engineState(); s.reward = null
+        val l = s.work("vincent").chapters.first().letters[3]
+        s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = 2))
+        shot("g01_room_known_pct_light", false, 4000, series = s) { Room(s, Route.Letter("vincent", 1, 4)) }
+    }
+    /** 다 읽은 편지의 ‘처음 읽을 때 → 지금’ (다시 읽기 띠). */
+    @Test fun rereadCoverage() {
+        val s = engineState(); s.reward = null
+        val l = s.work("vincent").chapters.first().letters.first()
+        s.store.setFirstCoverage(s.key("vincent", "I", l.id), 58)
+        knowWords(s, l, listOf(0, 1))
+        shot("g02_room_reread_cov_light", false, 3000, series = s) { Room(s, room(1)) }
+    }
+    /** 번역 줄 물러나기: B1 에서 다 아는 문장(첫 두 문장)은 번역을 접고, 나머지는 번역 그대로. */
+    @Test fun foldedTranslation() {
+        val s = graded(engineState().also { it.reward = null }, 7)
+        val l = s.work("vincent").chapters.first().letters.first()
+        knowWords(s, l, listOf(0, 1))
+        shot("g03_room_folded_b1_light", false, 3000, series = s) { Room(s, room(1)) }
+    }
+    @Test fun foldedTranslationDark() {
+        val s = graded(engineState().also { it.reward = null }, 10)
+        val l = s.work("vincent").chapters.first().letters.first()
+        knowWords(s, l, listOf(0, 1, 2))
+        shot("g04_room_folded_b2_dark", true, 3000, series = s) { Room(s, room(1)) }
+    }
+    /** 나의 기록의 언어 등급 블록 (등급 · 단, 막대, 떠올릴 수 있는 낱말 · 읽을 수 있는 비율, 다음에 필요한 것). */
+    @Test fun recordGrade() {
+        val s = graded(engineState().also { it.reward = null }, 5)
+        shot("g05_record_grade_light", false, act = {
+            scrolled { rule.onAllNodes(hasText(ctx.getString(R.string.grade_title))).onFirst().performScrollTo() }
+        }) { io.github.graviton94.todayletters.ui.RecordScreen(s) }
+    }
+    @Test fun recordGradeDark() {
+        val s = graded(engineState().also { it.reward = null }, 8)
+        shot("g06_record_grade_dark", true, act = {
+            scrolled { rule.onAllNodes(hasText(ctx.getString(R.string.grade_title))).onFirst().performScrollTo() }
+        }) { io.github.graviton94.todayletters.ui.RecordScreen(s) }
+    }
+    /** 등급 축하: 새 등급에 들어섬 (A1 · 3단 → A2 · 1단, 번역 줄이 물러나는 한 줄). */
+    @Test fun gradeUpBand() {
+        val s = engineState(); s.reward = null
+        val lang = s.seriesSettings("vincent").learn
+        s.gradeUp = AppState.GradeUp(lang, io.github.graviton94.todayletters.core.Reading.Grade.of(3), io.github.graviton94.todayletters.core.Reading.Grade.of(4))
+        shot("g07_grade_up_band_dark", true, 2000) { io.github.graviton94.todayletters.ui.GradeUpOverlay(s) }
+    }
+    /** 등급 축하: 같은 등급 안에서 한 단 (A2 · 1단 → 2단). */
+    @Test fun gradeUpStep() {
+        val s = engineState(); s.reward = null
+        val lang = s.seriesSettings("vincent").learn
+        s.gradeUp = AppState.GradeUp(lang, io.github.graviton94.todayletters.core.Reading.Grade.of(4), io.github.graviton94.todayletters.core.Reading.Grade.of(5))
+        shot("g08_grade_up_step_light", false, 2000) { io.github.graviton94.todayletters.ui.GradeUpOverlay(s) }
+    }
+    /** 메달 진열장의 언어 등급 가족: A2 · B1 메달을 받았고 다음은 B2 (석고 본 · 진행). */
+    private fun gradeMedals(): AppState {
+        val s = graded(engineState().also { it.reward = null }, 8)
+        s.store.awardMedal("grade_4", s.today - 9); s.store.awardMedal("grade_7", s.today - 2); s.bump()
+        return s
+    }
+    @Test fun cabinetGrade() {
+        val s = gradeMedals()
+        val title = s.medalBook.family("grade")!!.title[io.github.graviton94.todayletters.core.Lang.KO]
+        shot("g09_cabinet_grade_light", false, act = {
+            scrolled { rule.onAllNodes(hasText(title)).onFirst().performScrollTo() }
+        }) { io.github.graviton94.todayletters.ui.MedalsScreen(s) }
+    }
+    @Test fun medalDetailGrade() {
+        val s = gradeMedals()
+        shot("g10_medal_detail_grade_dark", true, series = s) { io.github.graviton94.todayletters.ui.MedalDetail(s, s.medalBook.medal("grade_7")!!) { } }
+    }
+    /** 작품 설정: 하루 편지 수 줄 없이, 번역 보기 아래 ‘실력만큼 번역 물러나기’. */
+    @Test fun seriesSettingsFade() {
+        val s = state(true)
+        shot("g11_series_settings_fade_light", false, act = {
+            scrolled { rule.onNodeWithText(ctx.getString(R.string.set_fade_read_d)).performScrollTo() }
+        }, series = s) { SeriesSettingsScreen(s, "vincent") }
+    }
+    @Test fun seriesSettingsFadeDark() {
+        val s = state(true)
+        shot("g12_series_settings_fade_dark", true, act = {
+            scrolled { rule.onNodeWithText(ctx.getString(R.string.set_fade_read_d)).performScrollTo() }
+        }, series = s) { SeriesSettingsScreen(s, "vincent") }
     }
 }
