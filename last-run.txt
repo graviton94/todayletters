@@ -1,2 +1,2 @@
+85_room_large.png
 a11y.txt
-g01_room_known_pct_light.png
