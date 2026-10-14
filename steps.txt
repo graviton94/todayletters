@@ -1,0 +1,5 @@
+[17:59:24] record fgs_media_playback
+[17:59:46] tap 'Tap to enter' at 540,2140
+[18:00:15] NOT FOUND: 'Vincent → ' (adb: device)
+[18:00:34] NOT FOUND: '^Open the letter$' (adb: error: device 'emulator-5554' not found)
+[18:00:37] DEVICE LOST
