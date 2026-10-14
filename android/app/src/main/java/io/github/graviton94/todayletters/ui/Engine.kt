@@ -37,6 +37,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -145,7 +146,8 @@ fun AssetImage(path: String, modifier: Modifier, gray: Boolean = false, sample: 
 @Composable
 fun PictureSlot(modifier: Modifier) {
     val p = Ink.palette
-    val cell = androidx.compose.ui.graphics.lerp(p.hide, p.ink, 0.12f)
+    // 밝은 화면은 종이색 그대로, 어두운 화면은 바탕보다 조금 밝은 종이 톤 (검은 빈칸으로 보이지 않게)
+    val cell = if (p.paper.luminance() < 0.5f) androidx.compose.ui.graphics.lerp(p.hide, p.ink, 0.12f) else p.hide
     Box(modifier.background(cell), contentAlignment = Alignment.Center) {
         androidx.compose.foundation.Canvas(Modifier.fillMaxSize(0.32f).aspectRatio(1f)) {
             val w = size.minDimension; val c = p.ink.copy(alpha = 0.13f)
