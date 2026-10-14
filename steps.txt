@@ -1,0 +1,15 @@
+[23:04:27] record fgs_media_playback
+[23:04:51] tap 'Tap to enter' at 540,2140
+[23:04:59] tap '^Open the letter$' at 593,1692
+[23:05:27] NOT FOUND: '^Read the letter$' (adb: device)
+[23:05:37] NOT FOUND: '^Read the letter$' (adb: device)
+[23:05:59] NOT FOUND: '^Pause$' (adb: device)
+[23:06:03] NOT FOUND: 'actionPlayPause' (adb: device)
+-rw-r--r-- 1 runner runner 3914957 Oct 14 23:06 fgs/fgs_media_playback.mp4
+[23:06:13] record fgs_data_sync
+[23:06:23] tap '^Settings$' at 995,228
+[23:06:35] tap '^Download all chapters' at 366,1765
+[23:06:39] tap '^Download · ' at 540,2055
+[23:06:56] process after close: 3930
+[23:07:14] tap '(Stop|STOP)' at 216,1095
+-rw-r--r-- 1 runner runner 4392463 Oct 14 23:07 fgs/fgs_data_sync.mp4
