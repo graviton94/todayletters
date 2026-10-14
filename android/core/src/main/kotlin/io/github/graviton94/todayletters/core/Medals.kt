@@ -64,6 +64,7 @@ object Medals {
         "words" -> s.wordsKnown
         "stars" -> s.readAlongStars
         "walks" -> s.walksDone
+        "grade" -> s.bestGrade
         SERIES -> if (m.series in s.seriesCompleted) 1 else 0
         else -> 0
     }

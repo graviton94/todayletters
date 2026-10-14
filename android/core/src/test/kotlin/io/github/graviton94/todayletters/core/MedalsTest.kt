@@ -22,8 +22,8 @@ class MedalsTest {
     }
 
     @Test fun parsesAllMedals() {
-        assertEquals(6, book.families.size)
-        assertEquals(27, book.medals.size)
+        assertEquals(7, book.families.size)
+        assertEquals(31, book.medals.size)
         assertEquals(listOf(3, 7, 14, 30, 60, 100, 365), book.inFamily("streak").map { it.threshold })
         val m = book.medal("streak_14")!!
         assertEquals(MedalTier.SILVER, m.tier)

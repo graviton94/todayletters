@@ -76,6 +76,8 @@ data class Stats(
     val readAlongStars: Int = 0,
     val walksDone: Int = 0,
     val seriesCompleted: Set<String> = emptySet(),
+    /** 배우는 말 가운데 가장 높이 닿은 언어 등급 ([Reading.Grade.index], 1~12, 없으면 0). */
+    val bestGrade: Int = 0,
 )
 
 /** 이어 읽기. 하루를 건너뛰어도 쉼표가 있으면 이어진다. */

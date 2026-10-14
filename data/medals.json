@@ -62,6 +62,18 @@
    }
   },
   {
+   "id": "grade",
+   "title": {
+    "ko": "언어 등급",
+    "en": "Language level"
+   },
+   "metric": "bestGrade",
+   "unit": {
+    "ko": "단",
+    "en": "steps"
+   }
+  },
+  {
    "id": "series",
    "title": {
     "ko": "완주한 시리즈",
@@ -548,6 +560,82 @@
     "title": "Gold aureus of Hadrian",
     "date": "134–138 CE",
     "url": "https://www.metmuseum.org/art/collection/search/246880",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "grade_4",
+   "family": "grade",
+   "tier": "bronze",
+   "threshold": 4,
+   "title": {
+    "ko": "A2 · 첫 대답",
+    "en": "A2 · First Answers"
+   },
+   "image": "medals/grade_4.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 248059,
+    "title": "Bronze sestertius of Hadrian",
+    "date": "134–138 CE",
+    "url": "https://www.metmuseum.org/art/collection/search/248059",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "grade_7",
+   "family": "grade",
+   "tier": "silver",
+   "threshold": 7,
+   "title": {
+    "ko": "B1 · 뱃머리의 승리",
+    "en": "B1 · Victory at the Prow"
+   },
+   "image": "medals/grade_7.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 247147,
+    "title": "Silver tetradrachm of Demetrios Poliorketes",
+    "date": "300–294 BC",
+    "url": "https://www.metmuseum.org/art/collection/search/247147",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "grade_10",
+   "family": "grade",
+   "tier": "gold",
+   "threshold": 10,
+   "title": {
+    "ko": "B2 · 콘스탄티누스의 금화",
+    "en": "B2 · Constantine's Solidus"
+   },
+   "image": "medals/grade_10.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 920945,
+    "title": "Gold solidus of Constantine I",
+    "date": "313–315 CE",
+    "url": "https://www.metmuseum.org/art/collection/search/920945",
+    "license": "CC0 1.0 (Met Open Access)"
+   }
+  },
+  {
+   "id": "grade_12",
+   "family": "grade",
+   "tier": "gold",
+   "threshold": 12,
+   "title": {
+    "ko": "B2 · 프톨레마이오스의 등대",
+    "en": "B2 · The Lighthouse of Ptolemy"
+   },
+   "image": "medals/grade_12.webp",
+   "source": {
+    "museum": "The Metropolitan Museum of Art",
+    "objectID": 256173,
+    "title": "Gold stater of Ptolemy I",
+    "date": "ca. 305–284 BCE",
+    "url": "https://www.metmuseum.org/art/collection/search/256173",
     "license": "CC0 1.0 (Met Open Access)"
    }
   },

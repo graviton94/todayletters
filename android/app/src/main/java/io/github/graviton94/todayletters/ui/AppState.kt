@@ -834,6 +834,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             lettersSealed = store.sealed.size,
             readAlongStars = maxOf(store.stars().values.sum(), store.starred.size),
             walksDone = store.walks.size,
+            bestGrade = io.github.graviton94.todayletters.core.Lang.entries.maxOf { store.grade(it.code) },
             seriesCompleted = store.seriesDone + baseWorks.map { it.series.id }.filter { id -> work(id).chapters.isNotEmpty() && seriesDone(id) },
         )
     }
