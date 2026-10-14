@@ -518,6 +518,7 @@ private fun TypingBubble(name: String, still: Boolean) {
 }
 
 /** 대화방 맨 위: 뒤로 · 동그란 초상 · 이름과 날짜 · 전체 듣기 · (?) · 대화방 정보. */
+@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
 private fun RoomHeader(
     s: AppState, portrait: String, name: String, sub: String,
@@ -531,16 +532,16 @@ private fun RoomHeader(
             IconButton(stringResource(R.string.back), onClick = { s.back() }) { Chevron(p.ink) }
             Portrait(portrait, name, Tokens.Size.avatar)
             Column(Modifier.weight(1f).padding(start = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(1.dp)) {
-                // 이름 옆에 아는 낱말 % (작은 금빛 표, 먼저 자리를 잡아 늘 보인다). 아래 줄은 짧은 날짜만: 좁으면 어절에서 두 줄로
-                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Text(name, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.ink, maxLines = 1,
-                        overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, modifier = Modifier.weight(1f, fill = false))
+                Text(name, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.ink, maxLines = 1,
+                    overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+                // 짧은 날짜 · 아는 낱말 % (작은 금빛 표). 한 줄에 다 들어가지 않으면 표가 날짜 아래로 내려간다 (자르지 않는다)
+                androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                    Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
                     if (known != null) Text("$known%", style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold),
                         color = p.giltText, maxLines = 1, softWrap = false,
-                        modifier = Modifier.border(1.dp, p.giltText.copy(alpha = 0.6f), androidx.compose.foundation.shape.RoundedCornerShape(50))
+                        modifier = Modifier.align(Alignment.CenterVertically).border(1.dp, p.giltText.copy(alpha = 0.6f), androidx.compose.foundation.shape.RoundedCornerShape(50))
                             .padding(horizontal = 6.dp).then(if (knownLabel != null) Modifier.androidx_semantics(knownLabel) else Modifier))
                 }
-                Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
             }
             // 낭독 빠르기 (v21 F6): 1× ↔ 0.7×, 시리즈마다 기억
             Box(Modifier.heightIn(min = 44.dp).pressable { onSpeed() }.padding(horizontal = 4.dp), contentAlignment = Alignment.Center) {
