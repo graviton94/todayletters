@@ -122,6 +122,47 @@ class ScreensTest {
         try { shot("${name}_large", false, ms, series = series, content = content) } finally { RuntimeEnvironment.setFontScale(1f) }
     }
 
+    /** 편지를 앱처럼 끝낸다: 열기 → 다 읽기 → 걸음마다 마치기 (replyAndContinue → finished · 편지 완료). 보상 순간은 닫는다. */
+    private fun finishReal(s: AppState, series: String, ch: Int, n: Int) {
+        val r = Route.Letter(series, ch, n)
+        val (c, l) = s.letterOf(r)
+        s.open(series, c, l, null, skipAudio = true)
+        s.save(series, c, l.id, s.progress(series, c, l.id).copy(shown = l.messages.size))
+        s.letterModes(series, c, l).forEach { m -> if (!s.progress(series, c, l.id).done) s.replyAndContinue(r, m) }
+        s.reward = null; s.levelUp = null; s.gradeUp = null
+    }
+
+    /**
+     * 키보드가 올라온 화면: [act] 뒤에 IME 인셋 ([kbDp] 높이)을 Compose 뷰에 직접 보내고, 그 자리에 회색 ‘키보드’ 판을 그린다.
+     * imePadding 이 제대로면 입력 칸 · 확인 단추가 판 위에 보인다.
+     */
+    private fun shotIme(name: String, dark: Boolean, kbDp: Int = 300, act: () -> Unit = {}, series: AppState? = null, content: @Composable () -> Unit) {
+        var host: android.view.View? = null
+        val kb = androidx.compose.runtime.mutableStateOf(false)
+        shot(name, dark, act = {
+            act()
+            rule.mainClock.advanceTimeBy(300)
+            rule.runOnIdle {
+                val px = (kbDp * ctx.resources.displayMetrics.density).toInt()
+                val ins = androidx.core.view.WindowInsetsCompat.Builder()
+                    .setInsets(androidx.core.view.WindowInsetsCompat.Type.ime(), androidx.core.graphics.Insets.of(0, 0, 0, px))
+                    .setVisible(androidx.core.view.WindowInsetsCompat.Type.ime(), true).build()
+                androidx.core.view.ViewCompat.dispatchApplyWindowInsets(host!!, ins)
+                kb.value = true
+            }
+            rule.mainClock.advanceTimeBy(600)
+        }, series = series) {
+            host = androidx.compose.ui.platform.LocalView.current
+            Box(Modifier.fillMaxSize()) {
+                content()
+                if (kb.value) Box(Modifier.align(androidx.compose.ui.Alignment.BottomCenter).fillMaxSize().padding(top = (852 - kbDp).dp)
+                    .background(androidx.compose.ui.graphics.Color(0xFF3C3C3F)), contentAlignment = androidx.compose.ui.Alignment.Center) {
+                    androidx.compose.material3.Text("KEYBOARD", color = androidx.compose.ui.graphics.Color(0xFFBBBBBB))
+                }
+            }
+        }
+    }
+
     @Test fun opening() { val s = state(true); shot("01_opening_ko_dark", true, 4500) { io.github.graviton94.todayletters.ui.Opening(s) } }
     @Test fun onboarding0() { val s = state(false); shot("03a_onboarding0_ko_light", false) { Onboarding(s) } }
     @Test fun onboarding2() { val s = state(false); shot("04_onboarding2_ko_dark", true) { Onboarding(s) } }
@@ -150,7 +191,7 @@ class ScreensTest {
         rule.onAllNodes(hasText(w) and hasClickAction()).onFirst().performClick()
     }, series = s) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.MATCH)) } }
     @Test fun aloud() { val s = state(true); shot("14_aloud_ko_dark", true, series = s) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.ALOUD)) } }
-    @Test fun done() { val s = state(true); shot("15_done_ko_light", false, 4000, series = s) { Done(s, Route.Letter("vincent", 1, 1)) } }
+    @Test fun done() { val s = state(true); finishReal(s, "vincent", 1, 1); shot("15_done_ko_light", false, 4000, series = s) { Done(s, Route.Letter("vincent", 1, 1)) } }
     @Test fun chapter() {
         val s = state(true)
         val (c, l) = s.openable("vincent").first()
@@ -165,8 +206,7 @@ class ScreensTest {
     }
     @Test fun roomGuide() {
         val s = state(true)
-        val l = s.work("vincent").chapters.first().letters.first()
-        s.save("vincent", "I", l.id, s.progress("vincent", "I", l.id).copy(shown = 4))
+        finishReal(s, "vincent", 1, 1)   // 다 읽고 걸음까지 마친 편지 (다시 읽기 띠 · 오늘로 돌아가기)
         shot("18_room_finished_ko_light", false, 4000, series = s) { Room(s, Route.Letter("vincent", 1, 1)) }
     }
     @Test fun seriesSettings() { val s = state(true); shot("11_series_settings_ko_light", false, series = s) { SeriesSettingsScreen(s, "vincent") } }
@@ -235,9 +275,14 @@ class ScreensTest {
         shot("33_ask_ko_dark", true) { io.github.graviton94.todayletters.ui.Ask("복습을 그만할까요?", "그만하기", "계속하기", {}, {}, body = "지금까지 푼 것은 저장돼요.") }
     }
     @Test fun koreanPad() {
-        val s = withCards()
+        // 한국어를 배우는 공간 (영어로 읽기) 에 카드를 모은다: 그래야 받아쓰기가 한국어 글자판을 연다
+        val s = state(true)
         s.update(s.app.copy(read = io.github.graviton94.todayletters.core.Lang.EN))
         s.update("vincent", s.seriesSettings("vincent").copy(learn = io.github.graviton94.todayletters.core.Lang.KO))
+        s.work("vincent").chapters.first().letters.take(2).forEach { l -> s.collectWords("vincent", "I", l) }
+        s.cards().forEach { c -> s.store.save(c.copy(box = 1, due = s.today)) }
+        s.bump()
+        org.junit.Assert.assertTrue("korean cards", s.cards().isNotEmpty())
         shot("34_korean_pad_light", false, series = s) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.DICTATION)) }
     }
     @Test fun roomTransfer() {
@@ -307,8 +352,12 @@ class ScreensTest {
         shot("49_speak_light", false, series = s) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.SPEAK)) }
     }
     @Test fun roomFade() {
-        val s = engineState()
-        s.cards().forEach { c -> s.store.save(c.copy(box = 3)) }
+        // B1 · 거의 다 아는 편지: 번역이 접히고, 아직인 오늘의 낱말만 작은 뜻풀이로 (53 다시 읽기와 다른 장면)
+        val s = graded(engineState().also { it.reward = null }, 7)
+        val l = s.work("vincent").chapters.first().letters.first()
+        knowWords(s, l, l.messages.indices.toList())
+        l.words.indices.forEach { i -> s.store.cards().firstOrNull { it.key == s.cardKey("vincent", "I", l.id, i) }?.let { c -> s.store.save(c.copy(box = 1)) } }
+        s.bump()
         shot("50_room_fade_ko_light", false, 4000, series = s) { Room(s, Route.Letter("vincent", 1, 1)) }
     }
 
@@ -520,7 +569,8 @@ class ScreensTest {
         val art = sum?.plate?.let { io.github.graviton94.todayletters.data.TodayWidget.plate(ctx, it) }
         val d = ctx.resources.displayMetrics.density
         listOf(Triple("82_widget_4x2", false, 340 to 170), Triple("83_widget_2x2", true, 170 to 170)).forEach { (name, small, size) ->
-            val rv = io.github.graviton94.todayletters.data.TodayWidget.views(ctx, sum, art, small)
+            val shaped = art?.let { io.github.graviton94.todayletters.data.TodayWidget.rounded(it, if (small) size.first.toFloat() else size.first * 0.38f, size.second.toFloat(), 22f, allCorners = small) }
+            val rv = io.github.graviton94.todayletters.data.TodayWidget.views(ctx, sum, shaped, small)
             val v = rv.apply(ctx, android.widget.FrameLayout(ctx))
             val w = (size.first * d).toInt(); val h = (size.second * d).toInt()
             v.measure(android.view.View.MeasureSpec.makeMeasureSpec(w, android.view.View.MeasureSpec.EXACTLY), android.view.View.MeasureSpec.makeMeasureSpec(h, android.view.View.MeasureSpec.EXACTLY))
@@ -557,8 +607,8 @@ class ScreensTest {
     @Test fun releasePrologueLast() { val s = state(true); shot("r02_prologue_p4", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("vincent", 3)) } }
     @Test fun releaseArrival() { val s = state(true); shot("r03_prologue_arrival", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("vincent", 4)) } }
     @Config(qualifiers = "+h1700dp")
-    @Test fun releaseCover() { val s = state(true); allDone(s, 3); shot("r04_cover_rows", false, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "vincent") } }
-    @Test fun releaseDoneLast() { val s = state(true); allDone(s); shot("r05_done_last", false, 4000, series = s) { Done(s, Route.Letter("vincent", 8, 7)) } }
+    @Test fun releaseCover() { val s = state(true); allDone(s, 2); shot("r04_cover_rows", false, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "vincent") } }
+    @Test fun releaseDoneLast() { val s = state(true); allDone(s); s.finished(); s.reward = null; shot("r05_done_last", false, 4000, series = s) { Done(s, Route.Letter("vincent", 8, 7)) } }
     @Config(qualifiers = "+h1900dp")
     @Test fun releaseOutro() { val s = state(true); allDone(s); shot("r06_outro_full", true, 3000) { io.github.graviton94.todayletters.ui.OutroScreen(s, "vincent") } }
     @Config(qualifiers = "+h1600dp")
@@ -905,8 +955,10 @@ class ScreensTest {
     @Test fun predownloadRunning() {
         val s = state(true)
         val ch = s.work("vincent").chapters[1]
-        DownloadJob.show(DownloadJob.State("vincent", ch.id, s.work("vincent").name[io.github.graviton94.todayletters.core.Lang.KO], 23_000_000, 64_000_000, DownloadJob.Phase.RUNNING))
-        s.downloadAsk = AppState.DownloadAsk(s.downloads.pack("vincent", ch.id)!!, "vincent", ch.id, null, null)
+        val pack = s.downloads.pack("vincent", ch.id)!!
+        // 진행 숫자는 실제 꾸러미 크기에 맞춘다 (시트의 ‘장 · 크기’ 줄과 같은 수)
+        DownloadJob.show(DownloadJob.State("vincent", ch.id, s.work("vincent").name[io.github.graviton94.todayletters.core.Lang.KO], pack.bytes * 36 / 100, pack.bytes, DownloadJob.Phase.RUNNING))
+        s.downloadAsk = AppState.DownloadAsk(pack, "vincent", ch.id, null, null)
         try { shot("p18_predownload_running_light", false, series = s) { io.github.graviton94.todayletters.ui.DownloadSheet(s, s.downloadAsk!!) } }
         finally { DownloadJob.show(null) }
     }
@@ -1045,5 +1097,23 @@ class ScreensTest {
         shot("g12_series_settings_fade_dark", true, act = {
             scrolled { rule.onNodeWithText(ctx.getString(R.string.set_fade_read_d)).performScrollTo() }
         }, series = s) { SeriesSettingsScreen(s, "vincent") }
+    }
+
+    // ── 키보드 (IME): 쓰는 칸이 열리면 화면이 키보드 위로 줄고, 문제 · 칸 · 확인이 보이는지 ──
+    @Test fun imeLadderWrite() {
+        val s = graded(state(true), 11)
+        shotIme("k01_ime_ladder_write_b2_light", false, act = { rule.onAllNodes(hasSetTextAction()).onFirst().performClick(); rule.onAllNodes(hasSetTextAction()).onFirst().performTextInput("je") }, series = s) { Play(s, replyRoute) }
+    }
+    @Test fun imeDictation() {
+        val s = withCards()
+        shotIme("k02_ime_dictation_light", false, series = s) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.DICTATION)) }
+    }
+    @Test fun imeFeedback() {
+        val s = state(true)
+        s.feedback = AppState.FeedbackAsk(io.github.graviton94.todayletters.core.Feedback.Kind.BUG)
+        shotIme("k03_ime_feedback_light", false, act = { rule.onAllNodes(hasSetTextAction()).onFirst().performClick() }) {
+            io.github.graviton94.todayletters.ui.SettingsScreen(s)
+            io.github.graviton94.todayletters.ui.FeedbackSheet(s, s.feedback!!)
+        }
     }
 }
