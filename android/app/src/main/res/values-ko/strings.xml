@@ -234,7 +234,7 @@
     <string name="grade_title">언⁠어 등⁠급</string>
     <string name="grade_line">%1$s %2$s · %3$d⁠단</string>
     <string name="grade_step">%1$s %2$d⁠단</string>
-    <string name="grade_words">떠⁠올⁠릴 수 있⁠는 낱⁠말 %1$d⁠개</string>
+    <string name="grade_to">%1$s⁠까⁠지 %2$d⁠단</string>
     <string name="grade_cov">읽⁠을 수 있⁠는 비⁠율 (⁠최⁠근 5⁠통⁠) %1$d%%</string>
     <string name="grade_delta">지⁠난⁠주⁠보⁠다 %1$+d</string>
     <string name="grade_next_words">다⁠음 단⁠까⁠지 낱⁠말 %1$d⁠개</string>
@@ -659,7 +659,6 @@
     <string name="medal_tier_silver">은</string>
     <string name="medal_tier_gold">금</string>
     <string name="medal_count">%1$d/%2$d%3$s</string>
-    <string name="medal_count_grade">%1$s → %2$s</string>
     <string name="medal_now_grade">지⁠금 %1$s</string>
     <string name="medal_how_streak">%1$d⁠일 이⁠어 읽⁠기</string>
     <string name="medal_how_letters">편⁠지 %1$d⁠통⁠을 끝⁠까⁠지 읽⁠기</string>

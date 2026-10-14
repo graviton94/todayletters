@@ -69,7 +69,7 @@ fun RecordScreen(s: AppState) {
             }
             // 이어 읽기 · 편지 · 익힌 낱말
             Row(Modifier.fillMaxWidth()) {
-                listOf("${s.streak}" to R.string.lib_stat_streak, "${st.lettersDone}" to R.string.record_letters, "${st.wordsKnown}" to R.string.record_words).forEach { (v, l) ->
+                listOf("${s.streak}" to R.string.lib_stat_streak, "${st.lettersDone}" to R.string.record_letters, "${s.learning.sumOf { s.mine(it).size }}" to R.string.record_words).forEach { (v, l) ->
                     Column(Modifier.weight(1f)) {
                         Text(v, style = Type.title.copy(fontFamily = Faces.display), color = p.ink)
                         Text(stringResource(l), style = Type.small.ui(), color = p.inkSoft)
@@ -191,7 +191,6 @@ private fun GradeBlock(s: AppState) {
                 style = Type.title.ui(), color = p.ink,
             )
             Bar(if (to == null) 1f else ((known - from).toFloat() / (to - from)).coerceIn(0f, 1f))
-            Text(stringResource(R.string.grade_words, known), style = Type.small.ui(), color = p.inkSoft)
             val delta = s.lastWeekCoverage[lang]?.let { recent - it }
             Text(stringResource(R.string.grade_cov, recent) + (delta?.let { " · " + stringResource(R.string.grade_delta, it) } ?: ""),
                 style = Type.small.ui(), color = p.inkSoft)
