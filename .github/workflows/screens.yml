@@ -29,10 +29,13 @@ jobs:
       - name: Publish to screens branch
         if: always()
         run: |
-          mkdir -p out && cp android/app/build/screens/*.png out/ 2>/dev/null || true
+          # 골라 찍은 실행이어도 전에 찍은 사진은 남기고, 이번에 찍은 것만 덮어써요
+          git fetch -q origin screens && git worktree add -q out origin/screens || mkdir -p out
+          cp android/app/build/screens/*.png out/ 2>/dev/null || true
           grep -h -B2 -A25 "<failure" android/app/build/test-results/testDebugUnitTest/*.xml > out/failures.txt 2>/dev/null || true
+          ls android/app/build/screens/ > out/last-run.txt 2>/dev/null || true
           cd out && ls -la
-          git init -q && git checkout -q -b screens
+          git checkout -q -B screens
           git add -A
           git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Screens ${{ github.sha }}" || exit 0
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:screens
