@@ -10,6 +10,8 @@ mkdir -p "$OUT"
 LOG="$OUT/steps.txt"
 : > "$LOG"
 log() { echo "[$(date +%T)] $*" | tee -a "$LOG"; }
+# 에뮬레이터가 사라지면 (adb 가 끊기면) 기다리지 않고 끝낸다
+alive() { [ "$(timeout 5 adb get-state 2>/dev/null)" = device ] || { log "DEVICE LOST"; exit 3; }; }
 
 # uiautomator 로 지금 화면을 받아 정규식(글자 · 설명)에 맞는 첫 칸의 가운데를 찍는다. 못 찾으면 1.
 # 사용: find_xy '정규식' → "x y"
@@ -40,6 +42,7 @@ PY
 tap() {
   local re="$1" wait="${2:-15}" scroll="${3:-0}" end=$((SECONDS + ${2:-15})) xy
   while [ $SECONDS -lt $end ]; do
+    alive
     if xy=$(find_xy "$re"); then
       set -- $xy
       if [ "$2" -gt 2250 ] || [ "$2" -lt 60 ]; then adb shell input swipe 540 1700 540 900 400; sleep 1; continue; fi
@@ -68,6 +71,7 @@ enter_vincent() {
 }
 
 # ── 준비 (녹화 안 함) ─────────────────────────────
+adb logcat -c; adb logcat -v time > "$OUT/logcat_live.txt" 2>&1 &
 adb shell settings put global hide_error_dialogs 1
 adb shell cmd locale set-app-locales $P --locales en-US 2>/dev/null
 adb shell pm grant $P android.permission.POST_NOTIFICATIONS 2>/dev/null
