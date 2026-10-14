@@ -536,12 +536,11 @@ private fun RoomHeader(
                 Text(name, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.ink, maxLines = 1,
                     overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
                 // 짧은 날짜 · 아는 낱말 % (작은 금빛 표)를 한 줄에. 큰 글자에서 넘치면 표가 날짜 아래로 내려간다 (자르지 않는다)
-                androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                    Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
-                        modifier = Modifier.align(Alignment.CenterVertically))
+                DateAndBadge {
+                    Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
                     if (known != null) Text("$known%", style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold),
                         color = p.giltText, maxLines = 1, softWrap = false,
-                        modifier = Modifier.align(Alignment.CenterVertically).border(1.dp, p.giltText.copy(alpha = 0.6f), androidx.compose.foundation.shape.RoundedCornerShape(50))
+                        modifier = Modifier.border(1.dp, p.giltText.copy(alpha = 0.6f), androidx.compose.foundation.shape.RoundedCornerShape(50))
                             .padding(horizontal = 6.dp).then(if (knownLabel != null) Modifier.androidx_semantics(knownLabel) else Modifier))
                 }
             }
@@ -571,6 +570,36 @@ private fun RoomHeader(
             }
         }
         Hair()
+    }
+}
+
+/**
+ * 날짜 · 금빛 % 표: 한 줄에 들어가면 나란히 (표는 세로 가운데), 넘치면(큰 글자) 날짜 아래로 표를 내린다.
+ * 날짜는 줄 바꿈 없이 잰 너비로 판단한다 (FlowRow 는 날짜를 먼저 접어 버려 표가 셋째 줄로 갔다).
+ */
+@Composable
+private fun DateAndBadge(content: @Composable () -> Unit) {
+    val gap = 6.dp; val vGap = 2.dp
+    androidx.compose.ui.layout.Layout(content) { ms, c ->
+        val loose = c.copy(minWidth = 0, minHeight = 0)
+        val badge = ms.getOrNull(1)?.measure(loose)
+        val date0 = ms[0]
+        val oneLine = badge == null || date0.maxIntrinsicWidth(androidx.compose.ui.unit.Constraints.Infinity) + gap.roundToPx() + badge.width <= c.maxWidth
+        if (oneLine) {
+            val d = date0.measure(loose.copy(maxWidth = (c.maxWidth - (badge?.let { it.width + gap.roundToPx() } ?: 0)).coerceAtLeast(0)))
+            val h = maxOf(d.height, badge?.height ?: 0)
+            layout(d.width + (badge?.let { it.width + gap.roundToPx() } ?: 0), h) {
+                d.placeRelative(0, (h - d.height) / 2)
+                badge?.placeRelative(d.width + gap.roundToPx(), (h - badge.height) / 2)
+            }
+        } else {
+            val d = date0.measure(loose)
+            val w = maxOf(d.width, badge!!.width)
+            layout(w, d.height + vGap.roundToPx() + badge.height) {
+                d.placeRelative(0, 0)
+                badge.placeRelative(0, d.height + vGap.roundToPx())
+            }
+        }
     }
 }
 
