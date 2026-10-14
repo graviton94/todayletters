@@ -212,7 +212,10 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         Box(Modifier.fillMaxWidth().height(220.dp)) {
             PlateImage(c.letters.firstOrNull { it.plate != null }?.let { l -> if (s.progress(r.series, c.id, l.id).done) l.plate?.image else c.letters.getOrNull(2)?.plate?.image }.orEmpty(), Modifier.fillMaxSize())
-            Box(Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Brush.verticalGradient(0f to androidx.compose.ui.graphics.Color(0x73170F0A), 0.45f to androidx.compose.ui.graphics.Color(0x0D170F0A), 1f to p.paper)))
+            // 바닥 그늘을 진하게 (글자 자리부터): 위 40% 는 그림 그대로, 그 아래로 바탕색이 55% → 100% 로 덮어 금빛 머리글 · 제목이 밝은 그림 위에서도 읽힌다
+            Box(Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Brush.verticalGradient(
+                0f to androidx.compose.ui.graphics.Color(0x73170F0A), 0.4f to androidx.compose.ui.graphics.Color(0x0D170F0A),
+                0.62f to p.paper.copy(alpha = 0.55f), 0.85f to p.paper.copy(alpha = 0.85f), 1f to p.paper)))
             IconButton(stringResource(R.string.back), onClick = { s.back() }) { Chevron(androidx.compose.ui.graphics.Color(0xFFF7F0E1)) }
             Column(Modifier.align(Alignment.BottomStart).padding(start = Tokens.Space.s5, bottom = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                 Caps("${deco(w.series.original, "Chapitre", "Kapitel")} ${roman(r.chapter)} · ${c.letters.firstOrNull()?.place ?: ""} ${c.letters.firstOrNull()?.date?.take(4) ?: ""}", p.giltText, small = true, decorative = true)

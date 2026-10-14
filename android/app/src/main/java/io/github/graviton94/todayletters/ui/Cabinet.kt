@@ -129,7 +129,7 @@ private fun unitOf(s: AppState, m: MedalDef, ui: Lang): String =
 
 @Composable
 private fun countText(s: AppState, m: MedalDef, st: Stats): String {
-    if (m.family == "grade") return stringResource(R.string.medal_count_grade, gradeLabel(st.bestGrade), gradeLabel(m.threshold))
+    if (m.family == "grade") return stringResource(R.string.grade_to, gradeLabel(m.threshold), (m.threshold - st.bestGrade).coerceAtLeast(0))
     val (now, goal) = medalCount(s, m, st)
     return stringResource(R.string.medal_count, now, goal, unitOf(s, m, uiLang())).trim()
 }
