@@ -266,7 +266,7 @@ fun RewardOverlay(s: AppState) {
             if (cat != null) {
                 val today = java.time.LocalDate.now()
                 Box(Modifier.padding(top = Tokens.Space.s3).graphicsLayer { alpha = a.value; translationY = (1 - a.value) * 40f }) {
-                    CatalogueCover(s, w, cat, today.year, today.monthValue, s.catalogues(w.series.id).size)
+                    CatalogueCover(s, w, cat, today.year, today.monthValue, s.catalogues(w.series.id).size.coerceAtLeast(1))
                 }
             } else m.piece?.let { pc ->
                 val kind = s.frameKind(pc)

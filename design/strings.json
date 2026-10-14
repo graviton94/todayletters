@@ -89,8 +89,8 @@
     "ko": "그 낱말은 아니에요. 다시 해 봐요."
   },
   "ladder_hint": {
-    "en": "Hint: it starts with %1$s",
-    "ko": "힌트: %1$s(으)로 시작해요"
+    "en": "Hint: it starts with ‘%1$s’",
+    "ko": "힌트: 첫 글자는 ‘%1$s’"
   },
   "ladder_card_note_ko": {
     "en": "내가 쓴 답장",
@@ -497,12 +497,12 @@
     "ko": "읽기"
   },
   "moment_location": {
-    "en": "%1$s shared a location",
-    "ko": "%1$s의 위치 공유"
+    "en": "A place in the letter",
+    "ko": "편지 속 장소"
   },
   "moment_photo": {
-    "en": "Photo from %1$s",
-    "ko": "%1$s의 사진"
+    "en": "A picture from %1$s",
+    "ko": "%1$s 보낸 그림"
   },
   "quote_save": {
     "en": "Save to my lines",
@@ -909,16 +909,16 @@
     "ko": "다음 장 준비 중"
   },
   "reread_banner": {
-    "en": "You read %1$d of today's %2$d words in this letter on your own.",
-    "ko": "이 편지의 오늘의 낱말 %2$d개 중 %1$d개를 혼자 읽어요."
+    "en": "You read %1$d of today's %2$d words on your own.",
+    "ko": "오늘 낱말 %2$d개 중 %1$d개를 혼자 읽었어요."
   },
   "known_pct": {
     "en": "Known words %1$d%%",
     "ko": "아는 낱말 %1$d%%"
   },
   "reread_cov": {
-    "en": "First reading %1$d%% → now %2$d%%",
-    "ko": "처음 읽을 때 %1$d%% → 지금 %2$d%%"
+    "en": "Whole letter %1$d%% → %2$d%%",
+    "ko": "편지 전체 %1$d%% → %2$d%%"
   },
   "grade_title": {
     "en": "Language level",
@@ -927,6 +927,10 @@
   "grade_line": {
     "en": "%1$s %2$s · step %3$d",
     "ko": "%1$s %2$s · %3$d단"
+  },
+  "grade_step": {
+    "en": "%1$s step %2$d",
+    "ko": "%1$s %2$d단"
   },
   "grade_words": {
     "en": "Words you can recall: %1$d",
@@ -954,7 +958,7 @@
   },
   "grade_note": {
     "en": "Levels A1–B2 are this app's own measure of the letters you read here, not an official exam grade.",
-    "ko": "A1~B2 는 이 앱에서 읽은 편지로 잰 이 앱만의 기준이에요. 공인 시험 등급과 같지 않아요."
+    "ko": "A1~B2는 이 앱에서 읽은 편지로 잰 이 앱만의 기준이에요. 공인 시험 등급과 같지 않아요."
   },
   "gradeup_caps": {
     "en": "Language level",
@@ -965,8 +969,12 @@
     "ko": "%1$s 실력이 한 단 올랐어요"
   },
   "gradeup_fold": {
-    "en": "From now on, sentences where you know %1$d%% of the words fold their translation. Tap to open.",
-    "ko": "이제 아는 낱말이 %1$d%% 이상인 문장은 번역을 접어요. 눌러서 펼쳐요."
+    "en": "From now on, sentences where you know more than %1$d%% of the words fold their translation. Tap to open.",
+    "ko": "이제 낱말을 %1$d%% 넘게 아는 문장은 번역을 접어요. 눌러서 펼쳐요."
+  },
+  "gradeup_fold_all": {
+    "en": "From now on, sentences where you know every word fold their translation. Tap to open.",
+    "ko": "이제 낱말을 모두 아는 문장은 번역을 접어요. 눌러서 펼쳐요."
   },
   "shadow_title": {
     "en": "Read along",
@@ -1221,8 +1229,8 @@
     "ko": "편지 봉인"
   },
   "reward_piece": {
-    "en": "Today's piece is on the wall",
-    "ko": "오늘의 자료가 걸렸어요"
+    "en": "Today's piece has arrived",
+    "ko": "오늘의 자료가 왔어요"
   },
   "reward_title": {
     "en": "Well read",
@@ -1435,6 +1443,10 @@
   "dl_title": {
     "en": "Narration and pictures for “%1$s”",
     "ko": "「%1$s」 낭독 · 그림"
+  },
+  "dl_caps": {
+    "en": "Narration",
+    "ko": "낭독"
   },
   "dl_body": {
     "en": "This chapter's narration (%2$s's voice) and pictures are not inside the app yet. Download them once (%1$s) and they work offline from then on.",
@@ -1716,6 +1728,10 @@
     "en": "%1$s done",
     "ko": "%1$s 끝남"
   },
+  "step_after_skipped": {
+    "en": "%1$s skipped",
+    "ko": "%1$s 건너뜀"
+  },
   "steps_caps": {
     "en": "Letter %1$s · %2$d steps",
     "ko": "편지 %1$s · %2$d걸음"
@@ -1877,8 +1893,8 @@
     "ko": "뽑기 100번 중 %1$d번꼴"
   },
   "reward_from_ach": {
-    "en": "Every third medal brings a guaranteed painting.",
-    "ko": "메달 셋째마다 확정으로 오는 유화예요."
+    "en": "You get one for every three medals.",
+    "ko": "메달 세 개마다 하나씩 받아요."
   },
   "reward_lines": {
     "en": "details",
@@ -2354,7 +2370,7 @@
   },
   "credits_vocab": {
     "en": "Word levels (A1–C2) are computed from FrequencyWords by Hermit Dave (OpenSubtitles 2018 frequency lists), CC BY-SA 4.0.\nExample sentences come from Tatoeba (tatoeba.org), CC BY 2.0 FR; each sentence shows its author, and the sentence page is tatoeba.org/sentences/show/<id>.\nHeadwords, glosses and phrase notes are written for this app.",
-    "ko": "낱말 등급(A1–C2)은 Hermit Dave 의 FrequencyWords (OpenSubtitles 2018 빈도 목록, CC BY-SA 4.0)에서 계산했어요.\n예문은 Tatoeba (tatoeba.org, CC BY 2.0 FR)에서 가져왔고, 문장마다 작성자를 함께 적어요. 문장 페이지: tatoeba.org/sentences/show/<번호>.\n표제어 · 뜻풀이 · 표현 설명은 이 앱이 새로 썼어요."
+    "ko": "낱말 등급(A1–C2)은 Hermit Dave의 FrequencyWords (OpenSubtitles 2018 빈도 목록, CC BY-SA 4.0)에서 계산했어요.\n예문은 Tatoeba (tatoeba.org, CC BY 2.0 FR)에서 가져왔고, 문장마다 작성자를 함께 적어요. 문장 페이지: tatoeba.org/sentences/show/<번호>.\n표제어 · 뜻풀이 · 표현 설명은 이 앱이 새로 썼어요."
   },
   "credits_vocab_examples": {
     "en": "Tatoeba sentences and authors",
@@ -2406,7 +2422,7 @@
   },
   "set_fade_read_d": {
     "en": "On: as your level rises, sentences you know almost every word of fold their translation (tap to open). From A2: only sentences you know fully; B1: 95%; B2: 90%. Off: translations always show.",
-    "ko": "켜면 언어 등급이 오를수록 거의 다 아는 문장부터 번역을 접어요 (눌러서 펼쳐요). A2 는 모두 아는 문장만, B1 은 95%, B2 는 90% 이상. 끄면 번역이 늘 보여요."
+    "ko": "켜면 언어 등급이 오를수록 거의 다 아는 문장부터 번역을 접어요 (눌러서 펼쳐요). A2는 모두 아는 문장만, B1은 95%, B2는 90% 이상. 끄면 번역이 늘 보여요."
   },
   "review_right_hint": {
     "en": "Right — with hints.",
@@ -2574,7 +2590,7 @@
   },
   "free_d": {
     "en": "A random round from the chapters you've opened",
-    "ko": "연 장들에서 무작위로 한 판 · 기록돼요"
+    "ko": "열린 장에서 무작위로 한 판 · 기록돼요"
   },
   "free_note": {
     "en": "Recorded. Words that were due move on; the rest keep their schedule.",
@@ -2616,6 +2632,14 @@
     "en": "%1$d/%2$d %3$s",
     "ko": "%1$d/%2$d%3$s"
   },
+  "medal_count_grade": {
+    "en": "%1$s → %2$s",
+    "ko": "%1$s → %2$s"
+  },
+  "medal_now_grade": {
+    "en": "Now %1$s",
+    "ko": "지금 %1$s"
+  },
   "medal_how_streak": {
     "en": "Read %1$d days in a row",
     "ko": "%1$d일 이어 읽기"
@@ -2638,7 +2662,11 @@
   },
   "medal_how_series": {
     "en": "Read every letter of %1$s",
-    "ko": "%1$s 의 편지를 끝까지 모두 읽기"
+    "ko": "%1$s의 편지를 끝까지 모두 읽기"
+  },
+  "medal_how_grade": {
+    "en": "Reach %2$s in %1$s",
+    "ko": "%1$s %2$s에 오르기"
   },
   "medal_how_h": {
     "en": "How it is earned",
@@ -2658,7 +2686,7 @@
   },
   "level_left": {
     "en": "%1$d XP to Lv %2$d",
-    "ko": "Lv %2$d 까지 %1$d XP"
+    "ko": "Lv %2$d까지 %1$d XP"
   },
   "levelup_caps": {
     "en": "Level up",
@@ -2990,7 +3018,7 @@
   },
   "fb_no_mail": {
     "en": "No mail app found. Please write to %1$s.",
-    "ko": "메일 앱을 찾지 못했어요. %1$s 로 보내 주세요."
+    "ko": "메일 앱을 찾지 못했어요. %1$s 주소로 보내 주세요."
   },
   "fb_crash_head": {
     "en": "Latest error log",

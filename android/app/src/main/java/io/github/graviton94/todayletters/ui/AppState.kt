@@ -581,12 +581,15 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 이 작품에서 오늘 마친 편지 열쇠 (이번 주 기록에서). */
     private fun doneToday(id: String): List<String> = store.dayLog("letters").filter { it.first == today && it.second.startsWith("${space(id)}:") }.map { it.second }
 
-    /** 오늘의 편지: 열 수 있는 편지 가운데 아직 안 마친 첫 편지, 없으면 오늘 마친 편지. 둘 다 없으면 null (내일 온다). */
+    /**
+     * 오늘의 편지: 오늘 이미 마친 편지가 있으면 그 편지 (여정 I 의 ✓ 와 아래 카드가 같은 편지를 가리키게 — 다른 안 읽은 편지를
+     * 오늘 것처럼 보여 주지 않는다. 더 받은 편지는 목차에서). 없으면 열 수 있는 편지 가운데 아직 안 마친 첫 편지. 둘 다 없으면 null (내일 온다).
+     */
     fun todayLetter(id: String): Pair<String, Letter>? {
         val open = openable(id)
-        open.firstOrNull { (c, l) -> !progress(id, c, l.id).done }?.let { return it }
         val keys = doneToday(id).toSet()
-        return open.lastOrNull { (c, l) -> key(id, c, l.id) in keys }
+        if (keys.isNotEmpty()) open.lastOrNull { (c, l) -> key(id, c, l.id) in keys }?.let { return it }
+        return open.firstOrNull { (c, l) -> !progress(id, c, l.id).done }
     }
 
     /** 오늘의 여정 한 장의 상태. [reviewCount] 는 (이 판에서 답한 수, 이 판의 문제 수). */

@@ -23,7 +23,7 @@
     <string name="ladder_write">Write the missing word</string>
     <string name="ladder_check">Check</string>
     <string name="ladder_wrong">Not that one. Try again.</string>
-    <string name="ladder_hint">Hint: it starts with %1$s</string>
+    <string name="ladder_hint">Hint: it starts with ‘%1$s’</string>
     <string name="ladder_card_note_ko">내⁠가 쓴 답⁠장</string>
     <string name="ladder_card_note_en">My reply</string>
     <string name="play_leave_title">Write the reply later?</string>
@@ -125,8 +125,8 @@
     <string name="review_today">Today\'s review</string>
     <string name="streak_days"> days</string>
     <string name="step_read_short">Read</string>
-    <string name="moment_location">%1$s shared a location</string>
-    <string name="moment_photo">Photo from %1$s</string>
+    <string name="moment_location">A place in the letter</string>
+    <string name="moment_photo">A picture from %1$s</string>
     <string name="quote_save">Save to my lines</string>
     <string name="quote_saved">Remove from my lines</string>
     <string name="done_stat_streak">days in a row</string>
@@ -228,11 +228,12 @@
     <string name="next_arrived">Arrived</string>
     <string name="next_in">In %1$d days</string>
     <string name="next_none">Next chapter soon</string>
-    <string name="reread_banner">You read %1$d of today\'s %2$d words in this letter on your own.</string>
+    <string name="reread_banner">You read %1$d of today\'s %2$d words on your own.</string>
     <string name="known_pct">Known words %1$d%%</string>
-    <string name="reread_cov">First reading %1$d%% → now %2$d%%</string>
+    <string name="reread_cov">Whole letter %1$d%% → %2$d%%</string>
     <string name="grade_title">Language level</string>
     <string name="grade_line">%1$s %2$s · step %3$d</string>
+    <string name="grade_step">%1$s step %2$d</string>
     <string name="grade_words">Words you can recall: %1$d</string>
     <string name="grade_cov">Readable share, last 5 letters: %1$d%%</string>
     <string name="grade_delta">%1$+d vs last week</string>
@@ -242,7 +243,8 @@
     <string name="grade_note">Levels A1–B2 are this app\'s own measure of the letters you read here, not an official exam grade.</string>
     <string name="gradeup_caps">Language level</string>
     <string name="gradeup_title">Your %1$s has grown</string>
-    <string name="gradeup_fold">From now on, sentences where you know %1$d%% of the words fold their translation. Tap to open.</string>
+    <string name="gradeup_fold">From now on, sentences where you know more than %1$d%% of the words fold their translation. Tap to open.</string>
+    <string name="gradeup_fold_all">From now on, sentences where you know every word fold their translation. Tap to open.</string>
     <string name="shadow_title">Read along</string>
     <string name="shadow_noaudio">This letter has no reading yet. Read the sentence aloud from the text.</string>
     <string name="shadow_tap">Tap the microphone and read the sentence.</string>
@@ -306,7 +308,7 @@
     <string name="earn_streak">A day of reading</string>
     <string name="earn_achievement">Milestone</string>
     <string name="earn_seal">Letter sealed</string>
-    <string name="reward_piece">Today\'s piece is on the wall</string>
+    <string name="reward_piece">Today\'s piece has arrived</string>
     <string name="reward_title">Well read</string>
     <string name="reward_ach">Medal · %1$s</string>
     <string name="reward_total">%1$s today</string>
@@ -360,6 +362,7 @@
     <string name="opening_piece">Today\'s piece · %1$s · %2$s</string>
     <string name="opening_enter">Tap to enter</string>
     <string name="dl_title">Narration and pictures for “%1$s”</string>
+    <string name="dl_caps">Narration</string>
     <string name="dl_body">This chapter\'s narration (%2$s\'s voice) and pictures are not inside the app yet. Download them once (%1$s) and they work offline from then on.</string>
     <string name="dl_mobile">You are on mobile data. Wi-Fi is better if your data plan is limited.</string>
     <string name="dl_go">Download · %1$s</string>
@@ -430,6 +433,7 @@
     <string name="empty_words_b">Read a letter and its words gather here.</string>
     <string name="step_of">Step %2$d of %1$d</string>
     <string name="step_after">%1$s done</string>
+    <string name="step_after_skipped">%1$s skipped</string>
     <string name="steps_caps">Letter %1$s · %2$d steps</string>
     <string name="steps_count">%1$d done · %2$d to go</string>
     <string name="step_read_d_done">All %1$d lines read</string>
@@ -470,7 +474,7 @@
     <string name="reward_catalogue_gain">%1$s for the exhibition</string>
     <string name="reward_catalogue_open">Look through the catalogue</string>
     <string name="reward_odds">about %1$d in 100 draws</string>
-    <string name="reward_from_ach">Every third medal brings a guaranteed painting.</string>
+    <string name="reward_from_ach">You get one for every three medals.</string>
     <string name="reward_lines">details</string>
     <string name="catalogue_foot">Lingua Museum · %1$s room</string>
     <string name="medal_got">Received · %1$s</string>
@@ -655,12 +659,15 @@
     <string name="medal_tier_silver">Silver</string>
     <string name="medal_tier_gold">Gold</string>
     <string name="medal_count">%1$d/%2$d %3$s</string>
+    <string name="medal_count_grade">%1$s → %2$s</string>
+    <string name="medal_now_grade">Now %1$s</string>
     <string name="medal_how_streak">Read %1$d days in a row</string>
     <string name="medal_how_letters">Read %1$d letters to the end</string>
     <string name="medal_how_words">Learn %1$d words (recall stage or above)</string>
     <string name="medal_how_stars">Earn %1$d read-along stars</string>
     <string name="medal_how_walks">Walk through %1$d paintings to the last spot</string>
     <string name="medal_how_series">Read every letter of %1$s</string>
+    <string name="medal_how_grade">Reach %2$s in %1$s</string>
     <string name="medal_how_h">How it is earned</string>
     <string name="medal_how_got_h">How you earned it</string>
     <string name="medal_object_h">The ancient object</string>

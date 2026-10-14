@@ -269,10 +269,11 @@ fun Room(s: AppState, r: Route.Letter) {
     val cardMap = remember(s.version) { s.cardMap() }
     // 이 편지의 읽을 수 있는 비율 (아는 낱말 %): 머리의 날짜 옆에
     val known = remember(s.version, letter.id, view.learn) { s.coverage(id, letter.id) }
-    val knownLine = known?.let { stringResource(R.string.known_pct, it) }
+    val knownLabel = known?.let { stringResource(R.string.known_pct, it) }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
-        RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else listOfNotNull(dateLine(letter.date, letter.place), knownLine).joinToString(" · "),
+        RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else shortDateLine(letter.date, letter.place),
+            known = if (writing) null else known, knownLabel = knownLabel,
             auto = s.app.sound, onAuto = { if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }, onInfo = { s.go(Route.RoomInfo(r)) },
             speed = speed, onSpeed = { speed = if (speed < 1f) 1f else 0.7f; s.store.setRoomSpeed(id, speed) })
         val ctx = androidx.compose.ui.platform.LocalContext.current
@@ -520,6 +521,7 @@ private fun TypingBubble(name: String, still: Boolean) {
 @Composable
 private fun RoomHeader(
     s: AppState, portrait: String, name: String, sub: String,
+    known: Int? = null, knownLabel: String? = null,
     auto: Boolean, onAuto: () -> Unit, onInfo: () -> Unit,
     speed: Float = 1f, onSpeed: () -> Unit = {},
 ) {
@@ -530,7 +532,15 @@ private fun RoomHeader(
             Portrait(portrait, name, Tokens.Size.avatar)
             Column(Modifier.weight(1f).padding(start = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(1.dp)) {
                 Text(name, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.ink, maxLines = 1)
-                Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
+                // 날짜는 짧게, 넘치면 말줄임. 아는 낱말 % 는 따로 작은 금빛 표 (먼저 자리를 잡아 늘 보인다)
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 1, softWrap = false,
+                        overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, modifier = Modifier.weight(1f, fill = false))
+                    if (known != null) Text("$known%", style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold),
+                        color = p.giltText, maxLines = 1, softWrap = false,
+                        modifier = Modifier.border(1.dp, p.giltText.copy(alpha = 0.6f), androidx.compose.foundation.shape.RoundedCornerShape(50))
+                            .padding(horizontal = 6.dp).then(if (knownLabel != null) Modifier.androidx_semantics(knownLabel) else Modifier))
+                }
             }
             // 낭독 빠르기 (v21 F6): 1× ↔ 0.7×, 시리즈마다 기억
             Box(Modifier.heightIn(min = 44.dp).pressable { onSpeed() }.padding(horizontal = 4.dp), contentAlignment = Alignment.Center) {
@@ -610,7 +620,8 @@ private fun StepBar(read: Int, total: Int, modes: List<ReplyMode>, progress: io.
                 modifier = Modifier.width(34.dp))
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(1.dp)) {
                 Text(list[cur].label, style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink, maxLines = 1)
-                Text(stringResource(R.string.step_of, list.size, cur + 1) + (if (cur > 0 && list[cur - 1].state >= 2) " · " + stringResource(R.string.step_after, list[cur - 1].label) else ""),
+                Text(stringResource(R.string.step_of, list.size, cur + 1) + (if (cur > 0 && list[cur - 1].state == 2) " · " + stringResource(R.string.step_after, list[cur - 1].label)
+                    else if (cur > 0 && list[cur - 1].state == 3) " · " + stringResource(R.string.step_after_skipped, list[cur - 1].label) else ""),
                     style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, maxLines = 1)
             }
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -923,7 +934,18 @@ fun dayOf(date: String): String = runCatching {
     d.format(java.time.format.DateTimeFormatter.ofPattern("d MMM", java.util.Locale.FRENCH))
 }.getOrDefault(date)
 
-/** 대화방 머리의 날짜: 앱 글자 언어로 ("1888년 2월 21일" / "21 February 1888"). 장소는 소인에 있다. */
+/** 대화방 머리용 짧은 날짜: "1888. 10. 3." · "3 Oct 1888" (달만 있으면 "1888. 10." · "Oct 1888"). */
+@Composable
+fun shortDateLine(date: String, place: String): String {
+    val ko = uiLang() == Lang.KO
+    if (date.length == 7) runCatching { java.time.YearMonth.parse(date) }.getOrNull()?.let { m ->
+        return if (ko) "${m.year}. ${m.monthValue}." else m.format(java.time.format.DateTimeFormatter.ofPattern("MMM yyyy", java.util.Locale.ENGLISH))
+    }
+    val d = runCatching { java.time.LocalDate.parse(date.take(10)) }.getOrNull() ?: return place
+    return if (ko) "${d.year}. ${d.monthValue}. ${d.dayOfMonth}." else d.format(java.time.format.DateTimeFormatter.ofPattern("d MMM yyyy", java.util.Locale.ENGLISH))
+}
+
+/** 대화방 정보 등의 날짜: 앱 글자 언어로 ("1888년 2월 21일" / "21 February 1888"). 장소는 소인에 있다. */
 @Composable
 fun dateLine(date: String, place: String): String {
     val ko = uiLang() == Lang.KO

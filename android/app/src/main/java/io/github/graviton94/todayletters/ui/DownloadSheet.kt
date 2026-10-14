@@ -71,7 +71,7 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
                 .padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
-            Caps("AUDIO", p.giltText, small = true, decorative = true)
+            Caps(stringResource(R.string.dl_caps), p.giltText, small = true, decorative = true)
             // 미리 받기 (설정 · 목차): 묻는 말로, 어느 장 · 얼마나인지 먼저
             if (ask.letter == null) {
                 Text(stringResource(R.string.dl_ahead_t), style = Type.heading.ui(), color = p.ink)

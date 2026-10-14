@@ -32,6 +32,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -114,8 +115,9 @@ fun PrologueScreen(s: AppState, r: Route.Prologue) {
                     val audio = s.narrator.path(r.series, "P", l.id, "m1_${view.learn.code}")
                     val listen = stringResource(R.string.a11y_listen_word)
                     Row(Modifier.padding(horizontal = 26.dp).padding(top = 14.dp).fillMaxWidth()) {
-                        Box(Modifier.width(2.dp).heightIn(min = 60.dp).background(Gilt))
-                        Column(Modifier.weight(1f).padding(start = 12.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        // 금빛 인용 줄: 글 높이 전체를 따라 (글 쪽에서 그려서, 줄 수가 늘어도 끝까지)
+                        Column(Modifier.weight(1f).heightIn(min = 60.dp).drawBehind { drawRect(Gilt, size = androidx.compose.ui.geometry.Size(2.dp.toPx(), size.height)) }
+                            .padding(start = 14.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                             val line = Breaks.plain(m.text[view.learn])
                             GlossText(s, r.series, "P", l, 0, spokenText(line, spokenRange(s.narrator, audio, line), Gilt), style = Type.body.of(view.learn).copy(fontStyle = FontStyle.Italic), color = Light)
                             if (view.read != view.learn) Text(Breaks.plain(m.text[view.read]), style = Type.small.of(view.read), color = Soft)
@@ -198,8 +200,8 @@ fun OutroScreen(s: AppState, series: String) {
                     e.messages.forEachIndexed { i, m ->
                         val audio = s.narrator.path(series, "E", e.id, "m${i + 1}_${view.learn.code}")
                         Row(Modifier.fillMaxWidth().pressable { s.narrator.play(audio) }.padding(vertical = 4.dp)) {
-                            Box(Modifier.width(2.dp).heightIn(min = 40.dp).background(Gilt))
-                            Column(Modifier.padding(start = 12.dp), verticalArrangement = Arrangement.spacedBy(3.dp)) {
+                            Column(Modifier.heightIn(min = 40.dp).drawBehind { drawRect(Gilt, size = androidx.compose.ui.geometry.Size(2.dp.toPx(), size.height)) }
+                                .padding(start = 14.dp), verticalArrangement = Arrangement.spacedBy(3.dp)) {
                                 val line = Breaks.plain(m.text[view.learn])
                                 GlossText(s, series, "E", e, i, spokenText(line, spokenRange(s.narrator, audio, line), Gilt), style = Type.body.of(view.learn).copy(fontStyle = FontStyle.Italic), color = Light)
                                 if (view.read != view.learn) Text(Breaks.plain(m.text[view.read]), style = Type.small.of(view.read), color = Soft)

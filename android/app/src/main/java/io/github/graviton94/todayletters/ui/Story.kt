@@ -123,7 +123,7 @@ fun Done(s: AppState, room: Route.Letter) {
                     }
                 }
                 Row(Modifier.graphicsLayer { alpha = win(0.7f, 0.9f) }, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s6)) {
-                    Stat("${s.streak}", stringResource(R.string.done_stat_streak))
+                    if (s.streak > 0) Stat("${s.streak}", stringResource(R.string.done_stat_streak))
                     Stat("+${letter.words.size}", stringResource(R.string.done_stat_cards))
                     Stat("$got/${plates.size}", stringResource(R.string.tab_gallery))
                 }

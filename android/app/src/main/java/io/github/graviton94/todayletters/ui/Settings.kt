@@ -277,12 +277,41 @@ private fun SetRow(label: String, sub: String? = null, danger: Boolean = false, 
     Column(Modifier.fillMaxWidth().then(if (onClick != null) Modifier.pressable(haptic = false, onClick = onClick) else Modifier)
         .drawBehind { drawLine(p.hair, androidx.compose.ui.geometry.Offset(0f, 0f), androidx.compose.ui.geometry.Offset(size.width, 0f), 1f) }
         .heightIn(min = 52.dp).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                Text(label, style = Type.body.ui(), color = if (danger) p.wrong else p.ink)
-                if (sub != null) Text(sub, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+        // 이름이 한 줄에 다 들어가지 않을 만큼 고르는 칸이 넓으면 (번역 네 칸 등) 고르는 칸을 이름 아래로 내린다
+        androidx.compose.ui.layout.Layout(content = {
+            Text(label, style = Type.body.ui(), color = if (danger) p.wrong else p.ink)
+            if (sub != null) Text(sub, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft) else Box(Modifier)
+            Box { trailing() }
+        }) { ms, c ->
+            val gap = Tokens.Space.s3.roundToPx()
+            val line = 2.dp.roundToPx()
+            val maxW = c.maxWidth
+            val trailW = ms[2].maxIntrinsicWidth(c.maxHeight).coerceAtMost(maxW)
+            val labelW = ms[0].maxIntrinsicWidth(c.maxHeight)
+            val loose = c.copy(minWidth = 0, minHeight = 0)
+            if (labelW + gap + trailW <= maxW) {
+                val tr = ms[2].measure(loose.copy(maxWidth = trailW))
+                val textW = (maxW - trailW - gap).coerceAtLeast(0)
+                val lb = ms[0].measure(loose.copy(maxWidth = textW))
+                val sb = ms[1].measure(loose.copy(maxWidth = textW))
+                val textH = lb.height + (if (sb.height > 0) line + sb.height else 0)
+                val h = maxOf(textH, tr.height)
+                layout(maxW, h) {
+                    val ty = (h - textH) / 2
+                    lb.placeRelative(0, ty); sb.placeRelative(0, ty + lb.height + line)
+                    tr.placeRelative(maxW - tr.width, (h - tr.height) / 2)
+                }
+            } else {
+                val lb = ms[0].measure(loose)
+                val sb = ms[1].measure(loose)
+                val tr = ms[2].measure(loose)
+                val textH = lb.height + (if (sb.height > 0) line + sb.height else 0)
+                val h = textH + gap + tr.height
+                layout(maxW, h) {
+                    lb.placeRelative(0, 0); sb.placeRelative(0, lb.height + line)
+                    tr.placeRelative(0, textH + gap)
+                }
             }
-            trailing()
         }
         below?.invoke()
     }

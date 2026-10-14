@@ -27,7 +27,7 @@ class MedalsTest {
         assertEquals(listOf(3, 7, 14, 30, 60, 100, 365), book.inFamily("streak").map { it.threshold })
         val m = book.medal("streak_14")!!
         assertEquals(MedalTier.SILVER, m.tier)
-        assertEquals("헤라클레스의 끈기", m.title[Lang.KO])
+        assertEquals("헤라클레스의 끈기", Breaks.plain(m.title[Lang.KO]))
         assertEquals("medals/streak_14.webp", m.image)
         assertEquals("The Metropolitan Museum of Art", m.source.museum)
         assertTrue(m.source.license.startsWith("CC0"))

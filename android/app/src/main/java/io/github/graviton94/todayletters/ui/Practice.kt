@@ -6,6 +6,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -44,12 +45,17 @@ fun PracticeHeader(at: Int, total: Int, onClose: () -> Unit, onHelp: (() -> Unit
     val p = Ink.palette
     Row(Modifier.fillMaxWidth().padding(end = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
         IconButton(stringResource(R.string.close), onClick = onClose) { Text("×", style = Type.title, color = p.ink) }
+        // 끝낸 칸은 금빛, 지금 칸은 옅은 잉크 테두리 (아직 다 한 것이 아니니 채우지 않는다). 문제가 없으면 막대와 수를 감춘다
         Row(Modifier.weight(1f), horizontalArrangement = Arrangement.spacedBy(3.dp)) {
-            (0 until total.coerceAtLeast(1)).forEach { k ->
-                Box(Modifier.weight(1f).height(4.dp).background(when { k < at -> p.giltText; k == at -> p.ink; else -> p.hair }))
+            if (total > 0) (0 until total).forEach { k ->
+                Box(Modifier.weight(1f).height(4.dp).then(when {
+                    k < at -> Modifier.background(p.giltText)
+                    k == at -> Modifier.background(p.ink.copy(alpha = 0.12f)).border(1.dp, p.ink.copy(alpha = 0.55f))
+                    else -> Modifier.background(p.hair)
+                }))
             }
         }
-        Text("  " + (count ?: "${(at + 1).coerceAtMost(total)} / $total"), style = Type.small, color = p.inkSoft)
+        if (total > 0 || count != null) Text("  " + (count ?: "${(at + 1).coerceAtMost(total)} / $total"), style = Type.small, color = p.inkSoft)
         if (onHelp != null) {
             Box(Modifier.width(Tokens.Space.s2))
             Box(Modifier.size(44.dp).pressable { onHelp() }, contentAlignment = Alignment.Center) { HelpGlyph(p.inkSoft) }

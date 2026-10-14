@@ -306,7 +306,7 @@ fun Session(s: AppState, r: Route.Session) {
     if (questions.isEmpty()) {
         BackHandler { s.back() }
         Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f)) {
-            PracticeHeader(0, 1, onClose = { s.back() })
+            PracticeHeader(0, 0, onClose = { s.back() })
             Box(Modifier.weight(1f).fillMaxWidth().padding(Tokens.Space.s5), contentAlignment = Alignment.Center) {
                 if (r.kind == ReviewKind.DICTATION && s.cards().isNotEmpty()) EmptyState(stringResource(R.string.kind_dictation), stringResource(R.string.dict_none), stringResource(R.string.back)) { s.back() }
                 else EmptyState(stringResource(R.string.empty_words_t), stringResource(R.string.empty_words_b), stringResource(R.string.today_open)) { s.go(Route.Inbox) }
@@ -1168,7 +1168,7 @@ internal fun letterTag(s: AppState, cardKey: String): String {
     val cw = remember(cardKey) { s.cardWord(cardKey) } ?: return ""
     val n = remember(cardKey) { cw.work.chapters.flatMap { it.letters }.indexOf(cw.at.second) + 1 }
     val date = cw.at.second.date.takeIf { it.length >= 7 }?.let { dateLine(it.take(7), "") }
-    return listOfNotNull(if (n > 0) stringResource(R.string.letter_n, "$n") else null, date).joinToString(" · ")
+    return listOfNotNull(if (n > 0) stringResource(R.string.letter_n, roman(n)) else null, date).joinToString(" · ")
 }
 
 /** 뜻 고르기의 낱말: 작품 이름표처럼 (번호 · 어느 편지 · 큰 낱말 · 듣기 · 발음). */

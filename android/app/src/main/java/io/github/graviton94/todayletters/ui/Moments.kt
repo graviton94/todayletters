@@ -71,7 +71,7 @@ fun MomentCard(s: AppState, work: Work, m: Moment, onMap: () -> Unit, onPhoto: (
             val place = work.places.firstOrNull { it.id == m.place }
             val ctx = androidx.compose.ui.platform.LocalContext.current
             Column(Modifier.widthIn(max = 280.dp).fillMaxWidth(0.8f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Caps(stringResource(R.string.moment_location, work.name[lang]).uppercase(), p.giltText, small = true, decorative = true)
+                Caps(stringResource(R.string.moment_location).uppercase(), p.giltText, small = true, decorative = true)
                 Text(m.title[lang], style = Type.heading.ui(), color = p.ink)
                 Text(m.address, style = Type.small.copy(fontFamily = Faces.text), color = p.inkSoft)
                 if (place != null) Box(Modifier.heightIn(min = 40.dp).pressable { openMaps(ctx, place, m.title[lang]) }, contentAlignment = Alignment.CenterStart) {
@@ -87,7 +87,7 @@ fun MomentCard(s: AppState, work: Work, m: Moment, onMap: () -> Unit, onPhoto: (
         ) {
             PlateImage(m.image, Modifier.fillMaxWidth().aspectRatio(1.2f))
             Text(m.caption[lang], style = Type.small.ui(), color = Color(0xFF2A2118))
-            Text(stringResource(R.string.moment_photo, work.name[lang]), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = Color(0xFF6E6150))
+            Text(stringResource(R.string.moment_photo, if (lang == Lang.KO) josa(work.name[lang], "이", "가") else work.name[lang]), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = Color(0xFF6E6150))
         }
         is Moment.Notice -> Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
             Text(

@@ -37,7 +37,7 @@ object Medals {
     private fun Any?.list() = this as? List<Any?> ?: emptyList()
     private fun Map<String, Any?>.str(k: String) = this[k] as? String ?: ""
     private fun Map<String, Any?>.int(k: String) = (this[k] as? Double)?.toInt() ?: 0
-    private fun tri(v: Any?): Tri = v.obj().let { m -> Tri(listOf(Lang.KO, Lang.EN).associateWith { m.str(it.code) }) }
+    private fun tri(v: Any?): Tri = v.obj().let { m -> Tri(listOf(Lang.KO, Lang.EN).associateWith { l -> m.str(l.code).let { if (l == Lang.KO) Breaks.keepAll(it) else it } }) }
     private fun source(v: Any?): MedalSource = v.obj().let { m ->
         MedalSource(m.str("museum"), (m["objectID"] as? Double)?.toLong() ?: 0, m.str("title"), m.str("date"), m.str("url"), m.str("license"), m.str("artist"))
     }

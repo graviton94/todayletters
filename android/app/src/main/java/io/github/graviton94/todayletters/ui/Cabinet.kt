@@ -129,8 +129,22 @@ private fun unitOf(s: AppState, m: MedalDef, ui: Lang): String =
 
 @Composable
 private fun countText(s: AppState, m: MedalDef, st: Stats): String {
+    if (m.family == "grade") return stringResource(R.string.medal_count_grade, gradeLabel(st.bestGrade), gradeLabel(m.threshold))
     val (now, goal) = medalCount(s, m, st)
     return stringResource(R.string.medal_count, now, goal, unitOf(s, m, uiLang())).trim()
+}
+
+/** 등급 번호 (1~12) 를 "B1" · "B2 3단" 처럼: 등급의 첫 단이면 등급 이름만. */
+@Composable
+private fun gradeLabel(index: Int): String {
+    val g = io.github.graviton94.todayletters.core.Reading.Grade.of(index.coerceAtLeast(1))
+    return if (g.step == 1) g.band.name else stringResource(R.string.grade_step, g.band.name, g.step)
+}
+
+/** 언어 등급 메달이 가리키는 말: 등급이 가장 높은 말 (같으면 지금 작품에서 배우는 말). */
+private fun gradeLang(s: AppState): io.github.graviton94.todayletters.core.Lang {
+    val cur = s.room(s.current).learn
+    return io.github.graviton94.todayletters.core.Lang.entries.maxByOrNull { s.store.grade(it.code) * 2 + if (it == cur) 1 else 0 } ?: cur
 }
 
 /** 받는 법 한 줄. */
@@ -141,6 +155,7 @@ fun medalHow(s: AppState, m: MedalDef): String = when (m.family) {
     "words" -> stringResource(R.string.medal_how_words, m.threshold)
     "stars" -> stringResource(R.string.medal_how_stars, m.threshold)
     "walks" -> stringResource(R.string.medal_how_walks, m.threshold)
+    "grade" -> stringResource(R.string.medal_how_grade, stringResource(langLabel(gradeLang(s))), gradeLabel(m.threshold))
     else -> stringResource(R.string.medal_how_series, s.works.firstOrNull { it.series.id == m.series }?.name?.get(uiLang()) ?: m.series.orEmpty())
 }
 
@@ -197,6 +212,7 @@ fun MedalCell(s: AppState, m: MedalDef, st: Stats, earned: Boolean, isNext: Bool
             when {
                 earned -> m.title[ui]
                 isNext -> countText(s, m, st)
+                m.family == "grade" -> gradeLabel(m.threshold)   // 문턱만 ("B1")
                 else -> stringResource(R.string.medal_count, m.threshold, m.threshold, unitOf(s, m, ui)).trim().substringAfter("/")   // 문턱만 ("60일")
             },
             style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = if (earned) FontWeight.SemiBold else FontWeight.Normal),
@@ -237,7 +253,8 @@ fun MedalDetail(s: AppState, m: MedalDef, onClose: () -> Unit) {
             if (day != null) Text(stringResource(R.string.medal_got, if (day >= 0) shortDate(day) else "✓"), style = Type.small.ui(), color = p.inkSoft)
             else {
                 val (now, goal) = medalCount(s, m, st)
-                Text(countText(s, m, st), style = Type.small.ui(), color = p.giltText)
+                Text(if (m.family == "grade") stringResource(R.string.medal_now_grade, gradeLabel(st.bestGrade)) else countText(s, m, st),
+                    style = Type.small.ui(), color = p.giltText)
                 Bar(now.toFloat() / goal.coerceAtLeast(1), Modifier.padding(vertical = 2.dp))
             }
             // 받는 법 / 받은 까닭
@@ -376,7 +393,7 @@ fun GradeUpOverlay(s: AppState) {
             Ornament(gold.copy(alpha = 0.8f))
             Text(stringResource(R.string.grade_line, langName, up.to.band.name, up.to.step), style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
             if (up.to.band != up.from.band) io.github.graviton94.todayletters.core.Reading.foldAt(up.to.band)?.let { at ->
-                Text(stringResource(R.string.gradeup_fold, at), style = Type.body.ui(), color = t.accent, textAlign = TextAlign.Center)
+                Text(if (at >= 100) stringResource(R.string.gradeup_fold_all) else stringResource(R.string.gradeup_fold, at), style = Type.body.ui(), color = t.accent, textAlign = TextAlign.Center)
             }
             Spacer(Modifier.height(Tokens.Space.s3))
             Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).background(gold).pressable { s.gradeUp = null }, contentAlignment = Alignment.Center) {

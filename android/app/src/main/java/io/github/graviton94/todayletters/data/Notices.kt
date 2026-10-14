@@ -207,9 +207,39 @@ class TodayWidget : AppWidgetProvider() {
             val sum = TodaySummary.of(ctx)
             val art = sum?.plate?.let { plate(ctx, it) }
             ids.forEach { id ->
-                val small = m.getAppWidgetOptions(id).getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH, 250) < 200
-                m.updateAppWidget(id, views(ctx, sum, art, small))
+                val o = m.getAppWidgetOptions(id)
+                val wDp = o.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH, 250)
+                val hDp = o.getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT, 0).takeIf { it > 0 } ?: o.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT, 110)
+                val small = wDp < 200
+                // 그림 자리 (2×2 는 위젯 전체, 4×2 는 왼쪽 38%) 비율로 잘라 모서리를 둥글린다: 런처가 자르지 않아도 바탕의 둥근 모서리와 맞게
+                val shaped = art?.let { rounded(it, if (small) wDp.toFloat() else wDp * 0.38f, hDp.toFloat(), 22f, allCorners = small) }
+                m.updateAppWidget(id, views(ctx, sum, shaped, small))
             }
+        }
+
+        /**
+         * [src] 를 가운데 기준으로 [wDp]×[hDp] 비율에 맞게 자르고 [radiusDp] 만큼 모서리를 둥글린다.
+         * [allCorners] 가 아니면 왼쪽 두 모서리만 (4×2 위젯의 왼쪽 그림).
+         */
+        internal fun rounded(src: Bitmap, wDp: Float, hDp: Float, radiusDp: Float, allCorners: Boolean): Bitmap {
+            if (wDp <= 0f || hDp <= 0f) return src
+            return runCatching {
+            val want = wDp / hDp
+            val have = src.width.toFloat() / src.height
+            val (cw, ch) = if (have > want) (src.height * want).toInt().coerceAtLeast(1) to src.height else src.width to (src.width / want).toInt().coerceAtLeast(1)
+            val out = Bitmap.createBitmap(cw, ch, Bitmap.Config.ARGB_8888)
+            val c = android.graphics.Canvas(out)
+            val r = radiusDp * ch / hDp
+            val paint = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG or android.graphics.Paint.FILTER_BITMAP_FLAG)
+            val path = android.graphics.Path().apply {
+                val radii = if (allCorners) FloatArray(8) { r } else floatArrayOf(r, r, 0f, 0f, 0f, 0f, r, r)
+                addRoundRect(android.graphics.RectF(0f, 0f, cw.toFloat(), ch.toFloat()), radii, android.graphics.Path.Direction.CW)
+            }
+            val crop = Bitmap.createBitmap(src, (src.width - cw) / 2, (src.height - ch) / 2, cw, ch)
+            paint.shader = android.graphics.BitmapShader(crop, android.graphics.Shader.TileMode.CLAMP, android.graphics.Shader.TileMode.CLAMP)
+            c.drawPath(path, paint)   // 셰이더로 칠해 모서리가 매끈하게 (clipPath 는 계단이 진다)
+            out
+            }.getOrDefault(src)
         }
 
         /** 위젯에 넣을 그림: 큰 비트맵은 위젯에 못 실으니 짧은 변을 400px 남짓으로 줄여 읽는다. */
