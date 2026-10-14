@@ -72,6 +72,8 @@ enter_vincent() {
 
 # ── 준비 (녹화 안 함) ─────────────────────────────
 adb logcat -c; adb logcat -v time > "$OUT/logcat_live.txt" 2>&1 &
+LOGCAT=$!
+trap 'kill $LOGCAT 2>/dev/null' EXIT
 adb shell settings put global hide_error_dialogs 1
 adb shell cmd locale set-app-locales $P --locales en-US 2>/dev/null
 adb shell pm grant $P android.permission.POST_NOTIFICATIONS 2>/dev/null
