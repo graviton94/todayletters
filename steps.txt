@@ -1,0 +1,6 @@
+[18:11:30] record fgs_media_playback
+[18:11:48] tap 'Tap to enter' at 540,2140
+[18:12:17] NOT FOUND: 'Vincent → ' (adb: device)
+[18:12:46] NOT FOUND: '^Open the letter$' (adb: device)
+[18:13:15] NOT FOUND: '^Read the letter$' (adb: device)
+[18:13:33] DEVICE LOST
