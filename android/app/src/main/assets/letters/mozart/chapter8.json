@@ -6,6 +6,107 @@
  "title_en": "The Magic Flute",
  "title_ko": "마술피리",
  "original": "de",
+ "grammar": [
+  {
+   "id": "VIII.0",
+   "de": {
+    "name": {
+     "ko": "소망 wenn … nur",
+     "en": "Wishes with wenn … nur"
+    },
+    "hint": {
+     "ko": "간절한 바람 · Wenn ich nur … könnte / wäre!",
+     "en": "A heartfelt wish · Wenn ich nur … könnte / wäre!"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "I wish",
+     "en": "I wish"
+    },
+    "hint": {
+     "ko": "이루어지지 않은 바람 · I wish + 과거형 (were, could)",
+     "en": "Wish for what isn't so · I wish + past (were, could)"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-기를 바라요",
+     "en": "-기를 바라요 (I hope that)"
+    },
+    "hint": {
+     "ko": "바람을 말해요 · 오기를 바라요",
+     "en": "Say what you hope for · 오기를 바라요"
+    }
+   }
+  },
+  {
+   "id": "VIII.1",
+   "de": {
+    "name": {
+     "ko": "obwohl · damit",
+     "en": "obwohl · damit"
+    },
+    "hint": {
+     "ko": "~인데도 · ~하도록 · 둘 다 동사는 끝으로",
+     "en": "Although · so that · both send the verb last"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "I hope that",
+     "en": "I hope that"
+    },
+    "hint": {
+     "ko": "바라는 일을 that 으로 이어요",
+     "en": "Say what you hope with that"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-아/어도",
+     "en": "-아/어도 (even if)"
+    },
+    "hint": {
+     "ko": "그래도 바뀌지 않는 일 · 멀어도, 늦어도",
+     "en": "Even so · 멀어도, 늦어도"
+    }
+   }
+  },
+  {
+   "id": "VIII.2",
+   "de": {
+    "name": {
+     "ko": "앞 장 복습",
+     "en": "Review"
+    },
+    "hint": {
+     "ko": "앞에서 배운 문법을 섞어 써요 (과거형 · 접속법 II · dass …)",
+     "en": "Mix grammar from earlier chapters (simple past, Subjunctive II, dass …)"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "과거완료",
+     "en": "Past perfect"
+    },
+    "hint": {
+     "ko": "더 앞선 과거 · had + 과거분사",
+     "en": "The earlier past · had + past participle"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-더라고요",
+     "en": "-더라고요 (I found that)"
+    },
+    "hint": {
+     "ko": "직접 겪고 느낀 일을 전해요 · 나더라고요",
+     "en": "Report what you noticed yourself · 나더라고요"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c8-l1",
@@ -142,12 +243,151 @@
     "en": "A modern photo of the Estates Theatre (formerly the Nostitz Theatre) in Prague. In spring 1789 Mozart set out on a concert tour towards Berlin in the comfortable carriage of his friend and pupil Prince Carl Lichnowsky. At the first stop, Prague, the impresario Guardasoni all but promised him a new opera. Ramm, just back from Berlin, reported that the King had asked again and again whether Mozart was really coming.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 249 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ich schreibe dir nach Dresden, Liebster!",
-    "en": "I'll write to you in Dresden, dearest!",
-    "ko": "드레스덴으로 편지할게, 여보!",
-    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "VIII.0",
+     "de": "Wenn mein Brief nur schon in Dresden auf dich warten würde!",
+     "en": "I wish my letter were already waiting for you in Dresden.",
+     "ko": "내 편지가 드레스덴에서 당신을 기다리고 있기를 바라요.",
+     "koLow": "내 편지가 드레스덴에서 당신을 기다리고 있기를 바라.",
+     "koHigh": "제 편지가 드레스덴에서 당신을 기다리고 있기를 바랍니다.",
+     "focus": {
+      "de": [
+       "Wenn",
+       "nur"
+      ],
+      "en": [
+       "I wish",
+       "were already waiting"
+      ],
+      "ko": [
+       "있기를 바라요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Als",
+        "Wann"
+       ],
+       [
+        "noch",
+        "mir"
+       ]
+      ],
+      "en": [
+       [
+        "I wishes",
+        "I wishing"
+       ],
+       [
+        "is already waiting",
+        "will already wait"
+       ]
+      ],
+      "ko": [
+       [
+        "있기를 바래요",
+        "있을 바라요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "VII.0",
+     "de": "Zweihundert Dukaten für eine Oper – das wäre wunderbar, das hätte ich nicht gedacht!",
+     "en": "Two hundred ducats for an opera is news which makes me very happy!",
+     "ko": "오페라 한 편에 200두카트라니, 정말 기쁜 소식이에요!",
+     "koLow": "오페라 한 편에 200두카트라니, 정말 기쁜 소식이야!",
+     "koHigh": "오페라 한 편에 200두카트라니, 정말 기쁜 소식입니다!",
+     "focus": {
+      "de": [
+       "wäre",
+       "hätte"
+      ],
+      "en": [
+       "which makes"
+      ],
+      "ko": [
+       "기쁜"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "wärst",
+        "wären"
+       ],
+       [
+        "hättest",
+        "hätten"
+       ]
+      ],
+      "en": [
+       [
+        "who makes",
+        "whose makes"
+       ]
+      ],
+      "ko": [
+       [
+        "기쁘는",
+        "기쁠은"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "VI.1",
+     "de": "Du schicktest Carl tausend Küsse; am liebsten würdest du ihn selbst küssen.",
+     "en": "You sent Carl a thousand kisses; if you were here, you would kiss him yourself.",
+     "ko": "카를에게 천 번 뽀뽀를 보냈네요. 직접 해 주고 싶은 것 같아요.",
+     "koLow": "카를에게 천 번 뽀뽀를 보냈네. 직접 해 주고 싶은 것 같아.",
+     "koHigh": "카를에게 천 번 입맞춤을 보내셨습니다. 직접 해 주고 싶으신 것 같습니다.",
+     "focus": {
+      "de": [
+       "schicktest"
+      ],
+      "en": [
+       "if you were",
+       "would kiss"
+      ],
+      "ko": [
+       "싶은 것 같아요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "schickte",
+        "schicktet"
+       ]
+      ],
+      "en": [
+       [
+        "if you are",
+        "if you will be"
+       ],
+       [
+        "will kiss",
+        "would kissed"
+       ]
+      ],
+      "ko": [
+       [
+        "싶는 것 같아요",
+        "싶으은 것 같아요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,
@@ -366,12 +606,151 @@
     "en": "Joseph Lange's 1782 portrait of Constanze; whether it is the image Mozart carried with him is not known. In Dresden Mozart meant to surprise the singer Josepha Duschek, wife of his Prague friend Duschek, but she spotted him first from her window. He carried a small portrait of Constanze in a case and talked to it. Nohl's footnote says the pet names ('schluck und druck') allude to a jocular canon of Mozart's.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 250 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Gute Nacht, mein lieber Narr!",
-    "en": "Good night, my dear fool!",
-    "ko": "잘 자, 내 사랑스러운 바보!",
-    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "VIII.0",
+     "de": "Wenn du nur schon wieder bei mir wärst! Auch mir scheinen sechs Tage wie ein Jahr.",
+     "en": "I wish you were here again; six days seem like a year to me too.",
+     "ko": "얼른 다시 내 곁에 오기를 바라요. 나도 엿새가 일 년 같아요.",
+     "koLow": "얼른 다시 내 곁에 오기를 바라. 나도 엿새가 일 년 같아.",
+     "koHigh": "어서 다시 제 곁에 오시기를 바랍니다. 저도 엿새가 일 년 같습니다.",
+     "focus": {
+      "de": [
+       "Wenn du nur",
+       "wärst"
+      ],
+      "en": [
+       "I wish",
+       "were here"
+      ],
+      "ko": [
+       "오기를 바라요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Wann du nur",
+        "Als du nur"
+       ],
+       [
+        "bist",
+        "wäre"
+       ]
+      ],
+      "en": [
+       [
+        "I wishes",
+        "I wishing"
+       ],
+       [
+        "are here",
+        "will be here"
+       ]
+      ],
+      "ko": [
+       [
+        "오기를 바래요",
+        "올 바라요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "VII.2",
+     "de": "Ich versuche, mir das vorzustellen, und muss lachen; ich möchte es sehen.",
+     "en": "I'm sure that you are very silly with my portrait; I would love to see it.",
+     "ko": "그 모습을 직접 봤으면 좋겠어요. 생각만 해도 웃겨요.",
+     "koLow": "그 모습을 직접 봤으면 좋겠어. 생각만 해도 웃겨.",
+     "koHigh": "그 모습을 직접 봤으면 좋겠습니다. 생각만 해도 웃음이 납니다.",
+     "focus": {
+      "de": [
+       "mir das vorzustellen"
+      ],
+      "en": [
+       "that you are"
+      ],
+      "ko": [
+       "봤으면 좋겠어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "mir das vorstellen",
+        "mir das zu vorstellen"
+       ]
+      ],
+      "en": [
+       [
+        "what you are",
+        "that you is"
+       ]
+      ],
+      "ko": [
+       [
+        "보았으면 좋겠아요",
+        "봤면 좋겠어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "V.0",
+     "de": "Ich musste lachen: Sie hat dich erkannt, weil niemand so aussieht wie du.",
+     "en": "I was laughing while I was reading it; nobody else looks like you!",
+     "ko": "두셰크 부인 이야기를 생각하면 웃음이 나요. 당신 같은 사람은 없잖아요!",
+     "koLow": "두셰크 부인 이야기를 생각하면 웃음이 나. 당신 같은 사람은 없잖아!",
+     "koHigh": "두셰크 부인 이야기를 생각하면 웃음이 납니다. 당신 같은 분은 없습니다!",
+     "focus": {
+      "de": [
+       "weil",
+       "aussieht"
+      ],
+      "en": [
+       "was laughing",
+       "was reading"
+      ],
+      "ko": [
+       "생각하면"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "denn weil",
+        "weil dass"
+       ],
+       [
+        "sieht aus",
+        "aussehen"
+       ]
+      ],
+      "en": [
+       [
+        "were laughing",
+        "was laugh"
+       ],
+       [
+        "were reading",
+        "was read"
+       ]
+      ],
+      "ko": [
+       [
+        "생각하으면",
+        "생각해면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -583,12 +962,141 @@
     "en": "A view of Dresden painted by Bellotto some forty years before Mozart's visit. At the Dresden court Mozart played his new concerto in D and was given a snuffbox; it is taken to be the concerto now called the 'Coronation' (K. 537). His rival at the organ, Hässler, was the organist of Erfurt and, as the letter says, a pupil of a pupil of Bach.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 251 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ich küsse dich zurück, tausendmal!",
-    "en": "I kiss you back, a thousand times!",
-    "ko": "나도 천 번 입 맞춰 보낼게!",
-    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "VIII.0",
+     "de": "Wenn ich dir nur jeden Tag einen Brief schicken könnte!",
+     "en": "I wish I could send you a letter every single day.",
+     "ko": "날마다 당신에게 편지를 보낼 수 있기를 바라요.",
+     "koLow": "날마다 당신에게 편지를 보낼 수 있기를 바라.",
+     "koHigh": "날마다 당신께 편지를 보낼 수 있기를 바랍니다.",
+     "focus": {
+      "de": [
+       "nur",
+       "schicken könnte"
+      ],
+      "en": [
+       "I wish",
+       "could send"
+      ],
+      "ko": [
+       "있기를 바라요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "noch",
+        "mir"
+       ],
+       [
+        "könnte schicken",
+        "schicken kann"
+       ]
+      ],
+      "en": [
+       [
+        "I wishes",
+        "I wishing"
+       ],
+       [
+        "can send",
+        "could sent"
+       ]
+      ],
+      "ko": [
+       [
+        "있기를 바래요",
+        "있을 바라요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "VI.2",
+     "de": "Ich stelle mir dein Konzert am Hof vor und freue mich; du kannst stolz sein.",
+     "en": "I imagined your concert at court; you should be proud of yourself.",
+     "ko": "궁정에서 연주하는 당신을 떠올려 봤어요. 정말 자랑스러워요.",
+     "koLow": "궁정에서 연주하는 당신을 떠올려 봤어. 정말 자랑스러워.",
+     "koHigh": "궁정에서 연주하시는 당신을 떠올려 봤습니다. 정말 자랑스럽습니다.",
+     "focus": {
+      "de": [
+       "freue mich"
+      ],
+      "en": [
+       "should be proud"
+      ],
+      "ko": [
+       "떠올려 봤어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "freue dich",
+        "freue mir"
+       ]
+      ],
+      "en": [
+       [
+        "should is proud",
+        "should to be proud"
+       ]
+      ],
+      "ko": [
+       [
+        "떠올려 보았요",
+        "떠올리 봤어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "VII.1",
+     "de": "Die Leute, die an dir zweifelten, staunten sicher, als du spieltest.",
+     "en": "That was the moment when the doubters were surprised, wasn't it?",
+     "ko": "당신이 오르간 앞에 앉았을 때 다들 놀랐겠지요?",
+     "koLow": "당신이 오르간 앞에 앉았을 때 다들 놀랐겠지?",
+     "koHigh": "당신이 오르간 앞에 앉으셨을 때 모두 놀랐을 것입니다.",
+     "focus": {
+      "de": [
+       "die an dir zweifelten"
+      ],
+      "en": [
+       "when the doubters were surprised"
+      ],
+      "ko": [
+       "앉았을 때"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "der an dir zweifelten",
+        "die zweifelten an dir"
+       ]
+      ],
+      "en": [
+       [
+        "which the doubters were surprised",
+        "where the doubters was surprised"
+       ]
+      ],
+      "ko": [
+       [
+        "앉았는 때",
+        "앉을었을 때"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
@@ -799,12 +1307,156 @@
     "en": "A print from the same weeks: the imperial regalia escorted to Frankfurt two days before Mozart arrived. In autumn 1790 Mozart went to Frankfurt, crowded for the coronation of Leopold II. According to Nohl he pawned part of his silver plate, bought a carriage and left on 24 September with his brother-in-law, the violinist Hofer. On 15 October he gave a concert there.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 258 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Komm bald heim, mein fleißiger Mann!",
-    "en": "Come home soon, my hard-working husband!",
-    "ko": "어서 돌아와, 부지런한 우리 남편!",
-    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "VIII.1",
+     "de": "Obwohl ich dich vermisse, wünsche ich dir dort viel Erfolg.",
+     "en": "I miss you, but I hope that everything goes well for you there.",
+     "ko": "보고 싶어도 거기서 잘 해내기를 응원해요.",
+     "koLow": "보고 싶어도 거기서 잘 해내기를 응원해.",
+     "koHigh": "보고 싶어도 그곳에서 잘 해내시기를 응원합니다.",
+     "focus": {
+      "de": [
+       "Obwohl",
+       "vermisse"
+      ],
+      "en": [
+       "I hope that"
+      ],
+      "ko": [
+       "보고 싶어도"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Trotz",
+        "Obwohl dass"
+       ],
+       [
+        "vermisst",
+        "vermissen"
+       ]
+      ],
+      "en": [
+       [
+        "I hope what",
+        "I hopes that"
+       ]
+      ],
+      "ko": [
+       [
+        "보고 싶아도",
+        "보고 싶도"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "VIII.0",
+     "de": "Wenn wir nur bald zusammen so ruhig und glücklich leben könnten!",
+     "en": "I wish we could soon live that delightful life together.",
+     "ko": "우리가 곧 그렇게 멋지게 살 수 있기를 바라요.",
+     "koLow": "우리가 곧 그렇게 멋지게 살 수 있기를 바라.",
+     "koHigh": "우리가 곧 그렇게 멋지게 살 수 있기를 바랍니다.",
+     "focus": {
+      "de": [
+       "Wenn wir nur",
+       "leben könnten"
+      ],
+      "en": [
+       "I wish",
+       "could soon live"
+      ],
+      "ko": [
+       "있기를 바라요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Wann wir nur",
+        "Als wir nur"
+       ],
+       [
+        "könnten leben",
+        "leben können"
+       ]
+      ],
+      "en": [
+       [
+        "I wishes",
+        "I wishing"
+       ],
+       [
+        "can soon live",
+        "could soon lived"
+       ]
+      ],
+      "ko": [
+       [
+        "있기를 바래요",
+        "있을 바라요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "VI.0",
+     "de": "Gut, dass das Wetter schön war und du einen guten Wagen hattest.",
+     "en": "Good weather and a fine carriage! If it stays like that, you will travel well.",
+     "ko": "마차가 좋았는데 날씨까지 좋았다니 다행이에요.",
+     "koLow": "마차가 좋았는데 날씨까지 좋았다니 다행이야.",
+     "koHigh": "마차가 좋았는데 날씨까지 좋았다니 다행입니다.",
+     "focus": {
+      "de": [
+       "war",
+       "hattest"
+      ],
+      "en": [
+       "If it stays",
+       "will travel"
+      ],
+      "ko": [
+       "좋았는데"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "waren",
+        "warst"
+       ],
+       [
+        "hatte",
+        "hattet"
+       ]
+      ],
+      "en": [
+       [
+        "If it will stay",
+        "If it stayed"
+       ],
+       [
+        "would travel",
+        "will traveled"
+       ]
+      ],
+      "ko": [
+       [
+        "좋았은데",
+        "좋어는데"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
@@ -1033,12 +1685,141 @@
     "en": "A painting of Joseph II's coronation in the same Frankfurt cathedral, twenty-six years earlier. Written in Frankfurt during the coronation crowds. Mozart lodged with Hofer at Böhm's, paying 30 florins a month. The 'Auge Gottes' was the house in Vienna where Constanze's family, the Webers, had lived. Nohl prints the date at the end, before the postscript.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 259 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ich fange alle deine Busserl auf!",
-    "en": "I catch all your kisses!",
-    "ko": "네 뽀뽀, 내가 다 받을게!",
-    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VIII.1",
+     "de": "Ich schreibe dir sofort, damit dieser Brief dich ganz schnell erreicht.",
+     "en": "I'm writing at once; I hope that this letter reaches you quickly.",
+     "ko": "바로 쓰고 있어요. 조금 늦어도 이 편지가 꼭 닿을 거예요.",
+     "koLow": "바로 쓰고 있어. 조금 늦어도 이 편지가 꼭 닿을 거야.",
+     "koHigh": "바로 쓰고 있습니다. 조금 늦어도 이 편지가 꼭 닿을 것입니다.",
+     "focus": {
+      "de": [
+       "damit",
+       "erreicht"
+      ],
+      "en": [
+       "I hope that"
+      ],
+      "ko": [
+       "늦어도"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "damit dass",
+        "dafür"
+       ],
+       [
+        "erreichen",
+        "erreichte"
+       ]
+      ],
+      "en": [
+       [
+        "I hope what",
+        "I hopes that"
+       ]
+      ],
+      "ko": [
+       [
+        "늦아도",
+        "늦도"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "VII.2",
+     "de": "Ich freue mich darauf, dich bald wieder in die Arme zu schließen.",
+     "en": "I'm glad that you will come home soon, and I can hold you again.",
+     "ko": "당신이 얼른 돌아와서 꼭 안을 수 있었으면 좋겠어요.",
+     "koLow": "당신이 얼른 돌아와서 꼭 안을 수 있었으면 좋겠어.",
+     "koHigh": "당신이 어서 돌아와서 꼭 안을 수 있었으면 좋겠습니다.",
+     "focus": {
+      "de": [
+       "zu schließen"
+      ],
+      "en": [
+       "that you will come"
+      ],
+      "ko": [
+       "있었으면 좋겠어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "schließen",
+        "zu geschlossen"
+       ]
+      ],
+      "en": [
+       [
+        "what you will come",
+        "that you will came"
+       ]
+      ],
+      "ko": [
+       [
+        "있었으면 좋겠아요",
+        "있었면 좋겠어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "V.1",
+     "de": "Ich bin froh, dass deine Tränen zu Küssen geworden sind; ich habe alle gefangen!",
+     "en": "After the tears come kisses, as you always used to send; I caught them all!",
+     "ko": "눈물이 뽀뽀로 바뀌었으니까 다행이에요. 다 받았어요!",
+     "koLow": "눈물이 뽀뽀로 바뀌었으니까 다행이야. 다 받았어!",
+     "koHigh": "눈물이 입맞춤으로 바뀌었으니까 다행입니다. 다 받았습니다!",
+     "focus": {
+      "de": [
+       "dass",
+       "geworden sind"
+      ],
+      "en": [
+       "used to send"
+      ],
+      "ko": [
+       "바뀌었으니까"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "das",
+        "weil dass"
+       ],
+       [
+        "sind geworden",
+        "geworden ist"
+       ]
+      ],
+      "en": [
+       [
+        "use to send",
+        "used to sending"
+       ]
+      ],
+      "ko": [
+       [
+        "바뀌었니까",
+        "바뀌았으니까"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
@@ -1250,12 +2031,146 @@
     "en": "An old engraving of the Munich Residenz from 1715. On the way home from Frankfurt Mozart stopped in Munich, where the Elector kept him for a concert for the King of Naples. Cannabich, Ramm and Marchand were old friends from his Mannheim days. The journey he planned for 'the end of next summer' never happened: Mozart died the following December.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 260 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ja, nächsten Sommer reisen wir zusammen!",
-    "en": "Yes, next summer we travel together!",
-    "ko": "응, 내년 여름엔 같이 여행 가!",
-    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "VIII.2",
+     "de": "Du schreibst, dass keine Antwort ankommt – ich schreibe trotzdem, sonst hätte ich keine Ruhe.",
+     "en": "I hadn't known that no answer could reach you; I'm writing anyway.",
+     "ko": "편지 끝에 답장을 못 받는다고 쓰여 있더라고요. 그래도 그냥 써요.",
+     "koLow": "편지 끝에 답장을 못 받는다고 쓰여 있더라. 그래도 그냥 써.",
+     "koHigh": "편지 끝에 답장을 못 받으신다고 쓰여 있었습니다. 그래도 그냥 씁니다.",
+     "focus": {
+      "de": [
+       "dass",
+       "hätte"
+      ],
+      "en": [
+       "hadn't known"
+      ],
+      "ko": [
+       "있더라고요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "das",
+        "weil dass"
+       ],
+       [
+        "hättest",
+        "hätten"
+       ]
+      ],
+      "en": [
+       [
+        "hadn't knew",
+        "hadn't know"
+       ]
+      ],
+      "ko": [
+       [
+        "있더라구요",
+        "있어더라고요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "VIII.1",
+     "de": "Obwohl der Sommer noch weit ist, freue ich mich schon auf diese Reise.",
+     "en": "I hope that we can make this journey together next summer.",
+     "ko": "아직 멀어도 그 여행이 벌써 기다려져요.",
+     "koLow": "아직 멀어도 그 여행이 벌써 기다려져.",
+     "koHigh": "아직 멀어도 그 여행이 벌써 기다려집니다.",
+     "focus": {
+      "de": [
+       "Obwohl",
+       "weit ist"
+      ],
+      "en": [
+       "I hope that"
+      ],
+      "ko": [
+       "멀어도"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Trotz",
+        "Obwohl dass"
+       ],
+       [
+        "ist weit",
+        "weit sind"
+       ]
+      ],
+      "en": [
+       [
+        "I hope what",
+        "I hopes that"
+       ]
+      ],
+      "ko": [
+       [
+        "멀아도",
+        "멀도"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "VII.0",
+     "de": "Ich wäre so gern dabei und würde dich bei diesem Konzert hören.",
+     "en": "I would love to hear the concert which the Elector asked you to attend.",
+     "ko": "선제후가 직접 부른 연주회를 나도 듣고 싶어요.",
+     "koLow": "선제후가 직접 부른 연주회를 나도 듣고 싶어.",
+     "koHigh": "선제후께서 직접 부르신 연주회를 저도 듣고 싶습니다.",
+     "focus": {
+      "de": [
+       "wäre",
+       "würde"
+      ],
+      "en": [
+       "which the Elector asked"
+      ],
+      "ko": [
+       "부른"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "wärst",
+        "wären"
+       ],
+       [
+        "würdest",
+        "würden"
+       ]
+      ],
+      "en": [
+       [
+        "who the Elector asked",
+        "whose the Elector asked"
+       ]
+      ],
+      "ko": [
+       [
+        "부르은",
+        "부른는"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
@@ -1468,12 +2383,146 @@
     "en": "This is the playbill of the opening night of Die Zauberflöte, 30 September 1791, when Mozart conducted at the keyboard. Here he tells how he slipped backstage during Papageno's bell aria and played the glockenspiel himself, until Schikaneder cried 'Halt's Maul!' and the house laughed. Nohl notes that the closing words come from the great trio of the Zauberflöte and are the last known words Mozart wrote in a letter.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 268 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ich höre die Oper mit dir!",
-    "en": "I'll hear the opera with you!",
-    "ko": "오페라, 너랑 같이 들을게!",
-    "_note": "콘스탄체의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "VIII.2",
+     "de": "Du spieltest selbst die Glocken? Beim Lesen musste ich lachen; das hätte ich gern gesehen!",
+     "en": "I had never pictured you playing the bells yourself; I laughed when I read it.",
+     "ko": "당신이 직접 종을 쳤다니, 읽다가 웃음이 나더라고요.",
+     "koLow": "당신이 직접 종을 쳤다니, 읽다가 웃음이 나더라.",
+     "koHigh": "당신이 직접 종을 치셨다니, 읽다가 웃음이 났습니다.",
+     "focus": {
+      "de": [
+       "spieltest",
+       "hätte"
+      ],
+      "en": [
+       "had never pictured"
+      ],
+      "ko": [
+       "나더라고요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "spielte",
+        "spieltet"
+       ],
+       [
+        "hättest",
+        "hätten"
+       ]
+      ],
+      "en": [
+       [
+        "had never picture",
+        "has never pictured"
+       ]
+      ],
+      "ko": [
+       [
+        "나더라구요",
+        "나어더라고요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "VIII.0",
+     "de": "Wenn ich nur schon neben dir in dieser Loge sitzen könnte!",
+     "en": "I wish I were already sitting next to you in that box.",
+     "ko": "얼른 그 칸막이 관람석에 당신과 같이 앉게 되기를 바라요.",
+     "koLow": "얼른 그 칸막이 관람석에 당신과 같이 앉게 되기를 바라.",
+     "koHigh": "어서 그 칸막이 관람석에 당신과 함께 앉게 되기를 바랍니다.",
+     "focus": {
+      "de": [
+       "Wenn ich nur",
+       "sitzen könnte"
+      ],
+      "en": [
+       "I wish",
+       "were already sitting"
+      ],
+      "ko": [
+       "되기를 바라요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Wann ich nur",
+        "Als ich nur"
+       ],
+       [
+        "könnte sitzen",
+        "sitzen kann"
+       ]
+      ],
+      "en": [
+       [
+        "I wishes",
+        "I wishing"
+       ],
+       [
+        "am already sitting",
+        "will already sit"
+       ]
+      ],
+      "ko": [
+       [
+        "되기를 바래요",
+        "될 바라요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "VI.2",
+     "de": "Ich habe auch an Mama gedacht; sie freut sich bestimmt, auch wenn sie nur schaut.",
+     "en": "I thought of Mama too; she could still enjoy it, even if she only watches.",
+     "ko": "엄마 입장에서도 생각해 봤어요. 보기만 해도 즐거우실 거예요.",
+     "koLow": "엄마 입장에서도 생각해 봤어. 보기만 해도 즐거우실 거야.",
+     "koHigh": "어머니 입장에서도 생각해 봤습니다. 보기만 하셔도 즐거우실 것입니다.",
+     "focus": {
+      "de": [
+       "freut sich"
+      ],
+      "en": [
+       "could still enjoy"
+      ],
+      "ko": [
+       "생각해 봤어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "freut sie",
+        "freust sich"
+       ]
+      ],
+      "en": [
+       [
+        "could still enjoys",
+        "could still enjoyed"
+       ]
+      ],
+      "ko": [
+       [
+        "생각해 보았요",
+        "생각하 봤어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,

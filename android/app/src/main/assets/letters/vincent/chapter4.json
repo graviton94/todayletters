@@ -6,6 +6,107 @@
  "title_en": "Gauguin, My Friend",
  "title_ko": "고갱과 함께",
  "original": "fr",
+ "grammar": [
+  {
+   "id": "IV.0",
+   "fr": {
+    "name": {
+     "ko": "aller + 동사원형",
+     "en": "aller + infinitive (near future)"
+    },
+    "hint": {
+     "ko": "곧 할 일을 말해요 · je vais attendre",
+     "en": "Say what you're about to do · je vais attendre"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "be going to",
+     "en": "be going to"
+    },
+    "hint": {
+     "ko": "하려는 일을 말해요 · I'm going to wait",
+     "en": "Talk about plans · I'm going to wait"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄹ게요",
+     "en": "-(으)ㄹ게요 (I will, promise)"
+    },
+    "hint": {
+     "ko": "내가 하겠다고 약속해요 · 기다릴게요, 이야기할게요",
+     "en": "Promise what you'll do · 기다릴게요, 이야기할게요"
+    }
+   }
+  },
+  {
+   "id": "IV.1",
+   "fr": {
+    "name": {
+     "ko": "parce que · pour",
+     "en": "parce que · pour"
+    },
+    "hint": {
+     "ko": "이유는 parce que, 목적은 pour + 동사원형",
+     "en": "parce que gives a reason, pour + infinitive a purpose"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "because · so",
+     "en": "because · so"
+    },
+    "hint": {
+     "ko": "이유와 결과를 이어요 · because …, so …",
+     "en": "Link reasons and results · because …, so …"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄹ 거예요",
+     "en": "-(으)ㄹ 거예요 (will · probably)"
+    },
+    "hint": {
+     "ko": "앞날이나 짐작을 말해요 · 잘 거예요, 피곤할 거예요",
+     "en": "Say what will or must be · 잘 거예요, 피곤할 거예요"
+    }
+   }
+  },
+  {
+   "id": "IV.2",
+   "fr": {
+    "name": {
+     "ko": "단순미래",
+     "en": "Simple future (futur simple)"
+    },
+    "hint": {
+     "ko": "앞날을 말해요 · je verrai, nous attendrons",
+     "en": "Talk about the future · je verrai, nous attendrons"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "will",
+     "en": "will"
+    },
+    "hint": {
+     "ko": "앞날을 말해요 · I will see, we will wait",
+     "en": "Talk about the future · I will see, we will wait"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄹ까요?",
+     "en": "-(으)ㄹ까요? (shall we · will it?)"
+    },
+    "hint": {
+     "ko": "함께 하자고 하거나 궁금해해요 · 기다릴까요? 볼 수 있을까요?",
+     "en": "Suggest or wonder · 기다릴까요? 볼 수 있을까요?"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c4-l1",
@@ -186,12 +287,105 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Salue bien Gauguin de ma part.",
-    "en": "Give Gauguin my regards.",
-    "ko": "고갱에게 내 안부 전해 줘, 형.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "IV.0",
+     "fr": "Gauguin est avec toi ! Je ne vais plus trop m'inquiéter.",
+     "en": "Gauguin is with you! I'm not going to worry so much now.",
+     "ko": "고갱이 형 곁에 왔어요! 이제 너무 걱정 안 할게요.",
+     "koLow": "고갱이 형 곁에 왔어! 이제 너무 걱정 안 할게.",
+     "koHigh": "고갱이 형님 곁에 왔습니다! 이제 너무 걱정하지 않겠습니다.",
+     "focus": {
+      "fr": [
+       "vais",
+       "m'inquiéter"
+      ],
+      "en": [
+       "going to worry"
+      ],
+      "ko": [
+       "안 할게요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "vas",
+        "va"
+       ],
+       [
+        "m'inquiète",
+        "m'inquiété"
+       ]
+      ],
+      "en": [
+       [
+        "going to worrying",
+        "go to worry"
+       ]
+      ],
+      "ko": [
+       [
+        "안 할께요",
+        "안 하을게요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "III.0",
+     "fr": "Tu as trouvé un vrai ami ; ta lettre m'a rendu heureux.",
+     "en": "You found a real friend, and your letter made me happy.",
+     "ko": "형이 좋은 친구를 만나서 정말 기뻤어요.",
+     "koLow": "형이 좋은 친구를 만나서 정말 기뻤어.",
+     "koHigh": "형님이 좋은 친구를 만나셔서 정말 기뻤습니다.",
+     "focus": {
+      "fr": [
+       "as trouvé",
+       "m'a rendu"
+      ],
+      "en": [
+       "found",
+       "made"
+      ],
+      "ko": [
+       "만나서"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "es trouvé",
+        "as trouver"
+       ],
+       [
+        "m'est rendu",
+        "m'a rendre"
+       ]
+      ],
+      "en": [
+       [
+        "finded",
+        "finding"
+       ],
+       [
+        "maked",
+        "making"
+       ]
+      ],
+      "ko": [
+       [
+        "만나아서",
+        "만너서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -393,12 +587,90 @@
      }
     ]
    },
-   "reply": {
-    "fr": "J'ai hâte de voir le semeur.",
-    "en": "I can't wait to see the sower.",
-    "ko": "새 씨 뿌리는 사람, 얼른 보고 싶어.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "IV.0",
+     "fr": "Je vais attendre ton nouveau semeur avec joie.",
+     "en": "I'm going to wait happily for your new sower.",
+     "ko": "새 씨 뿌리는 사람, 즐겁게 기다릴게요.",
+     "koLow": "새 씨 뿌리는 사람, 즐겁게 기다릴게.",
+     "koHigh": "새 씨 뿌리는 사람, 즐겁게 기다리겠습니다.",
+     "focus": {
+      "fr": [
+       "Je vais attendre"
+      ],
+      "en": [
+       "going to wait"
+      ],
+      "ko": [
+       "기다릴게요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Je vais attends",
+        "Je va attendre"
+       ]
+      ],
+      "en": [
+       [
+        "going to waiting",
+        "going wait"
+       ]
+      ],
+      "ko": [
+       [
+        "기다리을게요",
+        "기다릴께요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "II.0",
+     "fr": "Vous avez décidé de faire vos couleurs ? Explique-moi comment !",
+     "en": "You two decided to make your own paint? Tell me how!",
+     "ko": "물감을 직접 만들기로 했어요? 어떻게 하는지 알려 줘요.",
+     "koLow": "물감을 직접 만들기로 했어? 어떻게 하는지 알려 줘.",
+     "koHigh": "물감을 직접 만들기로 하셨습니까? 어떻게 하시는지 알려 주십시오.",
+     "focus": {
+      "fr": [
+       "Explique-moi"
+      ],
+      "en": [
+       "Tell me"
+      ],
+      "ko": [
+       "했어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Expliques-moi",
+        "Expliquer-moi"
+       ]
+      ],
+      "en": [
+       [
+        "Tells me",
+        "Telling me"
+       ]
+      ],
+      "ko": [
+       [
+        "하았어요",
+        "햇어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
@@ -605,12 +877,90 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Je voudrais voir cette vigne rouge.",
-    "en": "I'd like to see that red vineyard.",
-    "ko": "그 붉은 포도밭, 나도 보고 싶어.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "IV.0",
+     "fr": "Oui, je ne suis pas seul, et je vais souvent penser à vous deux.",
+     "en": "Yes, I'm not alone, and I'm going to think of you both often.",
+     "ko": "네, 저는 혼자가 아니에요. 두 사람을 자주 생각할게요.",
+     "koLow": "응, 나는 혼자가 아니야. 두 사람을 자주 생각할게.",
+     "koHigh": "네, 저는 혼자가 아닙니다. 두 분을 자주 생각하겠습니다.",
+     "focus": {
+      "fr": [
+       "vais souvent penser"
+      ],
+      "en": [
+       "going to think"
+      ],
+      "ko": [
+       "생각할게요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "vais souvent pense",
+        "va souvent penser"
+       ]
+      ],
+      "en": [
+       [
+        "going to thinking",
+        "going think"
+       ]
+      ],
+      "ko": [
+       [
+        "생각하을게요",
+        "생각할께요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "I.1",
+     "fr": "Tu aimes les feuilles d'automne ? Moi aussi, beaucoup.",
+     "en": "You love the autumn leaves? So do I, very much.",
+     "ko": "낙엽이 눈처럼 내리는 가을은 저도 참 좋아하는 계절이에요.",
+     "koLow": "낙엽이 눈처럼 내리는 가을은 나도 참 좋아하는 계절이야.",
+     "koHigh": "낙엽이 눈처럼 내리는 가을은 저도 참 좋아하는 계절입니다.",
+     "focus": {
+      "fr": [
+       "Moi aussi"
+      ],
+      "en": [
+       "So do I"
+      ],
+      "ko": [
+       "계절이에요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Moi non plus",
+        "Moi non"
+       ]
+      ],
+      "en": [
+       [
+        "So am I",
+        "Neither do I"
+       ]
+      ],
+      "ko": [
+       [
+        "계절예요",
+        "계절이예요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -814,12 +1164,90 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Embrasse le bébé Roulin pour moi.",
-    "en": "Give the Roulin baby a kiss for me.",
-    "ko": "룰랭네 아기, 나 대신 꼭 안아 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "IV.1",
+     "fr": "Tu dois bien dormir, parce que tu travailles toute la journée.",
+     "en": "You must sleep well, because you work all day.",
+     "ko": "하루 종일 일해서 밤엔 푹 잘 거예요.",
+     "koLow": "하루 종일 일해서 밤엔 푹 잘 거야.",
+     "koHigh": "하루 종일 일하셔서 밤엔 푹 주무실 겁니다.",
+     "focus": {
+      "fr": [
+       "parce que"
+      ],
+      "en": [
+       "because"
+      ],
+      "ko": [
+       "잘 거예요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "parce de",
+        "pour"
+       ]
+      ],
+      "en": [
+       [
+        "because of",
+        "due"
+       ]
+      ],
+      "ko": [
+       [
+        "잘 거이에요",
+        "자을 거예요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "IV.0",
+     "fr": "Je vais tenir avec toi, mon frère, jusqu'à la victoire.",
+     "en": "I'm going to hold out with you, brother, until victory.",
+     "ko": "저도 형이랑 같이 끝까지 버틸게요.",
+     "koLow": "나도 형이랑 같이 끝까지 버틸게.",
+     "koHigh": "저도 형님과 같이 끝까지 버티겠습니다.",
+     "focus": {
+      "fr": [
+       "Je vais tenir"
+      ],
+      "en": [
+       "going to hold out"
+      ],
+      "ko": [
+       "버틸게요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Je vais tiens",
+        "Je va tenir"
+       ]
+      ],
+      "en": [
+       [
+        "going to holding out",
+        "going hold out"
+       ]
+      ],
+      "ko": [
+       [
+        "버티을게요",
+        "버틸께요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -1040,12 +1468,90 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Envoie-moi un croquis de ta chaise.",
-    "en": "Send me a sketch of your chair.",
-    "ko": "형 의자, 스케치로 보내 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "IV.1",
+     "fr": "Garde bien tes études, parce qu'elles vont aider ta mémoire.",
+     "en": "Keep your studies safe, because they will help your memory.",
+     "ko": "습작들 잘 간직해요. 기억을 많이 도와줄 거예요.",
+     "koLow": "습작들 잘 간직해. 기억을 많이 도와줄 거야.",
+     "koHigh": "습작들 잘 간직하십시오. 기억을 많이 도와줄 겁니다.",
+     "focus": {
+      "fr": [
+       "parce qu'elles"
+      ],
+      "en": [
+       "because"
+      ],
+      "ko": [
+       "도와줄 거예요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "parce elles",
+        "pour qu'elles"
+       ]
+      ],
+      "en": [
+       [
+        "because of",
+        "due"
+       ]
+      ],
+      "ko": [
+       [
+        "도와주을 거예요",
+        "도와줄 거이에요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "III.2",
+     "fr": "Tu as déjà beaucoup avancé ; j'ai envie de voir la suite !",
+     "en": "You have already come far; I want to see what comes next!",
+     "ko": "형은 벌써 여기까지 왔어요. 다음 그림도 보고 싶어요.",
+     "koLow": "형은 벌써 여기까지 왔어. 다음 그림도 보고 싶어.",
+     "koHigh": "형님은 벌써 여기까지 오셨습니다. 다음 그림도 보고 싶습니다.",
+     "focus": {
+      "fr": [
+       "déjà"
+      ],
+      "en": [
+       "already"
+      ],
+      "ko": [
+       "보고 싶어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "il y a",
+        "demain"
+       ]
+      ],
+      "en": [
+       [
+        "ago",
+        "yet"
+       ]
+      ],
+      "ko": [
+       [
+        "보고 싶아요",
+        "볼고 싶어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 3,
@@ -1222,12 +1728,90 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Je voudrais voir ce portrait.",
-    "en": "I'd love to see that portrait.",
-    "ko": "그 초상화, 나도 보고 싶어.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "IV.2",
+     "fr": "Est-ce que je verrai ce portrait, moi aussi, un jour ?",
+     "en": "Will I see that portrait one day too?",
+     "ko": "저도 언젠가 그 초상화를 볼 수 있을까요?",
+     "koLow": "나도 언젠가 그 초상화를 볼 수 있을까?",
+     "koHigh": "저도 언젠가 그 초상화를 볼 수 있겠습니까?",
+     "focus": {
+      "fr": [
+       "verrai"
+      ],
+      "en": [
+       "Will I see"
+      ],
+      "ko": [
+       "볼 수 있을까요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "voirai",
+        "verra"
+       ]
+      ],
+      "en": [
+       [
+        "Will I saw",
+        "Will I seeing"
+       ]
+      ],
+      "ko": [
+       [
+        "볼 수 있을가요",
+        "보을 수 있을까요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "IV.1",
+     "fr": "Repose-toi un peu, parce que ta tête doit être fatiguée.",
+     "en": "Rest a little, because your head must be very tired.",
+     "ko": "좀 쉬어요. 머리가 많이 피곤할 거예요.",
+     "koLow": "좀 쉬어. 머리가 많이 피곤할 거야.",
+     "koHigh": "좀 쉬십시오. 머리가 많이 피곤하실 겁니다.",
+     "focus": {
+      "fr": [
+       "parce que"
+      ],
+      "en": [
+       "because"
+      ],
+      "ko": [
+       "피곤할 거예요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "parce de",
+        "pour"
+       ]
+      ],
+      "en": [
+       [
+        "because of",
+        "due"
+       ]
+      ],
+      "ko": [
+       [
+        "피곤하을 거예요",
+        "피곤할 거이에요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -1411,12 +1995,90 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Courage, mon frère, je suis là.",
-    "en": "Courage, brother, I'm here.",
-    "ko": "힘내, 형. 내가 있잖아.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "IV.2",
+     "fr": "Alors nous attendrons ensemble, calmement, la décision de Gauguin.",
+     "en": "Then we will wait together, calmly, for Gauguin's decision.",
+     "ko": "그럼 우리 함께 고갱의 결정을 차분히 기다릴까요?",
+     "koLow": "그럼 우리 함께 고갱의 결정을 차분히 기다릴까?",
+     "koHigh": "그럼 우리 함께 고갱의 결정을 차분히 기다리는 게 어떻겠습니까?",
+     "focus": {
+      "fr": [
+       "attendrons"
+      ],
+      "en": [
+       "will wait"
+      ],
+      "ko": [
+       "기다릴까요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "attenderons",
+        "attendrez"
+       ]
+      ],
+      "en": [
+       [
+        "will waiting",
+        "will waits"
+       ]
+      ],
+      "ko": [
+       [
+        "기다리을까요",
+        "기다릴가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "II.2",
+     "fr": "Il y a des difficultés, mais il y a aussi ton courage.",
+     "en": "There are difficulties, but there is also your courage.",
+     "ko": "어려움은 있지만 형에게는 용기도 있어요.",
+     "koLow": "어려움은 있지만 형에게는 용기도 있어.",
+     "koHigh": "어려움은 있지만 형님께는 용기도 있습니다.",
+     "focus": {
+      "fr": [
+       "Il y a des difficultés"
+      ],
+      "en": [
+       "There are"
+      ],
+      "ko": [
+       "있지만"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Il y a de les difficultés",
+        "Il y ont des difficultés"
+       ]
+      ],
+      "en": [
+       [
+        "There is",
+        "There be"
+       ]
+      ],
+      "ko": [
+       [
+        "있어지만",
+        "있지마"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,

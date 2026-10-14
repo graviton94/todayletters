@@ -6,6 +6,107 @@
  "title_en": "Munich · Idomeneo",
  "title_ko": "뮌헨 · 이도메네오",
  "original": "de",
+ "grammar": [
+  {
+   "id": "IV.0",
+   "de": {
+    "name": {
+     "ko": "분리동사",
+     "en": "Separable verbs"
+    },
+    "hint": {
+     "ko": "앞토막이 문장 끝으로 가요 · teile … mit",
+     "en": "The prefix moves to the end · teile … mit"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "be going to",
+     "en": "Be going to"
+    },
+    "hint": {
+     "ko": "곧 할 일을 말해요 · I am going to tell you",
+     "en": "Say what you plan to do · I am going to tell you"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄹ게요",
+     "en": "Promise: -(으)ㄹ게요"
+    },
+    "hint": {
+     "ko": "내가 하겠다고 약속해요 · 알려 줄게요",
+     "en": "Promise to do something · 알려 줄게요"
+    }
+   }
+  },
+  {
+   "id": "IV.1",
+   "de": {
+    "name": {
+     "ko": "3격 mir · dir",
+     "en": "Dative: mir · dir"
+    },
+    "hint": {
+     "ko": "나에게 · 너에게 · gefällt mir, dankt dir",
+     "en": "To me · to you · gefällt mir, dankt dir"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "because · so",
+     "en": "Because · so"
+    },
+    "hint": {
+     "ko": "이유와 결과를 이어요 · so I am not worried",
+     "en": "Join reason and result · so I am not worried"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄹ 거예요",
+     "en": "Future: -(으)ㄹ 거예요"
+    },
+    "hint": {
+     "ko": "앞일 · 짐작을 말해요 · 좋아할 거예요",
+     "en": "Talk about what will happen · 좋아할 거예요"
+    }
+   }
+  },
+  {
+   "id": "IV.2",
+   "de": {
+    "name": {
+     "ko": "werden 미래",
+     "en": "Future with werden"
+    },
+    "hint": {
+     "ko": "werden + 동사원형(끝) · Ich werde … vergessen",
+     "en": "werden + infinitive at the end · Ich werde … vergessen"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "will",
+     "en": "Will"
+    },
+    "hint": {
+     "ko": "앞일 · 약속을 말해요 · I will not forget",
+     "en": "Future and promises · I will not forget"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄹ까요?",
+     "en": "Asking: -(으)ㄹ까요?"
+    },
+    "hint": {
+     "ko": "묻거나 제안해요 · 가져갈까요?",
+     "en": "Ask or suggest · 가져갈까요?"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c4-l1",
@@ -143,12 +244,100 @@
     "en": "The photograph shows the Munich court theatre (the Cuvilliés-Theater), where Idomeneo opened, photographed in 2017 after its post-war rebuilding. In early November 1780 Wolfgang came from Salzburg to Munich to finish Idomeneo, commissioned for the Munich carnival. The librettist, Abbate Varesco, stayed in Salzburg, so every change had to go through his father. Mannheim musicians such as Cannabich had followed the Elector to Munich, where Count Seeau ran the court theatre.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 126 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Gut, daß du heil angekommen bist.",
-    "en": "Good that you arrived safe and sound.",
-    "ko": "무사히 도착했다니 다행이구나.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "IV.0",
+     "de": "Das Wetter in Salzburg? Ich teile es dir im nächsten Brief mit.",
+     "en": "The weather in Salzburg? I am going to tell you in my next letter.",
+     "ko": "잘츠부르크 날씨요? 다음 편지에 꼭 알려 줄게요.",
+     "koLow": "잘츠부르크 날씨? 다음 편지에 꼭 알려 줄게.",
+     "koHigh": "잘츠부르크 날씨 말입니까? 다음 편지에 꼭 알려 드리겠습니다.",
+     "focus": {
+      "de": [
+       "teile",
+       "mit"
+      ],
+      "en": [
+       "am going to tell"
+      ],
+      "ko": [
+       "알려 줄게요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "mitteile",
+        "teilst"
+       ],
+       [
+        "an",
+        "vor"
+       ]
+      ],
+      "en": [
+       [
+        "am going to telling",
+        "am go to tell"
+       ]
+      ],
+      "ko": [
+       [
+        "알려 주을게요",
+        "알려 줄께요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "III.1",
+     "de": "Du bist gleich am nächsten Morgen zu Seeau gegangen. Mach weiter so!",
+     "en": "You went to Seeau the very next morning. Keep doing that!",
+     "ko": "다음 날 아침 바로 갔다니 잘했어요. 앞으로도 그렇게 만나러 가요.",
+     "koLow": "다음 날 아침 바로 갔다니 잘했어. 앞으로도 그렇게 만나러 가.",
+     "koHigh": "다음 날 아침 바로 가셨다니 잘하셨습니다. 앞으로도 그렇게 만나러 가십시오.",
+     "focus": {
+      "de": [
+       "bist",
+       "gegangen"
+      ],
+      "en": [
+       "went"
+      ],
+      "ko": [
+       "만나러 가요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "hast",
+        "bin"
+       ],
+       [
+        "gegeht",
+        "gingen"
+       ]
+      ],
+      "en": [
+       [
+        "goed",
+        "gone"
+       ]
+      ],
+      "ko": [
+       [
+        "만나으러 가요",
+        "만나러고 가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,
@@ -387,12 +576,90 @@
     "en": "Anton Raaff, the veteran tenor who created the title role of Idomeneo, had befriended Wolfgang in Mannheim and Paris in 1777–78. Here Wolfgang reshapes the part to suit the old singer's voice. 'Fuor del mar' in Act II is the opera's great storm-tossed bravura aria.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 128 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ehre sein graues Haar, mein Sohn.",
-    "en": "Honour his grey hair, my son.",
-    "ko": "그 흰머리를 존중하거라, 아들아.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "IV.0",
+     "de": "Deine Musik kommt bei Raaff gut an! Ich warte auf mehr Nachrichten.",
+     "en": "Raaff likes your music! I am going to wait for more news.",
+     "ko": "라프가 흡족해했다니 기뻐요. 다음 소식도 기다릴게요.",
+     "koLow": "라프가 흡족해했다니 기뻐. 다음 소식도 기다릴게.",
+     "koHigh": "라프가 흡족해했다니 기쁩니다. 다음 소식도 기다리겠습니다.",
+     "focus": {
+      "de": [
+       "kommt bei Raaff gut an"
+      ],
+      "en": [
+       "am going to wait"
+      ],
+      "ko": [
+       "기다릴게요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "ankommt bei Raaff gut",
+        "kommt bei Raaff gut"
+       ]
+      ],
+      "en": [
+       [
+        "am going to waiting",
+        "am go to wait"
+       ]
+      ],
+      "ko": [
+       [
+        "기다리을게요",
+        "기다릴께요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 0,
+     "grammar": "II.0",
+     "de": "Gut gedacht! Einem alten Sänger muss man etwas entgegenkommen.",
+     "en": "Good thinking! Show an old singer some respect.",
+     "ko": "잘 생각했어요! 나이 든 가수는 좀 맞춰 줘야지요.",
+     "koLow": "잘 생각했어! 나이 든 가수는 좀 맞춰 줘야지.",
+     "koHigh": "잘 생각하셨습니다! 나이 든 가수는 좀 맞춰 드려야 합니다.",
+     "focus": {
+      "de": [
+       "muss"
+      ],
+      "en": [
+       "Show"
+      ],
+      "ko": [
+       "생각했어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "müssen",
+        "musst"
+       ]
+      ],
+      "en": [
+       [
+        "Shows",
+        "Showing"
+       ]
+      ],
+      "ko": [
+       [
+        "생각하았어요",
+        "생각햇어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,
@@ -604,12 +871,95 @@
     "en": "The oboe pictured stands in for the oboist Ramm; it is not his own instrument. This was the first rehearsal of Act I of Idomeneo with orchestra: only six violins, but all the wind instruments. The oboist Friedrich Ramm had been Wolfgang's friend since Mannheim; early in 1781 in Munich Wolfgang wrote the Oboe Quartet in F, K. 370, for him.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 131 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ich bin so stolz auf dich, mein Sohn.",
-    "en": "I am so proud of you, my son.",
-    "ko": "네가 정말 자랑스럽구나, 아들아.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "IV.0",
+     "de": "Fünfzig Mal? Ich stelle mir die Freude schon jetzt vor!",
+     "en": "Fifty times? Then I am going to imagine that joy right now!",
+     "ko": "쉰 번이나요? 그 기쁨을 미리 상상해 볼게요.",
+     "koLow": "쉰 번이나? 그 기쁨을 미리 상상해 볼게.",
+     "koHigh": "쉰 번이나 말입니까? 그 기쁨을 미리 상상해 보겠습니다.",
+     "focus": {
+      "de": [
+       "stelle",
+       "vor"
+      ],
+      "en": [
+       "am going to imagine"
+      ],
+      "ko": [
+       "상상해 볼게요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "vorstelle",
+        "stellst"
+       ],
+       [
+        "fort",
+        "vorn"
+       ]
+      ],
+      "en": [
+       [
+        "am going to imagining",
+        "am go to imagine"
+       ]
+      ],
+      "ko": [
+       [
+        "상상해 보을게요",
+        "상상해 볼께요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "III.2",
+     "de": "Raaff singt die Arie schon am Morgen? Die will ich auch hören!",
+     "en": "He already sings it in the morning? I want to hear it too!",
+     "ko": "아침에 눈뜨자마자 부른다니, 아버지도 듣고 싶어요!",
+     "koLow": "아침에 눈뜨자마자 부른다니, 나도 듣고 싶어!",
+     "koHigh": "아침에 눈뜨자마자 부른다니, 저도 듣고 싶습니다!",
+     "focus": {
+      "de": [
+       "schon"
+      ],
+      "en": [
+       "already"
+      ],
+      "ko": [
+       "듣고 싶어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "gestern",
+        "morgen"
+       ]
+      ],
+      "en": [
+       [
+        "ago",
+        "yet"
+       ]
+      ],
+      "ko": [
+       [
+        "듣고 싶아요",
+        "듣으고 싶어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -835,12 +1185,95 @@
     "en": "The picture is the Mozart family portrait painted in Salzburg around this time; Wolfgang wears no order. In 1770, aged fourteen, Wolfgang had been made a Knight of the Golden Spur by the Pope in Rome; here he turns the 'spur' into a joke against a teasing visitor. At the end he admits that the court of Archbishop Colloredo in Salzburg grows more intolerable every day, and that he stays only for his father's sake.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 134 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Wir kommen bald und hören deine Oper.",
-    "en": "We are coming soon to hear your opera.",
-    "ko": "곧 가서 네 오페라를 들으마.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "IV.1",
+     "de": "Deine Antwort gefällt mir, also mache ich mir keine Sorgen.",
+     "en": "I like your answer, so I am not worried.",
+     "ko": "그 대답이 마음에 들어요. 이제 걱정 안 할 거예요.",
+     "koLow": "그 대답이 마음에 들어. 이제 걱정 안 할 거야.",
+     "koHigh": "그 대답이 마음에 듭니다. 이제 걱정 안 할 겁니다.",
+     "focus": {
+      "de": [
+       "gefällt mir"
+      ],
+      "en": [
+       "so I am not worried"
+      ],
+      "ko": [
+       "안 할 거예요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "gefällt mich",
+        "gefalle mir"
+       ]
+      ],
+      "en": [
+       [
+        "so I am not worry",
+        "so am I not worried"
+       ]
+      ],
+      "ko": [
+       [
+        "안 하을 거예요",
+        "안 할 거이에요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "IV.0",
+     "de": "Danke für die Einladung! Ich denke über deine Worte nach.",
+     "en": "Thank you for the invitation! I'm going to think about your words.",
+     "ko": "초대 고마워요. 볼프강 말은 곰곰이 생각해 볼게요.",
+     "koLow": "초대 고마워. 네 말은 곰곰이 생각해 볼게.",
+     "koHigh": "초대 고맙습니다. 볼프강의 말은 곰곰이 생각해 보겠습니다.",
+     "focus": {
+      "de": [
+       "denke",
+       "nach"
+      ],
+      "en": [
+       "going to think"
+      ],
+      "ko": [
+       "생각해 볼게요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "nachdenke",
+        "denkst"
+       ],
+       [
+        "vor",
+        "an"
+       ]
+      ],
+      "en": [
+       [
+        "going to thinking",
+        "going think"
+       ]
+      ],
+      "ko": [
+       [
+        "생각해 보을게요",
+        "생각해 볼께요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,
@@ -1071,12 +1504,95 @@
     "en": "Elector Karl Theodor had moved his court from Mannheim to Munich when he inherited Bavaria in 1778, and it was he who commissioned Idomeneo. At this rehearsal in a large room at court he heard Act I, then the concerted aria and the storm at the start of Act II. In the aria's text, 'mare' means sea and 'minacciar' to threaten.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 136 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Bravo, mein Sohn! Der Kurfürst hat recht.",
-    "en": "Bravo, my son! The Elector is right.",
-    "ko": "브라보, 아들아! 선제후 말씀이 옳구나.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "IV.1",
+     "de": "Diese Worte gefallen mir, und sie sind wahr. Ich gratuliere dir!",
+     "en": "Those words are true, so everyone will agree. Congratulations, my son!",
+     "ko": "그 말씀이 맞아요. 다들 그렇게 생각할 거예요. 진심으로 축하해요!",
+     "koLow": "그 말씀이 맞아. 다들 그렇게 생각할 거야. 진심으로 축하해!",
+     "koHigh": "그 말씀이 맞습니다. 다들 그렇게 생각할 겁니다. 진심으로 축하합니다!",
+     "focus": {
+      "de": [
+       "gefallen mir",
+       "gratuliere dir"
+      ],
+      "en": [
+       "so everyone"
+      ],
+      "ko": [
+       "생각할 거예요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "gefallen mich",
+        "gefällt mir"
+       ],
+       [
+        "gratuliere dich",
+        "gratulierst dir"
+       ]
+      ],
+      "en": [
+       [
+        "such everyone",
+        "so as everyone"
+       ]
+      ],
+      "ko": [
+       [
+        "생각하을 거예요",
+        "생각할 거이에요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "I.1",
+     "de": "Raaff und seine alten Gewohnheiten! Wer kann da ernst bleiben?",
+     "en": "You smile at Raaff's old habits? So do I!",
+     "ko": "라프의 옛 습관이라니, 정말 웃음이 나는 이야기예요.",
+     "koLow": "라프의 옛 습관이라니, 정말 웃음이 나는 이야기야.",
+     "koHigh": "라프의 옛 습관이라니, 정말 웃음이 나는 이야기입니다.",
+     "focus": {
+      "de": [
+       "Wer kann"
+      ],
+      "en": [
+       "So do I"
+      ],
+      "ko": [
+       "이야기예요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Wer kannst",
+        "Wen kann"
+       ]
+      ],
+      "en": [
+       [
+        "So am I",
+        "Neither do I"
+       ]
+      ],
+      "ko": [
+       [
+        "이야기에요",
+        "이야기이예요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -1319,12 +1835,105 @@
     "en": "The image is a page of the Idomeneo autograph, though not the underground-voice scene described in the letter. In Act III of Idomeneo an oracle's voice sounds from underground and decides the king's fate; Wolfgang gives it only three trombones and two horns, with the rest of the orchestra silent. He also wrote the quiet march for the king's entry into the temple. The premiere took place in Munich on 29 January 1781.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 138 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Wir bringen die schwarzen Kleider mit.",
-    "en": "We'll bring the black clothes along.",
-    "ko": "검은 옷 챙겨 가마.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "IV.2",
+     "de": "Keine Sorge, du wirst schon kein dritter Akt werden!",
+     "en": "Don't worry, you will not become a third act!",
+     "ko": "설마 3막이 되기야 할까요? 너무 걱정 말아요.",
+     "koLow": "설마 3막이 되기야 할까? 너무 걱정 마.",
+     "koHigh": "설마 3막이 되기야 하겠습니까? 너무 걱정하지 마십시오.",
+     "focus": {
+      "de": [
+       "wirst",
+       "werden"
+      ],
+      "en": [
+       "will not become"
+      ],
+      "ko": [
+       "할까요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "wird",
+        "werdest"
+       ],
+       [
+        "wirst",
+        "worden"
+       ]
+      ],
+      "en": [
+       [
+        "will not becomes",
+        "will not became"
+       ]
+      ],
+      "ko": [
+       [
+        "하을까요",
+        "할가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "III.0",
+     "de": "Du hast die Schrift endlich gefunden! Da habe ich laut gelacht.",
+     "en": "You finally found the writing! I laughed out loud at that.",
+     "ko": "글씨를 찾아서 다행이에요! 그 대목에서 크게 웃었어요.",
+     "koLow": "글씨를 찾아서 다행이야! 그 대목에서 크게 웃었어.",
+     "koHigh": "글씨를 찾아서 다행입니다! 그 대목에서 크게 웃었습니다.",
+     "focus": {
+      "de": [
+       "gefunden",
+       "gelacht"
+      ],
+      "en": [
+       "found",
+       "laughed"
+      ],
+      "ko": [
+       "찾아서"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "gefindet",
+        "finden"
+       ],
+       [
+        "gelachen",
+        "lachte"
+       ]
+      ],
+      "en": [
+       [
+        "finded",
+        "finding"
+       ],
+       [
+        "laughs",
+        "laughing"
+       ]
+      ],
+      "ko": [
+       [
+        "찾어서",
+        "찾으서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
@@ -1556,12 +2165,95 @@
     "en": "This is his last letter before his father and sister arrived in Munich on 25 January; Idomeneo had its premiere a few days later, on 29 January 1781. The 'confounded dances' are the ballet music (K. 367) that closes the opera. Because the work ran too long, arias for Idamante and for Raaff were cut.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 140 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Deine kleine Uhr ist schon eingepackt.",
-    "en": "Your little watch is already packed.",
-    "ko": "네 작은 시계, 벌써 챙겨 두었다.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "IV.2",
+     "de": "Deine kleine Uhr? Wird man sie in Augsburg richtig reparieren?",
+     "en": "Your little watch? Will they fix it properly in Augsburg?",
+     "ko": "작은 시계요? 아우크스부르크에서 잘 고쳐 줄까요?",
+     "koLow": "작은 시계? 아우크스부르크에서 잘 고쳐 줄까?",
+     "koHigh": "작은 시계 말입니까? 아우크스부르크에서 잘 고쳐 주겠습니까?",
+     "focus": {
+      "de": [
+       "Wird",
+       "reparieren"
+      ],
+      "en": [
+       "Will they fix"
+      ],
+      "ko": [
+       "고쳐 줄까요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Werden",
+        "Wirst"
+       ],
+       [
+        "repariert",
+        "reparierst"
+       ]
+      ],
+      "en": [
+       [
+        "Will they fixed",
+        "Will they fixing"
+       ]
+      ],
+      "ko": [
+       [
+        "고쳐 주을까요",
+        "고쳐 줄가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "IV.1",
+     "de": "Zu lang? Dann kürze den Text, das Publikum dankt dir.",
+     "en": "Too long? Then cut the text, so the audience will be happier.",
+     "ko": "너무 길면 대본을 줄여요. 관객이 더 좋아할 거예요.",
+     "koLow": "너무 길면 대본을 줄여. 관객이 더 좋아할 거야.",
+     "koHigh": "너무 길면 대본을 줄이십시오. 관객이 더 좋아할 겁니다.",
+     "focus": {
+      "de": [
+       "dankt dir"
+      ],
+      "en": [
+       "so the audience"
+      ],
+      "ko": [
+       "좋아할 거예요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "dankt dich",
+        "danke dir"
+       ]
+      ],
+      "en": [
+       [
+        "such the audience",
+        "so as the audience"
+       ]
+      ],
+      "ko": [
+       [
+        "좋아하을 거예요",
+        "좋아할 거이에요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,

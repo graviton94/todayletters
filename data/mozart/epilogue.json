@@ -6,6 +6,7 @@
  "title_en": "Epilogue",
  "title_ko": "맺음말",
  "original": "de",
+ "grammar": [],
  "letters": [
   {
    "id": "e1",
@@ -130,7 +131,147 @@
       "quote": 1
      }
     ]
-   }
+   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "VIII.0",
+     "de": "Wenn es nur schon morgen wäre! Ich kann es kaum erwarten, dich zu umarmen.",
+     "en": "I wish it were already tomorrow; I can hardly wait to hold you.",
+     "ko": "내일이 어서 오기를 바라요. 당신을 안을 날이 너무 기다려져요.",
+     "koLow": "내일이 어서 오기를 바라. 당신을 안을 날이 너무 기다려져.",
+     "koHigh": "내일이 어서 오기를 바랍니다. 당신을 안을 날이 너무 기다려집니다.",
+     "focus": {
+      "de": [
+       "Wenn es nur",
+       "morgen wäre"
+      ],
+      "en": [
+       "I wish",
+       "were already tomorrow"
+      ],
+      "ko": [
+       "오기를 바라요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Wann es nur",
+        "Als es nur"
+       ],
+       [
+        "morgen ist",
+        "morgen war"
+       ]
+      ],
+      "en": [
+       [
+        "I wishes",
+        "I wishing"
+       ],
+       [
+        "is already tomorrow",
+        "will already be tomorrow"
+       ]
+      ],
+      "ko": [
+       [
+        "오기를 바래요",
+        "올 바라요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "VIII.1",
+     "de": "Obwohl ich nicht dabei war, höre ich die Bravos fast selbst.",
+     "en": "I wasn't there, but I almost hear the bravos; I hope that you enjoyed them.",
+     "ko": "거기 없었어도 '브라보' 소리가 들리는 것 같아요.",
+     "koLow": "거기 없었어도 '브라보' 소리가 들리는 것 같아.",
+     "koHigh": "그 자리에 없었어도 '브라보' 소리가 들리는 것 같습니다.",
+     "focus": {
+      "de": [
+       "Obwohl",
+       "dabei war"
+      ],
+      "en": [
+       "I hope that"
+      ],
+      "ko": [
+       "없었어도"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Trotz",
+        "Obwohl dass"
+       ],
+       [
+        "war dabei",
+        "dabei waren"
+       ]
+      ],
+      "en": [
+       [
+        "I hope what",
+        "I hopes that"
+       ]
+      ],
+      "ko": [
+       [
+        "없었아도",
+        "없었도"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 0,
+     "grammar": "VII.2",
+     "de": "Wie schön zu hören, dass ihnen Musik und Text gefallen haben!",
+     "en": "I'm so glad that they liked everything, the music and the libretto.",
+     "ko": "음악도 대본도 마음에 들어 했다니, 모두가 오래 사랑했으면 좋겠어요.",
+     "koLow": "음악도 대본도 마음에 들어 했다니, 모두가 오래 사랑했으면 좋겠어.",
+     "koHigh": "음악도 대본도 마음에 들어 했다니, 모두가 오래 사랑했으면 좋겠습니다.",
+     "focus": {
+      "de": [
+       "zu hören"
+      ],
+      "en": [
+       "that they liked"
+      ],
+      "ko": [
+       "사랑했으면 좋겠어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "hören",
+        "zu gehört"
+       ]
+      ],
+      "en": [
+       [
+        "what they liked",
+        "that they likes"
+       ]
+      ],
+      "ko": [
+       [
+        "사랑했으면 좋겠아요",
+        "사랑했면 좋겠어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ]
   }
  ]
 }

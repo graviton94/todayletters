@@ -6,6 +6,107 @@
  "title_en": "Vienna · Break with the Archbishop",
  "title_ko": "빈 · 대주교와의 결별",
  "original": "de",
+ "grammar": [
+  {
+   "id": "V.0",
+   "de": {
+    "name": {
+     "ko": "weil (이유 · 동사는 끝으로)",
+     "en": "weil (because, verb last)"
+    },
+    "hint": {
+     "ko": "이유를 말해요 · weil 뒤에서는 동사가 맨 끝으로 가요",
+     "en": "Give a reason · after weil the verb goes to the end"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "과거진행형",
+     "en": "Past continuous"
+    },
+    "hint": {
+     "ko": "그때 하고 있던 일을 말해요 · was/were + -ing",
+     "en": "Say what was going on · was/were + -ing"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)면",
+     "en": "-(으)면 (if / whenever)"
+    },
+    "hint": {
+     "ko": "조건이나 때를 말해요 · 생각하면, 읽으면",
+     "en": "Say 'if' or 'whenever' · 생각하면, 읽으면"
+    }
+   }
+  },
+  {
+   "id": "V.1",
+   "de": {
+    "name": {
+     "ko": "dass (~라는 것)",
+     "en": "dass (that)"
+    },
+    "hint": {
+     "ko": "생각 · 말 · 느낌을 이어요 · dass 뒤에서도 동사가 끝으로",
+     "en": "Link a thought or feeling · after dass the verb goes last"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "used to",
+     "en": "used to"
+    },
+    "hint": {
+     "ko": "예전에 늘 그랬던 일 · used to + 동사원형",
+     "en": "What was true or usual before · used to + base verb"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)니까",
+     "en": "-(으)니까 (since / so)"
+    },
+    "hint": {
+     "ko": "이유를 말해요 · 깊으니까, 썼으니까",
+     "en": "Give a reason · 깊으니까, 썼으니까"
+    }
+   }
+  },
+  {
+   "id": "V.2",
+   "de": {
+    "name": {
+     "ko": "wenn · als (~할 때)",
+     "en": "wenn · als (when)"
+    },
+    "hint": {
+     "ko": "때를 말해요 · 지난 한 번은 als, 되풀이 · 조건은 wenn (동사는 끝으로)",
+     "en": "Say when · als for one past event, wenn for repeated or 'if' (verb last)"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "현재완료",
+     "en": "Present perfect"
+    },
+    "hint": {
+     "ko": "지금까지 이어진 일 · have/has + 과거분사",
+     "en": "Up to now · have/has + past participle"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-기 때문에",
+     "en": "-기 때문에 (because)"
+    },
+    "hint": {
+     "ko": "이유를 또렷하게 말해요 · 좋기 때문에",
+     "en": "State a reason clearly · 좋기 때문에"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c5-l1",
@@ -142,12 +243,110 @@
     "en": "A view of the Singerstrasse painted more than a century later, in the early 1900s. On 16 March 1781 Mozart arrived in Vienna from Munich, summoned by Archbishop Colloredo. The Archbishop's household lodged at the Deutsches Haus in the Singerstrasse, and Mozart had a room there too, but at table he sat below the valets and above the cooks. He wrote this letter in the Mesmers' garden on the Landstrasse.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 141 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Halte aus, mein Sohn, und sei klug.",
-    "en": "Hold out, my son, and be wise.",
-    "ko": "잘 견디거라, 아들아. 그리고 지혜롭게.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "V.0",
+     "de": "Du hast geschwiegen, weil die Witze so grob waren – das verstehe ich gut.",
+     "en": "While they were joking, you were sitting quietly, and I understand why.",
+     "ko": "식탁에서 농담이 거칠면 말을 안 하는 게 나아요. 그 마음 잘 알아요.",
+     "koLow": "식탁에서 농담이 거칠면 말을 안 하는 게 나아. 그 마음 잘 알아.",
+     "koHigh": "식탁에서 농담이 거칠면 말씀을 안 하시는 게 낫습니다. 그 마음 잘 압니다.",
+     "focus": {
+      "de": [
+       "weil",
+       "grob waren"
+      ],
+      "en": [
+       "were joking",
+       "were sitting"
+      ],
+      "ko": [
+       "거칠면"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "denn weil",
+        "weil dass"
+       ],
+       [
+        "waren grob",
+        "grob war"
+       ]
+      ],
+      "en": [
+       [
+        "was joking",
+        "were joke"
+       ],
+       [
+        "was sitting",
+        "were sit"
+       ]
+      ],
+      "ko": [
+       [
+        "거칠으면",
+        "거칠어면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "III.0",
+     "de": "Du hast die Fischers besucht und ihnen Freude gemacht; das hat mich auch gefreut.",
+     "en": "You visited the Fischers and gave them joy; that made me glad too.",
+     "ko": "피셔 씨 댁에 찾아가서 기쁘게 해 드렸다니, 아버지도 기뻐요.",
+     "koLow": "피셔 씨 댁에 찾아가서 기쁘게 해 드렸다니, 나도 기뻐.",
+     "koHigh": "피셔 씨 댁에 찾아가서 기쁘게 해 드렸다니, 저도 기쁩니다.",
+     "focus": {
+      "de": [
+       "besucht",
+       "gemacht"
+      ],
+      "en": [
+       "visited",
+       "made"
+      ],
+      "ko": [
+       "찾아가서"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "gebesucht",
+        "besuchen"
+       ],
+       [
+        "gemachen",
+        "macht"
+       ]
+      ],
+      "en": [
+       [
+        "visits",
+        "visiting"
+       ],
+       [
+        "maked",
+        "making"
+       ]
+      ],
+      "ko": [
+       [
+        "찾아가아서",
+        "찾아거서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -375,12 +574,105 @@
     "en": "On 9 May 1781 an audience with Archbishop Colloredo ended in a shouting match, and Mozart declared that day that he was leaving the Salzburg service. Turned out of the Deutsches Haus, he had moved in with Madame Weber at the house 'Zum Auge Gottes'. He even tells his father to scold him publicly, so that no blame falls on him.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 148 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Deine Ehre ist auch meine Ehre.",
-    "en": "Your honor is my honor too.",
-    "ko": "네 명예가 곧 내 명예다.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "V.0",
+     "de": "Ich spüre deine Freude, weil du jetzt endlich frei bist.",
+     "en": "While I was reading your letter, I was feeling your joy: you are free.",
+     "ko": "볼프강 편지를 읽으면 자유로워진 기쁨이 느껴져요.",
+     "koLow": "네 편지를 읽으면 자유로워진 기쁨이 느껴져.",
+     "koHigh": "보내 주신 편지를 읽으면 자유로워지신 기쁨이 느껴집니다.",
+     "focus": {
+      "de": [
+       "weil",
+       "frei bist"
+      ],
+      "en": [
+       "was reading",
+       "was feeling"
+      ],
+      "ko": [
+       "읽으면"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "denn weil",
+        "weil dass"
+       ],
+       [
+        "bist frei",
+        "frei sind"
+       ]
+      ],
+      "en": [
+       [
+        "were reading",
+        "was read"
+       ],
+       [
+        "were feeling",
+        "was feel"
+       ]
+      ],
+      "ko": [
+       [
+        "읽면",
+        "읽어면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "IV.2",
+     "de": "Du wirst in Wien Erfolg haben, das hoffe ich von Herzen.",
+     "en": "You will succeed in Vienna; I hope so with all my heart.",
+     "ko": "빈에서 잘되지 않을까요? 진심으로 그러길 바라요.",
+     "koLow": "빈에서 잘되지 않을까? 진심으로 그러길 바라.",
+     "koHigh": "빈에서 잘되지 않겠습니까? 진심으로 그러길 바랍니다.",
+     "focus": {
+      "de": [
+       "wirst",
+       "Erfolg haben"
+      ],
+      "en": [
+       "will succeed"
+      ],
+      "ko": [
+       "않을까요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "wird",
+        "werdest"
+       ],
+       [
+        "Erfolg hast",
+        "Erfolg gehabt"
+       ]
+      ],
+      "en": [
+       [
+        "will succeeds",
+        "will succeeded"
+       ]
+      ],
+      "ko": [
+       [
+        "않으을까요",
+        "않을가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
@@ -592,12 +884,105 @@
     "en": "A painting of the Freyung in Vienna from the same era, not the house of this letter. Mozart tried to hand his petition for discharge to the Archbishop in person; Count Arco, the Archbishop's Oberstküchenmeister (high steward of the kitchen), put him off for weeks and finally threw him out of the antechamber with a kick. With this the break with the Salzburg court was final; Mozart never returned to its service.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 157 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Bleib ruhig, mein Sohn, Gott sieht alles.",
-    "en": "Stay calm, my son; God sees all.",
-    "ko": "침착하거라, 아들아. 하느님은 다 보신다.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "V.0",
+     "de": "Ich habe gezittert, weil man dich so schlecht behandelt hat.",
+     "en": "I was trembling while I was reading how badly they treated you.",
+     "ko": "그렇게 험한 대접을 받았다는 걸 생각하면 손이 떨려요.",
+     "koLow": "그렇게 험한 대접을 받았다는 걸 생각하면 손이 떨려.",
+     "koHigh": "그렇게 험한 대접을 받으셨다는 걸 생각하면 손이 떨립니다.",
+     "focus": {
+      "de": [
+       "weil",
+       "behandelt hat"
+      ],
+      "en": [
+       "was trembling",
+       "was reading"
+      ],
+      "ko": [
+       "생각하면"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "denn weil",
+        "weil dass"
+       ],
+       [
+        "hat behandelt",
+        "behandelt ist"
+       ]
+      ],
+      "en": [
+       [
+        "were trembling",
+        "was tremble"
+       ],
+       [
+        "were reading",
+        "was read"
+       ]
+      ],
+      "ko": [
+       [
+        "생각하으면",
+        "생각해면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "II.1",
+     "de": "Mit Gewalt darf dich niemand halten; du willst Freundlichkeit, keine Gewalt.",
+     "en": "Never let them hold you by force; you want kindness, not violence.",
+     "ko": "아무도 힘으로 붙잡을 수 없고, 볼프강이 바라는 건 친절이에요.",
+     "koLow": "아무도 힘으로 붙잡을 수 없고, 네가 바라는 건 친절이야.",
+     "koHigh": "아무도 힘으로 붙잡을 수 없고, 바라시는 것은 친절입니다.",
+     "focus": {
+      "de": [
+       "darf",
+       "willst"
+      ],
+      "en": [
+       "Never let"
+      ],
+      "ko": [
+       "없고"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "darfst",
+        "dürfen"
+       ],
+       [
+        "will",
+        "wollst"
+       ]
+      ],
+      "en": [
+       [
+        "Never lets",
+        "Never letting"
+       ]
+      ],
+      "ko": [
+       [
+        "없어고",
+        "없으고"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -808,12 +1193,100 @@
     "en": "The photograph shows the old Burgtheater before it was pulled down in 1888. 'Young Stephanie' — Gottlieb Stephanie — had brought Mozart a libretto two days earlier, and he was so delighted that three numbers were already written. Nohl prints the title as 'Belmont und Konstanze, oder: Die Verführung aus dem Serail'; this is the opera known as Die Entführung aus dem Serail. The letter expects a performance in mid-September, but the premiere came only on 16 July 1782 at the Burgtheater in Vienna.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 165 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Schreib fröhlich, aber iß auch!",
-    "en": "Write happily, but eat too!",
-    "ko": "즐겁게 쓰되, 밥도 챙겨 먹거라!",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "V.1",
+     "de": "Schön, dass du schon drei Stücke geschrieben hast – diese Freude kenne ich.",
+     "en": "You have already written three pieces; I used to see that joy in you.",
+     "ko": "벌써 세 곡이나 썼으니까 기뻐요. 예전에 자주 보던 그 기쁨이네요.",
+     "koLow": "벌써 세 곡이나 썼으니까 기뻐. 예전에 자주 보던 그 기쁨이네.",
+     "koHigh": "벌써 세 곡이나 쓰셨으니까 기쁩니다. 예전에 자주 보던 그 기쁨입니다.",
+     "focus": {
+      "de": [
+       "dass",
+       "geschrieben hast"
+      ],
+      "en": [
+       "used to see"
+      ],
+      "ko": [
+       "썼으니까"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "das",
+        "weil dass"
+       ],
+       [
+        "hast geschrieben",
+        "geschrieben hat"
+       ]
+      ],
+      "en": [
+       [
+        "use to see",
+        "used to seeing"
+       ]
+      ],
+      "ko": [
+       [
+        "썼니까",
+        "쓰었으니까"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "V.0",
+     "de": "Iss bitte rechtzeitig, weil du beim Schreiben immer hungrig wirst.",
+     "en": "You were writing and getting hungry? Please eat on time.",
+     "ko": "곡을 쓰면 배가 고프다니까 꼭 제때 먹어요.",
+     "koLow": "곡을 쓰면 배가 고프다니까 꼭 제때 먹어.",
+     "koHigh": "곡을 쓰시면 배가 고프다니 꼭 제때 드십시오.",
+     "focus": {
+      "de": [
+       "weil",
+       "hungrig wirst"
+      ],
+      "en": [
+       "were writing"
+      ],
+      "ko": [
+       "쓰면"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "denn weil",
+        "weil dass"
+       ],
+       [
+        "wirst hungrig",
+        "hungrig wird"
+       ]
+      ],
+      "en": [
+       [
+        "was writing",
+        "were write"
+       ]
+      ],
+      "ko": [
+       [
+        "쓰으면",
+        "써면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -1035,12 +1508,95 @@
     "en": "A painting of a Viennese church square from the same era, not a place named in the letter. A workshop letter on the Entführung. Mozart wrote Osmin's part for the bass Ludwig Fischer and Belmonte's 'O wie ängstlich' expressly for the tenor Adamberger's voice. Here too is his famous rule that music, even in the most terrible situations, must never offend the ear. Nohl took this letter from Nissen's biography rather than from the Mozarteum autographs.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 172 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ich höre die Musik schon.",
-    "en": "I can already hear the music.",
-    "ko": "벌써 그 음악이 들리는구나.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "V.1",
+     "de": "Man sagte, dass er zu tief singt; in deiner Arie glänzt seine Stimme.",
+     "en": "Some used to say he sang too low; in your aria his voice shines.",
+     "ko": "너무 낮다고들 했지만, 목소리가 깊으니까 볼프강 아리아에서 빛나요.",
+     "koLow": "너무 낮다고들 했지만, 목소리가 깊으니까 네 아리아에서 빛나.",
+     "koHigh": "너무 낮다고들 했지만, 목소리가 깊으니까 아리아에서 빛납니다.",
+     "focus": {
+      "de": [
+       "dass",
+       "zu tief singt"
+      ],
+      "en": [
+       "used to say"
+      ],
+      "ko": [
+       "깊으니까"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "das",
+        "weil dass"
+       ],
+       [
+        "singt zu tief",
+        "zu tief singen"
+       ]
+      ],
+      "en": [
+       [
+        "use to say",
+        "used to saying"
+       ]
+      ],
+      "ko": [
+       [
+        "깊니까",
+        "깊어니까"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "III.2",
+     "de": "Der Chor ist schon fertig? Ich möchte ihn auch gern hören.",
+     "en": "The chorus is already finished? I would like to hear it too.",
+     "ko": "합창이 벌써 다 됐어요? 아버지도 듣고 싶어요.",
+     "koLow": "합창이 벌써 다 됐어? 나도 듣고 싶어.",
+     "koHigh": "합창이 벌써 다 되었습니까? 저도 듣고 싶습니다.",
+     "focus": {
+      "de": [
+       "schon"
+      ],
+      "en": [
+       "already"
+      ],
+      "ko": [
+       "듣고 싶어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "gestern",
+        "morgen"
+       ]
+      ],
+      "en": [
+       [
+        "ago",
+        "yet"
+       ]
+      ],
+      "ko": [
+       [
+        "듣고 싶아요",
+        "듣으고 싶어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -1252,12 +1808,95 @@
     "en": "The Langes in this engraving do not appear in the letter; they were an actor and a singer of the Vienna court theatre at the time. His father had worried about Stephanie's verses; here Mozart states his creed that in opera the poetry must be 'the obedient daughter of the music'. Nohl notes that Nissen had printed this whole paragraph as part of the letter of 26 September.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 174 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Die Musik ist deine Königin.",
-    "en": "Music is your queen.",
-    "ko": "음악이 네 여왕이로구나.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "V.2",
+     "de": "Wenn die Musik gut ist, vergisst man schwache Verse – da hast du recht.",
+     "en": "You have put it well: good music makes people forget weak verses.",
+     "ko": "음악이 좋기 때문에 서툰 시도 잊게 되는 거예요. 볼프강 말이 맞아요.",
+     "koLow": "음악이 좋기 때문에 서툰 시도 잊게 되는 거야. 네 말이 맞아.",
+     "koHigh": "음악이 좋기 때문에 서툰 시도 잊게 되는 것입니다. 말씀이 맞습니다.",
+     "focus": {
+      "de": [
+       "Wenn",
+       "gut ist"
+      ],
+      "en": [
+       "have put"
+      ],
+      "ko": [
+       "좋기 때문에"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Als",
+        "Wann"
+       ],
+       [
+        "ist gut",
+        "gut sind"
+       ]
+      ],
+      "en": [
+       [
+        "has put",
+        "have putted"
+       ]
+      ],
+      "ko": [
+       [
+        "좋기 때문이",
+        "좋이기 때문에"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "IV.0",
+     "de": "Danke, Wolfgang! Mach dir keine Sorgen, ich passe gut auf mich auf.",
+     "en": "Thank you, Wolfgang! Don't worry; I'm going to take good care of myself.",
+     "ko": "고마워요, 볼프강. 걱정 말아요, 몸 잘 챙길게요.",
+     "koLow": "고마워, 볼프강. 걱정 마, 몸 잘 챙길게.",
+     "koHigh": "고맙습니다, 볼프강. 걱정하지 마십시오, 몸 잘 챙기겠습니다.",
+     "focus": {
+      "de": [
+       "passe gut auf mich auf"
+      ],
+      "en": [
+       "going to take"
+      ],
+      "ko": [
+       "챙길게요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "passe gut auf mich",
+        "aufpasse gut auf mich"
+       ]
+      ],
+      "en": [
+       [
+        "going to taking",
+        "going take"
+       ]
+      ],
+      "ko": [
+       [
+        "챙기을게요",
+        "챙길께요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
@@ -1487,12 +2126,100 @@
     "en": "A clarinet of the same era, not one of the instruments played that night. Mozart's name-day was the feast of St Wolfgang, 31 October. That night six wind players stood in the courtyard and played him the serenade he had written for St Theresa's day. Nohl's and Wallace's footnotes identify it as Köchel 375, the Serenade in E flat.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 175 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Alles Gute zum Namenstag, Wolfgang!",
-    "en": "Happy name-day, Wolfgang!",
-    "ko": "영명 축일 축하한다, 볼프강!",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "V.2",
+     "de": "Als um elf Uhr deine eigene Serenade erklang, war das ein schönes Geschenk.",
+     "en": "Your own serenade at night — you have received a lovely gift.",
+     "ko": "볼프강이 쓴 곡이기 때문에 더 멋진 선물이었을 거예요.",
+     "koLow": "네가 쓴 곡이기 때문에 더 멋진 선물이었을 거야.",
+     "koHigh": "직접 쓰신 곡이기 때문에 더 멋진 선물이었을 겁니다.",
+     "focus": {
+      "de": [
+       "Als",
+       "erklang"
+      ],
+      "en": [
+       "have received"
+      ],
+      "ko": [
+       "곡이기 때문에"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Wenn",
+        "Wann"
+       ],
+       [
+        "erklingt",
+        "erklungen"
+       ]
+      ],
+      "en": [
+       [
+        "has received",
+        "have receive"
+       ]
+      ],
+      "ko": [
+       [
+        "곡기 때문에",
+        "곡이기 때문이"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "V.1",
+     "de": "Ich war besorgt; nun freut es mich, dass sechs Musiker für dich spielen.",
+     "en": "I used to worry about you; now I'm glad six players play for you.",
+     "ko": "전엔 걱정했지만, 여섯 사람이 볼프강 곡을 연주해 주니까 기뻐요.",
+     "koLow": "전엔 걱정했지만, 여섯 사람이 네 곡을 연주해 주니까 기뻐.",
+     "koHigh": "전에는 걱정했지만, 여섯 사람이 직접 쓰신 곡을 연주해 드리니까 기쁩니다.",
+     "focus": {
+      "de": [
+       "dass",
+       "spielen"
+      ],
+      "en": [
+       "used to worry"
+      ],
+      "ko": [
+       "주니까"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "das",
+        "weil dass"
+       ],
+       [
+        "spielt",
+        "gespielt"
+       ]
+      ],
+      "en": [
+       [
+        "use to worry",
+        "used to worrying"
+       ]
+      ],
+      "ko": [
+       [
+        "주으니까",
+        "줘니까"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,

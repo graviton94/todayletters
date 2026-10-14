@@ -6,6 +6,107 @@
  "title_en": "Constanze",
  "title_ko": "콘스탄체",
  "original": "de",
+ "grammar": [
+  {
+   "id": "VI.0",
+   "de": {
+    "name": {
+     "ko": "과거형 war · hatte",
+     "en": "Simple past war · hatte"
+    },
+    "hint": {
+     "ko": "지난 일을 글로 말해요 · sein → war, haben → hatte",
+     "en": "Tell the past in writing · sein → war, haben → hatte"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "if … will",
+     "en": "if … will"
+    },
+    "hint": {
+     "ko": "일어날 법한 조건 · If + 현재, will + 동사",
+     "en": "A likely condition · If + present, will + verb"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-는데",
+     "en": "-는데 (background)"
+    },
+    "hint": {
+     "ko": "배경을 깔고 이어 말해요 · 받았는데, 하는데",
+     "en": "Set the scene, then go on · 받았는데, 하는데"
+    }
+   }
+  },
+  {
+   "id": "VI.1",
+   "de": {
+    "name": {
+     "ko": "과거형 일반동사",
+     "en": "Simple past (regular verbs)"
+    },
+    "hint": {
+     "ko": "규칙동사 과거형 · 어간 + -te (wartete, küsste)",
+     "en": "Regular simple past · stem + -te (wartete, küsste)"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "if … would",
+     "en": "if … would"
+    },
+    "hint": {
+     "ko": "가정해서 말해요 · If + 과거, would + 동사",
+     "en": "Imagine · If + past, would + verb"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄴ/는 것 같아요",
+     "en": "-(으)ㄴ/는 것 같아요 (it seems)"
+    },
+    "hint": {
+     "ko": "짐작을 부드럽게 말해요",
+     "en": "Say what seems to be so, softly"
+    }
+   }
+  },
+  {
+   "id": "VI.2",
+   "de": {
+    "name": {
+     "ko": "재귀동사",
+     "en": "Reflexive verbs"
+    },
+    "hint": {
+     "ko": "sich freuen, sich trösten · mich / dich / sich",
+     "en": "sich freuen, sich trösten · mich / dich / sich"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "could · should",
+     "en": "could · should"
+    },
+    "hint": {
+     "ko": "할 수 있는 일 · 하면 좋을 일",
+     "en": "What is possible · what is advisable"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-아/어 봤어요",
+     "en": "-아/어 봤어요 (tried / have done)"
+    },
+    "hint": {
+     "ko": "해 본 일을 말해요 · 읽어 봤어요",
+     "en": "Say what you tried · 읽어 봤어요"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c6-l1",
@@ -142,12 +243,161 @@
     "en": "His father had asked what the closing words of his last letter meant, and in this letter Mozart reveals for the first time that he wants to marry. The girl was Constanze, the third of the Weber daughters, in whose family's house he had lodged. He writes that his love began only after he had left his post, while he was living in their house.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 180 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Mein Sohn, überlege es gut.",
-    "en": "My son, think it over well.",
-    "ko": "아들아, 잘 생각해 보거라.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "VI.0",
+     "de": "Das halbe Leben? Das war mir neu, und ich hatte sofort viele Fragen.",
+     "en": "Half a life? That's new to me; if you write again, I will ask many questions.",
+     "ko": "반쪽 인생이라는 말은 처음 듣는데, 묻고 싶은 게 많아요.",
+     "koLow": "반쪽 인생이라는 말은 처음 듣는데, 묻고 싶은 게 많아.",
+     "koHigh": "반쪽 인생이라는 말씀은 처음 듣는데, 묻고 싶은 것이 많습니다.",
+     "focus": {
+      "de": [
+       "war",
+       "hatte"
+      ],
+      "en": [
+       "if you write",
+       "will ask"
+      ],
+      "ko": [
+       "듣는데"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "waren",
+        "warst"
+       ],
+       [
+        "hattest",
+        "hatten"
+       ]
+      ],
+      "en": [
+       [
+        "if you will write",
+        "if you wrote"
+       ],
+       [
+        "would ask",
+        "will asked"
+       ]
+      ],
+      "ko": [
+       [
+        "듣은데",
+        "들는데"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "V.0",
+     "de": "Ich lächle beim Lesen, weil du so warm von Constanze schreibst.",
+     "en": "I was smiling while I was reading how warmly you write about Constanze.",
+     "ko": "콘스탄체 이야기를 읽으면 볼프강 마음이 따뜻하게 느껴져요.",
+     "koLow": "콘스탄체 이야기를 읽으면 네 마음이 따뜻하게 느껴져.",
+     "koHigh": "콘스탄체 이야기를 읽으면 그 따뜻한 마음이 느껴집니다.",
+     "focus": {
+      "de": [
+       "weil",
+       "schreibst"
+      ],
+      "en": [
+       "was smiling",
+       "was reading"
+      ],
+      "ko": [
+       "읽으면"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "denn weil",
+        "weil dass"
+       ],
+       [
+        "schreibt",
+        "geschrieben"
+       ]
+      ],
+      "en": [
+       [
+        "were smiling",
+        "was smile"
+       ],
+       [
+        "were reading",
+        "was read"
+       ]
+      ],
+      "ko": [
+       [
+        "읽면",
+        "읽어면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 0,
+     "grammar": "II.0",
+     "de": "Zuerst musst du ein sicheres Einkommen haben, dann kannst du an die Hochzeit denken.",
+     "en": "First find a small but certain income; then think about the wedding.",
+     "ko": "볼프강 계획은 잘 읽었어요. 확실한 수입이 먼저고, 결혼은 그다음이에요.",
+     "koLow": "네 계획은 잘 읽었어. 확실한 수입이 먼저고, 결혼은 그다음이야.",
+     "koHigh": "계획은 잘 읽었습니다. 확실한 수입이 먼저이고, 결혼은 그다음입니다.",
+     "focus": {
+      "de": [
+       "musst",
+       "kannst"
+      ],
+      "en": [
+       "find",
+       "think"
+      ],
+      "ko": [
+       "읽었어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "muss",
+        "müsst"
+       ],
+       [
+        "kann",
+        "könnt"
+       ]
+      ],
+      "en": [
+       [
+        "finds",
+        "finding"
+       ],
+       [
+        "thinks",
+        "thinking"
+       ]
+      ],
+      "ko": [
+       [
+        "읽었요",
+        "읽어었어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,
@@ -377,12 +627,146 @@
     "en": "The watercolour is a later view of the Kärntnertor Theatre, which was pulled down in 1870. Mozart was looking for a steady income so that he could marry Constanze. In this letter he weighs three prospects: a wind band for the young Prince Liechtenstein, the Emperor himself, and Archduke Maximilian. The German says only 'my dear faithful girl'; Wallace's English puts Constanze's name in its place.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 186 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Geduld, mein Sohn, und Vernunft.",
-    "en": "Patience, my son, and good sense.",
-    "ko": "참아라, 아들아. 그리고 분별을 잃지 마라.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "VI.0",
+     "de": "Deine drei Pläne waren klar, und ich hatte Hoffnung, dass einer davon gelingt.",
+     "en": "Your three plans are clear; if one of them works, you will have your income.",
+     "ko": "세 가지 계획이 분명한데, 그중 하나는 꼭 잘될 거라고 믿어요.",
+     "koLow": "세 가지 계획이 분명한데, 그중 하나는 꼭 잘될 거라고 믿어.",
+     "koHigh": "세 가지 계획이 분명한데, 그중 하나는 꼭 잘되리라 믿습니다.",
+     "focus": {
+      "de": [
+       "waren",
+       "hatte"
+      ],
+      "en": [
+       "if one of them works",
+       "will have"
+      ],
+      "ko": [
+       "분명한데"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "war",
+        "warst"
+       ],
+       [
+        "hattest",
+        "hatten"
+       ]
+      ],
+      "en": [
+       [
+        "if one of them will work",
+        "if one of them worked"
+       ],
+       [
+        "would have",
+        "will had"
+       ]
+      ],
+      "ko": [
+       [
+        "분명하는데",
+        "분명한대"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "IV.1",
+     "de": "Ein Versprechen allein hilft dir wenig; Bargeld ist besser, da stimme ich dir zu.",
+     "en": "Ready money is better, because a promise alone helps you very little.",
+     "ko": "약속만으로는 별 도움이 안 될 거예요. 현금이 더 나아요.",
+     "koLow": "약속만으로는 별 도움이 안 될 거야. 현금이 더 나아.",
+     "koHigh": "약속만으로는 별 도움이 안 될 겁니다. 현금이 더 낫습니다.",
+     "focus": {
+      "de": [
+       "hilft dir"
+      ],
+      "en": [
+       "because"
+      ],
+      "ko": [
+       "안 될 거예요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "hilft dich",
+        "helft dir"
+       ]
+      ],
+      "en": [
+       [
+        "because of",
+        "due"
+       ]
+      ],
+      "ko": [
+       [
+        "안 되을 거예요",
+        "안 될 거이에요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "V.2",
+     "de": "Wenn du gesund bleibst, ist alles andere leichter; das wünsche ich dir immer.",
+     "en": "Health matters most; I have always wished it for you, more than anything.",
+     "ko": "건강이 가장 중요하기 때문에 늘 볼프강 건강을 빌어요.",
+     "koLow": "건강이 가장 중요하기 때문에 늘 네 건강을 빌어.",
+     "koHigh": "건강이 가장 중요하기 때문에 늘 건강을 빕니다.",
+     "focus": {
+      "de": [
+       "Wenn",
+       "gesund bleibst"
+      ],
+      "en": [
+       "have always wished"
+      ],
+      "ko": [
+       "중요하기 때문에"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Als",
+        "Wann"
+       ],
+       [
+        "bleibst gesund",
+        "gesund bleibt"
+       ]
+      ],
+      "en": [
+       [
+        "has always wished",
+        "have always wish"
+       ]
+      ],
+      "ko": [
+       [
+        "중요하기 때문이",
+        "중요해기 때문에"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 4,
@@ -613,12 +997,156 @@
     "en": "Every Sunday Mozart played Handel and Bach fugues at Baron van Swieten's house. Constanze fell in love with them and begged him to write one: the result was the prelude and three-part fugue (K. 394) he sent with this letter. Constanze's own first letter to Nannerl went in the same envelope, without her mother and sisters knowing.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 191 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ich spiele deine Fuge langsam.",
-    "en": "I play your fugue slowly.",
-    "ko": "네 푸가, 천천히 칠게.",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VI.0",
+     "de": "Constanzes Brief war eine schöne Überraschung, und ich hatte große Freude daran.",
+     "en": "Constanze's letter is a lovely surprise; if she writes again, I will be so happy.",
+     "ko": "콘스탄체 편지를 받았는데, 정말 반가운 선물이었어요.",
+     "koLow": "콘스탄체 편지를 받았는데, 정말 반가운 선물이었어.",
+     "koHigh": "콘스탄체의 편지를 받았는데, 정말 반가운 선물이었습니다.",
+     "focus": {
+      "de": [
+       "war",
+       "hatte"
+      ],
+      "en": [
+       "if she writes",
+       "will be"
+      ],
+      "ko": [
+       "받았는데"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "waren",
+        "warst"
+       ],
+       [
+        "hattest",
+        "hatten"
+       ]
+      ],
+      "en": [
+       [
+        "if she will write",
+        "if she wrote"
+       ],
+       [
+        "would be",
+        "will been"
+       ]
+      ],
+      "ko": [
+       [
+        "받았은데",
+        "받어는데"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "III.1",
+     "de": "Du bist jeden Sonntag zum Baron gegangen und hast Fugen nach Hause gebracht.",
+     "en": "You went to the Baron every Sunday and brought fugues home.",
+     "ko": "일요일마다 남작님 댁에 푸가를 치러 가요? 정말 멋져요.",
+     "koLow": "일요일마다 남작님 댁에 푸가를 치러 가? 정말 멋져.",
+     "koHigh": "일요일마다 남작님 댁에 푸가를 치러 가십니까? 정말 멋집니다.",
+     "focus": {
+      "de": [
+       "bist",
+       "gegangen"
+      ],
+      "en": [
+       "went",
+       "brought"
+      ],
+      "ko": [
+       "치러 가요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "hast",
+        "bin"
+       ],
+       [
+        "gegeht",
+        "gingen"
+       ]
+      ],
+      "en": [
+       [
+        "goed",
+        "gone"
+       ],
+       [
+        "bringed",
+        "brung"
+       ]
+      ],
+      "ko": [
+       [
+        "치으러 가요",
+        "치러고 가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "V.1",
+     "de": "Früher hast du keine Fugen geschrieben; jetzt verstehe ich, dass man sie langsam spielen muss.",
+     "en": "You didn't use to write fugues; now I understand that they must be played slowly.",
+     "ko": "처음 쓴 푸가라니 반가워요. 천천히 쳐야 주제가 들리니까 꼭 기억할게요.",
+     "koLow": "처음 쓴 푸가라니 반가워. 천천히 쳐야 주제가 들리니까 꼭 기억할게.",
+     "koHigh": "처음 쓰신 푸가라니 반갑습니다. 천천히 쳐야 주제가 들리니까 꼭 기억하겠습니다.",
+     "focus": {
+      "de": [
+       "dass",
+       "spielen muss"
+      ],
+      "en": [
+       "didn't use to"
+      ],
+      "ko": [
+       "들리니까"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "das",
+        "weil dass"
+       ],
+       [
+        "muss spielen",
+        "spielen müssen"
+       ]
+      ],
+      "en": [
+       [
+        "didn't use",
+        "don't use to"
+       ]
+      ],
+      "ko": [
+       [
+        "들리으니까",
+        "들려니까"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 3,
@@ -838,12 +1366,156 @@
     "en": "The watercolour is a later view of the old Burgtheater, which was pulled down in 1888. Die Entführung aus dem Serail was first performed at the Burgtheater in Vienna on 16 July 1782. Mozart's letter about the premiere is lost, so this account of the second night is the first report in his own words that survives. He tells his father the two nights brought in 1,200 florins and sends him the original score.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 195 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Bravo! Ich freue mich mit dir.",
-    "en": "Bravo! I am glad with you.",
-    "ko": "브라보! 나도 함께 기쁘구나.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "VI.1",
+     "de": "Die Leute suchten schon am Vortag Plätze; sie liebten deine Oper wohl sehr.",
+     "en": "No seats even the day before! People would not do that if they didn't love your opera.",
+     "ko": "전날부터 자리가 없었다니, 사람들이 볼프강 오페라를 정말 좋아하는 것 같아요.",
+     "koLow": "전날부터 자리가 없었다니, 사람들이 네 오페라를 정말 좋아하는 것 같아.",
+     "koHigh": "전날부터 자리가 없었다니, 사람들이 오페라를 정말 좋아하는 것 같습니다.",
+     "focus": {
+      "de": [
+       "suchten",
+       "liebten"
+      ],
+      "en": [
+       "would not do",
+       "if they didn't love"
+      ],
+      "ko": [
+       "좋아하는 것 같아요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "suchte",
+        "gesucht"
+       ],
+       [
+        "liebte",
+        "geliebt"
+       ]
+      ],
+      "en": [
+       [
+        "will not do",
+        "would not did"
+       ],
+       [
+        "if they wouldn't love",
+        "if they don't loved"
+       ]
+      ],
+      "ko": [
+       [
+        "좋아한는 것 같아요",
+        "좋아하은 것 같아요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "VI.0",
+     "de": "Deine Wut war verständlich, und mit der Probe hattest du recht.",
+     "en": "Your anger is understandable; if the singers rehearse first, the evening will go better.",
+     "ko": "화가 날 만한데, 리허설을 먼저 하자는 말은 옳아요.",
+     "koLow": "화가 날 만한데, 리허설을 먼저 하자는 말은 옳아.",
+     "koHigh": "화가 날 만한데, 리허설을 먼저 하자는 말은 옳습니다.",
+     "focus": {
+      "de": [
+       "war",
+       "hattest"
+      ],
+      "en": [
+       "if the singers rehearse",
+       "will go"
+      ],
+      "ko": [
+       "만한데"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "waren",
+        "warst"
+       ],
+       [
+        "hatte",
+        "hattet"
+       ]
+      ],
+      "en": [
+       [
+        "if the singers will rehearse",
+        "if the singers rehearsed"
+       ],
+       [
+        "would go",
+        "will went"
+       ]
+      ],
+      "ko": [
+       [
+        "만하는데",
+        "만한대"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "IV.2",
+     "de": "Ich werde die Partitur trotz der vielen Striche gern lesen.",
+     "en": "I will read the score gladly, even with all the erasures.",
+     "ko": "지운 데가 많아도 잘 읽을 수 있을까요? 그래도 기쁘게 읽어 볼게요.",
+     "koLow": "지운 데가 많아도 잘 읽을 수 있을까? 그래도 기쁘게 읽어 볼게.",
+     "koHigh": "지운 데가 많아도 잘 읽을 수 있겠습니까? 그래도 기쁘게 읽어 보겠습니다.",
+     "focus": {
+      "de": [
+       "werde",
+       "lesen"
+      ],
+      "en": [
+       "will read"
+      ],
+      "ko": [
+       "있을까요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "wird",
+        "werdest"
+       ],
+       [
+        "lese",
+        "gelesen"
+       ]
+      ],
+      "en": [
+       [
+        "will reads",
+        "will readed"
+       ]
+      ],
+      "ko": [
+       [
+        "있으을까요",
+        "있을가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -1069,12 +1741,156 @@
     "en": "His father had asked for a new symphony for a celebration in the Haffner family in Salzburg, and Mozart sent its first allegro with this letter; it became the 'Haffner' Symphony, K. 385. 26 July is St Anne's Day, the name day of every Anna, every 'Nannerl'.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 196 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Gib mir Zeit, mein Sohn.",
-    "en": "Give me time, my son.",
-    "ko": "시간을 다오, 아들아.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VI.1",
+     "de": "Du wähltest D-Dur, weil ich die Tonart mag; das rührte mich sehr.",
+     "en": "If you were here, I would thank you warmly for choosing D.",
+     "ko": "라장조로 썼다니, 아버지를 많이 생각해 주는 것 같아요. 고마워요.",
+     "koLow": "라장조로 썼다니, 나를 많이 생각해 주는 것 같아. 고마워.",
+     "koHigh": "라장조로 쓰셨다니, 저를 많이 생각해 주시는 것 같습니다. 고맙습니다.",
+     "focus": {
+      "de": [
+       "wähltest",
+       "rührte"
+      ],
+      "en": [
+       "If you were",
+       "would thank"
+      ],
+      "ko": [
+       "주는 것 같아요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "wählte",
+        "gewählt"
+       ],
+       [
+        "rührten",
+        "gerührt"
+       ]
+      ],
+      "en": [
+       [
+        "If you are",
+        "If you will be"
+       ],
+       [
+        "will thank",
+        "would thanked"
+       ]
+      ],
+      "ko": [
+       [
+        "준는 것 같아요",
+        "주은 것 같아요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "V.2",
+     "de": "Wenn so viele Menschen klatschen, ist die Freude groß – das gönne ich dir.",
+     "en": "Your opera has won the hearts of Vienna; I am happy for you.",
+     "ko": "사람들이 이렇게 좋아하기 때문에 볼프강 기쁨도 크겠지요. 아버지도 기뻐요.",
+     "koLow": "사람들이 이렇게 좋아하기 때문에 네 기쁨도 크겠지. 나도 기뻐.",
+     "koHigh": "사람들이 이렇게 좋아하기 때문에 기쁨도 크시겠습니다. 저도 기쁩니다.",
+     "focus": {
+      "de": [
+       "Wenn",
+       "klatschen"
+      ],
+      "en": [
+       "has won"
+      ],
+      "ko": [
+       "좋아하기 때문에"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Als",
+        "Wann"
+       ],
+       [
+        "klatscht",
+        "geklatscht"
+       ]
+      ],
+      "en": [
+       [
+        "have won",
+        "has winned"
+       ]
+      ],
+      "ko": [
+       [
+        "좋아하기 때문이",
+        "좋아해기 때문에"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "III.0",
+     "de": "Ich habe deine Unruhe gespürt und lange über deinen Brief nachgedacht.",
+     "en": "I felt your worry and thought about your letter for a long time.",
+     "ko": "볼프강의 불안한 마음이 느껴져서 편지를 오래 생각했어요.",
+     "koLow": "네 불안한 마음이 느껴져서 편지를 오래 생각했어.",
+     "koHigh": "불안한 마음이 느껴져서 편지를 오래 생각했습니다.",
+     "focus": {
+      "de": [
+       "gespürt",
+       "nachgedacht"
+      ],
+      "en": [
+       "felt",
+       "thought"
+      ],
+      "ko": [
+       "느껴져서"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "gespürte",
+        "spürt"
+       ],
+       [
+        "nachgedenkt",
+        "nachdenkt"
+       ]
+      ],
+      "en": [
+       [
+        "feeled",
+        "feeling"
+       ],
+       [
+        "thinked",
+        "thinking"
+       ]
+      ],
+      "ko": [
+       [
+        "느껴지어서",
+        "느끼져서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -1319,12 +2135,151 @@
     "en": "A painting of Vienna seen from the Belvedere in the same era, not a picture of the wedding. Mozart and Constanze were married in Vienna on 4 August 1782. His father's letters of consent arrived only the day after the wedding. Constanze's mother and youngest sister, her guardian von Thorwarth, and Gilofsky from Salzburg were among the few present.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 199 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Gott segne euch beide.",
-    "en": "God bless you both.",
-    "ko": "하느님이 너희 둘을 축복하시길.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "VI.2",
+     "de": "Ich freue mich über deine ehrlichen Worte und wünsche mir Frieden zwischen uns.",
+     "en": "Your honest words are good; we should have peace between us now.",
+     "ko": "볼프강 마음을 다시 생각해 봤어요. 이제 우리 사이에 평화가 있으면 해요.",
+     "koLow": "네 마음을 다시 생각해 봤어. 이제 우리 사이에 평화가 있으면 해.",
+     "koHigh": "그 마음을 다시 생각해 봤습니다. 이제 우리 사이에 평화가 있기를 바랍니다.",
+     "focus": {
+      "de": [
+       "freue mich",
+       "wünsche mir"
+      ],
+      "en": [
+       "should have"
+      ],
+      "ko": [
+       "생각해 봤어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "freue dich",
+        "freue mir"
+       ],
+       [
+        "wünsche mich",
+        "wünschst mir"
+       ]
+      ],
+      "en": [
+       [
+        "should has",
+        "should to have"
+       ]
+      ],
+      "ko": [
+       [
+        "생각해 보았요",
+        "생각하 봤어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "VI.1",
+     "de": "Ihr weintet beide, sogar der Priester; das rührte mich beim Lesen.",
+     "en": "You both cried, and even the priest; I would cry too if I saw that.",
+     "ko": "두 사람이 함께 울었다니, 정말 감동적인 순간이었던 것 같아요.",
+     "koLow": "두 사람이 함께 울었다니, 정말 감동적인 순간이었던 것 같아.",
+     "koHigh": "두 분이 함께 우셨다니, 정말 감동적인 순간이었던 것 같습니다.",
+     "focus": {
+      "de": [
+       "weintet",
+       "rührte"
+      ],
+      "en": [
+       "would cry",
+       "if I saw"
+      ],
+      "ko": [
+       "이었던 것 같아요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "weinte",
+        "geweint"
+       ],
+       [
+        "rührten",
+        "gerührt"
+       ]
+      ],
+      "en": [
+       [
+        "will cry",
+        "would cried"
+       ],
+       [
+        "if I see",
+        "if I would see"
+       ]
+      ],
+      "ko": [
+       [
+        "이었는 것 같아요",
+        "이었을은 것 같아요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "IV.0",
+     "de": "Constanze freut sich auf Salzburg? Ich sehe eurem Besuch auch mit Freude entgegen.",
+     "en": "Constanze is happy about Salzburg? I'm going to look forward to your visit too.",
+     "ko": "콘스탄체가 잘츠부르크에 오고 싶어 한다니, 아버지도 기쁘게 기다릴게요.",
+     "koLow": "콘스탄체가 잘츠부르크에 오고 싶어 한다니, 나도 기쁘게 기다릴게.",
+     "koHigh": "콘스탄체가 잘츠부르크에 오고 싶어 한다니, 저도 기쁘게 기다리겠습니다.",
+     "focus": {
+      "de": [
+       "sehe",
+       "entgegen"
+      ],
+      "en": [
+       "going to look forward"
+      ],
+      "ko": [
+       "기다릴게요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "siehst",
+        "entgegensehe"
+       ],
+       [
+        "entgegnen",
+        "gegen"
+       ]
+      ],
+      "en": [
+       [
+        "going to looking forward",
+        "going look forward"
+       ]
+      ],
+      "ko": [
+       [
+        "기다리을게요",
+        "기다릴께요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -1569,12 +2524,146 @@
     "en": "Written less than two weeks after the wedding. Mozart says he will not beg the Emperor for a post, and that if Germany will not have him, France or England may. With an eye on Paris next Easter he had written to Le Gros, and he had begun English lessons.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 200 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Bleibt fromm und fleißig, Kinder.",
-    "en": "Stay devout and diligent, children.",
-    "ko": "얘들아, 경건하고 부지런히 살아라.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "VI.2",
+     "de": "Ich freue mich, dass ihr zusammen betet; das kann euch beiden Kraft geben.",
+     "en": "I'm glad you pray together; it could give you both strength.",
+     "ko": "두 사람이 함께 기도하는 모습을 떠올려 봤어요. 둘 모두에게 힘이 될 거예요.",
+     "koLow": "두 사람이 함께 기도하는 모습을 떠올려 봤어. 둘 모두에게 힘이 될 거야.",
+     "koHigh": "두 분이 함께 기도하시는 모습을 떠올려 봤습니다. 두 분 모두에게 힘이 될 것입니다.",
+     "focus": {
+      "de": [
+       "freue mich"
+      ],
+      "en": [
+       "could give"
+      ],
+      "ko": [
+       "떠올려 봤어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "freue dich",
+        "freue mir"
+       ]
+      ],
+      "en": [
+       [
+        "could gives",
+        "could gave"
+       ]
+      ],
+      "ko": [
+       [
+        "떠올려 보았요",
+        "떠올리 봤어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "VI.0",
+     "de": "Drei Englischstunden waren ein guter Anfang; du hattest einen klugen Plan.",
+     "en": "Three lessons are a good start; if you keep studying, you will read English books.",
+     "ko": "벌써 수업을 세 번 받았는데, 좋은 시작이에요. 곧 영어 책도 읽겠네요.",
+     "koLow": "벌써 수업을 세 번 받았는데, 좋은 시작이야. 곧 영어 책도 읽겠네.",
+     "koHigh": "벌써 수업을 세 번 받았는데, 좋은 시작입니다. 곧 영어 책도 읽으시겠습니다.",
+     "focus": {
+      "de": [
+       "waren",
+       "hattest"
+      ],
+      "en": [
+       "if you keep studying",
+       "will read"
+      ],
+      "ko": [
+       "받았는데"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "war",
+        "warst"
+       ],
+       [
+        "hatte",
+        "hattet"
+       ]
+      ],
+      "en": [
+       [
+        "if you will keep studying",
+        "if you kept studying"
+       ],
+       [
+        "would read",
+        "will reading"
+       ]
+      ],
+      "ko": [
+       [
+        "받았은데",
+        "받어는데"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "V.1",
+     "de": "Ich verstehe, dass du nicht um eine Stelle betteln willst.",
+     "en": "You never used to beg, and I understand that you won't beg now.",
+     "ko": "명예가 소중하니까, 자리를 구걸하지 않겠다는 마음 이해해요.",
+     "koLow": "명예가 소중하니까, 자리를 구걸하지 않겠다는 마음 이해해.",
+     "koHigh": "명예가 소중하니까, 자리를 구걸하지 않으시겠다는 마음 이해합니다.",
+     "focus": {
+      "de": [
+       "dass",
+       "betteln willst"
+      ],
+      "en": [
+       "used to beg"
+      ],
+      "ko": [
+       "소중하니까"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "das",
+        "weil dass"
+       ],
+       [
+        "willst betteln",
+        "betteln will"
+       ]
+      ],
+      "en": [
+       [
+        "use to beg",
+        "used to begging"
+       ]
+      ],
+      "ko": [
+       [
+        "소중하으니까",
+        "소중해니까"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,

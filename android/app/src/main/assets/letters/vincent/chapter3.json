@@ -6,6 +6,107 @@
  "title_en": "The Yellow House",
  "title_ko": "노란 집",
  "original": "fr",
+ "grammar": [
+  {
+   "id": "III.0",
+   "fr": {
+    "name": {
+     "ko": "복합과거 (avoir)",
+     "en": "Passé composé with avoir"
+    },
+    "hint": {
+     "ko": "지난 일을 말해요 · avoir + 과거분사",
+     "en": "Talk about what happened · avoir + past participle"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "과거형 (규칙)",
+     "en": "Past simple"
+    },
+    "hint": {
+     "ko": "지난 일을 말해요 · painted, opened, looked",
+     "en": "Talk about what happened · painted, opened, looked"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-아서/어서",
+     "en": "-아서/어서 (so · and then)"
+    },
+    "hint": {
+     "ko": "이유나 순서를 이어요 · 그려서, 만나서",
+     "en": "Link a reason or a sequence · 그려서, 만나서"
+    }
+   }
+  },
+  {
+   "id": "III.1",
+   "fr": {
+    "name": {
+     "ko": "복합과거 (être)",
+     "en": "Passé composé with être"
+    },
+    "hint": {
+     "ko": "움직임 동사는 être + 과거분사 · 성·수 일치 · tu es allé",
+     "en": "Movement verbs take être · the participle agrees · tu es allé"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "불규칙 과거형",
+     "en": "Irregular past"
+    },
+    "hint": {
+     "ko": "모양이 바뀌는 과거 · came, went, drank, made",
+     "en": "Past forms that change · came, went, drank, made"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)러 가요",
+     "en": "-(으)러 가요 (go to do)"
+    },
+    "hint": {
+     "ko": "하려고 가요 · 받으러 가요, 먹으러 가요",
+     "en": "Go somewhere to do something · 받으러 가요, 먹으러 가요"
+    }
+   }
+  },
+  {
+   "id": "III.2",
+   "fr": {
+    "name": {
+     "ko": "hier · déjà",
+     "en": "hier · déjà"
+    },
+    "hint": {
+     "ko": "때를 말하는 낱말 · 어제, 벌써",
+     "en": "Time words · yesterday, already"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "ago · already",
+     "en": "ago · already"
+    },
+    "hint": {
+     "ko": "때를 말하는 낱말 · two days ago, already",
+     "en": "Time words · two days ago, already"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-고 싶어요",
+     "en": "-고 싶어요 (want to)"
+    },
+    "hint": {
+     "ko": "하고 싶은 일을 말해요 · 보고 싶어요, 자고 싶어요",
+     "en": "Say what you want to do · 보고 싶어요, 자고 싶어요"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c3-l1",
@@ -174,12 +275,95 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Envoie-moi le croquis du café.",
-    "en": "Send me the sketch of the café.",
-    "ko": "그 카페 스케치 보내 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "III.0",
+     "fr": "Tu as peint trois nuits de suite ; ça t'a beaucoup fatigué ?",
+     "en": "You painted for three nights. Did it tire you a lot?",
+     "ko": "사흘 밤을 새워 그려서 많이 피곤했어요?",
+     "koLow": "사흘 밤을 새워 그려서 많이 피곤했어?",
+     "koHigh": "사흘 밤을 새워 그리셔서 많이 피곤하셨습니까?",
+     "focus": {
+      "fr": [
+       "as peint",
+       "a beaucoup fatigué"
+      ],
+      "en": [
+       "painted"
+      ],
+      "ko": [
+       "그려서"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "es peint",
+        "as peindu"
+       ],
+       [
+        "est beaucoup fatigué",
+        "a beaucoup fatiguer"
+       ]
+      ],
+      "en": [
+       [
+        "paints",
+        "painting"
+       ]
+      ],
+      "ko": [
+       [
+        "그리어서",
+        "그러서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "I.2",
+     "fr": "La nuit est si vivante ? Est-ce que tu dors un peu, alors ?",
+     "en": "Is the night so alive? Do you sleep at all, then?",
+     "ko": "밤이 그렇게 살아 있어요? 그럼 잠은 안 자요?",
+     "koLow": "밤이 그렇게 살아 있어? 그럼 잠은 안 자?",
+     "koHigh": "밤이 그렇게 살아 있습니까? 그럼 잠은 안 주무십니까?",
+     "focus": {
+      "fr": [
+       "Est-ce que"
+      ],
+      "en": [
+       "Do you sleep"
+      ],
+      "ko": [
+       "안 자요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Est-ce",
+        "Qu'est-ce que"
+       ]
+      ],
+      "en": [
+       [
+        "Does you sleep",
+        "Do you sleeps"
+       ]
+      ],
+      "ko": [
+       [
+        "자 안요",
+        "안 자아요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -403,12 +587,100 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Bonne installation dans ta maison !",
-    "en": "Settle in well in your house!",
-    "ko": "새 집에 잘 자리 잡아.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "III.0",
+     "fr": "Tu as peint toute la semaine, et j'ai eu peur pour ta santé.",
+     "en": "You painted all week, and I worried about your health.",
+     "ko": "형이 일주일 내내 그려서 건강이 걱정됐어요.",
+     "koLow": "형이 일주일 내내 그려서 건강이 걱정됐어.",
+     "koHigh": "형님이 일주일 내내 그리셔서 건강이 걱정됐습니다.",
+     "focus": {
+      "fr": [
+       "as peint",
+       "ai eu peur"
+      ],
+      "en": [
+       "painted",
+       "worried"
+      ],
+      "ko": [
+       "그려서"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "es peint",
+        "as peindu"
+       ],
+       [
+        "suis eu peur",
+        "ai eu peurs"
+       ]
+      ],
+      "en": [
+       [
+        "paints",
+        "painting"
+       ],
+       [
+        "worries",
+        "worrying"
+       ]
+      ],
+      "ko": [
+       [
+        "그리어서",
+        "그러서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "II.0",
+     "fr": "Tu as peint le café sous les étoiles ? Envoie-moi un croquis.",
+     "en": "You painted the café under the stars? Send me a sketch.",
+     "ko": "별 아래 카페를 그렸어요? 스케치 좀 보내 줘요.",
+     "koLow": "별 아래 카페를 그렸어? 스케치 좀 보내 줘.",
+     "koHigh": "별 아래 카페를 그리셨습니까? 스케치 좀 보내 주십시오.",
+     "focus": {
+      "fr": [
+       "Envoie-moi"
+      ],
+      "en": [
+       "Send me"
+      ],
+      "ko": [
+       "그렸어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Envoies-moi",
+        "Envoyer-moi"
+       ]
+      ],
+      "en": [
+       [
+        "Sends me",
+        "Sending me"
+       ]
+      ],
+      "ko": [
+       [
+        "그리었요",
+        "그렸요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -624,12 +896,100 @@
      }
     ]
    },
-   "reply": {
-    "fr": "J'aimerais voir ton ciel étoilé.",
-    "en": "I'd love to see your starry sky.",
-    "ko": "형의 별 하늘, 보고 싶다.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "III.0",
+     "fr": "J'ai ouvert ton croquis et j'ai longtemps regardé le ciel étoilé.",
+     "en": "I opened your sketch and looked at the starry sky for a long time.",
+     "ko": "형 스케치를 펴서 별 하늘을 한참 봤어요.",
+     "koLow": "형 스케치를 펴서 별 하늘을 한참 봤어.",
+     "koHigh": "형님 스케치를 펴서 별 하늘을 한참 봤습니다.",
+     "focus": {
+      "fr": [
+       "ai ouvert",
+       "ai longtemps regardé"
+      ],
+      "en": [
+       "opened",
+       "looked"
+      ],
+      "ko": [
+       "펴서"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "ai ouvri",
+        "suis ouvert"
+       ],
+       [
+        "suis longtemps regardé",
+        "ai longtemps regarder"
+       ]
+      ],
+      "en": [
+       [
+        "opens",
+        "opening"
+       ],
+       [
+        "looks",
+        "looking"
+       ]
+      ],
+      "ko": [
+       [
+        "펴어서",
+        "피서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "I.1",
+     "fr": "Tu as besoin des étoiles, la nuit ? Moi aussi, parfois.",
+     "en": "You need the stars at night? So do I, sometimes.",
+     "ko": "밤하늘의 별은 저한테도 가끔 꼭 필요한 위로예요.",
+     "koLow": "밤하늘의 별은 나한테도 가끔 꼭 필요한 위로야.",
+     "koHigh": "밤하늘의 별은 저에게도 가끔 꼭 필요한 위로입니다.",
+     "focus": {
+      "fr": [
+       "Moi aussi"
+      ],
+      "en": [
+       "So do I"
+      ],
+      "ko": [
+       "위로예요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Moi non plus",
+        "Moi non"
+       ]
+      ],
+      "en": [
+       [
+        "So am I",
+        "Neither do I"
+       ]
+      ],
+      "ko": [
+       [
+        "위로에요",
+        "위로이예요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -857,12 +1217,95 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Gauguin sera content de ton portrait.",
-    "en": "Gauguin will be glad of your portrait.",
-    "ko": "고갱이 형 자화상 받고 좋아하겠다.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "III.1",
+     "fr": "Les deux portraits sont arrivés ? Quand est-ce que je peux venir les voir ?",
+     "en": "The two portraits came? When can I come and see them?",
+     "ko": "두 초상화가 왔어요? 저는 언제 보러 가요?",
+     "koLow": "두 초상화가 왔어? 나는 언제 보러 가?",
+     "koHigh": "두 초상화가 왔습니까? 저는 언제 보러 가면 되겠습니까?",
+     "focus": {
+      "fr": [
+       "sont arrivés"
+      ],
+      "en": [
+       "came"
+      ],
+      "ko": [
+       "보러 가요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "ont arrivés",
+        "sont arrivé"
+       ]
+      ],
+      "en": [
+       [
+        "comed",
+        "coming"
+       ]
+      ],
+      "ko": [
+       [
+        "보으러 가요",
+        "보로 가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "III.0",
+     "fr": "Tu as fait les yeux à la japonaise, et ça m'a rendu curieux.",
+     "en": "You made the eyes the Japanese way, and that made me curious.",
+     "ko": "눈을 일본식으로 그려서 더 궁금해졌어요.",
+     "koLow": "눈을 일본식으로 그려서 더 궁금해졌어.",
+     "koHigh": "눈을 일본식으로 그리셔서 더 궁금해졌습니다.",
+     "focus": {
+      "fr": [
+       "as fait",
+       "m'a rendu"
+      ],
+      "en": [
+       "made"
+      ],
+      "ko": [
+       "그려서"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "es fait",
+        "as faire"
+       ],
+       [
+        "m'est rendu",
+        "m'a rendre"
+       ]
+      ],
+      "en": [
+       [
+        "maked",
+        "making"
+       ]
+      ],
+      "ko": [
+       [
+        "그리어서",
+        "그러서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -1048,12 +1491,90 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Mange bien, je t'en prie.",
-    "en": "Please eat properly.",
-    "ko": "제발 잘 챙겨 먹어.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "III.1",
+     "fr": "Tu es resté quatre jours avec du café ! Tu sors manger, maintenant ?",
+     "en": "You went four days on coffee! Do you go out to eat now?",
+     "ko": "나흘을 커피로 버텼군요! 이제는 밥 먹으러 나가요?",
+     "koLow": "나흘을 커피로 버텼구나! 이제는 밥 먹으러 나가?",
+     "koHigh": "나흘을 커피로 버티셨습니까? 이제는 식사하러 나가십니까?",
+     "focus": {
+      "fr": [
+       "es resté"
+      ],
+      "en": [
+       "went"
+      ],
+      "ko": [
+       "먹으러 나가요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "as resté",
+        "es restée"
+       ]
+      ],
+      "en": [
+       [
+        "goed",
+        "gone"
+       ]
+      ],
+      "ko": [
+       [
+        "먹러 나가요",
+        "먹으로 나가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "II.1",
+     "fr": "La prochaine fois, ne reste pas seul : écris-moi tout de suite.",
+     "en": "Next time, don't wait alone; write to me right away.",
+     "ko": "다음엔 혼자 참지 말고 바로 편지해요.",
+     "koLow": "다음엔 혼자 참지 말고 바로 편지해.",
+     "koHigh": "다음엔 혼자 참지 마시고 바로 편지해 주십시오.",
+     "focus": {
+      "fr": [
+       "ne reste pas"
+      ],
+      "en": [
+       "don't wait"
+      ],
+      "ko": [
+       "참지 말고"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "ne restes pas",
+        "ne reste"
+       ]
+      ],
+      "en": [
+       [
+        "doesn't wait",
+        "not wait"
+       ]
+      ],
+      "ko": [
+       [
+        "참지 안고",
+        "참지 말아고"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
@@ -1274,12 +1795,90 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Repose-toi bien dans ta chambre.",
-    "en": "Rest well in your room.",
-    "ko": "그 방에서 푹 쉬어.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "III.2",
+     "fr": "J'ai déjà envie de dormir dans cette chambre si calme.",
+     "en": "I already want to sleep in that quiet room.",
+     "ko": "저도 벌써 그 조용한 방에서 자고 싶어요.",
+     "koLow": "나도 벌써 그 조용한 방에서 자고 싶어.",
+     "koHigh": "저도 벌써 그 조용한 방에서 자고 싶습니다.",
+     "focus": {
+      "fr": [
+       "déjà"
+      ],
+      "en": [
+       "already"
+      ],
+      "ko": [
+       "자고 싶어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "hier",
+        "demain"
+       ]
+      ],
+      "en": [
+       [
+        "ago",
+        "yet"
+       ]
+      ],
+      "ko": [
+       [
+        "자고 싶아요",
+        "잘고 싶어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "II.2",
+     "fr": "Il y a beaucoup de couleurs, mais la chambre reste calme.",
+     "en": "There are many colours, but the room still feels calm.",
+     "ko": "색은 많지만 방은 참 조용해 보여요.",
+     "koLow": "색은 많지만 방은 참 조용해 보여.",
+     "koHigh": "색은 많지만 방은 참 조용해 보입니다.",
+     "focus": {
+      "fr": [
+       "Il y a beaucoup de couleurs"
+      ],
+      "en": [
+       "There are"
+      ],
+      "ko": [
+       "많지만"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Il y a beaucoup des couleurs",
+        "Il y ont beaucoup de couleurs"
+       ]
+      ],
+      "en": [
+       [
+        "There is",
+        "There be"
+       ]
+      ],
+      "ko": [
+       [
+        "많아지만",
+        "많지마"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -1456,12 +2055,90 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Dis bonjour à Gauguin pour moi.",
-    "en": "Say hello to Gauguin for me.",
-    "ko": "고갱한테 안부 전해 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "III.2",
+     "fr": "Tu as déjà le gaz dans l'atelier ? Je veux voir ça.",
+     "en": "You already have gas in the studio? I want to see that.",
+     "ko": "작업실에 벌써 가스를 들였어요? 저도 보고 싶어요.",
+     "koLow": "작업실에 벌써 가스를 들였어? 나도 보고 싶어.",
+     "koHigh": "작업실에 벌써 가스를 들이셨습니까? 저도 보고 싶습니다.",
+     "focus": {
+      "fr": [
+       "déjà"
+      ],
+      "en": [
+       "already"
+      ],
+      "ko": [
+       "보고 싶어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "hier",
+        "demain"
+       ]
+      ],
+      "en": [
+       [
+        "ago",
+        "yet"
+       ]
+      ],
+      "ko": [
+       [
+        "보고 싶아요",
+        "볼고 싶어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "III.1",
+     "fr": "Tu es sorti peindre les cyprès le soir ? Tu y vas souvent ?",
+     "en": "You went out to paint the cypresses at dusk? Do you go often?",
+     "ko": "해 질 녘에 자주 사이프러스를 그리러 나가요?",
+     "koLow": "해 질 녘에 자주 사이프러스를 그리러 나가?",
+     "koHigh": "해 질 녘에 자주 사이프러스를 그리러 나가십니까?",
+     "focus": {
+      "fr": [
+       "es sorti"
+      ],
+      "en": [
+       "went"
+      ],
+      "ko": [
+       "그리러 나가요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "as sorti",
+        "es sortie"
+       ]
+      ],
+      "en": [
+       [
+        "goed",
+        "gone"
+       ]
+      ],
+      "ko": [
+       [
+        "그리으러 나가요",
+        "그리러고 나가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,

@@ -6,6 +6,107 @@
  "title_en": "Italy",
  "title_ko": "이탈리아",
  "original": "de",
+ "grammar": [
+  {
+   "id": "I.0",
+   "de": {
+    "name": {
+     "ko": "현재형 sein · haben",
+     "en": "Present tense: sein · haben"
+    },
+    "hint": {
+     "ko": "지금 모습과 느낌을 말해요 · ich bin, du hast",
+     "en": "Say how things are now · ich bin, du hast"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "단순 현재",
+     "en": "Present simple"
+    },
+    "hint": {
+     "ko": "지금 느낌 · 늘 하는 일 · I feel, it sounds",
+     "en": "Feelings and habits now · I feel, it sounds"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-아요/어요",
+     "en": "Polite ending -아요/어요"
+    },
+    "hint": {
+     "ko": "부드럽게 끝맺어요 · 좋아요, 기뻐요",
+     "en": "Polite everyday ending · 좋아요, 기뻐요"
+    }
+   }
+  },
+  {
+   "id": "I.1",
+   "de": {
+    "name": {
+     "ko": "W-질문 (wer · was · wie)",
+     "en": "W-questions (wer · was · wie)"
+    },
+    "hint": {
+     "ko": "누가 · 무엇을 · 어떻게 물어요 · Wer spielt?",
+     "en": "Ask who, what, how · Wer spielt?"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "맞장구 me too · so do I",
+     "en": "Agreeing: me too · so do I"
+    },
+    "hint": {
+     "ko": "나도 그렇다고 말해요 · So do I!",
+     "en": "Say you feel the same · So do I!"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-이에요/예요",
+     "en": "It is: -이에요/예요"
+    },
+    "hint": {
+     "ko": "무엇인지 말해요 · 곡이에요, 음악가예요",
+     "en": "Say what something is · 곡이에요, 음악가예요"
+    }
+   }
+  },
+  {
+   "id": "I.2",
+   "de": {
+    "name": {
+     "ko": "부정 nicht · kein",
+     "en": "Negation: nicht · kein"
+    },
+    "hint": {
+     "ko": "아니라고 말해요 · nicht in Mailand",
+     "en": "Say no · nicht in Mailand"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "do 질문",
+     "en": "Questions with do"
+    },
+    "hint": {
+     "ko": "do 로 물어요 · Do you know?",
+     "en": "Ask with do · Do you know?"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "안 · 못",
+     "en": "Negation: 안 · 못"
+    },
+    "hint": {
+     "ko": "안 (하지 않음) · 못 (할 수 없음) · 못 가요",
+     "en": "Won't vs. can't · 못 가요"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c1-l1",
@@ -140,13 +241,64 @@
     "en": "The picture shows a festival ball in Milan's Teatro Regio Ducale in 1747 — not the theatres of Mantua and Cremona in the letter, but the house where Wolfgang's opera 'Mitridate' opened that December. In December 1769 Wolfgang set off with his father Leopold on his first journey to Italy. He wrote this from Milan the day before his fourteenth birthday, giving his sister a mischievous review of the singers he had heard in Mantua and Cremona.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 3 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Schreib mir mehr von der Oper!",
-    "en": "Write me more about the opera!",
-    "ko": "오페라 얘기 더 써 줘!",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 1
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "I.0",
+     "de": "Du hast eine neue Arie! Ich bin so stolz.",
+     "en": "You have a new aria again! I feel so proud.",
+     "ko": "새 아리아가 또 하나 있어요! 정말 자랑스러워요.",
+     "koLow": "새 아리아가 또 하나 있어! 정말 자랑스러워.",
+     "koHigh": "새 아리아가 또 하나 있습니다! 정말 자랑스럽습니다.",
+     "focus": {
+      "de": [
+       "hast",
+       "bin"
+      ],
+      "en": [
+       "have",
+       "feel"
+      ],
+      "ko": [
+       "있어요",
+       "자랑스러워요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "habt",
+        "hat"
+       ],
+       [
+        "bist",
+        "ist"
+       ]
+      ],
+      "en": [
+       [
+        "has",
+        "having"
+       ],
+       [
+        "feels",
+        "feeling"
+       ]
+      ],
+      "ko": [
+       [
+        "있아요",
+        "있요"
+       ],
+       [
+        "자랑스럽어요",
+        "자랑스러와요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
@@ -357,13 +509,64 @@
     "en": "Father and son spent April 1770 in Rome. It was during these days that Wolfgang famously heard Allegri's Miserere in the Sistine Chapel and wrote it down from memory. This short text is a postscript added to his father's letter.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 9 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Wir küssen Dich auch tausend Mal.",
-    "en": "We kiss you a thousand times too.",
-    "ko": "우리도 천 번 입맞춤을 보내.",
-    "_note": "엄마와 누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 0
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "I.0",
+     "de": "Rom ist sicher schön. Ich bin ganz neidisch!",
+     "en": "Rome sounds lovely. I feel quite jealous!",
+     "ko": "로마는 분명 예뻐요. 정말 부러워요!",
+     "koLow": "로마는 분명 예뻐. 정말 부러워!",
+     "koHigh": "로마는 분명 예쁩니다. 정말 부럽습니다!",
+     "focus": {
+      "de": [
+       "ist",
+       "bin"
+      ],
+      "en": [
+       "sounds",
+       "feel"
+      ],
+      "ko": [
+       "예뻐요",
+       "부러워요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "bist",
+        "sind"
+       ],
+       [
+        "bist",
+        "ist"
+       ]
+      ],
+      "en": [
+       [
+        "sound",
+        "sounding"
+       ],
+       [
+        "feels",
+        "feeling"
+       ]
+      ],
+      "ko": [
+       [
+        "예쁘어요",
+        "예뻐어요"
+       ],
+       [
+        "부럽어요",
+        "부러와요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -594,13 +797,49 @@
     "en": "A painting of Vesuvius erupting from the same years (1777), not the day Wolfgang saw it. The opening of the letter is written in Italian, as practice. Portici, where he saw the royal couple, is the site of a royal palace at the foot of Vesuvius. Nohl, who edited the letters, notes that Mozart loved animals and later always kept birds in his room.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 12 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Der Canari singt noch immer!",
-    "en": "The canary is still singing!",
-    "ko": "카나리아는 아직도 노래해!",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 1
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "I.0",
+     "de": "Danke für dein Lob! Ich bin heute sehr glücklich.",
+     "en": "Thanks for your praise! I feel very happy today.",
+     "ko": "칭찬 고마워요! 오늘 정말 기뻐요.",
+     "koLow": "칭찬 고마워! 오늘 정말 기뻐.",
+     "koHigh": "칭찬 고맙습니다! 오늘 정말 기쁩니다.",
+     "focus": {
+      "de": [
+       "bin"
+      ],
+      "en": [
+       "feel"
+      ],
+      "ko": [
+       "기뻐요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "bist",
+        "ist"
+       ]
+      ],
+      "en": [
+       [
+        "feels",
+        "feeling"
+       ]
+      ],
+      "ko": [
+       [
+        "기쁘어요",
+        "기뻐어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,
@@ -830,13 +1069,49 @@
     "en": "The picture is a 1776 engraving of Padre Martini. He is not named in the letter, but he taught Wolfgang in Bologna. A postscript to his father's letter, written in the summer heat of Bologna. That October Wolfgang was admitted to Bologna's Accademia Filarmonica. The city, home of Padre Martini, was a centre of musical learning in Italy.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 19 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Schlaf nicht zu viel, lieber Bruder!",
-    "en": "Don't sleep too much, dear brother!",
-    "ko": "너무 많이 자지 마, 동생아!",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 4
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "I.1",
+     "de": "Das wollte ich auch wissen! Was spielst du gerade?",
+     "en": "I wanted to know that too! What are you playing?",
+     "ko": "저도 그게 궁금했어요! 요즘 무슨 곡이에요?",
+     "koLow": "나도 그게 궁금했어! 요즘 무슨 곡이야?",
+     "koHigh": "저도 그것이 궁금했습니다! 요즘 무슨 곡입니까?",
+     "focus": {
+      "de": [
+       "Was spielst du"
+      ],
+      "en": [
+       "too"
+      ],
+      "ko": [
+       "곡이에요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Was spielt du",
+        "Was du spielst"
+       ]
+      ],
+      "en": [
+       [
+        "either",
+        "neither"
+       ]
+      ],
+      "ko": [
+       [
+        "곡예요",
+        "곡이예요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 3,
@@ -1052,13 +1327,49 @@
     "en": "The picture is an old print of children making music, not directly connected with this letter. Father and son had come home to Salzburg at the end of March 1771, but left for Milan again a few months later. Empress Maria Theresa had commissioned from Wolfgang a theatrical serenata for the October wedding of Archduke Ferdinand and the Princess of Modena: 'Ascanio in Alba'.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 33 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Trink viel Wasser, lieber Bruder!",
-    "en": "Drink lots of water, dear brother!",
-    "ko": "물 많이 마셔, 동생아!",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 2
-   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "I.1",
+     "de": "Überall Musiker! Ich liebe das auch. Wer spielt am besten?",
+     "en": "Musicians everywhere! You love it, so do I. Who's best?",
+     "ko": "온통 음악가예요! 저도 그런 곳이 좋아요. 누가 제일 잘해요?",
+     "koLow": "온통 음악가야! 나도 그런 곳이 좋아. 누가 제일 잘해?",
+     "koHigh": "온통 음악가입니다! 저도 그런 곳이 좋습니다. 누가 제일 잘합니까?",
+     "focus": {
+      "de": [
+       "Wer spielt"
+      ],
+      "en": [
+       "so do I"
+      ],
+      "ko": [
+       "음악가예요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Wer spielst",
+        "Wen spielt"
+       ]
+      ],
+      "en": [
+       [
+        "so am I",
+        "neither do I"
+       ]
+      ],
+      "ko": [
+       [
+        "음악가에요",
+        "음악가이예요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
@@ -1300,13 +1611,49 @@
     "en": "On his third Italian journey Wolfgang wrote the opera 'Lucio Silla' for Milan. Nohl reports that he turned the sheet round after every line, so every other line of this letter stands on its head. The opera opened on 26 December with great success and filled the house night after night.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 48 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Viel Glück mit Deiner Opera!",
-    "en": "Good luck with your opera!",
-    "ko": "오페라 잘되길 빌어!",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 1
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "I.2",
+     "de": "Ich bin nicht in Mailand, aber ich höre deine Oper.",
+     "en": "Do you know I hear your opera, far from Milan?",
+     "ko": "밀라노엔 못 가요. 그래도 마음으로 오페라를 들어요.",
+     "koLow": "밀라노엔 못 가. 그래도 마음으로 오페라를 들어.",
+     "koHigh": "밀라노에는 못 갑니다. 그래도 마음으로 오페라를 듣습니다.",
+     "focus": {
+      "de": [
+       "nicht"
+      ],
+      "en": [
+       "Do you know"
+      ],
+      "ko": [
+       "못 가요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "kein",
+        "nichts"
+       ]
+      ],
+      "en": [
+       [
+        "Does you know",
+        "Are you know"
+       ]
+      ],
+      "ko": [
+       [
+        "가 못요",
+        "못 가아요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,

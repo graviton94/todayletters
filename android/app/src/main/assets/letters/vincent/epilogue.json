@@ -6,6 +6,7 @@
  "title_en": "Epilogue",
  "title_ko": "맺음말",
  "original": "fr",
+ "grammar": [],
  "letters": [
   {
    "id": "e1",
@@ -51,7 +52,142 @@
     }
    ],
    "words": [],
-   "moments": []
+   "moments": [],
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VIII.0",
+     "fr": "Il faut que tes tableaux continuent de parler pour toi, mon frère.",
+     "en": "I wish your paintings could keep speaking for you, my brother.",
+     "ko": "형의 그림이 오래오래 형 대신 말해 주기를 바라요.",
+     "koLow": "형의 그림이 오래오래 형 대신 말해 주기를 바라.",
+     "koHigh": "형님의 그림이 오래오래 형님 대신 말해 주기를 바랍니다.",
+     "focus": {
+      "fr": [
+       "Il faut que",
+       "continuent"
+      ],
+      "en": [
+       "I wish"
+      ],
+      "ko": [
+       "주기를 바라요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Il faut",
+        "Il faut de"
+       ],
+       [
+        "continueront",
+        "continuaient"
+       ]
+      ],
+      "en": [
+       [
+        "I wishes",
+        "I wishing"
+       ]
+      ],
+      "ko": [
+       [
+        "주기를 바래요",
+        "줄 바라요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "VIII.2",
+     "fr": "Tu me l'avais déjà dit tant de fois, et je l'entends encore.",
+     "en": "You had told me so many times, and I still hear it.",
+     "ko": "형이 늘 해 준 그 말, 다시 읽으니 지금도 들리더라고요.",
+     "koLow": "형이 늘 해 준 그 말, 다시 읽으니 지금도 들리더라.",
+     "koHigh": "형님이 늘 해 주신 그 말씀, 다시 읽으니 지금도 들리더군요.",
+     "focus": {
+      "fr": [
+       "avais déjà dit"
+      ],
+      "en": [
+       "had told"
+      ],
+      "ko": [
+       "들리더라고요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "étais déjà dit",
+        "avais déjà dire"
+       ]
+      ],
+      "en": [
+       [
+        "had tell",
+        "has telled"
+       ]
+      ],
+      "ko": [
+       [
+        "들리더라구요",
+        "들려더라고요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "VIII.1",
+     "fr": "Je suis heureux que tu m'aies donné cette part ; je la garderai toujours.",
+     "en": "I hope that you know how much I treasure that share, always.",
+     "ko": "무슨 일이 있어도 그 몫을 늘 소중히 간직할게요.",
+     "koLow": "무슨 일이 있어도 그 몫을 늘 소중히 간직할게.",
+     "koHigh": "무슨 일이 있어도 그 몫을 늘 소중히 간직하겠습니다.",
+     "focus": {
+      "fr": [
+       "Je suis heureux que",
+       "aies donné"
+      ],
+      "en": [
+       "hope that"
+      ],
+      "ko": [
+       "있어도"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Je suis heureux",
+        "Je suis heureux de"
+       ],
+       [
+        "as donné",
+        "auras donné"
+       ]
+      ],
+      "en": [
+       [
+        "hope what",
+        "hope who"
+       ]
+      ],
+      "ko": [
+       [
+        "있아도",
+        "있도"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ]
   }
  ]
 }

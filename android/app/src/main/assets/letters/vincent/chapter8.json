@@ -6,6 +6,107 @@
  "title_en": "Auvers",
  "title_ko": "오베르",
  "original": "fr",
+ "grammar": [
+  {
+   "id": "VIII.0",
+   "fr": {
+    "name": {
+     "ko": "접속법 il faut que",
+     "en": "Subjunctive: il faut que"
+    },
+    "hint": {
+     "ko": "꼭 해야 해요 · il faut que + 접속법",
+     "en": "Necessity · il faut que + subjunctive"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "I wish",
+     "en": "I wish"
+    },
+    "hint": {
+     "ko": "아쉬운 바람 · I wish + 과거 / could",
+     "en": "Wishes about now · I wish + past / could"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-기를 바라요",
+     "en": "-기를 바라요 (I hope …)"
+    },
+    "hint": {
+     "ko": "누군가를 위한 바람 · ~기를 바라요",
+     "en": "Hope something for someone · I hope …"
+    }
+   }
+  },
+  {
+   "id": "VIII.1",
+   "fr": {
+    "name": {
+     "ko": "접속법 (감정) je suis content que",
+     "en": "Subjunctive after feelings"
+    },
+    "hint": {
+     "ko": "기쁨 · 슬픔 뒤엔 접속법 · je suis content que + 접속법",
+     "en": "After feelings, the subjunctive · je suis content que + subjunctive"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "I hope that",
+     "en": "I hope that"
+    },
+    "hint": {
+     "ko": "바라는 일 · I hope (that) + 현재 / will",
+     "en": "Hopes · I hope (that) + present / will"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-아/어도",
+     "en": "-아/어도 (even if)"
+    },
+    "hint": {
+     "ko": "그래도 · ~해도",
+     "en": "Even if / even though"
+    }
+   }
+  },
+  {
+   "id": "VIII.2",
+   "fr": {
+    "name": {
+     "ko": "대과거 (plus-que-parfait)",
+     "en": "Pluperfect (plus-que-parfait)"
+    },
+    "hint": {
+     "ko": "그보다 더 먼저 일어난 일 · avais/étais + 과거분사",
+     "en": "The earlier past · avais/étais + past participle"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "과거완료 (had + 과거분사)",
+     "en": "Past perfect"
+    },
+    "hint": {
+     "ko": "그보다 더 먼저 · had + 과거분사",
+     "en": "The earlier past · had + past participle"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-더라고요",
+     "en": "-더라고요 (I found that …)"
+    },
+    "hint": {
+     "ko": "직접 보고 느낀 것을 전해요 · ~더라고요",
+     "en": "Report what you saw or felt yourself"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c8-l1",
@@ -165,12 +266,136 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Gachet m'a beaucoup plu aussi.",
-    "en": "I liked Gachet a lot too.",
-    "ko": "나도 가셰 박사가 참 좋더라.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VIII.0",
+     "fr": "Il faut que tu peignes ces vieux chaumes avant qu'ils ne deviennent trop rares.",
+     "en": "I wish you could paint all those old thatched roofs before they become rare.",
+     "ko": "그 초가지붕들이 더 드물어지기 전에 형 그림에 많이 남기를 바라요.",
+     "koLow": "그 초가지붕들이 더 드물어지기 전에 형 그림에 많이 남기를 바라.",
+     "koHigh": "그 초가지붕들이 더 드물어지기 전에 형님 그림에 많이 남기를 바랍니다.",
+     "focus": {
+      "fr": [
+       "Il faut que",
+       "peignes"
+      ],
+      "en": [
+       "I wish"
+      ],
+      "ko": [
+       "남기를 바라요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Il faut",
+        "Il faut de"
+       ],
+       [
+        "peins",
+        "peindras"
+       ]
+      ],
+      "en": [
+       [
+        "I wishes",
+        "I wishing"
+       ]
+      ],
+      "ko": [
+       [
+        "남기를 바래요",
+        "남을 바라요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "VII.0",
+     "fr": "Je suis curieux de connaître le docteur Gachet, qui a ce Pissarro.",
+     "en": "I'm curious about Dr Gachet, who has that Pissarro with the red house.",
+     "ko": "빨간 집이 있는 피사로를 가진 가셰 박사님은 어떤 분인지 궁금해요.",
+     "koLow": "빨간 집이 있는 피사로를 가진 가셰 박사님은 어떤 분인지 궁금해.",
+     "koHigh": "빨간 집이 있는 피사로를 가진 가셰 박사님은 어떤 분이신지 궁금합니다.",
+     "focus": {
+      "fr": [
+       "qui a"
+      ],
+      "en": [
+       "who has"
+      ],
+      "ko": [
+       "가진"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "que a",
+        "qu'il a"
+       ]
+      ],
+      "en": [
+       [
+        "whom has",
+        "which has"
+       ]
+      ],
+      "ko": [
+       [
+        "가질은",
+        "가진는"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "II.1",
+     "fr": "Merci de ta visite ; ne nous oublie pas, et reviens vite.",
+     "en": "Thank you for your visit; don't forget us, and come back soon.",
+     "ko": "와 주고 기뻐해 줘서 고마워요. 우리 잊지 말고 또 와요.",
+     "koLow": "와 주고 기뻐해 줘서 고마워. 우리 잊지 말고 또 와.",
+     "koHigh": "와 주시고 기뻐해 주셔서 고맙습니다. 저희 잊지 마시고 또 오십시오.",
+     "focus": {
+      "fr": [
+       "ne nous oublie pas"
+      ],
+      "en": [
+       "don't forget"
+      ],
+      "ko": [
+       "와 주고"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "ne nous oublies pas",
+        "ne oublie nous pas"
+       ]
+      ],
+      "en": [
+       [
+        "doesn't forget",
+        "not forget"
+       ]
+      ],
+      "ko": [
+       [
+        "와 주어고",
+        "오 주고"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -393,12 +618,141 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Nous viendrons un dimanche, promis.",
-    "en": "We'll come one Sunday, promise.",
-    "ko": "일요일에 꼭 갈게, 약속해.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "VIII.0",
+     "fr": "Il faut que nous puissions venir te voir un dimanche avec le petit.",
+     "en": "I wish we could come and see you one Sunday with the little one.",
+     "ko": "언젠가 일요일에 아기랑 같이 형을 보러 갈 수 있기를 바라요.",
+     "koLow": "언젠가 일요일에 아기랑 같이 형을 보러 갈 수 있기를 바라.",
+     "koHigh": "언젠가 일요일에 아기와 함께 형님을 뵈러 갈 수 있기를 바랍니다.",
+     "focus": {
+      "fr": [
+       "Il faut que",
+       "puissions"
+      ],
+      "en": [
+       "I wish"
+      ],
+      "ko": [
+       "있기를 바라요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Il faut",
+        "Il faut de"
+       ],
+       [
+        "pouvons",
+        "pourrons"
+       ]
+      ],
+      "en": [
+       [
+        "I wishes",
+        "I wishing"
+       ]
+      ],
+      "ko": [
+       [
+        "있기를 바래요",
+        "있을 바라요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "VI.2",
+     "fr": "Si j'avais tes yeux, je verrais des violets partout ; tu les as déjà peints ?",
+     "en": "If I had your eyes, I could see violets everywhere; have you painted them yet?",
+     "ko": "보라가 더 잘 보인다니, 오베르의 보라도 벌써 그려 봤어요?",
+     "koLow": "보라가 더 잘 보인다니, 오베르의 보라도 벌써 그려 봤어?",
+     "koHigh": "보라가 더 잘 보이신다니, 오베르의 보라도 벌써 그려 보셨습니까?",
+     "focus": {
+      "fr": [
+       "j'avais",
+       "verrais"
+      ],
+      "en": [
+       "could"
+      ],
+      "ko": [
+       "그려 봤어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "j'ai",
+        "j'aurais"
+       ],
+       [
+        "verrai",
+        "voyais"
+       ]
+      ],
+      "en": [
+       [
+        "can",
+        "could to"
+       ]
+      ],
+      "ko": [
+       [
+        "그려 보았요",
+        "그리 봤어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "I.1",
+     "fr": "Tu trouves que c'est la meilleure manière de se rencontrer ? Moi aussi.",
+     "en": "You think working is the best way to meet people? So do I.",
+     "ko": "일하면서 만나는 게 제일이라는 말, 정말 맞는 말이에요.",
+     "koLow": "일하면서 만나는 게 제일이라는 말, 정말 맞는 말이야.",
+     "koHigh": "일하면서 만나는 게 제일이라는 말씀, 정말 맞는 말씀입니다.",
+     "focus": {
+      "fr": [
+       "Moi aussi"
+      ],
+      "en": [
+       "So do I"
+      ],
+      "ko": [
+       "말이에요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Moi non plus",
+        "Moi non"
+       ]
+      ],
+      "en": [
+       [
+        "So am I",
+        "Neither do I"
+       ]
+      ],
+      "ko": [
+       [
+        "말예요",
+        "말이예요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -603,12 +957,136 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Nous poserons pour toi en plein air.",
-    "en": "We'll sit for you in the open air.",
-    "ko": "우리, 바깥에서 형 모델 해 줄게.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VIII.0",
+     "fr": "Il faut que le petit respire un jour cet air sain d'Auvers, comme les enfants de là-bas.",
+     "en": "I wish the little one could breathe that healthy air of Auvers too.",
+     "ko": "우리 아기도 오베르의 맑은 공기를 마시며 튼튼하게 자라기를 바라요.",
+     "koLow": "우리 아기도 오베르의 맑은 공기를 마시며 튼튼하게 자라기를 바라.",
+     "koHigh": "저희 아기도 오베르의 맑은 공기를 마시며 튼튼하게 자라기를 바랍니다.",
+     "focus": {
+      "fr": [
+       "Il faut que",
+       "respire"
+      ],
+      "en": [
+       "I wish"
+      ],
+      "ko": [
+       "자라기를 바라요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Il faut",
+        "Il faut de"
+       ],
+       [
+        "respirera",
+        "respirait"
+       ]
+      ],
+      "en": [
+       [
+        "I wishes",
+        "I wishing"
+       ]
+      ],
+      "ko": [
+       [
+        "자라기를 바래요",
+        "자랄 바라요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "III.0",
+     "fr": "Ta lettre m'a rassuré : tu te couches à neuf heures et te lèves à cinq heures.",
+     "en": "Your letter reassured me: you go to bed at nine and get up at five.",
+     "ko": "형이 9시에 자고 5시에 일어난다고 해서 마음이 놓였어요.",
+     "koLow": "형이 9시에 자고 5시에 일어난다고 해서 마음이 놓였어.",
+     "koHigh": "형님이 9시에 주무시고 5시에 일어나신다고 해서 마음이 놓였습니다.",
+     "focus": {
+      "fr": [
+       "m'a rassuré"
+      ],
+      "en": [
+       "reassured"
+      ],
+      "ko": [
+       "해서"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "m'est rassuré",
+        "m'a rassurer"
+       ]
+      ],
+      "en": [
+       [
+        "reassure",
+        "reassuring"
+       ]
+      ],
+      "ko": [
+       [
+        "하서",
+        "해어서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "VII.2",
+     "fr": "Nos portraits en plein air ? J'y pense déjà avec beaucoup de joie.",
+     "en": "Portraits of us all in the open air? I think that it's a lovely idea.",
+     "ko": "바깥에서 우리 셋을 그려 준다니, 꼭 그렇게 됐으면 좋겠어요.",
+     "koLow": "바깥에서 우리 셋을 그려 준다니, 꼭 그렇게 됐으면 좋겠어.",
+     "koHigh": "바깥에서 저희 셋을 그려 주신다니, 꼭 그렇게 됐으면 좋겠습니다.",
+     "focus": {
+      "fr": [
+       "J'y pense"
+      ],
+      "en": [
+       "think that"
+      ],
+      "ko": [
+       "됐으면 좋겠어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "J'en pense",
+        "Je y pense"
+       ]
+      ],
+      "en": [
+       [
+        "think what",
+        "think who"
+       ]
+      ],
+      "ko": [
+       [
+        "되었으면 좋겠아요",
+        "됬으면 좋겠어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -816,12 +1294,146 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Nous reviendrons très vite te voir.",
-    "en": "We'll come back to see you very soon.",
-    "ko": "곧 또 보러 갈게.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VIII.1",
+     "fr": "Je suis content que ce dimanche t'ait plu ; revoyons-nous souvent, mon frère.",
+     "en": "I hope that we'll see each other often, like on that Sunday, brother.",
+     "ko": "조금 멀어도 우리 자주 봐요. 그 일요일처럼요.",
+     "koLow": "조금 멀어도 우리 자주 보자. 그 일요일처럼.",
+     "koHigh": "조금 멀어도 그 일요일처럼 자주 뵈면 좋겠습니다.",
+     "focus": {
+      "fr": [
+       "Je suis content que",
+       "ait plu"
+      ],
+      "en": [
+       "hope that"
+      ],
+      "ko": [
+       "멀어도"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Je suis content",
+        "Je suis content de"
+       ],
+       [
+        "a plu",
+        "aura plu"
+       ]
+      ],
+      "en": [
+       [
+        "hope what",
+        "hope who"
+       ]
+      ],
+      "ko": [
+       [
+        "멀아도",
+        "멀도"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "II.2",
+     "fr": "Il y a donc des peintres américains près de toi, mais tu n'as pas encore vu leurs toiles.",
+     "en": "So there are American painters next door, but you haven't seen their work yet.",
+     "ko": "옆집에 미국 화가들이 왔지만, 아직 그림은 못 봤군요.",
+     "koLow": "옆집에 미국 화가들이 왔지만, 아직 그림은 못 봤구나.",
+     "koHigh": "옆집에 미국 화가들이 왔지만, 아직 그 그림은 보지 못하셨습니다.",
+     "focus": {
+      "fr": [
+       "Il y a",
+       "des peintres"
+      ],
+      "en": [
+       "there are"
+      ],
+      "ko": [
+       "왔지만"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Il y as",
+        "Il ont"
+       ],
+       [
+        "de les peintres",
+        "du peintres"
+       ]
+      ],
+      "en": [
+       [
+        "there is",
+        "there be"
+       ]
+      ],
+      "ko": [
+       [
+        "왔어지만",
+        "오았지만"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "V.1",
+     "fr": "Tu t'inquiétais pour le petit, mais il se porte très bien maintenant.",
+     "en": "You used to worry about the little one, but he's very well now.",
+     "ko": "아기가 이제 아주 건강하니까 걱정하지 마요.",
+     "koLow": "아기가 이제 아주 건강하니까 걱정하지 마.",
+     "koHigh": "아기가 이제 아주 건강하니까 걱정하지 마십시오.",
+     "focus": {
+      "fr": [
+       "t'inquiétais",
+       "se porte"
+      ],
+      "en": [
+       "used to worry"
+      ],
+      "ko": [
+       "건강하니까"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "t'inquiétait",
+        "te inquiétais"
+       ],
+       [
+        "se portes",
+        "te porte"
+       ]
+      ],
+      "en": [
+       [
+        "use to worry",
+        "used to worrying"
+       ]
+      ],
+      "ko": [
+       [
+        "건강하으니까",
+        "건강해니까"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -1017,12 +1629,151 @@
      }
     ]
    },
-   "reply": {
-    "fr": "J'ai hâte de voir Mlle Gachet.",
-    "en": "I can't wait to see Mlle Gachet.",
-    "ko": "가셰 양 그림, 어서 보고 싶다.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "VIII.1",
+     "fr": "Je suis heureux que tu en fasses un pour nous, même si c'est difficile.",
+     "en": "I'm so happy about it, and I hope that ours won't be too difficult.",
+     "ko": "어려워도 우리한테 줄 그림을 그린다니 정말 기뻐요.",
+     "koLow": "어려워도 우리한테 줄 그림을 그린다니 정말 기뻐.",
+     "koHigh": "어려우셔도 저희에게 주실 그림을 그리신다니 정말 기쁩니다.",
+     "focus": {
+      "fr": [
+       "Je suis heureux que",
+       "fasses"
+      ],
+      "en": [
+       "hope that"
+      ],
+      "ko": [
+       "어려워도"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Je suis heureux",
+        "Je suis heureux de"
+       ],
+       [
+        "fais",
+        "feras"
+       ]
+      ],
+      "en": [
+       [
+        "hope what",
+        "hope who"
+       ]
+      ],
+      "ko": [
+       [
+        "어렵어도",
+        "어려와도"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 0,
+     "grammar": "III.2",
+     "fr": "Tu as peint son portrait hier, et j'ai déjà envie de voir la robe rose.",
+     "en": "You painted her portrait only two days ago, and I already want to see it.",
+     "ko": "어제 그린 가셰 양 초상화, 분홍 드레스를 얼른 보고 싶어요.",
+     "koLow": "어제 그린 가셰 양 초상화, 분홍 드레스를 얼른 보고 싶어.",
+     "koHigh": "어제 그리신 가셰 양 초상화, 분홍 드레스를 얼른 보고 싶습니다.",
+     "focus": {
+      "fr": [
+       "hier",
+       "déjà"
+      ],
+      "en": [
+       "ago",
+       "already"
+      ],
+      "ko": [
+       "보고 싶어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "demain",
+        "il y a"
+       ],
+       [
+        "hier",
+        "demain"
+       ]
+      ],
+      "en": [
+       [
+        "already",
+        "yet"
+       ],
+       [
+        "ago",
+        "yet"
+       ]
+      ],
+      "ko": [
+       [
+        "보고 싶아요",
+        "볼고 싶어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "VIII.0",
+     "fr": "Il faut que je voie ces deux toiles ensemble, la rose et celle des blés.",
+     "en": "I wish I could see the two canvases side by side, the pink one and the wheat.",
+     "ko": "분홍 그림과 밀밭 그림을 나란히 볼 날이 오기를 바라요.",
+     "koLow": "분홍 그림과 밀밭 그림을 나란히 볼 날이 오기를 바라.",
+     "koHigh": "분홍 그림과 밀밭 그림을 나란히 볼 날이 오기를 바랍니다.",
+     "focus": {
+      "fr": [
+       "Il faut que",
+       "voie"
+      ],
+      "en": [
+       "I wish"
+      ],
+      "ko": [
+       "오기를 바라요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Il faut",
+        "Il faut de"
+       ],
+       [
+        "vois",
+        "verrai"
+       ]
+      ],
+      "en": [
+       [
+        "I wishes",
+        "I wishing"
+       ]
+      ],
+      "ko": [
+       [
+        "오기를 바래요",
+        "올 바라요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -1198,12 +1949,136 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Apporte-nous vite ces toiles.",
-    "en": "Bring us those canvases soon.",
-    "ko": "그 그림들, 어서 가져와.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VIII.2",
+     "fr": "Ces heures avaient été dures pour moi aussi ; heureusement, la lettre de Jo t'a apaisé.",
+     "en": "Those hours had been hard for me too; I'm glad Jo's letter calmed you.",
+     "ko": "그 시간들은 저한테도 힘들더라고요. 조의 편지가 형을 다독여 줘서 다행이에요.",
+     "koLow": "그 시간들은 나한테도 힘들더라. 조의 편지가 형을 다독여 줘서 다행이야.",
+     "koHigh": "그 시간들은 저에게도 힘들더군요. 조의 편지가 형님을 다독여 드려서 다행입니다.",
+     "focus": {
+      "fr": [
+       "avaient été"
+      ],
+      "en": [
+       "had been"
+      ],
+      "ko": [
+       "힘들더라고요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "avaient étés",
+        "étaient été"
+       ]
+      ],
+      "en": [
+       [
+        "had be",
+        "has been"
+       ]
+      ],
+      "ko": [
+       [
+        "힘들더라구요",
+        "힘들어더라고요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "IV.1",
+     "fr": "Tes toiles me parlent toujours, parce qu'elles disent ce que tu ne dis pas.",
+     "en": "Your canvases always speak to me, because they say what words cannot.",
+     "ko": "형이 말로 못 하는 걸 그림이 대신 말해 줄 거예요. 저는 알아들어요.",
+     "koLow": "형이 말로 못 하는 걸 그림이 대신 말해 줄 거야. 나는 알아들어.",
+     "koHigh": "형님이 말로 못 하시는 것을 그림이 대신 말해 줄 겁니다. 저는 알아듣습니다.",
+     "focus": {
+      "fr": [
+       "parce qu'elles"
+      ],
+      "en": [
+       "because"
+      ],
+      "ko": [
+       "말해 줄 거예요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "parce elles",
+        "pour qu'elles"
+       ]
+      ],
+      "en": [
+       [
+        "because of",
+        "due"
+       ]
+      ],
+      "ko": [
+       [
+        "말해 주을 거예요",
+        "말해 줄 거이에요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "VIII.1",
+     "fr": "Je suis content que tu aies pu peindre ; maintenant, repose-toi un peu, mon frère.",
+     "en": "You still painted three canvases; I hope that you can rest a little now.",
+     "ko": "붓이 떨어질 것 같아도 그렸군요. 이제 좀 쉬어요.",
+     "koLow": "붓이 떨어질 것 같아도 그렸구나. 이제 좀 쉬어.",
+     "koHigh": "붓이 떨어질 것 같아도 그리셨다니 놀랍습니다. 이제 좀 쉬십시오.",
+     "focus": {
+      "fr": [
+       "Je suis content que",
+       "aies pu"
+      ],
+      "en": [
+       "hope that"
+      ],
+      "ko": [
+       "같아도"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Je suis content",
+        "Je suis content de"
+       ],
+       [
+        "as pu",
+        "auras pu"
+       ]
+      ],
+      "en": [
+       [
+        "hope what",
+        "hope who"
+       ]
+      ],
+      "ko": [
+       [
+        "같어도",
+        "같도"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -1410,12 +2285,151 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Ton jardin de Daubigny est magnifique.",
-    "en": "Your Daubigny's garden is magnificent.",
-    "ko": "형의 도비니 정원, 정말 멋지다.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VIII.2",
+     "fr": "Tu avais toujours aimé ces peintres, et maintenant tu peins aussi bien qu'eux.",
+     "en": "You had always loved those painters, and now you paint as well as they do.",
+     "ko": "형이 사랑해 온 그 화가들, 형 그림도 그들 못지않더라고요.",
+     "koLow": "형이 사랑해 온 그 화가들, 형 그림도 그들 못지않더라.",
+     "koHigh": "형님이 사랑해 오신 그 화가들, 형님 그림도 그들 못지않더군요.",
+     "focus": {
+      "fr": [
+       "avais toujours aimé"
+      ],
+      "en": [
+       "had always loved"
+      ],
+      "ko": [
+       "못지않더라고요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "étais toujours aimé",
+        "avais toujours aimer"
+       ]
+      ],
+      "en": [
+       [
+        "had always love",
+        "has always loving"
+       ]
+      ],
+      "ko": [
+       [
+        "못지않더라구요",
+        "못지않아더라고요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "I.0",
+     "fr": "Ton jardin de Daubigny est très beau, et il a même un chat noir !",
+     "en": "Your painting of Daubigny's garden is very beautiful, and it even has a black cat!",
+     "ko": "도비니의 정원은 정말 아름다워요. 검은 고양이까지 있어요!",
+     "koLow": "도비니의 정원은 정말 아름다워. 검은 고양이까지 있어!",
+     "koHigh": "도비니의 정원은 정말 아름답습니다. 검은 고양이까지 있습니다!",
+     "focus": {
+      "fr": [
+       "est très beau",
+       "il a"
+      ],
+      "en": [
+       "is",
+       "has"
+      ],
+      "ko": [
+       "아름다워요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "es très beau",
+        "a très beau"
+       ],
+       [
+        "il est",
+        "il as"
+       ]
+      ],
+      "en": [
+       [
+        "are",
+        "be"
+       ],
+       [
+        "have",
+        "having"
+       ]
+      ],
+      "ko": [
+       [
+        "아름답아요",
+        "아름답어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "II.0",
+     "fr": "Tu as tant travaillé ! Continue, mais prends bien soin de toi.",
+     "en": "You worked so hard! Keep going, but take good care of yourself.",
+     "ko": "정말 많이 그렸어요! 계속 그리되 몸도 꼭 챙겨요.",
+     "koLow": "정말 많이 그렸어! 계속 그리되 몸도 꼭 챙겨.",
+     "koHigh": "정말 많이 그리셨습니다! 계속 그리시되 몸도 꼭 챙기십시오.",
+     "focus": {
+      "fr": [
+       "Continue",
+       "prends"
+      ],
+      "en": [
+       "Keep going",
+       "take"
+      ],
+      "ko": [
+       "그렸어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Continues",
+        "Continuer"
+       ],
+       [
+        "prend",
+        "prendre"
+       ]
+      ],
+      "en": [
+       [
+        "Keeps going",
+        "Keep go"
+       ],
+       [
+        "takes",
+        "taking"
+       ]
+      ],
+      "ko": [
+       [
+        "그리었요",
+        "그렸요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,

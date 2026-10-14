@@ -6,6 +6,107 @@
  "title_en": "Paris",
  "title_ko": "파리",
  "original": "de",
+ "grammar": [
+  {
+   "id": "III.0",
+   "de": {
+    "name": {
+     "ko": "현재완료 (haben)",
+     "en": "Perfekt with haben"
+    },
+    "hint": {
+     "ko": "지난 일 · haben + 과거분사 · habe gelesen",
+     "en": "What happened · haben + past participle · habe gelesen"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "과거형",
+     "en": "Past simple"
+    },
+    "hint": {
+     "ko": "지난 일을 말해요 · I read, you waited",
+     "en": "Talk about the past · I read, you waited"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-아서/어서",
+     "en": "Reason & sequence: -아서/어서"
+    },
+    "hint": {
+     "ko": "이유 · 순서를 이어요 · 받아서, 들어서",
+     "en": "Give a reason or order · 받아서, 들어서"
+    }
+   }
+  },
+  {
+   "id": "III.1",
+   "de": {
+    "name": {
+     "ko": "현재완료 (sein)",
+     "en": "Perfekt with sein"
+    },
+    "hint": {
+     "ko": "움직임 · 변화는 sein + 과거분사 · ist eingeschlafen",
+     "en": "Movement and change take sein · ist eingeschlafen"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "불규칙 과거",
+     "en": "Irregular past"
+    },
+    "hint": {
+     "ko": "모양이 바뀌는 과거 · fell, met, went",
+     "en": "Past forms that change · fell, met, went"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)러 가요",
+     "en": "Going to do: -(으)러 가요"
+    },
+    "hint": {
+     "ko": "무엇을 하러 가요 · 기도하러 가요",
+     "en": "Go somewhere to do something · 기도하러 가요"
+    }
+   }
+  },
+  {
+   "id": "III.2",
+   "de": {
+    "name": {
+     "ko": "gestern · schon",
+     "en": "gestern · schon"
+    },
+    "hint": {
+     "ko": "어제 · 벌써 · Ich zähle schon die Tage",
+     "en": "Yesterday · already · Ich zähle schon die Tage"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "ago · already",
+     "en": "Ago · already"
+    },
+    "hint": {
+     "ko": "얼마 전 · 벌써 · I already miss you",
+     "en": "Time words · I already miss you"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-고 싶어요",
+     "en": "Wanting: -고 싶어요"
+    },
+    "hint": {
+     "ko": "바람을 말해요 · 듣고 싶어요",
+     "en": "Say what you want · 듣고 싶어요"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c3-l1",
@@ -141,12 +242,110 @@
     "en": "The painting shows Paris in 1763, fifteen years before Mozart arrived. Mozart and his mother reached Paris on 23 March 1778, nine and a half days after leaving Mannheim. Before they left, Aloysia Weber sang his new aria 'Non so d'onde viene' (K. 294) at a concert at Cannabich's house. The man waving at the door is her father, Fridolin Weber.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 100 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ich hoffe mit dir, mein Sohn.",
-    "en": "I hope with you, my son.",
-    "ko": "나도 너와 함께 희망한다, 아들아.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "III.0",
+     "de": "Ich habe deinen Brief bekommen und sofort gelesen. Was für eine anstrengende Reise!",
+     "en": "I got your letter and read it at once. What a hard journey!",
+     "ko": "편지를 받아서 바로 읽었어요. 정말 힘든 여행이었네요.",
+     "koLow": "편지를 받아서 바로 읽었어. 정말 힘든 여행이었구나.",
+     "koHigh": "편지를 받아서 바로 읽었습니다. 정말 힘든 여행이었겠습니다.",
+     "focus": {
+      "de": [
+       "habe",
+       "gelesen"
+      ],
+      "en": [
+       "got",
+       "read"
+      ],
+      "ko": [
+       "받아서"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "bin",
+        "hast"
+       ],
+       [
+        "gelest",
+        "lese"
+       ]
+      ],
+      "en": [
+       [
+        "getted",
+        "getting"
+       ],
+       [
+        "readed",
+        "reading"
+       ]
+      ],
+      "ko": [
+       [
+        "받어서",
+        "받으서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "I.0",
+     "de": "Du hast immer Hoffnung. Das ist gut, mein lieber Sohn.",
+     "en": "You always have hope. That is good, my dear son.",
+     "ko": "늘 희망을 품고 사는 모습, 참 좋아요.",
+     "koLow": "늘 희망을 품고 사는 모습, 참 좋아.",
+     "koHigh": "늘 희망을 품고 사는 모습, 참 좋습니다.",
+     "focus": {
+      "de": [
+       "hast",
+       "ist"
+      ],
+      "en": [
+       "have",
+       "is"
+      ],
+      "ko": [
+       "좋아요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "bist",
+        "habt"
+       ],
+       [
+        "bin",
+        "hat"
+       ]
+      ],
+      "en": [
+       [
+        "has",
+        "having"
+       ],
+       [
+        "are",
+        "be"
+       ]
+      ],
+      "ko": [
+       [
+        "좋어요",
+        "좋요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -386,12 +585,100 @@
     "en": "The poster is from the Concert Spirituel nine years later, in 1787. Grimm's letter of introduction took Mozart to the Duchesse de Chabot, where he had to play in a freezing room to guests who went on drawing. In the same letter he reports that the sinfonia concertante he wrote for four wind soloists (Wendling, Ramm, Punto and Ritter) was quietly left unperformed at the Concert Spirituel. That score is lost.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 102 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Halte aus, Gott hilft dir.",
-    "en": "Hold on, God will help you.",
-    "ko": "버텨라, 하느님이 도와주실 거다.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "III.0",
+     "de": "Du hast eine halbe Stunde in der Kälte gewartet? Das hat mich traurig gemacht.",
+     "en": "You waited half an hour in the cold? That made me sad.",
+     "ko": "추운 방에서 30분이나 기다려서 마음이 아팠어요.",
+     "koLow": "추운 방에서 30분이나 기다려서 마음이 아팠어.",
+     "koHigh": "추운 방에서 30분이나 기다려서 마음이 아팠습니다.",
+     "focus": {
+      "de": [
+       "gewartet",
+       "gemacht"
+      ],
+      "en": [
+       "waited",
+       "made"
+      ],
+      "ko": [
+       "기다려서"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "gewartest",
+        "warten"
+       ],
+       [
+        "gemachen",
+        "macht"
+       ]
+      ],
+      "en": [
+       [
+        "waits",
+        "waiting"
+       ],
+       [
+        "maked",
+        "making"
+       ]
+      ],
+      "ko": [
+       [
+        "기다리어서",
+        "기다랴서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "II.0",
+     "de": "Du kannst nicht allen gefallen. Spiel für die, die wirklich zuhören!",
+     "en": "You can't please everyone. Play for those who really listen!",
+     "ko": "모두를 만족시킬 순 없었어요. 진짜 듣는 사람을 위해 쳐요.",
+     "koLow": "모두를 만족시킬 순 없었어. 진짜 듣는 사람을 위해 쳐.",
+     "koHigh": "모두를 만족시킬 수는 없었습니다. 진짜 듣는 사람을 위해 치십시오.",
+     "focus": {
+      "de": [
+       "kannst"
+      ],
+      "en": [
+       "Play for those"
+      ],
+      "ko": [
+       "없었어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "kann",
+        "könnt"
+       ]
+      ],
+      "en": [
+       [
+        "Plays for those",
+        "Playing for those"
+       ]
+      ],
+      "ko": [
+       [
+        "없었요",
+        "없어었어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 3,
@@ -611,12 +898,100 @@
     "en": "The drawing shows the Palais-Royal garden around 1787, about nine years later. Mozart's mother, Anna Maria, died in Paris on the night of 3 July 1778. Writing that same night, he told his father only that she was very ill, so the news would not come all at once; in a second letter that night he told the truth to the family friend Abbé Bullinger and asked him to prepare Leopold. The symphony is the 'Paris' Symphony in D, K. 297.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 107 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ich bete für deine Mutter.",
-    "en": "I pray for your mother.",
-    "ko": "네 어머니를 위해 기도한다.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "III.0",
+     "de": "Ich habe die traurige Nachricht gelesen und lange an deine Mutter gedacht.",
+     "en": "I read the sad news and thought about your mother for a long time.",
+     "ko": "슬픈 소식을 들어서 어머니 생각을 오래 했어요.",
+     "koLow": "슬픈 소식을 들어서 어머니 생각을 오래 했어.",
+     "koHigh": "슬픈 소식을 들어서 어머니 생각을 오래 했습니다.",
+     "focus": {
+      "de": [
+       "gelesen",
+       "gedacht"
+      ],
+      "en": [
+       "read",
+       "thought"
+      ],
+      "ko": [
+       "들어서"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "gelest",
+        "lese"
+       ],
+       [
+        "gedenkt",
+        "denken"
+       ]
+      ],
+      "en": [
+       [
+        "readed",
+        "reading"
+       ],
+       [
+        "thinked",
+        "thinking"
+       ]
+      ],
+      "ko": [
+       [
+        "듣어서",
+        "들으서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "I.1",
+     "de": "Großer Beifall für deine Sinfonie! Wer ist stolzer, du oder ich?",
+     "en": "Great applause for your symphony! You feel proud, and so do I.",
+     "ko": "큰 박수라니, 정말 기쁜 소식이에요. 아버지도 자랑스러워요.",
+     "koLow": "큰 박수라니, 정말 기쁜 소식이야. 나도 자랑스러워.",
+     "koHigh": "큰 박수라니, 정말 기쁜 소식입니다. 저도 자랑스럽습니다.",
+     "focus": {
+      "de": [
+       "Wer ist"
+      ],
+      "en": [
+       "so do I"
+      ],
+      "ko": [
+       "소식이에요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Wer bist",
+        "Wen ist"
+       ]
+      ],
+      "en": [
+       [
+        "so am I",
+        "neither do I"
+       ]
+      ],
+      "ko": [
+       [
+        "소식예요",
+        "소식이예요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -850,12 +1225,90 @@
     "en": "The photograph shows the memorial plaque the city of Salzburg placed in Saint-Eustache in 1953. Anna Maria Mozart died in Paris on 3 July 1778 and was buried at Saint-Eustache. Six days later Mozart told his father plainly and explained why he had softened the news in his previous letter. Nohl's German gives the hour as 10.21 p.m.; Wallace's English has 'twenty minutes past ten'.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 108 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ich weine, aber ich bete mit dir.",
-    "en": "I weep, but I pray with you.",
-    "ko": "울고 있지만, 너와 함께 기도한다.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "III.1",
+     "de": "Deine Mutter ist friedlich eingeschlafen. Gehst du für sie beten?",
+     "en": "Your mother fell asleep in peace. Do you go and pray for her?",
+     "ko": "어머니는 평안히 잠드셨어요. 어머니를 위해 기도하러 가요?",
+     "koLow": "어머니는 평안히 잠드셨어. 어머니를 위해 기도하러 가?",
+     "koHigh": "어머니께서는 평안히 잠드셨습니다. 어머니를 위해 기도하러 가십니까?",
+     "focus": {
+      "de": [
+       "ist friedlich eingeschlafen"
+      ],
+      "en": [
+       "fell"
+      ],
+      "ko": [
+       "기도하러 가요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "hat friedlich eingeschlafen",
+        "ist friedlich eingeschlaft"
+       ]
+      ],
+      "en": [
+       [
+        "falled",
+        "fallen"
+       ]
+      ],
+      "ko": [
+       [
+        "기도하으러 가요",
+        "기도하러고 가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "III.0",
+     "de": "Deine Worte haben mich getröstet: Wir sehen sie wieder.",
+     "en": "Your words comforted me: we will see her again.",
+     "ko": "다시 만날 거라는 말을 들어서 위로가 됐어요.",
+     "koLow": "다시 만날 거라는 말을 들어서 위로가 됐어.",
+     "koHigh": "다시 만날 거라는 말을 들어서 위로가 되었습니다.",
+     "focus": {
+      "de": [
+       "haben mich getröstet"
+      ],
+      "en": [
+       "comforted"
+      ],
+      "ko": [
+       "들어서"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "sind mich getröstet",
+        "haben mich tröstet"
+       ]
+      ],
+      "en": [
+       [
+        "comforts",
+        "comforting"
+       ]
+      ],
+      "ko": [
+       [
+        "듣어서",
+        "들으서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -1064,12 +1517,95 @@
     "en": "The picture is a memorial print published in London in 1791, after Bach's death. Johann Christian Bach, the youngest son of Johann Sebastian Bach, had befriended the child Mozart in London in 1764–65. Mozart wrote this at the Maréchal de Noailles' house in Saint-Germain-en-Laye, near Paris. The scena he wrote there for the castrato Tenducci (K. 315b) is lost.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 112 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Grüße Bach von mir, mein Sohn.",
-    "en": "Greet Bach for me, my son.",
-    "ko": "바흐에게 내 안부 전해라, 아들아.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "III.1",
+     "de": "Ihr seid euch endlich wieder begegnet! Geht ihr jetzt zusammen musizieren?",
+     "en": "You finally met again! Do you go and make music together now?",
+     "ko": "드디어 다시 만났군요! 이제 둘이 같이 연주하러 가요?",
+     "koLow": "드디어 다시 만났구나! 이제 둘이 같이 연주하러 가?",
+     "koHigh": "드디어 다시 만나셨다니 기쁩니다! 이제 두 분이 같이 연주하러 가십니까?",
+     "focus": {
+      "de": [
+       "seid",
+       "begegnet"
+      ],
+      "en": [
+       "met"
+      ],
+      "ko": [
+       "연주하러 가요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "habt",
+        "sind"
+       ],
+       [
+        "begegnen",
+        "begegnete"
+       ]
+      ],
+      "en": [
+       [
+        "meeted",
+        "meeting"
+       ]
+      ],
+      "ko": [
+       [
+        "연주하으러 가요",
+        "연주하러고 가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "II.1",
+     "de": "Hetz dich nicht! Danach darfst du dich auch ausruhen.",
+     "en": "Don't rush! After the piece, rest a little.",
+     "ko": "서두르지 말고, 다 쓰면 좀 쉬어요.",
+     "koLow": "서두르지 말고, 다 쓰면 좀 쉬어.",
+     "koHigh": "서두르지 마시고, 다 쓰시면 좀 쉬십시오.",
+     "focus": {
+      "de": [
+       "darfst"
+      ],
+      "en": [
+       "Don't rush"
+      ],
+      "ko": [
+       "말고"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "darf",
+        "dürfst"
+       ]
+      ],
+      "en": [
+       [
+        "Doesn't rush",
+        "Not rush"
+       ]
+      ],
+      "ko": [
+       [
+        "말아고",
+        "마고"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -1308,12 +1844,90 @@
     "en": "This answers Leopold's news that a post was waiting for Wolfgang at the Salzburg court. Mozart admits he dislikes Paris, but insists he must be allowed to travel every second year. One of 'my two symphonies' is the 'Paris' Symphony, K. 297.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 113 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Komm heim, wir warten auf dich.",
-    "en": "Come home, we are waiting for you.",
-    "ko": "집으로 오너라, 우리가 기다린다.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "III.2",
+     "de": "Ich vermisse dich schon so sehr. Ich will dich bald umarmen.",
+     "en": "I already miss you so much. I want to hug you soon.",
+     "ko": "벌써 많이 보고 싶어요. 곧 꼭 안아 주고 싶어요.",
+     "koLow": "벌써 많이 보고 싶어. 곧 꼭 안아 주고 싶어.",
+     "koHigh": "벌써 많이 보고 싶습니다. 곧 꼭 안아 주고 싶습니다.",
+     "focus": {
+      "de": [
+       "schon"
+      ],
+      "en": [
+       "already"
+      ],
+      "ko": [
+       "안아 주고 싶어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "gestern",
+        "morgen"
+       ]
+      ],
+      "en": [
+       [
+        "ago",
+        "yet"
+       ]
+      ],
+      "ko": [
+       [
+        "안아 주고 싶아요",
+        "안아 줄고 싶어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "I.2",
+     "de": "Du bist in Paris kein Fremder mehr! Ist das nicht schön?",
+     "en": "You are no stranger in Paris now. Doesn't that feel good?",
+     "ko": "이제 파리에서 볼프강을 못 알아보는 사람은 없네요. 기분 좋지요?",
+     "koLow": "이제 파리에서 너를 못 알아보는 사람은 없구나. 기분 좋지?",
+     "koHigh": "이제 파리에서 볼프강을 못 알아보는 사람은 없습니다. 기분 좋지 않습니까?",
+     "focus": {
+      "de": [
+       "kein Fremder"
+      ],
+      "en": [
+       "Doesn't"
+      ],
+      "ko": [
+       "못 알아보는"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "nicht Fremder",
+        "keine Fremder"
+       ]
+      ],
+      "en": [
+       [
+        "Don't",
+        "Isn't"
+       ]
+      ],
+      "ko": [
+       [
+        "알아 못보는",
+        "못 알아본는"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 4,
@@ -1524,12 +2138,90 @@
     "en": "The image pairs a 17th-century engraving and a later photograph of Strasbourg Cathedral's south portal. Mozart wrote this in Strasbourg on his way home from Paris to Salzburg. The Webers, who had moved to Munich with the Elector's court, heard nothing from him for a month and feared he was dead; 'the poor girl', Aloysia, went to church every day to pray for him. He tells his father that only he can sweeten the bitterness of Salzburg.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 115 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Ich warte auf dich, mein Sohn.",
-    "en": "I am waiting for you, my son.",
-    "ko": "기다리고 있다, 아들아.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "III.2",
+     "de": "Ich zähle schon die Tage und will dir Salzburg versüßen.",
+     "en": "I already count the days, and I want to sweeten Salzburg for you.",
+     "ko": "벌써 날을 세고 있어요. 잘츠부르크를 달게 해 주고 싶어요.",
+     "koLow": "벌써 날을 세고 있어. 잘츠부르크를 달게 해 주고 싶어.",
+     "koHigh": "벌써 날을 세고 있습니다. 잘츠부르크를 달게 해 주고 싶습니다.",
+     "focus": {
+      "de": [
+       "schon"
+      ],
+      "en": [
+       "already"
+      ],
+      "ko": [
+       "해 주고 싶어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "gestern",
+        "morgen"
+       ]
+      ],
+      "en": [
+       [
+        "ago",
+        "yet"
+       ]
+      ],
+      "ko": [
+       [
+        "해 주고 싶아요",
+        "해 줄고 싶어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "II.2",
+     "de": "Salzburg ist schwer, aber für mich bist du immer alles. Komm heim!",
+     "en": "Salzburg is hard, but there is no one like you for me. Come home!",
+     "ko": "잘츠부르크는 힘들지만, 아버지한텐 볼프강이 늘 전부예요. 어서 와요.",
+     "koLow": "잘츠부르크는 힘들지만, 아버지한텐 네가 늘 전부야. 어서 와.",
+     "koHigh": "잘츠부르크는 힘들지만, 저에게는 볼프강이 늘 전부입니다. 어서 오십시오.",
+     "focus": {
+      "de": [
+       "Komm heim"
+      ],
+      "en": [
+       "there is"
+      ],
+      "ko": [
+       "힘들지만"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Kommst heim",
+        "Kommen heim"
+       ]
+      ],
+      "en": [
+       [
+        "there are",
+        "there be"
+       ]
+      ],
+      "ko": [
+       [
+        "힘들어지만",
+        "힘드지만"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,

@@ -6,6 +6,107 @@
  "title_en": "The Sunflowers",
  "title_ko": "해바라기",
  "original": "fr",
+ "grammar": [
+  {
+   "id": "II.0",
+   "fr": {
+    "name": {
+     "ko": "명령형",
+     "en": "Imperative"
+    },
+    "hint": {
+     "ko": "부탁 · 권유 · -er 동사 tu 형은 s 없이 · Envoie-moi…",
+     "en": "Ask or urge · -er verbs drop the s for tu · Envoie-moi…"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "명령형",
+     "en": "Imperative"
+    },
+    "hint": {
+     "ko": "동사 원형으로 부탁해요 · Send me…, Tell me…",
+     "en": "Use the base verb to ask · Send me…, Tell me…"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-았어요/었어요",
+     "en": "-았어요/었어요 (past)"
+    },
+    "hint": {
+     "ko": "지난 일을 말해요 · 봤어요, 기다렸어요",
+     "en": "Talk about the past · 봤어요, 기다렸어요"
+    }
+   }
+  },
+  {
+   "id": "II.1",
+   "fr": {
+    "name": {
+     "ko": "부정 ne…pas · ne…jamais",
+     "en": "Negation: ne…pas · ne…jamais"
+    },
+    "hint": {
+     "ko": "동사를 ne 와 pas/jamais 로 감싸요 · Ne travaille pas trop",
+     "en": "Wrap the verb in ne … pas/jamais · Ne travaille pas trop"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "don't · never",
+     "en": "don't · never"
+    },
+    "hint": {
+     "ko": "하지 마 · 절대 · Don't work too hard. Never give up.",
+     "en": "Saying no · Don't work too hard. Never give up."
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-고",
+     "en": "-고 (and)"
+    },
+    "hint": {
+     "ko": "두 일을 이어요 · 쉬고, 그리고",
+     "en": "Join two actions · 쉬고, 그리고"
+    }
+   }
+  },
+  {
+   "id": "II.2",
+   "fr": {
+    "name": {
+     "ko": "il y a · 부분관사",
+     "en": "il y a · partitive articles"
+    },
+    "hint": {
+     "ko": "있다고 말해요 · il y a du bleu, de l'infini",
+     "en": "Say what there is · il y a du bleu, de l'infini"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "there is · there are",
+     "en": "there is · there are"
+    },
+    "hint": {
+     "ko": "있다고 말해요 · There is blue. There are many colours.",
+     "en": "Say what there is · There is blue. There are many colours."
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-지만",
+     "en": "-지만 (but)"
+    },
+    "hint": {
+     "ko": "반대되는 말을 이어요 · 단순하지만, 많지만",
+     "en": "Join contrasting ideas · 단순하지만, 많지만"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c2-l1",
@@ -153,13 +254,49 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Envoie-moi tes dessins de la mer.",
-    "en": "Send me your drawings of the sea.",
-    "ko": "바다 그림들 보내 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 1
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "II.0",
+     "fr": "Tu es enfin à la mer ! Raconte-moi tout.",
+     "en": "You are by the sea at last! Tell me everything.",
+     "ko": "드디어 바다를 봤어요? 다 이야기해 줘요.",
+     "koLow": "드디어 바다를 봤어? 다 이야기해 줘.",
+     "koHigh": "드디어 바다를 보셨습니까? 다 말씀해 주십시오.",
+     "focus": {
+      "fr": [
+       "Raconte-moi"
+      ],
+      "en": [
+       "Tell me"
+      ],
+      "ko": [
+       "봤어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Racontes-moi",
+        "Raconter-moi"
+       ]
+      ],
+      "en": [
+       [
+        "Tells me",
+        "Telling me"
+       ]
+      ],
+      "ko": [
+       [
+        "보았요",
+        "봐었어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -359,13 +496,49 @@
      }
     ]
    },
-   "reply": {
-    "fr": "J'aimerais voir la mer avec toi.",
-    "en": "I'd like to see the sea with you.",
-    "ko": "형이랑 같이 바다 보고 싶다.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 0
-   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "II.0",
+     "fr": "Ton œil a changé ? Montre-moi tes nouvelles couleurs.",
+     "en": "Your sight changed? Then show me your new colours.",
+     "ko": "형 눈이 바뀌었어요? 새 색을 보여 줘요.",
+     "koLow": "형 눈이 바뀌었어? 새 색을 보여 줘.",
+     "koHigh": "형님 눈이 바뀌셨습니까? 새 색을 보여 주십시오.",
+     "focus": {
+      "fr": [
+       "Montre-moi"
+      ],
+      "en": [
+       "show me"
+      ],
+      "ko": [
+       "바뀌었어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Montres-moi",
+        "Montrer-moi"
+       ]
+      ],
+      "en": [
+       [
+        "shows me",
+        "showing me"
+       ]
+      ],
+      "ko": [
+       [
+        "바뀌았어요",
+        "바뀌었요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -577,13 +750,49 @@
      }
     ]
    },
-   "reply": {
-    "fr": "N'aie pas peur, fais ton semeur.",
-    "en": "Don't be afraid, paint your sower.",
-    "ko": "겁내지 말고, 그 씨 뿌리는 사람 그려 봐.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 3
-   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "II.0",
+     "fr": "Tu l'as attendu longtemps : peins ton semeur !",
+     "en": "You waited so long. Paint your sower now!",
+     "ko": "형은 그 그림을 오래 기다렸어요. 겁내지 말고 그려요.",
+     "koLow": "형은 그 그림을 오래 기다렸어. 겁내지 말고 그려.",
+     "koHigh": "형님은 그 그림을 오래 기다리셨습니다. 겁내지 마시고 그리십시오.",
+     "focus": {
+      "fr": [
+       "peins"
+      ],
+      "en": [
+       "Paint"
+      ],
+      "ko": [
+       "기다렸어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "peint",
+        "peindre"
+       ]
+      ],
+      "en": [
+       [
+        "Paints",
+        "Painting"
+       ]
+      ],
+      "ko": [
+       [
+        "기다랐어요",
+        "기다리었요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,
@@ -764,13 +973,49 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Je vais lire Madame Chrysanthème.",
-    "en": "I'm going to read Madame Chrysanthème.",
-    "ko": "『국화 부인』 읽어 볼게.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 0
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "II.1",
+     "fr": "Ne travaille pas trop, et repose-toi un peu.",
+     "en": "Don't work too hard, and rest a little.",
+     "ko": "일은 조금 줄이고 푹 쉬어요.",
+     "koLow": "일은 조금 줄이고 푹 쉬어.",
+     "koHigh": "일은 조금 줄이시고 푹 쉬십시오.",
+     "focus": {
+      "fr": [
+       "Ne travaille pas"
+      ],
+      "en": [
+       "Don't work"
+      ],
+      "ko": [
+       "줄이고"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Ne travailles pas",
+        "Pas travaille"
+       ]
+      ],
+      "en": [
+       [
+        "Doesn't work",
+        "Not work"
+       ]
+      ],
+      "ko": [
+       [
+        "줄여고",
+        "줄이아고"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -966,13 +1211,49 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Salue le facteur Roulin de ma part.",
-    "en": "Say hello to Roulin the postman for me.",
-    "ko": "우편배달부 룰랭 씨한테 안부 전해 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 0
-   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "II.1",
+     "fr": "N'abandonne jamais les portraits, c'est ton chemin.",
+     "en": "Never give up the portraits; they are your road.",
+     "ko": "초상화를 계속 그리고 그 길로 가요.",
+     "koLow": "초상화를 계속 그리고 그 길로 가.",
+     "koHigh": "초상화를 계속 그리시고 그 길로 가십시오.",
+     "focus": {
+      "fr": [
+       "N'abandonne jamais"
+      ],
+      "en": [
+       "Never give up"
+      ],
+      "ko": [
+       "그리고"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "N'abandonnes jamais",
+        "Ne jamais abandonne"
+       ]
+      ],
+      "en": [
+       [
+        "Never gives up",
+        "Never giving up"
+       ]
+      ],
+      "ko": [
+       [
+        "그려고",
+        "그리어고"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,
@@ -1178,13 +1459,49 @@
      }
     ]
    },
-   "reply": {
-    "fr": "J'ai hâte de voir ton paysan.",
-    "en": "I can't wait to see your peasant.",
-    "ko": "형이 그린 농부, 얼른 보고 싶다.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 0
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "II.2",
+     "fr": "Le fond est simple, mais il y a de l'infini.",
+     "en": "The background is simple, but there is infinity in it.",
+     "ko": "배경은 단순하지만 그 안에 무한이 있어요.",
+     "koLow": "배경은 단순하지만 그 안에 무한이 있어.",
+     "koHigh": "배경은 단순하지만 그 안에 무한이 있습니다.",
+     "focus": {
+      "fr": [
+       "il y a de l'infini"
+      ],
+      "en": [
+       "there is"
+      ],
+      "ko": [
+       "단순하지만"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "il y as de l'infini",
+        "il y a du l'infini"
+       ]
+      ],
+      "en": [
+       [
+        "there are",
+        "there be"
+       ]
+      ],
+      "ko": [
+       [
+        "단순해지만",
+        "단순하지마"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -1395,13 +1712,54 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Garde une place pour un tournesol chez moi.",
-    "en": "Keep a sunflower for my place too.",
-    "ko": "내 방에 걸 해바라기도 하나 남겨 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 1
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "II.2",
+     "fr": "Il y a du bleu, du jaune… quelle symphonie !",
+     "en": "There is blue and yellow… what a symphony!",
+     "ko": "색은 둘뿐이지만 정말 교향곡 같아요.",
+     "koLow": "색은 둘뿐이지만 정말 교향곡 같아.",
+     "koHigh": "색은 둘뿐이지만 정말 교향곡 같습니다.",
+     "focus": {
+      "fr": [
+       "Il y a du bleu",
+       "du jaune"
+      ],
+      "en": [
+       "There is"
+      ],
+      "ko": [
+       "둘뿐이지만"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Il y a de le bleu",
+        "Il y as du bleu"
+       ],
+       [
+        "de le jaune",
+        "des jaune"
+       ]
+      ],
+      "en": [
+       [
+        "There be",
+        "There has"
+       ]
+      ],
+      "ko": [
+       [
+        "둘뿐지만",
+        "둘뿐이지마"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,

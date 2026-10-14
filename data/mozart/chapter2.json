@@ -6,6 +6,107 @@
  "title_en": "Mannheim",
  "title_ko": "만하임",
  "original": "de",
+ "grammar": [
+  {
+   "id": "II.0",
+   "de": {
+    "name": {
+     "ko": "können · müssen",
+     "en": "Modals: können · müssen"
+    },
+    "hint": {
+     "ko": "할 수 있다 · 해야 한다 · du kannst, du musst",
+     "en": "Can and must · du kannst, du musst"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "명령형",
+     "en": "Imperative"
+    },
+    "hint": {
+     "ko": "부탁하고 권해요 · Write! Keep playing!",
+     "en": "Ask and encourage · Write! Keep playing!"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-았어요/었어요",
+     "en": "Past: -았어요/었어요"
+    },
+    "hint": {
+     "ko": "지난 일을 말해요 · 했어요, 들었어요",
+     "en": "Talk about the past · 했어요, 들었어요"
+    }
+   }
+  },
+  {
+   "id": "II.1",
+   "de": {
+    "name": {
+     "ko": "wollen · dürfen",
+     "en": "Modals: wollen · dürfen"
+    },
+    "hint": {
+     "ko": "하려고 한다 · 해도 된다 · du willst, du darfst",
+     "en": "Want and may · du willst, du darfst"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "don't · never",
+     "en": "Don't · never"
+    },
+    "hint": {
+     "ko": "하지 말라고 말해요 · Don't worry. Never cringe.",
+     "en": "Tell someone not to · Don't worry. Never cringe."
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-고",
+     "en": "Linking: -고"
+    },
+    "hint": {
+     "ko": "두 말을 이어요 · 짧고 분명하게",
+     "en": "Join two ideas · 짧고 분명하게"
+    }
+   }
+  },
+  {
+   "id": "II.2",
+   "de": {
+    "name": {
+     "ko": "명령형 (du)",
+     "en": "Imperative (du)"
+    },
+    "hint": {
+     "ko": "du 에게 부탁해요 · Sei geduldig! Komm!",
+     "en": "Ask a du-friend · Sei geduldig! Komm!"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "there is · there are",
+     "en": "There is · there are"
+    },
+    "hint": {
+     "ko": "있다고 말해요 · There is still time.",
+     "en": "Say something exists · There is still time."
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-지만",
+     "en": "Contrast: -지만"
+    },
+    "hint": {
+     "ko": "그렇지만 · 알지만, 힘들지만",
+     "en": "But · 알지만, 힘들지만"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c2-l1",
@@ -140,13 +241,49 @@
     "en": "The picture is Carmontelle's 1777 version of his 1763 Paris drawing of the Mozart family — not the 'portrait' the letter mentions. On 23 September 1777 Wolfgang, released from the Archbishop's service, set out with his mother to look for a post; his father stayed in Salzburg. This is his first letter from the road, written that night at the Stern inn in Wasserburg while his mother was already half asleep. The 'portrait' he jokes about is probably the one painted in 1777 showing him with the papal Order of the Golden Spur.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 59 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Gute Reise, mein Sohn, gib acht!",
-    "en": "Safe travels, my son, take care!",
-    "ko": "잘 다녀오너라, 아들아. 조심하고!",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 3
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "II.0",
+     "de": "Eine Kuh mit zwei Farben? Du musst sie mir zeichnen!",
+     "en": "A cow with two colors? Draw it for me!",
+     "ko": "색이 둘인 소라니, 처음 들었어요! 그려 줘요.",
+     "koLow": "색이 둘인 소라니, 처음 들었어! 그려 줘.",
+     "koHigh": "색이 둘인 소라니, 처음 들었습니다! 그려 주십시오.",
+     "focus": {
+      "de": [
+       "musst"
+      ],
+      "en": [
+       "Draw"
+      ],
+      "ko": [
+       "들었어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "muss",
+        "müsst"
+       ]
+      ],
+      "en": [
+       [
+        "Draws",
+        "Drawing"
+       ]
+      ],
+      "ko": [
+       [
+        "듣었어요",
+        "들어었어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -355,13 +492,54 @@
     "en": "The instrument in the photo is a fortepiano Stein built in 1786, nine years after this letter. Johann Andreas Stein of Augsburg built organs and the fortepianos Mozart praises here. Wolfgang explains to his father why Stein's instruments last: the soundboard is left to crack in the weather first, then mended. The six sonatas he played by heart are his piano sonatas K. 279–284; the 'last in D' is K. 284.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 67 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Schreib mir bald von den Orgeln!",
-    "en": "Write to me soon about the organs!",
-    "ko": "오르간 이야기도 곧 써 보내렴!",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 4
-   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "II.0",
+     "de": "Alle sechs Sonaten auswendig? Du kannst viel! Spiel sie oft.",
+     "en": "All six sonatas by heart? Wonderful! Keep playing them often.",
+     "ko": "여섯 곡을 다 외워서 쳤어요? 정말 잘했어요!",
+     "koLow": "여섯 곡을 다 외워서 쳤어? 정말 잘했어!",
+     "koHigh": "여섯 곡을 다 외워서 치셨습니까? 정말 잘하셨습니다!",
+     "focus": {
+      "de": [
+       "kannst"
+      ],
+      "en": [
+       "Keep playing"
+      ],
+      "ko": [
+       "쳤어요",
+       "잘했어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "kann",
+        "könnt"
+       ]
+      ],
+      "en": [
+       [
+        "Keeps playing",
+        "Keep play"
+       ]
+      ],
+      "ko": [
+       [
+        "쳤요",
+        "치었요"
+       ],
+       [
+        "잘했요",
+        "잘하었어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 3,
@@ -593,13 +771,49 @@
     "en": "The oboe in the picture is not Ramm's own, but an old oboe in a museum collection. Mannheim was the seat of the Elector Palatine Carl Theodor. Wolfgang quickly made friends with the orchestra's leader Christian Cannabich and the oboist Friedrich Ramm; the concerto he gave Ramm is the Oboe Concerto in C, K. 314. He had been in Mannheim fifteen years before, aged seven, on the family's concert tour.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 71 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Bravo für das Hautbois-Concert, mein Sohn!",
-    "en": "Bravo for the oboe concerto, my son!",
-    "ko": "오보에 협주곡, 잘했다, 아들아!",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 0
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "II.0",
+     "de": "Was für ein Geschenk! Du musst mir mehr erzählen.",
+     "en": "What a gift! Write me more about him.",
+     "ko": "정말 멋진 선물을 했어요! 그 사람 얘기를 더 써 줘요.",
+     "koLow": "정말 멋진 선물을 했어! 그 사람 얘기를 더 써 줘.",
+     "koHigh": "정말 멋진 선물을 하셨습니다! 그 사람 이야기를 더 써 주십시오.",
+     "focus": {
+      "de": [
+       "musst"
+      ],
+      "en": [
+       "Write"
+      ],
+      "ko": [
+       "했어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "muss",
+        "müsst"
+       ]
+      ],
+      "en": [
+       [
+        "Writes",
+        "Writing"
+       ]
+      ],
+      "ko": [
+       [
+        "하았어요",
+        "햇어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -818,13 +1032,49 @@
     "en": "The picture is not Mozart but Cannabich, named in this letter, engraved in Mannheim two years later. Leopold Mozart's birthday fell on 14 November and his name-day, St Leopold's, on 15 November, so Wolfgang sends a double greeting. The sonata for Cannabich's daughter Rosa is the Piano Sonata in C, K. 309. Shortly before, he had played for the Elector Carl Theodor and his court.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 73 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Danke, mein lieber Musikus!",
-    "en": "Thank you, my dear musician!",
-    "ko": "고맙다, 우리 음악가야!",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 3
-   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "II.1",
+     "de": "Du darfst ruhig mit Tönen sprechen, nicht mit Worten.",
+     "en": "Don't worry about words; speak with your tones.",
+     "ko": "말은 걱정하지 말고 소리로 말해요.",
+     "koLow": "말은 걱정하지 말고 소리로 말해.",
+     "koHigh": "말은 걱정하지 마시고 소리로 말씀하십시오.",
+     "focus": {
+      "de": [
+       "darfst"
+      ],
+      "en": [
+       "Don't worry"
+      ],
+      "ko": [
+       "말고"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "darf",
+        "dürfst"
+       ]
+      ],
+      "en": [
+       [
+        "Doesn't worry",
+        "Not worry"
+       ]
+      ],
+      "ko": [
+       [
+        "말아고",
+        "마고"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -1037,13 +1287,49 @@
     "en": "The flutes in the picture do not appear in the letter; they are a pair of ivory flutes from the same century. After weeks of waiting, Wolfgang learned that the Elector would not give him a post. His friends at once tried to keep him in Mannheim: the flautist Wendling brought an offer from a Dutch amateur ('our Indian') for flute concertos and quartets. Nohl prints the fee as 200 florins; Wallace's English has 'twenty'.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 83 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Gott hat es so gewollt, mein Sohn.",
-    "en": "God willed it so, my son.",
-    "ko": "하느님 뜻이었단다, 아들아.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 3
-   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "II.1",
+     "de": "Kurz und klar! Du willst nicht kriechen, das verstehe ich.",
+     "en": "Short and clear! Never cringe; I understand you.",
+     "ko": "짧고 분명하게, 좋아요. 그 마음 잘 알아요.",
+     "koLow": "짧고 분명하게, 좋아. 그 마음 잘 알아.",
+     "koHigh": "짧고 분명하게, 좋습니다. 그 마음 잘 압니다.",
+     "focus": {
+      "de": [
+       "willst"
+      ],
+      "en": [
+       "Never cringe"
+      ],
+      "ko": [
+       "짧고"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "will",
+        "wollst"
+       ]
+      ],
+      "en": [
+       [
+        "Never cringes",
+        "Never cringing"
+       ]
+      ],
+      "ko": [
+       [
+        "짧아고",
+        "짧으고"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,
@@ -1278,13 +1564,49 @@
     "en": "The picture is a portrait of Aloysia painted a few years later in Vienna, in an operatic costume. Wolfgang had just made a concert trip with the Weber family to the princely court at Kirchheimbolanden. The singer he praises, Aloysia Weber, was the second daughter of the music copyist and prompter Fridolin Weber; her younger sister Constanze would later become Mozart's wife. His plan to take the Webers to Italy alarmed his father.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 91 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Denk an Paris, mein Sohn!",
-    "en": "Think of Paris, my son!",
-    "ko": "파리를 생각하렴, 아들아!",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 3
-   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "II.2",
+     "de": "Ich kenne deinen Wunsch. Sei geduldig, es gibt noch Zeit!",
+     "en": "I know your wish. Be patient; there is still time.",
+     "ko": "그 바람은 알지만, 조금만 참아요. 아직 시간이 있어요.",
+     "koLow": "그 바람은 알지만, 조금만 참아. 아직 시간이 있어.",
+     "koHigh": "그 바람은 알지만, 조금만 참으십시오. 아직 시간이 있습니다.",
+     "focus": {
+      "de": [
+       "Sei geduldig"
+      ],
+      "en": [
+       "there is"
+      ],
+      "ko": [
+       "알지만"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Bist geduldig",
+        "Seist geduldig"
+       ]
+      ],
+      "en": [
+       [
+        "there are",
+        "there be"
+       ]
+      ],
+      "ko": [
+       [
+        "알아지만",
+        "알으지만"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,
@@ -1513,13 +1835,49 @@
     "en": "The picture shows Leopold around 1765, some thirteen years before this letter. Written a week before leaving Mannheim. Leopold had written that the journey's costs left him going about shabbily dressed, and Wolfgang was moved to tears. The new aria is 'Non so d'onde viene', K. 294, written for Aloysia Weber. On 14 March 1778 he set out with his mother for Paris.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 98 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Gott segne dich in Paris, mein Sohn.",
-    "en": "God bless you in Paris, my son.",
-    "ko": "파리에서도 하느님이 지켜 주시길, 아들아.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 4
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "II.2",
+     "de": "Danke, mein Sohn! Glaub mir, kein Satz ist süßer.",
+     "en": "Thank you, son! There is no sweeter sentence for me.",
+     "ko": "어릴 때 한 말이지만, 그보다 고마운 말은 없어요.",
+     "koLow": "어릴 때 한 말이지만, 그보다 고마운 말은 없어.",
+     "koHigh": "어릴 때 하신 말씀이지만, 그보다 고마운 말씀은 없습니다.",
+     "focus": {
+      "de": [
+       "Glaub mir"
+      ],
+      "en": [
+       "There is"
+      ],
+      "ko": [
+       "말이지만"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Glaubst mir",
+        "Glauben mir"
+       ]
+      ],
+      "en": [
+       [
+        "There are",
+        "There be"
+       ]
+      ],
+      "ko": [
+       [
+        "말지만",
+        "말이지마"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,

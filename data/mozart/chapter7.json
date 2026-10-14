@@ -6,6 +6,107 @@
  "title_en": "Figaro & Prague",
  "title_ko": "피가로와 프라하",
  "original": "de",
+ "grammar": [
+  {
+   "id": "VII.0",
+   "de": {
+    "name": {
+     "ko": "접속법 II würde · hätte · wäre",
+     "en": "Subjunctive II würde · hätte · wäre"
+    },
+    "hint": {
+     "ko": "바람 · 가정을 말해요 · ich wäre, ich hätte, ich würde …",
+     "en": "Wishes and what-ifs · ich wäre, ich hätte, ich würde …"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "관계사 who · which",
+     "en": "Relative who · which"
+    },
+    "hint": {
+     "ko": "사람은 who, 사물은 which 로 꾸며요",
+     "en": "Describe people with who, things with which"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "관형형 -(으)ㄴ/는/(으)ㄹ",
+     "en": "Noun modifiers -(으)ㄴ/는/(으)ㄹ"
+    },
+    "hint": {
+     "ko": "명사를 꾸며요 · 쓴 곡, 부르는 도시, 들어야 할 작품",
+     "en": "Describe a noun · 쓴 곡, 부르는 도시, 들어야 할 작품"
+    }
+   }
+  },
+  {
+   "id": "VII.1",
+   "de": {
+    "name": {
+     "ko": "관계문 der · die · das",
+     "en": "Relative clauses der · die · das"
+    },
+    "hint": {
+     "ko": "명사를 문장으로 꾸며요 · 동사는 끝으로",
+     "en": "Describe a noun with a clause · verb last"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "관계부사 where · when",
+     "en": "Relative where · when"
+    },
+    "hint": {
+     "ko": "곳은 where, 때는 when 으로 꾸며요",
+     "en": "Describe a place with where, a time with when"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄹ 때",
+     "en": "-(으)ㄹ 때 (when)"
+    },
+    "hint": {
+     "ko": "그 순간을 말해요 · 읽을 때, 힘들 때",
+     "en": "Say the moment · 읽을 때, 힘들 때"
+    }
+   }
+  },
+  {
+   "id": "VII.2",
+   "de": {
+    "name": {
+     "ko": "zu + 동사원형",
+     "en": "zu + infinitive"
+    },
+    "hint": {
+     "ko": "하려는 일 · 하는 것을 말해요 · zu hören, zu besuchen",
+     "en": "Say what to do · zu hören, zu besuchen"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "that 절",
+     "en": "that-clauses"
+    },
+    "hint": {
+     "ko": "생각 · 기쁨 뒤에 that 으로 이어요 · I'm glad that …",
+     "en": "Link with that · I'm glad that …"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-았/었으면 좋겠어요",
+     "en": "-았/었으면 좋겠어요 (I'd like it if)"
+    },
+    "hint": {
+     "ko": "바람을 말해요 · 들었으면 좋겠어요",
+     "en": "Say a wish · 들었으면 좋겠어요"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c7-l1",
@@ -140,12 +241,151 @@
     "en": "A photo of childhood portraits of Nannerl and Wolfgang, painted some twenty years before this letter. In summer 1784 Nannerl married Johann Baptist von Berchtold zu Sonnenburg and moved to St. Gilgen on the Wolfgangsee. Mozart worries about their father left alone, and suggests that he ask the Archbishop for a pension and move either to his daughter or to his son in Vienna. The letter ends with a short, teasing poem of advice for the newly-weds.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 238 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Danke, Bruder! Komm nach St. Gilgen!",
-    "en": "Thank you, brother! Come to St. Gilgen!",
-    "ko": "고마워, 동생아! 장크트 길겐에 와!",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "VII.0",
+     "de": "Danke für eure Wünsche; ich wäre froh, wenn ihr beide hier sein könntet.",
+     "en": "Thank you for the wishes, which made me so happy; I miss you both.",
+     "ko": "두 사람이 보내 준 축하에 정말 행복해요. 둘 다 보고 싶어요.",
+     "koLow": "두 사람이 보내 준 축하에 정말 행복해. 둘 다 보고 싶어.",
+     "koHigh": "두 분이 보내 주신 축하에 정말 행복합니다. 두 분 다 뵙고 싶습니다.",
+     "focus": {
+      "de": [
+       "wäre",
+       "könntet"
+      ],
+      "en": [
+       "which made"
+      ],
+      "ko": [
+       "보내 준"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "wärst",
+        "wären"
+       ],
+       [
+        "könnte",
+        "kannst"
+       ]
+      ],
+      "en": [
+       [
+        "who made",
+        "whose made"
+       ]
+      ],
+      "ko": [
+       [
+        "보내 주은",
+        "보내 준는"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "VI.0",
+     "de": "Ich hatte dieselbe Sorge, aber zum Glück war ich nicht weit von ihm.",
+     "en": "I have the same worry; if I stay close to him, he will not feel so alone.",
+     "ko": "나도 같은 걱정을 하는데, 가까이 있으면 아버지가 덜 외로우실 거예요.",
+     "koLow": "나도 같은 걱정을 하는데, 가까이 있으면 아버지가 덜 외로우실 거야.",
+     "koHigh": "저도 같은 걱정을 하는데, 가까이 있으면 아버지께서 덜 외로우실 겁니다.",
+     "focus": {
+      "de": [
+       "war",
+       "hatte"
+      ],
+      "en": [
+       "if I stay",
+       "will not feel"
+      ],
+      "ko": [
+       "하는데"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "warst",
+        "waren"
+       ],
+       [
+        "hattest",
+        "hatten"
+       ]
+      ],
+      "en": [
+       [
+        "if I will stay",
+        "if I stayed"
+       ],
+       [
+        "would not feel",
+        "will not felt"
+       ]
+      ],
+      "ko": [
+       [
+        "한데",
+        "하은데"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "V.1",
+     "de": "Deine Briefe machen mich froh; ich hoffe, dass wir so glücklich leben wie ihr.",
+     "en": "Your letters always used to cheer me, and I hope we live as happily as you.",
+     "ko": "두 사람이 그렇게 행복하니까, 우리도 그렇게 살 수 있으면 해요.",
+     "koLow": "두 사람이 그렇게 행복하니까, 우리도 그렇게 살 수 있으면 해.",
+     "koHigh": "두 분이 그렇게 행복하시니까, 저희도 그렇게 살 수 있으면 합니다.",
+     "focus": {
+      "de": [
+       "dass",
+       "glücklich leben"
+      ],
+      "en": [
+       "used to cheer"
+      ],
+      "ko": [
+       "행복하니까"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "das",
+        "weil dass"
+       ],
+       [
+        "leben glücklich",
+        "glücklich lebt"
+       ]
+      ],
+      "en": [
+       [
+        "use to cheer",
+        "used to cheering"
+       ]
+      ],
+      "ko": [
+       [
+        "행복하으니까",
+        "행복해니까"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 4,
@@ -371,12 +611,141 @@
     "en": "A view of the Kärntnertor Theatre from around 1830, long after Mozart's time. The Mannheim dramatist Anton Klein had sent Mozart an opera libretto; this is his reply. He complains that the planned German opera stage in Vienna is being undermined from the start, while the best German singers are kept at the Italian theatre. Nohl adds after the letter that nothing came of the opera.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 239 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Singen Sie deutsch, lieber Mozart!",
-    "en": "Sing in German, dear Mozart!",
-    "ko": "독일어로 노래해 주세요, 모차르트 씨!",
-    "_note": "클라인 고문관의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "VII.0",
+     "de": "Es wäre schade, wenn niemand dieses Werk hören würde; alle sollten es hören.",
+     "en": "It is a work which everyone should hear; it would be a pity otherwise.",
+     "ko": "모두가 들어야 할 작품이에요. 아무도 안 들으면 정말 아까워요.",
+     "koLow": "모두가 들어야 할 작품이야. 아무도 안 들으면 정말 아까워.",
+     "koHigh": "모두가 들어야 할 작품입니다. 아무도 듣지 않으면 정말 아깝습니다.",
+     "focus": {
+      "de": [
+       "wäre",
+       "hören würde"
+      ],
+      "en": [
+       "which everyone should hear"
+      ],
+      "ko": [
+       "들어야 할"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "wärst",
+        "wären"
+       ],
+       [
+        "hören wird",
+        "gehört würde"
+       ]
+      ],
+      "en": [
+       [
+        "who everyone should hear",
+        "whose everyone should hear"
+       ]
+      ],
+      "ko": [
+       [
+        "들어야 한는",
+        "들어야 하을"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "VI.2",
+     "de": "Ich freue mich über Ihre offenen Worte; Sie dürfen immer frei sprechen.",
+     "en": "I'm glad of your open words; you should always speak freely with me.",
+     "ko": "솔직한 말씀을 여러 번 읽어 봤어요. 언제든 편하게 말해 주세요.",
+     "koLow": "솔직한 말을 여러 번 읽어 봤어. 언제든 편하게 말해 줘.",
+     "koHigh": "솔직한 말씀을 여러 번 읽어 봤습니다. 언제든 편하게 말씀해 주십시오.",
+     "focus": {
+      "de": [
+       "freue mich"
+      ],
+      "en": [
+       "should always speak"
+      ],
+      "ko": [
+       "읽어 봤어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "freue Sie",
+        "freue mir"
+       ]
+      ],
+      "en": [
+       [
+        "should always speaks",
+        "should always to speak"
+       ]
+      ],
+      "ko": [
+       [
+        "읽어 보았요",
+        "읽 봤어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "IV.2",
+     "de": "Eines Tages werden sicher mehr Patrioten zu uns stehen und helfen.",
+     "en": "One day more patriots will surely stand with us and help.",
+     "ko": "언젠가는 더 많은 애국자가 우리 편에 서서 돕지 않을까요?",
+     "koLow": "언젠가는 더 많은 애국자가 우리 편에 서서 돕지 않을까?",
+     "koHigh": "언젠가는 더 많은 애국자가 우리 편에 서서 돕지 않겠습니까?",
+     "focus": {
+      "de": [
+       "werden",
+       "stehen und helfen"
+      ],
+      "en": [
+       "will surely stand"
+      ],
+      "ko": [
+       "않을까요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "wird",
+        "werdet"
+       ],
+       [
+        "stehen und hilft",
+        "standen und halfen"
+       ]
+      ],
+      "en": [
+       [
+        "will surely stands",
+        "will surely stood"
+       ]
+      ],
+      "ko": [
+       [
+        "않으을까요",
+        "않을가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
@@ -603,12 +972,151 @@
     "en": "A modern photo of the Estates Theatre (formerly the Nostitz Theatre) in Prague. In January 1787 Prague music lovers, who adored both Die Entführung and Figaro, invited Mozart to come and give concerts. Gottfried von Jacquin, son of the famous botanist, belonged to a family Mozart was very close to. In Prague Mozart stayed at Count Thun's palace, and his concert in the theatre was set for Friday the 19th.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 242 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Grüße an Figaro und Prag!",
-    "en": "Greetings to Figaro and Prague!",
-    "ko": "피가로와 프라하에 안부를!",
-    "_note": "자캥의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "VII.0",
+     "de": "Ich wäre gern in dieser Stadt und würde mit allen Figaro pfeifen!",
+     "en": "I would love to be in a city which whistles nothing but Figaro!",
+     "ko": "피가로만 부르는 도시라니, 나도 가 보고 싶어요.",
+     "koLow": "피가로만 부르는 도시라니, 나도 가 보고 싶어.",
+     "koHigh": "피가로만 부르는 도시라니, 저도 가 보고 싶습니다.",
+     "focus": {
+      "de": [
+       "wäre",
+       "würde"
+      ],
+      "en": [
+       "which whistles"
+      ],
+      "ko": [
+       "부르는"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "wärst",
+        "wären"
+       ],
+       [
+        "würdest",
+        "würden"
+       ]
+      ],
+      "en": [
+       [
+        "who whistles",
+        "whose whistles"
+       ]
+      ],
+      "ko": [
+       [
+        "부른는",
+        "부를는"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "V.2",
+     "de": "Als ich das las, musste ich lachen: kein Tanz, weil Sie zu müde waren!",
+     "en": "I have laughed so much: no dancing, because you were too tired!",
+     "ko": "너무 피곤했기 때문에 춤도 안 췄다니, 웃음이 나요.",
+     "koLow": "너무 피곤했기 때문에 춤도 안 췄다니, 웃음이 나.",
+     "koHigh": "너무 피곤하셨기 때문에 춤도 안 추셨다니, 웃음이 납니다.",
+     "focus": {
+      "de": [
+       "Als",
+       "las"
+      ],
+      "en": [
+       "have laughed"
+      ],
+      "ko": [
+       "피곤했기 때문에"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Wenn",
+        "Wann"
+       ],
+       [
+        "lese",
+        "gelesen"
+       ]
+      ],
+      "en": [
+       [
+        "has laughed",
+        "have laugh"
+       ]
+      ],
+      "ko": [
+       [
+        "피곤했기 때문이",
+        "피곤하았기 때문에"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "VI.1",
+     "de": "Ich wartete lange auf Ihren Brief, doch ich schimpfte mit Morpheus, nicht mit Ihnen.",
+     "en": "If Morpheus were here, I would scold him, not you.",
+     "ko": "모르페우스가 너무 너그러운 것 같아요. 모차르트 씨 탓은 안 할게요.",
+     "koLow": "모르페우스가 너무 너그러운 것 같아. 네 탓은 안 할게.",
+     "koHigh": "모르페우스가 너무 너그러운 것 같습니다. 선생님 탓은 하지 않겠습니다.",
+     "focus": {
+      "de": [
+       "wartete",
+       "schimpfte"
+      ],
+      "en": [
+       "If Morpheus were",
+       "would scold"
+      ],
+      "ko": [
+       "너그러운 것 같아요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "wartet",
+        "gewartet"
+       ],
+       [
+        "schimpft",
+        "geschimpft"
+       ]
+      ],
+      "en": [
+       [
+        "If Morpheus is",
+        "If Morpheus will be"
+       ],
+       [
+        "will scold",
+        "would scolded"
+       ]
+      ],
+      "ko": [
+       [
+        "너그럽는 것 같아요",
+        "너그러은 것 같아요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -831,12 +1339,141 @@
     "en": "A picture of father and children from the Paris visit of 1763–64, more than twenty years before this letter. While Mozart was busy with Don Giovanni, news came that his father Leopold, ailing for months, was seriously ill. Nohl introduces this as Mozart's last letter to his father. It also mentions his friend Count Hatzfeld, who had died at thirty-one. Leopold died on 28 May 1787.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 243 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Sei ruhig, mein lieber Sohn.",
-    "en": "Be at peace, my dear son.",
-    "ko": "마음 편히 가지거라, 사랑하는 아들아.",
-    "_note": "아버지의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VII.1",
+     "de": "Dein Brief, der so voller Sorge ist, hat mein Herz tief berührt.",
+     "en": "Your worried letter touched the place in my heart where you always live.",
+     "ko": "볼프강의 걱정이 담긴 편지를 읽을 때 마음이 깊이 움직였어요.",
+     "koLow": "네 걱정이 담긴 편지를 읽을 때 마음이 깊이 움직였어.",
+     "koHigh": "걱정이 담긴 편지를 읽을 때 마음이 깊이 움직였습니다.",
+     "focus": {
+      "de": [
+       "der so voller Sorge ist"
+      ],
+      "en": [
+       "where you always live"
+      ],
+      "ko": [
+       "읽을 때"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "die so voller Sorge ist",
+        "der ist so voller Sorge"
+       ]
+      ],
+      "en": [
+       [
+        "which you always live",
+        "when you always live"
+       ]
+      ],
+      "ko": [
+       [
+        "읽는 때",
+        "읽을은 때"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "VII.0",
+     "de": "Ich hätte nie gedacht, dass ein junger Mann so ruhig über den Tod schreiben würde.",
+     "en": "These are calm words which a young man rarely writes about death.",
+     "ko": "죽음을 이렇게 차분하게 말하는 볼프강 글이 놀라워요.",
+     "koLow": "죽음을 이렇게 차분하게 말하는 네 글이 놀라워.",
+     "koHigh": "죽음을 이렇게 차분하게 말하는 글이 놀랍습니다.",
+     "focus": {
+      "de": [
+       "hätte",
+       "schreiben würde"
+      ],
+      "en": [
+       "which a young man rarely writes"
+      ],
+      "ko": [
+       "말하는"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "hättest",
+        "hätten"
+       ],
+       [
+        "schreiben wird",
+        "geschrieben würde"
+       ]
+      ],
+      "en": [
+       [
+        "who a young man rarely writes",
+        "whose a young man rarely writes"
+       ]
+      ],
+      "ko": [
+       [
+        "말한는",
+        "말하을"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "V.0",
+     "de": "Alle lieben dich, weil sie mit dir immer fröhlich sind.",
+     "en": "People were always laughing when you were around, and they love you.",
+     "ko": "볼프강이 곁에 있으면 다들 즐거워해요. 그래서 다들 좋아해요.",
+     "koLow": "네가 곁에 있으면 다들 즐거워해. 그래서 다들 좋아해.",
+     "koHigh": "곁에 계시면 다들 즐거워합니다. 그래서 다들 좋아합니다.",
+     "focus": {
+      "de": [
+       "weil",
+       "fröhlich sind"
+      ],
+      "en": [
+       "were always laughing"
+      ],
+      "ko": [
+       "있으면"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "denn weil",
+        "weil dass"
+       ],
+       [
+        "sind fröhlich",
+        "fröhlich ist"
+       ]
+      ],
+      "en": [
+       [
+        "was always laughing",
+        "were always laugh"
+       ]
+      ],
+      "ko": [
+       [
+        "있면",
+        "있어면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 4,
@@ -1061,12 +1698,136 @@
     "en": "A present-day photo of St. Sebastian's Cemetery in Salzburg, where Leopold is buried. Leopold Mozart died in Salzburg on 28 May 1787. That day Mozart told his friend Jacquin briefly, 'You can imagine my state'; on 16 June he wrote this letter to his sister Nannerl. The last excerpt is not from the letter: it is what he wrote on 3 September of the same year under Barisani's verses in his album, after losing that friend.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 244 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Danke, lieber Bruder. Gott mit Dir.",
-    "en": "Thank you, dear brother. God be with you.",
-    "ko": "고마워, 동생아. 하느님이 함께하시길.",
-    "_note": "누나의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "VII.1",
+     "de": "Du bist der Bruder, den ich jetzt so sehr brauche; danke.",
+     "en": "Thank you; now is the time when I need my brother most.",
+     "ko": "가장 힘들 때 이렇게 말해 줘서 고마워요.",
+     "koLow": "가장 힘들 때 이렇게 말해 줘서 고마워.",
+     "koHigh": "가장 힘들 때 이렇게 말씀해 주셔서 고맙습니다.",
+     "focus": {
+      "de": [
+       "den ich jetzt so sehr brauche"
+      ],
+      "en": [
+       "when I need"
+      ],
+      "ko": [
+       "힘들 때"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "der ich jetzt so sehr brauche",
+        "den ich brauche jetzt so sehr"
+       ]
+      ],
+      "en": [
+       [
+        "which I need",
+        "who I need"
+       ]
+      ],
+      "ko": [
+       [
+        "힘들을 때",
+        "힘들는 때"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "VI.2",
+     "de": "Ich tröste mich mit deinen Worten und lese sie immer wieder.",
+     "en": "Your words could comfort anyone; I read them again and again.",
+     "ko": "편지 끝의 그 말을 몇 번이고 읽어 봤어요. 위로가 돼요.",
+     "koLow": "편지 끝의 그 말을 몇 번이고 읽어 봤어. 위로가 돼.",
+     "koHigh": "편지 끝의 그 말씀을 몇 번이고 읽어 봤습니다. 위로가 됩니다.",
+     "focus": {
+      "de": [
+       "tröste mich"
+      ],
+      "en": [
+       "could comfort"
+      ],
+      "ko": [
+       "읽어 봤어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "tröstet mich",
+        "tröste mir"
+       ]
+      ],
+      "en": [
+       [
+        "could comforts",
+        "could comforted"
+       ]
+      ],
+      "ko": [
+       [
+        "읽어 보았요",
+        "읽 봤어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "III.0",
+     "de": "Ich habe dich gut verstanden, es ist in Ordnung; deine Frau und dein Kind brauchen dich.",
+     "en": "I understood you well, and it's all right; your wife and child need you.",
+     "ko": "그 뜻을 잘 알아서 괜찮아요. 아내와 아이에게는 볼프강이 필요해요.",
+     "koLow": "네 뜻을 잘 알아서 괜찮아. 아내와 아이에게는 네가 필요해.",
+     "koHigh": "그 뜻을 잘 알아서 괜찮습니다. 아내와 아이에게는 볼프강이 필요합니다.",
+     "focus": {
+      "de": [
+       "habe",
+       "verstanden"
+      ],
+      "en": [
+       "understood"
+      ],
+      "ko": [
+       "알아서"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "bin",
+        "hast"
+       ],
+       [
+        "verstehte",
+        "verstandet"
+       ]
+      ],
+      "en": [
+       [
+        "understanded",
+        "understanding"
+       ]
+      ],
+      "ko": [
+       [
+        "알어서",
+        "알으서"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 3,
@@ -1293,12 +2054,141 @@
     "en": "Mozart went back to Prague in autumn 1787 to finish and stage Don Giovanni, which opened on 29 October. In the letter he gives his young friend Jacquin a 'little sermon' on true love. In the part added on 9 November he sends Jacquin a song (Köchel 530).",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 245 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Bravo, Freund! Bravo, Don Giovanni!",
-    "en": "Bravo, my friend! Bravo, Don Giovanni!",
-    "ko": "브라보, 친구! 브라보, 돈 조반니!",
-    "_note": "자캥의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VII.2",
+     "de": "Wie schön! Ich hoffe, Don Giovanni bald selbst zu hören.",
+     "en": "How wonderful! I hope that I can hear Don Giovanni myself soon.",
+     "ko": "정말 멋져요! 나도 돈 조반니를 직접 들었으면 좋겠어요.",
+     "koLow": "정말 멋지다! 나도 돈 조반니를 직접 들었으면 좋겠어.",
+     "koHigh": "정말 멋집니다! 저도 돈 조반니를 직접 들었으면 좋겠습니다.",
+     "focus": {
+      "de": [
+       "zu hören"
+      ],
+      "en": [
+       "that I can hear"
+      ],
+      "ko": [
+       "들었으면 좋겠어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "hören",
+        "zu gehört"
+       ]
+      ],
+      "en": [
+       [
+        "what I can hear",
+        "that I can to hear"
+       ]
+      ],
+      "ko": [
+       [
+        "듣었으면 좋겠어요",
+        "들었으면 좋겠아요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "VII.1",
+     "de": "Ihren Rat über die Liebe, die ehrlich und vernünftig ist, merke ich mir; danke.",
+     "en": "I'll remember your words when I choose whom to love. Thank you.",
+     "ko": "사랑을 고를 때 이 말을 꼭 기억할게요. 고마워요.",
+     "koLow": "사랑을 고를 때 이 말을 꼭 기억할게. 고마워.",
+     "koHigh": "사랑을 고를 때 이 말씀을 꼭 기억하겠습니다. 고맙습니다.",
+     "focus": {
+      "de": [
+       "die ehrlich und vernünftig ist"
+      ],
+      "en": [
+       "when I choose"
+      ],
+      "ko": [
+       "고를 때"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "der ehrlich und vernünftig ist",
+        "die ist ehrlich und vernünftig"
+       ]
+      ],
+      "en": [
+       [
+        "which I choose",
+        "who I choose"
+       ]
+      ],
+      "ko": [
+       [
+        "고르을 때",
+        "골를 때"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "VI.0",
+     "de": "Das schwarze Siegel war eine Überraschung, doch Ihr Brief hatte die Erklärung.",
+     "en": "If your red wax fails again, I will not be scared by a black seal!",
+     "ko": "검은 밀랍을 보고 놀랐는데, 이유를 알고 나니 웃음이 나요.",
+     "koLow": "검은 밀랍을 보고 놀랐는데, 이유를 알고 나니 웃음이 나.",
+     "koHigh": "검은 밀랍을 보고 놀랐는데, 이유를 알고 나니 웃음이 납니다.",
+     "focus": {
+      "de": [
+       "Siegel war",
+       "hatte"
+      ],
+      "en": [
+       "If your red wax fails",
+       "will not be"
+      ],
+      "ko": [
+       "놀랐는데"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Siegel waren",
+        "Siegel warst"
+       ],
+       [
+        "hatten",
+        "hattest"
+       ]
+      ],
+      "en": [
+       [
+        "If your red wax will fail",
+        "If your red wax failed"
+       ],
+       [
+        "would not be",
+        "will not been"
+       ]
+      ],
+      "ko": [
+       [
+        "놀랐은데",
+        "놀라었는데"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -1524,12 +2414,136 @@
     "en": "A page of the autograph of the G minor Symphony (K. 550), finished in the summer of this letter. Michael Puchberg was a Viennese merchant and Mozart's brother Freemason. Around this time Mozart repeatedly asked him for loans, and this letter is one such request. In the summer when he wrote that he had worked more in ten days in his new lodging than in two months before, he wrote the three great symphonies in C major, G minor and E flat.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 247 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
-   "reply": {
-    "de": "Mut, lieber Bruder! Ich helfe gern.",
-    "en": "Courage, dear brother! I am glad to help.",
-    "ko": "힘내요, 형제여! 기꺼이 도울게요.",
-    "_note": "푸흐베르크의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "VII.2",
+     "de": "Danke für die Einladung; ich hoffe, Sie bald besuchen zu können.",
+     "en": "Thank you for the invitation; I hope that I can visit you soon.",
+     "ko": "초대해 주셔서 고마워요. 곧 찾아뵐 수 있었으면 좋겠어요.",
+     "koLow": "초대해 줘서 고마워. 곧 찾아갈 수 있었으면 좋겠어.",
+     "koHigh": "초대해 주셔서 감사합니다. 곧 찾아뵐 수 있었으면 좋겠습니다.",
+     "focus": {
+      "de": [
+       "besuchen zu können"
+      ],
+      "en": [
+       "that I can visit"
+      ],
+      "ko": [
+       "있었으면 좋겠어요"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "besuchen können",
+        "zu besuchen können"
+       ]
+      ],
+      "en": [
+       [
+        "what I can visit",
+        "that I can to visit"
+       ]
+      ],
+      "ko": [
+       [
+        "있었으면 좋겠아요",
+        "있었면 좋겠어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "VII.0",
+     "de": "Ich würde gern hören, was Sie in diesen zehn Tagen geschrieben haben.",
+     "en": "I'd love to hear the music which you wrote in these ten days.",
+     "ko": "열흘 동안 쓴 곡을 꼭 듣고 싶어요.",
+     "koLow": "열흘 동안 쓴 곡을 꼭 듣고 싶어.",
+     "koHigh": "열흘 동안 쓰신 곡을 꼭 듣고 싶습니다.",
+     "focus": {
+      "de": [
+       "würde gern hören"
+      ],
+      "en": [
+       "which you wrote"
+      ],
+      "ko": [
+       "쓴 곡"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "würde gern höre",
+        "wurde gern hören"
+       ]
+      ],
+      "en": [
+       [
+        "who you wrote",
+        "whose you wrote"
+       ]
+      ],
+      "ko": [
+       [
+        "쓰은 곡",
+        "쓴는 곡"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "V.2",
+     "de": "Wenn dunkle Gedanken kommen, denken Sie an Ihre neue, schöne Wohnung.",
+     "en": "You have found a pleasant, cheap home; let it chase the dark thoughts away.",
+     "ko": "새집이 쾌적하고 편하기 때문에 어두운 생각도 곧 물러갈 거예요.",
+     "koLow": "새집이 쾌적하고 편하기 때문에 어두운 생각도 곧 물러갈 거야.",
+     "koHigh": "새집이 쾌적하고 편하기 때문에 어두운 생각도 곧 물러갈 것입니다.",
+     "focus": {
+      "de": [
+       "Wenn",
+       "kommen"
+      ],
+      "en": [
+       "have found"
+      ],
+      "ko": [
+       "편하기 때문에"
+      ]
+     },
+     "wrong": {
+      "de": [
+       [
+        "Als",
+        "Wann"
+       ],
+       [
+        "kommt",
+        "gekommen"
+       ]
+      ],
+      "en": [
+       [
+        "has found",
+        "have finded"
+       ]
+      ],
+      "ko": [
+       [
+        "편하기 때문이",
+        "편해기 때문에"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 3,

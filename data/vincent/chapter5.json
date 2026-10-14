@@ -6,6 +6,107 @@
  "title_en": "The Lullaby",
  "title_ko": "자장가",
  "original": "fr",
+ "grammar": [
+  {
+   "id": "V.0",
+   "fr": {
+    "name": {
+     "ko": "반과거 (imparfait)",
+     "en": "Imperfect (imparfait)"
+    },
+    "hint": {
+     "ko": "지난 날의 모습 · 하던 일을 그려요 · -ais, -ait",
+     "en": "Describe how things were or what was going on · -ais, -ait"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "과거진행 (was/were -ing)",
+     "en": "Past continuous"
+    },
+    "hint": {
+     "ko": "그때 하고 있던 일 · was/were + -ing",
+     "en": "What was going on at that moment · was/were + -ing"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)면",
+     "en": "-(으)면 (if / whenever)"
+    },
+    "hint": {
+     "ko": "조건 · 그럴 때마다 · 받침 있으면 -으면",
+     "en": "If / whenever · -으면 after a consonant"
+    }
+   }
+  },
+  {
+   "id": "V.1",
+   "fr": {
+    "name": {
+     "ko": "대명동사 (se + 동사)",
+     "en": "Pronominal verbs"
+    },
+    "hint": {
+     "ko": "자기에게 돌아오는 동작 · me/te/se + 동사 (se souvenir)",
+     "en": "Actions turned back on oneself · me/te/se + verb (se souvenir)"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "used to",
+     "en": "used to"
+    },
+    "hint": {
+     "ko": "예전엔 늘 그랬어요 · used to + 동사원형",
+     "en": "Past habits and states · used to + base verb"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)니까",
+     "en": "-(으)니까 (because / so)"
+    },
+    "hint": {
+     "ko": "이유를 말해요 · ~니까",
+     "en": "Give a reason · because …, so …"
+    }
+   }
+  },
+  {
+   "id": "V.2",
+   "fr": {
+    "name": {
+     "ko": "반과거 ↔ 복합과거",
+     "en": "Imperfect vs passé composé"
+    },
+    "hint": {
+     "ko": "배경은 반과거, 일어난 일은 복합과거",
+     "en": "Background in the imperfect, events in the passé composé"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "현재완료 (have + 과거분사)",
+     "en": "Present perfect"
+    },
+    "hint": {
+     "ko": "지금까지 이어진 일 · have + 과거분사",
+     "en": "Past linked to now · have + past participle"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-기 때문에",
+     "en": "-기 때문에 (because)"
+    },
+    "hint": {
+     "ko": "까닭을 또렷이 말해요 · 동사 + 기 때문에",
+     "en": "State a cause clearly · verb + 기 때문에"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c5-l1",
@@ -165,12 +266,100 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Repose-toi bien, je pense à toi.",
-    "en": "Rest well, I'm thinking of you.",
-    "ko": "푹 쉬어, 형 생각하고 있어.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "V.0",
+     "fr": "Je pensais à toi pendant tout le voyage, alors la route me semblait courte.",
+     "en": "I was thinking of you the whole way, so the road felt short.",
+     "ko": "형 생각을 하면 먼 길도 짧게 느껴졌어요.",
+     "koLow": "형 생각을 하면 먼 길도 짧게 느껴졌어.",
+     "koHigh": "형님 생각을 하면 먼 길도 짧게 느껴졌습니다.",
+     "focus": {
+      "fr": [
+       "pensais",
+       "semblait"
+      ],
+      "en": [
+       "was thinking"
+      ],
+      "ko": [
+       "생각을 하면"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "pensait",
+        "pensé"
+       ],
+       [
+        "semblais",
+        "semblé"
+       ]
+      ],
+      "en": [
+       [
+        "were thinking",
+        "was think"
+       ]
+      ],
+      "ko": [
+       [
+        "생각을 하으면",
+        "생각을 해면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "IV.2",
+     "fr": "Les vergers d'Arles fleuriront-ils bientôt pour toi, cette année ?",
+     "en": "Will the orchards of Arles blossom soon for you this year?",
+     "ko": "올해 아를의 과수원은 형을 위해 곧 꽃을 피울까요?",
+     "koLow": "올해 아를의 과수원은 형을 위해 곧 꽃을 피울까?",
+     "koHigh": "올해 아를의 과수원은 형님을 위해 곧 꽃을 피우겠습니까?",
+     "focus": {
+      "fr": [
+       "fleuriront-ils"
+      ],
+      "en": [
+       "Will",
+       "blossom"
+      ],
+      "ko": [
+       "피울까요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "fleurira-t-ils",
+        "fleuriront-elles"
+       ]
+      ],
+      "en": [
+       [
+        "Wills",
+        "Willing"
+       ],
+       [
+        "blossoms",
+        "blossomed"
+       ]
+      ],
+      "ko": [
+       [
+        "피우을까요",
+        "피울가요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -356,12 +545,95 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Quelle joie, tu es chez toi.",
-    "en": "What joy, you're home.",
-    "ko": "집에 돌아왔다니, 정말 기뻐.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "V.0",
+     "fr": "Chaque fois que le courrier arrivait, j'espérais des nouvelles de toi.",
+     "en": "Every time the post came, I was hoping for news of you.",
+     "ko": "우편이 오면 늘 형 소식을 기다렸어요.",
+     "koLow": "우편이 오면 늘 형 소식을 기다렸어.",
+     "koHigh": "우편이 오면 늘 형님 소식을 기다렸습니다.",
+     "focus": {
+      "fr": [
+       "arrivait",
+       "j'espérais"
+      ],
+      "en": [
+       "was hoping"
+      ],
+      "ko": [
+       "오면"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "arrivais",
+        "arrivé"
+       ],
+       [
+        "j'espérait",
+        "j'espéré"
+       ]
+      ],
+      "en": [
+       [
+        "were hoping",
+        "was hope"
+       ]
+      ],
+      "ko": [
+       [
+        "오으면",
+        "와면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "II.0",
+     "fr": "Ta lettre m'a rassuré, alors écris-moi encore très bientôt.",
+     "en": "Your letter put my mind at rest, so write to me again soon.",
+     "ko": "형 편지를 받고 마음이 놓였어요. 곧 또 편지해 줘요.",
+     "koLow": "형 편지를 받고 마음이 놓였어. 곧 또 편지해 줘.",
+     "koHigh": "형님 편지를 받고 마음이 놓였습니다. 곧 또 편지해 주십시오.",
+     "focus": {
+      "fr": [
+       "écris-moi"
+      ],
+      "en": [
+       "write to me"
+      ],
+      "ko": [
+       "놓였어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "écrit-moi",
+        "écrire-moi"
+       ]
+      ],
+      "en": [
+       [
+        "writes to me",
+        "writing to me"
+       ]
+      ],
+      "ko": [
+       [
+        "놓이었요",
+        "놓였요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -569,12 +841,90 @@
      }
     ]
    },
-   "reply": {
-    "fr": "J'aimerais voir tes citrons et tes gants.",
-    "en": "I'd love to see your lemons and gloves.",
-    "ko": "레몬이랑 파란 장갑, 보고 싶다.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "V.0",
+     "fr": "En lisant ta lettre, je marchais avec toi dans les sentiers de Zundert.",
+     "en": "Reading your letter, I was walking the paths of Zundert with you.",
+     "ko": "형 편지를 읽으면 형이랑 쥔더르트 오솔길을 걷는 기분이에요.",
+     "koLow": "형 편지를 읽으면 형이랑 쥔더르트 오솔길을 걷는 기분이야.",
+     "koHigh": "형님 편지를 읽으면 형님과 쥔더르트 오솔길을 걷는 기분입니다.",
+     "focus": {
+      "fr": [
+       "marchais"
+      ],
+      "en": [
+       "was walking"
+      ],
+      "ko": [
+       "읽으면"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "marchait",
+        "marché"
+       ]
+      ],
+      "en": [
+       [
+        "were walking",
+        "was walk"
+       ]
+      ],
+      "ko": [
+       [
+        "읽면",
+        "읽어면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "III.2",
+     "fr": "Tu as déjà fini une nouvelle toile ? Je veux voir tes gants bleus !",
+     "en": "You've already finished a new canvas? I want to see the blue gloves!",
+     "ko": "형, 벌써 새 그림을 끝냈어요? 파란 장갑을 꼭 보고 싶어요.",
+     "koLow": "형, 벌써 새 그림을 끝냈어? 파란 장갑을 꼭 보고 싶어.",
+     "koHigh": "형님, 벌써 새 그림을 끝내셨습니까? 파란 장갑을 꼭 보고 싶습니다.",
+     "focus": {
+      "fr": [
+       "déjà"
+      ],
+      "en": [
+       "already"
+      ],
+      "ko": [
+       "보고 싶어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "il y a",
+        "demain"
+       ]
+      ],
+      "en": [
+       [
+        "ago",
+        "yet"
+       ]
+      ],
+      "ko": [
+       [
+        "보고 싶아요",
+        "볼고 싶어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -793,12 +1143,100 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Je verrai ta Berceuse entre les tournesols.",
-    "en": "I'll see your Berceuse between the sunflowers.",
-    "ko": "해바라기 사이의 자장가, 꼭 볼게.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "V.1",
+     "fr": "Tu me parlais souvent de tes tournesols, alors je me souviens des deux toiles.",
+     "en": "You used to write about sunflowers, so I remember both canvases well.",
+     "ko": "형이 해바라기 얘기를 자주 했으니까, 두 점 다 잘 기억해요.",
+     "koLow": "형이 해바라기 얘기를 자주 했으니까, 두 점 다 잘 기억해.",
+     "koHigh": "형님이 해바라기 말씀을 자주 하셨으니까, 두 점 다 잘 기억합니다.",
+     "focus": {
+      "fr": [
+       "me souviens"
+      ],
+      "en": [
+       "used to write"
+      ],
+      "ko": [
+       "했으니까"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "me souvient",
+        "se souviens"
+       ]
+      ],
+      "en": [
+       [
+        "use to write",
+        "used to writing"
+       ]
+      ],
+      "ko": [
+       [
+        "했니까",
+        "하았으니까"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "V.0",
+     "fr": "Pendant que je lisais ta lettre, je pensais à nos berceuses d'enfance.",
+     "en": "While I was reading about your sailors, I was thinking of our own lullabies.",
+     "ko": "형의 뱃사람들 얘기를 읽으면 우리가 어릴 때 듣던 자장가가 떠올라요.",
+     "koLow": "형의 뱃사람들 얘기를 읽으면 우리가 어릴 때 듣던 자장가가 떠올라.",
+     "koHigh": "형님의 뱃사람들 이야기를 읽으면 우리가 어릴 때 듣던 자장가가 떠오릅니다.",
+     "focus": {
+      "fr": [
+       "lisais",
+       "pensais"
+      ],
+      "en": [
+       "was reading",
+       "was thinking"
+      ],
+      "ko": [
+       "읽으면"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "lisait",
+        "lu"
+       ],
+       [
+        "pensait",
+        "pensé"
+       ]
+      ],
+      "en": [
+       [
+        "were reading",
+        "was read"
+       ],
+       [
+        "were thinking",
+        "was think"
+       ]
+      ],
+      "ko": [
+       [
+        "읽면",
+        "읽어면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 2,
@@ -984,12 +1422,90 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Bravo pour la troisième Berceuse.",
-    "en": "Well done on the third Berceuse.",
-    "ko": "세 번째 자장가, 멋지다.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "V.1",
+     "fr": "Avant, je m'inquiétais pour toi, mais tes voisins sont si bons avec toi.",
+     "en": "I used to worry about you, but your neighbours are so good to you.",
+     "ko": "이웃들이 형한테 잘해 주니까 이제 걱정이 덜 돼요.",
+     "koLow": "이웃들이 형한테 잘해 주니까 이제 걱정이 덜 돼.",
+     "koHigh": "이웃들이 형님께 잘해 드리니까 이제 걱정이 덜 됩니다.",
+     "focus": {
+      "fr": [
+       "m'inquiétais"
+      ],
+      "en": [
+       "used to worry"
+      ],
+      "ko": [
+       "잘해 주니까"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "m'inquiétait",
+        "me inquiétais"
+       ]
+      ],
+      "en": [
+       [
+        "use to worry",
+        "used to worrying"
+       ]
+      ],
+      "ko": [
+       [
+        "잘해 주으니까",
+        "잘해 줘니까"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "I.2",
+     "fr": "Est-ce que tu veux vraiment peindre comme Bouguereau ? Ta Berceuse est bien sans cela.",
+     "en": "Do you really want to paint like Bouguereau? Your Berceuse is fine without that.",
+     "ko": "정말 부그로처럼 그리고 싶어요? 형의 자장가는 안 닮아도 좋아요.",
+     "koLow": "정말 부그로처럼 그리고 싶어? 형의 자장가는 안 닮아도 좋아.",
+     "koHigh": "정말 부그로처럼 그리고 싶으십니까? 형님의 자장가는 안 닮아도 좋습니다.",
+     "focus": {
+      "fr": [
+       "Est-ce que"
+      ],
+      "en": [
+       "Do you"
+      ],
+      "ko": [
+       "안 닮아도"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Est-ce",
+        "Qu'est-ce que"
+       ]
+      ],
+      "en": [
+       [
+        "Does you",
+        "Are you"
+       ]
+      ],
+      "ko": [
+       [
+        "닮아 안도",
+        "안 닮어도"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -1190,12 +1706,95 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Je suis content que Signac soit venu.",
-    "en": "I'm glad Signac came.",
-    "ko": "시냐크가 와 줘서 정말 다행이야.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "V.2",
+     "fr": "J'étais un peu inquiet, mais ta rencontre avec Signac m'a fait du bien aussi.",
+     "en": "I was a little worried, but your meeting with Signac has done me good.",
+     "ko": "조금 걱정했는데, 형이 시냐크를 만났기 때문에 저도 힘이 났어요.",
+     "koLow": "조금 걱정했는데, 형이 시냐크를 만났기 때문에 나도 힘이 났어.",
+     "koHigh": "조금 걱정했는데, 형님이 시냐크를 만나셨기 때문에 저도 힘이 났습니다.",
+     "focus": {
+      "fr": [
+       "J'étais",
+       "m'a fait"
+      ],
+      "en": [
+       "has done"
+      ],
+      "ko": [
+       "만났기 때문에"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "J'était",
+        "Je étais"
+       ],
+       [
+        "m'a faite",
+        "m'est fait"
+       ]
+      ],
+      "en": [
+       [
+        "have done",
+        "has did"
+       ]
+      ],
+      "ko": [
+       [
+        "만났기 때문이",
+        "만났이기 때문에"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "IV.1",
+     "fr": "Ce livre doit être profond, parce que tu as dévoré deux chapitres.",
+     "en": "That book must be very deep, because you devoured two chapters.",
+     "ko": "두 장이나 단숨에 읽었다니 정말 깊은 책일 거예요.",
+     "koLow": "두 장이나 단숨에 읽었다니 정말 깊은 책일 거야.",
+     "koHigh": "두 장이나 단숨에 읽으셨다니 정말 깊은 책일 겁니다.",
+     "focus": {
+      "fr": [
+       "parce que"
+      ],
+      "en": [
+       "because"
+      ],
+      "ko": [
+       "책일 거예요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "parce de",
+        "pour"
+       ]
+      ],
+      "en": [
+       [
+        "because of",
+        "due"
+       ]
+      ],
+      "ko": [
+       [
+        "책일 거이에요",
+        "책을 거예요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -1401,12 +2000,95 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Merci pour tes vœux, mon frère.",
-    "en": "Thank you for your wishes, brother.",
-    "ko": "축하해 줘서 고마워, 형.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)"
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "V.2",
+     "fr": "J'étais déjà heureux, mais tes vœux m'ont rendu encore plus heureux, mon frère.",
+     "en": "I was already happy, but your wishes have made me even happier, brother.",
+     "ko": "형이 축하해 줬기 때문에 저는 지금 더 행복해요.",
+     "koLow": "형이 축하해 줬기 때문에 나는 지금 더 행복해.",
+     "koHigh": "형님이 축하해 주셨기 때문에 저는 지금 더 행복합니다.",
+     "focus": {
+      "fr": [
+       "J'étais",
+       "m'ont rendu"
+      ],
+      "en": [
+       "have made"
+      ],
+      "ko": [
+       "줬기 때문에"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "J'était",
+        "Je étais"
+       ],
+       [
+        "m'ont rendue",
+        "m'a rendu"
+       ]
+      ],
+      "en": [
+       [
+        "has made",
+        "have maked"
+       ]
+      ],
+      "ko": [
+       [
+        "줬기 때문이",
+        "줘기 때문에"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "V.1",
+     "fr": "Je me sens proche de Roulin, car tu me parlais souvent de lui ; remercie-le.",
+     "en": "Thank Roulin; I feel close to him, as you used to mention him.",
+     "ko": "형이 룰랭 얘기를 자주 했으니까 저도 가깝게 느껴져요. 고맙다고 전해 줘요.",
+     "koLow": "형이 룰랭 얘기를 자주 했으니까 나도 가깝게 느껴져. 고맙다고 전해 줘.",
+     "koHigh": "형님이 룰랭 이야기를 자주 하셨으니까 저도 가깝게 느껴집니다. 고맙다고 전해 주십시오.",
+     "focus": {
+      "fr": [
+       "me sens"
+      ],
+      "en": [
+       "used to mention"
+      ],
+      "ko": [
+       "했으니까"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "me sent",
+        "se sens"
+       ]
+      ],
+      "en": [
+       [
+        "use to mention",
+        "used to mentioning"
+       ]
+      ],
+      "ko": [
+       [
+        "했니까",
+        "하았으니까"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,

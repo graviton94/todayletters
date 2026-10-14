@@ -6,6 +6,107 @@
  "title_en": "The South",
  "title_ko": "남쪽으로",
  "original": "fr",
+ "grammar": [
+  {
+   "id": "I.0",
+   "fr": {
+    "name": {
+     "ko": "현재형 être · avoir",
+     "en": "Present tense: être and avoir"
+    },
+    "hint": {
+     "ko": "지금 어떤지 말해요 · je suis, tu es, tu as",
+     "en": "Say how things are now · je suis, tu es, tu as"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "현재형 (present simple)",
+     "en": "Present simple"
+    },
+    "hint": {
+     "ko": "지금 · 늘 그런 일을 말해요 · I am, you are, it is",
+     "en": "Say what is true now · I am, you are, it is"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-아요/어요",
+     "en": "-아요/어요 (polite present)"
+    },
+    "hint": {
+     "ko": "해요체 현재 · 좋아요, 있어요, 먹어요",
+     "en": "Polite present ending · 좋아요, 있어요, 먹어요"
+    }
+   }
+  },
+  {
+   "id": "I.1",
+   "fr": {
+    "name": {
+     "ko": "맞장구 moi aussi · moi non plus",
+     "en": "Agreeing: moi aussi · moi non plus"
+    },
+    "hint": {
+     "ko": "나도 그래요 · 긍정엔 moi aussi, 부정엔 moi non plus",
+     "en": "Me too · moi aussi after yes, moi non plus after no"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "맞장구 me too · so do I",
+     "en": "Agreeing: me too · so do I"
+    },
+    "hint": {
+     "ko": "나도 그래요 · Me too. So do I. Neither do I.",
+     "en": "Agree with someone · Me too. So do I. Neither do I."
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-이에요/예요",
+     "en": "-이에요/예요 (it is …)"
+    },
+    "hint": {
+     "ko": "무엇인지 말해요 · 받침 있으면 이에요, 없으면 예요",
+     "en": "Say what something is · 이에요 after a consonant, 예요 after a vowel"
+    }
+   }
+  },
+  {
+   "id": "I.2",
+   "fr": {
+    "name": {
+     "ko": "질문 est-ce que",
+     "en": "Questions with est-ce que"
+    },
+    "hint": {
+     "ko": "문장 앞에 붙여 물어요 · Est-ce que tu…?",
+     "en": "Put it in front to ask · Est-ce que tu…?"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "do 질문",
+     "en": "Questions with do"
+    },
+    "hint": {
+     "ko": "do/does 로 물어요 · Do you…? Does it…?",
+     "en": "Ask with do/does · Do you…? Does it…?"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "안 · 못",
+     "en": "안 · 못 (not / cannot)"
+    },
+    "hint": {
+     "ko": "안 = 하지 않아요, 못 = 할 수 없어요",
+     "en": "안 = don't, 못 = can't"
+    }
+   }
+  }
+ ],
  "letters": [
   {
    "id": "c1-l1",
@@ -162,13 +263,59 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Moi aussi, j'ai pensé à toi.",
-    "en": "I thought of you too.",
-    "ko": "나도 형 생각 많이 했어.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 0
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "I.0",
+     "fr": "Tu es loin, mais tu es avec moi.",
+     "en": "You are far away, but you are with me.",
+     "ko": "형은 멀리 있지만 늘 제 곁에 있어요.",
+     "koLow": "형은 멀리 있지만 늘 내 곁에 있어.",
+     "koHigh": "형님은 멀리 계시지만 늘 제 곁에 계십니다.",
+     "focus": {
+      "fr": [
+       "Tu es",
+       "tu es"
+      ],
+      "en": [
+       "You are",
+       "you are"
+      ],
+      "ko": [
+       "있어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Tu as",
+        "Tu suis"
+       ],
+       [
+        "tu as",
+        "tu est"
+       ]
+      ],
+      "en": [
+       [
+        "You is",
+        "You be"
+       ],
+       [
+        "you is",
+        "you am"
+       ]
+      ],
+      "ko": [
+       [
+        "있아요",
+        "있요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -408,13 +555,59 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Envoie-moi un dessin du pont.",
-    "en": "Send me a drawing of the bridge.",
-    "ko": "그 다리 그림 하나 보내 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 0
-   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "I.0",
+     "fr": "Tu es en forme, c'est une bonne nouvelle.",
+     "en": "You are well, and that is good news.",
+     "ko": "형 몸이 괜찮다니 정말 좋아요.",
+     "koLow": "형 몸이 괜찮다니 정말 좋아.",
+     "koHigh": "형님 몸이 괜찮으시다니 정말 좋습니다.",
+     "focus": {
+      "fr": [
+       "Tu es",
+       "c'est"
+      ],
+      "en": [
+       "You are",
+       "that is"
+      ],
+      "ko": [
+       "좋아요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Tu as",
+        "Tu suis"
+       ],
+       [
+        "ce sont",
+        "c'êtes"
+       ]
+      ],
+      "en": [
+       [
+        "You is",
+        "You am"
+       ],
+       [
+        "that are",
+        "that be"
+       ]
+      ],
+      "ko": [
+       [
+        "좋어요",
+        "좋요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -622,13 +815,59 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Oui, envoyons-le à Mme Mauve.",
-    "en": "Yes, let's send it to Mrs Mauve.",
-    "ko": "응, 마우버 부인께 같이 보내자.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 1
-   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "I.0",
+     "fr": "Le vent est fort, mais tu as du courage.",
+     "en": "The wind is strong, but you have courage.",
+     "ko": "바람이 세지만 형은 정말 용감해요.",
+     "koLow": "바람이 세지만 형은 정말 용감해.",
+     "koHigh": "바람이 세지만 형님은 정말 용감하십니다.",
+     "focus": {
+      "fr": [
+       "est fort",
+       "tu as"
+      ],
+      "en": [
+       "is strong",
+       "have"
+      ],
+      "ko": [
+       "용감해요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "es fort",
+        "a fort"
+       ],
+       [
+        "tu es",
+        "tu a"
+       ]
+      ],
+      "en": [
+       [
+        "are strong",
+        "be strong"
+       ],
+       [
+        "has",
+        "having"
+       ]
+      ],
+      "ko": [
+       [
+        "용감하어요",
+        "용감하요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": -1,
@@ -844,13 +1083,49 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Je veux voir ces arbres en fleurs.",
-    "en": "I want to see those trees in blossom.",
-    "ko": "꽃 핀 그 나무들을 보고 싶어.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 0
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "I.1",
+     "fr": "Tu aimes les arbres en fleurs ? Moi aussi.",
+     "en": "You love trees in blossom? So do I.",
+     "ko": "꽃 핀 나무는 저도 정말 좋아하는 풍경이에요.",
+     "koLow": "꽃 핀 나무는 나도 정말 좋아하는 풍경이야.",
+     "koHigh": "꽃 핀 나무는 저도 정말 좋아하는 풍경입니다.",
+     "focus": {
+      "fr": [
+       "Moi aussi"
+      ],
+      "en": [
+       "So do I"
+      ],
+      "ko": [
+       "풍경이에요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Moi non plus",
+        "Moi non"
+       ]
+      ],
+      "en": [
+       [
+        "So am I",
+        "Neither do I"
+       ]
+      ],
+      "ko": [
+       [
+        "풍경예요",
+        "풍경이예요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -1044,13 +1319,49 @@
      }
     ]
    },
-   "reply": {
-    "fr": "J'ai hâte de voir les trois vergers.",
-    "en": "I can't wait to see the three orchards.",
-    "ko": "과수원 세 폭, 얼른 보고 싶어.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 1
-   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "I.1",
+     "fr": "Un ciel très bleu… Moi aussi, j'aime ce bleu.",
+     "en": "A very blue sky… I love that blue too.",
+     "ko": "아주 파란 하늘은 저도 좋아하는 색이에요.",
+     "koLow": "아주 파란 하늘은 나도 좋아하는 색이야.",
+     "koHigh": "아주 파란 하늘은 저도 좋아하는 색입니다.",
+     "focus": {
+      "fr": [
+       "Moi aussi"
+      ],
+      "en": [
+       "too"
+      ],
+      "ko": [
+       "색이에요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Moi non plus",
+        "Moi non"
+       ]
+      ],
+      "en": [
+       [
+        "either",
+        "neither"
+       ]
+      ],
+      "ko": [
+       [
+        "색예요",
+        "색이예요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 3,
@@ -1214,13 +1525,49 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Une maison jaune au soleil, c'est parfait.",
-    "en": "A yellow house in the sun, that's perfect.",
-    "ko": "햇살 아래 노란 집이라니, 딱 좋아.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 1
-   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "I.2",
+     "fr": "Est-ce que tu as chaud dans la maison jaune ?",
+     "en": "Do you feel hot in the yellow house?",
+     "ko": "햇볕이 가득한 노란 집, 안 더워요?",
+     "koLow": "햇볕이 가득한 노란 집, 안 더워?",
+     "koHigh": "햇볕이 가득한 노란 집, 안 더우십니까?",
+     "focus": {
+      "fr": [
+       "Est-ce que"
+      ],
+      "en": [
+       "Do you"
+      ],
+      "ko": [
+       "안 더워요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Est-ce",
+        "Qu'est-ce que"
+       ]
+      ],
+      "en": [
+       [
+        "Does you",
+        "Are you"
+       ]
+      ],
+      "ko": [
+       [
+        "못 더워요",
+        "안 덥어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 0,
@@ -1434,13 +1781,49 @@
      }
     ]
    },
-   "reply": {
-    "fr": "Envoie-moi ton rêve japonais.",
-    "en": "Send me your Japanese dream.",
-    "ko": "형의 일본의 꿈, 보내 줘.",
-    "_note": "테오의 답장 (이 앱이 쓴 짧은 문장, 별자리 잇기용)",
-    "quote": 4
-   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "I.2",
+     "fr": "Est-ce que tu manges bien tous les jours ?",
+     "en": "Do you eat well every day?",
+     "ko": "이제 밥은 안 거르고 잘 먹어요?",
+     "koLow": "이제 밥은 안 거르고 잘 먹어?",
+     "koHigh": "이제 식사는 안 거르시고 잘 드십니까?",
+     "focus": {
+      "fr": [
+       "Est-ce que"
+      ],
+      "en": [
+       "Do you"
+      ],
+      "ko": [
+       "안 거르고"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Est-ce",
+        "Qu'est-ce que"
+       ]
+      ],
+      "en": [
+       [
+        "Does you",
+        "Are you"
+       ]
+      ],
+      "ko": [
+       [
+        "거르고 안",
+        "안 거러고"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
    "moments": [
     {
      "after": 1,
