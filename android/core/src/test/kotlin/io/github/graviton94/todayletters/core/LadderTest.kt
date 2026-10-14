@@ -170,7 +170,7 @@ class LadderTest {
         val a2 = two.map { fr.substring(it) }
         val w2 = Ladder.wrongsFor(fr, two, focus, wrong)
         assertEquals(setOf("ai lu", "pensé", "lis", "lirai", "pense", "penser"), Ladder.authored(a2, w2, 1, two = true, seed = 1)!!.toSet())
-        assertEquals(5, Ladder.authored(a2, listOf(listOf("lis", "pensé"), listOf("Lis", "penser")), 0, two = true, seed = 1)!!.size)
+        assertEquals(setOf("ai lu", "pensé", "lis", "penser"), Ladder.authored(a2, listOf(listOf("lis", "pensé"), listOf("Lis", "penser")), 0, two = true, seed = 1)!!.toSet())
         // 적힌 보기가 없으면 null (사전 꼴 미끼로): wrong 이 없는 턴 · 덩어리가 아닌 빈칸
         assertEquals(null, Ladder.authored(a1, Ladder.wrongsFor(fr, one, focus, emptyList()), 0, two = false, seed = 3))
         val loose = Ladder.holes(fr, emptyList(), 1, score)
