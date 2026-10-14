@@ -3,8 +3,8 @@ package io.github.graviton94.todayletters.core
 /**
  * 답장 사다리: 받는 사람(테오 · 누나 · 아버지)이 되어 쓰는 답장. 언어 등급([Reading.Grade])이 오를수록 도움이 줄어든다.
  *
- *  A1 · 1~2단  잇기       (별자리 잇기: 낱말 별을 순서대로)
- *  A1 · 3단 ~ A2  빈칸 하나  (낱말 셋 가운데 고르기)
+ *  A1 · 1단     잇기       (별자리 잇기: 낱말 별을 순서대로)
+ *  A1 · 2단 ~ A2  빈칸 하나  (낱말 셋 가운데 고르기: 떠올릴 수 있는 낱말 20개쯤, 대략 4~5일째부터)
  *  B1          빈칸 둘    (같은 낱말의 다른 꼴이 미끼로 섞인다)
  *  B2          직접 쓰기  (빈칸 둘을 쳐서 쓰기, 틀리면 한 글자씩 힌트)
  *
@@ -14,8 +14,8 @@ object Ladder {
     enum class Help { LINK, CHOOSE, CHOOSE_TWO, WRITE }
 
     fun help(g: Reading.Grade): Help = when (g.index) {
-        in 1..2 -> Help.LINK
-        in 3..6 -> Help.CHOOSE
+        1 -> Help.LINK
+        in 2..6 -> Help.CHOOSE
         in 7..9 -> Help.CHOOSE_TWO
         else -> Help.WRITE
     }

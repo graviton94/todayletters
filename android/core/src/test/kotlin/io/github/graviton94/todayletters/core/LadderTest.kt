@@ -8,7 +8,7 @@ import kotlin.test.assertTrue
 class LadderTest {
     @Test fun helpShrinksAsTheLevelRises() {
         assertEquals(Ladder.Help.LINK, Ladder.help(Reading.Grade.of(1)))
-        assertEquals(Ladder.Help.LINK, Ladder.help(Reading.Grade.of(2)))
+        assertEquals(Ladder.Help.CHOOSE, Ladder.help(Reading.Grade.of(2)))
         assertEquals(Ladder.Help.CHOOSE, Ladder.help(Reading.Grade.of(3)))
         assertEquals(Ladder.Help.CHOOSE, Ladder.help(Reading.Grade.of(6)))
         assertEquals(Ladder.Help.CHOOSE_TWO, Ladder.help(Reading.Grade.of(7)))
