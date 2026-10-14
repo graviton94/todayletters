@@ -64,10 +64,10 @@ rec_stop() {
 }
 launch() { adb shell am start -W -n $P/.MainActivity -a android.intent.action.MAIN -c android.intent.category.LAUNCHER "$@" >/dev/null; }
 # 앱 열기 → 입구 → 서재 → 빈센트 (오늘)
+# 서재 화면에서 에뮬레이터가 멈춰서 (그림이 많은 화면), 알림으로 여는 길로 바로 그 작품의 오늘로 간다
 enter_vincent() {
-  launch "$@"; sleep 2
-  tap 'Tap to enter' 15; sleep 2.5
-  tap 'Vincent → ' 10; sleep 3.5
+  launch --ez from_notice true --es series vincent "$@"; sleep 2
+  tap 'Tap to enter' 15; sleep 4
 }
 
 # ── 준비 (녹화 안 함) ─────────────────────────────
