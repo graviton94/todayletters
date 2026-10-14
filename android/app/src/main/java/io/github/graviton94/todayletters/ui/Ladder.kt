@@ -14,6 +14,9 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.isImeVisible
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -82,7 +85,9 @@ fun ReplyLadder(s: AppState, r: Route.Play, help: Ladder.Help, onClose: () -> Un
     fun accept() { filled = filled.toMutableList().also { it[at] = true }; typed = ""; misses = 0; s.cue(true) }
     fun miss(x: String) { wrong = x; misses++; s.cue(false) }
 
-    Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
+    // 직접 쓰기에서 키보드가 올라오면: 화면이 키보드 위로 줄고 (imePadding), 아래 띠는 ‘확인’ 하나만 남긴다
+    val ime = WindowInsets.isImeVisible
+    Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f).imePadding()) {
         PracticeHeader(filled.count { it }, holes.size.coerceAtLeast(1), onClose = onClose, count = "${filled.count { it }} / ${holes.size}")
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
@@ -164,8 +169,10 @@ fun ReplyLadder(s: AppState, r: Route.Play, help: Ladder.Help, onClose: () -> Un
                 done -> Primary(stringResource(R.string.play_send)) { s.replyAndContinue(r.room, ReplyMode.CONSTELLATION) }
                 help == Ladder.Help.WRITE -> {
                     Primary(stringResource(R.string.ladder_check), enabled = typed.isNotBlank()) { if (Ladder.right(answers[at], typed)) accept() else miss(typed) }
-                    Secondary(stringResource(R.string.play_show)) { filled = List(holes.size) { true } }
-                    SkipLink { s.skipStep(r.room, ReplyMode.CONSTELLATION) }
+                    if (!ime) {
+                        Secondary(stringResource(R.string.play_show)) { filled = List(holes.size) { true } }
+                        SkipLink { s.skipStep(r.room, ReplyMode.CONSTELLATION) }
+                    }
                 }
                 else -> {
                     Secondary(stringResource(R.string.play_show)) { filled = List(holes.size) { true } }

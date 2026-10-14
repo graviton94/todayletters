@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -97,6 +98,8 @@ fun FeedbackSheet(s: AppState, ask: AppState.FeedbackAsk) {
     Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false) { close() }, contentAlignment = Alignment.BottomCenter) {
         Column(
             Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsPadding().imePadding()
+                // 키보드가 올라와 자리가 모자라면 시트 안이 스크롤된다 (쓰는 칸이 화면 밖으로 밀리지 않게)
+                .verticalScroll(androidx.compose.foundation.rememberScrollState())
                 .padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
@@ -132,7 +135,7 @@ fun FeedbackSheet(s: AppState, ask: AppState.FeedbackAsk) {
             }
             if (noMail) Text(stringResource(R.string.fb_no_mail, Feedback.TO), style = Type.small.ui(), color = p.wrong)
             Primary(stringResource(R.string.fb_send)) { send() }
-            Text("${stringResource(R.string.fb_note)} · ${Feedback.TO}", style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft,
+            Text("${stringResource(R.string.fb_note)}\n${Feedback.TO}", style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft,
                 textAlign = androidx.compose.ui.text.style.TextAlign.Center, modifier = Modifier.fillMaxWidth())
         }
     }
