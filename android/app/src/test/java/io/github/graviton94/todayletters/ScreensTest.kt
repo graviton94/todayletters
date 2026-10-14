@@ -1135,4 +1135,109 @@ class ScreensTest {
             io.github.graviton94.todayletters.ui.FeedbackSheet(s, s.feedback!!)
         }
     }
+
+    // ── 문법 사다리 (턴 · 오늘의 문법 · 말투 노트 · 말투 바꿔 보기). 실제 III장~ 데이터가 아직 없어 I장 첫 편지에 시험용 턴을 끼운다 ──
+    private object G {
+        fun tri(fr: String, en: String, ko: String) = io.github.graviton94.todayletters.core.Tri(mapOf(
+            io.github.graviton94.todayletters.core.Lang.FR to fr, io.github.graviton94.todayletters.core.Lang.EN to en, io.github.graviton94.todayletters.core.Lang.KO to ko))
+        fun ui(ko: String, en: String) = io.github.graviton94.todayletters.core.Tri(mapOf(io.github.graviton94.todayletters.core.Lang.KO to ko, io.github.graviton94.todayletters.core.Lang.EN to en))
+        val grammar = listOf(
+            io.github.graviton94.todayletters.core.Grammar("I.0", mapOf(
+                io.github.graviton94.todayletters.core.Lang.FR to io.github.graviton94.todayletters.core.GrammarLine(ui("복합과거 (avoir)", "Passé composé with avoir"), ui("지난 일을 말해요 · avoir + 과거분사", "Talk about what happened · avoir + past participle")),
+                io.github.graviton94.todayletters.core.Lang.EN to io.github.graviton94.todayletters.core.GrammarLine(ui("과거형", "Past simple"), ui("지난 일을 말해요", "Talk about what happened")),
+                io.github.graviton94.todayletters.core.Lang.KO to io.github.graviton94.todayletters.core.GrammarLine(ui("-아서/어서", "-아서/어서 (so · and then)"), ui("이유 · 순서를 이어요", "Link a reason or a sequence")),
+            )),
+            io.github.graviton94.todayletters.core.Grammar("I.1", mapOf(
+                io.github.graviton94.todayletters.core.Lang.FR to io.github.graviton94.todayletters.core.GrammarLine(ui("복합과거 복습", "Passé composé review"), ui("앞에서 배운 문법을 다시", "Practise it again")),
+                io.github.graviton94.todayletters.core.Lang.KO to io.github.graviton94.todayletters.core.GrammarLine(ui("-아서/어서 복습", "-아서/어서 review"), ui("앞에서 배운 문법을 다시", "Practise it again")),
+            )),
+        )
+        val turns = listOf(
+            io.github.graviton94.todayletters.core.ReplyTurn(0, "I.0",
+                tri("J'ai lu ta lettre deux fois, et j'ai pensé à tes nuits de travail.", "I read your letter twice, and I thought about your nights of work.",
+                    io.github.graviton94.todayletters.core.Breaks.keepAll("형 편지를 읽어서 형 생각을 많이 했어요.")),
+                koLow = io.github.graviton94.todayletters.core.Breaks.keepAll("형 편지를 읽어서 형 생각을 많이 했어."),
+                koHigh = io.github.graviton94.todayletters.core.Breaks.keepAll("형님 편지를 읽어서 형님 생각을 많이 했습니다."),
+                focus = mapOf(io.github.graviton94.todayletters.core.Lang.FR to listOf("ai lu", "pensé"), io.github.graviton94.todayletters.core.Lang.EN to listOf("read", "thought"),
+                    io.github.graviton94.todayletters.core.Lang.KO to listOf("읽어서"))),
+            io.github.graviton94.todayletters.core.ReplyTurn(1, "I.1",
+                tri("Tu as choisi des couleurs très fortes, et j'ai tout de suite voulu voir le tableau.", "You chose very strong colours, and I wanted to see the painting right away.",
+                    io.github.graviton94.todayletters.core.Breaks.keepAll("형이 아주 강한 색을 골라서 그 그림이 바로 보고 싶어졌어요.")),
+                koLow = io.github.graviton94.todayletters.core.Breaks.keepAll("형이 아주 강한 색을 골라서 그 그림이 바로 보고 싶어졌어."),
+                koHigh = io.github.graviton94.todayletters.core.Breaks.keepAll("형님께서 아주 강한 색을 고르셔서 그 그림이 바로 보고 싶어졌습니다."),
+                focus = mapOf(io.github.graviton94.todayletters.core.Lang.FR to listOf("as choisi", "voulu"), io.github.graviton94.todayletters.core.Lang.EN to listOf("chose", "wanted"),
+                    io.github.graviton94.todayletters.core.Lang.KO to listOf("골라서"))),
+        )
+        fun patch(w: io.github.graviton94.todayletters.data.Work): io.github.graviton94.todayletters.data.Work = w.copy(
+            chapters = w.chapters.mapIndexed { i, c -> if (i > 0) c else c.copy(grammar = grammar, letters = c.letters.mapIndexed { j, l -> if (j == 0) l.copy(replies = turns) else l }) },
+            decks = w.decks.mapValues { patch(it.value) },
+        )
+    }
+
+    /** 빈센트 I장 첫 편지에 시험용 두 턴 · 오늘의 문법을 끼운 채로 [block] 을 찍고 되돌린다. */
+    private fun withGrammar(block: () -> Unit) {
+        val original = io.github.graviton94.todayletters.data.Library.works(ctx)
+        io.github.graviton94.todayletters.data.Library.swapForTest(ctx) { ws -> ws.map { if (it.series.id == "vincent") G.patch(it) else it } }
+        try { block() } finally { io.github.graviton94.todayletters.data.Library.swapForTest(ctx) { original } }
+    }
+
+    /** 한국어를 배우는 공간 (영어로 읽기). */
+    private fun koreanLearner(s: AppState): AppState {
+        s.update(s.app.copy(read = io.github.graviton94.todayletters.core.Lang.EN))
+        s.update("vincent", s.seriesSettings("vincent").copy(learn = io.github.graviton94.todayletters.core.Lang.KO))
+        s.bump()
+        return s
+    }
+
+    /** B1: 턴 1 / 2 · 오늘의 문법 줄 (점선) · 인용 · 문법 덩어리 빈칸 둘 (같은 낱말의 다른 꼴이 미끼). */
+    @Test fun grammarLadderTurn1() = withGrammar {
+        val s = graded(state(true), 8)
+        shot("grammar01_ladder_turn1_b1_light", false, series = s) { Play(s, replyRoute) }
+    }
+    /** B1: 턴 1 을 채워 ‘다음 턴으로’ → 턴 2 / 2 (다른 인용 · 복습 문법). */
+    @Test fun grammarLadderTurn2() = withGrammar {
+        val s = graded(state(true), 8)
+        shot("grammar02_ladder_turn2_b1_dark", true, act = {
+            rule.onAllNodes(hasText(ctx.getString(R.string.play_show)) and hasClickAction()).onFirst().performClick()
+            rule.mainClock.advanceTimeBy(300)
+            rule.onAllNodes(hasText(ctx.getString(R.string.ladder_next_turn)) and hasClickAction()).onFirst().performClick()
+        }, series = s) { Play(s, replyRoute) }
+    }
+    /** 한국어를 배울 때 (A2 빈칸 하나): 해요체로 채운 뒤 펼쳐진 말투 노트 (반말 · 높임 · 실제 사이). */
+    @Test fun grammarKoreanStyleNote() = withGrammar {
+        val s = graded(koreanLearner(state(true)), 5)
+        shot("grammar03_korean_style_note_light", false, act = {
+            rule.onAllNodes(hasText(ctx.getString(R.string.play_show)) and hasClickAction()).onFirst().performClick()
+        }, series = s) { Play(s, replyRoute) }
+    }
+    /** 복습의 말투 바꿔 보기 카드: 해요체 문장 → 반말 · 높임 고르기 (보기 셋: 정답 · 다른 말투 · 섞인 것). */
+    @Test fun grammarStyleCard() = withGrammar {
+        val s = koreanLearner(state(true))
+        val l = s.work("vincent").chapters.first().letters.first()
+        val key = io.github.graviton94.todayletters.core.CardRef.style("vincent", "I", l.id, s.deckOf("vincent"), 1)
+        s.store.save(io.github.graviton94.todayletters.core.Card(key, box = 1, due = s.today)); s.bump()
+        shot("grammar04_style_card_light", false, series = s) { Session(s, Route.Session(only = listOf(key))) }
+    }
+    /** 말투 바꿔 보기: 맞힌 뒤 (어두운 화면). */
+    @Test fun grammarStyleCardRight() = withGrammar {
+        val s = koreanLearner(state(true))
+        val l = s.work("vincent").chapters.first().letters.first()
+        val key = io.github.graviton94.todayletters.core.CardRef.style("vincent", "I", l.id, s.deckOf("vincent"), 1)
+        s.store.save(io.github.graviton94.todayletters.core.Card(key, box = 1, due = s.today)); s.bump()
+        val t = G.turns[1]
+        val target = io.github.graviton94.todayletters.core.Breaks.plain(if (io.github.graviton94.todayletters.core.Ladder.askLow(key, s.today)) t.koLow else t.koHigh)
+        shot("grammar05_style_card_right_dark", true, act = { rule.onNodeWithText(target).performClick() }, series = s) { Session(s, Route.Session(only = listOf(key))) }
+    }
+    /** 턴마다 복습 카드: 두 턴을 마치면 답장 카드 둘 (r · r1), 한국어면 말투 카드도. 마지막 턴에서 답장 걸음이 끝난다. */
+    @Test fun grammarTurnsMakeCards() = withGrammar {
+        val s = koreanLearner(state(true))
+        val r = Route.Letter("vincent", 1, 1)
+        val (c, l) = s.letterOf(r)
+        s.replyTurnDone(r, 0); s.replyTurnDone(r, 1)
+        val deck = s.deckOf("vincent")
+        val keys = s.store.cards().map { it.key }.toSet() + s.store.later(deck)
+        listOf(io.github.graviton94.todayletters.core.CardRef.reply("vincent", c, l.id, deck, 0), io.github.graviton94.todayletters.core.CardRef.reply("vincent", c, l.id, deck, 1),
+            io.github.graviton94.todayletters.core.CardRef.style("vincent", c, l.id, deck, 0)).forEach { k -> org.junit.Assert.assertTrue(k, k in keys) }
+        org.junit.Assert.assertNotNull(s.cardWord(io.github.graviton94.todayletters.core.CardRef.reply("vincent", c, l.id, deck, 1)))
+    }
 }
