@@ -1,0 +1,116 @@
+name: FGS demo video
+
+# Play Console › 앱 콘텐츠 › 포그라운드 서비스 권한 신고에 붙일 시연 영상 (영어 화면 · 소리 없음).
+# 에뮬레이터에서 debug APK 를 열어 scripts/fgs_video.sh 로 두 장면을 녹화한다:
+#   design/store/play/fgs_media_playback.mp4 (FOREGROUND_SERVICE_MEDIA_PLAYBACK)
+#   design/store/play/fgs_data_sync.mp4      (FOREGROUND_SERVICE_DATA_SYNC)
+# 직접 실행할 때만 돈다. commit 을 켜면 영상을 이 가지에 커밋한다 (강제 푸시 없음).
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: "영상을 design/store/play/ 에 커밋"
+        type: boolean
+        default: true
+
+concurrency:
+  group: fgs-video-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android/sdk/ndk /opt/ghc /usr/local/.ghcup /opt/hostedtoolcache/CodeQL /usr/local/share/boost /usr/share/swift
+          df -h /
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build debug APK
+        working-directory: android
+        run: ./gradlew :app:assembleDebug
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - name: AVD cache
+        uses: actions/cache@v4
+        id: avd
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-34-google_apis-x86_64-pixel_6-fgs-v1
+      - name: Create AVD snapshot
+        if: steps.avd.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          disk-size: 4096M
+          cores: 2
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -no-boot-anim -camera-back none
+          disable-animations: false
+          script: echo "snapshot ready"
+      - name: Record on emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          disk-size: 4096M
+          cores: 2
+          force-avd-creation: false
+          # 소리 장치는 둔다 (낭독이 실제 길이만큼 재생되게). 영상에는 소리를 담지 않는다.
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -no-boot-anim -camera-back none
+          disable-animations: false
+          script: adb install -r android/app/build/outputs/apk/debug/app-debug.apk && (timeout 25m bash scripts/fgs_video.sh fgs || echo "stopped early" > fgs/STOPPED.txt); mkdir -p fgs; adb logcat -d | tail -n 3000 > fgs/logcat_tail.txt; true
+      - name: Frames for review
+        if: always()
+        run: |
+          sudo apt-get install -y -qq ffmpeg >/dev/null 2>&1 || true
+          cd fgs || exit 0
+          for v in *.mp4; do
+            [ -f "$v" ] || continue
+            ffprobe -v error -show_entries format=duration -of csv=p=0 "$v" | tee "${v%.mp4}.duration.txt"
+            mkdir -p "frames_${v%.mp4}" && ffmpeg -loglevel error -i "$v" -vf fps=1/3,scale=360:-1 "frames_${v%.mp4}/f%02d.png" || true
+          done
+          ls -laR
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fgs-video
+          path: fgs/
+      - name: Push review files to fgs-review-${{ github.run_number }}
+        if: always()
+        run: |
+          [ -d fgs ] || exit 0
+          mkdir -p /tmp/rev && cp -r fgs/. /tmp/rev/ && rm -f /tmp/rev/*.mp4 && cd /tmp/rev
+          git init -q -b r && git add -A
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "FGS video review ${GITHUB_SHA}"
+          git push -q "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" "r:refs/heads/fgs-review-${{ github.run_number }}" || true
+      - name: Commit videos
+        if: inputs.commit
+        run: |
+          ok=1; for v in fgs_media_playback fgs_data_sync; do [ -s "fgs/$v.mp4" ] || ok=0; done
+          [ $ok = 1 ] || { echo "videos missing, not committing"; exit 1; }
+          mkdir -p design/store/play && cp fgs/fgs_media_playback.mp4 fgs/fgs_data_sync.mp4 design/store/play/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add design/store/play/fgs_*.mp4
+          git commit -qm "Play Console FGS demo videos (run ${{ github.run_number }})" || exit 0
+          git pull -q --rebase origin "${GITHUB_REF_NAME}"
+          git push -q origin "HEAD:${GITHUB_REF_NAME}"

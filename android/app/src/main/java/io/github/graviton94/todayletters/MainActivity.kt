@@ -22,6 +22,8 @@ class MainActivity : ComponentActivity() {
         // 첫 화면은 늘 나온다. 언어를 바꿔 다시 그릴 때만 건너뛰고, 알림으로 들어오면 첫 화면 뒤에 오늘 화면으로.
         val recreated = savedInstanceState != null
         val fromNotice = intent.getBooleanExtra(FROM_NOTICE, false)
+        // debug 빌드의 녹화용 설정 (release 에서는 아무것도 하지 않음)
+        if (!recreated) DevHooks.apply(applicationContext, intent)
         // 알림이 말한 작품으로 연다 (누른 것이 곧 그 작품을 고른 것)
         if (fromNotice && !recreated) noticeSeries(intent)?.let { io.github.graviton94.todayletters.data.Store(applicationContext).lastSeries = it }
         // 도착 알림을 다음 그 시각으로 다시 잡는다 (권한이 없으면 울릴 때 조용히 넘어감)
