@@ -1,2 +1,3 @@
-13_match_ko_light.png
 a11y.txt
+u01_whatsnew_ko_light.png
+u02_update_ready_ko_dark.png
