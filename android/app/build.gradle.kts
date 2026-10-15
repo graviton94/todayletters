@@ -77,6 +77,8 @@ dependencies {
     // 구독 · 시리즈 소장 (data/Billing.kt, docs/billing.md)
     implementation("com.android.billingclient:billing:8.0.0")
     implementation("com.google.android.play:app-update:2.1.0")
+    // app-update 가 끌고 오는 옛 Fragment 대신 (ActivityResult API 는 1.3.0 이상, lintVital)
+    implementation("androidx.fragment:fragment-ktx:1.8.5")
 
     testImplementation(platform("androidx.compose:compose-bom:2024.12.01"))
     testImplementation("junit:junit:4.13.2")
