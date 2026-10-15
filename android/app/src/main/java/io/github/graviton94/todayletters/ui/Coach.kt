@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.composed
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -124,7 +125,7 @@ fun GuideBanner(text: String, modifier: Modifier = Modifier) {
 }
 
 /** 튜토리얼이 가리키는 단추: 바깥에 천천히 숨 쉬는 금빛 테 (움직임 줄이기면 멈춘 테). */
-fun Modifier.guidePulse(still: Boolean): Modifier = androidx.compose.ui.composed {
+fun Modifier.guidePulse(still: Boolean): Modifier = composed {
     val p = Ink.palette
     val k = if (still) 0.6f else androidx.compose.animation.core.rememberInfiniteTransition(label = "guide").animateFloat(
         0f, 1f, androidx.compose.animation.core.infiniteRepeatable(androidx.compose.animation.core.tween(1100), androidx.compose.animation.core.RepeatMode.Reverse), label = "k",

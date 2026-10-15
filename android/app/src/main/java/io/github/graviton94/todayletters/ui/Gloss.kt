@@ -30,6 +30,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.draw.shadow
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
@@ -85,8 +88,8 @@ fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key
     // 누른 문장 바로 아래에 작은 카드 (자리가 없으면 문장 위에). 자리를 모르면 (문장 밖에서 연 카드) 화면 아래에
     var origin by remember { mutableStateOf(0f) }
     val dens = androidx.compose.ui.platform.LocalDensity.current
-    val safeTop = androidx.compose.foundation.layout.WindowInsets.statusBars.getTop(dens)
-    val safeBottom = androidx.compose.foundation.layout.WindowInsets.navigationBars.getBottom(dens)
+    val safeTop = WindowInsets.statusBars.getTop(dens)
+    val safeBottom = WindowInsets.navigationBars.getBottom(dens)
     androidx.compose.ui.layout.Layout(
         modifier = Modifier.fillMaxSize().onGloballyPositioned { origin = it.positionInRoot().y }
             .clickable(interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() }, indication = null, onClick = onClose),
