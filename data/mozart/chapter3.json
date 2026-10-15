@@ -583,7 +583,8 @@
      "aushalten",
      "wünschen"
     ],
-    "grammar": "III.1"
+    "grammar": "III.1",
+    "audio": "t"
    }
   },
   {
@@ -1024,7 +1025,8 @@
      "halb",
      "eiskalt"
     ],
-    "grammar": "III.0"
+    "grammar": "III.0",
+    "audio": "t"
    }
   },
   {
@@ -1492,7 +1494,8 @@
      "Nachricht",
      "Gesundheit"
     ],
-    "grammar": "III.0"
+    "grammar": "III.0",
+    "audio": "t"
    }
   },
   {
@@ -1915,7 +1918,8 @@
      "weinen",
      "wiedersehen"
     ],
-    "grammar": "III.1"
+    "grammar": "III.1",
+    "audio": "t"
    }
   },
   {
@@ -2376,7 +2380,8 @@
     "words": [
      "Eile"
     ],
-    "grammar": "III.0"
+    "grammar": "III.0",
+    "audio": "t"
    }
   },
   {
@@ -2800,7 +2805,8 @@
     "words": [
      "küssen"
     ],
-    "grammar": "III.2"
+    "grammar": "III.2",
+    "audio": "t"
    }
   },
   {
@@ -3237,7 +3243,8 @@
     "words": [
      "lachen"
     ],
-    "grammar": "III.1"
+    "grammar": "III.1",
+    "audio": "t"
    }
   }
  ]

@@ -225,7 +225,8 @@
      "jardin",
      "revoir"
     ],
-    "grammar": "I.1"
+    "grammar": "I.1",
+    "audio": "t"
    }
   },
   {
@@ -447,7 +448,8 @@
      "noir",
      "terre"
     ],
-    "grammar": "I.0"
+    "grammar": "I.0",
+    "audio": "t"
    }
   },
   {
@@ -667,7 +669,8 @@
      "tôt",
      "venir"
     ],
-    "grammar": "I.0"
+    "grammar": "I.0",
+    "audio": "t"
    }
   },
   {
@@ -887,7 +890,8 @@
      "pays",
      "beau"
     ],
-    "grammar": "I.2"
+    "grammar": "I.2",
+    "audio": "t"
    }
   }
  ]

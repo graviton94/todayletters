@@ -504,7 +504,8 @@
      "Stimme",
      "Brief"
     ],
-    "grammar": "I.0"
+    "grammar": "I.0",
+    "audio": "t"
    }
   },
   {
@@ -923,7 +924,8 @@
      "Stadt",
      "Bett"
     ],
-    "grammar": "I.1"
+    "grammar": "I.1",
+    "audio": "t"
    }
   },
   {
@@ -1332,7 +1334,8 @@
      "Fehler",
      "Kleid"
     ],
-    "grammar": "I.2"
+    "grammar": "I.2",
+    "audio": "t"
    }
   },
   {
@@ -1722,7 +1725,8 @@
      "spielen",
      "Tag"
     ],
-    "grammar": "I.0"
+    "grammar": "I.0",
+    "audio": "t"
    }
   },
   {
@@ -2137,7 +2141,8 @@
      "Reise",
      "Monat"
     ],
-    "grammar": "I.2"
+    "grammar": "I.2",
+    "audio": "t"
    }
   },
   {
@@ -2536,7 +2541,8 @@
     "words": [
      "hoffen"
     ],
-    "grammar": "I.2"
+    "grammar": "I.2",
+    "audio": "t"
    }
   }
  ]

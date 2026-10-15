@@ -538,7 +538,8 @@
      "rouge",
      "vert"
     ],
-    "grammar": "III.0"
+    "grammar": "III.0",
+    "audio": "t"
    }
   },
   {
@@ -984,7 +985,8 @@
     "words": [
      "ajouter"
     ],
-    "grammar": "III.2"
+    "grammar": "III.2",
+    "audio": "t"
    }
   },
   {
@@ -1441,7 +1443,8 @@
      "étoile",
      "tableau"
     ],
-    "grammar": "III.1"
+    "grammar": "III.1",
+    "audio": "t"
    }
   },
   {
@@ -1866,7 +1869,8 @@
      "content",
      "japonais"
     ],
-    "grammar": "III.0"
+    "grammar": "III.0",
+    "audio": "t"
    }
   },
   {
@@ -2284,7 +2288,8 @@
      "faute",
      "lundi"
     ],
-    "grammar": "III.1"
+    "grammar": "III.1",
+    "audio": "t"
    }
   },
   {
@@ -2702,7 +2707,8 @@
      "chaise",
      "repos"
     ],
-    "grammar": "III.2"
+    "grammar": "III.2",
+    "audio": "t"
    }
   },
   {
@@ -3146,7 +3152,8 @@
      "cuisine",
      "toile"
     ],
-    "grammar": "III.1"
+    "grammar": "III.1",
+    "audio": "t"
    }
   }
  ]

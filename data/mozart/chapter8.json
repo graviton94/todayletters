@@ -598,7 +598,8 @@
     "words": [
      "Herbst"
     ],
-    "grammar": "VIII.0"
+    "grammar": "VIII.0",
+    "audio": "t"
    }
   },
   {
@@ -1085,7 +1086,8 @@
     "words": [
      "Samstag"
     ],
-    "grammar": "VIII.1"
+    "grammar": "VIII.1",
+    "audio": "t"
    }
   },
   {
@@ -1564,7 +1566,8 @@
      "Konzert",
      "Orgel"
     ],
-    "grammar": "VIII.2"
+    "grammar": "VIII.2",
+    "audio": "t"
    }
   },
   {
@@ -2073,7 +2076,8 @@
     "words": [
      "Wetter"
     ],
-    "grammar": "VIII.1"
+    "grammar": "VIII.1",
+    "audio": "t"
    }
   },
   {
@@ -2551,7 +2555,8 @@
     "words": [
      "Träne"
     ],
-    "grammar": "VIII.0"
+    "grammar": "VIII.0",
+    "audio": "t"
    }
   },
   {
@@ -3034,7 +3039,8 @@
      "Sommer",
      "Bad"
     ],
-    "grammar": "VIII.2"
+    "grammar": "VIII.2",
+    "audio": "t"
    }
   },
   {
@@ -3554,7 +3560,8 @@
      "zurückkommen",
      "Loge"
     ],
-    "grammar": "VIII.0"
+    "grammar": "VIII.0",
+    "audio": "t"
    }
   }
  ]

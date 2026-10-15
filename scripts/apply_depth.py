@@ -167,6 +167,10 @@ def main():
                         if len(wr) != len(chunks): errors.append(f"{w} 줄 {li + 1}: wrong[{lang}] 수가 focus 와 다름")
                         for ck, pair in zip(chunks, wr):
                             if any((not p.strip()) or p == ck for p in pair): errors.append(f"{w} 줄 {li + 1}: wrong[{lang}] {pair} (빈 칸이거나 정답과 같음)")
+            # 줄이 그대로면 이미 만든 소리(audio)를 잇는다. 줄이 바뀌면 소리 없음: 새 소리는 새 이름으로 (R2 덮어쓰기 금지, docs/release.md 5)
+            old = l.get("talk") or {}
+            if old.get("audio") and old.get("lines") == t.get("lines") and "audio" not in t:
+                t = {**t, "audio": old["audio"]}
             if l.get("talk") != t:
                 st["talk"] = st.get("talk", 0) + 1
             l["talk"] = t

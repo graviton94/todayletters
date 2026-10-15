@@ -608,7 +608,8 @@
     "words": [
      "Wunsch"
     ],
-    "grammar": "VII.0"
+    "grammar": "VII.0",
+    "audio": "t"
    }
   },
   {
@@ -1102,7 +1103,8 @@
     "words": [
      "verdienen"
     ],
-    "grammar": "VII.1"
+    "grammar": "VII.1",
+    "audio": "t"
    }
   },
   {
@@ -1605,7 +1607,8 @@
      "pfeifen",
      "Mittwoch"
     ],
-    "grammar": "VII.2"
+    "grammar": "VII.2",
+    "audio": "t"
    }
   },
   {
@@ -2093,7 +2096,8 @@
     "words": [
      "beruhigend"
     ],
-    "grammar": "VII.0"
+    "grammar": "VII.0",
+    "audio": "t"
    }
   },
   {
@@ -2578,7 +2582,8 @@
     "words": [
      "erraten"
     ],
-    "grammar": "VII.0"
+    "grammar": "VII.0",
+    "audio": "t"
    }
   },
   {
@@ -3074,7 +3079,8 @@
      "Oktober",
      "Lied"
     ],
-    "grammar": "VII.1"
+    "grammar": "VII.1",
+    "audio": "t"
    }
   },
   {
@@ -3560,7 +3566,8 @@
     "words": [
      "bequem"
     ],
-    "grammar": "VII.2"
+    "grammar": "VII.2",
+    "audio": "t"
    }
   }
  ]

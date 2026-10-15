@@ -581,7 +581,8 @@
      "faucheur",
      "inonder"
     ],
-    "grammar": "VII.0"
+    "grammar": "VII.0",
+    "audio": "t"
    }
   },
   {
@@ -1055,7 +1056,8 @@
      "copie",
      "violon"
     ],
-    "grammar": "VII.2"
+    "grammar": "VII.2",
+    "audio": "t"
    }
   },
   {
@@ -1545,7 +1547,8 @@
      "saule",
      "caractère"
     ],
-    "grammar": "VII.0"
+    "grammar": "VII.0",
+    "audio": "t"
    }
   },
   {
@@ -2025,7 +2028,8 @@
     "words": [
      "cueillir"
     ],
-    "grammar": "VII.1"
+    "grammar": "VII.1",
+    "audio": "t"
    }
   },
   {
@@ -2496,7 +2500,8 @@
     "words": [
      "surprendre"
     ],
-    "grammar": "VII.1"
+    "grammar": "VII.1",
+    "audio": "t"
    }
   },
   {
@@ -2936,7 +2941,8 @@
     "words": [
      "exprimer"
     ],
-    "grammar": "VII.0"
+    "grammar": "VII.0",
+    "audio": "t"
    }
   },
   {
@@ -3421,7 +3427,8 @@
      "bouquet",
      "malle"
     ],
-    "grammar": "VII.2"
+    "grammar": "VII.2",
+    "audio": "t"
    }
   }
  ]

@@ -493,7 +493,8 @@
      "voyage",
      "penser"
     ],
-    "grammar": "I.0"
+    "grammar": "I.0",
+    "audio": "t"
    }
   },
   {
@@ -907,7 +908,8 @@
      "apprendre",
      "travail"
     ],
-    "grammar": "I.1"
+    "grammar": "I.1",
+    "audio": "t"
    }
   },
   {
@@ -1324,7 +1326,8 @@
      "vent",
      "travailler"
     ],
-    "grammar": "I.2"
+    "grammar": "I.2",
+    "audio": "t"
    }
   },
   {
@@ -1688,7 +1691,8 @@
      "fleur",
      "lettre"
     ],
-    "grammar": "I.0"
+    "grammar": "I.0",
+    "audio": "t"
    }
   },
   {
@@ -2062,7 +2066,8 @@
      "donner",
      "mal"
     ],
-    "grammar": "I.2"
+    "grammar": "I.2",
+    "audio": "t"
    }
   },
   {
@@ -2422,7 +2427,8 @@
      "soleil",
      "mois"
     ],
-    "grammar": "I.0"
+    "grammar": "I.0",
+    "audio": "t"
    }
   },
   {
@@ -2824,7 +2830,8 @@
      "santé",
      "manger"
     ],
-    "grammar": "I.1"
+    "grammar": "I.1",
+    "audio": "t"
    }
   }
  ]

@@ -563,7 +563,8 @@
      "apporter",
      "tas"
     ],
-    "grammar": "IV.0"
+    "grammar": "IV.0",
+    "audio": "t"
    }
   },
   {
@@ -965,7 +966,8 @@
      "dépenser",
      "étude"
     ],
-    "grammar": "IV.0"
+    "grammar": "IV.0",
+    "audio": "t"
    }
   },
   {
@@ -1406,7 +1408,8 @@
      "dimanche",
      "vin"
     ],
-    "grammar": "IV.2"
+    "grammar": "IV.2",
+    "audio": "t"
    }
   },
   {
@@ -1824,7 +1827,8 @@
     "words": [
      "facteur"
     ],
-    "grammar": "IV.0"
+    "grammar": "IV.0",
+    "audio": "t"
    }
   },
   {
@@ -2234,7 +2238,8 @@
     "words": [
      "commencer"
     ],
-    "grammar": "IV.1"
+    "grammar": "IV.1",
+    "audio": "t"
    }
   },
   {
@@ -2635,7 +2640,8 @@
      "musée",
      "barbe"
     ],
-    "grammar": "IV.0"
+    "grammar": "IV.0",
+    "audio": "t"
    }
   },
   {
@@ -3040,7 +3046,8 @@
     "words": [
      "mandat"
     ],
-    "grammar": "IV.2"
+    "grammar": "IV.2",
+    "audio": "t"
    }
   }
  ]

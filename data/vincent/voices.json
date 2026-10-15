@@ -54,5 +54,9 @@
       "mood": "tender",
       "_note": "맺음말 · 652"
     }
+  },
+  "talk_me": {
+    "_doc": "오늘의 회화(talk)의 \"me\" 줄 목소리 (테오). \"them\" 줄은 위의 인물 목소리 그대로 (narrate.py NARRATE_ONLY=talk).",
+    "default": "M4"
   }
 }

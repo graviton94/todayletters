@@ -13,6 +13,13 @@
           v_<언어>_<slug>.m4a  오늘의 낱말 (그 언어의 표제어를 읽음, 사전 키의 "#2" 같은 동형어 표시는 읽지 않음)
           ph<번호>_<언어>.m4a  오늘의 표현 (phrases 의 t, 번호는 그 언어 phrases 목록에서 1부터)
           차분한(calm) 프리셋, 높낮이 그대로. 편지 낭독 · 낱말 · 그림 점은 만들지 않는다.
+  NARRATE_ONLY=talk: 오늘의 회화만 (편지의 "talk".lines, 학습 언어마다)
+          <talk.audio 또는 t><줄 번호>_<언어>.m4a  (core Talk.audioName: 줄 i 의 소리 = <audio><i+1>_<언어>)
+          "them" 줄은 그 장의 인물 목소리(편지 낭독과 같은 섞음) · 편지 mood 의 빠르기 · 높낮이,
+          "me" 줄은 받는 사람 목소리 (배역표의 "talk_me": 편지 "to" 의 원어 글자 → 목소리, 없으면 "default") · 차분한 프리셋.
+  NARRATE_ONLY=new: talk + vocab 을 한 번에.
+  NARRATE_SKIP_EXISTING=1: 이 저장소의 assets/audio · remote/audio 에 이미 있는 파일은 만들지 않는다
+          (R2 의 파일은 덮어쓰지 않는다 · docs/release.md 5: 빠진 소리만 새로 만든다).
 
 GitHub Actions 에서 돌려요:
   python scripts/narrate.py <supertonic/py> <assets> <편지 파일.json> <출력 폴더> [언어 …]
@@ -81,7 +88,7 @@ def clauses(text):
     return [re.sub(r"\s*/\s*", " ", c).strip() for c in re.split(r"\s*//\s*", text.strip()) if c.strip()]
 
 
-def speak(text, lang, pr, lead="", spoken=None):
+def speak(text, lang, pr, lead="", spoken=None, who=None):
     """
     사람처럼 읽기: 마디(쉼표 자리)마다 한 번에 읽어 억양이 이어지게 하고, 마디 사이에 긴 숨을 둔다.
     돌려주는 것: 소리와 마디 시각 [(시작, 끝, 글자)] (따라 읽기에서 읽는 자리를 칠할 때 쓴다).
@@ -90,7 +97,7 @@ def speak(text, lang, pr, lead="", spoken=None):
     parts, times, t = [silence(0.2)], [], 0.2
     for j, p in enumerate(chunks):
         said = f"{lead} {p}" if j == 0 and lead else p
-        wav, dur = tts(said, lang, voice, STEPS_FINE, pr["speed"] * SLOWER)
+        wav, dur = tts(said, lang, who or voice, STEPS_FINE, pr["speed"] * SLOWER)
         audio = wav[0, : int(sr * dur[0].item())].astype(np.float32)
         parts.append(audio)
         times.append((round(t, 3), round(t + len(audio) / sr, 3), p))
@@ -120,7 +127,46 @@ def save(path, audio, pitch):
 
 # NARRATE_ONLY=spots: 그림 속 산책 낱말만 만든다 (편지 낭독은 그대로 둠)
 ONLY = os.environ.get("NARRATE_ONLY", "")
-if ONLY == "vocab":
+SKIP = os.environ.get("NARRATE_SKIP_EXISTING", "") == "1"
+
+
+def exists(rel):
+    """<작품>/<장>/<편지>/<파일> 이 이미 이 저장소(앱 안 assets 또는 앱 밖 remote/)에 있나."""
+    return any(os.path.exists(os.path.join(r, rel)) for r in ("android/app/src/main/assets/audio", "remote/audio"))
+
+
+def wanted(path):
+    return not (SKIP and exists(os.path.relpath(path, out)))
+
+
+if ONLY in ("talk", "new"):
+    me_cast = cast.get("talk_me") or {}
+    n = 0
+    for letter in book["letters"]:
+        t = letter.get("talk") or {}
+        if not t.get("lines"):
+            continue
+        base = os.path.join(out, series, chapter, letter["id"])
+        pr = presets[letter.get("mood") or cast["chapters"][chapter]["mood"]]
+        to = (letter.get("to") or {}).get(book["original"]) if isinstance(letter.get("to"), dict) else letter.get("to")
+        me = style_of((me_cast.get("by_to") or {}).get(to or "", me_cast.get("default", "M4")))
+        stem = t.get("audio") or "t"
+        for lang in langs:
+            for i, line in enumerate(t["lines"], 1):
+                path = os.path.join(base, f"{stem}{i}_{lang}.m4a")
+                text = re.sub(r"[〈〉]", "", line.get(lang) or "").strip()
+                if not text or not wanted(path):
+                    continue
+                if line.get("who") == "me":
+                    save(path, speak(text, lang, presets["calm"], who=me)[0], 1.0)
+                else:
+                    save(path, speak(text, lang, pr)[0], pr["pitch"])
+                n += 1
+        print("talk ok", letter["id"], flush=True)
+    print("talk files", n)
+    if ONLY == "talk":
+        sys.exit(0)
+if ONLY in ("vocab", "new"):
     daily = {lg: json.load(open(f"data/{series}/daily{'' if lg == book['original'] else '_' + lg}.json",
                                 encoding="utf-8"))["letters"] for lg in langs}
     n = 0
@@ -129,10 +175,13 @@ if ONLY == "vocab":
         for lang in langs:
             d = daily[lang].get(letter["id"]) or {}
             for key in d.get("words", []):
-                save(os.path.join(base, f"v_{lang}_{slug(key)}.m4a"),
-                     speak(key.split("#")[0], lang, presets["calm"])[0], 1.0); n += 1
+                path = os.path.join(base, f"v_{lang}_{slug(key)}.m4a")
+                if wanted(path):
+                    save(path, speak(key.split("#")[0], lang, presets["calm"])[0], 1.0); n += 1
             for i, ph in enumerate(d.get("phrases", []), 1):
-                save(os.path.join(base, f"ph{i}_{lang}.m4a"), speak(ph["t"], lang, presets["calm"])[0], 1.0); n += 1
+                path = os.path.join(base, f"ph{i}_{lang}.m4a")
+                if wanted(path):
+                    save(path, speak(ph["t"], lang, presets["calm"])[0], 1.0); n += 1
         print("ok", letter["id"], flush=True)
     print("vocab files", n)
     sys.exit(0)

@@ -491,7 +491,8 @@
     "words": [
      "fragen"
     ],
-    "grammar": "II.0"
+    "grammar": "II.0",
+    "audio": "t"
    }
   },
   {
@@ -902,7 +903,8 @@
     "words": [
      "Arbeit"
     ],
-    "grammar": "II.1"
+    "grammar": "II.1",
+    "audio": "t"
    }
   },
   {
@@ -1296,7 +1298,8 @@
      "groß",
      "müssen"
     ],
-    "grammar": "II.0"
+    "grammar": "II.0",
+    "audio": "t"
    }
   },
   {
@@ -1687,7 +1690,8 @@
      "können",
      "Tochter"
     ],
-    "grammar": "II.0"
+    "grammar": "II.0",
+    "audio": "t"
    }
   },
   {
@@ -2095,7 +2099,8 @@
      "Antwort",
      "bekommen"
     ],
-    "grammar": "II.1"
+    "grammar": "II.1",
+    "audio": "t"
    }
   },
   {
@@ -2504,7 +2509,8 @@
      "Freund",
      "schwer"
     ],
-    "grammar": "II.1"
+    "grammar": "II.1",
+    "audio": "t"
    }
   },
   {
@@ -2886,7 +2892,8 @@
      "Schuld",
      "arbeiten"
     ],
-    "grammar": "II.2"
+    "grammar": "II.2",
+    "audio": "t"
    }
   }
  ]

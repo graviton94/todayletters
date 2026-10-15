@@ -516,7 +516,8 @@
      "reprendre",
      "hôpital"
     ],
-    "grammar": "V.1"
+    "grammar": "V.1",
+    "audio": "t"
    }
   },
   {
@@ -925,7 +926,8 @@
      "médecin",
      "peinture"
     ],
-    "grammar": "V.0"
+    "grammar": "V.0",
+    "audio": "t"
    }
   },
   {
@@ -1361,7 +1363,8 @@
     "words": [
      "doux"
     ],
-    "grammar": "V.2"
+    "grammar": "V.2",
+    "audio": "t"
    }
   },
   {
@@ -1795,7 +1798,8 @@
     "words": [
      "pareil"
     ],
-    "grammar": "V.1"
+    "grammar": "V.1",
+    "audio": "t"
    }
   },
   {
@@ -2209,7 +2213,8 @@
     "words": [
      "répondre"
     ],
-    "grammar": "V.0"
+    "grammar": "V.0",
+    "audio": "t"
    }
   },
   {
@@ -2622,7 +2627,8 @@
      "calme",
      "profiter"
     ],
-    "grammar": "V.2"
+    "grammar": "V.2",
+    "audio": "t"
    }
   },
   {
@@ -3067,7 +3073,8 @@
      "souhaiter",
      "bonheur"
     ],
-    "grammar": "V.1"
+    "grammar": "V.1",
+    "audio": "t"
    }
   }
  ]

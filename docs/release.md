@@ -72,3 +72,4 @@ Play Console › 앱 콘텐츠 › **포그라운드 서비스 권한**. 매니�
 - 낭독 · 그림 · 곡을 고치면 **새 이름**으로 둬요 (예: `l3_m2_fr.m4a` → `l3_m2_fr.v2.m4a`, 그림은 `…-v2.webp`). 편지 데이터가 새 이름을 가리키게 하고 `scripts/generate.py` 를 돌리면 `remote.json` 이 따라와요.
 - 옛 파일은 R2 에 그대로 둬요 (옛 버전 앱이 계속 받을 수 있게).
 - `narration-r2.yml` 은 올리기 전에 `scripts/r2_guard.py` 로 같은 경로의 크기 · 내용을 비교하고, 다르면 멈춰요.
+- 빠진 소리 만들기: Actions › **Narration to R2** 를 `make = new` 로 돌리면 오늘의 회화 (`t<줄>_<언어>.m4a`, 편지 `talk.audio = "t"`; "them" 은 인물 목소리, "me" 는 배역표 `talk_me`) · 카드 낱말 `v_<언어>_<slug>` · 표현 `ph<n>_<언어>` 가운데 **저장소에 없는 것만** 만들어 이 가지에 커밋하고 올려요 (`scripts/narrate.py NARRATE_ONLY=new NARRATE_SKIP_EXISTING=1`). 회화 줄을 고치면 소리는 새 이름(`talk.audio` 를 `tb` 처럼)으로.

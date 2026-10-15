@@ -572,7 +572,8 @@
     "words": [
      "gefallen"
     ],
-    "grammar": "IV.1"
+    "grammar": "IV.1",
+    "audio": "t"
    }
   },
   {
@@ -996,7 +997,8 @@
      "zufrieden",
      "zeigen"
     ],
-    "grammar": "IV.1"
+    "grammar": "IV.1",
+    "audio": "t"
    }
   },
   {
@@ -1441,7 +1443,8 @@
     "words": [
      "Probe"
     ],
-    "grammar": "IV.0"
+    "grammar": "IV.0",
+    "audio": "t"
    }
   },
   {
@@ -1892,7 +1895,8 @@
      "Oper",
      "ankommen"
     ],
-    "grammar": "IV.2"
+    "grammar": "IV.2",
+    "audio": "t"
    }
   },
   {
@@ -2356,7 +2360,8 @@
      "herrlich",
      "freundlich"
     ],
-    "grammar": "IV.1"
+    "grammar": "IV.1",
+    "audio": "t"
    }
   },
   {
@@ -2824,7 +2829,8 @@
      "leer",
      "Papier"
     ],
-    "grammar": "IV.2"
+    "grammar": "IV.2",
+    "audio": "t"
    }
   },
   {
@@ -3270,7 +3276,8 @@
      "verzeihen",
      "mitnehmen"
     ],
-    "grammar": "IV.0"
+    "grammar": "IV.0",
+    "audio": "t"
    }
   }
  ]

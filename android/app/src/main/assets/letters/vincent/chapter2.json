@@ -470,7 +470,8 @@
      "nuit",
      "triste"
     ],
-    "grammar": "II.1"
+    "grammar": "II.1",
+    "audio": "t"
    }
   },
   {
@@ -839,7 +840,8 @@
      "vite",
      "rester"
     ],
-    "grammar": "II.0"
+    "grammar": "II.0",
+    "audio": "t"
    }
   },
   {
@@ -1225,7 +1227,8 @@
      "semaine",
      "parler"
     ],
-    "grammar": "II.0"
+    "grammar": "II.0",
+    "audio": "t"
    }
   },
   {
@@ -1572,7 +1575,8 @@
      "encore",
      "maintenant"
     ],
-    "grammar": "II.1"
+    "grammar": "II.1",
+    "audio": "t"
    }
   },
   {
@@ -1951,7 +1955,8 @@
      "vieux",
      "argent"
     ],
-    "grammar": "II.2"
+    "grammar": "II.2",
+    "audio": "t"
    }
   },
   {
@@ -2347,7 +2352,8 @@
      "homme",
      "fond"
     ],
-    "grammar": "II.2"
+    "grammar": "II.2",
+    "audio": "t"
    }
   },
   {
@@ -2715,7 +2721,8 @@
      "ensemble",
      "matin"
     ],
-    "grammar": "II.1"
+    "grammar": "II.1",
+    "audio": "t"
    }
   }
  ]

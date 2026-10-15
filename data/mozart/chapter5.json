@@ -570,7 +570,8 @@
      "Tisch",
      "sitzen"
     ],
-    "grammar": "V.0"
+    "grammar": "V.0",
+    "audio": "t"
    }
   },
   {
@@ -1011,7 +1012,8 @@
     "words": [
      "Dienst"
     ],
-    "grammar": "V.1"
+    "grammar": "V.1",
+    "audio": "t"
    }
   },
   {
@@ -1452,7 +1454,8 @@
     "words": [
      "leicht"
     ],
-    "grammar": "V.0"
+    "grammar": "V.0",
+    "audio": "t"
    }
   },
   {
@@ -1898,7 +1901,8 @@
      "freuen",
      "hungrig"
     ],
-    "grammar": "V.2"
+    "grammar": "V.2",
+    "audio": "t"
    }
   },
   {
@@ -2335,7 +2339,8 @@
      "Rolle",
      "tief"
     ],
-    "grammar": "V.0"
+    "grammar": "V.0",
+    "audio": "t"
    }
   },
   {
@@ -2789,7 +2794,8 @@
      "herrschen",
      "überall"
     ],
-    "grammar": "V.1"
+    "grammar": "V.1",
+    "audio": "t"
    }
   },
   {
@@ -3258,7 +3264,8 @@
     "words": [
      "überraschen"
     ],
-    "grammar": "V.2"
+    "grammar": "V.2",
+    "audio": "t"
    }
   }
  ]

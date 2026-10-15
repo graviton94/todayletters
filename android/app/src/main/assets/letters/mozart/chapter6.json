@@ -626,7 +626,8 @@
     "words": [
      "schwarz"
     ],
-    "grammar": "VI.2"
+    "grammar": "VI.2",
+    "audio": "t"
    }
   },
   {
@@ -1126,7 +1127,8 @@
     "words": [
      "Versprechen"
     ],
-    "grammar": "VI.2"
+    "grammar": "VI.2",
+    "audio": "t"
    }
   },
   {
@@ -1630,7 +1632,8 @@
     "words": [
      "Fuge"
     ],
-    "grammar": "VI.1"
+    "grammar": "VI.1",
+    "audio": "t"
    }
   },
   {
@@ -2140,7 +2143,8 @@
      "Theater",
      "Wut"
     ],
-    "grammar": "VI.0"
+    "grammar": "VI.0",
+    "audio": "t"
    }
   },
   {
@@ -2664,7 +2668,8 @@
      "Hitze",
      "Beifall"
     ],
-    "grammar": "VI.0"
+    "grammar": "VI.0",
+    "audio": "t"
    }
   },
   {
@@ -3183,7 +3188,8 @@
     "words": [
      "reisen"
     ],
-    "grammar": "VI.1"
+    "grammar": "VI.1",
+    "audio": "t"
    }
   },
   {
@@ -3667,7 +3673,8 @@
     "words": [
      "Segen"
     ],
-    "grammar": "VI.2"
+    "grammar": "VI.2",
+    "audio": "t"
    }
   }
  ]

@@ -576,7 +576,8 @@
      "rideau",
      "suffire"
     ],
-    "grammar": "VI.0"
+    "grammar": "VI.0",
+    "audio": "t"
    }
   },
   {
@@ -1048,7 +1049,8 @@
      "brosse",
      "ordinaire"
     ],
-    "grammar": "VI.1"
+    "grammar": "VI.1",
+    "audio": "t"
    }
   },
   {
@@ -1541,7 +1543,8 @@
      "orage",
      "tabac"
     ],
-    "grammar": "VI.2"
+    "grammar": "VI.2",
+    "audio": "t"
    }
   },
   {
@@ -1995,7 +1998,8 @@
     "words": [
      "paysage"
     ],
-    "grammar": "VI.1"
+    "grammar": "VI.1",
+    "audio": "t"
    }
   },
   {
@@ -2488,7 +2492,8 @@
      "chaleur",
      "cyprès"
     ],
-    "grammar": "VI.0"
+    "grammar": "VI.0",
+    "audio": "t"
    }
   },
   {
@@ -2965,7 +2970,8 @@
     "words": [
      "moissonneur"
     ],
-    "grammar": "VI.2"
+    "grammar": "VI.2",
+    "audio": "t"
    }
   },
   {
@@ -3449,7 +3455,8 @@
     "words": [
      "croquis"
     ],
-    "grammar": "VI.0"
+    "grammar": "VI.0",
+    "audio": "t"
    }
   }
  ]
