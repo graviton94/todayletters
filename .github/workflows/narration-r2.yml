@@ -100,7 +100,8 @@ jobs:
         run: |
           git add -A android/app/src/main/assets remote
           git diff --cached --quiet && { echo "nothing new"; exit 0; }
-          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Narration: today's talk lines, card words and phrases (new files only)"
+          git config user.name bot && git config user.email bot@users.noreply.github.com
+          git commit -qm "Narration: today's talk lines, card words and phrases (new files only)"
           git pull -q --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
       - name: Upload to R2 (audio/ · plates/ · sketches/ · gallery/)
