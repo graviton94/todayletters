@@ -395,6 +395,8 @@ fun GradeUpOverlay(s: AppState) {
             if (up.to.band != up.from.band) io.github.graviton94.todayletters.core.Reading.foldAt(up.to.band)?.let { at ->
                 Text(if (at >= 100) stringResource(R.string.gradeup_fold_all) else stringResource(R.string.gradeup_fold, at), style = Type.body.ui(), color = t.accent, textAlign = TextAlign.Center)
             }
+            // 도움 사다리가 한 칸 줄었으면 한 줄 (설정의 ‘도움 한 단계 더’ 로 되돌릴 수 있다)
+            if (io.github.graviton94.todayletters.core.Support.lessened(up.from, up.to)) Text(stringResource(R.string.support_less), style = Type.body.ui(), color = t.ink, textAlign = TextAlign.Center)
             Spacer(Modifier.height(Tokens.Space.s3))
             Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).background(gold).pressable { s.gradeUp = null }, contentAlignment = Alignment.Center) {
                 Text(stringResource(R.string.reward_ok), style = Type.body.ui(), color = Color(0xFF15110C))

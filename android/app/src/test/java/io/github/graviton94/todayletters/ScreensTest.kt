@@ -1272,6 +1272,9 @@ class ScreensTest {
             rule.onAllNodes(hasText(ctx.getString(R.string.play_show)) and hasClickAction()).onFirst().performClick()
             rule.mainClock.advanceTimeBy(300)
             rule.onAllNodes(hasText(ctx.getString(R.string.ladder_next_turn)) and hasClickAction()).onFirst().performClick()
+            // 턴을 보내면 ‘소리 내어 말해 보기’ 한 번: 건너뛰고 턴 2 로
+            rule.mainClock.advanceTimeBy(300)
+            rule.onAllNodes(hasText(ctx.getString(R.string.reply_speak_skip)) and hasClickAction()).onFirst().performClick()
         }, series = s) { Play(s, replyRoute) }
     }
     /** 한국어를 배울 때 (A2 빈칸 하나): 해요체로 채운 뒤 펼쳐진 말투 노트 (반말 · 높임 · 실제 사이). */
@@ -1362,6 +1365,8 @@ class ScreensTest {
             rule.onAllNodes(hasText(ctx.getString(R.string.play_show)) and hasClickAction()).onFirst().performClick()
             rule.mainClock.advanceTimeBy(300)
             rule.onAllNodes(hasText(ctx.getString(R.string.ladder_next_turn)) and hasClickAction()).onFirst().performClick()
+            rule.mainClock.advanceTimeBy(300)
+            rule.onAllNodes(hasText(ctx.getString(R.string.reply_speak_skip)) and hasClickAction()).onFirst().performClick()
         }, series = s) { Play(s, realRoute("vincent", 3, 1)) }
     }
     /** 모차르트 VI장 첫 편지 · 턴 1 / 3 · B1 (독일어). */
@@ -1389,5 +1394,141 @@ class ScreensTest {
     @Test fun grammarReal06() {
         val s = learning(state(true), "vincent", io.github.graviton94.todayletters.core.Lang.FR, 11)
         shot("grammarReal06_vincent_epilogue_turn1_b2_fr_light", false, series = s) { Play(s, realRoute("vincent", Route.Letter.EPILOGUE, 1)) }
+    }
+
+    // ── 학습 깊이 (depth.html 2): 이해 확인 · 오늘의 회화 · 답장 말해 보기 · 발음 줄. 실제 데이터가 아직 없어 빈센트 I장 첫 편지에 시험용 문제 · 대화를 끼운다 ──
+    private object D {
+        fun tri(fr: String, en: String, ko: String) = io.github.graviton94.todayletters.core.Tri(mapOf(
+            io.github.graviton94.todayletters.core.Lang.FR to fr, io.github.graviton94.todayletters.core.Lang.EN to en,
+            io.github.graviton94.todayletters.core.Lang.KO to io.github.graviton94.todayletters.core.Breaks.keepAll(ko)))
+        fun ui(ko: String, en: String) = io.github.graviton94.todayletters.core.Tri(mapOf(
+            io.github.graviton94.todayletters.core.Lang.KO to io.github.graviton94.todayletters.core.Breaks.keepAll(ko), io.github.graviton94.todayletters.core.Lang.EN to en))
+        private val FR = io.github.graviton94.todayletters.core.Lang.FR
+        private val EN = io.github.graviton94.todayletters.core.Lang.EN
+        private val KO = io.github.graviton94.todayletters.core.Lang.KO
+        val check = io.github.graviton94.todayletters.core.Check(
+            tri("À quoi Vincent a-t-il le plus pensé pendant le voyage ?", "What did Vincent think about most on the way?", "빈센트는 오는 길에 무엇을 가장 많이 생각했나요?"),
+            listOf(tri("Au nouveau pays", "The new country", "새로 볼 고장"), tri("À Théo", "Theo", "테오"),
+                tri("À la neige", "The snow", "쌓인 눈"), tri("Aux vignes", "The vineyards", "포도밭")),
+            answer = 1, evidence = listOf(0), mark = tri("pensé à toi", "thought about you", "너를 많이 생각했어"))
+        val talk = io.github.graviton94.todayletters.core.Talk(
+            ui("아를에 막 도착한 빈센트와 통화 · 나는 테오", "A call with Vincent, just arrived in Arles · you are Theo"),
+            listOf(
+                io.github.graviton94.todayletters.core.TalkLine(false, tri("Allô, Théo ! Il neige partout ici !", "Hello, Theo! It's snowing everywhere here!", "여보세요, 테오! 여기는 온통 눈이에요!")),
+                io.github.graviton94.todayletters.core.TalkLine(true, tri("Vraiment ? Le voyage était long ?", "Really? Was the journey long?", "정말요? 오는 길은 길었어요?"),
+                    focus = mapOf(FR to listOf("était"), EN to listOf("Was"), KO to listOf("길었어요")),
+                    wrong = mapOf(FR to listOf(listOf("est", "sera")), EN to listOf(listOf("Is", "Were")), KO to listOf(listOf("길어요", "길겠어요")))),
+                io.github.graviton94.todayletters.core.TalkLine(false, tri("Oui, mais j'ai pensé à toi.", "Yes, but I thought of you.", "네, 그래도 네 생각을 했어요.")),
+                io.github.graviton94.todayletters.core.TalkLine(true, tri("Il fait froid ? Tu as besoin de quelque chose ?", "Is it cold? Do you need anything?", "추워요? 필요한 거 있어요?"),
+                    focus = mapOf(FR to listOf("as"), EN to listOf("need"), KO to listOf("있어요")),
+                    wrong = mapOf(FR to listOf(listOf("es", "a")), EN to listOf(listOf("needs", "needing")), KO to listOf(listOf("있어", "있습니다")))),
+            ),
+            grammar = "I.0",
+            wordsBy = mapOf(FR to listOf("voyage", "penser"), EN to listOf("journey", "think"), KO to listOf("여행", "생각하다")),
+        )
+        fun patch(w: io.github.graviton94.todayletters.data.Work): io.github.graviton94.todayletters.data.Work = w.copy(
+            chapters = w.chapters.mapIndexed { i, c -> if (i > 0) c else c.copy(letters = c.letters.mapIndexed { j, l -> if (j == 0) l.copy(checks = listOf(check), talk = talk) else l }) },
+            decks = w.decks.mapValues { patch(it.value) },
+        )
+    }
+
+    /** 빈센트 I장 첫 편지에 시험용 이해 확인 · 회화를 끼운 채로 [block] 을 찍고 되돌린다. */
+    private fun withDepth(block: () -> Unit) {
+        val original = io.github.graviton94.todayletters.data.Library.works(ctx)
+        io.github.graviton94.todayletters.data.Library.swapForTest(ctx) { ws -> ws.map { if (it.series.id == "vincent") D.patch(it) else it } }
+        try { block() } finally { io.github.graviton94.todayletters.data.Library.swapForTest(ctx) { original } }
+    }
+    private val checkRoute get() = Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.CHECK)
+    private val talkRoute get() = Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.TALK)
+
+    /** 이해 확인 (프랑스어 · 한국어로 읽기 · A1): 안내 · 지문 (전문 · 듣기 · A1 은 번역 보기 링크) · 질문 · 보기 A–D. 근거 표시 없음. */
+    @Test fun depthCheckQuestion() = withDepth {
+        val s = graded(state(true), 1)
+        shot("depth01_check_question_fr_a1_light", false, series = s) { Play(s, checkRoute) }
+    }
+    /** 맞힌 뒤: 지문 속 그 대목 (pensé à toi) 옅은 금빛 + 번역 줄, 마침 단추 (어두운 화면). */
+    @Test fun depthCheckAnswered() = withDepth {
+        val s = graded(state(true), 1)
+        shot("depth02_check_answered_fr_a1_dark", true, act = {
+            rule.onAllNodes(hasText(io.github.graviton94.todayletters.core.Breaks.plain(D.check.options[1][io.github.graviton94.todayletters.core.Lang.KO])) and hasClickAction()).onFirst().performClick()
+        }, series = s) { Play(s, checkRoute) }
+    }
+    /** 한국어를 배울 때 (영어로 읽기 · A1): 지문은 한국어 전문, 질문 · 보기는 영어. */
+    @Test fun depthCheckKorean() = withDepth {
+        val s = learning(state(true), "vincent", io.github.graviton94.todayletters.core.Lang.KO, 2)
+        shot("depth03_check_ko_learner_a1_light", false, series = s) { Play(s, checkRoute) }
+    }
+    /** 영어를 배울 때 (한국어로 읽기 · B1): 지문 영어 전문, 질문은 배우는 말 (영어) · 보기는 읽는 말 (한국어). 맞힌 뒤. */
+    @Test fun depthCheckEnglishB1() = withDepth {
+        val s = learning(state(true), "vincent", io.github.graviton94.todayletters.core.Lang.EN, 8)
+        shot("depth04_check_en_learner_b1_answered_light", false, act = {
+            rule.onAllNodes(hasText(io.github.graviton94.todayletters.core.Breaks.plain(D.check.options[1][io.github.graviton94.todayletters.core.Lang.KO])) and hasClickAction()).onFirst().performClick()
+        }, series = s) { Play(s, checkRoute) }
+    }
+    /** 오늘의 회화 (프랑스어 · A1): 자리 · 오늘 낱말 · 앱이 쓴 대화 · 빈센트 줄 · 내 차례 (원문 + 번역 → 따라 말하기). */
+    @Test fun depthTalkShadow() = withDepth {
+        val s = graded(state(true), 1)
+        shot("depth05_talk_fr_a1_shadow_light", false, ms = 4000, series = s) { Play(s, talkRoute) }
+    }
+    /** 오늘의 회화 · 한국어를 배울 때 (영어로 읽기 · A2): 내 줄에 빈칸 하나 (해요체 덩어리) + 칩. */
+    @Test fun depthTalkKoreanBlank() = withDepth {
+        val s = learning(state(true), "vincent", io.github.graviton94.todayletters.core.Lang.KO, 5)
+        shot("depth06_talk_ko_learner_a2_blank_dark", true, ms = 4000, series = s) { Play(s, talkRoute) }
+    }
+    /** 오늘의 회화 · 영어를 배울 때 (B1): 번역 + 첫 낱말 + 낱말 칩 · 힌트. */
+    @Test fun depthTalkEnglishChips() = withDepth {
+        val s = learning(state(true), "vincent", io.github.graviton94.todayletters.core.Lang.EN, 8)
+        shot("depth07_talk_en_learner_b1_chips_light", false, ms = 4000, series = s) { Play(s, talkRoute) }
+    }
+    /** 오늘의 회화 · B2 (프랑스어): 번역만, 힌트 두 단. */
+    @Test fun depthTalkMeaning() = withDepth {
+        val s = graded(state(true), 11)
+        shot("depth08_talk_fr_b2_meaning_dark", true, ms = 4000, series = s) { Play(s, talkRoute) }
+    }
+    /** 이해 확인 · 회화가 있는 편지의 걸음: 읽기 → 이해 확인 → 낱말 → (따라 읽기) → 회화 → 답장. */
+    @Test fun depthStepsInLetter() = withDepth {
+        val s = state(true)
+        val r = Route.Letter("vincent", 1, 1)
+        val (c, l) = s.letterOf(r)
+        val modes = s.letterModes("vincent", c, l)
+        org.junit.Assert.assertEquals(ReplyMode.CHECK, modes.first())
+        org.junit.Assert.assertTrue(ReplyMode.TALK in modes)
+        org.junit.Assert.assertTrue(modes.indexOf(ReplyMode.TALK) < modes.indexOf(ReplyMode.CONSTELLATION))
+    }
+    /** 답장 턴을 보낸 뒤 ‘소리 내어 말해 보기’ (A2: 문장 보며). */
+    @Test fun depthReplySpeak() = withGrammar {
+        val s = graded(state(true), 5)
+        shot("depth09_reply_speak_a2_light", false, act = {
+            rule.onAllNodes(hasText(ctx.getString(R.string.play_show)) and hasClickAction()).onFirst().performClick()
+            rule.mainClock.advanceTimeBy(300)
+            rule.onAllNodes(hasText(ctx.getString(R.string.ladder_next_turn)) and hasClickAction()).onFirst().performClick()
+        }, series = s) { Play(s, replyRoute) }
+    }
+    /** 답장 말해 보기 · B2: 문장 없이 (힌트), 어두운 화면. */
+    @Test fun depthReplySpeakHidden() = withGrammar {
+        val s = graded(state(true), 11)
+        shot("depth10_reply_speak_b2_dark", true, act = {
+            rule.onAllNodes(hasText(ctx.getString(R.string.play_show)) and hasClickAction()).onFirst().performClick()
+            rule.mainClock.advanceTimeBy(300)
+            rule.onAllNodes(hasText(ctx.getString(R.string.ladder_next_turn)) and hasClickAction()).onFirst().performClick()
+        }, series = s) { Play(s, replyRoute) }
+    }
+    /** 낱말 이름표의 발음 줄: 영어 (IPA · 강세) · 한국어 ([소리] · 로마자 + 소리 규칙 한 줄). */
+    @Test fun depthPronCards() {
+        val en = io.github.graviton94.todayletters.core.Word(D.tri("voyage", "journey", "여행"), ipaEn = "ˈdʒɜːr.ni")
+        val ko1 = io.github.graviton94.todayletters.core.Word(D.tri("lire", "read", "읽어요"), romKo = "ilgeoyo", sayKo = "일거요",
+            pronNote = D.ui("받침이 넘어가요 (연음)", "The final consonant moves over (linking)"))
+        val ko2 = io.github.graviton94.todayletters.core.Word(D.tri("ensemble", "together", "같이"), romKo = "gachi", sayKo = "가치",
+            pronNote = D.ui("같이는 [가치]로 소리 나요 (구개음화)", "같이 sounds [가치] (palatalization)"))
+        val E = io.github.graviton94.todayletters.core.Lang.EN; val K = io.github.graviton94.todayletters.core.Lang.KO
+        shot("depth11_pron_cards_light", false) {
+            androidx.compose.foundation.layout.Column(Modifier.padding(16.dp), verticalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(12.dp)) {
+                io.github.graviton94.todayletters.ui.WordLabel("journey", io.github.graviton94.todayletters.core.Pron.line(en, E, false), E, "") {}
+                io.github.graviton94.todayletters.ui.WordLabel("읽어요", io.github.graviton94.todayletters.core.Pron.line(ko1, K, false), K, "",
+                    note = io.github.graviton94.todayletters.core.Pron.note(ko1, K, K)) {}
+                io.github.graviton94.todayletters.ui.WordLabel("같이", io.github.graviton94.todayletters.core.Pron.line(ko2, K, false), K, "",
+                    note = io.github.graviton94.todayletters.core.Pron.note(ko2, K, K)) {}
+            }
+        }
     }
 }

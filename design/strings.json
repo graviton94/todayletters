@@ -3147,5 +3147,125 @@
   "dl_cell": {
     "en": "mobile data",
     "ko": "모바일 데이터"
+  },
+  "mode_check": {
+    "en": "Comprehension",
+    "ko": "이해 확인"
+  },
+  "mode_talk": {
+    "en": "Today's talk",
+    "ko": "오늘의 회화"
+  },
+  "step_check": {
+    "en": "Check",
+    "ko": "이해"
+  },
+  "step_talk": {
+    "en": "Talk",
+    "ko": "회화"
+  },
+  "step_check_d": {
+    "en": "1–2 questions on the letter",
+    "ko": "편지를 읽고 1–2문제"
+  },
+  "step_talk_d": {
+    "en": "A short chat · say your lines aloud",
+    "ko": "짧은 대화 · 내 줄은 소리 내어"
+  },
+  "check_title": {
+    "en": "Did you follow the letter?",
+    "ko": "편지를 이해했나요?"
+  },
+  "check_instruction": {
+    "en": "Read the passage and choose the answer.",
+    "ko": "다음 문장을 읽고, 정답을 찾아보세요."
+  },
+  "check_listen": {
+    "en": "Listen to the passage",
+    "ko": "지문 듣기"
+  },
+  "check_next": {
+    "en": "Next question",
+    "ko": "다음 문제"
+  },
+  "check_wrong": {
+    "en": "Not that one. Read the passage again.",
+    "ko": "그건 아니에요. 지문을 다시 읽어 봐요."
+  },
+  "talk_title": {
+    "en": "Talk with %1$s",
+    "ko": "%1$s와 이야기하기"
+  },
+  "talk_written": {
+    "en": "Written by this app · not the real person's words",
+    "ko": "이 앱이 쓴 대화예요 · 실제 인물의 말이 아니에요"
+  },
+  "talk_words": {
+    "en": "Today's words",
+    "ko": "오늘 낱말"
+  },
+  "talk_me": {
+    "en": "Me",
+    "ko": "나"
+  },
+  "talk_repeat": {
+    "en": "Your turn · listen and repeat",
+    "ko": "내 차례 · 듣고 따라 말해요"
+  },
+  "talk_fill": {
+    "en": "Your turn · fill the blank, then say it",
+    "ko": "내 차례 · 빈칸을 채우고 말해요"
+  },
+  "talk_turn": {
+    "en": "Your turn · say it from the meaning",
+    "ko": "내 차례 · 뜻을 보고 말해요"
+  },
+  "talk_hint": {
+    "en": "Hint",
+    "ko": "힌트"
+  },
+  "talk_done": {
+    "en": "You finished the talk.",
+    "ko": "대화를 마쳤어요."
+  },
+  "speak_mic": {
+    "en": "Speak",
+    "ko": "말하기"
+  },
+  "speak_line_ok": {
+    "en": "Heard you clearly",
+    "ko": "잘 들렸어요"
+  },
+  "speak_line_retry": {
+    "en": "Try again",
+    "ko": "다시 말하기"
+  },
+  "speak_line_next": {
+    "en": "Continue",
+    "ko": "다음으로"
+  },
+  "reply_speak_title": {
+    "en": "Say it aloud",
+    "ko": "소리 내어 말해 보기"
+  },
+  "reply_speak_d": {
+    "en": "Say the reply you just wrote, out loud.",
+    "ko": "방금 쓴 답장을 소리 내어 말해 봐요."
+  },
+  "reply_speak_skip": {
+    "en": "Skip",
+    "ko": "건너뛰기"
+  },
+  "support_less": {
+    "en": "A little less help from now on.",
+    "ko": "도움이 조금 줄었어요."
+  },
+  "set_easier": {
+    "en": "One step more help",
+    "ko": "도움 한 단계 더"
+  },
+  "set_easier_d": {
+    "en": "Keep your grade, but get the help of one grade below (hints, translations, blanks).",
+    "ko": "언어 등급은 그대로 두고, 한 등급 아래의 도움(힌트 · 번역 · 빈칸)을 받아요."
   }
 }

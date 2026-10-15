@@ -67,13 +67,14 @@ class Store(ctx: Context) {
             autoFold = p.getBoolean("s:$id:fold", true),
             modes = modes(p.getString("s:$id:modes", null) ?: "MATCH,CONSTELLATION,ALOUD"),
             arrivalNotice = p.getBoolean("s:$id:notice", true),
+            easier = p.getBoolean("s:$id:easier", false),
         )
     }
 
     fun save(id: String, s: SeriesSettings) = p.edit()
         .putString("s:$id:learn", s.learn.name).putBoolean("s:$id:show", s.showRead).putBoolean("s:$id:fold", s.autoFold)
         .putString("s:$id:modes", s.modes.joinToString(",") { it.name })
-        .putBoolean("s:$id:notice", s.arrivalNotice).apply()
+        .putBoolean("s:$id:notice", s.arrivalNotice).putBoolean("s:$id:easier", s.easier).apply()
 
     /** 걸음 이름 목록 → 걸음들. 예전 판의 이름(DICTATION 등 지금은 없는 걸음)은 건너뛴다. */
     private fun modes(raw: String): Set<ReplyMode> =

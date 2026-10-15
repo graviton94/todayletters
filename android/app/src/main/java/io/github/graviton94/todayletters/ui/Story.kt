@@ -113,7 +113,7 @@ fun Done(s: AppState, room: Route.Letter) {
                 // 오늘 한 일 (작은 칩)
                 androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     // 실제로 한 걸음만 체크, 건너뛴 걸음은 ‘나중에’ (복습 탭 · 편지 목록에서 다시 하기)
-                    (listOf(null to R.string.step_read_short) + modes.map { it to when (it) { io.github.graviton94.todayletters.core.ReplyMode.MATCH -> R.string.step_match; io.github.graviton94.todayletters.core.ReplyMode.ALOUD -> R.string.step_aloud; else -> R.string.step_reply } }).forEachIndexed { k, (m, label) ->
+                    (listOf(null to R.string.step_read_short) + modes.map { it to when (it) { io.github.graviton94.todayletters.core.ReplyMode.MATCH -> R.string.step_match; io.github.graviton94.todayletters.core.ReplyMode.ALOUD -> R.string.step_aloud; io.github.graviton94.todayletters.core.ReplyMode.CHECK -> R.string.step_check; io.github.graviton94.todayletters.core.ReplyMode.TALK -> R.string.step_talk; else -> R.string.step_reply } }).forEachIndexed { k, (m, label) ->
                         val skipped = m != null && m in pr.skipped && m !in pr.replied
                         Row(Modifier.graphicsLayer { alpha = win(0.45f + k * 0.07f, 0.55f + k * 0.07f) }.background(p.leaf).border(Tokens.Stroke.hair, p.hair).padding(horizontal = 10.dp, vertical = 6.dp),
                             verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(5.dp)) {

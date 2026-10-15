@@ -9,7 +9,8 @@ data class Message(val text: Tri)
 /**
  * 낱말. [icon] 이 있으면 ‘편지 속 물건’으로 수집 앨범에 들어간다.
  * [modern] 은 오늘의 철자 (de_modern · fr_modern): 편지는 판의 철자(daß)를 그대로 보여 주고, 쓰기 채점은 이 철자(dass)로 한다.
- * [ipaEn] · [romKo] 는 영어 발음 · 한국어 로마자 (카드에 보이는 것은 다음 단계).
+ * [ipaEn] · [romKo] 는 영어 발음 · 한국어 로마자, [sayKo] 는 한국어 소리 나는 대로 (읽어요 → 일거요), [pronNote] 는 한국어 소리 규칙 한 줄 (연음 · 구개음화 …).
+ * 카드에 보이는 발음 줄은 [Pron] 이 배우는 말에 따라 고른다.
  */
 data class Word(val text: Tri, val pos: String = "", val ipa: String = "", val icon: String = "",
                 val modern: String = "", val ipaEn: String = "", val romKo: String = "",
@@ -20,7 +21,9 @@ data class Word(val text: Tri, val pos: String = "", val ipa: String = "", val i
                 /** 표현 카드면 쓰임 설명 (ko · en). */
                 val note: Tri? = null,
                 /** 표현 카드면 그 표현이 나온 메시지 번호 (0부터, 모르면 -1). */
-                val msg: Int = -1) {
+                val msg: Int = -1,
+                val sayKo: String = "",
+                val pronNote: Tri? = null) {
     /** 표현 카드 (여러 낱말의 관용 표현). */
     val phrase get() = note != null
     /** 쓰기 · 말하기 채점에 쓰는 원어 철자: 오늘의 철자가 있으면 그것, 없으면 편지의 철자. */
@@ -99,6 +102,33 @@ data class ReplyTurn(
 }
 
 /**
+ * 편지 이해 확인 한 문제 (편지의 "check", 읽기 시험 꼴): 지문 = 근거 메시지 [evidence] (1~2개 이어진 번호, 0부터) 의 배우는 말 전문,
+ * 질문 [q] · 보기 넷 [options] (세 언어) · 정답 번호 [answer] (0부터). [mark] 는 맞힌 뒤 금빛으로 칠할 지문 속 대목 (언어마다, 없으면 지문 전체를 옅게).
+ */
+data class Check(val q: Tri, val options: List<Tri>, val answer: Int, val evidence: List<Int> = emptyList(), val mark: Tri? = null)
+
+/**
+ * 오늘의 회화 한 줄: [me] 면 내 차례 (받는 사람: 테오 · 난네를 · 레오폴트), 아니면 보낸 사람 (빈센트 · 모차르트).
+ * [focus] · [wrong] 은 답장 턴과 같은 꼴 (언어마다 빈칸 덩어리 · 덩어리마다 틀린 보기 둘): A2 의 빈칸 칩에 쓴다.
+ */
+data class TalkLine(val me: Boolean, val text: Tri, val focus: Map<Lang, List<String>> = emptyMap(), val wrong: Map<Lang, List<List<String>>> = emptyMap())
+
+/**
+ * 오늘의 회화 (편지의 "talk"): 편지 속 상황을 두고 오늘 말투로 3~4줄 (앱이 쓴 대화, 실제 인물의 말이 아님).
+ * [scene] 은 자리 한 줄 (ko · en), [words] 는 쓰는 오늘 낱말, [grammar] 는 쓰는 문법 id (장의 [Grammar]),
+ * [audio] 는 대화 소리 파일 이름 앞부분 (줄 i 의 소리 = <audio><i+1>_<언어>.m4a, 편지 폴더). 비면 소리 없음.
+ */
+data class Talk(val scene: Tri, val lines: List<TalkLine>, val words: List<String> = emptyList(), val grammar: String = "", val audio: String = "",
+                /** 쓰는 오늘 낱말을 배우는 말마다 적은 것 ("words": {"fr": [...], "en": [...], "ko": [...]} 꼴일 때). */
+                val wordsBy: Map<Lang, List<String>> = emptyMap()) {
+    /** 배우는 말 [learn] 의 오늘 낱말: 언어마다 적었으면 그것, 아니면 원어 [original] 를 배울 때만 [words]. */
+    fun wordsFor(learn: Lang, original: Lang): List<String> = wordsBy[learn] ?: if (learn == original) words else emptyList()
+
+    /** 줄 [i] (0부터) 의 소리 파일 이름 (확장자 없이). 소리가 없으면 null. */
+    fun audioName(i: Int, lang: Lang): String? = if (audio.isEmpty()) null else "$audio${i + 1}_${lang.code}"
+}
+
+/**
  * 편지 한 통 = 대화방 한 번.
  * [replies] 는 답장 턴들 (받는 사람이 쓰는 말, 차례로). 없으면 편지의 짧은 문장 하나로 대신한다 ([Exercises.turns]).
  */
@@ -121,6 +151,10 @@ data class Letter(
     val phrases: List<Word> = emptyList(),
     /** 챕터 파일의 낱말 그대로 (낭독 w<i> 가 붙은 것). [words] 가 daily.json 의 낱말로 바뀌어도 소리를 찾을 때 쓴다. */
     val source: List<Word> = emptyList(),
+    /** 편지 이해 확인 (1~2 문제, 없으면 그 걸음을 건너뛴다). */
+    val checks: List<Check> = emptyList(),
+    /** 오늘의 회화 (없으면 그 걸음을 건너뛴다). */
+    val talk: Talk? = null,
 ) {
     /** 녹음이 있는 ‘편지 속 그 곡’. */
     val music: Moment.Music? get() = moments.firstOrNull { it is Moment.Music && it.playable } as Moment.Music?
@@ -250,14 +284,27 @@ data class LetterProgress(val shown: Int = 0, val replied: Set<ReplyMode> = empt
 
 object Plays {
     /**
-     * 편지 한 통의 하루 순서: 읽기 다음에 낱말 맞추기 → 따라 읽기(연습) → 답장 쓰기(별자리 잇기) → 그림.
+     * 편지 한 통의 하루 순서: 읽기 다음에 이해 확인 → 낱말 맞추기 → 따라 읽기(연습) → 오늘의 회화 → 답장 쓰기(별자리 잇기 · 사다리) → 그림.
      * 작품 설정에서 끈 것은 건너뛴다. 듣고 쓰기는 단어장 복습에서.
      */
-    val inLetter = listOf(ReplyMode.MATCH, ReplyMode.ALOUD, ReplyMode.CONSTELLATION)
+    val inLetter = listOf(ReplyMode.CHECK, ReplyMode.MATCH, ReplyMode.ALOUD, ReplyMode.TALK, ReplyMode.CONSTELLATION)
 
-    /** 이 편지에서 할 걸음: 작품 설정에서 켠 것 가운데, 낭독이 없는 편지([narrated] = false)는 따라 읽기를 뺀다 (따라 할 소리가 없다). */
-    fun forLetter(modes: Set<ReplyMode>, narrated: Boolean): List<ReplyMode> =
-        inLetter.filter { it in modes && (narrated || it != ReplyMode.ALOUD) }
+    /**
+     * 이 편지에서 할 걸음: 작품 설정에서 켠 것 가운데, 낭독이 없는 편지([narrated] = false)는 따라 읽기를 뺀다 (따라 할 소리가 없다).
+     * 이해 확인 · 오늘의 회화는 설정에 없고, 편지에 그 데이터가 있을 때만 ([checks] · [talk]).
+     */
+    fun forLetter(modes: Set<ReplyMode>, narrated: Boolean, checks: Boolean = false, talk: Boolean = false): List<ReplyMode> =
+        inLetter.filter {
+            when (it) {
+                ReplyMode.CHECK -> checks
+                ReplyMode.TALK -> talk
+                else -> it in modes && (narrated || it != ReplyMode.ALOUD)
+            }
+        }
+
+    /** 편지 [l] 의 걸음 ([forLetter], 데이터로 이해 확인 · 회화 여부). */
+    fun forLetter(modes: Set<ReplyMode>, narrated: Boolean, l: Letter): List<ReplyMode> =
+        forLetter(modes, narrated, checks = l.checks.isNotEmpty(), talk = l.talk?.lines?.isNotEmpty() == true)
 }
 
 /**

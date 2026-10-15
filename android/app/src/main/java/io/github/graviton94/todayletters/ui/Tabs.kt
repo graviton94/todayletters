@@ -1,5 +1,7 @@
 package io.github.graviton94.todayletters.ui
 
+import io.github.graviton94.todayletters.data.learnVocab
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -72,7 +74,7 @@ fun WordListScreen(s: AppState) {
             w.chapters.flatMap { c ->
                 c.letters.filter { s.progress(id, c.id, it.id).shown > 0 }.flatMap { l ->
                     l.words.mapIndexed { i, word ->
-                        Entry(word.text[room.learn], word.text[room.read], if (room.learn == w.series.original) word.ipa else "", l.date,
+                        Entry(word.text[room.learn], word.text[room.read], io.github.graviton94.todayletters.core.Pron.line(word, room.learn, room.learn == w.learnVocab), l.date,
                             s.wordAudio(id, c.id, l, word, room.learn), room.learn, room.read, s.cardKey(id, c.id, l.id, i))
                     }
                 }
@@ -82,7 +84,7 @@ fun WordListScreen(s: AppState) {
             s.cards().filter { c -> io.github.graviton94.todayletters.core.CardRef.parse(c.key)?.let { it.own.isNotEmpty() || it.phrase >= 0 } == true }.mapNotNull { c ->
                 s.cardWord(c.key)?.let { cw ->
                     val room = s.room(cw.work.series.id)
-                    Entry(cw.word.text[room.learn], cw.word.text[room.read], if (room.learn == cw.work.series.original) cw.word.ipa else "", cw.at.second.date,
+                    Entry(cw.word.text[room.learn], cw.word.text[room.read], io.github.graviton94.todayletters.core.Pron.line(cw.word, room.learn, room.learn == cw.work.learnVocab), cw.at.second.date,
                         s.wordAudio(cw, room.learn), room.learn, room.read, c.key)
                 }
             }
@@ -120,7 +122,7 @@ fun WordListScreen(s: AppState) {
                     verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
                 ) {
                     Text(e.learn, style = Type.body.of(e.lang), color = p.ink, maxLines = 1)
-                    if (e.ipa.isNotEmpty()) Text("[${e.ipa}]", style = Type.small, color = p.hideInk, maxLines = 1)
+                    if (e.ipa.isNotEmpty()) Text(e.ipa, style = Type.small, color = p.hideInk, maxLines = 1)
                     Spacer(Modifier.weight(1f))
                     Text(e.read, style = Type.small.of(e.readLang), color = p.inkSoft, maxLines = 1)
                 }
@@ -334,6 +336,11 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
                 Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.autoFold) { s.update(id, cur.copy(autoFold = it)) }
                 Text(stringResource(R.string.set_fade_read_d), style = Type.small.ui(), color = p.inkSoft)
             }
+
+            // 도움 한 단계 더 (도움 사다리, core 의 Support): 등급은 그대로, 한 등급 아래의 힌트 · 번역 · 빈칸
+            Caps(stringResource(R.string.set_easier), p.giltText, small = true)
+            Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.easier) { s.update(id, cur.copy(easier = it)) }
+            Text(stringResource(R.string.set_easier_d), style = Type.small.ui(), color = p.inkSoft)
 
             // 알림(도착 · 저녁)은 앱 설정으로 옮김 (v21 4단계 U3)
             Text(stringResource(R.string.set_notice_moved), style = Type.small.ui(), color = p.inkSoft)

@@ -252,8 +252,9 @@ object Library {
     /** 오늘의 철자: 원어 코드에 _modern 을 붙인 칸 (de_modern · fr_modern). */
     private fun modern(o: JSONObject): String = Lang.entries.firstNotNullOfOrNull { l -> o.str(l.code + "_modern").takeIf { it.isNotEmpty() } }.orEmpty()
 
-    /** 낱말 한 줄: 세 언어 · 품사 · 발음 · 물건 그림 · 오늘의 철자 · 영어 발음 · 한국어 로마자. */
-    internal fun word(o: JSONObject): Word = Word(tri(o), o.str("pos"), o.str("ipa"), o.str("icon"), modern(o), o.str("ipa_en"), o.str("rom_ko"))
+    /** 낱말 한 줄: 세 언어 · 품사 · 발음 · 물건 그림 · 오늘의 철자 · 영어 발음 · 한국어 로마자 · 한국어 소리 나는 대로 (say_ko) · 소리 규칙 한 줄 (pronNote {ko, en}). */
+    internal fun word(o: JSONObject): Word = Word(tri(o), o.str("pos"), o.str("ipa"), o.str("icon"), modern(o), o.str("ipa_en"), o.str("rom_ko"),
+        sayKo = o.str("say_ko"), pronNote = o.optJSONObject("pronNote")?.let { tri(it) }?.takeIf { it.lines.isNotEmpty() })
 
     /** 순간 하나. 모르는 꼴이거나 칸이 모자라면 null (편지 한 통의 순간 하나 때문에 작품 전체를 못 읽는 일이 없게). */
     internal fun moment(m: JSONObject): Moment? = runCatching {
@@ -304,20 +305,66 @@ object Library {
             return (0 until a.length()).mapNotNull { i ->
                 val o = a.optJSONObject(i) ?: return@mapNotNull null
                 val text = tri(o).takeIf { it.lines.isNotEmpty() } ?: return@mapNotNull null
-                val focus = o.optJSONObject("focus")?.let { f ->
-                    Lang.entries.mapNotNull { lang -> f.optJSONArray(lang.code)?.let { arr -> lang to (0 until arr.length()).map { arr.optString(it) }.filter { it.isNotBlank() } } }.toMap()
-                } ?: emptyMap()
-                // 덩어리마다 틀린 보기 2개 (focus 와 같은 차례): {"fr": [["lis", "lirai"], ...]}
-                val wrong = o.optJSONObject("wrong")?.let { w ->
-                    Lang.entries.mapNotNull { lang -> w.optJSONArray(lang.code)?.let { arr ->
-                        lang to (0 until arr.length()).map { i -> arr.optJSONArray(i)?.let { p -> (0 until p.length()).map { p.optString(it) }.filter { it.isNotBlank() } }.orEmpty() }
-                    } }.toMap()
-                } ?: emptyMap()
+                val focus = focus(o)
+                val wrong = wrong(o)
                 io.github.graviton94.todayletters.core.ReplyTurn(o.optInt("quote", -1), o.str("grammar"), text,
                     Breaks.keepAll(o.str("koLow")), Breaks.keepAll(o.str("koHigh")), focus, wrong)
             }
         }
         return l.optJSONObject("reply")?.let { r -> tri(r).takeIf { it.lines.isNotEmpty() }?.let { listOf(io.github.graviton94.todayletters.core.ReplyTurn(r.optInt("quote", -1), "", it)) } } ?: emptyList()
+    }
+
+    /** 빈칸 덩어리 (언어마다): {"fr": ["ai lu", ...]}. 답장 턴 · 회화 줄이 같이 쓴다. */
+    private fun focus(o: JSONObject): Map<Lang, List<String>> = o.optJSONObject("focus")?.let { f ->
+        Lang.entries.mapNotNull { lang -> f.optJSONArray(lang.code)?.let { arr -> lang to (0 until arr.length()).map { arr.optString(it) }.filter { it.isNotBlank() } } }.toMap()
+    } ?: emptyMap()
+
+    /** 덩어리마다 틀린 보기 2개 (focus 와 같은 차례): {"fr": [["lis", "lirai"], ...]}. */
+    private fun wrong(o: JSONObject): Map<Lang, List<List<String>>> = o.optJSONObject("wrong")?.let { w ->
+        Lang.entries.mapNotNull { lang -> w.optJSONArray(lang.code)?.let { arr ->
+            lang to (0 until arr.length()).map { i -> arr.optJSONArray(i)?.let { p -> (0 until p.length()).map { p.optString(it) }.filter { it.isNotBlank() } }.orEmpty() }
+        } }.toMap()
+    } ?: emptyMap()
+
+    /**
+     * 이해 확인 ("check": [{q: {fr|de, en, ko}, options: [{…} × 4], answer: 0–3, evidence: 3 | [3, 4], mark?: {fr|de, en, ko}}]).
+     * 질문 · 보기가 비었거나 정답 번호가 보기 밖이면 그 문제는 건너뛴다. 근거 번호는 편지 메시지 안의 것만.
+     */
+    internal fun checks(l: JSONObject, messages: Int): List<io.github.graviton94.todayletters.core.Check> {
+        val a = l.optJSONArray("check") ?: return emptyList()
+        return (0 until a.length()).mapNotNull { i ->
+            val o = a.optJSONObject(i) ?: return@mapNotNull null
+            val q = o.optJSONObject("q")?.let { tri(it) }?.takeIf { it.lines.isNotEmpty() } ?: return@mapNotNull null
+            val opts = o.optJSONArray("options")?.let { op -> (0 until op.length()).mapNotNull { k -> op.optJSONObject(k)?.let { tri(it) }?.takeIf { it.lines.isNotEmpty() } } }.orEmpty()
+            val answer = o.optInt("answer", -1)
+            if (opts.size < 2 || answer !in opts.indices) return@mapNotNull null
+            val ev = when (val e = o.opt("evidence")) {
+                is JSONArray -> (0 until e.length()).map { e.optInt(it, -1) }
+                is Number -> listOf(e.toInt())
+                else -> emptyList()
+            }.filter { it in 0 until messages }.distinct().sorted()
+            io.github.graviton94.todayletters.core.Check(q, opts, answer, ev, o.optJSONObject("mark")?.let { tri(it) }?.takeIf { it.lines.isNotEmpty() })
+        }
+    }
+
+    /**
+     * 오늘의 회화 ("talk": {scene: {ko, en}, lines: [{who: "them"|"me", fr|de, en, ko, focus?, wrong?}], words: [원어 표제어…] 또는 {fr|de: […], en: […], ko: […]}, grammar: "I.0", audio?: "t"}).
+     * 줄이 없으면 null (걸음을 건너뛴다).
+     */
+    internal fun talk(l: JSONObject): io.github.graviton94.todayletters.core.Talk? {
+        val t = l.optJSONObject("talk") ?: return null
+        val lines = t.optJSONArray("lines")?.let { a -> (0 until a.length()).mapNotNull { i ->
+            val o = a.optJSONObject(i) ?: return@mapNotNull null
+            val text = tri(o).takeIf { it.lines.isNotEmpty() } ?: return@mapNotNull null
+            io.github.graviton94.todayletters.core.TalkLine(o.optString("who") == "me", text, focus(o), wrong(o))
+        } }.orEmpty()
+        if (lines.isEmpty()) return null
+        return io.github.graviton94.todayletters.core.Talk(
+            t.optJSONObject("scene")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")), lines,
+            t.optJSONArray("words")?.let { w -> (0 until w.length()).map { w.optString(it) }.filter { it.isNotBlank() } }.orEmpty(),
+            t.str("grammar"), t.str("audio"),
+            wordsBy = t.optJSONObject("words")?.let { o -> Lang.entries.mapNotNull { lang -> o.optJSONArray(lang.code)?.let { a -> lang to (0 until a.length()).map { a.optString(it) }.filter { it.isNotBlank() } } }.toMap() }.orEmpty(),
+        )
     }
 
     internal fun parseLetters(data: JSONObject): List<Letter> {
@@ -348,6 +395,8 @@ object Library {
                 replies = replies(l), moments = moments,
                 status = l.optJSONObject("status")?.let { tri(it) },
                 to = l.optJSONObject("to")?.let { tri(it) },
+                checks = checks(l, msgs.size),
+                talk = talk(l),
             )
         }
     }
@@ -364,6 +413,10 @@ object Library {
         val iLemma = at("lemma"); val iId = at("id"); val iForms = at("forms"); val iPos = at("pos"); val iGender = at("gender")
         val iKo = at("ko"); val iEn = at("en"); val iIpa = at("ipa"); val iLevel = at("level"); val iFirst = at("first")
         val iLetters = at("letters"); val iEx = at("example"); val iFn = at("function")
+        // 발음 칸 (있으면): 영어 IPA (영어 사전은 ipa 칸 그대로) · 한국어 소리 나는 대로 "pron" ("[가치]") · 로마자 "rom" · 소리 규칙 "pron_note" {ko, en}
+        // (같은 뜻의 다른 이름 ipa_en · say_ko · rom_ko · pronNote 도 읽는다)
+        fun first(vararg names: String) = names.map(::at).firstOrNull { it >= 0 } ?: -1
+        val iIpaEn = at("ipa_en"); val iRom = first("rom", "rom_ko"); val iSay = first("pron", "say_ko"); val iNote = first("pron_note", "pronNote")
         val rows = o.getJSONArray("entries")
         val entries = (0 until rows.length()).mapNotNull { r ->
             val a = rows.optJSONArray(r) ?: return@mapNotNull null
@@ -379,6 +432,8 @@ object Library {
                 letters = s(iLetters).split(" ").filter { it.isNotEmpty() },
                 example = ex,
                 function = iFn >= 0 && iFn < a.length() && !a.isNull(iFn) && a.optInt(iFn, 0) == 1,
+                ipaEn = s(iIpaEn), romKo = s(iRom), sayKo = s(iSay).trim().removePrefix("[").removeSuffix("]").trim(),
+                pronNote = if (iNote >= 0 && iNote < a.length()) a.optJSONObject(iNote)?.let { tri(it) }?.takeIf { it.lines.isNotEmpty() } else null,
             )
         }
         return Lexicon(lang, entries)

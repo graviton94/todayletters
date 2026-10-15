@@ -20,7 +20,7 @@ object Journey {
      */
     fun letterDots(shown: Int, total: Int, modes: List<ReplyMode>, p: LetterProgress): List<Step> {
         val read = p.done || shown >= total
-        val next = if (!read) null else modes.firstOrNull { it !in p.replied && it !in p.skipped }
+        val next = if (!read || p.done) null else modes.firstOrNull { it !in p.replied && it !in p.skipped }
         return buildList {
             add(if (read) Step.DONE else Step.NOW)
             modes.forEach { m ->

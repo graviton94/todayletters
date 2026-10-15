@@ -756,8 +756,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 이 편지 낭독이 이 기기에 있나 (첫 문장, 지금 배우는 말). */
     fun narrated(id: String, chapter: String, l: Letter) = l.messages.isNotEmpty() && narrator.has(narrator.path(id, chapter, l.id, "m1_${seriesSettings(id).learn.code}"))
 
-    /** 이 편지에서 하는 걸음: 작품 설정에서 켠 것, 낭독이 없는 편지는 따라 읽기 없이 (F11). */
-    fun letterModes(id: String, chapter: String, l: Letter): List<ReplyMode> = Plays.forLetter(seriesSettings(id).modes, narrated(id, chapter, l))
+    /** 이 편지에서 하는 걸음: 작품 설정에서 켠 것, 낭독이 없는 편지는 따라 읽기 없이 (F11). 이해 확인 · 오늘의 회화는 편지에 데이터가 있을 때만. */
+    fun letterModes(id: String, chapter: String, l: Letter): List<ReplyMode> = Plays.forLetter(seriesSettings(id).modes, narrated(id, chapter, l), l)
 
     fun replied(r: Route.Letter, mode: ReplyMode) {
         val (ch, l) = letterOf(r)
@@ -1194,9 +1194,38 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         io.github.graviton94.todayletters.core.Lang.EN to ctx.getString(io.github.graviton94.todayletters.R.string.style_card_note_en),
     ))
 
-    /** 이 작품의 답장 도움 (지금 배우는 말의 언어 등급만큼). */
+    /** 이 작품의 답장 도움 (지금 배우는 말의 언어 등급만큼, [support]). */
     fun replyHelp(series: String): io.github.graviton94.todayletters.core.Ladder.Help =
-        io.github.graviton94.todayletters.core.Ladder.help(grade(room(series).learn))
+        io.github.graviton94.todayletters.core.Support.reply(support(series))
+
+    /**
+     * 도움 사다리의 등급 (core 의 Support): 이 작품에서 배우는 말의 언어 등급, 작품 설정의 ‘도움 한 단계 더’ 면 한 등급 아래.
+     * 이해 확인 · 회화 · 답장 · 답장 말해 보기 · 복습 문장 힌트가 모두 이것을 따른다 (번역 줄 물러나기는 등급 그대로).
+     */
+    fun support(series: String): io.github.graviton94.todayletters.core.Reading.Grade =
+        io.github.graviton94.todayletters.core.Support.grade(grade(room(series).learn), seriesSettings(series).easier)
+
+    /**
+     * 낱말마다 익숙한 정도: 이 작품에서 지금 배우는 말의 낱말 꼴 → 그 낱말 카드의 복습 칸 (없으면 0).
+     * 기능어 · 이름 · 숫자는 늘 아는 것으로 (가장 높은 칸): 빈칸 · 남겨 보일 낱말을 고를 때 ([io.github.graviton94.todayletters.core.Support]).
+     */
+    fun familiarity(series: String): (String) -> Int {
+        val boxes = HashMap<String, Int>()
+        cards().forEach { c ->
+            val ref = CardRef.parse(c.key) ?: return@forEach
+            if (ref.series != series) return@forEach
+            val lex = if (ref.own.isNotEmpty()) ref.own else cardWord(c.key)?.word?.takeIf { !it.phrase }?.lex.orEmpty()
+            if (lex.isNotEmpty()) boxes[lex] = maxOf(boxes[lex] ?: 0, c.box)
+        }
+        return { form ->
+            val e = lexOf(series, io.github.graviton94.todayletters.core.Ladder.core(form))
+            when {
+                e == null -> 0
+                io.github.graviton94.todayletters.core.Reading.free(e) -> io.github.graviton94.todayletters.core.Memory.TOP
+                else -> boxes[e.key] ?: 0
+            }
+        }
+    }
 
     private val formIndex = HashMap<io.github.graviton94.todayletters.core.Lexicon, Map<String, io.github.graviton94.todayletters.core.LexEntry>>()
     /** 사전에서 이 꼴의 표제어 (꼴 · 표제어, 대소문자 무시). */

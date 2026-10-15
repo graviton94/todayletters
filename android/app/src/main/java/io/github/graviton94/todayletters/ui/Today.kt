@@ -174,6 +174,8 @@ private fun TodayLetter(s: AppState, id: String, work: io.github.graviton94.toda
         io.github.graviton94.todayletters.core.ReplyMode.MATCH -> R.string.step_match
         io.github.graviton94.todayletters.core.ReplyMode.ALOUD -> R.string.step_aloud
         io.github.graviton94.todayletters.core.ReplyMode.CONSTELLATION -> R.string.step_reply
+        io.github.graviton94.todayletters.core.ReplyMode.CHECK -> R.string.step_check
+        io.github.graviton94.todayletters.core.ReplyMode.TALK -> R.string.step_talk
     }) } + stringResource(R.string.step_plate)
     Row(Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s1)) {
         dots.forEachIndexed { k, st ->

@@ -21,7 +21,8 @@ enum class UiLang(val code: String) {
 enum class TypingPace { CALM, QUICK, INSTANT }
 
 /** 편지 안 걸음(학습) 방식: 낱말 맞추기 · 답장 쓰기(별자리 잇기) · 따라 읽기. 듣고 쓰기는 복습에서 (편지 걸음이 아니다). */
-enum class ReplyMode { MATCH, CONSTELLATION, ALOUD }
+/** 편지 걸음. 저장은 이름으로 (차례는 [Plays.inLetter]). CHECK = 이해 확인, TALK = 오늘의 회화 (편지에 데이터가 있을 때만). */
+enum class ReplyMode { MATCH, CONSTELLATION, ALOUD, CHECK, TALK }
 
 /** 작품(시리즈). 원어는 작품마다 다르다: 고흐 아를 시기는 프랑스어, 모차르트는 독일어. */
 data class Series(val id: String, val original: Lang)
@@ -56,6 +57,8 @@ data class SeriesSettings(
     val autoFold: Boolean = true,
     val modes: Set<ReplyMode> = setOf(ReplyMode.MATCH, ReplyMode.CONSTELLATION, ReplyMode.ALOUD),
     val arrivalNotice: Boolean = true,
+    /** 도움 한 단계 더: 언어 등급보다 한 등급 아래의 도움을 받는다 ([Support.grade]). 등급 자체는 그대로. */
+    val easier: Boolean = false,
 )
 
 object Langs {

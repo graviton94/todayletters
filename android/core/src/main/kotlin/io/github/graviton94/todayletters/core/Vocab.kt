@@ -11,6 +11,8 @@ data class LexEntry(
     val lemma: String, val id: String? = null, val forms: List<String> = emptyList(), val pos: String = "", val gender: String = "",
     val ko: String = "", val en: String = "", val ipa: String = "", val level: String = "",
     val first: String = "", val letters: List<String> = emptyList(), val example: Example? = null, val function: Boolean = false,
+    /** 발음 칸 (카드의 발음 줄, [Pron]): 영어 IPA (강세 포함) · 한국어 로마자 · 한국어 소리 나는 대로 · 한국어 소리 규칙 한 줄. 없으면 빈 것. */
+    val ipaEn: String = "", val romKo: String = "", val sayKo: String = "", val pronNote: Tri? = null,
 ) {
     val key: String get() = id ?: lemma
 }
@@ -76,7 +78,13 @@ object Vocab {
     fun word(e: LexEntry, lang: Lang, audio: String = ""): Word = Word(
         Tri(glosses(e.en, Breaks.keepAll(e.ko), lang, display(e, lang))),
         pos = posLabel(e), ipa = e.ipa, audio = audio, lex = e.key, level = e.level, forms = e.forms,
+        ipaEn = ipaEn(e, lang), romKo = e.romKo, sayKo = sayKo(e, lang), pronNote = e.pronNote,
     )
+
+    /** 영어 발음: 사전의 ipa_en, 영어 사전이면 그 ipa. */
+    private fun ipaEn(e: LexEntry, lang: Lang) = e.ipaEn.ifEmpty { if (lang == Lang.EN) e.ipa else "" }
+    /** 한국어 소리 나는 대로: 사전의 say_ko, 한국어 사전이면 그 ipa 칸 (한글로 적은 표준 발음). */
+    private fun sayKo(e: LexEntry, lang: Lang) = e.sayKo.ifEmpty { if (lang == Lang.KO) e.ipa else "" }
 
     /** 뜻 줄 (en · ko) 위에 배우는 말 [lang] 의 글자를 얹는다: 영어 · 한국어 사전이면 그 언어 줄은 표제어가 된다. */
     private fun glosses(en: String, ko: String, lang: Lang, own: String): Map<Lang, String> =
@@ -108,7 +116,9 @@ object Vocab {
         match(e, source, original, series)?.let {
             // 영어 · 한국어를 배울 때: 챕터 낱말의 발음기호는 원어 것이라 사전 것으로 (영어는 챕터의 영어 발음기호가 다음)
             val ipa = if (original == series) it.ipa.ifEmpty { e.ipa } else e.ipa.ifEmpty { if (original == Lang.EN) it.ipaEn else "" }
-            it.copy(lex = e.key, level = e.level, forms = e.forms, ipa = ipa)
+            it.copy(lex = e.key, level = e.level, forms = e.forms, ipa = ipa,
+                ipaEn = ipaEn(e, original).ifEmpty { it.ipaEn }, romKo = e.romKo.ifEmpty { it.romKo },
+                sayKo = sayKo(e, original).ifEmpty { it.sayKo }, pronNote = e.pronNote ?: it.pronNote)
         } ?: word(e, original)
 
     /**

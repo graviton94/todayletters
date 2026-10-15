@@ -68,6 +68,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Exercises
+import io.github.graviton94.todayletters.data.learnVocab
 import io.github.graviton94.todayletters.core.ReplyMode
 import io.github.graviton94.todayletters.core.Route
 import io.github.graviton94.todayletters.design.Ink
@@ -82,20 +83,31 @@ fun Play(s: AppState, r: Route.Play) {
     when (r.mode) {
         ReplyMode.MATCH -> Match(s, r, onClose = { asking = true })
         ReplyMode.ALOUD -> Aloud(s, r, onClose = { asking = true })
+        // 편지 이해 확인 · 오늘의 회화 (ui/Depth.kt): 편지에 데이터가 있을 때만 걸음에 든다 (Plays.forLetter)
+        ReplyMode.CHECK -> CheckStep(s, r, onClose = { asking = true })
+        ReplyMode.TALK -> TalkStep(s, r, onClose = { asking = true })
         // 답장: 언어 등급이 A1 · 1단이거나 저자 답장이 없으면 별자리 잇기, 그 위로는 답장 사다리 (빈칸 · 직접 쓰기).
-        // 턴이 여럿이면 차례로 (턴마다 복습 카드), 마지막 턴을 보내면 답장 걸음 끝
+        // 턴이 여럿이면 차례로 (턴마다 복습 카드). 턴을 보낸 뒤에는 ‘소리 내어 말해 보기’ 한 번 (건너뛰기 있음), 마지막 턴 뒤면 답장 걸음 끝
         else -> {
             val help = s.replyHelp(r.room.series)
             val letter = s.letterOf(r.room).second
             val turns = Exercises.turns(letter, s.room(r.room.series).learn).size.coerceAtLeast(1)
             var turn by androidx.compose.runtime.saveable.rememberSaveable(r) { mutableIntStateOf(0) }
+            var speaking by androidx.compose.runtime.saveable.rememberSaveable(r) { mutableStateOf(false) }
             val t = turn.coerceIn(0, turns - 1)
-            val next: () -> Unit = {
-                s.replyTurnDone(r.room, t)
+            val advance: () -> Unit = {
+                speaking = false
                 if (t < turns - 1) turn = t + 1 else s.replyAndContinue(r.room, ReplyMode.CONSTELLATION)
             }
-            if (help == io.github.graviton94.todayletters.core.Ladder.Help.LINK || letter.replies.isEmpty()) Constellation(s, r, t, turns, next, onClose = { asking = true })
-            else ReplyLadder(s, r, help, t, turns, next, onClose = { asking = true })
+            val next: () -> Unit = {
+                s.replyTurnDone(r.room, t)
+                speaking = true
+            }
+            when {
+                speaking -> ReplySpeak(s, r, t, turns, onNext = advance)
+                help == io.github.graviton94.todayletters.core.Ladder.Help.LINK || letter.replies.isEmpty() -> Constellation(s, r, t, turns, next, onClose = { asking = true })
+                else -> ReplyLadder(s, r, help, t, turns, next, onClose = { asking = true })
+            }
         }
     }
     if (asking) Ask(
@@ -313,7 +325,9 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
             GuideLine(s, "match")
             if (done) Text(stringResource(R.string.match_done), style = Type.heading.ui(), color = p.correct, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
             else {
-                WordLabel(pairs[k].first, letter.words.getOrNull(k)?.ipa.orEmpty(), view.learn, "") { say(k) }
+                val w = letter.words.getOrNull(k)
+                WordLabel(pairs[k].first, w?.let { io.github.graviton94.todayletters.core.Pron.line(it, view.learn, view.learn == s.work(r.room.series).learnVocab) }.orEmpty(), view.learn, "",
+                    note = w?.let { io.github.graviton94.todayletters.core.Pron.note(it, view.learn, uiLang()) }.orEmpty()) { say(k) }
                 line?.let { (t, range, read) ->
                     Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
                         Text(stringResource(R.string.match_in_letter), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.giltText)

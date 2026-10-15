@@ -81,7 +81,12 @@ fun ReplyLadder(s: AppState, r: Route.Play, help: Ladder.Help, turn: Int, turns:
     // 비교 · 빈칸은 이음표 없는 글자로 (낱말 묶음마다 따로 그리니 한국어도 어절 가운데서 줄이 바뀌지 않는다)
     val sentence = remember(line) { Breaks.plain(line).trim() }
     val focus = remember(t, view.learn) { t?.focus?.get(view.learn).orEmpty().map { Breaks.plain(it) } }
-    val score = remember(letter.id, view.learn) { s.replyScore(id, letter) }
+    // 낱말 점수 + 익숙한 정도 (도움 사다리: 잘 아는 낱말부터 빈칸, core 의 Support.blankScore)
+    val score = remember(letter.id, view.learn) {
+        val base = s.replyScore(id, letter); val known = s.familiarity(id)
+        val f: (String) -> Int = { c -> io.github.graviton94.todayletters.core.Support.blankScore(base(c), known(c)) }
+        f
+    }
     val holes = remember(letter.id, view.learn, help, turn) { Ladder.holes(sentence, focus, Ladder.blanks(help), score) }
     val answers = holes.map { sentence.substring(it) }
     val units = remember(sentence, holes) { Ladder.layout(sentence, holes) }

@@ -102,11 +102,13 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
                     }
                     Text(if (word.phrase) io.github.graviton94.todayletters.core.Quote.wrap(learn, view.learn) else learn, style = Type.display.copy(fontFamily = Faces.display).of(view.learn), color = p.ink)
                     word.note?.let { Text(it[uiLang()], style = Type.small.ui(), color = p.inkSoft) }
-                    if (audio.isNotEmpty() || word.ipa.isNotEmpty()) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                    val pron = io.github.graviton94.todayletters.core.Pron.line(word, view.learn, view.learn == w.learnVocab)
+                    if (audio.isNotEmpty() || pron.isNotEmpty()) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                         if (audio.isNotEmpty()) Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { say() }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
                         if (audio.isNotEmpty()) Box(Modifier.heightIn(min = 48.dp).semantics { contentDescription = slowA11y }.pressable { say(0.7f) }, contentAlignment = Alignment.Center) { Capsule("0.7×") }
-                        if (word.ipa.isNotEmpty() && view.learn == w.learnVocab) Text("[${word.ipa}]" + if (word.pos.isNotEmpty()) " · ${word.pos}" else "", style = Type.small, color = p.inkSoft)
+                        if (pron.isNotEmpty()) Text(pron + if (word.pos.isNotEmpty()) " · ${word.pos}" else "", style = Type.small, color = p.inkSoft)
                     }
+                    io.github.graviton94.todayletters.core.Pron.note(word, view.learn, uiLang()).takeIf { it.isNotEmpty() }?.let { Text(it, style = Type.small.ui(), color = p.giltText) }
                     Text(word.text[view.read], style = Type.title.of(view.read), color = p.ink)
                 }
                 // 내 기억

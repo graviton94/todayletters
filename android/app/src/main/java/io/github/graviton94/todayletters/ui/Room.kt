@@ -1,5 +1,7 @@
 package io.github.graviton94.todayletters.ui
 
+import io.github.graviton94.todayletters.data.learnVocab
+
 import io.github.graviton94.todayletters.data.Playback
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
@@ -501,6 +503,8 @@ fun modeLabel(m: ReplyMode) = when (m) {
     ReplyMode.MATCH -> R.string.mode_match
     ReplyMode.CONSTELLATION -> R.string.mode_constellation
     ReplyMode.ALOUD -> R.string.mode_aloud
+    ReplyMode.CHECK -> R.string.mode_check
+    ReplyMode.TALK -> R.string.mode_talk
 }
 
 /** 쓰는 중…: 펜이 끄적이는 작은 거품 (움직임 줄이기면 멈춰 있음). */
@@ -665,6 +669,8 @@ private fun steps(read: Int, total: Int, modes: List<ReplyMode>, progress: io.gi
                 ReplyMode.MATCH -> stringResource(R.string.step_match_d, words)
                 // 편지 안 따라 읽기는 한 문장 (F14)
                 ReplyMode.ALOUD -> stringResource(R.string.step_aloud_one)
+                ReplyMode.CHECK -> stringResource(R.string.step_check_d)
+                ReplyMode.TALK -> stringResource(R.string.step_talk_d)
                 else -> stringResource(R.string.step_reply_d, recipient)
             }, state(k + 1)))
         }
@@ -926,7 +932,10 @@ fun WordSheet(s: AppState, r: Route.Letter, onClose: () -> Unit) {
                 ) {
                     Column(Modifier.weight(1f)) {
                         Text(w.text[view.learn], style = Type.heading.of(view.learn), color = p.ink)
-                        if (w.ipa.isNotEmpty() && view.learn == s.work(r.series).series.original) Text("[${w.ipa}] · ${w.pos}", style = Type.small, color = p.inkSoft)
+                        io.github.graviton94.todayletters.core.Pron.line(w, view.learn, view.learn == s.work(r.series).learnVocab).takeIf { it.isNotEmpty() }?.let { pr ->
+                        Text(listOf(pr, w.pos).filter { it.isNotEmpty() }.joinToString(" · "), style = Type.small, color = p.inkSoft)
+                        io.github.graviton94.todayletters.core.Pron.note(w, view.learn, uiLang()).takeIf { it.isNotEmpty() }?.let { Text(it, style = Type.small.ui(), color = p.giltText) }
+                    }
                     }
                     Text(w.text[view.read], style = Type.body.of(view.read), color = p.inkSoft)
                 }
@@ -966,7 +975,10 @@ fun WordCard(s: AppState, r: Route.Letter, index: Int, onClose: () -> Unit) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     Text(w.text[view.learn], style = Type.display.of(view.learn), color = p.ink)
-                    if (w.ipa.isNotEmpty() && view.learn == s.work(r.series).series.original) Text("[${w.ipa}] · ${w.pos}", style = Type.small, color = p.inkSoft)
+                    io.github.graviton94.todayletters.core.Pron.line(w, view.learn, view.learn == s.work(r.series).learnVocab).takeIf { it.isNotEmpty() }?.let { pr ->
+                        Text(listOf(pr, w.pos).filter { it.isNotEmpty() }.joinToString(" · "), style = Type.small, color = p.inkSoft)
+                        io.github.graviton94.todayletters.core.Pron.note(w, view.learn, uiLang()).takeIf { it.isNotEmpty() }?.let { Text(it, style = Type.small.ui(), color = p.giltText) }
+                    }
                 }
                 SpeakerButton(false, stringResource(R.string.listen_line), onDark = true) { s.narrator.play(audio) }
             }

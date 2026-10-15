@@ -232,6 +232,7 @@ private fun ModeRow(title: String, desc: String, badge: String?, enabled: Boolea
 }
 
 /** 문제 하나. */
+/** [ipa] 는 카드의 발음 줄 그대로 (괄호까지, [io.github.graviton94.todayletters.core.Pron.line]), [pronNote] 는 한국어 소리 규칙 한 줄. */
 private data class Q(val card: Card, val kind: ReviewKind, val word: String, val meaning: String, val ipa: String, val audio: String,
                      val sentence: String?, val sentenceRead: String?, val sentenceAudio: String?, val options: List<String>, val learn: Lang, val read: Lang,
                      /** 소리로 읽히는 전체 (“study (sketch)”). 그 안의 [typeFrom] 부터 [word] 길이만 쓰고 나머지는 미리 보여 준다. */
@@ -247,7 +248,8 @@ private data class Q(val card: Card, val kind: ReviewKind, val word: String, val
                      /** 문장이 나온 자리 (눌러서 뜻 보기): 작품 · 장 · 편지 · 메시지 번호. */
                      val series: String = "", val chapter: String = "", val letter: io.github.graviton94.todayletters.core.Letter? = null, val msg: Int = -1,
                      /** 말투 바꿔 보기 ([CardRef.style]): 0 아님, 1 반말로, 2 높임으로. [word] 는 해요체 문장, [meaning] 은 정답 말투 문장. */
-                     val style: Int = 0)
+                     val style: Int = 0,
+                     val pronNote: String = "")
 
 /** 복습 문장 (빈칸 · 문장 힌트): 낱말을 누르면 뜻. 문장이 나온 자리를 모르면 그냥 글자. */
 @Composable
@@ -409,7 +411,7 @@ fun Session(s: AppState, r: Route.Session) {
                         }
                         Column(Modifier.weight(1f)) {
                             Text(stringResource(R.string.kind_dictation), style = Type.small.ui(), color = p.giltText)
-                            Text(listOfNotNull(q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, stringResource(R.string.dict_letters, Breaks.plain(q.word).count { it != ' ' })).joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
+                            Text(listOfNotNull(q.ipa.takeIf { it.isNotEmpty() }, stringResource(R.string.dict_letters, Breaks.plain(q.word).count { it != ' ' })).joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
                         }
                     }
                     if (!compact) Text(stringResource(R.string.dict_prompt), style = Type.heading.ui(), color = p.ink)
@@ -464,9 +466,14 @@ fun Session(s: AppState, r: Route.Session) {
                         keyboardActions = KeyboardActions(onDone = { if (mark == null && !retry && typed.text.isNotBlank()) check() }),
                         modifier = Modifier.size(1.dp).focusRequester(focus),
                     )
-                    if (!compact) Text(listOfNotNull(q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, stringResource(R.string.dict_letters, answer.count { it != ' ' })).joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
-                    if (compact && !hint && mark == null) Unit
-                    else if (hint || mark != null) SentenceHint(s, q) else Text(stringResource(R.string.dict_hint), style = Type.small.ui(), color = p.giltText, modifier = Modifier.pressable { hint = true }.padding(Tokens.Space.s2))
+                    if (!compact) Text(listOfNotNull(q.ipa.takeIf { it.isNotEmpty() }, stringResource(R.string.dict_letters, answer.count { it != ' ' })).joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
+                    // 문장 힌트는 도움 사다리대로 (core 의 Support): A1 바로 · A2–B1 누르면 · B2 두 번 틀린 뒤
+                    val hintRule = if (q.series.isEmpty()) io.github.graviton94.todayletters.core.Support.ReviewHint.TAP
+                        else io.github.graviton94.todayletters.core.Support.reviewHint(s.support(q.series).band)
+                    val hintShown = io.github.graviton94.todayletters.core.Support.reviewHintShown(hintRule, hint, tries, mark != null)
+                    if (compact && !hintShown) Unit
+                    else if (hintShown) SentenceHint(s, q)
+                    else if (io.github.graviton94.todayletters.core.Support.reviewHintTappable(hintRule)) Text(stringResource(R.string.dict_hint), style = Type.small.ui(), color = p.giltText, modifier = Modifier.pressable { hint = true }.padding(Tokens.Space.s2))
                 }
                 ReviewKind.BLANK -> {
                     Text(stringResource(R.string.blank_prompt), style = Type.heading.ui(), color = p.ink)
@@ -566,7 +573,7 @@ fun Session(s: AppState, r: Route.Session) {
         }
         val nextLabel = stringResource(if (at == questions.lastIndex) R.string.review_finish else R.string.ob_next)
         // 그 낱말의 뜻 · 발음 (뜻 고르기는 고른 것이 뜻이니 낱말을)
-        val detail = (q.phrase?.let { it.joinToString(" ") + "\n" } ?: "") + listOfNotNull(q.word, q.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, q.meaning).joinToString("  ·  ") +
+        val detail = (q.phrase?.let { it.joinToString(" ") + "\n" } ?: "") + listOfNotNull(q.word, q.ipa.takeIf { it.isNotEmpty() }, q.meaning).joinToString("  ·  ") +
             // 뜻 고르기: 그 낱말이 나온 문장을 자르지 않고 통째로 + 번역 한 줄 + 어느 편지
             (if (q.kind == ReviewKind.MEANING && q.sentence != null) "\n" + quoted(q.sentence, q.learn) +
                 (q.sentenceRead?.takeIf { q.read != q.learn && it.isNotBlank() }?.let { "\n$it" } ?: "") + (if (tag.isNotEmpty()) "\n$tag" else "") else "")
@@ -728,7 +735,7 @@ private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Ma
     val plainWord = io.github.graviton94.todayletters.core.Breaks.plain(q.word)
     if (mark == null && !selfCheck) Text(stringResource(R.string.speak_hint_letters, plainWord.take(1), plainWord.count { it != ' ' }),
         style = Type.small.ui(), color = p.inkSoft)
-    if (q.ipa.isNotEmpty() && (mark != null || selfCheck)) Text("[${q.ipa}]", style = Type.small, color = p.inkSoft)
+    if (q.ipa.isNotEmpty() && (mark != null || selfCheck)) Text(q.ipa, style = Type.small, color = p.inkSoft)
     if (mark == null && !selfCheck) {
         Box(
             Modifier.size(96.dp).background(if (listening) p.wrong else p.fill, CircleShape).semantics { contentDescription = "mic" }
@@ -965,14 +972,15 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
             else all.filter { it.word != word }.map { it.word.text[side] })
             .distinct().filter { it != answerWord && it != word.text[view.read] }.shuffled(java.util.Random(card.key.hashCode().toLong())).take(3)
         val right = if (k == ReviewKind.MEANING) word.text[view.read] else answerWord
-        Q(card, k, answerWord, word.text[view.read], if (view.learn == w.learnVocab) word.ipa else "",
+        Q(card, k, answerWord, word.text[view.read], io.github.graviton94.todayletters.core.Pron.line(word, view.learn, view.learn == w.learnVocab),
             wordSound,
             sentenceLearn, l.messages.getOrNull(hit)?.text?.get(view.read), sentenceAudio,
             (others + right).shuffled(java.util.Random(card.key.hashCode().toLong() + 7)), view.learn, view.read,
             full = if (k == ReviewKind.DICTATION) plainFull else answerWord, typeFrom = if (k == ReviewKind.DICTATION) typeFrom else 0, inText = formInText,
             phrase = phrase?.text?.trim()?.split(Regex("\\s+")), range = phrase?.let { it.start..it.end },
             letterNo = roman(w.chapters.flatMap { it.letters }.indexOf(l) + 1), date = l.date, place = l.place, plate = l.plate?.image.orEmpty(),
-            fromQuote = mine != null, series = w.series.id, chapter = ch, letter = l, msg = hit)
+            fromQuote = mine != null, series = w.series.id, chapter = ch, letter = l, msg = hit,
+            pronNote = io.github.graviton94.todayletters.core.Pron.note(word, view.learn, if (view.read == Lang.KO || view.read == Lang.EN) view.read else Lang.EN))
     }.let { if (practice) it.take(Memory.DAILY) else it }.toList()
         .let { qs -> if (fresh) qs.sortedBy { io.github.graviton94.todayletters.core.Journey.order(it.kind) } else qs }
 }
@@ -1169,11 +1177,14 @@ internal fun letterTag(s: AppState, cardKey: String): String {
 
 /** 뜻 고르기의 낱말: 작품 이름표처럼 (번호 · 어느 편지 · 큰 낱말 · 듣기 · 발음). */
 @Composable
-private fun LabelCard(q: Q, tag: String, onListen: () -> Unit) = WordLabel(q.word, q.ipa, q.learn, tag, onListen)
+private fun LabelCard(q: Q, tag: String, onListen: () -> Unit) = WordLabel(q.word, q.ipa, q.learn, tag, note = q.pronNote, onListen = onListen)
 
-/** 낱말 이름표 (복습 뜻 고르기 · 편지의 낱말 맞추기가 같이 쓴다). */
+/**
+ * 낱말 이름표 (복습 뜻 고르기 · 편지의 낱말 맞추기가 같이 쓴다). [ipa] 는 발음 줄 그대로 ([io.github.graviton94.todayletters.core.Pron.line]:
+ * 프랑스어 · 독일어 [IPA], 영어 [IPA · 강세], 한국어 [소리] · 로마자), [note] 는 한국어 소리 규칙 한 줄 (연음 · 구개음화 …).
+ */
 @Composable
-fun WordLabel(word: String, ipa: String, learn: Lang, tag: String, onListen: () -> Unit) {
+fun WordLabel(word: String, ipa: String, learn: Lang, tag: String, note: String = "", onListen: () -> Unit) {
     val p = Ink.palette
     val listenA11y = stringResource(R.string.a11y_listen_word)
     Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s4),
@@ -1182,8 +1193,9 @@ fun WordLabel(word: String, ipa: String, learn: Lang, tag: String, onListen: () 
         Text(word, style = Type.display.copy(fontFamily = Faces.display).of(learn), color = p.ink)
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { onListen() }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
-            if (ipa.isNotEmpty()) Text("[$ipa]", style = Type.small, color = p.inkSoft)
+            if (ipa.isNotEmpty()) Text(ipa, style = Type.small, color = p.inkSoft)
         }
+        if (note.isNotEmpty()) Text(note, style = Type.small.ui(), color = p.giltText)
     }
 }
 
