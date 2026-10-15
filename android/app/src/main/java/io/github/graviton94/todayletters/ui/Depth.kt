@@ -11,6 +11,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import io.github.graviton94.todayletters.core.TalkTurn
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
@@ -161,13 +166,15 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
 }
 
 /**
- * 오늘의 회화: 편지의 인물과 오늘 말투로 3~4줄 (앱이 쓴 대화). 상대 줄은 이름 · 듣기 · 배우는 말 · 읽는 말,
- * 내 줄은 도움 사다리 ([Support.talk]) 만큼 보여 주고 소리 내어 말한 뒤 ([SpeakLine]) 배우는 말 줄이 말풍선으로 열린다.
+ * 오늘의 회화 (메신저, 시안 talkchat.html): 윗줄은 초상 · 이름 (앱 글자 언어) · 장소 · 날짜 · ‘이 앱이 쓴 대화’ · 건너뛰기.
+ * 가운데는 말풍선 (상대 왼쪽: 배우는 말 + 읽는 말 · 소리가 있으면 듣기, 나 오른쪽, 지금 내 차례는 점선), 새 말풍선으로 저절로 내려간다.
+ * 아래 칸 (높이 고정, 자판 자리) 에 도움 · 녹음을 둔다. 내 차례 한 줄의 상태는 core 의 [TalkTurn] (도움 사다리 [Support.talk] 만큼).
+ * 모든 줄을 마치면 아래 칸이 ‘마치기’ 단추가 된다.
  */
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val p = Ink.palette
+    val ctx = LocalContext.current
     val (chapter, letter) = s.letterOf(r.room)
     val id = r.room.series
     val work = s.work(id)
@@ -176,175 +183,348 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val lines = talk?.lines.orEmpty()
     val help = Support.talk(s.support(id).band)
     val known = remember(id, s.version) { s.familiarity(id) }
-    // 지금까지 열린 줄 수 (상대 줄은 저절로, 내 줄은 말한 뒤)
+    val todays = remember(letter.id, view.learn) { talk?.wordsFor(view.learn, work.series.original).orEmpty().map { Breaks.plain(it) } }
+    // 열린 줄 수 (상대 줄은 저절로, 내 줄은 마친 뒤) · 내 줄마다 맞게 마쳤는가 ("1" · "0")
     var shown by rememberSaveable(letter.id) { mutableIntStateOf(0) }
+    var marks by rememberSaveable(letter.id) { mutableStateOf("") }
+    fun audio(i: Int): String? = talk?.audioName(i, view.learn)?.let { s.narrator.path(id, chapter, letter.id, it) }?.takeIf { s.narrator.has(it) }
     LaunchedEffect(shown, lines.size) {
-        // 상대 줄은 차례로 열린다 (내 줄 앞에서 멈춤)
         if (shown < lines.size && !lines[shown].me) { delay(if (shown == 0) 300 else 900); shown++ }
     }
-    fun audio(i: Int): String? = talk?.audioName(i, view.learn)?.let { s.narrator.path(id, chapter, letter.id, it) }?.takeIf { s.narrator.has(it) }
     LaunchedEffect(shown) { val i = shown - 1; if (i >= 0 && !lines[i].me) audio(i)?.let { s.narrator.play(it) } }
     DisposableEffect(letter.id) { onDispose { s.narrator.stop() } }
     val done = shown >= lines.size && lines.isNotEmpty()
-    val them = work.name[uiLang()]
-    val scroll = rememberScrollState()
-    LaunchedEffect(shown) { scroll.animateScrollTo(scroll.maxValue) }
 
-    Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PracticeHeader(lines.take(shown).count { it.me }, lines.count { it.me }, onClose = onClose)
+    // 지금 내 차례 줄의 상태
+    val cur = shown.takeIf { it < lines.size && lines[it].me }
+    var st by remember(letter.id, cur, help, view.learn) { mutableStateOf(cur?.let { startTurn(lines[it], it, help, view.learn, known) }) }
+    var heard by remember(letter.id, cur) { mutableStateOf<String?>(null) }
+    fun send(e: TalkTurn.Event) { st = st?.let { TalkTurn.reduce(it, e) } }
+    val phase = st?.phase
+    LaunchedEffect(phase, cur) {
+        when (phase) {
+            TalkTurn.Phase.PASSED -> { s.cue(true); delay(900); send(TalkTurn.Event.Continue) }
+            TalkTurn.Phase.SELF -> cur?.let { audio(it) }?.let { s.narrator.play(it) }
+            TalkTurn.Phase.REVEALED -> cur?.let { audio(it) }?.let { s.narrator.play(it) }
+            TalkTurn.Phase.DONE -> { val t = st; if (cur != null && t != null) { marks += if (t.passed) "1" else "0"; shown = cur + 1 } }
+            else -> Unit
+        }
+    }
+
+    // 녹음: 폰의 음성 인식 (그 언어, 가능하면 폰 안에서). 없거나 마이크를 허락하지 않으면 스스로 판정
+    val ear = rememberEar(view.learn)
+    var denied by remember { mutableStateOf(false) }
+    fun selfJudge() { send(TalkTurn.Event.SelfStart) }
+    fun listen() {
+        val t = st ?: return
+        if (!t.canRecord) return
+        ear.start(onResult = { all ->
+            heard = all.firstOrNull()
+            val ok = all.any { SpeechMatch.matches(t.sentence, it) }
+            if (!ok) s.cue(false)
+            send(TalkTurn.Event.Heard(ok))
+        }, onError = { selfJudge() })
+    }
+    val ask = androidx.activity.compose.rememberLauncherForActivityResult(androidx.activity.result.contract.ActivityResultContracts.RequestPermission()) { ok ->
+        if (ok) listen() else { denied = true; selfJudge() }
+    }
+    fun record() {
+        val t = st ?: return
+        if (!t.canRecord) return
+        when {
+            !ear.available || denied -> selfJudge()
+            androidx.core.content.ContextCompat.checkSelfPermission(ctx, android.Manifest.permission.RECORD_AUDIO) == android.content.pm.PackageManager.PERMISSION_GRANTED -> listen()
+            else -> ask.launch(android.Manifest.permission.RECORD_AUDIO)
+        }
+    }
+
+    val scroll = rememberScrollState()
+    LaunchedEffect(shown, phase, st?.placed, st?.filled, st?.hints) { scroll.animateScrollTo(scroll.maxValue) }
+    val name = work.name[uiLang()]
+
+    Column(Modifier.fillMaxSize().background(p.paper)) {
+        // 윗줄: 닫기 · 초상 · 이름 · 장소 · 날짜 · 이 앱이 쓴 대화 · 건너뛰기
+        Row(Modifier.fillMaxWidth().padding(end = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            IconButton(stringResource(R.string.close), onClick = onClose) { Text("×", style = Type.title, color = p.ink) }
+            Portrait(work.portrait, name, 40.dp)
+            Column(Modifier.weight(1f)) {
+                Text(name, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink, maxLines = 1)
+                Text(listOf(letter.place, dateLine(letter.date, letter.place), stringResource(R.string.talk_written_short)).filter { it.isNotBlank() }.distinct().joinToString(" · "),
+                    style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, maxLines = 2)
+            }
+            if (!done) TextLink(stringResource(R.string.reply_speak_skip)) { s.narrator.stop(); s.skipStep(r.room, ReplyMode.TALK) }
+        }
+        Hair()
+        // 말풍선
         Column(
-            Modifier.weight(1f).verticalScroll(scroll).padding(horizontal = Tokens.Space.s4).padding(top = Tokens.Space.s1, bottom = Tokens.Space.s2),
+            Modifier.weight(1f).fillMaxWidth().desk(p.paper, p.lamp, 0.35f).verticalScroll(scroll).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
-            PracticeTitle("TALK", stringResource(R.string.talk_title, them))
-            if (talk == null) return@Column
-            // 자리 · 오늘 낱말 · 앱이 쓴 대화
-            Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
-                talk.scene[shortLang(view.read)].takeIf { it.isNotBlank() }?.let { Text(it, style = Type.small.ui(), color = p.inkSoft) }
-                val words = talk.wordsFor(view.learn, work.series.original)
-                if (words.isNotEmpty()) FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Text(stringResource(R.string.talk_words), style = Type.small.ui(), color = p.giltText)
-                    words.forEach { Capsule(Breaks.plain(it)) }
-                }
-                Text(stringResource(R.string.talk_written), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.hideInk)
+            talk?.scene?.get(shortLang(view.read))?.takeIf { it.isNotBlank() }?.let {
+                Text(it, style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
             }
+            var mine = 0
             lines.take(shown).forEachIndexed { i, line ->
-                if (line.me) MyBubble(line.text[view.learn], line.text[view.read], view.learn, view.read)
-                else TheirBubble(them, line.text[view.learn], line.text[view.read], view.learn, view.read, audio(i)?.let { a -> { s.narrator.play(a); Unit } })
+                if (line.me) {
+                    val ok = marks.getOrNull(mine++) == '1'
+                    MyBubble(Breaks.plain(line.text[view.learn]), line.text[view.read], view.learn, view.read, todays, check = ok)
+                } else TheirBubble(Breaks.plain(line.text[view.learn]), line.text[view.read], view.learn, view.read, todays, audio(i)?.let { a -> { s.narrator.play(a); Unit } })
             }
-            // 내 차례
-            if (shown < lines.size && lines[shown].me) {
-                val i = shown
-                MyTurn(s, id, lines[i], i, help, view.learn, view.read, known, audio(i)) { shown = i + 1 }
-            }
-            if (done) Text(stringResource(R.string.talk_done), style = Type.small.ui(), color = p.correct, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+            st?.let { t -> CurrentBubble(t, cur?.let { lines[it].text[view.read] }.orEmpty(), view.learn, view.read) }
         }
-        Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            Primary(stringResource(R.string.play_finish), enabled = done) { s.narrator.stop(); s.replyAndContinue(r.room, ReplyMode.TALK) }
-            if (!done) SkipLink { s.narrator.stop(); s.skipStep(r.room, ReplyMode.TALK) }
+        // 아래 칸 (높이 고정)
+        Column(
+            Modifier.fillMaxWidth().height(TRAY).background(p.paper).border(Tokens.Stroke.hair, p.hair).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2, Alignment.CenterVertically),
+        ) {
+            val t = st
+            when {
+                done -> Primary(stringResource(R.string.talk_finish)) { s.narrator.stop(); s.replyAndContinue(r.room, ReplyMode.TALK) }
+                t != null -> TalkTray(t, view.learn, ear.available && !denied, ear.listening, heard, cur?.let { audio(it) }?.let { a -> { s.narrator.play(a); Unit } },
+                    onPick = { i ->
+                        val before = st
+                        send(TalkTurn.Event.Pick(i))
+                        val after = st
+                        if (after != null && before != null) {
+                            if (after.rejected == i && after.shake != before.shake) s.cue(false) else if (after.used.size > before.used.size) s.cue(true)
+                        }
+                    },
+                    onHint = { send(TalkTurn.Event.Hint) }, onRecord = { record() },
+                    onSelf = { ok -> if (!ok) s.cue(false); send(TalkTurn.Event.SelfJudge(ok)) }, onContinue = { send(TalkTurn.Event.Continue) })
+                else -> Unit
+            }
         }
     }
 }
 
-/** 상대 말풍선 (왼쪽): 이름 · 듣기 (소리가 있을 때) · 배우는 말 · 읽는 말. */
+/** 아래 칸 높이 (자판 자리처럼 고정: 대화가 길어져도 화면이 흔들리지 않게). */
+private val TRAY = 216.dp
+
+/** 내 차례 줄 하나를 시작: BLANK 이면 빈칸 (그 줄의 덩어리, 잘 아는 것 먼저) 과 보기 칩 (정답 · 적힌 틀린 보기) 을 고른다. */
+private fun startTurn(line: TalkLine, index: Int, help: Support.Talk, learn: Lang, known: (String) -> Int): TalkTurn.State {
+    val sentence = Breaks.plain(line.text[learn]).trim()
+    val seed = sentence.hashCode() + index
+    if (help != Support.Talk.BLANK) return TalkTurn.start(help, sentence, seed = seed)
+    val focusAll = line.focus[learn].orEmpty().map { Breaks.plain(it) }
+    val focus = Ladder.focusIn(sentence, focusAll)
+    val chunk = Support.pickBlank(focus, known)
+    val hole = chunk?.let { Ladder.find(sentence, it) }
+        ?: Ladder.holes(sentence, emptyList(), 1) { w -> Support.blankScore(if (w.length >= 2) 1 + w.length / 4 else 0, known(w)) }.firstOrNull()
+        ?: return TalkTurn.start(help, sentence, seed = seed)
+    val answer = sentence.substring(hole)
+    val k = focusAll.indexOfFirst { it == chunk }
+    val authored = line.wrong[learn]?.getOrNull(k).orEmpty().map { Breaks.plain(it) }.filter { !it.equals(answer, ignoreCase = true) }
+    val pool = Ladder.tokens(sentence).map { Ladder.core(it) }.filter { it.isNotEmpty() && !it.equals(answer, ignoreCase = true) }
+    return TalkTurn.start(help, sentence, hole, Ladder.chips(answer, authored, pool, seed), seed)
+}
+
+/** 말풍선 글에 오늘 낱말 밑줄. */
+private fun underlined(text: String, todays: List<String>) = buildAnnotatedString {
+    append(text)
+    if (todays.isNotEmpty()) wordMarks(text, todays).forEach { (rg, _) -> addStyle(SpanStyle(textDecoration = TextDecoration.Underline), rg.first, rg.last + 1) }
+}
+
+/** 상대 말풍선 (왼쪽): 배우는 말 (오늘 낱말 밑줄) · 읽는 말, 소리가 있으면 듣기. */
 @Composable
-private fun TheirBubble(name: String, learnText: String, readText: String, learn: Lang, read: Lang, onListen: (() -> Unit)?) {
+private fun TheirBubble(learnText: String, readText: String, learn: Lang, read: Lang, todays: List<String>, onListen: (() -> Unit)?) {
     val p = Ink.palette
-    Column(Modifier.fillMaxWidth(0.88f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            Text(name, style = Type.capsSm.ui(), color = p.giltText)
-            if (onListen != null) SpeakerButton(false, stringResource(R.string.a11y_listen_word), onClick = onListen)
-        }
-        Column(Modifier.clip(RoundedCornerShape(4.dp, 14.dp, 14.dp, 14.dp)).background(p.slip).padding(horizontal = 14.dp, vertical = 10.dp),
+    Row(Modifier.fillMaxWidth(0.9f), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
+        Column(Modifier.weight(1f, fill = false).clip(RoundedCornerShape(4.dp, 14.dp, 14.dp, 14.dp)).background(p.slip).padding(horizontal = 14.dp, vertical = 10.dp),
             verticalArrangement = Arrangement.spacedBy(2.dp)) {
-            Text(learnText, style = Type.body.of(learn), color = p.slipInk)
+            Text(underlined(learnText, todays), style = Type.body.of(learn), color = p.slipInk)
             if (read != learn) Text(readText, style = Type.small.of(read), color = p.slipSoft)
         }
+        if (onListen != null) SpeakerButton(false, stringResource(R.string.a11y_listen_word), onClick = onListen)
     }
 }
 
-/** 내 말풍선 (오른쪽): 말한 뒤 열린 배우는 말 줄과 읽는 말. */
+/** 마친 내 말풍선 (오른쪽): 배우는 말 · 읽는 말, 맞게 말했으면 금빛 체크. */
 @Composable
-private fun MyBubble(learnText: String, readText: String, learn: Lang, read: Lang) {
+private fun MyBubble(learnText: String, readText: String, learn: Lang, read: Lang, todays: List<String>, check: Boolean) {
     val p = Ink.palette
     Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
-        Column(Modifier.widthIn(max = 320.dp), horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(4.dp)) {
-            Text(stringResource(R.string.talk_me), style = Type.capsSm.ui(), color = p.giltText)
-            Column(Modifier.clip(RoundedCornerShape(14.dp, 4.dp, 14.dp, 14.dp)).background(p.fill).padding(horizontal = 14.dp, vertical = 10.dp),
-                verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                Text(learnText, style = Type.body.of(learn), color = p.onFill)
-                if (read != learn) Text(readText, style = Type.small.of(read), color = p.onFill.copy(alpha = 0.75f))
+        Column(Modifier.widthIn(max = 320.dp).clip(RoundedCornerShape(14.dp, 4.dp, 14.dp, 14.dp)).background(p.fill).padding(horizontal = 14.dp, vertical = 10.dp),
+            verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            Row(verticalAlignment = Alignment.Top, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                Text(underlined(learnText, todays), style = Type.body.of(learn), color = p.onFill, modifier = Modifier.weight(1f, fill = false))
+                if (check) Text("✓", style = Type.body, color = p.gilt)
             }
+            if (read != learn) Text(readText, style = Type.small.of(read), color = p.onFill.copy(alpha = 0.75f))
         }
     }
 }
 
 /**
- * 내 차례 한 줄: 도움 사다리만큼 ([Support.Talk]).
- *  - SHADOW: 배우는 말 줄 + 번역 + 듣기 → 따라 말하기
- *  - BLANK: 줄에 빈칸 하나 (그 줄의 덩어리 [TalkLine.focus], 잘 아는 것 먼저 [Support.pickBlank]) + 칩 (정답 · 적힌 틀린 보기) → 채운 뒤 말하기
- *  - CHIPS: 번역 + 첫 낱말 + 섞은 낱말 칩 → 말하기 (힌트 한 번에 줄 전체)
- *  - MEANING: 번역만 (아직 모르는 낱말은 칩으로 남김) → 말하기 (힌트 두 단: 첫 낱말 → 줄 전체)
+ * 지금 내 차례 말풍선 (오른쪽, 점선): 상태 [t] 대로. SHADOW · 채운 BLANK 는 원문 + 번역, 빈 BLANK 는 빈칸 + 번역,
+ * CHIPS · MEANING 은 뜻 + 쌓은 글 (첫 낱말 · 힌트). 맞으면 원문 + 금빛 체크.
+ */
+@Composable
+private fun CurrentBubble(t: TalkTurn.State, readText: String, learn: Lang, read: Lang) {
+    val p = Ink.palette
+    val meaningFirst = (t.help == Support.Talk.CHIPS || t.help == Support.Talk.MEANING) && !t.fullLine
+    Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
+        Column(Modifier.widthIn(max = 320.dp).dashedRound(p.giltText).padding(horizontal = 14.dp, vertical = 10.dp),
+            horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            if (meaningFirst) Text(readText, style = Type.body.of(read), color = p.ink)
+            val style = Type.body.copy(fontFamily = Faces.display).of(learn)
+            val blank = t.blank
+            when {
+                t.fullLine -> Row(verticalAlignment = Alignment.Top, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Text(t.sentence, style = style, color = p.ink, modifier = Modifier.weight(1f, fill = false))
+                    if (t.passed) Text("✓", style = Type.body, color = p.giltText)
+                }
+                t.help == Support.Talk.BLANK && blank != null -> Text(buildAnnotatedString {
+                    append(t.sentence.substring(0, blank.first))
+                    withStyle(SpanStyle(color = p.giltText)) { append("＿".repeat((t.answer?.length ?: 3).coerceIn(3, 8))) }
+                    append(t.sentence.substring(blank.last + 1))
+                }, style = style, color = p.ink)
+                t.built.isNotEmpty() -> Text(t.built + " …", style = style, color = p.ink)
+                else -> Text("…", style = style, color = p.hideInk)
+            }
+            if (!meaningFirst && read != learn) Text(readText, style = Type.small.of(read), color = p.inkSoft)
+        }
+    }
+}
+
+/**
+ * 아래 칸: 도움 한 줄 · 칩 (BLANK 보기 · CHIPS 조각) · 듣기 · 힌트 · 녹음. 녹음은 [TalkTurn.State.canRecord] 일 때만 (막히면 회색 + 까닭 한 줄).
+ * 틀리면 ‘다시 해 봐요’, 두 번 틀리면 원문과 ‘다음으로’, 인식이 없으면 스스로 판정 (맞게 말했어요 / 다시).
  */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun MyTurn(s: AppState, series: String, line: TalkLine, index: Int, help: Support.Talk, learn: Lang, read: Lang,
-                   known: (String) -> Int, audio: String?, onDone: () -> Unit) {
+private fun TalkTray(t: TalkTurn.State, learn: Lang, recognizer: Boolean, listening: Boolean, heard: String?, onListen: (() -> Unit)?,
+                     onPick: (Int) -> Unit, onHint: () -> Unit, onRecord: () -> Unit, onSelf: (Boolean) -> Unit, onContinue: () -> Unit) {
     val p = Ink.palette
-    val sentence = remember(line, learn) { Breaks.plain(line.text[learn]).trim() }
-    val words = remember(sentence) { sentence.split(Regex("\\s+")).filter { it.isNotBlank() } }
-    var hints by remember(index) { mutableIntStateOf(0) }
-    // 빈칸 (BLANK): 덩어리 가운데 잘 아는 것, 덩어리가 없으면 낱말 점수로 하나
-    val hole = remember(sentence, help) {
-        if (help != Support.Talk.BLANK) null else {
-            val focus = Ladder.focusIn(sentence, line.focus[learn].orEmpty().map { Breaks.plain(it) })
-            Support.pickBlank(focus, known)?.let { f -> Ladder.find(sentence, f) }
-                ?: Ladder.holes(sentence, emptyList(), 1) { w -> Support.blankScore(if (w.length >= 2) 1 + w.length / 4 else 0, known(w)) }.firstOrNull()
-        }
-    }
-    val answer = hole?.let { sentence.substring(it) }
-    val chips = remember(sentence, hole) {
-        answer?.let { a ->
-            val k = line.focus[learn].orEmpty().map { Breaks.plain(it) }.indexOfFirst { Ladder.find(sentence, it) == hole }
-            val authored = line.wrong[learn]?.getOrNull(k).orEmpty().map { Breaks.plain(it) }
-            Ladder.chips(a, authored, words.map { Ladder.core(it) }.filter { it.isNotEmpty() && !it.equals(a, true) }, sentence.hashCode() + index)
-        }.orEmpty()
-    }
-    var filled by remember(index) { mutableStateOf(hole == null) }
-    var wrongChip by remember(index) { mutableStateOf<String?>(null) }
-    LaunchedEffect(wrongChip) { if (wrongChip != null) { delay(900); wrongChip = null } }
-    val showLine = Support.talkLineShown(help, hints) || (help == Support.Talk.BLANK && filled)
-
-    Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4),
-        verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-        Text(stringResource(when (help) {
-            Support.Talk.SHADOW -> R.string.talk_repeat
-            Support.Talk.BLANK -> R.string.talk_fill
-            else -> R.string.talk_turn
-        }), style = Type.small.ui(), color = p.giltText)
-        // 뜻 (읽는 말): 늘 보인다. 따라 말하기 · 빈칸에서는 배우는 말 줄 아래에
-        if (help == Support.Talk.CHIPS || help == Support.Talk.MEANING) Text(quoted(line.text[read], read), style = Type.heading.of(read), color = p.ink)
-        when {
-            showLine -> Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                if (audio != null) SpeakerButton(false, stringResource(R.string.a11y_listen_word)) { s.narrator.play(audio) }
-                Text(sentence, style = Type.title.copy(fontFamily = Faces.display).of(learn), color = p.ink, modifier = Modifier.weight(1f))
+    when (t.phase) {
+        TalkTurn.Phase.PASSED, TalkTurn.Phase.DONE -> Text(stringResource(R.string.speak_line_ok), style = Type.body.ui(), color = p.correct,
+            modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+        TalkTurn.Phase.REVEALED -> {
+            Text(stringResource(R.string.talk_revealed), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                if (onListen != null) SpeakerButton(false, stringResource(R.string.a11y_listen_word), onClick = onListen)
+                Box(Modifier.weight(1f)) { Primary(stringResource(R.string.speak_line_next)) { onContinue() } }
             }
-            help == Support.Talk.BLANK && hole != null -> Text(buildAnnotatedString {
-                append(sentence.substring(0, hole.first))
-                append("＿".repeat((answer!!.length).coerceIn(3, 6)))
-                append(sentence.substring(hole.last + 1))
-            }, style = Type.title.copy(fontFamily = Faces.display).of(learn), color = p.ink)
-            Support.talkFirstWord(help, hints) -> Text(words.firstOrNull().orEmpty() + " …", style = Type.title.copy(fontFamily = Faces.display).of(learn), color = p.ink)
         }
-        if (help == Support.Talk.SHADOW || help == Support.Talk.BLANK) Text(line.text[read], style = Type.small.of(read), color = p.inkSoft)
-        // 칩: 빈칸 고르기 (BLANK), 섞은 낱말 (CHIPS), 아직 모르는 낱말 (MEANING)
-        when (help) {
-            Support.Talk.BLANK -> if (!filled) FlowRow(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                chips.forEach { c ->
-                    val bad = wrongChip == c
-                    Box(Modifier.heightIn(min = 44.dp).border(1.dp, if (bad) p.wrong else p.line)
-                        .pressable(role = Role.Button) { if (Ladder.right(answer!!, c)) { filled = true; s.cue(true) } else { wrongChip = c; s.cue(false) } }
-                        .padding(horizontal = Tokens.Space.s4), contentAlignment = Alignment.Center) {
+        TalkTurn.Phase.SELF -> {
+            Text(stringResource(R.string.speak_self), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                if (onListen != null) SpeakerButton(false, stringResource(R.string.a11y_listen_word), onClick = onListen)
+                Box(Modifier.weight(1f)) { Secondary(stringResource(R.string.speak_again), small = true) { onSelf(false) } }
+                Box(Modifier.weight(1f)) { Primary(stringResource(R.string.speak_ok), small = true) { onSelf(true) } }
+            }
+        }
+        else -> {
+            Text(stringResource(when (t.help) {
+                Support.Talk.SHADOW -> R.string.talk_tray_shadow
+                Support.Talk.BLANK -> R.string.talk_tray_blank
+                Support.Talk.CHIPS -> R.string.talk_tray_chips
+                Support.Talk.MEANING -> R.string.talk_tray_meaning
+            }), style = Type.capsSm.ui(), color = p.giltText)
+            // 칩: 고르기 · 쌓기가 남았을 때만
+            if (t.phase == TalkTurn.Phase.BUILD) FlowRow(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                t.chips.forEachIndexed { i, c ->
+                    if (i in t.used) return@forEachIndexed
+                    val bad = t.rejected == i
+                    val lit = t.hinted == i
+                    Box(Modifier.heightIn(min = 44.dp).then(if (bad) Modifier.shake(t.shake) else Modifier)
+                        .background(if (bad) p.wrong.copy(alpha = 0.10f) else if (lit) p.gilt.copy(alpha = 0.18f) else Color.Transparent)
+                        .border(if (lit) 2.dp else 1.dp, if (bad) p.wrong else if (lit) p.giltText else p.line)
+                        .pressable(role = Role.Button) { onPick(i) }.padding(horizontal = Tokens.Space.s3),
+                        contentAlignment = Alignment.Center) {
                         Text(c, style = Type.body.of(learn), color = if (bad) p.wrong else p.ink)
                     }
                 }
             }
-            Support.Talk.CHIPS -> if (!showLine) WordChips(remember(sentence) { words.drop(1).map { Ladder.core(it) }.filter { it.isNotEmpty() }.let { w -> w.shuffled(java.util.Random(sentence.hashCode().toLong())).let { if (it == w && w.size > 1) w.drop(1) + w.first() else it } } }, learn)
-            Support.Talk.MEANING -> if (!showLine) WordChips(remember(sentence, known) { Support.keepVisible(words.map { Ladder.core(it) }.filter { it.isNotEmpty() }, known).distinct() }, learn)
-            else -> Unit
+            if (t.phase == TalkTurn.Phase.RETRY) Text(listOfNotNull(stringResource(R.string.talk_retry), heard?.let { stringResource(R.string.speak_heard, it) }).joinToString(" · "),
+                style = Type.small.ui(), color = p.wrong, maxLines = 2)
+            // 듣기 · 힌트 · 녹음
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3, Alignment.CenterHorizontally)) {
+                val canListen = onListen != null && (t.help == Support.Talk.SHADOW || (t.fullLine && t.canRecord))
+                if (canListen) SpeakerButton(false, stringResource(R.string.a11y_listen_word), onClick = onListen!!)
+                if (t.hintable) Box(Modifier.heightIn(min = 48.dp).border(1.dp, p.line).pressable(role = Role.Button) { onHint() }.padding(horizontal = Tokens.Space.s3),
+                    contentAlignment = Alignment.Center) { Text("💡 " + stringResource(R.string.talk_hint), style = Type.small.ui(), color = p.ink) }
+                RecordButton(t.canRecord, listening, stringResource(when {
+                    !recognizer -> R.string.talk_said
+                    listening -> R.string.speak_listening
+                    t.help == Support.Talk.SHADOW -> R.string.talk_record_repeat
+                    else -> R.string.speak_mic
+                }), onRecord)
+            }
+            if (!t.canRecord) Text(stringResource(if (t.help == Support.Talk.BLANK) R.string.talk_need_blank else R.string.talk_need_build),
+                style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
         }
-        if (!showLine && Support.talkHints(help) > hints) Text(stringResource(R.string.talk_hint), style = Type.small.ui().copy(textDecoration = TextDecoration.Underline), color = p.giltText,
-            modifier = Modifier.heightIn(min = 44.dp).pressable { hints++ }.padding(vertical = Tokens.Space.s2))
-        // 말하기 (빈칸이면 채운 뒤)
-        if (filled) SpeakLine(s, sentence, learn, audio, key = index, onDone = onDone)
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
+/** 녹음 단추 (마이크): [enabled] 가 아니면 회색 (보이되 눌리지 않음). */
 @Composable
-private fun WordChips(words: List<String>, learn: Lang) {
-    if (words.isEmpty()) return
-    FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) { words.forEach { Capsule(it) } }
+private fun RecordButton(enabled: Boolean, listening: Boolean, label: String, onClick: () -> Unit) {
+    val p = Ink.palette
+    Row(Modifier.heightIn(min = 56.dp).clip(RoundedCornerShape(28.dp))
+        .background(if (!enabled) p.hide else if (listening) p.wrong else p.fill)
+        .semantics { contentDescription = label }
+        .pressable(enabled = enabled, role = Role.Button) { onClick() }.padding(horizontal = Tokens.Space.s4),
+        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        val c = if (enabled) p.onFill else p.hideInk
+        androidx.compose.foundation.Canvas(Modifier.size(22.dp)) {
+            val w = size.width
+            drawRoundRect(c, Offset(w * 0.35f, 0f), androidx.compose.ui.geometry.Size(w * 0.3f, w * 0.62f), androidx.compose.ui.geometry.CornerRadius(w * 0.15f))
+            drawArc(c, 0f, 180f, false, Offset(w * 0.2f, w * 0.25f), androidx.compose.ui.geometry.Size(w * 0.6f, w * 0.55f), style = androidx.compose.ui.graphics.drawscope.Stroke(2.dp.toPx()))
+            drawLine(c, Offset(w / 2, w * 0.8f), Offset(w / 2, w), 2.dp.toPx())
+        }
+        Text(label, style = Type.body.ui(), color = c, maxLines = 1)
+    }
+}
+
+/** 점선 둥근 테두리 (지금 내 차례 말풍선). */
+private fun Modifier.dashedRound(c: Color) = drawBehind {
+    drawRoundRect(c, cornerRadius = androidx.compose.ui.geometry.CornerRadius(14.dp.toPx()),
+        style = androidx.compose.ui.graphics.drawscope.Stroke(width = 1.5.dp.toPx(), pathEffect = androidx.compose.ui.graphics.PathEffect.dashPathEffect(floatArrayOf(6.dp.toPx(), 4.dp.toPx()))))
+}
+
+/** 폰의 음성 인식 한 벌 (그 언어, 가능하면 폰 안에서). [available] 이 false 면 쓰지 않는다 (스스로 판정). */
+private class Ear(private val ctx: android.content.Context, private val tag: String) {
+    val available: Boolean = runCatching { android.speech.SpeechRecognizer.isRecognitionAvailable(ctx) }.getOrDefault(false)
+    var listening by mutableStateOf(false)
+        private set
+    private var rec: android.speech.SpeechRecognizer? = null
+
+    fun start(onResult: (List<String>) -> Unit, onError: () -> Unit) {
+        val r = rec ?: runCatching { android.speech.SpeechRecognizer.createSpeechRecognizer(ctx) }.getOrNull()?.also { rec = it } ?: run { onError(); return }
+        r.setRecognitionListener(object : android.speech.RecognitionListener {
+            override fun onResults(b: android.os.Bundle) {
+                listening = false
+                onResult(b.getStringArrayList(android.speech.SpeechRecognizer.RESULTS_RECOGNITION).orEmpty())
+            }
+            override fun onError(error: Int) { listening = false; onError() }
+            override fun onReadyForSpeech(p0: android.os.Bundle?) {}
+            override fun onBeginningOfSpeech() {}
+            override fun onRmsChanged(p0: Float) {}
+            override fun onBufferReceived(p0: ByteArray?) {}
+            override fun onEndOfSpeech() {}
+            override fun onPartialResults(p0: android.os.Bundle?) {}
+            override fun onEvent(p0: Int, p1: android.os.Bundle?) {}
+        })
+        val i = android.content.Intent(android.speech.RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+            .putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE_MODEL, android.speech.RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            .putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE, tag)
+            .putExtra(android.speech.RecognizerIntent.EXTRA_MAX_RESULTS, 5)
+            // 가능하면 폰 안에서 알아듣기 (개인정보처리방침에 적은 대로)
+            .putExtra(android.speech.RecognizerIntent.EXTRA_PREFER_OFFLINE, true)
+        listening = true
+        runCatching { r.startListening(i) }.onFailure { listening = false; onError() }
+    }
+
+    fun destroy() { runCatching { rec?.destroy() }; rec = null }
+}
+
+@Composable
+private fun rememberEar(learn: Lang): Ear {
+    val ctx = LocalContext.current
+    val tag = when (learn) { Lang.FR -> "fr-FR"; Lang.EN -> "en-US"; Lang.KO -> "ko-KR"; Lang.DE -> "de-DE"; Lang.NL -> "nl-NL"; Lang.JA -> "ja-JP" }
+    val ear = remember(learn) { Ear(ctx, tag) }
+    DisposableEffect(ear) { onDispose { ear.destroy() } }
+    return ear
 }
 
 /**

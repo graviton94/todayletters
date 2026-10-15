@@ -3295,5 +3295,53 @@
   "whatsnew_items": {
     "en": "New app icon: a Starry Night postage stamp\nWord meanings appear right below the sentence you tap\nWord match: choose the meaning with the line from the letter\nNew versions download inside the app\nNew steps: check what the letter says, and talk with the writer in today's words",
     "ko": "앱 아이콘이 〈별이 빛나는 밤〉 우표로 바뀌었어요\n낱말 뜻 카드가 누른 문장 바로 아래에 떠요\n낱말 맞추기: 편지 속 문장을 보며 뜻을 골라요\n새 버전이 나오면 앱 안에서 받아요\n새 걸음: 편지 이해 확인 · 편지 속 인물과 오늘 말로 이야기하기"
+  },
+  "talk_written_short": {
+    "en": "Written by this app",
+    "ko": "이 앱이 쓴 대화"
+  },
+  "talk_finish": {
+    "en": "Finish",
+    "ko": "마치기"
+  },
+  "talk_tray_shadow": {
+    "en": "Listen, then say it",
+    "ko": "듣고 따라 말해요"
+  },
+  "talk_tray_blank": {
+    "en": "Pick the blank, then say it",
+    "ko": "빈칸을 골라 채우고 말해요"
+  },
+  "talk_tray_chips": {
+    "en": "Tap the pieces in order, then say it",
+    "ko": "낱말 조각을 차례로 눌러 문장을 만들고 말해요"
+  },
+  "talk_tray_meaning": {
+    "en": "Say it from the meaning",
+    "ko": "뜻을 보고 말해요"
+  },
+  "talk_need_blank": {
+    "en": "Fill the blank first",
+    "ko": "빈칸을 먼저 채워요"
+  },
+  "talk_need_build": {
+    "en": "Build the line first",
+    "ko": "문장을 먼저 완성해요"
+  },
+  "talk_retry": {
+    "en": "Try once more",
+    "ko": "다시 해 봐요"
+  },
+  "talk_revealed": {
+    "en": "This is how it goes. Listen, then move on.",
+    "ko": "이렇게 말해요. 들어 보고 다음으로 가요."
+  },
+  "talk_said": {
+    "en": "I said it",
+    "ko": "말해 봤어요"
+  },
+  "talk_record_repeat": {
+    "en": "Repeat",
+    "ko": "따라 말하기"
   }
 }

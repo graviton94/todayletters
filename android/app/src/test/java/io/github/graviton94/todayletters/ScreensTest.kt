@@ -1465,25 +1465,57 @@ class ScreensTest {
             rule.onAllNodes(hasText(io.github.graviton94.todayletters.core.Breaks.plain(D.check.options[1][io.github.graviton94.todayletters.core.Lang.KO])) and hasClickAction()).onFirst().performClick()
         }, series = s) { Play(s, checkRoute) }
     }
-    /** 오늘의 회화 (프랑스어 · A1): 자리 · 오늘 낱말 · 앱이 쓴 대화 · 빈센트 줄 · 내 차례 (원문 + 번역 → 따라 말하기). */
-    @Test fun depthTalkShadow() = withDepth {
+    // 오늘의 회화 (메신저, talkchat.html): 아래 칸은 도움 사다리대로 (core 의 TalkTurn). 기기 음성 인식이 없는 Robolectric 에서는 녹음 단추가 ‘말해 봤어요’ (스스로 판정)
+    private fun tap(text: String, substring: Boolean = false) {
+        rule.onAllNodes(hasText(text, substring = substring) and hasClickAction()).onFirst().performClick()
+        rule.mainClock.advanceTimeBy(400)
+    }
+    /** A1 (프랑스어): 내 말풍선에 원문 + 번역 (점선), 아래 칸은 듣기 · 따라 말하기 (바로 된다). */
+    @Test fun depthTalkA1() = withDepth {
         val s = graded(state(true), 1)
-        shot("depth05_talk_fr_a1_shadow_light", false, ms = 4000, series = s) { Play(s, talkRoute) }
+        shot("depth05_talk_fr_a1_tray_light", false, ms = 4000, series = s) { Play(s, talkRoute) }
     }
-    /** 오늘의 회화 · 한국어를 배울 때 (영어로 읽기 · A2): 내 줄에 빈칸 하나 (해요체 덩어리) + 칩. */
-    @Test fun depthTalkKoreanBlank() = withDepth {
-        val s = learning(state(true), "vincent", io.github.graviton94.todayletters.core.Lang.KO, 5)
-        shot("depth06_talk_ko_learner_a2_blank_dark", true, ms = 4000, series = s) { Play(s, talkRoute) }
+    /** A2 (프랑스어): 말풍선에 빈칸 + 번역, 아래 칸은 보기 칩 · 녹음은 회색 (빈칸을 먼저 채워요). */
+    @Test fun depthTalkA2Before() = withDepth {
+        val s = graded(state(true), 4)
+        shot("depth06_talk_fr_a2_blank_locked_light", false, ms = 4000, series = s) { Play(s, talkRoute) }
     }
-    /** 오늘의 회화 · 영어를 배울 때 (B1): 번역 + 첫 낱말 + 낱말 칩 · 힌트. */
-    @Test fun depthTalkEnglishChips() = withDepth {
-        val s = learning(state(true), "vincent", io.github.graviton94.todayletters.core.Lang.EN, 8)
-        shot("depth07_talk_en_learner_b1_chips_light", false, ms = 4000, series = s) { Play(s, talkRoute) }
+    /** A2: 맞는 칩 (était) 을 고른 뒤 — 말풍선이 채워지고 듣기 · 말하기가 열린다 (어두운 화면). */
+    @Test fun depthTalkA2After() = withDepth {
+        val s = graded(state(true), 4)
+        shot("depth07_talk_fr_a2_blank_filled_dark", true, ms = 4000, act = { tap("était") }, series = s) { Play(s, talkRoute) }
     }
-    /** 오늘의 회화 · B2 (프랑스어): 번역만, 힌트 두 단. */
-    @Test fun depthTalkMeaning() = withDepth {
+    /** B1 (프랑스어): 뜻 + 첫 낱말, 섞은 조각을 차례로. Le 를 놓고, 차례가 아닌 long 을 눌러 튕긴 모습 (녹음은 아직 회색). */
+    @Test fun depthTalkB1Mid() = withDepth {
+        val s = graded(state(true), 7)
+        shot("depth08_talk_fr_b1_chips_rejected_light", false, ms = 4000, act = { tap("Le"); tap("long") }, series = s) { Play(s, talkRoute) }
+    }
+    /** B2 (프랑스어): 뜻만, 힌트 한 번 (첫 낱말), 녹음은 바로 된다 (어두운 화면). */
+    @Test fun depthTalkB2Hint() = withDepth {
         val s = graded(state(true), 11)
-        shot("depth08_talk_fr_b2_meaning_dark", true, ms = 4000, series = s) { Play(s, talkRoute) }
+        shot("depth09_talk_fr_b2_hint1_dark", true, ms = 4000, act = { tap(ctx.getString(R.string.talk_hint), substring = true) }, series = s) { Play(s, talkRoute) }
+    }
+    /** 한국어를 배울 때 (영어로 읽기 · A2): 해요체 덩어리 빈칸 + 칩. */
+    @Test fun depthTalkKorean() = withDepth {
+        val s = learning(state(true), "vincent", io.github.graviton94.todayletters.core.Lang.KO, 4)
+        shot("depth10_talk_ko_learner_a2_light", false, ms = 4000, series = s) { Play(s, talkRoute) }
+    }
+    /** 영어를 배울 때 (한국어로 읽기 · B1): 조각 쌓기, 차례가 아닌 조각 하나 튕김. */
+    @Test fun depthTalkEnglish() = withDepth {
+        val s = learning(state(true), "vincent", io.github.graviton94.todayletters.core.Lang.EN, 7)
+        shot("depth11_talk_en_learner_b1_dark", true, ms = 4000, act = { tap("Was"); tap("long") }, series = s) { Play(s, talkRoute) }
+    }
+    /** 다 마친 대화 (A1): 말해 봤어요 → 원래 소리 → 맞게 말했어요 를 두 번, 내 말풍선에 금빛 체크 · 아래 칸은 마치기. */
+    @Test fun depthTalkFinished() = withDepth {
+        val s = graded(state(true), 1)
+        shot("depth12_talk_finished_light", false, ms = 4000, act = {
+            repeat(2) {
+                tap(ctx.getString(R.string.talk_said))
+                tap(ctx.getString(R.string.speak_ok))
+                rule.mainClock.advanceTimeBy(2500)
+            }
+            org.junit.Assert.assertTrue(rule.onAllNodes(hasText(ctx.getString(R.string.talk_finish)) and hasClickAction()).fetchSemanticsNodes().isNotEmpty())
+        }, series = s) { Play(s, talkRoute) }
     }
     /** 이해 확인 · 회화가 있는 편지의 걸음: 읽기 → 이해 확인 → 낱말 → (따라 읽기) → 회화 → 답장. */
     @Test fun depthStepsInLetter() = withDepth {

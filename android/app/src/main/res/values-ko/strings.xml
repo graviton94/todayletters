@@ -825,4 +825,16 @@
     <string name="whatsnew_title">새⁠로 바⁠뀐 것</string>
     <string name="whatsnew_ok">좋⁠아⁠요</string>
     <string name="whatsnew_items">앱 아⁠이⁠콘⁠이 〈⁠별⁠이 빛⁠나⁠는 밤⁠〉 우⁠표⁠로 바⁠뀌⁠었⁠어⁠요\n낱⁠말 뜻 카⁠드⁠가 누⁠른 문⁠장 바⁠로 아⁠래⁠에 떠⁠요\n낱⁠말 맞⁠추⁠기⁠: 편⁠지 속 문⁠장⁠을 보⁠며 뜻⁠을 골⁠라⁠요\n새 버⁠전⁠이 나⁠오⁠면 앱 안⁠에⁠서 받⁠아⁠요\n새 걸⁠음⁠: 편⁠지 이⁠해 확⁠인 · 편⁠지 속 인⁠물⁠과 오⁠늘 말⁠로 이⁠야⁠기⁠하⁠기</string>
+    <string name="talk_written_short">이 앱⁠이 쓴 대⁠화</string>
+    <string name="talk_finish">마⁠치⁠기</string>
+    <string name="talk_tray_shadow">듣⁠고 따⁠라 말⁠해⁠요</string>
+    <string name="talk_tray_blank">빈⁠칸⁠을 골⁠라 채⁠우⁠고 말⁠해⁠요</string>
+    <string name="talk_tray_chips">낱⁠말 조⁠각⁠을 차⁠례⁠로 눌⁠러 문⁠장⁠을 만⁠들⁠고 말⁠해⁠요</string>
+    <string name="talk_tray_meaning">뜻⁠을 보⁠고 말⁠해⁠요</string>
+    <string name="talk_need_blank">빈⁠칸⁠을 먼⁠저 채⁠워⁠요</string>
+    <string name="talk_need_build">문⁠장⁠을 먼⁠저 완⁠성⁠해⁠요</string>
+    <string name="talk_retry">다⁠시 해 봐⁠요</string>
+    <string name="talk_revealed">이⁠렇⁠게 말⁠해⁠요⁠. 들⁠어 보⁠고 다⁠음⁠으⁠로 가⁠요⁠.</string>
+    <string name="talk_said">말⁠해 봤⁠어⁠요</string>
+    <string name="talk_record_repeat">따⁠라 말⁠하⁠기</string>
 </resources>

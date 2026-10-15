@@ -825,4 +825,16 @@
     <string name="whatsnew_title">What\'s new</string>
     <string name="whatsnew_ok">Got it</string>
     <string name="whatsnew_items">New app icon: a Starry Night postage stamp\nWord meanings appear right below the sentence you tap\nWord match: choose the meaning with the line from the letter\nNew versions download inside the app\nNew steps: check what the letter says, and talk with the writer in today\'s words</string>
+    <string name="talk_written_short">Written by this app</string>
+    <string name="talk_finish">Finish</string>
+    <string name="talk_tray_shadow">Listen, then say it</string>
+    <string name="talk_tray_blank">Pick the blank, then say it</string>
+    <string name="talk_tray_chips">Tap the pieces in order, then say it</string>
+    <string name="talk_tray_meaning">Say it from the meaning</string>
+    <string name="talk_need_blank">Fill the blank first</string>
+    <string name="talk_need_build">Build the line first</string>
+    <string name="talk_retry">Try once more</string>
+    <string name="talk_revealed">This is how it goes. Listen, then move on.</string>
+    <string name="talk_said">I said it</string>
+    <string name="talk_record_repeat">Repeat</string>
 </resources>
