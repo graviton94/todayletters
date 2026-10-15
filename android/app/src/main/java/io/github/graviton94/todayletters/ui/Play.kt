@@ -262,67 +262,77 @@ private fun Sky(
 }
 
 /**
- * 낱말 맞추기: 왼쪽 낱말 칸과 오른쪽 뜻 칸을 차례로 눌러 잇는다 (뜻을 먼저 눌러도, 낱말 칸에서 뜻 칸으로 끌어도 된다).
- * 맞으면 두 칸이 금빛으로 굳고 그 사이 선이 그어지며 발음이 나온다. 틀리면 붉은 점선이 잠깐 떨리다 사라진다. 연속으로 맞히면 ‘연속 N’.
- * 다 이으면 한 번 빛나고 마치기. 여덟 쌍과 아래 단추가 한 화면에 들어가게 칸 높이를 맞춘다 (모자라면 그때만 넘겨 보기).
+ * 낱말 맞추기 (문맥 카드): 낱말 하나씩, 이 편지 속 그 문장을 보며 뜻 넷 가운데 하나를 고른다.
+ * 복습의 뜻 고르기와 같은 이름표 · 보기 (WordLabel · MeaningOptions) 를 쓰고, 여기서는 편지 문장이 붙는다.
+ * 맞으면 발음 · 번역 문장에 그 뜻이 금빛, 잠깐 뒤 다음 낱말. 틀리면 그 보기만 지우고 다시 고른다. 다 하면 표현 카드 또는 마침.
  */
 @Composable
 private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val p = Ink.palette
-    val haptic = LocalHapticFeedback.current
     val view0 = androidx.compose.ui.platform.LocalView.current
+    val haptic = LocalHapticFeedback.current
     val (chapter, letter) = s.letterOf(r.room)
     val view = s.room(r.room.series)
-    val (pairs, order) = remember(letter.id, view.learn, view.read) { Exercises.matchBoard(letter, view.learn, view.read) }
-    // 낱말을 다 이으면 편지 속 표현 카드 (있을 때만), 그다음 마침
+    val pairs = remember(letter.id, view.learn, view.read) { Exercises.pairs(letter, view.learn, view.read).take(8) }
     var phrases by remember(letter.id) { mutableStateOf(false) }
     if (phrases) { PhraseCards(s, r) { s.replyAndContinue(r.room, ReplyMode.MATCH) }; return }
-    var sel by remember { mutableStateOf<Int?>(null) }      // 고른 낱말 (왼쪽 칸)
-    var selR by remember { mutableStateOf<Int?>(null) }     // 먼저 고른 뜻 (오른쪽 칸의 줄)
-    var matched by remember(letter.id) { mutableStateOf(setOf<Int>()) }
-    var wrongLine by remember { mutableStateOf<Pair<Int, Int>?>(null) }
-    var combo by remember { mutableIntStateOf(0) }
-    val glow = remember { Animatable(0f) }
-    val done = matched.size == pairs.size
-    LaunchedEffect(wrongLine) { if (wrongLine != null) { delay(650); wrongLine = null } }
-    LaunchedEffect(done) { if (done && !s.reducedMotion) { glow.animateTo(1f, tween(450)); glow.animateTo(0f, tween(900)) } }
-    fun say(k: Int) = letter.words.getOrNull(k)?.let { s.narrator.play(s.wordAudio(r.room.series, chapter, letter, it, view.learn)) }
-    fun connect(l: Int, row: Int) {
-        val k = order[row]
-        if (k in matched || l in matched) return
-        if (l == k) {
-            matched = matched + k; combo++
-            if (s.app.haptics) haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
-            s.cue(true)
-            say(k)
-        } else {
-            wrongLine = l to row; combo = 0
-            buzzWrong(view0, s.app.haptics); s.cue(false)
-        }
-        sel = null; selR = null
+    var at by remember(letter.id) { mutableIntStateOf(0) }
+    var picked by remember(at) { mutableStateOf<String?>(null) }
+    var missed by remember(at) { mutableStateOf(setOf<String>()) }
+    var shakeKey by remember { mutableIntStateOf(0) }
+    val n = pairs.size
+    val done = at >= n
+    val k = at.coerceAtMost(n - 1)
+    val right = pairs.getOrNull(k)?.second.orEmpty()
+    val over = picked == right
+    // 보기: 이 편지의 다른 낱말 뜻 셋 + 정답 (같은 편지는 늘 같은 차례)
+    val options = remember(letter.id, k, view.read) {
+        val others = pairs.map { it.second }.distinct().filter { it != right }.shuffled(java.util.Random((letter.id + k).hashCode().toLong())).take(3)
+        (others + right).shuffled(java.util.Random((letter.id + "o" + k).hashCode().toLong()))
     }
+    // 그 낱말이 나온 편지 문장 (배우는 말 · 읽는 말)
+    val line = remember(letter.id, k, view.learn) {
+        val w = letter.words.getOrNull(k)
+        val keys = listOfNotNull(w?.text?.get(view.learn)) + (w?.forms ?: emptyList())
+        letter.messages.firstNotNullOfOrNull { m ->
+            val t = m.text[view.learn]; val mk = wordMarks(t, keys)
+            if (mk.isEmpty()) null else Triple(t, mk.first().first, m.text[view.read])
+        }
+    }
+    fun say(i: Int) = letter.words.getOrNull(i)?.let { s.narrator.play(s.wordAudio(r.room.series, chapter, letter, it, view.learn)) }
+    LaunchedEffect(letter.id, k) { if (!done) say(k) }
+    LaunchedEffect(over, k) { if (over) { delay(1100); at = k + 1 } }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PracticeHeader(matched.size, pairs.size, onClose = onClose, onHelp = { helpId(s.route)?.let { s.coachAgain(it) } }, count = "${matched.size} / ${pairs.size}")
+        PracticeHeader(minOf(at, n), n, onClose = onClose, onHelp = { helpId(s.route)?.let { s.coachAgain(it) } }, count = "${minOf(at + 1, n)} / $n")
         Column(
-            Modifier.weight(1f).padding(horizontal = Tokens.Space.s4).padding(top = Tokens.Space.s1, bottom = Tokens.Space.s2),
-            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2), horizontalAlignment = Alignment.CenterHorizontally,
+            Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s4).padding(top = Tokens.Space.s1, bottom = Tokens.Space.s2),
+            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
             PracticeTitle("MATCH", stringResource(R.string.match_prompt))
             GuideLine(s, "match")
-            MatchBoard(
-                words = pairs.map { it.first }, meanings = order.map { pairs[it].second }, learn = view.learn, read = view.read,
-                matched = matched, order = order, sel = sel, selR = selR, wrongLine = wrongLine, glow = glow.value,
-                modifier = Modifier.weight(1f),
-                onWord = { i -> if (i !in matched) { val rr = selR; if (rr != null) connect(i, rr) else { sel = i; say(i) } } },
-                onMeaning = { row -> if (order[row] !in matched) { val l = sel; if (l != null) connect(l, row) else selR = if (selR == row) null else row } },
-                onDragStart = { i -> if (i !in matched) { sel = i; selR = null } },
-                onDrop = { l, row -> connect(l, row) },
-            )
-            Text(
-                when { done -> stringResource(R.string.match_done); combo >= 2 -> stringResource(R.string.match_combo, combo); else -> stringResource(R.string.match_hint) },
-                style = Type.small.ui(), color = when { done -> p.correct; combo >= 2 -> p.giltText; else -> p.inkSoft }, textAlign = TextAlign.Center,
-            )
+            if (done) Text(stringResource(R.string.match_done), style = Type.heading.ui(), color = p.correct, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+            else {
+                WordLabel(pairs[k].first, letter.words.getOrNull(k)?.ipa.orEmpty(), view.learn, "") { say(k) }
+                line?.let { (t, range, read) ->
+                    Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
+                        Text(stringResource(R.string.match_in_letter), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.giltText)
+                        Text(androidx.compose.ui.text.buildAnnotatedString {
+                            append(t)
+                            addStyle(androidx.compose.ui.text.SpanStyle(color = p.giltText, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold,
+                                textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), range.first, range.last + 1)
+                        }, style = Type.target.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display, fontStyle = androidx.compose.ui.text.font.FontStyle.Italic).of(view.learn), color = p.ink)
+                        if (over && view.read != view.learn) Text(meaningMarks(read, right, p.ink), style = Type.small.of(view.read), color = p.inkSoft)
+                    }
+                }
+                MeaningOptions(options, right, view.read, picked, over, missed, false, shakeKey) { o ->
+                    picked = o
+                    if (o == right) {
+                        if (s.app.haptics) haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                        s.cue(true); say(k)
+                    } else { missed = missed + o; shakeKey++; buzzWrong(view0, s.app.haptics); s.cue(false) }
+                }
+            }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
             if (letter.phrases.isNotEmpty()) Primary(stringResource(R.string.phrase_next), enabled = done) { phrases = true }
@@ -331,122 +341,6 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
         }
     }
 }
-
-/**
- * 낱말 맞추기 판: 두 줄의 칸 (왼쪽 낱말 · 오른쪽 뜻 [meanings] 는 화면 줄 순서). 왼쪽 너비는 가장 긴 낱말 칸 (너비의 42% 까지),
- * 오른쪽이 나머지, 가운데 좁은 틈에 선. 긴 글은 한 단계 작게 (14sp 까지) 줄이고 그래도 길면 두 줄로 (너비는 늘리지 않는다).
- * 칸 높이는 판의 높이를 나눠 맞추되 48dp 아래로는 줄이지 않는다 (그래도 넘치면 판만 넘겨 본다).
- */
-@Composable
-private fun MatchBoard(
-    words: List<String>, meanings: List<String>, learn: io.github.graviton94.todayletters.core.Lang, read: io.github.graviton94.todayletters.core.Lang,
-    matched: Set<Int>, order: List<Int>, sel: Int?, selR: Int?, wrongLine: Pair<Int, Int>?, glow: Float,
-    modifier: Modifier = Modifier,
-    onWord: (Int) -> Unit, onMeaning: (Int) -> Unit, onDragStart: (Int) -> Unit, onDrop: (Int, Int) -> Unit,
-) {
-    val p = Ink.palette
-    val n = words.size
-    if (n == 0) return
-    val tm = androidx.compose.ui.text.rememberTextMeasurer()
-    val density = androidx.compose.ui.platform.LocalDensity.current
-    val wordBig = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display, fontSize = 18.sp).of(learn)
-    val wordSmall = wordBig.copy(fontSize = 15.sp, lineHeight = 19.sp)
-    val meanBig = Type.body.copy(fontSize = 16.sp, lineHeight = 21.sp).of(read)
-    val meanSmall = meanBig.copy(fontSize = 14.sp, lineHeight = 18.sp)
-    androidx.compose.foundation.layout.BoxWithConstraints(modifier.fillMaxWidth()) {
-        val W = constraints.maxWidth
-        val H = if (constraints.hasBoundedHeight) constraints.maxHeight else Int.MAX_VALUE
-        val m = remember(words, meanings, W, H, density, learn, read) { with(density) {
-            val padX = 12.dp.roundToPx(); val padY = 8.dp.roundToPx(); val edge = 2.dp.roundToPx()
-            val chrome = 2 * padX + edge
-            fun one(t: String, st: androidx.compose.ui.text.TextStyle) = tm.measure(t, st, maxLines = 1, softWrap = false).size.width
-            fun tall(t: String, st: androidx.compose.ui.text.TextStyle, w: Int) =
-                tm.measure(t, st, constraints = androidx.compose.ui.unit.Constraints(maxWidth = (w - chrome).coerceAtLeast(1))).size.height + 2 * padY + edge
-            val capL = (W * 0.42f).toInt()
-            val gap = 28.dp.roundToPx()
-            val wSt = words.map { if (one(it, wordBig) + chrome <= capL) wordBig else wordSmall }
-            val leftW = words.indices.maxOf { minOf(capL, one(words[it], wSt[it]) + chrome) }.coerceAtLeast(72.dp.roundToPx())
-            val rightW = (W - leftW - gap).coerceAtLeast(1)
-            val mSt = meanings.map { if (one(it, meanBig) + chrome <= rightW) meanBig else meanSmall }
-            val natural = maxOf(
-                words.indices.maxOf { tall(words[it], wSt[it], leftW) },
-                meanings.indices.maxOf { tall(meanings[it], mSt[it], rightW) },
-                Tokens.Size.touch.roundToPx(),
-            )
-            val sg = 6.dp.roundToPx()
-            val fit = if (H == Int.MAX_VALUE) natural else (H - (n - 1) * sg) / n
-            val rowH = fit.coerceIn(natural, maxOf(natural, 64.dp.roundToPx()))
-            BoardMetrics(leftW, rightW, gap, rowH, sg, wSt, mSt)
-        } }
-        val total = m.rowH * n + m.sg * (n - 1)
-        fun cy(i: Int) = i * (m.rowH + m.sg) + m.rowH / 2f
-        fun nearest(y: Float) = (y / (m.rowH + m.sg)).toInt().coerceIn(0, n - 1)
-        var drag by remember { mutableStateOf<Pair<Int, Offset>?>(null) }
-        val lx = m.leftW.toFloat(); val rx = (m.leftW + m.gap).toFloat()
-        Box(Modifier.fillMaxSize().verticalScroll(rememberScrollState(), enabled = H != Int.MAX_VALUE && total > H)) {
-            Box(Modifier.fillMaxWidth().height(with(density) { total.toDp() })
-                .pointerInput(matched, m) {
-                    detectDragGestures(
-                        onDragStart = { pos -> val i = nearest(pos.y); if (pos.x < lx && i !in matched) { onDragStart(i); drag = i to pos } },
-                        onDrag = { ch, _ -> drag = drag?.let { it.first to ch.position } },
-                        onDragEnd = { val d = drag; drag = null; if (d != null && d.second.x > rx) onDrop(d.first, nearest(d.second.y)) },
-                        onDragCancel = { drag = null },
-                    )
-                }
-                .drawBehind {
-                    // 선은 두 칸의 안쪽 끝 사이 (낱말 칸 오른쪽 끝 → 뜻 칸 왼쪽 끝)
-                    val gl = p.gilt.copy(alpha = 0.85f + 0.15f * glow)
-                    matched.forEach { k ->
-                        val a = Offset(lx, cy(k)); val b = Offset(rx, cy(order.indexOf(k)))
-                        if (glow > 0f) drawLine(p.gilt.copy(alpha = 0.35f * glow), a, b, 7.dp.toPx())
-                        drawLine(gl, a, b, 1.8.dp.toPx())
-                    }
-                    wrongLine?.let { (l, row) ->
-                        drawLine(p.wrong, Offset(lx, cy(l)), Offset(rx, cy(row)), 1.6.dp.toPx(),
-                            pathEffect = androidx.compose.ui.graphics.PathEffect.dashPathEffect(floatArrayOf(8f, 7f)))
-                    }
-                    drag?.let { (l, d) ->
-                        drawLine(p.ink.copy(alpha = 0.7f), Offset(lx, cy(l)), d, 1.2.dp.toPx(),
-                            pathEffect = androidx.compose.ui.graphics.PathEffect.dashPathEffect(floatArrayOf(5f, 7f)))
-                    }
-                },
-            ) {
-                words.forEachIndexed { i, w ->
-                    val st = when { i in matched -> 2; wrongLine?.first == i -> 3; sel == i -> 1; else -> 0 }
-                    MatchChip(w, m.wordStyles[i], 0, i * (m.rowH + m.sg), m.leftW, m.rowH, st, glow) { onWord(i) }
-                }
-                meanings.forEachIndexed { row, t ->
-                    val st = when { order[row] in matched -> 2; wrongLine?.second == row -> 3; selR == row -> 1; else -> 0 }
-                    MatchChip(t, m.meanStyles[row], m.leftW + m.gap, row * (m.rowH + m.sg), m.rightW, m.rowH, st, glow) { onMeaning(row) }
-                }
-            }
-        }
-    }
-}
-
-/** 맞추기 칸 하나 ([x] · [y] · [w] · [h] 는 px). [state]: 0 보통 · 1 고름 · 2 이음 · 3 틀림. */
-@Composable
-private fun MatchChip(text: String, style: androidx.compose.ui.text.TextStyle, x: Int, y: Int, w: Int, h: Int, state: Int, glow: Float, onTap: () -> Unit) {
-    val p = Ink.palette
-    val density = androidx.compose.ui.platform.LocalDensity.current
-    val shape = androidx.compose.foundation.shape.RoundedCornerShape(10.dp)
-    val edge = when (state) { 1, 2 -> p.gilt; 3 -> p.wrong; else -> p.line }
-    val fill = when (state) { 2 -> p.gilt.copy(alpha = 0.16f + 0.14f * glow); 1 -> p.gilt.copy(alpha = 0.08f); else -> p.paper.copy(alpha = 0.6f) }
-    Box(
-        Modifier.offset { androidx.compose.ui.unit.IntOffset(x, y) }
-            .size(with(density) { w.toDp() }, with(density) { h.toDp() })
-            .background(fill, shape).border(if (state == 1) 2.dp else 1.dp, edge, shape)
-            .clickable(enabled = state != 2, role = Role.Button, onClick = onTap).padding(horizontal = 12.dp),
-        contentAlignment = Alignment.CenterStart,
-    ) {
-        Text(text, style = style, color = when (state) { 2 -> p.giltText; 3 -> p.wrong; else -> p.ink })
-    }
-}
-
-private data class BoardMetrics(
-    val leftW: Int, val rightW: Int, val gap: Int, val rowH: Int, val sg: Int,
-    val wordStyles: List<androidx.compose.ui.text.TextStyle>, val meanStyles: List<androidx.compose.ui.text.TextStyle>,
-)
 
 /**
  * 편지 안 따라 읽기 (v18): 복습 · 봉인과 같은 따라 읽기 화면 하나 (ReadAlong) 에서, 이 편지의 한 문장만.

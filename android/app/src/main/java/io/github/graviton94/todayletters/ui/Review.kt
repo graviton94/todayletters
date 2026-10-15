@@ -657,7 +657,7 @@ private fun SentenceHint(s: AppState, q: Q, filled: Boolean = true, highlight: B
 }
 
 /** 번역 문장에서 뜻(“밝은, 환한”)의 말을 찾아 금빛 바탕으로. 한글은 글자 그대로, 다른 글은 어간(끝 한두 글자 뺀 것)으로 찾는다. */
-private fun meaningMarks(text: String, meaning: String, ink: Color): androidx.compose.ui.text.AnnotatedString =
+internal fun meaningMarks(text: String, meaning: String, ink: Color): androidx.compose.ui.text.AnnotatedString =
     androidx.compose.ui.text.buildAnnotatedString {
         append(text)
         val plain = Breaks.plain(text)
@@ -675,33 +675,6 @@ private fun meaningMarks(text: String, meaning: String, ink: Color): androidx.co
             }
         }
     }
-
-@Composable
-private fun OptionsGrid(q: Q, picked: String?, mark: Memory.Mark?, missed: Set<String>, retry: Boolean, shakeKey: Int, onPick: (String) -> Unit) {
-    val p = Ink.palette
-    val right = if (q.kind == ReviewKind.MEANING) q.meaning else q.word
-    val lang = if (q.kind == ReviewKind.MEANING) q.read else q.learn
-    Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-        q.options.chunked(2).forEach { row ->
-            Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                row.forEach { o ->
-                    // 0 고를 수 있음 · 1 정답 · 2 방금 틀림 · 3 흐리게 (이미 틀린 것 · 끝난 뒤 나머지)
-                    val st = when {
-                        mark == null && o in missed -> if (retry && o == picked) 2 else 3
-                        mark == null -> 0; o == right -> 1; o == picked -> 2; else -> 3
-                    }
-                    Box(
-                        Modifier.weight(1f).heightIn(min = 56.dp).then(if (o == picked && st == 2) Modifier.shake(shakeKey) else Modifier)
-                            .background(when (st) { 1 -> p.correct; 2 -> p.wrong; else -> p.leaf })
-                            .border(Tokens.Stroke.hair, if (st == 0) p.line else Color.Transparent)
-                            .pressable(enabled = mark == null && !retry && o !in missed) { onPick(o) }.padding(Tokens.Space.s2),
-                        contentAlignment = Alignment.Center,
-                    ) { Text(o, style = Type.body.of(lang), color = if (st == 1 || st == 2) p.onFill else if (st == 3) p.hideInk else p.ink, textAlign = TextAlign.Center) }
-                }
-            }
-        }
-    }
-}
 
 /**
  * 말하기 단계: 뜻을 보고 그 낱말을 소리 내어 말한다. 폰의 음성 인식(그 언어)으로 맞는지 보고,
@@ -1196,41 +1169,51 @@ internal fun letterTag(s: AppState, cardKey: String): String {
 
 /** 뜻 고르기의 낱말: 작품 이름표처럼 (번호 · 어느 편지 · 큰 낱말 · 듣기 · 발음). */
 @Composable
-private fun LabelCard(q: Q, tag: String, onListen: () -> Unit) {
+private fun LabelCard(q: Q, tag: String, onListen: () -> Unit) = WordLabel(q.word, q.ipa, q.learn, tag, onListen)
+
+/** 낱말 이름표 (복습 뜻 고르기 · 편지의 낱말 맞추기가 같이 쓴다). */
+@Composable
+fun WordLabel(word: String, ipa: String, learn: Lang, tag: String, onListen: () -> Unit) {
     val p = Ink.palette
     val listenA11y = stringResource(R.string.a11y_listen_word)
     Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s4),
         verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
         if (tag.isNotEmpty()) Caps(tag, p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
-        Text(q.word, style = Type.display.copy(fontFamily = Faces.display).of(q.learn), color = p.ink)
+        Text(word, style = Type.display.copy(fontFamily = Faces.display).of(learn), color = p.ink)
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { onListen() }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
-            if (q.ipa.isNotEmpty()) Text("[${q.ipa}]", style = Type.small, color = p.inkSoft)
+            if (ipa.isNotEmpty()) Text("[$ipa]", style = Type.small, color = p.inkSoft)
         }
     }
 }
 
-/** 뜻 고르기의 보기: 색인 카드 목록 A–D. 맞으면 초록 줄 + ✓, 틀리면 붉은 취소선 (그 줄은 다시 못 고름). */
 @Composable
-private fun IndexOptions(q: Q, picked: String?, mark: Memory.Mark?, missed: Set<String>, retry: Boolean, shakeKey: Int, onPick: (String) -> Unit) {
+private fun IndexOptions(q: Q, picked: String?, mark: Memory.Mark?, missed: Set<String>, retry: Boolean, shakeKey: Int, onPick: (String) -> Unit) =
+    MeaningOptions(q.options, q.meaning, q.read, picked, mark != null, missed, retry, shakeKey, onPick)
+
+/**
+ * 뜻 고르기의 보기: 색인 카드 목록 A–D. 맞으면 초록 줄 + ✓, 틀리면 붉은 취소선 (그 줄은 다시 못 고름).
+ * 복습 뜻 고르기 · 편지의 낱말 맞추기가 같이 쓴다. [over]: 답이 났다.
+ */
+@Composable
+fun MeaningOptions(options: List<String>, right: String, read: Lang, picked: String?, over: Boolean, missed: Set<String>, retry: Boolean, shakeKey: Int, onPick: (String) -> Unit) {
     val p = Ink.palette
-    val right = q.meaning
     Column(Modifier.fillMaxWidth()) {
         Hair()
-        q.options.forEachIndexed { k, o ->
+        options.forEachIndexed { k, o ->
             val st = when {
-                mark == null && o in missed -> if (retry && o == picked) 2 else 3
-                mark == null -> 0; o == right -> 1; o == picked -> 2; else -> 3
+                !over && o in missed -> if (retry && o == picked) 2 else 3
+                !over -> 0; o == right -> 1; o == picked -> 2; else -> 3
             }
             val c = when (st) { 1 -> p.correct; 2 -> p.wrong; 3 -> p.hideInk; else -> p.ink }
             Row(
                 Modifier.fillMaxWidth().heightIn(min = 52.dp).then(if (st == 2 && o == picked) Modifier.shake(shakeKey) else Modifier)
                     .background(if (st == 1) p.correct.copy(alpha = 0.12f) else Color.Transparent)
-                    .pressable(enabled = mark == null && !retry && o !in missed) { onPick(o) }.padding(horizontal = Tokens.Space.s2),
+                    .pressable(enabled = !over && !retry && o !in missed) { onPick(o) }.padding(horizontal = Tokens.Space.s2),
                 verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
             ) {
                 Text("ABCD".getOrElse(k) { ' ' }.toString(), style = Type.caps, color = if (st == 0) p.giltText else c)
-                Text(o, style = Type.body.of(q.read).copy(textDecoration = if (st == 2) androidx.compose.ui.text.style.TextDecoration.LineThrough else null),
+                Text(o, style = Type.body.of(read).copy(textDecoration = if (st == 2) androidx.compose.ui.text.style.TextDecoration.LineThrough else null),
                     color = c, modifier = Modifier.weight(1f))
                 if (st == 1) Text("✓", style = Type.body, color = p.correct)
             }

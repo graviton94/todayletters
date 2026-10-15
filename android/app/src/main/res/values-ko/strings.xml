@@ -394,7 +394,8 @@
     <string name="room_resume_go">이⁠어⁠서 듣⁠기</string>
     <string name="room_resume_start">처⁠음⁠부⁠터</string>
     <string name="viewer_hint">두 손⁠가⁠락⁠으⁠로 크⁠게 · 끌⁠어⁠서 위⁠아⁠래 양⁠옆 · 두 번 누⁠르⁠면 확⁠대 / 원⁠래⁠대⁠로</string>
-    <string name="match_prompt">낱⁠말⁠과 뜻⁠을 선⁠으⁠로 이⁠어⁠요</string>
+    <string name="match_prompt">낱⁠말⁠의 뜻⁠을 골⁠라⁠요</string>
+    <string name="match_in_letter">편⁠지 속 문⁠장</string>
     <string name="match_combo">연⁠속 %1$d ✦</string>
     <string name="practice_retry_title">아⁠쉬⁠워⁠요 · 한 번 더</string>
     <string name="practice_retry">다⁠시 고⁠르⁠기</string>
@@ -641,7 +642,7 @@
     <string name="learn_sheet_note">언⁠어⁠마⁠다 진⁠도⁠가 따⁠로 저⁠장⁠되⁠고⁠, 언⁠제⁠든 바⁠꿀 수 있⁠어⁠요⁠.</string>
     <string name="guide_read">이 문⁠장⁠을 눌⁠러 보⁠세⁠요 — 낱⁠말 뜻⁠이 나⁠와⁠요⁠.</string>
     <string name="guide_read_done">다 읽⁠었⁠어⁠요 — 아⁠래 ‘%1$s’⁠를 눌⁠러 보⁠세⁠요⁠.</string>
-    <string name="guide_match">왼⁠쪽 낱⁠말⁠을 오⁠른⁠쪽 뜻⁠과 이⁠어⁠요⁠.</string>
+    <string name="guide_match">편⁠지 속 문⁠장⁠에⁠서 낱⁠말⁠을 보⁠고 뜻⁠을 골⁠라⁠요⁠.</string>
     <string name="guide_aloud">소⁠리 내⁠어 따⁠라 해 봐⁠요⁠. 녹⁠음⁠만 해⁠도 통⁠과⁠예⁠요⁠.</string>
     <string name="guide_reply">뜻⁠에 맞⁠게 낱⁠말 별⁠을 순⁠서⁠대⁠로 눌⁠러 답⁠장⁠을 써⁠요⁠.</string>
     <string name="guide_walk">빛⁠나⁠는 점⁠을 눌⁠러 그⁠림 속⁠을 걸⁠어 봐⁠요⁠.</string>
