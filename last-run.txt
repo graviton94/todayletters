@@ -1,3 +1,11 @@
 a11y.txt
-u01_whatsnew_ko_light.png
-u02_update_ready_ko_dark.png
+depth01_check_question_fr_a1_light.png
+depth02_check_answered_fr_a1_dark.png
+depth03_check_ko_learner_a1_light.png
+depth04_check_en_learner_b1_answered_light.png
+depth05_talk_fr_a1_shadow_light.png
+depth06_talk_ko_learner_a2_blank_dark.png
+depth07_talk_en_learner_b1_chips_light.png
+depth08_talk_fr_b2_meaning_dark.png
+depth09_reply_speak_a2_light.png
+depth11_pron_cards_light.png

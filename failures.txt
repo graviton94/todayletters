@@ -1,0 +1,28 @@
+  <properties/>
+  <testcase name="depthReplySpeakHidden" classname="io.github.graviton94.todayletters.ScreensTest" time="12.554">
+    <failure message="java.lang.AssertionError: Failed to inject touch input.&#10;Can't retrieve node at index '0' of '(Text + EditableText contains '정⁠답 보⁠기' (ignoreCase: false)) &amp;&amp; (OnClick is defined)'&#10;There are no existing nodes for that selector.&#10;" type="java.lang.AssertionError">java.lang.AssertionError: Failed to inject touch input.
+Can't retrieve node at index '0' of '(Text + EditableText contains '정⁠답 보⁠기' (ignoreCase: false)) &amp;&amp; (OnClick is defined)'
+There are no existing nodes for that selector.
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:175)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchSemanticsNode(SemanticsNodeInteraction.kt:84)
+	at androidx.compose.ui.test.ActionsKt.performTouchInput(Actions.kt:394)
+	at androidx.compose.ui.test.Actions_androidKt.performClickImpl(Actions.android.kt:20)
+	at androidx.compose.ui.test.ActionsKt.performClick(Actions.kt:54)
+	at io.github.graviton94.todayletters.ScreensTest.depthReplySpeakHidden$lambda$150$lambda$149(ScreensTest.kt:1511)
+	at io.github.graviton94.todayletters.ScreensTest.shot(ScreensTest.kt:94)
+	at io.github.graviton94.todayletters.ScreensTest.shot$default(ScreensTest.kt:85)
+	at io.github.graviton94.todayletters.ScreensTest.depthReplySpeakHidden$lambda$150(ScreensTest.kt:1510)
+	at io.github.graviton94.todayletters.ScreensTest.withGrammar(ScreensTest.kt:1252)
+	at io.github.graviton94.todayletters.ScreensTest.depthReplySpeakHidden(ScreensTest.kt:1508)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:54)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule$apply$1$evaluate$1.invoke(AndroidComposeTestRule.android.kt:272)
