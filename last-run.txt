@@ -1,6 +1,2 @@
 13_match_ko_light.png
 a11y.txt
-f04_match8_dark.png
-f05_match_german_long_light.png
-f06_match8_large.png
-t05_match_skip_ko_light.png
