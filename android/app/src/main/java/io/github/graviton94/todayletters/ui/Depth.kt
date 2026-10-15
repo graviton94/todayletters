@@ -186,7 +186,7 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     LaunchedEffect(shown) { val i = shown - 1; if (i >= 0 && !lines[i].me) audio(i)?.let { s.narrator.play(it) } }
     DisposableEffect(letter.id) { onDispose { s.narrator.stop() } }
     val done = shown >= lines.size && lines.isNotEmpty()
-    val them = work.name[shortLang(view.read)]
+    val them = work.name[uiLang()]
     val scroll = rememberScrollState()
     LaunchedEffect(shown) { scroll.animateScrollTo(scroll.maxValue) }
 
@@ -329,7 +329,7 @@ private fun MyTurn(s: AppState, series: String, line: TalkLine, index: Int, help
                     }
                 }
             }
-            Support.Talk.CHIPS -> if (!showLine) WordChips(remember(sentence) { words.drop(1).map { Ladder.core(it) }.filter { it.isNotEmpty() }.shuffled(java.util.Random(sentence.hashCode().toLong())) }, learn)
+            Support.Talk.CHIPS -> if (!showLine) WordChips(remember(sentence) { words.drop(1).map { Ladder.core(it) }.filter { it.isNotEmpty() }.let { w -> w.shuffled(java.util.Random(sentence.hashCode().toLong())).let { if (it == w && w.size > 1) w.drop(1) + w.first() else it } } }, learn)
             Support.Talk.MEANING -> if (!showLine) WordChips(remember(sentence, known) { Support.keepVisible(words.map { Ladder.core(it) }.filter { it.isNotEmpty() }, known).distinct() }, learn)
             else -> Unit
         }

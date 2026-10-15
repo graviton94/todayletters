@@ -1504,10 +1504,10 @@ class ScreensTest {
             rule.onAllNodes(hasText(ctx.getString(R.string.ladder_next_turn)) and hasClickAction()).onFirst().performClick()
         }, series = s) { Play(s, replyRoute) }
     }
-    /** 답장 말해 보기 · B2: 문장 없이 (힌트), 어두운 화면. */
+    /** 답장 말해 보기 · B1: 문장 흐리게, 어두운 화면 (B2 는 직접 쓰기라 이 장면에서 바로 닿지 않는다). */
     @Test fun depthReplySpeakHidden() = withGrammar {
-        val s = graded(state(true), 11)
-        shot("depth10_reply_speak_b2_dark", true, act = {
+        val s = graded(state(true), 8)
+        shot("depth10_reply_speak_b1_dark", true, act = {
             rule.onAllNodes(hasText(ctx.getString(R.string.play_show)) and hasClickAction()).onFirst().performClick()
             rule.mainClock.advanceTimeBy(300)
             rule.onAllNodes(hasText(ctx.getString(R.string.ladder_next_turn)) and hasClickAction()).onFirst().performClick()
