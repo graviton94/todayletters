@@ -76,6 +76,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
     // 구독 · 시리즈 소장 (data/Billing.kt, docs/billing.md)
     implementation("com.android.billingclient:billing:8.0.0")
+    implementation("com.google.android.play:app-update:2.1.0")
 
     testImplementation(platform("androidx.compose:compose-bom:2024.12.01"))
     testImplementation("junit:junit:4.13.2")

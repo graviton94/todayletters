@@ -15,6 +15,14 @@ import java.time.LocalDate
 class Store(ctx: Context) {
     private val p = ctx.getSharedPreferences("letters", Context.MODE_PRIVATE)
 
+    /** 새 버전 알림을 마지막으로 물은 날 (data/Updates). */
+    var updateAskedDay: Long
+        get() = p.getLong("update:asked", -1L)
+        set(v) = p.edit().putLong("update:asked", v).apply()
+    /** ‘새로 바뀐 것’ 을 보여 준 마지막 버전 (versionCode). 0 이면 아직 없음. */
+    var seenVersion: Long
+        get() = p.getLong("update:seen", 0L)
+        set(v) = p.edit().putLong("update:seen", v).apply()
     var onboarded: Boolean
         get() = p.getBoolean("onboarded", false)
         set(v) = p.edit().putBoolean("onboarded", v).apply()

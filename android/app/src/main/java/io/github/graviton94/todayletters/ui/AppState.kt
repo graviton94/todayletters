@@ -93,6 +93,24 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 의견 보내기 시트 (설정 › 의견 보내기, 멈춘 뒤 ‘보내기’). [kind] 는 처음 고른 칸. */
     data class FeedbackAsk(val kind: io.github.graviton94.todayletters.core.Feedback.Kind = io.github.graviton94.todayletters.core.Feedback.Kind.BUG)
     var feedback by mutableStateOf<FeedbackAsk?>(null)
+    /** 새 버전을 다 받아 둠: 서재 아래 띠 ‘다시 열기’ ([restartForUpdate] 는 MainActivity 가 채운다). */
+    var updateReady by mutableStateOf(false)
+    var restartForUpdate: () -> Unit = {}
+    /** 서재에 들어왔을 때 새 버전을 물어본다 (MainActivity 가 채운다). */
+    var askUpdate: () -> Unit = {}
+    /**
+     * ‘새로 바뀐 것’: 버전이 바뀐 뒤 첫 실행에 한 번. 처음 설치(아직 소개 전)는 보여 주지 않고 지금 버전만 적어 둔다.
+     */
+    var whatsNew by mutableStateOf(run {
+        val now = io.github.graviton94.todayletters.data.Updates.versionCode(ctx)
+        when {
+            now <= 0L || store.seenVersion == now -> false
+            !store.onboarded -> { store.seenVersion = now; false }
+            else -> true
+        }
+    })
+    fun closeWhatsNew() { whatsNew = false; store.seenVersion = io.github.graviton94.todayletters.data.Updates.versionCode(ctx) }
+
     /** 지난번에 앱이 멈췄으면 이번에 한 번만 묻는다 (data/CrashLog). */
     var crashAsk by mutableStateOf(runCatching { io.github.graviton94.todayletters.data.CrashLog.shouldAsk(ctx) }.getOrDefault(false))
     fun answerCrash(send: Boolean) {

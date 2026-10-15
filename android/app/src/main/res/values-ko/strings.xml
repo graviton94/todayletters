@@ -789,4 +789,15 @@
     <string name="dl_waiting">인⁠터⁠넷⁠이 끊⁠겼⁠어⁠요⁠. 다⁠시 이⁠어⁠지⁠면 받⁠은 데⁠부⁠터 이⁠어 받⁠아⁠요⁠.</string>
     <string name="dl_wifi">와⁠이⁠파⁠이</string>
     <string name="dl_cell">모⁠바⁠일 데⁠이⁠터</string>
+    <string name="update_ready">새 버⁠전⁠을 받⁠았⁠어⁠요</string>
+    <string name="update_restart">다⁠시 열⁠기</string>
+    <string name="whatsnew_cap">VERSION %1$s</string>
+    <string name="whatsnew_title">새⁠로 바⁠뀐 것</string>
+    <string name="whatsnew_ok">좋⁠아⁠요</string>
+    <string-array name="whatsnew_items">
+        <item>앱 아⁠이⁠콘⁠이 〈⁠별⁠이 빛⁠나⁠는 밤⁠〉 우⁠표⁠로 바⁠뀌⁠었⁠어⁠요</item>
+        <item>낱⁠말 뜻 카⁠드⁠가 누⁠른 문⁠장 바⁠로 아⁠래⁠에 떠⁠요</item>
+        <item>낱⁠말 맞⁠추⁠기⁠: 편⁠지 속 문⁠장⁠을 보⁠며 뜻⁠을 골⁠라⁠요</item>
+        <item>새 버⁠전⁠이 나⁠오⁠면 앱 안⁠에⁠서 받⁠아⁠요</item>
+    </string-array>
 </resources>

@@ -210,6 +210,11 @@ class ScreensTest {
         shot("18_room_finished_ko_light", false, 4000, series = s) { Room(s, Route.Letter("vincent", 1, 1)) }
     }
     @Test fun seriesSettings() { val s = state(true); shot("11_series_settings_ko_light", false, series = s) { SeriesSettingsScreen(s, "vincent") } }
+    /** 업데이트 뒤 첫 실행의 ‘새로 바뀐 것’ · 새 버전을 다 받은 뒤의 ‘다시 열기’ 띠 (서재). */
+    @Test fun updateWhatsNew() { val s = state(true); s.go(io.github.graviton94.todayletters.core.Route.Library); s.whatsNew = true
+        shot("u01_whatsnew_ko_light", false) { LibraryTab(s); io.github.graviton94.todayletters.ui.UpdateLayer(s) } }
+    @Test fun updateReady() { val s = state(true); s.go(io.github.graviton94.todayletters.core.Route.Library); s.whatsNew = false; s.updateReady = true
+        shot("u02_update_ready_ko_dark", true) { LibraryTab(s); io.github.graviton94.todayletters.ui.UpdateLayer(s) } }
     @Test fun library() { val s = state(true); shot("12_library_ko_dark", true) { LibraryTab(s) } }
 
     /** 편지 두 통을 끝내고 낱말을 모은 상태 (복습 화면들). 몇 장은 오늘 복습할 차례로. */

@@ -13,6 +13,7 @@ import io.github.graviton94.todayletters.ui.Root
 class MainActivity : ComponentActivity() {
     companion object { const val FROM_NOTICE = "from_notice"; const val SERIES = "series" }
     private var state: AppState? = null
+    private var updates: io.github.graviton94.todayletters.data.Updates? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +29,10 @@ class MainActivity : ComponentActivity() {
         if (fromNotice && !recreated) noticeSeries(intent)?.let { io.github.graviton94.todayletters.data.Store(applicationContext).lastSeries = it }
         // 도착 알림을 다음 그 시각으로 다시 잡는다 (권한이 없으면 울릴 때 조용히 넘어감)
         runCatching { io.github.graviton94.todayletters.data.Notices.schedule(applicationContext) }
+        // 새 버전 알림 (Play 인앱 업데이트): 다 받으면 서재 아래 띠
+        updates = io.github.graviton94.todayletters.data.Updates(this) { state?.updateReady = true }
         setContent {
-            val s = remember { AppState(applicationContext, deepLink = fromNotice || recreated, recreated = recreated).also { state = it; connectBilling(it) } }
+            val s = remember { AppState(applicationContext, deepLink = fromNotice || recreated, recreated = recreated).also { state = it; connectBilling(it); wireUpdates(it) } }
             TodayLettersTheme(s.app.theme, s.app.largeText) {
                 Root(s, onExit = { finish() })
             }
@@ -57,12 +60,19 @@ class MainActivity : ComponentActivity() {
         state?.resumed()
         // 결제: Play 에 붙어 값과 산 것을 다시 읽는다 (밖에서 구독을 해지 · 결제했을 수 있다). Play 가 없어도 조용히 넘어간다.
         state?.let(::connectBilling)
+        updates?.resume()
+    }
+
+    private fun wireUpdates(s: AppState) {
+        s.askUpdate = { updates?.ask(s.store, s.today) }
+        s.restartForUpdate = { updates?.restart() }
     }
 
     private fun connectBilling(s: AppState) { runCatching { s.billing.connect(s.baseWorks.map { it.series.id }) } }
 
     override fun onDestroy() {
         state?.billing?.end()
+        updates?.end()
         super.onDestroy()
     }
 }

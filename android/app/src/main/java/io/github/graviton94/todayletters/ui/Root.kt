@@ -144,6 +144,8 @@ private fun Main(s: AppState, onExit: () -> Unit) {
         // 의견 보내기 (설정 › 의견 보내기) · 지난번에 앱이 멈췄으면 한 번 묻기
         s.feedback?.let { FeedbackSheet(s, it) }
         CrashAsk(s)
+        // 새 버전: 업데이트 뒤 ‘새로 바뀐 것’ · 다 받으면 ‘다시 열기’ 띠 · 하루 한 번 묻기 (서재에서만)
+        UpdateLayer(s)
     }
     if (inSeries) InSeries(s.currentWork) { body() } else body()
 }

@@ -789,4 +789,15 @@
     <string name="dl_waiting">The connection dropped. It continues from where it stopped once you are back online.</string>
     <string name="dl_wifi">Wi-Fi</string>
     <string name="dl_cell">mobile data</string>
+    <string name="update_ready">A new version is ready</string>
+    <string name="update_restart">Restart</string>
+    <string name="whatsnew_cap">VERSION %1$s</string>
+    <string name="whatsnew_title">What\'s new</string>
+    <string name="whatsnew_ok">Got it</string>
+    <string-array name="whatsnew_items">
+        <item>New app icon: a Starry Night postage stamp</item>
+        <item>Word meanings appear right below the sentence you tap</item>
+        <item>Word match: choose the meaning with the line from the letter</item>
+        <item>New versions download inside the app</item>
+    </string-array>
 </resources>
