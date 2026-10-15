@@ -1573,8 +1573,8 @@
     "ko": "두 손가락으로 크게 · 끌어서 위아래 양옆 · 두 번 누르면 확대 / 원래대로"
   },
   "match_prompt": {
-    "en": "Join each word to its meaning",
-    "ko": "낱말과 뜻을 선으로 이어요"
+    "en": "Choose what the word means",
+    "ko": "낱말의 뜻을 골라요"
   },
   "match_combo": {
     "en": "%1$d in a row ✦",
@@ -2561,8 +2561,8 @@
     "ko": "다 읽었어요 — 아래 ‘%1$s’를 눌러 보세요."
   },
   "guide_match": {
-    "en": "Join each word on the left to its meaning on the right.",
-    "ko": "왼쪽 낱말을 오른쪽 뜻과 이어요."
+    "en": "Read the word in its line from the letter, then choose its meaning.",
+    "ko": "편지 속 문장에서 낱말을 보고 뜻을 골라요."
   },
   "guide_aloud": {
     "en": "Say it aloud after the voice. Just recording counts as a pass.",
@@ -3267,5 +3267,33 @@
   "set_easier_d": {
     "en": "Keep your grade, but get the help of one grade below (hints, translations, blanks).",
     "ko": "언어 등급은 그대로 두고, 한 등급 아래의 도움(힌트 · 번역 · 빈칸)을 받아요."
+  },
+  "match_in_letter": {
+    "en": "IN THE LETTER",
+    "ko": "편지 속 문장"
+  },
+  "update_ready": {
+    "en": "A new version is ready",
+    "ko": "새 버전을 받았어요"
+  },
+  "update_restart": {
+    "en": "Restart",
+    "ko": "다시 열기"
+  },
+  "whatsnew_cap": {
+    "en": "VERSION %1$s",
+    "ko": "VERSION %1$s"
+  },
+  "whatsnew_title": {
+    "en": "What's new",
+    "ko": "새로 바뀐 것"
+  },
+  "whatsnew_ok": {
+    "en": "Got it",
+    "ko": "좋아요"
+  },
+  "whatsnew_items": {
+    "en": "New app icon: a Starry Night postage stamp\nWord meanings appear right below the sentence you tap\nWord match: choose the meaning with the line from the letter\nNew versions download inside the app\nNew steps: check what the letter says, and talk with the writer in today's words",
+    "ko": "앱 아이콘이 〈별이 빛나는 밤〉 우표로 바뀌었어요\n낱말 뜻 카드가 누른 문장 바로 아래에 떠요\n낱말 맞추기: 편지 속 문장을 보며 뜻을 골라요\n새 버전이 나오면 앱 안에서 받아요\n새 걸음: 편지 이해 확인 · 편지 속 인물과 오늘 말로 이야기하기"
   }
 }

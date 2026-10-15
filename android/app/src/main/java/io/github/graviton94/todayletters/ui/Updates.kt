@@ -19,7 +19,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
@@ -64,7 +63,7 @@ private fun WhatsNew(s: AppState) {
         ) {
             Caps(stringResource(R.string.whatsnew_cap, ver), p.giltText, small = true)
             Text(stringResource(R.string.whatsnew_title), style = Type.heading.ui(), color = p.ink)
-            stringArrayResource(R.array.whatsnew_items).forEach {
+            stringResource(R.string.whatsnew_items).split('\n').filter { it.isNotBlank() }.forEach {
                 Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                     Text("·", style = Type.body.ui(), color = p.giltText)
                     Text(it, style = Type.body.ui(), color = p.ink)

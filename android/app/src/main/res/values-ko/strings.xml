@@ -394,7 +394,7 @@
     <string name="room_resume_go">이⁠어⁠서 듣⁠기</string>
     <string name="room_resume_start">처⁠음⁠부⁠터</string>
     <string name="viewer_hint">두 손⁠가⁠락⁠으⁠로 크⁠게 · 끌⁠어⁠서 위⁠아⁠래 양⁠옆 · 두 번 누⁠르⁠면 확⁠대 / 원⁠래⁠대⁠로</string>
-    <string name="match_prompt">낱⁠말⁠과 뜻⁠을 선⁠으⁠로 이⁠어⁠요</string>
+    <string name="match_prompt">낱⁠말⁠의 뜻⁠을 골⁠라⁠요</string>
     <string name="match_combo">연⁠속 %1$d ✦</string>
     <string name="practice_retry_title">아⁠쉬⁠워⁠요 · 한 번 더</string>
     <string name="practice_retry">다⁠시 고⁠르⁠기</string>
@@ -641,7 +641,7 @@
     <string name="learn_sheet_note">언⁠어⁠마⁠다 진⁠도⁠가 따⁠로 저⁠장⁠되⁠고⁠, 언⁠제⁠든 바⁠꿀 수 있⁠어⁠요⁠.</string>
     <string name="guide_read">이 문⁠장⁠을 눌⁠러 보⁠세⁠요 — 낱⁠말 뜻⁠이 나⁠와⁠요⁠.</string>
     <string name="guide_read_done">다 읽⁠었⁠어⁠요 — 아⁠래 ‘%1$s’⁠를 눌⁠러 보⁠세⁠요⁠.</string>
-    <string name="guide_match">왼⁠쪽 낱⁠말⁠을 오⁠른⁠쪽 뜻⁠과 이⁠어⁠요⁠.</string>
+    <string name="guide_match">편⁠지 속 문⁠장⁠에⁠서 낱⁠말⁠을 보⁠고 뜻⁠을 골⁠라⁠요⁠.</string>
     <string name="guide_aloud">소⁠리 내⁠어 따⁠라 해 봐⁠요⁠. 녹⁠음⁠만 해⁠도 통⁠과⁠예⁠요⁠.</string>
     <string name="guide_reply">뜻⁠에 맞⁠게 낱⁠말 별⁠을 순⁠서⁠대⁠로 눌⁠러 답⁠장⁠을 써⁠요⁠.</string>
     <string name="guide_walk">빛⁠나⁠는 점⁠을 눌⁠러 그⁠림 속⁠을 걸⁠어 봐⁠요⁠.</string>
@@ -818,4 +818,11 @@
     <string name="support_less">도⁠움⁠이 조⁠금 줄⁠었⁠어⁠요⁠.</string>
     <string name="set_easier">도⁠움 한 단⁠계 더</string>
     <string name="set_easier_d">언⁠어 등⁠급⁠은 그⁠대⁠로 두⁠고⁠, 한 등⁠급 아⁠래⁠의 도⁠움⁠(⁠힌⁠트 · 번⁠역 · 빈⁠칸⁠)⁠을 받⁠아⁠요⁠.</string>
+    <string name="match_in_letter">편⁠지 속 문⁠장</string>
+    <string name="update_ready">새 버⁠전⁠을 받⁠았⁠어⁠요</string>
+    <string name="update_restart">다⁠시 열⁠기</string>
+    <string name="whatsnew_cap">VERSION %1$s</string>
+    <string name="whatsnew_title">새⁠로 바⁠뀐 것</string>
+    <string name="whatsnew_ok">좋⁠아⁠요</string>
+    <string name="whatsnew_items">앱 아⁠이⁠콘⁠이 〈⁠별⁠이 빛⁠나⁠는 밤⁠〉 우⁠표⁠로 바⁠뀌⁠었⁠어⁠요\n낱⁠말 뜻 카⁠드⁠가 누⁠른 문⁠장 바⁠로 아⁠래⁠에 떠⁠요\n낱⁠말 맞⁠추⁠기⁠: 편⁠지 속 문⁠장⁠을 보⁠며 뜻⁠을 골⁠라⁠요\n새 버⁠전⁠이 나⁠오⁠면 앱 안⁠에⁠서 받⁠아⁠요\n새 걸⁠음⁠: 편⁠지 이⁠해 확⁠인 · 편⁠지 속 인⁠물⁠과 오⁠늘 말⁠로 이⁠야⁠기⁠하⁠기</string>
 </resources>

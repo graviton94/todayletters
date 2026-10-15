@@ -202,7 +202,7 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
             Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
                 talk.scene[shortLang(view.read)].takeIf { it.isNotBlank() }?.let { Text(it, style = Type.small.ui(), color = p.inkSoft) }
                 val words = talk.wordsFor(view.learn, work.series.original)
-                if (words.isNotEmpty()) FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
+                if (words.isNotEmpty()) FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     Text(stringResource(R.string.talk_words), style = Type.small.ui(), color = p.giltText)
                     words.forEach { Capsule(Breaks.plain(it)) }
                 }

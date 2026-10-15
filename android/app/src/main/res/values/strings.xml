@@ -394,7 +394,7 @@
     <string name="room_resume_go">Keep listening</string>
     <string name="room_resume_start">From the start</string>
     <string name="viewer_hint">Pinch to zoom · drag to look around · double-tap to zoom in or out</string>
-    <string name="match_prompt">Join each word to its meaning</string>
+    <string name="match_prompt">Choose what the word means</string>
     <string name="match_combo">%1$d in a row ✦</string>
     <string name="practice_retry_title">Not quite · try again</string>
     <string name="practice_retry">Try again</string>
@@ -641,7 +641,7 @@
     <string name="learn_sheet_note">Each language keeps its own progress. You can switch anytime.</string>
     <string name="guide_read">Tap a word in this sentence — its meaning appears.</string>
     <string name="guide_read_done">Done reading — tap ‘%1$s’ below.</string>
-    <string name="guide_match">Join each word on the left to its meaning on the right.</string>
+    <string name="guide_match">Read the word in its line from the letter, then choose its meaning.</string>
     <string name="guide_aloud">Say it aloud after the voice. Just recording counts as a pass.</string>
     <string name="guide_reply">Tap the word stars in order to write the reply.</string>
     <string name="guide_walk">Tap the glowing dots to walk through the painting.</string>
@@ -818,4 +818,11 @@
     <string name="support_less">A little less help from now on.</string>
     <string name="set_easier">One step more help</string>
     <string name="set_easier_d">Keep your grade, but get the help of one grade below (hints, translations, blanks).</string>
+    <string name="match_in_letter">IN THE LETTER</string>
+    <string name="update_ready">A new version is ready</string>
+    <string name="update_restart">Restart</string>
+    <string name="whatsnew_cap">VERSION %1$s</string>
+    <string name="whatsnew_title">What\'s new</string>
+    <string name="whatsnew_ok">Got it</string>
+    <string name="whatsnew_items">New app icon: a Starry Night postage stamp\nWord meanings appear right below the sentence you tap\nWord match: choose the meaning with the line from the letter\nNew versions download inside the app\nNew steps: check what the letter says, and talk with the writer in today\'s words</string>
 </resources>
