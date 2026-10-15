@@ -804,7 +804,7 @@ private fun LetterSlip(
     /** 지금 낭독 중인 마디의 글자 범위 (없으면 null). */
     spoken: IntRange? = null,
     taps: List<IntRange> = emptyList(), onTap: ((Int) -> Unit)? = null, hints: List<IntRange> = emptyList(), picked: IntRange? = null,
-    onPickedAt: (GlossAnchor) -> Unit = {},
+    onPickedAt: (GlossAnchor?) -> Unit = {},
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
@@ -862,7 +862,7 @@ private fun IntRange.inside(r: IntRange): IntRange? = if (isEmpty() || first < r
 private fun SentencePairs(
     learn: String, learnLang: Lang, readLang: Lang, pairs: List<Pair<IntRange, String>>, animate: Boolean, lineMs: Int, onWritten: () -> Unit,
     marks: List<Pair<IntRange, Int>>, onWord: (Int) -> Unit, spoken: IntRange?,
-    taps: List<IntRange>, onTap: ((Int) -> Unit)?, hints: List<IntRange>, picked: IntRange?, onPickedAt: (GlossAnchor) -> Unit,
+    taps: List<IntRange>, onTap: ((Int) -> Unit)?, hints: List<IntRange>, picked: IntRange?, onPickedAt: (GlossAnchor?) -> Unit,
 ) {
     val p = Ink.palette
     var stage by remember(learn) { mutableIntStateOf(if (animate) 0 else pairs.size * 2) }

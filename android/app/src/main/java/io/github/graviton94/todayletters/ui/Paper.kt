@@ -201,7 +201,7 @@ fun InkText(
     /** 눌러서 뜻 보기: 모든 낱말의 자리 ([marks] 가 아닌 곳을 누르면 [onTap]). [hints] 는 옅은 점선 밑줄을 그을 자리, [picked] 는 지금 펼친 낱말. */
     taps: List<IntRange> = emptyList(), onTap: ((Int) -> Unit)? = null, hints: List<IntRange> = emptyList(), picked: IntRange? = null,
     /** [picked] 가 든 글 상자의 자리 ([glossSpot], 뜻 카드를 그 아래에). */
-    onPickedAt: (GlossAnchor) -> Unit = {},
+    onPickedAt: (GlossAnchor?) -> Unit = {},
 ) {
     var layout by remember { mutableStateOf<TextLayoutResult?>(null) }
     val progress = remember(text) { Animatable(if (animate) 0f else 1f) }

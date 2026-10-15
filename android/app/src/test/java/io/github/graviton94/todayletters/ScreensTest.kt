@@ -738,7 +738,11 @@ class ScreensTest {
         val (ch, l) = s.letterOf(room)
         s.save("vincent", ch, l.id, s.progress("vincent", ch, l.id).copy(shown = l.messages.size))
         s.gloss = pick(s, "vincent", ch, l, 0)
-        shot("f01_room_gloss_below_light", false, 4000, series = s) {
+        // 편지 끝까지 내려간 목록을 맨 위로 되돌려, 누른 첫 문장이 보이게
+        shot("f01_room_gloss_below_light", false, 4000, act = {
+            rule.onNode(androidx.compose.ui.test.hasScrollToIndexAction()).performScrollToIndex(0)
+            rule.mainClock.advanceTimeBy(600)
+        }, series = s) {
             Box(Modifier.fillMaxSize()) { Room(s, room); io.github.graviton94.todayletters.ui.GlossHost(s) }
         }
     }

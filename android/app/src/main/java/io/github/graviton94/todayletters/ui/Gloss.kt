@@ -144,6 +144,11 @@ fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key
             val pl = ms.first().measure(androidx.compose.ui.unit.Constraints(w, w, 0, ((botB - topB) * 0.6f).toInt()))
             return@Layout layout(c.maxWidth, c.maxHeight) { pl.place(side, botB - pl.height - side) }
         }
+        // 자리가 화면 밖이면 (문장이 넘겨져 안 보임) 화면 아래에
+        if (a.bottom - origin < topB || a.top - origin > botB) {
+            val pl = ms.first().measure(androidx.compose.ui.unit.Constraints(w, w, 0, ((botB - topB) * 0.6f).toInt()))
+            return@Layout layout(c.maxWidth, c.maxHeight) { pl.place(side, botB - pl.height - side) }
+        }
         val below = (a.bottom - origin).toInt() + gap
         val above = (a.top - origin).toInt() - gap
         val roomBelow = botB - side - below; val roomAbove = above - topB - side
@@ -245,9 +250,11 @@ fun GlossHost(s: AppState, layer: Int = 0) {
 data class GlossAnchor(val top: Float, val bottom: Float)
 
 /** 펼친 낱말([picked])이 있는 글 상자의 자리를 [onAt] 으로 알린다 ([AppState.glossAnchor], 뜻 카드가 그 바로 아래에 붙는다). */
-fun Modifier.glossSpot(picked: IntRange?, onAt: (GlossAnchor) -> Unit): Modifier = composed {
+fun Modifier.glossSpot(picked: IntRange?, onAt: (GlossAnchor?) -> Unit): Modifier = composed {
     val has = picked != null && !picked.isEmpty()
     val report by androidx.compose.runtime.rememberUpdatedState(onAt)
+    // 그 문장이 화면에서 사라지면 (넘겨서 목록에서 빠짐) 자리를 지운다: 카드는 화면 아래로
+    androidx.compose.runtime.DisposableEffect(has) { onDispose { if (has) report(null) } }
     var at by remember { mutableStateOf<androidx.compose.ui.layout.LayoutCoordinates?>(null) }
     LaunchedEffect(has, at) {
         val c = at?.takeIf { it.isAttached } ?: return@LaunchedEffect
