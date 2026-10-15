@@ -730,6 +730,65 @@ class ScreensTest {
         }
     }
 
+    // ── 폰 시험 뒤 고친 것: 문장 아래 뜻 카드 · 튜토리얼 ‘다 읽었어요’ · 낱말 칸 맞추기 ──
+    /** 편지 방에서 낱말을 누르면 그 문장 바로 아래에 작은 뜻 카드 (머리를 가리지 않는다). */
+    @Test fun fixGlossRoom() {
+        val s = state(true)
+        val room = Route.Letter("vincent", 1, 1)
+        val (ch, l) = s.letterOf(room)
+        s.save("vincent", ch, l.id, s.progress("vincent", ch, l.id).copy(shown = l.messages.size))
+        s.gloss = pick(s, "vincent", ch, l, 0)
+        shot("f01_room_gloss_below_light", false, 4000, series = s) {
+            Box(Modifier.fillMaxSize()) { Room(s, room); io.github.graviton94.todayletters.ui.GlossHost(s) }
+        }
+    }
+    /** 아래 자리가 모자라는 문장 (마지막 조각): 카드는 문장 위에. */
+    @Test fun fixGlossRoomAbove() {
+        val s = state(true)
+        val room = Route.Letter("vincent", 1, 1)
+        val (ch, l) = s.letterOf(room)
+        s.save("vincent", ch, l.id, s.progress("vincent", ch, l.id).copy(shown = l.messages.size))
+        s.gloss = pick(s, "vincent", ch, l, l.messages.lastIndex)
+        shot("f02_room_gloss_last_dark", true, 4000, series = s) {
+            Box(Modifier.fillMaxSize()) { Room(s, room); io.github.graviton94.todayletters.ui.GlossHost(s) }
+        }
+    }
+    /** 튜토리얼: 다 읽은 뒤 ‘다음 · 낱말 맞추기’ 바로 위의 안내와 금빛 테 (어두운 테마). */
+    @Test fun fixTutorialDoneDark() {
+        val s = state(true, tutorial = true)
+        s.startTutorial(s.seriesSettings("vincent").learn)
+        shot("f03_room_guide_done_dark", true, 6000, series = s) { Room(s, Route.Letter("vincent", 1, 1, Route.Inbox)) }
+    }
+    /** 낱말 맞추기 여덟 쌍 (어두운 테마): 하나 이음 · 하나 고름. */
+    @Test fun fixMatchDark() {
+        val s = state(true)
+        val l = s.work("vincent").chapters.first().letters.first()
+        val v = s.room("vincent")
+        val (pairs, _) = Exercises.matchBoard(l, v.learn, v.read)
+        shot("f04_match8_dark", true, act = {
+            rule.onAllNodes(hasText(pairs[0].first) and hasClickAction()).onFirst().performClick()
+            rule.onAllNodes(hasText(pairs[0].second) and hasClickAction()).onFirst().performClick()
+            rule.mainClock.advanceTimeBy(1600)
+            rule.onAllNodes(hasText(pairs[2].first) and hasClickAction()).onFirst().performClick()
+        }, series = s) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.MATCH)) }
+    }
+    /** 낱말 맞추기, 긴 독일어 낱말 (모차르트 · 독일어로 배우기): 한 단계 작은 글자 · 두 줄, 너비는 42% 까지. */
+    @Test fun fixMatchGerman() {
+        val s = state(true)
+        s.update("mozart", s.seriesSettings("mozart").copy(learn = io.github.graviton94.todayletters.core.Lang.DE))
+        val v = s.room("mozart")
+        val w = s.work("mozart")
+        val (ci, li) = w.chapters.withIndex().flatMap { (c, ch) -> ch.letters.withIndex().map { (n, lt) -> Triple(c, n, lt) } }
+            .filter { Exercises.matchBoard(it.third, v.learn, v.read).first.size >= 6 }
+            .maxBy { t -> Exercises.matchBoard(t.third, v.learn, v.read).first.maxOf { it.first.length } }
+            .let { it.first to it.second }
+        shot("f05_match_german_long_light", false, series = s) { Play(s, Route.Play(Route.Letter("mozart", ci + 1, li + 1), ReplyMode.MATCH)) }
+    }
+    @Test fun fixMatchLarge() {
+        val s = state(true)
+        large("f06_match8", series = s) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.MATCH)) }
+    }
+
     // ── 흐름 개편: 튜토리얼 · 오늘의 여정 · 건너뛰기 ──
     /** 튜토리얼 1: 환영 한 장. */
     @Test fun tutorialWelcome() { val s = state(false); shot("t01_welcome_ko_light", false) { Onboarding(s) } }

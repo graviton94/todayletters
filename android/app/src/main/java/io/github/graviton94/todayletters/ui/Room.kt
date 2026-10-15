@@ -271,6 +271,12 @@ fun Room(s: AppState, r: Route.Letter) {
     // 이 편지의 읽을 수 있는 비율 (아는 낱말 %): 머리의 날짜 옆에
     val known = remember(s.version, letter.id, view.learn) { s.coverage(id, letter.id) }
     val knownLabel = known?.let { stringResource(R.string.known_pct, it) }
+    // 튜토리얼 (편지 I) 의 읽기 걸음 안내: 이 방에 처음 들어온 동안만 (도착 장면을 지난 뒤). 읽기 전에는 첫 조각 바로 위에
+    // “이 문장을 눌러 보세요”, 다 읽으면 아래 다음 단추 바로 위에 “다 읽었어요 — 아래 ‘…’를 눌러 보세요” + 단추에 금빛 테 깜빡임
+    val guiding = remember(letter.id) { glossTokens != null && s.guideDue("read") }
+    LaunchedEffect(guiding, arriving) { if (guiding && !arriving) s.guideShown("read") }
+    val guideOn = guiding && !arriving
+    val guideNext = guideOn && finished && !progress.done && nextPlay != null
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
         RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else shortDateLine(letter.date, letter.place),
@@ -356,6 +362,7 @@ fun Room(s: AppState, r: Route.Letter) {
                 var shownIn by remember { mutableStateOf(!fresh) }
                 LaunchedEffect(Unit) { shownIn = true }
                 Column {
+                if (i == 0 && guideOn && !finished) GuideBanner(stringResource(R.string.guide_read), Modifier.padding(bottom = Tokens.Space.s2))
                 AnimatedVisibility(shownIn, enter = fadeIn(tween(Tokens.Motion.fadeMs * 2)) + slideInVertically(tween(Tokens.Motion.fadeMs * 2)) { it / 6 }) {
                     LetterSlip(
                         index = i, learn = m.text[view.learn], learnLang = view.learn,
@@ -367,7 +374,7 @@ fun Room(s: AppState, r: Route.Letter) {
                         marks = sentMarks,
                         onWord = { wordFocus = it },
                         taps = ranges, onTap = if (toks != null) ({ j: Int -> s.gloss = AppState.GlossPick(id, chapter, letter, i, j, toks[j].key) }) else null, hints = hints,
-                        picked = glossAt?.takeIf { it.first == i }?.let { ranges.getOrNull(it.second) }, onPickedLow = { s.glossLow = it },
+                        picked = glossAt?.takeIf { it.first == i }?.let { ranges.getOrNull(it.second) }, onPickedAt = { s.glossAnchor = it },
                         fold = fade.first, glosses = fade.second,
                         saved = s.isSaved(s.quoteKey(id, chapter, letter.id, i)),
                         onSave = { s.toggleQuote(s.quoteKey(id, chapter, letter.id, i)) },
@@ -433,8 +440,6 @@ fun Room(s: AppState, r: Route.Letter) {
             Modifier.fillMaxWidth().background(p.paper).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
-            // 튜토리얼 (편지 I): 읽기 걸음의 안내 한 줄, 아래 단추 위에 붙여 둔다 (도착 장면을 지난 뒤, 처음 한 번)
-            if (!arriving && glossTokens != null) GuideLine(s, "read")
             when {
                 !finished -> Row(
                     Modifier.fillMaxWidth().heightIn(min = Tokens.Size.buttonSm).dashed(p.line),
@@ -471,7 +476,11 @@ fun Room(s: AppState, r: Route.Letter) {
                             }
                             Primary(stringResource(R.string.room_reply, stringResource(how))) { stopAll(); s.go(Route.Play(r, nextPlay)) }
                         }
-                        else -> Primary(stringResource(R.string.room_next, stringResource(modeLabel(nextPlay)))) { stopAll(); s.go(Route.Play(r, nextPlay)) }
+                        else -> {
+                            val label = stringResource(R.string.room_next, stringResource(modeLabel(nextPlay)))
+                            if (guideNext) GuideBanner(stringResource(R.string.guide_read_done, label))
+                            Primary(label, Modifier.then(if (guideNext) Modifier.guidePulse(s.reducedMotion) else Modifier)) { stopAll(); s.go(Route.Play(r, nextPlay)) }
+                        }
                     }
                 }
             }
@@ -795,7 +804,7 @@ private fun LetterSlip(
     /** 지금 낭독 중인 마디의 글자 범위 (없으면 null). */
     spoken: IntRange? = null,
     taps: List<IntRange> = emptyList(), onTap: ((Int) -> Unit)? = null, hints: List<IntRange> = emptyList(), picked: IntRange? = null,
-    onPickedLow: (Boolean) -> Unit = {},
+    onPickedAt: (GlossAnchor) -> Unit = {},
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
@@ -811,13 +820,13 @@ private fun LetterSlip(
                 val pairs = remember(learn, read, fold) { if (read != null && !fold) io.github.graviton94.todayletters.core.Pairs.of(learn, read) else emptyList() }
                 if (pairs.size > 1) SentencePairs(
                     learn, learnLang, readLang, pairs, animate, lineMs, onWritten,
-                    marks, onWord, spoken, taps, onTap, hints, picked, onPickedLow,
+                    marks, onWord, spoken, taps, onTap, hints, picked, onPickedAt,
                 ) else {
                 InkText(learn, Type.target.of(learnLang), p.slipInk, animate, lineMs = lineMs, onDone = {
                     learnDone = true
                     if (read == null || fold) onWritten()
                 }, marks = marks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { k -> onWord(marks[k].second) }, spoken = spoken,
-                    taps = taps, onTap = onTap, hints = hints, picked = picked, onPickedLow = onPickedLow)
+                    taps = taps, onTap = onTap, hints = hints, picked = picked, onPickedAt = onPickedAt)
                 // 번역이 사라지는 편지: 익힌 낱말이 많은 문장은 번역을 접고, 아직인 낱말만 작은 뜻풀이로
                 if (read != null && fold) {
                     if (glosses.isNotEmpty()) androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -853,7 +862,7 @@ private fun IntRange.inside(r: IntRange): IntRange? = if (isEmpty() || first < r
 private fun SentencePairs(
     learn: String, learnLang: Lang, readLang: Lang, pairs: List<Pair<IntRange, String>>, animate: Boolean, lineMs: Int, onWritten: () -> Unit,
     marks: List<Pair<IntRange, Int>>, onWord: (Int) -> Unit, spoken: IntRange?,
-    taps: List<IntRange>, onTap: ((Int) -> Unit)?, hints: List<IntRange>, picked: IntRange?, onPickedLow: (Boolean) -> Unit,
+    taps: List<IntRange>, onTap: ((Int) -> Unit)?, hints: List<IntRange>, picked: IntRange?, onPickedAt: (GlossAnchor) -> Unit,
 ) {
     val p = Ink.palette
     var stage by remember(learn) { mutableIntStateOf(if (animate) 0 else pairs.size * 2) }
@@ -865,7 +874,7 @@ private fun SentencePairs(
         InkText(seg, Type.target.of(learnLang), p.slipInk, animate, go = stage >= 2 * k, lineMs = lineMs, onDone = { if (stage == 2 * k) stage = 2 * k + 1 },
             marks = segMarks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { j -> onWord(segMarks[j].second) }, spoken = segSpoken,
             taps = taps.map { it.inside(r) ?: IntRange.EMPTY }, onTap = onTap, hints = hints.mapNotNull { it.inside(r) },
-            picked = picked?.inside(r), onPickedLow = onPickedLow)
+            picked = picked?.inside(r), onPickedAt = onPickedAt)
         if (tr.isNotBlank()) InkText(tr, Type.base.of(readLang), p.slipSoft, animate, go = stage >= 2 * k + 1, lineMs = (lineMs * 0.7f).toInt(),
             onDone = { if (stage == 2 * k + 1) stage = 2 * k + 2; if (k == pairs.lastIndex) onWritten() })
         else if (k == pairs.lastIndex) LaunchedEffect(stage) { if (stage >= 2 * k + 1) onWritten() }

@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -105,13 +107,34 @@ fun GuideLine(s: AppState, step: String, modifier: Modifier = Modifier) {
     val show = remember(step) { s.guideDue(step) }
     if (!show) return
     LaunchedEffect(step) { s.guideShown(step) }
+    GuideBanner(stringResource(guideText(step)), modifier)
+}
+
+/** 안내 한 줄의 띠 (금빛 테 · 작은 점 · 글). 놓는 자리는 부르는 쪽이 정한다 (가리키는 것 바로 위). */
+@Composable
+fun GuideBanner(text: String, modifier: Modifier = Modifier) {
     val p = Ink.palette
     Row(
         modifier.fillMaxWidth().background(p.leaf).border(1.dp, p.giltText).padding(horizontal = Tokens.Space.s3, vertical = Tokens.Space.s2),
         verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
     ) {
         Box(Modifier.size(8.dp).background(p.giltText, androidx.compose.foundation.shape.CircleShape))
-        Text(stringResource(guideText(step)), style = Type.small.ui(), color = p.ink)
+        Text(text, style = Type.small.ui(), color = p.ink)
+    }
+}
+
+/** 튜토리얼이 가리키는 단추: 바깥에 천천히 숨 쉬는 금빛 테 (움직임 줄이기면 멈춘 테). */
+fun Modifier.guidePulse(still: Boolean): Modifier = androidx.compose.ui.composed {
+    val p = Ink.palette
+    val k = if (still) 0.6f else androidx.compose.animation.core.rememberInfiniteTransition(label = "guide").animateFloat(
+        0f, 1f, androidx.compose.animation.core.infiniteRepeatable(androidx.compose.animation.core.tween(1100), androidx.compose.animation.core.RepeatMode.Reverse), label = "k",
+    ).value
+    drawWithContent {
+        drawContent()
+        val grow = (2.dp + 3.dp * k).toPx()
+        drawRect(p.gilt.copy(alpha = 0.45f + 0.55f * k), topLeft = androidx.compose.ui.geometry.Offset(-grow, -grow),
+            size = androidx.compose.ui.geometry.Size(size.width + 2 * grow, size.height + 2 * grow),
+            style = androidx.compose.ui.graphics.drawscope.Stroke((1.5.dp + 1.dp * k).toPx()))
     }
 }
 

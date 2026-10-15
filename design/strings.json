@@ -469,8 +469,8 @@
     "ko": "편지에 나온 낱말과 뜻을 짝지어요"
   },
   "match_hint": {
-    "en": "Tap a word to hear it · drag from dot to dot",
-    "ko": "낱말을 누르면 소리 · 점에서 점으로 끌어 이어요"
+    "en": "Tap a word to hear it · then tap its meaning",
+    "ko": "낱말을 누르면 소리 · 이어서 뜻을 눌러요"
   },
   "match_done": {
     "en": "All matched.",
@@ -2555,6 +2555,10 @@
   "guide_read": {
     "en": "Tap a word in this sentence — its meaning appears.",
     "ko": "이 문장을 눌러 보세요 — 낱말 뜻이 나와요."
+  },
+  "guide_read_done": {
+    "en": "Done reading — tap ‘%1$s’ below.",
+    "ko": "다 읽었어요 — 아래 ‘%1$s’를 눌러 보세요."
   },
   "guide_match": {
     "en": "Join each word on the left to its meaning on the right.",

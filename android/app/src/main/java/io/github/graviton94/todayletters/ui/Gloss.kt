@@ -28,7 +28,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
-import androidx.compose.ui.layout.findRootCoordinates
+import androidx.compose.ui.layout.positionInRoot
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
@@ -59,12 +60,12 @@ fun LevelPill(level: String) {
 }
 
 /**
- * 눌러서 뜻 보기: 편지 원문의 낱말 하나를 누르면 아래에 작은 카드.
+ * 눌러서 뜻 보기: 편지 원문의 낱말 하나를 누르면 그 문장 바로 아래에 작은 카드 (아래 자리가 모자라면 문장 위에, [anchor]).
  * 표제어 · 등급 · 발음기호 · 뜻(앱 글자 언어) · Tatoeba 예문(작성자 표기) · 카드에 담기 (기능어는 뜻만).
  * 낱말 낭독은 그 낱말의 녹음(w<i>_<언어> · 오늘의 낱말 v_<언어>_<slug>)이 이 기기에 있을 때만 (기기 TTS 는 쓰지 않는다).
  */
 @Composable
-fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key: String, top: Boolean = false, onClose: () -> Unit) {
+fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key: String, anchor: GlossAnchor? = null, onClose: () -> Unit) {
     val p = Ink.palette
     val work = s.work(series)
     // 사전의 언어: 원어 자료면 원어, 영어 · 한국어 자료(*_en · *_ko)면 그 언어
@@ -81,13 +82,19 @@ fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key
     val waiting = later || s.isLater(ownKey)
     LaunchedEffect(key) { if (audio.isNotEmpty()) s.narrator.play(audio) }
     androidx.activity.compose.BackHandler(onBack = onClose)
-    // 누른 낱말이 화면 아래 절반이면 카드는 위에 (그 낱말을 가리지 않게 화면의 절반 안쪽으로)
-    val half = (androidx.compose.ui.platform.LocalConfiguration.current.screenHeightDp * 0.45f).dp
-    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose), contentAlignment = if (top) Alignment.TopCenter else Alignment.BottomCenter) {
+    // 누른 문장 바로 아래에 작은 카드 (자리가 없으면 문장 위에). 자리를 모르면 (문장 밖에서 연 카드) 화면 아래에
+    var origin by remember { mutableStateOf(0f) }
+    val dens = androidx.compose.ui.platform.LocalDensity.current
+    val safeTop = androidx.compose.foundation.layout.WindowInsets.statusBars.getTop(dens)
+    val safeBottom = androidx.compose.foundation.layout.WindowInsets.navigationBars.getBottom(dens)
+    androidx.compose.ui.layout.Layout(
+        modifier = Modifier.fillMaxSize().onGloballyPositioned { origin = it.positionInRoot().y }
+            .clickable(interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() }, indication = null, onClick = onClose),
+        content = {
         Column(
-            Modifier.fillMaxWidth().then(if (top) Modifier.heightIn(max = half) else Modifier).background(p.paper).clickable(enabled = false) {}
-                .then(if (top) Modifier.statusBarsSafe() else Modifier.navigationBarsPadding())
-                .verticalScroll(rememberScrollState()).padding(Tokens.Space.s5),
+            Modifier.fillMaxWidth().shadow(8.dp, RoundedCornerShape(4.dp)).background(p.paper, RoundedCornerShape(4.dp))
+                .border(Tokens.Stroke.hair, p.gilt, RoundedCornerShape(4.dp)).clickable(enabled = false) {}
+                .verticalScroll(rememberScrollState()).padding(Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -124,6 +131,30 @@ fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key
                 }
             }
         }
+        },
+    ) { ms, c ->
+        val side = Tokens.Space.s4.roundToPx(); val gap = 6.dp.roundToPx()
+        val w = (c.maxWidth - 2 * side).coerceAtLeast(0)
+        val topB = safeTop; val botB = (c.maxHeight - safeBottom).coerceAtLeast(topB + 1)
+        val a = anchor
+        if (a == null) {
+            val pl = ms.first().measure(androidx.compose.ui.unit.Constraints(w, w, 0, ((botB - topB) * 0.6f).toInt()))
+            return@Layout layout(c.maxWidth, c.maxHeight) { pl.place(side, botB - pl.height - side) }
+        }
+        val below = (a.bottom - origin).toInt() + gap
+        val above = (a.top - origin).toInt() - gap
+        val roomBelow = botB - side - below; val roomAbove = above - topB - side
+        val min = 140.dp.roundToPx()
+        val cap = if (maxOf(roomBelow, roomAbove) >= min) maxOf(roomBelow, roomAbove) else ((botB - topB) * 0.5f).toInt()
+        val pl = ms.first().measure(androidx.compose.ui.unit.Constraints(w, w, 0, cap.coerceAtLeast(0)))
+        val h = pl.height
+        val y = when {
+            h <= roomBelow -> below
+            h <= roomAbove -> above - h
+            // 위아래 어디에도 다 들어가지 않으면 (아주 긴 문장) 더 넓은 쪽에, 화면 안으로
+            else -> (if (roomBelow >= roomAbove) below else above - h).coerceIn(topB + side, (botB - side - h).coerceAtLeast(topB + side))
+        }
+        layout(c.maxWidth, c.maxHeight) { pl.place(side, y) }
     }
 }
 
@@ -198,27 +229,33 @@ fun PhraseCard(s: AppState, series: String, chapter: String, letter: Letter, ph:
     }
 }
 
-/** 화면 맨 위: 어디서든 펼친 낱말([AppState.gloss])의 작은 카드. 전체 화면 창 안이면 [layer] 는 그 창의 층 (1부터). */
+/** 맨 위 층: 어디서든 펼친 낱말([AppState.gloss])의 작은 카드 (누른 문장 바로 아래). 전체 화면 창 안이면 [layer] 는 그 창의 층 (1부터). */
 @Composable
 fun GlossHost(s: AppState, layer: Int = 0) {
     // 전체 화면 창(낱말 카드 상세) 안에서 열었으면 그 창 안의 것만 띄운다
     if (layer != s.glossLayers) return
     val g = s.gloss ?: return
-    GlossSheet(s, g.series, g.chapter, g.letter, g.key, top = s.glossLow) { s.gloss = null }
+    GlossSheet(s, g.series, g.chapter, g.letter, g.key, anchor = s.glossAnchor) { s.gloss = null }
 }
 
-/** 펼친 낱말([picked], 글 배치 [layout])이 화면 아래 절반에 있는지 [onLow] 로 알린다 ([AppState.glossLow]). */
-fun Modifier.glossSpot(picked: IntRange?, layout: androidx.compose.ui.text.TextLayoutResult?, onLow: (Boolean) -> Unit): Modifier = composed {
+/** 뜻 카드를 붙일 자리: 누른 문장(글 상자)의 위 · 아래 끝 (화면 뿌리 기준 px). */
+data class GlossAnchor(val top: Float, val bottom: Float)
+
+/** 펼친 낱말([picked])이 있는 글 상자의 자리를 [onAt] 으로 알린다 ([AppState.glossAnchor], 뜻 카드가 그 바로 아래에 붙는다). */
+fun Modifier.glossSpot(picked: IntRange?, onAt: (GlossAnchor) -> Unit): Modifier = composed {
+    val has = picked != null && !picked.isEmpty()
+    val report by androidx.compose.runtime.rememberUpdatedState(onAt)
     var at by remember { mutableStateOf<androidx.compose.ui.layout.LayoutCoordinates?>(null) }
-    LaunchedEffect(picked, layout, at) {
-        val l = layout ?: return@LaunchedEffect
+    LaunchedEffect(has, at) {
         val c = at?.takeIf { it.isAttached } ?: return@LaunchedEffect
-        if (picked == null || picked.isEmpty()) return@LaunchedEffect
-        val line = l.getLineForOffset(picked.first.coerceIn(0, l.layoutInput.text.length))
-        val mid = c.localToRoot(androidx.compose.ui.geometry.Offset(0f, (l.getLineTop(line) + l.getLineBottom(line)) / 2f)).y
-        onLow(mid > c.findRootCoordinates().size.height / 2f)
+        if (has) report(c.anchor())
     }
-    onGloballyPositioned { at = it }
+    onGloballyPositioned { at = it; if (has) report(it.anchor()) }
+}
+
+private fun androidx.compose.ui.layout.LayoutCoordinates.anchor(): GlossAnchor {
+    val top = positionInRoot().y
+    return GlossAnchor(top, top + size.height)
 }
 
 /**
@@ -255,7 +292,7 @@ fun GlossText(
     Text(
         shown, style = style, color = color, maxLines = maxLines, textAlign = textAlign,
         overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, onTextLayout = { layout = it },
-        modifier = modifier.glossSpot(picked, layout) { s.glossLow = it }.pointerInput(ranges) {
+        modifier = modifier.glossSpot(picked) { s.glossAnchor = it }.pointerInput(ranges) {
             // 낱말 위를 누를 때만 받는다 (그 밖은 부모에게)
             awaitEachGesture {
                 val down = awaitFirstDown(requireUnconsumed = false)

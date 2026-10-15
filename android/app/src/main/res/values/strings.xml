@@ -118,7 +118,7 @@
     <string name="room_next">Next · %1$s</string>
     <string name="room_done_today">Finish today\'s letter</string>
     <string name="mode_match_d">Pair the letter\'s words with their meanings</string>
-    <string name="match_hint">Tap a word to hear it · drag from dot to dot</string>
+    <string name="match_hint">Tap a word to hear it · then tap its meaning</string>
     <string name="match_done">All matched.</string>
     <string name="aloud_finish">Finish reading along</string>
     <string name="play_finish">Done</string>
@@ -640,6 +640,7 @@
     <string name="learn_sheet_q">Which language will you learn here?</string>
     <string name="learn_sheet_note">Each language keeps its own progress. You can switch anytime.</string>
     <string name="guide_read">Tap a word in this sentence — its meaning appears.</string>
+    <string name="guide_read_done">Done reading — tap ‘%1$s’ below.</string>
     <string name="guide_match">Join each word on the left to its meaning on the right.</string>
     <string name="guide_aloud">Say it aloud after the voice. Just recording counts as a pass.</string>
     <string name="guide_reply">Tap the word stars in order to write the reply.</string>
