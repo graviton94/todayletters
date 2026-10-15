@@ -186,9 +186,9 @@ class ScreensTest {
         }, series = s) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.CONSTELLATION)) }
     }
     @Test fun match() { val s = state(true); shot("13_match_ko_light", false, act = {
-        val l = s.work("vincent").chapters.first().letters.first()
-        val w = l.words.first().text[s.seriesSettings("vincent").learn]
-        rule.onAllNodes(hasText(w) and hasClickAction()).onFirst().performClick()
+        // 보기 B 를 하나 고른 모습 (맞든 틀리든)
+        rule.onAllNodes(hasText("B", substring = false) and hasClickAction()).onFirst().performClick()
+        rule.mainClock.advanceTimeBy(500)
     }, series = s) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.MATCH)) } }
     @Test fun aloud() { val s = state(true); shot("14_aloud_ko_dark", true, series = s) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.ALOUD)) } }
     @Test fun done() { val s = state(true); finishReal(s, "vincent", 1, 1); shot("15_done_ko_light", false, 4000, series = s) { Done(s, Route.Letter("vincent", 1, 1)) } }
@@ -763,17 +763,15 @@ class ScreensTest {
         s.startTutorial(s.seriesSettings("vincent").learn)
         shot("f03_room_guide_done_dark", true, 6000, series = s) { Room(s, Route.Letter("vincent", 1, 1, Route.Inbox)) }
     }
-    /** 낱말 맞추기 여덟 쌍 (어두운 테마): 하나 이음 · 하나 고름. */
+    /** 낱말 맞추기 (어두운 테마): 첫 낱말의 뜻을 맞힌 모습 (번역 문장에 뜻이 금빛). */
     @Test fun fixMatchDark() {
         val s = state(true)
         val l = s.work("vincent").chapters.first().letters.first()
         val v = s.room("vincent")
         val (pairs, _) = Exercises.matchBoard(l, v.learn, v.read)
         shot("f04_match8_dark", true, act = {
-            rule.onAllNodes(hasText(pairs[0].first) and hasClickAction()).onFirst().performClick()
             rule.onAllNodes(hasText(pairs[0].second) and hasClickAction()).onFirst().performClick()
-            rule.mainClock.advanceTimeBy(1600)
-            rule.onAllNodes(hasText(pairs[2].first) and hasClickAction()).onFirst().performClick()
+            rule.mainClock.advanceTimeBy(500)
         }, series = s) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.MATCH)) }
     }
     /** 낱말 맞추기, 긴 독일어 낱말 (모차르트 · 독일어로 배우기): 한 단계 작은 글자 · 두 줄, 너비는 42% 까지. */
