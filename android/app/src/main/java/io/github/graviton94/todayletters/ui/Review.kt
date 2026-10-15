@@ -1192,7 +1192,7 @@ private fun IndexOptions(q: Q, picked: String?, mark: Memory.Mark?, missed: Set<
     MeaningOptions(q.options, q.meaning, q.read, picked, mark != null, missed, retry, shakeKey, onPick)
 
 /**
- * 뜻 고르기의 보기: 색인 카드 목록 A–D. 맞으면 초록 줄 + ✓, 틀리면 붉은 취소선 (그 줄은 다시 못 고름).
+ * 뜻 고르기의 보기: 색인 카드 목록 A–D. 맞으면 초록 줄 + ✓, 틀리면 옅은 붉은 바탕 · 취소선 · ✕ (그 줄은 다시 못 고름).
  * 복습 뜻 고르기 · 편지의 낱말 맞추기가 같이 쓴다. [over]: 답이 났다.
  */
 @Composable
@@ -1202,13 +1202,13 @@ fun MeaningOptions(options: List<String>, right: String, read: Lang, picked: Str
         Hair()
         options.forEachIndexed { k, o ->
             val st = when {
-                !over && o in missed -> if (retry && o == picked) 2 else 3
-                !over -> 0; o == right -> 1; o == picked -> 2; else -> 3
+                o in missed || (over && o == picked && o != right) -> 2
+                !over -> 0; o == right -> 1; else -> 3
             }
             val c = when (st) { 1 -> p.correct; 2 -> p.wrong; 3 -> p.hideInk; else -> p.ink }
             Row(
                 Modifier.fillMaxWidth().heightIn(min = 52.dp).then(if (st == 2 && o == picked) Modifier.shake(shakeKey) else Modifier)
-                    .background(if (st == 1) p.correct.copy(alpha = 0.12f) else Color.Transparent)
+                    .background(when (st) { 1 -> p.correct.copy(alpha = 0.12f); 2 -> p.wrong.copy(alpha = 0.10f); else -> Color.Transparent })
                     .pressable(enabled = !over && !retry && o !in missed) { onPick(o) }.padding(horizontal = Tokens.Space.s2),
                 verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
             ) {
@@ -1216,6 +1216,7 @@ fun MeaningOptions(options: List<String>, right: String, read: Lang, picked: Str
                 Text(o, style = Type.body.of(read).copy(textDecoration = if (st == 2) androidx.compose.ui.text.style.TextDecoration.LineThrough else null),
                     color = c, modifier = Modifier.weight(1f))
                 if (st == 1) Text("✓", style = Type.body, color = p.correct)
+                if (st == 2) Text("✕", style = Type.body, color = p.wrong)
             }
             Hair()
         }
