@@ -1,9 +1,3 @@
-13_match_ko_light.png
 a11y.txt
 f01_room_gloss_below_light.png
 f02_room_gloss_last_dark.png
-f03_room_guide_done_dark.png
-f04_match8_dark.png
-f05_match_german_long_light.png
-f06_match8_large.png
-t03_room_guide_ko_light.png
