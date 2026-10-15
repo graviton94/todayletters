@@ -102,7 +102,144 @@
     "en": "1756–1762",
     "ko": "1756–1762"
    },
-   "moments": []
+   "moments": [],
+   "check": [
+    {
+     "q": {
+      "de": "Wer kommt für Wolfgang gleich nach Gott?",
+      "en": "Who comes right after God for Wolfgang?",
+      "ko": "볼프강에게 하느님 바로 다음은 누구예요?"
+     },
+     "options": [
+      {
+       "de": "Papa",
+       "en": "Papa",
+       "ko": "아빠"
+      },
+      {
+       "de": "Mama",
+       "en": "Mama",
+       "ko": "엄마"
+      },
+      {
+       "de": "Die Musik",
+       "en": "Music",
+       "ko": "음악"
+      },
+      {
+       "de": "Der Kaiser",
+       "en": "The emperor",
+       "ko": "황제"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "de": "Papa",
+      "en": "papa",
+      "ko": "아빠"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "잘츠부르크 집, 건반 앞의 어린 볼프강 · 나는 아버지 레오폴트",
+     "en": "At home in Salzburg, little Wolfgang at the keyboard · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, komm schnell! Ich habe ein neues Stück!",
+      "en": "Papa, come quick! I have a new piece!",
+      "ko": "아빠, 빨리 오세요! 새 곡이 있어요!"
+     },
+     {
+      "who": "me",
+      "de": "Toll! Du bist noch ein Kind und schreibst schon Musik.",
+      "en": "Great! You're still a child and already writing music.",
+      "ko": "대단해요! 아직 아이인데 벌써 음악을 쓰네요.",
+      "focus": {
+       "de": [
+        "bist"
+       ],
+       "en": [
+        "You're"
+       ],
+       "ko": [
+        "아이인데"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "bin",
+         "ist"
+        ]
+       ],
+       "en": [
+        [
+         "You is",
+         "You am"
+        ]
+       ],
+       "ko": [
+        [
+         "아이은데",
+         "아이는데"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ich bin gar nicht müde. Spielst du mit mir?",
+      "en": "I'm not tired at all. Will you play with me?",
+      "ko": "하나도 안 피곤해요. 같이 연주해 줄래요?"
+     },
+     {
+      "who": "me",
+      "de": "Ja, gern! Aber zuerst essen wir.",
+      "en": "Yes, gladly! But first we eat.",
+      "ko": "네, 좋아요! 그런데 먼저 밥부터 먹어요.",
+      "focus": {
+       "de": [
+        "essen wir"
+       ],
+       "en": [
+        "we eat"
+       ],
+       "ko": [
+        "먹어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "esse wir",
+         "isst wir"
+        ]
+       ],
+       "en": [
+        [
+         "we eats",
+         "we eating"
+        ]
+       ],
+       "ko": [
+        [
+         "먹아요",
+         "먹요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "kommen",
+     "Kind"
+    ],
+    "grammar": "I.0"
+   }
   },
   {
    "id": "p2",
@@ -198,7 +335,138 @@
     "en": "1763–1766",
     "ko": "1763–1766"
    },
-   "moments": []
+   "moments": [],
+   "check": [
+    {
+     "q": {
+      "de": "Woran erinnert sich Wolfgang nicht?",
+      "en": "What does Wolfgang not remember?",
+      "ko": "볼프강이 기억하지 못하는 건 뭐예요?"
+     },
+     "options": [
+      {
+       "de": "Seinen Besuch vor 15 Jahren",
+       "en": "His visit fifteen years ago",
+       "ko": "15년 전에 여기 왔던 일"
+      },
+      {
+       "de": "Seine erste Oper",
+       "en": "His first opera",
+       "ko": "자기의 첫 오페라"
+      },
+      {
+       "de": "Den Namen der Stadt",
+       "en": "The name of the city",
+       "ko": "도시 이름"
+      },
+      {
+       "de": "Seinen ersten Lehrer",
+       "en": "His first teacher",
+       "ko": "첫 선생님"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "긴 연주 여행 중 파리에 도착한 날 · 나는 아버지 레오폴트",
+     "en": "The day we reach Paris on the long concert tour · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, wo sind wir jetzt?",
+      "en": "Papa, where are we now?",
+      "ko": "아빠, 우리 지금 어디예요?"
+     },
+     {
+      "who": "me",
+      "de": "Wir sind hier in Paris. Wie findest du die Stadt?",
+      "en": "We're here in Paris. How do you like the city?",
+      "ko": "여기는 파리예요. 도시가 어때요?",
+      "focus": {
+       "de": [
+        "Wie"
+       ],
+       "en": [
+        "How"
+       ],
+       "ko": [
+        "어때요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Wer",
+         "Was"
+        ]
+       ],
+       "en": [
+        [
+         "Who",
+         "Whom"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼요",
+         "어떠요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Sehr groß! Wer spielt heute Abend? Ich?",
+      "en": "Very big! Who's playing tonight? Me?",
+      "ko": "엄청 커요! 오늘 저녁엔 누가 연주해요? 저요?"
+     },
+     {
+      "who": "me",
+      "de": "Ja, du und Nannerl. Bist du bereit?",
+      "en": "Yes, you and Nannerl. Are you ready?",
+      "ko": "네, 볼프강이랑 난네를이요. 준비됐어요?",
+      "focus": {
+       "de": [
+        "Bist du"
+       ],
+       "en": [
+        "Are you"
+       ],
+       "ko": [
+        "준비됐어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Bin du",
+         "Ist du"
+        ]
+       ],
+       "en": [
+        [
+         "Is you",
+         "Am you"
+        ]
+       ],
+       "ko": [
+        [
+         "준비됬어요",
+         "준비됐아요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "hier"
+    ],
+    "grammar": "I.1"
+   }
   },
   {
    "id": "p3",
@@ -293,7 +561,138 @@
     "en": "1767–1769",
     "ko": "1767–1769"
    },
-   "moments": []
+   "moments": [],
+   "check": [
+    {
+     "q": {
+      "de": "Wie fühlt sich Wolfgang in Salzburg?",
+      "en": "How does Wolfgang feel in Salzburg?",
+      "ko": "볼프강은 잘츠부르크에서 어떤 기분이에요?"
+     },
+     "options": [
+      {
+       "de": "Immer glücklich und frei",
+       "en": "Always happy and free",
+       "ko": "늘 행복하고 자유로워요"
+      },
+      {
+       "de": "Wie ein König",
+       "en": "Like a king",
+       "ko": "왕이 된 것 같아요"
+      },
+      {
+       "de": "Mal alles, mal nichts",
+       "en": "Sometimes everything, sometimes nothing",
+       "ko": "전부였다가 아무것도 아니었다가"
+      },
+      {
+       "de": "Ganz ruhig und sicher",
+       "en": "Calm and secure",
+       "ko": "아주 편안하고 든든해요"
+      }
+     ],
+     "answer": 2,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "1769년 12월, 이탈리아로 떠나기 전날 밤 · 나는 아버지 레오폴트",
+     "en": "December 1769, the night before we leave for Italy · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, wann fahren wir nach Italien?",
+      "en": "Papa, when do we leave for Italy?",
+      "ko": "아빠, 이탈리아에는 언제 떠나요?"
+     },
+     {
+      "who": "me",
+      "de": "Morgen früh. Hast du alles?",
+      "en": "Tomorrow morning. Have you got everything?",
+      "ko": "내일 아침이요. 다 챙겼어요?",
+      "focus": {
+       "de": [
+        "Hast du"
+       ],
+       "en": [
+        "Have you"
+       ],
+       "ko": [
+        "챙겼어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Habst du",
+         "Hat du"
+        ]
+       ],
+       "en": [
+        [
+         "Has you",
+         "Having you"
+        ]
+       ],
+       "ko": [
+        [
+         "챙겼아요",
+         "챙겻어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja, die Noten sind hier. Ich bin gar nicht nervös!",
+      "en": "Yes, the music is here. I'm not nervous at all!",
+      "ko": "네, 악보 여기 있어요. 하나도 안 떨려요!"
+     },
+     {
+      "who": "me",
+      "de": "Gut. Mama und Nannerl kommen nicht mit.",
+      "en": "Good. Mama and Nannerl aren't coming with us.",
+      "ko": "좋아요. 엄마랑 난네를은 같이 안 가요.",
+      "focus": {
+       "de": [
+        "nicht"
+       ],
+       "en": [
+        "aren't coming"
+       ],
+       "ko": [
+        "안 가요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "kein",
+         "nichts"
+        ]
+       ],
+       "en": [
+        [
+         "isn't coming",
+         "not coming"
+        ]
+       ],
+       "ko": [
+        [
+         "안 가아요",
+         "않 가요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "gar"
+    ],
+    "grammar": "I.2"
+   }
   }
  ]
 }

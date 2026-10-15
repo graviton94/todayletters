@@ -187,7 +187,142 @@
      },
      "_note": "이 앱이 쓴 답장"
     }
-   ]
+   ],
+   "check": [
+    {
+     "q": {
+      "fr": "Pour Vincent, Théo est plus qu'un simple… ?",
+      "en": "For Vincent, Theo is more than a simple… what?",
+      "ko": "빈센트에게 테오는 무엇 ‘그 이상’인가요?"
+     },
+     "options": [
+      {
+       "fr": "Frère",
+       "en": "Brother",
+       "ko": "동생"
+      },
+      {
+       "fr": "Marchand de Corot",
+       "en": "Dealer in Corots",
+       "ko": "코로 그림 장사꾼"
+      },
+      {
+       "fr": "Peintre",
+       "en": "Painter",
+       "ko": "화가"
+      },
+      {
+       "fr": "Ami",
+       "en": "Friend",
+       "ko": "친구"
+      }
+     ],
+     "answer": 1,
+     "evidence": 2,
+     "mark": {
+      "fr": "marchand de Corot",
+      "en": "dealer in Corots"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "빈센트와 마주 앉아 나누는 마지막 이야기",
+     "en": "Sitting with Vincent for one last talk"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Tu sais, Théo, mes tableaux parlent pour moi.",
+      "en": "You know, Theo, my paintings speak for me.",
+      "ko": "있잖아요, 테오. 제 그림이 저 대신 말해요."
+     },
+     {
+      "who": "me",
+      "fr": "Je sais. Et ils parlent bien.",
+      "en": "I know. And they speak well.",
+      "ko": "알아요. 그리고 아주 잘 말해요.",
+      "focus": {
+       "fr": [
+        "ils parlent"
+       ],
+       "en": [
+        "they speak"
+       ],
+       "ko": [
+        "말해요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ils parle",
+         "ils parlons"
+        ]
+       ],
+       "en": [
+        [
+         "they speaks",
+         "they speaking"
+        ]
+       ],
+       "ko": [
+        [
+         "말하요",
+         "말헤요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Tu es plus qu'un marchand : ils sont aussi à toi.",
+      "en": "You're more than a dealer: they're yours too.",
+      "ko": "테오는 그냥 화상이 아니에요. 그림은 테오 것이기도 해요."
+     },
+     {
+      "who": "me",
+      "fr": "Merci, Vincent. Je suis heureux que tu dises ça.",
+      "en": "Thank you, Vincent. I'm happy you say that.",
+      "ko": "고마워요, 형. 그렇게 말해 줘서 행복해요.",
+      "focus": {
+       "fr": [
+        "que tu dises"
+       ],
+       "en": [
+        "I'm happy"
+       ],
+       "ko": [
+        "말해 줘서"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "que tu dis",
+         "que tu disais"
+        ]
+       ],
+       "en": [
+        [
+         "I'm happily",
+         "I happy"
+        ]
+       ],
+       "ko": [
+        [
+         "말해 주서",
+         "말하 줘서"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "marchand"
+    ],
+    "grammar": "VIII.1"
+   }
   }
  ]
 }

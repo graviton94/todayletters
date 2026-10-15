@@ -474,6 +474,141 @@
       "quote": 0
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wer tut Wolfgang und seiner Frau leid?",
+      "en": "Who do Wolfgang and his wife feel sorry for?",
+      "ko": "볼프강 부부가 안타까워하는 사람은 누구예요?"
+     },
+     "options": [
+      {
+       "de": "Nannerls Mann",
+       "en": "Nannerl's husband",
+       "ko": "난네를의 남편"
+      },
+      {
+       "de": "Die Mutter",
+       "en": "Their mother",
+       "ko": "어머니"
+      },
+      {
+       "de": "Der Vater",
+       "en": "Their father",
+       "ko": "아버지"
+      },
+      {
+       "de": "Ein Freund in Wien",
+       "en": "A friend in Vienna",
+       "ko": "빈에 사는 친구"
+      }
+     ],
+     "answer": 2,
+     "evidence": 2,
+     "mark": {
+      "de": "Vater",
+      "ko": "아버지"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "결혼을 앞둔 난네를에게 걸려 온 볼프강의 전화 · 나는 누나 난네를",
+     "en": "Wolfgang calls me just before my wedding · I'm his sister Nannerl"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Nannerl, alle guten Wünsche zu deiner Hochzeit!",
+      "en": "Nannerl, all the best for your wedding!",
+      "ko": "누나, 결혼 진심으로 축하해요!"
+     },
+     {
+      "who": "me",
+      "de": "Danke, Wolfgang! Ich wünschte, du wärst hier.",
+      "en": "Thanks, Wolfgang! I wish you were here.",
+      "ko": "고마워요! 볼프강이 여기 있으면 좋을 텐데요.",
+      "focus": {
+       "de": [
+        "wärst"
+       ],
+       "en": [
+        "you were"
+       ],
+       "ko": [
+        "좋을 텐데요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "wäre",
+         "warst"
+        ]
+       ],
+       "en": [
+        [
+         "you are",
+         "you be"
+        ]
+       ],
+       "ko": [
+        [
+         "좋은 텐데요",
+         "좋을 탠데요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ich auch. Aber Papa ist jetzt ganz allein.",
+      "en": "Me too. But now Papa is all alone.",
+      "ko": "저도요. 그런데 이제 아빠가 혼자시네요."
+     },
+     {
+      "who": "me",
+      "de": "Ja. Er könnte mich aber oft besuchen.",
+      "en": "Yes. But he could visit me often.",
+      "ko": "네. 그래도 아빠가 저를 자주 보러 오실 수 있어요.",
+      "focus": {
+       "de": [
+        "könnte"
+       ],
+       "en": [
+        "could visit"
+       ],
+       "ko": [
+        "오실 수 있어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "könntest",
+         "könnten"
+        ]
+       ],
+       "en": [
+        [
+         "could visits",
+         "could visiting"
+        ]
+       ],
+       "ko": [
+        [
+         "오실 수 있아요",
+         "올실 수 있어요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Wunsch"
+    ],
+    "grammar": "VII.0"
    }
   },
   {
@@ -834,6 +969,140 @@
       "quote": 1
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was wäre angeblich eine Schande für Deutschland?",
+      "en": "What would supposedly be a \"blot\" on Germany?",
+      "ko": "볼프강이 비꼬듯 ‘독일의 수치’라고 한 건 뭐예요?"
+     },
+     "options": [
+      {
+       "de": "Auf Italienisch singen",
+       "en": "Singing in Italian",
+       "ko": "이탈리아어로 노래하기"
+      },
+      {
+       "de": "Auf Deutsch singen",
+       "en": "Singing in German",
+       "ko": "독일어로 노래하기"
+      },
+      {
+       "de": "Auf Französisch singen",
+       "en": "Singing in French",
+       "ko": "프랑스어로 노래하기"
+      },
+      {
+       "de": "Auf Latein singen",
+       "en": "Singing in Latin",
+       "ko": "라틴어로 노래하기"
+      }
+     ],
+     "answer": 1,
+     "evidence": 3,
+     "mark": {
+      "ko": "독일어로 노래하기"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "대본을 보낸 만하임의 클라인 고문관 · 나는 클라인",
+     "en": "Wolfgang talks with Councillor Klein about a libretto · I'm Anton Klein"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Guten Tag, Herr Klein! Danke für Ihr Libretto.",
+      "en": "Good afternoon, Mr Klein! Thank you for your libretto.",
+      "ko": "안녕하세요, 클라인 씨! 대본 보내 주셔서 감사해요."
+     },
+     {
+      "who": "me",
+      "de": "Gern! Haben Sie Zeit, es zu vertonen?",
+      "en": "My pleasure! Do you have time to set it to music?",
+      "ko": "천만에요! 곡을 붙일 시간이 있으세요?",
+      "focus": {
+       "de": [
+        "zu vertonen"
+       ],
+       "en": [
+        "to set it"
+       ],
+       "ko": [
+        "있으세요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "zu vertont",
+         "vertonen zu"
+        ]
+       ],
+       "en": [
+        [
+         "to setting it",
+         "to sets it"
+        ]
+       ],
+       "ko": [
+        [
+         "있으세여",
+         "있세요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Leider kaum. Ich habe gerade sehr viel zu tun.",
+      "en": "Hardly, I'm afraid. I'm very busy right now.",
+      "ko": "아쉽게도 거의 없어요. 요즘 할 일이 정말 많아요."
+     },
+     {
+      "who": "me",
+      "de": "Schade. Es ist ein Text, der gute Musik verdient.",
+      "en": "Pity. It's a text that deserves good music.",
+      "ko": "아쉽네요. 좋은 음악을 받을 만한 글인데요.",
+      "focus": {
+       "de": [
+        "der"
+       ],
+       "en": [
+        "that deserves"
+       ],
+       "ko": [
+        "받을 만한"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "den",
+         "das"
+        ]
+       ],
+       "en": [
+        [
+         "that deserve",
+         "what deserves"
+        ]
+       ],
+       "ko": [
+        [
+         "받을 만하는",
+         "받는 만한"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "verdienen"
+    ],
+    "grammar": "VII.1"
    }
   },
   {
@@ -1205,6 +1474,138 @@
       "quote": 2
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Worüber spricht man in Prag?",
+      "en": "What is everyone in Prague talking about?",
+      "ko": "프라하에서는 다들 무슨 이야기를 해요?"
+     },
+     "options": [
+      {
+       "de": "Nur über „Figaro“",
+       "en": "Only \"Figaro\"",
+       "ko": "오직 피가로"
+      },
+      {
+       "de": "Nur über den Kaiser",
+       "en": "Only the Emperor",
+       "ko": "오직 황제"
+      },
+      {
+       "de": "Nur über das Wetter",
+       "en": "Only the weather",
+       "ko": "오직 날씨"
+      },
+      {
+       "de": "Nur über das Tanzen",
+       "en": "Only dancing",
+       "ko": "오직 춤"
+      }
+     ],
+     "answer": 0,
+     "evidence": 2
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "프라하의 볼프강과 통화 · 나는 친구 고트프리트 폰 자캥",
+     "en": "A call with Wolfgang in Prague · I'm his friend Gottfried von Jacquin"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Gottfried! Endlich habe ich Zeit, mit dir zu reden.",
+      "en": "Hi Gottfried! At last I have time to talk to you.",
+      "ko": "안녕하세요, 고트프리트! 드디어 이야기할 시간이 났어요."
+     },
+     {
+      "who": "me",
+      "de": "Schön! Wie ist Prag?",
+      "en": "Great! What's Prague like?",
+      "ko": "반가워요! 프라하는 어때요?",
+      "focus": {
+       "de": [
+        "Wie ist"
+       ],
+       "en": [
+        "What's"
+       ],
+       "ko": [
+        "어때요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Wer ist",
+         "Wie bist"
+        ]
+       ],
+       "en": [
+        [
+         "What are",
+         "Who's"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼요",
+         "어떠요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Alle pfeifen hier nur Figaro! Nichts als Figaro!",
+      "en": "Everyone here whistles nothing but Figaro! Only Figaro!",
+      "ko": "여기선 다들 피가로만 휘파람으로 불어요! 온통 피가로예요!"
+     },
+     {
+      "who": "me",
+      "de": "Toll! Gehst du am Mittwoch in die Oper?",
+      "en": "Great! Are you going to the opera on Wednesday?",
+      "ko": "멋지네요! 수요일에 오페라 보러 가요?",
+      "focus": {
+       "de": [
+        "am Mittwoch"
+       ],
+       "en": [
+        "on Wednesday"
+       ],
+       "ko": [
+        "수요일에"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "im Mittwoch",
+         "um Mittwoch"
+        ]
+       ],
+       "en": [
+        [
+         "in Wednesday",
+         "at Wednesday"
+        ]
+       ],
+       "ko": [
+        [
+         "수요일애",
+         "수요일을"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "pfeifen",
+     "Mittwoch"
+    ],
+    "grammar": "VII.2"
    }
   },
   {
@@ -1562,6 +1963,137 @@
       "quote": 2
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wie sieht Wolfgang den Tod?",
+      "en": "How does Wolfgang see death?",
+      "ko": "볼프강은 죽음을 어떻게 여겨요?"
+     },
+     "options": [
+      {
+       "de": "Als großen Feind",
+       "en": "As a great enemy",
+       "ko": "큰 적으로"
+      },
+      {
+       "de": "Als dunkle Angst",
+       "en": "As a dark fear",
+       "ko": "어두운 두려움으로"
+      },
+      {
+       "de": "Als guten Freund",
+       "en": "As a good friend",
+       "ko": "좋은 친구로"
+      },
+      {
+       "de": "Als fernes Märchen",
+       "en": "As a far-off tale",
+       "ko": "먼 옛날이야기로"
+      }
+     ],
+     "answer": 2,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "아버지가 아프다는 소식을 들은 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang, who has heard I'm ill · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, ich habe gehört, dass du krank bist.",
+      "en": "Papa, I heard that you're ill.",
+      "ko": "아빠, 편찮으시다고 들었어요."
+     },
+     {
+      "who": "me",
+      "de": "Ja, leider. Aber mach dir keine Sorgen.",
+      "en": "Yes, unfortunately. But don't worry.",
+      "ko": "네, 안타깝게도요. 그래도 걱정하지 마세요.",
+      "focus": {
+       "de": [
+        "mach dir"
+       ],
+       "en": [
+        "don't worry"
+       ],
+       "ko": [
+        "걱정하지 마세요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "mach dich",
+         "machst dir"
+        ]
+       ],
+       "en": [
+        [
+         "doesn't worry",
+         "not worry"
+        ]
+       ],
+       "ko": [
+        [
+         "걱정하지 마세여",
+         "걱정하지 말세요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Bitte schreib mir die Wahrheit. Ich würde sofort kommen.",
+      "en": "Please write me the truth. I would come at once.",
+      "ko": "부디 사실대로 써 주세요. 바로 달려갈게요."
+     },
+     {
+      "who": "me",
+      "de": "Danke, mein Sohn. Das ist sehr beruhigend.",
+      "en": "Thank you, son. That's very comforting.",
+      "ko": "고마워요, 아들. 정말 마음이 놓여요.",
+      "focus": {
+       "de": [
+        "beruhigend"
+       ],
+       "en": [
+        "comforting"
+       ],
+       "ko": [
+        "마음이 놓여요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "beruhigende",
+         "beruhigen"
+        ]
+       ],
+       "en": [
+        [
+         "comfort",
+         "comfortable"
+        ]
+       ],
+       "ko": [
+        [
+         "마음이 놓아요",
+         "마음을 놓여요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "beruhigend"
+    ],
+    "grammar": "VII.0"
    }
   },
   {
@@ -1916,6 +2448,137 @@
       "quote": 0
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was verspricht Wolfgang Nannerl?",
+      "en": "What does Wolfgang promise Nannerl?",
+      "ko": "볼프강은 난네를에게 무엇을 약속해요?"
+     },
+     "options": [
+      {
+       "de": "Er kommt nach Salzburg",
+       "en": "He'll come to Salzburg",
+       "ko": "잘츠부르크로 갈게요"
+      },
+      {
+       "de": "Er bleibt ihr Beschützer",
+       "en": "He'll always be her protector",
+       "ko": "늘 지켜 주는 동생이 될게요"
+      },
+      {
+       "de": "Er schickt ihr Geld",
+       "en": "He'll send her money",
+       "ko": "돈을 보낼게요"
+      },
+      {
+       "de": "Er schreibt jede Woche",
+       "en": "He'll write every week",
+       "ko": "매주 편지할게요"
+      }
+     ],
+     "answer": 1,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "아버지를 잃은 뒤 볼프강과 통화 · 나는 누나 난네를",
+     "en": "A call with Wolfgang after our father's death · I'm his sister Nannerl"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Nannerl, es tut mir so leid wegen Papa.",
+      "en": "Nannerl, I'm so sorry about Papa.",
+      "ko": "누나, 아빠 일 정말 마음이 아파요."
+     },
+     {
+      "who": "me",
+      "de": "Danke. Verzeih, dass ich dir nicht selbst geschrieben habe.",
+      "en": "Thank you. Forgive me for not writing to you myself.",
+      "ko": "고마워요. 직접 편지 못 써서 미안해요.",
+      "focus": {
+       "de": [
+        "geschrieben habe"
+       ],
+       "en": [
+        "for not writing"
+       ],
+       "ko": [
+        "못 써서"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "habe geschrieben",
+         "geschrieben bin"
+        ]
+       ],
+       "en": [
+        [
+         "for not write",
+         "for not wrote"
+        ]
+       ],
+       "ko": [
+        [
+         "못 쓰서",
+         "못 썻서"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Schon gut, ich habe es erraten. Brauchst du etwas?",
+      "en": "It's fine, I guessed why. Do you need anything?",
+      "ko": "괜찮아요, 짐작했어요. 필요한 거 있어요?"
+     },
+     {
+      "who": "me",
+      "de": "Nein, danke. Aber es wäre schön, dich zu sehen.",
+      "en": "No, thanks. But it would be nice to see you.",
+      "ko": "아니요, 괜찮아요. 그래도 얼굴 보면 좋겠어요.",
+      "focus": {
+       "de": [
+        "dich zu sehen"
+       ],
+       "en": [
+        "to see you"
+       ],
+       "ko": [
+        "보면 좋겠어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "dich sehen zu",
+         "dir zu sehen"
+        ]
+       ],
+       "en": [
+        [
+         "to seeing you",
+         "to saw you"
+        ]
+       ],
+       "ko": [
+        [
+         "보면 좋겟어요",
+         "보면 좋갰어요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "erraten"
+    ],
+    "grammar": "VII.0"
    }
   },
   {
@@ -2277,6 +2940,141 @@
       "quote": 0
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wie war „Don Giovanni“ in Prag?",
+      "en": "How did \"Don Giovanni\" go in Prague?",
+      "ko": "프라하에서 〈돈 조반니〉는 어땠어요?"
+     },
+     "options": [
+      {
+       "de": "Ein großer Misserfolg",
+       "en": "A big failure",
+       "ko": "크게 실패했어요"
+      },
+      {
+       "de": "Noch nicht gespielt",
+       "en": "Not performed yet",
+       "ko": "아직 공연 전이에요"
+      },
+      {
+       "de": "Nur so lala",
+       "en": "Just so-so",
+       "ko": "그저 그랬어요"
+      },
+      {
+       "de": "Ein glänzender Erfolg",
+       "en": "A brilliant success",
+       "ko": "대성공이었어요"
+      }
+     ],
+     "answer": 3,
+     "evidence": 0,
+     "mark": {
+      "en": "brilliant success"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "〈돈 조반니〉 첫 공연을 마친 프라하의 볼프강과 통화 · 나는 친구 자캥",
+     "en": "A call with Wolfgang in Prague after the Don Giovanni premiere · I'm his friend Jacquin"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Gottfried, mein Don Giovanni war ein großer Erfolg!",
+      "en": "Gottfried, my Don Giovanni was a big success!",
+      "ko": "고트프리트, 제 〈돈 조반니〉가 크게 성공했어요!"
+     },
+     {
+      "who": "me",
+      "de": "Gratuliere! Wann war die Premiere?",
+      "en": "Congratulations! When was the premiere?",
+      "ko": "축하해요! 첫 공연은 언제였어요?",
+      "focus": {
+       "de": [
+        "war"
+       ],
+       "en": [
+        "When was"
+       ],
+       "ko": [
+        "언제였어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "waren",
+         "wart"
+        ]
+       ],
+       "en": [
+        [
+         "When were",
+         "When been"
+        ]
+       ],
+       "ko": [
+        [
+         "언제엿어요",
+         "언제었어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Am 29. Oktober. Das Publikum war begeistert.",
+      "en": "On 29 October. The audience loved it.",
+      "ko": "10월 29일이요. 관객들이 열광했어요."
+     },
+     {
+      "who": "me",
+      "de": "Super! Schickst du mir das Lied, das du versprochen hast?",
+      "en": "Great! Will you send me the song you promised?",
+      "ko": "좋아요! 약속한 노래도 보내 줄 거예요?",
+      "focus": {
+       "de": [
+        "das"
+       ],
+       "en": [
+        "you promised"
+       ],
+       "ko": [
+        "약속한 노래"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "der",
+         "die"
+        ]
+       ],
+       "en": [
+        [
+         "you promise",
+         "you promising"
+        ]
+       ],
+       "ko": [
+        [
+         "약속핸 노래",
+         "약속한 노레"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Oktober",
+     "Lied"
+    ],
+    "grammar": "VII.1"
    }
   },
   {
@@ -2632,6 +3430,137 @@
       "quote": 4
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wie arbeitet Wolfgang in der neuen Wohnung?",
+      "en": "How is Wolfgang working in his new lodgings?",
+      "ko": "볼프강은 새 집에서 일이 어때요?"
+     },
+     "options": [
+      {
+       "de": "Viel weniger als früher",
+       "en": "Much less than before",
+       "ko": "전보다 훨씬 적게 해요"
+      },
+      {
+       "de": "Gar nicht mehr",
+       "en": "Not at all anymore",
+       "ko": "전혀 못 해요"
+      },
+      {
+       "de": "Viel mehr als früher",
+       "en": "Much more than before",
+       "ko": "전보다 훨씬 많이 해요"
+      },
+      {
+       "de": "Nur in der Nacht",
+       "en": "Only at night",
+       "ko": "밤에만 해요"
+      }
+     ],
+     "answer": 2,
+     "evidence": 3
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "새집으로 이사한 볼프강과 통화 · 나는 친구 미하엘 푸흐베르크",
+     "en": "A call with Wolfgang after his move to a new flat · I'm his friend Michael Puchberg"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Michael, besuch mich doch mal! Ich bin immer zu Hause.",
+      "en": "Michael, come and visit me! I'm always at home.",
+      "ko": "미하엘, 한번 놀러 와요! 저는 늘 집에 있어요."
+     },
+     {
+      "who": "me",
+      "de": "Gern! Wie ist die neue Wohnung?",
+      "en": "Gladly! How's the new flat?",
+      "ko": "좋아요! 새집은 어때요?",
+      "focus": {
+       "de": [
+        "die neue Wohnung"
+       ],
+       "en": [
+        "How's"
+       ],
+       "ko": [
+        "어때요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "die neuer Wohnung",
+         "die neuen Wohnung"
+        ]
+       ],
+       "en": [
+        [
+         "How are",
+         "Who's"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼요",
+         "어떠요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Billig und bequem. Hier kann ich gut arbeiten.",
+      "en": "Cheap and comfortable. I can work well here.",
+      "ko": "싸고 편해요. 여기선 일이 잘돼요."
+     },
+     {
+      "who": "me",
+      "de": "Schön. Brauchst du Hilfe? Ich versuche, dir zu helfen.",
+      "en": "Good. Do you need help? I'll try to help you.",
+      "ko": "잘됐네요. 도움 필요해요? 제가 도와 볼게요.",
+      "focus": {
+       "de": [
+        "dir zu helfen"
+       ],
+       "en": [
+        "I'll try to help"
+       ],
+       "ko": [
+        "도와 볼게요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "dich zu helfen",
+         "dir helfen zu"
+        ]
+       ],
+       "en": [
+        [
+         "I'll try to helps",
+         "I'll tries to help"
+        ]
+       ],
+       "ko": [
+        [
+         "도와 볼께요",
+         "도와 블게요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "bequem"
+    ],
+    "grammar": "VII.2"
    }
   }
  ]

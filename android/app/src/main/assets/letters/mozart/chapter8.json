@@ -468,6 +468,137 @@
       "quote": 0
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was bietet Guardassoni fast fest an?",
+      "en": "What has Guardassoni almost agreed to?",
+      "ko": "과르다소니는 무엇을 거의 약속했어요?"
+     },
+     "options": [
+      {
+       "de": "50 Dukaten für ein Konzert",
+       "en": "50 ducats for a concert",
+       "ko": "연주회 한 번에 50두카트"
+      },
+      {
+       "de": "Eine Stelle am Hof",
+       "en": "A post at court",
+       "ko": "궁정의 자리"
+      },
+      {
+       "de": "200 Dukaten für eine Oper",
+       "en": "200 ducats for an opera",
+       "ko": "오페라 한 편에 200두카트"
+      },
+      {
+       "de": "Ein Zimmer im „Einhorn“",
+       "en": "A room at the \"Unicorn\"",
+       "ko": "‘일각수’ 여관 방"
+      }
+     ],
+     "answer": 2,
+     "evidence": 2
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "프라하에 도착한 볼프강과 통화 · 나는 아내 콘스탄체",
+     "en": "A call with Wolfgang, just arrived in Prague · I'm his wife Constanze"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo, mein Schatz! Wir sind gut in Prag angekommen.",
+      "en": "Hi, darling! We've arrived safely in Prague.",
+      "ko": "여보, 잘 있었어요? 프라하에 잘 도착했어요."
+     },
+     {
+      "who": "me",
+      "de": "Gott sei Dank! Hast du schon etwas gegessen?",
+      "en": "Thank God! Have you eaten anything yet?",
+      "ko": "다행이에요! 뭐 좀 먹었어요?",
+      "focus": {
+       "de": [
+        "gegessen"
+       ],
+       "en": [
+        "Have you eaten"
+       ],
+       "ko": [
+        "먹었어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "geesst",
+         "gegesst"
+        ]
+       ],
+       "en": [
+        [
+         "Have you ate",
+         "Has you eaten"
+        ]
+       ],
+       "ko": [
+        [
+         "먹엇어요",
+         "먹았어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Noch nicht. Vielleicht gibt's im Herbst hier eine Oper!",
+      "en": "Not yet. Maybe there'll be an opera here in the autumn!",
+      "ko": "아직요. 가을에 여기서 오페라를 쓸지도 몰라요!"
+     },
+     {
+      "who": "me",
+      "de": "Toll! Wenn du nur schon wieder zu Hause wärst!",
+      "en": "Great! If only you were already home again!",
+      "ko": "좋아요! 벌써 집에 와 있으면 얼마나 좋을까요!",
+      "focus": {
+       "de": [
+        "wärst"
+       ],
+       "en": [
+        "you were"
+       ],
+       "ko": [
+        "좋을까요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "bist",
+         "warst"
+        ]
+       ],
+       "en": [
+        [
+         "you are",
+         "you be"
+        ]
+       ],
+       "ko": [
+        [
+         "좋을가요",
+         "좋을까여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Herbst"
+    ],
+    "grammar": "VIII.0"
    }
   },
   {
@@ -824,6 +955,137 @@
       "quote": 2
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wie lang kommen Wolfgang sechs Tage vor?",
+      "en": "How long do six days feel to Wolfgang?",
+      "ko": "볼프강에게 6일은 얼마나 길게 느껴져요?"
+     },
+     "options": [
+      {
+       "de": "Wie ein Jahr",
+       "en": "Like a year",
+       "ko": "일 년 같아요"
+      },
+      {
+       "de": "Wie ein Tag",
+       "en": "Like a day",
+       "ko": "하루 같아요"
+      },
+      {
+       "de": "Wie eine Stunde",
+       "en": "Like an hour",
+       "ko": "한 시간 같아요"
+      },
+      {
+       "de": "Wie ein Monat",
+       "en": "Like a month",
+       "ko": "한 달 같아요"
+      }
+     ],
+     "answer": 0,
+     "evidence": 4
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "험한 길 끝에 드레스덴에 닿은 볼프강과 통화 · 나는 아내 콘스탄체",
+     "en": "A call with Wolfgang, who reached Dresden after bad roads · I'm his wife Constanze"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo, Liebling! Ich bin erst gestern in Dresden angekommen.",
+      "en": "Hi, love! I only got to Dresden yesterday.",
+      "ko": "여보, 잘 있었어요? 어제야 드레스덴에 도착했어요."
+     },
+     {
+      "who": "me",
+      "de": "Erst gestern? Wolltet ihr nicht am Samstag da sein?",
+      "en": "Only yesterday? Weren't you going to be there on Saturday?",
+      "ko": "어제요? 토요일에 도착하려던 거 아니었어요?",
+      "focus": {
+       "de": [
+        "am Samstag"
+       ],
+       "en": [
+        "on Saturday"
+       ],
+       "ko": [
+        "토요일에"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "im Samstag",
+         "um Samstag"
+        ]
+       ],
+       "en": [
+        [
+         "in Saturday",
+         "at Saturday"
+        ]
+       ],
+       "ko": [
+        [
+         "토요일애",
+         "토요일을"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja, aber die Straßen waren so schlecht.",
+      "en": "Yes, but the roads were so bad.",
+      "ko": "네, 그런데 길이 너무 나빴어요."
+     },
+     {
+      "who": "me",
+      "de": "Ich vermisse dich, obwohl es erst sechs Tage sind.",
+      "en": "I miss you, even though it's only been six days.",
+      "ko": "겨우 엿새인데도 보고 싶어요.",
+      "focus": {
+       "de": [
+        "Tage sind"
+       ],
+       "en": [
+        "even though"
+       ],
+       "ko": [
+        "엿새인데도"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "sind Tage",
+         "Tage ist"
+        ]
+       ],
+       "en": [
+        [
+         "even through",
+         "even thought"
+        ]
+       ],
+       "ko": [
+        [
+         "엿새은데도",
+         "엿새인대도"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Samstag"
+    ],
+    "grammar": "VIII.1"
    }
   },
   {
@@ -1171,6 +1433,138 @@
       "quote": 0
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was war Wolfgangs schönster Moment?",
+      "en": "What was Wolfgang's happiest moment?",
+      "ko": "볼프강에게 가장 행복한 순간은 뭐였어요?"
+     },
+     "options": [
+      {
+       "de": "Der Brief von Constanze",
+       "en": "The letter from Constanze",
+       "ko": "콘스탄체의 편지"
+      },
+      {
+       "de": "Die schöne Tabakdose",
+       "en": "The beautiful snuffbox",
+       "ko": "아름다운 코담뱃갑"
+      },
+      {
+       "de": "Das Spiel an der Orgel",
+       "en": "Playing the organ",
+       "ko": "오르간 연주"
+      },
+      {
+       "de": "Das Konzert bei Hof",
+       "en": "The concert at court",
+       "ko": "궁정 연주회"
+      }
+     ],
+     "answer": 0,
+     "evidence": 3
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "드레스덴 궁정에서 연주한 볼프강과 통화 · 나는 아내 콘스탄체",
+     "en": "A call with Wolfgang after he plays at the Dresden court · I'm his wife Constanze"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Schatz, danke für deinen Brief! Ich war so glücklich.",
+      "en": "Darling, thank you for your letter! I was so happy.",
+      "ko": "여보, 편지 고마워요! 정말 행복했어요."
+     },
+     {
+      "who": "me",
+      "de": "Gern! Und wie war dein Konzert am Hof?",
+      "en": "You're welcome! And how was your concert at court?",
+      "ko": "천만에요! 궁정 연주회는 어땠어요?",
+      "focus": {
+       "de": [
+        "dein Konzert"
+       ],
+       "en": [
+        "how was"
+       ],
+       "ko": [
+        "어땠어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "deine Konzert",
+         "deinen Konzert"
+        ]
+       ],
+       "en": [
+        [
+         "how were",
+         "how been"
+        ]
+       ],
+       "ko": [
+        [
+         "어땟어요",
+         "어떴어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Super! Ich bekam eine schöne Dose. Und ich spielte Orgel.",
+      "en": "Great! I got a lovely snuffbox. And I played the organ.",
+      "ko": "좋았어요! 예쁜 코담뱃갑도 받았어요. 오르간도 쳤고요."
+     },
+     {
+      "who": "me",
+      "de": "Toll! Ich bin so stolz auf dich.",
+      "en": "Great! I'm so proud of you.",
+      "ko": "대단해요! 정말 자랑스러워요.",
+      "focus": {
+       "de": [
+        "stolz auf dich"
+       ],
+       "en": [
+        "proud of you"
+       ],
+       "ko": [
+        "자랑스러워요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "stolz auf dir",
+         "stolz an dich"
+        ]
+       ],
+       "en": [
+        [
+         "proud on you",
+         "proud at you"
+        ]
+       ],
+       "ko": [
+        [
+         "자랑스럽어요",
+         "자랑스러와요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Konzert",
+     "Orgel"
+    ],
+    "grammar": "VIII.2"
    }
   },
   {
@@ -1546,6 +1940,140 @@
       "quote": 1
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was will Wolfgang nach der Rückkehr tun?",
+      "en": "What does Wolfgang plan to do once he's back?",
+      "ko": "볼프강은 돌아가면 뭘 하겠다고 해요?"
+     },
+     "options": [
+      {
+       "de": "Lange reisen",
+       "en": "Travel for a long time",
+       "ko": "오래 여행하기"
+      },
+      {
+       "de": "Sich ausruhen",
+       "en": "Take a rest",
+       "ko": "푹 쉬기"
+      },
+      {
+       "de": "Nach Salzburg ziehen",
+       "en": "Move to Salzburg",
+       "ko": "잘츠부르크로 이사하기"
+      },
+      {
+       "de": "Viel arbeiten",
+       "en": "Work hard",
+       "ko": "열심히 일하기"
+      }
+     ],
+     "answer": 3,
+     "evidence": [
+      3,
+      4
+     ]
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "프랑크푸르트에 막 도착한 볼프강과 통화 · 나는 아내 콘스탄체",
+     "en": "A call with Wolfgang, just arrived in Frankfurt · I'm his wife Constanze"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo, mein Schatz! Wir sind in Frankfurt!",
+      "en": "Hi, darling! We're in Frankfurt!",
+      "ko": "여보, 저예요! 프랑크푸르트에 왔어요!"
+     },
+     {
+      "who": "me",
+      "de": "Endlich! Wie war die Reise?",
+      "en": "At last! How was the journey?",
+      "ko": "드디어요! 여행은 어땠어요?",
+      "focus": {
+       "de": [
+        "war"
+       ],
+       "en": [
+        "How was"
+       ],
+       "ko": [
+        "어땠어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "waren",
+         "wart"
+        ]
+       ],
+       "en": [
+        [
+         "How were",
+         "How been"
+        ]
+       ],
+       "ko": [
+        [
+         "어땟어요",
+         "어떴어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Sehr angenehm. Wir hatten fast immer schönes Wetter.",
+      "en": "Very pleasant. We had nice weather almost the whole time.",
+      "ko": "아주 좋았어요. 거의 내내 날씨가 좋았어요."
+     },
+     {
+      "who": "me",
+      "de": "Schön! Arbeite gut, damit du bald nach Hause kommst.",
+      "en": "Lovely! Work hard so that you can come home soon.",
+      "ko": "잘됐네요! 열심히 해서 얼른 집에 와요.",
+      "focus": {
+       "de": [
+        "kommst"
+       ],
+       "en": [
+        "so that"
+       ],
+       "ko": [
+        "열심히 해서"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "kommt",
+         "komme"
+        ]
+       ],
+       "en": [
+        [
+         "so what",
+         "such that"
+        ]
+       ],
+       "ko": [
+        [
+         "열심히 하서",
+         "열심히 해아서"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Wetter"
+    ],
+    "grammar": "VIII.1"
    }
   },
   {
@@ -1893,6 +2421,137 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was fiel auf die letzte Seite?",
+      "en": "What fell on the last page?",
+      "ko": "마지막 장 위에 무엇이 떨어졌어요?"
+     },
+     "options": [
+      {
+       "de": "Etwas Wein",
+       "en": "Some wine",
+       "ko": "포도주가 조금"
+      },
+      {
+       "de": "Viele Tränen",
+       "en": "Many tears",
+       "ko": "눈물이 많이"
+      },
+      {
+       "de": "Viel Tinte",
+       "en": "A lot of ink",
+       "ko": "잉크가 잔뜩"
+      },
+      {
+       "de": "Ein paar Regentropfen",
+       "en": "A few raindrops",
+       "ko": "빗방울 몇 개"
+      }
+     ],
+     "answer": 1,
+     "evidence": 4
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "프랑크푸르트에서 편지를 기다리는 볼프강과 통화 · 나는 아내 콘스탄체",
+     "en": "A call with Wolfgang in Frankfurt, waiting for my letter · I'm his wife Constanze"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Wenn ich nur einen Brief von dir hätte!",
+      "en": "If only I had a letter from you!",
+      "ko": "당신 편지 한 통만 있으면 좋을 텐데요!"
+     },
+     {
+      "who": "me",
+      "de": "Er kommt bestimmt bald. Wie geht es dir?",
+      "en": "It'll surely come soon. How are you?",
+      "ko": "곧 꼭 도착할 거예요. 잘 지내요?",
+      "focus": {
+       "de": [
+        "geht es dir"
+       ],
+       "en": [
+        "How are you"
+       ],
+       "ko": [
+        "잘 지내요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "geht es dich",
+         "gehst es dir"
+        ]
+       ],
+       "en": [
+        [
+         "How is you",
+         "How am you"
+        ]
+       ],
+       "ko": [
+        [
+         "잘 지네요",
+         "잘 지내여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ich vermisse dich. Beim Schreiben kamen mir die Tränen.",
+      "en": "I miss you. Tears came while I was writing.",
+      "ko": "보고 싶어요. 편지 쓰다가 눈물이 났어요."
+     },
+     {
+      "who": "me",
+      "de": "Oh, Liebling! Ich schicke dir tausend Küsse.",
+      "en": "Oh, darling! I'm sending you a thousand kisses.",
+      "ko": "아, 여보! 뽀뽀 천 번 보낼게요.",
+      "focus": {
+       "de": [
+        "schicke dir"
+       ],
+       "en": [
+        "I'm sending you"
+       ],
+       "ko": [
+        "보낼게요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "schicke dich",
+         "schickst dir"
+        ]
+       ],
+       "en": [
+        [
+         "I'm send you",
+         "I sending you"
+        ]
+       ],
+       "ko": [
+        [
+         "보낼께요",
+         "보넬게요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Träne"
+    ],
+    "grammar": "VIII.0"
    }
   },
   {
@@ -2244,6 +2903,138 @@
       "quote": 1
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Warum bleibt Wolfgang länger in München?",
+      "en": "Why does Wolfgang stay longer in Munich?",
+      "ko": "볼프강은 왜 뮌헨에 더 머물러요?"
+     },
+     "options": [
+      {
+       "de": "Er ist krank",
+       "en": "He is ill",
+       "ko": "아파서"
+      },
+      {
+       "de": "Der Kurfürst bittet ihn",
+       "en": "The Elector asked him to",
+       "ko": "선제후가 부탁해서"
+      },
+      {
+       "de": "Die Kutsche ist kaputt",
+       "en": "The carriage broke down",
+       "ko": "마차가 고장 나서"
+      },
+      {
+       "de": "Er wartet auf Geld",
+       "en": "He's waiting for money",
+       "ko": "돈을 기다려서"
+      }
+     ],
+     "answer": 1,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "뮌헨에 며칠 더 머무는 볼프강과 통화 · 나는 아내 콘스탄체",
+     "en": "A call with Wolfgang, staying a few more days in Munich · I'm his wife Constanze"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Schatz, ich bleibe noch bis zum fünften in München.",
+      "en": "Darling, I'm staying in Munich until the fifth.",
+      "ko": "여보, 5일까지 뮌헨에 더 있어요."
+     },
+     {
+      "who": "me",
+      "de": "Warum denn? Was ist los?",
+      "en": "Why? What's going on?",
+      "ko": "왜요? 무슨 일 있어요?",
+      "focus": {
+       "de": [
+        "ist los"
+       ],
+       "en": [
+        "going on"
+       ],
+       "ko": [
+        "있어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "sind los",
+         "bist los"
+        ]
+       ],
+       "en": [
+        [
+         "go on",
+         "gone on"
+        ]
+       ],
+       "ko": [
+        [
+         "있아요",
+         "잇어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Der Kurfürst will, dass ich beim Konzert spiele.",
+      "en": "The Elector wants me to play at his concert.",
+      "ko": "선제후께서 연주회에서 연주해 달래요."
+     },
+     {
+      "who": "me",
+      "de": "Schön! Nächsten Sommer fahren wir zusammen ins Bad, ja?",
+      "en": "Nice! Next summer we'll go to a spa together, okay?",
+      "ko": "잘됐네요! 내년 여름엔 같이 온천에 가요, 알았죠?",
+      "focus": {
+       "de": [
+        "Nächsten Sommer"
+       ],
+       "en": [
+        "we'll go"
+       ],
+       "ko": [
+        "온천에 가요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Nächster Sommer",
+         "Nächstem Sommer"
+        ]
+       ],
+       "en": [
+        [
+         "we'll goes",
+         "we'll going"
+        ]
+       ],
+       "ko": [
+        [
+         "온천에 가아요",
+         "온천애 가요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Sommer",
+     "Bad"
+    ],
+    "grammar": "VIII.2"
    }
   },
   {
@@ -2632,6 +3423,138 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Warum ging Wolfgang hinter die Bühne?",
+      "en": "Why did Wolfgang go behind the scenes?",
+      "ko": "볼프강은 왜 무대 뒤로 갔어요?"
+     },
+     "options": [
+      {
+       "de": "Er wollte Papageno singen",
+       "en": "To sing Papageno's part",
+       "ko": "파파게노를 부르고 싶어서"
+      },
+      {
+       "de": "Er wollte selbst Glockenspiel spielen",
+       "en": "To play the bells himself",
+       "ko": "글로켄슈필을 직접 쳐 보고 싶어서"
+      },
+      {
+       "de": "Er suchte Hofer",
+       "en": "To look for Hofer",
+       "ko": "호퍼를 찾으려고"
+      },
+      {
+       "de": "Es war zu laut",
+       "en": "It was too loud there",
+       "ko": "너무 시끄러워서"
+      }
+     ],
+     "answer": 1,
+     "evidence": 2
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "〈마술피리〉 공연에서 돌아온 볼프강과 통화 · 나는 아내 콘스탄체",
+     "en": "A call with Wolfgang, back from The Magic Flute · I'm his wife Constanze"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Liebling, nach der Oper fand ich deinen Brief!",
+      "en": "Darling, after the opera I found your letter!",
+      "ko": "여보, 오페라 끝나고 당신 편지를 발견했어요!"
+     },
+     {
+      "who": "me",
+      "de": "Schön! Geht Mama morgen mit dir hin?",
+      "en": "Lovely! Is Mama going with you tomorrow?",
+      "ko": "좋아요! 내일은 엄마가 같이 가요?",
+      "focus": {
+       "de": [
+        "mit dir"
+       ],
+       "en": [
+        "Is Mama going"
+       ],
+       "ko": [
+        "같이 가요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "mit dich",
+         "mit du"
+        ]
+       ],
+       "en": [
+        [
+         "Are Mama going",
+         "Is Mama go"
+        ]
+       ],
+       "ko": [
+        [
+         "같이 가아요",
+         "가치 가요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja! Und wenn du zurückkommst, sitzen wir in einer Loge.",
+      "en": "Yes! And when you come back, we'll sit in a box.",
+      "ko": "네! 그리고 당신이 돌아오면 같이 칸막이 좌석에 앉아요."
+     },
+     {
+      "who": "me",
+      "de": "Gern! Wenn ich nur schon bei dir wäre!",
+      "en": "I'd love to! If only I were with you already!",
+      "ko": "좋아요! 벌써 당신 곁에 있으면 좋을 텐데요!",
+      "focus": {
+       "de": [
+        "wäre"
+       ],
+       "en": [
+        "I were"
+       ],
+       "ko": [
+        "좋을 텐데요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "bin",
+         "war"
+        ]
+       ],
+       "en": [
+        [
+         "I am",
+         "I be"
+        ]
+       ],
+       "ko": [
+        [
+         "좋은 텐데요",
+         "좋을 탠데요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "zurückkommen",
+     "Loge"
+    ],
+    "grammar": "VIII.0"
    }
   }
  ]

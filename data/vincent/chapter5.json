@@ -385,6 +385,138 @@
     "fr": "Bientôt les vergers en fleur",
     "en": "Soon, the orchards in blossom",
     "ko": "곧, 꽃 핀 과수원"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qui a gardé la maison en ordre ?",
+      "en": "Who kept the house in good order?",
+      "ko": "누가 집을 돌보고 정리해 두었나요?"
+     },
+     "options": [
+      {
+       "fr": "Théo et Jo",
+       "en": "Theo and Jo",
+       "ko": "테오와 조"
+      },
+      {
+       "fr": "Gauguin et Bernard",
+       "en": "Gauguin and Bernard",
+       "ko": "고갱과 베르나르"
+      },
+      {
+       "fr": "La femme de ménage et Roulin",
+       "en": "The housekeeper and Roulin",
+       "ko": "가정부와 룰랭"
+      },
+      {
+       "fr": "Les voisins et le docteur",
+       "en": "The neighbours and the doctor",
+       "ko": "이웃들과 의사"
+      }
+     ],
+     "answer": 2,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "병원에 있는 빈센트와 새해 첫날 통화",
+     "en": "On the phone with Vincent in hospital on New Year's Day"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Je suis désolé pour ton voyage, Théo.",
+      "en": "I'm sorry about your journey, Theo.",
+      "ko": "먼 길 오게 해서 미안해요, 테오."
+     },
+     {
+      "who": "me",
+      "fr": "Ne t'inquiète pas. Comment tu te sens ?",
+      "en": "Don't worry. How are you feeling?",
+      "ko": "걱정 마세요. 몸은 좀 어때요?",
+      "focus": {
+       "fr": [
+        "tu te sens"
+       ],
+       "en": [
+        "are you feeling"
+       ],
+       "ko": [
+        "어때요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "tu se sens",
+         "tu te sent"
+        ]
+       ],
+       "en": [
+        [
+         "you are feeling",
+         "are you feel"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼요",
+         "어때여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Mieux. Bientôt, je vais reprendre mon travail.",
+      "en": "Better. Soon I'll be back at work.",
+      "ko": "나아졌어요. 곧 다시 일할 거예요."
+     },
+     {
+      "who": "me",
+      "fr": "Super. Mais d'abord, repose-toi bien à l'hôpital.",
+      "en": "Great. But first, rest well in hospital.",
+      "ko": "좋아요. 그래도 먼저 병원에서 푹 쉬세요.",
+      "focus": {
+       "fr": [
+        "repose-toi"
+       ],
+       "en": [
+        "rest"
+       ],
+       "ko": [
+        "쉬세요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "reposes-toi",
+         "repose-te"
+        ]
+       ],
+       "en": [
+        [
+         "rests",
+         "resting"
+        ]
+       ],
+       "ko": [
+        [
+         "쉬어세요",
+         "쉬세여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "reprendre",
+     "hôpital"
+    ],
+    "grammar": "V.1"
    }
   },
   {
@@ -661,6 +793,139 @@
     "fr": "Rentré chez moi aujourd'hui",
     "en": "Home again today",
     "ko": "오늘 집에 돌아왔어"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Quelle nouvelle Vincent donne-t-il à Théo ?",
+      "en": "What news does Vincent give Theo?",
+      "ko": "빈센트는 테오에게 무슨 소식을 전하나요?"
+     },
+     "options": [
+      {
+       "fr": "Il part en voyage",
+       "en": "He is going away",
+       "ko": "여행을 떠나요"
+      },
+      {
+       "fr": "Il a vendu un tableau",
+       "en": "He sold a painting",
+       "ko": "그림을 팔았어요"
+      },
+      {
+       "fr": "Gauguin est revenu",
+       "en": "Gauguin came back",
+       "ko": "고갱이 돌아왔어요"
+      },
+      {
+       "fr": "Il est rentré chez lui",
+       "en": "He has come home",
+       "ko": "집에 돌아왔어요"
+      }
+     ],
+     "answer": 3,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "집에 돌아온 빈센트와 안부 통화",
+     "en": "A how-are-you call: Vincent is back home"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Juste un mot, Théo : je suis rentré aujourd'hui !",
+      "en": "Just a word, Theo: I came home today!",
+      "ko": "한마디만요, 테오. 오늘 집에 돌아왔어요!"
+     },
+     {
+      "who": "me",
+      "fr": "Enfin ! Tu te sens comment ?",
+      "en": "At last! How do you feel?",
+      "ko": "드디어요! 기분은 어때요?",
+      "focus": {
+       "fr": [
+        "Tu te sens"
+       ],
+       "en": [
+        "How do you feel"
+       ],
+       "ko": [
+        "어때요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu se sens",
+         "Tu te sentes"
+        ]
+       ],
+       "en": [
+        [
+         "How does you feel",
+         "How do you feels"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼요",
+         "어떠요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Bien. Des médecins sont venus voir ma peinture.",
+      "en": "Good. Some doctors came to see my painting.",
+      "ko": "좋아요. 의사들이 와서 제 그림을 봤어요."
+     },
+     {
+      "who": "me",
+      "fr": "Super ! Et le docteur Rey, il était content ?",
+      "en": "Great! And Dr Rey, was he pleased?",
+      "ko": "잘됐어요! 레 선생님은 좋아했어요?",
+      "focus": {
+       "fr": [
+        "il était"
+       ],
+       "en": [
+        "was he"
+       ],
+       "ko": [
+        "좋아했어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "il étais",
+         "il a été était"
+        ]
+       ],
+       "en": [
+        [
+         "were he",
+         "is he was"
+        ]
+       ],
+       "ko": [
+        [
+         "좋아핬어요",
+         "좋아해었어요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "rentrer",
+     "médecin",
+     "peinture"
+    ],
+    "grammar": "V.0"
    }
   },
   {
@@ -966,6 +1231,137 @@
     "fr": "Un panier de citrons et d'oranges",
     "en": "A basket of lemons and oranges",
     "ko": "레몬과 오렌지 한 바구니"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Que fait Roulin pour sa petite fille ?",
+      "en": "What does Roulin do for his little girl?",
+      "ko": "룰랭은 막내에게 무엇을 해 주나요?"
+     },
+     "options": [
+      {
+       "fr": "Il lui lit un livre",
+       "en": "He reads to her",
+       "ko": "책을 읽어 줘요"
+      },
+      {
+       "fr": "Il fait son portrait",
+       "en": "He paints her",
+       "ko": "초상화를 그려 줘요"
+      },
+      {
+       "fr": "Il chante pour elle",
+       "en": "He sings to her",
+       "ko": "노래를 불러 줘요"
+      },
+      {
+       "fr": "Il lui donne des oranges",
+       "en": "He gives her oranges",
+       "ko": "오렌지를 줘요"
+      }
+     ],
+     "answer": 2,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "룰랭이 떠난 다음 날, 빈센트와 통화",
+     "en": "On the phone with Vincent the day after Roulin left"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Hier, Roulin est parti. C'était triste.",
+      "en": "Yesterday Roulin left. It was sad.",
+      "ko": "어제 룰랭이 떠났어요. 슬펐어요."
+     },
+     {
+      "who": "me",
+      "fr": "Oh, dommage. Tu lui as dit au revoir ?",
+      "en": "Oh, what a shame. Did you say goodbye to him?",
+      "ko": "아, 섭섭하네요. 작별 인사는 했어요?",
+      "focus": {
+       "fr": [
+        "Tu lui as dit"
+       ],
+       "en": [
+        "Did you say"
+       ],
+       "ko": [
+        "했어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu le as dit",
+         "Tu lui es dit"
+        ]
+       ],
+       "en": [
+        [
+         "Did you said",
+         "Do you said"
+        ]
+       ],
+       "ko": [
+        [
+         "햇어요",
+         "하었어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui. Il chantait pour sa petite, d'une voix si douce.",
+      "en": "Yes. He was singing to his little girl, so gently.",
+      "ko": "네. 어린 딸한테 아주 다정한 목소리로 노래를 불러 줬어요."
+     },
+     {
+      "who": "me",
+      "fr": "C'est beau. Et toi, qu'est-ce que tu peins maintenant ?",
+      "en": "That's lovely. And what are you painting now?",
+      "ko": "예쁘네요. 형은 요즘 뭘 그려요?",
+      "focus": {
+       "fr": [
+        "qu'est-ce que tu peins"
+       ],
+       "en": [
+        "what are you painting"
+       ],
+       "ko": [
+        "그려요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "qu'est-ce que tu peint",
+         "qu'est-ce tu peins"
+        ]
+       ],
+       "en": [
+        [
+         "what you are painting",
+         "what are you paint"
+        ]
+       ],
+       "ko": [
+        [
+         "그리요",
+         "그러요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "doux"
+    ],
+    "grammar": "V.2"
    }
   },
   {
@@ -1264,6 +1660,142 @@
     "fr": "La Berceuse entre les tournesols",
     "en": "The Berceuse between the sunflowers",
     "ko": "해바라기 사이의 자장가"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qui Vincent imagine-t-il devant ce tableau ?",
+      "en": "Who does Vincent imagine looking at this picture?",
+      "ko": "빈센트는 누가 이 그림을 보는 모습을 상상하나요?"
+     },
+     "options": [
+      {
+       "fr": "Des paysans",
+       "en": "Peasants",
+       "ko": "농부들"
+      },
+      {
+       "fr": "Des médecins",
+       "en": "Doctors",
+       "ko": "의사들"
+      },
+      {
+       "fr": "Des marchands",
+       "en": "Dealers",
+       "ko": "화상들"
+      },
+      {
+       "fr": "Des marins",
+       "en": "Sailors",
+       "ko": "뱃사람들"
+      }
+     ],
+     "answer": 3,
+     "evidence": 1,
+     "mark": {
+      "fr": "des marins",
+      "en": "sailors",
+      "ko": "뱃사람들"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "해바라기 그림을 다시 그린 빈센트와 통화",
+     "en": "On the phone with Vincent, who has repeated his sunflowers"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Tu te souviens des tournesols, dans la chambre de Gauguin ?",
+      "en": "Do you remember the sunflowers in Gauguin's room?",
+      "ko": "고갱 방에 있던 해바라기, 기억나요?"
+     },
+     {
+      "who": "me",
+      "fr": "Oui, je m'en souviens. Ils étaient très beaux.",
+      "en": "Yes, I remember them. They were very beautiful.",
+      "ko": "네, 기억나요. 정말 아름다웠어요.",
+      "focus": {
+       "fr": [
+        "je m'en souviens"
+       ],
+       "en": [
+        "I remember"
+       ],
+       "ko": [
+        "기억나요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "je me en souviens",
+         "je m'en souvient"
+        ]
+       ],
+       "en": [
+        [
+         "I remembers",
+         "I am remember"
+        ]
+       ],
+       "ko": [
+        [
+         "기억났요",
+         "기억나아요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "J'ai fait deux copies, tout à fait pareilles.",
+      "en": "I've made two copies, exactly the same.",
+      "ko": "똑같은 그림을 두 점 더 그렸어요."
+     },
+     {
+      "who": "me",
+      "fr": "Bravo ! Et la Berceuse, c'est pour qui ?",
+      "en": "Well done! And the Berceuse, who is it for?",
+      "ko": "대단해요! 그럼 자장가 그림은 누구를 위한 거예요?",
+      "focus": {
+       "fr": [
+        "c'est pour qui"
+       ],
+       "en": [
+        "who is it for"
+       ],
+       "ko": [
+        "거예요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "c'est qui pour",
+         "ce est pour qui"
+        ]
+       ],
+       "en": [
+        [
+         "who it is for",
+         "whom is it"
+        ]
+       ],
+       "ko": [
+        [
+         "거이에요",
+         "것예요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "pareil"
+    ],
+    "grammar": "V.1"
    }
   },
   {
@@ -1547,6 +2079,137 @@
     "fr": "Un temps magnifique sans vent",
     "en": "Magnificent weather, no wind",
     "ko": "바람 없이 근사한 날씨"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Comment sont les gens d'ici avec Vincent ?",
+      "en": "How are the people here with Vincent?",
+      "ko": "이곳 사람들은 빈센트를 어떻게 대하나요?"
+     },
+     "options": [
+      {
+       "fr": "Froids et distants",
+       "en": "Cold and distant",
+       "ko": "차갑고 쌀쌀맞아요"
+      },
+      {
+       "fr": "Durs et méchants",
+       "en": "Harsh and mean",
+       "ko": "거칠고 못되게 굴어요"
+      },
+      {
+       "fr": "Gentils et attentifs",
+       "en": "Kind and thoughtful",
+       "ko": "친절하고 사려 깊어요"
+      },
+      {
+       "fr": "Curieux et moqueurs",
+       "en": "Curious and mocking",
+       "ko": "신기해하며 놀려요"
+      }
+     ],
+     "answer": 2,
+     "evidence": 2
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "날씨 좋은 날, 빈센트와 안부 통화",
+     "en": "A how-are-you call with Vincent on a fine day"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Il faisait très beau aujourd'hui, sans vent !",
+      "en": "The weather was lovely today, no wind!",
+      "ko": "오늘 날씨가 정말 좋았어요. 바람도 없고요!"
+     },
+     {
+      "who": "me",
+      "fr": "Super ! Et Gauguin, il t'a écrit ?",
+      "en": "Great! And has Gauguin written to you?",
+      "ko": "잘됐어요! 고갱은 편지했어요?",
+      "focus": {
+       "fr": [
+        "il t'a écrit"
+       ],
+       "en": [
+        "has Gauguin written"
+       ],
+       "ko": [
+        "편지했어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "il t'as écrit",
+         "il te a écrit"
+        ]
+       ],
+       "en": [
+        [
+         "has Gauguin wrote",
+         "have Gauguin written"
+        ]
+       ],
+       "ko": [
+        [
+         "편지햇어요",
+         "편지하었어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui, ce matin. Je lui ai répondu tout de suite.",
+      "en": "Yes, this morning. I answered him straight away.",
+      "ko": "네, 오늘 아침에요. 바로 답장했어요."
+     },
+     {
+      "who": "me",
+      "fr": "C'est bien. Et les voisins, ils sont gentils ?",
+      "en": "Good. And the neighbours, are they nice?",
+      "ko": "잘했어요. 이웃들은 친절해요?",
+      "focus": {
+       "fr": [
+        "ils sont"
+       ],
+       "en": [
+        "are they"
+       ],
+       "ko": [
+        "친절해요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ils ont",
+         "ils est"
+        ]
+       ],
+       "en": [
+        [
+         "is they",
+         "do they"
+        ]
+       ],
+       "ko": [
+        [
+         "친절하요",
+         "친절해여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "répondre"
+    ],
+    "grammar": "V.0"
    }
   },
   {
@@ -1820,6 +2483,146 @@
     "fr": "La visite de Signac",
     "en": "Signac's visit",
     "ko": "시냐크가 다녀갔어"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qu'est-ce que Vincent a donné à Signac ?",
+      "en": "What did Vincent give Signac?",
+      "ko": "빈센트는 시냐크에게 무엇을 주었나요?"
+     },
+     "options": [
+      {
+       "fr": "Un livre",
+       "en": "A book",
+       "ko": "책"
+      },
+      {
+       "fr": "Un portrait",
+       "en": "A portrait",
+       "ko": "초상화"
+      },
+      {
+       "fr": "Une lettre",
+       "en": "A letter",
+       "ko": "편지"
+      },
+      {
+       "fr": "Une nature morte",
+       "en": "A still life",
+       "ko": "정물화"
+      }
+     ],
+     "answer": 3,
+     "evidence": [
+      0,
+      1
+     ],
+     "mark": {
+      "fr": "une nature morte",
+      "en": "a still life",
+      "ko": "정물화"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "시냐크가 다녀간 뒤 빈센트와 통화",
+     "en": "On the phone with Vincent after Signac's visit"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Signac est venu me voir. Ça m'a fait du bien.",
+      "en": "Signac came to see me. It did me good.",
+      "ko": "시냐크가 보러 왔어요. 덕분에 기운이 났어요."
+     },
+     {
+      "who": "me",
+      "fr": "Signac ? Il était comment ? On dit qu'il est violent.",
+      "en": "Signac? What was he like? People say he's violent.",
+      "ko": "시냐크요? 어땠어요? 거칠다고들 하던데요.",
+      "focus": {
+       "fr": [
+        "Il était comment"
+       ],
+       "en": [
+        "What was he like"
+       ],
+       "ko": [
+        "어땠어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Il était comme",
+         "Il étais comment"
+        ]
+       ],
+       "en": [
+        [
+         "What were he like",
+         "How was he like"
+        ]
+       ],
+       "ko": [
+        [
+         "어땟어요",
+         "어떴어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Non, il était très calme. J'en ai profité pour sortir.",
+      "en": "No, he was very calm. I took the chance to go out.",
+      "ko": "아니요, 아주 차분했어요. 그 김에 바깥에도 나갔어요."
+     },
+     {
+      "who": "me",
+      "fr": "Super ! Tu t'es acheté quelque chose ?",
+      "en": "Great! Did you buy yourself something?",
+      "ko": "잘했어요! 뭐 산 거 있어요?",
+      "focus": {
+       "fr": [
+        "Tu t'es acheté"
+       ],
+       "en": [
+        "Did you buy"
+       ],
+       "ko": [
+        "산 거"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu t'as acheté",
+         "Tu te es acheté"
+        ]
+       ],
+       "en": [
+        [
+         "Did you bought",
+         "Do you bought"
+        ]
+       ],
+       "ko": [
+        [
+         "사은 거",
+         "산 것이"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "calme",
+     "profiter"
+    ],
+    "grammar": "V.2"
    }
   },
   {
@@ -2130,6 +2933,141 @@
     "fr": "Un verger de pêchers",
     "en": "A peach orchard",
     "ko": "복숭아나무 과수원"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Que souhaite Vincent à Théo et sa fiancée ?",
+      "en": "What does Vincent wish Theo and his fiancée?",
+      "ko": "빈센트는 테오와 약혼녀에게 무엇을 빌어 주나요?"
+     },
+     "options": [
+      {
+       "fr": "Beaucoup de bonheur",
+       "en": "Every happiness",
+       "ko": "큰 행복"
+      },
+      {
+       "fr": "Un bon voyage",
+       "en": "A good trip",
+       "ko": "즐거운 여행"
+      },
+      {
+       "fr": "Une bonne santé",
+       "en": "Good health",
+       "ko": "건강"
+      },
+      {
+       "fr": "Beaucoup d'argent",
+       "en": "Lots of money",
+       "ko": "많은 돈"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "en": "every happiness"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "결혼을 앞둔 테오에게 축하를 건네는 빈센트",
+     "en": "Vincent congratulates Theo, who is about to get married"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Je vous souhaite beaucoup de bonheur, à toi et Jo !",
+      "en": "I wish you lots of happiness, you and Jo!",
+      "ko": "테오랑 조, 둘 다 정말 행복하길 바라요!"
+     },
+     {
+      "who": "me",
+      "fr": "Merci, Vincent ! On se marie bientôt, tu sais.",
+      "en": "Thanks, Vincent! We're getting married soon, you know.",
+      "ko": "고마워요, 형! 우리 곧 결혼해요.",
+      "focus": {
+       "fr": [
+        "On se marie"
+       ],
+       "en": [
+        "We're getting married"
+       ],
+       "ko": [
+        "결혼해요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "On me marie",
+         "On se marient"
+        ]
+       ],
+       "en": [
+        [
+         "We're get married",
+         "We getting married"
+        ]
+       ],
+       "ko": [
+        [
+         "결혼하요",
+         "결혼해여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Roulin est passé. Il t'envoie aussi ses félicitations.",
+      "en": "Roulin dropped by. He sends his congratulations too.",
+      "ko": "룰랭이 다녀갔어요. 룰랭도 축하한대요."
+     },
+     {
+      "who": "me",
+      "fr": "C'est gentil. Remercie-le pour moi, s'il te plaît.",
+      "en": "That's kind. Thank him for me, please.",
+      "ko": "고맙네요. 저 대신 고맙다고 전해 주세요.",
+      "focus": {
+       "fr": [
+        "Remercie-le"
+       ],
+       "en": [
+        "Thank him"
+       ],
+       "ko": [
+        "전해 주세요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Remercies-le",
+         "Remercie-lui"
+        ]
+       ],
+       "en": [
+        [
+         "Thanks him",
+         "Thank he"
+        ]
+       ],
+       "ko": [
+        [
+         "전해 줘세요",
+         "전해 주시요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "souhaiter",
+     "bonheur"
+    ],
+    "grammar": "V.1"
    }
   }
  ]

@@ -444,6 +444,139 @@
     "fr": "Un carré de blé à la fenêtre",
     "en": "A square of wheat at the window",
     "ko": "창밖의 네모난 밀밭"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Où Vincent travaille-t-il depuis son arrivée ?",
+      "en": "Where has Vincent worked since he arrived?",
+      "ko": "빈센트는 도착한 뒤로 어디에서 그림을 그렸나요?"
+     },
+     "options": [
+      {
+       "fr": "Dans les champs",
+       "en": "In the fields",
+       "ko": "들판에서"
+      },
+      {
+       "fr": "Au village",
+       "en": "In the village",
+       "ko": "마을에서"
+      },
+      {
+       "fr": "Au bord de la mer",
+       "en": "By the sea",
+       "ko": "바닷가에서"
+      },
+      {
+       "fr": "Dans le jardin",
+       "en": "In the garden",
+       "ko": "정원에서"
+      }
+     ],
+     "answer": 3,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "생레미에 막 온 빈센트와 통화",
+     "en": "On the phone with Vincent, just arrived in Saint-Rémy"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Ici, le jardin avec ses grands pins me suffit.",
+      "en": "Here, the garden with its big pines is enough for me.",
+      "ko": "여기선 큰 소나무가 있는 정원만으로 충분해요."
+     },
+     {
+      "who": "me",
+      "fr": "Et ta chambre, elle est comment ?",
+      "en": "And your room, what's it like?",
+      "ko": "방은 어때요?",
+      "focus": {
+       "fr": [
+        "elle est comment"
+       ],
+       "en": [
+        "what's it like"
+       ],
+       "ko": [
+        "어때요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "elle est comme",
+         "elle a comment"
+        ]
+       ],
+       "en": [
+        [
+         "what it's like is",
+         "how's it like"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼요",
+         "어때여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Petite, avec des rideaux verts et une fenêtre.",
+      "en": "Small, with green curtains and a window.",
+      "ko": "작아요. 초록 커튼에 창문이 하나 있어요."
+     },
+     {
+      "who": "me",
+      "fr": "Si tu veux des livres, je t'en enverrai.",
+      "en": "If you want some books, I'll send you some.",
+      "ko": "책 필요하면 보내 줄게요.",
+      "focus": {
+       "fr": [
+        "je t'en enverrai"
+       ],
+       "en": [
+        "I'll send"
+       ],
+       "ko": [
+        "필요하면"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "je t'en envoierai",
+         "je t'en enverrais"
+        ]
+       ],
+       "en": [
+        [
+         "I'd sent",
+         "I'll sent"
+        ]
+       ],
+       "ko": [
+        [
+         "필요하으면",
+         "필요면"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "pin",
+     "rideau",
+     "suffire"
+    ],
+    "grammar": "VI.0"
    }
   },
   {
@@ -781,6 +914,141 @@
     "fr": "L'étoile du matin",
     "en": "The morning star",
     "ko": "샛별"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qu'est-ce que Vincent demande d'abord à Théo ?",
+      "en": "What does Vincent first ask Theo to send?",
+      "ko": "빈센트는 먼저 테오에게 무엇을 보내 달라고 하나요?"
+     },
+     "options": [
+      {
+       "fr": "Des livres",
+       "en": "Books",
+       "ko": "책"
+      },
+      {
+       "fr": "Du tabac",
+       "en": "Tobacco",
+       "ko": "담배"
+      },
+      {
+       "fr": "Des pinceaux",
+       "en": "Brushes",
+       "ko": "붓"
+      },
+      {
+       "fr": "Des cadres",
+       "en": "Frames",
+       "ko": "액자"
+      }
+     ],
+     "answer": 2,
+     "evidence": 0,
+     "mark": {
+      "en": "brushes"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "붓과 캔버스를 부탁하는 빈센트",
+     "en": "Vincent asks for brushes and canvas"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Théo, je voudrais quelques brosses ordinaires, s'il te plaît.",
+      "en": "Theo, I'd like a few ordinary brushes, please.",
+      "ko": "테오, 보통 붓 몇 자루 부탁해요."
+     },
+     {
+      "who": "me",
+      "fr": "Bien sûr. Tu voudrais autre chose ?",
+      "en": "Of course. Would you like anything else?",
+      "ko": "물론이죠. 다른 것도 필요해요?",
+      "focus": {
+       "fr": [
+        "Tu voudrais"
+       ],
+       "en": [
+        "Would you like"
+       ],
+       "ko": [
+        "필요해요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu voudras",
+         "Tu voudrait"
+        ]
+       ],
+       "en": [
+        [
+         "Would you liked",
+         "Will you like"
+        ]
+       ],
+       "ko": [
+        [
+         "필요하요",
+         "필요해여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui, cinq mètres de toile, si c'est possible.",
+      "en": "Yes, five metres of canvas, if possible.",
+      "ko": "네, 가능하면 캔버스 천 5미터요."
+     },
+     {
+      "who": "me",
+      "fr": "D'accord, je t'envoie tout ça cette semaine.",
+      "en": "OK, I'll send you all that this week.",
+      "ko": "알았어요, 이번 주에 다 보낼게요.",
+      "focus": {
+       "fr": [
+        "je t'envoie"
+       ],
+       "en": [
+        "I'll send you"
+       ],
+       "ko": [
+        "보낼게요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "je te envoie",
+         "je t'envoies"
+        ]
+       ],
+       "en": [
+        [
+         "I'll sent you",
+         "I'll sends you"
+        ]
+       ],
+       "ko": [
+        [
+         "보낼께요",
+         "보낸게요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "brosse",
+     "ordinaire"
+    ],
+    "grammar": "VI.1"
    }
   },
   {
@@ -1138,6 +1406,142 @@
     "fr": "Le blé après l'orage",
     "en": "Wheat after the storm",
     "ko": "폭풍우 지난 밀밭"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qu'y a-t-il au premier plan du paysage ?",
+      "en": "What is in the foreground of the landscape?",
+      "ko": "풍경화 앞쪽에는 무엇이 있나요?"
+     },
+     "options": [
+      {
+       "fr": "Des oliviers",
+       "en": "Olive trees",
+       "ko": "올리브나무"
+      },
+      {
+       "fr": "Un grand nuage",
+       "en": "A big cloud",
+       "ko": "큰 구름"
+      },
+      {
+       "fr": "Des cabanes",
+       "en": "Some huts",
+       "ko": "오두막"
+      },
+      {
+       "fr": "Du blé couché",
+       "en": "Flattened wheat",
+       "ko": "쓰러진 밀"
+      }
+     ],
+     "answer": 3,
+     "evidence": 2,
+     "mark": {
+      "ko": "쓰러진 밀"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "소포를 받은 빈센트의 고마움",
+     "en": "Vincent thanks Theo for the parcel"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Merci pour le colis : les toiles, le tabac, le chocolat !",
+      "en": "Thanks for the parcel: the canvases, the tobacco, the chocolate!",
+      "ko": "소포 고마워요. 캔버스, 담배, 초콜릿까지요!"
+     },
+     {
+      "who": "me",
+      "fr": "De rien. Tu peins quoi en ce moment ?",
+      "en": "You're welcome. What are you painting at the moment?",
+      "ko": "천만에요. 요즘 뭘 그려요?",
+      "focus": {
+       "fr": [
+        "Tu peins quoi"
+       ],
+       "en": [
+        "What are you painting"
+       ],
+       "ko": [
+        "그려요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu peint quoi",
+         "Tu peins que"
+        ]
+       ],
+       "en": [
+        [
+         "What you are painting",
+         "What are you paint"
+        ]
+       ],
+       "ko": [
+        [
+         "그리요",
+         "그러요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Un champ de blé, couché par l'orage.",
+      "en": "A wheat field, flattened by the storm.",
+      "ko": "폭풍에 쓰러진 밀밭이요."
+     },
+     {
+      "who": "me",
+      "fr": "Si j'étais avec toi, j'aimerais bien voir ça !",
+      "en": "If I were with you, I'd love to see that!",
+      "ko": "제가 거기 있으면 꼭 보고 싶을 거예요!",
+      "focus": {
+       "fr": [
+        "Si j'étais"
+       ],
+       "en": [
+        "If I were"
+       ],
+       "ko": [
+        "있으면"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Si je serais",
+         "Si j'étais été"
+        ]
+       ],
+       "en": [
+        [
+         "If I would be",
+         "If I am were"
+        ]
+       ],
+       "ko": [
+        [
+         "있면",
+         "있으며는"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "blé",
+     "orage",
+     "tabac"
+    ],
+    "grammar": "VI.2"
    }
   },
   {
@@ -1456,6 +1860,142 @@
     "fr": "Un nouveau ciel étoilé",
     "en": "A new starry sky",
     "ko": "새로운 별밤"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Que voudrait lire Vincent ?",
+      "en": "What would Vincent like to read?",
+      "ko": "빈센트는 무엇을 읽고 싶어 하나요?"
+     },
+     "options": [
+      {
+       "fr": "La Bible",
+       "en": "The Bible",
+       "ko": "성경"
+      },
+      {
+       "fr": "Un roman de Loti",
+       "en": "A Loti novel",
+       "ko": "로티의 소설"
+      },
+      {
+       "fr": "Un journal",
+       "en": "A newspaper",
+       "ko": "신문"
+      },
+      {
+       "fr": "Du Shakespeare",
+       "en": "Shakespeare",
+       "ko": "셰익스피어"
+      }
+     ],
+     "answer": 3,
+     "evidence": 4,
+     "mark": {
+      "fr": "Shakespeare",
+      "en": "Shakespeare",
+      "ko": "셰익스피어"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "올리브 나무와 별밤을 그린 빈센트의 부탁",
+     "en": "Vincent, painting olive trees and stars, asks for a book"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "J'ai un paysage d'oliviers et un nouveau ciel étoilé.",
+      "en": "I have a landscape with olive trees and a new starry sky.",
+      "ko": "올리브 나무 풍경이랑 새 별밤 그림이 있어요."
+     },
+     {
+      "who": "me",
+      "fr": "Super ! Tu as besoin de quelque chose ?",
+      "en": "Great! Do you need anything?",
+      "ko": "좋아요! 필요한 거 있어요?",
+      "focus": {
+       "fr": [
+        "Tu as besoin"
+       ],
+       "en": [
+        "Do you need"
+       ],
+       "ko": [
+        "있어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu es besoin",
+         "Tu a besoin"
+        ]
+       ],
+       "en": [
+        [
+         "Does you need",
+         "Do you needs"
+        ]
+       ],
+       "ko": [
+        [
+         "있아요",
+         "있요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Je voudrais un Shakespeare, pour lire de temps en temps.",
+      "en": "I'd like a Shakespeare, to read now and then.",
+      "ko": "셰익스피어 책이 있으면 좋겠어요. 가끔 읽게요."
+     },
+     {
+      "who": "me",
+      "fr": "Si je le trouve, je te l'enverrai vite.",
+      "en": "If I find it, I'll send it to you quickly.",
+      "ko": "찾으면 바로 보내 줄게요.",
+      "focus": {
+       "fr": [
+        "je te l'enverrai"
+       ],
+       "en": [
+        "I'll send it"
+       ],
+       "ko": [
+        "찾으면"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "je te l'enverrais",
+         "je le t'enverrai"
+        ]
+       ],
+       "en": [
+        [
+         "I'd send it",
+         "I'll sent it"
+        ]
+       ],
+       "ko": [
+        [
+         "찾면",
+         "찾아면"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "paysage"
+    ],
+    "grammar": "VI.1"
    }
   },
   {
@@ -1812,6 +2352,143 @@
     "fr": "Des cyprès dans le bleu",
     "en": "Cypresses in the blue",
     "ko": "파랑 속의 사이프러스"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Quels arbres occupent encore Vincent ?",
+      "en": "Which trees still preoccupy Vincent?",
+      "ko": "빈센트의 마음을 여전히 사로잡는 나무는 무엇인가요?"
+     },
+     "options": [
+      {
+       "fr": "Les oliviers",
+       "en": "The olive trees",
+       "ko": "올리브나무"
+      },
+      {
+       "fr": "Les pins",
+       "en": "The pines",
+       "ko": "소나무"
+      },
+      {
+       "fr": "Les saules",
+       "en": "The willows",
+       "ko": "버드나무"
+      },
+      {
+       "fr": "Les cyprès",
+       "en": "The cypresses",
+       "ko": "사이프러스"
+      }
+     ],
+     "answer": 3,
+     "evidence": 1,
+     "mark": {
+      "fr": "Les cyprès",
+      "en": "The cypresses",
+      "ko": "사이프러스"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "더위 속에 사이프러스를 그리는 빈센트와 통화",
+     "en": "On the phone with Vincent, painting cypresses in the heat"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Il fait une belle chaleur. J'ai douze toiles en cours !",
+      "en": "It's lovely and hot. I've got twelve canvases on the go!",
+      "ko": "날이 따뜻해요. 그리는 그림이 열두 점이에요!"
+     },
+     {
+      "who": "me",
+      "fr": "Douze ! Qu'est-ce que tu peins surtout ?",
+      "en": "Twelve! What are you painting mostly?",
+      "ko": "열두 점이요! 주로 뭘 그려요?",
+      "focus": {
+       "fr": [
+        "Qu'est-ce que tu peins"
+       ],
+       "en": [
+        "What are you painting"
+       ],
+       "ko": [
+        "그려요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Qu'est-ce que tu peint",
+         "Qu'est-ce tu peins"
+        ]
+       ],
+       "en": [
+        [
+         "What you are painting",
+         "What are you paint"
+        ]
+       ],
+       "ko": [
+        [
+         "그리요",
+         "그러요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Les cyprès. Je voudrais en faire comme mes tournesols.",
+      "en": "The cypresses. I'd like to do them like my sunflowers.",
+      "ko": "사이프러스요. 해바라기처럼 그려 보고 싶어요."
+     },
+     {
+      "who": "me",
+      "fr": "Si tu les peins comme ça, ce sera magnifique !",
+      "en": "If you paint them like that, it'll be wonderful!",
+      "ko": "그렇게 그리면 정말 멋질 거예요!",
+      "focus": {
+       "fr": [
+        "ce sera"
+       ],
+       "en": [
+        "it'll be"
+       ],
+       "ko": [
+        "그리면"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ce serait",
+         "ce est"
+        ]
+       ],
+       "en": [
+        [
+         "it'd been",
+         "it'll is"
+        ]
+       ],
+       "ko": [
+        [
+         "그리으면",
+         "그려면"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "chaleur",
+     "cyprès"
+    ],
+    "grammar": "VI.0"
    }
   },
   {
@@ -2154,6 +2831,141 @@
     "fr": "Une toile toute jaune",
     "en": "An all-yellow canvas",
     "ko": "온통 노란 캔버스"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Pour quoi Vincent remercie-t-il Théo ?",
+      "en": "What does Vincent thank Theo for?",
+      "ko": "빈센트는 테오에게 무엇을 고마워하나요?"
+     },
+     "options": [
+      {
+       "fr": "Les pinceaux",
+       "en": "The brushes",
+       "ko": "붓"
+      },
+      {
+       "fr": "Le Shakespeare",
+       "en": "The Shakespeare",
+       "ko": "셰익스피어 책"
+      },
+      {
+       "fr": "L'argent",
+       "en": "The money",
+       "ko": "돈"
+      },
+      {
+       "fr": "Le chocolat",
+       "en": "The chocolate",
+       "ko": "초콜릿"
+      }
+     ],
+     "answer": 1,
+     "evidence": 0,
+     "mark": {
+      "fr": "Shakespeare",
+      "en": "the Shakespeare"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "셰익스피어 책을 받은 빈센트와 통화",
+     "en": "On the phone with Vincent, who has received the Shakespeare"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Merci beaucoup pour le Shakespeare, Théo !",
+      "en": "Thanks so much for the Shakespeare, Theo!",
+      "ko": "셰익스피어 책 정말 고마워요, 테오!"
+     },
+     {
+      "who": "me",
+      "fr": "Avec plaisir ! Tu travailles sur quoi ?",
+      "en": "My pleasure! What are you working on?",
+      "ko": "천만에요! 무슨 작업 해요?",
+      "focus": {
+       "fr": [
+        "Avec plaisir"
+       ],
+       "en": [
+        "My pleasure"
+       ],
+       "ko": [
+        "작업 해요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Avec plaisirs",
+         "À plaisir"
+        ]
+       ],
+       "en": [
+        [
+         "Mine pleasure",
+         "My pleasures"
+        ]
+       ],
+       "ko": [
+        [
+         "작업 하요",
+         "작업 해여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Un moissonneur dans le blé, sous un grand soleil.",
+      "en": "A reaper in the wheat, under a big sun.",
+      "ko": "커다란 해 아래, 밀밭의 농부요."
+     },
+     {
+      "who": "me",
+      "fr": "Si j'étais là, je viendrais te regarder peindre !",
+      "en": "If I were there, I'd come and watch you paint!",
+      "ko": "제가 거기 있으면 그리는 거 보러 갈 텐데요!",
+      "focus": {
+       "fr": [
+        "je viendrais"
+       ],
+       "en": [
+        "I'd come"
+       ],
+       "ko": [
+        "갈 텐데요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "je viendrai",
+         "je venirais"
+        ]
+       ],
+       "en": [
+        [
+         "I'll came",
+         "I'd came"
+        ]
+       ],
+       "ko": [
+        [
+         "갈 테데요",
+         "갈 탠데요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "moissonneur"
+    ],
+    "grammar": "VI.2"
    }
   },
   {
@@ -2507,6 +3319,137 @@
     "fr": "Bientôt oncle",
     "en": "Soon an uncle",
     "ko": "곧 삼촌"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Pourquoi Vincent reprend-il goût à la vie ?",
+      "en": "Why does Vincent regain a taste for life?",
+      "ko": "빈센트는 왜 다시 살맛이 난다고 하나요?"
+     },
+     "options": [
+      {
+       "fr": "Il va bientôt sortir",
+       "en": "He'll soon get out",
+       "ko": "곧 나가게 돼서"
+      },
+      {
+       "fr": "Il a vendu un tableau",
+       "en": "He sold a painting",
+       "ko": "그림을 팔아서"
+      },
+      {
+       "fr": "Il va devenir oncle",
+       "en": "He'll become an uncle",
+       "ko": "삼촌이 될 거라서"
+      },
+      {
+       "fr": "Les cigales chantent",
+       "en": "The cicadas sing",
+       "ko": "매미가 울어서"
+      }
+     ],
+     "answer": 2,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "곧 삼촌이 될 빈센트와 통화",
+     "en": "On the phone with Vincent, soon to be an uncle"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Alors, je vais être oncle ? Quelle bonne nouvelle !",
+      "en": "So I'm going to be an uncle? What good news!",
+      "ko": "그럼 저 삼촌이 되는 거예요? 정말 좋은 소식이에요!"
+     },
+     {
+      "who": "me",
+      "fr": "Oui ! Jo et moi, on est très heureux.",
+      "en": "Yes! Jo and I are very happy.",
+      "ko": "네! 조랑 저, 정말 행복해요.",
+      "focus": {
+       "fr": [
+        "on est"
+       ],
+       "en": [
+        "are"
+       ],
+       "ko": [
+        "행복해요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "on sont",
+         "on es"
+        ]
+       ],
+       "en": [
+        [
+         "is",
+         "am"
+        ]
+       ],
+       "ko": [
+        [
+         "행복하요",
+         "행복헤요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Je t'envoie un croquis des cigales d'ici.",
+      "en": "I'm sending you a sketch of the cicadas here.",
+      "ko": "여기 매미를 그린 스케치 보낼게요."
+     },
+     {
+      "who": "me",
+      "fr": "Merci ! Si c'est un garçon, on t'écrira tout de suite.",
+      "en": "Thanks! If it's a boy, we'll write to you right away.",
+      "ko": "고마워요! 아들이면 바로 편지할게요.",
+      "focus": {
+       "fr": [
+        "on t'écrira"
+       ],
+       "en": [
+        "we'll write"
+       ],
+       "ko": [
+        "아들이면"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "on t'écrirait",
+         "on t'écrirons"
+        ]
+       ],
+       "en": [
+        [
+         "we'd wrote",
+         "we'll wrote"
+        ]
+       ],
+       "ko": [
+        [
+         "아들면",
+         "아들이으면"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "croquis"
+    ],
+    "grammar": "VI.0"
    }
   }
  ]

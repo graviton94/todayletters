@@ -450,6 +450,138 @@
     "fr": "Le faucheur, tout jaune",
     "en": "The reaper, all yellow",
     "ko": "온통 노란 밀밭"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Pourquoi Vincent fait-il son autoportrait ?",
+      "en": "Why is Vincent painting himself?",
+      "ko": "빈센트는 왜 자화상을 그리나요?"
+     },
+     "options": [
+      {
+       "fr": "Théo l'a demandé",
+       "en": "Theo asked for it",
+       "ko": "테오가 부탁해서"
+      },
+      {
+       "fr": "Pour l'offrir à sa mère",
+       "en": "To give his mother",
+       "ko": "어머니께 드리려고"
+      },
+      {
+       "fr": "Il fait trop chaud",
+       "en": "It's too hot outside",
+       "ko": "밖이 너무 더워서"
+      },
+      {
+       "fr": "Il n'a pas d'autre modèle",
+       "en": "He has no other model",
+       "ko": "다른 모델이 없어서"
+      }
+     ],
+     "answer": 3,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "다시 작업을 시작한 빈센트와 안부 통화",
+     "en": "A how-are-you call: Vincent is working again"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Ça va mieux, Théo. Je travaille de nouveau.",
+      "en": "I'm better, Theo. I'm working again.",
+      "ko": "좀 나아졌어요, 테오. 다시 일해요."
+     },
+     {
+      "who": "me",
+      "fr": "Super ! Tu travailles sur quoi ?",
+      "en": "Great! What are you working on?",
+      "ko": "잘됐어요! 무슨 작업 해요?",
+      "focus": {
+       "fr": [
+        "Tu travailles"
+       ],
+       "en": [
+        "are you working"
+       ],
+       "ko": [
+        "해요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu travaille",
+         "Tu travaillez"
+        ]
+       ],
+       "en": [
+        [
+         "you are working",
+         "are you work"
+        ]
+       ],
+       "ko": [
+        [
+         "하요",
+         "헤요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Un faucheur, sous un soleil qui inonde tout d'or.",
+      "en": "A reaper, under a sun that floods everything with gold.",
+      "ko": "모든 걸 금빛으로 물들이는 해 아래, 낫질하는 사람이요."
+     },
+     {
+      "who": "me",
+      "fr": "Un soleil qui brille comme ça, ce n'est pas triste.",
+      "en": "A sun that shines like that isn't sad.",
+      "ko": "그렇게 빛나는 해라면 슬프지 않겠네요.",
+      "focus": {
+       "fr": [
+        "qui brille"
+       ],
+       "en": [
+        "that shines"
+       ],
+       "ko": [
+        "빛나는"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "que brille",
+         "qui brilles"
+        ]
+       ],
+       "en": [
+        [
+         "that shine",
+         "what shines"
+        ]
+       ],
+       "ko": [
+        [
+         "빛난",
+         "빛나은"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "faucheur",
+     "inonder"
+    ],
+    "grammar": "VII.0"
    }
   },
   {
@@ -792,6 +924,138 @@
     "fr": "Mon pinceau comme un archet",
     "en": "My brush like a bow",
     "ko": "바이올린 활 같은 붓"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Que fait la copie pour Vincent ?",
+      "en": "What does copying do for Vincent?",
+      "ko": "빈센트에게 따라 그리기는 어떤가요?"
+     },
+     "options": [
+      {
+       "fr": "Elle rapporte de l'argent",
+       "en": "It earns money",
+       "ko": "돈을 벌어 줘요"
+      },
+      {
+       "fr": "Elle enseigne et console",
+       "en": "It teaches and consoles",
+       "ko": "배움과 위로를 줘요"
+      },
+      {
+       "fr": "Elle le fatigue",
+       "en": "It tires him",
+       "ko": "지치게 해요"
+      },
+      {
+       "fr": "Elle l'ennuie",
+       "en": "It bores him",
+       "ko": "지루하게 해요"
+      }
+     ],
+     "answer": 1,
+     "evidence": 3
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "밀레 그림을 따라 그리는 빈센트와 통화",
+     "en": "On the phone with Vincent, who is copying Millet"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "En ce moment, je fais des copies de Millet.",
+      "en": "At the moment I'm making copies of Millet.",
+      "ko": "요즘 밀레 그림을 따라 그려요."
+     },
+     {
+      "who": "me",
+      "fr": "Ah oui ? Tu en as fait combien ?",
+      "en": "Oh yes? How many have you done?",
+      "ko": "그래요? 몇 점이나 그렸어요?",
+      "focus": {
+       "fr": [
+        "Tu en as fait"
+       ],
+       "en": [
+        "have you done"
+       ],
+       "ko": [
+        "그렸어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu y as fait",
+         "Tu en es fait"
+        ]
+       ],
+       "en": [
+        [
+         "have you did",
+         "has you done"
+        ]
+       ],
+       "ko": [
+        [
+         "그렷어요",
+         "그리었아요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "J'en ai sept. Je joue des couleurs comme du violon.",
+      "en": "I've got seven. I play colours like a violin.",
+      "ko": "일곱 점이요. 바이올린 켜듯 색을 갖고 놀아요."
+     },
+     {
+      "who": "me",
+      "fr": "C'est joli, ça ! Tu m'en envoies une ?",
+      "en": "That's lovely! Will you send me one?",
+      "ko": "멋지네요! 하나 보내 줄래요?",
+      "focus": {
+       "fr": [
+        "Tu m'en envoies"
+       ],
+       "en": [
+        "send me one"
+       ],
+       "ko": [
+        "보내 줄래요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu m'y envoies",
+         "Tu me en envoies"
+        ]
+       ],
+       "en": [
+        [
+         "send me ones",
+         "send one me"
+        ]
+       ],
+       "ko": [
+        [
+         "보내 주을래요",
+         "보내 줄레요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "copie",
+     "violon"
+    ],
+    "grammar": "VII.2"
    }
   },
   {
@@ -1149,6 +1413,139 @@
     "fr": "Dans les vergers d'oliviers",
     "en": "In the olive orchards",
     "ko": "올리브 과수원에서"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Pourquoi Vincent est-il allé peindre les oliviers ?",
+      "en": "Why did Vincent go and paint the olive orchards?",
+      "ko": "빈센트는 왜 올리브 과수원에 나가 그렸나요?"
+     },
+     "options": [
+      {
+       "fr": "Théo le lui a demandé",
+       "en": "Theo asked him to",
+       "ko": "테오가 부탁해서"
+      },
+      {
+       "fr": "Il n'avait plus de toile",
+       "en": "He had no canvas left",
+       "ko": "캔버스가 떨어져서"
+      },
+      {
+       "fr": "D'autres tableaux l'ont fâché",
+       "en": "Other paintings angered him",
+       "ko": "다른 그림들에 화가 나서"
+      },
+      {
+       "fr": "Il pensait à sa mère",
+       "en": "He thought of his mother",
+       "ko": "어머니가 생각나서"
+      }
+     ],
+     "answer": 2,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "올리브 과수원에서 일하는 빈센트와 통화",
+     "en": "On the phone with Vincent, working in the olive orchards"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Ce mois-ci, je travaille dans les vergers d'oliviers.",
+      "en": "This month I'm working in the olive orchards.",
+      "ko": "이번 달엔 올리브 과수원에서 일해요."
+     },
+     {
+      "who": "me",
+      "fr": "Les oliviers ? C'est un arbre que tu aimes ?",
+      "en": "Olive trees? Is it a tree you like?",
+      "ko": "올리브 나무요? 형이 좋아하는 나무예요?",
+      "focus": {
+       "fr": [
+        "que tu aimes"
+       ],
+       "en": [
+        "a tree you like"
+       ],
+       "ko": [
+        "좋아하는"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "qui tu aimes",
+         "que tu aime"
+        ]
+       ],
+       "en": [
+        [
+         "a tree who you like",
+         "a tree you likes"
+        ]
+       ],
+       "ko": [
+        [
+         "좋아한",
+         "좋아하은"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui. Ici, c'est l'arbre qui a le caractère du pays.",
+      "en": "Yes. Here, it's the tree that has the character of the land.",
+      "ko": "네. 여기선 이 고장의 성격을 가진 나무예요."
+     },
+     {
+      "who": "me",
+      "fr": "Comme nos saules, chez nous en Hollande !",
+      "en": "Like our willows back home in Holland!",
+      "ko": "네덜란드 우리 동네 버드나무처럼요!",
+      "focus": {
+       "fr": [
+        "nos saules"
+       ],
+       "en": [
+        "our willows"
+       ],
+       "ko": [
+        "버드나무처럼요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "notre saules",
+         "nos saule"
+        ]
+       ],
+       "en": [
+        [
+         "ours willows",
+         "our willow's"
+        ]
+       ],
+       "ko": [
+        [
+         "버드나무처름요",
+         "버드나무처러요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "verger",
+     "saule",
+     "caractère"
+    ],
+    "grammar": "VII.0"
    }
   },
   {
@@ -1495,6 +1892,140 @@
     "fr": "Un ciel entièrement rose",
     "en": "A sky entirely pink",
     "ko": "온통 분홍빛 하늘"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Pour qui Vincent veut-il refaire les cueilleuses ?",
+      "en": "For whom will Vincent paint the olive pickers again?",
+      "ko": "빈센트는 올리브 따는 여인들을 누구를 위해 다시 그리려 하나요?"
+     },
+     "options": [
+      {
+       "fr": "Gauguin et Bernard",
+       "en": "Gauguin and Bernard",
+       "ko": "고갱과 베르나르"
+      },
+      {
+       "fr": "Sa mère et sa sœur",
+       "en": "His mother and sister",
+       "ko": "어머니와 누이"
+      },
+      {
+       "fr": "Le docteur",
+       "en": "The doctor",
+       "ko": "의사 선생님"
+      },
+      {
+       "fr": "Théo et Jo",
+       "en": "Theo and Jo",
+       "ko": "테오와 조"
+      }
+     ],
+     "answer": 1,
+     "evidence": 3,
+     "mark": {
+      "ko": "어머니와 누이"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "올리브 따는 여인들을 그리는 빈센트와 통화",
+     "en": "On the phone with Vincent, painting women picking olives"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Je peins des femmes qui cueillent des olives.",
+      "en": "I'm painting women picking olives.",
+      "ko": "올리브 따는 여자들을 그려요."
+     },
+     {
+      "who": "me",
+      "fr": "C'est dans le verger où tu vas souvent ?",
+      "en": "Is it in the orchard where you often go?",
+      "ko": "형이 자주 가는 그 과수원이에요?",
+      "focus": {
+       "fr": [
+        "où tu vas"
+       ],
+       "en": [
+        "where you often go"
+       ],
+       "ko": [
+        "가는"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "que tu vas",
+         "dont tu vas"
+        ]
+       ],
+       "en": [
+        [
+         "which you often go",
+         "where you often goes"
+        ]
+       ],
+       "ko": [
+        [
+         "간",
+         "가은"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui. Je vais la refaire pour Maman et notre sœur.",
+      "en": "Yes. I'm going to do it again for Mother and our sister.",
+      "ko": "네. 어머니랑 누이 주려고 한 번 더 그릴 거예요."
+     },
+     {
+      "who": "me",
+      "fr": "Quelle bonne idée ! Elles vont être si contentes.",
+      "en": "What a good idea! They'll be so happy.",
+      "ko": "좋은 생각이에요! 정말 기뻐하실 거예요.",
+      "focus": {
+       "fr": [
+        "si contentes"
+       ],
+       "en": [
+        "so happy"
+       ],
+       "ko": [
+        "기뻐하실 거예요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "si contents",
+         "si content"
+        ]
+       ],
+       "en": [
+        [
+         "so happily",
+         "so happier"
+        ]
+       ],
+       "ko": [
+        [
+         "기뻐하실 것예요",
+         "기쁘하실 거예요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "cueillir"
+    ],
+    "grammar": "VII.1"
    }
   },
   {
@@ -1830,6 +2361,142 @@
     "fr": "Un rouleau de toiles",
     "en": "A roll of canvases",
     "ko": "그림 꾸러미를 보내며"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Quel cadre faut-il pour ces couleurs ?",
+      "en": "What frame do these colours need?",
+      "ko": "이 그림들의 색에는 어떤 액자가 필요한가요?"
+     },
+     "options": [
+      {
+       "fr": "Un cadre blanc",
+       "en": "A white frame",
+       "ko": "흰 액자"
+      },
+      {
+       "fr": "Un cadre noir",
+       "en": "A black frame",
+       "ko": "검은 액자"
+      },
+      {
+       "fr": "Un cadre doré",
+       "en": "A gold frame",
+       "ko": "금빛 액자"
+      },
+      {
+       "fr": "Un cadre en noyer",
+       "en": "A walnut frame",
+       "ko": "호두나무 액자"
+      }
+     ],
+     "answer": 0,
+     "evidence": 4,
+     "mark": {
+      "fr": "cadre blanc",
+      "en": "a white frame",
+      "ko": "흰 액자"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "살 목사가 다녀간 뒤 빈센트와 통화",
+     "en": "On the phone with Vincent after a visit from M. Salles"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Hier, j'ai été surpris : Monsieur Salles est venu !",
+      "en": "Yesterday I was surprised: Monsieur Salles came!",
+      "ko": "어제 깜짝 놀랐어요. 살 목사님이 찾아왔어요!"
+     },
+     {
+      "who": "me",
+      "fr": "Ah bon ? Vous avez pu parler un peu ?",
+      "en": "Really? Were you able to talk a bit?",
+      "ko": "그래요? 이야기 좀 나눴어요?",
+      "focus": {
+       "fr": [
+        "Vous avez pu"
+       ],
+       "en": [
+        "Were you able"
+       ],
+       "ko": [
+        "나눴어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Vous êtes pu",
+         "Vous avez pouvé"
+        ]
+       ],
+       "en": [
+        [
+         "Was you able",
+         "Were you can"
+        ]
+       ],
+       "ko": [
+        [
+         "나누었아요",
+         "나눳어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui, calmement. C'était un jour où j'allais bien.",
+      "en": "Yes, calmly. It was a day when I was well.",
+      "ko": "네, 차분하게요. 마침 몸이 괜찮은 날이었어요."
+     },
+     {
+      "who": "me",
+      "fr": "Tant mieux. Merci de me le dire.",
+      "en": "Good. Thanks for telling me.",
+      "ko": "다행이에요. 알려 줘서 고마워요.",
+      "focus": {
+       "fr": [
+        "Merci de"
+       ],
+       "en": [
+        "Thanks for telling"
+       ],
+       "ko": [
+        "알려 줘서"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Merci pour de",
+         "Merci à"
+        ]
+       ],
+       "en": [
+        [
+         "Thanks for tell",
+         "Thanks to telling"
+        ]
+       ],
+       "ko": [
+        [
+         "알려 주서",
+         "알리어 줘서"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "surprendre"
+    ],
+    "grammar": "VII.1"
    }
   },
   {
@@ -2139,6 +2806,137 @@
     "fr": "Tu es père enfin",
     "en": "A father at last",
     "ko": "드디어 아빠가 된 너에게"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Quelle bonne nouvelle Vincent reçoit-il ?",
+      "en": "What good news does Vincent receive?",
+      "ko": "빈센트는 어떤 기쁜 소식을 받았나요?"
+     },
+     "options": [
+      {
+       "fr": "Théo s'est marié",
+       "en": "Theo got married",
+       "ko": "테오가 결혼했어요"
+      },
+      {
+       "fr": "Un tableau est vendu",
+       "en": "A painting has sold",
+       "ko": "그림이 팔렸어요"
+      },
+      {
+       "fr": "Théo est devenu père",
+       "en": "Theo has become a father",
+       "ko": "테오가 아빠가 됐어요"
+      },
+      {
+       "fr": "Sa mère va venir",
+       "en": "His mother is coming",
+       "ko": "어머니가 오세요"
+      }
+     ],
+     "answer": 2,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "아버지가 된 테오에게 축하를 건네는 빈센트",
+     "en": "Vincent congratulates Theo on becoming a father"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Bravo, Théo ! Tu es papa ! Et Jo, elle va bien ?",
+      "en": "Bravo, Theo! You're a dad! And Jo, is she well?",
+      "ko": "축하해요, 테오! 아빠가 됐네요! 조는 괜찮아요?"
+     },
+     {
+      "who": "me",
+      "fr": "Oui, ça va. Le petit va bien aussi.",
+      "en": "Yes, she's fine. The little one is well too.",
+      "ko": "네, 괜찮아요. 아기도 건강해요.",
+      "focus": {
+       "fr": [
+        "Le petit va bien"
+       ],
+       "en": [
+        "is well"
+       ],
+       "ko": [
+        "건강해요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Le petit vont bien",
+         "La petit va bien"
+        ]
+       ],
+       "en": [
+        [
+         "are well",
+         "is good well"
+        ]
+       ],
+       "ko": [
+        [
+         "건강하요",
+         "건강헤요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "C'est une joie que je ne peux pas exprimer !",
+      "en": "It's a joy I can't put into words!",
+      "ko": "말로 다 못 할 만큼 기뻐요!"
+     },
+     {
+      "who": "me",
+      "fr": "Merci, Vincent. C'est un bonheur qu'on partage avec toi.",
+      "en": "Thanks, Vincent. It's a joy we share with you.",
+      "ko": "고마워요, 형. 형이랑 같이 나누는 기쁨이에요.",
+      "focus": {
+       "fr": [
+        "qu'on partage"
+       ],
+       "en": [
+        "we share"
+       ],
+       "ko": [
+        "나누는"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "qui on partage",
+         "qu'on partagent"
+        ]
+       ],
+       "en": [
+        [
+         "we shares",
+         "we sharing"
+        ]
+       ],
+       "ko": [
+        [
+         "나눈",
+         "나누은"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "exprimer"
+    ],
+    "grammar": "VII.0"
    }
   },
   {
@@ -2492,6 +3290,138 @@
     "fr": "Un dernier coup de brosse",
     "en": "A last stroke of the brush",
     "ko": "마지막 붓질"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qui Vincent a-t-il hâte de voir ?",
+      "en": "Who is Vincent longing to see?",
+      "ko": "빈센트는 누구를 몹시 보고 싶어 하나요?"
+     },
+     "options": [
+      {
+       "fr": "Gauguin et Bernard",
+       "en": "Gauguin and Bernard",
+       "ko": "고갱과 베르나르"
+      },
+      {
+       "fr": "Théo, Jo et le bébé",
+       "en": "Theo, Jo and the baby",
+       "ko": "테오와 조와 아기"
+      },
+      {
+       "fr": "Seurat et Signac",
+       "en": "Seurat and Signac",
+       "ko": "쇠라와 시냐크"
+      },
+      {
+       "fr": "Sa mère et sa sœur",
+       "en": "His mother and sister",
+       "ko": "어머니와 누이"
+      }
+     ],
+     "answer": 1,
+     "evidence": 3
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "생레미를 떠날 짐을 싸는 빈센트와 약속",
+     "en": "Making plans with Vincent, who is packing to leave Saint-Rémy"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Je finis mes bouquets d'iris, et après, ma malle !",
+      "en": "I'm finishing my bunches of irises, and then, my trunk!",
+      "ko": "붓꽃 다발 그림 마무리하고, 그다음엔 짐 싸요!"
+     },
+     {
+      "who": "me",
+      "fr": "Alors tu viens bientôt à Paris ?",
+      "en": "So you're coming to Paris soon?",
+      "ko": "그럼 곧 파리에 와요?",
+      "focus": {
+       "fr": [
+        "tu viens"
+       ],
+       "en": [
+        "you're coming"
+       ],
+       "ko": [
+        "와요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "tu viens-y",
+         "tu vient"
+        ]
+       ],
+       "en": [
+        [
+         "you're come",
+         "you coming"
+        ]
+       ],
+       "ko": [
+        [
+         "오아요",
+         "와여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui ! J'ai envie de vous voir, Jo et le petit.",
+      "en": "Yes! I can't wait to see you, Jo and the little one.",
+      "ko": "네! 테오랑 조, 아기가 보고 싶어요."
+     },
+     {
+      "who": "me",
+      "fr": "On t'attend ! Tu y arrives quand ?",
+      "en": "We're waiting for you! When do you get there?",
+      "ko": "기다릴게요! 언제 도착해요?",
+      "focus": {
+       "fr": [
+        "Tu y arrives"
+       ],
+       "en": [
+        "do you get there"
+       ],
+       "ko": [
+        "도착해요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu en arrives",
+         "Tu y arrive"
+        ]
+       ],
+       "en": [
+        [
+         "do you gets there",
+         "you get there"
+        ]
+       ],
+       "ko": [
+        [
+         "도착하요",
+         "도착헤요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "bouquet",
+     "malle"
+    ],
+    "grammar": "VII.2"
    }
   }
  ]

@@ -357,6 +357,141 @@
       "quote": 4
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was ist Wolfgang auf der Reise, sagt er?",
+      "en": "What does Wolfgang say he has become on the journey?",
+      "ko": "볼프강은 여행길에서 자기가 뭐가 됐다고 해요?"
+     },
+     "options": [
+      {
+       "de": "Ein kleines Kind",
+       "en": "A little child",
+       "ko": "어린아이"
+      },
+      {
+       "de": "Ein müder Reisender",
+       "en": "A tired traveller",
+       "ko": "지친 나그네"
+      },
+      {
+       "de": "Ein großer Dichter",
+       "en": "A great poet",
+       "ko": "위대한 시인"
+      },
+      {
+       "de": "Ein zweiter Papa",
+       "en": "A second papa",
+       "ko": "두 번째 아빠"
+      }
+     ],
+     "answer": 3,
+     "evidence": 3,
+     "mark": {
+      "en": "a second papa",
+      "ko": "두 번째 아빠"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "엄마와 길을 떠난 첫날, 바서부르크의 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "First day on the road, a call with Wolfgang in Wasserburg · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Papa! Wir sind gut in Wasserburg angekommen.",
+      "en": "Hi Papa! We got to Wasserburg safely.",
+      "ko": "안녕하세요, 아빠! 바서부르크에 잘 도착했어요."
+     },
+     {
+      "who": "me",
+      "de": "Gott sei Dank! Wie geht es Mama?",
+      "en": "Thank God! How is Mama?",
+      "ko": "다행이에요! 엄마는 어때요?",
+      "focus": {
+       "de": [
+        "Wie geht es"
+       ],
+       "en": [
+        "How is"
+       ],
+       "ko": [
+        "어때요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Wie gehst es",
+         "Wie gehen es"
+        ]
+       ],
+       "en": [
+        [
+         "How are",
+         "How be"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼요",
+         "어떠요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Gut. Du musst dir keine Sorgen machen. Ich passe auf.",
+      "en": "Fine. You mustn't worry. I'm looking after things.",
+      "ko": "잘 지내요. 걱정하실 필요 없어요. 제가 잘 챙길게요."
+     },
+     {
+      "who": "me",
+      "de": "Gut. Du kannst mich immer fragen.",
+      "en": "Good. You can always ask me.",
+      "ko": "좋아요. 언제든 나한테 물어봐도 돼요.",
+      "focus": {
+       "de": [
+        "kannst"
+       ],
+       "en": [
+        "can always ask"
+       ],
+       "ko": [
+        "물어봐도 돼요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "kann",
+         "könnst"
+        ]
+       ],
+       "en": [
+        [
+         "can always asks",
+         "can always to ask"
+        ]
+       ],
+       "ko": [
+        [
+         "물어바도 돼요",
+         "물어봐도 되요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "fragen"
+    ],
+    "grammar": "II.0"
    }
   },
   {
@@ -634,6 +769,140 @@
       "quote": 0
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Warum ist der Mann froh, wenn es springt?",
+      "en": "Why is the man glad when it cracks?",
+      "ko": "그분은 왜 판이 갈라지면 기뻐해요?"
+     },
+     "options": [
+      {
+       "de": "Dann passiert nichts mehr",
+       "en": "Then nothing more can happen",
+       "ko": "그러면 더는 탈이 없어서"
+      },
+      {
+       "de": "Dann klingt es lauter",
+       "en": "Then it sounds louder",
+       "ko": "소리가 더 커져서"
+      },
+      {
+       "de": "Dann ist es billiger",
+       "en": "Then it is cheaper",
+       "ko": "값이 더 싸져서"
+      },
+      {
+       "de": "Dann baut er es neu",
+       "en": "Then he builds it again",
+       "ko": "새로 만들 수 있어서"
+      }
+     ],
+     "answer": 0,
+     "evidence": [
+      1,
+      2
+     ]
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "아우크스부르크, 슈타인의 피아노를 쳐 본 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang in Augsburg after trying Stein's pianos · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, ich war heute bei Stein. Seine Klaviere sind super!",
+      "en": "Papa, I was at Stein's today. His pianos are great!",
+      "ko": "아빠, 오늘 슈타인 씨네 갔어요. 피아노가 정말 좋아요!"
+     },
+     {
+      "who": "me",
+      "de": "Schön! Darfst du dort auch spielen?",
+      "en": "Nice! Are you allowed to play there too?",
+      "ko": "좋네요! 거기서 연주해도 돼요?",
+      "focus": {
+       "de": [
+        "Darfst du"
+       ],
+       "en": [
+        "Are you allowed"
+       ],
+       "ko": [
+        "연주해도 돼요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Darf du",
+         "Dürfst du"
+        ]
+       ],
+       "en": [
+        [
+         "Is you allowed",
+         "Are you allow"
+        ]
+       ],
+       "ko": [
+        [
+         "연주해도 되요",
+         "연주하도 돼요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja! Und morgen will ich Orgel spielen.",
+      "en": "Yes! And tomorrow I want to play the organ.",
+      "ko": "네! 그리고 내일은 오르간을 치고 싶어요."
+     },
+     {
+      "who": "me",
+      "de": "Gut. Aber vergiss deine Arbeit nicht!",
+      "en": "Good. But don't forget your work!",
+      "ko": "좋아요. 그래도 할 일은 잊지 마세요!",
+      "focus": {
+       "de": [
+        "vergiss"
+       ],
+       "en": [
+        "don't forget"
+       ],
+       "ko": [
+        "잊지 마세요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "vergisst",
+         "vergesse"
+        ]
+       ],
+       "en": [
+        [
+         "doesn't forget",
+         "not forget"
+        ]
+       ],
+       "ko": [
+        [
+         "잊지 마세여",
+         "잊지 말세요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Arbeit"
+    ],
+    "grammar": "II.1"
    }
   },
   {
@@ -893,6 +1162,141 @@
       "quote": 2
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was schenkt Wolfgang dem Mann?",
+      "en": "What does Wolfgang give the man as a present?",
+      "ko": "볼프강은 그 사람에게 뭘 선물해요?"
+     },
+     "options": [
+      {
+       "de": "Ein Konzert für Flöte",
+       "en": "A concerto for flute",
+       "ko": "플루트 협주곡"
+      },
+      {
+       "de": "Eine Sonate für Klavier",
+       "en": "A sonata for piano",
+       "ko": "피아노 소나타"
+      },
+      {
+       "de": "Eine Arie für Sopran",
+       "en": "An aria for soprano",
+       "ko": "소프라노 아리아"
+      },
+      {
+       "de": "Ein Konzert für Oboe",
+       "en": "A concerto for oboe",
+       "ko": "오보에 협주곡"
+      }
+     ],
+     "answer": 3,
+     "evidence": 0,
+     "mark": {
+      "ko": "오보에 협주곡"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "만하임의 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang in Mannheim · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, das Orchester hier ist groß und sehr gut!",
+      "en": "Papa, the orchestra here is big and very good!",
+      "ko": "아빠, 여기 오케스트라는 크고 정말 잘해요!"
+     },
+     {
+      "who": "me",
+      "de": "Wunderbar! Was machst du morgen?",
+      "en": "Wonderful! What are you doing tomorrow?",
+      "ko": "멋지네요! 내일은 뭐 해요?",
+      "focus": {
+       "de": [
+        "machst du"
+       ],
+       "en": [
+        "are you doing"
+       ],
+       "ko": [
+        "뭐 해요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "macht du",
+         "mache du"
+        ]
+       ],
+       "en": [
+        [
+         "is you doing",
+         "are you do"
+        ]
+       ],
+       "ko": [
+        [
+         "뭐 하요",
+         "뭐 헤요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Morgen muss ich zur Fürstin. Sie will mir Stricken beibringen.",
+      "en": "Tomorrow I have to go to the Electress. She wants to teach me knitting.",
+      "ko": "내일은 선제후 부인께 가야 해요. 뜨개질을 가르쳐 주신대요."
+     },
+     {
+      "who": "me",
+      "de": "Stricken? Na gut. Du musst höflich sein!",
+      "en": "Knitting? Well, all right. You must be polite!",
+      "ko": "뜨개질이요? 뭐, 좋아요. 예의 바르게 해야 해요!",
+      "focus": {
+       "de": [
+        "musst"
+       ],
+       "en": [
+        "must be"
+       ],
+       "ko": [
+        "해야 해요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "muss",
+         "müsst"
+        ]
+       ],
+       "en": [
+        [
+         "must being",
+         "must to be"
+        ]
+       ],
+       "ko": [
+        [
+         "해야 하요",
+         "하야 해요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "groß",
+     "müssen"
+    ],
+    "grammar": "II.0"
    }
   },
   {
@@ -1149,6 +1553,141 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Womit kann Wolfgang seine Gefühle zeigen?",
+      "en": "How can Wolfgang express his feelings?",
+      "ko": "볼프강은 무엇으로 자기 마음을 표현할 수 있어요?"
+     },
+     "options": [
+      {
+       "de": "Mit Tönen",
+       "en": "With musical tones",
+       "ko": "음으로"
+      },
+      {
+       "de": "Mit Gedichten",
+       "en": "With poems",
+       "ko": "시로"
+      },
+      {
+       "de": "Mit Bildern",
+       "en": "With pictures",
+       "ko": "그림으로"
+      },
+      {
+       "de": "Mit Tanz",
+       "en": "With dance",
+       "ko": "춤으로"
+      }
+     ],
+     "answer": 0,
+     "evidence": [
+      2,
+      3
+     ]
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "아버지의 영명축일 무렵, 만하임의 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "Around my name day, a call with Wolfgang in Mannheim · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, ich kann keine Gedichte schreiben. Aber Musik!",
+      "en": "Papa, I can't write poems. But music, yes!",
+      "ko": "아빠, 저는 시는 못 써요. 하지만 음악은 써요!"
+     },
+     {
+      "who": "me",
+      "de": "Ich weiß. Was schreibst du gerade?",
+      "en": "I know. What are you writing right now?",
+      "ko": "알아요. 지금은 뭘 쓰고 있어요?",
+      "focus": {
+       "de": [
+        "schreibst du"
+       ],
+       "en": [
+        "are you writing"
+       ],
+       "ko": [
+        "쓰고 있어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "schreibt du",
+         "schreiben du"
+        ]
+       ],
+       "en": [
+        [
+         "is you writing",
+         "are you write"
+        ]
+       ],
+       "ko": [
+        [
+         "쓰고 있아요",
+         "써고 있어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ein Rondo für Cannabichs Tochter. Und Glückwünsche für dich!",
+      "en": "A rondo for Cannabich's daughter. And good wishes for you!",
+      "ko": "칸나비히 씨 딸에게 줄 론도요. 그리고 아빠께 드리는 축하 인사도요!"
+     },
+     {
+      "who": "me",
+      "de": "Danke, mein Sohn! Das ist lieb von dir.",
+      "en": "Thank you, son! That's sweet of you.",
+      "ko": "고마워요, 아들! 마음이 참 따뜻하네요.",
+      "focus": {
+       "de": [
+        "von dir"
+       ],
+       "en": [
+        "That's"
+       ],
+       "ko": [
+        "고마워요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "von dich",
+         "von du"
+        ]
+       ],
+       "en": [
+        [
+         "That are",
+         "That am"
+        ]
+       ],
+       "ko": [
+        [
+         "고맙어요",
+         "고마와요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "können",
+     "Tochter"
+    ],
+    "grammar": "II.0"
    }
   },
   {
@@ -1425,6 +1964,138 @@
       "quote": 1
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wie steht es mit dem Kurfürsten?",
+      "en": "How do things stand with the Elector?",
+      "ko": "선제후와의 일은 어떻게 됐어요?"
+     },
+     "options": [
+      {
+       "de": "Vorerst ist alles aus",
+       "en": "It's all over for now",
+       "ko": "당분간은 다 끝났어요"
+      },
+      {
+       "de": "Wolfgang hat eine Stelle",
+       "en": "Wolfgang has a post",
+       "ko": "볼프강이 자리를 얻었어요"
+      },
+      {
+       "de": "Er lädt Wolfgang ein",
+       "en": "He invites Wolfgang",
+       "ko": "선제후가 볼프강을 초대해요"
+      },
+      {
+       "de": "Alles ist schon sicher",
+       "en": "Everything is settled",
+       "ko": "다 확실히 정해졌어요"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "궁정의 답을 기다리던 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang, who was waiting for an answer from court · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, leider habe ich keine gute Nachricht.",
+      "en": "Papa, I'm afraid I don't have good news.",
+      "ko": "아빠, 아쉽게도 좋은 소식이 없어요."
+     },
+     {
+      "who": "me",
+      "de": "Oh nein. Hast du eine Antwort bekommen?",
+      "en": "Oh no. Did you get an answer?",
+      "ko": "저런. 답은 받았어요?",
+      "focus": {
+       "de": [
+        "bekommen"
+       ],
+       "en": [
+        "Did you get"
+       ],
+       "ko": [
+        "받았어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "bekommt",
+         "bekamen"
+        ]
+       ],
+       "en": [
+        [
+         "Did you got",
+         "Do you got"
+        ]
+       ],
+       "ko": [
+        [
+         "받었어요",
+         "밭았어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja, kurz und klar: Der Kurfürst will mich nicht.",
+      "en": "Yes, short and clear: the Elector doesn't want me.",
+      "ko": "네, 짧고 분명하게요. 선제후가 저를 원하지 않아요."
+     },
+     {
+      "who": "me",
+      "de": "Das tut mir leid. Aber du darfst nicht aufgeben.",
+      "en": "I'm sorry. But you mustn't give up.",
+      "ko": "안됐네요. 그래도 포기하면 안 돼요.",
+      "focus": {
+       "de": [
+        "darfst"
+       ],
+       "en": [
+        "mustn't give up"
+       ],
+       "ko": [
+        "안 돼요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "darf",
+         "dürfst"
+        ]
+       ],
+       "en": [
+        [
+         "mustn't gives up",
+         "mustn't giving up"
+        ]
+       ],
+       "ko": [
+        [
+         "안 되요",
+         "않 돼요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Antwort",
+     "bekommen"
+    ],
+    "grammar": "II.1"
    }
   },
   {
@@ -1702,6 +2373,138 @@
       "quote": 4
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wie spielt sie seine schweren Sonaten?",
+      "en": "How does she play his difficult sonatas at sight?",
+      "ko": "그 아가씨는 볼프강의 어려운 소나타를 처음 보고 어떻게 쳐요?"
+     },
+     "options": [
+      {
+       "de": "Schnell, aber mit Fehlern",
+       "en": "Fast, but with mistakes",
+       "ko": "빠르지만 자꾸 틀리면서"
+      },
+      {
+       "de": "Schnell und ganz perfekt",
+       "en": "Fast and perfectly",
+       "ko": "빠르고 완벽하게"
+      },
+      {
+       "de": "Langsam, aber ohne Fehler",
+       "en": "Slowly, but without a mistake",
+       "ko": "느리지만 하나도 안 틀리고"
+      },
+      {
+       "de": "Laut und sehr wild",
+       "en": "Loudly and very wildly",
+       "ko": "크고 아주 거칠게"
+      }
+     ],
+     "answer": 2,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "친구들과 짧은 나들이를 다녀온 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang after a short trip with friends · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, ich war mit Freunden auf einem Ausflug.",
+      "en": "Papa, I went on a trip with friends.",
+      "ko": "아빠, 친구들이랑 나들이 다녀왔어요."
+     },
+     {
+      "who": "me",
+      "de": "Ein Ausflug? Und was willst du jetzt machen?",
+      "en": "A trip? And what do you want to do now?",
+      "ko": "나들이요? 그럼 이제 뭘 하고 싶어요?",
+      "focus": {
+       "de": [
+        "willst du"
+       ],
+       "en": [
+        "do you want"
+       ],
+       "ko": [
+        "하고 싶어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "will du",
+         "wollst du"
+        ]
+       ],
+       "en": [
+        [
+         "does you want",
+         "do you wants"
+        ]
+       ],
+       "ko": [
+        [
+         "하고 싶아요",
+         "하고 십어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ich will Opern schreiben. Das ist mein größter Wunsch.",
+      "en": "I want to write operas. That's my biggest wish.",
+      "ko": "오페라를 쓰고 싶어요. 그게 제 가장 큰 소원이에요."
+     },
+     {
+      "who": "me",
+      "de": "Ich weiß. Aber ohne feste Stelle ist das schwer.",
+      "en": "I know. But without a steady job that's hard.",
+      "ko": "알아요. 하지만 일자리 없이는 쉽지 않아요.",
+      "focus": {
+       "de": [
+        "ohne feste Stelle"
+       ],
+       "en": [
+        "that's"
+       ],
+       "ko": [
+        "쉽지 않아요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "ohne fester Stelle",
+         "ohne festen Stelle"
+        ]
+       ],
+       "en": [
+        [
+         "that are",
+         "that am"
+        ]
+       ],
+       "ko": [
+        [
+         "쉽지 안아요",
+         "쉽지 않어요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Freund",
+     "schwer"
+    ],
+    "grammar": "II.1"
    }
   },
   {
@@ -1952,6 +2755,138 @@
       "quote": 2
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Warum hat Wolfgang Tränen in den Augen?",
+      "en": "Why did tears come to Wolfgang's eyes?",
+      "ko": "볼프강은 왜 눈물이 났어요?"
+     },
+     "options": [
+      {
+       "de": "Papa ist krank",
+       "en": "Papa is ill",
+       "ko": "아버지가 아파서"
+      },
+      {
+       "de": "Die Arie ist so schön",
+       "en": "The aria is so beautiful",
+       "ko": "아리아가 너무 아름다워서"
+      },
+      {
+       "de": "Papa trägt alte Kleider",
+       "en": "Papa must dress shabbily",
+       "ko": "아버지가 허름하게 입고 다녀서"
+      },
+      {
+       "de": "Paris ist so weit",
+       "en": "Paris is so far away",
+       "ko": "파리가 너무 멀어서"
+      }
+     ],
+     "answer": 2,
+     "evidence": 2
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "파리로 떠나려는 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang before he leaves for Paris · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, dein Brief macht mich traurig.",
+      "en": "Papa, your letter makes me sad.",
+      "ko": "아빠, 편지 읽고 마음이 아팠어요."
+     },
+     {
+      "who": "me",
+      "de": "Sei nicht traurig. Es ist nicht deine Schuld.",
+      "en": "Don't be sad. It's not your fault.",
+      "ko": "슬퍼하지 마세요. 볼프강 잘못이 아니에요.",
+      "focus": {
+       "de": [
+        "Sei"
+       ],
+       "en": [
+        "Don't be"
+       ],
+       "ko": [
+        "슬퍼하지 마세요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Bist",
+         "Bin"
+        ]
+       ],
+       "en": [
+        [
+         "Not be",
+         "Don't are"
+        ]
+       ],
+       "ko": [
+        [
+         "슬퍼하지 마세여",
+         "슬퍼하지 말세요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ich gehe nach Paris und arbeite mit aller Kraft.",
+      "en": "I'm going to Paris and I'll work with all my strength.",
+      "ko": "파리에 가서 온 힘을 다해 일할게요."
+     },
+     {
+      "who": "me",
+      "de": "Gut. Aber pass auf dich auf und schreib oft!",
+      "en": "Good. But take care of yourself and write often!",
+      "ko": "좋아요. 몸 조심하고 편지 자주 써요!",
+      "focus": {
+       "de": [
+        "schreib"
+       ],
+       "en": [
+        "take care"
+       ],
+       "ko": [
+        "써요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "schreibst",
+         "schreibt"
+        ]
+       ],
+       "en": [
+        [
+         "takes care",
+         "taking care"
+        ]
+       ],
+       "ko": [
+        [
+         "쓰어요",
+         "써여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Schuld",
+     "arbeiten"
+    ],
+    "grammar": "II.2"
    }
   }
  ]

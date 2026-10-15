@@ -491,6 +491,142 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Welche Tochter der Webers liebt Wolfgang?",
+      "en": "Which of the Weber daughters does Wolfgang love?",
+      "ko": "볼프강이 사랑하는 베버 집안 딸은 누구예요?"
+     },
+     "options": [
+      {
+       "de": "Josepha",
+       "en": "Josepha",
+       "ko": "요제파"
+      },
+      {
+       "de": "Sophie",
+       "en": "Sophie",
+       "ko": "조피"
+      },
+      {
+       "de": "Keine von ihnen",
+       "en": "None of them",
+       "ko": "아무도 아니에요"
+      },
+      {
+       "de": "Constanze",
+       "en": "Constanze",
+       "ko": "콘스탄체"
+      }
+     ],
+     "answer": 3,
+     "evidence": 2,
+     "mark": {
+      "de": "Constanze",
+      "en": "Constanze",
+      "ko": "콘스탄체"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "결혼하고 싶다는 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang, who wants to get married · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, ich muss dir etwas sagen. Ich habe mich verliebt.",
+      "en": "Papa, I have to tell you something. I've fallen in love.",
+      "ko": "아빠, 드릴 말씀이 있어요. 사랑에 빠졌어요."
+     },
+     {
+      "who": "me",
+      "de": "Wirklich? In wen denn?",
+      "en": "Really? With whom?",
+      "ko": "정말요? 누구랑요?",
+      "focus": {
+       "de": [
+        "wen"
+       ],
+       "en": [
+        "whom"
+       ],
+       "ko": [
+        "누구랑요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "wem",
+         "wer"
+        ]
+       ],
+       "en": [
+        [
+         "who's",
+         "whose"
+        ]
+       ],
+       "ko": [
+        [
+         "누구랑이요",
+         "누구과요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "In Constanze Weber. Sie hat schöne schwarze Augen.",
+      "en": "Constanze Weber. She has beautiful black eyes.",
+      "ko": "콘스탄체 베버요. 까만 눈이 예뻐요."
+     },
+     {
+      "who": "me",
+      "de": "Hm. Und wovon wollt ihr leben?",
+      "en": "Hm. And what are you going to live on?",
+      "ko": "음. 그럼 뭘로 먹고살 거예요?",
+      "focus": {
+       "de": [
+        "wollt ihr"
+       ],
+       "en": [
+        "going to live"
+       ],
+       "ko": [
+        "먹고살 거예요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "wollen ihr",
+         "willst ihr"
+        ]
+       ],
+       "en": [
+        [
+         "going to living",
+         "going live"
+        ]
+       ],
+       "ko": [
+        [
+         "먹고살 거에요",
+         "먹고살 꺼예요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "schwarz"
+    ],
+    "grammar": "VI.2"
    }
   },
   {
@@ -860,6 +996,137 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wann würde Wolfgang Constanze sofort heiraten?",
+      "en": "When would Wolfgang marry Constanze this very day?",
+      "ko": "볼프강은 어떤 경우라면 당장 콘스탄체와 결혼하겠대요?"
+     },
+     "options": [
+      {
+       "de": "Wenn Constanze reich wäre",
+       "en": "If Constanze were rich",
+       "ko": "콘스탄체가 부자라면"
+      },
+      {
+       "de": "Wenn der Vater kommt",
+       "en": "If his father came",
+       "ko": "아버지가 오신다면"
+      },
+      {
+       "de": "Wenn er ein Versprechen hat",
+       "en": "If he had a promise",
+       "ko": "약속을 하나 받아 낸다면"
+      },
+      {
+       "de": "Wenn er sicher gesund bleibt",
+       "en": "If he knew he'd stay healthy",
+       "ko": "건강할 게 확실하다면"
+      }
+     ],
+     "answer": 3,
+     "evidence": 4
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "일자리를 찾는 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang, who's looking for a steady income · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, ich brauche ein festes Einkommen. Dann heirate ich.",
+      "en": "Papa, I need a steady income. Then I'll get married.",
+      "ko": "아빠, 고정 수입이 필요해요. 그러면 결혼할 거예요."
+     },
+     {
+      "who": "me",
+      "de": "Hast du schon eine Idee? Vielleicht beim Kaiser?",
+      "en": "Do you have an idea yet? Maybe with the Emperor?",
+      "ko": "생각해 둔 데 있어요? 황제 쪽은 어때요?",
+      "focus": {
+       "de": [
+        "Hast du"
+       ],
+       "en": [
+        "Do you have"
+       ],
+       "ko": [
+        "어때요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Hat du",
+         "Habst du"
+        ]
+       ],
+       "en": [
+        [
+         "Does you have",
+         "Do you has"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼요",
+         "어떠요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ich freue mich über ein Versprechen, aber Geld ist besser.",
+      "en": "A promise is nice, but money is better.",
+      "ko": "약속도 반갑지만, 돈이 더 좋아요."
+     },
+     {
+      "who": "me",
+      "de": "Das stimmt. Überleg dir alles gut.",
+      "en": "That's true. Think it all through carefully.",
+      "ko": "맞아요. 모든 걸 잘 생각해 봐요.",
+      "focus": {
+       "de": [
+        "Überleg dir"
+       ],
+       "en": [
+        "Think"
+       ],
+       "ko": [
+        "생각해 봐요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Überleg dich",
+         "Überlegst dir"
+        ]
+       ],
+       "en": [
+        [
+         "Thinks",
+         "Thinking"
+        ]
+       ],
+       "ko": [
+        [
+         "생각해 바요",
+         "생각하 봐요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Versprechen"
+    ],
+    "grammar": "VI.2"
    }
   },
   {
@@ -1230,6 +1497,140 @@
       "quote": 1
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Warum hat Wolfgang die Fuge geschrieben?",
+      "en": "Why did Wolfgang write the fugue?",
+      "ko": "볼프강은 왜 그 푸가를 썼어요?"
+     },
+     "options": [
+      {
+       "de": "Van Swieten hat bezahlt",
+       "en": "Van Swieten paid for it",
+       "ko": "판 스비텐이 돈을 줘서"
+      },
+      {
+       "de": "Nannerl wollte eine",
+       "en": "Nannerl wanted one",
+       "ko": "난네를이 원해서"
+      },
+      {
+       "de": "Der Kaiser hat sie bestellt",
+       "en": "The Emperor ordered it",
+       "ko": "황제가 주문해서"
+      },
+      {
+       "de": "Constanze bat ihn darum",
+       "en": "Constanze kept asking him",
+       "ko": "콘스탄체가 졸라서"
+      }
+     ],
+     "answer": 3,
+     "evidence": [
+      2,
+      3
+     ]
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "난네를에게 푸가를 보낸 볼프강과 통화 · 나는 누나 난네를",
+     "en": "A call with Wolfgang after he sends me a fugue · I'm his sister Nannerl"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Nannerl! Hast du die Fuge bekommen?",
+      "en": "Hi Nannerl! Did you get the fugue?",
+      "ko": "안녕하세요, 누나! 푸가 받았어요?"
+     },
+     {
+      "who": "me",
+      "de": "Ja, danke! Für wen hast du sie geschrieben?",
+      "en": "Yes, thanks! Who did you write it for?",
+      "ko": "네, 고마워요! 누구를 위해 쓴 거예요?",
+      "focus": {
+       "de": [
+        "Für wen"
+       ],
+       "en": [
+        "did you write"
+       ],
+       "ko": [
+        "쓴 거예요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Für wem",
+         "Für wer"
+        ]
+       ],
+       "en": [
+        [
+         "did you wrote",
+         "do you wrote"
+        ]
+       ],
+       "ko": [
+        [
+         "쓴 거에요",
+         "써은 거예요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Für Constanze. Sie fragte mich jeden Tag danach.",
+      "en": "For Constanze. She asked me for it every day.",
+      "ko": "콘스탄체요. 날마다 써 달라고 했어요."
+     },
+     {
+      "who": "me",
+      "de": "Wie süß! Wie schnell soll ich sie spielen?",
+      "en": "How sweet! How fast should I play it?",
+      "ko": "귀엽네요! 얼마나 빠르게 치면 돼요?",
+      "focus": {
+       "de": [
+        "soll ich"
+       ],
+       "en": [
+        "should I play"
+       ],
+       "ko": [
+        "치면 돼요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "sollst ich",
+         "soll mich"
+        ]
+       ],
+       "en": [
+        [
+         "should I plays",
+         "should I to play"
+        ]
+       ],
+       "ko": [
+        [
+         "치면 되요",
+         "쳐면 돼요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Fuge"
+    ],
+    "grammar": "VI.1"
    }
   },
   {
@@ -1608,6 +2009,138 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was will Wolfgang nach dem Ärger?",
+      "en": "What does Wolfgang insist on after his anger?",
+      "ko": "볼프강은 화가 나서 뭘 하겠다고 해요?"
+     },
+     "options": [
+      {
+       "de": "Eine neue Oper schreiben",
+       "en": "Write a new opera",
+       "ko": "새 오페라 쓰기"
+      },
+      {
+       "de": "Nie mehr ohne Probe",
+       "en": "Never again without a rehearsal",
+       "ko": "리허설 없이는 다시 안 올리기"
+      },
+      {
+       "de": "Wien verlassen",
+       "en": "Leave Vienna",
+       "ko": "빈 떠나기"
+      },
+      {
+       "de": "Neue Sänger suchen",
+       "en": "Find new singers",
+       "ko": "새 가수 구하기"
+      }
+     ],
+     "answer": 1,
+     "evidence": 2
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "오페라 두 번째 공연 뒤 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang after his opera's second night · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, das Theater war wieder ganz voll!",
+      "en": "Papa, the theatre was packed again!",
+      "ko": "아빠, 극장이 또 꽉 찼어요!"
+     },
+     {
+      "who": "me",
+      "de": "Super! Und wie war der zweite Abend?",
+      "en": "Great! And how was the second night?",
+      "ko": "잘됐네요! 두 번째 공연은 어땠어요?",
+      "focus": {
+       "de": [
+        "war"
+       ],
+       "en": [
+        "how was"
+       ],
+       "ko": [
+        "어땠어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "waren",
+         "wart"
+        ]
+       ],
+       "en": [
+        [
+         "how were",
+         "how been"
+        ]
+       ],
+       "ko": [
+        [
+         "어땟어요",
+         "어떴어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Manche Leute störten. Ich hatte so eine Wut!",
+      "en": "Some people made trouble. I was so angry!",
+      "ko": "몇몇 사람이 방해했어요. 너무 화가 났어요!"
+     },
+     {
+      "who": "me",
+      "de": "Das verstehe ich. Aber bleib ruhig, mein Sohn.",
+      "en": "I understand. But stay calm, son.",
+      "ko": "이해해요. 그래도 침착해요, 아들.",
+      "focus": {
+       "de": [
+        "bleib"
+       ],
+       "en": [
+        "stay calm"
+       ],
+       "ko": [
+        "침착해요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "bleibst",
+         "bleibt"
+        ]
+       ],
+       "en": [
+        [
+         "stays calm",
+         "staying calm"
+        ]
+       ],
+       "ko": [
+        [
+         "침착하요",
+         "침착헤요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Theater",
+     "Wut"
+    ],
+    "grammar": "VI.0"
    }
   },
   {
@@ -2000,6 +2533,138 @@
       "quote": 4
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Worum bittet Wolfgang den Vater?",
+      "en": "What does Wolfgang beg his father for?",
+      "ko": "볼프강은 아버지께 무엇을 간청해요?"
+     },
+     "options": [
+      {
+       "de": "Um mehr Geld",
+       "en": "More money",
+       "ko": "돈을 더"
+      },
+      {
+       "de": "Um einen Besuch in Wien",
+       "en": "A visit to Vienna",
+       "ko": "빈 방문"
+      },
+      {
+       "de": "Um die Erlaubnis zur Heirat",
+       "en": "Consent to marry",
+       "ko": "결혼 허락"
+      },
+      {
+       "de": "Um Rat zur Oper",
+       "en": "Advice on the opera",
+       "ko": "오페라에 대한 조언"
+      }
+     ],
+     "answer": 2,
+     "evidence": 3
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "세 번째 공연을 마친 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang after the third performance · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, trotz der Hitze war das Theater voll!",
+      "en": "Papa, the theatre was full despite the heat!",
+      "ko": "아빠, 더운데도 극장이 꽉 찼어요!"
+     },
+     {
+      "who": "me",
+      "de": "Toll! Gab es viel Beifall?",
+      "en": "Great! Was there lots of applause?",
+      "ko": "대단해요! 박수도 많이 받았어요?",
+      "focus": {
+       "de": [
+        "Gab es"
+       ],
+       "en": [
+        "Was there"
+       ],
+       "ko": [
+        "받았어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Gab sie",
+         "Gabst es"
+        ]
+       ],
+       "en": [
+        [
+         "Were there",
+         "Is there was"
+        ]
+       ],
+       "ko": [
+        [
+         "받었어요",
+         "밭았어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja. Aber bitte, Papa: Darf ich Constanze heiraten?",
+      "en": "Yes. But please, Papa: may I marry Constanze?",
+      "ko": "네. 그런데 아빠, 제발요. 콘스탄체랑 결혼해도 돼요?"
+     },
+     {
+      "who": "me",
+      "de": "Ich muss darüber nachdenken. Sei nicht so unruhig.",
+      "en": "I need to think about it. Don't be so restless.",
+      "ko": "생각해 봐야 해요. 너무 조급해하지 마세요.",
+      "focus": {
+       "de": [
+        "nachdenken"
+       ],
+       "en": [
+        "need to think"
+       ],
+       "ko": [
+        "봐야 해요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "nachdenke",
+         "nachgedacht"
+        ]
+       ],
+       "en": [
+        [
+         "need think",
+         "need to thinking"
+        ]
+       ],
+       "ko": [
+        [
+         "바야 해요",
+         "봐야 하요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Hitze",
+     "Beifall"
+    ],
+    "grammar": "VI.0"
    }
   },
   {
@@ -2388,6 +3053,137 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was passierte nach der Trauung?",
+      "en": "What happened after the wedding ceremony?",
+      "ko": "결혼식이 끝나고 무슨 일이 있었어요?"
+     },
+     "options": [
+      {
+       "de": "Beide lachten laut",
+       "en": "Both laughed out loud",
+       "ko": "둘 다 크게 웃었어요"
+      },
+      {
+       "de": "Sie tanzten lange",
+       "en": "They danced for a long time",
+       "ko": "오래 춤을 췄어요"
+      },
+      {
+       "de": "Sie reisten sofort ab",
+       "en": "They left at once",
+       "ko": "바로 여행을 떠났어요"
+      },
+      {
+       "de": "Beide weinten",
+       "en": "Both of them cried",
+       "ko": "둘 다 울었어요"
+      }
+     ],
+     "answer": 3,
+     "evidence": 2
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "결혼식을 마친 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang just after his wedding · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, ich wartete auf deine Antwort, dann heirateten wir.",
+      "en": "Papa, I waited for your answer, then we got married.",
+      "ko": "아빠, 답을 기다리다가 결혼했어요."
+     },
+     {
+      "who": "me",
+      "de": "Ohne meinen Brief? Na ja, er kam einen Tag später.",
+      "en": "Without my letter? Well, it came a day later.",
+      "ko": "내 편지도 없이요? 뭐, 하루 늦게 도착했죠.",
+      "focus": {
+       "de": [
+        "kam"
+       ],
+       "en": [
+        "it came"
+       ],
+       "ko": [
+        "도착했죠"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "kommte",
+         "kamte"
+        ]
+       ],
+       "en": [
+        [
+         "it comed",
+         "it come"
+        ]
+       ],
+       "ko": [
+        [
+         "도착햇죠",
+         "도착했조"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Es tut mir leid. Wir möchten bald zu dir reisen.",
+      "en": "I'm sorry. We'd like to travel to see you soon.",
+      "ko": "죄송해요. 곧 아빠를 뵈러 가고 싶어요."
+     },
+     {
+      "who": "me",
+      "de": "Schon gut. Ich gratuliere euch von Herzen.",
+      "en": "It's all right. Congratulations to you both, from my heart.",
+      "ko": "괜찮아요. 진심으로 축하해요.",
+      "focus": {
+       "de": [
+        "gratuliere euch"
+       ],
+       "en": [
+        "Congratulations"
+       ],
+       "ko": [
+        "축하해요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "gratuliere ihr",
+         "gratulierst euch"
+        ]
+       ],
+       "en": [
+        [
+         "Congratulation",
+         "Congratulate"
+        ]
+       ],
+       "ko": [
+        [
+         "축하하요",
+         "추카해요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "reisen"
+    ],
+    "grammar": "VI.1"
    }
   },
   {
@@ -2737,6 +3533,141 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Welche Sprache lernt Wolfgang jetzt?",
+      "en": "Which language is Wolfgang learning now?",
+      "ko": "볼프강은 요즘 무슨 언어를 배워요?"
+     },
+     "options": [
+      {
+       "de": "Französisch",
+       "en": "French",
+       "ko": "프랑스어"
+      },
+      {
+       "de": "Englisch",
+       "en": "English",
+       "ko": "영어"
+      },
+      {
+       "de": "Italienisch",
+       "en": "Italian",
+       "ko": "이탈리아어"
+      },
+      {
+       "de": "Latein",
+       "en": "Latin",
+       "ko": "라틴어"
+      }
+     ],
+     "answer": 1,
+     "evidence": 4,
+     "mark": {
+      "en": "English",
+      "ko": "영어"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "아내와 함께 지내는 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang, newly married · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, danke für deinen Segen! Wir freuen uns sehr.",
+      "en": "Papa, thank you for your blessing! We're so happy.",
+      "ko": "아빠, 축복해 주셔서 고마워요! 저희 정말 기뻐요."
+     },
+     {
+      "who": "me",
+      "de": "Gern geschehen. Was gibt es Neues bei euch?",
+      "en": "You're welcome. What's new with you?",
+      "ko": "천만에요. 요즘 새로운 일 있어요?",
+      "focus": {
+       "de": [
+        "bei euch"
+       ],
+       "en": [
+        "What's new"
+       ],
+       "ko": [
+        "있어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "bei euer",
+         "bei ihrer"
+        ]
+       ],
+       "en": [
+        [
+         "What are new",
+         "What's news"
+        ]
+       ],
+       "ko": [
+        [
+         "있아요",
+         "잇어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ich lerne Englisch. Ich hatte schon drei Stunden.",
+      "en": "I'm learning English. I've had three lessons already.",
+      "ko": "영어를 배워요. 벌써 세 번 수업했어요."
+     },
+     {
+      "who": "me",
+      "de": "Toll! Bald liest du englische Bücher.",
+      "en": "Great! Soon you'll be reading English books.",
+      "ko": "대단해요! 곧 영어책도 읽겠네요.",
+      "focus": {
+       "de": [
+        "liest du"
+       ],
+       "en": [
+        "you'll be reading"
+       ],
+       "ko": [
+        "읽겠네요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "lest du",
+         "liesst du"
+        ]
+       ],
+       "en": [
+        [
+         "you'll be read",
+         "you'll reading"
+        ]
+       ],
+       "ko": [
+        [
+         "읽겟네요",
+         "일겠네요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Segen"
+    ],
+    "grammar": "VI.2"
    }
   }
  ]

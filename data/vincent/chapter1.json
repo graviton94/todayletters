@@ -358,6 +358,142 @@
     "fr": "À la recherche du soleil du Midi",
     "en": "Looking for the southern sun",
     "ko": "남쪽의 햇빛을 찾아서"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qu'y a-t-il partout quand Vincent arrive ?",
+      "en": "What is everywhere when Vincent arrives?",
+      "ko": "빈센트가 도착했을 때 어디에나 무엇이 있었나요?"
+     },
+     "options": [
+      {
+       "fr": "Des vignes",
+       "en": "Vines",
+       "ko": "포도나무"
+      },
+      {
+       "fr": "Des fleurs",
+       "en": "Flowers",
+       "ko": "꽃"
+      },
+      {
+       "fr": "De la neige",
+       "en": "Snow",
+       "ko": "눈"
+      },
+      {
+       "fr": "Du sable",
+       "en": "Sand",
+       "ko": "모래"
+      }
+     ],
+     "answer": 2,
+     "evidence": 1,
+     "mark": {
+      "fr": "neige",
+      "en": "snow"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "아를에 막 도착한 빈센트와 통화",
+     "en": "On the phone with Vincent, just arrived in Arles"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Allô, Théo ! Il neige partout ici !",
+      "en": "Hello, Theo! It's snowing everywhere here!",
+      "ko": "여보세요, 테오! 여기 온통 눈이에요!"
+     },
+     {
+      "who": "me",
+      "fr": "Vraiment ? Tu es fatigué du voyage ?",
+      "en": "Really? Are you tired from the journey?",
+      "ko": "정말요? 오는 길에 피곤했어요?",
+      "focus": {
+       "fr": [
+        "Tu es fatigué"
+       ],
+       "en": [
+        "Are you tired"
+       ],
+       "ko": [
+        "피곤했어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu as fatigué",
+         "Tu es fatiguée"
+        ]
+       ],
+       "en": [
+        [
+         "Is you tired",
+         "Do you tired"
+        ]
+       ],
+       "ko": [
+        [
+         "피곤했아요",
+         "피곤해었어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Un peu. Mais je pense à toi.",
+      "en": "A little. But I'm thinking of you.",
+      "ko": "조금요. 그래도 테오 생각을 해요."
+     },
+     {
+      "who": "me",
+      "fr": "Tu as froid ? Tu as besoin de quelque chose ?",
+      "en": "Are you cold? Do you need anything?",
+      "ko": "추워요? 필요한 거 있어요?",
+      "focus": {
+       "fr": [
+        "Tu as besoin"
+       ],
+       "en": [
+        "Do you need"
+       ],
+       "ko": [
+        "있어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu es besoin",
+         "Tu a besoin"
+        ]
+       ],
+       "en": [
+        [
+         "Does you need",
+         "Are you need"
+        ]
+       ],
+       "ko": [
+        [
+         "있아요",
+         "있요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "voyage",
+     "penser"
+    ],
+    "grammar": "I.0"
    }
   },
   {
@@ -635,6 +771,143 @@
     "fr": "Je me sens au Japon",
     "en": "I feel I'm in Japan",
     "ko": "일본에 와 있는 것 같아"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Où Vincent a-t-il l'impression d'être ?",
+      "en": "Where does Vincent feel he is?",
+      "ko": "빈센트는 자기가 어디에 있는 것 같다고 하나요?"
+     },
+     "options": [
+      {
+       "fr": "En Hollande",
+       "en": "In Holland",
+       "ko": "네덜란드"
+      },
+      {
+       "fr": "À Paris",
+       "en": "In Paris",
+       "ko": "파리"
+      },
+      {
+       "fr": "En Italie",
+       "en": "In Italy",
+       "ko": "이탈리아"
+      },
+      {
+       "fr": "Au Japon",
+       "en": "In Japan",
+       "ko": "일본"
+      }
+     ],
+     "answer": 3,
+     "evidence": 2,
+     "mark": {
+      "fr": "au Japon",
+      "en": "in Japan",
+      "ko": "일본"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "새 그림을 들고 돌아온 빈센트와 안부 통화",
+     "en": "A how-are-you call with Vincent, back with a new canvas"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Salut, Théo ! Ça va ?",
+      "en": "Hi, Theo! How are you?",
+      "ko": "안녕하세요, 테오! 잘 지내요?"
+     },
+     {
+      "who": "me",
+      "fr": "Oui, ça va. Et toi, tu es content là-bas ?",
+      "en": "Yes, fine. And you, are you happy there?",
+      "ko": "네, 잘 지내요. 형은 거기가 좋아요?",
+      "focus": {
+       "fr": [
+        "tu es content"
+       ],
+       "en": [
+        "are you happy"
+       ],
+       "ko": [
+        "좋아요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "tu as content",
+         "tu es contents"
+        ]
+       ],
+       "en": [
+        [
+         "is you happy",
+         "you are happy"
+        ]
+       ],
+       "ko": [
+        [
+         "좋어요",
+         "좋아여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Très content. J'apprends beaucoup. Le travail avance.",
+      "en": "Very happy. I'm learning a lot. The work is going well.",
+      "ko": "정말 좋아요. 많이 배워요. 작업도 잘돼요."
+     },
+     {
+      "who": "me",
+      "fr": "Moi aussi, je suis content. C'est super !",
+      "en": "I'm happy too. That's great!",
+      "ko": "저도 기뻐요. 정말 잘됐어요!",
+      "focus": {
+       "fr": [
+        "Moi aussi"
+       ],
+       "en": [
+        "I'm happy too"
+       ],
+       "ko": [
+        "저도"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Moi non plus",
+         "Toi aussi"
+        ]
+       ],
+       "en": [
+        [
+         "I'm happy neither",
+         "I happy too"
+        ]
+       ],
+       "ko": [
+        [
+         "저가",
+         "제도"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "apprendre",
+     "travail"
+    ],
+    "grammar": "I.1"
    }
   },
   {
@@ -915,6 +1188,143 @@
     "fr": "Souvenir de Mauve",
     "en": "In memory of Mauve",
     "ko": "마우버를 추억하며"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qu'écrit Vincent sur son tableau ?",
+      "en": "What does Vincent write on his painting?",
+      "ko": "빈센트는 그림에 무엇이라고 적었나요?"
+     },
+     "options": [
+      {
+       "fr": "Pêchers roses",
+       "en": "Pink peach trees",
+       "ko": "‘분홍 복숭아나무’"
+      },
+      {
+       "fr": "Le verger",
+       "en": "The orchard",
+       "ko": "‘과수원’"
+      },
+      {
+       "fr": "Ciel bleu",
+       "en": "Blue sky",
+       "ko": "‘파란 하늘’"
+      },
+      {
+       "fr": "Souvenir de Mauve",
+       "en": "Souvenir de Mauve",
+       "ko": "‘마우버를 추억하며’"
+      }
+     ],
+     "answer": 3,
+     "evidence": 1,
+     "mark": {
+      "fr": "Souvenir de Mauve",
+      "en": "Souvenir de Mauve",
+      "ko": "마우버를 추억하며"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "바람 부는 과수원에서 그림 그리는 빈센트와 통화",
+     "en": "On the phone with Vincent, painting in a windy orchard"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Le vent est très fort ici, Théo.",
+      "en": "The wind is very strong here, Theo.",
+      "ko": "여기 바람이 정말 세요, 테오."
+     },
+     {
+      "who": "me",
+      "fr": "Est-ce que tu travailles dehors quand même ?",
+      "en": "Do you still work outside anyway?",
+      "ko": "그래도 밖에서 일해요?",
+      "focus": {
+       "fr": [
+        "Est-ce que tu travailles"
+       ],
+       "en": [
+        "Do you"
+       ],
+       "ko": [
+        "일해요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Est-ce que tu travaille",
+         "Est-ce tu travailles"
+        ]
+       ],
+       "en": [
+        [
+         "Does you",
+         "Are you"
+        ]
+       ],
+       "ko": [
+        [
+         "일하요",
+         "일해아요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui ! J'ai des arbres en fleurs devant moi.",
+      "en": "Yes! I've got trees in blossom right in front of me.",
+      "ko": "네! 앞에 꽃 핀 나무들이 있어요."
+     },
+     {
+      "who": "me",
+      "fr": "Est-ce que c'est pour Mauve, ce tableau ?",
+      "en": "Is this painting for Mauve?",
+      "ko": "그 그림, 마우버를 위한 거예요?",
+      "focus": {
+       "fr": [
+        "Est-ce que c'est"
+       ],
+       "en": [
+        "Is this"
+       ],
+       "ko": [
+        "거예요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Est-ce que ce est",
+         "Est-ce c'est"
+        ]
+       ],
+       "en": [
+        [
+         "Are this",
+         "Is these"
+        ]
+       ],
+       "ko": [
+        [
+         "거이에요",
+         "것예요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "vent",
+     "travailler"
+    ],
+    "grammar": "I.2"
    }
   },
   {
@@ -1142,6 +1552,143 @@
     "fr": "Dans une rage de travail",
     "en": "In a frenzy of work",
     "ko": "미친 듯이 그리는 중"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Pourquoi Vincent travaille-t-il comme un fou ?",
+      "en": "Why is Vincent working in a frenzy?",
+      "ko": "빈센트는 왜 정신없이 일하나요?"
+     },
+     "options": [
+      {
+       "fr": "Les arbres sont en fleurs",
+       "en": "The trees are in blossom",
+       "ko": "나무에 꽃이 피어서"
+      },
+      {
+       "fr": "Théo va venir",
+       "en": "Theo is coming",
+       "ko": "테오가 와서"
+      },
+      {
+       "fr": "Il doit payer le loyer",
+       "en": "He must pay the rent",
+       "ko": "집세를 내야 해서"
+      },
+      {
+       "fr": "Il neige encore",
+       "en": "It is still snowing",
+       "ko": "아직 눈이 와서"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "fr": "les arbres sont en fleurs",
+      "en": "the trees are in blossom",
+      "ko": "나무에 꽃이 피어서"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "꽃 핀 나무를 그리느라 바쁜 빈센트와 통화",
+     "en": "On the phone with Vincent, busy painting trees in blossom"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Pardon, Théo, ma lettre est très courte.",
+      "en": "Sorry, Theo, my letter is very short.",
+      "ko": "미안해요, 테오. 편지가 너무 짧아요."
+     },
+     {
+      "who": "me",
+      "fr": "Pas de problème ! Tu es très occupé ?",
+      "en": "No problem! Are you very busy?",
+      "ko": "괜찮아요! 많이 바빠요?",
+      "focus": {
+       "fr": [
+        "Tu es"
+       ],
+       "en": [
+        "Are you"
+       ],
+       "ko": [
+        "바빠요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu as",
+         "Tu est"
+        ]
+       ],
+       "en": [
+        [
+         "Is you",
+         "Do you"
+        ]
+       ],
+       "ko": [
+        [
+         "바쁘요",
+         "바뻐요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui ! Les arbres sont en fleurs. J'ai beaucoup de travail.",
+      "en": "Yes! The trees are in blossom. I've got lots of work.",
+      "ko": "네! 나무에 꽃이 피었어요. 일이 정말 많아요."
+     },
+     {
+      "who": "me",
+      "fr": "C'est normal. Moi, j'ai beaucoup de travail aussi.",
+      "en": "That's normal. I've got lots of work too.",
+      "ko": "그럴 만해요. 저도 일이 많아요.",
+      "focus": {
+       "fr": [
+        "j'ai"
+       ],
+       "en": [
+        "I've got"
+       ],
+       "ko": [
+        "많아요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "je suis",
+         "j'as"
+        ]
+       ],
+       "en": [
+        [
+         "I's got",
+         "I has got"
+        ]
+       ],
+       "ko": [
+        [
+         "많어요",
+         "만아요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "fleur",
+     "lettre"
+    ],
+    "grammar": "I.0"
    }
   },
   {
@@ -1379,6 +1926,143 @@
     "fr": "Le pêcher rose",
     "en": "The pink peach tree",
     "ko": "분홍 복숭아나무"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Quel tableau donne le plus de mal à Vincent ?",
+      "en": "Which painting gives Vincent the most trouble?",
+      "ko": "빈센트를 가장 애먹이는 그림은 무엇인가요?"
+     },
+     "options": [
+      {
+       "fr": "Le petit poirier",
+       "en": "The little pear tree",
+       "ko": "작은 배나무"
+      },
+      {
+       "fr": "Les peupliers",
+       "en": "The poplars",
+       "ko": "포플러"
+      },
+      {
+       "fr": "Le papillon jaune",
+       "en": "The yellow butterfly",
+       "ko": "노란 나비"
+      },
+      {
+       "fr": "Le pêcher rose",
+       "en": "The pink peach tree",
+       "ko": "분홍 복숭아나무"
+      }
+     ],
+     "answer": 3,
+     "evidence": 0,
+     "mark": {
+      "fr": "Le pêcher rose",
+      "en": "The pink peach tree",
+      "ko": "분홍 복숭아나무"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "과수원 그림 세 점을 두고 빈센트와 통화",
+     "en": "On the phone with Vincent about three orchard sketches"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Théo, est-ce que tu as les trois petits dessins ?",
+      "en": "Theo, did you get the three little drawings?",
+      "ko": "테오, 작은 그림 세 장 받았어요?"
+     },
+     {
+      "who": "me",
+      "fr": "Oui, je les ai. Ils sont très beaux !",
+      "en": "Yes, I've got them. They're really beautiful!",
+      "ko": "네, 받았어요. 정말 예뻐요!",
+      "focus": {
+       "fr": [
+        "Ils sont"
+       ],
+       "en": [
+        "They're"
+       ],
+       "ko": [
+        "예뻐요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Ils ont",
+         "Ils est"
+        ]
+       ],
+       "en": [
+        [
+         "They's",
+         "They is"
+        ]
+       ],
+       "ko": [
+        [
+         "예쁘요",
+         "예뻐여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Merci. Le pêcher rose me donne du mal.",
+      "en": "Thanks. The pink peach tree is giving me trouble.",
+      "ko": "고마워요. 분홍 복숭아나무가 제일 애를 먹여요."
+     },
+     {
+      "who": "me",
+      "fr": "Est-ce que tu as besoin de repos ?",
+      "en": "Do you need a rest?",
+      "ko": "좀 쉬어야 하지 않아요?",
+      "focus": {
+       "fr": [
+        "Est-ce que tu as"
+       ],
+       "en": [
+        "Do you need"
+       ],
+       "ko": [
+        "쉬어야"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Est-ce que tu es",
+         "Est-ce que as-tu"
+        ]
+       ],
+       "en": [
+        [
+         "Does you need",
+         "Do you needs"
+        ]
+       ],
+       "ko": [
+        [
+         "쉬야",
+         "쉬어여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "donner",
+     "mal"
+    ],
+    "grammar": "I.2"
    }
   },
   {
@@ -1601,6 +2285,144 @@
     "fr": "Enfin un atelier à moi",
     "en": "A studio of my own at last",
     "ko": "드디어 내 작업실"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Combien coûte la maison par mois ?",
+      "en": "How much is the house a month?",
+      "ko": "집세는 한 달에 얼마인가요?"
+     },
+     "options": [
+      {
+       "fr": "4 francs",
+       "en": "4 francs",
+       "ko": "4프랑"
+      },
+      {
+       "fr": "15 francs",
+       "en": "15 francs",
+       "ko": "15프랑"
+      },
+      {
+       "fr": "20 francs",
+       "en": "20 francs",
+       "ko": "20프랑"
+      },
+      {
+       "fr": "50 francs",
+       "en": "50 francs",
+       "ko": "50프랑"
+      }
+     ],
+     "answer": 1,
+     "evidence": 1,
+     "mark": {
+      "fr": "15 francs",
+      "en": "15 francs",
+      "ko": "15프랑"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "노란 집 오른쪽 날개를 빌린 빈센트와 통화",
+     "en": "On the phone with Vincent, who has just rented part of a yellow house"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Bonne nouvelle : j'ai quatre pièces, en plein soleil !",
+      "en": "Good news: I've got four rooms, in full sun!",
+      "ko": "좋은 소식이에요. 햇볕 가득한 방이 네 개 생겼어요!"
+     },
+     {
+      "who": "me",
+      "fr": "Génial ! C'est cher ?",
+      "en": "Great! Is it expensive?",
+      "ko": "잘됐어요! 비싸요?",
+      "focus": {
+       "fr": [
+        "C'est cher"
+       ],
+       "en": [
+        "Is it"
+       ],
+       "ko": [
+        "비싸요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "C'est chère",
+         "Ce est cher"
+        ]
+       ],
+       "en": [
+        [
+         "Are it",
+         "Is it is"
+        ]
+       ],
+       "ko": [
+        [
+         "비싸아요",
+         "빗싸요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Non, c'est quinze francs par mois.",
+      "en": "No, it's fifteen francs a month.",
+      "ko": "아니요, 한 달에 15프랑이에요."
+     },
+     {
+      "who": "me",
+      "fr": "Tu as besoin d'un lit ? Je peux t'aider.",
+      "en": "Do you need a bed? I can help you.",
+      "ko": "침대 필요해요? 제가 도울게요.",
+      "focus": {
+       "fr": [
+        "Tu as besoin"
+       ],
+       "en": [
+        "Do you need"
+       ],
+       "ko": [
+        "도울게요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu es besoin",
+         "Tu ai besoin"
+        ]
+       ],
+       "en": [
+        [
+         "Are you need",
+         "Do you needs"
+        ]
+       ],
+       "ko": [
+        [
+         "돕을게요",
+         "도울께요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "pièce",
+     "soleil",
+     "mois"
+    ],
+    "grammar": "I.0"
    }
   },
   {
@@ -1866,6 +2688,143 @@
     "fr": "Un rêve japonais",
     "en": "A Japanese dream",
     "ko": "일본의 꿈"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Combien Vincent paie-t-il un repas ?",
+      "en": "How much does Vincent pay for a meal?",
+      "ko": "빈센트는 새 식당에서 한 끼에 얼마를 내나요?"
+     },
+     "options": [
+      {
+       "fr": "1 franc",
+       "en": "1 franc",
+       "ko": "1프랑"
+      },
+      {
+       "fr": "2 francs",
+       "en": "2 francs",
+       "ko": "2프랑"
+      },
+      {
+       "fr": "5 francs",
+       "en": "5 francs",
+       "ko": "5프랑"
+      },
+      {
+       "fr": "15 francs",
+       "en": "15 francs",
+       "ko": "15프랑"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "fr": "1 franc",
+      "en": "1 franc",
+      "ko": "1프랑"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "새 식당을 찾은 빈센트와 안부 통화",
+     "en": "A how-are-you call: Vincent has found a better restaurant"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Salut, Théo ! J'ai un bon restaurant maintenant.",
+      "en": "Hi, Theo! I've got a good restaurant now.",
+      "ko": "안녕하세요, 테오! 이제 괜찮은 식당이 있어요."
+     },
+     {
+      "who": "me",
+      "fr": "Super ! Et ta santé, ça va ?",
+      "en": "Great! And your health, is it OK?",
+      "ko": "잘됐어요! 건강은 괜찮아요?",
+      "focus": {
+       "fr": [
+        "ta santé"
+       ],
+       "en": [
+        "your health"
+       ],
+       "ko": [
+        "건강은"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ton santé",
+         "tes santé"
+        ]
+       ],
+       "en": [
+        [
+         "you health",
+         "yours health"
+        ]
+       ],
+       "ko": [
+        [
+         "건강는",
+         "건강이는"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui, ma santé est meilleure. Je mange bien.",
+      "en": "Yes, my health is better. I'm eating well.",
+      "ko": "네, 건강이 좋아졌어요. 잘 먹어요."
+     },
+     {
+      "who": "me",
+      "fr": "Moi aussi, je mange bien. Je suis content !",
+      "en": "I'm eating well too. I'm glad!",
+      "ko": "저도 잘 먹어요. 다행이에요!",
+      "focus": {
+       "fr": [
+        "Moi aussi"
+       ],
+       "en": [
+        "too"
+       ],
+       "ko": [
+        "저도"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Moi non plus",
+         "Moi pas"
+        ]
+       ],
+       "en": [
+        [
+         "neither",
+         "also not"
+        ]
+       ],
+       "ko": [
+        [
+         "저은도",
+         "제도"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "santé",
+     "manger"
+    ],
+    "grammar": "I.1"
    }
   }
  ]

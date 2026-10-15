@@ -427,6 +427,143 @@
     "fr": "Gauguin est arrivé",
     "en": "Gauguin has arrived",
     "ko": "고갱이 왔어"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Comment va Gauguin à son arrivée ?",
+      "en": "How is Gauguin when he arrives?",
+      "ko": "도착한 고갱은 어떤 상태인가요?"
+     },
+     "options": [
+      {
+       "fr": "En bonne santé",
+       "en": "In good health",
+       "ko": "건강해요"
+      },
+      {
+       "fr": "Malade",
+       "en": "Ill",
+       "ko": "아파요"
+      },
+      {
+       "fr": "Très fatigué",
+       "en": "Very tired",
+       "ko": "몹시 지쳤어요"
+      },
+      {
+       "fr": "Découragé",
+       "en": "Discouraged",
+       "ko": "낙담했어요"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "fr": "en bonne santé",
+      "en": "in good health"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "고갱이 도착한 날, 빈센트와 통화 · 고마움",
+     "en": "On the phone with Vincent the day Gauguin arrives · thanks"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Merci pour le billet de cinquante francs, Théo !",
+      "en": "Thanks for the fifty-franc note, Theo!",
+      "ko": "50프랑 지폐 고마워요, 테오!"
+     },
+     {
+      "who": "me",
+      "fr": "De rien. Alors, Gauguin est bien arrivé ?",
+      "en": "You're welcome. So, did Gauguin arrive safely?",
+      "ko": "천만에요. 그래서 고갱은 잘 도착했어요?",
+      "focus": {
+       "fr": [
+        "De rien"
+       ],
+       "en": [
+        "You're welcome"
+       ],
+       "ko": [
+        "천만에요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "De quoi rien",
+         "Pour rien"
+        ]
+       ],
+       "en": [
+        [
+         "Your welcome",
+         "You welcome"
+        ]
+       ],
+       "ko": [
+        [
+         "천만이에요",
+         "천만해요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui, en forme. Il a apporté une belle toile.",
+      "en": "Yes, in good shape. He brought a beautiful canvas.",
+      "ko": "네, 건강해요. 멋진 그림을 하나 가져왔어요."
+     },
+     {
+      "who": "me",
+      "fr": "Super ! Vous allez faire des tas de choses !",
+      "en": "Great! You're going to do loads of things!",
+      "ko": "잘됐어요! 둘이서 많은 걸 하겠네요!",
+      "focus": {
+       "fr": [
+        "Vous allez faire"
+       ],
+       "en": [
+        "You're going to do"
+       ],
+       "ko": [
+        "하겠네요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Vous allez faites",
+         "Vous aller faire"
+        ]
+       ],
+       "en": [
+        [
+         "You're going to doing",
+         "You going to do"
+        ]
+       ],
+       "ko": [
+        [
+         "하겟네요",
+         "하겠내요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "billet",
+     "apporter",
+     "tas"
+    ],
+    "grammar": "IV.0"
    }
   },
   {
@@ -696,6 +833,139 @@
     "fr": "Une maison d'artiste",
     "en": "An artist's house",
     "ko": "화가의 집"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Pourquoi dépenseront-ils moins pour la peinture ?",
+      "en": "Why will they spend less on paint?",
+      "ko": "두 사람은 왜 물감에 돈을 덜 쓰게 되나요?"
+     },
+     "options": [
+      {
+       "fr": "Théo l'enverra",
+       "en": "Theo will send it",
+       "ko": "테오가 보내 줘서"
+      },
+      {
+       "fr": "Ils la feront eux-mêmes",
+       "en": "They'll make it themselves",
+       "ko": "직접 만들 거라서"
+      },
+      {
+       "fr": "Ils peindront moins",
+       "en": "They'll paint less",
+       "ko": "덜 그릴 거라서"
+      },
+      {
+       "fr": "Gauguin en a apporté",
+       "en": "Gauguin brought some",
+       "ko": "고갱이 가져와서"
+      }
+     ],
+     "answer": 1,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "고갱과 함께 사는 노란 집 살림 이야기",
+     "en": "Talking with Vincent about living costs in the Yellow House with Gauguin"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "La maison va très bien. C'est un vrai atelier !",
+      "en": "The house is going very well. It's a real studio!",
+      "ko": "집은 아주 잘 돼 가요. 진짜 작업실이에요!"
+     },
+     {
+      "who": "me",
+      "fr": "Génial ! Et vous allez dépenser combien ?",
+      "en": "Great! And how much are you going to spend?",
+      "ko": "잘됐어요! 그럼 얼마나 쓸 거예요?",
+      "focus": {
+       "fr": [
+        "vous allez dépenser"
+       ],
+       "en": [
+        "are you going to spend"
+       ],
+       "ko": [
+        "쓸 거예요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "vous allez dépensez",
+         "vous allez dépensé"
+        ]
+       ],
+       "en": [
+        [
+         "are you going spend",
+         "is you going to spend"
+        ]
+       ],
+       "ko": [
+        [
+         "쓸 것예요",
+         "쓰을 거예요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Pas plus de deux cent cinquante francs par mois.",
+      "en": "No more than two hundred and fifty francs a month.",
+      "ko": "한 달에 250프랑 넘지 않을 거예요."
+     },
+     {
+      "who": "me",
+      "fr": "Parfait. Et Gauguin aime tes études ?",
+      "en": "Perfect. And does Gauguin like your studies?",
+      "ko": "좋아요. 고갱은 형 습작을 좋아해요?",
+      "focus": {
+       "fr": [
+        "tes études"
+       ],
+       "en": [
+        "your studies"
+       ],
+       "ko": [
+        "좋아해요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ton études",
+         "ta études"
+        ]
+       ],
+       "en": [
+        [
+         "you studies",
+         "your study's"
+        ]
+       ],
+       "ko": [
+        [
+         "좋아하요",
+         "좋아해여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "atelier",
+     "dépenser",
+     "étude"
+    ],
+    "grammar": "IV.0"
    }
   },
   {
@@ -1005,6 +1275,138 @@
     "fr": "Une vigne toute rouge",
     "en": "A vineyard all red",
     "ko": "온통 붉은 포도밭"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Que peint Vincent en ce moment ?",
+      "en": "What is Vincent working on now?",
+      "ko": "빈센트는 지금 무엇을 그리고 있나요?"
+     },
+     "options": [
+      {
+       "fr": "Un champ sous la neige",
+       "en": "A field under snow",
+       "ko": "눈 덮인 들판"
+      },
+      {
+       "fr": "Une vigne violette et jaune",
+       "en": "A purple and yellow vineyard",
+       "ko": "보라와 노랑의 포도밭"
+      },
+      {
+       "fr": "Un ciel plein d'étoiles",
+       "en": "A sky full of stars",
+       "ko": "별이 가득한 하늘"
+      },
+      {
+       "fr": "Un bouquet de fleurs",
+       "en": "A bunch of flowers",
+       "ko": "꽃다발"
+      }
+     ],
+     "answer": 1,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "붉은 포도밭을 본 일요일 이야기",
+     "en": "Talking with Vincent about the Sunday he saw a red vineyard"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Dimanche, on a vu une vigne toute rouge.",
+      "en": "On Sunday we saw a vineyard that was all red.",
+      "ko": "일요일에 온통 빨간 포도밭을 봤어요."
+     },
+     {
+      "who": "me",
+      "fr": "Toute rouge ? C'était beau ?",
+      "en": "All red? Was it beautiful?",
+      "ko": "온통 빨간색이요? 예뻤어요?",
+      "focus": {
+       "fr": [
+        "Toute rouge"
+       ],
+       "en": [
+        "All red"
+       ],
+       "ko": [
+        "예뻤어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tout rouge",
+         "Toutes rouge"
+        ]
+       ],
+       "en": [
+        [
+         "All reds",
+         "Whole red"
+        ]
+       ],
+       "ko": [
+        [
+         "예뻣어요",
+         "예쁘었어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Rouge comme du vin ! Tu dois venir, un jour.",
+      "en": "Red like wine! You must come one day.",
+      "ko": "포도주처럼 빨개요! 언젠가 꼭 오세요."
+     },
+     {
+      "who": "me",
+      "fr": "Promis, un dimanche, je viendrai avec vous !",
+      "en": "Promise, one Sunday I'll come with you!",
+      "ko": "약속해요. 어느 일요일에 같이 갈게요!",
+      "focus": {
+       "fr": [
+        "je viendrai"
+       ],
+       "en": [
+        "I'll come"
+       ],
+       "ko": [
+        "갈게요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "je venirai",
+         "je viendra"
+        ]
+       ],
+       "en": [
+        [
+         "I'll came",
+         "I'll comes"
+        ]
+       ],
+       "ko": [
+        [
+         "갈께요",
+         "가을게요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "dimanche",
+     "vin"
+    ],
+    "grammar": "IV.2"
    }
   },
   {
@@ -1289,6 +1691,140 @@
     "fr": "Toute la famille du facteur",
     "en": "The postman's whole family",
     "ko": "우편배달부네 온 가족"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Quelle famille Vincent a-t-il peinte ?",
+      "en": "Whose family has Vincent painted?",
+      "ko": "빈센트는 누구의 가족을 그렸나요?"
+     },
+     "options": [
+      {
+       "fr": "Celle du facteur",
+       "en": "The postman's",
+       "ko": "우편배달부의 가족"
+      },
+      {
+       "fr": "Celle de Gauguin",
+       "en": "Gauguin's",
+       "ko": "고갱의 가족"
+      },
+      {
+       "fr": "Celle du médecin",
+       "en": "The doctor's",
+       "ko": "의사의 가족"
+      },
+      {
+       "fr": "Une famille russe",
+       "en": "A Russian family",
+       "ko": "러시아 가족"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1,
+     "mark": {
+      "fr": "celle du facteur"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "고갱과 바쁘게 일하는 빈센트와 통화",
+     "en": "On the phone with Vincent, working hard alongside Gauguin"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "On travaille toute la journée, puis on va au café.",
+      "en": "We work all day, then we go to the café.",
+      "ko": "하루 종일 일하고, 그다음엔 카페에 가요."
+     },
+     {
+      "who": "me",
+      "fr": "Et après ? Vous allez vous coucher tard ?",
+      "en": "And after that? Are you going to bed late?",
+      "ko": "그다음엔요? 늦게 자요?",
+      "focus": {
+       "fr": [
+        "Vous allez vous coucher"
+       ],
+       "en": [
+        "Are you going to bed"
+       ],
+       "ko": [
+        "자요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Vous allez se coucher",
+         "Vous allez vous couchez"
+        ]
+       ],
+       "en": [
+        [
+         "Is you going to bed",
+         "Are you go to bed"
+        ]
+       ],
+       "ko": [
+        [
+         "자아요",
+         "저요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Non, tôt ! Je vais peindre toute la famille du facteur.",
+      "en": "No, early! I'm going to paint the postman's whole family.",
+      "ko": "아니요, 일찍요! 우편배달부 가족을 다 그릴 거예요."
+     },
+     {
+      "who": "me",
+      "fr": "Bonne idée ! Ça va être beaucoup de travail.",
+      "en": "Good idea! That's going to be a lot of work.",
+      "ko": "좋은 생각이에요! 일이 많겠네요.",
+      "focus": {
+       "fr": [
+        "Ça va être"
+       ],
+       "en": [
+        "That's going to be"
+       ],
+       "ko": [
+        "많겠네요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Ça va est",
+         "Ça vas être"
+        ]
+       ],
+       "en": [
+        [
+         "That's going be",
+         "That going to be"
+        ]
+       ],
+       "ko": [
+        [
+         "많겟네요",
+         "만겠네요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "facteur"
+    ],
+    "grammar": "IV.0"
    }
   },
   {
@@ -1568,6 +2104,137 @@
     "fr": "Une chaise toute jaune",
     "en": "A chair all yellow",
     "ko": "온통 노란 의자"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Quels tournesols Gauguin préfère-t-il ?",
+      "en": "Whose sunflowers does Gauguin prefer?",
+      "ko": "고갱은 누구의 해바라기를 더 좋아하나요?"
+     },
+     "options": [
+      {
+       "fr": "Ceux de Vincent",
+       "en": "Vincent's",
+       "ko": "빈센트의 것"
+      },
+      {
+       "fr": "Ceux de Monet",
+       "en": "Monet's",
+       "ko": "모네의 것"
+      },
+      {
+       "fr": "Les siens",
+       "en": "His own",
+       "ko": "자기 것"
+      },
+      {
+       "fr": "Ceux de Bernard",
+       "en": "Bernard's",
+       "ko": "베르나르의 것"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "기억으로 그리기 시작한 빈센트와 통화",
+     "en": "On the phone with Vincent, who is starting to paint from memory"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Gauguin m'aide. Je commence à peindre de mémoire.",
+      "en": "Gauguin is helping me. I'm starting to paint from memory.",
+      "ko": "고갱이 도와줘요. 기억으로 그리기 시작했어요."
+     },
+     {
+      "who": "me",
+      "fr": "De mémoire ? Pourquoi ?",
+      "en": "From memory? Why?",
+      "ko": "기억으로요? 왜요?",
+      "focus": {
+       "fr": [
+        "Pourquoi"
+       ],
+       "en": [
+        "Why"
+       ],
+       "ko": [
+        "왜요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Parce que",
+         "Pour quoi faire que"
+        ]
+       ],
+       "en": [
+        [
+         "Because",
+         "What for why"
+        ]
+       ],
+       "ko": [
+        [
+         "외요",
+         "왜여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Pour changer un peu. Mes études vont m'aider.",
+      "en": "To change things a bit. My studies are going to help me.",
+      "ko": "조금 바꿔 보려고요. 습작들이 도움이 될 거예요."
+     },
+     {
+      "who": "me",
+      "fr": "Je comprends. Tu vas m'envoyer un croquis ?",
+      "en": "I see. Are you going to send me a sketch?",
+      "ko": "알겠어요. 스케치 하나 보내 줄 거예요?",
+      "focus": {
+       "fr": [
+        "Tu vas m'envoyer"
+       ],
+       "en": [
+        "Are you going to send"
+       ],
+       "ko": [
+        "보내 줄 거예요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu vas m'envoies",
+         "Tu va m'envoyer"
+        ]
+       ],
+       "en": [
+        [
+         "Are you going send",
+         "Is you going to send"
+        ]
+       ],
+       "ko": [
+        [
+         "보내 줄 것예요",
+         "보내 주을 거예요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "commencer"
+    ],
+    "grammar": "IV.1"
    }
   },
   {
@@ -1837,6 +2504,138 @@
     "fr": "Un nouveau frère",
     "en": "A new brother",
     "ko": "새 형제"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Où Vincent et Gauguin sont-ils allés ?",
+      "en": "Where did Vincent and Gauguin go?",
+      "ko": "빈센트와 고갱은 어디에 다녀왔나요?"
+     },
+     "options": [
+      {
+       "fr": "Chez Degas",
+       "en": "To see Degas",
+       "ko": "드가의 집"
+      },
+      {
+       "fr": "Au musée de Montpellier",
+       "en": "To the Montpellier museum",
+       "ko": "몽펠리에 미술관"
+      },
+      {
+       "fr": "Au café d'Arles",
+       "en": "To a café in Arles",
+       "ko": "아를의 카페"
+      },
+      {
+       "fr": "Au Louvre à Paris",
+       "en": "To the Louvre in Paris",
+       "ko": "파리 루브르"
+      }
+     ],
+     "answer": 1,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "몽펠리에 미술관에 다녀온 빈센트와 통화",
+     "en": "On the phone with Vincent, back from the museum in Montpellier"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Hier, on est allés au musée de Montpellier.",
+      "en": "Yesterday we went to the museum in Montpellier.",
+      "ko": "어제 몽펠리에 미술관에 다녀왔어요."
+     },
+     {
+      "who": "me",
+      "fr": "Avec Gauguin ? Tu as aimé ?",
+      "en": "With Gauguin? Did you like it?",
+      "ko": "고갱이랑요? 좋았어요?",
+      "focus": {
+       "fr": [
+        "Tu as aimé"
+       ],
+       "en": [
+        "Did you like"
+       ],
+       "ko": [
+        "좋았어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu es aimé",
+         "Tu as aimer"
+        ]
+       ],
+       "en": [
+        [
+         "Did you liked",
+         "Do you liked"
+        ]
+       ],
+       "ko": [
+        [
+         "좋앗어요",
+         "좋었어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui ! Un portrait avec une barbe rousse… comme nous !",
+      "en": "Yes! A portrait with a red beard… like us!",
+      "ko": "네! 빨간 수염 난 초상화가 있었어요… 꼭 우리 같아요!"
+     },
+     {
+      "who": "me",
+      "fr": "Ha ! Et toi, tu vas te reposer un peu ?",
+      "en": "Ha! And are you going to rest a little?",
+      "ko": "하하! 형은 좀 쉴 거예요?",
+      "focus": {
+       "fr": [
+        "tu vas te reposer"
+       ],
+       "en": [
+        "are you going to rest"
+       ],
+       "ko": [
+        "쉴 거예요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "tu vas se reposer",
+         "tu vas te reposes"
+        ]
+       ],
+       "en": [
+        [
+         "are you going rest",
+         "are you going to rests"
+        ]
+       ],
+       "ko": [
+        [
+         "쉬을 거예요",
+         "쉴 것예요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "musée",
+     "barbe"
+    ],
+    "grammar": "IV.0"
    }
   },
   {
@@ -2111,6 +2910,137 @@
     "fr": "Gauguin hésite",
     "en": "Gauguin is wavering",
     "ko": "고갱이 망설여"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Selon Vincent, Gauguin est surtout découragé par quoi ?",
+      "en": "According to Vincent, what has Gauguin become discouraged with above all?",
+      "ko": "빈센트 생각에, 고갱이 무엇보다 지친 것은 무엇인가요?"
+     },
+     "options": [
+      {
+       "fr": "Vincent",
+       "en": "Vincent",
+       "ko": "빈센트"
+      },
+      {
+       "fr": "L'argent",
+       "en": "Money",
+       "ko": "돈"
+      },
+      {
+       "fr": "Théo",
+       "en": "Theo",
+       "ko": "테오"
+      },
+      {
+       "fr": "La peinture",
+       "en": "Painting",
+       "ko": "그림"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "돈을 받은 빈센트의 감사 · 고갱 이야기",
+     "en": "Vincent thanks Theo for the money · talk about Gauguin"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Merci pour les cent francs et le mandat, Théo.",
+      "en": "Thanks for the hundred francs and the money order, Theo.",
+      "ko": "100프랑이랑 우편환 고마워요, 테오."
+     },
+     {
+      "who": "me",
+      "fr": "De rien. Et Gauguin, il va rester ?",
+      "en": "You're welcome. And Gauguin, is he going to stay?",
+      "ko": "천만에요. 고갱은 계속 있을까요?",
+      "focus": {
+       "fr": [
+        "il va rester"
+       ],
+       "en": [
+        "is he going to stay"
+       ],
+       "ko": [
+        "있을까요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "il va reste",
+         "il vas rester"
+        ]
+       ],
+       "en": [
+        [
+         "is he going stay",
+         "does he going to stay"
+        ]
+       ],
+       "ko": [
+        [
+         "있을가요",
+         "있울까요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Je ne sais pas. Il décidera, dans le calme.",
+      "en": "I don't know. He'll decide, calmly.",
+      "ko": "모르겠어요. 차분하게 정할 거예요."
+     },
+     {
+      "who": "me",
+      "fr": "Je comprends. Tu m'écriras, d'accord ?",
+      "en": "I understand. You'll write to me, OK?",
+      "ko": "알겠어요. 편지해 줄 거죠?",
+      "focus": {
+       "fr": [
+        "Tu m'écriras"
+       ],
+       "en": [
+        "You'll write"
+       ],
+       "ko": [
+        "줄 거죠"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu m'écrira",
+         "Tu m'écrirais"
+        ]
+       ],
+       "en": [
+        [
+         "You'll wrote",
+         "You'll writes"
+        ]
+       ],
+       "ko": [
+        [
+         "줄 것죠",
+         "주을 거죠"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "mandat"
+    ],
+    "grammar": "IV.2"
    }
   }
  ]

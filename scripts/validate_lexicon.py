@@ -12,7 +12,7 @@ daily words exist, occur in that letter, are content words, never repeat across 
 the chapter's level band (or one band either side); spot replacements occur in the quoted message;
 phrases are verbatim; examples have an author, <= 12 words and contain the lemma or a printed form;
 Korean gloss tokens [surface, key, fn] only use tags explained in gloss_ko.json "tags"; each language's three files
-stay under 400 KB per series. Exit code 1 on any error.
+stay under 460 KB per series. Exit code 1 on any error.
 """
 import json, os, re, sys, unicodedata
 
@@ -35,7 +35,7 @@ def widen(b):
     return LEVELS[lo:hi + 1]
 
 
-LIMIT_KB = 400
+LIMIT_KB = 460   # 한국어 사전에 발음 칸(pron · rom · pron_note) 이 붙어 400 → 460
 
 
 def check(series, lang=None):
@@ -144,7 +144,8 @@ def check(series, lang=None):
             used[k] = lid
             if e.get('function') or e['pos'] not in ('n', 'v', 'adj', 'adv') or (lang != 'ko' and len(e['lemma']) < 2):
                 errs.append(f'daily {lid}: {k} is not a content word')
-            if e.get('level') not in widen(band(lid)):
+            # 규격 v1: 쉬운 낱말(A1–A2)은 어느 장에나 둘 수 있다 (시리즈 60% 이상은 spec_check.py 가 본다)
+            if e.get('level') not in widen(band(lid)) and e.get('level') not in ('A1', 'A2'):
                 errs.append(f'daily {lid}: {k} level {e.get("level")} outside {widen(band(lid))}')
         spots = (l.get('plate') or {}).get('spots', [])
         if not orig and r.get('spots'): errs.append(f'daily {lid}: spots must be [] for {lang}')

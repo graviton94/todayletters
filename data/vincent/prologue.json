@@ -89,7 +89,144 @@
     "en": "1853–1880",
     "ko": "1853–1880"
    },
-   "moments": []
+   "moments": [],
+   "check": [
+    {
+     "q": {
+      "fr": "Pendant sa maladie, que revoit Vincent ?",
+      "en": "What does Vincent see again during his illness?",
+      "ko": "빈센트는 아픈 동안 무엇을 다시 보았나요?"
+     },
+     "options": [
+      {
+       "fr": "Le musée du Louvre",
+       "en": "The Louvre museum",
+       "ko": "루브르 박물관"
+      },
+      {
+       "fr": "Un champ de blé",
+       "en": "A field of wheat",
+       "ko": "밀밭"
+      },
+      {
+       "fr": "La maison à Zundert",
+       "en": "The house at Zundert",
+       "ko": "쥔더르트의 집"
+      },
+      {
+       "fr": "La mer du Midi",
+       "en": "The southern sea",
+       "ko": "남쪽 바다"
+      }
+     ],
+     "answer": 2,
+     "evidence": 0,
+     "mark": {
+      "fr": "la maison à Zundert",
+      "en": "the house at Zundert"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "아파서 쉬는 빈센트와 통화 · 어린 시절 쥔더르트 집 이야기",
+     "en": "On the phone with Vincent, resting after an illness · the childhood house at Zundert"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Salut, Théo ! Je pense à notre maison.",
+      "en": "Hi, Theo! I'm thinking about our house.",
+      "ko": "안녕하세요, 테오! 우리 집 생각을 하고 있어요."
+     },
+     {
+      "who": "me",
+      "fr": "La maison de Zundert ? Et toi, comment ça va ?",
+      "en": "The house in Zundert? And how are you?",
+      "ko": "쥔더르트 집이요? 형은 어떻게 지내요?",
+      "focus": {
+       "fr": [
+        "comment ça va"
+       ],
+       "en": [
+        "how are you"
+       ],
+       "ko": [
+        "지내요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "comment ça vas",
+         "comment ça va-t-il"
+        ]
+       ],
+       "en": [
+        [
+         "how is you",
+         "how you are"
+        ]
+       ],
+       "ko": [
+        [
+         "지나요",
+         "지내아요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Ça va mieux. Je revois le jardin, chaque chemin.",
+      "en": "Better now. I can see the garden again, every path.",
+      "ko": "좀 나아졌어요. 정원이랑 길 하나하나가 다시 떠올라요."
+     },
+     {
+      "who": "me",
+      "fr": "Moi aussi, j'aime beaucoup ce jardin.",
+      "en": "Me too, I really love that garden.",
+      "ko": "저도 그 정원이 정말 좋아요.",
+      "focus": {
+       "fr": [
+        "Moi aussi"
+       ],
+       "en": [
+        "Me too"
+       ],
+       "ko": [
+        "저도"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Moi non plus",
+         "Je aussi"
+        ]
+       ],
+       "en": [
+        [
+         "Me neither",
+         "I too am"
+        ]
+       ],
+       "ko": [
+        [
+         "제도",
+         "저는도"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "maison",
+     "jardin",
+     "revoir"
+    ],
+    "grammar": "I.1"
+   }
   },
   {
    "id": "p2",
@@ -174,7 +311,144 @@
     "en": "1883–1885",
     "ko": "1883–1885"
    },
-   "moments": []
+   "moments": [],
+   "check": [
+    {
+     "q": {
+      "fr": "Comparée aux Mangeurs de pommes de terre, comment est la couleur ?",
+      "en": "Compared with the Potato Eaters, what is the colour like?",
+      "ko": "「감자 먹는 사람들」과 비교하면 이 초상화의 색은 어떤가요?"
+     },
+     "options": [
+      {
+       "fr": "Moins noire",
+       "en": "Less black",
+       "ko": "덜 검어요"
+      },
+      {
+       "fr": "Plus noire",
+       "en": "Blacker",
+       "ko": "더 검어요"
+      },
+      {
+       "fr": "Aussi noire",
+       "en": "Just as black",
+       "ko": "똑같이 검어요"
+      },
+      {
+       "fr": "Plus grise",
+       "en": "Greyer",
+       "ko": "더 잿빛이에요"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "fr": "moins noire",
+      "en": "less black"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "누에넌에서 그린 새 그림 이야기 · 빈센트와 통화",
+     "en": "On the phone with Vincent about a new painting from Nuenen"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Théo, ma nouvelle toile est moins noire.",
+      "en": "Theo, my new canvas is less black.",
+      "ko": "테오, 새 그림은 덜 검어요."
+     },
+     {
+      "who": "me",
+      "fr": "Ah bon ? Elle est de quelle couleur ?",
+      "en": "Really? What colour is it?",
+      "ko": "그래요? 무슨 색이에요?",
+      "focus": {
+       "fr": [
+        "Elle est"
+       ],
+       "en": [
+        "is it"
+       ],
+       "ko": [
+        "색이에요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Elle a",
+         "Elle es"
+        ]
+       ],
+       "en": [
+        [
+         "are it",
+         "be it"
+        ]
+       ],
+       "ko": [
+        [
+         "색예요",
+         "색이예요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Elle a la couleur de la terre.",
+      "en": "It's the colour of the earth.",
+      "ko": "흙 색깔이에요."
+     },
+     {
+      "who": "me",
+      "fr": "J'ai hâte de la voir !",
+      "en": "I can't wait to see it!",
+      "ko": "빨리 보고 싶어요!",
+      "focus": {
+       "fr": [
+        "J'ai hâte"
+       ],
+       "en": [
+        "can't wait"
+       ],
+       "ko": [
+        "보고 싶어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Je suis hâte",
+         "J'as hâte"
+        ]
+       ],
+       "en": [
+        [
+         "can't waiting",
+         "not can wait"
+        ]
+       ],
+       "ko": [
+        [
+         "보고 싶아요",
+         "봐고 싶어요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "couleur",
+     "noir",
+     "terre"
+    ],
+    "grammar": "I.0"
+   }
   },
   {
    "id": "p3",
@@ -257,7 +531,144 @@
     "en": "1886–1887",
     "ko": "1886–1887"
    },
-   "moments": []
+   "moments": [],
+   "check": [
+    {
+     "q": {
+      "fr": "Où Vincent attend-il Théo ?",
+      "en": "Where will Vincent wait for Theo?",
+      "ko": "빈센트는 테오를 어디서 기다리겠다고 하나요?"
+     },
+     "options": [
+      {
+       "fr": "Au Louvre",
+       "en": "At the Louvre",
+       "ko": "루브르에서"
+      },
+      {
+       "fr": "À la gare",
+       "en": "At the station",
+       "ko": "기차역에서"
+      },
+      {
+       "fr": "Au café",
+       "en": "At the café",
+       "ko": "카페에서"
+      },
+      {
+       "fr": "Chez Théo",
+       "en": "At Theo's home",
+       "ko": "테오의 집에서"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "fr": "au Louvre",
+      "en": "at the Louvre"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "갑자기 파리에 온 빈센트와 통화 · 만날 약속",
+     "en": "Vincent calls: he has turned up in Paris without warning · making plans"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Pardon, Théo, je suis à Paris !",
+      "en": "Sorry, Theo, I'm in Paris!",
+      "ko": "미안해요, 테오. 저 파리에 있어요!"
+     },
+     {
+      "who": "me",
+      "fr": "Quoi ? Tu es déjà là ? On se voit où ?",
+      "en": "What? You're here already? Where shall we meet?",
+      "ko": "뭐라고요? 벌써 왔어요? 어디서 만나요?",
+      "focus": {
+       "fr": [
+        "Tu es"
+       ],
+       "en": [
+        "You're"
+       ],
+       "ko": [
+        "왔어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu as",
+         "Tu est"
+        ]
+       ],
+       "en": [
+        [
+         "You's",
+         "You is"
+        ]
+       ],
+       "ko": [
+        [
+         "와어요",
+         "왔아요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Au Louvre, à midi. Ou plus tôt, si tu veux.",
+      "en": "At the Louvre, at noon. Or earlier, if you like.",
+      "ko": "루브르에서 정오에요. 원하면 더 일찍도 좋아요."
+     },
+     {
+      "who": "me",
+      "fr": "D'accord, à midi. J'arrive !",
+      "en": "OK, at noon. I'm coming!",
+      "ko": "좋아요, 정오에요. 갈게요!",
+      "focus": {
+       "fr": [
+        "à midi"
+       ],
+       "en": [
+        "at noon"
+       ],
+       "ko": [
+        "갈게요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "au midi",
+         "à la midi"
+        ]
+       ],
+       "en": [
+        [
+         "in noon",
+         "on noon"
+        ]
+       ],
+       "ko": [
+        [
+         "갈께요",
+         "가을게요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "midi",
+     "tôt",
+     "venir"
+    ],
+    "grammar": "I.0"
+   }
   },
   {
    "id": "p4",
@@ -341,7 +752,143 @@
     "en": "1887",
     "ko": "1887"
    },
-   "moments": []
+   "moments": [],
+   "check": [
+    {
+     "q": {
+      "fr": "Ce pays serait comme le Japon avec moins de quoi ?",
+      "en": "With less of what would this country be like Japan?",
+      "ko": "빈센트는 무엇이 덜하면 이 지방이 일본 같을 거라고 하나요?"
+     },
+     "options": [
+      {
+       "fr": "La pluie",
+       "en": "Rain",
+       "ko": "비"
+      },
+      {
+       "fr": "La neige",
+       "en": "Snow",
+       "ko": "눈"
+      },
+      {
+       "fr": "Le soleil",
+       "en": "Sun",
+       "ko": "햇볕"
+      },
+      {
+       "fr": "Le mistral",
+       "en": "Mistral",
+       "ko": "미스트랄 바람"
+      }
+     ],
+     "answer": 3,
+     "evidence": 0,
+     "mark": {
+      "fr": "mistral",
+      "en": "mistral"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "남쪽 나라를 꿈꾸는 빈센트와 이야기",
+     "en": "Talking with Vincent, who dreams of a sunny country"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Tu sais, Théo, je rêve d'un pays de soleil.",
+      "en": "You know, Theo, I dream of a sunny country.",
+      "ko": "있잖아요, 테오. 해가 가득한 나라를 꿈꿔요."
+     },
+     {
+      "who": "me",
+      "fr": "Un pays comme le Japon ?",
+      "en": "A country like Japan?",
+      "ko": "일본 같은 나라요?",
+      "focus": {
+       "fr": [
+        "comme le Japon"
+       ],
+       "en": [
+        "like Japan"
+       ],
+       "ko": [
+        "같은"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "comme la Japon",
+         "comme Japon"
+        ]
+       ],
+       "en": [
+        [
+         "like the Japan",
+         "as Japan"
+        ]
+       ],
+       "ko": [
+        [
+         "같는",
+         "갖은"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui ! Un pays très beau, plein de couleurs.",
+      "en": "Yes! A really beautiful country, full of colour.",
+      "ko": "네! 정말 아름답고 색이 가득한 나라요."
+     },
+     {
+      "who": "me",
+      "fr": "Est-ce que tu as envie de partir ?",
+      "en": "Do you feel like leaving?",
+      "ko": "떠나고 싶어요?",
+      "focus": {
+       "fr": [
+        "Est-ce que tu as"
+       ],
+       "en": [
+        "Do you"
+       ],
+       "ko": [
+        "싶어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Est-ce que tu es",
+         "Est-ce tu as"
+        ]
+       ],
+       "en": [
+        [
+         "Does you",
+         "Are you"
+        ]
+       ],
+       "ko": [
+        [
+         "싶아요",
+         "싶어여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "pays",
+     "beau"
+    ],
+    "grammar": "I.2"
+   }
   }
  ]
 }

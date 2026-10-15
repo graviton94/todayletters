@@ -373,6 +373,138 @@
       "quote": 4
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was hat Wolfgang kurz vor dem Brief gemacht?",
+      "en": "What did Wolfgang do just before writing this letter?",
+      "ko": "볼프강은 이 편지를 쓰기 바로 전에 뭘 했어요?"
+     },
+     "options": [
+      {
+       "de": "Schlitten gefahren",
+       "en": "Went sledging",
+       "ko": "썰매를 탔어요"
+      },
+      {
+       "de": "Geige geübt",
+       "en": "Practised the violin",
+       "ko": "바이올린을 연습했어요"
+      },
+      {
+       "de": "Lange geschlafen",
+       "en": "Slept late",
+       "ko": "늦잠을 잤어요"
+      },
+      {
+       "de": "Eine Arie komponiert",
+       "en": "Composed an aria",
+       "ko": "아리아를 지었어요"
+      }
+     ],
+     "answer": 3,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "밀라노의 볼프강과 통화 · 나는 누나 난네를",
+     "en": "A call with Wolfgang in Milan · I'm his sister Nannerl"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Nannerl! Wie geht's dir?",
+      "en": "Hi Nannerl! How are you?",
+      "ko": "안녕하세요, 누나! 잘 지내요?"
+     },
+     {
+      "who": "me",
+      "de": "Gut, danke! Wir haben hier viel Schnee.",
+      "en": "Good, thanks! We have lots of snow here.",
+      "ko": "잘 지내요, 고마워요! 여기는 눈이 많이 와요.",
+      "focus": {
+       "de": [
+        "haben"
+       ],
+       "en": [
+        "We have"
+       ],
+       "ko": [
+        "와요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "hat",
+         "habt"
+        ]
+       ],
+       "en": [
+        [
+         "We has",
+         "We having"
+        ]
+       ],
+       "ko": [
+        [
+         "오요",
+         "와여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Die Sängerin hier hat eine gute Stimme, aber kein Gefühl.",
+      "en": "The singer here has a good voice, but no feeling.",
+      "ko": "여기 가수는 목소리는 좋은데 감정이 없어요."
+     },
+     {
+      "who": "me",
+      "de": "Schade! Schreib mir bald wieder einen Brief.",
+      "en": "Too bad! Write me another letter soon.",
+      "ko": "아쉽네요! 곧 또 편지 써 줘요.",
+      "focus": {
+       "de": [
+        "einen Brief"
+       ],
+       "en": [
+        "Write me"
+       ],
+       "ko": [
+        "써 줘요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "ein Brief",
+         "einem Brief"
+        ]
+       ],
+       "en": [
+        [
+         "Writes me",
+         "Writing me"
+        ]
+       ],
+       "ko": [
+        [
+         "써 줬요",
+         "쓰 줘요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Stimme",
+     "Brief"
+    ],
+    "grammar": "I.0"
    }
   },
   {
@@ -660,6 +792,138 @@
       "quote": 4
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Warum kann Wolfgang nicht gut schlafen?",
+      "en": "Why can't Wolfgang get any rest?",
+      "ko": "볼프강은 왜 잘 쉬지 못해요?"
+     },
+     "options": [
+      {
+       "de": "Die Stadt ist zu laut",
+       "en": "The city is too noisy",
+       "ko": "도시가 너무 시끄러워서"
+      },
+      {
+       "de": "Es gibt nur ein Bett",
+       "en": "There is only one bed",
+       "ko": "침대가 하나뿐이라서"
+      },
+      {
+       "de": "Er komponiert die ganze Nacht",
+       "en": "He composes all night",
+       "ko": "밤새 작곡해서"
+      },
+      {
+       "de": "Es ist zu heiß",
+       "en": "It is too hot",
+       "ko": "너무 더워서"
+      }
+     ],
+     "answer": 1,
+     "evidence": 2
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "로마의 볼프강과 통화 · 나는 누나 난네를 (엄마도 옆에)",
+     "en": "A call with Wolfgang in Rome · I'm his sister Nannerl (Mama is with me)"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Nannerl! Grüß Mama von mir!",
+      "en": "Hi Nannerl! Say hi to Mama for me!",
+      "ko": "안녕하세요, 누나! 엄마한테 안부 전해 주세요!"
+     },
+     {
+      "who": "me",
+      "de": "Mach ich! Wie ist Rom?",
+      "en": "I will! What's Rome like?",
+      "ko": "그럴게요! 로마는 어때요?",
+      "focus": {
+       "de": [
+        "Wie ist"
+       ],
+       "en": [
+        "What's"
+       ],
+       "ko": [
+        "어때요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Wer ist",
+         "Wie sind"
+        ]
+       ],
+       "en": [
+        [
+         "What are",
+         "Who's"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼요",
+         "어떠요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Die Stadt ist toll, aber wir haben nur ein Bett.",
+      "en": "The city is great, but we only have one bed.",
+      "ko": "도시는 멋진데, 침대가 하나뿐이에요."
+     },
+     {
+      "who": "me",
+      "de": "Oh je! Wie schläfst du denn da?",
+      "en": "Oh dear! So how do you sleep?",
+      "ko": "어머! 그럼 잠은 어떻게 자요?",
+      "focus": {
+       "de": [
+        "schläfst du"
+       ],
+       "en": [
+        "do you sleep"
+       ],
+       "ko": [
+        "자요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "schlafst du",
+         "schläft du"
+        ]
+       ],
+       "en": [
+        [
+         "does you sleep",
+         "do you sleeps"
+        ]
+       ],
+       "ko": [
+        [
+         "자아요",
+         "잣요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Stadt",
+     "Bett"
+    ],
+    "grammar": "I.1"
    }
   },
   {
@@ -933,6 +1197,142 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Nach wem fragt Wolfgang zu Hause?",
+      "en": "Who at home does Wolfgang ask about?",
+      "ko": "볼프강은 집에 있는 누구의 안부를 물어요?"
+     },
+     "options": [
+      {
+       "de": "Nach der Katze",
+       "en": "The cat",
+       "ko": "고양이"
+      },
+      {
+       "de": "Nach dem Kanarienvogel",
+       "en": "The canary",
+       "ko": "카나리아"
+      },
+      {
+       "de": "Nach dem Hund",
+       "en": "The dog",
+       "ko": "강아지"
+      },
+      {
+       "de": "Nach dem Pferd",
+       "en": "The horse",
+       "ko": "말"
+      }
+     ],
+     "answer": 1,
+     "evidence": 1,
+     "mark": {
+      "en": "Canary",
+      "ko": "카나리아"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "나폴리의 볼프강과 통화 · 나는 누나 난네를",
+     "en": "A call with Wolfgang in Naples · I'm his sister Nannerl"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Danke für das Menuett! Dein Bass hat keinen Fehler.",
+      "en": "Thanks for the minuet! Your bass has no mistakes.",
+      "ko": "미뉴에트 고마워요! 누나가 쓴 베이스에 틀린 데가 하나도 없어요."
+     },
+     {
+      "who": "me",
+      "de": "Gern geschehen! Wie ist Neapel?",
+      "en": "You're welcome! What's Naples like?",
+      "ko": "천만에요! 나폴리는 어때요?",
+      "focus": {
+       "de": [
+        "Wie ist"
+       ],
+       "en": [
+        "What's"
+       ],
+       "ko": [
+        "어때요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Wer ist",
+         "Wie bist"
+        ]
+       ],
+       "en": [
+        [
+         "What are",
+         "Who's"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼요",
+         "어떠요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Schön, aber nicht ruhig. Es gibt so viele Leute!",
+      "en": "Beautiful, but not quiet. There are so many people!",
+      "ko": "아름다운데 조용하지는 않아요. 사람이 정말 많아요!"
+     },
+     {
+      "who": "me",
+      "de": "Und die neuen Kleider? Sind sie schön?",
+      "en": "And the new clothes? Are they nice?",
+      "ko": "새 옷은요? 예뻐요?",
+      "focus": {
+       "de": [
+        "Sind sie"
+       ],
+       "en": [
+        "Are they"
+       ],
+       "ko": [
+        "예뻐요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Ist sie",
+         "Seid sie"
+        ]
+       ],
+       "en": [
+        [
+         "Is they",
+         "Am they"
+        ]
+       ],
+       "ko": [
+        [
+         "예쁘어요",
+         "예뻐여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Fehler",
+     "Kleid"
+    ],
+    "grammar": "I.2"
    }
   },
   {
@@ -1191,6 +1591,138 @@
       "quote": 2
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Warum schreibt Wolfgang über seine Geige?",
+      "en": "Why does Wolfgang mention his violin?",
+      "ko": "볼프강은 왜 바이올린 이야기를 해요?"
+     },
+     "options": [
+      {
+       "de": "Nannerl wollte es wissen",
+       "en": "Nannerl wanted to know",
+       "ko": "난네를이 궁금해해서"
+      },
+      {
+       "de": "Mama wollte es wissen",
+       "en": "Mama wanted to know",
+       "ko": "엄마가 궁금해해서"
+      },
+      {
+       "de": "Sie ist kaputt",
+       "en": "It is broken",
+       "ko": "바이올린이 망가져서"
+      },
+      {
+       "de": "Er will eine neue",
+       "en": "He wants a new one",
+       "ko": "새 바이올린을 갖고 싶어서"
+      }
+     ],
+     "answer": 1,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "볼로냐의 볼프강과 통화 · 나는 누나 난네를",
+     "en": "A call with Wolfgang in Bologna · I'm his sister Nannerl"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Nannerl! Hier ist Wolfgang aus Bologna.",
+      "en": "Hi Nannerl! It's Wolfgang, from Bologna.",
+      "ko": "안녕하세요, 누나! 볼로냐에서 볼프강이에요."
+     },
+     {
+      "who": "me",
+      "de": "Hallo! Mama fragt: Spielst du noch Geige?",
+      "en": "Hi! Mama's asking: do you still play the violin?",
+      "ko": "반가워요! 엄마가 물어봐요. 아직 바이올린 켜요?",
+      "focus": {
+       "de": [
+        "Spielst du"
+       ],
+       "en": [
+        "do you"
+       ],
+       "ko": [
+        "켜요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Spielt du",
+         "Spiele du"
+        ]
+       ],
+       "en": [
+        [
+         "does you",
+         "are you"
+        ]
+       ],
+       "ko": [
+        [
+         "켜어요",
+         "키요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja, jeden Tag! Meine Geige hat neue Saiten.",
+      "en": "Yes, every day! My violin has new strings.",
+      "ko": "네, 매일요! 바이올린 줄도 새로 갈았어요."
+     },
+     {
+      "who": "me",
+      "de": "Super! Aber du bist müde, oder?",
+      "en": "Great! But you're tired, aren't you?",
+      "ko": "잘됐네요! 그런데 피곤하죠, 그렇죠?",
+      "focus": {
+       "de": [
+        "du bist"
+       ],
+       "en": [
+        "you're"
+       ],
+       "ko": [
+        "피곤하죠"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "du ist",
+         "du bin"
+        ]
+       ],
+       "en": [
+        [
+         "you's",
+         "you am"
+        ]
+       ],
+       "ko": [
+        [
+         "피곤하조",
+         "피곤해죠"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "spielen",
+     "Tag"
+    ],
+    "grammar": "I.0"
    }
   },
   {
@@ -1474,6 +2006,138 @@
       "quote": 4
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wer wohnt um Wolfgang herum?",
+      "en": "Who lives all around Wolfgang?",
+      "ko": "볼프강 숙소 주변에는 누가 살아요?"
+     },
+     "options": [
+      {
+       "de": "Lauter Musiker",
+       "en": "Musicians everywhere",
+       "ko": "온통 음악가들"
+      },
+      {
+       "de": "Lauter Kinder",
+       "en": "Children everywhere",
+       "ko": "온통 아이들"
+      },
+      {
+       "de": "Lauter Soldaten",
+       "en": "Soldiers everywhere",
+       "ko": "온통 군인들"
+      },
+      {
+       "de": "Lauter Maler",
+       "en": "Painters everywhere",
+       "ko": "온통 화가들"
+      }
+     ],
+     "answer": 0,
+     "evidence": 3
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "더운 밀라노에 막 도착한 볼프강과 통화 · 나는 누나 난네를",
+     "en": "A call with Wolfgang, just arrived in hot Milan · I'm his sister Nannerl"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Nannerl! Puh, hier ist es so heiß!",
+      "en": "Hi Nannerl! Phew, it's so hot here!",
+      "ko": "안녕하세요, 누나! 휴, 여기 너무 더워요!"
+     },
+     {
+      "who": "me",
+      "de": "Oh je! Wie geht's dir nach der Reise?",
+      "en": "Oh dear! How are you after the journey?",
+      "ko": "어머! 여행하고 나서 몸은 괜찮아요?",
+      "focus": {
+       "de": [
+        "nach der Reise"
+       ],
+       "en": [
+        "How are you"
+       ],
+       "ko": [
+        "괜찮아요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "nach die Reise",
+         "nach den Reise"
+        ]
+       ],
+       "en": [
+        [
+         "How is you",
+         "How am you"
+        ]
+       ],
+       "ko": [
+        [
+         "괜찬아요",
+         "괜찮어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Gut, aber seit einem Monat gibt es keinen Regen.",
+      "en": "Fine, but there's been no rain for a month.",
+      "ko": "괜찮아요. 그런데 한 달째 비가 안 와요."
+     },
+     {
+      "who": "me",
+      "de": "Und dein Zimmer? Ist es ruhig?",
+      "en": "And your room? Is it quiet?",
+      "ko": "방은요? 조용해요?",
+      "focus": {
+       "de": [
+        "Ist es"
+       ],
+       "en": [
+        "Is it"
+       ],
+       "ko": [
+        "조용해요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Bist es",
+         "Sind es"
+        ]
+       ],
+       "en": [
+        [
+         "Are it",
+         "Am it"
+        ]
+       ],
+       "ko": [
+        [
+         "조용하요",
+         "조용헤요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Reise",
+     "Monat"
+    ],
+    "grammar": "I.2"
    }
   },
   {
@@ -1742,6 +2406,137 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was passiert, wenn der Brief bei Nannerl ankommt?",
+      "en": "What will be happening when the letter reaches Nannerl?",
+      "ko": "편지가 난네를에게 도착할 때쯤 무슨 일이 있어요?"
+     },
+     "options": [
+      {
+       "de": "Seine Oper ist auf der Bühne",
+       "en": "His opera will be on stage",
+       "ko": "볼프강의 오페라가 무대에 올라요"
+      },
+      {
+       "de": "Er ist schon zu Hause",
+       "en": "He will already be home",
+       "ko": "볼프강이 벌써 집에 와 있어요"
+      },
+      {
+       "de": "Er reist nach Rom",
+       "en": "He will travel to Rome",
+       "ko": "볼프강이 로마로 떠나요"
+      },
+      {
+       "de": "Er hat Geburtstag",
+       "en": "It will be his birthday",
+       "ko": "볼프강의 생일이에요"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "오페라 첫 공연을 앞둔 볼프강과 통화 · 나는 누나 난네를",
+     "en": "A call with Wolfgang before his opera opens · I'm his sister Nannerl"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Nannerl! Ich hoffe, es geht dir gut.",
+      "en": "Hi Nannerl! I hope you're well.",
+      "ko": "안녕하세요, 누나! 잘 지내고 있길 바라요."
+     },
+     {
+      "who": "me",
+      "de": "Ja, danke! Wann ist deine Oper?",
+      "en": "Yes, thanks! When is your opera?",
+      "ko": "네, 고마워요! 오페라는 언제예요?",
+      "focus": {
+       "de": [
+        "Wann"
+       ],
+       "en": [
+        "When"
+       ],
+       "ko": [
+        "언제예요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Wer",
+         "Was"
+        ]
+       ],
+       "en": [
+        [
+         "Who",
+         "Whom"
+        ]
+       ],
+       "ko": [
+        [
+         "언제이에요",
+         "언제에요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Bald! Morgen ist die Probe. Aber sag es nicht weiter!",
+      "en": "Soon! The rehearsal is tomorrow. But don't tell anyone!",
+      "ko": "곧이요! 내일 리허설이에요. 그런데 아무한테도 말하지 마세요!"
+     },
+     {
+      "who": "me",
+      "de": "Keine Sorge, ich sage nichts. Viel Glück!",
+      "en": "Don't worry, I won't say a thing. Good luck!",
+      "ko": "걱정 마세요, 아무 말 안 할게요. 행운을 빌어요!",
+      "focus": {
+       "de": [
+        "nichts"
+       ],
+       "en": [
+        "won't"
+       ],
+       "ko": [
+        "안 할게요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "nicht",
+         "kein"
+        ]
+       ],
+       "en": [
+        [
+         "don't will",
+         "willn't"
+        ]
+       ],
+       "ko": [
+        [
+         "않 할게요",
+         "안 할께요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "hoffen"
+    ],
+    "grammar": "I.2"
    }
   }
  ]

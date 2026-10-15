@@ -449,6 +449,141 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wie lebt Wolfgang immer, sagt er?",
+      "en": "How does Wolfgang say he always lives?",
+      "ko": "볼프강은 자기가 늘 어떻게 산다고 해요?"
+     },
+     "options": [
+      {
+       "de": "Immer in Angst",
+       "en": "Always in fear",
+       "ko": "늘 두려움 속에서"
+      },
+      {
+       "de": "Immer in Hoffnung",
+       "en": "Always in hope",
+       "ko": "늘 희망 속에서"
+      },
+      {
+       "de": "Immer in Eile",
+       "en": "Always in a hurry",
+       "ko": "늘 서두르며"
+      },
+      {
+       "de": "Immer ohne Sorgen",
+       "en": "Always without worries",
+       "ko": "늘 걱정 없이"
+      }
+     ],
+     "answer": 1,
+     "evidence": 3,
+     "mark": {
+      "en": "always in hope"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "파리에 막 도착한 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang, just arrived in Paris · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Papa! Wir sind endlich in Paris angekommen.",
+      "en": "Hi Papa! We've finally arrived in Paris.",
+      "ko": "안녕하세요, 아빠! 드디어 파리에 도착했어요."
+     },
+     {
+      "who": "me",
+      "de": "Gott sei Dank! Wie war die Fahrt?",
+      "en": "Thank God! How was the trip?",
+      "ko": "다행이에요! 오는 길은 어땠어요?",
+      "focus": {
+       "de": [
+        "war"
+       ],
+       "en": [
+        "How was"
+       ],
+       "ko": [
+        "어땠어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "waren",
+         "wart"
+        ]
+       ],
+       "en": [
+        [
+         "How were",
+         "How been"
+        ]
+       ],
+       "ko": [
+        [
+         "어땟어요",
+         "어떴어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Sehr lang. Ich habe es kaum ausgehalten!",
+      "en": "Very long. I could hardly stand it!",
+      "ko": "너무 길었어요. 겨우 버텼어요!"
+     },
+     {
+      "who": "me",
+      "de": "Ruh dich aus! Ich wünsche euch viel Glück in Paris.",
+      "en": "Get some rest! I wish you lots of luck in Paris.",
+      "ko": "푹 쉬어요! 파리에서 행운을 빌어요.",
+      "focus": {
+       "de": [
+        "wünsche euch"
+       ],
+       "en": [
+        "I wish you"
+       ],
+       "ko": [
+        "빌어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "wünschst euch",
+         "wünsche ihr"
+        ]
+       ],
+       "en": [
+        [
+         "I wishes you",
+         "I wishing you"
+        ]
+       ],
+       "ko": [
+        [
+         "빌아요",
+         "빌여요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "aushalten",
+     "wünschen"
+    ],
+    "grammar": "III.1"
    }
   },
   {
@@ -758,6 +893,138 @@
       "quote": 4
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Für wen spielt Wolfgang am Ende?",
+      "en": "Who does Wolfgang end up playing for?",
+      "ko": "볼프강은 결국 누구 앞에서 연주했어요?"
+     },
+     "options": [
+      {
+       "de": "Für einen König",
+       "en": "For a king",
+       "ko": "왕 앞에서"
+      },
+      {
+       "de": "Für viele Musiker",
+       "en": "For many musicians",
+       "ko": "많은 음악가 앞에서"
+      },
+      {
+       "de": "Für Stühle, Tische und Wände",
+       "en": "For chairs, tables and walls",
+       "ko": "의자와 탁자와 벽 앞에서"
+      },
+      {
+       "de": "Für seinen Vater",
+       "en": "For his father",
+       "ko": "아버지 앞에서"
+      }
+     ],
+     "answer": 2,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "추운 방에서 연주하고 온 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang after playing in a freezing room · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, ich habe eine halbe Stunde gewartet. Ohne Feuer!",
+      "en": "Papa, I waited half an hour. With no fire!",
+      "ko": "아빠, 불도 없는 데서 삼십 분이나 기다렸어요!"
+     },
+     {
+      "who": "me",
+      "de": "Oh nein! Und was ist dann passiert?",
+      "en": "Oh no! And then what happened?",
+      "ko": "저런! 그다음엔 어떻게 됐어요?",
+      "focus": {
+       "de": [
+        "passiert"
+       ],
+       "en": [
+        "happened"
+       ],
+       "ko": [
+        "됐어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "gepassiert",
+         "passieren"
+        ]
+       ],
+       "en": [
+        [
+         "happen",
+         "happend"
+        ]
+       ],
+       "ko": [
+        [
+         "됬어요",
+         "됐아요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Das Zimmer war eiskalt, und keiner hat richtig zugehört.",
+      "en": "The room was ice-cold, and nobody really listened.",
+      "ko": "방은 얼음처럼 차갑고, 아무도 제대로 듣지 않았어요."
+     },
+     {
+      "who": "me",
+      "de": "Du Armer! Trink jetzt einen heißen Tee.",
+      "en": "Poor you! Have a hot tea now.",
+      "ko": "아이고, 고생했어요! 지금 따뜻한 차 한잔 마셔요.",
+      "focus": {
+       "de": [
+        "einen heißen Tee"
+       ],
+       "en": [
+        "Have"
+       ],
+       "ko": [
+        "마셔요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "einen heißer Tee",
+         "ein heißen Tee"
+        ]
+       ],
+       "en": [
+        [
+         "Has",
+         "Having"
+        ]
+       ],
+       "ko": [
+        [
+         "마시요",
+         "마셔여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "halb",
+     "eiskalt"
+    ],
+    "grammar": "III.0"
    }
   },
   {
@@ -1091,6 +1358,141 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Welche traurige Nachricht hat Wolfgang?",
+      "en": "What sad news does Wolfgang have?",
+      "ko": "볼프강이 전하는 슬픈 소식은 뭐예요?"
+     },
+     "options": [
+      {
+       "de": "Die Sinfonie ist durchgefallen",
+       "en": "The symphony failed",
+       "ko": "교향곡이 실패했어요"
+      },
+      {
+       "de": "Er hat kein Geld mehr",
+       "en": "He has no money left",
+       "ko": "돈이 다 떨어졌어요"
+      },
+      {
+       "de": "Die Mutter ist sehr krank",
+       "en": "His mother is very ill",
+       "ko": "어머니가 많이 편찮으세요"
+      },
+      {
+       "de": "Die Schwester ist krank",
+       "en": "His sister is ill",
+       "ko": "누나가 아파요"
+      }
+     ],
+     "answer": 2,
+     "evidence": 0,
+     "mark": {
+      "de": "Mutter ist sehr krank"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "엄마가 아픈 파리의 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang in Paris, where his mother is ill · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, ich habe eine traurige Nachricht. Mama ist sehr krank.",
+      "en": "Papa, I have sad news. Mama is very ill.",
+      "ko": "아빠, 슬픈 소식이 있어요. 엄마가 많이 아파요."
+     },
+     {
+      "who": "me",
+      "de": "Oh Gott. Hast du einen Arzt geholt?",
+      "en": "Oh God. Have you called a doctor?",
+      "ko": "세상에. 의사는 불렀어요?",
+      "focus": {
+       "de": [
+        "geholt"
+       ],
+       "en": [
+        "Have you called"
+       ],
+       "ko": [
+        "불렀어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "geholen",
+         "holt"
+        ]
+       ],
+       "en": [
+        [
+         "Has you called",
+         "Have you call"
+        ]
+       ],
+       "ko": [
+        [
+         "불럿어요",
+         "부렀어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja. Ich bleibe bei ihr. Bitte bete für sie.",
+      "en": "Yes. I'm staying with her. Please pray for her.",
+      "ko": "네. 제가 곁에 있을게요. 엄마를 위해 기도해 주세요."
+     },
+     {
+      "who": "me",
+      "de": "Natürlich. Und achte auch auf deine Gesundheit.",
+      "en": "Of course. And look after your own health too.",
+      "ko": "물론이에요. 볼프강도 건강 잘 챙겨요.",
+      "focus": {
+       "de": [
+        "auf deine Gesundheit"
+       ],
+       "en": [
+        "look after"
+       ],
+       "ko": [
+        "챙겨요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "auf deiner Gesundheit",
+         "auf dein Gesundheit"
+        ]
+       ],
+       "en": [
+        [
+         "looks after",
+         "looking after"
+        ]
+       ],
+       "ko": [
+        [
+         "챙기요",
+         "챙겨여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Nachricht",
+     "Gesundheit"
+    ],
+    "grammar": "III.0"
    }
   },
   {
@@ -1382,6 +1784,138 @@
       "quote": 0
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was ist am 3. in der Nacht passiert?",
+      "en": "What happened on the night of the 3rd?",
+      "ko": "3일 밤에 무슨 일이 있었어요?"
+     },
+     "options": [
+      {
+       "de": "Die Mutter wurde gesund",
+       "en": "His mother got better",
+       "ko": "어머니가 나으셨어요"
+      },
+      {
+       "de": "Wolfgang ist umgezogen",
+       "en": "Wolfgang moved house",
+       "ko": "볼프강이 이사했어요"
+      },
+      {
+       "de": "Die Sinfonie wurde gespielt",
+       "en": "The symphony was performed",
+       "ko": "교향곡이 연주됐어요"
+      },
+      {
+       "de": "Die Mutter ist gestorben",
+       "en": "His mother died",
+       "ko": "어머니가 세상을 떠났어요"
+      }
+     ],
+     "answer": 3,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "엄마를 잃은 뒤 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang after his mother's death · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, Mama ist am 3. Juli friedlich eingeschlafen.",
+      "en": "Papa, Mama passed away peacefully on 3 July.",
+      "ko": "아빠, 엄마가 7월 3일에 평온하게 잠드셨어요."
+     },
+     {
+      "who": "me",
+      "de": "Ich habe deinen Brief gelesen und geweint. Wie geht's dir?",
+      "en": "I read your letter and cried. How are you?",
+      "ko": "편지 읽고 울었어요. 볼프강은 좀 어때요?",
+      "focus": {
+       "de": [
+        "geweint"
+       ],
+       "en": [
+        "cried"
+       ],
+       "ko": [
+        "울었어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "geweinen",
+         "weinte"
+        ]
+       ],
+       "en": [
+        [
+         "cryed",
+         "cry"
+        ]
+       ],
+       "ko": [
+        [
+         "울엇어요",
+         "울았어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ich wohne jetzt bei Freunden. Mein Zimmer ist hübsch.",
+      "en": "I'm staying with friends now. My room is nice.",
+      "ko": "지금은 친구 집에서 지내요. 방이 아늑해요."
+     },
+     {
+      "who": "me",
+      "de": "Gut. Eines Tages sehen wir sie wieder.",
+      "en": "Good. One day we'll see her again.",
+      "ko": "다행이에요. 언젠가 엄마를 다시 만날 거예요.",
+      "focus": {
+       "de": [
+        "sehen wir"
+       ],
+       "en": [
+        "we'll see"
+       ],
+       "ko": [
+        "만날 거예요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "sieht wir",
+         "seht wir"
+        ]
+       ],
+       "en": [
+        [
+         "we'll sees",
+         "we'll seeing"
+        ]
+       ],
+       "ko": [
+        [
+         "만날 거에요",
+         "만날 꺼예요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "weinen",
+     "wiedersehen"
+    ],
+    "grammar": "III.1"
    }
   },
   {
@@ -1709,6 +2243,140 @@
       "quote": 0
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wer ist seit zwei Wochen hier?",
+      "en": "Who has been here for two weeks?",
+      "ko": "누가 2주째 여기 와 있어요?"
+     },
+     "options": [
+      {
+       "de": "Der Sänger Tenducci",
+       "en": "The singer Tenducci",
+       "ko": "가수 텐두치"
+      },
+      {
+       "de": "Sein Vater aus Salzburg",
+       "en": "His father from Salzburg",
+       "ko": "잘츠부르크의 아버지"
+      },
+      {
+       "de": "Herr Bach aus London",
+       "en": "Herr Bach from London",
+       "ko": "런던의 바흐 씨"
+      },
+      {
+       "de": "Der Marschall",
+       "en": "The Marshal",
+       "ko": "원수"
+      }
+     ],
+     "answer": 2,
+     "evidence": 0,
+     "mark": {
+      "ko": "런던의 바흐 씨"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "생제르맹에서 바흐를 다시 만난 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang in Saint-Germain after meeting Bach again · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, entschuldige, ich bin in Eile!",
+      "en": "Papa, sorry, I'm in a hurry!",
+      "ko": "아빠, 미안해요, 지금 바빠요!"
+     },
+     {
+      "who": "me",
+      "de": "Schon gut. Wo bist du denn?",
+      "en": "That's fine. Where are you?",
+      "ko": "괜찮아요. 지금 어디예요?",
+      "focus": {
+       "de": [
+        "bist du"
+       ],
+       "en": [
+        "Where are you"
+       ],
+       "ko": [
+        "어디예요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "ist du",
+         "bin du"
+        ]
+       ],
+       "en": [
+        [
+         "Where is you",
+         "Where am you"
+        ]
+       ],
+       "ko": [
+        [
+         "어디이에요",
+         "어디에요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "In Saint-Germain. Ich habe Bach getroffen! Johann Christian!",
+      "en": "In Saint-Germain. I met Bach! Johann Christian!",
+      "ko": "생제르맹이요. 바흐를 만났어요! 요한 크리스티안요!"
+     },
+     {
+      "who": "me",
+      "de": "Wie schön! Grüß ihn herzlich von mir.",
+      "en": "How lovely! Give him my warm regards.",
+      "ko": "정말 반갑네요! 내 안부도 꼭 전해 줘요.",
+      "focus": {
+       "de": [
+        "ihn"
+       ],
+       "en": [
+        "Give him"
+       ],
+       "ko": [
+        "전해 줘요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "ihm",
+         "er"
+        ]
+       ],
+       "en": [
+        [
+         "Give he",
+         "Give his"
+        ]
+       ],
+       "ko": [
+        [
+         "전해 쥐요",
+         "전하 줘요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Eile"
+    ],
+    "grammar": "III.0"
    }
   },
   {
@@ -2002,6 +2670,137 @@
       "quote": 2
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was sagt Wolfgang über Leute, die nicht reisen?",
+      "en": "What does Wolfgang say about people who don't travel?",
+      "ko": "볼프강은 여행하지 않는 사람들을 어떻게 말해요?"
+     },
+     "options": [
+      {
+       "de": "Sie sind glücklich",
+       "en": "They are happy",
+       "ko": "행복한 사람들이에요"
+      },
+      {
+       "de": "Sie sind klug",
+       "en": "They are wise",
+       "ko": "현명한 사람들이에요"
+      },
+      {
+       "de": "Sie sind arm dran",
+       "en": "They are poor creatures",
+       "ko": "불쌍한 사람들이에요"
+      },
+      {
+       "de": "Sie sind reich",
+       "en": "They are rich",
+       "ko": "부자들이에요"
+      }
+     ],
+     "answer": 2,
+     "evidence": 2
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "집에 오라는 편지를 받은 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang after he gets my letter calling him home · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, Heina grüßt dich! Er ist gerade bei mir.",
+      "en": "Papa, Heina says hello! He's here with me.",
+      "ko": "아빠, 하이나 씨가 안부 전해요! 지금 같이 있어요."
+     },
+     {
+      "who": "me",
+      "de": "Danke, grüß ihn auch! Hast du meinen Brief schon gelesen?",
+      "en": "Thanks, say hi back! Have you read my letter yet?",
+      "ko": "고마워요, 나도 안부 전해 줘요! 내 편지는 벌써 읽었어요?",
+      "focus": {
+       "de": [
+        "schon gelesen"
+       ],
+       "en": [
+        "Have you read"
+       ],
+       "ko": [
+        "벌써 읽었어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "schon gelest",
+         "schon liest"
+        ]
+       ],
+       "en": [
+        [
+         "Has you read",
+         "Have you readed"
+        ]
+       ],
+       "ko": [
+        [
+         "벌써 읽엇어요",
+         "벌써 읽였어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja! Ich habe vor Freude gezittert.",
+      "en": "Yes! I was trembling with joy.",
+      "ko": "네! 기뻐서 몸이 떨렸어요."
+     },
+     {
+      "who": "me",
+      "de": "Schön! Nannerl und ich küssen dich. Komm bald!",
+      "en": "Lovely! Nannerl and I send kisses. Come soon!",
+      "ko": "좋아요! 난네를이랑 나랑 뽀뽀를 보내요. 빨리 와요!",
+      "focus": {
+       "de": [
+        "küssen dich"
+       ],
+       "en": [
+        "send kisses"
+       ],
+       "ko": [
+        "보내요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "küsse dich",
+         "küsst dich"
+        ]
+       ],
+       "en": [
+        [
+         "sends kisses",
+         "sending kisses"
+        ]
+       ],
+       "ko": [
+        [
+         "보내아요",
+         "보내여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "küssen"
+    ],
+    "grammar": "III.2"
    }
   },
   {
@@ -2305,6 +3104,140 @@
       "quote": 1
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Warum hatten die Leute Angst um Wolfgang?",
+      "en": "Why were these people afraid for Wolfgang?",
+      "ko": "그 사람들은 왜 볼프강을 걱정했어요?"
+     },
+     "options": [
+      {
+       "de": "Ein Monat ohne Brief",
+       "en": "A month without a letter",
+       "ko": "한 달 동안 편지가 없어서"
+      },
+      {
+       "de": "Er war sehr krank",
+       "en": "He was very ill",
+       "ko": "많이 아파서"
+      },
+      {
+       "de": "Er hatte kein Geld",
+       "en": "He had no money",
+       "ko": "돈이 없어서"
+      },
+      {
+       "de": "Er hatte einen Unfall",
+       "en": "He had an accident",
+       "ko": "사고가 나서"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "de": "Monat ohne Brief"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "집으로 돌아오는 길, 스트라스부르의 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang in Strasbourg on his way home · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Papa! Ich bin gut in Straßburg angekommen.",
+      "en": "Hi Papa! I've arrived safely in Strasbourg.",
+      "ko": "안녕하세요, 아빠! 스트라스부르에 잘 도착했어요."
+     },
+     {
+      "who": "me",
+      "de": "Gut! Wann bist du wieder in Salzburg?",
+      "en": "Good! When will you be back in Salzburg?",
+      "ko": "잘했어요! 잘츠부르크에는 언제 와요?",
+      "focus": {
+       "de": [
+        "bist du"
+       ],
+       "en": [
+        "When will you be"
+       ],
+       "ko": [
+        "와요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "ist du",
+         "bin du"
+        ]
+       ],
+       "en": [
+        [
+         "When will you are",
+         "When will you being"
+        ]
+       ],
+       "ko": [
+        [
+         "오아요",
+         "와여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Bald. Aber ich habe ein bisschen Angst vor Salzburg.",
+      "en": "Soon. But I'm a bit afraid of Salzburg.",
+      "ko": "곧이요. 그런데 잘츠부르크가 조금 두려워요."
+     },
+     {
+      "who": "me",
+      "de": "Keine Angst! Wir lachen bald wieder zusammen.",
+      "en": "Don't be afraid! We'll laugh together again soon.",
+      "ko": "걱정 마세요! 곧 다시 같이 웃을 거예요.",
+      "focus": {
+       "de": [
+        "lachen"
+       ],
+       "en": [
+        "We'll laugh"
+       ],
+       "ko": [
+        "웃을 거예요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "lacht",
+         "lache"
+        ]
+       ],
+       "en": [
+        [
+         "We'll laughs",
+         "We'll laughing"
+        ]
+       ],
+       "ko": [
+        [
+         "웃을 거에요",
+         "우슬 거예요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "lachen"
+    ],
+    "grammar": "III.1"
    }
   }
  ]

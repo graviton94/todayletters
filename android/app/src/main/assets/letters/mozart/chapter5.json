@@ -436,6 +436,141 @@
       "quote": 0
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wo sitzt Wolfgang beim Essen?",
+      "en": "Where does Wolfgang sit at meals?",
+      "ko": "볼프강은 식사 때 어디에 앉아요?"
+     },
+     "options": [
+      {
+       "de": "Neben dem Erzbischof",
+       "en": "Next to the Archbishop",
+       "ko": "대주교 옆자리"
+      },
+      {
+       "de": "Über den Köchen",
+       "en": "Above the cooks",
+       "ko": "요리사들보다 윗자리"
+      },
+      {
+       "de": "Ganz oben am Tisch",
+       "en": "At the head of the table",
+       "ko": "식탁 맨 윗자리"
+      },
+      {
+       "de": "Allein in seinem Zimmer",
+       "en": "Alone in his room",
+       "ko": "자기 방에서 혼자"
+      }
+     ],
+     "answer": 1,
+     "evidence": 2,
+     "mark": {
+      "en": "above the cooks"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "빈에 막 도착한 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang, just arrived in Vienna · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Papa! Ich bin gestern in Wien angekommen.",
+      "en": "Hi Papa! I arrived in Vienna yesterday.",
+      "ko": "안녕하세요, 아빠! 어제 빈에 도착했어요."
+     },
+     {
+      "who": "me",
+      "de": "Schön! Und wie ist es beim Erzbischof?",
+      "en": "Good! And how is it at the Archbishop's?",
+      "ko": "잘됐네요! 대주교 댁은 어때요?",
+      "focus": {
+       "de": [
+        "beim Erzbischof"
+       ],
+       "en": [
+        "at the Archbishop's"
+       ],
+       "ko": [
+        "어때요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "bei der Erzbischof",
+         "bei den Erzbischof"
+        ]
+       ],
+       "en": [
+        [
+         "at the Archbishops",
+         "at the Archbishop"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼요",
+         "어떠요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Na ja. Am Tisch sitze ich nur über den Köchen.",
+      "en": "Well. At the table I sit just above the cooks.",
+      "ko": "글쎄요. 식탁에서 요리사들 바로 윗자리에 앉아요."
+     },
+     {
+      "who": "me",
+      "de": "Oh je. Bist du still, weil keiner mit dir spricht?",
+      "en": "Oh dear. Are you quiet because nobody talks to you?",
+      "ko": "저런. 아무도 말을 안 걸어서 조용히 있는 거예요?",
+      "focus": {
+       "de": [
+        "dir spricht"
+       ],
+       "en": [
+        "nobody talks"
+       ],
+       "ko": [
+        "안 걸어서"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "dich spricht",
+         "dir sprechen"
+        ]
+       ],
+       "en": [
+        [
+         "nobody talk",
+         "nobody talking"
+        ]
+       ],
+       "ko": [
+        [
+         "안 걸러서",
+         "않 걸어서"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Tisch",
+     "sitzen"
+    ],
+    "grammar": "V.0"
    }
   },
   {
@@ -746,6 +881,137 @@
       "quote": 1
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Warum ist heute ein glücklicher Tag?",
+      "en": "Why is today a happy day for Wolfgang?",
+      "ko": "볼프강에게 오늘은 왜 기쁜 날이에요?"
+     },
+     "options": [
+      {
+       "de": "Er ist frei von Salzburg",
+       "en": "He's out of Salzburg service",
+       "ko": "더는 잘츠부르크에 매여 있지 않아서"
+      },
+      {
+       "de": "Seine Oper war ein Erfolg",
+       "en": "His opera was a success",
+       "ko": "오페라가 성공해서"
+      },
+      {
+       "de": "Er hat viel Geld bekommen",
+       "en": "He got a lot of money",
+       "ko": "돈을 많이 받아서"
+      },
+      {
+       "de": "Der Vater kommt nach Wien",
+       "en": "His father is coming to Vienna",
+       "ko": "아버지가 빈에 오셔서"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "대주교의 일을 그만둔 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang after he leaves the Archbishop's service · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, ich bin nicht mehr im Salzburger Dienst.",
+      "en": "Papa, I'm no longer in Salzburg service.",
+      "ko": "아빠, 저 이제 잘츠부르크 궁정 일을 안 해요."
+     },
+     {
+      "who": "me",
+      "de": "Was? Was ist passiert? Geht es dir gut?",
+      "en": "What? What happened? Are you all right?",
+      "ko": "뭐라고요? 무슨 일이에요? 괜찮아요?",
+      "focus": {
+       "de": [
+        "Geht es dir"
+       ],
+       "en": [
+        "Are you"
+       ],
+       "ko": [
+        "괜찮아요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Geht es dich",
+         "Gehst es dir"
+        ]
+       ],
+       "en": [
+        [
+         "Is you",
+         "Am you"
+        ]
+       ],
+       "ko": [
+        [
+         "괜찬아요",
+         "괜찮어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja. Ich weiß, dass ich hier Erfolg haben werde.",
+      "en": "Yes. I know that I'll succeed here.",
+      "ko": "네. 여기서 잘될 거라는 걸 알아요."
+     },
+     {
+      "who": "me",
+      "de": "Ich hoffe, dass du recht hast. Sei vorsichtig!",
+      "en": "I hope you're right. Be careful!",
+      "ko": "볼프강 말이 맞으면 좋겠어요. 조심해요!",
+      "focus": {
+       "de": [
+        "recht hast"
+       ],
+       "en": [
+        "you're"
+       ],
+       "ko": [
+        "맞으면"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "hast recht",
+         "recht habst"
+        ]
+       ],
+       "en": [
+        [
+         "you's",
+         "you am"
+        ]
+       ],
+       "ko": [
+        [
+         "맞면",
+         "맞을면"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Dienst"
+    ],
+    "grammar": "V.1"
    }
   },
   {
@@ -1056,6 +1322,137 @@
       "quote": 2
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was tut Wolfgang, wenn der Erzbischof 1200 Gulden bietet?",
+      "en": "What if the Archbishop offered him 1200 florins?",
+      "ko": "대주교가 1200플로린을 준다면 볼프강은 어떻게 해요?"
+     },
+     "options": [
+      {
+       "de": "Er dient ihm nie wieder",
+       "en": "He'd never serve him again",
+       "ko": "다시는 섬기지 않아요"
+      },
+      {
+       "de": "Er sagt sofort ja",
+       "en": "He'd say yes at once",
+       "ko": "바로 받아들여요"
+      },
+      {
+       "de": "Er fragt zuerst den Vater",
+       "en": "He'd ask his father first",
+       "ko": "먼저 아버지께 여쭤봐요"
+      },
+      {
+       "de": "Er will noch mehr Geld",
+       "en": "He'd want even more money",
+       "ko": "돈을 더 달라고 해요"
+      }
+     ],
+     "answer": 0,
+     "evidence": 3
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "궁정에서 쫓겨나다시피 나온 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang after he's thrown out at court · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, Graf Arco hat mich aus der Tür geworfen!",
+      "en": "Papa, Count Arco threw me out the door!",
+      "ko": "아빠, 아르코 백작이 저를 문밖으로 내쫓았어요!"
+     },
+     {
+      "who": "me",
+      "de": "Was? Warum hat er das gemacht?",
+      "en": "What? Why did he do that?",
+      "ko": "네? 왜 그랬어요?",
+      "focus": {
+       "de": [
+        "gemacht"
+       ],
+       "en": [
+        "did he do"
+       ],
+       "ko": [
+        "그랬어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "gemachen",
+         "machte"
+        ]
+       ],
+       "en": [
+        [
+         "did he did",
+         "does he did"
+        ]
+       ],
+       "ko": [
+        [
+         "그랫어요",
+         "그랐어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Weil ich gehen will. Ich diene dem Erzbischof nie wieder.",
+      "en": "Because I want to leave. I'll never serve the Archbishop again.",
+      "ko": "제가 그만두고 싶어 해서요. 다시는 대주교 밑에서 일 안 해요."
+     },
+     {
+      "who": "me",
+      "de": "Ich verstehe dich. Das war wirklich nicht leicht.",
+      "en": "I understand. That really wasn't easy.",
+      "ko": "이해해요. 정말 쉽지 않았겠어요.",
+      "focus": {
+       "de": [
+        "nicht leicht"
+       ],
+       "en": [
+        "wasn't easy"
+       ],
+       "ko": [
+        "쉽지 않았겠어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "kein leicht",
+         "nichts leicht"
+        ]
+       ],
+       "en": [
+        [
+         "weren't easy",
+         "didn't easy"
+        ]
+       ],
+       "ko": [
+        [
+         "쉽지 안았겠어요",
+         "쉽지 않았겟어요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "leicht"
+    ],
+    "grammar": "V.0"
    }
   },
   {
@@ -1370,6 +1767,138 @@
       "quote": 0
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Worum geht es im Libretto?",
+      "en": "What is the libretto's subject?",
+      "ko": "대본은 무엇에 관한 이야기예요?"
+     },
+     "options": [
+      {
+       "de": "Um etwas Italienisches",
+       "en": "Something Italian",
+       "ko": "이탈리아 이야기"
+      },
+      {
+       "de": "Um etwas Griechisches",
+       "en": "Something Greek",
+       "ko": "그리스 이야기"
+      },
+      {
+       "de": "Um etwas Türkisches",
+       "en": "Something Turkish",
+       "ko": "터키 이야기"
+      },
+      {
+       "de": "Um etwas Spanisches",
+       "en": "Something Spanish",
+       "ko": "스페인 이야기"
+      }
+     ],
+     "answer": 2,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "새 오페라 대본을 받은 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang after he gets a new libretto · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, ich habe ein neues Libretto! Eine türkische Geschichte.",
+      "en": "Papa, I have a new libretto! A Turkish story.",
+      "ko": "아빠, 새 대본이 생겼어요! 터키 이야기예요."
+     },
+     {
+      "who": "me",
+      "de": "Toll! Freust du dich auf die Arbeit?",
+      "en": "Great! Are you looking forward to the work?",
+      "ko": "대단해요! 작업이 기대돼요?",
+      "focus": {
+       "de": [
+        "Freust du dich"
+       ],
+       "en": [
+        "looking forward to"
+       ],
+       "ko": [
+        "기대돼요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Freust du mich",
+         "Freut du dich"
+        ]
+       ],
+       "en": [
+        [
+         "looking forward on",
+         "looking forwards at"
+        ]
+       ],
+       "ko": [
+        [
+         "기대되요",
+         "기대대요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Sehr! Ich sitze den ganzen Tag am Schreibtisch.",
+      "en": "Very much! I sit at my desk all day.",
+      "ko": "엄청요! 하루 종일 책상 앞에 앉아 있어요."
+     },
+     {
+      "who": "me",
+      "de": "Iss aber genug, wenn du hungrig wirst!",
+      "en": "But eat enough when you get hungry!",
+      "ko": "그래도 배고프면 꼭 잘 챙겨 먹어요!",
+      "focus": {
+       "de": [
+        "hungrig wirst"
+       ],
+       "en": [
+        "when you get"
+       ],
+       "ko": [
+        "배고프면"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "wirst hungrig",
+         "hungrig wird"
+        ]
+       ],
+       "en": [
+        [
+         "when you gets",
+         "when you getting"
+        ]
+       ],
+       "ko": [
+        [
+         "배고파면",
+         "배고프으면"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "freuen",
+     "hungrig"
+    ],
+    "grammar": "V.2"
    }
   },
   {
@@ -1671,6 +2200,142 @@
       "quote": 2
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wer soll den Osmin singen?",
+      "en": "Who is to sing the part of Osmin?",
+      "ko": "오스민 역은 누가 맡아요?"
+     },
+     "options": [
+      {
+       "de": "Herr Adamberger",
+       "en": "Herr Adamberger",
+       "ko": "아담베르거 씨"
+      },
+      {
+       "de": "Herr Raaff",
+       "en": "Herr Raaff",
+       "ko": "라프 씨"
+      },
+      {
+       "de": "Wolfgang selbst",
+       "en": "Wolfgang himself",
+       "ko": "볼프강 자신"
+      },
+      {
+       "de": "Herr Fischer",
+       "en": "Herr Fischer",
+       "ko": "피셔 씨"
+      }
+     ],
+     "answer": 3,
+     "evidence": 0,
+     "mark": {
+      "en": "Herr Fischer",
+      "ko": "피셔 씨"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "새 오페라의 배역을 정한 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang about casting his new opera · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, Fischer singt die Rolle des Osmin.",
+      "en": "Papa, Fischer is singing the role of Osmin.",
+      "ko": "아빠, 피셔 씨가 오스민 역을 불러요."
+     },
+     {
+      "who": "me",
+      "de": "Gut! Warum gerade er?",
+      "en": "Good! Why him in particular?",
+      "ko": "좋네요! 왜 하필 그분이에요?",
+      "focus": {
+       "de": [
+        "er"
+       ],
+       "en": [
+        "him"
+       ],
+       "ko": [
+        "그분이에요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "ihn",
+         "ihm"
+        ]
+       ],
+       "en": [
+        [
+         "he",
+         "his"
+        ]
+       ],
+       "ko": [
+        [
+         "그분예요",
+         "그분이예요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Weil er eine wunderbar tiefe Stimme hat.",
+      "en": "Because he has a wonderfully deep voice.",
+      "ko": "목소리가 멋지게 낮아서요."
+     },
+     {
+      "who": "me",
+      "de": "Schön! Und wie ist der Chor?",
+      "en": "Nice! And what's the chorus like?",
+      "ko": "좋아요! 합창은 어때요?",
+      "focus": {
+       "de": [
+        "der Chor"
+       ],
+       "en": [
+        "what's"
+       ],
+       "ko": [
+        "어때요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "die Chor",
+         "das Chor"
+        ]
+       ],
+       "en": [
+        [
+         "what are",
+         "who's"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼요",
+         "어떠요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Rolle",
+     "tief"
+    ],
+    "grammar": "V.0"
    }
   },
   {
@@ -1990,6 +2655,141 @@
       "quote": 1
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was soll die Dichtung in der Oper sein?",
+      "en": "What should poetry be in an opera?",
+      "ko": "오페라에서 시는 무엇이 돼야 해요?"
+     },
+     "options": [
+      {
+       "de": "Die Mutter der Musik",
+       "en": "Music's mother",
+       "ko": "음악의 어머니"
+      },
+      {
+       "de": "Die Herrin der Musik",
+       "en": "Music's mistress",
+       "ko": "음악의 주인"
+      },
+      {
+       "de": "Die Schwester der Musik",
+       "en": "Music's sister",
+       "ko": "음악의 자매"
+      },
+      {
+       "de": "Die Tochter der Musik",
+       "en": "Music's obedient daughter",
+       "ko": "음악의 순종하는 딸"
+      }
+     ],
+     "answer": 3,
+     "evidence": 0,
+     "mark": {
+      "ko": "음악의 순종하는 딸"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "오페라 대본에 대해 생각하는 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang, who's thinking about opera texts · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, wie geht es dir? Bist du gesund?",
+      "en": "Papa, how are you? Are you well?",
+      "ko": "아빠, 잘 지내세요? 몸은 괜찮으세요?"
+     },
+     {
+      "who": "me",
+      "de": "Es geht mir gut, danke. Woran arbeitest du?",
+      "en": "I'm fine, thanks. What are you working on?",
+      "ko": "잘 지내요, 고마워요. 요즘 뭐 작업해요?",
+      "focus": {
+       "de": [
+        "arbeitest du"
+       ],
+       "en": [
+        "are you working"
+       ],
+       "ko": [
+        "작업해요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "arbeitst du",
+         "arbeitet du"
+        ]
+       ],
+       "en": [
+        [
+         "is you working",
+         "are you work"
+        ]
+       ],
+       "ko": [
+        [
+         "작업하요",
+         "작업헤요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ich denke, dass in der Oper die Musik herrscht.",
+      "en": "I think that in opera, the music rules.",
+      "ko": "오페라에서는 음악이 주인이라고 생각해요."
+     },
+     {
+      "who": "me",
+      "de": "Darum gefallen komische Opern überall, oder?",
+      "en": "That's why comic operas are popular everywhere, right?",
+      "ko": "그래서 희극 오페라가 어디서나 인기 있는 거죠?",
+      "focus": {
+       "de": [
+        "gefallen"
+       ],
+       "en": [
+        "are popular"
+       ],
+       "ko": [
+        "인기 있는 거죠"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "gefällt",
+         "gefallt"
+        ]
+       ],
+       "en": [
+        [
+         "is popular",
+         "be popular"
+        ]
+       ],
+       "ko": [
+        [
+         "인기 있은 거죠",
+         "인기 있는 거조"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "herrschen",
+     "überall"
+    ],
+    "grammar": "V.1"
    }
   },
   {
@@ -2328,6 +3128,137 @@
       "quote": 4
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was hörte Wolfgang um elf Uhr nachts?",
+      "en": "What did Wolfgang hear at eleven at night?",
+      "ko": "볼프강은 밤 11시에 무엇을 들었어요?"
+     },
+     "options": [
+      {
+       "de": "Die Kirchenglocken",
+       "en": "The church bells",
+       "ko": "교회 종소리"
+      },
+      {
+       "de": "Gratulierende Freunde",
+       "en": "Friends congratulating him",
+       "ko": "축하하러 온 친구들"
+      },
+      {
+       "de": "Seine eigene Serenade",
+       "en": "His own serenade",
+       "ko": "자기가 지은 세레나데"
+      },
+      {
+       "de": "Streit auf der Straße",
+       "en": "A quarrel in the street",
+       "ko": "길에서 싸우는 소리"
+      }
+     ],
+     "answer": 2,
+     "evidence": 1
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "영명축일을 보낸 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang after his name day · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Papa! Ich hatte einen schönen Namenstag.",
+      "en": "Hi Papa! I had a lovely name day.",
+      "ko": "안녕하세요, 아빠! 영명축일을 즐겁게 보냈어요."
+     },
+     {
+      "who": "me",
+      "de": "Alles Gute nachträglich! Was ist passiert?",
+      "en": "Belated best wishes! What happened?",
+      "ko": "늦었지만 축하해요! 무슨 일이 있었어요?",
+      "focus": {
+       "de": [
+        "passiert"
+       ],
+       "en": [
+        "happened"
+       ],
+       "ko": [
+        "있었어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "gepassiert",
+         "passieren"
+        ]
+       ],
+       "en": [
+        [
+         "happen",
+         "happend"
+        ]
+       ],
+       "ko": [
+        [
+         "있엇어요",
+         "있았어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Als ich schlafen gehen wollte, kam eine Serenade. Von mir!",
+      "en": "Just as I wanted to go to bed, a serenade came. By me!",
+      "ko": "자려고 할 때 세레나데가 들려왔어요. 제가 쓴 곡이요!"
+     },
+     {
+      "who": "me",
+      "de": "Wie schön! Da warst du sicher überrascht.",
+      "en": "How lovely! You must have been surprised.",
+      "ko": "멋지네요! 정말 깜짝 놀랐겠어요.",
+      "focus": {
+       "de": [
+        "warst du"
+       ],
+       "en": [
+        "must have been"
+       ],
+       "ko": [
+        "놀랐겠어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "war du",
+         "wart du"
+        ]
+       ],
+       "en": [
+        [
+         "must had been",
+         "must have be"
+        ]
+       ],
+       "ko": [
+        [
+         "놀랏겠어요",
+         "놀랐겟어요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "überraschen"
+    ],
+    "grammar": "V.2"
    }
   }
  ]

@@ -442,6 +442,137 @@
       "quote": 3
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was möchte Wolfgang über Salzburg wissen?",
+      "en": "What does Wolfgang want to know about Salzburg?",
+      "ko": "볼프강은 잘츠부르크에 대해 뭘 알고 싶어 해요?"
+     },
+     "options": [
+      {
+       "de": "Ob es dort viel regnet",
+       "en": "Whether it rains a lot there",
+       "ko": "거기 비가 많이 오는지"
+      },
+      {
+       "de": "Ob Papa gesund ist",
+       "en": "Whether Papa is well",
+       "ko": "아버지가 건강하신지"
+      },
+      {
+       "de": "Ob Nannerl Klavier spielt",
+       "en": "Whether Nannerl plays piano",
+       "ko": "난네를이 피아노를 치는지"
+      },
+      {
+       "de": "Ob es dort auch so schneit",
+       "en": "Whether it snows as much there",
+       "ko": "거기도 눈이 그렇게 오는지"
+      }
+     ],
+     "answer": 3,
+     "evidence": 4
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "오페라를 쓰러 뮌헨에 간 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang, who's gone to Munich to write an opera · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Hallo Papa! Schneit es in Salzburg auch so viel?",
+      "en": "Hi Papa! Is it snowing this much in Salzburg too?",
+      "ko": "안녕하세요, 아빠! 잘츠부르크에도 눈이 이렇게 많이 와요?"
+     },
+     {
+      "who": "me",
+      "de": "Ja, sehr viel! Wie war die Fahrt?",
+      "en": "Yes, a lot! How was the trip?",
+      "ko": "네, 아주 많이요! 오는 길은 어땠어요?",
+      "focus": {
+       "de": [
+        "war"
+       ],
+       "en": [
+        "How was"
+       ],
+       "ko": [
+        "어땠어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "waren",
+         "wart"
+        ]
+       ],
+       "en": [
+        [
+         "How were",
+         "How been"
+        ]
+       ],
+       "ko": [
+        [
+         "어땟어요",
+         "어떴어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Schrecklich! Nächstes Mal gehe ich lieber zu Fuß.",
+      "en": "Terrible! Next time I'd rather walk.",
+      "ko": "끔찍했어요! 다음엔 차라리 걸어갈래요."
+     },
+     {
+      "who": "me",
+      "de": "Ha! Und gefällt dir die Arbeit an der Oper?",
+      "en": "Ha! And do you like working on the opera?",
+      "ko": "하하! 그래서 오페라 작업은 마음에 들어요?",
+      "focus": {
+       "de": [
+        "gefällt dir"
+       ],
+       "en": [
+        "do you like"
+       ],
+       "ko": [
+        "마음에 들어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "gefällst dir",
+         "gefällt dich"
+        ]
+       ],
+       "en": [
+        [
+         "does you like",
+         "do you likes"
+        ]
+       ],
+       "ko": [
+        [
+         "마음에 들아요",
+         "마음이 들어요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "gefallen"
+    ],
+    "grammar": "IV.1"
    }
   },
   {
@@ -734,6 +865,138 @@
       "quote": 1
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Warum macht Wolfgang Raaffs Änderung?",
+      "en": "Why does Wolfgang make Raaff's change?",
+      "ko": "볼프강은 왜 라프의 수정 요청을 들어줘요?"
+     },
+     "options": [
+      {
+       "de": "Der Kurfürst will es",
+       "en": "The Elector wants it",
+       "ko": "선제후가 원해서"
+      },
+      {
+       "de": "Raaff hat recht und ist alt",
+       "en": "Raaff is right, and he's old",
+       "ko": "라프 말이 옳고 나이도 많아서"
+      },
+      {
+       "de": "Raaff zahlt viel Geld",
+       "en": "Raaff pays a lot",
+       "ko": "라프가 돈을 많이 줘서"
+      },
+      {
+       "de": "Die Arie ist zu kurz",
+       "en": "The aria is too short",
+       "ko": "아리아가 너무 짧아서"
+      }
+     ],
+     "answer": 1,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "가수 라프와 아리아를 손보는 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang, reworking an aria with the singer Raaff · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, Raaff war gestern bei mir. Er ist zufrieden!",
+      "en": "Papa, Raaff came to see me yesterday. He's happy!",
+      "ko": "아빠, 어제 라프 씨가 왔었어요. 만족해했어요!"
+     },
+     {
+      "who": "me",
+      "de": "Schön! Hast du ihm die Arie gezeigt?",
+      "en": "Nice! Did you show him the aria?",
+      "ko": "좋네요! 그분께 아리아를 보여 드렸어요?",
+      "focus": {
+       "de": [
+        "ihm"
+       ],
+       "en": [
+        "show him"
+       ],
+       "ko": [
+        "보여 드렸어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "ihn",
+         "er"
+        ]
+       ],
+       "en": [
+        [
+         "show he",
+         "show his"
+        ]
+       ],
+       "ko": [
+        [
+         "보여 들였어요",
+         "보여 드렸아요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja. Aber er möchte noch eine Änderung.",
+      "en": "Yes. But he'd like one more change.",
+      "ko": "네. 그런데 한 군데 더 고치고 싶대요."
+     },
+     {
+      "who": "me",
+      "de": "Mach sie ihm. Er ist alt, sei nett zu ihm.",
+      "en": "Do it for him. He's old, be kind to him.",
+      "ko": "고쳐 드려요. 나이 드신 분이니 잘해 드려요.",
+      "focus": {
+       "de": [
+        "zu ihm"
+       ],
+       "en": [
+        "be kind to him"
+       ],
+       "ko": [
+        "잘해 드려요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "zu ihn",
+         "zu er"
+        ]
+       ],
+       "en": [
+        [
+         "be kind to he",
+         "is kind to him"
+        ]
+       ],
+       "ko": [
+        [
+         "잘해 들여요",
+         "잘하 드려요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "zufrieden",
+     "zeigen"
+    ],
+    "grammar": "IV.1"
    }
   },
   {
@@ -1048,6 +1311,137 @@
       "quote": 0
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Wie ging Wolfgang zur Probe?",
+      "en": "How did Wolfgang go to the rehearsal?",
+      "ko": "볼프강은 어떤 마음으로 리허설에 갔어요?"
+     },
+     "options": [
+      {
+       "de": "Sehr nervös und blass",
+       "en": "Very nervous and pale",
+       "ko": "아주 긴장해서 창백하게"
+      },
+      {
+       "de": "Ruhig wie zu einem Fest",
+       "en": "Calm, as if to a banquet",
+       "ko": "잔치에 가듯 편안하게"
+      },
+      {
+       "de": "Müde und hungrig",
+       "en": "Tired and hungry",
+       "ko": "지치고 배고프게"
+      },
+      {
+       "de": "Wütend auf die Sänger",
+       "en": "Angry at the singers",
+       "ko": "가수들에게 화가 나서"
+      }
+     ],
+     "answer": 1,
+     "evidence": 0
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "리허설을 마친 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang after a rehearsal · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, die Probe ist super gelaufen!",
+      "en": "Papa, the rehearsal went great!",
+      "ko": "아빠, 리허설 정말 잘됐어요!"
+     },
+     {
+      "who": "me",
+      "de": "Toll! Warst du vorher nervös?",
+      "en": "Great! Were you nervous beforehand?",
+      "ko": "대단해요! 미리 떨리진 않았어요?",
+      "focus": {
+       "de": [
+        "Warst du"
+       ],
+       "en": [
+        "Were you"
+       ],
+       "ko": [
+        "않았어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "War du",
+         "Wart du"
+        ]
+       ],
+       "en": [
+        [
+         "Was you",
+         "Are you been"
+        ]
+       ],
+       "ko": [
+        [
+         "안았어요",
+         "않았아요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Gar nicht. Ich bin ganz ruhig hingegangen.",
+      "en": "Not at all. I went there completely calm.",
+      "ko": "전혀요. 아주 차분하게 갔어요."
+     },
+     {
+      "who": "me",
+      "de": "Wunderbar! Wann fängt die nächste Probe an?",
+      "en": "Wonderful! When does the next rehearsal start?",
+      "ko": "멋져요! 다음 리허설은 언제 시작해요?",
+      "focus": {
+       "de": [
+        "fängt"
+       ],
+       "en": [
+        "start"
+       ],
+       "ko": [
+        "시작해요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "anfängt",
+         "fangt"
+        ]
+       ],
+       "en": [
+        [
+         "starts",
+         "starting"
+        ]
+       ],
+       "ko": [
+        [
+         "시작하요",
+         "시작헤요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Probe"
+    ],
+    "grammar": "IV.0"
    }
   },
   {
@@ -1367,6 +1761,138 @@
       "quote": 4
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Für wen ist die Musik in seiner Oper?",
+      "en": "Who is the music in his opera for?",
+      "ko": "볼프강의 오페라 음악은 누구를 위한 거예요?"
+     },
+     "options": [
+      {
+       "de": "Für alle außer Langohren",
+       "en": "Everyone but the long-eared",
+       "ko": "귀가 긴 족속만 빼고 모두"
+      },
+      {
+       "de": "Nur für Kenner",
+       "en": "Only for experts",
+       "ko": "전문가만"
+      },
+      {
+       "de": "Nur für den Hof",
+       "en": "Only for the court",
+       "ko": "궁정 사람들만"
+      },
+      {
+       "de": "Nur für die Sänger",
+       "en": "Only for the singers",
+       "ko": "가수들만"
+      }
+     ],
+     "answer": 0,
+     "evidence": 2
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "오페라 공연을 앞둔 뮌헨의 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang in Munich before the premiere · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, kommst du bald nach München zu meiner Oper?",
+      "en": "Papa, are you coming to Munich for my opera soon?",
+      "ko": "아빠, 곧 제 오페라 보러 뮌헨에 오실 거죠?"
+     },
+     {
+      "who": "me",
+      "de": "Ja, gern! Ich werde mit Nannerl kommen.",
+      "en": "Yes, gladly! I'll come with Nannerl.",
+      "ko": "네, 그럼요! 난네를이랑 같이 갈 거예요.",
+      "focus": {
+       "de": [
+        "werde"
+       ],
+       "en": [
+        "I'll come"
+       ],
+       "ko": [
+        "갈 거예요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "wirst",
+         "wird"
+        ]
+       ],
+       "en": [
+        [
+         "I'll comes",
+         "I'll coming"
+        ]
+       ],
+       "ko": [
+        [
+         "갈 거에요",
+         "갈 꺼예요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Super! Wann kommt ihr an?",
+      "en": "Great! When will you arrive?",
+      "ko": "좋아요! 언제 도착해요?"
+     },
+     {
+      "who": "me",
+      "de": "Das weiß ich noch nicht. Ich werde dir bald schreiben.",
+      "en": "I don't know yet. I'll write to you soon.",
+      "ko": "아직 몰라요. 곧 편지할게요.",
+      "focus": {
+       "de": [
+        "dir"
+       ],
+       "en": [
+        "I'll write"
+       ],
+       "ko": [
+        "편지할게요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "dich",
+         "du"
+        ]
+       ],
+       "en": [
+        [
+         "I'll writes",
+         "I'll wrote"
+        ]
+       ],
+       "ko": [
+        [
+         "편지할께요",
+         "편지할개요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Oper",
+     "ankommen"
+    ],
+    "grammar": "IV.2"
    }
   },
   {
@@ -1696,6 +2222,141 @@
       "quote": 0
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Worüber wundert sich der Kurfürst lachend?",
+      "en": "What does the Elector laughingly marvel at?",
+      "ko": "선제후는 웃으며 무엇에 놀라요?"
+     },
+     "options": [
+      {
+       "de": "Die sehr lange Probe",
+       "en": "The very long rehearsal",
+       "ko": "아주 긴 리허설"
+      },
+      {
+       "de": "Große Dinge im kleinen Kopf",
+       "en": "Great things in a small head",
+       "ko": "작은 머리에 든 큰 것"
+      },
+      {
+       "de": "Raaffs altmodische Art",
+       "en": "Raaff's old-fashioned ways",
+       "ko": "라프의 낡은 습관"
+      },
+      {
+       "de": "Den großen Saal",
+       "en": "The large hall",
+       "ko": "궁정의 큰 방"
+      }
+     ],
+     "answer": 1,
+     "evidence": [
+      1,
+      2
+     ]
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "마지막 리허설을 마친 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang after the last rehearsal · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, die letzte Probe war herrlich!",
+      "en": "Papa, the last rehearsal was wonderful!",
+      "ko": "아빠, 마지막 리허설이 정말 훌륭했어요!"
+     },
+     {
+      "who": "me",
+      "de": "Wie schön! War der Kurfürst auch da?",
+      "en": "How lovely! Was the Elector there too?",
+      "ko": "잘됐네요! 선제후도 오셨어요?",
+      "focus": {
+       "de": [
+        "War"
+       ],
+       "en": [
+        "Was"
+       ],
+       "ko": [
+        "오셨어요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Warst",
+         "Waren"
+        ]
+       ],
+       "en": [
+        [
+         "Were",
+         "Is been"
+        ]
+       ],
+       "ko": [
+        [
+         "오셧어요",
+         "왔셨어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja! Er hat Bravo gerufen und war sehr freundlich.",
+      "en": "Yes! He called out bravo and was very kind.",
+      "ko": "네! 브라보를 외치시고 아주 친절하셨어요."
+     },
+     {
+      "who": "me",
+      "de": "Ich gratuliere dir! Das gefällt mir sehr.",
+      "en": "Congratulations! I'm really pleased.",
+      "ko": "축하해요! 정말 기뻐요.",
+      "focus": {
+       "de": [
+        "gefällt mir"
+       ],
+       "en": [
+        "I'm"
+       ],
+       "ko": [
+        "기뻐요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "gefällt mich",
+         "gefalle mir"
+        ]
+       ],
+       "en": [
+        [
+         "I's",
+         "I are"
+        ]
+       ],
+       "ko": [
+        [
+         "기쁘어요",
+         "기뻐여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "herrlich",
+     "freundlich"
+    ],
+    "grammar": "IV.1"
    }
   },
   {
@@ -2028,6 +2689,142 @@
       "quote": 2
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Womit sind Wolfgangs Kopf und Hände voll?",
+      "en": "What are Wolfgang's head and hands full of?",
+      "ko": "볼프강의 머리와 손은 무엇으로 꽉 차 있어요?"
+     },
+     "options": [
+      {
+       "de": "Mit dem ersten Akt",
+       "en": "The first act",
+       "ko": "1막"
+      },
+      {
+       "de": "Mit einem Marsch",
+       "en": "A march",
+       "ko": "행진곡"
+      },
+      {
+       "de": "Mit dem dritten Akt",
+       "en": "The third act",
+       "ko": "3막"
+      },
+      {
+       "de": "Mit Tänzen",
+       "en": "Dances",
+       "ko": "춤곡"
+      }
+     ],
+     "answer": 2,
+     "evidence": 0,
+     "mark": {
+      "en": "third act",
+      "ko": "3막"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "3막 작업에 빠진 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang, buried in work on Act Three · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, dein Brief war zuerst leer! Nur weißes Papier.",
+      "en": "Papa, your letter looked blank at first! Just white paper.",
+      "ko": "아빠, 편지가 처음엔 비어 있었어요! 하얀 종이뿐이었어요."
+     },
+     {
+      "who": "me",
+      "de": "Was? Hast du ihn falsch herum gehalten?",
+      "en": "What? Did you hold it the wrong way round?",
+      "ko": "네? 거꾸로 들고 본 거예요?",
+      "focus": {
+       "de": [
+        "gehalten"
+       ],
+       "en": [
+        "Did you hold"
+       ],
+       "ko": [
+        "본 거예요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "gehaltet",
+         "gehielt"
+        ]
+       ],
+       "en": [
+        [
+         "Did you held",
+         "Do you held"
+        ]
+       ],
+       "ko": [
+        [
+         "본 거에요",
+         "보은 거예요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja, genau! Ich bin so müde vom dritten Akt.",
+      "en": "Yes, exactly! I'm so tired from the third act.",
+      "ko": "네, 맞아요! 3막 때문에 너무 지쳤어요."
+     },
+     {
+      "who": "me",
+      "de": "Mach mal eine Pause. Du wirst es schaffen!",
+      "en": "Take a break. You'll manage it!",
+      "ko": "좀 쉬어요. 해낼 거예요!",
+      "focus": {
+       "de": [
+        "wirst"
+       ],
+       "en": [
+        "You'll manage"
+       ],
+       "ko": [
+        "해낼 거예요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "wird",
+         "werdest"
+        ]
+       ],
+       "en": [
+        [
+         "You'll manages",
+         "You'll managing"
+        ]
+       ],
+       "ko": [
+        [
+         "해낼 거에요",
+         "해낼 꺼예요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "leer",
+     "Papier"
+    ],
+    "grammar": "IV.2"
    }
   },
   {
@@ -2337,6 +3134,143 @@
       "quote": 2
      }
     ]
+   },
+   "check": [
+    {
+     "q": {
+      "de": "Was soll der Vater mitbringen?",
+      "en": "What should his father bring along?",
+      "ko": "아버지는 뭘 가져와야 해요?"
+     },
+     "options": [
+      {
+       "de": "Die Geige",
+       "en": "The violin",
+       "ko": "바이올린"
+      },
+      {
+       "de": "Neue Noten",
+       "en": "New sheet music",
+       "ko": "새 악보"
+      },
+      {
+       "de": "Warme Kleider",
+       "en": "Warm clothes",
+       "ko": "따뜻한 옷"
+      },
+      {
+       "de": "Die kleine Uhr",
+       "en": "The little watch",
+       "ko": "작은 시계"
+      }
+     ],
+     "answer": 3,
+     "evidence": 4,
+     "mark": {
+      "de": "kleine Uhr",
+      "en": "little watch",
+      "ko": "작은 시계"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "리허설에 나가기 직전의 볼프강과 통화 · 나는 아버지 레오폴트",
+     "en": "A call with Wolfgang just before he leaves for rehearsal · I'm his father Leopold"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "de": "Papa, verzeih mir den kurzen Brief! Ich muss zur Probe.",
+      "en": "Papa, forgive the short letter! I have to go to rehearsal.",
+      "ko": "아빠, 편지가 짧아서 죄송해요! 리허설 가야 해요."
+     },
+     {
+      "who": "me",
+      "de": "Kein Problem! Brauchst du noch etwas?",
+      "en": "No problem! Do you need anything else?",
+      "ko": "괜찮아요! 더 필요한 거 있어요?",
+      "focus": {
+       "de": [
+        "Brauchst du"
+       ],
+       "en": [
+        "Do you need"
+       ],
+       "ko": [
+        "필요한 거"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Braucht du",
+         "Brauche du"
+        ]
+       ],
+       "en": [
+        [
+         "Does you need",
+         "Do you needs"
+        ]
+       ],
+       "ko": [
+        [
+         "필요하는 거",
+         "필요핸 거"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Ja, bitte nimm meine kleine Uhr mit!",
+      "en": "Yes, please bring my little watch!",
+      "ko": "네, 제 작은 시계 좀 가져와 주세요!"
+     },
+     {
+      "who": "me",
+      "de": "Mach ich. Ich bringe sie dir mit.",
+      "en": "Will do. I'll bring it with me.",
+      "ko": "그럴게요. 가져갈게요.",
+      "focus": {
+       "de": [
+        "bringe"
+       ],
+       "en": [
+        "I'll bring"
+       ],
+       "ko": [
+        "가져갈게요"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "bringst",
+         "mitbringe"
+        ]
+       ],
+       "en": [
+        [
+         "I'll brings",
+         "I'll brought"
+        ]
+       ],
+       "ko": [
+        [
+         "가져갈께요",
+         "가저갈게요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "verzeihen",
+     "mitnehmen"
+    ],
+    "grammar": "IV.0"
    }
   }
  ]
