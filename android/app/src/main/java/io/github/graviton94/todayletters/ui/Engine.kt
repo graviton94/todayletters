@@ -799,7 +799,7 @@ fun RecitalScreen(s: AppState) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
                 Box(Modifier.size(64.dp).background(if (joined != null) p.fill else p.hide, CircleShape).pressable(enabled = joined != null) {
                     if (playing) { s.recorder.stopPlaying(); playing = false } else joined?.let { f -> playing = true; s.recorder.play(f) { playing = false } }
-                }, contentAlignment = Alignment.Center) { Text(if (playing) "■" else "▶", style = Type.heading, color = p.onFill) }
+                }, contentAlignment = Alignment.Center) { PlayGlyph(playing, p.onFill, 20.dp) }
                 Text(stringResource(if (takes.isEmpty()) R.string.recital_empty else R.string.recital_play), style = Type.body.ui(), color = p.ink, modifier = Modifier.weight(1f))
             }
             Hair()

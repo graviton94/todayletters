@@ -109,7 +109,7 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val clips = remember(letter.id, k, view.learn) {
         c?.evidence.orEmpty().map { i -> s.narrator.path(id, chapter, letter.id, "m${i + 1}_${view.learn.code}") }.filter { s.narrator.has(it) }
     }
-    fun listen(from: Int = 0) { clips.getOrNull(from)?.let { s.narrator.play(it) { if (from + 1 < clips.size) listen(from + 1) } } }
+    fun listen(from: Int = 0, speed: Float? = null) { clips.getOrNull(from)?.let { s.narrator.play(it, speed) { if (from + 1 < clips.size) listen(from + 1, speed) } } }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
         PracticeHeader(if (over) k + 1 else k, n, onClose = onClose, count = "${k + 1} / $n")
@@ -141,7 +141,7 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
                     if (over || showRead) Text(m[view.read], style = Type.small.of(view.read), color = p.inkSoft)
                 }
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                    if (clips.isNotEmpty()) SpeakerButton(false, stringResource(R.string.check_listen)) { listen() }
+                    if (clips.isNotEmpty()) ListenButtons(play = { sp -> listen(0, sp) }, label = stringResource(R.string.check_listen))
                     if (!over && !showRead && Support.checkTranslationTappable(band)) Text(stringResource(R.string.fade_show), style = Type.small.ui().copy(textDecoration = TextDecoration.Underline),
                         color = p.giltText, modifier = Modifier.heightIn(min = 44.dp).pressable { showRead = true }.padding(vertical = Tokens.Space.s2))
                 }
@@ -268,7 +268,8 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
                 if (line.me) {
                     val ok = marks.getOrNull(mine++) == '1'
                     MyBubble(Breaks.plain(line.text[view.learn]), line.text[view.read], view.learn, view.read, todays, check = ok)
-                } else TheirBubble(Breaks.plain(line.text[view.learn]), line.text[view.read], view.learn, view.read, todays, audio(i)?.let { a -> { s.narrator.play(a); Unit } })
+                } else TheirBubble(Breaks.plain(line.text[view.learn]), line.text[view.read], view.learn, view.read, todays,
+                    audio(i)?.let { a -> @Composable { ListenButtons(play = { sp -> s.narrator.play(a, sp) }) } })
             }
             st?.let { t -> CurrentBubble(t, cur?.let { lines[it].text[view.read] }.orEmpty(), view.learn, view.read) }
         }
@@ -280,7 +281,8 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
             val t = st
             when {
                 done -> Primary(stringResource(R.string.talk_finish)) { s.narrator.stop(); s.replyAndContinue(r.room, ReplyMode.TALK) }
-                t != null -> TalkTray(t, view.learn, ear.available && !denied, ear.listening, heard, cur?.let { audio(it) }?.let { a -> { s.narrator.play(a); Unit } },
+                t != null -> TalkTray(t, view.learn, ear.available && !denied, ear.listening, heard,
+                    cur?.let { audio(it) }?.let { a -> @Composable { ListenButtons(play = { sp -> s.narrator.play(a, sp) }) } },
                     onPick = { i ->
                         val before = st
                         send(TalkTurn.Event.Pick(i))
@@ -326,15 +328,16 @@ private fun underlined(text: String, todays: List<String>) = buildAnnotatedStrin
 
 /** 상대 말풍선 (왼쪽): 배우는 말 (오늘 낱말 밑줄) · 읽는 말, 소리가 있으면 듣기. */
 @Composable
-private fun TheirBubble(learnText: String, readText: String, learn: Lang, read: Lang, todays: List<String>, onListen: (() -> Unit)?) {
+internal fun TheirBubble(learnText: String, readText: String, learn: Lang, read: Lang, todays: List<String>, listen: (@Composable () -> Unit)?) {
     val p = Ink.palette
-    Row(Modifier.fillMaxWidth(0.9f), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
-        Column(Modifier.weight(1f, fill = false).clip(RoundedCornerShape(4.dp, 14.dp, 14.dp, 14.dp)).background(p.slip).padding(horizontal = 14.dp, vertical = 10.dp),
+    Box(Modifier.fillMaxWidth(0.9f), contentAlignment = Alignment.CenterStart) {
+        Column(Modifier.clip(RoundedCornerShape(4.dp, 14.dp, 14.dp, 14.dp)).background(p.slip).padding(horizontal = 14.dp, vertical = 10.dp),
             verticalArrangement = Arrangement.spacedBy(2.dp)) {
             Text(underlined(learnText, todays), style = Type.body.of(learn), color = p.slipInk)
             if (read != learn) Text(readText, style = Type.small.of(read), color = p.slipSoft)
+            // 듣기 단추 둘 (스피커 · 0.7×): 말풍선 안 아래 (시안 slow.html)
+            if (listen != null) Box(Modifier.padding(top = 4.dp)) { listen() }
         }
-        if (onListen != null) SpeakerButton(false, stringResource(R.string.a11y_listen_word), onClick = onListen)
     }
 }
 
@@ -392,7 +395,7 @@ private fun CurrentBubble(t: TalkTurn.State, readText: String, learn: Lang, read
  */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun TalkTray(t: TalkTurn.State, learn: Lang, recognizer: Boolean, listening: Boolean, heard: String?, onListen: (() -> Unit)?,
+private fun TalkTray(t: TalkTurn.State, learn: Lang, recognizer: Boolean, listening: Boolean, heard: String?, onListen: (@Composable () -> Unit)?,
                      onPick: (Int) -> Unit, onHint: () -> Unit, onRecord: () -> Unit, onSelf: (Boolean) -> Unit, onContinue: () -> Unit) {
     val p = Ink.palette
     when (t.phase) {
@@ -401,14 +404,14 @@ private fun TalkTray(t: TalkTurn.State, learn: Lang, recognizer: Boolean, listen
         TalkTurn.Phase.REVEALED -> {
             Text(stringResource(R.string.talk_revealed), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                if (onListen != null) SpeakerButton(false, stringResource(R.string.a11y_listen_word), onClick = onListen)
+                onListen?.invoke()
                 Box(Modifier.weight(1f)) { Primary(stringResource(R.string.speak_line_next)) { onContinue() } }
             }
         }
         TalkTurn.Phase.SELF -> {
             Text(stringResource(R.string.speak_self), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                if (onListen != null) SpeakerButton(false, stringResource(R.string.a11y_listen_word), onClick = onListen)
+                onListen?.invoke()
                 Box(Modifier.weight(1f)) { Secondary(stringResource(R.string.speak_again), small = true) { onSelf(false) } }
                 Box(Modifier.weight(1f)) { Primary(stringResource(R.string.speak_ok), small = true) { onSelf(true) } }
             }
@@ -440,9 +443,14 @@ private fun TalkTray(t: TalkTurn.State, learn: Lang, recognizer: Boolean, listen
             // 듣기 · 힌트 · 녹음
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3, Alignment.CenterHorizontally)) {
                 val canListen = onListen != null && (t.help == Support.Talk.SHADOW || (t.fullLine && t.canRecord))
-                if (canListen) SpeakerButton(false, stringResource(R.string.a11y_listen_word), onClick = onListen!!)
+                if (canListen) onListen!!.invoke()
                 if (t.hintable) Box(Modifier.heightIn(min = 48.dp).border(1.dp, p.line).pressable(role = Role.Button) { onHint() }.padding(horizontal = Tokens.Space.s3),
-                    contentAlignment = Alignment.Center) { Text("💡 " + stringResource(R.string.talk_hint), style = Type.small.ui(), color = p.ink) }
+                    contentAlignment = Alignment.Center) {
+                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        BulbGlyph(p.giltText)
+                        Text(stringResource(R.string.talk_hint), style = Type.small.ui(), color = p.ink)
+                    }
+                }
                 RecordButton(t.canRecord, listening, stringResource(when {
                     !recognizer -> R.string.talk_said
                     listening -> R.string.speak_listening
@@ -610,6 +618,7 @@ fun SpeakLine(s: AppState, sentence: String, learn: Lang, audio: String?, key: A
                 if (!revealed) Secondary(stringResource(R.string.speak_reveal), small = true) { revealed = true; audio?.let { s.narrator.play(it) } }
                 else {
                     Text(sentence, style = Type.body.of(learn), color = p.ink, textAlign = TextAlign.Center)
+                    if (audio != null) ListenButtons(play = { sp -> s.narrator.play(audio, sp) })
                     Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                         Box(Modifier.weight(1f)) { Secondary(stringResource(R.string.speak_again), small = true) { s.cue(false); onDone() } }
                         Box(Modifier.weight(1f)) { Primary(stringResource(R.string.speak_ok), small = true) { s.cue(true); onDone() } }
@@ -669,4 +678,14 @@ internal fun PronLines(line: String, note: String) {
     val p = Ink.palette
     if (line.isNotEmpty()) Text(line, style = Type.small, color = p.inkSoft)
     if (note.isNotEmpty()) Text(note, style = Type.small.ui(), color = p.giltText)
+}
+
+/** 힌트 표시 (그린 전구): 글자 그림(이모지) 대신. */
+@Composable
+internal fun BulbGlyph(c: Color) = androidx.compose.foundation.Canvas(Modifier.size(14.dp)) {
+    val w = size.width
+    val st = androidx.compose.ui.graphics.drawscope.Stroke(1.4.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round)
+    drawCircle(c, w * 0.3f, Offset(w / 2, w * 0.38f), style = st)
+    drawLine(c, Offset(w * 0.38f, w * 0.8f), Offset(w * 0.62f, w * 0.8f), 1.4.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round)
+    drawLine(c, Offset(w * 0.42f, w * 0.95f), Offset(w * 0.58f, w * 0.95f), 1.4.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round)
 }

@@ -11,7 +11,6 @@
     <string name="series_settings">이 작⁠품 설⁠정</string>
     <string name="room_info">대⁠화⁠방 정⁠보</string>
     <string name="room_more">더 보⁠기</string>
-    <string name="room_speed">읽⁠기 빠⁠르⁠기 · %1$s</string>
     <string name="ob_modes">답⁠장⁠은 어⁠떻⁠게 쓸⁠까⁠요⁠?</string>
     <string name="mode_match">낱⁠말 맞⁠추⁠기</string>
     <string name="mode_constellation">별⁠자⁠리 잇⁠기</string>
@@ -79,7 +78,7 @@
     <string name="set_haptics">진⁠동</string>
     <string name="set_privacy">학⁠습 기⁠록⁠은 이 폰⁠에⁠만 남⁠아⁠요⁠. 인⁠터⁠넷⁠은 장⁠의 낭⁠독⁠을 직⁠접 받⁠을 때⁠만 쓰⁠고⁠, 나⁠에 대⁠한 정⁠보⁠는 보⁠내⁠지 않⁠아⁠요⁠. 녹⁠음⁠한 목⁠소⁠리⁠는 직⁠접 목⁠소⁠리 엽⁠서⁠로 보⁠낼 때⁠만 밖⁠으⁠로 나⁠가⁠요⁠.</string>
     <string name="coach_library">표⁠지 하⁠나⁠가 작⁠품 하⁠나⁠예⁠요⁠. 앞 챕⁠터⁠는 무⁠료⁠예⁠요⁠.</string>
-    <string name="coach_series">⚙ 에⁠서 이 작⁠품⁠에⁠서 배⁠울 언⁠어⁠를 정⁠해⁠요⁠.</string>
+    <string name="coach_series">톱⁠니⁠바⁠퀴 단⁠추⁠에⁠서 이 작⁠품⁠에⁠서 배⁠울 언⁠어⁠를 정⁠해⁠요⁠.</string>
     <string name="coach_play_aloud">듣⁠고⁠, 녹⁠음⁠하⁠고⁠, 보⁠내⁠요⁠. 한 번 녹⁠음⁠하⁠면 충⁠분⁠해⁠요⁠.</string>
     <string name="coach_skip">건⁠너⁠뛰⁠기</string>
     <string name="coach_next">다⁠음 ›</string>
@@ -206,7 +205,7 @@
     <string name="status_line">%1$s⁠의 상⁠태 메⁠시⁠지 · “%2$s”</string>
     <string name="walk_to_whole">‹ 전⁠경⁠으⁠로</string>
     <string name="step_not_yet">앞 단⁠계⁠부⁠터 해⁠요⁠.</string>
-    <string name="blank_hint">💡 번⁠역⁠에⁠서 찾⁠기</string>
+    <string name="blank_hint">번⁠역⁠에⁠서 찾⁠기</string>
     <string name="result_caps">RÉVISION · TERMINÉE</string>
     <string name="result_practice_note">연⁠습⁠이⁠라 복⁠습 일⁠정⁠은 그⁠대⁠로⁠예⁠요⁠.</string>
     <string name="chapter_end_next">다⁠음 장⁠은 준⁠비 중⁠이⁠에⁠요⁠. 오⁠면 알⁠림⁠으⁠로 알⁠려 드⁠릴⁠게⁠요⁠.</string>
@@ -818,6 +817,8 @@
     <string name="support_less">도⁠움⁠이 조⁠금 줄⁠었⁠어⁠요⁠.</string>
     <string name="set_easier">도⁠움 한 단⁠계 더</string>
     <string name="set_easier_d">언⁠어 등⁠급⁠은 그⁠대⁠로 두⁠고⁠, 한 등⁠급 아⁠래⁠의 도⁠움⁠(⁠힌⁠트 · 번⁠역 · 빈⁠칸⁠)⁠을 받⁠아⁠요⁠.</string>
+    <string name="set_listen_speed">기⁠본 듣⁠기 속⁠도</string>
+    <string name="set_listen_auto">등⁠급⁠에 맞⁠춰 자⁠동</string>
     <string name="match_in_letter">편⁠지 속 문⁠장</string>
     <string name="update_ready">새 버⁠전⁠을 받⁠았⁠어⁠요</string>
     <string name="update_restart">다⁠시 열⁠기</string>

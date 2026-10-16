@@ -1206,6 +1206,16 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         io.github.graviton94.todayletters.core.Support.grade(grade(room(series).learn), seriesSettings(series).easier)
 
     /**
+     * 이 작품의 기본 듣기 빠르기 (core 의 [io.github.graviton94.todayletters.core.Listen]): 작품 설정의 ‘등급에 맞춰 자동’ 이면 도움 사다리 등급대로,
+     * 아니면 고른 값. 빠르기를 따로 주지 않은 모든 소리 ([Narrator.base]) 가 이것을 따른다. 0.7× 단추만 예외.
+     */
+    fun listenSpeed(series: String = current): Float =
+        if (works.none { it.series.id == series }) 1f
+        else io.github.graviton94.todayletters.core.Listen.speed(seriesSettings(series), support(series).band)
+
+    init { narrator.base = { listenSpeed() } }
+
+    /**
      * 낱말마다 익숙한 정도: 이 작품에서 지금 배우는 말의 낱말 꼴 → 그 낱말 카드의 복습 칸 (없으면 0).
      * 기능어 · 이름 · 숫자는 늘 아는 것으로 (가장 높은 칸): 빈칸 · 남겨 보일 낱말을 고를 때 ([io.github.graviton94.todayletters.core.Support]).
      */

@@ -311,7 +311,7 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
             if (mk.isEmpty()) null else Triple(t, mk.first().first, m.text[view.read])
         }
     }
-    fun say(i: Int) = letter.words.getOrNull(i)?.let { s.narrator.play(s.wordAudio(r.room.series, chapter, letter, it, view.learn)) }
+    fun say(i: Int, speed: Float? = null) = letter.words.getOrNull(i)?.let { s.narrator.play(s.wordAudio(r.room.series, chapter, letter, it, view.learn), speed) }
     LaunchedEffect(letter.id, k) { if (!done) say(k) }
     LaunchedEffect(over, k) { if (over) { delay(1100); at = k + 1 } }
 
@@ -327,7 +327,7 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
             else {
                 val w = letter.words.getOrNull(k)
                 WordLabel(pairs[k].first, w?.let { io.github.graviton94.todayletters.core.Pron.line(it, view.learn, view.learn == s.work(r.room.series).learnVocab) }.orEmpty(), view.learn, "",
-                    note = w?.let { io.github.graviton94.todayletters.core.Pron.note(it, view.learn, uiLang()) }.orEmpty()) { say(k) }
+                    note = w?.let { io.github.graviton94.todayletters.core.Pron.note(it, view.learn, uiLang()) }.orEmpty()) { sp -> say(k, sp) }
                 line?.let { (t, range, read) ->
                     Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
                         Text(stringResource(R.string.match_in_letter), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.giltText)

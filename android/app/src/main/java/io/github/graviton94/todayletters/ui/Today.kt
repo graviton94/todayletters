@@ -237,13 +237,12 @@ internal fun SurpriseCard(s: AppState, c: io.github.graviton94.todayletters.core
     val (w, _, word) = found
     val view = s.room(w.series.id)
     var open by remember(c.key) { mutableStateOf(false) }
-    val listenA11y = stringResource(R.string.a11y_listen_word)
     val audio = s.wordAudio(found, view.learn)
     Column(Modifier.fillMaxWidth().border(1.dp, p.giltText).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
         Text(stringResource(R.string.surprise_title), style = Type.small.ui(), color = p.inkSoft)
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Text(word.text[view.learn], style = Type.title.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display).of(view.learn), color = p.ink, modifier = Modifier.weight(1f))
-            Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
+            ListenButtons(play = { sp -> s.narrator.play(audio, sp) }, ring = true)
         }
         if (!open) Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable { open = true }, contentAlignment = Alignment.CenterStart) {
             Text(stringResource(R.string.surprise_reveal), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.ink)

@@ -68,13 +68,17 @@ class Store(ctx: Context) {
             modes = modes(p.getString("s:$id:modes", null) ?: "MATCH,CONSTELLATION,ALOUD"),
             arrivalNotice = p.getBoolean("s:$id:notice", true),
             easier = p.getBoolean("s:$id:easier", false),
+            // 예전 편지 방의 0.7× 를 쓰던 작품은 직접 고른 0.7 로 이어 간다
+            listenAuto = p.getBoolean("s:$id:lauto", p.getFloat("speed:$id", 1f) >= 1f),
+            listenSpeed = p.getFloat("s:$id:lspeed", p.getFloat("speed:$id", 1f)),
         )
     }
 
     fun save(id: String, s: SeriesSettings) = p.edit()
         .putString("s:$id:learn", s.learn.name).putBoolean("s:$id:show", s.showRead).putBoolean("s:$id:fold", s.autoFold)
         .putString("s:$id:modes", s.modes.joinToString(",") { it.name })
-        .putBoolean("s:$id:notice", s.arrivalNotice).putBoolean("s:$id:easier", s.easier).apply()
+        .putBoolean("s:$id:notice", s.arrivalNotice).putBoolean("s:$id:easier", s.easier)
+        .putBoolean("s:$id:lauto", s.listenAuto).putFloat("s:$id:lspeed", s.listenSpeed).apply()
 
     /** 걸음 이름 목록 → 걸음들. 예전 판의 이름(DICTATION 등 지금은 없는 걸음)은 건너뛴다. */
     private fun modes(raw: String): Set<ReplyMode> =
@@ -173,9 +177,6 @@ class Store(ctx: Context) {
         get() = p.getLong("surprise_day", -1)
         set(v) = p.edit().putLong("surprise_day", v).apply()
 
-    /** 편지 방 낭독 빠르기 (시리즈마다, 1 또는 0.7). */
-    fun roomSpeed(series: String) = p.getFloat("speed:$series", 1f)
-    fun setRoomSpeed(series: String, v: Float) = p.edit().putFloat("speed:$series", v).apply()
     fun hasCard(key: String) = p.contains("c:$key")
     fun cardKeys(): List<String> = p.all.keys.filter { it.startsWith("c:") }.map { it.removePrefix("c:") }
 

@@ -72,12 +72,10 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
     // 표현 카드는 ph<n> 소리, 없으면 그 문장 낭독에서 표현이 든 마디만 (v22)
     val sound = remember(key) { if (word.phrase) s.phraseAudio(id, chapter, letter, word, view.learn) else s.wordAudio(found, view.learn).takeIf { it.isNotEmpty() }?.let { it to null } }
     val audio = sound?.first.orEmpty()
-    fun say(speed: Float = 1f) { sound?.let { (a, rg) -> if (rg != null) s.narrator.playRange(a, rg.first, rg.last, speed) else s.narrator.play(a, speed) } }
+    fun say(speed: Float? = null) { sound?.let { (a, rg) -> if (rg != null) s.narrator.playRange(a, rg.first, rg.last, speed) else s.narrator.play(a, speed) } }
     val card = remember(key, s.version) { s.cardMap()[key] }
     val letters = w.chapters.flatMap { it.letters }
     val n = letters.indexOf(letter) + 1  // 0: 프롤로그의 낱말
-    val listenA11y = stringResource(R.string.a11y_listen_word)
-    val slowA11y = stringResource(R.string.a11y_listen_slow)
     LaunchedEffect(key) { say() }
     // 그 낱말이 나온 문장 (편지 속 꼴로 찾는다)
     val stem = Breaks.plain(learn).substringBefore(" (").substringBefore(",").trim().lowercase()
@@ -104,8 +102,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
                     word.note?.let { Text(it[uiLang()], style = Type.small.ui(), color = p.inkSoft) }
                     val pron = io.github.graviton94.todayletters.core.Pron.line(word, view.learn, view.learn == w.learnVocab)
                     if (audio.isNotEmpty() || pron.isNotEmpty()) Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                        if (audio.isNotEmpty()) Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { say() }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
-                        if (audio.isNotEmpty()) Box(Modifier.heightIn(min = 48.dp).semantics { contentDescription = slowA11y }.pressable { say(0.7f) }, contentAlignment = Alignment.Center) { Capsule("0.7×") }
+                        if (audio.isNotEmpty()) ListenButtons(play = { sp -> say(sp) }, ring = true)
                         if (pron.isNotEmpty()) Text(pron + if (word.pos.isNotEmpty()) " · ${word.pos}" else "", style = Type.small, color = p.inkSoft)
                     }
                     io.github.graviton94.todayletters.core.Pron.note(word, view.learn, uiLang()).takeIf { it.isNotEmpty() }?.let { Text(it, style = Type.small.ui(), color = p.giltText) }

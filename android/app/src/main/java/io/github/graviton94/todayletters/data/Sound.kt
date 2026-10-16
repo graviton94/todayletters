@@ -82,8 +82,23 @@ class Narrator(private val ctx: Context) {
 
     fun has(asset: String) = AssetFiles.fd(ctx, asset)?.also { runCatching { it.close() } } != null
 
-    fun play(asset: String, speed: Float = 1f, onDone: () -> Unit = {}): Boolean {
+    /**
+     * 이 작품의 기본 듣기 빠르기 ([io.github.graviton94.todayletters.core.Listen.speed], AppState 가 건다).
+     * 빠르기를 따로 주지 않은 낭독 · 낱말 · 회화 소리는 모두 이것으로. 효과음(sounds/)은 늘 1.
+     */
+    var base: () -> Float = { 1f }
+
+    /**
+     * 0.7× 단추가 지금 소리를 낸 자리 (화면의 단추가 채워진 모양 · 다시 누르면 멈춤을 고른다).
+     * 천천히가 아닌 소리가 시작되면 지워진다. 끝났는지는 [now] 로 본다.
+     */
+    var slowBy by mutableStateOf<Any?>(null)
+
+    /** [speed] 를 주지 않으면 기본 빠르기 ([base]). */
+    fun play(asset: String, speed: Float? = null, onDone: () -> Unit = {}): Boolean {
         stop()
+        if (speed != io.github.graviton94.todayletters.core.Listen.SLOW) slowBy = null
+        val rate = speed ?: if (asset.startsWith("sounds/")) 1f else runCatching { base() }.getOrDefault(1f)
         val fd = AssetFiles.fd(ctx, asset) ?: run { onDone(); return false }
         pending = onDone
         // 소리 파일이 깨졌거나 재생기가 거절하면 조용히 넘어간다 (대화는 계속)
@@ -93,7 +108,7 @@ class Narrator(private val ctx: Context) {
                 setDataSource(fd.fileDescriptor, fd.startOffset, fd.length)
                 setOnCompletionListener { if (player === this) now = null; finish() }
                 prepare()
-                if (speed != 1f) playbackParams = playbackParams.setSpeed(speed)
+                if (rate != 1f) playbackParams = playbackParams.setSpeed(rate)
                 start()
             }
         }.getOrNull()
@@ -134,7 +149,7 @@ class Narrator(private val ctx: Context) {
     val active get() = player != null
 
     /** 낭독의 한 토막만: [from]~[to] 밀리초 (따라 읽기의 한 마디). */
-    fun playRange(asset: String, from: Int, to: Int, speed: Float = 1f, onDone: () -> Unit = {}): Boolean {
+    fun playRange(asset: String, from: Int, to: Int, speed: Float? = null, onDone: () -> Unit = {}): Boolean {
         if (!play(asset, speed, onDone = onDone)) return false
         val pl = player ?: return false
         runCatching { pl.seekTo(from) }

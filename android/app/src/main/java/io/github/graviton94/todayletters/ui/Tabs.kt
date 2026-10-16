@@ -342,6 +342,16 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
             Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.easier) { s.update(id, cur.copy(easier = it)) }
             Text(stringResource(R.string.set_easier_d), style = Type.small.ui(), color = p.inkSoft)
 
+            // 기본 듣기 빠르기 (core 의 Listen, 시안 slow.html): 세 칸 + 등급에 맞춰 자동. 직접 고르면 자동이 꺼진다. 설명 줄 없이 이름표만
+            Caps(stringResource(R.string.set_listen_speed), p.giltText, small = true)
+            Choices(io.github.graviton94.todayletters.core.Listen.CHOICES.map { it to io.github.graviton94.todayletters.core.Listen.label(it) },
+                io.github.graviton94.todayletters.core.Listen.speed(cur, s.support(id).band)) { s.update(id, cur.copy(listenAuto = false, listenSpeed = it)) }
+            Caps(stringResource(R.string.set_listen_auto), p.giltText, small = true)
+            Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.listenAuto) { on ->
+                // 끌 때는 지금 쓰던 빠르기를 그대로 고른 값으로
+                s.update(id, if (on) cur.copy(listenAuto = true) else cur.copy(listenAuto = false, listenSpeed = io.github.graviton94.todayletters.core.Listen.speed(cur, s.support(id).band)))
+            }
+
             // 알림(도착 · 저녁)은 앱 설정으로 옮김 (v21 4단계 U3)
             Text(stringResource(R.string.set_notice_moved), style = Type.small.ui(), color = p.inkSoft)
         }

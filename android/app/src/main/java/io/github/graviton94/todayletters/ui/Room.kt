@@ -101,7 +101,6 @@ fun Room(s: AppState, r: Route.Letter) {
     var playing by remember(letter.id) { mutableStateOf<Int?>(null) }
     var all by remember { mutableStateOf<Job?>(null) }
     val controlsRef = remember { arrayOfNulls<Playback.Controls>(1) }
-    var speed by remember(id) { androidx.compose.runtime.mutableFloatStateOf(s.store.roomSpeed(id)) }
     val list = rememberLazyListState()
     val scope = rememberCoroutineScope()
 
@@ -134,7 +133,7 @@ fun Room(s: AppState, r: Route.Letter) {
      * [from] 번째부터 [until] 앞까지 차례로 읽는다. 멈춰 두면 기다리고, 단추로 앞뒤 문장을 오간다.
      * [extend] 면 ‘다음’ 단추로 [until] 너머(쓰인 조각까지)로도 간다. [mark] 면 듣다 멈춘 자리를 남긴다.
      */
-    suspend fun say(from: Int, until: Int, extend: Boolean = false, mark: Boolean = true) {
+    suspend fun say(from: Int, until: Int, extend: Boolean = false, mark: Boolean = true, speed: Float? = null) {
         var k = from
         var end = until
         while (k < end && !muted) {
@@ -155,14 +154,15 @@ fun Room(s: AppState, r: Route.Letter) {
     }
     /**
      * 조각 하나 듣기: 이것도 낭독 세션으로 (알림창 · 잠금 화면 · 이어폰 단추에 재생/멈춤 · 이전/다음, v22).
-     * 알림에서 ‘다음’을 누르면 다음 조각으로 이어진다 (쓰인 조각까지).
+     * 알림에서 ‘다음’을 누르면 다음 조각으로 이어진다 (쓰인 조각까지). [speed] 는 0.7× 단추 (없으면 이 작품의 기본 빠르기).
+     * 같은 조각을 기본 빠르기로 듣는 중에 스피커를 다시 누르면 멈춘다 (천천히 듣는 중이면 기본 빠르기로 다시).
      */
-    fun speak(i: Int) {
-        if (playing == i) { stopAll(); return }
+    fun speak(i: Int, speed: Float? = null) {
+        if (playing == i && speed == null && s.narrator.slowBy == null) { stopAll(); return }
         stopAll(); muted = false
         queue[0] = i + 1; queue[1] = 0
         all = scope.launch {
-            say(i, i + 1, extend = true, mark = false)
+            say(i, i + 1, extend = true, mark = false, speed = speed)
             all = null
             Playback.end(appCtx)
         }
@@ -196,7 +196,7 @@ fun Room(s: AppState, r: Route.Letter) {
             val at = playing ?: return@LifecycleEventObserver
             if (Playback.now == null || muted) return@LifecycleEventObserver
             val mark = queue[1] == 1
-            Playback.handOff(appCtx, (0 until queue[0].coerceIn(at + 1, total)).map(::audio), at, speed,
+            Playback.handOff(appCtx, (0 until queue[0].coerceIn(at + 1, total)).map(::audio), at, null,
                 heard = if (mark) ({ k: Int -> s.store.setHeard(key, k) }) else null)
         }
         lifecycle.addObserver(obs)
@@ -283,8 +283,7 @@ fun Room(s: AppState, r: Route.Letter) {
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
         RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else shortDateLine(letter.date, letter.place),
             known = if (writing) null else known, knownLabel = knownLabel,
-            auto = s.app.sound, onAuto = { if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }, onInfo = { s.go(Route.RoomInfo(r)) },
-            speed = speed, onSpeed = { speed = if (speed < 1f) 1f else 0.7f; s.store.setRoomSpeed(id, speed) })
+            auto = s.app.sound, onAuto = { if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }, onInfo = { s.go(Route.RoomInfo(r)) })
         val ctx = androidx.compose.ui.platform.LocalContext.current
         val notYet = stringResource(R.string.step_not_yet)
         val nLetter = remember(letter.id) { work.chapters.flatMap { it.letters }.indexOf(letter) + 1 }
@@ -371,8 +370,10 @@ fun Room(s: AppState, r: Route.Letter) {
                         read = if (view.showRead) m.text[view.read] else null, readLang = view.read,
                         animate = fresh, lineMs = (Tokens.Motion.inkLineMs * pace.coerceAtLeast(0.3f)).toInt(),
                         signature = if (i == total - 1) signOff(work.series.original, work.sender) else null,
-                        playing = playing == i, canPlay = i < written, canListen = narrated,
-                        onPlay = { speak(i) }, onWritten = { if (written < i + 1) written = i + 1 },
+                        canPlay = i < written, canListen = narrated,
+                        listen = { ListenButtons(play = { sp -> speak(i, sp) }, label = stringResource(R.string.listen_line), vertical = true,
+                            playing = playing == i, onListen = { speak(i) }, onStop = { stopAll() }) },
+                        onWritten = { if (written < i + 1) written = i + 1 },
                         marks = sentMarks,
                         onWord = { wordFocus = it },
                         taps = ranges, onTap = if (toks != null) ({ j: Int -> s.gloss = AppState.GlossPick(id, chapter, letter, i, j, toks[j].key) }) else null, hints = hints,
@@ -538,7 +539,6 @@ private fun RoomHeader(
     s: AppState, portrait: String, name: String, sub: String,
     known: Int? = null, knownLabel: String? = null,
     auto: Boolean, onAuto: () -> Unit, onInfo: () -> Unit,
-    speed: Float = 1f, onSpeed: () -> Unit = {},
 ) {
     val p = Ink.palette
     Column(Modifier.background(p.paper)) {
@@ -575,11 +575,11 @@ private fun RoomHeader(
                 }
             }
             HeadButton(stringResource(R.string.help), onClick = { s.coachAgain("room") }) { HelpGlyph(p.ink) }
-            // 더 보기: 대화방 정보 · 낭독 빠르기 (v21 F6: 1× ↔ 0.7×, 시리즈마다 기억). 빠르기는 머리 줄에서 빼 이름 · 날짜 자리를 넓힌다
+            // 더 보기: 대화방 정보. 빠르기는 문장마다의 0.7× 단추 · 작품 설정의 기본 듣기 빠르기로 (시안 slow.html)
             Box {
                 var menu by remember { mutableStateOf(false) }
                 HeadButton(stringResource(R.string.room_more), onClick = { menu = true }) { Lines(p.ink) }
-                if (menu) RoomMenu(speed, onInfo = { menu = false; onInfo() }, onSpeed = onSpeed, onClose = { menu = false })
+                if (menu) RoomMenu(onInfo = { menu = false; onInfo() }, onClose = { menu = false })
             }
         }
         Hair()
@@ -621,19 +621,15 @@ private fun DateAndBadge(content: @Composable () -> Unit) {
     }
 }
 
-/** 머리 오른쪽 더 보기 메뉴: 대화방 정보 · 낭독 빠르기 (누를 때마다 1× ↔ 0.7×, 메뉴는 열린 채로). */
+/** 머리 오른쪽 더 보기 메뉴: 대화방 정보. */
 @Composable
-private fun RoomMenu(speed: Float, onInfo: () -> Unit, onSpeed: () -> Unit, onClose: () -> Unit) {
+private fun RoomMenu(onInfo: () -> Unit, onClose: () -> Unit) {
     val p = Ink.palette
     val d = androidx.compose.ui.platform.LocalDensity.current
     androidx.compose.ui.window.Popup(alignment = Alignment.TopEnd, offset = androidx.compose.ui.unit.IntOffset(0, with(d) { 48.dp.roundToPx() }),
         onDismissRequest = onClose, properties = androidx.compose.ui.window.PopupProperties(focusable = true)) {
         Column(Modifier.width(androidx.compose.foundation.layout.IntrinsicSize.Max).widthIn(min = 200.dp, max = 300.dp).background(p.paper).border(1.dp, p.line)) {
             MenuItem(stringResource(R.string.room_info), onClick = onInfo)
-            Hair()
-            val slow = speed < 1f
-            val v = if (slow) "0.7×" else "1×"
-            MenuItem(stringResource(R.string.room_speed, v), trailing = { Capsule(v, if (slow) CapsuleKind.FILLED else CapsuleKind.OUTLINE) }, onClick = onSpeed)
         }
     }
 }
@@ -802,8 +798,9 @@ private fun CuratorNote(text: String, lang: Lang) {
 @Composable
 private fun LetterSlip(
     index: Int, learn: String, learnLang: Lang, read: String?, readLang: Lang,
-    animate: Boolean, lineMs: Int, signature: String?, playing: Boolean, canPlay: Boolean, canListen: Boolean = true,
-    onPlay: () -> Unit, onWritten: () -> Unit,
+    animate: Boolean, lineMs: Int, signature: String?, canPlay: Boolean, canListen: Boolean = true,
+    /** 듣기 단추 둘 ([ListenButtons]): 스피커 · 0.7×. */
+    listen: @Composable () -> Unit, onWritten: () -> Unit,
     marks: List<Pair<IntRange, Int>> = emptyList(), onWord: (Int) -> Unit = {},
     saved: Boolean = false, onSave: () -> Unit = {},
     fold: Boolean = false, glosses: List<Pair<String, String>> = emptyList(),
@@ -848,7 +845,7 @@ private fun LetterSlip(
                 if (signature != null) Text(signature, style = Type.signature, color = p.slipSoft, modifier = Modifier.align(Alignment.End).padding(top = Tokens.Space.s1))
             }
             Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
-                if (canPlay && canListen) SpeakerButton(playing, stringResource(R.string.listen_line), onClick = onPlay)
+                if (canPlay && canListen) listen()
                 else Box(Modifier.size(Tokens.Size.speaker))
                 // 내 구절에 담기
                 if (canPlay) IconButton(stringResource(if (saved) R.string.quote_saved else R.string.quote_save), onClick = onSave) { Bookmark(saved) }
@@ -938,6 +935,8 @@ fun WordSheet(s: AppState, r: Route.Letter, onClose: () -> Unit) {
                     }
                     }
                     Text(w.text[view.read], style = Type.body.of(view.read), color = p.inkSoft)
+                    val wa = s.wordAudio(r.series, chapter, letter, w, view.learn)
+                    ListenButtons(play = { sp -> s.narrator.play(wa, sp) }, onDark = true)
                 }
                 Hair()
             }
@@ -980,7 +979,7 @@ fun WordCard(s: AppState, r: Route.Letter, index: Int, onClose: () -> Unit) {
                         io.github.graviton94.todayletters.core.Pron.note(w, view.learn, uiLang()).takeIf { it.isNotEmpty() }?.let { Text(it, style = Type.small.ui(), color = p.giltText) }
                     }
                 }
-                SpeakerButton(false, stringResource(R.string.listen_line), onDark = true) { s.narrator.play(audio) }
+                ListenButtons(play = { sp -> s.narrator.play(audio, sp) }, label = stringResource(R.string.listen_line), onDark = true)
             }
             Hair()
             Text(w.text[view.read], style = Type.heading.of(view.read), color = p.ink)

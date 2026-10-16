@@ -163,11 +163,11 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
             androidx.compose.runtime.withFrameMillis { }
         }
     }
-    fun original() {
+    fun original(speed: Float? = null) {
         if (recording) { s.pcm.onFrame = null; s.pcm.stop(); recording = false; tick++ }
         if (!hasAudio) return
         s.recorder.stopPlaying()
-        playing = s.narrator.playRange(audio, unit.start, unit.end, io.github.graviton94.todayletters.core.Prosody.ORIGINAL_SPEED) { playing = false; pos = -1 }
+        playing = s.narrator.playRange(audio, unit.start, unit.end, speed) { playing = false; pos = -1 }
     }
     fun record() {
         if (!allowed) { ask.launch(Manifest.permission.RECORD_AUDIO); return }
@@ -257,8 +257,12 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
         )
         // 원래 소리 · 말하기 · 내 소리
         Row(Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s3), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.Bottom) {
-            RoundButton(stringResource(R.string.shadow_orig), 56.dp, if (playing) p.giltText else Color.Transparent, p.giltText, enabled = hasAudio, onDark = p.paper) {
-                if (playing) { s.narrator.stop(); playing = false } else original()
+            // 원래 소리 (기본 듣기 빠르기) 와 그 옆 0.7× (천천히 한 번)
+            Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
+                RoundButton(stringResource(R.string.shadow_orig), 56.dp, if (playing && s.narrator.slowBy == null) p.giltText else Color.Transparent, p.giltText, enabled = hasAudio, onDark = p.paper) {
+                    if (playing && s.narrator.slowBy == null) { s.narrator.stop(); playing = false } else original()
+                }
+                if (hasAudio) Box(Modifier.padding(bottom = 24.dp)) { SlowToggle({ original(io.github.graviton94.todayletters.core.Listen.SLOW) }, onDark = true, onStop = { s.narrator.stop(); playing = false }) }
             }
             val recStart = stringResource(R.string.a11y_record); val recStop = stringResource(R.string.a11y_record_stop)
             Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -438,7 +442,7 @@ fun SealScreen(s: AppState, r: Route.Seal) {
             verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
             Box(Modifier.size(46.dp).border(1.5.dp, t.ink, CircleShape), contentAlignment = Alignment.Center) {
-                Text(if (playing) "■" else "▶", style = Type.body, color = t.ink)
+                PlayGlyph(playing, t.ink, 16.dp)
             }
             Column(Modifier.weight(1f)) {
                 Text(stringResource(R.string.seal_mine, roman(idx)), style = Type.body.ui(), color = t.ink)

@@ -11,7 +11,6 @@
     <string name="series_settings">Settings for this series</string>
     <string name="room_info">About this conversation</string>
     <string name="room_more">More</string>
-    <string name="room_speed">Reading speed · %1$s</string>
     <string name="ob_modes">How will you reply?</string>
     <string name="mode_match">Match the words</string>
     <string name="mode_constellation">Join the stars</string>
@@ -206,7 +205,7 @@
     <string name="status_line">%1$s\'s status · “%2$s”</string>
     <string name="walk_to_whole">‹ Whole painting</string>
     <string name="step_not_yet">Do the earlier step first.</string>
-    <string name="blank_hint">💡 Find it in the translation</string>
+    <string name="blank_hint">Find it in the translation</string>
     <string name="result_caps">REVIEW · DONE</string>
     <string name="result_practice_note">Practice only — your review schedule stays the same.</string>
     <string name="chapter_end_next">The next chapter is on its way. We\'ll let you know when it arrives.</string>
@@ -818,6 +817,8 @@
     <string name="support_less">A little less help from now on.</string>
     <string name="set_easier">One step more help</string>
     <string name="set_easier_d">Keep your grade, but get the help of one grade below (hints, translations, blanks).</string>
+    <string name="set_listen_speed">Default listening speed</string>
+    <string name="set_listen_auto">Match my grade</string>
     <string name="match_in_letter">IN THE LETTER</string>
     <string name="update_ready">A new version is ready</string>
     <string name="update_restart">Restart</string>

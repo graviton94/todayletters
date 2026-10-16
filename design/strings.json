@@ -40,10 +40,6 @@
     "en": "More",
     "ko": "더 보기"
   },
-  "room_speed": {
-    "en": "Reading speed · %1$s",
-    "ko": "읽기 빠르기 · %1$s"
-  },
   "ob_modes": {
     "en": "How will you reply?",
     "ko": "답장은 어떻게 쓸까요?"
@@ -314,7 +310,7 @@
   },
   "coach_series": {
     "en": "The gear sets the language you learn for this series.",
-    "ko": "⚙ 에서 이 작품에서 배울 언어를 정해요."
+    "ko": "톱니바퀴 단추에서 이 작품에서 배울 언어를 정해요."
   },
   "coach_play_aloud": {
     "en": "Listen, record, send. Recording once is enough.",
@@ -821,8 +817,8 @@
     "ko": "앞 단계부터 해요."
   },
   "blank_hint": {
-    "en": "💡 Find it in the translation",
-    "ko": "💡 번역에서 찾기"
+    "en": "Find it in the translation",
+    "ko": "번역에서 찾기"
   },
   "result_caps": {
     "en": "REVIEW · DONE",
@@ -3267,6 +3263,14 @@
   "set_easier_d": {
     "en": "Keep your grade, but get the help of one grade below (hints, translations, blanks).",
     "ko": "언어 등급은 그대로 두고, 한 등급 아래의 도움(힌트 · 번역 · 빈칸)을 받아요."
+  },
+  "set_listen_speed": {
+    "en": "Default listening speed",
+    "ko": "기본 듣기 속도"
+  },
+  "set_listen_auto": {
+    "en": "Match my grade",
+    "ko": "등급에 맞춰 자동"
   },
   "match_in_letter": {
     "en": "IN THE LETTER",

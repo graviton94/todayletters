@@ -109,7 +109,7 @@ fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key
                     val line = listOfNotNull(e.ipa.takeIf { it.isNotEmpty() }?.let { "[$it]" }, Vocab.posLabel(e).takeIf { it.isNotEmpty() }).joinToString(" · ")
                     if (line.isNotEmpty()) Text(line, style = Type.small, color = p.inkSoft)
                 }
-                if (audio.isNotEmpty() && s.narrator.has(audio)) SpeakerButton(false, stringResource(R.string.a11y_listen_word), onDark = true) { s.narrator.play(audio) }
+                if (audio.isNotEmpty() && s.narrator.has(audio)) ListenButtons(play = { sp -> s.narrator.play(audio, sp) }, onDark = true)
             }
             Text(Vocab.meaning(e, ui), style = Type.heading.of(ui), color = p.ink)
             e.example?.let { ex ->
@@ -209,9 +209,10 @@ fun PhraseCard(s: AppState, series: String, chapter: String, letter: Letter, ph:
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                 Text(io.github.graviton94.todayletters.core.Quote.wrap(ph.text[original], original),
                     style = Type.title.copy(fontFamily = Faces.display).of(original), color = p.slipInk, modifier = Modifier.weight(1f))
-                if (sound != null) SpeakerButton(s.narrator.now == sound.first, listen) {
-                    if (s.narrator.now == sound.first) s.narrator.stop()
-                    else sound.second?.let { rg -> s.narrator.playRange(sound.first, rg.first, rg.last) } ?: s.narrator.play(sound.first)
+                if (sound != null) {
+                    fun go(sp: Float?) { sound.second?.let { rg -> s.narrator.playRange(sound.first, rg.first, rg.last, sp) } ?: s.narrator.play(sound.first, sp) }
+                    val on = s.narrator.now == sound.first
+                    ListenButtons(play = ::go, label = listen, playing = on, onListen = { if (on && s.narrator.slowBy == null) s.narrator.stop() else go(null) })
                 }
             }
             Text(ph.text[tr], style = Type.heading.of(tr), color = p.slipInk)

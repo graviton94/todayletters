@@ -1077,7 +1077,7 @@ class ScreensTest {
         // 머리 줄은 한 줄로 잘리므로, 사진에 % 가 안 보이면 값이 없는 것인지 잘린 것인지 여기서 가린다
         org.junit.Assert.assertNotNull("coverage", s.coverage("vincent", l.id))
     }
-    /** 편지 머리의 더 보기 메뉴 (대화방 정보 · 읽기 빠르기): 메뉴는 따로 뜬 창이라 화면 전체를 찍는다. 빠르기를 한 번 눌러 0.7× 로. */
+    /** 편지 머리의 더 보기 메뉴 (대화방 정보): 메뉴는 따로 뜬 창이라 화면 전체를 찍는다. */
     @OptIn(com.github.takahirom.roborazzi.ExperimentalRoborazziApi::class)
     @Test fun roomMenu() {
         val s = state(true)
@@ -1090,10 +1090,8 @@ class ScreensTest {
         rule.mainClock.advanceTimeBy(4000)
         rule.onNode(androidx.compose.ui.test.hasContentDescription(ctx.getString(R.string.room_more))).performClick()
         rule.mainClock.advanceTimeBy(300)
-        rule.onNode(hasText(ctx.getString(R.string.room_speed, "1×"))).performClick()
-        rule.mainClock.advanceTimeBy(600)
-        rule.onNode(hasText(ctx.getString(R.string.room_speed, "0.7×"))).assertExists()
-        org.junit.Assert.assertEquals(0.7f, s.store.roomSpeed("vincent"), 0.001f)
+        // 빠르기는 메뉴에서 빠졌다 (문장마다의 0.7× · 작품 설정의 기본 듣기 속도)
+        rule.onNode(hasText(ctx.getString(R.string.room_info))).assertExists()
         com.github.takahirom.roborazzi.captureScreenRoboImage("build/screens/g02_room_menu_light.png")
     }
     /** 다 읽은 편지의 ‘처음 읽을 때 → 지금’ (다시 읽기 띠). */
@@ -1562,5 +1560,54 @@ class ScreensTest {
                     note = io.github.graviton94.todayletters.core.Pron.note(ko2, K, K)) {}
             }
         }
+    }
+
+    // ── 천천히 듣기 (slow.html): 소리가 나는 곳마다 스피커 · 0.7× 두 단추, 작품 설정의 기본 듣기 속도 ──
+    /** 시험용 회화에 소리 (I장 첫 편지의 t1~t4) 를 단 채로 [block]. */
+    private fun withSlow(block: () -> Unit) {
+        val original = io.github.graviton94.todayletters.data.Library.works(ctx)
+        fun patch(w: io.github.graviton94.todayletters.data.Work): io.github.graviton94.todayletters.data.Work = w.copy(
+            chapters = w.chapters.mapIndexed { i, c -> if (i > 0) c else c.copy(letters = c.letters.mapIndexed { j, l -> if (j == 0) l.copy(checks = listOf(D.check), talk = D.talk.copy(audio = "t")) else l }) },
+            decks = w.decks.mapValues { patch(it.value) },
+        )
+        io.github.graviton94.todayletters.data.Library.swapForTest(ctx) { ws -> ws.map { if (it.series.id == "vincent") patch(it) else it } }
+        try { block() } finally { io.github.graviton94.todayletters.data.Library.swapForTest(ctx) { original } }
+    }
+    private fun slowButtons() = rule.onAllNodes(androidx.compose.ui.test.hasContentDescription(ctx.getString(R.string.a11y_listen_slow)) and hasClickAction()).fetchSemanticsNodes().size
+
+    /** 회화 말풍선 (상대 줄) 안의 스피커 · 0.7× (A1, 내 차례 아래 칸에도 둘). */
+    @Test fun slowTalkBubble() = withSlow {
+        val s = graded(state(true), 1)
+        shot("slow01_talk_bubble_light", false, ms = 4000, act = { org.junit.Assert.assertTrue(slowButtons() >= 2) }, series = s) { Play(s, talkRoute) }
+    }
+    /** 이해 확인 지문 아래 스피커 · 0.7× · 번역 보기. */
+    @Test fun slowCheckPassage() = withSlow {
+        val s = graded(state(true), 1)
+        shot("slow02_check_passage_light", false, act = { org.junit.Assert.assertEquals(1, slowButtons()) }, series = s) { Play(s, checkRoute) }
+    }
+    /** 낱말 이름표 (낱말 맞추기 · 복습 뜻 고르기) 와 낱말 카드: 금빛 고리 스피커 · 0.7×. */
+    @Test fun slowWordCard() {
+        val s = loopState()
+        val l = s.work("vincent").chapters.first().letters.first()
+        val key = s.cardKey("vincent", "I", l.id, 0)
+        shot("slow03_word_card_light", false, act = { org.junit.Assert.assertTrue(slowButtons() >= 1) }, series = s) {
+            androidx.compose.foundation.layout.Column(Modifier.padding(16.dp), verticalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(12.dp)) {
+                io.github.graviton94.todayletters.ui.WordLabel("voyage", "[vwajaʒ]", io.github.graviton94.todayletters.core.Lang.FR, "") {}
+                Box(Modifier.weight(1f)) { io.github.graviton94.todayletters.ui.WordDetailBody(s, key) { } }
+            }
+        }
+    }
+    /** 작품 설정의 기본 듣기 속도 (0.7 · 0.85 · 1.0) + 등급에 맞춰 자동. 0.7 을 고르면 자동이 꺼지고 그 값이 남는다. */
+    @Test fun slowSettings() {
+        val s = state(true)
+        shot("slow04_settings_speed_light", false, act = {
+            rule.onNode(hasText(ctx.getString(R.string.set_listen_auto).uppercase())).performScrollTo()
+            org.junit.Assert.assertTrue(s.seriesSettings("vincent").listenAuto)
+            org.junit.Assert.assertEquals(0.85f, s.listenSpeed("vincent"), 0.001f)
+            rule.onNode(hasText("0.7") and hasClickAction()).performClick()
+            rule.mainClock.advanceTimeBy(300)
+            org.junit.Assert.assertFalse(s.seriesSettings("vincent").listenAuto)
+            org.junit.Assert.assertEquals(0.7f, s.listenSpeed("vincent"), 0.001f)
+        }, series = s) { SeriesSettingsScreen(s, "vincent") }
     }
 }

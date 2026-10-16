@@ -60,6 +60,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.isImeVisible
 import io.github.graviton94.todayletters.R
+import io.github.graviton94.todayletters.core.Listen
 import io.github.graviton94.todayletters.data.learnVocab
 import io.github.graviton94.todayletters.core.Breaks
 import io.github.graviton94.todayletters.core.CardRef
@@ -324,7 +325,7 @@ fun Session(s: AppState, r: Route.Session) {
     val tag = letterTag(s, q.card.key)
     androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
     // 새 문제로 오면 앞 문제의 소리(빈칸 문장 등)는 멈추고, 듣는 문제만 새 소리를
-    fun playPhrase(speed: Float = 1f) { val a = q.sentenceAudio; val rg = q.range; if (a != null && rg != null) s.narrator.playRange(a, rg.first, rg.last, speed) }
+    fun playPhrase(speed: Float? = null) { val a = q.sentenceAudio; val rg = q.range; if (a != null && rg != null) s.narrator.playRange(a, rg.first, rg.last, speed) }
     LaunchedEffect(at) {
         when {
             q.phrase != null -> playPhrase()
@@ -403,12 +404,10 @@ fun Session(s: AppState, r: Route.Session) {
                         val pre = ans.take(n)
                         if (n > 0 && pre.startsWith(typed.text, ignoreCase = true)) put(pre)
                     }
-                    val listenLabel = stringResource(R.string.a11y_listen_word); val slowLabel = stringResource(R.string.a11y_listen_slow)
+                    val listenLabel = stringResource(R.string.a11y_listen_word)
                     if (compact) Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
                         Box(Modifier.size(52.dp).background(p.fill, CircleShape).semantics { contentDescription = listenLabel }.pressable { s.narrator.play(q.audio); replay() }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.onFill, 22.dp) }
-                        Box(Modifier.size(48.dp).border(1.dp, p.giltText, CircleShape).semantics { contentDescription = slowLabel }.pressable { s.narrator.play(q.audio, speed = 0.7f); replay() }, contentAlignment = Alignment.Center) {
-                            Text("0.7×", style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.giltText)
-                        }
+                        SlowToggle({ s.narrator.play(q.audio, Listen.SLOW); replay() }, size = 48.dp, color = p.giltText)
                         Column(Modifier.weight(1f)) {
                             Text(stringResource(R.string.kind_dictation), style = Type.small.ui(), color = p.giltText)
                             Text(listOfNotNull(q.ipa.takeIf { it.isNotEmpty() }, stringResource(R.string.dict_letters, Breaks.plain(q.word).count { it != ' ' })).joinToString(" · "), style = Type.small.ui(), color = p.inkSoft)
@@ -419,9 +418,7 @@ fun Session(s: AppState, r: Route.Session) {
                     if (!compact) Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically) {
                         Spacer(Modifier.size(52.dp))
                         Box(Modifier.size(84.dp).background(p.fill, CircleShape).semantics { contentDescription = listenLabel }.pressable { s.narrator.play(q.audio); replay() }, contentAlignment = Alignment.Center) { SpeakerGlyph(p.onFill, 34.dp) }
-                        Box(Modifier.size(52.dp).border(1.dp, p.giltText, CircleShape).semantics { contentDescription = slowLabel }.pressable { s.narrator.play(q.audio, speed = 0.7f); replay() }, contentAlignment = Alignment.Center) {
-                            Text("0.7×", style = Type.small, color = p.giltText)
-                        }
+                        SlowToggle({ s.narrator.play(q.audio, Listen.SLOW); replay() }, size = 52.dp, color = p.giltText, text = Type.small)
                     }
                     // 글자 칸: 소리로 읽히는 전체를 보여 주고, 쓸 낱말만 칸 (괄호 · 다른 뜻은 미리 적혀 있음)
                     val answer = Breaks.plain(q.word)
@@ -485,10 +482,13 @@ fun Session(s: AppState, r: Route.Session) {
                         Bookmark(true)
                     }
                     // 번역에서 찾기: 빈칸 낱말에 해당하는 말을 번역 문장에서 금빛으로 (맞히면 그대로 맞은 것으로)
-                    if (!hint && mark == null && q.sentenceRead != null && q.read != q.learn) Text(
-                        stringResource(R.string.blank_hint), style = Type.small.ui(), color = p.giltText,
-                        modifier = Modifier.align(Alignment.End).border(1.dp, p.giltText.copy(alpha = 0.5f)).pressable { hint = true }.padding(horizontal = 10.dp, vertical = 6.dp),
-                    )
+                    if (!hint && mark == null && q.sentenceRead != null && q.read != q.learn) Row(
+                        Modifier.align(Alignment.End).border(1.dp, p.giltText.copy(alpha = 0.5f)).pressable { hint = true }.padding(horizontal = 10.dp, vertical = 6.dp),
+                        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp),
+                    ) {
+                        BulbGlyph(p.giltText)
+                        Text(stringResource(R.string.blank_hint), style = Type.small.ui(), color = p.giltText)
+                    }
                 }
                 ReviewKind.SPEAK -> SpeakPane(s, q, mark) { judge(it) }
                 ReviewKind.MEANING -> if (q.style > 0) {
@@ -499,7 +499,7 @@ fun Session(s: AppState, r: Route.Session) {
                     }
                     Text(stringResource(if (q.style == 1) R.string.style_ask_low else R.string.style_ask_high), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth())
                 } else {
-                    LabelCard(q, tag) { s.narrator.play(q.audio) }
+                    LabelCard(q, tag) { sp -> s.narrator.play(q.audio, sp) }
                     Text(stringResource(R.string.meaning_prompt), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth())
                 }
             }
@@ -761,7 +761,7 @@ private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Ma
         Text(stringResource(R.string.speak_self), style = Type.small.ui(), color = p.inkSoft, textAlign = TextAlign.Center)
         // 먼저 말해 본 뒤에야 원래 소리와 글자를 보여 준다
         if (!heardIt) { Secondary(stringResource(R.string.speak_reveal), small = true) { heardIt = true; s.narrator.play(q.audio) }; return }
-        SpeakerButton(false, stringResource(R.string.a11y_listen_word)) { s.narrator.play(q.audio) }
+        ListenButtons(play = { sp -> s.narrator.play(q.audio, sp) })
         Text(q.word, style = Type.title.of(q.learn), color = p.ink)
         Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Box(Modifier.weight(1f)) { Secondary(stringResource(R.string.speak_again), small = true) { onJudge(Memory.Mark.WRONG) } }
@@ -995,18 +995,17 @@ private fun PhraseDictation(
     q: Q, typed: TextFieldValue, onType: (TextFieldValue) -> Unit,
     locked: Map<Int, String>, wrongShown: Map<Int, String>, finalTyped: Map<Int, String>,
     mark: Memory.Mark?, hint: Boolean, onHint: () -> Unit, compact: Boolean, focus: FocusRequester,
-    onPlay: (Float) -> Unit, onTap: () -> Unit, onDone: () -> Unit,
+    onPlay: (Float?) -> Unit, onTap: () -> Unit, onDone: () -> Unit,
 ) {
     val p = Ink.palette
     val words = q.phrase ?: return
-    val listenLabel = stringResource(R.string.a11y_listen_word); val slowLabel = stringResource(R.string.a11y_listen_slow)
+    val listenLabel = stringResource(R.string.a11y_listen_word)
     if (!compact) Text(stringResource(R.string.dict_phrase_prompt), style = Type.heading.ui(), color = p.ink)
     Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically) {
         if (!compact) Spacer(Modifier.size(52.dp))
-        Box(Modifier.size(if (compact) 52.dp else 84.dp).background(p.fill, CircleShape).semantics { contentDescription = listenLabel }.pressable { onPlay(1f) },
+        Box(Modifier.size(if (compact) 52.dp else 84.dp).background(p.fill, CircleShape).semantics { contentDescription = listenLabel }.pressable { onPlay(null) },
             contentAlignment = Alignment.Center) { SpeakerGlyph(p.onFill, if (compact) 22.dp else 34.dp) }
-        Box(Modifier.size(if (compact) 48.dp else 52.dp).border(1.dp, p.giltText, CircleShape).semantics { contentDescription = slowLabel }.pressable { onPlay(0.7f) },
-            contentAlignment = Alignment.Center) { Text("0.7×", style = Type.small, color = p.giltText) }
+        SlowToggle({ onPlay(Listen.SLOW) }, size = if (compact) 48.dp else 52.dp, color = p.giltText, text = Type.small)
     }
     val free = words.indices.filter { it !in locked }
     val tw = typed.text.split(" ")
@@ -1177,22 +1176,21 @@ internal fun letterTag(s: AppState, cardKey: String): String {
 
 /** 뜻 고르기의 낱말: 작품 이름표처럼 (번호 · 어느 편지 · 큰 낱말 · 듣기 · 발음). */
 @Composable
-private fun LabelCard(q: Q, tag: String, onListen: () -> Unit) = WordLabel(q.word, q.ipa, q.learn, tag, note = q.pronNote, onListen = onListen)
+private fun LabelCard(q: Q, tag: String, play: (Float?) -> Unit) = WordLabel(q.word, q.ipa, q.learn, tag, note = q.pronNote, play = play)
 
 /**
  * 낱말 이름표 (복습 뜻 고르기 · 편지의 낱말 맞추기가 같이 쓴다). [ipa] 는 발음 줄 그대로 ([io.github.graviton94.todayletters.core.Pron.line]:
  * 프랑스어 · 독일어 [IPA], 영어 [IPA · 강세], 한국어 [소리] · 로마자), [note] 는 한국어 소리 규칙 한 줄 (연음 · 구개음화 …).
  */
 @Composable
-fun WordLabel(word: String, ipa: String, learn: Lang, tag: String, note: String = "", onListen: () -> Unit) {
+fun WordLabel(word: String, ipa: String, learn: Lang, tag: String, note: String = "", play: (Float?) -> Unit) {
     val p = Ink.palette
-    val listenA11y = stringResource(R.string.a11y_listen_word)
     Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s4),
         verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
         if (tag.isNotEmpty()) Caps(tag, p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
         Text(word, style = Type.display.copy(fontFamily = Faces.display).of(learn), color = p.ink)
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            Box(Modifier.size(48.dp).semantics { contentDescription = listenA11y }.pressable { onListen() }, contentAlignment = Alignment.Center) { Box(Modifier.size(36.dp).border(1.dp, p.giltText, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(p.giltText, 16.dp) } }
+            ListenButtons(play = play, ring = true)
             if (ipa.isNotEmpty()) Text(ipa, style = Type.small, color = p.inkSoft)
         }
         if (note.isNotEmpty()) Text(note, style = Type.small.ui(), color = p.giltText)

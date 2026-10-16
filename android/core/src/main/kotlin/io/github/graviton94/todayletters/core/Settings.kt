@@ -59,6 +59,10 @@ data class SeriesSettings(
     val arrivalNotice: Boolean = true,
     /** 도움 한 단계 더: 언어 등급보다 한 등급 아래의 도움을 받는다 ([Support.grade]). 등급 자체는 그대로. */
     val easier: Boolean = false,
+    /** 기본 듣기 빠르기를 언어 등급에 맞춰 ([Listen.auto]). 끄면 [listenSpeed]. */
+    val listenAuto: Boolean = true,
+    /** 직접 고른 기본 듣기 빠르기 ([Listen.CHOICES] 중 하나). */
+    val listenSpeed: Float = 1f,
 )
 
 object Langs {

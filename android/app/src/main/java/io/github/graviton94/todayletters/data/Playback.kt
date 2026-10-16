@@ -107,7 +107,7 @@ object Playback {
      * 지금 문장이 소리 나는 중이면 끊지 않고 끝나기를 기다린 뒤 다음으로. [heard] 는 들은 문장 (끝까지 들으면 -1).
      * 다른 소리가 이 재생기를 가져가면 (앱을 다시 열어 낱말을 들음 등) 거기서 멈춘다.
      */
-    fun handOff(ctx: Context, files: List<String>, at: Int, speed: Float, heard: ((Int) -> Unit)?) {
+    fun handOff(ctx: Context, files: List<String>, at: Int, speed: Float?, heard: ((Int) -> Unit)?) {
         val n = narrator ?: return
         if (now == null || detached || at !in files.indices) return
         val app = ctx.applicationContext

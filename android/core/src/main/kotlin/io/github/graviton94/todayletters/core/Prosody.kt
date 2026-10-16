@@ -30,8 +30,6 @@ object Prosody {
     const val STAR3 = 85
     /** 목소리를 충분히 냈을 때(원래의 50% 이상) 총점의 바닥. */
     const val FLOOR = 40
-    /** 원래 소리를 들려줄 빠르기. */
-    const val ORIGINAL_SPEED = 0.8f
     /** 따라 읽는 한 마디의 낱말 수. */
     const val SPAN_MIN = 6
     const val SPAN_MAX = 10
