@@ -627,10 +627,7 @@
      "schwarz"
     ],
     "grammar": "VI.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -1131,10 +1128,7 @@
      "Versprechen"
     ],
     "grammar": "VI.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -2153,10 +2147,7 @@
      "Wut"
     ],
     "grammar": "VI.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -2681,10 +2672,7 @@
      "Beifall"
     ],
     "grammar": "VI.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -3204,10 +3192,7 @@
      "reisen"
     ],
     "grammar": "VI.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -3692,10 +3677,7 @@
      "Segen"
     ],
     "grammar": "VI.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   }
  ]

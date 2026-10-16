@@ -2103,10 +2103,7 @@
      "beruhigend"
     ],
     "grammar": "VII.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {

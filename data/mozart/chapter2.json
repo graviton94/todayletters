@@ -492,10 +492,7 @@
      "fragen"
     ],
     "grammar": "II.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -907,10 +904,7 @@
      "Arbeit"
     ],
     "grammar": "II.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -1305,10 +1299,7 @@
      "müssen"
     ],
     "grammar": "II.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -1700,10 +1691,7 @@
      "Tochter"
     ],
     "grammar": "II.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -2112,10 +2100,7 @@
      "bekommen"
     ],
     "grammar": "II.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -2525,10 +2510,7 @@
      "schwer"
     ],
     "grammar": "II.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -2911,10 +2893,7 @@
      "arbeiten"
     ],
     "grammar": "II.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   }
  ]

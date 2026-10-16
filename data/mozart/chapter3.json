@@ -584,10 +584,7 @@
      "wünschen"
     ],
     "grammar": "III.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -1029,10 +1026,7 @@
      "eiskalt"
     ],
     "grammar": "III.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -1501,10 +1495,7 @@
      "Gesundheit"
     ],
     "grammar": "III.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -1928,10 +1919,7 @@
      "wiedersehen"
     ],
     "grammar": "III.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -2393,10 +2381,7 @@
      "Eile"
     ],
     "grammar": "III.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -2821,10 +2806,7 @@
      "küssen"
     ],
     "grammar": "III.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -3262,10 +3244,7 @@
      "lachen"
     ],
     "grammar": "III.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   }
  ]

@@ -239,10 +239,7 @@
      "Kind"
     ],
     "grammar": "I.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -470,10 +467,7 @@
      "hier"
     ],
     "grammar": "I.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -700,10 +694,7 @@
      "gar"
     ],
     "grammar": "I.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   }
  ]

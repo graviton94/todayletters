@@ -571,10 +571,7 @@
      "sitzen"
     ],
     "grammar": "V.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -1016,10 +1013,7 @@
      "Dienst"
     ],
     "grammar": "V.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -1461,10 +1455,7 @@
      "leicht"
     ],
     "grammar": "V.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -1911,10 +1902,7 @@
      "hungrig"
     ],
     "grammar": "V.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -2352,10 +2340,7 @@
      "tief"
     ],
     "grammar": "V.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -2810,10 +2795,7 @@
      "überall"
     ],
     "grammar": "V.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -3283,10 +3265,7 @@
      "überraschen"
     ],
     "grammar": "V.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   }
  ]

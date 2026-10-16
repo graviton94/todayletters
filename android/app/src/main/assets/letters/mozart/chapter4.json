@@ -573,10 +573,7 @@
      "gefallen"
     ],
     "grammar": "IV.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -1001,10 +998,7 @@
      "zeigen"
     ],
     "grammar": "IV.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -1450,10 +1444,7 @@
      "Probe"
     ],
     "grammar": "IV.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -1905,10 +1896,7 @@
      "ankommen"
     ],
     "grammar": "IV.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -2373,10 +2361,7 @@
      "freundlich"
     ],
     "grammar": "IV.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -2845,10 +2830,7 @@
      "Papier"
     ],
     "grammar": "IV.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   },
   {
@@ -3295,10 +3277,7 @@
      "mitnehmen"
     ],
     "grammar": "IV.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": {"*": "tb", "ko": "tk"}
    }
   }
  ]

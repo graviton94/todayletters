@@ -62,9 +62,9 @@
  },
  "talk_me": {
   "_doc": "오늘의 회화(talk)의 \"me\" 줄 목소리: 편지 \"to\" 의 독일어 글자 → 목소리 (없으면 default = 아버지 레오폴트). \"them\" 줄은 위의 인물 목소리 그대로 (narrate.py NARRATE_ONLY=talk).",
-  "default": "M4",
+  "default": "M5",
   "by_to": {
-   "Vater": "M4",
+   "Vater": "M5",
    "Schwester": "F2",
    "Mutter und Schwester": "F2",
    "Constanze": "F1",
