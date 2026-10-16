@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       set: { description: "portraits · paintings · sketches (data/images/<set>_queries.json)", default: "portraits" }
+      width: { description: "받을 폭 (px)", default: "1200" }
 
 jobs:
   fetch:
@@ -15,7 +16,7 @@ jobs:
       - name: Fetch
         run: |
           if [ "${{ inputs.set }}" = "portraits" ]; then python3 scripts/fetch_portraits.py out
-          else python3 scripts/fetch_portraits.py out "data/images/${{ inputs.set }}_queries.json" 1200; fi
+          else python3 scripts/fetch_portraits.py out "data/images/${{ inputs.set }}_queries.json" "${{ inputs.width }}"; fi
       - name: Publish to portraits branch
         run: |
           cd out
