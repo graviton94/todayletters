@@ -104,7 +104,7 @@ fun Inbox(s: AppState) {
             JourneyStep("II", stringResource(R.string.review_today), j.review, last = false) {
                 val (n, total) = j.reviewCount
                 when (j.review) {
-                    Journey.Step.NONE -> Text(stringResource(reviewNone(s.seriesCards(id))), style = Type.small.ui(), color = p.inkSoft)
+                    Journey.Step.NONE -> Text(stringResource(if (j.letter == Journey.Step.DONE && s.seriesCards(id).isEmpty()) R.string.review_first_tomorrow else reviewNone(s.seriesCards(id))), style = Type.small.ui(), color = p.inkSoft)
                     Journey.Step.DONE -> Text(stringResource(R.string.journey_review_done, total), style = Type.small.ui(), color = p.inkSoft)
                     else -> {
                         Text(stringResource(R.string.review_words_n, total), style = Type.small.ui(), color = p.inkSoft)
@@ -291,7 +291,7 @@ fun PlateThumb(file: String, unlocked: Boolean, modifier: Modifier) {
 @Composable
 internal fun TextLink(text: String, onClick: () -> Unit) {
     val p = Ink.palette
-    Box(Modifier.heightIn(min = 44.dp).pressable { onClick() }, contentAlignment = Alignment.TopEnd) {
+    Box(Modifier.heightIn(min = 44.dp).pressable { onClick() }, contentAlignment = Alignment.CenterEnd) {
         Text(text, style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.inkSoft, maxLines = 1)
     }
 }
