@@ -1,0 +1,930 @@
+{
+ "_doc": "나폴레옹 시리즈 표지 정보와 챕터 목록. 프랑스어 원문은 공공 영역 판본 (Tennant 1824 · Didot 1833 · Correspondance 1858–70 · Du Casse 1853–54 · Lecestre 1897 등, 메시지마다 source), 철자는 지금 표기로 (명백한 오자 · 옛 철자는 앱 글에서 표시 없이 고침, 찍힌 글자는 메시지 orig 에만). 영어 · 한국어는 이 앱의 번역. \"hidden\": true = 출시 전: generate.py 가 앱에 넣지 않는다 (서재에는 ‘곧 도착’ 카드 그대로).",
+ "id": "napoleon",
+ "order": 3,
+ "hidden": true,
+ "original": "fr",
+ "sender": "Napoléon",
+ "name": {
+  "fr": "Napoléon",
+  "en": "Napoleon",
+  "ko": "나폴레옹"
+ },
+ "seal": "napoleon",
+ "years": "1795–1821",
+ "fullName": "Napoléon Bonaparte",
+ "recipient": {
+  "fr": "Joséphine",
+  "en": "Joséphine",
+  "ko": "조제핀"
+ },
+ "register": {
+  "_doc": "말투 노트의 한 줄 (한국어를 배울 때): 답장을 쓰는 사람과 받는 사람이 실제로 어떤 사이인지. 열쇠는 편지 \"to\" 의 원어 글자, 없으면 \"default\".",
+  "Joséphine": {
+   "ko": "조제핀과 나폴레옹은 부부라 실제로는 반말이 자연스러워요.",
+   "en": "Joséphine and Napoleon were husband and wife, so between them it would really be 반말 (casual speech)."
+  },
+  "Joseph": {
+   "ko": "조제프와 나폴레옹은 친한 형제라 실제로는 서로 반말을 썼어요.",
+   "en": "Joseph and Napoleon were close brothers, so between them it would really be 반말 (casual speech)."
+  },
+  "Eugène": {
+   "ko": "외젠은 의붓아들이라 아버지께 해요체가 자연스러워요. 나폴레옹은 편지에서 vous 를 썼지만, 한국어로는 아버지 말투(반말)로 옮겼어요.",
+   "en": "Eugène is Napoleon's stepson, so in Korean he speaks to him politely (해요체); Napoleon wrote vous, but in Korean he uses a father's plain speech."
+  },
+  "Hortense": {
+   "ko": "오르탕스는 의붓딸이라 아버지께 해요체가 자연스러워요. 나폴레옹은 편지에서 vous 를 썼지만, 한국어로는 아버지 말투(반말)로 옮겼어요.",
+   "en": "Hortense is Napoleon's stepdaughter, so in Korean she speaks to him politely (해요체); Napoleon wrote vous, but in Korean he uses a father's plain speech."
+  },
+  "Marie-Louise": {
+   "ko": "마리 루이즈와 나폴레옹은 부부라 서로 반말이 자연스러워요. 나폴레옹은 공식 편지에서 vous 를 쓰기도 했지만, 한국어로는 부부의 반말로 옮겼어요.",
+   "en": "Marie-Louise and Napoleon were husband and wife, so between them it would be 반말 (casual speech); he sometimes wrote vous in formal letters, but the Korean keeps the couple's casual speech."
+  },
+  "Son fils": {
+   "ko": "아들이 아버지에게 쓰는 답장이라 해요체가 자연스러워요. 아버지는 아들에게 반말을 써요.",
+   "en": "This is a son writing to his father, so in Korean he speaks politely (해요체); the father uses plain speech (반말) to his son."
+  },
+  "default": {
+   "ko": "조제핀과 나폴레옹은 부부라 실제로는 반말이 자연스러워요.",
+   "en": "Joséphine and Napoleon were husband and wife, so between them it would really be 반말 (casual speech)."
+  }
+ },
+ "portrait": "napoleon.webp",
+ "credit": "The Emperor Napoleon in His Study at the Tuileries, 1812 · Jacques-Louis David · National Gallery of Art, Washington · Open Access",
+ "product": "series_napoleon",
+ "tier": 2,
+ "title": {
+  "fr": "Lettres de Napoléon",
+  "en": "Letters from Napoleon",
+  "ko": "나폴레옹의 편지"
+ },
+ "chapters": [
+  {
+   "id": "I",
+   "file": "chapter1.json",
+   "free": true,
+   "title": {
+    "fr": "L'Italie",
+    "en": "To Italy",
+    "ko": "이탈리아로"
+   }
+  },
+  {
+   "id": "II",
+   "file": "chapter2.json",
+   "free": true,
+   "title": {
+    "fr": "La chambre vide",
+    "en": "The Empty Room",
+    "ko": "빈 방"
+   }
+  },
+  {
+   "id": "III",
+   "file": "chapter3.json",
+   "free": false,
+   "title": {
+    "fr": "Le Premier Consul",
+    "en": "First Consul",
+    "ko": "제1통령"
+   }
+  },
+  {
+   "id": "IV",
+   "file": "chapter4.json",
+   "free": false,
+   "title": {
+    "fr": "Le sacre",
+    "en": "The Coronation",
+    "ko": "대관식"
+   }
+  },
+  {
+   "id": "V",
+   "file": "chapter5.json",
+   "free": false,
+   "title": {
+    "fr": "La neige de Pologne",
+    "en": "Snow in Poland",
+    "ko": "폴란드의 눈"
+   }
+  },
+  {
+   "id": "VI",
+   "file": "chapter6.json",
+   "free": false,
+   "title": {
+    "fr": "Schönbrunn",
+    "en": "Schönbrunn",
+    "ko": "쇤브룬"
+   }
+  },
+  {
+   "id": "VII",
+   "file": "chapter7.json",
+   "free": false,
+   "title": {
+    "fr": "Malmaison",
+    "en": "Malmaison",
+    "ko": "말메종"
+   }
+  },
+  {
+   "id": "VIII",
+   "file": "chapter8.json",
+   "free": false,
+   "title": {
+    "fr": "Les adieux",
+    "en": "Farewells",
+    "ko": "작별"
+   }
+  }
+ ],
+ "places": {
+  "paris": {
+   "x": 0.26,
+   "y": 0.446,
+   "name": {
+    "fr": "Paris",
+    "en": "Paris",
+    "ko": "파리"
+   },
+   "note": {
+    "ko": "제1통령이 살던 튈르리 궁. 날씨가 나빠 말메종 대신 머문 곳.",
+    "en": "The Tuileries, the First Consul's residence; he stayed here instead of going out to Malmaison."
+   },
+   "lat": 48.862,
+   "lng": 2.332,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "opera": {
+   "x": 0.261,
+   "y": 0.446,
+   "name": {
+    "fr": "L'Opéra (Théâtre des Arts)",
+    "en": "The Opéra (Théâtre des Arts)",
+    "ko": "오페라 극장"
+   },
+   "note": {
+    "ko": "1795년의 오페라 극장. 리슐리외 거리에 있었어요.",
+    "en": "The Paris Opéra in 1795, in the rue de Richelieu."
+   },
+   "lat": 48.8671,
+   "lng": 2.3376,
+   "_note": "대략 [미확인]"
+  },
+  "chantereine": {
+   "x": 0.261,
+   "y": 0.445,
+   "name": {
+    "fr": "Rue Chantereine",
+    "en": "Rue Chantereine",
+    "ko": "샹트렌 거리"
+   },
+   "note": {
+    "ko": "조제핀이 살던 작은 집이 있던 거리 (지금의 빅투아르 거리).",
+    "en": "The street of Joséphine's small house (today rue de la Victoire)."
+   },
+   "lat": 48.8755,
+   "lng": 2.336,
+   "_note": "대략 [미확인]"
+  },
+  "albenga": {
+   "x": 0.444,
+   "y": 0.747,
+   "name": {
+    "fr": "Albenga",
+    "en": "Albenga",
+    "ko": "알벤가"
+   },
+   "note": {
+    "ko": "리구리아 바닷가의 작은 도시. 4월 초 사령부가 있던 곳.",
+    "en": "A small town on the Ligurian coast; headquarters in early April."
+   },
+   "lat": 44.049,
+   "lng": 8.213,
+   "_note": "대략 [미확인]"
+  },
+  "carru": {
+   "x": 0.434,
+   "y": 0.72,
+   "name": {
+    "fr": "Carrù",
+    "en": "Carrù",
+    "ko": "카루"
+   },
+   "note": {
+    "ko": "피에몬테의 마을. 케라스코 휴전 며칠 전.",
+    "en": "A village in Piedmont, days before the Cherasco armistice."
+   },
+   "lat": 44.479,
+   "lng": 7.877,
+   "_note": "대략 [미확인]"
+  },
+  "tortona": {
+   "x": 0.465,
+   "y": 0.694,
+   "name": {
+    "fr": "Tortona",
+    "en": "Tortona",
+    "ko": "토르토나"
+   },
+   "note": {
+    "ko": "밀라노 남서쪽의 도시.",
+    "en": "A town south-west of Milan."
+   },
+   "lat": 44.895,
+   "lng": 8.864,
+   "_note": "대략 [미확인]"
+  },
+  "pistoia": {
+   "x": 0.529,
+   "y": 0.754,
+   "name": {
+    "fr": "Pistoia",
+    "en": "Pistoia",
+    "ko": "피스토이아"
+   },
+   "note": {
+    "ko": "피렌체 북서쪽, 토스카나의 도시.",
+    "en": "A Tuscan town north-west of Florence."
+   },
+   "lat": 43.933,
+   "lng": 10.917,
+   "_note": "대략 [미확인]"
+  },
+  "marmirolo": {
+   "x": 0.524,
+   "y": 0.674,
+   "name": {
+    "fr": "Marmirolo",
+    "en": "Marmirolo",
+    "ko": "마르미롤로"
+   },
+   "note": {
+    "ko": "만토바 북쪽의 마을. 만토바 포위 때 머물던 곳.",
+    "en": "A village north of Mantua, his base during the siege."
+   },
+   "lat": 45.218,
+   "lng": 10.756,
+   "_note": "대략 [미확인]"
+  },
+  "portmaurice": {
+   "x": 0.438,
+   "y": 0.758,
+   "name": {
+    "fr": "Port-Maurice",
+    "en": "Porto Maurizio",
+    "ko": "포르토 마우리치오"
+   },
+   "note": {
+    "ko": "이탈리아로 가는 바닷가 길. 이 편지를 쓴 곳 (지금의 임페리아).",
+    "en": "On the coast road to Italy, where he wrote this letter (today part of Imperia)."
+   },
+   "lat": 43.877,
+   "lng": 8.027,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "verone": {
+   "x": 0.531,
+   "y": 0.66,
+   "name": {
+    "fr": "Vérone",
+    "en": "Verona",
+    "ko": "베로나"
+   },
+   "note": {
+    "ko": "만토바를 에워싼 동안 머문 도시. 이 편지를 쓴 곳.",
+    "en": "Where he stayed during the siege of Mantua, and wrote this letter."
+   },
+   "lat": 45.438,
+   "lng": 10.992,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "modene": {
+   "x": 0.529,
+   "y": 0.71,
+   "name": {
+    "fr": "Modène",
+    "en": "Modena",
+    "ko": "모데나"
+   },
+   "note": {
+    "ko": "열이 나서 하루를 침대에서 보낸 곳.",
+    "en": "Where he spent a day in bed with a fever."
+   },
+   "lat": 44.647,
+   "lng": 10.925,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "milan": {
+   "x": 0.475,
+   "y": 0.659,
+   "name": {
+    "fr": "Milan",
+    "en": "Milan",
+    "ko": "밀라노"
+   },
+   "note": {
+    "ko": "조제핀이 머물던 도시. 그녀의 방은 비어 있었어요.",
+    "en": "Where Joséphine was staying; he found her rooms empty."
+   },
+   "lat": 45.464,
+   "lng": 9.19,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "ancone": {
+   "x": 0.61,
+   "y": 0.774,
+   "name": {
+    "fr": "Ancône",
+    "en": "Ancona",
+    "ko": "안코나"
+   },
+   "note": {
+    "ko": "아드리아 해의 항구. 이틀째 머문 곳.",
+    "en": "A port on the Adriatic, where he had been for two days."
+   },
+   "lat": 43.616,
+   "lng": 13.519,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "tolentino": {
+   "x": 0.603,
+   "y": 0.799,
+   "name": {
+    "fr": "Tolentino",
+    "en": "Tolentino",
+    "ko": "톨렌티노"
+   },
+   "note": {
+    "ko": "교황과 평화 조약을 맺은 마을.",
+    "en": "The town where peace with the Pope was signed."
+   },
+   "lat": 43.209,
+   "lng": 13.284,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "lausanne": {
+   "x": 0.395,
+   "y": 0.592,
+   "name": {
+    "fr": "Lausanne",
+    "en": "Lausanne",
+    "ko": "로잔"
+   },
+   "note": {
+    "ko": "알프스를 넘기 전에 머문 호숫가 도시.",
+    "en": "The lakeside town where he stopped before crossing the Alps."
+   },
+   "lat": 46.52,
+   "lng": 6.633,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "malmaison": {
+   "x": 0.255,
+   "y": 0.446,
+   "name": {
+    "fr": "Malmaison",
+    "en": "Malmaison",
+    "ko": "말메종"
+   },
+   "note": {
+    "ko": "조제핀의 집과 정원. 이 장의 편지 두 통을 쓴 곳.",
+    "en": "Joséphine's house and garden, where two letters of this chapter were written."
+   },
+   "lat": 48.871,
+   "lng": 2.168,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "pontdebriques": {
+   "x": 0.238,
+   "y": 0.332,
+   "name": {
+    "fr": "Pont-de-Briques",
+    "en": "Pont-de-Briques",
+    "ko": "퐁드브리크"
+   },
+   "note": {
+    "ko": "불로뉴 진영 근처의 작은 성. 이 편지를 쓴 곳.",
+    "en": "A small château near the camp of Boulogne, where he wrote this letter."
+   },
+   "lat": 50.69,
+   "lng": 1.627,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "calais": {
+   "x": 0.246,
+   "y": 0.316,
+   "name": {
+    "fr": "Calais",
+    "en": "Calais",
+    "ko": "칼레"
+   },
+   "note": {
+    "ko": "영국을 마주 보는 항구. 자정에 도착한 곳.",
+    "en": "The port facing England, where he arrived at midnight."
+   },
+   "lat": 50.951,
+   "lng": 1.858,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "louisbourg": {
+   "x": 0.475,
+   "y": 0.444,
+   "name": {
+    "fr": "Louisbourg",
+    "en": "Ludwigsburg",
+    "ko": "루트비히스부르크"
+   },
+   "note": {
+    "ko": "뷔르템베르크 선제후의 궁전이 있는 도시. 이 편지를 쓴 곳.",
+    "en": "Seat of the Elector of Württemberg's palace, where he wrote this letter."
+   },
+   "lat": 48.897,
+   "lng": 9.192,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "munich": {
+   "x": 0.549,
+   "y": 0.491,
+   "name": {
+    "fr": "Munich",
+    "en": "Munich",
+    "ko": "뮌헨"
+   },
+   "note": {
+    "ko": "바이에른 선제후의 도시. 음악회와 사냥이 있던 곳.",
+    "en": "The Elector of Bavaria's capital, with its concert and hunt."
+   },
+   "lat": 48.137,
+   "lng": 11.575,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "vienne": {
+   "x": 0.699,
+   "y": 0.487,
+   "name": {
+    "fr": "Vienne",
+    "en": "Vienna",
+    "ko": "빈"
+   },
+   "note": {
+    "ko": "11월 13일 프랑스군이 들어간 오스트리아의 수도.",
+    "en": "The Austrian capital, entered by the French on 13 November."
+   },
+   "lat": 48.208,
+   "lng": 16.373,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "brunn": {
+   "x": 0.706,
+   "y": 0.425,
+   "name": {
+    "fr": "Brünn",
+    "en": "Brünn (Brno)",
+    "ko": "브륀 (브르노)"
+   },
+   "note": {
+    "ko": "아우스터리츠 전투 뒤 머문 모라비아의 도시 (지금 체코의 브르노).",
+    "en": "The Moravian town where he stayed after Austerlitz (today Brno, Czech Republic)."
+   },
+   "lat": 49.195,
+   "lng": 16.607,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "schonbrunn": {
+   "x": 0.697,
+   "y": 0.488,
+   "name": {
+    "fr": "Schönbrunn",
+    "en": "Schönbrunn",
+    "ko": "쇤브룬"
+   },
+   "note": {
+    "ko": "빈 서쪽의 합스부르크 여름 궁전. 1809년 나폴레옹이 다섯 달 머문 곳이에요. 1762년 여섯 살 모차르트가 마리아 테레지아 앞에서 연주한 곳이기도 해요.",
+    "en": "The Habsburg summer palace west of Vienna, where Napoleon lived for five months in 1809, and where the six-year-old Mozart played for Maria Theresa in 1762."
+   },
+   "lat": 48.185,
+   "lng": 16.312,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "stuttgart": {
+   "x": 0.474,
+   "y": 0.451,
+   "name": {
+    "fr": "Stuttgart",
+    "en": "Stuttgart",
+    "ko": "슈투트가르트"
+   },
+   "note": {
+    "ko": "뮌헨에서 파리로 돌아가는 길에 들른 뷔르템베르크의 도시.",
+    "en": "The Württemberg capital, on his way back from Munich to Paris."
+   },
+   "lat": 48.776,
+   "lng": 9.177,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "berlin": {
+   "x": 0.606,
+   "y": 0.218,
+   "name": {
+    "fr": "Berlin",
+    "en": "Berlin",
+    "ko": "베를린"
+   },
+   "note": {
+    "ko": "10월 27일 나폴레옹이 들어간 프로이센의 수도.",
+    "en": "The Prussian capital, which Napoleon entered on 27 October."
+   },
+   "lat": 52.517,
+   "lng": 13.389,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "posen": {
+   "x": 0.717,
+   "y": 0.224,
+   "name": {
+    "fr": "Posen",
+    "en": "Posen (Poznań)",
+    "ko": "포즈난"
+   },
+   "note": {
+    "ko": "폴란드 땅에 처음 들어가 머문 도시.",
+    "en": "The first Polish city where he stayed."
+   },
+   "lat": 52.408,
+   "lng": 16.934,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "varsovie": {
+   "x": 0.844,
+   "y": 0.236,
+   "name": {
+    "fr": "Varsovie",
+    "en": "Warsaw",
+    "ko": "바르샤바"
+   },
+   "note": {
+    "ko": "1806–1807년 겨울 나폴레옹이 머문 폴란드의 수도.",
+    "en": "The Polish capital where Napoleon spent the winter of 1806–07."
+   },
+   "lat": 52.23,
+   "lng": 21.011,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "osterode": {
+   "x": 0.811,
+   "y": 0.144,
+   "name": {
+    "fr": "Osterode",
+    "en": "Osterode (Ostróda)",
+    "ko": "오스테로데 (오스트루다)"
+   },
+   "note": {
+    "ko": "늦겨울 사령부를 둔 동프로이센의 작은 마을 (지금 폴란드의 오스트루다).",
+    "en": "The small East Prussian town of his late-winter headquarters (today Ostróda, Poland)."
+   },
+   "lat": 53.697,
+   "lng": 19.965,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "finckenstein": {
+   "x": 0.796,
+   "y": 0.148,
+   "name": {
+    "fr": "Finckenstein",
+    "en": "Finckenstein",
+    "ko": "핑켄슈타인"
+   },
+   "note": {
+    "ko": "1807년 봄 나폴레옹이 사령부를 둔 동프로이센의 성 (지금 폴란드의 카미에니에츠).",
+    "en": "The East Prussian castle of his spring 1807 headquarters (today Kamieniec, Poland)."
+   },
+   "lat": 53.634,
+   "lng": 19.465,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "tilsit": {
+   "x": 0.871,
+   "y": 0.057,
+   "name": {
+    "fr": "Tilsit",
+    "en": "Tilsit",
+    "ko": "틸지트"
+   },
+   "note": {
+    "ko": "네만 강가의 도시. 프랑스 · 러시아 · 프로이센이 평화 조약을 맺은 곳 (지금 러시아의 소베츠크).",
+    "en": "The town on the Niemen where France, Russia and Prussia made peace (today Sovetsk, Russia)."
+   },
+   "lat": 55.083,
+   "lng": 21.88,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "bayonne": {
+   "x": 0.141,
+   "y": 0.782,
+   "name": {
+    "fr": "Bayonne",
+    "en": "Bayonne",
+    "ko": "바욘"
+   },
+   "note": {
+    "ko": "스페인과 맞닿은 프랑스 남서쪽 끝 도시. 1808년 봄 나폴레옹이 머문 곳.",
+    "en": "The town at the south-western tip of France, by the Spanish border, where Napoleon stayed in spring 1808."
+   },
+   "lat": 43.493,
+   "lng": -1.475,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "erfurt": {
+   "x": 0.532,
+   "y": 0.314,
+   "name": {
+    "fr": "Erfurt",
+    "en": "Erfurt",
+    "ko": "에르푸르트"
+   },
+   "note": {
+    "ko": "1808년 가을 유럽의 군주들이 모인 독일 가운데의 도시.",
+    "en": "The town in central Germany where Europe's sovereigns gathered in autumn 1808."
+   },
+   "lat": 50.978,
+   "lng": 11.029,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "nymphenburg": {
+   "x": 0.547,
+   "y": 0.49,
+   "name": {
+    "fr": "Nymphenbourg",
+    "en": "Nymphenburg",
+    "ko": "님펜부르크"
+   },
+   "note": {
+    "ko": "뮌헨 서쪽, 바이에른 왕의 여름 궁전. 빈에서 돌아오는 길에 묵은 곳.",
+    "en": "The Bavarian king's summer palace west of Munich, where he stayed on his way home from Vienna."
+   },
+   "lat": 48.158,
+   "lng": 11.503,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "trianon": {
+   "x": 0.253,
+   "y": 0.449,
+   "name": {
+    "fr": "Trianon",
+    "en": "Trianon",
+    "ko": "트리아농"
+   },
+   "note": {
+    "ko": "베르사유 정원 안의 작은 궁. 이혼 뒤 며칠 동안 나폴레옹이 머문 곳.",
+    "en": "The small palace in the park of Versailles where Napoleon stayed for some days after the divorce."
+   },
+   "lat": 48.814,
+   "lng": 2.105,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "tuileries": {
+   "x": 0.26,
+   "y": 0.446,
+   "name": {
+    "fr": "Les Tuileries",
+    "en": "The Tuileries",
+    "ko": "튈르리 궁"
+   },
+   "note": {
+    "ko": "센 강가, 루브르 서쪽에 있던 황제의 궁. 1871년 불타 지금은 정원만 남았어요.",
+    "en": "The imperial palace on the Seine, west of the Louvre; it burned in 1871, and only its garden remains."
+   },
+   "lat": 48.8625,
+   "lng": 2.3305,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "bourget": {
+   "x": 0.371,
+   "y": 0.642,
+   "name": {
+    "fr": "Lac du Bourget",
+    "en": "Lake Bourget",
+    "ko": "부르제 호수"
+   },
+   "note": {
+    "ko": "엑스레뱅 온천 옆의 큰 호수. 조제핀이 배를 타다 위험을 겪은 곳.",
+    "en": "The great lake beside the spa of Aix-les-Bains, where Joséphine was in danger on a boat."
+   },
+   "lat": 45.73,
+   "lng": 5.87,
+   "_note": "좌표는 대략 [미확인]"
+  },
+  "konigsberg": {
+   "x": 0.828,
+   "y": 0.081,
+   "name": {
+    "fr": "Königsberg",
+    "en": "Königsberg",
+    "ko": "쾨니히스베르크"
+   },
+   "note": {
+    "ko": "동프로이센의 도시, 지금의 칼리닌그라드. 인쇄본에는 장소가 없고, 영역본(Hall)은 이 편지를 쾨니히스베르크에서 썼다고 적어요.",
+    "en": "A city in East Prussia, today Kaliningrad. The printed text names no place; Hall's English edition dates the letter from Königsberg."
+   },
+   "lat": 54.71,
+   "lng": 20.51,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "gumbinnen": {
+   "x": 0.881,
+   "y": 0.088,
+   "name": {
+    "fr": "Gumbinnen",
+    "en": "Gumbinnen",
+    "ko": "굼비넨"
+   },
+   "note": {
+    "ko": "동프로이센 동쪽 끝의 작은 도시. 지금은 러시아의 구세프.",
+    "en": "A small town at the eastern edge of East Prussia, today Gusev in Russia."
+   },
+   "lat": 54.59,
+   "lng": 22.2,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "haynau": {
+   "x": 0.686,
+   "y": 0.296,
+   "name": {
+    "fr": "Haynau",
+    "en": "Haynau",
+    "ko": "하이나우"
+   },
+   "note": {
+    "ko": "슐레지엔의 작은 도시, 지금의 폴란드 호이누프. 1813년 6월 휴전 무렵 나폴레옹이 머문 곳.",
+    "en": "A small town in Silesia, today Chojnów in Poland, where Napoleon stayed around the armistice of June 1813."
+   },
+   "lat": 51.27,
+   "lng": 15.94,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "reims": {
+   "x": 0.314,
+   "y": 0.421,
+   "name": {
+    "fr": "Reims",
+    "en": "Reims",
+    "ko": "랭스"
+   },
+   "note": {
+    "ko": "프랑스 왕들이 대관식을 올리던 도시. 1814년 3월 나폴레옹이 며칠 머문 곳.",
+    "en": "The city where the kings of France were crowned; Napoleon stayed there for a few days in March 1814."
+   },
+   "lat": 49.258,
+   "lng": 4.032,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "fontainebleau": {
+   "x": 0.272,
+   "y": 0.475,
+   "name": {
+    "fr": "Fontainebleau",
+    "en": "Fontainebleau",
+    "ko": "퐁텐블로"
+   },
+   "note": {
+    "ko": "파리 남쪽 숲속의 궁. 1814년 4월 나폴레옹이 이곳에서 황제 자리를 내려놓았어요.",
+    "en": "The palace in the forest south of Paris where Napoleon gave up the throne in April 1814."
+   },
+   "lat": 48.402,
+   "lng": 2.7,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  },
+  "longwood": {
+   "x": 0.02,
+   "y": 0.98,
+   "name": {
+    "fr": "Longwood",
+    "en": "Longwood",
+    "ko": "롱우드"
+   },
+   "note": {
+    "ko": "남대서양 외딴섬 세인트헬레나의 집. 1815년부터 1821년 숨질 때까지 나폴레옹이 지낸 곳.",
+    "en": "The house on remote St Helena in the South Atlantic where Napoleon lived from 1815 until his death in 1821."
+   },
+   "lat": -15.958,
+   "lng": -5.686,
+   "_note": "좌표는 대략 [미확인], 지도 그림 x · y 는 지도를 정한 뒤"
+  }
+ },
+ "kit": {
+  "fullName": {
+   "en": "Napoleon Bonaparte",
+   "ko": "나폴레옹 보나파르트",
+   "fr": "Napoléon Bonaparte"
+  },
+  "about": {
+   "fr": "Général, puis empereur · de Paris en 1795 à Sainte-Hélène · lettres à Joséphine et aux siens",
+   "en": "General, then emperor · from Paris in 1795 to St Helena · letters to Joséphine and his family",
+   "ko": "장군, 그리고 황제 · 1795년 파리에서 세인트헬레나까지 · 조제핀과 가족에게 보낸 편지"
+  },
+  "_doc": "시리즈 키트: 제정 초록 + 금 (꿀벌 · N 봉랍) · 대표 그림 (그로 〈아르콜 다리의 보나파르트〉, c1-l1 그림) · 화폐 (나폴레옹 금화, 20프랑 금화의 실제 이름).",
+  "_tag": "서재 카드의 작품 주제 꼬리표 (미술관 · 오페라 · 역사): 앱 글자 언어로 보인다.",
+  "tag": {
+   "en": "History",
+   "ko": "역사",
+   "fr": "Histoire"
+  },
+  "theme": {
+   "light": {
+    "paper": "#EEF0E6",
+    "ink": "#16201A",
+    "soft": "#5F6B5F",
+    "faint": "#A3AD9F",
+    "accent": "#2F5D46"
+   },
+   "dark": {
+    "paper": "#0F1511",
+    "ink": "#E8ECDD",
+    "soft": "#A7B09F",
+    "faint": "#6D776A",
+    "accent": "#C9A54A"
+   }
+  },
+  "hero": "plates/n-c1-l1.webp",
+  "place": "PARIS · 1796",
+  "world": {
+   "fr": "Vers le monde de Napoléon",
+   "en": "Into Napoleon's world",
+   "ko": "나폴레옹의 세상으로 떠납니다"
+  },
+  "currency": {
+   "name": {
+    "fr": "napoléons",
+    "en": "napoleons",
+    "ko": "나폴레옹 금화"
+   }
+  },
+  "weekdays": "LMMJVSD",
+  "collection": [],
+  "exhibitions": []
+ },
+ "prologue": {
+  "file": "prologue.json",
+  "arrival": {
+   "date": "11 · III · 1796",
+   "route": "PARIS → ITALIE",
+   "heading": {
+    "ko": "스물여섯 살의 보나파르트가\n결혼 이틀 뒤 이탈리아로 떠납니다.",
+    "en": "Bonaparte, twenty-six,\nleaves for Italy two days after his wedding.",
+    "fr": "Bonaparte, vingt-six ans,\npart pour l'Italie deux jours après son mariage."
+   },
+   "body": {
+    "ko": "조제핀은 파리에 남았어요. 지금부터 스물다섯 해, 나폴레옹이 쓴 편지를 조제핀이 되어 받아요. 끝 무렵에는 마리 루이즈, 그리고 아들이 받는 편지도 와요.",
+    "en": "Joséphine stays behind in Paris. For the next twenty-five years you receive Napoleon's letters as Joséphine; near the end, letters to Marie-Louise and to his son arrive too.",
+    "fr": "Joséphine reste à Paris. Pendant vingt-cinq ans, vous recevez ses lettres."
+   }
+  },
+  "timeline": {
+   "years": [
+    "1769",
+    "1785",
+    "1793",
+    "1795",
+    "1796",
+    "1821"
+   ],
+   "at": [
+    3,
+    3,
+    3,
+    3,
+    4
+   ]
+  },
+  "label": {
+   "ko": "결혼 이전",
+   "en": "Before the wedding"
+  }
+ },
+ "outro": {
+  "file": "epilogue.json",
+  "image": "n-outro.webp",
+  "credit": "La Mort de Napoléon, c. 1828 · Charles de Steuben · [미확인: 소장처 · 판 · 파일, fetch-portraits.yml 로 확정] · Public domain (PD-Art)",
+  "_imageSource": "[미확인] 위키미디어 공용 Category:Death of Napoleon by Charles de Steuben (그림 받기 전). 대안: 롱우드 판화 (레이크스 CC0 우선).",
+  "caps": "ÉPILOGUE",
+  "name": "Napoléon Bonaparte",
+  "years": "15 août 1769 — 5 mai 1821",
+  "body": [
+   {
+    "ko": "1821년 5월 5일 저녁, 나폴레옹은 남대서양 세인트헬레나섬 롱우드의 집에서 세상을 떠났습니다. 쉰한 살이었습니다. 1815년 워털루 전투 뒤 영국은 그를 이 외딴섬으로 보냈고, 그는 그곳에서 여섯 해 가까이 지냈습니다.",
+    "en": "On the evening of 5 May 1821 Napoleon died at Longwood, his house on the island of St Helena in the South Atlantic. He was fifty-one. After Waterloo in 1815 the British had sent him to this remote island, where he lived for almost six years."
+   },
+   {
+    "ko": "조제핀은 그보다 일곱 해 앞선 1814년 5월, 말메종에서 세상을 떠났습니다. 마리 루이즈와 아들은 오스트리아로 돌아갔고, 아들은 1832년 스물한 살의 나이로 빈의 쇤브룬 궁에서 숨을 거두었습니다.",
+    "en": "Joséphine had died seven years earlier, in May 1814, at Malmaison. Marie-Louise and their son went back to Austria; the son died at Schönbrunn in Vienna in 1832, aged twenty-one."
+   },
+   {
+    "ko": "1840년, 그의 유해는 프랑스로 돌아와 파리의 앵발리드에 놓였습니다. ‘센 강가에, 내가 그토록 사랑한 프랑스 사람들 가운데 잠들고 싶다’는 유언대로였습니다.",
+    "en": "In 1840 his remains were brought back to France and laid in the Invalides in Paris, as his will had asked: ‘on the banks of the Seine, among the French people whom I have loved so much’."
+   }
+  ]
+ }
+}

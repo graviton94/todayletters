@@ -282,7 +282,7 @@
     <string name="focus_sealed">Sealed · see it</string>
     <string name="set_credits">Sources and licences</string>
     <string name="credits_text_h">Letters</string>
-    <string name="credits_text">French text of the letters: Brieven aan zijn broeder, edited by J. van Gogh-Bonger, 1914 (public domain), from the Internet Archive scan. English and Korean translations are written for this app.</string>
+    <string name="credits_text">French text of the letters: Brieven aan zijn broeder, edited by J. van Gogh-Bonger, 1914 (public domain), from the Internet Archive scan. English and Korean translations are written for this app.\nIn every series, obvious typos and old spellings in the original letters are corrected to modern spelling without marking each change (the Mozart German keeps the 1865 edition’s spelling).</string>
     <string name="credits_images_h">Pictures</string>
     <string name="credits_images_note">Images of public-domain originals only, chosen in two tiers: by default, images whose holders release them for free use (including commercial); for a few essential masterpieces, faithful public-domain reproductions (PD-Art). We never use pictures we have drawn ourselves.</string>
     <string name="credits_portraits_h">Portraits</string>

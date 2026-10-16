@@ -1,0 +1,2837 @@
+{
+ "_doc": "Napoléon · chapter II. French = modern spelling (obvious slips and old spellings corrected without marks in the app); each message keeps the printed text in orig.fr (data only, not shown). en · ko translated from the French for this app. Sexual lines and battle reports are left out (see excerpt). Replies and talks are written by this app, not by the recipients.",
+ "series": "napoleon",
+ "chapter": "II",
+ "title_fr": "La chambre vide",
+ "title_en": "The Empty Room",
+ "title_ko": "빈 방",
+ "original": "fr",
+ "grammar": [
+  {
+   "id": "II.0",
+   "fr": {
+    "name": {
+     "ko": "도치 의문문 (Où es-tu ?)",
+     "en": "Inversion questions (Où es-tu ?)"
+    },
+    "hint": {
+     "ko": "주어와 동사의 자리를 바꾸고 하이픈으로 이어요 · Où es-tu ? Pourquoi es-tu triste ? Quand pars-tu ?",
+     "en": "Swap subject and verb and join them with a hyphen · Où es-tu ? Pourquoi es-tu triste ? Quand pars-tu ?"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "Wh- 의문문 (Where · Why · When · How)",
+     "en": "Wh- questions (Where, Why, When, How)"
+    },
+    "hint": {
+     "ko": "의문사 + be/do + 주어 · Where are you? Why are you so sad? When are you leaving?",
+     "en": "Question word + be/do + subject · Where are you? Why are you so sad? When are you leaving?"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "왜 · 어디 · 언제 (묻는 말)",
+     "en": "왜 · 어디 · 언제 (why, where, when)"
+    },
+    "hint": {
+     "ko": "궁금한 것을 물어요 · 어디에 있어요? 왜 그렇게 슬퍼해요? 언제 가요? · 반말이면 어디야? 왜 그래?",
+     "en": "Question words · 어디에 있어요? (where are you?) · 왜 …? (why) · 언제 …? (when) · casual: 어디야? 왜 그래?"
+    }
+   }
+  },
+  {
+   "id": "II.1",
+   "fr": {
+    "name": {
+     "ko": "부정 ne … pas · ne … plus · ne … rien",
+     "en": "Negation: ne … pas / plus / rien"
+    },
+    "hint": {
+     "ko": "동사를 ne 와 pas · plus (이제는) · rien (아무것도) 사이에 · je ne suis plus fâchée · tu n'as rien fait",
+     "en": "Put the verb between ne and pas / plus (no longer) / rien (nothing) · je ne suis plus fâchée · tu n'as rien fait"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "not … anymore · nothing",
+     "en": "not … anymore, nothing"
+    },
+    "hint": {
+     "ko": "더는 아니다 · 아무것도 아니다 · I'm not angry anymore. You did nothing wrong.",
+     "en": "No longer · not anything · I'm not angry anymore. You did nothing wrong."
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-지 않아요 · -지 마세요",
+     "en": "-지 않아요 (not) · -지 마세요 (please don't)"
+    },
+    "hint": {
+     "ko": "‘아니다’는 -지 않아요, ‘하지 말아 달라’는 부탁은 -지 마세요 · 차갑지 않아요, 걱정하지 마세요 · 반말이면 -지 않아 · -지 마",
+     "en": "-지 않아요 = does not · -지 마세요 = please don't · 차갑지 않아요, 걱정하지 마세요 · casual: -지 않아, -지 마"
+    }
+   }
+  },
+  {
+   "id": "II.2",
+   "fr": {
+    "name": {
+     "ko": "목적 대명사 me · te · le · la · les",
+     "en": "Object pronouns: me, te, le, la, les"
+    },
+    "hint": {
+     "ko": "동사 바로 앞에 와요 · 모음 앞에서는 m' · t' · l' · je t'aime, je les garde, je te vois",
+     "en": "They go right before the verb; m', t', l' before a vowel · je t'aime, je les garde, je te vois"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "always · often · every day (얼마나 자주)",
+     "en": "always, often, every day (how often)"
+    },
+    "hint": {
+     "ko": "always · often 은 동사 앞, every day 는 문장 끝 · I always keep them. I'll write to you every day.",
+     "en": "always and often go before the verb, every day at the end · I always keep them. I'll write to you every day."
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)세요 (부드러운 부탁)",
+     "en": "-(으)세요 (polite request)"
+    },
+    "hint": {
+     "ko": "부드럽게 부탁해요 · 받침이 있으면 -으세요 · 기다리세요, 웃으세요 · 반말이면 -아/어 (줘)",
+     "en": "A gentle request · after a consonant -으세요 · 기다리세요 (please wait), 웃으세요 (please smile) · casual: -아/어 (줘)"
+    }
+   }
+  }
+ ],
+ "letters": [
+  {
+   "id": "c2-l1",
+   "date": "1796-09-17",
+   "dateNote": "Vérone, premier jour complémentaire an IV (17 septembre 1796)",
+   "ref": "Didot 1833, t. I, n° XIII, pp. 74-75 · https://archive.org/details/lettresdenapolo01josegoog",
+   "place": "Verona",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "tender",
+   "excerpt": "All of the letter except the battle paragraph ('Nous avons eu hier une affaire très sanglante … le faubourg de Mantoue') and the signature.",
+   "messages": [
+    {
+     "fr": "Je t'écris, ma bonne amie, bien souvent, et toi peu. Tu es une méchante et une laide, bien laide, autant que tu es légère.",
+     "en": "I write to you very often, my dear, and you hardly at all. You're a naughty one and an ugly one, very ugly, as ugly as you are fickle.",
+     "ko": "내 사랑, 나는 당신한테 이렇게 자주 편지를 쓰는데, 당신은 거의 안 써. 당신은 못됐고 못생겼어. 아주 못생겼어. 변덕스러운 만큼이나.",
+     "orig": {
+      "fr": "Je t'écris, ma bonne amie, bien souvent, et toi peu. Tu es une méchante et une laide, bien laide, autant que tu es légère."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIII, pp. 74-75 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je t'écris, ma bonne amie, / bien souvent, et toi peu. // Tu es une méchante et une laide, / bien laide, autant que tu es légère.",
+      "en": "I write to you very often, / my dear, and you hardly at all. // You're a naughty one and an ugly one, / very ugly, as ugly as you are fickle.",
+      "ko": "내 사랑, 나는 당신한테 이렇게 자주 편지를 쓰는데, / 당신은 거의 안 써. // 당신은 못됐고 못생겼어. // 아주 못생겼어. // 변덕스러운 만큼이나."
+     }
+    },
+    {
+     "fr": "Cela est perfide, tromper un pauvre mari, un tendre amant ! Doit-il perdre ses droits parce qu'il est loin, chargé de besogne, de fatigue et de peine ?",
+     "en": "It's treacherous, deceiving a poor husband, a tender lover! Must he lose his rights because he is far away, loaded down with work, weariness and pain?",
+     "ko": "가엾은 남편을, 다정한 연인을 속이다니, 이건 배신이야! 멀리 있다고, 일과 피로와 고생에 짓눌려 있다고, 그 사람이 자기 권리를 잃어야 해?",
+     "orig": {
+      "fr": "Cela est perfide, tromper un pauvre mari, un tendre amant! Doit-il perdre ses droits parce-qu'il est loin, chargé de besogne, de fatigue et de peine?"
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIII, pp. 74-75 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Cela est perfide, / tromper un pauvre mari, / un tendre amant ! // Doit-il perdre ses droits parce qu'il est loin, / chargé de besogne, / de fatigue et de peine ?",
+      "en": "It's treacherous, deceiving a poor husband, / a tender lover! // Must he lose his rights because he is far away, / loaded down with work, / weariness and pain?",
+      "ko": "가엾은 남편을, 다정한 연인을 속이다니, / 이건 배신이야! // 멀리 있다고, 일과 피로와 고생에 짓눌려 있다고, / 그 사람이 자기 권리를 잃어야 해?"
+     }
+    },
+    {
+     "fr": "Sans sa Joséphine, sans l'assurance de son amour, que lui reste-t-il sur la terre ? Qu'y ferait-il ?",
+     "en": "Without his Joséphine, without being sure of her love, what is left for him on earth? What would he do there?",
+     "ko": "자기 조제핀이 없으면, 그녀의 사랑을 믿을 수 없으면, 이 땅에 그 사람한테 뭐가 남겠어? 여기서 뭘 하겠어?",
+     "orig": {
+      "fr": "Sans sa Joséphine, sans l'assurance de son amour, que lui reste-t-il sur la terre? Qu'y ferait-il?"
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIII, pp. 74-75 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Sans sa Joséphine, / sans l'assurance de son amour, / que lui reste-t-il sur la terre ? // Qu'y ferait-il ?",
+      "en": "Without his Joséphine, / without being sure of her love, / what is left for him on earth? // What would he do there?",
+      "ko": "자기 조제핀이 없으면, / 그녀의 사랑을 믿을 수 없으면, / 이 땅에 그 사람한테 뭐가 남겠어? // 여기서 뭘 하겠어?"
+     }
+    },
+    {
+     "fr": "Adieu, adorable Joséphine ; une de ces nuits, les portes s'ouvriront avec fracas : comme un jaloux, et me voilà dans tes bras.",
+     "en": "Goodbye, adorable Joséphine. One of these nights the doors will burst open with a crash, like a jealous man, and here I am in your arms.",
+     "ko": "잘 있어, 사랑스러운 조제핀. 어느 날 밤 문이 쾅 하고 열릴 거야. 질투에 찬 남자처럼. 그러면 나는 어느새 당신 품에 있겠지.",
+     "orig": {
+      "fr": "Adieu, adorable Joséphine; une de ces nuits, les portes s'ouvriront avec fracas: comme un jaloux, et me voilà dans tes bras."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIII, pp. 74-75 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Adieu, adorable Joséphine ; // une de ces nuits, / les portes s'ouvriront avec fracas : // comme un jaloux, / et me voilà dans tes bras.",
+      "en": "Goodbye, adorable Joséphine. // One of these nights the doors will burst open with a crash, / like a jealous man, / and here I am in your arms.",
+      "ko": "잘 있어, 사랑스러운 조제핀. // 어느 날 밤 문이 쾅 하고 열릴 거야. // 질투에 찬 남자처럼. // 그러면 나는 어느새 당신 품에 있겠지."
+     }
+    },
+    {
+     "fr": "Mille baisers amoureux.",
+     "en": "A thousand loving kisses.",
+     "ko": "사랑을 담아 입맞춤을 천 번.",
+     "orig": {
+      "fr": "Mille baisers amoureux."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIII, pp. 74-75 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Mille baisers amoureux.",
+      "en": "A thousand loving kisses.",
+      "ko": "사랑을 담아 입맞춤을 천 번."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "écrire",
+     "pos": "v.",
+     "ipa": "ekʁiʁ",
+     "en": "to write",
+     "ko": "쓰다"
+    },
+    {
+     "fr": "souvent",
+     "pos": "adv.",
+     "ipa": "suvɑ̃",
+     "en": "often",
+     "ko": "자주"
+    },
+    {
+     "fr": "pauvre",
+     "pos": "adj.",
+     "ipa": "povʁ",
+     "en": "poor",
+     "ko": "가엾은; 가난한"
+    },
+    {
+     "fr": "mari",
+     "pos": "n.m.",
+     "ipa": "maʁi",
+     "en": "husband",
+     "ko": "남편"
+    },
+    {
+     "fr": "terre",
+     "pos": "n.f.",
+     "ipa": "tɛʁ",
+     "en": "earth, ground, soil",
+     "ko": "땅, 흙",
+     "icon": "🌍"
+    },
+    {
+     "fr": "nuit",
+     "pos": "n.f.",
+     "ipa": "nɥi",
+     "en": "night",
+     "ko": "밤",
+     "icon": "🌙"
+    }
+   ],
+   "note": {
+    "ko": "1796년 9월, 보나파르트는 만토바를 에워싼 채 베로나에 머물렀어요. 조제핀은 여름부터 밀라노에 와 있었지만 둘은 거의 만나지 못했어요. 그는 ‘못됐다, 못생겼다’ 하며 장난스럽게 투정을 부리고, 어느 날 밤 문을 박차고 들어가겠다고 해요. 날짜 줄의 ‘보충일 첫날’은 공화력에서 한 해 끝에 붙는 닷새 가운데 첫날이에요.",
+    "en": "In September 1796 Bonaparte was at Verona, besieging Mantua. Joséphine had been in Milan since the summer, but they hardly saw each other. He teases her (‘naughty’, ‘ugly’) and threatens to burst through her door one night. The ‘first complementary day’ in the date line is the first of the five extra days at the end of the Republican year.",
+    "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIII, pp. 74-75 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Vue de Vérone avec le Ponte delle Navi",
+    "title_en": "View of Verona with the Ponte delle Navi",
+    "title_ko": "배다리가 보이는 베로나 풍경",
+    "date": "c. 1745–1747",
+    "credit": "Bernardo Bellotto",
+    "collection": "Gemäldegalerie Alte Meister, Dresden [미확인: 판 · 소장 번호; 다른 판 National Trust, Powis Castle]",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/Category:Bernardo_Bellotto_-_View_of_Verona_with_the_Ponte_delle_Navi [미확인: 분류 · 파일 이름]",
+    "why": {
+     "ko": "보나파르트가 이 편지를 쓴 도시 베로나를, 반세기 전 벨로토가 그린 풍경이에요.",
+     "en": "Verona, where the letter was written, as Bellotto painted it half a century earlier."
+    },
+    "image": "n-c2-l1.webp",
+    "kind": "landscape",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "II.0",
+     "fr": "Où es-tu maintenant ? Je t'écris ce soir, promis.",
+     "en": "Where are you now? I'll write to you tonight, I promise.",
+     "ko": "지금 어디에 있어요? 오늘 밤에 꼭 편지 쓸게요.",
+     "koLow": "지금 어디에 있어? 오늘 밤에 꼭 편지 쓸게.",
+     "koHigh": "지금 어디에 계십니까? 오늘 밤에 꼭 편지를 쓰겠습니다.",
+     "focus": {
+      "fr": [
+       "Où es-tu"
+      ],
+      "en": [
+       "Where are you"
+      ],
+      "ko": [
+       "어디에"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Où est-tu",
+        "Où tu es-tu"
+       ]
+      ],
+      "en": [
+       [
+        "Where you are",
+        "Where do you are"
+       ]
+      ],
+      "ko": [
+       [
+        "어디가",
+        "어디를"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Vérone · 17 septembre 1796",
+      "en": "Bonaparte is in Verona · 17 September 1796",
+      "ko": "보나파르트가 베로나에 있어요 · 1796년 9월 17일"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "verone",
+     "title": {
+      "fr": "Vérone",
+      "en": "Verona",
+      "ko": "베로나"
+     },
+     "address": "Vénétie, sur l'Adige"
+    }
+   ],
+   "status": {
+    "fr": "Lettres trop rares",
+    "en": "Too few letters",
+    "ko": "너무 드문 편지"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "D'après la lettre, qui écrit souvent ?",
+      "en": "According to the letter, who writes often?",
+      "ko": "편지에 따르면 누가 자주 편지를 쓰나요?"
+     },
+     "options": [
+      {
+       "fr": "Joséphine",
+       "en": "Joséphine",
+       "ko": "조제핀"
+      },
+      {
+       "fr": "Napoléon",
+       "en": "Napoleon",
+       "ko": "나폴레옹"
+      },
+      {
+       "fr": "Les deux",
+       "en": "Both of them",
+       "ko": "두 사람 다"
+      },
+      {
+       "fr": "Personne",
+       "en": "Nobody",
+       "ko": "아무도 안 써요"
+      }
+     ],
+     "answer": 1,
+     "evidence": 0,
+     "mark": {
+      "fr": "souvent",
+      "en": "often",
+      "ko": "자주"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "베로나에서 편지를 기다리는 보나파르트와 통화",
+     "en": "On the phone with Bonaparte, waiting for letters in Verona"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Joséphine, je t'écris tous les jours. Et toi ?",
+      "en": "Joséphine, I write to you every day. And you?",
+      "ko": "조제핀, 나는 매일 편지를 써. 당신은?"
+     },
+     {
+      "who": "me",
+      "fr": "Moi aussi, je t'écris souvent !",
+      "en": "I write to you often too!",
+      "ko": "나도 자주 쓰는걸!",
+      "focus": {
+       "fr": [
+        "je t'écris"
+       ],
+       "en": [
+        "often"
+       ],
+       "ko": [
+        "자주"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "je te écris",
+         "j'écris te"
+        ]
+       ],
+       "en": [
+        [
+         "oftenly",
+         "ofen"
+        ]
+       ],
+       "ko": [
+        [
+         "자조",
+         "자쭈"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Pas souvent. Et moi, je suis loin, et fatigué…",
+      "en": "Not often. And I'm far away, and tired…",
+      "ko": "자주는 아니지. 게다가 난 멀리 있고, 피곤해…"
+     },
+     {
+      "who": "me",
+      "fr": "Je sais. Mais je t'aime, toujours !",
+      "en": "I know. But I'll always love you!",
+      "ko": "알아. 그래도 언제나 당신을 사랑해!",
+      "focus": {
+       "fr": [
+        "je t'aime"
+       ],
+       "en": [
+        "always"
+       ],
+       "ko": [
+        "언제나"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "je te aime",
+         "j'aime te"
+        ]
+       ],
+       "en": [
+        [
+         "alway",
+         "allways"
+        ]
+       ],
+       "ko": [
+        [
+         "언재나",
+         "언제라"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "écrire",
+     "souvent"
+    ],
+    "grammar": "II.2",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  },
+  {
+   "id": "c2-l2",
+   "date": "1796-10-17",
+   "dateNote": "Modène, le 26 vendémiaire an V (17 octobre 1796), à 9 heures du soir",
+   "ref": "Didot 1833, t. I, n° XIV, pp. 76-78 · https://archive.org/details/lettresdenapolo01josegoog",
+   "place": "Modena",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "tender",
+   "excerpt": "Omitted: 'Que vous reste-t-il … à la démarche monotone !', the news line 'Les Anglais évacuent la Méditerranée. La Corse est à nous …', and the signature.",
+   "messages": [
+    {
+     "fr": "J'ai été avant-hier toute la journée en campagne. J'ai gardé hier le lit.",
+     "en": "The day before yesterday I was out in the field all day. Yesterday I stayed in bed.",
+     "ko": "그저께는 하루 종일 밖에서 군대와 함께 있었어. 어제는 침대에 누워만 있었고.",
+     "orig": {
+      "fr": "J'ai été avant-hier toute la journée en campagne. J'ai gardé hier le lit."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIV, pp. 76-78 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "J'ai été avant-hier toute la journée en campagne. // J'ai gardé hier le lit.",
+      "en": "The day before yesterday I was out in the field all day. // Yesterday I stayed in bed.",
+      "ko": "그저께는 하루 종일 밖에서 군대와 함께 있었어. // 어제는 침대에 누워만 있었고."
+     }
+    },
+    {
+     "fr": "La fièvre et un violent mal de tête, tout cela m'a empêché d'écrire à mon adorable amie ; mais j'ai reçu ses lettres, je les ai pressées contre mon cœur et mes lèvres, et la douleur de l'absence, cent milles d'éloignement, ont disparu.",
+     "en": "Fever and a violent headache: all that kept me from writing to my adorable love. But I received her letters, I pressed them to my heart and my lips, and the pain of absence, a hundred miles of distance, disappeared.",
+     "ko": "열이 나고 머리가 지독하게 아파서, 사랑스러운 내 연인에게 편지를 못 썼어. 그래도 그녀의 편지는 받았지. 편지를 가슴과 입술에 꼭 대니까, 떨어져 있는 아픔도, 백 마일이나 되는 거리도 사라졌어.",
+     "orig": {
+      "fr": "La fièvre et un violent mal de tête, tout cela m'a empêché d'écrire à mon adorable amie; mais j'ai reçu ses lettres, je les ai pressées contre mon cœur et mes lèvres, et la douleur de l'absence, cent milles d'éloignement, ont disparu."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIV, pp. 76-78 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "La fièvre et un violent mal de tête, / tout cela m'a empêché d'écrire à mon adorable amie ; // mais j'ai reçu ses lettres, / je les ai pressées contre mon cœur et mes lèvres, / et la douleur de l'absence, / cent milles d'éloignement, / ont disparu.",
+      "en": "Fever and a violent headache: // all that kept me from writing to my adorable love. // But I received her letters, / I pressed them to my heart and my lips, / and the pain of absence, / a hundred miles of distance, disappeared.",
+      "ko": "열이 나고 머리가 지독하게 아파서, / 사랑스러운 내 연인에게 편지를 못 썼어. // 그래도 그녀의 편지는 받았지. // 편지를 가슴과 입술에 꼭 대니까, / 떨어져 있는 아픔도, / 백 마일이나 되는 거리도 사라졌어."
+     }
+    },
+    {
+     "fr": "Dans ce moment, je t'ai vue près de moi, non capricieuse et fâchée, mais douce, tendre, avec cette onction de bonté qui est exclusivement le partage de ma Joséphine.",
+     "en": "At that moment I saw you near me, not moody and cross, but sweet and tender, with that gentle kindness that belongs to my Joséphine alone.",
+     "ko": "그 순간 당신이 내 곁에 있는 게 보였어. 변덕스럽고 화난 얼굴이 아니라, 부드럽고 다정한 얼굴로. 나의 조제핀만 가진 그 따스한 착함을 품고.",
+     "orig": {
+      "fr": "Dans ce moment je t'ai vue près de moi, non capricieuse et fâchée, mais douce, tendre, avec cette onction de bonté qui est exclusivement le partage de ma Joséphine."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIV, pp. 76-78 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Dans ce moment, / je t'ai vue près de moi, / non capricieuse et fâchée, / mais douce, tendre, / avec cette onction de bonté qui est exclusivement le partage de ma Joséphine.",
+      "en": "At that moment I saw you near me, / not moody and cross, / but sweet and tender, / with that gentle kindness that belongs to my Joséphine alone.",
+      "ko": "그 순간 당신이 내 곁에 있는 게 보였어. // 변덕스럽고 화난 얼굴이 아니라, / 부드럽고 다정한 얼굴로. // 나의 조제핀만 가진 그 따스한 착함을 품고."
+     }
+    },
+    {
+     "fr": "C'était un rêve ; juge si cela m'a guéri de la fièvre.",
+     "en": "It was a dream; you can judge whether it cured my fever.",
+     "ko": "꿈이었어. 그 꿈이 내 열을 낫게 했을지, 당신이 생각해 봐.",
+     "orig": {
+      "fr": "C'était un rêve; juge si cela m'a guéri de la fièvre."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIV, pp. 76-78 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "C'était un rêve ; // juge si cela m'a guéri de la fièvre.",
+      "en": "It was a dream; // you can judge whether it cured my fever.",
+      "ko": "꿈이었어. // 그 꿈이 내 열을 낫게 했을지, / 당신이 생각해 봐."
+     }
+    },
+    {
+     "fr": "Tes lettres sont froides comme cinquante ans ; elles ressemblent à quinze ans de mariage. On y voit l'amitié et les sentiments de cet hiver de la vie.",
+     "en": "Your letters are as cold as fifty years of age; they are like fifteen years of marriage. In them one sees friendship, and the feelings of life's winter.",
+     "ko": "당신 편지는 쉰 살처럼 차가워. 결혼한 지 열다섯 해 된 부부 같아. 거기엔 우정과, 인생의 겨울 같은 감정만 보여.",
+     "orig": {
+      "fr": "Tes lettres sont froides comme cinquante ans, elles ressemblent à quinze ans de mariage. On y voit l'amitié et les sentiments de cet hiver de la vie."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIV, pp. 76-78 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Tes lettres sont froides comme cinquante ans ; // elles ressemblent à quinze ans de mariage. // On y voit l'amitié et les sentiments de cet hiver de la vie.",
+      "en": "Your letters are as cold as fifty years of age; // they are like fifteen years of marriage. // In them one sees friendship, / and the feelings of life's winter.",
+      "ko": "당신 편지는 쉰 살처럼 차가워. // 결혼한 지 열다섯 해 된 부부 같아. // 거기엔 우정과, 인생의 겨울 같은 감정만 보여."
+     }
+    },
+    {
+     "fr": "Fi ! Joséphine !… C'est bien méchant, bien mauvais, bien traître à vous.",
+     "en": "Shame on you, Joséphine!… That is very naughty of you, very bad, very treacherous.",
+     "ko": "쳇, 조제핀!… 정말 못됐어요. 정말 나빠요. 정말 배신이에요.",
+     "orig": {
+      "fr": "Fi! Joséphine!... C'est bien méchant, bien mauvais, bien traître à vous."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIV, pp. 76-78 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Fi ! // Joséphine !… // C'est bien méchant, / bien mauvais, bien traître à vous.",
+      "en": "Shame on you, Joséphine!… // That is very naughty of you, / very bad, very treacherous.",
+      "ko": "쳇, 조제핀!… // 정말 못됐어요. // 정말 나빠요. // 정말 배신이에요."
+     }
+    },
+    {
+     "fr": "Mille, mille baisers bien tendres, comme mon cœur. Je me porte un peu mieux, je pars demain.",
+     "en": "A thousand, thousand very tender kisses, like my heart. I'm a little better; I leave tomorrow.",
+     "ko": "천 번, 또 천 번, 아주 다정한 입맞춤을. 내 마음처럼. 몸은 조금 나아졌어. 내일 떠나.",
+     "orig": {
+      "fr": "Mille, mille baisers bien tendres, comme mon cœur.\nJe me porte un peu mieux, je pars demain."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIV, pp. 76-78 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Mille, mille baisers bien tendres, / comme mon cœur. // Je me porte un peu mieux, / je pars demain.",
+      "en": "A thousand, thousand very tender kisses, / like my heart. // I'm a little better; // I leave tomorrow.",
+      "ko": "천 번, 또 천 번, / 아주 다정한 입맞춤을. // 내 마음처럼. // 몸은 조금 나아졌어. // 내일 떠나."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "hier",
+     "pos": "adv.",
+     "ipa": "jɛʁ",
+     "en": "yesterday",
+     "ko": "어제"
+    },
+    {
+     "fr": "lit",
+     "pos": "n.m.",
+     "ipa": "li",
+     "en": "bed",
+     "ko": "침대",
+     "icon": "🛏️"
+    },
+    {
+     "fr": "fièvre",
+     "pos": "n.f.",
+     "ipa": "fjɛvʁ",
+     "en": "fever",
+     "ko": "열, 신열",
+     "icon": "🤒"
+    },
+    {
+     "fr": "tête",
+     "pos": "n.f.",
+     "ipa": "tɛt",
+     "en": "head",
+     "ko": "머리"
+    },
+    {
+     "fr": "rêve",
+     "pos": "n.m.",
+     "ipa": "ʁɛv",
+     "en": "dream",
+     "ko": "꿈",
+     "icon": "💭"
+    },
+    {
+     "fr": "froid",
+     "pos": "adj.",
+     "ipa": "fʁwa",
+     "en": "cold",
+     "ko": "차가운"
+    }
+   ],
+   "note": {
+    "ko": "모데나에서 열과 두통으로 하루를 침대에서 보낸 날 밤 아홉 시에 쓴 편지예요. 꿈에서 본 다정한 조제핀과 편지 속 ‘쉰 살처럼 차가운’ 조제핀을 견주며 놀려요. 끝에서 갑자기 vous(당신께)로 바꿔 부르는 것도 토라진 말투예요. 그래서 한국어도 그 줄만 높여 옮겼어요.",
+    "en": "Written at nine in the evening at Modena, after a day in bed with fever and a headache. He contrasts the tender Joséphine of his dream with the Joséphine of her letters, ‘as cold as fifty years’. Switching suddenly to the formal vous at the end is part of the sulk, so the Korean line is in polite speech too.",
+    "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIV, pp. 76-78 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "L'Impératrice Joséphine",
+    "title_en": "Empress Joséphine",
+    "title_ko": "조제핀 황후",
+    "date": "1808–1809",
+    "credit": "Antoine-Jean Gros",
+    "collection": "Musée Masséna, Nice [미확인: 소장 번호]",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portrait_of_Joséphine_by_Antoine-Jean_Gros [미확인: 분류 · 파일 이름]",
+    "why": {
+     "ko": "열에 들뜬 밤, 그가 꿈에서 본 ‘부드럽고 다정한’ 조제핀. 열두 해 뒤 그로가 그린 초상이에요.",
+     "en": "The ‘sweet, tender’ Joséphine of his fever dream, in a portrait Gros painted twelve years later."
+    },
+    "image": "n-c2-l2.webp",
+    "kind": "portrait",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "II.1",
+     "fr": "Mes lettres ne sont pas froides. Et je ne suis plus fâchée !",
+     "en": "My letters aren't cold. And I'm not angry anymore!",
+     "ko": "제 편지는 차갑지 않아요. 이제 화도 안 나요!",
+     "koLow": "내 편지는 차갑지 않아. 이제 화도 안 나!",
+     "koHigh": "제 편지는 차갑지 않습니다. 이제 화도 나지 않습니다!",
+     "focus": {
+      "fr": [
+       "ne sont pas",
+       "ne suis plus"
+      ],
+      "en": [
+       "aren't",
+       "not angry anymore"
+      ],
+      "ko": [
+       "차갑지 않아요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "ne sont plus pas",
+        "sont pas ne"
+       ],
+       [
+        "ne suis pas plus",
+        "suis ne plus"
+       ]
+      ],
+      "en": [
+       [
+        "isn't",
+        "not are"
+       ],
+       [
+        "not angry any",
+        "no angry anymore"
+       ]
+      ],
+      "ko": [
+       [
+        "차갑지 안아요",
+        "차갑지 않어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Modène · 17 octobre 1796, 9 heures du soir",
+      "en": "Bonaparte is in Modena · 17 October 1796, 9 in the evening",
+      "ko": "보나파르트가 모데나에 있어요 · 1796년 10월 17일 밤 9시"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "modene",
+     "title": {
+      "fr": "Modène",
+      "en": "Modena",
+      "ko": "모데나"
+     },
+     "address": "Émilie, entre Bologne et Parme"
+    }
+   ],
+   "status": {
+    "fr": "Un jour au lit",
+    "en": "A day in bed",
+    "ko": "침대에서 보낸 하루"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Pourquoi Napoléon n'a-t-il pas écrit ?",
+      "en": "Why didn't Napoleon write?",
+      "ko": "나폴레옹은 왜 편지를 못 썼나요?"
+     },
+     "options": [
+      {
+       "fr": "Il n'avait pas de papier",
+       "en": "He had no paper",
+       "ko": "종이가 없어서"
+      },
+      {
+       "fr": "Il avait de la fièvre et mal à la tête",
+       "en": "He had a fever and a headache",
+       "ko": "열이 나고 머리가 아파서"
+      },
+      {
+       "fr": "Il était fâché",
+       "en": "He was angry",
+       "ko": "화가 나서"
+      },
+      {
+       "fr": "Il était au théâtre",
+       "en": "He was at the theatre",
+       "ko": "극장에 가서"
+      }
+     ],
+     "answer": 1,
+     "evidence": 1,
+     "mark": {
+      "fr": "fièvre",
+      "en": "fever",
+      "ko": "열이 나고"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "열이 나서 누워 있는 보나파르트와 통화",
+     "en": "On the phone with Bonaparte, in bed with a fever"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Je suis au lit. J'ai de la fièvre.",
+      "en": "I'm in bed. I have a fever.",
+      "ko": "나 지금 누워 있어. 열이 나."
+     },
+     {
+      "who": "me",
+      "fr": "Oh non ! Tu ne travailles plus aujourd'hui, d'accord ?",
+      "en": "Oh no! You're not working anymore today, OK?",
+      "ko": "어머! 오늘은 이제 일하지 마, 알았지?",
+      "focus": {
+       "fr": [
+        "ne travailles plus"
+       ],
+       "en": [
+        "not working anymore"
+       ],
+       "ko": [
+        "일하지 마"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ne travailles pas plus",
+         "travailles ne plus"
+        ]
+       ],
+       "en": [
+        [
+         "not working any",
+         "no working anymore"
+        ]
+       ],
+       "ko": [
+        [
+         "일하지 말",
+         "일 안 하지 마"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "D'accord. Mais tes lettres sont si froides !",
+      "en": "OK. But your letters are so cold!",
+      "ko": "알았어. 그런데 당신 편지는 너무 차가워!"
+     },
+     {
+      "who": "me",
+      "fr": "Mais non, elles ne sont pas froides ! Repose-toi.",
+      "en": "No, they aren't cold! Get some rest.",
+      "ko": "아니야, 차갑지 않아! 좀 쉬어.",
+      "focus": {
+       "fr": [
+        "ne sont pas"
+       ],
+       "en": [
+        "aren't"
+       ],
+       "ko": [
+        "차갑지 않아"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ne sont pas pas",
+         "sont ne pas"
+        ]
+       ],
+       "en": [
+        [
+         "isn't",
+         "not are"
+        ]
+       ],
+       "ko": [
+        [
+         "차갑지 안아",
+         "차갑지 않어"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "lit",
+     "fièvre",
+     "froid"
+    ],
+    "grammar": "II.1",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  },
+  {
+   "id": "c2-l3",
+   "date": "1796-11-23",
+   "dateNote": "Vérone, le 3 frimaire an V. The printed Gregorian date reads '13 novembre 1796' in the scans (OCR '[3'/'i3'); 3 frimaire an V = 23 Nov 1796 (Hall: Nov 23).",
+   "ref": "Didot 1833, t. I, n° XVI, pp. 81-83 · https://archive.org/details/lettresdenapolo01josegoog",
+   "place": "Verona",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "tender",
+   "excerpt": "Omitted: 'Quel peut être ce merveilleux, ce nouvel amant … de votre mari ?' and 'Joséphine, prenez-y garde : une belle nuit, les portes enfoncées, et me voilà.' (it repeats c2-l1), and the signature.",
+   "messages": [
+    {
+     "fr": "Je ne t'aime plus du tout ; au contraire, je te déteste. Tu es une vilaine, bien gauche, bien bête, bien cendrillon.",
+     "en": "I don't love you at all anymore; on the contrary, I hate you. You're a horrid girl, very clumsy, very silly, a real Cinderella.",
+     "ko": "이제 당신을 하나도 안 사랑해. 오히려 미워. 당신은 못된 사람이야. 아주 서툴고, 아주 바보 같고, 영락없는 신데렐라야.",
+     "orig": {
+      "fr": "Je ne t'aime plus du tout; au contraire, je te déteste. Tu es une vilaine, bien gauche, bien bête, bien cendrillon."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVI, pp. 81-83 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je ne t'aime plus du tout ; // au contraire, je te déteste. // Tu es une vilaine, / bien gauche, bien bête, / bien cendrillon.",
+      "en": "I don't love you at all anymore; // on the contrary, / I hate you. // You're a horrid girl, / very clumsy, very silly, / a real Cinderella.",
+      "ko": "이제 당신을 하나도 안 사랑해. // 오히려 미워. // 당신은 못된 사람이야. // 아주 서툴고, 아주 바보 같고, / 영락없는 신데렐라야."
+     }
+    },
+    {
+     "fr": "Tu ne m'écris pas du tout, tu n'aimes pas ton mari ; tu sais le plaisir que tes lettres lui font, et tu ne lui écris pas six lignes jetées au hasard !",
+     "en": "You don't write to me at all, you don't love your husband. You know how much pleasure your letters give him, and you won't write him even six lines dashed off at random!",
+     "ko": "나한테 편지를 아예 안 쓰잖아. 남편을 안 사랑하는 거야. 당신 편지가 남편을 얼마나 기쁘게 하는지 알면서, 아무렇게나 휘갈긴 여섯 줄도 안 써 주다니!",
+     "orig": {
+      "fr": "Tu ne m'écris pas du tout, tu n'aimes pas ton mari; tu sais le plaisir que tes lettres lui font, et tu ne lui écris pas six lignes jetées au hasard!"
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVI, pp. 81-83 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Tu ne m'écris pas du tout, / tu n'aimes pas ton mari ; // tu sais le plaisir que tes lettres lui font, / et tu ne lui écris pas six lignes jetées au hasard !",
+      "en": "You don't write to me at all, / you don't love your husband. // You know how much pleasure your letters give him, / and you won't write him even six lines dashed off at random!",
+      "ko": "나한테 편지를 아예 안 쓰잖아. // 남편을 안 사랑하는 거야. // 당신 편지가 남편을 얼마나 기쁘게 하는지 알면서, / 아무렇게나 휘갈긴 여섯 줄도 안 써 주다니!"
+     }
+    },
+    {
+     "fr": "Que faites-vous donc toute la journée, madame ? Quelle affaire si importante vous ôte le temps d'écrire à votre bien bon amant ?",
+     "en": "So what do you do all day, madame? What business is so important that it leaves you no time to write to your very good lover?",
+     "ko": "그래서 하루 종일 무얼 하시나요, 부인? 무슨 일이 그리 중요해서, 그 착한 연인에게 편지 쓸 시간도 없으신가요?",
+     "orig": {
+      "fr": "Que faites-vous donc toute la journée, madame? Quelle affaire si importante vous ôte le temps d'écrire à votre bien bon amant?"
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVI, pp. 81-83 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Que faites-vous donc toute la journée, / madame ? // Quelle affaire si importante vous ôte le temps d'écrire à votre bien bon amant ?",
+      "en": "So what do you do all day, madame? // What business is so important that it leaves you no time to write to your very good lover?",
+      "ko": "그래서 하루 종일 무얼 하시나요, 부인? // 무슨 일이 그리 중요해서, / 그 착한 연인에게 편지 쓸 시간도 없으신가요?"
+     }
+    },
+    {
+     "fr": "Quelle affection étouffe et met de côté l'amour, le tendre et constant amour que vous lui avez promis ?",
+     "en": "What affection is smothering and pushing aside love, the tender and faithful love you promised him?",
+     "ko": "어떤 정이 사랑을 숨 막히게 하고 밀어낸 건가요? 그에게 약속하신 그 다정하고 한결같은 사랑을요.",
+     "orig": {
+      "fr": "Quelle affection étouffe et met de côté l'amour, le tendre et constant amour que vous lui avez promis?"
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVI, pp. 81-83 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Quelle affection étouffe et met de côté l'amour, / le tendre et constant amour que vous lui avez promis ?",
+      "en": "What affection is smothering and pushing aside love, / the tender and faithful love you promised him?",
+      "ko": "어떤 정이 사랑을 숨 막히게 하고 밀어낸 건가요? // 그에게 약속하신 그 다정하고 한결같은 사랑을요."
+     }
+    },
+    {
+     "fr": "En vérité, je suis inquiet, ma bonne amie, de ne pas recevoir de tes nouvelles ; écris-moi vite quatre pages, et de ces aimables choses qui remplissent mon cœur de sentiment et de plaisir.",
+     "en": "Truly, my dear, I'm worried at getting no news from you. Write me four pages, quickly, full of those lovely things that fill my heart with feeling and pleasure.",
+     "ko": "정말이지, 걱정돼, 내 사랑. 당신 소식을 못 받으니까. 얼른 네 쪽 써 보내 줘. 내 가슴을 따뜻한 마음과 기쁨으로 채워 주는 그 사랑스러운 이야기들로.",
+     "orig": {
+      "fr": "En vérité, je suis inquiet, ma bonne amie, de ne pas recevoir de tes nouvelles; écris-moi vite quatre pages, et de ces aimables choses qui remplissent mon cœur de sentiment et de plaisir."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVI, pp. 81-83 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "En vérité, je suis inquiet, / ma bonne amie, / de ne pas recevoir de tes nouvelles ; // écris-moi vite quatre pages, / et de ces aimables choses qui remplissent mon cœur de sentiment et de plaisir.",
+      "en": "Truly, my dear, / I'm worried at getting no news from you. // Write me four pages, quickly, / full of those lovely things that fill my heart with feeling and pleasure.",
+      "ko": "정말이지, 걱정돼, 내 사랑. // 당신 소식을 못 받으니까. // 얼른 네 쪽 써 보내 줘. // 내 가슴을 따뜻한 마음과 기쁨으로 채워 주는 그 사랑스러운 이야기들로."
+     }
+    },
+    {
+     "fr": "J'espère qu'avant peu je te serrerai dans mes bras, et je te couvrirai d'un million de baisers brûlants comme sous l'équateur.",
+     "en": "I hope that before long I'll hold you tight in my arms and cover you with a million kisses, burning as if under the equator.",
+     "ko": "머지않아 당신을 품에 꼭 안을 수 있으면 좋겠어. 그러면 적도 아래처럼 뜨거운 입맞춤을 백만 번 퍼부을 거야.",
+     "orig": {
+      "fr": "J'espère qu'avant peu je te serrerai dans mes bras, et je te couvrirai d'un million de baisers brûlants comme sous l'équateur."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVI, pp. 81-83 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "J'espère qu'avant peu je te serrerai dans mes bras, / et je te couvrirai d'un million de baisers brûlants comme sous l'équateur.",
+      "en": "I hope that before long I'll hold you tight in my arms and cover you with a million kisses, / burning as if under the equator.",
+      "ko": "머지않아 당신을 품에 꼭 안을 수 있으면 좋겠어. // 그러면 적도 아래처럼 뜨거운 입맞춤을 백만 번 퍼부을 거야."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "détester",
+     "pos": "v.",
+     "ipa": "detɛste",
+     "en": "to hate",
+     "ko": "몹시 싫어하다"
+    },
+    {
+     "fr": "bête",
+     "pos": "adj.",
+     "ipa": "bɛt",
+     "en": "silly, stupid",
+     "ko": "어리석은, 바보 같은"
+    },
+    {
+     "fr": "ligne",
+     "pos": "n.f.",
+     "ipa": "liɲ",
+     "en": "line",
+     "ko": "줄; 선"
+    },
+    {
+     "fr": "journée",
+     "pos": "n.f.",
+     "ipa": "ʒuʁne",
+     "en": "day",
+     "ko": "하루, 낮"
+    },
+    {
+     "fr": "important",
+     "pos": "adj.",
+     "ipa": "ɛ̃pɔʁtɑ̃",
+     "en": "important",
+     "ko": "중요한"
+    },
+    {
+     "fr": "inquiet",
+     "pos": "adj.",
+     "ipa": "ɛ̃kjɛ",
+     "en": "worried",
+     "ko": "걱정하는"
+    }
+   ],
+   "note": {
+    "ko": "‘이제 하나도 안 사랑해’로 시작하지만 끝은 ‘얼른 네 쪽 써 줘’예요. 중간에 tu(너)에서 vous(부인)로 바꿔 부르며 일부러 거리를 두는데, 화났다는 장난스러운 몸짓이에요. 한국어도 그 대목만 높임말로 옮겼어요. cendrillon(신데렐라)은 그 시절 ‘부엌데기, 칠칠맞은 아이’라는 뜻으로도 썼어요.",
+    "en": "It begins ‘I don't love you at all anymore’ and ends ‘write me four pages, quickly’. In the middle he switches from tu to the formal vous (‘madame’) to keep her at a mock distance, a playful show of anger; the Korean uses polite speech for that passage. Cendrillon (Cinderella) was also used then for a kitchen drudge, a scatterbrained girl.",
+    "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVI, pp. 81-83 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Cendrillon (Les Contes de Perrault)",
+    "title_en": "Cinderella (Perrault's Fairy Tales)",
+    "title_ko": "신데렐라 (페로 동화집)",
+    "date": "1862–1867 (gravure)",
+    "credit": "Gustave Doré",
+    "collection": "Les Contes de Perrault, Paris, J. Hetzel, 1862 — 판화 [미확인: CC0 로 공개한 소장처 (예: Rijksmuseum · Met) 또는 공용 파일]",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/Category:Cendrillon_by_Gustave_Doré [미확인: 분류 · 파일 이름]",
+    "why": {
+     "ko": "편지 속 ‘bien cendrillon’. 페로의 신데렐라를 도레가 판화로 그렸어요.",
+     "en": "The ‘bien cendrillon’ of the letter: Perrault's Cinderella in Doré's engraving."
+    },
+    "image": "n-c2-l3.webp",
+    "kind": "print",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "II.2",
+     "fr": "Je t'aime, tu sais. Maintenant, je t'écris tous les jours !",
+     "en": "I love you, you know. Now I'll write to you every day!",
+     "ko": "사랑해요, 정말이에요. 이제 매일 편지 쓸게요. 조금만 기다리세요!",
+     "koLow": "사랑해, 정말이야. 이제 매일 편지 쓸게. 조금만 기다려!",
+     "koHigh": "사랑합니다, 정말입니다. 이제 매일 편지를 쓰겠습니다. 조금만 기다리십시오!",
+     "focus": {
+      "fr": [
+       "Je t'aime",
+       "je t'écris"
+      ],
+      "en": [
+       "every day"
+      ],
+      "ko": [
+       "기다리세요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Je te aime",
+        "J'aime te"
+       ],
+       [
+        "je te écris",
+        "j'écris te"
+       ]
+      ],
+      "en": [
+       [
+        "every days",
+        "all days"
+       ]
+      ],
+      "ko": [
+       [
+        "기다려세요",
+        "기다리시요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Vérone · 23 novembre 1796",
+      "en": "Bonaparte is in Verona · 23 November 1796",
+      "ko": "보나파르트가 베로나에 있어요 · 1796년 11월 23일"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "verone",
+     "title": {
+      "fr": "Vérone",
+      "en": "Verona",
+      "ko": "베로나"
+     },
+     "address": "Vénétie, sur l'Adige"
+    }
+   ],
+   "status": {
+    "fr": "Bien cendrillon",
+    "en": "A real Cinderella",
+    "ko": "영락없는 신데렐라"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Que demande Napoléon à Joséphine ?",
+      "en": "What does Napoleon ask Joséphine for?",
+      "ko": "나폴레옹은 조제핀에게 무엇을 해 달라고 하나요?"
+     },
+     "options": [
+      {
+       "fr": "De venir à Vérone",
+       "en": "To come to Verona",
+       "ko": "베로나로 와 달라고"
+      },
+      {
+       "fr": "D'écrire vite quatre pages",
+       "en": "To write four pages, quickly",
+       "ko": "얼른 네 쪽 써 달라고"
+      },
+      {
+       "fr": "D'envoyer son portrait",
+       "en": "To send her portrait",
+       "ko": "초상화를 보내 달라고"
+      },
+      {
+       "fr": "De ne plus écrire",
+       "en": "To stop writing",
+       "ko": "그만 쓰라고"
+      }
+     ],
+     "answer": 1,
+     "evidence": 4,
+     "mark": {
+      "fr": "quatre pages",
+      "en": "four pages",
+      "ko": "네 쪽"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "편지가 안 온다고 토라진 보나파르트와 통화",
+     "en": "On the phone with Bonaparte, sulking because no letters come"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Pourquoi tu ne m'écris pas ? Tu ne m'aimes plus ?",
+      "en": "Why don't you write to me? Don't you love me anymore?",
+      "ko": "왜 편지 안 써? 이제 나 안 사랑해?"
+     },
+     {
+      "who": "me",
+      "fr": "Bien sûr que si ! Pourquoi es-tu si jaloux ?",
+      "en": "Of course I do! Why are you so jealous?",
+      "ko": "당연히 사랑하지! 왜 그렇게 질투해?",
+      "focus": {
+       "fr": [
+        "Pourquoi es-tu"
+       ],
+       "en": [
+        "Why are you"
+       ],
+       "ko": [
+        "왜 그렇게"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Pourquoi est-tu",
+         "Pourquoi tu es-tu"
+        ]
+       ],
+       "en": [
+        [
+         "Why you are",
+         "Why do you are"
+        ]
+       ],
+       "ko": [
+        [
+         "뭐 그렇게",
+         "어디 그렇게"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Parce que je suis loin, et je n'ai pas de nouvelles.",
+      "en": "Because I'm far away, and I have no news.",
+      "ko": "내가 멀리 있는데 소식이 없으니까."
+     },
+     {
+      "who": "me",
+      "fr": "Où es-tu, là ? Je t'écris tout de suite.",
+      "en": "Where are you right now? I'll write to you right away.",
+      "ko": "지금 어디야? 바로 편지 쓸게.",
+      "focus": {
+       "fr": [
+        "Où es-tu"
+       ],
+       "en": [
+        "Where are you"
+       ],
+       "ko": [
+        "어디야"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Où est-tu",
+         "Où es-toi"
+        ]
+       ],
+       "en": [
+        [
+         "Where you are",
+         "Where is you"
+        ]
+       ],
+       "ko": [
+        [
+         "어디예",
+         "어디니야"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "nouvelle"
+    ],
+    "grammar": "II.0",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  },
+  {
+   "id": "c2-l4",
+   "date": "1796-11-27",
+   "dateNote": "Milan, le 7 frimaire an V, à trois heures après midi (27 novembre 1796)",
+   "ref": "Didot 1833, t. I, n° XVIII, pp. 85-86 · https://archive.org/details/lettresdenapolo01josegoog",
+   "place": "Milan",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "weary",
+   "excerpt": "Whole letter (the signature is left out). Message 0 ends where the printed text has a colon (‘tu n'y étais pas :’).",
+   "messages": [
+    {
+     "fr": "J'arrive à Milan, je me précipite dans ton appartement, j'ai tout quitté pour te voir, te presser dans mes bras ; tu n'y étais pas.",
+     "en": "I arrive in Milan, I rush into your rooms, I've left everything to see you, to hold you in my arms; you weren't there.",
+     "ko": "밀라노에 닿자마자 당신 방으로 달려갔어. 당신을 보려고, 품에 꼭 안으려고 모든 걸 두고 왔는데, 당신은 거기 없었어.",
+     "orig": {
+      "fr": "J'arrive à Milan, je me précipite dans ton appartement, j'ai tout quitté pour te voir, te presser dans mes bras; tu n'y étais pas:"
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVIII, pp. 85-86 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "J'arrive à Milan, / je me précipite dans ton appartement, / j'ai tout quitté pour te voir, / te presser dans mes bras ; // tu n'y étais pas.",
+      "en": "I arrive in Milan, / I rush into your rooms, / I've left everything to see you, / to hold you in my arms; // you weren't there.",
+      "ko": "밀라노에 닿자마자 당신 방으로 달려갔어. // 당신을 보려고, 품에 꼭 안으려고 모든 걸 두고 왔는데, / 당신은 거기 없었어."
+     }
+    },
+    {
+     "fr": "Tu cours les villes avec des fêtes ; tu t'éloignes de moi lorsque j'arrive, tu ne te soucies plus de ton cher Napoléon.",
+     "en": "You go from town to town, from party to party; you move away from me when I arrive; you no longer care about your dear Napoleon.",
+     "ko": "당신은 잔치를 따라 이 도시 저 도시 돌아다니지. 내가 오면 나한테서 멀어지고, 이제 당신의 소중한 나폴레옹은 신경도 안 써.",
+     "orig": {
+      "fr": "tu cours les villes avec des fêtes; tu t'éloignes de moi lorsque j'arrive, tu ne te soucies plus de ton cher Napoléon."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVIII, pp. 85-86 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Tu cours les villes avec des fêtes ; // tu t'éloignes de moi lorsque j'arrive, / tu ne te soucies plus de ton cher Napoléon.",
+      "en": "You go from town to town, / from party to party; // you move away from me when I arrive; // you no longer care about your dear Napoleon.",
+      "ko": "당신은 잔치를 따라 이 도시 저 도시 돌아다니지. // 내가 오면 나한테서 멀어지고, / 이제 당신의 소중한 나폴레옹은 신경도 안 써."
+     }
+    },
+    {
+     "fr": "Un caprice te l'a fait aimer, l'inconstance te le rend indifférent.",
+     "en": "A whim made you love him; fickleness makes him nothing to you.",
+     "ko": "변덕으로 그를 사랑했고, 변덕으로 그에게 무심해진 거야.",
+     "orig": {
+      "fr": "Un caprice te l'a fait aimer, l'inconstance te le rend indifférent."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVIII, pp. 85-86 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Un caprice te l'a fait aimer, / l'inconstance te le rend indifférent.",
+      "en": "A whim made you love him; // fickleness makes him nothing to you.",
+      "ko": "변덕으로 그를 사랑했고, / 변덕으로 그에게 무심해진 거야."
+     }
+    },
+    {
+     "fr": "Accoutumé aux dangers, je sais le remède aux ennuis et aux maux de la vie. Le malheur que j'éprouve est incalculable ; j'avais droit de n'y pas compter.",
+     "en": "Used to danger, I know the cure for life's troubles and ills. The unhappiness I feel is beyond measure; I had every right not to expect it.",
+     "ko": "위험에는 익숙해서, 살면서 겪는 근심과 아픔을 이기는 법은 알아. 그런데 지금 이 불행은 헤아릴 수가 없어. 이런 일은 없을 거라고 믿을 만했는데.",
+     "orig": {
+      "fr": "Accoutumé aux dangers, je sais le remède aux ennuis et aux maux de la vie. Le malheur que j'éprouve est incalculable; j'avais droit de n'y pas compter."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVIII, pp. 85-86 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Accoutumé aux dangers, / je sais le remède aux ennuis et aux maux de la vie. // Le malheur que j'éprouve est incalculable ; // j'avais droit de n'y pas compter.",
+      "en": "Used to danger, / I know the cure for life's troubles and ills. // The unhappiness I feel is beyond measure; // I had every right not to expect it.",
+      "ko": "위험에는 익숙해서, 살면서 겪는 근심과 아픔을 이기는 법은 알아. // 그런데 지금 이 불행은 헤아릴 수가 없어. // 이런 일은 없을 거라고 믿을 만했는데."
+     }
+    },
+    {
+     "fr": "Je serai ici jusqu'au 9 dans la journée. Ne te dérange pas ; cours les plaisirs ; le bonheur est fait pour toi.",
+     "en": "I'll be here until the 9th, during the day. Don't put yourself out; go after your pleasures; happiness was made for you.",
+     "ko": "나는 9일 낮까지 여기 있을 거야. 굳이 오지 마. 즐거움을 쫓아다녀. 행복은 당신을 위해 있는 거니까.",
+     "orig": {
+      "fr": "Je serai ici jusqu'au 9 dans la journée. Ne te dérange pas; cours les plaisirs; le bonheur est fait pour toi."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVIII, pp. 85-86 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je serai ici jusqu'au 9 dans la journée. // Ne te dérange pas ; // cours les plaisirs ; // le bonheur est fait pour toi.",
+      "en": "I'll be here until the 9th, / during the day. // Don't put yourself out; // go after your pleasures; // happiness was made for you.",
+      "ko": "나는 9일 낮까지 여기 있을 거야. // 굳이 오지 마. // 즐거움을 쫓아다녀. // 행복은 당신을 위해 있는 거니까."
+     }
+    },
+    {
+     "fr": "Le monde entier est trop heureux s'il peut te plaire, et ton mari seul est bien, bien malheureux.",
+     "en": "The whole world is only too happy if it can please you, and your husband alone is very, very unhappy.",
+     "ko": "온 세상이 당신 마음에 들 수만 있다면 기뻐 어쩔 줄 모르지. 당신 남편 혼자만 아주, 아주 불행해.",
+     "orig": {
+      "fr": "Le monde entier est trop heureux s'il peut te plaire, et ton mari seul est bien, bien malheureux."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVIII, pp. 85-86 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Le monde entier est trop heureux s'il peut te plaire, / et ton mari seul est bien, / bien malheureux.",
+      "en": "The whole world is only too happy if it can please you, / and your husband alone is very, / very unhappy.",
+      "ko": "온 세상이 당신 마음에 들 수만 있다면 기뻐 어쩔 줄 모르지. // 당신 남편 혼자만 아주, / 아주 불행해."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "arriver",
+     "pos": "v.",
+     "ipa": "aʁive",
+     "en": "to arrive",
+     "ko": "도착하다"
+    },
+    {
+     "fr": "appartement",
+     "pos": "n.m.",
+     "ipa": "apaʁtəmɑ̃",
+     "en": "flat, apartment",
+     "ko": "아파트, 집",
+     "icon": "🏠"
+    },
+    {
+     "fr": "quitter",
+     "pos": "v.",
+     "ipa": "kite",
+     "en": "to leave",
+     "ko": "떠나다, 두고 오다"
+    },
+    {
+     "fr": "ville",
+     "pos": "n.f.",
+     "ipa": "vil",
+     "en": "town",
+     "ko": "도시, 마을",
+     "icon": "🏙️"
+    },
+    {
+     "fr": "fête",
+     "pos": "n.f.",
+     "ipa": "fɛt",
+     "en": "party, feast",
+     "ko": "잔치",
+     "icon": "🎉"
+    },
+    {
+     "fr": "vie",
+     "pos": "n.f.",
+     "ipa": "vi",
+     "en": "life",
+     "ko": "삶"
+    }
+   ],
+   "note": {
+    "ko": "11월 중순 아르콜레에서 싸운 뒤, 보나파르트는 밀라노로 달려와 조제핀의 방에 들어갔어요. 그녀는 제노바의 잔치에 가 있었어요. 이 장의 제목 ‘빈 방’은 이 편지에서 왔어요. ‘9일까지’는 공화력 프리메르 9일, 곧 11월 29일이에요.",
+    "en": "After the fighting at Arcole in mid-November, Bonaparte rushed to Milan and into Joséphine's rooms. She had gone to the festivities in Genoa. This chapter takes its title, ‘The Empty Room’, from this letter. ‘Until the 9th’ means 9 Frimaire, that is 29 November.",
+    "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XVIII, pp. 85-86 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Portrait de Joséphine",
+    "title_en": "Portrait of Joséphine",
+    "title_ko": "조제핀의 초상",
+    "date": "c. 1798–1805 (miniature)",
+    "credit": "Jean-Baptiste Isabey",
+    "collection": "[미확인: 소장처 · 판 — 월리스 컬렉션 (런던) 또는 루브르 소묘실의 이자베 조제핀 세밀화 후보. 대안: 마르탱 드롤링 〈부엌 안〉 1815, 루브르]",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portrait_miniatures_of_Joséphine_de_Beauharnais [미확인: 분류 · 파일 이름]",
+    "why": {
+     "ko": "그가 달려왔을 때 방에 없던 사람. 이자베는 조제핀의 세밀화를 여러 번 그렸어요.",
+     "en": "The woman who was not in the room when he burst in; Isabey painted many miniatures of her."
+    },
+    "image": "n-c2-l4.webp",
+    "kind": "portrait",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "II.1",
+     "fr": "Ce n'est pas vrai ! Je ne pense plus aux fêtes : je rentre à Milan.",
+     "en": "That's not true! I don't think about parties anymore: I'm coming back to Milan.",
+     "ko": "그건 사실이 아니에요! 이제 잔치 생각은 하지 않아요. 밀라노로 돌아갈게요.",
+     "koLow": "그건 사실이 아니야! 이제 잔치 생각은 하지 않아. 밀라노로 돌아갈게.",
+     "koHigh": "그것은 사실이 아닙니다! 이제 잔치 생각은 하지 않습니다. 밀라노로 돌아가겠습니다.",
+     "focus": {
+      "fr": [
+       "Ce n'est pas",
+       "ne pense plus"
+      ],
+      "en": [
+       "don't think about parties anymore"
+      ],
+      "ko": [
+       "하지 않아요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Ce n'est plus pas",
+        "Ce pas est"
+       ],
+       [
+        "ne pense pas plus",
+        "pense ne plus"
+       ]
+      ],
+      "en": [
+       [
+        "don't think about parties any",
+        "not think about parties anymore"
+       ]
+      ],
+      "ko": [
+       [
+        "하지 안아요",
+        "하지 않어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Milan · 27 novembre 1796, trois heures après midi",
+      "en": "Bonaparte is in Milan · 27 November 1796, three in the afternoon",
+      "ko": "보나파르트가 밀라노에 있어요 · 1796년 11월 27일 오후 3시"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "milan",
+     "title": {
+      "fr": "Milan",
+      "en": "Milan",
+      "ko": "밀라노"
+     },
+     "address": "Lombardie · palais Serbelloni"
+    }
+   ],
+   "status": {
+    "fr": "La chambre vide",
+    "en": "The empty room",
+    "ko": "빈 방"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Napoléon entre dans l'appartement. Où est Joséphine ?",
+      "en": "Napoleon goes into her rooms. Where is Joséphine?",
+      "ko": "나폴레옹이 방에 들어갔을 때 조제핀은 어디에 있었나요?"
+     },
+     "options": [
+      {
+       "fr": "Dans sa chambre",
+       "en": "In her bedroom",
+       "ko": "자기 침실에"
+      },
+      {
+       "fr": "Elle n'est pas là",
+       "en": "She isn't there",
+       "ko": "거기 없었어요"
+      },
+      {
+       "fr": "Au lit, malade",
+       "en": "In bed, ill",
+       "ko": "아파서 누워 있었어요"
+      },
+      {
+       "fr": "À la fenêtre",
+       "en": "At the window",
+       "ko": "창가에"
+      }
+     ],
+     "answer": 1,
+     "evidence": 0,
+     "mark": {
+      "fr": "tu n'y étais pas",
+      "en": "you weren't there",
+      "ko": "거기 없었어"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "빈 방에 도착한 보나파르트와 통화",
+     "en": "On the phone with Bonaparte, who has just found her rooms empty"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Je suis à Milan… mais toi, où es-tu ?",
+      "en": "I'm in Milan… but where are you?",
+      "ko": "나 밀라노야… 그런데 당신 어디 있어?"
+     },
+     {
+      "who": "me",
+      "fr": "Je suis à Gênes, à une fête. Quand pars-tu ?",
+      "en": "I'm in Genoa, at a party. When are you leaving?",
+      "ko": "제노바야, 잔치에 와 있어. 언제 떠나?",
+      "focus": {
+       "fr": [
+        "Quand pars-tu"
+       ],
+       "en": [
+        "When are you leaving"
+       ],
+       "ko": [
+        "언제"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Quand part-tu",
+         "Quand tu pars-tu"
+        ]
+       ],
+       "en": [
+        [
+         "When you are leaving",
+         "When are you leave"
+        ]
+       ],
+       "ko": [
+        [
+         "어제",
+         "언재"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Le 9. Tout est triste ici sans toi.",
+      "en": "On the 9th. Everything is sad here without you.",
+      "ko": "9일에. 당신이 없으니 여기는 다 쓸쓸해."
+     },
+     {
+      "who": "me",
+      "fr": "Pardon, mon ami. Comment vas-tu, alors ?",
+      "en": "I'm sorry, my love. So how are you?",
+      "ko": "미안해, 여보. 그래서 몸은 어때?",
+      "focus": {
+       "fr": [
+        "Comment vas-tu"
+       ],
+       "en": [
+        "how are you"
+       ],
+       "ko": [
+        "어때"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Comment va-tu",
+         "Comment tu vas-tu"
+        ]
+       ],
+       "en": [
+        [
+         "how you are",
+         "how is you"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼",
+         "어대"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "fête"
+    ],
+    "grammar": "II.0",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  },
+  {
+   "id": "c2-l5",
+   "date": "1796-11-28",
+   "dateNote": "Milan, le 8 frimaire an V, huit heures du soir (28 novembre 1796)",
+   "ref": "Didot 1833, t. I, n° XIX, pp. 87-90 · https://archive.org/details/lettresdenapolo01josegoog",
+   "place": "Milan",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "tender",
+   "excerpt": "Sentences 1-3, the 'Pour moi …' sentence, the 'dentelle/or' sentence, 'Adieu, femme adorable …' and the postscript. Omitted: Berthier paragraph, the 'Sois heureuse …' and 'Quand je te sacrifie …' passages, 'Puisse le sort …' to '… bon à quelque chose', and the signature.",
+   "messages": [
+    {
+     "fr": "Je reçois le courrier que Berthier avait expédié à Gênes. Tu n'as pas eu le temps de m'écrire, je le sens facilement.",
+     "en": "The courier Berthier had sent to Genoa has come back. You didn't have time to write to me; I can easily understand that.",
+     "ko": "베르티에가 제노바로 보냈던 전령이 돌아왔어. 당신은 나한테 편지 쓸 시간이 없었구나. 그건 쉽게 알겠어.",
+     "orig": {
+      "fr": "Je reçois le courrier que Berthier avait expédié à Gênes. Tu n'as pas eu le temps de m'écrire, je le sens facilement."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIX, pp. 87-90 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je reçois le courrier que Berthier avait expédié à Gênes. // Tu n'as pas eu le temps de m'écrire, / je le sens facilement.",
+      "en": "The courier Berthier had sent to Genoa has come back. // You didn't have time to write to me; // I can easily understand that.",
+      "ko": "베르티에가 제노바로 보냈던 전령이 돌아왔어. // 당신은 나한테 편지 쓸 시간이 없었구나. // 그건 쉽게 알겠어."
+     }
+    },
+    {
+     "fr": "Environnée de plaisirs et de jeux, tu aurais tort de me faire le moindre sacrifice.",
+     "en": "Surrounded by pleasures and games, you'd be wrong to give up the smallest thing for me.",
+     "ko": "즐거움과 놀이에 둘러싸여 있는데, 나를 위해 조금이라도 무언가를 포기한다면 그게 잘못이겠지.",
+     "orig": {
+      "fr": "Environnée de plaisirs et de jeux, tu aurais tort de me faire le moindre sacrifice."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIX, pp. 87-90 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Environnée de plaisirs et de jeux, / tu aurais tort de me faire le moindre sacrifice.",
+      "en": "Surrounded by pleasures and games, / you'd be wrong to give up the smallest thing for me.",
+      "ko": "즐거움과 놀이에 둘러싸여 있는데, / 나를 위해 조금이라도 무언가를 포기한다면 그게 잘못이겠지."
+     }
+    },
+    {
+     "fr": "Pour moi, t'aimer seule, te rendre heureuse, ne rien faire qui puisse te contrarier, voilà le destin et le but de ma vie.",
+     "en": "As for me: to love you alone, to make you happy, to do nothing that might upset you, that is the destiny and the aim of my life.",
+     "ko": "나는 말이야, 당신만 사랑하고, 당신을 행복하게 해 주고, 당신 마음 상할 일은 하나도 안 하는 것, 그게 내 삶의 운명이고 목표야.",
+     "orig": {
+      "fr": "Pour moi, t'aimer seule, te rendre heureuse, ne rien faire qui puisse te contrarier, voilà le destin et le but de ma vie."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIX, pp. 87-90 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Pour moi, t'aimer seule, / te rendre heureuse, / ne rien faire qui puisse te contrarier, / voilà le destin et le but de ma vie.",
+      "en": "As for me: // to love you alone, / to make you happy, / to do nothing that might upset you, / that is the destiny and the aim of my life.",
+      "ko": "나는 말이야, 당신만 사랑하고, / 당신을 행복하게 해 주고, / 당신 마음 상할 일은 하나도 안 하는 것, / 그게 내 삶의 운명이고 목표야."
+     }
+    },
+    {
+     "fr": "Quand j'exige de toi un amour pareil au mien, j'ai tort : pourquoi vouloir que la dentelle pèse autant que l'or ?",
+     "en": "When I demand from you a love like mine, I'm wrong: why expect lace to weigh as much as gold?",
+     "ko": "당신에게 내 사랑만큼의 사랑을 바라는 건 내 잘못이야. 레이스가 금만큼 무겁기를 바랄 수는 없잖아?",
+     "orig": {
+      "fr": "Quand j'exige de toi un amour pareil au mien, j'ai tort: pourquoi vouloir que la dentelle pèse autant que l'or?"
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIX, pp. 87-90 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Quand j'exige de toi un amour pareil au mien, / j'ai tort : // pourquoi vouloir que la dentelle pèse autant que l'or ?",
+      "en": "When I demand from you a love like mine, / I'm wrong: // why expect lace to weigh as much as gold?",
+      "ko": "당신에게 내 사랑만큼의 사랑을 바라는 건 내 잘못이야. // 레이스가 금만큼 무겁기를 바랄 수는 없잖아?"
+     }
+    },
+    {
+     "fr": "Adieu, femme adorable, adieu, ma Joséphine.",
+     "en": "Goodbye, adorable woman; goodbye, my Joséphine.",
+     "ko": "잘 있어, 사랑스러운 여인. 잘 있어, 나의 조제핀.",
+     "orig": {
+      "fr": "Adieu, femme adorable, adieu, ma Joséphine."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIX, pp. 87-90 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Adieu, femme adorable, adieu, / ma Joséphine.",
+      "en": "Goodbye, adorable woman; // goodbye, my Joséphine.",
+      "ko": "잘 있어, 사랑스러운 여인. // 잘 있어, 나의 조제핀."
+     }
+    },
+    {
+     "fr": "Je rouvre ma lettre pour te donner un baiser… Ah ! Joséphine !… Joséphine !…",
+     "en": "I'm opening my letter again to give you a kiss… Ah! Joséphine!… Joséphine!…",
+     "ko": "입맞춤 하나 보내려고 편지를 다시 열었어… 아! 조제핀!… 조제핀!…",
+     "orig": {
+      "fr": "Je rouvre ma lettre pour te donner un baiser.... Ah! Joséphine!... Joséphine!..."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIX, pp. 87-90 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je rouvre ma lettre pour te donner un baiser… // Ah ! // Joséphine !… // Joséphine !…",
+      "en": "I'm opening my letter again to give you a kiss… // Ah! // Joséphine!… // Joséphine!…",
+      "ko": "입맞춤 하나 보내려고 편지를 다시 열었어… // 아! // 조제핀!… // 조제핀!…"
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "temps",
+     "pos": "n.m.",
+     "ipa": "tɑ̃",
+     "en": "time; weather",
+     "ko": "시간; 날씨"
+    },
+    {
+     "fr": "facilement",
+     "pos": "adv.",
+     "ipa": "fasilmɑ̃",
+     "en": "easily",
+     "ko": "쉽게"
+    },
+    {
+     "fr": "jeu",
+     "pos": "n.m.",
+     "ipa": "ʒø",
+     "en": "game, play",
+     "ko": "놀이, 게임"
+    },
+    {
+     "fr": "but",
+     "pos": "n.m.",
+     "ipa": "byt",
+     "en": "aim, goal",
+     "ko": "목표, 목적"
+    },
+    {
+     "fr": "femme",
+     "pos": "n.f.",
+     "ipa": "fam",
+     "en": "woman; wife",
+     "ko": "여자; 아내",
+     "icon": "👩"
+    },
+    {
+     "fr": "baiser",
+     "pos": "n.m.",
+     "ipa": "bɛze",
+     "en": "kiss",
+     "ko": "입맞춤",
+     "icon": "💋"
+    }
+   ],
+   "note": {
+    "ko": "빈 방에서 하룻밤을 보낸 뒤, 저녁 여덟 시에 마음을 조금 추스르고 쓴 편지예요. 자기 사랑을 금에, 그녀의 사랑을 가벼운 레이스에 견주어요. 다 쓴 편지를 다시 열어 입맞춤 하나를 더 보내요. 베르티에는 그의 참모장이에요.",
+    "en": "Written at eight the next evening, after a night in the empty rooms, a little calmer. He compares his love to gold and hers to light lace, then reopens the finished letter to send one more kiss. Berthier was his chief of staff.",
+    "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XIX, pp. 87-90 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "La Dentellière",
+    "title_en": "The Lacemaker",
+    "title_ko": "레이스 뜨는 여인",
+    "date": "c. 1669–1670",
+    "credit": "Johannes Vermeer",
+    "collection": "Musée du Louvre, Paris [미확인: 소장 번호 (MI 1448 로 기억)]",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_The_lacemaker_(c.1669-1671).jpg [미확인: 파일 이름]",
+    "why": {
+     "ko": "‘레이스가 금만큼 무겁기를 바랄 수는 없잖아’ 하는 편지에, 레이스를 뜨는 여인.",
+     "en": "For a letter that asks why lace should weigh as much as gold: a woman making lace."
+    },
+    "image": "n-c2-l5.webp",
+    "kind": "painting",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "II.2",
+     "fr": "Tu me rends heureuse, tu sais. Je t'aime, toujours.",
+     "en": "You make me happy, you know. I'll always love you.",
+     "ko": "당신 덕분에 행복해요. 그러니까 웃으세요!",
+     "koLow": "당신 덕분에 행복해. 그러니까 웃어!",
+     "koHigh": "당신 덕분에 행복합니다. 그러니 웃으십시오!",
+     "focus": {
+      "fr": [
+       "Tu me rends",
+       "Je t'aime"
+      ],
+      "en": [
+       "always"
+      ],
+      "ko": [
+       "웃으세요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Tu moi rends",
+        "Tu rends me"
+       ],
+       [
+        "Je te aime",
+        "J'aime te"
+       ]
+      ],
+      "en": [
+       [
+        "alway",
+        "allways"
+       ]
+      ],
+      "ko": [
+       [
+        "웃세요",
+        "웃어세요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est toujours à Milan · 28 novembre 1796, huit heures du soir",
+      "en": "Bonaparte is still in Milan · 28 November 1796, eight in the evening",
+      "ko": "보나파르트는 아직 밀라노에 있어요 · 1796년 11월 28일 저녁 8시"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "milan",
+     "title": {
+      "fr": "Milan",
+      "en": "Milan",
+      "ko": "밀라노"
+     },
+     "address": "Lombardie · palais Serbelloni"
+    }
+   ],
+   "status": {
+    "fr": "La dentelle et l'or",
+    "en": "Lace and gold",
+    "ko": "레이스와 금"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Quel est le but de la vie de Napoléon, d'après lui ?",
+      "en": "According to him, what is the aim of Napoleon's life?",
+      "ko": "나폴레옹은 자기 삶의 목표가 무엇이라고 하나요?"
+     },
+     "options": [
+      {
+       "fr": "Rendre Joséphine heureuse",
+       "en": "To make Joséphine happy",
+       "ko": "조제핀을 행복하게 하는 것"
+      },
+      {
+       "fr": "Rendre Joséphine jalouse",
+       "en": "To make Joséphine jealous",
+       "ko": "조제핀이 질투하게 하는 것"
+      },
+      {
+       "fr": "Aller à Gênes",
+       "en": "To go to Genoa",
+       "ko": "제노바에 가는 것"
+      },
+      {
+       "fr": "Acheter de l'or",
+       "en": "To buy gold",
+       "ko": "금을 사는 것"
+      }
+     ],
+     "answer": 0,
+     "evidence": 2,
+     "mark": {
+      "fr": "heureuse",
+      "en": "happy",
+      "ko": "행복하게"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "다음 날 저녁, 마음을 추스른 보나파르트와 통화",
+     "en": "On the phone the next evening, with a calmer Bonaparte"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Joséphine, je t'écris encore !",
+      "en": "Joséphine, I'm writing to you again!",
+      "ko": "조제핀, 또 편지 써!"
+     },
+     {
+      "who": "me",
+      "fr": "Merci ! Tes lettres, je les garde toujours.",
+      "en": "Thanks! I always keep your letters.",
+      "ko": "고마워! 당신 편지는 늘 간직해.",
+      "focus": {
+       "fr": [
+        "je les garde"
+       ],
+       "en": [
+        "always keep"
+       ],
+       "ko": [
+        "늘"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "je leur garde",
+         "je garde les"
+        ]
+       ],
+       "en": [
+        [
+         "keep always",
+         "always keeps"
+        ]
+       ],
+       "ko": [
+        [
+         "늘은",
+         "느을"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Et moi, je t'aime, seulement toi. Un baiser !",
+      "en": "And I love you, only you. A kiss!",
+      "ko": "나는 당신을 사랑해. 당신만. 쪽!"
+     },
+     {
+      "who": "me",
+      "fr": "Moi aussi, je t'aime. Je pense à toi tous les jours !",
+      "en": "I love you too. I think of you every day!",
+      "ko": "나도 사랑해. 매일 당신 생각해!",
+      "focus": {
+       "fr": [
+        "je t'aime"
+       ],
+       "en": [
+        "every day"
+       ],
+       "ko": [
+        "매일"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "je te aime",
+         "j'aime te"
+        ]
+       ],
+       "en": [
+        [
+         "every days",
+         "everyday's"
+        ]
+       ],
+       "ko": [
+        [
+         "메일",
+         "매일을"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "baiser"
+    ],
+    "grammar": "II.2",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  },
+  {
+   "id": "c2-l6",
+   "date": "1797-02-10",
+   "dateNote": "Ancône, le 22 pluviôse an V (10 février 1797)",
+   "ref": "Didot 1833, t. I, n° XXI, pp. 92-93 · https://archive.org/details/lettresdenapolo01josegoog",
+   "place": "Ancona",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "weary",
+   "excerpt": "Omitted: the second and third sentences (capture of the citadel, 1,200 prisoners, officers sent home) and the signature.",
+   "messages": [
+    {
+     "fr": "Nous sommes à Ancône depuis deux jours.",
+     "en": "We have been in Ancona for two days.",
+     "ko": "우리는 이틀 전부터 안코나에 와 있어.",
+     "orig": {
+      "fr": "Nous sommes à Ancône depuis deux jours."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXI, pp. 92-93 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Nous sommes à Ancône depuis deux jours.",
+      "en": "We have been in Ancona for two days.",
+      "ko": "우리는 이틀 전부터 안코나에 와 있어."
+     }
+    },
+    {
+     "fr": "Je suis toujours à Ancône. Je ne te fais pas venir, parce que tout n'est pas encore terminé, mais sous peu de jours j'espère que cela sera terminé.",
+     "en": "I'm still in Ancona. I'm not asking you to come, because everything isn't over yet; but in a few days, I hope, it will be.",
+     "ko": "나는 아직 안코나야. 당신을 오라고 하지 않는 건 아직 다 끝나지 않아서야. 그래도 며칠 안에 끝나면 좋겠어.",
+     "orig": {
+      "fr": "Je suis toujours à Ancône. Je ne te fais pas venir, parce que tout n'est pas encore terminé, mais sous peu de jours j'espère que cela sera terminé."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXI, pp. 92-93 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je suis toujours à Ancône. // Je ne te fais pas venir, / parce que tout n'est pas encore terminé, / mais sous peu de jours j'espère que cela sera terminé.",
+      "en": "I'm still in Ancona. // I'm not asking you to come, / because everything isn't over yet; // but in a few days, / I hope, it will be.",
+      "ko": "나는 아직 안코나야. // 당신을 오라고 하지 않는 건 아직 다 끝나지 않아서야. // 그래도 며칠 안에 끝나면 좋겠어."
+     }
+    },
+    {
+     "fr": "D'ailleurs, ce pays-ci est très maussade, et tout le monde a peur.",
+     "en": "Besides, this country is very dreary, and everyone is afraid.",
+     "ko": "게다가 이곳은 아주 음울하고, 다들 겁을 먹고 있어.",
+     "orig": {
+      "fr": "D'ailleurs, ce pays-ci est très-maussade, et tout le monde a peur."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXI, pp. 92-93 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "D'ailleurs, ce pays-ci est très maussade, / et tout le monde a peur.",
+      "en": "Besides, this country is very dreary, / and everyone is afraid.",
+      "ko": "게다가 이곳은 아주 음울하고, / 다들 겁을 먹고 있어."
+     }
+    },
+    {
+     "fr": "Je pars demain pour les montagnes. Tu ne m'écris point ; tu devais cependant me donner de tes nouvelles tous les jours.",
+     "en": "Tomorrow I leave for the mountains. You don't write to me at all; and yet you were supposed to send me your news every day.",
+     "ko": "내일 산으로 떠나. 당신은 편지를 통 안 써. 매일 소식을 전해 주기로 했잖아.",
+     "orig": {
+      "fr": "Je pars demain pour les montagnes. Tu ne m'écris point; tu devais cependant me donner de tes nouvelles tous les jours."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXI, pp. 92-93 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je pars demain pour les montagnes. // Tu ne m'écris point ; // tu devais cependant me donner de tes nouvelles tous les jours.",
+      "en": "Tomorrow I leave for the mountains. // You don't write to me at all; // and yet you were supposed to send me your news every day.",
+      "ko": "내일 산으로 떠나. // 당신은 편지를 통 안 써. // 매일 소식을 전해 주기로 했잖아."
+     }
+    },
+    {
+     "fr": "Je te prie d'aller te promener tous les jours, cela te fera du bien.",
+     "en": "Please go for a walk every day; it will do you good.",
+     "ko": "매일 산책하러 나가. 그러면 몸에 좋을 거야.",
+     "orig": {
+      "fr": "Je te prie d'aller te promener tous les jours, cela te fera du bien."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXI, pp. 92-93 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je te prie d'aller te promener tous les jours, / cela te fera du bien.",
+      "en": "Please go for a walk every day; // it will do you good.",
+      "ko": "매일 산책하러 나가. // 그러면 몸에 좋을 거야."
+     }
+    },
+    {
+     "fr": "Je te donne un million de baisers. Je ne me suis jamais autant ennuyé qu'à cette vilaine guerre-ci.",
+     "en": "I give you a million kisses. I've never been as bored as in this nasty war.",
+     "ko": "당신에게 입맞춤을 백만 번 보내. 이 지긋지긋한 전쟁만큼 지루했던 적이 없어.",
+     "orig": {
+      "fr": "Je te donne un million de baisers. Je ne me suis jamais autant ennuyé qu'à cette vilaine guerre-ci."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXI, pp. 92-93 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je te donne un million de baisers. // Je ne me suis jamais autant ennuyé qu'à cette vilaine guerre-ci.",
+      "en": "I give you a million kisses. // I've never been as bored as in this nasty war.",
+      "ko": "당신에게 입맞춤을 백만 번 보내. // 이 지긋지긋한 전쟁만큼 지루했던 적이 없어."
+     }
+    },
+    {
+     "fr": "Adieu, ma douce amie, pense à moi.",
+     "en": "Goodbye, my sweet love; think of me.",
+     "ko": "잘 있어, 다정한 내 사랑. 내 생각 해 줘.",
+     "orig": {
+      "fr": "Adieu, ma douce amie, pense à moi."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXI, pp. 92-93 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Adieu, ma douce amie, / pense à moi.",
+      "en": "Goodbye, my sweet love; // think of me.",
+      "ko": "잘 있어, 다정한 내 사랑. // 내 생각 해 줘."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "jour",
+     "pos": "n.m.",
+     "ipa": "ʒuʁ",
+     "en": "day",
+     "ko": "날"
+    },
+    {
+     "fr": "pays",
+     "pos": "n.m.",
+     "ipa": "pei",
+     "en": "country, land",
+     "ko": "나라, 고장"
+    },
+    {
+     "fr": "peur",
+     "pos": "n.f.",
+     "ipa": "pœʁ",
+     "en": "fear",
+     "ko": "두려움"
+    },
+    {
+     "fr": "montagne",
+     "pos": "n.f.",
+     "ipa": "mɔ̃taɲ",
+     "en": "mountain",
+     "ko": "산",
+     "icon": "⛰️"
+    },
+    {
+     "fr": "promener",
+     "pos": "v.",
+     "ipa": "pʁomne",
+     "en": "to walk (se promener)",
+     "ko": "산책하다"
+    },
+    {
+     "fr": "guerre",
+     "pos": "n.f.",
+     "ipa": "ɡɛʁ",
+     "en": "war",
+     "ko": "전쟁",
+     "icon": "⚔️"
+    }
+   ],
+   "note": {
+    "ko": "1797년 2월, 보나파르트는 교황령으로 내려가 아드리아 해의 항구 안코나에 있었어요. 앞부분의 요새 이야기는 빼고, 조제핀에게 하는 말만 옮겼어요. 매일 산책하라는 남편다운 잔소리도 들어 있어요. 조제핀은 볼로냐에 있었어요.",
+    "en": "In February 1797 Bonaparte had marched into the Papal States and was at the Adriatic port of Ancona. The opening lines about the citadel are left out; only what he says to Joséphine is kept, including a husbandly reminder to take a walk every day. Joséphine was in Bologna.",
+    "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXI, pp. 92-93 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Vue du port d'Ancône",
+    "title_en": "View of the Port of Ancona",
+    "title_ko": "안코나 항구 풍경",
+    "date": "[미확인]",
+    "credit": "Gaspar van Wittel (Vanvitelli) [미확인: 작가 · 작품]",
+    "collection": "[미확인: 소장처 — 이탈리아 국립 소장이면 쓰지 않음 (image-policy 5). 대안: 바클레 달브 〈이탈리아 전역도〉 1798 의 안코나 부분]",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "[미확인: 위키미디어 공용 파일 없음 — fetch-portraits.yml 로 찾기]",
+    "why": {
+     "ko": "편지를 쓴 아드리아 해의 항구 안코나.",
+     "en": "Ancona, the Adriatic port where the letter was written."
+    },
+    "image": "n-c2-l6.webp",
+    "kind": "landscape",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "II.0",
+     "fr": "Pardon ! Où vas-tu demain, dans les montagnes ?",
+     "en": "Sorry! Where are you going tomorrow, in the mountains?",
+     "ko": "미안해요! 내일은 어디로 가요? 산으로요?",
+     "koLow": "미안해! 내일은 어디로 가? 산으로?",
+     "koHigh": "죄송합니다! 내일은 어디로 가십니까? 산으로 가십니까?",
+     "focus": {
+      "fr": [
+       "Où vas-tu"
+      ],
+      "en": [
+       "Where are you going"
+      ],
+      "ko": [
+       "어디로"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Où va-tu",
+        "Où vas-toi"
+       ]
+      ],
+      "en": [
+       [
+        "Where you are going",
+        "Where are you go"
+       ]
+      ],
+      "ko": [
+       [
+        "어디가",
+        "어디를로"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Ancône · 10 février 1797",
+      "en": "Bonaparte is in Ancona · 10 February 1797",
+      "ko": "보나파르트가 안코나에 있어요 · 1797년 2월 10일"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "ancone",
+     "title": {
+      "fr": "Ancône",
+      "en": "Ancona",
+      "ko": "안코나"
+     },
+     "address": "Marches, port sur l'Adriatique"
+    }
+   ],
+   "status": {
+    "fr": "Toujours à Ancône",
+    "en": "Still in Ancona",
+    "ko": "아직 안코나"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qu'est-ce que Joséphine doit faire tous les jours, d'après ce conseil ?",
+      "en": "What does he advise Joséphine to do every day?",
+      "ko": "나폴레옹은 조제핀에게 매일 무엇을 하라고 하나요?"
+     },
+     "options": [
+      {
+       "fr": "Aller au théâtre",
+       "en": "Go to the theatre",
+       "ko": "극장에 가라고"
+      },
+      {
+       "fr": "Venir à Ancône",
+       "en": "Come to Ancona",
+       "ko": "안코나로 오라고"
+      },
+      {
+       "fr": "Se promener",
+       "en": "Go for a walk",
+       "ko": "산책하라고"
+      },
+      {
+       "fr": "Jouer aux cartes",
+       "en": "Play cards",
+       "ko": "카드놀이를 하라고"
+      }
+     ],
+     "answer": 2,
+     "evidence": 4,
+     "mark": {
+      "fr": "promener",
+      "en": "walk",
+      "ko": "산책"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "안코나에서 지루해하는 보나파르트와 통화",
+     "en": "On the phone with a bored Bonaparte in Ancona"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Je suis toujours à Ancône. Ce n'est pas encore fini.",
+      "en": "I'm still in Ancona. It's not over yet.",
+      "ko": "아직 안코나야. 아직 안 끝났어."
+     },
+     {
+      "who": "me",
+      "fr": "Tu ne rentres pas encore ? Je m'ennuie, moi !",
+      "en": "You're not coming back yet? I'm bored!",
+      "ko": "아직 돌아오지 않아? 나 심심하단 말이야!",
+      "focus": {
+       "fr": [
+        "ne rentres pas"
+       ],
+       "en": [
+        "not coming back"
+       ],
+       "ko": [
+        "돌아오지 않아"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ne rentres plus pas",
+         "rentres ne pas"
+        ]
+       ],
+       "en": [
+        [
+         "no coming back",
+         "not come back"
+        ]
+       ],
+       "ko": [
+        [
+         "돌아오지 안아",
+         "돌아오지 않어"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Pas encore. Promène-toi tous les jours, ça fait du bien.",
+      "en": "Not yet. Go for a walk every day; it does you good.",
+      "ko": "아직. 매일 산책해. 그게 몸에 좋아."
+     },
+     {
+      "who": "me",
+      "fr": "D'accord. Mais toi, ne t'ennuie pas trop !",
+      "en": "OK. But don't you get too bored!",
+      "ko": "알았어. 그래도 당신은 너무 심심해하지 마!",
+      "focus": {
+       "fr": [
+        "ne t'ennuie pas"
+       ],
+       "en": [
+        "don't you get"
+       ],
+       "ko": [
+        "심심해하지 마"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ne t'ennuies pas",
+         "t'ennuie ne pas"
+        ]
+       ],
+       "en": [
+        [
+         "not you get",
+         "doesn't you get"
+        ]
+       ],
+       "ko": [
+        [
+         "심심해하지 말",
+         "심심해지 마"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "promener",
+     "toujours"
+    ],
+    "grammar": "II.1",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  },
+  {
+   "id": "c2-l7",
+   "date": "1797-02-19",
+   "dateNote": "Tolentino, 1er ventôse an V (19 février 1797)",
+   "ref": "Didot 1833, t. I, n° XXIV, pp. 98-100 · https://archive.org/details/lettresdenapolo01josegoog",
+   "place": "Tolentino",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "tender",
+   "excerpt": "Omitted: the terms of the treaty (Bologna, Ferrara, Romagna; 30 millions and works of art), 'Tu es malade … l'empire absolu que tu as sur moi !', and the signature.",
+   "messages": [
+    {
+     "fr": "La paix avec Rome vient d'être signée.",
+     "en": "Peace with Rome has just been signed.",
+     "ko": "방금 로마와 평화 조약을 맺었어.",
+     "orig": {
+      "fr": "La paix avec Rome vient d'être signée."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXIV, pp. 98-100 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "La paix avec Rome vient d'être signée.",
+      "en": "Peace with Rome has just been signed.",
+      "ko": "방금 로마와 평화 조약을 맺었어."
+     }
+    },
+    {
+     "fr": "Je pars demain matin pour Ancône, et de là pour Rimini, Ravenne et Bologne. Si ta santé te le permet, viens à Rimini ou à Ravenne ; mais ménage-toi, je t'en conjure.",
+     "en": "Tomorrow morning I leave for Ancona, and from there for Rimini, Ravenna and Bologna. If your health allows, come to Rimini or Ravenna; but take care of yourself, I beg you.",
+     "ko": "내일 아침 안코나로 떠나. 거기서 리미니, 라벤나, 볼로냐로 갈 거야. 몸이 괜찮으면 리미니나 라벤나로 와. 하지만 부탁이야, 무리하지는 마.",
+     "orig": {
+      "fr": "Je pars demain matin pour Ancône, et de là pour Rimini, Ravenne et Bologne. Si ta santé te le permet, viens à Rimini ou Ravenne; mais, ménage-toi, je t'en conjure."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXIV, pp. 98-100 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je pars demain matin pour Ancône, / et de là pour Rimini, / Ravenne et Bologne. // Si ta santé te le permet, / viens à Rimini ou à Ravenne ; // mais ménage-toi, je t'en conjure.",
+      "en": "Tomorrow morning I leave for Ancona, / and from there for Rimini, / Ravenna and Bologna. // If your health allows, / come to Rimini or Ravenna; // but take care of yourself, / I beg you.",
+      "ko": "내일 아침 안코나로 떠나. // 거기서 리미니, 라벤나, / 볼로냐로 갈 거야. // 몸이 괜찮으면 리미니나 라벤나로 와. // 하지만 부탁이야, 무리하지는 마."
+     }
+    },
+    {
+     "fr": "Pas un mot de ta main ; bon Dieu ! qu'ai-je donc fait ?",
+     "en": "Not a word in your hand; good God! what have I done?",
+     "ko": "당신 손으로 쓴 글은 한 줄도 없어. 맙소사! 내가 대체 뭘 잘못했어?",
+     "orig": {
+      "fr": "Pas un mot de ta main; bon Dieu! qu'ai-je donc fait?"
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXIV, pp. 98-100 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Pas un mot de ta main ; // bon Dieu ! // qu'ai-je donc fait ?",
+      "en": "Not a word in your hand; // good God! // what have I done?",
+      "ko": "당신 손으로 쓴 글은 한 줄도 없어. // 맙소사! // 내가 대체 뭘 잘못했어?"
+     }
+    },
+    {
+     "fr": "Ne penser qu'à toi, n'aimer que Joséphine, ne vivre que pour ma femme, ne jouir que du bonheur de mon amie, cela doit-il me mériter de sa part un traitement si rigoureux ?",
+     "en": "To think only of you, to love only Joséphine, to live only for my wife, to enjoy only my love's happiness: must that earn me such harsh treatment from her?",
+     "ko": "당신만 생각하고, 조제핀만 사랑하고, 내 아내만을 위해 살고, 내 사랑의 행복만 기뻐하는데, 그 대가가 이렇게 차가운 대접이어야 해?",
+     "orig": {
+      "fr": "Ne penser qu'à toi, n'aimer que Joséphine, ne vivre que pour ma femme, ne jouir que du bonheur de mon amie, cela doit-il me mériter de sa part un traitement si rigoureux?"
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXIV, pp. 98-100 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Ne penser qu'à toi, / n'aimer que Joséphine, / ne vivre que pour ma femme, / ne jouir que du bonheur de mon amie, / cela doit-il me mériter de sa part un traitement si rigoureux ?",
+      "en": "To think only of you, / to love only Joséphine, / to live only for my wife, / to enjoy only my love's happiness: // must that earn me such harsh treatment from her?",
+      "ko": "당신만 생각하고, 조제핀만 사랑하고, / 내 아내만을 위해 살고, / 내 사랑의 행복만 기뻐하는데, / 그 대가가 이렇게 차가운 대접이어야 해?"
+     }
+    },
+    {
+     "fr": "Mon amie, je t'en conjure, pense souvent à moi, et écris-moi tous les jours.",
+     "en": "My love, I beg you, think of me often, and write to me every day.",
+     "ko": "내 사랑, 부탁이야. 내 생각 자주 해 주고, 매일 편지 써 줘.",
+     "orig": {
+      "fr": "Mon amie, je t'en conjure, pense souvent à moi, et écris-moi tous les jours."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXIV, pp. 98-100 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Mon amie, je t'en conjure, / pense souvent à moi, / et écris-moi tous les jours.",
+      "en": "My love, I beg you, / think of me often, / and write to me every day.",
+      "ko": "내 사랑, 부탁이야. // 내 생각 자주 해 주고, / 매일 편지 써 줘."
+     }
+    },
+    {
+     "fr": "Écris-moi, pense à moi, et aime-moi. Pour la vie, tout à toi.",
+     "en": "Write to me, think of me, and love me. For life, all yours.",
+     "ko": "편지 써 줘, 내 생각 해 줘, 그리고 나를 사랑해 줘. 평생 당신의 사람이.",
+     "orig": {
+      "fr": "Ecris-moi, pense à moi, et aime-moi.\nPour la vie tout à toi."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXIV, pp. 98-100 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Écris-moi, pense à moi, / et aime-moi. // Pour la vie, / tout à toi.",
+      "en": "Write to me, / think of me, / and love me. // For life, all yours.",
+      "ko": "편지 써 줘, / 내 생각 해 줘, / 그리고 나를 사랑해 줘. // 평생 당신의 사람이."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "paix",
+     "pos": "n.f.",
+     "ipa": "pɛ",
+     "en": "peace",
+     "ko": "평화",
+     "icon": "🕊️"
+    },
+    {
+     "fr": "matin",
+     "pos": "n.m.",
+     "ipa": "matɛ̃",
+     "en": "morning",
+     "ko": "아침",
+     "icon": "🌅"
+    },
+    {
+     "fr": "santé",
+     "pos": "n.f.",
+     "ipa": "sɑ̃te",
+     "en": "health",
+     "ko": "건강"
+    },
+    {
+     "fr": "mot",
+     "pos": "n.m.",
+     "ipa": "mo",
+     "en": "word",
+     "ko": "낱말"
+    },
+    {
+     "fr": "vivre",
+     "pos": "v.",
+     "ipa": "vivʁ",
+     "en": "to live",
+     "ko": "살다"
+    },
+    {
+     "fr": "penser",
+     "pos": "v.",
+     "ipa": "pɑ̃se",
+     "en": "to think",
+     "ko": "생각하다"
+    }
+   ],
+   "note": {
+    "ko": "톨렌티노에서 교황 피우스 6세와 평화 조약을 맺은 날 쓴 편지예요. 조약의 조건(땅 · 돈 · 미술품)은 빼고 옮겼어요. 아픈 조제핀에게 리미니나 라벤나로 오라고 하면서도, 한 줄 편지도 없다고 서운해해요. 이 장은 여기서 끝나고, 다음 장은 세 해 뒤 제1통령 시절로 넘어가요.",
+    "en": "Written at Tolentino on the day peace was signed with Pope Pius VI. The terms of the treaty (territory, money, works of art) are left out. He asks Joséphine, who was ill, to join him at Rimini or Ravenna, and complains that she has not written a single line. The next chapter jumps three years ahead, to the Consulate.",
+    "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXIV, pp. 98-100 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Projet d'aménagement de la Grande Galerie du Louvre",
+    "title_en": "Design for the Grande Galerie of the Louvre",
+    "title_ko": "루브르 대회랑 꾸미기 구상",
+    "date": "1796",
+    "credit": "Hubert Robert",
+    "collection": "Musée du Louvre, Paris [미확인: 소장 번호 (RF 1975-10 로 기억)]",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/Category:Projet_d'aménagement_de_la_Grande_Galerie_du_Louvre_(Hubert_Robert,_1796) [미확인: 분류 · 파일 이름]",
+    "why": {
+     "ko": "이 조약으로 로마의 미술품이 파리로 옮겨졌어요. 같은 해 위베르 로베르가 그린 루브르의 큰 전시실이에요.",
+     "en": "Under this treaty works of art went from Rome to Paris. Hubert Robert painted this design for the Louvre's great gallery the same year."
+    },
+    "image": "n-c2-l7.webp",
+    "kind": "painting",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "II.0",
+     "fr": "Mais tu n'as rien fait ! Pourquoi es-tu si triste ?",
+     "en": "But you haven't done anything! Why are you so sad?",
+     "ko": "당신은 아무 잘못도 없어요! 왜 그렇게 슬퍼해요?",
+     "koLow": "당신은 아무 잘못도 없어! 왜 그렇게 슬퍼해?",
+     "koHigh": "당신은 아무 잘못도 없습니다! 왜 그렇게 슬퍼하십니까?",
+     "focus": {
+      "fr": [
+       "Pourquoi es-tu"
+      ],
+      "en": [
+       "Why are you"
+      ],
+      "ko": [
+       "왜 그렇게"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Pourquoi est-tu",
+        "Pourquoi tu es-tu"
+       ]
+      ],
+      "en": [
+       [
+        "Why you are",
+        "Why do you are"
+       ]
+      ],
+      "ko": [
+       [
+        "뭐 그렇게",
+        "어디 그렇게"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Tolentino · 19 février 1797",
+      "en": "Bonaparte is in Tolentino · 19 February 1797",
+      "ko": "보나파르트가 톨렌티노에 있어요 · 1797년 2월 19일"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "tolentino",
+     "title": {
+      "fr": "Tolentino",
+      "en": "Tolentino",
+      "ko": "톨렌티노"
+     },
+     "address": "Marches, dans les collines"
+    }
+   ],
+   "status": {
+    "fr": "La paix",
+    "en": "Peace",
+    "ko": "평화"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Où Joséphine peut-elle venir, si sa santé le permet ?",
+      "en": "Where can Joséphine come, if her health allows?",
+      "ko": "몸이 괜찮으면 조제핀은 어디로 올 수 있나요?"
+     },
+     "options": [
+      {
+       "fr": "À Rome",
+       "en": "To Rome",
+       "ko": "로마로"
+      },
+      {
+       "fr": "À Paris",
+       "en": "To Paris",
+       "ko": "파리로"
+      },
+      {
+       "fr": "À Rimini ou à Ravenne",
+       "en": "To Rimini or Ravenna",
+       "ko": "리미니나 라벤나로"
+      },
+      {
+       "fr": "À Tolentino",
+       "en": "To Tolentino",
+       "ko": "톨렌티노로"
+      }
+     ],
+     "answer": 2,
+     "evidence": 1,
+     "mark": {
+      "fr": "Rimini",
+      "en": "Rimini",
+      "ko": "리미니"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "평화 조약을 맺은 날, 보나파르트와 통화",
+     "en": "On the phone with Bonaparte on the day peace is signed"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Bonne nouvelle : c'est la paix avec Rome !",
+      "en": "Good news: it's peace with Rome!",
+      "ko": "좋은 소식이야. 로마랑 평화를 맺었어!"
+     },
+     {
+      "who": "me",
+      "fr": "Super ! Alors, je te vois bientôt ?",
+      "en": "Great! So I'll see you soon?",
+      "ko": "잘됐다! 그럼 곧 볼 수 있어?",
+      "focus": {
+       "fr": [
+        "je te vois"
+       ],
+       "en": [
+        "see you"
+       ],
+       "ko": [
+        "볼 수 있어"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "je toi vois",
+         "je vois te"
+        ]
+       ],
+       "en": [
+        [
+         "see your",
+         "see yours"
+        ]
+       ],
+       "ko": [
+        [
+         "볼 수 있서",
+         "볼 수 잇어"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui ! Viens à Rimini, si ta santé le permet.",
+      "en": "Yes! Come to Rimini, if your health allows.",
+      "ko": "응! 몸이 괜찮으면 리미니로 와."
+     },
+     {
+      "who": "me",
+      "fr": "D'accord, je viens ! Je t'embrasse.",
+      "en": "OK, I'm coming! Big hug.",
+      "ko": "알았어, 갈게! 꼭 안아 줄게.",
+      "focus": {
+       "fr": [
+        "Je t'embrasse"
+       ],
+       "en": [
+        "I'm coming"
+       ],
+       "ko": [
+        "안아 줄게"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Je te embrasse",
+         "J'embrasse te"
+        ]
+       ],
+       "en": [
+        [
+         "I coming",
+         "I'm come"
+        ]
+       ],
+       "ko": [
+        [
+         "안아 줄께",
+         "안어 줄게"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "paix",
+     "santé"
+    ],
+    "grammar": "II.2",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  }
+ ]
+}

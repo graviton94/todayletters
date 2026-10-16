@@ -19,7 +19,7 @@ from urllib.parse import urlparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
-ORDER = ["vincent", "mozart"]  # 앱에 나온 차례. 나머지 작품은 이름순으로 뒤에
+ORDER = ["vincent", "mozart", "napoleon"]  # 앱에 나온 차례. 나머지 작품은 이름순으로 뒤에
 
 # 편지 글의 출처는 데이터에 문장으로 들어 있지 않아 여기 적는다 (작품을 더하면 함께 더할 것).
 LETTERS = {
@@ -53,6 +53,26 @@ LETTERS = {
             "The Korean translation, glosses and notes are written for this app.",
         ],
     },
+    "napoleon": {
+        "edition": "https://archive.org/details/lettresdenapolo01josegoog",
+        "ko": [
+            "나폴레옹 보나파르트(1769–1821)의 편지 원문(프랑스어)은 공공 영역입니다.",
+            "앱의 프랑스어 문장은 공공 영역 판본에서 옮겨 적었습니다: 『Lettres de Napoléon à Joséphine』(파리, 피르맹 디도, 1833, 2권), 찰스 테넌트 『A Tour through parts of the Netherlands …』(런던, 1824, 부록), 『Correspondance de Napoléon Ier』(파리, 1858–1870), 레옹 르세스트르 엮음 『Lettres inédites de Napoléon Ier』(파리, 1897). 편지마다 판과 쪽을 앱에 적었습니다. 디도판 1권 인터넷 아카이브 스캔본: {link}",
+            "편지에서 일부 문장을 골라 실었고, 성적인 문장과 전투 보고는 뺐습니다.",
+            "영어 · 한국어 번역, 낱말 풀이, 설명 글은 이 앱이 새로 쓴 것입니다. 다른 출판 번역이나 현대 비평판의 글을 옮기지 않았습니다.",
+        ],
+        "en": [
+            "Napoleon Bonaparte’s letters (1769–1821; in French) are in the public domain.",
+            "The French text in the app is transcribed from public-domain editions: <i>Lettres de Napoléon à Joséphine</i> (Paris, Firmin Didot, 1833, 2 vols.), Charles Tennant, <i>A Tour through parts of the Netherlands …</i> (London, 1824, appendix), the <i>Correspondance de Napoléon Ier</i> (Paris, 1858–1870) and Léon Lecestre (ed.), <i>Lettres inédites de Napoléon Ier</i> (Paris, 1897); the app gives the edition and page for each letter. Internet Archive scan of Didot vol. I: {link}",
+            "Sentences are excerpted; sexual passages and battle reports are left out.",
+            "The English and Korean translations, glosses and notes are written for this app; no published translation or modern critical edition is copied.",
+        ],
+    },
+}
+
+SPELLING = {
+    "ko": "편지 원문의 명백한 오자와 옛 철자는 하나하나 표시하지 않고 지금 표기로 고쳐 실었습니다 (모든 작품 공통. 모차르트의 독일어는 1865년 판의 철자를 그대로 두었습니다).",
+    "en": "Obvious typos and old spellings in the original letters are corrected to modern spelling without marking each change (all series; the Mozart German keeps the 1865 edition’s spelling).",
 }
 
 T = {
@@ -104,7 +124,8 @@ def load(path):
 
 
 def series_ids():
-    have = [os.path.basename(os.path.dirname(p)) for p in glob.glob(os.path.join(DATA, "*", "series.json"))]
+    # 출시 전 작품 ("hidden": true) 은 사이트에도 아직 싣지 않는다
+    have = [os.path.basename(os.path.dirname(p)) for p in glob.glob(os.path.join(DATA, "*", "series.json")) if not load(p).get("hidden")]
     return [s for s in ORDER if s in have] + sorted(s for s in have if s not in ORDER)
 
 
@@ -460,7 +481,7 @@ def shop_block(lang):
 
 def render(all_series, lang):
     head = f"<!-- 자동 생성: scripts/site_sources.py (앱 저장소 data/). 이 표시 사이는 손으로 고치지 말 것. -->"
-    body = [head]
+    body = [head, f'<p class="soft">{SPELLING[lang]}</p>']
     for S in all_series:
         body += block(S, lang)
     body += shop_block(lang)

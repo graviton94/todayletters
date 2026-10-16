@@ -1,0 +1,2708 @@
+{
+ "_doc": "Napoléon · chapter I. French = modern spelling (obvious slips and old spellings corrected without marks in the app); each message keeps the printed text in orig.fr (data only, not shown). en · ko translated from the French for this app. Sexual lines and battle reports are left out (see excerpt). Replies and talks are written by this app, not by the recipients.",
+ "series": "napoleon",
+ "chapter": "I",
+ "title_fr": "L'Italie",
+ "title_en": "To Italy",
+ "title_ko": "이탈리아로",
+ "original": "fr",
+ "grammar": [
+  {
+   "id": "I.0",
+   "fr": {
+    "name": {
+     "ko": "소유 mon · ma · ton · ta · tes",
+     "en": "Possessives: mon, ma, ton, ta, tes"
+    },
+    "hint": {
+     "ko": "누구의 것인지 · 뒤 명사의 성 · 수에 맞춰요 · ta lettre, mon cœur, tes lettres",
+     "en": "Whose it is · agrees with the noun after it · ta lettre, mon cœur, tes lettres"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "현재진행형 (be + -ing)",
+     "en": "Present continuous"
+    },
+    "hint": {
+     "ko": "지금 하고 있는 일 · I'm thinking of you",
+     "en": "What is happening right now · I'm thinking of you"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-아/어 (반말 현재)",
+     "en": "-아/어 (casual present)"
+    },
+    "hint": {
+     "ko": "가까운 사이의 현재 · 해요체에서 ‘요’를 빼요 · 있어요 → 있어",
+     "en": "Casual present between close people · drop 요 from the polite form · 있어요 → 있어"
+    }
+   }
+  },
+  {
+   "id": "I.1",
+   "fr": {
+    "name": {
+     "ko": "-er 동사 현재 (aimer, penser, garder)",
+     "en": "Present tense of -er verbs"
+    },
+    "hint": {
+     "ko": "je pense, tu penses, il pense · 셋 다 소리가 같아요",
+     "en": "je pense, tu penses, il pense · all three sound the same"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "목적격 me · you · her",
+     "en": "Object pronouns: me, you, her"
+    },
+    "hint": {
+     "ko": "동사 · 전치사 뒤 · I miss you, write to me",
+     "en": "After a verb or preposition · I miss you, write to me"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "저/제 · 당신",
+     "en": "저/제 · 당신 (polite I, my · you)"
+    },
+    "hint": {
+     "ko": "높여 말할 때 나 → 저, 내 → 제 · 부부 사이의 ‘당신’",
+     "en": "Polite ‘I’ and ‘my’ · 당신 = ‘you’ between husband and wife"
+    }
+   }
+  },
+  {
+   "id": "I.2",
+   "fr": {
+    "name": {
+     "ko": "tu ↔ vous",
+     "en": "tu and vous"
+    },
+    "hint": {
+     "ko": "가까운 한 사람은 tu, 예의를 차리거나 여럿이면 vous · tu es / vous êtes",
+     "en": "tu for one close person, vous for politeness or several · tu es / vous êtes"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "can · can't",
+     "en": "can and can't"
+    },
+    "hint": {
+     "ko": "할 수 있다 · 없다 · I can't sleep without you",
+     "en": "Ability · I can't sleep without you"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-네요",
+     "en": "-네요 (I see · how …!)"
+    },
+    "hint": {
+     "ko": "방금 알았거나 느낀 것 · 멋지네요, 뜨겁네요",
+     "en": "Something you just noticed or feel · 멋지네요, 뜨겁네요"
+    }
+   }
+  }
+ ],
+ "letters": [
+  {
+   "id": "c1-l1",
+   "date": "1796-04-03",
+   "dateNote": "Dated ‘Port Maurice le 14 germinal’ [an IV] in Tennant (1824) = 3 April 1796. Tennant's own note (vol. II, p. 424) says 4 April; the Republican-calendar conversion (1 germinal an IV = 21 March 1796) gives 3 April, which is used here.",
+   "ref": "Tennant 1824, Appendix No. II · Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. II, pp. 444–445 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+   "place": "Port-Maurice (Porto Maurizio, today Imperia)",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "tender",
+   "excerpt": "Messages 0–3 come from the first paragraph, 4 from the second; the rest of the letter (more of the 2nd and 3rd paragraphs, the news of the armies, greetings) is left out.",
+   "messages": [
+    {
+     "fr": "J'ai reçu toutes tes lettres, mais aucune n'a fait sur moi l'impression de ta dernière.",
+     "en": "I have received all your letters, but none has moved me like your last one.",
+     "ko": "당신 편지는 다 받았어. 그런데 어느 편지도 이번 편지만큼 내 마음을 흔들지는 못했어.",
+     "orig": {
+      "fr": "J'ai reçu toutes tes lettres mais aucune n a fait sur moi l impression de ta derniere"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. II, pp. 444–445 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "J'ai reçu toutes tes lettres, // mais aucune n'a fait sur moi / l'impression de ta dernière.",
+      "en": "I have received all your letters, // but none has moved me / like your last one.",
+      "ko": "당신 편지는 다 받았어. // 그런데 어느 편지도 / 이번 편지만큼 / 내 마음을 흔들지는 못했어."
+     }
+    },
+    {
+     "fr": "Quel style ! Quels sentiments que ceux que tu peins ! Ils sont de feu, ils brûlent mon pauvre cœur.",
+     "en": "What a style! What feelings you paint! They are fire; they burn my poor heart.",
+     "ko": "어쩜 글을 이렇게 써! 당신이 그려 낸 그 마음은 또 어떻고! 불처럼 뜨거워서 가엾은 내 가슴을 다 태워.",
+     "orig": {
+      "fr": "quelle stile ! quelles sentiments que ceux que tu peints — ils sont de feux ils brulent mon pauvre coeur"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. II, pp. 444–445 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Quel style ! // Quels sentiments / que ceux que tu peins ! // Ils sont de feu, / ils brûlent mon pauvre cœur.",
+      "en": "What a style! // What feelings you paint! // They are fire; / they burn my poor heart.",
+      "ko": "어쩜 글을 이렇게 써! // 당신이 그려 낸 그 마음은 또 어떻고! // 불처럼 뜨거워서 / 가엾은 내 가슴을 다 태워."
+     }
+    },
+    {
+     "fr": "Mon unique Joséphine, loin de toi il n'est point de gaieté ; loin de toi le monde est un désert où je reste isolé, et sans éprouver la douceur de m'épancher.",
+     "en": "My one and only Joséphine, far from you there is no joy; far from you the world is a desert where I remain alone, without the sweetness of opening my heart.",
+     "ko": "하나뿐인 나의 조제핀, 당신과 떨어져 있으면 즐거운 일이 하나도 없어. 당신 없는 세상은 사막이야. 나는 그 사막에 혼자 남아, 속마음을 털어놓는 달콤함도 모르고 지내.",
+     "orig": {
+      "fr": "mon unique Josephine loin de toi il n est point de gaiete — loin de toi le monde est un desert ou je reste isolee et sans eprouver la douceur de m epancher"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. II, pp. 444–445 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Mon unique Joséphine, // loin de toi / il n'est point de gaieté ; // loin de toi / le monde est un désert / où je reste isolé, // et sans éprouver la douceur / de m'épancher.",
+      "en": "My one and only Joséphine, // far from you / there is no joy; // far from you / the world is a desert / where I remain alone, // without the sweetness / of opening my heart.",
+      "ko": "하나뿐인 나의 조제핀, // 당신과 떨어져 있으면 / 즐거운 일이 하나도 없어. // 당신 없는 세상은 사막이야. // 나는 그 사막에 혼자 남아, / 속마음을 털어놓는 달콤함도 / 모르고 지내."
+     }
+    },
+    {
+     "fr": "Si je suis ennuyé du tracas des affaires, si j'en crains l'issue, si les hommes me dégoûtent, si je suis prêt à maudire la vie, je mets la main sur mon cœur : ton portrait y bat.",
+     "en": "If I am weary of the worries of business, if I fear how it will end, if people disgust me, if I am ready to curse life, I put my hand on my heart: your portrait beats there.",
+     "ko": "일에 시달려 지칠 때, 그 끝이 두려울 때, 사람들이 역겨울 때, 삶을 저주하고 싶을 때, 나는 가슴에 손을 얹어. 거기서 당신 초상화가 뛰고 있어.",
+     "orig": {
+      "fr": "si je suis ennuie du tracas des affaires, si j en crains l issue — si les hommes me degoutent — si je suis pret a maudir la vie — je met la main sur mon coeur ton portrait y bat"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. II, pp. 444–445 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Si je suis ennuyé / du tracas des affaires, // si j'en crains l'issue, // si les hommes me dégoûtent, // si je suis prêt à maudire la vie, // je mets la main sur mon cœur : / ton portrait y bat.",
+      "en": "If I am weary / of the worries of business, // if I fear how it will end, // if people disgust me, // if I am ready to curse life, // I put my hand on my heart: / your portrait beats there.",
+      "ko": "일에 시달려 지칠 때, // 그 끝이 두려울 때, // 사람들이 역겨울 때, // 삶을 저주하고 싶을 때, // 나는 가슴에 손을 얹어. // 거기서 당신 초상화가 뛰고 있어."
+     }
+    },
+    {
+     "fr": "C'est une magie, ma douce amie, qui ne finira qu'avec moi. Vivre pour Joséphine, voilà l'histoire de ma vie.",
+     "en": "It is a magic, my sweet love, that will end only with me. To live for Joséphine: that is the story of my life.",
+     "ko": "이건 마법이야, 다정한 내 사랑. 내 숨이 멎어야 끝날 마법. 조제핀을 위해 사는 것, 그게 내 인생 이야기야.",
+     "orig": {
+      "fr": "c est une magie ma douce amie qui ne finira qu avec moi vivre pour Josephine voila l'histoire de ma vie."
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. II, pp. 444–445 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "C'est une magie, / ma douce amie, / qui ne finira qu'avec moi. // Vivre pour Joséphine, / voilà l'histoire de ma vie.",
+      "en": "It is a magic, / my sweet love, / that will end only with me. // To live for Joséphine: / that is the story of my life.",
+      "ko": "이건 마법이야, / 다정한 내 사랑. // 내 숨이 멎어야 끝날 마법. // 조제핀을 위해 사는 것, / 그게 내 인생 이야기야."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "lettre",
+     "pos": "n.f.",
+     "ipa": "lɛtʁ",
+     "en": "letter",
+     "ko": "편지",
+     "icon": "✉️"
+    },
+    {
+     "fr": "cœur",
+     "pos": "n.m.",
+     "ipa": "kœʁ",
+     "en": "heart",
+     "ko": "가슴, 마음",
+     "icon": "❤️"
+    },
+    {
+     "fr": "feu",
+     "pos": "n.m.",
+     "ipa": "fø",
+     "en": "fire",
+     "ko": "불",
+     "icon": "🔥"
+    },
+    {
+     "fr": "désert",
+     "pos": "n.m.",
+     "ipa": "dezɛʁ",
+     "en": "desert",
+     "ko": "사막",
+     "icon": "🏜️"
+    },
+    {
+     "fr": "main",
+     "pos": "n.f.",
+     "ipa": "mɛ̃",
+     "en": "hand",
+     "ko": "손",
+     "icon": "✋"
+    },
+    {
+     "fr": "portrait",
+     "pos": "n.m.",
+     "ipa": "pɔʁtʁɛ",
+     "en": "portrait",
+     "ko": "초상화",
+     "icon": "🖼️"
+    }
+   ],
+   "note": {
+    "ko": "보나파르트는 1796년 3월 9일 파리에서 조제핀과 결혼하고, 이틀 뒤 이탈리아 원정군 사령관으로 떠났어요. 니스의 사령부에 닿은 뒤 바닷가 길을 따라 동쪽으로 가다가, 포르토 마우리치오에서 이 편지를 썼어요. 스물여섯 살 신랑이 서른두 살 신부에게 쓴 편지예요. 이 편지는 1824년 영국 여행가 찰스 테넌트가 ‘원본을 그대로 옮겼다’며 책 부록에 실었어요. 그림은 같은 해 이탈리아에서 그로가 그린 젊은 사령관의 모습이에요.",
+    "en": "Bonaparte married Joséphine in Paris on 9 March 1796 and left two days later to command the Army of Italy. After reaching headquarters at Nice he moved east along the coast road, and wrote this letter at Porto Maurizio: a bridegroom of twenty-six writing to his bride of thirty-two. The English traveller Charles Tennant printed it in 1824 as a ‘correct transcript from the original’. The picture is the young general as Gros painted him in Italy that same year.",
+    "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. II, pp. 444–445 · public domain · https://archive.org/details/tourthroughparts02tennuoft ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Bonaparte au pont d'Arcole",
+    "title_en": "Bonaparte at the Bridge of Arcole",
+    "title_ko": "아르콜레 다리의 보나파르트",
+    "date": "1796",
+    "credit": "Antoine-Jean Gros",
+    "collection": "Musée du Louvre, Paris [미확인: 판 (루브르 · 베르사유 · 에르미타주) · 소장 번호]",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/Category:Bonaparte_on_the_Bridge_at_Arcole_by_Antoine-Jean_Gros [미확인: 이 세션에서 공용을 열지 못함 — fetch-portraits.yml 로 파일 이름 확정]",
+    "why": {
+     "ko": "편지를 쓴 그해 이탈리아에서 그려진, 스물일곱 살 무렵의 보나파르트예요. 그림 속 아르콜레 전투(1796년 11월)는 이 편지보다 일곱 달 뒤의 일이에요.",
+     "en": "Painted in Italy the same year, it shows Bonaparte at about twenty-seven. The battle of Arcole (November 1796) came seven months after this letter."
+    },
+    "image": "n-c1-l1.webp",
+    "kind": "portrait",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 후보 낱말: main (메시지 3, 깃발 · 칼을 쥔 손), cœur (메시지 3, 가슴)."
+   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "I.0",
+     "fr": "Moi aussi, je garde ta lettre sur mon cœur.",
+     "en": "I'm keeping your letter close to my heart too.",
+     "ko": "저도 당신 편지를 가슴에 품고 있어요.",
+     "koLow": "나도 당신 편지를 가슴에 품고 있어.",
+     "koHigh": "저도 당신의 편지를 가슴에 품고 있습니다.",
+     "focus": {
+      "fr": [
+       "ta lettre",
+       "mon cœur"
+      ],
+      "en": [
+       "I'm keeping"
+      ],
+      "ko": [
+       "있어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "ton lettre",
+        "tes lettre"
+       ],
+       [
+        "ma cœur",
+        "mes cœur"
+       ]
+      ],
+      "en": [
+       [
+        "I keeping",
+        "I'm keep"
+       ]
+      ],
+      "ko": [
+       [
+        "있아요",
+        "있요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Port-Maurice · 3 avril 1796, sur la route d'Italie",
+      "en": "Bonaparte is at Porto Maurizio · 3 April 1796, on the road to Italy",
+      "ko": "보나파르트가 포르토 마우리치오에 있어요 · 1796년 4월 3일, 이탈리아로 가는 길"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "portmaurice",
+     "title": {
+      "fr": "Port-Maurice",
+      "en": "Porto Maurizio",
+      "ko": "포르토 마우리치오"
+     },
+     "address": "Ligurie, au bord de la mer"
+    },
+    {
+     "after": 4,
+     "type": "music",
+     "piece": {
+      "fr": "Le Chant du départ (Méhul, 1794)",
+      "en": "Le Chant du départ (Méhul, 1794)",
+      "ko": "〈출정의 노래〉 (메윌, 1794)"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "fr": "Sur la route d'Italie",
+    "en": "On the road to Italy",
+    "ko": "이탈리아로 가는 길"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qu'est-ce qui bat sur le cœur de Napoléon ?",
+      "en": "What beats on Napoleon's heart?",
+      "ko": "나폴레옹의 가슴에서 뛰고 있는 것은 무엇인가요?"
+     },
+     "options": [
+      {
+       "fr": "Une lettre",
+       "en": "A letter",
+       "ko": "편지"
+      },
+      {
+       "fr": "Le portrait de Joséphine",
+       "en": "Joséphine's portrait",
+       "ko": "조제핀의 초상화"
+      },
+      {
+       "fr": "Une médaille",
+       "en": "A medal",
+       "ko": "메달"
+      },
+      {
+       "fr": "Une fleur",
+       "en": "A flower",
+       "ko": "꽃"
+      }
+     ],
+     "answer": 1,
+     "evidence": 3,
+     "mark": {
+      "fr": "portrait",
+      "en": "portrait",
+      "ko": "초상화"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "이탈리아로 가는 길의 보나파르트와 통화",
+     "en": "On the phone with Bonaparte, on his way to Italy"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Allô, Joséphine ? C'est moi ! J'ai reçu ta lettre.",
+      "en": "Hello, Joséphine? It's me! I got your letter.",
+      "ko": "여보세요, 조제핀? 나야! 당신 편지 받았어."
+     },
+     {
+      "who": "me",
+      "fr": "Déjà ? Et ton voyage, ça va ?",
+      "en": "Already? And how is your trip going?",
+      "ko": "벌써? 가는 길은 괜찮아?",
+      "focus": {
+       "fr": [
+        "ton voyage"
+       ],
+       "en": [
+        "is your trip going"
+       ],
+       "ko": [
+        "괜찮아"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ta voyage",
+         "tes voyage"
+        ]
+       ],
+       "en": [
+        [
+         "is your trip go",
+         "are your trip going"
+        ]
+       ],
+       "ko": [
+        [
+         "괜찮어",
+         "괜찬아"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Ça va. Je suis au bord de la mer. Mais je pense à toi tout le temps.",
+      "en": "It's fine. I'm by the sea. But I think about you all the time.",
+      "ko": "괜찮아. 지금 바닷가야. 그래도 계속 당신 생각만 해."
+     },
+     {
+      "who": "me",
+      "fr": "Moi aussi, je pense à toi. Fais attention à ta santé !",
+      "en": "Me too, I'm thinking of you. Take care of your health!",
+      "ko": "나도 당신 생각하고 있어. 몸 잘 챙겨!",
+      "focus": {
+       "fr": [
+        "ta santé"
+       ],
+       "en": [
+        "I'm thinking"
+       ],
+       "ko": [
+        "있어"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ton santé",
+         "tes santé"
+        ]
+       ],
+       "en": [
+        [
+         "I thinking",
+         "I'm think"
+        ]
+       ],
+       "ko": [
+        [
+         "있아",
+         "잇어"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "recevoir",
+     "lettre"
+    ],
+    "grammar": "I.0",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine F3)."
+   }
+  },
+  {
+   "id": "c1-l2",
+   "date": "1796-04-05",
+   "dateNote": "Dated ‘Albenga le 16 germinal’ [an IV] = 5 April 1796.",
+   "ref": "Tennant 1824, Appendix No. III · Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. III, pp. 447–448 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+   "place": "Albenga",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "weary",
+   "excerpt": "Messages 0–2 open the letter; 3 and 4–5 come from later in it. Left out: the sentence on Chauvet's post, remarks on priests and astrologers, the ghost passage, a line on Beaulieu's army, greetings to Barras and Tallien.",
+   "messages": [
+    {
+     "fr": "Il est une heure après minuit. L'on m'apporte une lettre ; elle est triste, mon âme en est affectée : c'est la mort de Chauvet.",
+     "en": "It is one in the morning. They bring me a letter; it is sad, and my soul is shaken: it is the death of Chauvet.",
+     "ko": "새벽 한 시야. 편지가 한 통 왔어. 슬픈 편지라 마음이 무너져. 쇼베가 세상을 떠났대.",
+     "orig": {
+      "fr": "il est un heure apres minuit, l'on m apporte une lettre elle est triste mon ame en est affecte c est la mort de chauvet."
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. III, pp. 447–448 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Il est une heure après minuit. // L'on m'apporte une lettre ; / elle est triste, / mon âme en est affectée : / c'est la mort de Chauvet.",
+      "en": "It is one in the morning. // They bring me a letter; / it is sad, / and my soul is shaken: / it is the death of Chauvet.",
+      "ko": "새벽 한 시야. // 편지가 한 통 왔어. // 슬픈 편지라 마음이 무너져. // 쇼베가 세상을 떠났대."
+     }
+    },
+    {
+     "fr": "Mon amie, je sens le besoin d'être consolé.",
+     "en": "My love, I need to be comforted.",
+     "ko": "내 사랑, 누가 나를 좀 달래 줬으면 좋겠어.",
+     "orig": {
+      "fr": "mon amie je sens le besoin d etre console"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. III, pp. 447–448 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Mon amie, / je sens le besoin d'être consolé.",
+      "en": "My love, / I need to be comforted.",
+      "ko": "내 사랑, / 누가 나를 좀 달래 줬으면 좋겠어."
+     }
+    },
+    {
+     "fr": "Qu'est-ce que l'avenir ? Qu'est-ce que le passé ? Qu'est-ce que nous ?",
+     "en": "What is the future? What is the past? What are we?",
+     "ko": "미래란 뭘까? 과거란 뭘까? 우리는 뭘까?",
+     "orig": {
+      "fr": "qu est ce que l avenir ? qu est ce que le passe ? qu est ce que nous ?"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. III, pp. 447–448 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Qu'est-ce que l'avenir ? // Qu'est-ce que le passé ? // Qu'est-ce que nous ?",
+      "en": "What is the future? // What is the past? // What are we?",
+      "ko": "미래란 뭘까? // 과거란 뭘까? // 우리는 뭘까?"
+     }
+    },
+    {
+     "fr": "Chauvet est mort ; il m'était attaché ; il a rendu à la patrie des services essentiels. Son dernier mot a été qu'il partait pour me joindre.",
+     "en": "Chauvet is dead; he was devoted to me; he did his country great service. His last word was that he was setting out to join me.",
+     "ko": "쇼베가 죽었어. 나를 아끼던 사람이었고, 나라를 위해 큰일을 했어. 마지막으로 남긴 말이, 나를 만나러 떠난다는 거였대.",
+     "orig": {
+      "fr": "chauvet est mort il m etoit attache il est rendu a la patrie des services essensieles Son dernier mot a ete qu il partoit pour me joindre"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. III, pp. 447–448 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Chauvet est mort ; / il m'était attaché ; / il a rendu à la patrie des services essentiels. // Son dernier mot a été qu'il partait pour me joindre.",
+      "en": "Chauvet is dead; / he was devoted to me; / he did his country great service. // His last word was that he was setting out to join me.",
+      "ko": "쇼베가 죽었어. // 나를 아끼던 사람이었고, / 나라를 위해 큰일을 했어. // 마지막으로 남긴 말이, / 나를 만나러 떠난다는 거였대."
+     }
+    },
+    {
+     "fr": "Je suis un peu fatigué, je suis tous les jours à cheval. Adieu, adieu, adieu. Je vais dormir.",
+     "en": "I'm a little tired; I'm on horseback every day. Goodbye, goodbye, goodbye. I'm going to sleep.",
+     "ko": "나 좀 피곤해. 날마다 말을 타거든. 잘 있어, 잘 있어, 잘 있어. 이제 잘게.",
+     "orig": {
+      "fr": "je suis un peu fatigue je suis tous les jours a cheval — adieu adieu adieu je vais dormir"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. III, pp. 447–448 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Je suis un peu fatigué, / je suis tous les jours à cheval. // Adieu, / adieu, / adieu. // Je vais dormir.",
+      "en": "I'm a little tired; / I'm on horseback every day. // Goodbye, / goodbye, / goodbye. // I'm going to sleep.",
+      "ko": "나 좀 피곤해. // 날마다 말을 타거든. // 잘 있어, / 잘 있어, / 잘 있어. // 이제 잘게."
+     }
+    },
+    {
+     "fr": "Le sommeil me console : il te place à mes côtés, je te serre dans mes bras. Mais au réveil, hélas ! je me trouve à trois cents lieues de toi.",
+     "en": "Sleep comforts me: it puts you by my side, and I hold you in my arms. But when I wake, alas! I find myself three hundred leagues from you.",
+     "ko": "잠은 나를 달래 줘. 잠이 들면 당신이 내 곁에 있고, 나는 당신을 꼭 안아. 그런데 깨어나면, 아아, 당신과 삼백 리외나 떨어져 있어.",
+     "orig": {
+      "fr": "le someil me console il te place a mes cote je te serre dans mes bras — Mais au reveil helas je me trouve a trois cent lieus de toi"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. III, pp. 447–448 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Le sommeil me console : / il te place à mes côtés, / je te serre dans mes bras. // Mais au réveil, / hélas ! // je me trouve à trois cents lieues de toi.",
+      "en": "Sleep comforts me: / it puts you by my side, / and I hold you in my arms. // But when I wake, / alas! // I find myself three hundred leagues from you.",
+      "ko": "잠은 나를 달래 줘. // 잠이 들면 당신이 내 곁에 있고, / 나는 당신을 꼭 안아. // 그런데 깨어나면, / 아아, / 당신과 삼백 리외나 떨어져 있어."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "mort",
+     "pos": "n.f.",
+     "ipa": "mɔʁ",
+     "en": "death",
+     "ko": "죽음",
+     "icon": "🕯️"
+    },
+    {
+     "fr": "avenir",
+     "pos": "n.m.",
+     "ipa": "avniʁ",
+     "en": "future",
+     "ko": "미래",
+     "icon": "🔭"
+    },
+    {
+     "fr": "cheval",
+     "pos": "n.m.",
+     "ipa": "ʃəval",
+     "en": "horse",
+     "ko": "말",
+     "icon": "🐎"
+    },
+    {
+     "fr": "bras",
+     "pos": "n.m.",
+     "ipa": "bʁa",
+     "en": "arm",
+     "ko": "팔",
+     "icon": "💪"
+    }
+   ],
+   "note": {
+    "ko": "이틀 뒤, 알벤가의 사령부에서 새벽에 쓴 편지예요. 쇼베는 이탈리아 원정군의 보급을 책임진 관리로, 프롤로그에서 형에게 책을 가져다줄 사람으로 나왔던 그 사람이에요. 바라스는 그때 프랑스를 다스리던 총재 다섯 명 가운데 한 사람으로, 조제핀과 보나파르트를 둘 다 잘 아는 사이였어요. 리외(lieue)는 옛 거리 단위로 약 4킬로미터예요.",
+    "en": "Two days later, written in the small hours at headquarters in Albenga. Chauvet was the official in charge of supplies for the Army of Italy, the same man who, in the prologue, was to take books to Joseph. Barras was one of the five Directors then governing France, and knew both Joséphine and Bonaparte well. A lieue (league) was an old measure of about four kilometres.",
+    "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. III, pp. 447–448 · public domain · https://archive.org/details/tourthroughparts02tennuoft ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Carte générale du théâtre de la guerre en Italie et dans les Alpes",
+    "title_en": "General Map of the Theatre of War in Italy and the Alps",
+    "title_ko": "이탈리아와 알프스 전역 총지도",
+    "date": "1798",
+    "credit": "Louis Albert Guislain Bacler d'Albe",
+    "collection": "[미확인: 후보 — Library of Congress 지도부 또는 BnF Gallica. 판 · 장 번호 확인 필요]",
+    "imageLicense": "Public domain",
+    "exception": "pd-art",
+    "imageSource": "https://www.loc.gov/maps/ [미확인: Bacler d'Albe 1798 지도 항목 주소]",
+    "why": {
+     "ko": "보나파르트의 지도 담당 장교 바클레 달브가 이 원정을 위해 그린 지도예요. 니스에서 알벤가로 이어지는 바닷길이 보여요.",
+     "en": "Drawn by Bonaparte's own map officer, Bacler d'Albe, for this campaign; it shows the coast road from Nice to Albenga."
+    },
+    "image": "n-c1-l2.webp",
+    "kind": "map",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 이미지 출처 [미확인] 표시는 fetch-portraits.yml 로 확정."
+   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "I.1",
+     "fr": "Pauvre Chauvet… Je t'embrasse très fort.",
+     "en": "Poor Chauvet… Let me hold you tight.",
+     "ko": "가엾은 쇼베… 당신을 꼭 안아 줄게요.",
+     "koLow": "가엾은 쇼베… 당신을 꼭 안아 줄게.",
+     "koHigh": "가엾은 쇼베… 당신을 꼭 안아 드리겠습니다.",
+     "focus": {
+      "fr": [
+       "Je t'embrasse"
+      ],
+      "en": [
+       "hold you"
+      ],
+      "ko": [
+       "당신을"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Je t'embrasses",
+        "Je te embrasse"
+       ]
+      ],
+      "en": [
+       [
+        "hold your",
+        "hold yours"
+       ]
+      ],
+      "ko": [
+       [
+        "당신은",
+        "당신이"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Albenga · 5 avril 1796, une heure du matin",
+      "en": "Bonaparte is at Albenga · 5 April 1796, one in the morning",
+      "ko": "보나파르트가 알벤가에 있어요 · 1796년 4월 5일, 새벽 한 시"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "albenga",
+     "title": {
+      "fr": "Albenga",
+      "en": "Albenga",
+      "ko": "알벤가"
+     },
+     "address": "Ligurie, quartier général"
+    }
+   ],
+   "status": {
+    "fr": "Albenga, une heure après minuit",
+    "en": "Albenga, one in the morning",
+    "ko": "알벤가, 새벽 한 시"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Pourquoi le sommeil console-t-il Napoléon ?",
+      "en": "Why does sleep comfort Napoleon?",
+      "ko": "잠은 왜 나폴레옹을 달래 주나요?"
+     },
+     "options": [
+      {
+       "fr": "Il oublie la guerre",
+       "en": "He forgets the war",
+       "ko": "전쟁을 잊어서"
+      },
+      {
+       "fr": "Joséphine est à ses côtés",
+       "en": "Joséphine is by his side",
+       "ko": "조제핀이 곁에 있어서"
+      },
+      {
+       "fr": "Il est de retour à Paris",
+       "en": "He is back in Paris",
+       "ko": "파리로 돌아가서"
+      },
+      {
+       "fr": "Chauvet revient",
+       "en": "Chauvet comes back",
+       "ko": "쇼베가 돌아와서"
+      }
+     ],
+     "answer": 1,
+     "evidence": 5,
+     "mark": {
+      "fr": "à mes côtés",
+      "en": "by my side",
+      "ko": "곁에"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "조제핀이 되어, 한밤중에 전화한 보나파르트와 통화",
+     "en": "You are Joséphine, and Bonaparte phones in the middle of the night"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Joséphine, tu dors ? Il est une heure du matin…",
+      "en": "Joséphine, are you asleep? It's one in the morning…",
+      "ko": "조제핀, 자? 새벽 한 시야…"
+     },
+     {
+      "who": "me",
+      "fr": "Non, je lis ta lettre. Tu es fatigué ?",
+      "en": "No, I'm reading your letter. Are you tired?",
+      "ko": "아니, 당신 편지 읽고 있어. 피곤해?",
+      "focus": {
+       "fr": [
+        "ta lettre"
+       ],
+       "en": [
+        "I'm reading"
+       ],
+       "ko": [
+        "피곤해"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ton lettre",
+         "tes lettre"
+        ]
+       ],
+       "en": [
+        [
+         "I reading",
+         "I'm read"
+        ]
+       ],
+       "ko": [
+        [
+         "피곤하어",
+         "피곤헤"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui, un peu. Je suis à cheval tous les jours.",
+      "en": "Yes, a little. I'm on my horse every day.",
+      "ko": "응, 조금. 날마다 말을 타거든."
+     },
+     {
+      "who": "me",
+      "fr": "Alors dors bien, mon ami. Je t'envoie un baiser.",
+      "en": "Then sleep well, my love. I'm sending you a kiss.",
+      "ko": "그럼 푹 자. 입맞춤 보낼게.",
+      "focus": {
+       "fr": [
+        "mon ami"
+       ],
+       "en": [
+        "I'm sending"
+       ],
+       "ko": [
+        "푹 자"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ma ami",
+         "mes ami"
+        ]
+       ],
+       "en": [
+        [
+         "I sending",
+         "I'm send"
+        ]
+       ],
+       "ko": [
+        [
+         "푹 자아",
+         "푹 저"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "fatigué",
+     "cheval",
+     "dormir"
+    ],
+    "grammar": "I.0",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  },
+  {
+   "id": "c1-l3",
+   "date": "1796-04-07",
+   "dateNote": "Dated ‘Albenga le 18 germinal’ [an IV] = 7 April 1796.",
+   "ref": "Tennant 1824, Appendix No. IV · Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. IV, pp. 448–450 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+   "place": "Albenga",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "calm",
+   "excerpt": "Messages 0–1 come from the first paragraph, 2–4 from the paragraph about his brother. Left out: passages with words Tennant could not read, the closing line and the address.",
+   "messages": [
+    {
+     "fr": "Je reçois une lettre que tu interromps pour aller, dis-tu, à la campagne ; et après cela tu te donnes le ton d'être jalouse de moi, qui suis ici accablé d'affaires et de fatigue.",
+     "en": "I get a letter that you break off to go, you say, to the country; and after that you put on a show of being jealous of me, when I am here worn out with work and tiredness.",
+     "ko": "편지를 받았는데, 시골에 간다면서 쓰다 말았더라. 그러고는 나를 질투하는 척까지 하네. 나는 여기서 일과 피로에 짓눌려 있는데.",
+     "orig": {
+      "fr": "je recois une lettre que tu interompt pour aller dis tu a la campagne et apres cela tu te donne le ton d etre jalouse de moi qui suis ici accable d affaires et de fatigue"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. IV, pp. 448–450 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Je reçois une lettre que tu interromps pour aller, / dis-tu, / à la campagne ; / et après cela tu te donnes le ton d'être jalouse de moi, / qui suis ici accablé d'affaires et de fatigue.",
+      "en": "I get a letter that you break off to go, / you say, / to the country; / and after that you put on a show of being jealous of me, / when I am here worn out with work and tiredness.",
+      "ko": "편지를 받았는데, / 시골에 간다면서 쓰다 말았더라. // 그러고는 나를 질투하는 척까지 하네. // 나는 여기서 일과 피로에 짓눌려 있는데."
+     }
+    },
+    {
+     "fr": "Je ne suis pas content : ta dernière lettre est froide comme l'amitié.",
+     "en": "I'm not happy: your last letter is as cold as friendship.",
+     "ko": "나 서운해. 당신 지난 편지는 우정처럼 차가웠어.",
+     "orig": {
+      "fr": "je ne suis pas content ta derniere lettre est froide comme l amitie"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. IV, pp. 448–450 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Je ne suis pas content : / ta dernière lettre est froide comme l'amitié.",
+      "en": "I'm not happy: / your last letter is as cold as friendship.",
+      "ko": "나 서운해. // 당신 지난 편지는 우정처럼 차가웠어."
+     }
+    },
+    {
+     "fr": "Mon frère est ici. Il a appris mon mariage avec plaisir ; il brûle de l'envie de te connaître.",
+     "en": "My brother is here. He was glad to hear of my marriage; he's longing to meet you.",
+     "ko": "형이 여기 와 있어. 내 결혼 소식을 듣고 기뻐했어. 당신을 무척 만나고 싶어 해.",
+     "orig": {
+      "fr": "Mon frere est ici — il a apris mon mariage avec plaisir il brule de l envie de te connoitre"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. IV, pp. 448–450 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Mon frère est ici. // Il a appris mon mariage avec plaisir ; / il brûle de l'envie de te connaître.",
+      "en": "My brother is here. // He was glad to hear of my marriage; / he's longing to meet you.",
+      "ko": "형이 여기 와 있어. // 내 결혼 소식을 듣고 기뻐했어. // 당신을 무척 만나고 싶어 해."
+     }
+    },
+    {
+     "fr": "Je cherche à le décider à venir à Paris. Sa femme a accouché : elle a fait une fille.",
+     "en": "I'm trying to persuade him to come to Paris. His wife has given birth: she's had a girl.",
+     "ko": "형을 파리로 가게 하려고 설득하는 중이야. 형수가 아기를 낳았어. 딸이래.",
+     "orig": {
+      "fr": "je cherche a le decider a venir a paris — sa femme a accouche — elle a fait une fille."
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. IV, pp. 448–450 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Je cherche à le décider à venir à Paris. // Sa femme a accouché : / elle a fait une fille.",
+      "en": "I'm trying to persuade him to come to Paris. // His wife has given birth: / she's had a girl.",
+      "ko": "형을 파리로 가게 하려고 설득하는 중이야. // 형수가 아기를 낳았어. // 딸이래."
+     }
+    },
+    {
+     "fr": "Il t'envoie pour présent une boîte de bonbons de Gênes. Tu recevras des oranges, des parfums et de l'eau de fleur d'oranger que je t'envoie.",
+     "en": "He's sending you a box of sweets from Genoa as a present. You'll also get the oranges, perfumes and orange-flower water that I'm sending you.",
+     "ko": "형이 선물로 제노바 사탕 한 상자를 보내. 내가 보내는 오렌지랑 향수, 오렌지꽃 물도 받게 될 거야.",
+     "orig": {
+      "fr": "il t envoie pour present une boite de bonbons de genes tu recevra des oranges des parfums et de l eau de fleur d orange que je t envoye"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. IV, pp. 448–450 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Il t'envoie pour présent une boîte de bonbons de Gênes. // Tu recevras des oranges, / des parfums et de l'eau de fleur d'oranger que je t'envoie.",
+      "en": "He's sending you a box of sweets from Genoa as a present. // You'll also get the oranges, / perfumes and orange-flower water that I'm sending you.",
+      "ko": "형이 선물로 제노바 사탕 한 상자를 보내. // 내가 보내는 오렌지랑 향수, / 오렌지꽃 물도 받게 될 거야."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "campagne",
+     "pos": "n.f.",
+     "ipa": "kɑ̃paɲ",
+     "en": "countryside",
+     "ko": "시골",
+     "icon": "🌾"
+    },
+    {
+     "fr": "fille",
+     "pos": "n.f.",
+     "ipa": "fij",
+     "en": "daughter, girl",
+     "ko": "딸, 여자아이",
+     "icon": "👧"
+    },
+    {
+     "fr": "boîte",
+     "pos": "n.f.",
+     "ipa": "bwat",
+     "en": "box",
+     "ko": "상자",
+     "icon": "📦"
+    },
+    {
+     "fr": "fleur",
+     "pos": "n.f.",
+     "ipa": "flœʁ",
+     "en": "flower",
+     "ko": "꽃",
+     "icon": "🌸"
+    }
+   ],
+   "note": {
+    "ko": "다시 이틀 뒤, 같은 알벤가에서. 조제핀은 파리에 남아 있었고, 그녀의 편지는 드물고 짧았어요. 그는 사랑 앞에서 미지근한 ‘우정’을 ‘차갑다’고 투정해요. 편지 속 ‘형’은 조제프로, 마침 이탈리아에 와 있었고 그의 아내 쥘리가 딸을 낳았어요. 제노바는 설탕에 졸인 과일과 사탕으로 이름난 항구였어요.",
+    "en": "Two days later, still at Albenga. Joséphine had stayed in Paris, and her letters were rare and short. He grumbles that lukewarm ‘friendship’ is cold next to love. The ‘brother’ is Joseph, who happened to be in Italy; his wife Julie had just had a daughter. Genoa was a port famous for its candied fruit and sweets.",
+    "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. IV, pp. 448–450 · public domain · https://archive.org/details/tourthroughparts02tennuoft ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Nature morte aux oranges et aux noix",
+    "title_en": "Still Life with Oranges and Walnuts",
+    "title_ko": "오렌지와 호두가 있는 정물",
+    "date": "1772",
+    "credit": "Luis Egidio Meléndez",
+    "collection": "The National Gallery, London [미확인: 번호 NG6505 로 기억]",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/Category:Still_Life_with_Oranges_and_Walnuts_(Meléndez) [미확인: 파일 이름]",
+    "why": {
+     "ko": "편지 속 선물처럼 남쪽 바닷가에서 온 오렌지와 상자가 놓인 18세기 정물이에요.",
+     "en": "An eighteenth-century still life of southern oranges and boxes, like the presents in the letter."
+    },
+    "image": "n-c1-l3.webp",
+    "kind": "painting",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 이미지 출처 [미확인] 표시는 fetch-portraits.yml 로 확정."
+   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "I.1",
+     "fr": "Ma lettre n'est pas froide ! Je t'aime.",
+     "en": "My letter isn't cold! I love you.",
+     "ko": "제 편지는 차갑지 않아요! 당신을 사랑해요.",
+     "koLow": "내 편지는 차갑지 않아! 당신을 사랑해.",
+     "koHigh": "제 편지는 차갑지 않습니다! 당신을 사랑합니다.",
+     "focus": {
+      "fr": [
+       "Je t'aime"
+      ],
+      "en": [
+       "love you"
+      ],
+      "ko": [
+       "제 편지"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Je te aime",
+        "Je t'aimes"
+       ]
+      ],
+      "en": [
+       [
+        "love your",
+        "love yours"
+       ]
+      ],
+      "ko": [
+       [
+        "저 편지",
+        "재 편지"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est encore à Albenga · 7 avril 1796",
+      "en": "Bonaparte is still at Albenga · 7 April 1796",
+      "ko": "보나파르트가 아직 알벤가에 있어요 · 1796년 4월 7일"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Albenga, entre deux lettres",
+    "en": "Albenga, between two letters",
+    "ko": "알벤가, 편지와 편지 사이"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qu'est-ce que le frère de Napoléon envoie à Joséphine ?",
+      "en": "What does Napoleon's brother send Joséphine?",
+      "ko": "나폴레옹의 형은 조제핀에게 무엇을 보내나요?"
+     },
+     "options": [
+      {
+       "fr": "Des oranges",
+       "en": "Oranges",
+       "ko": "오렌지"
+      },
+      {
+       "fr": "Une boîte de bonbons de Gênes",
+       "en": "A box of sweets from Genoa",
+       "ko": "제노바 사탕 한 상자"
+      },
+      {
+       "fr": "Un portrait",
+       "en": "A portrait",
+       "ko": "초상화"
+      },
+      {
+       "fr": "Des livres",
+       "en": "Books",
+       "ko": "책"
+      }
+     ],
+     "answer": 1,
+     "evidence": 4,
+     "mark": {
+      "fr": "une boîte de bonbons",
+      "en": "a box of sweets",
+      "ko": "사탕 한 상자"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "조제핀이 되어, 서운해하는 보나파르트와 통화",
+     "en": "You are Joséphine, on the phone with a slightly hurt Bonaparte"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Joséphine, tu es à la campagne ?",
+      "en": "Joséphine, are you in the country?",
+      "ko": "조제핀, 시골에 갔어?"
+     },
+     {
+      "who": "me",
+      "fr": "Oui, avec des amis. Tu n'es pas jaloux, quand même ?",
+      "en": "Yes, with friends. You can't be jealous!",
+      "ko": "응, 친구들이랑. 질투하는 거야? 귀엽네.",
+      "focus": {
+       "fr": [
+        "Tu n'es pas"
+       ],
+       "en": [
+        "can't be"
+       ],
+       "ko": [
+        "귀엽네"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu n'est pas",
+         "Vous n'es pas"
+        ]
+       ],
+       "en": [
+        [
+         "can't to be",
+         "don't can be"
+        ]
+       ],
+       "ko": [
+        [
+         "귀엽내",
+         "기엽네"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Un peu… Mon frère t'envoie des bonbons de Gênes.",
+      "en": "A little… My brother is sending you sweets from Genoa.",
+      "ko": "조금… 형이 제노바 사탕을 보낸대."
+     },
+     {
+      "who": "me",
+      "fr": "C'est gentil ! Vous êtes adorables, tous les deux.",
+      "en": "That's sweet! Can you thank him for me?",
+      "ko": "다정하네! 형님한테 고맙다고 전해 줘.",
+      "focus": {
+       "fr": [
+        "Vous êtes"
+       ],
+       "en": [
+        "Can you"
+       ],
+       "ko": [
+        "다정하네"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Vous es",
+         "Tu êtes"
+        ]
+       ],
+       "en": [
+        [
+         "Can you to",
+         "Do you can"
+        ]
+       ],
+       "ko": [
+        [
+         "다정하내",
+         "다정해네"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "campagne",
+     "jaloux"
+    ],
+    "grammar": "I.2",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  },
+  {
+   "id": "c1-l4",
+   "date": "1796-04-24",
+   "dateNote": "Dated ‘Carru le 5 floreal’ [an IV] = 24 April 1796.",
+   "ref": "Tennant 1824, Appendix No. V · Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. V, pp. 450–451 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+   "place": "Carrù (Piedmont)",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "tender",
+   "excerpt": "Paragraphs 1–3 and the sentence about Hortense; left out: the passage about Junot and the flags, two lines Tennant could not read, the closing lines and the postscripts.",
+   "messages": [
+    {
+     "fr": "Mon frère te remettra cette lettre. J'ai pour lui la plus vive amitié ; il obtiendra, j'espère, la tienne : il la mérite.",
+     "en": "My brother will hand you this letter. I have the warmest affection for him; I hope he will win yours: he deserves it.",
+     "ko": "이 편지는 형이 전해 줄 거야. 나는 형을 무척 아껴. 당신도 형을 좋아하게 되면 좋겠어. 그럴 만한 사람이야.",
+     "orig": {
+      "fr": "Mon frere te remettera cette lettre j ai pour lui la plus vive amitie il obtiendra j espere la tienne il la merite"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. V, pp. 450–451 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Mon frère te remettra cette lettre. // J'ai pour lui la plus vive amitié ; / il obtiendra, / j'espère, / la tienne : / il la mérite.",
+      "en": "My brother will hand you this letter. // I have the warmest affection for him; / I hope he will win yours: / he deserves it.",
+      "ko": "이 편지는 형이 전해 줄 거야. // 나는 형을 무척 아껴. // 당신도 형을 좋아하게 되면 좋겠어. // 그럴 만한 사람이야."
+     }
+    },
+    {
+     "fr": "Il désire vivre éloigné, avec sa petite femme, du grand tourbillon et des grandes affaires. Je te le recommande.",
+     "en": "He wants to live with his little wife, far from the great whirl and from big affairs. Please look after him for me.",
+     "ko": "형은 귀여운 아내와 함께 복잡한 세상일과 큰일에서 멀리 떨어져 살고 싶어 해. 형을 잘 부탁해.",
+     "orig": {
+      "fr": "il desire vivre eloigne avec sa petite femme du grand tourbillon et des grandes affaires, je te le recomande."
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. V, pp. 450–451 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Il désire vivre éloigné, / avec sa petite femme, / du grand tourbillon et des grandes affaires. // Je te le recommande.",
+      "en": "He wants to live with his little wife, / far from the great whirl and from big affairs. // Please look after him for me.",
+      "ko": "형은 귀여운 아내와 함께 복잡한 세상일과 큰일에서 멀리 떨어져 살고 싶어 해. // 형을 잘 부탁해."
+     }
+    },
+    {
+     "fr": "J'ai reçu ta lettre du 16 et du 21. Tu as été bien des jours sans m'écrire ; que fais-tu donc ?",
+     "en": "I got your letters of the 16th and the 21st. You went many days without writing to me; what are you doing?",
+     "ko": "16일 편지랑 21일 편지 받았어. 며칠씩이나 편지를 안 썼더라. 대체 뭐 하고 지내?",
+     "orig": {
+      "fr": "j ai recu ta lettre du 16 et du 21 tu as ete bien des jours sans m ecrire que fais tu donc ?"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. V, pp. 450–451 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "J'ai reçu ta lettre du 16 et du 21. // Tu as été bien des jours sans m'écrire ; / que fais-tu donc ?",
+      "en": "I got your letters of the 16th and the 21st. // You went many days without writing to me; / what are you doing?",
+      "ko": "16일 편지랑 21일 편지 받았어. // 며칠씩이나 편지를 안 썼더라. // 대체 뭐 하고 지내?"
+     }
+    },
+    {
+     "fr": "Oui, ma bonne, bonne amie, je suis non pas jaloux, mais quelquefois inquiet. Viens vite ; je te préviens : si tu tardes, tu me trouves malade.",
+     "en": "Yes, my good, good love, I'm not jealous, but sometimes worried. Come quickly; I'm warning you: if you're late, you'll find me ill.",
+     "ko": "그래, 착하고 착한 내 사랑. 질투하는 게 아니라 가끔 걱정이 돼서 그래. 빨리 와. 미리 말해 두는데, 늦게 오면 나 앓아누워 있을 거야.",
+     "orig": {
+      "fr": "oui ma bonne bonne amie je suis non pas jaloux mais quelque fois inquiet — viens vit je te previens si tu tarde tu me trouve malade"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. V, pp. 450–451 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Oui, / ma bonne, / bonne amie, / je suis non pas jaloux, / mais quelquefois inquiet. // Viens vite ; / je te préviens : / si tu tardes, / tu me trouves malade.",
+      "en": "Yes, / my good, / good love, / I'm not jealous, / but sometimes worried. // Come quickly; / I'm warning you: / if you're late, / you'll find me ill.",
+      "ko": "그래, / 착하고 착한 내 사랑. // 질투하는 게 아니라 가끔 걱정이 돼서 그래. // 빨리 와. // 미리 말해 두는데, / 늦게 오면 나 앓아누워 있을 거야."
+     }
+    },
+    {
+     "fr": "Les fatigues et ton absence, c'est trop à la fois. Tes lettres font le plaisir de mes journées, et mes journées heureuses ne sont pas fréquentes.",
+     "en": "Tiredness and your absence: it's too much at once. Your letters are the joy of my days, and my happy days are not many.",
+     "ko": "피로에 당신까지 없으니 한꺼번에 너무 힘들어. 당신 편지가 내 하루의 기쁨인데, 행복한 날은 많지 않아.",
+     "orig": {
+      "fr": "les fatigues et ton absence c est trop a la fois. tes lettres font le plaisir de mes journees et mes journees heureuses ne sont pas frequentes."
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. V, pp. 450–451 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Les fatigues et ton absence, / c'est trop à la fois. // Tes lettres font le plaisir de mes journées, / et mes journées heureuses ne sont pas fréquentes.",
+      "en": "Tiredness and your absence: / it's too much at once. // Your letters are the joy of my days, / and my happy days are not many.",
+      "ko": "피로에 당신까지 없으니 한꺼번에 너무 힘들어. // 당신 편지가 내 하루의 기쁨인데, / 행복한 날은 많지 않아."
+     }
+    },
+    {
+     "fr": "J'ai reçu une lettre d'Hortense ; elle est tout à fait aimable. Je vais lui écrire ; je l'aime bien, et je lui enverrai bientôt les parfums qu'elle veut avoir.",
+     "en": "I got a letter from Hortense; she is truly lovely. I'm going to write to her; I'm very fond of her, and I'll soon send her the perfumes she wants.",
+     "ko": "오르탕스한테서 편지가 왔어. 정말 사랑스러운 아이야. 답장을 써야지. 나는 그 애가 참 좋아. 갖고 싶다는 향수도 곧 보내 줄 거야.",
+     "orig": {
+      "fr": "j ai recu une lettre d hortense elle est tout a fait aimable je vais lui ecrire je l aime bien et je lui enverai bientot les parfums qu elle veut avoir."
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. V, pp. 450–451 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "J'ai reçu une lettre d'Hortense ; / elle est tout à fait aimable. // Je vais lui écrire ; / je l'aime bien, / et je lui enverrai bientôt les parfums qu'elle veut avoir.",
+      "en": "I got a letter from Hortense; / she is truly lovely. // I'm going to write to her; / I'm very fond of her, / and I'll soon send her the perfumes she wants.",
+      "ko": "오르탕스한테서 편지가 왔어. // 정말 사랑스러운 아이야. // 답장을 써야지. // 나는 그 애가 참 좋아. // 갖고 싶다는 향수도 곧 보내 줄 거야."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "vivre",
+     "pos": "v.",
+     "ipa": "vivʁ",
+     "en": "to live",
+     "ko": "살다",
+     "icon": "🏡"
+    },
+    {
+     "fr": "journée",
+     "pos": "n.f.",
+     "ipa": "ʒuʁne",
+     "en": "day",
+     "ko": "하루, 낮",
+     "icon": "☀️"
+    },
+    {
+     "fr": "malade",
+     "pos": "adj.",
+     "ipa": "malad",
+     "en": "ill, sick",
+     "ko": "아픈",
+     "icon": "🤒"
+    },
+    {
+     "fr": "bientôt",
+     "pos": "adv.",
+     "ipa": "bjɛ̃to",
+     "en": "soon",
+     "ko": "곧",
+     "icon": "⏳"
+    }
+   ],
+   "note": {
+    "ko": "피에몬테의 카루에서. 그사이 그는 북쪽으로 산을 넘어 사르데냐 왕국의 군대와 싸웠고, 나흘 뒤 케라스코에서 휴전을 맺어요. 형 조제프가 이 편지를 들고 파리로 가요. 그는 형을 이탈리아 어느 항구의 영사로 보내 달라고 총재 바라스에게 부탁하고 있어요. 오르탕스는 조제핀의 열세 살 딸로, 생제르맹앙레의 캉팡 부인 학교에 다녔어요.",
+    "en": "From Carrù in Piedmont. In the meantime he had crossed the hills northwards and fought the army of the Kingdom of Sardinia; four days later an armistice was signed at Cherasco. His brother Joseph carried this letter to Paris. Bonaparte was asking the Director Barras to make Joseph consul in some Italian port. Hortense was Joséphine's thirteen-year-old daughter, at Madame Campan's school in Saint-Germain-en-Laye.",
+    "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. V, pp. 450–451 · public domain · https://archive.org/details/tourthroughparts02tennuoft ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Joseph Bonaparte",
+    "title_en": "Joseph Bonaparte",
+    "title_ko": "조제프 보나파르트",
+    "date": "1808",
+    "credit": "Jean-Baptiste Wicar",
+    "collection": "[미확인: 후보 — 퐁텐블로 성 국립박물관 등. 대안: 오르탕스 드 보아르네 초상 (지로데 · 제라르 등)]",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portraits_of_Joseph_Bonaparte [미확인: 파일 이름]",
+    "why": {
+     "ko": "이 편지를 들고 파리로 간 형 조제프예요. 그림은 12년 뒤 나폴리 왕이 된 모습이에요.",
+     "en": "Joseph, who carried this letter to Paris, painted twelve years later as King of Naples."
+    },
+    "image": "n-c1-l4.webp",
+    "kind": "portrait",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 이미지 출처 [미확인] 표시는 fetch-portraits.yml 로 확정."
+   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "I.2",
+     "fr": "Pardon ! Tu es inquiet ? Je viens bientôt.",
+     "en": "Sorry! Are you worried? I can come soon.",
+     "ko": "미안해요! 걱정이 많네요. 곧 갈게요.",
+     "koLow": "미안해! 걱정이 많네. 곧 갈게.",
+     "koHigh": "죄송합니다! 걱정이 많으십니다. 곧 가겠습니다.",
+     "focus": {
+      "fr": [
+       "Tu es"
+      ],
+      "en": [
+       "I can come"
+      ],
+      "ko": [
+       "많네요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Tu est",
+        "Vous es"
+       ]
+      ],
+      "en": [
+       [
+        "I can to come",
+        "I cans come"
+       ]
+      ],
+      "ko": [
+       [
+        "많내요",
+        "만네요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Carrù · 24 avril 1796, dans le Piémont",
+      "en": "Bonaparte is at Carrù · 24 April 1796, in Piedmont",
+      "ko": "보나파르트가 카루에 있어요 · 1796년 4월 24일, 피에몬테"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "carru",
+     "title": {
+      "fr": "Carrù",
+      "en": "Carrù",
+      "ko": "카루"
+     },
+     "address": "Piémont"
+    }
+   ],
+   "status": {
+    "fr": "Carrù, Joseph part pour Paris",
+    "en": "Carrù, Joseph leaves for Paris",
+    "ko": "카루, 조제프가 파리로 떠나요"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qu'est-ce que Napoléon va envoyer à Hortense ?",
+      "en": "What is Napoleon going to send Hortense?",
+      "ko": "나폴레옹은 오르탕스에게 무엇을 보내 줄 건가요?"
+     },
+     "options": [
+      {
+       "fr": "Des livres",
+       "en": "Books",
+       "ko": "책"
+      },
+      {
+       "fr": "Les parfums qu'elle veut",
+       "en": "The perfumes she wants",
+       "ko": "갖고 싶어 하는 향수"
+      },
+      {
+       "fr": "Une lettre de Joseph",
+       "en": "A letter from Joseph",
+       "ko": "조제프의 편지"
+      },
+      {
+       "fr": "Des bonbons",
+       "en": "Sweets",
+       "ko": "사탕"
+      }
+     ],
+     "answer": 1,
+     "evidence": 5,
+     "mark": {
+      "fr": "parfums",
+      "en": "perfumes",
+      "ko": "향수"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "조제핀이 되어, 형을 보낸 보나파르트와 통화",
+     "en": "You are Joséphine, on the phone with Bonaparte, who has sent his brother to you"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Tu as vu Joseph ? Il a ma lettre.",
+      "en": "Have you seen Joseph? He has my letter.",
+      "ko": "조제프 형 만났어? 내 편지 갖고 있어."
+     },
+     {
+      "who": "me",
+      "fr": "Oui, ton frère est très gentil ! J'ouvre ta lettre.",
+      "en": "Yes, your brother is so kind! I'm opening your letter now.",
+      "ko": "응, 당신 형님 정말 다정하더라! 지금 편지 읽어.",
+      "focus": {
+       "fr": [
+        "ton frère"
+       ],
+       "en": [
+        "I'm opening"
+       ],
+       "ko": [
+        "읽어"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ta frère",
+         "tes frère"
+        ]
+       ],
+       "en": [
+        [
+         "I opening",
+         "I'm open"
+        ]
+       ],
+       "ko": [
+        [
+         "읽아",
+         "익어"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Viens vite, s'il te plaît. Je suis un peu malade.",
+      "en": "Come quickly, please. I'm a little ill.",
+      "ko": "빨리 와 줘. 나 좀 아파."
+     },
+     {
+      "who": "me",
+      "fr": "Oh non ! Repose-toi, mon amour. J'arrive bientôt.",
+      "en": "Oh no! Get some rest, my love. I'm coming soon.",
+      "ko": "어머! 푹 쉬어, 여보. 곧 갈게, 약속해.",
+      "focus": {
+       "fr": [
+        "mon amour"
+       ],
+       "en": [
+        "I'm coming"
+       ],
+       "ko": [
+        "약속해"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ma amour",
+         "mes amour"
+        ]
+       ],
+       "en": [
+        [
+         "I coming",
+         "I'm come"
+        ]
+       ],
+       "ko": [
+        [
+         "약속하",
+         "약속해어"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "vite",
+     "malade",
+     "bientôt"
+    ],
+    "grammar": "I.0",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  },
+  {
+   "id": "c1-l5",
+   "date": "1796-06-15",
+   "dateNote": "Dated ‘tortone midi le 27 prarial’ [an IV] = 15 June 1796, noon.",
+   "ref": "Tennant 1824, Appendix No. VI · Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VI, p. 452 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+   "place": "Tortona",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "weary",
+   "excerpt": "Messages 0–4 are the first paragraph; 5 is one sentence from later. Left out: the long rest of the letter and the address.",
+   "messages": [
+    {
+     "fr": "Ma vie est un cauchemar perpétuel. Un pressentiment funeste m'empêche de respirer.",
+     "en": "My life is an endless nightmare. A dark foreboding keeps me from breathing.",
+     "ko": "내 삶은 끝나지 않는 악몽이야. 불길한 예감에 숨도 못 쉬겠어.",
+     "orig": {
+      "fr": "Ma vie est un cochemar perpetuel un presentiment funeste m empeche de respirer."
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VI, p. 452 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Ma vie est un cauchemar perpétuel. // Un pressentiment funeste m'empêche de respirer.",
+      "en": "My life is an endless nightmare. // A dark foreboding keeps me from breathing.",
+      "ko": "내 삶은 끝나지 않는 악몽이야. // 불길한 예감에 숨도 못 쉬겠어."
+     }
+    },
+    {
+     "fr": "Je ne vis plus ; j'ai perdu plus que la vie, plus que le bonheur, plus que le repos ; je suis presque sans espoir.",
+     "en": "I'm no longer living; I have lost more than life, more than happiness, more than rest; I'm almost without hope.",
+     "ko": "나는 더는 사는 게 아니야. 목숨보다, 행복보다, 쉼보다 더한 걸 잃었어. 희망이 거의 없어.",
+     "orig": {
+      "fr": "je ne vis plus j'ai perdu plus que la vie plus que le bonheur plus que le repos je suis presque sans espoir."
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VI, p. 452 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Je ne vis plus ; / j'ai perdu plus que la vie, / plus que le bonheur, / plus que le repos ; / je suis presque sans espoir.",
+      "en": "I'm no longer living; / I have lost more than life, / more than happiness, / more than rest; / I'm almost without hope.",
+      "ko": "나는 더는 사는 게 아니야. // 목숨보다, / 행복보다, / 쉼보다 더한 걸 잃었어. // 희망이 거의 없어."
+     }
+    },
+    {
+     "fr": "Je t'expédie un courrier. Il ne restera que quatre heures à Paris, et puis m'apportera ta réponse.",
+     "en": "I'm sending you a courier. He'll stay only four hours in Paris, and then bring me your answer.",
+     "ko": "당신한테 전령을 보내. 파리에는 네 시간만 머물고, 당신 답장을 갖고 돌아올 거야.",
+     "orig": {
+      "fr": "je t expedie un courrier. il ne restera que 4 heure a paris et puis m aportera ta reponse"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VI, p. 452 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Je t'expédie un courrier. // Il ne restera que quatre heures à Paris, / et puis m'apportera ta réponse.",
+      "en": "I'm sending you a courier. // He'll stay only four hours in Paris, / and then bring me your answer.",
+      "ko": "당신한테 전령을 보내. // 파리에는 네 시간만 머물고, / 당신 답장을 갖고 돌아올 거야."
+     }
+    },
+    {
+     "fr": "Écris-moi dix pages : cela seul peut me consoler un peu.",
+     "en": "Write me ten pages: only that can comfort me a little.",
+     "ko": "열 장을 써 줘. 그것만이 나를 조금이나마 달래 줄 수 있어.",
+     "orig": {
+      "fr": "ecris moi 10 pages cela seul peut me consoler un peu"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VI, p. 452 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Écris-moi dix pages : / cela seul peut me consoler un peu.",
+      "en": "Write me ten pages: / only that can comfort me a little.",
+      "ko": "열 장을 써 줘. // 그것만이 나를 조금이나마 달래 줄 수 있어."
+     }
+    },
+    {
+     "fr": "Tu es malade, tu m'aimes, je t'ai affligée, tu es grosse, et je ne te vois pas ! Cette idée me confond.",
+     "en": "You are ill, you love me, I have hurt you, you are expecting a child, and I can't see you! The thought overwhelms me.",
+     "ko": "당신은 아프고, 나를 사랑하고, 나는 당신 마음을 아프게 했고, 당신은 아이를 가졌다는데, 나는 당신을 볼 수가 없어! 그 생각만 하면 정신이 아득해.",
+     "orig": {
+      "fr": "tu es malade, tu m aime, je t ai afflige, tu es grosse et je te ne vois pas ! cett idee me confond."
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VI, p. 452 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Tu es malade, / tu m'aimes, / je t'ai affligée, / tu es grosse, / et je ne te vois pas ! // Cette idée me confond.",
+      "en": "You are ill, / you love me, / I have hurt you, / you are expecting a child, / and I can't see you! // The thought overwhelms me.",
+      "ko": "당신은 아프고, / 나를 사랑하고, / 나는 당신 마음을 아프게 했고, / 당신은 아이를 가졌다는데, / 나는 당신을 볼 수가 없어! // 그 생각만 하면 정신이 아득해."
+     }
+    },
+    {
+     "fr": "Je ne suis rien sans toi. Je conçois à peine comment j'ai existé sans te connaître.",
+     "en": "I am nothing without you. I can hardly understand how I existed before I knew you.",
+     "ko": "당신 없는 나는 아무것도 아니야. 당신을 알기 전에 내가 어떻게 살았는지 모르겠어.",
+     "orig": {
+      "fr": "je ne suis rien sans toi je concois apeine comment j ai existe sans te connoitre"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VI, p. 452 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Je ne suis rien sans toi. // Je conçois à peine comment j'ai existé sans te connaître.",
+      "en": "I am nothing without you. // I can hardly understand how I existed before I knew you.",
+      "ko": "당신 없는 나는 아무것도 아니야. // 당신을 알기 전에 내가 어떻게 살았는지 모르겠어."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "cauchemar",
+     "pos": "n.m.",
+     "ipa": "koʃmaʁ",
+     "en": "nightmare",
+     "ko": "악몽",
+     "icon": "😱"
+    },
+    {
+     "fr": "espoir",
+     "pos": "n.m.",
+     "ipa": "ɛspwaʁ",
+     "en": "hope",
+     "ko": "희망",
+     "icon": "🕊️"
+    },
+    {
+     "fr": "réponse",
+     "pos": "n.f.",
+     "ipa": "ʁepɔ̃s",
+     "en": "answer, reply",
+     "ko": "대답, 답장",
+     "icon": "📨"
+    },
+    {
+     "fr": "idée",
+     "pos": "n.f.",
+     "ipa": "ide",
+     "en": "idea, thought",
+     "ko": "생각",
+     "icon": "💡"
+    }
+   ],
+   "note": {
+    "ko": "두 달 가까이 지나, 토르토나에서. 그사이 그는 밀라노에 들어갔고(5월 15일), 조제핀에게 이탈리아로 와 달라고 거듭 졸랐어요. 조제핀은 몸이 아프다며 파리를 떠나지 않았고, 아이를 가졌다는 말도 돌았지만 사실이 아니었어요. ‘쿠리에(courrier)’는 편지를 들고 말을 갈아타며 달리는 전령이에요. 그는 열흘 뒤 마침내 파리를 떠나요.",
+    "en": "Nearly two months later, at Tortona. In the meantime he had entered Milan (15 May) and kept begging Joséphine to join him in Italy. She stayed in Paris, saying she was ill; there was talk that she was expecting a child, but it was not true. A courrier was a dispatch rider who carried letters, changing horses on the way. About ten days later she finally left Paris.",
+    "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VI, p. 452 · public domain · https://archive.org/details/tourthroughparts02tennuoft ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "L'Arrivée d'une diligence dans la cour des Messageries",
+    "title_en": "The Arrival of a Stagecoach in the Courtyard of the Messageries",
+    "title_ko": "역마차 사무소 마당에 도착한 역마차",
+    "date": "1803",
+    "credit": "Louis-Léopold Boilly",
+    "collection": "Musée du Louvre, Paris [미확인: 소장 번호]",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/Category:L'Arrivée_d'une_diligence_dans_la_cour_des_Messageries_by_Boilly [미확인: 분류 · 파일 이름]",
+    "why": {
+     "ko": "편지와 사람을 실어 나르던 시절 파리의 역마차 마당이에요. 전령도 이런 마당을 거쳐 파리와 이탈리아를 오갔어요.",
+     "en": "A Paris coach yard of the time, where letters and travellers came and went, as the courier did between Paris and Italy."
+    },
+    "image": "n-c1-l5.webp",
+    "kind": "painting",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 이미지 출처 [미확인] 표시는 fetch-portraits.yml 로 확정."
+   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "I.0",
+     "fr": "Je vais mieux, ma santé revient. Je t'écris dix pages !",
+     "en": "I'm getting better. I'm writing you ten pages!",
+     "ko": "저 좀 나아졌어요. 지금 열 장 쓰고 있어요.",
+     "koLow": "나 좀 나아졌어. 지금 열 장 쓰고 있어.",
+     "koHigh": "저는 좀 나아졌습니다. 지금 열 장을 쓰고 있습니다.",
+     "focus": {
+      "fr": [
+       "ma santé"
+      ],
+      "en": [
+       "I'm getting"
+      ],
+      "ko": [
+       "나아졌어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "mon santé",
+        "mes santé"
+       ]
+      ],
+      "en": [
+       [
+        "I getting",
+        "I'm get"
+       ]
+      ],
+      "ko": [
+       [
+        "나아졌아요",
+        "나았졌어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Tortona · 15 juin 1796, à midi",
+      "en": "Bonaparte is at Tortona · 15 June 1796, noon",
+      "ko": "보나파르트가 토르토나에 있어요 · 1796년 6월 15일 정오"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "tortona",
+     "title": {
+      "fr": "Tortona",
+      "en": "Tortona",
+      "ko": "토르토나"
+     },
+     "address": "Piémont"
+    }
+   ],
+   "status": {
+    "fr": "Tortona, midi",
+    "en": "Tortona, noon",
+    "ko": "토르토나, 정오"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Combien de temps le courrier reste-t-il à Paris ?",
+      "en": "How long does the courier stay in Paris?",
+      "ko": "전령은 파리에 얼마나 머무나요?"
+     },
+     "options": [
+      {
+       "fr": "Quatre heures",
+       "en": "Four hours",
+       "ko": "네 시간"
+      },
+      {
+       "fr": "Dix jours",
+       "en": "Ten days",
+       "ko": "열흘"
+      },
+      {
+       "fr": "Une semaine",
+       "en": "A week",
+       "ko": "일주일"
+      },
+      {
+       "fr": "Deux heures",
+       "en": "Two hours",
+       "ko": "두 시간"
+      }
+     ],
+     "answer": 0,
+     "evidence": 2,
+     "mark": {
+      "fr": "quatre heures",
+      "en": "four hours",
+      "ko": "네 시간"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "조제핀이 되어, 애가 탄 보나파르트와 통화",
+     "en": "You are Joséphine, on the phone with an anxious Bonaparte"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Joséphine ! Tu es malade ? Je suis très inquiet.",
+      "en": "Joséphine! Are you ill? I'm really worried.",
+      "ko": "조제핀! 아파? 너무 걱정돼."
+     },
+     {
+      "who": "me",
+      "fr": "Ça va mieux. Tu peux respirer !",
+      "en": "I'm better. You can breathe again!",
+      "ko": "좀 나아졌어. 목소리 들으니 살 것 같네.",
+      "focus": {
+       "fr": [
+        "Tu peux"
+       ],
+       "en": [
+        "You can"
+       ],
+       "ko": [
+        "같네"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu peut",
+         "Vous peux"
+        ]
+       ],
+       "en": [
+        [
+         "You can to",
+         "You cans"
+        ]
+       ],
+       "ko": [
+        [
+         "같내",
+         "갔네"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Écris-moi vite ! J'attends ta réponse.",
+      "en": "Write to me soon! I'm waiting for your answer.",
+      "ko": "얼른 편지 써 줘! 당신 답장 기다릴게."
+     },
+     {
+      "who": "me",
+      "fr": "Promis. Mais dix pages, tu exagères !",
+      "en": "Promise. But ten pages? I can't write that much!",
+      "ko": "알았어. 그런데 열 장은 너무 많네!",
+      "focus": {
+       "fr": [
+        "tu exagères"
+       ],
+       "en": [
+        "I can't"
+       ],
+       "ko": [
+        "많네"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "tu exagère",
+         "vous exagères"
+        ]
+       ],
+       "en": [
+        [
+         "I don't can",
+         "I can't to"
+        ]
+       ],
+       "ko": [
+        [
+         "많내",
+         "만네"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "respirer",
+     "réponse"
+    ],
+    "grammar": "I.2",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  },
+  {
+   "id": "c1-l6",
+   "date": "1796-06-26",
+   "dateNote": "Dated ‘de Pistoa en toscane le 8 messidor’ [an IV] = 26 June 1796.",
+   "ref": "Tennant 1824, Appendix No. VII · Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VII, pp. 455–456 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+   "place": "Pistoia (Tuscany)",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "tender",
+   "excerpt": "Messages 0–3 are the first paragraph, 4 a sentence from later (ending at ‘trop bêtes’), 5 the farewell. Left out: the long reproachful middle, a line on the rumoured pregnancy, the postscript and the address.",
+   "messages": [
+    {
+     "fr": "Depuis un mois, je n'ai reçu de ma bonne amie que deux billets de trois lignes chacun.",
+     "en": "In a whole month I've had only two notes from my sweetheart, three lines each.",
+     "ko": "한 달 동안 내 사랑한테서 받은 건 세 줄짜리 쪽지 두 장뿐이야.",
+     "orig": {
+      "fr": "Depuis un mois je n'ai reçu de ma bonne amie que 2 billets de trois lignes chacun"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VII, pp. 455–456 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Depuis un mois, / je n'ai reçu de ma bonne amie que deux billets de trois lignes chacun.",
+      "en": "In a whole month I've had only two notes from my sweetheart, / three lines each.",
+      "ko": "한 달 동안 내 사랑한테서 받은 건 세 줄짜리 쪽지 두 장뿐이야."
+     }
+    },
+    {
+     "fr": "A-t-elle des affaires ? Celle d'écrire à son bon ami n'est donc pas un besoin pour elle, dès lors celle d'y penser ?",
+     "en": "Is she so busy? Is writing to her dear friend not something she needs, and so not even thinking of him?",
+     "ko": "그렇게 바쁜가? 사랑하는 사람한테 편지 쓰는 게 그녀에게는 필요 없는 일이고, 그러니 그 사람을 생각하는 것도 그런가?",
+     "orig": {
+      "fr": "a-t-elle des affaires ? celle d'ecrire a son bon ami n'est donc pas un besoin pour elle des lors celle d'y penser"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VII, pp. 455–456 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "A-t-elle des affaires ? // Celle d'écrire à son bon ami n'est donc pas un besoin pour elle, / dès lors celle d'y penser ?",
+      "en": "Is she so busy? // Is writing to her dear friend not something she needs, / and so not even thinking of him?",
+      "ko": "그렇게 바쁜가? // 사랑하는 사람한테 편지 쓰는 게 그녀에게는 필요 없는 일이고, / 그러니 그 사람을 생각하는 것도 그런가?"
+     }
+    },
+    {
+     "fr": "Vivre sans penser à Joséphine, ce serait pour ton mari être mort et ne pas exister.",
+     "en": "To live without thinking of Joséphine would be, for your husband, to be dead and not to exist.",
+     "ko": "조제핀을 생각하지 않고 산다는 건, 당신 남편에게는 죽은 것, 없는 것과 같아.",
+     "orig": {
+      "fr": "vivre sans penser a Josephine ce seroit pour ton mari etre mort et ne pas exister"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VII, pp. 455–456 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Vivre sans penser à Joséphine, / ce serait pour ton mari être mort et ne pas exister.",
+      "en": "To live without thinking of Joséphine would be, / for your husband, / to be dead and not to exist.",
+      "ko": "조제핀을 생각하지 않고 산다는 건, / 당신 남편에게는 죽은 것, / 없는 것과 같아."
+     }
+    },
+    {
+     "fr": "Ton image embellit ma pensée et égaye le tableau sinistre et noir de la mélancolie et de la douleur.",
+     "en": "Your image makes my thoughts beautiful and brightens the grim, dark picture of sadness and pain.",
+     "ko": "당신 모습은 내 생각을 아름답게 하고, 우울과 고통으로 어둡고 음울한 그림을 환하게 밝혀 줘.",
+     "orig": {
+      "fr": "ton image embelit ma pensee et egaye le tableau sinistre et noire de la melancolie et de la douleur"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VII, pp. 455–456 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Ton image embellit ma pensée et égaye le tableau sinistre et noir de la mélancolie et de la douleur.",
+      "en": "Your image makes my thoughts beautiful and brightens the grim, / dark picture of sadness and pain.",
+      "ko": "당신 모습은 내 생각을 아름답게 하고, / 우울과 고통으로 어둡고 음울한 그림을 환하게 밝혀 줘."
+     }
+    },
+    {
+     "fr": "Un jour peut-être viendra où je te verrai, car je ne doute pas que tu ne sois encore à Paris ; eh bien ! ce jour-là, je te montrerai mes poches pleines de lettres que je ne t'ai pas envoyées, parce qu'elles étaient trop bêtes.",
+     "en": "Perhaps a day will come when I see you, for I have no doubt you are still in Paris; well then! that day I'll show you my pockets full of letters I never sent you, because they were too silly.",
+     "ko": "언젠가 당신을 볼 날이 오겠지. 당신은 아직 파리에 있을 테니까. 그래, 그날 내 주머니를 보여 줄게. 너무 바보 같아서 부치지 못한 편지로 가득한 주머니를.",
+     "orig": {
+      "fr": "un jour peutetre viendra ou je te verai, car je ne doute pas que tu ne sois encore a paris et bien ce jour la je te montrerai mes poches pleines de lettres que je ne t'ai pas envoyé par qu'elles etoient trop bete"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VII, pp. 455–456 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Un jour peut-être viendra où je te verrai, / car je ne doute pas que tu ne sois encore à Paris ; / eh bien ! // ce jour-là, / je te montrerai mes poches pleines de lettres que je ne t'ai pas envoyées, / parce qu'elles étaient trop bêtes.",
+      "en": "Perhaps a day will come when I see you, / for I have no doubt you are still in Paris; / well then! // that day I'll show you my pockets full of letters I never sent you, / because they were too silly.",
+      "ko": "언젠가 당신을 볼 날이 오겠지. // 당신은 아직 파리에 있을 테니까. // 그래, / 그날 내 주머니를 보여 줄게. // 너무 바보 같아서 부치지 못한 편지로 가득한 주머니를."
+     }
+    },
+    {
+     "fr": "Adieu, ma bien-aimée, un baiser sur ta bouche, un autre sur ton cœur.",
+     "en": "Goodbye, my beloved: one kiss on your mouth, another on your heart.",
+     "ko": "잘 있어, 내 사랑. 당신 입술에 한 번, 당신 가슴에 한 번 입맞춤을.",
+     "orig": {
+      "fr": "adieu, ma bien aime, un baise sur ta bouche — un autre sur ton coeur"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VII, pp. 455–456 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Adieu, / ma bien-aimée, / un baiser sur ta bouche, / un autre sur ton cœur.",
+      "en": "Goodbye, / my beloved: / one kiss on your mouth, / another on your heart.",
+      "ko": "잘 있어, / 내 사랑. // 당신 입술에 한 번, / 당신 가슴에 한 번 입맞춤을."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "besoin",
+     "pos": "n.m.",
+     "ipa": "bəzwɛ̃",
+     "en": "need",
+     "ko": "필요",
+     "icon": "🙏"
+    },
+    {
+     "fr": "mari",
+     "pos": "n.m.",
+     "ipa": "maʁi",
+     "en": "husband",
+     "ko": "남편",
+     "icon": "🤵"
+    },
+    {
+     "fr": "poche",
+     "pos": "n.f.",
+     "ipa": "pɔʃ",
+     "en": "pocket",
+     "ko": "주머니",
+     "icon": "👖"
+    },
+    {
+     "fr": "bouche",
+     "pos": "n.f.",
+     "ipa": "buʃ",
+     "en": "mouth",
+     "ko": "입",
+     "icon": "👄"
+    }
+   ],
+   "note": {
+    "ko": "열하루 뒤, 토스카나의 피스토이아에서. 그는 여기서 스스로를 ‘당신 남편’이라 불러요. 바로 이 무렵 조제핀은 마침내 파리를 떠나 이탈리아로 오는 길에 올랐지만, 그는 아직 그 소식을 몰랐어요. 끝내 부치지 못한 ‘바보 같은 편지’들은 남아 있지 않아요.",
+    "en": "Eleven days later, at Pistoia in Tuscany. Here he calls himself ‘your husband’. At about this time Joséphine finally set out from Paris for Italy, but he did not know it yet. The ‘silly letters’ he never sent have not survived.",
+    "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. VII, pp. 455–456 · public domain · https://archive.org/details/tourthroughparts02tennuoft ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "La Lettre d'amour",
+    "title_en": "The Love Letter",
+    "title_ko": "사랑의 편지",
+    "date": "early 1770s",
+    "credit": "Jean Honoré Fragonard",
+    "collection": "The Metropolitan Museum of Art, New York · CC0 [미확인: 번호 49.7.49 로 기억]",
+    "imageLicense": "Public domain (CC0, Met Open Access)",
+    "imageSource": "https://www.metmuseum.org/art/collection/search/437173 [미확인: 작품 쪽 번호]",
+    "why": {
+     "ko": "편지를 받아 든 여인을 그린 프라고나르의 그림이에요. 보나파르트가 기다리던, 조제핀이 편지를 펼치는 순간을 떠올리게 해요.",
+     "en": "Fragonard's young woman with a letter, like the moment Bonaparte kept waiting for: Joséphine opening one of his."
+    },
+    "image": "n-c1-l6.webp",
+    "kind": "painting",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 이미지 출처 [미확인] 표시는 fetch-portraits.yml 로 확정."
+   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "I.2",
+     "fr": "Pardon ! Tu as raison, mes billets sont trop courts.",
+     "en": "Sorry! You're right. I can write longer letters.",
+     "ko": "미안해요! 제 편지가 너무 짧았네요.",
+     "koLow": "미안해! 내 편지가 너무 짧았네.",
+     "koHigh": "죄송합니다! 제 편지가 너무 짧았습니다.",
+     "focus": {
+      "fr": [
+       "Tu as"
+      ],
+      "en": [
+       "I can write"
+      ],
+      "ko": [
+       "짧았네요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "Tu a",
+        "Vous as"
+       ]
+      ],
+      "en": [
+       [
+        "I can writes",
+        "I can to write"
+       ]
+      ],
+      "ko": [
+       [
+        "짧았내요",
+        "짤았네요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Pistoia · 26 juin 1796, en Toscane",
+      "en": "Bonaparte is at Pistoia · 26 June 1796, in Tuscany",
+      "ko": "보나파르트가 피스토이아에 있어요 · 1796년 6월 26일, 토스카나"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "pistoia",
+     "title": {
+      "fr": "Pistoia",
+      "en": "Pistoia",
+      "ko": "피스토이아"
+     },
+     "address": "Toscane"
+    }
+   ],
+   "status": {
+    "fr": "Pistoia, en Toscane",
+    "en": "Pistoia, in Tuscany",
+    "ko": "토스카나의 피스토이아"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Combien de billets Napoléon a-t-il reçus en un mois ?",
+      "en": "How many notes has Napoleon had in a month?",
+      "ko": "나폴레옹은 한 달 동안 쪽지를 몇 장 받았나요?"
+     },
+     "options": [
+      {
+       "fr": "Aucun",
+       "en": "None",
+       "ko": "한 장도 못 받았다"
+      },
+      {
+       "fr": "Deux",
+       "en": "Two",
+       "ko": "두 장"
+      },
+      {
+       "fr": "Dix",
+       "en": "Ten",
+       "ko": "열 장"
+      },
+      {
+       "fr": "Trois cents",
+       "en": "Three hundred",
+       "ko": "삼백 장"
+      }
+     ],
+     "answer": 1,
+     "evidence": 0,
+     "mark": {
+      "fr": "deux billets",
+      "en": "two notes",
+      "ko": "두 장"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "조제핀이 되어, 편지가 뜸하다고 서운해하는 보나파르트와 통화",
+     "en": "You are Joséphine, and Bonaparte complains that you hardly write"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Tu ne m'écris pas souvent, Joséphine…",
+      "en": "You don't write to me very often, Joséphine…",
+      "ko": "조제핀, 당신 편지가 너무 뜸해…"
+     },
+     {
+      "who": "me",
+      "fr": "Pardon, mon chéri. Je suis très occupée à Paris.",
+      "en": "Sorry, darling. I'm running around all day in Paris.",
+      "ko": "미안해, 여보. 파리에서 정신없이 바빠.",
+      "focus": {
+       "fr": [
+        "mon chéri"
+       ],
+       "en": [
+        "I'm running"
+       ],
+       "ko": [
+        "바빠"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ma chéri",
+         "mes chéri"
+        ]
+       ],
+       "en": [
+        [
+         "I running",
+         "I'm run"
+        ]
+       ],
+       "ko": [
+        [
+         "바뻐",
+         "바쁘아"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Moi, j'ai les poches pleines de lettres pour toi !",
+      "en": "Me, I've got pockets full of letters for you!",
+      "ko": "나는 주머니에 당신한테 쓴 편지가 가득해!"
+     },
+     {
+      "who": "me",
+      "fr": "Alors montre-moi tes lettres !",
+      "en": "Then show me your letters! I'm dying to read them.",
+      "ko": "그럼 그 편지 보여 줘! 정말 궁금해.",
+      "focus": {
+       "fr": [
+        "tes lettres"
+       ],
+       "en": [
+        "I'm dying"
+       ],
+       "ko": [
+        "궁금해"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ta lettres",
+         "ton lettres"
+        ]
+       ],
+       "en": [
+        [
+         "I dying",
+         "I'm die"
+        ]
+       ],
+       "ko": [
+        [
+         "궁금하",
+         "궁굼해"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "poche",
+     "plein",
+     "montrer"
+    ],
+    "grammar": "I.0",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  },
+  {
+   "id": "c1-l7",
+   "date": "1796-07-17",
+   "dateNote": "Marmirolo, 29 messidor an IV, nine in the evening (17 July 1796).",
+   "ref": "Didot 1833, t. I, lettre III · Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (Paris, Firmin Didot frères, 1833), t. I, lettre III, pp. 46–49 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+   "place": "Marmirolo (near Mantua)",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine, in Milan",
+    "ko": "밀라노의 조제핀"
+   },
+   "mood": "bright",
+   "excerpt": "Left out: 'Je t'engage fort à monter à cheval …', the passage 'Sans cesse je repasse dans ma mémoire …', the line about her horse and the passage after 'tous les jours davantage'.",
+   "messages": [
+    {
+     "fr": "Je reçois ta lettre, mon adorable amie ; elle a rempli mon cœur de joie.",
+     "en": "Your letter has come, my adorable love; it has filled my heart with joy.",
+     "ko": "당신 편지 받았어, 사랑스러운 내 사랑. 편지 덕분에 마음이 기쁨으로 가득해.",
+     "orig": {
+      "fr": "Je reçois ta lettre, mon adorable amie; elle a rempli mon cœur de joie."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (Paris, Firmin Didot frères, 1833), t. I, lettre III, pp. 46–49 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je reçois ta lettre, / mon adorable amie ; / elle a rempli mon cœur de joie.",
+      "en": "Your letter has come, / my adorable love; / it has filled my heart with joy.",
+      "ko": "당신 편지 받았어, / 사랑스러운 내 사랑. // 편지 덕분에 마음이 기쁨으로 가득해."
+     }
+    },
+    {
+     "fr": "Je te suis obligé de la peine que tu as prise de me donner de tes nouvelles ; ta santé doit être meilleure aujourd'hui ; je suis sûr que tu es guérie.",
+     "en": "Thank you for taking the trouble to send me your news; your health must be better today; I'm sure you are well again.",
+     "ko": "애써 소식 전해 줘서 고마워. 오늘은 몸이 좀 나아졌겠지. 다 나았을 거라고 믿어.",
+     "orig": {
+      "fr": "Je te suis obligé de la peine que tu as prise de me donner de tes nouvelles; ta santé doit être meilleure aujourd'hui; je suis sûr que tu es guérie."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (Paris, Firmin Didot frères, 1833), t. I, lettre III, pp. 46–49 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je te suis obligé de la peine que tu as prise de me donner de tes nouvelles ; / ta santé doit être meilleure aujourd'hui ; / je suis sûr que tu es guérie.",
+      "en": "Thank you for taking the trouble to send me your news; / your health must be better today; / I'm sure you are well again.",
+      "ko": "애써 소식 전해 줘서 고마워. // 오늘은 몸이 좀 나아졌겠지. // 다 나았을 거라고 믿어."
+     }
+    },
+    {
+     "fr": "Depuis que je t'ai quittée, j'ai toujours été triste. Mon bonheur est d'être près de toi.",
+     "en": "Since I left you, I have been sad all the time. My happiness is to be near you.",
+     "ko": "당신 곁을 떠난 뒤로 줄곧 슬펐어. 내 행복은 당신 곁에 있는 거야.",
+     "orig": {
+      "fr": "Depuis que je t'ai quittée, j'ai toujours été triste. Mon bonheur est d'être près de toi."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (Paris, Firmin Didot frères, 1833), t. I, lettre III, pp. 46–49 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Depuis que je t'ai quittée, / j'ai toujours été triste. // Mon bonheur est d'être près de toi.",
+      "en": "Since I left you, / I have been sad all the time. // My happiness is to be near you.",
+      "ko": "당신 곁을 떠난 뒤로 줄곧 슬펐어. // 내 행복은 당신 곁에 있는 거야."
+     }
+    },
+    {
+     "fr": "Je croyais t'aimer il y a quelques jours ; mais, depuis que je t'ai vue, je sens que je t'aime mille fois plus encore.",
+     "en": "A few days ago I thought I loved you; but since I saw you, I feel that I love you a thousand times more.",
+     "ko": "며칠 전에는 당신을 사랑한다고 생각했어. 그런데 당신을 보고 나니, 천 배는 더 사랑한다는 걸 알겠어.",
+     "orig": {
+      "fr": "Je croyais t'aimer il y a quelques jours; mais, depuis que je t'ai vue, je sens que je t'aime mille fois plus encore."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (Paris, Firmin Didot frères, 1833), t. I, lettre III, pp. 46–49 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Je croyais t'aimer il y a quelques jours ; / mais, / depuis que je t'ai vue, / je sens que je t'aime mille fois plus encore.",
+      "en": "A few days ago I thought I loved you; / but since I saw you, / I feel that I love you a thousand times more.",
+      "ko": "며칠 전에는 당신을 사랑한다고 생각했어. // 그런데 당신을 보고 나니, / 천 배는 더 사랑한다는 걸 알겠어."
+     }
+    },
+    {
+     "fr": "Repose-toi bien. Rétablis vite ta santé. Viens me rejoindre ; et, au moins, qu'avant de mourir, nous puissions dire : « Nous fûmes tant de jours heureux ! »",
+     "en": "Rest well. Get your health back quickly. Come and join me; and at least, before we die, let us be able to say: ‘We were happy for so many days!’",
+     "ko": "푹 쉬어. 얼른 몸을 추스르고 나한테 와. 그래서 죽기 전에 적어도 이렇게 말할 수 있게. ‘우리는 그토록 많은 날을 행복했어!’",
+     "orig": {
+      "fr": "Repose-toi bien. Rétablis vite ta santé. Viens me rejoindre; et, au moins, qu'avant de mourir, nous puissions dire: Nous fumes tant de jours heureux!!"
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (Paris, Firmin Didot frères, 1833), t. I, lettre III, pp. 46–49 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Repose-toi bien. // Rétablis vite ta santé. // Viens me rejoindre ; / et, / au moins, / qu'avant de mourir, / nous puissions dire : / « Nous fûmes tant de jours heureux ! // »",
+      "en": "Rest well. // Get your health back quickly. // Come and join me; / and at least, / before we die, / let us be able to say: / ‘We were happy for so many days!’",
+      "ko": "푹 쉬어. // 얼른 몸을 추스르고 나한테 와. // 그래서 죽기 전에 적어도 이렇게 말할 수 있게. // ‘우리는 그토록 많은 날을 행복했어!’"
+     }
+    },
+    {
+     "fr": "Millions de baisers, et même à Fortuné, en dépit de sa méchanceté.",
+     "en": "Millions of kisses, even to Fortuné, in spite of his nastiness.",
+     "ko": "입맞춤을 백만 번 보내. 포르튀네한테도. 그 녀석이 심술궂긴 해도.",
+     "orig": {
+      "fr": "Millions de baisers, et même à Fortuné, en dépit de sa méchanceté."
+     },
+     "verified": true,
+     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (Paris, Firmin Didot frères, 1833), t. I, lettre III, pp. 46–49 · public domain · https://archive.org/details/lettresdenapolo01josegoog",
+     "speak": {
+      "fr": "Millions de baisers, / et même à Fortuné, / en dépit de sa méchanceté.",
+      "en": "Millions of kisses, / even to Fortuné, / in spite of his nastiness.",
+      "ko": "입맞춤을 백만 번 보내. // 포르튀네한테도. // 그 녀석이 심술궂긴 해도."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "joie",
+     "pos": "n.f.",
+     "ipa": "ʒwa",
+     "en": "joy",
+     "ko": "기쁨",
+     "icon": "🎉"
+    },
+    {
+     "fr": "santé",
+     "pos": "n.f.",
+     "ipa": "sɑ̃te",
+     "en": "health",
+     "ko": "건강",
+     "icon": "🩺"
+    },
+    {
+     "fr": "fois",
+     "pos": "n.f.",
+     "ipa": "fwa",
+     "en": "time (as in ‘a thousand times’)",
+     "ko": "번, 배",
+     "icon": "✖️"
+    },
+    {
+     "fr": "heureux",
+     "pos": "adj.",
+     "ipa": "øʁø",
+     "en": "happy",
+     "ko": "행복한",
+     "icon": "😄"
+    }
+   ],
+   "note": {
+    "ko": "7월, 조제핀이 마침내 밀라노에 닿았고, 둘은 잠깐 함께 지냈어요. 그는 곧 만토바를 에워싼 진지 가까이, 마르미롤로로 돌아와 저녁 아홉 시에 이 편지를 써요. 포르튀네는 조제핀의 작은 퍼그로, 결혼한 날 밤 보나파르트의 다리를 문 일로 유명해요. 이 편지는 1833년 파리에서 나온 『나폴레옹이 조제핀에게 보낸 편지』 첫 권에 실렸어요.",
+    "en": "In July Joséphine at last reached Milan, and they spent a short time together. He soon went back to Marmirolo, near the lines round Mantua, and wrote this at nine in the evening. Fortuné was Joséphine's little pug, famous for biting Bonaparte's leg on their wedding night. The letter was printed in the first volume of the Letters of Napoleon to Joséphine, Paris, 1833.",
+    "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (Paris, Firmin Didot frères, 1833), t. I, lettre III, pp. 46–49 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Madame Bonaparte",
+    "title_en": "Madame Bonaparte",
+    "title_ko": "보나파르트 부인",
+    "date": "c. 1801",
+    "credit": "François Gérard",
+    "collection": "State Hermitage Museum, Saint Petersburg [미확인: 그림 · 번호. 대안: 그로 〈조제핀〉 (니스 마세나 미술관, II장 후보와 겹침)]",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portraits_of_Joséphine_de_Beauharnais_by_François_Gérard [미확인: 파일 이름]",
+    "why": {
+     "ko": "편지를 받은 조제핀의 초상이에요. 몇 해 뒤 제라르가 그린, 말메종 시절의 모습이에요.",
+     "en": "A portrait of the woman who received these letters, painted by Gérard a few years later."
+    },
+    "image": "n-c1-l7.webp",
+    "kind": "portrait",
+    "spots": [],
+    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 이미지 출처 [미확인] 표시는 fetch-portraits.yml 로 확정."
+   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "I.1",
+     "fr": "J'arrive bientôt. Mon bonheur, c'est d'être près de toi.",
+     "en": "I'm coming soon. I miss you so much!",
+     "ko": "곧 갈게요. 제 행복은 당신 곁에 있어요.",
+     "koLow": "곧 갈게. 내 행복은 당신 곁에 있어.",
+     "koHigh": "곧 가겠습니다. 제 행복은 당신 곁에 있습니다.",
+     "focus": {
+      "fr": [
+       "J'arrive"
+      ],
+      "en": [
+       "miss you"
+      ],
+      "ko": [
+       "제 행복"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "J'arrives",
+        "Je arrive"
+       ]
+      ],
+      "en": [
+       [
+        "miss your",
+        "miss yours"
+       ]
+      ],
+      "ko": [
+       [
+        "저 행복",
+        "재 행복"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Marmirolo · 17 juillet 1796, neuf heures du soir",
+      "en": "Bonaparte is at Marmirolo · 17 July 1796, nine in the evening",
+      "ko": "보나파르트가 마르미롤로에 있어요 · 1796년 7월 17일 저녁 아홉 시"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "marmirolo",
+     "title": {
+      "fr": "Marmirolo",
+      "en": "Marmirolo",
+      "ko": "마르미롤로"
+     },
+     "address": "près de Mantoue"
+    }
+   ],
+   "status": {
+    "fr": "Marmirolo, neuf heures du soir",
+    "en": "Marmirolo, nine in the evening",
+    "ko": "마르미롤로, 저녁 아홉 시"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Selon Napoléon, quel est son bonheur ?",
+      "en": "According to Napoleon, what is his happiness?",
+      "ko": "나폴레옹은 무엇이 자기 행복이라고 하나요?"
+     },
+     "options": [
+      {
+       "fr": "Être près de Joséphine",
+       "en": "Being near Joséphine",
+       "ko": "조제핀 곁에 있는 것"
+      },
+      {
+       "fr": "Monter à cheval",
+       "en": "Riding a horse",
+       "ko": "말을 타는 것"
+      },
+      {
+       "fr": "Gagner une bataille",
+       "en": "Winning a battle",
+       "ko": "전투에서 이기는 것"
+      },
+      {
+       "fr": "Lire des livres",
+       "en": "Reading books",
+       "ko": "책을 읽는 것"
+      }
+     ],
+     "answer": 0,
+     "evidence": 2,
+     "mark": {
+      "fr": "près de toi",
+      "en": "near you",
+      "ko": "당신 곁에"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "조제핀이 되어, 편지를 받고 기뻐하는 보나파르트와 통화",
+     "en": "You are Joséphine, on the phone with Bonaparte, happy to have your letter"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Ta lettre est arrivée ! Tu vas mieux ?",
+      "en": "Your letter came! Are you feeling better?",
+      "ko": "당신 편지 왔어! 좀 나아졌어?"
+     },
+     {
+      "who": "me",
+      "fr": "Oui, aujourd'hui je suis guérie. Et toi ?",
+      "en": "Yes, I'm well again today. Can you come soon?",
+      "ko": "응, 오늘은 다 나았어. 기운이 나네.",
+      "focus": {
+       "fr": [
+        "Et toi"
+       ],
+       "en": [
+        "Can you"
+       ],
+       "ko": [
+        "나네"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Et tu",
+         "Et te"
+        ]
+       ],
+       "en": [
+        [
+         "Can you to",
+         "Do you can"
+        ]
+       ],
+       "ko": [
+        [
+         "나내",
+         "나니"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Très content ! Je t'aime mille fois plus.",
+      "en": "So happy! I love you a thousand times more.",
+      "ko": "정말 기뻐! 천 배는 더 사랑해."
+     },
+     {
+      "who": "me",
+      "fr": "Tu es fou ! Fortuné t'embrasse aussi.",
+      "en": "You're crazy! Fortuné can't wait to see you either.",
+      "ko": "당신 정말 못 말리네! 포르튀네도 보고 싶대.",
+      "focus": {
+       "fr": [
+        "Tu es"
+       ],
+       "en": [
+        "can't wait"
+       ],
+       "ko": [
+        "못 말리네"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu est",
+         "Vous es"
+        ]
+       ],
+       "en": [
+        [
+         "don't can wait",
+         "can't to wait"
+        ]
+       ],
+       "ko": [
+        [
+         "못 말리내",
+         "못 말이네"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "aujourd'hui",
+     "fois"
+    ],
+    "grammar": "I.2",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  }
+ ]
+}

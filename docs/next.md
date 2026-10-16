@@ -102,3 +102,13 @@
 - 문장 나누기: core `Abbrev` (St. · Mr. · M. · Hr. · Sig. · heil. · No. 5 · J. · den 3. Juni) — `Pairs.sentences` · `Ladder` 가 쓴다. 스크립트는 `scripts/abbrev.py` `split_keep`.
   **이미 만든 낭독 중 줄임말 뒤 긴 끊음(//)** — 모차르트 c1-l2 m2 en (St. // Peter's), m4 en (St. // Peter · Paul · Luke), m4 de (heil. // Petrus), m5 de (heil. // Petrus · S. // Pietro), m5 en (St. // Peter's), c1-l6 m4 de (Sig. // Cassiglioni). speak 글 · 소리는 아직 그대로 (고치면 새 이름으로, R2 덮어쓰기 금지).
 - 별자리 잇기: 굴리지 않고 한 화면 (하늘이 남은 높이를 채움, 720dp 아래 화면은 제목 빼고 작은 낱말). 장면 `ScreensTest.fixFitConstellationSmall` (360×640, 아직 안 찍음).
+
+## 2026-10-16 추가 (나폴레옹 시리즈 데이터 · 출시 전 숨김)
+
+- `data/napoleon/` 에 셋째 작품: 프롤로그 4 + 8장 × 7 + 맺음 1 = 61통 (tier 2 ₩2,900, `series_napoleon`, 무료 I · II장). 규격 v1 `spec_check.py napoleon` 통과.
+- **`"hidden": true`** (series.json): generate.py 가 앱 assets 에 넣지 않고 판매 규칙만 본다 → 서재의 ‘곧 도착’ 나폴레옹 카드 그대로. site_sources.py 도 건너뜀. 출시 때 이 칸을 지우고 generate.py.
+- 원문은 지금 철자 (명백한 오자 · 옛 철자는 앱 글에 표시 없이 고침), 찍힌 글자는 메시지 `orig.fr` 에만. 이 원칙은 출처 화면 `credits_text` 와 사이트 출처 페이지 머리 한 줄로만 알린다 (편지마다 적지 않음).
+- 어휘: lexicon*.json 은 카드 낱말만 (빈센트 · 모차르트 줄의 뜻 · IPA · 발음 · 예문을 다시 씀). **gloss*.json 은 아직 없음** (눌러서 뜻 보기 · 아는 낱말 % 는 나폴레옹에서 안 나온다; 만들려면 Tatoeba 추출본 + scripts/vocab 표에 나폴레옹 낱말을 더해 build.py · build_tl.py, validate_lexicon.py 의 SERIES 에 napoleon).
+- 배역표 voices.json: 길 M3 → M4 → M5 (I 0.25 · E 0.75), `speed` 1.05 (narrate.py 가 인물 목소리에만 곱함), talk_me 조제핀 F3 · 마리 루이즈 F5 · 조제프 M2 · 외젠 M1 · 아들 M1 · 오르탕스 F4. **낭독은 아직 없다.**
+- 그림 (plates `n-*.webp`, 아웃트로 `n-outro.webp`) 은 아직 받지 않았다: 후보와 `[미확인]` 표시는 편지마다 `plate.imageSource`. fetch-portraits.yml 로 확정 → 점(spots) 찍기. 지도 자리 x · y 는 임시값.
+- c4-l5 (‘위대한 황후’ 놀림 편지) 의 ko 는 이 편지만 높임말 (나폴레옹이 tu 대신 vous 로 놀림) — 반말 원칙의 예외, 사용자 확인 필요 (`_note_register`).

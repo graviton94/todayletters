@@ -1125,8 +1125,8 @@
     "ko": "편지 글"
   },
   "credits_text": {
-    "en": "French text of the letters: Brieven aan zijn broeder, edited by J. van Gogh-Bonger, 1914 (public domain), from the Internet Archive scan. English and Korean translations are written for this app.",
-    "ko": "편지의 프랑스어 원문: 『Brieven aan zijn broeder』(요 반 고흐-봉어 엮음, 1914, 공공 영역), 인터넷 아카이브 스캔본. 영어 · 한국어 번역은 이 앱이 새로 썼어요."
+    "en": "French text of the letters: Brieven aan zijn broeder, edited by J. van Gogh-Bonger, 1914 (public domain), from the Internet Archive scan. English and Korean translations are written for this app.\nIn every series, obvious typos and old spellings in the original letters are corrected to modern spelling without marking each change (the Mozart German keeps the 1865 edition’s spelling).",
+    "ko": "편지의 프랑스어 원문: 『Brieven aan zijn broeder』(요 반 고흐-봉어 엮음, 1914, 공공 영역), 인터넷 아카이브 스캔본. 영어 · 한국어 번역은 이 앱이 새로 썼어요.\n모든 작품에서 편지 원문의 명백한 오자와 옛 철자는 하나하나 표시하지 않고 지금 표기로 고쳐 실었어요 (모차르트의 독일어는 1865년 판의 철자를 그대로 두었어요)."
   },
   "credits_images_h": {
     "en": "Pictures",

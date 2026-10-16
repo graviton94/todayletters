@@ -1,0 +1,76 @@
+{
+ "_doc": "나폴레옹 배역표 (초안, 사용자 결정 반영). 목소리 길 M3 → M4 → M5: 장마다 길 위의 자리(age, 0~1)에서 이웃한 두 결을 섞어 스물다섯 살(1795)에서 쉰한 살(1821)까지 나이 들어감을 낸다 (I ≈ M3+M4 반반 0.25, 맺음 ≈ M4+M5 반반 0.75). 세 언어 같은 비율. speed 1.05 = 인물 목소리를 조금 빠르게 (narrate.py, 받는 사람 목소리 talk_me 에는 안 씀). mood 는 챕터 기본 감정 (data/voices/presets.json). 목소리 품질은 아직 사람이 들어 보지 않았다.",
+ "character": "napoleon",
+ "path": [
+  "M3",
+  "M4",
+  "M5"
+ ],
+ "young": "M3",
+ "old": "M5",
+ "speed": 1.05,
+ "chapters": {
+  "P": {
+   "age": 0.2,
+   "mood": "tender",
+   "_note": "파리, 1795 · 스물다섯 살"
+  },
+  "I": {
+   "age": 0.25,
+   "mood": "tender",
+   "_note": "이탈리아로 · M3+M4 반반"
+  },
+  "II": {
+   "age": 0.3,
+   "mood": "tender",
+   "_note": "빈 방"
+  },
+  "III": {
+   "age": 0.37,
+   "mood": "calm",
+   "_note": "제1통령"
+  },
+  "IV": {
+   "age": 0.44,
+   "mood": "bright",
+   "_note": "대관식"
+  },
+  "V": {
+   "age": 0.5,
+   "mood": "weary",
+   "_note": "폴란드의 눈"
+  },
+  "VI": {
+   "age": 0.55,
+   "mood": "calm",
+   "_note": "쇤브룬"
+  },
+  "VII": {
+   "age": 0.6,
+   "mood": "tender",
+   "_note": "말메종"
+  },
+  "VIII": {
+   "age": 0.68,
+   "mood": "weary",
+   "_note": "작별"
+  },
+  "E": {
+   "age": 0.75,
+   "mood": "calm",
+   "_note": "세인트헬레나 · M4+M5 반반"
+  }
+ },
+ "talk_me": {
+  "_doc": "오늘의 회화(talk)의 \"me\" 줄 목소리: 편지 \"to\" 의 프랑스어 글자 → 목소리 (없으면 default = 조제핀). \"them\" 줄은 위의 인물 목소리 그대로 (narrate.py NARRATE_ONLY=talk).",
+  "default": "F3",
+  "by_to": {
+   "Joséphine": "F3",
+   "Marie-Louise": "F5",
+   "Joseph": "M2",
+   "Eugène": "M1",
+   "Hortense": "F4",
+   "Son fils": "M1"
+  }
+ }
+}

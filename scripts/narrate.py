@@ -3,6 +3,7 @@
 메시지마다 · 언어마다 파일 하나, 낱말마다 · 언어마다 파일 하나를 만든다.
 
   목소리: data/<인물>/voices.json 의 young · old 를 챕터 age 로 섞은 것 (세 언어 같은 비율)
+          "speed" 가 있으면 인물 목소리(편지 · 회화 them 줄 · 낱말)의 빠르기에 곱한다 (없으면 1.0, 나폴레옹 1.05). talk_me 목소리에는 안 곱한다.
   감정:   편지의 "mood" (없으면 챕터 기본값) → data/voices/presets.json 의 빠르기 · 높낮이 · 쉼 · 앞 숨
   끊어 읽기: 메시지의 "speak" 에서 긴 끊음("//", 쉼표 자리)마다 마디를 나눠, 마디는 한 번에 읽고(억양이 이어짐)
           마디 사이에는 긴 숨을 둔다. 짧은 끊음("/")은 이어 읽는다. 마디마다 시작 · 끝 시각을
@@ -85,6 +86,7 @@ def silence(s):
 
 STEPS_FINE = 32      # 문장을 한 번에 읽을 때의 정밀도 (비교 샘플 B)
 SLOWER = 0.92        # 조금 느리게 (비교 샘플 D)
+SPEED = float(cast.get("speed", 1.0))   # 배역표의 "speed": 인물 목소리만 (받는 사람 목소리 talk_me 에는 안 곱한다)
 BREATH = 0.62        # 쉼표 자리(“//”)의 숨, 초. 프리셋의 쉼 배율을 곱한다
 
 
@@ -102,7 +104,7 @@ def speak(text, lang, pr, lead="", spoken=None, who=None):
     parts, times, t = [silence(0.2)], [], 0.2
     for j, p in enumerate(chunks):
         said = f"{lead} {p}" if j == 0 and lead else p
-        wav, dur = tts(said, lang, who or voice, STEPS_FINE, pr["speed"] * SLOWER)
+        wav, dur = tts(said, lang, who or voice, STEPS_FINE, pr["speed"] * SLOWER * (SPEED if who is None else 1.0))
         audio = wav[0, : int(sr * dur[0].item())].astype(np.float32)
         parts.append(audio)
         times.append((round(t, 3), round(t + len(audio) / sr, 3), p))

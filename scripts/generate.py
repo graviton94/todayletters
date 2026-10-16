@@ -8,6 +8,7 @@
                         android/app/src/main/res/values{,-night}/window.xml (창 · 시작 화면 바탕색)
 - design/strings.json → android/app/src/main/res/values{,-ko}/strings.xml
 - data/<작품>/series.json + 챕터 + 어휘 자료(lexicon · gloss · daily[_en|_ko].json) → android/app/src/main/assets/letters/<작품>/
+  ("hidden": true 인 출시 전 작품은 넣지 않는다 — 판매 규칙 검사만)
 - remote/ (앱 밖에 두는 낭독 · 그림 · 곡) → android/app/src/main/assets/letters/<작품>/remote.json
 - data/medals.json (메달 진열장 · 레벨) → android/app/src/main/assets/medals/medals.json
 - data/shop.json (상점 줄의 작은 그림과 출처) → android/app/src/main/assets/shop/shop.json
@@ -112,15 +113,24 @@ def strings():
     return out
 
 
+def shown_metas():
+    """앱에 넣는 작품의 series.json 들 ("hidden": true 인 출시 전 작품은 뺀다)."""
+    return [m for m in glob.glob(os.path.join(ROOT, "data", "*", "series.json")) if not json.load(open(m, encoding="utf-8")).get("hidden")]
+
+
 def letters():
     """data/<작품>/series.json + 챕터 파일 → assets/letters/<작품>/. 검토 전 챕터는 .draft.json 을 대신 쓴다.
     작품 목록은 assets/letters/index.json 에 따로 적는다 (폴더 목록 읽기에 기대지 않게)."""
     out = {}
     # 서재 순서: series.json 의 "order" (없으면 뒤로), 같으면 이름순
-    metas = glob.glob(os.path.join(ROOT, "data", "*", "series.json"))
+    # 출시 전 작품 ("hidden": true) 은 앱에 넣지 않는다: 판매 규칙만 보고, 서재에는 ‘곧 도착’ 카드가 그대로 남는다
+    metas = shown_metas()
     ids = [os.path.basename(os.path.dirname(m)) for m in sorted(metas, key=lambda m: (json.load(open(m, encoding="utf-8")).get("order", 99), m))]
     out[os.path.join(APP, "assets", "letters", "index.json")] = json.dumps(ids) + "\n"
     for meta_path in glob.glob(os.path.join(ROOT, "data", "*", "series.json")):
+        if meta_path not in metas:
+            check_sale(os.path.dirname(meta_path), os.path.basename(os.path.dirname(meta_path)), json.load(open(meta_path, encoding="utf-8")))
+    for meta_path in metas:
         folder = os.path.dirname(meta_path)
         sid = os.path.basename(folder)
         meta = json.load(open(meta_path, encoding="utf-8"))
@@ -196,7 +206,7 @@ def remote():
     unknown = sorted(set(revs) - every)
     if unknown:
         sys.exit("data/remote.json revisions: remote/ 에 없는 파일\n  " + "\n  ".join(unknown[:20]))
-    for meta_path in sorted(glob.glob(os.path.join(ROOT, "data", "*", "series.json"))):
+    for meta_path in sorted(shown_metas()):
         folder = os.path.dirname(meta_path)
         sid = os.path.basename(folder)
         meta = json.load(open(meta_path, encoding="utf-8"))
