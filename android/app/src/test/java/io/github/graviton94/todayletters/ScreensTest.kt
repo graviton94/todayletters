@@ -1678,7 +1678,7 @@ class ScreensTest {
     /** 다음 단추: 누를 수 없다가 누를 수 있게 되면 금빛으로 채워지고 숨 쉬듯 빛난다 (위: 아직, 가운데: 켜진 뒤, 아래: 움직임 줄이기). */
     @Test fun finishGlowNext() {
         val on = androidx.compose.runtime.mutableStateOf(false)
-        shot("finish04_next_glow_light", false, ms = 500, act = { on.value = true }) {
+        shot("finish04_next_glow_light", false, ms = 500, act = { rule.runOnIdle { on.value = true } }) {
             androidx.compose.foundation.layout.Column(Modifier.padding(16.dp), verticalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(24.dp)) {
                 io.github.graviton94.todayletters.ui.Primary("다음: 낱말 맞추기", enabled = false) {}
                 io.github.graviton94.todayletters.ui.Primary("다음: 낱말 맞추기 ›", enabled = on.value) {}
