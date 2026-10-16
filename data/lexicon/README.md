@@ -16,7 +16,7 @@
 - 표제어 · 품사 · 성 · 뜻풀이(ko/en) · 관용 표현 설명: 이 저장소에서 새로 씀 (편지 문맥에 맞춘 뜻). 다른 사전을 베끼지 않음. 표제어 추출은 simplemma(MIT) 결과를 손으로 고침.
 - 등급: FrequencyWords 순위(CC BY-SA 4.0, 위 참조)에서 계산 → 앱에 등급을 보이면 "FrequencyWords (Hermit Dave), CC BY-SA 4.0" 표기.
 - IPA: 챕터 파일에 손으로 넣은 IPA 가 있으면 그것, 없으면 espeak-ng(GPL 프로그램, 출력물은 자유) 로 만든 근사치. 독일어 합성어 · 접두사 동사는 강세가 틀릴 수 있음.
-- 예문: Tatoeba (CC BY 2.0 FR) — 12낱말 이하, 표제어나 편지 속 꼴이 들어 있고, 영어 번역에 뜻풀이 낱말이 보이는 문장만 (다른 뜻 예문 거르기). 한국어 번역은 Tatoeba 에 있을 때만. **앱에서 예문마다 작성자(author) 와 https://tatoeba.org/sentences/show/<id> 를 표기해야 함.** 예문을 지어내지 않음.
+- 예문: Tatoeba (CC BY 2.0 FR) — 12낱말 이하, 표제어나 편지 속 꼴이 들어 있고, 영어 번역에 뜻풀이 낱말이 보이는 문장만 (다른 뜻 예문 거르기). 한국어 번역은 Tatoeba 에 있을 때만. **앱에서 예문마다 작성자(author) 와 https://tatoeba.org/sentences/show/<id> 를 표기해야 함.** 예문을 지어내지 않음 — 단, 아래 ‘앱이 쓴 예문’ 은 예외.
 - 괴테 인스티투트 목록 · FLELex 는 쓰지 않음.
 
 **등급 구간** (표제어와 편지에 찍힌 꼴 가운데 더 높은 순위 기준): A1 ≤500 · A2 ≤1,500 · B1 ≤3,500 · B2 ≤7,000 · C1 ≤15,000 · C2 그 밖 / 목록에 없음. 인명 · 외국어(모차르트의 이탈리아어·프랑스어·라틴어) · 약어는 등급 없음. 자막 말뭉치라 구어 낱말(Teufel, bébé 등)이 쉽게, 옛 문어(gemeiniglich, besogne)는 어렵게 나옴. 동형어(ton 너의 / ton#2 색조)는 순위가 의미를 못 가려 아쉬운 대로 둠.
@@ -52,3 +52,9 @@
 - `ph<번호>_<언어>.m4a`: 같은 파일 `phrases` 의 표현(`t`) 하나. 번호는 그 언어 phrases 목록에서 **1부터** (첫 표현 = ph1).
 - **slug 규칙** (사전 키 → 파일 이름): 영어 소문자 `a-z` · 숫자 `0-9` · `-` 는 그대로, 그 밖의 글자는 모두 `_<유니코드 코드포인트 16진 소문자>_`. 예: `Leben` → `_4c_eben`, `côté` → `c_f4_t_e9_`, `ton#2` → `ton_23_2`, `누나` → `_b204__b098_`, `avant-hier` → `avant-hier`. Kotlin: `key.codePoints().toArray().joinToString("") { c -> if (c in 'a'.code..'z'.code || c in '0'.code..'9'.code || c == '-'.code) c.toChar().toString() else "_" + Integer.toHexString(c) + "_" }`.
 - 오늘의 낱말이 아닌 낱말(눌러 본 낱말 등)은 소리 파일이 없다 → 앱은 소리 없이 보여 준다.
+
+## 앱이 쓴 예문 (2026-10-16)
+Tatoeba 예문 가운데 학습 앱에 맞지 않는 것(성적 · 혐오 · 폭력 · 의료 농담 · 정치 공격 · 깨진 문장 · 다른 뜻)은 낱말은 그대로 두고 예문만 앱이 쓴 짧은 문장으로 바꿨다 (세 작품 × 세 언어 1,189개).
+형식은 `[0, 문장, en|null, ko|null, "app"]` — id 0, author `"app"`. 앱은 이 예문에 ‘Tatoeba · …’ 줄을 달지 않고 출처 목록 · 사이트 예문 수에서도 뺀다 (core `Example.fromTatoeba`).
+`build.py` · `build_tl.py` 로 다시 만들면 Tatoeba 예문으로 돌아가니 그때 다시 바꿀 것.
+

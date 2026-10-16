@@ -445,7 +445,7 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
             if (s.baseWorks.any { it.lexicons.isNotEmpty() }) {
                 Caps(stringResource(R.string.credits_vocab_h), p.giltText)
                 Text(stringResource(R.string.credits_vocab), style = Type.small.ui(), color = p.ink)
-                val examples = androidx.compose.runtime.remember { s.baseWorks.flatMap { w -> w.lexicons.flatMap { lx -> lx.entries.mapNotNull { it.example } } }.distinctBy { it.id }.sortedBy { it.author.lowercase() } }
+                val examples = androidx.compose.runtime.remember { s.baseWorks.flatMap { w -> w.lexicons.flatMap { lx -> lx.entries.mapNotNull { it.example?.takeIf { ex -> ex.fromTatoeba } } } }.distinctBy { it.id }.sortedBy { it.author.lowercase() } }
                 var openEx by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
                 if (examples.isNotEmpty()) {
                     Text(stringResource(R.string.credits_vocab_examples) + " (${examples.size})" + if (openEx) " ▴" else " ▾", style = Type.small.ui(), color = p.giltText,

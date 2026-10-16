@@ -119,7 +119,7 @@ fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key
                     val trLang = if (ui == Lang.KO && !ex.ko.isNullOrEmpty()) Lang.KO else Lang.EN
                     val tr = if (trLang == Lang.KO) ex.ko.orEmpty() else ex.en
                     if (tr.isNotEmpty() && tr != ex.text) Text(tr, style = Type.small.of(trLang), color = p.inkSoft)
-                    Text("Tatoeba · ${ex.author}", style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+                    if (ex.fromTatoeba) Text("Tatoeba · ${ex.author}", style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
                 }
             }
             if (!e.function) Box(Modifier.padding(top = Tokens.Space.s1)) {

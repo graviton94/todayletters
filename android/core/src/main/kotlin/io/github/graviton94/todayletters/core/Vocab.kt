@@ -1,7 +1,12 @@
 package io.github.graviton94.todayletters.core
 
-/** Tatoeba 예문 (CC BY 2.0 FR): 문장마다 작성자를 밝힌다 (https://tatoeba.org/sentences/show/<id>). */
-data class Example(val id: Long, val text: String, val en: String, val ko: String?, val author: String)
+/**
+ * 예문. Tatoeba (CC BY 2.0 FR) 는 문장마다 작성자를 밝힌다 (https://tatoeba.org/sentences/show/<id>).
+ * author "app" (id 0) 은 Tatoeba 예문이 학습용으로 맞지 않아 앱이 새로 쓴 문장 — 출처 줄을 달지 않는다.
+ */
+data class Example(val id: Long, val text: String, val en: String, val ko: String?, val author: String) {
+    val fromTatoeba: Boolean get() = author != "app"
+}
 
 /**
  * 어휘 사전 한 줄 (data/<작품>/lexicon.json). [key] = 동형어 id ("ton#2") 또는 표제어.

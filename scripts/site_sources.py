@@ -294,7 +294,7 @@ def collect(sid):
     if os.path.exists(lp):
         lx = load(lp)
         ix = lx["fields"].index("example")
-        ex = {r[ix][0]: r[ix][4] for r in lx["entries"] if len(r) > ix and r[ix]}
+        ex = {r[ix][0]: r[ix][4] for r in lx["entries"] if len(r) > ix and r[ix] and r[ix][4] != "app"}  # "app": 앱이 쓴 예문 (Tatoeba 아님)
         vocab = {"examples": len(ex), "authors": len(set(ex.values()))}
     return {"id": sid, "meta": meta, "orig": orig, "plates": plates, "music": music, "gallery": gallery,
             "portrait": portrait, "outro": outro.get("credit", ""), "vocab": vocab}
