@@ -1,9 +1,4 @@
 a11y.txt
-depth05_talk_fr_a1_tray_light.png
-depth06_talk_fr_a2_blank_locked_light.png
-depth07_talk_fr_a2_blank_filled_dark.png
-depth08_talk_fr_b1_chips_rejected_light.png
-depth09_talk_fr_b2_hint1_dark.png
-depth10_talk_ko_learner_a2_light.png
-depth11_talk_en_learner_b1_dark.png
-depth12_talk_finished_light.png
+slow01_talk_bubble_light.png
+slow02_check_passage_light.png
+slow03_word_card_light.png
