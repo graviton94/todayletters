@@ -19,6 +19,8 @@
           "them" 줄은 그 장의 인물 목소리(편지 낭독과 같은 섞음) · 편지 mood 의 빠르기 · 높낮이,
           "me" 줄은 받는 사람 목소리 (배역표의 "talk_me": 편지 "to" 의 원어 글자 → 목소리, 없으면 "default") · 차분한 프리셋.
   NARRATE_ONLY=new: talk + vocab 을 한 번에.
+  NARRATE_ONLY=messages: NARRATE_MESSAGES 에 적은 메시지 낭독만 다시 (m<번호>_<언어>.m4a + .json). 띄어쓰기로 나눈
+          "<작품>/<편지 id>/m<번호>_<언어>" 목록 (예: "mozart/c1-l2/m4_en"), 이 편지 파일에 없는 것은 건너뛴다.
   NARRATE_SKIP_EXISTING=1: 이 저장소의 assets/audio · remote/audio 에 이미 있는 파일은 만들지 않는다
           (R2 의 파일은 덮어쓰지 않는다 · docs/release.md 5: 빠진 소리만 새로 만든다).
 
@@ -196,25 +198,30 @@ if ONLY in ("vocab", "new"):
         print("ok", letter["id"], flush=True)
     print("vocab files", n)
     sys.exit(0)
+PICK = {tuple(x.split("/")) for x in os.environ.get("NARRATE_MESSAGES", "").split()} if ONLY == "messages" else None
 for letter in book["letters"]:
+    if PICK is not None and not any(s == series and lid == letter["id"] for s, lid, _ in PICK):
+        continue
     pr = presets[letter.get("mood") or cast["chapters"][chapter]["mood"]]
     base = os.path.join(out, series, chapter, letter["id"])
     for lang in langs:
         # 그림 속 산책의 낱말 (s<k>): 낱말 발음과 같은 방식
-        for k, sp in enumerate((letter.get("plate") or {}).get("spots", []), 1):
+        for k, sp in enumerate([] if PICK is not None else (letter.get("plate") or {}).get("spots", []), 1):
             w = sp.get("word") or {}
             if lang in w:
                 save(os.path.join(base, f"s{k}_{lang}.m4a"), speak(w[lang], lang, presets["calm"])[0], 1.0)
         if ONLY == "spots":
             continue
         for i, m in enumerate(letter["messages"], 1):
+            if PICK is not None and (series, letter["id"], f"m{i}_{lang}") not in PICK:
+                continue
             audio, times = speak(m[lang], lang, pr, pr["lead"] if i == 1 else "", (m.get("speak") or {}).get(lang))
             save(os.path.join(base, f"m{i}_{lang}.m4a"), audio, pr["pitch"])
             # 높낮이를 바꿔도 길이는 같다 (asetrate + atempo), 그래서 시각은 그대로 쓴다
             json.dump({"chunks": [{"s": a, "e": b, "text": x} for a, b, x in times]},
                       open(os.path.join(base, f"m{i}_{lang}.json"), "w", encoding="utf-8"), ensure_ascii=False)
         # 낱말 발음: 차분하게, 숨 없이
-        for i, w in enumerate(letter.get("words", []), 1):
+        for i, w in enumerate([] if PICK is not None else letter.get("words", []), 1):
             if lang in w:
                 save(os.path.join(base, f"w{i}_{lang}.m4a"), speak(w[lang], lang, presets["calm"])[0], 1.0)
     print("ok", letter["id"], flush=True)

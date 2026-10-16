@@ -10,19 +10,26 @@ name: Narration to R2
 #   새 파일만 편지 폴더(앱 안 장은 assets/audio, 앱 밖 장은 remote/audio)에 넣고 generate.py 로 remote.json 목록을 고친 뒤
 #   이 가지에 커밋 · 푸시하고, 아래 덮어쓰기 검사 · 올리기를 그대로 한다. 이미 있는 파일은 만들지도 바꾸지도 않는다.
 #   만들기는 편지 파일마다 따로 돈다 (make 작업, 20개 동시) → 결과를 모아 sync 작업이 넣고 올린다.
+# make=messages: messages 에 적은 메시지 낭독만 다시 만든다 ("mozart/c1-l2/m4_en …", m<번호>_<언어>.m4a + 마디 시각 .json).
+#   앱 안 장(assets/audio)은 그 자리에서 바꾸고, 앱 밖 장(remote/audio)은 바꾼 뒤 data/remote.json 의 revisions 판을 올려
+#   R2 의 rev/<판>/<경로> 로 올린다 (이미 올린 파일은 덮어쓰지 않는다 · docs/release.md 5).
 on:
   workflow_dispatch:
     inputs:
       make:
-        description: "none = 올리기만, new = 빠진 소리(오늘의 회화 · 카드 낱말 · 표현)를 만들어 커밋한 뒤 올리기"
+        description: "none = 올리기만, new = 빠진 소리(오늘의 회화 · 카드 낱말 · 표현)를 만들어 커밋한 뒤 올리기, messages = 아래 메시지 낭독만 다시"
         type: choice
-        options: [none, new]
+        options: [none, new, messages]
         default: none
+      messages:
+        description: "make=messages: 띄어쓰기로 나눈 <작품>/<편지 id>/m<번호>_<언어> (예: mozart/c1-l2/m4_en)"
+        type: string
+        default: ""
 
 permissions: { contents: write }
 jobs:
   make:
-    if: inputs.make == 'new'
+    if: inputs.make != 'none'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     strategy:
@@ -32,9 +39,22 @@ jobs:
         file: [prologue, chapter1, chapter2, chapter3, chapter4, chapter5, chapter6, chapter7, chapter8, epilogue]
     steps:
       - uses: actions/checkout@v4
+      - name: This file has clips to make?
+        id: want
+        env: { MAKE: "${{ inputs.make }}", MSGS: "${{ inputs.messages }}" }
+        run: |
+          f="data/${{ matrix.series }}/${{ matrix.file }}.json"
+          go=$(python3 -c "
+          import json, os
+          if os.environ['MAKE'] != 'messages': print(1); raise SystemExit
+          b = json.load(open('$f')); ids = {l['id'] for l in b['letters']}
+          print(int(any(x.split('/')[0] == b['series'] and x.split('/')[1] in ids for x in os.environ['MSGS'].split())))")
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "go=$go"
       - uses: actions/setup-python@v5
+        if: steps.want.outputs.go == '1'
         with: { python-version: "3.11" }
       - name: Get Supertonic 3 (archived, pinned) and ffmpeg
+        if: steps.want.outputs.go == '1'
         run: |
           sudo apt-get install -y -qq ffmpeg >/dev/null
           git clone -q --depth 1 https://github.com/supertone-oss-archive/supertonic.git /tmp/st
@@ -49,13 +69,18 @@ jobs:
           need |= {t.get('default', 'M4'), *(t.get('by_to') or {}).values()}
           miss = [v for v in sorted(need) if not os.path.exists(f'/tmp/st/assets/voice_styles/{v}.json')]
           print('voices', sorted(need)); sys.exit('missing voices: ' + ' '.join(miss) if miss else 0)"
-      - name: Make missing clips (talk · card words · phrases), new files only
-        env: { NARRATE_ONLY: new, NARRATE_SKIP_EXISTING: "1" }
+      - name: Make clips (new = missing talk · card words · phrases, messages = listed message clips)
+        if: steps.want.outputs.go == '1'
+        env:
+          NARRATE_ONLY: ${{ inputs.make }}
+          NARRATE_SKIP_EXISTING: ${{ inputs.make == 'new' && '1' || '' }}
+          NARRATE_MESSAGES: ${{ inputs.messages }}
         run: |
           mkdir -p narr
           python scripts/narrate.py /tmp/st/py /tmp/st/assets "data/${{ matrix.series }}/${{ matrix.file }}.json" narr
           echo "clips: $(find narr -name '*.m4a' | wc -l)"
       - uses: actions/upload-artifact@v4
+        if: steps.want.outputs.go == '1'
         with:
           name: clips-${{ matrix.series }}-${{ matrix.file }}
           path: narr
@@ -86,7 +111,7 @@ jobs:
           [ $ok = 1 ]
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
-        if: inputs.make == 'new'
+        if: inputs.make != 'none'
         continue-on-error: true
         with:
           pattern: clips-*
@@ -112,6 +137,32 @@ jobs:
           done; done
           python3 scripts/generate.py
           python3 scripts/generate.py --check
+      - name: Replace listed message clips (app-bundled in place, remote → new revision)
+        if: inputs.make == 'messages'
+        env: { MSGS: "${{ inputs.messages }}" }
+        run: |
+          python3 - <<'PY'
+          import json, os, glob, shutil, sys
+          out = os.path.join(os.environ["RUNNER_TEMP"], "narr")
+          A, R = "android/app/src/main/assets/audio", "remote/audio"
+          cfg_path = "data/remote.json"; cfg = json.load(open(cfg_path, encoding="utf-8")); revs = cfg.setdefault("revisions", {})
+          made = sorted(os.path.relpath(f, out) for f in glob.glob(f"{out}/**/m*_*.*", recursive=True))
+          want = set(os.environ["MSGS"].split())
+          got = {f"{p.split('/')[0]}/{p.split('/')[2]}/{os.path.splitext(p.split('/')[3])[0]}" for p in made}
+          if want - got: sys.exit(f"::error::not made: {sorted(want - got)}")
+          for rel in made:
+              if os.path.exists(os.path.join(A, rel)):
+                  shutil.copyfile(os.path.join(out, rel), os.path.join(A, rel)); print("app", rel)
+              elif os.path.exists(os.path.join(R, rel)):
+                  shutil.copyfile(os.path.join(out, rel), os.path.join(R, rel))
+                  k = "audio/" + rel; revs[k] = int(revs.get(k, 1)) + 1; print("remote", rel, "→ rev", revs[k])
+              else:
+                  sys.exit(f"::error::{rel} is not in the repo")
+          json.dump(cfg, open(cfg_path, "w", encoding="utf-8"), ensure_ascii=False, indent=2); open(cfg_path, "a").write("\n")
+          print("replaced", len(made), "files", file=open(os.environ["GITHUB_STEP_SUMMARY"], "a"))
+          PY
+          python3 scripts/generate.py
+          python3 scripts/generate.py --check
       # 앱 밖 파일은 덮어쓰지 않는다: 올릴 모양(고친 파일은 rev/<판>/)을 만들고, 이미 있는 주소의 크기 · 내용이 다르면 멈춘다 (docs/release.md 5)
       - name: Remote files are never replaced
         run: |
@@ -119,12 +170,13 @@ jobs:
           aws s3api list-objects-v2 --bucket "$BUCKET" --output json --endpoint-url "https://$ACCOUNT.r2.cloudflarestorage.com" \
             | python3 scripts/r2_guard.py check "$RUNNER_TEMP/r2"
       - name: Commit new clips to this branch
-        if: inputs.make == 'new'
+        if: inputs.make != 'none'
         run: |
-          git add -A android/app/src/main/assets remote
+          git add -A android/app/src/main/assets remote data/remote.json
           git diff --cached --quiet && { echo "nothing new"; exit 0; }
           git config user.name bot && git config user.email bot@users.noreply.github.com
-          git commit -qm "Narration: today's talk lines, card words and phrases (new files only)"
+          if [ "${{ inputs.make }}" = messages ]; then msg="Narration: re-made message clips ${{ inputs.messages }}"; else msg="Narration: today's talk lines, card words and phrases (new files only)"; fi
+          git commit -qm "$msg"
           git pull -q --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"
       - name: Upload to R2 (audio/ · plates/ · sketches/ · gallery/)
