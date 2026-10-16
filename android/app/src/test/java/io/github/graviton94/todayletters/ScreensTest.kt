@@ -74,6 +74,8 @@ class ScreensTest {
         ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().clear().commit()
         if (onboarded) Store(ctx).onboarded = true
         if (onboarded && !tutorial) Store(ctx).tutorialDone = true
+        // 알림 권한 앞 한 줄 (편지 완료 뒤 대화창) 은 따로 찍는다: 다른 사진에서는 이미 물은 것으로 (대화창은 화면 뿌리가 둘이 된다)
+        Store(ctx).notifyAsked = true
         val s = AppState(ctx, deepLink = false)
         s.update(s.app.copy(pace = TypingPace.INSTANT))
         // 편지 도착 연출(2단계 D1)은 따로 찍는다: 다른 편지 방 사진에서는 이미 본 것으로
@@ -1687,5 +1689,24 @@ class ScreensTest {
                 }
             }
         }
+    }
+
+    // 처음 쓰는 사람 (firstuser): 편지 I 을 마친 첫날 — 오늘 맨 위 한 줄 · 다음 편지 시각 / 알림 켜기 · 남은 걸음, 빈 복습 탭 (첫 복습은 내일부터), 빈 갤러리 칸
+    @Test fun firstDayToday() {
+        val s = state(true); finishReal(s, "vincent", 1, 1)
+        shot("first01_today_done_light", false, 3000, series = s) { Inbox(s) }
+    }
+    @Test fun firstDayReview() {
+        val s = state(true); finishReal(s, "vincent", 1, 1)
+        shot("first02_review_first_day_light", false, series = s) { WordsTab(s) }
+    }
+    @Test fun firstNoticeAsk() {
+        shot("first04_notice_ask_light", false) {
+            io.github.graviton94.todayletters.ui.Ask(ctx.getString(R.string.notice_pre_t), ctx.getString(R.string.notice_pre_yes), ctx.getString(R.string.notice_pre_no), {}, {})
+        }
+    }
+    @Test fun firstDayGallery() {
+        val s = state(true)
+        shot("first03_gallery_empty_light", false, series = s) { io.github.graviton94.todayletters.ui.GalleryTab(s) }
     }
 }

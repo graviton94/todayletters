@@ -171,9 +171,32 @@ fun firstAvailable(ctx: android.content.Context, paths: List<String>): String =
 @Composable
 fun CurrencyLine(s: AppState, w: Work = s.currentWork) {
     val p = Ink.palette
-    Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-        Text("${s.wallet(w.series.id).balance}", style = Type.heading.copy(fontFamily = Faces.display), color = p.giltText)
-        Text(w.kit.currency[uiLang()], style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(bottom = 2.dp))
+    // 누르면 이 화폐가 어디서 모이고 어디에 쓰는지 두 줄
+    var note by remember { mutableStateOf(false) }
+    val bal = s.wallet(w.series.id).balance
+    val cur = w.kit.currency[uiLang()]
+    Row(Modifier.pressable(haptic = false) { note = true }, verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+        Text("$bal", style = Type.heading.copy(fontFamily = Faces.display), color = p.giltText)
+        Text(cur, style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.padding(bottom = 2.dp))
+    }
+    if (note) NumberNote("$cur $bal", listOf(stringResource(R.string.note_cur_1), stringResource(R.string.note_cur_2))) { note = false }
+}
+
+/** 숫자 풀이 한 장 (아는 낱말 % · 이어 읽기 · 화폐를 누르면): 제목 한 줄 · 짧은 줄 둘 · 닫기. 어디서 불러도 화면 위에 뜨게 대화창으로. */
+@Composable
+fun NumberNote(title: String, lines: List<String>, onClose: () -> Unit) {
+    val p = Ink.palette
+    FullDialog(onDismissRequest = onClose) {
+        Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose), contentAlignment = Alignment.Center) {
+            Column(
+                Modifier.fillMaxWidth(0.84f).background(p.paper).border(Tokens.Stroke.hair, p.line).pressable(haptic = false) { }.padding(Tokens.Space.s5),
+                verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
+            ) {
+                Text(title, style = Type.heading.ui(), color = p.ink)
+                lines.forEach { Text(it, style = Type.small.ui(), color = p.inkSoft) }
+                Box(Modifier.padding(top = Tokens.Space.s2)) { Secondary(stringResource(R.string.close), small = true, onClick = onClose) }
+            }
+        }
     }
 }
 
@@ -209,8 +232,9 @@ fun WeekDots(s: AppState, w: Work) {
 @Composable
 fun StreakBlock(s: AppState, w: Work) {
     val p = Ink.palette
+    var note by remember { mutableStateOf(false) }
     Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-        Row(verticalAlignment = Alignment.Bottom) {
+        Row(Modifier.pressable(haptic = false) { note = true }, verticalAlignment = Alignment.Bottom) {
             Text(stringResource(R.string.streak_label), style = Type.body.ui(), color = p.ink)
             Text(" ${s.streak}", style = Type.title.copy(fontFamily = Faces.display), color = p.ink)
             Text(stringResource(R.string.streak_days), style = Type.body.ui(), color = p.ink, modifier = Modifier.weight(1f))
@@ -218,7 +242,13 @@ fun StreakBlock(s: AppState, w: Work) {
         }
         WeekDots(s, w)
     }
+    if (note) StreakNote(s) { note = false }
 }
+
+/** 이어 읽기 풀이 (이어 읽기 숫자를 누르면). */
+@Composable
+fun StreakNote(s: AppState, onClose: () -> Unit) =
+    NumberNote(stringResource(R.string.week_streak, s.streak), listOf(stringResource(R.string.note_streak_1), stringResource(R.string.note_streak_2)), onClose)
 
 /** 가는 진행 막대. */
 @Composable
@@ -453,12 +483,13 @@ fun GalleryTab(s: AppState) {
                 val recent = opened.reversed().sortedBy { (_, _, cl) -> !io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${cl.second.plate!!.image}") }.take(3)
                 Thumbs(recent.map { (ci, li, cl) ->
                     "plates/${cl.second.plate!!.image}" to { s.go(Route.Artwork(id, li + 1, Route.Letter(id, ci + 1, li + 1, Route.Gallery))) }
-                })
+                }, empty = stringResource(R.string.gallery_none_plates))
             }
             // 모은 작품 (예전 ‘나의 도록’과 합침): 뽑기 · 상점으로 모은 소장품
             GalleryGroup(stringResource(R.string.gallery_collected), "${collected.size} / ${w.kit.collection.size}", onMore = { s.go(Route.Collection(id)) }) {
                 // 가진 것 그대로 (수와 칸이 맞게): 이 기기에 있는 그림 먼저, 받지 않은 것은 빈 자리
-                Thumbs(collected.reversed().sortedBy { !s.available(it) }.take(3).map { pc -> pc.image to { if (s.available(pc)) open = pc } })
+                Thumbs(collected.reversed().sortedBy { !s.available(it) }.take(3).map { pc -> pc.image to { if (s.available(pc)) open = pc } },
+                    empty = stringResource(R.string.gallery_none_collected))
             }
             // 이달의 전시
             s.exhibition(id)?.let { e ->
@@ -493,11 +524,11 @@ private fun GalleryGroup(title: String, count: String, onMore: () -> Unit, conte
     }
 }
 
-/** 가진 그림만 세 칸 (모자라면 빈자리 없이 비워 둔다). 하나도 없으면 한 줄. */
+/** 가진 그림만 세 칸 (모자라면 빈자리 없이 비워 둔다). 하나도 없으면 한 줄 ([empty]: 어디서 모이는지). */
 @Composable
-private fun Thumbs(items: List<Pair<String, () -> Unit>>) {
+private fun Thumbs(items: List<Pair<String, () -> Unit>>, empty: String? = null) {
     val p = Ink.palette
-    if (items.isEmpty()) { Text(stringResource(R.string.gallery_none), style = Type.small.ui(), color = p.hideInk); return }
+    if (items.isEmpty()) { Text(empty ?: stringResource(R.string.gallery_none), style = Type.small.ui(), color = p.hideInk, maxLines = 1); return }
     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
         items.take(3).forEach { (image, go) ->
             AssetImage(image, Modifier.weight(1f).aspectRatio(1f).border(Tokens.Stroke.hair, p.hair).pressable(onClick = go), sample = 4)

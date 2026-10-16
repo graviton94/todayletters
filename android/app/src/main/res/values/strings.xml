@@ -847,4 +847,25 @@
     <string name="finish_library">To the library</string>
     <string name="finish_again">Replay this letter from the start</string>
     <string name="letter_again">Replay from the start ›</string>
+    <string name="today_line">Today · letter %1$d · review %2$d</string>
+    <string name="today_line_done">✓ Done for today</string>
+    <string name="today_next_at">Next letter tomorrow, %1$s</string>
+    <string name="today_next_day">Next letter tomorrow</string>
+    <string name="notice_turn_on">Turn on alerts</string>
+    <string name="notice_pre_t">Get an alert when a letter arrives?</string>
+    <string name="notice_pre_yes">Alert me</string>
+    <string name="notice_pre_no">Later</string>
+    <string name="review_first_tomorrow">First review starts tomorrow</string>
+    <string name="note_known_1">Share of this letter\'s words you know</string>
+    <string name="note_known_2">A card counts once it reaches ‘%1$s’</string>
+    <string name="note_streak_1">One letter or one review makes a day</string>
+    <string name="note_streak_2">A rest keeps it going on a day off</string>
+    <string name="note_cur_1">Earned from letters, reviews and medals</string>
+    <string name="note_cur_2">Spend them in the Shop</string>
+    <string name="free_left">Free through chapter %1$s · %2$d free letters left</string>
+    <string name="skip_note">Skipped steps wait in Review › Redo, reward too</string>
+    <string name="set_series_go">Series settings · %1$s</string>
+    <string name="gallery_none_plates">Open a letter and its painting comes here</string>
+    <string name="gallery_none_collected">Gathered from today\'s pieces and the Shop</string>
+    <string name="journey_left">Still to do · %1$s</string>
 </resources>

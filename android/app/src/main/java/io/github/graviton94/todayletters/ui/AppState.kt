@@ -671,6 +671,27 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         version++
     }
 
+    /** 무료 장 (잠긴 장 바로 앞까지) 에서 아직 안 마친 편지 수와 마지막 무료 장 번호. 잠긴 장이 없거나 소장 · 구독했으면 null. */
+    fun freeLeft(id: String = current): Pair<Int, Int>? {
+        val w = work(id)
+        if (entitlement.owns(id)) return null
+        val lastFree = (io.github.graviton94.todayletters.core.Access.lockedRange(w.chapters) ?: return null).first - 1
+        if (lastFree < 1) return null
+        return w.chapters.take(lastFree).sumOf { c -> c.letters.count { !progress(id, c.id, it.id).done } } to lastFree
+    }
+
+    /** 내일 새 편지가 오는가: 아직 오지 않은 편지가 있고, 그 편지의 장이 열려 있다 (잠긴 장이면 ‘내일 온다’고 말하지 않는다). */
+    fun moreComing(id: String): Boolean {
+        val next = all(id).getOrNull(openable(id).size) ?: return false
+        return chapterIdOpen(id)(next.first)
+    }
+
+    /** 도착 알림 켜기 (오늘 화면의 ‘알림 켜기’): 모든 작품을 저장된 시각으로. */
+    fun noticeOn() {
+        works.forEach { wk -> update(wk.series.id, seriesSettings(wk.series.id).copy(arrivalNotice = true)) }
+        io.github.graviton94.todayletters.data.Notices.schedule(ctx)
+    }
+
     /** 건너뛴 걸음 (복습 탭의 ‘다시 하기’): 이 작품에서 마친 편지 가운데 아직 다시 하지 않은 걸음, 편지 차례대로. */
     data class Redo(val room: Route.Letter, val letter: Letter, val mode: ReplyMode)
     fun redos(id: String = current): List<Redo> = run {
@@ -823,6 +844,11 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val (ch, l) = letterOf(r)
         val before = progress(r.series, ch, l.id)
         save(r.series, ch, l.id, before.skip(mode).complete(stepsOf(r)))
+        // 처음 한 번만: 건너뛴 걸음이 어디 있는지 (복습 › 다시 하기) 짧게
+        if (!store.skipNoted) {
+            store.skipNoted = true
+            android.widget.Toast.makeText(ctx, ctx.getString(io.github.graviton94.todayletters.R.string.skip_note), android.widget.Toast.LENGTH_LONG).show()
+        }
         stepEnded(r, before.done)
     }
 

@@ -537,6 +537,7 @@ private fun RoomHeader(
     auto: Boolean, onAuto: () -> Unit, onInfo: () -> Unit,
 ) {
     val p = Ink.palette
+    var knownNote by remember { mutableStateOf(false) }
     Column(Modifier.background(p.paper)) {
         Row(Modifier.fillMaxWidth().heightIn(min = 64.dp).padding(end = Tokens.Space.s1), verticalAlignment = Alignment.CenterVertically) {
             IconButton(stringResource(R.string.back), onClick = { s.back() }) { Chevron(p.ink) }
@@ -549,9 +550,13 @@ private fun RoomHeader(
                     Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
                     if (known != null) Text("$known%", style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold),
                         color = p.giltText, maxLines = 1, softWrap = false,
-                        modifier = Modifier.border(1.dp, p.giltText.copy(alpha = 0.6f), androidx.compose.foundation.shape.RoundedCornerShape(50))
+                        modifier = Modifier.pressable(haptic = false) { knownNote = true }
+                            .border(1.dp, p.giltText.copy(alpha = 0.6f), androidx.compose.foundation.shape.RoundedCornerShape(50))
                             .padding(horizontal = 6.dp).then(if (knownLabel != null) Modifier.androidx_semantics(knownLabel) else Modifier))
                 }
+                // 아는 낱말 % 를 누르면 무엇을 세는지 두 줄
+                if (knownNote && knownLabel != null) NumberNote(knownLabel,
+                    listOf(stringResource(R.string.note_known_1), stringResource(R.string.note_known_2, stringResource(R.string.stage_recall)))) { knownNote = false }
             }
             // 자동 낭독 켜기 · 끄기: 켜져 있으면 금빛으로 채운 스피커, 꺼져 있으면 빗금
             HeadButton(stringResource(if (auto) R.string.room_auto_on else R.string.room_auto_off), onClick = onAuto) {

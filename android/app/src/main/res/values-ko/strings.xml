@@ -847,4 +847,25 @@
     <string name="finish_library">서⁠재⁠로</string>
     <string name="finish_again">이 편⁠지 처⁠음⁠부⁠터 다⁠시 보⁠기</string>
     <string name="letter_again">처⁠음⁠부⁠터 다⁠시 보⁠기 ›</string>
+    <string name="today_line">오⁠늘 · 편⁠지 %1$d · 복⁠습 %2$d</string>
+    <string name="today_line_done">✓ 오⁠늘 할 일 끝</string>
+    <string name="today_next_at">다⁠음 편⁠지 내⁠일 %1$s</string>
+    <string name="today_next_day">다⁠음 편⁠지 내⁠일</string>
+    <string name="notice_turn_on">알⁠림 켜⁠기</string>
+    <string name="notice_pre_t">새 편⁠지⁠가 오⁠면 알⁠려 드⁠릴⁠까⁠요⁠?</string>
+    <string name="notice_pre_yes">알⁠림 받⁠기</string>
+    <string name="notice_pre_no">나⁠중⁠에</string>
+    <string name="review_first_tomorrow">첫 복⁠습⁠은 내⁠일⁠부⁠터</string>
+    <string name="note_known_1">이 편⁠지 낱⁠말 가⁠운⁠데 아⁠는 낱⁠말⁠의 비⁠율</string>
+    <string name="note_known_2">카⁠드⁠가 ‘%1$s’⁠에 오⁠르⁠면 아⁠는 낱⁠말</string>
+    <string name="note_streak_1">편⁠지 한 통⁠이⁠나 복⁠습 한 판⁠이⁠면 하⁠루</string>
+    <string name="note_streak_2">쉼⁠표⁠가 있⁠으⁠면 하⁠루 쉬⁠어⁠도 이⁠어⁠져⁠요</string>
+    <string name="note_cur_1">편⁠지 · 복⁠습 · 메⁠달⁠로 모⁠여⁠요</string>
+    <string name="note_cur_2">상⁠점⁠에⁠서 써⁠요</string>
+    <string name="free_left">무⁠료⁠는 %1$s⁠장⁠까⁠지 · 남⁠은 무⁠료 편⁠지 %2$d⁠통</string>
+    <string name="skip_note">건⁠너⁠뛴 걸⁠음⁠은 복⁠습 › 다⁠시 하⁠기⁠에⁠서 · 보⁠상⁠도 그⁠때</string>
+    <string name="set_series_go">작⁠품 설⁠정 · %1$s</string>
+    <string name="gallery_none_plates">편⁠지⁠를 열⁠면 그⁠림⁠이 여⁠기 와⁠요</string>
+    <string name="gallery_none_collected">오⁠늘⁠의 자⁠료 · 상⁠점⁠에⁠서 모⁠여⁠요</string>
+    <string name="journey_left">남⁠은 걸⁠음 · %1$s</string>
 </resources>

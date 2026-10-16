@@ -23,6 +23,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.border
 import androidx.compose.foundation.background
@@ -65,14 +68,19 @@ fun Done(s: AppState, room: Route.Letter) {
     val askNotice = androidx.activity.compose.rememberLauncherForActivityResult(androidx.activity.result.contract.ActivityResultContracts.RequestPermission()) {
         io.github.graviton94.todayletters.data.Notices.schedule(s.ctx)
     }
+    var preNotice by remember { mutableStateOf(false) }
+    if (preNotice) FullDialog(onDismissRequest = { preNotice = false }) {
+        Ask(stringResource(R.string.notice_pre_t), stringResource(R.string.notice_pre_yes), stringResource(R.string.notice_pre_no),
+            onYes = { preNotice = false; askNotice.launch(android.Manifest.permission.POST_NOTIFICATIONS) }, onNo = { preNotice = false })
+    }
     LaunchedEffect(Unit) {
         t.animateTo(0.35f, androidx.compose.animation.core.tween(420, easing = androidx.compose.animation.core.FastOutSlowInEasing))
         if (s.app.haptics) haptic.performHapticFeedback(androidx.compose.ui.hapticfeedback.HapticFeedbackType.LongPress)
         t.animateTo(1f, androidx.compose.animation.core.tween(1600, easing = androidx.compose.animation.core.LinearEasing))
-        // 첫 편지를 끝낸 뒤 한 번: 내일 편지가 오면 알려 줄지 묻는다 (Android 13+)
+        // 첫 편지를 끝낸 뒤 한 번: 내일 편지가 오면 알려 줄지 묻는다 (Android 13+). 시스템 창 앞에 앱의 한 줄 먼저
         if (android.os.Build.VERSION.SDK_INT >= 33 && !s.store.notifyAsked) {
             s.store.notifyAsked = true
-            askNotice.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+            preNotice = true
         }
     }
     fun win(a: Float, b: Float) = androidx.compose.animation.core.FastOutSlowInEasing.transform(((t.value - a) / (b - a)).coerceIn(0f, 1f))

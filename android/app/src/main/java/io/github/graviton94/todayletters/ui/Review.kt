@@ -150,7 +150,7 @@ fun WordsTab(s: AppState) {
                         Text(stringResource(R.string.review_today), style = Type.small.ui(), color = Color(0xFF7A5A20))
                         Text(
                             when (j.review) {
-                                io.github.graviton94.todayletters.core.Journey.Step.NONE -> stringResource(if (cards.isEmpty()) R.string.review_empty else R.string.review_none_today)
+                                io.github.graviton94.todayletters.core.Journey.Step.NONE -> stringResource(if (cards.isNotEmpty() && cards.all { it.seen == 0 }) R.string.review_first_tomorrow else if (cards.isEmpty()) R.string.review_empty else R.string.review_none_today)
                                 io.github.graviton94.todayletters.core.Journey.Step.DONE -> stringResource(R.string.journey_review_done, total)
                                 else -> stringResource(R.string.review_words_n, total)
                             },

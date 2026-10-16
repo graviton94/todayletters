@@ -155,6 +155,8 @@ fun SeriesCover(s: AppState, id: String) {
             Text(w.title[w.series.original], style = Type.display, color = p.ink)
             Text(w.title[s.app.read], style = Type.body.of(s.app.read), color = p.inkSoft)
             Rule()
+            // 무료 장 끝이 가까우면 미리 한 줄 (남은 무료 편지 1~3통)
+            FreeLeftLine(s, id)
             // 프롤로그: 아를 이전 (언제든 다시 보기)
             if (w.prologue.isNotEmpty()) {
                 ChapterRow(
@@ -226,6 +228,7 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
             }
         }
         Column(Modifier.padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3)) {
+            if (c.free) FreeLeftLine(s, r.series, Modifier.padding(bottom = Tokens.Space.s2))
             c.letters.forEachIndexed { i, l ->
                 val pr = s.progress(r.series, c.id, l.id)
                 val can = l.id in openable

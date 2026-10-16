@@ -3383,5 +3383,89 @@
   "letter_again": {
     "en": "Replay from the start ›",
     "ko": "처음부터 다시 보기 ›"
+  },
+  "today_line": {
+    "en": "Today · letter %1$d · review %2$d",
+    "ko": "오늘 · 편지 %1$d · 복습 %2$d"
+  },
+  "today_line_done": {
+    "en": "✓ Done for today",
+    "ko": "✓ 오늘 할 일 끝"
+  },
+  "today_next_at": {
+    "en": "Next letter tomorrow, %1$s",
+    "ko": "다음 편지 내일 %1$s"
+  },
+  "today_next_day": {
+    "en": "Next letter tomorrow",
+    "ko": "다음 편지 내일"
+  },
+  "notice_turn_on": {
+    "en": "Turn on alerts",
+    "ko": "알림 켜기"
+  },
+  "notice_pre_t": {
+    "en": "Get an alert when a letter arrives?",
+    "ko": "새 편지가 오면 알려 드릴까요?"
+  },
+  "notice_pre_yes": {
+    "en": "Alert me",
+    "ko": "알림 받기"
+  },
+  "notice_pre_no": {
+    "en": "Later",
+    "ko": "나중에"
+  },
+  "review_first_tomorrow": {
+    "en": "First review starts tomorrow",
+    "ko": "첫 복습은 내일부터"
+  },
+  "note_known_1": {
+    "en": "Share of this letter's words you know",
+    "ko": "이 편지 낱말 가운데 아는 낱말의 비율"
+  },
+  "note_known_2": {
+    "en": "A card counts once it reaches ‘%1$s’",
+    "ko": "카드가 ‘%1$s’에 오르면 아는 낱말"
+  },
+  "note_streak_1": {
+    "en": "One letter or one review makes a day",
+    "ko": "편지 한 통이나 복습 한 판이면 하루"
+  },
+  "note_streak_2": {
+    "en": "A rest keeps it going on a day off",
+    "ko": "쉼표가 있으면 하루 쉬어도 이어져요"
+  },
+  "note_cur_1": {
+    "en": "Earned from letters, reviews and medals",
+    "ko": "편지 · 복습 · 메달로 모여요"
+  },
+  "note_cur_2": {
+    "en": "Spend them in the Shop",
+    "ko": "상점에서 써요"
+  },
+  "free_left": {
+    "en": "Free through chapter %1$s · %2$d free letters left",
+    "ko": "무료는 %1$s장까지 · 남은 무료 편지 %2$d통"
+  },
+  "skip_note": {
+    "en": "Skipped steps wait in Review › Redo, reward too",
+    "ko": "건너뛴 걸음은 복습 › 다시 하기에서 · 보상도 그때"
+  },
+  "set_series_go": {
+    "en": "Series settings · %1$s",
+    "ko": "작품 설정 · %1$s"
+  },
+  "gallery_none_plates": {
+    "en": "Open a letter and its painting comes here",
+    "ko": "편지를 열면 그림이 여기 와요"
+  },
+  "gallery_none_collected": {
+    "en": "Gathered from today's pieces and the Shop",
+    "ko": "오늘의 자료 · 상점에서 모여요"
+  },
+  "journey_left": {
+    "en": "Still to do · %1$s",
+    "ko": "남은 걸음 · %1$s"
   }
 }

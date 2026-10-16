@@ -82,6 +82,7 @@ fun Inbox(s: AppState) {
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
+            TodayLine(j)
             StreakBlock(s, work)
             Hair()
             Row(verticalAlignment = Alignment.Bottom) {
@@ -103,7 +104,7 @@ fun Inbox(s: AppState) {
             JourneyStep("II", stringResource(R.string.review_today), j.review, last = false) {
                 val (n, total) = j.reviewCount
                 when (j.review) {
-                    Journey.Step.NONE -> Text(stringResource(if (s.seriesCards(id).isEmpty()) R.string.review_empty else R.string.journey_review_none), style = Type.small.ui(), color = p.inkSoft)
+                    Journey.Step.NONE -> Text(stringResource(reviewNone(s.seriesCards(id))), style = Type.small.ui(), color = p.inkSoft)
                     Journey.Step.DONE -> Text(stringResource(R.string.journey_review_done, total), style = Type.small.ui(), color = p.inkSoft)
                     else -> {
                         Text(stringResource(R.string.review_words_n, total), style = Type.small.ui(), color = p.inkSoft)
@@ -116,6 +117,14 @@ fun Inbox(s: AppState) {
             JourneyStep("III", stringResource(R.string.journey_bonus), if (j.paid) Journey.Step.DONE else Journey.Step.TODO, last = true) {
                 Text(stringResource(if (j.paid) R.string.journey_bonus_paid else R.string.journey_bonus_d, Earn.JOURNEY.amount, work.kit.currency[uiLang()]),
                     style = Type.small.ui(), color = if (j.paid) p.giltText else p.inkSoft)
+                // 받기까지 남은 걸음 (할 것이 남은 걸음만, 화면의 이름 그대로)
+                if (!j.paid) {
+                    val left = listOfNotNull(
+                        stringResource(R.string.journey_letter).takeIf { j.letter == Journey.Step.TODO || j.letter == Journey.Step.NOW },
+                        stringResource(R.string.review_today).takeIf { j.review == Journey.Step.TODO || j.review == Journey.Step.NOW },
+                    )
+                    if (left.isNotEmpty()) Text(stringResource(R.string.journey_left, left.joinToString(" · ")), style = Type.small.ui(), color = p.ink, maxLines = 1)
+                }
             }
             Hair()
             // 진도 한 줄 (F29) · 목차: 한 줄에 높이를 맞추고, 목록은 테두리 단추로 뚜렷하게
@@ -126,6 +135,7 @@ fun Inbox(s: AppState) {
                     contentAlignment = Alignment.Center,
                 ) { Text(stringResource(R.string.today_all_letters), style = Type.body.ui(), color = p.ink, maxLines = 1) }
             }
+            FreeLeftLine(s, id)
         }
     }
 }
@@ -197,12 +207,72 @@ private fun TodayLetter(s: AppState, id: String, work: io.github.graviton94.toda
             Primary(if (pr.shown < l.messages.size) stringResource(R.string.today_open)
                 else next?.let { stringResource(R.string.room_next, stringResource(modeLabel(it))) } ?: stringResource(R.string.room_done_today), small = true) { s.open(id, c, l, Route.Inbox) }
         }
-        else -> Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-            Text(stringResource(R.string.journey_letter_done), style = Type.small.ui(), color = p.giltText, modifier = Modifier.weight(1f))
-            val redo = pr.toRedo.filter { it in modes }
-            TextLink(if (redo.isNotEmpty()) stringResource(R.string.journey_redo, redo.size) else stringResource(R.string.today_reread)) { s.open(id, c, l, Route.Inbox) }
+        else -> {
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                Text(stringResource(R.string.journey_letter_done), style = Type.small.ui(), color = p.giltText, modifier = Modifier.weight(1f))
+                val redo = pr.toRedo.filter { it in modes }
+                TextLink(if (redo.isNotEmpty()) stringResource(R.string.journey_redo, redo.size) else stringResource(R.string.today_reread)) { s.open(id, c, l, Route.Inbox) }
+            }
+            NextLetterLine(s, id)
         }
     }
+}
+
+/** 오늘 화면 맨 위 한 줄: 남은 편지 · 복습 수, 여정을 마쳤으면 체크. 할 것도 한 것도 없으면 비운다. */
+@Composable
+private fun TodayLine(j: AppState.JourneyView) {
+    val p = Ink.palette
+    val letter = if (j.letter == Journey.Step.TODO || j.letter == Journey.Step.NOW) 1 else 0
+    val review = if (j.review == Journey.Step.TODO || j.review == Journey.Step.NOW) j.reviewCount.let { (n, total) -> (total - n).coerceAtLeast(0) } else 0
+    when {
+        j.complete -> Text(stringResource(R.string.today_line_done), style = Type.small.ui(), color = p.giltText, maxLines = 1)
+        letter + review > 0 -> Text(stringResource(R.string.today_line, letter, review), style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
+    }
+}
+
+/**
+ * 오늘 편지를 마친 카드 아래: 다음 편지가 언제 오는지 (도착 알림 시각, 알림이 꺼져 있으면 ‘알림 켜기’) ·
+ * 상점에서 내일 편지를 미리 열 수 있으면 그 링크. 다음 편지가 없거나 잠긴 장이면 말하지 않는다.
+ */
+@Composable
+private fun NextLetterLine(s: AppState, id: String) {
+    val p = Ink.palette
+    if (s.waiting(id) > 0 || !s.moreComing(id)) return
+    val ctx = androidx.compose.ui.platform.LocalContext.current
+    val posts = io.github.graviton94.todayletters.data.Notices.canPost(ctx)
+    val on = s.seriesSettings(id).arrivalNotice && posts
+    // 권한을 받으면 켜고, 거절돼 있으면 (다시 묻지 못하면) 앱 알림 설정 화면으로
+    val ask = androidx.activity.compose.rememberLauncherForActivityResult(androidx.activity.result.contract.ActivityResultContracts.RequestPermission()) { ok ->
+        if (ok) s.noticeOn()
+        else runCatching {
+            ctx.startActivity(android.content.Intent(android.provider.Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                .putExtra(android.provider.Settings.EXTRA_APP_PACKAGE, ctx.packageName).addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK))
+        }
+    }
+    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Text(if (on) stringResource(R.string.today_next_at, noticeTime(s.store.noticeHour.coerceIn(0, 23), s.store.noticeMinute.coerceIn(0, 59)))
+            else stringResource(R.string.today_next_day), style = Type.small.ui(), color = p.inkSoft, maxLines = 1, modifier = Modifier.weight(1f))
+        if (!on) TextLink(stringResource(R.string.notice_turn_on)) {
+            if (!posts && android.os.Build.VERSION.SDK_INT >= 33) ask.launch(android.Manifest.permission.POST_NOTIFICATIONS) else s.noticeOn()
+        }
+    }
+    // 상점의 ‘내일 편지 미리 열기’를 살 수 있을 때만
+    if (s.canBuy(io.github.graviton94.todayletters.core.Spend.EARLY_LETTER, id)) TextLink(stringResource(R.string.spend_early) + " ›") { s.go(Route.Shop) }
+}
+
+/** 무료 장 끝이 가까우면 (남은 무료 편지 1~3통) 미리 한 줄: 잠긴 장에서 갑자기 구매 화면이 뜨지 않게. */
+@Composable
+internal fun FreeLeftLine(s: AppState, id: String, modifier: Modifier = Modifier) {
+    val (n, lastFree) = s.freeLeft(id) ?: return
+    if (n !in 1..3) return
+    Text(stringResource(R.string.free_left, roman(lastFree), n), style = Type.small.ui(), color = Ink.palette.giltText, maxLines = 1, modifier = modifier)
+}
+
+/** 복습할 것이 없을 때의 한 줄: 카드가 없으면 편지부터, 카드는 있는데 아직 한 번도 복습하지 않았으면 첫 복습은 내일부터. */
+internal fun reviewNone(cards: List<io.github.graviton94.todayletters.core.Card>): Int = when {
+    cards.isEmpty() -> R.string.review_empty
+    cards.all { it.seen == 0 } -> R.string.review_first_tomorrow
+    else -> R.string.journey_review_none
 }
 
 /** 그림 썸네일: 받은 그림은 원래 색, 아직이면 흐린 흑백. */

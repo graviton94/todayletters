@@ -109,6 +109,10 @@ fun SettingsScreen(s: AppState) {
                 SetRow(stringResource(R.string.set_read_lang2)) {
                     Seg((listOf(Lang.KO, Lang.EN) + s.works.map { it.series.original }).distinct().map { it to langName(it) }, a.read) { s.update(a.copy(read = it)) }
                 }
+                // 배울 언어 · 번역 줄 · 걸음 · 듣기 빠르기는 작품마다: 지금 작품의 작품 설정으로 바로
+                s.works.firstOrNull { it.series.id == s.current }?.let { wk ->
+                    SetRow(stringResource(R.string.set_series_go, wk.name[uiLang()]), onClick = { s.settingsOpen = false; s.go(io.github.graviton94.todayletters.core.Route.SeriesSettings(wk.series.id)) }) { Chev() }
+                }
             }
             // 알림: 도착 (작품마다 켜고 끄던 것을 한 번에) · 저녁 (이어 읽기 지키기)
             Group(stringResource(R.string.set_g_notice)) {

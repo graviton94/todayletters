@@ -68,14 +68,17 @@ fun RecordScreen(s: AppState) {
                 Text(stringResource(R.string.level_left, lv.left, lv.level + 1), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.align(Alignment.End))
             }
             // 이어 읽기 · 편지 · 익힌 낱말
+            // 이어 읽기 숫자를 누르면 무엇을 세는지 두 줄
+            var streakNote by androidx.compose.runtime.remember { mutableStateOf(false) }
             Row(Modifier.fillMaxWidth()) {
                 listOf("${s.streak}" to R.string.lib_stat_streak, "${st.lettersDone}" to R.string.record_letters, "${s.learning.sumOf { s.mine(it).size }}" to R.string.record_words).forEach { (v, l) ->
-                    Column(Modifier.weight(1f)) {
+                    Column(Modifier.weight(1f).then(if (l == R.string.lib_stat_streak) Modifier.pressable(haptic = false) { streakNote = true } else Modifier)) {
                         Text(v, style = Type.title.copy(fontFamily = Faces.display), color = p.ink)
                         Text(stringResource(l), style = Type.small.ui(), color = p.inkSoft)
                     }
                 }
             }
+            if (streakNote) StreakNote(s) { streakNote = false }
             // 언어 등급 (배우는 말마다): 관람 레벨이 ‘얼마나 했나’라면 이것은 ‘얼마나 읽을 수 있나’
             GradeBlock(s)
             // 지금 이용권: 무료 · 소장한 시리즈 · 구독 (숫자 셋 바로 아래, 누르면 구매 화면)
