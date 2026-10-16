@@ -249,7 +249,7 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
             Portrait(work.portrait, name, 40.dp)
             Column(Modifier.weight(1f)) {
                 Text(name, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink, maxLines = 1)
-                Text(listOf(letter.place, dateLine(letter.date, letter.place), stringResource(R.string.talk_written_short)).filter { it.isNotBlank() }.distinct().joinToString(" · "),
+                Text(listOf(dateLine(letter.date, ""), stringResource(R.string.talk_written_short)).filter { it.isNotBlank() }.distinct().joinToString(" · "),
                     style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, maxLines = 2)
             }
             if (!done) TextLink(stringResource(R.string.reply_speak_skip)) { s.narrator.stop(); s.skipStep(r.room, ReplyMode.TALK) }
