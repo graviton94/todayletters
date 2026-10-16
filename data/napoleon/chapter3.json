@@ -252,12 +252,12 @@
     "title_fr": "Bonaparte franchissant le Grand-Saint-Bernard",
     "title_en": "Napoleon Crossing the Alps",
     "title_ko": "알프스를 넘는 보나파르트",
-    "date": "1801",
+    "date": "1800–1801",
     "credit": "Jacques-Louis David",
-    "collection": "Musée national des châteaux de Malmaison et Bois-Préau, Rueil-Malmaison (1re version) [미확인: 소장 번호 · 판 (샤를로텐부르크 · 벨베데레 · 베르사유 판도 있음)]",
+    "collection": "Musée national des châteaux de Malmaison et Bois-Préau",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Napoleon_Crossing_the_Alps_by_Jacques-Louis_David [미확인: 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:David_-_Napoleon_crossing_the_Alps_-_Malmaison2.jpg",
     "why": {
      "ko": "로잔을 떠난 며칠 뒤 그는 그랑생베르나르 고개를 넘었어요. 다비드가 이듬해 그린 그 장면이에요.",
      "en": "A few days after Lausanne he crossed the Great St Bernard Pass; David painted the scene the following year."
@@ -265,7 +265,7 @@
     "image": "n-c3-l1.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:David - Napoleon crossing the Alps - Malmaison2.jpg"
    },
    "replies": [
     {
@@ -657,10 +657,10 @@
     "title_ko": "제1통령 보나파르트",
     "date": "1802",
     "credit": "Antoine-Jean Gros",
-    "collection": "Musée de la Légion d'honneur, Paris [미확인: 소장처 · 번호]",
+    "collection": "Musée de la Légion d'honneur, Paris",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Bonaparte,_First_Consul_by_Antoine-Jean_Gros [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Gros_-_First_Consul_Bonaparte.png",
     "why": {
      "ko": "제1통령 시절의 보나파르트. 이 편지 두 해 뒤 그로가 그렸어요.",
      "en": "Bonaparte in the Consulate years, painted by Gros two years after this letter."
@@ -668,7 +668,7 @@
     "image": "n-c3-l2.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Gros - First Consul Bonaparte.png"
    },
    "replies": [
     {
@@ -1077,23 +1077,43 @@
     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, n° XXVIII, pp. 111-112 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Les Liliacées (planche)",
-    "title_en": "Les Liliacées (plate)",
-    "title_ko": "〈백합과 식물〉 도판",
-    "date": "1802–1816",
+    "title_fr": "Lis rouge (Les Liliacées, pl. 7)",
+    "title_en": "Red Lily (Les Liliacées, plate 7)",
+    "title_ko": "붉은 백합 (〈백합과 식물〉 7번 도판)",
+    "date": "1802",
     "credit": "Pierre-Joseph Redouté",
-    "collection": "[미확인: CC0 로 공개한 판본 — 메트로폴리탄 · 레이크스 · 미국 국립미술관 판화실 또는 생물다양성유산도서관 스캔에서 도판 한 장 고르기]",
-    "imageLicense": "Public domain (PD-Art)",
-    "exception": "pd-art",
-    "imageSource": "[미확인: 소장처 Open Access 페이지 주소]",
+    "collection": "Cleveland Museum of Art (2020.164) · CC0",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Pierre-Joseph_Redout%C3%A9_(French,_1759-1840)_-_Red_Lily,_plate_7_from_Les_Liliac%C3%A9es_-_2020.164_-_Cleveland_Museum_of_Art.jpg",
     "why": {
      "ko": "말메종 정원의 꽃을 그린 르두테의 책. 조제핀이 후원했어요.",
      "en": "Redouté's great flower book, drawn from the plants of Joséphine's garden at Malmaison, under her patronage."
     },
     "image": "n-c3-l3.webp",
     "kind": "botanical",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.25,
+      "title": {
+       "fr": "La plante",
+       "en": "The plant",
+       "ko": "식물"
+      },
+      "note": {
+       "ko": "런던에서 온 식물처럼, 말메종 정원의 꽃.",
+       "en": "A flower for the Malmaison garden, like the plants from London."
+      },
+      "word": {
+       "fr": "plantes",
+       "en": "plants",
+       "ko": "식물",
+       "ipa": "plɑ̃t"
+      },
+      "quote": 2
+     }
+    ],
+    "commonsFile": "File:Pierre-Joseph Redouté (French, 1759-1840) - Red Lily, plate 7 from Les Liliacées - 2020.164 - Cleveland Museum of Art.jpg"
    },
    "replies": [
     {
@@ -1509,10 +1529,10 @@
     "title_ko": "조제핀의 초상",
     "date": "1801",
     "credit": "François Gérard",
-    "collection": "Musée de l'Ermitage, Saint-Pétersbourg [미확인: 소장 번호]",
+    "collection": "Musée national des châteaux de Malmaison et Bois-Préau",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portrait_of_Joséphine_by_François_Gérard_(Hermitage) [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9phine_de_Beauharnais_by_Fran%C3%A7ois_G%C3%A9rard_2.png",
     "why": {
      "ko": "말메종의 거실에 앉은 조제핀. 이 편지를 받을 무렵의 모습이에요.",
      "en": "Joséphine seated in a room at Malmaison, about the time she received this letter."
@@ -1520,7 +1540,7 @@
     "image": "n-c3-l4.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Joséphine de Beauharnais by François Gérard 2.png"
    },
    "replies": [
     {
@@ -1943,11 +1963,11 @@
     "title_fr": "Portrait d'Hortense de Beauharnais",
     "title_en": "Portrait of Hortense de Beauharnais",
     "title_ko": "오르탕스 드 보아르네의 초상",
-    "date": "[미확인]",
-    "credit": "[미확인: 판화가]",
-    "collection": "Rijksmuseum, Amsterdam · CC0 [미확인: 소장 번호 — 오르탕스 판화 초상 가운데 1800–1806 무렵 것]",
+    "date": "1806–1830",
+    "credit": "anonymous engraver",
+    "collection": "Rijksmuseum, Amsterdam (RP-P-1906-3390) · CC0",
     "imageLicense": "Public domain (CC0)",
-    "imageSource": "https://www.rijksmuseum.nl/ [미확인: 작품 페이지 주소]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Portret_van_Hortense_Eug%C3%A9nie_de_Beauharnais,_koningin_van_Holland,_RP-P-1906-3390.jpg",
     "why": {
      "ko": "로진을 연기한 열아홉 살 오르탕스. 조제핀의 딸이에요.",
      "en": "Hortense, Joséphine's daughter, nineteen when she played Rosine."
@@ -1955,7 +1975,7 @@
     "image": "n-c3-l5.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Portret van Hortense Eugénie de Beauharnais, koningin van Holland, RP-P-1906-3390.jpg"
    },
    "replies": [
     {
@@ -2371,18 +2391,39 @@
     "title_ko": "난파",
     "date": "1805",
     "credit": "Joseph Mallord William Turner",
-    "collection": "Tate, London [미확인: 소장 번호 (N00476 로 기억)]",
+    "collection": "Tate, London",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:The_Shipwreck_(Turner) [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_-_The_Shipwreck_-_Google_Art_Project.jpg",
     "why": {
      "ko": "같은 해협, 같은 무렵의 폭풍과 구조. 바다 건너 영국의 터너가 그렸어요.",
      "en": "Storm and rescue on the same Channel at the same time, painted by Turner across the water in England."
     },
     "image": "n-c3-l6.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.3,
+      "y": 0.8,
+      "title": {
+       "fr": "La mer",
+       "en": "The sea",
+       "ko": "바다"
+      },
+      "note": {
+       "ko": "‘성나서 울부짖는 바다’.",
+       "en": "‘The sea raging and roaring’."
+      },
+      "word": {
+       "fr": "mer",
+       "en": "sea",
+       "ko": "바다",
+       "ipa": "mɛʁ"
+      },
+      "quote": 3
+     }
+    ],
+    "commonsFile": "File:Joseph Mallord William Turner - The Shipwreck - Google Art Project.jpg"
    },
    "replies": [
     {
@@ -2782,18 +2823,39 @@
     "title_ko": "칼레 부두",
     "date": "1803",
     "credit": "Joseph Mallord William Turner",
-    "collection": "The National Gallery, London [미확인: 소장 번호 (NG472 로 기억)]",
+    "collection": "The National Gallery, London",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Calais_Pier_(Turner) [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_024.jpg",
     "why": {
      "ko": "이 편지를 쓴 칼레의 부두. 한 해 전 영국 쪽에서 건너온 터너가 그렸어요.",
      "en": "The pier at Calais, painted by Turner, who had crossed from England the year before."
     },
     "image": "n-c3-l7.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.85,
+      "title": {
+       "fr": "La mer",
+       "en": "The sea",
+       "ko": "바다"
+      },
+      "note": {
+       "ko": "칼레 부두 앞의 거친 바다.",
+       "en": "The rough sea at Calais pier."
+      },
+      "word": {
+       "fr": "mer",
+       "en": "sea",
+       "ko": "바다",
+       "ipa": "mɛʁ"
+      },
+      "quote": 1
+     }
+    ],
+    "commonsFile": "File:Joseph Mallord William Turner 024.jpg"
    },
    "replies": [
     {

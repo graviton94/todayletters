@@ -278,22 +278,43 @@
     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, Paris, Imprimerie impériale / Plon-Dumaine, 1858-1870, t. XXXII (1870), 'Œuvres de Napoléon Ier à Sainte-Hélène', Testament, pp. 476-477 · public domain · https://archive.org/details/correspondancedeNNnapouoft [identifiant du tome à confirmer] ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Vue de Longwood, île de Sainte-Hélène",
-    "title_en": "View of Longwood, St Helena",
-    "title_ko": "세인트헬레나 섬의 롱우드",
-    "date": "vers 1815–1821",
-    "credit": "[미확인: 판화가]",
-    "collection": "Rijksmuseum, Amsterdam [미확인: 객체 번호 — 롱우드 판화 CC0 검색 필요]",
-    "imageLicense": "Public domain (CC0) [미확인: 작품을 정한 뒤 확인]",
-    "imageSource": "https://www.rijksmuseum.nl/ [미확인: 작품 쪽 주소 · CC0 표시 확인 전]. 대안 PD-Art: 샤를 드 슈토이벤 〈나폴레옹의 죽음〉 (1828 무렵) [미확인: 원작 소재 · 공용 파일]",
+    "title_fr": "La maison de Napoléon à Longwood",
+    "title_en": "Napoleon's House at Longwood",
+    "title_ko": "롱우드의 나폴레옹 집",
+    "date": "XIXe siècle",
+    "credit": "anonymous photographer",
+    "collection": "Rijksmuseum, Amsterdam (RP-F-F02293) · CC0",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Napoleon%27s_huis_in_Longwood,_RP-F-F02293.jpg",
     "why": {
      "ko": "나폴레옹이 마지막 여섯 해를 보내고 유언장을 쓴 집이에요.",
      "en": "The house where Napoleon spent his last six years and wrote his will."
     },
     "image": "n-e1.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.46,
+      "title": {
+       "fr": "Longwood",
+       "en": "Longwood",
+       "ko": "롱우드"
+      },
+      "note": {
+       "ko": "세인트헬레나의 롱우드 집.",
+       "en": "Longwood House on St Helena."
+      },
+      "word": {
+       "fr": "Longwood",
+       "en": "Longwood",
+       "ko": "롱우드",
+       "ipa": "lɔ̃ɡwud"
+      },
+      "quote": 0
+     }
+    ],
+    "commonsFile": "File:Napoleon's huis in Longwood, RP-F-F02293.jpg"
    },
    "replies": [
     {

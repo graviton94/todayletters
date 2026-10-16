@@ -251,12 +251,12 @@
     "title_fr": "Napoléon Ier en costume du sacre",
     "title_en": "Napoleon I in Coronation Robes",
     "title_ko": "대관식 예복을 입은 나폴레옹 1세",
-    "date": "1805",
-    "credit": "François Gérard",
-    "collection": "Château de Fontainebleau [미확인: 판 (퐁텐블로 · 베르사유 · 아작시오 등 여러 판) · 소장 번호]",
+    "date": "after 1805",
+    "credit": "Workshop of François Gérard",
+    "collection": "Musée national du château de Fontainebleau",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Napoleon_I_in_Coronation_Robes_by_François_Gérard [미확인: 범주 · 파일 이름 — fetch-portraits.yml 로 확정]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois_G%C3%A9rard_-_Napol%C3%A9on_Ier_en_costume_du_Sacre_-_Mus%C3%A9e_national_du_ch%C3%A2teau_de_Fontainebleau.jpg",
     "why": {
      "ko": "대관식 이듬해에 그려진 황제의 공식 초상이에요. 이 편지를 쓸 무렵의 서른여섯 살 나폴레옹이에요.",
      "en": "The official portrait of the Emperor, painted the year after the coronation — Napoleon at thirty-six, as he was when he wrote this letter."
@@ -264,7 +264,7 @@
     "image": "n-c4-l1.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:François Gérard - Napoléon Ier en costume du Sacre - Musée national du château de Fontainebleau.jpg"
    },
    "replies": [
     {
@@ -690,12 +690,12 @@
     "title_fr": "L'impératrice Joséphine en costume du sacre",
     "title_en": "Empress Joséphine in Coronation Robes",
     "title_ko": "대관식 예복을 입은 황후 조제핀",
-    "date": "vers 1807–1808",
+    "date": "1807–1808",
     "credit": "François Gérard",
-    "collection": "Château de Fontainebleau [미확인: 소장처 · 연도 · 판]",
+    "collection": "소장처 표기 없음 · Wikimedia Commons (Google Art Project)",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portraits_of_Joséphine_de_Beauharnais_by_François_Gérard [미확인: 범주 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Baron_Fran%C3%A7ois_G%C3%A9rard_-_Jos%C3%A9phine_in_coronation_costume_-_Google_Art_Project.jpg",
     "why": {
      "ko": "‘명랑하게 지내라’는 편지를 받은 황후 조제핀이에요. 대관식 예복 차림이에요.",
      "en": "The Empress who was told to ‘be cheerful’, in her coronation robes."
@@ -703,7 +703,7 @@
     "image": "n-c4-l2.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Baron François Gérard - Joséphine in coronation costume - Google Art Project.jpg"
    },
    "replies": [
     {
@@ -1130,18 +1130,39 @@
     "title_ko": "벨베데레에서 본 빈",
     "date": "vers 1758–1761",
     "credit": "Bernardo Bellotto",
-    "collection": "Kunsthistorisches Museum, Vienne [미확인: 소장 번호]",
+    "collection": "Kunsthistorisches Museum, Vienna",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Vienna_viewed_from_the_Belvedere_by_Bernardo_Bellotto [미확인: 범주 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Bernardo_Bellotto,_il_Canaletto_-_View_of_Vienna_from_the_Belvedere.jpg",
     "why": {
      "ko": "나폴레옹이 밤에 둘러본 바로 그 도시예요. 그보다 반세기쯤 앞서 그려진 빈의 모습이에요.",
      "en": "The city he walked round at night, as Bellotto painted it about half a century earlier."
     },
     "image": "n-c4-l3.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.55,
+      "title": {
+       "fr": "La ville",
+       "en": "The city",
+       "ko": "도시"
+      },
+      "note": {
+       "ko": "그가 밤에만 둘러본 빈 시내.",
+       "en": "Vienna, which he had seen only by night."
+      },
+      "word": {
+       "fr": "ville",
+       "en": "city",
+       "ko": "도시",
+       "ipa": "vil"
+      },
+      "quote": 1
+     }
+    ],
+    "commonsFile": "File:Bernardo Bellotto, il Canaletto - View of Vienna from the Belvedere.jpg"
    },
    "replies": [
     {
@@ -1563,18 +1584,39 @@
     "title_ko": "겨울 풍경",
     "date": "vers 1811",
     "credit": "Caspar David Friedrich",
-    "collection": "The National Gallery, Londres (NG6517) [미확인: 번호]",
+    "collection": "The National Gallery, London (NG6517)",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Winter_Landscape_(Friedrich,_London) [미확인: 범주 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Winterlandschaft_(London).jpg",
     "why": {
      "ko": "‘눈이 많이 와’라는 한 줄에 맞춘, 같은 시대 독일 화가의 겨울이에요.",
      "en": "For the line ‘it's snowing a lot’: a German winter by a painter of the same years."
     },
     "image": "n-c4-l4.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.25,
+      "y": 0.88,
+      "title": {
+       "fr": "La neige",
+       "en": "The snow",
+       "ko": "눈"
+      },
+      "note": {
+       "ko": "‘눈이 많이 와.’",
+       "en": "‘It’s snowing a lot.’"
+      },
+      "word": {
+       "fr": "neige",
+       "en": "snow",
+       "ko": "눈",
+       "ipa": "nɛʒ"
+      },
+      "quote": 5
+     }
+    ],
+    "commonsFile": "File:Caspar David Friedrich - Winterlandschaft (London).jpg"
    },
    "replies": [
     {
@@ -1996,23 +2038,44 @@
     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, t. I, n° LIV, pp. 170-171 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Le Sacre de Napoléon (détail : le couronnement de Joséphine)",
-    "title_en": "The Coronation of Napoleon (detail: Joséphine crowned)",
-    "title_ko": "나폴레옹의 대관식 (부분: 관을 받는 조제핀)",
+    "title_fr": "Le Sacre de Napoléon",
+    "title_en": "The Coronation of Napoleon",
+    "title_ko": "나폴레옹의 대관식",
     "date": "1805–1807",
     "credit": "Jacques-Louis David",
-    "collection": "Musée du Louvre, Paris (INV 3699) [미확인: 번호]",
+    "collection": "Musée du Louvre, Paris",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:The_Coronation_of_Napoleon_by_Jacques-Louis_David [미확인: 범주 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_The_Coronation_of_Napoleon_(1805-1807).jpg",
     "why": {
      "ko": "‘위대한 황후’라고 놀린 바로 그 사람이, 일 년 전 노트르담에서 황제에게 관을 받는 장면이에요. 장 제목 ‘대관식’의 그림이에요.",
      "en": "The ‘Great Empress’ he teases, as she was crowned by him at Notre-Dame a year before — the painting behind the chapter title."
     },
     "image": "n-c4-l5.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.43,
+      "y": 0.68,
+      "title": {
+       "fr": "L'impératrice",
+       "en": "The Empress",
+       "ko": "황후"
+      },
+      "note": {
+       "ko": "무릎 꿇고 관을 받는 조제핀.",
+       "en": "Joséphine kneeling to be crowned."
+      },
+      "word": {
+       "fr": "impératrice",
+       "en": "Empress",
+       "ko": "황후",
+       "ipa": "ɛ̃peʁatʁis"
+      },
+      "quote": 0
+     }
+    ],
+    "commonsFile": "File:Jacques-Louis David - The Coronation of Napoleon (1805-1807).jpg"
    },
    "replies": [
     {
@@ -2404,23 +2467,43 @@
     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, t. I, n° LV, pp. 172-173 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Munich vu de l'est, depuis la rive de l'Isar",
-    "title_en": "Munich from the East, Seen from the Bank of the Isar",
-    "title_ko": "이자르 강가에서 본 뮌헨",
-    "date": "1761",
+    "title_fr": "Vue de Munich",
+    "title_en": "View of Munich",
+    "title_ko": "뮌헨 풍경",
+    "date": "c. 1761",
     "credit": "Bernardo Bellotto",
-    "collection": "Bayerisches Nationalmuseum / Residenz, Munich [미확인: 소장처 · 번호]",
-    "imageLicense": "Public domain (PD-Art)",
-    "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Bernardo_Bellotto_-_Munich [미확인: 범주 · 파일 이름]",
+    "collection": "National Gallery of Art, Washington · Open Access",
+    "imageLicense": "Public domain (NGA Open Access)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Bernardo_Bellotto,_il_Canaletto_-_Vista_di_Monaco_di_Baviera.jpg",
     "why": {
      "ko": "‘뮌헨에 있으면서 즐겁게 지내’ — 조제핀이 머물던 그 도시예요.",
      "en": "‘Stay in Munich and enjoy yourself’ — the city where Joséphine was staying."
     },
     "image": "n-c4-l6.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.6,
+      "y": 0.4,
+      "title": {
+       "fr": "Munich",
+       "en": "Munich",
+       "ko": "뮌헨"
+      },
+      "note": {
+       "ko": "강 건너 보이는 뮌헨의 탑들.",
+       "en": "The towers of Munich across the river."
+      },
+      "word": {
+       "fr": "Munich",
+       "en": "Munich",
+       "ko": "뮌헨",
+       "ipa": "mynik"
+      },
+      "quote": 2
+     }
+    ],
+    "commonsFile": "File:Bernardo Bellotto, il Canaletto - Vista di Monaco di Baviera.jpg"
    },
    "replies": [
     {
@@ -2800,15 +2883,15 @@
     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, Paris, Imprimerie impériale / Plon-Dumaine, 1858-1870, t. XI (1863), n° 9681, p. 544 · public domain · https://archive.org/details/correspondancedeNNnapouoft [identifiant du tome XI à confirmer] ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Portrait d'Eugène de Beauharnais",
-    "title_en": "Portrait of Eugène de Beauharnais",
-    "title_ko": "외젠 드 보아르네의 초상",
-    "date": "[미확인]",
-    "credit": "[미확인: 작가 후보 — 앙투안장 그로, 앙리프랑수아 리즈네르 (프랑스 소장본). 아피아니 판은 이탈리아 국립 소장이라 쓰지 않음]",
-    "collection": "Musée national des châteaux de Versailles et de Trianon / Malmaison [미확인]",
+    "title_fr": "Eugène de Beauharnais jeune, en militaire",
+    "title_en": "Young Eugène de Beauharnais in Uniform",
+    "title_ko": "군복을 입은 젊은 외젠 드 보아르네",
+    "date": "c. 1798",
+    "credit": "attributed to Antoine-Jean Gros",
+    "collection": "Musée national des châteaux de Malmaison et Bois-Préau",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portrait_paintings_of_Eugène_de_Beauharnais [미확인: 범주 · 파일 이름 · 작가]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Gros_-_Portrait_en_buste_d%27Eug%C3%A8ne_de_Beauharnais,_vice-roi_d%27Italie_(1781-1824)_jeune,_en_militaire.jpg",
     "why": {
      "ko": "이 편지를 받은 스물네 살의 외젠이에요. 결혼한 지 닷새 된 신랑이었어요.",
      "en": "Eugène, twenty-four, five days married when this letter reached him."
@@ -2816,7 +2899,7 @@
     "image": "n-c4-l7.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Gros - Portrait en buste d'Eugène de Beauharnais, vice-roi d'Italie (1781-1824) jeune, en militaire.jpg"
    },
    "replies": [
     {

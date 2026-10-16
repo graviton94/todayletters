@@ -263,15 +263,15 @@
     "source": "Lettres de Napoléon à Joséphine ..., Paris, Firmin Didot frères, 1833, tome II, n° CXLVII, pp. 16-17 · public domain · https://archive.org/details/bub_gb_Ddou2BfwpYgC ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Première vue de Bayonne, prise à mi-côte sur le glacis de la citadelle",
-    "title_en": "First View of Bayonne",
-    "title_ko": "바욘 풍경",
-    "date": "1761",
+    "title_fr": "Vue de Bayonne, prise à mi-côte sur le glacis de la citadelle",
+    "title_en": "View of Bayonne from the Citadel Glacis",
+    "title_ko": "성채 언덕에서 본 바욘",
+    "date": "1760–1761",
     "credit": "Claude-Joseph Vernet",
-    "collection": "Musée national de la Marine, Paris (dépôt du musée du Louvre) [미확인: 소장 번호 · 지금 걸린 곳]",
+    "collection": "Musée national de la Marine, Paris",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Ports_of_France_by_Joseph_Vernet [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Vue_de_Bayonne,_prise_%C3%A0_mi-c%C3%B4te_sur_le_Glacis_de_la_Citadelle.jpg",
     "why": {
      "ko": "나폴레옹이 머문 바욘을, 반세기 앞서 베르네가 ‘프랑스의 항구’ 연작으로 그렸어요.",
      "en": "Bayonne, where Napoleon stayed, as Vernet painted it half a century earlier for his ‘Ports of France’ series."
@@ -279,7 +279,7 @@
     "image": "n-c6-l1.webp",
     "kind": "painting",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Vue de Bayonne, prise à mi-côte sur le Glacis de la Citadelle.jpg"
    },
    "replies": [
     {
@@ -716,10 +716,10 @@
     "title_ko": "에르푸르트의 나폴레옹",
     "date": "1838",
     "credit": "Nicolas Gosse",
-    "collection": "Musée national des châteaux de Versailles et de Trianon [미확인: 작품 제목 · 소장 번호]",
+    "collection": "Château de Versailles",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Congress_of_Erfurt [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Entrevue_Erfurt_by_Nicolas_Grosse.jpg",
     "why": {
      "ko": "에르푸르트 회의의 한 장면을 루이 필리프 시대에 베르사유의 ‘프랑스 역사 미술관’을 위해 그린 그림이에요.",
      "en": "A scene from the Congress of Erfurt, painted for Louis-Philippe's museum of French history at Versailles."
@@ -727,7 +727,7 @@
     "image": "n-c6-l2.webp",
     "kind": "painting",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Entrevue Erfurt by Nicolas Grosse.jpg"
    },
    "replies": [
     {
@@ -1165,18 +1165,39 @@
     "title_ko": "알렉산드르 1세의 초상",
     "date": "1826",
     "credit": "George Dawe",
-    "collection": "State Hermitage Museum, Saint Petersburg [미확인: 판 · 소장 번호. 대안: 제라르 〈알렉산드르 1세〉 1814]",
+    "collection": "State Hermitage Museum, Saint Petersburg",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portrait_paintings_of_Alexander_I_of_Russia [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Portrait_of_Alexander_I_(Dawe).jpg",
     "why": {
      "ko": "편지에서 나폴레옹이 ‘마음에 든다’ 고 한 러시아 황제예요.",
      "en": "The Russian emperor Napoleon says he is ‘pleased with’ in this letter."
     },
     "image": "n-c6-l3.webp",
     "kind": "portrait",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.47,
+      "y": 0.13,
+      "title": {
+       "fr": "Alexandre",
+       "en": "Alexander",
+       "ko": "알렉산드르"
+      },
+      "note": {
+       "ko": "러시아 황제 알렉산드르 1세.",
+       "en": "Tsar Alexander I of Russia."
+      },
+      "word": {
+       "fr": "Alexandre",
+       "en": "Alexander",
+       "ko": "알렉산드르",
+       "ipa": "alɛksɑ̃dʁ"
+      },
+      "quote": 2
+     }
+    ],
+    "commonsFile": "File:Portrait of Alexander I (Dawe).jpg"
    },
    "replies": [
     {
@@ -1599,10 +1620,10 @@
     "title_ko": "쇤브룬 궁 (앞뜰 쪽)",
     "date": "1759–1760",
     "credit": "Bernardo Bellotto",
-    "collection": "Kunsthistorisches Museum, Vienne [미확인: 소장 번호]",
+    "collection": "Kunsthistorisches Museum, Vienna",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Schönbrunn_Palace_in_art [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Canaletto_(I)_059.jpg",
     "why": {
      "ko": "나폴레옹이 1809년 다섯 달을 지낸 쇤브룬 궁. 모차르트 시리즈에서 어린 모차르트가 연주한 바로 그 궁전이에요.",
      "en": "Schönbrunn, where Napoleon lived for five months in 1809: the same palace where the young Mozart played in the Mozart series."
@@ -1610,7 +1631,7 @@
     "image": "n-c6-l4.webp",
     "kind": "painting",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Canaletto (I) 059.jpg"
    },
    "replies": [
     {
@@ -2043,10 +2064,10 @@
     "title_ko": "쇤브룬 궁 (정원 쪽)",
     "date": "1759–1760",
     "credit": "Bernardo Bellotto",
-    "collection": "Kunsthistorisches Museum, Vienne [미확인: 소장 번호]",
+    "collection": "Kunsthistorisches Museum, Vienna",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Schönbrunn_Palace_in_art [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Canaletto_(I)_059b.jpg",
     "why": {
      "ko": "벨로토가 앞뜰 쪽과 짝을 맞춰 그린 정원 쪽 풍경. 한여름 나폴레옹이 거닐던 정원이에요.",
      "en": "Bellotto's companion view of the garden front: the gardens Napoleon walked in that hot summer."
@@ -2054,7 +2075,7 @@
     "image": "n-c6-l5.webp",
     "kind": "painting",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Canaletto (I) 059b.jpg"
    },
    "replies": [
     {
@@ -2492,18 +2513,38 @@
     "title_ko": "아폴론의 목욕 숲",
     "date": "1803",
     "credit": "Hubert Robert",
-    "collection": "Musée national des châteaux de Versailles et de Trianon [미확인: 판 · 소장 번호]",
-    "imageLicense": "Public domain (PD-Art)",
-    "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Bosquet_des_Bains_d'Apollon_in_art [미확인: 분류 · 파일 이름]",
+    "collection": "Musée Carnavalet, Paris (P179) · Paris Musées CC0",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Hubert_Robert_-_Les_Bains_d%27Apollon_%C3%A0_Versailles_-_P179_-_Mus%C3%A9e_Carnavalet.jpg",
     "why": {
      "ko": "정원에 커다란 바위를 들여 꾸미던 시절, 그 바위 정원을 설계한 위베르 로베르가 그렸어요. 나폴레옹이 ‘바위 놓겠다고 집을 허물지 마’ 라고 한 까닭이 보여요.",
      "en": "In the days when gardens were dressed with great rocks, Hubert Robert, who designed this rock grove, painted it: you can see why Napoleon worried about rocks."
     },
     "image": "n-c6-l6.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.45,
+      "title": {
+       "fr": "Les rochers",
+       "en": "The rocks",
+       "ko": "바위"
+      },
+      "note": {
+       "ko": "아폴론 목욕장 숲의 인공 바위.",
+       "en": "The artificial rocks of the Baths of Apollo grove."
+      },
+      "word": {
+       "fr": "rochers",
+       "en": "rocks",
+       "ko": "바위",
+       "ipa": "ʁɔʃe"
+      },
+      "quote": 2
+     }
+    ],
+    "commonsFile": "File:Hubert Robert - Les Bains d'Apollon à Versailles - P179 - Musée Carnavalet.jpg"
    },
    "replies": [
     {
@@ -2939,11 +2980,11 @@
     "title_fr": "Le château de Nymphenbourg, vu de l'est",
     "title_en": "Nymphenburg Palace, Munich",
     "title_ko": "뮌헨의 님펜부르크 궁",
-    "date": "1761",
-    "credit": "Bernardo Bellotto",
-    "collection": "National Gallery of Art, Washington, Samuel H. Kress Collection [미확인: 소장처 · 번호 — 맞으면 NGA 오픈 액세스(1단계). 다른 판은 뮌헨 레지덴츠]",
-    "imageLicense": "Public domain (NGA Open Access) [미확인]",
-    "imageSource": "https://www.nga.gov/collection/ [미확인: 작품 번호 · 이미지 주소]",
+    "date": "c. 1761",
+    "credit": "Bernardo Bellotto and Workshop",
+    "collection": "National Gallery of Art, Washington · CC0",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Bernardo_Bellotto_and_Workshop,_Nymphenburg_Palace,_Munich,_c._1761,_NGA_46162.jpg",
     "why": {
      "ko": "빈에서 돌아오는 길에 나폴레옹이 묵은 님펜부르크 궁. 쇤브룬을 그린 벨로토가 이곳도 그렸어요.",
      "en": "Nymphenburg, where Napoleon stopped on his way home; Bellotto, who painted Schönbrunn, painted it too."
@@ -2951,7 +2992,7 @@
     "image": "n-c6-l7.webp",
     "kind": "painting",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Bernardo Bellotto and Workshop, Nymphenburg Palace, Munich, c. 1761, NGA 46162.jpg"
    },
    "replies": [
     {

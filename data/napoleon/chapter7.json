@@ -253,10 +253,10 @@
     "title_ko": "황후 조제핀 (말메종 정원에서)",
     "date": "1805–1809",
     "credit": "Pierre-Paul Prud'hon",
-    "collection": "Musée du Louvre, Paris [미확인: 소장 번호]",
+    "collection": "Musée du Louvre, Paris",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Empress_Joséphine_by_Pierre-Paul_Prud'hon [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Pierre-Paul_Prud%27hon_001.jpg",
     "why": {
      "ko": "말메종 정원 바위에 홀로 앉은 조제핀. 이혼 직전에 마무리된, 쓸쓸한 기운이 도는 초상이에요.",
      "en": "Joséphine sitting alone on a rock in the gardens of Malmaison: a melancholy portrait finished just before the divorce."
@@ -264,7 +264,7 @@
     "image": "n-c7-l1.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Pierre-Paul Prud'hon 001.jpg"
    },
    "replies": [
     {
@@ -711,23 +711,44 @@
     "source": "Lettres de Napoléon à Joséphine ..., Paris, Firmin Didot frères, 1833, tome II, n° CXCII, pp. 109-110 · public domain · https://archive.org/details/bub_gb_Ddou2BfwpYgC ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Vue du château du Grand Trianon",
-    "title_en": "View of the Grand Trianon",
-    "title_ko": "그랑 트리아농 풍경",
-    "date": "1722–1724",
+    "title_fr": "Louis XV enfant en promenade, vue du Grand Trianon",
+    "title_en": "The Young Louis XV Walking, with a View of the Grand Trianon",
+    "title_ko": "그랑 트리아농을 바라보며 산책하는 어린 루이 15세",
+    "date": "1724",
     "credit": "Pierre-Denis Martin",
-    "collection": "Musée national des châteaux de Versailles et de Trianon [미확인: 작품 · 소장 번호]",
+    "collection": "Château de Versailles",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Grand_Trianon_in_art [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:1724_-_Jean-Baptiste_Martin_-_Louis_XV_enfant_en_promenade_en_vue_du_Grand_Trianon.JPG",
     "why": {
      "ko": "이혼 뒤 나폴레옹이 머문 베르사유의 트리아농. 루이 14세 때 지은 분홍 대리석 궁이에요.",
      "en": "Trianon at Versailles, where Napoleon stayed after the divorce: the pink-marble palace built for Louis XIV."
     },
     "image": "n-c7-l2.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.9,
+      "title": {
+       "fr": "La promenade",
+       "en": "The walk",
+       "ko": "산책"
+      },
+      "note": {
+       "ko": "트리아농 앞을 산책하는 사람들.",
+       "en": "People walking before the Trianon."
+      },
+      "word": {
+       "fr": "promener",
+       "en": "walk",
+       "ko": "산책",
+       "ipa": "pʁɔmne"
+      },
+      "quote": 1
+     }
+    ],
+    "commonsFile": "File:1724 - Jean-Baptiste Martin - Louis XV enfant en promenade en vue du Grand Trianon.JPG"
    },
    "replies": [
     {
@@ -1122,22 +1143,43 @@
     "source": "Lettres de Napoléon à Joséphine ..., Paris, Firmin Didot frères, 1833, tome II, n° CXCV, pp. 115-116 · public domain · https://archive.org/details/bub_gb_Ddou2BfwpYgC ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Le palais des Tuileries",
-    "title_en": "The Tuileries Palace",
-    "title_ko": "튈르리 궁",
-    "date": "[미확인]",
-    "credit": "[미확인: 작가 — 파리 무제 (카르나발레) 소장 튈르리 궁 그림 · 판화 가운데 1800–1815 무렵 작품]",
-    "collection": "Paris Musées · musée Carnavalet, Paris · CC0 [미확인: 작품 · 소장 번호]",
-    "imageLicense": "Public domain (CC0, Paris Musées) [미확인]",
-    "imageSource": "https://www.parismuseescollections.paris.fr/ [미확인: 작품 주소]",
+    "title_fr": "Vue perspective des palais des Tuileries et du Louvre",
+    "title_en": "A Perspective View of the Palaces of the Tuileries and Louvre",
+    "title_ko": "튈르리 궁과 루브르 궁 조감도",
+    "date": "XIXe siècle",
+    "credit": "anonymous engraver",
+    "collection": "Musée Carnavalet, Paris · Paris Musées CC0",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:A_Perspective_View_of_the_Palaces_of_the_Tuileries_and_Louvre_at_Paris._Paris_Mus%C3%A9es_20230619134919.jpg",
     "why": {
      "ko": "지금은 사라진 튈르리 궁. 나폴레옹이 ‘텅 빈 것 같다’ 고 쓴 그 궁전이에요.",
      "en": "The vanished Tuileries palace, which Napoleon found ‘empty’."
     },
     "image": "n-c7-l3.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.6,
+      "title": {
+       "fr": "Le palais",
+       "en": "The palace",
+       "ko": "궁전"
+      },
+      "note": {
+       "ko": "‘이 큰 궁전’, 튈르리.",
+       "en": "‘This great palace’, the Tuileries."
+      },
+      "word": {
+       "fr": "palais",
+       "en": "palace",
+       "ko": "궁전",
+       "ipa": "palɛ"
+      },
+      "quote": 1
+     }
+    ],
+    "commonsFile": "File:A Perspective View of the Palaces of the Tuileries and Louvre at Paris. Paris Musées 20230619134919.jpg"
    },
    "replies": [
     {
@@ -1555,15 +1597,15 @@
     "source": "Lettres de Napoléon à Joséphine ..., Paris, Firmin Didot frères, 1833, tome II, n° CC, pp. 125-127 · public domain · https://archive.org/details/bub_gb_Ddou2BfwpYgC ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Les Roses (planche)",
-    "title_en": "Les Roses (plate)",
-    "title_ko": "〈장미〉 화보의 한 장",
+    "title_fr": "Rosa bifera macrocarpa (Les Roses)",
+    "title_en": "Rosa bifera macrocarpa (Les Roses)",
+    "title_ko": "장미 (〈장미〉 도판)",
     "date": "1817–1824",
     "credit": "Pierre-Joseph Redouté",
-    "collection": "[미확인: CC0 로 공개한 판본 — 메트로폴리탄 · 레이크스 · 생물다양성유산도서관 스캔 가운데. III장 c3-l3 의 〈백합〉 과 겹치지 않게 장미 쪽]",
+    "collection": "Wikimedia Commons (Web Gallery of Art 복제)",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "[미확인: 판본 · 장 번호 · 파일 주소]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Pierre-Joseph_Redout%C3%A9_-_Rosa_Bifera_Macrocarpa_-_WGA19030.jpg",
     "why": {
      "ko": "조제핀의 화가 르두테가 그린 장미. 말메종 정원에서 자란 장미가 많이 실려 있어요.",
      "en": "Roses by Redouté, Joséphine's flower painter; many grew in the gardens of Malmaison."
@@ -1571,7 +1613,7 @@
     "image": "n-c7-l4.webp",
     "kind": "painting",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Pierre-Joseph Redouté - Rosa Bifera Macrocarpa - WGA19030.jpg"
    },
    "replies": [
     {
@@ -2004,23 +2046,44 @@
     "source": "Lettres de Napoléon à Joséphine ..., Paris, Firmin Didot frères, 1833, tome II, n° CCXVIII, pp. 168-169 · public domain · https://archive.org/details/bub_gb_Ddou2BfwpYgC ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Vue du lac du Bourget",
-    "title_en": "View of Lake Bourget",
-    "title_ko": "부르제 호수 풍경",
-    "date": "[미확인]",
-    "credit": "[미확인: 작가]",
-    "collection": "[미확인: 후보 — 레이크스 미술관 (CC0) 판화실 또는 샹베리 미술관의 19세기 초 부르제 호수 · 오트콩브 수도원 풍경]",
+    "title_fr": "Bords du lac du Bourget",
+    "title_en": "Shores of Lake Bourget",
+    "title_ko": "부르제 호숫가",
+    "date": "XIXe siècle",
+    "credit": "Adolphe Appian (etching)",
+    "collection": "Bibliothèque municipale de Lyon (Numelyo)",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "[미확인: 작품 · 파일 주소]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Bords_du_lac_du_Bourget.jpg",
     "why": {
      "ko": "조제핀이 배를 타다 위험을 겪은 부르제 호수. 엑스레뱅 온천 바로 옆이에요.",
      "en": "Lake Bourget, right beside the spa of Aix-les-Bains, where Joséphine had her fright on the water."
     },
     "image": "n-c7-l5.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.6,
+      "y": 0.62,
+      "title": {
+       "fr": "Le lac",
+       "en": "The lake",
+       "ko": "호수"
+      },
+      "note": {
+       "ko": "조제핀이 빠질 뻔한 부르제 호수.",
+       "en": "Lake Bourget, where Joséphine nearly drowned."
+      },
+      "word": {
+       "fr": "lac",
+       "en": "lake",
+       "ko": "호수",
+       "ipa": "lak"
+      },
+      "quote": 1
+     }
+    ],
+    "commonsFile": "File:Bords du lac du Bourget.jpg"
    },
    "replies": [
     {
@@ -2454,18 +2517,39 @@
     "title_ko": "잠든 로마 왕",
     "date": "1811",
     "credit": "Pierre-Paul Prud'hon",
-    "collection": "Musée du Louvre, Paris [미확인: 소장 번호]",
+    "collection": "Musée du Louvre, Paris",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Napoleon_II_in_paintings [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Pierre-Paul_Prud%27hon_-_Portrait_of_the_King_of_Rome_-_WGA18460.jpg",
     "why": {
      "ko": "이 편지 속 ‘통통하고 튼튼한’ 아기, 로마 왕. 조제핀을 그린 프뤼동이 같은 해에 그렸어요.",
      "en": "The ‘big and healthy’ baby of this letter, the King of Rome, painted that same year by Prud'hon, who had painted Joséphine."
     },
     "image": "n-c7-l6.webp",
     "kind": "portrait",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.6,
+      "y": 0.62,
+      "title": {
+       "fr": "Le fils",
+       "en": "The son",
+       "ko": "아들"
+      },
+      "note": {
+       "ko": "잠든 로마 왕, 그의 아들.",
+       "en": "The sleeping King of Rome, his son."
+      },
+      "word": {
+       "fr": "fils",
+       "en": "son",
+       "ko": "아들",
+       "ipa": "fis"
+      },
+      "quote": 1
+     }
+    ],
+    "commonsFile": "File:Pierre-Paul Prud'hon - Portrait of the King of Rome - WGA18460.jpg"
    },
    "replies": [
     {
@@ -2876,15 +2960,15 @@
     "source": "Lettres de Napoléon à Joséphine ..., Paris, Firmin Didot frères, 1833, tome II, n° CCXXVIII, pp. 194-195 · public domain · https://archive.org/details/bub_gb_Ddou2BfwpYgC ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Vue du château de Malmaison",
-    "title_en": "View of the Château de Malmaison",
-    "title_ko": "말메종 성 풍경",
-    "date": "[미확인: 1812 무렵]",
-    "credit": "Auguste Garneray [미확인]",
-    "collection": "Musée national des châteaux de Malmaison et Bois-Préau, Rueil-Malmaison [미확인: 작품 · 소장 번호]",
+    "title_fr": "La galerie de musique de la Malmaison",
+    "title_en": "The Music Gallery at Malmaison",
+    "title_ko": "말메종의 음악실",
+    "date": "c. 1812",
+    "credit": "Auguste Garneray",
+    "collection": "Musée national des châteaux de Malmaison et Bois-Préau",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Château_de_Malmaison_in_art [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:The_Music_Salon_at_Malmaison.png",
     "why": {
      "ko": "조제핀이 마지막까지 살며 꽃과 동물을 돌본 말메종. 그녀의 궁정 화가 가르느레가 그렸어요.",
      "en": "Malmaison, where Joséphine lived to the end among her flowers and animals, painted by her court artist Garneray."
@@ -2892,7 +2976,7 @@
     "image": "n-c7-l7.webp",
     "kind": "painting",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:The Music Salon at Malmaison.png"
    },
    "replies": [
     {

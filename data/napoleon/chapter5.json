@@ -282,19 +282,40 @@
     "title_en": "Queen Louise of Prussia",
     "title_ko": "프로이센 왕비 루이제",
     "date": "1801",
-    "credit": "Élisabeth Vigée Le Brun",
-    "collection": "Stiftung Preußische Schlösser und Gärten, Schloss Charlottenburg, Berlin [미확인: 소장처 · 번호]",
+    "credit": "Alexandre Tardieu, after Élisabeth Vigée Le Brun (engraving)",
+    "collection": "Bibliothèque nationale de France",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Louise_of_Mecklenburg-Strelitz_by_Élisabeth_Vigée_Le_Brun [미확인: 범주 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Portrait_de_L._A._W._Am%C3%A9lie,_Reine_de_Prusse,_en_buste,_de_3-4_dirig%C3%A9_%C3%A0_gauche_-_estampe_-_btv1b8413372s.jpg",
     "why": {
      "ko": "조제핀이 감싸려 했던 바로 그 왕비예요. 이 장 끝 틸지트 편지에서 다시 만나요.",
      "en": "The queen Joséphine had stood up for; we meet her again at Tilsit, at the end of this chapter."
     },
     "image": "n-c5-l1.webp",
     "kind": "portrait",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.3,
+      "title": {
+       "fr": "La reine",
+       "en": "The queen",
+       "ko": "왕비"
+      },
+      "note": {
+       "ko": "프로이센의 루이제 왕비.",
+       "en": "Queen Louise of Prussia."
+      },
+      "word": {
+       "fr": "femmes",
+       "en": "women",
+       "ko": "여자",
+       "ipa": "fam"
+      },
+      "quote": 1
+     }
+    ],
+    "commonsFile": "File:Portrait de L. A. W. Amélie, Reine de Prusse, en buste, de 3-4 dirigé à gauche - estampe - btv1b8413372s.jpg"
    },
    "replies": [
     {
@@ -705,23 +726,43 @@
     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, t. I, n° LXXII, pp. 210-211 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Scène de bal en Pologne",
-    "title_en": "A Ball in Poland",
-    "title_ko": "폴란드의 무도회",
-    "date": "[미확인: 1780–1810년대]",
-    "credit": "Jean-Pierre Norblin de La Gourdaine",
-    "collection": "Muzeum Narodowe w Warszawie [미확인: 작품 · 번호 · 오픈 액세스 여부]",
-    "imageLicense": "Public domain (PD-Art)",
-    "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Jean-Pierre_Norblin_de_La_Gourdaine [미확인: 작품 · 파일 이름]",
+    "title_fr": "Costume de bal (Journal des Dames et des Modes)",
+    "title_en": "Ball Costume (Journal des Dames et des Modes)",
+    "title_ko": "무도회 옷차림 (〈부인과 유행 신문〉)",
+    "date": "20 avril 1800",
+    "credit": "Journal des Dames et des Modes (fashion plate)",
+    "collection": "Rijksmuseum, Amsterdam (RP-P-2009-1397) · CC0",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Journal_des_Dames_et_des_Modes,_Costume_Parisien,_20_avril_1800,_An_8_(210)_Costume_de_Bal,_RP-P-2009-1397.jpg",
     "why": {
-     "ko": "폴란드에 살며 귀족들의 잔치와 춤을 그린 프랑스 화가예요. 나폴레옹이 다녀온 무도회도 이런 모습이었을 거예요.",
-     "en": "A French painter who lived in Poland and drew its balls and feasts — the kind of evening Napoleon describes."
+     "ko": "그 무렵 파리의 무도회 옷차림. 폴란드의 여인들도 ‘마음은 프랑스 사람’이라던 그 시절의 유행이에요.",
+     "en": "A Paris ball costume of the time — the fashion of the women he says were ‘French at heart’."
     },
     "image": "n-c5-l2.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.45,
+      "title": {
+       "fr": "Le bal",
+       "en": "The ball",
+       "ko": "무도회"
+      },
+      "note": {
+       "ko": "무도회에 입고 가는 옷.",
+       "en": "A dress for the ball."
+      },
+      "word": {
+       "fr": "bal",
+       "en": "ball",
+       "ko": "무도회",
+       "ipa": "bal"
+      },
+      "quote": 0
+     }
+    ],
+    "commonsFile": "File:Journal des Dames et des Modes, Costume Parisien, 20 avril 1800, An 8 (210) Costume de Bal, RP-P-2009-1397.jpg"
    },
    "replies": [
     {
@@ -1165,15 +1206,15 @@
     "source": "Lettres de Napoléon à Joséphine pendant la première campagne d'Italie, le Consulat et l'Empire (éd. Mme Salvage de Faverolles), Paris, Firmin Didot frères, 1833, tome I, t. I, n° LXXXIII, pp. 234-235 · public domain · https://archive.org/details/lettresdenapolo01josegoog ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Le faubourg de Cracovie, vu depuis la rue Nowy Świat",
-    "title_en": "Krakowskie Przedmieście from Nowy Świat Street",
-    "title_ko": "노비 시비아트 거리에서 본 크라쿠프 교외 거리",
-    "date": "1778",
+    "title_fr": "Vue de Varsovie depuis la terrasse du château royal",
+    "title_en": "View of Warsaw from the Terrace of the Royal Castle",
+    "title_ko": "왕궁 테라스에서 본 바르샤바",
+    "date": "1773",
     "credit": "Bernardo Bellotto",
-    "collection": "Zamek Królewski w Warszawie (Château royal de Varsovie) [미확인: 작품 · 번호]",
+    "collection": "National Museum in Warsaw (MP 228)",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Views_of_Warsaw_by_Bernardo_Bellotto [미확인: 범주 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Bernardo_Bellotto_-_View_of_Warsaw_from_the_Terrace_of_the_Royal_Castle_-_MP_228_-_National_Museum_in_Warsaw.jpg",
     "why": {
      "ko": "나폴레옹이 이 겨울을 보낸 바르샤바예요. 30년쯤 앞서 그려졌지만, 2차 대전 뒤 도시를 다시 지을 때 이 그림들이 본보기가 됐어요.",
      "en": "Warsaw, where Napoleon spent this winter. Painted some thirty years earlier, Bellotto's views were later used to rebuild the city after the Second World War."
@@ -1181,7 +1222,7 @@
     "image": "n-c5-l3.webp",
     "kind": "painting",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Bernardo Bellotto - View of Warsaw from the Terrace of the Royal Castle - MP 228 - National Museum in Warsaw.jpg"
    },
    "replies": [
     {
@@ -1623,19 +1664,40 @@
     "title_fr": "Paysage d'hiver",
     "title_en": "Winter Landscape",
     "title_ko": "겨울 풍경",
-    "date": "[미확인: 1830–1850년대]",
+    "date": "1835–1838",
     "credit": "Barend Cornelis Koekkoek",
-    "collection": "Rijksmuseum, Amsterdam [미확인: 작품 · 번호 (SK-A-…)]",
+    "collection": "Rijksmuseum, Amsterdam · CC0",
     "imageLicense": "Public domain (CC0)",
-    "imageSource": "https://www.rijksmuseum.nl/en/search?q=Koekkoek%20winter [미확인: 작품 · 번호 — 레이크스 CC0]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Paysage_d%27hiver_(1835-38)_-_Barend_Cornelis_Koekkoek.jpg",
     "why": {
      "ko": "눈 덮인 북쪽 마을의 겨울이에요. 편지 속 ‘허름한 마을’과 녹기 시작한 눈을 떠올리게 해요. 그림은 편지보다 몇십 년 뒤의 것이에요.",
      "en": "A snowy northern village in winter — like the ‘wretched village’ and the melting snow of the letter, though painted a few decades later."
     },
     "image": "n-c5-l4.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.4,
+      "y": 0.88,
+      "title": {
+       "fr": "La neige",
+       "en": "The snow",
+       "ko": "눈"
+      },
+      "note": {
+       "ko": "‘눈이 녹고 강이 풀리고 있어.’",
+       "en": "‘The snow is melting, the rivers are thawing.’"
+      },
+      "word": {
+       "fr": "neige",
+       "en": "snow",
+       "ko": "눈",
+       "ipa": "nɛʒ"
+      },
+      "quote": 4
+     }
+    ],
+    "commonsFile": "File:Paysage d'hiver (1835-38) - Barend Cornelis Koekkoek.jpg"
    },
    "replies": [
     {
@@ -2066,20 +2128,41 @@
     "title_fr": "Hortense de Beauharnais et son fils Napoléon-Charles",
     "title_en": "Hortense de Beauharnais and her Son Napoléon-Charles",
     "title_ko": "오르탕스 드 보아르네와 아들 나폴레옹샤를",
-    "date": "[미확인: 1806–1807 무렵]",
-    "credit": "[미확인: 작가 후보 — 프랑수아 제라르 (화실)]",
-    "collection": "[미확인: 소장처 — 말메종 · 아렌넨베르크 나폴레옹 박물관 · 퐁텐블로 가운데]",
+    "date": "c. 1806–1807",
+    "credit": "François Gérard",
+    "collection": "Château de Versailles (MV 4876)",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Napoléon_Charles_Bonaparte [미확인: 작품 · 파일 이름 · 작가]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois_G%C3%A9rard_-_Hortense_de_Beauharnais,_reine_de_Hollande_-_Versailles_MV_4876.jpg",
     "why": {
      "ko": "세상을 떠난 손자와 그 어머니 오르탕스예요. 다음 편지의 받는 사람이기도 해요.",
      "en": "The little boy who died, with his mother Hortense — the recipient of the next letter."
     },
     "image": "n-c5-l5.webp",
     "kind": "portrait",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.6,
+      "y": 0.55,
+      "title": {
+       "fr": "L'enfant",
+       "en": "The child",
+       "ko": "아이"
+      },
+      "note": {
+       "ko": "오르탕스 곁의 맏아들 나폴레옹샤를.",
+       "en": "Hortense’s eldest son, Napoléon-Charles."
+      },
+      "word": {
+       "fr": "enfants",
+       "en": "child",
+       "ko": "자식",
+       "ipa": "ɑ̃fɑ̃"
+      },
+      "quote": 2
+     }
+    ],
+    "commonsFile": "File:François Gérard - Hortense de Beauharnais, reine de Hollande - Versailles MV 4876.jpg"
    },
    "replies": [
     {
@@ -2448,12 +2531,11 @@
     "title_fr": "Portrait d'Hortense de Beauharnais, reine de Hollande",
     "title_en": "Portrait of Hortense de Beauharnais, Queen of Holland",
     "title_ko": "홀란트 왕비 오르탕스 드 보아르네의 초상",
-    "date": "[미확인]",
-    "credit": "[미확인: 작가 후보 — 안루이 지로데트리오종, 프랑수아 제라르]",
-    "collection": "[미확인: 소장처 — 말메종 · 아렌넨베르크 나폴레옹 박물관 · 레이크스 (판화 CC0)]",
-    "imageLicense": "Public domain (PD-Art)",
-    "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portrait_paintings_of_Hortense_de_Beauharnais [미확인: 범주 · 파일 이름 · 작가]",
+    "date": "c. 1805–1809",
+    "credit": "Anne-Louis Girodet-Trioson",
+    "collection": "Rijksmuseum, Amsterdam (SK-A-4943) · CC0",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Portret_van_Hortense_de_Beauharnais,_koningin_van_Holland_Rijksmuseum_SK-A-4943.jpeg",
     "why": {
      "ko": "이 편지를 받은 스물네 살의 오르탕스예요.",
      "en": "Hortense, twenty-four, who received this letter."
@@ -2461,7 +2543,7 @@
     "image": "n-c5-l6.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Portret van Hortense de Beauharnais, koningin van Holland Rijksmuseum SK-A-4943.jpeg"
    },
    "replies": [
     {
@@ -2870,20 +2952,41 @@
     "title_fr": "Napoléon reçoit la reine Louise de Prusse à Tilsit, 6 juillet 1807",
     "title_en": "Napoleon Receiving Queen Louise of Prussia at Tilsit, 6 July 1807",
     "title_ko": "틸지트에서 프로이센 왕비 루이제를 맞는 나폴레옹, 1807년 7월 6일",
-    "date": "1837",
-    "credit": "Nicolas Gosse",
-    "collection": "Musée national des châteaux de Versailles et de Trianon (MV 1747?) [미확인: 소장 번호]",
+    "date": "c. 1838–1840",
+    "credit": "Adrien Charles Danois, after Nicolas Gosse (engraving)",
+    "collection": "Library of Congress, Washington",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Treaties_of_Tilsit_in_art [미확인: 범주 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Napol%C3%A9on_re%C3%A7oit_la_reine_de_Prusse_%C3%A0_Tilsitt_6_Juillet_1807_-_peint_par_Gosse_;_grav%C3%A9_par_Danois_;_dessin%C3%A9_par_Sandoz_;_diagraphe_et_pantographe-Gavard._LCCN2017648284.jpg",
     "why": {
      "ko": "편지 첫 줄의 그 장면이에요. 서른 해 뒤 베르사유 역사 미술관을 위해 그려졌어요.",
      "en": "The very scene of the letter's first line, painted thirty years later for the history museum at Versailles."
     },
     "image": "n-c5-l7.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.6,
+      "title": {
+       "fr": "La reine",
+       "en": "The queen",
+       "ko": "왕비"
+      },
+      "note": {
+       "ko": "틸지트에서 나폴레옹을 맞는 루이제 왕비.",
+       "en": "Queen Louise meeting Napoleon at Tilsit."
+      },
+      "word": {
+       "fr": "reine",
+       "en": "Queen",
+       "ko": "왕비",
+       "ipa": "ʁɛn"
+      },
+      "quote": 0
+     }
+    ],
+    "commonsFile": "File:Napoléon reçoit la reine de Prusse à Tilsitt 6 Juillet 1807 - peint par Gosse ; gravé par Danois ; dessiné par Sandoz ; diagraphe et pantographe-Gavard. LCCN2017648284.jpg"
    },
    "replies": [
     {

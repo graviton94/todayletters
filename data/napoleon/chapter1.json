@@ -259,18 +259,59 @@
     "title_ko": "아르콜레 다리의 보나파르트",
     "date": "1796",
     "credit": "Antoine-Jean Gros",
-    "collection": "Musée du Louvre, Paris [미확인: 판 (루브르 · 베르사유 · 에르미타주) · 소장 번호]",
+    "collection": "Musée du Louvre, Paris (étude, 1796)",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Bonaparte_on_the_Bridge_at_Arcole_by_Antoine-Jean_Gros [미확인: 이 세션에서 공용을 열지 못함 — fetch-portraits.yml 로 파일 이름 확정]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Antoine-Jean_Gros_-_Bonaparte_au_pont_d%27Arcole.jpg",
     "why": {
      "ko": "편지를 쓴 그해 이탈리아에서 그려진, 스물일곱 살 무렵의 보나파르트예요. 그림 속 아르콜레 전투(1796년 11월)는 이 편지보다 일곱 달 뒤의 일이에요.",
      "en": "Painted in Italy the same year, it shows Bonaparte at about twenty-seven. The battle of Arcole (November 1796) came seven months after this letter."
     },
     "image": "n-c1-l1.webp",
     "kind": "portrait",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 후보 낱말: main (메시지 3, 깃발 · 칼을 쥔 손), cœur (메시지 3, 가슴)."
+    "spots": [
+     {
+      "x": 0.12,
+      "y": 0.58,
+      "title": {
+       "fr": "La main",
+       "en": "The hand",
+       "ko": "손"
+      },
+      "note": {
+       "ko": "깃발을 쥔 손. 편지에서는 가슴에 얹는 손이에요.",
+       "en": "The hand on the flag; in the letter, the hand laid on his heart."
+      },
+      "word": {
+       "fr": "main",
+       "en": "hand",
+       "ko": "손",
+       "ipa": "mɛ̃"
+      },
+      "quote": 3
+     },
+     {
+      "x": 0.6,
+      "y": 0.52,
+      "title": {
+       "fr": "Le cœur",
+       "en": "The heart",
+       "ko": "가슴"
+      },
+      "note": {
+       "ko": "‘가슴에 손을 얹어. 거기서 당신 초상화가 뛰고 있어.’",
+       "en": "‘I put my hand on my heart: your portrait beats there.’"
+      },
+      "word": {
+       "fr": "cœur",
+       "en": "heart",
+       "ko": "가슴",
+       "ipa": "kœʁ"
+      },
+      "quote": 3
+     }
+    ],
+    "commonsFile": "File:Antoine-Jean Gros - Bonaparte au pont d'Arcole.jpg"
    },
    "replies": [
     {
@@ -641,23 +682,44 @@
     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. III, pp. 447–448 · public domain · https://archive.org/details/tourthroughparts02tennuoft ; image: see plate.imageSource"
    },
    "plate": {
-    "title_fr": "Carte générale du théâtre de la guerre en Italie et dans les Alpes",
-    "title_en": "General Map of the Theatre of War in Italy and the Alps",
-    "title_ko": "이탈리아와 알프스 전역 총지도",
-    "date": "1798",
-    "credit": "Louis Albert Guislain Bacler d'Albe",
-    "collection": "[미확인: 후보 — Library of Congress 지도부 또는 BnF Gallica. 판 · 장 번호 확인 필요]",
-    "imageLicense": "Public domain",
+    "title_fr": "Albenga, côte de Gênes",
+    "title_en": "Albenga, Coast of Genoa",
+    "title_ko": "제노바 해안의 알벤가",
+    "date": "1832",
+    "credit": "James Duffield Harding",
+    "collection": "Wikimedia Commons (판화, Finden's Views 계열)",
+    "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://www.loc.gov/maps/ [미확인: Bacler d'Albe 1798 지도 항목 주소]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:James_Duffield_Harding,_Albenga,_Coast_of_Genoa,_1832.jpg",
     "why": {
      "ko": "보나파르트의 지도 담당 장교 바클레 달브가 이 원정을 위해 그린 지도예요. 니스에서 알벤가로 이어지는 바닷길이 보여요.",
      "en": "Drawn by Bonaparte's own map officer, Bacler d'Albe, for this campaign; it shows the coast road from Nice to Albenga."
     },
     "image": "n-c1-l2.webp",
     "kind": "map",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 이미지 출처 [미확인] 표시는 fetch-portraits.yml 로 확정."
+    "spots": [
+     {
+      "x": 0.6,
+      "y": 0.66,
+      "title": {
+       "fr": "À cheval",
+       "en": "On horseback",
+       "ko": "말을 타고"
+      },
+      "note": {
+       "ko": "말을 타고 가는 사람들. 그도 날마다 말 위에 있었어요.",
+       "en": "Riders on the coast road; he too was on horseback every day."
+      },
+      "word": {
+       "fr": "cheval",
+       "en": "horseback",
+       "ko": "말",
+       "ipa": "ʃəval"
+      },
+      "quote": 4
+     }
+    ],
+    "commonsFile": "File:James Duffield Harding, Albenga, Coast of Genoa, 1832.jpg"
    },
    "replies": [
     {
@@ -1004,18 +1066,59 @@
     "title_ko": "오렌지와 호두가 있는 정물",
     "date": "1772",
     "credit": "Luis Egidio Meléndez",
-    "collection": "The National Gallery, London [미확인: 번호 NG6505 로 기억]",
+    "collection": "The National Gallery, London",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Still_Life_with_Oranges_and_Walnuts_(Meléndez) [미확인: 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Luis_Egidio_Mel%C3%A9ndez_-_Still-Life_with_Oranges_and_Walnuts_-_WGA14760.jpg",
     "why": {
      "ko": "편지 속 선물처럼 남쪽 바닷가에서 온 오렌지와 상자가 놓인 18세기 정물이에요.",
      "en": "An eighteenth-century still life of southern oranges and boxes, like the presents in the letter."
     },
     "image": "n-c1-l3.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 이미지 출처 [미확인] 표시는 fetch-portraits.yml 로 확정."
+    "spots": [
+     {
+      "x": 0.12,
+      "y": 0.68,
+      "title": {
+       "fr": "Les oranges",
+       "en": "The oranges",
+       "ko": "오렌지"
+      },
+      "note": {
+       "ko": "그가 보낸다는 오렌지.",
+       "en": "The oranges he is sending."
+      },
+      "word": {
+       "fr": "oranges",
+       "en": "oranges",
+       "ko": "오렌지",
+       "ipa": "ɔʁɑ̃ʒ"
+      },
+      "quote": 4
+     },
+     {
+      "x": 0.6,
+      "y": 0.8,
+      "title": {
+       "fr": "La boîte",
+       "en": "The box",
+       "ko": "상자"
+      },
+      "note": {
+       "ko": "나무 상자 — 편지 속 제노바 사탕 상자처럼.",
+       "en": "A wooden box, like the box of Genoa sweets."
+      },
+      "word": {
+       "fr": "boîte",
+       "en": "box",
+       "ko": "상자",
+       "ipa": "bwat"
+      },
+      "quote": 4
+     }
+    ],
+    "commonsFile": "File:Luis Egidio Meléndez - Still-Life with Oranges and Walnuts - WGA14760.jpg"
    },
    "replies": [
     {
@@ -1365,18 +1468,39 @@
     "title_ko": "조제프 보나파르트",
     "date": "1808",
     "credit": "Jean-Baptiste Wicar",
-    "collection": "[미확인: 후보 — 퐁텐블로 성 국립박물관 등. 대안: 오르탕스 드 보아르네 초상 (지로데 · 제라르 등)]",
+    "collection": "소장처 표기 없음 · Wikimedia Commons",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portraits_of_Joseph_Bonaparte [미확인: 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Joseph_Bonaparte_(by_Wicar).jpg",
     "why": {
      "ko": "이 편지를 들고 파리로 간 형 조제프예요. 그림은 12년 뒤 나폴리 왕이 된 모습이에요.",
      "en": "Joseph, who carried this letter to Paris, painted twelve years later as King of Naples."
     },
     "image": "n-c1-l4.webp",
     "kind": "portrait",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 이미지 출처 [미확인] 표시는 fetch-portraits.yml 로 확정."
+    "spots": [
+     {
+      "x": 0.2,
+      "y": 0.62,
+      "title": {
+       "fr": "La lettre",
+       "en": "The letter",
+       "ko": "편지"
+      },
+      "note": {
+       "ko": "손에 든 종이. 이 편지도 형이 전해 줬어요.",
+       "en": "A paper in his hand; Joseph carried this very letter."
+      },
+      "word": {
+       "fr": "lettre",
+       "en": "letter",
+       "ko": "편지",
+       "ipa": "lɛtʁ"
+      },
+      "quote": 0
+     }
+    ],
+    "commonsFile": "File:Joseph Bonaparte (by Wicar).jpg"
    },
    "replies": [
     {
@@ -1738,18 +1862,39 @@
     "title_ko": "역마차 사무소 마당에 도착한 역마차",
     "date": "1803",
     "credit": "Louis-Léopold Boilly",
-    "collection": "Musée du Louvre, Paris [미확인: 소장 번호]",
+    "collection": "Musée du Louvre, Paris",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:L'Arrivée_d'une_diligence_dans_la_cour_des_Messageries_by_Boilly [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Louis-L%C3%A9opold_Boilly_002.jpg",
     "why": {
      "ko": "편지와 사람을 실어 나르던 시절 파리의 역마차 마당이에요. 전령도 이런 마당을 거쳐 파리와 이탈리아를 오갔어요.",
      "en": "A Paris coach yard of the time, where letters and travellers came and went, as the courier did between Paris and Italy."
     },
     "image": "n-c1-l5.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 이미지 출처 [미확인] 표시는 fetch-portraits.yml 로 확정."
+    "spots": [
+     {
+      "x": 0.3,
+      "y": 0.2,
+      "title": {
+       "fr": "Paris",
+       "en": "Paris",
+       "ko": "파리"
+      },
+      "note": {
+       "ko": "파리 우편 마차 사무소의 안뜰.",
+       "en": "The courtyard of the Paris coach office."
+      },
+      "word": {
+       "fr": "Paris",
+       "en": "Paris",
+       "ko": "파리",
+       "ipa": "paʁi"
+      },
+      "quote": 2
+     }
+    ],
+    "commonsFile": "File:Louis-Léopold Boilly 002.jpg"
    },
    "replies": [
     {
@@ -2110,17 +2255,38 @@
     "title_ko": "사랑의 편지",
     "date": "early 1770s",
     "credit": "Jean Honoré Fragonard",
-    "collection": "The Metropolitan Museum of Art, New York · CC0 [미확인: 번호 49.7.49 로 기억]",
-    "imageLicense": "Public domain (CC0, Met Open Access)",
-    "imageSource": "https://www.metmuseum.org/art/collection/search/437173 [미확인: 작품 쪽 번호]",
+    "collection": "The Metropolitan Museum of Art, New York (49.7.49) · CC0",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:The_Love_Letter_MET_DP-1014-001.jpg",
     "why": {
      "ko": "편지를 받아 든 여인을 그린 프라고나르의 그림이에요. 보나파르트가 기다리던, 조제핀이 편지를 펼치는 순간을 떠올리게 해요.",
      "en": "Fragonard's young woman with a letter, like the moment Bonaparte kept waiting for: Joséphine opening one of his."
     },
     "image": "n-c1-l6.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 이미지 출처 [미확인] 표시는 fetch-portraits.yml 로 확정."
+    "spots": [
+     {
+      "x": 0.45,
+      "y": 0.22,
+      "title": {
+       "fr": "La lettre",
+       "en": "The letter",
+       "ko": "편지"
+      },
+      "note": {
+       "ko": "손에 든 연애편지.",
+       "en": "The love letter in her hand."
+      },
+      "word": {
+       "fr": "lettres",
+       "en": "letters",
+       "ko": "편지",
+       "ipa": "lɛtʁ"
+      },
+      "quote": 4
+     }
+    ],
+    "commonsFile": "File:The Love Letter MET DP-1014-001.jpg"
    },
    "replies": [
     {
@@ -2482,18 +2648,39 @@
     "title_ko": "보나파르트 부인",
     "date": "c. 1801",
     "credit": "François Gérard",
-    "collection": "State Hermitage Museum, Saint Petersburg [미확인: 그림 · 번호. 대안: 그로 〈조제핀〉 (니스 마세나 미술관, II장 후보와 겹침)]",
+    "collection": "State Hermitage Museum, Saint Petersburg",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portraits_of_Joséphine_de_Beauharnais_by_François_Gérard [미확인: 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Portrait_of_Josephine_de_Beauharnais-Gerard.jpg",
     "why": {
      "ko": "편지를 받은 조제핀의 초상이에요. 몇 해 뒤 제라르가 그린, 말메종 시절의 모습이에요.",
      "en": "A portrait of the woman who received these letters, painted by Gérard a few years later."
     },
     "image": "n-c1-l7.webp",
     "kind": "portrait",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 이미지 출처 [미확인] 표시는 fetch-portraits.yml 로 확정."
+    "spots": [
+     {
+      "x": 0.6,
+      "y": 0.5,
+      "title": {
+       "fr": "Le repos",
+       "en": "Rest",
+       "ko": "쉼"
+      },
+      "note": {
+       "ko": "소파에 기대 쉬는 조제핀.",
+       "en": "Joséphine resting on the sofa."
+      },
+      "word": {
+       "fr": "repose",
+       "en": "Rest",
+       "ko": "쉬어",
+       "ipa": "ʁəpɔz"
+      },
+      "quote": 4
+     }
+    ],
+    "commonsFile": "File:Portrait of Josephine de Beauharnais-Gerard.jpg"
    },
    "replies": [
     {

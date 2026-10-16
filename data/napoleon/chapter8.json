@@ -229,12 +229,12 @@
     "title_fr": "L'Impératrice Joséphine",
     "title_en": "Empress Joséphine",
     "title_ko": "황후 조제핀 (말년)",
-    "date": "vers 1812",
-    "credit": "Firmin Massot [미확인: 작가 · 연도]",
-    "collection": "[미확인: 소장처 후보 — 말메종 · 부아프레오 성 국립 박물관, 또는 제네바 예술역사박물관]",
+    "date": "c. 1812",
+    "credit": "Firmin Massot",
+    "collection": "State Hermitage Museum, Saint Petersburg",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portraits_of_Joséphine_de_Beauharnais [미확인: 파일 이름 · PD 여부 확인 전]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Firmin_Massot_-_Jos%C3%A9phine_de_France_full.jpeg",
     "why": {
      "ko": "이 무렵 말메종에서 지내던 마흔아홉 살 조제핀의 모습이에요. 여러 장에 걸친 조제핀 편지의 마지막 그림.",
      "en": "Joséphine at about forty-nine, living at Malmaison: the last picture of her in a series of letters that began with her."
@@ -242,7 +242,7 @@
     "image": "n-c8-l1.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Firmin Massot - Joséphine de France full.jpeg"
    },
    "replies": [
     {
@@ -670,12 +670,12 @@
     "title_fr": "Augusta-Amélie de Bavière, vice-reine d'Italie",
     "title_en": "Augusta of Bavaria, Vicereine of Italy",
     "title_ko": "이탈리아 부왕비 아우구스타",
-    "date": "[미확인]",
-    "credit": "[미확인: 작가 후보 — 요제프 카를 슈틸러 (Joseph Karl Stieler). 안드레아 아피아니 판은 이탈리아 국립 소장이면 쓰지 않음]",
-    "collection": "[미확인: 소장처 — 바이에른 국립 회화 컬렉션 등. 이탈리아 국립 · 바티칸 소장이면 쓰지 않음]",
+    "date": "début du XIXe siècle",
+    "credit": "Andrea Appiani (attributed)",
+    "collection": "Musée national des châteaux de Malmaison et Bois-Préau",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Princess_Augusta_of_Bavaria [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Augusta_Amalie_of_Bavaria,_Duchess_of_Leuchtenberg.jpg",
     "why": {
      "ko": "편지 속 ‘부왕비’ — 조제핀이 찾아가려던 며느리예요.",
      "en": "The ‘vicereine’ of the letter: the daughter-in-law Joséphine wanted to visit."
@@ -683,7 +683,7 @@
     "image": "n-c8-l2.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Augusta Amalie of Bavaria, Duchess of Leuchtenberg.jpg"
    },
    "replies": [
     {
@@ -1101,10 +1101,10 @@
     "title_ko": "프랑스 황후 마리 루이즈",
     "date": "1810",
     "credit": "François Gérard",
-    "collection": "Musée du Louvre, Paris [미확인: 소장처 (루브르 · 베르사유) · 소장 번호]",
+    "collection": "Base Joconde (000PE001264) · Wikimedia Commons",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Marie-Louise_by_François_Gérard [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:L%27imp%C3%A9ratriceMarie-Louise.jpg",
     "why": {
      "ko": "결혼하던 해의 열여덟 살 황후. 이 편지를 받을 때는 스물한 살의 섭정이었어요.",
      "en": "The eighteen-year-old Empress in the year of her marriage; when this letter came she was a regent of twenty-one."
@@ -1112,7 +1112,7 @@
     "image": "n-c8-l3.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:L'impératriceMarie-Louise.jpg"
    },
    "replies": [
     {
@@ -1519,12 +1519,12 @@
     "title_fr": "Joseph Bonaparte, roi d'Espagne",
     "title_en": "Joseph Bonaparte, King of Spain",
     "title_ko": "스페인 왕 조제프 보나파르트",
-    "date": "vers 1808",
-    "credit": "François Gérard [미확인: 작가 · 판]",
-    "collection": "Musée national du château de Fontainebleau [미확인: 소장처 · 번호]",
+    "date": "c. 1808",
+    "credit": "François Gérard",
+    "collection": "소장처 표기 없음 · Wikimedia Commons",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portraits_of_Joseph_Bonaparte [미확인: 파일 이름 · PD 여부]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Joseph-Bonaparte.jpg",
     "why": {
      "ko": "나폴레옹이 파리와 가족을 맡긴 한 살 위 형이에요. 프롤로그의 첫 편지를 받은 사람.",
      "en": "The elder brother to whom Napoleon entrusted Paris and his family: the man who received the very first letters of the prologue."
@@ -1532,7 +1532,7 @@
     "image": "n-c8-l4.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Joseph-Bonaparte.jpg"
    },
    "replies": [
     {
@@ -1990,12 +1990,12 @@
     "title_fr": "Napoléon à Fontainebleau, le 31 mars 1814",
     "title_en": "Napoleon at Fontainebleau, 31 March 1814",
     "title_ko": "퐁텐블로의 나폴레옹, 1814년 3월 31일",
-    "date": "1845",
+    "date": "1846",
     "credit": "Paul Delaroche",
-    "collection": "Musée de l'Armée, Paris [미확인: 판 (파리 군사 박물관 · 라이프치히 조형 미술관 등 여러 판) · 소장 번호]",
+    "collection": "Royal Collection, United Kingdom (1846 version)",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Napoleon_at_Fontainebleau_by_Paul_Delaroche [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Napoleon_at_Fontainebleau,_31_March_1814_(by_Hippolyte_Paul_Delaroche).jpg",
     "why": {
      "ko": "파리가 함락됐다는 소식을 들은 날, 의자에 홀로 앉은 나폴레옹. 이 편지 무렵의 퐁텐블로예요.",
      "en": "Napoleon alone in a chair on the day he heard Paris had fallen: Fontainebleau in the days of this letter."
@@ -2003,7 +2003,7 @@
     "image": "n-c8-l5.webp",
     "kind": "painting",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Napoleon at Fontainebleau, 31 March 1814 (by Hippolyte Paul Delaroche).jpg"
    },
    "replies": [
     {
@@ -2434,11 +2434,11 @@
     "title_en": "Napoleon's Farewell to the Imperial Guard at Fontainebleau, 20 April 1814",
     "title_ko": "퐁텐블로 백마의 뜰에서 근위대와 작별하는 나폴레옹, 1814년 4월 20일",
     "date": "XIXe siècle",
-    "credit": "Antoine Alphonse Montfort, d'après Horace Vernet [미확인: 작가 · 연도]",
-    "collection": "Château de Versailles [미확인: 소장처 · 번호]",
+    "credit": "Antoine Alphonse Montfort, after Horace Vernet",
+    "collection": "Château de Versailles",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Farewell_of_Fontainebleau [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Montfort_-_Adieux_de_Napoleon_a_la_Garde_imperiale.jpg",
     "why": {
      "ko": "이 편지를 쓴 바로 그날 정오 무렵의 장면이에요.",
      "en": "The scene from around noon on the very day of this letter."
@@ -2446,7 +2446,7 @@
     "image": "n-c8-l6.webp",
     "kind": "painting",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Montfort - Adieux de Napoleon a la Garde imperiale.jpg"
    },
    "replies": [
     {
@@ -2847,19 +2847,40 @@
     "title_en": "The Return from Elba",
     "title_ko": "엘바 섬에서 돌아온 나폴레옹",
     "date": "1818",
-    "credit": "Charles de Steuben [미확인: 작품 · 연도]",
-    "collection": "[미확인: 소장처 — 원작 소재 불명, 판화본 (레이크스 · 메트 CC0) 우선 검토]",
+    "credit": "Charles de Steuben",
+    "collection": "소장처 표기 없음 · Wikimedia Commons",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Hundred_Days [미확인: 파일 이름 · PD 여부]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Retour_de_Napoleon_d%27_Isle_d%27Elbe,_by_Charles_de_Steuben.jpg",
     "why": {
      "ko": "엘바 섬을 떠나 프랑스로 돌아온 나폴레옹을 그린 장면이에요. 이 편지를 쓰기 한 달 전의 일.",
      "en": "Napoleon's return from Elba to France, a month before this letter."
     },
     "image": "n-c8-l7.webp",
     "kind": "painting",
-    "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "spots": [
+     {
+      "x": 0.3,
+      "y": 0.55,
+      "title": {
+       "fr": "L'armée",
+       "en": "The army",
+       "ko": "군대"
+      },
+      "note": {
+       "ko": "그를 맞으러 달려오는 병사들.",
+       "en": "Soldiers rushing to greet him."
+      },
+      "word": {
+       "fr": "armée",
+       "en": "army",
+       "ko": "군대",
+       "ipa": "aʁme"
+      },
+      "quote": 0
+     }
+    ],
+    "commonsFile": "File:Retour de Napoleon d' Isle d'Elbe, by Charles de Steuben.jpg"
    },
    "replies": [
     {

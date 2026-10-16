@@ -255,10 +255,10 @@
     "title_ko": "배다리가 보이는 베로나 풍경",
     "date": "c. 1745–1747",
     "credit": "Bernardo Bellotto",
-    "collection": "Gemäldegalerie Alte Meister, Dresden [미확인: 판 · 소장 번호; 다른 판 National Trust, Powis Castle]",
+    "collection": "Gemäldegalerie Alte Meister, Dresden (Gal.-Nr. 605)",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Bernardo_Bellotto_-_View_of_Verona_with_the_Ponte_delle_Navi [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Bellotto_-_Der_alte_Ponte_delle_Navi_in_Verona,_um_1745-47,_Gal.-Nr._605.jpg",
     "why": {
      "ko": "보나파르트가 이 편지를 쓴 도시 베로나를, 반세기 전 벨로토가 그린 풍경이에요.",
      "en": "Verona, where the letter was written, as Bellotto painted it half a century earlier."
@@ -266,7 +266,7 @@
     "image": "n-c2-l1.webp",
     "kind": "landscape",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Bellotto - Der alte Ponte delle Navi in Verona, um 1745-47, Gal.-Nr. 605.jpg"
    },
    "replies": [
     {
@@ -655,10 +655,10 @@
     "title_ko": "조제핀 황후",
     "date": "1808–1809",
     "credit": "Antoine-Jean Gros",
-    "collection": "Musée Masséna, Nice [미확인: 소장 번호]",
+    "collection": "Musée Masséna, Nice",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portrait_of_Joséphine_by_Antoine-Jean_Gros [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Jos%C3%A9phine_de_Beauharnais_Antoine-Jean_Gros_1808-1809.jpg",
     "why": {
      "ko": "열에 들뜬 밤, 그가 꿈에서 본 ‘부드럽고 다정한’ 조제핀. 열두 해 뒤 그로가 그린 초상이에요.",
      "en": "The ‘sweet, tender’ Joséphine of his fever dream, in a portrait Gros painted twelve years later."
@@ -666,7 +666,7 @@
     "image": "n-c2-l2.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Joséphine de Beauharnais Antoine-Jean Gros 1808-1809.jpg"
    },
    "replies": [
     {
@@ -1046,11 +1046,11 @@
     "title_fr": "Cendrillon (Les Contes de Perrault)",
     "title_en": "Cinderella (Perrault's Fairy Tales)",
     "title_ko": "신데렐라 (페로 동화집)",
-    "date": "1862–1867 (gravure)",
+    "date": "1867",
     "credit": "Gustave Doré",
-    "collection": "Les Contes de Perrault, Paris, J. Hetzel, 1862 — 판화 [미확인: CC0 로 공개한 소장처 (예: Rijksmuseum · Met) 또는 공용 파일]",
-    "imageLicense": "Public domain (CC0)",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Cendrillon_by_Gustave_Doré [미확인: 분류 · 파일 이름]",
+    "collection": "Les Contes de Perrault (Hetzel, 1867) · Polona, Biblioteka Narodowa",
+    "imageLicense": "Public domain (PD-Art)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Cinderella_by_Gustav_Dore_(136548322).jpg",
     "why": {
      "ko": "편지 속 ‘bien cendrillon’. 페로의 신데렐라를 도레가 판화로 그렸어요.",
      "en": "The ‘bien cendrillon’ of the letter: Perrault's Cinderella in Doré's engraving."
@@ -1058,7 +1058,8 @@
     "image": "n-c2-l3.webp",
     "kind": "print",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "exception": "pd-art",
+    "commonsFile": "File:Cinderella by Gustav Dore (136548322).jpg"
    },
    "replies": [
     {
@@ -1434,12 +1435,12 @@
     "title_fr": "Portrait de Joséphine",
     "title_en": "Portrait of Joséphine",
     "title_ko": "조제핀의 초상",
-    "date": "c. 1798–1805 (miniature)",
+    "date": "c. 1805",
     "credit": "Jean-Baptiste Isabey",
-    "collection": "[미확인: 소장처 · 판 — 월리스 컬렉션 (런던) 또는 루브르 소묘실의 이자베 조제핀 세밀화 후보. 대안: 마르탱 드롤링 〈부엌 안〉 1815, 루브르]",
+    "collection": "Harvard Art Museums / Fogg Museum (1943.1628)",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Portrait_miniatures_of_Joséphine_de_Beauharnais [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Jean_Baptiste_Isabey_-_Josephine_de_Beauharnais_as_Empress_-_1943.1628_-_Fogg_Museum.jpg",
     "why": {
      "ko": "그가 달려왔을 때 방에 없던 사람. 이자베는 조제핀의 세밀화를 여러 번 그렸어요.",
      "en": "The woman who was not in the room when he burst in; Isabey painted many miniatures of her."
@@ -1447,7 +1448,7 @@
     "image": "n-c2-l4.webp",
     "kind": "portrait",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Jean Baptiste Isabey - Josephine de Beauharnais as Empress - 1943.1628 - Fogg Museum.jpg"
    },
    "replies": [
     {
@@ -1824,10 +1825,10 @@
     "title_ko": "레이스 뜨는 여인",
     "date": "c. 1669–1670",
     "credit": "Johannes Vermeer",
-    "collection": "Musée du Louvre, Paris [미확인: 소장 번호 (MI 1448 로 기억)]",
+    "collection": "Musée du Louvre, Paris",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_The_lacemaker_(c.1669-1671).jpg [미확인: 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_The_lacemaker_(c.1669-1671).jpg",
     "why": {
      "ko": "‘레이스가 금만큼 무겁기를 바랄 수는 없잖아’ 하는 편지에, 레이스를 뜨는 여인.",
      "en": "For a letter that asks why lace should weigh as much as gold: a woman making lace."
@@ -1835,7 +1836,7 @@
     "image": "n-c2-l5.webp",
     "kind": "painting",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Johannes Vermeer - The lacemaker (c.1669-1671).jpg"
    },
    "replies": [
     {
@@ -2225,12 +2226,12 @@
     "title_fr": "Vue du port d'Ancône",
     "title_en": "View of the Port of Ancona",
     "title_ko": "안코나 항구 풍경",
-    "date": "[미확인]",
-    "credit": "Gaspar van Wittel (Vanvitelli) [미확인: 작가 · 작품]",
-    "collection": "[미확인: 소장처 — 이탈리아 국립 소장이면 쓰지 않음 (image-policy 5). 대안: 바클레 달브 〈이탈리아 전역도〉 1798 의 안코나 부분]",
+    "date": "XVIIIe siècle",
+    "credit": "anonymous engraver",
+    "collection": "Library of Congress, Washington (Popular Graphic Arts)",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "[미확인: 위키미디어 공용 파일 없음 — fetch-portraits.yml 로 찾기]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Veduta_del_porto_di_ancona_LCCN2003665136.jpg",
     "why": {
      "ko": "편지를 쓴 아드리아 해의 항구 안코나.",
      "en": "Ancona, the Adriatic port where the letter was written."
@@ -2238,7 +2239,7 @@
     "image": "n-c2-l6.webp",
     "kind": "landscape",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Veduta del porto di ancona LCCN2003665136.jpg"
    },
    "replies": [
     {
@@ -2611,10 +2612,10 @@
     "title_ko": "루브르 대회랑 꾸미기 구상",
     "date": "1796",
     "credit": "Hubert Robert",
-    "collection": "Musée du Louvre, Paris [미확인: 소장 번호 (RF 1975-10 로 기억)]",
+    "collection": "Musée du Louvre, Paris",
     "imageLicense": "Public domain (PD-Art)",
     "exception": "pd-art",
-    "imageSource": "https://commons.wikimedia.org/wiki/Category:Projet_d'aménagement_de_la_Grande_Galerie_du_Louvre_(Hubert_Robert,_1796) [미확인: 분류 · 파일 이름]",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Hubert_Robert_-_Design_for_the_Grande_Galerie_in_the_Louvre_-_WGA19590.jpg",
     "why": {
      "ko": "이 조약으로 로마의 미술품이 파리로 옮겨졌어요. 같은 해 위베르 로베르가 그린 루브르의 큰 전시실이에요.",
      "en": "Under this treaty works of art went from Rome to Paris. Hubert Robert painted this design for the Louvre's great gallery the same year."
@@ -2622,7 +2623,7 @@
     "image": "n-c2-l7.webp",
     "kind": "painting",
     "spots": [],
-    "_todo": "점(spots)은 그림 파일을 받아 눈으로 본 뒤 찍는다. 소장처 · 파일 · PD 여부 확인 전에는 쓰지 않는다."
+    "commonsFile": "File:Hubert Robert - Design for the Grande Galerie in the Louvre - WGA19590.jpg"
    },
    "replies": [
     {

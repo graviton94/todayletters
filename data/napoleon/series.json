@@ -907,8 +907,7 @@
  "outro": {
   "file": "epilogue.json",
   "image": "n-outro.webp",
-  "credit": "La Mort de Napoléon, c. 1828 · Charles de Steuben · [미확인: 소장처 · 판 · 파일, fetch-portraits.yml 로 확정] · Public domain (PD-Art)",
-  "_imageSource": "[미확인] 위키미디어 공용 Category:Death of Napoleon by Charles de Steuben (그림 받기 전). 대안: 롱우드 판화 (레이크스 CC0 우선).",
+  "credit": "La Mort de Napoléon, c. 1828 · Charles de Steuben · Napoleonmuseum Thurgau, Schloss Arenenberg · Public domain (PD-Art)",
   "caps": "ÉPILOGUE",
   "name": "Napoléon Bonaparte",
   "years": "15 août 1769 — 5 mai 1821",
@@ -925,6 +924,8 @@
     "ko": "1840년, 그의 유해는 프랑스로 돌아와 파리의 앵발리드에 놓였습니다. ‘센 강가에, 내가 그토록 사랑한 프랑스 사람들 가운데 잠들고 싶다’는 유언대로였습니다.",
     "en": "In 1840 his remains were brought back to France and laid in the Invalides in Paris, as his will had asked: ‘on the banks of the Seine, among the French people whom I have loved so much’."
    }
-  ]
+  ],
+  "imageSource": "https://commons.wikimedia.org/wiki/File:Carl_von_Steuben_-_Mort_de_Napol%C3%A9on_-_Arenenberg.jpg",
+  "exception": "pd-art"
  }
 }
