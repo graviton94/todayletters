@@ -40,7 +40,8 @@ class JourneyTest {
         assertFalse(Journey.payable(Step.DONE, Step.DONE, paidDay = 10, today = 10))
         assertEquals(3, Journey.doneCount(Step.DONE, Step.DONE, paid = true))
         assertEquals(3, Journey.doneCount(Step.DONE, Step.NONE, paid = true))
-        assertEquals(1, Journey.doneCount(Step.NOW, Step.NONE, paid = false))
+        assertEquals(0, Journey.doneCount(Step.NOW, Step.NONE, paid = false))
+        assertEquals(1, Journey.doneCount(Step.DONE, Step.TODO, paid = false))
         assertEquals(0, Journey.doneCount(Step.NONE, Step.NONE, paid = false))
     }
 
