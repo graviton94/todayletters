@@ -840,7 +840,7 @@
     <string name="talk_record_repeat">Repeat</string>
     <string name="finish_title">Today\'s letter is done</string>
     <string name="finish_meta">Letter %1$s · %2$s</string>
-    <string name="finish_skipped">You can redo the %1$d skipped step(s) in Review</string>
+    <string name="finish_skipped">%1$d skipped · redo in Review</string>
     <string name="finish_next_at">The next letter arrives tomorrow at %1$s</string>
     <string name="finish_next_day">The next letter arrives tomorrow</string>
     <string name="finish_series_done">You\'ve read this whole work</string>

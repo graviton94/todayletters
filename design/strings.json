@@ -3357,8 +3357,8 @@
     "ko": "편지 %1$s · %2$s"
   },
   "finish_skipped": {
-    "en": "You can redo the %1$d skipped step(s) in Review",
-    "ko": "건너뛴 걸음 %1$d개는 복습에서 다시 할 수 있어요"
+    "en": "%1$d skipped · redo in Review",
+    "ko": "건너뛴 걸음 %1$d개 · 복습에서 다시"
   },
   "finish_next_at": {
     "en": "The next letter arrives tomorrow at %1$s",

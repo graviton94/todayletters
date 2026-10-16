@@ -157,10 +157,11 @@ fun FinishSheet(s: AppState, room: Route.Letter) {
     val n = work.chapters.flatMap { it.letters }.indexOf(letter) + 1
     val close = { s.finishSheet = null }
     androidx.activity.compose.BackHandler(onBack = close)
-    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = close), contentAlignment = Alignment.BottomCenter) {
+    // 가운데 한 장 (아래 완료 화면의 제목 · 도장이 겹쳐 보이지 않게 짙은 막 위에)
+    Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.72f)).pressable(haptic = false, onClick = close), contentAlignment = Alignment.Center) {
         Column(
-            Modifier.fillMaxWidth().background(p.paper).border(Tokens.Stroke.hair, p.hair).pressable(haptic = false) { }
-                .navigationBarsPadding().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s5),
+            Modifier.fillMaxWidth(0.86f).background(p.paper).border(1.dp, p.giltText).pressable(haptic = false) { }
+                .padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s6),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
             Box(
@@ -168,11 +169,10 @@ fun FinishSheet(s: AppState, room: Route.Letter) {
                 contentAlignment = Alignment.Center,
             ) { Portrait(work.portrait, work.fullName, 40.dp) }
             Text(stringResource(R.string.finish_title), style = Type.title.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
-            Text(
-                stringResource(R.string.finish_meta, roman(n), dateLine(letter.date, letter.place)) +
-                    if (skipped > 0) " · " + stringResource(R.string.finish_skipped, skipped) else "",
-                style = Type.small.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-            )
+            Text(stringResource(R.string.finish_meta, roman(n), dateLine(letter.date, letter.place)),
+                style = Type.small.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center, maxLines = 1)
+            if (skipped > 0) Text(stringResource(R.string.finish_skipped, skipped),
+                style = Type.small.ui(), color = p.giltText, textAlign = androidx.compose.ui.text.style.TextAlign.Center, maxLines = 1)
             val next = when {
                 s.seriesDone(room.series) -> stringResource(R.string.finish_series_done)
                 s.waiting(room.series) > 0 -> stringResource(R.string.done_next_now)
