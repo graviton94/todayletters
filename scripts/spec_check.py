@@ -19,6 +19,7 @@
   replies    편지마다 턴 1–3 (세 언어 · quote · grammar · focus · koLow · koHigh)
   grammar    장마다 3개, 문법마다 원어 · en · ko 칸 (name · hint 의 ko · en)
   talk_audio (알림만) talk.audio 가 있는데 소리 파일이 assets · remote 에 없음
+             ("audio" 는 "t" 또는 {"*": "t", "ko": "tk"}: 언어마다 앞부분, 없는 언어는 "*" — core Talk.audioName)
 """
 import glob, json, os, sys
 
@@ -216,10 +217,14 @@ def check_series(sid, drafts, verbose):
             ws = t.get("words")
             rep.check("talk", bool(ws), f"{lid}: words (쓰는 오늘 낱말) 없음")
             rep.check("talk", t.get("grammar") in grammar_ids, f"{lid}: grammar {t.get('grammar')!r} 가 장 문법에 없음")
-            if t.get("audio"):
-                stem = t["audio"]
+            a = t.get("audio")
+            if isinstance(a, dict):
+                rep.check("talk", bool(a.get("*") or a.get("default")) and all(isinstance(v, str) and v for v in a.values()),
+                          f"{lid}: audio 가 언어별이면 \"*\" (나머지 언어) 와 비지 않은 이름")
+            if a:
                 for li in range(len(lines)):
                     for lang in L3:
+                        stem = (a.get(lang) or a.get("*") or a.get("default")) if isinstance(a, dict) else a
                         rel = f"audio/{sid}/{cid}/{lid}/{stem}{li + 1}_{lang}.m4a"
                         if not (os.path.exists(os.path.join(ROOT, "android", "app", "src", "main", "assets", rel)) or os.path.exists(os.path.join(ROOT, "remote", rel))):
                             talk_audio_missing += 1

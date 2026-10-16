@@ -157,7 +157,7 @@
       "who": "me",
       "de": "Toll! Du bist noch ein Kind und schreibst schon Musik.",
       "en": "Great! You're still a child and already writing music.",
-      "ko": "대단해요! 아직 아이인데 벌써 음악을 쓰네요.",
+      "ko": "대단하다! 아직 아이인데 벌써 음악을 쓰는구나.",
       "focus": {
        "de": [
         "bist"
@@ -200,7 +200,7 @@
       "who": "me",
       "de": "Ja, gern! Aber zuerst essen wir.",
       "en": "Yes, gladly! But first we eat.",
-      "ko": "네, 좋아요! 그런데 먼저 밥부터 먹어요.",
+      "ko": "그래, 좋아! 그런데 먼저 밥부터 먹자.",
       "focus": {
        "de": [
         "essen wir"
@@ -209,7 +209,7 @@
         "we eat"
        ],
        "ko": [
-        "먹어요"
+        "먹자"
        ]
       },
       "wrong": {
@@ -227,8 +227,8 @@
        ],
        "ko": [
         [
-         "먹아요",
-         "먹요"
+         "먹짜",
+         "먹아자"
         ]
        ]
       }
@@ -239,7 +239,10 @@
      "Kind"
     ],
     "grammar": "I.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -386,7 +389,7 @@
       "who": "me",
       "de": "Wir sind hier in Paris. Wie findest du die Stadt?",
       "en": "We're here in Paris. How do you like the city?",
-      "ko": "여기는 파리예요. 도시가 어때요?",
+      "ko": "여기는 파리야. 도시가 어때?",
       "focus": {
        "de": [
         "Wie"
@@ -395,7 +398,7 @@
         "How"
        ],
        "ko": [
-        "어때요"
+        "어때"
        ]
       },
       "wrong": {
@@ -413,8 +416,8 @@
        ],
        "ko": [
         [
-         "어떼요",
-         "어떠요"
+         "어떼",
+         "어떠"
         ]
        ]
       }
@@ -429,7 +432,7 @@
       "who": "me",
       "de": "Ja, du und Nannerl. Bist du bereit?",
       "en": "Yes, you and Nannerl. Are you ready?",
-      "ko": "네, 볼프강이랑 난네를이요. 준비됐어요?",
+      "ko": "그래, 너랑 난네를이야. 준비됐어?",
       "focus": {
        "de": [
         "Bist du"
@@ -438,7 +441,7 @@
         "Are you"
        ],
        "ko": [
-        "준비됐어요"
+        "준비됐어"
        ]
       },
       "wrong": {
@@ -456,8 +459,8 @@
        ],
        "ko": [
         [
-         "준비됬어요",
-         "준비됐아요"
+         "준비됬어",
+         "준비됐아"
         ]
        ]
       }
@@ -467,7 +470,10 @@
      "hier"
     ],
     "grammar": "I.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -613,7 +619,7 @@
       "who": "me",
       "de": "Morgen früh. Hast du alles?",
       "en": "Tomorrow morning. Have you got everything?",
-      "ko": "내일 아침이요. 다 챙겼어요?",
+      "ko": "내일 아침이야. 다 챙겼어?",
       "focus": {
        "de": [
         "Hast du"
@@ -622,7 +628,7 @@
         "Have you"
        ],
        "ko": [
-        "챙겼어요"
+        "챙겼어"
        ]
       },
       "wrong": {
@@ -640,8 +646,8 @@
        ],
        "ko": [
         [
-         "챙겼아요",
-         "챙겻어요"
+         "챙겼아",
+         "챙겻어"
         ]
        ]
       }
@@ -656,7 +662,7 @@
       "who": "me",
       "de": "Gut. Mama und Nannerl kommen nicht mit.",
       "en": "Good. Mama and Nannerl aren't coming with us.",
-      "ko": "좋아요. 엄마랑 난네를은 같이 안 가요.",
+      "ko": "좋아. 엄마랑 난네를은 같이 안 가.",
       "focus": {
        "de": [
         "nicht"
@@ -665,7 +671,7 @@
         "aren't coming"
        ],
        "ko": [
-        "안 가요"
+        "안 가"
        ]
       },
       "wrong": {
@@ -683,8 +689,8 @@
        ],
        "ko": [
         [
-         "안 가아요",
-         "않 가요"
+         "안 가아",
+         "않 가"
         ]
        ]
       }
@@ -694,7 +700,10 @@
      "gar"
     ],
     "grammar": "I.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

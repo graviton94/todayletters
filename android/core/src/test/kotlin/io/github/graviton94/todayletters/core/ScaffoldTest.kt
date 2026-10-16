@@ -98,6 +98,13 @@ class ScaffoldTest {
         assertEquals(listOf(ReplyMode.CHECK, ReplyMode.MATCH, ReplyMode.TALK, ReplyMode.CONSTELLATION), Plays.forLetter(modes, false, full))
         assertEquals("t2_fr", Talk(tri, emptyList(), audio = "t").audioName(1, Lang.FR))
         assertNull(Talk(tri, emptyList()).audioName(0, Lang.FR))
+        // 언어마다 다른 소리 앞부분 ("audio": {"*": "t", "ko": "tk"}): 고친 언어만 새 이름, 나머지는 "*"
+        val perLang = Talk(tri, emptyList(), audio = "t", audioBy = mapOf(Lang.KO to "tk"))
+        assertEquals("tk3_ko", perLang.audioName(2, Lang.KO))
+        assertEquals("t3_en", perLang.audioName(2, Lang.EN))
+        assertEquals("t1_fr", perLang.audioName(0, Lang.FR))
+        assertEquals("tk1_ko", Talk(tri, emptyList(), audioBy = mapOf(Lang.KO to "tk")).audioName(0, Lang.KO))
+        assertNull(Talk(tri, emptyList(), audioBy = mapOf(Lang.KO to "tk")).audioName(0, Lang.EN))
         // 끝난 편지에 새 걸음이 생겨도 ‘지금’ 으로 보이지 않는다
         val done = LetterProgress(shown = 1, replied = modes, done = true)
         assertFalse(Journey.Step.NOW in Journey.letterDots(1, 1, Plays.forLetter(modes, true, full), done))

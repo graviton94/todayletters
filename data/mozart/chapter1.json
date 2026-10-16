@@ -417,13 +417,13 @@
       "who": "them",
       "de": "Hallo Nannerl! Wie geht's dir?",
       "en": "Hi Nannerl! How are you?",
-      "ko": "안녕하세요, 누나! 잘 지내요?"
+      "ko": "안녕, 누나! 잘 지내?"
      },
      {
       "who": "me",
       "de": "Gut, danke! Wir haben hier viel Schnee.",
       "en": "Good, thanks! We have lots of snow here.",
-      "ko": "잘 지내요, 고마워요! 여기는 눈이 많이 와요.",
+      "ko": "잘 지내, 고마워! 여기는 눈이 많이 와.",
       "focus": {
        "de": [
         "haben"
@@ -432,7 +432,7 @@
         "We have"
        ],
        "ko": [
-        "와요"
+        "많이 와"
        ]
       },
       "wrong": {
@@ -450,8 +450,8 @@
        ],
        "ko": [
         [
-         "오요",
-         "와여"
+         "많이 오",
+         "많이 와아"
         ]
        ]
       }
@@ -460,13 +460,13 @@
       "who": "them",
       "de": "Die Sängerin hier hat eine gute Stimme, aber kein Gefühl.",
       "en": "The singer here has a good voice, but no feeling.",
-      "ko": "여기 가수는 목소리는 좋은데 감정이 없어요."
+      "ko": "여기 가수는 목소리는 좋은데 감정이 없어."
      },
      {
       "who": "me",
       "de": "Schade! Schreib mir bald wieder einen Brief.",
       "en": "Too bad! Write me another letter soon.",
-      "ko": "아쉽네요! 곧 또 편지 써 줘요.",
+      "ko": "아쉽다! 곧 또 편지 써 줘.",
       "focus": {
        "de": [
         "einen Brief"
@@ -475,7 +475,7 @@
         "Write me"
        ],
        "ko": [
-        "써 줘요"
+        "써 줘"
        ]
       },
       "wrong": {
@@ -493,8 +493,8 @@
        ],
        "ko": [
         [
-         "써 줬요",
-         "쓰 줘요"
+         "써 줬",
+         "쓰 줘"
         ]
        ]
       }
@@ -505,7 +505,10 @@
      "Brief"
     ],
     "grammar": "I.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -837,13 +840,13 @@
       "who": "them",
       "de": "Hallo Nannerl! Grüß Mama von mir!",
       "en": "Hi Nannerl! Say hi to Mama for me!",
-      "ko": "안녕하세요, 누나! 엄마한테 안부 전해 주세요!"
+      "ko": "안녕, 누나! 엄마한테 안부 전해 줘!"
      },
      {
       "who": "me",
       "de": "Mach ich! Wie ist Rom?",
       "en": "I will! What's Rome like?",
-      "ko": "그럴게요! 로마는 어때요?",
+      "ko": "그럴게! 로마는 어때?",
       "focus": {
        "de": [
         "Wie ist"
@@ -852,7 +855,7 @@
         "What's"
        ],
        "ko": [
-        "어때요"
+        "어때"
        ]
       },
       "wrong": {
@@ -870,8 +873,8 @@
        ],
        "ko": [
         [
-         "어떼요",
-         "어떠요"
+         "어떼",
+         "어떠"
         ]
        ]
       }
@@ -880,13 +883,13 @@
       "who": "them",
       "de": "Die Stadt ist toll, aber wir haben nur ein Bett.",
       "en": "The city is great, but we only have one bed.",
-      "ko": "도시는 멋진데, 침대가 하나뿐이에요."
+      "ko": "도시는 멋진데, 침대가 하나뿐이야."
      },
      {
       "who": "me",
       "de": "Oh je! Wie schläfst du denn da?",
       "en": "Oh dear! So how do you sleep?",
-      "ko": "어머! 그럼 잠은 어떻게 자요?",
+      "ko": "어머! 그럼 잠은 어떻게 자?",
       "focus": {
        "de": [
         "schläfst du"
@@ -895,7 +898,7 @@
         "do you sleep"
        ],
        "ko": [
-        "자요"
+        "어떻게 자"
        ]
       },
       "wrong": {
@@ -913,8 +916,8 @@
        ],
        "ko": [
         [
-         "자아요",
-         "잣요"
+         "어떻게 자아",
+         "어떻개 자"
         ]
        ]
       }
@@ -925,7 +928,10 @@
      "Bett"
     ],
     "grammar": "I.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1247,13 +1253,13 @@
       "who": "them",
       "de": "Danke für das Menuett! Dein Bass hat keinen Fehler.",
       "en": "Thanks for the minuet! Your bass has no mistakes.",
-      "ko": "미뉴에트 고마워요! 누나가 쓴 베이스에 틀린 데가 하나도 없어요."
+      "ko": "미뉴에트 고마워! 누나가 쓴 베이스에 틀린 데가 하나도 없어."
      },
      {
       "who": "me",
       "de": "Gern geschehen! Wie ist Neapel?",
       "en": "You're welcome! What's Naples like?",
-      "ko": "천만에요! 나폴리는 어때요?",
+      "ko": "별말을! 나폴리는 어때?",
       "focus": {
        "de": [
         "Wie ist"
@@ -1262,7 +1268,7 @@
         "What's"
        ],
        "ko": [
-        "어때요"
+        "어때"
        ]
       },
       "wrong": {
@@ -1280,8 +1286,8 @@
        ],
        "ko": [
         [
-         "어떼요",
-         "어떠요"
+         "어떼",
+         "어떠"
         ]
        ]
       }
@@ -1290,13 +1296,13 @@
       "who": "them",
       "de": "Schön, aber nicht ruhig. Es gibt so viele Leute!",
       "en": "Beautiful, but not quiet. There are so many people!",
-      "ko": "아름다운데 조용하지는 않아요. 사람이 정말 많아요!"
+      "ko": "아름다운데 조용하지는 않아. 사람이 정말 많아!"
      },
      {
       "who": "me",
       "de": "Und die neuen Kleider? Sind sie schön?",
       "en": "And the new clothes? Are they nice?",
-      "ko": "새 옷은요? 예뻐요?",
+      "ko": "새 옷은? 예뻐?",
       "focus": {
        "de": [
         "Sind sie"
@@ -1305,7 +1311,7 @@
         "Are they"
        ],
        "ko": [
-        "예뻐요"
+        "예뻐"
        ]
       },
       "wrong": {
@@ -1323,8 +1329,8 @@
        ],
        "ko": [
         [
-         "예쁘어요",
-         "예뻐여"
+         "예쁘어",
+         "예뻐어"
         ]
        ]
       }
@@ -1335,7 +1341,10 @@
      "Kleid"
     ],
     "grammar": "I.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1638,13 +1647,13 @@
       "who": "them",
       "de": "Hallo Nannerl! Hier ist Wolfgang aus Bologna.",
       "en": "Hi Nannerl! It's Wolfgang, from Bologna.",
-      "ko": "안녕하세요, 누나! 볼로냐에서 볼프강이에요."
+      "ko": "안녕, 누나! 볼로냐에서 볼프강이야."
      },
      {
       "who": "me",
       "de": "Hallo! Mama fragt: Spielst du noch Geige?",
       "en": "Hi! Mama's asking: do you still play the violin?",
-      "ko": "반가워요! 엄마가 물어봐요. 아직 바이올린 켜요?",
+      "ko": "반가워! 엄마가 물어봐. 아직 바이올린 켜?",
       "focus": {
        "de": [
         "Spielst du"
@@ -1653,7 +1662,7 @@
         "do you"
        ],
        "ko": [
-        "켜요"
+        "바이올린 켜"
        ]
       },
       "wrong": {
@@ -1671,8 +1680,8 @@
        ],
        "ko": [
         [
-         "켜어요",
-         "키요"
+         "바이올린 켜어",
+         "바이올린 키"
         ]
        ]
       }
@@ -1681,13 +1690,13 @@
       "who": "them",
       "de": "Ja, jeden Tag! Meine Geige hat neue Saiten.",
       "en": "Yes, every day! My violin has new strings.",
-      "ko": "네, 매일요! 바이올린 줄도 새로 갈았어요."
+      "ko": "응, 매일! 바이올린 줄도 새로 갈았어."
      },
      {
       "who": "me",
       "de": "Super! Aber du bist müde, oder?",
       "en": "Great! But you're tired, aren't you?",
-      "ko": "잘됐네요! 그런데 피곤하죠, 그렇죠?",
+      "ko": "잘됐다! 그런데 피곤하지, 그렇지?",
       "focus": {
        "de": [
         "du bist"
@@ -1696,7 +1705,7 @@
         "you're"
        ],
        "ko": [
-        "피곤하죠"
+        "피곤하지"
        ]
       },
       "wrong": {
@@ -1714,8 +1723,8 @@
        ],
        "ko": [
         [
-         "피곤하조",
-         "피곤해죠"
+         "피곤하치",
+         "피곤하쥐"
         ]
        ]
       }
@@ -1726,7 +1735,10 @@
      "Tag"
     ],
     "grammar": "I.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2054,13 +2066,13 @@
       "who": "them",
       "de": "Hallo Nannerl! Puh, hier ist es so heiß!",
       "en": "Hi Nannerl! Phew, it's so hot here!",
-      "ko": "안녕하세요, 누나! 휴, 여기 너무 더워요!"
+      "ko": "안녕, 누나! 휴, 여기 너무 더워!"
      },
      {
       "who": "me",
       "de": "Oh je! Wie geht's dir nach der Reise?",
       "en": "Oh dear! How are you after the journey?",
-      "ko": "어머! 여행하고 나서 몸은 괜찮아요?",
+      "ko": "어머! 여행하고 나서 몸은 괜찮아?",
       "focus": {
        "de": [
         "nach der Reise"
@@ -2069,7 +2081,7 @@
         "How are you"
        ],
        "ko": [
-        "괜찮아요"
+        "괜찮아"
        ]
       },
       "wrong": {
@@ -2087,8 +2099,8 @@
        ],
        "ko": [
         [
-         "괜찬아요",
-         "괜찮어요"
+         "괜찬아",
+         "괜찮어"
         ]
        ]
       }
@@ -2097,13 +2109,13 @@
       "who": "them",
       "de": "Gut, aber seit einem Monat gibt es keinen Regen.",
       "en": "Fine, but there's been no rain for a month.",
-      "ko": "괜찮아요. 그런데 한 달째 비가 안 와요."
+      "ko": "괜찮아. 그런데 한 달째 비가 안 와."
      },
      {
       "who": "me",
       "de": "Und dein Zimmer? Ist es ruhig?",
       "en": "And your room? Is it quiet?",
-      "ko": "방은요? 조용해요?",
+      "ko": "방은? 조용해?",
       "focus": {
        "de": [
         "Ist es"
@@ -2112,7 +2124,7 @@
         "Is it"
        ],
        "ko": [
-        "조용해요"
+        "조용해"
        ]
       },
       "wrong": {
@@ -2130,8 +2142,8 @@
        ],
        "ko": [
         [
-         "조용하요",
-         "조용헤요"
+         "조용하",
+         "조용헤"
         ]
        ]
       }
@@ -2142,7 +2154,10 @@
      "Monat"
     ],
     "grammar": "I.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2455,13 +2470,13 @@
       "who": "them",
       "de": "Hallo Nannerl! Ich hoffe, es geht dir gut.",
       "en": "Hi Nannerl! I hope you're well.",
-      "ko": "안녕하세요, 누나! 잘 지내고 있길 바라요."
+      "ko": "안녕, 누나! 잘 지내고 있길 바라."
      },
      {
       "who": "me",
       "de": "Ja, danke! Wann ist deine Oper?",
       "en": "Yes, thanks! When is your opera?",
-      "ko": "네, 고마워요! 오페라는 언제예요?",
+      "ko": "응, 고마워! 오페라는 언제야?",
       "focus": {
        "de": [
         "Wann"
@@ -2470,7 +2485,7 @@
         "When"
        ],
        "ko": [
-        "언제예요"
+        "언제야"
        ]
       },
       "wrong": {
@@ -2488,8 +2503,8 @@
        ],
        "ko": [
         [
-         "언제이에요",
-         "언제에요"
+         "언제이야",
+         "언재야"
         ]
        ]
       }
@@ -2498,13 +2513,13 @@
       "who": "them",
       "de": "Bald! Morgen ist die Probe. Aber sag es nicht weiter!",
       "en": "Soon! The rehearsal is tomorrow. But don't tell anyone!",
-      "ko": "곧이요! 내일 리허설이에요. 그런데 아무한테도 말하지 마세요!"
+      "ko": "곧! 내일 리허설이야. 그런데 아무한테도 말하지 마!"
      },
      {
       "who": "me",
       "de": "Keine Sorge, ich sage nichts. Viel Glück!",
       "en": "Don't worry, I won't say a thing. Good luck!",
-      "ko": "걱정 마세요, 아무 말 안 할게요. 행운을 빌어요!",
+      "ko": "걱정 마, 아무 말 안 할게. 행운을 빌어!",
       "focus": {
        "de": [
         "nichts"
@@ -2513,7 +2528,7 @@
         "won't"
        ],
        "ko": [
-        "안 할게요"
+        "안 할게"
        ]
       },
       "wrong": {
@@ -2531,8 +2546,8 @@
        ],
        "ko": [
         [
-         "않 할게요",
-         "안 할께요"
+         "않 할게",
+         "안 할께"
         ]
        ]
       }
@@ -2542,7 +2557,10 @@
      "hoffen"
     ],
     "grammar": "I.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

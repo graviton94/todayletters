@@ -489,7 +489,7 @@
       "who": "me",
       "de": "Schön! Und wie ist es beim Erzbischof?",
       "en": "Good! And how is it at the Archbishop's?",
-      "ko": "잘됐네요! 대주교 댁은 어때요?",
+      "ko": "잘됐구나! 대주교 댁은 어때?",
       "focus": {
        "de": [
         "beim Erzbischof"
@@ -498,7 +498,7 @@
         "at the Archbishop's"
        ],
        "ko": [
-        "어때요"
+        "어때"
        ]
       },
       "wrong": {
@@ -516,8 +516,8 @@
        ],
        "ko": [
         [
-         "어떼요",
-         "어떠요"
+         "어떼",
+         "어떠"
         ]
        ]
       }
@@ -532,7 +532,7 @@
       "who": "me",
       "de": "Oh je. Bist du still, weil keiner mit dir spricht?",
       "en": "Oh dear. Are you quiet because nobody talks to you?",
-      "ko": "저런. 아무도 말을 안 걸어서 조용히 있는 거예요?",
+      "ko": "저런. 아무도 말을 안 걸어서 조용히 있는 거야?",
       "focus": {
        "de": [
         "dir spricht"
@@ -571,7 +571,10 @@
      "sitzen"
     ],
     "grammar": "V.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -932,7 +935,7 @@
       "who": "me",
       "de": "Was? Was ist passiert? Geht es dir gut?",
       "en": "What? What happened? Are you all right?",
-      "ko": "뭐라고요? 무슨 일이에요? 괜찮아요?",
+      "ko": "뭐라고? 무슨 일이야? 괜찮아?",
       "focus": {
        "de": [
         "Geht es dir"
@@ -941,7 +944,7 @@
         "Are you"
        ],
        "ko": [
-        "괜찮아요"
+        "괜찮아"
        ]
       },
       "wrong": {
@@ -959,8 +962,8 @@
        ],
        "ko": [
         [
-         "괜찬아요",
-         "괜찮어요"
+         "괜찬아",
+         "괜찮어"
         ]
        ]
       }
@@ -975,7 +978,7 @@
       "who": "me",
       "de": "Ich hoffe, dass du recht hast. Sei vorsichtig!",
       "en": "I hope you're right. Be careful!",
-      "ko": "볼프강 말이 맞으면 좋겠어요. 조심해요!",
+      "ko": "네 말이 맞으면 좋겠다. 조심해!",
       "focus": {
        "de": [
         "recht hast"
@@ -1013,7 +1016,10 @@
      "Dienst"
     ],
     "grammar": "V.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1374,7 +1380,7 @@
       "who": "me",
       "de": "Was? Warum hat er das gemacht?",
       "en": "What? Why did he do that?",
-      "ko": "네? 왜 그랬어요?",
+      "ko": "뭐? 왜 그랬어?",
       "focus": {
        "de": [
         "gemacht"
@@ -1383,7 +1389,7 @@
         "did he do"
        ],
        "ko": [
-        "그랬어요"
+        "그랬어"
        ]
       },
       "wrong": {
@@ -1401,8 +1407,8 @@
        ],
        "ko": [
         [
-         "그랫어요",
-         "그랐어요"
+         "그랫어",
+         "그랐어"
         ]
        ]
       }
@@ -1417,7 +1423,7 @@
       "who": "me",
       "de": "Ich verstehe dich. Das war wirklich nicht leicht.",
       "en": "I understand. That really wasn't easy.",
-      "ko": "이해해요. 정말 쉽지 않았겠어요.",
+      "ko": "이해한다. 정말 쉽지 않았겠구나.",
       "focus": {
        "de": [
         "nicht leicht"
@@ -1426,7 +1432,7 @@
         "wasn't easy"
        ],
        "ko": [
-        "쉽지 않았겠어요"
+        "쉽지 않았겠구나"
        ]
       },
       "wrong": {
@@ -1444,8 +1450,8 @@
        ],
        "ko": [
         [
-         "쉽지 안았겠어요",
-         "쉽지 않았겟어요"
+         "쉽지 안았겠구나",
+         "쉽지 않았겟구나"
         ]
        ]
       }
@@ -1455,7 +1461,10 @@
      "leicht"
     ],
     "grammar": "V.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1820,7 +1829,7 @@
       "who": "me",
       "de": "Toll! Freust du dich auf die Arbeit?",
       "en": "Great! Are you looking forward to the work?",
-      "ko": "대단해요! 작업이 기대돼요?",
+      "ko": "대단하다! 작업이 기대돼?",
       "focus": {
        "de": [
         "Freust du dich"
@@ -1829,7 +1838,7 @@
         "looking forward to"
        ],
        "ko": [
-        "기대돼요"
+        "기대돼"
        ]
       },
       "wrong": {
@@ -1847,8 +1856,8 @@
        ],
        "ko": [
         [
-         "기대되요",
-         "기대대요"
+         "기대되",
+         "기대대"
         ]
        ]
       }
@@ -1863,7 +1872,7 @@
       "who": "me",
       "de": "Iss aber genug, wenn du hungrig wirst!",
       "en": "But eat enough when you get hungry!",
-      "ko": "그래도 배고프면 꼭 잘 챙겨 먹어요!",
+      "ko": "그래도 배고프면 꼭 잘 챙겨 먹어!",
       "focus": {
        "de": [
         "hungrig wirst"
@@ -1902,7 +1911,10 @@
      "hungrig"
     ],
     "grammar": "V.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2258,7 +2270,7 @@
       "who": "me",
       "de": "Gut! Warum gerade er?",
       "en": "Good! Why him in particular?",
-      "ko": "좋네요! 왜 하필 그분이에요?",
+      "ko": "좋구나! 왜 하필 그분이야?",
       "focus": {
        "de": [
         "er"
@@ -2267,7 +2279,7 @@
         "him"
        ],
        "ko": [
-        "그분이에요"
+        "그분이야"
        ]
       },
       "wrong": {
@@ -2285,8 +2297,8 @@
        ],
        "ko": [
         [
-         "그분예요",
-         "그분이예요"
+         "그분야",
+         "그분이여"
         ]
        ]
       }
@@ -2301,7 +2313,7 @@
       "who": "me",
       "de": "Schön! Und wie ist der Chor?",
       "en": "Nice! And what's the chorus like?",
-      "ko": "좋아요! 합창은 어때요?",
+      "ko": "좋아! 합창은 어때?",
       "focus": {
        "de": [
         "der Chor"
@@ -2310,7 +2322,7 @@
         "what's"
        ],
        "ko": [
-        "어때요"
+        "어때"
        ]
       },
       "wrong": {
@@ -2328,8 +2340,8 @@
        ],
        "ko": [
         [
-         "어떼요",
-         "어떠요"
+         "어떼",
+         "어떠"
         ]
        ]
       }
@@ -2340,7 +2352,10 @@
      "tief"
     ],
     "grammar": "V.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2713,7 +2728,7 @@
       "who": "me",
       "de": "Es geht mir gut, danke. Woran arbeitest du?",
       "en": "I'm fine, thanks. What are you working on?",
-      "ko": "잘 지내요, 고마워요. 요즘 뭐 작업해요?",
+      "ko": "잘 지낸다, 고맙구나. 요즘 뭐 작업해?",
       "focus": {
        "de": [
         "arbeitest du"
@@ -2722,7 +2737,7 @@
         "are you working"
        ],
        "ko": [
-        "작업해요"
+        "작업해"
        ]
       },
       "wrong": {
@@ -2740,8 +2755,8 @@
        ],
        "ko": [
         [
-         "작업하요",
-         "작업헤요"
+         "작업하",
+         "작업헤"
         ]
        ]
       }
@@ -2756,7 +2771,7 @@
       "who": "me",
       "de": "Darum gefallen komische Opern überall, oder?",
       "en": "That's why comic operas are popular everywhere, right?",
-      "ko": "그래서 희극 오페라가 어디서나 인기 있는 거죠?",
+      "ko": "그래서 희극 오페라가 어디서나 인기 있는 거지?",
       "focus": {
        "de": [
         "gefallen"
@@ -2765,7 +2780,7 @@
         "are popular"
        ],
        "ko": [
-        "인기 있는 거죠"
+        "인기 있는 거지"
        ]
       },
       "wrong": {
@@ -2783,8 +2798,8 @@
        ],
        "ko": [
         [
-         "인기 있은 거죠",
-         "인기 있는 거조"
+         "인기 있은 거지",
+         "인기 있는 거찌"
         ]
        ]
       }
@@ -2795,7 +2810,10 @@
      "überall"
     ],
     "grammar": "V.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -3184,7 +3202,7 @@
       "who": "me",
       "de": "Alles Gute nachträglich! Was ist passiert?",
       "en": "Belated best wishes! What happened?",
-      "ko": "늦었지만 축하해요! 무슨 일이 있었어요?",
+      "ko": "늦었지만 축하한다! 무슨 일이 있었어?",
       "focus": {
        "de": [
         "passiert"
@@ -3193,7 +3211,7 @@
         "happened"
        ],
        "ko": [
-        "있었어요"
+        "있었어"
        ]
       },
       "wrong": {
@@ -3211,8 +3229,8 @@
        ],
        "ko": [
         [
-         "있엇어요",
-         "있았어요"
+         "있엇어",
+         "있았어"
         ]
        ]
       }
@@ -3227,7 +3245,7 @@
       "who": "me",
       "de": "Wie schön! Da warst du sicher überrascht.",
       "en": "How lovely! You must have been surprised.",
-      "ko": "멋지네요! 정말 깜짝 놀랐겠어요.",
+      "ko": "멋지구나! 정말 깜짝 놀랐겠다.",
       "focus": {
        "de": [
         "warst du"
@@ -3236,7 +3254,7 @@
         "must have been"
        ],
        "ko": [
-        "놀랐겠어요"
+        "놀랐겠다"
        ]
       },
       "wrong": {
@@ -3254,8 +3272,8 @@
        ],
        "ko": [
         [
-         "놀랏겠어요",
-         "놀랐겟어요"
+         "놀랏겠다",
+         "놀랐겟다"
         ]
        ]
       }
@@ -3265,7 +3283,10 @@
      "überraschen"
     ],
     "grammar": "V.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

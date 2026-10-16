@@ -319,13 +319,13 @@
       "who": "them",
       "de": "Liebling, Salieri war mit mir in der Zauberflöte!",
       "en": "Darling, Salieri came with me to The Magic Flute!",
-      "ko": "여보, 살리에리가 저랑 〈마술피리〉를 봤어요!"
+      "ko": "여보, 살리에리가 나랑 〈마술피리〉를 봤어!"
      },
      {
       "who": "me",
       "de": "Wirklich? Hat es ihm gefallen?",
       "en": "Really? Did he like it?",
-      "ko": "정말요? 마음에 들어 했어요?",
+      "ko": "정말? 마음에 들어 했어?",
       "focus": {
        "de": [
         "ihm gefallen"
@@ -334,7 +334,7 @@
         "Did he like"
        ],
        "ko": [
-        "들어 했어요"
+        "들어 했어"
        ]
       },
       "wrong": {
@@ -352,8 +352,8 @@
        ],
        "ko": [
         [
-         "들어 핬어요",
-         "들아 했어요"
+         "들어 핬어",
+         "들아 했어"
         ]
        ]
       }
@@ -362,13 +362,13 @@
       "who": "them",
       "de": "Sehr! Von der Sinfonie bis zum Chor rief er Bravo.",
       "en": "Very much! From the overture to the chorus he shouted bravo.",
-      "ko": "아주요! 서곡부터 합창까지 브라보를 외쳤어요."
+      "ko": "아주! 서곡부터 합창까지 브라보를 외쳤어."
      },
      {
       "who": "me",
       "de": "Wie schön! Bis morgen, ich freue mich auf dich!",
       "en": "How lovely! See you tomorrow, I'm looking forward to it!",
-      "ko": "잘됐네요! 내일 봐요, 정말 기다려져요!",
+      "ko": "잘됐다! 내일 봐, 정말 기다려져!",
       "focus": {
        "de": [
         "freue mich"
@@ -377,7 +377,7 @@
         "looking forward to it"
        ],
        "ko": [
-        "기다려져요"
+        "기다려져"
        ]
       },
       "wrong": {
@@ -395,8 +395,8 @@
        ],
        "ko": [
         [
-         "기다려저요",
-         "기다리져요"
+         "기다려저",
+         "기다리져"
         ]
        ]
       }
@@ -407,7 +407,10 @@
      "Chor"
     ],
     "grammar": "VIII.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

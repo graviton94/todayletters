@@ -492,7 +492,7 @@
       "who": "me",
       "de": "Ja, sehr viel! Wie war die Fahrt?",
       "en": "Yes, a lot! How was the trip?",
-      "ko": "네, 아주 많이요! 오는 길은 어땠어요?",
+      "ko": "그래, 아주 많이! 오는 길은 어땠어?",
       "focus": {
        "de": [
         "war"
@@ -501,7 +501,7 @@
         "How was"
        ],
        "ko": [
-        "어땠어요"
+        "어땠어"
        ]
       },
       "wrong": {
@@ -519,8 +519,8 @@
        ],
        "ko": [
         [
-         "어땟어요",
-         "어떴어요"
+         "어땟어",
+         "어떴어"
         ]
        ]
       }
@@ -535,7 +535,7 @@
       "who": "me",
       "de": "Ha! Und gefällt dir die Arbeit an der Oper?",
       "en": "Ha! And do you like working on the opera?",
-      "ko": "하하! 그래서 오페라 작업은 마음에 들어요?",
+      "ko": "하하! 그래서 오페라 작업은 마음에 들어?",
       "focus": {
        "de": [
         "gefällt dir"
@@ -544,7 +544,7 @@
         "do you like"
        ],
        "ko": [
-        "마음에 들어요"
+        "마음에 들어"
        ]
       },
       "wrong": {
@@ -562,8 +562,8 @@
        ],
        "ko": [
         [
-         "마음에 들아요",
-         "마음이 들어요"
+         "마음에 들아",
+         "마음이 들어"
         ]
        ]
       }
@@ -573,7 +573,10 @@
      "gefallen"
     ],
     "grammar": "IV.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -916,7 +919,7 @@
       "who": "me",
       "de": "Schön! Hast du ihm die Arie gezeigt?",
       "en": "Nice! Did you show him the aria?",
-      "ko": "좋네요! 그분께 아리아를 보여 드렸어요?",
+      "ko": "좋구나! 그분께 아리아를 보여 드렸어?",
       "focus": {
        "de": [
         "ihm"
@@ -925,7 +928,7 @@
         "show him"
        ],
        "ko": [
-        "보여 드렸어요"
+        "보여 드렸어"
        ]
       },
       "wrong": {
@@ -943,8 +946,8 @@
        ],
        "ko": [
         [
-         "보여 들였어요",
-         "보여 드렸아요"
+         "보여 들였어",
+         "보여 드렸아"
         ]
        ]
       }
@@ -959,7 +962,7 @@
       "who": "me",
       "de": "Mach sie ihm. Er ist alt, sei nett zu ihm.",
       "en": "Do it for him. He's old, be kind to him.",
-      "ko": "고쳐 드려요. 나이 드신 분이니 잘해 드려요.",
+      "ko": "고쳐 드려라. 나이 드신 분이니 잘해 드려.",
       "focus": {
        "de": [
         "zu ihm"
@@ -968,7 +971,7 @@
         "be kind to him"
        ],
        "ko": [
-        "잘해 드려요"
+        "잘해 드려"
        ]
       },
       "wrong": {
@@ -986,8 +989,8 @@
        ],
        "ko": [
         [
-         "잘해 들여요",
-         "잘하 드려요"
+         "잘해 들여",
+         "잘하 드려"
         ]
        ]
       }
@@ -998,7 +1001,10 @@
      "zeigen"
     ],
     "grammar": "IV.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1363,7 +1369,7 @@
       "who": "me",
       "de": "Toll! Warst du vorher nervös?",
       "en": "Great! Were you nervous beforehand?",
-      "ko": "대단해요! 미리 떨리진 않았어요?",
+      "ko": "대단하다! 미리 떨리진 않았어?",
       "focus": {
        "de": [
         "Warst du"
@@ -1372,7 +1378,7 @@
         "Were you"
        ],
        "ko": [
-        "않았어요"
+        "않았어"
        ]
       },
       "wrong": {
@@ -1390,8 +1396,8 @@
        ],
        "ko": [
         [
-         "안았어요",
-         "않았아요"
+         "안았어",
+         "않았아"
         ]
        ]
       }
@@ -1406,7 +1412,7 @@
       "who": "me",
       "de": "Wunderbar! Wann fängt die nächste Probe an?",
       "en": "Wonderful! When does the next rehearsal start?",
-      "ko": "멋져요! 다음 리허설은 언제 시작해요?",
+      "ko": "멋지다! 다음 리허설은 언제 시작해?",
       "focus": {
        "de": [
         "fängt"
@@ -1415,7 +1421,7 @@
         "start"
        ],
        "ko": [
-        "시작해요"
+        "시작해"
        ]
       },
       "wrong": {
@@ -1433,8 +1439,8 @@
        ],
        "ko": [
         [
-         "시작하요",
-         "시작헤요"
+         "시작하",
+         "시작헤"
         ]
        ]
       }
@@ -1444,7 +1450,10 @@
      "Probe"
     ],
     "grammar": "IV.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1814,7 +1823,7 @@
       "who": "me",
       "de": "Ja, gern! Ich werde mit Nannerl kommen.",
       "en": "Yes, gladly! I'll come with Nannerl.",
-      "ko": "네, 그럼요! 난네를이랑 같이 갈 거예요.",
+      "ko": "그럼! 난네를이랑 같이 갈 거야.",
       "focus": {
        "de": [
         "werde"
@@ -1823,7 +1832,7 @@
         "I'll come"
        ],
        "ko": [
-        "갈 거예요"
+        "갈 거야"
        ]
       },
       "wrong": {
@@ -1841,8 +1850,8 @@
        ],
        "ko": [
         [
-         "갈 거에요",
-         "갈 꺼예요"
+         "갈 꺼야",
+         "갈 거이야"
         ]
        ]
       }
@@ -1857,7 +1866,7 @@
       "who": "me",
       "de": "Das weiß ich noch nicht. Ich werde dir bald schreiben.",
       "en": "I don't know yet. I'll write to you soon.",
-      "ko": "아직 몰라요. 곧 편지할게요.",
+      "ko": "아직 몰라. 곧 편지할게.",
       "focus": {
        "de": [
         "dir"
@@ -1866,7 +1875,7 @@
         "I'll write"
        ],
        "ko": [
-        "편지할게요"
+        "편지할게"
        ]
       },
       "wrong": {
@@ -1884,8 +1893,8 @@
        ],
        "ko": [
         [
-         "편지할께요",
-         "편지할개요"
+         "편지할께",
+         "편지할개"
         ]
        ]
       }
@@ -1896,7 +1905,10 @@
      "ankommen"
     ],
     "grammar": "IV.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2279,7 +2291,7 @@
       "who": "me",
       "de": "Wie schön! War der Kurfürst auch da?",
       "en": "How lovely! Was the Elector there too?",
-      "ko": "잘됐네요! 선제후도 오셨어요?",
+      "ko": "잘됐구나! 선제후도 오셨어?",
       "focus": {
        "de": [
         "War"
@@ -2288,7 +2300,7 @@
         "Was"
        ],
        "ko": [
-        "오셨어요"
+        "오셨어"
        ]
       },
       "wrong": {
@@ -2306,8 +2318,8 @@
        ],
        "ko": [
         [
-         "오셧어요",
-         "왔셨어요"
+         "오셧어",
+         "왔셨어"
         ]
        ]
       }
@@ -2322,7 +2334,7 @@
       "who": "me",
       "de": "Ich gratuliere dir! Das gefällt mir sehr.",
       "en": "Congratulations! I'm really pleased.",
-      "ko": "축하해요! 정말 기뻐요.",
+      "ko": "축하한다! 정말 기쁘구나.",
       "focus": {
        "de": [
         "gefällt mir"
@@ -2331,7 +2343,7 @@
         "I'm"
        ],
        "ko": [
-        "기뻐요"
+        "기쁘구나"
        ]
       },
       "wrong": {
@@ -2349,8 +2361,8 @@
        ],
        "ko": [
         [
-         "기쁘어요",
-         "기뻐여"
+         "기뻐구나",
+         "기쁘군아"
         ]
        ]
       }
@@ -2361,7 +2373,10 @@
      "freundlich"
     ],
     "grammar": "IV.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2748,7 +2763,7 @@
       "who": "me",
       "de": "Was? Hast du ihn falsch herum gehalten?",
       "en": "What? Did you hold it the wrong way round?",
-      "ko": "네? 거꾸로 들고 본 거예요?",
+      "ko": "뭐? 거꾸로 들고 본 거야?",
       "focus": {
        "de": [
         "gehalten"
@@ -2757,7 +2772,7 @@
         "Did you hold"
        ],
        "ko": [
-        "본 거예요"
+        "본 거야"
        ]
       },
       "wrong": {
@@ -2775,8 +2790,8 @@
        ],
        "ko": [
         [
-         "본 거에요",
-         "보은 거예요"
+         "본 거이야",
+         "보은 거야"
         ]
        ]
       }
@@ -2791,7 +2806,7 @@
       "who": "me",
       "de": "Mach mal eine Pause. Du wirst es schaffen!",
       "en": "Take a break. You'll manage it!",
-      "ko": "좀 쉬어요. 해낼 거예요!",
+      "ko": "좀 쉬어. 넌 해낼 거야!",
       "focus": {
        "de": [
         "wirst"
@@ -2800,7 +2815,7 @@
         "You'll manage"
        ],
        "ko": [
-        "해낼 거예요"
+        "해낼 거야"
        ]
       },
       "wrong": {
@@ -2818,8 +2833,8 @@
        ],
        "ko": [
         [
-         "해낼 거에요",
-         "해낼 꺼예요"
+         "해낼 꺼야",
+         "해낼 거이야"
         ]
        ]
       }
@@ -2830,7 +2845,10 @@
      "Papier"
     ],
     "grammar": "IV.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -3195,7 +3213,7 @@
       "who": "me",
       "de": "Kein Problem! Brauchst du noch etwas?",
       "en": "No problem! Do you need anything else?",
-      "ko": "괜찮아요! 더 필요한 거 있어요?",
+      "ko": "괜찮아! 더 필요한 거 있어?",
       "focus": {
        "de": [
         "Brauchst du"
@@ -3238,7 +3256,7 @@
       "who": "me",
       "de": "Mach ich. Ich bringe sie dir mit.",
       "en": "Will do. I'll bring it with me.",
-      "ko": "그럴게요. 가져갈게요.",
+      "ko": "그럴게. 가져갈게.",
       "focus": {
        "de": [
         "bringe"
@@ -3247,7 +3265,7 @@
         "I'll bring"
        ],
        "ko": [
-        "가져갈게요"
+        "가져갈게"
        ]
       },
       "wrong": {
@@ -3265,8 +3283,8 @@
        ],
        "ko": [
         [
-         "가져갈께요",
-         "가저갈게요"
+         "가져갈께",
+         "가저갈게"
         ]
        ]
       }
@@ -3277,7 +3295,10 @@
      "mitnehmen"
     ],
     "grammar": "IV.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

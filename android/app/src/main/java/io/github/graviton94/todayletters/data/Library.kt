@@ -348,7 +348,7 @@ object Library {
     }
 
     /**
-     * 오늘의 회화 ("talk": {scene: {ko, en}, lines: [{who: "them"|"me", fr|de, en, ko, focus?, wrong?}], words: [원어 표제어…] 또는 {fr|de: […], en: […], ko: […]}, grammar: "I.0", audio?: "t"}).
+     * 오늘의 회화 ("talk": {scene: {ko, en}, lines: [{who: "them"|"me", fr|de, en, ko, focus?, wrong?}], words: [원어 표제어…] 또는 {fr|de: […], en: […], ko: […]}, grammar: "I.0", audio?: "t" 또는 {"*": "t", "ko": "tk"} (언어마다 다른 소리 앞부분, 없는 언어는 "*")}).
      * 줄이 없으면 null (걸음을 건너뛴다).
      */
     internal fun talk(l: JSONObject): io.github.graviton94.todayletters.core.Talk? {
@@ -359,11 +359,13 @@ object Library {
             io.github.graviton94.todayletters.core.TalkLine(o.optString("who") == "me", text, focus(o), wrong(o))
         } }.orEmpty()
         if (lines.isEmpty()) return null
+        val au = t.optJSONObject("audio")
         return io.github.graviton94.todayletters.core.Talk(
             t.optJSONObject("scene")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")), lines,
             t.optJSONArray("words")?.let { w -> (0 until w.length()).map { w.optString(it) }.filter { it.isNotBlank() } }.orEmpty(),
-            t.str("grammar"), t.str("audio"),
+            t.str("grammar"), au?.let { it.optString("*").ifEmpty { it.optString("default") } } ?: t.str("audio"),
             wordsBy = t.optJSONObject("words")?.let { o -> Lang.entries.mapNotNull { lang -> o.optJSONArray(lang.code)?.let { a -> lang to (0 until a.length()).map { a.optString(it) }.filter { it.isNotBlank() } } }.toMap() }.orEmpty(),
+            audioBy = au?.let { o -> Lang.entries.mapNotNull { lang -> o.optString(lang.code).takeIf { it.isNotEmpty() }?.let { lang to it } }.toMap() }.orEmpty(),
         )
     }
 

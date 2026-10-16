@@ -429,13 +429,13 @@
       "who": "them",
       "fr": "Je suis désolé pour ton voyage, Théo.",
       "en": "I'm sorry about your journey, Theo.",
-      "ko": "먼 길 오게 해서 미안해요, 테오."
+      "ko": "먼 길 오게 해서 미안해, 테오."
      },
      {
       "who": "me",
       "fr": "Ne t'inquiète pas. Comment tu te sens ?",
       "en": "Don't worry. How are you feeling?",
-      "ko": "걱정 마세요. 몸은 좀 어때요?",
+      "ko": "걱정 마. 몸은 좀 어때?",
       "focus": {
        "fr": [
         "tu te sens"
@@ -444,7 +444,7 @@
         "are you feeling"
        ],
        "ko": [
-        "어때요"
+        "어때"
        ]
       },
       "wrong": {
@@ -462,8 +462,8 @@
        ],
        "ko": [
         [
-         "어떼요",
-         "어때여"
+         "어떼",
+         "어떠"
         ]
        ]
       }
@@ -472,13 +472,13 @@
       "who": "them",
       "fr": "Mieux. Bientôt, je vais reprendre mon travail.",
       "en": "Better. Soon I'll be back at work.",
-      "ko": "나아졌어요. 곧 다시 일할 거예요."
+      "ko": "나아졌어. 곧 다시 일할 거야."
      },
      {
       "who": "me",
       "fr": "Super. Mais d'abord, repose-toi bien à l'hôpital.",
       "en": "Great. But first, rest well in hospital.",
-      "ko": "좋아요. 그래도 먼저 병원에서 푹 쉬세요.",
+      "ko": "좋아. 그래도 먼저 병원에서 푹 쉬어.",
       "focus": {
        "fr": [
         "repose-toi"
@@ -487,7 +487,7 @@
         "rest"
        ],
        "ko": [
-        "쉬세요"
+        "쉬어"
        ]
       },
       "wrong": {
@@ -505,8 +505,8 @@
        ],
        "ko": [
         [
-         "쉬어세요",
-         "쉬세여"
+         "쉬아",
+         "쉬여"
         ]
        ]
       }
@@ -517,7 +517,10 @@
      "hôpital"
     ],
     "grammar": "V.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -838,13 +841,13 @@
       "who": "them",
       "fr": "Juste un mot, Théo : je suis rentré aujourd'hui !",
       "en": "Just a word, Theo: I came home today!",
-      "ko": "한마디만요, 테오. 오늘 집에 돌아왔어요!"
+      "ko": "한마디만, 테오. 오늘 집에 돌아왔어!"
      },
      {
       "who": "me",
       "fr": "Enfin ! Tu te sens comment ?",
       "en": "At last! How do you feel?",
-      "ko": "드디어요! 기분은 어때요?",
+      "ko": "드디어! 기분은 어때?",
       "focus": {
        "fr": [
         "Tu te sens"
@@ -853,7 +856,7 @@
         "How do you feel"
        ],
        "ko": [
-        "어때요"
+        "어때"
        ]
       },
       "wrong": {
@@ -871,8 +874,8 @@
        ],
        "ko": [
         [
-         "어떼요",
-         "어떠요"
+         "어떼",
+         "어떠"
         ]
        ]
       }
@@ -881,13 +884,13 @@
       "who": "them",
       "fr": "Bien. Des médecins sont venus voir ma peinture.",
       "en": "Good. Some doctors came to see my painting.",
-      "ko": "좋아요. 의사들이 와서 제 그림을 봤어요."
+      "ko": "좋아. 의사들이 와서 내 그림을 봤어."
      },
      {
       "who": "me",
       "fr": "Super ! Et le docteur Rey, il était content ?",
       "en": "Great! And Dr Rey, was he pleased?",
-      "ko": "잘됐어요! 레 선생님은 좋아했어요?",
+      "ko": "잘됐다! 레 선생님은 좋아했어?",
       "focus": {
        "fr": [
         "il était"
@@ -896,7 +899,7 @@
         "was he"
        ],
        "ko": [
-        "좋아했어요"
+        "좋아했어"
        ]
       },
       "wrong": {
@@ -914,8 +917,8 @@
        ],
        "ko": [
         [
-         "좋아핬어요",
-         "좋아해었어요"
+         "좋아핬어",
+         "좋아해었어"
         ]
        ]
       }
@@ -927,7 +930,10 @@
      "peinture"
     ],
     "grammar": "V.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1277,13 +1283,13 @@
       "who": "them",
       "fr": "Hier, Roulin est parti. C'était triste.",
       "en": "Yesterday Roulin left. It was sad.",
-      "ko": "어제 룰랭이 떠났어요. 슬펐어요."
+      "ko": "어제 룰랭이 떠났어. 슬펐어."
      },
      {
       "who": "me",
       "fr": "Oh, dommage. Tu lui as dit au revoir ?",
       "en": "Oh, what a shame. Did you say goodbye to him?",
-      "ko": "아, 섭섭하네요. 작별 인사는 했어요?",
+      "ko": "아, 섭섭하겠다. 작별 인사는 했어?",
       "focus": {
        "fr": [
         "Tu lui as dit"
@@ -1292,7 +1298,7 @@
         "Did you say"
        ],
        "ko": [
-        "했어요"
+        "했어"
        ]
       },
       "wrong": {
@@ -1310,8 +1316,8 @@
        ],
        "ko": [
         [
-         "햇어요",
-         "하었어요"
+         "햇어",
+         "하었어"
         ]
        ]
       }
@@ -1320,13 +1326,13 @@
       "who": "them",
       "fr": "Oui. Il chantait pour sa petite, d'une voix si douce.",
       "en": "Yes. He was singing to his little girl, so gently.",
-      "ko": "네. 어린 딸한테 아주 다정한 목소리로 노래를 불러 줬어요."
+      "ko": "응. 어린 딸한테 아주 다정한 목소리로 노래를 불러 줬어."
      },
      {
       "who": "me",
       "fr": "C'est beau. Et toi, qu'est-ce que tu peins maintenant ?",
       "en": "That's lovely. And what are you painting now?",
-      "ko": "예쁘네요. 형은 요즘 뭘 그려요?",
+      "ko": "예쁘다. 형은 요즘 뭘 그려?",
       "focus": {
        "fr": [
         "qu'est-ce que tu peins"
@@ -1335,7 +1341,7 @@
         "what are you painting"
        ],
        "ko": [
-        "그려요"
+        "그려"
        ]
       },
       "wrong": {
@@ -1353,8 +1359,8 @@
        ],
        "ko": [
         [
-         "그리요",
-         "그러요"
+         "그리",
+         "그러"
         ]
        ]
       }
@@ -1364,7 +1370,10 @@
      "doux"
     ],
     "grammar": "V.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1712,13 +1721,13 @@
       "who": "them",
       "fr": "Tu te souviens des tournesols, dans la chambre de Gauguin ?",
       "en": "Do you remember the sunflowers in Gauguin's room?",
-      "ko": "고갱 방에 있던 해바라기, 기억나요?"
+      "ko": "고갱 방에 있던 해바라기, 기억나?"
      },
      {
       "who": "me",
       "fr": "Oui, je m'en souviens. Ils étaient très beaux.",
       "en": "Yes, I remember them. They were very beautiful.",
-      "ko": "네, 기억나요. 정말 아름다웠어요.",
+      "ko": "응, 기억나. 정말 아름다웠어.",
       "focus": {
        "fr": [
         "je m'en souviens"
@@ -1727,7 +1736,7 @@
         "I remember"
        ],
        "ko": [
-        "기억나요"
+        "기억나"
        ]
       },
       "wrong": {
@@ -1745,8 +1754,8 @@
        ],
        "ko": [
         [
-         "기억났요",
-         "기억나아요"
+         "기억났",
+         "기억나아"
         ]
        ]
       }
@@ -1755,13 +1764,13 @@
       "who": "them",
       "fr": "J'ai fait deux copies, tout à fait pareilles.",
       "en": "I've made two copies, exactly the same.",
-      "ko": "똑같은 그림을 두 점 더 그렸어요."
+      "ko": "똑같은 그림을 두 점 더 그렸어."
      },
      {
       "who": "me",
       "fr": "Bravo ! Et la Berceuse, c'est pour qui ?",
       "en": "Well done! And the Berceuse, who is it for?",
-      "ko": "대단해요! 그럼 자장가 그림은 누구를 위한 거예요?",
+      "ko": "대단하다! 그럼 자장가 그림은 누구를 위한 거야?",
       "focus": {
        "fr": [
         "c'est pour qui"
@@ -1770,7 +1779,7 @@
         "who is it for"
        ],
        "ko": [
-        "거예요"
+        "거야"
        ]
       },
       "wrong": {
@@ -1788,8 +1797,8 @@
        ],
        "ko": [
         [
-         "거이에요",
-         "것예요"
+         "거이야",
+         "것야"
         ]
        ]
       }
@@ -1799,7 +1808,10 @@
      "pareil"
     ],
     "grammar": "V.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2127,13 +2139,13 @@
       "who": "them",
       "fr": "Il faisait très beau aujourd'hui, sans vent !",
       "en": "The weather was lovely today, no wind!",
-      "ko": "오늘 날씨가 정말 좋았어요. 바람도 없고요!"
+      "ko": "오늘 날씨가 정말 좋았어. 바람도 없고!"
      },
      {
       "who": "me",
       "fr": "Super ! Et Gauguin, il t'a écrit ?",
       "en": "Great! And has Gauguin written to you?",
-      "ko": "잘됐어요! 고갱은 편지했어요?",
+      "ko": "잘됐다! 고갱은 편지했어?",
       "focus": {
        "fr": [
         "il t'a écrit"
@@ -2142,7 +2154,7 @@
         "has Gauguin written"
        ],
        "ko": [
-        "편지했어요"
+        "편지했어"
        ]
       },
       "wrong": {
@@ -2160,8 +2172,8 @@
        ],
        "ko": [
         [
-         "편지햇어요",
-         "편지하었어요"
+         "편지햇어",
+         "편지하었어"
         ]
        ]
       }
@@ -2170,13 +2182,13 @@
       "who": "them",
       "fr": "Oui, ce matin. Je lui ai répondu tout de suite.",
       "en": "Yes, this morning. I answered him straight away.",
-      "ko": "네, 오늘 아침에요. 바로 답장했어요."
+      "ko": "응, 오늘 아침에. 바로 답장했어."
      },
      {
       "who": "me",
       "fr": "C'est bien. Et les voisins, ils sont gentils ?",
       "en": "Good. And the neighbours, are they nice?",
-      "ko": "잘했어요. 이웃들은 친절해요?",
+      "ko": "잘했어. 이웃들은 친절해?",
       "focus": {
        "fr": [
         "ils sont"
@@ -2185,7 +2197,7 @@
         "are they"
        ],
        "ko": [
-        "친절해요"
+        "친절해"
        ]
       },
       "wrong": {
@@ -2203,8 +2215,8 @@
        ],
        "ko": [
         [
-         "친절하요",
-         "친절해여"
+         "친절하",
+         "친절해어"
         ]
        ]
       }
@@ -2214,7 +2226,10 @@
      "répondre"
     ],
     "grammar": "V.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2540,13 +2555,13 @@
       "who": "them",
       "fr": "Signac est venu me voir. Ça m'a fait du bien.",
       "en": "Signac came to see me. It did me good.",
-      "ko": "시냐크가 보러 왔어요. 덕분에 기운이 났어요."
+      "ko": "시냐크가 보러 왔어. 덕분에 기운이 났어."
      },
      {
       "who": "me",
       "fr": "Signac ? Il était comment ? On dit qu'il est violent.",
       "en": "Signac? What was he like? People say he's violent.",
-      "ko": "시냐크요? 어땠어요? 거칠다고들 하던데요.",
+      "ko": "시냐크? 어땠어? 거칠다고들 하던데.",
       "focus": {
        "fr": [
         "Il était comment"
@@ -2555,7 +2570,7 @@
         "What was he like"
        ],
        "ko": [
-        "어땠어요"
+        "어땠어"
        ]
       },
       "wrong": {
@@ -2573,8 +2588,8 @@
        ],
        "ko": [
         [
-         "어땟어요",
-         "어떴어요"
+         "어땟어",
+         "어떴어"
         ]
        ]
       }
@@ -2583,13 +2598,13 @@
       "who": "them",
       "fr": "Non, il était très calme. J'en ai profité pour sortir.",
       "en": "No, he was very calm. I took the chance to go out.",
-      "ko": "아니요, 아주 차분했어요. 그 김에 바깥에도 나갔어요."
+      "ko": "아니, 아주 차분했어. 그 김에 바깥에도 나갔어."
      },
      {
       "who": "me",
       "fr": "Super ! Tu t'es acheté quelque chose ?",
       "en": "Great! Did you buy yourself something?",
-      "ko": "잘했어요! 뭐 산 거 있어요?",
+      "ko": "잘했어! 뭐 산 거 있어?",
       "focus": {
        "fr": [
         "Tu t'es acheté"
@@ -2628,7 +2643,10 @@
      "profiter"
     ],
     "grammar": "V.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2986,13 +3004,13 @@
       "who": "them",
       "fr": "Je vous souhaite beaucoup de bonheur, à toi et Jo !",
       "en": "I wish you lots of happiness, you and Jo!",
-      "ko": "테오랑 조, 둘 다 정말 행복하길 바라요!"
+      "ko": "너랑 조, 둘 다 정말 행복하길 바라!"
      },
      {
       "who": "me",
       "fr": "Merci, Vincent ! On se marie bientôt, tu sais.",
       "en": "Thanks, Vincent! We're getting married soon, you know.",
-      "ko": "고마워요, 형! 우리 곧 결혼해요.",
+      "ko": "고마워, 형! 우리 곧 결혼해.",
       "focus": {
        "fr": [
         "On se marie"
@@ -3001,7 +3019,7 @@
         "We're getting married"
        ],
        "ko": [
-        "결혼해요"
+        "결혼해"
        ]
       },
       "wrong": {
@@ -3019,8 +3037,8 @@
        ],
        "ko": [
         [
-         "결혼하요",
-         "결혼해여"
+         "결혼하",
+         "결혼해어"
         ]
        ]
       }
@@ -3029,13 +3047,13 @@
       "who": "them",
       "fr": "Roulin est passé. Il t'envoie aussi ses félicitations.",
       "en": "Roulin dropped by. He sends his congratulations too.",
-      "ko": "룰랭이 다녀갔어요. 룰랭도 축하한대요."
+      "ko": "룰랭이 다녀갔어. 룰랭도 축하한대."
      },
      {
       "who": "me",
       "fr": "C'est gentil. Remercie-le pour moi, s'il te plaît.",
       "en": "That's kind. Thank him for me, please.",
-      "ko": "고맙네요. 저 대신 고맙다고 전해 주세요.",
+      "ko": "고맙네. 나 대신 고맙다고 전해 줘.",
       "focus": {
        "fr": [
         "Remercie-le"
@@ -3044,7 +3062,7 @@
         "Thank him"
        ],
        "ko": [
-        "전해 주세요"
+        "전해 줘"
        ]
       },
       "wrong": {
@@ -3062,8 +3080,8 @@
        ],
        "ko": [
         [
-         "전해 줘세요",
-         "전해 주시요"
+         "전해 쥐",
+         "전해 주워"
         ]
        ]
       }
@@ -3074,7 +3092,10 @@
      "bonheur"
     ],
     "grammar": "V.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

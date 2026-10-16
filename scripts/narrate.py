@@ -14,7 +14,8 @@
           ph<번호>_<언어>.m4a  오늘의 표현 (phrases 의 t, 번호는 그 언어 phrases 목록에서 1부터)
           차분한(calm) 프리셋, 높낮이 그대로. 편지 낭독 · 낱말 · 그림 점은 만들지 않는다.
   NARRATE_ONLY=talk: 오늘의 회화만 (편지의 "talk".lines, 학습 언어마다)
-          <talk.audio 또는 t><줄 번호>_<언어>.m4a  (core Talk.audioName: 줄 i 의 소리 = <audio><i+1>_<언어>)
+          <talk.audio 또는 t><줄 번호>_<언어>.m4a  (core Talk.audioName: 줄 i 의 소리 = <audio><i+1>_<언어>;
+          "audio" 가 {"*": "t", "ko": "tk"} 면 그 언어는 그 앞부분, 없는 언어는 "*")
           "them" 줄은 그 장의 인물 목소리(편지 낭독과 같은 섞음) · 편지 mood 의 빠르기 · 높낮이,
           "me" 줄은 받는 사람 목소리 (배역표의 "talk_me": 편지 "to" 의 원어 글자 → 목소리, 없으면 "default") · 차분한 프리셋.
   NARRATE_ONLY=new: talk + vocab 을 한 번에.
@@ -139,6 +140,14 @@ def wanted(path):
     return not (SKIP and exists(os.path.relpath(path, out)))
 
 
+def talk_stem(t, lang):
+    """core Talk.audioName 과 같은 규칙: "audio" 가 글자면 모든 언어, {"*": "t", "ko": "tk"} 면 언어마다 (없는 언어는 "*")."""
+    a = t.get("audio")
+    if isinstance(a, dict):
+        return a.get(lang) or a.get("*") or a.get("default") or "t"
+    return a or "t"
+
+
 if ONLY in ("talk", "new"):
     me_cast = cast.get("talk_me") or {}
     n = 0
@@ -150,8 +159,8 @@ if ONLY in ("talk", "new"):
         pr = presets[letter.get("mood") or cast["chapters"][chapter]["mood"]]
         to = (letter.get("to") or {}).get(book["original"]) if isinstance(letter.get("to"), dict) else letter.get("to")
         me = style_of((me_cast.get("by_to") or {}).get(to or "", me_cast.get("default", "M4")))
-        stem = t.get("audio") or "t"
         for lang in langs:
+            stem = talk_stem(t, lang)
             for i, line in enumerate(t["lines"], 1):
                 path = os.path.join(base, f"{stem}{i}_{lang}.m4a")
                 text = re.sub(r"[〈〉]", "", line.get(lang) or "").strip()

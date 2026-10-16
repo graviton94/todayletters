@@ -117,15 +117,19 @@ data class TalkLine(val me: Boolean, val text: Tri, val focus: Map<Lang, List<St
  * 오늘의 회화 (편지의 "talk"): 편지 속 상황을 두고 오늘 말투로 3~4줄 (앱이 쓴 대화, 실제 인물의 말이 아님).
  * [scene] 은 자리 한 줄 (ko · en), [words] 는 쓰는 오늘 낱말, [grammar] 는 쓰는 문법 id (장의 [Grammar]),
  * [audio] 는 대화 소리 파일 이름 앞부분 (줄 i 의 소리 = <audio><i+1>_<언어>.m4a, 편지 폴더). 비면 소리 없음.
+ * [audioBy] 는 언어마다 다른 앞부분 ("audio": {"*": "t", "ko": "tk"} 꼴): 그 언어 줄만 고쳐 새 이름으로 낼 때 (R2 덮어쓰기 금지).
+ * 없는 언어는 [audio] ("*") 를 쓴다.
  */
 data class Talk(val scene: Tri, val lines: List<TalkLine>, val words: List<String> = emptyList(), val grammar: String = "", val audio: String = "",
                 /** 쓰는 오늘 낱말을 배우는 말마다 적은 것 ("words": {"fr": [...], "en": [...], "ko": [...]} 꼴일 때). */
-                val wordsBy: Map<Lang, List<String>> = emptyMap()) {
+                val wordsBy: Map<Lang, List<String>> = emptyMap(),
+                /** 언어마다 다른 소리 앞부분 (없으면 [audio]). */
+                val audioBy: Map<Lang, String> = emptyMap()) {
     /** 배우는 말 [learn] 의 오늘 낱말: 언어마다 적었으면 그것, 아니면 원어 [original] 를 배울 때만 [words]. */
     fun wordsFor(learn: Lang, original: Lang): List<String> = wordsBy[learn] ?: if (learn == original) words else emptyList()
 
     /** 줄 [i] (0부터) 의 소리 파일 이름 (확장자 없이). 소리가 없으면 null. */
-    fun audioName(i: Int, lang: Lang): String? = if (audio.isEmpty()) null else "$audio${i + 1}_${lang.code}"
+    fun audioName(i: Int, lang: Lang): String? = (audioBy[lang] ?: audio).takeIf { it.isNotEmpty() }?.let { "$it${i + 1}_${lang.code}" }
 }
 
 /**

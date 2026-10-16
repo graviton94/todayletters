@@ -475,13 +475,13 @@
       "who": "them",
       "fr": "Merci pour le billet de cinquante francs, Théo !",
       "en": "Thanks for the fifty-franc note, Theo!",
-      "ko": "50프랑 지폐 고마워요, 테오!"
+      "ko": "50프랑 지폐 고마워, 테오!"
      },
      {
       "who": "me",
       "fr": "De rien. Alors, Gauguin est bien arrivé ?",
       "en": "You're welcome. So, did Gauguin arrive safely?",
-      "ko": "천만에요. 그래서 고갱은 잘 도착했어요?",
+      "ko": "천만에. 그래서 고갱은 잘 도착했어?",
       "focus": {
        "fr": [
         "De rien"
@@ -490,7 +490,7 @@
         "You're welcome"
        ],
        "ko": [
-        "천만에요"
+        "천만에"
        ]
       },
       "wrong": {
@@ -508,8 +508,8 @@
        ],
        "ko": [
         [
-         "천만이에요",
-         "천만해요"
+         "천만이",
+         "천만해"
         ]
        ]
       }
@@ -518,13 +518,13 @@
       "who": "them",
       "fr": "Oui, en forme. Il a apporté une belle toile.",
       "en": "Yes, in good shape. He brought a beautiful canvas.",
-      "ko": "네, 건강해요. 멋진 그림을 하나 가져왔어요."
+      "ko": "응, 건강해. 멋진 그림을 하나 가져왔어."
      },
      {
       "who": "me",
       "fr": "Super ! Vous allez faire des tas de choses !",
       "en": "Great! You're going to do loads of things!",
-      "ko": "잘됐어요! 둘이서 많은 걸 하겠네요!",
+      "ko": "잘됐다! 둘이서 많은 걸 하겠네!",
       "focus": {
        "fr": [
         "Vous allez faire"
@@ -533,7 +533,7 @@
         "You're going to do"
        ],
        "ko": [
-        "하겠네요"
+        "하겠네"
        ]
       },
       "wrong": {
@@ -551,8 +551,8 @@
        ],
        "ko": [
         [
-         "하겟네요",
-         "하겠내요"
+         "하겟네",
+         "하겠내"
         ]
        ]
       }
@@ -564,7 +564,10 @@
      "tas"
     ],
     "grammar": "IV.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -878,13 +881,13 @@
       "who": "them",
       "fr": "La maison va très bien. C'est un vrai atelier !",
       "en": "The house is going very well. It's a real studio!",
-      "ko": "집은 아주 잘 돼 가요. 진짜 작업실이에요!"
+      "ko": "집은 아주 잘 돼 가. 진짜 작업실이야!"
      },
      {
       "who": "me",
       "fr": "Génial ! Et vous allez dépenser combien ?",
       "en": "Great! And how much are you going to spend?",
-      "ko": "잘됐어요! 그럼 얼마나 쓸 거예요?",
+      "ko": "잘됐다! 그럼 얼마나 쓸 거야?",
       "focus": {
        "fr": [
         "vous allez dépenser"
@@ -893,7 +896,7 @@
         "are you going to spend"
        ],
        "ko": [
-        "쓸 거예요"
+        "쓸 거야"
        ]
       },
       "wrong": {
@@ -911,8 +914,8 @@
        ],
        "ko": [
         [
-         "쓸 것예요",
-         "쓰을 거예요"
+         "쓸 것야",
+         "쓰을 거야"
         ]
        ]
       }
@@ -921,13 +924,13 @@
       "who": "them",
       "fr": "Pas plus de deux cent cinquante francs par mois.",
       "en": "No more than two hundred and fifty francs a month.",
-      "ko": "한 달에 250프랑 넘지 않을 거예요."
+      "ko": "한 달에 250프랑 넘지 않을 거야."
      },
      {
       "who": "me",
       "fr": "Parfait. Et Gauguin aime tes études ?",
       "en": "Perfect. And does Gauguin like your studies?",
-      "ko": "좋아요. 고갱은 형 습작을 좋아해요?",
+      "ko": "좋아. 고갱은 형 습작을 좋아해?",
       "focus": {
        "fr": [
         "tes études"
@@ -936,7 +939,7 @@
         "your studies"
        ],
        "ko": [
-        "좋아해요"
+        "좋아해"
        ]
       },
       "wrong": {
@@ -954,8 +957,8 @@
        ],
        "ko": [
         [
-         "좋아하요",
-         "좋아해여"
+         "좋아하",
+         "좋아해어"
         ]
        ]
       }
@@ -967,7 +970,10 @@
      "étude"
     ],
     "grammar": "IV.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1321,13 +1327,13 @@
       "who": "them",
       "fr": "Dimanche, on a vu une vigne toute rouge.",
       "en": "On Sunday we saw a vineyard that was all red.",
-      "ko": "일요일에 온통 빨간 포도밭을 봤어요."
+      "ko": "일요일에 온통 빨간 포도밭을 봤어."
      },
      {
       "who": "me",
       "fr": "Toute rouge ? C'était beau ?",
       "en": "All red? Was it beautiful?",
-      "ko": "온통 빨간색이요? 예뻤어요?",
+      "ko": "온통 빨간색? 예뻤어?",
       "focus": {
        "fr": [
         "Toute rouge"
@@ -1336,7 +1342,7 @@
         "All red"
        ],
        "ko": [
-        "예뻤어요"
+        "예뻤어"
        ]
       },
       "wrong": {
@@ -1354,8 +1360,8 @@
        ],
        "ko": [
         [
-         "예뻣어요",
-         "예쁘었어요"
+         "예뻣어",
+         "예쁘었어"
         ]
        ]
       }
@@ -1364,13 +1370,13 @@
       "who": "them",
       "fr": "Rouge comme du vin ! Tu dois venir, un jour.",
       "en": "Red like wine! You must come one day.",
-      "ko": "포도주처럼 빨개요! 언젠가 꼭 오세요."
+      "ko": "포도주처럼 빨개! 언젠가 꼭 와."
      },
      {
       "who": "me",
       "fr": "Promis, un dimanche, je viendrai avec vous !",
       "en": "Promise, one Sunday I'll come with you!",
-      "ko": "약속해요. 어느 일요일에 같이 갈게요!",
+      "ko": "약속해. 어느 일요일에 같이 갈게!",
       "focus": {
        "fr": [
         "je viendrai"
@@ -1379,7 +1385,7 @@
         "I'll come"
        ],
        "ko": [
-        "갈게요"
+        "갈게"
        ]
       },
       "wrong": {
@@ -1397,8 +1403,8 @@
        ],
        "ko": [
         [
-         "갈께요",
-         "가을게요"
+         "갈께",
+         "가을게"
         ]
        ]
       }
@@ -1409,7 +1415,10 @@
      "vin"
     ],
     "grammar": "IV.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1741,13 +1750,13 @@
       "who": "them",
       "fr": "On travaille toute la journée, puis on va au café.",
       "en": "We work all day, then we go to the café.",
-      "ko": "하루 종일 일하고, 그다음엔 카페에 가요."
+      "ko": "하루 종일 일하고, 그다음엔 카페에 가."
      },
      {
       "who": "me",
       "fr": "Et après ? Vous allez vous coucher tard ?",
       "en": "And after that? Are you going to bed late?",
-      "ko": "그다음엔요? 늦게 자요?",
+      "ko": "그다음엔? 늦게 자?",
       "focus": {
        "fr": [
         "Vous allez vous coucher"
@@ -1756,7 +1765,7 @@
         "Are you going to bed"
        ],
        "ko": [
-        "자요"
+        "늦게 자"
        ]
       },
       "wrong": {
@@ -1774,8 +1783,8 @@
        ],
        "ko": [
         [
-         "자아요",
-         "저요"
+         "늦게 자아",
+         "늦게 저"
         ]
        ]
       }
@@ -1784,13 +1793,13 @@
       "who": "them",
       "fr": "Non, tôt ! Je vais peindre toute la famille du facteur.",
       "en": "No, early! I'm going to paint the postman's whole family.",
-      "ko": "아니요, 일찍요! 우편배달부 가족을 다 그릴 거예요."
+      "ko": "아니, 일찍! 우편배달부 가족을 다 그릴 거야."
      },
      {
       "who": "me",
       "fr": "Bonne idée ! Ça va être beaucoup de travail.",
       "en": "Good idea! That's going to be a lot of work.",
-      "ko": "좋은 생각이에요! 일이 많겠네요.",
+      "ko": "좋은 생각이야! 일이 많겠네.",
       "focus": {
        "fr": [
         "Ça va être"
@@ -1799,7 +1808,7 @@
         "That's going to be"
        ],
        "ko": [
-        "많겠네요"
+        "많겠네"
        ]
       },
       "wrong": {
@@ -1817,8 +1826,8 @@
        ],
        "ko": [
         [
-         "많겟네요",
-         "만겠네요"
+         "많겟네",
+         "만겠네"
         ]
        ]
       }
@@ -1828,7 +1837,10 @@
      "facteur"
     ],
     "grammar": "IV.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2152,13 +2164,13 @@
       "who": "them",
       "fr": "Gauguin m'aide. Je commence à peindre de mémoire.",
       "en": "Gauguin is helping me. I'm starting to paint from memory.",
-      "ko": "고갱이 도와줘요. 기억으로 그리기 시작했어요."
+      "ko": "고갱이 도와줘. 기억으로 그리기 시작했어."
      },
      {
       "who": "me",
       "fr": "De mémoire ? Pourquoi ?",
       "en": "From memory? Why?",
-      "ko": "기억으로요? 왜요?",
+      "ko": "기억으로? 왜?",
       "focus": {
        "fr": [
         "Pourquoi"
@@ -2167,7 +2179,7 @@
         "Why"
        ],
        "ko": [
-        "왜요"
+        "왜"
        ]
       },
       "wrong": {
@@ -2185,8 +2197,8 @@
        ],
        "ko": [
         [
-         "외요",
-         "왜여"
+         "외",
+         "웨"
         ]
        ]
       }
@@ -2195,13 +2207,13 @@
       "who": "them",
       "fr": "Pour changer un peu. Mes études vont m'aider.",
       "en": "To change things a bit. My studies are going to help me.",
-      "ko": "조금 바꿔 보려고요. 습작들이 도움이 될 거예요."
+      "ko": "조금 바꿔 보려고. 습작들이 도움이 될 거야."
      },
      {
       "who": "me",
       "fr": "Je comprends. Tu vas m'envoyer un croquis ?",
       "en": "I see. Are you going to send me a sketch?",
-      "ko": "알겠어요. 스케치 하나 보내 줄 거예요?",
+      "ko": "알겠어. 스케치 하나 보내 줄 거야?",
       "focus": {
        "fr": [
         "Tu vas m'envoyer"
@@ -2210,7 +2222,7 @@
         "Are you going to send"
        ],
        "ko": [
-        "보내 줄 거예요"
+        "보내 줄 거야"
        ]
       },
       "wrong": {
@@ -2228,8 +2240,8 @@
        ],
        "ko": [
         [
-         "보내 줄 것예요",
-         "보내 주을 거예요"
+         "보내 줄 것야",
+         "보내 주을 거야"
         ]
        ]
       }
@@ -2239,7 +2251,10 @@
      "commencer"
     ],
     "grammar": "IV.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2553,13 +2568,13 @@
       "who": "them",
       "fr": "Hier, on est allés au musée de Montpellier.",
       "en": "Yesterday we went to the museum in Montpellier.",
-      "ko": "어제 몽펠리에 미술관에 다녀왔어요."
+      "ko": "어제 몽펠리에 미술관에 다녀왔어."
      },
      {
       "who": "me",
       "fr": "Avec Gauguin ? Tu as aimé ?",
       "en": "With Gauguin? Did you like it?",
-      "ko": "고갱이랑요? 좋았어요?",
+      "ko": "고갱이랑? 좋았어?",
       "focus": {
        "fr": [
         "Tu as aimé"
@@ -2568,7 +2583,7 @@
         "Did you like"
        ],
        "ko": [
-        "좋았어요"
+        "좋았어"
        ]
       },
       "wrong": {
@@ -2586,8 +2601,8 @@
        ],
        "ko": [
         [
-         "좋앗어요",
-         "좋었어요"
+         "좋앗어",
+         "좋었어"
         ]
        ]
       }
@@ -2596,13 +2611,13 @@
       "who": "them",
       "fr": "Oui ! Un portrait avec une barbe rousse… comme nous !",
       "en": "Yes! A portrait with a red beard… like us!",
-      "ko": "네! 빨간 수염 난 초상화가 있었어요… 꼭 우리 같아요!"
+      "ko": "응! 빨간 수염 난 초상화가 있었어… 꼭 우리 같아!"
      },
      {
       "who": "me",
       "fr": "Ha ! Et toi, tu vas te reposer un peu ?",
       "en": "Ha! And are you going to rest a little?",
-      "ko": "하하! 형은 좀 쉴 거예요?",
+      "ko": "하하! 형은 좀 쉴 거야?",
       "focus": {
        "fr": [
         "tu vas te reposer"
@@ -2611,7 +2626,7 @@
         "are you going to rest"
        ],
        "ko": [
-        "쉴 거예요"
+        "쉴 거야"
        ]
       },
       "wrong": {
@@ -2629,8 +2644,8 @@
        ],
        "ko": [
         [
-         "쉬을 거예요",
-         "쉴 것예요"
+         "쉬을 거야",
+         "쉴 것야"
         ]
        ]
       }
@@ -2641,7 +2656,10 @@
      "barbe"
     ],
     "grammar": "IV.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2960,13 +2978,13 @@
       "who": "them",
       "fr": "Merci pour les cent francs et le mandat, Théo.",
       "en": "Thanks for the hundred francs and the money order, Theo.",
-      "ko": "100프랑이랑 우편환 고마워요, 테오."
+      "ko": "100프랑이랑 우편환 고마워, 테오."
      },
      {
       "who": "me",
       "fr": "De rien. Et Gauguin, il va rester ?",
       "en": "You're welcome. And Gauguin, is he going to stay?",
-      "ko": "천만에요. 고갱은 계속 있을까요?",
+      "ko": "천만에. 고갱은 계속 있을까?",
       "focus": {
        "fr": [
         "il va rester"
@@ -2975,7 +2993,7 @@
         "is he going to stay"
        ],
        "ko": [
-        "있을까요"
+        "있을까"
        ]
       },
       "wrong": {
@@ -2993,8 +3011,8 @@
        ],
        "ko": [
         [
-         "있을가요",
-         "있울까요"
+         "있을가",
+         "있울까"
         ]
        ]
       }
@@ -3003,13 +3021,13 @@
       "who": "them",
       "fr": "Je ne sais pas. Il décidera, dans le calme.",
       "en": "I don't know. He'll decide, calmly.",
-      "ko": "모르겠어요. 차분하게 정할 거예요."
+      "ko": "모르겠어. 차분하게 정할 거야."
      },
      {
       "who": "me",
       "fr": "Je comprends. Tu m'écriras, d'accord ?",
       "en": "I understand. You'll write to me, OK?",
-      "ko": "알겠어요. 편지해 줄 거죠?",
+      "ko": "알겠어. 편지해 줄 거지?",
       "focus": {
        "fr": [
         "Tu m'écriras"
@@ -3018,7 +3036,7 @@
         "You'll write"
        ],
        "ko": [
-        "줄 거죠"
+        "줄 거지"
        ]
       },
       "wrong": {
@@ -3036,8 +3054,8 @@
        ],
        "ko": [
         [
-         "줄 것죠",
-         "주을 거죠"
+         "줄 것지",
+         "주을 거지"
         ]
        ]
       }
@@ -3047,7 +3065,10 @@
      "mandat"
     ],
     "grammar": "IV.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

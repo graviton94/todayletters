@@ -522,13 +522,13 @@
       "who": "them",
       "de": "Nannerl, alle guten Wünsche zu deiner Hochzeit!",
       "en": "Nannerl, all the best for your wedding!",
-      "ko": "누나, 결혼 진심으로 축하해요!"
+      "ko": "누나, 결혼 진심으로 축하해!"
      },
      {
       "who": "me",
       "de": "Danke, Wolfgang! Ich wünschte, du wärst hier.",
       "en": "Thanks, Wolfgang! I wish you were here.",
-      "ko": "고마워요! 볼프강이 여기 있으면 좋을 텐데요.",
+      "ko": "고마워! 네가 여기 있으면 좋을 텐데.",
       "focus": {
        "de": [
         "wärst"
@@ -537,7 +537,7 @@
         "you were"
        ],
        "ko": [
-        "좋을 텐데요"
+        "좋을 텐데"
        ]
       },
       "wrong": {
@@ -555,8 +555,8 @@
        ],
        "ko": [
         [
-         "좋은 텐데요",
-         "좋을 탠데요"
+         "좋은 텐데",
+         "좋을 탠데"
         ]
        ]
       }
@@ -565,13 +565,13 @@
       "who": "them",
       "de": "Ich auch. Aber Papa ist jetzt ganz allein.",
       "en": "Me too. But now Papa is all alone.",
-      "ko": "저도요. 그런데 이제 아빠가 혼자시네요."
+      "ko": "나도. 그런데 이제 아빠가 혼자시네."
      },
      {
       "who": "me",
       "de": "Ja. Er könnte mich aber oft besuchen.",
       "en": "Yes. But he could visit me often.",
-      "ko": "네. 그래도 아빠가 저를 자주 보러 오실 수 있어요.",
+      "ko": "응. 그래도 아빠가 나를 자주 보러 오실 수 있어.",
       "focus": {
        "de": [
         "könnte"
@@ -580,7 +580,7 @@
         "could visit"
        ],
        "ko": [
-        "오실 수 있어요"
+        "오실 수 있어"
        ]
       },
       "wrong": {
@@ -598,8 +598,8 @@
        ],
        "ko": [
         [
-         "오실 수 있아요",
-         "올실 수 있어요"
+         "오실 수 있아",
+         "올실 수 있어"
         ]
        ]
       }
@@ -609,7 +609,10 @@
      "Wunsch"
     ],
     "grammar": "VII.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1520,13 +1523,13 @@
       "who": "them",
       "de": "Hallo Gottfried! Endlich habe ich Zeit, mit dir zu reden.",
       "en": "Hi Gottfried! At last I have time to talk to you.",
-      "ko": "안녕하세요, 고트프리트! 드디어 이야기할 시간이 났어요."
+      "ko": "안녕, 고트프리트! 드디어 이야기할 시간이 났어."
      },
      {
       "who": "me",
       "de": "Schön! Wie ist Prag?",
       "en": "Great! What's Prague like?",
-      "ko": "반가워요! 프라하는 어때요?",
+      "ko": "반가워! 프라하는 어때?",
       "focus": {
        "de": [
         "Wie ist"
@@ -1535,7 +1538,7 @@
         "What's"
        ],
        "ko": [
-        "어때요"
+        "어때"
        ]
       },
       "wrong": {
@@ -1553,8 +1556,8 @@
        ],
        "ko": [
         [
-         "어떼요",
-         "어떠요"
+         "어떼",
+         "어떠"
         ]
        ]
       }
@@ -1563,13 +1566,13 @@
       "who": "them",
       "de": "Alle pfeifen hier nur Figaro! Nichts als Figaro!",
       "en": "Everyone here whistles nothing but Figaro! Only Figaro!",
-      "ko": "여기선 다들 피가로만 휘파람으로 불어요! 온통 피가로예요!"
+      "ko": "여기선 다들 피가로만 휘파람으로 불어! 온통 피가로야!"
      },
      {
       "who": "me",
       "de": "Toll! Gehst du am Mittwoch in die Oper?",
       "en": "Great! Are you going to the opera on Wednesday?",
-      "ko": "멋지네요! 수요일에 오페라 보러 가요?",
+      "ko": "멋지다! 수요일에 오페라 보러 가?",
       "focus": {
        "de": [
         "am Mittwoch"
@@ -1608,7 +1611,10 @@
      "Mittwoch"
     ],
     "grammar": "VII.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2016,7 +2022,7 @@
       "who": "me",
       "de": "Ja, leider. Aber mach dir keine Sorgen.",
       "en": "Yes, unfortunately. But don't worry.",
-      "ko": "네, 안타깝게도요. 그래도 걱정하지 마세요.",
+      "ko": "그래, 안타깝게도. 그래도 걱정하지 마.",
       "focus": {
        "de": [
         "mach dir"
@@ -2025,7 +2031,7 @@
         "don't worry"
        ],
        "ko": [
-        "걱정하지 마세요"
+        "걱정하지 마"
        ]
       },
       "wrong": {
@@ -2043,8 +2049,8 @@
        ],
        "ko": [
         [
-         "걱정하지 마세여",
-         "걱정하지 말세요"
+         "걱정하지 마어",
+         "걱정하지 마러"
         ]
        ]
       }
@@ -2059,7 +2065,7 @@
       "who": "me",
       "de": "Danke, mein Sohn. Das ist sehr beruhigend.",
       "en": "Thank you, son. That's very comforting.",
-      "ko": "고마워요, 아들. 정말 마음이 놓여요.",
+      "ko": "고맙다, 아들아. 정말 마음이 놓이는구나.",
       "focus": {
        "de": [
         "beruhigend"
@@ -2068,7 +2074,7 @@
         "comforting"
        ],
        "ko": [
-        "마음이 놓여요"
+        "마음이 놓이는구나"
        ]
       },
       "wrong": {
@@ -2086,8 +2092,8 @@
        ],
        "ko": [
         [
-         "마음이 놓아요",
-         "마음을 놓여요"
+         "마음이 놓는구나",
+         "마음을 놓이는구나"
         ]
        ]
       }
@@ -2097,7 +2103,10 @@
      "beruhigend"
     ],
     "grammar": "VII.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2496,13 +2505,13 @@
       "who": "them",
       "de": "Nannerl, es tut mir so leid wegen Papa.",
       "en": "Nannerl, I'm so sorry about Papa.",
-      "ko": "누나, 아빠 일 정말 마음이 아파요."
+      "ko": "누나, 아빠 일 정말 마음이 아파."
      },
      {
       "who": "me",
       "de": "Danke. Verzeih, dass ich dir nicht selbst geschrieben habe.",
       "en": "Thank you. Forgive me for not writing to you myself.",
-      "ko": "고마워요. 직접 편지 못 써서 미안해요.",
+      "ko": "고마워. 직접 편지 못 써서 미안해.",
       "focus": {
        "de": [
         "geschrieben habe"
@@ -2539,13 +2548,13 @@
       "who": "them",
       "de": "Schon gut, ich habe es erraten. Brauchst du etwas?",
       "en": "It's fine, I guessed why. Do you need anything?",
-      "ko": "괜찮아요, 짐작했어요. 필요한 거 있어요?"
+      "ko": "괜찮아, 짐작했어. 필요한 거 있어?"
      },
      {
       "who": "me",
       "de": "Nein, danke. Aber es wäre schön, dich zu sehen.",
       "en": "No, thanks. But it would be nice to see you.",
-      "ko": "아니요, 괜찮아요. 그래도 얼굴 보면 좋겠어요.",
+      "ko": "아니, 괜찮아. 그래도 얼굴 보면 좋겠어.",
       "focus": {
        "de": [
         "dich zu sehen"
@@ -2554,7 +2563,7 @@
         "to see you"
        ],
        "ko": [
-        "보면 좋겠어요"
+        "보면 좋겠어"
        ]
       },
       "wrong": {
@@ -2572,8 +2581,8 @@
        ],
        "ko": [
         [
-         "보면 좋겟어요",
-         "보면 좋갰어요"
+         "보면 좋겟어",
+         "보면 좋갰어"
         ]
        ]
       }
@@ -2583,7 +2592,10 @@
      "erraten"
     ],
     "grammar": "VII.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2992,13 +3004,13 @@
       "who": "them",
       "de": "Gottfried, mein Don Giovanni war ein großer Erfolg!",
       "en": "Gottfried, my Don Giovanni was a big success!",
-      "ko": "고트프리트, 제 〈돈 조반니〉가 크게 성공했어요!"
+      "ko": "고트프리트, 내 〈돈 조반니〉가 크게 성공했어!"
      },
      {
       "who": "me",
       "de": "Gratuliere! Wann war die Premiere?",
       "en": "Congratulations! When was the premiere?",
-      "ko": "축하해요! 첫 공연은 언제였어요?",
+      "ko": "축하해! 첫 공연은 언제였어?",
       "focus": {
        "de": [
         "war"
@@ -3007,7 +3019,7 @@
         "When was"
        ],
        "ko": [
-        "언제였어요"
+        "언제였어"
        ]
       },
       "wrong": {
@@ -3025,8 +3037,8 @@
        ],
        "ko": [
         [
-         "언제엿어요",
-         "언제었어요"
+         "언제엿어",
+         "언제었어"
         ]
        ]
       }
@@ -3035,13 +3047,13 @@
       "who": "them",
       "de": "Am 29. Oktober. Das Publikum war begeistert.",
       "en": "On 29 October. The audience loved it.",
-      "ko": "10월 29일이요. 관객들이 열광했어요."
+      "ko": "10월 29일. 관객들이 열광했어."
      },
      {
       "who": "me",
       "de": "Super! Schickst du mir das Lied, das du versprochen hast?",
       "en": "Great! Will you send me the song you promised?",
-      "ko": "좋아요! 약속한 노래도 보내 줄 거예요?",
+      "ko": "좋다! 약속한 노래도 보내 줄 거야?",
       "focus": {
        "de": [
         "das"
@@ -3080,7 +3092,10 @@
      "Lied"
     ],
     "grammar": "VII.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {

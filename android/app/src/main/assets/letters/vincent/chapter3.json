@@ -451,13 +451,13 @@
       "who": "them",
       "fr": "Théo, j'ai peint toute la nuit, trois nuits !",
       "en": "Theo, I painted all night, three nights!",
-      "ko": "테오, 밤새 그렸어요. 사흘 밤이나요!"
+      "ko": "테오, 밤새 그렸어. 사흘 밤이나!"
      },
      {
       "who": "me",
       "fr": "Trois nuits ? Tu as dormi un peu ?",
       "en": "Three nights? Did you sleep a bit?",
-      "ko": "사흘이나요? 잠은 좀 잤어요?",
+      "ko": "사흘이나? 잠은 좀 잤어?",
       "focus": {
        "fr": [
         "Tu as dormi"
@@ -466,7 +466,7 @@
         "Did you sleep"
        ],
        "ko": [
-        "잤어요"
+        "잤어"
        ]
       },
       "wrong": {
@@ -484,8 +484,8 @@
        ],
        "ko": [
         [
-         "자었어요",
-         "잤아요"
+         "자었어",
+         "잤아"
         ]
        ]
       }
@@ -494,13 +494,13 @@
       "who": "them",
       "fr": "Oui, le jour. Le café est rouge et vert.",
       "en": "Yes, in the daytime. The café is red and green.",
-      "ko": "네, 낮에요. 카페는 빨강이랑 초록이에요."
+      "ko": "응, 낮에. 카페는 빨강이랑 초록이야."
      },
      {
       "who": "me",
       "fr": "Et toi, ça va ? Tu n'as pas froid la nuit ?",
       "en": "And you, OK? Aren't you cold at night?",
-      "ko": "형은 괜찮아요? 밤에 춥지 않았어요?",
+      "ko": "형은 괜찮아? 밤에 춥지 않았어?",
       "focus": {
        "fr": [
         "Tu n'as pas"
@@ -509,7 +509,7 @@
         "Aren't you"
        ],
        "ko": [
-        "춥지 않았어요"
+        "춥지 않았어"
        ]
       },
       "wrong": {
@@ -527,8 +527,8 @@
        ],
        "ko": [
         [
-         "춥지 안았어요",
-         "춥지 않었어요"
+         "춥지 안았어",
+         "춥지 않었어"
         ]
        ]
       }
@@ -539,7 +539,10 @@
      "vert"
     ],
     "grammar": "III.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -899,13 +902,13 @@
       "who": "them",
       "fr": "Théo, j'ai acheté des meubles pour la maison.",
       "en": "Theo, I've bought some furniture for the house.",
-      "ko": "테오, 집에 둘 가구를 샀어요."
+      "ko": "테오, 집에 둘 가구를 샀어."
      },
      {
       "who": "me",
       "fr": "Super ! Tu as déjà tout ?",
       "en": "Great! Have you got everything already?",
-      "ko": "잘됐어요! 벌써 다 갖췄어요?",
+      "ko": "잘됐다! 벌써 다 갖췄어?",
       "focus": {
        "fr": [
         "déjà"
@@ -942,13 +945,13 @@
       "who": "them",
       "fr": "Pas encore. Je dois ajouter des choses. Tu peux m'aider ?",
       "en": "Not yet. I need to add a few things. Can you help me?",
-      "ko": "아직이요. 더 들일 게 있어요. 좀 도와줄 수 있어요?"
+      "ko": "아직. 더 들일 게 있어. 좀 도와줄 수 있어?"
      },
      {
       "who": "me",
       "fr": "Bien sûr. Je t'envoie cent francs, d'accord ?",
       "en": "Of course. I'll send you a hundred francs, OK?",
-      "ko": "물론이죠. 100프랑 보낼게요, 괜찮아요?",
+      "ko": "물론이지. 100프랑 보낼게, 괜찮아?",
       "focus": {
        "fr": [
         "Je t'envoie"
@@ -957,7 +960,7 @@
         "I'll send you"
        ],
        "ko": [
-        "보낼게요"
+        "보낼게"
        ]
       },
       "wrong": {
@@ -975,8 +978,8 @@
        ],
        "ko": [
         [
-         "보낼께요",
-         "보낸게요"
+         "보낼께",
+         "보낸게"
         ]
        ]
       }
@@ -986,7 +989,10 @@
      "ajouter"
     ],
     "grammar": "III.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1356,13 +1362,13 @@
       "who": "them",
       "fr": "Bonsoir, Théo ! Je suis allé peindre les étoiles.",
       "en": "Good evening, Theo! I went out to paint the stars.",
-      "ko": "안녕하세요, 테오! 별을 그리러 나갔다 왔어요."
+      "ko": "안녕, 테오! 별을 그리러 나갔다 왔어."
      },
      {
       "who": "me",
       "fr": "La nuit ? Tu es sorti avec une lampe ?",
       "en": "At night? Did you go out with a lamp?",
-      "ko": "밤에요? 등불 들고 나갔어요?",
+      "ko": "밤에? 등불 들고 나갔어?",
       "focus": {
        "fr": [
         "Tu es sorti"
@@ -1371,7 +1377,7 @@
         "Did you go out"
        ],
        "ko": [
-        "나갔어요"
+        "나갔어"
        ]
       },
       "wrong": {
@@ -1389,8 +1395,8 @@
        ],
        "ko": [
         [
-         "나갓어요",
-         "나가었어요"
+         "나갓어",
+         "나가었어"
         ]
        ]
       }
@@ -1399,13 +1405,13 @@
       "who": "them",
       "fr": "Oui, sous le gaz. Le tableau est enfin fini !",
       "en": "Yes, under the gas lamp. The painting is finished at last!",
-      "ko": "네, 가스등 아래서요. 드디어 그림이 끝났어요!"
+      "ko": "응, 가스등 아래서. 드디어 그림이 끝났어!"
      },
      {
       "who": "me",
       "fr": "Bravo ! Tu es rentré tard, non ?",
       "en": "Well done! You got back late, didn't you?",
-      "ko": "잘했어요! 늦게 들어왔죠?",
+      "ko": "잘했어! 늦게 들어왔지?",
       "focus": {
        "fr": [
         "Tu es rentré"
@@ -1414,7 +1420,7 @@
         "You got back"
        ],
        "ko": [
-        "들어왔죠"
+        "들어왔지"
        ]
       },
       "wrong": {
@@ -1432,8 +1438,8 @@
        ],
        "ko": [
         [
-         "들어왓죠",
-         "들어오었죠"
+         "들어왓지",
+         "들어오었지"
         ]
        ]
       }
@@ -1444,7 +1450,10 @@
      "tableau"
     ],
     "grammar": "III.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1782,13 +1791,13 @@
       "who": "them",
       "fr": "Théo, j'ai reçu les portraits de Gauguin et Bernard.",
       "en": "Theo, I've received the portraits of Gauguin and Bernard.",
-      "ko": "테오, 고갱이랑 베르나르 초상화를 받았어요."
+      "ko": "테오, 고갱이랑 베르나르 초상화를 받았어."
      },
      {
       "who": "me",
       "fr": "Ah, super ! Tu es content ?",
       "en": "Oh, great! Are you happy?",
-      "ko": "와, 좋겠어요! 기뻐요?",
+      "ko": "와, 좋겠다! 기뻐?",
       "focus": {
        "fr": [
         "Tu es content"
@@ -1797,7 +1806,7 @@
         "Are you happy"
        ],
        "ko": [
-        "기뻐요"
+        "기뻐"
        ]
       },
       "wrong": {
@@ -1815,8 +1824,8 @@
        ],
        "ko": [
         [
-         "기쁘요",
-         "기뻐여"
+         "기쁘",
+         "기뻐어"
         ]
        ]
       }
@@ -1825,13 +1834,13 @@
       "who": "them",
       "fr": "Très content. J'ai fait mon portrait, un peu japonais.",
       "en": "Very happy. I've done my own portrait, a bit Japanese.",
-      "ko": "정말 기뻐요. 제 자화상도 그렸어요, 좀 일본풍으로요."
+      "ko": "정말 기뻐. 내 자화상도 그렸어, 좀 일본풍으로."
      },
      {
       "who": "me",
       "fr": "Japonais ? Tu as changé tes yeux ?",
       "en": "Japanese? Did you change your eyes?",
-      "ko": "일본풍이요? 눈을 바꿨어요?",
+      "ko": "일본풍? 눈을 바꿨어?",
       "focus": {
        "fr": [
         "Tu as changé"
@@ -1840,7 +1849,7 @@
         "Did you change"
        ],
        "ko": [
-        "바꿨어요"
+        "바꿨어"
        ]
       },
       "wrong": {
@@ -1858,8 +1867,8 @@
        ],
        "ko": [
         [
-         "바꾸었아요",
-         "바꽜어요"
+         "바꾸었아",
+         "바꽜어"
         ]
        ]
       }
@@ -1870,7 +1879,10 @@
      "japonais"
     ],
     "grammar": "III.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2200,13 +2212,13 @@
       "who": "them",
       "fr": "Merci, Théo. Je suis resté sans argent jusqu'à lundi.",
       "en": "Thanks, Theo. I was left without money until Monday.",
-      "ko": "고마워요, 테오. 월요일까지 돈 없이 지냈어요."
+      "ko": "고마워, 테오. 월요일까지 돈 없이 지냈어."
      },
      {
       "who": "me",
       "fr": "Oh non, pardon ! Tu as mangé quoi ?",
       "en": "Oh no, sorry! What did you eat?",
-      "ko": "저런, 미안해요! 뭘 먹었어요?",
+      "ko": "저런, 미안해! 뭘 먹었어?",
       "focus": {
        "fr": [
         "Tu as mangé"
@@ -2215,7 +2227,7 @@
         "did you eat"
        ],
        "ko": [
-        "먹었어요"
+        "먹었어"
        ]
       },
       "wrong": {
@@ -2233,8 +2245,8 @@
        ],
        "ko": [
         [
-         "먹엇어요",
-         "먹었아요"
+         "먹엇어",
+         "먹었아"
         ]
        ]
       }
@@ -2243,13 +2255,13 @@
       "who": "them",
       "fr": "Du café et du pain. Ce n'est pas ta faute.",
       "en": "Coffee and bread. It's not your fault.",
-      "ko": "커피랑 빵이요. 테오 잘못이 아니에요."
+      "ko": "커피랑 빵. 네 잘못이 아니야."
      },
      {
       "who": "me",
       "fr": "Désolé quand même. Écris-moi plus tôt, d'accord ?",
       "en": "Sorry all the same. Write to me sooner, OK?",
-      "ko": "그래도 미안해요. 다음엔 더 일찍 편지하세요, 네?",
+      "ko": "그래도 미안해. 다음엔 더 일찍 편지해, 응?",
       "focus": {
        "fr": [
         "Écris-moi"
@@ -2258,7 +2270,7 @@
         "Write to me"
        ],
        "ko": [
-        "편지하세요"
+        "편지해"
        ]
       },
       "wrong": {
@@ -2276,8 +2288,8 @@
        ],
        "ko": [
         [
-         "편지해세요",
-         "편지하세여"
+         "편지하",
+         "편지해어"
         ]
        ]
       }
@@ -2289,7 +2301,10 @@
      "lundi"
     ],
     "grammar": "III.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2619,13 +2634,13 @@
       "who": "them",
       "fr": "J'ai peint ma chambre, Théo. Juste ma chambre.",
       "en": "I've painted my bedroom, Theo. Just my bedroom.",
-      "ko": "침실을 그렸어요, 테오. 그냥 제 방이요."
+      "ko": "침실을 그렸어, 테오. 그냥 내 방."
      },
      {
       "who": "me",
       "fr": "Ta chambre ? Qu'est-ce qu'il y a dedans ?",
       "en": "Your bedroom? What's in it?",
-      "ko": "방이요? 안에 뭐가 있어요?",
+      "ko": "방? 안에 뭐가 있어?",
       "focus": {
        "fr": [
         "Qu'est-ce qu'il y a"
@@ -2634,7 +2649,7 @@
         "What's in it"
        ],
        "ko": [
-        "뭐가 있어요"
+        "뭐가 있어"
        ]
       },
       "wrong": {
@@ -2652,8 +2667,8 @@
        ],
        "ko": [
         [
-         "뭐를 있어요",
-         "뭐가 있아요"
+         "뭐를 있어",
+         "뭐가 있아"
         ]
        ]
       }
@@ -2662,13 +2677,13 @@
       "who": "them",
       "fr": "Un lit, des chaises… C'est un tableau pour le repos.",
       "en": "A bed, some chairs… It's a painting for rest.",
-      "ko": "침대 하나, 의자 몇 개요… 쉬라고 그린 그림이에요."
+      "ko": "침대 하나, 의자 몇 개… 쉬라고 그린 그림이야."
      },
      {
       "who": "me",
       "fr": "Super idée. Et toi, tu as bien dormi hier ?",
       "en": "Great idea. And you, did you sleep well last night?",
-      "ko": "좋은 생각이에요. 형은 어젯밤 잘 잤어요?",
+      "ko": "좋은 생각이야. 형은 어젯밤 잘 잤어?",
       "focus": {
        "fr": [
         "hier"
@@ -2708,7 +2723,10 @@
      "repos"
     ],
     "grammar": "III.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -3065,13 +3083,13 @@
       "who": "them",
       "fr": "Théo, j'ai fait installer le gaz dans la cuisine.",
       "en": "Theo, I've had gas put in the kitchen.",
-      "ko": "테오, 부엌에 가스를 들였어요."
+      "ko": "테오, 부엌에 가스를 들였어."
      },
      {
       "who": "me",
       "fr": "Bonne idée ! Gauguin est déjà arrivé ?",
       "en": "Good idea! Has Gauguin arrived yet?",
-      "ko": "잘했어요! 고갱은 벌써 왔어요?",
+      "ko": "잘했어! 고갱은 벌써 왔어?",
       "focus": {
        "fr": [
         "est déjà arrivé"
@@ -3080,7 +3098,7 @@
         "Has Gauguin arrived"
        ],
        "ko": [
-        "왔어요"
+        "왔어"
        ]
       },
       "wrong": {
@@ -3098,8 +3116,8 @@
        ],
        "ko": [
         [
-         "오았어요",
-         "왓어요"
+         "오았어",
+         "왓어"
         ]
        ]
       }
@@ -3108,13 +3126,13 @@
       "who": "them",
       "fr": "Pas encore, mais bientôt. Tu peux m'envoyer cinquante francs ?",
       "en": "Not yet, but soon. Can you send me fifty francs?",
-      "ko": "아직이요, 곧 와요. 50프랑 보내 줄 수 있어요?"
+      "ko": "아직, 곧 와. 50프랑 보내 줄 수 있어?"
      },
      {
       "who": "me",
       "fr": "Oui, d'accord. Et la toile pour sa chambre ?",
       "en": "Yes, all right. And the canvas for his room?",
-      "ko": "네, 그럴게요. 그 사람 방에 걸 그림은요?",
+      "ko": "응, 그럴게. 그 사람 방에 걸 그림은?",
       "focus": {
        "fr": [
         "la toile"
@@ -3123,7 +3141,7 @@
         "the canvas"
        ],
        "ko": [
-        "그림은요"
+        "그림은"
        ]
       },
       "wrong": {
@@ -3141,8 +3159,8 @@
        ],
        "ko": [
         [
-         "그림는요",
-         "그림이은요"
+         "그림는",
+         "그림이은"
         ]
        ]
       }
@@ -3153,7 +3171,10 @@
      "toile"
     ],
     "grammar": "III.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

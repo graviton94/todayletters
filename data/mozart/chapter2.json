@@ -411,7 +411,7 @@
       "who": "me",
       "de": "Gott sei Dank! Wie geht es Mama?",
       "en": "Thank God! How is Mama?",
-      "ko": "다행이에요! 엄마는 어때요?",
+      "ko": "다행이다! 엄마는 어때?",
       "focus": {
        "de": [
         "Wie geht es"
@@ -420,7 +420,7 @@
         "How is"
        ],
        "ko": [
-        "어때요"
+        "어때"
        ]
       },
       "wrong": {
@@ -438,8 +438,8 @@
        ],
        "ko": [
         [
-         "어떼요",
-         "어떠요"
+         "어떼",
+         "어떠"
         ]
        ]
       }
@@ -454,7 +454,7 @@
       "who": "me",
       "de": "Gut. Du kannst mich immer fragen.",
       "en": "Good. You can always ask me.",
-      "ko": "좋아요. 언제든 나한테 물어봐도 돼요.",
+      "ko": "좋아. 언제든 나한테 물어봐도 돼.",
       "focus": {
        "de": [
         "kannst"
@@ -463,7 +463,7 @@
         "can always ask"
        ],
        "ko": [
-        "물어봐도 돼요"
+        "물어봐도 돼"
        ]
       },
       "wrong": {
@@ -481,8 +481,8 @@
        ],
        "ko": [
         [
-         "물어바도 돼요",
-         "물어봐도 되요"
+         "물어바도 돼",
+         "물어봐도 되"
         ]
        ]
       }
@@ -492,7 +492,10 @@
      "fragen"
     ],
     "grammar": "II.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -823,7 +826,7 @@
       "who": "me",
       "de": "Schön! Darfst du dort auch spielen?",
       "en": "Nice! Are you allowed to play there too?",
-      "ko": "좋네요! 거기서 연주해도 돼요?",
+      "ko": "좋구나! 거기서 연주해도 돼?",
       "focus": {
        "de": [
         "Darfst du"
@@ -832,7 +835,7 @@
         "Are you allowed"
        ],
        "ko": [
-        "연주해도 돼요"
+        "연주해도 돼"
        ]
       },
       "wrong": {
@@ -850,8 +853,8 @@
        ],
        "ko": [
         [
-         "연주해도 되요",
-         "연주하도 돼요"
+         "연주해도 되",
+         "연주하도 돼"
         ]
        ]
       }
@@ -866,7 +869,7 @@
       "who": "me",
       "de": "Gut. Aber vergiss deine Arbeit nicht!",
       "en": "Good. But don't forget your work!",
-      "ko": "좋아요. 그래도 할 일은 잊지 마세요!",
+      "ko": "좋아. 그래도 할 일은 잊지 마!",
       "focus": {
        "de": [
         "vergiss"
@@ -875,7 +878,7 @@
         "don't forget"
        ],
        "ko": [
-        "잊지 마세요"
+        "잊지 마"
        ]
       },
       "wrong": {
@@ -893,8 +896,8 @@
        ],
        "ko": [
         [
-         "잊지 마세여",
-         "잊지 말세요"
+         "잊지 마어",
+         "잊지 마러"
         ]
        ]
       }
@@ -904,7 +907,10 @@
      "Arbeit"
     ],
     "grammar": "II.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1217,7 +1223,7 @@
       "who": "me",
       "de": "Wunderbar! Was machst du morgen?",
       "en": "Wonderful! What are you doing tomorrow?",
-      "ko": "멋지네요! 내일은 뭐 해요?",
+      "ko": "멋지구나! 내일은 뭐 해?",
       "focus": {
        "de": [
         "machst du"
@@ -1226,7 +1232,7 @@
         "are you doing"
        ],
        "ko": [
-        "뭐 해요"
+        "뭐 해"
        ]
       },
       "wrong": {
@@ -1244,8 +1250,8 @@
        ],
        "ko": [
         [
-         "뭐 하요",
-         "뭐 헤요"
+         "뭐 하",
+         "뭐 헤"
         ]
        ]
       }
@@ -1260,7 +1266,7 @@
       "who": "me",
       "de": "Stricken? Na gut. Du musst höflich sein!",
       "en": "Knitting? Well, all right. You must be polite!",
-      "ko": "뜨개질이요? 뭐, 좋아요. 예의 바르게 해야 해요!",
+      "ko": "뜨개질? 뭐, 좋아. 예의 바르게 해야 해!",
       "focus": {
        "de": [
         "musst"
@@ -1269,7 +1275,7 @@
         "must be"
        ],
        "ko": [
-        "해야 해요"
+        "해야 해"
        ]
       },
       "wrong": {
@@ -1287,8 +1293,8 @@
        ],
        "ko": [
         [
-         "해야 하요",
-         "하야 해요"
+         "해야 하",
+         "하야 해"
         ]
        ]
       }
@@ -1299,7 +1305,10 @@
      "müssen"
     ],
     "grammar": "II.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1609,7 +1618,7 @@
       "who": "me",
       "de": "Ich weiß. Was schreibst du gerade?",
       "en": "I know. What are you writing right now?",
-      "ko": "알아요. 지금은 뭘 쓰고 있어요?",
+      "ko": "알아. 지금은 뭘 쓰고 있어?",
       "focus": {
        "de": [
         "schreibst du"
@@ -1618,7 +1627,7 @@
         "are you writing"
        ],
        "ko": [
-        "쓰고 있어요"
+        "쓰고 있어"
        ]
       },
       "wrong": {
@@ -1636,8 +1645,8 @@
        ],
        "ko": [
         [
-         "쓰고 있아요",
-         "써고 있어요"
+         "쓰고 있아",
+         "써고 있어"
         ]
        ]
       }
@@ -1652,7 +1661,7 @@
       "who": "me",
       "de": "Danke, mein Sohn! Das ist lieb von dir.",
       "en": "Thank you, son! That's sweet of you.",
-      "ko": "고마워요, 아들! 마음이 참 따뜻하네요.",
+      "ko": "고마워, 아들! 마음이 참 따뜻하구나.",
       "focus": {
        "de": [
         "von dir"
@@ -1661,7 +1670,7 @@
         "That's"
        ],
        "ko": [
-        "고마워요"
+        "고마워"
        ]
       },
       "wrong": {
@@ -1679,8 +1688,8 @@
        ],
        "ko": [
         [
-         "고맙어요",
-         "고마와요"
+         "고맙어",
+         "고마와"
         ]
        ]
       }
@@ -1691,7 +1700,10 @@
      "Tochter"
     ],
     "grammar": "II.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2018,7 +2030,7 @@
       "who": "me",
       "de": "Oh nein. Hast du eine Antwort bekommen?",
       "en": "Oh no. Did you get an answer?",
-      "ko": "저런. 답은 받았어요?",
+      "ko": "저런. 답은 받았어?",
       "focus": {
        "de": [
         "bekommen"
@@ -2027,7 +2039,7 @@
         "Did you get"
        ],
        "ko": [
-        "받았어요"
+        "받았어"
        ]
       },
       "wrong": {
@@ -2045,8 +2057,8 @@
        ],
        "ko": [
         [
-         "받었어요",
-         "밭았어요"
+         "받었어",
+         "밭았어"
         ]
        ]
       }
@@ -2061,7 +2073,7 @@
       "who": "me",
       "de": "Das tut mir leid. Aber du darfst nicht aufgeben.",
       "en": "I'm sorry. But you mustn't give up.",
-      "ko": "안됐네요. 그래도 포기하면 안 돼요.",
+      "ko": "안됐구나. 그래도 포기하면 안 돼.",
       "focus": {
        "de": [
         "darfst"
@@ -2070,7 +2082,7 @@
         "mustn't give up"
        ],
        "ko": [
-        "안 돼요"
+        "안 돼"
        ]
       },
       "wrong": {
@@ -2088,8 +2100,8 @@
        ],
        "ko": [
         [
-         "안 되요",
-         "않 돼요"
+         "안 되",
+         "않 돼"
         ]
        ]
       }
@@ -2100,7 +2112,10 @@
      "bekommen"
     ],
     "grammar": "II.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2428,7 +2443,7 @@
       "who": "me",
       "de": "Ein Ausflug? Und was willst du jetzt machen?",
       "en": "A trip? And what do you want to do now?",
-      "ko": "나들이요? 그럼 이제 뭘 하고 싶어요?",
+      "ko": "나들이? 그럼 이제 뭘 하고 싶어?",
       "focus": {
        "de": [
         "willst du"
@@ -2437,7 +2452,7 @@
         "do you want"
        ],
        "ko": [
-        "하고 싶어요"
+        "하고 싶어"
        ]
       },
       "wrong": {
@@ -2455,8 +2470,8 @@
        ],
        "ko": [
         [
-         "하고 싶아요",
-         "하고 십어요"
+         "하고 싶아",
+         "하고 십어"
         ]
        ]
       }
@@ -2471,7 +2486,7 @@
       "who": "me",
       "de": "Ich weiß. Aber ohne feste Stelle ist das schwer.",
       "en": "I know. But without a steady job that's hard.",
-      "ko": "알아요. 하지만 일자리 없이는 쉽지 않아요.",
+      "ko": "알아. 하지만 일자리 없이는 쉽지 않아.",
       "focus": {
        "de": [
         "ohne feste Stelle"
@@ -2480,7 +2495,7 @@
         "that's"
        ],
        "ko": [
-        "쉽지 않아요"
+        "쉽지 않아"
        ]
       },
       "wrong": {
@@ -2498,8 +2513,8 @@
        ],
        "ko": [
         [
-         "쉽지 안아요",
-         "쉽지 않어요"
+         "쉽지 안아",
+         "쉽지 않어"
         ]
        ]
       }
@@ -2510,7 +2525,10 @@
      "schwer"
     ],
     "grammar": "II.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2811,7 +2829,7 @@
       "who": "me",
       "de": "Sei nicht traurig. Es ist nicht deine Schuld.",
       "en": "Don't be sad. It's not your fault.",
-      "ko": "슬퍼하지 마세요. 볼프강 잘못이 아니에요.",
+      "ko": "슬퍼하지 마. 네 잘못이 아니야.",
       "focus": {
        "de": [
         "Sei"
@@ -2820,7 +2838,7 @@
         "Don't be"
        ],
        "ko": [
-        "슬퍼하지 마세요"
+        "슬퍼하지 마"
        ]
       },
       "wrong": {
@@ -2838,8 +2856,8 @@
        ],
        "ko": [
         [
-         "슬퍼하지 마세여",
-         "슬퍼하지 말세요"
+         "슬퍼하지 마어",
+         "슬퍼하지 마러"
         ]
        ]
       }
@@ -2854,7 +2872,7 @@
       "who": "me",
       "de": "Gut. Aber pass auf dich auf und schreib oft!",
       "en": "Good. But take care of yourself and write often!",
-      "ko": "좋아요. 몸 조심하고 편지 자주 써요!",
+      "ko": "좋아. 몸 조심하고 편지 자주 써!",
       "focus": {
        "de": [
         "schreib"
@@ -2863,7 +2881,7 @@
         "take care"
        ],
        "ko": [
-        "써요"
+        "자주 써"
        ]
       },
       "wrong": {
@@ -2881,8 +2899,8 @@
        ],
        "ko": [
         [
-         "쓰어요",
-         "써여"
+         "자주 쓰어",
+         "자주 써어"
         ]
        ]
       }
@@ -2893,7 +2911,10 @@
      "arbeiten"
     ],
     "grammar": "II.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

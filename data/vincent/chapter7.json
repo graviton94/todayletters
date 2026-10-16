@@ -494,13 +494,13 @@
       "who": "them",
       "fr": "Ça va mieux, Théo. Je travaille de nouveau.",
       "en": "I'm better, Theo. I'm working again.",
-      "ko": "좀 나아졌어요, 테오. 다시 일해요."
+      "ko": "좀 나아졌어, 테오. 다시 일해."
      },
      {
       "who": "me",
       "fr": "Super ! Tu travailles sur quoi ?",
       "en": "Great! What are you working on?",
-      "ko": "잘됐어요! 무슨 작업 해요?",
+      "ko": "잘됐다! 무슨 작업 해?",
       "focus": {
        "fr": [
         "Tu travailles"
@@ -509,7 +509,7 @@
         "are you working"
        ],
        "ko": [
-        "해요"
+        "작업 해"
        ]
       },
       "wrong": {
@@ -527,8 +527,8 @@
        ],
        "ko": [
         [
-         "하요",
-         "헤요"
+         "작업 하",
+         "작업 헤"
         ]
        ]
       }
@@ -537,13 +537,13 @@
       "who": "them",
       "fr": "Un faucheur, sous un soleil qui inonde tout d'or.",
       "en": "A reaper, under a sun that floods everything with gold.",
-      "ko": "모든 걸 금빛으로 물들이는 해 아래, 낫질하는 사람이요."
+      "ko": "모든 걸 금빛으로 물들이는 해 아래, 낫질하는 사람."
      },
      {
       "who": "me",
       "fr": "Un soleil qui brille comme ça, ce n'est pas triste.",
       "en": "A sun that shines like that isn't sad.",
-      "ko": "그렇게 빛나는 해라면 슬프지 않겠네요.",
+      "ko": "그렇게 빛나는 해라면 슬프지 않겠다.",
       "focus": {
        "fr": [
         "qui brille"
@@ -582,7 +582,10 @@
      "inonder"
     ],
     "grammar": "VII.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -969,13 +972,13 @@
       "who": "them",
       "fr": "En ce moment, je fais des copies de Millet.",
       "en": "At the moment I'm making copies of Millet.",
-      "ko": "요즘 밀레 그림을 따라 그려요."
+      "ko": "요즘 밀레 그림을 따라 그려."
      },
      {
       "who": "me",
       "fr": "Ah oui ? Tu en as fait combien ?",
       "en": "Oh yes? How many have you done?",
-      "ko": "그래요? 몇 점이나 그렸어요?",
+      "ko": "그래? 몇 점이나 그렸어?",
       "focus": {
        "fr": [
         "Tu en as fait"
@@ -984,7 +987,7 @@
         "have you done"
        ],
        "ko": [
-        "그렸어요"
+        "그렸어"
        ]
       },
       "wrong": {
@@ -1002,8 +1005,8 @@
        ],
        "ko": [
         [
-         "그렷어요",
-         "그리었아요"
+         "그렷어",
+         "그리었아"
         ]
        ]
       }
@@ -1012,13 +1015,13 @@
       "who": "them",
       "fr": "J'en ai sept. Je joue des couleurs comme du violon.",
       "en": "I've got seven. I play colours like a violin.",
-      "ko": "일곱 점이요. 바이올린 켜듯 색을 갖고 놀아요."
+      "ko": "일곱 점. 바이올린 켜듯 색을 갖고 놀아."
      },
      {
       "who": "me",
       "fr": "C'est joli, ça ! Tu m'en envoies une ?",
       "en": "That's lovely! Will you send me one?",
-      "ko": "멋지네요! 하나 보내 줄래요?",
+      "ko": "멋지다! 하나 보내 줄래?",
       "focus": {
        "fr": [
         "Tu m'en envoies"
@@ -1027,7 +1030,7 @@
         "send me one"
        ],
        "ko": [
-        "보내 줄래요"
+        "보내 줄래"
        ]
       },
       "wrong": {
@@ -1045,8 +1048,8 @@
        ],
        "ko": [
         [
-         "보내 주을래요",
-         "보내 줄레요"
+         "보내 주을래",
+         "보내 줄레"
         ]
        ]
       }
@@ -1057,7 +1060,10 @@
      "violon"
     ],
     "grammar": "VII.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1459,13 +1465,13 @@
       "who": "them",
       "fr": "Ce mois-ci, je travaille dans les vergers d'oliviers.",
       "en": "This month I'm working in the olive orchards.",
-      "ko": "이번 달엔 올리브 과수원에서 일해요."
+      "ko": "이번 달엔 올리브 과수원에서 일해."
      },
      {
       "who": "me",
       "fr": "Les oliviers ? C'est un arbre que tu aimes ?",
       "en": "Olive trees? Is it a tree you like?",
-      "ko": "올리브 나무요? 형이 좋아하는 나무예요?",
+      "ko": "올리브 나무? 형이 좋아하는 나무야?",
       "focus": {
        "fr": [
         "que tu aimes"
@@ -1502,13 +1508,13 @@
       "who": "them",
       "fr": "Oui. Ici, c'est l'arbre qui a le caractère du pays.",
       "en": "Yes. Here, it's the tree that has the character of the land.",
-      "ko": "네. 여기선 이 고장의 성격을 가진 나무예요."
+      "ko": "응. 여기선 이 고장의 성격을 가진 나무야."
      },
      {
       "who": "me",
       "fr": "Comme nos saules, chez nous en Hollande !",
       "en": "Like our willows back home in Holland!",
-      "ko": "네덜란드 우리 동네 버드나무처럼요!",
+      "ko": "네덜란드 우리 동네 버드나무처럼!",
       "focus": {
        "fr": [
         "nos saules"
@@ -1517,7 +1523,7 @@
         "our willows"
        ],
        "ko": [
-        "버드나무처럼요"
+        "버드나무처럼"
        ]
       },
       "wrong": {
@@ -1535,8 +1541,8 @@
        ],
        "ko": [
         [
-         "버드나무처름요",
-         "버드나무처러요"
+         "버드나무처름",
+         "버드나무처러"
         ]
        ]
       }
@@ -1548,7 +1554,10 @@
      "caractère"
     ],
     "grammar": "VII.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1942,13 +1951,13 @@
       "who": "them",
       "fr": "Je peins des femmes qui cueillent des olives.",
       "en": "I'm painting women picking olives.",
-      "ko": "올리브 따는 여자들을 그려요."
+      "ko": "올리브 따는 여자들을 그려."
      },
      {
       "who": "me",
       "fr": "C'est dans le verger où tu vas souvent ?",
       "en": "Is it in the orchard where you often go?",
-      "ko": "형이 자주 가는 그 과수원이에요?",
+      "ko": "형이 자주 가는 그 과수원이야?",
       "focus": {
        "fr": [
         "où tu vas"
@@ -1985,13 +1994,13 @@
       "who": "them",
       "fr": "Oui. Je vais la refaire pour Maman et notre sœur.",
       "en": "Yes. I'm going to do it again for Mother and our sister.",
-      "ko": "네. 어머니랑 누이 주려고 한 번 더 그릴 거예요."
+      "ko": "응. 어머니랑 누이 주려고 한 번 더 그릴 거야."
      },
      {
       "who": "me",
       "fr": "Quelle bonne idée ! Elles vont être si contentes.",
       "en": "What a good idea! They'll be so happy.",
-      "ko": "좋은 생각이에요! 정말 기뻐하실 거예요.",
+      "ko": "좋은 생각이야! 정말 기뻐하실 거야.",
       "focus": {
        "fr": [
         "si contentes"
@@ -2000,7 +2009,7 @@
         "so happy"
        ],
        "ko": [
-        "기뻐하실 거예요"
+        "기뻐하실 거야"
        ]
       },
       "wrong": {
@@ -2018,8 +2027,8 @@
        ],
        "ko": [
         [
-         "기뻐하실 것예요",
-         "기쁘하실 거예요"
+         "기뻐하실 것야",
+         "기쁘하실 거야"
         ]
        ]
       }
@@ -2029,7 +2038,10 @@
      "cueillir"
     ],
     "grammar": "VII.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2414,13 +2426,13 @@
       "who": "them",
       "fr": "Hier, j'ai été surpris : Monsieur Salles est venu !",
       "en": "Yesterday I was surprised: Monsieur Salles came!",
-      "ko": "어제 깜짝 놀랐어요. 살 목사님이 찾아왔어요!"
+      "ko": "어제 깜짝 놀랐어. 살 목사님이 찾아왔어!"
      },
      {
       "who": "me",
       "fr": "Ah bon ? Vous avez pu parler un peu ?",
       "en": "Really? Were you able to talk a bit?",
-      "ko": "그래요? 이야기 좀 나눴어요?",
+      "ko": "그래? 이야기 좀 나눴어?",
       "focus": {
        "fr": [
         "Vous avez pu"
@@ -2429,7 +2441,7 @@
         "Were you able"
        ],
        "ko": [
-        "나눴어요"
+        "나눴어"
        ]
       },
       "wrong": {
@@ -2447,8 +2459,8 @@
        ],
        "ko": [
         [
-         "나누었아요",
-         "나눳어요"
+         "나누었아",
+         "나눳어"
         ]
        ]
       }
@@ -2457,13 +2469,13 @@
       "who": "them",
       "fr": "Oui, calmement. C'était un jour où j'allais bien.",
       "en": "Yes, calmly. It was a day when I was well.",
-      "ko": "네, 차분하게요. 마침 몸이 괜찮은 날이었어요."
+      "ko": "응, 차분하게. 마침 몸이 괜찮은 날이었어."
      },
      {
       "who": "me",
       "fr": "Tant mieux. Merci de me le dire.",
       "en": "Good. Thanks for telling me.",
-      "ko": "다행이에요. 알려 줘서 고마워요.",
+      "ko": "다행이다. 알려 줘서 고마워.",
       "focus": {
        "fr": [
         "Merci de"
@@ -2501,7 +2513,10 @@
      "surprendre"
     ],
     "grammar": "VII.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2855,13 +2870,13 @@
       "who": "them",
       "fr": "Bravo, Théo ! Tu es papa ! Et Jo, elle va bien ?",
       "en": "Bravo, Theo! You're a dad! And Jo, is she well?",
-      "ko": "축하해요, 테오! 아빠가 됐네요! 조는 괜찮아요?"
+      "ko": "축하해, 테오! 아빠가 됐구나! 조는 괜찮아?"
      },
      {
       "who": "me",
       "fr": "Oui, ça va. Le petit va bien aussi.",
       "en": "Yes, she's fine. The little one is well too.",
-      "ko": "네, 괜찮아요. 아기도 건강해요.",
+      "ko": "응, 괜찮아. 아기도 건강해.",
       "focus": {
        "fr": [
         "Le petit va bien"
@@ -2870,7 +2885,7 @@
         "is well"
        ],
        "ko": [
-        "건강해요"
+        "건강해"
        ]
       },
       "wrong": {
@@ -2888,8 +2903,8 @@
        ],
        "ko": [
         [
-         "건강하요",
-         "건강헤요"
+         "건강하",
+         "건강헤"
         ]
        ]
       }
@@ -2898,13 +2913,13 @@
       "who": "them",
       "fr": "C'est une joie que je ne peux pas exprimer !",
       "en": "It's a joy I can't put into words!",
-      "ko": "말로 다 못 할 만큼 기뻐요!"
+      "ko": "말로 다 못 할 만큼 기뻐!"
      },
      {
       "who": "me",
       "fr": "Merci, Vincent. C'est un bonheur qu'on partage avec toi.",
       "en": "Thanks, Vincent. It's a joy we share with you.",
-      "ko": "고마워요, 형. 형이랑 같이 나누는 기쁨이에요.",
+      "ko": "고마워, 형. 형이랑 같이 나누는 기쁨이야.",
       "focus": {
        "fr": [
         "qu'on partage"
@@ -2942,7 +2957,10 @@
      "exprimer"
     ],
     "grammar": "VII.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -3340,13 +3358,13 @@
       "who": "them",
       "fr": "Je finis mes bouquets d'iris, et après, ma malle !",
       "en": "I'm finishing my bunches of irises, and then, my trunk!",
-      "ko": "붓꽃 다발 그림 마무리하고, 그다음엔 짐 싸요!"
+      "ko": "붓꽃 다발 그림 마무리하고, 그다음엔 짐 싸!"
      },
      {
       "who": "me",
       "fr": "Alors tu viens bientôt à Paris ?",
       "en": "So you're coming to Paris soon?",
-      "ko": "그럼 곧 파리에 와요?",
+      "ko": "그럼 곧 파리에 와?",
       "focus": {
        "fr": [
         "tu viens"
@@ -3355,7 +3373,7 @@
         "you're coming"
        ],
        "ko": [
-        "와요"
+        "파리에 와"
        ]
       },
       "wrong": {
@@ -3373,8 +3391,8 @@
        ],
        "ko": [
         [
-         "오아요",
-         "와여"
+         "파리에 오아",
+         "파리애 와"
         ]
        ]
       }
@@ -3383,13 +3401,13 @@
       "who": "them",
       "fr": "Oui ! J'ai envie de vous voir, Jo et le petit.",
       "en": "Yes! I can't wait to see you, Jo and the little one.",
-      "ko": "네! 테오랑 조, 아기가 보고 싶어요."
+      "ko": "응! 너랑 조, 아기가 보고 싶어."
      },
      {
       "who": "me",
       "fr": "On t'attend ! Tu y arrives quand ?",
       "en": "We're waiting for you! When do you get there?",
-      "ko": "기다릴게요! 언제 도착해요?",
+      "ko": "기다릴게! 언제 도착해?",
       "focus": {
        "fr": [
         "Tu y arrives"
@@ -3398,7 +3416,7 @@
         "do you get there"
        ],
        "ko": [
-        "도착해요"
+        "도착해"
        ]
       },
       "wrong": {
@@ -3416,8 +3434,8 @@
        ],
        "ko": [
         [
-         "도착하요",
-         "도착헤요"
+         "도착하",
+         "도착헤"
         ]
        ]
       }
@@ -3428,7 +3446,10 @@
      "malle"
     ],
     "grammar": "VII.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

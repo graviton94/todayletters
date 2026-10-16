@@ -546,7 +546,7 @@
       "who": "me",
       "de": "Wirklich? In wen denn?",
       "en": "Really? With whom?",
-      "ko": "정말요? 누구랑요?",
+      "ko": "정말? 누구랑?",
       "focus": {
        "de": [
         "wen"
@@ -555,7 +555,7 @@
         "whom"
        ],
        "ko": [
-        "누구랑요"
+        "누구랑"
        ]
       },
       "wrong": {
@@ -573,8 +573,8 @@
        ],
        "ko": [
         [
-         "누구랑이요",
-         "누구과요"
+         "누구과",
+         "누구랑이"
         ]
        ]
       }
@@ -589,7 +589,7 @@
       "who": "me",
       "de": "Hm. Und wovon wollt ihr leben?",
       "en": "Hm. And what are you going to live on?",
-      "ko": "음. 그럼 뭘로 먹고살 거예요?",
+      "ko": "음. 그럼 뭘로 먹고살 거야?",
       "focus": {
        "de": [
         "wollt ihr"
@@ -598,7 +598,7 @@
         "going to live"
        ],
        "ko": [
-        "먹고살 거예요"
+        "먹고살 거야"
        ]
       },
       "wrong": {
@@ -616,8 +616,8 @@
        ],
        "ko": [
         [
-         "먹고살 거에요",
-         "먹고살 꺼예요"
+         "먹고살 꺼야",
+         "먹고살 거이야"
         ]
        ]
       }
@@ -627,7 +627,10 @@
      "schwarz"
     ],
     "grammar": "VI.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1047,7 +1050,7 @@
       "who": "me",
       "de": "Hast du schon eine Idee? Vielleicht beim Kaiser?",
       "en": "Do you have an idea yet? Maybe with the Emperor?",
-      "ko": "생각해 둔 데 있어요? 황제 쪽은 어때요?",
+      "ko": "생각해 둔 데 있어? 황제 쪽은 어때?",
       "focus": {
        "de": [
         "Hast du"
@@ -1056,7 +1059,7 @@
         "Do you have"
        ],
        "ko": [
-        "어때요"
+        "어때"
        ]
       },
       "wrong": {
@@ -1074,8 +1077,8 @@
        ],
        "ko": [
         [
-         "어떼요",
-         "어떠요"
+         "어떼",
+         "어떠"
         ]
        ]
       }
@@ -1090,7 +1093,7 @@
       "who": "me",
       "de": "Das stimmt. Überleg dir alles gut.",
       "en": "That's true. Think it all through carefully.",
-      "ko": "맞아요. 모든 걸 잘 생각해 봐요.",
+      "ko": "맞아. 모든 걸 잘 생각해 봐.",
       "focus": {
        "de": [
         "Überleg dir"
@@ -1099,7 +1102,7 @@
         "Think"
        ],
        "ko": [
-        "생각해 봐요"
+        "생각해 봐"
        ]
       },
       "wrong": {
@@ -1117,8 +1120,8 @@
        ],
        "ko": [
         [
-         "생각해 바요",
-         "생각하 봐요"
+         "생각해 바",
+         "생각하 봐"
         ]
        ]
       }
@@ -1128,7 +1131,10 @@
      "Versprechen"
     ],
     "grammar": "VI.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1546,13 +1552,13 @@
       "who": "them",
       "de": "Hallo Nannerl! Hast du die Fuge bekommen?",
       "en": "Hi Nannerl! Did you get the fugue?",
-      "ko": "안녕하세요, 누나! 푸가 받았어요?"
+      "ko": "안녕, 누나! 푸가 받았어?"
      },
      {
       "who": "me",
       "de": "Ja, danke! Für wen hast du sie geschrieben?",
       "en": "Yes, thanks! Who did you write it for?",
-      "ko": "네, 고마워요! 누구를 위해 쓴 거예요?",
+      "ko": "응, 고마워! 누구를 위해 쓴 거야?",
       "focus": {
        "de": [
         "Für wen"
@@ -1561,7 +1567,7 @@
         "did you write"
        ],
        "ko": [
-        "쓴 거예요"
+        "쓴 거야"
        ]
       },
       "wrong": {
@@ -1579,8 +1585,8 @@
        ],
        "ko": [
         [
-         "쓴 거에요",
-         "써은 거예요"
+         "쓴 거이야",
+         "써은 거야"
         ]
        ]
       }
@@ -1589,13 +1595,13 @@
       "who": "them",
       "de": "Für Constanze. Sie fragte mich jeden Tag danach.",
       "en": "For Constanze. She asked me for it every day.",
-      "ko": "콘스탄체요. 날마다 써 달라고 했어요."
+      "ko": "콘스탄체. 날마다 써 달라고 했어."
      },
      {
       "who": "me",
       "de": "Wie süß! Wie schnell soll ich sie spielen?",
       "en": "How sweet! How fast should I play it?",
-      "ko": "귀엽네요! 얼마나 빠르게 치면 돼요?",
+      "ko": "귀엽다! 얼마나 빠르게 치면 돼?",
       "focus": {
        "de": [
         "soll ich"
@@ -1604,7 +1610,7 @@
         "should I play"
        ],
        "ko": [
-        "치면 돼요"
+        "치면 돼"
        ]
       },
       "wrong": {
@@ -1622,8 +1628,8 @@
        ],
        "ko": [
         [
-         "치면 되요",
-         "쳐면 돼요"
+         "치면 되",
+         "쳐면 돼"
         ]
        ]
       }
@@ -1633,7 +1639,10 @@
      "Fuge"
     ],
     "grammar": "VI.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2062,7 +2071,7 @@
       "who": "me",
       "de": "Super! Und wie war der zweite Abend?",
       "en": "Great! And how was the second night?",
-      "ko": "잘됐네요! 두 번째 공연은 어땠어요?",
+      "ko": "잘됐구나! 두 번째 공연은 어땠어?",
       "focus": {
        "de": [
         "war"
@@ -2071,7 +2080,7 @@
         "how was"
        ],
        "ko": [
-        "어땠어요"
+        "어땠어"
        ]
       },
       "wrong": {
@@ -2089,8 +2098,8 @@
        ],
        "ko": [
         [
-         "어땟어요",
-         "어떴어요"
+         "어땟어",
+         "어떴어"
         ]
        ]
       }
@@ -2105,7 +2114,7 @@
       "who": "me",
       "de": "Das verstehe ich. Aber bleib ruhig, mein Sohn.",
       "en": "I understand. But stay calm, son.",
-      "ko": "이해해요. 그래도 침착해요, 아들.",
+      "ko": "이해한다. 그래도 침착해라, 아들아.",
       "focus": {
        "de": [
         "bleib"
@@ -2114,7 +2123,7 @@
         "stay calm"
        ],
        "ko": [
-        "침착해요"
+        "침착해라"
        ]
       },
       "wrong": {
@@ -2132,8 +2141,8 @@
        ],
        "ko": [
         [
-         "침착하요",
-         "침착헤요"
+         "침착해러",
+         "침착헤라"
         ]
        ]
       }
@@ -2144,7 +2153,10 @@
      "Wut"
     ],
     "grammar": "VI.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2587,7 +2599,7 @@
       "who": "me",
       "de": "Toll! Gab es viel Beifall?",
       "en": "Great! Was there lots of applause?",
-      "ko": "대단해요! 박수도 많이 받았어요?",
+      "ko": "대단하구나! 박수도 많이 받았어?",
       "focus": {
        "de": [
         "Gab es"
@@ -2596,7 +2608,7 @@
         "Was there"
        ],
        "ko": [
-        "받았어요"
+        "받았어"
        ]
       },
       "wrong": {
@@ -2614,8 +2626,8 @@
        ],
        "ko": [
         [
-         "받었어요",
-         "밭았어요"
+         "받었어",
+         "밭았어"
         ]
        ]
       }
@@ -2630,7 +2642,7 @@
       "who": "me",
       "de": "Ich muss darüber nachdenken. Sei nicht so unruhig.",
       "en": "I need to think about it. Don't be so restless.",
-      "ko": "생각해 봐야 해요. 너무 조급해하지 마세요.",
+      "ko": "생각해 봐야 해. 너무 조급해하지 마라.",
       "focus": {
        "de": [
         "nachdenken"
@@ -2639,7 +2651,7 @@
         "need to think"
        ],
        "ko": [
-        "봐야 해요"
+        "봐야 해"
        ]
       },
       "wrong": {
@@ -2657,8 +2669,8 @@
        ],
        "ko": [
         [
-         "바야 해요",
-         "봐야 하요"
+         "바야 해",
+         "봐야 하"
         ]
        ]
       }
@@ -2669,7 +2681,10 @@
      "Beifall"
     ],
     "grammar": "VI.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -3108,7 +3123,7 @@
       "who": "me",
       "de": "Ohne meinen Brief? Na ja, er kam einen Tag später.",
       "en": "Without my letter? Well, it came a day later.",
-      "ko": "내 편지도 없이요? 뭐, 하루 늦게 도착했죠.",
+      "ko": "내 편지도 없이? 뭐, 하루 늦게 도착했지.",
       "focus": {
        "de": [
         "kam"
@@ -3117,7 +3132,7 @@
         "it came"
        ],
        "ko": [
-        "도착했죠"
+        "도착했지"
        ]
       },
       "wrong": {
@@ -3135,8 +3150,8 @@
        ],
        "ko": [
         [
-         "도착햇죠",
-         "도착했조"
+         "도착햇지",
+         "도착했찌"
         ]
        ]
       }
@@ -3151,7 +3166,7 @@
       "who": "me",
       "de": "Schon gut. Ich gratuliere euch von Herzen.",
       "en": "It's all right. Congratulations to you both, from my heart.",
-      "ko": "괜찮아요. 진심으로 축하해요.",
+      "ko": "괜찮다. 진심으로 축하한다.",
       "focus": {
        "de": [
         "gratuliere euch"
@@ -3160,7 +3175,7 @@
         "Congratulations"
        ],
        "ko": [
-        "축하해요"
+        "축하한다"
        ]
       },
       "wrong": {
@@ -3178,8 +3193,8 @@
        ],
        "ko": [
         [
-         "축하하요",
-         "추카해요"
+         "축하한따",
+         "추카한다"
         ]
        ]
       }
@@ -3189,7 +3204,10 @@
      "reisen"
     ],
     "grammar": "VI.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -3593,7 +3611,7 @@
       "who": "me",
       "de": "Gern geschehen. Was gibt es Neues bei euch?",
       "en": "You're welcome. What's new with you?",
-      "ko": "천만에요. 요즘 새로운 일 있어요?",
+      "ko": "고맙긴. 요즘 새로운 일 있어?",
       "focus": {
        "de": [
         "bei euch"
@@ -3602,7 +3620,7 @@
         "What's new"
        ],
        "ko": [
-        "있어요"
+        "있어"
        ]
       },
       "wrong": {
@@ -3620,8 +3638,8 @@
        ],
        "ko": [
         [
-         "있아요",
-         "잇어요"
+         "있아",
+         "잇어"
         ]
        ]
       }
@@ -3636,7 +3654,7 @@
       "who": "me",
       "de": "Toll! Bald liest du englische Bücher.",
       "en": "Great! Soon you'll be reading English books.",
-      "ko": "대단해요! 곧 영어책도 읽겠네요.",
+      "ko": "대단하구나! 곧 영어책도 읽겠네.",
       "focus": {
        "de": [
         "liest du"
@@ -3645,7 +3663,7 @@
         "you'll be reading"
        ],
        "ko": [
-        "읽겠네요"
+        "읽겠네"
        ]
       },
       "wrong": {
@@ -3663,8 +3681,8 @@
        ],
        "ko": [
         [
-         "읽겟네요",
-         "일겠네요"
+         "읽겟네",
+         "일겠네"
         ]
        ]
       }
@@ -3674,7 +3692,10 @@
      "Segen"
     ],
     "grammar": "VI.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

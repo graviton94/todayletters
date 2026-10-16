@@ -235,13 +235,13 @@
       "who": "them",
       "fr": "Tu sais, Théo, mes tableaux parlent pour moi.",
       "en": "You know, Theo, my paintings speak for me.",
-      "ko": "있잖아요, 테오. 제 그림이 저 대신 말해요."
+      "ko": "있잖아, 테오. 내 그림이 나 대신 말해."
      },
      {
       "who": "me",
       "fr": "Je sais. Et ils parlent bien.",
       "en": "I know. And they speak well.",
-      "ko": "알아요. 그리고 아주 잘 말해요.",
+      "ko": "알아. 그리고 아주 잘 말해.",
       "focus": {
        "fr": [
         "ils parlent"
@@ -250,7 +250,7 @@
         "they speak"
        ],
        "ko": [
-        "말해요"
+        "말해"
        ]
       },
       "wrong": {
@@ -268,8 +268,8 @@
        ],
        "ko": [
         [
-         "말하요",
-         "말헤요"
+         "말하",
+         "말헤"
         ]
        ]
       }
@@ -278,13 +278,13 @@
       "who": "them",
       "fr": "Tu es plus qu'un marchand : ils sont aussi à toi.",
       "en": "You're more than a dealer: they're yours too.",
-      "ko": "테오는 그냥 화상이 아니에요. 그림은 테오 것이기도 해요."
+      "ko": "너는 그냥 화상이 아니야. 그림은 네 것이기도 해."
      },
      {
       "who": "me",
       "fr": "Merci, Vincent. Je suis heureux que tu dises ça.",
       "en": "Thank you, Vincent. I'm happy you say that.",
-      "ko": "고마워요, 형. 그렇게 말해 줘서 행복해요.",
+      "ko": "고마워, 형. 그렇게 말해 줘서 행복해.",
       "focus": {
        "fr": [
         "que tu dises"
@@ -322,7 +322,10 @@
      "marchand"
     ],
     "grammar": "VIII.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

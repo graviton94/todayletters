@@ -502,7 +502,7 @@
       "who": "me",
       "de": "Gott sei Dank! Wie war die Fahrt?",
       "en": "Thank God! How was the trip?",
-      "ko": "다행이에요! 오는 길은 어땠어요?",
+      "ko": "다행이다! 오는 길은 어땠어?",
       "focus": {
        "de": [
         "war"
@@ -511,7 +511,7 @@
         "How was"
        ],
        "ko": [
-        "어땠어요"
+        "어땠어"
        ]
       },
       "wrong": {
@@ -529,8 +529,8 @@
        ],
        "ko": [
         [
-         "어땟어요",
-         "어떴어요"
+         "어땟어",
+         "어떴어"
         ]
        ]
       }
@@ -545,7 +545,7 @@
       "who": "me",
       "de": "Ruh dich aus! Ich wünsche euch viel Glück in Paris.",
       "en": "Get some rest! I wish you lots of luck in Paris.",
-      "ko": "푹 쉬어요! 파리에서 행운을 빌어요.",
+      "ko": "푹 쉬어! 파리에서 행운을 빈다.",
       "focus": {
        "de": [
         "wünsche euch"
@@ -554,7 +554,7 @@
         "I wish you"
        ],
        "ko": [
-        "빌어요"
+        "빈다"
        ]
       },
       "wrong": {
@@ -572,8 +572,8 @@
        ],
        "ko": [
         [
-         "빌아요",
-         "빌여요"
+         "빌다",
+         "빈따"
         ]
        ]
       }
@@ -584,7 +584,10 @@
      "wünschen"
     ],
     "grammar": "III.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -944,7 +947,7 @@
       "who": "me",
       "de": "Oh nein! Und was ist dann passiert?",
       "en": "Oh no! And then what happened?",
-      "ko": "저런! 그다음엔 어떻게 됐어요?",
+      "ko": "저런! 그다음엔 어떻게 됐어?",
       "focus": {
        "de": [
         "passiert"
@@ -953,7 +956,7 @@
         "happened"
        ],
        "ko": [
-        "됐어요"
+        "됐어"
        ]
       },
       "wrong": {
@@ -971,8 +974,8 @@
        ],
        "ko": [
         [
-         "됬어요",
-         "됐아요"
+         "됬어",
+         "됐아"
         ]
        ]
       }
@@ -987,7 +990,7 @@
       "who": "me",
       "de": "Du Armer! Trink jetzt einen heißen Tee.",
       "en": "Poor you! Have a hot tea now.",
-      "ko": "아이고, 고생했어요! 지금 따뜻한 차 한잔 마셔요.",
+      "ko": "아이고, 고생했다! 지금 따뜻한 차 한잔 마셔.",
       "focus": {
        "de": [
         "einen heißen Tee"
@@ -996,7 +999,7 @@
         "Have"
        ],
        "ko": [
-        "마셔요"
+        "마셔"
        ]
       },
       "wrong": {
@@ -1014,8 +1017,8 @@
        ],
        "ko": [
         [
-         "마시요",
-         "마셔여"
+         "마시",
+         "마셔어"
         ]
        ]
       }
@@ -1026,7 +1029,10 @@
      "eiskalt"
     ],
     "grammar": "III.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1413,7 +1419,7 @@
       "who": "me",
       "de": "Oh Gott. Hast du einen Arzt geholt?",
       "en": "Oh God. Have you called a doctor?",
-      "ko": "세상에. 의사는 불렀어요?",
+      "ko": "세상에. 의사는 불렀어?",
       "focus": {
        "de": [
         "geholt"
@@ -1422,7 +1428,7 @@
         "Have you called"
        ],
        "ko": [
-        "불렀어요"
+        "불렀어"
        ]
       },
       "wrong": {
@@ -1440,8 +1446,8 @@
        ],
        "ko": [
         [
-         "불럿어요",
-         "부렀어요"
+         "불럿어",
+         "부렀어"
         ]
        ]
       }
@@ -1456,7 +1462,7 @@
       "who": "me",
       "de": "Natürlich. Und achte auch auf deine Gesundheit.",
       "en": "Of course. And look after your own health too.",
-      "ko": "물론이에요. 볼프강도 건강 잘 챙겨요.",
+      "ko": "물론이지. 너도 건강 잘 챙겨.",
       "focus": {
        "de": [
         "auf deine Gesundheit"
@@ -1465,7 +1471,7 @@
         "look after"
        ],
        "ko": [
-        "챙겨요"
+        "챙겨"
        ]
       },
       "wrong": {
@@ -1483,8 +1489,8 @@
        ],
        "ko": [
         [
-         "챙기요",
-         "챙겨여"
+         "챙기",
+         "챙겨어"
         ]
        ]
       }
@@ -1495,7 +1501,10 @@
      "Gesundheit"
     ],
     "grammar": "III.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1837,7 +1846,7 @@
       "who": "me",
       "de": "Ich habe deinen Brief gelesen und geweint. Wie geht's dir?",
       "en": "I read your letter and cried. How are you?",
-      "ko": "편지 읽고 울었어요. 볼프강은 좀 어때요?",
+      "ko": "편지 읽고 울었다. 너는 좀 어떠니?",
       "focus": {
        "de": [
         "geweint"
@@ -1846,7 +1855,7 @@
         "cried"
        ],
        "ko": [
-        "울었어요"
+        "울었다"
        ]
       },
       "wrong": {
@@ -1864,8 +1873,8 @@
        ],
        "ko": [
         [
-         "울엇어요",
-         "울았어요"
+         "울엇다",
+         "울았다"
         ]
        ]
       }
@@ -1880,7 +1889,7 @@
       "who": "me",
       "de": "Gut. Eines Tages sehen wir sie wieder.",
       "en": "Good. One day we'll see her again.",
-      "ko": "다행이에요. 언젠가 엄마를 다시 만날 거예요.",
+      "ko": "다행이구나. 언젠가 엄마를 다시 만날 거야.",
       "focus": {
        "de": [
         "sehen wir"
@@ -1889,7 +1898,7 @@
         "we'll see"
        ],
        "ko": [
-        "만날 거예요"
+        "만날 거야"
        ]
       },
       "wrong": {
@@ -1907,8 +1916,8 @@
        ],
        "ko": [
         [
-         "만날 거에요",
-         "만날 꺼예요"
+         "만날 거이야",
+         "만날 꺼야"
         ]
        ]
       }
@@ -1919,7 +1928,10 @@
      "wiedersehen"
     ],
     "grammar": "III.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2300,7 +2312,7 @@
       "who": "me",
       "de": "Schon gut. Wo bist du denn?",
       "en": "That's fine. Where are you?",
-      "ko": "괜찮아요. 지금 어디예요?",
+      "ko": "괜찮아. 지금 어디야?",
       "focus": {
        "de": [
         "bist du"
@@ -2309,7 +2321,7 @@
         "Where are you"
        ],
        "ko": [
-        "어디예요"
+        "어디야"
        ]
       },
       "wrong": {
@@ -2327,8 +2339,8 @@
        ],
        "ko": [
         [
-         "어디이에요",
-         "어디에요"
+         "어디이야",
+         "어디여"
         ]
        ]
       }
@@ -2343,7 +2355,7 @@
       "who": "me",
       "de": "Wie schön! Grüß ihn herzlich von mir.",
       "en": "How lovely! Give him my warm regards.",
-      "ko": "정말 반갑네요! 내 안부도 꼭 전해 줘요.",
+      "ko": "정말 반갑구나! 내 안부도 꼭 전해 줘.",
       "focus": {
        "de": [
         "ihn"
@@ -2352,7 +2364,7 @@
         "Give him"
        ],
        "ko": [
-        "전해 줘요"
+        "전해 줘"
        ]
       },
       "wrong": {
@@ -2370,8 +2382,8 @@
        ],
        "ko": [
         [
-         "전해 쥐요",
-         "전하 줘요"
+         "전해 쥐",
+         "전하 줘"
         ]
        ]
       }
@@ -2381,7 +2393,10 @@
      "Eile"
     ],
     "grammar": "III.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2725,7 +2740,7 @@
       "who": "me",
       "de": "Danke, grüß ihn auch! Hast du meinen Brief schon gelesen?",
       "en": "Thanks, say hi back! Have you read my letter yet?",
-      "ko": "고마워요, 나도 안부 전해 줘요! 내 편지는 벌써 읽었어요?",
+      "ko": "고맙구나, 나도 안부 전해 줘! 내 편지는 벌써 읽었니?",
       "focus": {
        "de": [
         "schon gelesen"
@@ -2734,7 +2749,7 @@
         "Have you read"
        ],
        "ko": [
-        "벌써 읽었어요"
+        "벌써 읽었니"
        ]
       },
       "wrong": {
@@ -2752,8 +2767,8 @@
        ],
        "ko": [
         [
-         "벌써 읽엇어요",
-         "벌써 읽였어요"
+         "벌써 읽엇니",
+         "벌써 읽였니"
         ]
        ]
       }
@@ -2768,7 +2783,7 @@
       "who": "me",
       "de": "Schön! Nannerl und ich küssen dich. Komm bald!",
       "en": "Lovely! Nannerl and I send kisses. Come soon!",
-      "ko": "좋아요! 난네를이랑 나랑 뽀뽀를 보내요. 빨리 와요!",
+      "ko": "좋아! 난네를이랑 나랑 뽀뽀를 보낸다. 빨리 와!",
       "focus": {
        "de": [
         "küssen dich"
@@ -2777,7 +2792,7 @@
         "send kisses"
        ],
        "ko": [
-        "보내요"
+        "보낸다"
        ]
       },
       "wrong": {
@@ -2795,8 +2810,8 @@
        ],
        "ko": [
         [
-         "보내아요",
-         "보내여"
+         "보낸따",
+         "보내다"
         ]
        ]
       }
@@ -2806,7 +2821,10 @@
      "küssen"
     ],
     "grammar": "III.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -3163,7 +3181,7 @@
       "who": "me",
       "de": "Gut! Wann bist du wieder in Salzburg?",
       "en": "Good! When will you be back in Salzburg?",
-      "ko": "잘했어요! 잘츠부르크에는 언제 와요?",
+      "ko": "잘했다! 잘츠부르크에는 언제 와?",
       "focus": {
        "de": [
         "bist du"
@@ -3172,7 +3190,7 @@
         "When will you be"
        ],
        "ko": [
-        "와요"
+        "언제 와"
        ]
       },
       "wrong": {
@@ -3190,8 +3208,8 @@
        ],
        "ko": [
         [
-         "오아요",
-         "와여"
+         "언제 오아",
+         "언재 와"
         ]
        ]
       }
@@ -3206,7 +3224,7 @@
       "who": "me",
       "de": "Keine Angst! Wir lachen bald wieder zusammen.",
       "en": "Don't be afraid! We'll laugh together again soon.",
-      "ko": "걱정 마세요! 곧 다시 같이 웃을 거예요.",
+      "ko": "걱정 마! 곧 다시 같이 웃을 거야.",
       "focus": {
        "de": [
         "lachen"
@@ -3215,7 +3233,7 @@
         "We'll laugh"
        ],
        "ko": [
-        "웃을 거예요"
+        "웃을 거야"
        ]
       },
       "wrong": {
@@ -3233,8 +3251,8 @@
        ],
        "ko": [
         [
-         "웃을 거에요",
-         "우슬 거예요"
+         "웃을 꺼야",
+         "우슬 거야"
         ]
        ]
       }
@@ -3244,7 +3262,10 @@
      "lachen"
     ],
     "grammar": "III.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]

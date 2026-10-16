@@ -488,13 +488,13 @@
       "who": "them",
       "fr": "Ici, le jardin avec ses grands pins me suffit.",
       "en": "Here, the garden with its big pines is enough for me.",
-      "ko": "여기선 큰 소나무가 있는 정원만으로 충분해요."
+      "ko": "여기선 큰 소나무가 있는 정원만으로 충분해."
      },
      {
       "who": "me",
       "fr": "Et ta chambre, elle est comment ?",
       "en": "And your room, what's it like?",
-      "ko": "방은 어때요?",
+      "ko": "방은 어때?",
       "focus": {
        "fr": [
         "elle est comment"
@@ -503,7 +503,7 @@
         "what's it like"
        ],
        "ko": [
-        "어때요"
+        "어때"
        ]
       },
       "wrong": {
@@ -521,8 +521,8 @@
        ],
        "ko": [
         [
-         "어떼요",
-         "어때여"
+         "어떼",
+         "어떠"
         ]
        ]
       }
@@ -531,13 +531,13 @@
       "who": "them",
       "fr": "Petite, avec des rideaux verts et une fenêtre.",
       "en": "Small, with green curtains and a window.",
-      "ko": "작아요. 초록 커튼에 창문이 하나 있어요."
+      "ko": "작아. 초록 커튼에 창문이 하나 있어."
      },
      {
       "who": "me",
       "fr": "Si tu veux des livres, je t'en enverrai.",
       "en": "If you want some books, I'll send you some.",
-      "ko": "책 필요하면 보내 줄게요.",
+      "ko": "책 필요하면 보내 줄게.",
       "focus": {
        "fr": [
         "je t'en enverrai"
@@ -577,7 +577,10 @@
      "suffire"
     ],
     "grammar": "VI.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -962,13 +965,13 @@
       "who": "them",
       "fr": "Théo, je voudrais quelques brosses ordinaires, s'il te plaît.",
       "en": "Theo, I'd like a few ordinary brushes, please.",
-      "ko": "테오, 보통 붓 몇 자루 부탁해요."
+      "ko": "테오, 보통 붓 몇 자루 부탁해."
      },
      {
       "who": "me",
       "fr": "Bien sûr. Tu voudrais autre chose ?",
       "en": "Of course. Would you like anything else?",
-      "ko": "물론이죠. 다른 것도 필요해요?",
+      "ko": "물론이지. 다른 것도 필요해?",
       "focus": {
        "fr": [
         "Tu voudrais"
@@ -977,7 +980,7 @@
         "Would you like"
        ],
        "ko": [
-        "필요해요"
+        "필요해"
        ]
       },
       "wrong": {
@@ -995,8 +998,8 @@
        ],
        "ko": [
         [
-         "필요하요",
-         "필요해여"
+         "필요하",
+         "필요해어"
         ]
        ]
       }
@@ -1005,13 +1008,13 @@
       "who": "them",
       "fr": "Oui, cinq mètres de toile, si c'est possible.",
       "en": "Yes, five metres of canvas, if possible.",
-      "ko": "네, 가능하면 캔버스 천 5미터요."
+      "ko": "응, 가능하면 캔버스 천 5미터."
      },
      {
       "who": "me",
       "fr": "D'accord, je t'envoie tout ça cette semaine.",
       "en": "OK, I'll send you all that this week.",
-      "ko": "알았어요, 이번 주에 다 보낼게요.",
+      "ko": "알았어, 이번 주에 다 보낼게.",
       "focus": {
        "fr": [
         "je t'envoie"
@@ -1020,7 +1023,7 @@
         "I'll send you"
        ],
        "ko": [
-        "보낼게요"
+        "보낼게"
        ]
       },
       "wrong": {
@@ -1038,8 +1041,8 @@
        ],
        "ko": [
         [
-         "보낼께요",
-         "보낸게요"
+         "보낼께",
+         "보낸게"
         ]
        ]
       }
@@ -1050,7 +1053,10 @@
      "ordinaire"
     ],
     "grammar": "VI.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1455,13 +1461,13 @@
       "who": "them",
       "fr": "Merci pour le colis : les toiles, le tabac, le chocolat !",
       "en": "Thanks for the parcel: the canvases, the tobacco, the chocolate!",
-      "ko": "소포 고마워요. 캔버스, 담배, 초콜릿까지요!"
+      "ko": "소포 고마워. 캔버스, 담배, 초콜릿까지!"
      },
      {
       "who": "me",
       "fr": "De rien. Tu peins quoi en ce moment ?",
       "en": "You're welcome. What are you painting at the moment?",
-      "ko": "천만에요. 요즘 뭘 그려요?",
+      "ko": "천만에. 요즘 뭘 그려?",
       "focus": {
        "fr": [
         "Tu peins quoi"
@@ -1470,7 +1476,7 @@
         "What are you painting"
        ],
        "ko": [
-        "그려요"
+        "그려"
        ]
       },
       "wrong": {
@@ -1488,8 +1494,8 @@
        ],
        "ko": [
         [
-         "그리요",
-         "그러요"
+         "그리",
+         "그러"
         ]
        ]
       }
@@ -1498,13 +1504,13 @@
       "who": "them",
       "fr": "Un champ de blé, couché par l'orage.",
       "en": "A wheat field, flattened by the storm.",
-      "ko": "폭풍에 쓰러진 밀밭이요."
+      "ko": "폭풍에 쓰러진 밀밭."
      },
      {
       "who": "me",
       "fr": "Si j'étais avec toi, j'aimerais bien voir ça !",
       "en": "If I were with you, I'd love to see that!",
-      "ko": "제가 거기 있으면 꼭 보고 싶을 거예요!",
+      "ko": "내가 거기 있으면 꼭 보고 싶을 거야!",
       "focus": {
        "fr": [
         "Si j'étais"
@@ -1544,7 +1550,10 @@
      "tabac"
     ],
     "grammar": "VI.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -1912,13 +1921,13 @@
       "who": "them",
       "fr": "J'ai un paysage d'oliviers et un nouveau ciel étoilé.",
       "en": "I have a landscape with olive trees and a new starry sky.",
-      "ko": "올리브 나무 풍경이랑 새 별밤 그림이 있어요."
+      "ko": "올리브 나무 풍경이랑 새 별밤 그림이 있어."
      },
      {
       "who": "me",
       "fr": "Super ! Tu as besoin de quelque chose ?",
       "en": "Great! Do you need anything?",
-      "ko": "좋아요! 필요한 거 있어요?",
+      "ko": "좋다! 필요한 거 있어?",
       "focus": {
        "fr": [
         "Tu as besoin"
@@ -1927,7 +1936,7 @@
         "Do you need"
        ],
        "ko": [
-        "있어요"
+        "있어"
        ]
       },
       "wrong": {
@@ -1945,8 +1954,8 @@
        ],
        "ko": [
         [
-         "있아요",
-         "있요"
+         "있아",
+         "잇어"
         ]
        ]
       }
@@ -1955,13 +1964,13 @@
       "who": "them",
       "fr": "Je voudrais un Shakespeare, pour lire de temps en temps.",
       "en": "I'd like a Shakespeare, to read now and then.",
-      "ko": "셰익스피어 책이 있으면 좋겠어요. 가끔 읽게요."
+      "ko": "셰익스피어 책이 있으면 좋겠어. 가끔 읽게."
      },
      {
       "who": "me",
       "fr": "Si je le trouve, je te l'enverrai vite.",
       "en": "If I find it, I'll send it to you quickly.",
-      "ko": "찾으면 바로 보내 줄게요.",
+      "ko": "찾으면 바로 보내 줄게.",
       "focus": {
        "fr": [
         "je te l'enverrai"
@@ -1999,7 +2008,10 @@
      "paysage"
     ],
     "grammar": "VI.1",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2405,13 +2417,13 @@
       "who": "them",
       "fr": "Il fait une belle chaleur. J'ai douze toiles en cours !",
       "en": "It's lovely and hot. I've got twelve canvases on the go!",
-      "ko": "날이 따뜻해요. 그리는 그림이 열두 점이에요!"
+      "ko": "날이 따뜻해. 그리는 그림이 열두 점이야!"
      },
      {
       "who": "me",
       "fr": "Douze ! Qu'est-ce que tu peins surtout ?",
       "en": "Twelve! What are you painting mostly?",
-      "ko": "열두 점이요! 주로 뭘 그려요?",
+      "ko": "열두 점이나! 주로 뭘 그려?",
       "focus": {
        "fr": [
         "Qu'est-ce que tu peins"
@@ -2420,7 +2432,7 @@
         "What are you painting"
        ],
        "ko": [
-        "그려요"
+        "그려"
        ]
       },
       "wrong": {
@@ -2438,8 +2450,8 @@
        ],
        "ko": [
         [
-         "그리요",
-         "그러요"
+         "그리",
+         "그러"
         ]
        ]
       }
@@ -2448,13 +2460,13 @@
       "who": "them",
       "fr": "Les cyprès. Je voudrais en faire comme mes tournesols.",
       "en": "The cypresses. I'd like to do them like my sunflowers.",
-      "ko": "사이프러스요. 해바라기처럼 그려 보고 싶어요."
+      "ko": "사이프러스. 해바라기처럼 그려 보고 싶어."
      },
      {
       "who": "me",
       "fr": "Si tu les peins comme ça, ce sera magnifique !",
       "en": "If you paint them like that, it'll be wonderful!",
-      "ko": "그렇게 그리면 정말 멋질 거예요!",
+      "ko": "그렇게 그리면 정말 멋질 거야!",
       "focus": {
        "fr": [
         "ce sera"
@@ -2493,7 +2505,10 @@
      "cyprès"
     ],
     "grammar": "VI.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -2884,13 +2899,13 @@
       "who": "them",
       "fr": "Merci beaucoup pour le Shakespeare, Théo !",
       "en": "Thanks so much for the Shakespeare, Theo!",
-      "ko": "셰익스피어 책 정말 고마워요, 테오!"
+      "ko": "셰익스피어 책 정말 고마워, 테오!"
      },
      {
       "who": "me",
       "fr": "Avec plaisir ! Tu travailles sur quoi ?",
       "en": "My pleasure! What are you working on?",
-      "ko": "천만에요! 무슨 작업 해요?",
+      "ko": "천만에! 무슨 작업 해?",
       "focus": {
        "fr": [
         "Avec plaisir"
@@ -2899,7 +2914,7 @@
         "My pleasure"
        ],
        "ko": [
-        "작업 해요"
+        "작업 해"
        ]
       },
       "wrong": {
@@ -2917,8 +2932,8 @@
        ],
        "ko": [
         [
-         "작업 하요",
-         "작업 해여"
+         "작업 하",
+         "작업 해어"
         ]
        ]
       }
@@ -2927,13 +2942,13 @@
       "who": "them",
       "fr": "Un moissonneur dans le blé, sous un grand soleil.",
       "en": "A reaper in the wheat, under a big sun.",
-      "ko": "커다란 해 아래, 밀밭의 농부요."
+      "ko": "커다란 해 아래, 밀밭의 농부."
      },
      {
       "who": "me",
       "fr": "Si j'étais là, je viendrais te regarder peindre !",
       "en": "If I were there, I'd come and watch you paint!",
-      "ko": "제가 거기 있으면 그리는 거 보러 갈 텐데요!",
+      "ko": "내가 거기 있으면 그리는 거 보러 갈 텐데!",
       "focus": {
        "fr": [
         "je viendrais"
@@ -2942,7 +2957,7 @@
         "I'd come"
        ],
        "ko": [
-        "갈 텐데요"
+        "갈 텐데"
        ]
       },
       "wrong": {
@@ -2960,8 +2975,8 @@
        ],
        "ko": [
         [
-         "갈 테데요",
-         "갈 탠데요"
+         "갈 테데",
+         "갈 탠데"
         ]
        ]
       }
@@ -2971,7 +2986,10 @@
      "moissonneur"
     ],
     "grammar": "VI.2",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   },
   {
@@ -3369,13 +3387,13 @@
       "who": "them",
       "fr": "Alors, je vais être oncle ? Quelle bonne nouvelle !",
       "en": "So I'm going to be an uncle? What good news!",
-      "ko": "그럼 저 삼촌이 되는 거예요? 정말 좋은 소식이에요!"
+      "ko": "그럼 나 삼촌이 되는 거야? 정말 좋은 소식이다!"
      },
      {
       "who": "me",
       "fr": "Oui ! Jo et moi, on est très heureux.",
       "en": "Yes! Jo and I are very happy.",
-      "ko": "네! 조랑 저, 정말 행복해요.",
+      "ko": "응! 조랑 나, 정말 행복해.",
       "focus": {
        "fr": [
         "on est"
@@ -3384,7 +3402,7 @@
         "are"
        ],
        "ko": [
-        "행복해요"
+        "행복해"
        ]
       },
       "wrong": {
@@ -3402,8 +3420,8 @@
        ],
        "ko": [
         [
-         "행복하요",
-         "행복헤요"
+         "행복하",
+         "행복헤"
         ]
        ]
       }
@@ -3412,13 +3430,13 @@
       "who": "them",
       "fr": "Je t'envoie un croquis des cigales d'ici.",
       "en": "I'm sending you a sketch of the cicadas here.",
-      "ko": "여기 매미를 그린 스케치 보낼게요."
+      "ko": "여기 매미를 그린 스케치 보낼게."
      },
      {
       "who": "me",
       "fr": "Merci ! Si c'est un garçon, on t'écrira tout de suite.",
       "en": "Thanks! If it's a boy, we'll write to you right away.",
-      "ko": "고마워요! 아들이면 바로 편지할게요.",
+      "ko": "고마워! 아들이면 바로 편지할게.",
       "focus": {
        "fr": [
         "on t'écrira"
@@ -3456,7 +3474,10 @@
      "croquis"
     ],
     "grammar": "VI.0",
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "ko": "tk"
+    }
    }
   }
  ]
