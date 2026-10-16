@@ -81,18 +81,73 @@ object Quote {
 }
 
 /**
+ * 문장 끝이 아닌 마침표: 줄임말 (St. · Mr. · Mrs. · Dr. · M. · Mme · Hr. · Sig. · No. · heil. …), 머리글자 (J. · A.),
+ * 날짜 · 차례의 숫자 (den 3. Juni, 1. Theo). 세 언어 (영어 · 프랑스어 · 독일어) 와 편지에 실제로 나온 꼴을 한 목록에 둔다.
+ * 언어마다 겹치지 않는 꼴이라 (영어 ‘I.’ 만 빼고) 한 목록으로 충분하다.
+ */
+object Abbrev {
+    /** 늘 뒤에 이름 · 낱말이 이어지는 줄임말 (호칭 · 성인 · 칭호). 대소문자 그대로. */
+    val TITLES = setOf(
+        // 영어
+        "Mr", "Mrs", "Ms", "Messrs", "Dr", "St", "Sts", "Mt", "Rev", "Prof", "Capt", "Col", "Gen", "Lt", "Sgt", "Jr", "Sr", "Esq", "Hon",
+        // 프랑스어
+        "M", "MM", "Mme", "Mmes", "Mlle", "Mlles", "Mgr", "Ste", "Vve",
+        // 독일어 · 이탈리아어 (모차르트의 편지)
+        "Hr", "Hrn", "Herrn", "Fr", "Frl", "Mad", "Mons", "Sig", "Sigr", "Sgra", "Ew", "Se", "Ihro", "heil", "hl", "Hl",
+    )
+    /** 뒤에 숫자가 올 때만 줄임말 (No. 5, Nr. 3, p. 12, 15 Oct. 1888). */
+    val BEFORE_NUMBER = setOf("No", "no", "Nos", "Nr", "nr", "n", "p", "pp", "S", "vol", "Vol", "op", "Op", "fig", "Fig", "art", "Art",
+        "Jan", "Febr", "Feb", "Mar", "Apr", "Aug", "Sept", "Sep", "Oct", "Okt", "Nov", "Dec", "Dez")
+    /** 뒤에 소문자 · 숫자가 이어질 때만 줄임말 (etc. and, z. B. wenn, fr. 50). 문장 끝에도 자주 오는 꼴. */
+    val SOFT = setOf("etc", "viz", "cf", "vs", "ca", "approx", "fr", "fl", "Fl", "usw", "bzw", "vgl", "resp", "sc", "z", "B", "d", "h", "u", "a", "i", "e", "av", "bd", "chap", "env")
+
+    /** [text] 의 [dot] 자리 마침표가 문장 끝이 아니면 true. */
+    fun keeps(text: String, dot: Int): Boolean {
+        if (dot !in text.indices || text[dot] != '.') return false
+        var a = dot
+        while (a > 0 && text[a - 1].isLetterOrDigit()) a--
+        val word = text.substring(a, dot)
+        if (word.isEmpty()) return false
+        // 앞이 마침표면 (z.B. · d.h. · J.-C. 의 가운데) 이어지는 줄임말
+        val joined = a > 0 && text[a - 1] == '.'
+        var b = dot + 1
+        while (b < text.length && (text[b].isWhitespace() || text[b] in "\"“„«‘(")) b++
+        if (b >= text.length) return false
+        val next = text[b]
+        if (word in TITLES) return true
+        if (word.length == 1 && word[0].isUpperCase() && word != "I") return next.isLetter() && (next.isUpperCase() || joined)  // 머리글자 J. Roulin · P. S.
+        if (word in BEFORE_NUMBER && next.isDigit()) return true
+        if ((word in SOFT || joined) && (next.isLowerCase() || next.isDigit())) return true
+        // 숫자: 날짜 · 차례 (den 3. Juni · 1. Theo) — 두 자리까지, 뒤가 소문자거나 문장 첫머리의 차례 번호
+        if (word.all { it.isDigit() } && word.length <= 2) {
+            if (next.isLowerCase()) return true
+            val before = text.substring(0, a).trimEnd()
+            if (before.isEmpty() || before.last() in ".!?…:") return true
+            // 독일어 날짜: “den 3. Juni”, “am 16. May” — 앞 낱말이 관사 · 전치사
+            val prev = before.takeLastWhile { it.isLetter() }
+            if (prev in setOf("den", "dem", "der", "des", "am", "vom", "zum", "bis", "le", "du", "au", "the")) return true
+        }
+        return false
+    }
+}
+
+/**
  * 문장 짝 (배우는 말 한 문장 + 바로 아래 번역 한 줄): 메시지 하나를 문장으로 나누고, 번역 문장을 길이 비율로 차례대로 붙인다.
  * 두 언어의 문장 수가 같으면 하나씩, 다르면 누적 길이가 가장 가깝게 (순서는 늘 지킨다). 번역이 없으면 배우는 말만.
  */
 object Pairs {
     private val END = Regex("""(?<=[.!?…;])[\"”»’)\]]*\s+""")
 
-    /** [text] 의 문장 범위 (끝 구두점 · 닫는 따옴표 포함, 뒤 띄어쓰기 뺌). */
-    fun sentences(text: String): List<IntRange> {
+    /** [text] 의 문장 범위 (끝 구두점 · 닫는 따옴표 포함, 뒤 띄어쓰기 뺌). [notEnd] 의 글자 (예 ";") 뒤에서는 나누지 않는다. */
+    fun sentences(text: String, notEnd: String = ""): List<IntRange> {
         if (text.isBlank()) return emptyList()
         val out = mutableListOf<IntRange>()
         var start = 0
         END.findAll(text).forEach { m ->
+            // 줄임말 · 머리글자 · 서수 뒤 마침표는 문장 끝이 아니다 (St. Rémy, Mr. Tersteeg, J. Roulin, den 3. Juni)
+            val mark = text.substring(0, m.range.first).trimEnd('"', '”', '»', '’', ')', ']').lastOrNull()
+            if (mark != null && mark in notEnd) return@forEach
+            if (m.value.isBlank() && text[m.range.first - 1] == '.' && Abbrev.keeps(text, m.range.first - 1)) return@forEach
             val end = m.range.first + m.value.trimEnd().length
             if (end > start && text.substring(start, end).any { it.isLetterOrDigit() }) { out += start until end; start = m.range.last + 1 }
         }

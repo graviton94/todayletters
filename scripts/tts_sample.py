@@ -9,6 +9,8 @@ GitHub Actions 에서 돌려요: python scripts/tts_sample.py <supertonic/py> <a
 환경 변수 SAMPLE_SERIES (기본 vincent)
 """
 import json, os, re, sys
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+from abbrev import split_keep  # 줄임말 뒤에서는 끊지 않는다 (St. · Mr. · Hr. …)
 import numpy as np, soundfile as sf
 
 py, assets, out = sys.argv[1:4]
@@ -26,7 +28,7 @@ def phrases(text: str, lang: str):
     """문장부호에서 끊되, 너무 짧은 토막은 앞 토막에 붙인다."""
     cut = r"(?<=[,;:.?!])\s+" if lang != "ko" else r"(?<=[,.?!])\s+"
     res = []
-    for p in re.split(cut, text.strip()):
+    for p in split_keep(cut, text.strip()):
         if res and (len(p) < 10 or len(res[-1]) < 10):
             res[-1] += " " + p
         else:

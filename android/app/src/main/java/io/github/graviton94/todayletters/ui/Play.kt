@@ -12,7 +12,6 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.ui.text.withStyle
@@ -158,31 +157,34 @@ private fun Constellation(s: AppState, r: Route.Play, turn: Int, turns: Int, onD
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
         val turnLabel = if (turns > 1) stringResource(R.string.ladder_turn, turn + 1, turns) + " · " else ""
         PracticeHeader(picked.size, answer.size, onClose = onClose, onHelp = { helpId(s.route)?.let { s.coachAgain(it) } }, count = "$turnLabel${picked.size} / ${answer.size}")
+        // 한 화면에 다 (굴리지 않는다): 하늘이 남은 높이를 채우고 별 사이를 줄인다. 낮은 화면은 제목을 빼고 사이를 좁힌다
+        val small = androidx.compose.ui.platform.LocalConfiguration.current.screenHeightDp < SMALL_SKY_H
         Column(
-            Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
-            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
+            Modifier.weight(1f).padding(horizontal = Tokens.Space.s5, vertical = if (small) Tokens.Space.s2 else Tokens.Space.s4),
+            verticalArrangement = Arrangement.spacedBy(if (small) Tokens.Space.s2 else Tokens.Space.s4),
         ) {
-            PracticeTitle("CONSTELLATION", stringResource(R.string.mode_constellation))
+            if (!small) PracticeTitle("CONSTELLATION", stringResource(R.string.mode_constellation))
             letter.replies.getOrNull(turn)?.let { GrammarNote(s, r.room.series, it, view.learn) }
             Slip(seed = 5, modifier = Modifier.fillMaxWidth()) {
-                Column(Modifier.padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                Column(Modifier.padding(if (small) Tokens.Space.s3 else Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                     Text(stringResource(R.string.play_meaning), style = Type.capsSm.ui(), color = Color(0xFF7A5A20))
-                    if (guided) Text(stringResource(R.string.guide_reply), style = Type.body.ui(), color = p.slipInk)
-                    Text(quoted(tri[view.read], view.read), style = Type.heading.of(view.read), color = p.slipInk)
+                    if (guided) Text(stringResource(R.string.guide_reply), style = (if (small) Type.small else Type.body).ui(), color = p.slipInk)
+                    Text(quoted(tri[view.read], view.read), style = (if (small) Type.body else Type.heading).of(view.read), color = p.slipInk)
                 }
             }
             Sky(
                 pieces = pieces, picked = picked, learn = view.learn, link = link.value, wrong = wrong,
                 hint = if (guided && !done) pieces.indices.firstOrNull { it !in picked && Exercises.isNext(answer, picked.size, pieces[it]) } else null,
                 pulse = if (s.reducedMotion) 0.5f else pulse.value, onTap = ::tap,
+                small = small, modifier = Modifier.weight(1f),
             )
             Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
                 Hair()
-                Text(stringResource(R.string.play_mine), style = Type.capsSm.ui(), color = p.giltText, modifier = Modifier.padding(top = Tokens.Space.s2))
+                Text(stringResource(R.string.play_mine), style = Type.capsSm.ui(), color = p.giltText, modifier = Modifier.padding(top = if (small) 0.dp else Tokens.Space.s2))
                 val rest = answer.size - picked.size
                 Text(
                     (picked.joinToString(" ") { pieces[it] } + if (rest > 0) " " + List(rest.coerceAtMost(4)) { "_" }.joinToString(" ") else "").trim(),
-                    style = Type.title.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display, fontStyle = androidx.compose.ui.text.font.FontStyle.Italic).of(view.learn),
+                    style = (if (small) Type.heading else Type.title).copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display, fontStyle = androidx.compose.ui.text.font.FontStyle.Italic).of(view.learn),
                     color = p.ink,
                 )
             }
@@ -203,6 +205,12 @@ private fun Constellation(s: AppState, r: Route.Play, turn: Int, turns: Int, onD
     }
 }
 
+/** 이 높이(dp)보다 낮은 화면은 별자리 잇기를 작게 (제목 빼고 · 작은 낱말). */
+private const val SMALL_SKY_H = 720
+private val SKY_ROW_MAX = 84.dp
+private val SKY_ROW_MIN = 44.dp
+private val SKY_MIN_H = 140.dp
+
 /**
  * 하늘: 낱말 별을 두 줄 칸에 흩어 놓는다 (같은 편지는 늘 같은 자리). 켜진 별 사이에 선, 마지막 선은 [link] 만큼 그어지는 중.
  * 별의 자리를 재고 나서 선을 그리도록, 자리 계산과 그리기를 한 Layout 안에서 한다.
@@ -210,15 +218,13 @@ private fun Constellation(s: AppState, r: Route.Play, turn: Int, turns: Int, onD
 @Composable
 private fun Sky(
     pieces: List<String>, picked: List<Int>, learn: io.github.graviton94.todayletters.core.Lang, link: Float, wrong: Int?,
-    hint: Int?, pulse: Float, onTap: (Int) -> Unit,
+    hint: Int?, pulse: Float, onTap: (Int) -> Unit, small: Boolean = false, modifier: Modifier = Modifier,
 ) {
     val p = Ink.palette
     val centers = remember(pieces) { Array(pieces.size) { Offset.Zero } }
-    val rows = (pieces.size + 1) / 2
-    val rowH = 84.dp
     val jitter = remember(pieces) { val rnd = java.util.Random(pieces.joinToString().hashCode().toLong()); List(pieces.size) { rnd.nextFloat() to rnd.nextFloat() } }
     Layout(
-        modifier = Modifier.fillMaxWidth().height(rowH * rows + 24.dp).background(p.sky).border(Tokens.Stroke.hair, p.hair)
+        modifier = modifier.fillMaxWidth().heightIn(min = SKY_MIN_H, max = SKY_ROW_MAX * ((pieces.size + 1) / 2) + 24.dp).background(p.sky).border(Tokens.Stroke.hair, p.hair)
             .drawBehind {
                 // 선: 켜진 순서대로, 앞 별 → 뒤 별. 시작은 흐리고 끝은 진하게.
                 for (k in 1 until picked.size) {
@@ -238,7 +244,7 @@ private fun Sky(
                 val on = idx in picked
                 Column(
                     Modifier.clickable(enabled = !on, role = Role.Button) { onTap(idx) }.padding(horizontal = 6.dp, vertical = 6.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(if (small) 2.dp else 6.dp),
                 ) {
                     Canvas(Modifier.size(Tokens.Size.starNow + 6.dp)) {
                         val r = 7.dp.toPx()
@@ -249,22 +255,29 @@ private fun Sky(
                             else -> drawCircle(p.gilt, r, c, style = androidx.compose.ui.graphics.drawscope.Stroke(1.5.dp.toPx()))
                         }
                     }
-                    Text(w, style = Type.chipWord.of(learn), color = if (wrong == idx) p.wrong else p.ink, maxLines = 1)
+                    Text(w, style = (if (small) Type.small else Type.chipWord).of(learn), color = if (wrong == idx) p.wrong else p.ink, maxLines = 1)
                 }
             }
         },
     ) { measurables, constraints ->
         val width = constraints.maxWidth
-        val placeables = measurables.map { it.measure(androidx.compose.ui.unit.Constraints(maxWidth = width / 2)) }
         val pad = 12.dp.roundToPx()
-        layout(width, constraints.maxHeight) {
+        // 칸: 두 줄 (낱말이 많아 한 칸이 너무 낮으면 세 줄). 칸 높이는 받은 높이를 나눠서 (최대 SKY_ROW_MAX)
+        val h = if (constraints.hasBoundedHeight) constraints.maxHeight else (SKY_ROW_MAX * ((pieces.size + 1) / 2) + 24.dp).roundToPx()
+        val cols = if ((h - pad * 2) / ((pieces.size + 1) / 2).coerceAtLeast(1) < SKY_ROW_MIN.roundToPx() && pieces.size > 4) 3 else 2
+        val rows = ((pieces.size + cols - 1) / cols).coerceAtLeast(1)
+        val placeables = measurables.map { it.measure(androidx.compose.ui.unit.Constraints(maxWidth = width / cols)) }
+        val itemH = placeables.maxOfOrNull { it.height } ?: 0
+        val rowPx = ((h - pad * 2 - itemH).coerceAtLeast(0) / (rows - 1).coerceAtLeast(1).toFloat()).coerceAtMost(SKY_ROW_MAX.toPx())
+        layout(width, h) {
             placeables.forEachIndexed { i, pl ->
-                val row = i / 2; val col = i % 2
-                val cellW = width / 2f
+                val row = i / cols; val col = i % cols
+                val cellW = width / cols.toFloat()
                 val (jx, jy) = jitter[i]
                 val cx = cellW * col + cellW * (0.3f + jx * 0.4f) + if (row % 2 == 1) cellW * 0.08f else 0f
-                val x = (cx - pl.width / 2f).toInt().coerceIn(pad / 2, width - pl.width - pad / 2)
-                val y = (pad + rowH.toPx() * row + rowH.toPx() * (jy * 0.25f)).toInt()
+                val x = (cx - pl.width / 2f).toInt().coerceIn(pad / 2, (width - pl.width - pad / 2).coerceAtLeast(pad / 2))
+                // 위아래 흔들림은 칸 사이의 ¼ 안에서 (마지막 줄도 하늘 안에)
+                val y = (pad + rowPx * row + rowPx * (jy * 0.25f)).toInt().coerceAtMost((h - pl.height - pad / 2).coerceAtLeast(0))
                 pl.place(x, y)
                 // 별(맨 위 동그라미)의 가운데
                 centers[i] = Offset(x + pl.width / 2f, y + 6.dp.toPx() + (Tokens.Size.starNow + 6.dp).toPx() / 2)
@@ -297,9 +310,19 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val k = at.coerceAtMost(n - 1)
     val right = pairs.getOrNull(k)?.second.orEmpty()
     val over = picked == right
-    // 보기: 이 편지의 다른 낱말 뜻 셋 + 정답 (같은 편지는 늘 같은 차례)
+    // 보기: 정답 + 다른 낱말 뜻 셋 (이 편지 먼저, 모자라면 같은 작품의 다른 편지 낱말). 같은 뜻 · 같은 낱말 · 빈 뜻은 빼고 (core Distractors).
+    // 같은 편지는 늘 같은 차례
     val options = remember(letter.id, k, view.read) {
-        val others = pairs.map { it.second }.distinct().filter { it != right }.shuffled(java.util.Random((letter.id + k).hashCode().toLong())).take(3)
+        val me = letter.words.getOrNull(k)
+        fun item(w: io.github.graviton94.todayletters.core.Word) =
+            io.github.graviton94.todayletters.core.Distractors.Item(w.text[view.read], io.github.graviton94.todayletters.core.Distractors.Kind.WORD, w.pos, w.text[view.learn])
+        val near = letter.words.filter { it !== me }.map(::item)
+        val far = s.work(r.room.series).chapters.flatMap { it.letters }.filter { it.id != letter.id }.flatMap { it.words }.map(::item)
+        val answer = me?.let(::item) ?: io.github.graviton94.todayletters.core.Distractors.Item(right, io.github.graviton94.todayletters.core.Distractors.Kind.WORD)
+        val seed = (letter.id + k).hashCode().toLong()
+        val others = io.github.graviton94.todayletters.core.Distractors.pick(answer, near, 3, seed).let { got ->
+            if (got.size >= 3) got else got + io.github.graviton94.todayletters.core.Distractors.pick(answer, far, 3, seed, exclude = got).take(3 - got.size)
+        }
         (others + right).shuffled(java.util.Random((letter.id + "o" + k).hashCode().toLong()))
     }
     // 그 낱말이 나온 편지 문장 (배우는 말 · 읽는 말)

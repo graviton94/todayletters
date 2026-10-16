@@ -26,6 +26,8 @@ GitHub Actions 에서 돌려요:
   python scripts/narrate.py <supertonic/py> <assets> <편지 파일.json> <출력 폴더> [언어 …]
 """
 import json, os, re, subprocess, sys, tempfile
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+from abbrev import split_keep  # 줄임말 뒤에서는 끊지 않는다 (St. · Mr. · Hr. …)
 import numpy as np, soundfile as sf
 
 py, assets, src, out = sys.argv[1:5]
@@ -67,7 +69,7 @@ voice = along(cast.get("path") or [cast["young"], cast["old"]], age)
 def phrases(text: str, lang: str):
     cut = r"(?<=[,;:.?!…])\s+" if lang != "ko" else r"(?<=[,.?!…])\s+"
     res = []
-    for p in re.split(cut, text.strip()):
+    for p in split_keep(cut, text.strip()):
         if res and (len(p) < 10 or len(res[-1]) < 10):
             res[-1] += " " + p
         else:

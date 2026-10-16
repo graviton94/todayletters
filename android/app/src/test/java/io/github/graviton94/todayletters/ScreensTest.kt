@@ -185,6 +185,22 @@ class ScreensTest {
             answer.take(3).forEach { rule.onAllNodes(hasText(it) and hasClickAction() and isEnabled()).onFirst().performClick(); rule.mainClock.advanceTimeBy(700) }
         }, series = s) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.CONSTELLATION)) }
     }
+    /** 작은 폰 (360×640): 별자리 잇기가 굴리지 않고 한 화면에 — 모든 별이 아래 단추 위에 보인다. */
+    @Config(sdk = [34], qualifiers = "ko-rKR-w360dp-h640dp-xhdpi")
+    @Test fun fixFitConstellationSmall() {
+        val s = state(true)
+        val letter = s.work("vincent").chapters.first().letters.first()
+        val (answer, pieces) = Exercises.constellation(Exercises.replyFor(letter, s.seriesSettings("vincent").learn).first, letter.id.hashCode())
+        shot("fixfit_constellation_360x640", false, act = {
+            answer.take(2).forEach { rule.onAllNodes(hasText(it) and hasClickAction() and isEnabled()).onFirst().performClick(); rule.mainClock.advanceTimeBy(700) }
+            val button = rule.onNodeWithText(ctx.getString(R.string.play_show)).fetchSemanticsNode().boundsInRoot
+            pieces.distinct().forEach { w ->
+                rule.onAllNodes(hasText(w)).fetchSemanticsNodes().forEach { n ->
+                    org.junit.Assert.assertTrue("star '$w' (${n.boundsInRoot}) is below the buttons ($button)", n.boundsInRoot.bottom <= button.top + 1f)
+                }
+            }
+        }, series = s) { Play(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.CONSTELLATION)) }
+    }
     @Test fun match() { val s = state(true); shot("13_match_ko_light", false, act = {
         // 보기 B 를 하나 고른 모습 (맞든 틀리든)
         rule.onAllNodes(hasText("B", substring = false) and hasClickAction()).onFirst().performClick()

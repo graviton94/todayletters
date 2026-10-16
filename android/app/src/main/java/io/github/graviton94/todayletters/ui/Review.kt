@@ -64,6 +64,7 @@ import io.github.graviton94.todayletters.core.Listen
 import io.github.graviton94.todayletters.data.learnVocab
 import io.github.graviton94.todayletters.core.Breaks
 import io.github.graviton94.todayletters.core.CardRef
+import io.github.graviton94.todayletters.core.Distractors
 import io.github.graviton94.todayletters.core.Card
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Memory
@@ -901,7 +902,8 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         else if (free) Memory.freeSet(s.seriesCards(), s.openedChapters(), seed, s.today, n = Memory.DAILY * 2).map { it.first }
         // 꼴별 연습: 지금 작품의 카드, 낮은 칸 · 오래된 것부터 (F08)
         else s.seriesCards().sortedWith(compareBy({ it.box }, { it.due }))
-    val all = s.cards().mapNotNull { c -> s.cardWord(c.key) }
+    // 보기 후보: 내 카드들 (갈래 = 낱말 · 표현 · 답장), 모자라면 같은 작품 편지들의 낱말 · 표현
+    val all = s.cards().mapNotNull { c -> s.cardWord(c.key)?.let { c.key to it } }
     val saved = myQuotes(s).mapNotNull { quoteRef(it) }
     var fromQuotes = 0
     return pool.asSequence().mapNotNull { card ->
@@ -967,10 +969,20 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         // 듣고 쓰기는 첫 뜻 하나만 (“flower, blossom” → flower): 쉼표 · 괄호까지 치지 않게
         val answerWord = when (k) { ReviewKind.BLANK -> formInText!!; ReviewKind.DICTATION, ReviewKind.SPEAK -> dictSense; else -> learnWord }
         val side = if (k == ReviewKind.MEANING) view.read else view.learn
-        // 답장 카드의 미끼는 낱말이 아니라 문장: 다른 답장들, 모자라면 같은 편지의 문장들
-        val others = (if (isReply) all.filter { it.word.note == word.note && it.word != word }.map { it.word.text[side] } + l.messages.map { Breaks.plain(it.text[side]) }
-            else all.filter { it.word != word }.map { it.word.text[side] })
-            .distinct().filter { it != answerWord && it != word.text[view.read] }.shuffled(java.util.Random(card.key.hashCode().toLong())).take(3)
+        // 미끼는 정답과 같은 갈래 · 같은 작품에서 (낱말 ↔ 낱말, 표현 ↔ 표현, 답장 ↔ 문장), 같은 뜻 · 같은 낱말 · 빈 글은 빼고 (core Distractors)
+        val myKind = Distractors.kindOf(ref?.phrase?.let { it >= 0 } == true, isReply)
+        fun kindOfKey(key: String) = CardRef.parse(key).let { r -> Distractors.kindOf(r?.phrase?.let { it >= 0 } == true, r?.reply == true || r?.style == true) }
+        val sid = w.series.id
+        val fromCards = all.map { (key, cw) -> Distractors.Item(cw.word.text[side], kindOfKey(key), cw.word.pos, cw.word.text[view.learn], cw.work.series.id) }
+        val letters = w.chapters.flatMap { it.letters }
+        val fromLetters = when (myKind) {
+            Distractors.Kind.WORD -> letters.flatMap { it.words }.map { Distractors.Item(it.text[side], Distractors.Kind.WORD, it.pos, it.text[view.learn], sid) }
+            Distractors.Kind.PHRASE -> letters.flatMap { it.phrases }.map { Distractors.Item(it.text[side], Distractors.Kind.PHRASE, "", it.text[view.learn], sid) }
+            // 답장: 다른 답장들, 모자라면 같은 편지의 문장들
+            Distractors.Kind.SENTENCE -> l.messages.map { Distractors.Item(Breaks.plain(it.text[side]), Distractors.Kind.SENTENCE, "", "", sid) }
+        }
+        val others = Distractors.pick(Distractors.Item(if (k == ReviewKind.MEANING) word.text[view.read] else answerWord, myKind, word.pos, word.text[view.learn], sid),
+            fromCards + fromLetters, 3, card.key.hashCode().toLong(), exclude = listOf(answerWord, word.text[view.read]))
         val right = if (k == ReviewKind.MEANING) word.text[view.read] else answerWord
         Q(card, k, answerWord, word.text[view.read], io.github.graviton94.todayletters.core.Pron.line(word, view.learn, view.learn == w.learnVocab),
             wordSound,

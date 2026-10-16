@@ -94,3 +94,11 @@
 - 이 환경에서는 Google Maven · 메트로폴리탄 API 가 막혀 로컬 빌드 · 그림 받기가 안 된다. 컴파일은 푸시 후 `android.yml`, 그림은 `fetch-letters.yml` 로 `sources` 가지에 받아서 쓴다 (메달 그림은 동전을 오려 256px WebP 품질 80).
 - 생성 파일은 손으로 고치지 않는다: `python3 scripts/generate.py` (글자 `design/strings.json`, 편지 `data/` → assets). 출처 페이지는 `python3 scripts/site_sources.py ../graviton94.github.io`.
 - 메달 이름은 겹치지 않게 (`data/medals.json`).
+
+## 2026-10-16 추가 (폰 테스트 버그 넷)
+
+- 뜻 고르기 보기: core `Distractors` 한 곳 — 정답과 같은 갈래 (낱말 ↔ 낱말 · 표현 ↔ 표현 · 답장 ↔ 문장) · 같은 작품, 같은 뜻 · 같은 낱말 · 빈 뜻 뺌, 같은 품사 · 비슷한 길이 먼저. 복습 (`buildQuestions`) · 편지 걸음 낱말 맞추기 (`Match`) 둘 다.
+- 영어 IPA: lexicon_en 의 나머지 espeak 줄 (빈센트 688 · 모차르트 720) 을 CMUdict GA 로. CMUdict 에 없는 이름 · 외래어 (각 57 · 59) 는 espeak 를 GA 꼴로 고쳐 씀. `scripts/vocab/build.py` 로 사전을 다시 만들면 espeak 로 돌아가니 그때 다시 바꿀 것.
+- 문장 나누기: core `Abbrev` (St. · Mr. · M. · Hr. · Sig. · heil. · No. 5 · J. · den 3. Juni) — `Pairs.sentences` · `Ladder` 가 쓴다. 스크립트는 `scripts/abbrev.py` `split_keep`.
+  **이미 만든 낭독 중 줄임말 뒤 긴 끊음(//)** — 모차르트 c1-l2 m2 en (St. // Peter's), m4 en (St. // Peter · Paul · Luke), m4 de (heil. // Petrus), m5 de (heil. // Petrus · S. // Pietro), m5 en (St. // Peter's), c1-l6 m4 de (Sig. // Cassiglioni). speak 글 · 소리는 아직 그대로 (고치면 새 이름으로, R2 덮어쓰기 금지).
+- 별자리 잇기: 굴리지 않고 한 화면 (하늘이 남은 높이를 채움, 720dp 아래 화면은 제목 빼고 작은 낱말). 장면 `ScreensTest.fixFitConstellationSmall` (360×640, 아직 안 찍음).

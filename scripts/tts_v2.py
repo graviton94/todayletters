@@ -9,6 +9,8 @@
 GitHub Actions 에서 돌려요: python scripts/tts_v2.py <supertonic/py> <assets> <출력 폴더>
 """
 import json, os, re, subprocess, sys, tempfile
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+from abbrev import split_keep  # 줄임말 뒤에서는 끊지 않는다 (St. · Mr. · Hr. …)
 import numpy as np, soundfile as sf
 
 py, assets, out = sys.argv[1:4]
@@ -40,7 +42,7 @@ def silence(s):
 
 def phrases(text: str):
     res = []
-    for p in re.split(r"(?<=[,.?!])\s+", text.strip()):
+    for p in split_keep(r"(?<=[,.?!])\s+", text.strip()):
         if res and (len(p) < 10 or len(res[-1]) < 10):
             res[-1] += " " + p
         else:

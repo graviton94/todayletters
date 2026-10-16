@@ -189,8 +189,8 @@ object Ladder {
     /** 이 카드가 오늘 묻는 말투: 반말이면 true, 높임이면 false (카드 열쇠 · 날로 번갈아). */
     fun askLow(key: String, day: Long): Boolean = ((key.hashCode().toLong() + day) and 1L) == 0L
 
-    /** 문장 나누기 (. ! ? 뒤 띄어쓰기). */
-    private fun sentences(t: String): List<String> = t.trim().split(Regex("(?<=[.!?…])\\s+")).filter { it.isNotBlank() }
+    /** 문장 나누기 (. ! ? … 뒤 띄어쓰기, 줄임말 뒤는 잇는다 [Abbrev]). */
+    private fun sentences(t: String): List<String> = t.trim().let { x -> Pairs.sentences(x, ";").map { x.substring(it).trim() }.filter { it.isNotBlank() } }
 
     /**
      * 말투 바꿔 보기의 보기 2~3개: 정답 [target] (반말 또는 높임), 다른 말투 [other], 그리고 문장이 둘 이상이면 앞은 정답 말투 ·
