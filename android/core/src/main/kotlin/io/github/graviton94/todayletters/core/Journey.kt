@@ -64,9 +64,11 @@ object Journey {
     /** 여정 보너스를 줄 차례인가: 완료했고 오늘 아직 안 받았다. */
     fun payable(letter: Step, review: Step, paidDay: Long, today: Long) = complete(letter, review) && paidDay != today
 
-    /** 세 걸음 가운데 끝난 수 (머리의 "2 / 3"). 할 것이 없는 걸음은 끝난 것으로 보지 않는다. */
-    fun doneCount(letter: Step, review: Step, paid: Boolean): Int =
-        listOf(letter == Step.DONE, review == Step.DONE, paid).count { it }
+    /** 세 걸음 가운데 끝난 수 (머리의 "2 / 3"). 할 것이 없는 걸음은 여정을 마쳤을 때만 끝난 것으로 본다 (첫날 “오늘 할 일 끝”인데 2 / 3 이 되지 않게). */
+    fun doneCount(letter: Step, review: Step, paid: Boolean): Int {
+        val all = complete(letter, review)
+        return listOf(letter == Step.DONE || (all && letter == Step.NONE), review == Step.DONE || (all && review == Step.NONE), paid).count { it }
+    }
 
     /** 오늘의 복습 차례: 뜻 고르기 → 빈칸 → 듣고 쓰기 → 말하기 (같은 꼴 안에서는 원래 차례). */
     fun order(kind: ReviewKind): Int = when (kind) {
