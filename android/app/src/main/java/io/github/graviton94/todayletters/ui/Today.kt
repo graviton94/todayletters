@@ -90,7 +90,8 @@ fun Inbox(s: AppState) {
                 Text("${j.done} / 3", style = Type.heading.copy(fontFamily = Faces.display), color = p.giltText)
             }
             // I 오늘의 편지
-            JourneyStep("I", stringResource(R.string.journey_letter), j.letter, last = false) {
+            // 여정을 마친 날, 할 것이 없던 걸음도 끝난 표시 (머리의 3 / 3 과 맞춘다)
+            JourneyStep("I", stringResource(R.string.journey_letter), if (j.complete && j.letter == Journey.Step.NONE) Journey.Step.DONE else j.letter, last = false) {
                 if (tl != null) TodayLetter(s, id, work, tl.first, tl.second, letters)
                 else {
                     val upcoming = letters.firstOrNull { l -> s.openable(id).none { it.second == l } }
@@ -101,7 +102,7 @@ fun Inbox(s: AppState) {
                 }
             }
             // II 오늘의 복습 (이 작품 카드만, 한 판)
-            JourneyStep("II", stringResource(R.string.review_today), j.review, last = false) {
+            JourneyStep("II", stringResource(R.string.review_today), if (j.complete && j.review == Journey.Step.NONE) Journey.Step.DONE else j.review, last = false) {
                 val (n, total) = j.reviewCount
                 when (j.review) {
                     Journey.Step.NONE -> Text(stringResource(if (j.letter == Journey.Step.DONE && s.seriesCards(id).isEmpty()) R.string.review_first_tomorrow else reviewNone(s.seriesCards(id))), style = Type.small.ui(), color = p.inkSoft)
