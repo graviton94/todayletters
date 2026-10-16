@@ -14,7 +14,7 @@ BEFORE_NUMBER = {"No", "no", "Nos", "Nr", "nr", "n", "p", "pp", "S", "vol", "Vol
                  "Jan", "Febr", "Feb", "Mar", "Apr", "Aug", "Sept", "Sep", "Oct", "Okt", "Nov", "Dec", "Dez"}
 SOFT = {"etc", "viz", "cf", "vs", "ca", "approx", "fr", "fl", "Fl", "usw", "bzw", "vgl", "resp", "sc", "z", "B", "d", "h", "u", "a", "i", "e",
         "av", "bd", "chap", "env"}
-DATE_BEFORE = {"den", "dem", "der", "des", "am", "vom", "zum", "bis", "le", "du", "au", "the"}
+DATE_BEFORE = {"den", "dem", "der", "des", "am", "vom", "zum", "bis"}
 GLUE = "⁠"
 
 

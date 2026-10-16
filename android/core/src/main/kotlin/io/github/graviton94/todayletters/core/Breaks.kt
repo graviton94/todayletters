@@ -125,7 +125,7 @@ object Abbrev {
             if (before.isEmpty() || before.last() in ".!?…:") return true
             // 독일어 날짜: “den 3. Juni”, “am 16. May” — 앞 낱말이 관사 · 전치사
             val prev = before.takeLastWhile { it.isLetter() }
-            if (prev in setOf("den", "dem", "der", "des", "am", "vom", "zum", "bis", "le", "du", "au", "the")) return true
+            if (prev in setOf("den", "dem", "der", "des", "am", "vom", "zum", "bis")) return true
         }
         return false
     }
