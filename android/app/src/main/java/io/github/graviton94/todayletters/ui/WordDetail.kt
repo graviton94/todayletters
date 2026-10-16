@@ -144,8 +144,10 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Text((if (n == 0) "Prologue" else stringResource(R.string.letter_n, roman(n))) + " · " + dateLine(letter.date, letter.place) + " · " + letter.place,
                                 style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, modifier = Modifier.weight(1f))
-                            Box(Modifier.heightIn(min = 36.dp).pressable { s.narrator.play(s.narrator.path(id, chapter, letter.id, "m${mi + 1}_${view.learn.code}")) },
+                            val sentence = s.narrator.path(id, chapter, letter.id, "m${mi + 1}_${view.learn.code}")
+                            Box(Modifier.heightIn(min = 36.dp).pressable { s.narrator.play(sentence) },
                                 contentAlignment = Alignment.Center) { Capsule(stringResource(R.string.word_hear_sentence)) }
+                            SlowToggle({ s.narrator.play(sentence, speed = io.github.graviton94.todayletters.core.Listen.SLOW) }, size = 36.dp, touch = 44.dp)
                         }
                     }
                 }
