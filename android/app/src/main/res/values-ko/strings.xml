@@ -838,4 +838,13 @@
     <string name="talk_revealed">이⁠렇⁠게 말⁠해⁠요⁠. 들⁠어 보⁠고 다⁠음⁠으⁠로 가⁠요⁠.</string>
     <string name="talk_said">말⁠해 봤⁠어⁠요</string>
     <string name="talk_record_repeat">따⁠라 말⁠하⁠기</string>
+    <string name="finish_title">오⁠늘⁠의 편⁠지⁠를 마⁠쳤⁠어⁠요</string>
+    <string name="finish_meta">편⁠지 %1$s · %2$s</string>
+    <string name="finish_skipped">건⁠너⁠뛴 걸⁠음 %1$d⁠개⁠는 복⁠습⁠에⁠서 다⁠시 할 수 있⁠어⁠요</string>
+    <string name="finish_next_at">다⁠음 편⁠지⁠는 내⁠일 %1$s⁠에 와⁠요</string>
+    <string name="finish_next_day">다⁠음 편⁠지⁠는 내⁠일 와⁠요</string>
+    <string name="finish_series_done">이 작⁠품⁠을 다 읽⁠었⁠어⁠요</string>
+    <string name="finish_library">서⁠재⁠로</string>
+    <string name="finish_again">이 편⁠지 처⁠음⁠부⁠터 다⁠시 보⁠기</string>
+    <string name="letter_again">처⁠음⁠부⁠터 다⁠시 보⁠기 ›</string>
 </resources>

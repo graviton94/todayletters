@@ -269,6 +269,9 @@ fun Room(s: AppState, r: Route.Letter) {
     val nextPlay = modes.firstOrNull { it !in progress.replied && it !in progress.skipped }
     val reply = Exercises.replyFor(letter, view.learn).second
     val finished = written >= total
+    // 다 읽기 전(펜 줄)을 이 화면에서 봤으면: 다음 걸음 단추가 나타날 때 금빛 · 숨 쉬는 빛 ([Primary] 의 glow)
+    var sawReading by remember(letter.id) { mutableStateOf(false) }
+    LaunchedEffect(finished) { if (!finished) sawReading = true }
     val cardMap = remember(s.version) { s.cardMap() }
     // 이 편지의 읽을 수 있는 비율 (아는 낱말 %): 머리의 날짜 옆에
     val known = remember(s.version, letter.id, view.learn) { s.coverage(id, letter.id) }
@@ -462,14 +465,7 @@ fun Room(s: AppState, r: Route.Letter) {
                 else -> {
                     if (letter.words.isNotEmpty()) Secondary(stringResource(R.string.room_words, letter.words.size)) { words = true }
                     when (nextPlay) {
-                        null -> Primary(stringResource(R.string.room_done_today)) {
-                            stopAll()
-                            s.save(id, chapter, letter.id, progress.complete(modes).copy(done = true))
-                            s.finished()
-                            s.earn(io.github.graviton94.todayletters.core.Earn.LETTER, id = id)
-                            s.go(Route.Done(r))
-                            s.settle()
-                        }
+                        null -> Primary(stringResource(R.string.room_done_today), glow = sawReading) { stopAll(); s.finishReading(r) }
                         ReplyMode.CONSTELLATION -> {
                             val help = s.replyHelp(id)
                             val how = when {
@@ -477,12 +473,12 @@ fun Room(s: AppState, r: Route.Letter) {
                                 help == io.github.graviton94.todayletters.core.Ladder.Help.WRITE -> R.string.ladder_write_mode
                                 else -> R.string.ladder_choose_mode
                             }
-                            Primary(stringResource(R.string.room_reply, stringResource(how))) { stopAll(); s.go(Route.Play(r, nextPlay)) }
+                            Primary(stringResource(R.string.room_reply, stringResource(how)), glow = sawReading) { stopAll(); s.go(Route.Play(r, nextPlay)) }
                         }
                         else -> {
                             val label = stringResource(R.string.room_next, stringResource(modeLabel(nextPlay)))
                             if (guideNext) GuideBanner(stringResource(R.string.guide_read_done, label))
-                            Primary(label, Modifier.then(if (guideNext) Modifier.guidePulse(s.reducedMotion) else Modifier)) { stopAll(); s.go(Route.Play(r, nextPlay)) }
+                            Primary(label, Modifier.then(if (guideNext) Modifier.guidePulse(s.reducedMotion) else Modifier), glow = sawReading) { stopAll(); s.go(Route.Play(r, nextPlay)) }
                         }
                     }
                 }

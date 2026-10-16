@@ -174,7 +174,7 @@ fun SettingsScreen(s: AppState) {
 
 /** 알림 시각 글자: 오전 8:30 · 8:30 AM. */
 @Composable
-private fun noticeTime(h24: Int, m: Int): String {
+internal fun noticeTime(h24: Int, m: Int): String {
     val h12 = (h24 % 12).let { if (it == 0) 12 else it }
     return stringResource(if (h24 < 12) R.string.notice_at_am else R.string.notice_at_pm, h12, m)
 }

@@ -195,8 +195,32 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     }
 
     /** 튜토리얼을 다시 하는 중인 그 편지인가 (진도는 따로, 화폐 · 이어 읽기 · 하루 편지 수는 세지 않는다). */
-    fun replaying(series: String, chapter: String, letter: String): Boolean =
+    fun replaying(series: String, chapter: String, letter: String): Boolean = tutorialReplaying(series, chapter, letter) || again(series, chapter, letter)
+    private fun tutorialReplaying(series: String, chapter: String, letter: String): Boolean =
         store.tutorialReplay && store.replayKey.isNotEmpty() && store.replayKey == key(series, chapter, letter)
+
+    /** 처음부터 다시 보는 중인 편지인가 ([replayLetter]): 진도는 따로, 보상은 처음 마칠 때 한 번만 (core 의 Replay). */
+    fun again(series: String, chapter: String, letter: String): Boolean = run {
+        @Suppress("UNUSED_EXPRESSION") version
+        store.againKey.isNotEmpty() && store.againKey == key(series, chapter, letter)
+    }
+    private fun again(r: Route.Letter): Boolean = !r.epilogue && letterOf(r).let { (ch, l) -> again(r.series, ch, l.id) }
+
+    /**
+     * 처음부터 다시 보기 (편지 목록 · 오늘의 편지 마침 한 장): 마친 편지를 첫 메시지부터 새 편지처럼 다시 받는다.
+     * ‘다시 읽기’(마친 편지를 열어 전문을 한 번에 보기) 와는 따로. 걸음도 다시 하지만 화폐 · XP · 메달 · 도장은 다시 주지 않는다.
+     */
+    fun replayLetter(id: String, chapter: String, letter: Letter, from: Route.Tab?) {
+        if (!io.github.graviton94.todayletters.core.Replay.can(store.progress(key(id, chapter, letter.id)))) return
+        finishSheet = null
+        store.againKey = key(id, chapter, letter.id)
+        store.againProgress = io.github.graviton94.todayletters.core.Replay.start()
+        version++
+        open(id, chapter, letter, from)
+    }
+
+    /** 오늘의 편지 마침 한 장 (편지 완료 화면 위에): 방금 처음 마친 편지의 열쇠. 한 번 닫으면 다시 뜨지 않는다. */
+    var finishSheet by mutableStateOf<String?>(null)
     private fun replaying(r: Route.Letter): Boolean = letterOf(r).let { (ch, l) -> replaying(r.series, ch, l.id) }
 
     /**
@@ -339,13 +363,15 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun key(series: String, chapter: String, letter: String) = "${space(series)}:$chapter:$letter"
     fun progress(series: String, chapter: String, letter: String): LetterProgress {
         @Suppress("UNUSED_EXPRESSION") version
-        if (replaying(series, chapter, letter)) return store.replayProgress
+        if (tutorialReplaying(series, chapter, letter)) return store.replayProgress
+        if (again(series, chapter, letter)) return store.againProgress
         return store.progress(key(series, chapter, letter))
     }
 
     fun save(series: String, chapter: String, letter: String, p: LetterProgress) {
         // 튜토리얼 다시 하기: 연습 진도에만 (저장된 진도는 그대로)
-        if (replaying(series, chapter, letter)) { store.replayProgress = p; version++; return }
+        if (tutorialReplaying(series, chapter, letter)) { store.replayProgress = p; version++; return }
+        if (again(series, chapter, letter)) { store.againProgress = p; version++; return }
         val k = key(series, chapter, letter)
         val newlyDone = p.done && !store.progress(k).done
         if (newlyDone) store.logDay("letters", today, k)   // 이번 주 돌아보기 (E1)
@@ -768,7 +794,13 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun replyAndContinue(r: Route.Letter, mode: ReplyMode) {
         val (ch, l) = letterOf(r)
         val before = progress(r.series, ch, l.id)
-        if (mode !in before.replied && !replaying(r)) earn(Earn.PRACTICE, id = r.series)
+        if (again(r)) {
+            // 다시 보기: 전에 건너뛴 걸음을 이번에 처음 했으면 저장된 진도에도 한 것으로 · 그 걸음 보상 한 번 (core 의 Replay)
+            val k = key(r.series, ch, l.id)
+            val (saved, pay) = io.github.graviton94.todayletters.core.Replay.stepDone(store.progress(k), mode)
+            store.save(k, saved)
+            if (pay) earn(Earn.PRACTICE, id = r.series)
+        } else if (mode !in before.replied && !replaying(r)) earn(Earn.PRACTICE, id = r.series)
         replied(r, mode)
         stepEnded(r, before.done)
     }
@@ -804,10 +836,27 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         back()
         // 맺음 편지의 답장: 아웃트로로 돌아갈 뿐 (편지 완료 화면 · 편지 보상 없음)
         if (r.epilogue) { settle(); return }
-        if (!was && progress(r.series, ch, l.id).done) {
-            if (!replaying(r)) { finished(); earn(Earn.LETTER, id = r.series) }
-            go(Route.Done(r))
+        if (!was && progress(r.series, ch, l.id).done) letterDone(r)
+        settle()
+    }
+
+    /** 편지를 막 마쳤다 (마지막 걸음을 했거나 건너뛰었다): 처음이면 보상 · 오늘의 편지 마침 한 장, 다시 보기면 보상 없이 끝. 그리고 편지 완료 화면. */
+    private fun letterDone(r: Route.Letter) {
+        val (ch, l) = letterOf(r)
+        val replay = replaying(r)
+        if (io.github.graviton94.todayletters.core.Replay.paysLetter(savedDoneBefore = again(r), replaying = replay)) {
+            finished(); earn(Earn.LETTER, id = r.series)
+            finishSheet = key(r.series, ch, l.id)
         }
+        if (again(r)) store.endAgain()
+        go(Route.Done(r))
+    }
+
+    /** 걸음이 없는 편지 (읽기만): 대화방의 ‘오늘은 여기까지’ 로 마친다. */
+    fun finishReading(r: Route.Letter) {
+        val (ch, l) = letterOf(r)
+        save(r.series, ch, l.id, progress(r.series, ch, l.id).complete(stepsOf(r)).copy(done = true))
+        letterDone(r)
         settle()
     }
 

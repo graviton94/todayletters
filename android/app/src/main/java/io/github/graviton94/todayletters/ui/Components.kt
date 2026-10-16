@@ -27,12 +27,16 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -182,14 +186,32 @@ fun Twinkle(still: Boolean) {
     }
 }
 
+/** 움직임 줄이기 (시스템 애니메이션 끔): 숨 쉬는 빛 같은 되풀이 움직임을 멈춘다. [Root] 가 [AppState.reducedMotion] 으로 채운다. */
+val LocalStill = androidx.compose.runtime.staticCompositionLocalOf { false }
+
 @Composable
-/** 단추 크기는 두 가지뿐: 큰 것 54 (글 17), 작은 것 46 (글 15). 같은 줄의 단추는 같은 크기. */
-fun Primary(text: String, modifier: Modifier = Modifier, enabled: Boolean = true, small: Boolean = false, onClick: () -> Unit) {
+/**
+ * 단추 크기는 두 가지뿐: 큰 것 54 (글 17), 작은 것 46 (글 15). 같은 줄의 단추는 같은 크기.
+ * ‘다음’ 단추: 누를 수 없다가 누를 수 있게 된 순간부터 ([wake]) 금빛으로 채워지고 은은하게 숨 쉬듯 빛난다 (움직임 줄이기면 빛은 멈춤).
+ * [glow] 는 처음부터 그렇게 (앞 단계를 다른 모습으로 보여 준 화면). 입력 확인 단추처럼 글자마다 켜졌다 꺼지는 것은 wake = false.
+ */
+fun Primary(text: String, modifier: Modifier = Modifier, enabled: Boolean = true, small: Boolean = false, wake: Boolean = true, glow: Boolean = false, onClick: () -> Unit) {
     val p = Ink.palette
+    var sawOff by remember { mutableStateOf(false) }
+    LaunchedEffect(enabled) { if (!enabled) sawOff = true }
+    val gold = enabled && (glow || (wake && sawOff))
+    val still = LocalStill.current
+    val breath = if (gold && !still) rememberInfiniteTransition(label = "wake").animateFloat(0f, 1f, infiniteRepeatable(tween(1800), RepeatMode.Restart), label = "breath").value else -1f
     Box(
-        modifier.fillMaxWidth().heightIn(min = if (small) Tokens.Size.buttonSm else Tokens.Size.button).pressable(enabled, onClick = onClick)
+        modifier.fillMaxWidth().heightIn(min = if (small) Tokens.Size.buttonSm else Tokens.Size.button)
+            .then(if (breath >= 0f) Modifier.drawBehind {
+                // 숨 쉬는 빛: 단추 둘레에서 8dp 까지 번졌다 사라진다
+                val g = 8.dp.toPx() * breath
+                drawRect(p.gilt.copy(alpha = 0.45f * (1f - breath)), Offset(-g, -g), Size(size.width + 2 * g, size.height + 2 * g))
+            } else Modifier)
+            .pressable(enabled, onClick = onClick)
             // 아직 누를 수 없는 단추: 흐린 바탕 대신 테두리와 읽을 수 있는 글자 (F24 대비)
-            .then(if (enabled) Modifier.background(p.fill) else Modifier.border(1.dp, p.line)),
+            .then(if (gold) Modifier.background(p.giltText) else if (enabled) Modifier.background(p.fill) else Modifier.border(1.dp, p.line)),
         contentAlignment = Alignment.Center,
     ) { Text(text, style = Type.body.ui().copy(fontSize = if (small) 15.sp else 17.sp), color = if (enabled) p.onFill else p.inkSoft) }
 }

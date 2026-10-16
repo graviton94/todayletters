@@ -113,6 +113,18 @@ class Store(ctx: Context) {
         set(v) = p.edit().putString("replay_p", encode(v)).apply()
     fun endReplay() = p.edit().remove("replay_key").remove("replay_p").apply()
 
+    /**
+     * 처음부터 다시 보기 (마친 편지, core 의 Replay): 다시 보는 편지의 진도 열쇠. 비었으면 다시 보는 중이 아니다.
+     * 그동안의 진도는 [againProgress] 에 따로 (저장된 진도 · 보상은 그대로).
+     */
+    var againKey: String
+        get() = p.getString("again_key", "")!!
+        set(v) = p.edit().putString("again_key", v).apply()
+    var againProgress: LetterProgress
+        get() = decode(p.getString("again_p", null))
+        set(v) = p.edit().putString("again_p", encode(v)).apply()
+    fun endAgain() = p.edit().remove("again_key").remove("again_p").apply()
+
     /** 진도 열쇠 전부 ("p:" 뒤): 건너뛴 걸음 모으기 · 튜토리얼을 마친 것으로 볼지. */
     fun progressKeys(): List<String> = p.all.keys.filter { it.startsWith("p:") }.map { it.removePrefix("p:") }
 

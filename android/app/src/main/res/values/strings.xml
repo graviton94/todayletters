@@ -838,4 +838,13 @@
     <string name="talk_revealed">This is how it goes. Listen, then move on.</string>
     <string name="talk_said">I said it</string>
     <string name="talk_record_repeat">Repeat</string>
+    <string name="finish_title">Today\'s letter is done</string>
+    <string name="finish_meta">Letter %1$s · %2$s</string>
+    <string name="finish_skipped">You can redo the %1$d skipped step(s) in Review</string>
+    <string name="finish_next_at">The next letter arrives tomorrow at %1$s</string>
+    <string name="finish_next_day">The next letter arrives tomorrow</string>
+    <string name="finish_series_done">You\'ve read this whole work</string>
+    <string name="finish_library">To the library</string>
+    <string name="finish_again">Replay this letter from the start</string>
+    <string name="letter_again">Replay from the start ›</string>
 </resources>

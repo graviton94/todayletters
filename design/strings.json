@@ -3347,5 +3347,41 @@
   "talk_record_repeat": {
     "en": "Repeat",
     "ko": "따라 말하기"
+  },
+  "finish_title": {
+    "en": "Today's letter is done",
+    "ko": "오늘의 편지를 마쳤어요"
+  },
+  "finish_meta": {
+    "en": "Letter %1$s · %2$s",
+    "ko": "편지 %1$s · %2$s"
+  },
+  "finish_skipped": {
+    "en": "You can redo the %1$d skipped step(s) in Review",
+    "ko": "건너뛴 걸음 %1$d개는 복습에서 다시 할 수 있어요"
+  },
+  "finish_next_at": {
+    "en": "The next letter arrives tomorrow at %1$s",
+    "ko": "다음 편지는 내일 %1$s에 와요"
+  },
+  "finish_next_day": {
+    "en": "The next letter arrives tomorrow",
+    "ko": "다음 편지는 내일 와요"
+  },
+  "finish_series_done": {
+    "en": "You've read this whole work",
+    "ko": "이 작품을 다 읽었어요"
+  },
+  "finish_library": {
+    "en": "To the library",
+    "ko": "서재로"
+  },
+  "finish_again": {
+    "en": "Replay this letter from the start",
+    "ko": "이 편지 처음부터 다시 보기"
+  },
+  "letter_again": {
+    "en": "Replay from the start ›",
+    "ko": "처음부터 다시 보기 ›"
   }
 }

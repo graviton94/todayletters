@@ -139,6 +139,51 @@ fun Done(s: AppState, room: Route.Letter) {
     }
     // 튜토리얼 끝 (편지 I 을 마친 뒤 한 번): “이제 혼자서도 괜찮아요” → 그 뒤로는 도움말이 저절로 뜨지 않는다
     if (!s.tutorialDone) Graduate(s)
+    // 오늘의 편지 마침 한 장: 처음 마쳤을 때 한 번 (건너뛴 걸음이 있어도), 도장이 다 찍힌 뒤
+    else if (s.finishSheet == s.key(room.series, chapter, letter.id) && t.value >= 1f) FinishSheet(s, room)
+}
+
+/**
+ * 오늘의 편지를 마쳤어요: 밀랍 도장 · 편지 번호와 날짜 · 건너뛴 걸음은 복습에서 · 다음 편지가 언제 오는지 (알림 시각 그대로).
+ * 서재로 (채운 단추) · 이 편지 처음부터 다시 보기. 닫으면 다시 뜨지 않는다 ([AppState.finishSheet]).
+ */
+@Composable
+fun FinishSheet(s: AppState, room: Route.Letter) {
+    val p = Ink.palette
+    val (chapter, letter) = s.letterOf(room)
+    val work = s.work(room.series)
+    val pr = s.progress(room.series, chapter, letter.id)
+    val skipped = pr.toRedo.count { it in s.letterModes(room.series, chapter, letter) }
+    val n = work.chapters.flatMap { it.letters }.indexOf(letter) + 1
+    val close = { s.finishSheet = null }
+    androidx.activity.compose.BackHandler(onBack = close)
+    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = close), contentAlignment = Alignment.BottomCenter) {
+        Column(
+            Modifier.fillMaxWidth().background(p.paper).border(Tokens.Stroke.hair, p.hair).pressable(haptic = false) { }
+                .navigationBarsPadding().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s5),
+            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
+        ) {
+            Box(
+                Modifier.size(64.dp).graphicsLayer { rotationZ = -8f }.background(androidx.compose.ui.graphics.Brush.radialGradient(listOf(Color(0xFFC25546), Color(0xFF9A3027), Color(0xFF6E1C15))), CircleShape),
+                contentAlignment = Alignment.Center,
+            ) { Portrait(work.portrait, work.fullName, 40.dp) }
+            Text(stringResource(R.string.finish_title), style = Type.title.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+            Text(
+                stringResource(R.string.finish_meta, roman(n), dateLine(letter.date, letter.place)) +
+                    if (skipped > 0) " · " + stringResource(R.string.finish_skipped, skipped) else "",
+                style = Type.small.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+            )
+            val next = when {
+                s.seriesDone(room.series) -> stringResource(R.string.finish_series_done)
+                s.waiting(room.series) > 0 -> stringResource(R.string.done_next_now)
+                s.seriesSettings(room.series).arrivalNotice -> stringResource(R.string.finish_next_at, noticeTime(s.store.noticeHour.coerceIn(0, 23), s.store.noticeMinute.coerceIn(0, 59)))
+                else -> stringResource(R.string.finish_next_day)
+            }
+            Text(next, style = Type.body.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center, modifier = Modifier.padding(vertical = Tokens.Space.s2))
+            Primary(stringResource(R.string.finish_library)) { close(); s.go(Route.Library) }
+            Secondary(stringResource(R.string.finish_again)) { s.replayLetter(room.series, chapter, letter, Route.Inbox) }
+        }
+    }
 }
 
 /** 튜토리얼을 맺는 한 장. */

@@ -1610,4 +1610,66 @@ class ScreensTest {
             org.junit.Assert.assertEquals(0.7f, s.listenSpeed("vincent"), 0.001f)
         }, series = s) { SeriesSettingsScreen(s, "vincent") }
     }
+
+    // ── 오늘 마침 · 처음부터 다시 보기 · 다음 단추 (finish 시안) ─────────────
+    /** 마지막 걸음을 마치면 한 장: 오늘의 편지를 마쳤어요 · 편지 번호와 날짜 · 다음 편지 시각 (알림 시각 그대로). */
+    @Test fun finishSheet() {
+        val s = state(true)
+        finishReal(s, "vincent", 1, 1)
+        org.junit.Assert.assertEquals(s.key("vincent", s.letterOf(Route.Letter("vincent", 1, 1)).first, s.letterOf(Route.Letter("vincent", 1, 1)).second.id), s.finishSheet)
+        shot("finish01_sheet_light", false, 4000, series = s) { Done(s, Route.Letter("vincent", 1, 1)) }
+    }
+
+    /** 걸음을 건너뛰어 마쳐도 한 장: 건너뛴 걸음 N개는 복습에서. */
+    @Test fun finishSheetSkipped() {
+        val s = state(true)
+        val r = Route.Letter("vincent", 1, 1)
+        val (c, l) = s.letterOf(r)
+        s.open("vincent", c, l, null, skipAudio = true)
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size))
+        val modes = s.letterModes("vincent", c, l)
+        modes.forEachIndexed { i, m -> if (!s.progress("vincent", c, l.id).done) { if (i == 0) s.skipStep(r, m) else s.replyAndContinue(r, m) } }
+        s.reward = null; s.levelUp = null; s.gradeUp = null
+        org.junit.Assert.assertNotNull(s.finishSheet)
+        org.junit.Assert.assertEquals(1, s.progress("vincent", c, l.id).toRedo.size)
+        shot("finish02_sheet_skipped_dark", true, 4000, series = s) { Done(s, r) }
+    }
+
+    /** 편지 목록: 마친 편지마다 ‘처음부터 다시 보기’. 눌러 다시 보고 마쳐도 보상은 다시 주지 않는다. */
+    @Test fun finishListReplay() {
+        val s = state(true)
+        finishReal(s, "vincent", 1, 1)
+        s.finishSheet = null
+        val r = Route.Letter("vincent", 1, 1)
+        val (c, l) = s.letterOf(r)
+        val coins = s.wallet("vincent").total
+        val xp = s.store.xp().total
+        shot("finish03_list_replay_light", false, series = s) { ChapterScreen(s, Route.Chapter("vincent", 1)) }
+        rule.onNode(hasText(ctx.getString(R.string.letter_again)) and hasClickAction()).performScrollTo().performClick()
+        rule.mainClock.advanceTimeBy(300)
+        org.junit.Assert.assertTrue(s.again("vincent", c, l.id))
+        org.junit.Assert.assertEquals(0, s.progress("vincent", c, l.id).shown)
+        org.junit.Assert.assertFalse(s.progress("vincent", c, l.id).done)
+        // 다시 보기를 끝까지: 보상 · XP 는 그대로, 오늘 마침 한 장도 다시 뜨지 않는다
+        finishReal(s, "vincent", 1, 1)
+        org.junit.Assert.assertFalse(s.again("vincent", c, l.id))
+        org.junit.Assert.assertTrue(s.progress("vincent", c, l.id).done)
+        org.junit.Assert.assertEquals(coins, s.wallet("vincent").total)
+        org.junit.Assert.assertEquals(xp, s.store.xp().total)
+        org.junit.Assert.assertNull(s.finishSheet)
+    }
+
+    /** 다음 단추: 누를 수 없다가 누를 수 있게 되면 금빛으로 채워지고 숨 쉬듯 빛난다 (위: 아직, 가운데: 켜진 뒤, 아래: 움직임 줄이기). */
+    @Test fun finishGlowNext() {
+        val on = androidx.compose.runtime.mutableStateOf(false)
+        shot("finish04_next_glow_light", false, ms = 500, act = { on.value = true }) {
+            androidx.compose.foundation.layout.Column(Modifier.padding(16.dp), verticalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(24.dp)) {
+                io.github.graviton94.todayletters.ui.Primary("다음: 낱말 맞추기", enabled = false) {}
+                io.github.graviton94.todayletters.ui.Primary("다음: 낱말 맞추기 ›", enabled = on.value) {}
+                androidx.compose.runtime.CompositionLocalProvider(io.github.graviton94.todayletters.ui.LocalStill provides true) {
+                    io.github.graviton94.todayletters.ui.Primary("다음: 낱말 맞추기 ›", enabled = on.value) {}
+                }
+            }
+        }
+    }
 }

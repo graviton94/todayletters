@@ -45,7 +45,7 @@ fun Root(s: AppState, onExit: () -> Unit) {
         owner.lifecycle.addObserver(obs)
         onDispose { owner.lifecycle.removeObserver(obs) }
     }
-    androidx.compose.runtime.CompositionLocalProvider(LocalHaptics provides s.app.haptics) {
+    androidx.compose.runtime.CompositionLocalProvider(LocalHaptics provides s.app.haptics, LocalStill provides s.reducedMotion) {
     Box(Modifier.fillMaxSize().background(p.paper)) {
         // 처음 소개에서 뒤로: 닫을지 묻는다 (메인은 Main 이 따로 묻는다)
         BackHandler(enabled = s.stage != Stage.MAIN && !s.askingExit) { s.askingExit = true }
