@@ -1,1 +1,5 @@
-finish04_next_glow_light.png
+a11y.txt
+first01_today_done_light.png
+first02_review_first_day_light.png
+first03_gallery_empty_light.png
+first04_notice_ask_light.png
