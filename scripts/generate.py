@@ -206,7 +206,9 @@ def remote():
     unknown = sorted(set(revs) - every)
     if unknown:
         sys.exit("data/remote.json revisions: remote/ 에 없는 파일\n  " + "\n  ".join(unknown[:20]))
-    for meta_path in sorted(shown_metas()):
+    shown = set(shown_metas())
+    # 출시 전 작품 ("hidden") 의 앱 밖 파일도 장 묶음을 세어 ‘받을 길 없음’ 검사에서 빼되, remote.json 은 쓰지 않는다
+    for meta_path in sorted(glob.glob(os.path.join(ROOT, "data", "*", "series.json"))):
         folder = os.path.dirname(meta_path)
         sid = os.path.basename(folder)
         meta = json.load(open(meta_path, encoding="utf-8"))
@@ -241,7 +243,7 @@ def remote():
                 files = [[r, os.path.getsize(os.path.join(R, r))] + ([r2_key(r, revs)] if r in revs else []) for r in rels]
                 chapters[c] = {"bytes": sum(x[1] for x in files), "files": files}
                 used.update(rels)
-        if chapters:
+        if chapters and meta_path in shown:
             doc = {"base": cfg["base"], "chapters": chapters}
             out[os.path.join(APP, "assets", "letters", sid, "remote.json")] = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
     if every - used:
