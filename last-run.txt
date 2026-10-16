@@ -1,4 +1,12 @@
 a11y.txt
-slow01_talk_bubble_light.png
-slow02_check_passage_light.png
-slow03_word_card_light.png
+f01_room_gloss_below_light.png
+f02_room_gloss_last_dark.png
+f03_room_guide_done_dark.png
+f04_match8_dark.png
+f05_match_german_long_light.png
+f06_match8_large.png
+finish01_sheet_light.png
+finish02_sheet_skipped_dark.png
+finish03_list_replay_light.png
+finish04_next_glow_light.png
+fixfit_constellation_360x640.png
