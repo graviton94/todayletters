@@ -78,7 +78,7 @@
     <string name="set_haptics">Vibration</string>
     <string name="set_privacy">Your record stays on this phone. The app connects to the internet only to download a chapter\'s narration when you choose to, and sends nothing about you. Your recordings leave the phone only when you send one as a voice postcard yourself.</string>
     <string name="coach_library">Each cover is one series. The first chapters are free.</string>
-    <string name="coach_series">The gear sets the language you learn for this series.</string>
+    <string name="coach_series">Choose the language you learn in this series’ settings.</string>
     <string name="coach_play_aloud">Listen, record, send. Recording once is enough.</string>
     <string name="coach_skip">Skip</string>
     <string name="coach_next">Next ›</string>
