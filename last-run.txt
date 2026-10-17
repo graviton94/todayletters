@@ -1,3 +1,2 @@
 a11y.txt
-dl5_ask_silent_light.png
 dl6_room_silent_c1l1_ko_light.png
