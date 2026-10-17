@@ -1,0 +1,79 @@
+{
+ "_doc": "목소리 견본용 발췌: 나폴레옹 본편과 같은 문장. messages = 나폴레옹 목소리 길(M3>M4>M5)로 읽는 편지 (c1-l1 첫 메시지 · e1 첫 메시지). by_voice = 받는 사람 목소리(talk_me)로 읽는 그 사람의 회화 \"me\" 줄 (F3 조제핀 c1-l2 · F5 마리 루이즈 c8-l3 · M2 조제프 p1 · M1 외젠 c4-l7 · F4 오르탕스 c5-l6). 빠르기는 실제 낭독과 같게 (프리셋 speed × 0.92, 인물 목소리만 × 1.05).",
+ "series": "napoleon",
+ "original": "fr",
+ "messages": [
+  {
+   "fr": "J'ai reçu toutes tes lettres, mais aucune n'a fait sur moi l'impression de ta dernière.",
+   "en": "I have received all your letters, but none has moved me like your last one.",
+   "ko": "당신 편지는 다 받았어. 그런데 어느 편지도 이번 편지만큼 내 마음을 흔들지는 못했어."
+  },
+  {
+   "fr": "Ce jourd'hui 15 avril 1821, à Longwood, île de Sainte-Hélène. Ceci est mon testament ou acte de ma dernière volonté.",
+   "en": "This day, 15 April 1821, at Longwood, on the island of St Helena. This is my will, the act of my last wishes.",
+   "ko": "1821년 4월 15일 오늘, 세인트헬레나 섬 롱우드에서. 이것은 나의 유언장, 곧 마지막 뜻을 적은 글이다."
+  }
+ ],
+ "by_voice": {
+  "F3": [
+   {
+    "fr": "Non, je lis ta lettre. Tu es fatigué ?",
+    "en": "No, I'm reading your letter. Are you tired?",
+    "ko": "아니, 당신 편지 읽고 있어. 피곤해?"
+   },
+   {
+    "fr": "Alors dors bien, mon ami. Je t'envoie un baiser.",
+    "en": "Then sleep well, my love. I'm sending you a kiss.",
+    "ko": "그럼 푹 자. 입맞춤 보낼게."
+   }
+  ],
+  "F5": [
+   {
+    "fr": "Oui… Mais j'ai déjà reçu deux ministres !",
+    "en": "Yes… but I've already received two ministers!",
+    "ko": "응… 그래도 장관을 벌써 둘이나 만났어!"
+   },
+   {
+    "fr": "D'accord, d'accord. Demain, les ministres seront reçus au salon.",
+    "en": "OK, OK. Tomorrow the ministers will be received in the drawing room.",
+    "ko": "알았어, 알았어. 내일부터는 장관들을 응접실에서 만나게 될 거야."
+   }
+  ],
+  "M2": [
+   {
+    "fr": "Oui, je suis à Gênes. Envoie-moi ton portrait, d'accord ?",
+    "en": "Yes, I'm staying in Genoa. Send me your portrait, OK?",
+    "ko": "응, 지금 제노바에 있어. 네 초상화 보내 줘, 알았지?"
+   },
+   {
+    "fr": "Je le lui donne. Tu es mon meilleur ami, tu sais.",
+    "en": "I'm taking it to her. You're my best friend, you know.",
+    "ko": "내가 전해 줄게. 너는 내 제일 친한 친구야."
+   }
+  ],
+  "M1": [
+   {
+    "fr": "Merci pour le Moniteur ! Je le lirai ce soir.",
+    "en": "Thanks for the Moniteur! I'll read it tonight.",
+    "ko": "『모니퇴르』 고마워요! 자기 전에 읽을게요."
+   },
+   {
+    "fr": "Je lui donnerai les deux, c'est promis !",
+    "en": "I'll give her both, I promise!",
+    "ko": "둘 다 꼭 전할게요. 저녁 먹은 후에 바로요!"
+   }
+  ],
+  "F4": [
+   {
+    "fr": "Pas très bien… Ne vous inquiétez pas trop pour moi.",
+    "en": "Not very well… Don't worry too much about me.",
+    "ko": "잘 못 지내요… 그래도 너무 걱정하지 마세요."
+   },
+   {
+    "fr": "Je vais essayer. Écrivez-moi souvent, s'il vous plaît.",
+    "en": "I'll try. Please write to me often.",
+    "ko": "노력해 볼게요. 제가 또 무너질까 봐 그러니 자주 편지해 주세요."
+   }
+  ]
+ }
+}

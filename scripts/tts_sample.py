@@ -74,7 +74,8 @@ for lang in langs:
     for spec in voices:
         style, speed = voice(spec)
         parts = [silence(0.4)]
-        for m in letter["messages"]:
+        # by_voice: 목소리 이름(":" 앞)마다 따로 읽을 줄 (없으면 messages)
+        for m in letter.get("by_voice", {}).get(spec.partition(":")[0], letter["messages"]):
             for p in phrases(m[lang], lang):
                 wav, dur = tts(p, lang, style, STEPS, speed)
                 parts.append(wav[0, : int(sr * dur[0].item())].astype(np.float32))
