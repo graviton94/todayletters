@@ -72,7 +72,9 @@ data class TodaySummary(
                 due = s.dueCards().size,
                 doneToday = s.today in s.store.doneDays(),
                 streak = s.streak,
-                plate = current?.second?.plate?.image?.takeIf { it.isNotEmpty() }?.let { "plates/$it" },
+                // 그 편지의 그림이 이 기기에 없으면 (소리 없이 읽기 · 받지 않은 장) 작품의 대표 그림
+                plate = (listOfNotNull(current?.second?.plate?.image?.takeIf { it.isNotEmpty() }?.let { "plates/$it" }) + work.kit.hero)
+                    .firstOrNull { AssetFiles.has(ctx, it) },
                 letterNo = current?.let { (_, l) -> work.chapters.flatMap { it.letters }.indexOfFirst { it.id == l.id } + 1 } ?: 0,
                 recital = io.github.graviton94.todayletters.core.Recital.isSunday(s.today) && !s.recitalDone,
                 series = id,

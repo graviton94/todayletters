@@ -101,7 +101,8 @@ fun PrologueScreen(s: AppState, r: Route.Prologue) {
             val d = pages[page]
             val l = d.letter
             Column(Modifier.weight(1f).verticalScroll(scroll)) {
-                l.plate?.let { pl ->
+                // 소리 없이 읽기 (받지 않음): 그림이 이 기기에 없으면 그림 칸째 뺀다
+                l.plate?.takeIf { io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${it.image}") }?.let { pl ->
                     Box(Modifier.padding(horizontal = 24.dp).padding(top = 18.dp).fillMaxWidth().background(Brush.verticalGradient(listOf(Color(0xFF2B2117), Wall))).border(1.dp, Color(0xFF4A3B28)).padding(10.dp), contentAlignment = Alignment.Center) {
                         AssetImage("plates/${pl.image}", Modifier.fillMaxWidth().heightIn(max = 250.dp).aspectRatio(1.3f, matchHeightConstraintsFirst = false), sample = 2)
                     }
@@ -124,7 +125,7 @@ fun PrologueScreen(s: AppState, r: Route.Prologue) {
                             if (view.read != view.learn) Text(Breaks.plain(m.text[view.read]), style = Type.small.of(view.read), color = Soft)
                             Text(d.source[ui], style = Type.small.ui(), color = Faint)
                         }
-                        Box(Modifier.padding(start = 8.dp).size(48.dp).semantics { contentDescription = listen }.pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) {
+                        if (s.narrator.has(audio)) Box(Modifier.padding(start = 8.dp).size(48.dp).semantics { contentDescription = listen }.pressable { s.narrator.play(audio) }, contentAlignment = Alignment.Center) {
                             Box(Modifier.size(38.dp).border(1.dp, Gilt, CircleShape), contentAlignment = Alignment.Center) { SpeakerGlyph(Gilt, 16.dp) }
                         }
                     }
@@ -142,7 +143,7 @@ fun PrologueScreen(s: AppState, r: Route.Prologue) {
                         }
                     }
                 }
-                l.plate?.let { pl -> Text("${pl.title[ui]} · ${pl.date} · ${pl.collection}", style = Type.small.ui(), color = Faint, modifier = Modifier.padding(horizontal = 26.dp).padding(bottom = 12.dp)) }
+                l.plate?.takeIf { io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${it.image}") }?.let { pl -> Text("${pl.title[ui]} · ${pl.date} · ${pl.collection}", style = Type.small.ui(), color = Faint, modifier = Modifier.padding(horizontal = 26.dp).padding(bottom = 12.dp)) }
             }
         } else {
             val a = w.arrival
@@ -214,7 +215,8 @@ fun OutroScreen(s: AppState, series: String) {
                             }
                         }
                     }
-                    Text(stringResource(R.string.outro_listen), style = Type.small.ui(), color = Faint)
+                    // ‘눌러서 듣기’ 는 맺음 낭독이 이 기기에 있을 때만 (소리 없이 읽기면 없음)
+                    if (s.narrator.has(s.narrator.path(series, "E", e.id, "m1_${view.learn.code}"))) Text(stringResource(R.string.outro_listen), style = Type.small.ui(), color = Faint)
                     // 맺음 편지에도 답장 (턴 셋 · VIII 장 문법): 답장 사다리로, 보내면 이 화면으로 돌아온다
                     if (e.replies.isNotEmpty()) {
                         val sent = ReplyMode.CONSTELLATION in s.progress(series, "E", e.id).replied

@@ -337,7 +337,7 @@ fun Room(s: AppState, r: Route.Letter) {
                     }
                 }
             } }
-            letter.moments.filter { it.after < 0 && it.shows() }.forEachIndexed { k, mo ->
+            letter.moments.filter { it.after < 0 && it.shows(s, id) }.forEachIndexed { k, mo ->
                 item(key = "${letter.id}:pre:$k") { MomentCard(s, work, mo, onMap = { }, onPhoto = { s.go(Route.Artwork(id, r.letter, r)) }, onMusic = { listening = it }) }
             }
             itemsIndexed(letter.messages.take(arrived), key = { i, _ -> "${letter.id}:$i" }) { i, m ->
@@ -388,7 +388,7 @@ fun Room(s: AppState, r: Route.Letter) {
                     )
                 }
                 // 메신저 같은 순간: 이 문장 다음의 위치 공유 · 사진 공유 (문장이 다 써진 뒤에)
-                if (i < written) letter.moments.filter { it.after == i && it.shows() }.forEach { mo ->
+                if (i < written) letter.moments.filter { it.after == i && it.shows(s, id) }.forEach { mo ->
                     Box(Modifier.padding(top = Tokens.Space.s4)) {
                         MomentCard(s, work, mo, onMap = { }, onPhoto = {
                             s.go(Route.Artwork(id, r.letter, r))
@@ -937,7 +937,7 @@ fun WordSheet(s: AppState, r: Route.Letter, onClose: () -> Unit) {
                     }
                     Text(w.text[view.read], style = Type.body.of(view.read), color = p.inkSoft)
                     val wa = s.wordAudio(r.series, chapter, letter, w, view.learn)
-                    ListenButtons(play = { sp -> s.narrator.play(wa, sp) }, onDark = true)
+                    if (wa.isNotEmpty()) ListenButtons(play = { sp -> s.narrator.play(wa, sp) }, onDark = true)
                 }
                 Hair()
             }
@@ -980,7 +980,7 @@ fun WordCard(s: AppState, r: Route.Letter, index: Int, onClose: () -> Unit) {
                         io.github.graviton94.todayletters.core.Pron.note(w, view.learn, uiLang()).takeIf { it.isNotEmpty() }?.let { Text(it, style = Type.small.ui(), color = p.giltText) }
                     }
                 }
-                ListenButtons(play = { sp -> s.narrator.play(audio, sp) }, label = stringResource(R.string.listen_line), onDark = true)
+                if (audio.isNotEmpty()) ListenButtons(play = { sp -> s.narrator.play(audio, sp) }, label = stringResource(R.string.listen_line), onDark = true)
             }
             Hair()
             Text(w.text[view.read], style = Type.heading.of(view.read), color = p.ink)
@@ -996,7 +996,12 @@ fun Lines(c: androidx.compose.ui.graphics.Color) = Canvas(Modifier.size(Tokens.S
 }
 
 /** 대화방에 놓을 순간인가: ‘편지 속 그 곡’은 녹음이 있을 때만. */
-private fun io.github.graviton94.todayletters.core.Moment.shows() = (this as? io.github.graviton94.todayletters.core.Moment.Music)?.playable ?: true
+/** 이 기기에 그 곡 · 그림이 있을 때만 놓는다 (녹음이 없는 곡, 소리 없이 읽기로 받지 않은 장의 곡 · 사진 · 스케치는 뺀다). */
+private fun io.github.graviton94.todayletters.core.Moment.shows(s: AppState, series: String) = when (this) {
+    is io.github.graviton94.todayletters.core.Moment.Music -> playable && io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, path(series))
+    is io.github.graviton94.todayletters.core.Moment.Photo -> io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, (if (sketch) "sketches/" else "plates/") + image)
+    else -> true
+}
 
 /** 장식 글자(머리글 · 갈래 이름)를 작품의 원어로: 독일어 작품은 [de], 그 밖(프랑스어 작품)은 [fr]. */
 fun deco(original: Lang, fr: String, de: String) = if (original == Lang.DE) de else fr

@@ -271,7 +271,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     /** 맺음 열기: 맺음 낭독 · 그림을 받지 않았으면 먼저 받기 시트. */
     fun openOutro(id: String) {
-        downloads.needed(id, "E")?.let { downloadAsk = DownloadAsk(it, id, it.chapter, null, null, Route.Outro(id)); return }
+        downloads.needed(id, "E")?.takeIf { !store.silent("$id:E") }?.let { downloadAsk = DownloadAsk(it, id, it.chapter, null, null, Route.Outro(id)); return }
         go(Route.Outro(id))
     }
 
@@ -765,12 +765,18 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         go(Route.Letter(id, idx, work(id).chapters[idx - 1].letters.indexOf(letter) + 1, from))
     }
 
-    /** 받기를 마쳤거나 소리 없이 읽기를 골랐을 때: 기다리던 편지를 연다. */
+    /**
+     * 받기를 마쳤거나 소리 없이 읽기를 골랐을 때: 기다리던 편지 · 화면을 연다.
+     * 소리 없이 읽기는 그 장 (서문 "작품:P" · 맺음 "작품:E" · 편지의 장) 을 다시 묻지 않게만 적는다. 받은 것으로 치지 않으므로 표지 · 설정의 받기 단추는 그대로.
+     */
     fun downloadFinished(silent: Boolean) {
         val a = downloadAsk ?: return
         downloadAsk = null
         version++
-        a.then?.let { go(it); return }
+        a.then?.let {
+            if (silent) when (it) { is Route.Prologue -> store.markSilent("${a.series}:P"); is Route.Outro -> store.markSilent("${a.series}:E"); else -> {} }
+            go(it); return
+        }
         val l = a.letter
         if (l == null) {
             // 처음 묶음을 표지 · 들어올 때 받았다: ‘첫 장 열기’ 는 I장으로
@@ -798,6 +804,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             c.letters.forEachIndexed { li, l ->
                 val pl = l.plate ?: return@forEachIndexed
                 if (pl.title[io.github.graviton94.todayletters.core.Lang.EN].trim().lowercase() != key || pl.spots.isEmpty()) return@forEachIndexed
+                // 그 장을 받지 않았으면 (소리 없이 읽기) 걸을 그림이 없다
+                if (!io.github.graviton94.todayletters.data.AssetFiles.has(ctx, "plates/${pl.image}")) return@forEachIndexed
                 val pr = progress(series, c.id, l.id)
                 if (pr.shown == 0 && !pr.done) return@forEachIndexed
                 return pl.spots.size to { go(Route.Artwork(series, li + 1, Route.Letter(series, ci + 1, li + 1, Route.Gallery))) }

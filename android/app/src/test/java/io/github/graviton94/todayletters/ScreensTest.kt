@@ -1076,6 +1076,26 @@ class ScreensTest {
     @Test fun dlLoading() = dlShot("dl2_loading_light", DownloadJob.Phase.RUNNING)
     @Test fun dlDone() = dlShot("dl3_done_light", DownloadJob.Phase.DONE)
     @Test fun dlFailed() = dlShot("dl4_failed_light", DownloadJob.Phase.FAILED)
+    /** 편지를 열려다 연 시트: ‘다음에’ · ‘소리 없이 읽기’ 가 한 줄에. */
+    @Test fun dlSilentAsk() {
+        val s = state(true)
+        val c = s.work("mozart").chapters[0]
+        s.open("mozart", c.id, c.letters[0], Route.Inbox)
+        shot("dl5_ask_silent_light", false, series = s) {
+            io.github.graviton94.todayletters.ui.SeriesCover(s, "mozart")
+            s.downloadAsk?.let { io.github.graviton94.todayletters.ui.DownloadSheet(s, it) }
+        }
+    }
+    /** 아무것도 받지 않고 ‘소리 없이 읽기’ 로 연 모차르트 I-1: 그림 · 곡 · 낭독 단추 없이 글만. */
+    @Test fun dlSilentRoom() {
+        val s = state(true)
+        val c = s.work("mozart").chapters[0]
+        s.open("mozart", c.id, c.letters[0], Route.Inbox)
+        s.downloadFinished(silent = true)
+        val r = s.route as Route.Letter
+        shownAll(s, 1, 1)
+        shot("dl6_room_silent_c1l1_ko_light", false, 4000, series = s) { Room(s, r) }
+    }
 
     // ── 언어 등급 · 답장 사다리 (docs/next.md 다음 할 일 1): 사다리 · 아는 낱말 % · 처음 → 지금 · 번역 접기 · 등급 블록 · 축하 · 메달 가족 · 작품 설정 ──
     /** 지금 배우는 말(빈센트)의 언어 등급을 [index] (1 = A1 · 1단 … 12 = B2 · 3단) 로. 닿았던 등급 아래로는 내려가지 않으므로 바닥으로 넣는다. */

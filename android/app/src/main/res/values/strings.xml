@@ -378,6 +378,7 @@
     <string name="dl_mobile">You\'re on mobile data</string>
     <string name="dl_go">Download · %1$s</string>
     <string name="dl_later">Later</string>
+    <string name="dl_silent">Read without sound</string>
     <string name="dl_first_going">On the way to %1$s\'s time</string>
     <string name="dl_bg">The journey goes on if you close the app</string>
     <string name="dl_first_done">You\'ve reached %1$s\'s time</string>

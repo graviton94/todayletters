@@ -313,7 +313,7 @@ internal fun SurpriseCard(s: AppState, c: io.github.graviton94.todayletters.core
         Text(stringResource(R.string.surprise_title), style = Type.small.ui(), color = p.inkSoft)
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Text(word.text[view.learn], style = Type.title.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display).of(view.learn), color = p.ink, modifier = Modifier.weight(1f))
-            ListenButtons(play = { sp -> s.narrator.play(audio, sp) }, ring = true)
+            if (audio.isNotEmpty()) ListenButtons(play = { sp -> s.narrator.play(audio, sp) }, ring = true)
         }
         if (!open) Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable { open = true }, contentAlignment = Alignment.CenterStart) {
             Text(stringResource(R.string.surprise_reveal), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.ink)

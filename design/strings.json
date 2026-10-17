@@ -1508,6 +1508,10 @@
     "en": "Later",
     "ko": "다음에"
   },
+  "dl_silent": {
+    "en": "Read without sound",
+    "ko": "소리 없이 읽기"
+  },
   "dl_first_going": {
     "en": "On the way to %1$s's time",
     "ko": "%1$s의 시대로 가는 중"

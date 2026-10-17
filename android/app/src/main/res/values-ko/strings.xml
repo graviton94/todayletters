@@ -378,6 +378,7 @@
     <string name="dl_mobile">모⁠바⁠일 데⁠이⁠터⁠로 연⁠결⁠돼 있⁠어⁠요</string>
     <string name="dl_go">다⁠운⁠로⁠드 · %1$s</string>
     <string name="dl_later">다⁠음⁠에</string>
+    <string name="dl_silent">소⁠리 없⁠이 읽⁠기</string>
     <string name="dl_first_going">%1$s⁠의 시⁠대⁠로 가⁠는 중</string>
     <string name="dl_bg">앱⁠을 닫⁠아⁠도 길⁠은 이⁠어⁠져⁠요</string>
     <string name="dl_first_done">%1$s⁠의 시⁠대⁠에 닿⁠았⁠어⁠요</string>

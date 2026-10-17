@@ -350,7 +350,8 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
             else {
                 val w = letter.words.getOrNull(k)
                 WordLabel(pairs[k].first, w?.let { io.github.graviton94.todayletters.core.Pron.line(it, view.learn, view.learn == s.work(r.room.series).learnVocab) }.orEmpty(), view.learn, "",
-                    note = w?.let { io.github.graviton94.todayletters.core.Pron.note(it, view.learn, uiLang()) }.orEmpty()) { sp -> say(k, sp) }
+                    note = w?.let { io.github.graviton94.todayletters.core.Pron.note(it, view.learn, uiLang()) }.orEmpty(),
+                    play = if (w == null || s.wordAudio(r.room.series, chapter, letter, w, view.learn).isEmpty()) null else ({ sp -> say(k, sp) }))
                 line?.let { (t, range, read) ->
                     Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
                         Text(stringResource(R.string.match_in_letter), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.giltText)

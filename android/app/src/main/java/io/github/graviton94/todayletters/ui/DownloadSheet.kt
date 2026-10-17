@@ -126,7 +126,7 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
                     Line(stringResource(R.string.dl_failed, sizeLabel(remaining)), Type.small.ui(), p.inkSoft)
                     Box(Modifier.height(Tokens.Space.s2))
                     Primary(stringResource(R.string.dl_retry)) { start() }
-                    Later { close() }
+                    Later(if (waiting) ({ s.downloadFinished(silent = true) }) else null) { close() }
                 }
                 else -> {
                     Line(title, Type.heading.ui(), p.ink)
@@ -135,7 +135,7 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
                     if (mobile) Line(stringResource(R.string.dl_mobile), Type.small.ui(), p.giltText)
                     Box(Modifier.height(Tokens.Space.s2))
                     Primary(stringResource(R.string.dl_go, sizeLabel(remaining))) { start() }
-                    Later { close() }
+                    Later(if (waiting) ({ s.downloadFinished(silent = true) }) else null) { close() }
                 }
             }
         }
@@ -147,10 +147,22 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
 private fun Line(text: String, style: androidx.compose.ui.text.TextStyle, color: androidx.compose.ui.graphics.Color) =
     Text(text, style = style, color = color, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
 
-/** ‘다음에’: 밑줄 친 글자 단추, 가운데. */
+/**
+ * ‘다음에’: 밑줄 친 글자 단추, 가운데. 읽을 것 (편지 · 서문 · 맺음) 을 열려다 연 시트면 [silent] 가 있어
+ * 한 줄에 ‘다음에’ · ‘소리 없이 읽기’ 를 반씩 나눠 놓는다 (받지 않고 그 장을 낭독 · 그림 없이 연다).
+ */
 @Composable
-private fun Later(onClick: () -> Unit) {
-    Box(Modifier.fillMaxWidth().heightIn(min = 48.dp).pressable(onClick = onClick), contentAlignment = Alignment.Center) {
-        Text(stringResource(R.string.dl_later), style = Type.body.ui().copy(textDecoration = TextDecoration.Underline), color = Ink.palette.inkSoft)
+private fun Later(silent: (() -> Unit)?, onClick: () -> Unit) {
+    if (silent == null) { TextLink(stringResource(R.string.dl_later), Modifier.fillMaxWidth(), onClick); return }
+    Row(Modifier.fillMaxWidth()) {
+        TextLink(stringResource(R.string.dl_later), Modifier.weight(1f), onClick)
+        TextLink(stringResource(R.string.dl_silent), Modifier.weight(1f), silent)
+    }
+}
+
+@Composable
+private fun TextLink(text: String, modifier: Modifier, onClick: () -> Unit) {
+    Box(modifier.heightIn(min = 48.dp).pressable(onClick = onClick), contentAlignment = Alignment.Center) {
+        Text(text, style = Type.body.ui().copy(textDecoration = TextDecoration.Underline), color = Ink.palette.inkSoft, maxLines = 1)
     }
 }

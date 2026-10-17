@@ -139,7 +139,8 @@ fun Done(s: AppState, room: Route.Letter) {
             }
         }
         Column(Modifier.background(p.paper).navigationBarsPadding().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            if (letter.plate != null) Secondary(stringResource(R.string.done_walk)) { s.go(Route.Artwork(room.series, room.letter, room)) }
+            // 그림이 이 기기에 없으면 (소리 없이 읽기 · 받지 않음) 걸을 그림도 없다
+            if (letter.plate != null && io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${letter.plate!!.image}")) Secondary(stringResource(R.string.done_walk)) { s.go(Route.Artwork(room.series, room.letter, room)) }
             if (next != null) Primary(stringResource(R.string.done_open_next)) { s.open(room.series, next.first, next.second, Route.Inbox) }
             else if (work.outro != null && s.seriesDone(room.series)) Primary(stringResource(R.string.done_outro)) { s.openOutro(room.series) }
             else Primary(stringResource(R.string.done_home), onClick = home)

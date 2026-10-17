@@ -500,7 +500,7 @@ fun Session(s: AppState, r: Route.Session) {
                     }
                     Text(stringResource(if (q.style == 1) R.string.style_ask_low else R.string.style_ask_high), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth())
                 } else {
-                    LabelCard(q, tag) { sp -> s.narrator.play(q.audio, sp) }
+                    LabelCard(q, tag, if (q.audio.isEmpty()) null else ({ sp -> s.narrator.play(q.audio, sp) }))
                     Text(stringResource(R.string.meaning_prompt), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth())
                 }
             }
@@ -762,7 +762,7 @@ private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Ma
         Text(stringResource(R.string.speak_self), style = Type.small.ui(), color = p.inkSoft, textAlign = TextAlign.Center)
         // 먼저 말해 본 뒤에야 원래 소리와 글자를 보여 준다
         if (!heardIt) { Secondary(stringResource(R.string.speak_reveal), small = true) { heardIt = true; s.narrator.play(q.audio) }; return }
-        ListenButtons(play = { sp -> s.narrator.play(q.audio, sp) })
+        if (q.audio.isNotEmpty()) ListenButtons(play = { sp -> s.narrator.play(q.audio, sp) })
         Text(q.word, style = Type.title.of(q.learn), color = p.ink)
         Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Box(Modifier.weight(1f)) { Secondary(stringResource(R.string.speak_again), small = true) { onJudge(Memory.Mark.WRONG) } }
@@ -1188,21 +1188,22 @@ internal fun letterTag(s: AppState, cardKey: String): String {
 
 /** 뜻 고르기의 낱말: 작품 이름표처럼 (번호 · 어느 편지 · 큰 낱말 · 듣기 · 발음). */
 @Composable
-private fun LabelCard(q: Q, tag: String, play: (Float?) -> Unit) = WordLabel(q.word, q.ipa, q.learn, tag, note = q.pronNote, play = play)
+private fun LabelCard(q: Q, tag: String, play: ((Float?) -> Unit)?) = WordLabel(q.word, q.ipa, q.learn, tag, note = q.pronNote, play = play)
 
 /**
  * 낱말 이름표 (복습 뜻 고르기 · 편지의 낱말 맞추기가 같이 쓴다). [ipa] 는 발음 줄 그대로 ([io.github.graviton94.todayletters.core.Pron.line]:
  * 프랑스어 · 독일어 [IPA], 영어 [IPA · 강세], 한국어 [소리] · 로마자), [note] 는 한국어 소리 규칙 한 줄 (연음 · 구개음화 …).
  */
 @Composable
-fun WordLabel(word: String, ipa: String, learn: Lang, tag: String, note: String = "", play: (Float?) -> Unit) {
+fun WordLabel(word: String, ipa: String, learn: Lang, tag: String, note: String = "", play: ((Float?) -> Unit)?) {
     val p = Ink.palette
     Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s4),
         verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
         if (tag.isNotEmpty()) Caps(tag, p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
         Text(word, style = Type.display.copy(fontFamily = Faces.display).of(learn), color = p.ink)
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            ListenButtons(play = play, ring = true)
+            // 소리가 이 기기에 없으면 (받지 않은 장) 단추를 놓지 않는다
+            if (play != null) ListenButtons(play = play, ring = true)
             if (ipa.isNotEmpty()) Text(ipa, style = Type.small, color = p.inkSoft)
         }
         if (note.isNotEmpty()) Text(note, style = Type.small.ui(), color = p.giltText)
