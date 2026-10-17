@@ -87,7 +87,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     /** 앱 밖에 둔 장의 낭독을 받을지 묻는 중: 받고 나면 (또는 소리 없이 읽기를 고르면) 이 편지를 연다. */
     /** 낭독 받기 묻기. [letter] 가 있으면 받은 뒤 그 편지를 열고, 없으면 미리 받기 (받고 끝). */
-    data class DownloadAsk(val pack: io.github.graviton94.todayletters.data.Downloads.Pack, val series: String, val chapter: String, val letter: Letter?, val from: Route.Tab?)
+    /** 받기 시트: [letter] 가 있으면 다 받은 뒤 그 편지를, [then] 이 있으면 그 화면 (서문 · 맺음) 을 연다. */
+    data class DownloadAsk(val pack: io.github.graviton94.todayletters.data.Downloads.Pack, val series: String, val chapter: String, val letter: Letter?, val from: Route.Tab?, val then: Route? = null)
     var downloadAsk by mutableStateOf<DownloadAsk?>(null)
 
     /** 의견 보내기 시트 (설정 › 의견 보내기, 멈춘 뒤 ‘보내기’). [kind] 는 처음 고른 칸. */
@@ -257,6 +258,21 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         stack.clear()
         if (needsWelcome(id)) { stack.addAll(listOf(Route.Library, Route.Welcome(id))); return }
         stack.addAll(Nav.trail(Route.Inbox))
+        // 앱 안 장이 없는 작품을 처음 열 때: 서문 + 무료 장을 받을지 한 번 묻는다 (‘다음에’ 면 표지에 받기 단추가 남는다)
+        if (!store.firstAsked(id)) downloads.first(id)?.takeIf { !downloads.ready(it) }?.let { store.markFirstAsked(id); downloadAsk = DownloadAsk(it, id, it.chapter, null, null) }
+    }
+
+    /** 서문 열기: 아직 받지 않은 작품이면 먼저 받기 시트 (다 받으면 서문으로). */
+    fun openPrologue(id: String, page: Int = 0) {
+        val r = Route.Prologue(id, page)
+        downloads.needed(id, "P")?.takeIf { !store.silent("$id:P") }?.let { downloadAsk = DownloadAsk(it, id, it.chapter, null, null, r); return }
+        go(r)
+    }
+
+    /** 맺음 열기: 맺음 낭독 · 그림을 받지 않았으면 먼저 받기 시트. */
+    fun openOutro(id: String) {
+        downloads.needed(id, "E")?.let { downloadAsk = DownloadAsk(it, id, it.chapter, null, null, Route.Outro(id)); return }
+        go(Route.Outro(id))
     }
 
     /** 아직 무엇을 배울지 고르지 않았고, 한 통도 열지 않은 작품 (이미 읽던 작품에는 묻지 않는다). */
@@ -734,9 +750,10 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         // 잠긴 장 (III장부터, 소장 · 구독 전): 편지 대신 구매 화면 (이 시리즈 소장이 셋째 칸)
         work(id).chapters.firstOrNull { it.id == chapter }?.let { c -> if (!chapterOpen(c)) { current = id; go(Route.Purchase); return } }
         // 앱 밖(R2)에 둔 장이고 아직 받지 않았으면: 먼저 크기를 알려 주고 받을지 묻는다
-        val pack = downloads.pack(id, chapter)
-        if (!skipAudio && pack != null && !store.silent("$id:$chapter") && !downloads.ready(pack)) {
-            downloadAsk = DownloadAsk(pack, id, chapter, letter, from); return
+        // 서문 · 무료 장이면 처음 묶음으로 한 번에
+        val pack = downloads.needed(id, chapter)
+        if (!skipAudio && pack != null && !store.silent("$id:$chapter")) {
+            downloadAsk = DownloadAsk(pack, id, pack.chapter, letter, from); return
         }
         val p = progress(id, chapter, letter.id)
         current = id
@@ -753,9 +770,23 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val a = downloadAsk ?: return
         downloadAsk = null
         version++
-        val l = a.letter ?: return
-        if (silent) store.markSilent("${a.series}:${a.chapter}")
-        open(a.series, a.chapter, l, a.from, skipAudio = true)
+        a.then?.let { go(it); return }
+        val l = a.letter
+        if (l == null) {
+            // 처음 묶음을 표지 · 들어올 때 받았다: ‘첫 장 열기’ 는 I장으로
+            if (a.chapter == io.github.graviton94.todayletters.data.Downloads.FIRST) { current = a.series; go(Route.Chapter(a.series, 1)) }
+            return
+        }
+        val ch = work(a.series).chapters.firstOrNull { c -> l in c.letters }?.id ?: return
+        if (silent) store.markSilent("${a.series}:$ch")
+        open(a.series, ch, l, a.from, skipAudio = true)
+    }
+
+    /** 받기 시트를 ‘다음에’ · 뒤로 닫는다 (받는 중이면 받기는 이어진다). 처음 묶음은 다시 저절로 묻지 않는다. */
+    fun downloadLater() {
+        downloadAsk?.let { if (it.chapter == io.github.graviton94.todayletters.data.Downloads.FIRST) store.markFirstAsked(it.series) }
+        downloadAsk = null
+        version++
     }
     /**
      * 소장품이 연 편지의 그림이기도 하면 (영어 제목이 같으면) 그 그림 산책: (자리 수, 가기). 아니면 null.
@@ -788,7 +819,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun clearDownloads() { io.github.graviton94.todayletters.data.DownloadJob.stop(); downloads.clear(); version++ }
     /** 미리 받기: 아직 도착하지 않은 장도 (무료 장 · 소장 · 구독한 장). [chapter] 가 null 이면 모든 장. */
     fun predownload(series: String, chapter: String?) {
-        val pack = if (chapter == null) downloads.all(series, chapterIdOpen(series)) else downloads.pack(series, chapter)?.takeIf { chapterIdOpen(series)(chapter) }
+        val pack = when (chapter) {
+            null -> downloads.all(series, chapterIdOpen(series))
+            io.github.graviton94.todayletters.data.Downloads.FIRST -> downloads.first(series)
+            in downloads.firstChapters(series) -> downloads.first(series)
+            else -> downloads.pack(series, chapter)?.takeIf { chapterIdOpen(series)(chapter) }
+        }
         if (pack == null || downloads.ready(pack)) return
         downloadAsk = DownloadAsk(pack, series, pack.chapter, null, null)
     }

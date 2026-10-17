@@ -23,18 +23,24 @@ import java.util.concurrent.atomic.AtomicLong
  * 계정 · 학습 기록 같은 것은 보내지 않는다: 공개 주소에서 파일을 받기만 한다.
  */
 class Downloads(private val ctx: Context) {
-    companion object { const val ALL = "*" }
+    companion object {
+        const val ALL = "*"
+        /** 처음 묶음 (서문 + 무료 장, remote.json "first"): 앱 안 장이 없는 작품을 처음 열 때 한 번에 묻는다. */
+        const val FIRST = "first"
+    }
     /** 받을 파일 하나: 폰 안 경로 · 크기 · R2 주소 꼬리 (고친 파일은 rev/<판>/<경로>, 나머지는 경로 그대로). */
     data class Part(val path: String, val size: Long, val src: String = path)
     data class Pack(val series: String, val chapter: String, val bytes: Long, val parts: List<Part>)
 
     // 작품마다 처음 물을 때 한 번 읽는다 (assets.list 에 기대지 않는다)
     private val index = HashMap<String, Pair<String, Map<String, Pack>>?>()
+    private val firsts = HashMap<String, List<String>>()
     private fun load(sid: String): Pair<String, Map<String, Pack>>? = synchronized(index) {
         index.getOrPut(sid) {
             runCatching {
                 val o = JSONObject(ctx.assets.open("letters/$sid/remote.json").bufferedReader().use { it.readText() })
                 val chs = o.getJSONObject("chapters")
+                firsts[sid] = o.optJSONArray("first")?.let { a -> (0 until a.length()).map { a.getString(it) } }.orEmpty()
                 o.getString("base") to chs.keys().asSequence().associateWith { c ->
                     val co = chs.getJSONObject(c); val fa = co.getJSONArray("files")
                     Pack(sid, c, co.getLong("bytes"), (0 until fa.length()).map { i -> fa.getJSONArray(i).let { Part(it.getString(0), it.getLong(1), it.optString(2).ifEmpty { it.getString(0) }) } })
@@ -50,6 +56,21 @@ class Downloads(private val ctx: Context) {
         val parts = packs.flatMap { it.parts }.distinctBy { it.path }
         return Pack(series, ALL, parts.sumOf { it.size }, parts)
     }
+
+    /** 처음 묶음의 장 id 들 (서문 P + 무료 장). 앱 안 장이 있는 작품은 빈 목록. */
+    fun firstChapters(series: String): List<String> { load(series); return synchronized(index) { firsts[series].orEmpty() } }
+
+    /** 처음 묶음: 서문 + 무료 장을 한 묶음으로 ([FIRST]). 없으면 null. */
+    fun first(series: String): Pack? {
+        val packs = firstChapters(series).mapNotNull { pack(series, it) }
+        if (packs.isEmpty()) return null
+        val parts = packs.flatMap { it.parts }.distinctBy { it.path }
+        return Pack(series, FIRST, parts.sumOf { it.size }, parts)
+    }
+
+    /** 이 장을 열기 전에 물을 묶음: 처음 묶음에 든 장이면 처음 묶음, 아니면 그 장. 다 받았거나 앱 안이면 null. */
+    fun needed(series: String, chapter: String): Pack? =
+        (if (chapter in firstChapters(series)) first(series) else pack(series, chapter))?.takeIf { !ready(it) }
 
     /** 받은 파일이 놓이는 폴더들 (files/ 아래, assets 와 같은 이름). */
     private val roots = listOf("audio", "plates", "sketches", "gallery")

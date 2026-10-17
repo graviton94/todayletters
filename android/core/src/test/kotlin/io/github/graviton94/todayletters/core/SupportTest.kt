@@ -38,9 +38,9 @@ class SupportTest {
     }
 
     @Test fun progressLabels() {
-        assertEquals("23 / 64MB", Fetching.progress(23_400_000, 63_200_000))
-        assertEquals("0 / 64MB", Fetching.progress(-5, 64_000_000))
-        assertEquals("64 / 64MB", Fetching.progress(99_000_000, 64_000_000))
+        assertEquals("23.4 / 64MB", Fetching.progress(23_400_000, 63_200_000))
+        assertEquals("0.0 / 64MB", Fetching.progress(-5, 64_000_000))
+        assertEquals("64.0 / 64MB", Fetching.progress(99_000_000, 64_000_000))
         assertEquals("120 / 820KB", Fetching.progress(120_000, 820_000))
         assertEquals(35, Fetching.percent(23_000_000, 64_000_000))
         assertEquals(100, Fetching.percent(0, 0))

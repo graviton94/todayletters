@@ -157,7 +157,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
                     Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.buttonSm).border(1.dp, p.ink).pressable {
                         onClose()
                         // 프롤로그의 낱말이면 그 도슨트 쪽으로
-                        if (chapter == "P") s.go(Route.Prologue(id, w.prologue.indexOfFirst { it.letter.id == letter.id }.coerceAtLeast(0)))
+                        if (chapter == "P") s.openPrologue(id, w.prologue.indexOfFirst { it.letter.id == letter.id }.coerceAtLeast(0))
                         else s.open(id, chapter, letter, Route.Words)
                     }, contentAlignment = Alignment.Center) { Text(stringResource(R.string.word_open_letter), style = Type.small.ui(), color = p.ink) }
                 }

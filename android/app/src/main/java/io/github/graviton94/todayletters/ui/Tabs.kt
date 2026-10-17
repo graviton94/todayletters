@@ -155,6 +155,8 @@ fun SeriesCover(s: AppState, id: String) {
             Text(w.title[w.series.original], style = Type.display, color = p.ink)
             Text(w.title[s.app.read], style = Type.body.of(s.app.read), color = p.inkSoft)
             Rule()
+            // 처음 묶음 (서문 + 무료 장) 을 아직 받지 않았으면: 받기 단추가 남는다
+            FirstPackButton(s, id)
             // 무료 장 끝이 가까우면 미리 한 줄 (남은 무료 편지 1~3통)
             FreeLeftLine(s, id)
             // 프롤로그: 아를 이전 (언제든 다시 보기)
@@ -163,7 +165,7 @@ fun SeriesCover(s: AppState, id: String) {
                     numeral = "P", original = deco(w.series.original, "Prologue", "Prolog"), read = w.arrival?.label?.get(uiLang()) ?: stringResource(R.string.cover_prologue),
                     readLang = s.app.read, originalLang = w.series.original,
                     meta = stringResource(R.string.cover_prologue_meta, w.prologue.size),
-                    onClick = { s.go(Route.Prologue(id)) },
+                    onClick = { s.openPrologue(id) },
                 ) {}
                 Hair()
             }
@@ -189,7 +191,7 @@ fun SeriesCover(s: AppState, id: String) {
                     numeral = deco(w.series.original, "É", "E"), original = deco(w.series.original, "Épilogue", "Epilog"), read = stringResource(R.string.cover_epilogue),
                     readLang = s.app.read, originalLang = w.series.original,
                     meta = stringResource(if (done) R.string.cover_epilogue_open else R.string.cover_epilogue_locked),
-                    onClick = { if (done) s.go(Route.Outro(id)) },
+                    onClick = { if (done) s.openOutro(id) },
                 ) {}
                 Hair()
             }
@@ -399,12 +401,23 @@ private fun ModePreview(m: ReplyMode) {
 fun Bordered(content: @Composable () -> Unit) =
     Box(Modifier.fillMaxWidth().border(Tokens.Stroke.hair, Ink.palette.hair).padding(Tokens.Space.s4)) { content() }
 
+/** 표지의 ‘다운로드 · 27MB’: 처음 묶음을 아직 받지 않았을 때만. 받는 중이면 ‘받는 중…’. */
+@Composable
+private fun FirstPackButton(s: AppState, id: String) {
+    s.version
+    io.github.graviton94.todayletters.data.AssetFiles.generation
+    val pack = s.downloads.first(id)?.takeIf { !s.downloads.ready(it) } ?: return
+    val job = io.github.graviton94.todayletters.data.DownloadJob.state?.takeIf { it.series == id && it.chapter == pack.chapter && it.active }
+    if (job != null) Secondary(stringResource(R.string.audio_getting)) { s.predownload(id, pack.chapter) }
+    else Secondary(stringResource(R.string.dl_go, sizeLabel(s.downloads.remaining(pack)))) { s.predownload(id, pack.chapter) }
+}
+
 /** 장의 낭독 상태 (v19): 앱 안 · 받음 · 받는 중 · 미리 받기 · 크기. 도착 전 장도 미리 받을 수 있다. */
 @Composable
 private fun AudioChip(s: AppState, id: String, chapter: String) {
     s.version
     val pack = s.downloads.pack(id, chapter)
-    val asking = s.downloadAsk?.let { it.series == id && (it.chapter == chapter || it.chapter == io.github.graviton94.todayletters.data.Downloads.ALL) } == true
+    val asking = s.downloadAsk?.let { it.series == id && (it.chapter == chapter || it.chapter == io.github.graviton94.todayletters.data.Downloads.ALL || (it.chapter == io.github.graviton94.todayletters.data.Downloads.FIRST && chapter in s.downloads.firstChapters(id))) } == true
     when {
         pack == null || s.downloads.ready(pack) -> Capsule(stringResource(R.string.audio_ready), CapsuleKind.DONE)
         asking -> Capsule(stringResource(R.string.audio_getting))

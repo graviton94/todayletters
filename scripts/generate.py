@@ -188,10 +188,46 @@ def r2_key(rel, revs):
     return rel if n <= 1 else f"rev/{n}/{rel}"
 
 
+def media_of(sid, letters):
+    """편지들이 쓰는 낭독 밖 파일 (그림 · 스케치 · 곡), assets 와 같은 경로."""
+    want = []
+    for letter in letters:
+        if (letter.get("plate") or {}).get("image"):
+            want.append("plates/" + letter["plate"]["image"])
+        for m in letter.get("moments", []):
+            if m.get("image"):
+                want += ["plates/" + m["image"], "sketches/" + m["image"]]
+            if m.get("audio"):
+                want.append(f"audio/{sid}/music/" + m["audio"])
+    return want
+
+
+def check_bundled(sid, meta, parts, kept):
+    """앱 안에는 data/remote.json "bundled" 의 장만: 그 밖의 장 낭독 · 그 장들만 쓰는 그림 · 곡이 assets 에 있으면 멈춘다 (remote/ 로 옮길 것).
+    대표 그림 (kit.hero) · 소장품 · 앱 안 장이 쓰는 것은 그대로 둔다."""
+    A = os.path.join(APP, "assets")
+    keep = {meta.get("kit", {}).get("hero", "")} | {p["image"] for p in meta.get("kit", {}).get("collection", [])}
+    late = set()
+    for ch in parts:
+        src = os.path.join(ROOT, "data", sid, ch["file"])
+        if not os.path.exists(src):
+            src = src.replace(".json", ".draft.json")
+        letters = json.load(open(src, encoding="utf-8")).get("letters", []) if os.path.exists(src) else []
+        media = set(media_of(sid, letters)) | ({"plates/" + meta["outro"]["image"]} if ch["id"] == "E" and meta.get("outro", {}).get("image") else set())
+        (keep if ch["id"] in kept else late).update(media)
+    bad = sorted(r for r in late - keep if os.path.isfile(os.path.join(A, r)))
+    bad += sorted(f"audio/{sid}/{d}/" for d in (os.listdir(os.path.join(A, "audio", sid)) if os.path.isdir(os.path.join(A, "audio", sid)) else [])
+                  if d not in kept and d != "music")
+    if bad:
+        sys.exit(f"assets: {sid} 의 앱 밖 장 파일이 앱 안에 있음 (data/remote.json \"bundled\" 밖, remote/ 로 옮길 것)\n  " + "\n  ".join(bad[:20]))
+
+
 def remote():
     """앱 밖(R2)에 두는 파일의 목록 → assets/letters/<작품>/remote.json (장마다 파일 · 크기 · 합).
     remote/ 는 assets/ 와 같은 모양이다 (remote/audio/<작품>/<장>/... · remote/plates/ · remote/sketches/ · remote/gallery/ · remote/audio/<작품>/music/).
-    한 장의 묶음: 그 장의 낭독 + 그 장의 편지가 쓰는 그림 · 스케치 · 곡 가운데 remote/ 에 있는 것.
+    한 장의 묶음 (서문 P · 장 · 맺음 E): 그 장의 낭독 + 그 장의 편지가 쓰는 그림 · 스케치 · 곡 (맺음은 아웃트로 그림도) 가운데 remote/ 에 있는 것.
+    앱 안에는 data/remote.json "bundled" 의 장만 둔다 ([check_bundled]). 앱 안 장이 없는 작품은 "first" (서문 + 무료 장) 를 적어
+    앱이 작품을 처음 열 때 한 번에 묻는다.
     소장품(kit.collection) 가운데 remote/ 에 둔 것은 앱 밖 장들에 차례로 나눠 담는다 (그 장을 받으면 뽑기에 들어온다).
     어느 장에도 들지 않는 파일이 remote/ 에 있으면 멈춘다 (받을 길이 없는 파일).
     고친 파일 (data/remote.json 의 "revisions": {경로: 판}) 은 R2 의 rev/<판>/<경로> 에 두고, 목록에 그 주소를 셋째 칸으로 적는다
@@ -207,28 +243,25 @@ def remote():
     if unknown:
         sys.exit("data/remote.json revisions: remote/ 에 없는 파일\n  " + "\n  ".join(unknown[:20]))
     shown = set(shown_metas())
+    bundled = cfg.get("bundled", {})
     # 출시 전 작품 ("hidden") 의 앱 밖 파일도 장 묶음을 세어 ‘받을 길 없음’ 검사에서 빼되, remote.json 은 쓰지 않는다
     for meta_path in sorted(glob.glob(os.path.join(ROOT, "data", "*", "series.json"))):
         folder = os.path.dirname(meta_path)
         sid = os.path.basename(folder)
         meta = json.load(open(meta_path, encoding="utf-8"))
         packs = {}
-        for ch in meta["chapters"]:
+        # 서문 (P) · 장 · 맺음 (E) 마다 한 묶음. 맺음은 아웃트로 그림도 함께
+        parts = ([{"id": "P", "file": meta["prologue"]["file"]}] if "file" in meta.get("prologue", {}) else []) + meta["chapters"] \
+            + ([{"id": "E", "file": meta["outro"]["file"]}] if "file" in meta.get("outro", {}) else [])
+        for ch in parts:
             rels = sorted(r for r in every if r.startswith(f"audio/{sid}/{ch['id']}/"))
+            if ch["id"] == "E" and meta["outro"].get("image") and there("plates/" + meta["outro"]["image"]):
+                rels.append("plates/" + meta["outro"]["image"])
             src = os.path.join(folder, ch["file"])
             if not os.path.exists(src):
                 src = src.replace(".json", ".draft.json")
             letters = json.load(open(src, encoding="utf-8")).get("letters", []) if os.path.exists(src) else []
-            for letter in letters:
-                want = []
-                if (letter.get("plate") or {}).get("image"):
-                    want.append("plates/" + letter["plate"]["image"])
-                for m in letter.get("moments", []):
-                    if m.get("image"):
-                        want += ["plates/" + m["image"], "sketches/" + m["image"]]
-                    if m.get("audio"):
-                        want.append(f"audio/{sid}/music/" + m["audio"])
-                rels += [r for r in want if there(r) and r not in rels]
+            rels += [r for r in dict.fromkeys(media_of(sid, letters)) if there(r) and r not in rels]
             packs[ch["id"]] = rels
         late = [c for c, rels in packs.items() if rels]
         pieces = [p["image"] for p in meta.get("kit", {}).get("collection", []) if there(p["image"])]
@@ -243,8 +276,12 @@ def remote():
                 files = [[r, os.path.getsize(os.path.join(R, r))] + ([r2_key(r, revs)] if r in revs else []) for r in rels]
                 chapters[c] = {"bytes": sum(x[1] for x in files), "files": files}
                 used.update(rels)
+        kept = bundled.get(sid, [])
+        check_bundled(sid, meta, parts, kept)
+        # 처음 묶음: 앱 안 장이 없는 작품은 서문 + 무료 장을 한 번에 묻는다 (작품을 처음 열 때)
+        first = [] if kept else [c for c in ["P"] + [c["id"] for c in meta["chapters"] if c.get("free")] if c in chapters]
         if chapters and meta_path in shown:
-            doc = {"base": cfg["base"], "chapters": chapters}
+            doc = {"base": cfg["base"], "chapters": chapters, **({"first": first} if first else {})}
             out[os.path.join(APP, "assets", "letters", sid, "remote.json")] = json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n"
     if every - used:
         sys.exit("remote/: 어느 장에도 들지 않는 파일 (받을 길이 없음)\n  " + "\n  ".join(sorted(every - used)[:20]))

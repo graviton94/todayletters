@@ -55,10 +55,10 @@ object Fetching {
     fun size(bytes: Long): String =
         if (bytes >= 1_000_000) String.format(java.util.Locale.US, "%.1fMB", bytes / 1_000_000.0) else "${(bytes / 1000).coerceAtLeast(1)}KB"
 
-    /** 진행: "23 / 64MB" (전체가 1MB 아래면 "120 / 820KB"). 받은 양은 전체를 넘지 않는다. */
+    /** 진행: "23.4 / 64MB" (받은 양은 소수 한 자리, 전체가 1MB 아래면 "120 / 820KB"). 받은 양은 전체를 넘지 않는다. */
     fun progress(done: Long, total: Long): String {
         val d = done.coerceIn(0, total.coerceAtLeast(0))
-        return if (total >= 1_000_000) "${d / 1_000_000} / ${(total + 999_999) / 1_000_000}MB"
+        return if (total >= 1_000_000) String.format(java.util.Locale.US, "%.1f / %dMB", d / 1_000_000.0, (total + 999_999) / 1_000_000)
         else "${d / 1000} / ${((total + 999) / 1000).coerceAtLeast(1)}KB"
     }
 

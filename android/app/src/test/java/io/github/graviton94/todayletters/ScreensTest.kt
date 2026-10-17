@@ -656,6 +656,17 @@ class ScreensTest {
     }
 
     // ── 모차르트 (릴리즈 전 점검): '*ScreensTest.mozart*' 로 따로 돌린다.
+    /** 모차르트 장면은 서문 · I장 · 맺음을 받아 둔 것으로 (앱 밖 파일을 저장소의 remote/ 에서 files/ 로). */
+    private fun mstate(): AppState = state(true).also { fetchedLocally("mozart", listOf("P", "I", "II", "E")) }
+    private fun fetchedLocally(series: String, chapters: List<String>) {
+        val remote = generateSequence(java.io.File("").absoluteFile) { it.parentFile }.map { java.io.File(it, "remote") }.firstOrNull { it.isDirectory } ?: return
+        val d = io.github.graviton94.todayletters.data.Downloads(ctx)
+        chapters.mapNotNull { d.pack(series, it) }.flatMap { it.parts }.forEach { p ->
+            val src = java.io.File(remote, p.path); val out = java.io.File(ctx.filesDir, p.path)
+            if (src.isFile && !out.isFile) { out.parentFile?.mkdirs(); src.copyTo(out) }
+        }
+        io.github.graviton94.todayletters.data.AssetFiles.changed()
+    }
     private fun shownAll(s: AppState, ch: Int, n: Int) {
         val c = s.work("mozart").chapters[ch - 1]; val l = c.letters[n - 1]
         s.save("mozart", c.id, l.id, s.progress("mozart", c.id, l.id).copy(shown = l.messages.size))
@@ -663,47 +674,47 @@ class ScreensTest {
     private fun mozartDone(s: AppState) = s.work("mozart").chapters.forEach { c ->
         c.letters.forEach { l -> s.save("mozart", c.id, l.id, s.progress("mozart", c.id, l.id).copy(shown = l.messages.size, done = true)) }
     }
-    @Test fun mozartLibrary() { val s = state(true); shot("m01_library", true) { LibraryTab(s) } }
-    @Test fun mozartRoom() { val s = state(true); shownAll(s, 1, 4); shot("m02_room_c1l4", false, 4000, series = s) { Room(s, Route.Letter("mozart", 1, 4)) } }
+    @Test fun mozartLibrary() { val s = mstate(); shot("m01_library", true) { LibraryTab(s) } }
+    @Test fun mozartRoom() { val s = mstate(); shownAll(s, 1, 4); shot("m02_room_c1l4", false, 4000, series = s) { Room(s, Route.Letter("mozart", 1, 4)) } }
     @Test fun mozartMusicSheet() {
-        val s = state(true); val w = s.work("mozart")
+        val s = mstate(); val w = s.work("mozart")
         val m = w.chapters[6].letters[2].moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Music>().first()
         shot("m03_music_sheet", false, 3000, series = s) { io.github.graviton94.todayletters.ui.MusicSheet(s, w, m) {} }
     }
-    @Test fun mozartWalkEra() { val s = state(true); shot("m04_walk_era", true, series = s) { Artwork(s, Route.Artwork("mozart", 1, Route.Letter("mozart", 1, 3))) } }
+    @Test fun mozartWalkEra() { val s = mstate(); shot("m04_walk_era", true, series = s) { Artwork(s, Route.Artwork("mozart", 1, Route.Letter("mozart", 1, 3))) } }
     @Test fun mozartWalkScore() {
-        val s = state(true)
+        val s = mstate()
         // 앱 밖에 둔 장의 그림: 받아 둔 것으로 (받기 전에는 산책 점을 띄우지 않는다, F12)
         java.io.File("../../remote/plates/m-c6-l5.webp").takeIf { it.exists() }?.copyTo(java.io.File(ctx.filesDir, "plates/m-c6-l5.webp").apply { parentFile?.mkdirs() }, overwrite = true)
         io.github.graviton94.todayletters.data.AssetFiles.changed()
         shot("m05_walk_score", false, act = { rule.onNodeWithText(io.github.graviton94.todayletters.core.Breaks.keepAll("산책 시작")).performClick() }, series = s) { Artwork(s, Route.Artwork("mozart", 6, Route.Letter("mozart", 6, 5))) }
     }
-    @Test fun mozartPrologue() { val s = state(true); shot("m06_prologue_p1", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 0)) } }
-    @Test fun mozartArrival() { val s = state(true); shot("m07_prologue_arrival", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 3)) } }
-    @Test fun mozartOutro() { val s = state(true); mozartDone(s); shot("m08_outro", true, 3000) { io.github.graviton94.todayletters.ui.OutroScreen(s, "mozart") } }
-    @Test fun mozartCover() { val s = state(true); shot("m09_cover", false, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "mozart") } }
+    @Test fun mozartPrologue() { val s = mstate(); shot("m06_prologue_p1", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 0)) } }
+    @Test fun mozartArrival() { val s = mstate(); shot("m07_prologue_arrival", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 3)) } }
+    @Test fun mozartOutro() { val s = mstate(); mozartDone(s); shot("m08_outro", true, 3000) { io.github.graviton94.todayletters.ui.OutroScreen(s, "mozart") } }
+    @Test fun mozartCover() { val s = mstate(); shot("m09_cover", false, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "mozart") } }
     /** 모차르트에 처음 들어갈 때 (튜토리얼 뒤): 배울 말만 고르는 시트 → 바로 편지 I. */
-    @Test fun mozartWelcome() { val s = state(true); shot("m10_welcome", true, series = s.also { it.enter("mozart") }) { io.github.graviton94.todayletters.ui.WelcomeSheet(s, "mozart") } }
+    @Test fun mozartWelcome() { val s = mstate(); shot("m10_welcome", true, series = s.also { it.enter("mozart") }) { io.github.graviton94.todayletters.ui.WelcomeSheet(s, "mozart") } }
     /** 오늘: 편지 카드의 단추 하나 · 장마다 읽은 수 줄의 글자 링크 · 번역 줄. */
     /** 상점 (v5 통합 그림): 소장품이 없어 ‘갤러리 칸 열기’ 줄이 없다. */
-    @Test fun mozartShop() { val s = state(true); s.enter("mozart"); s.reward = null; shot("m19_shop", true, series = s) { io.github.graviton94.todayletters.ui.ShopTab(s) } }
-    @Test fun mozartToday() { val s = state(true); s.enter("mozart"); shot("m11_today", true, series = s) { io.github.graviton94.todayletters.ui.Inbox(s) } }
+    @Test fun mozartShop() { val s = mstate(); s.enter("mozart"); s.reward = null; shot("m19_shop", true, series = s) { io.github.graviton94.todayletters.ui.ShopTab(s) } }
+    @Test fun mozartToday() { val s = mstate(); s.enter("mozart"); shot("m11_today", true, series = s) { io.github.graviton94.todayletters.ui.Inbox(s) } }
     /** 편지 도착: 첫 줄이 다 쓰인 뒤 (아래 ‘편지 읽기’ 단추). */
     @Test fun mozartArrivalLine() {
-        val s = state(true); val l = s.work("mozart").chapters.first().letters.first()
+        val s = mstate(); val l = s.work("mozart").chapters.first().letters.first()
         shot("m12_arrival_line", true, series = s) { io.github.graviton94.todayletters.ui.ArrivalBody(s, "mozart", "I", l, 1, { }, startAt = 2) }
     }
     /** 낮은 화면의 편지 도착 그림 (글 묶음이 넘치지 않고 굴러야 한다). */
     @Config(sdk = [34], qualifiers = "ko-rKR-w393dp-h560dp-xxhdpi")
     @Test fun mozartArrivalSmall() {
-        val s = state(true); val l = s.work("mozart").chapters.first().letters.first()
+        val s = mstate(); val l = s.work("mozart").chapters.first().letters.first()
         shot("m13_arrival_painting_small", true, series = s) { io.github.graviton94.todayletters.ui.ArrivalBody(s, "mozart", "I", l, 1, { }, startAt = 0) }
     }
     /** 프롤로그 둘째 장: ‘이전’ · ‘건너뛰기’ · ‘다음’. */
-    @Test fun mozartProloguePrev() { val s = state(true); shot("m14_prologue_p2", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 1)) } }
+    @Test fun mozartProloguePrev() { val s = mstate(); shot("m14_prologue_p2", true, 3000) { io.github.graviton94.todayletters.ui.PrologueScreen(s, Route.Prologue("mozart", 1)) } }
     /** 눌러서 뜻 보기: 편지 방에서 낱말 하나의 작은 카드 (표제어 · 등급 · 발음기호 · 뜻 · Tatoeba 예문 · 카드에 담기). */
     @Test fun mozartGloss() {
-        val s = state(true); shownAll(s, 1, 4)
+        val s = mstate(); shownAll(s, 1, 4)
         val w = s.work("mozart"); val (ch, l) = s.letterOf(Route.Letter("mozart", 1, 4))
         val key = io.github.graviton94.todayletters.data.Library.gloss(ctx, "mozart").getValue(l.id).flatten().first { t ->
             w.lexicon!![t.key]?.let { e -> !e.function && e.example != null && l.words.none { it.lex == e.key } } == true
@@ -717,7 +728,7 @@ class ScreensTest {
     }
     /** 낱말 맞추기 다음의 표현 카드 (편지 속 표현 · 번역 · 쓰임). */
     @Test fun mozartPhrases() {
-        val s = state(true)
+        val s = mstate()
         shot("m16_phrase_cards", true, series = s) { io.github.graviton94.todayletters.ui.PhraseCards(s, Route.Play(Route.Letter("mozart", 1, 1), ReplyMode.MATCH)) { } }
     }
     /** 눌러서 뜻 보기 공통 (GlossText): 이 메시지에서 뜻 카드를 펼칠 낱말 하나 (기능어가 아니고 사전에 있는 것). */
@@ -729,7 +740,7 @@ class ScreensTest {
     }
     /** 프롤로그의 원문 한 줄에서 낱말을 눌렀을 때 (금빛 바탕 + 아래 뜻 카드). */
     @Test fun mozartPrologueGloss() {
-        val s = state(true)
+        val s = mstate()
         val l = s.work("mozart").prologue.first().letter
         s.gloss = pick(s, "mozart", "P", l, 0)
         shot("m17_prologue_gloss", true, 3000) {
@@ -741,7 +752,7 @@ class ScreensTest {
     }
     /** 따라 읽기 화면의 문장에서 낱말을 눌렀을 때 (읽는 자리 칠하기는 그대로). */
     @Test fun mozartReadAlongGloss() {
-        val s = state(true)
+        val s = mstate()
         val room = Route.Letter("mozart", 1, 1)
         val (ch, l) = s.letterOf(room)
         s.gloss = pick(s, "mozart", ch, l, 0)
@@ -1046,6 +1057,25 @@ class ScreensTest {
         try { shot("p18_predownload_running_light", false, series = s) { io.github.graviton94.todayletters.ui.DownloadSheet(s, s.downloadAsk!!) } }
         finally { DownloadJob.show(null) }
     }
+
+    // ── 작품 받기 (시안 assets.html): 모차르트를 처음 열 때 · 받는 중 · 닿음 · 끊김. '*ScreensTest.dl*' 로 따로 돌린다.
+    private fun dlShot(name: String, phase: DownloadJob.Phase?) {
+        val s = state(true)
+        s.enter("mozart")
+        val pack = s.downloads.first("mozart")!!
+        if (phase != null) DownloadJob.show(DownloadJob.State("mozart", pack.chapter, s.work("mozart").name[io.github.graviton94.todayletters.core.Lang.KO], pack.bytes * 42 / 100, pack.bytes, phase))
+        s.downloadAsk = AppState.DownloadAsk(pack, "mozart", pack.chapter, null, null)
+        try {
+            shot(name, false, series = s) {
+                io.github.graviton94.todayletters.ui.SeriesCover(s, "mozart")
+                s.downloadAsk?.let { io.github.graviton94.todayletters.ui.DownloadSheet(s, it) }
+            }
+        } finally { DownloadJob.show(null) }
+    }
+    @Test fun dlAsk() = dlShot("dl1_ask_light", null)
+    @Test fun dlLoading() = dlShot("dl2_loading_light", DownloadJob.Phase.RUNNING)
+    @Test fun dlDone() = dlShot("dl3_done_light", DownloadJob.Phase.DONE)
+    @Test fun dlFailed() = dlShot("dl4_failed_light", DownloadJob.Phase.FAILED)
 
     // ── 언어 등급 · 답장 사다리 (docs/next.md 다음 할 일 1): 사다리 · 아는 낱말 % · 처음 → 지금 · 번역 접기 · 등급 블록 · 축하 · 메달 가족 · 작품 설정 ──
     /** 지금 배우는 말(빈센트)의 언어 등급을 [index] (1 = A1 · 1단 … 12 = B2 · 3단) 로. 닿았던 등급 아래로는 내려가지 않으므로 바닥으로 넣는다. */

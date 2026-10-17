@@ -67,6 +67,11 @@ class NavTest {
         s.enter("mozart")
         s.chooseLearn("mozart", io.github.graviton94.todayletters.core.Lang.DE)
         assertEquals(io.github.graviton94.todayletters.core.Lang.DE, s.seriesSettings("mozart").learn)
+        // 모차르트는 앱 안 장이 없다: 첫 편지 앞에서 처음 묶음 (서문 + 무료 장) 받기를 묻고, 다 받으면 그 편지로
+        assertEquals(io.github.graviton94.todayletters.data.Downloads.FIRST, s.downloadAsk?.chapter)
+        assertEquals(listOf("P", "I", "II"), s.downloads.firstChapters("mozart"))
+        assertEquals(Route.Inbox, s.route)
+        s.downloadFinished(silent = false)
         assertEquals(Route.Letter("mozart", 1, 1, Route.Inbox), s.route)
         assertTrue(s.stack.none { it is Route.Prologue })
         assertFalse(s.guideDue("read")); assertFalse(s.guideDue("match"))
@@ -431,6 +436,24 @@ class NavTest {
     /**
      * 미리 받기: 받는 중이면 시트는 진행 (23 / 64MB) 과 ‘멈추기’. 멈추면 받은 데부터 다시 받기. 시트를 닫아도 받기 상태는 남는다 (알림 · 서비스가 이어서).
      */
+    /** 앱 안 장이 없는 작품의 서문 · 맺음은 받기 시트를 먼저 (다 받으면 그 화면으로). 빈센트 서문은 앱 안이라 바로 열린다. */
+    @Test fun prologueAndOutroAskBeforeOpening() {
+        val s = state()
+        s.openPrologue("vincent")
+        assertEquals(Route.Prologue("vincent"), s.route)
+        assertEquals(null, s.downloadAsk)
+        if (s.works.none { it.series.id == "mozart" }) return
+        s.openPrologue("mozart")
+        assertEquals(io.github.graviton94.todayletters.data.Downloads.FIRST, s.downloadAsk?.chapter)
+        assertEquals(Route.Prologue("mozart"), s.downloadAsk?.then)
+        s.downloadLater()
+        s.openOutro("vincent")
+        assertEquals("E", s.downloadAsk?.chapter)
+        assertEquals(Route.Outro("vincent"), s.downloadAsk?.then)
+        s.downloadFinished(silent = false)
+        assertEquals(Route.Outro("vincent"), s.route)
+    }
+
     @Test fun downloadSheetStopAndResume() {
         val s = state()
         val ch = s.work("vincent").chapters[1]
@@ -438,11 +461,11 @@ class NavTest {
         DownloadJob.show(DownloadJob.State("vincent", ch.id, "Vincent", 23_000_000, 64_000_000, DownloadJob.Phase.RUNNING))
         s.downloadAsk = AppState.DownloadAsk(pack, "vincent", ch.id, null, null)
         rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { s.downloadAsk?.let { io.github.graviton94.todayletters.ui.DownloadSheet(s, it) } } }
-        rule.onNodeWithText("23 / 64MB", substring = true).assertExists()
+        rule.onNodeWithText("23.0 / 64MB", substring = true).assertExists()
         rule.onNodeWithText(ctx.getString(R.string.dl_pause)).performClick()
         rule.waitForIdle()
         assertEquals(DownloadJob.Phase.STOPPED, DownloadJob.state?.phase)
-        rule.onNodeWithText(ctx.getString(R.string.dl_retry, io.github.graviton94.todayletters.ui.sizeLabel(s.downloads.remaining(pack)))).assertExists()
+        rule.onNodeWithText(ctx.getString(R.string.dl_go, io.github.graviton94.todayletters.ui.sizeLabel(s.downloads.remaining(pack)))).assertExists()
         // 뒤로: 시트만 닫힌다
         rule.runOnUiThread { rule.activity.onBackPressedDispatcher.onBackPressed() }
         rule.waitForIdle()

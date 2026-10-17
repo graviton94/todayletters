@@ -1488,45 +1488,73 @@
     "en": "Tap to enter",
     "ko": "눌러서 입장하기"
   },
-  "dl_title": {
-    "en": "Narration and pictures for “%1$s”",
-    "ko": "「%1$s」 낭독 · 그림"
+  "dl_first_t": {
+    "en": "Travel to %1$s's time?",
+    "ko": "%1$s의 시대로 떠날까요?"
   },
-  "dl_caps": {
-    "en": "Narration",
-    "ko": "낭독"
-  },
-  "dl_body": {
-    "en": "This chapter's narration (%2$s's voice) and pictures are not inside the app yet. Download them once (%1$s) and they work offline from then on.",
-    "ko": "이 장의 낭독(%2$s 목소리)과 그림은 아직 앱에 없어요. 한 번 받아 두면(%1$s) 그다음부터는 인터넷 없이 보고 들려요."
+  "dl_first_b": {
+    "en": "Prologue to the free chapters, narration and art · %1$s",
+    "ko": "서문부터 무료 장까지 낭독과 그림 · %1$s"
   },
   "dl_mobile": {
-    "en": "You are on mobile data. Wi-Fi is better if your data plan is limited.",
-    "ko": "지금 모바일 데이터로 연결돼 있어요. 데이터가 넉넉하지 않다면 와이파이에서 받는 게 좋아요."
+    "en": "You're on mobile data",
+    "ko": "모바일 데이터로 연결돼 있어요"
   },
   "dl_go": {
     "en": "Download · %1$s",
-    "ko": "받기 · %1$s"
+    "ko": "다운로드 · %1$s"
   },
-  "dl_silent": {
-    "en": "Read without sound",
-    "ko": "소리 없이 읽기"
+  "dl_later": {
+    "en": "Later",
+    "ko": "다음에"
   },
-  "dl_loading": {
-    "en": "Downloading… you can stop at any time; what is already downloaded is kept.",
-    "ko": "받는 중이에요. 언제든 멈출 수 있고, 받은 만큼은 남아요."
+  "dl_first_going": {
+    "en": "On the way to %1$s's time",
+    "ko": "%1$s의 시대로 가는 중"
   },
-  "dl_stop": {
-    "en": "Stop downloading",
-    "ko": "그만 받기"
+  "dl_bg": {
+    "en": "The journey goes on if you close the app",
+    "ko": "앱을 닫아도 길은 이어져요"
+  },
+  "dl_first_done": {
+    "en": "You've reached %1$s's time",
+    "ko": "%1$s의 시대에 닿았어요"
+  },
+  "dl_done_b": {
+    "en": "It plays without the internet now",
+    "ko": "이제 인터넷 없이 들려요"
+  },
+  "dl_open_first": {
+    "en": "Open the first chapter ›",
+    "ko": "첫 장 열기 ›"
+  },
+  "dl_failed_t": {
+    "en": "The road is cut for a moment",
+    "ko": "길이 잠시 끊겼어요"
   },
   "dl_failed": {
-    "en": "The download didn't finish. Check the connection and try again (%1$s left).",
-    "ko": "받지 못했어요. 연결을 확인하고 다시 해 보세요 (남은 양 %1$s)."
+    "en": "Check your connection · %1$s left",
+    "ko": "연결을 확인해 주세요 · 남은 %1$s"
   },
   "dl_retry": {
-    "en": "Try again · %1$s",
-    "ko": "다시 받기 · %1$s"
+    "en": "Download again",
+    "ko": "다시 다운로드"
+  },
+  "dl_ch_t": {
+    "en": "Travel to chapter %1$s?",
+    "ko": "%1$s장으로 떠날까요?"
+  },
+  "dl_ch_going": {
+    "en": "On the way to chapter %1$s",
+    "ko": "%1$s장으로 가는 중"
+  },
+  "dl_epilogue_t": {
+    "en": "Travel to the afterword?",
+    "ko": "맺음으로 떠날까요?"
+  },
+  "dl_epilogue_going": {
+    "en": "On the way to the afterword",
+    "ko": "맺음으로 가는 중"
   },
   "narration_channel": {
     "en": "Letter narration",
@@ -1639,10 +1667,6 @@
   "dl_all_chapters": {
     "en": "All chapters",
     "ko": "모든 장"
-  },
-  "dl_body_ahead": {
-    "en": "You can download the reading and pictures of letters that haven't arrived yet (%1$s). Then they open without data on the day they arrive.",
-    "ko": "아직 도착하지 않은 편지의 낭독 · 그림도 미리 받아 둘 수 있어요 (%1$s). 받아 두면 편지가 도착한 날 데이터 없이 바로 열려요."
   },
   "set_storage": {
     "en": "Storage",
@@ -3004,14 +3028,6 @@
     "en": "Delete",
     "ko": "지우기"
   },
-  "dl_ahead_t": {
-    "en": "Download the readings ahead?",
-    "ko": "낭독을 미리 받을까요?"
-  },
-  "dl_data": {
-    "en": "Without Wi-Fi, this may use your mobile data.",
-    "ko": "와이파이가 아니면 데이터 요금이 나올 수 있어요."
-  },
   "learn_confirm_t": {
     "en": "Switch the language you learn?",
     "ko": "배우는 말을 바꿀까요?"
@@ -3127,22 +3143,6 @@
   "dl_pause": {
     "en": "Stop",
     "ko": "멈추기"
-  },
-  "dl_bg": {
-    "en": "It keeps going if you close the app. You can stop it from the notification too.",
-    "ko": "앱을 닫아도 이어서 받아요. 알림에서도 멈출 수 있어요."
-  },
-  "dl_waiting": {
-    "en": "The connection dropped. It continues from where it stopped once you are back online.",
-    "ko": "인터넷이 끊겼어요. 다시 이어지면 받은 데부터 이어 받아요."
-  },
-  "dl_wifi": {
-    "en": "Wi-Fi",
-    "ko": "와이파이"
-  },
-  "dl_cell": {
-    "en": "mobile data",
-    "ko": "모바일 데이터"
   },
   "mode_check": {
     "en": "Comprehension",

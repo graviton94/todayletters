@@ -141,7 +141,7 @@ fun Done(s: AppState, room: Route.Letter) {
         Column(Modifier.background(p.paper).navigationBarsPadding().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             if (letter.plate != null) Secondary(stringResource(R.string.done_walk)) { s.go(Route.Artwork(room.series, room.letter, room)) }
             if (next != null) Primary(stringResource(R.string.done_open_next)) { s.open(room.series, next.first, next.second, Route.Inbox) }
-            else if (work.outro != null && s.seriesDone(room.series)) Primary(stringResource(R.string.done_outro)) { s.go(Route.Outro(room.series)) }
+            else if (work.outro != null && s.seriesDone(room.series)) Primary(stringResource(R.string.done_outro)) { s.openOutro(room.series) }
             else Primary(stringResource(R.string.done_home), onClick = home)
         }
     }
