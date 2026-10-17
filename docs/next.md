@@ -121,7 +121,9 @@
 - `data/napoleon/` 에 셋째 작품: 프롤로그 4 + 8장 × 7 + 맺음 1 = 61통 (tier 2 ₩2,900, `series_napoleon`, 무료 I · II장). 규격 v1 `spec_check.py napoleon` 통과.
 - **`"hidden": true`** (series.json): generate.py 가 앱 assets 에 넣지 않고 판매 규칙만 본다 → 서재의 ‘곧 도착’ 나폴레옹 카드 그대로. site_sources.py 도 건너뜀. 출시 때 이 칸을 지우고 generate.py.
 - 원문은 지금 철자 (명백한 오자 · 옛 철자는 앱 글에 표시 없이 고침), 찍힌 글자는 메시지 `orig.fr` 에만. 이 원칙은 출처 화면 `credits_text` 와 사이트 출처 페이지 머리 한 줄로만 알린다 (편지마다 적지 않음).
-- 어휘: lexicon*.json 은 카드 낱말만 (빈센트 · 모차르트 줄의 뜻 · IPA · 발음 · 예문을 다시 씀). **gloss*.json 은 아직 없음** (눌러서 뜻 보기 · 아는 낱말 % 는 나폴레옹에서 안 나온다; 만들려면 Tatoeba 추출본 + scripts/vocab 표에 나폴레옹 낱말을 더해 build.py · build_tl.py, validate_lexicon.py 의 SERIES 에 napoleon).
+- 어휘 (2026-10-17): lexicon*.json 을 편지 낱말 전부로 넓히고 **gloss*.json 을 만들었다** (fr 989 · en 986 · ko 1,079 표제어, 토큰 100%). 카드 줄은 그대로, 새 뜻 (fr 557 · en 383 · ko 454) 은 문맥에 맞춰 썼고 사람 확인 전. 만드는 법 `data/lexicon/README.md` 나폴레옹. Tatoeba 는 `fetch-tatoeba.yml` → `tatoeba` 가지.
+  `validate_lexicon.py napoleon`: 글 · 사전 오류 0, 남은 59개는 예전 daily 카드 낱말 (수사 · 기능어 · 등급 구간 밖, 예 deux · six · thousand · 입맞춤 C2) — 규격 v1 `spec_check.py` 는 통과. 고칠지 사용자 결정.
+  ko 글 표기 둘: 튀일리 궁 (V장) · 튈르리 궁 (VII장) 이 섞여 있다.
 - 배역표 voices.json: 길 M3 → M4 → M5 (I 0.25 · E 0.75), `speed` 1.05 (narrate.py 가 인물 목소리에만 곱함), talk_me 조제핀 F3 · 마리 루이즈 F5 · 조제프 M2 · 외젠 M1 · 아들 M1 · 오르탕스 F4. **낭독은 아직 없다.**
 - 그림 (plates `n-*.webp`, 아웃트로 `n-outro.webp`) 은 아직 받지 않았다: 후보와 `[미확인]` 표시는 편지마다 `plate.imageSource`. fetch-portraits.yml 로 확정 → 점(spots) 찍기. 지도 자리 x · y 는 임시값.
 - c4-l5 (‘위대한 황후’ 놀림 편지) 의 ko 는 이 편지만 높임말 (나폴레옹이 tu 대신 vous 로 놀림) — 반말 원칙의 예외, 사용자 확인 필요 (`_note_register`).
@@ -141,4 +143,4 @@
 - **[했음]** 별자리 잇기: 다음 별의 숨 쉬는 빛 고리가 지금은 처음 안내(guided) 때만 나온다 → 언제나 (단추 금빛 결과는 다른 성격, 그대로 둠). ui/Play.kt hint.
 - **[했음]** 표현 카드: ‘편지 속 문장’ 원문 글자가 너무 작다 → 번역 줄과 같거나 더 크게.
 - **[했음]** 대화(Talk) 말하기 = ‘듣고 따라 말해요’ 와 **완전히 같은** 다시 듣기 · 말 알아듣기 · 채점 체계 (같은 코드를 쓴다, 대화용 인식 경로 · SELF 판정 단계는 없앤다). 왜 대화에서만 인식이 SELF 로 떨어졌는지도 찾는다 (사용자 결정 2026-10-17). → 따라 읽기의 부품 `ShadowTake` · `ShadowBoard` · `ShadowControls` (`ui/Shadow.kt`) 를 회화 내 차례가 그대로 씀 (녹음 `files/talk/…`). SELF · 폰 음성 인식(Ear) 은 지움. 까닭: 따라 읽기는 기기 안 녹음 + Prosody 채점이라 인식 서비스가 필요 없고, 회화는 `SpeechRecognizer` (PREFER_OFFLINE) 를 써서 그 언어의 오프라인 인식이 없거나 오류(언어 없음 · 못 알아들음 · 바쁨)가 나면 모두 onError → SELF 로 떨어졌다. 답장 뒤 ‘소리 내어 말해 보기’(`SpeakLine`) 와 복습 말하기는 아직 인식 + 스스로 판정 그대로.
-- 나폴레옹 공개: 뜻 데이터(gloss) · 목소리 샘플 사용자 확인 · hidden 해제.
+- 나폴레옹 공개: 뜻 데이터(gloss) 들어감 · 목소리 샘플 (`tts-sample-napoleon` 가지, 실제 줄 · 실제 빠르기) 사용자 확인 · hidden 해제. 해제하면 remote.json 처음 묶음 P+I+II (25.6MB), 그 뒤 III~VIII · E — 모의로 확인함 (대표 그림 n-c1-l1 만 앱 안).

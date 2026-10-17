@@ -58,3 +58,10 @@ Tatoeba 예문 가운데 학습 앱에 맞지 않는 것(성적 · 혐오 · 폭
 형식은 `[0, 문장, en|null, ko|null, "app"]` — id 0, author `"app"`. 앱은 이 예문에 ‘Tatoeba · …’ 줄을 달지 않고 출처 목록 · 사이트 예문 수에서도 뺀다 (core `Example.fromTatoeba`).
 `build.py` · `build_tl.py` 로 다시 만들면 Tatoeba 예문으로 돌아가니 그때 다시 바꿀 것.
 
+
+## 나폴레옹 (2026-10-17)
+- 카드 낱말뿐이던 lexicon*.json 을 편지 낱말 전부로 넓히고 gloss*.json 을 만들었다 (fr 989 · en 986 · ko 1,079 표제어, 토큰 100% 덮음).
+- 다시 만들기: `fetch-tatoeba.yml` 이 받은 tatoeba 가지의 `*.tsv.gz` 를 풀어 TATOEBA_DIR 로 → `build.py napoleon fr` · `build_tl.py napoleon en|ko` → `merge_cards.py napoleon <카드 lexicon 폴더>` (카드 줄은 손본 뜻 · IPA · 발음 · 예문 그대로, 빈센트 · 모차르트와 같은 낱말은 그쪽 IPA · 발음 · 검토한 예문) → `validate_lexicon.py napoleon`.
+- 나폴레옹에만 쓰는 손 고침: `src/<lang>_map_napoleon.txt` (공용 map 뒤에 읽음). `src/<lang>_occ.txt` 키는 이제 모두 `작품/편지:메시지:토큰` (fr · de 도).
+- 새로 쓴 뜻 (카드 · 공용 표에 없던 fr 557 · en 383 · ko 454줄) 은 이 편지 문맥에 맞춰 썼고 **아직 사람이 확인하지 않았다**. IPA 는 espeak-ng 근사치 (영어는 CMUdict GA 로 아직 안 바꿈).
+- 새 Tatoeba 예문 가운데 다른 뜻 · 앱에 맞지 않는 것 78개는 `src/example_drop_napoleon.txt` 로 뺐다 (예문 없음, 앱이 쓴 예문으로 바꾸지 않음).

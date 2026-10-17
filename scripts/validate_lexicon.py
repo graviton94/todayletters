@@ -18,7 +18,7 @@ import json, os, re, sys, unicodedata
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORDER = ['prologue'] + ['chapter%d' % i for i in range(1, 9)] + ['epilogue']
-SERIES = {'vincent': 'fr', 'mozart': 'de'}
+SERIES = {'vincent': 'fr', 'mozart': 'de', 'napoleon': 'fr'}
 LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 LETTER = re.compile(r'[^\W\d_]')
 

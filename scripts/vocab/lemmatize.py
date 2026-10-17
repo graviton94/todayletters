@@ -4,12 +4,17 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tok import *
 import simplemma
 V = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src') + '/'
-def load_map(lang):
+def load_map(lang, series=None):
+    """src/<lang>_map.txt (form=lemma, all series) + src/<lang>_map_<series>.txt (that series only, wins);
+    src/<lang>_occ.txt keys are <series>/<letter id>:<message>:<token index>."""
     m={};o={}
-    for line in open(V+f'{lang}_map.txt'):
-        line=line.rstrip('\n')
-        if '=' in line and not line.startswith('#'):
-            a,b=line.split('=',1); m[a]=b
+    import os as _os
+    for path in [V+f'{lang}_map.txt'] + ([V+f'{lang}_map_{series}.txt'] if series else []):
+        if not _os.path.exists(path): continue
+        for line in open(path, encoding='utf-8'):
+            line=line.rstrip('\n')
+            if '=' in line and not line.startswith('#'):
+                a,b=line.split('=',1); m[a]=b
     try:
         for line in open(V+f'{lang}_occ.txt'):
             line=line.strip()
@@ -18,7 +23,7 @@ def load_map(lang):
     except FileNotFoundError: pass
     return m,o
 def run(series,lang):
-    m,o=load_map(lang)
+    m,o=load_map(lang, series)
     global M
     M=m
     out=[]  # (lid, mi, [(surface,lemma)])
@@ -41,7 +46,7 @@ def run(series,lang):
             for i,t in enumerate(toks):
                 j=text.find(t,pos); pre=text[:j].rstrip(); pos=j+len(t)
                 start = (not pre) or pre[-1] in '.!?…:«»„“"—(;'
-                key=f"{l['id']}:{mi}:{i}"
+                key=f"{series}/{l['id']}:{mi}:{i}"
                 if key in o: lem=o[key]
                 elif t in m: lem=m[t]
                 elif t.lower() in m and t not in caps: lem=m[t.lower()]

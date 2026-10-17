@@ -2279,3 +2279,457 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 힘들다|adj|to be hard|어렵다
 모네|name|Claude Monet, painter|모네 (화가)
 지독하다|adj|to be terrible, intense|정도가 몹시 심하다
+데지레|name|Désirée (Clary, Joseph's sister-in-law)|데지레 클라리 (조제프의 처제)
+형|n|older brother (said by a man)|남자가 부르는 손위 형제
+데려가다|v|to take (someone) along|함께 데리고 가다
+흩어지다|v|to scatter, to fade away|여기저기 퍼져 사라지다
+가볍다|adj|light|무게가 적다, 덧없다
+한동안|adv|for a while|얼마 동안
+사치|n|luxury|필요 이상으로 돈을 씀
+살아나다|v|to come back to life|다시 살게 되다, 되살아나다
+은퇴하다|v|to retire|일에서 물러나다
+여배우|n|actress|여자 배우
+페드르|name|Phèdre (Racine's tragedy)|〈페드르〉 (라신의 비극)
+공연|n|performance, show|무대에서 보여 줌
+표값|n|ticket price|표의 값
+몰리다|v|to crowd in|한곳으로 많이 모이다
+잔뜩|adv|plenty, full|아주 많이
+공연장|n|theatre|공연을 하는 곳
+산책길|n|promenade, walk|산책하는 길
+도서관|n|library|책을 모아 두고 읽게 하는 곳
+학자|n|scholar|학문을 연구하는 사람
+서재|n|study (room)|책을 읽고 글을 쓰는 방
+위원회|n|committee|어떤 일을 맡은 사람들의 모임
+포병대|n|artillery|대포를 다루는 군대
+외제니|name|Eugénie (Désirée Clary)|외제니 (데지레 클라리의 이름)
+니스|name|Nice|니스 (프랑스 도시)
+쇼베|name|Chauvet (army paymaster, Napoleon's friend)|쇼베 (나폴레옹의 벗)
+어젯밤|n|last night|어제의 밤
+황홀하다|adj|enchanting, blissful|홀릴 만큼 좋다
+한숨|n|(한숨도 못 자다) a wink (of sleep); a sigh|잠깐의 잠; 숨을 길게 내쉬는 것
+견주다|v|to compare|서로 대어 보다
+조제핀|name|Joséphine (Napoleon's first wife)|조제핀 (나폴레옹의 첫 아내)
+부서지다|v|to break|깨져 조각나다
+미오|foreign:it|my (Italian "mio")|나의 (이탈리아어)
+밀어내다|v|to push aside|밀어서 물러나게 하다
+돌체|foreign:it|sweet (Italian "dolce")|달콤한 (이탈리아어)
+아모르|foreign:it|love (Italian "amor")|사랑 (이탈리아어)
+끓다|v|to boil|뜨거워져 부글거리다
+흔들다|v|to shake, to move|이리저리 움직이게 하다
+어쩜|adv|how (can you…)!|어쩌면, 놀라움을 나타냄
+뜨겁다|adj|hot|온도가 아주 높다
+사막|n|desert|모래와 자갈뿐인 메마른 땅
+속마음|n|one's inner feelings|드러내지 않은 마음
+털어놓다|v|to confide, to open up|속에 있는 것을 다 말하다
+달콤하다|adj|sweet|맛이나 느낌이 달다
+시달리다|v|to be worn down (by)|괴로움을 계속 겪다
+저주하다|v|to curse|불행을 빌다
+멎다|v|to stop|움직임이 그치다
+달래다|v|to comfort, to soothe|마음을 가라앉혀 주다
+깨어나다|v|to wake up|잠에서 깨다
+아아|interj|alas, ah|슬픔이나 탄식을 나타냄
+삼백|num|three hundred|300
+삼백만|num|three million|300만
+리외|n|league (old French distance, about 4 km)|프랑스 옛 거리 단위 (약 4km)
+척|n|(~는 척) pretending|그런 것처럼 꾸밈 (~는 척)
+척#2|n|counter for ships|배를 세는 단위
+피로|n|tiredness|지쳐서 고단함
+짓눌리다|v|to be weighed down|무겁게 눌리다
+서운하다|adj|hurt, disappointed|마음에 차지 않아 섭섭하다
+설득하다|v|to persuade|말로 마음을 움직이다
+형수|n|older brother's wife|형의 아내
+제노바|name|Genoa|제노바 (이탈리아 도시)
+사탕|n|sweets, candy|단 과자
+향수|n|perfume|몸에 뿌리는 향기 나는 물
+오렌지꽃|n|orange blossom|오렌지나무의 꽃
+만하다|adj|(~ㄹ 만하다) worth, deserving|그럴 가치가 있다
+귀엽다|adj|cute, sweet|사랑스럽다
+복잡하다|adj|complicated|얽혀 있어 어지럽다
+세상일|n|worldly affairs|세상에서 일어나는 일
+큰일|n|great affairs, important business|큰 규모의 중요한 일
+대체|adv|(in questions) on earth|도대체
+오르탕스|name|Hortense (Joséphine's daughter)|오르탕스 (조제핀의 딸)
+예감|n|foreboding, hunch|일이 일어날 것 같은 느낌
+전령|n|courier|소식을 전하는 사람
+우울|n|melancholy|마음이 어둡고 답답함
+고통|n|pain|몸이나 마음의 괴로움
+음울하다|adj|gloomy|어둡고 답답하다
+밝히다|v|to light up, to brighten|환하게 하다
+부치다|v|to send (a letter)|편지나 물건을 보내다
+추스르다|v|to pull oneself together, to recover|몸이나 마음을 가다듬다
+백만|num|one million|100만
+포르튀네|name|Fortuné (Joséphine's pug)|포르튀네 (조제핀의 개)
+심술궂다|adj|mean, nasty|남을 괴롭히길 좋아하다
+못되다|adj|naughty, bad|성질이 고약하다
+배신|n|betrayal|믿음을 저버림
+고생|n|hardship|어렵고 힘든 일을 겪음
+권리|n|right|당연히 누릴 수 있는 자격
+쾅|adv|bang|크게 부딪치는 소리
+열리다|v|to open|닫힌 것이 열어지다
+질투|n|jealousy|샘하는 마음
+어느새|adv|before one knows it|모르는 사이에
+눕다|v|to lie down|몸을 바닥에 대고 길게 놓다
+대다|v|to put (against)|닿게 하다
+아픔|n|pain|아픈 느낌
+마일|n|mile|거리 단위 (약 1.6km)
+거리|n|distance|두 곳 사이의 길이
+거리#2|n|(달랠 거리) something to (do), material|무엇을 할 만한 것
+사라지다|v|to disappear|없어지다
+따스하다|adj|warm|조금 따뜻하다
+열다섯|num|fifteen|15
+쳇|interj|tut, pah|못마땅할 때 내는 소리
+서툴다|adj|clumsy|익숙하지 않아 어설프다
+영락없다|adj|exactly like|틀림없이 그렇다
+신데렐라|name|Cinderella|신데렐라
+아무렇다|adj|(아무렇게나) carelessly, any old way|되는대로이다
+휘갈기다|v|to scribble|글씨를 빨리 마구 쓰다
+정|n|affection, attachment|따뜻한 마음, 애정
+한결같다|adj|constant, unchanging|처음부터 끝까지 같다
+따뜻하다|adj|warm|알맞게 덥다, 다정하다
+채우다|v|to fill|가득하게 하다
+적도|n|equator|지구 한가운데를 도는 선
+퍼붓다|v|to shower (with)|마구 쏟다
+돌아다니다|v|to go around|이곳저곳 다니다
+나폴레옹|name|Napoleon|나폴레옹
+신경|n|(신경 쓰다) attention, care|마음을 씀
+변덕|n|whim, fickleness|이랬다저랬다 하는 마음
+무심하다|adj|indifferent|관심이 없다
+근심|n|worry|걱정
+헤아리다|v|to measure, to count|수를 세다, 짐작하다
+굳이|adv|necessarily, go out of one's way|구태여
+쫓아다니다|v|to chase after|따라다니다
+베르티에|name|Berthier (Napoleon's chief of staff)|베르티에 (나폴레옹의 참모장)
+포기하다|v|to give up|하던 것을 그만두다
+상하다|v|(마음이 상하다) to be hurt|마음이 다치다; 상태가 나빠지다
+안코나|name|Ancona|안코나 (이탈리아 도시)
+산책하다|v|to take a walk|가볍게 걷다
+조약|n|treaty|나라 사이의 약속
+리미니|name|Rimini|리미니 (이탈리아 도시)
+라벤나|name|Ravenna|라벤나 (이탈리아 도시)
+볼로냐|name|Bologna|볼로냐 (이탈리아 도시)
+무리하다|v|to overdo it|힘에 넘치게 하다
+맙소사|interj|good heavens|어이없을 때 내는 말
+잘못하다|v|to do wrong|틀리게 하다
+대가|n|price, reward|한 일에 대해 돌아오는 것
+로잔|name|Lausanne|로잔 (스위스 도시)
+열이틀|n|twelve days|열두 날
+신분|n|identity, status|사회적인 자리, 누구인지
+플롱비에르|name|Plombières (spa town)|플롱비에르 (온천 마을)
+무스타슈|name|Moustache (a courier)|무스타슈 (전령)
+외젠|name|Eugène (Joséphine's son)|외젠 (조제핀의 아들)
+여드레|n|eight days|여덟 날
+파비아|name|Pavia|파비아 (이탈리아 도시)
+스트라델라|name|Stradella|스트라델라 (이탈리아 마을)
+물집|n|blister|살갗에 물이 찬 것
+고약|n|plaster, salve|상처에 붙이는 약
+어머님|n|mother (respectful)|어머니의 높임말
+고생하다|v|to have a hard time|어렵고 힘든 일을 겪다
+마를리|name|Marly (royal hunting estate)|마를리 (왕실 사냥터)
+멧돼지|n|wild boar|산에 사는 돼지
+쏘다|v|to shoot|총이나 활을 쏘다
+덩치|n|build, size (of body)|몸집
+세비야|name|Seville|세비야 (스페인 도시)
+이발사|n|barber|머리를 깎는 사람
+향하다|v|to be directed at|어느 쪽을 바라보다
+메시도르|name|Messidor (10th month of the Republican calendar)|메시도르 (공화력 10월)
+에서|particle|in, at (place)|장소를 나타내는 조사|F
+로진|name|Rosine (heroine of The Barber of Seville)|로진 (〈세비야의 이발사〉의 여주인공)
+여느|det|usual, ordinary|보통의, 다른 날과 같은
+간밤|n|last night|지난밤
+정박하다|v|to lie at anchor|배가 닻을 내리고 머물다
+닻|n|anchor|배를 멈추게 하는 쇠갈고리
+끌리다|v|to be dragged|끌려가다
+불로뉴|name|Boulogne|불로뉴 (프랑스 항구)
+십|num|ten|10
+리#2|n|ri (old Korean distance unit, about 0.4 km)|거리 단위 (약 0.4km)
+광경|n|sight, scene|눈앞에 벌어진 모습
+대포|n|cannon|큰 포
+불빛|n|light (of fire or lamps)|불의 빛
+뒤덮이다|v|to be covered|온통 덮이다
+성나다|v|to get angry|화가 나다
+울부짖다|v|to roar, to howl|울며 부르짖다
+밤새|adv|all night|밤 동안 내내
+영원|n|eternity|끝없이 이어짐
+구조되다|v|to be rescued|위험에서 구해지다
+소설|n|novel|지어낸 이야기를 쓴 글
+서사시|n|epic poem|영웅 이야기를 쓴 긴 시
+꾸다|v|(꿈을 꾸다) to dream|꿈을 보다
+칼레|name|Calais|칼레 (프랑스 항구)
+됭케르크|name|Dunkirk|됭케르크 (프랑스 항구)
+블루아|name|Blois|블루아 (프랑스 도시)
+루이|name|Louis (Napoleon's brother)|루이 (나폴레옹의 동생)
+그쪽|pron|that side, those people there|그 방향, 그곳 사람들
+루트비히스부르크|name|Ludwigsburg|루트비히스부르크 (독일 도시)
+상냥하다|adj|kind, friendly|부드럽고 친절하다
+영국|name|England, Britain|영국
+르마루아|name|Lemarois (Napoleon's aide-de-camp)|르마루아 (나폴레옹의 부관)
+들려주다|v|to tell (someone)|이야기를 들어서 알게 하다
+명랑하다|adj|cheerful|밝고 즐겁다
+이달|n|this month|이번 달
+기대하다|v|to look forward to, to expect|바라고 기다리다
+악장|n|music director (of a court)|악단을 이끄는 사람
+꿩|n|pheasant|사냥하는 새의 한 가지
+사냥터|n|hunting ground|사냥하는 곳
+바퀴|n|(한 바퀴) a round, a turn|한 번 도는 것
+유지|n|leading citizen|지역에서 이름 있는 사람
+기관|n|institution, public body|공적인 일을 하는 조직
+대표|n|representative|여럿을 대신하는 사람
+다르빌|name|d'Harville (Joséphine's equerry)|다르빌 (조제핀의 시종 무관)
+바덴|name|Baden|바덴 (독일 지방)
+슈투트가르트|name|Stuttgart|슈투트가르트 (독일 도시)
+장교|n|officer|군대의 지휘관
+넉넉히|adv|amply, plenty|모자라지 않게
+바치다|v|to offer (respects)|공손히 드리다
+갖추다|v|to show (proper forms), to have ready|필요한 것을 다 차리다
+빚지다|v|to owe|갚아야 할 것이 있다
+뷔르템베르크|name|Württemberg|뷔르템베르크 (독일 지방)
+자연스럽다|adj|natural|꾸밈이 없다
+황후|n|empress|황제의 아내
+스트라스부르|name|Strasbourg|스트라스부르 (프랑스 도시)
+저희|pron|we, us (humble)|‘우리’의 낮춤말|F
+브륀|name|Brünn (Brno)|브륀 (지금의 브르노)
+러시아군|n|the Russian army|러시아의 군대
+휴전|n|truce|싸움을 잠시 멈춤
+부디|adv|please, I beg you|꼭, 바라건대
+노예|n|slave|남에게 매여 부림을 받는 사람
+뜻대로|adv|as one wishes|마음먹은 대로
+어제저녁|n|yesterday evening|어제의 저녁
+모니퇴르|name|Le Moniteur (official newspaper)|『모니퇴르』 (관보 신문)
+부|n|copy (counter for newspapers, books)|신문 · 책을 세는 단위
+관하다|v|(~에 관한) about, concerning|~을 대상으로 하다
+아우구스테|name|Augusta (princess of Bavaria, Eugène's wife)|아우구스테 (외젠의 아내)
+험담|n|backbiting, speaking ill|남을 나쁘게 말함
+음모|n|scheme, intrigue|몰래 꾸미는 나쁜 일
+버릇없다|adj|spoiled, rude|예의가 없다
+여리다|adj|tender, soft|약하고 부드럽다
+하츠펠트|name|Hatzfeld (Madame d'Hatzfeld)|하츠펠트 (부인)
+흐느끼다|v|to sob|흑흑 울다
+꾸밈|n|(꾸밈없이) affectation; artlessly|겉으로 꾸미는 것 (꾸밈없이 = 있는 그대로)
+벌하다|v|to punish|벌을 주다
+순박하다|adj|simple, unaffected|꾸밈없고 순하다
+아우스터리츠|name|Austerlitz (battle of 1805)|아우스터리츠 (1805년 전투)
+전투|n|battle|군대끼리 싸움
+시내|n|town, downtown|도시의 안
+바르샤바|name|Warsaw|바르샤바 (폴란드 도시)
+폴란드|name|Poland|폴란드
+부풀리다|v|to exaggerate|실제보다 크게 하다
+험하다|adj|rough, hard|거칠고 위험하다
+고생스럽다|adj|hard, gruelling|고생이 되다
+튀일리|name|the Tuileries (palace in Paris)|튈르리 궁 (파리)
+궁|n|palace|임금이 사는 큰 집
+그리로|adv|there, that way|그곳으로
+미루다|v|to put off|뒤로 늦추다
+씩씩하다|adj|brave, spirited|굳세고 힘차다
+이삼|num|two or three|두세
+허름하다|adj|shabby|낡고 보잘것없다
+찌다|v|(살이 찌다) to put on weight|몸에 살이 붙다
+말메종|name|Malmaison (Joséphine's house near Paris)|말메종 (조제핀의 집)
+이르다|v|to tell, to instruct|미리 말해 두다
+가라앉히다|v|to calm|마음을 가라앉게 하다
+괴로움|n|suffering|괴로운 느낌
+딸리다|v|to come with, to belong to|붙어 있다
+조건|n|condition|어떤 일이 이루어지는 바탕
+키우다|v|to make greater|크게 하다
+헤이그|name|The Hague|헤이그 (네덜란드 도시)
+암초|n|reef|물속에 숨은 바위
+샘|n|spring, source|물이 솟는 곳, 근원
+프로이센|name|Prussia|프로이센
+양보받다|v|to get (someone) to concede|양보를 얻어 내다
+애먹다|v|to have a hard time|몹시 힘들다
+방침|n|policy|일을 해 나가는 방향
+제롬|name|Jérôme (Napoleon's youngest brother)|제롬 (나폴레옹의 막내 동생)
+인구|n|population|사는 사람의 수
+베스트팔렌|name|Westphalia|베스트팔렌 (독일 지방)
+몽드마르상|name|Mont-de-Marsan|몽드마르상 (프랑스 도시)
+하룻밤|n|one night|한 밤
+시골집|n|country house|시골에 있는 집
+카를로스|name|Charles (Charles IV, king of Spain)|카를로스 (스페인 왕)
+예나|name|Jena (battle of 1806)|예나 (1806년 전투)
+싸움터|n|battlefield|싸움이 벌어진 곳
+야영하다|v|to camp out|밖에서 천막을 치고 지내다
+바이마르|name|Weimar|바이마르 (독일 도시)
+알렉산드르|name|Alexander (Tsar Alexander I)|알렉산드르 (러시아 황제)
+자잘하다|adj|minor, small|여러 개가 다 작다
+리|n|(~ㄹ 리가 없다) there is no way that …|까닭, 이치
+헝가리|name|Hungary|헝가리
+베르크|name|Berg (grand duchy)|베르크 (대공국)
+대공|n|grand duke|큰 공국의 군주
+프랑|n|franc|프랑스 돈의 단위
+즐거워하다|v|to enjoy|즐겁게 여기다
+퐁텐블로|name|Fontainebleau|퐁텐블로 (프랑스 궁전 마을)
+스물|num|twenty|20
+몹쓸|det|terrible, wicked|아주 나쁜
+편히|adv|comfortably, at ease|편하게
+굳세다|adj|strong, firm|굳고 힘차다
+스스로|adv|by oneself|자기 힘으로
+가라앉다|v|to calm down|마음이 차분해지다
+사바리|name|Savary (general, Napoleon's aide)|사바리 (나폴레옹의 측근)
+사냥하다|v|to hunt|짐승을 잡다
+놓이다|v|(마음이 놓이다) to feel relieved|마음이 편해지다
+튈르리|name|the Tuileries (palace in Paris)|튈르리 궁 (파리)
+텅|adv|(텅 비다) completely (empty)|속이 아무것도 없이
+새삼|adv|anew, all over again|다시 새롭게
+에스테브|name|Estève (treasurer of the Crown)|에스테브 (황실 재무관)
+특별비|n|special expenses|특별히 쓰는 돈
+식기|n|tableware|음식을 담는 그릇
+건너|n|across, the other side|사이를 두고 맞은편
+보헤미아|name|Bohemia|보헤미아
+시집가다|v|to get married (of a woman)|여자가 결혼하다
+노르망디|name|Normandy|노르망디 (프랑스 지방)
+푸근하다|adj|cosy, comfortable|넉넉하고 따뜻하다
+농장|n|farm|농사를 짓는 곳
+안주인|n|mistress of the house|집안의 여주인
+온천물|n|spa water|온천의 물
+처신|n|conduct, behaviour|세상에서 하는 몸가짐
+대재상|n|arch-chancellor|제국의 높은 신하
+담기다|v|to be contained|안에 들어 있다
+센|name|the Seine|센 강
+그리스인|n|Greek (person)|그리스 사람
+붙잡히다|v|to be captured|잡히다
+아스티아낙스|name|Astyanax (Hector's son)|아스티아낙스 (헥토르의 아들)
+루이즈|name|Louise (Marie-Louise)|루이즈 (마리 루이즈)
+코르비자르|name|Corvisart (Napoleon's physician)|코르비자르 (주치의)
+다독이다|v|to comfort, to pat|부드럽게 달래다
+한없이|adv|endlessly|끝없이
+처신하다|v|to behave, to conduct oneself|몸가짐을 하다
+권하다|v|to advise, to recommend|하라고 말하다
+엑스|name|Aix (Aix-les-Bains, spa town)|엑스 (엑스레뱅 온천)
+손길|n|touch, care|손을 대어 돌봄
+엘바|name|Elba (island)|엘바 섬
+부왕|n|viceroy|왕을 대신해 다스리는 사람
+소문|n|rumour|사람들 사이에 도는 말
+토스카나|name|Tuscany|토스카나 (이탈리아 지방)
+루이즈마리|name|Louise-Marie (Marie-Louise)|루이즈마리 (마리 루이즈)
+브리아르|name|Briare|브리아르 (프랑스 마을)
+생트로페|name|Saint-Tropez|생트로페 (프랑스 항구)
+보세|name|Beausset (prefect of the palace)|보세 (궁내 시종장)
+몽테스키우|name|Montesquiou (the little king's governess)|몽테스키우 부인 (어린 왕의 가정교사)
+지금쯤|adv|by now|지금 이맘때
+시종장|n|chamberlain|임금을 모시는 사람의 우두머리
+따라오다|v|to follow, to come after|뒤를 좇아오다
+열광하다|v|to be wild with enthusiasm|몹시 기뻐 흥분하다
+세인트헬레나|name|Saint Helena (island)|세인트헬레나 섬
+롱우드|name|Longwood (house on St Helena)|롱우드 (세인트헬레나의 집)
+유해|n|remains, ashes|죽은 사람의 몸이나 뼈
+간직하다|v|to keep, to cherish|소중히 지니다
+둘러싸다|v|to surround|빙 둘러 에워싸다
+함정|n|trap|빠지게 만든 구덩이, 속임수
+당부하다|v|to urge, to ask earnestly|꼭 해 달라고 부탁하다
+억누르다|v|to oppress|힘으로 누르다
+권력자|n|ruler, man of power|권력을 가진 사람
+도구|n|tool|일에 쓰는 물건
+싸우다|v|to fight|이기려고 다투다
+식|n|way, manner|방법, 방식
+이어받다|v|to take up, to inherit|물려받다
+은그릇|n|silverware|은으로 만든 그릇
+야전|n|field (camp) (야전 침대 = camp bed)|싸움터 (야전 침대 = 접는 침대)
+무기|n|weapon|싸움에 쓰는 도구
+안장|n|saddle|말 등에 얹는 자리
+박차|n|spur|말을 모는 신발 뒤축의 쇠
+그릇|n|vessel, dish|물건을 담는 것
+옷가지|n|clothes|여러 가지 옷
+목록|n|list|이름을 차례로 적은 것
+A|name|A (a mark on the list)|A (목록에 붙인 기호)
+보잘것없다|adj|humble, small|볼 만한 것이 없다
+유산|n|legacy|죽은 사람이 남긴 것
+오후|n|afternoon|낮 열두 시부터 저녁까지
+전쟁|n|war|나라끼리 싸우는 일
+오빠|n|(a woman's) older brother|여자가 손위 남자 형제를 부르는 말
+결과|n|result|일의 끝에 생긴 것
+피|n|blood|몸속을 도는 붉은 물
+새벽|n|early morning, small hours|날이 밝기 전
+미래|n|future|앞으로 올 때
+과거|n|past|지나간 때
+질투하다|v|to be jealous|샘을 내다
+상자|n|box|물건을 담는 통
+악몽|n|nightmare|무서운 꿈
+바쁘다|adj|to be busy|할 일이 많다
+주머니|n|pocket|옷에 단 작은 자루
+입술|n|lips|입의 가장자리
+속이다|v|to deceive|거짓으로 믿게 하다
+열#2|n|fever|몸의 높은 온도
+밉다|adj|to be hateful; to dislike|마음에 들지 않고 싫다
+바보|n|fool|어리석은 사람
+걱정되다|v|to be worried|마음이 놓이지 않다
+위험|n|danger|다칠 수 있는 상태
+불행|n|unhappiness|행복하지 않음
+놀이|n|play, game|노는 일
+목표|n|goal, aim|이루려는 것
+금|n|gold|누런 귀한 쇠
+이틀|n|two days|두 날
+산책|n|walk, stroll|가볍게 걷기
+지루하다|adj|to be boring, to be bored|따분하다
+글|n|writing, words|글자로 쓴 것
+부탁|n|favor, request|해 달라고 청함
+마중|n|going out to meet someone|오는 사람을 맞으러 나감
+숨기다|v|to hide|남이 모르게 감추다
+감기|n|a cold|코 · 목이 아픈 가벼운 병
+축제|n|festival, celebration|크게 벌이는 잔치
+팔|n|arm|어깨에서 손까지
+식물|n|plant|풀과 나무
+사냥|n|hunting|짐승을 잡는 일
+다치다|v|to get hurt|몸이 상하다
+공연하다|v|to perform, to put on (a play)|무대에서 보여 주다
+심심하다|adj|to be bored|할 일이 없어 따분하다
+장군|n|general|군대를 이끄는 사람
+구하다|v|to save, to rescue|위험에서 건지다
+영혼|n|soul|넋
+자정|n|midnight|밤 열두 시
+진영|n|camp (of an army)|군대가 머무는 곳
+신부|n|bride|갓 결혼한 여자
+실력|n|skill, ability|할 수 있는 힘
+출발하다|v|to set off, to depart|떠나다
+별로|adv|not very, not particularly (with a negative)|그다지 (부정과 함께)
+어떻게|adv|how|어떤 방법으로
+신문|n|newspaper|소식을 싣는 인쇄물
+공주|n|princess|임금의 딸
+던지다|v|to throw|손으로 멀리 보내다
+혹시|adv|by any chance|어쩌다가, 만일
+손님|n|guest, visitor|찾아온 사람
+마을|n|village|집들이 모여 있는 곳
+봄|n|spring|겨울 다음 계절
+현명하다|adj|to be wise|슬기롭다
+자식|n|child (son or daughter)|아들과 딸
+당연하다|adj|to be natural, to be only right|마땅히 그렇다
+해치다|v|to harm, to damage|상하게 하다
+자세하다|adj|to be detailed|아주 세밀하다
+낳다|v|to give birth to|아이를 몸 밖으로 내놓다
+무도회|n|ball, dance|춤을 추는 모임
+통통하다|adj|to be plump|살이 알맞게 쪄 동그스름하다
+군대|n|army, troops|군인들의 무리
+상태|n|condition, state|놓여 있는 모양이나 형편
+다행|n|good fortune, relief|일이 뜻밖에 잘됨
+치료|n|treatment, cure|병을 낫게 함
+비싸다|adj|to be expensive|값이 많다
+팔다|v|to sell|돈을 받고 넘기다
+허물다|v|to pull down|쌓은 것을 무너뜨리다
+설레다|v|to be excited, to flutter|마음이 들떠 두근거리다
+약하다|adj|to be weak|힘이 모자라다
+의심하다|v|to doubt|믿지 못하다
+고기|n|meat|먹는 짐승의 살
+장관|n|minister|나라 일을 맡은 부서의 우두머리
+기운|n|energy, strength|몸을 움직이는 힘
+궁전|n|palace|임금이 사는 큰 집
+울적하다|adj|to feel gloomy|마음이 답답하고 쓸쓸하다
+도자기|n|porcelain, pottery|흙을 빚어 구운 그릇
+겪다|v|to go through, to experience|어떤 일을 당해 지내다
+섬|n|island|물로 둘러싸인 땅
+호수|n|lake|땅이 우묵하게 패어 물이 고인 곳
+목숨|n|life|살아 있게 하는 힘
+빚|n|debt|갚아야 할 돈
+모으다|v|to gather; to save up|한데 합치다; 돈을 쌓아 두다
+해마다|adv|every year|한 해 한 해마다
+손녀|n|granddaughter|아들이나 딸의 딸
+관심|n|interest, concern|마음이 끌림, 신경 씀
+며느리|n|daughter-in-law|아들의 아내
+조용히|adv|quietly|소리 없이, 드러나지 않게
+아무도|pron|nobody, anyone (with a negative)|어떤 사람도 (+ 부정)
+서른|num|thirty|열의 세 배, 30
+핑계|n|excuse, pretext|둘러대는 이유
+역사|n|history|지나온 일, 그 기록
+준비|n|preparation|미리 갖춤
+국민|n|the people (of a nation)|나라의 사람들
+유언장|n|will, testament|죽기 전에 남기는 글
+왕자|n|prince|왕의 아들
+강가|n|riverside, riverbank|강의 가장자리
+배#3|n|ship, boat|물 위로 다니는 탈것

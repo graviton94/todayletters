@@ -2,7 +2,7 @@ import json,re
 ORDER=['prologue']+['chapter%d'%i for i in range(1,9)]+['epilogue']
 WORD=re.compile(r"(?<![\w½])[^\W\d_]+(?:['’\-][^\W\d_]+)*")
 ELI=re.compile(r"^(jusqu|lorsqu|puisqu|quoiqu|presqu|qu|[ldjmtscn])['’]",re.I)
-KEEP_FR={"aujourd'hui","quelqu'un","quelqu'une","peut-être","avant-plan","pont-levis","c'est-à-dire","au-dessus","là-dessus","là-bas","avant-hier","ci-inclus","saintes-maries","ville-d'avray","au-delà","là-haut","grand-père","grand-mère","arc-en-ciel","vis-à-vis","non-seulement"}
+KEEP_FR={"aujourd'hui","quelqu'un","quelqu'une","peut-être","avant-plan","pont-levis","c'est-à-dire","au-dessus","là-dessus","là-bas","avant-hier","ci-inclus","saintes-maries","ville-d'avray","au-delà","là-haut","grand-père","grand-mère","arc-en-ciel","vis-à-vis","non-seulement","soi-disant"}
 SPLIT_SUFFIX={"ci","là","même","mêmes","je","tu","il","elle","on","nous","vous","ils","elles","moi","toi","le","la","les","lui","leur","en","y","t","ce"}
 def letters(series):
     for f in ORDER:

@@ -31,6 +31,7 @@ def en_key(w, start, m, F):
     return simplemma.lemmatize(w.lower(), lang='en')
 def run_tl(series, lang):
     m = load_kv(SRC + f'{lang}_map.txt'); o = load_kv(SRC + f'{lang}_occ.txt')
+    m.update(load_kv(SRC + f'{lang}_map_{series}.txt'))   # that series only (wins over the shared map)
     F = freq(lang) if lang == 'en' else None
     out = []
     for f, l in letters(series):

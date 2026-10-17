@@ -1284,3 +1284,561 @@ intermédiaire|n.m|intermediary|중개자
 production|n.f|output|작품, 생산물
 débâcle|n.f|collapse|붕괴
 garder|v|to keep|간직하다
+Désirée|name|Désirée Clary (Joseph's sister-in-law, Napoleon's first fiancée)|데지레 클라리 (조제프의 처제, 나폴레옹의 첫 약혼녀)
+événement|n.m|event|일, 사건
+fortune|n.f|fortune, fate|운, 운명
+sincèrement|adv|sincerely|진심으로
+léger|adj|light|가벼운, 덧없는
+dissiper|v|to fade away (se dissiper)|사라지다, 흩어지다
+étroitement|adv|closely|가깝게, 긴밀히
+unir|v|to unite, to join|하나로 잇다, 맺다
+confondre|v|to blend into one (se confondre); to dumbfound|하나로 섞이다; 어쩔 줄 모르게 하다
+combien|adv|how much|얼마나
+luxe|n.m|luxury|사치
+Phèdre|name|Phèdre (Racine's tragedy)|〈페드르〉 (라신의 비극)
+Opéra|name|the Opéra (Paris opera house)|오페라 극장 (파리)
+profit|n.m|benefit (au profit de = for the benefit of)|이익 (au profit de = ~를 위한)
+actrice|n.f|actress|여배우
+tripler|v|to triple|세 배가 되다
+entasser|v|to pile up|쌓아 두다, 모아 두다
+distraire|v|to entertain, to amuse|즐겁게 하다, 기분을 풀어 주다
+spectacle|n.m|show, sight|공연, 광경
+promenade|n.f|walk, promenade|산책, 산책길
+bibliothèque|n.f|library|도서관
+savant|n.m|scholar, scientist|학자
+Paris|name|Paris|파리
+empire|n.m|power, sway; empire|영향력, 힘; 제국
+Comité|name|the Committee (of Public Safety)|위원회 (공안위원회)
+rétablir|v|to restore, to reinstate; (se rétablir) to recover|복직시키다, 되돌리다; (se ~) 회복하다
+artillerie|n.f|artillery|포병
+folie|n.f|madness, folly|미친 짓, 어리석음
+Eugénie|name|Eugénie (Désirée Clary's first name)|외제니 (데지레 클라리의 이름)
+Chauvet|name|Chauvet (army paymaster, Napoleon's friend)|쇼베 (군 경리관, 나폴레옹의 벗)
+Nice|name|Nice|니스
+sept|num|seven|일곱
+enivrant|adj|intoxicating, heady|취하게 하는, 황홀한
+incomparable|adj|incomparable|비길 데 없는
+Joséphine|name|Joséphine (Napoleon's first wife)|조제핀 (나폴레옹의 첫 아내)
+bizarre|adj|strange|이상한, 묘한
+fâcher|v|(se fâcher) to get angry|(se ~) 화내다
+inquiéter|v|to worry|걱정시키다
+briser|v|to break|부수다, 깨뜨리다
+mio|it|my (Italian)|나의 (이탈리아어)
+dolce|it|sweet (Italian)|달콤한 (이탈리아어)
+amor|it|love (Italian)|사랑 (이탈리아어)
+millier|n.m|a thousand or so|천 개쯤, 수천
+brûler|v|to burn|태우다, 타오르다
+impression|n.f|impression, effect|인상, 감동
+unique|adj|only, one and only|하나뿐인
+isoler|v|to isolate (isolé = alone)|떼어 놓다 (isolé = 홀로)
+épancher|v|(s'épancher) to pour out one's heart|(s'~) 속마음을 털어놓다
+ennuyer|v|to bore, to weary; (s'ennuyer) to be bored, to miss company|지루하게 하다, 지치게 하다; (s'~) 심심해하다, 그리워하다
+tracas|n.m|bother, hassle|성가신 일, 골칫거리
+craindre|v|to fear|두려워하다
+dégoûter|v|to disgust|싫증 나게 하다, 넌더리 나게 하다
+prêt|adj|ready|준비된, ~할 참인
+maudire|v|to curse|저주하다
+battre|v|to beat|뛰다, 치다
+magie|n.f|magic|마법
+affecter|v|to affect, to move (deeply)|마음을 아프게 하다, 영향을 주다
+essentiel|adj|essential, vital|아주 중요한, 꼭 필요한
+réveil|n.m|waking up|잠에서 깸
+hélas|interj|alas|아아, 슬프게도
+cent|num|hundred|백
+lieue|n.f|league (about 4 km)|리외 (약 4km)
+interrompre|v|to interrupt|중간에 멈추다, 끊다
+accabler|v|to overwhelm (accablé de = weighed down with)|짓누르다 (accablé de = ~에 짓눌린)
+fatigue|n.f|tiredness, fatigue|피로, 고단함
+envie|n.f|desire, longing|바람, 하고 싶은 마음
+accoucher|v|to give birth|아기를 낳다
+bonbon|n.m|sweet, candy|사탕
+Gênes|name|Genoa|제노바
+parfum|n.m|perfume|향수
+oranger|n.m|orange tree (fleur d'oranger = orange blossom)|오렌지나무 (fleur d'oranger = 오렌지꽃)
+obtenir|v|to obtain, to win|얻다
+mérite|n.m|merit, worth|훌륭함, 장점
+mériter|v|to deserve|받을 만하다
+éloigner|v|to move away; (s'éloigner) to go away|멀리하다; (s'~) 멀어지다
+tourbillon|n.m|whirl, whirlwind|소용돌이
+recommander|v|to commend (to someone's care)|잘 부탁하다, 맡기다
+oui|adv|yes|응, 네|F
+quelquefois|adv|sometimes|가끔
+absence|n.f|absence|곁에 없음, 부재
+fréquent|adj|frequent|잦은
+Hortense|name|Hortense (Joséphine's daughter)|오르탕스 (조제핀의 딸)
+perpétuel|adj|endless, perpetual|끝없는
+pressentiment|n.m|foreboding|불길한 예감
+funeste|adj|fatal, ominous|불길한, 치명적인
+expédier|v|to send off, to dispatch|보내다, 급히 부치다
+affliger|v|to grieve, to distress|슬프게 하다, 괴롭히다
+chacun|pron|each (one)|각각, 저마다
+embellir|v|to brighten, to make beautiful|아름답게 하다
+égayer|v|to cheer up, to brighten|밝게 하다, 기운 나게 하다
+sinistre|adj|grim, sinister|음산한
+mélancolie|n.f|melancholy|우울
+bien-aimé|n.m|beloved|사랑하는 사람
+adorable|adj|adorable|사랑스러운
+remplir|v|to fill|채우다
+obliger|v|to oblige, to force; (être obligé de) to be grateful for|강요하다; (obligé de = ~에) 고마운
+mille|num|thousand|천
+mille#2|n.m|mile|마일
+Fortuné|name|Fortuné (Joséphine's pug)|포르튀네 (조제핀의 퍼그 개)
+dépit|n.m|spite (en dépit de = in spite of)|원망 (en dépit de = ~에도 불구하고)
+méchanceté|n.f|nastiness, spite|심술, 못됨
+méchant|adj|naughty, nasty|못된, 심술궂은
+laid|adj|ugly|못생긴
+perfide|adj|treacherous|배신하는, 간사한
+tromper|v|to deceive|속이다
+amant|n.m|lover|연인
+charger|v|to load (chargé de = burdened with)|짐을 지우다 (chargé de = ~을 잔뜩 진)
+assurance|n.f|assurance, certainty|확신, 믿음
+amour|n.m|love|사랑
+ouvrir|v|to open|열다
+fracas|n.m|crash, din|요란한 소리
+lèvre|n.f|lip|입술
+éloignement|n.m|distance, separation|멀리 떨어져 있음
+disparaître|v|to disappear|사라지다
+capricieux|adj|capricious, moody|변덕스러운
+onction|n.f|unction, gentle warmth|부드러운 다정함
+bonté|n.f|kindness|착함, 친절
+exclusivement|adv|exclusively|오로지
+partage|n.m|share, lot|몫
+cinquante|num|fifty|쉰
+quinze|num|fifteen|열다섯
+fi|interj|shame! fie!|쳇! 부끄러운 줄 알아!
+traître|adj|treacherous|배신하는
+vilain|adj|naughty, wicked|못된, 고약한
+gauche|adj|clumsy|서투른
+cendrillon|n.f|Cinderella, a drab little thing|신데렐라, 초라한 아이
+jeter|v|to throw|던지다
+ôter|v|to take away|빼앗다, 없애다
+affection|n.f|attachment, affection|애착, 애정
+étouffer|v|to stifle, to smother|숨 막히게 하다, 억누르다
+constant|adj|constant, faithful|변함없는
+vérité|n.f|truth (en vérité = truly)|진실 (en vérité = 정말로)
+brûlant|adj|burning, scorching|타는 듯한, 뜨거운
+équateur|n.m|equator|적도
+Milan|name|Milan|밀라노
+précipiter|v|(se précipiter) to rush|(se ~) 달려가다
+presser|v|to press, to hold tight|꼭 껴안다, 누르다
+courir|v|to run; to run around (towns); to run (a risk)|달리다; 돌아다니다; (위험을) 겪다
+soucier|v|(se soucier de) to care about|(se ~ de) 마음 쓰다
+Napoléon|name|Napoleon|나폴레옹
+caprice|n.m|whim|변덕
+inconstance|n.f|fickleness|변덕스러움, 한결같지 않음
+indifférent|adj|indifferent|무관심한
+remède|n.m|remedy|치료법, 처방
+ennui|n.m|trouble, worry|근심, 괴로움
+malheur|n.m|misfortune, unhappiness|불행
+incalculable|adj|immeasurable|헤아릴 수 없는
+entier|adj|whole, entire|온, 전체의
+plaire|v|to please|마음에 들다
+Berthier|name|Berthier (Napoleon's chief of staff)|베르티에 (나폴레옹의 참모장)
+environner|v|to surround|둘러싸다
+tort|n.m|wrong (avoir tort = to be wrong)|잘못 (avoir tort = 틀리다)
+moindre|adj|least, slightest|가장 작은, 조금의
+sacrifice|n.m|sacrifice|희생
+contrarier|v|to upset, to annoy|속상하게 하다
+destin|n.m|destiny|운명
+exiger|v|to demand|요구하다
+peser|v|to weigh|무게가 나가다
+rouvrir|v|to reopen|다시 열다
+Ancône|name|Ancona|안코나
+maussade|adj|dreary, gloomy|음울한, 따분한
+Rome|name|Rome (here the Papal State)|로마 (여기서는 교황령)
+signer|v|to sign|서명하다
+Rimini|name|Rimini|리미니
+Ravenne|name|Ravenna|라벤나
+Bologne|name|Bologna|볼로냐
+conjurer|v|to beg, to implore|간청하다
+Dieu|name|God|하느님
+jouir|v|to enjoy|누리다
+traitement|n.m|treatment|대우
+rigoureux|adj|harsh, severe|가혹한
+Lausanne|name|Lausanne|로잔
+inconvénient|n.m|drawback, objection|지장, 문제
+douze|num|twelve|열둘
+incognito|adv|incognito|신분을 숨기고
+Plombières|name|Plombières (spa town in the Vosges)|플롱비에르 (보주의 온천 마을)
+Moustache|name|Moustache (a courier)|무스타슈 (전령)
+Eugène|name|Eugène (Joséphine's son)|외젠 (조제핀의 아들)
+huit|num|eight|여덟
+enrhumé|adj|having a cold|감기에 걸린
+supporter|v|to bear, to stand|견디다
+engager|v|to urge; (s'engager) to run onto, to get caught|권하다; (s'~) (배가) 걸려들다
+portant|adj|(bien portant) in good health|(bien ~) 건강한
+Pavie|name|Pavia|파비아
+Stradella|name|Stradella (town near Pavia)|스트라델라 (파비아 근처 마을)
+Malmaison|name|Malmaison (Joséphine's house near Paris)|말메종 (파리 근교 조제핀의 집)
+vésicatoire|n.m|blister plaster (old remedy)|발포고 (물집을 내는 옛 고약)
+souffrir|v|to suffer, to hurt|아프다, 괴로워하다
+Londres|name|London|런던
+maman|n.f|mum, mother|엄마
+Marly|name|Marly (royal hunting estate)|마를리 (왕실 사냥터)
+blesser|v|to injure (se blesser = to hurt oneself)|다치게 하다 (se ~ = 다치다)
+légèrement|adv|slightly|살짝, 가볍게
+tirer|v|to shoot (at)|쏘다
+sanglier|n.m|wild boar|멧돼지
+dame|n.f|lady|부인, 귀부인
+Barbier|name|The Barber (of Seville, Beaumarchais's comedy)|〈세비야의 이발사〉 (보마르셰의 희극)
+Séville|name|Seville|세비야
+messidor|n.m|Messidor (10th month of the Republican calendar)|메시도르 (공화력 10월)
+Ney|name|Ney (French general)|네 (프랑스 장군)
+Rosine|name|Rosine (heroine of The Barber of Seville)|로진 (〈세비야의 이발사〉의 여주인공)
+intelligence|n.f|intelligence, understanding|총명함, 이해
+impatient|adj|impatient, eager|조바심 나는, 몹시 기다리는
+mouvement|n.m|movement|움직임
+nullement|adv|not at all|전혀 ~ 않다
+Maret|name|Maret (Secretary of State)|마레 (국무장관)
+instruire|v|to inform|알리다
+projet|n.m|plan|계획
+voyager|v|to travel|여행하다
+fraîchir|v|(of wind) to freshen, to blow harder|(바람이) 세지다
+canonnière|n.f|gunboat|포함 (작은 군함)
+rade|n.f|roadstead, harbour anchorage|정박지
+chasser|v|to hunt; (of a ship) to drag its anchor|사냥하다; (배가) 닻이 끌리다
+roche|n.f|rock|바위
+Boulogne|name|Boulogne|불로뉴
+canon|n.m|cannon|대포
+alarme|n.f|alarm|경보
+rivage|n.m|shore|바닷가, 기슭
+fureur|n.f|fury|노여움, 사나움
+mugissant|adj|roaring|으르렁거리는
+anxiété|n.f|anxiety|불안
+périr|v|to perish|죽다
+éternité|n.f|eternity|영원
+Océan|name|the Ocean|대양 (바다)
+cinq|num|five|다섯
+éclaircir|v|(s'éclaircir) to clear up|(s'~) 개다, 밝아지다
+sensation|n.f|feeling, sensation|느낌
+romanesque|adj|romantic, like a novel|소설 같은
+épique|adj|epic|서사시 같은
+Calais|name|Calais|칼레
+Dunkerque|name|Dunkirk|됭케르크
+Blois|name|Blois|블루아
+Louis|name|Louis (Napoleon's brother)|루이 (나폴레옹의 동생)
+Louisbourg|name|Ludwigsburg|루트비히스부르크
+mander|v|to send word (old)|(옛말) 소식을 전하다
+électeur|n.m|elector (prince); électrice = electress|선제후 (électrice = 선제후 부인)
+Angleterre|name|England|영국
+Lemarois|name|Lemarois (Napoleon's aide-de-camp)|르마루아 (나폴레옹의 부관)
+détail|n.m|detail|자세한 이야기
+prouver|v|to prove|증명하다
+tendresse|n.f|tenderness|다정함
+amuser|v|(s'amuser) to have fun|(s'~) 즐겁게 지내다
+chapelle|n.f|chapel (maître de chapelle = music director)|예배당 (maître de chapelle = 궁정 악장)
+faisanderie|n.f|pheasant preserve|꿩 사육장
+Vienne|name|Vienna|빈
+parcourir|v|to go through, to tour|돌아다니다
+notable|n.m|notable, leading citizen|유지, 명사
+Harville|name|d'Harville (Joséphine's equerry)|다르빌 (조제핀의 시종 무관)
+Bade|name|Baden|바덴
+Stuttgart|name|Stuttgart|슈투트가르트
+Munich|name|Munich|뮌헨
+officier|n.m|officer|장교
+hommage|n.m|homage, respects|경의
+honnêteté|n.f|courtesy, decency|예의, 정직함
+Wurtemberg|name|Württemberg|뷔르템베르크
+affectation|n.f|affectation, putting on airs|꾸밈, 젠체함
+aise|adj|(bien aise) glad|(bien ~) 기쁜
+impératrice|n.f|empress|황후
+Strasbourg|name|Strasbourg|스트라스부르
+Brünn|name|Brünn (Brno)|브륀 (브르노)
+trêve|n.f|truce|휴전
+daigner|v|to deign|황송하게도 ~해 주다
+esclave|n.m|slave|노예
+souffrant|adj|unwell|몸이 안 좋은
+disposition|n.f|state, condition|상태
+dépendre|v|to depend|~에 달려 있다
+volonté|n.f|will|뜻, 의지
+Moniteur|name|Le Moniteur (official newspaper)|『모니퇴르』 (관보 신문)
+relatif|adj|relating (to)|~에 관한
+Auguste|name|Augusta (princess of Bavaria, Eugène's wife)|아우구스타 (바이에른 공주, 외젠의 아내)
+haïr|v|to hate|미워하다
+intrigant|adj|scheming|음모를 꾸미는
+au-delà|adv|beyond (au-delà de tout = more than anything)|넘어서 (au-delà de tout = 무엇보다)
+conciliant|adj|easy-going, accommodating|너그러운, 잘 맞춰 주는
+gâter|v|to spoil|버릇없게 만들다
+sensible|adj|tender-hearted, sensitive|마음 여린, 느끼는
+Hatzfeld|name|Madame d'Hatzfeld (wife of the prince of Hatzfeld)|아츠펠트 부인 (하츠펠트 공의 아내)
+sangloter|v|to sob|흐느끼다
+profond|adj|deep|깊은
+sensibilité|n.f|feeling, sensitivity|감수성, 깊은 감정
+naïvement|adv|artlessly, innocently|순진하게
+punir|v|to punish|벌하다
+naïf|adj|artless, guileless|순진한
+Austerlitz|name|Austerlitz (battle of 1805)|아우스터리츠 (1805년 전투)
+troupe|n.f|troops (plural)|군대 (복수)
+Varsovie|name|Warsaw|바르샤바
+Polonaise|name|Polish woman|폴란드 여자
+Française|name|Frenchwoman|프랑스 여자
+flatter|v|to flatter|실제보다 낫게 그리다, 비위를 맞추다
+consentir|v|to consent|동의하다
+Tuileries|name|the Tuileries (palace in Paris)|튈르리 궁 (파리)
+mener|v|to lead (a life)|(삶을) 꾸리다
+indispensable|adj|essential|꼭 필요한
+renoncer|v|to give up|포기하다
+retarder|v|to delay|미루다
+ordonner|v|to order, to decree|명하다
+reprocher|v|to reproach (se le reprocher = to blame oneself)|나무라다 (se le ~ = 자책하다)
+inquiétude|n.f|worry|걱정
+engraisser|v|to put on weight|살찌다
+dégeler|v|to thaw|녹다, 해빙하다
+modéré|adj|moderate, restrained|절제하는
+condition|n.f|condition|조건
+misère|n.f|misery, wretchedness|비참함
+accroître|v|to increase|더하다, 늘리다
+Haye|name|The Hague (La Haye)|헤이그 (La Haye)
+altérer|v|to impair, to damage|해치다
+distraction|n.f|diversion, amusement|기분 전환
+écueil|n.m|reef, pitfall|암초, 걸림돌
+affectionné|adj|affectionate, loving|사랑하는
+défendre|v|to defend (se défendre de = to resist)|지키다 (se ~ de = ~을 물리치다)
+concession|n.f|concession|양보
+galant|adj|gallant, courteous to ladies|여자에게 정중한
+politique|n.f|policy|방침, 정책
+Russie|name|Russia|러시아
+conclure|v|to conclude (a peace)|맺다, 체결하다
+Jérôme|name|Jérôme (Napoleon's youngest brother)|제롬 (나폴레옹의 막내 동생)
+Westphalie|name|Westphalia|베스트팔렌
+population|n.f|population|인구
+Mont-de-Marsan|name|Mont-de-Marsan (town in the Landes)|몽드마르상 (랑드 지방 도시)
+Charles|name|Charles (Charles IV, king of Spain)|카를로스 (스페인 왕 카를로스 4세)
+IV|num|IV (fourth)|4세
+bataille|n.f|battle|전투
+Iéna|name|Jena (battle of 1806)|예나 (1806년 전투)
+bivouac|n.m|bivouac, open-air camp|야영
+assister|v|to attend|참석하다
+Weimar|name|Weimar|바이마르
+Alexandre|name|Alexander (Tsar Alexander I)|알렉산드르 (차르 알렉산드르 1세)
+gras|adj|plump|통통한
+annoncer|v|to announce, to tell|알리다
+Hongrie|name|Hungary|헝가리
+duc|n.m|duke (grand-duc = grand duke)|공작 (grand-duc = 대공)
+Berg|name|Berg (grand duchy)|베르크 (대공국)
+invariable|adj|unchanging|변하지 않는
+maîtresse|n.f|mistress (maîtresse de = free to)|주인 (maîtresse de = ~할 자유가 있는)
+démolir|v|to demolish|허물다
+vingt|num|twenty|스물
+Fontainebleau|name|Fontainebleau|퐁텐블로
+impatience|n.f|impatience|애타는 마음
+soutenir|v|to support, to sustain|버티게 하다, 지탱하다
+soigner|v|to take care of|돌보다
+comporter|v|(se comporter) to behave|(se ~) 처신하다
+placer|v|to place, to put|두다, 놓다
+tranquilliser|v|(se tranquilliser) to calm down|(se ~) 마음을 가라앉히다
+Savary|name|Savary (general, Napoleon's aide)|사바리 (장군, 나폴레옹의 측근)
+dessus|n.m|upper hand (prendre le dessus = to get the better)|윗자리 (prendre le dessus = 이겨 내다)
+satisfaire|v|to satisfy (satisfait = content)|만족시키다 (satisfait = 만족한)
+société|n.f|company|함께 있음, 곁
+Estève|name|Estève (treasurer of the Crown)|에스테브 (황실 재무관)
+accorder|v|to grant|내주다, 허락하다
+extraordinaire|n.m|extra expenses|특별 비용
+distribuer|v|to distribute, to share out|나누어 쓰다, 나누다
+entendre|v|to hear; to mean, to see fit (comme tu l'entendras = as you see fit)|듣다; 뜻하다 (comme tu l'entendras = 네 뜻대로)
+habitant|n.m|inhabitant|사는 사람
+fatalité|n.f|irony of fate, misfortune|기막힌 운명
+Bohême|name|Bohemia|보헤미아
+toutefois|adv|however|그렇지만
+fermier|n.m|farmer (fermière = farmer's wife)|농부 (fermière = 농부 아내)
+Normandie|name|Normandy|노르망디
+archichancelier|n.m|arch-chancellor|대재상
+intention|n.f|intention|뜻, 의도
+circonstance|n.f|circumstance|경우, 사정
+prétexte|n.m|pretext|핑계
+conformément|adv|in accordance (with)|~에 따라
+instruction|n.f|instruction|지시
+verbal|adj|verbal, spoken|말로 한
+préférer|v|to prefer|더 바라다
+Seine|name|the Seine|센 강
+Astyanax|name|Astyanax (Hector's son, taken by the Greeks)|아스티아낙스 (그리스군에 잡힌 헥토르의 아들)
+prisonnier|n.m|prisoner|포로
+Grec|name|Greek|그리스 사람
+Louise|name|Louise (Marie-Louise)|루이즈 (마리 루이즈)
+Corvisart|name|Corvisart (Napoleon's physician)|코르비자르 (나폴레옹의 주치의)
+encourager|v|to encourage|힘을 북돋다
+gré|n.m|(savoir gré) to be grateful|(savoir ~) 고맙게 여기다
+justifier|v|to justify, to bear out|정당함을 보여 주다
+noble|adj|noble|훌륭한, 고결한
+conduite|n.f|conduct|행동, 처신
+opinion|n.f|opinion|생각, 평가
+bulletin|n.m|bulletin, short report|짧은 보고
+fréquemment|adv|often|자주
+tâcher|v|to try|애쓰다, ~하도록 하다
+Aix|name|Aix (Aix-les-Bains, spa town)|엑스 (엑스레뱅 온천)
+conseiller|v|to advise|권하다
+conserver|v|to keep, to look after|지키다, 잘 간직하다
+Elbe|name|Elba (island)|엘바 섬
+adresser|v|to address (a letter)|(편지를) 보내다
+Toscane|name|Tuscany|토스카나
+Marie|name|Marie (Marie-Louise)|마리 (마리 루이즈)
+Briare|name|Briare (town on the Loire)|브리아르 (루아르 강가 마을)
+Saint-Tropez|name|Saint-Tropez|생트로페
+Beausset|name|Beausset (prefect of the palace)|보세 (궁내 시종장)
+Montesquiou|name|Montesquiou (the little king's governess)|몽테스키우 부인 (어린 왕의 가정교사)
+préfet|n.m|prefect (préfet du palais = palace chamberlain)|장관 (préfet du palais = 궁내 시종장)
+soi-disant|adj|so-called, self-styled|이른바, 자칭
+jourd'hui|n.m|(ce jourd'hui, old legal) this day|(옛 법률 문체) 오늘
+Longwood|name|Longwood (house on St Helena)|롱우드 (세인트헬레나의 집)
+Sainte-Hélène|name|Saint Helena (island)|세인트헬레나 섬
+acte|n.m|deed, act|문서, 증서
+cendre|n.f|ashes (of the dead)|유해, 재
+épouse|n.f|wife|아내
+garantir|v|to protect, to guard|지키다, 보호하다
+embûche|n.f|trap, snare|함정
+naître|v|to be born|태어나다
+instrument|n.m|tool, instrument|도구
+triumvir|n.m|triumvir (ruler sharing power)|삼두정치가 (권력을 나눈 지배자)
+opprimer|v|to oppress|억압하다
+Europe|name|Europe|유럽
+combattre|v|to fight|싸우다
+nuire|v|to harm|해를 끼치다
+adopter|v|to adopt|받아들이다
+devise|n.f|motto|좌우명, 표어
+léguer|v|to bequeath|물려주다
+objet|n.m|object, item|물건
+argenterie|n.f|silverware|은그릇
+selle|n.f|saddle|안장
+éperon|n.m|spur|박차
+linge|n.m|linen|리넨, 속옷 · 천
+usage|n.m|use|쓰임
+annexer|v|to attach (to a document)|(문서에) 덧붙이다
+coter|v|to mark (with a letter or number)|(문서에) 기호를 매기다
+legs|n.m|bequest, legacy|유증, 유산
+retracer|v|to recall, to bring back|떠올리게 하다
+univers|n.m|universe, the whole world|온 세상
+demander|v|to ask|달라고 하다, 묻다
+année|n.f|year|해, 년
+foule|n.f|crowd|군중, 사람들
+guerre|n.f|war|전쟁
+marier|v|to marry|결혼시키다 (se marier: 결혼하다)
+résultat|n.m|result|결과
+réveiller|v|to wake (up)|깨우다 (se réveiller: 깨다)
+soirée|n.f|evening|저녁, 저녁 모임
+cœur|n.m|heart|가슴, 마음
+feu|n.m|fire|불
+avenir|n.m|future|미래
+passé|n.m|past|과거
+cheval|n.m|horse|말
+bras|n.m|arm|팔
+jaloux|adj|jealous|질투하는
+mariage|n.m|marriage|결혼
+boîte|n.f|box|상자
+malade|adj|ill, sick|아픈
+cauchemar|n.m|nightmare|악몽
+respirer|v|to breathe|숨 쉬다
+réponse|n.f|answer, reply|대답, 답장
+connaître|v|to know|알다
+mari|n.m|husband|남편
+poche|n.f|pocket|주머니
+bouche|n.f|mouth|입
+joie|n.f|joy|기쁨
+sûr|adj|sure|확실한
+mourir|v|to die|죽다
+pauvre|adj|poor|가엾은; 가난한
+fièvre|n.f|fever|열, 신열
+inquiet|adj|worried|걱정하는
+nouvelle|n.f|news (plural nouvelles)|소식 (복수 nouvelles)
+page|n.f|page|쪽, 페이지
+quitter|v|to leave|떠나다, 두고 오다
+facilement|adv|easily|쉽게
+jeu|n.m|game, play|놀이, 게임
+but|n.m|aim, goal|목표, 목적
+baiser|n.m|kiss|입맞춤
+retour|n.m|return|돌아옴, 귀가
+mauvais|adj|bad|나쁜; (날씨가) 궂은
+fatiguer|v|to tire|피곤하게 하다
+chasse|n.f|hunting, hunt|사냥
+bain|n.m|bath|목욕; (온천의) 탕
+jouer|v|to play; to act|놀다; 연기하다, 연주하다
+sauver|v|to save, to rescue|구하다
+âme|n.f|soul|영혼, 넋
+minuit|n.m|midnight|자정, 밤 열두 시
+camp|n.m|camp|진영, 야영지
+cour|n.f|court (of a ruler); courtyard|궁정; 마당
+force|n.f|strength, force|힘
+concert|n.m|concert|음악회
+honnête|adj|honest; (old) courteous|정직한; (옛 뜻) 예의 바른
+affreux|adj|dreadful, awful|끔찍한, 고약한
+neiger|v|to snow (il neige)|눈이 오다 (il neige)
+aimable|adj|kind, pleasant|상냥한, 친절한
+occuper|v|to occupy; (s'occuper de) to look after|차지하다; (s'occuper de) 돌보다
+personne|n.f|person|사람
+occupé|adj|busy|바쁜
+décider|v|to decide|정하다, 결정하다
+six|num|six|여섯
+princesse|n.f|princess|공주, 왕자비
+écriture|n.f|handwriting|글씨, 필체
+puissant|adj|powerful|힘센, 권세 있는
+anniversaire|n.m|anniversary; birthday|기념일; 생일
+bal|n.m|ball, dance|무도회
+pleuvoir|v|to rain (il pleut)|비가 오다 (il pleut)
+jamais|adv|never (ne … jamais)|결코, 한 번도 (ne … jamais)
+village|n.m|village|마을
+répéter|v|to repeat|되풀이하다, 다시 말하다
+douleur|n.f|pain, grief|아픔, 슬픔
+source|n.f|spring; source|샘; 근원
+légitime|adj|legitimate, rightful|정당한, 당연한
+borne|n.f|boundary stone; limit|경계; 한계
+reine|n.f|queen|여왕, 왕비
+dîner|v|to have dinner, to dine|저녁을 먹다
+impossible|adj|impossible|불가능한
+surpris|adj|surprised|놀란
+endroit|n.m|place, spot|곳, 자리
+déjeuner|v|to have lunch (n. lunch)|점심을 먹다 (n. 점심)
+danser|v|to dance|춤추다
+empereur|n.m|emperor|황제
+conversation|n.f|conversation|대화
+rhume|n.m|cold (illness)|감기
+départ|n.m|departure|출발, 떠남
+armée|n.f|army|군대
+fin#2|n.f|end|끝
+juillet|n.m|July|7월
+arrêter|v|to stop (s'arrêter: to stop, to stop off)|멈추다 (s'arrêter: 멈춰 서다, 들르다)
+avance|n.f|advance (d'avance: in advance)|앞섬 (d'avance: 미리)
+arrivée|n.f|arrival|도착
+embrasser|v|to kiss, to hug|껴안다, 입 맞추다
+prévenir|v|to let know in advance|미리 알리다
+faible|adj|weak|약한
+doute|n.m|doubt (mettre en doute: to question)|의심 (mettre en doute: 의심하다)
+amitié|n.f|friendship, affection|우정, 다정한 마음
+précieux|adj|precious|소중한
+pleurer|v|to cry|울다
+raisonnable|adj|sensible, reasonable|분별 있는, 합리적인
+ministre|n.m|minister|장관
+palais|n.m|palace|궁전
+vide|adj|empty|빈
+porcelaine|n.f|porcelain|도자기
+danger|n.m|danger|위험
+île|n.f|island|섬
+lac|n.m|lake|호수
+poitrine|n.f|chest|가슴
+destinée|n.f|destiny, fate|운명
+comment|adv|how|어떻게
+fâché|adj|angry, cross|화난
+dette|n.f|debt|빚
+million|n.m|million|백만
+intérêt|n.m|interest|관심; 이익
+affaire|n.f|matter, business (plural: affairs)|일, 용무 (복수 affaires: 사정, 볼일)
+arranger|v|to arrange, to sort out|정리하다, 해결하다
+chaud|adj|hot, warm (avoir chaud: to be hot)|더운, 뜨거운 (avoir chaud: 덥다)
+conduire|v|to drive, to lead (se conduire: to behave)|운전하다, 이끌다 (se conduire: 처신하다)
+juin|n.m|June|6월
+âge|n.m|age|나이
+permettre|v|to allow|허락하다
+esprit|n.m|mind, spirit|정신, 뜻; 재치
+ennemi|n.m|enemy|적
+sort|n.m|fate, lot|운명, 처지
+suite|n.f|what follows (tout de suite: right away)|뒤따름, 이어짐 (tout de suite: 바로)
+adieu|interj|farewell, goodbye|잘 있어, 안녕 (오래 헤어질 때)
+rejoindre|v|to join, to meet up with|다시 만나다, 함께하다
+époux|n.m|husband, spouse|남편, 배우자
+maître|n.m|master|주인, 다스리는 사람; 선생
+peuple|n.m|people, nation|국민, 민족
+avril|n.m|April|4월
+enthousiasme|n.m|enthusiasm|열광, 열정
+arme|n.f|weapon|무기
+prince|n.m|prince|왕자, 군주
+enfance|n.f|childhood|어린 시절
+testament|n.m|will, testament|유언장
+reconnaître|v|to recognize|알아보다
