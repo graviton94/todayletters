@@ -417,7 +417,8 @@ private fun FirstPackButton(s: AppState, id: String) {
 private fun AudioChip(s: AppState, id: String, chapter: String) {
     s.version
     val pack = s.downloads.pack(id, chapter)
-    val asking = s.downloadAsk?.let { it.series == id && (it.chapter == chapter || it.chapter == io.github.graviton94.todayletters.data.Downloads.ALL || (it.chapter == io.github.graviton94.todayletters.data.Downloads.FIRST && chapter in s.downloads.firstChapters(id))) } == true
+    // ‘받는 중’ 은 실제로 받고 있을 때만 (받을지 묻는 시트가 떠 있을 때는 아직 크기)
+    val asking = io.github.graviton94.todayletters.data.DownloadJob.state?.let { it.series == id && it.active && (it.chapter == chapter || it.chapter == io.github.graviton94.todayletters.data.Downloads.ALL || (it.chapter == io.github.graviton94.todayletters.data.Downloads.FIRST && chapter in s.downloads.firstChapters(id))) } == true
     when {
         pack == null || s.downloads.ready(pack) -> Capsule(stringResource(R.string.audio_ready), CapsuleKind.DONE)
         asking -> Capsule(stringResource(R.string.audio_getting))
