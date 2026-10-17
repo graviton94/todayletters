@@ -228,14 +228,8 @@
     <string name="gap_16">16⁠일 뒤</string>
     <string name="gap_35">5⁠주 뒤</string>
     <string name="kind_speak">말⁠하⁠기</string>
-    <string name="speak_listening">듣⁠고 있⁠어⁠요⁠…</string>
     <string name="speak_tap">누⁠르⁠고 낱⁠말⁠을 말⁠해⁠요</string>
-    <string name="speak_heard">들⁠린 말⁠: %1$s</string>
-    <string name="speak_self">먼⁠저 말⁠해 보⁠고⁠, 원⁠래 소⁠리⁠를 들⁠은 뒤 스⁠스⁠로 판⁠정⁠해⁠요⁠.</string>
-    <string name="speak_again">아⁠직</string>
-    <string name="speak_ok">맞⁠게 말⁠했⁠어⁠요</string>
     <string name="fade_show">번⁠역 보⁠기</string>
-    <string name="speak_reveal">말⁠해 봤⁠어⁠요 · 원⁠래 소⁠리 듣⁠기</string>
     <string name="next_title">다⁠음 편⁠지</string>
     <string name="next_arrived">도⁠착⁠했⁠어⁠요</string>
     <string name="next_in">%1$d⁠일 뒤 도⁠착</string>
@@ -808,9 +802,7 @@
     <string name="talk_turn">내 차⁠례 · 뜻⁠을 보⁠고 말⁠해⁠요</string>
     <string name="talk_hint">힌⁠트</string>
     <string name="talk_done">대⁠화⁠를 마⁠쳤⁠어⁠요⁠.</string>
-    <string name="speak_mic">말⁠하⁠기</string>
     <string name="speak_line_ok">잘 들⁠렸⁠어⁠요</string>
-    <string name="speak_line_retry">다⁠시 말⁠하⁠기</string>
     <string name="speak_line_next">다⁠음⁠으⁠로</string>
     <string name="reply_speak_title">소⁠리 내⁠어 말⁠해 보⁠기</string>
     <string name="reply_speak_d">방⁠금 쓴 답⁠장⁠을 소⁠리 내⁠어 말⁠해 봐⁠요⁠.</string>

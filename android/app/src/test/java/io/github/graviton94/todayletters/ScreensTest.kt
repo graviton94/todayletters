@@ -378,9 +378,13 @@ class ScreensTest {
     @Test fun enter() { val s = engineState(); s.reward = null; shot("47_enter", true, 3000) { io.github.graviton94.todayletters.ui.EnterScreen(s, "vincent") } }
     @Test fun todayEngine() { val s = engineState(); s.reward = null; shot("48_today_engine_light", false, 3000, series = s) { Inbox(s) } }
     @Test fun libraryEngine() { val s = engineState(); s.reward = null; shot("49b_library_engine_light", false, 3000) { LibraryTab(s) } }
+    /** 복습 말하기 = 따라 읽기와 같은 부품 (녹음 · 내 소리, 목소리가 들어가면 맞음). 음성 인식 · 스스로 판정은 없다. */
     @Test fun speak() {
         val s = engineState()
-        shot("49_speak_light", false, series = s) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.SPEAK)) }
+        shot("49_speak_light", false, act = {
+            org.junit.Assert.assertTrue(rule.onAllNodes(hasText(ctx.getString(R.string.shadow_talk))).fetchSemanticsNodes().isNotEmpty())
+            org.junit.Assert.assertTrue(rule.onAllNodes(hasText(ctx.getString(R.string.speak_tap))).fetchSemanticsNodes().isNotEmpty())
+        }, series = s) { Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.SPEAK)) }
     }
     @Test fun roomFade() {
         // B1 · 거의 다 아는 편지: 번역이 접히고, 아직인 오늘의 낱말만 작은 뜻풀이로 (53 다시 읽기와 다른 장면)
@@ -682,6 +686,9 @@ class ScreensTest {
     private fun mozartDone(s: AppState) = s.work("mozart").chapters.forEach { c ->
         c.letters.forEach { l -> s.save("mozart", c.id, l.id, s.progress("mozart", c.id, l.id).copy(shown = l.messages.size, done = true)) }
     }
+    /** 나폴레옹 공개 (hidden 해제): 서재에 셋째 작품 카드 · 그 작품의 표지 (처음 묶음 P+I+II 를 받은 것으로). */
+    @Test fun napoleonLibrary() { val s = state(true).also { fetchedLocally("napoleon", listOf("P", "I", "II")) }; shot("n01_library_napoleon", false, 3000) { LibraryTab(s) } }
+    @Test fun napoleonCover() { val s = state(true).also { fetchedLocally("napoleon", listOf("P", "I", "II")) }; shot("n02_cover_napoleon", true, 3000, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "napoleon") } }
     @Test fun mozartLibrary() { val s = mstate(); shot("m01_library", true) { LibraryTab(s) } }
     @Test fun mozartRoom() { val s = mstate(); shownAll(s, 1, 4); shot("m02_room_c1l4", false, 4000, series = s) { Room(s, Route.Letter("mozart", 1, 4)) } }
     @Test fun mozartMusicSheet() {
@@ -1583,7 +1590,6 @@ class ScreensTest {
     @Test fun depthTalkShadowPad() = withDepth {
         val s = graded(state(true), 1)
         shot("depth12_talk_a1_shadow_pad_dark", true, ms = 4000, act = {
-            org.junit.Assert.assertTrue(rule.onAllNodes(hasText(ctx.getString(R.string.speak_ok))).fetchSemanticsNodes().isEmpty())
             org.junit.Assert.assertTrue(rule.onAllNodes(hasText(ctx.getString(R.string.shadow_talk))).fetchSemanticsNodes().isNotEmpty())
         }, series = s) { Play(s, talkRoute) }
     }
@@ -1604,6 +1610,9 @@ class ScreensTest {
             rule.onAllNodes(hasText(ctx.getString(R.string.play_show)) and hasClickAction()).onFirst().performClick()
             rule.mainClock.advanceTimeBy(300)
             rule.onAllNodes(hasText(ctx.getString(R.string.ladder_next_turn)) and hasClickAction()).onFirst().performClick()
+            rule.mainClock.advanceTimeBy(300)
+            // 답장 말해 보기도 따라 읽기와 같은 녹음 단추 (인식 · 스스로 판정 없음)
+            org.junit.Assert.assertTrue(rule.onAllNodes(hasText(ctx.getString(R.string.shadow_talk))).fetchSemanticsNodes().isNotEmpty())
         }, series = s) { Play(s, replyRoute) }
     }
     /** 답장 말해 보기 · B1: 문장 흐리게, 어두운 화면 (B2 는 직접 쓰기라 이 장면에서 바로 닿지 않는다). */

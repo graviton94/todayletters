@@ -419,6 +419,20 @@ class CoreTest {
         assertTrue(!s.passed)
     }
 
+    /** 말하기는 목소리가 들어가야 통과: 침묵 · 작은 잡음 · 짧은 소리는 아니다. */
+    @Test fun prosodySpoke() {
+        assertTrue(Prosody.spoke(ref))
+        assertTrue(!Prosody.spoke(Prosody.analyze(FloatArray(rate), rate)), "silence")
+        assertTrue(!Prosody.spoke(Prosody.analyze(FloatArray(0), rate)), "empty")
+        val rnd = java.util.Random(7)
+        val hiss = FloatArray(rate * 2) { (rnd.nextGaussian() * 0.003).toFloat() }
+        assertTrue(!Prosody.spoke(Prosody.analyze(hiss, rate)), "room noise")
+        val loudHiss = FloatArray(rate * 2) { (rnd.nextGaussian() * 0.2).toFloat() }
+        assertTrue(!Prosody.spoke(Prosody.analyze(loudHiss, rate)), "loud noise")
+        assertTrue(!Prosody.spoke(Prosody.analyze(voice(0.12, rate, { 200.0 }, { 0.5 }), rate)), "short click")
+        assertTrue(!Prosody.spoke(Prosody.analyze(voice(1.0, rate, { 200.0 }, { 0.002 }), rate)), "far whisper")
+    }
+
     @Test fun prosodyStarsAndFloor() {
         assertEquals(listOf(0, 1, 1, 2, 2, 3), listOf(49, 50, 69, 70, 84, 85).map { Prosody.stars(it) })
         assertEquals(Prosody.FLOOR, Prosody.Score(0, 0, 100).total)

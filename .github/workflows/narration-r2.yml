@@ -26,7 +26,7 @@ on:
         type: string
         default: ""
       messages:
-        description: "make=messages: 띄어쓰기로 나눈 <작품>/<편지 id>/m<번호>_<언어> (예: mozart/c1-l2/m4_en)"
+        description: "make=messages: 띄어쓰기로 나눈 <작품>/<편지 id>/m<번호>_<언어> 또는 회화 줄 t<줄>_<언어> (예: mozart/c1-l2/m4_en napoleon/c7-l3/t3_ko)"
         type: string
         default: ""
 
@@ -152,7 +152,7 @@ jobs:
           out = os.path.join(os.environ["RUNNER_TEMP"], "narr")
           A, R = "android/app/src/main/assets/audio", "remote/audio"
           cfg_path = "data/remote.json"; cfg = json.load(open(cfg_path, encoding="utf-8")); revs = cfg.setdefault("revisions", {})
-          made = sorted(os.path.relpath(f, out) for f in glob.glob(f"{out}/**/m*_*.*", recursive=True))
+          made = sorted(os.path.relpath(f, out) for f in glob.glob(f"{out}/**/*_*.*", recursive=True) if os.path.isfile(f))
           want = set(os.environ["MSGS"].split())
           got = {f"{p.split('/')[0]}/{p.split('/')[2]}/{os.path.splitext(p.split('/')[3])[0]}" for p in made}
           if want - got: sys.exit(f"::error::not made: {sorted(want - got)}")

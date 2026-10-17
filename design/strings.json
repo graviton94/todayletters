@@ -908,37 +908,13 @@
     "en": "Speak",
     "ko": "말하기"
   },
-  "speak_listening": {
-    "en": "Listening…",
-    "ko": "듣고 있어요…"
-  },
   "speak_tap": {
     "en": "Tap and say the word",
     "ko": "누르고 낱말을 말해요"
   },
-  "speak_heard": {
-    "en": "Heard: %1$s",
-    "ko": "들린 말: %1$s"
-  },
-  "speak_self": {
-    "en": "Say it first, then listen and check yourself.",
-    "ko": "먼저 말해 보고, 원래 소리를 들은 뒤 스스로 판정해요."
-  },
-  "speak_again": {
-    "en": "Not yet",
-    "ko": "아직"
-  },
-  "speak_ok": {
-    "en": "I said it right",
-    "ko": "맞게 말했어요"
-  },
   "fade_show": {
     "en": "Show translation",
     "ko": "번역 보기"
-  },
-  "speak_reveal": {
-    "en": "I said it — play the original",
-    "ko": "말해 봤어요 · 원래 소리 듣기"
   },
   "next_title": {
     "en": "Next letter",
@@ -3228,17 +3204,9 @@
     "en": "You finished the talk.",
     "ko": "대화를 마쳤어요."
   },
-  "speak_mic": {
-    "en": "Speak",
-    "ko": "말하기"
-  },
   "speak_line_ok": {
     "en": "Heard you clearly",
     "ko": "잘 들렸어요"
-  },
-  "speak_line_retry": {
-    "en": "Try again",
-    "ko": "다시 말하기"
   },
   "speak_line_next": {
     "en": "Continue",

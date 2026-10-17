@@ -45,6 +45,16 @@ object Prosody {
     /** z-점수의 표준편차 바닥 (반음): 한 음으로 밋밋하게 읽은 소리가 잡음으로 부풀지 않게. */
     private const val SD_FLOOR = 0.5
 
+    /** 목소리가 들어간 녹음으로 치는 최소: 음높이가 잡힌 프레임이 모두 [VOICE_MS] 이상, 가장 큰 소리가 [VOICE_DB] 위. */
+    const val VOICE_MS = 250
+    const val VOICE_DB = -45f
+
+    /**
+     * 목소리가 들어간 녹음인가 (말하기는 믿고 맡긴다: 무슨 말인지는 알아듣지 않고, 목소리가 있는지만).
+     * 침묵 · 작은 잡음 · 짧은 소리 (기침 · 툭 치기) 는 아니다. 따라 읽기 · 회화 · 답장 말해 보기 · 복습 말하기가 같은 것을 쓴다.
+     */
+    fun spoke(t: Track): Boolean = t.size > 0 && t.voiced * HOP_MS >= VOICE_MS && t.db.max() > VOICE_DB
+
     /** 별 0~3. 다른 화면(봉인 · 이정표 등)도 이것으로 센다. */
     fun stars(score: Int): Int = when {
         score >= STAR3 -> 3

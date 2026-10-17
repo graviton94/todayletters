@@ -9,7 +9,7 @@ languages a learner can study: the original (vincent fr, mozart de; files withou
 Checks: every word of every message is covered by gloss.json (in order, nothing left over);
 gloss keys exist in the lexicon; lexicon forms / first / letters agree with the text;
 daily words exist, occur in that letter, are content words, never repeat across letters and sit in
-the chapter's level band (or one band either side); spot replacements occur in the quoted message;
+the chapter's level band (or one band either side; harder words only warn, easy A1–A2 always fine); spot replacements occur in the quoted message;
 phrases are verbatim; examples have an author, <= 12 words and contain the lemma or a printed form;
 Korean gloss tokens [surface, key, fn] only use tags explained in gloss_ko.json "tags"; each language's three files
 stay under 460 KB per series. Exit code 1 on any error.
@@ -145,8 +145,14 @@ def check(series, lang=None):
             if e.get('function') or e['pos'] not in ('n', 'v', 'adj', 'adv') or (lang != 'ko' and len(e['lemma']) < 2):
                 errs.append(f'daily {lid}: {k} is not a content word')
             # 규격 v1: 쉬운 낱말(A1–A2)은 어느 장에나 둘 수 있다 (시리즈 60% 이상은 spec_check.py 가 본다)
-            if e.get('level') not in widen(band(lid)) and e.get('level') not in ('A1', 'A2'):
-                errs.append(f'daily {lid}: {k} level {e.get("level")} outside {widen(band(lid))}')
+            # 장의 구간보다 어려운 낱말은 그대로 둔다 (편지에 나오는 쓸모 있는 낱말, 나폴레옹 2026-10-17): 알림만.
+            # 구간보다 쉬운 쪽은 이미 늘 된다. 숫자 · 요일 · 기능어는 위의 content word 검사로 막는다.
+            lo = widen(band(lid))
+            if e.get('level') not in lo and e.get('level') not in ('A1', 'A2'):
+                if e.get('level') and LEVELS.index(e['level']) > LEVELS.index(lo[-1]):
+                    warns.append(f'daily {lid}: {k} level {e.get("level")} above {lo}')
+                else:
+                    errs.append(f'daily {lid}: {k} level {e.get("level")} outside {lo}')
         spots = (l.get('plate') or {}).get('spots', [])
         if not orig and r.get('spots'): errs.append(f'daily {lid}: spots must be [] for {lang}')
         for s in r.get('spots', []):

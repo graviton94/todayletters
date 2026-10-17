@@ -22,6 +22,7 @@
   NARRATE_ONLY=new: talk + vocab 을 한 번에.
   NARRATE_ONLY=messages: NARRATE_MESSAGES 에 적은 메시지 낭독만 다시 (m<번호>_<언어>.m4a + .json). 띄어쓰기로 나눈
           "<작품>/<편지 id>/m<번호>_<언어>" 목록 (예: "mozart/c1-l2/m4_en"), 이 편지 파일에 없는 것은 건너뛴다.
+          회화 줄도 같은 목록에 적을 수 있다 ("<작품>/<편지 id>/t<줄>_<언어>", 예 "napoleon/c7-l3/t3_ko").
   NARRATE_SKIP_EXISTING=1: 이 저장소의 assets/audio · remote/audio 에 이미 있는 파일은 만들지 않는다
           (R2 의 파일은 덮어쓰지 않는다 · docs/release.md 5: 빠진 소리만 새로 만든다).
 
@@ -154,29 +155,38 @@ def talk_stem(t, lang):
     return a or "t"
 
 
-if ONLY in ("talk", "new"):
+def make_talk(letter, pick=None):
+    """편지 하나의 회화 줄 소리. [pick] 이 있으면 그 이름(<줄 소리>_<언어>, 예 t3_ko)만."""
     me_cast = cast.get("talk_me") or {}
+    t = letter.get("talk") or {}
+    if not t.get("lines"):
+        return 0
+    n = 0
+    base = os.path.join(out, series, chapter, letter["id"])
+    pr = presets[letter.get("mood") or cast["chapters"][chapter]["mood"]]
+    to = (letter.get("to") or {}).get(book["original"]) if isinstance(letter.get("to"), dict) else letter.get("to")
+    me = style_of((me_cast.get("by_to") or {}).get(to or "", me_cast.get("default", "M4")))
+    for lang in langs:
+        stem = talk_stem(t, lang)
+        for i, line in enumerate(t["lines"], 1):
+            if pick is not None and f"{stem}{i}_{lang}" not in pick:
+                continue
+            path = os.path.join(base, f"{stem}{i}_{lang}.m4a")
+            text = re.sub(r"[〈〉]", "", line.get(lang) or "").strip()
+            if not text or (pick is None and not wanted(path)):
+                continue
+            if line.get("who") == "me":
+                save(path, speak(text, lang, presets["calm"], who=me)[0], 1.0)
+            else:
+                save(path, speak(text, lang, pr)[0], pr["pitch"])
+            n += 1
+    return n
+
+
+if ONLY in ("talk", "new"):
     n = 0
     for letter in book["letters"]:
-        t = letter.get("talk") or {}
-        if not t.get("lines"):
-            continue
-        base = os.path.join(out, series, chapter, letter["id"])
-        pr = presets[letter.get("mood") or cast["chapters"][chapter]["mood"]]
-        to = (letter.get("to") or {}).get(book["original"]) if isinstance(letter.get("to"), dict) else letter.get("to")
-        me = style_of((me_cast.get("by_to") or {}).get(to or "", me_cast.get("default", "M4")))
-        for lang in langs:
-            stem = talk_stem(t, lang)
-            for i, line in enumerate(t["lines"], 1):
-                path = os.path.join(base, f"{stem}{i}_{lang}.m4a")
-                text = re.sub(r"[〈〉]", "", line.get(lang) or "").strip()
-                if not text or not wanted(path):
-                    continue
-                if line.get("who") == "me":
-                    save(path, speak(text, lang, presets["calm"], who=me)[0], 1.0)
-                else:
-                    save(path, speak(text, lang, pr)[0], pr["pitch"])
-                n += 1
+        n += make_talk(letter)
         print("talk ok", letter["id"], flush=True)
     print("talk files", n)
     if ONLY == "talk":
@@ -206,6 +216,9 @@ for letter in book["letters"]:
         continue
     pr = presets[letter.get("mood") or cast["chapters"][chapter]["mood"]]
     base = os.path.join(out, series, chapter, letter["id"])
+    if PICK is not None:
+        # 고친 회화 줄도 같은 목록으로 (예 napoleon/c7-l3/t3_ko)
+        make_talk(letter, {name for s, lid, name in PICK if s == series and lid == letter["id"]})
     for lang in langs:
         # 그림 속 산책의 낱말 (s<k>): 낱말 발음과 같은 방식
         for k, sp in enumerate([] if PICK is not None else (letter.get("plate") or {}).get("spots", []), 1):

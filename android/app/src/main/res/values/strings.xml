@@ -228,14 +228,8 @@
     <string name="gap_16">in 16 days</string>
     <string name="gap_35">in 5 weeks</string>
     <string name="kind_speak">Speak</string>
-    <string name="speak_listening">Listening…</string>
     <string name="speak_tap">Tap and say the word</string>
-    <string name="speak_heard">Heard: %1$s</string>
-    <string name="speak_self">Say it first, then listen and check yourself.</string>
-    <string name="speak_again">Not yet</string>
-    <string name="speak_ok">I said it right</string>
     <string name="fade_show">Show translation</string>
-    <string name="speak_reveal">I said it — play the original</string>
     <string name="next_title">Next letter</string>
     <string name="next_arrived">Arrived</string>
     <string name="next_in">In %1$d days</string>
@@ -808,9 +802,7 @@
     <string name="talk_turn">Your turn · say it from the meaning</string>
     <string name="talk_hint">Hint</string>
     <string name="talk_done">You finished the talk.</string>
-    <string name="speak_mic">Speak</string>
     <string name="speak_line_ok">Heard you clearly</string>
-    <string name="speak_line_retry">Try again</string>
     <string name="speak_line_next">Continue</string>
     <string name="reply_speak_title">Say it aloud</string>
     <string name="reply_speak_d">Say the reply you just wrote, out loud.</string>

@@ -150,20 +150,3 @@ object Pron {
     /** 한국어 소리 규칙 한 줄 (앱 글자 언어 [ui]). 한국어를 배울 때만. */
     fun note(w: Word, learn: Lang, ui: Lang): String = if (learn == Lang.KO) w.pronNote?.get(ui).orEmpty() else ""
 }
-
-/** 말하기 채점 (문장): 폰 음성 인식이 들은 말에 정답 문장의 낱말이 [SHARE] 만큼 있으면 맞음. 악센트 · 대소문자 · 문장부호는 보지 않는다. */
-object SpeechMatch {
-    const val SHARE = 0.6
-
-    private fun words(x: String): List<String> =
-        java.text.Normalizer.normalize(Breaks.plain(x).lowercase(), java.text.Normalizer.Form.NFD).replace(Regex("\\p{M}"), "").replace("ß", "ss")
-            .split(Regex("[^\\p{L}\\p{N}]+")).filter { it.isNotEmpty() }
-
-    fun matches(answer: String, heard: String): Boolean {
-        val a = words(answer); if (a.isEmpty()) return false
-        val h = words(heard).toMutableList()
-        var hit = 0
-        a.forEach { w -> val i = h.indexOf(w); if (i >= 0) { hit++; h.removeAt(i) } }
-        return hit >= Math.ceil(a.size * SHARE)
-    }
-}

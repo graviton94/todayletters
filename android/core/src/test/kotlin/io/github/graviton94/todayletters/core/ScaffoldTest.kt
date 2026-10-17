@@ -6,7 +6,7 @@ import kotlin.test.assertFalse
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
-/** 도움 사다리 ([Support]) · 발음 줄 ([Pron]) · 문장 말하기 채점 ([SpeechMatch]) · 이해 확인 · 회화 걸음. */
+/** 도움 사다리 ([Support]) · 발음 줄 ([Pron]) · 이해 확인 · 회화 걸음. */
 class ScaffoldTest {
     private fun g(i: Int) = Reading.Grade.of(i)
 
@@ -78,14 +78,6 @@ class ScaffoldTest {
         assertEquals("[dʒˈɜːni]", Pron.line(Vocab.word(e, Lang.EN), Lang.EN, ownIpa = false))
         val k = LexEntry("읽다", ipa = "익따", romKo = "ikda", pronNote = Tri(mapOf(Lang.KO to "겹받침")))
         assertEquals("[익따] · ikda", Pron.line(Vocab.word(k, Lang.KO), Lang.KO, ownIpa = false))
-    }
-
-    @Test fun spokenSentenceMatchIsLenient() {
-        assertTrue(SpeechMatch.matches("Il fait froid ? Tu as besoin de quelque chose ?", "il fait froid tu as besoin de quelque chose"))
-        assertTrue(SpeechMatch.matches("Ça va, Théo ?", "ca va theo"))
-        assertFalse(SpeechMatch.matches("Il fait froid ? Tu as besoin de quelque chose ?", "bonjour"))
-        assertTrue(SpeechMatch.matches("추워요? 필요한 거 있어요?", "추워요 필요한 거 있어요"))
-        assertFalse(SpeechMatch.matches("", "x"))
     }
 
     @Test fun checkAndTalkStepsOnlyWithData() {

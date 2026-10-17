@@ -56,7 +56,6 @@ import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Ladder
 import io.github.graviton94.todayletters.core.ReplyMode
 import io.github.graviton94.todayletters.core.Route
-import io.github.graviton94.todayletters.core.SpeechMatch
 import io.github.graviton94.todayletters.core.Support
 import io.github.graviton94.todayletters.core.TalkLine
 import io.github.graviton94.todayletters.design.Faces
@@ -208,16 +207,13 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
         }
     }
 
-    // 말하기: 따라 읽기와 같은 부품 ([ShadowTake]): 원래 소리 듣기 · 마이크 녹음 (기기 안) · 억양 · 리듬 채점, 편지 걸음처럼 목소리가 들어가면 통과.
-    // 폰의 음성 인식 서비스는 쓰지 않는다 (예전에는 인식 서비스가 없거나 오류가 나면 스스로 판정으로 떨어졌다)
+    // 말하기: 따라 읽기와 같은 부품 ([ShadowTake]): 원래 소리 듣기 · 마이크 녹음 (기기 안) · 억양 · 리듬 채점, 편지 걸음처럼 목소리가 들어가면 통과
+    // (원래 소리가 없는 줄도 같이: 채점 없이 목소리만). 폰의 음성 인식 서비스는 쓰지 않는다 (예전에는 인식 서비스가 없거나 오류가 나면 스스로 판정으로 떨어졌다)
     val take = cur?.let { i ->
         val file = remember(letter.id, i) { s.talkTake(id, chapter, letter.id, i).also { it.delete() } }
-        rememberShadowTake(s, audio(i), 0, Int.MAX_VALUE, file, step = true, key = Triple(letter.id, i, view.learn)) { sc, fresh ->
-            if (fresh) send(TalkTurn.Event.Heard(sc.total > 0))
-        }
+        rememberShadowTake(s, audio(i), 0, Int.MAX_VALUE, file, step = true, key = Triple(letter.id, i, view.learn),
+            onVoice = { v -> send(TalkTurn.Event.Heard(v)) })
     }
-    // 원래 소리가 없는 줄 (그 언어의 회화 소리가 아직 없음): 채점 없이, 녹음하면 통과 (따라 읽기의 소리 없는 마디와 같이)
-    LaunchedEffect(take, take?.tick) { if (take != null && take.tick > 0 && !take.hasAudio && take.have) send(TalkTurn.Event.Heard(true)) }
 
     val scroll = rememberScrollState()
     LaunchedEffect(shown, phase, st?.placed, st?.filled, st?.hints, take?.result) { scroll.animateScrollTo(scroll.maxValue) }
@@ -437,96 +433,16 @@ private fun Modifier.dashedRound(c: Color) = drawBehind {
 }
 
 /**
- * 문장 말하기 칸 (회화 내 차례 · 답장 말해 보기): 마이크를 누르고 [sentence] 를 말한다. 폰의 음성 인식(그 언어, 가능하면 폰 안에서) 으로
- * 문장 낱말의 60% 이상이 들리면 맞음 ([SpeechMatch]). 인식을 쓸 수 없으면 (복습 말하기와 같이) 먼저 말해 보고, 원래 소리를 들은 뒤 스스로 판정.
- * 어느 쪽이든 끝나면 [onDone] (틀려도 막지 않는다: 다시 말하기 또는 다음으로).
+ * 문장 말하기 칸 (답장 말해 보기): 따라 읽기 · 회화와 같은 부품 ([ShadowTake] · [ShadowBoard] · [ShadowControls]).
+ * 마이크로 녹음 (기기 안), 원래 소리 [audio] 가 있으면 억양 · 리듬 채점. 목소리가 들어간 녹음이면 [onDone] (무슨 말인지는 알아듣지 않는다:
+ * 스스로 배우는 앱이라 믿고 맡김). 침묵 · 잡음만이면 ‘다시 해 봐요’. 통과한 뒤에도 다시 녹음 · 내 소리 듣기는 그대로.
  */
 @Composable
-fun SpeakLine(s: AppState, sentence: String, learn: Lang, audio: String?, key: Any, onDone: () -> Unit) {
-    val p = Ink.palette
-    val ctx = LocalContext.current
-    val available = remember { runCatching { android.speech.SpeechRecognizer.isRecognitionAvailable(ctx) }.getOrDefault(false) }
-    var listening by remember(key) { mutableStateOf(false) }
-    var heard by remember(key) { mutableStateOf<String?>(null) }
-    var ok by remember(key) { mutableStateOf<Boolean?>(null) }
-    var selfCheck by remember(key) { mutableStateOf(!available) }
-    var revealed by remember(key) { mutableStateOf(false) }
-    val tag = when (learn) { Lang.FR -> "fr-FR"; Lang.EN -> "en-US"; Lang.KO -> "ko-KR"; Lang.DE -> "de-DE"; Lang.NL -> "nl-NL"; Lang.JA -> "ja-JP" }
-    val recognizer = remember(key) { if (available) runCatching { android.speech.SpeechRecognizer.createSpeechRecognizer(ctx) }.getOrNull() else null }
-    DisposableEffect(recognizer) { onDispose { runCatching { recognizer?.destroy() } } }
-    fun listen() {
-        val r = recognizer ?: run { selfCheck = true; return }
-        r.setRecognitionListener(object : android.speech.RecognitionListener {
-            override fun onResults(b: android.os.Bundle) {
-                listening = false
-                val all = b.getStringArrayList(android.speech.SpeechRecognizer.RESULTS_RECOGNITION).orEmpty()
-                heard = all.firstOrNull()
-                val hit = all.any { SpeechMatch.matches(sentence, it) }
-                ok = hit; s.cue(hit)
-            }
-            override fun onError(error: Int) { listening = false; selfCheck = true }
-            override fun onReadyForSpeech(p0: android.os.Bundle?) {}
-            override fun onBeginningOfSpeech() {}
-            override fun onRmsChanged(p0: Float) {}
-            override fun onBufferReceived(p0: ByteArray?) {}
-            override fun onEndOfSpeech() {}
-            override fun onPartialResults(p0: android.os.Bundle?) {}
-            override fun onEvent(p0: Int, p1: android.os.Bundle?) {}
-        })
-        val i = android.content.Intent(android.speech.RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-            .putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE_MODEL, android.speech.RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-            .putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE, tag)
-            .putExtra(android.speech.RecognizerIntent.EXTRA_MAX_RESULTS, 5)
-            // 가능하면 폰 안에서 알아듣기 (개인정보처리방침에 적은 대로)
-            .putExtra(android.speech.RecognizerIntent.EXTRA_PREFER_OFFLINE, true)
-        listening = true
-        runCatching { r.startListening(i) }.onFailure { listening = false; selfCheck = true }
-    }
-    val ask = androidx.activity.compose.rememberLauncherForActivityResult(androidx.activity.result.contract.ActivityResultContracts.RequestPermission()) { granted -> if (granted) listen() else selfCheck = true }
-    val micLabel = stringResource(R.string.speak_mic)
+fun SpeakLine(s: AppState, audio: String?, file: java.io.File, key: Any, onDone: () -> Unit) {
+    val take = rememberShadowTake(s, audio, 0, Int.MAX_VALUE, file, step = true, key = key, onVoice = { v -> if (v) onDone() })
     Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-        when {
-            ok == true -> {
-                Text(stringResource(R.string.speak_line_ok), style = Type.small.ui(), color = p.correct)
-                LaunchedEffect(key) { delay(700); onDone() }
-            }
-            !selfCheck -> {
-                Box(
-                    Modifier.size(64.dp).background(if (listening) p.wrong else p.fill, CircleShape).semantics { contentDescription = micLabel }
-                        .pressable {
-                            if (androidx.core.content.ContextCompat.checkSelfPermission(ctx, android.Manifest.permission.RECORD_AUDIO) == android.content.pm.PackageManager.PERMISSION_GRANTED) listen()
-                            else ask.launch(android.Manifest.permission.RECORD_AUDIO)
-                        },
-                    contentAlignment = Alignment.Center,
-                ) {
-                    androidx.compose.foundation.Canvas(Modifier.size(26.dp)) {
-                        val w = size.width
-                        drawRoundRect(p.onFill, Offset(w * 0.35f, 0f), androidx.compose.ui.geometry.Size(w * 0.3f, w * 0.62f), androidx.compose.ui.geometry.CornerRadius(w * 0.15f))
-                        drawArc(p.onFill, 0f, 180f, false, Offset(w * 0.2f, w * 0.25f), androidx.compose.ui.geometry.Size(w * 0.6f, w * 0.55f), style = androidx.compose.ui.graphics.drawscope.Stroke(2.dp.toPx()))
-                        drawLine(p.onFill, Offset(w / 2, w * 0.8f), Offset(w / 2, w), 2.dp.toPx())
-                    }
-                }
-                Text(stringResource(if (listening) R.string.speak_listening else R.string.speak_mic), style = Type.small.ui(), color = p.inkSoft)
-                heard?.let { Text(stringResource(R.string.speak_heard, it), style = Type.small.ui(), color = p.inkSoft, textAlign = TextAlign.Center) }
-                if (ok == false) Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    Box(Modifier.weight(1f)) { Secondary(stringResource(R.string.speak_line_retry), small = true) { ok = null; heard = null; listen() } }
-                    Box(Modifier.weight(1f)) { Primary(stringResource(R.string.speak_line_next), small = true) { onDone() } }
-                }
-            }
-            else -> {
-                // 스스로 판정: 먼저 말해 보고, 원래 소리를 들은 뒤 (복습 말하기와 같은 순서)
-                Text(stringResource(R.string.speak_self), style = Type.small.ui(), color = p.inkSoft, textAlign = TextAlign.Center)
-                if (!revealed) Secondary(stringResource(R.string.speak_reveal), small = true) { revealed = true; audio?.let { s.narrator.play(it) } }
-                else {
-                    Text(sentence, style = Type.body.of(learn), color = p.ink, textAlign = TextAlign.Center)
-                    if (audio != null) ListenButtons(play = { sp -> s.narrator.play(audio, sp) })
-                    Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                        Box(Modifier.weight(1f)) { Secondary(stringResource(R.string.speak_again), small = true) { s.cue(false); onDone() } }
-                        Box(Modifier.weight(1f)) { Primary(stringResource(R.string.speak_ok), small = true) { s.cue(true); onDone() } }
-                    }
-                }
-            }
-        }
+        ShadowBoard(take)
+        ShadowControls(s, take, canListen = audio != null)
     }
 }
 
@@ -538,9 +454,10 @@ fun SpeakLine(s: AppState, sentence: String, learn: Lang, audio: String?, key: A
 fun ReplySpeak(s: AppState, r: Route.Play, turn: Int, turns: Int, onNext: () -> Unit) {
     val p = Ink.palette
     val id = r.room.series
-    val (_, letter) = s.letterOf(r.room)
+    val (chapter, letter) = s.letterOf(r.room)
     val view = s.room(id)
     val (line, tri) = io.github.graviton94.todayletters.core.Exercises.replyFor(letter, view.learn, turn)
+    val file = remember(letter.id, turn) { s.replyTake(id, chapter, letter.id, turn).also { it.delete() } }
     val sentence = remember(line) { Breaks.plain(line).trim() }
     val how = Support.replySpeak(s.support(id).band)
     var hinted by remember(turn) { mutableStateOf(false) }
@@ -562,7 +479,8 @@ fun ReplySpeak(s: AppState, r: Route.Play, turn: Int, turns: Int, onNext: () -> 
                 else Text(stringResource(R.string.talk_hint), style = Type.small.ui().copy(textDecoration = TextDecoration.Underline), color = p.giltText,
                     modifier = Modifier.heightIn(min = 44.dp).pressable { hinted = true }.padding(vertical = Tokens.Space.s2))
             }
-            if (!spoken) SpeakLine(s, sentence, view.learn, null, key = "reply$turn") { spoken = true }
+            if (spoken) Text(stringResource(R.string.speak_line_ok), style = Type.small.ui(), color = p.correct, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+            SpeakLine(s, null, file, key = Triple(letter.id, turn, view.learn)) { spoken = true }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
             if (spoken) Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.speak_line_next)) { onNext() }

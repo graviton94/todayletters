@@ -76,7 +76,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
     val units = remember(letter.id) { s.shadowChunks(id, chapter, letter) }
     // 마디 하나 = 한 칸 (shadowChunks 가 문장마다 6~10 낱말 마디를 준다)
     val flat = remember(units, only) { units.indices.filter { only == null || it in only }.flatMap { i -> units[i].indices.map { i to it } } }
-    // 편지 걸음에서는 녹음하면 통과
+    // 편지 걸음에서는 목소리가 들어간 녹음이면 통과 (침묵 · 잡음만이면 아니다)
     val step = onFinish != null
     fun ok(i: Int, j: Int) = s.take(id, chapter, letter.id, i, j).exists() && (step || units[i][j].start < 0 || s.passed(id, chapter, letter.id, i, j))
     val first = remember(flat) { flat.indexOfFirst { (i, j) -> !ok(i, j) }.let { if (it < 0) flat.lastIndex else it } }
@@ -91,10 +91,11 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
     val audio = s.narrator.path(id, chapter, letter.id, "m${mi + 1}_${view.learn.code}")
     val sentence = io.github.graviton94.todayletters.core.Breaks.plain(letter.messages[mi].text[view.learn])
     // 녹음 · 채점 (회화 내 차례와 같은 부품): 원래 낭독의 이 마디와 내 녹음을 기기 안에서 비교
-    val take = rememberShadowTake(s, audio.takeIf { unit.start >= 0 }, unit.start, unit.end, s.take(id, chapter, letter.id, mi, cj), step, key = letter.id to at) { sc, fresh ->
+    val take = rememberShadowTake(s, audio.takeIf { unit.start >= 0 }, unit.start, unit.end, s.take(id, chapter, letter.id, mi, cj), step, key = letter.id to at,
+        onVoice = { v -> if (step && v) s.markPassed(id, chapter, letter.id, mi, cj) }) { sc, fresh ->
         if (sc.stars >= 1) s.markStar(id, chapter, letter.id)   // 봉인 조건: 따라 읽기 별 하나 이상 (F13)
         s.recordStars(id, chapter, letter.id, mi, cj, sc.stars)   // 메달 진열장의 따라 읽기 별 (마디마다 가장 많이 받은 별)
-        if (sc.passed || (step && sc.total > 0)) s.markPassed(id, chapter, letter.id, mi, cj) else if (fresh) tries[at] = (tries[at] ?: 0) + 1
+        if (sc.passed) s.markPassed(id, chapter, letter.id, mi, cj) else if (fresh && !step) tries[at] = (tries[at] ?: 0) + 1
     }
     val have = take.have
 
@@ -177,7 +178,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
             if (stuck) Secondary(stringResource(R.string.read_skip), small = true) { advance() }
             // 편지 걸음(한 문장)은 녹음하면 바로 ‘마치기’ (F14: ‘다음 문장’이 아니라)
             Primary(stringResource(if (last && (allTried || onFinish != null)) (if (onFinish != null) R.string.aloud_finish else R.string.shadow_finish) else R.string.shadow_next),
-                enabled = have && !take.recording && !take.scoring, shine = true) { advance() }
+                enabled = have && !take.recording && !take.scoring && (!step || take.voice == true), shine = true) { advance() }
             if (onSkip != null && !have) SkipLink(onSkip)
         }
     }
@@ -204,7 +205,8 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
  * 따라 말하기 한 칸의 녹음 · 채점 상태: 따라 읽기 (편지 · 오늘 · 봉인) 와 회화 내 차례가 같은 것을 쓴다.
  * 원래 소리 ([audio] 의 [start]~[end] 밀리초, 없으면 null) 를 듣고, 마이크로 녹음해 ([file], 기기 안 PCM),
  * 억양 · 리듬 · 완성도를 기기 안에서 잰다 (core 의 Prosody). 폰의 음성 인식 서비스는 쓰지 않는다 (그래서 인식이 없는 폰에서도 같다).
- * [step] (편지 걸음) 이면 목소리가 들어간 녹음은 통과.
+ * [step] (편지 걸음 · 회화 · 답장 말해 보기 · 복습 말하기) 이면 목소리가 들어간 녹음은 통과 ([voice], core 의 Prosody.spoke):
+ * 무슨 말인지는 알아듣지 않는다 (스스로 배우는 앱이라 믿고 맡김). 침묵 · 잡음만인 녹음은 통과가 아니다.
  */
 @androidx.compose.runtime.Stable
 class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: java.io.File, val step: Boolean) {
@@ -216,13 +218,15 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
     var scoring by mutableStateOf(false)
     var refCurve by mutableStateOf<FloatArray?>(null)
     var allowed by mutableStateOf(false)
+    /** 마지막 녹음에 목소리가 들어갔는가 (아직 재지 않았으면 null). 원래 소리가 없어도 잰다. */
+    var voice by mutableStateOf<Boolean?>(null)
     internal var askMic: () -> Unit = {}
     val levels = androidx.compose.runtime.mutableStateListOf<Float>()
     val pitches = androidx.compose.runtime.mutableStateListOf<Float>()
     val hasAudio: Boolean get() = audio != null && start >= 0
     val have: Boolean get() { tick; return file.exists() }
     /** 마지막 채점이 통과인가 (아직 없으면 null). */
-    val passed: Boolean? get() = result?.first?.let { it.passed || (step && it.total > 0) }
+    val passed: Boolean? get() = result?.first?.let { it.passed || (step && voice == true) } ?: if (step && !hasAudio) voice else null
 
     fun stopRecording(s: AppState) { if (recording) { s.pcm.onFrame = null; s.pcm.stop(); recording = false; tick++ } }
 
@@ -248,13 +252,18 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
     }
 }
 
-/** [ShadowTake] 하나 ([key] 가 바뀌면 새로). 녹음이 끝나 채점되면 [onScored] (점수, 이 화면에서 새로 녹음했는가). */
+/**
+ * [ShadowTake] 하나 ([key] 가 바뀌면 새로). 녹음이 끝나 채점되면 [onScored] (점수, 이 화면에서 새로 녹음했는가).
+ * 이 화면에서 새로 녹음할 때마다 (원래 소리가 있든 없든) [onVoice] (목소리가 들어갔는가).
+ */
 @Composable
 fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: java.io.File, step: Boolean, key: Any,
+                       onVoice: (Boolean) -> Unit = {},
                        onScored: (io.github.graviton94.todayletters.core.Prosody.Score, Boolean) -> Unit = { _, _ -> }): ShadowTake {
     val ctx = LocalContext.current
     val t = remember(key) { ShadowTake(audio, start, end, file, step).also { it.allowed = ContextCompat.checkSelfPermission(ctx, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED } }
     val scored by androidx.compose.runtime.rememberUpdatedState(onScored)
+    val voiced by androidx.compose.runtime.rememberUpdatedState(onVoice)
     val ask = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { t.allowed = it }
     t.askMic = { ask.launch(Manifest.permission.RECORD_AUDIO) }
     // 앱을 벗어나면 녹음은 그 자리에서 끝난다 (그때까지 녹음한 것은 남는다)
@@ -269,22 +278,29 @@ fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: 
         }
     }
     // 억양 · 리듬: 원래 소리와 내 녹음을 기기 안에서 비교 (녹음이 바뀔 때마다)
+    // 목소리가 들어갔는가는 원래 소리가 없어도 잰다 (침묵 · 잡음만인 녹음은 통과가 아니다)
     LaunchedEffect(t, t.tick) {
-        t.result = null
-        if (!t.have || !t.hasAudio) return@LaunchedEffect
+        t.result = null; t.voice = null
+        if (!t.have || t.recording) return@LaunchedEffect
         t.scoring = true
-        t.result = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
+        val P = io.github.graviton94.todayletters.core.Prosody
+        val rate = io.github.graviton94.todayletters.data.Wav.RATE
+        val mt = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
+            runCatching { P.analyze(io.github.graviton94.todayletters.data.Wav.samples(io.github.graviton94.todayletters.data.Wav.pcm(t.file)), rate) }.getOrNull()
+        }
+        t.voice = mt != null && P.spoke(mt)
+        if (mt != null && t.hasAudio) t.result = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
             val ref = io.github.graviton94.todayletters.data.decodeRange(ctx, t.audio!!, t.start, t.end) ?: return@withContext null
-            val me = io.github.graviton94.todayletters.data.Wav.samples(io.github.graviton94.todayletters.data.Wav.pcm(t.file))
-            val P = io.github.graviton94.todayletters.core.Prosody
-            val rt = P.analyze(ref, io.github.graviton94.todayletters.data.Wav.RATE); val mt = P.analyze(me, io.github.graviton94.todayletters.data.Wav.RATE)
+            val rt = P.analyze(ref, rate)
             Triple(P.score(rt, mt), P.semitones(P.trim(rt).f0), P.semitones(P.trim(mt).f0))
         }
         t.scoring = false
+        val fresh = t.tick > 0
         t.result?.first?.let {
-            s.recordScore(it); s.cue(it.passed || (t.step && it.total > 0))
-            scored(it, t.tick > 0)
-        }
+            s.recordScore(it); s.cue(it.passed || (t.step && t.voice == true))
+            scored(it, fresh)
+        } ?: run { if (fresh && !t.hasAudio) s.cue(t.voice == true) }
+        if (fresh) voiced(t.voice == true)
     }
     return t
 }
@@ -342,11 +358,12 @@ fun ShadowBoard(t: ShadowTake) {
  * [canRecord] 가 아니면 녹음을 막는다.
  */
 @Composable
-fun ShadowControls(s: AppState, t: ShadowTake, canListen: Boolean = true, canRecord: Boolean = true) {
+fun ShadowControls(s: AppState, t: ShadowTake, canListen: Boolean = true, canRecord: Boolean = true,
+                   /** 녹음 전 안내 한 줄 (기본: 이 문장을 따라 읽어 보세요). */ tip: Int = R.string.shadow_tap) {
     val p = Ink.palette
-    // 안내 한 줄: 스크롤 밖, 단추 바로 위 (단추에 가리지 않게)
+    // 안내 한 줄: 스크롤 밖, 단추 바로 위 (단추에 가리지 않게). 목소리가 들리지 않은 녹음이면 ‘다시 해 봐요’
     Text(
-        stringResource(if (t.recording) R.string.shadow_recording else if (t.have) R.string.shadow_check else R.string.shadow_tap),
+        stringResource(if (t.recording) R.string.shadow_recording else if (t.voice == false && t.tick > 0) R.string.talk_retry else if (t.have) R.string.shadow_check else tip),
         style = Type.small.ui(), color = if (t.recording) p.giltText else p.inkSoft, textAlign = TextAlign.Center,
         modifier = Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s5).padding(top = Tokens.Space.s2),
     )

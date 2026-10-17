@@ -685,91 +685,32 @@ internal fun meaningMarks(text: String, meaning: String, ink: Color): androidx.c
     }
 
 /**
- * 말하기 단계: 뜻을 보고 그 낱말을 소리 내어 말한다. 폰의 음성 인식(그 언어)으로 맞는지 보고,
- * 인식을 쓸 수 없으면 원어민 소리를 들은 뒤 스스로 판정 (맞게 말했어요 · 다시).
+ * 말하기 단계: 뜻을 보고 그 낱말을 배우는 말로 소리 내어 말한다. 따라 읽기 · 회화 · 답장 말해 보기와 같은 부품
+ * ([ShadowTake] · [ShadowBoard] · [ShadowControls]): 기기 안 녹음, 목소리가 들어가면 맞음 (무슨 말인지는 알아듣지 않는다:
+ * 스스로 배우는 앱이라 믿고 맡김). 그 뒤 낱말 · 원래 소리 · 억양 · 리듬 채점. 침묵 · 잡음만이면 ‘다시 해 봐요’, 떠오르지 않으면 ‘정답 보기’ (틀림).
  */
 @Composable
 private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Mark) -> Unit) {
     val p = Ink.palette
-    val ctx = androidx.compose.ui.platform.LocalContext.current
-    val available = remember { android.speech.SpeechRecognizer.isRecognitionAvailable(ctx) }
-    var listening by remember(q) { mutableStateOf(false) }
-    var heard by remember(q) { mutableStateOf<String?>(null) }
-    var selfCheck by remember(q) { mutableStateOf(!available) }
-    val tag = when (q.learn) { Lang.FR -> "fr-FR"; Lang.EN -> "en-US"; Lang.KO -> "ko-KR"; Lang.DE -> "de-DE"; Lang.NL -> "nl-NL"; Lang.JA -> "ja-JP" }
-    val recognizer = remember(q) { if (available) android.speech.SpeechRecognizer.createSpeechRecognizer(ctx) else null }
-    DisposableEffect(recognizer) { onDispose { runCatching { recognizer?.destroy() } } }
-    fun listen() {
-        val r = recognizer ?: run { selfCheck = true; return }
-        r.setRecognitionListener(object : android.speech.RecognitionListener {
-            override fun onResults(b: android.os.Bundle) {
-                listening = false
-                val all = b.getStringArrayList(android.speech.SpeechRecognizer.RESULTS_RECOGNITION).orEmpty()
-                heard = all.firstOrNull()
-                // 들린 후보 가운데 하나라도 맞으면 맞음 (문장으로 들렸으면 낱말이 들어 있는지)
-                val ok = all.any { cand -> Memory.grade(q.word, cand) != Memory.Mark.WRONG || cand.split(" ").any { Memory.grade(q.word, it) != Memory.Mark.WRONG } }
-                if (mark == null) onJudge(if (ok) Memory.Mark.RIGHT else Memory.Mark.WRONG)
-            }
-            override fun onError(error: Int) { listening = false; selfCheck = true }
-            override fun onReadyForSpeech(p0: android.os.Bundle?) {}
-            override fun onBeginningOfSpeech() {}
-            override fun onRmsChanged(p0: Float) {}
-            override fun onBufferReceived(p0: ByteArray?) {}
-            override fun onEndOfSpeech() {}
-            override fun onPartialResults(p0: android.os.Bundle?) {}
-            override fun onEvent(p0: Int, p1: android.os.Bundle?) {}
-        })
-        val i = android.content.Intent(android.speech.RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-            .putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE_MODEL, android.speech.RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-            .putExtra(android.speech.RecognizerIntent.EXTRA_LANGUAGE, tag)
-            .putExtra(android.speech.RecognizerIntent.EXTRA_MAX_RESULTS, 5)
-            // 가능하면 폰 안에서 알아듣기 (개인정보처리방침에 적은 대로)
-            .putExtra(android.speech.RecognizerIntent.EXTRA_PREFER_OFFLINE, true)
-        listening = true
-        runCatching { r.startListening(i) }.onFailure { listening = false; selfCheck = true }
-    }
-    val ask = androidx.activity.compose.rememberLauncherForActivityResult(androidx.activity.result.contract.ActivityResultContracts.RequestPermission()) { ok -> if (ok) listen() else selfCheck = true }
+    val file = remember(q) { s.speakTake.also { it.delete() } }
+    DisposableEffect(Unit) { onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release() } }
+    val take = rememberShadowTake(s, q.audio.takeIf { it.isNotEmpty() }, 0, Int.MAX_VALUE, file, step = true, key = q,
+        onVoice = { v -> if (v && mark == null) onJudge(Memory.Mark.RIGHT) })
     // 뜻(내 언어)을 보고 배우는 언어로 말한다: 무엇을 어느 말로 할지 분명히 (v21)
     Text(stringResource(R.string.speak_prompt_lang, stringResource(langLabel(q.learn))), style = Type.heading.ui(), color = p.ink, textAlign = TextAlign.Center)
     Caps(stringResource(R.string.speak_meaning), p.giltText, small = true)
     Text(quoted(q.meaning, q.read), style = Type.display.of(q.read), color = p.ink, textAlign = TextAlign.Center)
     val plainWord = io.github.graviton94.todayletters.core.Breaks.plain(q.word)
-    if (mark == null && !selfCheck) Text(stringResource(R.string.speak_hint_letters, plainWord.take(1), plainWord.count { it != ' ' }),
+    if (mark == null) Text(stringResource(R.string.speak_hint_letters, plainWord.take(1), plainWord.count { it != ' ' }),
         style = Type.small.ui(), color = p.inkSoft)
-    if (q.ipa.isNotEmpty() && (mark != null || selfCheck)) Text(q.ipa, style = Type.small, color = p.inkSoft)
-    if (mark == null && !selfCheck) {
-        Box(
-            Modifier.size(96.dp).background(if (listening) p.wrong else p.fill, CircleShape).semantics { contentDescription = "mic" }
-                .pressable {
-                    if (androidx.core.content.ContextCompat.checkSelfPermission(ctx, android.Manifest.permission.RECORD_AUDIO) == android.content.pm.PackageManager.PERMISSION_GRANTED) listen()
-                    else ask.launch(android.Manifest.permission.RECORD_AUDIO)
-                },
-            contentAlignment = Alignment.Center,
-        ) {
-            Canvas(Modifier.size(34.dp)) {
-                val w = size.width
-                drawRoundRect(p.onFill, Offset(w * 0.35f, 0f), androidx.compose.ui.geometry.Size(w * 0.3f, w * 0.62f), androidx.compose.ui.geometry.CornerRadius(w * 0.15f))
-                drawArc(p.onFill, 0f, 180f, false, Offset(w * 0.2f, w * 0.25f), androidx.compose.ui.geometry.Size(w * 0.6f, w * 0.55f), style = androidx.compose.ui.graphics.drawscope.Stroke(2.dp.toPx()))
-                drawLine(p.onFill, Offset(w / 2, w * 0.8f), Offset(w / 2, w), 2.dp.toPx())
-            }
-        }
-        Text(stringResource(if (listening) R.string.speak_listening else R.string.speak_tap), style = Type.small.ui(), color = p.inkSoft)
-    }
-    heard?.let { Text(stringResource(R.string.speak_heard, it), style = Type.small.ui(), color = p.inkSoft) }
-    if (mark == null && selfCheck) {
-        // 스스로 판정: 먼저 말해 보고, 원어민 소리를 들은 뒤
-        var heardIt by remember(q) { mutableStateOf(false) }
-        Text(stringResource(R.string.speak_self), style = Type.small.ui(), color = p.inkSoft, textAlign = TextAlign.Center)
-        // 먼저 말해 본 뒤에야 원래 소리와 글자를 보여 준다
-        if (!heardIt) { Secondary(stringResource(R.string.speak_reveal), small = true) { heardIt = true; s.narrator.play(q.audio) }; return }
-        if (q.audio.isNotEmpty()) ListenButtons(play = { sp -> s.narrator.play(q.audio, sp) })
+    else {
         Text(q.word, style = Type.title.of(q.learn), color = p.ink)
-        Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            Box(Modifier.weight(1f)) { Secondary(stringResource(R.string.speak_again), small = true) { onJudge(Memory.Mark.WRONG) } }
-            Box(Modifier.weight(1f)) { Primary(stringResource(R.string.speak_ok), small = true) { onJudge(Memory.Mark.RIGHT) } }
-        }
+        if (q.ipa.isNotEmpty()) Text(q.ipa, style = Type.small, color = p.inkSoft)
     }
-    if (mark != null) LaunchedEffect(mark) { s.narrator.play(q.audio) }
+    ShadowBoard(take)
+    // 원래 소리는 답이 나온 뒤에만 (먼저 들으면 답을 듣는 셈)
+    ShadowControls(s, take, canListen = mark != null, canRecord = true, tip = R.string.speak_tap)
+    if (mark == null && !take.recording) TextLink(stringResource(R.string.practice_reveal)) { onJudge(Memory.Mark.WRONG) }
 }
 
 /** 맞았을 때: 금빛 원이 튀어 오르며 체크가 그려지고, 고리가 퍼진다. */
