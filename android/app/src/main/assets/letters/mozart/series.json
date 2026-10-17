@@ -9,6 +9,8 @@
   "en": "Wolfgang",
   "ko": "볼프강"
  },
+ "_known": "널리 알려진 이름 (받기 시트: 모차르트의 시대로 떠날까요?)",
+ "known": {"de": "Mozart", "en": "Mozart", "ko": "모차르트"},
  "seal": "mozart",
  "years": "1770–1791",
  "fullName": "Wolfgang Amadeus Mozart",

@@ -9,6 +9,8 @@
   "en": "Vincent",
   "ko": "빈센트"
  },
+ "_known": "널리 알려진 이름 (받기 시트: 모차르트의 시대로 떠날까요?)",
+ "known": {"fr": "Van Gogh", "en": "Van Gogh", "ko": "고흐"},
  "seal": "vincent",
  "years": "1888–1890",
  "fullName": "Vincent van Gogh",

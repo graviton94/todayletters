@@ -45,6 +45,8 @@ data class Work(
     val recipient: Tri = Tri(mapOf(Lang.EN to "")),
     /** 앱 글자에 쓰는 보내는 사람 이름 (빈센트 / Vincent). */
     val name: Tri = Tri(mapOf(Lang.EN to sender)),
+    /** 널리 알려진 이름 (모차르트 / Mozart): 받기 시트 “모차르트의 시대로 떠날까요?”. 없으면 [name]. */
+    val known: Tri = name,
     /** 손으로 그린 지도의 장소들 (위치 공유 · 지도). */
     val places: List<Place> = emptyList(),
     /** 시리즈 키트 (빛깔 · 대표 그림 · 화폐 이름 · 갤러리 소장품 · 이달의 전시). */
@@ -170,6 +172,7 @@ object Library {
                 portrait = meta.optString("portrait"), credit = meta.optString("credit"),
                 fullName = meta.optString("fullName", meta.getString("sender")), recipient = meta.optJSONObject("recipient")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to meta.optString("recipient"))),
                 name = meta.optJSONObject("name")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to meta.getString("sender"))),
+                known = (meta.optJSONObject("known") ?: meta.optJSONObject("name"))?.let { tri(it) } ?: Tri(mapOf(Lang.EN to meta.getString("sender"))),
                 places = meta.optJSONObject("places")?.let { o ->
                     o.keys().asSequence().map { k -> o.getJSONObject(k).let { p -> Place(k, p.getDouble("x").toFloat(), p.getDouble("y").toFloat(), tri(p.getJSONObject("name")), tri(p.getJSONObject("note")), p.optDouble("lat", 0.0), p.optDouble("lng", 0.0)) } }.toList()
                 } ?: emptyList(),

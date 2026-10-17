@@ -55,7 +55,7 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
     val waiting = ask.letter != null || ask.then != null
     var reached by remember(ask) { mutableStateOf(false) }
     val w = s.work(ask.series)
-    val name = w.name[uiLang()]
+    val name = w.known[uiLang()]
     val first = ask.chapter == Downloads.FIRST || ask.chapter == Downloads.ALL
     val numeral = w.chapters.indexOfFirst { it.id == ask.chapter }.let { if (it >= 0) roman(it + 1) else ask.chapter }
     val title = when {

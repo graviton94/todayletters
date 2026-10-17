@@ -10,6 +10,8 @@
   "en": "Napoleon",
   "ko": "나폴레옹"
  },
+ "_known": "널리 알려진 이름 (받기 시트: 모차르트의 시대로 떠날까요?)",
+ "known": {"fr": "Napoléon", "en": "Napoleon", "ko": "나폴레옹"},
  "seal": "napoleon",
  "years": "1795–1821",
  "fullName": "Napoléon Bonaparte",

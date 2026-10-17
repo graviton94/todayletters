@@ -62,7 +62,7 @@
 
 - 앱 안에는 **빈센트 서문 · I장** 의 낭독 · 그림만 (`data/remote.json` 의 `"bundled": {"vincent": ["P", "I"]}`). 그 밖의 장 (빈센트 맺음, 모차르트 서문 · I · 맺음 · 곡, 나폴레옹 서문 · I · 맺음) 은 `remote/` 로 옮겨 R2 에서 받는다. 대표 그림 (kit.hero) · 초상 · 소장품 · 글꼴 · 소리 · 틀 · 메달은 그대로. 쓰이지 않던 그림 넷 (c2-l4 · c3-l3 · 스케치 v489 · v593) 은 지웠다.
 - generate.py: 서문 P · 맺음 E 도 장 묶음 (맺음은 아웃트로 그림 포함). `bundled` 밖의 장 파일이 assets 에 남으면 멈춘다. 앱 안 장이 없는 작품은 remote.json 에 `"first": ["P", "I", "II"]` (서문 + 무료 장) → **새 작품은 아무것도 넣지 않는다.**
-- 앱: 작품을 처음 열 때 (`enter`) 한 번, 처음 묶음 받기 시트 (“모차르트의 시대로 떠날까요?”). ‘다음에’ 면 표지에 ‘다운로드 · 27MB’ 단추. 서문 (`openPrologue`) · 맺음 (`openOutro`) · 편지 (`open`) 는 받지 않았으면 시트부터 (`Downloads.needed`). 그 뒤 장은 “III장으로 떠날까요?”. 시트의 긴 문장은 한 줄씩으로, ‘소리 없이 읽기’ 는 뺐다.
+- 앱: 작품을 처음 열 때 (`enter`) 한 번, 처음 묶음 받기 시트 (“모차르트의 시대로 떠날까요?”, 이름은 series.json `known`). ‘다음에’ 면 표지에 ‘다운로드 · 27MB’ 단추. 서문 (`openPrologue`) · 맺음 (`openOutro`) · 편지 (`open`) 는 받지 않았으면 시트부터 (`Downloads.needed`). 그 뒤 장은 “III장으로 떠날까요?”. 시트의 긴 문장은 한 줄씩으로, ‘소리 없이 읽기’ 는 뺐다.
 - 받는 중 `23.4 / 64MB` (소수 한 자리, core `Fetching.progress`). 화면 사진 `ScreensTest.dl*` (dl1_ask · dl2_loading · dl3_done · dl4_failed). 모차르트 화면 사진 (`mozart*`) 은 저장소 `remote/` 의 파일을 files/ 에 넣고 찍는다.
 
 ## 다음 할 일 (차례대로)
