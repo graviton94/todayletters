@@ -1,2 +1,5 @@
 a11y.txt
-first01_today_done_light.png
+dl1_ask_light.png
+dl2_loading_light.png
+dl3_done_light.png
+dl4_failed_light.png
