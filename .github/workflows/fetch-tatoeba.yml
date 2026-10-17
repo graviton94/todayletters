@@ -1,0 +1,82 @@
+name: Fetch Tatoeba
+
+# 낱말 예문용 Tatoeba 추출본 (scripts/vocab/build.py · build_tl.py 의 TATOEBA_DIR). 앱에는 들어가지 않음.
+# 형식: id<TAB>문장<TAB>en<TAB>ko<TAB>author, 12낱말 이하 (data/lexicon/README.md).
+#   tatoeba_fra.tsv · tatoeba_deu.tsv: 영어 번역이 있는 문장, ko 는 한국어 번역이 있을 때만
+#   tatoeba_kor.tsv: 영어 번역이 있는 한국어 문장 (ko 칸 비움)
+#   tatoeba_eng.tsv: CC0 영어 문장만 (author "CC0"), ko 는 한국어 번역이 있을 때만
+# Tatoeba 문장은 CC BY 2.0 FR (CC0 문장 제외) — 쓸 때 작성자 표기. 결과는 gzip 으로 tatoeba 가지에 (새 가지, 덮어쓰지 않음).
+on:
+  workflow_dispatch:
+    inputs:
+      branch: { description: "결과 가지 (새 이름)", default: "tatoeba" }
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions: { contents: write }
+    steps:
+      - name: Download exports
+        run: |
+          mkdir -p dl out && cd dl
+          B=https://downloads.tatoeba.org/exports
+          for l in fra deu kor eng; do curl -sSfLO "$B/per_language/$l/${l}_sentences_detailed.tsv.bz2"; done
+          for p in fra-eng fra-kor deu-eng deu-kor kor-eng eng-kor; do curl -sSfLO "$B/per_language/${p%-*}/${p}_links.tsv.bz2"; done
+          curl -sSfLO "$B/sentences_CC0.tar.bz2"
+          bunzip2 -f *.bz2 && tar xf sentences_CC0.tar && ls -la
+      - name: Make extracts
+        run: |
+          python3 - <<'PY'
+          import csv, sys, collections
+          csv.field_size_limit(10**9)
+          D = 'dl/'
+          def sents(l):
+              s = {}
+              for p in csv.reader(open(D + f'{l}_sentences_detailed.tsv', encoding='utf-8'), delimiter='\t', quoting=csv.QUOTE_NONE):
+                  if len(p) >= 4: s[p[0]] = (p[2].replace('\t', ' '), p[3] if p[3] != '\\N' else '')
+              return s
+          def links(a, b):
+              m = collections.defaultdict(list)
+              for p in csv.reader(open(D + f'{a}-{b}_links.tsv', encoding='utf-8'), delimiter='\t', quoting=csv.QUOTE_NONE):
+                  if len(p) >= 2: m[p[0]].append(p[1])
+              return m
+          S = {l: sents(l) for l in ('fra', 'deu', 'kor', 'eng')}
+          def first(ids, l):
+              for i in ids:
+                  if i in S[l]: return S[l][i][0]
+              return ''
+          def short(t): return len(t.split()) <= 12
+          for l in ('fra', 'deu'):
+              E, K = links(l, 'eng'), links(l, 'kor')
+              n = 0
+              with open(f'out/tatoeba_{l[:3]}.tsv', 'w', encoding='utf-8') as f:
+                  for sid, (t, au) in S[l].items():
+                      en = first(E.get(sid, []), 'eng')
+                      if not short(t) or not en or not au: continue
+                      f.write('\t'.join([sid, t, en, first(K.get(sid, []), 'kor'), au]) + '\n'); n += 1
+              print(l, n)
+          E = links('kor', 'eng'); n = 0
+          with open('out/tatoeba_kor.tsv', 'w', encoding='utf-8') as f:
+              for sid, (t, au) in S['kor'].items():
+                  en = first(E.get(sid, []), 'eng')
+                  if not short(t) or not en or not au: continue
+                  f.write('\t'.join([sid, t, en, '', au]) + '\n'); n += 1
+          print('kor', n)
+          cc0 = set()
+          for p in csv.reader(open(D + 'sentences_CC0.csv', encoding='utf-8'), delimiter='\t', quoting=csv.QUOTE_NONE):
+              if len(p) >= 2 and p[1] == 'eng': cc0.add(p[0])
+          K = links('eng', 'kor'); n = 0
+          with open('out/tatoeba_eng.tsv', 'w', encoding='utf-8') as f:
+              for sid, (t, au) in S['eng'].items():
+                  if sid not in cc0 or not short(t): continue
+                  f.write('\t'.join([sid, t, '', first(K.get(sid, []), 'kor'), 'CC0']) + '\n'); n += 1
+          print('eng', n)
+          PY
+          gzip -9 out/*.tsv && ls -la out
+      - name: Publish to a new branch
+        run: |
+          cd out
+          git init -q && git checkout -q -b tatoeba && git add .
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Tatoeba extracts ($(date -u +%F)), CC BY 2.0 FR / CC0"
+          git push "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:refs/heads/${{ inputs.branch }}
