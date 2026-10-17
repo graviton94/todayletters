@@ -174,7 +174,7 @@ private fun Constellation(s: AppState, r: Route.Play, turn: Int, turns: Int, onD
             }
             Sky(
                 pieces = pieces, picked = picked, learn = view.learn, link = link.value, wrong = wrong,
-                hint = if (guided && !done) pieces.indices.firstOrNull { it !in picked && Exercises.isNext(answer, picked.size, pieces[it]) } else null,
+                hint = if (!done) pieces.indices.firstOrNull { it !in picked && Exercises.isNext(answer, picked.size, pieces[it]) } else null,
                 pulse = if (s.reducedMotion) 0.5f else pulse.value, onTap = ::tap,
                 small = small, modifier = Modifier.weight(1f),
             )
@@ -196,7 +196,7 @@ private fun Constellation(s: AppState, r: Route.Play, turn: Int, turns: Int, onD
             }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (done) Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.play_send)) { onDone() }
+            if (done) Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.play_send), shine = true) { onDone() }
             else {
                 Secondary(stringResource(R.string.play_show)) { showAnswer = true }
                 SkipLink { s.skipStep(r.room, ReplyMode.CONSTELLATION) }
@@ -373,8 +373,8 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
             }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (letter.phrases.isNotEmpty()) Primary(stringResource(R.string.phrase_next), enabled = done) { phrases = true }
-            else Primary(stringResource(R.string.play_finish), enabled = done) { s.replyAndContinue(r.room, ReplyMode.MATCH) }
+            if (letter.phrases.isNotEmpty()) Primary(stringResource(R.string.phrase_next), enabled = done, shine = true) { phrases = true }
+            else Primary(stringResource(R.string.play_finish), enabled = done, shine = true) { s.replyAndContinue(r.room, ReplyMode.MATCH) }
             if (!done) SkipLink { s.skipStep(r.room, ReplyMode.MATCH) }
         }
     }

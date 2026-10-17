@@ -335,6 +335,24 @@ class CoreTest {
         assertEquals(1, Spoken.at(listOf(200, 3268), 3300))
     }
 
+    /** 한 마디에 문장이 여럿이면 문장마다 토막 (둘째 문장이 첫 문장 소리 동안 함께 칠해지지 않게). */
+    @Test fun spokenSplitsSentencesInsideChunk() {
+        val text = "Je vais bien. Le temps est beau, et je peins. Ton Vincent"
+        val segs = Spoken.timed(text, listOf(200), listOf(10_200), listOf(text))
+        assertEquals(3, segs.size)
+        assertEquals("Je vais bien.", text.substring(segs[0].range).trim())
+        assertEquals("Le temps est beau, et je peins.", text.substring(segs[1].range).trim())
+        assertEquals(200, segs[0].start)
+        assertTrue(segs.zipWithNext().all { (a, b) -> b.start > a.start && b.range.first > a.range.last })
+        assertTrue(segs.last().start < 10_200 && segs.last().range.last == text.lastIndex)
+        // 마디가 둘이면 마디 시작은 그대로
+        val two = Spoken.timed(text, listOf(200, 5000), listOf(4000, 9000), listOf("Je vais bien. Le temps est beau,", "et je peins. Ton Vincent"))
+        assertEquals(4, two.size)
+        assertEquals(5000, two[2].start)
+        // 줄임말 마침표에서는 나누지 않는다
+        assertEquals(1, Spoken.timed("St. Pierre est là", listOf(0), listOf(3000), listOf("St. Pierre est là")).size)
+    }
+
     /** 가짜 목소리: 시간에 따른 음높이 [pitch] 와 크기 [amp] 로 배음 셋을 합친 소리. */
     private fun voice(seconds: Double, rate: Int, pitch: (Double) -> Double, amp: (Double) -> Double): FloatArray {
         val n = (seconds * rate).toInt(); var ph = 0.0

@@ -393,11 +393,13 @@ fun spokenRange(narrator: io.github.graviton94.todayletters.data.Narrator, asset
     val on = narrator.now == asset
     if (!on) return null
     val chunks = remember(asset) { narrator.chunks(asset) }
-    val ranges = remember(asset, text) { io.github.graviton94.todayletters.core.Spoken.ranges(text, chunks.map { it.text }) }
+    // 마디 안의 문장까지 나눈 토막 (core Spoken.timed): 한 마디에 문장이 여럿이어도 지금 읽는 문장만 칠한다
+    val segs = remember(asset, text) { io.github.graviton94.todayletters.core.Spoken.timed(text, chunks.map { it.start }, chunks.map { it.end }, chunks.map { it.text }) }
     var k by remember(asset) { mutableStateOf(0) }
-    LaunchedEffect(asset, ranges) {
-        if (ranges.size < 2) return@LaunchedEffect
-        val starts = chunks.map { it.start }
+    LaunchedEffect(asset, segs) {
+        k = 0
+        if (segs.size < 2) return@LaunchedEffect
+        val starts = segs.map { it.start }
         while (true) {
             androidx.compose.runtime.withFrameMillis { }
             val at = narrator.position()
@@ -405,7 +407,7 @@ fun spokenRange(narrator: io.github.graviton94.todayletters.data.Narrator, asset
             if (at >= 0) io.github.graviton94.todayletters.core.Spoken.at(starts, at, io.github.graviton94.todayletters.core.Spoken.LEAD_MS).let { if (it != k) k = it }
         }
     }
-    return ranges.getOrNull(k)?.takeIf { ranges.size > 1 && !it.isEmpty() } ?: text.indices
+    return segs.getOrNull(k)?.range?.takeIf { segs.size > 1 && !it.isEmpty() } ?: text.indices
 }
 
 /** [text] 에서 [range] 를 칠한 글 (낭독 중인 자리: 색과 밑줄). [range] 가 null 이면 그대로. */

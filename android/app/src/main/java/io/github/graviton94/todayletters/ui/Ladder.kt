@@ -203,9 +203,9 @@ fun ReplyLadder(s: AppState, r: Route.Play, help: Ladder.Help, turn: Int, turns:
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             when {
-                done -> Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.play_send)) { onDone() }
+                done -> Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.play_send), shine = true) { onDone() }
                 help == Ladder.Help.WRITE -> {
-                    Primary(stringResource(R.string.ladder_check), enabled = typed.isNotBlank(), wake = false) { if (Ladder.right(answers[at], typed)) accept() else miss(typed) }
+                    Primary(stringResource(R.string.ladder_check), enabled = typed.isNotBlank()) { if (Ladder.right(answers[at], typed)) accept() else miss(typed) }
                     if (!ime) {
                         Secondary(stringResource(R.string.play_show)) { filled = List(holes.size) { true } }
                         SkipLink { s.skipStep(r.room, ReplyMode.CONSTELLATION) }

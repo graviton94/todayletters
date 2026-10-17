@@ -188,7 +188,7 @@ fun PhraseCards(s: AppState, r: Route.Play, onFinish: () -> Unit) {
             Text(stringResource(R.string.phrase_note), style = Type.small.ui(), color = p.inkSoft)
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            Primary(stringResource(R.string.play_finish), onClick = onFinish)
+            Primary(stringResource(R.string.play_finish), shine = true, onClick = onFinish)
         }
     }
 }
@@ -228,7 +228,8 @@ fun PhraseCard(s: AppState, series: String, chapter: String, letter: Letter, ph:
                     append(plain)
                     if (at >= 0) addStyle(androidx.compose.ui.text.SpanStyle(background = Color(0x55D2A955)), at, (at + Breaks.plain(ph.text[original]).length).coerceAtMost(plain.length))
                 }
-                Text(marked, style = Type.base.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic).of(original), color = p.slipInk)
+                // 원문은 편지 방의 배우는 말 줄과 같은 크기 (번역 줄보다 작아 보이지 않게)
+                Text(marked, style = Type.target.of(original), color = p.slipInk)
                 if (tr != original) Text(m.text[tr], style = Type.small.of(tr), color = p.slipSoft)
                 val n = w.chapters.flatMap { it.letters }.indexOf(letter) + 1
                 Text(stringResource(R.string.phrase_where, if (n > 0) roman(n) else "P", dateLine(letter.date, letter.place), ph.msg + 1),

@@ -1,6 +1,8 @@
 package io.github.graviton94.todayletters.ui
 
+import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
@@ -37,6 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -192,26 +195,39 @@ val LocalStill = androidx.compose.runtime.staticCompositionLocalOf { false }
 @Composable
 /**
  * 단추 크기는 두 가지뿐: 큰 것 54 (글 17), 작은 것 46 (글 15). 같은 줄의 단추는 같은 크기.
- * ‘다음’ 단추: 누를 수 없다가 누를 수 있게 된 순간부터 ([wake]) 금빛으로 채워지고 은은하게 숨 쉬듯 빛난다 (움직임 줄이기면 빛은 멈춤).
- * [glow] 는 처음부터 그렇게 (앞 단계를 다른 모습으로 보여 준 화면). 입력 확인 단추처럼 글자마다 켜졌다 꺼지는 것은 wake = false.
+ * [shine]: 그 화면의 흐름상 ‘다음 걸음’ 단추 하나 (편지 방 다음 · 걸음 확인 · 계속 · 마침 서재로 · 받기 · 오늘 열기).
+ * 누를 수 있는 동안 4초마다 금빛 결이 왼쪽에서 오른쪽으로 단추를 한 번 지나간다 (단추 안에서만, 움직임 줄이기면 멈춤).
  */
-fun Primary(text: String, modifier: Modifier = Modifier, enabled: Boolean = true, small: Boolean = false, wake: Boolean = true, glow: Boolean = false, onClick: () -> Unit) {
+fun Primary(text: String, modifier: Modifier = Modifier, enabled: Boolean = true, small: Boolean = false, shine: Boolean = false, onClick: () -> Unit) {
     val p = Ink.palette
-    var sawOff by remember { mutableStateOf(false) }
-    LaunchedEffect(enabled) { if (!enabled) sawOff = true }
-    val gold = enabled && (glow || (wake && sawOff))
     val still = LocalStill.current
-    val breath = if (gold && !still) rememberInfiniteTransition(label = "wake").animateFloat(0f, 1f, infiniteRepeatable(tween(1800), RepeatMode.Restart), label = "breath").value else -1f
+    val sweep = if (shine && enabled && !still) rememberInfiniteTransition(label = "shine").animateFloat(0f, 1f, infiniteRepeatable(keyframes {
+        durationMillis = 4000
+        0f at 0
+        0f at 2400 using FastOutSlowInEasing
+        1f at 4000
+    }, RepeatMode.Restart), label = "sweep") else null
     Box(
         modifier.fillMaxWidth().heightIn(min = if (small) Tokens.Size.buttonSm else Tokens.Size.button)
-            .then(if (breath >= 0f) Modifier.drawBehind {
-                // 숨 쉬는 빛: 단추 둘레에서 8dp 까지 번졌다 사라진다
-                val g = 8.dp.toPx() * breath
-                drawRect(p.gilt.copy(alpha = 0.45f * (1f - breath)), Offset(-g, -g), Size(size.width + 2 * g, size.height + 2 * g))
-            } else Modifier)
             .pressable(enabled, onClick = onClick)
             // 아직 누를 수 없는 단추: 흐린 바탕 대신 테두리와 읽을 수 있는 글자 (F24 대비)
-            .then(if (gold) Modifier.background(p.giltText) else if (enabled) Modifier.background(p.fill) else Modifier.border(1.dp, p.line)),
+            .then(if (enabled) Modifier.background(p.fill) else Modifier.border(1.dp, p.line))
+            .then(if (sweep != null) Modifier.drawWithContent {
+                drawContent()
+                // 값은 그리기에서만 읽는다 (매 프레임 다시 짜지 않게)
+                val t = sweep.value
+                if (t <= 0f || t >= 1f) return@drawWithContent
+                // 금빛 결: 단추 폭의 띠가 -120% → 120% 로, 105° 로 조금 기울어 (시안 A). 띠 밖은 투명이라 단추 안만 칠해진다
+                val w = size.width; val h = size.height
+                val cx = w * (-1.2f + 2.4f * t) + w / 2
+                val dx = 0.966f; val dy = 0.259f
+                val half = (dx * w + dy * h) * 0.15f
+                val c = Offset(cx, h / 2)
+                drawRect(androidx.compose.ui.graphics.Brush.linearGradient(
+                    listOf(Color.Transparent, Color(0x8CFFF0C8), Color.Transparent),
+                    start = c - Offset(dx * half, dy * half), end = c + Offset(dx * half, dy * half),
+                ))
+            } else Modifier),
         contentAlignment = Alignment.Center,
     ) { Text(text, style = Type.body.ui().copy(fontSize = if (small) 15.sp else 17.sp), color = if (enabled) p.onFill else p.inkSoft) }
 }

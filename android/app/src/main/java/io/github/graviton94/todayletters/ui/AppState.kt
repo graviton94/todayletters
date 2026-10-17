@@ -1421,6 +1421,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun readingDir(id: String, chapter: String, letter: String) = java.io.File(ctx.filesDir, "readings/${space(id)}_${chapter}_$letter")
     fun take(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = java.io.File(readingDir(id, chapter, letter), "m${msg}_c$chunk.wav")
     val pcm = io.github.graviton94.todayletters.data.PcmRecorder()
+    /** 회화 내 차례 녹음: files/talk/<편지>/t<줄>.wav (따라 읽기와 같은 채점, 봉인 낭독에는 들지 않게 따로). */
+    fun talkTake(id: String, chapter: String, letter: String, line: Int) = java.io.File(ctx.filesDir, "talk/${space(id)}_${chapter}_$letter/t$line.wav")
 
     /** 억양 · 리듬을 통과한 마디인가. */
     fun passed(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = run { @Suppress("UNUSED_EXPRESSION") version; "${key(id, chapter, letter)}:$msg:$chunk" in store.passed }

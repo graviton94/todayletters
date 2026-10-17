@@ -169,6 +169,14 @@ class ScreensTest {
     @Test fun onboarding0() { val s = state(false); shot("03a_onboarding0_ko_light", false) { Onboarding(s) } }
     @Test fun onboarding2() { val s = state(false); shot("04_onboarding2_ko_dark", true) { Onboarding(s) } }
     @Test fun inbox() { val s = state(true); shot("06_inbox_ko_light", false, series = s) { Inbox(s) } }
+    // 0.9.5: 다음 단추의 금빛 결 (4초 주기 가운데쯤, 3.5초에 찍음) · 큐레이터 노트 · 표현 카드 원문 크기
+    @Test fun v095RoomShine() {
+        val s = state(true)
+        val (c, l) = s.letterOf(Route.Letter("vincent", 1, 1))
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size))
+        shot("v095_room_next_shine_light", false, 2600, series = s) { Room(s, Route.Letter("vincent", 1, 1)) }
+    }
+    @Test fun v095PhraseCard() { val s = state(true); shot("v095_phrase_card_light", false, series = s) { io.github.graviton94.todayletters.ui.PhraseCards(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.MATCH)) { } } }
     @Test fun roomLight() { val s = state(true); shot("07_room_ko_light", false, 6000, series = s) { Room(s, Route.Letter("vincent", 1, 1)) } }
     @Test fun roomDark() { val s = state(true); shot("08_room_ko_dark", true, 6000, series = s) { Room(s, Route.Letter("vincent", 1, 1)) } }
     @Test fun constellation() {
@@ -1531,7 +1539,7 @@ class ScreensTest {
             rule.onAllNodes(hasText(io.github.graviton94.todayletters.core.Breaks.plain(D.check.options[1][io.github.graviton94.todayletters.core.Lang.KO])) and hasClickAction()).onFirst().performClick()
         }, series = s) { Play(s, checkRoute) }
     }
-    // 오늘의 회화 (메신저, talkchat.html): 아래 칸은 도움 사다리대로 (core 의 TalkTurn). 기기 음성 인식이 없는 Robolectric 에서는 녹음 단추가 ‘말해 봤어요’ (스스로 판정)
+    // 오늘의 회화 (메신저, talkchat.html): 아래 칸은 도움 사다리대로 (core 의 TalkTurn). 말하기는 따라 읽기와 같은 단추 (원래 소리 · 녹음 · 내 소리)
     private fun tap(text: String, substring: Boolean = false) {
         rule.onAllNodes(hasText(text, substring = substring) and hasClickAction()).onFirst().performClick()
         rule.mainClock.advanceTimeBy(400)
@@ -1571,16 +1579,12 @@ class ScreensTest {
         val s = learning(state(true), "vincent", io.github.graviton94.todayletters.core.Lang.EN, 7)
         shot("depth11_talk_en_learner_b1_dark", true, ms = 4000, act = { tap("Was"); tap("long") }, series = s) { Play(s, talkRoute) }
     }
-    /** 다 마친 대화 (A1): 말해 봤어요 → 원래 소리 → 맞게 말했어요 를 두 번, 내 말풍선에 금빛 체크 · 아래 칸은 마치기. */
-    @Test fun depthTalkFinished() = withDepth {
+    /** 회화 말하기 = 따라 읽기와 같은 부품 (원래 소리 · 녹음 · 내 소리, 억양 · 리듬 채점). 스스로 판정 (말해 봤어요 · 맞게 말했어요) 은 없다. */
+    @Test fun depthTalkShadowPad() = withDepth {
         val s = graded(state(true), 1)
-        shot("depth12_talk_finished_light", false, ms = 4000, act = {
-            repeat(2) {
-                tap(ctx.getString(R.string.talk_said))
-                tap(ctx.getString(R.string.speak_ok))
-                rule.mainClock.advanceTimeBy(2500)
-            }
-            org.junit.Assert.assertTrue(rule.onAllNodes(hasText(ctx.getString(R.string.talk_finish)) and hasClickAction()).fetchSemanticsNodes().isNotEmpty())
+        shot("depth12_talk_a1_shadow_pad_dark", true, ms = 4000, act = {
+            org.junit.Assert.assertTrue(rule.onAllNodes(hasText(ctx.getString(R.string.speak_ok))).fetchSemanticsNodes().isEmpty())
+            org.junit.Assert.assertTrue(rule.onAllNodes(hasText(ctx.getString(R.string.shadow_talk))).fetchSemanticsNodes().isNotEmpty())
         }, series = s) { Play(s, talkRoute) }
     }
     /** 이해 확인 · 회화가 있는 편지의 걸음: 읽기 → 이해 확인 → 낱말 → (따라 읽기) → 회화 → 답장. */

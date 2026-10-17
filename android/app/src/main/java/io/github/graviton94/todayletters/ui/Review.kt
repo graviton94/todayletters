@@ -599,7 +599,7 @@ fun Session(s: AppState, r: Route.Session) {
                 if (mark == Memory.Mark.RIGHT) stringResource(if (hinted) R.string.review_right_hint else R.string.review_right) else stringResource(R.string.review_accent, accentWord ?: q.word),
                 detail, nextLabel, ::next)
             q.kind == ReviewKind.DICTATION && q.phrase != null -> Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-                Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank(), wake = false) {
+                Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank()) {
                     // 남은 칸마다 채점: 다 맞으면 맞음, 첫 번째로 틀리면 맞은 낱말은 잠그고 틀린 낱말만 다시
                     val words = q.phrase
                     val free = words.indices.filter { it !in locked }
@@ -626,7 +626,7 @@ fun Session(s: AppState, r: Route.Session) {
                 }
             }
             q.kind == ReviewKind.DICTATION -> Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-                Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank(), wake = false) { check() }
+                Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank()) { check() }
             }
         }
     }

@@ -837,8 +837,6 @@
     <string name="talk_need_build">Build the line first</string>
     <string name="talk_retry">Try once more</string>
     <string name="talk_revealed">This is how it goes. Listen, then move on.</string>
-    <string name="talk_said">I said it</string>
-    <string name="talk_record_repeat">Repeat</string>
     <string name="finish_title">Today\'s letter is done</string>
     <string name="finish_meta">Letter %1$s · %2$s</string>
     <string name="finish_skipped">%1$d skipped · redo in Review</string>

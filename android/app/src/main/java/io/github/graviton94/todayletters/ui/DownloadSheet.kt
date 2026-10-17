@@ -134,7 +134,7 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
                     // 와이파이면 데이터 줄은 없다
                     if (mobile) Line(stringResource(R.string.dl_mobile), Type.small.ui(), p.giltText)
                     Box(Modifier.height(Tokens.Space.s2))
-                    Primary(stringResource(R.string.dl_go, sizeLabel(remaining))) { start() }
+                    Primary(stringResource(R.string.dl_go, sizeLabel(remaining)), shine = true) { start() }
                     Later(if (waiting) ({ s.downloadFinished(silent = true) }) else null) { close() }
                 }
             }

@@ -67,6 +67,48 @@ object Spoken {
 
     /** 재생 위치 [at] (밀리초) 에 읽고 있는 마디 번호: 시작([lead] 만큼 늦춘)이 지난 마지막 마디 (마디 사이 숨에서는 앞 마디). */
     fun at(starts: List<Int>, at: Int, lead: Int = 0): Int = starts.indexOfLast { it + lead <= at }.coerceAtLeast(0)
+
+    /** 마디 끝의 숨 (TTS 조각의 뒤 쉼), 밀리초. 마디 안 문장의 시각을 나눌 때 목소리가 나는 몫만 쓴다. */
+    const val TAIL_MS = 450
+    /** 마디 안 문장 사이 숨을 글자 몇 개 몫으로 칠지. */
+    private const val STOP_LETTERS = 3
+
+    /** 칠하는 한 토막: 시작 시각 (밀리초, 마디 시각과 같은 기준 · [LEAD_MS] 를 더하기 전) 과 화면 글의 범위. */
+    data class Seg(val start: Int, val range: IntRange)
+
+    /**
+     * 낭독 마디 ([starts] · [ends] · [texts], narrate.py 의 json) 를 화면 [text] 의 토막으로.
+     * 마디는 “//” 자리에서만 나뉘어 있어서 한 마디에 문장이 여럿 들 수 있다 (번역 줄 · 말 없는 언어는 메시지 전체가 한 마디).
+     * 그대로 칠하면 한 마디(10초 넘게) 동안 둘째 · 셋째 문장(문장 짝 화면의 둘째 문단)까지 함께 밑줄이 그어져 소리와 어긋난다.
+     * 그래서 마디 안을 문장 ([Pairs.sentences]) 으로 다시 나누고, 시각은 그 마디의 목소리 몫 안에서 글자 수 (+ 문장 사이 숨) 비율로 나눈다.
+     * 토막은 시각 · 글자 자리 모두 차례대로 (겹치지 않고 [text] 안).
+     */
+    fun timed(text: String, starts: List<Int>, ends: List<Int>, texts: List<String>): List<Seg> {
+        val rs = ranges(text, texts)
+        if (rs.isEmpty()) return emptyList()
+        val out = mutableListOf<Seg>()
+        rs.forEachIndexed { k, r ->
+            val s = starts.getOrElse(k) { out.lastOrNull()?.start ?: 0 }
+            val e = ends.getOrElse(k) { s }.coerceAtLeast(s)
+            if (r.isEmpty()) { out += Seg(s, r); return@forEachIndexed }
+            val sub = text.substring(r.first, r.last + 1)
+            val parts = Pairs.sentences(sub).map { (it.first + r.first)..(it.last + r.first) }.filter { !it.isEmpty() }
+            if (parts.size < 2) { out += Seg(s, r); return@forEachIndexed }
+            // 마디 첫 글자에서 끝까지 빈틈 없이 (문장 사이 띄어쓰기는 앞 토막에, 앞의 [r] 시작부터)
+            val spans = parts.mapIndexed { j, p -> (if (j == 0) r.first else p.first)..(if (j == parts.lastIndex) r.last else p.last) }
+            val w = parts.mapIndexed { j, p -> text.substring(p.first, p.last + 1).count { it.isLetterOrDigit() } + if (j > 0) STOP_LETTERS else 0 }
+            val total = w.sum().coerceAtLeast(1)
+            val voice = (e - s - LEAD_MS - TAIL_MS).coerceAtLeast(0)
+            var cum = 0
+            spans.forEachIndexed { j, sp ->
+                // 첫 문장은 마디 시작 그대로 (칠하는 쪽이 LEAD_MS 를 더한다), 다음 문장은 목소리 몫의 비율 자리
+                val t = if (j == 0) s else s + (voice.toLong() * cum / total).toInt()
+                out += Seg(t, sp)
+                cum += w[j]
+            }
+        }
+        return out
+    }
 }
 
 /**

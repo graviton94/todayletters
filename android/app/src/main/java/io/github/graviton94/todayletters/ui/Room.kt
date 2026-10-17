@@ -214,6 +214,8 @@ fun Room(s: AppState, r: Route.Letter) {
     var asking by remember(letter.id) { mutableStateOf(resumeAt != null) }
     var gate by remember(letter.id) { mutableStateOf(resumeAt == null || already >= total) }
     // 편지 도착 (v21 2단계 D1): 처음 여는 새 편지만. 도착 화면이 첫 줄을 읽었으면 방에서는 첫 줄을 다시 읽지 않는다
+    // 큐레이터 노트를 띄워도 되는가: 이 편지의 도착(쓰기 · 마지막 메시지 낭독)이 다 끝났거나, 이미 다 읽은 편지
+    var heardOut by remember(letter.id) { mutableStateOf(already >= total) }
     var arriving by remember(letter.id) { mutableStateOf(already == 0 && !s.progress(id, chapter, letter.id).done && !s.store.arrived(key) && total > 0) }
 
     // 도착: 남은 문장을 한 조각씩. 조각이 놓이면 바로 쓰기 시작하면서 빈센트 목소리로 읽고 (자동 낭독), 화면은 쓰이는 끝을 따라 내려간다.
@@ -260,6 +262,8 @@ fun Room(s: AppState, r: Route.Letter) {
         }
         if (voiced && !muted) s.store.setHeard(key, -1)
         if (voiced && all == null) Playback.end(appCtx)
+        // 마지막 문장 낭독까지 끝난 뒤에 큐레이터 노트 (그 전에 뜨면 읽는 글을 가린다), 화면도 그때 노트까지
+        heardOut = true
         toEnd(animated = animate)
     }
 
@@ -269,9 +273,6 @@ fun Room(s: AppState, r: Route.Letter) {
     val nextPlay = modes.firstOrNull { it !in progress.replied && it !in progress.skipped }
     val reply = Exercises.replyFor(letter, view.learn).second
     val finished = written >= total
-    // 다 읽기 전(펜 줄)을 이 화면에서 봤으면: 다음 걸음 단추가 나타날 때 금빛 · 숨 쉬는 빛 ([Primary] 의 glow)
-    var sawReading by remember(letter.id) { mutableStateOf(false) }
-    LaunchedEffect(finished) { if (!finished) sawReading = true }
     val cardMap = remember(s.version) { s.cardMap() }
     // 이 편지의 읽을 수 있는 비율 (아는 낱말 %): 머리의 날짜 옆에
     val known = remember(s.version, letter.id, view.learn) { s.coverage(id, letter.id) }
@@ -399,8 +400,8 @@ fun Room(s: AppState, r: Route.Letter) {
             }
             if (writing && arrived == written && arrived < total) item(key = "${letter.id}:typing") { TypingBubble(work.name[uiLang()], s.reducedMotion) }
             if (finished) {
-                letter.note?.let { note ->
-                    item { CuratorNote(note[uiLang()], uiLang()) }
+                if (heardOut || progress.done) letter.note?.let { note ->
+                    item(key = "${letter.id}:note") { CuratorNote(note[uiLang()], uiLang()) }
                 }
                 // 따라 읽기 (봉인까지): 다 읽은 편지라면 언제든
                 if (progress.done) item(key = "${letter.id}:shadow") {
@@ -465,7 +466,7 @@ fun Room(s: AppState, r: Route.Letter) {
                 else -> {
                     if (letter.words.isNotEmpty()) Secondary(stringResource(R.string.room_words, letter.words.size)) { words = true }
                     when (nextPlay) {
-                        null -> Primary(stringResource(R.string.room_done_today), glow = sawReading) { stopAll(); s.finishReading(r) }
+                        null -> Primary(stringResource(R.string.room_done_today), shine = true) { stopAll(); s.finishReading(r) }
                         ReplyMode.CONSTELLATION -> {
                             val help = s.replyHelp(id)
                             val how = when {
@@ -473,12 +474,12 @@ fun Room(s: AppState, r: Route.Letter) {
                                 help == io.github.graviton94.todayletters.core.Ladder.Help.WRITE -> R.string.ladder_write_mode
                                 else -> R.string.ladder_choose_mode
                             }
-                            Primary(stringResource(R.string.room_reply, stringResource(how)), glow = sawReading) { stopAll(); s.go(Route.Play(r, nextPlay)) }
+                            Primary(stringResource(R.string.room_reply, stringResource(how)), shine = true) { stopAll(); s.go(Route.Play(r, nextPlay)) }
                         }
                         else -> {
                             val label = stringResource(R.string.room_next, stringResource(modeLabel(nextPlay)))
                             if (guideNext) GuideBanner(stringResource(R.string.guide_read_done, label))
-                            Primary(label, Modifier.then(if (guideNext) Modifier.guidePulse(s.reducedMotion) else Modifier), glow = sawReading) { stopAll(); s.go(Route.Play(r, nextPlay)) }
+                            Primary(label, Modifier.then(if (guideNext) Modifier.guidePulse(s.reducedMotion) else Modifier), shine = true) { stopAll(); s.go(Route.Play(r, nextPlay)) }
                         }
                     }
                 }

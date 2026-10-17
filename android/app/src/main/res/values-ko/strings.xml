@@ -837,8 +837,6 @@
     <string name="talk_need_build">문⁠장⁠을 먼⁠저 완⁠성⁠해⁠요</string>
     <string name="talk_retry">다⁠시 해 봐⁠요</string>
     <string name="talk_revealed">이⁠렇⁠게 말⁠해⁠요⁠. 들⁠어 보⁠고 다⁠음⁠으⁠로 가⁠요⁠.</string>
-    <string name="talk_said">말⁠해 봤⁠어⁠요</string>
-    <string name="talk_record_repeat">따⁠라 말⁠하⁠기</string>
     <string name="finish_title">오⁠늘⁠의 편⁠지⁠를 마⁠쳤⁠어⁠요</string>
     <string name="finish_meta">편⁠지 %1$s · %2$s</string>
     <string name="finish_skipped">건⁠너⁠뛴 걸⁠음 %1$d⁠개 · 복⁠습⁠에⁠서 다⁠시</string>

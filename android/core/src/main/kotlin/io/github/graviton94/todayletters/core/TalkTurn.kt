@@ -11,9 +11,9 @@ package io.github.graviton94.todayletters.core
  *                 힌트는 다음 조각을 밝힌다. 문장을 다 쌓기 전에는 녹음이 막힌다.
  *  - MEANING (B2): 말풍선에 뜻만. 힌트 두 단 (첫 낱말 → 원문), 녹음은 바로 된다.
  *
- * 녹음 → 채점 ([Event.Heard], [SpeechMatch]): 맞으면 [Phase.PASSED] (원문 + 금빛 체크, 다음 상대 줄). 틀리면 [Phase.RETRY] (다시 해 봐요),
- * [MAX_FAILS] 번 틀리면 [Phase.REVEALED] (원문을 보여 주고 다음으로 갈 수 있다, 막히지 않음).
- * 음성 인식이 없거나 마이크를 허락하지 않으면: 녹음 단추 (말해 봤어요) → [Phase.SELF] (원래 소리를 듣고 스스로 판정: 맞게 말했어요 / 다시).
+ * 녹음 → 채점 ([Event.Heard]): 따라 읽기와 같은 부품 (원래 소리 · 기기 안 녹음 · [Prosody] 억양 · 리듬, 편지 걸음처럼 목소리가 들어가면 통과).
+ * 맞으면 [Phase.PASSED] (원문 + 금빛 체크, ‘다음’ 으로 다음 상대 줄). 틀리면 [Phase.RETRY] (다시 해 봐요),
+ * [MAX_FAILS] 번 틀리면 [Phase.REVEALED] (원문을 보여 주고 다음으로 갈 수 있다, 막히지 않음). 폰의 음성 인식 · 스스로 판정은 없다.
  * 줄 하나만 건너뛰기는 없다 (걸음 전체의 건너뛰기만). 고르기만 하고 녹음하지 않으면 넘어가지 않는다.
  */
 object TalkTurn {
@@ -29,8 +29,6 @@ object TalkTurn {
         READY,
         /** 한 번 틀림: 다시 녹음. */
         RETRY,
-        /** 스스로 판정 중 (원래 소리를 들은 뒤). */
-        SELF,
         /** 맞음 (원문 + 금빛 체크). */
         PASSED,
         /** [MAX_FAILS] 번 틀림: 원문을 보여 주고 ‘다음으로’. */
@@ -44,12 +42,8 @@ object TalkTurn {
         data class Pick(val index: Int) : Event
         /** 힌트 단추. */
         data object Hint : Event
-        /** 음성 인식 결과: [ok] 면 맞음. */
+        /** 녹음 채점 결과: [ok] 면 맞음. */
         data class Heard(val ok: Boolean) : Event
-        /** 인식이 없을 때 녹음 (말해 봤어요): 스스로 판정으로. */
-        data object SelfStart : Event
-        /** 스스로 판정: [ok] 맞게 말했어요 · 아니면 다시. */
-        data class SelfJudge(val ok: Boolean) : Event
         /** 다음으로 (맞힌 뒤 · 원문을 보여 준 뒤). */
         data object Continue : Event
     }
@@ -86,7 +80,7 @@ object TalkTurn {
         val showsRecord: Boolean get() = phase == Phase.BUILD || canRecord
 
         /** 말풍선에 원문 전체가 보이나. */
-        val fullLine: Boolean get() = phase == Phase.PASSED || phase == Phase.REVEALED || phase == Phase.SELF || phase == Phase.DONE ||
+        val fullLine: Boolean get() = phase == Phase.PASSED || phase == Phase.REVEALED || phase == Phase.DONE ||
             when (help) {
                 Support.Talk.SHADOW -> true
                 Support.Talk.BLANK -> filled
@@ -174,8 +168,6 @@ object TalkTurn {
         is Event.Pick -> pick(st, e.index)
         Event.Hint -> if (!st.hintable) st else st.copy(hints = st.hints + 1, rejected = null)
         is Event.Heard -> if (!st.canRecord) st else if (e.ok) st.copy(phase = Phase.PASSED) else fail(st, Phase.RETRY)
-        Event.SelfStart -> if (!st.canRecord) st else st.copy(phase = Phase.SELF)
-        is Event.SelfJudge -> if (st.phase != Phase.SELF) st else if (e.ok) st.copy(phase = Phase.PASSED) else fail(st, Phase.READY)
         Event.Continue -> if (st.phase == Phase.PASSED || st.phase == Phase.REVEALED) st.copy(phase = Phase.DONE) else st
     }
 

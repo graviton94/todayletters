@@ -28,9 +28,8 @@ class TalkTurnTest {
         val b = Ladder.find(fr, "Tu es fatigué")!!
         val st = TalkTurn.start(Support.Talk.BLANK, fr, b, listOf("Tu as fatigué", "Tu es fatigué", "Tu es fatiguée"))
         assertEquals(Phase.BUILD, st.phase); assertFalse(st.canRecord); assertTrue(st.showsRecord); assertFalse(st.fullLine)
-        // 녹음이 막힌 동안의 인식 결과 · 스스로 판정은 무시
+        // 녹음이 막힌 동안의 채점 결과는 무시
         assertEquals(st, run(st, Event.Heard(true)))
-        assertEquals(st, run(st, Event.SelfStart))
         // 틀린 칩: 흔들고 놓이지 않음, 다시 고를 수 있음
         val wrong = run(st, Event.Pick(0))
         assertEquals(0, wrong.rejected); assertEquals(1, wrong.shake); assertFalse(wrong.filled); assertEquals(Phase.BUILD, wrong.phase)
@@ -117,20 +116,18 @@ class TalkTurnTest {
         assertTrue(run(f1, Event.Heard(true)).passed)
     }
 
-    @Test fun selfJudgeWithoutRecognizer() {
+    /** 말하기는 따라 읽기와 같은 채점 하나: 스스로 판정 단계는 없다. 맞힌 뒤 · 원문을 보여 준 뒤의 채점은 무시. */
+    @Test fun scoringOnlyNoSelfJudge() {
+        assertTrue(Phase.entries.none { it.name == "SELF" })
         val st = TalkTurn.start(Support.Talk.SHADOW, fr)
-        val self = run(st, Event.SelfStart)
-        assertEquals(Phase.SELF, self.phase); assertTrue(self.fullLine); assertFalse(self.canRecord)
-        // 스스로 판정 중의 인식 결과는 무시
-        assertEquals(self, run(self, Event.Heard(true)))
-        assertEquals(Phase.PASSED, run(self, Event.SelfJudge(true)).phase)
-        val again = run(self, Event.SelfJudge(false))
-        assertEquals(Phase.READY, again.phase); assertEquals(1, again.fails)
-        val revealed = run(again, Event.SelfStart, Event.SelfJudge(false))
+        assertTrue(st.canRecord); assertTrue(st.fullLine)
+        val passed = run(st, Event.Heard(true))
+        assertEquals(Phase.PASSED, passed.phase); assertFalse(passed.canRecord)
+        assertEquals(passed, run(passed, Event.Heard(false)))
+        assertEquals(Phase.DONE, run(passed, Event.Continue).phase)
+        val revealed = run(st, Event.Heard(false), Event.Heard(false))
         assertEquals(Phase.REVEALED, revealed.phase)
-        // 막힌 동안 (빈칸) 의 말해 봤어요는 무시
-        val blank = TalkTurn.start(Support.Talk.BLANK, fr, Ladder.find(fr, "Tu es fatigué"), listOf("Tu es fatigué", "Tu as fatigué"))
-        assertEquals(Phase.BUILD, run(blank, Event.SelfStart).phase)
+        assertEquals(revealed, run(revealed, Event.Heard(true)))
     }
 
     @Test fun shuffleNeverKeepsSentenceOrder() {

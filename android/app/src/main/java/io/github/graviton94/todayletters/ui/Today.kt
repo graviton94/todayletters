@@ -206,7 +206,7 @@ private fun TodayLetter(s: AppState, id: String, work: io.github.graviton94.toda
         !pr.done -> {
             val next = modes.firstOrNull { it !in pr.replied && it !in pr.skipped }
             Primary(if (pr.shown < l.messages.size) stringResource(R.string.today_open)
-                else next?.let { stringResource(R.string.room_next, stringResource(modeLabel(it))) } ?: stringResource(R.string.room_done_today), small = true) { s.open(id, c, l, Route.Inbox) }
+                else next?.let { stringResource(R.string.room_next, stringResource(modeLabel(it))) } ?: stringResource(R.string.room_done_today), small = true, shine = true) { s.open(id, c, l, Route.Inbox) }
         }
         else -> {
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {

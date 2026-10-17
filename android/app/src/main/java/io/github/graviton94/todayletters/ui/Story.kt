@@ -189,7 +189,7 @@ fun FinishSheet(s: AppState, room: Route.Letter) {
                 else -> stringResource(R.string.finish_next_day)
             }
             Text(next, style = Type.body.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center, modifier = Modifier.padding(vertical = Tokens.Space.s2))
-            Primary(stringResource(R.string.finish_library)) { close(); s.go(Route.Library) }
+            Primary(stringResource(R.string.finish_library), shine = true) { close(); s.go(Route.Library) }
             Secondary(stringResource(R.string.finish_again)) { s.replayLetter(room.series, chapter, letter, Route.Inbox) }
         }
     }
