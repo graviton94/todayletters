@@ -1,0 +1,1561 @@
+{
+ "_doc": "Napoléon · prologue: four letters, Paris 1795 (Joseph ×3, Joséphine ×1); docent = the prologue card. French = modern spelling (obvious slips and old spellings corrected without marks in the app); each message keeps the printed text in orig.fr (data only, not shown). en · ko translated from the French for this app. Sexual lines and battle reports are left out (see excerpt). Replies and talks are written by this app, not by the recipients.",
+ "series": "napoleon",
+ "chapter": "P",
+ "title_fr": "Paris, 1795",
+ "title_en": "Paris, 1795",
+ "title_ko": "파리, 1795",
+ "original": "fr",
+ "letters": [
+  {
+   "id": "p1",
+   "date": "1795-06-24",
+   "dateNote": "Paris, 6 messidor an III (24 June 1795).",
+   "ref": "Correspondance 1858, n° 42 · Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 42, p. 60 · public domain · https://archive.org/details/correspondancede01napouoft",
+   "place": "Paris",
+   "to": {
+    "fr": "Joseph",
+    "en": "Joseph",
+    "ko": "조제프"
+   },
+   "mood": "tender",
+   "excerpt": "Messages 0–4 keep the letter in order; left out: the first sentence (errands for Joseph's wife) and 'Je sens en traçant ces lignes une émotion …'.",
+   "messages": [
+    {
+     "fr": "Désirée me demande mon portrait ; je vais le faire faire. Tu le lui donneras si elle le désire encore, sans quoi tu le garderas pour toi.",
+     "en": "Désirée is asking me for my portrait; I'm going to have one made. Give it to her if she still wants it; if not, keep it for yourself.",
+     "ko": "데지레가 내 초상화를 달래. 하나 그리게 할게. 그 애가 아직 원하면 전해 주고, 아니면 형이 가져.",
+     "orig": {
+      "fr": "Désirée me demande mon portrait, je vais le faire faire; tu le lui donneras si elle le désire encore, sans quoi tu le garderas pour toi."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 42, p. 60 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Désirée me demande mon portrait ; / je vais le faire faire. // Tu le lui donneras si elle le désire encore, / sans quoi tu le garderas pour toi.",
+      "en": "Désirée is asking me for my portrait; / I'm going to have one made. // Give it to her if she still wants it; / if not, / keep it for yourself.",
+      "ko": "데지레가 내 초상화를 달래. // 하나 그리게 할게. // 그 애가 아직 원하면 전해 주고, / 아니면 형이 가져."
+     }
+    },
+    {
+     "fr": "Dans quelques événements que la fortune te place, tu sais bien, mon ami, que tu ne peux pas avoir de meilleur ami, à qui tu sois plus cher et qui désire plus sincèrement ton bonheur.",
+     "en": "Whatever fortune brings you, you know well, my friend, that you can have no better friend, no one who holds you dearer or wishes more sincerely for your happiness.",
+     "ko": "운명이 형을 어디로 데려가든, 형도 잘 알잖아. 나보다 좋은 친구는 없어. 형을 나만큼 아끼고, 형의 행복을 나만큼 진심으로 바라는 사람도 없어.",
+     "orig": {
+      "fr": "Dans quelques événements que la fortune te place, tu sais bien, mon ami, que tu ne peux pas avoir de meilleur ami, à qui tu sois plus cher et qui désire plus sincèrement ton bonheur."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 42, p. 60 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Dans quelques événements que la fortune te place, / tu sais bien, / mon ami, / que tu ne peux pas avoir de meilleur ami, / à qui tu sois plus cher et qui désire plus sincèrement ton bonheur.",
+      "en": "Whatever fortune brings you, / you know well, / my friend, / that you can have no better friend, / no one who holds you dearer or wishes more sincerely for your happiness.",
+      "ko": "운명이 형을 어디로 데려가든, / 형도 잘 알잖아. // 나보다 좋은 친구는 없어. // 형을 나만큼 아끼고, / 형의 행복을 나만큼 진심으로 바라는 사람도 없어."
+     }
+    },
+    {
+     "fr": "La vie est un songe léger qui se dissipe. Si tu pars, et que tu penses que ce puisse être pour quelque temps, envoie-moi ton portrait.",
+     "en": "Life is a light dream that fades away. If you go, and you think it may be for some time, send me your portrait.",
+     "ko": "인생은 금방 흩어지는 가벼운 꿈이야. 형이 떠나서 한동안 못 볼 것 같으면, 형 초상화를 보내 줘.",
+     "orig": {
+      "fr": "La vie est un songe léger qui se dissipe. Si tu pars, et que tu penses que ce puisse être pour quelque temps, envoie-moi ton portrait."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 42, p. 60 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "La vie est un songe léger qui se dissipe. // Si tu pars, / et que tu penses que ce puisse être pour quelque temps, / envoie-moi ton portrait.",
+      "en": "Life is a light dream that fades away. // If you go, / and you think it may be for some time, / send me your portrait.",
+      "ko": "인생은 금방 흩어지는 가벼운 꿈이야. // 형이 떠나서 한동안 못 볼 것 같으면, / 형 초상화를 보내 줘."
+     }
+    },
+    {
+     "fr": "Nous avons vécu tant d'années ensemble, si étroitement unis, que nos cœurs se sont confondus, et tu sais mieux que personne combien le mien est entièrement à toi.",
+     "en": "We have lived so many years together, so closely bound, that our hearts have become one, and you know better than anyone how completely mine is yours.",
+     "ko": "우리는 그 많은 해를 꼭 붙어 지내서 마음이 하나가 됐어. 내 마음이 온통 형 거라는 건 형이 누구보다 잘 알 거야.",
+     "orig": {
+      "fr": "Nous avons vécu tant d'années ensemble, si étroitement unis, que nos cœurs se sont confondus, et tu sais mieux que personne combien le mien est entièrement à toi."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 42, p. 60 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Nous avons vécu tant d'années ensemble, / si étroitement unis, / que nos cœurs se sont confondus, / et tu sais mieux que personne combien le mien est entièrement à toi.",
+      "en": "We have lived so many years together, / so closely bound, / that our hearts have become one, / and you know better than anyone how completely mine is yours.",
+      "ko": "우리는 그 많은 해를 꼭 붙어 지내서 마음이 하나가 됐어. // 내 마음이 온통 형 거라는 건 형이 누구보다 잘 알 거야."
+     }
+    },
+    {
+     "fr": "Je sens bien que nous tarderons à nous voir, et je ne puis plus continuer ma lettre. Adieu, mon ami.",
+     "en": "I can tell it will be a long time before we see each other, and I can't go on with my letter. Goodbye, my friend.",
+     "ko": "우리 한참 못 보겠지. 더는 편지를 못 쓰겠어. 잘 있어, 형.",
+     "orig": {
+      "fr": "Je sens bien que nous tarderons à nous voir et je ne puis plus continuer ma lettre. Adieu, mon ami."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 42, p. 60 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Je sens bien que nous tarderons à nous voir, / et je ne puis plus continuer ma lettre. // Adieu, / mon ami.",
+      "en": "I can tell it will be a long time before we see each other, / and I can't go on with my letter. // Goodbye, / my friend.",
+      "ko": "우리 한참 못 보겠지. // 더는 편지를 못 쓰겠어. // 잘 있어, / 형."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "ami",
+     "pos": "n.m.",
+     "ipa": "ami",
+     "en": "friend",
+     "ko": "친구",
+     "icon": "🤝"
+    },
+    {
+     "fr": "vie",
+     "pos": "n.f.",
+     "ipa": "vi",
+     "en": "life",
+     "ko": "삶, 인생",
+     "icon": "🌱"
+    },
+    {
+     "fr": "année",
+     "pos": "n.f.",
+     "ipa": "ane",
+     "en": "year",
+     "ko": "해, 년",
+     "icon": "📅"
+    },
+    {
+     "fr": "bonheur",
+     "pos": "n.m.",
+     "ipa": "bɔnœʁ",
+     "en": "happiness",
+     "ko": "행복",
+     "icon": "😊"
+    }
+   ],
+   "note": {
+    "ko": "1795년 6월, 스물다섯 살의 보나파르트는 파리에 있었어요. 툴롱 포위전(1793)으로 이름을 알렸지만, 그해 봄 서부군 보병 지휘를 맡으라는 명령을 마다해 일자리 없이 지내던 때예요. 한 살 위 형 조제프가 아내 쥘리의 고향 쪽인 남쪽으로 떠난 무렵, 그는 이 편지를 썼어요. 데지레는 쥘리 클라리의 여동생으로, 이 무렵 보나파르트와 혼담이 오가던 사이였어요. 서명은 아직 이탈리아식 ‘부오나파르테’예요.",
+    "en": "In June 1795 Bonaparte, twenty-five, was in Paris. The siege of Toulon (1793) had made his name, but that spring he had turned down an infantry command in the West and was without a post. He wrote this letter as his elder brother Joseph, one year older, left for the south, where his wife Julie's family lived. Désirée was Julie Clary's younger sister, and at this time there was talk of a marriage between her and Bonaparte. He still signed with the Italian spelling, ‘Buonaparte’.",
+    "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 42, p. 60 · public domain · https://archive.org/details/correspondancede01napouoft ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Napoléon Bonaparte, lieutenant-colonel du 1er bataillon de la Corse (1792)",
+    "title_en": "Napoleon Bonaparte as Lieutenant-Colonel of the 1st Corsican Battalion (1792)",
+    "title_ko": "코르시카 제1대대 중령 나폴레옹 보나파르트 (1792)",
+    "date": "1834",
+    "credit": "Henri Félix Emmanuel Philippoteaux",
+    "collection": "Château de Versailles",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Henri_F%C3%A9lix_Emmanuel_Philippoteaux_-_Portrait_of_Napoleon_Bonaparte.jpg",
+    "why": {
+     "ko": "1834년에 그린 그림이지만, 일자리를 찾던 이 무렵과 가까운 스물세 살 무렵의 보나파르트를 그렸어요.",
+     "en": "Painted in 1834, it imagines Bonaparte at about twenty-three, close to the out-of-work young officer of this letter."
+    },
+    "image": "n-p1.webp",
+    "kind": "portrait",
+    "spots": [],
+    "commonsFile": "File:Henri Félix Emmanuel Philippoteaux - Portrait of Napoleon Bonaparte.jpg"
+   },
+   "docent": {
+    "period": "1795",
+    "caps": "PARIS, 1795 · I · JUIN",
+    "heading": {
+     "ko": "형을 떠나보낸 날",
+     "en": "The day his brother left",
+     "fr": "Le départ de Joseph"
+    },
+    "sub": "Paris · Gênes",
+    "body": {
+     "ko": "1795년 6월, 스물다섯 살의 보나파르트는 파리에 있었어요. 툴롱 포위전(1793)으로 이름을 알렸지만, 그해 봄 서부군 보병 지휘를 맡으라는 명령을 마다해 일자리 없이 지내던 때예요. 한 살 위 형 조제프가 아내 쥘리의 고향 쪽인 남쪽으로 떠난 무렵, 그는 이 편지를 썼어요. 데지레는 쥘리 클라리의 여동생으로, 이 무렵 보나파르트와 혼담이 오가던 사이였어요. 서명은 아직 이탈리아식 ‘부오나파르테’예요.",
+     "en": "In June 1795 Bonaparte, twenty-five, was in Paris. The siege of Toulon (1793) had made his name, but that spring he had turned down an infantry command in the West and was without a post. He wrote this letter as his elder brother Joseph, one year older, left for the south, where his wife Julie's family lived. Désirée was Julie Clary's younger sister, and at this time there was talk of a marriage between her and Bonaparte. He still signed with the Italian spelling, ‘Buonaparte’."
+    },
+    "source": {
+     "ko": "형 조제프에게 · 1795년 6월 24일, 파리",
+     "en": "To his brother Joseph · Paris, 24 June 1795"
+    }
+   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "I.0",
+     "fr": "Je t'envoie mon portrait demain.",
+     "en": "I'm sending you my portrait tomorrow.",
+     "ko": "내일 제 초상화를 보내요.",
+     "koLow": "내일 내 초상화 보내.",
+     "koHigh": "내일 제 초상화를 보냅니다.",
+     "focus": {
+      "fr": [
+       "mon portrait"
+      ],
+      "en": [
+       "I'm sending"
+      ],
+      "ko": [
+       "보내요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "ma portrait",
+        "mes portrait"
+       ]
+      ],
+      "en": [
+       [
+        "I sending",
+        "I'm send"
+       ]
+      ],
+      "ko": [
+       [
+        "보내여",
+        "보내야"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Paris · 24 juin 1795, Joseph part pour le Midi",
+      "en": "Bonaparte is in Paris · 24 June 1795, Joseph is leaving for the south",
+      "ko": "보나파르트가 파리에 있어요 · 1795년 6월 24일, 조제프가 남쪽으로 떠나요"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "paris",
+     "title": {
+      "fr": "Paris",
+      "en": "Paris",
+      "ko": "파리"
+     },
+     "address": "Paris, 1795"
+    }
+   ],
+   "status": {
+    "fr": "Paris, sans emploi",
+    "en": "Paris, out of work",
+    "ko": "파리, 일자리 없이"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Que doit faire Joseph s'il part pour longtemps ?",
+      "en": "What should Joseph do if he goes away for a long time?",
+      "ko": "조제프가 오래 떠나게 되면 무엇을 해야 하나요?"
+     },
+     "options": [
+      {
+       "fr": "Envoyer son portrait",
+       "en": "Send his portrait",
+       "ko": "자기 초상화를 보낸다"
+      },
+      {
+       "fr": "Écrire un livre",
+       "en": "Write a book",
+       "ko": "책을 쓴다"
+      },
+      {
+       "fr": "Revenir à Paris",
+       "en": "Come back to Paris",
+       "ko": "파리로 돌아온다"
+      },
+      {
+       "fr": "Acheter un cheval",
+       "en": "Buy a horse",
+       "ko": "말을 산다"
+      }
+     ],
+     "answer": 0,
+     "evidence": 2,
+     "mark": {
+      "fr": "envoie-moi ton portrait",
+      "en": "send me your portrait",
+      "ko": "초상화를 보내 줘"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "남쪽으로 떠난 형 조제프가 되어 동생 보나파르트와 통화",
+     "en": "You are Joseph, just gone south, on the phone with your younger brother"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Allô, Joseph ? C'est moi. Tu es bien arrivé ?",
+      "en": "Hello, Joseph? It's me. Did you get there safely?",
+      "ko": "여보세요, 형? 나야. 잘 도착했어?"
+     },
+     {
+      "who": "me",
+      "fr": "Oui, je suis à Gênes. Envoie-moi ton portrait, d'accord ?",
+      "en": "Yes, I'm staying in Genoa. Send me your portrait, OK?",
+      "ko": "응, 지금 제노바에 있어. 네 초상화 보내 줘, 알았지?",
+      "focus": {
+       "fr": [
+        "ton portrait"
+       ],
+       "en": [
+        "I'm staying"
+       ],
+       "ko": [
+        "있어"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ta portrait",
+         "tes portrait"
+        ]
+       ],
+       "en": [
+        [
+         "I staying",
+         "I'm stay"
+        ]
+       ],
+       "ko": [
+        [
+         "있아",
+         "잇어"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Promis ! Et Désirée veut aussi mon portrait.",
+      "en": "Promise! And Désirée wants my portrait too.",
+      "ko": "약속할게! 데지레도 내 초상화를 갖고 싶대."
+     },
+     {
+      "who": "me",
+      "fr": "Je le lui donne. Tu es mon meilleur ami, tu sais.",
+      "en": "I'm taking it to her. You're my best friend, you know.",
+      "ko": "내가 전해 줄게. 너는 내 제일 친한 친구야.",
+      "focus": {
+       "fr": [
+        "mon meilleur ami"
+       ],
+       "en": [
+        "I'm taking"
+       ],
+       "ko": [
+        "친구야"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "ma meilleur ami",
+         "mes meilleur ami"
+        ]
+       ],
+       "en": [
+        [
+         "I taking",
+         "I'm take"
+        ]
+       ],
+       "ko": [
+        [
+         "친구아",
+         "친구어"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "envoyer",
+     "ami"
+    ],
+    "grammar": "I.0",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph)."
+   }
+  },
+  {
+   "id": "p2",
+   "date": "1795-07-12",
+   "dateNote": "Paris, 24 messidor an III (12 July 1795). The day number is damaged in the scan; 24 messidor matches the printed Gregorian date.",
+   "ref": "Correspondance 1858, n° 44 · Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 44, pp. 60–61 · public domain · https://archive.org/details/correspondancede01napouoft",
+   "place": "Paris",
+   "to": {
+    "fr": "Joseph",
+    "en": "Joseph",
+    "ko": "조제프"
+   },
+   "mood": "bright",
+   "excerpt": "Last paragraph only. Left out: the opening news (English landing, Pichegru, Vendée, Holland, Poland, Italy) and the middle sentences of the paragraph.",
+   "messages": [
+    {
+     "fr": "Hâte-toi de me donner de tes nouvelles.",
+     "en": "Hurry up and send me your news.",
+     "ko": "얼른 소식 전해 줘.",
+     "orig": {
+      "fr": "Hâte-toi de me donner de tes nouvelles."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 44, pp. 60–61 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Hâte-toi de me donner de tes nouvelles.",
+      "en": "Hurry up and send me your news.",
+      "ko": "얼른 소식 전해 줘."
+     }
+    },
+    {
+     "fr": "Le luxe, le plaisir et les arts reprennent ici d'une manière étonnante.",
+     "en": "Luxury, pleasure and the arts are coming back here in an amazing way.",
+     "ko": "여기서는 사치와 즐거움, 예술이 놀라울 만큼 다시 살아나고 있어.",
+     "orig": {
+      "fr": "Le luxe, le plaisir et les arts reprennent ici d'une manière étonnante."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 44, pp. 60–61 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Le luxe, / le plaisir et les arts reprennent ici d'une manière étonnante.",
+      "en": "Luxury, / pleasure and the arts are coming back here in an amazing way.",
+      "ko": "여기서는 사치와 즐거움, / 예술이 놀라울 만큼 다시 살아나고 있어."
+     }
+    },
+    {
+     "fr": "Hier, on a donné Phèdre à l'Opéra, au profit d'une ancienne actrice ; la foule était immense depuis deux heures après midi, quoique les prix fussent triplés.",
+     "en": "Yesterday they put on Phèdre at the Opéra, for the benefit of a retired actress; the crowd was huge from two in the afternoon, though the prices were tripled.",
+     "ko": "어제는 오페라 극장에서 은퇴한 여배우를 돕는 〈페드르〉 공연이 있었어. 표값이 세 배였는데도 오후 두 시부터 사람들이 엄청나게 몰렸어.",
+     "orig": {
+      "fr": "Hier, on a donné Phèdre à l'Opéra, au profit d'une ancienne actrice; la foule était immense depuis deux heures après midi, quoique les prix fussent triplés."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 44, pp. 60–61 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Hier, / on a donné Phèdre à l'Opéra, / au profit d'une ancienne actrice ; / la foule était immense depuis deux heures après midi, / quoique les prix fussent triplés.",
+      "en": "Yesterday they put on Phèdre at the Opéra, / for the benefit of a retired actress; / the crowd was huge from two in the afternoon, / though the prices were tripled.",
+      "ko": "어제는 오페라 극장에서 은퇴한 여배우를 돕는 〈페드르〉 공연이 있었어. // 표값이 세 배였는데도 오후 두 시부터 사람들이 엄청나게 몰렸어."
+     }
+    },
+    {
+     "fr": "Tout est entassé dans ce pays pour distraire et rendre la vie agréable.",
+     "en": "This country has everything piled up to amuse you and make life pleasant.",
+     "ko": "이 나라에는 사람을 즐겁게 하고 삶을 편하게 해 줄 것이 잔뜩 쌓여 있어.",
+     "orig": {
+      "fr": "Tout est entassé dans ce pays pour distraire et rendre la vie agréable."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 44, pp. 60–61 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Tout est entassé dans ce pays pour distraire et rendre la vie agréable.",
+      "en": "This country has everything piled up to amuse you and make life pleasant.",
+      "ko": "이 나라에는 사람을 즐겁게 하고 삶을 편하게 해 줄 것이 잔뜩 쌓여 있어."
+     }
+    },
+    {
+     "fr": "Les femmes sont partout, aux spectacles, aux promenades, aux bibliothèques. Dans le cabinet du savant, vous voyez de très jolies personnes.",
+     "en": "Women are everywhere: at the theatre, on the promenades, in the libraries. Even in a scholar's study you see very pretty people.",
+     "ko": "여자들은 어디에나 있어. 공연장에도, 산책길에도, 도서관에도. 학자의 서재에서도 아주 예쁜 사람들을 보게 돼.",
+     "orig": {
+      "fr": "Les femmes sont partout, aux spectacles, aux promenades, aux bibliothèques. Dans le cabinet du savant, vous voyez de très-jolies personnes."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 44, pp. 60–61 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Les femmes sont partout, / aux spectacles, / aux promenades, / aux bibliothèques. // Dans le cabinet du savant, / vous voyez de très jolies personnes.",
+      "en": "Women are everywhere: / at the theatre, / on the promenades, / in the libraries. // Even in a scholar's study you see very pretty people.",
+      "ko": "여자들은 어디에나 있어. // 공연장에도, / 산책길에도, / 도서관에도. // 학자의 서재에서도 아주 예쁜 사람들을 보게 돼."
+     }
+    },
+    {
+     "fr": "Une femme a besoin de six mois de Paris pour connaître ce qui lui est dû, et quel est son empire.",
+     "en": "A woman needs six months of Paris to learn what she is owed and how great her power is.",
+     "ko": "여자는 파리에서 여섯 달만 지내면 자기가 무엇을 누려야 하는지, 자기 힘이 얼마나 큰지 알게 돼.",
+     "orig": {
+      "fr": "Une femme a besoin de six mois de Paris pour connaître ce qui lui est dû, et quel est son empire."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 44, pp. 60–61 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Une femme a besoin de six mois de Paris pour connaître ce qui lui est dû, / et quel est son empire.",
+      "en": "A woman needs six months of Paris to learn what she is owed and how great her power is.",
+      "ko": "여자는 파리에서 여섯 달만 지내면 자기가 무엇을 누려야 하는지, / 자기 힘이 얼마나 큰지 알게 돼."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "foule",
+     "pos": "n.f.",
+     "ipa": "ful",
+     "en": "crowd",
+     "ko": "군중, 사람들",
+     "icon": "👥"
+    },
+    {
+     "fr": "prix",
+     "pos": "n.m.",
+     "ipa": "pʁi",
+     "en": "price",
+     "ko": "값",
+     "icon": "🏷️"
+    },
+    {
+     "fr": "femme",
+     "pos": "n.f.",
+     "ipa": "fam",
+     "en": "woman",
+     "ko": "여자",
+     "icon": "👩"
+    },
+    {
+     "fr": "mois",
+     "pos": "n.m.",
+     "ipa": "mwa",
+     "en": "month",
+     "ko": "달 (한 달)",
+     "icon": "🗓️"
+    }
+   ],
+   "note": {
+    "ko": "열여드레 뒤, 다시 형에게 쓴 편지예요. 앞부분은 영국군 상륙 · 방데 · 네덜란드 같은 소식이 길게 이어지고, 여기서는 끝 문단만 옮겼어요. 공포정치가 끝난 지 1년, 파리에는 극장과 무도회, 화려하게 차려입은 젊은이들이 돌아왔어요. 〈페드르〉는 17세기 라신의 비극이에요. 이 편지를 쓰고 석 달 뒤, 그는 파리의 한 살롱에서 조제핀 드 보아르네를 만나요.",
+    "en": "Eighteen days later he wrote to his brother again. The first part of the letter is a long run of news (an English landing, the Vendée, Holland); only the last paragraph is given here. A year after the Terror, theatres, balls and extravagantly dressed young people were back in Paris. Phèdre is Racine's seventeenth-century tragedy. About three months after this letter he met Joséphine de Beauharnais in a Paris salon.",
+    "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 44, pp. 60–61 · public domain · https://archive.org/details/correspondancede01napouoft ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Les Incroyables",
+    "title_en": "The Incroyables",
+    "title_ko": "앵크루아야블 (멋쟁이 젊은이들)",
+    "date": "c. 1796",
+    "credit": "after Carle Vernet (engraving)",
+    "collection": "Rijksmuseum, Amsterdam (RP-P-2009-2825) · CC0",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Les_Incroyables,_1796,_RP-P-2009-2825.jpg",
+    "why": {
+     "ko": "공포정치 뒤 파리를 휩쓴 멋쟁이 젊은이들을 놀리듯 그린 판화예요. 편지 속 ‘다시 나타난 마차와 멋쟁이들’이 바로 이들이에요.",
+     "en": "A satirical print of the dandies who filled Paris after the Terror: the ‘élégants’ who, as the letter says, were back."
+    },
+    "image": "n-p2.webp",
+    "kind": "print",
+    "spots": [],
+    "commonsFile": "File:Les Incroyables, 1796, RP-P-2009-2825.jpg"
+   },
+   "docent": {
+    "period": "1795",
+    "caps": "PARIS, 1795 · II · JUILLET",
+    "heading": {
+     "ko": "다시 반짝이는 파리",
+     "en": "Paris shining again",
+     "fr": "Paris brille de nouveau"
+    },
+    "sub": "Paris · l'Opéra",
+    "body": {
+     "ko": "열여드레 뒤, 다시 형에게 쓴 편지예요. 앞부분은 영국군 상륙 · 방데 · 네덜란드 같은 소식이 길게 이어지고, 여기서는 끝 문단만 옮겼어요. 공포정치가 끝난 지 1년, 파리에는 극장과 무도회, 화려하게 차려입은 젊은이들이 돌아왔어요. 〈페드르〉는 17세기 라신의 비극이에요. 이 편지를 쓰고 석 달 뒤, 그는 파리의 한 살롱에서 조제핀 드 보아르네를 만나요.",
+     "en": "Eighteen days later he wrote to his brother again. The first part of the letter is a long run of news (an English landing, the Vendée, Holland); only the last paragraph is given here. A year after the Terror, theatres, balls and extravagantly dressed young people were back in Paris. Phèdre is Racine's seventeenth-century tragedy. About three months after this letter he met Joséphine de Beauharnais in a Paris salon."
+    },
+    "source": {
+     "ko": "형 조제프에게 · 1795년 7월 12일, 파리",
+     "en": "To his brother Joseph · Paris, 12 July 1795"
+    }
+   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "I.0",
+     "fr": "Je vais bien. Merci pour tes nouvelles de Paris !",
+     "en": "I'm doing well. Thanks for your news from Paris!",
+     "ko": "저는 잘 지내요. 파리 소식 고마워요!",
+     "koLow": "나는 잘 지내. 파리 소식 고마워!",
+     "koHigh": "저는 잘 지냅니다. 파리 소식 감사합니다!",
+     "focus": {
+      "fr": [
+       "tes nouvelles"
+      ],
+      "en": [
+       "I'm doing"
+      ],
+      "ko": [
+       "지내요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "ta nouvelles",
+        "ton nouvelles"
+       ]
+      ],
+      "en": [
+       [
+        "I doing",
+        "I'm do"
+       ]
+      ],
+      "ko": [
+       [
+        "지내여",
+        "지네요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Paris · 12 juillet 1795",
+      "en": "Bonaparte is in Paris · 12 July 1795",
+      "ko": "보나파르트가 파리에 있어요 · 1795년 7월 12일"
+     }
+    },
+    {
+     "after": 2,
+     "type": "location",
+     "place": "opera",
+     "title": {
+      "fr": "L'Opéra (Théâtre des Arts)",
+      "en": "The Opéra (Théâtre des Arts)",
+      "ko": "오페라 극장 (테아트르 데 자르)"
+     },
+     "address": "rue de Richelieu, Paris"
+    }
+   ],
+   "status": {
+    "fr": "Paris retrouve ses plaisirs",
+    "en": "Paris finds its pleasures again",
+    "ko": "즐거움을 되찾은 파리"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Où sont les femmes à Paris ?",
+      "en": "Where are the women in Paris?",
+      "ko": "파리의 여자들은 어디에 있나요?"
+     },
+     "options": [
+      {
+       "fr": "Seulement à la maison",
+       "en": "Only at home",
+       "ko": "집에만 있다"
+      },
+      {
+       "fr": "Partout : aux spectacles, aux promenades, aux bibliothèques",
+       "en": "Everywhere: at the theatre, on the promenades, in the libraries",
+       "ko": "공연장, 산책길, 도서관 등 어디에나 있다"
+      },
+      {
+       "fr": "À la campagne",
+       "en": "In the country",
+       "ko": "시골에 있다"
+      },
+      {
+       "fr": "À l'église",
+       "en": "At church",
+       "ko": "교회에 있다"
+      }
+     ],
+     "answer": 1,
+     "evidence": 4,
+     "mark": {
+      "fr": "partout",
+      "en": "everywhere",
+      "ko": "어디에나"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "조제프가 되어 파리 소식을 전하는 동생과 통화",
+     "en": "You are Joseph, on the phone with your brother and his news from Paris"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Joseph ! À Paris, les théâtres sont pleins !",
+      "en": "Joseph! In Paris the theatres are packed!",
+      "ko": "형! 파리는 극장마다 사람이 꽉 찼어!"
+     },
+     {
+      "who": "me",
+      "fr": "Ah bon ? Tu peux aller à l'Opéra ?",
+      "en": "Really? Can you go to the Opéra?",
+      "ko": "와, 재밌겠네! 오페라 극장에도 가 봤어?",
+      "focus": {
+       "fr": [
+        "Tu peux"
+       ],
+       "en": [
+        "Can you"
+       ],
+       "ko": [
+        "재밌겠네"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu peut",
+         "Vous peux"
+        ]
+       ],
+       "en": [
+        [
+         "Do you can",
+         "Can you to"
+        ]
+       ],
+       "ko": [
+        [
+         "재밌겠내",
+         "제밌겠네"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Oui, hier ! Mais les prix sont trois fois plus chers.",
+      "en": "Yes, yesterday! But the prices are three times higher.",
+      "ko": "응, 어제! 그런데 표값이 세 배야."
+     },
+     {
+      "who": "me",
+      "fr": "Trois fois ! Tu as l'air heureux, en tout cas.",
+      "en": "Three times! I can tell you're happy, anyway.",
+      "ko": "세 배? 그래도 신났네!",
+      "focus": {
+       "fr": [
+        "Tu as"
+       ],
+       "en": [
+        "I can tell"
+       ],
+       "ko": [
+        "신났네"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu a",
+         "Vous as"
+        ]
+       ],
+       "en": [
+        [
+         "I can to tell",
+         "I cans tell"
+        ]
+       ],
+       "ko": [
+        [
+         "신났내",
+         "신낫네"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "hier",
+     "prix"
+    ],
+    "grammar": "I.2",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph)."
+   }
+  },
+  {
+   "id": "p3",
+   "date": "1795-09-05",
+   "dateNote": "Paris, 19 fructidor an III (5 September 1795). Du Casse's margin note dates the same letter 6 September.",
+   "ref": "Correspondance 1858, n° 64 · Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 64, p. 86 · public domain · https://archive.org/details/correspondancede01napouoft",
+   "place": "Paris",
+   "to": {
+    "fr": "Joseph",
+    "en": "Joseph",
+    "ko": "조제프"
+   },
+   "mood": "calm",
+   "excerpt": "Left out: two news sentences (elections; peace with Hesse-Cassel; the price of land) and the last paragraph (Talleyrand and Montesquiou struck off the émigré list).",
+   "messages": [
+    {
+     "fr": "Le Comité a pensé qu'il était impossible que je sortisse de France tant que durera la guerre.",
+     "en": "The Committee has decided I cannot leave France as long as the war lasts.",
+     "ko": "위원회는 전쟁이 이어지는 동안 내가 프랑스를 떠나면 안 된다고 봤어.",
+     "orig": {
+      "fr": "Le Comité a pensé qu'il était impossible que je sortisse de France tant que durera la guerre."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 64, p. 86 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Le Comité a pensé qu'il était impossible que je sortisse de France tant que durera la guerre.",
+      "en": "The Committee has decided I cannot leave France as long as the war lasts.",
+      "ko": "위원회는 전쟁이 이어지는 동안 내가 프랑스를 떠나면 안 된다고 봤어."
+     }
+    },
+    {
+     "fr": "Je vais être rétabli dans l'artillerie, et probablement je continuerai à rester au Comité.",
+     "en": "I'm going to be put back in the artillery, and I'll probably go on staying at the Committee.",
+     "ko": "나는 포병대로 돌아가게 될 거고, 아마 위원회에도 계속 남을 거야.",
+     "orig": {
+      "fr": "Je vais être rétabli dans l'artillerie, et probablement je continuerai à rester au Comité."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 64, p. 86 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Je vais être rétabli dans l'artillerie, / et probablement je continuerai à rester au Comité.",
+      "en": "I'm going to be put back in the artillery, / and I'll probably go on staying at the Committee.",
+      "ko": "나는 포병대로 돌아가게 될 거고, / 아마 위원회에도 계속 남을 거야."
+     }
+    },
+    {
+     "fr": "Si je reste ici, il ne serait pas impossible que la folie de me marier ne me prît.",
+     "en": "If I stay here, I might just be seized by the madness of getting married.",
+     "ko": "내가 여기 남는다면, 결혼하고 싶다는 미친 생각이 들지도 몰라.",
+     "orig": {
+      "fr": "Si je reste ici, il ne serait pas impossible que la folie de me marier ne me prît."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 64, p. 86 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Si je reste ici, / il ne serait pas impossible que la folie de me marier ne me prît.",
+      "en": "If I stay here, / I might just be seized by the madness of getting married.",
+      "ko": "내가 여기 남는다면, / 결혼하고 싶다는 미친 생각이 들지도 몰라."
+     }
+    },
+    {
+     "fr": "Je voudrais à cet effet un petit mot de ta part là-dessus ; il serait peut-être bon d'en parler au frère d'Eugénie ; fais-moi savoir le résultat, et tout est dit.",
+     "en": "So I'd like a little word from you about it; it might be good to speak to Eugénie's brother; let me know the result, and that's that.",
+     "ko": "그러니 형이 한마디 해 줘. 외제니의 오빠에게 말해 보는 것도 좋겠어. 결과만 알려 줘. 그럼 다 된 거야.",
+     "orig": {
+      "fr": "Je voudrais à cet effet un petit mot de ta part là-dessus; il serait peut-être bon d'en parler au frère d'Eugénie; fais-moi savoir le résultat, et tout est dit."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 64, p. 86 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Je voudrais à cet effet un petit mot de ta part là-dessus ; / il serait peut-être bon d'en parler au frère d'Eugénie ; / fais-moi savoir le résultat, / et tout est dit.",
+      "en": "So I'd like a little word from you about it; / it might be good to speak to Eugénie's brother; / let me know the result, / and that's that.",
+      "ko": "그러니 형이 한마디 해 줘. // 외제니의 오빠에게 말해 보는 것도 좋겠어. // 결과만 알려 줘. // 그럼 다 된 거야."
+     }
+    },
+    {
+     "fr": "Chauvet, qui va à Nice dans dix jours, te porte les livres que tu as demandés.",
+     "en": "Chauvet, who is going to Nice in ten days, is bringing you the books you asked for.",
+     "ko": "열흘 뒤에 니스로 가는 쇼베가 형이 부탁한 책들을 가져다줄 거야.",
+     "orig": {
+      "fr": "Chauvet, qui va à Nice dans dix jours, te porte les livres que tu as demandés."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 64, p. 86 · public domain · https://archive.org/details/correspondancede01napouoft",
+     "speak": {
+      "fr": "Chauvet, / qui va à Nice dans dix jours, / te porte les livres que tu as demandés.",
+      "en": "Chauvet, / who is going to Nice in ten days, / is bringing you the books you asked for.",
+      "ko": "열흘 뒤에 니스로 가는 쇼베가 형이 부탁한 책들을 가져다줄 거야."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "guerre",
+     "pos": "n.f.",
+     "ipa": "ɡɛʁ",
+     "en": "war",
+     "ko": "전쟁",
+     "icon": "⚔️"
+    },
+    {
+     "fr": "mot",
+     "pos": "n.m.",
+     "ipa": "mo",
+     "en": "word",
+     "ko": "낱말, 한마디",
+     "icon": "💬"
+    },
+    {
+     "fr": "frère",
+     "pos": "n.m.",
+     "ipa": "fʁɛʁ",
+     "en": "brother",
+     "ko": "형제, 오빠",
+     "icon": "👬"
+    },
+    {
+     "fr": "livre",
+     "pos": "n.m.",
+     "ipa": "livʁ",
+     "en": "book",
+     "ko": "책",
+     "icon": "📚"
+    }
+   ],
+   "note": {
+    "ko": "두 달 뒤, 보나파르트는 공안위원회의 지형국에서 작전 지도를 맡고 있었어요. 오스만 제국에 가서 포병을 가르치겠다고 청했지만, 위원회는 그를 프랑스에 붙잡아 두기로 해요. ‘외제니’는 그가 데지레 클라리를 부르던 이름이에요. 쇼베는 군의 보급을 맡은 관리로, I장에서 다시 나와요. 한 달 뒤인 10월 5일(방데미에르 13일) 파리 봉기를 진압하면서 그의 처지는 완전히 달라져요.",
+    "en": "Two months on, Bonaparte was drawing up campaign maps in the Topographical Bureau of the Committee of Public Safety. He had asked to go to the Ottoman Empire to train its artillery, but the Committee decided to keep him in France. ‘Eugénie’ was his name for Désirée Clary. Chauvet, an army supply official, comes back in Chapter I. A month later, on 5 October (13 Vendémiaire), he put down an uprising in Paris, and his situation changed completely.",
+    "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, t. I (Paris, Imprimerie impériale, 1858), n° 64, p. 86 · public domain · https://archive.org/details/correspondancede01napouoft ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "Désirée Clary",
+    "title_en": "Désirée Clary",
+    "title_ko": "데지레 클라리",
+    "date": "1808",
+    "credit": "François Gérard",
+    "collection": "소장처 표기 없음 · Wikimedia Commons",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:D%C3%A9sir%C3%A9e_Clary,_K%C3%B6nigin_von_Schweden.jpg",
+    "why": {
+     "ko": "편지 속 ‘외제니’, 데지레의 초상이에요. 훗날 그녀는 장군 베르나도트와 결혼해 스웨덴 왕비가 돼요.",
+     "en": "A portrait of ‘Eugénie’, Désirée herself. She later married General Bernadotte and became Queen of Sweden."
+    },
+    "image": "n-p3.webp",
+    "kind": "portrait",
+    "spots": [],
+    "commonsFile": "File:Désirée Clary, Königin von Schweden.jpg"
+   },
+   "docent": {
+    "period": "1795",
+    "caps": "PARIS, 1795 · III · SEPTEMBRE",
+    "heading": {
+     "ko": "결혼이라는 ‘미친 생각’",
+     "en": "‘The madness of marrying’",
+     "fr": "« La folie de me marier »"
+    },
+    "sub": "Paris · le Comité de salut public",
+    "body": {
+     "ko": "두 달 뒤, 보나파르트는 공안위원회의 지형국에서 작전 지도를 맡고 있었어요. 오스만 제국에 가서 포병을 가르치겠다고 청했지만, 위원회는 그를 프랑스에 붙잡아 두기로 해요. ‘외제니’는 그가 데지레 클라리를 부르던 이름이에요. 쇼베는 군의 보급을 맡은 관리로, I장에서 다시 나와요. 한 달 뒤인 10월 5일(방데미에르 13일) 파리 봉기를 진압하면서 그의 처지는 완전히 달라져요.",
+     "en": "Two months on, Bonaparte was drawing up campaign maps in the Topographical Bureau of the Committee of Public Safety. He had asked to go to the Ottoman Empire to train its artillery, but the Committee decided to keep him in France. ‘Eugénie’ was his name for Désirée Clary. Chauvet, an army supply official, comes back in Chapter I. A month later, on 5 October (13 Vendémiaire), he put down an uprising in Paris, and his situation changed completely."
+    },
+    "source": {
+     "ko": "형 조제프에게 · 1795년 9월 5일, 파리",
+     "en": "To his brother Joseph · Paris, 5 September 1795"
+    }
+   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "I.1",
+     "fr": "Le frère d'Eugénie ? Je lui parle demain.",
+     "en": "Eugénie's brother? I'm seeing him tomorrow.",
+     "ko": "외제니 오빠요? 제가 내일 만나요.",
+     "koLow": "외제니 오빠? 내가 내일 만나.",
+     "koHigh": "외제니 오빠 말씀입니까? 제가 내일 만납니다.",
+     "focus": {
+      "fr": [
+       "parle"
+      ],
+      "en": [
+       "him"
+      ],
+      "ko": [
+       "제가"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "parles",
+        "parlent"
+       ]
+      ],
+      "en": [
+       [
+        "he",
+        "his"
+       ]
+      ],
+      "ko": [
+       [
+        "저가",
+        "재가"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Bonaparte est à Paris · 5 septembre 1795, au Comité de salut public",
+      "en": "Bonaparte is in Paris · 5 September 1795, at the Committee of Public Safety",
+      "ko": "보나파르트가 파리에 있어요 · 1795년 9월 5일, 공안위원회"
+     }
+    }
+   ],
+   "status": {
+    "fr": "Paris, au Comité",
+    "en": "Paris, at the Committee",
+    "ko": "파리, 위원회에서"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Qu'est-ce que Chauvet porte à Joseph ?",
+      "en": "What is Chauvet bringing Joseph?",
+      "ko": "쇼베는 조제프에게 무엇을 가져다주나요?"
+     },
+     "options": [
+      {
+       "fr": "Des livres",
+       "en": "Books",
+       "ko": "책"
+      },
+      {
+       "fr": "Une lettre de Désirée",
+       "en": "A letter from Désirée",
+       "ko": "데지레의 편지"
+      },
+      {
+       "fr": "Un portrait",
+       "en": "A portrait",
+       "ko": "초상화"
+      },
+      {
+       "fr": "Des oranges",
+       "en": "Oranges",
+       "ko": "오렌지"
+      }
+     ],
+     "answer": 0,
+     "evidence": 4,
+     "mark": {
+      "fr": "livres",
+      "en": "books",
+      "ko": "책"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "조제프가 되어, 결혼을 생각한다는 동생과 통화",
+     "en": "You are Joseph, on the phone with your brother, who is thinking about marriage"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Joseph, je pense à me marier.",
+      "en": "Joseph, I'm thinking about getting married.",
+      "ko": "형, 나 결혼할까 생각 중이야."
+     },
+     {
+      "who": "me",
+      "fr": "Avec Eugénie ? Je parle à son frère demain.",
+      "en": "With Eugénie? I'm seeing her brother tomorrow.",
+      "ko": "외제니랑? 내일 그 애 오빠 만나.",
+      "focus": {
+       "fr": [
+        "son frère"
+       ],
+       "en": [
+        "I'm seeing"
+       ],
+       "ko": [
+        "만나"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "sa frère",
+         "ses frère"
+        ]
+       ],
+       "en": [
+        [
+         "I seeing",
+         "I'm see"
+        ]
+       ],
+       "ko": [
+        [
+         "만나아",
+         "만너"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Merci ! Fais-moi savoir le résultat, d'accord ?",
+      "en": "Thanks! Let me know how it goes, OK?",
+      "ko": "고마워! 결과 알려 줘, 알았지?"
+     },
+     {
+      "who": "me",
+      "fr": "D'accord. Et j'attends mes livres !",
+      "en": "OK. And I'm waiting for my books!",
+      "ko": "알았어. 그리고 내 책 기다리고 있어!",
+      "focus": {
+       "fr": [
+        "mes livres"
+       ],
+       "en": [
+        "I'm waiting"
+       ],
+       "ko": [
+        "있어"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "mon livres",
+         "ma livres"
+        ]
+       ],
+       "en": [
+        [
+         "I waiting",
+         "I'm wait"
+        ]
+       ],
+       "ko": [
+        [
+         "있아",
+         "잇어"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "marier",
+     "frère",
+     "livre"
+    ],
+    "grammar": "I.0",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph)."
+   }
+  },
+  {
+   "id": "p4",
+   "date": "1795-12",
+   "dateNote": "Undated (‘7 heure du matin’), addressed ‘A Madame Beauharnois’; traditionally placed in the winter of 1795–96, before the marriage of 9 March 1796. [미확인: 학계 날짜 — 겨울 1795–96 범위로 둠]",
+   "ref": "Tennant 1824, Appendix No. I · Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. I, p. 444 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+   "place": "Paris",
+   "to": {
+    "fr": "Joséphine",
+    "en": "Joséphine",
+    "ko": "조제핀"
+   },
+   "mood": "tender",
+   "excerpt": "Left out: the clause 'Mais en est-il donc davantage pour moi, lorsque … une flamme qui me brûle ?' and the signature lines.",
+   "messages": [
+    {
+     "fr": "Sept heures du matin. Je me réveille plein de toi.",
+     "en": "Seven in the morning. I wake up full of you.",
+     "ko": "아침 일곱 시. 눈을 뜨니 온통 당신 생각뿐이야.",
+     "orig": {
+      "fr": "7 heure du Matin. je me reveille plein de toi"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. I, p. 444 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Sept heures du matin. // Je me réveille plein de toi.",
+      "en": "Seven in the morning. // I wake up full of you.",
+      "ko": "아침 일곱 시. // 눈을 뜨니 온통 당신 생각뿐이야."
+     }
+    },
+    {
+     "fr": "Ton portrait et le souvenir de l'enivrante soirée d'hier n'ont point laissé de repos à mes sens.",
+     "en": "Your portrait and the memory of last night's dizzying evening have given me no rest.",
+     "ko": "당신 초상화와 어젯밤의 황홀했던 기억 때문에 한숨도 쉬지 못했어.",
+     "orig": {
+      "fr": "ton portrait et le souvenir de l'anivrante soiree d'hiers n'ont point laisse de repos a mes sens"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. I, p. 444 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Ton portrait et le souvenir de l'enivrante soirée d'hier n'ont point laissé de repos à mes sens.",
+      "en": "Your portrait and the memory of last night's dizzying evening have given me no rest.",
+      "ko": "당신 초상화와 어젯밤의 황홀했던 기억 때문에 한숨도 쉬지 못했어."
+     }
+    },
+    {
+     "fr": "Douce et incomparable Joséphine, quel effet bizarre faites-vous sur mon cœur ! Vous fâchez-vous ? Vous vois-je triste ? Êtes-vous inquiète ?",
+     "en": "Sweet, incomparable Joséphine, what a strange effect you have on my heart! Are you angry? Do I see you sad? Are you worried?",
+     "ko": "다정하고 누구와도 견줄 수 없는 조제핀, 당신은 내 마음을 정말 이상하게 만들어! 화났어? 슬퍼 보여? 걱정이 있어?",
+     "orig": {
+      "fr": "douce et incomparable Josephine quelle effet byzare faite vous sur mon coeur — vous fachy vous ? vous vois-je triste ? este vous inquiete ?"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. I, p. 444 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Douce et incomparable Joséphine, / quel effet bizarre faites-vous sur mon cœur ! // Vous fâchez-vous ? // Vous vois-je triste ? // Êtes-vous inquiète ?",
+      "en": "Sweet, / incomparable Joséphine, / what a strange effect you have on my heart! // Are you angry? // Do I see you sad? // Are you worried?",
+      "ko": "다정하고 누구와도 견줄 수 없는 조제핀, / 당신은 내 마음을 정말 이상하게 만들어! // 화났어? // 슬퍼 보여? // 걱정이 있어?"
+     }
+    },
+    {
+     "fr": "Mon âme est brisée de douleur, et il n'est point de repos pour votre ami.",
+     "en": "My soul is broken with pain, and there is no rest for your friend.",
+     "ko": "내 영혼은 아파서 부서질 것 같고, 당신의 이 친구는 쉴 수가 없어.",
+     "orig": {
+      "fr": "mon ame est brise de douleur et il n est point de repos pour votre ami"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. I, p. 444 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Mon âme est brisée de douleur, / et il n'est point de repos pour votre ami.",
+      "en": "My soul is broken with pain, / and there is no rest for your friend.",
+      "ko": "내 영혼은 아파서 부서질 것 같고, / 당신의 이 친구는 쉴 수가 없어."
+     }
+    },
+    {
+     "fr": "Ah ! c'est cette nuit que je me suis bien aperçu que votre portrait n'est pas vous.",
+     "en": "Ah! Last night I truly realised that your portrait is not you.",
+     "ko": "아! 어젯밤에야 확실히 알았어. 당신 초상화는 당신이 아니라는 걸.",
+     "orig": {
+      "fr": "ah c est cette nuit que je me suis bien aperçu que votre portrait n'est pas vous"
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. I, p. 444 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Ah ! // c'est cette nuit que je me suis bien aperçu que votre portrait n'est pas vous.",
+      "en": "Ah! // Last night I truly realised that your portrait is not you.",
+      "ko": "아! // 어젯밤에야 확실히 알았어. // 당신 초상화는 당신이 아니라는 걸."
+     }
+    },
+    {
+     "fr": "Tu pars à midi ; je te verrai dans trois heures. En attendant, mio dolce amor, reçois un millier de baisers ; mais ne m'en donne pas, car ils brûlent mon sang.",
+     "en": "You leave at noon; I'll see you in three hours. Until then, mio dolce amor, take a thousand kisses; but don't give me any, for they set my blood on fire.",
+     "ko": "당신은 정오에 떠나지. 세 시간 뒤면 만나. 그때까지, 미오 돌체 아모르, 입맞춤 천 번을 받아. 하지만 나한테는 하지 마. 내 피가 끓으니까.",
+     "orig": {
+      "fr": "tu pars a midi je te verai dans 3 heures en attendant mio dolce amor recois un millier de baise mais ne m en donne pas car il brule mon sang."
+     },
+     "verified": true,
+     "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. I, p. 444 · public domain · https://archive.org/details/tourthroughparts02tennuoft",
+     "speak": {
+      "fr": "Tu pars à midi ; / je te verrai dans trois heures. // En attendant, / mio dolce amor, / reçois un millier de baisers ; / mais ne m'en donne pas, / car ils brûlent mon sang.",
+      "en": "You leave at noon; / I'll see you in three hours. // Until then, / mio dolce amor, / take a thousand kisses; / but don't give me any, / for they set my blood on fire.",
+      "ko": "당신은 정오에 떠나지. // 세 시간 뒤면 만나. // 그때까지, / 미오 돌체 아모르, / 입맞춤 천 번을 받아. // 하지만 나한테는 하지 마. // 내 피가 끓으니까."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "matin",
+     "pos": "n.m.",
+     "ipa": "matɛ̃",
+     "en": "morning",
+     "ko": "아침",
+     "icon": "🌅"
+    },
+    {
+     "fr": "souvenir",
+     "pos": "n.m.",
+     "ipa": "suvniʁ",
+     "en": "memory",
+     "ko": "기억, 추억",
+     "icon": "💭"
+    },
+    {
+     "fr": "nuit",
+     "pos": "n.f.",
+     "ipa": "nɥi",
+     "en": "night",
+     "ko": "밤",
+     "icon": "🌙"
+    },
+    {
+     "fr": "midi",
+     "pos": "n.m.",
+     "ipa": "midi",
+     "en": "noon",
+     "ko": "정오, 낮 열두 시",
+     "icon": "🕛"
+    }
+   ],
+   "note": {
+    "ko": "1795년 가을, 보나파르트는 파리의 한 살롱에서 조제핀 드 보아르네를 만났어요. 서른두 살의 그녀는 공포정치 때 남편 알렉상드르 드 보아르네를 잃고, 외젠과 오르탕스 두 아이를 키우며 샹트렌 거리의 작은 집에 살고 있었어요. 날짜 없이 ‘아침 일곱 시’라고만 적힌 이 쪽지는 흔히 그해 겨울의 것으로 봐요. 그는 한 쪽지 안에서 그녀를 ‘vous(당신께)’라 높였다가 ‘tu(너)’라 부르기를 오가요. ‘미오 돌체 아모르’는 이탈리아어로 ‘나의 달콤한 사랑’이에요. 1824년 영국 여행가 찰스 테넌트가 원본을 옮겨 책 부록에 실었어요.",
+    "en": "In the autumn of 1795 Bonaparte met Joséphine de Beauharnais in a Paris salon. She was thirty-two; her husband Alexandre de Beauharnais had been executed during the Terror, and she lived with her two children, Eugène and Hortense, in a small house in the rue Chantereine. This undated note, headed only ‘seven in the morning’, is usually placed in that winter. Within one note he moves between the formal ‘vous’ and the intimate ‘tu’. ‘Mio dolce amor’ is Italian for ‘my sweet love’. The English traveller Charles Tennant transcribed the original and printed it in 1824.",
+    "source": "Charles Tennant, A Tour through parts of the Netherlands, Holland, Germany, Switzerland, Savoy and France, in the year 1821-2 (London, Longman, 1824), vol. II, Appendix, No. I, p. 444 · public domain · https://archive.org/details/tourthroughparts02tennuoft ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "L'impératrice Joséphine (miniature)",
+    "title_en": "Empress Joséphine (portrait miniature)",
+    "title_ko": "조제핀 (초상 세밀화)",
+    "date": "c. 1808",
+    "credit": "Jean-Baptiste Isabey",
+    "collection": "Wikimedia Commons (Web Gallery of Art 복제)",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Jean-Baptiste_Isabey_-_The_Empress_Josephine_-_WGA11867.jpg",
+    "why": {
+     "ko": "편지 속 ‘당신 초상화’처럼, 연인들은 손바닥만 한 세밀화를 지니고 다녔어요. 조제핀을 즐겨 그린 이자베의 세밀화예요.",
+     "en": "Lovers carried palm-sized miniatures like the ‘portrait’ in this note; Isabey painted Joséphine many times."
+    },
+    "image": "n-p4.webp",
+    "kind": "portrait",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.5,
+      "title": {
+       "fr": "Le portrait",
+       "en": "The portrait",
+       "ko": "초상화"
+      },
+      "note": {
+       "ko": "작은 초상화 — 그가 품고 다닌 것과 같은.",
+       "en": "A miniature portrait, like the one he carried."
+      },
+      "word": {
+       "fr": "portrait",
+       "en": "portrait",
+       "ko": "초상화",
+       "ipa": "pɔʁtʁɛ"
+      },
+      "quote": 1
+     }
+    ],
+    "commonsFile": "File:Jean-Baptiste Isabey - The Empress Josephine - WGA11867.jpg"
+   },
+   "docent": {
+    "period": "1795–1796",
+    "caps": "PARIS, 1795 · IV · HIVER",
+    "heading": {
+     "ko": "아침 일곱 시의 쪽지",
+     "en": "A note at seven in the morning",
+     "fr": "Un billet à sept heures du matin"
+    },
+    "sub": "Paris · rue Chantereine",
+    "body": {
+     "ko": "1795년 가을, 보나파르트는 파리의 한 살롱에서 조제핀 드 보아르네를 만났어요. 서른두 살의 그녀는 공포정치 때 남편 알렉상드르 드 보아르네를 잃고, 외젠과 오르탕스 두 아이를 키우며 샹트렌 거리의 작은 집에 살고 있었어요. 날짜 없이 ‘아침 일곱 시’라고만 적힌 이 쪽지는 흔히 그해 겨울의 것으로 봐요. 그는 한 쪽지 안에서 그녀를 ‘vous(당신께)’라 높였다가 ‘tu(너)’라 부르기를 오가요. ‘미오 돌체 아모르’는 이탈리아어로 ‘나의 달콤한 사랑’이에요. 1824년 영국 여행가 찰스 테넌트가 원본을 옮겨 책 부록에 실었어요.",
+     "en": "In the autumn of 1795 Bonaparte met Joséphine de Beauharnais in a Paris salon. She was thirty-two; her husband Alexandre de Beauharnais had been executed during the Terror, and she lived with her two children, Eugène and Hortense, in a small house in the rue Chantereine. This undated note, headed only ‘seven in the morning’, is usually placed in that winter. Within one note he moves between the formal ‘vous’ and the intimate ‘tu’. ‘Mio dolce amor’ is Italian for ‘my sweet love’. The English traveller Charles Tennant transcribed the original and printed it in 1824."
+    },
+    "source": {
+     "ko": "조제핀 드 보아르네에게 · 1795–96년 겨울, 파리",
+     "en": "To Joséphine de Beauharnais · Paris, winter 1795–96"
+    }
+   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "I.1",
+     "fr": "Moi aussi, je pense à toi depuis ce matin.",
+     "en": "I've been thinking of you since this morning too.",
+     "ko": "저도 아침부터 당신 생각을 해요.",
+     "koLow": "나도 아침부터 당신 생각을 해.",
+     "koHigh": "저도 아침부터 당신 생각을 합니다.",
+     "focus": {
+      "fr": [
+       "je pense"
+      ],
+      "en": [
+       "of you"
+      ],
+      "ko": [
+       "저도"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "je penses",
+        "je pensent"
+       ]
+      ],
+      "en": [
+       [
+        "of your",
+        "of yours"
+       ]
+      ],
+      "ko": [
+       [
+        "제도",
+        "져도"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Paris · un matin d'hiver, 1795–1796",
+      "en": "Paris · a winter morning, 1795–1796",
+      "ko": "파리 · 1795–1796년 어느 겨울 아침"
+     }
+    },
+    {
+     "after": 1,
+     "type": "location",
+     "place": "chantereine",
+     "title": {
+      "fr": "Rue Chantereine",
+      "en": "Rue Chantereine",
+      "ko": "샹트렌 거리"
+     },
+     "address": "rue Chantereine (aujourd'hui rue de la Victoire), Paris"
+    },
+    {
+     "after": 5,
+     "type": "music",
+     "piece": {
+      "fr": "Nina, ossia La pazza per amore (Paisiello, 1789)",
+      "en": "Nina, ossia La pazza per amore (Paisiello, 1789)",
+      "ko": "〈니나, 사랑에 미친 여인〉 (파이시엘로, 1789)"
+     },
+     "commons": null
+    }
+   ],
+   "status": {
+    "fr": "Paris, un matin d'hiver",
+    "en": "Paris, a winter morning",
+    "ko": "파리, 어느 겨울 아침"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Quand Joséphine part-elle ?",
+      "en": "When is Joséphine leaving?",
+      "ko": "조제핀은 언제 떠나나요?"
+     },
+     "options": [
+      {
+       "fr": "À sept heures du matin",
+       "en": "At seven in the morning",
+       "ko": "아침 일곱 시"
+      },
+      {
+       "fr": "À midi",
+       "en": "At noon",
+       "ko": "정오"
+      },
+      {
+       "fr": "Dans trois jours",
+       "en": "In three days",
+       "ko": "사흘 뒤"
+      },
+      {
+       "fr": "Ce soir",
+       "en": "This evening",
+       "ko": "오늘 저녁"
+      }
+     ],
+     "answer": 1,
+     "evidence": 5,
+     "mark": {
+      "fr": "midi",
+      "en": "noon",
+      "ko": "정오"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "조제핀이 되어, 아침 일찍 전화한 보나파르트와 통화",
+     "en": "You are Joséphine, and Bonaparte has phoned early in the morning"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Bonjour, Joséphine ! Tu es réveillée ?",
+      "en": "Good morning, Joséphine! Are you awake?",
+      "ko": "좋은 아침, 조제핀! 일어났어?"
+     },
+     {
+      "who": "me",
+      "fr": "Oui. Vous êtes déjà debout ? Vous ne pouvez pas dormir ?",
+      "en": "Yes. You're up already? Can't you sleep?",
+      "ko": "응. 벌써 일어났네? 잠이 안 와?",
+      "focus": {
+       "fr": [
+        "Vous êtes"
+       ],
+       "en": [
+        "Can't you"
+       ],
+       "ko": [
+        "일어났네"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Vous es",
+         "Tu êtes"
+        ]
+       ],
+       "en": [
+        [
+         "Don't can you",
+         "Can't you to"
+        ]
+       ],
+       "ko": [
+        [
+         "일어났내",
+         "이러났네"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Non, je pense à toi depuis ce matin. Tu pars à midi ?",
+      "en": "No, I've been thinking of you all morning. Are you leaving at noon?",
+      "ko": "응, 아침부터 당신 생각만 해. 정오에 떠나?"
+     },
+     {
+      "who": "me",
+      "fr": "Oui, à midi. Et ce soir, vous venez ?",
+      "en": "Yes, at noon. Can you come this evening?",
+      "ko": "응, 정오에. 이따 저녁에 보면 되겠네!",
+      "focus": {
+       "fr": [
+        "vous venez"
+       ],
+       "en": [
+        "Can you"
+       ],
+       "ko": [
+        "되겠네"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "vous viens",
+         "tu venez"
+        ]
+       ],
+       "en": [
+        [
+         "Do you can",
+         "Can you to"
+        ]
+       ],
+       "ko": [
+        [
+         "되겟네",
+         "돼겠네"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "matin",
+     "midi"
+    ],
+    "grammar": "I.2",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+   }
+  }
+ ]
+}

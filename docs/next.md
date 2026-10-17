@@ -119,7 +119,7 @@
 ## 2026-10-16 추가 (나폴레옹 시리즈 데이터 · 출시 전 숨김)
 
 - `data/napoleon/` 에 셋째 작품: 프롤로그 4 + 8장 × 7 + 맺음 1 = 61통 (tier 2 ₩2,900, `series_napoleon`, 무료 I · II장). 규격 v1 `spec_check.py napoleon` 통과.
-- **`"hidden": true`** (series.json): generate.py 가 앱 assets 에 넣지 않고 판매 규칙만 본다 → 서재의 ‘곧 도착’ 나폴레옹 카드 그대로. site_sources.py 도 건너뜀. 출시 때 이 칸을 지우고 generate.py.
+- **`"hidden": true`** (series.json, 2026-10-17 지움): generate.py 가 앱 assets 에 넣지 않고 판매 규칙만 본다 → 서재의 ‘곧 도착’ 나폴레옹 카드 그대로. site_sources.py 도 건너뜀. 출시 때 이 칸을 지우고 generate.py.
 - 원문은 지금 철자 (명백한 오자 · 옛 철자는 앱 글에 표시 없이 고침), 찍힌 글자는 메시지 `orig.fr` 에만. 이 원칙은 출처 화면 `credits_text` 와 사이트 출처 페이지 머리 한 줄로만 알린다 (편지마다 적지 않음).
 - 어휘 (2026-10-17): lexicon*.json 을 편지 낱말 전부로 넓히고 **gloss*.json 을 만들었다** (fr 989 · en 986 · ko 1,079 표제어, 토큰 100%). 카드 줄은 그대로, 새 뜻 (fr 557 · en 383 · ko 454) 은 문맥에 맞춰 썼고 사람 확인 전. 만드는 법 `data/lexicon/README.md` 나폴레옹. Tatoeba 는 `fetch-tatoeba.yml` → `tatoeba` 가지.
   `validate_lexicon.py napoleon`: 글 · 사전 오류 0, 남은 59개는 예전 daily 카드 낱말 (수사 · 기능어 · 등급 구간 밖, 예 deux · six · thousand · 입맞춤 C2) — 규격 v1 `spec_check.py` 는 통과. 고칠지 사용자 결정.
@@ -146,4 +146,5 @@
 - **[했음]** 말하기는 믿고 맡긴다 (사용자 결정 2026-10-17: 시험이 아니라 스스로 배우는 앱, 낱말 알아듣기는 넣지 않음). 답장 뒤 ‘소리 내어 말해 보기’(`SpeakLine`) · 복습 말하기(`SpeakPane`)도 `ShadowTake` · `ShadowBoard` · `ShadowControls` 로 (인식 · 스스로 판정 · 글자 8개 · core `SpeechMatch` 지움). 통과 = 목소리가 들어간 녹음: core `Prosody.spoke` (음높이 잡힌 소리 250ms 이상 · 가장 큰 소리 −45dB 위) — 침묵 · 잡음 · 툭 소리는 ‘다시 해 봐요’. 따라 읽기 편지 걸음 · 회화도 같은 기준 (예전에는 파일만 있으면 · 점수 > 0 이면 통과). 복습 말하기는 원래 소리를 답이 나온 뒤에만, ‘정답 보기’ = 틀림. 녹음 `files/talk/…/r<턴>.wav` · `cache/speak/take.wav`.
 - **[했음]** 나폴레옹 카드 낱말: 장 구간보다 어려운 낱말은 그대로 (validate_lexicon 은 알림만, 빈센트 · 모차르트도 같은 규칙). 숫자 · 요일 · 기능어 34+3개를 같은 편지의 내용어로 바꿈 (fr 13 · en 18 · ko 6, 새 ko 카드 4개에 발음 줄). 오류 0, 규격 v1 통과.
 - **[했음]** 튀일리 (프랑스 소리 [tɥilʁi] 에 가까운 꼴) 로 통일: VII · VIII장 · series · 사전 · gloss (사전 ko 두 줄 → 하나, fr IPA tɥilʁi). 낭독에 그 낱말이 든 것은 c7-l3 m2_ko · t3_ko 둘 → narration-r2 make=messages 로 새 판 (rev/2/…). narrate.py messages 목록에 회화 줄(t<줄>_<언어>)도 적을 수 있게 했다.
-- 나폴레옹 공개: 뜻 데이터(gloss) 들어감 · 목소리 샘플 (`tts-sample-napoleon` 가지, 실제 줄 · 실제 빠르기) 사용자 확인 · hidden 해제. 해제하면 remote.json 처음 묶음 P+I+II (25.6MB), 그 뒤 III~VIII · E — 모의로 확인함 (대표 그림 n-c1-l1 만 앱 안).
+- **[했음]** 나폴레옹 공개 (사용자 확인 2026-10-17: 목소리 · 공개): series.json `hidden` 지움 → generate.py 가 assets/letters/napoleon 을 만들고 remote.json 처음 묶음 P+I+II. 새 카드 낱말 37개 소리는 narration-r2 make=new 로 (새 파일만). 사이트 출처 페이지(site_sources.py)는 아직 다시 돌리지 않음. 화면 사진 ScreensTest `napoleonLibrary` · `napoleonCover`.
+- (예전 메모) 해제하면 remote.json 처음 묶음 P+I+II (25.6MB), 그 뒤 III~VIII · E — 모의로 확인함 (대표 그림 n-c1-l1 만 앱 안).

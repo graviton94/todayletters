@@ -1,0 +1,616 @@
+{
+ "_doc": "Napoléon · epilogue: from the will (Longwood, 1821), to his son. French = modern spelling (obvious slips and old spellings corrected without marks in the app); each message keeps the printed text in orig.fr (data only, not shown). en · ko translated from the French for this app. Sexual lines and battle reports are left out (see excerpt). Replies and talks are written by this app, not by the recipients.",
+ "series": "napoleon",
+ "chapter": "E",
+ "title_fr": "Sainte-Hélène",
+ "title_en": "St Helena",
+ "title_ko": "세인트헬레나",
+ "original": "fr",
+ "grammar": [
+  {
+   "id": "E.0",
+   "fr": {
+    "name": {
+     "ko": "désirer que · vouloir que + 접속법 (복습)",
+     "en": "désirer que / vouloir que + subjunctive (review)"
+    },
+    "hint": {
+     "ko": "바람 뒤 que 절은 접속법 · je désire que mes cendres reposent, je veux que tu sois heureux, que tu reviennes · VII.0 복습",
+     "en": "After a wish, the que clause is subjunctive · je désire que mes cendres reposent, que tu reviennes · review of VII.0"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "I hope · I wish (복습)",
+     "en": "I hope / I wish (review)"
+    },
+    "hint": {
+     "ko": "이루어질 수 있는 바람은 hope + 현재 · 미래, 아쉬운 바람은 wish + 과거 · I hope you come back. I wish you were here.",
+     "en": "A wish that can come true: hope + present/future; a regretful one: wish + past · I hope you come back. I wish you were here."
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-거라 (옛 명령 알아보기)",
+     "en": "-거라 (old-style command, for recognition)"
+    },
+    "hint": {
+     "ko": "윗사람이 아랫사람에게 하는 옛 말투의 명령 · 잊지 말거라, 잘 있거라 · 지금은 -아/어라 (잊지 마라), 높이면 -(으)세요",
+     "en": "An old-fashioned command from an elder · 잊지 말거라, 잘 있거라 · today -아/어라 (잊지 마라); politely -(으)세요"
+    }
+   }
+  },
+  {
+   "id": "E.1",
+   "fr": {
+    "name": {
+     "ko": "de ne jamais + 부정법",
+     "en": "de ne jamais + infinitive"
+    },
+    "hint": {
+     "ko": "부정법을 부정할 때는 ne 와 jamais 가 둘 다 동사 앞 · je te demande de ne jamais oublier · ne pas 도 같아요 (de ne pas partir)",
+     "en": "With an infinitive, ne and jamais both go before the verb · de ne jamais oublier · the same with ne pas (de ne pas partir)"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "ask · tell + 사람 + never to …",
+     "en": "ask / tell someone (never / not) to …"
+    },
+    "hint": {
+     "ko": "부탁 · 당부를 옮길 때 · He asked me never to forget. · not · never 는 to 앞 (to not 은 입말)",
+     "en": "Passing on a request · He asked me never to forget. · not / never goes before to (‘to not’ is informal)"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-지 말라고 하다 (‘하지 마’ 옮기기)",
+     "en": "-지 말라고 하다 (reporting a ‘don't’)"
+    },
+    "hint": {
+     "ko": "‘-지 마’ 를 남에게 옮길 때 · 잊지 말라고 하셨어요 · VII.2 -(으)라고 했어요 복습 · ‘마라고’ 는 틀린 꼴",
+     "en": "Reporting a ‘don't’ · 잊지 말라고 하셨어요 (he told me not to forget) · review of VII.2 · not ‘마라고’"
+    }
+   }
+  },
+  {
+   "id": "E.2",
+   "fr": {
+    "name": {
+     "ko": "devoir + 부정법 (il doit · il ne doit jamais)",
+     "en": "devoir + infinitive (il doit, il ne doit jamais)"
+    },
+    "hint": {
+     "ko": "‘~해야 한다 · 절대 ~하면 안 된다’ · il doit adopter, il ne doit jamais combattre · ne … jamais 는 devoir 를 감싸요",
+     "en": "‘must’ / ‘must never’ · il doit adopter, il ne doit jamais combattre · ne … jamais goes around devoir"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "must · must never (복습)",
+     "en": "must / must never (review)"
+    },
+    "hint": {
+     "ko": "강한 의무 · 금지 · He must never fight. · 뒤에는 동사원형 · VI.0 복습",
+     "en": "Strong duty or ban · He must never fight. · followed by the base verb · review of VI.0"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-아/어야 해요 · -(으)면 안 돼요 (복습)",
+     "en": "-아/어야 해요 · -(으)면 안 돼요 (review)"
+    },
+    "hint": {
+     "ko": "해야 할 일과 하면 안 되는 일 · 기억해야 해요, 싸우면 안 돼요 · VI.0 복습",
+     "en": "What you must and must not do · 기억해야 해요, 싸우면 안 돼요 · review of VI.0"
+    }
+   }
+  }
+ ],
+ "letters": [
+  {
+   "id": "e1",
+   "date": "1821-04-15",
+   "dateNote": "Longwood, île de Sainte-Hélène, 15 avril 1821 ('Ce jourd'hui 15 avril 1821, à Longwood')",
+   "ref": "Correspondance de Napoléon Ier, t. XXXII (1870), Testament du 15 avril 1821, pp. 476-477 · https://archive.org/details/correspondancedeNNnapouoft [identifiant du tome à confirmer]",
+   "place": "Longwood, St Helena",
+   "to": {
+    "fr": "Son fils",
+    "en": "His son",
+    "ko": "아들"
+   },
+   "mood": "calm",
+   "excerpt": "Heading and articles I.2, I.3, I.4 and II.1 of the testament (the article numbers 2°, 3°, 4°, 1° are not shown). Left out: I.1 and I.5–8 (religion, accusations against England and others, thanks to the family) and the rest of part II.",
+   "messages": [
+    {
+     "fr": "Ce jourd'hui 15 avril 1821, à Longwood, île de Sainte-Hélène. Ceci est mon testament ou acte de ma dernière volonté.",
+     "en": "This day, 15 April 1821, at Longwood, on the island of St Helena. This is my will, the act of my last wishes.",
+     "ko": "1821년 4월 15일 오늘, 세인트헬레나 섬 롱우드에서. 이것은 나의 유언장, 곧 마지막 뜻을 적은 글이다.",
+     "orig": {
+      "fr": "Ce jourd'hui 15 avril 1821, à Longwood, île de Sainte-Hélène. Ceci est mon testament ou acte de ma dernière volonté."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, Paris, Imprimerie impériale / Plon-Dumaine, 1858-1870, t. XXXII (1870), 'Œuvres de Napoléon Ier à Sainte-Hélène', Testament, pp. 476-477 · public domain · https://archive.org/details/correspondancedeNNnapouoft [identifiant du tome à confirmer]",
+     "speak": {
+      "fr": "Ce jourd'hui 15 avril 1821, / à Longwood, île de Sainte-Hélène. // Ceci est mon testament ou acte de ma dernière volonté.",
+      "en": "This day, 15 April 1821, / at Longwood, on the island of St Helena. // This is my will, / the act of my last wishes.",
+      "ko": "1821년 4월 15일 오늘, / 세인트헬레나 섬 롱우드에서. // 이것은 나의 유언장, / 곧 마지막 뜻을 적은 글이다."
+     }
+    },
+    {
+     "fr": "Je désire que mes cendres reposent sur les bords de la Seine, au milieu de ce peuple français que j'ai tant aimé.",
+     "en": "I wish my ashes to rest on the banks of the Seine, among the French people whom I have loved so much.",
+     "ko": "나는 내 유해가 센 강가에, 내가 그토록 사랑한 프랑스 국민 한가운데에 잠들기를 바란다.",
+     "orig": {
+      "fr": "Je désire que mes cendres reposent sur les bords de la Seine, au milieu de ce peuple français que j'ai tant aimé."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, Paris, Imprimerie impériale / Plon-Dumaine, 1858-1870, t. XXXII (1870), 'Œuvres de Napoléon Ier à Sainte-Hélène', Testament, pp. 476-477 · public domain · https://archive.org/details/correspondancedeNNnapouoft [identifiant du tome à confirmer]",
+     "speak": {
+      "fr": "Je désire que mes cendres reposent sur les bords de la Seine, / au milieu de ce peuple français que j'ai tant aimé.",
+      "en": "I wish my ashes to rest on the banks of the Seine, / among the French people whom I have loved so much.",
+      "ko": "나는 내 유해가 센 강가에, / 내가 그토록 사랑한 프랑스 국민 한가운데에 잠들기를 바란다."
+     }
+    },
+    {
+     "fr": "J'ai toujours eu à me louer de ma très chère épouse Marie-Louise ; je lui conserve jusqu'au dernier moment les plus tendres sentiments. Je la prie de veiller pour garantir mon fils des embûches qui environnent encore son enfance.",
+     "en": "I have always had reason to be pleased with my dearest wife Marie-Louise; I keep for her, to the very last moment, the tenderest feelings. I ask her to watch over my son and keep him from the traps that still surround his childhood.",
+     "ko": "나의 소중한 아내 마리 루이즈에게 나는 늘 고마웠다. 마지막 순간까지 그녀에게 가장 다정한 마음을 간직한다. 아직 어린 내 아들을 둘러싼 함정들로부터 아들을 지켜 주기를 그녀에게 부탁한다.",
+     "orig": {
+      "fr": "J'ai toujours eu à me louer de ma très-chère épouse Marie-Louise; je lui conserve jusqu'au dernier moment les plus tendres sentiments. Je la prie de veiller pour garantir mon fils des embûches qui environnent encore son enfance."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, Paris, Imprimerie impériale / Plon-Dumaine, 1858-1870, t. XXXII (1870), 'Œuvres de Napoléon Ier à Sainte-Hélène', Testament, pp. 476-477 · public domain · https://archive.org/details/correspondancedeNNnapouoft [identifiant du tome à confirmer]",
+     "speak": {
+      "fr": "J'ai toujours eu à me louer de ma très chère épouse Marie-Louise ; // je lui conserve jusqu'au dernier moment les plus tendres sentiments. // Je la prie de veiller pour garantir mon fils des embûches qui environnent encore son enfance.",
+      "en": "I have always had reason to be pleased with my dearest wife Marie-Louise; // I keep for her, / to the very last moment, / the tenderest feelings. // I ask her to watch over my son and keep him from the traps that still surround his childhood.",
+      "ko": "나의 소중한 아내 마리 루이즈에게 나는 늘 고마웠다. // 마지막 순간까지 그녀에게 가장 다정한 마음을 간직한다. // 아직 어린 내 아들을 둘러싼 함정들로부터 아들을 지켜 주기를 그녀에게 부탁한다."
+     }
+    },
+    {
+     "fr": "Je recommande à mon fils de ne jamais oublier qu'il est né prince français, et de ne jamais se prêter à être un instrument entre les mains des triumvirs qui oppriment les peuples de l'Europe.",
+     "en": "I urge my son never to forget that he was born a French prince, and never to let himself become a tool in the hands of the triumvirs who oppress the peoples of Europe.",
+     "ko": "내 아들에게 당부한다. 자신이 프랑스의 왕자로 태어났음을 결코 잊지 말 것, 그리고 유럽의 여러 민족을 억누르는 세 나라 권력자들의 손에 도구가 되는 일에 절대 몸을 빌려주지 말 것.",
+     "orig": {
+      "fr": "Je recommande à mon fils de ne jamais oublier qu'il est né prince français, et de ne jamais se prêter à être un instrument entre les mains des triumvirs qui oppriment les peuples de l'Europe."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, Paris, Imprimerie impériale / Plon-Dumaine, 1858-1870, t. XXXII (1870), 'Œuvres de Napoléon Ier à Sainte-Hélène', Testament, pp. 476-477 · public domain · https://archive.org/details/correspondancedeNNnapouoft [identifiant du tome à confirmer]",
+     "speak": {
+      "fr": "Je recommande à mon fils de ne jamais oublier qu'il est né prince français, / et de ne jamais se prêter à être un instrument entre les mains des triumvirs qui oppriment les peuples de l'Europe.",
+      "en": "I urge my son never to forget that he was born a French prince, / and never to let himself become a tool in the hands of the triumvirs who oppress the peoples of Europe.",
+      "ko": "내 아들에게 당부한다. // 자신이 프랑스의 왕자로 태어났음을 결코 잊지 말 것, / 그리고 유럽의 여러 민족을 억누르는 세 나라 권력자들의 손에 도구가 되는 일에 절대 몸을 빌려주지 말 것."
+     }
+    },
+    {
+     "fr": "Il ne doit jamais combattre ni nuire en aucune manière à la France. Il doit adopter ma devise : « Tout pour le peuple français. »",
+     "en": "He must never fight France or harm her in any way. He must take up my motto: “Everything for the French people.”",
+     "ko": "아들은 결코 프랑스와 싸워서도, 어떤 식으로든 프랑스를 해쳐서도 안 된다. 내 좌우명을 이어받아야 한다. ‘모든 것은 프랑스 국민을 위하여.’",
+     "orig": {
+      "fr": "Il ne doit jamais combattre ni nuire en aucune manière à la France. Il doit adopter ma devise: Tout pour le peuple français."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, Paris, Imprimerie impériale / Plon-Dumaine, 1858-1870, t. XXXII (1870), 'Œuvres de Napoléon Ier à Sainte-Hélène', Testament, pp. 476-477 · public domain · https://archive.org/details/correspondancedeNNnapouoft [identifiant du tome à confirmer]",
+     "speak": {
+      "fr": "Il ne doit jamais combattre ni nuire en aucune manière à la France. // Il doit adopter ma devise : // « Tout pour le peuple français. // »",
+      "en": "He must never fight France or harm her in any way. // He must take up my motto: // “Everything for the French people.”",
+      "ko": "아들은 결코 프랑스와 싸워서도, / 어떤 식으로든 프랑스를 해쳐서도 안 된다. // 내 좌우명을 이어받아야 한다. // ‘모든 것은 프랑스 국민을 위하여.’"
+     }
+    },
+    {
+     "fr": "Je lègue à mon fils les boîtes, ordres et autres objets tels qu'argenterie, lit de camp, armes, selles, éperons, vases de ma chapelle, livres, linge, qui ont servi à mon corps et à mon usage, conformément à l'état annexé, coté A.",
+     "en": "I leave to my son the boxes, orders and other objects such as silverware, camp bed, weapons, saddles, spurs, vessels from my chapel, books and linen, which have served my person and my use, as set out in the attached list, marked A.",
+     "ko": "내 아들에게 상자, 훈장, 그리고 은그릇, 야전 침대, 무기, 안장, 박차, 예배당의 그릇, 책, 옷가지처럼 내 몸에 닿고 내가 쓰던 물건을, 붙여 둔 목록 A에 따라 남긴다.",
+     "orig": {
+      "fr": "Je lègue à mon fils les boîtes, Ordres et autres objets tels qu'argenterie, lit de camp, armes, selles, éperons, vases de ma chapelle, livres, linge, qui ont servi à mon corps et à mon usage, conformément à l'état annexé, coté A."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, Paris, Imprimerie impériale / Plon-Dumaine, 1858-1870, t. XXXII (1870), 'Œuvres de Napoléon Ier à Sainte-Hélène', Testament, pp. 476-477 · public domain · https://archive.org/details/correspondancedeNNnapouoft [identifiant du tome à confirmer]",
+     "speak": {
+      "fr": "Je lègue à mon fils les boîtes, / ordres et autres objets tels qu'argenterie, / lit de camp, armes, selles, éperons, / vases de ma chapelle, livres, linge, / qui ont servi à mon corps et à mon usage, / conformément à l'état annexé, / coté A.",
+      "en": "I leave to my son the boxes, / orders and other objects such as silverware, / camp bed, weapons, saddles, spurs, / vessels from my chapel, / books and linen, / which have served my person and my use, / as set out in the attached list, / marked A.",
+      "ko": "내 아들에게 상자, 훈장, / 그리고 은그릇, 야전 침대, 무기, 안장, 박차, / 예배당의 그릇, 책, / 옷가지처럼 내 몸에 닿고 내가 쓰던 물건을, / 붙여 둔 목록 A에 따라 남긴다."
+     }
+    },
+    {
+     "fr": "Je désire que ce faible legs lui soit cher, comme lui retraçant le souvenir d'un père dont l'univers l'entretiendra.",
+     "en": "I hope this small legacy will be dear to him, as it will bring back the memory of a father of whom the whole world will speak to him.",
+     "ko": "이 보잘것없는 유산이 아들에게 소중한 것이 되기를 바란다. 온 세상이 아들에게 들려줄 아버지를 떠올리게 해 줄 테니.",
+     "orig": {
+      "fr": "Je désire que ce faible legs lui soit cher comme lui retraçant le souvenir d'un père dont l'univers l'entretiendra."
+     },
+     "verified": true,
+     "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, Paris, Imprimerie impériale / Plon-Dumaine, 1858-1870, t. XXXII (1870), 'Œuvres de Napoléon Ier à Sainte-Hélène', Testament, pp. 476-477 · public domain · https://archive.org/details/correspondancedeNNnapouoft [identifiant du tome à confirmer]",
+     "speak": {
+      "fr": "Je désire que ce faible legs lui soit cher, / comme lui retraçant le souvenir d'un père dont l'univers l'entretiendra.",
+      "en": "I hope this small legacy will be dear to him, / as it will bring back the memory of a father of whom the whole world will speak to him.",
+      "ko": "이 보잘것없는 유산이 아들에게 소중한 것이 되기를 바란다. // 온 세상이 아들에게 들려줄 아버지를 떠올리게 해 줄 테니."
+     }
+    }
+   ],
+   "words": [
+    {
+     "fr": "oublier",
+     "pos": "v.",
+     "ipa": "ublie",
+     "en": "to forget",
+     "ko": "잊다"
+    },
+    {
+     "fr": "milieu",
+     "pos": "n.m.",
+     "ipa": "miljø",
+     "en": "middle",
+     "ko": "가운데"
+    },
+    {
+     "fr": "bord",
+     "pos": "n.m.",
+     "ipa": "bɔʁ",
+     "en": "edge; bank, shore",
+     "ko": "가장자리; (강 · 바다의) 가"
+    },
+    {
+     "fr": "prier",
+     "pos": "v.",
+     "ipa": "pʁie",
+     "en": "to ask, to beg; to pray",
+     "ko": "부탁하다; 기도하다"
+    },
+    {
+     "fr": "arme",
+     "pos": "n.f.",
+     "ipa": "aʁm",
+     "en": "weapon",
+     "ko": "무기"
+    },
+    {
+     "fr": "prince",
+     "pos": "n.m.",
+     "ipa": "pʁɛ̃s",
+     "en": "prince",
+     "ko": "왕자, 군주"
+    }
+   ],
+   "note": {
+    "ko": "워털루 전투 뒤 영국은 나폴레옹을 남대서양 한가운데의 섬 세인트헬레나로 보냈어요. 1821년 4월, 병이 깊어진 그는 롱우드에서 유언장을 썼고, 3주 뒤인 5월 5일 쉰한 살로 숨을 거두었어요. 이 글은 편지가 아니라 유언장 가운데 아들에게 남긴 대목이에요. ‘세 나라 권력자들(triumvirs)’ 은 그를 무너뜨린 동맹국들을 가리켜요. 아들(로마 왕, 훗날 라이히슈타트 공)은 그때 열 살로 빈의 외가에 있었고, 1832년 스물한 살에 세상을 떠나요. ‘센 강가에 잠들고 싶다’ 는 바람은 1840년 유해가 파리의 앵발리드로 돌아오면서 이루어졌어요. 유언장의 한국어는 유언 글말(-다)로 옮겼어요.",
+    "en": "After Waterloo the British sent Napoleon to St Helena, an island in the middle of the South Atlantic. In April 1821, gravely ill, he wrote his will at Longwood; three weeks later, on 5 May, he died at fifty-one. This is not a letter but the passages of his will that speak to and about his son. The ‘triumvirs’ are the allied powers that brought him down. The son (the King of Rome, later Duke of Reichstadt) was ten, living with his mother's family in Vienna; he died in 1832 at twenty-one. The wish to rest ‘on the banks of the Seine’ came true in 1840, when his remains were brought back to the Invalides in Paris.",
+    "source": "Correspondance de Napoléon Ier, publiée par ordre de l'empereur Napoléon III, Paris, Imprimerie impériale / Plon-Dumaine, 1858-1870, t. XXXII (1870), 'Œuvres de Napoléon Ier à Sainte-Hélène', Testament, pp. 476-477 · public domain · https://archive.org/details/correspondancedeNNnapouoft [identifiant du tome à confirmer] ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_fr": "La maison de Napoléon à Longwood",
+    "title_en": "Napoleon's House at Longwood",
+    "title_ko": "롱우드의 나폴레옹 집",
+    "date": "XIXe siècle",
+    "credit": "anonymous photographer",
+    "collection": "Rijksmuseum, Amsterdam (RP-F-F02293) · CC0",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Napoleon%27s_huis_in_Longwood,_RP-F-F02293.jpg",
+    "why": {
+     "ko": "나폴레옹이 마지막 여섯 해를 보내고 유언장을 쓴 집이에요.",
+     "en": "The house where Napoleon spent his last six years and wrote his will."
+    },
+    "image": "n-e1.webp",
+    "kind": "painting",
+    "spots": [
+     {
+      "x": 0.5,
+      "y": 0.46,
+      "title": {
+       "fr": "Longwood",
+       "en": "Longwood",
+       "ko": "롱우드"
+      },
+      "note": {
+       "ko": "세인트헬레나의 롱우드 집.",
+       "en": "Longwood House on St Helena."
+      },
+      "word": {
+       "fr": "Longwood",
+       "en": "Longwood",
+       "ko": "롱우드",
+       "ipa": "lɔ̃ɡwud"
+      },
+      "quote": 0
+     }
+    ],
+    "commonsFile": "File:Napoleon's huis in Longwood, RP-F-F02293.jpg"
+   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "E.1",
+     "fr": "Papa, je te promets de ne jamais oublier.",
+     "en": "Dad, you asked me never to forget, and I won't.",
+     "ko": "아버지가 잊지 말라고 하셨죠. 절대 안 잊을게요.",
+     "koLow": "아버지가 잊지 말라고 했지. 절대 안 잊을게.",
+     "koHigh": "아버지께서 잊지 말라고 하셨지요. 절대 잊지 않겠습니다.",
+     "focus": {
+      "fr": [
+       "de ne jamais oublier"
+      ],
+      "en": [
+       "asked me never to forget"
+      ],
+      "ko": [
+       "잊지 말라고"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "de ne oublier jamais",
+        "de jamais ne oublier"
+       ]
+      ],
+      "en": [
+       [
+        "asked me to never forgot",
+        "asked me never forget"
+       ]
+      ],
+      "ko": [
+       [
+        "잊지 마라고",
+        "잊지 말으라고"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "E.0",
+     "fr": "Moi aussi, je désire que tu reviennes un jour en France.",
+     "en": "I hope you come back to France one day too.",
+     "ko": "아버지가 언젠가 프랑스로 돌아가시면 좋겠어요.",
+     "koLow": "아버지가 언젠가 프랑스로 돌아가면 좋겠어.",
+     "koHigh": "아버지께서 언젠가 프랑스로 돌아가시기를 바랍니다.",
+     "focus": {
+      "fr": [
+       "que tu reviennes"
+      ],
+      "en": [
+       "I hope you come back"
+      ],
+      "ko": [
+       "좋겠어요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "que tu reviens",
+        "que tu revenir"
+       ]
+      ],
+      "en": [
+       [
+        "I hope you came back",
+        "I wish you come back"
+       ]
+      ],
+      "ko": [
+       [
+        "좋겠어여",
+        "좋갰어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "E.2",
+     "fr": "Je dois garder ta devise, et je ne dois jamais faire de mal à la France.",
+     "en": "I must keep your motto, and I must never harm France.",
+     "ko": "아버지의 좌우명을 꼭 기억해야 해요. 프랑스를 해치면 안 돼요.",
+     "koLow": "아버지 좌우명을 꼭 기억해야 해. 프랑스를 해치면 안 돼.",
+     "koHigh": "아버지의 좌우명을 꼭 기억해야 합니다. 프랑스를 해쳐서는 안 됩니다.",
+     "focus": {
+      "fr": [
+       "je ne dois jamais faire"
+      ],
+      "en": [
+       "I must never harm"
+      ],
+      "ko": [
+       "기억해야 해요"
+      ]
+     },
+     "wrong": {
+      "fr": [
+       [
+        "je ne dois faire jamais",
+        "je ne jamais dois faire"
+       ]
+      ],
+      "en": [
+       [
+        "I must never to harm",
+        "I never must harm"
+       ]
+      ],
+      "ko": [
+       [
+        "기억해야 해여",
+        "기억하야 해요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "fr": "Longwood, île de Sainte-Hélène · 15 avril 1821",
+      "en": "Longwood, St Helena · 15 April 1821",
+      "ko": "세인트헬레나 섬 롱우드 · 1821년 4월 15일"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "longwood",
+     "title": {
+      "fr": "Longwood",
+      "en": "Longwood",
+      "ko": "롱우드"
+     },
+     "address": "Île de Sainte-Hélène, Atlantique Sud"
+    }
+   ],
+   "status": {
+    "fr": "Le testament",
+    "en": "The will",
+    "ko": "유언장"
+   },
+   "check": [
+    {
+     "q": {
+      "fr": "Où Napoléon désire-t-il que reposent ses cendres ?",
+      "en": "Where does Napoleon want his ashes to rest?",
+      "ko": "나폴레옹은 자기 유해가 어디에 잠들기를 바라나요?"
+     },
+     "options": [
+      {
+       "fr": "Sur les bords de la Seine",
+       "en": "On the banks of the Seine",
+       "ko": "센 강가"
+      },
+      {
+       "fr": "À Sainte-Hélène",
+       "en": "On St Helena",
+       "ko": "세인트헬레나"
+      },
+      {
+       "fr": "En Corse",
+       "en": "In Corsica",
+       "ko": "코르시카"
+      },
+      {
+       "fr": "À Vienne",
+       "en": "In Vienna",
+       "ko": "빈"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1,
+     "mark": {
+      "fr": "bords de la Seine",
+      "en": "banks of the Seine",
+      "ko": "센 강가"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "상상 속 통화: 빈의 열 살 아들과 세인트헬레나의 아버지",
+     "en": "An imagined call: the ten-year-old son in Vienna and his father on St Helena"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "fr": "Bonjour, mon fils. Tu travailles bien à l'école ?",
+      "en": "Hello, son. Are you working hard at school?",
+      "ko": "안녕, 아들. 공부는 열심히 하고 있니?"
+     },
+     {
+      "who": "me",
+      "fr": "Oui, papa. J'apprends le français et l'histoire.",
+      "en": "Yes, Dad. I'm learning French and history.",
+      "ko": "네, 아버지. 프랑스어랑 역사를 배우고 있어요.",
+      "focus": {
+       "fr": [
+        "J'apprends"
+       ],
+       "en": [
+        "I'm learning"
+       ],
+       "ko": [
+        "배우고 있어요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "J'apprend",
+         "J'apprenons"
+        ]
+       ],
+       "en": [
+        [
+         "I learning",
+         "I'm learn"
+        ]
+       ],
+       "ko": [
+        [
+         "배우고 있아요",
+         "배우고 잇어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Très bien. N'oublie jamais : tu es né prince français.",
+      "en": "Very good. Never forget: you were born a French prince.",
+      "ko": "잘했다. 잊지 말거라. 너는 프랑스 왕자로 태어났단다."
+     },
+     {
+      "who": "me",
+      "fr": "Je ne l'oublierai jamais, papa. C'est promis.",
+      "en": "I'll never forget it, Dad. I promise.",
+      "ko": "절대 잊지 않을게요, 아버지. 약속해요.",
+      "focus": {
+       "fr": [
+        "Je ne l'oublierai jamais"
+       ],
+       "en": [
+        "I'll never forget"
+       ],
+       "ko": [
+        "잊지 않을게요"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Je ne l'oublierai pas jamais",
+         "Je l'oublierai ne jamais"
+        ]
+       ],
+       "en": [
+        [
+         "I'll never forgot",
+         "I'll not never forget"
+        ]
+       ],
+       "ko": [
+        [
+         "잊지 않을께요",
+         "잊지 안을게요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "oublier",
+     "prince"
+    ],
+    "grammar": "E.1",
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Son fils)."
+   },
+   "head": {
+    "fr": "(Testament, Longwood, 15 avril 1821)",
+    "en": "(From his will, Longwood, 15 April 1821)",
+    "ko": "(1821년 4월 15일, 롱우드에서 쓴 유언장에서)"
+   }
+  }
+ ]
+}

@@ -2,7 +2,6 @@
  "_doc": "나폴레옹 시리즈 표지 정보와 챕터 목록. 프랑스어 원문은 공공 영역 판본 (Tennant 1824 · Didot 1833 · Correspondance 1858–70 · Du Casse 1853–54 · Lecestre 1897 등, 메시지마다 source), 철자는 지금 표기로 (명백한 오자 · 옛 철자는 앱 글에서 표시 없이 고침, 찍힌 글자는 메시지 orig 에만). 영어 · 한국어는 이 앱의 번역. \"hidden\": true = 출시 전: generate.py 가 앱에 넣지 않는다 (서재에는 ‘곧 도착’ 카드 그대로).",
  "id": "napoleon",
  "order": 3,
- "hidden": true,
  "original": "fr",
  "sender": "Napoléon",
  "name": {
