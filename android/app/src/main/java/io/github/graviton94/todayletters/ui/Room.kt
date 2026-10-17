@@ -286,7 +286,7 @@ fun Room(s: AppState, r: Route.Letter) {
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
         RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else shortDateLine(letter.date, letter.place),
             known = if (writing) null else known, knownLabel = knownLabel,
-            auto = s.app.sound, onAuto = { if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }, onInfo = { s.go(Route.RoomInfo(r)) })
+            auto = s.app.sound, onAuto = if (!narrated) null else ({ if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }), onInfo = { s.go(Route.RoomInfo(r)) })
         val ctx = androidx.compose.ui.platform.LocalContext.current
         val notYet = stringResource(R.string.step_not_yet)
         val nLetter = remember(letter.id) { work.chapters.flatMap { it.letters }.indexOf(letter) + 1 }
@@ -534,7 +534,7 @@ private fun TypingBubble(name: String, still: Boolean) {
 private fun RoomHeader(
     s: AppState, portrait: String, name: String, sub: String,
     known: Int? = null, knownLabel: String? = null,
-    auto: Boolean, onAuto: () -> Unit, onInfo: () -> Unit,
+    auto: Boolean, onAuto: (() -> Unit)?, onInfo: () -> Unit,
 ) {
     val p = Ink.palette
     var knownNote by remember { mutableStateOf(false) }
@@ -558,8 +558,8 @@ private fun RoomHeader(
                 if (knownNote && knownLabel != null) NumberNote(knownLabel,
                     listOf(stringResource(R.string.note_known_1), stringResource(R.string.note_known_2, stringResource(R.string.stage_recall)))) { knownNote = false }
             }
-            // 자동 낭독 켜기 · 끄기: 켜져 있으면 금빛으로 채운 스피커, 꺼져 있으면 빗금
-            HeadButton(stringResource(if (auto) R.string.room_auto_on else R.string.room_auto_off), onClick = onAuto) {
+            // 자동 낭독 켜기 · 끄기: 켜져 있으면 금빛으로 채운 스피커, 꺼져 있으면 빗금. 낭독이 이 기기에 없으면 (소리 없이 읽기) 단추 없음
+            if (onAuto != null) HeadButton(stringResource(if (auto) R.string.room_auto_on else R.string.room_auto_off), onClick = onAuto) {
                 Box(Modifier.size(34.dp).background(if (auto) p.giltText else Color.Transparent, androidx.compose.foundation.shape.CircleShape)
                     .border(1.dp, p.giltText, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) {
                     Canvas(Modifier.size(16.dp)) {
