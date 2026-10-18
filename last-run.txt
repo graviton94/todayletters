@@ -1,3 +1,3 @@
 a11y.txt
-thanks1_sub_light.png
-thanks2_own_light.png
+depth09_reply_speak_a2_light.png
+depth10_reply_speak_b1_dark.png
