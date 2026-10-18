@@ -336,7 +336,8 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
     }
     fun say(i: Int, speed: Float? = null) = letter.words.getOrNull(i)?.let { s.narrator.play(s.wordAudio(r.room.series, chapter, letter, it, view.learn), speed) }
     LaunchedEffect(letter.id, k) { if (!done) say(k) }
-    LaunchedEffect(over, k) { if (over) { delay(1100); at = k + 1 } }
+    // 맞히면 잠깐 뒤 다음 낱말. 정답 발음이 끝나기 전에는 넘어가지 않는다 (다음 낱말 소리가 그것을 자르지 않게)
+    LaunchedEffect(over, k) { if (over) { awaitAnswerSound(s.narrator, 1100); at = k + 1 } }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
         PracticeHeader(minOf(at, n), n, onClose = onClose, onHelp = { helpId(s.route)?.let { s.coachAgain(it) } }, count = "${minOf(at + 1, n)} / $n")

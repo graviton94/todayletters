@@ -423,6 +423,15 @@ fun spokenText(text: String, range: IntRange?, color: Color): androidx.compose.u
 suspend fun pause(ms: Int, still: Boolean) { if (!still && ms > 0) delay(ms.toLong()) }
 
 /**
+ * 맞힌 뒤 저절로 넘어가기 전: 적어도 [ms] 를 두고, 그 사이 정답 발음([narrator] 의 지금 소리)이 울리면 끝날 때까지 기다린다
+ * ([io.github.graviton94.todayletters.core.Listen.holdAdvance], 최대 8초). 소리가 없거나 소리를 끈 설정이면 [ms] 만.
+ */
+suspend fun awaitAnswerSound(narrator: io.github.graviton94.todayletters.data.Narrator, ms: Int) {
+    val t0 = android.os.SystemClock.uptimeMillis()
+    while (io.github.graviton94.todayletters.core.Listen.holdAdvance(android.os.SystemClock.uptimeMillis() - t0, narrator.now != null, ms.toLong())) delay(50)
+}
+
+/**
  * 단어장 낱말이 문장 안 어디에 있는지: 글자 범위와 낱말 번호.
  * 낱말은 사전형으로 적혀 있어서(arbre · fleur) 문장의 꼴(arbres · fleurs)과 앞부분이 같으면 같은 낱말로 본다.
  */

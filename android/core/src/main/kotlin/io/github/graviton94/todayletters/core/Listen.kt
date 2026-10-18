@@ -25,6 +25,16 @@ object Listen {
 
     fun speed(s: SeriesSettings, band: Reading.Band): Float = speed(s.listenAuto, s.listenSpeed, band)
 
+    /** 정답 발음을 기다리는 가장 긴 시간 (소리가 멈춘 채 남아도 퀴즈가 서 있지 않게). */
+    const val HOLD_CAP_MS = 8000L
+
+    /**
+     * 맞힌 뒤 저절로 다음 문제로 넘어가기 전에 더 기다릴까: 적어도 [minMs] 는 두고, 정답 발음이 아직 울리면([sounding]) 끝날 때까지
+     * (최대 [capMs]). 다음 문제의 자동 낭독이 정답 발음을 자르지 않게. 사람이 ‘다음’ 을 누르면 이것과 상관없이 멈추고 넘어간다.
+     */
+    fun holdAdvance(elapsedMs: Long, sounding: Boolean, minMs: Long, capMs: Long = HOLD_CAP_MS): Boolean =
+        elapsedMs < capMs && (elapsedMs < minMs || sounding)
+
     /** 설정 칸의 글자 ("0.7" · "0.85" · "1.0"). */
     fun label(v: Float): String = if (v == 1f) "1.0" else v.toString().trimEnd('0')
 }

@@ -30,3 +30,20 @@ class ListenTest {
         assertEquals(listOf("0.7", "0.85", "1.0"), Listen.CHOICES.map(Listen::label))
     }
 }
+
+/** 맞힌 뒤 저절로 넘어가기: 정답 발음이 끝날 때까지 기다린다 (다음 문제 소리가 자르지 않게). */
+class HoldAdvanceTest {
+    @Test fun waitsAtLeastTheMinimum() {
+        kotlin.test.assertTrue(Listen.holdAdvance(500, sounding = false, minMs = 1100))
+        kotlin.test.assertFalse(Listen.holdAdvance(1100, sounding = false, minMs = 1100))
+    }
+
+    @Test fun keepsWaitingWhileTheAnswerIsSounding() {
+        kotlin.test.assertTrue(Listen.holdAdvance(2500, sounding = true, minMs = 1100))
+        kotlin.test.assertFalse(Listen.holdAdvance(2550, sounding = false, minMs = 1100))
+    }
+
+    @Test fun neverWaitsPastTheCap() {
+        kotlin.test.assertFalse(Listen.holdAdvance(Listen.HOLD_CAP_MS, sounding = true, minMs = 1100))
+    }
+}

@@ -62,7 +62,6 @@ import io.github.graviton94.todayletters.design.Faces
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
-import kotlinx.coroutines.delay
 
 /*
  * 학습 깊이 (시안 depth.html 2): 편지 이해 확인 · 오늘의 회화 · 답장 말해 보기, 그리고 셋이 같이 쓰는 문장 말하기 칸.
@@ -190,7 +189,8 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     var marks by rememberSaveable(letter.id) { mutableStateOf("") }
     fun audio(i: Int): String? = talk?.audioName(i, view.learn)?.let { s.narrator.path(id, chapter, letter.id, it) }?.takeIf { s.narrator.has(it) }
     LaunchedEffect(shown, lines.size) {
-        if (shown < lines.size && !lines[shown].me) { delay(if (shown == 0) 300 else 900); shown++ }
+        // 앞 줄 소리(상대 줄 · 내 줄 정답 소리)가 끝난 뒤에 다음 상대 줄 (그 줄의 소리가 앞 소리를 자르지 않게)
+        if (shown < lines.size && !lines[shown].me) { awaitAnswerSound(s.narrator, if (shown == 0) 300 else 900); shown++ }
     }
     LaunchedEffect(shown) { val i = shown - 1; if (i >= 0 && !lines[i].me) audio(i)?.let { s.narrator.play(it) } }
     DisposableEffect(letter.id) { onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release(); s.narrator.stop() } }
