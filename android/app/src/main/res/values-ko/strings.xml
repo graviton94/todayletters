@@ -410,7 +410,7 @@
     <string name="read_great">훌⁠륭⁠해⁠요⁠!</string>
     <string name="read_skip">넘⁠어⁠가⁠기 (⁠통⁠과⁠로 세⁠지 않⁠아⁠요⁠)</string>
     <string name="today_reread">오⁠늘⁠의 편⁠지 다⁠시 읽⁠기</string>
-    <string name="today_all_letters">전⁠체 편⁠지 목⁠록 ›</string>
+    <string name="today_all_letters">목⁠차 · 모⁠든 편⁠지 ›</string>
     <string name="meaning_prompt">이 낱⁠말⁠의 뜻⁠은⁠?</string>
     <string name="dl_all_chapters">모⁠든 장</string>
     <string name="set_storage">저⁠장 공⁠간</string>
@@ -881,4 +881,17 @@
     <string name="gallery_none_plates">편⁠지⁠를 열⁠면 그⁠림⁠이 여⁠기 와⁠요</string>
     <string name="gallery_none_collected">오⁠늘⁠의 자⁠료 · 상⁠점⁠에⁠서 모⁠여⁠요</string>
     <string name="journey_left">남⁠은 걸⁠음 · %1$s</string>
+    <string name="today_whose">%1$s⁠의 편⁠지</string>
+    <string name="today_learning">%1$s⁠로 배⁠우⁠는 중</string>
+    <string name="today_waiting">와 있⁠는 편⁠지 %1$d⁠통</string>
+    <string name="today_row_unread">%1$s · 못 읽⁠음 ›</string>
+    <string name="today_row_reading">%1$s · 읽⁠는 중 ›</string>
+    <string name="today_other_one">%1$s⁠에⁠도 편⁠지 %2$d⁠통⁠이 와 있⁠어⁠요 ›</string>
+    <string name="today_other_many">다⁠른 작⁠품⁠에 편⁠지 %1$d⁠통 ›</string>
+    <string name="lib_where">%1$s⁠장 · %2$s</string>
+    <string name="lib_when_today">오⁠늘 읽⁠음</string>
+    <string name="lib_when_yesterday">어⁠제</string>
+    <string name="lib_when_days">%1$d⁠일 전</string>
+    <string name="lib_fresh">처⁠음 열⁠기 · 서⁠문⁠부⁠터</string>
+    <string name="lib_waiting">편⁠지 %1$d⁠통</string>
 </resources>

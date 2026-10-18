@@ -410,7 +410,7 @@
     <string name="read_great">Excellent!</string>
     <string name="read_skip">Skip for now (won\'t count as passed)</string>
     <string name="today_reread">Reread today\'s letter</string>
-    <string name="today_all_letters">All letters ›</string>
+    <string name="today_all_letters">Contents · all letters ›</string>
     <string name="meaning_prompt">What does this word mean?</string>
     <string name="dl_all_chapters">All chapters</string>
     <string name="set_storage">Storage</string>
@@ -881,4 +881,17 @@
     <string name="gallery_none_plates">Open a letter and its painting comes here</string>
     <string name="gallery_none_collected">Gathered from today\'s pieces and the Shop</string>
     <string name="journey_left">Still to do · %1$s</string>
+    <string name="today_whose">Letters from %1$s</string>
+    <string name="today_learning">Learning %1$s</string>
+    <string name="today_waiting">%1$d letters waiting</string>
+    <string name="today_row_unread">%1$s · unread ›</string>
+    <string name="today_row_reading">%1$s · in progress ›</string>
+    <string name="today_other_one">%1$s has %2$d waiting too ›</string>
+    <string name="today_other_many">%1$d letters in other works ›</string>
+    <string name="lib_where">Chapter %1$s · %2$s</string>
+    <string name="lib_when_today">read today</string>
+    <string name="lib_when_yesterday">yesterday</string>
+    <string name="lib_when_days">%1$d days ago</string>
+    <string name="lib_fresh">Start with the prologue</string>
+    <string name="lib_waiting">%1$d waiting</string>
 </resources>

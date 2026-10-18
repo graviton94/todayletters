@@ -241,6 +241,29 @@ class ScreensTest {
         shot("u01_whatsnew_ko_light", false) { LibraryTab(s); io.github.graviton94.todayletters.ui.UpdateLayer(s) } }
     @Test fun updateReady() { val s = state(true); s.go(io.github.graviton94.todayletters.core.Route.Library); s.whatsNew = false; s.updateReady = true
         shot("u02_update_ready_ko_dark", true) { LibraryTab(s); io.github.graviton94.todayletters.ui.UpdateLayer(s) } }
+    // ── 바로 오늘로 (nav 시안 A) ─────────────
+    /** 빈센트: 편지 I 마침 · II 읽는 중 · III 새로 (와 있는 편지 2통), 모차르트도 읽기 시작 (다른 작품 소식 한 줄). */
+    private fun navState(): AppState {
+        val s = state(true)
+        val v = s.work("vincent").chapters.first().letters
+        s.save("vincent", "I", v[0].id, s.progress("vincent", "I", v[0].id).copy(shown = v[0].messages.size, done = true))
+        s.store.markStarted(s.key("vincent", "I", v[0].id))
+        s.save("vincent", "I", v[1].id, s.progress("vincent", "I", v[1].id).copy(shown = 1))
+        s.store.markStarted(s.key("vincent", "I", v[1].id))
+        if (s.works.any { it.series.id == "mozart" }) {
+            s.store.markLearnChosen("mozart")
+            val m = s.work("mozart").chapters.first()
+            s.store.markStarted(s.key("mozart", m.id, m.letters[0].id))
+            s.save("mozart", m.id, m.letters[0].id, s.progress("mozart", m.id, m.letters[0].id).copy(shown = 1))
+        }
+        s.store.markLearnChosen("vincent"); s.store.markFirstAsked("vincent")
+        s.enter("vincent")
+        return s
+    }
+    @Test fun navToday() { val s = navState(); shot("nav1_today_light", false, series = s) { Inbox(s) } }
+    @Test fun navTodayDark() { val s = navState(); shot("nav1_today_dark", true, series = s) { Inbox(s) } }
+    @Test fun navLibrary() { val s = navState(); shot("nav2_library_dark", true) { LibraryTab(s) } }
+
     @Test fun library() { val s = state(true); shot("12_library_ko_dark", true) { LibraryTab(s) } }
 
     /** 편지 두 통을 끝내고 낱말을 모은 상태 (복습 화면들). 몇 장은 오늘 복습할 차례로. */

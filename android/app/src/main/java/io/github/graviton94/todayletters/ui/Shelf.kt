@@ -134,16 +134,37 @@ private fun SeriesCard(s: AppState, w: Work) {
             Row(verticalAlignment = Alignment.Bottom) {
                 Column(Modifier.weight(0.5f), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                     Text(stringResource(R.string.lib_letters, done, total), style = Type.small.ui(), color = t.ink)
+                    // 진도: 읽는 장 · 마지막으로 읽은 날 (처음이면 서문부터)
+                    Text(libWhere(s, w), style = Type.small.ui(), color = t.soft, maxLines = 1)
                     Box(Modifier.fillMaxWidth().height(3.dp).background(t.ink.copy(alpha = 0.18f))) {
                         Box(Modifier.fillMaxWidth(if (total == 0) 0f else done.toFloat() / total).height(3.dp).background(t.accent))
                     }
                 }
                 Spacer(Modifier.weight(0.2f))
-                val badge = when { unread > 0 -> stringResource(R.string.lib_arrived); due > 0 -> stringResource(R.string.lib_due, due); else -> null }
+                val waiting = if (s.startedCount(id) > 0) s.waitingLetters(id).size else 0
+                val badge = when { waiting > 0 -> stringResource(R.string.lib_waiting, waiting); unread > 0 -> stringResource(R.string.lib_arrived); due > 0 -> stringResource(R.string.lib_due, due); else -> null }
                 if (badge != null) Text(badge, style = Type.small.ui(), color = t.paper, modifier = Modifier.background(t.accent).padding(horizontal = 10.dp, vertical = 4.dp))
             }
         }
     }
+}
+
+/** 서재 카드의 진도 한 줄: “VI장 · 3일 전” (다음에 읽을 편지의 장 · 마지막으로 편지를 연 날), 아직 열지 않았으면 “처음 열기 · 서문부터”. */
+@Composable
+private fun libWhere(s: AppState, w: Work): String {
+    val id = w.series.id
+    if (s.startedCount(id) == 0) return stringResource(R.string.lib_fresh)
+    val next = w.chapters.indexOfFirst { c -> c.letters.any { !s.progress(id, c.id, it.id).done } }.let { if (it < 0) w.chapters.size - 1 else it }
+    val day = s.store.lastOpen(s.space(id)).first
+    val ago = if (day < 0) -1L else java.time.LocalDate.now().toEpochDay() - day
+    val whenText = when {
+        ago < 0 -> null
+        ago == 0L -> stringResource(R.string.lib_when_today)
+        ago == 1L -> stringResource(R.string.lib_when_yesterday)
+        else -> stringResource(R.string.lib_when_days, ago.toInt())
+    }
+    val ch = roman(next + 1)
+    return stringResource(R.string.lib_where, ch, whenText ?: "").trimEnd(' ', '·')
 }
 
 /**

@@ -79,11 +79,21 @@ fun Inbox(s: AppState) {
     var backupSheet by remember { mutableStateOf(false) }
     Box(Modifier.fillMaxSize()) {
     Column(Modifier.fillMaxSize()) {
-        SeriesHeader(s)
+        SeriesHeader(s, learnChip = false)
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
+            // 다른 작품 소식 한 줄 (읽기 시작한 작품에 편지가 와 있을 때)
+            OthersLine(s, id)
+            // 누구의 편지 · 무엇을 배우는지 (누르면 배우는 말 바꾸기)
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                Box(Modifier.border(1.5.dp, p.giltText, CircleShape).padding(1.5.dp)) { Portrait(work.portrait, work.fullName, 44.dp) }
+                Column(Modifier.weight(1f)) {
+                    Text(stringResource(R.string.today_whose, work.name[uiLang()]), style = Type.title.ui(), color = p.ink, maxLines = 1)
+                    LearnChip(s, id, learning = true)
+                }
+            }
             TodayLine(j)
             // 기록 보관 한 줄 (오래 보관하지 않았을 때만)
             BackupNudgeLine(s) { backupSheet = true }
@@ -96,7 +106,11 @@ fun Inbox(s: AppState) {
             // I 오늘의 편지
             // 여정을 마친 날, 할 것이 없던 걸음도 끝난 표시 (머리의 3 / 3 과 맞춘다)
             JourneyStep("I", stringResource(R.string.journey_letter), if (j.complete && j.letter == Journey.Step.NONE) Journey.Step.DONE else j.letter, last = false) {
+                // 여러 통이 와 있으면: 수 · 가장 앞의 편지를 큰 단추로 · 나머지는 한 줄씩
+                val waiting = s.waitingLetters(id)
+                if (tl != null && waiting.size > 1) Text(stringResource(R.string.today_waiting, waiting.size), style = Type.small.ui(), color = p.giltText, maxLines = 1)
                 if (tl != null) TodayLetter(s, id, work, tl.first, tl.second, letters)
+                if (tl != null) waiting.filter { it.second != tl.second }.forEach { (c, l) -> WaitingRow(s, id, work, c, l, letters) }
                 else {
                     val upcoming = letters.firstOrNull { l -> s.openable(id).none { it.second == l } }
                     val days = upcoming?.let { s.daysUntil(id, it.id) }
@@ -223,6 +237,34 @@ private fun TodayLetter(s: AppState, id: String, work: io.github.graviton94.toda
             }
             NextLetterLine(s, id)
         }
+    }
+}
+
+/** 와 있는 다른 편지 한 줄: 편지 번호 · 날짜 · 못 읽음 (열어 본 편지는 읽는 중) ›. 누르면 그 편지로. */
+@Composable
+private fun WaitingRow(s: AppState, id: String, work: io.github.graviton94.todayletters.data.Work, c: String, l: io.github.graviton94.todayletters.core.Letter,
+                       letters: List<io.github.graviton94.todayletters.core.Letter>) {
+    val p = Ink.palette
+    val head = stringResource(R.string.letter_n, roman(letters.indexOf(l) + 1)) + " · " + (l.status?.get(uiLang()) ?: dateLine(l.date, l.place))
+    val started = s.progress(id, c, l.id).shown > 0
+    Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable { s.open(id, c, l, Route.Inbox) }, contentAlignment = Alignment.CenterStart) {
+        Text(stringResource(if (started) R.string.today_row_reading else R.string.today_row_unread, head), style = Type.body.ui(), color = p.ink, maxLines = 1,
+            overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+    }
+}
+
+/** 다른 작품 소식: 한 작품이면 “모차르트에도 편지 1통이 와 있어요 ›” (그 작품의 오늘로), 여럿이면 “다른 작품에 편지 N통 ›” (서재로). */
+@Composable
+private fun OthersLine(s: AppState, id: String) {
+    val p = Ink.palette
+    val others = s.othersWaiting(id)
+    if (others.isEmpty()) return
+    val one = others.singleOrNull()
+    val text = if (one != null) stringResource(R.string.today_other_one, s.work(one.first).name[uiLang()], one.second)
+        else stringResource(R.string.today_other_many, others.sumOf { it.second })
+    Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).border(1.dp, p.line).pressable { if (one != null) s.enter(one.first) else s.go(Route.Library) }
+        .padding(horizontal = Tokens.Space.s3), contentAlignment = Alignment.CenterStart) {
+        Text(text, style = Type.small.ui(), color = p.giltText, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
     }
 }
 

@@ -28,15 +28,17 @@ import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 
 /**
- * 서재에서만: ① 업데이트 뒤 첫 실행이면 ‘새로 바뀐 것’ 한 장 ② 새 버전을 다 받아 두었으면 아래 띠 ‘다시 열기’
+ * 서재 · 오늘에서만: ① 업데이트 뒤 첫 실행이면 ‘새로 바뀐 것’ 한 장 ② 새 버전을 다 받아 두었으면 아래 띠 ‘다시 열기’
  * ③ (둘 다 아니면) 오늘 아직 안 물었을 때 Play 의 새 버전 확인 창 (data/Updates).
  */
 @Composable
 fun UpdateLayer(s: AppState) {
-    if (s.route != Route.Library) return
+    // 앱을 켜면 오늘부터일 수도 있어 (읽던 작품) 서재와 오늘 둘 다에서
+    if (s.route != Route.Library && s.route != Route.Inbox) return
     val busy = s.crashAsk || s.reward != null || s.levelUp != null || s.gradeUp != null || s.settingsOpen
     LaunchedEffect(s.route, s.whatsNew, busy) { if (!s.whatsNew && !busy) s.askUpdate() }
-    if (s.updateReady && !s.whatsNew) Box(Modifier.fillMaxSize().navigationBarsPadding(), contentAlignment = Alignment.BottomCenter) {
+    // 아래 띠는 서재에서만 (오늘은 이름표 줄이 그 자리)
+    if (s.updateReady && !s.whatsNew && s.route == Route.Library) Box(Modifier.fillMaxSize().navigationBarsPadding(), contentAlignment = Alignment.BottomCenter) {
         val p = Ink.palette
         Row(
             Modifier.padding(Tokens.Space.s3).fillMaxWidth().background(p.fill)

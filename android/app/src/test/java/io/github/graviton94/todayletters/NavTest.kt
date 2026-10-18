@@ -53,6 +53,26 @@ class NavTest {
 
     private fun AppState.backTo(r: Route) { assertTrue(back()); assertEquals(r, route) }
 
+    /** 앱을 켜면 마지막으로 읽던 작품의 오늘 (뒤로 가면 서재). 작품에 들어가기만 하고 한 통도 안 열었으면 서재부터. */
+    @Test fun startOpensLastSeriesToday() {
+        val s = state()
+        s.enter("vincent")
+        assertEquals(Route.Library, AppState(ctx).route)
+        val room = Route.Letter("vincent", 1, 1)
+        val (c, l) = s.letterOf(room)
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = 1))
+        val again = AppState(ctx)
+        assertEquals("vincent", again.current)
+        assertEquals(listOf(Route.Library, Route.Inbox), again.stack.toList())
+        again.backTo(Route.Library)
+    }
+
+    /** 처음 쓰는 사람은 서재부터 (읽던 기록이 있어도 소개를 마치기 전에는). */
+    @Test fun firstRunStartsAtLibrary() {
+        val s = state(onboarded = false)
+        assertEquals(Route.Library, s.route)
+    }
+
     /**
      * 튜토리얼 뒤 다른 작품 (모차르트) 에 처음 들어갈 때: 배울 말만 고르는 시트 → 바로 편지 I (프롤로그는 저절로 띄우지 않고 목차에서).
      * 도움말 · 안내 한 줄은 저절로 뜨지 않는다. 다음부터는 오늘로.

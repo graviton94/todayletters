@@ -1637,8 +1637,8 @@
     "ko": "오늘의 편지 다시 읽기"
   },
   "today_all_letters": {
-    "en": "All letters ›",
-    "ko": "전체 편지 목록 ›"
+    "en": "Contents · all letters ›",
+    "ko": "목차 · 모든 편지 ›"
   },
   "meaning_prompt": {
     "en": "What does this word mean?",
@@ -3519,5 +3519,57 @@
   "journey_left": {
     "en": "Still to do · %1$s",
     "ko": "남은 걸음 · %1$s"
+  },
+  "today_whose": {
+    "en": "Letters from %1$s",
+    "ko": "%1$s의 편지"
+  },
+  "today_learning": {
+    "en": "Learning %1$s",
+    "ko": "%1$s로 배우는 중"
+  },
+  "today_waiting": {
+    "en": "%1$d letters waiting",
+    "ko": "와 있는 편지 %1$d통"
+  },
+  "today_row_unread": {
+    "en": "%1$s · unread ›",
+    "ko": "%1$s · 못 읽음 ›"
+  },
+  "today_row_reading": {
+    "en": "%1$s · in progress ›",
+    "ko": "%1$s · 읽는 중 ›"
+  },
+  "today_other_one": {
+    "en": "%1$s has %2$d waiting too ›",
+    "ko": "%1$s에도 편지 %2$d통이 와 있어요 ›"
+  },
+  "today_other_many": {
+    "en": "%1$d letters in other works ›",
+    "ko": "다른 작품에 편지 %1$d통 ›"
+  },
+  "lib_where": {
+    "en": "Chapter %1$s · %2$s",
+    "ko": "%1$s장 · %2$s"
+  },
+  "lib_when_today": {
+    "en": "read today",
+    "ko": "오늘 읽음"
+  },
+  "lib_when_yesterday": {
+    "en": "yesterday",
+    "ko": "어제"
+  },
+  "lib_when_days": {
+    "en": "%1$d days ago",
+    "ko": "%1$d일 전"
+  },
+  "lib_fresh": {
+    "en": "Start with the prologue",
+    "ko": "처음 열기 · 서문부터"
+  },
+  "lib_waiting": {
+    "en": "%1$d waiting",
+    "ko": "편지 %1$d통"
   }
 }

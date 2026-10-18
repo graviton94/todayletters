@@ -53,7 +53,7 @@ fun learnLabel(l: io.github.graviton94.todayletters.core.Lang): String {
 
 /** 작은 단추: “배우는 말: 프랑스어 (Français) ▾”. [ink] · [line] 은 그 자리의 글자 · 테 색. */
 @Composable
-fun LearnChip(s: AppState, id: String, ink: Color = Ink.palette.ink, line: Color = Ink.palette.line) {
+fun LearnChip(s: AppState, id: String, ink: Color = Ink.palette.ink, line: Color = Ink.palette.line, learning: Boolean = false) {
     var open by remember(id) { mutableStateOf(false) }
     val learn = s.room(id).learn
     val label = learnLabel(learn)
@@ -62,7 +62,7 @@ fun LearnChip(s: AppState, id: String, ink: Color = Ink.palette.ink, line: Color
         Modifier.heightIn(min = 44.dp).semantics(mergeDescendants = true) { contentDescription = a11y }.pressable { open = true },
         contentAlignment = Alignment.Center,
     ) {
-        Text(stringResource(R.string.learn_switch, label) + " ▾", style = Type.small.ui(), color = ink, maxLines = 1,
+        Text(stringResource(if (learning) R.string.today_learning else R.string.learn_switch, label) + " ▾", style = Type.small.ui(), color = ink, maxLines = 1,
             modifier = Modifier.border(1.dp, line).padding(horizontal = 10.dp, vertical = 4.dp))
     }
     if (open) LearnPicker(s, id) { open = false }

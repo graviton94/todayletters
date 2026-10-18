@@ -424,7 +424,7 @@ fun CatalogueCover(s: AppState, w: Work, e: io.github.graviton94.todayletters.co
  * 그 아래 한 줄: 배우는 말 바꾸기 단추 · 화폐.
  */
 @Composable
-fun SeriesHeader(s: AppState, title: String? = null, caps: String? = null, currency: Boolean = true) {
+fun SeriesHeader(s: AppState, title: String? = null, caps: String? = null, currency: Boolean = true, learnChip: Boolean = true) {
     val p = Ink.palette
     val w = s.currentWork
     Column {
@@ -437,7 +437,8 @@ fun SeriesHeader(s: AppState, title: String? = null, caps: String? = null, curre
             HeaderIcons(s)
         }
         Row(Modifier.fillMaxWidth().padding(start = Tokens.Space.s5, end = Tokens.Space.s5), verticalAlignment = Alignment.CenterVertically) {
-            LearnChip(s, w.series.id)
+            // 오늘은 배우는 말을 작품 이름 아래에 크게 (여기서는 뺀다)
+            if (learnChip) LearnChip(s, w.series.id)
             Spacer(Modifier.weight(1f))
             if (currency) CurrencyLine(s, w)
         }

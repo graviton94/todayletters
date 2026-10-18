@@ -301,8 +301,32 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 이 작품의 모든 편지를 다 읽었나 (맺음말 · 완결 도록). */
     fun seriesDone(id: String) = work(id).chapters.all { c -> c.letters.all { progress(id, c.id, it.id).done } }
 
-    /** 화면 스택. 맨 끝이 지금 화면. 알림으로 들어오면 그 시리즈의 오늘부터. */
-    val stack = mutableStateListOf<Route>().apply { addAll(if (deepLink && store.onboarded) Nav.trail(Route.Inbox) else listOf(Route.Library)) }
+    /**
+     * 화면 스택. 맨 끝이 지금 화면. 알림으로 들어오면 그 시리즈의 오늘부터.
+     * 앱을 켜면 마지막으로 읽던 작품의 오늘 (뒤로 가면 서재). 처음 쓰는 사람 · 아직 아무 작품도 열지 않은 사람만 서재부터.
+     */
+    val stack = mutableStateListOf<Route>().apply { addAll(if (store.onboarded && (deepLink || resumable())) Nav.trail(Route.Inbox) else listOf(Route.Library)) }
+
+    /** 앱을 켰을 때 바로 그 작품의 오늘로 갈 수 있나: 마지막으로 들어간 작품이 있고, 그 작품의 편지를 한 통이라도 열었다. */
+    // 스택을 만들 때 부르므로 아래쪽 상태(version 등)는 읽지 않고 저장소만 본다
+    private fun resumable(): Boolean = runCatching {
+        val id = store.lastSeries
+        val w = baseWorks.firstOrNull { it.series.id == id } ?: return@runCatching false
+        id == current && w.chapters.any { c -> c.letters.any { l ->
+            val k = "${space(id)}:${c.id}:${l.id}"
+            store.started(k) || store.progress(k).let { it.shown > 0 || it.done }
+        } }
+    }.getOrDefault(false)
+
+    /** 와 있지만 아직 마치지 않은 편지 (차례대로): 서재 카드의 ‘편지 N통’ · 오늘의 ‘와 있는 편지 N통’. */
+    fun waitingLetters(id: String): List<Pair<String, Letter>> = run {
+        @Suppress("UNUSED_EXPRESSION") version
+        openable(id).filter { (c, l) -> !progress(id, c, l.id).done }
+    }
+
+    /** 다른 작품 소식: 읽기 시작한 다른 작품마다 와 있는 편지 수 (0 은 뺀다). */
+    fun othersWaiting(id: String = current): List<Pair<String, Int>> =
+        works.map { it.series.id }.filter { it != id && startedCount(it) > 0 }.map { it to waitingLetters(it).size }.filter { it.second > 0 }
     val route get() = stack.last()
 
     /** 마지막 이동이 앞으로였나 (화면 전환 방향). */
