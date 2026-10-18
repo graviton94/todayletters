@@ -898,4 +898,9 @@
     <string name="today_other_one_n">%2$d new letters from %1$s too ›</string>
     <string name="today_other_reading">Still reading %1$s ›</string>
     <string name="today_other_many_reading">Still reading other works ›</string>
+    <string name="thanks_title">Thank you</string>
+    <string name="thanks_sub">Every letter in every work is now open</string>
+    <string name="thanks_own">%1$s\'s letters are yours for good</string>
+    <string name="thanks_go">Start reading</string>
+    <string name="buy_pending">It opens as soon as the payment is confirmed</string>
 </resources>

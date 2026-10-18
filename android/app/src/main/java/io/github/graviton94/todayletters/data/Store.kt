@@ -432,6 +432,13 @@ class Store(ctx: Context) {
     fun firstAsked(series: String) = series in set("first_asked")
     fun markFirstAsked(series: String) = add("first_asked", series)
 
+    /** 결제 대기 중이던 구매 토큰 (끝나면 고마워요 한 장) · 이미 고마워요를 보인 구매 토큰. */
+    fun pendingBuy(token: String) = token in set("buy_pending")
+    fun markPendingBuy(token: String) = add("buy_pending", token)
+    fun clearPendingBuy(token: String) { if (pendingBuy(token)) p.edit().putStringSet("buy_pending", set("buy_pending") - token).apply() }
+    fun thanked(token: String) = token in set("buy_thanked")
+    fun markThanked(token: String) = add("buy_thanked", token)
+
     /** 새 편지 표시가 한 번 내려앉은 것 ("자리|편지 열쇠"): 같은 편지로는 다시 떨어지지 않는다. */
     fun dropSeen(k: String) = k in set("drop_seen")
     fun markDropSeen(ks: Collection<String>) { val cur = set("drop_seen"); if (!cur.containsAll(ks)) p.edit().putStringSet("drop_seen", cur + ks).apply() }

@@ -53,6 +53,15 @@ class Billing(ctx: Context, private val store: Store) {
     /** 이용권이나 값이 바뀌었을 때 (화면을 다시 그리게). 늘 main 스레드에서 부른다. */
     var onChange: () -> Unit = {}
 
+    /**
+     * 결제 창에서 방금 산 것이 끝났을 때 (PURCHASED · 확인까지): 고마워요 한 장. [Thanks.series] 가 null 이면 구독.
+     * 구매 복원 · 앱을 켤 때 다시 읽은 예전 구매에는 부르지 않는다 (대기 중이던 결제가 끝난 것만 예외).
+     */
+    class Thanks(val series: String?)
+    var onThanks: (Thanks) -> Unit = {}
+    /** 결제가 대기 중 (PENDING): 확인되면 바로 열린다는 한 줄. */
+    var onPending: () -> Unit = {}
+
     /** 실제로 쓰는 이용권: debug 빌드에서 ‘모두 열기’ (Store.debugUnlockAll) 를 켰으면 모든 시리즈. */
     val effective: Entitlement
         get() = if (BuildConfig.DEBUG && store.debugUnlockAll) _entitlement.value.copy(subscribed = true) else _entitlement.value
@@ -145,7 +154,11 @@ class Billing(ctx: Context, private val store: Store) {
 
     private fun onPurchases(r: BillingResult, list: List<Purchase>?) {
         when (r.responseCode) {
-            BillingClient.BillingResponseCode.OK -> if (list != null) grant(list, full = false, chosen = buyingBase)
+            BillingClient.BillingResponseCode.OK -> if (list != null) {
+                grant(list, full = false, chosen = buyingBase)
+                list.filter { it.purchaseState == Purchase.PurchaseState.PENDING }.forEach { store.markPendingBuy(it.purchaseToken); onPending() }
+                list.filter { it.purchaseState == Purchase.PurchaseState.PURCHASED }.forEach { thank(it) }
+            }
             BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED -> refresh()
         }
         buyingBase = null
@@ -160,7 +173,12 @@ class Billing(ctx: Context, private val store: Store) {
             c.queryPurchasesAsync(q(BillingClient.ProductType.INAPP)) { r2, inapp ->
                 main.post {
                     if (r2.responseCode != BillingClient.BillingResponseCode.OK) done(null)
-                    else { grant(subs + inapp, full = true); done(_entitlement.value) }
+                    else {
+                        grant(subs + inapp, full = true)
+                        // 대기 중이던 결제가 그사이 끝났으면 그때 고마워요 (그 밖의 예전 구매에는 묻지 않는다)
+                        (subs + inapp).filter { it.purchaseState == Purchase.PurchaseState.PURCHASED && store.pendingBuy(it.purchaseToken) }.forEach { thank(it) }
+                        done(_entitlement.value)
+                    }
                 }
             }
         }
@@ -195,6 +213,21 @@ class Billing(ctx: Context, private val store: Store) {
         _entitlement.value = next
         store.entitlement = next
         onChange()
+    }
+
+    /** 고마워요: 확인(acknowledge) 이 끝난 뒤에 (이미 확인된 것이면 바로). 같은 구매로는 한 번만. */
+    private fun thank(p: Purchase) {
+        store.clearPendingBuy(p.purchaseToken)
+        if (store.thanked(p.purchaseToken)) return
+        val t = Thanks(if (Products.SUB in p.products) null else p.products.firstNotNullOfOrNull { Products.seriesOf(it) })
+        if (t.series == null && Products.SUB !in p.products) return
+        fun fire() { if (!store.thanked(p.purchaseToken)) { store.markThanked(p.purchaseToken); onThanks(t) } }
+        if (p.isAcknowledged) { fire(); return }
+        runCatching {
+            client?.acknowledgePurchase(AcknowledgePurchaseParams.newBuilder().setPurchaseToken(p.purchaseToken).build()) { r ->
+                if (r.responseCode == BillingClient.BillingResponseCode.OK) main.post { fire() }
+            }
+        }
     }
 
     companion object {

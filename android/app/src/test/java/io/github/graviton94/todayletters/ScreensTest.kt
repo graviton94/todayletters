@@ -241,6 +241,10 @@ class ScreensTest {
         shot("u01_whatsnew_ko_light", false) { LibraryTab(s); io.github.graviton94.todayletters.ui.UpdateLayer(s) } }
     @Test fun updateReady() { val s = state(true); s.go(io.github.graviton94.todayletters.core.Route.Library); s.whatsNew = false; s.updateReady = true
         shot("u02_update_ready_ko_dark", true) { LibraryTab(s); io.github.graviton94.todayletters.ui.UpdateLayer(s) } }
+    // ── 결제 뒤 고마워요 한 장 ─────────────
+    @Test fun thanksSub() { val s = state(true); s.thanks = io.github.graviton94.todayletters.data.Billing.Thanks(null); shot("thanks1_sub_light", false, series = s) { Inbox(s); io.github.graviton94.todayletters.ui.ThanksSheet(s) } }
+    @Test fun thanksOwn() { val s = state(true); s.thanks = io.github.graviton94.todayletters.data.Billing.Thanks("vincent"); shot("thanks2_own_light", false, series = s) { Inbox(s); io.github.graviton94.todayletters.ui.ThanksSheet(s) } }
+
     // ── 바로 오늘로 (nav 시안 A) ─────────────
     /** 빈센트: 편지 I 마침 · II 읽는 중 · III 새로 (와 있는 편지 2통), 모차르트도 읽기 시작 (다른 작품 소식 한 줄). */
     private fun navState(): AppState {

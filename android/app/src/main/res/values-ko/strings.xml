@@ -898,4 +898,9 @@
     <string name="today_other_one_n">%1$s⁠에⁠게⁠서⁠도 새 편⁠지 %2$d⁠통⁠이 왔⁠어⁠요 ›</string>
     <string name="today_other_reading">%1$s⁠의 편⁠지⁠를 읽⁠는 중 ›</string>
     <string name="today_other_many_reading">다⁠른 작⁠품⁠의 편⁠지⁠를 읽⁠는 중 ›</string>
+    <string name="thanks_title">고⁠마⁠워⁠요</string>
+    <string name="thanks_sub">이⁠제 모⁠든 작⁠품⁠의 모⁠든 편⁠지⁠가 열⁠렸⁠어⁠요</string>
+    <string name="thanks_own">%1$s⁠의 편⁠지⁠는 이⁠제 평⁠생 당⁠신 것⁠이⁠에⁠요</string>
+    <string name="thanks_go">읽⁠으⁠러 가⁠기</string>
+    <string name="buy_pending">결⁠제⁠가 확⁠인⁠되⁠면 바⁠로 열⁠려⁠요</string>
 </resources>

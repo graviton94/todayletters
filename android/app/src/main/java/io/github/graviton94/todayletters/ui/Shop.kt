@@ -340,6 +340,8 @@ fun PurchaseScreen(s: AppState) {
                     Text(stringResource(R.string.buy_restore), style = Type.small.ui().copy(fontSize = Tokens.Text.caps, textDecoration = TextDecoration.Underline), color = p.inkSoft)
                 }
                 note?.let { Text(stringResource(it), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft) }
+                // 결제 대기 중 (PENDING): 확인되면 바로 열린다 (그때 고마워요 한 장)
+                if (s.buyPending) Text(stringResource(R.string.buy_pending), style = Type.small.ui(), color = p.giltText, maxLines = 1)
             }
             Spacer(Modifier.height(Tokens.Space.s5))
         }

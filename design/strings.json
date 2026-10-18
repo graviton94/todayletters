@@ -3587,5 +3587,25 @@
   "today_other_many_reading": {
     "en": "Still reading other works ›",
     "ko": "다른 작품의 편지를 읽는 중 ›"
+  },
+  "thanks_title": {
+    "en": "Thank you",
+    "ko": "고마워요"
+  },
+  "thanks_sub": {
+    "en": "Every letter in every work is now open",
+    "ko": "이제 모든 작품의 모든 편지가 열렸어요"
+  },
+  "thanks_own": {
+    "en": "%1$s's letters are yours for good",
+    "ko": "%1$s의 편지는 이제 평생 당신 것이에요"
+  },
+  "thanks_go": {
+    "en": "Start reading",
+    "ko": "읽으러 가기"
+  },
+  "buy_pending": {
+    "en": "It opens as soon as the payment is confirmed",
+    "ko": "결제가 확인되면 바로 열려요"
   }
 }

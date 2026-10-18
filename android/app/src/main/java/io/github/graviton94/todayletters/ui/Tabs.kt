@@ -177,7 +177,7 @@ fun SeriesCover(s: AppState, id: String) {
                     numeral = roman(i + 1), original = c.title[w.series.original], read = c.title[s.app.read].takeIf { it != c.title[w.series.original] },
                     readLang = s.app.read, originalLang = w.series.original,
                     meta = stringResource(R.string.chapter_meta, c.letters.size, done),
-                    onClick = { s.go(if (open) Route.Chapter(id, i + 1) else Route.Purchase) },
+                    onClick = { if (open) s.go(Route.Chapter(id, i + 1)) else { s.afterPurchase = { s.go(Route.Chapter(id, i + 1)) }; s.go(Route.Purchase) } },
                 ) {
                     if (c.free && !s.entitlement.owns(id)) Capsule(stringResource(R.string.free), CapsuleKind.FILLED)
                     if (open) AudioChip(s, id, c.id) else Capsule(stringResource(R.string.chapter_locked))

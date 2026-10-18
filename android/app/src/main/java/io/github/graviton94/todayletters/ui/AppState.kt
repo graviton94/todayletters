@@ -79,7 +79,26 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     val recorder = Recorder(ctx)
     val downloads = io.github.graviton94.todayletters.data.Downloads(ctx)
     /** 결제 (구독 · 시리즈 소장). Play 에 붙는 것은 MainActivity 가 ([io.github.graviton94.todayletters.data.Billing.connect]). */
-    val billing = io.github.graviton94.todayletters.data.Billing(ctx, store).also { it.onChange = { version++ } }
+    val billing = io.github.graviton94.todayletters.data.Billing(ctx, store).also {
+        it.onChange = { version++ }
+        it.onThanks = { t -> buyPending = false; thanks = t; cuePage() }
+        it.onPending = { buyPending = true }
+    }
+
+    /** 결제가 끝난 뒤 고마워요 한 장 (구독이면 series null). [afterPurchase] 는 잠긴 편지 · 장에서 결제로 왔을 때 그곳으로. */
+    var thanks by mutableStateOf<io.github.graviton94.todayletters.data.Billing.Thanks?>(null)
+    var buyPending by mutableStateOf(false)
+    var afterPurchase: (() -> Unit)? = null
+
+    /** 고마워요 › 읽으러 가기: 그 작품의 오늘로, 잠긴 편지 · 장에서 왔으면 그것을 연다. */
+    fun thanksGo() {
+        val t = thanks ?: return
+        thanks = null
+        val then = afterPurchase; afterPurchase = null
+        t.series?.takeIf { id -> works.any { it.series.id == id } && id != current }?.let { current = it; store.lastSeries = it }
+        go(Route.Inbox)
+        then?.invoke()
+    }
     /** 지금 이용권 (구독 · 소장한 시리즈). 바뀌면 화면을 다시 그린다. */
     val entitlement: io.github.graviton94.todayletters.core.Entitlement get() = run { @Suppress("UNUSED_EXPRESSION") version; billing.effective }
     /** 이 장을 읽을 수 있나 (프롤로그 · I · II장은 늘, 그 뒤는 소장 · 구독). */
@@ -343,6 +362,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     fun go(r: Route) {
         gloss = null
+        // 잠긴 편지 · 장에서 결제로 가던 길은 이름표 · 서재로 나가면 잊는다
+        if (r is Route.Tab || r == Route.Library) afterPurchase = null
         forward = r != Route.Library && (r !is Route.Tab || stack.size > 2 || (stack.lastOrNull() as? Route.Tab)?.let { tabIndex(it) < tabIndex(r) } ?: true)
         when {
             r == Route.Library -> { narrator.stop(); music.stop(); stack.clear(); stack.add(r) }
@@ -785,7 +806,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 새 편지를 처음 열 때 한 번 센다 (하루 편지 수). */
     fun open(id: String, chapter: String, letter: Letter, from: Route.Tab?, skipAudio: Boolean = false) {
         // 잠긴 장 (III장부터, 소장 · 구독 전): 편지 대신 구매 화면 (이 시리즈 소장이 셋째 칸)
-        work(id).chapters.firstOrNull { it.id == chapter }?.let { c -> if (!chapterOpen(c)) { current = id; go(Route.Purchase); return } }
+        work(id).chapters.firstOrNull { it.id == chapter }?.let { c -> if (!chapterOpen(c)) { current = id; afterPurchase = { open(id, chapter, letter, from, skipAudio) }; go(Route.Purchase); return } }
         // 앱 밖(R2)에 둔 장이고 아직 받지 않았으면: 먼저 크기를 알려 주고 받을지 묻는다
         // 서문 · 무료 장이면 처음 묶음으로 한 번에
         val pack = downloads.needed(id, chapter)

@@ -136,6 +136,8 @@ private fun Main(s: AppState, onExit: () -> Unit) {
         CoachLayer(s)
         // 배우는 말을 처음 바꿨을 때 한 번: 언어마다 진도가 따로
         LangNoticeHost(s)
+        // 결제가 끝난 뒤 고마워요 한 장
+        ThanksSheet(s)
         // 보상 순간: 어느 화면에서든 맨 위에
         RewardOverlay(s)
         // 레벨 업: 보상 순간이 닫힌 뒤 한 장
