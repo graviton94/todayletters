@@ -59,17 +59,17 @@ class SalesTest {
     }
 
     @Test fun prices() {
-        assertEquals(43, Access.yearlyDiscount(1_900_000_000L, 12_900_000_000L))
-        assertEquals(1_075_000_000L, Access.perMonth(12_900_000_000L))
-        assertEquals(0, Access.yearlyDiscount(0, 12_900_000_000L))
-        assertEquals("₩12,900", Price.planned(12_900).formatted)
-        assertEquals("₩1,075", Price.won(1_075))
+        assertEquals(38, Access.yearlyDiscount(3_900_000_000L, 29_000_000_000L))
+        assertEquals(2_416_666_666L, Access.perMonth(29_000_000_000L))
+        assertEquals(0, Access.yearlyDiscount(0, 29_000_000_000L))
+        assertEquals("₩29,000", Price.planned(29_000).formatted)
+        assertEquals("₩2,416", Price.won(2_416))
         assertEquals(PriceTier.T1, PriceTier.forVolume(39))
         assertEquals(PriceTier.T2, PriceTier.forVolume(40))
         assertEquals(PriceTier.T2, PriceTier.forVolume(70))
         assertEquals(PriceTier.T3, PriceTier.forVolume(71))
         assertEquals(PriceTier.T3, PriceTier.forVolume(20, extra = true))
-        assertEquals(2_900, Plan.Series("vincent", PriceTier.of(2)).fallbackWon)
+        assertEquals(4_900, Plan.Series("vincent", PriceTier.of(2)).fallbackWon)
     }
 
     // ── 작품 자료가 정책과 맞는가 ─────────────────────────────

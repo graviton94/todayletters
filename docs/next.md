@@ -118,7 +118,7 @@
 
 ## 2026-10-16 추가 (나폴레옹 시리즈 데이터 · 출시 전 숨김)
 
-- `data/napoleon/` 에 셋째 작품: 프롤로그 4 + 8장 × 7 + 맺음 1 = 61통 (tier 2 ₩2,900, `series_napoleon`, 무료 I · II장). 규격 v1 `spec_check.py napoleon` 통과.
+- `data/napoleon/` 에 셋째 작품: 프롤로그 4 + 8장 × 7 + 맺음 1 = 61통 (tier 2 ₩4,900, `series_napoleon`, 무료 I · II장). 규격 v1 `spec_check.py napoleon` 통과.
 - **`"hidden": true`** (series.json, 2026-10-17 지움): generate.py 가 앱 assets 에 넣지 않고 판매 규칙만 본다 → 서재의 ‘곧 도착’ 나폴레옹 카드 그대로. site_sources.py 도 건너뜀. 출시 때 이 칸을 지우고 generate.py.
 - 원문은 지금 철자 (명백한 오자 · 옛 철자는 앱 글에 표시 없이 고침), 찍힌 글자는 메시지 `orig.fr` 에만. 이 원칙은 출처 화면 `credits_text` 와 사이트 출처 페이지 머리 한 줄로만 알린다 (편지마다 적지 않음).
 - 어휘 (2026-10-17): lexicon*.json 을 편지 낱말 전부로 넓히고 **gloss*.json 을 만들었다** (fr 989 · en 986 · ko 1,079 표제어, 토큰 100%). 카드 줄은 그대로, 새 뜻 (fr 557 · en 383 · ko 454) 은 문맥에 맞춰 썼고 사람 확인 전. 만드는 법 `data/lexicon/README.md` 나폴레옹. Tatoeba 는 `fetch-tatoeba.yml` → `tatoeba` 가지.

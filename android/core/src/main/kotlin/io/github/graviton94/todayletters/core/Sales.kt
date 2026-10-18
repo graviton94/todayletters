@@ -22,7 +22,7 @@ object Products {
 
 /** 시리즈 소장 값 (원): 편지 40통 미만 · 40–70통 · 70통 넘거나 기능이 더 붙은 시리즈. series.json 의 "tier" (1 · 2 · 3). */
 enum class PriceTier(val won: Int) {
-    T1(1_900), T2(2_900), T3(3_900);
+    T1(3_900), T2(4_900), T3(5_900);
 
     companion object {
         fun of(n: Int): PriceTier = entries.getOrElse(n - 1) { T2 }
@@ -47,12 +47,12 @@ sealed interface Plan {
     data object Yearly : Plan {
         override val product = Products.SUB
         override val basePlan = Products.YEARLY
-        override val fallbackWon = 12_900
+        override val fallbackWon = 29_000
     }
     data object Monthly : Plan {
         override val product = Products.SUB
         override val basePlan = Products.MONTHLY
-        override val fallbackWon = 1_900
+        override val fallbackWon = 3_900
     }
     data class Series(val id: String, val tier: PriceTier = PriceTier.T2) : Plan {
         override val product get() = Products.series(id)
@@ -64,7 +64,7 @@ sealed interface Plan {
 /** 값 하나. [micros] 는 Play 의 백만분의 1 단위, [formatted] 는 화면에 그대로. [fromPlay] 가 아니면 계획한 값 (Play 상품이 아직 없을 때). */
 data class Price(val micros: Long, val currency: String, val formatted: String, val fromPlay: Boolean) {
     companion object {
-        /** 계획한 값 (원): "₩12,900". */
+        /** 계획한 값 (원): "₩29,000". */
         fun planned(won: Int) = Price(won * 1_000_000L, "KRW", won(won.toLong()), false)
         fun won(n: Long) = "₩" + "%,d".format(java.util.Locale.ROOT, n)
     }
@@ -96,12 +96,12 @@ object Access {
         return if (idx.isEmpty()) null else (idx.first() + 1)..(idx.last() + 1)
     }
 
-    /** 연 구독이 월 구독 열두 번보다 몇 % 싼가 (반올림). 월 ₩1,900 · 연 ₩12,900 이면 43. */
+    /** 연 구독이 월 구독 열두 번보다 몇 % 싼가 (반올림). 월 ₩3,900 · 연 ₩29,000 이면 38. */
     fun yearlyDiscount(monthlyMicros: Long, yearlyMicros: Long): Int {
         if (monthlyMicros <= 0 || yearlyMicros <= 0) return 0
         return Math.round((1.0 - yearlyMicros.toDouble() / (monthlyMicros * 12.0)) * 100).toInt().coerceAtLeast(0)
     }
 
-    /** 연 구독을 달로 나눈 값 (백만분의 1 단위). ₩12,900 → ₩1,075. */
+    /** 연 구독을 달로 나눈 값 (백만분의 1 단위). ₩29,000 → ₩2,416. */
     fun perMonth(yearlyMicros: Long): Long = yearlyMicros / 12
 }
