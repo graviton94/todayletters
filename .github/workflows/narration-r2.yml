@@ -10,6 +10,7 @@ name: Narration to R2
 #   새 파일만 편지 폴더(앱 안 장은 assets/audio, 앱 밖 장은 remote/audio)에 넣고 generate.py 로 remote.json 목록을 고친 뒤
 #   이 가지에 커밋 · 푸시하고, 아래 덮어쓰기 검사 · 올리기를 그대로 한다. 이미 있는 파일은 만들지도 바꾸지도 않는다.
 #   만들기는 편지 파일마다 따로 돈다 (make 작업, 20개 동시) → 결과를 모아 sync 작업이 넣고 올린다.
+# 올리기: 장 묶음마다 zip 하나 (generate.py --packs, packs/<작품>/<장>-<합>.zip) 도 함께 올린다. 앱은 그것을 먼저 받고, 없으면 파일을 하나씩.
 # make=replies: 답장 말해 보기 문장 r<턴>_<언어>.m4a (편지 "replies", scripts/narrate.py NARRATE_ONLY=replies) 가운데 없는 것만.
 #   넣기 · remote.json · 커밋 · 올리기는 make=new 와 같다 (새 파일만, 덮어쓰지 않음). 회화 · 낱말 · 표현은 만들지 않는다.
 # make=messages: messages 에 적은 메시지 낭독만 다시 만든다 ("mozart/c1-l2/m4_en …", m<번호>_<언어>.m4a + 마디 시각 .json).
@@ -175,6 +176,9 @@ jobs:
       - name: Remote files are never replaced
         run: |
           python3 scripts/r2_guard.py stage remote "$RUNNER_TEMP/r2"
+          # 장 묶음 zip (앱이 장마다 한 번에 받는다): packs/<작품>/<장>-<sha256 앞 16자>.zip, 내용이 바뀌면 이름도 바뀐다
+          python3 scripts/generate.py --check --packs "$RUNNER_TEMP/r2"
+          echo "packs: $(find "$RUNNER_TEMP/r2/packs" -name '*.zip' | wc -l)"
           aws s3api list-objects-v2 --bucket "$BUCKET" --output json --endpoint-url "https://$ACCOUNT.r2.cloudflarestorage.com" \
             | python3 scripts/r2_guard.py check "$RUNNER_TEMP/r2"
       - name: Commit new clips to this branch
@@ -197,18 +201,19 @@ jobs:
           aws s3 sync "$RUNNER_TEMP/r2" "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.m4a" --content-type audio/mp4 --endpoint-url "$ep"
           aws s3 sync "$RUNNER_TEMP/r2" "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.json" --content-type application/json --endpoint-url "$ep"
           aws s3 sync "$RUNNER_TEMP/r2" "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.webp" --content-type image/webp --endpoint-url "$ep"
+          aws s3 sync "$RUNNER_TEMP/r2" "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.zip" --content-type application/zip --endpoint-url "$ep"
           echo "local: $(( $(find "$src" -type f | wc -l) + $(find remote -type f | wc -l) )) files"
-          for d in audio plates sketches gallery; do
+          for d in audio plates sketches gallery packs; do
             echo "R2 $d/: $(aws s3 ls "s3://$BUCKET/$d/" --recursive --endpoint-url "$ep" | wc -l) files"
           done
       - name: Check public download
         run: |
           # 앱 밖 낭독의 처음 · 끝, 곡 하나, 그림 · 스케치 · 소장품 하나씩 (앱의 remote.json 경로 그대로)
-          files="$(cd "$RUNNER_TEMP/r2" && { find audio -name "*.m4a" -not -path "*/music/*" | sort | sed -n '1p;$p'; find audio -path "*/music/*" -name "*.m4a" | sort | head -1; for d in plates sketches gallery; do find $d -name "*.webp" | sort | head -1; done; })"
+          files="$(cd "$RUNNER_TEMP/r2" && { find audio -name "*.m4a" -not -path "*/music/*" | sort | sed -n '1p;$p'; find audio -path "*/music/*" -name "*.m4a" | sort | head -1; for d in plates sketches gallery; do find $d -name "*.webp" | sort | head -1; done; find packs -name "*.zip" | sort | head -1; })"
           for f in $files; do
             code=$(curl -s -o /tmp/t -D /tmp/h -w "%{http_code}" "${PUBLIC%/}/$f")
             type=$(grep -i '^content-type:' /tmp/h | tr -d '\r' | cut -d' ' -f2)
             echo "GET $f → $code ($(stat -c%s /tmp/t) bytes, $type)"
             [ "$code" = 200 ] && cmp -s /tmp/t "$RUNNER_TEMP/r2/$f" && echo "same file ✓" || { echo "::error::public download differs or failed"; exit 1; }
-            case "$f" in *.webp) [ "$type" = image/webp ];; *.m4a) [ "$type" = audio/mp4 ];; esac || { echo "::error::content type $type"; exit 1; }
+            case "$f" in *.webp) [ "$type" = image/webp ];; *.m4a) [ "$type" = audio/mp4 ];; *.zip) [ "$type" = application/zip ];; esac || { echo "::error::content type $type"; exit 1; }
           done

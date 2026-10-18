@@ -13,7 +13,7 @@
 - data/medals.json (메달 진열장 · 레벨) → android/app/src/main/assets/medals/medals.json
 - data/shop.json (상점 줄의 작은 그림과 출처) → android/app/src/main/assets/shop/shop.json
 """
-import re, glob, json, os, sys
+import re, glob, json, os, sys, hashlib, struct, zlib
 from xml.sax.saxutils import escape
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -188,6 +188,54 @@ def r2_key(rel, revs):
     return rel if n <= 1 else f"rev/{n}/{rel}"
 
 
+class _Sink:
+    """zip 을 쓰는 곳: 파일(없으면 버림)에 쓰면서 sha256 · 길이를 잰다."""
+    def __init__(self, f=None):
+        self.f, self.h, self.n = f, hashlib.sha256(), 0
+
+    def write(self, b):
+        self.h.update(b); self.n += len(b)
+        if self.f:
+            self.f.write(b)
+
+
+def pack_zip(root, rels, f=None):
+    """장 묶음 하나를 zip 하나로 (앱이 한 번에 받는다, data/Downloads.kt). 늘 같은 바이트가 나온다:
+    차례 = rels 그대로, 이름 = 폰 안 경로 (UTF-8), 압축 없음 (stored: m4a · webp 는 이미 눌려 있고 json 은 작다),
+    시각 1980-01-01 00:00, 덧붙임 칸 없음. 내용은 remote/ 의 지금 파일 (고친 파일도 새 판의 내용). 돌려주는 것: (길이, sha256)."""
+    out, central = _Sink(f), []
+    for rel in rels:
+        data = open(os.path.join(root, rel), "rb").read()
+        name = rel.encode("utf-8")
+        crc = zlib.crc32(data) & 0xFFFFFFFF
+        central.append((name, crc, len(data), out.n))
+        out.write(struct.pack("<IHHHHHIIIHH", 0x04034B50, 20, 0x0800, 0, 0, 0x21, crc, len(data), len(data), len(name), 0) + name)
+        out.write(data)
+    start = out.n
+    for name, crc, size, off in central:
+        out.write(struct.pack("<IHHHHHHIIIHHHHHII", 0x02014B50, 20, 20, 0x0800, 0, 0, 0x21, crc, size, size, len(name), 0, 0, 0, 0, 0, off) + name)
+    out.write(struct.pack("<IHHHHIIH", 0x06054B50, 0, 0, len(central), len(central), out.n - start, start, 0))
+    return out.n, out.h.hexdigest()
+
+
+# --packs <폴더>: 장 묶음 zip 을 <폴더>/packs/<작품>/<장>-<sha256 앞 16자>.zip 으로 쓴다 (narration-r2.yml 이 R2 에 올린다).
+# 이름에 내용의 합이 들어가서 내용이 바뀌면 새 이름 (R2 덮어쓰기 금지, docs/release.md 5). 저장소에는 넣지 않는다.
+PACKS_OUT = sys.argv[sys.argv.index("--packs") + 1] if "--packs" in sys.argv else None
+
+
+def pack_entry(R, sid, c, rels):
+    """remote.json 의 "pack": [R2 주소, 길이, sha256]."""
+    size, sha = pack_zip(R, rels)
+    key = f"packs/{sid}/{c}-{sha[:16]}.zip"
+    if PACKS_OUT:
+        dst = os.path.join(PACKS_OUT, key)
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        with open(dst + ".tmp", "wb") as f:
+            assert pack_zip(R, rels, f) == (size, sha)
+        os.replace(dst + ".tmp", dst)
+    return [key, size, sha]
+
+
 def media_of(sid, letters):
     """편지들이 쓰는 낭독 밖 파일 (그림 · 스케치 · 곡), assets 와 같은 경로."""
     want = []
@@ -274,7 +322,8 @@ def remote():
         for c, rels in packs.items():
             if rels:
                 files = [[r, os.path.getsize(os.path.join(R, r))] + ([r2_key(r, revs)] if r in revs else []) for r in rels]
-                chapters[c] = {"bytes": sum(x[1] for x in files), "files": files}
+                # 받기는 "pack" (zip 하나, 이어 받기 · 합 검사) 이 먼저, 없으면 (아직 올리지 않음) "files" 를 하나씩. "files" 는 풀고 난 뒤 크기 검사에도 쓴다
+                chapters[c] = {"bytes": sum(x[1] for x in files), "files": files, "pack": pack_entry(R, sid, c, rels)}
                 used.update(rels)
         kept = bundled.get(sid, [])
         check_bundled(sid, meta, parts, kept)

@@ -168,3 +168,9 @@
 - 답장 턴마다 언어마다 `r<턴 1부터>_<언어>.m4a` (편지 폴더, 회화 "me" 줄과 같은 talk_me 목소리 · 차분한 프리셋). `narrate.py NARRATE_ONLY=replies`, `narration-r2.yml make=replies` (새 파일만, 회화 tk* 같은 다른 빠진 소리는 만들지 않음). 앱 안 장(빈센트 I) 은 assets, 나머지는 remote/.
 - 앱: core `Exercises.replyAudioName` (답장이 없는 서문 편지는 대신 말하는 메시지 낭독 m<번호>). 복습의 답장 카드도 같은 소리 (`Word.audio = "r<턴>"`). 원래 소리가 없으면 듣기 단추를 숨긴다 (`ShadowControls`, 따라 읽기 · 회화 · 복습 말하기 공통).
 - 답장 문장을 고치면 새 이름으로 내야 한다 (R2 덮어쓰기 금지): 지금은 앞부분 "r" 고정이라, 고칠 때 `replies[].audio` 같은 칸을 더한다.
+
+## 2026-10-18 추가 (받기 빠르게: 장 묶음 zip)
+
+- 장 묶음마다 zip 하나 (`generate.py pack_zip`, 압축 없음 · 늘 같은 바이트). remote.json 장마다 `"pack": [packs/<작품>/<장>-<sha256 앞 16자>.zip, 길이, sha256]` + 검사용 `"files"` 그대로. 이름에 합이 들어가 내용이 바뀌면 새 이름 (R2 덮어쓰기 금지). 고친 파일 (revisions) 은 zip 안에 새 판 내용으로, 하나씩 받기는 예전처럼 rev/<판>/ 주소.
+- `narration-r2.yml` 올리기가 `generate.py --check --packs` 로 zip 을 만들어 packs/ 로 올린다 (저장소에는 넣지 않음).
+- 앱 `Downloads.fetch`: zip 하나를 이어 받기(Range) → sha256 → files/.packs/<이름>.x 에 풀며 이름 · 크기 검사 → 다 맞으면 제자리로 (core `Packs`, `PacksTest`). 깨지면 지우고 다시. R2 에 zip 이 없으면 (404 · 403) 그 묶음은 파일을 하나씩 (예전 길).
