@@ -1,4 +1,3 @@
 a11y.txt
-nav1_today_dark.png
-nav1_today_light.png
-nav2_library_dark.png
+thanks1_sub_light.png
+thanks2_own_light.png
