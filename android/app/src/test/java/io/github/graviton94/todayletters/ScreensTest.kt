@@ -1316,7 +1316,8 @@ class ScreensTest {
         org.junit.Assert.assertNull(s.startAsk)
         org.junit.Assert.assertEquals(1, s.slowDay("vincent"))
         org.junit.Assert.assertEquals(io.github.graviton94.todayletters.core.Start.Amount.MORE, s.seriesSettings("vincent").amount)
-        org.junit.Assert.assertTrue(s.route is Route.Letter)
+        // 첫 편지로 (새 편지는 예열부터)
+        org.junit.Assert.assertTrue(s.route is Route.Letter || s.route is Route.WarmUp)
         org.junit.Assert.assertFalse(s.needsStart("vincent"))
     }
     /** 오늘 · 천천히 듣는 2주 6일째: 맨 위 ‘어제 편지 다시 듣기 · 1분’, 오늘 편지 ‘먼저 0.7×로 한 번’, 이어 읽기 줄 옆 ‘오늘 N분’. */
@@ -1325,6 +1326,9 @@ class ScreensTest {
         val cur = s.seriesSettings("vincent")
         s.update("vincent", cur.copy(slowFrom = s.today - 5, slowDays = 14))
         s.store.addListen(cur.learn.code, s.today, 12 * 60_000L)
+        // 마친 세 통은 어제 마친 것으로 (어제 편지 다시 듣기 · 오늘 편지는 IV)
+        val log = ctx.getSharedPreferences("letters", Context.MODE_PRIVATE)
+        log.edit().putStringSet("log:letters", log.getStringSet("log:letters", emptySet())!!.map { "${s.today - 1}:" + it.substringAfter(":") }.toSet()).commit()
         s.bump()
         shot("st4_today_slow_light", false, 3000, series = s) { Inbox(s) }
     }
