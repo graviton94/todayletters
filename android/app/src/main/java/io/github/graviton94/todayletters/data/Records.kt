@@ -13,7 +13,7 @@ import java.time.LocalDate
  * 파일은 사용자가 고른 곳 (시스템 저장 창) 이나 공유 창으로만 나간다. 앱이 따로 올리는 곳은 없다.
  */
 object Records {
-    /** 읽을 파일의 한도 (진도 파일은 수백 KB 안팎): 넘으면 이 앱의 기록이 아니다. */
+    /** 읽을 파일의 한도 (진도 파일은 수백 KB 정도): 넘으면 이 앱의 기록이 아니다. */
     private const val MAX_BYTES = 8L * 1024 * 1024
 
     fun made(day: Long): String = LocalDate.ofEpochDay(day).toString()
