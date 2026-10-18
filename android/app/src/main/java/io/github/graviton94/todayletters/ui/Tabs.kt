@@ -337,17 +337,30 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
 
             Caps(stringResource(R.string.set_show_read), p.giltText, small = true)
             Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.showRead) { s.update(id, cur.copy(showRead = it)) }
-            // 번역 줄 물러나기 (언어 등급에 맞춰, 기본 켜짐: A1 에서는 접지 않는다)
+            // 실력만큼 번역 옅게 (언어 등급에 맞춰, 기본 켜짐): 접지 않고 옅어지기만
             if (cur.showRead) {
                 Caps(stringResource(R.string.set_fade_read), p.giltText, small = true)
-                Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.autoFold) { s.update(id, cur.copy(autoFold = it)) }
+                Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.fadeRead) { s.update(id, cur.copy(fadeRead = it)) }
                 Text(stringResource(R.string.set_fade_read_d), style = Type.small.ui(), color = p.inkSoft)
             }
 
             // 도움 한 단계 더 (도움 사다리, core 의 Support): 등급은 그대로, 한 등급 아래의 힌트 · 번역 · 빈칸
             Caps(stringResource(R.string.set_easier), p.giltText, small = true)
             Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.easier) { s.update(id, cur.copy(easier = it)) }
-            Text(stringResource(R.string.set_easier_d), style = Type.small.ui(), color = p.inkSoft)
+            val g = s.grade(cur.learn)
+            Text(stringResource(R.string.set_easier_d, gradeStep(g), gradeStep(io.github.graviton94.todayletters.core.Support.grade(g, easier = true))),
+                style = Type.small.ui(), color = p.inkSoft)
+
+            // 처음 시작에서 고른 것 (시안 onboard.html): 실력 · 하루 분량 · 왜 · 천천히 듣는 2주
+            Caps(stringResource(R.string.set_level), p.giltText, small = true)
+            OptionRows(io.github.graviton94.todayletters.core.Start.Level.entries.map { it to levelLabel(it) }, s.startLevel(id)) { s.applyLevel(id, it) }
+            Caps(stringResource(R.string.set_amount), p.giltText, small = true)
+            OptionRows(io.github.graviton94.todayletters.core.Start.Amount.entries.map { it to amountLabel(it) }, cur.amount) { s.update(id, cur.copy(amount = it)) }
+            Caps(stringResource(R.string.set_slow), p.giltText, small = true)
+            Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), s.slowDay(id) != null) { s.setSlow(id, it) }
+            Caps(stringResource(R.string.set_why), p.giltText, small = true)
+            OptionRows(io.github.graviton94.todayletters.core.Start.Why.entries.map { it to whyLabel(it) }, cur.why) { s.update(id, cur.copy(why = it)) }
+
 
             // 편지 전 예열 (시안 beginner.html ②, ui/WarmUp.kt): 등급에 맞춰 (A1 · A2 켜기, B1 부터 끄기) · 켜기 · 끄기
             Caps(stringResource(R.string.set_warm), p.giltText, small = true)

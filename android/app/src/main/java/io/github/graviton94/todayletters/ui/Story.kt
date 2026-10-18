@@ -189,6 +189,12 @@ fun FinishSheet(s: AppState, room: Route.Letter) {
                 else -> stringResource(R.string.finish_next_day)
             }
             Text(next, style = Type.body.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center, modifier = Modifier.padding(vertical = Tokens.Space.s2))
+            // 천천히 듣는 2주의 안내 (첫 편지 · 3일째에 한 번)
+            SlowNoteLine(s, room.series, s.key(room.series, chapter, letter.id))
+            // 작품을 다 마쳤으면: 왜에 맞춘 다음 작품 한 줄
+            if (s.seriesDone(room.series)) s.suggestedNext(room.series)?.let { nx ->
+                TextLink(stringResource(R.string.finish_suggest, s.work(nx).name[uiLang()])) { close(); s.enter(nx) }
+            }
             Primary(stringResource(R.string.finish_today), shine = true) { close(); s.go(Route.Inbox) }
             Secondary(stringResource(R.string.finish_again)) { s.replayLetter(room.series, chapter, letter, Route.Inbox) }
         }
@@ -205,6 +211,8 @@ private fun Graduate(s: AppState) {
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
             Text(stringResource(R.string.graduate_title), style = Type.title.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
             Text(stringResource(R.string.graduate_body), style = Type.body.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+            // 첫 편지를 마치면 천천히 듣기 안내 한 줄 (튜토리얼 끝 한 장에)
+            s.slowNote?.let { k -> SlowNoteLine(s, s.current, k) }
             Primary(stringResource(R.string.graduate_go), shine = true) { s.graduate() }
         }
     }

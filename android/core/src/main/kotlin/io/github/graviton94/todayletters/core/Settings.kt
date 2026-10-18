@@ -51,10 +51,10 @@ data class SeriesSettings(
     val learn: Lang,
     val showRead: Boolean = true,
     /**
-     * 번역 줄 물러나기: 언어 등급이 오를수록 거의 다 아는 문장부터 번역 줄을 접는다 ([Reading.foldAt], A1 은 접지 않음).
-     * 접힌 줄은 눌러서 펼친다. 끄면 번역이 늘 보인다. 기본은 켜짐 (A1 에서는 어차피 접지 않으니 처음 배우는 사람은 그대로).
+     * 실력만큼 번역 옅게: 언어 등급이 오를수록 번역 줄이 옅어진다 ([Support.readAlpha]). 접지는 않는다 (늘 보임).
+     * 끄면 늘 또렷이. 기본은 켜짐 (A1 은 어차피 또렷이).
      */
-    val autoFold: Boolean = true,
+    val fadeRead: Boolean = true,
     val modes: Set<ReplyMode> = setOf(ReplyMode.MATCH, ReplyMode.CONSTELLATION, ReplyMode.ALOUD),
     val arrivalNotice: Boolean = true,
     /** 도움 한 단계 더: 언어 등급보다 한 등급 아래의 도움을 받는다 ([Support.grade]). 등급 자체는 그대로. */
@@ -63,6 +63,13 @@ data class SeriesSettings(
     val listenAuto: Boolean = true,
     /** 직접 고른 기본 듣기 빠르기 ([Listen.CHOICES] 중 하나). */
     val listenSpeed: Float = 1f,
+    /** 하루 분량 (처음 시작 3/3): 편지 한 통 · 편지 한 통 + 복습 더 ([Start.daily]). */
+    val amount: Start.Amount = Start.Amount.ONE,
+    /** 왜 배우나 (처음 시작 2/3): 응원 문구 · 다음 작품 추천에만. 묻지 않았으면 null. */
+    val why: Start.Why? = null,
+    /** 천천히 듣는 2주 ([Slow]): 시작한 날 (epoch day, 없으면 -1) · 기간 (일, 0 이면 꺼짐). */
+    val slowFrom: Long = -1,
+    val slowDays: Int = 0,
 )
 
 object Langs {

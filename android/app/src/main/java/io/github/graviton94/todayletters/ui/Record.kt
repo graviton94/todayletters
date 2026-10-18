@@ -81,6 +81,8 @@ fun RecordScreen(s: AppState) {
             if (streakNote) StreakNote(s) { streakNote = false }
             // 언어 등급 (배우는 말마다): 관람 레벨이 ‘얼마나 했나’라면 이것은 ‘얼마나 읽을 수 있나’
             GradeBlock(s)
+            // 편지를 들은 시간 (배우는 말의 소리를 실제로 재생한 만큼) · 아는 낱말이 들리는 비율
+            ListenBlock(s)
             // 지금 이용권: 무료 · 소장한 시리즈 · 구독 (숫자 셋 바로 아래, 누르면 구매 화면)
             val ent = s.entitlement
             val pass = when {
@@ -182,17 +184,13 @@ private fun GradeBlock(s: AppState) {
         Text(stringResource(R.string.grade_title), style = Type.heading.ui(), color = p.ink)
         langs.forEach { lang ->
             val g = s.grade(lang)
-            val known = s.mine(lang).size
+            // 등급의 낱말은 써 보기 이상만 센다 (core 의 Growth.knownForGrade)
+            val known = s.gradeWords(lang)
             val recent = s.recentCoverage(lang)
             val words = io.github.graviton94.todayletters.core.Reading.words
             val from = words[g.index - 1]
             val to = words.getOrNull(g.index)
-            Text(
-                buildAnnotatedString {
-                    append(stringResource(R.string.grade_line, stringResource(langLabel(lang)), g.band.name, g.step))
-                },
-                style = Type.title.ui(), color = p.ink,
-            )
+            Text(gradeLine(lang, g), style = Type.title.ui(), color = p.ink)
             Bar(if (to == null) 1f else ((known - from).toFloat() / (to - from)).coerceIn(0f, 1f))
             val delta = s.lastWeekCoverage[lang]?.let { recent - it }
             Text(stringResource(R.string.grade_cov, recent) + (delta?.let { " · " + stringResource(R.string.grade_delta, it) } ?: ""),
@@ -208,7 +206,36 @@ private fun GradeBlock(s: AppState) {
                 style = Type.small.ui(), color = p.giltText,
             )
         }
-        Text(stringResource(R.string.grade_note), style = Type.small.ui(), color = p.inkSoft)
+        Hair()
+    }
+}
+
+/** “3시간 20분” · “48분”. */
+@Composable
+private fun listenTime(ms: Long): String {
+    val (h, m) = io.github.graviton94.todayletters.core.Listening.hm(ms)
+    return if (h > 0) stringResource(R.string.listen_hm, h, m) else stringResource(R.string.listen_m, m)
+}
+
+/**
+ * 나의 기록 › 편지를 들은 시간: 배우는 말들을 모두 더한 시간 (크게) · 말마다 이번 주 · 아는 낱말이 들리는 비율 (처음 편지 → 지금).
+ * 들은 적이 없으면 비운다.
+ */
+@Composable
+private fun ListenBlock(s: AppState) {
+    val p = Ink.palette
+    val langs = s.learning
+    val total = langs.sumOf { s.listenedTotal(it) }
+    if (langs.isEmpty() || total < 60_000) return
+    Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+        Text(stringResource(R.string.listen_title), style = Type.heading.ui(), color = p.ink)
+        Text(listenTime(total), style = Type.title.copy(fontFamily = Faces.display), color = p.ink)
+        langs.forEach { lang ->
+            Text(stringResource(R.string.listen_week, stringResource(langLabel(lang)), listenTime(s.listenedWeek(lang))), style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
+            s.heardRatio(lang)?.let { (a, b) ->
+                Text(stringResource(R.string.heard_ratio, a, b), style = Type.small.ui(), color = p.giltText, maxLines = 1)
+            }
+        }
         Hair()
     }
 }

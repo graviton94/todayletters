@@ -278,7 +278,6 @@ fun Room(s: AppState, r: Route.Letter) {
     val nextPlay = modes.firstOrNull { it !in progress.replied && it !in progress.skipped }
     val reply = Exercises.replyFor(letter, view.learn).second
     val finished = written >= total
-    val cardMap = remember(s.version) { s.cardMap() }
     // 이 편지의 읽을 수 있는 비율 (아는 낱말 %): 머리의 날짜 옆에
     val known = remember(s.version, letter.id, view.learn) { s.coverage(id, letter.id) }
     val knownLabel = known?.let { stringResource(R.string.known_pct, it) }
@@ -360,14 +359,8 @@ fun Room(s: AppState, r: Route.Letter) {
                     } else wordMarks(m.text[view.learn], letter.words.map { it.text[view.learn] })
                 }
                 val hints = remember(letter.id, i, toks, sentMarks) { toks?.let { ts -> ranges.filterIndexed { j, r -> work.lexicon?.get(ts[j].key)?.function != true && sentMarks.none { it.first == r } } } ?: emptyList() }
-                // 번역 줄 물러나기 (core 의 Reading): 언어 등급만큼 거의 다 아는 문장은 번역을 접고, 그 문장의 아직인 오늘의 낱말만 뜻풀이
-                val fade = remember(s.version, letter.id, i, view.learn) {
-                    if (!s.folds(id, letter.id, i)) false to emptyList<Pair<String, String>>() else {
-                        val idx = sentMarks.map { it.second }.distinct()
-                        val known = idx.filter { k -> io.github.graviton94.todayletters.core.Growth.known(cardMap[s.cardKey(id, chapter, letter.id, k)]) }
-                        true to (idx - known.toSet()).map { k -> letter.words[k].let { firstSense(it.text[view.learn]) to firstSense(it.text[view.read]) } }
-                    }
-                }
+                // 번역 줄은 접지 않고 등급만큼 옅게 (core 의 Support.readAlpha, 작품 설정에서 끌 수 있음)
+                val readAlpha = s.readAlpha(id)
                 // 한 번만 쓴다: 다 써진 조각은 (스크롤로 화면 밖에 나갔다 돌아와도) 다시 쓰지 않는다
                 val fresh = i >= already && animate && i >= written
                 var shownIn by remember { mutableStateOf(!fresh) }
@@ -388,7 +381,7 @@ fun Room(s: AppState, r: Route.Letter) {
                         onWord = { wordFocus = it },
                         taps = ranges, onTap = if (toks != null) ({ j: Int -> s.gloss = AppState.GlossPick(id, chapter, letter, i, j, toks[j].key) }) else null, hints = hints,
                         picked = glossAt?.takeIf { it.first == i }?.let { ranges.getOrNull(it.second) }, onPickedAt = { s.glossAnchor = it },
-                        fold = fade.first, glosses = fade.second,
+                        readAlpha = readAlpha,
                         saved = s.isSaved(s.quoteKey(id, chapter, letter.id, i)),
                         onSave = { s.toggleQuote(s.quoteKey(id, chapter, letter.id, i)) },
                         spoken = spokenRange(s.narrator, audio(i), m.text[view.learn]),
@@ -812,7 +805,8 @@ private fun LetterSlip(
     listen: @Composable () -> Unit, onWritten: () -> Unit,
     marks: List<Pair<IntRange, Int>> = emptyList(), onWord: (Int) -> Unit = {},
     saved: Boolean = false, onSave: () -> Unit = {},
-    fold: Boolean = false, glosses: List<Pair<String, String>> = emptyList(),
+    /** 번역 줄의 진하기 (등급이 오를수록 옅게, 접지는 않는다). */
+    readAlpha: Float = 1f,
     /** 지금 낭독 중인 마디의 글자 범위 (없으면 null). */
     spoken: IntRange? = null,
     taps: List<IntRange> = emptyList(), onTap: ((Int) -> Unit)? = null, hints: List<IntRange> = emptyList(), picked: IntRange? = null,
@@ -822,7 +816,7 @@ private fun LetterSlip(
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
-    var reveal by remember { mutableStateOf(false) }
+    val readInk = p.slipSoft.copy(alpha = p.slipSoft.alpha * readAlpha)
     val tilt = listOf(-0.6f, 0.5f, -0.3f, 0.4f)[index % 4]
     Slip(seed = index * 31 + 7, tilt = tilt, modifier = Modifier.fillMaxWidth(0.92f)) {
         Row(
@@ -830,32 +824,22 @@ private fun LetterSlip(
             horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
-                // 문장 짝 (v22): 배우는 말 한 문장 바로 아래에 그 번역 (번역을 접는 편지가 아니면)
-                val pairs = remember(learn, read, fold) { if (read != null && !fold) io.github.graviton94.todayletters.core.Pairs.of(learn, read) else emptyList() }
+                // 문장 짝 (v22): 배우는 말 한 문장 바로 아래에 그 번역
+                val pairs = remember(learn, read) { if (read != null) io.github.graviton94.todayletters.core.Pairs.of(learn, read) else emptyList() }
                 if (pairs.size > 1) SentencePairs(
                     learn, learnLang, readLang, pairs, animate, lineMs, onWritten,
-                    marks, onWord, spoken, taps, onTap, hints, picked, onPickedAt, il, seen,
+                    marks, onWord, spoken, taps, onTap, hints, picked, onPickedAt, il, seen, readInk,
                 ) else {
                 if (il != null) IlText(learn, il, null, learnLang, animate, true, lineMs, onDone = {
                     learnDone = true
-                    if (read == null || fold) onWritten()
+                    if (read == null) onWritten()
                 }, marks = marks, onWord = onWord, spoken = spoken, onTap = onTap, picked = picked, onPickedAt = onPickedAt, seen = seen)
                 else InkText(learn, Type.target.of(learnLang), p.slipInk, animate, lineMs = lineMs, onDone = {
                     learnDone = true
-                    if (read == null || fold) onWritten()
+                    if (read == null) onWritten()
                 }, marks = marks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { k -> onWord(marks[k].second) }, spoken = spoken,
                     taps = taps, onTap = onTap, hints = hints, picked = picked, onPickedAt = onPickedAt)
-                // 번역이 사라지는 편지: 익힌 낱말이 많은 문장은 번역을 접고, 아직인 낱말만 작은 뜻풀이로
-                if (read != null && fold) {
-                    if (glosses.isNotEmpty() && il == null) androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                        glosses.forEach { (w, m) ->
-                            Text("$w · $m", style = Type.small.of(readLang).copy(fontSize = Tokens.Text.caps), color = Color(0xFF7A5A20),
-                                modifier = Modifier.border(1.dp, Color(0x557A5A20)).padding(horizontal = 6.dp, vertical = 2.dp))
-                        }
-                    }
-                    if (reveal) Text(read, style = Type.base.of(readLang), color = p.slipSoft)
-                    else Text(stringResource(R.string.fade_show), style = Type.small.ui(), color = p.slipSoft, modifier = Modifier.pressable(haptic = false) { reveal = true }.padding(vertical = 4.dp))
-                } else if (read != null) InkText(read, Type.base.of(readLang), p.slipSoft, animate, go = learnDone, lineMs = (lineMs * 0.7f).toInt(), onDone = onWritten)
+                if (read != null) InkText(read, Type.base.of(readLang), readInk, animate, go = learnDone, lineMs = (lineMs * 0.7f).toInt(), onDone = onWritten)
                 }
                 if (signature != null) Text(signature, style = Type.signature, color = p.slipSoft, modifier = Modifier.align(Alignment.End).padding(top = Tokens.Space.s1))
             }
@@ -882,6 +866,7 @@ private fun SentencePairs(
     marks: List<Pair<IntRange, Int>>, onWord: (Int) -> Unit, spoken: IntRange?,
     taps: List<IntRange>, onTap: ((Int) -> Unit)?, hints: List<IntRange>, picked: IntRange?, onPickedAt: (GlossAnchor?) -> Unit,
     il: IlLine? = null, seen: Set<String> = emptySet(),
+    readInk: Color = Ink.palette.slipSoft,
 ) {
     val p = Ink.palette
     var stage by remember(learn) { mutableIntStateOf(if (animate) 0 else pairs.size * 2) }
@@ -896,7 +881,7 @@ private fun SentencePairs(
             marks = segMarks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { j -> onWord(segMarks[j].second) }, spoken = segSpoken,
             taps = taps.map { it.inside(r) ?: IntRange.EMPTY }, onTap = onTap, hints = hints.mapNotNull { it.inside(r) },
             picked = picked?.inside(r), onPickedAt = onPickedAt)
-        if (tr.isNotBlank()) InkText(tr, Type.base.of(readLang), p.slipSoft, animate, go = stage >= 2 * k + 1, lineMs = (lineMs * 0.7f).toInt(),
+        if (tr.isNotBlank()) InkText(tr, Type.base.of(readLang), readInk, animate, go = stage >= 2 * k + 1, lineMs = (lineMs * 0.7f).toInt(),
             onDone = { if (stage == 2 * k + 1) stage = 2 * k + 2; if (k == pairs.lastIndex) onWritten() })
         else if (k == pairs.lastIndex) LaunchedEffect(stage) { if (stage >= 2 * k + 1) onWritten() }
         else LaunchedEffect(stage) { if (stage == 2 * k + 1) stage = 2 * k + 2 }

@@ -305,7 +305,163 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         store.markLearnChosen(id)
         store.migrateSpace(id, space(id))
         enter(id)
+        // 처음 시작 세 가지 (새로 쓰는 사람만): 답하면 첫 편지로
+        if (needsStart(id)) { startAsk = id; return }
         if (route == Route.Inbox) openFirst(id)
+    }
+
+    // ── 처음 시작 (core 의 Start, 시안 onboard.html) ─────────────────
+    /** 처음 시작을 묻는 중인 작품 (실력 · 왜 · 하루 분량 세 화면, [StartSheet]). */
+    var startAsk by mutableStateOf<String?>(null)
+    /** 이 버전 전부터 쓰던 사람 (진도가 있었음): 처음 시작을 묻지 않는다. 처음 켤 때 한 번 정해 둔다. */
+    private val startLegacy = store.startLegacy(store.progressKeys().isNotEmpty())
+
+    /** 이 작품에서 처음 시작을 물을까: 새로 쓰는 사람이고, 이 작품에서 답하지 않았고, 지금 배우는 말로 읽은 편지가 없을 때. */
+    fun needsStart(id: String): Boolean {
+        val lang = seriesSettings(id).learn
+        return io.github.graviton94.todayletters.core.Start.asks(store.startAnswered(id), startLegacy,
+            works.any { w -> seriesSettings(w.series.id).learn == lang && startedCount(w.series.id) > 0 })
+    }
+
+    /** 처음 시작의 답: 시작 단계 (그 말의 바닥) · 천천히 듣는 기간 · 왜 · 하루 분량을 적고 첫 편지로. */
+    fun finishStart(id: String, level: io.github.graviton94.todayletters.core.Start.Level, why: io.github.graviton94.todayletters.core.Start.Why?,
+                    amount: io.github.graviton94.todayletters.core.Start.Amount) {
+        applyLevel(id, level)
+        update(id, seriesSettings(id).copy(why = why, amount = amount))
+        store.markStartAnswered(id)
+        startAsk = null
+        if (route == Route.Inbox) openFirst(id)
+    }
+
+    /** 실력 칸 (처음 시작 · 작품 설정): 배우는 말의 시작 단계와 이 작품의 천천히 듣는 기간 (오늘부터). */
+    fun applyLevel(id: String, level: io.github.graviton94.todayletters.core.Start.Level) {
+        val lang = seriesSettings(id).learn
+        store.setStartGrade(lang.code, io.github.graviton94.todayletters.core.Start.grade(level))
+        val days = io.github.graviton94.todayletters.core.Start.slowDays(level)
+        update(id, seriesSettings(id).copy(slowFrom = if (days > 0) today else -1, slowDays = days))
+    }
+
+    /** 작품 설정에 보일 지금 실력 칸. */
+    fun startLevel(id: String): io.github.graviton94.todayletters.core.Start.Level =
+        io.github.graviton94.todayletters.core.Start.level(store.startGrade(seriesSettings(id).learn.code), seriesSettings(id).slowDays)
+
+    /** 왜에 맞춘 다음 작품 (아직 시작하지 않은 것, 없으면 null). */
+    fun suggestedNext(id: String): String? =
+        io.github.graviton94.todayletters.core.Start.suggest(seriesSettings(id).why, works.map { it.series.id })
+            .firstOrNull { it != id && startedCount(it) == 0 }
+
+    // ── 천천히 듣는 2주 (core 의 Slow) ───────────────────────────
+    /** 이 작품의 천천히 듣는 기간 며칠째 (1부터), 아니면 null. */
+    fun slowDay(id: String = current): Int? = run {
+        @Suppress("UNUSED_EXPRESSION") version
+        if (works.none { it.series.id == id }) return@run null
+        seriesSettings(id).let { io.github.graviton94.todayletters.core.Slow.day(it.slowFrom, it.slowDays, today) }
+    }
+
+    /** 작품 설정의 ‘천천히 듣는 2주’: 켜면 오늘부터 [io.github.graviton94.todayletters.core.Slow.DAYS] 일, 끄면 바로 끝. */
+    fun setSlow(id: String, on: Boolean) =
+        update(id, seriesSettings(id).copy(slowFrom = if (on) today else -1, slowDays = if (on) io.github.graviton94.todayletters.core.Slow.DAYS else 0))
+
+    /** 이 편지를 처음 한 번 0.7× 로 들을 차례인가 (기간 중 · 아직 안 마침 · 아직 천천히 다 듣지 않음). */
+    fun slowPassDue(id: String, chapter: String, l: Letter): Boolean =
+        slowDay(id) != null && !progress(id, chapter, l.id).done && !replaying(id, chapter, l.id) && !store.slowPassed(key(id, chapter, l.id))
+
+    /** 지금 편지 방의 편지를 처음 한 번 천천히 읽는 중: 그동안 기본 빠르기 ([listenSpeed]) 가 0.7×. */
+    private fun slowPassing(): Pair<String, Pair<String, Letter>>? {
+        val r = route as? Route.Letter ?: return null
+        if (r.epilogue || works.none { it.series.id == r.series }) return null
+        val cl = runCatching { letterOf(r) }.getOrNull() ?: return null
+        return if (slowPassDue(r.series, cl.first, cl.second)) r.series to cl else null
+    }
+
+    /** 소리 하나를 끝까지 들었다: 천천히 읽던 편지의 마지막 문장이면 처음 한 번은 끝 (그 뒤로는 평소 빠르기). */
+    private fun soundEnded(asset: String) {
+        lastEnded = asset
+        val (id, cl) = slowPassing() ?: return
+        val (c, l) = cl
+        if (asset == narrator.path(id, c, l.id, "m${l.messages.size}_${room(id).learn.code}")) store.markSlowPassed(key(id, c, l.id))
+    }
+    private var lastEnded: String? = null
+
+    /** 어제 편지: 오늘 마치지 않은 것 가운데 가장 나중에 마친 편지 (없으면 null). */
+    fun yesterdayLetter(id: String): Pair<String, Letter>? {
+        val keys = doneToday(id).toSet()
+        return all(id).lastOrNull { (c, l) -> progress(id, c, l.id).done && key(id, c, l.id) !in keys }
+    }
+
+    /** 편지 메시지 낭독 파일 (지금 배우는 말, 있는 것만). */
+    fun letterClips(id: String, chapter: String, l: Letter): List<String> =
+        l.messages.indices.map { narrator.path(id, chapter, l.id, "m${it + 1}_${room(id).learn.code}") }.filter { narrator.has(it) }
+
+    /** 낭독 길이 (밀리초): 마디 시각 파일의 마지막 끝 시각을 더한다. */
+    fun clipsMs(clips: List<String>): Long = clips.sumOf { a -> (narrator.chunks(a).maxOfOrNull { it.end } ?: 0).toLong() }
+
+    /** 어제 편지 다시 듣기 중. */
+    var againPlaying by mutableStateOf(false)
+        private set
+
+    /** 어제 편지 다시 듣기: 메시지 낭독을 차례로 (다시 누르면 멈춤, 다른 소리가 끼어들면 거기서 멈춤). */
+    fun playYesterday(id: String) {
+        if (againPlaying) { againPlaying = false; narrator.stop(); return }
+        val (c, l) = yesterdayLetter(id) ?: return
+        val clips = letterClips(id, c, l)
+        if (clips.isEmpty()) return
+        againPlaying = true
+        fun next(k: Int) {
+            if (!againPlaying) return
+            if (k >= clips.size) { againPlaying = false; return }
+            val ok = narrator.play(clips[k]) { if (againPlaying && lastEnded == clips[k]) next(k + 1) else againPlaying = false }
+            if (!ok) next(k + 1)
+        }
+        next(0)
+    }
+
+    /** 편지를 마친 뒤 한 번 띄우는 천천히 듣기 안내의 편지 열쇠 (마침 한 장 · 튜토리얼 끝 한 장에 한 줄). */
+    var slowNote by mutableStateOf<String?>(null)
+    private fun noteSlow(id: String, k: String) {
+        val day = slowDay(id)
+        val n = io.github.graviton94.todayletters.core.Slow.note(day, doneCount(id) == 1, store.slowNoted(id, "first"), store.slowNoted(id, "d3")) ?: return
+        store.markSlowNoted(id, if (n == io.github.graviton94.todayletters.core.Slow.Note.FIRST) "first" else "d3")
+        if (day == 3) store.markSlowNoted(id, "d3")
+        slowNote = k
+    }
+
+    // ── 들은 시간 (core 의 Listening) ─────────────────────────────
+    /** 소리가 들릴 때마다 오른다 (오늘 · 기록 화면이 다시 그린다). */
+    var listenTick by mutableStateOf(0)
+        private set
+    /** 배우는 말 [lang] 으로 오늘 들은 분. */
+    fun listenedToday(lang: io.github.graviton94.todayletters.core.Lang): Int = run {
+        @Suppress("UNUSED_EXPRESSION") listenTick
+        io.github.graviton94.todayletters.core.Listening.min(store.listenBetween(lang.code, today, today))
+    }
+    /** 이번 주 (월요일부터) 들은 밀리초. */
+    fun listenedWeek(lang: io.github.graviton94.todayletters.core.Lang): Long = run {
+        @Suppress("UNUSED_EXPRESSION") listenTick
+        store.listenBetween(lang.code, io.github.graviton94.todayletters.core.Listening.weekStart(today), today)
+    }
+    /** 모두 들은 밀리초. */
+    fun listenedTotal(lang: io.github.graviton94.todayletters.core.Lang): Long = run { @Suppress("UNUSED_EXPRESSION") listenTick; store.listenTotal(lang.code) }
+
+    /**
+     * 아는 낱말이 들리는 비율: 그 말로 처음 연 편지 (서재 차례로 첫 작품의 첫 기록) 의 처음 비율 → 지금 그 편지의 비율 (읽을 수 있는 비율과 같은 값).
+     * 없으면 null.
+     */
+    fun heardRatio(lang: io.github.graviton94.todayletters.core.Lang): Pair<Int, Int>? {
+        works.filter { room(it.series.id).learn == lang }.forEach { w ->
+            val id = w.series.id
+            w.chapters.forEach { c -> c.letters.forEach { l ->
+                val first = firstCoverage(id, c.id, l.id) ?: return@forEach
+                val now = coverage(id, l.id) ?: return@forEach
+                return first to now
+            } }
+        }
+        return null
+    }
+
+    init {
+        narrator.heard = { l, ms -> store.addListen(l, today, ms); listenTick++ }
+        narrator.ended = { soundEnded(it) }
     }
 
     private fun openFirst(id: String) {
@@ -673,7 +829,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     }
     /** 오늘 볼 카드: [id] 가 있으면 그 작품의 카드만 (오늘의 여정 II · 서재 카드의 숫자), 없으면 모든 작품. */
     fun dueCards(id: String? = null) = io.github.graviton94.todayletters.core.Memory.dueToday(
-        cards().filter { c -> id == null || CardRef.parse(c.key)?.series == id }, today)
+        cards().filter { c -> id == null || CardRef.parse(c.key)?.series == id }, today,
+        // 하루 분량 (작품 설정): ‘복습 더’ 면 더 많이. 모든 작품이면 지금 작품의 것
+        io.github.graviton94.todayletters.core.Start.daily(seriesSettings(id ?: current).amount))
     /** 지금 배우는 말의 이 작품 카드 (복습 탭 · 자유 연습은 지금 작품의 것만, F08). */
     fun seriesCards(id: String = current) = cards().filter { c -> CardRef.parse(c.key)?.series == id }
 
@@ -980,6 +1138,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         if (io.github.graviton94.todayletters.core.Replay.paysLetter(savedDoneBefore = again(r), replaying = replay)) {
             finished(); earn(Earn.LETTER, id = r.series)
             finishSheet = key(r.series, ch, l.id)
+            noteSlow(r.series, key(r.series, ch, l.id))
         }
         if (again(r)) store.endAgain()
         go(Route.Done(r))
@@ -1286,6 +1445,23 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         return got
     }
 
+    private var gradeMineMemo: Pair<Int, Map<io.github.graviton94.todayletters.core.Lang, Int>> = -1 to emptyMap()
+    /**
+     * 언어 등급이 세는 낱말 수 (배우는 말 [lang]): [mine] 과 같은 낱말이되 써 보기 이상 ([Growth.knownForGrade]) 만.
+     * 등급 · 나의 기록의 ‘다음 단까지’ 에만 쓴다 (뜻풀이 · 읽을 수 있는 비율 · 낱말 수 칸은 [mine]).
+     */
+    fun gradeWords(lang: io.github.graviton94.todayletters.core.Lang): Int {
+        if (gradeMineMemo.first != version) gradeMineMemo = version to emptyMap()
+        gradeMineMemo.second[lang]?.let { return it }
+        val n = cards().filter { Growth.knownForGrade(it) }.mapNotNull { c ->
+            val ref = CardRef.parse(c.key) ?: return@mapNotNull null
+            if (seriesSettings(ref.series).learn != lang) return@mapNotNull null
+            if (ref.own.isNotEmpty()) ref.own else cardWord(c.key)?.word?.takeIf { !it.phrase }?.lex?.takeIf { it.isNotEmpty() }
+        }.toSet().size
+        gradeMineMemo = version to (gradeMineMemo.second + (lang to n))
+        return n
+    }
+
     /** 이 작품에서 아는 낱말인가 (기능어 · 이름 · 숫자, 또는 내 것이 된 낱말). */
     fun knows(series: String): (String) -> Boolean {
         val w = vocabWork(series) ?: return { false }
@@ -1319,22 +1495,23 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             w.chapters.flatMap { c -> c.letters.filter { progress(id, c.id, it.id).done }.mapNotNull { coverage(id, it.id) } }
         })
 
-    /** 배우는 말 [lang] 의 언어 등급 (닿았던 등급 아래로는 내려가지 않는다). */
+    /** 배우는 말 [lang] 의 언어 등급: 실제로 닿은 등급 ([earnedGrade]) 과 처음 시작에서 고른 시작 단계 ([Store.startGrade]) 가운데 높은 것. */
     fun grade(lang: io.github.graviton94.todayletters.core.Lang): io.github.graviton94.todayletters.core.Reading.Grade {
         if (gradeMemo.first != version) gradeMemo = version to emptyMap()
         gradeMemo.second[lang]?.let { return it }
-        val g = io.github.graviton94.todayletters.core.Reading.grade(mine(lang).size, recentCoverage(lang), store.grade(lang.code).coerceAtLeast(1))
+        val g = io.github.graviton94.todayletters.core.Reading.Grade.of(maxOf(earnedGrade(lang).index, store.startGrade(lang.code)))
         gradeMemo = version to (gradeMemo.second + (lang to g))
         return g
     }
+
+    /** 낱말 · 비율로 닿은 등급 (닿았던 등급 아래로는 내려가지 않는다. 예전 문턱으로 오른 사람도 그대로). 시작 단계는 넣지 않는다 (작품 설정에서 되돌릴 수 있게). */
+    private fun earnedGrade(lang: io.github.graviton94.todayletters.core.Lang) =
+        io.github.graviton94.todayletters.core.Reading.grade(gradeWords(lang), recentCoverage(lang), store.grade(lang.code).coerceAtLeast(1))
     private var gradeMemo: Pair<Int, Map<io.github.graviton94.todayletters.core.Lang, io.github.graviton94.todayletters.core.Reading.Grade>> = -1 to emptyMap()
 
-    /** 이 작품에서 번역 줄을 접을 문장인가 ([msg] 번째 메시지). 작품 설정에서 껐거나 셀 낱말이 없으면 false. */
-    fun folds(series: String, letterId: String, msg: Int): Boolean {
-        if (!seriesSettings(series).autoFold) return false
-        val keys = letterKeys(series, letterId, msg) ?: return false
-        return io.github.graviton94.todayletters.core.Reading.folds(grade(room(series).learn).band, keys, knows(series))
-    }
+    /** 이 작품의 번역 줄 진하기 (core 의 [io.github.graviton94.todayletters.core.Support.readAlpha]): 접지 않고 등급만큼 옅게. 작품 설정에서 끄면 1. */
+    fun readAlpha(series: String): Float =
+        io.github.graviton94.todayletters.core.Support.readAlpha(grade(room(series).learn).band, seriesSettings(series).fadeRead)
 
     /** 언어 등급이 오른 순간 (레벨 업과 같은 자리, 레벨 업보다 먼저). */
     data class GradeUp(val lang: io.github.graviton94.todayletters.core.Lang, val from: io.github.graviton94.todayletters.core.Reading.Grade, val to: io.github.graviton94.todayletters.core.Reading.Grade)
@@ -1349,13 +1526,18 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val week = today / 7
         val prev = mutableMapOf<io.github.graviton94.todayletters.core.Lang, Int>()
         learning.forEach { lang ->
-            val g = grade(lang)
+            // 닿은 등급은 시작 단계 없이 적고 (되돌릴 수 있게), 축하는 화면에 보이는 등급 (시작 단계 포함) 이 오를 때만
+            val e = earnedGrade(lang)
             val was = store.grade(lang.code)
-            if (was == 0) store.setGrade(lang.code, g.index)
-            else if (g.index > was) {
-                xp(XpAction.GRADE_UP, g.index - was)
-                store.setGrade(lang.code, g.index)
-                if (best == null || g.index - was > best!!.to.index - best!!.from.index) best = GradeUp(lang, io.github.graviton94.todayletters.core.Reading.Grade.of(was), g)
+            val start = store.startGrade(lang.code)
+            if (was == 0) store.setGrade(lang.code, e.index)
+            else if (e.index > was) {
+                store.setGrade(lang.code, e.index)
+                val from = maxOf(was, start)
+                if (e.index > from) {
+                    xp(XpAction.GRADE_UP, e.index - from)
+                    if (best == null || e.index - from > best!!.to.index - best!!.from.index) best = GradeUp(lang, io.github.graviton94.todayletters.core.Reading.Grade.of(from), e)
+                }
             }
             store.weekCoverage(lang.code, week, recentCoverage(lang))?.let { prev[lang] = it }
         }
@@ -1393,6 +1575,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
      */
     fun listenSpeed(series: String = current): Float =
         if (works.none { it.series.id == series }) 1f
+        // 천천히 듣는 2주: 편지를 처음 한 번은 0.7× 로
+        else if (slowPassing()?.first == series) io.github.graviton94.todayletters.core.Listen.SLOW
         else io.github.graviton94.todayletters.core.Listen.speed(seriesSettings(series), support(series).band)
 
     init { narrator.base = { listenSpeed() } }

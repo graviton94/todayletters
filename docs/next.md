@@ -1,6 +1,6 @@
 # 다음 작업 (세션 인계)
 
-마지막 갱신: 2026-10-17. 새 세션은 이 문서 → `CLAUDE.md`(작업 순서) → `docs/ia.md`(화면 · 규칙) 순서로 읽는다.
+마지막 갱신: 2026-10-18. 새 세션은 이 문서 → `CLAUDE.md`(작업 순서) → `docs/ia.md`(화면 · 규칙) 순서로 읽는다.
 작업 방식은 `CLAUDE.md` 그대로: **시안(아티팩트) → 허락 → 패치 → 스크린샷 점검(허락 뒤) → 빌드(“릴리즈하자” 뒤에만)**.
 푸시 때 도는 컴파일 확인 `android.yml` 은 늘 돌아도 된다. `android-apk.yml` · `android-aab.yml` 은 사용자가 “릴리즈하자” 고 할 때만.
 
@@ -80,6 +80,18 @@
 - 앱을 켜면 마지막으로 읽던 작품의 오늘 (스택 서재 → 오늘). 처음 쓰는 사람 · 한 통도 안 연 사람만 서재. 오늘 맨 위: 다른 작품 소식 한 줄 · 초상 + “○○의 편지” + “…로 배우는 중 ▾”. 여러 통이 와 있으면 ‘와 있는 편지 N통’ + 나머지 한 줄씩. ‘목차 · 모든 편지 ›’. 서재 카드: 장 · 마지막 읽은 날 · 금빛 표 ‘새 편지 N통’ (읽기 시작하면 ‘읽는 중’). 새 편지 표시 (시안 newletter A+B): 오늘 띠 “볼프강에게서도 새 편지 1통이 왔어요 ›” 는 금빛 칸 + 금테, 새 편지가 처음 보일 때 한 번 내려앉기 + 종이 소리 (효과음 설정, `drop_seen` 에 기억) · 숨 쉬는 금빛 점 (`arrival` · `GiltDot`, 움직임 줄이기면 멈춤). 업데이트 안내 한 장은 서재 · 오늘 둘 다에서 (아래 띠는 서재만). 화면 사진 `ScreensTest.nav*` · `shine*` · `finish01_sheet_dark`.
 
 - 결제 뒤 고마워요 한 장 (`ui/Thanks.kt`, `Billing.onThanks`): 결제 창에서 산 것이 PURCHASED · 확인(acknowledge) 된 뒤 한 번 (구매 토큰마다 `buy_thanked`). 구독 “이제 모든 작품의 모든 편지가 열렸어요”, 소장 “○○의 편지는 이제 평생 당신 것이에요”, ‘읽으러 가기’ → 그 작품의 오늘 (잠긴 편지 · 장에서 왔으면 그것을 연다, `afterPurchase`). PENDING 이면 구매 화면에 “결제가 확인되면 바로 열려요” (`buy_pending` 토큰, 나중에 refresh 에서 끝난 것을 보면 그때 한 장). 구매 복원 · 앱을 켤 때 다시 읽은 예전 구매에는 없음. 화면 사진 `thanks1` · `thanks2`.
+
+## 2026-10-18 추가 (등급 다시 맞추기 · 처음 시작 · 시안 grade.html + onboard.html)
+
+- 등급 이름은 화면에 이름만 (A1~B2 글자는 계산 안쪽): 낱말을 줍는 사람 · 문장을 읽는 사람 · 편지를 읽는 사람 · 답장을 쓰는 사람 + “N단” (en Word gatherer · Sentence reader · Letter reader · Reply writer). 나의 기록 · 등급 축하 · 메달 (제목 앞 A2/B1/B2 뺌, 받는 법 “○○ 되기”) · 작품 설정 ‘도움 한 단계 더’ 설명. grade_note 문장은 뺐다. 이름 함수 `gradeName` · `gradeStep` · `gradeLine` (`ui/Cabinet.kt`).
+- 문턱: 낱말 0 · 20 · 45 / 75 · 100 · 130 / 170 · 215 · 260 / 310 · 360 · 400, 비율 A2 65 · B1 78 · B2 85%. 등급의 낱말은 **써 보기 이상** (`Growth.knownForGrade`, box ≥ 3) — `AppState.gradeWords` 가 등급 · 기록의 ‘다음 단까지’ 에만. 읽을 수 있는 비율 · 뜻풀이 · 혼자 읽기 · 기록의 낱말 수 · 도움 사다리 (`Support.KNOWN_BOX`) 는 그대로 떠올리기. 이미 오른 사람은 그대로 (바닥).
+- 번역은 **접지 않는다**: `Reading.foldAt/folds` · `AppState.folds` · gradeup_fold 글자를 지우고 `Support.readAlpha` (A1 1 · A2 0.85 · B1 0.7 · B2 0.55) 로 옅게만 (`Room.kt` LetterSlip · SentencePairs). 작품 설정 이름 ‘실력만큼 번역 옅게’ (저장 열쇠 `s:<id>:fold` 그대로, 칸 이름 `fadeRead`).
+- 도움 사다리 (`core/Scaffold.kt` Support): `interlinear` · `interlinearWord` (B2 아래 기본, 내 것이 아닌 낱말만) · `warmUp` (A1 · A2 ON, B1 OPTIONAL, B2 OFF) · `slowByDefault` — 낱말 아래 뜻 · 예열을 만드는 쪽이 읽는다. 이해 확인 지문 번역은 모든 단계에서 눌러서 (B2 포함).
+- 처음 시작 세 화면 (`ui/StartSheet.kt`, `AppState.startAsk` · `needsStart` · `finishStart`): `chooseLearn` 뒤, 새로 쓰는 사람만 (`Store.startLegacy` = 이 버전 첫 실행 때 진도가 있었으면 묻지 않음, 그 말로 읽은 편지가 있어도 묻지 않음). 실력 → 시작 단계 (`Store.startGrade`, 바닥) + 천천히 듣는 기간, 왜 → 응원 한 줄 · 작품을 다 마친 마침 한 장의 ‘다음엔 ○○ 어때요? ›’ (`Start.suggest`), 하루 분량 두 가지 (`Memory.dueToday(daily)`: 12 · 20장). 작품 설정에 실력 · 하루 분량 · 천천히 듣는 2주 · 배우는 까닭.
+- 천천히 듣는 2주 (`core/Slow`): 오늘 맨 위 `SlowCard` (어제 편지 다시 듣기 · 1분, `AppState.playYesterday`), 오늘 편지 카드 “먼저 0.7×로 한 번 들어요”, 편지 방에 있는 동안 기본 빠르기 0.7× (`listenSpeed` → `slowPassing`, 마지막 메시지 낭독이 끝나면 `slow:pass:<열쇠>`). 첫 편지 · 3일째 안내 한 줄 (`slowNote`, 마침 한 장 · 튜토리얼 끝 한 장).
+- 들은 시간 (`core/Listening`, `Narrator.heard` · `ended`): 파일 이름 언어 꼬리로 언어마다, 재생한 만큼만 (`lis:<언어>` 모두 · `lis:<언어>:<날>` 8일). 나의 기록 `ListenBlock`, 오늘 이어 읽기 줄 옆 “오늘 N분”.
+- 화면 사진 `ScreensTest.start*` (st1~st3 처음 시작 · st4 오늘 천천히 · st5 기록 들은 시간 · st6 등급 축하). 다른 사진은 `startLegacy(true)` 로 묻지 않게.
+- 남은 것: 문턱 · 들은 시간은 출시 뒤 기록으로 다시 맞춘다 (어림값). 왜 → ‘그림이면 오늘 편지의 그림 먼저’ 같은 화면 바꿈은 아직 없다.
 
 ## 다음 할 일 (차례대로)
 

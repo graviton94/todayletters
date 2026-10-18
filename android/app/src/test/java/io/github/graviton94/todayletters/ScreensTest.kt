@@ -72,6 +72,8 @@ class ScreensTest {
     /** [tutorial] 이면 처음 설치의 튜토리얼 중 (서재 강조 · 걸음마다 안내 한 줄). 아니면 마친 것으로 (예전 화면 사진 그대로). */
     private fun state(onboarded: Boolean, tutorial: Boolean = false): AppState {
         ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().clear().commit()
+        // 처음 시작 세 가지는 따로 찍는다 (start*): 다른 사진에서는 이미 쓰던 사람으로
+        Store(ctx).startLegacy(true)
         if (onboarded) Store(ctx).onboarded = true
         if (onboarded && !tutorial) Store(ctx).tutorialDone = true
         // 알림 권한 앞 한 줄 (편지 완료 뒤 대화창) 은 따로 찍는다: 다른 사진에서는 이미 물은 것으로 (대화창은 화면 뿌리가 둘이 된다)
@@ -1251,13 +1253,13 @@ class ScreensTest {
             scrolled { rule.onAllNodes(androidx.compose.ui.test.hasScrollToIndexAction()).onFirst().performScrollToIndex(0) }
         }, series = s) { Room(s, room(1)) }
     }
-    /** 번역 줄 물러나기: B1 에서 다 아는 문장(첫 문장 빼고 모두)은 번역을 접고, 첫 문장은 번역 그대로. 다 읽은 편지라 끝 쪽이 보인다. */
+    /** 번역 줄은 접지 않는다: B1 에서는 옅게만 (다 아는 문장도 번역이 보인다). 다 읽은 편지라 끝 쪽이 보인다. */
     @Test fun foldedTranslation() {
         val s = graded(engineState().also { it.reward = null }, 7)
         val l = s.work("vincent").chapters.first().letters.first()
         knowWords(s, l, (1 until l.messages.size).toList())
         shot("g03_room_folded_b1_light", false, 3000, series = s) { Room(s, room(1)) }
-        org.junit.Assert.assertTrue("last sentence folds", s.folds("vincent", l.id, l.messages.size - 1))
+        org.junit.Assert.assertTrue("translation dims at B1", s.readAlpha("vincent") < 1f)
     }
     @Test fun foldedTranslationDark() {
         val s = graded(engineState().also { it.reward = null }, 10)
@@ -1291,6 +1293,60 @@ class ScreensTest {
         val lang = s.seriesSettings("vincent").learn
         s.gradeUp = AppState.GradeUp(lang, io.github.graviton94.todayletters.core.Reading.Grade.of(4), io.github.graviton94.todayletters.core.Reading.Grade.of(5))
         shot("g08_grade_up_step_light", false, 2000) { io.github.graviton94.todayletters.ui.GradeUpOverlay(s) }
+    }
+    // ── 처음 시작 · 천천히 듣는 2주 · 들은 시간 (시안 onboard.html · grade.html) ──
+    private fun freshStart(): AppState {
+        val s = state(onboarded = true)
+        s.store.markLearnChosen("vincent")
+        return s
+    }
+    @Test fun start1Level() { val s = freshStart(); shot("st1_level_light", false, 1500, series = s) { io.github.graviton94.todayletters.ui.StartSheet(s, "vincent") } }
+    @Test fun start2Why() { val s = freshStart(); shot("st2_why_light", false, 1500, series = s) { io.github.graviton94.todayletters.ui.StartSheet(s, "vincent", startAt = 1) } }
+    @Test fun start3Amount() { val s = freshStart(); shot("st3_amount_dark", true, 1500, series = s) { io.github.graviton94.todayletters.ui.StartSheet(s, "vincent", startAt = 2) } }
+    /** 처음이에요 → 낱말을 줍는 사람 1단 + 천천히 듣는 2주 (14일), 첫 편지로. 이미 쓰던 사람은 묻지 않는다. */
+    @Test fun startFlow() {
+        ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().clear().commit()
+        Store(ctx).onboarded = true
+        val s = AppState(ctx, deepLink = false)
+        s.startTutorial(s.seriesSettings("vincent").learn)
+        org.junit.Assert.assertEquals("vincent", s.startAsk)
+        s.finishStart("vincent", io.github.graviton94.todayletters.core.Start.Level.NEW, io.github.graviton94.todayletters.core.Start.Why.ARTS, io.github.graviton94.todayletters.core.Start.Amount.MORE)
+        org.junit.Assert.assertNull(s.startAsk)
+        org.junit.Assert.assertEquals(1, s.slowDay("vincent"))
+        org.junit.Assert.assertEquals(io.github.graviton94.todayletters.core.Start.Amount.MORE, s.seriesSettings("vincent").amount)
+        org.junit.Assert.assertTrue(s.route is Route.Letter)
+        org.junit.Assert.assertFalse(s.needsStart("vincent"))
+    }
+    /** 오늘 · 천천히 듣는 2주 6일째: 맨 위 ‘어제 편지 다시 듣기 · 1분’, 오늘 편지 ‘먼저 0.7×로 한 번’, 이어 읽기 줄 옆 ‘오늘 N분’. */
+    @Test fun startSlowToday() {
+        val s = engineState(); s.reward = null
+        val cur = s.seriesSettings("vincent")
+        s.update("vincent", cur.copy(slowFrom = s.today - 5, slowDays = 14))
+        s.store.addListen(cur.learn.code, s.today, 12 * 60_000L)
+        s.bump()
+        shot("st4_today_slow_light", false, 3000, series = s) { Inbox(s) }
+    }
+    /** 나의 기록: 새 등급 이름 (문장을 읽는 사람 2단) · 편지를 들은 시간 · 이번 주 · 아는 낱말이 들리는 비율. */
+    @Test fun startRecordListen() {
+        val s = graded(engineState().also { it.reward = null }, 5)
+        val lang = s.seriesSettings("vincent").learn.code
+        s.store.addListen(lang, s.today - 40, (2 * 60 + 32) * 60_000L)
+        s.store.addListen(lang, s.today - 1, 30 * 60_000L)
+        s.store.addListen(lang, s.today, 18 * 60_000L)
+        val l = s.work("vincent").chapters.first().letters.first()
+        val now = s.coverage("vincent", l.id) ?: 60
+        s.store.setFirstCoverage(s.key("vincent", "I", l.id), (now - 14).coerceAtLeast(0))
+        s.bump()
+        shot("st5_record_listen_light", false, act = {
+            scrolled { rule.onAllNodes(hasText(ctx.getString(R.string.listen_title))).onFirst().performScrollTo() }
+        }) { io.github.graviton94.todayletters.ui.RecordScreen(s) }
+    }
+    /** 단이 올라 새 등급: “편지를 읽는 사람이 됐어요” · 번역은 조금 더 옅게 (접지 않음). */
+    @Test fun startGradeUp() {
+        val s = engineState(); s.reward = null
+        val lang = s.seriesSettings("vincent").learn
+        s.gradeUp = AppState.GradeUp(lang, io.github.graviton94.todayletters.core.Reading.Grade.of(6), io.github.graviton94.todayletters.core.Reading.Grade.of(7))
+        shot("st6_grade_up_dark", true, 2000) { io.github.graviton94.todayletters.ui.GradeUpOverlay(s) }
     }
     /** 메달 진열장의 언어 등급 가족: A2 · B1 메달을 받았고 다음은 B2 (석고 본 · 진행). */
     private fun gradeMedals(): AppState {

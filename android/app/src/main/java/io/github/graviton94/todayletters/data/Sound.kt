@@ -94,6 +94,17 @@ class Narrator(private val ctx: Context) {
      */
     var slowBy by mutableStateOf<Any?>(null)
 
+    /**
+     * 들은 시간 (core 의 [io.github.graviton94.todayletters.core.Listening]): 배우는 말의 소리를 실제로 재생한 만큼 (언어, 밀리초) 를 알린다.
+     * 멈춘 동안은 세지 않는다. AppState 가 건다.
+     */
+    var heard: (String, Long) -> Unit = { _, _ -> }
+    /** 소리 하나를 끝까지 들었을 때 (파일 경로). AppState 가 건다 (천천히 듣는 2주의 처음 한 번). */
+    var ended: (String) -> Unit = {}
+    private val clock = io.github.graviton94.todayletters.core.Listening.Clock()
+    private fun tick() = android.os.SystemClock.elapsedRealtime()
+    private fun count() { clock.stop(tick())?.let { (l, ms) -> runCatching { heard(l, ms) } } }
+
     /** [speed] 를 주지 않으면 기본 빠르기 ([base]). */
     fun play(asset: String, speed: Float? = null, onDone: () -> Unit = {}): Boolean {
         stop()
@@ -106,7 +117,10 @@ class Narrator(private val ctx: Context) {
             MediaPlayer().apply {
                 setAudioAttributes(media)
                 setDataSource(fd.fileDescriptor, fd.startOffset, fd.length)
-                setOnCompletionListener { if (player === this) now = null; finish() }
+                setOnCompletionListener {
+                    if (player === this) { count(); now = null; runCatching { ended(asset) } }
+                    finish()
+                }
                 prepare()
                 if (rate != 1f) playbackParams = playbackParams.setSpeed(rate)
                 start()
@@ -115,6 +129,7 @@ class Narrator(private val ctx: Context) {
         runCatching { fd.close() }
         if (player == null) { finish(); return false }
         now = asset
+        clock.start(asset, tick())
         return true
     }
 
@@ -127,6 +142,7 @@ class Narrator(private val ctx: Context) {
     private fun finish() { val d = pending; pending = null; d?.invoke() }
 
     fun stop() {
+        count()
         player?.runCatching { stop(); release() }
         player = null
         playing = null
@@ -141,8 +157,8 @@ class Narrator(private val ctx: Context) {
     /** 잠깐 멈춤 · 이어서 (알림창 · 이어폰 단추). 멈춘 동안에는 ‘끝났을 때’를 부르지 않는다. */
     var paused = false
         private set
-    fun pause() { player?.runCatching { if (isPlaying) { pause(); paused = true } } }
-    fun resume() { player?.runCatching { if (paused) { start(); paused = false } } }
+    fun pause() { player?.runCatching { if (isPlaying) { pause(); paused = true; clock.pause(tick()) } } }
+    fun resume() { player?.runCatching { if (paused) { start(); paused = false; clock.resume(tick()) } } }
     /** 지금 파일의 처음으로. */
     fun restart() { player?.runCatching { seekTo(0) } }
     /** 지금 파일을 재생 중인가 (멈춘 것도 포함). */

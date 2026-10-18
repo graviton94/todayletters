@@ -569,8 +569,8 @@
    "tier": "bronze",
    "threshold": 4,
    "title": {
-    "ko": "A2 · 첫 대답",
-    "en": "A2 · First Answers"
+    "ko": "첫 대답",
+    "en": "First Answers"
    },
    "image": "medals/grade_4.webp",
    "source": {
@@ -588,8 +588,8 @@
    "tier": "silver",
    "threshold": 7,
    "title": {
-    "ko": "B1 · 뱃머리의 승리",
-    "en": "B1 · Victory at the Prow"
+    "ko": "뱃머리의 승리",
+    "en": "Victory at the Prow"
    },
    "image": "medals/grade_7.webp",
    "source": {
@@ -607,8 +607,8 @@
    "tier": "gold",
    "threshold": 10,
    "title": {
-    "ko": "B2 · 콘스탄티누스의 금화",
-    "en": "B2 · Constantine's Solidus"
+    "ko": "콘스탄티누스의 금화",
+    "en": "Constantine's Solidus"
    },
    "image": "medals/grade_10.webp",
    "source": {
@@ -626,8 +626,8 @@
    "tier": "gold",
    "threshold": 12,
    "title": {
-    "ko": "B2 · 프톨레마이오스의 등대",
-    "en": "B2 · The Lighthouse of Ptolemy"
+    "ko": "프톨레마이오스의 등대",
+    "en": "The Lighthouse of Ptolemy"
    },
    "image": "medals/grade_12.webp",
    "source": {

@@ -15,8 +15,8 @@ class ScaffoldTest {
         assertEquals(Support.CheckLangs(Lang.KO, Lang.KO), Support.check(Reading.Band.A2, Lang.FR, Lang.KO))
         assertEquals(Support.CheckLangs(Lang.FR, Lang.KO), Support.check(Reading.Band.B1, Lang.FR, Lang.KO))
         assertEquals(Support.CheckLangs(Lang.KO, Lang.KO), Support.check(Reading.Band.B2, Lang.KO, Lang.EN))
-        assertTrue(Support.checkTranslationTappable(Reading.Band.A1))
-        assertFalse(Support.checkTranslationTappable(Reading.Band.A2))
+        // 번역은 어느 단계에서도 눌러서 볼 수 있다 (B2 포함)
+        assertTrue(Reading.Band.entries.all(Support::checkTranslationTappable))
     }
 
     @Test fun talkHelpShrinksWithTheBand() {
@@ -43,7 +43,23 @@ class ScaffoldTest {
         assertEquals(g(1), Support.grade(g(2), easier = true))
         assertEquals(g(8), Support.grade(g(8), easier = false))
         assertEquals(Ladder.help(g(8)), Support.reply(g(8)))
-        assertEquals(Reading.foldAt(Reading.Band.B1), Support.fold(Reading.Band.B1))
+    }
+
+    @Test fun translationOnlyDimsNeverFolds() {
+        val a = Reading.Band.entries.map { Support.readAlpha(it) }
+        assertEquals(1f, a.first())
+        assertTrue(a.zipWithNext().all { (x, y) -> y < x })     // 오를수록 옅게
+        assertTrue(a.all { it >= 0.5f })                         // 그래도 늘 보인다
+        assertTrue(Reading.Band.entries.all { Support.readAlpha(it, on = false) == 1f })
+    }
+
+    @Test fun beginnersGetBroaderHelp() {
+        assertEquals(listOf(true, true, true, false), Reading.Band.entries.map(Support::interlinear))
+        assertTrue(Support.interlinearWord(Reading.Band.A1, 0))
+        assertFalse(Support.interlinearWord(Reading.Band.A1, Support.KNOWN_BOX))
+        assertFalse(Support.interlinearWord(Reading.Band.B2, 0))
+        assertEquals(listOf(Support.WarmUp.ON, Support.WarmUp.ON, Support.WarmUp.OPTIONAL, Support.WarmUp.OFF), Reading.Band.entries.map(Support::warmUp))
+        assertEquals(listOf(true, true, false, false), Reading.Band.entries.map(Support::slowByDefault))
     }
 
     @Test fun knownWordsAreBlankedFirstUnknownStayVisible() {

@@ -134,12 +134,30 @@ private fun countText(s: AppState, m: MedalDef, st: Stats): String {
     return stringResource(R.string.medal_count, now, goal, unitOf(s, m, uiLang())).trim()
 }
 
-/** 등급 번호 (1~12) 를 "B1" · "B2 3단" 처럼: 등급의 첫 단이면 등급 이름만. */
+/** 등급 번호 (1~12) 를 “편지를 읽는 사람” · “답장을 쓰는 사람 3단” 처럼: 등급의 첫 단이면 이름만. A1~B2 글자는 화면에 내지 않는다. */
 @Composable
 private fun gradeLabel(index: Int): String {
     val g = io.github.graviton94.todayletters.core.Reading.Grade.of(index.coerceAtLeast(1))
-    return if (g.step == 1) g.band.name else stringResource(R.string.grade_step, g.band.name, g.step)
+    return if (g.step == 1) gradeName(g.band) else gradeStep(g)
 }
+
+/** 등급의 화면 이름 (낱말을 줍는 사람 · 문장을 읽는 사람 · 편지를 읽는 사람 · 답장을 쓰는 사람). */
+@Composable
+fun gradeName(b: io.github.graviton94.todayletters.core.Reading.Band): String = stringResource(when (b) {
+    io.github.graviton94.todayletters.core.Reading.Band.A1 -> R.string.grade_a1
+    io.github.graviton94.todayletters.core.Reading.Band.A2 -> R.string.grade_a2
+    io.github.graviton94.todayletters.core.Reading.Band.B1 -> R.string.grade_b1
+    io.github.graviton94.todayletters.core.Reading.Band.B2 -> R.string.grade_b2
+})
+
+/** “문장을 읽는 사람 2단”. */
+@Composable
+fun gradeStep(g: io.github.graviton94.todayletters.core.Reading.Grade): String = stringResource(R.string.grade_step, gradeName(g.band), g.step)
+
+/** “프랑스어 · 문장을 읽는 사람 2단”. */
+@Composable
+fun gradeLine(lang: Lang, g: io.github.graviton94.todayletters.core.Reading.Grade): String =
+    stringResource(R.string.grade_line, stringResource(langLabel(lang)), gradeName(g.band), g.step)
 
 /** 언어 등급 메달이 가리키는 말: 등급이 가장 높은 말 (같으면 지금 작품에서 배우는 말). */
 private fun gradeLang(s: AppState): io.github.graviton94.todayletters.core.Lang {
@@ -212,7 +230,7 @@ fun MedalCell(s: AppState, m: MedalDef, st: Stats, earned: Boolean, isNext: Bool
             when {
                 earned -> m.title[ui]
                 isNext -> countText(s, m, st)
-                m.family == "grade" -> gradeLabel(m.threshold)   // 문턱만 ("B1")
+                m.family == "grade" -> gradeLabel(m.threshold)   // 문턱만 (“편지를 읽는 사람”)
                 else -> stringResource(R.string.medal_count, m.threshold, m.threshold, unitOf(s, m, ui)).trim().substringAfter("/")   // 문턱만 ("60일")
             },
             style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = if (earned) FontWeight.SemiBold else FontWeight.Normal),
@@ -362,7 +380,7 @@ fun LevelUpOverlay(s: AppState) {
 
 /**
  * 언어 등급이 오른 순간: 레벨 업과 같은 전시실 벽 위에 배우는 말 · 새 등급 · 단. 보상 순간이 닫힌 뒤, 레벨 업보다 먼저.
- * 새 등급(A2 · B1 · B2)에 들어섰으면 번역 줄이 어디까지 물러나는지 한 줄로 알려 준다.
+ * 새 등급에 들어섰으면 새 이름 한 줄과, 번역이 조금 더 옅어진다는 한 줄 (번역은 접지 않는다).
  */
 @Composable
 fun GradeUpOverlay(s: AppState) {
@@ -388,12 +406,15 @@ fun GradeUpOverlay(s: AppState) {
             Text(stringResource(R.string.gradeup_title, langName), style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
             Box(Modifier.graphicsLayer { alpha = a.value; val k = 0.94f + 0.06f * a.value; scaleX = k; scaleY = k }.padding(vertical = Tokens.Space.s3),
                 contentAlignment = Alignment.Center) {
-                Text(up.to.band.name, style = Type.display.copy(fontFamily = Faces.display), color = gold)
+                Text(gradeName(up.to.band), style = Type.title.ui().copy(fontSize = Tokens.Text.title * 1.25f), color = gold, textAlign = TextAlign.Center)
             }
             Ornament(gold.copy(alpha = 0.8f))
-            Text(stringResource(R.string.grade_line, langName, up.to.band.name, up.to.step), style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
-            if (up.to.band != up.from.band) io.github.graviton94.todayletters.core.Reading.foldAt(up.to.band)?.let { at ->
-                Text(if (at >= 100) stringResource(R.string.gradeup_fold_all) else stringResource(R.string.gradeup_fold, at), style = Type.body.ui(), color = t.accent, textAlign = TextAlign.Center)
+            Text(gradeLine(up.lang, up.to), style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
+            // 새 등급에 들어섰으면: “편지를 읽는 사람이 됐어요” · 번역은 접지 않고 조금 더 옅게 (작품 설정에서 끈 사람에게는 말하지 않는다)
+            if (up.to.band != up.from.band) {
+                Text(stringResource(R.string.gradeup_became, gradeName(up.to.band)), style = Type.body.ui(), color = t.accent, textAlign = TextAlign.Center)
+                if (s.works.any { s.room(it.series.id).learn == up.lang && s.seriesSettings(it.series.id).fadeRead && s.seriesSettings(it.series.id).showRead })
+                    Text(stringResource(R.string.gradeup_dim), style = Type.body.ui(), color = t.ink, textAlign = TextAlign.Center)
             }
             // 도움 사다리가 한 칸 줄었으면 한 줄 (설정의 ‘도움 한 단계 더’ 로 되돌릴 수 있다)
             if (io.github.graviton94.todayletters.core.Support.lessened(up.from, up.to)) Text(stringResource(R.string.support_less), style = Type.body.ui(), color = t.ink, textAlign = TextAlign.Center)

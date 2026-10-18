@@ -949,11 +949,11 @@
     "ko": "언어 등급"
   },
   "grade_line": {
-    "en": "%1$s %2$s · step %3$d",
-    "ko": "%1$s %2$s · %3$d단"
+    "en": "%1$s · %2$s, step %3$d",
+    "ko": "%1$s · %2$s %3$d단"
   },
   "grade_step": {
-    "en": "%1$s step %2$d",
+    "en": "%1$s, step %2$d",
     "ko": "%1$s %2$d단"
   },
   "grade_to": {
@@ -980,10 +980,6 @@
     "en": "The top step for now",
     "ko": "지금 기준의 맨 위 단이에요"
   },
-  "grade_note": {
-    "en": "Levels A1–B2 are this app's own measure of the letters you read here, not an official exam grade.",
-    "ko": "A1~B2는 이 앱에서 읽은 편지로 잰 이 앱만의 기준이에요. 공인 시험 등급과 같지 않아요."
-  },
   "gradeup_caps": {
     "en": "Language level",
     "ko": "언어 등급"
@@ -991,14 +987,6 @@
   "gradeup_title": {
     "en": "Your %1$s has grown",
     "ko": "%1$s 실력이 한 단 올랐어요"
-  },
-  "gradeup_fold": {
-    "en": "From now on, sentences where you know more than %1$d%% of the words fold their translation. Tap to open.",
-    "ko": "이제 낱말을 %1$d%% 넘게 아는 문장은 번역을 접어요. 눌러서 펼쳐요."
-  },
-  "gradeup_fold_all": {
-    "en": "From now on, sentences where you know every word fold their translation. Tap to open.",
-    "ko": "이제 낱말을 모두 아는 문장은 번역을 접어요. 눌러서 펼쳐요."
   },
   "shadow_title": {
     "en": "Read along",
@@ -2565,12 +2553,12 @@
     "ko": "다 읽은 편지마다 그림이 여기 걸려요. 그림을 누르면 가까이 볼 수 있어요."
   },
   "set_fade_read": {
-    "en": "Step back translations as you grow",
-    "ko": "실력만큼 번역 물러나기"
+    "en": "Fade translations as you grow",
+    "ko": "실력만큼 번역 옅게"
   },
   "set_fade_read_d": {
-    "en": "On: as your level rises, sentences you know almost every word of fold their translation (tap to open). From A2: only sentences you know fully; B1: 95%; B2: 90%. Off: translations always show.",
-    "ko": "켜면 언어 등급이 오를수록 거의 다 아는 문장부터 번역을 접어요 (눌러서 펼쳐요). A2는 모두 아는 문장만, B1은 95%, B2는 90% 이상. 끄면 번역이 늘 보여요."
+    "en": "On: translations grow fainter as you rise, and always show",
+    "ko": "켜면 단계가 오를수록 번역이 옅어져요 (늘 보여요)"
   },
   "review_right_hint": {
     "en": "Right — with hints.",
@@ -2865,8 +2853,8 @@
     "ko": "%1$s의 편지를 끝까지 모두 읽기"
   },
   "medal_how_grade": {
-    "en": "Reach %2$s in %1$s",
-    "ko": "%1$s %2$s에 오르기"
+    "en": "Become %2$s in %1$s",
+    "ko": "%1$s %2$s 되기"
   },
   "medal_how_h": {
     "en": "How it is earned",
@@ -3373,8 +3361,8 @@
     "ko": "도움 한 단계 더"
   },
   "set_easier_d": {
-    "en": "Keep your grade, but get the help of one grade below (hints, translations, blanks).",
-    "ko": "언어 등급은 그대로 두고, 한 등급 아래의 도움(힌트 · 번역 · 빈칸)을 받아요."
+    "en": "Now %1$s · help as for %2$s",
+    "ko": "지금 %1$s · 도움은 %2$s만큼"
   },
   "set_listen_speed": {
     "en": "Default listening speed",
@@ -3659,5 +3647,173 @@
   "buy_pending": {
     "en": "It opens as soon as the payment is confirmed",
     "ko": "결제가 확인되면 바로 열려요"
+  },
+  "grade_a1": {
+    "en": "Word gatherer",
+    "ko": "낱말을 줍는 사람"
+  },
+  "grade_a2": {
+    "en": "Sentence reader",
+    "ko": "문장을 읽는 사람"
+  },
+  "grade_b1": {
+    "en": "Letter reader",
+    "ko": "편지를 읽는 사람"
+  },
+  "grade_b2": {
+    "en": "Reply writer",
+    "ko": "답장을 쓰는 사람"
+  },
+  "gradeup_became": {
+    "en": "You're now a %1$s",
+    "ko": "%1$s이 됐어요"
+  },
+  "gradeup_dim": {
+    "en": "Translations now show a little fainter",
+    "ko": "번역은 조금 더 옅게 보여요"
+  },
+  "slow_label": {
+    "en": "Two slow weeks · day %1$d",
+    "ko": "천천히 듣는 2주 · %1$d일째"
+  },
+  "slow_again": {
+    "en": "Hear yesterday's letter again · %1$d min",
+    "ko": "어제 편지 다시 듣기 · %1$d분"
+  },
+  "slow_listen": {
+    "en": "Listen ›",
+    "ko": "듣기 ›"
+  },
+  "slow_stop": {
+    "en": "Stop",
+    "ko": "멈춤"
+  },
+  "slow_first": {
+    "en": "First, one listen at 0.7×",
+    "ko": "먼저 0.7×로 한 번 들어요"
+  },
+  "slow_note": {
+    "en": "Take the first two weeks slowly · %1$d min today",
+    "ko": "처음 2주는 천천히 들어봐요 · 오늘 %1$d분 들었어요"
+  },
+  "today_listened": {
+    "en": "Today %1$d min",
+    "ko": "오늘 %1$d분"
+  },
+  "listen_title": {
+    "en": "Time spent listening to letters",
+    "ko": "편지를 들은 시간"
+  },
+  "listen_hm": {
+    "en": "%1$dh %2$dm",
+    "ko": "%1$d시간 %2$d분"
+  },
+  "listen_m": {
+    "en": "%1$d min",
+    "ko": "%1$d분"
+  },
+  "listen_week": {
+    "en": "%1$s · this week %2$s",
+    "ko": "%1$s · 이번 주 %2$s"
+  },
+  "heard_ratio": {
+    "en": "Known words you can hear %1$d%% → %2$d%%",
+    "ko": "아는 낱말이 들리는 비율 %1$d%% → %2$d%%"
+  },
+  "set_level": {
+    "en": "Level",
+    "ko": "실력"
+  },
+  "start_level_new": {
+    "en": "I'm new",
+    "ko": "처음이에요"
+  },
+  "start_level_hi": {
+    "en": "I know greetings",
+    "ko": "인사 정도는 알아요"
+  },
+  "start_level_read": {
+    "en": "I can read slowly",
+    "ko": "천천히 읽을 수 있어요"
+  },
+  "set_why": {
+    "en": "Why I learn",
+    "ko": "배우는 까닭"
+  },
+  "set_amount": {
+    "en": "Each day",
+    "ko": "하루 분량"
+  },
+  "amount_one": {
+    "en": "One letter",
+    "ko": "편지 한 통"
+  },
+  "amount_more": {
+    "en": "One letter + more review",
+    "ko": "편지 한 통 + 복습 더"
+  },
+  "set_slow": {
+    "en": "Two slow weeks",
+    "ko": "천천히 듣는 2주"
+  },
+  "start_count": {
+    "en": "%1$d / 3",
+    "ko": "%1$d / 3"
+  },
+  "start_q_level": {
+    "en": "How much %1$s do you know?",
+    "ko": "%1$s는 어느 정도예요?"
+  },
+  "start_q_why": {
+    "en": "Why do you want to learn?",
+    "ko": "왜 배우고 싶어요?"
+  },
+  "why_travel": {
+    "en": "To use on trips",
+    "ko": "여행 가서 쓰려고"
+  },
+  "why_arts": {
+    "en": "I love art, music, history",
+    "ko": "그림 · 음악 · 역사가 좋아서"
+  },
+  "why_work": {
+    "en": "For study or work",
+    "ko": "공부 · 일 때문에"
+  },
+  "why_curious": {
+    "en": "Just curious",
+    "ko": "그냥 궁금해서"
+  },
+  "start_q_amount": {
+    "en": "How much each day?",
+    "ko": "하루에 얼마나 할까요?"
+  },
+  "start_note": {
+    "en": "You can change this anytime in series settings",
+    "ko": "언제든 작품 설정에서 바꿀 수 있어요"
+  },
+  "start_go": {
+    "en": "Start ›",
+    "ko": "시작하기 ›"
+  },
+  "cheer_travel": {
+    "en": "Travel words reach your ear first",
+    "ko": "여행에서 쓸 말부터 귀에 익혀 봐요"
+  },
+  "cheer_arts": {
+    "en": "Words gather beside the art",
+    "ko": "그림과 음악 곁에서 말이 쌓여요"
+  },
+  "cheer_work": {
+    "en": "One letter a day adds up",
+    "ko": "하루 한 통이면 꾸준히 쌓여요"
+  },
+  "cheer_curious": {
+    "en": "Open one letter at a time",
+    "ko": "궁금한 만큼 한 통씩 열어 봐요"
+  },
+  "finish_suggest": {
+    "en": "Next, how about %1$s? ›",
+    "ko": "다음엔 %1$s 어때요? ›"
   }
 }

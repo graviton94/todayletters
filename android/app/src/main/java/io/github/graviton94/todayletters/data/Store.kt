@@ -64,21 +64,28 @@ class Store(ctx: Context) {
         return SeriesSettings(
             learn = Lang.valueOf(learn),
             showRead = p.getBoolean("s:$id:show", true),
-            autoFold = p.getBoolean("s:$id:fold", true),
+            fadeRead = p.getBoolean("s:$id:fold", true),
             modes = modes(p.getString("s:$id:modes", null) ?: "MATCH,CONSTELLATION,ALOUD"),
             arrivalNotice = p.getBoolean("s:$id:notice", true),
             easier = p.getBoolean("s:$id:easier", false),
             // 예전 편지 방의 0.7× 를 쓰던 작품은 직접 고른 0.7 로 이어 간다
             listenAuto = p.getBoolean("s:$id:lauto", p.getFloat("speed:$id", 1f) >= 1f),
             listenSpeed = p.getFloat("s:$id:lspeed", p.getFloat("speed:$id", 1f)),
+            amount = p.getString("s:$id:amount", null)?.let { a -> io.github.graviton94.todayletters.core.Start.Amount.entries.firstOrNull { it.name == a } }
+                ?: io.github.graviton94.todayletters.core.Start.Amount.ONE,
+            why = p.getString("s:$id:why", null)?.let { w -> io.github.graviton94.todayletters.core.Start.Why.entries.firstOrNull { it.name == w } },
+            slowFrom = p.getLong("s:$id:slowfrom", -1L),
+            slowDays = p.getInt("s:$id:slowdays", 0),
         )
     }
 
     fun save(id: String, s: SeriesSettings) = p.edit()
-        .putString("s:$id:learn", s.learn.name).putBoolean("s:$id:show", s.showRead).putBoolean("s:$id:fold", s.autoFold)
+        .putString("s:$id:learn", s.learn.name).putBoolean("s:$id:show", s.showRead).putBoolean("s:$id:fold", s.fadeRead)
         .putString("s:$id:modes", s.modes.joinToString(",") { it.name })
         .putBoolean("s:$id:notice", s.arrivalNotice).putBoolean("s:$id:easier", s.easier)
-        .putBoolean("s:$id:lauto", s.listenAuto).putFloat("s:$id:lspeed", s.listenSpeed).apply()
+        .putBoolean("s:$id:lauto", s.listenAuto).putFloat("s:$id:lspeed", s.listenSpeed)
+        .putString("s:$id:amount", s.amount.name).putString("s:$id:why", s.why?.name)
+        .putLong("s:$id:slowfrom", s.slowFrom).putInt("s:$id:slowdays", s.slowDays).apply()
 
     /** 걸음 이름 목록 → 걸음들. 예전 판의 이름(DICTATION 등 지금은 없는 걸음)은 건너뛴다. */
     private fun modes(raw: String): Set<ReplyMode> =
@@ -544,6 +551,37 @@ class Store(ctx: Context) {
     var backupChapterDay: Long
         get() = p.getLong("backup:chapter_day", -1L)
         set(v) = p.edit().putLong("backup:chapter_day", v).apply()
+
+    // ── 처음 시작 · 천천히 듣는 2주 · 들은 시간 (core 의 Start · Slow · Listening) ─────────
+    /** 처음 시작에서 고른 시작 단계 (배우는 말 [lang] 마다, [io.github.graviton94.todayletters.core.Reading.Grade.index], 없으면 0). 등급의 바닥. */
+    fun startGrade(lang: String) = p.getInt("start:grade:$lang", 0)
+    fun setStartGrade(lang: String, index: Int) = p.edit().putInt("start:grade:$lang", index).apply()
+    /** 이 작품에서 처음 시작을 답했나 (또는 건너뛰었나). */
+    fun startAnswered(id: String) = p.getBoolean("start:asked:$id", false)
+    fun markStartAnswered(id: String) = p.edit().putBoolean("start:asked:$id", true).apply()
+    /** 처음 시작이 생기기 전부터 쓰던 사람 (진도가 있었음): 묻지 않는다. 처음 한 번 정해 둔다. */
+    fun startLegacy(hadProgress: Boolean): Boolean {
+        if (!p.contains("start:legacy")) p.edit().putBoolean("start:legacy", hadProgress).apply()
+        return p.getBoolean("start:legacy", false)
+    }
+    /** 천천히 듣는 2주의 안내를 띄웠나: 첫 편지 뒤 · 3일째 (작품마다). */
+    fun slowNoted(id: String, which: String) = p.getBoolean("slow:note:$which:$id", false)
+    fun markSlowNoted(id: String, which: String) = p.edit().putBoolean("slow:note:$which:$id", true).apply()
+    /** 이 편지 (진도 열쇠) 를 처음 한 번 천천히 다 들었나. */
+    fun slowPassed(key: String) = p.getBoolean("slow:pass:$key", false)
+    fun markSlowPassed(key: String) = p.edit().putBoolean("slow:pass:$key", true).apply()
+
+    /** 들은 시간 (밀리초) 을 더한다: 언어마다 모두 · 날마다 (8일 넘은 날은 지운다). */
+    fun addListen(lang: String, day: Long, ms: Long) {
+        if (ms <= 0) return
+        val e = p.edit().putLong("lis:$lang", p.getLong("lis:$lang", 0L) + ms).putLong("lis:$lang:$day", p.getLong("lis:$lang:$day", 0L) + ms)
+        p.all.keys.filter { it.startsWith("lis:$lang:") }.forEach { k -> k.substringAfterLast(':').toLongOrNull()?.let { if (it < day - 8) e.remove(k) } }
+        e.apply()
+    }
+    /** 이 말로 들은 시간 모두 (밀리초). */
+    fun listenTotal(lang: String) = p.getLong("lis:$lang", 0L)
+    /** [from]~[to] 날 (epoch day, 둘 다 포함) 에 들은 시간 (밀리초). */
+    fun listenBetween(lang: String, from: Long, to: Long) = (from..to).sumOf { p.getLong("lis:$lang:$it", 0L) }
 
     /** 개발용: 모든 시리즈 열기 (debug 빌드에서만 읽는다, [Billing.effective]). */
     var debugUnlockAll: Boolean

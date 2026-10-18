@@ -238,6 +238,9 @@ fun StreakBlock(s: AppState, w: Work) {
             Text(stringResource(R.string.streak_label), style = Type.body.ui(), color = p.ink)
             Text(" ${s.streak}", style = Type.title.copy(fontFamily = Faces.display), color = p.ink)
             Text(stringResource(R.string.streak_days), style = Type.body.ui(), color = p.ink, modifier = Modifier.weight(1f))
+            // 오늘 들은 시간 (이 작품에서 배우는 말, 1분부터)
+            val heard = s.listenedToday(s.room(w.series.id).learn)
+            if (heard > 0) Text(stringResource(R.string.today_listened, heard) + " · ", style = Type.small.ui(), color = p.giltText, maxLines = 1)
             Text(stringResource(R.string.rests_n, s.rests), style = Type.small.ui(), color = p.inkSoft)
         }
         WeekDots(s, w)

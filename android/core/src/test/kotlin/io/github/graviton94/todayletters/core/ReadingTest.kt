@@ -26,33 +26,40 @@ class ReadingTest {
 
     @Test fun gradeNeedsWordsAndCoverage() {
         assertEquals(Reading.Grade(Reading.Band.A1, 1), Reading.grade(known = 0, recent = 0))
+        assertEquals(Reading.Grade(Reading.Band.A1, 2), Reading.grade(known = 44, recent = 0))
         assertEquals(Reading.Grade(Reading.Band.A1, 3), Reading.grade(known = 45, recent = 0))
-        // 낱말은 A2 만큼이어도 비율이 60% 아래면 A1 · 3단에 머문다
-        assertEquals(Reading.Grade(Reading.Band.A1, 3), Reading.grade(known = 100, recent = 59))
-        assertEquals(Reading.Grade(Reading.Band.A2, 2), Reading.grade(known = 100, recent = 62))
-        assertEquals(Reading.Grade(Reading.Band.B2, 3), Reading.grade(known = 999, recent = 90))
-        // 닿았던 등급 아래로는 내려가지 않는다
+        // 낱말은 A2 만큼이어도 비율이 65% 아래면 A1 · 3단에 머문다
+        assertEquals(Reading.Grade(Reading.Band.A1, 3), Reading.grade(known = 130, recent = 64))
+        assertEquals(Reading.Grade(Reading.Band.A2, 2), Reading.grade(known = 100, recent = 65))
+        // B1 은 78%, B2 는 85%
+        assertEquals(Reading.Grade(Reading.Band.A2, 3), Reading.grade(known = 400, recent = 77))
+        assertEquals(Reading.Grade(Reading.Band.B1, 3), Reading.grade(known = 400, recent = 84))
+        assertEquals(Reading.Grade(Reading.Band.B2, 3), Reading.grade(known = 400, recent = 85))
+        assertEquals(Reading.Grade(Reading.Band.B2, 2), Reading.grade(known = 399, recent = 90))
+        // 닿았던 등급 아래로는 내려가지 않는다 (예전 문턱으로 오른 사람도 그대로)
         assertEquals(7, Reading.grade(known = 0, recent = 0, floor = 7).index)
         assertEquals(Reading.Grade(Reading.Band.B1, 1), Reading.Grade.of(7))
         assertEquals(12, Reading.Grade.of(99).index)
     }
 
+    @Test fun thresholdsMatchGradeMockup() {
+        assertEquals(listOf(0, 20, 45, 75, 100, 130, 170, 215, 260, 310, 360, 400), Reading.words.toList())
+        assertEquals(listOf(0, 65, 78, 85), Reading.coverage.toList())
+    }
+
     @Test fun nextStepNeeds() {
-        assertEquals(15, Reading.wordsToNext(Reading.Grade.of(4), 75))
+        assertEquals(25, Reading.wordsToNext(Reading.Grade.of(4), 75))
         assertNull(Reading.wordsToNext(Reading.Grade.of(12), 999))
-        assertEquals(68, Reading.coverageToNext(Reading.Grade.of(6)))
+        assertEquals(78, Reading.coverageToNext(Reading.Grade.of(6)))
         assertNull(Reading.coverageToNext(Reading.Grade.of(5)))
     }
 
-    @Test fun translationStepsBackByBand() {
-        val known = setOf("je", "suis", "content", "ici")
-        val all = listOf("je", "suis", "content")
-        val most = listOf("je", "suis", "ici", "content", "je", "suis", "ici", "content", "je", "suis", "ici", "content", "je", "suis", "ici", "content", "je", "suis", "ici", "neige")
-        assertFalse(Reading.folds(Reading.Band.A1, all) { it in known })
-        assertTrue(Reading.folds(Reading.Band.A2, all) { it in known })
-        assertFalse(Reading.folds(Reading.Band.A2, most) { it in known })   // 95% 는 A2 에서 접지 않는다
-        assertTrue(Reading.folds(Reading.Band.B1, most) { it in known })
-        // 두 낱말 인사말은 접지 않는다
-        assertFalse(Reading.folds(Reading.Band.B2, listOf("je", "suis")) { it in known })
+    @Test fun gradeCountsWriteStageButReadingKeepsRecall() {
+        val recall = Card("a", box = Growth.Stage.RECALL.ordinal)
+        val write = Card("b", box = Growth.Stage.WRITE.ordinal)
+        assertTrue(Growth.known(recall))
+        assertFalse(Growth.knownForGrade(recall))
+        assertTrue(Growth.knownForGrade(write))
+        assertFalse(Growth.knownForGrade(null))
     }
 }

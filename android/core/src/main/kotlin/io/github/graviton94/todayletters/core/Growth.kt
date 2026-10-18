@@ -16,6 +16,12 @@ object Growth {
     /** 편지에서 뜻풀이를 지워도 되는가 (혼자 읽을 수 있는 낱말). */
     fun known(c: Card?): Boolean = c != null && c.box >= Stage.RECALL.ordinal
 
+    /**
+     * 언어 등급의 낱말 수에 드는가: 써 보기 단계 이상 (만난 뒤 닷새, 복습 세 번 맞힘). 떠올리기([known]) 보다 늦고 단단하다.
+     * 등급 ([Reading.grade]) 의 낱말 수에만 쓴다. 뜻풀이 · 읽을 수 있는 비율 · 혼자 읽기 · 도움 사다리는 [known] 그대로.
+     */
+    fun knownForGrade(c: Card?): Boolean = c != null && c.box >= Stage.WRITE.ordinal
+
     /** 혼자 읽기 %: [keys] (받은 편지들의 낱말 카드 키) 가운데 [known] 의 비율. 낱말이 없으면 0. */
     fun readAlone(keys: Collection<String>, cards: Map<String, Card>): Int =
         if (keys.isEmpty()) 0 else keys.count { known(cards[it]) } * 100 / keys.size

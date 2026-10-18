@@ -71,7 +71,7 @@ fun Root(s: AppState, onExit: () -> Unit) {
 @Composable
 private fun Main(s: AppState, onExit: () -> Unit) {
     // 맨 위 화면(서재)에서 뒤로: 바로 나가지 않고 닫을지 묻는다 (홈 단추로 내리는 건 묻지 않음)
-    BackHandler(enabled = !s.settingsOpen && !s.askingExit && s.reward == null && s.levelUp == null && s.gradeUp == null && s.downloadAsk == null && s.feedback == null && !s.crashAsk) { if (!s.back()) s.askingExit = true }
+    BackHandler(enabled = !s.settingsOpen && !s.askingExit && s.reward == null && s.levelUp == null && s.gradeUp == null && s.downloadAsk == null && s.startAsk == null && s.feedback == null && !s.crashAsk) { if (!s.back()) s.askingExit = true }
     val inSeries = Nav.inSeries(s.route) && s.route !is Route.Enter && s.current.isNotEmpty()
     // 시리즈 안 화면은 그 시리즈의 빛깔로 (서재 · 내 기록 · 전환은 제 색)
     val body: @Composable () -> Unit = {
@@ -132,6 +132,8 @@ private fun Main(s: AppState, onExit: () -> Unit) {
         // 눌러서 뜻 보기: 어느 화면에서 눌렀든 맨 위에 작은 카드
         GlossHost(s)
         if (s.settingsOpen) SettingsScreen(s)
+        // 처음 시작 세 가지 (작품을 처음 열 때, 새로 쓰는 사람만): 받기 시트가 있으면 그 아래
+        s.startAsk?.let { StartSheet(s, it) }
         // 앱 밖에 둔 장의 낭독 받기 (크기 안내 · 진행률 · 뒤로)
         s.downloadAsk?.let { DownloadSheet(s, it) }
         CoachLayer(s)

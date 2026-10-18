@@ -46,12 +46,12 @@ object Memory {
 
     /**
      * 오늘 볼 카드: 볼 날이 지난 것 가운데, ‘내 것’ 확인 [KEEP_SLOTS] 장을 먼저 자리 잡고, 나머지는 낮은 칸부터. 최대 [DAILY] 장.
-     * 문제 순서는 낮은 칸부터 (확인 낱말은 섞여서 나온다).
+     * 문제 순서는 낮은 칸부터 (확인 낱말은 섞여서 나온다). [daily] 는 하루 몫 (작품 설정의 하루 분량, [Start.daily]).
      */
-    fun dueToday(cards: Collection<Card>, today: Long): List<Card> {
+    fun dueToday(cards: Collection<Card>, today: Long, daily: Int = DAILY): List<Card> {
         val due = cards.filter { it.due <= today }
         val keepers = due.filter { it.box == TOP }.sortedWith(compareBy({ it.due }, { it.key })).take(KEEP_SLOTS)
-        val rest = (due - keepers.toSet()).sortedWith(compareBy({ it.box }, { it.due }, { it.key })).take(DAILY - keepers.size)
+        val rest = (due - keepers.toSet()).sortedWith(compareBy({ it.box }, { it.due }, { it.key })).take(daily - keepers.size)
         return (rest + keepers).sortedWith(compareBy({ it.box }, { it.due }, { it.key }))
     }
 

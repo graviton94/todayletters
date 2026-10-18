@@ -36,6 +36,8 @@ class NavTest {
     /** [seen] 이면 두 작품 모두 배울 말을 골랐고 프롤로그도 본 것으로, 튜토리얼도 마친 것으로 (오늘부터 걷는 길). */
     private fun state(onboarded: Boolean = true, deepLink: Boolean = false, seen: Boolean = onboarded): AppState {
         ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().clear().commit()
+        // 처음 시작 세 가지는 ScreensTest.startFlow 에서: 여기서는 이미 쓰던 사람으로
+        Store(ctx).startLegacy(true)
         if (onboarded) Store(ctx).onboarded = true
         if (seen) { listOf("vincent", "mozart").forEach { Store(ctx).markLearnChosen(it); Store(ctx).markPrologueSeen(it) }; Store(ctx).tutorialDone = true }
         // 편지 전 예열 (ui/WarmUp.kt) 없이: 편지를 열면 바로 편지 방

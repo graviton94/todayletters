@@ -96,6 +96,8 @@ fun Inbox(s: AppState) {
                     LearnChip(s, id, learning = true)
                 }
             }
+            // 천천히 듣는 2주: 어제 편지 다시 듣기 (기간 중에만)
+            SlowCard(s, id)
             TodayLine(j)
             // 기록 보관 한 줄 (오래 보관하지 않았을 때만)
             BackupNudgeLine(s) { backupSheet = true }
@@ -207,6 +209,8 @@ private fun TodayLetter(s: AppState, id: String, work: io.github.graviton94.toda
     Text(dateLine(l.date, l.place), style = Type.small.ui(), color = p.inkSoft)
     Text(l.messages.first().text[view.learn], style = Type.target.of(view.learn), color = p.ink)
     if (view.showRead && view.read != view.learn) Text(l.messages.first().text[view.read], style = Type.small.of(view.read), color = p.inkSoft)
+    // 천천히 듣는 2주: 처음 한 번은 0.7× 로 저절로 읽는다
+    if (s.slowPassDue(id, c, l)) Text(stringResource(R.string.slow_first), style = Type.small.ui(), color = p.giltText, maxLines = 1)
     // 걸음 점
     val dots = Journey.letterDots(pr.shown, l.messages.size, modes, pr)
     val labels = listOf(stringResource(R.string.step_read_short)) + modes.map { stringResource(when (it) {
