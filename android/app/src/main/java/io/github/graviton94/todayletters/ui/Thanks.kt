@@ -38,8 +38,8 @@ fun ThanksSheet(s: AppState) {
     androidx.activity.compose.BackHandler(onBack = close)
     Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.72f)).pressable(haptic = false, onClick = close), contentAlignment = Alignment.Center) {
         Column(
-            Modifier.fillMaxWidth(0.86f).background(p.paper).border(1.dp, p.giltText).pressable(haptic = false) { }
-                .padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s6),
+            Modifier.fillMaxWidth(0.92f).background(p.paper).border(1.dp, p.giltText).pressable(haptic = false) { }
+                .padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s6),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
             Box(
@@ -48,7 +48,8 @@ fun ThanksSheet(s: AppState) {
             ) { Portrait(w.portrait, w.fullName, 40.dp) }
             Text(stringResource(R.string.thanks_title), style = Type.title.ui(), color = p.ink, textAlign = TextAlign.Center)
             Text(if (t.series == null) stringResource(R.string.thanks_sub) else stringResource(R.string.thanks_own, w.name[uiLang()]),
-                style = Type.body.ui(), color = p.ink, textAlign = TextAlign.Center, modifier = Modifier.padding(vertical = Tokens.Space.s2))
+                // 한 줄에 (작품 이름이 길어도): 조금 작은 글자
+                style = Type.body.ui().copy(fontSize = androidx.compose.ui.unit.TextUnit(15f, androidx.compose.ui.unit.TextUnitType.Sp)), color = p.ink, textAlign = TextAlign.Center, modifier = Modifier.padding(vertical = Tokens.Space.s2))
             Primary(stringResource(R.string.thanks_go), shine = true) { s.thanksGo() }
         }
     }
