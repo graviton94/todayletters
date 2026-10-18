@@ -62,7 +62,8 @@ fun LearnChip(s: AppState, id: String, ink: Color = Ink.palette.ink, line: Color
         Modifier.heightIn(min = 44.dp).semantics(mergeDescendants = true) { contentDescription = a11y }.pressable { open = true },
         contentAlignment = Alignment.Center,
     ) {
-        Text(stringResource(if (learning) R.string.today_learning else R.string.learn_switch, label) + " ▾", style = Type.small.ui(), color = ink, maxLines = 1,
+        // “…로 배우는 중” 은 괄호 속 원어 이름 없이 (조사가 괄호 뒤에 붙지 않게)
+        Text((if (learning) stringResource(R.string.today_learning, label.substringBefore(" (")) else stringResource(R.string.learn_switch, label)) + " ▾", style = Type.small.ui(), color = ink, maxLines = 1,
             modifier = Modifier.border(1.dp, line).padding(horizontal = 10.dp, vertical = 4.dp))
     }
     if (open) LearnPicker(s, id) { open = false }

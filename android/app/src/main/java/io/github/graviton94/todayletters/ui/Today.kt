@@ -107,10 +107,15 @@ fun Inbox(s: AppState) {
             // 여정을 마친 날, 할 것이 없던 걸음도 끝난 표시 (머리의 3 / 3 과 맞춘다)
             JourneyStep("I", stringResource(R.string.journey_letter), if (j.complete && j.letter == Journey.Step.NONE) Journey.Step.DONE else j.letter, last = false) {
                 // 여러 통이 와 있으면: 수 · 가장 앞의 편지를 큰 단추로 · 나머지는 한 줄씩
+                // 오늘 이미 한 통을 마쳤으면 그 카드 아래에 수 · 나머지
                 val waiting = s.waitingLetters(id)
-                if (tl != null && waiting.size > 1) Text(stringResource(R.string.today_waiting, waiting.size), style = Type.small.ui(), color = p.giltText, maxLines = 1)
+                val rest = waiting.filter { it.second != tl?.second }
+                val tlOpen = tl != null && !s.progress(id, tl.first, tl.second.id).done
+                if (tlOpen && waiting.size > 1) Text(stringResource(R.string.today_waiting, waiting.size), style = Type.small.ui(), color = p.giltText, maxLines = 1)
                 if (tl != null) TodayLetter(s, id, work, tl.first, tl.second, letters)
-                if (tl != null) waiting.filter { it.second != tl.second }.forEach { (c, l) -> WaitingRow(s, id, work, c, l, letters) }
+                if (tl != null && !tlOpen && rest.isNotEmpty()) Text(stringResource(R.string.today_waiting, rest.size), style = Type.small.ui(), color = p.giltText, maxLines = 1,
+                    modifier = Modifier.padding(top = Tokens.Space.s2))
+                if (tl != null) rest.forEach { (c, l) -> WaitingRow(s, id, work, c, l, letters) }
                 else {
                     val upcoming = letters.firstOrNull { l -> s.openable(id).none { it.second == l } }
                     val days = upcoming?.let { s.daysUntil(id, it.id) }
