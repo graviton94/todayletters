@@ -161,3 +161,10 @@
 - 공통 틀 · 앱별 할 일: 사이트 저장소 docs/for-app-sessions.md. 출처는 scripts/site_sources.py 로만 다시 쓴다 (표시 밖 머리 · 꼬리는 남음).
 - 스토어 공개되면 첫 화면 언어 미술관 줄에 Google Play 링크 (id=io.github.graviton94.todayletters).
 - 판매자 프로필: 신용카드 명세서 이름 ‘당신의 하루 스튜디오’, 제품 유형 ‘인터넷 디지털’ (사용자 2026-10-18).
+
+## 2026-10-18 추가 (답장 말해 보기 원래 소리)
+
+- 폰 버그: ‘소리 내어 말해 보기’ 의 원래 소리가 늘 비어 있었다 (`SpeakLine(s, null, …)`, 답장 낭독 파일이 없었음).
+- 답장 턴마다 언어마다 `r<턴 1부터>_<언어>.m4a` (편지 폴더, 회화 "me" 줄과 같은 talk_me 목소리 · 차분한 프리셋). `narrate.py NARRATE_ONLY=replies`, `narration-r2.yml make=replies` (새 파일만, 회화 tk* 같은 다른 빠진 소리는 만들지 않음). 앱 안 장(빈센트 I) 은 assets, 나머지는 remote/.
+- 앱: core `Exercises.replyAudioName` (답장이 없는 서문 편지는 대신 말하는 메시지 낭독 m<번호>). 복습의 답장 카드도 같은 소리 (`Word.audio = "r<턴>"`). 원래 소리가 없으면 듣기 단추를 숨긴다 (`ShadowControls`, 따라 읽기 · 회화 · 복습 말하기 공통).
+- 답장 문장을 고치면 새 이름으로 내야 한다 (R2 덮어쓰기 금지): 지금은 앞부분 "r" 고정이라, 고칠 때 `replies[].audio` 같은 칸을 더한다.
