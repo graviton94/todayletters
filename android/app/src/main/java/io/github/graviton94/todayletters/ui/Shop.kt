@@ -303,9 +303,11 @@ fun PurchaseScreen(s: AppState) {
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
             Text(stringResource(R.string.buy_title), style = Type.title.ui(), color = p.ink, modifier = Modifier.padding(bottom = Tokens.Space.s2))
+            // 할인이 있으면: 월 값 × 12 를 줄 그어 옆에 둔다
             PlanCard(stringResource(R.string.plan_yearly), off.takeIf { it > 0 }?.let { stringResource(R.string.plan_off, it) }, yearly.formatted,
                 stringResource(R.string.plan_yearly_d, perMonth(yearly)), pick == 0,
-                if (ent.onPlan(Plan.Yearly)) stringResource(R.string.plan_active) else null) { pick = 0 }
+                if (ent.onPlan(Plan.Yearly)) stringResource(R.string.plan_active) else null,
+                was = if (off > 0) money(monthly, monthly.micros * 12) else null) { pick = 0 }
             PlanCard(stringResource(R.string.plan_monthly), null, monthly.formatted, stringResource(R.string.plan_monthly_d), pick == 1,
                 if (ent.onPlan(Plan.Monthly)) stringResource(R.string.plan_active) else null) { pick = 1 }
             PlanCard(stringResource(R.string.plan_series, name), null, b.price(own).formatted,
@@ -341,8 +343,10 @@ fun PurchaseScreen(s: AppState) {
 }
 
 /** 연 구독을 달로 나눈 값: Play 값이면 그 돈의 표기로, 아니면 ₩. */
-private fun perMonth(y: Price): String {
-    val micros = Access.perMonth(y.micros)
+private fun perMonth(y: Price): String = money(y, Access.perMonth(y.micros))
+
+/** [y] 와 같은 돈으로 [micros] 를 적는다 (Play 값이면 그 돈의 표기, 아니면 ₩). */
+private fun money(y: Price, micros: Long): String {
     if (!y.fromPlay) return Price.won(micros / 1_000_000)
     return runCatching {
         val cur = java.util.Currency.getInstance(y.currency)
@@ -354,7 +358,7 @@ private fun perMonth(y: Price): String {
 
 /** 고르는 칸 하나: 이름 (할인 표 · 이용 중) · 값 · 한 줄. 고른 칸은 금테. */
 @Composable
-private fun PlanCard(title: String, tag: String?, price: String, sub: String, on: Boolean, state: String?, onClick: () -> Unit) {
+private fun PlanCard(title: String, tag: String?, price: String, sub: String, on: Boolean, state: String?, was: String? = null, onClick: () -> Unit) {
     val p = Ink.palette
     Column(
         Modifier.fillMaxWidth().background(p.leaf).border(if (on) 2.dp else Tokens.Stroke.hair, if (on) p.gilt else p.line)
@@ -368,9 +372,10 @@ private fun PlanCard(title: String, tag: String?, price: String, sub: String, on
             }
             if (state != null) Capsule(state, CapsuleKind.DONE)
             Spacer(Modifier.weight(1f))
+            if (was != null) Text(was, style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.LineThrough), color = p.inkSoft, maxLines = 1)
             Text(price, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink, maxLines = 1)
         }
-        Text(sub, style = Type.small.ui(), color = p.inkSoft)
+        Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
     }
 }
 

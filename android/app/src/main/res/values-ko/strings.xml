@@ -708,10 +708,10 @@
     <string name="plan_yearly">연 구⁠독</string>
     <string name="plan_monthly">월 구⁠독</string>
     <string name="plan_series">%1$s⁠만 소⁠장</string>
-    <string name="plan_off">%1$d%% 할⁠인</string>
-    <string name="plan_yearly_d">모⁠든 시⁠리⁠즈 · 새 시⁠리⁠즈 포⁠함 · 월 약 %1$s</string>
-    <string name="plan_monthly_d">모⁠든 시⁠리⁠즈 · 언⁠제⁠든 해⁠지</string>
-    <string name="plan_series_d">%1$s–%2$s⁠장 + 맺⁠음 편⁠지 · 한 번 결⁠제</string>
+    <string name="plan_off">월 결⁠제⁠보⁠다 %1$d%% 이⁠득</string>
+    <string name="plan_yearly_d">모⁠든 작⁠품 + 새 작⁠품⁠까⁠지 · 월 약 %1$s</string>
+    <string name="plan_monthly_d">모⁠든 작⁠품⁠의 모⁠든 편⁠지</string>
+    <string name="plan_series_d">%1$s–%2$s⁠장 + 맺⁠음 편⁠지 · 평⁠생 소⁠장</string>
     <string name="plan_active">이⁠용 중</string>
     <string name="plan_owned">소⁠장⁠함</string>
     <string name="cta_yearly">연 구⁠독 시⁠작</string>

@@ -2829,20 +2829,20 @@
     "ko": "%1$s만 소장"
   },
   "plan_off": {
-    "en": "%1$d%% off",
-    "ko": "%1$d%% 할인"
+    "en": "%1$d%% less than monthly",
+    "ko": "월 결제보다 %1$d%% 이득"
   },
   "plan_yearly_d": {
-    "en": "Every series · new series included · about %1$s a month",
-    "ko": "모든 시리즈 · 새 시리즈 포함 · 월 약 %1$s"
+    "en": "All series + new ones · about %1$s a month",
+    "ko": "모든 작품 + 새 작품까지 · 월 약 %1$s"
   },
   "plan_monthly_d": {
-    "en": "Every series · cancel anytime",
-    "ko": "모든 시리즈 · 언제든 해지"
+    "en": "Every letter in every series",
+    "ko": "모든 작품의 모든 편지"
   },
   "plan_series_d": {
-    "en": "Chapters %1$s–%2$s + closing letter · one payment",
-    "ko": "%1$s–%2$s장 + 맺음 편지 · 한 번 결제"
+    "en": "Chapters %1$s–%2$s + closing letter · yours to keep",
+    "ko": "%1$s–%2$s장 + 맺음 편지 · 평생 소장"
   },
   "plan_active": {
     "en": "Active",

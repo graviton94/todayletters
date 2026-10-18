@@ -708,10 +708,10 @@
     <string name="plan_yearly">Yearly</string>
     <string name="plan_monthly">Monthly</string>
     <string name="plan_series">Own %1$s</string>
-    <string name="plan_off">%1$d%% off</string>
-    <string name="plan_yearly_d">Every series · new series included · about %1$s a month</string>
-    <string name="plan_monthly_d">Every series · cancel anytime</string>
-    <string name="plan_series_d">Chapters %1$s–%2$s + closing letter · one payment</string>
+    <string name="plan_off">%1$d%% less than monthly</string>
+    <string name="plan_yearly_d">All series + new ones · about %1$s a month</string>
+    <string name="plan_monthly_d">Every letter in every series</string>
+    <string name="plan_series_d">Chapters %1$s–%2$s + closing letter · yours to keep</string>
     <string name="plan_active">Active</string>
     <string name="plan_owned">Owned</string>
     <string name="cta_yearly">Start yearly</string>
