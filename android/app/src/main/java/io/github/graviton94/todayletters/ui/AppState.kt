@@ -72,6 +72,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     private val effects by lazy { io.github.graviton94.todayletters.data.Effects(ctx) }
     /** 맞음 · 틀림 효과음 (설정 › 효과음이 켜져 있을 때만). */
     fun cue(ok: Boolean) { if (app.effects) runCatching { effects.play(ok) } }
+    /** 새 편지 표시가 내려앉는 종이 소리 (효과음 설정). */
+    fun cuePage() { if (app.effects) runCatching { effects.page() } }
     /** 자료가 걸리는 소리 (등급마다). */
     fun cueTier(t: io.github.graviton94.todayletters.core.Tier) { if (app.effects) runCatching { effects.tier(io.github.graviton94.todayletters.data.Frames.kindOf(t).sound) } }
     val recorder = Recorder(ctx)
@@ -324,9 +326,15 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         openable(id).filter { (c, l) -> !progress(id, c, l.id).done }
     }
 
-    /** 다른 작품 소식: 읽기 시작한 다른 작품마다 와 있는 편지 수 (0 은 뺀다). */
-    fun othersWaiting(id: String = current): List<Pair<String, Int>> =
-        works.map { it.series.id }.filter { it != id && startedCount(it) > 0 }.map { it to waitingLetters(it).size }.filter { it.second > 0 }
+    /** 와 있지만 한 번도 열지 않은 편지의 열쇠 (‘새 편지’, 내려앉는 표시를 한 번만). */
+    fun unreadKeys(id: String): List<String> = openable(id).filter { (c, l) -> !store.started(key(id, c, l.id)) && progress(id, c, l.id).shown == 0 }.map { (c, l) -> key(id, c, l.id) }
+
+    /** 다른 작품 소식 한 작품: 와 있는 편지 수 · 그 가운데 새 편지 (열지 않은) 열쇠. */
+    data class Other(val id: String, val waiting: Int, val fresh: List<String>)
+
+    /** 읽기 시작한 다른 작품마다 (와 있는 편지가 있는 것만). */
+    fun othersWaiting(id: String = current): List<Other> =
+        works.map { it.series.id }.filter { it != id && startedCount(it) > 0 }.map { Other(it, waitingLetters(it).size, unreadKeys(it)) }.filter { it.waiting > 0 }
     val route get() = stack.last()
 
     /** 마지막 이동이 앞으로였나 (화면 전환 방향). */

@@ -3541,12 +3541,12 @@
     "ko": "%1$s · 읽는 중 ›"
   },
   "today_other_one": {
-    "en": "%1$s has %2$d waiting too ›",
-    "ko": "%1$s에도 편지 %2$d통이 와 있어요 ›"
+    "en": "New letter from %1$s too ›",
+    "ko": "%1$s에게서도 새 편지 1통이 왔어요 ›"
   },
   "today_other_many": {
-    "en": "%1$d letters in other works ›",
-    "ko": "다른 작품에 편지 %1$d통 ›"
+    "en": "%1$d new letters in other works ›",
+    "ko": "다른 작품에 새 편지 %1$d통 ›"
   },
   "lib_where": {
     "en": "Chapter %1$s · %2$s",
@@ -3568,8 +3568,24 @@
     "en": "Start with the prologue",
     "ko": "처음 열기 · 서문부터"
   },
-  "lib_waiting": {
-    "en": "%1$d waiting",
-    "ko": "편지 %1$d통"
+  "lib_new": {
+    "en": "%1$d new",
+    "ko": "새 편지 %1$d통"
+  },
+  "lib_reading": {
+    "en": "Reading",
+    "ko": "읽는 중"
+  },
+  "today_other_one_n": {
+    "en": "%2$d new letters from %1$s too ›",
+    "ko": "%1$s에게서도 새 편지 %2$d통이 왔어요 ›"
+  },
+  "today_other_reading": {
+    "en": "Still reading %1$s ›",
+    "ko": "%1$s의 편지를 읽는 중 ›"
+  },
+  "today_other_many_reading": {
+    "en": "Still reading other works ›",
+    "ko": "다른 작품의 편지를 읽는 중 ›"
   }
 }

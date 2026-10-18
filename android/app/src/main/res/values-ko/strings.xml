@@ -886,12 +886,16 @@
     <string name="today_waiting">와 있⁠는 편⁠지 %1$d⁠통</string>
     <string name="today_row_unread">%1$s · 못 읽⁠음 ›</string>
     <string name="today_row_reading">%1$s · 읽⁠는 중 ›</string>
-    <string name="today_other_one">%1$s⁠에⁠도 편⁠지 %2$d⁠통⁠이 와 있⁠어⁠요 ›</string>
-    <string name="today_other_many">다⁠른 작⁠품⁠에 편⁠지 %1$d⁠통 ›</string>
+    <string name="today_other_one">%1$s⁠에⁠게⁠서⁠도 새 편⁠지 1⁠통⁠이 왔⁠어⁠요 ›</string>
+    <string name="today_other_many">다⁠른 작⁠품⁠에 새 편⁠지 %1$d⁠통 ›</string>
     <string name="lib_where">%1$s⁠장 · %2$s</string>
     <string name="lib_when_today">오⁠늘 읽⁠음</string>
     <string name="lib_when_yesterday">어⁠제</string>
     <string name="lib_when_days">%1$d⁠일 전</string>
     <string name="lib_fresh">처⁠음 열⁠기 · 서⁠문⁠부⁠터</string>
-    <string name="lib_waiting">편⁠지 %1$d⁠통</string>
+    <string name="lib_new">새 편⁠지 %1$d⁠통</string>
+    <string name="lib_reading">읽⁠는 중</string>
+    <string name="today_other_one_n">%1$s⁠에⁠게⁠서⁠도 새 편⁠지 %2$d⁠통⁠이 왔⁠어⁠요 ›</string>
+    <string name="today_other_reading">%1$s⁠의 편⁠지⁠를 읽⁠는 중 ›</string>
+    <string name="today_other_many_reading">다⁠른 작⁠품⁠의 편⁠지⁠를 읽⁠는 중 ›</string>
 </resources>

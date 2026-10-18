@@ -36,6 +36,8 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.compositeOver
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.graphics.asImageBitmap
@@ -258,18 +260,31 @@ private fun WaitingRow(s: AppState, id: String, work: io.github.graviton94.today
     }
 }
 
-/** 다른 작품 소식: 한 작품이면 “모차르트에도 편지 1통이 와 있어요 ›” (그 작품의 오늘로), 여럿이면 “다른 작품에 편지 N통 ›” (서재로). */
+/**
+ * 다른 작품 소식 (시안 newletter A+B): 한 작품이면 “볼프강에게서도 새 편지 1통이 왔어요 ›” (그 작품의 오늘로), 여럿이면 “다른 작품에 새 편지 N통 ›” (서재로).
+ * 새 편지 (열지 않은) 가 없고 읽는 중인 것만 있으면 ‘읽는 중’. 바탕과 구분되는 금빛 칸 + 금테 · 금빛 글씨, 새 편지면 숨 쉬는 점과 한 번 내려앉기.
+ */
 @Composable
 private fun OthersLine(s: AppState, id: String) {
     val p = Ink.palette
     val others = s.othersWaiting(id)
     if (others.isEmpty()) return
     val one = others.singleOrNull()
-    val text = if (one != null) stringResource(R.string.today_other_one, s.work(one.first).known[uiLang()], one.second)
-        else stringResource(R.string.today_other_many, others.sumOf { it.second })
-    Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).border(1.dp, p.line).pressable { if (one != null) s.enter(one.first) else s.go(Route.Library) }
-        .padding(horizontal = Tokens.Space.s3), contentAlignment = Alignment.CenterStart) {
-        Text(text, style = Type.small.ui(), color = p.giltText, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+    val fresh = others.flatMap { it.fresh }
+    val name = one?.let { s.work(it.id).name[uiLang()] }.orEmpty()
+    val text = when {
+        one != null && one.fresh.size == 1 -> stringResource(R.string.today_other_one, name)
+        one != null && one.fresh.isNotEmpty() -> stringResource(R.string.today_other_one_n, name, one.fresh.size)
+        one != null -> stringResource(R.string.today_other_reading, name)
+        fresh.isNotEmpty() -> stringResource(R.string.today_other_many, fresh.size)
+        else -> stringResource(R.string.today_other_many_reading)
+    }
+    Row(Modifier.fillMaxWidth().arrival(s, "today", fresh).heightIn(min = 44.dp).background(p.gilt.copy(alpha = if (p.paper.luminance() < 0.5f) 0.2f else 0.16f).compositeOver(p.paper))
+        .border(1.dp, p.giltText).pressable { if (one != null) s.enter(one.id) else s.go(Route.Library) }.padding(horizontal = Tokens.Space.s3),
+        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+        if (fresh.isNotEmpty()) GiltDot(p.giltText)
+        Text(text, style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.giltText, maxLines = 1,
+            overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
     }
 }
 

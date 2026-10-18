@@ -431,6 +431,10 @@ class Store(ctx: Context) {
     /** 처음 묶음 (서문 + 무료 장) 받기를 물은 작품 (작품을 처음 열 때 한 번만 저절로 묻는다). */
     fun firstAsked(series: String) = series in set("first_asked")
     fun markFirstAsked(series: String) = add("first_asked", series)
+
+    /** 새 편지 표시가 한 번 내려앉은 것 ("자리|편지 열쇠"): 같은 편지로는 다시 떨어지지 않는다. */
+    fun dropSeen(k: String) = k in set("drop_seen")
+    fun markDropSeen(ks: Collection<String>) { val cur = set("drop_seen"); if (!cur.containsAll(ks)) p.edit().putStringSet("drop_seen", cur + ks).apply() }
     /** ‘언어마다 진도가 따로 저장돼요’ 알림을 본 적이 있나 (한 번만). */
     var langNoticeSeen: Boolean
         get() = p.getBoolean("lang_notice_seen", false)

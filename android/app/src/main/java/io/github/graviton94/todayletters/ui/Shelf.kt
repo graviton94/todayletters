@@ -141,13 +141,26 @@ private fun SeriesCard(s: AppState, w: Work) {
                     }
                 }
                 Spacer(Modifier.weight(0.2f))
-                val waiting = if (s.startedCount(id) > 0) s.waitingLetters(id).size else 0
-                val badge = when { waiting > 0 -> stringResource(R.string.lib_waiting, waiting); unread > 0 -> stringResource(R.string.lib_arrived); due > 0 -> stringResource(R.string.lib_due, due); else -> null }
-                if (badge != null) Text(badge, style = Type.small.ui(), color = t.paper, modifier = Modifier.background(t.accent).padding(horizontal = 10.dp, vertical = 4.dp))
+                // 읽던 작품: 새 편지 (열지 않은) 는 금빛으로 채운 표 (숨 쉬는 점 · 처음 한 번 내려앉기), 읽는 중인 것만 있으면 ‘읽는 중’
+                val started = s.startedCount(id) > 0
+                val fresh = if (started) s.unreadKeys(id) else emptyList()
+                val reading = started && fresh.isEmpty() && s.waitingLetters(id).isNotEmpty()
+                if (fresh.isNotEmpty()) Row(Modifier.arrival(s, "lib", fresh).background(Gold).padding(start = 4.dp, end = 10.dp, top = 2.dp, bottom = 2.dp),
+                    verticalAlignment = Alignment.CenterVertically) {
+                    GiltDot(GoldInk, 6.dp)
+                    Text(stringResource(R.string.lib_new, fresh.size), style = Type.small.ui().copy(fontWeight = FontWeight.SemiBold), color = GoldInk)
+                } else {
+                    val badge = when { reading -> stringResource(R.string.lib_reading); !started && unread > 0 -> stringResource(R.string.lib_arrived); due > 0 -> stringResource(R.string.lib_due, due); else -> null }
+                    if (badge != null) Text(badge, style = Type.small.ui(), color = t.paper, modifier = Modifier.background(t.accent).padding(horizontal = 10.dp, vertical = 4.dp))
+                }
             }
         }
     }
 }
+
+/** 서재 카드의 ‘새 편지’ 표: 작품 빛깔과 상관없이 금빛 (어두운 카드 위). */
+private val Gold = Color(0xFFE2C374)
+private val GoldInk = Color(0xFF2A2116)
 
 /** 서재 카드의 진도 한 줄: “VI장 · 3일 전” (다음에 읽을 편지의 장 · 마지막으로 편지를 연 날), 아직 열지 않았으면 “처음 열기 · 서문부터”. */
 @Composable

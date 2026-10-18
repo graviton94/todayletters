@@ -247,6 +247,44 @@ fun Modifier.giltSweep(on: Boolean, ground: Color): Modifier {
     }
 }
 
+/**
+ * 새 편지 표시가 처음 보일 때 한 번 내려앉는다 (시안 newletter B): 위에서 살짝 기울어 떨어져 자리 잡고 (약 0.7초) 종이 소리 (효과음 설정).
+ * [scope] 자리 (오늘 띠 · 서재 표) 마다, 편지 열쇠 [keys] 마다 한 번 (저장소에 기억). 움직임 줄이기면 떨어지지 않는다.
+ */
+@Composable
+fun Modifier.arrival(s: AppState, scope: String, keys: List<String>): Modifier {
+    val still = LocalStill.current
+    val fresh = remember(scope, keys) { keys.any { !s.store.dropSeen("$scope|$it") } }
+    val t = remember(scope, keys) { androidx.compose.animation.core.Animatable(if (fresh && !still) 0f else 1f) }
+    LaunchedEffect(scope, keys) {
+        if (keys.isEmpty()) return@LaunchedEffect
+        s.store.markDropSeen(keys.map { "$scope|$it" })
+        if (fresh && !still) {
+            s.cuePage()
+            t.animateTo(1f, androidx.compose.animation.core.spring(dampingRatio = 0.5f, stiffness = 260f))
+        }
+    }
+    return this.graphicsLayer {
+        val v = t.value
+        translationY = -(1f - v) * 26.dp.toPx()
+        rotationZ = -(1f - v) * 4f
+        alpha = v.coerceIn(0f, 1f)
+    }
+}
+
+/** 새 편지 표시 앞의 금빛 점: 은은히 번졌다 잦아든다 (시안 newletter A, 계속). 움직임 줄이기면 멈춘 점. */
+@Composable
+fun GiltDot(color: Color, size: androidx.compose.ui.unit.Dp = 7.dp) {
+    val still = LocalStill.current
+    val k = if (still) null else rememberInfiniteTransition(label = "dot").animateFloat(0f, 1f,
+        infiniteRepeatable(tween(1400, easing = FastOutSlowInEasing), RepeatMode.Reverse), label = "breath")
+    Box(Modifier.size(size * 2.2f), contentAlignment = Alignment.Center) {
+        // 번지는 고리 (점 뒤)
+        if (k != null) Box(Modifier.size(size * 2.2f).graphicsLayer { val v = k.value; scaleX = 0.5f + 0.5f * v; scaleY = scaleX; alpha = 0.45f * (1f - v) }.background(color, CircleShape))
+        Box(Modifier.size(size).background(color, CircleShape))
+    }
+}
+
 /** 둘째 행동: 상자 없는 밑줄 글자 (채운 단추는 한 화면에 [Primary] 하나). */
 @Composable
 fun Secondary(text: String, modifier: Modifier = Modifier, small: Boolean = false, onClick: () -> Unit) {

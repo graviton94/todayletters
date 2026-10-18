@@ -434,4 +434,7 @@ class Effects(ctx: Context) {
         runCatching { ctx.assets.openFd("sounds/tier_$n.wav").use { pool.load(it, 1) } }.getOrDefault(0)
     }
     fun tier(name: String) { tiers[name]?.takeIf { it != 0 }?.let { pool.play(it, 0.9f, 0.9f, 1, 0, 1f) } }
+    /** 새 편지 표시가 내려앉을 때: 종이 소리 (sounds/page.m4a, 입구와 같은 것). 낭독을 끊지 않게 여기서. */
+    private val page = runCatching { ctx.assets.openFd("sounds/page.m4a").use { pool.load(it, 1) } }.getOrDefault(0)
+    fun page() { if (page != 0) pool.play(page, 0.7f, 0.7f, 1, 0, 1f) }
 }

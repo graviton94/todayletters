@@ -886,12 +886,16 @@
     <string name="today_waiting">%1$d letters waiting</string>
     <string name="today_row_unread">%1$s · unread ›</string>
     <string name="today_row_reading">%1$s · in progress ›</string>
-    <string name="today_other_one">%1$s has %2$d waiting too ›</string>
-    <string name="today_other_many">%1$d letters in other works ›</string>
+    <string name="today_other_one">New letter from %1$s too ›</string>
+    <string name="today_other_many">%1$d new letters in other works ›</string>
     <string name="lib_where">Chapter %1$s · %2$s</string>
     <string name="lib_when_today">read today</string>
     <string name="lib_when_yesterday">yesterday</string>
     <string name="lib_when_days">%1$d days ago</string>
     <string name="lib_fresh">Start with the prologue</string>
-    <string name="lib_waiting">%1$d waiting</string>
+    <string name="lib_new">%1$d new</string>
+    <string name="lib_reading">Reading</string>
+    <string name="today_other_one_n">%2$d new letters from %1$s too ›</string>
+    <string name="today_other_reading">Still reading %1$s ›</string>
+    <string name="today_other_many_reading">Still reading other works ›</string>
 </resources>
