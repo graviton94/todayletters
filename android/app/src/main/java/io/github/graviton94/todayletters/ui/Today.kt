@@ -265,7 +265,7 @@ private fun OthersLine(s: AppState, id: String) {
     val others = s.othersWaiting(id)
     if (others.isEmpty()) return
     val one = others.singleOrNull()
-    val text = if (one != null) stringResource(R.string.today_other_one, s.work(one.first).name[uiLang()], one.second)
+    val text = if (one != null) stringResource(R.string.today_other_one, s.work(one.first).known[uiLang()], one.second)
         else stringResource(R.string.today_other_many, others.sumOf { it.second })
     Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).border(1.dp, p.line).pressable { if (one != null) s.enter(one.first) else s.go(Route.Library) }
         .padding(horizontal = Tokens.Space.s3), contentAlignment = Alignment.CenterStart) {
