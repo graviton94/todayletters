@@ -286,16 +286,16 @@ fun PurchaseScreen(s: AppState) {
     val w = s.currentWork
     val ent = s.entitlement
     val b = s.billing
-    val own = w.seriesPlan
-    val plans = listOf(Plan.Yearly, Plan.Monthly, own)
+    // 소장은 작품마다 한 칸: 지금 작품 먼저, 그다음 다른 작품 (작은 칸)
+    val owns = (listOf(w) + s.works.filter { it.series.id != w.series.id })
+    val plans = listOf(Plan.Yearly, Plan.Monthly) + owns.map { it.seriesPlan }
     var pick by rememberSaveable { mutableIntStateOf(if (ent.onPlan(Plan.Monthly)) 1 else 0) }
     var note by remember { mutableStateOf<Int?>(null) }
     val yearly = b.price(Plan.Yearly)
     val monthly = b.price(Plan.Monthly)
     // 할인은 두 값에서 계산한다 (둘 다 Play 값이거나 둘 다 계획한 값이고 같은 돈일 때만)
     val off = if (yearly.fromPlay == monthly.fromPlay && yearly.currency == monthly.currency) Access.yearlyDiscount(monthly.micros, yearly.micros) else 0
-    val range = Access.lockedRange(w.chapters)
-    val name = w.name[uiLang()]
+    val ui = uiLang()
     Column(Modifier.fillMaxSize()) {
         TopBar(stringResource(R.string.unlock_all), s, help = null, showBack = true, showSettings = false)
         Column(
@@ -310,17 +310,21 @@ fun PurchaseScreen(s: AppState) {
                 was = if (off > 0) money(monthly, monthly.micros * 12) else null) { pick = 0 }
             PlanCard(stringResource(R.string.plan_monthly), null, monthly.formatted, stringResource(R.string.plan_monthly_d), pick == 1,
                 if (ent.onPlan(Plan.Monthly)) stringResource(R.string.plan_active) else null) { pick = 1 }
-            PlanCard(stringResource(R.string.plan_series, name), null, b.price(own).formatted,
-                range?.let { stringResource(R.string.plan_series_d, roman(it.first), roman(it.last)) } ?: stringResource(R.string.fine_series), pick == 2,
-                if (w.series.id in ent.owned) stringResource(R.string.plan_owned) else null) { pick = 2 }
-            val plan = plans[pick]
+            owns.forEachIndexed { i, wk ->
+                val range = Access.lockedRange(wk.chapters)
+                PlanCard(stringResource(R.string.plan_series, wk.name[ui]), null, b.price(wk.seriesPlan).formatted,
+                    range?.let { stringResource(R.string.plan_series_d, roman(it.first), roman(it.last)) } ?: stringResource(R.string.fine_series), pick == 2 + i,
+                    if (wk.series.id in ent.owned) stringResource(R.string.plan_owned) else null, compact = i > 0) { pick = 2 + i }
+            }
+            val plan = plans[pick.coerceIn(plans.indices)]
             val sub = plan !is Plan.Series
+            val name = (plan as? Plan.Series)?.let { pl -> owns.first { it.series.id == pl.id }.name[ui] }.orEmpty()
             when {
                 sub && ent.subscribed -> Cta(stringResource(R.string.buy_manage), true) {
                     runCatching { ctx.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(Billing.manageUrl(ctx.packageName)))
                         .addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)) }
                 }
-                !sub && w.series.id in ent.owned -> Cta(stringResource(R.string.plan_owned), false) { }
+                plan is Plan.Series && plan.id in ent.owned -> Cta(stringResource(R.string.plan_owned), false) { }
                 b.available(plan) -> Cta(when (plan) {
                     Plan.Yearly -> stringResource(R.string.cta_yearly)
                     Plan.Monthly -> stringResource(R.string.cta_monthly)
@@ -358,12 +362,13 @@ private fun money(y: Price, micros: Long): String {
 
 /** 고르는 칸 하나: 이름 (할인 표 · 이용 중) · 값 · 한 줄. 고른 칸은 금테. */
 @Composable
-private fun PlanCard(title: String, tag: String?, price: String, sub: String, on: Boolean, state: String?, was: String? = null, onClick: () -> Unit) {
+private fun PlanCard(title: String, tag: String?, price: String, sub: String, on: Boolean, state: String?, was: String? = null, compact: Boolean = false, onClick: () -> Unit) {
     val p = Ink.palette
     Column(
         Modifier.fillMaxWidth().background(p.leaf).border(if (on) 2.dp else Tokens.Stroke.hair, if (on) p.gilt else p.line)
-            .pressable(role = Role.RadioButton, onClick = onClick).semantics { selected = on }.padding(Tokens.Space.s4),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
+            .pressable(role = Role.RadioButton, onClick = onClick).semantics { selected = on }
+            .padding(horizontal = Tokens.Space.s4, vertical = if (compact) Tokens.Space.s3 else Tokens.Space.s4),
+        verticalArrangement = Arrangement.spacedBy(if (compact) 2.dp else 4.dp),
     ) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Text(title, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink)

@@ -65,6 +65,13 @@
 - 앱: 작품을 처음 열 때 (`enter`) 한 번, 처음 묶음 받기 시트 (“모차르트의 시대로 떠날까요?”, 이름은 series.json `known`). ‘다음에’ 면 표지에 ‘다운로드 · 27MB’ 단추. 서문 (`openPrologue`) · 맺음 (`openOutro`) · 편지 (`open`) 는 받지 않았으면 시트부터 (`Downloads.needed`). 그 뒤 장은 “III장으로 떠날까요?”. 시트의 긴 문장은 한 줄씩으로, ‘소리 없이 읽기’ 는 뺐다.
 - 받는 중 `23.4 / 64MB` (소수 한 자리, core `Fetching.progress`). 화면 사진 `ScreensTest.dl*` (dl1_ask · dl2_loading · dl3_done · dl4_failed). 모차르트 화면 사진 (`mozart*`) 은 저장소 `remote/` 의 파일을 files/ 에 넣고 찍는다.
 
+## 2026-10-18 추가 (기록 보관 · 시안 backup.html, 구매 화면 작품별 소장)
+
+- 앱 설정 › **기록 보관**: ‘기록 내보내기’ (마지막 내보낸 날) → 시트 “기록을 어디에 둘까요?” (휴대폰에 저장 = CreateDocument · Drive · 메신저로 보내기 = 공유 창, FileProvider `cache/records/`), ‘기록 가져오기’ → OpenDocument → 확인 시트 “이 기록으로 바꿀까요?” → 저장소 바꾸고 `activity.recreate()` (새 AppState, Play 에서 이용권 다시 확인).
+- 파일 = SharedPreferences "letters" 그대로 (안드로이드 백업과 같은 범위) — core `Backup` (꼴 · 검사 · 거르기, `BackupTest`). `ent:*` (이용권 캐시) · `debug:*` · `backup:*` 는 넣지 않고, 가져올 때도 파일의 것은 버리고 이 폰의 것을 둔다. 파일 머리 `app` · `kind` · `format` (지금 1, 더 새 꼴은 읽지 않음).
+- 구매 화면: 지금 작품 소장 칸 아래에 다른 작품 소장 칸 (작은 칸), 작품마다 값 · 소장함 · 잠긴 장 범위.
+- 개인정보처리방침 (사이트) 에 기록 파일 한 단락. 화면 사진 `ScreensTest.backup*` (bk1~bk4).
+
 ## 다음 할 일 (차례대로)
 
 ### 1. 스크린샷 점검 (사용자 허락 뒤 `screens.yml`)

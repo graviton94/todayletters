@@ -61,6 +61,23 @@ fun SettingsScreen(s: AppState) {
     var askTutorial by remember { mutableStateOf(false) }
     var askClear by remember { mutableStateOf(false) }
     var timeSheet by remember { mutableStateOf(false) }
+    var exportSheet by remember { mutableStateOf(false) }
+    var importing by remember { mutableStateOf<io.github.graviton94.todayletters.core.Backup.Records?>(null) }
+    val ctx = s.ctx
+    val records = io.github.graviton94.todayletters.data.Records
+    fun toast(id: Int) = android.widget.Toast.makeText(ctx, ctx.getString(id), android.widget.Toast.LENGTH_SHORT).show()
+    fun exported() { s.store.backupDay = s.today; s.version++ }
+    val saveRecords = androidx.activity.compose.rememberLauncherForActivityResult(
+        androidx.activity.result.contract.ActivityResultContracts.CreateDocument("application/json")) { uri ->
+        if (uri != null) {
+            if (records.write(ctx, uri, records.export(s.store, s.today))) { exported(); toast(R.string.backup_saved) } else toast(R.string.backup_bad)
+        }
+    }
+    val openRecords = androidx.activity.compose.rememberLauncherForActivityResult(
+        androidx.activity.result.contract.ActivityResultContracts.OpenDocument()) { uri ->
+        if (uri != null) { val r = records.read(ctx, uri); if (r == null) toast(R.string.backup_bad) else importing = r }
+    }
+    val activity = androidx.compose.ui.platform.LocalContext.current.let { io.github.graviton94.todayletters.data.Billing.activityOf(it) }
     if (credits) { CreditsScreen(s) { credits = false }; return }
     BackHandler { s.settingsOpen = false }
     s.version
@@ -150,6 +167,20 @@ fun SettingsScreen(s: AppState) {
                 }
                 if (stored > 0) SetRow(stringResource(R.string.set_storage_clear), danger = true, onClick = { askClear = true }) { }
             }
+            // 기록 보관 (시안 backup.html): 진도 · 설정 파일 하나로 내보내기 / 가져오기. 산 것은 파일이 아니라 Play 에서.
+            Group(stringResource(R.string.set_g_backup)) {
+                val last = s.store.backupDay.also { s.version }
+                SetRow(stringResource(R.string.backup_export), onClick = { exportSheet = true }) {
+                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                        if (last >= 0) java.time.LocalDate.ofEpochDay(last).let { d -> Value(stringResource(R.string.backup_last, d.monthValue, d.dayOfMonth)) }
+                        Chev()
+                    }
+                }
+                SetRow(stringResource(R.string.backup_import), stringResource(R.string.backup_import_d),
+                    onClick = { runCatching { openRecords.launch(arrayOf("application/json", "application/octet-stream")) } }) { Chev() }
+            }
+            Text(stringResource(R.string.backup_note), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft,
+                maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, modifier = Modifier.padding(start = 4.dp))
             Group(stringResource(R.string.set_g_help)) {
                 // 튜토리얼 다시 하기: 묻고 → 빈센트의 편지 I 로 처음부터 (진도는 그대로, AppState.replayTutorial)
                 SetRow(stringResource(R.string.set_help_again), onClick = { askTutorial = true }) { Chev() }
@@ -170,6 +201,26 @@ fun SettingsScreen(s: AppState) {
         }
     }
     if (timeSheet) NoticeTimeSheet(s) { timeSheet = false }
+    if (exportSheet) BackupExportSheet(records.summary(s.store, s.today),
+        onSave = { exportSheet = false; runCatching { saveRecords.launch(io.github.graviton94.todayletters.core.Backup.fileName(ctx.getString(R.string.backup_file), records.made(s.today))) } },
+        onShare = {
+            exportSheet = false
+            val made = records.made(s.today)
+            records.shareIntent(ctx, records.export(s.store, s.today), io.github.graviton94.todayletters.core.Backup.fileName(ctx.getString(R.string.backup_file), made), ctx.getString(R.string.backup_export))
+                ?.let { runCatching { (activity ?: ctx).startActivity(if (activity == null) it.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK) else it) }.onSuccess { exported() } }
+        },
+        onClose = { exportSheet = false })
+    importing?.let { r ->
+        BackupImportSheet(r.summary, onImport = {
+            importing = null
+            // 이 폰의 이용권 · 개발용 열쇠는 그대로, 나머지는 파일로. 그다음 화면을 처음부터 (새 AppState → Play 에서 이용권 다시 확인 · 알림 다시 걸기).
+            if (s.store.replaceRecords(r.values)) {
+                toast(R.string.backup_done)
+                s.settingsOpen = false
+                activity?.recreate()
+            } else toast(R.string.backup_bad)
+        }, onClose = { importing = null })
+    }
     if (askTutorial) Ask(stringResource(R.string.tutorial_again_t), stringResource(R.string.tutorial_again_yes), stringResource(R.string.cancel),
         onYes = { askTutorial = false; s.replayTutorial() }, onNo = { askTutorial = false }, body = stringResource(R.string.tutorial_again_b))
     if (askClear) Ask(stringResource(R.string.clear_t), stringResource(R.string.clear_yes), stringResource(R.string.cancel),

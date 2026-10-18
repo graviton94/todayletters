@@ -2220,6 +2220,78 @@
     "en": "Help · sources",
     "ko": "도움 · 출처"
   },
+  "set_g_backup": {
+    "en": "Your records",
+    "ko": "기록 보관"
+  },
+  "backup_export": {
+    "en": "Export records",
+    "ko": "기록 내보내기"
+  },
+  "backup_last": {
+    "en": "Last %1$d/%2$d",
+    "ko": "마지막 %1$d월 %2$d일"
+  },
+  "backup_import": {
+    "en": "Import records",
+    "ko": "기록 가져오기"
+  },
+  "backup_import_d": {
+    "en": "Pick an exported file · Downloads or Drive",
+    "ko": "내보낸 파일을 골라요 · 다운로드나 Drive에서"
+  },
+  "backup_note": {
+    "en": "With Google backup on, progress is also saved automatically.",
+    "ko": "폰의 Google 백업이 켜져 있으면 진도는 자동으로도 보관돼요."
+  },
+  "backup_sheet_t": {
+    "en": "Where should your records go?",
+    "ko": "기록을 어디에 둘까요?"
+  },
+  "backup_summary": {
+    "en": "%1$d letters · %2$d cards · %3$s",
+    "ko": "편지 %1$d통 · 카드 %2$d장 · %3$s"
+  },
+  "backup_save": {
+    "en": "Save to phone",
+    "ko": "휴대폰에 저장"
+  },
+  "backup_share": {
+    "en": "Send to Drive or a chat",
+    "ko": "Drive · 메신저로 보내기"
+  },
+  "backup_saved": {
+    "en": "Records saved",
+    "ko": "기록을 저장했어요"
+  },
+  "backup_file": {
+    "en": "LinguaMuseum-records",
+    "ko": "언어미술관-기록"
+  },
+  "backup_bad": {
+    "en": "This file can't be read",
+    "ko": "이 파일은 읽을 수 없어요"
+  },
+  "backup_ask_t": {
+    "en": "Replace with these records?",
+    "ko": "이 기록으로 바꿀까요?"
+  },
+  "backup_ask_w": {
+    "en": "Records on this phone will be replaced",
+    "ko": "지금 폰의 기록은 이 파일로 바뀌어요"
+  },
+  "backup_yes": {
+    "en": "Import",
+    "ko": "가져오기"
+  },
+  "backup_no": {
+    "en": "Not now",
+    "ko": "그만두기"
+  },
+  "backup_done": {
+    "en": "Records imported",
+    "ko": "기록을 가져왔어요"
+  },
   "set_privacy_row": {
     "en": "Privacy",
     "ko": "개인정보"

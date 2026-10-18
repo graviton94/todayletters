@@ -497,6 +497,31 @@ class Store(ctx: Context) {
         get() = p.getString("ent:sub_token", null)
         set(v) = p.edit().putString("ent:sub_token", v).apply()
 
+    // ── 기록 보관 (설정 › 기록 보관, core 의 Backup) ─────────────────
+    /** 저장소 값 전부 (내보낼 때 core Backup.encode 가 거른다). */
+    fun snapshot(): Map<String, *> = p.all
+    /**
+     * 가져오기: [Backup.keep] 인 열쇠를 모두 지우고 [values] 로 바꾼다 (한 번에, 디스크까지 쓰고 돌아온다).
+     * 이용권 "ent:*" · 개발용 · 마지막 내보낸 날은 이 폰의 것을 그대로 둔다.
+     */
+    fun replaceRecords(values: Map<String, Any>): Boolean {
+        val e = p.edit()
+        p.all.keys.filter(io.github.graviton94.todayletters.core.Backup::keep).forEach { e.remove(it) }
+        values.forEach { (k, v) ->
+            if (!io.github.graviton94.todayletters.core.Backup.keep(k)) return@forEach
+            when (v) {
+                is Boolean -> e.putBoolean(k, v); is Int -> e.putInt(k, v); is Long -> e.putLong(k, v)
+                is Float -> e.putFloat(k, v); is String -> e.putString(k, v)
+                is Set<*> -> e.putStringSet(k, v.filterIsInstance<String>().toSet())
+            }
+        }
+        return e.commit()
+    }
+    /** 마지막으로 기록을 내보낸 날 (epoch day), 없으면 -1. 파일에는 넣지 않는다. */
+    var backupDay: Long
+        get() = p.getLong("backup:last", -1L)
+        set(v) = p.edit().putLong("backup:last", v).apply()
+
     /** 개발용: 모든 시리즈 열기 (debug 빌드에서만 읽는다, [Billing.effective]). */
     var debugUnlockAll: Boolean
         get() = p.getBoolean("debug:unlock_all", false)

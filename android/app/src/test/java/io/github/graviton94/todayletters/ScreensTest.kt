@@ -950,6 +950,34 @@ class ScreensTest {
     // ── APK 20 피드백: 상점 · 구독 · 나의 기록 · 갤러리 세 묶음 · 알림 시계 바퀴 · 확인 창 ──
     @Test fun purchase() { val s = engineState(); s.reward = null; shot("p01_purchase_light", false, series = s) { io.github.graviton94.todayletters.ui.PurchaseScreen(s) } }
     @Test fun purchaseDark() { val s = engineState(); s.reward = null; shot("p02_purchase_dark", true, series = s) { io.github.graviton94.todayletters.ui.PurchaseScreen(s) } }
+    // ── 기록 보관 (시안 backup.html): 설정 묶음 · 내보내기 시트 · 가져오기 확인 · 구매 화면의 작품별 소장 칸 ──
+    @Test fun backupSettings() {
+        val s = engineState(); s.reward = null; s.store.backupDay = s.today
+        shot("bk1_settings_backup_light", false, act = {
+            scrolled { rule.onNodeWithText(ctx.getString(R.string.backup_note)).performScrollTo() }
+        }) { io.github.graviton94.todayletters.ui.SettingsScreen(s) }
+    }
+    @Test fun backupExport() {
+        val s = engineState(); s.reward = null
+        shot("bk2_export_sheet_light", false, act = {
+            scrolled { rule.onNodeWithText(ctx.getString(R.string.backup_export)).performScrollTo().performClick() }
+        }) { io.github.graviton94.todayletters.ui.SettingsScreen(s) }
+    }
+    @Test fun backupImport() {
+        val s = engineState(); s.reward = null
+        val r = io.github.graviton94.todayletters.core.Backup.decode(io.github.graviton94.todayletters.data.Records.export(s.store, s.today))!!
+        shot("bk3_import_ask_light", false) {
+            io.github.graviton94.todayletters.ui.SettingsScreen(s)
+            io.github.graviton94.todayletters.ui.BackupImportSheet(r.summary, onImport = { }, onClose = { })
+        }
+    }
+    /** 구매 화면: 연 · 월 구독 + 작품마다 소장 칸 (지금 작품 먼저, 모차르트는 소장함). */
+    @Test fun backupPurchaseAll() {
+        val s = engineState(); s.reward = null
+        s.store.entitlement = io.github.graviton94.todayletters.core.Entitlement.of(listOf("series_mozart"))
+        val t = AppState(ctx)
+        shot("bk4_purchase_all_light", false, series = t) { io.github.graviton94.todayletters.ui.PurchaseScreen(t) }
+    }
     // ── 판매 정책 (v4 시안): 상점 금테 배너 · 구매 화면 셋 칸 · 나의 기록의 시리즈 진도와 이용권 ──
     @Test fun shopBanner() { val s = engineState(); s.reward = null; shot("p15_shop_banner_light", false, act = {
         scrolled { rule.onNodeWithText(ctx.getString(R.string.unlock_all)).performScrollTo() }
