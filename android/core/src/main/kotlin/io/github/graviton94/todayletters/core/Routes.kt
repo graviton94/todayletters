@@ -50,6 +50,8 @@ sealed interface Route {
         val epilogue get() = chapter == EPILOGUE
     }
     data class RoomInfo(val room: Letter) : Route
+    /** 편지 전 예열 ([WarmUp]): 새 편지를 처음 열 때 그 편지의 말 3~4개를 듣고 따라 말한 뒤 [room] 으로. */
+    data class WarmUp(val room: Letter) : Route
     data class Play(val room: Letter, val mode: ReplyMode) : Route
     data class Done(val room: Letter) : Route
     /** 따라 읽기: 편지 문장을 낭독 마디째 듣고 따라 말한다 (내 낭독이 남는다). */
@@ -98,6 +100,7 @@ object Nav {
         is Route.Chapter -> Route.Series(r.series)
         is Route.Letter -> r.from ?: Route.Chapter(r.series, r.chapter)
         is Route.RoomInfo -> r.room
+        is Route.WarmUp -> r.room.from ?: Route.Chapter(r.room.series, r.room.chapter)
         is Route.Play -> r.room
         is Route.Done -> r.room
         is Route.Shadow -> r.room

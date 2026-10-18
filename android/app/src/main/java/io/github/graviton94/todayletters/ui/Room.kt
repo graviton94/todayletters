@@ -98,6 +98,11 @@ fun Room(s: AppState, r: Route.Letter) {
         letter.messages.indices.map { s.glossTokens(id, letter.id, it) }.takeIf { t -> t.any { it != null } }
     }
     val glossAt = s.gloss?.takeIf { it.series == id && it.letter.id == letter.id }?.let { it.msg to it.token }
+    // 낱말 아래 뜻 (시안 beginner.html ①, core Interlinear): 아직 내 것이 아닌 낱말마다 그 아래 짧은 뜻. 위의 켜고 끄기 (기본 켜짐)
+    val ilOn = glossTokens != null && s.interlinearOn(id)
+    val il = remember(s.version, letter.id, view.learn, view.read, ilOn) { if (!ilOn) null else interlinearLines(s, id, letter, glossTokens!!) }
+    // 예열에서 본 말 (‘아까 본 말’, 금빛 점선): 사전 열쇠 · 닻 · 표현
+    val seen = remember(s.version, letter.id) { s.warmSeen(id, chapter, letter.id) }
     var playing by remember(letter.id) { mutableStateOf<Int?>(null) }
     var all by remember { mutableStateOf<Job?>(null) }
     val controlsRef = remember { arrayOfNulls<Playback.Controls>(1) }
@@ -311,6 +316,7 @@ fun Room(s: AppState, r: Route.Letter) {
             contentPadding = PaddingValues(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
+            if (glossTokens != null) item(key = "${letter.id}:il") { InterlinearToggle(ilOn, seen.isNotEmpty() && ilOn) { s.setInterlinear(id, !ilOn) } }
             item {
                 Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                     Box(Modifier.weight(1f)) { Hair() }
@@ -386,6 +392,7 @@ fun Room(s: AppState, r: Route.Letter) {
                         saved = s.isSaved(s.quoteKey(id, chapter, letter.id, i)),
                         onSave = { s.toggleQuote(s.quoteKey(id, chapter, letter.id, i)) },
                         spoken = spokenRange(s.narrator, audio(i), m.text[view.learn]),
+                        il = il?.getOrNull(i), seen = seen,
                     )
                 }
                 // 메신저 같은 순간: 이 문장 다음의 위치 공유 · 사진 공유 (문장이 다 써진 뒤에)
@@ -494,7 +501,7 @@ fun Room(s: AppState, r: Route.Letter) {
     listening?.let { m -> MusicSheet(s, work, m, onClose = { listening = null }) }
     wordFocus?.let { k -> val (ch, lt) = s.letterOf(r); WordDetail(s, s.cardKey(id, ch, lt.id, k)) { wordFocus = null } }
     // 다 읽은 편지의 낱말은 낱말 카드함으로 (내일부터 복습)
-    LaunchedEffect(finished) { if (finished) s.collectWords(id, chapter, letter) }
+    LaunchedEffect(finished) { if (finished) { s.collectWords(id, chapter, letter); s.collectAnchors(id, chapter, letter) } }
 }
 
 fun modeLabel(m: ReplyMode) = when (m) {
@@ -810,6 +817,8 @@ private fun LetterSlip(
     spoken: IntRange? = null,
     taps: List<IntRange> = emptyList(), onTap: ((Int) -> Unit)? = null, hints: List<IntRange> = emptyList(), picked: IntRange? = null,
     onPickedAt: (GlossAnchor?) -> Unit = {},
+    /** 낱말 아래 뜻 (켜져 있고 이 메시지에 토큰이 있을 때). [seen] 은 예열에서 본 것 ([warmSeen]). */
+    il: IlLine? = null, seen: Set<String> = emptySet(),
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
@@ -825,16 +834,20 @@ private fun LetterSlip(
                 val pairs = remember(learn, read, fold) { if (read != null && !fold) io.github.graviton94.todayletters.core.Pairs.of(learn, read) else emptyList() }
                 if (pairs.size > 1) SentencePairs(
                     learn, learnLang, readLang, pairs, animate, lineMs, onWritten,
-                    marks, onWord, spoken, taps, onTap, hints, picked, onPickedAt,
+                    marks, onWord, spoken, taps, onTap, hints, picked, onPickedAt, il, seen,
                 ) else {
-                InkText(learn, Type.target.of(learnLang), p.slipInk, animate, lineMs = lineMs, onDone = {
+                if (il != null) IlText(learn, il, null, learnLang, animate, true, lineMs, onDone = {
+                    learnDone = true
+                    if (read == null || fold) onWritten()
+                }, marks = marks, onWord = onWord, spoken = spoken, onTap = onTap, picked = picked, onPickedAt = onPickedAt, seen = seen)
+                else InkText(learn, Type.target.of(learnLang), p.slipInk, animate, lineMs = lineMs, onDone = {
                     learnDone = true
                     if (read == null || fold) onWritten()
                 }, marks = marks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { k -> onWord(marks[k].second) }, spoken = spoken,
                     taps = taps, onTap = onTap, hints = hints, picked = picked, onPickedAt = onPickedAt)
                 // 번역이 사라지는 편지: 익힌 낱말이 많은 문장은 번역을 접고, 아직인 낱말만 작은 뜻풀이로
                 if (read != null && fold) {
-                    if (glosses.isNotEmpty()) androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    if (glosses.isNotEmpty() && il == null) androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         glosses.forEach { (w, m) ->
                             Text("$w · $m", style = Type.small.of(readLang).copy(fontSize = Tokens.Text.caps), color = Color(0xFF7A5A20),
                                 modifier = Modifier.border(1.dp, Color(0x557A5A20)).padding(horizontal = 6.dp, vertical = 2.dp))
@@ -868,6 +881,7 @@ private fun SentencePairs(
     learn: String, learnLang: Lang, readLang: Lang, pairs: List<Pair<IntRange, String>>, animate: Boolean, lineMs: Int, onWritten: () -> Unit,
     marks: List<Pair<IntRange, Int>>, onWord: (Int) -> Unit, spoken: IntRange?,
     taps: List<IntRange>, onTap: ((Int) -> Unit)?, hints: List<IntRange>, picked: IntRange?, onPickedAt: (GlossAnchor?) -> Unit,
+    il: IlLine? = null, seen: Set<String> = emptySet(),
 ) {
     val p = Ink.palette
     var stage by remember(learn) { mutableIntStateOf(if (animate) 0 else pairs.size * 2) }
@@ -876,7 +890,9 @@ private fun SentencePairs(
         val segMarks = marks.mapNotNull { (m, w) -> m.inside(r)?.let { it to w } }
         val segSpoken = spoken?.takeIf { !it.isEmpty() && it.first <= r.last && it.last >= r.first }?.let { maxOf(it.first, r.first) - r.first..minOf(it.last, r.last) - r.first }
         if (k > 0) Box(Modifier.height(Tokens.Space.s1))
-        InkText(seg, Type.target.of(learnLang), p.slipInk, animate, go = stage >= 2 * k, lineMs = lineMs, onDone = { if (stage == 2 * k) stage = 2 * k + 1 },
+        if (il != null) IlText(learn, il, r, learnLang, animate, stage >= 2 * k, lineMs, onDone = { if (stage == 2 * k) stage = 2 * k + 1 },
+            marks = marks, onWord = onWord, spoken = spoken, onTap = onTap, picked = picked, onPickedAt = onPickedAt, seen = seen)
+        else InkText(seg, Type.target.of(learnLang), p.slipInk, animate, go = stage >= 2 * k, lineMs = lineMs, onDone = { if (stage == 2 * k) stage = 2 * k + 1 },
             marks = segMarks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { j -> onWord(segMarks[j].second) }, spoken = segSpoken,
             taps = taps.map { it.inside(r) ?: IntRange.EMPTY }, onTap = onTap, hints = hints.mapNotNull { it.inside(r) },
             picked = picked?.inside(r), onPickedAt = onPickedAt)

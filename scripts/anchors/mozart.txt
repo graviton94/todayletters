@@ -1,0 +1,18 @@
+# 모차르트 · 독일어 원문 (옛 철자 그대로). 줄 = 낱말들|ko|en
+meine liebe|나의 사랑하는 (편지 첫 인사)|my dear
+daß ich|내가 ~라는 것|that I
+ich habe|나는 ~했어요|I have
+ich bin|나는 ~이에요|I am
+wenn ich|내가 ~하면|when I, if I
+weil ich|내가 ~해서|because I
+das ist|그건 ~이에요|that is
+es ist|그건 ~이에요|it is
+kann ich|나는 ~할 수 있어요|I can
+ich will|나는 ~하려 해요|I want to
+ich weiß|나는 알아요|I know
+zu schreiben|쓰는 것|to write
+gar nichts|전혀 아무것도|nothing at all
+nicht mehr|더는 ~ 않아요|no longer
+alle tage|날마다|every day
+ganz gut|꽤 좋아요|quite well
+hören sie|들어 보세요|listen

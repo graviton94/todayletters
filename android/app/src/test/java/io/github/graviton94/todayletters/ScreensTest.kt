@@ -76,6 +76,8 @@ class ScreensTest {
         if (onboarded && !tutorial) Store(ctx).tutorialDone = true
         // 알림 권한 앞 한 줄 (편지 완료 뒤 대화창) 은 따로 찍는다: 다른 사진에서는 이미 물은 것으로 (대화창은 화면 뿌리가 둘이 된다)
         Store(ctx).notifyAsked = true
+        // 편지 전 예열 (ui/WarmUp.kt) 은 따로 찍는다 (il3 · il4): 다른 사진에서는 편지를 열면 바로 편지 방
+        listOf("vincent", "mozart", "napoleon").forEach { ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().putInt("s:$it:warm", 0).commit() }
         val s = AppState(ctx, deepLink = false)
         s.update(s.app.copy(pace = TypingPace.INSTANT))
         // 편지 도착 연출(2단계 D1)은 따로 찍는다: 다른 편지 방 사진에서는 이미 본 것으로
@@ -1853,5 +1855,50 @@ class ScreensTest {
     @Test fun firstDayGallery() {
         val s = state(true)
         shot("first03_gallery_empty_light", false, series = s) { io.github.graviton94.todayletters.ui.GalleryTab(s) }
+    }
+
+    // ── 입문자 길 (시안 beginner.html ① ② ⑤): 낱말 아래 뜻 · 편지 전 예열 · 닻 표현 ──
+    private fun ilRoom(s: AppState, n: Int): Route.Letter {
+        val r = Route.Letter("vincent", 1, n)
+        val (c, l) = s.letterOf(r)
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size))
+        return r
+    }
+    /** 편지 I-1, 낱말 아래 뜻 (기본 켜짐): 아직 내 것이 아닌 낱말마다 짧은 뜻, pour le moins · j'ai 는 한 칸. */
+    @Test fun ilRoomLight() { val s = state(true); val r = ilRoom(s, 1); shot("il1_room_fr_light", false, 4000, series = s) { Room(s, r) } }
+    @Test fun ilRoomDark() { val s = state(true); val r = ilRoom(s, 1); shot("il2_room_fr_dark", true, 4000, series = s) { Room(s, r) } }
+    /** 편지 전 예열: 카드 낱말 셋 + 덩어리 하나, 첫 장이 지금 장. */
+    @Test fun ilWarmUp() {
+        val s = state(true)
+        shot("il3_warmup_light", false, series = s) { io.github.graviton94.todayletters.ui.WarmUpScreen(s, Route.WarmUp(Route.Letter("vincent", 1, 2))) }
+    }
+    /** 예열을 다 한 모습 (점 넷 · ‘편지 열기 ›’). */
+    @Test fun ilWarmUpDone() {
+        val s = state(true)
+        shot("il3b_warmup_done_dark", true, act = {
+            repeat(4) {
+                val said = rule.onAllNodes(hasText(ctx.getString(R.string.warm_said)) and hasClickAction())
+                if (said.fetchSemanticsNodes().isNotEmpty()) { said.onFirst().performClick(); rule.mainClock.advanceTimeBy(300) }
+            }
+        }, series = s) { io.github.graviton94.todayletters.ui.WarmUpScreen(s, Route.WarmUp(Route.Letter("vincent", 1, 2))) }
+    }
+    /** 예열 뒤 편지 I-2: 아까 본 말 (금빛 점선), 익힌 닻 (j'ai · un ciel · mon cher, 금빛 바탕). */
+    @Test fun ilAnchors() {
+        val s = state(true)
+        ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().putString("anc:vincent/", "j ai\nun ciel\nmon cher").commit()
+        val r = Route.Letter("vincent", 1, 2)
+        val (c, l) = s.letterOf(r)
+        s.finishWarm(Route.WarmUp(r), s.warmCards("vincent", c, l))
+        ilRoom(s, 2)
+        s.bump()
+        shot("il4_room_anchors_light", false, 4000, series = s) { Room(s, r) }
+    }
+    /** 한국어를 배우는 사람 (읽는 말 영어): 어절마다 영어 뜻. */
+    @Test fun ilRoomKo() {
+        val s = state(true)
+        s.update(s.app.copy(read = io.github.graviton94.todayletters.core.Lang.EN))
+        s.update("vincent", s.seriesSettings("vincent").copy(learn = io.github.graviton94.todayletters.core.Lang.KO))
+        val r = ilRoom(s, 1)
+        shot("il5_room_ko_learner_light", false, 4000, series = s) { Room(s, r) }
     }
 }

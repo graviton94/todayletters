@@ -349,6 +349,10 @@ fun SeriesSettingsScreen(s: AppState, id: String) {
             Choices(listOf(true to stringResource(R.string.on), false to stringResource(R.string.off)), cur.easier) { s.update(id, cur.copy(easier = it)) }
             Text(stringResource(R.string.set_easier_d), style = Type.small.ui(), color = p.inkSoft)
 
+            // 편지 전 예열 (시안 beginner.html ②, ui/WarmUp.kt): 등급에 맞춰 (A1 · A2 켜기, B1 부터 끄기) · 켜기 · 끄기
+            Caps(stringResource(R.string.set_warm), p.giltText, small = true)
+            Choices(listOf(null to stringResource(R.string.set_listen_auto), true to stringResource(R.string.on), false to stringResource(R.string.off)), s.warmChoice(id)) { s.setWarmChoice(id, it) }
+
             // 기본 듣기 빠르기 (core 의 Listen, 시안 slow.html): 세 칸 + 등급에 맞춰 자동. 직접 고르면 자동이 꺼진다. 설명 줄 없이 이름표만
             Caps(stringResource(R.string.set_listen_speed), p.giltText, small = true)
             Choices(io.github.graviton94.todayletters.core.Listen.CHOICES.map { it to io.github.graviton94.todayletters.core.Listen.label(it) },

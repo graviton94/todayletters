@@ -1,0 +1,15 @@
+# Napoleon · English text. line = tokens|ko|en
+my love|내 사랑|my love
+goodbye my love|잘 있어, 내 사랑|goodbye, my love
+i 'm|나는 ~이야|I am
+your letter|당신 편지|your letter
+i hope|~하길 바라|I hope
+received your letter|당신 편지를 받았어|received your letter
+all yours|온전히 당신의 것|all yours
+a thousand|천 개의|a thousand
+my heart|내 마음|my heart
+my health|내 건강|my health
+your health|당신 건강|your health
+write to|~에게 편지 쓰다|write to
+glad to|~해서 기뻐|glad to
+a few|몇몇|a few

@@ -200,7 +200,8 @@ object Vocab {
 
 /**
  * 낱말 카드 열쇠: "작품:장:편지:<꼬리>". 꼬리가 숫자면 그 편지의 카드 낱말, "p<n>" 이면 표현 카드, "+<사전 열쇠>" 면 내가 눌러 담은 낱말,
- * "r" · "r<턴>" 이면 내가 쓴 답장 (턴 0 은 예전처럼 "r"), "m<턴>" 이면 그 턴의 말투 바꿔 보기 (한국어를 배울 때).
+ * "r" · "r<턴>" 이면 내가 쓴 답장 (턴 0 은 예전처럼 "r"), "m<턴>" 이면 그 턴의 말투 바꿔 보기 (한국어를 배울 때),
+ * "a<n>" 이면 닻 표현 (anchors*.json 의 n 번째, 0부터, [Anchor]): 그 편지는 닻을 처음 배운 편지.
  */
 data class CardRef(val series: String, val chapter: String, val letter: String, val index: Int = -1, val phrase: Int = -1, val own: String = "",
                    /** 내가 쓴 답장 카드 (꼬리 "r"): 답장 문장을 복습 · 말하기로 다시 본다. */
@@ -210,11 +211,14 @@ data class CardRef(val series: String, val chapter: String, val letter: String, 
                    /** 말투 바꿔 보기 카드 (꼬리 "m<턴>"): 해요체 문장을 반말 · 높임으로 (한국어를 배울 때만). */
                    val style: Boolean = false,
                    /** 어휘 자료 꼬리 ([VocabSet.deck]): "" 는 원어, "en" · "ko" 는 영어 · 한국어를 배울 때의 낱말. 꼬리 앞에 "en/" 처럼 붙는다. */
-                   val deck: String = "") {
+                   val deck: String = "",
+                   /** 닻 표현 카드 (꼬리 "a<n>"): 작품 닻 목록의 번호 (0부터). */
+                   val anchor: Int = -1) {
     companion object {
         private val DECK = Regex("^([a-z]{2})/(.+)$")
         private val REPLY = Regex("^r\\d{1,2}$")
         private val STYLE = Regex("^m\\d{1,2}$")
+        private val ANCHOR = Regex("^a\\d{1,3}$")
         fun parse(key: String): CardRef? {
             val parts = key.split(":", limit = 4).takeIf { it.size == 4 } ?: return null
             val (s, c, l, tail) = parts
@@ -226,6 +230,7 @@ data class CardRef(val series: String, val chapter: String, val letter: String, 
                 t == "r" -> CardRef(s, c, l, reply = true, deck = deck)
                 REPLY.matches(t) -> CardRef(s, c, l, reply = true, turn = t.drop(1).toInt(), deck = deck)
                 STYLE.matches(t) -> CardRef(s, c, l, style = true, turn = t.drop(1).toInt(), deck = deck)
+                ANCHOR.matches(t) -> CardRef(s, c, l, anchor = t.drop(1).toInt(), deck = deck)
                 t.startsWith("p") -> t.drop(1).toIntOrNull()?.let { CardRef(s, c, l, phrase = it, deck = deck) }
                 else -> t.toIntOrNull()?.let { CardRef(s, c, l, index = it, deck = deck) }
             }
@@ -237,6 +242,7 @@ data class CardRef(val series: String, val chapter: String, val letter: String, 
         fun reply(series: String, chapter: String, letter: String, deck: String = "", turn: Int = 0) =
             "$series:$chapter:$letter:${pre(deck)}r" + (if (turn > 0) "$turn" else "")
         fun style(series: String, chapter: String, letter: String, deck: String = "", turn: Int = 0) = "$series:$chapter:$letter:${pre(deck)}m$turn"
+        fun anchor(series: String, chapter: String, letter: String, n: Int, deck: String = "") = "$series:$chapter:$letter:${pre(deck)}a$n"
         /** 열쇠의 자료 꼬리 (원어면 ""). */
         fun deckOf(key: String): String = parse(key)?.deck.orEmpty()
     }

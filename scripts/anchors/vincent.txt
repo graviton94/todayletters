@@ -1,0 +1,17 @@
+# 빈센트 · 프랑스어 원문의 닻 표현. 줄 = 낱말들(gloss 토큰 꼴, 소문자, 띄어 씀)|ko|en
+# 뜻은 앱이 쓴 짧은 풀이 (사람 확인 전). 뜻 없는 조합(dans le, de la, que je …)은 넣지 않는다.
+mon cher|사랑하는 (편지 첫 인사)|my dear
+j' ai|나는 ~했어|I have
+je suis|나는 ~이야|I am
+c' est|그건 ~이야|it is
+il y a|~이 있어|there is
+je crois|내 생각엔|I think
+un peu|조금|a little
+une toile|캔버스 한 점|a canvas
+un ciel|하늘|a sky
+en train|(en train de) ~하는 중|in the middle of (doing)
+tu sais|너도 알다시피|you know
+il faut|~해야 해|one must
+pas encore|아직 ~ 않은|not yet
+je travaille|나는 작업 중이야|I'm working
+en plein air|야외에서|in the open air

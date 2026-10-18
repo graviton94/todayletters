@@ -2588,6 +2588,58 @@
     "en": "Listen to the phrase",
     "ko": "표현 듣기"
   },
+  "il_toggle": {
+    "en": "Meanings under words",
+    "ko": "낱말 아래 뜻"
+  },
+  "il_seen": {
+    "en": "Seen in warm-up",
+    "ko": "아까 본 말"
+  },
+  "warm_caps": {
+    "en": "Before you open the letter",
+    "ko": "편지를 열기 전에"
+  },
+  "warm_title": {
+    "en": "Words in today's letter",
+    "ko": "오늘 편지에 나오는 말"
+  },
+  "warm_hint": {
+    "en": "Listen, say it aloud, then the next one",
+    "ko": "하나씩 듣고 따라 말하면 다음 낱말로"
+  },
+  "warm_said": {
+    "en": "I said it",
+    "ko": "따라 말했어요"
+  },
+  "warm_open": {
+    "en": "Open the letter ›",
+    "ko": "편지 열기 ›"
+  },
+  "warm_skip": {
+    "en": "Skip",
+    "ko": "건너뛰기"
+  },
+  "warm_anchor": {
+    "en": "Often in these letters",
+    "ko": "자주 나오는 말"
+  },
+  "warm_phrase": {
+    "en": "Phrase",
+    "ko": "표현"
+  },
+  "set_warm": {
+    "en": "Warm-up before each letter",
+    "ko": "편지 전 예열"
+  },
+  "anchor_note_ko": {
+    "en": "이 편지들에 자주 나오는 말",
+    "ko": "이 편지들에 자주 나오는 말"
+  },
+  "anchor_note_en": {
+    "en": "A phrase that keeps coming back in these letters",
+    "ko": "A phrase that keeps coming back in these letters"
+  },
   "dict_none": {
     "en": "Nothing to write yet: none of these words has a recording on this phone.",
     "ko": "아직 받아쓸 낱말이 없어요. 이 폰에 소리가 있는 낱말이 모이면 열려요."

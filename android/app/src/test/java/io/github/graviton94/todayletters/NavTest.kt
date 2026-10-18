@@ -38,6 +38,8 @@ class NavTest {
         ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().clear().commit()
         if (onboarded) Store(ctx).onboarded = true
         if (seen) { listOf("vincent", "mozart").forEach { Store(ctx).markLearnChosen(it); Store(ctx).markPrologueSeen(it) }; Store(ctx).tutorialDone = true }
+        // 편지 전 예열 (ui/WarmUp.kt) 없이: 편지를 열면 바로 편지 방
+        listOf("vincent", "mozart", "napoleon").forEach { ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().putInt("s:$it:warm", 0).commit() }
         return AppState(ctx, deepLink = deepLink)
     }
 

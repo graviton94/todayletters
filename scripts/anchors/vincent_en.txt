@@ -1,0 +1,14 @@
+# Vincent · English text anchors (for English learners). line = tokens|ko|en
+my dear|사랑하는 (편지 첫 인사)|my dear
+i 'm|나는 ~이야|I am
+i 've|나는 ~했어|I have
+it 's|그건 ~이야|it is
+i think|내 생각엔|I think
+a little|조금|a little
+a few|몇몇|a few
+you know|너도 알다시피|you know
+there are|~들이 있어|there are
+the same|같은|the same
+working on|~을 작업하는 중|working on
+very well|아주 잘|very well
+i can|나는 ~할 수 있어|I can

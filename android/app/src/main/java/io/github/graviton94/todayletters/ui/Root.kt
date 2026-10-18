@@ -110,6 +110,7 @@ private fun Main(s: AppState, onExit: () -> Unit) {
                         is Route.Chapter -> ChapterScreen(s, r)
                         is Route.Letter -> Room(s, r)
                         is Route.RoomInfo -> RoomInfo(s, r.room)
+                        is Route.WarmUp -> WarmUpScreen(s, r)
                         is Route.Play -> Play(s, r)
                         is Route.Done -> Done(s, r.room)
                         is Route.Prologue -> PrologueScreen(s, r)

@@ -146,9 +146,9 @@ def letters():
                 text = open(src, encoding="utf-8").read()
                 check_spots(src, json.loads(text))
                 out[os.path.join(dest, ch["file"])] = text
-        # 어휘 자료 (data/lexicon/README.md): 사전 · 눌러서 뜻 보기 토큰 · 오늘의 낱말. 작아서 그대로 넣는다
+        # 어휘 자료 (data/lexicon/README.md): 사전 · 눌러서 뜻 보기 토큰 · 오늘의 낱말 · 닻 표현 (scripts/anchors.py). 작아서 그대로 넣는다
         # 배우는 말마다 한 벌: 원어 lexicon.json …, 영어 lexicon_en.json …, 한국어 lexicon_ko.json … (있는 것만)
-        for base in ("lexicon", "gloss", "daily"):
+        for base in ("lexicon", "gloss", "daily", "anchors"):
             for src in sorted(glob.glob(os.path.join(folder, base + "*.json"))):
                 name = os.path.basename(src)
                 if re.fullmatch(base + r"(_[a-z]{2})?\.json", name):

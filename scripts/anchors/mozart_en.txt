@@ -1,0 +1,15 @@
+# Mozart · English text (Wallace 1866). line = tokens|ko|en
+my darling|내 사랑|my darling
+i am|나는 ~이에요|I am
+i have|나는 ~했어요|I have
+i must|나는 ~해야 해요|I must
+i may|~해도 될까요, ~일지도|I may
+i never|나는 결코 ~ 않아요|I never
+i wish|~하면 좋겠어요|I wish
+at last|마침내|at last
+the first|첫 번째|the first
+the same|같은|the same
+you know|아시다시피|you know
+to write|쓰는 것|to write
+my heart|내 마음|my heart
+such a|그런, 이런|such a

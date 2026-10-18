@@ -538,6 +538,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             // 내가 쓴 답장: 표현 카드처럼 (문장 하나, 소리는 답장 낭독 r<턴>_<언어> · 쓰임 설명은 ‘내가 쓴 답장’)
             ref.reply -> l.replies.getOrNull(ref.turn)?.let { CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Word(it.text, note = replyNote, audio = "r${ref.turn + 1}")) }
             // 말투 바꿔 보기: 그 턴의 해요체 문장 (반말 · 높임이 있을 때만)
+            // 닻 표현 (ui/WarmUp.kt): 표현 카드처럼
+            ref.anchor >= 0 -> anchorCard(w, ref.chapter, l, ref.anchor)
             ref.style -> l.replies.getOrNull(ref.turn)?.takeIf { it.styled }?.let { CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Word(it.text, note = styleNote)) }
             else -> w.lexicon?.get(ref.own)?.let { e -> CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Vocab.wordFor(e, l.source, w.learnVocab, w.series.original), own = true) }
         }
@@ -815,12 +817,15 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         }
         val p = progress(id, chapter, letter.id)
         current = id
-        if (!replaying(id, chapter, letter.id) && !store.started(key(id, chapter, letter.id)) && p.shown == 0 && !p.done) store.markOpened(space(id))
+        // 처음 여는 새 편지 (다시 보기 · 이어 읽기가 아님): 편지 전 예열을 먼저 (ui/WarmUp.kt, 시안 beginner.html ②)
+        val fresh = !replaying(id, chapter, letter.id) && !store.started(key(id, chapter, letter.id)) && p.shown == 0 && !p.done
+        if (fresh) store.markOpened(space(id))
         store.markStarted(key(id, chapter, letter.id))
         // 처음 열 때의 읽을 수 있는 비율 (다시 읽을 때 견준다)
         if (store.firstCoverage(key(id, chapter, letter.id)) < 0) coverage(id, letter.id)?.let { store.setFirstCoverage(key(id, chapter, letter.id), it) }
         val idx = work(id).chapters.indexOfFirst { it.id == chapter } + 1
-        go(Route.Letter(id, idx, work(id).chapters[idx - 1].letters.indexOf(letter) + 1, from))
+        val room = Route.Letter(id, idx, work(id).chapters[idx - 1].letters.indexOf(letter) + 1, from)
+        go(if (fresh && warmUpDue(id, chapter, letter)) Route.WarmUp(room) else room)
     }
 
     /**
