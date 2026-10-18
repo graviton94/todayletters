@@ -1,10 +1,10 @@
-15_done_ko_light.png
-20_review_ko_light.png
-21_review_ko_dark.png
+12_library_ko_dark.png
 a11y.txt
 finish01_sheet_dark.png
 finish01_sheet_light.png
 finish02_sheet_skipped_dark.png
+nav1_today_dark.png
+nav1_today_light.png
+nav2_library_dark.png
 shine_dark.png
 shine_light.png
-t09_review_redo_ko_light.png
