@@ -1,5 +1,10 @@
-p01_purchase_light.png
-p02_purchase_dark.png
-p17_purchase_series_light.png
-p18_purchase_owned_dark.png
-p19_purchase_subscribed_light.png
+15_done_ko_light.png
+20_review_ko_light.png
+21_review_ko_dark.png
+a11y.txt
+finish01_sheet_dark.png
+finish01_sheet_light.png
+finish02_sheet_skipped_dark.png
+shine_dark.png
+shine_light.png
+t09_review_redo_ko_light.png
