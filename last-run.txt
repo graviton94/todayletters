@@ -1,4 +1,5 @@
 p01_purchase_light.png
 p02_purchase_dark.png
+p17_purchase_series_light.png
 p18_purchase_owned_dark.png
 p19_purchase_subscribed_light.png
