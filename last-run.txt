@@ -1,6 +1,4 @@
-a11y.txt
-bk1_settings_backup_light.png
-bk2_export_sheet_light.png
-bk3_import_ask_light.png
-bk4_purchase_all_light.png
-bk5_today_backup_line_light.png
+p01_purchase_light.png
+p02_purchase_dark.png
+p18_purchase_owned_dark.png
+p19_purchase_subscribed_light.png
