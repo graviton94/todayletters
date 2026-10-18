@@ -521,6 +521,18 @@ class Store(ctx: Context) {
     var backupDay: Long
         get() = p.getLong("backup:last", -1L)
         set(v) = p.edit().putLong("backup:last", v).apply()
+    /** 마지막으로 내보낼 때 마친 편지 수 (core BackupNudge: 그 뒤로 몇 통). */
+    var backupLetters: Int
+        get() = p.getInt("backup:letters", 0)
+        set(v) = p.edit().putInt("backup:letters", v).apply()
+    /** 오늘 화면의 보관 한 줄을 ‘나중에’ 로 미룬 끝날 (epoch day, 이날부터 다시). */
+    var backupSnooze: Long
+        get() = p.getLong("backup:snooze", -1L)
+        set(v) = p.edit().putLong("backup:snooze", v).apply()
+    /** 처음으로 한 장을 다 마친 날 (epoch day), 없으면 -1. 내보낸 적이 없으면 그다음 날부터 한 줄. */
+    var backupChapterDay: Long
+        get() = p.getLong("backup:chapter_day", -1L)
+        set(v) = p.edit().putLong("backup:chapter_day", v).apply()
 
     /** 개발용: 모든 시리즈 열기 (debug 빌드에서만 읽는다, [Billing.effective]). */
     var debugUnlockAll: Boolean

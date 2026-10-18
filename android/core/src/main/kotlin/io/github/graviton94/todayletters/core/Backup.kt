@@ -106,3 +106,30 @@ object Backup {
         return append('"')
     }
 }
+
+/**
+ * 오늘 화면의 보관 한 줄 (알림이 아니라 화면 안 한 줄): “보관 뒤 편지 N통 · 기록 보관하기 › · 나중에”.
+ * - 내보낸 적이 있으면: 마지막 내보낸 날에서 [EVERY_DAYS] 일이 지났고, 그 뒤로 편지를 [MIN_LETTERS] 통 이상 마쳤을 때.
+ * - 내보낸 적이 없으면: 처음으로 한 장을 다 마친 날의 다음 날부터 (N = 지금까지 마친 편지).
+ * - ‘나중에’ 는 [SNOOZE_DAYS] 일 미룬다. 내보내면 날 · 편지 수를 다시 센다.
+ */
+object BackupNudge {
+    const val EVERY_DAYS = 30
+    const val MIN_LETTERS = 7
+    const val SNOOZE_DAYS = 14
+
+    /** [since] 면 “보관 뒤 편지 N통”, 아니면 “편지 N통을 마쳤어요”. */
+    data class Line(val letters: Int, val since: Boolean)
+
+    /** 날은 모두 epoch day, 없으면 -1. [snoozedUntil] 이날부터 다시 보인다. */
+    fun line(today: Long, lastExport: Long, lettersAtExport: Int, lettersNow: Int, firstChapterDay: Long, snoozedUntil: Long): Line? {
+        if (snoozedUntil >= 0 && today < snoozedUntil) return null
+        if (lastExport >= 0) {
+            val n = lettersNow - lettersAtExport
+            return if (today - lastExport >= EVERY_DAYS && n >= MIN_LETTERS) Line(n, true) else null
+        }
+        return if (firstChapterDay >= 0 && today > firstChapterDay && lettersNow > 0) Line(lettersNow, false) else null
+    }
+
+    fun snooze(today: Long): Long = today + SNOOZE_DAYS
+}

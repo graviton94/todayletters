@@ -76,6 +76,8 @@ fun Inbox(s: AppState) {
     val j = s.journey(id)
     val tl = s.todayLetter(id)
 
+    var backupSheet by remember { mutableStateOf(false) }
+    Box(Modifier.fillMaxSize()) {
     Column(Modifier.fillMaxSize()) {
         SeriesHeader(s)
         Column(
@@ -83,6 +85,8 @@ fun Inbox(s: AppState) {
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
             TodayLine(j)
+            // 기록 보관 한 줄 (오래 보관하지 않았을 때만)
+            BackupNudgeLine(s) { backupSheet = true }
             StreakBlock(s, work)
             Hair()
             Row(verticalAlignment = Alignment.Bottom) {
@@ -138,6 +142,9 @@ fun Inbox(s: AppState) {
             }
             FreeLeftLine(s, id)
         }
+    }
+    // 보관 시트는 화면 위에 (굴리는 칸 밖)
+    BackupExportFlow(s, backupSheet) { backupSheet = false }
     }
 }
 

@@ -66,13 +66,6 @@ fun SettingsScreen(s: AppState) {
     val ctx = s.ctx
     val records = io.github.graviton94.todayletters.data.Records
     fun toast(id: Int) = android.widget.Toast.makeText(ctx, ctx.getString(id), android.widget.Toast.LENGTH_SHORT).show()
-    fun exported() { s.store.backupDay = s.today; s.version++ }
-    val saveRecords = androidx.activity.compose.rememberLauncherForActivityResult(
-        androidx.activity.result.contract.ActivityResultContracts.CreateDocument("application/json")) { uri ->
-        if (uri != null) {
-            if (records.write(ctx, uri, records.export(s.store, s.today))) { exported(); toast(R.string.backup_saved) } else toast(R.string.backup_bad)
-        }
-    }
     val openRecords = androidx.activity.compose.rememberLauncherForActivityResult(
         androidx.activity.result.contract.ActivityResultContracts.OpenDocument()) { uri ->
         if (uri != null) { val r = records.read(ctx, uri); if (r == null) toast(R.string.backup_bad) else importing = r }
@@ -201,15 +194,7 @@ fun SettingsScreen(s: AppState) {
         }
     }
     if (timeSheet) NoticeTimeSheet(s) { timeSheet = false }
-    if (exportSheet) BackupExportSheet(records.summary(s.store, s.today),
-        onSave = { exportSheet = false; runCatching { saveRecords.launch(io.github.graviton94.todayletters.core.Backup.fileName(ctx.getString(R.string.backup_file), records.made(s.today))) } },
-        onShare = {
-            exportSheet = false
-            val made = records.made(s.today)
-            records.shareIntent(ctx, records.export(s.store, s.today), io.github.graviton94.todayletters.core.Backup.fileName(ctx.getString(R.string.backup_file), made), ctx.getString(R.string.backup_export))
-                ?.let { runCatching { (activity ?: ctx).startActivity(if (activity == null) it.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK) else it) }.onSuccess { exported() } }
-        },
-        onClose = { exportSheet = false })
+    BackupExportFlow(s, exportSheet) { exportSheet = false }
     importing?.let { r ->
         BackupImportSheet(r.summary, onImport = {
             importing = null

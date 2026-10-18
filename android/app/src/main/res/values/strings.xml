@@ -574,6 +574,10 @@
     <string name="backup_yes">Import</string>
     <string name="backup_no">Not now</string>
     <string name="backup_done">Records imported</string>
+    <string name="nudge_since">%1$d letters since backup</string>
+    <string name="nudge_first">%1$d letters done</string>
+    <string name="nudge_go">Back up ›</string>
+    <string name="nudge_later">Later</string>
     <string name="set_privacy_row">Privacy</string>
     <string name="set_privacy_d">Your record stays on this phone · nothing is sent</string>
     <string name="set_credits_d">Letters · paintings · frames · medals · fonts · voices</string>

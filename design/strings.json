@@ -2292,6 +2292,22 @@
     "en": "Records imported",
     "ko": "기록을 가져왔어요"
   },
+  "nudge_since": {
+    "en": "%1$d letters since backup",
+    "ko": "보관 뒤 편지 %1$d통"
+  },
+  "nudge_first": {
+    "en": "%1$d letters done",
+    "ko": "편지 %1$d통을 마쳤어요"
+  },
+  "nudge_go": {
+    "en": "Back up ›",
+    "ko": "기록 보관하기 ›"
+  },
+  "nudge_later": {
+    "en": "Later",
+    "ko": "나중에"
+  },
   "set_privacy_row": {
     "en": "Privacy",
     "ko": "개인정보"

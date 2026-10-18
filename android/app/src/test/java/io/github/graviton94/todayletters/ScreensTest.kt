@@ -971,6 +971,11 @@ class ScreensTest {
             io.github.graviton94.todayletters.ui.BackupImportSheet(r.summary, onImport = { }, onClose = { })
         }
     }
+    /** 오늘 화면의 보관 한 줄: 내보낸 적이 없고 어제 처음 한 장을 다 마침. */
+    @Test fun backupToday() {
+        val s = engineState(); s.reward = null; s.store.backupChapterDay = s.today - 1
+        shot("bk5_today_backup_line_light", false, 3000, series = s) { Inbox(s) }
+    }
     /** 구매 화면: 연 · 월 구독 + 작품마다 소장 칸 (지금 작품 먼저, 모차르트는 소장함). */
     @Test fun backupPurchaseAll() {
         val s = engineState(); s.reward = null

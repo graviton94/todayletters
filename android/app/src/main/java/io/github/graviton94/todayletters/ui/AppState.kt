@@ -394,7 +394,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         store.save(k, p); version++
         // 오늘의 여정 I: 편지를 마쳤다 (여정을 다 했으면 보너스 · 그림)
         if (newlyDone) journeyCheck(series)
+        // 기록 보관 한 줄 (core BackupNudge): 처음으로 한 장을 다 마친 날
+        if (newlyDone && store.backupChapterDay < 0 && anyChapterDone()) store.backupChapterDay = today
     }
+
+    /** 어느 작품이든 한 장의 편지를 모두 마쳤나 (지금 배우는 말의 진도). */
+    fun anyChapterDone(): Boolean = works.any { w -> w.chapters.any { c -> c.letters.isNotEmpty() && c.letters.all { progress(w.series.id, c.id, it.id).done } } }
 
     /** 배우는 말 [learn] 으로 다 읽은 편지 수 (언어 고르기 시트에서 언어마다 진도를 보여 줄 때). */
     fun doneIn(id: String, learn: io.github.graviton94.todayletters.core.Lang): Int = run {

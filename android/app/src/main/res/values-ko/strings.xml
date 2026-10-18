@@ -574,6 +574,10 @@
     <string name="backup_yes">가⁠져⁠오⁠기</string>
     <string name="backup_no">그⁠만⁠두⁠기</string>
     <string name="backup_done">기⁠록⁠을 가⁠져⁠왔⁠어⁠요</string>
+    <string name="nudge_since">보⁠관 뒤 편⁠지 %1$d⁠통</string>
+    <string name="nudge_first">편⁠지 %1$d⁠통⁠을 마⁠쳤⁠어⁠요</string>
+    <string name="nudge_go">기⁠록 보⁠관⁠하⁠기 ›</string>
+    <string name="nudge_later">나⁠중⁠에</string>
     <string name="set_privacy_row">개⁠인⁠정⁠보</string>
     <string name="set_privacy_d">학⁠습 기⁠록⁠은 이 폰⁠에⁠만 · 보⁠내⁠는 정⁠보 없⁠음</string>
     <string name="set_credits_d">편⁠지 · 그⁠림 · 액⁠자 · 메⁠달 · 글⁠꼴 · 목⁠소⁠리</string>
