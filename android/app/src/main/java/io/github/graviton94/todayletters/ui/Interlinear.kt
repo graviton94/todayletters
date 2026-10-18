@@ -36,6 +36,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
+import io.github.graviton94.todayletters.core.Breaks
 import io.github.graviton94.todayletters.core.Interlinear
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Letter
@@ -66,7 +67,9 @@ fun interlinearLines(s: AppState, series: String, letter: Letter, tokens: List<L
     return letter.messages.mapIndexed { i, m ->
         val ts = tokens.getOrNull(i) ?: return@mapIndexed null
         val text = m.text[view.learn]
-        val ranges = Vocab.align(text, ts)
+        // 한국어 글은 낱말 안에 줄바꿈 막기 글자 (Breaks.keepAll) 가 끼어 있다: 그 글자를 뺀 글에서 자리를 찾고 원래 글의 자리로 옮긴다
+        val at = text.indices.filter { text[it] != Breaks.JOIN }
+        val ranges = Vocab.align(Breaks.plain(text), ts).map { r -> if (r.isEmpty()) r else at[r.first]..at[r.last] }
         val phrases = letter.phrases.filter { it.msg == i }.map { it.text[learn] to it.text[gl] }
         val units = Interlinear.units(ts, { work.lexicon?.get(it) }, gl, { it in mine }, function, phrases, anchors, known)
         IlLine(ts, ranges, units, Interlinear.cells(text, ranges, units), gl)
