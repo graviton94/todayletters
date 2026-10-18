@@ -1646,6 +1646,8 @@ class ScreensTest {
             rule.mainClock.advanceTimeBy(300)
             // 답장 말해 보기도 따라 읽기와 같은 녹음 단추 (인식 · 스스로 판정 없음)
             org.junit.Assert.assertTrue(rule.onAllNodes(hasText(ctx.getString(R.string.shadow_talk))).fetchSemanticsNodes().isNotEmpty())
+            // 원래 소리: 답장 낭독 r1_<언어> (편지 폴더) 가 있으니 듣기 단추가 있다
+            org.junit.Assert.assertTrue(rule.onAllNodes(androidx.compose.ui.test.hasContentDescription(ctx.getString(R.string.shadow_orig))).fetchSemanticsNodes().isNotEmpty())
         }, series = s) { Play(s, replyRoute) }
     }
     /** 답장 말해 보기 · B1: 문장 흐리게, 어두운 화면 (B2 는 직접 쓰기라 이 장면에서 바로 닿지 않는다). */

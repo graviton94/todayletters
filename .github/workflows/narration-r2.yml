@@ -10,6 +10,8 @@ name: Narration to R2
 #   새 파일만 편지 폴더(앱 안 장은 assets/audio, 앱 밖 장은 remote/audio)에 넣고 generate.py 로 remote.json 목록을 고친 뒤
 #   이 가지에 커밋 · 푸시하고, 아래 덮어쓰기 검사 · 올리기를 그대로 한다. 이미 있는 파일은 만들지도 바꾸지도 않는다.
 #   만들기는 편지 파일마다 따로 돈다 (make 작업, 20개 동시) → 결과를 모아 sync 작업이 넣고 올린다.
+# make=replies: 답장 말해 보기 문장 r<턴>_<언어>.m4a (편지 "replies", scripts/narrate.py NARRATE_ONLY=replies) 가운데 없는 것만.
+#   넣기 · remote.json · 커밋 · 올리기는 make=new 와 같다 (새 파일만, 덮어쓰지 않음). 회화 · 낱말 · 표현은 만들지 않는다.
 # make=messages: messages 에 적은 메시지 낭독만 다시 만든다 ("mozart/c1-l2/m4_en …", m<번호>_<언어>.m4a + 마디 시각 .json).
 #   앱 안 장(assets/audio)은 그 자리에서 바꾸고, 앱 밖 장(remote/audio)은 바꾼 뒤 data/remote.json 의 revisions 판을 올려
 #   R2 의 rev/<판>/<경로> 로 올린다 (이미 올린 파일은 덮어쓰지 않는다 · docs/release.md 5).
@@ -19,7 +21,7 @@ on:
       make:
         description: "none = 올리기만, new = 빠진 소리(오늘의 회화 · 카드 낱말 · 표현)를 만들어 커밋한 뒤 올리기, messages = 아래 메시지 낭독만 다시"
         type: choice
-        options: [none, new, messages]
+        options: [none, new, replies, messages]
         default: none
       series:
         description: "만들 작품만 (띄어쓰기로 나눔, 비우면 전부: vincent mozart napoleon)"
@@ -79,7 +81,7 @@ jobs:
         if: steps.want.outputs.go == '1'
         env:
           NARRATE_ONLY: ${{ inputs.make }}
-          NARRATE_SKIP_EXISTING: ${{ inputs.make == 'new' && '1' || '' }}
+          NARRATE_SKIP_EXISTING: ${{ (inputs.make == 'new' || inputs.make == 'replies') && '1' || '' }}
           NARRATE_MESSAGES: ${{ inputs.messages }}
         run: |
           mkdir -p narr
@@ -124,7 +126,7 @@ jobs:
           merge-multiple: true
           path: ${{ runner.temp }}/narr
       - name: Put new clips in letter folders, new files only
-        if: inputs.make == 'new'
+        if: inputs.make == 'new' || inputs.make == 'replies'
         run: |
           out="$RUNNER_TEMP/narr"; mkdir -p "$out"
           # 장 폴더가 앱 안(assets/audio)에 있으면 거기, 아니면 앱 밖(remote/audio). 같은 이름이 있으면 멈춘다 (덮어쓰지 않음)
@@ -138,8 +140,8 @@ jobs:
           echo "new clips: $n"
           for s in vincent mozart napoleon; do for l in fr de en ko; do
             t=$(cd "$out" && find $s -name "t*_$l.m4a" 2>/dev/null | wc -l); v=$(cd "$out" && find $s -name "v_${l}_*.m4a" 2>/dev/null | wc -l)
-            p=$(cd "$out" && find $s -name "ph*_$l.m4a" 2>/dev/null | wc -l)
-            if [ $((t+v+p)) -gt 0 ]; then echo "$s $l: talk $t · word $v · phrase $p" | tee -a "$GITHUB_STEP_SUMMARY"; fi
+            p=$(cd "$out" && find $s -name "ph*_$l.m4a" 2>/dev/null | wc -l); r=$(cd "$out" && find $s -name "r[0-9]*_$l.m4a" 2>/dev/null | wc -l)
+            if [ $((t+v+p+r)) -gt 0 ]; then echo "$s $l: talk $t · word $v · phrase $p · reply $r" | tee -a "$GITHUB_STEP_SUMMARY"; fi
           done; done
           python3 scripts/generate.py
           python3 scripts/generate.py --check
@@ -181,7 +183,7 @@ jobs:
           git add -A android/app/src/main/assets remote data/remote.json
           git diff --cached --quiet && { echo "nothing new"; exit 0; }
           git config user.name bot && git config user.email bot@users.noreply.github.com
-          if [ "${{ inputs.make }}" = messages ]; then msg="Narration: re-made message clips ${{ inputs.messages }}"; else msg="Narration: today's talk lines, card words and phrases (new files only)"; fi
+          if [ "${{ inputs.make }}" = messages ]; then msg="Narration: re-made message clips ${{ inputs.messages }}"; elif [ "${{ inputs.make }}" = replies ]; then msg="Narration: reply sentences to say aloud (new files only)"; else msg="Narration: today's talk lines, card words and phrases (new files only)"; fi
           git commit -qm "$msg"
           git pull -q --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:$GITHUB_REF_NAME"

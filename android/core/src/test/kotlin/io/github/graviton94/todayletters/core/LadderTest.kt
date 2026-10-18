@@ -91,6 +91,16 @@ class LadderTest {
     private val letter = Letter("c3-l1", "1888", "Arles", "calm",
         listOf(Message(tri("a", "a", "a")), Message(tri("b", "b", "b")), Message(tri("c", "c", "c"))), emptyList(), null, null, replies = turns)
 
+    @Test fun replyAudioNamesFollowTurnsOrTheBorrowedMessage() {
+        assertEquals("r1_fr", Exercises.replyAudioName(letter, Lang.FR, 0))
+        assertEquals("r2_ko", Exercises.replyAudioName(letter, Lang.KO, 1))
+        assertEquals("r2_en", Exercises.replyAudioName(letter, Lang.EN, 9))
+        // 저자 답장이 없는 편지: 대신 말하는 메시지의 낭독
+        val old = letter.copy(replies = emptyList(), messages = listOf(Message(tri("Bonjour.", "x", "x")), Message(tri("Mon cher Théo, je pense à toi.", "x", "x"))))
+        assertEquals("m2_fr", Exercises.replyAudioName(old, Lang.FR, 0))
+        assertEquals(null, Exercises.replyAudioName(old.copy(messages = emptyList()), Lang.FR, 0))
+    }
+
     @Test fun turnsPlayInOrderAndOldLettersGetOne() {
         assertEquals(2, Exercises.turns(letter, Lang.FR).size)
         assertEquals("J'ai lu ta lettre deux fois, et j'ai pensé à tes nuits de travail.", Exercises.replyFor(letter, Lang.FR, 0).first)

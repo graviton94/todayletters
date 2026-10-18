@@ -20,6 +20,9 @@
           "them" 줄은 그 장의 인물 목소리(편지 낭독과 같은 섞음) · 편지 mood 의 빠르기 · 높낮이,
           "me" 줄은 받는 사람 목소리 (배역표의 "talk_me": 편지 "to" 의 원어 글자 → 목소리, 없으면 "default") · 차분한 프리셋.
   NARRATE_ONLY=new: talk + vocab 을 한 번에.
+  NARRATE_ONLY=replies: 답장 말해 보기 문장만 (편지의 "replies" 턴, 학습 언어마다: 앱이 보여 주는 그 언어 줄, ko 는 해요체 "ko")
+          r<턴 번호 1부터>_<언어>.m4a (core Exercises.replyAudioName). 회화 "me" 줄과 같은 받는 사람 목소리 (talk_me) · 차분한 프리셋.
+          replies 가 없는 편지 (서문) 는 앱이 메시지 하나를 대신 말하게 하므로 그 메시지 낭독 m<번호> 를 쓴다 (만들지 않음).
   NARRATE_ONLY=messages: NARRATE_MESSAGES 에 적은 메시지 낭독만 다시 (m<번호>_<언어>.m4a + .json). 띄어쓰기로 나눈
           "<작품>/<편지 id>/m<번호>_<언어>" 목록 (예: "mozart/c1-l2/m4_en"), 이 편지 파일에 없는 것은 건너뛴다.
           회화 줄도 같은 목록에 적을 수 있다 ("<작품>/<편지 id>/t<줄>_<언어>", 예 "napoleon/c7-l3/t3_ko").
@@ -183,6 +186,29 @@ def make_talk(letter, pick=None):
     return n
 
 
+def me_voice(letter):
+    """회화 "me" 줄 · 답장의 목소리: 배역표 talk_me 의 by_to[편지 "to" 의 원어 글자], 없으면 default."""
+    me_cast = cast.get("talk_me") or {}
+    to = (letter.get("to") or {}).get(book["original"]) if isinstance(letter.get("to"), dict) else letter.get("to")
+    return style_of((me_cast.get("by_to") or {}).get(to or "", me_cast.get("default", "M4")))
+
+
+if ONLY == "replies":
+    n = 0
+    for letter in book["letters"]:
+        base = os.path.join(out, series, chapter, letter["id"])
+        me = None
+        for lang in langs:
+            for i, t in enumerate(letter.get("replies") or [], 1):
+                path = os.path.join(base, f"r{i}_{lang}.m4a")
+                text = re.sub(r"[〈〉]", "", t.get(lang) or "").strip()
+                if not text or not wanted(path):
+                    continue
+                me = me or me_voice(letter)
+                save(path, speak(text, lang, presets["calm"], who=me)[0], 1.0); n += 1
+        print("reply ok", letter["id"], flush=True)
+    print("reply files", n)
+    sys.exit(0)
 if ONLY in ("talk", "new"):
     n = 0
     for letter in book["letters"]:

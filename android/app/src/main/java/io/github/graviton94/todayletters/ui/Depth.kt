@@ -459,6 +459,11 @@ fun ReplySpeak(s: AppState, r: Route.Play, turn: Int, turns: Int, onNext: () -> 
     val (line, tri) = io.github.graviton94.todayletters.core.Exercises.replyFor(letter, view.learn, turn)
     val file = remember(letter.id, turn) { s.replyTake(id, chapter, letter.id, turn).also { it.delete() } }
     val sentence = remember(line) { Breaks.plain(line).trim() }
+    // 원래 소리: 그 턴의 답장 낭독 r<턴>_<언어> (대신 고른 메시지면 그 낭독), 이 기기에 없으면 null → 듣기 단추를 숨긴다
+    val audio = remember(letter.id, turn, view.learn) {
+        io.github.graviton94.todayletters.core.Exercises.replyAudioName(letter, view.learn, turn)
+            ?.let { s.narrator.path(id, chapter, letter.id, it) }?.takeIf { s.narrator.has(it) }
+    }
     val how = Support.replySpeak(s.support(id).band)
     var hinted by remember(turn) { mutableStateOf(false) }
     var spoken by remember(turn) { mutableStateOf(false) }
@@ -480,7 +485,7 @@ fun ReplySpeak(s: AppState, r: Route.Play, turn: Int, turns: Int, onNext: () -> 
                     modifier = Modifier.heightIn(min = 44.dp).pressable { hinted = true }.padding(vertical = Tokens.Space.s2))
             }
             if (spoken) Text(stringResource(R.string.speak_line_ok), style = Type.small.ui(), color = p.correct, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
-            SpeakLine(s, null, file, key = Triple(letter.id, turn, view.learn)) { spoken = true }
+            SpeakLine(s, audio, file, key = Triple(letter.id, turn, view.learn)) { spoken = true }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
             if (spoken) Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.speak_line_next)) { onNext() }

@@ -258,6 +258,21 @@ object Exercises {
         return t.text[learn] to t.text
     }
 
+    /**
+     * 답장 턴 [turn] (0부터) 의 원래 소리 파일 이름 (확장자 없이, 편지 폴더). 저자가 쓴 턴이면 r<턴+1>_<언어>
+     * (scripts/narrate.py NARRATE_ONLY=replies, 회화 "me" 줄과 같은 목소리), 대신 고른 메시지면 그 메시지 낭독 m<번호>_<언어>.
+     * 말할 문장이 없으면 null.
+     */
+    fun replyAudioName(letter: Letter, learn: Lang, turn: Int = 0): String? {
+        if (letter.replies.isNotEmpty()) {
+            val i = turn.coerceIn(0, letter.replies.size - 1)
+            return "r${i + 1}_${learn.code}".takeIf { !letter.replies[i].text.lines[learn].isNullOrBlank() }
+        }
+        val pick = turns(letter, learn).firstOrNull()?.text ?: return null
+        val mi = letter.messages.indexOfFirst { it.text == pick }
+        return if (mi >= 0) "m${mi + 1}_${learn.code}" else null
+    }
+
     /** 낱말 맞추기: (배우는 언어, 읽는 언어) 짝. */
     fun pairs(letter: Letter, learn: Lang, read: Lang) = letter.words.map { it.text[learn] to it.text[read] }
 

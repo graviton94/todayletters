@@ -369,8 +369,9 @@ fun ShadowControls(s: AppState, t: ShadowTake, canListen: Boolean = true, canRec
     )
     Row(Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s3), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.Bottom) {
         // 원래 소리 (기본 듣기 빠르기) 와 그 옆 0.7× (천천히 한 번)
+        // 원래 소리가 없으면 단추를 두지 않는다 (소리 없는 단추 없음). 답을 아직 못 봐서 못 듣는 때만 흐린 단추
         val listen = t.hasAudio && canListen
-        Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
+        if (t.hasAudio) Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
             RoundButton(stringResource(R.string.shadow_orig), 56.dp, if (t.playing && s.narrator.slowBy == null) p.giltText else Color.Transparent, if (listen) p.giltText else p.hair, enabled = listen, onDark = p.paper) {
                 if (t.playing && s.narrator.slowBy == null) { s.narrator.stop(); t.playing = false } else t.original(s)
             }
