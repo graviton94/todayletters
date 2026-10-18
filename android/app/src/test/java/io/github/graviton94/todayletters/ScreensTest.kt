@@ -994,7 +994,7 @@ class ScreensTest {
     @Test fun purchaseSeries() {
         val s = engineState(); s.reward = null; s.enter("mozart")
         shot("p17_purchase_series_light", false, act = {
-            rule.onNodeWithText(ctx.getString(R.string.plan_series, s.work("mozart").name[io.github.graviton94.todayletters.core.Lang.KO])).performClick()
+            rule.onNodeWithText(ctx.getString(R.string.plan_series, s.work("mozart").known[io.github.graviton94.todayletters.core.Lang.KO])).performClick()
         }, series = s) { io.github.graviton94.todayletters.ui.PurchaseScreen(s) }
     }
     /** 빈센트를 소장한 뒤: 소장함 표시, 배너에는 모차르트만. */
