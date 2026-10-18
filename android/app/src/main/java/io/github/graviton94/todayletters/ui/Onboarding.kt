@@ -82,7 +82,7 @@ fun Onboarding(s: AppState) {
             Text(stringResource(R.string.welcome_note), style = Type.small.ui(), color = p.inkSoft)
         }
         Box(Modifier.padding(Tokens.Space.s4)) {
-            Primary(stringResource(R.string.welcome_go)) { s.narrator.stop(); s.finishWelcome() }
+            Primary(stringResource(R.string.welcome_go), shine = true) { s.narrator.stop(); s.finishWelcome() }
         }
     }
 }

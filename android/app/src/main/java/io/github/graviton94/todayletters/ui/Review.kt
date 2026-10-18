@@ -158,7 +158,7 @@ fun WordsTab(s: AppState) {
                         )
                     }
                     if (j.review == io.github.graviton94.todayletters.core.Journey.Step.TODO || j.review == io.github.graviton94.todayletters.core.Journey.Step.NOW)
-                        Box(Modifier.heightIn(min = 46.dp).pressable { s.go(Route.Session()) }.background(p.slipInk).padding(horizontal = Tokens.Space.s4), contentAlignment = Alignment.Center) {
+                        Box(Modifier.heightIn(min = 46.dp).pressable { s.go(Route.Session()) }.background(p.slipInk).giltSweep(true, p.slipInk).padding(horizontal = Tokens.Space.s4), contentAlignment = Alignment.Center) {
                             Text(stringResource(if (n > 0) R.string.journey_review_continue else R.string.review_start), style = Type.body.ui(), color = p.slip)
                         }
                 }
@@ -599,7 +599,7 @@ fun Session(s: AppState, r: Route.Session) {
                 if (mark == Memory.Mark.RIGHT) stringResource(if (hinted) R.string.review_right_hint else R.string.review_right) else stringResource(R.string.review_accent, accentWord ?: q.word),
                 detail, nextLabel, ::next)
             q.kind == ReviewKind.DICTATION && q.phrase != null -> Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-                Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank()) {
+                Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank(), shine = true) {
                     // 남은 칸마다 채점: 다 맞으면 맞음, 첫 번째로 틀리면 맞은 낱말은 잠그고 틀린 낱말만 다시
                     val words = q.phrase
                     val free = words.indices.filter { it !in locked }
@@ -626,7 +626,7 @@ fun Session(s: AppState, r: Route.Session) {
                 }
             }
             q.kind == ReviewKind.DICTATION -> Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-                Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank()) { check() }
+                Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank(), shine = true) { check() }
             }
         }
     }
@@ -784,11 +784,11 @@ private fun SessionResult(s: AppState, r: Route.Session, results: List<Pair<Q, B
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             // 틀린 것 다시 (v21 F3): 틀린 낱말만 바로 한 판 더 (연습이라 기억 칸은 오늘 처음 결과대로)
             if (wrong.isNotEmpty()) {
-                Primary(stringResource(R.string.result_again_n, wrong.size)) { s.back(); s.go(Route.Session(null, wrong.map { it.first.card.key }.distinct())) }
+                Primary(stringResource(R.string.result_again_n, wrong.size), shine = true) { s.back(); s.go(Route.Session(null, wrong.map { it.first.card.key }.distinct())) }
                 Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable { s.go(Route.Inbox) }, contentAlignment = Alignment.Center) {
                     Text(stringResource(R.string.result_enough), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.inkSoft)
                 }
-            } else Primary(stringResource(R.string.done_home)) { s.go(Route.Inbox) }
+            } else Primary(stringResource(R.string.done_home), shine = true) { s.go(Route.Inbox) }
         }
     }
     detail?.let { k -> WordDetail(s, k) { detail = null } }

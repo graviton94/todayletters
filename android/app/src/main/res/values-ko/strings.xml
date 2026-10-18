@@ -857,7 +857,7 @@
     <string name="finish_next_at">다⁠음 편⁠지⁠는 내⁠일 %1$s⁠에 와⁠요</string>
     <string name="finish_next_day">다⁠음 편⁠지⁠는 내⁠일 와⁠요</string>
     <string name="finish_series_done">이 작⁠품⁠을 다 읽⁠었⁠어⁠요</string>
-    <string name="finish_library">서⁠재⁠로</string>
+    <string name="finish_today">오⁠늘⁠로 돌⁠아⁠가⁠기</string>
     <string name="finish_again">이 편⁠지 처⁠음⁠부⁠터 다⁠시 보⁠기</string>
     <string name="letter_again">처⁠음⁠부⁠터 다⁠시 보⁠기 ›</string>
     <string name="today_line">오⁠늘 · 편⁠지 %1$d · 복⁠습 %2$d</string>

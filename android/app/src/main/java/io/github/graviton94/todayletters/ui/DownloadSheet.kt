@@ -102,7 +102,7 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
                     Line(stringResource(R.string.dl_first_done, name), Type.heading.ui(), p.ink)
                     Line(stringResource(R.string.dl_done_b), Type.small.ui(), p.inkSoft)
                     Box(Modifier.height(Tokens.Space.s2))
-                    Primary(stringResource(R.string.dl_open_first)) { s.downloadFinished(silent = false) }
+                    Primary(stringResource(R.string.dl_open_first), shine = true) { s.downloadFinished(silent = false) }
                 }
                 running -> {
                     val frac = if (job!!.total <= 0) 1f else job.done.toFloat() / job.total
@@ -125,7 +125,7 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
                     Line(stringResource(R.string.dl_failed_t), Type.heading.ui(), p.ink)
                     Line(stringResource(R.string.dl_failed, sizeLabel(remaining)), Type.small.ui(), p.inkSoft)
                     Box(Modifier.height(Tokens.Space.s2))
-                    Primary(stringResource(R.string.dl_retry)) { start() }
+                    Primary(stringResource(R.string.dl_retry), shine = true) { start() }
                     Later(if (waiting) ({ s.downloadFinished(silent = true) }) else null) { close() }
                 }
                 else -> {

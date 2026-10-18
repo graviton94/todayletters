@@ -141,9 +141,9 @@ fun Done(s: AppState, room: Route.Letter) {
         Column(Modifier.background(p.paper).navigationBarsPadding().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             // 그림이 이 기기에 없으면 (소리 없이 읽기 · 받지 않음) 걸을 그림도 없다
             if (letter.plate != null && io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${letter.plate!!.image}")) Secondary(stringResource(R.string.done_walk)) { s.go(Route.Artwork(room.series, room.letter, room)) }
-            if (next != null) Primary(stringResource(R.string.done_open_next)) { s.open(room.series, next.first, next.second, Route.Inbox) }
-            else if (work.outro != null && s.seriesDone(room.series)) Primary(stringResource(R.string.done_outro)) { s.openOutro(room.series) }
-            else Primary(stringResource(R.string.done_home), onClick = home)
+            if (next != null) Primary(stringResource(R.string.done_open_next), shine = true) { s.open(room.series, next.first, next.second, Route.Inbox) }
+            else if (work.outro != null && s.seriesDone(room.series)) Primary(stringResource(R.string.done_outro), shine = true) { s.openOutro(room.series) }
+            else Primary(stringResource(R.string.done_home), shine = true, onClick = home)
         }
     }
     // 튜토리얼 끝 (편지 I 을 마친 뒤 한 번): “이제 혼자서도 괜찮아요” → 그 뒤로는 도움말이 저절로 뜨지 않는다
@@ -189,7 +189,7 @@ fun FinishSheet(s: AppState, room: Route.Letter) {
                 else -> stringResource(R.string.finish_next_day)
             }
             Text(next, style = Type.body.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center, modifier = Modifier.padding(vertical = Tokens.Space.s2))
-            Primary(stringResource(R.string.finish_library), shine = true) { close(); s.go(Route.Library) }
+            Primary(stringResource(R.string.finish_today), shine = true) { close(); s.go(Route.Inbox) }
             Secondary(stringResource(R.string.finish_again)) { s.replayLetter(room.series, chapter, letter, Route.Inbox) }
         }
     }
@@ -205,7 +205,7 @@ private fun Graduate(s: AppState) {
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
             Text(stringResource(R.string.graduate_title), style = Type.title.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
             Text(stringResource(R.string.graduate_body), style = Type.body.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
-            Primary(stringResource(R.string.graduate_go)) { s.graduate() }
+            Primary(stringResource(R.string.graduate_go), shine = true) { s.graduate() }
         }
     }
 }

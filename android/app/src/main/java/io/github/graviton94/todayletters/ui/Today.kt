@@ -114,7 +114,7 @@ fun Inbox(s: AppState) {
                     else -> {
                         Text(stringResource(R.string.review_words_n, total), style = Type.small.ui(), color = p.inkSoft)
                         if (n > 0) Bar(n.toFloat() / total.coerceAtLeast(1))
-                        Primary(stringResource(if (n > 0) R.string.journey_review_continue else R.string.review_start), small = true) { s.go(Route.Session()) }
+                        Primary(stringResource(if (n > 0) R.string.journey_review_continue else R.string.review_start), small = true, shine = true) { s.go(Route.Session()) }
                     }
                 }
             }

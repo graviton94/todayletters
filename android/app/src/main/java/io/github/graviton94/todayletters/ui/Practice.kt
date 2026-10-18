@@ -103,9 +103,9 @@ fun FeedbackBar(
                     Box(Modifier.heightIn(min = 44.dp).pressable { onSecondary() }, contentAlignment = Alignment.CenterStart) {
                         Text(secondary, style = Type.small.ui().copy(textDecoration = TextDecoration.Underline), color = p.inkSoft)
                     }
-                    Box(Modifier.weight(1f)) { Primary(primary, onClick = onPrimary) }
+                    Box(Modifier.weight(1f)) { Primary(primary, shine = true, onClick = onPrimary) }
                 }
-                else Primary(primary, onClick = onPrimary)
+                else Primary(primary, shine = true, onClick = onPrimary)
             }
         }
     }

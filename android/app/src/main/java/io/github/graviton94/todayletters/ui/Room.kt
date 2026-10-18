@@ -436,7 +436,7 @@ fun Room(s: AppState, r: Route.Letter) {
                     Text(stringResource(R.string.room_resume_start), style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.inkSoft)
                 }
                 Box(Modifier.width(160.dp)) {
-                    Primary(stringResource(R.string.room_resume_go), small = true) {
+                    Primary(stringResource(R.string.room_resume_go), small = true, shine = true) {
                         asking = false
                         if (already < total) gate = true else speakAll(resumeAt)
                     }
@@ -461,7 +461,7 @@ fun Room(s: AppState, r: Route.Letter) {
                     progress.toRedo.firstOrNull { it in modes }?.let { m ->
                         Secondary(stringResource(R.string.redo_step, stringResource(modeLabel(m)))) { stopAll(); s.go(Route.Play(r, m)) }
                     } ?: if (letter.words.isNotEmpty()) Secondary(stringResource(R.string.room_words, letter.words.size)) { words = true } else Unit
-                    Primary(stringResource(R.string.done_home)) { stopAll(); s.go(r.from ?: Route.Inbox) }
+                    Primary(stringResource(R.string.done_home), shine = true) { stopAll(); s.go(r.from ?: Route.Inbox) }
                 }
                 else -> {
                     if (letter.words.isNotEmpty()) Secondary(stringResource(R.string.room_words, letter.words.size)) { words = true }

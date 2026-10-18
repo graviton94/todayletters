@@ -857,7 +857,7 @@
     <string name="finish_next_at">The next letter arrives tomorrow at %1$s</string>
     <string name="finish_next_day">The next letter arrives tomorrow</string>
     <string name="finish_series_done">You\'ve read this whole work</string>
-    <string name="finish_library">To the library</string>
+    <string name="finish_today">Back to Today</string>
     <string name="finish_again">Replay this letter from the start</string>
     <string name="letter_again">Replay from the start ›</string>
     <string name="today_line">Today · letter %1$d · review %2$d</string>

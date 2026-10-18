@@ -109,6 +109,8 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
         c?.evidence.orEmpty().map { i -> s.narrator.path(id, chapter, letter.id, "m${i + 1}_${view.learn.code}") }.filter { s.narrator.has(it) }
     }
     fun listen(from: Int = 0, speed: Float? = null) { clips.getOrNull(from)?.let { s.narrator.play(it, speed) { if (from + 1 < clips.size) listen(from + 1, speed) } } }
+    // 질문이 뜨면 지문을 한 번 저절로 (자동 낭독 설정 · 기본 듣기 속도, 소리 파일이 없으면 조용히)
+    LaunchedEffect(letter.id, k) { if (s.app.sound) listen() }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
         PracticeHeader(if (over) k + 1 else k, n, onClose = onClose, count = "${k + 1} / $n")
@@ -488,7 +490,7 @@ fun ReplySpeak(s: AppState, r: Route.Play, turn: Int, turns: Int, onNext: () -> 
             SpeakLine(s, audio, file, key = Triple(letter.id, turn, view.learn)) { spoken = true }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (spoken) Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.speak_line_next)) { onNext() }
+            if (spoken) Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.speak_line_next), shine = true) { onNext() }
             else Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable(role = Role.Button) { onNext() }, contentAlignment = Alignment.Center) {
                 Text(stringResource(R.string.reply_speak_skip), style = Type.small.ui().copy(textDecoration = TextDecoration.Underline), color = p.inkSoft)
             }

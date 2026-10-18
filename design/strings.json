@@ -3424,9 +3424,9 @@
     "en": "You've read this whole work",
     "ko": "이 작품을 다 읽었어요"
   },
-  "finish_library": {
-    "en": "To the library",
-    "ko": "서재로"
+  "finish_today": {
+    "en": "Back to Today",
+    "ko": "오늘로 돌아가기"
   },
   "finish_again": {
     "en": "Replay this letter from the start",

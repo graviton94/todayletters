@@ -1736,6 +1736,24 @@ class ScreensTest {
         shot("finish01_sheet_light", false, 4000, series = s) { Done(s, Route.Letter("vincent", 1, 1)) }
     }
 
+    /** 같은 마침 한 장을 어두운 테마로, 금빛 결이 단추 한가운데를 지날 때 (밝은 단추 위 짙은 금). */
+    @Test fun finishSheetDark() {
+        val s = state(true)
+        finishReal(s, "vincent", 1, 1)
+        shot("finish01_sheet_dark", true, 2400, series = s) { Done(s, Route.Letter("vincent", 1, 1)) }
+    }
+
+    /** 금빛 결 (shine) 을 밝은 · 어두운 테마의 같은 단추에서: 지나가는 중 한 장씩. */
+    @Test fun shineLight() { shot("shine_light", false, 2400) { ShineSample() } }
+    @Test fun shineDark() { shot("shine_dark", true, 2400) { ShineSample() } }
+    @Composable private fun ShineSample() {
+        androidx.compose.foundation.layout.Column(Modifier.fillMaxSize().padding(24.dp), verticalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(16.dp)) {
+            io.github.graviton94.todayletters.ui.Primary("다음 걸음 · 낱말 맞추기", shine = true) {}
+            io.github.graviton94.todayletters.ui.Primary("복습 시작", small = true, shine = true) {}
+            io.github.graviton94.todayletters.ui.Primary("결 없음 (비교)") {}
+        }
+    }
+
     /** 걸음을 건너뛰어 마쳐도 한 장: 건너뛴 걸음 N개는 복습에서. */
     @Test fun finishSheetSkipped() {
         val s = state(true)

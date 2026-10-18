@@ -802,7 +802,7 @@ fun WeekScreen(s: AppState) {
             }
             Spacer(Modifier.height(Tokens.Space.s2))
         }
-        Box(Modifier.padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s4)) { Primary(stringResource(R.string.week_recital)) { s.go(Route.Recital) } }
+        Box(Modifier.padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s4)) { Primary(stringResource(R.string.week_recital), shine = true) { s.go(Route.Recital) } }
     }
     open?.let { pc -> PieceView(pc, frame = s.frameKind(pc)) { open = null } }
 }
@@ -853,7 +853,7 @@ fun RecitalScreen(s: AppState) {
         }
         Box(Modifier.padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s4)) {
             if (s.recitalDone) Text(stringResource(R.string.recital_done), style = Type.small.ui(), color = p.inkSoft)
-            else Primary(stringResource(R.string.recital_finish, w.kit.currency[uiLang()]), enabled = takes.isNotEmpty()) { s.recitalFinish() }
+            else Primary(stringResource(R.string.recital_finish, w.kit.currency[uiLang()]), enabled = takes.isNotEmpty(), shine = true) { s.recitalFinish() }
         }
     }
 }

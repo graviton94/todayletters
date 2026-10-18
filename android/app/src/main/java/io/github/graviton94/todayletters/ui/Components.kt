@@ -40,6 +40,7 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -195,41 +196,55 @@ val LocalStill = androidx.compose.runtime.staticCompositionLocalOf { false }
 @Composable
 /**
  * 단추 크기는 두 가지뿐: 큰 것 54 (글 17), 작은 것 46 (글 15). 같은 줄의 단추는 같은 크기.
- * [shine]: 그 화면의 흐름상 ‘다음 걸음’ 단추 하나 (편지 방 다음 · 걸음 확인 · 계속 · 마침 서재로 · 받기 · 오늘 열기).
+ * [shine]: 그 화면의 흐름상 ‘다음 걸음’ 단추 하나 (편지 방 다음 · 걸음 확인 · 계속 · 마침 오늘로 · 복습 시작 · 받기 · 오늘 열기).
  * 누를 수 있는 동안 4초마다 금빛 결이 왼쪽에서 오른쪽으로 단추를 한 번 지나간다 (단추 안에서만, 움직임 줄이기면 멈춤).
  */
 fun Primary(text: String, modifier: Modifier = Modifier, enabled: Boolean = true, small: Boolean = false, shine: Boolean = false, onClick: () -> Unit) {
     val p = Ink.palette
-    val still = LocalStill.current
-    val sweep = if (shine && enabled && !still) rememberInfiniteTransition(label = "shine").animateFloat(0f, 1f, infiniteRepeatable(keyframes {
-        durationMillis = 4000
-        0f at 0
-        0f at 2400 using FastOutSlowInEasing
-        1f at 4000
-    }, RepeatMode.Restart), label = "sweep") else null
     Box(
         modifier.fillMaxWidth().heightIn(min = if (small) Tokens.Size.buttonSm else Tokens.Size.button)
             .pressable(enabled, onClick = onClick)
             // 아직 누를 수 없는 단추: 흐린 바탕 대신 테두리와 읽을 수 있는 글자 (F24 대비)
             .then(if (enabled) Modifier.background(p.fill) else Modifier.border(1.dp, p.line))
-            .then(if (sweep != null) Modifier.drawWithContent {
-                drawContent()
-                // 값은 그리기에서만 읽는다 (매 프레임 다시 짜지 않게)
-                val t = sweep.value
-                if (t <= 0f || t >= 1f) return@drawWithContent
-                // 금빛 결: 단추 폭의 띠가 -120% → 120% 로, 105° 로 조금 기울어 (시안 A). 띠 밖은 투명이라 단추 안만 칠해진다
-                val w = size.width; val h = size.height
-                val cx = w * (-1.2f + 2.4f * t) + w / 2
-                val dx = 0.966f; val dy = 0.259f
-                val half = (dx * w + dy * h) * 0.15f
-                val c = Offset(cx, h / 2)
-                drawRect(androidx.compose.ui.graphics.Brush.linearGradient(
-                    listOf(Color.Transparent, Color(0x8CFFF0C8), Color.Transparent),
-                    start = c - Offset(dx * half, dy * half), end = c + Offset(dx * half, dy * half),
-                ))
-            } else Modifier),
+            .giltSweep(shine && enabled, p.fill),
         contentAlignment = Alignment.Center,
     ) { Text(text, style = Type.body.ui().copy(fontSize = if (small) 15.sp else 17.sp), color = if (enabled) p.onFill else p.inkSoft) }
+}
+
+/**
+ * 금빛 결 ([Primary] 의 shine, 채운 단추 모양의 다른 ‘다음 걸음’ 단추에도). 4초마다 한 번, 1.4초 동안 왼쪽 → 오른쪽.
+ * 띠는 단추 폭의 절반, 105° 로 조금 기울어 (시안 A). 글자 아래에 칠해 글자는 그대로 읽힌다.
+ * 빛깔은 바탕 [ground] 에 맞춰: 짙은 바탕 (밝은 테마) 엔 밝은 금, 밝은 바탕 (어두운 테마) 엔 짙은 금 — 어느 쪽이든 또렷이.
+ * 움직임 줄이기면 그리지 않는다.
+ */
+@Composable
+fun Modifier.giltSweep(on: Boolean, ground: Color): Modifier {
+    if (!on || LocalStill.current) return this
+    val sweep = rememberInfiniteTransition(label = "shine").animateFloat(0f, 1f, infiniteRepeatable(keyframes {
+        durationMillis = 4000
+        0f at 0
+        0f at 2600 using FastOutSlowInEasing
+        1f at 4000
+    }, RepeatMode.Restart), label = "sweep")
+    val light = ground.luminance() > 0.5f
+    val gold = if (light) Color(0xFFB07A1E) else Color(0xFFF3D37C)
+    val peak = if (light) 0.55f else 0.62f
+    return this.drawWithContent {
+        // 값은 그리기에서만 읽는다 (매 프레임 다시 짜지 않게)
+        val t = sweep.value
+        if (t > 0f && t < 1f) {
+            val w = size.width; val h = size.height
+            val dx = 0.966f; val dy = 0.259f
+            val half = (dx * w + dy * h) * 0.25f
+            // 띠 가운데가 -half → w + half 로 (단추 안을 지나는 동안 내내 보이게)
+            val c = Offset(-half + (w + 2 * half) * t, h / 2)
+            drawRect(androidx.compose.ui.graphics.Brush.linearGradient(
+                listOf(Color.Transparent, gold.copy(alpha = peak * 0.45f), gold.copy(alpha = peak), gold.copy(alpha = peak * 0.45f), Color.Transparent),
+                start = c - Offset(dx * half, dy * half), end = c + Offset(dx * half, dy * half),
+            ))
+        }
+        drawContent()
+    }
 }
 
 /** 둘째 행동: 상자 없는 밑줄 글자 (채운 단추는 한 화면에 [Primary] 하나). */
