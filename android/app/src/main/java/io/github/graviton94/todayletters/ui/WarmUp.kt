@@ -52,15 +52,19 @@ import java.util.concurrent.ConcurrentHashMap
 
 // ── 입문자 길 (시안 beginner.html ① ② ⑤): 낱말 아래 뜻 · 편지 전 예열 · 닻 표현 ──────────────────
 // 저장은 SharedPreferences "letters" (기록 보관 · 안드로이드 백업과 같은 범위):
-//   s:<작품>:il      낱말 아래 뜻 켜짐 (기본 true)
+//   s:<작품>:il      낱말 아래 뜻 켜짐 (없으면 도움 등급대로, B2 아래 켜짐)
 //   s:<작품>:warm    편지 전 예열 -1 등급에 맞춰 (기본) · 1 켜기 · 0 끄기
 //   wu:<편지 열쇠>   예열에서 본 것 ("w:<사전 열쇠>" · "a<닻 번호>" · "p<표현 번호>" 을 줄바꿈으로)
 //   anc:<작품>/<자료> 예열에서 배운 닻 표현 (맞추는 꼴 "j ai" 을 줄바꿈으로)
 
 private fun AppState.prefs() = ctx.getSharedPreferences("letters", Context.MODE_PRIVATE)
 
-/** 낱말 아래 뜻 (편지 방 위에서 켜고 끈다, 작품마다, 기본 켜짐). */
-fun AppState.interlinearOn(series: String): Boolean { @Suppress("UNUSED_EXPRESSION") version; return prefs().getBoolean("s:$series:il", true) }
+/** 낱말 아래 뜻 (편지 방 위에서 켜고 끈다, 작품마다). 고른 적이 없으면 도움 등급대로 ([io.github.graviton94.todayletters.core.Support.interlinear]: B2 아래 켜짐). */
+fun AppState.interlinearOn(series: String): Boolean {
+    @Suppress("UNUSED_EXPRESSION") version
+    val p = prefs()
+    return if (p.contains("s:$series:il")) p.getBoolean("s:$series:il", true) else io.github.graviton94.todayletters.core.Support.interlinear(support(series).band)
+}
 fun AppState.setInterlinear(series: String, on: Boolean) { prefs().edit().putBoolean("s:$series:il", on).apply(); bump() }
 
 /** 편지 전 예열 고름: null = 등급에 맞춰 (A1 · A2 켜기, B1 부터 끄기), true · false = 직접 고름. */
