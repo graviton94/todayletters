@@ -254,7 +254,7 @@ fun UnlockBanner(s: AppState, modifier: Modifier = Modifier) {
     s.version
     val ent = s.entitlement
     val ranges = s.works.filter { !ent.owns(it.series.id) }.mapNotNull { w ->
-        Access.lockedRange(w.chapters)?.let { r -> stringResource(R.string.unlock_range, w.name[uiLang()], roman(r.first), roman(r.last)) }
+        Access.lockedRange(w.chapters)?.let { r -> stringResource(R.string.unlock_range, w.known[uiLang()], roman(r.first), roman(r.last)) }
     }
     Row(
         modifier.fillMaxWidth().background(p.leaf).border(1.5.dp, p.gilt).pressable { s.go(Route.Purchase) }.padding(Tokens.Space.s4),
@@ -312,7 +312,7 @@ fun PurchaseScreen(s: AppState) {
                 if (ent.onPlan(Plan.Monthly)) stringResource(R.string.plan_active) else null) { pick = 1 }
             owns.forEachIndexed { i, wk ->
                 val range = Access.lockedRange(wk.chapters)
-                PlanCard(stringResource(R.string.plan_series, wk.name[ui]), null, b.price(wk.seriesPlan).formatted,
+                PlanCard(stringResource(R.string.plan_series, wk.known[ui]), null, b.price(wk.seriesPlan).formatted,
                     range?.let { stringResource(R.string.plan_series_d, roman(it.first), roman(it.last)) } ?: stringResource(R.string.fine_series), pick == 2 + i,
                     if (wk.series.id in ent.owned) stringResource(R.string.plan_owned) else null, compact = i > 0) { pick = 2 + i }
             }
