@@ -148,3 +148,8 @@
 - **[했음]** 튀일리 (프랑스 소리 [tɥilʁi] 에 가까운 꼴) 로 통일: VII · VIII장 · series · 사전 · gloss (사전 ko 두 줄 → 하나, fr IPA tɥilʁi). 낭독에 그 낱말이 든 것은 c7-l3 m2_ko · t3_ko 둘 → narration-r2 make=messages 로 새 판 (rev/2/…). narrate.py messages 목록에 회화 줄(t<줄>_<언어>)도 적을 수 있게 했다.
 - **[했음]** 나폴레옹 공개 (사용자 확인 2026-10-17: 목소리 · 공개): series.json `hidden` 지움 → generate.py 가 assets/letters/napoleon 을 만들고 remote.json 처음 묶음 P+I+II. 새 카드 낱말 37개 소리는 narration-r2 make=new 로 (새 파일만). 사이트 출처 페이지(site_sources.py)는 아직 다시 돌리지 않음. 화면 사진 ScreensTest `napoleonLibrary` · `napoleonCover`.
 - (예전 메모) 해제하면 remote.json 처음 묶음 P+I+II (25.6MB), 그 뒤 III~VIII · E — 모의로 확인함 (대표 그림 n-c1-l1 만 앱 안).
+
+## 홈페이지 (graviton94.github.io · 당신의 하루) — 언어 미술관은 이 세션이 맡음
+- 공통 틀 · 앱별 할 일: 사이트 저장소 docs/for-app-sessions.md. 출처는 scripts/site_sources.py 로만 다시 쓴다 (표시 밖 머리 · 꼬리는 남음).
+- 스토어 공개되면 첫 화면 언어 미술관 줄에 Google Play 링크 (id=io.github.graviton94.todayletters).
+- 판매자 프로필: 신용카드 명세서 이름 ‘당신의 하루 스튜디오’, 제품 유형 ‘인터넷 디지털’ (사용자 2026-10-18).
