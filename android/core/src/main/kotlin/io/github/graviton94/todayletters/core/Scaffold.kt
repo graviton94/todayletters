@@ -47,8 +47,8 @@ object Support {
     }
 
     // ── 낱말 아래 뜻 · 예열 · 느린 듣기 (A1 · A2 를 넓게 돕는다) ─────────
-    /** 편지 문장의 낱말 아래 뜻 (행간 뜻): B2 아래에서 기본으로, 낱말마다 아직 내 것이 아닌 낱말에만 ([interlinearWord]). */
-    fun interlinear(band: Reading.Band): Boolean = band != Reading.Band.B2
+    /** 편지 문장의 낱말 아래 뜻 (행간 뜻): 모든 등급에서 기본으로, 낱말마다 아직 내 것이 아닌 낱말에만 ([interlinearWord]). */
+    @Suppress("UNUSED_PARAMETER") fun interlinear(band: Reading.Band): Boolean = true   // 모든 등급에서 기본으로 켬 (사용자 결정 2026-10-19 · 아는 낱말은 뜻이 없어 저절로 줄어듦)
 
     /** 이 낱말 아래에 뜻을 다나 (복습 칸 [box]): 잘 아는 낱말 ([knows]) 이 아니면. */
     fun interlinearWord(band: Reading.Band, box: Int): Boolean = interlinear(band) && !knows(box)

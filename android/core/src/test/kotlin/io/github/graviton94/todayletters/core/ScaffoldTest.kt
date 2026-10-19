@@ -54,10 +54,10 @@ class ScaffoldTest {
     }
 
     @Test fun beginnersGetBroaderHelp() {
-        assertEquals(listOf(true, true, true, false), Reading.Band.entries.map(Support::interlinear))
+        assertEquals(listOf(true, true, true, true), Reading.Band.entries.map(Support::interlinear))
         assertTrue(Support.interlinearWord(Reading.Band.A1, 0))
         assertFalse(Support.interlinearWord(Reading.Band.A1, Support.KNOWN_BOX))
-        assertFalse(Support.interlinearWord(Reading.Band.B2, 0))
+        assertTrue(Support.interlinearWord(Reading.Band.B2, 0))
         assertEquals(listOf(Support.WarmUp.ON, Support.WarmUp.ON, Support.WarmUp.OPTIONAL, Support.WarmUp.OFF), Reading.Band.entries.map(Support::warmUp))
         assertEquals(listOf(true, true, false, false), Reading.Band.entries.map(Support::slowByDefault))
     }
