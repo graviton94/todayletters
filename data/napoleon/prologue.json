@@ -380,7 +380,32 @@
     ],
     "grammar": "I.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "mon frère",
+      "en": "brother",
+      "ko": "동생아"
+     },
+     "opts": [
+      {
+       "fr": "maman",
+       "en": "Mom",
+       "ko": "엄마"
+      },
+      {
+       "fr": "papa",
+       "en": "Dad",
+       "ko": "아빠"
+      },
+      {
+       "fr": "mon ami",
+       "en": "my friend",
+       "ko": "친구야"
+      }
+     ]
+    }
    }
   },
   {
@@ -770,7 +795,32 @@
     ],
     "grammar": "I.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "très",
+      "en": "very",
+      "ko": "아주"
+     },
+     "opts": [
+      {
+       "fr": "assez",
+       "en": "fairly",
+       "ko": "그럭저럭"
+      },
+      {
+       "fr": "plutôt",
+       "en": "pretty",
+       "ko": "꽤"
+      },
+      {
+       "fr": "vraiment",
+       "en": "really",
+       "ko": "정말"
+      }
+     ]
+    }
    }
   },
   {
@@ -1136,7 +1186,32 @@
     ],
     "grammar": "I.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "mes livres",
+      "en": "for my books",
+      "ko": "내 책"
+     },
+     "opts": [
+      {
+       "fr": "mon ami",
+       "en": "for my friend",
+       "ko": "친구"
+      },
+      {
+       "fr": "ma mère",
+       "en": "for my mom",
+       "ko": "엄마"
+      },
+      {
+       "fr": "le train",
+       "en": "for the train",
+       "ko": "기차"
+      }
+     ]
+    }
    }
   },
   {
@@ -1558,7 +1633,32 @@
     ],
     "grammar": "I.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "à midi",
+      "en": "at noon",
+      "ko": "정오에"
+     },
+     "opts": [
+      {
+       "fr": "demain",
+       "en": "tomorrow",
+       "ko": "내일"
+      },
+      {
+       "fr": "lundi",
+       "en": "on Monday",
+       "ko": "월요일에"
+      },
+      {
+       "fr": "ce matin",
+       "en": "this morning",
+       "ko": "오늘 아침에"
+      }
+     ]
+    }
    }
   }
  ]
