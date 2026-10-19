@@ -28,6 +28,8 @@ class Downloads(private val ctx: Context) {
         const val ALL = "*"
         /** 처음 묶음 (서문 + 무료 장, remote.json "first"): 앱 안 장이 없는 작품을 처음 열 때 한 번에 묻는다. */
         const val FIRST = "first"
+        /** 기초 낱말 소리 묶음 (remote.json 의 장 "B", core Basics.CHAPTER): 장이 아니라서 따로 묻지 않고, 다른 장을 받을 때 함께 받는다. */
+        const val BASICS = io.github.graviton94.todayletters.core.Basics.CHAPTER
     }
     /** 받을 파일 하나: 폰 안 경로 · 크기 · R2 주소 꼬리 (고친 파일은 rev/<판>/<경로>, 나머지는 경로 그대로). */
     data class Part(val path: String, val size: Long, val src: String = path)
@@ -56,7 +58,7 @@ class Downloads(private val ctx: Context) {
 
     /** 이 작품에서 앱 밖에 둔 모든 장을 한 묶음으로 (설정 › 저장 공간의 ‘모두 받기’). [open] 은 읽을 수 있는 장만 (잠긴 장은 받지 않는다). 없으면 null. */
     fun all(series: String, open: (String) -> Boolean = { true }): Pack? {
-        val packs = load(series)?.second?.values?.filter { open(it.chapter) }?.sortedBy { it.chapter }.orEmpty()
+        val packs = load(series)?.second?.values?.filter { it.chapter == BASICS || open(it.chapter) }?.sortedBy { it.chapter }.orEmpty()
         if (packs.isEmpty()) return null
         val parts = packs.flatMap { it.parts }.distinctBy { it.path }
         return Pack(series, ALL, parts.sumOf { it.size }, parts, packs.flatMap { it.archives })
@@ -73,9 +75,16 @@ class Downloads(private val ctx: Context) {
         return Pack(series, FIRST, parts.sumOf { it.size }, parts, packs.flatMap { it.archives })
     }
 
-    /** 이 장을 열기 전에 물을 묶음: 처음 묶음에 든 장이면 처음 묶음, 아니면 그 장. 다 받았거나 앱 안이면 null. */
+    /** 이 장을 열기 전에 물을 묶음: 처음 묶음에 든 장이면 처음 묶음, 아니면 그 장. 다 받았거나 앱 안이면 null. 기초 낱말 소리를 아직 안 받았으면 함께. */
     fun needed(series: String, chapter: String): Pack? =
-        (if (chapter in firstChapters(series)) first(series) else pack(series, chapter))?.takeIf { !ready(it) }
+        (if (chapter in firstChapters(series)) first(series) else pack(series, chapter))?.takeIf { !ready(it) }?.let { withBasics(it) }
+
+    /** 기초 낱말 소리 (묶음 [BASICS]) 를 아직 다 받지 않았으면 [p] 에 더한다. */
+    private fun withBasics(p: Pack): Pack {
+        val b = pack(p.series, BASICS)?.takeIf { !ready(it) } ?: return p
+        val parts = (p.parts + b.parts).distinctBy { it.path }
+        return p.copy(bytes = parts.sumOf { it.size }, parts = parts, archives = p.archives + b.archives)
+    }
 
     /** 받은 파일이 놓이는 폴더들 (files/ 아래, assets 와 같은 이름). */
     private val roots = listOf("audio", "plates", "sketches", "gallery")

@@ -1012,37 +1012,37 @@
      },
      {
       "who": "me",
-      "fr": "D'accord, je t'envoie tout ça cette semaine.",
-      "en": "OK, I'll send you all that this week.",
-      "ko": "알았어, 이번 주에 다 보낼게.",
+      "fr": "D'accord. Je peux ajouter du tabac ?",
+      "en": "OK. Can I add some tobacco?",
+      "ko": "알았어. 담배도 넣어도 돼?",
       "focus": {
        "fr": [
-        "je t'envoie"
+        "Je peux ajouter"
        ],
        "en": [
-        "I'll send you"
+        "Can I add"
        ],
        "ko": [
-        "보낼게"
+        "넣어도 돼"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "je te envoie",
-         "je t'envoies"
+         "Je peut ajouter",
+         "Je peux ajoute"
         ]
        ],
        "en": [
         [
-         "I'll sent you",
-         "I'll sends you"
+         "Can I adding",
+         "Can I to add"
         ]
        ],
        "ko": [
         [
-         "보낼께",
-         "보낸게"
+         "넣어도 되",
+         "너어도 돼"
         ]
        ]
       }
@@ -1053,10 +1053,7 @@
      "ordinaire"
     ],
     "grammar": "VI.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1920,7 +1917,7 @@
      {
       "who": "them",
       "fr": "J'ai un paysage d'oliviers et un nouveau ciel étoilé.",
-      "en": "I have a landscape with olive trees and a new starry sky.",
+      "en": "I have an olive-tree landscape and a new starry sky.",
       "ko": "올리브 나무 풍경이랑 새 별밤 그림이 있어."
      },
      {
@@ -2008,10 +2005,7 @@
      "paysage"
     ],
     "grammar": "VI.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2464,37 +2458,37 @@
      },
      {
       "who": "me",
-      "fr": "Si tu les peins comme ça, ce sera magnifique !",
-      "en": "If you paint them like that, it'll be wonderful!",
-      "ko": "그렇게 그리면 정말 멋질 거야!",
+      "fr": "Bonne idée ! Si tu veux, envoie-m'en un croquis.",
+      "en": "Good idea! If you like, send me a sketch.",
+      "ko": "좋은 생각이야! 괜찮으면 스케치 하나 보내 줘.",
       "focus": {
        "fr": [
-        "ce sera"
+        "Si tu veux"
        ],
        "en": [
-        "it'll be"
+        "If you like"
        ],
        "ko": [
-        "그리면"
+        "괜찮으면"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "ce serait",
-         "ce est"
+         "Si tu veut",
+         "S'il tu veux"
         ]
        ],
        "en": [
         [
-         "it'd been",
-         "it'll is"
+         "If you likes",
+         "If you liking"
         ]
        ],
        "ko": [
         [
-         "그리으면",
-         "그려면"
+         "괜찬으면",
+         "괜찮으며"
         ]
        ]
       }
@@ -2505,10 +2499,7 @@
      "cyprès"
     ],
     "grammar": "VI.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {

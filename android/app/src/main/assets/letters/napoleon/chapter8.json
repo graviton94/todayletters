@@ -948,37 +948,37 @@
      },
      {
       "who": "me",
-      "fr": "Tant mieux ! Même s'il fait chaud, je serai contente là-bas.",
-      "en": "Good! Even if it's hot, I'll be happy there.",
-      "ko": "다행이다! 더울 텐데, 그래도 거기 가면 좋을 거야.",
+      "fr": "Tant mieux ! Je pense qu'en voyant ses enfants, je serai heureuse.",
+      "en": "Good! I think that seeing his children will make me happy.",
+      "ko": "다행이다! 손주들을 보면 행복할 것 같아.",
       "focus": {
        "fr": [
-        "s'il fait chaud"
+        "en voyant"
        ],
        "en": [
-        "Even if"
+        "I think"
        ],
        "ko": [
-        "더울 텐데"
+        "것 같아"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "s'il est chaud",
-         "s'il a chaud"
+         "en voir",
+         "en vu"
         ]
        ],
        "en": [
         [
-         "Even",
-         "If even"
+         "I thinks",
+         "I am think"
         ]
        ],
        "ko": [
         [
-         "덥을 텐데",
-         "더울 탠데"
+         "것 갔아",
+         "거 같아"
         ]
        ]
       }
@@ -990,7 +990,8 @@
      "fort"
     ],
     "grammar": "VIII.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -2695,37 +2696,37 @@
      },
      {
       "who": "me",
-      "fr": "Oui. Un baiser du petit roi : il est déjà réveillé !",
-      "en": "Yes. A kiss from the little king: he's already awake!",
-      "ko": "응. 꼬마 왕이 뽀뽀 보내. 벌써 깼어!",
+      "fr": "Bon voyage ! Le petit roi t'embrasse.",
+      "en": "Safe journey! The little king sends a kiss.",
+      "ko": "잘 가! 꼬마 왕이 뽀뽀 보내.",
       "focus": {
        "fr": [
-        "est déjà réveillé"
+        "Bon voyage"
        ],
        "en": [
-        "he's already awake"
+        "Safe journey"
        ],
        "ko": [
-        "깼어"
+        "잘 가"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "a déjà réveillé",
-         "est déjà réveiller"
+         "Bonne voyage",
+         "Bon voyager"
         ]
        ],
        "en": [
         [
-         "he's already wake",
-         "he already awake"
+         "Safe journeys",
+         "Safely journey"
         ]
        ],
        "ko": [
         [
-         "깻어",
-         "깨었서"
+         "잘 거",
+         "잘 가아"
         ]
        ]
       }
@@ -2737,7 +2738,8 @@
      "compter"
     ],
     "grammar": "VIII.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Marie-Louise)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Marie-Louise).",
+    "audio": "tb"
    }
   },
   {

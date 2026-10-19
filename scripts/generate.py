@@ -146,9 +146,9 @@ def letters():
                 text = open(src, encoding="utf-8").read()
                 check_spots(src, json.loads(text))
                 out[os.path.join(dest, ch["file"])] = text
-        # 어휘 자료 (data/lexicon/README.md): 사전 · 눌러서 뜻 보기 토큰 · 오늘의 낱말 · 닻 표현 (scripts/anchors.py). 작아서 그대로 넣는다
+        # 어휘 자료 (data/lexicon/README.md): 사전 · 눌러서 뜻 보기 토큰 · 오늘의 낱말 · 닻 표현 (scripts/anchors.py) · 기초 낱말 (core Basics). 작아서 그대로 넣는다
         # 배우는 말마다 한 벌: 원어 lexicon.json …, 영어 lexicon_en.json …, 한국어 lexicon_ko.json … (있는 것만)
-        for base in ("lexicon", "gloss", "daily", "anchors"):
+        for base in ("lexicon", "gloss", "daily", "anchors", "basics"):
             for src in sorted(glob.glob(os.path.join(folder, base + "*.json"))):
                 name = os.path.basename(src)
                 if re.fullmatch(base + r"(_[a-z]{2})?\.json", name):
@@ -274,6 +274,7 @@ def remote():
     """앱 밖(R2)에 두는 파일의 목록 → assets/letters/<작품>/remote.json (장마다 파일 · 크기 · 합).
     remote/ 는 assets/ 와 같은 모양이다 (remote/audio/<작품>/<장>/... · remote/plates/ · remote/sketches/ · remote/gallery/ · remote/audio/<작품>/music/).
     한 장의 묶음 (서문 P · 장 · 맺음 E): 그 장의 낭독 + 그 장의 편지가 쓰는 그림 · 스케치 · 곡 (맺음은 아웃트로 그림도) 가운데 remote/ 에 있는 것.
+    기초 낱말 소리 (remote/audio/<작품>/B/) 는 묶음 "B" (장이 아니라서 "first" 에도 소장품 나누기에도 들지 않는다).
     앱 안에는 data/remote.json "bundled" 의 장만 둔다 ([check_bundled]). 앱 안 장이 없는 작품은 "first" (서문 + 무료 장) 를 적어
     앱이 작품을 처음 열 때 한 번에 묻는다.
     소장품(kit.collection) 가운데 remote/ 에 둔 것은 앱 밖 장들에 차례로 나눠 담는다 (그 장을 받으면 뽑기에 들어온다).
@@ -318,6 +319,8 @@ def remote():
         per = -(-len(pieces) // max(1, len(late)))
         for i, c in enumerate(late):
             packs[c] += pieces[i * per:(i + 1) * per]
+        # 기초 낱말 소리 (audio/<작품>/B/basics/ b_ · bx_, core Basics): 장이 아닌 묶음 "B". 앱은 다른 장을 받을 때 함께 받는다 (data/Downloads.kt)
+        packs["B"] = sorted(r for r in every if r.startswith(f"audio/{sid}/B/"))
         chapters = {}
         for c, rels in packs.items():
             if rels:

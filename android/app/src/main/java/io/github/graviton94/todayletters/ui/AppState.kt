@@ -674,7 +674,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     }
 
     /** 카드 한 장이 가리키는 낱말: 작품 · (장, 편지) · 낱말 · 편지 안 번호(카드 낱말이면 0부터, 아니면 -1). [own] 은 내가 눌러 담은 낱말. */
-    data class CardWord(val work: Work, val at: Pair<String, Letter>, val word: io.github.graviton94.todayletters.core.Word, val index: Int = -1, val own: Boolean = false)
+    data class CardWord(val work: Work, val at: Pair<String, Letter>, val word: io.github.graviton94.todayletters.core.Word, val index: Int = -1, val own: Boolean = false,
+                        /** 기초 낱말 카드면 덱 한 줄 ([at] 은 예문 한 줄짜리 편지, ui/Basics.kt). */
+                        val basic: io.github.graviton94.todayletters.core.BasicItem? = null)
 
     private fun letterFor(w: Work, ch: String, lid: String): Letter? =
         when (ch) {
@@ -687,6 +689,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun cardWord(key: String): CardWord? {
         val ref = io.github.graviton94.todayletters.core.CardRef.parse(key) ?: return null
         val w = workFor(ref.series, ref.deck) ?: return null
+        // 기초 낱말 (ui/Basics.kt): 편지에 매이지 않는 카드
+        if (ref.basic.isNotEmpty()) return basicCard(w, ref.basic)
         val l = letterFor(w, ref.chapter, ref.letter) ?: return null
         return when {
             ref.index >= 0 -> l.words.getOrNull(ref.index)?.let { CardWord(w, ref.chapter to l, it, ref.index) }
@@ -722,7 +726,10 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             ?: w.outro?.epilogue?.let { scan("E", listOf(it)) }
             ?: ""
     }
-    fun wordAudio(c: CardWord, lang: io.github.graviton94.todayletters.core.Lang) = wordAudio(c.work.series.id, c.at.first, c.at.second, c.word, lang, c.work)
+    fun wordAudio(c: CardWord, lang: io.github.graviton94.todayletters.core.Lang) =
+        // 기초 낱말은 덱의 소리 b_<언어>_<id> (없으면 같은 표제어의 오늘의 낱말 소리)
+        c.basic?.let { b -> basicAudio(c.work.series.id, io.github.graviton94.todayletters.core.Basics.wordAudio(lang, b.id)).ifEmpty { wordAudio(c.work.series.id, c.at.first, c.at.second, c.word.copy(audio = ""), lang, c.work) } }
+            ?: wordAudio(c.work.series.id, c.at.first, c.at.second, c.word, lang, c.work)
 
     /**
      * 표현 카드의 소리 (v22): ph<n>_<언어> 가 있으면 그것 (범위 없음). 없으면 그 표현이 나온 문장의 낭독에서
@@ -827,11 +834,23 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val decks = works.associate { it.series.id to it.deck }
         store.cards().filter { c -> CardRef.parse(c.key)?.let { decks[it.series] == it.deck } == true && cardWord(c.key) != null }
     }
-    /** 오늘 볼 카드: [id] 가 있으면 그 작품의 카드만 (오늘의 여정 II · 서재 카드의 숫자), 없으면 모든 작품. */
-    fun dueCards(id: String? = null) = io.github.graviton94.todayletters.core.Memory.dueToday(
-        cards().filter { c -> id == null || CardRef.parse(c.key)?.series == id }, today,
+    /**
+     * 오늘 볼 카드: [id] 가 있으면 그 작품의 카드만 (오늘의 여정 II · 서재 카드의 숫자), 없으면 모든 작품.
+     * 작품 하나면 새 기초 낱말 자리까지 (ui/Basics.kt [basicDay]: 12장이면 2~3, 20장이면 4, 아직 카드함에 없는 것은 판을 시작할 때 들인다).
+     */
+    fun dueCards(id: String? = null): List<io.github.graviton94.todayletters.core.Card> {
+        val cs = cards().filter { c -> id == null || CardRef.parse(c.key)?.series == id }
         // 하루 분량 (작품 설정): ‘복습 더’ 면 더 많이. 모든 작품이면 지금 작품의 것
-        io.github.graviton94.todayletters.core.Start.daily(seriesSettings(id ?: current).amount))
+        val daily = io.github.graviton94.todayletters.core.Start.daily(seriesSettings(id ?: current).amount)
+        return if (id == null) io.github.graviton94.todayletters.core.Memory.dueToday(cs, today, daily) else basicDay(id, cs, daily).cards
+    }
+    /** 오늘의 복습 새 판: [dueCards] 와 같고, 새 기초 낱말을 이때 카드함에 들인다 (하루 한 번). */
+    fun startReview(id: String): List<io.github.graviton94.todayletters.core.Card> {
+        val cs = cards().filter { c -> CardRef.parse(c.key)?.series == id }
+        val day = basicDay(id, cs, io.github.graviton94.todayletters.core.Start.daily(seriesSettings(id).amount))
+        introduceBasics(day.introduce)
+        return day.cards
+    }
     /** 지금 배우는 말의 이 작품 카드 (복습 탭 · 자유 연습은 지금 작품의 것만, F08). */
     fun seriesCards(id: String = current) = cards().filter { c -> CardRef.parse(c.key)?.series == id }
 
@@ -1226,9 +1245,11 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun medalDay(id: String): Long? = run { @Suppress("UNUSED_EXPRESSION") version; store.medalDay(id) }
 
     /** 따라 읽기 별: 마디마다 가장 많이 받은 별만 센다 (같은 마디를 되풀이해 별을 불리지 않게). 새로 늘어난 별만큼 XP. */
-    fun recordStars(id: String, chapter: String, letter: String, msg: Int, chunk: Int, n: Int) {
+    fun recordStars(id: String, chapter: String, letter: String, msg: Int, chunk: Int, n: Int) = recordStars(id, chapter, letter, "$msg:$chunk", n)
+    /** [tag] 는 따라 읽기 칸의 꼬리 ([io.github.graviton94.todayletters.core.ShadowSpot.tag]: 편지 마디 "<문장>:<마디>" · 회화 줄 "t<줄>:0"). */
+    fun recordStars(id: String, chapter: String, letter: String, tag: String, n: Int) {
         if (n <= 0) return
-        val k = "${key(id, chapter, letter)}:$msg:$chunk"
+        val k = "${key(id, chapter, letter)}:$tag"
         val old = store.stars()[k] ?: 0
         if (n > old) { store.setStars(k, n); xp(XpAction.READALONG_STAR, n - old); version++ }
     }
@@ -1668,6 +1689,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     fun readingDir(id: String, chapter: String, letter: String) = java.io.File(ctx.filesDir, "readings/${space(id)}_${chapter}_$letter")
     fun take(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = java.io.File(readingDir(id, chapter, letter), "m${msg}_c$chunk.wav")
     val pcm = io.github.graviton94.todayletters.data.PcmRecorder()
+    /** 따라 읽기 걸음의 회화 내 줄 녹음: files/readings/<편지>/t<줄>.wav (내 낭독 [myReading] 은 편지 마디만 잇는다). */
+    fun talkShadowTake(id: String, chapter: String, letter: String, line: Int) = java.io.File(readingDir(id, chapter, letter), "t$line.wav")
     /** 회화 내 차례 녹음: files/talk/<편지>/t<줄>.wav (따라 읽기와 같은 채점, 봉인 낭독에는 들지 않게 따로). */
     fun talkTake(id: String, chapter: String, letter: String, line: Int) = java.io.File(ctx.filesDir, "talk/${space(id)}_${chapter}_$letter/t$line.wav")
     /** 답장 말해 보기 녹음: files/talk/<편지>/r<턴>.wav. */
@@ -1676,9 +1699,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     val speakTake: java.io.File get() = java.io.File(ctx.cacheDir, "speak/take.wav")
 
     /** 억양 · 리듬을 통과한 마디인가. */
-    fun passed(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = run { @Suppress("UNUSED_EXPRESSION") version; "${key(id, chapter, letter)}:$msg:$chunk" in store.passed }
-    fun markPassed(id: String, chapter: String, letter: String, msg: Int, chunk: Int) {
-        val k = "${key(id, chapter, letter)}:$msg:$chunk"
+    fun passed(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = passed(id, chapter, letter, "$msg:$chunk")
+    fun markPassed(id: String, chapter: String, letter: String, msg: Int, chunk: Int) = markPassed(id, chapter, letter, "$msg:$chunk")
+    /** 따라 읽기 칸 [tag] ([io.github.graviton94.todayletters.core.ShadowSpot.tag]) 를 통과했나 · 통과로 적기. */
+    fun passed(id: String, chapter: String, letter: String, tag: String) = run { @Suppress("UNUSED_EXPRESSION") version; "${key(id, chapter, letter)}:$tag" in store.passed }
+    fun markPassed(id: String, chapter: String, letter: String, tag: String) {
+        val k = "${key(id, chapter, letter)}:$tag"
         if (k !in store.passed) { store.markPassed(k); earn(Earn.SHADOW_PASS, id = id) }
         finished()
         version++

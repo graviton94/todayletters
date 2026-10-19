@@ -485,18 +485,18 @@
      },
      {
       "who": "me",
-      "fr": "Je sais ! Je veux venir chez toi. Quand est-ce que je dois partir ?",
-      "en": "I know! I want to come to you. When do I have to leave?",
-      "ko": "알아! 당신한테 가고 싶어. 언제 떠나야 해?",
+      "fr": "Moi aussi ! Je peux venir chez toi, à Bayonne ?",
+      "en": "Me too! May I come to you, in Bayonne?",
+      "ko": "나도! 바이욘에 당신 보러 가도 돼?",
       "focus": {
        "fr": [
         "chez toi"
        ],
        "en": [
-        "have to leave"
+        "May I"
        ],
        "ko": [
-        "떠나야 해"
+        "가도 돼"
        ]
       },
       "wrong": {
@@ -508,23 +508,23 @@
        ],
        "en": [
         [
-         "have leave",
-         "has to leave"
+         "May I to",
+         "Do I may"
         ]
        ],
        "ko": [
         [
-         "떠나어야 해",
-         "떠나야 헤"
+         "가도 되",
+         "가도 대"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Pars le 26. Je t'ai trouvé une petite maison à la campagne.",
-      "en": "Leave on the 26th. I've found you a little house in the country.",
-      "ko": "26일에 떠나. 당신 지낼 작은 시골집도 구해 놨어."
+      "fr": "Oui, viens ! Pars le 26 ; une petite maison t'attend.",
+      "en": "Yes, come! Leave on the 26th; a little house awaits you.",
+      "ko": "응, 와! 26일에 떠나. 작은 집도 준비해 뒀어."
      },
      {
       "who": "me",
@@ -568,7 +568,8 @@
      "partir"
     ],
     "grammar": "VI.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -928,14 +929,14 @@
      {
       "who": "them",
       "fr": "Hier, j'étais au bal de Weimar. Toute l'Europe était là !",
-      "en": "Yesterday I was at the ball in Weimar. All of Europe was there!",
+      "en": "I was at the Weimar ball. All Europe was there!",
       "ko": "어제 바이마르 무도회에 갔어. 유럽 사람들이 다 왔더라!"
      },
      {
       "who": "me",
-      "fr": "Tu as dansé ? Tu étais le plus élégant, sûrement !",
-      "en": "Did you dance? You were the most elegant, I'm sure!",
-      "ko": "오랜만에 춤췄어? 당신이 제일 멋있었겠다!",
+      "fr": "Tu as dansé ? Tu étais sûrement le plus élégant !",
+      "en": "Did you dance? You were surely the most elegant!",
+      "ko": "춤췄어? 당신이 제일 멋있었겠다!",
       "focus": {
        "fr": [
         "le plus élégant"
@@ -944,7 +945,7 @@
         "the most elegant"
        ],
        "ko": [
-        "오랜만에"
+        "제일 멋있었겠다"
        ]
       },
       "wrong": {
@@ -962,8 +963,8 @@
        ],
        "ko": [
         [
-         "오랫만에",
-         "오랜 만에"
+         "제일 멋잇었겠다",
+         "재일 멋있었겠다"
         ]
        ]
       }
@@ -976,9 +977,9 @@
      },
      {
       "who": "me",
-      "fr": "Tu n'as pas encore quarante ans ! Tu es le meilleur danseur du monde.",
-      "en": "You're not forty yet! You're the best dancer in the world.",
-      "ko": "아직 마흔도 아니면서! 세상에서 당신이 춤을 제일 잘 춰.",
+      "fr": "Alors dansons ensemble à Paris ! Tu es le meilleur danseur.",
+      "en": "Then let's dance together in Paris! You're the best dancer.",
+      "ko": "그럼 파리에서 같이 춤추자! 당신이 최고야.",
       "focus": {
        "fr": [
         "le meilleur danseur"
@@ -987,7 +988,7 @@
         "the best dancer"
        ],
        "ko": [
-        "제일 잘 춰"
+        "최고야"
        ]
       },
       "wrong": {
@@ -1005,8 +1006,8 @@
        ],
        "ko": [
         [
-         "제일 잘 쳐",
-         "제일 잘 추워"
+         "최고아",
+         "채고야"
         ]
        ]
       }
@@ -1017,7 +1018,8 @@
      "an"
     ],
     "grammar": "VI.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -2297,9 +2299,9 @@
      },
      {
       "who": "me",
-      "fr": "Il fait bon. Et je dors bien : ce sont les meilleures nuits de l'année.",
-      "en": "It's nice. And I sleep well: the best nights of the year.",
-      "ko": "좋아. 몇 달 만에 이렇게 푹 자.",
+      "fr": "Il fait bon. Ce sont les meilleures nuits de l'année.",
+      "en": "It's nice. These are the best nights of the year.",
+      "ko": "좋아. 올해 들어 제일 잘 자.",
       "focus": {
        "fr": [
         "les meilleures nuits"
@@ -2308,7 +2310,7 @@
         "the best nights"
        ],
        "ko": [
-        "몇 달 만에"
+        "제일 잘 자"
        ]
       },
       "wrong": {
@@ -2326,8 +2328,8 @@
        ],
        "ko": [
         [
-         "몇 달 만애",
-         "몇달만에"
+         "재일 잘 자",
+         "제일 잘 저"
         ]
        ]
       }
@@ -2335,14 +2337,14 @@
      {
       "who": "them",
       "fr": "Tant mieux ! Après les eaux, tu peux aller à Malmaison.",
-      "en": "Good! After the waters, you can go to Malmaison.",
+      "en": "Good! After the waters, you may go to Malmaison.",
       "ko": "잘됐다! 온천 끝나면 말메종에 가도 돼."
      },
      {
       "who": "me",
-      "fr": "Super ! Je vais revoir mon jardin, le plus beau de France !",
-      "en": "Great! I'll see my garden again, the most beautiful in France!",
-      "ko": "좋아! 두 달 만에 내 정원을 보겠네!",
+      "fr": "Viens voir mon jardin, le plus beau de France !",
+      "en": "Come and see my garden, the most beautiful in France!",
+      "ko": "와서 내 정원 봐. 프랑스에서 제일 아름다워!",
       "focus": {
        "fr": [
         "le plus beau"
@@ -2351,7 +2353,7 @@
         "the most beautiful"
        ],
        "ko": [
-        "두 달 만에"
+        "제일 아름다워"
        ]
       },
       "wrong": {
@@ -2369,8 +2371,8 @@
        ],
        "ko": [
         [
-         "두 달 만애",
-         "두달 만에"
+         "재일 아름다워",
+         "제일 아름다와"
         ]
        ]
       }
@@ -2380,7 +2382,8 @@
      "chaleur"
     ],
     "grammar": "VI.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {

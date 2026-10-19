@@ -1,0 +1,2129 @@
+{
+ "_doc": "기초 낱말 덱: 많이 쓰는 표제어 300 (top) 가운데 카드 · 닻이 안 다루는 것. scripts/basics.py 후보를 사람이 다듬음. checked=false 는 사람 확인 전.",
+ "lang": "ko",
+ "checked": false,
+ "top": [
+  "나",
+  "그",
+  "안",
+  "수",
+  "이",
+  "네",
+  "거",
+  "좀",
+  "그래",
+  "있다",
+  "왜",
+  "더",
+  "그리고",
+  "우리",
+  "다",
+  "무슨",
+  "한",
+  "하지만",
+  "잘",
+  "어떻다",
+  "하다",
+  "그냥",
+  "정말",
+  "그렇다",
+  "것",
+  "여기",
+  "너",
+  "저",
+  "날",
+  "이제",
+  "지금",
+  "그것",
+  "걸",
+  "아니",
+  "없다",
+  "되다",
+  "못",
+  "좋다",
+  "당신",
+  "다른",
+  "그런",
+  "그거",
+  "너무",
+  "그래서",
+  "다시",
+  "이거",
+  "이런",
+  "모든",
+  "아",
+  "오",
+  "때",
+  "아냐",
+  "아니다",
+  "알다",
+  "같이",
+  "응",
+  "이것",
+  "괜찮다",
+  "오늘",
+  "말",
+  "줄",
+  "또",
+  "누구",
+  "어떤",
+  "아주",
+  "아직",
+  "안되다",
+  "진짜",
+  "모두",
+  "마",
+  "같다",
+  "어서",
+  "위하다",
+  "일",
+  "엄마",
+  "바로",
+  "가",
+  "근데",
+  "이렇다",
+  "빨리",
+  "전",
+  "어",
+  "아뇨",
+  "계속",
+  "닥터",
+  "얼마나",
+  "않다",
+  "제발",
+  "어디",
+  "사람",
+  "안녕",
+  "자",
+  "두",
+  "때문",
+  "대하다",
+  "아빠",
+  "몇",
+  "뭐",
+  "수도",
+  "많이",
+  "집",
+  "거지",
+  "음",
+  "함께",
+  "만약",
+  "하나",
+  "저기",
+  "고맙다",
+  "항상",
+  "잠깐",
+  "가다",
+  "가장",
+  "맞다",
+  "보다",
+  "와",
+  "아무",
+  "안녕하다",
+  "모르다",
+  "많다",
+  "아무것",
+  "그러니까",
+  "크다",
+  "그만",
+  "젠장",
+  "그러다",
+  "이미",
+  "야",
+  "오다",
+  "이보다",
+  "그런데",
+  "세상에",
+  "예",
+  "절대",
+  "말다",
+  "당장",
+  "그래도",
+  "거기",
+  "전부",
+  "둘",
+  "그녀",
+  "니",
+  "갈",
+  "자기",
+  "가지다",
+  "참",
+  "미안하다",
+  "감사하다",
+  "씨",
+  "곧",
+  "아마",
+  "얘기",
+  "꼭",
+  "중",
+  "시간",
+  "먼저",
+  "방금",
+  "완전",
+  "동안",
+  "싶다",
+  "친구",
+  "듣다",
+  "번",
+  "자네",
+  "사실",
+  "한번",
+  "대체",
+  "생각하다",
+  "볼",
+  "혼자",
+  "절",
+  "선생님",
+  "문제",
+  "다음",
+  "물론",
+  "거의",
+  "그러면",
+  "순",
+  "이리",
+  "맙소사",
+  "내일",
+  "싫다",
+  "중요하다",
+  "말하다",
+  "이상",
+  "새",
+  "적",
+  "전혀",
+  "여자",
+  "새롭다",
+  "너희",
+  "나오다",
+  "알",
+  "원하다",
+  "돈",
+  "필요",
+  "도움",
+  "작다",
+  "혹시",
+  "나쁘다",
+  "죄송하다",
+  "밖",
+  "직접",
+  "필요하다",
+  "아니요",
+  "갖다",
+  "주다",
+  "없이",
+  "나중",
+  "아버지",
+  "차",
+  "언제",
+  "그저",
+  "생각",
+  "마지막",
+  "왜냐면",
+  "엄청",
+  "오래",
+  "기다리다",
+  "제일",
+  "지나다",
+  "죽다",
+  "제대로",
+  "짓",
+  "남자",
+  "너가다",
+  "보이다",
+  "여러분",
+  "완전히",
+  "밤",
+  "소리",
+  "벌써",
+  "올",
+  "처음",
+  "멋지다",
+  "정말로",
+  "이름",
+  "여보",
+  "조금",
+  "여보세요",
+  "서로",
+  "죽",
+  "첫",
+  "매우",
+  "사랑하다",
+  "단지",
+  "나가다",
+  "뿐",
+  "미안",
+  "확실히",
+  "살",
+  "당연히",
+  "데리다",
+  "후",
+  "글쎄",
+  "별로",
+  "라",
+  "여전히",
+  "딱",
+  "이야기",
+  "부인",
+  "문",
+  "훨씬",
+  "망하다",
+  "손",
+  "수술",
+  "어쩌면",
+  "어느",
+  "아마도",
+  "준비",
+  "전화",
+  "뒤",
+  "도대체",
+  "최고",
+  "세",
+  "유일하다",
+  "갑자기",
+  "어쨌든",
+  "이번",
+  "뭐하다",
+  "지",
+  "신경",
+  "그만하다",
+  "늘",
+  "분명히",
+  "존",
+  "일단",
+  "걱정",
+  "매일",
+  "아침",
+  "대신",
+  "마치",
+  "두다",
+  "금방",
+  "사",
+  "좋아하다",
+  "찾다",
+  "맘",
+  "결국",
+  "이유",
+  "그때"
+ ],
+ "items": [
+  {
+   "id": "154bdfc1",
+   "w": "그",
+   "pos": "det",
+   "mean": {
+    "en": "that; he"
+   },
+   "ex": {
+    "t": "외제니랑? 그 애 오빠 만날게.",
+    "fr": "Avec Eugénie ? Je vois son frère.",
+    "en": "With Eugénie? I'll see her brother.",
+    "from": "p3"
+   }
+  },
+  {
+   "id": "96adfe8f",
+   "w": "네",
+   "pos": "interj",
+   "mean": {
+    "en": "yes (polite)"
+   },
+   "ex": {
+    "t": "네, 아버지. 프랑스어랑 역사를 배우고 있어요.",
+    "fr": "Oui, papa. J'apprends le français et l'histoire.",
+    "en": "Yes, Dad. I'm learning French and history.",
+    "from": "e1"
+   }
+  },
+  {
+   "id": "74057cb1",
+   "w": "좀",
+   "pos": "adv",
+   "mean": {
+    "en": "a little; please"
+   },
+   "ex": {
+    "t": "좀 나았어. 이제 숨 쉬어도 돼!",
+    "fr": "Ça va mieux. Tu peux respirer !",
+    "en": "I'm better. You can breathe!",
+    "from": "c1-l5"
+   }
+  },
+  {
+   "id": "0d5f9bee",
+   "w": "그래",
+   "pos": "interj",
+   "mean": {
+    "en": "yes, right; really?"
+   },
+   "ex": {
+    "t": "그래? 다 얘기해 줘!",
+    "fr": "Ah bon ? Raconte-moi tout !",
+    "en": "Really? Tell me everything!",
+    "from": "c5-l7"
+   }
+  },
+  {
+   "id": "ccea49ee",
+   "w": "왜",
+   "pos": "adv",
+   "mean": {
+    "en": "why"
+   },
+   "ex": {
+    "t": "왜 편지 안 써?",
+    "fr": "Pourquoi ne m'écris-tu pas ?",
+    "en": "Why don't you write to me?",
+    "from": "c2-l3"
+   }
+  },
+  {
+   "id": "e1c72e5e",
+   "w": "그리고",
+   "pos": "conj",
+   "mean": {
+    "en": "and"
+   },
+   "ex": {
+    "t": "응. 그리고 선제후비한테 잘해 줘.",
+    "fr": "Oui. Et sois gentille avec l'Électrice.",
+    "en": "Yes. And be nice to the Electress.",
+    "from": "c4-l4"
+   }
+  },
+  {
+   "id": "50330732",
+   "w": "우리",
+   "pos": "pron",
+   "mean": {
+    "en": "we; our"
+   },
+   "ex": {
+    "t": "우리 형 만났어?",
+    "fr": "Tu as vu mon frère ?",
+    "en": "Have you seen my brother?",
+    "from": "c1-l4"
+   }
+  },
+  {
+   "id": "35d1184d",
+   "w": "다",
+   "pos": "adv",
+   "mean": {
+    "en": "all"
+   },
+   "ex": {
+    "t": "곧. 당신이 없으니 다 쓸쓸해.",
+    "fr": "Bientôt. Tout est triste sans toi.",
+    "en": "Soon. Everything is sad without you.",
+    "from": "c2-l4"
+   }
+  },
+  {
+   "id": "26dc1dc2",
+   "w": "무슨",
+   "pos": "det",
+   "mean": {
+    "en": "what (kind of)"
+   },
+   "ex": {
+    "t": "왜? 방금 무슨 일 있었어?",
+    "fr": "Pourquoi ? Qu'est-ce qui vient de se passer ?",
+    "en": "Why? What has just happened?",
+    "from": "c3-l6"
+   }
+  },
+  {
+   "id": "1872a4b5",
+   "w": "하지만",
+   "pos": "conj",
+   "mean": {
+    "en": "but"
+   },
+   "ex": {
+    "t": "하지만 나는 안 춰.",
+    "fr": "Mais moi, je ne danse pas.",
+    "en": "But I don't dance.",
+    "from": "c6-l2"
+   }
+  },
+  {
+   "id": "aa7de223",
+   "w": "어떻다",
+   "pos": "adj",
+   "mean": {
+    "en": "to be how (어때? = how is it?)"
+   },
+   "ex": {
+    "t": "미안해, 여보. 몸은 어때?",
+    "fr": "Pardon. Comment vas-tu, mon ami ?",
+    "en": "I'm sorry. How are you, my love?",
+    "from": "c2-l4"
+   }
+  },
+  {
+   "id": "f10eea9f",
+   "w": "그냥",
+   "pos": "adv",
+   "mean": {
+    "en": "just, simply"
+   },
+   "ex": {
+    "t": "그냥 물가에 있었더라면 좋았을 텐데.",
+    "fr": "J'aurais dû rester au bord.",
+    "en": "I should have just stayed on the shore.",
+    "from": "c7-l5"
+   }
+  },
+  {
+   "id": "e9edb26b",
+   "w": "너",
+   "pos": "pron",
+   "mean": {
+    "en": "you (casual)"
+   },
+   "ex": {
+    "t": "너는 내 제일 친한 친구야.",
+    "fr": "Tu es mon meilleur ami.",
+    "en": "You're my best friend.",
+    "from": "p1"
+   }
+  },
+  {
+   "id": "3d800adc",
+   "w": "저",
+   "pos": "pron",
+   "mean": {
+    "en": "I (humble)"
+   },
+   "ex": {
+    "t": "저는 아직 브륀에 있어요.",
+    "fr": "Je suis toujours à Brünn.",
+    "en": "I'm still at Brünn.",
+    "from": "c4-l5"
+   }
+  },
+  {
+   "id": "110a84be",
+   "w": "그것",
+   "pos": "pron",
+   "mean": {
+    "en": "that, it"
+   },
+   "ex": {
+    "t": "그것 좀 보여 줘.",
+    "fr": "Montre-moi ça.",
+    "en": "Show me that.",
+    "from": null
+   }
+  },
+  {
+   "id": "66671ac5",
+   "w": "아니",
+   "pos": "interj",
+   "mean": {
+    "en": "no (casual)"
+   },
+   "ex": {
+    "t": "아니, 당신 편지 읽고 있어.",
+    "fr": "Non, je lis ta lettre.",
+    "en": "No, I'm reading your letter.",
+    "from": "c1-l2"
+   }
+  },
+  {
+   "id": "97af6434",
+   "w": "그런",
+   "pos": "det",
+   "mean": {
+    "en": "such, that kind of"
+   },
+   "ex": {
+    "t": "그런 여자들만 당신을 닮았거든.",
+    "fr": "Seules ces femmes-là te ressemblent.",
+    "en": "Only women like that resemble you.",
+    "from": "c5-l1"
+   }
+  },
+  {
+   "id": "124bb7b2",
+   "w": "그래서",
+   "pos": "conj",
+   "mean": {
+    "en": "so, therefore"
+   },
+   "ex": {
+    "t": "그래서 플롱비에르로 떠나? 아주 잘됐네.",
+    "fr": "Alors, tu pars pour Plombières ? C'est très bien.",
+    "en": "So you're off to Plombières? That's very good.",
+    "from": "c6-l4"
+   }
+  },
+  {
+   "id": "b1ef6ab8",
+   "w": "이거",
+   "pos": "pron",
+   "mean": {
+    "en": "this (thing), casual"
+   },
+   "ex": {
+    "t": "이거 당신 선물이야.",
+    "fr": "C'est un cadeau pour toi.",
+    "en": "This is a present for you.",
+    "from": null
+   }
+  },
+  {
+   "id": "3db1d643",
+   "w": "이런",
+   "pos": "det",
+   "mean": {
+    "en": "this kind of, such"
+   },
+   "ex": {
+    "t": "이런 날씨는 처음이야.",
+    "fr": "Je n'ai jamais vu un temps pareil.",
+    "en": "I've never seen weather like this.",
+    "from": null
+   }
+  },
+  {
+   "id": "105c34ad",
+   "w": "아",
+   "pos": "interj",
+   "mean": {
+    "en": "ah, oh"
+   },
+   "ex": {
+    "t": "아! 정말 그이 글씨예요!",
+    "fr": "Ah ! C'est bien là son écriture !",
+    "en": "Ah! That really is his handwriting!",
+    "from": "c5-l1"
+   }
+  },
+  {
+   "id": "dddaef52",
+   "w": "아냐",
+   "pos": "interj",
+   "mean": {
+    "en": "no (casual)"
+   },
+   "ex": {
+    "t": "아냐, 내가 할게.",
+    "fr": "Non, je vais le faire.",
+    "en": "No, I'll do it.",
+    "from": null
+   }
+  },
+  {
+   "id": "181d2428",
+   "w": "같이",
+   "pos": "adv",
+   "mean": {
+    "en": "together"
+   },
+   "ex": {
+    "t": "그럼 파리에서 같이 춤추자!",
+    "fr": "Alors dansons ensemble à Paris !",
+    "en": "Then let's dance together in Paris!",
+    "from": "c6-l2"
+   }
+  },
+  {
+   "id": "98577aae",
+   "w": "응",
+   "pos": "interj",
+   "mean": {
+    "en": "yeah, yes (casual)"
+   },
+   "ex": {
+    "t": "응, 오늘은 괜찮아. 당신은?",
+    "fr": "Oui, aujourd'hui ça va. Et toi ?",
+    "en": "Yes, today I'm fine. And you?",
+    "from": "c1-l7"
+   }
+  },
+  {
+   "id": "bcc5a2ce",
+   "w": "이것",
+   "pos": "pron",
+   "mean": {
+    "en": "this"
+   },
+   "ex": {
+    "t": "이것은 내 초상화야.",
+    "fr": "Voici mon portrait.",
+    "en": "This is my portrait.",
+    "from": null
+   }
+  },
+  {
+   "id": "87cbecd7",
+   "w": "또",
+   "pos": "adv",
+   "mean": {
+    "en": "again"
+   },
+   "ex": {
+    "t": "조제핀, 또 편지 써!",
+    "fr": "Joséphine, je t'écris encore !",
+    "en": "Joséphine, I'm writing to you again!",
+    "from": "c2-l5"
+   }
+  },
+  {
+   "id": "7dac87c0",
+   "w": "안되다",
+   "pos": "v",
+   "mean": {
+    "en": "must not; to not work out (안 돼 = no)"
+   },
+   "ex": {
+    "t": "안 돼. 파리로 돌아가서 튀일리에서 즐겁게 지내.",
+    "fr": "Non. Rentre à Paris et amuse-toi aux Tuileries.",
+    "en": "No. Go back to Paris; enjoy the Tuileries.",
+    "from": "c5-l3"
+   }
+  },
+  {
+   "id": "5d952395",
+   "w": "진짜",
+   "pos": "adv",
+   "mean": {
+    "en": "really (casual)"
+   },
+   "ex": {
+    "t": "진짜? 벌써 왔어?",
+    "fr": "Vraiment ? Tu es déjà là ?",
+    "en": "Really? You're here already?",
+    "from": null
+   }
+  },
+  {
+   "id": "45399f60",
+   "w": "모두",
+   "pos": "n",
+   "mean": {
+    "en": "all, everyone"
+   },
+   "ex": {
+    "t": "그쪽 사람들 모두에게 다정한 안부를.",
+    "fr": "Mille choses aimables à tous ceux qui sont avec toi.",
+    "en": "A thousand kind things to everyone with you.",
+    "from": "c3-l7"
+   }
+  },
+  {
+   "id": "8cf52aa1",
+   "w": "어서",
+   "pos": "adv",
+   "mean": {
+    "en": "quickly; please (do)"
+   },
+   "ex": {
+    "t": "어서 와!",
+    "fr": "Viens vite !",
+    "en": "Come quickly!",
+    "from": null
+   }
+  },
+  {
+   "id": "89acf7be",
+   "w": "위하다",
+   "pos": "v",
+   "mean": {
+    "en": "to do for (~을 위하여 = for)"
+   },
+   "ex": {
+    "t": "‘모든 것은 프랑스 국민을 위하여.’",
+    "fr": "« Tout pour le peuple français. »",
+    "en": "‘Everything for the French people.’",
+    "from": "e1"
+   }
+  },
+  {
+   "id": "297c4afb",
+   "w": "엄마",
+   "pos": "n",
+   "mean": {
+    "en": "mom"
+   },
+   "ex": {
+    "t": "엄마, 나 왔어!",
+    "fr": "Maman, je suis rentré !",
+    "en": "Mom, I'm home!",
+    "from": null
+   }
+  },
+  {
+   "id": "912f50f4",
+   "w": "근데",
+   "pos": "conj",
+   "mean": {
+    "en": "but, by the way (casual)"
+   },
+   "ex": {
+    "t": "근데 편지는 언제 와?",
+    "fr": "Mais quand arrive la lettre ?",
+    "en": "But when is the letter coming?",
+    "from": null
+   }
+  },
+  {
+   "id": "3ca998ee",
+   "w": "이렇다",
+   "pos": "adj",
+   "mean": {
+    "en": "to be like this (이렇게 = like this)"
+   },
+   "ex": {
+    "t": "어쩜 글을 이렇게 써!",
+    "fr": "Quel style !",
+    "en": "What a style!",
+    "from": "c1-l1"
+   }
+  },
+  {
+   "id": "c5b967ff",
+   "w": "아뇨",
+   "pos": "interj",
+   "mean": {
+    "en": "no (polite, casual)"
+   },
+   "ex": {
+    "t": "아뇨, 아직 못 받았어요.",
+    "fr": "Non, je ne l'ai pas encore reçue.",
+    "en": "No, I haven't got it yet.",
+    "from": null
+   }
+  },
+  {
+   "id": "7a7fe062",
+   "w": "계속",
+   "pos": "adv",
+   "mean": {
+    "en": "continuously, all the time"
+   },
+   "ex": {
+    "t": "오르탕스가 계속 울어…",
+    "fr": "Hortense pleure tout le temps…",
+    "en": "Hortense cries all the time…",
+    "from": "c5-l5"
+   }
+  },
+  {
+   "id": "abc06774",
+   "w": "제발",
+   "pos": "adv",
+   "mean": {
+    "en": "please (begging)"
+   },
+   "ex": {
+    "t": "제발 편지 좀 써 줘.",
+    "fr": "Écris-moi, je t'en prie.",
+    "en": "Please, write to me.",
+    "from": null
+   }
+  },
+  {
+   "id": "d85f19f2",
+   "w": "두",
+   "pos": "num",
+   "mean": {
+    "en": "two"
+   },
+   "ex": {
+    "t": "아우구스테한테 뽀뽀 두 번 해 줘.",
+    "fr": "Donne deux baisers à Auguste.",
+    "en": "Give Augusta two kisses.",
+    "from": "c4-l7"
+   }
+  },
+  {
+   "id": "bc4ff2df",
+   "w": "때문",
+   "pos": "n",
+   "mean": {
+    "en": "because of (때문에)"
+   },
+   "ex": {
+    "t": "당신 빚 때문에 화가 났었어.",
+    "fr": "J'étais fâché contre toi pour tes dettes.",
+    "en": "I was angry with you about your debts.",
+    "from": "c7-l7"
+   }
+  },
+  {
+   "id": "1ce6bd55",
+   "w": "아빠",
+   "pos": "n",
+   "mean": {
+    "en": "dad"
+   },
+   "ex": {
+    "t": "아빠 찾더라.",
+    "fr": "Il demande son papa.",
+    "en": "He's asking for his dad.",
+    "from": "c8-l4"
+   }
+  },
+  {
+   "id": "07ff2afc",
+   "w": "몇",
+   "pos": "det",
+   "mean": {
+    "en": "how many; a few"
+   },
+   "ex": {
+    "t": "몇 시에 떠나?",
+    "fr": "Tu pars à quelle heure ?",
+    "en": "What time do you leave?",
+    "from": "c3-l1"
+   }
+  },
+  {
+   "id": "5375fef7",
+   "w": "뭐",
+   "pos": "pron",
+   "mean": {
+    "en": "what (casual)"
+   },
+   "ex": {
+    "t": "대체 뭐 하고 지내?",
+    "fr": "Que fais-tu donc ?",
+    "en": "What on earth are you doing?",
+    "from": "c1-l4"
+   }
+  },
+  {
+   "id": "9dafb2b0",
+   "w": "만약",
+   "pos": "adv",
+   "mean": {
+    "en": "if"
+   },
+   "ex": {
+    "t": "만약 비가 오면 집에 있어.",
+    "fr": "S'il pleut, reste à la maison.",
+    "en": "If it rains, stay home.",
+    "from": null
+   }
+  },
+  {
+   "id": "6a958418",
+   "w": "저기",
+   "pos": "interj",
+   "mean": {
+    "en": "excuse me; over there"
+   },
+   "ex": {
+    "t": "저기, 이 편지 당신 거예요?",
+    "fr": "Excusez-moi, cette lettre est à vous ?",
+    "en": "Excuse me, is this letter yours?",
+    "from": null
+   }
+  },
+  {
+   "id": "ef9c1fb2",
+   "w": "항상",
+   "pos": "adv",
+   "mean": {
+    "en": "always"
+   },
+   "ex": {
+    "t": "항상 당신 생각해.",
+    "fr": "Je pense toujours à toi.",
+    "en": "I always think of you.",
+    "from": null
+   }
+  },
+  {
+   "id": "bc1d6482",
+   "w": "잠깐",
+   "pos": "adv",
+   "mean": {
+    "en": "a moment"
+   },
+   "ex": {
+    "t": "잠깐만 기다려!",
+    "fr": "Attends une minute !",
+    "en": "Wait a minute!",
+    "from": null
+   }
+  },
+  {
+   "id": "9df4d7b2",
+   "w": "아무",
+   "pos": "det",
+   "mean": {
+    "en": "any; no (one)"
+   },
+   "ex": {
+    "t": "당신 없는 나는 아무것도 아니야.",
+    "fr": "Je ne suis rien sans toi.",
+    "en": "Without you, I am nothing.",
+    "from": "c1-l5"
+   }
+  },
+  {
+   "id": "482cde45",
+   "w": "안녕하다",
+   "pos": "adj",
+   "mean": {
+    "en": "to be well (안녕하세요 = hello)"
+   },
+   "ex": {
+    "t": "안녕하세요, 아주버님! 조제핀이에요.",
+    "fr": "Bonjour, Joseph ! Je suis Joséphine.",
+    "en": "Hello, Joseph! I'm Joséphine.",
+    "from": "c1-l3"
+   }
+  },
+  {
+   "id": "25359c4b",
+   "w": "많다",
+   "pos": "adj",
+   "mean": {
+    "en": "to be many, much"
+   },
+   "ex": {
+    "t": "예쁜 폴란드 여자들이 많았겠지?",
+    "fr": "Avec beaucoup de jolies Polonaises, j'imagine !",
+    "en": "With lots of pretty Polish women, I bet!",
+    "from": "c5-l2"
+   }
+  },
+  {
+   "id": "f2968664",
+   "w": "그만",
+   "pos": "adv",
+   "mean": {
+    "en": "stop; that's enough"
+   },
+   "ex": {
+    "t": "오늘은 그만 쉬어.",
+    "fr": "Repose-toi pour aujourd'hui.",
+    "en": "That's enough for today; rest.",
+    "from": null
+   }
+  },
+  {
+   "id": "117ed017",
+   "w": "이미",
+   "pos": "adv",
+   "mean": {
+    "en": "already"
+   },
+   "ex": {
+    "t": "편지는 이미 보냈어.",
+    "fr": "J'ai déjà envoyé la lettre.",
+    "en": "I've already sent the letter.",
+    "from": null
+   }
+  },
+  {
+   "id": "4765fee4",
+   "w": "그런데",
+   "pos": "conj",
+   "mean": {
+    "en": "but; by the way"
+   },
+   "ex": {
+    "t": "그런데 당신 편지는 너무 차가워!",
+    "fr": "Mais tes lettres sont si froides !",
+    "en": "But your letters are so cold!",
+    "from": "c2-l2"
+   }
+  },
+  {
+   "id": "4487c7ac",
+   "w": "세상에",
+   "pos": "interj",
+   "mean": {
+    "en": "my goodness"
+   },
+   "ex": {
+    "t": "세상에, 벌써 자정이야!",
+    "fr": "Mon Dieu, il est déjà minuit !",
+    "en": "Goodness, it's already midnight!",
+    "from": null
+   }
+  },
+  {
+   "id": "0d63fcf8",
+   "w": "예",
+   "pos": "interj",
+   "mean": {
+    "en": "yes (polite)"
+   },
+   "ex": {
+    "t": "예, 알겠습니다.",
+    "fr": "Oui, j'ai compris.",
+    "en": "Yes, I understand.",
+    "from": null
+   }
+  },
+  {
+   "id": "223b0374",
+   "w": "당장",
+   "pos": "adv",
+   "mean": {
+    "en": "right now"
+   },
+   "ex": {
+    "t": "당장 편지 써 줘!",
+    "fr": "Écris-moi tout de suite !",
+    "en": "Write to me right now!",
+    "from": null
+   }
+  },
+  {
+   "id": "ee32a6da",
+   "w": "전부",
+   "pos": "n",
+   "mean": {
+    "en": "all, everything"
+   },
+   "ex": {
+    "t": "편지는 전부 읽었어.",
+    "fr": "J'ai lu toutes les lettres.",
+    "en": "I've read all the letters.",
+    "from": null
+   }
+  },
+  {
+   "id": "8399a3a5",
+   "w": "그녀",
+   "pos": "pron",
+   "mean": {
+    "en": "she"
+   },
+   "ex": {
+    "t": "그래도 그녀의 편지는 받았지.",
+    "fr": "Mais j'ai reçu ses lettres.",
+    "en": "But I received her letters.",
+    "from": "c2-l2"
+   }
+  },
+  {
+   "id": "e5246ccf",
+   "w": "자기",
+   "pos": "pron",
+   "mean": {
+    "en": "oneself; honey"
+   },
+   "ex": {
+    "t": "자기, 어디야?",
+    "fr": "Chéri, où es-tu ?",
+    "en": "Honey, where are you?",
+    "from": null
+   }
+  },
+  {
+   "id": "83120b56",
+   "w": "미안하다",
+   "pos": "adj",
+   "mean": {
+    "en": "to be sorry"
+   },
+   "ex": {
+    "t": "편지 자주 못 써서 미안해.",
+    "fr": "Pardon, je t'écris peu.",
+    "en": "Sorry I don't write much.",
+    "from": "c6-l3"
+   }
+  },
+  {
+   "id": "c0fafe59",
+   "w": "얘기",
+   "pos": "n",
+   "mean": {
+    "en": "talk, story"
+   },
+   "ex": {
+    "t": "약속해, 그분이랑 잘 얘기할게.",
+    "fr": "Promis, je lui parlerai.",
+    "en": "Promise, I'll talk to her.",
+    "from": "c4-l4"
+   }
+  },
+  {
+   "id": "ca01c02d",
+   "w": "방금",
+   "pos": "adv",
+   "mean": {
+    "en": "just now"
+   },
+   "ex": {
+    "t": "방금 로잔에 도착했어!",
+    "fr": "Je viens d'arriver à Lausanne !",
+    "en": "I've just arrived in Lausanne!",
+    "from": "c3-l1"
+   }
+  },
+  {
+   "id": "b829527c",
+   "w": "동안",
+   "pos": "n",
+   "mean": {
+    "en": "during, while"
+   },
+   "ex": {
+    "t": "기다리는 동안 우리 아들 잘 돌볼게.",
+    "fr": "En t'attendant, je prendrai soin de notre fils.",
+    "en": "While I wait, I'll take care of our son.",
+    "from": "c8-l5"
+   }
+  },
+  {
+   "id": "53343727",
+   "w": "자네",
+   "pos": "pron",
+   "mean": {
+    "en": "you (to a junior)"
+   },
+   "ex": {
+    "t": "자네, 편지는 받았나?",
+    "fr": "Avez-vous reçu la lettre ?",
+    "en": "Did you get the letter?",
+    "from": null
+   }
+  },
+  {
+   "id": "3f3d2de7",
+   "w": "한번",
+   "pos": "adv",
+   "mean": {
+    "en": "once; give it a try"
+   },
+   "ex": {
+    "t": "한번 해 볼게.",
+    "fr": "Je vais essayer.",
+    "en": "I'll give it a try.",
+    "from": null
+   }
+  },
+  {
+   "id": "5cb7a8bb",
+   "w": "대체",
+   "pos": "adv",
+   "mean": {
+    "en": "on earth"
+   },
+   "ex": {
+    "t": "내가 대체 뭘 잘못했어?",
+    "fr": "Qu'ai-je donc fait ?",
+    "en": "What on earth have I done?",
+    "from": "c2-l7"
+   }
+  },
+  {
+   "id": "9fd6e6b4",
+   "w": "선생님",
+   "pos": "n",
+   "mean": {
+    "en": "teacher; sir"
+   },
+   "ex": {
+    "t": "선생님이 오늘 오셔.",
+    "fr": "Le maître vient aujourd'hui.",
+    "en": "The teacher is coming today.",
+    "from": null
+   }
+  },
+  {
+   "id": "037df38f",
+   "w": "문제",
+   "pos": "n",
+   "mean": {
+    "en": "problem"
+   },
+   "ex": {
+    "t": "문제없어!",
+    "fr": "Pas de problème !",
+    "en": "No problem!",
+    "from": null
+   }
+  },
+  {
+   "id": "929bc3d1",
+   "w": "다음",
+   "pos": "n",
+   "mean": {
+    "en": "next"
+   },
+   "ex": {
+    "t": "응, 다음 주에 가게 됐어.",
+    "fr": "Oui, la semaine prochaine.",
+    "en": "Yes, next week.",
+    "from": "c8-l1"
+   }
+  },
+  {
+   "id": "559cd47f",
+   "w": "물론",
+   "pos": "adv",
+   "mean": {
+    "en": "of course"
+   },
+   "ex": {
+    "t": "물론이지. 침착하게 있어.",
+    "fr": "Bien sûr. Garde ton calme.",
+    "en": "Of course. Stay calm.",
+    "from": "c8-l6"
+   }
+  },
+  {
+   "id": "bbf88ffc",
+   "w": "그러면",
+   "pos": "conj",
+   "mean": {
+    "en": "then, if so"
+   },
+   "ex": {
+    "t": "그러면 몸에 좋을 거야.",
+    "fr": "Cela te fera du bien.",
+    "en": "It will do you good.",
+    "from": "c2-l6"
+   }
+  },
+  {
+   "id": "baf9a241",
+   "w": "이리",
+   "pos": "adv",
+   "mean": {
+    "en": "this way, here"
+   },
+   "ex": {
+    "t": "이리 와!",
+    "fr": "Viens ici !",
+    "en": "Come here!",
+    "from": null
+   }
+  },
+  {
+   "id": "7731f0f8",
+   "w": "맙소사",
+   "pos": "interj",
+   "mean": {
+    "en": "oh my God"
+   },
+   "ex": {
+    "t": "맙소사, 편지가 젖었어!",
+    "fr": "Mon Dieu, la lettre est mouillée !",
+    "en": "Oh my God, the letter is wet!",
+    "from": null
+   }
+  },
+  {
+   "id": "faedb3b2",
+   "w": "이상",
+   "pos": "n",
+   "mean": {
+    "en": "more than; strange"
+   },
+   "ex": {
+    "t": "열 장 이상 썼어.",
+    "fr": "J'ai écrit plus de dix pages.",
+    "en": "I wrote more than ten pages.",
+    "from": null
+   }
+  },
+  {
+   "id": "52643c7b",
+   "w": "새",
+   "pos": "det",
+   "mean": {
+    "en": "new"
+   },
+   "ex": {
+    "t": "새 드레스를 샀어.",
+    "fr": "J'ai acheté une nouvelle robe.",
+    "en": "I bought a new dress.",
+    "from": null
+   }
+  },
+  {
+   "id": "f5b0093c",
+   "w": "전혀",
+   "pos": "adv",
+   "mean": {
+    "en": "not at all"
+   },
+   "ex": {
+    "t": "전혀 안 추워.",
+    "fr": "Il ne fait pas froid du tout.",
+    "en": "It's not cold at all.",
+    "from": null
+   }
+  },
+  {
+   "id": "a87f4143",
+   "w": "너희",
+   "pos": "pron",
+   "mean": {
+    "en": "you (plural, casual)"
+   },
+   "ex": {
+    "t": "너희 둘 다 보고 싶어.",
+    "fr": "Vous me manquez tous les deux.",
+    "en": "I miss you both.",
+    "from": null
+   }
+  },
+  {
+   "id": "60ce823e",
+   "w": "작다",
+   "pos": "adj",
+   "mean": {
+    "en": "to be small"
+   },
+   "ex": {
+    "t": "작은 집도 준비해 뒀어.",
+    "fr": "Une petite maison t'attend.",
+    "en": "A little house awaits you.",
+    "from": "c6-l1"
+   }
+  },
+  {
+   "id": "bfe4df63",
+   "w": "죄송하다",
+   "pos": "adj",
+   "mean": {
+    "en": "to be sorry (polite)"
+   },
+   "ex": {
+    "t": "늦어서 죄송해요.",
+    "fr": "Pardon pour le retard.",
+    "en": "Sorry I'm late.",
+    "from": null
+   }
+  },
+  {
+   "id": "c7e9abd4",
+   "w": "밖",
+   "pos": "n",
+   "mean": {
+    "en": "outside"
+   },
+   "ex": {
+    "t": "나는 밖에 있었어.",
+    "fr": "J'étais dehors.",
+    "en": "I was outside.",
+    "from": "c3-l2"
+   }
+  },
+  {
+   "id": "257141bd",
+   "w": "직접",
+   "pos": "adv",
+   "mean": {
+    "en": "in person, myself"
+   },
+   "ex": {
+    "t": "내가 직접 얘기해 줄게.",
+    "fr": "Je te le dirai moi-même.",
+    "en": "I'll tell you myself.",
+    "from": null
+   }
+  },
+  {
+   "id": "3c5bfe44",
+   "w": "아니요",
+   "pos": "interj",
+   "mean": {
+    "en": "no (polite)"
+   },
+   "ex": {
+    "t": "아니요, 괜찮아요.",
+    "fr": "Non, merci.",
+    "en": "No, thank you.",
+    "from": null
+   }
+  },
+  {
+   "id": "096f4fa5",
+   "w": "갖다",
+   "pos": "v",
+   "mean": {
+    "en": "to have, to take"
+   },
+   "ex": {
+    "t": "당신 편지 갖고 왔어.",
+    "fr": "Il a ta lettre.",
+    "en": "He has your letter.",
+    "from": "c1-l4"
+   }
+  },
+  {
+   "id": "ae4cc7fa",
+   "w": "없이",
+   "pos": "adv",
+   "mean": {
+    "en": "without"
+   },
+   "ex": {
+    "t": "당신 없이 못 살아.",
+    "fr": "Je ne peux pas vivre sans toi.",
+    "en": "I can't live without you.",
+    "from": null
+   }
+  },
+  {
+   "id": "d520017e",
+   "w": "나중",
+   "pos": "n",
+   "mean": {
+    "en": "later (나중에)"
+   },
+   "ex": {
+    "t": "사람들은? 나중에 다 얘기해 줘!",
+    "fr": "Et les gens ? Tu me raconteras tout !",
+    "en": "And the people? You'll tell me everything!",
+    "from": "c4-l1"
+   }
+  },
+  {
+   "id": "88921df2",
+   "w": "언제",
+   "pos": "adv",
+   "mean": {
+    "en": "when"
+   },
+   "ex": {
+    "t": "제노바 잔치에 와 있어. 언제 떠나?",
+    "fr": "À une fête, à Gênes. Quand pars-tu ?",
+    "en": "Partying in Genoa. When do you leave?",
+    "from": "c2-l4"
+   }
+  },
+  {
+   "id": "28c5532b",
+   "w": "그저",
+   "pos": "adv",
+   "mean": {
+    "en": "just, merely"
+   },
+   "ex": {
+    "t": "그저 당신이 보고 싶어.",
+    "fr": "Je veux juste te voir.",
+    "en": "I just want to see you.",
+    "from": null
+   }
+  },
+  {
+   "id": "2195877c",
+   "w": "마지막",
+   "pos": "n",
+   "mean": {
+    "en": "last"
+   },
+   "ex": {
+    "t": "이게 마지막 편지야.",
+    "fr": "C'est la dernière lettre.",
+    "en": "This is the last letter.",
+    "from": null
+   }
+  },
+  {
+   "id": "7d11ff15",
+   "w": "왜냐면",
+   "pos": "adv",
+   "mean": {
+    "en": "because"
+   },
+   "ex": {
+    "t": "왜냐면 당신을 사랑하니까.",
+    "fr": "Parce que je t'aime.",
+    "en": "Because I love you.",
+    "from": null
+   }
+  },
+  {
+   "id": "70b69bca",
+   "w": "엄청",
+   "pos": "adv",
+   "mean": {
+    "en": "very, hugely"
+   },
+   "ex": {
+    "t": "엄청난 광경이었어.",
+    "fr": "Ce spectacle était grand.",
+    "en": "It was a grand sight.",
+    "from": "c3-l6"
+   }
+  },
+  {
+   "id": "467ee873",
+   "w": "제일",
+   "pos": "adv",
+   "mean": {
+    "en": "most, best"
+   },
+   "ex": {
+    "t": "와서 내 정원 봐. 프랑스에서 제일 아름다워!",
+    "fr": "Viens voir mon jardin, le plus beau de France !",
+    "en": "Come and see my garden, the most beautiful in France!",
+    "from": "c6-l5"
+   }
+  },
+  {
+   "id": "700ad559",
+   "w": "제대로",
+   "pos": "adv",
+   "mean": {
+    "en": "properly"
+   },
+   "ex": {
+    "t": "제대로 먹고 자.",
+    "fr": "Mange et dors bien.",
+    "en": "Eat and sleep properly.",
+    "from": null
+   }
+  },
+  {
+   "id": "b0fed000",
+   "w": "여러분",
+   "pos": "pron",
+   "mean": {
+    "en": "everyone (you all)"
+   },
+   "ex": {
+    "t": "여러분, 안녕하세요!",
+    "fr": "Bonjour à tous !",
+    "en": "Hello, everyone!",
+    "from": null
+   }
+  },
+  {
+   "id": "913b9616",
+   "w": "완전히",
+   "pos": "adv",
+   "mean": {
+    "en": "completely"
+   },
+   "ex": {
+    "t": "이제 완전히 나았어.",
+    "fr": "Je suis complètement guérie.",
+    "en": "I'm completely well now.",
+    "from": null
+   }
+  },
+  {
+   "id": "d82ed4ed",
+   "w": "소리",
+   "pos": "n",
+   "mean": {
+    "en": "sound"
+   },
+   "ex": {
+    "t": "바다 소리가 들려.",
+    "fr": "J'entends le bruit de la mer.",
+    "en": "I can hear the sound of the sea.",
+    "from": null
+   }
+  },
+  {
+   "id": "5c0dbafb",
+   "w": "처음",
+   "pos": "n",
+   "mean": {
+    "en": "the first time"
+   },
+   "ex": {
+    "t": "바다는 처음 봐.",
+    "fr": "C'est la première fois que je vois la mer.",
+    "en": "It's my first time seeing the sea.",
+    "from": null
+   }
+  },
+  {
+   "id": "bfa056ab",
+   "w": "멋지다",
+   "pos": "adj",
+   "mean": {
+    "en": "to be wonderful"
+   },
+   "ex": {
+    "t": "정원이 정말 멋지다!",
+    "fr": "Le jardin est magnifique !",
+    "en": "The garden is wonderful!",
+    "from": null
+   }
+  },
+  {
+   "id": "f33a57ee",
+   "w": "정말로",
+   "pos": "adv",
+   "mean": {
+    "en": "truly"
+   },
+   "ex": {
+    "t": "정말로 고마워.",
+    "fr": "Merci vraiment.",
+    "en": "Thank you, truly.",
+    "from": null
+   }
+  },
+  {
+   "id": "7c40fe1e",
+   "w": "이름",
+   "pos": "n",
+   "mean": {
+    "en": "name"
+   },
+   "ex": {
+    "t": "이름이 뭐예요?",
+    "fr": "Comment vous appelez-vous ?",
+    "en": "What's your name?",
+    "from": null
+   }
+  },
+  {
+   "id": "56f70459",
+   "w": "여보",
+   "pos": "n",
+   "mean": {
+    "en": "honey, dear (spouse)"
+   },
+   "ex": {
+    "t": "미안해, 여보. 바빠.",
+    "fr": "Pardon, mon chéri. Je suis occupée.",
+    "en": "Sorry, darling. I'm busy.",
+    "from": "c1-l6"
+   }
+  },
+  {
+   "id": "1fb90797",
+   "w": "여보세요",
+   "pos": "interj",
+   "mean": {
+    "en": "hello (on the phone)"
+   },
+   "ex": {
+    "t": "여보세요, 조제핀? 당신 편지 받았어.",
+    "fr": "Allô, Joséphine ? J'ai reçu ta lettre.",
+    "en": "Hello, Joséphine? I got your letter.",
+    "from": "c1-l1"
+   }
+  },
+  {
+   "id": "50d12b80",
+   "w": "서로",
+   "pos": "adv",
+   "mean": {
+    "en": "each other"
+   },
+   "ex": {
+    "t": "우리는 서로 사랑해.",
+    "fr": "Nous nous aimons.",
+    "en": "We love each other.",
+    "from": null
+   }
+  },
+  {
+   "id": "2c93346c",
+   "w": "매우",
+   "pos": "adv",
+   "mean": {
+    "en": "very"
+   },
+   "ex": {
+    "t": "매우 기뻐.",
+    "fr": "Je suis très content.",
+    "en": "I'm very happy.",
+    "from": null
+   }
+  },
+  {
+   "id": "a24ca186",
+   "w": "단지",
+   "pos": "adv",
+   "mean": {
+    "en": "only, merely"
+   },
+   "ex": {
+    "t": "단지 소식이 궁금해.",
+    "fr": "Je veux seulement des nouvelles.",
+    "en": "I only want news.",
+    "from": null
+   }
+  },
+  {
+   "id": "341d8604",
+   "w": "나가다",
+   "pos": "v",
+   "mean": {
+    "en": "to go out"
+   },
+   "ex": {
+    "t": "추워! 나가기 싫어.",
+    "fr": "Il fait froid ! Je n'aime pas sortir.",
+    "en": "It's cold! I don't like going out.",
+    "from": "c2-l6"
+   }
+  },
+  {
+   "id": "fe8c9fa0",
+   "w": "뿐",
+   "pos": "n",
+   "mean": {
+    "en": "only (~뿐이다)"
+   },
+   "ex": {
+    "t": "하지만 나한테 여자는 단 한 사람뿐이야.",
+    "fr": "Mais il n'y a qu'une femme pour moi.",
+    "en": "But there's only one woman for me.",
+    "from": "c5-l2"
+   }
+  },
+  {
+   "id": "ac796a8d",
+   "w": "미안",
+   "pos": "n",
+   "mean": {
+    "en": "sorry (casual: 미안!)"
+   },
+   "ex": {
+    "t": "미안! 뮌헨이 스트라스부르보다 더 재미있어.",
+    "fr": "Pardon ! Munich est plus amusant que Strasbourg.",
+    "en": "Sorry! Munich is more fun than Strasbourg.",
+    "from": "c4-l5"
+   }
+  },
+  {
+   "id": "33047e97",
+   "w": "확실히",
+   "pos": "adv",
+   "mean": {
+    "en": "certainly, clearly"
+   },
+   "ex": {
+    "t": "어젯밤에야 확실히 알았어.",
+    "fr": "Hier soir, je l'ai bien senti.",
+    "en": "Last night I truly realised it.",
+    "from": "p4"
+   }
+  },
+  {
+   "id": "2bdafecc",
+   "w": "당연히",
+   "pos": "adv",
+   "mean": {
+    "en": "of course, naturally"
+   },
+   "ex": {
+    "t": "당연히 사랑하지!",
+    "fr": "Bien sûr que je t'aime !",
+    "en": "Of course I love you!",
+    "from": null
+   }
+  },
+  {
+   "id": "febb3988",
+   "w": "데리다",
+   "pos": "v",
+   "mean": {
+    "en": "to bring (a person) along"
+   },
+   "ex": {
+    "t": "4월에 꼬마 데리고 와.",
+    "fr": "Je t'attends en avril, avec le petit.",
+    "en": "Come in April with the little one.",
+    "from": "c8-l7"
+   }
+  },
+  {
+   "id": "9c941954",
+   "w": "후",
+   "pos": "n",
+   "mean": {
+    "en": "after (~ 후에)"
+   },
+   "ex": {
+    "t": "식사 후에 편지 쓸게.",
+    "fr": "J'écrirai après le dîner.",
+    "en": "I'll write after dinner.",
+    "from": null
+   }
+  },
+  {
+   "id": "6c909fa7",
+   "w": "글쎄",
+   "pos": "interj",
+   "mean": {
+    "en": "well, let me see"
+   },
+   "ex": {
+    "t": "글쎄, 잘 모르겠어.",
+    "fr": "Eh bien, je ne sais pas.",
+    "en": "Well, I'm not sure.",
+    "from": null
+   }
+  },
+  {
+   "id": "9c27b733",
+   "w": "딱",
+   "pos": "adv",
+   "mean": {
+    "en": "exactly; just"
+   },
+   "ex": {
+    "t": "딱 한 달만 기다려.",
+    "fr": "Attends juste un mois.",
+    "en": "Wait just one month.",
+    "from": null
+   }
+  },
+  {
+   "id": "6f627407",
+   "w": "훨씬",
+   "pos": "adv",
+   "mean": {
+    "en": "much (more)"
+   },
+   "ex": {
+    "t": "오늘은 훨씬 나아.",
+    "fr": "Je vais beaucoup mieux aujourd'hui.",
+    "en": "I'm much better today.",
+    "from": null
+   }
+  },
+  {
+   "id": "195998fd",
+   "w": "수술",
+   "pos": "n",
+   "mean": {
+    "en": "surgery, operation"
+   },
+   "ex": {
+    "t": "수술은 잘 끝났어.",
+    "fr": "L'opération s'est bien passée.",
+    "en": "The operation went well.",
+    "from": null
+   }
+  },
+  {
+   "id": "c5e32756",
+   "w": "어느",
+   "pos": "det",
+   "mean": {
+    "en": "which"
+   },
+   "ex": {
+    "t": "어느 길로 가?",
+    "fr": "Quel chemin prends-tu ?",
+    "en": "Which road are you taking?",
+    "from": null
+   }
+  },
+  {
+   "id": "3c7cf960",
+   "w": "아마도",
+   "pos": "adv",
+   "mean": {
+    "en": "perhaps"
+   },
+   "ex": {
+    "t": "아마도 내일 도착할 거야.",
+    "fr": "J'arriverai peut-être demain.",
+    "en": "Perhaps I'll arrive tomorrow.",
+    "from": null
+   }
+  },
+  {
+   "id": "a5e1127f",
+   "w": "도대체",
+   "pos": "adv",
+   "mean": {
+    "en": "on earth"
+   },
+   "ex": {
+    "t": "도대체 어디 있었어?",
+    "fr": "Mais où étais-tu donc ?",
+    "en": "Where on earth were you?",
+    "from": null
+   }
+  },
+  {
+   "id": "f51b0915",
+   "w": "최고",
+   "pos": "n",
+   "mean": {
+    "en": "the best"
+   },
+   "ex": {
+    "t": "그럼 파리에서 같이 춤추자! 당신이 최고야.",
+    "fr": "Alors dansons ensemble à Paris ! Tu es le meilleur danseur.",
+    "en": "Then let's dance in Paris! You're the best.",
+    "from": "c6-l2"
+   }
+  },
+  {
+   "id": "3e8feb95",
+   "w": "유일하다",
+   "pos": "adj",
+   "mean": {
+    "en": "to be the only"
+   },
+   "ex": {
+    "t": "당신이 나의 유일한 사랑이야.",
+    "fr": "Tu es mon seul amour.",
+    "en": "You are my only love.",
+    "from": null
+   }
+  },
+  {
+   "id": "a4356735",
+   "w": "갑자기",
+   "pos": "adv",
+   "mean": {
+    "en": "suddenly"
+   },
+   "ex": {
+    "t": "갑자기 비가 와.",
+    "fr": "Tout à coup, il pleut.",
+    "en": "Suddenly it's raining.",
+    "from": null
+   }
+  },
+  {
+   "id": "61ff0cb6",
+   "w": "어쨌든",
+   "pos": "adv",
+   "mean": {
+    "en": "anyway"
+   },
+   "ex": {
+    "t": "어쨌든 곧 갈게.",
+    "fr": "En tout cas, j'arrive bientôt.",
+    "en": "Anyway, I'm coming soon.",
+    "from": null
+   }
+  },
+  {
+   "id": "7382fdf2",
+   "w": "이번",
+   "pos": "n",
+   "mean": {
+    "en": "this time"
+   },
+   "ex": {
+    "t": "이번 여행은 반가워.",
+    "fr": "Je vois ce voyage avec plaisir.",
+    "en": "I'm glad about this trip.",
+    "from": "c6-l4"
+   }
+  },
+  {
+   "id": "d63e372b",
+   "w": "그만하다",
+   "pos": "v",
+   "mean": {
+    "en": "to stop"
+   },
+   "ex": {
+    "t": "이제 울음은 그만해.",
+    "fr": "Arrête de pleurer maintenant.",
+    "en": "Stop crying now.",
+    "from": null
+   }
+  },
+  {
+   "id": "4a801307",
+   "w": "분명히",
+   "pos": "adv",
+   "mean": {
+    "en": "clearly, surely"
+   },
+   "ex": {
+    "t": "분명히 편지가 올 거야.",
+    "fr": "La lettre viendra sûrement.",
+    "en": "The letter will surely come.",
+    "from": null
+   }
+  },
+  {
+   "id": "59e11a40",
+   "w": "일단",
+   "pos": "adv",
+   "mean": {
+    "en": "first, for now"
+   },
+   "ex": {
+    "t": "일단 좀 쉬어.",
+    "fr": "D'abord, repose-toi un peu.",
+    "en": "First, get some rest.",
+    "from": null
+   }
+  },
+  {
+   "id": "2c162cb9",
+   "w": "마치",
+   "pos": "adv",
+   "mean": {
+    "en": "as if"
+   },
+   "ex": {
+    "t": "마치 꿈 같아.",
+    "fr": "On dirait un rêve.",
+    "en": "It's like a dream.",
+    "from": null
+   }
+  },
+  {
+   "id": "acb283cd",
+   "w": "금방",
+   "pos": "adv",
+   "mean": {
+    "en": "soon, quickly"
+   },
+   "ex": {
+    "t": "인생은 금방 흩어지는 가벼운 꿈이야.",
+    "fr": "La vie est un songe léger qui se dissipe.",
+    "en": "Life is a light dream that fades away.",
+    "from": "p1"
+   }
+  },
+  {
+   "id": "5d77faf0",
+   "w": "좋아하다",
+   "pos": "v",
+   "mean": {
+    "en": "to like"
+   },
+   "ex": {
+    "t": "나 장미 좋아하잖아.",
+    "fr": "J'aime les roses, tu sais.",
+    "en": "I love roses, you know.",
+    "from": "c7-l4"
+   }
+  },
+  {
+   "id": "1b823c5d",
+   "w": "결국",
+   "pos": "adv",
+   "mean": {
+    "en": "in the end"
+   },
+   "ex": {
+    "t": "그런데 결국 모두 구해 냈어.",
+    "fr": "Mais nous sommes parvenus à tout sauver.",
+    "en": "But in the end we saved it all.",
+    "from": "c3-l6"
+   }
+  },
+  {
+   "id": "179d8fa9",
+   "w": "이유",
+   "pos": "n",
+   "mean": {
+    "en": "reason"
+   },
+   "ex": {
+    "t": "편지가 늦은 이유가 뭐야?",
+    "fr": "Pourquoi la lettre est-elle en retard ?",
+    "en": "Why is the letter late?",
+    "from": null
+   }
+  }
+ ]
+}

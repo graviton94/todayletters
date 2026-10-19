@@ -1409,24 +1409,24 @@
      },
      {
       "who": "them",
-      "de": "Weil ich gehen will. Ich diene dem Erzbischof nie wieder.",
-      "en": "Because I want to leave. I'll never serve the Archbishop again.",
-      "ko": "제가 그만두고 싶어 해서요. 다시는 대주교 밑에서 일 안 해요."
+      "de": "Weil ich gehen will. Ich diene ihm nie wieder.",
+      "en": "Because I want to go. I'll never serve him again.",
+      "ko": "제가 그만두고 싶어서요. 다시는 그분 밑에서 일 안 해요."
      },
      {
       "who": "me",
-      "de": "Ich verstehe dich. Das war wirklich nicht leicht.",
-      "en": "I understand. That really wasn't easy.",
-      "ko": "이해한다. 정말 쉽지 않았겠구나.",
+      "de": "Ohne Geld ist das nicht leicht. Hast du genug?",
+      "en": "Without money that isn't easy. Do you have enough?",
+      "ko": "돈 없이는 쉽지 않아. 돈은 충분하니?",
       "focus": {
        "de": [
         "nicht leicht"
        ],
        "en": [
-        "wasn't easy"
+        "isn't easy"
        ],
        "ko": [
-        "쉽지 않았겠구나"
+        "쉽지 않아"
        ]
       },
       "wrong": {
@@ -1438,14 +1438,14 @@
        ],
        "en": [
         [
-         "weren't easy",
-         "didn't easy"
+         "aren't easy",
+         "doesn't easy"
         ]
        ],
        "ko": [
         [
-         "쉽지 안았겠구나",
-         "쉽지 않았겟구나"
+         "쉽지 안아",
+         "쉽지 않어"
         ]
        ]
       }
@@ -1455,7 +1455,7 @@
      "leicht"
     ],
     "grammar": "V.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -1861,15 +1861,15 @@
      },
      {
       "who": "me",
-      "de": "Iss aber genug, wenn du hungrig wirst!",
-      "en": "But eat enough when you get hungry!",
-      "ko": "그래도 배고프면 꼭 잘 챙겨 먹어!",
+      "de": "Wenn du hungrig bist, bestell dir etwas!",
+      "en": "When you're hungry, order yourself something!",
+      "ko": "배고프면 뭐라도 시켜 먹어!",
       "focus": {
        "de": [
-        "hungrig wirst"
+        "hungrig bist"
        ],
        "en": [
-        "when you get"
+        "When you're hungry"
        ],
        "ko": [
         "배고프면"
@@ -1878,14 +1878,14 @@
       "wrong": {
        "de": [
         [
-         "wirst hungrig",
-         "hungrig wird"
+         "bist hungrig",
+         "hungrig ist"
         ]
        ],
        "en": [
         [
-         "when you gets",
-         "when you getting"
+         "When you hungry",
+         "When you're hungrily"
         ]
        ],
        "ko": [
@@ -1902,7 +1902,7 @@
      "hungrig"
     ],
     "grammar": "V.2",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -3220,7 +3220,7 @@
      {
       "who": "them",
       "de": "Als ich schlafen gehen wollte, kam eine Serenade. Von mir!",
-      "en": "Just as I wanted to go to bed, a serenade came. By me!",
+      "en": "Just before bed, a serenade came. One of mine!",
       "ko": "자려고 할 때 세레나데가 들려왔어요. 제가 쓴 곡이요!"
      },
      {
@@ -3265,7 +3265,7 @@
      "überraschen"
     ],
     "grammar": "V.2",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   }
  ]

@@ -439,74 +439,74 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Allô ! Je pars cette nuit, mais tout va bien.",
-      "en": "Hello! I'm leaving tonight, but everything's fine.",
-      "ko": "여보세요! 오늘 밤 떠나. 그래도 다 괜찮아."
+      "fr": "Allô ! Je suis à Ludwigsburg. Je pars cette nuit.",
+      "en": "Hello! I'm in Ludwigsburg. I leave tonight.",
+      "ko": "여보세요! 나 루트비히스부르크야. 오늘 밤 떠나."
      },
      {
       "who": "me",
-      "fr": "Tu m'appelleras demain ? Je serai à Strasbourg.",
-      "en": "Will you call me tomorrow? I'll be in Strasbourg.",
-      "ko": "내일 출발하기 전에 전화해 줘. 나는 스트라스부르에 있을 거야.",
+      "fr": "Tu es loin de Strasbourg ?",
+      "en": "Are you far from Strasbourg?",
+      "ko": "스트라스부르에서 멀어?",
       "focus": {
        "fr": [
-        "Je serai"
+        "loin de"
        ],
        "en": [
-        "I'll be"
+        "far from"
        ],
        "ko": [
-        "출발하기 전에"
+        "멀어"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Je serais",
-         "Je sera"
+         "loin du",
+         "loin à"
         ]
        ],
        "en": [
         [
-         "I'll am",
-         "I'll being"
+         "far of",
+         "far to"
         ]
        ],
        "ko": [
         [
-         "출발하기 전애",
-         "출발하는 전에"
+         "머러",
+         "멀러"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "D'accord. Ici, il fait superbe et les gens sont très gentils.",
-      "en": "OK. The weather's superb here and people are really nice.",
-      "ko": "알았어. 여기 날씨가 아주 좋고 사람들도 정말 친절해."
+      "fr": "Assez loin. Mais il fait superbe !",
+      "en": "Quite far. But the weather's superb!",
+      "ko": "꽤 멀어. 그래도 날씨가 아주 좋아!"
      },
      {
       "who": "me",
-      "fr": "Tant mieux ! Tu me raconteras tout quand tu reviendras.",
-      "en": "Good! You'll tell me everything when you come back.",
-      "ko": "다행이다! 돌아온 후에 다 얘기해 줘.",
+      "fr": "Et les gens ? Tu me raconteras tout !",
+      "en": "And the people? You'll tell me everything!",
+      "ko": "사람들은? 나중에 다 얘기해 줘!",
       "focus": {
        "fr": [
-        "tu reviendras"
+        "Tu me raconteras"
        ],
        "en": [
         "You'll tell"
        ],
        "ko": [
-        "돌아온 후에"
+        "얘기해 줘"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "tu reviendrais",
-         "tu reviendrai"
+         "Tu me raconterais",
+         "Tu me raconteas"
         ]
        ],
        "en": [
@@ -517,8 +517,8 @@
        ],
        "ko": [
         [
-         "돌아오는 후에",
-         "돌아온 후애"
+         "얘기해 저",
+         "예기해 줘"
         ]
        ]
       }
@@ -529,7 +529,8 @@
      "gens"
     ],
     "grammar": "IV.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -893,15 +894,15 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Allô ! J'ai bien reçu ta lettre. Pourquoi tu t'inquiètes autant ?",
-      "en": "Hello! I got your letter. Why are you so worried?",
-      "ko": "여보세요! 당신 편지 잘 받았어. 왜 그렇게 걱정해?"
+      "fr": "J'ai reçu ta lettre. Pourquoi t'inquiéter ?",
+      "en": "I got your letter. Why worry?",
+      "ko": "편지 받았어. 왜 걱정해?"
      },
      {
       "who": "me",
-      "fr": "Six jours sans nouvelles, c'est long ! Tu m'écriras plus souvent ?",
-      "en": "Six days without news is a long time! Will you write to me more often?",
-      "ko": "엿새나 소식이 없었잖아! 이제 밤에 잠들기 전에 꼭 연락해 줘.",
+      "fr": "Six jours sans nouvelles ! Tu m'écriras plus souvent ?",
+      "en": "Six days without news! Will you write more often?",
+      "ko": "엿새나 소식이 없었잖아! 더 자주 써 줄 거지?",
       "focus": {
        "fr": [
         "Tu m'écriras"
@@ -910,7 +911,7 @@
         "Will you write"
        ],
        "ko": [
-        "잠들기 전에"
+        "써 줄 거지"
        ]
       },
       "wrong": {
@@ -928,23 +929,23 @@
        ],
        "ko": [
         [
-         "잠들 전에",
-         "잠들기 전애"
+         "써 줄 꺼지",
+         "써 즐 거지"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Promis. Hier, j'ai donné un concert pour les dames de la cour.",
-      "en": "Promise. Yesterday I gave a concert for the ladies of the court.",
-      "ko": "약속할게. 어제는 궁정 부인들한테 음악회를 열어 줬어."
+      "fr": "Promis. Hier, j'ai donné un concert pour les dames.",
+      "en": "Promise. Yesterday I gave a concert for the ladies.",
+      "ko": "약속해. 어제 귀부인들한테 음악회를 열어 줬어."
      },
      {
       "who": "me",
       "fr": "Un concert ? Alors j'irai à Munich, moi aussi !",
       "en": "A concert? Then I'll go to Munich too!",
-      "ko": "음악회? 그럼 뮌헨에 가기 전에 나도 새 드레스 사야겠다!",
+      "ko": "음악회? 그럼 나도 뮌헨에 갈래!",
       "focus": {
        "fr": [
         "j'irai"
@@ -953,7 +954,7 @@
         "I'll go"
        ],
        "ko": [
-        "가기 전에"
+        "갈래"
        ]
       },
       "wrong": {
@@ -971,8 +972,8 @@
        ],
        "ko": [
         [
-         "가기 전애",
-         "갈 전에"
+         "갈레",
+         "가을래"
         ]
        ]
       }
@@ -982,7 +983,8 @@
      "concert"
     ],
     "grammar": "IV.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -1331,58 +1333,58 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Je suis à Vienne ! Mais je n'ai vu la ville que la nuit.",
-      "en": "I'm in Vienna! But I've only seen the city at night.",
-      "ko": "나 빈에 왔어! 그런데 도시는 밤에만 봤어."
+      "fr": "Je suis à Vienne depuis deux jours.",
+      "en": "I've been in Vienna for two days.",
+      "ko": "빈에 온 지 이틀 됐어."
      },
      {
       "who": "me",
-      "fr": "Et quand est-ce que je pourrai venir ?",
-      "en": "And when will I be able to come?",
-      "ko": "겨울이 오기 전에 나도 갈 수 있어?",
+      "fr": "Où loges-tu ? En ville ?",
+      "en": "Where are you staying? In town?",
+      "ko": "어디 묵어? 시내에?",
       "focus": {
        "fr": [
-        "je pourrai"
+        "Où loges-tu"
        ],
        "en": [
-        "will I be able"
+        "Where are you staying"
        ],
        "ko": [
-        "오기 전에"
+        "어디 묵어"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "je pouvrai",
-         "je pourrais"
+         "Où loge-tu",
+         "Où tu loges-tu"
         ]
        ],
        "en": [
         [
-         "will I can",
-         "will I able"
+         "Where you are staying",
+         "Where are you stay"
         ]
        ],
        "ko": [
         [
-         "오기 전애",
-         "올 전에"
+         "어디 무거",
+         "어데 묵어"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Bientôt, c'est promis. Je te ferai venir dès que possible.",
-      "en": "Soon, I promise. I'll have you come as soon as possible.",
-      "ko": "곧, 약속해. 되도록 빨리 당신을 부를게."
+      "fr": "À Schönbrunn. Je te ferai venir dès que possible.",
+      "en": "At Schönbrunn. You'll come as soon as possible.",
+      "ko": "쇤브룬에. 되도록 빨리 당신을 부를게."
      },
      {
       "who": "me",
       "fr": "D'accord. Je viendrai avec mes plus belles robes !",
       "en": "OK. I'll come with my prettiest dresses!",
-      "ko": "좋아. 떠나기 전에 제일 예쁜 드레스부터 챙길게!",
+      "ko": "좋아. 제일 예쁜 드레스 입고 갈게!",
       "focus": {
        "fr": [
         "Je viendrai"
@@ -1391,7 +1393,7 @@
         "I'll come"
        ],
        "ko": [
-        "떠나기 전에"
+        "갈게"
        ]
       },
       "wrong": {
@@ -1409,8 +1411,8 @@
        ],
        "ko": [
         [
-         "떠나기 전애",
-         "떠날 전에"
+         "갈께",
+         "가을게"
         ]
        ]
       }
@@ -1421,7 +1423,8 @@
      "possible"
     ],
     "grammar": "IV.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -1806,15 +1809,15 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Tu pars demain pour Bade, puis Stuttgart et Munich.",
-      "en": "You leave tomorrow for Baden, then Stuttgart and Munich.",
-      "ko": "당신은 내일 바덴으로 떠나. 그다음은 슈투트가르트, 뮌헨이야."
+      "fr": "Tu pars pour Bade, puis Stuttgart et Munich.",
+      "en": "You're off to Baden, then Stuttgart and Munich.",
+      "ko": "바덴으로 가. 그다음 슈투트가르트, 뮌헨이야."
      },
      {
       "who": "me",
-      "fr": "D'accord. Je leur apporterai des présents ?",
-      "en": "OK. Shall I bring them presents?",
-      "ko": "알았어. 선물은 내가 다 고를 수 있어.",
+      "fr": "Je leur apporterai des présents ?",
+      "en": "Shall I bring them presents?",
+      "ko": "그 사람들한테 선물을 가져갈까?",
       "focus": {
        "fr": [
         "Je leur apporterai"
@@ -1823,7 +1826,7 @@
         "bring them"
        ],
        "ko": [
-        "고를 수 있어"
+        "가져갈까"
        ]
       },
       "wrong": {
@@ -1841,23 +1844,23 @@
        ],
        "ko": [
         [
-         "고르를 수 있어",
-         "고를 수 이써"
+         "가저갈까",
+         "가져갈가"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Oui. Et sois gentille avec l'électrice, c'est une bonne femme.",
-      "en": "Yes. And be nice to the Electress — she's a good woman.",
-      "ko": "응. 그리고 선제후비한테 잘해 줘. 좋은 사람이야."
+      "fr": "Oui. Et sois gentille avec l'Électrice.",
+      "en": "Yes. And be nice to the Electress.",
+      "ko": "응. 그리고 선제후비한테 잘해 줘."
      },
      {
       "who": "me",
-      "fr": "Promis, je lui parlerai gentiment. Et toi, couvre-toi : il neige !",
-      "en": "Promise, I'll talk to her nicely. And wrap up warm: it's snowing!",
-      "ko": "약속해. 그 사람이랑 잘 지낼 수 있어. 당신은 옷 따뜻하게 입어. 눈 온대!",
+      "fr": "Promis, je lui parlerai. Il neige, là-bas ?",
+      "en": "Promise, I'll talk to her. Is it snowing there?",
+      "ko": "약속해, 그분이랑 잘 얘기할게. 거기 눈 와?",
       "focus": {
        "fr": [
         "je lui parlerai"
@@ -1866,7 +1869,7 @@
         "talk to her"
        ],
        "ko": [
-        "지낼 수 있어"
+        "얘기할게"
        ]
       },
       "wrong": {
@@ -1884,8 +1887,8 @@
        ],
        "ko": [
         [
-         "지낼 수 이써",
-         "지내을 수 있어"
+         "얘기할께",
+         "예기할게"
         ]
        ]
       }
@@ -1895,7 +1898,8 @@
      "neiger"
     ],
     "grammar": "IV.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -2240,9 +2244,9 @@
      },
      {
       "who": "me",
-      "fr": "Pardon ! Munich est plus amusant que Strasbourg, tu sais.",
-      "en": "Sorry! Munich is more fun than Strasbourg, you know.",
-      "ko": "미안! 뮌헨이 스트라스부르보다 더 재미있거든.",
+      "fr": "Pardon ! Munich est plus amusant que Strasbourg.",
+      "en": "Sorry! Munich is more fun than Strasbourg.",
+      "ko": "미안! 뮌헨이 스트라스부르보다 더 재미있어.",
       "focus": {
        "fr": [
         "plus amusant que"
@@ -2277,15 +2281,15 @@
      },
      {
       "who": "them",
-      "fr": "Ah oui ? Et moi, je suis moins important que Munich ?",
-      "en": "Oh really? So I'm less important than Munich?",
-      "ko": "아, 그래? 그럼 나는 뮌헨보다 덜 중요해?"
+      "fr": "Alors je suis moins important que Munich ?",
+      "en": "So I'm less important than Munich?",
+      "ko": "그럼 나는 뮌헨보다 덜 중요해?"
      },
      {
       "who": "me",
-      "fr": "Mais non ! Tu es plus important que tout. Je t'écris ce soir.",
-      "en": "Of course not! You're more important than anything. I'll write to you tonight.",
-      "ko": "아니야! 당신이 세상 무엇보다 더 중요해. 오늘 밤에 편지 쓸게.",
+      "fr": "Mais non ! Tu es plus important que tout.",
+      "en": "Of course not! You're more important than anything.",
+      "ko": "아니야! 당신이 무엇보다 더 중요해.",
       "focus": {
        "fr": [
         "plus important que"
@@ -2323,7 +2327,8 @@
      "grand"
     ],
     "grammar": "IV.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    },
    "_note_register": "ko 는 이 편지만 높임말 (나폴레옹이 tu 대신 vous 로 놀리는 장난을 살림) — 반말 원칙의 예외, 검토 필요"
   },
@@ -2670,7 +2675,7 @@
       "who": "me",
       "fr": "D'accord. Mais tu viendras me voir bientôt ?",
       "en": "OK. But will you come and see me soon?",
-      "ko": "알았어. 그런데 당신 오기 전에 나 다 나을 수 있을까?",
+      "ko": "알았어. 그런데 곧 보러 올 거지?",
       "focus": {
        "fr": [
         "tu viendras"
@@ -2679,7 +2684,7 @@
         "will you come"
        ],
        "ko": [
-        "오기 전에"
+        "올 거지"
        ]
       },
       "wrong": {
@@ -2697,61 +2702,51 @@
        ],
        "ko": [
         [
-         "오기 전애",
-         "올 전에"
+         "올 꺼지",
+         "올 거찌"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Je ne sais pas encore. Je suis assez occupé.",
-      "en": "I don't know yet. I'm quite busy.",
-      "ko": "아직 몰라. 나 꽤 바빠."
+      "fr": "Je ne sais pas encore. Je suis très occupé.",
+      "en": "I don't know yet. I'm very busy.",
+      "ko": "아직 몰라. 많이 바빠."
      },
      {
       "who": "me",
-      "fr": "Je comprends. Dans quelques jours, tu sauras, et tu me le diras.",
-      "en": "I understand. In a few days you'll know, and you'll tell me.",
-      "ko": "이해해. 며칠 지난 후에 정해지면 말해 줘.",
+      "fr": "Je comprends. Tu me le diras, alors ?",
+      "en": "I understand. You'll tell me, then?",
+      "ko": "알겠어. 정해지면 말해 줄 거지?",
       "focus": {
        "fr": [
-        "tu sauras",
-        "tu me le diras"
+        "Tu me le diras"
        ],
        "en": [
-        "you'll know",
-        "you'll tell"
+        "You'll tell"
        ],
        "ko": [
-        "지난 후에"
+        "말해 줄 거지"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "tu savras",
-         "tu saurais"
-        ],
-        [
-         "tu me le dirais",
-         "tu me le disras"
+         "Tu me le dirais",
+         "Tu me le disras"
         ]
        ],
        "en": [
         [
-         "you'll knew",
-         "you'll knowing"
-        ],
-        [
-         "you'll told",
-         "you'll telling"
+         "You'll told",
+         "You'll telling"
         ]
        ],
        "ko": [
         [
-         "지나 후에",
-         "지난 후애"
+         "말해 줄 꺼지",
+         "말해 즐 거지"
         ]
        ]
       }
@@ -2762,7 +2757,8 @@
      "occupé"
     ],
     "grammar": "IV.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -3071,7 +3067,7 @@
       "who": "me",
       "fr": "Merci pour le Moniteur ! Je le lirai ce soir.",
       "en": "Thanks for the Moniteur! I'll read it tonight.",
-      "ko": "『모니퇴르』 고마워요! 자기 전에 읽을게요.",
+      "ko": "『모니퇴르』 고마워요! 오늘 밤에 읽을게요.",
       "focus": {
        "fr": [
         "Je le lirai"
@@ -3080,7 +3076,7 @@
         "I'll read"
        ],
        "ko": [
-        "자기 전에"
+        "읽을게요"
        ]
       },
       "wrong": {
@@ -3098,23 +3094,23 @@
        ],
        "ko": [
         [
-         "자기 전애",
-         "잘 전에"
+         "읽을께요",
+         "일을게요"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Et donne deux baisers à Auguste : un de moi, un de l'Impératrice.",
-      "en": "And give Augusta two kisses: one from me, one from the Empress.",
-      "ko": "그리고 아우구스테한테 뽀뽀 두 번 해 줘. 하나는 내 거, 하나는 황후 거야."
+      "fr": "Donne deux baisers à Auguste, de nous deux.",
+      "en": "Give Augusta two kisses, from us both.",
+      "ko": "아우구스테한테 뽀뽀 두 번 해 줘. 우리 둘 몫이야."
      },
      {
       "who": "me",
       "fr": "Je lui donnerai les deux, c'est promis !",
       "en": "I'll give her both, I promise!",
-      "ko": "둘 다 꼭 전할게요. 저녁 먹은 후에 바로요!",
+      "ko": "둘 다 꼭 전할게요, 약속해요!",
       "focus": {
        "fr": [
         "Je lui donnerai"
@@ -3123,7 +3119,7 @@
         "I'll give"
        ],
        "ko": [
-        "먹은 후에"
+        "전할게요"
        ]
       },
       "wrong": {
@@ -3141,8 +3137,8 @@
        ],
        "ko": [
         [
-         "먹는 후에",
-         "먹은 후애"
+         "전할께요",
+         "전하을게요"
         ]
        ]
       }
@@ -3153,7 +3149,8 @@
      "deux"
     ],
     "grammar": "IV.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Eugène)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Eugène).",
+    "audio": "tb"
    }
   }
  ]

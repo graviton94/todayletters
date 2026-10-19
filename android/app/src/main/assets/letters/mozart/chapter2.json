@@ -403,9 +403,9 @@
     "lines": [
      {
       "who": "them",
-      "de": "Hallo Papa! Wir sind gut in Wasserburg angekommen.",
-      "en": "Hi Papa! We got to Wasserburg safely.",
-      "ko": "안녕하세요, 아빠! 바서부르크에 잘 도착했어요."
+      "de": "Hallo Papa! Wir sind in Wasserburg.",
+      "en": "Hi Papa! We're in Wasserburg.",
+      "ko": "아빠! 바서부르크에 도착했어요."
      },
      {
       "who": "me",
@@ -446,9 +446,9 @@
      },
      {
       "who": "them",
-      "de": "Gut. Du musst dir keine Sorgen machen. Ich passe auf.",
-      "en": "Fine. You mustn't worry. I'm looking after things.",
-      "ko": "잘 지내요. 걱정하실 필요 없어요. 제가 잘 챙길게요."
+      "de": "Gut. Keine Sorge, ich passe auf!",
+      "en": "Fine. Don't worry, I'm looking after things!",
+      "ko": "잘 지내요. 걱정 마세요, 제가 챙겨요!"
      },
      {
       "who": "me",
@@ -492,7 +492,7 @@
      "fragen"
     ],
     "grammar": "II.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -815,14 +815,14 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, ich war heute bei Stein. Seine Klaviere sind super!",
-      "en": "Papa, I was at Stein's today. His pianos are great!",
-      "ko": "아빠, 오늘 슈타인 씨네 갔어요. 피아노가 정말 좋아요!"
+      "de": "Papa, Steins Klaviere gefallen mir sehr!",
+      "en": "Papa, I really like Stein's pianos!",
+      "ko": "아빠, 슈타인 피아노가 정말 좋아요!"
      },
      {
       "who": "me",
-      "de": "Schön! Darfst du dort auch spielen?",
-      "en": "Nice! Are you allowed to play there too?",
+      "de": "Schön! Darfst du dort spielen?",
+      "en": "Nice! Are you allowed to play?",
       "ko": "좋구나! 거기서 연주해도 돼?",
       "focus": {
        "de": [
@@ -858,9 +858,9 @@
      },
      {
       "who": "them",
-      "de": "Ja! Und morgen will ich Orgel spielen.",
-      "en": "Yes! And tomorrow I want to play the organ.",
-      "ko": "네! 그리고 내일은 오르간을 치고 싶어요."
+      "de": "Ja! Morgen will ich Orgel spielen.",
+      "en": "Yes! Tomorrow I want to play organ.",
+      "ko": "네! 내일은 오르간을 치고 싶어요."
      },
      {
       "who": "me",
@@ -904,7 +904,7 @@
      "Arbeit"
     ],
     "grammar": "II.1",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -1209,58 +1209,58 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, das Orchester hier ist groß und sehr gut!",
-      "en": "Papa, the orchestra here is big and very good!",
-      "ko": "아빠, 여기 오케스트라는 크고 정말 잘해요!"
+      "de": "Papa, das Orchester hier ist groß!",
+      "en": "Papa, the orchestra here is big!",
+      "ko": "아빠, 여기 오케스트라가 커요!"
      },
      {
       "who": "me",
-      "de": "Wunderbar! Was machst du morgen?",
-      "en": "Wonderful! What are you doing tomorrow?",
-      "ko": "멋지구나! 내일은 뭐 해?",
+      "de": "Wunderbar! Gefällt es dir?",
+      "en": "Wonderful! Do you like it?",
+      "ko": "멋지구나! 마음에 드니?",
       "focus": {
        "de": [
-        "machst du"
+        "Gefällt es dir"
        ],
        "en": [
-        "are you doing"
+        "Do you like"
        ],
        "ko": [
-        "뭐 해"
+        "드니"
        ]
       },
       "wrong": {
        "de": [
         [
-         "macht du",
-         "mache du"
+         "Gefällst es dir",
+         "Gefällt es dich"
         ]
        ],
        "en": [
         [
-         "is you doing",
-         "are you do"
+         "Does you like",
+         "Do you likes"
         ]
        ],
        "ko": [
         [
-         "뭐 하",
-         "뭐 헤"
+         "들니",
+         "드늬"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "de": "Morgen muss ich zur Fürstin. Sie will mir Stricken beibringen.",
-      "en": "Tomorrow I have to go to the Electress. She wants to teach me knitting.",
-      "ko": "내일은 선제후 부인께 가야 해요. 뜨개질을 가르쳐 주신대요."
+      "de": "Ja! Morgen muss ich zur Kurfürstin.",
+      "en": "Yes! Tomorrow I must see the Electress.",
+      "ko": "네! 내일은 선제후 부인께 가야 해요."
      },
      {
       "who": "me",
-      "de": "Stricken? Na gut. Du musst höflich sein!",
-      "en": "Knitting? Well, all right. You must be polite!",
-      "ko": "뜨개질? 뭐, 좋아. 예의 바르게 해야 해!",
+      "de": "Gut. Du musst höflich sein!",
+      "en": "Good. You must be polite!",
+      "ko": "좋아. 예의 바르게 해야 해!",
       "focus": {
        "de": [
         "musst"
@@ -1299,7 +1299,7 @@
      "müssen"
     ],
     "grammar": "II.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -1601,86 +1601,86 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, ich kann keine Gedichte schreiben. Aber Musik!",
-      "en": "Papa, I can't write poems. But music, yes!",
-      "ko": "아빠, 저는 시는 못 써요. 하지만 음악은 써요!"
+      "de": "Papa, ich kann keine Gedichte schreiben.",
+      "en": "Papa, I can't write poems.",
+      "ko": "아빠, 저는 시를 못 써요."
      },
      {
       "who": "me",
-      "de": "Ich weiß. Was schreibst du gerade?",
-      "en": "I know. What are you writing right now?",
-      "ko": "알아. 지금은 뭘 쓰고 있어?",
+      "de": "Ich weiß. Aber Musik kannst du!",
+      "en": "I know. But you can do music!",
+      "ko": "알아. 그래도 음악은 할 수 있지!",
       "focus": {
        "de": [
-        "schreibst du"
+        "kannst du"
        ],
        "en": [
-        "are you writing"
+        "you can"
        ],
        "ko": [
-        "쓰고 있어"
+        "할 수 있지"
        ]
       },
       "wrong": {
        "de": [
         [
-         "schreibt du",
-         "schreiben du"
+         "kann du",
+         "könnst du"
         ]
        ],
        "en": [
         [
-         "is you writing",
-         "are you write"
+         "you cans",
+         "you can to"
         ]
        ],
        "ko": [
         [
-         "쓰고 있아",
-         "써고 있어"
+         "할 수 잇지",
+         "할 수 있찌"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "de": "Ein Rondo für Cannabichs Tochter. Und Glückwünsche für dich!",
-      "en": "A rondo for Cannabich's daughter. And good wishes for you!",
-      "ko": "칸나비히 씨 딸에게 줄 론도요. 그리고 아빠께 드리는 축하 인사도요!"
+      "de": "Ja! Ein Rondo für Cannabichs Tochter.",
+      "en": "Yes! A rondo for Cannabich's daughter.",
+      "ko": "네! 칸나비히 씨 딸에게 줄 론도요."
      },
      {
       "who": "me",
-      "de": "Danke, mein Sohn! Das ist lieb von dir.",
-      "en": "Thank you, son! That's sweet of you.",
-      "ko": "고마워, 아들! 마음이 참 따뜻하구나.",
+      "de": "Und danke für deine Glückwünsche!",
+      "en": "And thanks for your good wishes!",
+      "ko": "그리고 축하 인사 고맙구나!",
       "focus": {
        "de": [
-        "von dir"
+        "für deine Glückwünsche"
        ],
        "en": [
-        "That's"
+        "thanks for"
        ],
        "ko": [
-        "고마워"
+        "고맙구나"
        ]
       },
       "wrong": {
        "de": [
         [
-         "von dich",
-         "von du"
+         "für deinen Glückwünsche",
+         "für dein Glückwünsche"
         ]
        ],
        "en": [
         [
-         "That are",
-         "That am"
+         "thank for",
+         "thanks to"
         ]
        ],
        "ko": [
         [
-         "고맙어",
-         "고마와"
+         "고맙꾸나",
+         "고마구나"
         ]
        ]
       }
@@ -1691,7 +1691,7 @@
      "Tochter"
     ],
     "grammar": "II.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -2010,9 +2010,9 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, leider habe ich keine gute Nachricht.",
-      "en": "Papa, I'm afraid I don't have good news.",
-      "ko": "아빠, 아쉽게도 좋은 소식이 없어요."
+      "de": "Papa, ich habe keine gute Nachricht.",
+      "en": "Papa, I don't have good news.",
+      "ko": "아빠, 좋은 소식이 없어요."
      },
      {
       "who": "me",
@@ -2053,14 +2053,14 @@
      },
      {
       "who": "them",
-      "de": "Ja, kurz und klar: Der Kurfürst will mich nicht.",
-      "en": "Yes, short and clear: the Elector doesn't want me.",
-      "ko": "네, 짧고 분명하게요. 선제후가 저를 원하지 않아요."
+      "de": "Ja. Der Kurfürst will mich nicht.",
+      "en": "Yes. The Elector doesn't want me.",
+      "ko": "네. 선제후가 저를 원하지 않아요."
      },
      {
       "who": "me",
-      "de": "Das tut mir leid. Aber du darfst nicht aufgeben.",
-      "en": "I'm sorry. But you mustn't give up.",
+      "de": "Schade. Aber du darfst nicht aufgeben.",
+      "en": "Too bad. But you mustn't give up.",
       "ko": "안됐구나. 그래도 포기하면 안 돼.",
       "focus": {
        "de": [
@@ -2100,7 +2100,7 @@
      "bekommen"
     ],
     "grammar": "II.1",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -2420,15 +2420,15 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, ich war mit Freunden auf einem Ausflug.",
-      "en": "Papa, I went on a trip with friends.",
+      "de": "Papa, ich war mit Freunden unterwegs.",
+      "en": "Papa, I went out with friends.",
       "ko": "아빠, 친구들이랑 나들이 다녀왔어요."
      },
      {
       "who": "me",
-      "de": "Ein Ausflug? Und was willst du jetzt machen?",
-      "en": "A trip? And what do you want to do now?",
-      "ko": "나들이? 그럼 이제 뭘 하고 싶어?",
+      "de": "Und was willst du jetzt?",
+      "en": "And what do you want now?",
+      "ko": "그럼 이제 뭘 하고 싶어?",
       "focus": {
        "de": [
         "willst du"
@@ -2463,21 +2463,21 @@
      },
      {
       "who": "them",
-      "de": "Ich will Opern schreiben. Das ist mein größter Wunsch.",
-      "en": "I want to write operas. That's my biggest wish.",
-      "ko": "오페라를 쓰고 싶어요. 그게 제 가장 큰 소원이에요."
+      "de": "Opern! Das ist mein größter Wunsch.",
+      "en": "Operas! That's my greatest wish.",
+      "ko": "오페라요! 그게 제 가장 큰 소원이에요."
      },
      {
       "who": "me",
-      "de": "Ich weiß. Aber ohne feste Stelle ist das schwer.",
-      "en": "I know. But without a steady job that's hard.",
-      "ko": "알아. 하지만 일자리 없이는 쉽지 않아.",
+      "de": "Ich weiß. Aber das ist schwer.",
+      "en": "I know. But that's hard.",
+      "ko": "알아. 하지만 그건 쉽지 않아.",
       "focus": {
        "de": [
-        "ohne feste Stelle"
+        "das ist schwer"
        ],
        "en": [
-        "that's"
+        "that's hard"
        ],
        "ko": [
         "쉽지 않아"
@@ -2486,14 +2486,14 @@
       "wrong": {
        "de": [
         [
-         "ohne fester Stelle",
-         "ohne festen Stelle"
+         "das sind schwer",
+         "das bist schwer"
         ]
        ],
        "en": [
         [
-         "that are",
-         "that am"
+         "that are hard",
+         "that's hardly"
         ]
        ],
        "ko": [
@@ -2510,7 +2510,7 @@
      "schwer"
     ],
     "grammar": "II.1",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -2809,8 +2809,8 @@
      },
      {
       "who": "me",
-      "de": "Sei nicht traurig. Es ist nicht deine Schuld.",
-      "en": "Don't be sad. It's not your fault.",
+      "de": "Sei nicht traurig. Nicht deine Schuld!",
+      "en": "Don't be sad. Not your fault!",
       "ko": "슬퍼하지 마. 네 잘못이 아니야.",
       "focus": {
        "de": [
@@ -2846,43 +2846,43 @@
      },
      {
       "who": "them",
-      "de": "Ich gehe nach Paris und arbeite mit aller Kraft.",
-      "en": "I'm going to Paris and I'll work with all my strength.",
-      "ko": "파리에 가서 온 힘을 다해 일할게요."
+      "de": "In Paris will ich viel arbeiten.",
+      "en": "In Paris I want to work hard.",
+      "ko": "파리에서 열심히 일할 거예요."
      },
      {
       "who": "me",
-      "de": "Gut. Aber pass auf dich auf und schreib oft!",
-      "en": "Good. But take care of yourself and write often!",
-      "ko": "좋아. 몸 조심하고 편지 자주 써!",
+      "de": "Es ist kalt. Zieh dich warm an!",
+      "en": "It's cold. Dress warmly!",
+      "ko": "추워. 옷 따뜻하게 입어!",
       "focus": {
        "de": [
-        "schreib"
+        "Zieh dich"
        ],
        "en": [
-        "take care"
+        "Dress warmly"
        ],
        "ko": [
-        "자주 써"
+        "입어"
        ]
       },
       "wrong": {
        "de": [
         [
-         "schreibst",
-         "schreibt"
+         "Ziehst dich",
+         "Zieht dich"
         ]
        ],
        "en": [
         [
-         "takes care",
-         "taking care"
+         "Dresses warmly",
+         "Dressing warmly"
         ]
        ],
        "ko": [
         [
-         "자주 쓰어",
-         "자주 써어"
+         "입아",
+         "이버"
         ]
        ]
       }
@@ -2893,7 +2893,7 @@
      "arbeiten"
     ],
     "grammar": "II.2",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   }
  ]

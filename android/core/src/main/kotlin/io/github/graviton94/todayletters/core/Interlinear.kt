@@ -159,12 +159,14 @@ object Interlinear {
  * 기본은 도움 등급 A1 · A2 (‘도움 한 단계 더’ 포함) 에서 켜짐, B1 부터 꺼짐. 작품 설정에서 켜고 끈다 ([on]).
  */
 object WarmUp {
-    enum class Kind { WORD, PHRASE, ANCHOR }
-    /** 예열 한 장: [kind] 와 그 번호 (카드 낱말 번호 · 표현 번호 · 닻 번호). */
+    enum class Kind { WORD, PHRASE, ANCHOR, TALK }
+    /** 예열 한 장: [kind] 와 그 번호 (카드 낱말 번호 · 표현 번호 · 닻 번호 · 회화 줄 번호). */
     data class Item(val kind: Kind, val index: Int)
 
     const val WORDS = 3
     const val MAX = 4
+    /** 오늘 말해 볼 말: 오늘의 회화 내 줄 (“me”) 가운데 앞 두 줄. */
+    const val TALK = 2
 
     /** 켜졌나: [choice] 가 null 이면 (등급에 맞춰) 도움 등급이 A2 이하일 때. */
     fun on(choice: Boolean?, band: Reading.Band): Boolean = choice ?: (band <= Reading.Band.A2)
@@ -173,13 +175,15 @@ object WarmUp {
      * 고르기. [words] = 카드 낱말마다 (편지에 처음 나오는 토큰 자리, 이미 아는가) — 자리가 없으면 Int.MAX_VALUE.
      * [phrases] = 표현마다 (낱말 수, 처음 자리), [anchors] = 이 편지에 나오는 아직 안 익힌 닻 (번호, 처음 자리).
      * 모르는 카드 낱말을 나온 차례로 [WORDS] 개 + 덩어리 하나 (닻 → 짧은 표현), 덩어리가 없으면 낱말 하나 더.
+     * 그 뒤에 [talk] (오늘의 회화 내 줄 번호, 차례대로) 앞 [TALK] 줄 = ‘오늘 말해 볼 말’.
      * 두 장이 안 되면 빈 목록 (예열 없이 바로 편지).
      */
-    fun pick(words: List<Pair<Int, Boolean>>, phrases: List<Pair<Int, Int>>, anchors: List<Pair<Int, Int>>): List<Item> {
+    fun pick(words: List<Pair<Int, Boolean>>, phrases: List<Pair<Int, Int>>, anchors: List<Pair<Int, Int>>, talk: List<Int> = emptyList()): List<Item> {
         val ws = words.withIndex().filter { !it.value.second && it.value.first != Int.MAX_VALUE }.sortedBy { it.value.first }.map { it.index }
         val chunk = anchors.minByOrNull { it.second }?.let { Item(Kind.ANCHOR, it.first) }
             ?: phrases.withIndex().filter { it.value.first in 2..Interlinear.PHRASE_MAX }.minByOrNull { it.value.second }?.let { Item(Kind.PHRASE, it.index) }
-        val out = ws.take(if (chunk == null) MAX else WORDS).map { Item(Kind.WORD, it) } + listOfNotNull(chunk)
+        val out = ws.take(if (chunk == null) MAX else WORDS).map { Item(Kind.WORD, it) } + listOfNotNull(chunk) +
+            talk.distinct().take(TALK).map { Item(Kind.TALK, it) }
         return if (out.size < 2) emptyList() else out
     }
 }

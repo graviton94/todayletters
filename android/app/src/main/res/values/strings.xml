@@ -255,7 +255,7 @@
     <string name="shadow_check">Compare the original with your voice, then go on.</string>
     <string name="shadow_orig">Original</string>
     <string name="shadow_mine">My voice</string>
-    <string name="shadow_talk">Speak</string>
+    <string name="shadow_talk">Say it today %1$d / %2$d</string>
     <string name="shadow_stop">Done</string>
     <string name="shadow_next">Next</string>
     <string name="shadow_finish">I\'ve read it all along</string>
@@ -655,6 +655,14 @@
     <string name="warm_skip">Skip</string>
     <string name="warm_anchor">Often in these letters</string>
     <string name="warm_phrase">Phrase</string>
+    <string name="warm_talk">Say it today</string>
+    <string name="basic_tag">Basic word</string>
+    <string name="basic_from_letter">From the letters</string>
+    <string name="basic_example">Example</string>
+    <string name="basic_example_note">A sentence written by the app</string>
+    <string name="a11y_listen_sentence">Listen to the sentence</string>
+    <string name="basics_count">Basic words %1$d / %2$d</string>
+    <string name="basics_sub">of the %1$d most used</string>
     <string name="set_warm">Warm-up before each letter</string>
     <string name="anchor_note_ko">이 편⁠지⁠들⁠에 자⁠주 나⁠오⁠는 말</string>
     <string name="anchor_note_en">A phrase that keeps coming back in these letters</string>

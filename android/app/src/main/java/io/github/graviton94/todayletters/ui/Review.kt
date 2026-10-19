@@ -235,7 +235,7 @@ private fun ModeRow(title: String, desc: String, badge: String?, enabled: Boolea
 
 /** 문제 하나. */
 /** [ipa] 는 카드의 발음 줄 그대로 (괄호까지, [io.github.graviton94.todayletters.core.Pron.line]), [pronNote] 는 한국어 소리 규칙 한 줄. */
-private data class Q(val card: Card, val kind: ReviewKind, val word: String, val meaning: String, val ipa: String, val audio: String,
+internal data class Q(val card: Card, val kind: ReviewKind, val word: String, val meaning: String, val ipa: String, val audio: String,
                      val sentence: String?, val sentenceRead: String?, val sentenceAudio: String?, val options: List<String>, val learn: Lang, val read: Lang,
                      /** 소리로 읽히는 전체 (“study (sketch)”). 그 안의 [typeFrom] 부터 [word] 길이만 쓰고 나머지는 미리 보여 준다. */
                      val full: String = word, val typeFrom: Int = 0,
@@ -251,7 +251,10 @@ private data class Q(val card: Card, val kind: ReviewKind, val word: String, val
                      val series: String = "", val chapter: String = "", val letter: io.github.graviton94.todayletters.core.Letter? = null, val msg: Int = -1,
                      /** 말투 바꿔 보기 ([CardRef.style]): 0 아님, 1 반말로, 2 높임으로. [word] 는 해요체 문장, [meaning] 은 정답 말투 문장. */
                      val style: Int = 0,
-                     val pronNote: String = "")
+                     val pronNote: String = "",
+                     /** 기초 낱말 카드 ([CardRef.basic]): 덱 한 줄 · 품사 · 예문 소리 · 예문 번역 (앱 글자 언어 [exLang]). 아니면 null. */
+                     val basic: io.github.graviton94.todayletters.core.BasicItem? = null, val pos: String = "",
+                     val exAudio: String = "", val exTranslation: String = "", val exLang: Lang = Lang.EN)
 
 /** 복습 문장 (빈칸 · 문장 힌트): 낱말을 누르면 뜻. 문장이 나온 자리를 모르면 그냥 글자. */
 @Composable
@@ -499,6 +502,9 @@ fun Session(s: AppState, r: Route.Session) {
                         Text(q.word, style = Type.heading.of(Lang.KO), color = p.ink)
                     }
                     Text(stringResource(if (q.style == 1) R.string.style_ask_low else R.string.style_ask_high), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth())
+                } else if (q.basic != null) {
+                    BasicCardPanel(s, q, revealed = mark != null)
+                    Text(stringResource(R.string.meaning_prompt), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth())
                 } else {
                     LabelCard(q, tag, if (q.audio.isEmpty()) null else ({ sp -> s.narrator.play(q.audio, sp) }))
                     Text(stringResource(R.string.meaning_prompt), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth())
@@ -838,7 +844,8 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
     val fresh = only == null && keys.isNullOrEmpty() && kind == null && !free
     val pool = if (only != null) cards.filter { it.key in (keys ?: emptyList()) }
         else keys?.mapNotNull { k -> cards.firstOrNull { it.key == k } }?.takeIf { it.isNotEmpty() }
-        ?: if (fresh) s.dueCards(s.current)
+        // 새 판이면 오늘의 새 기초 낱말을 이때 카드함에 들인다 (하루 한 번, core Basics.session)
+        ?: if (fresh) s.startReview(s.current)
         // 자유 연습: 연 장들의 카드에서 무작위로 (어느 편지든), 넉넉히 뽑아 소리 없는 것을 건너뛰고도 한 판이 차게
         else if (free) Memory.freeSet(s.seriesCards(), s.openedChapters(), seed, s.today, n = Memory.DAILY * 2).map { it.first }
         // 꼴별 연습: 지금 작품의 카드, 낮은 칸 · 오래된 것부터 (F08)
@@ -910,6 +917,8 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         // 듣고 쓰기는 첫 뜻 하나만 (“flower, blossom” → flower): 쉼표 · 괄호까지 치지 않게
         val answerWord = when (k) { ReviewKind.BLANK -> formInText!!; ReviewKind.DICTATION, ReviewKind.SPEAK -> dictSense; else -> learnWord }
         val side = if (k == ReviewKind.MEANING) view.read else view.learn
+        // 기초 낱말 예문의 번역: 앱 글자 언어 (배우는 말이 바로 그 말이면 다른 하나, Vocab.glossLang)
+        val exLang = io.github.graviton94.todayletters.core.Vocab.glossLang(if (s.app.ui == io.github.graviton94.todayletters.core.UiLang.KO) Lang.KO else Lang.EN, view.learn)
         // 미끼는 정답과 같은 갈래 · 같은 작품에서 (낱말 ↔ 낱말, 표현 ↔ 표현, 답장 ↔ 문장), 같은 뜻 · 같은 낱말 · 빈 글은 빼고 (core Distractors)
         val myKind = Distractors.kindOf(ref?.phrase?.let { it >= 0 } == true, isReply)
         fun kindOfKey(key: String) = CardRef.parse(key).let { r -> Distractors.kindOf(r?.phrase?.let { it >= 0 } == true, r?.reply == true || r?.style == true) }
@@ -933,7 +942,10 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
             phrase = phrase?.text?.trim()?.split(Regex("\\s+")), range = phrase?.let { it.start..it.end },
             letterNo = roman(w.chapters.flatMap { it.letters }.indexOf(l) + 1), date = l.date, place = l.place, plate = l.plate?.image.orEmpty(),
             fromQuote = mine != null, series = w.series.id, chapter = ch, letter = l, msg = hit,
-            pronNote = io.github.graviton94.todayletters.core.Pron.note(word, view.learn, if (view.read == Lang.KO || view.read == Lang.EN) view.read else Lang.EN))
+            pronNote = io.github.graviton94.todayletters.core.Pron.note(word, view.learn, if (view.read == Lang.KO || view.read == Lang.EN) view.read else Lang.EN),
+            basic = found.basic, pos = word.pos,
+            exAudio = found.basic?.let { b -> s.basicAudio(w.series.id, io.github.graviton94.todayletters.core.Basics.exampleAudio(view.learn, b.id)) }.orEmpty(),
+            exTranslation = found.basic?.ex?.let { x -> exLang.let { el -> x.tr[el] ?: x.tr.values.firstOrNull() } }.orEmpty(), exLang = exLang)
     }.let { if (practice) it.take(Memory.DAILY) else it }.toList()
         .let { qs -> if (fresh) qs.sortedBy { io.github.graviton94.todayletters.core.Journey.order(it.kind) } else qs }
 }
@@ -1122,6 +1134,7 @@ private fun PostcardGlyph(c: Color) = Canvas(Modifier.size(18.dp)) {
 @Composable
 internal fun letterTag(s: AppState, cardKey: String): String {
     val cw = remember(cardKey) { s.cardWord(cardKey) } ?: return ""
+    if (cw.basic != null) return stringResource(R.string.basic_tag)
     val n = remember(cardKey) { cw.work.chapters.flatMap { it.letters }.indexOf(cw.at.second) + 1 }
     val date = cw.at.second.date.takeIf { it.length >= 7 }?.let { dateLine(it.take(7), "") }
     return listOfNotNull(if (n > 0) stringResource(R.string.letter_n, roman(n)) else null, date).joinToString(" · ")

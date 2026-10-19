@@ -485,7 +485,7 @@
      {
       "who": "them",
       "de": "Hallo Papa! Schneit es in Salzburg auch so viel?",
-      "en": "Hi Papa! Is it snowing this much in Salzburg too?",
+      "en": "Hi Papa! Does Salzburg get this much snow?",
       "ko": "안녕하세요, 아빠! 잘츠부르크에도 눈이 이렇게 많이 와요?"
      },
      {
@@ -573,7 +573,7 @@
      "gefallen"
     ],
     "grammar": "IV.1",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -957,15 +957,15 @@
      },
      {
       "who": "me",
-      "de": "Mach sie ihm. Er ist alt, sei nett zu ihm.",
-      "en": "Do it for him. He's old, be kind to him.",
-      "ko": "고쳐 드려라. 나이 드신 분이니 잘해 드려.",
+      "de": "Ja, er ist alt. Sei nett zu ihm.",
+      "en": "Yes, he's old. Be kind to him.",
+      "ko": "그래, 연세가 많으시니 잘해 드려.",
       "focus": {
        "de": [
         "zu ihm"
        ],
        "en": [
-        "be kind to him"
+        "Be kind to him"
        ],
        "ko": [
         "잘해 드려"
@@ -980,8 +980,8 @@
        ],
        "en": [
         [
-         "be kind to he",
-         "is kind to him"
+         "Be kind to he",
+         "Is kind to him"
         ]
        ],
        "ko": [
@@ -998,7 +998,7 @@
      "zeigen"
     ],
     "grammar": "IV.1",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -1806,14 +1806,14 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, kommst du bald nach München zu meiner Oper?",
-      "en": "Papa, are you coming to Munich for my opera soon?",
-      "ko": "아빠, 곧 제 오페라 보러 뮌헨에 오실 거죠?"
+      "de": "Papa, kommst du zu meiner Oper?",
+      "en": "Papa, are you coming to my opera?",
+      "ko": "아빠, 제 오페라 보러 오세요?"
      },
      {
       "who": "me",
-      "de": "Ja, gern! Ich werde mit Nannerl kommen.",
-      "en": "Yes, gladly! I'll come with Nannerl.",
+      "de": "Ja! Ich werde mit Nannerl kommen.",
+      "en": "Yes! I'll come with Nannerl.",
       "ko": "그럼! 난네를이랑 같이 갈 거야.",
       "focus": {
        "de": [
@@ -1855,37 +1855,37 @@
      },
      {
       "who": "me",
-      "de": "Das weiß ich noch nicht. Ich werde dir bald schreiben.",
-      "en": "I don't know yet. I'll write to you soon.",
-      "ko": "아직 몰라. 곧 편지할게.",
+      "de": "Bald. Wie finde ich deine Wohnung?",
+      "en": "Soon. How do I find your place?",
+      "ko": "곧. 네 집은 어떻게 찾아가?",
       "focus": {
        "de": [
-        "dir"
+        "Wie finde ich"
        ],
        "en": [
-        "I'll write"
+        "How do I find"
        ],
        "ko": [
-        "편지할게"
+        "찾아가"
        ]
       },
       "wrong": {
        "de": [
         [
-         "dich",
-         "du"
+         "Wie findest ich",
+         "Wie findet ich"
         ]
        ],
        "en": [
         [
-         "I'll writes",
-         "I'll wrote"
+         "How does I find",
+         "How do I finds"
         ]
        ],
        "ko": [
         [
-         "편지할께",
-         "편지할개"
+         "차자가",
+         "찾아거"
         ]
        ]
       }
@@ -1896,7 +1896,7 @@
      "ankommen"
     ],
     "grammar": "IV.2",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -2277,80 +2277,80 @@
      },
      {
       "who": "me",
-      "de": "Wie schön! War der Kurfürst auch da?",
-      "en": "How lovely! Was the Elector there too?",
-      "ko": "잘됐구나! 선제후도 오셨어?",
+      "de": "Wie schön! Wo war die Probe?",
+      "en": "How lovely! Where was the rehearsal?",
+      "ko": "잘됐구나! 리허설은 어디서 했어?",
       "focus": {
        "de": [
-        "War"
+        "Wo"
        ],
        "en": [
-        "Was"
+        "Where"
        ],
        "ko": [
-        "오셨어"
+        "어디서"
        ]
       },
       "wrong": {
        "de": [
         [
-         "Warst",
-         "Waren"
+         "Wer",
+         "Wann"
         ]
        ],
        "en": [
         [
-         "Were",
-         "Is been"
+         "Who",
+         "When"
         ]
        ],
        "ko": [
         [
-         "오셧어",
-         "왔셨어"
+         "어디서서",
+         "어디사"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "de": "Ja! Er hat Bravo gerufen und war sehr freundlich.",
-      "en": "Yes! He called out bravo and was very kind.",
-      "ko": "네! 브라보를 외치시고 아주 친절하셨어요."
+      "de": "Im Schloss, in einem großen Saal.",
+      "en": "In the palace, in a big hall.",
+      "ko": "궁전의 큰 방에서요."
      },
      {
       "who": "me",
-      "de": "Ich gratuliere dir! Das gefällt mir sehr.",
-      "en": "Congratulations! I'm really pleased.",
-      "ko": "축하한다! 정말 기쁘구나.",
+      "de": "Und der Kurfürst? War er freundlich zu dir?",
+      "en": "And the Elector? Was he kind to you?",
+      "ko": "선제후는? 너한테 친절하셨어?",
       "focus": {
        "de": [
-        "gefällt mir"
+        "zu dir"
        ],
        "en": [
-        "I'm"
+        "Was he kind"
        ],
        "ko": [
-        "기쁘구나"
+        "너한테"
        ]
       },
       "wrong": {
        "de": [
         [
-         "gefällt mich",
-         "gefalle mir"
+         "zu dich",
+         "zu du"
         ]
        ],
        "en": [
         [
-         "I's",
-         "I are"
+         "Were he kind",
+         "Was he kindly"
         ]
        ],
        "ko": [
         [
-         "기뻐구나",
-         "기쁘군아"
+         "너헌테",
+         "너한태"
         ]
        ]
       }
@@ -2361,7 +2361,7 @@
      "freundlich"
     ],
     "grammar": "IV.1",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -2740,9 +2740,9 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, dein Brief war zuerst leer! Nur weißes Papier.",
-      "en": "Papa, your letter looked blank at first! Just white paper.",
-      "ko": "아빠, 편지가 처음엔 비어 있었어요! 하얀 종이뿐이었어요."
+      "de": "Papa, dein Brief war leer! Nur weißes Papier.",
+      "en": "Papa, your letter was blank! Just white paper.",
+      "ko": "아빠, 편지가 비어 있었어요! 하얀 종이뿐이에요."
      },
      {
       "who": "me",
@@ -2830,7 +2830,7 @@
      "Papier"
     ],
     "grammar": "IV.2",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -3187,8 +3187,8 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, verzeih mir den kurzen Brief! Ich muss zur Probe.",
-      "en": "Papa, forgive the short letter! I have to go to rehearsal.",
+      "de": "Papa, verzeih den kurzen Brief! Ich muss zur Probe.",
+      "en": "Papa, forgive the short letter! I'm off to rehearsal.",
       "ko": "아빠, 편지가 짧아서 죄송해요! 리허설 가야 해요."
      },
      {
@@ -3277,7 +3277,7 @@
      "mitnehmen"
     ],
     "grammar": "IV.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   }
  ]

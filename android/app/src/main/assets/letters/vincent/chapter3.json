@@ -449,21 +449,21 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Théo, j'ai peint toute la nuit, trois nuits !",
-      "en": "Theo, I painted all night, three nights!",
-      "ko": "테오, 밤새 그렸어. 사흘 밤이나!"
+      "fr": "Théo, j'ai peint trois nuits de suite !",
+      "en": "Theo, I painted three nights in a row!",
+      "ko": "테오, 사흘 밤을 내리 그렸어!"
      },
      {
       "who": "me",
-      "fr": "Trois nuits ? Tu as dormi un peu ?",
-      "en": "Three nights? Did you sleep a bit?",
-      "ko": "사흘이나? 잠은 좀 잤어?",
+      "fr": "Trois nuits ? Tu as dormi quand ?",
+      "en": "Three nights? When did you sleep?",
+      "ko": "사흘 밤이나? 언제 잤어?",
       "focus": {
        "fr": [
         "Tu as dormi"
        ],
        "en": [
-        "Did you sleep"
+        "did you sleep"
        ],
        "ko": [
         "잤어"
@@ -478,13 +478,13 @@
        ],
        "en": [
         [
-         "Did you slept",
-         "Do you slept"
+         "did you slept",
+         "you did sleep"
         ]
        ],
        "ko": [
         [
-         "자었어",
+         "잣어",
          "잤아"
         ]
        ]
@@ -492,43 +492,58 @@
      },
      {
       "who": "them",
-      "fr": "Oui, le jour. Le café est rouge et vert.",
-      "en": "Yes, in the daytime. The café is red and green.",
-      "ko": "응, 낮에. 카페는 빨강이랑 초록이야."
+      "fr": "Le jour. Le café est rouge et vert.",
+      "en": "By day. The café is red and green.",
+      "ko": "낮에. 카페는 빨강이랑 초록이야."
      },
      {
       "who": "me",
-      "fr": "Et toi, ça va ? Tu n'as pas froid la nuit ?",
-      "en": "And you, OK? Aren't you cold at night?",
-      "ko": "형은 괜찮아? 밤에 춥지 않았어?",
+      "fr": "Tu as fini à quelle heure ?",
+      "en": "What time did you finish?",
+      "ko": "몇 시에 끝냈어?",
       "focus": {
        "fr": [
-        "Tu n'as pas"
+        "Tu as fini",
+        "à quelle heure"
        ],
        "en": [
-        "Aren't you"
+        "What time",
+        "did you finish"
        ],
        "ko": [
-        "춥지 않았어"
+        "몇 시에",
+        "끝냈어"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Tu n'es pas",
-         "Tu ne as pas"
+         "Tu es fini",
+         "Tu as finis"
+        ],
+        [
+         "à quel heure",
+         "à quelle heures"
         ]
        ],
        "en": [
         [
-         "Isn't you",
-         "Don't you"
+         "What hour",
+         "Which time"
+        ],
+        [
+         "did you finished",
+         "you did finish"
         ]
        ],
        "ko": [
         [
-         "춥지 안았어",
-         "춥지 않었어"
+         "멫 시에",
+         "몇 시애"
+        ],
+        [
+         "끝냇어",
+         "끝넀어"
         ]
        ]
       }
@@ -539,10 +554,7 @@
      "vert"
     ],
     "grammar": "III.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -900,9 +912,9 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Théo, j'ai acheté des meubles pour la maison.",
-      "en": "Theo, I've bought some furniture for the house.",
-      "ko": "테오, 집에 둘 가구를 샀어."
+      "fr": "Théo, j'ai acheté des meubles.",
+      "en": "Theo, I've bought some furniture.",
+      "ko": "테오, 가구를 샀어."
      },
      {
       "who": "me",
@@ -943,43 +955,58 @@
      },
      {
       "who": "them",
-      "fr": "Pas encore. Je dois ajouter des choses. Tu peux m'aider ?",
-      "en": "Not yet. I need to add a few things. Can you help me?",
-      "ko": "아직. 더 들일 게 있어. 좀 도와줄 수 있어?"
+      "fr": "Pas encore. Je dois ajouter des choses.",
+      "en": "Not yet. I need to add some things.",
+      "ko": "아직. 더 들일 게 있어."
      },
      {
       "who": "me",
-      "fr": "Bien sûr. Je t'envoie cent francs, d'accord ?",
-      "en": "Of course. I'll send you a hundred francs, OK?",
-      "ko": "물론이지. 100프랑 보낼게, 괜찮아?",
+      "fr": "Je t'envoie cent francs cette semaine.",
+      "en": "I'll send you a hundred francs this week.",
+      "ko": "이번 주에 100프랑 보낼게.",
       "focus": {
        "fr": [
-        "Je t'envoie"
+        "cent francs",
+        "cette semaine"
        ],
        "en": [
-        "I'll send you"
+        "a hundred francs",
+        "this week"
        ],
        "ko": [
+        "이번 주에",
         "보낼게"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Je te envoie",
-         "Je t'envoies"
+         "cents francs",
+         "cent franc"
+        ],
+        [
+         "ce semaine",
+         "cet semaine"
         ]
        ],
        "en": [
         [
-         "I'll sends you",
-         "I'll sent you"
+         "a hundreds francs",
+         "hundred of francs"
+        ],
+        [
+         "these week",
+         "this weeks"
         ]
        ],
        "ko": [
         [
+         "이번 주애",
+         "이벙 주에"
+        ],
+        [
          "보낼께",
-         "보낸게"
+         "보날게"
         ]
        ]
       }
@@ -989,10 +1016,7 @@
      "ajouter"
     ],
     "grammar": "III.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1360,15 +1384,73 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Bonsoir, Théo ! Je suis allé peindre les étoiles.",
-      "en": "Good evening, Theo! I went out to paint the stars.",
-      "ko": "안녕, 테오! 별을 그리러 나갔다 왔어."
+      "fr": "Bonsoir ! Je suis sorti peindre les étoiles.",
+      "en": "Evening! I went out to paint the stars.",
+      "ko": "안녕! 별을 그리러 나갔다 왔어."
      },
      {
       "who": "me",
-      "fr": "La nuit ? Tu es sorti avec une lampe ?",
-      "en": "At night? Did you go out with a lamp?",
-      "ko": "밤에? 등불 들고 나갔어?",
+      "fr": "La nuit ? Tu es rentré à quelle heure ?",
+      "en": "At night? What time did you get back?",
+      "ko": "밤에? 몇 시에 들어왔어?",
+      "focus": {
+       "fr": [
+        "Tu es rentré",
+        "à quelle heure"
+       ],
+       "en": [
+        "What time",
+        "did you get back"
+       ],
+       "ko": [
+        "몇 시에",
+        "들어왔어"
+       ]
+      },
+      "wrong": {
+       "fr": [
+        [
+         "Tu as rentré",
+         "Tu es rentrée"
+        ],
+        [
+         "à quel heure",
+         "à quelle heures"
+        ]
+       ],
+       "en": [
+        [
+         "What hour",
+         "Which time"
+        ],
+        [
+         "did you got back",
+         "you did get back"
+        ]
+       ],
+       "ko": [
+        [
+         "멫 시에",
+         "몇 시애"
+        ],
+        [
+         "들어왓어",
+         "드러왔어"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "fr": "Tard ! Mais le tableau est enfin fini.",
+      "en": "Late! But the painting is finally finished.",
+      "ko": "늦게! 그래도 드디어 그림이 끝났어."
+     },
+     {
+      "who": "me",
+      "fr": "Bravo ! Tu es sorti avec une lampe ?",
+      "en": "Bravo! Did you go out with a lamp?",
+      "ko": "잘했어! 등불 들고 나갔어?",
       "focus": {
        "fr": [
         "Tu es sorti"
@@ -1390,56 +1472,13 @@
        "en": [
         [
          "Did you went out",
-         "Do you went out"
+         "Do you go out"
         ]
        ],
        "ko": [
         [
          "나갓어",
-         "나가었어"
-        ]
-       ]
-      }
-     },
-     {
-      "who": "them",
-      "fr": "Oui, sous le gaz. Le tableau est enfin fini !",
-      "en": "Yes, under the gas lamp. The painting is finished at last!",
-      "ko": "응, 가스등 아래서. 드디어 그림이 끝났어!"
-     },
-     {
-      "who": "me",
-      "fr": "Bravo ! Tu es rentré tard, non ?",
-      "en": "Well done! You got back late, didn't you?",
-      "ko": "잘했어! 늦게 들어왔지?",
-      "focus": {
-       "fr": [
-        "Tu es rentré"
-       ],
-       "en": [
-        "You got back"
-       ],
-       "ko": [
-        "들어왔지"
-       ]
-      },
-      "wrong": {
-       "fr": [
-        [
-         "Tu as rentré",
-         "Tu es rentrés"
-        ]
-       ],
-       "en": [
-        [
-         "You get back",
-         "You gotten back"
-        ]
-       ],
-       "ko": [
-        [
-         "들어왓지",
-         "들어오었지"
+         "낫갔어"
         ]
        ]
       }
@@ -1450,10 +1489,7 @@
      "tableau"
     ],
     "grammar": "III.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1789,9 +1825,9 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Théo, j'ai reçu les portraits de Gauguin et Bernard.",
-      "en": "Theo, I've received the portraits of Gauguin and Bernard.",
-      "ko": "테오, 고갱이랑 베르나르 초상화를 받았어."
+      "fr": "Théo, j'ai reçu deux portraits !",
+      "en": "Theo, I've received two portraits!",
+      "ko": "테오, 초상화 두 점을 받았어!"
      },
      {
       "who": "me",
@@ -1832,9 +1868,9 @@
      },
      {
       "who": "them",
-      "fr": "Très content. J'ai fait mon portrait, un peu japonais.",
-      "en": "Very happy. I've done my own portrait, a bit Japanese.",
-      "ko": "정말 기뻐. 내 자화상도 그렸어, 좀 일본풍으로."
+      "fr": "Oui ! J'ai fait mon portrait, un peu japonais.",
+      "en": "Yes! I did my portrait, a bit Japanese.",
+      "ko": "응! 내 자화상도 그렸어, 좀 일본풍으로."
      },
      {
       "who": "me",
@@ -1879,10 +1915,7 @@
      "japonais"
     ],
     "grammar": "III.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2210,86 +2243,91 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Merci, Théo. Je suis resté sans argent jusqu'à lundi.",
-      "en": "Thanks, Theo. I was left without money until Monday.",
-      "ko": "고마워, 테오. 월요일까지 돈 없이 지냈어."
+      "fr": "Merci, Théo ! Je suis resté sans argent.",
+      "en": "Thanks, Theo! I was left without money.",
+      "ko": "고마워, 테오! 돈 없이 지냈어."
      },
      {
       "who": "me",
-      "fr": "Oh non, pardon ! Tu as mangé quoi ?",
-      "en": "Oh no, sorry! What did you eat?",
-      "ko": "저런, 미안해! 뭘 먹었어?",
+      "fr": "Oh non ! Tu es resté combien de jours ?",
+      "en": "Oh no! For how many days?",
+      "ko": "저런! 며칠이나 그랬어?",
       "focus": {
        "fr": [
-        "Tu as mangé"
+        "Tu es resté",
+        "combien de jours"
        ],
        "en": [
-        "did you eat"
+        "how many days"
        ],
        "ko": [
-        "먹었어"
+        "며칠이나"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Tu es mangé",
-         "Tu as manger"
+         "Tu as resté",
+         "Tu es restée"
+        ],
+        [
+         "combien des jours",
+         "combien jours"
         ]
        ],
        "en": [
         [
-         "did you ate",
-         "do you ate"
+         "how much days",
+         "how many day"
         ]
        ],
        "ko": [
         [
-         "먹엇어",
-         "먹었아"
+         "몇일이나",
+         "며칠이니"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Du café et du pain. Ce n'est pas ta faute.",
-      "en": "Coffee and bread. It's not your fault.",
-      "ko": "커피랑 빵. 네 잘못이 아니야."
+      "fr": "Jusqu'à lundi. Du café, du pain…",
+      "en": "Until Monday. Coffee, bread…",
+      "ko": "월요일까지. 커피랑 빵만 먹었어…"
      },
      {
       "who": "me",
-      "fr": "Désolé quand même. Écris-moi plus tôt, d'accord ?",
-      "en": "Sorry all the same. Write to me sooner, OK?",
-      "ko": "그래도 미안해. 다음엔 더 일찍 편지해, 응?",
+      "fr": "Pardon, c'est ma faute. Écris-moi plus tôt !",
+      "en": "Sorry, it's my fault. Write to me sooner!",
+      "ko": "미안해, 내 잘못이야. 다음엔 더 일찍 편지해!",
       "focus": {
        "fr": [
-        "Écris-moi"
+        "c'est ma faute"
        ],
        "en": [
-        "Write to me"
+        "it's my fault"
        ],
        "ko": [
-        "편지해"
+        "내 잘못이야"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Écrit-moi",
-         "Écrire-moi"
+         "c'est mon faute",
+         "c'est ma fautes"
         ]
        ],
        "en": [
         [
-         "Writes to me",
-         "Wrote to me"
+         "it's mine fault",
+         "it my fault"
         ]
        ],
        "ko": [
         [
-         "편지하",
-         "편지해어"
+         "내 잘몯이야",
+         "내 잘못이에"
         ]
        ]
       }
@@ -2301,10 +2339,7 @@
      "lundi"
     ],
     "grammar": "III.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2675,15 +2710,15 @@
      },
      {
       "who": "them",
-      "fr": "Un lit, des chaises… C'est un tableau pour le repos.",
-      "en": "A bed, some chairs… It's a painting for rest.",
-      "ko": "침대 하나, 의자 몇 개… 쉬라고 그린 그림이야."
+      "fr": "Un lit, deux chaises… C'est pour le repos.",
+      "en": "A bed, two chairs… It's for rest.",
+      "ko": "침대 하나, 의자 둘… 쉬라고 그린 거야."
      },
      {
       "who": "me",
-      "fr": "Super idée. Et toi, tu as bien dormi hier ?",
-      "en": "Great idea. And you, did you sleep well last night?",
-      "ko": "좋은 생각이야. 형은 어젯밤 잘 잤어?",
+      "fr": "Et toi, tu as bien dormi hier ?",
+      "en": "And you, did you sleep well last night?",
+      "ko": "형은 어젯밤 잘 잤어?",
       "focus": {
        "fr": [
         "hier"
@@ -2723,10 +2758,7 @@
      "repos"
     ],
     "grammar": "III.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -3081,9 +3113,9 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Théo, j'ai fait installer le gaz dans la cuisine.",
-      "en": "Theo, I've had gas put in the kitchen.",
-      "ko": "테오, 부엌에 가스를 들였어."
+      "fr": "J'ai fait installer le gaz à la cuisine.",
+      "en": "I've had gas put in the kitchen.",
+      "ko": "부엌에 가스를 들였어."
      },
      {
       "who": "me",
@@ -3124,43 +3156,43 @@
      },
      {
       "who": "them",
-      "fr": "Pas encore, mais bientôt. Tu peux m'envoyer cinquante francs ?",
-      "en": "Not yet, but soon. Can you send me fifty francs?",
-      "ko": "아직, 곧 와. 50프랑 보내 줄 수 있어?"
+      "fr": "Pas encore. Sa chambre a déjà une toile.",
+      "en": "Not yet. His room already has a canvas.",
+      "ko": "아직. 그 방에 벌써 그림도 걸었어."
      },
      {
       "who": "me",
-      "fr": "Oui, d'accord. Et la toile pour sa chambre ?",
-      "en": "Yes, all right. And the canvas for his room?",
-      "ko": "응, 그럴게. 그 사람 방에 걸 그림은?",
+      "fr": "Super. Il arrive quel jour ?",
+      "en": "Great. What day is he arriving?",
+      "ko": "좋다. 무슨 요일에 와?",
       "focus": {
        "fr": [
-        "la toile"
+        "quel jour"
        ],
        "en": [
-        "the canvas"
+        "What day"
        ],
        "ko": [
-        "그림은"
+        "무슨 요일에"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "le toile",
-         "les toile"
+         "quelle jour",
+         "quel jours"
         ]
        ],
        "en": [
         [
-         "a canvases",
-         "the canvases"
+         "Which days",
+         "What a day"
         ]
        ],
        "ko": [
         [
-         "그림는",
-         "그림이은"
+         "무슨 요일애",
+         "무순 요일에"
         ]
        ]
       }
@@ -3171,10 +3203,7 @@
      "toile"
     ],
     "grammar": "III.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   }
  ]

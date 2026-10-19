@@ -498,37 +498,37 @@
      },
      {
       "who": "me",
-      "fr": "Super ! Tu travailles sur quoi ?",
-      "en": "Great! What are you working on?",
-      "ko": "잘됐다! 무슨 작업 해?",
+      "fr": "Super ! Qu'est-ce que tu as peint ?",
+      "en": "Great! What have you painted?",
+      "ko": "잘됐다! 뭘 그렸어?",
       "focus": {
        "fr": [
-        "Tu travailles"
+        "Qu'est-ce que tu as peint"
        ],
        "en": [
-        "are you working"
+        "What have you painted"
        ],
        "ko": [
-        "작업 해"
+        "뭘 그렸어"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Tu travaille",
-         "Tu travaillez"
+         "Qu'est-ce que tu as peindre",
+         "Qu'est-ce que tu es peint"
         ]
        ],
        "en": [
         [
-         "you are working",
-         "are you work"
+         "What have you paint",
+         "What you have painted"
         ]
        ],
        "ko": [
         [
-         "작업 하",
-         "작업 헤"
+         "뭘 그렷어",
+         "뭘 그랬어"
         ]
        ]
       }
@@ -582,10 +582,7 @@
      "inonder"
     ],
     "grammar": "VII.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2473,37 +2470,37 @@
      },
      {
       "who": "me",
-      "fr": "Tant mieux. Merci de me le dire.",
-      "en": "Good. Thanks for telling me.",
-      "ko": "다행이다. 알려 줘서 고마워.",
+      "fr": "Tant mieux. Et demain, qu'est-ce que tu vas faire ?",
+      "en": "Good. And tomorrow, what are you going to do?",
+      "ko": "다행이다. 내일은 뭐 할 거야?",
       "focus": {
        "fr": [
-        "Merci de"
+        "qu'est-ce que tu vas faire"
        ],
        "en": [
-        "Thanks for telling"
+        "what are you going to do"
        ],
        "ko": [
-        "알려 줘서"
+        "뭐 할 거야"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Merci pour de",
-         "Merci à"
+         "qu'est-ce que tu va faire",
+         "qu'est-ce que tu vas fait"
         ]
        ],
        "en": [
         [
-         "Thanks for tell",
-         "Thanks to telling"
+         "what are you going do",
+         "what you are going to do"
         ]
        ],
        "ko": [
         [
-         "알려 주서",
-         "알리어 줘서"
+         "뭐 할 꺼야",
+         "뭐 할 거여"
         ]
        ]
       }
@@ -2513,10 +2510,7 @@
      "surprendre"
     ],
     "grammar": "VII.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {

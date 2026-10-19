@@ -149,31 +149,74 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, komm schnell! Ich habe ein neues Stück!",
-      "en": "Papa, come quick! I have a new piece!",
-      "ko": "아빠, 빨리 오세요! 새 곡이 있어요!"
+      "de": "Guten Morgen, Papa! Komm schnell!",
+      "en": "Good morning, Papa! Come quick!",
+      "ko": "아빠, 안녕히 주무셨어요? 빨리 와요!"
      },
      {
       "who": "me",
-      "de": "Toll! Du bist noch ein Kind und schreibst schon Musik.",
-      "en": "Great! You're still a child and already writing music.",
-      "ko": "대단하다! 아직 아이인데 벌써 음악을 쓰는구나.",
+      "de": "Guten Morgen, Kind! Wie geht's?",
+      "en": "Good morning, child! How are you?",
+      "ko": "잘 잤니, 얘야? 기분은 어때?",
       "focus": {
        "de": [
-        "bist"
+        "Wie geht's"
        ],
        "en": [
-        "You're"
+        "How are you"
        ],
        "ko": [
-        "아이인데"
+        "어때"
        ]
       },
       "wrong": {
        "de": [
         [
-         "bin",
-         "ist"
+         "Wie gehst's",
+         "Wo geht's"
+        ]
+       ],
+       "en": [
+        [
+         "How is you",
+         "How am you"
+        ]
+       ],
+       "ko": [
+        [
+         "어떼",
+         "어떠"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "de": "Gut! Ich habe ein neues Stück!",
+      "en": "Good! I have a new piece!",
+      "ko": "좋아요! 새 곡이 있어요!"
+     },
+     {
+      "who": "me",
+      "de": "Toll! Du bist noch ein Kind!",
+      "en": "Great! You're still a child!",
+      "ko": "대단하다! 아직 어린애인데!",
+      "focus": {
+       "de": [
+        "Du bist"
+       ],
+       "en": [
+        "You're"
+       ],
+       "ko": [
+        "어린애인데"
+       ]
+      },
+      "wrong": {
+       "de": [
+        [
+         "Du bin",
+         "Du ist"
         ]
        ],
        "en": [
@@ -184,51 +227,8 @@
        ],
        "ko": [
         [
-         "아이은데",
-         "아이는데"
-        ]
-       ]
-      }
-     },
-     {
-      "who": "them",
-      "de": "Ich bin gar nicht müde. Spielst du mit mir?",
-      "en": "I'm not tired at all. Will you play with me?",
-      "ko": "하나도 안 피곤해요. 같이 연주해 줄래요?"
-     },
-     {
-      "who": "me",
-      "de": "Ja, gern! Aber zuerst essen wir.",
-      "en": "Yes, gladly! But first we eat.",
-      "ko": "그래, 좋아! 그런데 먼저 밥부터 먹자.",
-      "focus": {
-       "de": [
-        "essen wir"
-       ],
-       "en": [
-        "we eat"
-       ],
-       "ko": [
-        "먹자"
-       ]
-      },
-      "wrong": {
-       "de": [
-        [
-         "esse wir",
-         "isst wir"
-        ]
-       ],
-       "en": [
-        [
-         "we eats",
-         "we eating"
-        ]
-       ],
-       "ko": [
-        [
-         "먹짜",
-         "먹아자"
+         "어린애은데",
+         "어린애는데"
         ]
        ]
       }
@@ -239,7 +239,7 @@
      "Kind"
     ],
     "grammar": "I.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -384,80 +384,80 @@
      },
      {
       "who": "me",
-      "de": "Wir sind hier in Paris. Wie findest du die Stadt?",
-      "en": "We're here in Paris. How do you like the city?",
-      "ko": "여기는 파리야. 도시가 어때?",
+      "de": "Hier in Paris. Wer bist du?",
+      "en": "Here in Paris. Who are you?",
+      "ko": "여기는 파리야. 너는 누구지?",
       "focus": {
        "de": [
-        "Wie"
+        "Wer"
        ],
        "en": [
-        "How"
+        "Who"
        ],
        "ko": [
-        "어때"
+        "누구지"
        ]
       },
       "wrong": {
        "de": [
         [
-         "Wer",
+         "Wie",
          "Was"
         ]
        ],
        "en": [
         [
-         "Who",
-         "Whom"
+         "How",
+         "Whose"
         ]
        ],
        "ko": [
         [
-         "어떼",
-         "어떠"
+         "누구치",
+         "누구쥐"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "de": "Sehr groß! Wer spielt heute Abend? Ich?",
-      "en": "Very big! Who's playing tonight? Me?",
-      "ko": "엄청 커요! 오늘 저녁엔 누가 연주해요? 저요?"
+      "de": "Ich heiße Wolfgang. Ich bin sieben!",
+      "en": "My name is Wolfgang. I'm seven!",
+      "ko": "제 이름은 볼프강이에요. 일곱 살이에요!"
      },
      {
       "who": "me",
-      "de": "Ja, du und Nannerl. Bist du bereit?",
-      "en": "Yes, you and Nannerl. Are you ready?",
-      "ko": "그래, 너랑 난네를이야. 준비됐어?",
+      "de": "Gut! Und wer spielt heute Abend?",
+      "en": "Good! And who's playing tonight?",
+      "ko": "좋아! 오늘 저녁엔 누가 연주하지?",
       "focus": {
        "de": [
-        "Bist du"
+        "wer spielt"
        ],
        "en": [
-        "Are you"
+        "who's playing"
        ],
        "ko": [
-        "준비됐어"
+        "누가"
        ]
       },
       "wrong": {
        "de": [
         [
-         "Bin du",
-         "Ist du"
+         "wer spielst",
+         "wer spiele"
         ]
        ],
        "en": [
         [
-         "Is you",
-         "Am you"
+         "who are playing",
+         "who's play"
         ]
        ],
        "ko": [
         [
-         "준비됬어",
-         "준비됐아"
+         "누구가",
+         "누가가"
         ]
        ]
       }
@@ -467,7 +467,7 @@
      "hier"
     ],
     "grammar": "I.1",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -605,9 +605,9 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, wann fahren wir nach Italien?",
-      "en": "Papa, when do we leave for Italy?",
-      "ko": "아빠, 이탈리아에는 언제 떠나요?"
+      "de": "Papa, wann fahren wir?",
+      "en": "Papa, when do we leave?",
+      "ko": "아빠, 우리 언제 떠나요?"
      },
      {
       "who": "me",
@@ -648,15 +648,15 @@
      },
      {
       "who": "them",
-      "de": "Ja, die Noten sind hier. Ich bin gar nicht nervös!",
-      "en": "Yes, the music is here. I'm not nervous at all!",
-      "ko": "네, 악보 여기 있어요. 하나도 안 떨려요!"
+      "de": "Ja! Ich bin gar nicht nervös.",
+      "en": "Yes! I'm not nervous at all.",
+      "ko": "네! 하나도 안 떨려요."
      },
      {
       "who": "me",
-      "de": "Gut. Mama und Nannerl kommen nicht mit.",
-      "en": "Good. Mama and Nannerl aren't coming with us.",
-      "ko": "좋아. 엄마랑 난네를은 같이 안 가.",
+      "de": "Mama und Nannerl kommen nicht mit.",
+      "en": "Mama and Nannerl aren't coming.",
+      "ko": "엄마랑 난네를은 안 가.",
       "focus": {
        "de": [
         "nicht"
@@ -694,7 +694,7 @@
      "gar"
     ],
     "grammar": "I.2",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   }
  ]

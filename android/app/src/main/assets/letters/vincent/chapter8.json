@@ -1965,37 +1965,37 @@
      },
      {
       "who": "me",
-      "fr": "Bonne idée ! On en parle la prochaine fois ?",
-      "en": "Good idea! Shall we talk about it next time?",
-      "ko": "좋은 생각이야! 다음에 그 이야기 할까?",
+      "fr": "Je trouve que c'est une très bonne idée.",
+      "en": "I think it's a very good idea.",
+      "ko": "아주 좋은 생각인 것 같아.",
       "focus": {
        "fr": [
-        "On en parle"
+        "Je trouve que"
        ],
        "en": [
-        "Shall we talk"
+        "I think"
        ],
        "ko": [
-        "할까"
+        "것 같아"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "On y parle",
-         "On en parlent"
+         "Je trouve qui",
+         "Je trouve de"
         ]
        ],
        "en": [
         [
-         "Shall we talks",
-         "Shall we talking"
+         "I am think",
+         "I thinks"
         ]
        ],
        "ko": [
         [
-         "할가",
-         "하을까"
+         "것 갔아",
+         "거 같아"
         ]
        ]
       }
@@ -2005,10 +2005,7 @@
      "exposer"
     ],
     "grammar": "VIII.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2886,37 +2883,52 @@
      },
      {
       "who": "me",
-      "fr": "J'ai hâte de les voir. Prends soin de toi.",
-      "en": "I can't wait to see them. Take care of yourself.",
-      "ko": "빨리 보고 싶다. 몸 잘 챙겨.",
+      "fr": "J'ai hâte de les voir. À bientôt, et prends soin de toi !",
+      "en": "I can't wait to see them. See you soon, and take care!",
+      "ko": "빨리 보고 싶다. 또 보자, 몸 잘 챙기고!",
       "focus": {
        "fr": [
-        "Prends soin de toi"
+        "À bientôt",
+        "prends soin de toi"
        ],
        "en": [
-        "Take care"
+        "See you soon",
+        "take care"
        ],
        "ko": [
-        "챙겨"
+        "또 보자",
+        "몸 잘 챙기고"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Prend soin de toi",
-         "Prends soin de te"
+         "À bientôts",
+         "Au bientôt"
+        ],
+        [
+         "prends soin de te",
+         "prend soin de toi"
         ]
        ],
        "en": [
         [
-         "Takes care",
-         "Took care"
+         "See you sooner",
+         "See you soonly"
+        ],
+        [
+         "take cares",
+         "takes care"
         ]
        ],
        "ko": [
         [
-         "챙기",
-         "챙겨어"
+         "또 보쟈",
+         "또 봐자"
+        ],
+        [
+         "몸 잘 챙기구",
+         "몸 잘 챙기코"
         ]
        ]
       }
@@ -2926,10 +2938,7 @@
      "étendue"
     ],
     "grammar": "VIII.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {

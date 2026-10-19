@@ -202,3 +202,13 @@
 - 장 묶음마다 zip 하나 (`generate.py pack_zip`, 압축 없음 · 늘 같은 바이트). remote.json 장마다 `"pack": [packs/<작품>/<장>-<sha256 앞 16자>.zip, 길이, sha256]` + 검사용 `"files"` 그대로. 이름에 합이 들어가 내용이 바뀌면 새 이름 (R2 덮어쓰기 금지). 고친 파일 (revisions) 은 zip 안에 새 판 내용으로, 하나씩 받기는 예전처럼 rev/<판>/ 주소.
 - `narration-r2.yml` 올리기가 `generate.py --check --packs` 로 zip 을 만들어 packs/ 로 올린다 (저장소에는 넣지 않음).
 - 앱 `Downloads.fetch`: zip 하나를 이어 받기(Range) → sha256 → files/.packs/<이름>.x 에 풀며 이름 · 크기 검사 → 다 맞으면 제자리로 (core `Packs`, `PacksTest`). 깨지면 지우고 다시. R2 에 zip 이 없으면 (404 · 403) 그 묶음은 파일을 하나씩 (예전 길).
+
+## 2026-10-19 추가 (단계성 보강)
+
+- **오늘의 한 조각 = 오늘의 회화 내 줄**: 회화 줄이 장마다 짧게 → 길게 (말하기 계단) 다시 쓰여서, 따라 읽기 걸음 (`ui/Shadow.kt` `ReadAlong`, 편지 걸음일 때만) 은 그 편지 회화의 “me” 줄을 먼저 (원래 소리 = 회화 소리 `t<줄>_<말>`, `Talk.audioName`), 그다음 예전처럼 편지 문장 하나. 차례는 core `ShadowLines.order` (`ShadowSpot`, 통과 · 별 꼬리 “t<줄>:0”, 녹음 `readings/<편지>/t<줄>.wav`). 봉인까지 가는 전체 따라 읽기 (`Route.Shadow`) 는 편지 문장만 그대로. 채점 (`Prosody.spoke`, 목소리가 들어가면 통과) 은 그대로.
+- **예열에 ‘오늘 말해 볼 말’**: 낱말 · 덩어리 뒤에 회화 내 줄 앞 두 줄 (core `WarmUp.Kind.TALK`, `WarmUp.TALK = 2`), 회화 소리로 듣기. 본 것 꼬리 “t<줄>”.
+- **기초 낱말 덱** (`data/<작품>/basics[_en|_ko].json`, core `Basics` · `BasicDeck` · `BasicItem`, 여러 낱말 표제어는 `k` 가 top 의 표제어): 카드 꼬리 `b<id>` (`CardRef.basic`, 열쇠 “<작품>:B:basics:[<자료>/]b<id>”), 낱말 카드와 같은 상자 · 간격. 오늘의 복습 한 판에 새 기초 낱말 12장이면 2~3 (볼 카드가 10장 이상이면 2), ‘복습 더’ 20장이면 4 (`Basics.session` · `perDay`), 덱 차례대로, 판을 새로 시작할 때 카드함에 들임 (`AppState.startReview`, 하루 한 번 — 이번 주 기록 `log:basic`). 앱 쪽은 `ui/Basics.kt` (덱 읽기 · 예문 한 줄짜리 편지 · 카드 칸 `BasicCardPanel`: ‘기초 낱말’ · 큰 낱말 · 품사 · 듣기, 답이 나면 뜻, 예문 칸 ‘편지에서’ / ‘예문’ + “앱이 쓴 문장이에요”, 번역은 앱 글자 언어). 사전에 같은 표제어가 있으면 그 열쇠로 (내 것 · 등급 · 낱말 아래 뜻이 같이 센다).
+- 소리: 낱말 `b_<말>_<id>.m4a` · 예문 `bx_<말>_<id>.m4a`, `audio/<작품>/B/basics/` (`remote/` → R2 묶음 “B”, generate.py). 앱은 다른 장을 받을 때 함께 받는다 (`Downloads.needed` · `all`). 앱 안 장만 읽는 빈센트 I장 사용자는 II장 (또는 모두 받기) 때 받는다. 만들기는 narration-r2 `make=new` (서문 작업에서 작품마다 한 번, 새 파일만). **아직 만들지 않았다.**
+- 나의 기록 › 언어 등급 아래 “기초 낱말 N / 300 · 많이 쓰는 300개 중” (`basicsKnown`: top 표제어 가운데 써 보기 이상, 낱말 카드 · 기초 낱말 카드).
+- `spec_check.py` 가 basics 파일을 검사 (id = sha1(“<작품>[_말]/<w>”) 앞 8자, k ⊆ top, 뜻 · 예문 언어, from). generate.py 가 basics*.json 을 assets 로 넣는다 (**아직 돌리지 않음** — 데이터 작업이 끝난 뒤 `python3 scripts/generate.py` · `build_fonts.py --check`).
+- core 테스트 `BasicsTest` (덱 읽기 · 없는 파일, 12 → 2~3 · 20 → 4, 하루 한 번, 기록 수, 따라 읽기 차례, 예열 회화 줄). 화면 사진 `ScreensTest.basic*` (basic1 카드 · basic2 맞힌 뒤 · basic3 기록) · `warmUpTalk` (il6) · `shadowTalkLine` (sh1) — 아직 사람이 본 적 없음.

@@ -205,6 +205,13 @@ private fun GradeBlock(s: AppState) {
                 },
                 style = Type.small.ui(), color = p.giltText,
             )
+            // 기초 낱말: 그 말에서 많이 쓰는 300개 가운데 써 보기 이상 (낱말 카드 · 기초 낱말 카드, 등급과 같은 기준). 덱이 없으면 빼기
+            s.basicsKnown(lang)?.let { (n, of) ->
+                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                    Text(stringResource(R.string.basics_count, n, of), style = Type.body.ui(), color = p.ink, maxLines = 1)
+                    Text(stringResource(R.string.basics_sub, of), style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
+                }
+            }
         }
         Hair()
     }

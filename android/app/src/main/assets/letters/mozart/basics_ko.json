@@ -1,0 +1,2130 @@
+{
+ "_doc": "기초 낱말 덱: 많이 쓰는 표제어 300 (top) 가운데 카드 · 닻이 안 다루는 것. scripts/basics.py 후보를 사람이 다듬음. checked=false 는 사람 확인 전.",
+ "lang": "ko",
+ "checked": false,
+ "top": [
+  "나",
+  "그",
+  "안",
+  "수",
+  "이",
+  "네",
+  "거",
+  "좀",
+  "그래",
+  "있다",
+  "왜",
+  "더",
+  "그리고",
+  "우리",
+  "다",
+  "무슨",
+  "한",
+  "하지만",
+  "잘",
+  "어떻다",
+  "하다",
+  "그냥",
+  "정말",
+  "그렇다",
+  "것",
+  "여기",
+  "너",
+  "저",
+  "날",
+  "이제",
+  "지금",
+  "그것",
+  "걸",
+  "아니",
+  "없다",
+  "되다",
+  "못",
+  "좋다",
+  "당신",
+  "다른",
+  "그런",
+  "그거",
+  "너무",
+  "그래서",
+  "다시",
+  "이거",
+  "이런",
+  "모든",
+  "아",
+  "오",
+  "때",
+  "아냐",
+  "아니다",
+  "알다",
+  "같이",
+  "응",
+  "이것",
+  "괜찮다",
+  "오늘",
+  "말",
+  "줄",
+  "또",
+  "누구",
+  "어떤",
+  "아주",
+  "아직",
+  "안되다",
+  "진짜",
+  "모두",
+  "마",
+  "같다",
+  "어서",
+  "위하다",
+  "일",
+  "엄마",
+  "바로",
+  "가",
+  "근데",
+  "이렇다",
+  "빨리",
+  "전",
+  "어",
+  "아뇨",
+  "계속",
+  "닥터",
+  "얼마나",
+  "않다",
+  "제발",
+  "어디",
+  "사람",
+  "안녕",
+  "자",
+  "두",
+  "때문",
+  "대하다",
+  "아빠",
+  "몇",
+  "뭐",
+  "수도",
+  "많이",
+  "집",
+  "거지",
+  "음",
+  "함께",
+  "만약",
+  "하나",
+  "저기",
+  "고맙다",
+  "항상",
+  "잠깐",
+  "가다",
+  "가장",
+  "맞다",
+  "보다",
+  "와",
+  "아무",
+  "안녕하다",
+  "모르다",
+  "많다",
+  "아무것",
+  "그러니까",
+  "크다",
+  "그만",
+  "젠장",
+  "그러다",
+  "이미",
+  "야",
+  "오다",
+  "이보다",
+  "그런데",
+  "세상에",
+  "예",
+  "절대",
+  "말다",
+  "당장",
+  "그래도",
+  "거기",
+  "전부",
+  "둘",
+  "그녀",
+  "니",
+  "갈",
+  "자기",
+  "가지다",
+  "참",
+  "미안하다",
+  "감사하다",
+  "씨",
+  "곧",
+  "아마",
+  "얘기",
+  "꼭",
+  "중",
+  "시간",
+  "먼저",
+  "방금",
+  "완전",
+  "동안",
+  "싶다",
+  "친구",
+  "듣다",
+  "번",
+  "자네",
+  "사실",
+  "한번",
+  "대체",
+  "생각하다",
+  "볼",
+  "혼자",
+  "절",
+  "선생님",
+  "문제",
+  "다음",
+  "물론",
+  "거의",
+  "그러면",
+  "순",
+  "이리",
+  "맙소사",
+  "내일",
+  "싫다",
+  "중요하다",
+  "말하다",
+  "이상",
+  "새",
+  "적",
+  "전혀",
+  "여자",
+  "새롭다",
+  "너희",
+  "나오다",
+  "알",
+  "원하다",
+  "돈",
+  "필요",
+  "도움",
+  "작다",
+  "혹시",
+  "나쁘다",
+  "죄송하다",
+  "밖",
+  "직접",
+  "필요하다",
+  "아니요",
+  "갖다",
+  "주다",
+  "없이",
+  "나중",
+  "아버지",
+  "차",
+  "언제",
+  "그저",
+  "생각",
+  "마지막",
+  "왜냐면",
+  "엄청",
+  "오래",
+  "기다리다",
+  "제일",
+  "지나다",
+  "죽다",
+  "제대로",
+  "짓",
+  "남자",
+  "너가다",
+  "보이다",
+  "여러분",
+  "완전히",
+  "밤",
+  "소리",
+  "벌써",
+  "올",
+  "처음",
+  "멋지다",
+  "정말로",
+  "이름",
+  "여보",
+  "조금",
+  "여보세요",
+  "서로",
+  "죽",
+  "첫",
+  "매우",
+  "사랑하다",
+  "단지",
+  "나가다",
+  "뿐",
+  "미안",
+  "확실히",
+  "살",
+  "당연히",
+  "데리다",
+  "후",
+  "글쎄",
+  "별로",
+  "라",
+  "여전히",
+  "딱",
+  "이야기",
+  "부인",
+  "문",
+  "훨씬",
+  "망하다",
+  "손",
+  "수술",
+  "어쩌면",
+  "어느",
+  "아마도",
+  "준비",
+  "전화",
+  "뒤",
+  "도대체",
+  "최고",
+  "세",
+  "유일하다",
+  "갑자기",
+  "어쨌든",
+  "이번",
+  "뭐하다",
+  "지",
+  "신경",
+  "그만하다",
+  "늘",
+  "분명히",
+  "존",
+  "일단",
+  "걱정",
+  "매일",
+  "아침",
+  "대신",
+  "마치",
+  "두다",
+  "금방",
+  "사",
+  "좋아하다",
+  "찾다",
+  "맘",
+  "결국",
+  "이유",
+  "그때"
+ ],
+ "items": [
+  {
+   "id": "74fef3da",
+   "w": "네",
+   "pos": "intj",
+   "mean": {
+    "en": "yes"
+   },
+   "ex": {
+    "t": "네! 기뻐서 몸이 떨렸어요.",
+    "de": "Ja! Ich habe vor Freude gezittert.",
+    "en": "Yes! I was trembling with joy.",
+    "from": "c3-l6"
+   }
+  },
+  {
+   "id": "e4302cd1",
+   "w": "좀",
+   "pos": "adv",
+   "mean": {
+    "en": "a little; please (softener)"
+   },
+   "ex": {
+    "t": "다행이다! 뭐 좀 먹었어?",
+    "de": "Gott sei Dank! Hast du schon etwas gegessen?",
+    "en": "Thank God! Have you eaten anything yet?",
+    "from": "c8-l1"
+   }
+  },
+  {
+   "id": "28617b32",
+   "w": "그래",
+   "pos": "intj",
+   "mean": {
+    "en": "yes, okay (casual)"
+   },
+   "ex": {
+    "t": "그래, 안타깝게도. 그래도 걱정하지 마.",
+    "de": "Ja, leider. Aber mach dir keine Sorgen.",
+    "en": "Yes, unfortunately. But don't worry.",
+    "from": "c7-l4"
+   }
+  },
+  {
+   "id": "3a3a14b1",
+   "w": "왜",
+   "pos": "adv",
+   "mean": {
+    "en": "why"
+   },
+   "ex": {
+    "t": "뭐? 왜 그랬어?",
+    "de": "Was? Warum hat er das gemacht?",
+    "en": "What? Why did he do that?",
+    "from": "c5-l3"
+   }
+  },
+  {
+   "id": "42e1531c",
+   "w": "그리고",
+   "pos": "conj",
+   "mean": {
+    "en": "and"
+   },
+   "ex": {
+    "t": "그리고 축하 인사 고맙구나!",
+    "de": "Und danke für deine Glückwünsche!",
+    "en": "And thanks for your good wishes!",
+    "from": "c2-l4"
+   }
+  },
+  {
+   "id": "4c7f7032",
+   "w": "우리",
+   "pos": "pron",
+   "mean": {
+    "en": "we, our"
+   },
+   "ex": {
+    "t": "아빠, 우리 언제 떠나요?",
+    "de": "Papa, wann fahren wir?",
+    "en": "Papa, when do we leave?",
+    "from": "p3"
+   }
+  },
+  {
+   "id": "8a5971c6",
+   "w": "한",
+   "pos": "det",
+   "mean": {
+    "en": "one"
+   },
+   "ex": {
+    "t": "한 달째 비가 안 와!",
+    "de": "Seit einem Monat gibt's keinen Regen!",
+    "en": "No rain for a whole month!",
+    "from": "c1-l5"
+   }
+  },
+  {
+   "id": "56dc9ffe",
+   "w": "하지만",
+   "pos": "conj",
+   "mean": {
+    "en": "but"
+   },
+   "ex": {
+    "t": "알아. 하지만 그건 쉽지 않아.",
+    "de": "Ich weiß. Aber das ist schwer.",
+    "en": "I know. But that's hard.",
+    "from": "c2-l6"
+   }
+  },
+  {
+   "id": "8cff048e",
+   "w": "그냥",
+   "pos": "adv",
+   "mean": {
+    "en": "just, simply"
+   },
+   "ex": {
+    "t": "그냥 휴가 여행이었지, 그 이상은 아니었어요.",
+    "de": "Es war eine Ferienreise und weiter nichts.",
+    "en": "It was simply a holiday excursion, and nothing more.",
+    "from": "c2-l6"
+   }
+  },
+  {
+   "id": "0d5d9023",
+   "w": "그렇다",
+   "pos": "adj",
+   "mean": {
+    "en": "be so, be like that"
+   },
+   "ex": {
+    "t": "잘됐다! 그런데 피곤하지, 그렇지?",
+    "de": "Super! Aber du bist müde, oder?",
+    "en": "Great! But you're tired, aren't you?",
+    "from": "c1-l4"
+   }
+  },
+  {
+   "id": "eacb52c6",
+   "w": "여기",
+   "pos": "pron",
+   "mean": {
+    "en": "here"
+   },
+   "ex": {
+    "t": "여기는 파리야. 너는 누구지?",
+    "de": "Hier in Paris. Wer bist du?",
+    "en": "Here in Paris. Who are you?",
+    "from": "p2"
+   }
+  },
+  {
+   "id": "c53afe5d",
+   "w": "그것",
+   "pos": "pron",
+   "mean": {
+    "en": "that, it"
+   },
+   "ex": {
+    "t": "그건 정말 제 탓이 아니에요.",
+    "de": "Das ist wirklich nicht meine Schuld.",
+    "en": "That's really not my fault.",
+    "from": "c2-l7"
+   }
+  },
+  {
+   "id": "28880ec0",
+   "w": "아니",
+   "pos": "intj",
+   "mean": {
+    "en": "no (casual)"
+   },
+   "ex": {
+    "t": "아니, 괜찮아. 그래도 얼굴 보면 좋겠어.",
+    "de": "Nein, danke. Aber es wäre schön, dich zu sehen.",
+    "en": "No, thanks. But it would be nice to see you.",
+    "from": "c7-l5"
+   }
+  },
+  {
+   "id": "b86cd822",
+   "w": "당신",
+   "pos": "pron",
+   "mean": {
+    "en": "you (to a spouse)"
+   },
+   "ex": {
+    "t": "당신 편지 한 통만 있으면 좋을 텐데!",
+    "de": "Wenn ich nur einen Brief von dir hätte!",
+    "en": "If only I had a letter from you!",
+    "from": "c8-l5"
+   }
+  },
+  {
+   "id": "5e542b7d",
+   "w": "다른",
+   "pos": "det",
+   "mean": {
+    "en": "other"
+   },
+   "ex": {
+    "t": "브루네티와 체카렐리는 다른 집에 묵고요.",
+    "de": "Brunetti und Ceccarelli wohnen in einem anderen Haus.",
+    "en": "Brunetti and Cecarelli lodge in another house.",
+    "from": "c5-l1"
+   }
+  },
+  {
+   "id": "dce0075b",
+   "w": "그래서",
+   "pos": "conj",
+   "mean": {
+    "en": "so, and so"
+   },
+   "ex": {
+    "t": "하하! 그래서 오페라 작업은 마음에 들어?",
+    "de": "Ha! Und gefällt dir die Arbeit an der Oper?",
+    "en": "Ha! And do you like working on the opera?",
+    "from": "c4-l1"
+   }
+  },
+  {
+   "id": "0dde6966",
+   "w": "이런",
+   "pos": "det",
+   "mean": {
+    "en": "such, this kind of"
+   },
+   "ex": {
+    "t": "이런 박수를 받으면 참 기분이 좋아요.",
+    "de": "Solcher Beifall freut mich sehr.",
+    "en": "Applause like this feels really good.",
+    "from": "c6-l5"
+   }
+  },
+  {
+   "id": "0fa75996",
+   "w": "모든",
+   "pos": "det",
+   "mean": {
+    "en": "all, every"
+   },
+   "ex": {
+    "t": "맞아. 모든 걸 잘 생각해 봐.",
+    "de": "Das stimmt. Überleg dir alles gut.",
+    "en": "That's true. Think it all through carefully.",
+    "from": "c6-l2"
+   }
+  },
+  {
+   "id": "248d6806",
+   "w": "같이",
+   "pos": "adv",
+   "mean": {
+    "en": "together"
+   },
+   "ex": {
+    "t": "걱정 마! 곧 다시 같이 웃을 거야.",
+    "de": "Keine Angst! Wir lachen bald wieder zusammen.",
+    "en": "Don't be afraid! We'll laugh together again soon.",
+    "from": "c3-l7"
+   }
+  },
+  {
+   "id": "76b17d07",
+   "w": "응",
+   "pos": "intj",
+   "mean": {
+    "en": "yeah (casual yes)"
+   },
+   "ex": {
+    "t": "응, 고마워! 오페라는 언제야?",
+    "de": "Ja, danke! Wann ist deine Oper?",
+    "en": "Yes, thanks! When is your opera?",
+    "from": "c1-l6"
+   }
+  },
+  {
+   "id": "f17a12be",
+   "w": "이것",
+   "pos": "pron",
+   "mean": {
+    "en": "this"
+   },
+   "ex": {
+    "t": "이건 정말 영예야.",
+    "de": "Das ist wirklich eine Ehre.",
+    "en": "This is really a distinction.",
+    "from": "c8-l6"
+   }
+  },
+  {
+   "id": "1086de02",
+   "w": "또",
+   "pos": "adv",
+   "mean": {
+    "en": "again"
+   },
+   "ex": {
+    "t": "아빠, 극장이 또 꽉 찼어요!",
+    "de": "Papa, das Theater war wieder ganz voll!",
+    "en": "Papa, the theatre was packed again!",
+    "from": "c6-l4"
+   }
+  },
+  {
+   "id": "c329000c",
+   "w": "안 되다",
+   "k": "안되다",
+   "pos": "verb",
+   "mean": {
+    "en": "must not; not be allowed"
+   },
+   "ex": {
+    "t": "안됐구나. 그래도 포기하면 안 돼.",
+    "de": "Schade. Aber du darfst nicht aufgeben.",
+    "en": "Too bad. But you mustn't give up.",
+    "from": "c2-l5"
+   }
+  },
+  {
+   "id": "9a43401b",
+   "w": "진짜",
+   "pos": "adv",
+   "mean": {
+    "en": "really (casual)"
+   },
+   "ex": {
+    "t": "진짜 멋진 오페라야!",
+    "de": "Das ist wirklich eine tolle Oper!",
+    "en": "It's a really great opera!",
+    "from": null
+   }
+  },
+  {
+   "id": "06a56152",
+   "w": "모두",
+   "pos": "adv",
+   "mean": {
+    "en": "all; everyone"
+   },
+   "ex": {
+    "t": "이제 제 희망은 모두 파리에 걸려 있어요.",
+    "de": "Meine ganze Hoffnung liegt jetzt in Paris.",
+    "en": "My whole hopes are now centred in Paris.",
+    "from": "c2-l7"
+   }
+  },
+  {
+   "id": "c2dedae2",
+   "w": "어서",
+   "pos": "adv",
+   "mean": {
+    "en": "quickly; please do"
+   },
+   "ex": {
+    "t": "어서 뮌헨으로 오셔서 제 오페라를 들어 보세요.",
+    "de": "Komm bald nach München und hör meine Oper!",
+    "en": "Come soon to Munich and hear my opera!",
+    "from": "c4-l4"
+   }
+  },
+  {
+   "id": "f7c04641",
+   "w": "근데",
+   "pos": "conj",
+   "mean": {
+    "en": "but, by the way (casual)"
+   },
+   "ex": {
+    "t": "근데 오늘 뭐 해?",
+    "de": "Und was machst du heute?",
+    "en": "By the way, what are you doing today?",
+    "from": null
+   }
+  },
+  {
+   "id": "47ad9f00",
+   "w": "빨리",
+   "pos": "adv",
+   "mean": {
+    "en": "quickly"
+   },
+   "ex": {
+    "t": "아빠, 안녕히 주무셨어요? 빨리 와요!",
+    "de": "Guten Morgen, Papa! Komm schnell!",
+    "en": "Good morning, Papa! Come quick!",
+    "from": "p1"
+   }
+  },
+  {
+   "id": "ff599e47",
+   "w": "아뇨",
+   "pos": "intj",
+   "mean": {
+    "en": "no (polite, spoken)"
+   },
+   "ex": {
+    "t": "아뇨, 괜찮아요.",
+    "de": "Nein, danke.",
+    "en": "No, thank you.",
+    "from": null
+   }
+  },
+  {
+   "id": "25b2a71c",
+   "w": "계속",
+   "pos": "adv",
+   "mean": {
+    "en": "continuously, keep (doing)"
+   },
+   "ex": {
+    "t": "계속 비가 와요.",
+    "de": "Es regnet immer weiter.",
+    "en": "It keeps raining.",
+    "from": null
+   }
+  },
+  {
+   "id": "8e1878c6",
+   "w": "제발",
+   "pos": "adv",
+   "mean": {
+    "en": "please"
+   },
+   "ex": {
+    "t": "네. 그런데 아빠, 제발요. 콘스탄체랑 결혼해도 돼요?",
+    "de": "Ja. Aber bitte, Papa: Darf ich Constanze heiraten?",
+    "en": "Yes. But please, Papa: may I marry Constanze?",
+    "from": "c6-l5"
+   }
+  },
+  {
+   "id": "492b40ad",
+   "w": "어디",
+   "pos": "pron",
+   "mean": {
+    "en": "where"
+   },
+   "ex": {
+    "t": "어머! 그럼 어디서 자?",
+    "de": "Oh je! Wo schläfst du denn?",
+    "en": "Oh dear! Where do you sleep?",
+    "from": "c1-l2"
+   }
+  },
+  {
+   "id": "7807bd93",
+   "w": "안녕",
+   "pos": "intj",
+   "mean": {
+    "en": "hi; bye (casual)"
+   },
+   "ex": {
+    "t": "안녕, 누나! 잘 지내?",
+    "de": "Hallo Nannerl! Wie geht's dir?",
+    "en": "Hi Nannerl! How are you?",
+    "from": "c1-l1"
+   }
+  },
+  {
+   "id": "116f2fa2",
+   "w": "두",
+   "pos": "det",
+   "mean": {
+    "en": "two"
+   },
+   "ex": {
+    "t": "편지를 두 통 받았어.",
+    "de": "Ich habe zwei Briefe bekommen.",
+    "en": "I got two letters.",
+    "from": null
+   }
+  },
+  {
+   "id": "bba2707b",
+   "w": "몇",
+   "pos": "det",
+   "mean": {
+    "en": "how many; a few"
+   },
+   "ex": {
+    "t": "지금 몇 시예요?",
+    "de": "Wie spät ist es jetzt?",
+    "en": "What time is it now?",
+    "from": null
+   }
+  },
+  {
+   "id": "e8472a84",
+   "w": "뭐",
+   "pos": "pron",
+   "mean": {
+    "en": "what"
+   },
+   "ex": {
+    "t": "뭐라고? 무슨 일이야? 괜찮아?",
+    "de": "Was? Was ist passiert? Geht es dir gut?",
+    "en": "What? What happened? Are you all right?",
+    "from": "c5-l2"
+   }
+  },
+  {
+   "id": "26154244",
+   "w": "많이",
+   "pos": "adv",
+   "mean": {
+    "en": "a lot"
+   },
+   "ex": {
+    "t": "대단하구나! 박수도 많이 받았어?",
+    "de": "Toll! Gab es viel Beifall?",
+    "en": "Great! Was there lots of applause?",
+    "from": "c6-l5"
+   }
+  },
+  {
+   "id": "888b1d32",
+   "w": "만약",
+   "pos": "adv",
+   "mean": {
+    "en": "if"
+   },
+   "ex": {
+    "t": "만약 비가 오면 집에 있자.",
+    "de": "Wenn es regnet, bleiben wir zu Hause.",
+    "en": "If it rains, let's stay home.",
+    "from": null
+   }
+  },
+  {
+   "id": "b559c990",
+   "w": "저기",
+   "pos": "pron",
+   "mean": {
+    "en": "over there; excuse me"
+   },
+   "ex": {
+    "t": "저기 극장이 보여요.",
+    "de": "Dort drüben sieht man das Theater.",
+    "en": "You can see the theatre over there.",
+    "from": null
+   }
+  },
+  {
+   "id": "ba20233d",
+   "w": "고맙다",
+   "pos": "adj",
+   "mean": {
+    "en": "be thankful"
+   },
+   "ex": {
+    "t": "여보, 편지 고마워! 정말 행복했어.",
+    "de": "Schatz, danke für deinen Brief! Ich war so glücklich.",
+    "en": "Darling, thank you for your letter! I was so happy.",
+    "from": "c8-l3"
+   }
+  },
+  {
+   "id": "188309b4",
+   "w": "항상",
+   "pos": "adv",
+   "mean": {
+    "en": "always"
+   },
+   "ex": {
+    "t": "항상 건강 조심해.",
+    "de": "Pass immer auf deine Gesundheit auf.",
+    "en": "Always look after your health.",
+    "from": null
+   }
+  },
+  {
+   "id": "0480f446",
+   "w": "잠깐",
+   "pos": "adv",
+   "mean": {
+    "en": "a moment"
+   },
+   "ex": {
+    "t": "잠깐만 기다려 주세요.",
+    "de": "Warten Sie bitte einen Moment.",
+    "en": "Please wait a moment.",
+    "from": null
+   }
+  },
+  {
+   "id": "44d621c0",
+   "w": "안녕하다",
+   "pos": "adj",
+   "mean": {
+    "en": "be well (in greetings)"
+   },
+   "ex": {
+    "t": "안녕하세요, 아빠! 드디어 파리에 도착했어요.",
+    "de": "Hallo Papa! Wir sind endlich in Paris angekommen.",
+    "en": "Hi Papa! We've finally arrived in Paris.",
+    "from": "c3-l1"
+   }
+  },
+  {
+   "id": "5a1a5d30",
+   "w": "그러니까",
+   "pos": "conj",
+   "mean": {
+    "en": "so, that is"
+   },
+   "ex": {
+    "t": "그러니까 엿새밖에 안 걸린 거지.",
+    "de": "Wir waren also nur sechs Tage unterwegs.",
+    "en": "So we've only been six days on the road.",
+    "from": "c8-l4"
+   }
+  },
+  {
+   "id": "4dd77055",
+   "w": "그만",
+   "pos": "adv",
+   "mean": {
+    "en": "stop; that's enough"
+   },
+   "ex": {
+    "t": "그래도 이 얘긴 그만할게요.",
+    "de": "Aber genug davon.",
+    "en": "But enough of that.",
+    "from": "c4-l1"
+   }
+  },
+  {
+   "id": "b4e5c4cc",
+   "w": "이미",
+   "pos": "adv",
+   "mean": {
+    "en": "already"
+   },
+   "ex": {
+    "t": "전날부터 이미 좌석이 없었어요.",
+    "de": "Schon am Tag davor gab es keine Plätze mehr.",
+    "en": "Not a seat was to be had the day before.",
+    "from": "c6-l4"
+   }
+  },
+  {
+   "id": "b7f5ce88",
+   "w": "그런데",
+   "pos": "conj",
+   "mean": {
+    "en": "but; by the way"
+   },
+   "ex": {
+    "t": "곧이요. 그런데 잘츠부르크가 두려워요.",
+    "de": "Bald. Aber ich habe Angst vor Salzburg.",
+    "en": "Soon. But I'm afraid of Salzburg.",
+    "from": "c3-l7"
+   }
+  },
+  {
+   "id": "79374799",
+   "w": "세상에",
+   "pos": "intj",
+   "mean": {
+    "en": "oh my goodness"
+   },
+   "ex": {
+    "t": "세상에. 의사는 불렀어?",
+    "de": "Oh Gott. Hast du einen Arzt geholt?",
+    "en": "Oh God. Have you called a doctor?",
+    "from": "c3-l3"
+   }
+  },
+  {
+   "id": "c8da1178",
+   "w": "예",
+   "pos": "intj",
+   "mean": {
+    "en": "yes (polite)"
+   },
+   "ex": {
+    "t": "예, 알겠습니다.",
+    "de": "Ja, verstanden.",
+    "en": "Yes, understood.",
+    "from": null
+   }
+  },
+  {
+   "id": "4255b490",
+   "w": "절대",
+   "pos": "adv",
+   "mean": {
+    "en": "never, absolutely"
+   },
+   "ex": {
+    "t": "그분 밑에서는 절대 일 안 해요.",
+    "de": "Ich diene ihm nie wieder.",
+    "en": "I'll never serve him again.",
+    "from": null
+   }
+  },
+  {
+   "id": "af1eea7c",
+   "w": "그래도",
+   "pos": "adv",
+   "mean": {
+    "en": "still, even so"
+   },
+   "ex": {
+    "t": "이해한다. 그래도 침착해라, 아들아.",
+    "de": "Das verstehe ich. Aber bleib ruhig, mein Sohn.",
+    "en": "I understand. But stay calm, son.",
+    "from": "c6-l4"
+   }
+  },
+  {
+   "id": "b467529c",
+   "w": "거기",
+   "pos": "pron",
+   "mean": {
+    "en": "there"
+   },
+   "ex": {
+    "t": "좋구나! 거기서 연주해도 돼?",
+    "de": "Schön! Darfst du dort spielen?",
+    "en": "Nice! Are you allowed to play there?",
+    "from": "c2-l2"
+   }
+  },
+  {
+   "id": "297a803b",
+   "w": "둘",
+   "pos": "num",
+   "mean": {
+    "en": "two"
+   },
+   "ex": {
+    "t": "귀엽다! 둘이 와서 나한테 쳐 줘!",
+    "de": "Wie süß! Kommt doch beide und spielt sie mir vor!",
+    "en": "How sweet! Come, both of you, and play it for me!",
+    "from": "c6-l3"
+   }
+  },
+  {
+   "id": "5eda37cd",
+   "w": "그녀",
+   "pos": "pron",
+   "mean": {
+    "en": "she (written)"
+   },
+   "ex": {
+    "t": "그녀도 마찬가지였어요.",
+    "de": "Ihr ging es genauso.",
+    "en": "She felt the same.",
+    "from": "c6-l7"
+   }
+  },
+  {
+   "id": "c3afd159",
+   "w": "참",
+   "pos": "adv",
+   "mean": {
+    "en": "truly, very"
+   },
+   "ex": {
+    "t": "참 좋은 날이에요.",
+    "de": "Was für ein schöner Tag!",
+    "en": "What a lovely day!",
+    "from": null
+   }
+  },
+  {
+   "id": "12da58fa",
+   "w": "미안하다",
+   "pos": "adj",
+   "mean": {
+    "en": "be sorry"
+   },
+   "ex": {
+    "t": "고마워. 직접 편지 못 써서 미안해.",
+    "de": "Danke. Verzeih, dass ich dir nicht selbst geschrieben habe.",
+    "en": "Thank you. Forgive me for not writing to you myself.",
+    "from": "c7-l5"
+   }
+  },
+  {
+   "id": "75cdc415",
+   "w": "씨",
+   "pos": "noun",
+   "mean": {
+    "en": "Mr. / Ms. (after a name)"
+   },
+   "ex": {
+    "t": "아빠, 피셔 씨가 오스민 역을 불러요.",
+    "de": "Papa, Fischer singt die Rolle des Osmin.",
+    "en": "Papa, Fischer is singing the role of Osmin.",
+    "from": "c5-l5"
+   }
+  },
+  {
+   "id": "dca521fd",
+   "w": "곧",
+   "pos": "adv",
+   "mean": {
+    "en": "soon"
+   },
+   "ex": {
+    "t": "좋겠다! 곧 편지 써 줘!",
+    "de": "Schön! Schreib mir bald einen Brief!",
+    "en": "Nice! Write me a letter soon!",
+    "from": "c1-l1"
+   }
+  },
+  {
+   "id": "41f7d978",
+   "w": "중",
+   "pos": "noun",
+   "mean": {
+    "en": "in the middle of"
+   },
+   "ex": {
+    "t": "지금 더워서 헉헉대는 중이야!",
+    "de": "Ich keuche gerade vor Hitze!",
+    "en": "I'm panting from the heat right now!",
+    "from": "c1-l5"
+   }
+  },
+  {
+   "id": "786b4c09",
+   "w": "먼저",
+   "pos": "adv",
+   "mean": {
+    "en": "first"
+   },
+   "ex": {
+    "t": "먼저 밥부터 먹자.",
+    "de": "Zuerst essen wir.",
+    "en": "First, let's eat.",
+    "from": null
+   }
+  },
+  {
+   "id": "a85c9b96",
+   "w": "방금",
+   "pos": "adv",
+   "mean": {
+    "en": "just now"
+   },
+   "ex": {
+    "t": "우리 방금 도착했어.",
+    "de": "Wir sind gerade angekommen.",
+    "en": "We've just arrived.",
+    "from": "c8-l4"
+   }
+  },
+  {
+   "id": "f1c8361e",
+   "w": "완전",
+   "pos": "adv",
+   "mean": {
+    "en": "completely"
+   },
+   "ex": {
+    "t": "콘스탄체가 그 푸가들을 듣더니 완전히 반해 버렸어.",
+    "de": "Als Constanze die Fugen hörte, war sie ganz verliebt.",
+    "en": "When Constanze heard the fugues, she fell completely in love.",
+    "from": "c6-l3"
+   }
+  },
+  {
+   "id": "b01380b4",
+   "w": "번",
+   "pos": "noun",
+   "mean": {
+    "en": "time(s) (counter)"
+   },
+   "ex": {
+    "t": "아, 여보! 뽀뽀 천 번 보낼게.",
+    "de": "Oh, Liebling! Ich schicke dir tausend Küsse.",
+    "en": "Oh, darling! I'm sending you a thousand kisses.",
+    "from": "c8-l5"
+   }
+  },
+  {
+   "id": "69ab1788",
+   "w": "자네",
+   "pos": "pron",
+   "mean": {
+    "en": "you (to a younger friend, old-fashioned)"
+   },
+   "ex": {
+    "t": "자네도 같이 가겠나?",
+    "de": "Kommst du auch mit?",
+    "en": "Will you come too?",
+    "from": null
+   }
+  },
+  {
+   "id": "d7f13517",
+   "w": "사실",
+   "pos": "noun",
+   "mean": {
+    "en": "fact, truth; actually"
+   },
+   "ex": {
+    "t": "부디 사실대로 써 주세요.",
+    "de": "Bitte schreib mir die Wahrheit.",
+    "en": "Please write me the truth.",
+    "from": "c7-l4"
+   }
+  },
+  {
+   "id": "dcba062b",
+   "w": "선생님",
+   "pos": "noun",
+   "mean": {
+    "en": "teacher; sir"
+   },
+   "ex": {
+    "t": "선생님, 안녕하세요?",
+    "de": "Guten Tag, Herr Lehrer!",
+    "en": "Hello, teacher!",
+    "from": null
+   }
+  },
+  {
+   "id": "aae7df5a",
+   "w": "문제",
+   "pos": "noun",
+   "mean": {
+    "en": "problem"
+   },
+   "ex": {
+    "t": "그건 문제가 아니야.",
+    "de": "Das ist kein Problem.",
+    "en": "That's not a problem.",
+    "from": null
+   }
+  },
+  {
+   "id": "4b3a7046",
+   "w": "물론",
+   "pos": "adv",
+   "mean": {
+    "en": "of course"
+   },
+   "ex": {
+    "t": "물론이지. 너도 건강 잘 챙겨.",
+    "de": "Natürlich. Und achte auf deine Gesundheit!",
+    "en": "Of course. And look after your health!",
+    "from": "c3-l3"
+   }
+  },
+  {
+   "id": "c5c6980c",
+   "w": "그러면",
+   "pos": "conj",
+   "mean": {
+    "en": "then, if so"
+   },
+   "ex": {
+    "t": "아빠, 고정 수입이 필요해요. 그러면 결혼할 거예요.",
+    "de": "Papa, ich brauche ein festes Einkommen. Dann heirate ich.",
+    "en": "Papa, I need a steady income. Then I'll get married.",
+    "from": "c6-l2"
+   }
+  },
+  {
+   "id": "0e0e3afa",
+   "w": "이리",
+   "pos": "adv",
+   "mean": {
+    "en": "this way, here"
+   },
+   "ex": {
+    "t": "이리 와 봐!",
+    "de": "Komm mal her!",
+    "en": "Come here!",
+    "from": null
+   }
+  },
+  {
+   "id": "cbf49ecb",
+   "w": "맙소사",
+   "pos": "intj",
+   "mean": {
+    "en": "good heavens"
+   },
+   "ex": {
+    "t": "맙소사, 편지가 비어 있어!",
+    "de": "Du lieber Gott, der Brief ist leer!",
+    "en": "Good heavens, the letter is blank!",
+    "from": null
+   }
+  },
+  {
+   "id": "510b92a3",
+   "w": "싫다",
+   "pos": "adj",
+   "mean": {
+    "en": "dislike"
+   },
+   "ex": {
+    "t": "나는 추운 방이 싫어.",
+    "de": "Ich mag kalte Zimmer nicht.",
+    "en": "I don't like cold rooms.",
+    "from": null
+   }
+  },
+  {
+   "id": "9ece0323",
+   "w": "중요하다",
+   "pos": "adj",
+   "mean": {
+    "en": "be important"
+   },
+   "ex": {
+    "t": "건강이 제일 중요해.",
+    "de": "Die Gesundheit ist das Wichtigste.",
+    "en": "Health is the most important thing.",
+    "from": null
+   }
+  },
+  {
+   "id": "0b17958b",
+   "w": "새",
+   "pos": "det",
+   "mean": {
+    "en": "new"
+   },
+   "ex": {
+    "t": "좋아요! 새 곡이 있어요!",
+    "de": "Gut! Ich habe ein neues Stück!",
+    "en": "Good! I have a new piece!",
+    "from": "p1"
+   }
+  },
+  {
+   "id": "8a121cb4",
+   "w": "너희",
+   "pos": "pron",
+   "mean": {
+    "en": "you (plural, casual)"
+   },
+   "ex": {
+    "t": "너희 둘 다 잘 지내?",
+    "de": "Geht es euch beiden gut?",
+    "en": "Are you both well?",
+    "from": null
+   }
+  },
+  {
+   "id": "1541f81c",
+   "w": "원하다",
+   "pos": "verb",
+   "mean": {
+    "en": "want"
+   },
+   "ex": {
+    "t": "네. 선제후가 저를 원하지 않아요.",
+    "de": "Ja. Der Kurfürst will mich nicht.",
+    "en": "Yes. The Elector doesn't want me.",
+    "from": "c2-l5"
+   }
+  },
+  {
+   "id": "a3f8f836",
+   "w": "필요",
+   "pos": "noun",
+   "mean": {
+    "en": "need"
+   },
+   "ex": {
+    "t": "잘됐네요. 도움 필요해요? 제가 도와 볼게요.",
+    "de": "Schön. Brauchst du Hilfe? Ich versuche, dir zu helfen.",
+    "en": "Good. Do you need help? I'll try to help you.",
+    "from": "c7-l7"
+   }
+  },
+  {
+   "id": "dd03a865",
+   "w": "혹시",
+   "pos": "adv",
+   "mean": {
+    "en": "by any chance"
+   },
+   "ex": {
+    "t": "혹시 내 편지 받았어?",
+    "de": "Hast du vielleicht meinen Brief bekommen?",
+    "en": "Did you get my letter, by any chance?",
+    "from": null
+   }
+  },
+  {
+   "id": "602a18cb",
+   "w": "죄송하다",
+   "pos": "adj",
+   "mean": {
+    "en": "be sorry (polite)"
+   },
+   "ex": {
+    "t": "아빠, 편지가 짧아서 죄송해요! 리허설 가야 해요.",
+    "de": "Papa, verzeih den kurzen Brief! Ich muss zur Probe.",
+    "en": "Papa, forgive the short letter! I'm off to rehearsal.",
+    "from": "c4-l7"
+   }
+  },
+  {
+   "id": "3cf38503",
+   "w": "밖",
+   "pos": "noun",
+   "mean": {
+    "en": "outside"
+   },
+   "ex": {
+    "t": "밖은 추워.",
+    "de": "Draußen ist es kalt.",
+    "en": "It's cold outside.",
+    "from": null
+   }
+  },
+  {
+   "id": "216c7018",
+   "w": "아니요",
+   "pos": "intj",
+   "mean": {
+    "en": "no (polite)"
+   },
+   "ex": {
+    "t": "아니요, 저는 안 피곤해요.",
+    "de": "Nein, ich bin nicht müde.",
+    "en": "No, I'm not tired.",
+    "from": null
+   }
+  },
+  {
+   "id": "d2644783",
+   "w": "갖다",
+   "pos": "verb",
+   "mean": {
+    "en": "bring, take (갖다 주다)"
+   },
+   "ex": {
+    "t": "물 좀 갖다 줄래?",
+    "de": "Bringst du mir etwas Wasser?",
+    "en": "Could you bring me some water?",
+    "from": null
+   }
+  },
+  {
+   "id": "a4111638",
+   "w": "없이",
+   "pos": "adv",
+   "mean": {
+    "en": "without"
+   },
+   "ex": {
+    "t": "돈 없이는 쉽지 않아. 돈은 충분하니?",
+    "de": "Ohne Geld ist das nicht leicht. Hast du genug?",
+    "en": "Without money that isn't easy. Do you have enough?",
+    "from": "c5-l3"
+   }
+  },
+  {
+   "id": "f5ea1264",
+   "w": "나중",
+   "pos": "noun",
+   "mean": {
+    "en": "later"
+   },
+   "ex": {
+    "t": "나중에 편지할게.",
+    "de": "Ich schreibe dir später.",
+    "en": "I'll write to you later.",
+    "from": null
+   }
+  },
+  {
+   "id": "9adc234d",
+   "w": "차",
+   "pos": "noun",
+   "mean": {
+    "en": "tea; carriage, car"
+   },
+   "ex": {
+    "t": "아이고, 고생했다! 지금 따뜻한 차 한잔 마셔.",
+    "de": "Du Armer! Trink jetzt einen heißen Tee.",
+    "en": "Poor you! Have a hot tea now.",
+    "from": "c3-l2"
+   }
+  },
+  {
+   "id": "61b13be5",
+   "w": "그저",
+   "pos": "adv",
+   "mean": {
+    "en": "just, merely"
+   },
+   "ex": {
+    "t": "그저 무언가가 되고 싶어요.",
+    "de": "Ich möchte nur etwas sein.",
+    "en": "I just wish to be something.",
+    "from": "c3-l7"
+   }
+  },
+  {
+   "id": "51f4e7f6",
+   "w": "왜냐면",
+   "pos": "conj",
+   "mean": {
+    "en": "because"
+   },
+   "ex": {
+    "t": "왜냐면 너무 피곤했거든.",
+    "de": "Weil ich so müde war.",
+    "en": "Because I was so tired.",
+    "from": null
+   }
+  },
+  {
+   "id": "525e4381",
+   "w": "엄청",
+   "pos": "adv",
+   "mean": {
+    "en": "very, tremendously"
+   },
+   "ex": {
+    "t": "엄청요! 하루 종일 책상 앞에 앉아 있어요.",
+    "de": "Sehr! Ich sitze den ganzen Tag am Schreibtisch.",
+    "en": "Very much! I sit at my desk all day.",
+    "from": "c5-l4"
+   }
+  },
+  {
+   "id": "bcc643df",
+   "w": "오래",
+   "pos": "adv",
+   "mean": {
+    "en": "long (time)"
+   },
+   "ex": {
+    "t": "그렇게 오래? 그다음엔 어떻게 됐어?",
+    "de": "So lange? Und was ist dann passiert?",
+    "en": "So long? And then what happened?",
+    "from": "c3-l2"
+   }
+  },
+  {
+   "id": "9e8edbdd",
+   "w": "제일",
+   "pos": "adv",
+   "mean": {
+    "en": "most, best"
+   },
+   "ex": {
+    "t": "오르간이 제일 좋아요.",
+    "de": "Die Orgel mag ich am liebsten.",
+    "en": "I like the organ best.",
+    "from": null
+   }
+  },
+  {
+   "id": "e9e74737",
+   "w": "제대로",
+   "pos": "adv",
+   "mean": {
+    "en": "properly"
+   },
+   "ex": {
+    "t": "이래서야 어떻게 제대로 생각하고 일할 수 있겠어요?",
+    "de": "Wie soll ich so richtig denken und arbeiten?",
+    "en": "How can I think or work properly like this?",
+    "from": "c6-l5"
+   }
+  },
+  {
+   "id": "b9e6c714",
+   "w": "남자",
+   "pos": "noun",
+   "mean": {
+    "en": "man"
+   },
+   "ex": {
+    "t": "그 남자는 목소리가 낮아요.",
+    "de": "Der Mann hat eine tiefe Stimme.",
+    "en": "The man has a deep voice.",
+    "from": null
+   }
+  },
+  {
+   "id": "ab867ec0",
+   "w": "보이다",
+   "pos": "verb",
+   "mean": {
+    "en": "be seen; show"
+   },
+   "ex": {
+    "t": "좋구나! 그분께 아리아를 보여 드렸어?",
+    "de": "Schön! Hast du ihm die Arie gezeigt?",
+    "en": "Nice! Did you show him the aria?",
+    "from": "c4-l2"
+   }
+  },
+  {
+   "id": "e1b82eec",
+   "w": "여러분",
+   "pos": "pron",
+   "mean": {
+    "en": "everyone (you all)"
+   },
+   "ex": {
+    "t": "여러분, 안녕하세요!",
+    "de": "Hallo, alle zusammen!",
+    "en": "Hello, everyone!",
+    "from": null
+   }
+  },
+  {
+   "id": "791a7c0c",
+   "w": "벌써",
+   "pos": "adv",
+   "mean": {
+    "en": "already"
+   },
+   "ex": {
+    "t": "바흐? 벌써 만났니?",
+    "de": "Bach? Hast du ihn schon getroffen?",
+    "en": "Bach? Have you met him yet?",
+    "from": "c3-l5"
+   }
+  },
+  {
+   "id": "19daca81",
+   "w": "정말로",
+   "pos": "adv",
+   "mean": {
+    "en": "truly, really"
+   },
+   "ex": {
+    "t": "정말로 고마워.",
+    "de": "Ich danke dir wirklich.",
+    "en": "I truly thank you.",
+    "from": null
+   }
+  },
+  {
+   "id": "4dec62c6",
+   "w": "여보",
+   "pos": "noun",
+   "mean": {
+    "en": "darling, honey (spouse)"
+   },
+   "ex": {
+    "t": "여보, 5일까지 뮌헨에 더 있어.",
+    "de": "Schatz, ich bleibe noch bis zum fünften in München.",
+    "en": "Darling, I'm staying in Munich until the fifth.",
+    "from": "c8-l6"
+   }
+  },
+  {
+   "id": "bda86fc8",
+   "w": "여보세요",
+   "pos": "intj",
+   "mean": {
+    "en": "hello (on the phone)"
+   },
+   "ex": {
+    "t": "여보세요? 누나야?",
+    "de": "Hallo? Bist du das, Nannerl?",
+    "en": "Hello? Is that you, Nannerl?",
+    "from": null
+   }
+  },
+  {
+   "id": "aa7b8e58",
+   "w": "첫",
+   "pos": "det",
+   "mean": {
+    "en": "first"
+   },
+   "ex": {
+    "t": "축하해! 첫 공연은 언제였어?",
+    "de": "Gratuliere! Wann war die Premiere?",
+    "en": "Congratulations! When was the premiere?",
+    "from": "c7-l6"
+   }
+  },
+  {
+   "id": "46e0b1fe",
+   "w": "매우",
+   "pos": "adv",
+   "mean": {
+    "en": "very"
+   },
+   "ex": {
+    "t": "매우 기쁩니다.",
+    "de": "Ich freue mich sehr.",
+    "en": "I'm very glad.",
+    "from": null
+   }
+  },
+  {
+   "id": "71402d6e",
+   "w": "단지",
+   "pos": "adv",
+   "mean": {
+    "en": "only, merely"
+   },
+   "ex": {
+    "t": "단지 하루 늦었을 뿐이야.",
+    "de": "Er war nur einen Tag zu spät.",
+    "en": "It was only one day late.",
+    "from": null
+   }
+  },
+  {
+   "id": "37f5c8e3",
+   "w": "나가다",
+   "pos": "verb",
+   "mean": {
+    "en": "go out"
+   },
+   "ex": {
+    "t": "잠깐 밖에 나갈게.",
+    "de": "Ich gehe kurz hinaus.",
+    "en": "I'm just going out for a moment.",
+    "from": null
+   }
+  },
+  {
+   "id": "19e309e5",
+   "w": "뿐",
+   "pos": "noun",
+   "mean": {
+    "en": "only"
+   },
+   "ex": {
+    "t": "멋져! 그런데 침대가 하나뿐이야!",
+    "de": "Toll! Aber nur ein Bett!",
+    "en": "Great! But only one bed!",
+    "from": "c1-l2"
+   }
+  },
+  {
+   "id": "6d1131c8",
+   "w": "확실히",
+   "pos": "adv",
+   "mean": {
+    "en": "certainly"
+   },
+   "ex": {
+    "t": "확실히 여기가 더 따뜻해.",
+    "de": "Hier ist es sicher wärmer.",
+    "en": "It's certainly warmer here.",
+    "from": null
+   }
+  },
+  {
+   "id": "fa042e6e",
+   "w": "살",
+   "pos": "noun",
+   "mean": {
+    "en": "years old (counter)"
+   },
+   "ex": {
+    "t": "제 이름은 볼프강이에요. 일곱 살이에요!",
+    "de": "Ich heiße Wolfgang. Ich bin sieben!",
+    "en": "My name is Wolfgang. I'm seven!",
+    "from": "p2"
+   }
+  },
+  {
+   "id": "92d5fdec",
+   "w": "당연히",
+   "pos": "adv",
+   "mean": {
+    "en": "naturally, of course"
+   },
+   "ex": {
+    "t": "당연히 같이 가야지!",
+    "de": "Natürlich kommen wir mit!",
+    "en": "Of course we're coming along!",
+    "from": null
+   }
+  },
+  {
+   "id": "f580b9f3",
+   "w": "데리다",
+   "pos": "verb",
+   "mean": {
+    "en": "take (someone) along"
+   },
+   "ex": {
+    "t": "아이를 데리고 갈게.",
+    "de": "Ich nehme das Kind mit.",
+    "en": "I'll take the child with me.",
+    "from": null
+   }
+  },
+  {
+   "id": "8f6062ee",
+   "w": "후",
+   "pos": "noun",
+   "mean": {
+    "en": "after"
+   },
+   "ex": {
+    "t": "공연 후에 만나자.",
+    "de": "Treffen wir uns nach der Vorstellung.",
+    "en": "Let's meet after the performance.",
+    "from": null
+   }
+  },
+  {
+   "id": "db32a620",
+   "w": "글쎄",
+   "pos": "intj",
+   "mean": {
+    "en": "well (hesitating)"
+   },
+   "ex": {
+    "t": "글쎄요. 식탁에서 요리사들 바로 윗자리에 앉아요.",
+    "de": "Na ja. Am Tisch sitze ich nur über den Köchen.",
+    "en": "Well. At the table I sit just above the cooks.",
+    "from": "c5-l1"
+   }
+  },
+  {
+   "id": "ec386591",
+   "w": "별로",
+   "pos": "adv",
+   "mean": {
+    "en": "not really, not very"
+   },
+   "ex": {
+    "t": "별로 안 추워.",
+    "de": "Es ist nicht besonders kalt.",
+    "en": "It's not very cold.",
+    "from": null
+   }
+  },
+  {
+   "id": "a8bbe30e",
+   "w": "여전히",
+   "pos": "adv",
+   "mean": {
+    "en": "still"
+   },
+   "ex": {
+    "t": "여전히 바빠요.",
+    "de": "Ich bin immer noch beschäftigt.",
+    "en": "I'm still busy.",
+    "from": null
+   }
+  },
+  {
+   "id": "87c3101d",
+   "w": "훨씬",
+   "pos": "adv",
+   "mean": {
+    "en": "much (more), far"
+   },
+   "ex": {
+    "t": "위층 갤러리보다 훨씬 좋아.",
+    "de": "Viel besser als oben auf der Galerie.",
+    "en": "Far better than from the gallery.",
+    "from": "c8-l7"
+   }
+  },
+  {
+   "id": "12233c08",
+   "w": "어쩌면",
+   "pos": "adv",
+   "mean": {
+    "en": "perhaps"
+   },
+   "ex": {
+    "t": "어쩌면 정말 그럴 수 있을지도 몰라요.",
+    "de": "Vielleicht kann ich das wirklich.",
+    "en": "Perhaps I may really be able to do so.",
+    "from": "c2-l6"
+   }
+  },
+  {
+   "id": "838088e1",
+   "w": "어느",
+   "pos": "det",
+   "mean": {
+    "en": "which; any"
+   },
+   "ex": {
+    "t": "세상 어느 군주보다 황제 폐하를 섬기고 싶어요.",
+    "de": "Keinem Monarchen diene ich lieber als dem Kaiser.",
+    "en": "I'd rather serve the Emperor than any monarch.",
+    "from": "c6-l7"
+   }
+  },
+  {
+   "id": "1d1c8880",
+   "w": "아마도",
+   "pos": "adv",
+   "mean": {
+    "en": "probably, perhaps"
+   },
+   "ex": {
+    "t": "아마도 곧 편지가 올 거야.",
+    "de": "Vielleicht kommt bald ein Brief.",
+    "en": "Perhaps a letter will come soon.",
+    "from": null
+   }
+  },
+  {
+   "id": "3f7e95a9",
+   "w": "준비",
+   "pos": "noun",
+   "mean": {
+    "en": "preparation, ready"
+   },
+   "ex": {
+    "t": "준비됐어?",
+    "de": "Bist du bereit?",
+    "en": "Are you ready?",
+    "from": null
+   }
+  },
+  {
+   "id": "774dd875",
+   "w": "전화",
+   "pos": "noun",
+   "mean": {
+    "en": "phone call"
+   },
+   "ex": {
+    "t": "누나한테 전화할게.",
+    "de": "Ich rufe meine Schwester an.",
+    "en": "I'll call my sister.",
+    "from": null
+   }
+  },
+  {
+   "id": "1473df0e",
+   "w": "뒤",
+   "pos": "noun",
+   "mean": {
+    "en": "back; after"
+   },
+   "ex": {
+    "t": "공연 뒤에 편지할게.",
+    "de": "Nach der Vorstellung schreibe ich dir.",
+    "en": "I'll write to you after the performance.",
+    "from": null
+   }
+  },
+  {
+   "id": "48b9d220",
+   "w": "도대체",
+   "pos": "adv",
+   "mean": {
+    "en": "on earth (in questions)"
+   },
+   "ex": {
+    "t": "도대체 무슨 일이야?",
+    "de": "Was ist denn bloß los?",
+    "en": "What on earth is going on?",
+    "from": null
+   }
+  },
+  {
+   "id": "7ceb616c",
+   "w": "세",
+   "pos": "det",
+   "mean": {
+    "en": "three"
+   },
+   "ex": {
+    "t": "영어를 배워요. 벌써 세 번 수업했어요.",
+    "de": "Ich lerne Englisch. Ich hatte schon drei Stunden.",
+    "en": "I'm learning English. I've had three lessons already.",
+    "from": "c6-l7"
+   }
+  },
+  {
+   "id": "a986e43a",
+   "w": "갑자기",
+   "pos": "adv",
+   "mean": {
+    "en": "suddenly"
+   },
+   "ex": {
+    "t": "갑자기 세레나데가 들려왔어요.",
+    "de": "Plötzlich hörte ich eine Serenade.",
+    "en": "Suddenly I heard a serenade.",
+    "from": null
+   }
+  },
+  {
+   "id": "2a277ae6",
+   "w": "어쨌든",
+   "pos": "adv",
+   "mean": {
+    "en": "anyway"
+   },
+   "ex": {
+    "t": "어쨌든 곧 편지해!",
+    "de": "Schreib jedenfalls bald!",
+    "en": "Anyway, write soon!",
+    "from": null
+   }
+  },
+  {
+   "id": "63ff5bcc",
+   "w": "신경",
+   "pos": "noun",
+   "mean": {
+    "en": "nerves; attention (신경 쓰다 = mind)"
+   },
+   "ex": {
+    "t": "신경 쓰지 마.",
+    "de": "Mach dir nichts draus.",
+    "en": "Don't mind it.",
+    "from": null
+   }
+  },
+  {
+   "id": "f28eb4be",
+   "w": "늘",
+   "pos": "adv",
+   "mean": {
+    "en": "always"
+   },
+   "ex": {
+    "t": "미하엘, 한번 놀러 와요! 저는 늘 집에 있어요.",
+    "de": "Michael, besuch mich doch mal! Ich bin immer zu Hause.",
+    "en": "Michael, come and visit me! I'm always at home.",
+    "from": "c7-l7"
+   }
+  },
+  {
+   "id": "04fc727b",
+   "w": "분명히",
+   "pos": "adv",
+   "mean": {
+    "en": "surely, clearly"
+   },
+   "ex": {
+    "t": "편지는 분명히 곧 올 거야.",
+    "de": "Der Brief kommt bestimmt bald.",
+    "en": "The letter will surely come soon.",
+    "from": null
+   }
+  },
+  {
+   "id": "b5ca9462",
+   "w": "일단",
+   "pos": "adv",
+   "mean": {
+    "en": "first, for now"
+   },
+   "ex": {
+    "t": "일단 좀 쉬어.",
+    "de": "Ruh dich erst mal aus.",
+    "en": "Rest for now.",
+    "from": null
+   }
+  },
+  {
+   "id": "49c197d4",
+   "w": "매일",
+   "pos": "adv",
+   "mean": {
+    "en": "every day"
+   },
+   "ex": {
+    "t": "응, 매일! 줄도 새로 갈았어.",
+    "de": "Ja, jeden Tag! Mit neuen Saiten.",
+    "en": "Yes, every day! With new strings.",
+    "from": "c1-l4"
+   }
+  },
+  {
+   "id": "064eac31",
+   "w": "마치",
+   "pos": "adv",
+   "mean": {
+    "en": "as if, just like"
+   },
+   "ex": {
+    "t": "우리는 마치 천사 같았어.",
+    "de": "Wir sahen aus wie Engel.",
+    "en": "We looked like angels.",
+    "from": null
+   }
+  },
+  {
+   "id": "a1e5c1ff",
+   "w": "금방",
+   "pos": "adv",
+   "mean": {
+    "en": "in a moment, soon"
+   },
+   "ex": {
+    "t": "금방 갈게!",
+    "de": "Ich komme gleich!",
+    "en": "I'll be right there!",
+    "from": null
+   }
+  },
+  {
+   "id": "6996d03c",
+   "w": "결국",
+   "pos": "adv",
+   "mean": {
+    "en": "in the end"
+   },
+   "ex": {
+    "t": "결국 어머니도, 딸도, 재무관 어른도 눈시울이 젖었어요.",
+    "de": "Am Ende hatten alle Tränen in den Augen.",
+    "en": "At last they all had tears in their eyes.",
+    "from": "c2-l5"
+   }
+  }
+ ]
+}

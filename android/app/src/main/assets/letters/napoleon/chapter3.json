@@ -440,9 +440,9 @@
      },
      {
       "who": "me",
-      "fr": "Ah bon ? Moi, je viens de recevoir ta lettre.",
-      "en": "Really? I've just got your letter.",
-      "ko": "그래? 나는 방금 당신 편지 받았는데.",
+      "fr": "Moi, je viens de recevoir ta lettre.",
+      "en": "And I've just got your letter.",
+      "ko": "나는 방금 당신 편지 받았어.",
       "focus": {
        "fr": [
         "je viens de recevoir"
@@ -451,7 +451,7 @@
         "I've just got"
        ],
        "ko": [
-        "받았는데"
+        "받았어"
        ]
       },
       "wrong": {
@@ -469,8 +469,8 @@
        ],
        "ko": [
         [
-         "받앗는데",
-         "받았는대"
+         "받앗어",
+         "받았서"
         ]
        ]
       }
@@ -478,42 +478,42 @@
      {
       "who": "them",
       "fr": "Je pars demain. Le pays est très beau.",
-      "en": "I'm leaving tomorrow. The country is very beautiful.",
-      "ko": "내일 떠나. 여기 경치가 정말 아름다워."
+      "en": "I leave tomorrow. The country is beautiful.",
+      "ko": "내일 떠나. 여기 경치가 아주 아름다워."
      },
      {
       "who": "me",
-      "fr": "Super ! Hortense vient de rentrer, elle t'embrasse.",
-      "en": "Great! Hortense has just come home; she sends you a kiss.",
-      "ko": "좋겠다! 오르탕스가 방금 들어왔는데, 당신한테 안부 전하래.",
+      "fr": "Tu pars à quelle heure ?",
+      "en": "What time do you leave?",
+      "ko": "몇 시에 떠나?",
       "focus": {
        "fr": [
-        "vient de rentrer"
+        "à quelle heure"
        ],
        "en": [
-        "has just come"
+        "What time"
        ],
        "ko": [
-        "들어왔는데"
+        "몇 시에"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "vient rentrer",
-         "vient de rentré"
+         "à quel heure",
+         "à quelle heures"
         ]
        ],
        "en": [
         [
-         "has just came",
-         "just has come"
+         "Which time",
+         "What hour"
         ]
        ],
        "ko": [
         [
-         "들어왓는데",
-         "들어왔은데"
+         "몇 시애",
+         "멫 시에"
         ]
        ]
       }
@@ -523,7 +523,8 @@
      "beau"
     ],
     "grammar": "III.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -843,9 +844,9 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Il a plu toute la journée, et j'étais dehors.",
-      "en": "It rained all day, and I was outside.",
-      "ko": "하루 종일 비가 왔는데 나는 밖에 있었어."
+      "fr": "Il a plu toute la journée. J'étais dehors.",
+      "en": "It rained all day. I was outside.",
+      "ko": "하루 종일 비가 왔어. 나는 밖에 있었어."
      },
      {
       "who": "me",
@@ -886,21 +887,21 @@
      },
      {
       "who": "them",
-      "fr": "Un peu. Mais ça va mieux. Je rentre dans un mois.",
-      "en": "A little. But I'm better. I'll be home in a month.",
-      "ko": "조금. 그래도 이제 좀 나아. 한 달 뒤에 돌아가."
+      "fr": "Ça va mieux. Je rentre dans un mois.",
+      "en": "I'm better. I'll be home in a month.",
+      "ko": "좀 나아. 한 달 뒤에 돌아가."
      },
      {
       "who": "me",
-      "fr": "Tant mieux ! Tu as bu quelque chose de chaud ?",
-      "en": "Good! Did you drink something hot?",
-      "ko": "다행이다! 따뜻한 거 마셨어?",
+      "fr": "Un mois ! Tu as bu du bouillon chaud ?",
+      "en": "A month! Have you had hot broth?",
+      "ko": "한 달이나! 따뜻한 국물은 마셨어?",
       "focus": {
        "fr": [
         "Tu as bu"
        ],
        "en": [
-        "Did you drink"
+        "Have you had"
        ],
        "ko": [
         "마셨어"
@@ -915,8 +916,8 @@
        ],
        "en": [
         [
-         "Did you drank",
-         "Did you drinked"
+         "Have you have",
+         "Have you haded"
         ]
        ],
        "ko": [
@@ -932,7 +933,8 @@
      "mieux"
     ],
     "grammar": "III.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -1288,13 +1290,13 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Tu sais, j'ai reçu des plantes de Londres pour toi.",
-      "en": "You know, I got some plants from London for you.",
-      "ko": "있잖아, 런던에서 당신 줄 식물이 왔어."
+      "fr": "J'ai reçu des plantes de Londres pour toi.",
+      "en": "I've got some plants from London for you.",
+      "ko": "런던에서 당신 줄 식물이 왔어."
      },
      {
       "who": "me",
-      "fr": "Super ! Tu les as mises dans le jardin ?",
+      "fr": "Super ! Tu les as mises au jardin ?",
       "en": "Great! Did you put them in the garden?",
       "ko": "와! 정원에 심었어?",
       "focus": {
@@ -1331,15 +1333,15 @@
      },
      {
       "who": "them",
-      "fr": "Ton jardinier les a. Mais Malmaison est triste sans toi.",
-      "en": "Your gardener has them. But Malmaison is sad without you.",
-      "ko": "정원사한테 줬어. 그런데 당신 없는 말메종은 쓸쓸해."
+      "fr": "Ton jardinier les a. Tout est triste ici.",
+      "en": "Your gardener has them. Everything's sad here.",
+      "ko": "정원사한테 줬어. 여기는 다 쓸쓸해."
      },
      {
       "who": "me",
-      "fr": "Je vais revenir bientôt. Tu as vu Hortense ?",
-      "en": "I'm coming back soon. Did you see Hortense?",
-      "ko": "곧 돌아가려고 해. 오르탕스는 봤어?",
+      "fr": "Je reviens bientôt. Tu as vu Hortense ?",
+      "en": "I'll be back soon. Did you see Hortense?",
+      "ko": "곧 돌아갈게. 오르탕스는 봤어?",
       "focus": {
        "fr": [
         "Tu as vu"
@@ -1348,7 +1350,7 @@
         "Did you see"
        ],
        "ko": [
-        "돌아가려고 해"
+        "봤어"
        ]
       },
       "wrong": {
@@ -1366,8 +1368,8 @@
        ],
        "ko": [
         [
-         "돌아갈려고 해",
-         "돌아가려구 해"
+         "봣어",
+         "봐었어"
         ]
        ]
       }
@@ -1379,7 +1381,8 @@
      "triste"
     ],
     "grammar": "III.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -1726,15 +1729,15 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Je suis allé à la chasse hier. Je me suis fait mal au doigt !",
-      "en": "I went hunting yesterday. I hurt my finger!",
-      "ko": "어제 사냥 갔다가 손가락을 다쳤어!"
+      "fr": "Hier, à la chasse, je me suis blessé.",
+      "en": "Yesterday I got hurt out hunting.",
+      "ko": "어제 사냥하다 다쳤어."
      },
      {
       "who": "me",
-      "fr": "Encore ? Tu as mis un pansement ?",
-      "en": "Again? Did you put a bandage on it?",
-      "ko": "또? 붕대는 감았어?",
+      "fr": "Encore ? Où ça ? Tu as mis un pansement ?",
+      "en": "Again? Where? Did you put a bandage on?",
+      "ko": "또? 어디? 붕대는 감았어?",
       "focus": {
        "fr": [
         "Tu as mis"
@@ -1769,21 +1772,21 @@
      },
      {
       "who": "them",
-      "fr": "Oui, ce n'est rien. Et toi, la route t'a fatiguée ?",
-      "en": "Yes, it's nothing. And you, did the journey tire you out?",
-      "ko": "응, 별거 아니야. 당신은 오느라 힘들었어?"
+      "fr": "Un doigt, ce n'est rien. Et ton voyage ?",
+      "en": "A finger — it's nothing. And your journey?",
+      "ko": "손가락이야, 별거 아니야. 당신은 오는 길 어땠어?"
      },
      {
       "who": "me",
-      "fr": "Un peu. Je vais me reposer quelques jours.",
-      "en": "A little. I'm going to rest for a few days.",
-      "ko": "조금. 며칠 쉬려고 해.",
+      "fr": "Fatigant. Je vais me reposer quelques jours.",
+      "en": "Tiring. I'll rest for a few days.",
+      "ko": "힘들었어. 며칠 쉬려고 해.",
       "focus": {
        "fr": [
         "Je vais me reposer"
        ],
        "en": [
-        "I'm going to rest"
+        "I'll rest"
        ],
        "ko": [
         "쉬려고 해"
@@ -1798,8 +1801,8 @@
        ],
        "en": [
         [
-         "I'm going rest",
-         "I go to rest"
+         "I'll rests",
+         "I'll resting"
         ]
        ],
        "ko": [
@@ -1816,7 +1819,8 @@
      "doigt"
     ],
     "grammar": "III.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -2134,15 +2138,15 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Tu rentres quand ? Je suis seul depuis deux semaines !",
-      "en": "When are you coming home? I've been alone for two weeks!",
-      "ko": "언제 와? 혼자 지낸 지 벌써 두 주야!"
+      "fr": "Je suis seul depuis deux semaines !",
+      "en": "I've been alone for two weeks!",
+      "ko": "혼자 지낸 지 벌써 두 주야!"
      },
      {
       "who": "me",
-      "fr": "Dans huit jours ! Je suis aux bains depuis dix jours.",
-      "en": "In a week! I've been taking the baths for ten days.",
-      "ko": "여드레 뒤에! 온천에 온 지 열흘 됐어.",
+      "fr": "Je suis aux bains depuis dix jours.",
+      "en": "I've been at the baths for ten days.",
+      "ko": "온천에 온 지 열흘 됐어.",
       "focus": {
        "fr": [
         "depuis dix jours"
@@ -2177,15 +2181,15 @@
      },
      {
       "who": "them",
-      "fr": "Hortense a joué hier. Elle était très bien !",
+      "fr": "Hier, Hortense a joué. Elle était très bien !",
       "en": "Hortense acted yesterday. She was very good!",
-      "ko": "어제 오르탕스가 연극을 했어. 아주 잘했어!"
+      "ko": "어제 오르탕스가 연극했어. 아주 잘했어!"
      },
      {
       "who": "me",
-      "fr": "Ah oui ? Elle apprend ce rôle depuis un mois !",
-      "en": "Really? She's been learning that part for a month!",
-      "ko": "그래? 그 역을 연습한 지 한 달이나 됐어!",
+      "fr": "Elle apprend ce rôle depuis un mois !",
+      "en": "She's been learning that part for a month!",
+      "ko": "그 역을 연습한 지 한 달이야!",
       "focus": {
        "fr": [
         "depuis un mois"
@@ -2225,7 +2229,8 @@
      "jouer"
     ],
     "grammar": "III.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -2605,17 +2610,17 @@
      {
       "who": "me",
       "fr": "Pourquoi ? Qu'est-ce qui vient de se passer ?",
-      "en": "Why? What's just happened?",
-      "ko": "왜? 방금 무슨 일 있었는데?",
+      "en": "Why? What has just happened?",
+      "ko": "왜? 방금 무슨 일 있었어?",
       "focus": {
        "fr": [
         "vient de se passer"
        ],
        "en": [
-        "What's just happened"
+        "has just happened"
        ],
        "ko": [
-        "있었는데"
+        "있었어"
        ]
       },
       "wrong": {
@@ -2627,38 +2632,38 @@
        ],
        "en": [
         [
-         "What's just happen",
-         "What just has happened"
+         "has just happen",
+         "just has happened"
         ]
        ],
        "ko": [
         [
-         "있었는대",
-         "잇었는데"
+         "있엇어",
+         "잇었어"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Une tempête ! Un bateau sur les rochers, la mer en furie… Mais on a sauvé tout le monde.",
-      "en": "A storm! A boat on the rocks, the sea in a fury… But we saved everyone.",
-      "ko": "폭풍이 왔어! 배가 바위에 걸리고, 바다는 미쳐 날뛰고… 그래도 다 구했어."
+      "fr": "Tempête en mer ! On a sauvé les marins.",
+      "en": "A storm at sea! We saved the sailors.",
+      "ko": "바다에 폭풍이 쳤어! 선원들을 구했어."
      },
      {
       "who": "me",
-      "fr": "Ouf ! Tu viens de passer une nuit blanche, alors. Dors !",
-      "en": "Phew! So you've just had a sleepless night. Get some sleep!",
-      "ko": "휴! 밤을 꼬박 새웠는데, 얼른 자!",
+      "fr": "Tu viens de passer une nuit blanche. Dors !",
+      "en": "You've just had a sleepless night. Sleep!",
+      "ko": "밤을 꼬박 새웠네. 얼른 자!",
       "focus": {
        "fr": [
         "Tu viens de passer"
        ],
        "en": [
-        "you've just had"
+        "You've just had"
        ],
        "ko": [
-        "새웠는데"
+        "새웠네"
        ]
       },
       "wrong": {
@@ -2670,14 +2675,14 @@
        ],
        "en": [
         [
-         "you've just have",
-         "you just have had"
+         "You've just have",
+         "You just have had"
         ]
        ],
        "ko": [
         [
-         "새웠는대",
-         "세웠는데"
+         "새웠내",
+         "세웠네"
         ]
        ]
       }
@@ -2688,7 +2693,8 @@
      "sauver"
     ],
     "grammar": "III.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -3014,15 +3020,15 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Je suis à Calais depuis minuit. Il y a du vent !",
-      "en": "I've been in Calais since midnight. It's windy!",
-      "ko": "자정부터 칼레에 있어. 바람이 세!"
+      "fr": "Je suis à Calais depuis minuit.",
+      "en": "I've been in Calais since midnight.",
+      "ko": "자정부터 칼레에 있어."
      },
      {
       "who": "me",
-      "fr": "Depuis minuit ? Tu n'as pas dormi depuis hier, alors !",
-      "en": "Since midnight? Then you haven't slept since yesterday!",
-      "ko": "자정부터? 그럼 어제부터 한숨도 못 잤겠네!",
+      "fr": "Depuis minuit ? Tu ne dors pas depuis hier !",
+      "en": "Since midnight? You haven't slept since yesterday!",
+      "ko": "자정부터? 어제부터 한숨도 못 잤겠네!",
       "focus": {
        "fr": [
         "depuis hier"
@@ -3057,15 +3063,15 @@
      },
      {
       "who": "them",
-      "fr": "Un peu. Et toi, les eaux te font du bien ?",
-      "en": "A little. And you, are the waters doing you good?",
-      "ko": "조금 잤어. 당신은 온천이 몸에 좋아?"
+      "fr": "Et toi, les eaux te font du bien ?",
+      "en": "And you — are the waters doing you good?",
+      "ko": "당신은 온천이 몸에 좋아?"
      },
      {
       "who": "me",
-      "fr": "Oui. Je suis ici depuis une semaine, et je dors bien.",
-      "en": "Yes. I've been here for a week, and I sleep well.",
-      "ko": "응. 여기 온 지 일주일 됐는데, 잠을 잘 자.",
+      "fr": "Oui. Je suis ici depuis une semaine.",
+      "en": "Yes. I've been here for a week.",
+      "ko": "응. 여기 온 지 일주일 됐어.",
       "focus": {
        "fr": [
         "depuis une semaine"
@@ -3103,7 +3109,8 @@
      "minuit"
     ],
     "grammar": "III.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   }
  ]

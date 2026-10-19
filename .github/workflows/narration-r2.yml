@@ -7,6 +7,7 @@ name: Narration to R2
 # 공개 주소는 Variables (CF_R2_PUBLIC_URL). 하루의 성경과 같은 이름이에요.
 # make=new: 올리기 전에 빠진 소리를 먼저 만든다 (scripts/narrate.py NARRATE_ONLY=new, Supertonic 3 고정판):
 #   오늘의 회화 t<줄>_<언어>.m4a (편지 "talk".audio = "t") · 카드 낱말 v_<언어>_<slug>.m4a · 표현 ph<n>_<언어>.m4a 가운데 이 저장소에 없는 것만.
+#   기초 낱말 덱 (data/<작품>/basics*.json) 의 낱말 b_<언어>_<id>.m4a · 예문 bx_<언어>_<id>.m4a 도 (서문 작업에서, 작품 폴더 B/basics/ → remote/audio, R2 묶음 "B").
 #   새 파일만 편지 폴더(앱 안 장은 assets/audio, 앱 밖 장은 remote/audio)에 넣고 generate.py 로 remote.json 목록을 고친 뒤
 #   이 가지에 커밋 · 푸시하고, 아래 덮어쓰기 검사 · 올리기를 그대로 한다. 이미 있는 파일은 만들지도 바꾸지도 않는다.
 #   만들기는 편지 파일마다 따로 돈다 (make 작업, 20개 동시) → 결과를 모아 sync 작업이 넣고 올린다.
@@ -20,7 +21,7 @@ on:
   workflow_dispatch:
     inputs:
       make:
-        description: "none = 올리기만, new = 빠진 소리(오늘의 회화 · 카드 낱말 · 표현)를 만들어 커밋한 뒤 올리기, messages = 아래 메시지 낭독만 다시"
+        description: "none = 올리기만, new = 빠진 소리(오늘의 회화 · 카드 낱말 · 표현 · 기초 낱말)를 만들어 커밋한 뒤 올리기, messages = 아래 메시지 낭독만 다시"
         type: choice
         options: [none, new, replies, messages]
         default: none
@@ -78,7 +79,7 @@ jobs:
           need |= {t.get('default', 'M4'), *(t.get('by_to') or {}).values()}
           miss = [v for v in sorted(need) if not os.path.exists(f'/tmp/st/assets/voice_styles/{v}.json')]
           print('voices', sorted(need)); sys.exit('missing voices: ' + ' '.join(miss) if miss else 0)"
-      - name: Make clips (new = missing talk · card words · phrases, messages = listed message clips)
+      - name: Make clips (new = missing talk · card words · phrases · basic words, messages = listed message clips)
         if: steps.want.outputs.go == '1'
         env:
           NARRATE_ONLY: ${{ inputs.make }}
@@ -144,7 +145,8 @@ jobs:
           for s in vincent mozart napoleon; do for l in fr de en ko; do
             t=$(cd "$out" && find $s -name "t*_$l.m4a" 2>/dev/null | wc -l); v=$(cd "$out" && find $s -name "v_${l}_*.m4a" 2>/dev/null | wc -l)
             p=$(cd "$out" && find $s -name "ph*_$l.m4a" 2>/dev/null | wc -l); r=$(cd "$out" && find $s -name "r[0-9]*_$l.m4a" 2>/dev/null | wc -l)
-            if [ $((t+v+p+r)) -gt 0 ]; then echo "$s $l: talk $t · word $v · phrase $p · reply $r" | tee -a "$GITHUB_STEP_SUMMARY"; fi
+            b=$(cd "$out" && find $s -name "b_${l}_*.m4a" -o -name "bx_${l}_*.m4a" 2>/dev/null | wc -l)
+            if [ $((t+v+p+r+b)) -gt 0 ]; then echo "$s $l: talk $t · word $v · phrase $p · reply $r · basic $b" | tee -a "$GITHUB_STEP_SUMMARY"; fi
           done; done
           python3 scripts/generate.py
           python3 scripts/generate.py --check

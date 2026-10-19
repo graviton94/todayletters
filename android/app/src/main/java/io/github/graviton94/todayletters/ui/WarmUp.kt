@@ -54,7 +54,7 @@ import java.util.concurrent.ConcurrentHashMap
 // 저장은 SharedPreferences "letters" (기록 보관 · 안드로이드 백업과 같은 범위):
 //   s:<작품>:il      낱말 아래 뜻 켜짐 (없으면 도움 등급대로, B2 아래 켜짐)
 //   s:<작품>:warm    편지 전 예열 -1 등급에 맞춰 (기본) · 1 켜기 · 0 끄기
-//   wu:<편지 열쇠>   예열에서 본 것 ("w:<사전 열쇠>" · "a<닻 고정 이름>" · "p<표현 번호>" 을 줄바꿈으로)
+//   wu:<편지 열쇠>   예열에서 본 것 ("w:<사전 열쇠>" · "a<닻 고정 이름>" · "p<표현 번호>" · "t<회화 줄 번호>" 을 줄바꿈으로)
 //   anc:<작품>/<자료> 예열에서 배운 닻 표현 (고정 이름 [Anchor.id] 을 줄바꿈으로, 목록을 고쳐도 그대로)
 
 private fun AppState.prefs() = ctx.getSharedPreferences("letters", Context.MODE_PRIVATE)
@@ -199,7 +199,9 @@ fun AppState.warmCards(series: String, chapter: String, letter: Letter): List<Wa
     val list = anchors(series)
     val known = anchorKnownFn(series)
     val here = anchorsIn(toks, list).filterKeys { !known(it) }.map { (i, at) -> i to starts[at.first] + at.second }
-    return io.github.graviton94.todayletters.core.WarmUp.pick(words, phrases, here).mapNotNull { it ->
+    // 오늘 말해 볼 말: 이 편지 오늘의 회화의 내 줄 (따라 읽기 걸음에서 다시 말한다)
+    val talk = io.github.graviton94.todayletters.core.ShadowLines.talkMe(letter.talk, learn)
+    return io.github.graviton94.todayletters.core.WarmUp.pick(words, phrases, here, talk).mapNotNull { it ->
         when (it.kind) {
             io.github.graviton94.todayletters.core.WarmUp.Kind.WORD -> letter.words.getOrNull(it.index)?.let { wd ->
                 val path = wordAudio(series, chapter, letter, wd, learn)
@@ -210,6 +212,11 @@ fun AppState.warmCards(series: String, chapter: String, letter: Letter): List<Wa
             }
             // 닻 표현은 따로 녹음이 없다: 듣기 단추 없이
             io.github.graviton94.todayletters.core.WarmUp.Kind.ANCHOR -> list.getOrNull(it.index)?.let { a -> WarmCard(it, a.text, a.meaning(gl), null) }
+            // 회화 줄: 회화 소리 t<줄>_<말> (기기에 없으면 듣기 없이)
+            io.github.graviton94.todayletters.core.WarmUp.Kind.TALK -> letter.talk?.lines?.getOrNull(it.index)?.let { line ->
+                val path = letter.talk?.audioName(it.index, learn)?.let { n -> narrator.path(series, chapter, letter.id, n) }?.takeIf { p -> narrator.has(p) }
+                WarmCard(it, Breaks.plain(line.text[learn]), Breaks.plain(line.text[gl]).takeIf { gl != learn }.orEmpty(), path?.let { p -> p to null })
+            }
         }
     }
 }
@@ -234,6 +241,7 @@ fun AppState.finishWarm(r: Route.WarmUp, seen: List<WarmCard>) {
                 io.github.graviton94.todayletters.core.WarmUp.Kind.WORD -> "w:${c.lex}"
                 io.github.graviton94.todayletters.core.WarmUp.Kind.PHRASE -> "p${c.item.index}"
                 io.github.graviton94.todayletters.core.WarmUp.Kind.ANCHOR -> "a${anchors(series).getOrNull(c.item.index)?.id.orEmpty()}"
+                io.github.graviton94.todayletters.core.WarmUp.Kind.TALK -> "t${c.item.index}"
             }
         }
         val e = prefs().edit().putString("wu:${key(series, chapter, letter.id)}", tags.joinToString("\n"))
@@ -296,9 +304,10 @@ fun WarmUpScreen(s: AppState, r: Route.WarmUp) {
                         when (c.item.kind) {
                             io.github.graviton94.todayletters.core.WarmUp.Kind.ANCHOR -> Caps(stringResource(R.string.warm_anchor), p.giltText, small = true)
                             io.github.graviton94.todayletters.core.WarmUp.Kind.PHRASE -> Caps(stringResource(R.string.warm_phrase), p.giltText, small = true)
+                            io.github.graviton94.todayletters.core.WarmUp.Kind.TALK -> Caps(stringResource(R.string.warm_talk), p.giltText, small = true)
                             else -> {}
                         }
-                        Text(c.text, style = Type.title.copy(fontFamily = Faces.display).of(learn), color = p.ink)
+                        Text(c.text, style = (if (c.item.kind == io.github.graviton94.todayletters.core.WarmUp.Kind.TALK) Type.target else Type.title.copy(fontFamily = Faces.display)).of(learn), color = p.ink)
                         if (c.meaning.isNotEmpty()) Text(c.meaning, style = Type.small.of(gl), color = p.inkSoft)
                     }
                     if (c.audio != null && i <= at) ListenButtons(play = { sp -> play(i, sp) })

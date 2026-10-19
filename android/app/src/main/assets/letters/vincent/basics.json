@@ -1,0 +1,1691 @@
+{
+ "_doc": "기초 낱말 덱: 많이 쓰는 표제어 300 (top) 가운데 카드 · 닻이 안 다루는 것. scripts/basics.py 후보를 사람이 다듬음. checked=false 는 사람 확인 전.",
+ "lang": "fr",
+ "checked": false,
+ "top": [
+  "de",
+  "moi",
+  "être",
+  "pas",
+  "le",
+  "que",
+  "vous",
+  "toi",
+  "un",
+  "ce",
+  "à",
+  "et",
+  "il",
+  "avoir",
+  "ne",
+  "en",
+  "on",
+  "ça",
+  "pour",
+  "qui",
+  "mais",
+  "dans",
+  "nous",
+  "elle",
+  "bien",
+  "si",
+  "du",
+  "y",
+  "non",
+  "avec",
+  "tout",
+  "plus",
+  "son",
+  "au",
+  "faire",
+  "se",
+  "oui",
+  "aller",
+  "lui",
+  "sur",
+  "quoi",
+  "comme",
+  "savoir",
+  "vouloir",
+  "ici",
+  "est-ce",
+  "dire",
+  "pourquoi",
+  "où",
+  "là",
+  "rien",
+  "quand",
+  "pouvoir",
+  "alors",
+  "ton",
+  "comment",
+  "par",
+  "ou",
+  "chose",
+  "bon",
+  "merci",
+  "juste",
+  "très",
+  "jamais",
+  "aussi",
+  "vraiment",
+  "voir",
+  "même",
+  "oh",
+  "maintenant",
+  "deux",
+  "autre",
+  "peu",
+  "temps",
+  "quelque",
+  "toujours",
+  "encore",
+  "besoin",
+  "accord",
+  "falloir",
+  "devoir",
+  "vie",
+  "peut-être",
+  "fois",
+  "donc",
+  "sans",
+  "monde",
+  "parce",
+  "avant",
+  "sûr",
+  "trop",
+  "parler",
+  "personne",
+  "père",
+  "croire",
+  "après",
+  "aux",
+  "dieu",
+  "ouais",
+  "penser",
+  "aimer",
+  "homme",
+  "venir",
+  "vrai",
+  "femme",
+  "ok",
+  "an",
+  "mal",
+  "chez",
+  "déjà",
+  "depuis",
+  "beaucoup",
+  "mort",
+  "mieux",
+  "mère",
+  "fille",
+  "gens",
+  "quel",
+  "désolé",
+  "voilà",
+  "petit",
+  "maison",
+  "cela",
+  "soir",
+  "passé",
+  "prendre",
+  "jour",
+  "monsieur",
+  "salut",
+  "nom",
+  "argent",
+  "bonjour",
+  "nuit",
+  "raison",
+  "moins",
+  "arriver",
+  "maman",
+  "reste",
+  "moment",
+  "seul",
+  "aider",
+  "air",
+  "entre",
+  "papa",
+  "passe",
+  "problème",
+  "ah",
+  "peur",
+  "regarder",
+  "gars",
+  "trouver",
+  "fils",
+  "attendre",
+  "jusque",
+  "trois",
+  "assez",
+  "famille",
+  "eh",
+  "plaire",
+  "travail",
+  "tête",
+  "somme",
+  "appeler",
+  "quelques",
+  "partir",
+  "vite",
+  "arrêter",
+  "voiture",
+  "enfant",
+  "tuer",
+  "merde",
+  "hé",
+  "pendant",
+  "idée",
+  "chance",
+  "part",
+  "grand",
+  "aujourd'hui",
+  "ami",
+  "demain",
+  "hein",
+  "tard",
+  "puis",
+  "truc",
+  "passer",
+  "tant",
+  "connaître",
+  "combien",
+  "mec",
+  "sens",
+  "porte",
+  "sortir",
+  "super",
+  "heure",
+  "contre",
+  "coup",
+  "comprendre",
+  "entendre",
+  "ensemble",
+  "nouveau",
+  "amour",
+  "importer",
+  "sang",
+  "cas",
+  "sous",
+  "rester",
+  "fini",
+  "question",
+  "partie",
+  "histoire",
+  "aide",
+  "dernier",
+  "demande",
+  "chercher",
+  "genre",
+  "seulement",
+  "police",
+  "car",
+  "mois",
+  "frère",
+  "laisser",
+  "aucun",
+  "mettre",
+  "chaque",
+  "ville",
+  "avez-vous",
+  "longtemps",
+  "bébé",
+  "place",
+  "revoir",
+  "putain",
+  "ni",
+  "attention",
+  "donner",
+  "affaire",
+  "endroit",
+  "corps",
+  "façon",
+  "est-il",
+  "voici",
+  "train",
+  "dont",
+  "écoute",
+  "œil",
+  "type",
+  "perdre",
+  "premier",
+  "côté",
+  "point",
+  "tellement",
+  "main",
+  "tenir",
+  "vieux",
+  "matin",
+  "pardon",
+  "là-bas",
+  "suite",
+  "vers",
+  "minute",
+  "demander",
+  "devant",
+  "dr",
+  "enfin",
+  "cause",
+  "chambre",
+  "droit",
+  "parti",
+  "eau",
+  "compte",
+  "terre",
+  "beau",
+  "espérer",
+  "loin",
+  "as-toi",
+  "mari",
+  "donne",
+  "fin",
+  "mme",
+  "gros",
+  "boulot",
+  "plutôt",
+  "chéri",
+  "prêt",
+  "bureau",
+  "mourir",
+  "hier",
+  "possible",
+  "jouer",
+  "celui",
+  "jeune",
+  "euh",
+  "dehors",
+  "docteur",
+  "a-t-il",
+  "confiance",
+  "année",
+  "vérité",
+  "école",
+  "chef",
+  "propos"
+ ],
+ "items": [
+  {
+   "id": "8f25ca29",
+   "w": "moi",
+   "pos": "pron",
+   "mean": {
+    "ko": "나, 나를",
+    "en": "me"
+   },
+   "ex": {
+    "t": "Moi aussi, j'aime notre maison.",
+    "ko": "나도 우리 집이 좋아.",
+    "en": "Me too, I love our house.",
+    "from": "p1"
+   }
+  },
+  {
+   "id": "586fd540",
+   "w": "vous",
+   "pos": "pron",
+   "mean": {
+    "ko": "당신(들), 너희",
+    "en": "you (plural or polite)"
+   },
+   "ex": {
+    "t": "Un dimanche, je viendrai avec vous !",
+    "ko": "어느 일요일에 같이 갈게!",
+    "en": "One Sunday, I'll come with you!",
+    "from": "c4-l3"
+   }
+  },
+  {
+   "id": "6222f681",
+   "w": "toi",
+   "pos": "pron",
+   "mean": {
+    "ko": "너",
+    "en": "you (informal)"
+   },
+   "ex": {
+    "t": "Oui, ça va. Et toi ?",
+    "ko": "응, 잘 지내. 형은?",
+    "en": "Yes, fine. And you?",
+    "from": "c1-l2"
+   }
+  },
+  {
+   "id": "91a86b70",
+   "w": "et",
+   "pos": "conj",
+   "mean": {
+    "ko": "그리고, ~와",
+    "en": "and"
+   },
+   "ex": {
+    "t": "Le jour. Le café est rouge et vert.",
+    "ko": "낮에. 카페는 빨강이랑 초록이야.",
+    "en": "By day. The café is red and green.",
+    "from": "c3-l1"
+   }
+  },
+  {
+   "id": "68f9965d",
+   "w": "elle",
+   "pos": "pron",
+   "mean": {
+    "ko": "그녀, 그것 (여성 명사)",
+    "en": "she, it (feminine)"
+   },
+   "ex": {
+    "t": "Et ta chambre, elle est comment ?",
+    "ko": "방은 어때?",
+    "en": "And your room, what's it like?",
+    "from": "c6-l1"
+   }
+  },
+  {
+   "id": "fb1927a9",
+   "w": "oui",
+   "pos": "adv",
+   "mean": {
+    "ko": "네, 응",
+    "en": "yes"
+   },
+   "ex": {
+    "t": "Oui ! Quinze francs par mois.",
+    "ko": "응! 한 달에 15프랑이야.",
+    "en": "Yes! Fifteen francs a month.",
+    "from": "c1-l6"
+   }
+  },
+  {
+   "id": "9cd1b0e2",
+   "w": "lui",
+   "pos": "pron",
+   "mean": {
+    "ko": "그, 그에게, 그녀에게",
+    "en": "him; to him, to her"
+   },
+   "ex": {
+    "t": "Un zouave ? Parle-moi de lui !",
+    "ko": "주아브? 이야기 좀 해 줘!",
+    "en": "A Zouave? Tell me about him!",
+    "from": "c2-l3"
+   }
+  },
+  {
+   "id": "16f345d2",
+   "w": "est-ce que",
+   "pos": "adv",
+   "mean": {
+    "ko": "~인가요? (질문 만들기)",
+    "en": "question marker"
+   },
+   "ex": {
+    "t": "Est-ce que c'est le Japon ?",
+    "ko": "일본이야?",
+    "en": "Is it Japan?",
+    "from": "p4"
+   },
+   "k": "est-ce"
+  },
+  {
+   "id": "12958d16",
+   "w": "pourquoi",
+   "pos": "adv",
+   "mean": {
+    "ko": "왜",
+    "en": "why"
+   },
+   "ex": {
+    "t": "De mémoire ? Pourquoi ?",
+    "ko": "기억으로? 왜?",
+    "en": "From memory? Why?",
+    "from": "c4-l5"
+   }
+  },
+  {
+   "id": "b6e7e00c",
+   "w": "où",
+   "pos": "adv",
+   "mean": {
+    "ko": "어디",
+    "en": "where"
+   },
+   "ex": {
+    "t": "Ah oui ? Elle est où, cette vigne ?",
+    "ko": "그래? 그 포도밭은 어디 있어?",
+    "en": "Oh yes? Where is this vineyard?",
+    "from": "c4-l3"
+   }
+  },
+  {
+   "id": "b8464327",
+   "w": "quand",
+   "pos": "adv",
+   "mean": {
+    "ko": "언제",
+    "en": "when"
+   },
+   "ex": {
+    "t": "On t'attend ! Tu y arrives quand ?",
+    "ko": "기다릴게! 언제 도착해?",
+    "en": "We're waiting for you! When do you get there?",
+    "from": "c7-l7"
+   }
+  },
+  {
+   "id": "3d6f1b6e",
+   "w": "alors",
+   "pos": "adv",
+   "mean": {
+    "ko": "그러면, 그래서",
+    "en": "so, then"
+   },
+   "ex": {
+    "t": "Alors tu viens bientôt à Paris ?",
+    "ko": "그럼 곧 파리에 와?",
+    "en": "So you're coming to Paris soon?",
+    "from": "c7-l7"
+   }
+  },
+  {
+   "id": "c87b51fd",
+   "w": "comment",
+   "pos": "adv",
+   "mean": {
+    "ko": "어떻게",
+    "en": "how"
+   },
+   "ex": {
+    "t": "Bonjour, Vincent ! Comment ça va ?",
+    "ko": "안녕, 형! 어떻게 지내?",
+    "en": "Hello, Vincent! How are you?",
+    "from": "p1"
+   }
+  },
+  {
+   "id": "a3190807",
+   "w": "merci",
+   "pos": "interj",
+   "mean": {
+    "ko": "고마워요",
+    "en": "thank you"
+   },
+   "ex": {
+    "t": "Merci beaucoup pour le Shakespeare, Théo !",
+    "ko": "셰익스피어 책 정말 고마워, 테오!",
+    "en": "Thanks so much for the Shakespeare, Theo!",
+    "from": "c6-l6"
+   }
+  },
+  {
+   "id": "30d77764",
+   "w": "juste",
+   "pos": "adv",
+   "mean": {
+    "ko": "그냥, 딱",
+    "en": "just"
+   },
+   "ex": {
+    "t": "J'ai peint ma chambre, Théo. Juste ma chambre.",
+    "ko": "침실을 그렸어, 테오. 그냥 내 방.",
+    "en": "I've painted my bedroom, Theo. Just my bedroom.",
+    "from": "c3-l6"
+   }
+  },
+  {
+   "id": "eb90fb49",
+   "w": "très",
+   "pos": "adv",
+   "mean": {
+    "ko": "아주, 매우",
+    "en": "very"
+   },
+   "ex": {
+    "t": "Bonjour ! Le vent est très fort.",
+    "ko": "안녕! 바람이 정말 세.",
+    "en": "Hello! The wind is very strong.",
+    "from": "c1-l3"
+   }
+  },
+  {
+   "id": "2a59082d",
+   "w": "jamais",
+   "pos": "adv",
+   "mean": {
+    "ko": "결코 (~않다), 한 번도",
+    "en": "never"
+   },
+   "ex": {
+    "t": "N'abandonne jamais les portraits, c'est ton chemin.",
+    "ko": "초상화를 계속 그리고 그 길로 가요.",
+    "en": "Never give up the portraits; they are your road.",
+    "from": "c2-l5"
+   }
+  },
+  {
+   "id": "e5151676",
+   "w": "deux",
+   "pos": "num",
+   "mean": {
+    "ko": "둘, 2",
+    "en": "two"
+   },
+   "ex": {
+    "t": "Théo, j'ai reçu deux portraits !",
+    "ko": "테오, 초상화 두 점을 받았어!",
+    "en": "Theo, I've received two portraits!",
+    "from": "c3-l4"
+   }
+  },
+  {
+   "id": "475987b5",
+   "w": "accord",
+   "pos": "n",
+   "mean": {
+    "ko": "동의 (d'accord: 좋아)",
+    "en": "agreement (d'accord: OK)"
+   },
+   "ex": {
+    "t": "Ne travaille pas trop, d'accord ?",
+    "ko": "무리하지 마, 알았지?",
+    "en": "Don't work too hard, OK?",
+    "from": "c2-l4"
+   }
+  },
+  {
+   "id": "da0d8db4",
+   "w": "peut-être",
+   "pos": "adv",
+   "mean": {
+    "ko": "아마, 어쩌면",
+    "en": "maybe"
+   },
+   "ex": {
+    "t": "Peut-être demain, je ne sais pas.",
+    "ko": "아마 내일, 잘 모르겠어.",
+    "en": "Maybe tomorrow, I don't know.",
+    "from": null
+   }
+  },
+  {
+   "id": "8b3cd303",
+   "w": "donc",
+   "pos": "conj",
+   "mean": {
+    "ko": "그래서, 따라서",
+    "en": "so, therefore"
+   },
+   "ex": {
+    "t": "Il pleut, donc je reste ici.",
+    "ko": "비가 와서 여기 있을게.",
+    "en": "It's raining, so I'm staying here.",
+    "from": null
+   }
+  },
+  {
+   "id": "b04ae940",
+   "w": "parce que",
+   "pos": "conj",
+   "mean": {
+    "ko": "왜냐하면, ~ 때문에",
+    "en": "because"
+   },
+   "ex": {
+    "t": "Je suis content parce que tu viens.",
+    "ko": "네가 와서 기뻐.",
+    "en": "I'm happy because you're coming.",
+    "from": null
+   },
+   "k": "parce"
+  },
+  {
+   "id": "2ac760a5",
+   "w": "avant",
+   "pos": "prep",
+   "mean": {
+    "ko": "~ 전에",
+    "en": "before"
+   },
+   "ex": {
+    "t": "Écris-moi avant lundi.",
+    "ko": "월요일 전에 편지해 줘.",
+    "en": "Write to me before Monday.",
+    "from": null
+   }
+  },
+  {
+   "id": "a6f03adc",
+   "w": "sûr",
+   "pos": "adj",
+   "mean": {
+    "ko": "확실한 (bien sûr: 물론)",
+    "en": "sure (bien sûr: of course)"
+   },
+   "ex": {
+    "t": "Bien sûr. Tu voudrais autre chose ?",
+    "ko": "물론이지. 다른 것도 필요해?",
+    "en": "Of course. Would you like anything else?",
+    "from": "c6-l2"
+   }
+  },
+  {
+   "id": "14c64555",
+   "w": "personne",
+   "pos": "pron",
+   "mean": {
+    "ko": "아무도 (~않다); 사람",
+    "en": "nobody; person"
+   },
+   "ex": {
+    "t": "Il n'y a personne ici.",
+    "ko": "여기 아무도 없어.",
+    "en": "There's nobody here.",
+    "from": null
+   }
+  },
+  {
+   "id": "8f732f91",
+   "w": "après",
+   "pos": "prep",
+   "mean": {
+    "ko": "~ 후에",
+    "en": "after"
+   },
+   "ex": {
+    "t": "Je t'écris après le dîner.",
+    "ko": "저녁 먹고 편지할게.",
+    "en": "I'll write to you after dinner.",
+    "from": null
+   }
+  },
+  {
+   "id": "305a737a",
+   "w": "aux",
+   "pos": "art",
+   "mean": {
+    "ko": "~에, ~에게 (à + les)",
+    "en": "to the, at the (à + les)"
+   },
+   "ex": {
+    "t": "Je pense aux enfants.",
+    "ko": "아이들 생각을 해.",
+    "en": "I'm thinking of the children.",
+    "from": null
+   }
+  },
+  {
+   "id": "9c98efd6",
+   "w": "chez",
+   "pos": "prep",
+   "mean": {
+    "ko": "~의 집에",
+    "en": "at (someone's) home"
+   },
+   "ex": {
+    "t": "Comme nos saules, chez nous en Hollande !",
+    "ko": "네덜란드 우리 동네 버드나무처럼!",
+    "en": "Like our willows back home in Holland!",
+    "from": "c7-l3"
+   }
+  },
+  {
+   "id": "8bdacfc6",
+   "w": "quel",
+   "pos": "adj",
+   "mean": {
+    "ko": "어떤, 무슨",
+    "en": "which, what"
+   },
+   "ex": {
+    "t": "Super. Il arrive quel jour ?",
+    "ko": "좋다. 무슨 요일에 와?",
+    "en": "Great. What day is he arriving?",
+    "from": "c3-l7"
+   }
+  },
+  {
+   "id": "ebed2ba2",
+   "w": "salut",
+   "pos": "interj",
+   "mean": {
+    "ko": "안녕",
+    "en": "hi"
+   },
+   "ex": {
+    "t": "Salut, Théo ! Tu vas bien ?",
+    "ko": "안녕, 테오! 잘 지내?",
+    "en": "Hi, Theo! Are you well?",
+    "from": "p4"
+   }
+  },
+  {
+   "id": "30aad946",
+   "w": "nom",
+   "pos": "n",
+   "mean": {
+    "ko": "이름",
+    "en": "name"
+   },
+   "ex": {
+    "t": "Quel est ton nom ?",
+    "ko": "이름이 뭐야?",
+    "en": "What's your name?",
+    "from": null
+   }
+  },
+  {
+   "id": "17c5db4c",
+   "w": "bonjour",
+   "pos": "interj",
+   "mean": {
+    "ko": "안녕하세요",
+    "en": "hello, good morning"
+   },
+   "ex": {
+    "t": "Bonjour ! Tu es fatigué du voyage ?",
+    "ko": "안녕! 오느라 피곤해?",
+    "en": "Hi! Are you tired from travelling?",
+    "from": "c1-l1"
+   }
+  },
+  {
+   "id": "1c6215ab",
+   "w": "maman",
+   "pos": "n",
+   "mean": {
+    "ko": "엄마",
+    "en": "mum"
+   },
+   "ex": {
+    "t": "Maman va bien, merci.",
+    "ko": "엄마는 잘 지내, 고마워.",
+    "en": "Mum is well, thanks.",
+    "from": null
+   }
+  },
+  {
+   "id": "4df4e9bc",
+   "w": "seul",
+   "pos": "adj",
+   "mean": {
+    "ko": "혼자인, 유일한",
+    "en": "alone, only"
+   },
+   "ex": {
+    "t": "Tu n'es pas seul.",
+    "ko": "너는 혼자가 아니야.",
+    "en": "You're not alone.",
+    "from": null
+   }
+  },
+  {
+   "id": "369b44f3",
+   "w": "papa",
+   "pos": "n",
+   "mean": {
+    "ko": "아빠",
+    "en": "dad"
+   },
+   "ex": {
+    "t": "Papa est au jardin.",
+    "ko": "아빠는 정원에 있어.",
+    "en": "Dad is in the garden.",
+    "from": null
+   }
+  },
+  {
+   "id": "0ff70e68",
+   "w": "problème",
+   "pos": "n",
+   "mean": {
+    "ko": "문제",
+    "en": "problem"
+   },
+   "ex": {
+    "t": "Pas de problème ! Tu es occupé ?",
+    "ko": "괜찮아! 바빠?",
+    "en": "No problem! Are you busy?",
+    "from": "c1-l4"
+   }
+  },
+  {
+   "id": "543ccef6",
+   "w": "fils",
+   "pos": "n",
+   "mean": {
+    "ko": "아들",
+    "en": "son"
+   },
+   "ex": {
+    "t": "C'est mon fils.",
+    "ko": "내 아들이야.",
+    "en": "This is my son.",
+    "from": null
+   }
+  },
+  {
+   "id": "65bc7c58",
+   "w": "jusque",
+   "pos": "prep",
+   "mean": {
+    "ko": "~까지 (jusqu'à)",
+    "en": "until, up to (jusqu'à)"
+   },
+   "ex": {
+    "t": "Jusqu'à lundi. Du café, du pain…",
+    "ko": "월요일까지. 커피랑 빵만 먹었어…",
+    "en": "Until Monday. Coffee, bread…",
+    "from": "c3-l5"
+   }
+  },
+  {
+   "id": "6c30e6f0",
+   "w": "trois",
+   "pos": "num",
+   "mean": {
+    "ko": "셋, 3",
+    "en": "three"
+   },
+   "ex": {
+    "t": "D'accord. Mais j'en garde trois.",
+    "ko": "알았어. 그래도 세 장은 갖고 있을게.",
+    "en": "OK. But I'm keeping three.",
+    "from": "c2-l2"
+   }
+  },
+  {
+   "id": "e399cac8",
+   "w": "assez",
+   "pos": "adv",
+   "mean": {
+    "ko": "충분히",
+    "en": "enough"
+   },
+   "ex": {
+    "t": "Super ! Tu as assez d'argent ?",
+    "ko": "잘됐다! 돈은 넉넉해?",
+    "en": "Great! Do you have enough money?",
+    "from": "c2-l5"
+   }
+  },
+  {
+   "id": "3574a6bd",
+   "w": "plaire",
+   "pos": "v",
+   "mean": {
+    "ko": "마음에 들다 (s'il te plaît: 부탁해)",
+    "en": "to please (s'il te plaît: please)"
+   },
+   "ex": {
+    "t": "Tu es bien installé ? Ça te plaît ?",
+    "ko": "잘 자리 잡았어? 마음에 들어?",
+    "en": "Are you settled in? Do you like it?",
+    "from": "c8-l1"
+   }
+  },
+  {
+   "id": "193d4331",
+   "w": "quelques",
+   "pos": "adj",
+   "mean": {
+    "ko": "몇몇의",
+    "en": "a few"
+   },
+   "ex": {
+    "t": "J'ai quelques dessins pour toi.",
+    "ko": "너 줄 그림이 몇 장 있어.",
+    "en": "I have a few drawings for you.",
+    "from": null
+   }
+  },
+  {
+   "id": "76b01aff",
+   "w": "arrêter",
+   "pos": "v",
+   "mean": {
+    "ko": "멈추다, 그만두다",
+    "en": "to stop"
+   },
+   "ex": {
+    "t": "Arrête de travailler, viens manger !",
+    "ko": "일 그만하고 와서 먹어!",
+    "en": "Stop working, come and eat!",
+    "from": null
+   }
+  },
+  {
+   "id": "45e656b8",
+   "w": "aujourd'hui",
+   "pos": "adv",
+   "mean": {
+    "ko": "오늘",
+    "en": "today"
+   },
+   "ex": {
+    "t": "Il faisait très beau aujourd'hui, sans vent !",
+    "ko": "오늘 날씨가 정말 좋았어. 바람도 없고!",
+    "en": "The weather was lovely today, no wind!",
+    "from": "c5-l5"
+   }
+  },
+  {
+   "id": "c7e6b569",
+   "w": "demain",
+   "pos": "adv",
+   "mean": {
+    "ko": "내일",
+    "en": "tomorrow"
+   },
+   "ex": {
+    "t": "On se voit demain ?",
+    "ko": "내일 볼까?",
+    "en": "Shall we meet tomorrow?",
+    "from": null
+   }
+  },
+  {
+   "id": "666d43a5",
+   "w": "tard",
+   "pos": "adv",
+   "mean": {
+    "ko": "늦게",
+    "en": "late"
+   },
+   "ex": {
+    "t": "Tard ! Mais le tableau est enfin fini.",
+    "ko": "늦게! 그래도 드디어 그림이 끝났어.",
+    "en": "Late! But the painting is finally finished.",
+    "from": "c3-l3"
+   }
+  },
+  {
+   "id": "25261e66",
+   "w": "puis",
+   "pos": "adv",
+   "mean": {
+    "ko": "그다음에",
+    "en": "then"
+   },
+   "ex": {
+    "t": "On travaille, puis on va au café.",
+    "ko": "일하고, 그다음엔 카페에 가.",
+    "en": "We work, then we go to the café.",
+    "from": "c4-l4"
+   }
+  },
+  {
+   "id": "0fa9a4f3",
+   "w": "tant",
+   "pos": "adv",
+   "mean": {
+    "ko": "그토록, 그렇게 많이",
+    "en": "so much"
+   },
+   "ex": {
+    "t": "Merci, tu m'aides tant !",
+    "ko": "고마워, 정말 많이 도와주는구나!",
+    "en": "Thank you, you help me so much!",
+    "from": null
+   }
+  },
+  {
+   "id": "a1c863ce",
+   "w": "connaître",
+   "pos": "v",
+   "mean": {
+    "ko": "알다 (사람 · 곳)",
+    "en": "to know (a person, a place)"
+   },
+   "ex": {
+    "t": "Tu connais ce café ?",
+    "ko": "이 카페 알아?",
+    "en": "Do you know this café?",
+    "from": null
+   }
+  },
+  {
+   "id": "9400eb31",
+   "w": "combien",
+   "pos": "adv",
+   "mean": {
+    "ko": "얼마나, 몇",
+    "en": "how much, how many"
+   },
+   "ex": {
+    "t": "Ah oui ? Tu en as fait combien ?",
+    "ko": "그래? 몇 점이나 그렸어?",
+    "en": "Oh yes? How many have you done?",
+    "from": "c7-l2"
+   }
+  },
+  {
+   "id": "1f725300",
+   "w": "porte",
+   "pos": "n",
+   "mean": {
+    "ko": "문",
+    "en": "door"
+   },
+   "ex": {
+    "t": "Ferme la porte, s'il te plaît.",
+    "ko": "문 좀 닫아 줘.",
+    "en": "Close the door, please.",
+    "from": null
+   }
+  },
+  {
+   "id": "c94ae8a3",
+   "w": "super",
+   "pos": "adj",
+   "mean": {
+    "ko": "멋진, 아주 좋은",
+    "en": "great"
+   },
+   "ex": {
+    "t": "Ah, super ! Tu es content ?",
+    "ko": "와, 좋겠다! 기뻐?",
+    "en": "Oh, great! Are you happy?",
+    "from": "c3-l4"
+   }
+  },
+  {
+   "id": "ca1b99eb",
+   "w": "contre",
+   "pos": "prep",
+   "mean": {
+    "ko": "~에 반대하여, ~에 기대어",
+    "en": "against"
+   },
+   "ex": {
+    "t": "Le tableau est contre le mur.",
+    "ko": "그림이 벽에 기대어 있어.",
+    "en": "The painting is against the wall.",
+    "from": null
+   }
+  },
+  {
+   "id": "48d30e46",
+   "w": "entendre",
+   "pos": "v",
+   "mean": {
+    "ko": "듣다, 들리다",
+    "en": "to hear"
+   },
+   "ex": {
+    "t": "Tu m'entends bien ?",
+    "ko": "내 말 잘 들려?",
+    "en": "Can you hear me well?",
+    "from": null
+   }
+  },
+  {
+   "id": "f48efb9b",
+   "w": "amour",
+   "pos": "n",
+   "mean": {
+    "ko": "사랑",
+    "en": "love"
+   },
+   "ex": {
+    "t": "Avec tout mon amour.",
+    "ko": "사랑을 가득 담아.",
+    "en": "With all my love.",
+    "from": null
+   }
+  },
+  {
+   "id": "b5b50c90",
+   "w": "sous",
+   "pos": "prep",
+   "mean": {
+    "ko": "~ 아래에",
+    "en": "under"
+   },
+   "ex": {
+    "t": "Le chat dort sous la table.",
+    "ko": "고양이가 탁자 밑에서 자.",
+    "en": "The cat is sleeping under the table.",
+    "from": null
+   }
+  },
+  {
+   "id": "b3580d98",
+   "w": "question",
+   "pos": "n",
+   "mean": {
+    "ko": "질문, 문제",
+    "en": "question"
+   },
+   "ex": {
+    "t": "J'ai une question.",
+    "ko": "질문이 하나 있어.",
+    "en": "I have a question.",
+    "from": null
+   }
+  },
+  {
+   "id": "4e5b6bb0",
+   "w": "partie",
+   "pos": "n",
+   "mean": {
+    "ko": "부분",
+    "en": "part"
+   },
+   "ex": {
+    "t": "La première partie est facile.",
+    "ko": "첫 부분은 쉬워.",
+    "en": "The first part is easy.",
+    "from": null
+   }
+  },
+  {
+   "id": "2a792c68",
+   "w": "aide",
+   "pos": "n",
+   "mean": {
+    "ko": "도움",
+    "en": "help"
+   },
+   "ex": {
+    "t": "Merci pour ton aide !",
+    "ko": "도와줘서 고마워!",
+    "en": "Thanks for your help!",
+    "from": null
+   }
+  },
+  {
+   "id": "896fdd8d",
+   "w": "car",
+   "pos": "conj",
+   "mean": {
+    "ko": "왜냐하면",
+    "en": "for, because"
+   },
+   "ex": {
+    "t": "Je reste, car il pleut.",
+    "ko": "비가 오니까 남을게.",
+    "en": "I'm staying, because it's raining.",
+    "from": null
+   }
+  },
+  {
+   "id": "abd29824",
+   "w": "aucun",
+   "pos": "adj",
+   "mean": {
+    "ko": "어떤 ~도 (없다)",
+    "en": "no, not any"
+   },
+   "ex": {
+    "t": "Je n'ai aucune idée.",
+    "ko": "전혀 모르겠어.",
+    "en": "I have no idea.",
+    "from": null
+   }
+  },
+  {
+   "id": "fb9b8a92",
+   "w": "longtemps",
+   "pos": "adv",
+   "mean": {
+    "ko": "오래",
+    "en": "a long time"
+   },
+   "ex": {
+    "t": "Tu y avais pensé depuis longtemps, non ?",
+    "ko": "오래전부터 생각했던 그림이지?",
+    "en": "You'd been thinking about it for a long time, hadn't you?",
+    "from": "c8-l7"
+   }
+  },
+  {
+   "id": "bf5b8f17",
+   "w": "ni",
+   "pos": "conj",
+   "mean": {
+    "ko": "~도 ~도 (아니다)",
+    "en": "neither, nor"
+   },
+   "ex": {
+    "t": "Pas de falaises ni de rochers.",
+    "ko": "절벽도 바위도 없어.",
+    "en": "No cliffs and no rocks.",
+    "from": "c2-l1"
+   }
+  },
+  {
+   "id": "706e153b",
+   "w": "attention",
+   "pos": "n",
+   "mean": {
+    "ko": "주의 (attention !: 조심해!)",
+    "en": "attention (attention!: careful!)"
+   },
+   "ex": {
+    "t": "Attention, la peinture est fraîche !",
+    "ko": "조심해, 페인트가 안 말랐어!",
+    "en": "Careful, the paint is wet!",
+    "from": null
+   }
+  },
+  {
+   "id": "1d410468",
+   "w": "affaire",
+   "pos": "n",
+   "mean": {
+    "ko": "일, 사건; (복수) 물건",
+    "en": "matter, business; (plural) belongings"
+   },
+   "ex": {
+    "t": "Prends tes affaires, on part.",
+    "ko": "짐 챙겨, 가자.",
+    "en": "Get your things, we're leaving.",
+    "from": null
+   }
+  },
+  {
+   "id": "9d41e0de",
+   "w": "endroit",
+   "pos": "n",
+   "mean": {
+    "ko": "곳, 장소",
+    "en": "place, spot"
+   },
+   "ex": {
+    "t": "C'est un bel endroit.",
+    "ko": "아름다운 곳이야.",
+    "en": "It's a beautiful place.",
+    "from": null
+   }
+  },
+  {
+   "id": "43ba0d0e",
+   "w": "corps",
+   "pos": "n",
+   "mean": {
+    "ko": "몸",
+    "en": "body"
+   },
+   "ex": {
+    "t": "Le corps a besoin de repos.",
+    "ko": "몸은 쉬어야 해.",
+    "en": "The body needs rest.",
+    "from": null
+   }
+  },
+  {
+   "id": "2f30e1ca",
+   "w": "voici",
+   "pos": "adv",
+   "mean": {
+    "ko": "여기 ~이 있다",
+    "en": "here is, here are"
+   },
+   "ex": {
+    "t": "Voici les couleurs.",
+    "ko": "색은 이래.",
+    "en": "Here are the colours.",
+    "from": "c7-l4"
+   }
+  },
+  {
+   "id": "2e921a59",
+   "w": "dont",
+   "pos": "pron",
+   "mean": {
+    "ko": "(de + 명사를 받는 관계대명사)",
+    "en": "of which, whose, about which"
+   },
+   "ex": {
+    "t": "C'est le livre dont je parle.",
+    "ko": "내가 말하는 책이 이거야.",
+    "en": "It's the book I'm talking about.",
+    "from": null
+   }
+  },
+  {
+   "id": "9e705918",
+   "w": "point",
+   "pos": "n",
+   "mean": {
+    "ko": "점",
+    "en": "point, dot"
+   },
+   "ex": {
+    "t": "Le tapis rouge avec un point vert.",
+    "ko": "초록 점이 있는 빨간 카펫.",
+    "en": "The red carpet with a green dot.",
+    "from": "c8-l5"
+   }
+  },
+  {
+   "id": "b89a52b5",
+   "w": "tellement",
+   "pos": "adv",
+   "mean": {
+    "ko": "너무나, 아주",
+    "en": "so (much)"
+   },
+   "ex": {
+    "t": "Je suis tellement content !",
+    "ko": "정말 너무 기뻐!",
+    "en": "I'm so happy!",
+    "from": null
+   }
+  },
+  {
+   "id": "b08c2e6c",
+   "w": "pardon",
+   "pos": "interj",
+   "mean": {
+    "ko": "미안해요, 실례합니다",
+    "en": "sorry, excuse me"
+   },
+   "ex": {
+    "t": "Pardon, Théo, ma lettre est courte.",
+    "ko": "미안해, 테오. 편지가 짧아.",
+    "en": "Sorry, Theo, my letter is short.",
+    "from": "c1-l4"
+   }
+  },
+  {
+   "id": "0f031525",
+   "w": "là-bas",
+   "pos": "adv",
+   "mean": {
+    "ko": "저기, 거기",
+    "en": "over there"
+   },
+   "ex": {
+    "t": "Enfin ! Il fait beau là-bas ?",
+    "ko": "드디어! 거기 날씨 좋아?",
+    "en": "At last! Is the weather nice there?",
+    "from": "c2-l1"
+   }
+  },
+  {
+   "id": "f6df611b",
+   "w": "vers",
+   "pos": "prep",
+   "mean": {
+    "ko": "~ 쪽으로, ~쯤",
+    "en": "towards; around (a time)"
+   },
+   "ex": {
+    "t": "Je viens vers midi.",
+    "ko": "정오쯤 갈게.",
+    "en": "I'll come around noon.",
+    "from": null
+   }
+  },
+  {
+   "id": "6c179b9d",
+   "w": "minute",
+   "pos": "n",
+   "mean": {
+    "ko": "분",
+    "en": "minute"
+   },
+   "ex": {
+    "t": "Attends une minute !",
+    "ko": "잠깐만 기다려!",
+    "en": "Wait a minute!",
+    "from": null
+   }
+  },
+  {
+   "id": "0d784ee3",
+   "w": "demander",
+   "pos": "v",
+   "mean": {
+    "ko": "묻다, 부탁하다",
+    "en": "to ask"
+   },
+   "ex": {
+    "t": "D'accord ! Il faut que je demande à Jo.",
+    "ko": "좋아! 조한테 물어봐야 해.",
+    "en": "OK! I have to ask Jo.",
+    "from": "c8-l2"
+   }
+  },
+  {
+   "id": "9143fb80",
+   "w": "devant",
+   "pos": "prep",
+   "mean": {
+    "ko": "~ 앞에",
+    "en": "in front of"
+   },
+   "ex": {
+    "t": "Oui, devant des arbres en fleurs.",
+    "ko": "응, 꽃 핀 나무 앞에서.",
+    "en": "Yes, by the blossoming trees.",
+    "from": "c1-l3"
+   }
+  },
+  {
+   "id": "8e1d91a6",
+   "w": "mari",
+   "pos": "n",
+   "mean": {
+    "ko": "남편",
+    "en": "husband"
+   },
+   "ex": {
+    "t": "Son mari est peintre.",
+    "ko": "그녀의 남편은 화가야.",
+    "en": "Her husband is a painter.",
+    "from": null
+   }
+  },
+  {
+   "id": "df22f4c4",
+   "w": "plutôt",
+   "pos": "adv",
+   "mean": {
+    "ko": "오히려, 차라리",
+    "en": "rather, instead"
+   },
+   "ex": {
+    "t": "Viens plutôt dimanche.",
+    "ko": "차라리 일요일에 와.",
+    "en": "Come on Sunday instead.",
+    "from": null
+   }
+  },
+  {
+   "id": "b412e665",
+   "w": "chéri",
+   "pos": "n",
+   "mean": {
+    "ko": "사랑하는 사람, 자기",
+    "en": "darling, dear"
+   },
+   "ex": {
+    "t": "Bonne nuit, mon chéri.",
+    "ko": "잘 자, 내 사랑.",
+    "en": "Good night, darling.",
+    "from": null
+   }
+  },
+  {
+   "id": "a46a7c72",
+   "w": "prêt",
+   "pos": "adj",
+   "mean": {
+    "ko": "준비된",
+    "en": "ready"
+   },
+   "ex": {
+    "t": "Tu es prêt ? On part !",
+    "ko": "준비됐어? 가자!",
+    "en": "Are you ready? Let's go!",
+    "from": null
+   }
+  },
+  {
+   "id": "71da634c",
+   "w": "bureau",
+   "pos": "n",
+   "mean": {
+    "ko": "사무실, 책상",
+    "en": "office, desk"
+   },
+   "ex": {
+    "t": "Il est au bureau.",
+    "ko": "그는 사무실에 있어.",
+    "en": "He's at the office.",
+    "from": null
+   }
+  },
+  {
+   "id": "57bf4bf6",
+   "w": "mourir",
+   "pos": "v",
+   "mean": {
+    "ko": "죽다",
+    "en": "to die"
+   },
+   "ex": {
+    "t": "Ces fleurs vont bientôt mourir.",
+    "ko": "이 꽃들은 곧 시들 거야.",
+    "en": "These flowers will soon die.",
+    "from": null
+   }
+  },
+  {
+   "id": "f878a00d",
+   "w": "hier",
+   "pos": "adv",
+   "mean": {
+    "ko": "어제",
+    "en": "yesterday"
+   },
+   "ex": {
+    "t": "Hier, Roulin est parti. C'était triste.",
+    "ko": "어제 룰랭이 떠났어. 슬펐어.",
+    "en": "Yesterday Roulin left. It was sad.",
+    "from": "c5-l3"
+   }
+  },
+  {
+   "id": "59d17c20",
+   "w": "jouer",
+   "pos": "v",
+   "mean": {
+    "ko": "놀다, 연주하다",
+    "en": "to play"
+   },
+   "ex": {
+    "t": "Les enfants jouent dehors.",
+    "ko": "아이들이 밖에서 놀아.",
+    "en": "The children are playing outside.",
+    "from": null
+   }
+  },
+  {
+   "id": "1c746c49",
+   "w": "celui",
+   "pos": "pron",
+   "mean": {
+    "ko": "그것, ~의 것",
+    "en": "the one"
+   },
+   "ex": {
+    "t": "Je préfère celui-ci.",
+    "ko": "나는 이게 더 좋아.",
+    "en": "I prefer this one.",
+    "from": null
+   }
+  },
+  {
+   "id": "0a7d0257",
+   "w": "jeune",
+   "pos": "adj",
+   "mean": {
+    "ko": "젊은, 어린",
+    "en": "young"
+   },
+   "ex": {
+    "t": "Salut, Théo. Je peins une jeune fille.",
+    "ko": "안녕, 테오. 요즘 소녀를 그려.",
+    "en": "Hi, Theo. I'm painting a young girl.",
+    "from": "c2-l4"
+   }
+  },
+  {
+   "id": "b52f22a3",
+   "w": "dehors",
+   "pos": "adv",
+   "mean": {
+    "ko": "밖에",
+    "en": "outside"
+   },
+   "ex": {
+    "t": "Est-ce que tu travailles dehors ?",
+    "ko": "밖에서 일해?",
+    "en": "Are you working outside?",
+    "from": "c1-l3"
+   }
+  },
+  {
+   "id": "68b7614f",
+   "w": "année",
+   "pos": "n",
+   "mean": {
+    "ko": "해, 년",
+    "en": "year"
+   },
+   "ex": {
+    "t": "Bonne année à tous !",
+    "ko": "모두 새해 복 많이 받아!",
+    "en": "Happy New Year, everyone!",
+    "from": null
+   }
+  },
+  {
+   "id": "9f61e440",
+   "w": "vérité",
+   "pos": "n",
+   "mean": {
+    "ko": "진실",
+    "en": "truth"
+   },
+   "ex": {
+    "t": "Dis-moi la vérité.",
+    "ko": "사실대로 말해 줘.",
+    "en": "Tell me the truth.",
+    "from": null
+   }
+  },
+  {
+   "id": "a7e17f99",
+   "w": "école",
+   "pos": "n",
+   "mean": {
+    "ko": "학교",
+    "en": "school"
+   },
+   "ex": {
+    "t": "Les enfants sont à l'école.",
+    "ko": "아이들은 학교에 있어.",
+    "en": "The children are at school.",
+    "from": null
+   }
+  },
+  {
+   "id": "8e8e7ea8",
+   "w": "chef",
+   "pos": "n",
+   "mean": {
+    "ko": "우두머리, 책임자",
+    "en": "boss, chief"
+   },
+   "ex": {
+    "t": "Où est le chef ?",
+    "ko": "책임자는 어디 있어?",
+    "en": "Where's the boss?",
+    "from": null
+   }
+  }
+ ]
+}

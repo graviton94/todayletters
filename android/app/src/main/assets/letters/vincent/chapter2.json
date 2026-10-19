@@ -380,64 +380,64 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Bonjour de Saintes-Maries, Théo ! Je suis à la mer.",
-      "en": "Hello from Saintes-Maries, Theo! I'm at the sea.",
-      "ko": "테오, 생트마리에서 전화해! 바닷가에 왔어."
+      "fr": "Bonjour, Théo ! Je suis à la mer.",
+      "en": "Hello, Theo! I'm at the sea.",
+      "ko": "안녕, 테오! 바닷가에 왔어."
      },
      {
       "who": "me",
-      "fr": "Enfin ! Elle est de quelle couleur, la mer ?",
-      "en": "At last! What colour is the sea?",
-      "ko": "드디어! 바다는 무슨 색이야?",
+      "fr": "Enfin ! Il fait beau là-bas ?",
+      "en": "At last! Is the weather nice there?",
+      "ko": "드디어! 거기 날씨 좋아?",
       "focus": {
        "fr": [
-        "de quelle couleur"
+        "Il fait beau"
        ],
        "en": [
-        "What colour"
+        "Is the weather nice"
        ],
        "ko": [
-        "무슨 색이야"
+        "날씨 좋아"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "de quel couleur",
-         "de quelles couleur"
+         "Il est beau",
+         "Il fait bon beau"
         ]
        ],
        "en": [
         [
-         "Which colours",
-         "What colour's"
+         "Is weather nice",
+         "Is the weather nicely"
         ]
        ],
        "ko": [
         [
-         "무슨 색야",
-         "무슨 색이여"
+         "날씨 조아",
+         "날씨 좋와"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Verte, violette, bleue… On ne sait jamais !",
-      "en": "Green, violet, blue… You never know!",
-      "ko": "초록, 보라, 파랑… 늘 알 수가 없어!"
+      "fr": "Très beau ! La mer change de couleur.",
+      "en": "Lovely! The sea keeps changing colour.",
+      "ko": "아주 좋아! 바다 색이 자꾸 바뀌어."
      },
      {
       "who": "me",
-      "fr": "Et la nuit, tu n'es pas triste, tout seul ?",
-      "en": "And at night, aren't you sad, all alone?",
-      "ko": "밤에 혼자 있으면 쓸쓸하지 않아?",
+      "fr": "Et la nuit, tu n'es pas triste ?",
+      "en": "And at night, aren't you sad?",
+      "ko": "밤에 쓸쓸하지 않아?",
       "focus": {
        "fr": [
-        "tu n'es pas"
+        "tu n'es pas triste"
        ],
        "en": [
-        "aren't you"
+        "aren't you sad"
        ],
        "ko": [
         "쓸쓸하지 않아"
@@ -446,20 +446,20 @@
       "wrong": {
        "fr": [
         [
-         "tu ne es pas",
-         "tu n'es"
+         "tu es pas triste",
+         "tu ne es pas triste"
         ]
        ],
        "en": [
         [
-         "isn't you",
-         "don't you"
+         "aren't you sadly",
+         "you aren't sad"
         ]
        ],
        "ko": [
         [
          "쓸쓸하지 안아",
-         "쓸쓸 안 하지"
+         "쓸쓸하지 않어"
         ]
        ]
       }
@@ -471,10 +471,7 @@
      "triste"
     ],
     "grammar": "II.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -753,9 +750,9 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Théo, j'ai des dessins de la mer pour toi.",
-      "en": "Theo, I've got some drawings of the sea for you.",
-      "ko": "테오, 바다 그림 몇 장 있어. 네 거야."
+      "fr": "Théo, j'ai des dessins de la mer.",
+      "en": "Theo, I've got drawings of the sea.",
+      "ko": "테오, 바다 그림이 몇 장 있어."
      },
      {
       "who": "me",
@@ -796,15 +793,15 @@
      },
      {
       "who": "them",
-      "fr": "D'accord. Mais je garde trois dessins pour l'instant.",
-      "en": "OK. But I'm keeping three drawings for now.",
-      "ko": "알았어. 그래도 세 장은 당분간 갖고 있을게."
+      "fr": "D'accord. Mais j'en garde trois.",
+      "en": "OK. But I'm keeping three.",
+      "ko": "알았어. 그래도 세 장은 갖고 있을게."
      },
      {
       "who": "me",
-      "fr": "Pas de problème. Garde-les, et reste dans le Midi !",
-      "en": "No problem. Keep them, and stay in the South!",
-      "ko": "괜찮아, 그냥 갖고 있어. 그리고 남쪽에 계속 머물러!",
+      "fr": "Garde-les. Et reste dans le Midi !",
+      "en": "Keep them. And stay in the South!",
+      "ko": "그래, 갖고 있어. 그리고 남쪽에 머물러!",
       "focus": {
        "fr": [
         "reste"
@@ -844,10 +841,7 @@
      "rester"
     ],
     "grammar": "II.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1144,9 +1138,9 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Quelle semaine, Théo ! Je travaille dans les blés.",
-      "en": "What a week, Theo! I'm working in the wheat fields.",
-      "ko": "대단한 한 주였어, 테오! 밀밭에서 일해."
+      "fr": "Quelle semaine ! Je peins les blés.",
+      "en": "What a week! I'm painting the wheat.",
+      "ko": "대단한 한 주였어! 밀밭을 그려."
      },
      {
       "who": "me",
@@ -1187,9 +1181,9 @@
      },
      {
       "who": "them",
-      "fr": "Un peu. Et j'ai enfin un modèle : un zouave !",
-      "en": "A bit. And at last I have a model: a Zouave!",
-      "ko": "조금. 그리고 드디어 모델이 생겼어. 주아브 병사야!"
+      "fr": "Oui. Et j'ai un modèle, un zouave !",
+      "en": "Yes. And I have a Zouave model!",
+      "ko": "응. 그리고 모델이 생겼어. 주아브 병사야!"
      },
      {
       "who": "me",
@@ -1234,10 +1228,7 @@
      "parler"
     ],
     "grammar": "II.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1494,21 +1485,21 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Salut, Théo. Je peins une jeune fille maintenant.",
-      "en": "Hi, Theo. I'm painting a young girl now.",
+      "fr": "Salut, Théo. Je peins une jeune fille.",
+      "en": "Hi, Theo. I'm painting a young girl.",
       "ko": "안녕, 테오. 요즘 소녀를 그려."
      },
      {
       "who": "me",
-      "fr": "Ah oui ? Et toi, ça va ? Tu n'es pas malade ?",
-      "en": "Oh yes? And how are you? You're not ill?",
-      "ko": "그래? 형은 괜찮아? 아프지 않아?",
+      "fr": "Et toi ? Tu n'es pas malade ?",
+      "en": "And you? You're not ill?",
+      "ko": "형은? 아프지 않아?",
       "focus": {
        "fr": [
-        "Tu n'es pas"
+        "Tu n'es pas malade"
        ],
        "en": [
-        "You're not"
+        "You're not ill"
        ],
        "ko": [
         "아프지 않아"
@@ -1517,35 +1508,35 @@
       "wrong": {
        "fr": [
         [
-         "Tu ne es pas",
-         "Tu n'est pas"
+         "Tu es pas malade",
+         "Tu ne es pas malade"
         ]
        ],
        "en": [
         [
-         "You not",
-         "You don't"
+         "You not ill",
+         "You're no ill"
         ]
        ],
        "ko": [
         [
          "아프지 안아",
-         "아프지 않어"
+         "아푸지 않아"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Pas très bien, encore. Mais le tableau avance.",
-      "en": "Not very well, again. But the painting is coming along.",
-      "ko": "또 썩 좋지는 않아. 그래도 그림은 잘돼."
+      "fr": "Encore un peu. Mais maintenant, ça va.",
+      "en": "Still a bit. But now I'm OK.",
+      "ko": "아직 조금. 그래도 지금은 괜찮아."
      },
      {
       "who": "me",
-      "fr": "Ne travaille pas trop. Prends soin de toi !",
-      "en": "Don't work too hard. Take care of yourself!",
-      "ko": "무리하지 마. 몸 잘 챙겨!",
+      "fr": "Ne travaille pas trop, d'accord ?",
+      "en": "Don't work too hard, OK?",
+      "ko": "무리하지 마, 알았지?",
       "focus": {
        "fr": [
         "Ne travaille pas"
@@ -1554,26 +1545,26 @@
         "Don't work"
        ],
        "ko": [
-        "챙겨"
+        "무리하지 마"
        ]
       },
       "wrong": {
        "fr": [
         [
          "Ne travailles pas",
-         "Travaille pas ne"
+         "Travaille ne pas"
         ]
        ],
        "en": [
         [
-         "Doesn't work",
-         "Not work"
+         "Not work",
+         "Doesn't work"
         ]
        ],
        "ko": [
         [
-         "챙기",
-         "챙겨어"
+         "무리하지 마러",
+         "무리하지 마아"
         ]
        ]
       }
@@ -1585,10 +1576,7 @@
      "maintenant"
     ],
     "grammar": "II.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1878,15 +1866,15 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Théo, j'ai un nouveau modèle : un vieux facteur.",
-      "en": "Theo, I have a new model: an old postman.",
-      "ko": "테오, 새 모델이 생겼어. 늙은 우편배달부야."
+      "fr": "Théo, mon modèle : un vieux facteur !",
+      "en": "Theo, my model: an old postman!",
+      "ko": "테오, 내 모델은 늙은 우편배달부야!"
      },
      {
       "who": "me",
-      "fr": "Super ! Tu as assez d'argent pour le modèle ?",
-      "en": "Great! Do you have enough money for the model?",
-      "ko": "잘됐다! 모델 쓸 돈은 넉넉해?",
+      "fr": "Super ! Tu as assez d'argent ?",
+      "en": "Great! Do you have enough money?",
+      "ko": "잘됐다! 돈은 넉넉해?",
       "focus": {
        "fr": [
         "assez d'argent"
@@ -1895,35 +1883,35 @@
         "enough money"
        ],
        "ko": [
-        "돈은"
+        "넉넉해"
        ]
       },
       "wrong": {
        "fr": [
         [
          "assez de l'argent",
-         "assez des argent"
+         "assez du argent"
         ]
        ],
        "en": [
         [
-         "enough moneys",
-         "enough of money"
+         "enough of money",
+         "money enough"
         ]
        ],
        "ko": [
         [
-         "돈는",
-         "돈이은"
+         "넉넉헤",
+         "넉녁해"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Pas vraiment. Je ne peux pas payer le loyer.",
-      "en": "Not really. I can't pay the rent.",
-      "ko": "그렇지 않아. 방세를 못 내."
+      "fr": "Pas vraiment. Je dois le loyer.",
+      "en": "Not really. I owe the rent.",
+      "ko": "그렇지 않아. 방세가 밀렸어."
      },
      {
       "who": "me",
@@ -1968,10 +1956,7 @@
      "argent"
     ],
     "grammar": "II.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2278,21 +2263,21 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Je peins un vieil homme de la Camargue.",
-      "en": "I'm painting an old man from the Camargue.",
-      "ko": "카마르그에서 온 할아버지를 그려."
+      "fr": "Je peins un vieil homme de Camargue.",
+      "en": "I'm painting an old Camargue man.",
+      "ko": "카마르그의 할아버지를 그려."
      },
      {
       "who": "me",
-      "fr": "Ah oui ? Qu'est-ce qu'il y a dans le fond ?",
-      "en": "Oh yes? What's in the background?",
-      "ko": "그래? 배경에는 뭐가 있어?",
+      "fr": "Qu'est-ce qu'il y a dans le fond ?",
+      "en": "What's in the background?",
+      "ko": "배경에는 뭐가 있어?",
       "focus": {
        "fr": [
-        "il y a"
+        "Qu'est-ce qu'il y a"
        ],
        "en": [
-        "What's"
+        "What's in"
        ],
        "ko": [
         "뭐가 있어"
@@ -2301,14 +2286,14 @@
       "wrong": {
        "fr": [
         [
-         "il a",
-         "il y est"
+         "Qu'est-ce qu'il a",
+         "Qu'est-ce il y a"
         ]
        ],
        "en": [
         [
-         "What are",
-         "What is there's"
+         "What in",
+         "What are in"
         ]
        ],
        "ko": [
@@ -2321,43 +2306,43 @@
      },
      {
       "who": "them",
-      "fr": "Du bleu, un bleu très intense. C'est l'infini !",
-      "en": "Blue, a very intense blue. It's the infinite!",
-      "ko": "파랑이야, 아주 진한 파랑. 무한한 하늘이야!"
+      "fr": "Du bleu, un bleu très intense.",
+      "en": "Blue, a very intense blue.",
+      "ko": "파랑, 아주 진한 파랑이야."
      },
      {
       "who": "me",
-      "fr": "Super ! Montre-moi le tableau bientôt.",
-      "en": "Great! Show me the painting soon.",
-      "ko": "좋다! 곧 그림 보여 줘.",
+      "fr": "J'adore le bleu ! Montre-moi bientôt.",
+      "en": "I love blue! Show me soon.",
+      "ko": "파랑 정말 좋아! 곧 보여 줘.",
       "focus": {
        "fr": [
-        "Montre-moi"
+        "J'adore"
        ],
        "en": [
-        "Show me"
+        "I love"
        ],
        "ko": [
-        "보여 줘"
+        "정말 좋아"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Montres-moi",
-         "Montre-je"
+         "Je adore",
+         "J'adores"
         ]
        ],
        "en": [
         [
-         "Shows me",
-         "Showing me"
+         "I loves",
+         "I am love"
         ]
        ],
        "ko": [
         [
-         "보여 쥐",
-         "보아 줘"
+         "정말 조아",
+         "정말 좋와"
         ]
        ]
       }
@@ -2368,10 +2353,7 @@
      "fond"
     ],
     "grammar": "II.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2650,58 +2632,58 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Théo, je fais des tournesols pour l'atelier.",
-      "en": "Theo, I'm doing sunflowers for the studio.",
-      "ko": "테오, 작업실에 걸 해바라기를 그려."
+      "fr": "Je peins des tournesols chaque matin.",
+      "en": "I paint sunflowers every morning.",
+      "ko": "아침마다 해바라기를 그려."
      },
      {
       "who": "me",
-      "fr": "Pour l'atelier ? Avec Gauguin, ensemble ?",
-      "en": "For the studio? Together, with Gauguin?",
-      "ko": "작업실? 고갱이랑 같이?",
+      "fr": "Tu aimes les tournesols ?",
+      "en": "Do you like sunflowers?",
+      "ko": "해바라기 좋아해?",
       "focus": {
        "fr": [
-        "ensemble"
+        "Tu aimes"
        ],
        "en": [
-        "Together"
+        "Do you like"
        ],
        "ko": [
-        "같이"
+        "좋아해"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "ensembles",
-         "en semble"
+         "Tu aime",
+         "Tu aimes de"
         ]
        ],
        "en": [
         [
-         "Togethers",
-         "To gather"
+         "Does you like",
+         "Do you likes"
         ]
        ],
        "ko": [
         [
-         "같치",
-         "가치"
+         "좋아헤",
+         "조아해"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Oui, j'espère. Je peins chaque matin, très tôt.",
-      "en": "Yes, I hope so. I paint every morning, very early.",
-      "ko": "응, 그러길 바라. 아침마다 아주 일찍 그려."
+      "fr": "Oui ! Pour l'atelier, avec Gauguin, ensemble.",
+      "en": "Yes! For the studio, with Gauguin, together.",
+      "ko": "응! 고갱이랑 같이 쓸 작업실에 걸 거야."
      },
      {
       "who": "me",
-      "fr": "Alors ne te fatigue pas trop. Bon courage !",
-      "en": "Then don't wear yourself out. Good luck!",
-      "ko": "그럼 너무 지치지 마. 힘내!",
+      "fr": "Alors ne te fatigue pas trop !",
+      "en": "Then don't wear yourself out!",
+      "ko": "그럼 너무 지치지 마!",
       "focus": {
        "fr": [
         "ne te fatigue pas"
@@ -2740,10 +2722,7 @@
      "matin"
     ],
     "grammar": "II.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   }
  ]

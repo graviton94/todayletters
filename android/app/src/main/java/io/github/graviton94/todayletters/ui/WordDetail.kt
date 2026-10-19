@@ -91,7 +91,7 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
             Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
                 // 이름표
                 Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    Caps(if (n == 0) stringResource(R.string.cover_prologue) else letterTag(s, key), p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
+                    Caps(if (found.basic != null) stringResource(R.string.basic_tag) else if (n == 0) stringResource(R.string.cover_prologue) else letterTag(s, key), p.inkSoft, small = true, decorative = true, modifier = Modifier.align(Alignment.End))
                     // 내가 편지에서 눌러 담은 낱말 · 표현 카드 · 등급
                     if (found.own || word.phrase || word.level.isNotEmpty()) Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                         if (found.own) Capsule(stringResource(R.string.gloss_own))
@@ -142,18 +142,25 @@ internal fun WordDetailBody(s: AppState, key: String, onClose: () -> Unit) {
                         Box(Modifier.fillMaxWidth().height(0.dp))
                         GlossText(s, id, chapter, letter, mi, marked, style = Type.base.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic).of(view.learn), color = p.ink)
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            Text((if (n == 0) "Prologue" else stringResource(R.string.letter_n, roman(n))) + " · " + dateLine(letter.date, letter.place) + " · " + letter.place,
+                            // 기초 낱말: 예문 칸 (편지에서 · 예문), 소리는 예문 bx_<언어>_<id>
+                            val b = found.basic
+                            Text(if (b != null) stringResource(if (b.ex?.written != false) R.string.basic_example else R.string.basic_from_letter)
+                                else (if (n == 0) "Prologue" else stringResource(R.string.letter_n, roman(n))) + " · " + dateLine(letter.date, letter.place) + " · " + letter.place,
                                 style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, modifier = Modifier.weight(1f))
-                            val sentence = s.narrator.path(id, chapter, letter.id, "m${mi + 1}_${view.learn.code}")
-                            Box(Modifier.heightIn(min = 36.dp).pressable { s.narrator.play(sentence) },
-                                contentAlignment = Alignment.Center) { Capsule(stringResource(R.string.word_hear_sentence)) }
-                            SlowToggle({ s.narrator.play(sentence, speed = io.github.graviton94.todayletters.core.Listen.SLOW) }, size = 36.dp, touch = 44.dp)
+                            val sentence = if (b != null) s.basicAudio(id, io.github.graviton94.todayletters.core.Basics.exampleAudio(view.learn, b.id))
+                                else s.narrator.path(id, chapter, letter.id, "m${mi + 1}_${view.learn.code}")
+                            if (sentence.isNotEmpty()) {
+                                Box(Modifier.heightIn(min = 36.dp).pressable { s.narrator.play(sentence) },
+                                    contentAlignment = Alignment.Center) { Capsule(stringResource(R.string.word_hear_sentence)) }
+                                SlowToggle({ s.narrator.play(sentence, speed = io.github.graviton94.todayletters.core.Listen.SLOW) }, size = 36.dp, touch = 44.dp)
+                            }
                         }
                     }
                 }
             }
             Row(Modifier.fillMaxWidth().padding(Tokens.Space.s5), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                Box(Modifier.weight(1f)) {
+                // 기초 낱말은 열 편지가 없다
+                if (found.basic == null) Box(Modifier.weight(1f)) {
                     Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.buttonSm).border(1.dp, p.ink).pressable {
                         onClose()
                         // 프롤로그의 낱말이면 그 도슨트 쪽으로

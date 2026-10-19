@@ -1966,4 +1966,51 @@ class ScreensTest {
         val r = ilRoom(s, 1)
         shot("il5_room_ko_learner_light", false, 4000, series = s) { Room(s, r) }
     }
+
+    // ── 단계성 보강 (2026-10-19): 기초 낱말 카드 · 예열의 ‘오늘 말해 볼 말’ · 따라 읽기 걸음의 회화 줄 ──
+    // 기초 낱말 덱은 assets letters/vincent/basics.json (data/ 에서 generate.py 가 넣는다). 없으면 복습 장면은 빈 판으로 찍힌다.
+    private fun basicKey(s: AppState, box: Int = 0): String? {
+        val b = io.github.graviton94.todayletters.ui.basicsOf(ctx, "vincent", "").items.firstOrNull { it.ex != null } ?: return null
+        val key = io.github.graviton94.todayletters.core.CardRef.basic("vincent", b.id)
+        s.store.save(io.github.graviton94.todayletters.core.Card(key, box = box, due = s.today)); s.bump()
+        return key
+    }
+    /** 기초 낱말 카드 (새 카드, 뜻 고르기): 이름표 ‘기초 낱말’ · 큰 낱말 · 듣기 · 품사, 아래 예문 칸 (편지에서 · 예문). */
+    @Test fun basicCard() {
+        val s = state(true)
+        val key = basicKey(s)
+        shot("basic1_card_light", false, series = s) { Session(s, Route.Session(only = listOfNotNull(key))) }
+    }
+    /** 기초 낱말 카드: 맞힌 뒤 (뜻 · 예문 번역), 어두운 화면. */
+    @Test fun basicCardAnswered() {
+        val s = state(true)
+        val key = basicKey(s)
+        val meaning = key?.let { s.cardWord(it)?.word?.text?.get(s.room("vincent").read) }
+        shot("basic2_card_answered_dark", true, act = {
+            if (meaning != null) rule.onAllNodes(hasText(meaning) and hasClickAction()).onFirst().performClick()
+        }, series = s) { Session(s, Route.Session(only = listOfNotNull(key))) }
+    }
+    /** 나의 기록: 언어 등급 아래 ‘기초 낱말 N / 300 · 많이 쓰는 300개 중’. */
+    @Test fun basicRecord() {
+        val s = engineState(); s.reward = null
+        basicKey(s, box = 3)
+        shot("basic3_record_light", false) { io.github.graviton94.todayletters.ui.RecordScreen(s) }
+    }
+    /** 예열: 낱말 · 덩어리를 다 하고 ‘오늘 말해 볼 말’ (오늘의 회화 내 줄) 이 지금 장. */
+    @Test fun warmUpTalk() {
+        val s = state(true)
+        shot("il6_warmup_talk_light", false, act = {
+            repeat(4) {
+                val said = rule.onAllNodes(hasText(ctx.getString(R.string.warm_said)) and hasClickAction())
+                if (said.fetchSemanticsNodes().isNotEmpty()) { said.onFirst().performClick(); rule.mainClock.advanceTimeBy(300) }
+            }
+        }, series = s) { io.github.graviton94.todayletters.ui.WarmUpScreen(s, Route.WarmUp(Route.Letter("vincent", 1, 2))) }
+    }
+    /** 따라 읽기 걸음: 회화 내 줄이 먼저 (‘오늘 말해 볼 말 1 / 2’, 원래 소리 = 회화 소리). */
+    @Test fun shadowTalkLine() {
+        val s = state(true)
+        shot("sh1_shadow_talk_light", false, series = s) {
+            io.github.graviton94.todayletters.ui.ReadAlong(s, Route.Letter("vincent", 1, 2), only = listOf(0), onClose = {}, onFinish = {})
+        }
+    }
 }

@@ -197,3 +197,29 @@ object TalkTurn {
         }
     }
 }
+
+/**
+ * 따라 읽기의 칸 하나: 오늘의 회화 내 줄 [talk] (0부터, 회화 줄이 아니면 -1) 또는 편지 문장 [msg] 의 마디 [chunk].
+ * 회화 줄은 장이 갈수록 길어지는 말하기 계단이라 (I장 짧게 → 뒤 장 길게), 편지 문장보다 먼저 따라 말한다.
+ */
+data class ShadowSpot(val talk: Int = -1, val msg: Int = -1, val chunk: Int = 0) {
+    val isTalk: Boolean get() = talk >= 0
+    /** 통과 · 별 기록의 꼬리: 편지 마디는 예전 그대로 "<문장>:<마디>", 회화 줄은 "t<줄>:0". */
+    val tag: String get() = if (isTalk) "t$talk:0" else "$msg:$chunk"
+}
+
+object ShadowLines {
+    /** 회화의 내 줄 (번호, 차례대로): 배우는 말 [learn] 의 글이 있는 "me" 줄만. 회화가 없으면 빈 목록. */
+    fun talkMe(talk: Talk?, learn: Lang): List<Int> =
+        talk?.lines.orEmpty().withIndex().filter { (_, l) -> l.me && l.text.lines[learn]?.isNotBlank() == true }.map { it.index }
+
+    /**
+     * 따라 읽기 차례: 회화 내 줄 먼저 ([withTalk] 일 때, 편지 걸음), 그다음 편지 문장의 마디 (예전 그대로).
+     * [chunks] 는 문장마다 마디 수, [only] 는 고른 문장만 (null 이면 모든 문장).
+     */
+    fun order(talk: Talk?, learn: Lang, chunks: List<Int>, only: List<Int>?, withTalk: Boolean = true): List<ShadowSpot> {
+        val lines = if (withTalk) talkMe(talk, learn).map { ShadowSpot(talk = it) } else emptyList()
+        val letter = chunks.indices.filter { only == null || it in only }.flatMap { i -> (0 until chunks[i]).map { ShadowSpot(msg = i, chunk = it) } }
+        return lines + letter
+    }
+}

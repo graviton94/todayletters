@@ -1017,8 +1017,8 @@
     "ko": "내 소리"
   },
   "shadow_talk": {
-    "en": "Speak",
-    "ko": "말하기"
+    "en": "Say it today %1$d / %2$d",
+    "ko": "오늘 말해 볼 말 %1$d / %2$d"
   },
   "shadow_stop": {
     "en": "Done",
@@ -2615,6 +2615,38 @@
   "warm_phrase": {
     "en": "Phrase",
     "ko": "표현"
+  },
+  "warm_talk": {
+    "en": "Say it today",
+    "ko": "오늘 말해 볼 말"
+  },
+  "basic_tag": {
+    "en": "Basic word",
+    "ko": "기초 낱말"
+  },
+  "basic_from_letter": {
+    "en": "From the letters",
+    "ko": "편지에서"
+  },
+  "basic_example": {
+    "en": "Example",
+    "ko": "예문"
+  },
+  "basic_example_note": {
+    "en": "A sentence written by the app",
+    "ko": "앱이 쓴 문장이에요"
+  },
+  "a11y_listen_sentence": {
+    "en": "Listen to the sentence",
+    "ko": "문장 듣기"
+  },
+  "basics_count": {
+    "en": "Basic words %1$d / %2$d",
+    "ko": "기초 낱말 %1$d / %2$d"
+  },
+  "basics_sub": {
+    "en": "of the %1$d most used",
+    "ko": "많이 쓰는 %1$d개 중"
   },
   "set_warm": {
     "en": "Warm-up before each letter",

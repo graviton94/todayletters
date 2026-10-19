@@ -18,10 +18,13 @@
   talk       scene (ko · en) · 줄 3–4개 (who = them | me, 세 언어, me 줄 하나 이상) · words · grammar (장의 문법 id)
   replies    편지마다 턴 1–3 (세 언어 · quote · grammar · focus · koLow · koHigh)
   grammar    장마다 3개, 문법마다 원어 · en · ko 칸 (name · hint 의 ko · en)
+  basics     기초 낱말 덱 basics[_en|_ko].json (있는 것만, core Basics): lang · top (겹치지 않는 표제어) · items
+             (id = sha1("<작품>[_말]/<낱말>") 앞 8자, 겹치지 않음, 낱말 (여러 낱말이면 "k") 은 top 안, pos, 뜻은 덱의 말을 뺀 ko · en,
+             ex 는 t · 같은 언어 번역 · from = 그 작품의 편지 id 또는 null)
   talk_audio (알림만) talk.audio 가 있는데 소리 파일이 assets · remote 에 없음
              ("audio" 는 "t" 또는 {"*": "t", "ko": "tk"}: 언어마다 앞부분, 없는 언어는 "*" — core Talk.audioName)
 """
-import glob, json, os, sys
+import glob, hashlib, json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 EASY = {"A1", "A2"}
@@ -34,6 +37,12 @@ TALK_MIN, TALK_MAX = 3, 4
 TURNS_MIN, TURNS_MAX = 1, 3
 GRAMMAR_PER_CHAPTER = 3
 SHOW = 6
+BASICS_TOP = 300
+
+
+def basic_id(name, w):
+    """기초 낱말 고정 이름: sha1("<작품>[_말]/<낱말>") 앞 8자 (core Basics.id)."""
+    return hashlib.sha1(f"{name}/{w}".encode("utf-8")).hexdigest()[:8]
 
 
 class Report:
@@ -242,9 +251,49 @@ def check_series(sid, drafts, verbose):
     if talk_audio_missing:
         rep.notes.append(f"talk 소리 파일 {talk_audio_missing}개 없음 (알림만)")
 
+    # basics: 기초 낱말 덱 (있는 것만)
+    letter_ids = {l["id"] for _, l in every}
+    for lang in L3:
+        deck = "" if lang == orig else lang
+        f = os.path.join(folder, f"basics{'_' + deck if deck else ''}.json")
+        if not os.path.exists(f):
+            continue
+        name = os.path.basename(f)
+        try:
+            b = json.load(open(f, encoding="utf-8"))
+        except ValueError as e:
+            rep.bad("basics", f"{name}: JSON ({e})"); continue
+        top = b.get("top")
+        rep.check("basics", b.get("lang") == lang, f"{name}: lang {b.get('lang')!r} (덱의 말 {lang})")
+        top_ok = isinstance(top, list) and top and all(isinstance(x, str) and x.strip() for x in top) and len(set(top)) == len(top)
+        rep.check("basics", top_ok, f"{name}: top 은 겹치지 않는 표제어 목록")
+        if top_ok and len(top) != BASICS_TOP:
+            rep.notes.append(f"{name}: top {len(top)}개 (보통 {BASICS_TOP})")
+        tops = {x.lower() for x in top} if top_ok else set()
+        need = [x for x in ("ko", "en") if x != lang]
+        seen = set()
+        for i, it in enumerate(b.get("items") or []):
+            w = it.get("w") if isinstance(it, dict) else None
+            where = f"{name} #{i} {w!r}"
+            if not isinstance(w, str) or not w.strip():
+                rep.bad("basics", f"{where}: w 없음"); continue
+            want = basic_id(sid + (f"_{deck}" if deck else ""), w)
+            rep.check("basics", it.get("id") == want, f"{where}: id {it.get('id')!r} ≠ {want}")
+            rep.check("basics", it.get("id") not in seen, f"{where}: id 겹침")
+            seen.add(it.get("id"))
+            # 여러 낱말 표제어 (est-ce que) 는 "k" 가 top 의 표제어 (est-ce), 없으면 k = w
+            k = it.get("k") or w
+            rep.check("basics", isinstance(k, str) and k.lower() in tops, f"{where}: top 에 없는 낱말 (k {k!r})")
+            rep.check("basics", isinstance(it.get("pos"), str) and it["pos"].strip(), f"{where}: pos 없음")
+            rep.check("basics", has(it.get("mean"), need) and lang not in it["mean"], f"{where}: mean 은 {' · '.join(need)} (덱의 말 {lang} 은 빼기)")
+            ex = it.get("ex")
+            if ex is not None:
+                ok = has(ex, ["t"] + need) and lang not in ex and (ex.get("from") is None or ex.get("from") in letter_ids)
+                rep.check("basics", ok, f"{where}: ex 는 t · {' · '.join(need)} · from (편지 id 또는 null)")
+
     # 보고
     print(f"== {sid} ({orig}) · 편지 {len(lessons)}통 (+ 프롤로그 {len(every) - len(lessons)})")
-    for name in ("files", "messages", "grammar", "words", "words_easy", "pron", "phrases", "check", "talk", "replies"):
+    for name in ("files", "messages", "grammar", "words", "words_easy", "pron", "phrases", "check", "talk", "replies", "basics"):
         if name not in rep.rules:
             continue
         n, fails = rep.rules[name]

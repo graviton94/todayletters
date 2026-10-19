@@ -255,7 +255,7 @@
     <string name="shadow_check">원⁠래 소⁠리⁠와 내 소⁠리⁠를 번⁠갈⁠아 들⁠어 보⁠고 다⁠음⁠으⁠로⁠.</string>
     <string name="shadow_orig">원⁠래 소⁠리</string>
     <string name="shadow_mine">내 소⁠리</string>
-    <string name="shadow_talk">말⁠하⁠기</string>
+    <string name="shadow_talk">오⁠늘 말⁠해 볼 말 %1$d / %2$d</string>
     <string name="shadow_stop">다 말⁠했⁠어⁠요</string>
     <string name="shadow_next">다⁠음</string>
     <string name="shadow_finish">다 따⁠라 읽⁠었⁠어⁠요</string>
@@ -655,6 +655,14 @@
     <string name="warm_skip">건⁠너⁠뛰⁠기</string>
     <string name="warm_anchor">자⁠주 나⁠오⁠는 말</string>
     <string name="warm_phrase">표⁠현</string>
+    <string name="warm_talk">오⁠늘 말⁠해 볼 말</string>
+    <string name="basic_tag">기⁠초 낱⁠말</string>
+    <string name="basic_from_letter">편⁠지⁠에⁠서</string>
+    <string name="basic_example">예⁠문</string>
+    <string name="basic_example_note">앱⁠이 쓴 문⁠장⁠이⁠에⁠요</string>
+    <string name="a11y_listen_sentence">문⁠장 듣⁠기</string>
+    <string name="basics_count">기⁠초 낱⁠말 %1$d / %2$d</string>
+    <string name="basics_sub">많⁠이 쓰⁠는 %1$d⁠개 중</string>
     <string name="set_warm">편⁠지 전 예⁠열</string>
     <string name="anchor_note_ko">이 편⁠지⁠들⁠에 자⁠주 나⁠오⁠는 말</string>
     <string name="anchor_note_en">A phrase that keeps coming back in these letters</string>

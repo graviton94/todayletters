@@ -476,37 +476,37 @@
      },
      {
       "who": "me",
-      "fr": "Super. Mais d'abord, repose-toi bien à l'hôpital.",
-      "en": "Great. But first, rest well in hospital.",
-      "ko": "좋아. 그래도 먼저 병원에서 푹 쉬어.",
+      "fr": "Super. Tu as besoin d'argent pour l'hôpital ?",
+      "en": "Great. Do you need money for the hospital?",
+      "ko": "좋아. 병원비가 필요해?",
       "focus": {
        "fr": [
-        "repose-toi"
+        "Tu as besoin d'argent"
        ],
        "en": [
-        "rest"
+        "Do you need money"
        ],
        "ko": [
-        "쉬어"
+        "병원비가 필요해"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "reposes-toi",
-         "repose-te"
+         "Tu as besoin de l'argent",
+         "Tu es besoin d'argent"
         ]
        ],
        "en": [
         [
-         "rests",
-         "resting"
+         "Do you need of money",
+         "Are you need money"
         ]
        ],
        "ko": [
         [
-         "쉬아",
-         "쉬여"
+         "병원비가 필요헤",
+         "병원비를 필요해"
         ]
        ]
       }
@@ -517,10 +517,7 @@
      "hôpital"
     ],
     "grammar": "V.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2559,9 +2556,9 @@
      },
      {
       "who": "me",
-      "fr": "Signac ? Il était comment ? On dit qu'il est violent.",
-      "en": "Signac? What was he like? People say he's violent.",
-      "ko": "시냐크? 어땠어? 거칠다고들 하던데.",
+      "fr": "Signac ? Il était comment ?",
+      "en": "Signac? What was he like?",
+      "ko": "시냐크? 어땠어?",
       "focus": {
        "fr": [
         "Il était comment"
@@ -2576,29 +2573,29 @@
       "wrong": {
        "fr": [
         [
-         "Il était comme",
+         "Il a été comment",
          "Il étais comment"
         ]
        ],
        "en": [
         [
-         "What were he like",
+         "What he was like",
          "How was he like"
         ]
        ],
        "ko": [
         [
          "어땟어",
-         "어떴어"
+         "어땠아"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Non, il était très calme. J'en ai profité pour sortir.",
-      "en": "No, he was very calm. I took the chance to go out.",
-      "ko": "아니, 아주 차분했어. 그 김에 바깥에도 나갔어."
+      "fr": "Très calme. J'en ai profité pour sortir.",
+      "en": "Very calm. I took the chance to go out.",
+      "ko": "아주 차분했어. 그 김에 바깥에도 나갔어."
      },
      {
       "who": "me",
@@ -2643,10 +2640,7 @@
      "profiter"
     ],
     "grammar": "V.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {

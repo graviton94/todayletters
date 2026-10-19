@@ -61,6 +61,8 @@ import io.github.graviton94.todayletters.design.Type
  * 읽는 자리가 금빛으로 따라가고, 녹음하는 동안 파형과 내 음높이 선이 원래 낭독 선 위에 실시간으로 그려진다.
  * 채점은 억양 · 리듬 · 완성도 (core 의 Prosody, 기기 안에서): 별 1~3 (50 · 70 · 85), 55점이면 통과로 기록. 빨간 ‘실패’는 없다.
  * 편지 걸음([onFinish] 가 있을 때)에서는 녹음하면 통과. 봉인은 모든 마디 통과. 세 번 해도 안 되면 ‘넘어가기’.
+ * 편지 걸음은 오늘의 회화 내 줄 (“me”, 장이 갈수록 길어지는 말하기 계단) 을 먼저 따라 말하고 (원래 소리 = 회화 소리 t<줄>_<말>), 그다음 편지 문장
+ * (core [io.github.graviton94.todayletters.core.ShadowLines]). 봉인까지 가는 전체 따라 읽기는 편지 문장만.
  */
 @Composable
 fun ShadowScreen(s: AppState, r: Route.Shadow) = ReadAlong(s, r.room, only = r.only?.let { listOf(it) }, onClose = { s.back() }, onFinish = null)
@@ -74,33 +76,46 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
     val id = room.series
     val view = s.room(id)
     val units = remember(letter.id) { s.shadowChunks(id, chapter, letter) }
-    // 마디 하나 = 한 칸 (shadowChunks 가 문장마다 6~10 낱말 마디를 준다)
-    val flat = remember(units, only) { units.indices.filter { only == null || it in only }.flatMap { i -> units[i].indices.map { i to it } } }
     // 편지 걸음에서는 목소리가 들어간 녹음이면 통과 (침묵 · 잡음만이면 아니다)
     val step = onFinish != null
-    fun ok(i: Int, j: Int) = s.take(id, chapter, letter.id, i, j).exists() && (step || units[i][j].start < 0 || s.passed(id, chapter, letter.id, i, j))
-    val first = remember(flat) { flat.indexOfFirst { (i, j) -> !ok(i, j) }.let { if (it < 0) flat.lastIndex else it } }
+    // 마디 하나 = 한 칸 (shadowChunks 가 문장마다 6~10 낱말 마디를 준다). 편지 걸음이면 회화 내 줄이 앞에 한 칸씩
+    val flat = remember(units, only, view.learn) {
+        io.github.graviton94.todayletters.core.ShadowLines.order(letter.talk, view.learn, units.map { it.size }, only, withTalk = step)
+    }
+    // 회화 줄의 원래 소리 (편지 폴더 t<줄>_<말>, 기기에 없으면 소리 없이 녹음만)
+    fun talkAudio(line: Int): String? = letter.talk?.audioName(line, view.learn)?.let { s.narrator.path(id, chapter, letter.id, it) }?.takeIf { s.narrator.has(it) }
+    fun unitOf(sp: io.github.graviton94.todayletters.core.ShadowSpot): io.github.graviton94.todayletters.data.Chunk =
+        if (!sp.isTalk) units[sp.msg][sp.chunk]
+        else io.github.graviton94.todayletters.data.Chunk(if (talkAudio(sp.talk) != null) 0 else -1, Int.MAX_VALUE,
+            io.github.graviton94.todayletters.core.Breaks.plain(letter.talk?.lines?.getOrNull(sp.talk)?.text?.get(view.learn).orEmpty()))
+    fun fileOf(sp: io.github.graviton94.todayletters.core.ShadowSpot) =
+        if (sp.isTalk) s.talkShadowTake(id, chapter, letter.id, sp.talk) else s.take(id, chapter, letter.id, sp.msg, sp.chunk)
+    fun ok(sp: io.github.graviton94.todayletters.core.ShadowSpot) = fileOf(sp).exists() && (step || unitOf(sp).start < 0 || s.passed(id, chapter, letter.id, sp.tag))
+    val first = remember(flat) { flat.indexOfFirst { !ok(it) }.let { if (it < 0) flat.lastIndex else it } }
     var at by remember(letter.id) { mutableIntStateOf(first.coerceAtLeast(0)) }
     var finished by remember { mutableStateOf(false) }
     var unpassed by remember { mutableStateOf(0) }
     val tries = remember(letter.id) { mutableMapOf<Int, Int>() }
     DisposableEffect(Unit) { onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release(); s.narrator.stop() } }
     if (flat.isEmpty()) return
-    val (mi, cj) = flat[at.coerceIn(0, flat.lastIndex)]
-    val unit = units[mi][cj]
-    val audio = s.narrator.path(id, chapter, letter.id, "m${mi + 1}_${view.learn.code}")
-    val sentence = io.github.graviton94.todayletters.core.Breaks.plain(letter.messages[mi].text[view.learn])
+    val spot = flat[at.coerceIn(0, flat.lastIndex)]
+    val mi = spot.msg
+    val cj = spot.chunk
+    val talkLine = if (spot.isTalk) letter.talk?.lines?.getOrNull(spot.talk) else null
+    val unit = unitOf(spot)
+    val audio = if (spot.isTalk) talkAudio(spot.talk).orEmpty() else s.narrator.path(id, chapter, letter.id, "m${mi + 1}_${view.learn.code}")
+    val sentence = if (spot.isTalk) unit.text else io.github.graviton94.todayletters.core.Breaks.plain(letter.messages[mi].text[view.learn])
     // 녹음 · 채점 (회화 내 차례와 같은 부품): 원래 낭독의 이 마디와 내 녹음을 기기 안에서 비교
-    val take = rememberShadowTake(s, audio.takeIf { unit.start >= 0 }, unit.start, unit.end, s.take(id, chapter, letter.id, mi, cj), step, key = letter.id to at,
-        onVoice = { v -> if (step && v) s.markPassed(id, chapter, letter.id, mi, cj) }) { sc, fresh ->
+    val take = rememberShadowTake(s, audio.takeIf { unit.start >= 0 }, unit.start, unit.end, fileOf(spot), step, key = letter.id to at,
+        onVoice = { v -> if (step && v) s.markPassed(id, chapter, letter.id, spot.tag) }) { sc, fresh ->
         if (sc.stars >= 1) s.markStar(id, chapter, letter.id)   // 봉인 조건: 따라 읽기 별 하나 이상 (F13)
-        s.recordStars(id, chapter, letter.id, mi, cj, sc.stars)   // 메달 진열장의 따라 읽기 별 (마디마다 가장 많이 받은 별)
-        if (sc.passed) s.markPassed(id, chapter, letter.id, mi, cj) else if (fresh && !step) tries[at] = (tries[at] ?: 0) + 1
+        s.recordStars(id, chapter, letter.id, spot.tag, sc.stars)   // 메달 진열장의 따라 읽기 별 (마디마다 가장 많이 받은 별)
+        if (sc.passed) s.markPassed(id, chapter, letter.id, spot.tag) else if (fresh && !step) tries[at] = (tries[at] ?: 0) + 1
     }
     val have = take.have
 
     // 읽는 자리: 원래 낭독의 마디 시각으로 글자 자리를 셈
-    val marks = remember(audio) { s.narrator.chunks(audio) }
+    val marks = remember(audio) { if (audio.isEmpty()) emptyList() else s.narrator.chunks(audio) }
     val spans = remember(sentence, marks) {
         var from = 0
         marks.map { c ->
@@ -129,7 +144,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
     LaunchedEffect(take) { if (!take.have) take.original(s) }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PracticeHeader(at, flat.size, onClose = onClose, count = "${flat.count { (i, j) -> ok(i, j) }} / ${flat.size}")
+        PracticeHeader(at, flat.size, onClose = onClose, count = "${flat.count { ok(it) }} / ${flat.size}")
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
@@ -138,11 +153,14 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
             val nth = if (only == null) mi + 1 else only.indexOf(mi) + 1
             val of = if (only == null) units.size else only.size
             if (guide != null) GuideLine(s, guide)
-            // 한 문장 · 한 마디뿐이면 "1 / 1" 은 위의 진행 숫자와 겹친다 (F14)
-            if (flat.size > 1) Text(if (units[mi].size > 1) stringResource(R.string.read_where_part, nth, of, cj + 1, units[mi].size) else stringResource(R.string.read_where, nth, of),
+            // 한 문장 · 한 마디뿐이면 "1 / 1" 은 위의 진행 숫자와 겹친다 (F14). 회화 줄은 ‘오늘 말해 볼 말 1 / 2’
+            val talks = flat.count { it.isTalk }
+            if (spot.isTalk) Text(stringResource(R.string.shadow_talk, flat.indexOf(spot) + 1, talks),
+                style = Type.small.ui(), color = p.giltText, modifier = Modifier.align(Alignment.CenterHorizontally))
+            else if (flat.size - talks > 1) Text(if (units[mi].size > 1) stringResource(R.string.read_where_part, nth, of, cj + 1, units[mi].size) else stringResource(R.string.read_where, nth, of),
                 style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.align(Alignment.CenterHorizontally))
             // 읽는 자리 칠하기 그대로, 낱말을 누르면 뜻 (눌러서 뜻 보기). 긴 문장은 이번 마디 밖을 흐리게.
-            val part = remember(sentence, unit) { if (units[mi].size <= 1) null else sentence.indexOf(unit.text).takeIf { it >= 0 }?.let { it until it + unit.text.length } }
+            val part = remember(sentence, unit) { if (spot.isTalk || units[mi].size <= 1) null else sentence.indexOf(unit.text).takeIf { it >= 0 }?.let { it until it + unit.text.length } }
             val painted = readAlong(sentence, pos, p.ink, p.inkSoft.copy(alpha = 0.7f), p.gilt.copy(alpha = 0.35f)).let { a ->
                 if (part == null) a else androidx.compose.ui.text.AnnotatedString.Builder(a).apply {
                     val dim = androidx.compose.ui.text.SpanStyle(color = p.inkSoft.copy(alpha = 0.35f))
@@ -150,24 +168,26 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
                     if (part.last + 1 < sentence.length) addStyle(dim, part.last + 1, sentence.length)
                 }.toAnnotatedString()
             }
-            GlossText(s, id, chapter, letter, mi, painted, style = Type.target.of(view.learn))
-            if (view.showRead) Text(letter.messages[mi].text[view.read], style = Type.base.of(view.read), color = p.inkSoft)
+            // 회화 줄은 편지 글이 아니라서 눌러서 뜻 보기 없이
+            if (talkLine != null) Text(painted, style = Type.target.of(view.learn), color = p.ink)
+            else GlossText(s, id, chapter, letter, mi, painted, style = Type.target.of(view.learn))
+            if (view.showRead) Text((talkLine?.text ?: letter.messages[mi].text)[view.read], style = Type.base.of(view.read), color = p.inkSoft)
             if (!take.hasAudio) Text(stringResource(R.string.shadow_noaudio), style = Type.small.ui(), color = p.inkSoft)
             ShadowBoard(take)
         }
         ShadowControls(s, take)
         Column(Modifier.padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             val last = at == flat.lastIndex
-            val allTried = flat.all { (i, j) -> s.take(id, chapter, letter.id, i, j).exists() }
-            val stuck = (tries[at] ?: 0) >= 3 && !ok(mi, cj) && !last
+            val allTried = flat.all { fileOf(it).exists() }
+            val stuck = (tries[at] ?: 0) >= 3 && !ok(spot) && !last
             fun advance() {
                 s.narrator.stop(); s.recorder.stopPlaying(); take.playing = false
                 when {
                     !last -> at++
-                    !allTried -> at = flat.indexOfFirst { (i, j) -> !s.take(id, chapter, letter.id, i, j).exists() }
+                    !allTried -> at = flat.indexOfFirst { !fileOf(it).exists() }
                     onFinish != null -> onFinish()
                     else -> {
-                        unpassed = flat.count { (i, j) -> !ok(i, j) }
+                        unpassed = flat.count { !ok(it) }
                         if (unpassed == 0) {
                             finished = true
                             if (s.shadowDone(id, chapter, letter)) { s.back(); s.go(Route.Seal(room)) }
@@ -186,7 +206,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
     if (unpassed > 0) Ask(
         title = stringResource(R.string.shadow_unpassed_title),
         yes = stringResource(R.string.shadow_go), no = stringResource(R.string.shadow_stay),
-        onYes = { at = flat.indexOfFirst { (i, j) -> !ok(i, j) }.coerceAtLeast(0); unpassed = 0 }, onNo = { unpassed = 0 },
+        onYes = { at = flat.indexOfFirst { !ok(it) }.coerceAtLeast(0); unpassed = 0 }, onNo = { unpassed = 0 },
         body = stringResource(R.string.shadow_unpassed_body, unpassed, io.github.graviton94.todayletters.core.Prosody.PASS),
     )
     // 다 따라 읽었지만 아직 혼자 다 읽지 못하는 편지: 봉인까지 남은 길

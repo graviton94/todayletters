@@ -1,0 +1,86 @@
+{
+ "_doc": "core 테스트용 작은 기초 낱말 덱 (BasicsTest). 실제 덱은 data/<작품>/basics*.json.",
+ "lang": "fr",
+ "checked": false,
+ "top": [
+  "être",
+  "avoir",
+  "où",
+  "aller",
+  "bien",
+  "temps",
+  "voir",
+  "faire"
+ ],
+ "items": [
+  {
+   "id": "b6e7e00c",
+   "w": "où",
+   "pos": "adv",
+   "mean": {
+    "ko": "어디",
+    "en": "where"
+   },
+   "ex": {
+    "t": "Où es-tu ?",
+    "ko": "너 어디 있어?",
+    "en": "Where are you?",
+    "from": null
+   }
+  },
+  {
+   "id": "07e7fc0f",
+   "w": "aller",
+   "pos": "v",
+   "mean": {
+    "ko": "가다",
+    "en": "to go"
+   },
+   "ex": {
+    "t": "Je vais à Paris.",
+    "ko": "나는 파리에 간다.",
+    "en": "I am going to Paris.",
+    "from": "c1-l3"
+   }
+  },
+  {
+   "id": "998f6f1c",
+   "w": "bien",
+   "pos": "adv",
+   "mean": {
+    "ko": "잘",
+    "en": "well"
+   }
+  },
+  {
+   "id": "26a338c2",
+   "w": "temps",
+   "pos": "n",
+   "mean": {
+    "ko": "시간",
+    "en": "time"
+   },
+   "ex": {
+    "t": "Je n'ai pas le temps.",
+    "ko": "나는 시간이 없다.",
+    "en": "I have no time.",
+    "from": null
+   }
+  },
+  {
+   "id": "4e1d7874",
+   "w": "voir",
+   "pos": "v",
+   "mean": {
+    "ko": "보다",
+    "en": "to see"
+   },
+   "ex": {
+    "t": "Je veux te voir.",
+    "ko": "너를 보고 싶어.",
+    "en": "I want to see you.",
+    "from": "c2-l1"
+   }
+  }
+ ]
+}

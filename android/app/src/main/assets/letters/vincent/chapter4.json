@@ -879,9 +879,9 @@
     "lines": [
      {
       "who": "them",
-      "fr": "La maison va très bien. C'est un vrai atelier !",
-      "en": "The house is going very well. It's a real studio!",
-      "ko": "집은 아주 잘 돼 가. 진짜 작업실이야!"
+      "fr": "La maison va bien. C'est un vrai atelier !",
+      "en": "The house is going well. It's a real studio!",
+      "ko": "집은 잘 돼 가. 진짜 작업실이야!"
      },
      {
       "who": "me",
@@ -923,7 +923,7 @@
      {
       "who": "them",
       "fr": "Pas plus de deux cent cinquante francs par mois.",
-      "en": "No more than two hundred and fifty francs a month.",
+      "en": "No more than 250 francs a month.",
       "ko": "한 달에 250프랑 넘지 않을 거야."
      },
      {
@@ -970,10 +970,7 @@
      "étude"
     ],
     "grammar": "IV.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1326,57 +1323,57 @@
      {
       "who": "them",
       "fr": "Dimanche, on a vu une vigne toute rouge.",
-      "en": "On Sunday we saw a vineyard that was all red.",
+      "en": "On Sunday we saw an all-red vineyard.",
       "ko": "일요일에 온통 빨간 포도밭을 봤어."
      },
      {
       "who": "me",
-      "fr": "Toute rouge ? C'était beau ?",
-      "en": "All red? Was it beautiful?",
-      "ko": "온통 빨간색? 예뻤어?",
+      "fr": "Ah oui ? Elle est où, cette vigne ?",
+      "en": "Oh yes? Where is this vineyard?",
+      "ko": "그래? 그 포도밭은 어디 있어?",
       "focus": {
        "fr": [
-        "Toute rouge"
+        "Elle est où"
        ],
        "en": [
-        "All red"
+        "Where is"
        ],
        "ko": [
-        "예뻤어"
+        "어디 있어"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Tout rouge",
-         "Toutes rouge"
+         "Elle est ou",
+         "Elle a où"
         ]
        ],
        "en": [
         [
-         "All reds",
-         "Whole red"
+         "Where it is",
+         "Where are"
         ]
        ],
        "ko": [
         [
-         "예뻣어",
-         "예쁘었어"
+         "어디 이써",
+         "어디 있서"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Rouge comme du vin ! Tu dois venir, un jour.",
-      "en": "Red like wine! You must come one day.",
-      "ko": "포도주처럼 빨개! 언젠가 꼭 와."
+      "fr": "Pas loin d'Arles. Rouge comme du vin !",
+      "en": "Not far from Arles. Red like wine!",
+      "ko": "아를에서 멀지 않아. 포도주처럼 빨개!"
      },
      {
       "who": "me",
-      "fr": "Promis, un dimanche, je viendrai avec vous !",
-      "en": "Promise, one Sunday I'll come with you!",
-      "ko": "약속해. 어느 일요일에 같이 갈게!",
+      "fr": "Un dimanche, je viendrai avec vous !",
+      "en": "One Sunday, I'll come with you!",
+      "ko": "어느 일요일에 같이 갈게!",
       "focus": {
        "fr": [
         "je viendrai"
@@ -1392,19 +1389,19 @@
        "fr": [
         [
          "je venirai",
-         "je viendra"
+         "je viendrais"
         ]
        ],
        "en": [
         [
-         "I'll came",
-         "I'll comes"
+         "I'll coming",
+         "I'll came"
         ]
        ],
        "ko": [
         [
          "갈께",
-         "가을게"
+         "갈개"
         ]
        ]
       }
@@ -1415,10 +1412,7 @@
      "vin"
     ],
     "grammar": "IV.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1748,86 +1742,101 @@
     "lines": [
      {
       "who": "them",
-      "fr": "On travaille toute la journée, puis on va au café.",
-      "en": "We work all day, then we go to the café.",
-      "ko": "하루 종일 일하고, 그다음엔 카페에 가."
+      "fr": "On travaille, puis on va au café.",
+      "en": "We work, then we go to the café.",
+      "ko": "일하고, 그다음엔 카페에 가."
      },
      {
       "who": "me",
-      "fr": "Et après ? Vous allez vous coucher tard ?",
-      "en": "And after that? Are you going to bed late?",
-      "ko": "그다음엔? 늦게 자?",
+      "fr": "Quel café ? Il est près de la maison ?",
+      "en": "Which café? Is it near the house?",
+      "ko": "어느 카페? 집에서 가까워?",
       "focus": {
        "fr": [
-        "Vous allez vous coucher"
+        "près de la maison"
        ],
        "en": [
-        "Are you going to bed"
+        "near the house"
        ],
        "ko": [
-        "늦게 자"
+        "집에서 가까워"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Vous allez se coucher",
-         "Vous allez vous couchez"
+         "près du maison",
+         "près à la maison"
         ]
        ],
        "en": [
         [
-         "Is you going to bed",
-         "Are you go to bed"
+         "near of the house",
+         "next the house"
         ]
        ],
        "ko": [
         [
-         "늦게 자아",
-         "늦게 저"
+         "집에서 가까와",
+         "짐에서 가까워"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Non, tôt ! Je vais peindre toute la famille du facteur.",
-      "en": "No, early! I'm going to paint the postman's whole family.",
-      "ko": "아니, 일찍! 우편배달부 가족을 다 그릴 거야."
+      "fr": "Tout près. Je vais peindre la famille du facteur.",
+      "en": "Very close. I'm going to paint the postman's family.",
+      "ko": "아주 가까워. 우편배달부 가족을 그릴 거야."
      },
      {
       "who": "me",
-      "fr": "Bonne idée ! Ça va être beaucoup de travail.",
-      "en": "Good idea! That's going to be a lot of work.",
-      "ko": "좋은 생각이야! 일이 많겠네.",
+      "fr": "Bonne idée ! Tu vas aller chez eux ?",
+      "en": "Good idea! Are you going to their house?",
+      "ko": "좋은 생각이야! 그 집에 갈 거야?",
       "focus": {
        "fr": [
-        "Ça va être"
+        "Tu vas aller",
+        "chez eux"
        ],
        "en": [
-        "That's going to be"
+        "Are you going",
+        "their house"
        ],
        "ko": [
-        "많겠네"
+        "그 집에",
+        "갈 거야"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Ça va est",
-         "Ça vas être"
+         "Tu va aller",
+         "Tu vas allé"
+        ],
+        [
+         "chez ils",
+         "chez leur"
         ]
        ],
        "en": [
         [
-         "That's going be",
-         "That going to be"
+         "Is you going",
+         "Are you go"
+        ],
+        [
+         "they house",
+         "theirs house"
         ]
        ],
        "ko": [
         [
-         "많겟네",
-         "만겠네"
+         "그 집애",
+         "그 짐에"
+        ],
+        [
+         "갈 꺼야",
+         "갈 거아"
         ]
        ]
       }
@@ -1837,10 +1846,7 @@
      "facteur"
     ],
     "grammar": "IV.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2163,7 +2169,7 @@
      {
       "who": "them",
       "fr": "Gauguin m'aide. Je commence à peindre de mémoire.",
-      "en": "Gauguin is helping me. I'm starting to paint from memory.",
+      "en": "Gauguin helps me. I'm starting to paint from memory.",
       "ko": "고갱이 도와줘. 기억으로 그리기 시작했어."
      },
      {
@@ -2206,14 +2212,14 @@
      {
       "who": "them",
       "fr": "Pour changer un peu. Mes études vont m'aider.",
-      "en": "To change things a bit. My studies are going to help me.",
+      "en": "To change a bit. My studies will help me.",
       "ko": "조금 바꿔 보려고. 습작들이 도움이 될 거야."
      },
      {
       "who": "me",
-      "fr": "Je comprends. Tu vas m'envoyer un croquis ?",
-      "en": "I see. Are you going to send me a sketch?",
-      "ko": "알겠어. 스케치 하나 보내 줄 거야?",
+      "fr": "D'accord. Tu vas m'envoyer un croquis ?",
+      "en": "OK. Are you going to send me a sketch?",
+      "ko": "알았어. 스케치 하나 보내 줄 거야?",
       "focus": {
        "fr": [
         "Tu vas m'envoyer"
@@ -2228,20 +2234,20 @@
       "wrong": {
        "fr": [
         [
-         "Tu vas m'envoies",
+         "Tu vas m'envoie",
          "Tu va m'envoyer"
         ]
        ],
        "en": [
         [
          "Are you going send",
-         "Is you going to send"
+         "Are you go to send"
         ]
        ],
        "ko": [
         [
-         "보내 줄 것야",
-         "보내 주을 거야"
+         "보내 줄 꺼야",
+         "보내 쥴 거야"
         ]
        ]
       }
@@ -2251,10 +2257,7 @@
      "commencer"
     ],
     "grammar": "IV.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2976,9 +2979,9 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Merci pour les cent francs et le mandat, Théo.",
-      "en": "Thanks for the hundred francs and the money order, Theo.",
-      "ko": "100프랑이랑 우편환 고마워, 테오."
+      "fr": "Merci pour les cent francs et le mandat.",
+      "en": "Thanks for the hundred francs and the money order.",
+      "ko": "100프랑이랑 우편환 고마워."
      },
      {
       "who": "me",
@@ -3065,10 +3068,7 @@
      "mandat"
     ],
     "grammar": "IV.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   }
  ]
