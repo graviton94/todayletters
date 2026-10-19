@@ -1,2 +1,9 @@
 a11y.txt
-sh1_shadow_talk_light.png
+vox1_hint_light.png
+vox2_pron_light.png
+vox3_recall_card_light.png
+vox4_recall_light.png
+vox5_recall_right_dark.png
+vox6_mine_light.png
+vox7_sound_light.png
+vox8_sound_round_dark.png
