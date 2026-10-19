@@ -1809,7 +1809,8 @@ class ScreensTest {
         val s = state(true)
         shot("slow04_settings_speed_light", false, act = {
             // 같은 글자가 예열 고름 칸에도 있다: 누를 수 없는 이름표 (듣기 빠르기의 ‘등급에 맞춰 자동’) 로
-            rule.onNode(hasText(ctx.getString(R.string.set_listen_auto).uppercase()) and androidx.compose.ui.test.SemanticsMatcher.keyNotDefined(androidx.compose.ui.semantics.SemanticsActions.OnClick)).performScrollTo()
+            // 이름표가 화면 밑으로 내려가 이제는 실제로 굴린다: 굴리는 동안만 시계를 흘린다 (scrolled)
+            scrolled { rule.onNode(hasText(ctx.getString(R.string.set_listen_auto).uppercase()) and androidx.compose.ui.test.SemanticsMatcher.keyNotDefined(androidx.compose.ui.semantics.SemanticsActions.OnClick)).performScrollTo() }
             org.junit.Assert.assertTrue(s.seriesSettings("vincent").listenAuto)
             org.junit.Assert.assertEquals(0.85f, s.listenSpeed("vincent"), 0.001f)
             rule.onNode(hasText("0.7") and hasClickAction()).performClick()
