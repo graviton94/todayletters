@@ -535,7 +535,32 @@
     ],
     "grammar": "I.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine F3).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "ton voyage",
+      "en": "your trip",
+      "ko": "가는 길은"
+     },
+     "opts": [
+      {
+       "fr": "ta journée",
+       "en": "your day",
+       "ko": "오늘 하루는"
+      },
+      {
+       "fr": "ton travail",
+       "en": "your work",
+       "ko": "일은"
+      },
+      {
+       "fr": "ta semaine",
+       "en": "your week",
+       "ko": "이번 주는"
+      }
+     ]
+    }
    }
   },
   {
@@ -930,7 +955,32 @@
     ],
     "grammar": "I.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "ta lettre",
+      "en": "your letter",
+      "ko": "당신 편지"
+     },
+     "opts": [
+      {
+       "fr": "un livre",
+       "en": "a book",
+       "ko": "책"
+      },
+      {
+       "fr": "le journal",
+       "en": "the newspaper",
+       "ko": "신문"
+      },
+      {
+       "fr": "un roman",
+       "en": "a novel",
+       "ko": "소설"
+      }
+     ]
+    }
    }
   },
   {
@@ -1318,7 +1368,32 @@
     ],
     "grammar": "I.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "Joséphine",
+      "en": "Joséphine",
+      "ko": "조제핀이에요"
+     },
+     "opts": [
+      {
+       "fr": "élève",
+       "en": "a student",
+       "ko": "학생이에요"
+      },
+      {
+       "fr": "médecin",
+       "en": "a doctor",
+       "ko": "의사예요"
+      },
+      {
+       "fr": "fonctionnaire",
+       "en": "a civil servant",
+       "ko": "공무원이에요"
+      }
+     ]
+    }
    }
   },
   {
@@ -1713,7 +1788,32 @@
     ],
     "grammar": "I.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "bientôt",
+      "en": "soon",
+      "ko": "곧"
+     },
+     "opts": [
+      {
+       "fr": "demain",
+       "en": "tomorrow",
+       "ko": "내일"
+      },
+      {
+       "fr": "ce soir",
+       "en": "tonight",
+       "ko": "오늘 밤에"
+      },
+      {
+       "fr": "maintenant",
+       "en": "now",
+       "ko": "지금"
+      }
+     ]
+    }
    }
   },
   {
@@ -2107,7 +2207,32 @@
     ],
     "grammar": "I.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "respirer",
+      "en": "breathe",
+      "ko": "숨 쉬어도"
+     },
+     "opts": [
+      {
+       "fr": "dormir",
+       "en": "sleep",
+       "ko": "자도"
+      },
+      {
+       "fr": "sortir",
+       "en": "go out",
+       "ko": "나가도"
+      },
+      {
+       "fr": "rire",
+       "en": "laugh",
+       "ko": "웃어도"
+      }
+     ]
+    }
    }
   },
   {
@@ -2501,7 +2626,32 @@
     ],
     "grammar": "I.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "Je suis occupée",
+      "en": "I'm busy",
+      "ko": "바빠"
+     },
+     "opts": [
+      {
+       "fr": "J'ai sommeil",
+       "en": "I'm sleepy",
+       "ko": "졸려"
+      },
+      {
+       "fr": "J'ai faim",
+       "en": "I'm hungry",
+       "ko": "배고파"
+      },
+      {
+       "fr": "Je travaille",
+       "en": "I'm working",
+       "ko": "일하는 중이야"
+      }
+     ]
+    }
    }
   },
   {
@@ -2895,7 +3045,32 @@
     ],
     "grammar": "I.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "ça va",
+      "en": "I'm fine",
+      "ko": "괜찮아"
+     },
+     "opts": [
+      {
+       "fr": "j'ai froid",
+       "en": "I'm cold",
+       "ko": "추워"
+      },
+      {
+       "fr": "j'ai faim",
+       "en": "I'm hungry",
+       "ko": "배고파"
+      },
+      {
+       "fr": "je travaille",
+       "en": "I'm working",
+       "ko": "일해"
+      }
+     ]
+    }
    }
   }
  ]

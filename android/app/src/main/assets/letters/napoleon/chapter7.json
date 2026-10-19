@@ -553,7 +553,32 @@
      "courage"
     ],
     "grammar": "VII.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "demain",
+      "en": "tomorrow",
+      "ko": "내일"
+     },
+     "opts": [
+      {
+       "fr": "ce soir",
+       "en": "tonight",
+       "ko": "오늘 밤에"
+      },
+      {
+       "fr": "aujourd'hui",
+       "en": "today",
+       "ko": "오늘"
+      },
+      {
+       "fr": "tôt",
+       "en": "early",
+       "ko": "일찍"
+      }
+     ]
+    }
    }
   },
   {
@@ -1038,7 +1063,32 @@
     ],
     "grammar": "VII.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "marché",
+      "en": "walked",
+      "ko": "걸었어"
+     },
+     "opts": [
+      {
+       "fr": "travaillé",
+       "en": "worked",
+       "ko": "일했어"
+      },
+      {
+       "fr": "dormi",
+       "en": "slept",
+       "ko": "잤어"
+      },
+      {
+       "fr": "cuisiné",
+       "en": "cooked",
+       "ko": "요리했어"
+      }
+     ]
+    }
    }
   },
   {
@@ -1471,7 +1521,32 @@
     ],
     "grammar": "VII.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "toutes tes lettres",
+      "en": "all your letters",
+      "ko": "당신 편지를"
+     },
+     "opts": [
+      {
+       "fr": "mes notes",
+       "en": "my notes",
+       "ko": "내 노트를"
+      },
+      {
+       "fr": "mon livre",
+       "en": "my book",
+       "ko": "내 책을"
+      },
+      {
+       "fr": "ton message",
+       "en": "your message",
+       "ko": "당신 메시지를"
+      }
+     ]
+    }
    }
   },
   {
@@ -1906,7 +1981,32 @@
     ],
     "grammar": "VII.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "blanc et or",
+      "en": "white and gold",
+      "ko": "흰색이랑 금색으로"
+     },
+     "opts": [
+      {
+       "fr": "bleu",
+       "en": "blue",
+       "ko": "파란색으로"
+      },
+      {
+       "fr": "rouge",
+       "en": "red",
+       "ko": "빨간색으로"
+      },
+      {
+       "fr": "noir et blanc",
+       "en": "black and white",
+       "ko": "검은색이랑 흰색으로"
+      }
+     ]
+    }
    }
   },
   {
@@ -2388,7 +2488,32 @@
     ],
     "grammar": "VII.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "rester au bord",
+      "en": "stayed on the shore",
+      "ko": "그냥 물가에 있었더라면"
+     },
+     "opts": [
+      {
+       "fr": "dormir plus",
+       "en": "slept more",
+       "ko": "잠을 더 잤더라면"
+      },
+      {
+       "fr": "partir plus tôt",
+       "en": "left earlier",
+       "ko": "더 일찍 나왔더라면"
+      },
+      {
+       "fr": "rester chez moi",
+       "en": "stayed at home",
+       "ko": "그냥 집에 있었더라면"
+      }
+     ]
+    }
    }
   },
   {
@@ -2844,7 +2969,32 @@
     ],
     "grammar": "VII.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "Eugène",
+      "en": "Eugène",
+      "ko": "외젠이"
+     },
+     "opts": [
+      {
+       "fr": "Ma mère",
+       "en": "My mother",
+       "ko": "엄마가"
+      },
+      {
+       "fr": "Mon ami",
+       "en": "My friend",
+       "ko": "친구가"
+      },
+      {
+       "fr": "Mon voisin",
+       "en": "My neighbour",
+       "ko": "이웃이"
+      }
+     ]
+    }
    }
   },
   {
@@ -3283,7 +3433,32 @@
     ],
     "grammar": "VII.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "fâché",
+      "en": "angry",
+      "ko": "화내지"
+     },
+     "opts": [
+      {
+       "fr": "triste",
+       "en": "sad",
+       "ko": "슬퍼하지"
+      },
+      {
+       "fr": "inquiet",
+       "en": "worried",
+       "ko": "걱정하지"
+      },
+      {
+       "fr": "déçu",
+       "en": "disappointed",
+       "ko": "실망하지"
+      }
+     ]
+    }
    }
   }
  ]

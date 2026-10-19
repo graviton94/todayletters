@@ -701,7 +701,7 @@ private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Ma
     val file = remember(q) { s.speakTake.also { it.delete() } }
     DisposableEffect(Unit) { onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release() } }
     val take = rememberShadowTake(s, q.audio.takeIf { it.isNotEmpty() }, 0, Int.MAX_VALUE, file, step = true, key = q,
-        onVoice = { v -> if (v && mark == null) onJudge(Memory.Mark.RIGHT) })
+        onVoice = { v -> if (v && mark == null) onJudge(Memory.Mark.RIGHT) }, sayLike = s.sayLike(q.series, q.word))
     // 뜻(내 언어)을 보고 배우는 언어로 말한다: 무엇을 어느 말로 할지 분명히 (v21)
     Text(stringResource(R.string.speak_prompt_lang, stringResource(langLabel(q.learn))), style = Type.heading.ui(), color = p.ink, textAlign = TextAlign.Center)
     Caps(stringResource(R.string.speak_meaning), p.giltText, small = true)
@@ -873,8 +873,8 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
                 series = w.series.id, chapter = ch, letter = l, style = if (low) 1 else 2)
         }
         val learnWord = word.text[view.learn]
-        // 내가 쓴 답장 카드: 문장 통째가 하나의 답 (쉼표로 뜻을 나누지 않는다). 편지 문장에는 없으니 빈칸 · 받아쓰기 대신 뜻 고르기 · 말하기로
-        val isReply = CardRef.parse(card.key)?.reply == true
+        // 내가 쓴 답장 카드 · 내가 만든 말 카드 (ui/Mine.kt): 문장 통째가 하나의 답 (쉼표로 뜻을 나누지 않는다). 편지 문장에는 없으니 빈칸 · 받아쓰기 대신 뜻 고르기 · 말하기로
+        val isReply = CardRef.parse(card.key)?.let { it.reply || it.mine >= 0 } == true
         // “study (sketch)”, “country, land” 처럼 뜻이 여럿이면 뜻마다 편지 문장에서 찾는다. 사전에서 온 낱말은 편지에 찍힌 꼴로도
         val senses = if (isReply) listOf(Breaks.plain(learnWord)) else senses(learnWord) + (if (view.learn == w.learnVocab) word.forms else emptyList())
         fun has(mi: Int) = l.messages.getOrNull(mi)?.let { m -> wordMarks(m.text[view.learn], senses).isNotEmpty() } == true
@@ -921,7 +921,7 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         val exLang = io.github.graviton94.todayletters.core.Vocab.glossLang(if (s.app.ui == io.github.graviton94.todayletters.core.UiLang.KO) Lang.KO else Lang.EN, view.learn)
         // 미끼는 정답과 같은 갈래 · 같은 작품에서 (낱말 ↔ 낱말, 표현 ↔ 표현, 답장 ↔ 문장), 같은 뜻 · 같은 낱말 · 빈 글은 빼고 (core Distractors)
         val myKind = Distractors.kindOf(ref?.phrase?.let { it >= 0 } == true, isReply)
-        fun kindOfKey(key: String) = CardRef.parse(key).let { r -> Distractors.kindOf(r?.phrase?.let { it >= 0 } == true, r?.reply == true || r?.style == true) }
+        fun kindOfKey(key: String) = CardRef.parse(key).let { r -> Distractors.kindOf(r?.phrase?.let { it >= 0 } == true, r?.reply == true || r?.style == true || (r?.mine ?: -1) >= 0) }
         val sid = w.series.id
         val fromCards = all.map { (key, cw) -> Distractors.Item(cw.word.text[side], kindOfKey(key), cw.word.pos, cw.word.text[view.learn], cw.work.series.id) }
         val letters = w.chapters.flatMap { it.letters }

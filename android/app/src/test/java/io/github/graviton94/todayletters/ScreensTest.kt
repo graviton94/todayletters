@@ -2013,4 +2013,84 @@ class ScreensTest {
             io.github.graviton94.todayletters.ui.ReadAlong(s, Route.Letter("vincent", 1, 2), only = listOf(0), onClose = {}, onFinish = {})
         }
     }
+
+    // ── 말하기 · 소리 (2026-10-19, 시안 vox): 한 번에 찍기 `*ScreensTest.vox*` ──
+    /** 녹음한 것처럼 둔 말하기 칸 (기기 녹음 없이): [unclear] 면 ‘또박또박’ 한 줄, [rough] 가 2 면 ‘비슷하게 읽으면’. */
+    private fun voxTake(unclear: Boolean, rough: Int, sayLike: String?): io.github.graviton94.todayletters.ui.ShadowTake {
+        val f = java.io.File(ctx.cacheDir, "vox/take.wav").apply { parentFile?.mkdirs(); writeBytes(ByteArray(64)) }
+        return io.github.graviton94.todayletters.ui.ShadowTake(null, -1, 0, f, step = true, sayLike = sayLike).apply {
+            tick = 1; voice = !unclear && rough < 2; this.unclear = unclear; misses = if (unclear) 1 else 0; this.rough = rough
+        }
+    }
+    @Composable private fun VoxLine(s: AppState, t: io.github.graviton94.todayletters.ui.ShadowTake) {
+        androidx.compose.foundation.layout.Column(Modifier.fillMaxSize(), verticalArrangement = androidx.compose.foundation.layout.Arrangement.Bottom) {
+            androidx.compose.material3.Text("Oui, ça va. Et toi ?", style = io.github.graviton94.todayletters.design.Type.target, color = Ink.palette.ink,
+                modifier = Modifier.padding(24.dp))
+            io.github.graviton94.todayletters.ui.ShadowControls(s, t)
+        }
+    }
+    /** 말하기 검사: 목소리는 들렸지만 음절이 어긋남 → ‘조금 더 또박또박 · 끝까지 말해 봐요’. */
+    @Test fun voxHint() { val s = state(true); val t = voxTake(true, 1, null); shot("vox1_hint_light", false, series = s) { VoxLine(s, t) } }
+    /** 두 번째로 안 된 뒤: 원래 소리 단추 위에 ‘비슷하게 읽으면 · 위, 싸 바. 에 뚜아?’ (scripts/pron.py 자동 힌트). */
+    @Test fun voxPron() { val s = state(true); val t = voxTake(false, 2, "위, 싸 바. 에 뚜아?"); shot("vox2_pron_light", false, series = s) { VoxLine(s, t) } }
+
+    /** 어제 회화를 한 것으로 (빈센트 I-2): 오늘 화면 카드 · 떠올리기 퀴즈. */
+    private fun voxYesterday(s: AppState): io.github.graviton94.todayletters.core.Letter {
+        val (c, l) = s.letterOf(Route.Letter("vincent", 1, 2))
+        s.store.logDay("talk", s.today - 1, s.key("vincent", c, l.id)); s.bump()
+        return l
+    }
+    /** 오늘 화면 맨 위: ‘어제 말 떠올리기 · 어제 대화에서 내가 한 말 2개’. */
+    @Test fun voxRecallCard() { val s = state(true); voxYesterday(s); shot("vox3_recall_card_light", false, series = s) { Inbox(s) } }
+    /** 떠올리기 퀴즈: 뜻 · 조각 (틀린 조각 하나 섞임). */
+    @Test fun voxRecall() {
+        val s = state(true); voxYesterday(s)
+        shot("vox4_recall_light", false, series = s) { io.github.graviton94.todayletters.ui.RecallScreen(s, Route.RecallQuiz("vincent")) }
+    }
+    /** 떠올리기: 조각을 차례대로 눌러 맞힌 뒤 (줄 · 듣기 · ‘소리 내어 말해 보기’). */
+    @Test fun voxRecallRight() {
+        val s = state(true); val l = voxYesterday(s)
+        val learn = s.room("vincent").learn
+        val me = io.github.graviton94.todayletters.core.ShadowLines.talkMe(l.talk, learn).first()
+        val chunks = io.github.graviton94.todayletters.core.Recall.chunks(io.github.graviton94.todayletters.core.Breaks.plain(l.talk!!.lines[me].text[learn]).trim())
+        shot("vox5_recall_right_dark", true, act = {
+            chunks.forEach { c -> rule.onAllNodes(hasText(c) and hasClickAction()).onFirst().performClick(); rule.mainClock.advanceTimeBy(300) }
+        }, series = s) { io.github.graviton94.todayletters.ui.RecallScreen(s, Route.RecallQuiz("vincent")) }
+    }
+    /** 이번엔 내 이야기로: 빈칸 문장 · 보기 셋, 첫 보기를 고른 모습. 앱 assets 에 아직 "mine" 이 없으면 시험용 보기를 끼운다. */
+    @Test fun voxMine() {
+        val s = state(true)
+        val (c, l0) = s.letterOf(Route.Letter("vincent", 1, 2))
+        val F = io.github.graviton94.todayletters.core.Lang.FR; val E = io.github.graviton94.todayletters.core.Lang.EN; val K = io.github.graviton94.todayletters.core.Lang.KO
+        val l = if (l0.talk?.mine != null) l0 else l0.copy(talk = l0.talk?.copy(mine = io.github.graviton94.todayletters.core.TalkMine(3,
+            mapOf(F to "beaucoup", E to "lots", K to "많이"),
+            listOf(mapOf(F to "le français", E to "French", K to "프랑스어를"), mapOf(F to "à peindre", E to "to paint", K to "그림 그리기를"),
+                mapOf(F to "à cuisiner", E to "to cook", K to "요리를")))))
+        val first = l.talk!!.mine!!.opts[0][s.room("vincent").learn].orEmpty()
+        shot("vox6_mine_light", false, act = {
+            rule.onAllNodes(hasText(first) and hasClickAction()).onFirst().performClick()
+        }, series = s) { io.github.graviton94.todayletters.ui.MinePane(s, "vincent", c, l) {} }
+    }
+    /** 이번 장의 소리: 요령 · 첫 쌍 (뜻 · 듣기). 앱 assets 에 sounds.json 이 아직 없으면 시험용 장. */
+    private fun voxSounds(s: AppState) = s.soundDeckOrNull() ?: io.github.graviton94.todayletters.core.SoundChapter(
+        mapOf(io.github.graviton94.todayletters.core.Lang.KO to "u 와 ou", io.github.graviton94.todayletters.core.Lang.EN to "u and ou"),
+        mapOf(io.github.graviton94.todayletters.core.Lang.KO to "u 는 ‘이’ 입 모양에서 입술만 둥글게, ou 는 ‘우’", io.github.graviton94.todayletters.core.Lang.EN to "Round your lips"),
+        listOf("tu" to "tout", "vu" to "vous", "rue" to "roue", "dessus" to "dessous"),
+        mapOf("tu" to mapOf(io.github.graviton94.todayletters.core.Lang.KO to "너"), "tout" to mapOf(io.github.graviton94.todayletters.core.Lang.KO to "모두")))
+    private fun AppState.soundDeckOrNull() = io.github.graviton94.todayletters.ui.soundsOf(ctx, "vincent", "").chapters["I"]
+    @Test fun voxSound() {
+        val s = state(true)
+        val c = voxSounds(s)
+        shot("vox7_sound_light", false, series = s) { io.github.graviton94.todayletters.ui.SoundsPane(s, "vincent", c, io.github.graviton94.todayletters.core.Lang.FR, seed = 1) {} }
+    }
+    /** 이번 장의 소리: 한 판 ‘들린 말은?’ 에서 하나를 고른 뒤. */
+    @Test fun voxSoundRound() {
+        val s = state(true)
+        val c = voxSounds(s)
+        val r = io.github.graviton94.todayletters.core.Sounds.rounds(c.pairs.size, 1L * 31 + 0 + s.today).first()
+        val word = c.pairs[r.pair].first
+        shot("vox8_sound_round_dark", true, act = {
+            rule.onAllNodes(hasText(word) and hasClickAction()).onFirst().performClick()
+        }, series = s) { io.github.graviton94.todayletters.ui.SoundsPane(s, "vincent", c, io.github.graviton94.todayletters.core.Lang.FR, seed = 1, stage0 = 0) {} }
+    }
 }

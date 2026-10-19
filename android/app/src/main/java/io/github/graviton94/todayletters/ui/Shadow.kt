@@ -107,7 +107,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
     val sentence = if (spot.isTalk) unit.text else io.github.graviton94.todayletters.core.Breaks.plain(letter.messages[mi].text[view.learn])
     // 녹음 · 채점 (회화 내 차례와 같은 부품): 원래 낭독의 이 마디와 내 녹음을 기기 안에서 비교
     val take = rememberShadowTake(s, audio.takeIf { unit.start >= 0 }, unit.start, unit.end, fileOf(spot), step, key = letter.id to at,
-        onVoice = { v -> if (step && v) s.markPassed(id, chapter, letter.id, spot.tag) }) { sc, fresh ->
+        onVoice = { v -> if (step && v) s.markPassed(id, chapter, letter.id, spot.tag) }, sayLike = s.sayLike(id, unit.text)) { sc, fresh ->
         if (sc.stars >= 1) s.markStar(id, chapter, letter.id)   // 봉인 조건: 따라 읽기 별 하나 이상 (F13)
         s.recordStars(id, chapter, letter.id, spot.tag, sc.stars)   // 메달 진열장의 따라 읽기 별 (마디마다 가장 많이 받은 별)
         if (sc.passed) s.markPassed(id, chapter, letter.id, spot.tag) else if (fresh && !step) tries[at] = (tries[at] ?: 0) + 1
@@ -227,9 +227,15 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
  * 억양 · 리듬 · 완성도를 기기 안에서 잰다 (core 의 Prosody). 폰의 음성 인식 서비스는 쓰지 않는다 (그래서 인식이 없는 폰에서도 같다).
  * [step] (편지 걸음 · 회화 · 답장 말해 보기 · 복습 말하기) 이면 목소리가 들어간 녹음은 통과 ([voice], core 의 Prosody.spoke):
  * 무슨 말인지는 알아듣지 않는다 (스스로 배우는 앱이라 믿고 맡김). 침묵 · 잡음만인 녹음은 통과가 아니다.
+ * 이 화면에서 새로 녹음한 것은 음절 수도 본다 (core 의 SpeakCheck, 길이는 보지 않음): 원래 소리에서 센 음절 (없으면 [estimate], 글자로 어림한 것) 과
+ * 40% 넘게 어긋나면 ‘조금 더 또박또박 · 끝까지 말해 봐요’ ([unclear]) 로 한 번 더, 같은 칸에서 두 번째로 안 되면 목소리만 들어갔어도 통과.
  */
 @androidx.compose.runtime.Stable
-class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: java.io.File, val step: Boolean) {
+class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: java.io.File, val step: Boolean,
+                 /** 원래 소리가 없을 때 견줄 음절 수 (내 이야기로: 글자로 어림, core 의 SpeakCheck.estimate). null 이면 음절은 따지지 않는다. */
+                 val estimate: Int? = null,
+                 /** 비슷하게 읽으면 (내 글자로 쓴 소리, core 의 SayLike): 두 번째로 안 되면 보여 준다. 없으면 null. */
+                 val sayLike: String? = null) {
     var recording by mutableStateOf(false)
     var playing by mutableStateOf(false)
     /** 녹음이 바뀔 때마다 하나씩 (다시 그리기 · 다시 채점). */
@@ -238,8 +244,15 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
     var scoring by mutableStateOf(false)
     var refCurve by mutableStateOf<FloatArray?>(null)
     var allowed by mutableStateOf(false)
-    /** 마지막 녹음에 목소리가 들어갔는가 (아직 재지 않았으면 null). 원래 소리가 없어도 잰다. */
+    /** 마지막 녹음이 통과인가 (목소리 + 음절 검사, 아직 재지 않았으면 null). 원래 소리가 없어도 잰다. */
     var voice by mutableStateOf<Boolean?>(null)
+    /** 마지막 녹음에 목소리는 들어갔지만 음절이 원래와 어긋남 (‘또박또박’ 한 줄). */
+    var unclear by mutableStateOf(false)
+    /** 이 칸에서 새로 녹음해 안 된 횟수 (두 번째 실패는 목소리만 들어가면 통과). */
+    var misses by mutableIntStateOf(0)
+    /** 봐주기 전 판정으로 안 된 횟수 (침묵 · 음절 어긋남): 둘이 되면 ‘비슷하게 읽으면’ 을 그 뒤로 늘 보여 준다. */
+    var rough by mutableIntStateOf(0)
+    val showsSayLike: Boolean get() = rough >= 2 && !sayLike.isNullOrBlank()
     internal var askMic: () -> Unit = {}
     val levels = androidx.compose.runtime.mutableStateListOf<Float>()
     val pitches = androidx.compose.runtime.mutableStateListOf<Float>()
@@ -279,9 +292,11 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
 @Composable
 fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: java.io.File, step: Boolean, key: Any,
                        onVoice: (Boolean) -> Unit = {},
+                       /** 원래 소리가 없을 때 견줄 음절 수 ([ShadowTake.estimate]). */ estimate: Int? = null,
+                       /** 비슷하게 읽으면 ([ShadowTake.sayLike], [AppState.sayLike]). */ sayLike: String? = null,
                        onScored: (io.github.graviton94.todayletters.core.Prosody.Score, Boolean) -> Unit = { _, _ -> }): ShadowTake {
     val ctx = LocalContext.current
-    val t = remember(key) { ShadowTake(audio, start, end, file, step).also { it.allowed = ContextCompat.checkSelfPermission(ctx, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED } }
+    val t = remember(key) { ShadowTake(audio, start, end, file, step, estimate, sayLike).also { it.allowed = ContextCompat.checkSelfPermission(ctx, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED } }
     val scored by androidx.compose.runtime.rememberUpdatedState(onScored)
     val voiced by androidx.compose.runtime.rememberUpdatedState(onVoice)
     val ask = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { t.allowed = it }
@@ -300,22 +315,32 @@ fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: 
     // 억양 · 리듬: 원래 소리와 내 녹음을 기기 안에서 비교 (녹음이 바뀔 때마다)
     // 목소리가 들어갔는가는 원래 소리가 없어도 잰다 (침묵 · 잡음만인 녹음은 통과가 아니다)
     LaunchedEffect(t, t.tick) {
-        t.result = null; t.voice = null
+        t.result = null; t.voice = null; t.unclear = false
         if (!t.have || t.recording) return@LaunchedEffect
         t.scoring = true
         val P = io.github.graviton94.todayletters.core.Prosody
         val rate = io.github.graviton94.todayletters.data.Wav.RATE
+        val fresh = t.tick > 0
         val mt = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
             runCatching { P.analyze(io.github.graviton94.todayletters.data.Wav.samples(io.github.graviton94.todayletters.data.Wav.pcm(t.file)), rate) }.getOrNull()
         }
-        t.voice = mt != null && P.spoke(mt)
-        if (mt != null && t.hasAudio) t.result = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
-            val ref = io.github.graviton94.todayletters.data.decodeRange(ctx, t.audio!!, t.start, t.end) ?: return@withContext null
-            val rt = P.analyze(ref, rate)
+        // 원래 소리의 분석 (음절 수 · 억양 · 리듬), 없으면 null
+        val rt = if (mt != null && t.hasAudio) kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
+            io.github.graviton94.todayletters.data.decodeRange(ctx, t.audio!!, t.start, t.end)?.let { P.analyze(it, rate) }
+        } else null
+        if (mt != null && rt != null) t.result = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
             Triple(P.score(rt, mt), P.semitones(P.trim(rt).f0), P.semitones(P.trim(mt).f0))
         }
+        // 통과: 목소리 + 음절 수 (core 의 SpeakCheck). 예전에 녹음해 둔 것 (이 화면에서 새로 한 것이 아님) 은 목소리만 본다
+        val spoke = mt != null && P.spoke(mt)
+        val refSyl = if (!fresh) null else if (rt != null) P.syllables(rt).takeIf { it > 0 } else if (!t.hasAudio) t.estimate else null
+        val mineSyl = if (mt != null) P.syllables(mt) else 0
+        val v = io.github.graviton94.todayletters.core.SpeakCheck.judge(spoke, mineSyl, refSyl, t.misses)
+        t.voice = v.pass; t.unclear = v.hint
+        if (fresh && !v.pass) t.misses++
+        // 봐주기 (두 번째는 목소리만으로 통과) 전의 판정: 두 번 안 되면 ‘비슷하게 읽으면’
+        if (fresh && !io.github.graviton94.todayletters.core.SpeakCheck.judge(spoke, mineSyl, refSyl, 0).pass) t.rough++
         t.scoring = false
-        val fresh = t.tick > 0
         t.result?.first?.let {
             s.recordScore(it); s.cue(it.passed || (t.step && t.voice == true))
             scored(it, fresh)
@@ -381,12 +406,16 @@ fun ShadowBoard(t: ShadowTake) {
 fun ShadowControls(s: AppState, t: ShadowTake, canListen: Boolean = true, canRecord: Boolean = true,
                    /** 녹음 전 안내 한 줄 (기본: 이 문장을 따라 읽어 보세요). */ tip: Int = R.string.shadow_tap) {
     val p = Ink.palette
-    // 안내 한 줄: 스크롤 밖, 단추 바로 위 (단추에 가리지 않게). 목소리가 들리지 않은 녹음이면 ‘다시 해 봐요’
+    // 안내 한 줄: 스크롤 밖, 단추 바로 위 (단추에 가리지 않게). 목소리가 들리지 않은 녹음이면 ‘다시 해 봐요’,
+    // 목소리는 들렸지만 음절이 원래와 어긋나면 ‘조금 더 또박또박 · 끝까지 말해 봐요’
     Text(
-        stringResource(if (t.recording) R.string.shadow_recording else if (t.voice == false && t.tick > 0) R.string.talk_retry else if (t.have) R.string.shadow_check else tip),
+        stringResource(if (t.recording) R.string.shadow_recording else if (t.unclear && t.tick > 0) R.string.speak_clearer
+            else if (t.voice == false && t.tick > 0) R.string.talk_retry else if (t.have) R.string.shadow_check else tip),
         style = Type.small.ui(), color = if (t.recording) p.giltText else p.inkSoft, textAlign = TextAlign.Center,
         modifier = Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s5).padding(top = Tokens.Space.s2),
     )
+    // 두 번째로 안 되면: 비슷하게 읽으면 (원래 소리 단추 바로 위, 그 뒤로 늘)
+    SayLikeLine(t)
     Row(Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s3), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.Bottom) {
         // 원래 소리 (기본 듣기 빠르기) 와 그 옆 0.7× (천천히 한 번)
         // 원래 소리가 없으면 단추를 두지 않는다 (소리 없는 단추 없음). 답을 아직 못 봐서 못 듣는 때만 흐린 단추

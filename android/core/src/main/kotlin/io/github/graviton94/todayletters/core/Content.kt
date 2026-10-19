@@ -114,6 +114,12 @@ data class Check(val q: Tri, val options: List<Tri>, val answer: Int, val eviden
 data class TalkLine(val me: Boolean, val text: Tri, val focus: Map<Lang, List<String>> = emptyMap(), val wrong: Map<Lang, List<List<String>>> = emptyMap())
 
 /**
+ * 내 이야기로 바꿔 말하기 (회화의 "mine": {"line": 내 줄 번호, "slot": {"fr": "beaucoup", …}, "opts": [{"fr": "le français", …} × 3]}).
+ * 배우는 말 L 의 문장 = lines[line][L] 의 [slot][L] 자리를 opts[i][L] 로 바꾼 것, 그 번역도 같은 식으로 ([Mine.sentence]).
+ */
+data class TalkMine(val line: Int, val slot: Map<Lang, String>, val opts: List<Map<Lang, String>>)
+
+/**
  * 오늘의 회화 (편지의 "talk"): 편지 속 상황을 두고 오늘 말투로 3~4줄 (앱이 쓴 대화, 실제 인물의 말이 아님).
  * [scene] 은 자리 한 줄 (ko · en), [words] 는 쓰는 오늘 낱말, [grammar] 는 쓰는 문법 id (장의 [Grammar]),
  * [audio] 는 대화 소리 파일 이름 앞부분 (줄 i 의 소리 = <audio><i+1>_<언어>.m4a, 편지 폴더). 비면 소리 없음.
@@ -124,7 +130,9 @@ data class Talk(val scene: Tri, val lines: List<TalkLine>, val words: List<Strin
                 /** 쓰는 오늘 낱말을 배우는 말마다 적은 것 ("words": {"fr": [...], "en": [...], "ko": [...]} 꼴일 때). */
                 val wordsBy: Map<Lang, List<String>> = emptyMap(),
                 /** 언어마다 다른 소리 앞부분 (없으면 [audio]). */
-                val audioBy: Map<Lang, String> = emptyMap()) {
+                val audioBy: Map<Lang, String> = emptyMap(),
+                /** 내 이야기로 바꿔 말하기 ("mine"): 회화가 끝난 뒤 내 줄 하나의 빈칸을 내 말로 ([Mine]). 없으면 null. */
+                val mine: TalkMine? = null) {
     /** 배우는 말 [learn] 의 오늘 낱말: 언어마다 적었으면 그것, 아니면 원어 [original] 를 배울 때만 [words]. */
     fun wordsFor(learn: Lang, original: Lang): List<String> = wordsBy[learn] ?: if (learn == original) words else emptyList()
 

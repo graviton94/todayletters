@@ -96,6 +96,8 @@ fun Inbox(s: AppState) {
                     LearnChip(s, id, learning = true)
                 }
             }
+            // 어제 말 떠올리기 (지난 공부한 날 회화를 했으면, 오늘 마칠 때까지)
+            RecallCard(s, id)
             // 천천히 듣는 2주: 어제 편지 다시 듣기 (기간 중에만)
             SlowCard(s, id)
             TodayLine(j)

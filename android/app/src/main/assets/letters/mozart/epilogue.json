@@ -410,6 +410,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "morgen",
+      "en": "tomorrow",
+      "ko": "내일"
+     },
+     "opts": [
+      {
+       "de": "Montag",
+       "en": "on Monday",
+       "ko": "월요일에"
+      },
+      {
+       "de": "Freitag",
+       "en": "on Friday",
+       "ko": "금요일에"
+      },
+      {
+       "de": "heute Abend",
+       "en": "tonight",
+       "ko": "오늘 저녁에"
+      }
+     ]
     }
    }
   }

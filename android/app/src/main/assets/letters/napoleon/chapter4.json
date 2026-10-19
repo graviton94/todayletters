@@ -530,7 +530,32 @@
     ],
     "grammar": "IV.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "les gens",
+      "en": "the people",
+      "ko": "사람들은"
+     },
+     "opts": [
+      {
+       "fr": "la nourriture",
+       "en": "the food",
+       "ko": "음식은"
+      },
+      {
+       "fr": "la ville",
+       "en": "the city",
+       "ko": "도시는"
+      },
+      {
+       "fr": "l'hôtel",
+       "en": "the hotel",
+       "ko": "호텔은"
+      }
+     ]
+    }
    }
   },
   {
@@ -984,7 +1009,32 @@
     ],
     "grammar": "IV.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "à Munich",
+      "en": "to Munich",
+      "ko": "뮌헨에"
+     },
+     "opts": [
+      {
+       "fr": "au concert",
+       "en": "to the concert",
+       "ko": "음악회에"
+      },
+      {
+       "fr": "à Paris",
+       "en": "to Paris",
+       "ko": "파리에"
+      },
+      {
+       "fr": "à la fête",
+       "en": "to the party",
+       "ko": "파티에"
+      }
+     ]
+    }
    }
   },
   {
@@ -1424,7 +1474,32 @@
     ],
     "grammar": "IV.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "mes plus belles robes",
+      "en": "my prettiest dresses",
+      "ko": "제일 예쁜 드레스 입고"
+     },
+     "opts": [
+      {
+       "fr": "mon ami",
+       "en": "my friend",
+       "ko": "친구랑"
+      },
+      {
+       "fr": "ma famille",
+       "en": "my family",
+       "ko": "가족이랑"
+      },
+      {
+       "fr": "mon chien",
+       "en": "my dog",
+       "ko": "강아지 데리고"
+      }
+     ]
+    }
    }
   },
   {
@@ -1899,7 +1974,32 @@
     ],
     "grammar": "IV.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "Il neige",
+      "en": "Is it snowing",
+      "ko": "눈 와"
+     },
+     "opts": [
+      {
+       "fr": "Il pleut",
+       "en": "Is it raining",
+       "ko": "비 와"
+      },
+      {
+       "fr": "Il fait chaud",
+       "en": "Is it hot",
+       "ko": "더워"
+      },
+      {
+       "fr": "Il fait froid",
+       "en": "Is it cold",
+       "ko": "추워"
+      }
+     ]
+    }
    }
   },
   {
@@ -2328,7 +2428,32 @@
     ],
     "grammar": "IV.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "plus amusant",
+      "en": "more fun",
+      "ko": "더 재미있어"
+     },
+     "opts": [
+      {
+       "fr": "plus grand",
+       "en": "bigger",
+       "ko": "더 커"
+      },
+      {
+       "fr": "plus froid",
+       "en": "colder",
+       "ko": "더 추워"
+      },
+      {
+       "fr": "plus cher",
+       "en": "more expensive",
+       "ko": "더 비싸"
+      }
+     ]
+    }
    },
    "_note_register": "ko 는 이 편지만 높임말 (나폴레옹이 tu 대신 vous 로 놀리는 장난을 살림) — 반말 원칙의 예외, 검토 필요"
   },
@@ -2758,7 +2883,32 @@
     ],
     "grammar": "IV.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "bientôt",
+      "en": "soon",
+      "ko": "곧"
+     },
+     "opts": [
+      {
+       "fr": "demain",
+       "en": "tomorrow",
+       "ko": "내일"
+      },
+      {
+       "fr": "ce soir",
+       "en": "tonight",
+       "ko": "오늘 밤에"
+      },
+      {
+       "fr": "plus tard",
+       "en": "later",
+       "ko": "나중에"
+      }
+     ]
+    }
    }
   },
   {
@@ -3150,7 +3300,32 @@
     ],
     "grammar": "IV.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Eugène).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "le Moniteur",
+      "en": "the Moniteur",
+      "ko": "『모니퇴르』"
+     },
+     "opts": [
+      {
+       "fr": "le livre",
+       "en": "the book",
+       "ko": "책"
+      },
+      {
+       "fr": "le journal",
+       "en": "the newspaper",
+       "ko": "신문"
+      },
+      {
+       "fr": "le roman",
+       "en": "the novel",
+       "ko": "소설"
+      }
+     ]
+    }
    }
   }
  ]

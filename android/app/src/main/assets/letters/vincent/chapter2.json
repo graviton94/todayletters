@@ -471,7 +471,32 @@
      "triste"
     ],
     "grammar": "II.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "triste",
+      "en": "sad",
+      "ko": "쓸쓸하지"
+     },
+     "opts": [
+      {
+       "fr": "fatigué",
+       "en": "tired",
+       "ko": "피곤하지"
+      },
+      {
+       "fr": "seul",
+       "en": "lonely",
+       "ko": "외롭지"
+      },
+      {
+       "fr": "malade",
+       "en": "ill",
+       "ko": "아프지"
+      }
+     ]
+    }
    }
   },
   {
@@ -841,7 +866,32 @@
      "rester"
     ],
     "grammar": "II.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "dans le Midi",
+      "en": "in the South",
+      "ko": "남쪽에"
+     },
+     "opts": [
+      {
+       "fr": "à la maison",
+       "en": "at home",
+       "ko": "집에"
+      },
+      {
+       "fr": "à Paris",
+       "en": "in Paris",
+       "ko": "파리에"
+      },
+      {
+       "fr": "chez nous",
+       "en": "with us",
+       "ko": "우리 집에"
+      }
+     ]
+    }
    }
   },
   {
@@ -1228,7 +1278,32 @@
      "parler"
     ],
     "grammar": "II.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "Il fait chaud",
+      "en": "Is it hot",
+      "ko": "더워"
+     },
+     "opts": [
+      {
+       "fr": "Il fait froid",
+       "en": "Is it cold",
+       "ko": "추워"
+      },
+      {
+       "fr": "Il pleut",
+       "en": "Is it raining",
+       "ko": "비 와"
+      },
+      {
+       "fr": "Il fait beau",
+       "en": "Is it sunny",
+       "ko": "날씨 좋아"
+      }
+     ]
+    }
    }
   },
   {
@@ -1576,7 +1651,32 @@
      "maintenant"
     ],
     "grammar": "II.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "travaille",
+      "en": "work too hard",
+      "ko": "무리하지"
+     },
+     "opts": [
+      {
+       "fr": "mange",
+       "en": "eat too much",
+       "ko": "많이 먹지"
+      },
+      {
+       "fr": "bois",
+       "en": "drink too much",
+       "ko": "술 많이 마시지"
+      },
+      {
+       "fr": "dépense",
+       "en": "spend too much",
+       "ko": "돈 많이 쓰지"
+      }
+     ]
+    }
    }
   },
   {
@@ -1956,7 +2056,32 @@
      "argent"
     ],
     "grammar": "II.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "de l'argent",
+      "en": "some money",
+      "ko": "돈"
+     },
+     "opts": [
+      {
+       "fr": "une photo",
+       "en": "a photo",
+       "ko": "사진"
+      },
+      {
+       "fr": "un message",
+       "en": "a message",
+       "ko": "메시지"
+      },
+      {
+       "fr": "un livre",
+       "en": "a book",
+       "ko": "책"
+      }
+     ]
+    }
    }
   },
   {
@@ -2353,7 +2478,32 @@
      "fond"
     ],
     "grammar": "II.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "le bleu",
+      "en": "blue",
+      "ko": "파랑"
+     },
+     "opts": [
+      {
+       "fr": "le vert",
+       "en": "green",
+       "ko": "초록"
+      },
+      {
+       "fr": "le jaune",
+       "en": "yellow",
+       "ko": "노랑"
+      },
+      {
+       "fr": "le rouge",
+       "en": "red",
+       "ko": "빨강"
+      }
+     ]
+    }
    }
   },
   {
@@ -2722,7 +2872,32 @@
      "matin"
     ],
     "grammar": "II.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "les tournesols",
+      "en": "sunflowers",
+      "ko": "해바라기"
+     },
+     "opts": [
+      {
+       "fr": "le café",
+       "en": "coffee",
+       "ko": "커피"
+      },
+      {
+       "fr": "les chats",
+       "en": "cats",
+       "ko": "고양이"
+      },
+      {
+       "fr": "la mer",
+       "en": "the sea",
+       "ko": "바다"
+      }
+     ]
+    }
    }
   }
  ]

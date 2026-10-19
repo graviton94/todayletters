@@ -584,7 +584,32 @@
      "wünschen"
     ],
     "grammar": "III.1",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "die Fahrt",
+      "en": "the trip",
+      "ko": "오는 길은"
+     },
+     "opts": [
+      {
+       "de": "die Arbeit",
+       "en": "work",
+       "ko": "일은"
+      },
+      {
+       "de": "der Film",
+       "en": "the film",
+       "ko": "영화는"
+      },
+      {
+       "de": "das Wochenende",
+       "en": "the weekend",
+       "ko": "주말은"
+      }
+     ]
+    }
    }
   },
   {
@@ -1026,7 +1051,32 @@
      "eiskalt"
     ],
     "grammar": "III.0",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "einen heißen Tee",
+      "en": "a hot tea",
+      "ko": "따뜻한 차 한잔"
+     },
+     "opts": [
+      {
+       "de": "einen Kaffee",
+       "en": "a coffee",
+       "ko": "커피 한잔"
+      },
+      {
+       "de": "Wasser",
+       "en": "some water",
+       "ko": "물 좀"
+      },
+      {
+       "de": "eine heiße Schokolade",
+       "en": "a hot chocolate",
+       "ko": "따뜻한 코코아 한잔"
+      }
+     ]
+    }
    }
   },
   {
@@ -1495,7 +1545,32 @@
      "Gesundheit"
     ],
     "grammar": "III.0",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "deine Gesundheit",
+      "en": "your health",
+      "ko": "건강"
+     },
+     "opts": [
+      {
+       "de": "dein Geld",
+       "en": "your money",
+       "ko": "돈"
+      },
+      {
+       "de": "deine Tasche",
+       "en": "your bag",
+       "ko": "가방"
+      },
+      {
+       "de": "deine Schwester",
+       "en": "your sister",
+       "ko": "동생"
+      }
+     ]
+    }
    }
   },
   {
@@ -1919,7 +1994,32 @@
      "wiedersehen"
     ],
     "grammar": "III.1",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "sie",
+      "en": "her",
+      "ko": "엄마를"
+     },
+     "opts": [
+      {
+       "de": "Oma",
+       "en": "Grandma",
+       "ko": "할머니를"
+      },
+      {
+       "de": "unsere Freunde",
+       "en": "our friends",
+       "ko": "친구들을"
+      },
+      {
+       "de": "unseren Lehrer",
+       "en": "our teacher",
+       "ko": "선생님을"
+      }
+     ]
+    }
    }
   },
   {
@@ -2381,7 +2481,32 @@
      "Eile"
     ],
     "grammar": "III.0",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "Bach",
+      "en": "Bach",
+      "ko": "바흐에게"
+     },
+     "opts": [
+      {
+       "de": "Mama",
+       "en": "Mama",
+       "ko": "엄마에게"
+      },
+      {
+       "de": "deine Eltern",
+       "en": "your parents",
+       "ko": "부모님께"
+      },
+      {
+       "de": "deinen Bruder",
+       "en": "your brother",
+       "ko": "동생에게"
+      }
+     ]
+    }
    }
   },
   {
@@ -2806,7 +2931,32 @@
      "küssen"
     ],
     "grammar": "III.2",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "meinen Brief",
+      "en": "my letter",
+      "ko": "내 편지는"
+     },
+     "opts": [
+      {
+       "de": "meine E-Mail",
+       "en": "my email",
+       "ko": "내 메일은"
+      },
+      {
+       "de": "das Buch",
+       "en": "the book",
+       "ko": "그 책은"
+      },
+      {
+       "de": "die Zeitung",
+       "en": "the newspaper",
+       "ko": "신문은"
+      }
+     ]
+    }
    }
   },
   {
@@ -3244,7 +3394,32 @@
      "lachen"
     ],
     "grammar": "III.1",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "in Salzburg",
+      "en": "in Salzburg",
+      "ko": "잘츠부르크에는"
+     },
+     "opts": [
+      {
+       "de": "zu Hause",
+       "en": "home",
+       "ko": "집에는"
+      },
+      {
+       "de": "in Seoul",
+       "en": "in Seoul",
+       "ko": "서울에는"
+      },
+      {
+       "de": "im Büro",
+       "en": "in the office",
+       "ko": "사무실에는"
+      }
+     ]
+    }
    }
   }
  ]

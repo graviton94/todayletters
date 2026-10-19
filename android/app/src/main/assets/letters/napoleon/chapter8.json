@@ -531,7 +531,32 @@
      "affaire"
     ],
     "grammar": "VIII.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "la semaine prochaine",
+      "en": "next week",
+      "ko": "다음 주에"
+     },
+     "opts": [
+      {
+       "fr": "demain",
+       "en": "tomorrow",
+       "ko": "내일"
+      },
+      {
+       "fr": "ce week-end",
+       "en": "this weekend",
+       "ko": "이번 주말에"
+      },
+      {
+       "fr": "lundi",
+       "en": "on Monday",
+       "ko": "월요일에"
+      }
+     ]
+    }
    }
   },
   {
@@ -991,7 +1016,32 @@
     ],
     "grammar": "VIII.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "Eugène et ses enfants",
+      "en": "Eugène and his children",
+      "ko": "외젠이랑 손주들"
+     },
+     "opts": [
+      {
+       "fr": "mes parents",
+       "en": "my parents",
+       "ko": "부모님"
+      },
+      {
+       "fr": "mes amis",
+       "en": "my friends",
+       "ko": "친구들"
+      },
+      {
+       "fr": "ma grand-mère",
+       "en": "my grandmother",
+       "ko": "할머니"
+      }
+     ]
+    }
    }
   },
   {
@@ -1404,7 +1454,32 @@
      "madame"
     ],
     "grammar": "VIII.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Marie-Louise)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Marie-Louise).",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "reçu deux ministres",
+      "en": "received two ministers",
+      "ko": "장관을 벌써 둘이나 만났어"
+     },
+     "opts": [
+      {
+       "fr": "fait du sport",
+       "en": "done some exercise",
+       "ko": "벌써 운동했어"
+      },
+      {
+       "fr": "pris mon petit-déjeuner",
+       "en": "had breakfast",
+       "ko": "벌써 아침 먹었어"
+      },
+      {
+       "fr": "lu mes e-mails",
+       "en": "read my emails",
+       "ko": "벌써 메일 읽었어"
+      }
+     ]
+    }
    }
   },
   {
@@ -1822,7 +1897,32 @@
      "malheureux"
     ],
     "grammar": "VIII.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph).",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "dans le jardin",
+      "en": "in the garden",
+      "ko": "정원에서"
+     },
+     "opts": [
+      {
+       "fr": "dans sa chambre",
+       "en": "in his room",
+       "ko": "자기 방에서"
+      },
+      {
+       "fr": "au parc",
+       "en": "in the park",
+       "ko": "공원에서"
+      },
+      {
+       "fr": "dehors",
+       "en": "outside",
+       "ko": "밖에서"
+      }
+     ]
+    }
    }
   },
   {
@@ -2295,7 +2395,32 @@
      "soin"
     ],
     "grammar": "VIII.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Marie-Louise)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Marie-Louise).",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "notre fils",
+      "en": "our son",
+      "ko": "우리 아들"
+     },
+     "opts": [
+      {
+       "fr": "la maison",
+       "en": "the house",
+       "ko": "집"
+      },
+      {
+       "fr": "ton chien",
+       "en": "your dog",
+       "ko": "당신 강아지"
+      },
+      {
+       "fr": "tes plantes",
+       "en": "your plants",
+       "ko": "당신 화분"
+      }
+     ]
+    }
    }
   },
   {
@@ -2739,7 +2864,32 @@
     ],
     "grammar": "VIII.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Marie-Louise).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "m'appeler",
+      "en": "call me",
+      "ko": "전화해"
+     },
+     "opts": [
+      {
+       "fr": "m'envoyer un message",
+       "en": "text me",
+       "ko": "문자해"
+      },
+      {
+       "fr": "m'envoyer une photo",
+       "en": "send me a photo",
+       "ko": "사진 보내"
+      },
+      {
+       "fr": "me prévenir",
+       "en": "let me know",
+       "ko": "알려"
+      }
+     ]
+    }
    }
   },
   {
@@ -3172,7 +3322,32 @@
      "avril"
     ],
     "grammar": "VIII.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Marie-Louise)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Marie-Louise).",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "Le petit",
+      "en": "The little one",
+      "ko": "꼬마가"
+     },
+     "opts": [
+      {
+       "fr": "Mon fils",
+       "en": "My son",
+       "ko": "우리 아들이"
+      },
+      {
+       "fr": "Mon chien",
+       "en": "My dog",
+       "ko": "우리 강아지가"
+      },
+      {
+       "fr": "Mon père",
+       "en": "My dad",
+       "ko": "아빠가"
+      }
+     ]
+    }
    }
   }
  ]

@@ -612,6 +612,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "hier",
+      "en": "here",
+      "ko": "여기"
+     },
+     "opts": [
+      {
+       "de": "zu Hause",
+       "en": "at home",
+       "ko": "집에"
+      },
+      {
+       "de": "bei mir",
+       "en": "with me",
+       "ko": "내 옆에"
+      },
+      {
+       "de": "in Seoul",
+       "en": "in Seoul",
+       "ko": "서울에"
+      }
+     ]
     }
    }
   },
@@ -1107,7 +1132,32 @@
      "verdienen"
     ],
     "grammar": "VII.1",
-    "audio": "t"
+    "audio": "t",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "es zu vertonen",
+      "en": "to set it to music",
+      "ko": "곡을 붙일"
+     },
+     "opts": [
+      {
+       "de": "mitzukommen",
+       "en": "to come along",
+       "ko": "같이 가실"
+      },
+      {
+       "de": "mir zu helfen",
+       "en": "to help me",
+       "ko": "도와주실"
+      },
+      {
+       "de": "es zu lesen",
+       "en": "to read it",
+       "ko": "읽어 보실"
+      }
+     ]
+    }
    }
   },
   {
@@ -1611,7 +1661,32 @@
      "Mittwoch"
     ],
     "grammar": "VII.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "in die Oper",
+      "en": "to the opera",
+      "ko": "오페라 보러"
+     },
+     "opts": [
+      {
+       "de": "ins Kino",
+       "en": "to the cinema",
+       "ko": "영화 보러"
+      },
+      {
+       "de": "ins Fitnessstudio",
+       "en": "to the gym",
+       "ko": "운동하러"
+      },
+      {
+       "de": "zum Arzt",
+       "en": "to the doctor",
+       "ko": "병원에"
+      }
+     ]
+    }
    }
   },
   {
@@ -2100,7 +2175,32 @@
      "beruhigend"
     ],
     "grammar": "VII.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": {"*": "tb", "ko": "tk"},
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "beruhigend",
+      "en": "comforting",
+      "ko": "마음이 놓이는구나"
+     },
+     "opts": [
+      {
+       "de": "nett",
+       "en": "kind",
+       "ko": "고맙구나"
+      },
+      {
+       "de": "lustig",
+       "en": "funny",
+       "ko": "재미있구나"
+      },
+      {
+       "de": "wichtig",
+       "en": "important",
+       "ko": "중요하구나"
+      }
+     ]
+    }
    }
   },
   {
@@ -2589,6 +2689,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "dich zu sehen",
+      "en": "to see you",
+      "ko": "얼굴 보면"
+     },
+     "opts": [
+      {
+       "de": "zu reisen",
+       "en": "to travel",
+       "ko": "여행 가면"
+      },
+      {
+       "de": "auszuschlafen",
+       "en": "to sleep in",
+       "ko": "늦잠 자면"
+      },
+      {
+       "de": "Urlaub zu machen",
+       "en": "to take a holiday",
+       "ko": "휴가 가면"
+      }
+     ]
     }
    }
   },
@@ -3089,6 +3214,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "die Premiere",
+      "en": "the premiere",
+      "ko": "첫 공연은"
+     },
+     "opts": [
+      {
+       "de": "die Hochzeit",
+       "en": "the wedding",
+       "ko": "결혼식은"
+      },
+      {
+       "de": "die Prüfung",
+       "en": "the exam",
+       "ko": "시험은"
+      },
+      {
+       "de": "die Party",
+       "en": "the party",
+       "ko": "파티는"
+      }
+     ]
     }
    }
   },
@@ -3576,7 +3726,32 @@
      "bequem"
     ],
     "grammar": "VII.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "Wohnung",
+      "en": "flat",
+      "ko": "새집은"
+     },
+     "opts": [
+      {
+       "de": "Arbeit",
+       "en": "job",
+       "ko": "새 직장은"
+      },
+      {
+       "de": "Schule",
+       "en": "school",
+       "ko": "새 학교는"
+      },
+      {
+       "de": "Lehrerin",
+       "en": "teacher",
+       "ko": "새 선생님은"
+      }
+     ]
+    }
    }
   }
  ]

@@ -1,0 +1,423 @@
+{
+ "_doc": "이번 장의 소리: 장마다 소리 짝 하나. checked=false 는 사람 확인 전.",
+ "lang": "en",
+ "checked": false,
+ "chapters": {
+  "I": {
+   "name": {
+    "ko": "r 와 l"
+   },
+   "tip": {
+    "ko": "r 은 혀를 말아 입천장에 닿지 않게, l 은 혀끝을 윗잇몸에 붙이기"
+   },
+   "pairs": [
+    [
+     "right",
+     "light"
+    ],
+    [
+     "road",
+     "load"
+    ],
+    [
+     "grass",
+     "glass"
+    ],
+    [
+     "fry",
+     "fly"
+    ]
+   ],
+   "mean": {
+    "right": {
+     "ko": "오른쪽, 옳은"
+    },
+    "light": {
+     "ko": "빛, 가벼운"
+    },
+    "road": {
+     "ko": "길, 도로"
+    },
+    "load": {
+     "ko": "짐"
+    },
+    "grass": {
+     "ko": "풀, 잔디"
+    },
+    "glass": {
+     "ko": "유리, 유리잔"
+    },
+    "fry": {
+     "ko": "튀기다"
+    },
+    "fly": {
+     "ko": "날다"
+    }
+   }
+  },
+  "II": {
+   "name": {
+    "ko": "f 와 p"
+   },
+   "tip": {
+    "ko": "f 는 윗니를 아랫입술에 대고 바람만, p 는 두 입술을 붙였다 떼기"
+   },
+   "pairs": [
+    [
+     "fan",
+     "pan"
+    ],
+    [
+     "fork",
+     "pork"
+    ],
+    [
+     "fast",
+     "past"
+    ],
+    [
+     "coffee",
+     "copy"
+    ]
+   ],
+   "mean": {
+    "fan": {
+     "ko": "선풍기, 팬"
+    },
+    "pan": {
+     "ko": "프라이팬"
+    },
+    "fork": {
+     "ko": "포크"
+    },
+    "pork": {
+     "ko": "돼지고기"
+    },
+    "fast": {
+     "ko": "빠른"
+    },
+    "past": {
+     "ko": "과거, 지나서"
+    },
+    "coffee": {
+     "ko": "커피"
+    },
+    "copy": {
+     "ko": "복사, 베끼다"
+    }
+   }
+  },
+  "III": {
+   "name": {
+    "ko": "v 와 b"
+   },
+   "tip": {
+    "ko": "v 는 윗니를 아랫입술에 대고 목을 울리기, b 는 두 입술을 붙였다 떼기"
+   },
+   "pairs": [
+    [
+     "very",
+     "berry"
+    ],
+    [
+     "vest",
+     "best"
+    ],
+    [
+     "van",
+     "ban"
+    ],
+    [
+     "vote",
+     "boat"
+    ]
+   ],
+   "mean": {
+    "very": {
+     "ko": "매우"
+    },
+    "berry": {
+     "ko": "베리 (열매)"
+    },
+    "vest": {
+     "ko": "조끼"
+    },
+    "best": {
+     "ko": "가장 좋은"
+    },
+    "van": {
+     "ko": "승합차"
+    },
+    "ban": {
+     "ko": "금지"
+    },
+    "vote": {
+     "ko": "투표하다"
+    },
+    "boat": {
+     "ko": "배, 보트"
+    }
+   }
+  },
+  "IV": {
+   "name": {
+    "ko": "th 와 s"
+   },
+   "tip": {
+    "ko": "th 는 혀끝을 이 사이로 살짝 내밀고 바람, s 는 혀를 이 안쪽에"
+   },
+   "pairs": [
+    [
+     "think",
+     "sink"
+    ],
+    [
+     "thing",
+     "sing"
+    ],
+    [
+     "mouth",
+     "mouse"
+    ],
+    [
+     "thick",
+     "sick"
+    ]
+   ],
+   "mean": {
+    "think": {
+     "ko": "생각하다"
+    },
+    "sink": {
+     "ko": "싱크대, 가라앉다"
+    },
+    "thing": {
+     "ko": "것, 물건"
+    },
+    "sing": {
+     "ko": "노래하다"
+    },
+    "mouth": {
+     "ko": "입"
+    },
+    "mouse": {
+     "ko": "쥐, 마우스"
+    },
+    "thick": {
+     "ko": "두꺼운"
+    },
+    "sick": {
+     "ko": "아픈"
+    }
+   }
+  },
+  "V": {
+   "name": {
+    "ko": "짧은 i 와 긴 ee (ship/sheep)"
+   },
+   "tip": {
+    "ko": "ship 은 힘을 뺀 짧은 ‘이’(‘에’에 가깝게), sheep 은 입을 옆으로 당긴 긴 ‘이—’"
+   },
+   "pairs": [
+    [
+     "ship",
+     "sheep"
+    ],
+    [
+     "sit",
+     "seat"
+    ],
+    [
+     "live",
+     "leave"
+    ],
+    [
+     "hill",
+     "heel"
+    ]
+   ],
+   "mean": {
+    "ship": {
+     "ko": "배"
+    },
+    "sheep": {
+     "ko": "양"
+    },
+    "sit": {
+     "ko": "앉다"
+    },
+    "seat": {
+     "ko": "자리, 좌석"
+    },
+    "live": {
+     "ko": "살다"
+    },
+    "leave": {
+     "ko": "떠나다"
+    },
+    "hill": {
+     "ko": "언덕"
+    },
+    "heel": {
+     "ko": "발뒤꿈치"
+    }
+   }
+  },
+  "VI": {
+   "name": {
+    "ko": "z 와 j"
+   },
+   "tip": {
+    "ko": "z 는 ‘ㅈ’이 아니라 벌처럼 떨리는 ‘즈—’(혀가 닿지 않게), j 는 혀를 입천장에 붙였다 떼는 ‘쥐’"
+   },
+   "pairs": [
+    [
+     "raise",
+     "rage"
+    ],
+    [
+     "ways",
+     "wage"
+    ],
+    [
+     "buzz",
+     "budge"
+    ],
+    [
+     "zealous",
+     "jealous"
+    ]
+   ],
+   "mean": {
+    "raise": {
+     "ko": "올리다"
+    },
+    "rage": {
+     "ko": "분노"
+    },
+    "ways": {
+     "ko": "방법들, 길들"
+    },
+    "wage": {
+     "ko": "임금"
+    },
+    "buzz": {
+     "ko": "윙윙거리다"
+    },
+    "budge": {
+     "ko": "꿈쩍하다"
+    },
+    "zealous": {
+     "ko": "열성적인"
+    },
+    "jealous": {
+     "ko": "질투하는"
+    }
+   }
+  },
+  "VII": {
+   "name": {
+    "ko": "끝 자음"
+   },
+   "tip": {
+    "ko": "끝 자음 뒤에 ‘으’를 붙이지 말 것. 끝이 b·d·g·z 면 앞 모음을 조금 길게"
+   },
+   "pairs": [
+    [
+     "bag",
+     "back"
+    ],
+    [
+     "cab",
+     "cap"
+    ],
+    [
+     "bed",
+     "bet"
+    ],
+    [
+     "eyes",
+     "ice"
+    ]
+   ],
+   "mean": {
+    "bag": {
+     "ko": "가방"
+    },
+    "back": {
+     "ko": "등, 뒤"
+    },
+    "cab": {
+     "ko": "택시"
+    },
+    "cap": {
+     "ko": "모자"
+    },
+    "bed": {
+     "ko": "침대"
+    },
+    "bet": {
+     "ko": "내기"
+    },
+    "eyes": {
+     "ko": "눈 (두 눈)"
+    },
+    "ice": {
+     "ko": "얼음"
+    }
+   }
+  },
+  "VIII": {
+   "name": {
+    "ko": "낱말 강세"
+   },
+   "tip": {
+    "ko": "센 음절을 더 크고 길고 높게, 나머지는 약하게 — desert 는 앞, dessert 는 뒤"
+   },
+   "pairs": [
+    [
+     "desert",
+     "dessert"
+    ],
+    [
+     "photograph",
+     "photographer"
+    ],
+    [
+     "Japan",
+     "Japanese"
+    ],
+    [
+     "insight",
+     "incite"
+    ]
+   ],
+   "mean": {
+    "desert": {
+     "ko": "사막"
+    },
+    "dessert": {
+     "ko": "디저트, 후식"
+    },
+    "photograph": {
+     "ko": "사진"
+    },
+    "photographer": {
+     "ko": "사진작가"
+    },
+    "Japan": {
+     "ko": "일본"
+    },
+    "Japanese": {
+     "ko": "일본어, 일본의"
+    },
+    "insight": {
+     "ko": "통찰"
+    },
+    "incite": {
+     "ko": "부추기다"
+    }
+   }
+  }
+ }
+}

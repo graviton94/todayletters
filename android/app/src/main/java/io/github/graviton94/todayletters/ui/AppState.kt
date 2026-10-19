@@ -701,6 +701,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             // 닻 표현 (ui/WarmUp.kt): 표현 카드처럼
             ref.anchor.isNotEmpty() -> anchorCard(w, ref.chapter, l, ref.anchor)
             ref.style -> l.replies.getOrNull(ref.turn)?.takeIf { it.styled }?.let { CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Word(it.text, note = styleNote)) }
+            // 내가 만든 말 (ui/Mine.kt): 회화 뒤 ‘내 이야기로’ 에서 고른 보기를 넣은 문장. 소리는 없다 (듣기 단추를 숨긴다)
+            ref.mine >= 0 -> io.github.graviton94.todayletters.core.Mine.tri(l.talk, ref.mine, listOf(w.series.original, io.github.graviton94.todayletters.core.Lang.EN, io.github.graviton94.todayletters.core.Lang.KO).distinct())
+                ?.let { CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Word(it, note = mineNote)) }
             else -> w.lexicon?.get(ref.own)?.let { e -> CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Vocab.wordFor(e, l.source, w.learnVocab, w.series.original), own = true) }
         }
     }
@@ -1002,7 +1005,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         if (store.firstCoverage(key(id, chapter, letter.id)) < 0) coverage(id, letter.id)?.let { store.setFirstCoverage(key(id, chapter, letter.id), it) }
         val idx = work(id).chapters.indexOfFirst { it.id == chapter } + 1
         val room = Route.Letter(id, idx, work(id).chapters[idx - 1].letters.indexOf(letter) + 1, from)
-        go(if (fresh && warmUpDue(id, chapter, letter)) Route.WarmUp(room) else room)
+        // I~VIII 장의 첫 편지면 그 앞에 이번 장의 소리 (장마다 · 배우는 말마다 한 번, ui/Sounds.kt), 그다음 예열
+        go(when {
+            fresh && soundsDue(id, chapter, letter) -> Route.SoundCheck(room)
+            fresh && warmUpDue(id, chapter, letter) -> Route.WarmUp(room)
+            else -> room
+        })
     }
 
     /**
@@ -1106,6 +1114,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             store.save(k, saved)
             if (pay) earn(Earn.PRACTICE, id = r.series)
         } else if (mode !in before.replied && !replaying(r)) earn(Earn.PRACTICE, id = r.series)
+        // 회화를 한 날 (어제 말 떠올리기, ui/Recall.kt): "날:편지 열쇠"
+        if (mode == ReplyMode.TALK && !r.epilogue) store.logDay("talk", today, key(r.series, ch, l.id))
         replied(r, mode)
         stepEnded(r, before.done)
     }
@@ -1571,6 +1581,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     private val replyNote = io.github.graviton94.todayletters.core.Tri(mapOf(
         io.github.graviton94.todayletters.core.Lang.KO to ctx.getString(io.github.graviton94.todayletters.R.string.ladder_card_note_ko),
         io.github.graviton94.todayletters.core.Lang.EN to ctx.getString(io.github.graviton94.todayletters.R.string.ladder_card_note_en),
+    ))
+
+    /** 내가 만든 말 카드 (ui/Mine.kt) 의 쓰임 설명. */
+    val mineNote = io.github.graviton94.todayletters.core.Tri(mapOf(
+        io.github.graviton94.todayletters.core.Lang.KO to ctx.getString(io.github.graviton94.todayletters.R.string.mine_card_note_ko),
+        io.github.graviton94.todayletters.core.Lang.EN to ctx.getString(io.github.graviton94.todayletters.R.string.mine_card_note_en),
     ))
 
     /** 말투 바꿔 보기 카드의 쓰임 설명. */

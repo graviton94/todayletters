@@ -3851,5 +3851,129 @@
   "finish_suggest": {
     "en": "Next, how about %1$s? ›",
     "ko": "다음엔 %1$s 어때요? ›"
+  },
+  "speak_clearer": {
+    "en": "A bit clearer · say it to the end",
+    "ko": "조금 더 또박또박 · 끝까지 말해 봐요"
+  },
+  "recall_title": {
+    "en": "Recall yesterday's lines",
+    "ko": "어제 말 떠올리기"
+  },
+  "recall_card_d": {
+    "en": "%1$d lines you said in yesterday's talk",
+    "ko": "어제 대화에서 내가 한 말 %1$d개"
+  },
+  "recall_go": {
+    "en": "Start ›",
+    "ko": "시작 ›"
+  },
+  "recall_tap": {
+    "en": "Tap the pieces in order",
+    "ko": "조각을 차례대로 눌러요"
+  },
+  "recall_right": {
+    "en": "That's it",
+    "ko": "맞았어요"
+  },
+  "recall_wrong": {
+    "en": "Here's the line · it comes back at the end",
+    "ko": "이렇게 말했어요 · 끝에 한 번 더 나와요"
+  },
+  "recall_say": {
+    "en": "Say it aloud",
+    "ko": "소리 내어 말해 보기"
+  },
+  "recall_next": {
+    "en": "Next",
+    "ko": "다음"
+  },
+  "recall_finish": {
+    "en": "Done",
+    "ko": "마치기"
+  },
+  "mine_title": {
+    "en": "Now, in your own words",
+    "ko": "이번엔 내 이야기로"
+  },
+  "mine_d": {
+    "en": "Pick words for the blank and say it",
+    "ko": "빈칸에 넣을 말을 고르고 말해 봐요"
+  },
+  "mine_say": {
+    "en": "Say it",
+    "ko": "말해 보기"
+  },
+  "mine_skip": {
+    "en": "Hard to speak now · Skip",
+    "ko": "지금은 소리 내기 어려워요 · 건너뛰기"
+  },
+  "mine_finish": {
+    "en": "Finish",
+    "ko": "마치기"
+  },
+  "mine_card_note_ko": {
+    "en": "내가 만든 말",
+    "ko": "내가 만든 말"
+  },
+  "mine_card_note_en": {
+    "en": "My own line",
+    "ko": "My own line"
+  },
+  "sounds_title": {
+    "en": "Sounds of this chapter · %1$s",
+    "ko": "이번 장의 소리 · %1$s"
+  },
+  "sounds_minute": {
+    "en": "One minute",
+    "ko": "1분"
+  },
+  "sounds_pair": {
+    "en": "Listen to the two",
+    "ko": "두 말을 들어 봐요"
+  },
+  "sounds_start": {
+    "en": "Start",
+    "ko": "시작"
+  },
+  "sounds_which": {
+    "en": "Which did you hear?",
+    "ko": "들린 말은?"
+  },
+  "sounds_listen": {
+    "en": "Listen again",
+    "ko": "다시 듣기"
+  },
+  "sounds_right": {
+    "en": "Right",
+    "ko": "맞았어요"
+  },
+  "sounds_wrong": {
+    "en": "It was %1$s",
+    "ko": "들린 말은 %1$s"
+  },
+  "sounds_done": {
+    "en": "You heard them through",
+    "ko": "끝까지 들었어요"
+  },
+  "sounds_score": {
+    "en": "%1$d of %2$d right",
+    "ko": "%2$d개 중 %1$d개 맞았어요"
+  },
+  "sounds_retry": {
+    "en": "Once more",
+    "ko": "한 번 더"
+  },
+  "sounds_open": {
+    "en": "Open the letter",
+    "ko": "편지 열기"
+  },
+  "sounds_skip": {
+    "en": "Skip",
+    "ko": "건너뛰기"
+  },
+  "say_like": {
+    "en": "Sounds roughly like",
+    "ko": "비슷하게 읽으면"
   }
 }

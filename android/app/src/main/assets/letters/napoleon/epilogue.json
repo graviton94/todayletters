@@ -604,7 +604,32 @@
      "prince"
     ],
     "grammar": "E.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Son fils)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Son fils).",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "le français et l'histoire",
+      "en": "French and history",
+      "ko": "프랑스어랑 역사를"
+     },
+     "opts": [
+      {
+       "fr": "l'anglais",
+       "en": "English",
+       "ko": "영어를"
+      },
+      {
+       "fr": "le piano",
+       "en": "the piano",
+       "ko": "피아노를"
+      },
+      {
+       "fr": "à nager",
+       "en": "to swim",
+       "ko": "수영을"
+      }
+     ]
+    }
    },
    "head": {
     "fr": "(Testament, Longwood, 15 avril 1821)",

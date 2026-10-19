@@ -580,6 +580,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "livres",
+      "en": "books",
+      "ko": "책"
+     },
+     "opts": [
+      {
+       "fr": "fruits",
+       "en": "fruit",
+       "ko": "과일"
+      },
+      {
+       "fr": "photos",
+       "en": "photos",
+       "ko": "사진"
+      },
+      {
+       "fr": "chocolats",
+       "en": "chocolates",
+       "ko": "초콜릿"
+      }
+     ]
     }
    }
   },
@@ -1053,7 +1078,32 @@
      "ordinaire"
     ],
     "grammar": "VI.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "du tabac",
+      "en": "some tobacco",
+      "ko": "담배도"
+     },
+     "opts": [
+      {
+       "fr": "du café",
+       "en": "some coffee",
+       "ko": "커피도"
+      },
+      {
+       "fr": "du chocolat",
+       "en": "some chocolate",
+       "ko": "초콜릿도"
+      },
+      {
+       "fr": "un livre",
+       "en": "a book",
+       "ko": "책도"
+      }
+     ]
+    }
    }
   },
   {
@@ -1550,6 +1600,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "avec toi",
+      "en": "with you",
+      "ko": "거기"
+     },
+     "opts": [
+      {
+       "fr": "à Paris",
+       "en": "in Paris",
+       "ko": "파리에"
+      },
+      {
+       "fr": "à la mer",
+       "en": "at the sea",
+       "ko": "바다에"
+      },
+      {
+       "fr": "à la maison",
+       "en": "at home",
+       "ko": "집에"
+      }
+     ]
     }
    }
   },
@@ -2005,7 +2080,32 @@
      "paysage"
     ],
     "grammar": "VI.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "vite",
+      "en": "quickly",
+      "ko": "바로"
+     },
+     "opts": [
+      {
+       "fr": "demain",
+       "en": "tomorrow",
+       "ko": "내일"
+      },
+      {
+       "fr": "ce soir",
+       "en": "tonight",
+       "ko": "오늘 밤에"
+      },
+      {
+       "fr": "lundi",
+       "en": "on Monday",
+       "ko": "월요일에"
+      }
+     ]
+    }
    }
   },
   {
@@ -2499,7 +2599,32 @@
      "cyprès"
     ],
     "grammar": "VI.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "un croquis",
+      "en": "a sketch",
+      "ko": "스케치 하나"
+     },
+     "opts": [
+      {
+       "fr": "une photo",
+       "en": "a photo",
+       "ko": "사진 하나"
+      },
+      {
+       "fr": "un dessin",
+       "en": "a drawing",
+       "ko": "그림 하나"
+      },
+      {
+       "fr": "une vidéo",
+       "en": "a video",
+       "ko": "영상 하나"
+      }
+     ]
+    }
    }
   },
   {
@@ -2980,6 +3105,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "peindre",
+      "en": "paint",
+      "ko": "그리는"
+     },
+     "opts": [
+      {
+       "fr": "chanter",
+       "en": "sing",
+       "ko": "노래하는"
+      },
+      {
+       "fr": "cuisiner",
+       "en": "cook",
+       "ko": "요리하는"
+      },
+      {
+       "fr": "danser",
+       "en": "dance",
+       "ko": "춤추는"
+      }
+     ]
     }
    }
   },
@@ -3468,6 +3618,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "très heureux",
+      "en": "very happy",
+      "ko": "정말 행복해"
+     },
+     "opts": [
+      {
+       "fr": "très fatigués",
+       "en": "very tired",
+       "ko": "정말 피곤해"
+      },
+      {
+       "fr": "très occupés",
+       "en": "very busy",
+       "ko": "정말 바빠"
+      },
+      {
+       "fr": "un peu nerveux",
+       "en": "a bit nervous",
+       "ko": "좀 긴장돼"
+      }
+     ]
     }
    }
   }

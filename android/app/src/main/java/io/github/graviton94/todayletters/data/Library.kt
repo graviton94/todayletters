@@ -369,7 +369,21 @@ object Library {
             t.str("grammar"), au?.let { it.optString("*").ifEmpty { it.optString("default") } } ?: t.str("audio"),
             wordsBy = t.optJSONObject("words")?.let { o -> Lang.entries.mapNotNull { lang -> o.optJSONArray(lang.code)?.let { a -> lang to (0 until a.length()).map { a.optString(it) }.filter { it.isNotBlank() } } }.toMap() }.orEmpty(),
             audioBy = au?.let { o -> Lang.entries.mapNotNull { lang -> o.optString(lang.code).takeIf { it.isNotEmpty() }?.let { lang to it } }.toMap() }.orEmpty(),
+            mine = mine(t),
         )
+    }
+
+    /**
+     * 내 이야기로 ("mine": {line: 내 줄 번호, slot: {fr|de, en, ko}, opts: [{…} × 3]}). 없거나 모자라면 null (그 화면을 건너뛴다).
+     * 글은 이음표 없이 그대로 둔다 (자리 찾기는 core [io.github.graviton94.todayletters.core.Mine] 가 이음표를 뺀 글로).
+     */
+    private fun mine(t: JSONObject): io.github.graviton94.todayletters.core.TalkMine? {
+        val m = t.optJSONObject("mine") ?: return null
+        fun langs(o: JSONObject?): Map<Lang, String> = o?.let { x -> Lang.entries.mapNotNull { l -> x.optString(l.code, "").takeIf { it.isNotEmpty() }?.let { l to it } }.toMap() }.orEmpty()
+        val line = m.optInt("line", -1).takeIf { it >= 0 } ?: return null
+        val slot = langs(m.optJSONObject("slot")).takeIf { it.isNotEmpty() } ?: return null
+        val opts = m.optJSONArray("opts")?.let { a -> (0 until a.length()).map { langs(a.optJSONObject(it)) } }.orEmpty().filter { it.isNotEmpty() }
+        return if (opts.isEmpty()) null else io.github.graviton94.todayletters.core.TalkMine(line, slot, opts)
     }
 
     internal fun parseLetters(data: JSONObject): List<Letter> {

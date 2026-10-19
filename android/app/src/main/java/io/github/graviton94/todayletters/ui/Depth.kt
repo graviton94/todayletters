@@ -182,6 +182,9 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val talk = letter.talk
     val lines = talk?.lines.orEmpty()
     val help = Support.talk(s.support(id).band)
+    // 회화를 다 한 뒤 ‘이번엔 내 이야기로’ (ui/Mine.kt, 데이터가 있을 때만): 그 한 장을 마치거나 건너뛰면 걸음을 마친다
+    var mineOpen by rememberSaveable(letter.id) { mutableStateOf(false) }
+    if (mineOpen) { MineStep(s, r) { s.replyAndContinue(r.room, ReplyMode.TALK) }; return }
     val known = remember(id, s.version) { s.familiarity(id) }
     val todays = remember(letter.id, view.learn) { talk?.wordsFor(view.learn, work.series.original).orEmpty().map { Breaks.plain(it) } }
     // 열린 줄 수 (상대 줄은 저절로, 내 줄은 마친 뒤) · 내 줄마다 맞게 마쳤는가 ("1" · "0")
@@ -214,7 +217,7 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val take = cur?.let { i ->
         val file = remember(letter.id, i) { s.talkTake(id, chapter, letter.id, i).also { it.delete() } }
         rememberShadowTake(s, audio(i), 0, Int.MAX_VALUE, file, step = true, key = Triple(letter.id, i, view.learn),
-            onVoice = { v -> send(TalkTurn.Event.Heard(v)) })
+            onVoice = { v -> send(TalkTurn.Event.Heard(v)) }, sayLike = s.sayLike(id, Breaks.plain(lines[i].text[view.learn]).trim()))
     }
 
     val scroll = rememberScrollState()
@@ -261,7 +264,10 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
         ) {
             val t = st
             when {
-                done -> Primary(stringResource(R.string.talk_finish), shine = true) { s.narrator.stop(); s.replyAndContinue(r.room, ReplyMode.TALK) }
+                done -> Primary(stringResource(R.string.talk_finish), shine = true) {
+                    s.narrator.stop()
+                    if (s.mineDue(r.room)) mineOpen = true else s.replyAndContinue(r.room, ReplyMode.TALK)
+                }
                 t != null && take != null -> TalkTray(s, t, take, view.learn,
                     cur?.let { audio(it) }?.let { a -> @Composable { ListenButtons(play = { sp -> s.narrator.play(a, sp) }) } },
                     onPick = { i ->
@@ -385,6 +391,7 @@ private fun TalkTray(s: AppState, t: TalkTurn.State, take: ShadowTake, learn: La
         }
         TalkTurn.Phase.REVEALED -> {
             Text(stringResource(R.string.talk_revealed), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+            SayLikeLine(take)
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                 onListen?.invoke()
                 Box(Modifier.weight(1f)) { Primary(stringResource(R.string.speak_line_next), shine = true) { onContinue() } }
@@ -412,7 +419,7 @@ private fun TalkTray(s: AppState, t: TalkTurn.State, take: ShadowTake, learn: La
                     }
                 }
             }
-            if (t.phase == TalkTurn.Phase.RETRY) Text(stringResource(R.string.talk_retry), style = Type.small.ui(), color = p.wrong, maxLines = 2)
+            if (t.phase == TalkTurn.Phase.RETRY) Text(stringResource(if (take.unclear) R.string.speak_clearer else R.string.talk_retry), style = Type.small.ui(), color = p.wrong, maxLines = 2)
             if (t.hintable) Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                 Row(Modifier.heightIn(min = 48.dp).border(1.dp, p.line).pressable(role = Role.Button) { onHint() }.padding(horizontal = Tokens.Space.s3),
                     verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -440,8 +447,10 @@ private fun Modifier.dashedRound(c: Color) = drawBehind {
  * 스스로 배우는 앱이라 믿고 맡김). 침묵 · 잡음만이면 ‘다시 해 봐요’. 통과한 뒤에도 다시 녹음 · 내 소리 듣기는 그대로.
  */
 @Composable
-fun SpeakLine(s: AppState, audio: String?, file: java.io.File, key: Any, onDone: () -> Unit) {
-    val take = rememberShadowTake(s, audio, 0, Int.MAX_VALUE, file, step = true, key = key, onVoice = { v -> if (v) onDone() })
+fun SpeakLine(s: AppState, audio: String?, file: java.io.File, key: Any,
+              /** 원래 소리가 없을 때 견줄 음절 수 (글자로 어림, [ShadowTake.estimate]). */ estimate: Int? = null,
+              /** 비슷하게 읽으면 ([AppState.sayLike]). */ sayLike: String? = null, onDone: () -> Unit) {
+    val take = rememberShadowTake(s, audio, 0, Int.MAX_VALUE, file, step = true, key = key, onVoice = { v -> if (v) onDone() }, estimate = estimate, sayLike = sayLike)
     Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
         ShadowBoard(take)
         ShadowControls(s, take, canListen = audio != null)
@@ -487,7 +496,7 @@ fun ReplySpeak(s: AppState, r: Route.Play, turn: Int, turns: Int, onNext: () -> 
                     modifier = Modifier.heightIn(min = 44.dp).pressable { hinted = true }.padding(vertical = Tokens.Space.s2))
             }
             if (spoken) Text(stringResource(R.string.speak_line_ok), style = Type.small.ui(), color = p.correct, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
-            SpeakLine(s, audio, file, key = Triple(letter.id, turn, view.learn)) { spoken = true }
+            SpeakLine(s, audio, file, key = Triple(letter.id, turn, view.learn), sayLike = s.sayLike(id, sentence)) { spoken = true }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
             if (spoken) Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.speak_line_next), shine = true) { onNext() }

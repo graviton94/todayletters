@@ -524,7 +524,32 @@
     ],
     "grammar": "III.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "recevoir ta lettre",
+      "en": "got your letter",
+      "ko": "당신 편지 받았어"
+     },
+     "opts": [
+      {
+       "fr": "manger",
+       "en": "eaten",
+       "ko": "밥 먹었어"
+      },
+      {
+       "fr": "me lever",
+       "en": "got up",
+       "ko": "일어났어"
+      },
+      {
+       "fr": "rentrer",
+       "en": "got home",
+       "ko": "집에 왔어"
+      }
+     ]
+    }
    }
   },
   {
@@ -934,7 +959,32 @@
     ],
     "grammar": "III.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "du bouillon chaud",
+      "en": "hot broth",
+      "ko": "따뜻한 국물은"
+     },
+     "opts": [
+      {
+       "fr": "du thé",
+       "en": "tea",
+       "ko": "차는"
+      },
+      {
+       "fr": "du café",
+       "en": "coffee",
+       "ko": "커피는"
+      },
+      {
+       "fr": "du lait",
+       "en": "milk",
+       "ko": "우유는"
+      }
+     ]
+    }
    }
   },
   {
@@ -1382,7 +1432,32 @@
     ],
     "grammar": "III.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "Hortense",
+      "en": "Hortense",
+      "ko": "오르탕스는"
+     },
+     "opts": [
+      {
+       "fr": "maman",
+       "en": "Mom",
+       "ko": "엄마는"
+      },
+      {
+       "fr": "papa",
+       "en": "Dad",
+       "ko": "아빠는"
+      },
+      {
+       "fr": "mamie",
+       "en": "Grandma",
+       "ko": "할머니는"
+      }
+     ]
+    }
    }
   },
   {
@@ -1820,7 +1895,32 @@
     ],
     "grammar": "III.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "me reposer",
+      "en": "rest",
+      "ko": "쉬려고"
+     },
+     "opts": [
+      {
+       "fr": "voyager",
+       "en": "travel",
+       "ko": "여행하려고"
+      },
+      {
+       "fr": "rester chez moi",
+       "en": "stay home",
+       "ko": "집에 있으려고"
+      },
+      {
+       "fr": "partir",
+       "en": "go away",
+       "ko": "떠나 있으려고"
+      }
+     ]
+    }
    }
   },
   {
@@ -2230,7 +2330,32 @@
     ],
     "grammar": "III.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "aux bains",
+      "en": "at the baths",
+      "ko": "온천에 온"
+     },
+     "opts": [
+      {
+       "fr": "à Paris",
+       "en": "in Paris",
+       "ko": "파리에 온"
+      },
+      {
+       "fr": "à Séoul",
+       "en": "in Seoul",
+       "ko": "서울에 온"
+      },
+      {
+       "fr": "ici",
+       "en": "here",
+       "ko": "여기 온"
+      }
+     ]
+    }
    }
   },
   {
@@ -2694,7 +2819,32 @@
     ],
     "grammar": "III.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "Dors",
+      "en": "Sleep",
+      "ko": "얼른 자"
+     },
+     "opts": [
+      {
+       "fr": "Repose-toi",
+       "en": "Rest",
+       "ko": "좀 쉬어"
+      },
+      {
+       "fr": "Détends-toi",
+       "en": "Relax",
+       "ko": "마음 편히 쉬어"
+      },
+      {
+       "fr": "Mange",
+       "en": "Eat",
+       "ko": "뭐 좀 먹어"
+      }
+     ]
+    }
    }
   },
   {
@@ -3110,7 +3260,32 @@
     ],
     "grammar": "III.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "une semaine",
+      "en": "a week",
+      "ko": "일주일"
+     },
+     "opts": [
+      {
+       "fr": "deux ans",
+       "en": "two years",
+       "ko": "2년"
+      },
+      {
+       "fr": "trois mois",
+       "en": "three months",
+       "ko": "석 달"
+      },
+      {
+       "fr": "longtemps",
+       "en": "a long time",
+       "ko": "오래"
+      }
+     ]
+    }
    }
   }
  ]

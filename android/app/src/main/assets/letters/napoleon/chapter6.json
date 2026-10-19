@@ -569,7 +569,32 @@
     ],
     "grammar": "VI.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "chez toi, à Bayonne",
+      "en": "to you, in Bayonne",
+      "ko": "바이욘에 당신 보러"
+     },
+     "opts": [
+      {
+       "fr": "avec toi",
+       "en": "with you",
+       "ko": "당신이랑 같이"
+      },
+      {
+       "fr": "ce soir",
+       "en": "tonight",
+       "ko": "오늘 밤에"
+      },
+      {
+       "fr": "à la fête",
+       "en": "to the party",
+       "ko": "파티에"
+      }
+     ]
+    }
    }
   },
   {
@@ -1019,7 +1044,32 @@
     ],
     "grammar": "VI.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "à Paris",
+      "en": "in Paris",
+      "ko": "파리에서"
+     },
+     "opts": [
+      {
+       "fr": "ce soir",
+       "en": "tonight",
+       "ko": "오늘 밤에"
+      },
+      {
+       "fr": "à la fête",
+       "en": "at the party",
+       "ko": "파티에서"
+      },
+      {
+       "fr": "demain",
+       "en": "tomorrow",
+       "ko": "내일"
+      }
+     ]
+    }
    }
   },
   {
@@ -1489,7 +1539,32 @@
      "chez"
     ],
     "grammar": "VI.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "aller au lit",
+      "en": "go to bed",
+      "ko": "얼른 가서 자야"
+     },
+     "opts": [
+      {
+       "fr": "boire du thé",
+       "en": "drink some tea",
+       "ko": "따뜻한 차 마셔야"
+      },
+      {
+       "fr": "te reposer",
+       "en": "rest",
+       "ko": "좀 쉬어야"
+      },
+      {
+       "fr": "voir un médecin",
+       "en": "see a doctor",
+       "ko": "병원에 가야"
+      }
+     ]
+    }
    }
   },
   {
@@ -1933,7 +2008,32 @@
      "voyage"
     ],
     "grammar": "VI.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "Les eaux",
+      "en": "taking the waters",
+      "ko": "온천에 다녀오면"
+     },
+     "opts": [
+      {
+       "fr": "La marche",
+       "en": "a walk",
+       "ko": "산책하고 나면"
+      },
+      {
+       "fr": "Le sport",
+       "en": "sport",
+       "ko": "운동하고 나면"
+      },
+      {
+       "fr": "Le sommeil",
+       "en": "a good sleep",
+       "ko": "푹 자고 나면"
+      }
+     ]
+    }
    }
   },
   {
@@ -2383,7 +2483,32 @@
     ],
     "grammar": "VI.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "mon jardin",
+      "en": "my garden",
+      "ko": "내 정원"
+     },
+     "opts": [
+      {
+       "fr": "mon appartement",
+       "en": "my flat",
+       "ko": "우리 집"
+      },
+      {
+       "fr": "mon quartier",
+       "en": "my neighbourhood",
+       "ko": "우리 동네"
+      },
+      {
+       "fr": "mon village",
+       "en": "my village",
+       "ko": "우리 마을"
+      }
+     ]
+    }
    }
   },
   {
@@ -2837,7 +2962,32 @@
      "acheter"
     ],
     "grammar": "VI.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "la maison",
+      "en": "the house",
+      "ko": "집에"
+     },
+     "opts": [
+      {
+       "fr": "ton ordinateur",
+       "en": "your computer",
+       "ko": "당신 컴퓨터에"
+      },
+      {
+       "fr": "ta voiture",
+       "en": "your car",
+       "ko": "당신 차에"
+      },
+      {
+       "fr": "ton téléphone",
+       "en": "your phone",
+       "ko": "당신 휴대폰에"
+      }
+     ]
+    }
    }
   },
   {
@@ -3284,7 +3434,32 @@
      "arrêter"
     ],
     "grammar": "VI.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "de l'automne",
+      "en": "of the autumn",
+      "ko": "올가을 들어"
+     },
+     "opts": [
+      {
+       "fr": "de l'année",
+       "en": "of the year",
+       "ko": "올해 들어"
+      },
+      {
+       "fr": "de la semaine",
+       "en": "of the week",
+       "ko": "이번 주 들어"
+      },
+      {
+       "fr": "de l'été",
+       "en": "of the summer",
+       "ko": "올여름 들어"
+      }
+     ]
+    }
    }
   }
  ]

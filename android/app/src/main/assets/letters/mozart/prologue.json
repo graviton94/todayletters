@@ -239,7 +239,32 @@
      "Kind"
     ],
     "grammar": "I.0",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "ein Kind",
+      "en": "a child",
+      "ko": "어린애인데"
+     },
+     "opts": [
+      {
+       "de": "ein Student",
+       "en": "a student",
+       "ko": "학생인데"
+      },
+      {
+       "de": "ein Teenager",
+       "en": "a teenager",
+       "ko": "십 대인데"
+      },
+      {
+       "de": "ein Anfänger",
+       "en": "a beginner",
+       "ko": "초보인데"
+      }
+     ]
+    }
    }
   },
   {
@@ -467,7 +492,32 @@
      "hier"
     ],
     "grammar": "I.1",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "Paris",
+      "en": "Paris",
+      "ko": "파리야"
+     },
+     "opts": [
+      {
+       "de": "Berlin",
+       "en": "Berlin",
+       "ko": "베를린이야"
+      },
+      {
+       "de": "Seoul",
+       "en": "Seoul",
+       "ko": "서울이야"
+      },
+      {
+       "de": "London",
+       "en": "London",
+       "ko": "런던이야"
+      }
+     ]
+    }
    }
   },
   {
@@ -694,7 +744,32 @@
      "gar"
     ],
     "grammar": "I.2",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "Morgen früh",
+      "en": "Tomorrow morning",
+      "ko": "내일 아침이야"
+     },
+     "opts": [
+      {
+       "de": "Heute Abend",
+       "en": "Tonight",
+       "ko": "오늘 저녁이야"
+      },
+      {
+       "de": "Am Montag",
+       "en": "On Monday",
+       "ko": "월요일이야"
+      },
+      {
+       "de": "Morgen Abend",
+       "en": "Tomorrow evening",
+       "ko": "내일 저녁이야"
+      }
+     ]
+    }
    }
   }
  ]

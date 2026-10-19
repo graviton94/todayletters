@@ -582,7 +582,32 @@
      "inonder"
     ],
     "grammar": "VII.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "peint",
+      "en": "painted",
+      "ko": "그렸어"
+     },
+     "opts": [
+      {
+       "fr": "mangé",
+       "en": "eaten",
+       "ko": "먹었어"
+      },
+      {
+       "fr": "lu",
+       "en": "read",
+       "ko": "읽었어"
+      },
+      {
+       "fr": "acheté",
+       "en": "bought",
+       "ko": "샀어"
+      }
+     ]
+    }
    }
   },
   {
@@ -1060,6 +1085,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "joli",
+      "en": "lovely",
+      "ko": "멋지다"
+     },
+     "opts": [
+      {
+       "fr": "drôle",
+       "en": "funny",
+       "ko": "웃기다"
+      },
+      {
+       "fr": "génial",
+       "en": "great",
+       "ko": "대단하다"
+      },
+      {
+       "fr": "beau",
+       "en": "beautiful",
+       "ko": "아름답다"
+      }
+     ]
     }
    }
   },
@@ -1554,6 +1604,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "en Hollande",
+      "en": "in Holland",
+      "ko": "네덜란드"
+     },
+     "opts": [
+      {
+       "fr": "en Corée",
+       "en": "in Korea",
+       "ko": "한국"
+      },
+      {
+       "fr": "en France",
+       "en": "in France",
+       "ko": "프랑스"
+      },
+      {
+       "fr": "au Japon",
+       "en": "in Japan",
+       "ko": "일본"
+      }
+     ]
     }
    }
   },
@@ -2038,6 +2113,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "le verger",
+      "en": "the orchard",
+      "ko": "과수원이야"
+     },
+     "opts": [
+      {
+       "fr": "le café",
+       "en": "the café",
+       "ko": "카페야"
+      },
+      {
+       "fr": "le parc",
+       "en": "the park",
+       "ko": "공원이야"
+      },
+      {
+       "fr": "le jardin",
+       "en": "the garden",
+       "ko": "정원이야"
+      }
+     ]
     }
    }
   },
@@ -2510,7 +2610,32 @@
      "surprendre"
     ],
     "grammar": "VII.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "demain",
+      "en": "tomorrow",
+      "ko": "내일은"
+     },
+     "opts": [
+      {
+       "fr": "ce soir",
+       "en": "tonight",
+       "ko": "오늘 밤엔"
+      },
+      {
+       "fr": "ce week-end",
+       "en": "this weekend",
+       "ko": "이번 주말엔"
+      },
+      {
+       "fr": "dimanche",
+       "en": "on Sunday",
+       "ko": "일요일엔"
+      }
+     ]
+    }
    }
   },
   {
@@ -2954,6 +3079,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "avec toi",
+      "en": "with you",
+      "ko": "형이랑"
+     },
+     "opts": [
+      {
+       "fr": "avec nos amis",
+       "en": "with our friends",
+       "ko": "친구들이랑"
+      },
+      {
+       "fr": "en famille",
+       "en": "as a family",
+       "ko": "가족이랑"
+      },
+      {
+       "fr": "avec nos voisins",
+       "en": "with our neighbours",
+       "ko": "이웃들이랑"
+      }
+     ]
     }
    }
   },
@@ -3443,6 +3593,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "à Paris",
+      "en": "to Paris",
+      "ko": "파리에"
+     },
+     "opts": [
+      {
+       "fr": "à Séoul",
+       "en": "to Seoul",
+       "ko": "서울에"
+      },
+      {
+       "fr": "chez moi",
+       "en": "to my place",
+       "ko": "우리 집에"
+      },
+      {
+       "fr": "à la fête",
+       "en": "to the party",
+       "ko": "파티에"
+      }
+     ]
     }
    }
   }

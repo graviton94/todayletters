@@ -475,7 +475,32 @@
     ],
     "grammar": "II.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "souvent",
+      "en": "often",
+      "ko": "자주"
+     },
+     "opts": [
+      {
+       "fr": "tous les jours",
+       "en": "every day",
+       "ko": "매일"
+      },
+      {
+       "fr": "le dimanche",
+       "en": "on Sundays",
+       "ko": "일요일마다"
+      },
+      {
+       "fr": "chaque semaine",
+       "en": "every week",
+       "ko": "매주"
+      }
+     ]
+    }
    }
   },
   {
@@ -887,7 +912,32 @@
     ],
     "grammar": "II.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "aujourd'hui",
+      "en": "today",
+      "ko": "오늘은"
+     },
+     "opts": [
+      {
+       "fr": "ce soir",
+       "en": "tonight",
+       "ko": "오늘 밤에는"
+      },
+      {
+       "fr": "demain",
+       "en": "tomorrow",
+       "ko": "내일은"
+      },
+      {
+       "fr": "trop",
+       "en": "too much",
+       "ko": "너무 많이"
+      }
+     ]
+    }
    }
   },
   {
@@ -1274,7 +1324,32 @@
     ],
     "grammar": "II.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "ce soir",
+      "en": "tonight",
+      "ko": "오늘 밤"
+     },
+     "opts": [
+      {
+       "fr": "demain",
+       "en": "tomorrow",
+       "ko": "내일"
+      },
+      {
+       "fr": "dimanche",
+       "en": "on Sunday",
+       "ko": "일요일에"
+      },
+      {
+       "fr": "après le travail",
+       "en": "after work",
+       "ko": "퇴근하고"
+      }
+     ]
+    }
    }
   },
   {
@@ -1664,7 +1739,32 @@
     ],
     "grammar": "II.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "mon ami",
+      "en": "my love",
+      "ko": "여보"
+     },
+     "opts": [
+      {
+       "fr": "maman",
+       "en": "Mom",
+       "ko": "엄마"
+      },
+      {
+       "fr": "papa",
+       "en": "Dad",
+       "ko": "아빠"
+      },
+      {
+       "fr": "mamie",
+       "en": "Grandma",
+       "ko": "할머니"
+      }
+     ]
+    }
    }
   },
   {
@@ -2053,7 +2153,32 @@
     ],
     "grammar": "II.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "tes lettres",
+      "en": "your letters",
+      "ko": "당신 편지가"
+     },
+     "opts": [
+      {
+       "fr": "le café",
+       "en": "coffee",
+       "ko": "커피가"
+      },
+      {
+       "fr": "la musique",
+       "en": "music",
+       "ko": "음악이"
+      },
+      {
+       "fr": "les chats",
+       "en": "cats",
+       "ko": "고양이가"
+      }
+     ]
+    }
    }
   },
   {
@@ -2453,7 +2578,32 @@
     ],
     "grammar": "II.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "sortir",
+      "en": "going out",
+      "ko": "나가기"
+     },
+     "opts": [
+      {
+       "fr": "nager",
+       "en": "swimming",
+       "ko": "수영하기"
+      },
+      {
+       "fr": "marcher",
+       "en": "walking",
+       "ko": "걷기"
+      },
+      {
+       "fr": "attendre",
+       "en": "waiting",
+       "ko": "기다리기"
+      }
+     ]
+    }
    }
   },
   {
@@ -2838,7 +2988,32 @@
     ],
     "grammar": "II.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "bientôt",
+      "en": "soon",
+      "ko": "곧"
+     },
+     "opts": [
+      {
+       "fr": "demain",
+       "en": "tomorrow",
+       "ko": "내일"
+      },
+      {
+       "fr": "ce soir",
+       "en": "tonight",
+       "ko": "오늘 밤에"
+      },
+      {
+       "fr": "samedi",
+       "en": "on Saturday",
+       "ko": "토요일에"
+      }
+     ]
+    }
    }
   }
  ]

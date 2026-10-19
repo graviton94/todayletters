@@ -517,7 +517,32 @@
      "hôpital"
     ],
     "grammar": "V.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "pour l'hôpital",
+      "en": "for the hospital",
+      "ko": "병원비가"
+     },
+     "opts": [
+      {
+       "fr": "pour le train",
+       "en": "for the train",
+       "ko": "차비가"
+      },
+      {
+       "fr": "pour le loyer",
+       "en": "for the rent",
+       "ko": "방세가"
+      },
+      {
+       "fr": "pour le voyage",
+       "en": "for the trip",
+       "ko": "여행 경비가"
+      }
+     ]
+    }
    }
   },
   {
@@ -930,6 +955,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "le docteur Rey",
+      "en": "Dr Rey",
+      "ko": "레 선생님은"
+     },
+     "opts": [
+      {
+       "fr": "ton ami",
+       "en": "your friend",
+       "ko": "친구는"
+      },
+      {
+       "fr": "ton père",
+       "en": "your dad",
+       "ko": "아빠는"
+      },
+      {
+       "fr": "ton frère",
+       "en": "your brother",
+       "ko": "동생은"
+      }
+     ]
     }
    }
   },
@@ -1370,6 +1420,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "peins",
+      "en": "painting",
+      "ko": "그려"
+     },
+     "opts": [
+      {
+       "fr": "lis",
+       "en": "reading",
+       "ko": "읽어"
+      },
+      {
+       "fr": "écoutes",
+       "en": "listening to",
+       "ko": "들어"
+      },
+      {
+       "fr": "regardes",
+       "en": "watching",
+       "ko": "봐"
+      }
+     ]
     }
    }
   },
@@ -1808,6 +1883,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "la Berceuse",
+      "en": "the Berceuse",
+      "ko": "자장가 그림은"
+     },
+     "opts": [
+      {
+       "fr": "le gâteau",
+       "en": "the cake",
+       "ko": "케이크는"
+      },
+      {
+       "fr": "ce cadeau",
+       "en": "this present",
+       "ko": "이 선물은"
+      },
+      {
+       "fr": "la lettre",
+       "en": "the letter",
+       "ko": "편지는"
+      }
+     ]
     }
    }
   },
@@ -2226,6 +2326,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "les voisins",
+      "en": "the neighbours",
+      "ko": "이웃들은"
+     },
+     "opts": [
+      {
+       "fr": "tes amis",
+       "en": "your friends",
+       "ko": "친구들은"
+      },
+      {
+       "fr": "tes collègues",
+       "en": "your colleagues",
+       "ko": "동료들은"
+      },
+      {
+       "fr": "les gens",
+       "en": "the people",
+       "ko": "사람들은"
+      }
+     ]
     }
    }
   },
@@ -2640,7 +2765,32 @@
      "profiter"
     ],
     "grammar": "V.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "quelque chose",
+      "en": "something",
+      "ko": "뭐 산 거 있어"
+     },
+     "opts": [
+      {
+       "fr": "un livre",
+       "en": "a book",
+       "ko": "책 샀어"
+      },
+      {
+       "fr": "des vêtements",
+       "en": "some clothes",
+       "ko": "옷 샀어"
+      },
+      {
+       "fr": "un café",
+       "en": "a coffee",
+       "ko": "커피 샀어"
+      }
+     ]
+    }
    }
   },
   {
@@ -3089,6 +3239,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "On se marie",
+      "en": "We're getting married",
+      "ko": "결혼해"
+     },
+     "opts": [
+      {
+       "fr": "On déménage",
+       "en": "We're moving",
+       "ko": "이사해"
+      },
+      {
+       "fr": "On voyage",
+       "en": "We're travelling",
+       "ko": "여행 가"
+      },
+      {
+       "fr": "On arrive",
+       "en": "We're coming",
+       "ko": "도착해"
+      }
+     ]
     }
    }
   }

@@ -21,6 +21,9 @@
   basics     기초 낱말 덱 basics[_en|_ko].json (있는 것만, core Basics): lang · top (겹치지 않는 표제어) · items
              (id = sha1("<작품>[_말]/<낱말>") 앞 8자, 겹치지 않음, 낱말 (여러 낱말이면 "k") 은 top 안, pos, 뜻은 덱의 말을 뺀 ko · en,
              ex 는 t · 같은 언어 번역 · from = 그 작품의 편지 id 또는 null)
+  mine       회화의 "mine" (있는 것만, core Mine): line = 내 줄 (who = me) 번호, slot 세 언어 · 그 줄에 그대로 있는 글, opts 3개 (세 언어)
+  sounds     이번 장의 소리 sounds[_en|_ko].json (있는 것만, core Sounds): lang · checked · chapters (I~VIII 만) 마다
+             pairs 4쌍 (서로 다른 두 낱말), name · tip 은 ko · en 가운데 덱의 말을 뺀 것, mean 의 낱말은 쌍 안의 것
   talk_audio (알림만) talk.audio 가 있는데 소리 파일이 assets · remote 에 없음
              ("audio" 는 "t" 또는 {"*": "t", "ko": "tk"}: 언어마다 앞부분, 없는 언어는 "*" — core Talk.audioName)
 """
@@ -38,6 +41,9 @@ TURNS_MIN, TURNS_MAX = 1, 3
 GRAMMAR_PER_CHAPTER = 3
 SHOW = 6
 BASICS_TOP = 300
+MINE_OPTS = 3
+SOUND_PAIRS = 4
+SOUND_CHAPTERS = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII"}
 
 
 def basic_id(name, w):
@@ -225,6 +231,21 @@ def check_series(sid, drafts, verbose):
                             rep.check("talk", ck in x.get(lang, ""), f"{lid} 줄 {li + 1}: focus[{lang}] '{ck}' 가 줄에 없음")
             ws = t.get("words")
             rep.check("talk", bool(ws), f"{lid}: words (쓰는 오늘 낱말) 없음")
+            mn = t.get("mine")
+            if mn is not None:
+                li = mn.get("line") if isinstance(mn, dict) else None
+                line = lines[li] if isinstance(li, int) and not isinstance(li, bool) and 0 <= li < len(lines) else None
+                if line is None or line.get("who") != "me":
+                    rep.bad("mine", f"{lid}: line {li!r} 가 내 줄 (who = me) 이 아님")
+                else:
+                    slot = mn.get("slot") or {}
+                    rep.check("mine", has(slot, L3), f"{lid}: slot 세 언어")
+                    for lang in L3:
+                        if slot.get(lang):
+                            rep.check("mine", slot[lang] in (line.get(lang) or ""), f"{lid}: slot[{lang}] '{slot[lang]}' 가 줄에 없음")
+                    opts = mn.get("opts")
+                    rep.check("mine", isinstance(opts, list) and len(opts) == MINE_OPTS and all(has(o, L3) for o in opts),
+                              f"{lid}: opts {MINE_OPTS}개 · 세 언어")
             rep.check("talk", t.get("grammar") in grammar_ids, f"{lid}: grammar {t.get('grammar')!r} 가 장 문법에 없음")
             a = t.get("audio")
             if isinstance(a, dict):
@@ -291,9 +312,38 @@ def check_series(sid, drafts, verbose):
                 ok = has(ex, ["t"] + need) and lang not in ex and (ex.get("from") is None or ex.get("from") in letter_ids)
                 rep.check("basics", ok, f"{where}: ex 는 t · {' · '.join(need)} · from (편지 id 또는 null)")
 
+    # sounds: 이번 장의 소리 (있는 것만)
+    for lang in L3:
+        deck = "" if lang == orig else lang
+        f = os.path.join(folder, f"sounds{'_' + deck if deck else ''}.json")
+        if not os.path.exists(f):
+            continue
+        name = os.path.basename(f)
+        try:
+            d = json.load(open(f, encoding="utf-8"))
+        except ValueError as e:
+            rep.bad("sounds", f"{name}: JSON ({e})"); continue
+        rep.check("sounds", d.get("lang") == lang, f"{name}: lang {d.get('lang')!r} (덱의 말 {lang})")
+        rep.check("sounds", isinstance(d.get("checked"), bool), f"{name}: checked (true · false)")
+        need = [x for x in ("ko", "en") if x != lang]
+        chs = d.get("chapters") or {}
+        for cid, c in chs.items():
+            where = f"{name} {cid}"
+            if cid not in SOUND_CHAPTERS:
+                rep.bad("sounds", f"{where}: 장 id 는 I~VIII"); continue
+            pairs = c.get("pairs") if isinstance(c, dict) else None
+            ok = isinstance(pairs, list) and len(pairs) == SOUND_PAIRS and all(
+                isinstance(p, list) and len(p) == 2 and all(isinstance(w, str) and w.strip() for w in p) and p[0] != p[1] for p in pairs)
+            rep.check("sounds", ok, f"{where}: pairs {SOUND_PAIRS}쌍 (서로 다른 두 낱말)")
+            for k in ("name", "tip"):
+                rep.check("sounds", has(c.get(k), need) and lang not in (c.get(k) or {}), f"{where}: {k} 는 {' · '.join(need)} (덱의 말 {lang} 은 빼기)")
+            words = {w for p in (pairs or []) if isinstance(p, list) for w in p}
+            for w in (c.get("mean") or {}):
+                rep.check("sounds", w in words, f"{where}: mean 의 '{w}' 가 쌍에 없음")
+
     # 보고
     print(f"== {sid} ({orig}) · 편지 {len(lessons)}통 (+ 프롤로그 {len(every) - len(lessons)})")
-    for name in ("files", "messages", "grammar", "words", "words_easy", "pron", "phrases", "check", "talk", "replies", "basics"):
+    for name in ("files", "messages", "grammar", "words", "words_easy", "pron", "phrases", "check", "talk", "mine", "replies", "basics", "sounds"):
         if name not in rep.rules:
             continue
         n, fails = rep.rules[name]

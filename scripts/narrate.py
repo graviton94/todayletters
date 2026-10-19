@@ -22,6 +22,7 @@
   NARRATE_ONLY=new: talk + vocab 을 한 번에. vocab 은 서문 파일(장 P)을 돌 때 기초 낱말 덱도 (작품마다 한 번):
           data/<작품>/basics[_en|_ko].json (core Basics) 의 낱말 b_<언어>_<id>.m4a · 예문 bx_<언어>_<id>.m4a 를
           <출력>/<작품>/B/basics/ 에 (앱 경로 audio/<작품>/B/basics/, R2 묶음 "B"). 덱 파일이 없으면 건너뛴다. 차분한(calm) 프리셋.
+          이번 장의 소리 data/<작품>/sounds[_en|_ko].json (core Sounds) 의 쌍 낱말 s_<언어>_<slug>.m4a 도 <출력>/<작품>/S/sounds/ 에 (R2 묶음 "S").
   NARRATE_ONLY=replies: 답장 말해 보기 문장만 (편지의 "replies" 턴, 학습 언어마다: 앱이 보여 주는 그 언어 줄, ko 는 해요체 "ko")
           r<턴 번호 1부터>_<언어>.m4a (core Exercises.replyAudioName). 회화 "me" 줄과 같은 받는 사람 목소리 (talk_me) · 차분한 프리셋.
           replies 가 없는 편지 (서문) 는 앱이 메시지 하나를 대신 말하게 하므로 그 메시지 낭독 m<번호> 를 쓴다 (만들지 않음).
@@ -252,6 +253,20 @@ if ONLY in ("vocab", "new"):
                 if t and wanted(path):
                     save(path, speak(t, lang, presets["calm"])[0], 1.0); n += 1
             print("basics ok", series, lang, flush=True)
+        # 이번 장의 소리 (core Sounds): data/<작품>/sounds[_en|_ko].json 의 장마다 쌍 낱말 s_<언어>_<slug>.m4a (카드 낱말과 같은 slug),
+        # <출력>/<작품>/S/sounds/ (앱 경로 audio/<작품>/S/sounds/, R2 묶음 "S"). 없는 파일만
+        for lang in langs:
+            f = f"data/{series}/sounds{'' if lang == book['original'] else '_' + lang}.json"
+            if not os.path.exists(f):
+                continue
+            base = os.path.join(out, series, "S", "sounds")
+            words = dict.fromkeys(w.strip() for c in json.load(open(f, encoding="utf-8")).get("chapters", {}).values()
+                                  for pair in c.get("pairs", []) for w in pair if isinstance(w, str) and w.strip())
+            for w in words:
+                path = os.path.join(base, f"s_{lang}_{slug(w)}.m4a")
+                if wanted(path):
+                    save(path, speak(w, lang, presets["calm"])[0], 1.0); n += 1
+            print("sounds ok", series, lang, flush=True)
     print("vocab files", n)
     sys.exit(0)
 PICK = {tuple(x.split("/")) for x in os.environ.get("NARRATE_MESSAGES", "").split()} if ONLY == "messages" else None

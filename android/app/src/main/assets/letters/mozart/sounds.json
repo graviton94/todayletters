@@ -1,0 +1,503 @@
+{
+ "_doc": "이번 장의 소리: 장마다 소리 짝 하나. checked=false 는 사람 확인 전.",
+ "lang": "de",
+ "checked": false,
+ "chapters": {
+  "I": {
+   "name": {
+    "ko": "ü 와 u",
+    "en": "ü and u"
+   },
+   "tip": {
+    "ko": "ü 는 ‘이’ 입 모양에서 입술만 둥글게, u 는 ‘우’",
+    "en": "For ü say 'ee', then round your lips; u is a plain 'oo'"
+   },
+   "pairs": [
+    [
+     "für",
+     "fuhr"
+    ],
+    [
+     "Tür",
+     "Tour"
+    ],
+    [
+     "Brüder",
+     "Bruder"
+    ],
+    [
+     "würde",
+     "wurde"
+    ]
+   ],
+   "mean": {
+    "für": {
+     "ko": "~을 위해",
+     "en": "for"
+    },
+    "fuhr": {
+     "ko": "(타고) 갔다",
+     "en": "drove, went"
+    },
+    "Tür": {
+     "ko": "문",
+     "en": "door"
+    },
+    "Tour": {
+     "ko": "여행, 투어",
+     "en": "tour"
+    },
+    "Brüder": {
+     "ko": "형제들",
+     "en": "brothers"
+    },
+    "Bruder": {
+     "ko": "형제",
+     "en": "brother"
+    },
+    "würde": {
+     "ko": "~할 텐데",
+     "en": "would"
+    },
+    "wurde": {
+     "ko": "~이 되었다",
+     "en": "became"
+    }
+   }
+  },
+  "II": {
+   "name": {
+    "ko": "ö 와 o",
+    "en": "ö and o"
+   },
+   "tip": {
+    "ko": "ö 는 ‘에’ 입 모양에서 입술만 둥글게, o 는 ‘오’",
+    "en": "For ö say 'ay' (as in 'say'), then round your lips; o is a plain 'oh'"
+   },
+   "pairs": [
+    [
+     "schön",
+     "schon"
+    ],
+    [
+     "Töchter",
+     "Tochter"
+    ],
+    [
+     "Böden",
+     "Boden"
+    ],
+    [
+     "Öfen",
+     "Ofen"
+    ]
+   ],
+   "mean": {
+    "schön": {
+     "ko": "아름다운",
+     "en": "beautiful"
+    },
+    "schon": {
+     "ko": "벌써",
+     "en": "already"
+    },
+    "Töchter": {
+     "ko": "딸들",
+     "en": "daughters"
+    },
+    "Tochter": {
+     "ko": "딸",
+     "en": "daughter"
+    },
+    "Böden": {
+     "ko": "바닥들",
+     "en": "floors"
+    },
+    "Boden": {
+     "ko": "바닥",
+     "en": "floor"
+    },
+    "Öfen": {
+     "ko": "난로들",
+     "en": "stoves"
+    },
+    "Ofen": {
+     "ko": "난로, 오븐",
+     "en": "stove, oven"
+    }
+   }
+  },
+  "III": {
+   "name": {
+    "ko": "ch: ich 소리와 ach 소리",
+    "en": "ch: 'ich' and 'ach'"
+   },
+   "tip": {
+    "ko": "e·i·ä·ö·ü 뒤의 ch 는 혀 앞쪽에서 가볍게 ‘히’, a·o·u 뒤는 목 안쪽에서 ‘흐’",
+    "en": "After e, i, ä, ö, ü: a soft hiss at the front, like the h in 'huge'; after a, o, u: a rasp at the back, like Scottish 'loch'"
+   },
+   "pairs": [
+    [
+     "ich",
+     "ach"
+    ],
+    [
+     "Bücher",
+     "Buch"
+    ],
+    [
+     "Dächer",
+     "Dach"
+    ],
+    [
+     "Nächte",
+     "Nacht"
+    ]
+   ],
+   "mean": {
+    "ich": {
+     "ko": "나",
+     "en": "I"
+    },
+    "ach": {
+     "ko": "아, 아이고",
+     "en": "oh, ah"
+    },
+    "Bücher": {
+     "ko": "책들",
+     "en": "books"
+    },
+    "Buch": {
+     "ko": "책",
+     "en": "book"
+    },
+    "Dächer": {
+     "ko": "지붕들",
+     "en": "roofs"
+    },
+    "Dach": {
+     "ko": "지붕",
+     "en": "roof"
+    },
+    "Nächte": {
+     "ko": "밤들",
+     "en": "nights"
+    },
+    "Nacht": {
+     "ko": "밤",
+     "en": "night"
+    }
+   }
+  },
+  "IV": {
+   "name": {
+    "ko": "r 와 l",
+    "en": "r and l"
+   },
+   "tip": {
+    "ko": "r 은 목 안쪽(목젖 근처)에서 살짝 긁듯, l 은 혀끝을 윗잇몸에",
+    "en": "German r is made at the back of the throat; l with the tongue tip behind the top teeth"
+   },
+   "pairs": [
+    [
+     "Regen",
+     "legen"
+    ],
+    [
+     "Reise",
+     "leise"
+    ],
+    [
+     "Rand",
+     "Land"
+    ],
+    [
+     "Rose",
+     "lose"
+    ]
+   ],
+   "mean": {
+    "Regen": {
+     "ko": "비",
+     "en": "rain"
+    },
+    "legen": {
+     "ko": "놓다, 눕히다",
+     "en": "to lay, to put"
+    },
+    "Reise": {
+     "ko": "여행",
+     "en": "journey, trip"
+    },
+    "leise": {
+     "ko": "조용한",
+     "en": "quiet"
+    },
+    "Rand": {
+     "ko": "가장자리",
+     "en": "edge"
+    },
+    "Land": {
+     "ko": "나라, 시골",
+     "en": "country, land"
+    },
+    "Rose": {
+     "ko": "장미",
+     "en": "rose"
+    },
+    "lose": {
+     "ko": "느슨한, 낱개의",
+     "en": "loose"
+    }
+   }
+  },
+  "V": {
+   "name": {
+    "ko": "긴 모음과 짧은 모음",
+    "en": "Long and short vowels"
+   },
+   "tip": {
+    "ko": "모음 뒤 자음이 하나면 길게, 둘이면 짧고 빠르게 (Staat 길게, Stadt 짧게)",
+    "en": "One consonant after the vowel: long; two: short and clipped (Staat long, Stadt short)"
+   },
+   "pairs": [
+    [
+     "Staat",
+     "Stadt"
+    ],
+    [
+     "Miete",
+     "Mitte"
+    ],
+    [
+     "Ofen",
+     "offen"
+    ],
+    [
+     "bieten",
+     "bitten"
+    ]
+   ],
+   "mean": {
+    "Staat": {
+     "ko": "국가",
+     "en": "state, nation"
+    },
+    "Stadt": {
+     "ko": "도시",
+     "en": "city, town"
+    },
+    "Miete": {
+     "ko": "집세, 월세",
+     "en": "rent"
+    },
+    "Mitte": {
+     "ko": "가운데",
+     "en": "middle"
+    },
+    "Ofen": {
+     "ko": "난로, 오븐",
+     "en": "stove, oven"
+    },
+    "offen": {
+     "ko": "열린",
+     "en": "open"
+    },
+    "bieten": {
+     "ko": "제공하다",
+     "en": "to offer"
+    },
+    "bitten": {
+     "ko": "부탁하다",
+     "en": "to ask, to request"
+    }
+   }
+  },
+  "VI": {
+   "name": {
+    "ko": "ei 와 ie",
+    "en": "ei and ie"
+   },
+   "tip": {
+    "ko": "ei 는 ‘아이’, ie 는 길게 ‘이—’ (철자 순서와 반대로 들린다)",
+    "en": "ei sounds like 'eye'; ie is a long 'ee'"
+   },
+   "pairs": [
+    [
+     "Wein",
+     "Wien"
+    ],
+    [
+     "Reise",
+     "Riese"
+    ],
+    [
+     "leider",
+     "Lieder"
+    ],
+    [
+     "bleiben",
+     "blieben"
+    ]
+   ],
+   "mean": {
+    "Wein": {
+     "ko": "포도주",
+     "en": "wine"
+    },
+    "Wien": {
+     "ko": "빈 (도시)",
+     "en": "Vienna"
+    },
+    "Reise": {
+     "ko": "여행",
+     "en": "journey, trip"
+    },
+    "Riese": {
+     "ko": "거인",
+     "en": "giant"
+    },
+    "leider": {
+     "ko": "유감스럽게도",
+     "en": "unfortunately"
+    },
+    "Lieder": {
+     "ko": "노래들",
+     "en": "songs"
+    },
+    "bleiben": {
+     "ko": "머무르다",
+     "en": "to stay"
+    },
+    "blieben": {
+     "ko": "머물렀다",
+     "en": "stayed"
+    }
+   }
+  },
+  "VII": {
+   "name": {
+    "ko": "끝소리 b·d·g → p·t·k",
+    "en": "Final b, d, g → p, t, k"
+   },
+   "tip": {
+    "ko": "낱말 끝의 b·d·g 는 p·t·k 로 소리 난다 — 두 낱말이 같은 소리",
+    "en": "At the end of a word b, d, g sound like p, t, k — each pair sounds the same"
+   },
+   "pairs": [
+    [
+     "Rad",
+     "Rat"
+    ],
+    [
+     "Lied",
+     "Lid"
+    ],
+    [
+     "seid",
+     "seit"
+    ],
+    [
+     "Bund",
+     "bunt"
+    ]
+   ],
+   "mean": {
+    "Rad": {
+     "ko": "바퀴, 자전거",
+     "en": "wheel, bike"
+    },
+    "Rat": {
+     "ko": "조언",
+     "en": "advice"
+    },
+    "Lied": {
+     "ko": "노래",
+     "en": "song"
+    },
+    "Lid": {
+     "ko": "눈꺼풀",
+     "en": "eyelid"
+    },
+    "seid": {
+     "ko": "(너희는) ~이다",
+     "en": "(you all) are"
+    },
+    "seit": {
+     "ko": "~부터, ~이래로",
+     "en": "since"
+    },
+    "Bund": {
+     "ko": "연합, 동맹",
+     "en": "union, federation"
+    },
+    "bunt": {
+     "ko": "알록달록한",
+     "en": "colourful"
+    }
+   }
+  },
+  "VIII": {
+   "name": {
+    "ko": "z 와 s",
+    "en": "z and s"
+   },
+   "tip": {
+    "ko": "z 는 ‘ㅊ’에 가까운 [ts], 모음 앞의 s 는 목을 울리는 [z]",
+    "en": "z sounds like 'ts'; s before a vowel buzzes like English z"
+   },
+   "pairs": [
+    [
+     "Zeit",
+     "seit"
+    ],
+    [
+     "zieht",
+     "sieht"
+    ],
+    [
+     "Zoll",
+     "soll"
+    ],
+    [
+     "Zahl",
+     "Saal"
+    ]
+   ],
+   "mean": {
+    "Zeit": {
+     "ko": "시간",
+     "en": "time"
+    },
+    "seit": {
+     "ko": "~부터, ~이래로",
+     "en": "since"
+    },
+    "zieht": {
+     "ko": "당긴다",
+     "en": "pulls"
+    },
+    "sieht": {
+     "ko": "본다",
+     "en": "sees"
+    },
+    "Zoll": {
+     "ko": "세관, 관세",
+     "en": "customs"
+    },
+    "soll": {
+     "ko": "~해야 한다",
+     "en": "should"
+    },
+    "Zahl": {
+     "ko": "숫자",
+     "en": "number"
+    },
+    "Saal": {
+     "ko": "홀, 큰 방",
+     "en": "hall"
+    }
+   }
+  }
+ }
+}

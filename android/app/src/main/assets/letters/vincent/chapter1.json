@@ -494,7 +494,32 @@
      "penser"
     ],
     "grammar": "I.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "du voyage",
+      "en": "from travelling",
+      "ko": "오느라"
+     },
+     "opts": [
+      {
+       "fr": "du travail",
+       "en": "from work",
+       "ko": "일하느라"
+      },
+      {
+       "fr": "des cours",
+       "en": "from classes",
+       "ko": "공부하느라"
+      },
+      {
+       "fr": "du sport",
+       "en": "from sport",
+       "ko": "운동하느라"
+      }
+     ]
+    }
    }
   },
   {
@@ -909,7 +934,32 @@
      "travail"
     ],
     "grammar": "I.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "beaucoup",
+      "en": "lots",
+      "ko": "많이"
+     },
+     "opts": [
+      {
+       "fr": "le français",
+       "en": "French",
+       "ko": "프랑스어를"
+      },
+      {
+       "fr": "à peindre",
+       "en": "to paint",
+       "ko": "그림 그리기를"
+      },
+      {
+       "fr": "à cuisiner",
+       "en": "to cook",
+       "ko": "요리를"
+      }
+     ]
+    }
    }
   },
   {
@@ -1327,7 +1377,32 @@
      "travailler"
     ],
     "grammar": "I.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "dehors",
+      "en": "outside",
+      "ko": "밖에서"
+     },
+     "opts": [
+      {
+       "fr": "à la maison",
+       "en": "at home",
+       "ko": "집에서"
+      },
+      {
+       "fr": "au café",
+       "en": "at the café",
+       "ko": "카페에서"
+      },
+      {
+       "fr": "le soir",
+       "en": "in the evening",
+       "ko": "저녁에"
+      }
+     ]
+    }
    }
   },
   {
@@ -1692,7 +1767,32 @@
      "lettre"
     ],
     "grammar": "I.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "de travail",
+      "en": "work",
+      "ko": "일이"
+     },
+     "opts": [
+      {
+       "fr": "de devoirs",
+       "en": "homework",
+       "ko": "숙제가"
+      },
+      {
+       "fr": "d'amis",
+       "en": "friends",
+       "ko": "친구가"
+      },
+      {
+       "fr": "de temps",
+       "en": "time",
+       "ko": "시간이"
+      }
+     ]
+    }
    }
   },
   {
@@ -2067,7 +2167,32 @@
      "mal"
     ],
     "grammar": "I.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "dors",
+      "en": "sleeping",
+      "ko": "잠은 잘 자"
+     },
+     "opts": [
+      {
+       "fr": "manges",
+       "en": "eating",
+       "ko": "밥은 잘 먹어"
+      },
+      {
+       "fr": "vas",
+       "en": "doing",
+       "ko": "잘 지내"
+      },
+      {
+       "fr": "étudies",
+       "en": "studying",
+       "ko": "공부는 잘 돼"
+      }
+     ]
+    }
    }
   },
   {
@@ -2428,7 +2553,32 @@
      "mois"
     ],
     "grammar": "I.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "d'un lit",
+      "en": "a bed",
+      "ko": "침대"
+     },
+     "opts": [
+      {
+       "fr": "d'aide",
+       "en": "help",
+       "ko": "도움"
+      },
+      {
+       "fr": "d'argent",
+       "en": "money",
+       "ko": "돈"
+      },
+      {
+       "fr": "d'un café",
+       "en": "a coffee",
+       "ko": "커피"
+      }
+     ]
+    }
    }
   },
   {
@@ -2831,7 +2981,32 @@
      "manger"
     ],
     "grammar": "I.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "je mange bien",
+      "en": "I'm eating well",
+      "ko": "잘 먹어"
+     },
+     "opts": [
+      {
+       "fr": "je dors bien",
+       "en": "I'm sleeping well",
+       "ko": "잘 자"
+      },
+      {
+       "fr": "je vais bien",
+       "en": "I'm doing well",
+       "ko": "잘 지내"
+      },
+      {
+       "fr": "je suis fatigué",
+       "en": "I'm tired",
+       "ko": "피곤해"
+      }
+     ]
+    }
    }
   }
  ]

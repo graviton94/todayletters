@@ -1,0 +1,414 @@
+{
+ "_doc": "이번 장의 소리: 장마다 소리 짝 하나. checked=false 는 사람 확인 전.",
+ "lang": "ko",
+ "checked": false,
+ "chapters": {
+  "I": {
+   "name": {
+    "en": "ㄱ, ㄲ and ㅋ (plain, tense, aspirated)"
+   },
+   "tip": {
+    "en": "ㄱ soft and relaxed; ㄲ tight throat, no puff; ㅋ a strong puff of air"
+   },
+   "pairs": [
+    [
+     "굴",
+     "꿀"
+    ],
+    [
+     "공",
+     "콩"
+    ],
+    [
+     "개",
+     "깨"
+    ],
+    [
+     "끄다",
+     "크다"
+    ]
+   ],
+   "mean": {
+    "굴": {
+     "en": "oyster"
+    },
+    "꿀": {
+     "en": "honey"
+    },
+    "공": {
+     "en": "ball"
+    },
+    "콩": {
+     "en": "bean"
+    },
+    "개": {
+     "en": "dog"
+    },
+    "깨": {
+     "en": "sesame"
+    },
+    "끄다": {
+     "en": "to turn off"
+    },
+    "크다": {
+     "en": "to be big"
+    }
+   }
+  },
+  "II": {
+   "name": {
+    "en": "ㅂ, ㅃ and ㅍ"
+   },
+   "tip": {
+    "en": "Lips together: ㅂ soft, ㅃ tight with no air, ㅍ with a puff"
+   },
+   "pairs": [
+    [
+     "불",
+     "풀"
+    ],
+    [
+     "불",
+     "뿔"
+    ],
+    [
+     "방",
+     "빵"
+    ],
+    [
+     "발",
+     "팔"
+    ]
+   ],
+   "mean": {
+    "불": {
+     "en": "fire"
+    },
+    "풀": {
+     "en": "grass"
+    },
+    "뿔": {
+     "en": "horn"
+    },
+    "방": {
+     "en": "room"
+    },
+    "빵": {
+     "en": "bread"
+    },
+    "발": {
+     "en": "foot"
+    },
+    "팔": {
+     "en": "arm"
+    }
+   }
+  },
+  "III": {
+   "name": {
+    "en": "ㄷ, ㄸ and ㅌ"
+   },
+   "tip": {
+    "en": "Tongue behind the top teeth: ㄷ soft, ㄸ tight, ㅌ with a puff"
+   },
+   "pairs": [
+    [
+     "달",
+     "딸"
+    ],
+    [
+     "달",
+     "탈"
+    ],
+    [
+     "담",
+     "땀"
+    ],
+    [
+     "떡",
+     "턱"
+    ]
+   ],
+   "mean": {
+    "달": {
+     "en": "moon"
+    },
+    "딸": {
+     "en": "daughter"
+    },
+    "탈": {
+     "en": "mask"
+    },
+    "담": {
+     "en": "wall"
+    },
+    "땀": {
+     "en": "sweat"
+    },
+    "떡": {
+     "en": "rice cake"
+    },
+    "턱": {
+     "en": "chin"
+    }
+   }
+  },
+  "IV": {
+   "name": {
+    "en": "ㅓ and ㅗ"
+   },
+   "tip": {
+    "en": "ㅓ: open mouth, lips relaxed (like 'uh'); ㅗ: lips pushed round (like 'oh')"
+   },
+   "pairs": [
+    [
+     "벌",
+     "볼"
+    ],
+    [
+     "섬",
+     "솜"
+    ],
+    [
+     "덜",
+     "돌"
+    ],
+    [
+     "멀다",
+     "몰다"
+    ]
+   ],
+   "mean": {
+    "벌": {
+     "en": "bee"
+    },
+    "볼": {
+     "en": "cheek"
+    },
+    "섬": {
+     "en": "island"
+    },
+    "솜": {
+     "en": "cotton"
+    },
+    "덜": {
+     "en": "less"
+    },
+    "돌": {
+     "en": "stone"
+    },
+    "멀다": {
+     "en": "to be far"
+    },
+    "몰다": {
+     "en": "to drive"
+    }
+   }
+  },
+  "V": {
+   "name": {
+    "en": "ㅡ and ㅜ"
+   },
+   "tip": {
+    "en": "ㅡ: lips flat and spread; ㅜ: lips rounded and pushed out"
+   },
+   "pairs": [
+    [
+     "글",
+     "굴"
+    ],
+    [
+     "들",
+     "둘"
+    ],
+    [
+     "은",
+     "운"
+    ],
+    [
+     "그",
+     "구"
+    ]
+   ],
+   "mean": {
+    "글": {
+     "en": "writing"
+    },
+    "굴": {
+     "en": "oyster"
+    },
+    "들": {
+     "en": "field"
+    },
+    "둘": {
+     "en": "two"
+    },
+    "은": {
+     "en": "silver"
+    },
+    "운": {
+     "en": "luck"
+    },
+    "그": {
+     "en": "that"
+    },
+    "구": {
+     "en": "nine"
+    }
+   }
+  },
+  "VI": {
+   "name": {
+    "en": "ㅅ and ㅆ"
+   },
+   "tip": {
+    "en": "ㅅ soft and breathy; ㅆ tight and sharp, no extra air"
+   },
+   "pairs": [
+    [
+     "사다",
+     "싸다"
+    ],
+    [
+     "살",
+     "쌀"
+    ],
+    [
+     "시",
+     "씨"
+    ],
+    [
+     "상",
+     "쌍"
+    ]
+   ],
+   "mean": {
+    "사다": {
+     "en": "to buy"
+    },
+    "싸다": {
+     "en": "to be cheap"
+    },
+    "살": {
+     "en": "flesh"
+    },
+    "쌀": {
+     "en": "rice (uncooked)"
+    },
+    "시": {
+     "en": "poem"
+    },
+    "씨": {
+     "en": "seed"
+    },
+    "상": {
+     "en": "table · prize"
+    },
+    "쌍": {
+     "en": "pair"
+    }
+   }
+  },
+  "VII": {
+   "name": {
+    "en": "Final ㄴ and ㅇ"
+   },
+   "tip": {
+    "en": "Final ㄴ: tongue tip touches behind the teeth; final ㅇ: back of the tongue, like 'ng'"
+   },
+   "pairs": [
+    [
+     "반",
+     "방"
+    ],
+    [
+     "산",
+     "상"
+    ],
+    [
+     "돈",
+     "동"
+    ],
+    [
+     "잔",
+     "장"
+    ]
+   ],
+   "mean": {
+    "반": {
+     "en": "half · class"
+    },
+    "방": {
+     "en": "room"
+    },
+    "산": {
+     "en": "mountain"
+    },
+    "상": {
+     "en": "table · prize"
+    },
+    "돈": {
+     "en": "money"
+    },
+    "동": {
+     "en": "east"
+    },
+    "잔": {
+     "en": "cup · glass"
+    },
+    "장": {
+     "en": "market"
+    }
+   }
+  },
+  "VIII": {
+   "name": {
+    "en": "Final ㄱ, ㄷ and ㅂ"
+   },
+   "tip": {
+    "en": "Stop the sound without releasing it: ㄱ at the back of the tongue, ㄷ at the tongue tip, ㅂ with closed lips"
+   },
+   "pairs": [
+    [
+     "밥",
+     "박"
+    ],
+    [
+     "밭",
+     "밥"
+    ],
+    [
+     "곧",
+     "곡"
+    ],
+    [
+     "낮",
+     "납"
+    ]
+   ],
+   "mean": {
+    "밥": {
+     "en": "rice · meal"
+    },
+    "박": {
+     "en": "gourd"
+    },
+    "밭": {
+     "en": "field"
+    },
+    "곧": {
+     "en": "soon"
+    },
+    "곡": {
+     "en": "song · tune"
+    },
+    "낮": {
+     "en": "daytime"
+    },
+    "납": {
+     "en": "lead (metal)"
+    }
+   }
+  }
+ }
+}

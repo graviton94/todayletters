@@ -554,7 +554,32 @@
      "vert"
     ],
     "grammar": "III.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "fini",
+      "en": "finish",
+      "ko": "끝냈어"
+     },
+     "opts": [
+      {
+       "fr": "mangé",
+       "en": "eat",
+       "ko": "먹었어"
+      },
+      {
+       "fr": "dormi",
+       "en": "sleep",
+       "ko": "잤어"
+      },
+      {
+       "fr": "commencé",
+       "en": "start",
+       "ko": "시작했어"
+      }
+     ]
+    }
    }
   },
   {
@@ -1016,7 +1041,32 @@
      "ajouter"
     ],
     "grammar": "III.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "cette semaine",
+      "en": "this week",
+      "ko": "이번 주에"
+     },
+     "opts": [
+      {
+       "fr": "demain",
+       "en": "tomorrow",
+       "ko": "내일"
+      },
+      {
+       "fr": "ce soir",
+       "en": "tonight",
+       "ko": "오늘 밤에"
+      },
+      {
+       "fr": "lundi",
+       "en": "on Monday",
+       "ko": "월요일에"
+      }
+     ]
+    }
    }
   },
   {
@@ -1489,7 +1539,32 @@
      "tableau"
     ],
     "grammar": "III.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "une lampe",
+      "en": "a lamp",
+      "ko": "등불 들고"
+     },
+     "opts": [
+      {
+       "fr": "un ami",
+       "en": "a friend",
+       "ko": "친구랑"
+      },
+      {
+       "fr": "ton chien",
+       "en": "your dog",
+       "ko": "강아지랑"
+      },
+      {
+       "fr": "ta famille",
+       "en": "your family",
+       "ko": "가족이랑"
+      }
+     ]
+    }
    }
   },
   {
@@ -1915,7 +1990,32 @@
      "japonais"
     ],
     "grammar": "III.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "content",
+      "en": "happy",
+      "ko": "기뻐"
+     },
+     "opts": [
+      {
+       "fr": "fier",
+       "en": "proud",
+       "ko": "뿌듯해"
+      },
+      {
+       "fr": "prêt",
+       "en": "ready",
+       "ko": "준비됐어"
+      },
+      {
+       "fr": "surpris",
+       "en": "surprised",
+       "ko": "놀랐어"
+      }
+     ]
+    }
    }
   },
   {
@@ -2339,7 +2439,32 @@
      "lundi"
     ],
     "grammar": "III.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "Écris-moi",
+      "en": "Write to me",
+      "ko": "편지해"
+     },
+     "opts": [
+      {
+       "fr": "Appelle-moi",
+       "en": "Call me",
+       "ko": "전화해"
+      },
+      {
+       "fr": "Viens",
+       "en": "Come",
+       "ko": "와"
+      },
+      {
+       "fr": "Réponds-moi",
+       "en": "Answer me",
+       "ko": "답장해"
+      }
+     ]
+    }
    }
   },
   {
@@ -2758,7 +2883,32 @@
      "repos"
     ],
     "grammar": "III.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "as bien dormi",
+      "en": "sleep well",
+      "ko": "잘 잤어"
+     },
+     "opts": [
+      {
+       "fr": "as bien mangé",
+       "en": "eat well",
+       "ko": "잘 먹었어"
+      },
+      {
+       "fr": "as bien travaillé",
+       "en": "work hard",
+       "ko": "열심히 일했어"
+      },
+      {
+       "fr": "t'es bien amusé",
+       "en": "have fun",
+       "ko": "재밌게 놀았어"
+      }
+     ]
+    }
    }
   },
   {
@@ -3203,7 +3353,32 @@
      "toile"
     ],
     "grammar": "III.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "Gauguin",
+      "en": "Gauguin",
+      "ko": "고갱은"
+     },
+     "opts": [
+      {
+       "fr": "Ton ami",
+       "en": "your friend",
+       "ko": "친구는"
+      },
+      {
+       "fr": "Le bus",
+       "en": "the bus",
+       "ko": "버스는"
+      },
+      {
+       "fr": "Le train",
+       "en": "the train",
+       "ko": "기차는"
+      }
+     ]
+    }
    }
   }
  ]

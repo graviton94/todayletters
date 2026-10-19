@@ -571,7 +571,32 @@
      "sitzen"
     ],
     "grammar": "V.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": {"*": "tb", "ko": "tk"},
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "beim Erzbischof",
+      "en": "at the Archbishop's",
+      "ko": "대주교 댁은"
+     },
+     "opts": [
+      {
+       "de": "bei der Arbeit",
+       "en": "at work",
+       "ko": "직장은"
+      },
+      {
+       "de": "in der Schule",
+       "en": "at school",
+       "ko": "학교는"
+      },
+      {
+       "de": "bei deinen Eltern",
+       "en": "at your parents'",
+       "ko": "부모님 댁은"
+      }
+     ]
+    }
    }
   },
   {
@@ -1013,7 +1038,32 @@
      "Dienst"
     ],
     "grammar": "V.1",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": {"*": "tb", "ko": "tk"},
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "recht hast",
+      "en": "you're right",
+      "ko": "네 말이 맞으면"
+     },
+     "opts": [
+      {
+       "de": "Zeit hast",
+       "en": "you have time",
+       "ko": "네가 시간이 있으면"
+      },
+      {
+       "de": "gesund bist",
+       "en": "you're well",
+       "ko": "네가 건강하면"
+      },
+      {
+       "de": "Glück hast",
+       "en": "you're lucky",
+       "ko": "네가 운이 좋으면"
+      }
+     ]
+    }
    }
   },
   {
@@ -1455,7 +1505,32 @@
      "leicht"
     ],
     "grammar": "V.0",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "Geld",
+      "en": "money",
+      "ko": "돈 없이는"
+     },
+     "opts": [
+      {
+       "de": "Zeit",
+       "en": "time",
+       "ko": "시간 없이는"
+      },
+      {
+       "de": "Hilfe",
+       "en": "help",
+       "ko": "도움 없이는"
+      },
+      {
+       "de": "Übung",
+       "en": "practice",
+       "ko": "연습 없이는"
+      }
+     ]
+    }
    }
   },
   {
@@ -1902,7 +1977,32 @@
      "hungrig"
     ],
     "grammar": "V.2",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "die Arbeit",
+      "en": "the work",
+      "ko": "작업이"
+     },
+     "opts": [
+      {
+       "de": "den Urlaub",
+       "en": "the holiday",
+       "ko": "휴가가"
+      },
+      {
+       "de": "das Wochenende",
+       "en": "the weekend",
+       "ko": "주말이"
+      },
+      {
+       "de": "die Party",
+       "en": "the party",
+       "ko": "파티가"
+      }
+     ]
+    }
    }
   },
   {
@@ -2340,7 +2440,32 @@
      "tief"
     ],
     "grammar": "V.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": {"*": "tb", "ko": "tk"},
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "der Chor",
+      "en": "the chorus",
+      "ko": "합창은"
+     },
+     "opts": [
+      {
+       "de": "der Lehrer",
+       "en": "the teacher",
+       "ko": "선생님은"
+      },
+      {
+       "de": "der Kaffee",
+       "en": "the coffee",
+       "ko": "커피는"
+      },
+      {
+       "de": "der Film",
+       "en": "the film",
+       "ko": "영화는"
+      }
+     ]
+    }
    }
   },
   {
@@ -2795,7 +2920,32 @@
      "überall"
     ],
     "grammar": "V.1",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": {"*": "tb", "ko": "tk"},
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "gut",
+      "en": "fine",
+      "ko": "잘 지낸다"
+     },
+     "opts": [
+      {
+       "de": "super",
+       "en": "great",
+       "ko": "아주 잘 지낸다"
+      },
+      {
+       "de": "okay",
+       "en": "okay",
+       "ko": "그럭저럭 지낸다"
+      },
+      {
+       "de": "besser",
+       "en": "better",
+       "ko": "좀 나아졌다"
+      }
+     ]
+    }
    }
   },
   {
@@ -3265,7 +3415,32 @@
      "überraschen"
     ],
     "grammar": "V.2",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "überrascht",
+      "en": "surprised",
+      "ko": "깜짝 놀랐겠다"
+     },
+     "opts": [
+      {
+       "de": "glücklich",
+       "en": "happy",
+       "ko": "기뻤겠다"
+      },
+      {
+       "de": "müde",
+       "en": "tired",
+       "ko": "피곤했겠다"
+      },
+      {
+       "de": "stolz",
+       "en": "proud",
+       "ko": "뿌듯했겠다"
+      }
+     ]
+    }
    }
   }
  ]

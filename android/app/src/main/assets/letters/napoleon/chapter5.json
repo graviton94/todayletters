@@ -569,7 +569,32 @@
     ],
     "grammar": "V.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "Écris-moi",
+      "en": "Write to me",
+      "ko": "편지해 줘"
+     },
+     "opts": [
+      {
+       "fr": "Appelle-moi",
+       "en": "Call me",
+       "ko": "전화해 줘"
+      },
+      {
+       "fr": "Viens",
+       "en": "Come",
+       "ko": "와 줘"
+      },
+      {
+       "fr": "Réponds-moi",
+       "en": "Answer me",
+       "ko": "답장해 줘"
+      }
+     ]
+    }
    }
   },
   {
@@ -1050,7 +1075,32 @@
     ],
     "grammar": "V.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "À Mayence",
+      "en": "In Mainz",
+      "ko": "마인츠는"
+     },
+     "opts": [
+      {
+       "fr": "Ici",
+       "en": "Here",
+       "ko": "여기는"
+      },
+      {
+       "fr": "À Séoul",
+       "en": "In Seoul",
+       "ko": "서울은"
+      },
+      {
+       "fr": "Chez moi",
+       "en": "Where I live",
+       "ko": "우리 동네는"
+      }
+     ]
+    }
    }
   },
   {
@@ -1491,7 +1541,32 @@
     ],
     "grammar": "V.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "des robes",
+      "en": "dresses",
+      "ko": "드레스나"
+     },
+     "opts": [
+      {
+       "fr": "des livres",
+       "en": "books",
+       "ko": "책이나"
+      },
+      {
+       "fr": "des fleurs",
+       "en": "flowers",
+       "ko": "꽃이나"
+      },
+      {
+       "fr": "des chaussures",
+       "en": "shoes",
+       "ko": "신발이나"
+      }
+     ]
+    }
    }
   },
   {
@@ -1985,7 +2060,32 @@
      "trouver"
     ],
     "grammar": "V.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "gâteaux",
+      "en": "cakes",
+      "ko": "케이크는"
+     },
+     "opts": [
+      {
+       "fr": "bonbons",
+       "en": "sweets",
+       "ko": "사탕은"
+      },
+      {
+       "fr": "biscuits",
+       "en": "cookies",
+       "ko": "과자는"
+      },
+      {
+       "fr": "frites",
+       "en": "fries",
+       "ko": "감자튀김은"
+      }
+     ]
+    }
    }
   },
   {
@@ -2419,7 +2519,32 @@
     ],
     "grammar": "V.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "reviens vite",
+      "en": "come back soon",
+      "ko": "빨리 와 줘"
+     },
+     "opts": [
+      {
+       "fr": "écris-moi",
+       "en": "write to me",
+       "ko": "편지해 줘"
+      },
+      {
+       "fr": "appelle-moi",
+       "en": "call me",
+       "ko": "전화해 줘"
+      },
+      {
+       "fr": "mange bien",
+       "en": "eat well",
+       "ko": "잘 챙겨 먹어"
+      }
+     ]
+    }
    }
   },
   {
@@ -2796,7 +2921,32 @@
     ],
     "grammar": "V.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Hortense).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "Écrivez-moi",
+      "en": "write to me",
+      "ko": "편지해"
+     },
+     "opts": [
+      {
+       "fr": "Appelez-moi",
+       "en": "call me",
+       "ko": "전화해"
+      },
+      {
+       "fr": "Venez me voir",
+       "en": "visit me",
+       "ko": "놀러 와"
+      },
+      {
+       "fr": "Répondez-moi",
+       "en": "answer me",
+       "ko": "답장해"
+      }
+     ]
+    }
    }
   },
   {
@@ -3241,7 +3391,32 @@
     ],
     "grammar": "V.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "un cadeau",
+      "en": "a present",
+      "ko": "선물"
+     },
+     "opts": [
+      {
+       "fr": "du chocolat",
+       "en": "some chocolate",
+       "ko": "초콜릿"
+      },
+      {
+       "fr": "du café",
+       "en": "some coffee",
+       "ko": "커피"
+      },
+      {
+       "fr": "un livre",
+       "en": "a book",
+       "ko": "책"
+      }
+     ]
+    }
    }
   }
  ]

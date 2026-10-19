@@ -55,6 +55,46 @@ object Prosody {
      */
     fun spoke(t: Track): Boolean = t.size > 0 && t.voiced * HOP_MS >= VOICE_MS && t.db.max() > VOICE_DB
 
+    /** 음절 세기: 크기 곡선 다듬기 (프레임 수, 50ms) · 두 음절 사이 가장 짧은 거리 (100ms) · 봉우리 사이 골이 이만큼 깊어야 따로 (dB). */
+    private const val SYL_SMOOTH = 5
+    private const val SYL_GAP = 10
+    private const val SYL_DIP = 3f
+    /** 가장 큰 소리보다 이만큼 작은 봉우리는 음절로 보지 않는다 (dB). */
+    private const val SYL_FLOOR = 25f
+
+    /**
+     * 음절 수 (말 알아듣기 없이): 목소리가 잡힌 프레임의 크기 곡선 (50ms 로 다듬음) 에서 봉우리를 센다.
+     * 목소리가 없는 프레임은 바닥으로 두어 끊긴 소리는 따로 세고, 이어진 소리 안에서는 골이 [SYL_DIP] dB 넘게 깊고
+     * 100ms 넘게 떨어진 봉우리만 따로 (아니면 큰 쪽 하나로). 가장 큰 소리보다 25dB 넘게 작은 봉우리는 뺀다. 침묵은 0.
+     */
+    fun syllables(t: Track): Int {
+        val n = t.size
+        if (n == 0 || t.voiced == 0) return 0
+        val top = (0 until n).filter { t.f0[it] > 0f }.maxOf { t.db[it] }
+        val floor = top - 2 * SYL_FLOOR
+        val raw = FloatArray(n) { if (t.f0[it] > 0f) t.db[it] else floor }
+        val half = SYL_SMOOTH / 2
+        val s = FloatArray(n) { i ->
+            var sum = 0f; var k = 0
+            for (j in maxOf(0, i - half)..minOf(n - 1, i + half)) { sum += raw[j]; k++ }
+            sum / k
+        }
+        // 봉우리 후보: 목소리 프레임 가운데 앞보다 작지 않고 뒤보다 큰 곳 (평평한 꼭대기는 그 끝 하나)
+        val cand = (0 until n).filter { i ->
+            t.f0[i] > 0f && s[i] > top - SYL_FLOOR && (i == 0 || s[i] >= s[i - 1]) && (i == n - 1 || s[i] > s[i + 1])
+        }
+        val kept = ArrayList<Int>()
+        for (p in cand) {
+            val a = kept.lastOrNull()
+            if (a == null) { kept += p; continue }
+            var dip = Float.MAX_VALUE
+            for (j in a..p) dip = minOf(dip, s[j])
+            if (p - a < SYL_GAP || minOf(s[a], s[p]) - dip < SYL_DIP) { if (s[p] > s[a]) kept[kept.lastIndex] = p }
+            else kept += p
+        }
+        return kept.size
+    }
+
     /** 별 0~3. 다른 화면(봉인 · 이정표 등)도 이것으로 센다. */
     fun stars(score: Int): Int = when {
         score >= STAR3 -> 3
