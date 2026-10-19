@@ -93,7 +93,7 @@ internal fun MinePane(s: AppState, series: String, chapter: String, letter: Lett
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
-            PracticeTitle("MINE", stringResource(R.string.mine_title))
+            PracticeTitle("IN MY WORDS", stringResource(R.string.mine_title))
             Text(stringResource(R.string.mine_d), style = Type.body.ui(), color = p.inkSoft)
             Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4),
                 verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
