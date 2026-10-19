@@ -14,10 +14,13 @@
 나온 편지가 2통 미만인 줄은 빠진다 (알림).
 
 파일 꼴 (한 줄 JSON):
-  {"_doc", "lang", "checked", "anchors": [{"t": 보이는 꼴, "k": 맞추는 꼴 ("j ai"), "ko", "en",
+  {"_doc", "lang", "checked", "anchors": [{"id": 고정 이름, "t": 보이는 꼴, "k": 맞추는 꼴 ("j ai"), "ko", "en",
                                           "n": 나온 편지 수, "first": [편지 id, 메시지 번호], "letters": "편지 id …"}]}
+
+id = sha1("<작품>[_말]/<k>") 앞 8자 (core Anchors.id 와 같다). 복습 카드 꼬리 a<id> · 예열에서 배운 닻 (anc:) 이 이것을 쓰므로
+목록 순서를 바꾸거나 줄을 더하고 빼도 저장된 카드가 다른 닻을 가리키지 않는다 (덩어리 글자를 바꾸면 새 닻).
 """
-import collections, glob, json, os, re, sys
+import collections, glob, hashlib, json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "scripts", "anchors")
@@ -25,8 +28,12 @@ MIN_LETTERS = 2
 
 DOC = ("Anchor chunks: recurring 2-3 word phrases of this series (scripts/anchors.py from the hand-picked list "
        "scripts/anchors/<series>[_deck].txt). k = normalized tokens (lowercase, letters/digits only, space separated) "
-       "matched against gloss tokens in order; t = shown form; ko/en = short app-written meaning; n = number of letters "
+       "matched against gloss tokens in order; id = sha1('<series>[_deck]/<k>')[:8], the stable id review cards and learned state use; t = shown form; ko/en = short app-written meaning; n = number of letters "
        "it appears in; first = [letter id, message index] of the first appearance; letters = space-separated letter ids.")
+
+
+def anchor_id(name, k):
+    return hashlib.sha1(f"{name}/{k}".encode("utf-8")).hexdigest()[:8]
 
 
 def norm(surface):
@@ -96,7 +103,10 @@ def build(series, deck):
             notes.append(f"{name}: '{chunk}' {len(ls)}통 — 뺌")
             continue
         first = min(hits, key=lambda h: (order.index(h[0]), h[1], h[2]))
-        out.append({"t": shown(hits), "k": " ".join(key), "ko": ko, "en": en, "n": len(ls),
+        aid = anchor_id(name, " ".join(key))
+        if any(a["id"] == aid for a in out):
+            raise SystemExit(f"{name}: '{chunk}' 이름이 겹침 ({aid})")
+        out.append({"id": aid, "t": shown(hits), "k": " ".join(key), "ko": ko, "en": en, "n": len(ls),
                     "first": [first[0], first[1]], "letters": " ".join(ls)})
     data = {"_doc": DOC, "lang": g.get("lang", deck), "checked": checked, "anchors": out}
     return (name, data), notes

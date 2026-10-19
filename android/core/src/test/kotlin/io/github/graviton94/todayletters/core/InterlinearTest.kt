@@ -23,7 +23,8 @@ class InterlinearTest {
         LexEntry("que", ko = "~보다", en = "than", function = true), LexEntry("au", ko = "~에", en = "to the", function = true),
         LexEntry("nouveau", ko = "새로운", en = "new"), LexEntry("pays", ko = "나라 (고장)", en = "country"), LexEntry("voir", ko = "보다", en = "to see"),
     ).associateBy { it.key }
-    private val anchors = listOf(Anchor("j'ai", listOf("j", "ai"), "나는 ~했어", "I have"), Anchor("mon cher", listOf("mon", "cher"), "사랑하는", "my dear"))
+    private val anchors = listOf(Anchor("j'ai", listOf("j", "ai"), "나는 ~했어", "I have", id = Anchors.id("vincent", listOf("j", "ai"))),
+        Anchor("mon cher", listOf("mon", "cher"), "사랑하는", "my dear", id = Anchors.id("vincent", listOf("mon", "cher"))))
 
     private fun units(known: Set<String> = emptySet(), function: Boolean = true, anchorKnown: (Int) -> Boolean = { false }) =
         Interlinear.units(tokens, { lex[it] }, Lang.KO, { it in known }, function, listOf("pour le moins" to "적어도, 최소한"), anchors, anchorKnown)
@@ -36,6 +37,7 @@ class InterlinearTest {
         val jai = u.single { it.kind == Interlinear.Kind.ANCHOR && it.from == 6 }
         assertEquals(7, jai.to)
         assertEquals("나는 ~했어", jai.gloss)
+        assertEquals("114d634e", jai.anchorId)
         // 덩어리 안의 토큰은 따로 풀지 않는다
         assertTrue(u.none { it.kind == Interlinear.Kind.WORD && it.from in 6..10 })
     }
@@ -77,6 +79,15 @@ class InterlinearTest {
         assertTrue("voyais." in shown)
         // 글자를 빠짐없이 (띄어쓰기만 빼고) 덮는다
         assertEquals(text.replace(" ", ""), shown.joinToString("").replace(" ", ""))
+    }
+
+    /** 고정 이름은 덩어리 글자에서 (scripts/anchors.py anchor_id 와 같은 값): 목록 순서와 상관없다. */
+    @Test fun anchorIdIsStableFromChunk() {
+        assertEquals("114d634e", Anchors.id("vincent", listOf("j", "ai")))
+        assertEquals("0f159d8b", Anchors.id("vincent_ko", listOf("수", "있어")))
+        assertTrue(Anchors.id("vincent", listOf("j", "ai")) != Anchors.id("napoleon", listOf("j", "ai")))
+        val swapped = Interlinear.units(tokens, { lex[it] }, Lang.KO, { false }, true, emptyList(), anchors.reversed())
+        assertEquals("114d634e", swapped.single { it.kind == Interlinear.Kind.ANCHOR && it.from == 6 }.anchorId)
     }
 
     @Test fun anchorFindJoinsTokens() {

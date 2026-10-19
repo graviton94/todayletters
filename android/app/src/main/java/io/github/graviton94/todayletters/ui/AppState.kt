@@ -695,7 +695,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             ref.reply -> l.replies.getOrNull(ref.turn)?.let { CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Word(it.text, note = replyNote, audio = "r${ref.turn + 1}")) }
             // 말투 바꿔 보기: 그 턴의 해요체 문장 (반말 · 높임이 있을 때만)
             // 닻 표현 (ui/WarmUp.kt): 표현 카드처럼
-            ref.anchor >= 0 -> anchorCard(w, ref.chapter, l, ref.anchor)
+            ref.anchor.isNotEmpty() -> anchorCard(w, ref.chapter, l, ref.anchor)
             ref.style -> l.replies.getOrNull(ref.turn)?.takeIf { it.styled }?.let { CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Word(it.text, note = styleNote)) }
             else -> w.lexicon?.get(ref.own)?.let { e -> CardWord(w, ref.chapter to l, io.github.graviton94.todayletters.core.Vocab.wordFor(e, l.source, w.learnVocab, w.series.original), own = true) }
         }

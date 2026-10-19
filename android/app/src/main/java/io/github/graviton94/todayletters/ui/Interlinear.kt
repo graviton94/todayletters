@@ -149,7 +149,7 @@ fun IlText(
             val missing = us.any { it.gloss == "" }
             val mark = marks.firstOrNull { (r, _) -> c.range.meets(r) }?.second
             val isSeen = us.any { u ->
-                (u.kind == Interlinear.Kind.ANCHOR && "a${u.anchor}" in seen) ||
+                (u.kind == Interlinear.Kind.ANCHOR && "a${u.anchorId}" in seen) ||
                     (u.from..u.to).any { j -> line.tokens.getOrNull(j)?.let { "w:${it.key}" in seen } == true }
             }
             val lit = c.range.meets(spoken)

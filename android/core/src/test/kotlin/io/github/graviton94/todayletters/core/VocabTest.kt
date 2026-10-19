@@ -83,6 +83,10 @@ class VocabTest {
         assertEquals(CardRef("vincent", "I", "c1-l1", index = 3), CardRef.parse("vincent:I:c1-l1:3"))
         assertEquals(CardRef("vincent", "I", "c1-l1", phrase = 1), CardRef.parse(CardRef.phrase("vincent", "I", "c1-l1", 1)))
         assertEquals(CardRef("mozart", "P", "p1", own = "ton#2"), CardRef.parse(CardRef.own("mozart", "P", "p1", "ton#2")))
+        // 닻 카드: 꼬리 a<고정 이름> (목록 번호가 아님), 예전 번호 꼬리 a<n> 은 카드가 아니다
+        assertEquals(CardRef("vincent", "I", "c1-l2", anchor = "114d634e", deck = "en"), CardRef.parse(CardRef.anchor("vincent", "I", "c1-l2", "114d634e", "en")))
+        assertEquals("vincent:I:c1-l2:a114d634e", CardRef.anchor("vincent", "I", "c1-l2", "114d634e"))
+        assertNull(CardRef.parse("vincent:I:c1-l2:a3"))
         assertNull(CardRef.parse("vincent:I:c1-l1"))
         assertNull(CardRef.parse("vincent:I:c1-l1:x"))
     }

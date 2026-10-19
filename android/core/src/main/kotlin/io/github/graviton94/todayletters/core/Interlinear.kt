@@ -3,10 +3,12 @@ package io.github.graviton94.todayletters.core
 /**
  * 닻 표현 한 줄 (data/<작품>/anchors[_en|_ko].json, scripts/anchors.py): 작품마다 여러 편지에 되풀이되는 2~3낱말 덩어리.
  * [key] 는 맞추는 꼴 (토큰마다 [Anchors.norm], 띄어 씀), [text] 는 보이는 꼴. 뜻은 앱이 쓴 짧은 풀이.
+ * [id] 는 덩어리 글자에서 나온 고정 이름 ([Anchors.id]): 복습 카드 · 배운 닻은 목록 번호가 아니라 이것으로 적는다 (목록을 고쳐도 그대로).
  */
 data class Anchor(
     val text: String, val key: List<String>, val ko: String, val en: String,
     val count: Int = 0, val first: String = "", val firstMsg: Int = 0, val letters: List<String> = emptyList(),
+    val id: String = "",
 ) {
     fun meaning(lang: Lang): String = if (lang == Lang.KO) ko.ifEmpty { en } else en.ifEmpty { ko }
 }
@@ -14,6 +16,11 @@ data class Anchor(
 object Anchors {
     /** 맞추는 꼴: 소문자, 글자와 숫자만 (j' → j, Théo, → théo). scripts/anchors.py 의 norm 과 같다. */
     fun norm(surface: String): String = surface.lowercase().filter { it.isLetterOrDigit() }
+
+    /** 고정 이름: sha1("<작품>[_말]/<맞추는 꼴>") 앞 8자 (scripts/anchors.py 의 anchor_id 와 같다). [name] 은 "vincent" · "vincent_en". */
+    fun id(name: String, key: List<String>): String =
+        java.security.MessageDigest.getInstance("SHA-1").digest("$name/${key.joinToString(" ")}".toByteArray(Charsets.UTF_8))
+            .take(4).joinToString("") { "%02x".format(it) }
 
     /**
      * 토큰 [norms] (맞추는 꼴) 에서 덩어리 [key] 가 나오는 자리 (첫 토큰 번호들). 토큰 꼴을 이어 붙인 글자가 덩어리의 글자와 같으면
@@ -54,9 +61,10 @@ object Interlinear {
 
     /**
      * 한 칸: 토큰 [from]..[to] (포함). [gloss] 가 null 이면 뜻을 달지 않는 낱말 (안다 · 이름 …), "" 면 뜻이 필요한데 사전에 없음.
-     * [anchor] 는 닻 표현 번호 (닻이 아니면 -1), [known] 은 익힌 닻.
+     * [anchor] 는 닻 표현 번호 (이 목록 안, 닻이 아니면 -1), [anchorId] 는 그 닻의 고정 이름 ([Anchor.id]), [known] 은 익힌 닻.
      */
-    data class Unit(val from: Int, val to: Int, val gloss: String?, val kind: Kind = Kind.WORD, val anchor: Int = -1, val known: Boolean = false)
+    data class Unit(val from: Int, val to: Int, val gloss: String?, val kind: Kind = Kind.WORD, val anchor: Int = -1, val known: Boolean = false,
+                    val anchorId: String = "")
 
     /** 짧은 덩어리 (표현 카드) 로 칠 낱말 수 상한: 그보다 긴 표현은 낱말마다 푼다 (문장 하나를 통째로 덮지 않게). */
     const val PHRASE_MAX = 4
@@ -95,7 +103,7 @@ object Interlinear {
             Anchors.find(norms, a.key).forEach { r ->
                 if (claim(r)) {
                     val k = anchorKnown(i)
-                    chunks += Unit(r.first, r.last, if (k) null else short(a.meaning(lang)), Kind.ANCHOR, anchor = i, known = k)
+                    chunks += Unit(r.first, r.last, if (k) null else short(a.meaning(lang)), Kind.ANCHOR, anchor = i, known = k, anchorId = a.id)
                 }
             }
         }

@@ -54,8 +54,8 @@ import java.util.concurrent.ConcurrentHashMap
 // 저장은 SharedPreferences "letters" (기록 보관 · 안드로이드 백업과 같은 범위):
 //   s:<작품>:il      낱말 아래 뜻 켜짐 (없으면 도움 등급대로, B2 아래 켜짐)
 //   s:<작품>:warm    편지 전 예열 -1 등급에 맞춰 (기본) · 1 켜기 · 0 끄기
-//   wu:<편지 열쇠>   예열에서 본 것 ("w:<사전 열쇠>" · "a<닻 번호>" · "p<표현 번호>" 을 줄바꿈으로)
-//   anc:<작품>/<자료> 예열에서 배운 닻 표현 (맞추는 꼴 "j ai" 을 줄바꿈으로)
+//   wu:<편지 열쇠>   예열에서 본 것 ("w:<사전 열쇠>" · "a<닻 고정 이름>" · "p<표현 번호>" 을 줄바꿈으로)
+//   anc:<작품>/<자료> 예열에서 배운 닻 표현 (고정 이름 [Anchor.id] 을 줄바꿈으로, 목록을 고쳐도 그대로)
 
 private fun AppState.prefs() = ctx.getSharedPreferences("letters", Context.MODE_PRIVATE)
 
@@ -95,8 +95,10 @@ fun anchorsOf(ctx: Context, series: String, deck: String): List<Anchor> = anchor
         (0 until a.length()).map { i ->
             val x = a.getJSONObject(i)
             val first = x.optJSONArray("first")
-            Anchor(x.getString("t"), x.getString("k").split(" ").filter { it.isNotEmpty() }, x.optString("ko"), x.optString("en"),
-                x.optInt("n"), first?.optString(0).orEmpty(), first?.optInt(1) ?: 0, x.optString("letters").split(" ").filter { it.isNotEmpty() })
+            val key = x.getString("k").split(" ").filter { it.isNotEmpty() }
+            Anchor(x.getString("t"), key, x.optString("ko"), x.optString("en"),
+                x.optInt("n"), first?.optString(0).orEmpty(), first?.optInt(1) ?: 0, x.optString("letters").split(" ").filter { it.isNotEmpty() },
+                id = x.optString("id").ifEmpty { Anchors.id(series + (if (deck.isEmpty()) "" else "_$deck"), key) })
         }
     }.getOrDefault(emptyList())
 }
@@ -109,17 +111,17 @@ fun AppState.anchors(series: String): List<Anchor> {
 }
 
 private fun AppState.taughtKey(series: String) = "anc:$series/${deckOf(series)}"
-/** 예열에서 배운 닻 (맞추는 꼴). */
+/** 예열에서 배운 닻 (고정 이름 [Anchor.id]). */
 fun AppState.anchorsTaught(series: String): Set<String> {
     @Suppress("UNUSED_EXPRESSION") version
     return prefs().getString(taughtKey(series), "").orEmpty().split("\n").filter { it.isNotBlank() }.toSet()
 }
 
 /** 닻 카드 열쇠 (닻 번호 → 카드함 · 나중 줄에 이미 있는 열쇠), 지금 배우는 말의 것. */
-private fun AppState.anchorCards(series: String): Map<Int, String> {
+private fun AppState.anchorCards(series: String): Map<String, String> {
     val deck = deckOf(series)
     return (store.cardKeys() + store.later(deck)).mapNotNull { k ->
-        CardRef.parse(k)?.takeIf { it.series == series && it.deck == deck && it.anchor >= 0 }?.let { it.anchor to k }
+        CardRef.parse(k)?.takeIf { it.series == series && it.deck == deck && it.anchor.isNotEmpty() }?.let { it.anchor to k }
     }.toMap()
 }
 
@@ -130,14 +132,15 @@ fun AppState.anchorKnownFn(series: String): (Int) -> Boolean {
     val taught = anchorsTaught(series)
     val cards = anchorCards(series)
     val cm = if (cards.isEmpty()) emptyMap() else cardMap()
-    return { i -> list.getOrNull(i)?.let { a -> a.key.joinToString(" ") in taught || cards[i]?.let { Growth.known(cm[it]) } == true } == true }
+    return { i -> list.getOrNull(i)?.let { a -> a.id in taught || cards[a.id]?.let { Growth.known(cm[it]) } == true } == true }
 }
 
-/** 닻 카드 들이기: 아직 카드가 없는 닻만, 이 편지 열쇠로. */
+/** 닻 카드 들이기: 아직 카드가 없는 닻만 ([idx] = 지금 목록의 번호, 카드에는 고정 이름), 이 편지 열쇠로. */
 fun AppState.admitAnchors(series: String, chapter: String, letter: Letter, idx: Collection<Int>) {
     if (idx.isEmpty()) return
+    val list = anchors(series)
     val have = anchorCards(series)
-    val keys = idx.filter { it !in have }.map { CardRef.anchor(series, chapter, letter.id, it, deckOf(series)) }
+    val keys = idx.mapNotNull { list.getOrNull(it)?.id }.filter { it !in have }.distinct().map { CardRef.anchor(series, chapter, letter.id, it, deckOf(series)) }
     if (keys.isNotEmpty()) { admit(keys); bump() }
 }
 
@@ -160,8 +163,8 @@ fun AppState.collectAnchors(series: String, chapter: String, letter: Letter) {
 }
 
 /** 닻 카드 → 낱말 (복습에서 표현 카드처럼). [AppState.cardWord] 가 부른다. */
-fun AppState.anchorCard(w: Work, chapter: String, l: Letter, i: Int): AppState.CardWord? {
-    val a = anchorsOf(ctx, w.series.id, w.deck).getOrNull(i) ?: return null
+fun AppState.anchorCard(w: Work, chapter: String, l: Letter, id: String): AppState.CardWord? {
+    val a = anchorsOf(ctx, w.series.id, w.deck).firstOrNull { it.id == id } ?: return null
     val learn = w.learnVocab
     val msg = Library.gloss(ctx, w.series.id, w.deck)[l.id]?.let { anchorsIn(it, listOf(a))[0]?.first } ?: -1
     val text = linkedMapOf(learn to if (learn == Lang.KO) Breaks.keepAll(a.text) else a.text)
@@ -230,12 +233,12 @@ fun AppState.finishWarm(r: Route.WarmUp, seen: List<WarmCard>) {
             when (c.item.kind) {
                 io.github.graviton94.todayletters.core.WarmUp.Kind.WORD -> "w:${c.lex}"
                 io.github.graviton94.todayletters.core.WarmUp.Kind.PHRASE -> "p${c.item.index}"
-                io.github.graviton94.todayletters.core.WarmUp.Kind.ANCHOR -> "a${c.item.index}"
+                io.github.graviton94.todayletters.core.WarmUp.Kind.ANCHOR -> "a${anchors(series).getOrNull(c.item.index)?.id.orEmpty()}"
             }
         }
         val e = prefs().edit().putString("wu:${key(series, chapter, letter.id)}", tags.joinToString("\n"))
         val taught = seen.filter { it.item.kind == io.github.graviton94.todayletters.core.WarmUp.Kind.ANCHOR }.mapNotNull { anchors(series).getOrNull(it.item.index) }
-        if (taught.isNotEmpty()) e.putString(taughtKey(series), (anchorsTaught(series) + taught.map { it.key.joinToString(" ") }).joinToString("\n"))
+        if (taught.isNotEmpty()) e.putString(taughtKey(series), (anchorsTaught(series) + taught.map { it.id }).joinToString("\n"))
         e.apply()
         admitAnchors(series, chapter, letter, seen.filter { it.item.kind == io.github.graviton94.todayletters.core.WarmUp.Kind.ANCHOR }.map { it.item.index })
     }
