@@ -835,14 +835,14 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         store.cards().filter { c -> CardRef.parse(c.key)?.let { decks[it.series] == it.deck } == true && cardWord(c.key) != null }
     }
     /**
-     * 오늘 볼 카드: [id] 가 있으면 그 작품의 카드만 (오늘의 여정 II · 서재 카드의 숫자), 없으면 모든 작품.
-     * 작품 하나면 새 기초 낱말 자리까지 (ui/Basics.kt [basicDay]: 12장이면 2~3, 20장이면 4, 아직 카드함에 없는 것은 판을 시작할 때 들인다).
+     * 오늘 볼 카드: [id] 가 있으면 그 작품의 카드만 (오늘의 여정 II · 서재 카드의 숫자), 없으면 모든 작품 (작품마다 한 판씩 더함).
+     * 새 기초 낱말 자리까지 (ui/Basics.kt [basicDay]: 12장이면 2~3, 20장이면 4, 아직 카드함에 없는 것은 판을 시작할 때 들인다).
      */
     fun dueCards(id: String? = null): List<io.github.graviton94.todayletters.core.Card> {
-        val cs = cards().filter { c -> id == null || CardRef.parse(c.key)?.series == id }
-        // 하루 분량 (작품 설정): ‘복습 더’ 면 더 많이. 모든 작품이면 지금 작품의 것
-        val daily = io.github.graviton94.todayletters.core.Start.daily(seriesSettings(id ?: current).amount)
-        return if (id == null) io.github.graviton94.todayletters.core.Memory.dueToday(cs, today, daily) else basicDay(id, cs, daily).cards
+        if (id == null) return works.flatMap { dueCards(it.series.id) }
+        val cs = cards().filter { c -> CardRef.parse(c.key)?.series == id }
+        // 하루 분량 (작품 설정): ‘복습 더’ 면 더 많이
+        return basicDay(id, cs, io.github.graviton94.todayletters.core.Start.daily(seriesSettings(id).amount)).cards
     }
     /** 오늘의 복습 새 판: [dueCards] 와 같고, 새 기초 낱말을 이때 카드함에 들인다 (하루 한 번). */
     fun startReview(id: String): List<io.github.graviton94.todayletters.core.Card> {

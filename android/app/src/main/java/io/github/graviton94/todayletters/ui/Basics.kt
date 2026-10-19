@@ -103,7 +103,8 @@ private fun AppState.basicsToday(series: String): Set<String> {
  */
 fun AppState.basicDay(series: String, cards: List<io.github.graviton94.todayletters.core.Card>, daily: Int): Basics.Day {
     val deck = basicDeck(series)
-    if (deck.isEmpty) return Basics.Day(io.github.graviton94.todayletters.core.Memory.dueToday(cards, today, daily), emptyList())
+    // 편지를 하나도 안 연 작품은 새 기초 낱말도 아직 (서재 숫자 · 모든 작품 합계가 부풀지 않게)
+    if (deck.isEmpty || openedChapters(series).isEmpty()) return Basics.Day(io.github.graviton94.todayletters.core.Memory.dueToday(cards, today, daily), emptyList())
     val d = deckOf(series)
     val have = (store.cardKeys() + store.later(d)).toSet()
     val pending = deck.items.map { CardRef.basic(series, it.id, d) }.filter { it !in have }

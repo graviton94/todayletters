@@ -846,8 +846,8 @@ private fun buildQuestions(s: AppState, kind: ReviewKind?, keys: List<String>? =
         else keys?.mapNotNull { k -> cards.firstOrNull { it.key == k } }?.takeIf { it.isNotEmpty() }
         // 새 판이면 오늘의 새 기초 낱말을 이때 카드함에 들인다 (하루 한 번, core Basics.session)
         ?: if (fresh) s.startReview(s.current)
-        // 자유 연습: 연 장들의 카드에서 무작위로 (어느 편지든), 넉넉히 뽑아 소리 없는 것을 건너뛰고도 한 판이 차게
-        else if (free) Memory.freeSet(s.seriesCards(), s.openedChapters(), seed, s.today, n = Memory.DAILY * 2).map { it.first }
+        // 자유 연습: 연 장들의 카드 + 들인 기초 낱말에서 무작위로 (어느 편지든), 넉넉히 뽑아 소리 없는 것을 건너뛰고도 한 판이 차게
+        else if (free) Memory.freeSet(s.seriesCards(), s.openedChapters() + "${s.current}:${io.github.graviton94.todayletters.core.Basics.CHAPTER}", seed, s.today, n = Memory.DAILY * 2).map { it.first }
         // 꼴별 연습: 지금 작품의 카드, 낮은 칸 · 오래된 것부터 (F08)
         else s.seriesCards().sortedWith(compareBy({ it.box }, { it.due }))
     // 보기 후보: 내 카드들 (갈래 = 낱말 · 표현 · 답장), 모자라면 같은 작품 편지들의 낱말 · 표현
