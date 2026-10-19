@@ -404,15 +404,15 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Allô, Théo ! Il neige partout ici !",
-      "en": "Hello, Theo! It's snowing everywhere here!",
-      "ko": "여보세요, 테오! 여기 온통 눈이야!"
+      "fr": "Allô, Théo ! Je suis à Arles !",
+      "en": "Hello, Theo! I'm in Arles!",
+      "ko": "여보세요, 테오! 나 아를이야!"
      },
      {
       "who": "me",
-      "fr": "Vraiment ? Tu es fatigué du voyage ?",
-      "en": "Really? Are you tired from the journey?",
-      "ko": "정말? 오는 길에 피곤했어?",
+      "fr": "Bonjour ! Tu es fatigué du voyage ?",
+      "en": "Hi! Are you tired from travelling?",
+      "ko": "안녕! 오느라 피곤해?",
       "focus": {
        "fr": [
         "Tu es fatigué"
@@ -421,14 +421,14 @@
         "Are you tired"
        ],
        "ko": [
-        "피곤했어"
+        "피곤해"
        ]
       },
       "wrong": {
        "fr": [
         [
          "Tu as fatigué",
-         "Tu es fatiguée"
+         "Tu es fatigués"
         ]
        ],
        "en": [
@@ -439,51 +439,51 @@
        ],
        "ko": [
         [
-         "피곤했아",
-         "피곤해었어"
+         "피곤해어",
+         "피곤헤"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Un peu. Mais je pense à toi.",
-      "en": "A little. But I'm thinking of you.",
-      "ko": "조금. 그래도 네 생각을 해."
+      "fr": "Un peu. Je pense à toi.",
+      "en": "A little. I'm thinking of you.",
+      "ko": "조금. 네 생각을 해."
      },
      {
       "who": "me",
-      "fr": "Tu as froid ? Tu as besoin de quelque chose ?",
-      "en": "Are you cold? Do you need anything?",
-      "ko": "추워? 필요한 거 있어?",
+      "fr": "Tu as froid ? Il neige ?",
+      "en": "Are you cold? Is it snowing?",
+      "ko": "추워? 눈 와?",
       "focus": {
        "fr": [
-        "Tu as besoin"
+        "Tu as froid"
        ],
        "en": [
-        "Do you need"
+        "Are you cold"
        ],
        "ko": [
-        "있어"
+        "추워"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Tu es besoin",
-         "Tu a besoin"
+         "Tu es froid",
+         "Tu a froid"
         ]
        ],
        "en": [
         [
-         "Does you need",
-         "Are you need"
+         "Do you cold",
+         "Have you cold"
         ]
        ],
        "ko": [
         [
-         "있아",
-         "잇어"
+         "추어",
+         "추웨"
         ]
        ]
       }
@@ -494,10 +494,7 @@
      "penser"
     ],
     "grammar": "I.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -828,58 +825,58 @@
      },
      {
       "who": "me",
-      "fr": "Oui, ça va. Et toi, tu es content là-bas ?",
-      "en": "Yes, fine. And you, are you happy there?",
-      "ko": "응, 잘 지내. 형은 거기가 좋아?",
+      "fr": "Oui, ça va. Et toi ?",
+      "en": "Yes, fine. And you?",
+      "ko": "응, 잘 지내. 형은?",
       "focus": {
        "fr": [
-        "tu es content"
+        "Et toi"
        ],
        "en": [
-        "are you happy"
+        "And you"
        ],
        "ko": [
-        "좋아"
+        "형은"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "tu as content",
-         "tu es contents"
+         "Et tu",
+         "Et te"
         ]
        ],
        "en": [
         [
-         "is you happy",
-         "you are happy"
+         "And your",
+         "And yours"
         ]
        ],
        "ko": [
         [
-         "좋어",
-         "조아"
+         "형는",
+         "형이은"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Très content. J'apprends beaucoup. Le travail avance.",
-      "en": "Very happy. I'm learning a lot. The work is going well.",
-      "ko": "정말 좋아. 많이 배워. 작업도 잘돼."
+      "fr": "Le travail avance. J'apprends beaucoup.",
+      "en": "Work's going well. I'm learning lots.",
+      "ko": "작업이 잘돼. 많이 배워."
      },
      {
       "who": "me",
-      "fr": "Moi aussi, je suis content. C'est super !",
-      "en": "I'm happy too. That's great!",
-      "ko": "나도 기뻐. 정말 잘됐다!",
+      "fr": "Moi aussi, j'apprends beaucoup !",
+      "en": "Me too, I'm learning lots!",
+      "ko": "나도 많이 배워!",
       "focus": {
        "fr": [
         "Moi aussi"
        ],
        "en": [
-        "I'm happy too"
+        "Me too"
        ],
        "ko": [
         "나도"
@@ -889,19 +886,19 @@
        "fr": [
         [
          "Moi non plus",
-         "Toi aussi"
+         "Je aussi"
         ]
        ],
        "en": [
         [
-         "I'm happy neither",
-         "I happy too"
+         "Me neither",
+         "I too"
         ]
        ],
        "ko": [
         [
-         "나가",
-         "내도"
+         "내도",
+         "나는도"
         ]
        ]
       }
@@ -912,10 +909,7 @@
      "travail"
     ],
     "grammar": "I.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1243,21 +1237,21 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Le vent est très fort ici, Théo.",
-      "en": "The wind is very strong here, Theo.",
-      "ko": "여기 바람이 정말 세, 테오."
+      "fr": "Bonjour ! Le vent est très fort.",
+      "en": "Hello! The wind is very strong.",
+      "ko": "안녕! 바람이 정말 세."
      },
      {
       "who": "me",
-      "fr": "Est-ce que tu travailles dehors quand même ?",
-      "en": "Do you still work outside anyway?",
-      "ko": "그래도 밖에서 일해?",
+      "fr": "Est-ce que tu travailles dehors ?",
+      "en": "Are you working outside?",
+      "ko": "밖에서 일해?",
       "focus": {
        "fr": [
         "Est-ce que tu travailles"
        ],
        "en": [
-        "Do you"
+        "Are you working"
        ],
        "ko": [
         "일해"
@@ -1272,35 +1266,35 @@
        ],
        "en": [
         [
-         "Does you",
-         "Are you"
+         "Do you working",
+         "Are you work"
         ]
        ],
        "ko": [
         [
-         "일하",
-         "일해아"
+         "일헤",
+         "일하어"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Oui ! J'ai des arbres en fleurs devant moi.",
-      "en": "Yes! I've got trees in blossom right in front of me.",
-      "ko": "응! 앞에 꽃 핀 나무들이 있어."
+      "fr": "Oui, devant des arbres en fleurs.",
+      "en": "Yes, by the blossoming trees.",
+      "ko": "응, 꽃 핀 나무 앞에서."
      },
      {
       "who": "me",
-      "fr": "Est-ce que c'est pour Mauve, ce tableau ?",
-      "en": "Is this painting for Mauve?",
-      "ko": "그 그림, 마우버를 위한 거야?",
+      "fr": "Est-ce que c'est pour Mauve ?",
+      "en": "Is it for Mauve?",
+      "ko": "마우버 주려는 거야?",
       "focus": {
        "fr": [
         "Est-ce que c'est"
        ],
        "en": [
-        "Is this"
+        "Is it"
        ],
        "ko": [
         "거야"
@@ -1309,20 +1303,20 @@
       "wrong": {
        "fr": [
         [
-         "Est-ce que ce est",
-         "Est-ce c'est"
+         "Est-ce c'est",
+         "Est-ce que c'es"
         ]
        ],
        "en": [
         [
-         "Are this",
-         "Is these"
+         "It is",
+         "Is this it"
         ]
        ],
        "ko": [
         [
-         "거이야",
-         "것야"
+         "거여",
+         "거아"
         ]
        ]
       }
@@ -1333,10 +1327,7 @@
      "travailler"
     ],
     "grammar": "I.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1611,21 +1602,21 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Pardon, Théo, ma lettre est très courte.",
-      "en": "Sorry, Theo, my letter is very short.",
-      "ko": "미안해, 테오. 편지가 너무 짧아."
+      "fr": "Pardon, Théo, ma lettre est courte.",
+      "en": "Sorry, Theo, my letter is short.",
+      "ko": "미안해, 테오. 편지가 짧아."
      },
      {
       "who": "me",
-      "fr": "Pas de problème ! Tu es très occupé ?",
-      "en": "No problem! Are you very busy?",
-      "ko": "괜찮아! 많이 바빠?",
+      "fr": "Pas de problème ! Tu es occupé ?",
+      "en": "No problem! Are you busy?",
+      "ko": "괜찮아! 바빠?",
       "focus": {
        "fr": [
-        "Tu es"
+        "Tu es occupé"
        ],
        "en": [
-        "Are you"
+        "Are you busy"
        ],
        "ko": [
         "바빠"
@@ -1634,63 +1625,63 @@
       "wrong": {
        "fr": [
         [
-         "Tu as",
-         "Tu est"
+         "Tu as occupé",
+         "Tu es occupés"
         ]
        ],
        "en": [
         [
-         "Is you",
-         "Do you"
+         "Is you busy",
+         "Do you busy"
         ]
        ],
        "ko": [
         [
-         "바쁘",
-         "바뻐"
+         "바뻐",
+         "바파"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Oui ! Les arbres sont en fleurs. J'ai beaucoup de travail.",
-      "en": "Yes! The trees are in blossom. I've got lots of work.",
-      "ko": "응! 나무에 꽃이 피었어. 일이 정말 많아."
+      "fr": "Oui ! Les arbres sont en fleurs.",
+      "en": "Yes! The trees are in blossom.",
+      "ko": "응! 나무에 꽃이 피었어."
      },
      {
       "who": "me",
-      "fr": "C'est normal. Moi, j'ai beaucoup de travail aussi.",
-      "en": "That's normal. I've got lots of work too.",
-      "ko": "그럴 만해. 나도 일이 많아.",
+      "fr": "Moi, j'ai beaucoup de travail aussi.",
+      "en": "I've got lots of work too.",
+      "ko": "나도 일이 많아.",
       "focus": {
        "fr": [
-        "j'ai"
+        "j'ai beaucoup de travail"
        ],
        "en": [
-        "I've got"
+        "I've got lots of work"
        ],
        "ko": [
-        "많아"
+        "일이 많아"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "je suis",
-         "j'as"
+         "je suis beaucoup de travail",
+         "j'ai beaucoup du travail"
         ]
        ],
        "en": [
         [
-         "I's got",
-         "I has got"
+         "I've got lot of work",
+         "I've lots work"
         ]
        ],
        "ko": [
         [
-         "많어",
-         "만아"
+         "일이 만아",
+         "일이 많어"
         ]
        ]
       }
@@ -1701,10 +1692,7 @@
      "lettre"
     ],
     "grammar": "I.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1989,86 +1977,86 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Théo, est-ce que tu as les trois petits dessins ?",
-      "en": "Theo, did you get the three little drawings?",
-      "ko": "테오, 작은 그림 세 장 받았어?"
+      "fr": "Est-ce que tu as mes dessins ?",
+      "en": "Have you got my drawings?",
+      "ko": "내 그림들 받았어?"
      },
      {
       "who": "me",
-      "fr": "Oui, je les ai. Ils sont très beaux !",
-      "en": "Yes, I've got them. They're really beautiful!",
+      "fr": "Oui, je les ai. Très beaux !",
+      "en": "Yes, I have them. Very beautiful!",
       "ko": "응, 받았어. 정말 예뻐!",
       "focus": {
        "fr": [
-        "Ils sont"
+        "je les ai"
        ],
        "en": [
-        "They're"
+        "I have them"
        ],
        "ko": [
-        "예뻐"
+        "받았어"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Ils ont",
-         "Ils est"
+         "je les as",
+         "j'ai les"
         ]
        ],
        "en": [
         [
-         "They's",
-         "They is"
+         "I has them",
+         "I have it them"
         ]
        ],
        "ko": [
         [
-         "예쁘",
-         "예뻐어"
+         "받았아",
+         "밭았어"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Merci. Le pêcher rose me donne du mal.",
-      "en": "Thanks. The pink peach tree is giving me trouble.",
-      "ko": "고마워. 분홍 복숭아나무가 제일 애를 먹여."
+      "fr": "Le pêcher me donne du mal.",
+      "en": "The peach tree troubles me.",
+      "ko": "복숭아나무가 애를 먹여."
      },
      {
       "who": "me",
-      "fr": "Est-ce que tu as besoin de repos ?",
-      "en": "Do you need a rest?",
-      "ko": "좀 쉬어야 하지 않아?",
+      "fr": "Est-ce que tu dors bien ?",
+      "en": "Are you sleeping well?",
+      "ko": "잠은 잘 자?",
       "focus": {
        "fr": [
-        "Est-ce que tu as"
+        "Est-ce que tu dors"
        ],
        "en": [
-        "Do you need"
+        "Are you sleeping"
        ],
        "ko": [
-        "쉬어야"
+        "잘 자"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Est-ce que tu es",
-         "Est-ce que as-tu"
+         "Est-ce que tu dort",
+         "Est-ce tu dors"
         ]
        ],
        "en": [
         [
-         "Does you need",
-         "Do you needs"
+         "Do you sleeping",
+         "Are you sleep"
         ]
        ],
        "ko": [
         [
-         "쉬야",
-         "쉬어여"
+         "잘 쟈",
+         "잘 자아"
         ]
        ]
       }
@@ -2079,10 +2067,7 @@
      "mal"
     ],
     "grammar": "I.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2352,58 +2337,58 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Bonne nouvelle : j'ai quatre pièces, en plein soleil !",
-      "en": "Good news: I've got four rooms, in full sun!",
-      "ko": "좋은 소식이야. 햇볕 가득한 방이 네 개 생겼어!"
+      "fr": "Bonne nouvelle : j'ai quatre pièces !",
+      "en": "Good news: I've got four rooms!",
+      "ko": "좋은 소식이야. 방이 네 개야!"
      },
      {
       "who": "me",
-      "fr": "Génial ! C'est cher ?",
-      "en": "Great! Is it expensive?",
-      "ko": "잘됐다! 비싸?",
+      "fr": "Génial ! Elles ont du soleil ?",
+      "en": "Great! Do they get sun?",
+      "ko": "잘됐다! 해는 잘 들어?",
       "focus": {
        "fr": [
-        "C'est cher"
+        "Elles ont"
        ],
        "en": [
-        "Is it"
+        "Do they get"
        ],
        "ko": [
-        "비싸"
+        "들어"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "C'est chère",
-         "Ce est cher"
+         "Elles sont",
+         "Elles a"
         ]
        ],
        "en": [
         [
-         "Are it",
-         "Is it is"
+         "Does they get",
+         "Do they gets"
         ]
        ],
        "ko": [
         [
-         "비싸아",
-         "빗싸"
+         "드러",
+         "들아"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Non, c'est quinze francs par mois.",
-      "en": "No, it's fifteen francs a month.",
-      "ko": "아니, 한 달에 15프랑이야."
+      "fr": "Oui ! Quinze francs par mois.",
+      "en": "Yes! Fifteen francs a month.",
+      "ko": "응! 한 달에 15프랑이야."
      },
      {
       "who": "me",
-      "fr": "Tu as besoin d'un lit ? Je peux t'aider.",
-      "en": "Do you need a bed? I can help you.",
-      "ko": "침대 필요해? 내가 도울게.",
+      "fr": "Tu as besoin d'un lit ?",
+      "en": "Do you need a bed?",
+      "ko": "침대 필요해?",
       "focus": {
        "fr": [
         "Tu as besoin"
@@ -2412,26 +2397,26 @@
         "Do you need"
        ],
        "ko": [
-        "도울게"
+        "필요해"
        ]
       },
       "wrong": {
        "fr": [
         [
          "Tu es besoin",
-         "Tu ai besoin"
+         "Tu a besoin"
         ]
        ],
        "en": [
         [
-         "Are you need",
-         "Do you needs"
+         "Does you need",
+         "Are you need"
         ]
        ],
        "ko": [
         [
-         "돕을게",
-         "도울께"
+         "필요헤",
+         "필오해"
         ]
        ]
       }
@@ -2443,10 +2428,7 @@
      "mois"
     ],
     "grammar": "I.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2759,14 +2741,14 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Salut, Théo ! J'ai un bon restaurant maintenant.",
-      "en": "Hi, Theo! I've got a good restaurant now.",
-      "ko": "안녕, 테오! 이제 괜찮은 식당이 있어."
+      "fr": "Salut ! J'ai un bon restaurant.",
+      "en": "Hi! I've got a good restaurant.",
+      "ko": "안녕! 괜찮은 식당을 찾았어."
      },
      {
       "who": "me",
       "fr": "Super ! Et ta santé, ça va ?",
-      "en": "Great! And your health, is it OK?",
+      "en": "Great! And your health, OK?",
       "ko": "잘됐다! 건강은 괜찮아?",
       "focus": {
        "fr": [
@@ -2783,13 +2765,13 @@
        "fr": [
         [
          "ton santé",
-         "tes santé"
+         "ta santée"
         ]
        ],
        "en": [
         [
          "you health",
-         "yours health"
+         "your healthy"
         ]
        ],
        "ko": [
@@ -2802,21 +2784,21 @@
      },
      {
       "who": "them",
-      "fr": "Oui, ma santé est meilleure. Je mange bien.",
-      "en": "Yes, my health is better. I'm eating well.",
-      "ko": "응, 건강이 좋아졌어. 잘 먹어."
+      "fr": "Meilleure. Je mange bien maintenant.",
+      "en": "Better. I'm eating well now.",
+      "ko": "좋아졌어. 이제 잘 먹어."
      },
      {
       "who": "me",
-      "fr": "Moi aussi, je mange bien. Je suis content !",
-      "en": "I'm eating well too. I'm glad!",
-      "ko": "나도 잘 먹어. 다행이다!",
+      "fr": "Moi aussi, je mange bien !",
+      "en": "Me too, I'm eating well!",
+      "ko": "나도 잘 먹어!",
       "focus": {
        "fr": [
         "Moi aussi"
        ],
        "en": [
-        "too"
+        "Me too"
        ],
        "ko": [
         "나도"
@@ -2826,19 +2808,19 @@
        "fr": [
         [
          "Moi non plus",
-         "Moi pas"
+         "Je aussi"
         ]
        ],
        "en": [
         [
-         "neither",
-         "also not"
+         "Me neither",
+         "I too"
         ]
        ],
        "ko": [
         [
-         "나은도",
-         "내도"
+         "내도",
+         "나는도"
         ]
        ]
       }
@@ -2849,10 +2831,7 @@
      "manger"
     ],
     "grammar": "I.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   }
  ]

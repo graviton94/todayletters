@@ -135,58 +135,58 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Salut, Théo ! Je pense à notre maison.",
-      "en": "Hi, Theo! I'm thinking about our house.",
-      "ko": "안녕, 테오! 우리 집 생각을 하고 있어."
+      "fr": "Allô, Théo ? C'est moi, Vincent.",
+      "en": "Hello, Theo? It's me, Vincent.",
+      "ko": "여보세요, 테오? 나야, 빈센트."
      },
      {
       "who": "me",
-      "fr": "La maison de Zundert ? Et toi, comment ça va ?",
-      "en": "The house in Zundert? And how are you?",
-      "ko": "쥔더르트 집? 형은 어떻게 지내?",
+      "fr": "Bonjour, Vincent ! Comment ça va ?",
+      "en": "Hello, Vincent! How are you?",
+      "ko": "안녕, 형! 어떻게 지내?",
       "focus": {
        "fr": [
-        "comment ça va"
+        "Comment ça va"
        ],
        "en": [
-        "how are you"
+        "How are you"
        ],
        "ko": [
-        "지내"
+        "어떻게 지내"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "comment ça vas",
-         "comment ça va-t-il"
+         "Comment ça vas",
+         "Comment va ça"
         ]
        ],
        "en": [
         [
-         "how is you",
-         "how you are"
+         "How is you",
+         "How you are"
         ]
        ],
        "ko": [
         [
-         "지나",
-         "지내아"
+         "어떻게 지나",
+         "어떻게 지네"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Ça va mieux. Je revois le jardin, chaque chemin.",
-      "en": "Better now. I can see the garden again, every path.",
-      "ko": "좀 나아졌어. 정원이랑 길 하나하나가 다시 떠올라."
+      "fr": "Mieux. Je revois notre jardin.",
+      "en": "Better. I see our garden again.",
+      "ko": "좀 나아졌어. 우리 정원이 다시 떠올라."
      },
      {
       "who": "me",
-      "fr": "Moi aussi, j'aime beaucoup ce jardin.",
-      "en": "Me too, I really love that garden.",
-      "ko": "나도 그 정원이 정말 좋아.",
+      "fr": "Moi aussi, j'aime notre maison.",
+      "en": "Me too, I love our house.",
+      "ko": "나도 우리 집이 좋아.",
       "focus": {
        "fr": [
         "Moi aussi"
@@ -208,7 +208,7 @@
        "en": [
         [
          "Me neither",
-         "I too am"
+         "I too"
         ]
        ],
        "ko": [
@@ -226,10 +226,7 @@
      "revoir"
     ],
     "grammar": "I.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -361,52 +358,52 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Théo, ma nouvelle toile est moins noire.",
-      "en": "Theo, my new canvas is less black.",
-      "ko": "테오, 새 그림은 덜 검어."
+      "fr": "Salut ! Ma toile est moins noire.",
+      "en": "Hi! My canvas is less black.",
+      "ko": "안녕! 새 그림은 덜 검어."
      },
      {
       "who": "me",
-      "fr": "Ah bon ? Elle est de quelle couleur ?",
-      "en": "Really? What colour is it?",
-      "ko": "그래? 무슨 색이야?",
+      "fr": "Ah bon ? Elle est comment ?",
+      "en": "Really? What's it like?",
+      "ko": "그래? 어떤데?",
       "focus": {
        "fr": [
-        "Elle est"
+        "Elle est comment"
        ],
        "en": [
-        "is it"
+        "What's it like"
        ],
        "ko": [
-        "색이야"
+        "어떤데"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Elle a",
-         "Elle es"
+         "Elle a comment",
+         "Elle es comment"
         ]
        ],
        "en": [
         [
-         "are it",
-         "be it"
+         "What it is like",
+         "How's it like"
         ]
        ],
        "ko": [
         [
-         "색야",
-         "색이여"
+         "어떻는데",
+         "어떤대"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Elle a la couleur de la terre.",
-      "en": "It's the colour of the earth.",
-      "ko": "흙 색깔이야."
+      "fr": "Couleur de la terre, Théo.",
+      "en": "The colour of the earth, Theo.",
+      "ko": "흙 색깔이야, 테오."
      },
      {
       "who": "me",
@@ -452,10 +449,7 @@
      "terre"
     ],
     "grammar": "I.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -591,58 +585,58 @@
      },
      {
       "who": "me",
-      "fr": "Quoi ? Tu es déjà là ? On se voit où ?",
-      "en": "What? You're here already? Where shall we meet?",
-      "ko": "뭐라고? 벌써 왔어? 어디서 만나?",
+      "fr": "Quoi ? Tu es déjà là ?",
+      "en": "What? You're already here?",
+      "ko": "뭐라고? 벌써 왔어?",
       "focus": {
        "fr": [
-        "Tu es"
+        "Tu es déjà là"
        ],
        "en": [
-        "You're"
+        "You're already here"
        ],
        "ko": [
-        "왔어"
+        "벌써 왔어"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Tu as",
-         "Tu est"
+         "Tu as déjà là",
+         "Tu est déjà là"
         ]
        ],
        "en": [
         [
-         "You's",
-         "You is"
+         "You already here",
+         "You're yet here"
         ]
        ],
        "ko": [
         [
-         "와어",
-         "왔아"
+         "벌써 왔아",
+         "벌서 왔어"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Au Louvre, à midi. Ou plus tôt, si tu veux.",
-      "en": "At the Louvre, at noon. Or earlier, if you like.",
-      "ko": "루브르에서 정오에. 원하면 더 일찍도 좋아."
+      "fr": "Viens au Louvre, à midi.",
+      "en": "Come to the Louvre, at noon.",
+      "ko": "정오에 루브르로 와."
      },
      {
       "who": "me",
-      "fr": "D'accord, à midi. J'arrive !",
-      "en": "OK, at noon. I'm coming!",
-      "ko": "좋아, 정오에. 갈게!",
+      "fr": "D'accord ! J'arrive plus tôt.",
+      "en": "OK! I'll come earlier.",
+      "ko": "좋아! 더 일찍 갈게.",
       "focus": {
        "fr": [
-        "à midi"
+        "J'arrive"
        ],
        "en": [
-        "at noon"
+        "I'll come"
        ],
        "ko": [
         "갈게"
@@ -651,20 +645,20 @@
       "wrong": {
        "fr": [
         [
-         "au midi",
-         "à la midi"
+         "J'arrives",
+         "Je arrive"
         ]
        ],
        "en": [
         [
-         "in noon",
-         "on noon"
+         "I'll coming",
+         "I comes"
         ]
        ],
        "ko": [
         [
          "갈께",
-         "가을게"
+         "갈개"
         ]
        ]
       }
@@ -676,10 +670,7 @@
      "venir"
     ],
     "grammar": "I.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -810,86 +801,86 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Tu sais, Théo, je rêve d'un pays de soleil.",
-      "en": "You know, Theo, I dream of a sunny country.",
-      "ko": "있잖아, 테오. 해가 가득한 나라를 꿈꿔."
+      "fr": "Salut, Théo ! Tu vas bien ?",
+      "en": "Hi, Theo! Are you well?",
+      "ko": "안녕, 테오! 잘 지내?"
      },
      {
       "who": "me",
-      "fr": "Un pays comme le Japon ?",
-      "en": "A country like Japan?",
-      "ko": "일본 같은 나라?",
+      "fr": "Oui, ça va. Et toi ?",
+      "en": "Yes, fine. And you?",
+      "ko": "응, 잘 지내. 형은?",
       "focus": {
        "fr": [
-        "comme le Japon"
+        "Et toi"
        ],
        "en": [
-        "like Japan"
+        "And you"
        ],
        "ko": [
-        "같은"
+        "형은"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "comme la Japon",
-         "comme Japon"
+         "Et tu",
+         "Et te"
         ]
        ],
        "en": [
         [
-         "like the Japan",
-         "as Japan"
+         "And your",
+         "And yours"
         ]
        ],
        "ko": [
         [
-         "같는",
-         "갖은"
+         "형는",
+         "형이은"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Oui ! Un pays très beau, plein de couleurs.",
-      "en": "Yes! A really beautiful country, full of colour.",
-      "ko": "응! 정말 아름답고 색이 가득한 나라."
+      "fr": "Je rêve d'un beau pays.",
+      "en": "I dream of a beautiful country.",
+      "ko": "아름다운 나라를 꿈꿔."
      },
      {
       "who": "me",
-      "fr": "Est-ce que tu as envie de partir ?",
-      "en": "Do you feel like leaving?",
-      "ko": "떠나고 싶어?",
+      "fr": "Est-ce que c'est le Japon ?",
+      "en": "Is it Japan?",
+      "ko": "일본이야?",
       "focus": {
        "fr": [
-        "Est-ce que tu as"
+        "Est-ce que c'est"
        ],
        "en": [
-        "Do you"
+        "Is it"
        ],
        "ko": [
-        "싶어"
+        "일본이야"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Est-ce que tu es",
-         "Est-ce tu as"
+         "Est-ce c'est",
+         "Est-ce que c'es"
         ]
        ],
        "en": [
         [
-         "Does you",
-         "Are you"
+         "It is",
+         "Is this it"
         ]
        ],
        "ko": [
         [
-         "싶아",
-         "십어"
+         "일본이아",
+         "일본야"
         ]
        ]
       }
@@ -900,10 +891,7 @@
      "beau"
     ],
     "grammar": "I.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   }
  ]
