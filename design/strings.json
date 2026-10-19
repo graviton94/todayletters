@@ -1017,6 +1017,10 @@
     "ko": "내 소리"
   },
   "shadow_talk": {
+    "en": "Speak",
+    "ko": "말하기"
+  },
+  "shadow_talk_line": {
     "en": "Say it today %1$d / %2$d",
     "ko": "오늘 말해 볼 말 %1$d / %2$d"
   },

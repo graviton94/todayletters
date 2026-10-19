@@ -255,7 +255,8 @@
     <string name="shadow_check">Compare the original with your voice, then go on.</string>
     <string name="shadow_orig">Original</string>
     <string name="shadow_mine">My voice</string>
-    <string name="shadow_talk">Say it today %1$d / %2$d</string>
+    <string name="shadow_talk">Speak</string>
+    <string name="shadow_talk_line">Say it today %1$d / %2$d</string>
     <string name="shadow_stop">Done</string>
     <string name="shadow_next">Next</string>
     <string name="shadow_finish">I\'ve read it all along</string>

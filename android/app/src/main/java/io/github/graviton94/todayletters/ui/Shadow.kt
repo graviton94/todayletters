@@ -155,7 +155,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
             if (guide != null) GuideLine(s, guide)
             // 한 문장 · 한 마디뿐이면 "1 / 1" 은 위의 진행 숫자와 겹친다 (F14). 회화 줄은 ‘오늘 말해 볼 말 1 / 2’
             val talks = flat.count { it.isTalk }
-            if (spot.isTalk) Text(stringResource(R.string.shadow_talk, flat.indexOf(spot) + 1, talks),
+            if (spot.isTalk) Text(stringResource(R.string.shadow_talk_line, flat.indexOf(spot) + 1, talks),
                 style = Type.small.ui(), color = p.giltText, modifier = Modifier.align(Alignment.CenterHorizontally))
             else if (flat.size - talks > 1) Text(if (units[mi].size > 1) stringResource(R.string.read_where_part, nth, of, cj + 1, units[mi].size) else stringResource(R.string.read_where, nth, of),
                 style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.align(Alignment.CenterHorizontally))

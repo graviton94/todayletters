@@ -255,7 +255,8 @@
     <string name="shadow_check">원⁠래 소⁠리⁠와 내 소⁠리⁠를 번⁠갈⁠아 들⁠어 보⁠고 다⁠음⁠으⁠로⁠.</string>
     <string name="shadow_orig">원⁠래 소⁠리</string>
     <string name="shadow_mine">내 소⁠리</string>
-    <string name="shadow_talk">오⁠늘 말⁠해 볼 말 %1$d / %2$d</string>
+    <string name="shadow_talk">말⁠하⁠기</string>
+    <string name="shadow_talk_line">오⁠늘 말⁠해 볼 말 %1$d / %2$d</string>
     <string name="shadow_stop">다 말⁠했⁠어⁠요</string>
     <string name="shadow_next">다⁠음</string>
     <string name="shadow_finish">다 따⁠라 읽⁠었⁠어⁠요</string>
