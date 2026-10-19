@@ -485,80 +485,80 @@
      },
      {
       "who": "me",
-      "fr": "Alors ne dis plus de mal des femmes, et écris-moi plus souvent !",
-      "en": "Then don't say bad things about women, and write to me more often!",
-      "ko": "그럼 여자들 흉보지 마. 다른 사람들이 오해할까 봐 걱정돼.",
+      "fr": "Alors ne dis plus de mal des femmes !",
+      "en": "Then stop saying bad things about women!",
+      "ko": "그럼 여자들 흉보지 마!",
       "focus": {
        "fr": [
-        "écris-moi"
+        "ne dis plus"
        ],
        "en": [
-        "don't say"
+        "stop saying"
        ],
        "ko": [
-        "오해할까 봐"
+        "흉보지 마"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "écris-me",
-         "me écris"
+         "ne dit plus",
+         "dis ne plus"
         ]
        ],
        "en": [
         [
-         "not say",
-         "no say"
+         "stop say",
+         "stop to saying"
         ]
        ],
        "ko": [
         [
-         "오해할가 봐",
-         "오해할까 바"
+         "흉보지 말",
+         "흉보지 머"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "D'accord. Tu sais, j'aime les femmes douces… comme toi.",
-      "en": "OK. You know, I love gentle women… like you.",
-      "ko": "알았어. 있잖아, 나는 부드러운 여자가 좋아… 당신처럼."
+      "fr": "D'accord. J'aime les femmes douces… comme toi.",
+      "en": "OK. I love gentle women… like you.",
+      "ko": "알았어. 나는 다정한 여자가 좋아… 당신처럼."
      },
      {
       "who": "me",
-      "fr": "Bon, je te pardonne. Envoie-moi vite une autre lettre !",
-      "en": "All right, I forgive you. Send me another letter soon!",
-      "ko": "좋아, 용서해 줄게. 편지가 늦을까 봐 벌써 걱정돼.",
+      "fr": "Bon, je te pardonne. Écris-moi vite !",
+      "en": "All right, I forgive you. Write to me soon!",
+      "ko": "좋아, 용서해 줄게. 얼른 편지해 줘!",
       "focus": {
        "fr": [
-        "Envoie-moi"
+        "Écris-moi"
        ],
        "en": [
-        "Send me"
+        "Write to me"
        ],
        "ko": [
-        "늦을까 봐"
+        "편지해 줘"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Envoie-me",
-         "Me envoie"
+         "Écris-me",
+         "Me écris"
         ]
        ],
        "en": [
         [
-         "Sending me",
-         "Sent me"
+         "Write me to",
+         "Write to I"
         ]
        ],
        "ko": [
         [
-         "늦을가 봐",
-         "늦을까 바"
+         "편지헤 줘",
+         "편지해 저"
         ]
        ]
       }
@@ -568,7 +568,8 @@
      "doux"
     ],
     "grammar": "V.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -947,15 +948,15 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Ici, il pleut, mais il ne fait pas encore froid.",
-      "en": "It's raining here, but it isn't cold yet.",
-      "ko": "여기는 비가 와. 그래도 아직 춥지는 않아."
+      "fr": "Ici, il pleut, mais il ne fait pas froid.",
+      "en": "It's raining here, but it isn't cold.",
+      "ko": "여기는 비가 와. 그래도 춥지는 않아."
      },
      {
       "who": "me",
-      "fr": "À Mayence, il fait froid et il neige un peu.",
-      "en": "In Mainz it's cold and it's snowing a little.",
-      "ko": "그래도 밤엔 춥지? 마인츠는 눈이 조금 와.",
+      "fr": "À Mayence, il fait froid et il neige.",
+      "en": "In Mainz it's cold and snowing.",
+      "ko": "마인츠는 춥고 눈이 와.",
       "focus": {
        "fr": [
         "il fait froid",
@@ -963,10 +964,10 @@
        ],
        "en": [
         "it's cold",
-        "it's snowing"
+        "snowing"
        ],
        "ko": [
-        "춥지?"
+        "춥고"
        ]
       },
       "wrong": {
@@ -986,38 +987,38 @@
          "it's coldy"
         ],
         [
-         "it's snowed",
-         "it snowing"
+         "snowed",
+         "snowings"
         ]
        ],
        "ko": [
         [
-         "추웁지?",
-         "춥찌?"
+         "추웁고",
+         "춥구"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Hier, j'ai été au bal. Mais les nuits sont longues sans toi.",
-      "en": "Yesterday I went to a ball. But the nights are long without you.",
-      "ko": "어제 무도회에 갔었어. 그래도 당신 없는 밤은 길어."
+      "fr": "Hier, je suis allé au bal. Les nuits sont longues.",
+      "en": "Yesterday I went to a ball. The nights are long.",
+      "ko": "어제 무도회에 갔어. 밤이 길어."
      },
      {
       "who": "me",
       "fr": "Un bal ? Avec beaucoup de jolies Polonaises, j'imagine !",
-      "en": "A ball? With a lot of pretty Polish women, I suppose!",
-      "ko": "무도회? 예쁜 폴란드 여자들이 너무 많았겠지?",
+      "en": "A ball? With lots of pretty Polish women, I bet!",
+      "ko": "무도회? 예쁜 폴란드 여자들이 많았겠지?",
       "focus": {
        "fr": [
         "beaucoup de"
        ],
        "en": [
-        "a lot of"
+        "lots of"
        ],
        "ko": [
-        "많았겠지?"
+        "많았겠지"
        ]
       },
       "wrong": {
@@ -1029,14 +1030,14 @@
        ],
        "en": [
         [
-         "a lots of",
-         "much"
+         "lot of",
+         "lots"
         ]
        ],
        "ko": [
         [
-         "많앗겠지?",
-         "많았겠찌?"
+         "많앗겠지",
+         "많았겠찌"
         ]
        ]
       }
@@ -1048,7 +1049,8 @@
      "long"
     ],
     "grammar": "V.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -1441,42 +1443,42 @@
      {
       "who": "them",
       "fr": "Non. Rentre à Paris et amuse-toi aux Tuileries.",
-      "en": "No. Go back to Paris and have fun at the Tuileries.",
+      "en": "No. Go back to Paris; enjoy the Tuileries.",
       "ko": "안 돼. 파리로 돌아가서 튀일리에서 즐겁게 지내."
      },
      {
       "who": "me",
-      "fr": "Bon… Mais n'oublie pas de m'écrire chaque semaine !",
-      "en": "Fine… But don't forget to write to me every week!",
-      "ko": "알았어… 내가 잊힐까 봐 걱정이니까 매주 편지해 줘.",
+      "fr": "Bon… J'achèterai des robes. Et écris-moi chaque semaine !",
+      "en": "Fine… I'll buy dresses. And write to me every week!",
+      "ko": "알았어… 드레스나 살래. 그리고 매주 편지해 줘!",
       "focus": {
        "fr": [
-        "n'oublie pas"
+        "écris-moi"
        ],
        "en": [
-        "don't forget"
+        "write to me"
        ],
        "ko": [
-        "잊힐까 봐"
+        "편지해 줘"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "n'oublies pas",
-         "ne oublie pas"
+         "écris-me",
+         "me écris"
         ]
        ],
        "en": [
         [
-         "not forget",
-         "don't forgets"
+         "write me to",
+         "write to I"
         ]
        ],
        "ko": [
         [
-         "잊힐가 봐",
-         "잊힐까 바"
+         "편지헤 줘",
+         "편지해 저"
         ]
        ]
       }
@@ -1488,7 +1490,8 @@
      "semaine"
     ],
     "grammar": "V.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -2332,9 +2335,9 @@
      },
      {
       "who": "me",
-      "fr": "Merci. Hortense pleure tout le temps… J'ai peur qu'elle tombe malade. Écris-lui, s'il te plaît.",
-      "en": "Thank you. Hortense cries all the time… I'm afraid she'll get ill. Please write to her.",
-      "ko": "고마워. 오르탕스가 계속 울어… 병이 날까 봐 걱정이야. 그 애한테 편지 좀 써 줘.",
+      "fr": "Merci. Hortense pleure tout le temps… Écris-lui, s'il te plaît.",
+      "en": "Thanks. Hortense cries all the time… Please write to her.",
+      "ko": "고마워. 오르탕스가 계속 울어… 그 애한테 편지 좀 써 줘.",
       "focus": {
        "fr": [
         "Écris-lui"
@@ -2343,7 +2346,7 @@
         "write to her"
        ],
        "ko": [
-        "날까 봐"
+        "써 줘"
        ]
       },
       "wrong": {
@@ -2361,8 +2364,8 @@
        ],
        "ko": [
         [
-         "날가 봐",
-         "날까 바"
+         "써 저",
+         "서 줘"
         ]
        ]
       }
@@ -2415,7 +2418,8 @@
      "comprendre"
     ],
     "grammar": "V.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -2745,15 +2749,15 @@
      },
      {
       "who": "them",
-      "fr": "Prends soin de ta santé. Sors un peu, vois tes amies.",
-      "en": "Take care of your health. Go out a bit, see your friends.",
-      "ko": "건강 잘 챙겨. 바람도 좀 쐬고, 친구들도 만나."
+      "fr": "Prends soin de toi. Sors, vois tes amies.",
+      "en": "Take care of yourself. Go out, see your friends.",
+      "ko": "몸 잘 챙겨. 나가서 친구들도 만나."
      },
      {
       "who": "me",
       "fr": "Je vais essayer. Écrivez-moi souvent, s'il vous plaît.",
       "en": "I'll try. Please write to me often.",
-      "ko": "노력해 볼게요. 제가 또 무너질까 봐 그러니 자주 편지해 주세요.",
+      "ko": "노력해 볼게요. 자주 편지해 주세요.",
       "focus": {
        "fr": [
         "Écrivez-moi"
@@ -2762,7 +2766,7 @@
         "write to me"
        ],
        "ko": [
-        "무너질까 봐"
+        "편지해 주세요"
        ]
       },
       "wrong": {
@@ -2780,8 +2784,8 @@
        ],
        "ko": [
         [
-         "무너질가 봐",
-         "무너질까 바"
+         "편지헤 주세요",
+         "편지해 주새요"
         ]
        ]
       }
@@ -2791,7 +2795,8 @@
      "prendre"
     ],
     "grammar": "V.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Hortense)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Hortense).",
+    "audio": "tb"
    }
   },
   {
@@ -3151,9 +3156,9 @@
      },
      {
       "who": "me",
-      "fr": "Ah bon ? Raconte-moi tout ! Sinon, je ne vais pas dormir.",
-      "en": "Really? Tell me everything! Otherwise I won't sleep.",
-      "ko": "그래? 다 얘기해 줘! 궁금해서 잠 못 잘까 봐.",
+      "fr": "Ah bon ? Raconte-moi tout !",
+      "en": "Really? Tell me everything!",
+      "ko": "그래? 다 얘기해 줘!",
       "focus": {
        "fr": [
         "Raconte-moi"
@@ -3162,7 +3167,7 @@
         "Tell me"
        ],
        "ko": [
-        "못 잘까 봐"
+        "얘기해 줘"
        ]
       },
       "wrong": {
@@ -3180,51 +3185,51 @@
        ],
        "ko": [
         [
-         "못 잘가 봐",
-         "못 잘까 바"
+         "얘기해 저",
+         "예기해 줘"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Elle est très gentille, mais ne t'inquiète pas : je rentre bientôt.",
-      "en": "She's very nice, but don't worry: I'm coming home soon.",
-      "ko": "아주 상냥한 사람이야. 그래도 걱정하지 마. 곧 돌아가."
+      "fr": "Elle est charmante. Mais ne t'inquiète pas : je rentre bientôt.",
+      "en": "She's charming. But don't worry: I'll be home soon.",
+      "ko": "매력적인 사람이야. 그래도 걱정 마. 곧 돌아가."
      },
      {
       "who": "me",
-      "fr": "Super ! Alors dépêche-toi, on se retrouve à Saint-Cloud !",
-      "en": "Great! Then hurry — let's meet at Saint-Cloud!",
-      "ko": "잘됐다! 그럼 서둘러. 생클루에서 만나자!",
+      "fr": "Super ! Rapporte-moi un cadeau de Tilsit !",
+      "en": "Great! Bring me back a present from Tilsit!",
+      "ko": "잘됐다! 틸지트에서 선물 사 와!",
       "focus": {
        "fr": [
-        "dépêche-toi"
+        "Rapporte-moi"
        ],
        "en": [
-        "let's meet"
+        "Bring me back"
        ],
        "ko": [
-        "서둘러"
+        "사 와"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "dépêche-te",
-         "te dépêche"
+         "Rapporte-me",
+         "Me rapporte"
         ]
        ],
        "en": [
         [
-         "let's to meet",
-         "let's meeting"
+         "Bring I back",
+         "Brings me back"
         ]
        ],
        "ko": [
         [
-         "서둘어",
-         "서들러"
+         "사 워",
+         "싸 와"
         ]
        ]
       }
@@ -3235,7 +3240,8 @@
      "reine"
     ],
     "grammar": "V.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   }
  ]

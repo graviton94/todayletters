@@ -289,64 +289,64 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Allô, Joseph ? C'est moi. Tu es bien arrivé ?",
-      "en": "Hello, Joseph? It's me. Did you get there safely?",
-      "ko": "여보세요, 형? 나야. 잘 도착했어?"
+      "fr": "Allô, Joseph ? C'est moi.",
+      "en": "Hello, Joseph? It's me.",
+      "ko": "여보세요, 형? 나야."
      },
      {
       "who": "me",
-      "fr": "Oui, je suis à Gênes. Envoie-moi ton portrait, d'accord ?",
-      "en": "Yes, I'm staying in Genoa. Send me your portrait, OK?",
-      "ko": "응, 지금 제노바에 있어. 네 초상화 보내 줘, 알았지?",
+      "fr": "Bonjour, mon frère ! Ça va ?",
+      "en": "Hello, brother! How are you?",
+      "ko": "안녕, 동생아! 잘 지내?",
       "focus": {
        "fr": [
-        "ton portrait"
+        "mon frère"
        ],
        "en": [
-        "I'm staying"
+        "How are you"
        ],
        "ko": [
-        "있어"
+        "잘 지내"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "ta portrait",
-         "tes portrait"
+         "ma frère",
+         "mes frère"
         ]
        ],
        "en": [
         [
-         "I staying",
-         "I'm stay"
+         "How you are",
+         "How is you"
         ]
        ],
        "ko": [
         [
-         "있아",
-         "잇어"
+         "잘 지네",
+         "잘 지나"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Promis ! Et Désirée veut aussi mon portrait.",
-      "en": "Promise! And Désirée wants my portrait too.",
-      "ko": "약속할게! 데지레도 내 초상화를 갖고 싶대."
+      "fr": "Ça va. Envoie-moi ton portrait !",
+      "en": "I'm fine. Send me your portrait!",
+      "ko": "잘 지내. 형 초상화 보내 줘!"
      },
      {
       "who": "me",
-      "fr": "Je le lui donne. Tu es mon meilleur ami, tu sais.",
-      "en": "I'm taking it to her. You're my best friend, you know.",
-      "ko": "내가 전해 줄게. 너는 내 제일 친한 친구야.",
+      "fr": "D'accord. Tu es mon meilleur ami.",
+      "en": "OK. You're my best friend.",
+      "ko": "알았어. 너는 내 제일 친한 친구야.",
       "focus": {
        "fr": [
         "mon meilleur ami"
        ],
        "en": [
-        "I'm taking"
+        "my best friend"
        ],
        "ko": [
         "친구야"
@@ -361,14 +361,14 @@
        ],
        "en": [
         [
-         "I taking",
-         "I'm take"
+         "mine best friend",
+         "me best friend"
         ]
        ],
        "ko": [
         [
          "친구아",
-         "친구어"
+         "친구여"
         ]
        ]
       }
@@ -379,7 +379,8 @@
      "ami"
     ],
     "grammar": "I.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph).",
+    "audio": "tb"
    }
   },
   {
@@ -678,64 +679,64 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Joseph ! À Paris, les théâtres sont pleins !",
-      "en": "Joseph! In Paris the theatres are packed!",
-      "ko": "형! 파리는 극장마다 사람이 꽉 찼어!"
+      "fr": "Bonjour, Joseph ! Tu vas bien ?",
+      "en": "Hello, Joseph! Are you well?",
+      "ko": "형, 안녕! 잘 지내?"
      },
      {
       "who": "me",
-      "fr": "Ah bon ? Tu peux aller à l'Opéra ?",
-      "en": "Really? Can you go to the Opéra?",
-      "ko": "와, 재밌겠네! 오페라 극장에도 가 봤어?",
+      "fr": "Oui, très bien. Et toi ?",
+      "en": "Yes, very well. And you?",
+      "ko": "응, 아주 잘 지내. 너는?",
       "focus": {
        "fr": [
-        "Tu peux"
+        "Et toi"
        ],
        "en": [
-        "Can you"
+        "And you"
        ],
        "ko": [
-        "재밌겠네"
+        "너는"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Tu peut",
-         "Vous peux"
+         "Et tu",
+         "Et te"
         ]
        ],
        "en": [
         [
-         "Do you can",
-         "Can you to"
+         "And your",
+         "And yours"
         ]
        ],
        "ko": [
         [
-         "재밌겠내",
-         "제밌겠네"
+         "너가",
+         "너를"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Oui, hier ! Mais les prix sont trois fois plus chers.",
-      "en": "Yes, yesterday! But the prices are three times higher.",
-      "ko": "응, 어제! 그런데 표값이 세 배야."
+      "fr": "Oui ! Hier, à l'Opéra !",
+      "en": "Yes! Yesterday, at the Opéra!",
+      "ko": "응! 어제 오페라 극장에 갔어!"
      },
      {
       "who": "me",
-      "fr": "Trois fois ! Tu as l'air heureux, en tout cas.",
-      "en": "Three times! I can tell you're happy, anyway.",
-      "ko": "세 배? 그래도 신났네!",
+      "fr": "Tu es heureux ! Et les prix ?",
+      "en": "You're happy! And the prices?",
+      "ko": "신났네! 표값은?",
       "focus": {
        "fr": [
-        "Tu as"
+        "Tu es"
        ],
        "en": [
-        "I can tell"
+        "You're"
        ],
        "ko": [
         "신났네"
@@ -744,14 +745,14 @@
       "wrong": {
        "fr": [
         [
-         "Tu a",
-         "Vous as"
+         "Tu est",
+         "Vous es"
         ]
        ],
        "en": [
         [
-         "I can to tell",
-         "I cans tell"
+         "You is",
+         "Your"
         ]
        ],
        "ko": [
@@ -768,7 +769,8 @@
      "prix"
     ],
     "grammar": "I.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph).",
+    "audio": "tb"
    }
   },
   {
@@ -1042,24 +1044,24 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Joseph, je pense à me marier.",
-      "en": "Joseph, I'm thinking about getting married.",
-      "ko": "형, 나 결혼할까 생각 중이야."
+      "fr": "Joseph, je veux me marier.",
+      "en": "Joseph, I want to get married.",
+      "ko": "형, 나 결혼하고 싶어."
      },
      {
       "who": "me",
-      "fr": "Avec Eugénie ? Je parle à son frère demain.",
-      "en": "With Eugénie? I'm seeing her brother tomorrow.",
-      "ko": "외제니랑? 내일 그 애 오빠 만나.",
+      "fr": "Avec Eugénie ? Je vois son frère.",
+      "en": "With Eugénie? I'll see her brother.",
+      "ko": "외제니랑? 그 애 오빠 만날게.",
       "focus": {
        "fr": [
         "son frère"
        ],
        "en": [
-        "I'm seeing"
+        "her brother"
        ],
        "ko": [
-        "만나"
+        "만날게"
        ]
       },
       "wrong": {
@@ -1071,38 +1073,38 @@
        ],
        "en": [
         [
-         "I seeing",
-         "I'm see"
+         "his brother",
+         "she brother"
         ]
        ],
        "ko": [
         [
-         "만나아",
-         "만너"
+         "만날께",
+         "만나을게"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Merci ! Fais-moi savoir le résultat, d'accord ?",
-      "en": "Thanks! Let me know how it goes, OK?",
+      "fr": "Merci ! Dis-moi le résultat, d'accord ?",
+      "en": "Thanks! Tell me the result, OK?",
       "ko": "고마워! 결과 알려 줘, 알았지?"
      },
      {
       "who": "me",
-      "fr": "D'accord. Et j'attends mes livres !",
-      "en": "OK. And I'm waiting for my books!",
-      "ko": "알았어. 그리고 내 책 기다리고 있어!",
+      "fr": "D'accord. J'attends mes livres !",
+      "en": "OK. I'm waiting for my books!",
+      "ko": "알았어. 내 책 기다릴게!",
       "focus": {
        "fr": [
         "mes livres"
        ],
        "en": [
-        "I'm waiting"
+        "my books"
        ],
        "ko": [
-        "있어"
+        "기다릴게"
        ]
       },
       "wrong": {
@@ -1114,14 +1116,14 @@
        ],
        "en": [
         [
-         "I waiting",
-         "I'm wait"
+         "mine books",
+         "me books"
         ]
        ],
        "ko": [
         [
-         "있아",
-         "잇어"
+         "기다릴께",
+         "기다리을게"
         ]
        ]
       }
@@ -1133,7 +1135,8 @@
      "livre"
     ],
     "grammar": "I.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joseph).",
+    "audio": "tb"
    }
   },
   {
@@ -1464,24 +1467,24 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Bonjour, Joséphine ! Tu es réveillée ?",
-      "en": "Good morning, Joséphine! Are you awake?",
-      "ko": "좋은 아침, 조제핀! 일어났어?"
+      "fr": "Bonjour ! Tu dors encore ce matin ?",
+      "en": "Good morning! Still asleep?",
+      "ko": "좋은 아침! 아직 자?"
      },
      {
       "who": "me",
-      "fr": "Oui. Vous êtes déjà debout ? Vous ne pouvez pas dormir ?",
-      "en": "Yes. You're up already? Can't you sleep?",
-      "ko": "응. 벌써 일어났네? 잠이 안 와?",
+      "fr": "Non. Vous êtes debout si tôt ?",
+      "en": "No. You're up so early?",
+      "ko": "아니. 벌써 일어났어?",
       "focus": {
        "fr": [
         "Vous êtes"
        ],
        "en": [
-        "Can't you"
+        "You're"
        ],
        "ko": [
-        "일어났네"
+        "일어났어"
        ]
       },
       "wrong": {
@@ -1493,57 +1496,57 @@
        ],
        "en": [
         [
-         "Don't can you",
-         "Can't you to"
+         "You is",
+         "Your"
         ]
        ],
        "ko": [
         [
-         "일어났내",
-         "이러났네"
+         "일어났서",
+         "이러났어"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Non, je pense à toi depuis ce matin. Tu pars à midi ?",
-      "en": "No, I've been thinking of you all morning. Are you leaving at noon?",
-      "ko": "응, 아침부터 당신 생각만 해. 정오에 떠나?"
+      "fr": "Oui. Tu pars à midi ?",
+      "en": "Yes. Are you leaving at noon?",
+      "ko": "응. 정오에 떠나?"
      },
      {
       "who": "me",
-      "fr": "Oui, à midi. Et ce soir, vous venez ?",
-      "en": "Yes, at noon. Can you come this evening?",
-      "ko": "응, 정오에. 이따 저녁에 보면 되겠네!",
+      "fr": "Oui, à midi. Venez ce soir !",
+      "en": "Yes, at noon. Come this evening!",
+      "ko": "응, 정오에. 저녁에 와!",
       "focus": {
        "fr": [
-        "vous venez"
+        "Venez"
        ],
        "en": [
-        "Can you"
+        "Come"
        ],
        "ko": [
-        "되겠네"
+        "저녁에 와"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "vous viens",
-         "tu venez"
+         "Viens",
+         "Venir"
         ]
        ],
        "en": [
         [
-         "Do you can",
-         "Can you to"
+         "Comes",
+         "Coming"
         ]
        ],
        "ko": [
         [
-         "되겟네",
-         "돼겠네"
+         "저녁애 와",
+         "저녁에 워"
         ]
        ]
       }
@@ -1554,7 +1557,8 @@
      "midi"
     ],
     "grammar": "I.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   }
  ]

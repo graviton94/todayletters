@@ -954,18 +954,18 @@
      },
      {
       "who": "me",
-      "fr": "C'est vrai… Mais Hortense m'a dit de sortir, alors j'ai marché toute la matinée.",
-      "en": "It's true... But Hortense told me to go out, so I walked all morning.",
-      "ko": "응… 그래도 오르탕스가 바람 좀 쐬라고 해서 오전 내내 걸었어.",
+      "fr": "C'est vrai… Mais aujourd'hui, j'ai marché toute la matinée.",
+      "en": "It's true… But today I walked all morning.",
+      "ko": "응… 그래도 오늘은 오전 내내 걸었어.",
       "focus": {
        "fr": [
         "toute la matinée"
        ],
        "en": [
-        "told me to go out"
+        "all morning"
        ],
        "ko": [
-        "쐬라고 해서"
+        "내내"
        ]
       },
       "wrong": {
@@ -977,14 +977,14 @@
        ],
        "en": [
         [
-         "told me go out",
-         "said me to go out"
+         "all the morning",
+         "whole morning"
         ]
        ],
        "ko": [
         [
-         "쐬라구 해서",
-         "쐴라고 해서"
+         "네내",
+         "내네"
         ]
        ]
       }
@@ -1037,7 +1037,8 @@
      "pleurer"
     ],
     "grammar": "VII.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -1428,9 +1429,9 @@
      },
      {
       "who": "me",
-      "fr": "Hortense m'a dit que tu travaillais tout le temps. Je t'ai dit de te reposer !",
-      "en": "Hortense told me you were working all the time. I told you to rest!",
-      "ko": "오르탕스가 그러는데 당신 계속 일만 한대. 내가 좀 쉬라고 했잖아!",
+      "fr": "Hortense m'a dit que tu travaillais tout le temps. Repose-toi !",
+      "en": "Hortense told me you were working all the time. Rest!",
+      "ko": "오르탕스가 그러는데 당신 계속 일만 한대. 좀 쉬어!",
       "focus": {
        "fr": [
         "tout le temps"
@@ -1439,7 +1440,7 @@
         "told me you were working"
        ],
        "ko": [
-        "쉬라고 했잖아"
+        "좀 쉬어"
        ]
       },
       "wrong": {
@@ -1457,8 +1458,8 @@
        ],
        "ko": [
         [
-         "쉴라고 했잖아",
-         "쉬라구 했잖아"
+         "좀 쉬여",
+         "좀 시어"
         ]
        ]
       }
@@ -1469,7 +1470,8 @@
      "vide"
     ],
     "grammar": "VII.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -1856,9 +1858,9 @@
      },
      {
       "who": "them",
-      "fr": "Ce que tu veux ! Et je fais faire un service de porcelaine pour toi.",
-      "en": "Whatever you like! And I'm having a porcelain dinner service made for you.",
-      "ko": "마음대로 해! 그리고 당신 쓸 도자기 식기도 한 벌 맞추고 있어."
+      "fr": "Ce que tu veux ! Et je fais faire un service de porcelaine.",
+      "en": "Whatever you like! And I'm having a porcelain service made.",
+      "ko": "마음대로 해! 그리고 당신 쓸 도자기 식기도 맞추고 있어."
      },
      {
       "who": "me",
@@ -1903,7 +1905,8 @@
      "porcelaine"
     ],
     "grammar": "VII.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -2294,8 +2297,8 @@
     "lines": [
      {
       "who": "them",
-      "fr": "J'ai lu ta lettre. Tu as failli avoir un accident sur le lac ?",
-      "en": "I read your letter. You nearly had an accident on the lake?",
+      "fr": "J'ai lu ta lettre. Un accident sur le lac ?",
+      "en": "I read your letter. An accident on the lake?",
       "ko": "편지 읽었어. 호수에서 사고가 날 뻔했다고?"
      },
      {
@@ -2384,7 +2387,8 @@
      "île"
     ],
     "grammar": "VII.1",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -2798,18 +2802,18 @@
      },
      {
       "who": "me",
-      "fr": "Hortense m'a dit qu'il était très beau. Je suis heureuse pour toi, de tout cœur.",
-      "en": "Hortense told me he was very beautiful. I'm happy for you, with all my heart.",
-      "ko": "오르탕스가 아기가 아주 예쁘다고 했어. 진심으로 축하해.",
+      "fr": "Je suis heureuse pour toi, de tout cœur !",
+      "en": "I'm happy for you, with all my heart!",
+      "ko": "진심으로 축하해!",
       "focus": {
        "fr": [
         "de tout cœur"
        ],
        "en": [
-        "told me he was"
+        "with all my heart"
        ],
        "ko": [
-        "예쁘다고 했어"
+        "진심으로"
        ]
       },
       "wrong": {
@@ -2821,14 +2825,14 @@
        ],
        "en": [
         [
-         "told me he were",
-         "said me he was"
+         "with all mine heart",
+         "with my all heart"
         ]
        ],
        "ko": [
         [
-         "예쁘다구 했어",
-         "예쁘라고 했어"
+         "진심으루",
+         "진싱으로"
         ]
        ]
       }
@@ -2839,7 +2843,8 @@
      "œil"
     ],
     "grammar": "VII.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -3193,9 +3198,9 @@
      },
      {
       "who": "me",
-      "fr": "Oui, ça va. Pour les dettes… je ne veux pas que tu sois fâché.",
-      "en": "Yes, I'm fine. About the debts... I don't want you to be angry.",
-      "ko": "응, 괜찮아. 빚 말인데… 화내지 마. 일부러 그런 거 아니잖아.",
+      "fr": "Oui. Les dettes… je ne veux pas que tu sois fâché.",
+      "en": "Yes. The debts… I don't want you to be angry.",
+      "ko": "응. 빚 말인데… 화내지 않았으면 좋겠어.",
       "focus": {
        "fr": [
         "que tu sois"
@@ -3204,7 +3209,7 @@
         "want you to be"
        ],
        "ko": [
-        "아니잖아"
+        "좋겠어"
        ]
       },
       "wrong": {
@@ -3222,8 +3227,8 @@
        ],
        "ko": [
         [
-         "아니자나",
-         "아니잔아"
+         "좋겟어",
+         "조켔어"
         ]
        ]
       }
@@ -3277,7 +3282,8 @@
      "dette"
     ],
     "grammar": "VII.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   }
  ]

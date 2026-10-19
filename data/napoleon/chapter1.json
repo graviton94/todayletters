@@ -444,21 +444,21 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Allô, Joséphine ? C'est moi ! J'ai reçu ta lettre.",
-      "en": "Hello, Joséphine? It's me! I got your letter.",
-      "ko": "여보세요, 조제핀? 나야! 당신 편지 받았어."
+      "fr": "Allô, Joséphine ? J'ai reçu ta lettre.",
+      "en": "Hello, Joséphine? I got your letter.",
+      "ko": "여보세요, 조제핀? 당신 편지 받았어."
      },
      {
       "who": "me",
-      "fr": "Déjà ? Et ton voyage, ça va ?",
-      "en": "Already? And how is your trip going?",
-      "ko": "벌써? 가는 길은 괜찮아?",
+      "fr": "Bonjour ! Ça va, ton voyage ?",
+      "en": "Hello! How's your trip going?",
+      "ko": "안녕! 가는 길은 괜찮아?",
       "focus": {
        "fr": [
         "ton voyage"
        ],
        "en": [
-        "is your trip going"
+        "your trip"
        ],
        "ko": [
         "괜찮아"
@@ -473,8 +473,8 @@
        ],
        "en": [
         [
-         "is your trip go",
-         "are your trip going"
+         "you trip",
+         "yours trip"
         ]
        ],
        "ko": [
@@ -487,24 +487,24 @@
      },
      {
       "who": "them",
-      "fr": "Ça va. Je suis au bord de la mer. Mais je pense à toi tout le temps.",
-      "en": "It's fine. I'm by the sea. But I think about you all the time.",
-      "ko": "괜찮아. 지금 바닷가야. 그래도 계속 당신 생각만 해."
+      "fr": "Ça va. Je vois la mer.",
+      "en": "Fine. I can see the sea.",
+      "ko": "괜찮아. 바다가 보여."
      },
      {
       "who": "me",
-      "fr": "Moi aussi, je pense à toi. Fais attention à ta santé !",
-      "en": "Me too, I'm thinking of you. Take care of your health!",
-      "ko": "나도 당신 생각하고 있어. 몸 잘 챙겨!",
+      "fr": "Fais attention à ta santé !",
+      "en": "Take care of your health!",
+      "ko": "몸 잘 챙겨!",
       "focus": {
        "fr": [
         "ta santé"
        ],
        "en": [
-        "I'm thinking"
+        "your health"
        ],
        "ko": [
-        "있어"
+        "챙겨"
        ]
       },
       "wrong": {
@@ -516,14 +516,14 @@
        ],
        "en": [
         [
-         "I thinking",
-         "I'm think"
+         "you health",
+         "yours health"
         ]
        ],
        "ko": [
         [
-         "있아",
-         "잇어"
+         "챙기어",
+         "챙겨어"
         ]
        ]
       }
@@ -534,7 +534,8 @@
      "lettre"
     ],
     "grammar": "I.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine F3)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine F3).",
+    "audio": "tb"
    }
   },
   {
@@ -837,24 +838,24 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Joséphine, tu dors ? Il est une heure du matin…",
-      "en": "Joséphine, are you asleep? It's one in the morning…",
-      "ko": "조제핀, 자? 새벽 한 시야…"
+      "fr": "Tu dors ? Il est une heure.",
+      "en": "Are you asleep? It's one o'clock.",
+      "ko": "자? 새벽 한 시야."
      },
      {
       "who": "me",
-      "fr": "Non, je lis ta lettre. Tu es fatigué ?",
-      "en": "No, I'm reading your letter. Are you tired?",
-      "ko": "아니, 당신 편지 읽고 있어. 피곤해?",
+      "fr": "Non, je lis ta lettre.",
+      "en": "No, I'm reading your letter.",
+      "ko": "아니, 당신 편지 읽고 있어.",
       "focus": {
        "fr": [
         "ta lettre"
        ],
        "en": [
-        "I'm reading"
+        "your letter"
        ],
        "ko": [
-        "피곤해"
+        "읽고 있어"
        ]
       },
       "wrong": {
@@ -866,35 +867,35 @@
        ],
        "en": [
         [
-         "I reading",
-         "I'm read"
+         "you letter",
+         "yours letter"
         ]
        ],
        "ko": [
         [
-         "피곤하어",
-         "피곤헤"
+         "읽구 있어",
+         "익고 있어"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Oui, un peu. Je suis à cheval tous les jours.",
-      "en": "Yes, a little. I'm on my horse every day.",
-      "ko": "응, 조금. 날마다 말을 타거든."
+      "fr": "Je suis fatigué. Toujours à cheval !",
+      "en": "I'm tired. Always on horseback!",
+      "ko": "피곤해. 날마다 말을 타."
      },
      {
       "who": "me",
-      "fr": "Alors dors bien, mon ami. Je t'envoie un baiser.",
-      "en": "Then sleep well, my love. I'm sending you a kiss.",
-      "ko": "그럼 푹 자. 입맞춤 보낼게.",
+      "fr": "Alors dors bien, mon ami.",
+      "en": "Then sleep well, my love.",
+      "ko": "그럼 푹 자, 여보.",
       "focus": {
        "fr": [
         "mon ami"
        ],
        "en": [
-        "I'm sending"
+        "my love"
        ],
        "ko": [
         "푹 자"
@@ -909,8 +910,8 @@
        ],
        "en": [
         [
-         "I sending",
-         "I'm send"
+         "me love",
+         "mine love"
         ]
        ],
        "ko": [
@@ -928,7 +929,8 @@
      "dormir"
     ],
     "grammar": "I.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -1225,86 +1227,86 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Joséphine, tu es à la campagne ?",
-      "en": "Joséphine, are you in the country?",
-      "ko": "조제핀, 시골에 갔어?"
+      "fr": "Tu es à la campagne ?",
+      "en": "Are you in the country?",
+      "ko": "시골에 갔어?"
      },
      {
       "who": "me",
-      "fr": "Oui, avec des amis. Tu n'es pas jaloux, quand même ?",
-      "en": "Yes, with friends. You can't be jealous!",
-      "ko": "응, 친구들이랑. 질투하는 거야? 귀엽네.",
+      "fr": "Oui. Tu es jaloux ?",
+      "en": "Yes. Are you jealous?",
+      "ko": "응. 질투해?",
       "focus": {
        "fr": [
-        "Tu n'es pas"
+        "Tu es"
        ],
        "en": [
-        "can't be"
+        "Are you"
        ],
        "ko": [
-        "귀엽네"
+        "질투해"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Tu n'est pas",
-         "Vous n'es pas"
+         "Tu est",
+         "Vous es"
         ]
        ],
        "en": [
         [
-         "can't to be",
-         "don't can be"
+         "Is you",
+         "Are your"
         ]
        ],
        "ko": [
         [
-         "귀엽내",
-         "기엽네"
+         "질투헤",
+         "질투하"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Un peu… Mon frère t'envoie des bonbons de Gênes.",
-      "en": "A little… My brother is sending you sweets from Genoa.",
-      "ko": "조금… 형이 제노바 사탕을 보낸대."
+      "fr": "Un peu… Mon frère est ici.",
+      "en": "A little… My brother is here.",
+      "ko": "조금… 형이 여기 와 있어."
      },
      {
       "who": "me",
-      "fr": "C'est gentil ! Vous êtes adorables, tous les deux.",
-      "en": "That's sweet! Can you thank him for me?",
-      "ko": "다정하네! 형님한테 고맙다고 전해 줘.",
+      "fr": "Bonjour, Joseph ! Je suis Joséphine.",
+      "en": "Hello, Joseph! I'm Joséphine.",
+      "ko": "안녕하세요, 아주버님! 조제핀이에요.",
       "focus": {
        "fr": [
-        "Vous êtes"
+        "Je suis"
        ],
        "en": [
-        "Can you"
+        "I'm"
        ],
        "ko": [
-        "다정하네"
+        "조제핀이에요"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "Vous es",
-         "Tu êtes"
+         "Je es",
+         "Je suit"
         ]
        ],
        "en": [
         [
-         "Can you to",
-         "Do you can"
+         "I is",
+         "I'm am"
         ]
        ],
        "ko": [
         [
-         "다정하내",
-         "다정해네"
+         "조제핀이예요",
+         "조제핀에요"
         ]
        ]
       }
@@ -1315,7 +1317,8 @@
      "jaloux"
     ],
     "grammar": "I.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -1618,67 +1621,67 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Tu as vu Joseph ? Il a ma lettre.",
-      "en": "Have you seen Joseph? He has my letter.",
-      "ko": "조제프 형 만났어? 내 편지 갖고 있어."
+      "fr": "Tu as vu mon frère ?",
+      "en": "Have you seen my brother?",
+      "ko": "우리 형 만났어?"
      },
      {
       "who": "me",
-      "fr": "Oui, ton frère est très gentil ! J'ouvre ta lettre.",
-      "en": "Yes, your brother is so kind! I'm opening your letter now.",
-      "ko": "응, 당신 형님 정말 다정하더라! 지금 편지 읽어.",
+      "fr": "Oui ! Il a ta lettre.",
+      "en": "Yes! He has your letter.",
+      "ko": "응! 당신 편지 갖고 왔어.",
       "focus": {
        "fr": [
-        "ton frère"
+        "ta lettre"
        ],
        "en": [
-        "I'm opening"
+        "your letter"
        ],
        "ko": [
-        "읽어"
+        "갖고 왔어"
        ]
       },
       "wrong": {
        "fr": [
         [
-         "ta frère",
-         "tes frère"
+         "ton lettre",
+         "tes lettre"
         ]
        ],
        "en": [
         [
-         "I opening",
-         "I'm open"
+         "you letter",
+         "yours letter"
         ]
        ],
        "ko": [
         [
-         "읽아",
-         "익어"
+         "갖구 왔어",
+         "갓고 왔어"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Viens vite, s'il te plaît. Je suis un peu malade.",
-      "en": "Come quickly, please. I'm a little ill.",
-      "ko": "빨리 와 줘. 나 좀 아파."
+      "fr": "Viens vite ! Je suis malade.",
+      "en": "Come quickly! I'm ill.",
+      "ko": "빨리 와! 나 아파."
      },
      {
       "who": "me",
-      "fr": "Oh non ! Repose-toi, mon amour. J'arrive bientôt.",
-      "en": "Oh no! Get some rest, my love. I'm coming soon.",
-      "ko": "어머! 푹 쉬어, 여보. 곧 갈게, 약속해.",
+      "fr": "Repose-toi, mon amour. J'arrive bientôt !",
+      "en": "Rest, my love. I'm coming soon!",
+      "ko": "푹 쉬어, 여보. 곧 갈게!",
       "focus": {
        "fr": [
         "mon amour"
        ],
        "en": [
-        "I'm coming"
+        "my love"
        ],
        "ko": [
-        "약속해"
+        "곧 갈게"
        ]
       },
       "wrong": {
@@ -1690,14 +1693,14 @@
        ],
        "en": [
         [
-         "I coming",
-         "I'm come"
+         "me love",
+         "mine love"
         ]
        ],
        "ko": [
         [
-         "약속하",
-         "약속해어"
+         "곧 갈께",
+         "곧 가을게"
         ]
        ]
       }
@@ -1709,7 +1712,8 @@
      "bientôt"
     ],
     "grammar": "I.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -2012,15 +2016,15 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Joséphine ! Tu es malade ? Je suis très inquiet.",
-      "en": "Joséphine! Are you ill? I'm really worried.",
-      "ko": "조제핀! 아파? 너무 걱정돼."
+      "fr": "Joséphine ! Tu es malade ?",
+      "en": "Joséphine! Are you ill?",
+      "ko": "조제핀! 아파?"
      },
      {
       "who": "me",
       "fr": "Ça va mieux. Tu peux respirer !",
-      "en": "I'm better. You can breathe again!",
-      "ko": "좀 나아졌어. 목소리 들으니 살 것 같네.",
+      "en": "I'm better. You can breathe!",
+      "ko": "좀 나았어. 이제 숨 쉬어도 돼!",
       "focus": {
        "fr": [
         "Tu peux"
@@ -2029,7 +2033,7 @@
         "You can"
        ],
        "ko": [
-        "같네"
+        "쉬어도 돼"
        ]
       },
       "wrong": {
@@ -2047,32 +2051,32 @@
        ],
        "ko": [
         [
-         "같내",
-         "갔네"
+         "쉬어도 되",
+         "쉬어도 대"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Écris-moi vite ! J'attends ta réponse.",
-      "en": "Write to me soon! I'm waiting for your answer.",
-      "ko": "얼른 편지 써 줘! 당신 답장 기다릴게."
+      "fr": "Écris-moi ! J'attends ta réponse.",
+      "en": "Write! I'm waiting for your answer.",
+      "ko": "편지 써 줘! 답장 기다릴게."
      },
      {
       "who": "me",
       "fr": "Promis. Mais dix pages, tu exagères !",
-      "en": "Promise. But ten pages? I can't write that much!",
-      "ko": "알았어. 그런데 열 장은 너무 많네!",
+      "en": "Promise. But ten pages? Too many!",
+      "ko": "알았어. 그런데 열 장은 너무해!",
       "focus": {
        "fr": [
         "tu exagères"
        ],
        "en": [
-        "I can't"
+        "Too many"
        ],
        "ko": [
-        "많네"
+        "너무해"
        ]
       },
       "wrong": {
@@ -2084,14 +2088,14 @@
        ],
        "en": [
         [
-         "I don't can",
-         "I can't to"
+         "Too much",
+         "Very many"
         ]
        ],
        "ko": [
         [
-         "많내",
-         "만네"
+         "너무헤",
+         "너무하"
         ]
        ]
       }
@@ -2102,7 +2106,8 @@
      "réponse"
     ],
     "grammar": "I.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -2404,21 +2409,21 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Tu ne m'écris pas souvent, Joséphine…",
-      "en": "You don't write to me very often, Joséphine…",
-      "ko": "조제핀, 당신 편지가 너무 뜸해…"
+      "fr": "Tu ne m'écris pas souvent…",
+      "en": "You don't write to me often…",
+      "ko": "당신 편지가 너무 뜸해…"
      },
      {
       "who": "me",
-      "fr": "Pardon, mon chéri. Je suis très occupée à Paris.",
-      "en": "Sorry, darling. I'm running around all day in Paris.",
-      "ko": "미안해, 여보. 파리에서 정신없이 바빠.",
+      "fr": "Pardon, mon chéri. Je suis occupée.",
+      "en": "Sorry, darling. I'm busy.",
+      "ko": "미안해, 여보. 바빠.",
       "focus": {
        "fr": [
         "mon chéri"
        ],
        "en": [
-        "I'm running"
+        "I'm busy"
        ],
        "ko": [
         "바빠"
@@ -2433,8 +2438,8 @@
        ],
        "en": [
         [
-         "I running",
-         "I'm run"
+         "I busy",
+         "I'm busying"
         ]
        ],
        "ko": [
@@ -2447,24 +2452,24 @@
      },
      {
       "who": "them",
-      "fr": "Moi, j'ai les poches pleines de lettres pour toi !",
-      "en": "Me, I've got pockets full of letters for you!",
-      "ko": "나는 주머니에 당신한테 쓴 편지가 가득해!"
+      "fr": "Mes poches sont pleines de lettres !",
+      "en": "My pockets are full of letters!",
+      "ko": "내 주머니는 편지로 가득해!"
      },
      {
       "who": "me",
       "fr": "Alors montre-moi tes lettres !",
-      "en": "Then show me your letters! I'm dying to read them.",
-      "ko": "그럼 그 편지 보여 줘! 정말 궁금해.",
+      "en": "Then show me your letters!",
+      "ko": "그럼 그 편지 보여 줘!",
       "focus": {
        "fr": [
         "tes lettres"
        ],
        "en": [
-        "I'm dying"
+        "your letters"
        ],
        "ko": [
-        "궁금해"
+        "보여 줘"
        ]
       },
       "wrong": {
@@ -2476,14 +2481,14 @@
        ],
        "en": [
         [
-         "I dying",
-         "I'm die"
+         "you letters",
+         "yours letters"
         ]
        ],
        "ko": [
         [
-         "궁금하",
-         "궁굼해"
+         "보여 저",
+         "보여 조"
         ]
        ]
       }
@@ -2495,7 +2500,8 @@
      "montrer"
     ],
     "grammar": "I.0",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   },
   {
@@ -2798,24 +2804,24 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Ta lettre est arrivée ! Tu vas mieux ?",
-      "en": "Your letter came! Are you feeling better?",
-      "ko": "당신 편지 왔어! 좀 나아졌어?"
+      "fr": "Ta lettre ! Tu vas mieux ?",
+      "en": "Your letter came! Feeling better?",
+      "ko": "편지 왔어! 좀 나아졌어?"
      },
      {
       "who": "me",
-      "fr": "Oui, aujourd'hui je suis guérie. Et toi ?",
-      "en": "Yes, I'm well again today. Can you come soon?",
-      "ko": "응, 오늘은 다 나았어. 기운이 나네.",
+      "fr": "Oui, aujourd'hui ça va. Et toi ?",
+      "en": "Yes, today I'm fine. And you?",
+      "ko": "응, 오늘은 괜찮아. 당신은?",
       "focus": {
        "fr": [
         "Et toi"
        ],
        "en": [
-        "Can you"
+        "And you"
        ],
        "ko": [
-        "나네"
+        "당신은"
        ]
       },
       "wrong": {
@@ -2827,38 +2833,38 @@
        ],
        "en": [
         [
-         "Can you to",
-         "Do you can"
+         "And your",
+         "And yours"
         ]
        ],
        "ko": [
         [
-         "나내",
-         "나니"
+         "당신이",
+         "당신을"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "fr": "Très content ! Je t'aime mille fois plus.",
-      "en": "So happy! I love you a thousand times more.",
-      "ko": "정말 기뻐! 천 배는 더 사랑해."
+      "fr": "Je t'aime mille fois !",
+      "en": "I love you a thousand times!",
+      "ko": "천 번이고 사랑해!"
      },
      {
       "who": "me",
-      "fr": "Tu es fou ! Fortuné t'embrasse aussi.",
-      "en": "You're crazy! Fortuné can't wait to see you either.",
-      "ko": "당신 정말 못 말리네! 포르튀네도 보고 싶대.",
+      "fr": "Tu es fou, mon ami !",
+      "en": "You're crazy, my love!",
+      "ko": "당신 정말 못 말려!",
       "focus": {
        "fr": [
         "Tu es"
        ],
        "en": [
-        "can't wait"
+        "You're"
        ],
        "ko": [
-        "못 말리네"
+        "못 말려"
        ]
       },
       "wrong": {
@@ -2870,14 +2876,14 @@
        ],
        "en": [
         [
-         "don't can wait",
-         "can't to wait"
+         "You is",
+         "Your"
         ]
        ],
        "ko": [
         [
-         "못 말리내",
-         "못 말이네"
+         "못 말러",
+         "못 말여"
         ]
        ]
       }
@@ -2888,7 +2894,8 @@
      "fois"
     ],
     "grammar": "I.2",
-    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine)."
+    "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
+    "audio": "tb"
    }
   }
  ]
