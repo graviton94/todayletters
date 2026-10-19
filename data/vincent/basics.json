@@ -1193,21 +1193,6 @@
    }
   },
   {
-   "id": "886d516c",
-   "w": "police",
-   "pos": "n",
-   "mean": {
-    "ko": "경찰",
-    "en": "police"
-   },
-   "ex": {
-    "t": "Appelle la police !",
-    "ko": "경찰을 불러!",
-    "en": "Call the police!",
-    "from": null
-   }
-  },
-  {
    "id": "896fdd8d",
    "w": "car",
    "pos": "conj",

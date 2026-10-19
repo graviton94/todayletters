@@ -1132,20 +1132,6 @@
    }
   },
   {
-   "id": "e38f7940",
-   "w": "car",
-   "pos": "n",
-   "mean": {
-    "ko": "자동차"
-   },
-   "ex": {
-    "t": "The car is outside.",
-    "ko": "차는 밖에 있어.",
-    "fr": "La voiture est dehors.",
-    "from": null
-   }
-  },
-  {
    "id": "b1fa8b33",
    "w": "hi",
    "pos": "interj",
@@ -1185,20 +1171,6 @@
     "ko": "그럼 너무 지치지 마!",
     "fr": "Alors ne te fatigue pas trop !",
     "from": "c2-l7"
-   }
-  },
-  {
-   "id": "a3f3461a",
-   "w": "job",
-   "pos": "n",
-   "mean": {
-    "ko": "일, 직업"
-   },
-   "ex": {
-    "t": "I like my job.",
-    "ko": "내 일이 좋아.",
-    "fr": "J'aime mon travail.",
-    "from": null
    }
   },
   {
@@ -1426,20 +1398,6 @@
    }
   },
   {
-   "id": "739e093b",
-   "w": "phone",
-   "pos": "n",
-   "mean": {
-    "ko": "전화"
-   },
-   "ex": {
-    "t": "Can I use your phone?",
-    "ko": "전화 좀 써도 돼?",
-    "fr": "Je peux utiliser ton téléphone ?",
-    "from": null
-   }
-  },
-  {
    "id": "c6475e02",
    "w": "play",
    "pos": "v",
@@ -1507,20 +1465,6 @@
     "ko": "월요일까지. 커피랑 빵만 먹었어…",
     "fr": "Jusqu'à lundi. Du café, du pain…",
     "from": "c3-l5"
-   }
-  },
-  {
-   "id": "06ebbc76",
-   "w": "police",
-   "pos": "n",
-   "mean": {
-    "ko": "경찰"
-   },
-   "ex": {
-    "t": "Call the police!",
-    "ko": "경찰을 불러!",
-    "fr": "Appelle la police !",
-    "from": null
    }
   },
   {

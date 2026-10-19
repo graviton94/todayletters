@@ -1944,20 +1944,6 @@
    }
   },
   {
-   "id": "d4dab5d8",
-   "w": "전화",
-   "pos": "n",
-   "mean": {
-    "en": "telephone, call"
-   },
-   "ex": {
-    "t": "나중에 전화할게.",
-    "en": "I'll call you later.",
-    "fr": "Je t'appelle plus tard.",
-    "from": null
-   }
-  },
-  {
    "id": "0944e24a",
    "w": "뒤",
    "pos": "n",

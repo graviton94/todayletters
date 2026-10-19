@@ -1236,6 +1236,21 @@
    }
   },
   {
+   "id": "9b70cc6f",
+   "w": "car",
+   "pos": "conj",
+   "mean": {
+    "ko": "왜냐하면",
+    "en": "for, because"
+   },
+   "ex": {
+    "t": "Je reste, car je t'aime.",
+    "ko": "나는 남아, 너를 사랑하니까.",
+    "en": "I am staying, for I love you.",
+    "from": null
+   }
+  },
+  {
    "id": "1f21f489",
    "w": "chaque",
    "pos": "det",
