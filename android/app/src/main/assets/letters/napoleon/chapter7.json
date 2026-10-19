@@ -3438,27 +3438,27 @@
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
     "audio": "tb",
     "mine": {
-     "line": 1,
+     "line": 3,
      "slot": {
-      "fr": "fâché",
-      "en": "angry",
-      "ko": "화내지"
+      "fr": "mes petites-filles aient une belle dot",
+      "en": "my granddaughters to have a fine dowry",
+      "ko": "손녀들 시집갈 때 줘야 하잖아"
      },
      "opts": [
       {
-       "fr": "triste",
-       "en": "sad",
-       "ko": "슬퍼하지"
+       "fr": "mes enfants soient heureux",
+       "en": "my children to be happy",
+       "ko": "우리 아이들이 행복했으면 해"
       },
       {
-       "fr": "inquiet",
-       "en": "worried",
-       "ko": "걱정하지"
+       "fr": "ma famille soit en bonne santé",
+       "en": "my family to be healthy",
+       "ko": "우리 가족이 건강했으면 해"
       },
       {
-       "fr": "déçu",
-       "en": "disappointed",
-       "ko": "실망하지"
+       "fr": "mes amis viennent me voir",
+       "en": "my friends to visit me",
+       "ko": "친구들이 놀러 왔으면 해"
       }
      ]
     }

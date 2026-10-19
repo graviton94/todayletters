@@ -129,63 +129,63 @@
   },
   "III": {
    "name": {
-    "ko": "é 와 è",
-    "en": "é and è"
+    "ko": "s 와 z",
+    "en": "s and z"
    },
    "tip": {
-    "ko": "é 는 입을 좁게 ‘에’, è 는 조금 더 벌려 ‘애’ 쪽으로",
-    "en": "é with the mouth nearly closed, è a little more open"
+    "ko": "s 는 바람만 ‘스’, z 는 목을 울려 ‘즈’ (모음 사이 s 하나는 z)",
+    "en": "s is just air; z buzzes in the throat (one s between vowels sounds like z)"
    },
    "pairs": [
     [
-     "été",
-     "était"
+     "poisson",
+     "poison"
     ],
     [
-     "allé",
-     "allait"
+     "dessert",
+     "désert"
     ],
     [
-     "mes",
-     "mais"
+     "coussin",
+     "cousin"
     ],
     [
-     "les",
-     "lait"
+     "basse",
+     "base"
     ]
    ],
    "mean": {
-    "été": {
-     "ko": "여름 · 이었던 (être)",
-     "en": "summer · been"
+    "poisson": {
+     "ko": "물고기",
+     "en": "fish"
     },
-    "était": {
-     "ko": "이었다",
-     "en": "was"
+    "poison": {
+     "ko": "독",
+     "en": "poison"
     },
-    "allé": {
-     "ko": "간 (aller)",
-     "en": "gone"
+    "dessert": {
+     "ko": "후식",
+     "en": "dessert"
     },
-    "allait": {
-     "ko": "가고 있었다",
-     "en": "was going"
+    "désert": {
+     "ko": "사막",
+     "en": "desert"
     },
-    "mes": {
-     "ko": "나의 (여럿)",
-     "en": "my (plural)"
+    "coussin": {
+     "ko": "쿠션",
+     "en": "cushion"
     },
-    "mais": {
-     "ko": "그러나",
-     "en": "but"
+    "cousin": {
+     "ko": "사촌",
+     "en": "cousin"
     },
-    "les": {
-     "ko": "그 (여럿)",
-     "en": "the (plural)"
+    "basse": {
+     "ko": "낮은",
+     "en": "low"
     },
-    "lait": {
-     "ko": "우유",
-     "en": "milk"
+    "base": {
+     "ko": "바탕",
+     "en": "base"
     }
    }
   },

@@ -2430,27 +2430,27 @@
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
     "audio": "tb",
     "mine": {
-     "line": 1,
+     "line": 3,
      "slot": {
-      "fr": "plus amusant",
-      "en": "more fun",
-      "ko": "더 재미있어"
+      "fr": "tout",
+      "en": "anything",
+      "ko": "무엇보다"
      },
      "opts": [
       {
-       "fr": "plus grand",
-       "en": "bigger",
-       "ko": "더 커"
+       "fr": "mon travail",
+       "en": "my work",
+       "ko": "내 일보다"
       },
       {
-       "fr": "plus froid",
-       "en": "colder",
-       "ko": "더 추워"
+       "fr": "le café",
+       "en": "coffee",
+       "ko": "커피보다"
       },
       {
-       "fr": "plus cher",
-       "en": "more expensive",
-       "ko": "더 비싸"
+       "fr": "mes amis",
+       "en": "my friends",
+       "ko": "친구들보다"
       }
      ]
     }

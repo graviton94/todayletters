@@ -44,7 +44,7 @@ import io.github.graviton94.todayletters.design.Type
 import java.util.concurrent.ConcurrentHashMap
 
 // ── 이번 장의 소리 (core [Sounds], data/<작품>/sounds[_en|_ko].json) ──────────────────
-// I~VIII 장의 첫 편지를 처음 열 때 (장마다 · 배우는 말마다 한 번) 예열 · 편지 앞에 1분. 예열을 하는 사람에게만 ([warmOn], 테스트 도우미는 예열을 끈다).
+// I~VIII 장의 첫 편지를 처음 열 때 (장마다 · 배우는 말마다 한 번) 예열 · 편지 앞에 1분. 예열을 끈 사람에게도 (소리 파일을 받은 뒤에만 · 테스트에는 파일이 없어 안 나온다).
 // 저장은 SharedPreferences "letters": snd:<진도 이름 (작품 · 작품@en …)> = 본 장 id 를 줄바꿈으로.
 // 소리 s_<말>_<slug>.m4a 는 audio/<작품>/S/sounds/ (R2 묶음 "S", 다른 장을 받을 때 함께). 낱말 소리가 이 기기에 다 있을 때만 띄운다.
 
@@ -76,7 +76,6 @@ fun AppState.soundClip(series: String, learn: Lang, word: String): String? =
 
 /** 새 편지를 처음 열 때 이번 장의 소리를 먼저 하는가 ([AppState.open]): 예열을 하는 사람, 장의 첫 편지, 안 본 장, 낱말 소리가 다 있음. */
 fun AppState.soundsDue(series: String, chapter: String, letter: Letter): Boolean {
-    if (!warmOn(series)) return false
     val index = work(series).chapters.firstOrNull { it.id == chapter }?.letters?.indexOf(letter) ?: return false
     val deck = soundDeck(series)
     if (!Sounds.due(deck, chapter, index, soundsSeen(series))) return false
