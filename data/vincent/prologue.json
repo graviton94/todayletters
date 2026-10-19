@@ -226,7 +226,32 @@
      "revoir"
     ],
     "grammar": "I.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "notre maison",
+      "en": "our house",
+      "ko": "우리 집이"
+     },
+     "opts": [
+      {
+       "fr": "le café",
+       "en": "coffee",
+       "ko": "커피가"
+      },
+      {
+       "fr": "la musique",
+       "en": "music",
+       "ko": "음악이"
+      },
+      {
+       "fr": "la mer",
+       "en": "the sea",
+       "ko": "바다가"
+      }
+     ]
+    }
    }
   },
   {
@@ -449,7 +474,32 @@
      "terre"
     ],
     "grammar": "I.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "la voir",
+      "en": "see it",
+      "ko": "보고"
+     },
+     "opts": [
+      {
+       "fr": "manger",
+       "en": "eat",
+       "ko": "먹고"
+      },
+      {
+       "fr": "dormir",
+       "en": "sleep",
+       "ko": "자고"
+      },
+      {
+       "fr": "rentrer",
+       "en": "go home",
+       "ko": "집에 가고"
+      }
+     ]
+    }
    }
   },
   {
@@ -670,7 +720,32 @@
      "venir"
     ],
     "grammar": "I.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "plus tôt",
+      "en": "earlier",
+      "ko": "더 일찍"
+     },
+     "opts": [
+      {
+       "fr": "demain",
+       "en": "tomorrow",
+       "ko": "내일"
+      },
+      {
+       "fr": "ce soir",
+       "en": "tonight",
+       "ko": "오늘 밤에"
+      },
+      {
+       "fr": "tout de suite",
+       "en": "right away",
+       "ko": "바로"
+      }
+     ]
+    }
    }
   },
   {
@@ -891,7 +966,32 @@
      "beau"
     ],
     "grammar": "I.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "le Japon",
+      "en": "Japan",
+      "ko": "일본"
+     },
+     "opts": [
+      {
+       "fr": "la Corée",
+       "en": "Korea",
+       "ko": "한국"
+      },
+      {
+       "fr": "la Chine",
+       "en": "China",
+       "ko": "중국"
+      },
+      {
+       "fr": "l'Angleterre",
+       "en": "England",
+       "ko": "영국"
+      }
+     ]
+    }
    }
   }
  ]

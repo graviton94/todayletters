@@ -567,6 +567,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "Gauguin",
+      "en": "Gauguin",
+      "ko": "고갱은"
+     },
+     "opts": [
+      {
+       "fr": "ton ami",
+       "en": "your friend",
+       "ko": "친구는"
+      },
+      {
+       "fr": "ton colis",
+       "en": "your parcel",
+       "ko": "소포는"
+      },
+      {
+       "fr": "ton père",
+       "en": "your dad",
+       "ko": "아빠는"
+      }
+     ]
     }
    }
   },
@@ -970,7 +995,32 @@
      "étude"
     ],
     "grammar": "IV.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "dépenser",
+      "en": "spend",
+      "ko": "쓸"
+     },
+     "opts": [
+      {
+       "fr": "payer",
+       "en": "pay",
+       "ko": "낼"
+      },
+      {
+       "fr": "gagner",
+       "en": "earn",
+       "ko": "벌"
+      },
+      {
+       "fr": "économiser",
+       "en": "save",
+       "ko": "모을"
+      }
+     ]
+    }
    }
   },
   {
@@ -1412,7 +1462,32 @@
      "vin"
     ],
     "grammar": "IV.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "Un dimanche",
+      "en": "One Sunday",
+      "ko": "어느 일요일에"
+     },
+     "opts": [
+      {
+       "fr": "Un samedi",
+       "en": "One Saturday",
+       "ko": "어느 토요일에"
+      },
+      {
+       "fr": "Demain",
+       "en": "Tomorrow",
+       "ko": "내일"
+      },
+      {
+       "fr": "Ce soir",
+       "en": "Tonight",
+       "ko": "오늘 밤에"
+      }
+     ]
+    }
    }
   },
   {
@@ -1846,7 +1921,32 @@
      "facteur"
     ],
     "grammar": "IV.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "de la maison",
+      "en": "the house",
+      "ko": "집에서"
+     },
+     "opts": [
+      {
+       "fr": "de la gare",
+       "en": "the station",
+       "ko": "역에서"
+      },
+      {
+       "fr": "de l'école",
+       "en": "the school",
+       "ko": "학교에서"
+      },
+      {
+       "fr": "du parc",
+       "en": "the park",
+       "ko": "공원에서"
+      }
+     ]
+    }
    }
   },
   {
@@ -2257,7 +2357,32 @@
      "commencer"
     ],
     "grammar": "IV.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "un croquis",
+      "en": "a sketch",
+      "ko": "스케치 하나"
+     },
+     "opts": [
+      {
+       "fr": "une photo",
+       "en": "a photo",
+       "ko": "사진 하나"
+      },
+      {
+       "fr": "un message",
+       "en": "a message",
+       "ko": "메시지"
+      },
+      {
+       "fr": "une lettre",
+       "en": "a letter",
+       "ko": "편지"
+      }
+     ]
+    }
    }
   },
   {
@@ -2662,6 +2787,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "te reposer",
+      "en": "rest",
+      "ko": "쉴"
+     },
+     "opts": [
+      {
+       "fr": "dormir",
+       "en": "sleep",
+       "ko": "잘"
+      },
+      {
+       "fr": "manger",
+       "en": "eat",
+       "ko": "먹을"
+      },
+      {
+       "fr": "marcher",
+       "en": "walk",
+       "ko": "걸을"
+      }
+     ]
     }
    }
   },
@@ -3068,7 +3218,32 @@
      "mandat"
     ],
     "grammar": "IV.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "m'écriras",
+      "en": "write to me",
+      "ko": "편지해"
+     },
+     "opts": [
+      {
+       "fr": "m'appelleras",
+       "en": "call me",
+       "ko": "전화해"
+      },
+      {
+       "fr": "viendras",
+       "en": "come",
+       "ko": "와"
+      },
+      {
+       "fr": "me répondras",
+       "en": "answer me",
+       "ko": "답장해"
+      }
+     ]
+    }
    }
   }
  ]

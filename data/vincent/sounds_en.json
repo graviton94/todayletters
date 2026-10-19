@@ -1,0 +1,423 @@
+{
+ "_doc": "이번 장의 소리: 장마다 소리 짝 하나. checked=false 는 사람 확인 전.",
+ "lang": "en",
+ "checked": false,
+ "chapters": {
+  "I": {
+   "name": {
+    "ko": "f 와 p"
+   },
+   "tip": {
+    "ko": "f 는 윗니를 아랫입술에 대고 바람, p 는 두 입술을 붙였다 터뜨려요"
+   },
+   "pairs": [
+    [
+     "fan",
+     "pan"
+    ],
+    [
+     "fine",
+     "pine"
+    ],
+    [
+     "fast",
+     "past"
+    ],
+    [
+     "coffee",
+     "copy"
+    ]
+   ],
+   "mean": {
+    "fan": {
+     "ko": "선풍기 · 팬"
+    },
+    "pan": {
+     "ko": "냄비"
+    },
+    "fine": {
+     "ko": "괜찮은"
+    },
+    "pine": {
+     "ko": "소나무"
+    },
+    "fast": {
+     "ko": "빠른"
+    },
+    "past": {
+     "ko": "과거"
+    },
+    "coffee": {
+     "ko": "커피"
+    },
+    "copy": {
+     "ko": "복사"
+    }
+   }
+  },
+  "II": {
+   "name": {
+    "ko": "v 와 b"
+   },
+   "tip": {
+    "ko": "v 는 윗니를 아랫입술에 대고 떨리게, b 는 두 입술을 붙였다 떼요"
+   },
+   "pairs": [
+    [
+     "very",
+     "berry"
+    ],
+    [
+     "vest",
+     "best"
+    ],
+    [
+     "van",
+     "ban"
+    ],
+    [
+     "vote",
+     "boat"
+    ]
+   ],
+   "mean": {
+    "very": {
+     "ko": "아주"
+    },
+    "berry": {
+     "ko": "딸기류 열매"
+    },
+    "vest": {
+     "ko": "조끼"
+    },
+    "best": {
+     "ko": "최고의"
+    },
+    "van": {
+     "ko": "승합차"
+    },
+    "ban": {
+     "ko": "금지"
+    },
+    "vote": {
+     "ko": "투표하다"
+    },
+    "boat": {
+     "ko": "배"
+    }
+   }
+  },
+  "III": {
+   "name": {
+    "ko": "r 과 l"
+   },
+   "tip": {
+    "ko": "r 은 혀끝이 어디에도 닿지 않게 말고, l 은 혀끝을 윗니 뒤에 붙여요"
+   },
+   "pairs": [
+    [
+     "right",
+     "light"
+    ],
+    [
+     "rock",
+     "lock"
+    ],
+    [
+     "road",
+     "load"
+    ],
+    [
+     "pray",
+     "play"
+    ]
+   ],
+   "mean": {
+    "right": {
+     "ko": "오른쪽 · 맞는"
+    },
+    "light": {
+     "ko": "빛 · 가벼운"
+    },
+    "rock": {
+     "ko": "바위"
+    },
+    "lock": {
+     "ko": "자물쇠"
+    },
+    "road": {
+     "ko": "길"
+    },
+    "load": {
+     "ko": "짐"
+    },
+    "pray": {
+     "ko": "기도하다"
+    },
+    "play": {
+     "ko": "놀다"
+    }
+   }
+  },
+  "IV": {
+   "name": {
+    "ko": "th 와 s"
+   },
+   "tip": {
+    "ko": "th 는 혀끝을 이 사이에 살짝 내밀고, s 는 혀를 이 뒤에 숨겨요"
+   },
+   "pairs": [
+    [
+     "think",
+     "sink"
+    ],
+    [
+     "thing",
+     "sing"
+    ],
+    [
+     "thick",
+     "sick"
+    ],
+    [
+     "mouth",
+     "mouse"
+    ]
+   ],
+   "mean": {
+    "think": {
+     "ko": "생각하다"
+    },
+    "sink": {
+     "ko": "싱크대 · 가라앉다"
+    },
+    "thing": {
+     "ko": "것"
+    },
+    "sing": {
+     "ko": "노래하다"
+    },
+    "thick": {
+     "ko": "두꺼운"
+    },
+    "sick": {
+     "ko": "아픈"
+    },
+    "mouth": {
+     "ko": "입"
+    },
+    "mouse": {
+     "ko": "생쥐"
+    }
+   }
+  },
+  "V": {
+   "name": {
+    "ko": "짧은 i 와 긴 ee"
+   },
+   "tip": {
+    "ko": "짧은 i 는 힘을 빼고 짧게 (이와 에 사이), ee 는 입을 옆으로 당겨 길게"
+   },
+   "pairs": [
+    [
+     "ship",
+     "sheep"
+    ],
+    [
+     "live",
+     "leave"
+    ],
+    [
+     "sit",
+     "seat"
+    ],
+    [
+     "fill",
+     "feel"
+    ]
+   ],
+   "mean": {
+    "ship": {
+     "ko": "배"
+    },
+    "sheep": {
+     "ko": "양"
+    },
+    "live": {
+     "ko": "살다"
+    },
+    "leave": {
+     "ko": "떠나다"
+    },
+    "sit": {
+     "ko": "앉다"
+    },
+    "seat": {
+     "ko": "자리"
+    },
+    "fill": {
+     "ko": "채우다"
+    },
+    "feel": {
+     "ko": "느끼다"
+    }
+   }
+  },
+  "VI": {
+   "name": {
+    "ko": "z 와 j"
+   },
+   "tip": {
+    "ko": "z 는 혀를 떼고 이 뒤에서 벌처럼 '즈~' 이어서, j 는 혀를 붙였다 떼며 '쥐'"
+   },
+   "pairs": [
+    [
+     "zest",
+     "jest"
+    ],
+    [
+     "raise",
+     "rage"
+    ],
+    [
+     "ways",
+     "wage"
+    ],
+    [
+     "buzz",
+     "budge"
+    ]
+   ],
+   "mean": {
+    "zest": {
+     "ko": "열의 · 껍질"
+    },
+    "jest": {
+     "ko": "농담"
+    },
+    "raise": {
+     "ko": "올리다"
+    },
+    "rage": {
+     "ko": "분노"
+    },
+    "ways": {
+     "ko": "방법들"
+    },
+    "wage": {
+     "ko": "임금"
+    },
+    "buzz": {
+     "ko": "윙윙거리다"
+    },
+    "budge": {
+     "ko": "꼼짝하다"
+    }
+   }
+  },
+  "VII": {
+   "name": {
+    "ko": "끝 자음"
+   },
+   "tip": {
+    "ko": "끝 자음을 또렷이 닫되 뒤에 '으' 를 붙이지 않아요"
+   },
+   "pairs": [
+    [
+     "see",
+     "seat"
+    ],
+    [
+     "play",
+     "plate"
+    ],
+    [
+     "car",
+     "card"
+    ],
+    [
+     "too",
+     "tooth"
+    ]
+   ],
+   "mean": {
+    "see": {
+     "ko": "보다"
+    },
+    "seat": {
+     "ko": "자리"
+    },
+    "play": {
+     "ko": "놀다"
+    },
+    "plate": {
+     "ko": "접시"
+    },
+    "car": {
+     "ko": "자동차"
+    },
+    "card": {
+     "ko": "카드"
+    },
+    "too": {
+     "ko": "~도 · 너무"
+    },
+    "tooth": {
+     "ko": "이"
+    }
+   }
+  },
+  "VIII": {
+   "name": {
+    "ko": "낱말 강세"
+   },
+   "tip": {
+    "ko": "대문자 부분을 더 세고 길게 · 명사는 앞, 동사는 뒤가 많아요"
+   },
+   "pairs": [
+    [
+     "REcord",
+     "reCORD"
+    ],
+    [
+     "PREsent",
+     "preSENT"
+    ],
+    [
+     "DEsert",
+     "desSERT"
+    ],
+    [
+     "OBject",
+     "obJECT"
+    ]
+   ],
+   "mean": {
+    "REcord": {
+     "ko": "기록 (명사)"
+    },
+    "reCORD": {
+     "ko": "기록하다 (동사)"
+    },
+    "PREsent": {
+     "ko": "선물 · 현재 (명사)"
+    },
+    "preSENT": {
+     "ko": "발표하다 · 주다 (동사)"
+    },
+    "DEsert": {
+     "ko": "사막"
+    },
+    "desSERT": {
+     "ko": "후식"
+    },
+    "OBject": {
+     "ko": "물건 (명사)"
+    },
+    "obJECT": {
+     "ko": "반대하다 (동사)"
+    }
+   }
+  }
+ }
+}

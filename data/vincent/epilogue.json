@@ -325,6 +325,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "heureux",
+      "en": "happy",
+      "ko": "행복해"
+     },
+     "opts": [
+      {
+       "fr": "content",
+       "en": "glad",
+       "ko": "기뻐"
+      },
+      {
+       "fr": "fier",
+       "en": "proud",
+       "ko": "뿌듯해"
+      },
+      {
+       "fr": "touché",
+       "en": "touched",
+       "ko": "감동했어"
+      }
+     ]
     }
    }
   }

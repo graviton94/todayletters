@@ -1,0 +1,503 @@
+{
+ "_doc": "이번 장의 소리: 장마다 소리 짝 하나. checked=false 는 사람 확인 전.",
+ "lang": "fr",
+ "checked": false,
+ "chapters": {
+  "I": {
+   "name": {
+    "ko": "u 와 ou",
+    "en": "u and ou"
+   },
+   "tip": {
+    "ko": "입술을 둥글게, 혀는 앞(u) · 뒤(ou)",
+    "en": "Round your lips; tongue forward (u), back (ou)"
+   },
+   "pairs": [
+    [
+     "tu",
+     "tout"
+    ],
+    [
+     "dessus",
+     "dessous"
+    ],
+    [
+     "rue",
+     "roue"
+    ],
+    [
+     "pur",
+     "pour"
+    ]
+   ],
+   "mean": {
+    "tu": {
+     "ko": "너",
+     "en": "you"
+    },
+    "tout": {
+     "ko": "모두",
+     "en": "all"
+    },
+    "dessus": {
+     "ko": "위에",
+     "en": "on top"
+    },
+    "dessous": {
+     "ko": "아래에",
+     "en": "underneath"
+    },
+    "rue": {
+     "ko": "거리",
+     "en": "street"
+    },
+    "roue": {
+     "ko": "바퀴",
+     "en": "wheel"
+    },
+    "pur": {
+     "ko": "순수한",
+     "en": "pure"
+    },
+    "pour": {
+     "ko": "~를 위해",
+     "en": "for"
+    }
+   }
+  },
+  "II": {
+   "name": {
+    "ko": "an 과 on",
+    "en": "an and on"
+   },
+   "tip": {
+    "ko": "an 은 입을 크게 벌리고, on 은 입술을 동그랗게 · 둘 다 코로",
+    "en": "an: mouth wide open; on: lips rounded · both through the nose"
+   },
+   "pairs": [
+    [
+     "sans",
+     "son"
+    ],
+    [
+     "lent",
+     "long"
+    ],
+    [
+     "blanc",
+     "blond"
+    ],
+    [
+     "temps",
+     "thon"
+    ]
+   ],
+   "mean": {
+    "sans": {
+     "ko": "~없이",
+     "en": "without"
+    },
+    "son": {
+     "ko": "소리",
+     "en": "sound"
+    },
+    "lent": {
+     "ko": "느린",
+     "en": "slow"
+    },
+    "long": {
+     "ko": "긴",
+     "en": "long"
+    },
+    "blanc": {
+     "ko": "하얀",
+     "en": "white"
+    },
+    "blond": {
+     "ko": "금발의",
+     "en": "blond"
+    },
+    "temps": {
+     "ko": "시간 · 날씨",
+     "en": "time · weather"
+    },
+    "thon": {
+     "ko": "참치",
+     "en": "tuna"
+    }
+   }
+  },
+  "III": {
+   "name": {
+    "ko": "é 와 è",
+    "en": "é and è"
+   },
+   "tip": {
+    "ko": "é 는 입을 좁게 (에), è 는 조금 더 벌려서 (애)",
+    "en": "é: mouth almost closed; è: open it a little more"
+   },
+   "pairs": [
+    [
+     "été",
+     "était"
+    ],
+    [
+     "les",
+     "lait"
+    ],
+    [
+     "mes",
+     "mais"
+    ],
+    [
+     "prés",
+     "près"
+    ]
+   ],
+   "mean": {
+    "été": {
+     "ko": "여름",
+     "en": "summer"
+    },
+    "était": {
+     "ko": "~였다",
+     "en": "was"
+    },
+    "les": {
+     "ko": "그 (복수)",
+     "en": "the (plural)"
+    },
+    "lait": {
+     "ko": "우유",
+     "en": "milk"
+    },
+    "mes": {
+     "ko": "나의 (복수)",
+     "en": "my (plural)"
+    },
+    "mais": {
+     "ko": "그러나",
+     "en": "but"
+    },
+    "prés": {
+     "ko": "풀밭들",
+     "en": "meadows"
+    },
+    "près": {
+     "ko": "가까이",
+     "en": "near"
+    }
+   }
+  },
+  "IV": {
+   "name": {
+    "ko": "소리 안 나는 끝 글자",
+    "en": "Silent final letters"
+   },
+   "tip": {
+    "ko": "끝 자음은 대개 읽지 않아요 · 뒤에 e 가 붙으면 그 자음이 살아나요",
+    "en": "Final consonants are usually silent · add an e and the consonant is heard"
+   },
+   "pairs": [
+    [
+     "petit",
+     "petite"
+    ],
+    [
+     "grand",
+     "grande"
+    ],
+    [
+     "vert",
+     "verte"
+    ],
+    [
+     "gris",
+     "grise"
+    ]
+   ],
+   "mean": {
+    "petit": {
+     "ko": "작은 (남성)",
+     "en": "small (m.)"
+    },
+    "petite": {
+     "ko": "작은 (여성)",
+     "en": "small (f.)"
+    },
+    "grand": {
+     "ko": "큰 (남성)",
+     "en": "big (m.)"
+    },
+    "grande": {
+     "ko": "큰 (여성)",
+     "en": "big (f.)"
+    },
+    "vert": {
+     "ko": "초록의 (남성)",
+     "en": "green (m.)"
+    },
+    "verte": {
+     "ko": "초록의 (여성)",
+     "en": "green (f.)"
+    },
+    "gris": {
+     "ko": "회색의 (남성)",
+     "en": "grey (m.)"
+    },
+    "grise": {
+     "ko": "회색의 (여성)",
+     "en": "grey (f.)"
+    }
+   }
+  },
+  "V": {
+   "name": {
+    "ko": "r 과 l",
+    "en": "r and l"
+   },
+   "tip": {
+    "ko": "r 은 목 안쪽에서 가볍게 긁듯이, l 은 혀끝을 윗니 뒤에",
+    "en": "r: a soft scrape at the back of the throat; l: tongue tip behind the top teeth"
+   },
+   "pairs": [
+    [
+     "rire",
+     "lire"
+    ],
+    [
+     "riz",
+     "lit"
+    ],
+    [
+     "roi",
+     "loi"
+    ],
+    [
+     "rond",
+     "long"
+    ]
+   ],
+   "mean": {
+    "rire": {
+     "ko": "웃다",
+     "en": "to laugh"
+    },
+    "lire": {
+     "ko": "읽다",
+     "en": "to read"
+    },
+    "riz": {
+     "ko": "쌀 · 밥",
+     "en": "rice"
+    },
+    "lit": {
+     "ko": "침대",
+     "en": "bed"
+    },
+    "roi": {
+     "ko": "왕",
+     "en": "king"
+    },
+    "loi": {
+     "ko": "법",
+     "en": "law"
+    },
+    "rond": {
+     "ko": "둥근",
+     "en": "round"
+    },
+    "long": {
+     "ko": "긴",
+     "en": "long"
+    }
+   }
+  },
+  "VI": {
+   "name": {
+    "ko": "이어 읽기 (리에종)",
+    "en": "Liaison"
+   },
+   "tip": {
+    "ko": "끝의 s 가 모음 앞에서 z 로 이어져요 · s 소리와 구별해요",
+    "en": "A final s links to a vowel as a z sound · don't mix it up with s"
+   },
+   "pairs": [
+    [
+     "ils ont",
+     "ils sont"
+    ],
+    [
+     "nous avons",
+     "nous savons"
+    ],
+    [
+     "vous avez",
+     "vous savez"
+    ],
+    [
+     "deux ans",
+     "deux cents"
+    ]
+   ],
+   "mean": {
+    "ils ont": {
+     "ko": "그들은 가지고 있다",
+     "en": "they have"
+    },
+    "ils sont": {
+     "ko": "그들은 ~이다",
+     "en": "they are"
+    },
+    "nous avons": {
+     "ko": "우리는 가지고 있다",
+     "en": "we have"
+    },
+    "nous savons": {
+     "ko": "우리는 안다",
+     "en": "we know"
+    },
+    "vous avez": {
+     "ko": "당신은 가지고 있다",
+     "en": "you have"
+    },
+    "vous savez": {
+     "ko": "당신은 안다",
+     "en": "you know"
+    },
+    "deux ans": {
+     "ko": "두 살 · 2년",
+     "en": "two years"
+    },
+    "deux cents": {
+     "ko": "이백",
+     "en": "two hundred"
+    }
+   }
+  },
+  "VII": {
+   "name": {
+    "ko": "in · un 과 an",
+    "en": "in · un and an"
+   },
+   "tip": {
+    "ko": "in 은 입을 옆으로 (애 + 코), an 은 크게 벌려서 (아 + 코)",
+    "en": "in: lips spread (nasal è); an: mouth wide open (nasal a)"
+   },
+   "pairs": [
+    [
+     "vin",
+     "vent"
+    ],
+    [
+     "un",
+     "an"
+    ],
+    [
+     "bain",
+     "banc"
+    ],
+    [
+     "plein",
+     "plan"
+    ]
+   ],
+   "mean": {
+    "vin": {
+     "ko": "포도주",
+     "en": "wine"
+    },
+    "vent": {
+     "ko": "바람",
+     "en": "wind"
+    },
+    "un": {
+     "ko": "하나",
+     "en": "one"
+    },
+    "an": {
+     "ko": "해 · 년",
+     "en": "year"
+    },
+    "bain": {
+     "ko": "목욕",
+     "en": "bath"
+    },
+    "banc": {
+     "ko": "벤치",
+     "en": "bench"
+    },
+    "plein": {
+     "ko": "가득 찬",
+     "en": "full"
+    },
+    "plan": {
+     "ko": "계획 · 지도",
+     "en": "plan · map"
+    }
+   }
+  },
+  "VIII": {
+   "name": {
+    "ko": "e 와 é (le · les)",
+    "en": "e and é (le · les)"
+   },
+   "tip": {
+    "ko": "e 는 입술을 살짝 둥글게 힘 빼고 (으), é 는 입을 옆으로 (에) · 단수와 복수가 갈려요",
+    "en": "e: relaxed, lips slightly rounded; é: lips spread · it tells singular from plural"
+   },
+   "pairs": [
+    [
+     "le",
+     "les"
+    ],
+    [
+     "de",
+     "des"
+    ],
+    [
+     "ce",
+     "ces"
+    ],
+    [
+     "je",
+     "j'ai"
+    ]
+   ],
+   "mean": {
+    "le": {
+     "ko": "그 (단수)",
+     "en": "the (singular)"
+    },
+    "les": {
+     "ko": "그 (복수)",
+     "en": "the (plural)"
+    },
+    "de": {
+     "ko": "~의",
+     "en": "of"
+    },
+    "des": {
+     "ko": "몇몇의",
+     "en": "some"
+    },
+    "ce": {
+     "ko": "이 (단수)",
+     "en": "this"
+    },
+    "ces": {
+     "ko": "이 (복수)",
+     "en": "these"
+    },
+    "je": {
+     "ko": "나는",
+     "en": "I"
+    },
+    "j'ai": {
+     "ko": "나는 가지고 있다",
+     "en": "I have"
+    }
+   }
+  }
+ }
+}

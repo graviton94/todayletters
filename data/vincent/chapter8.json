@@ -575,6 +575,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "Jo",
+      "en": "Jo",
+      "ko": "조가"
+     },
+     "opts": [
+      {
+       "fr": "Ma mère",
+       "en": "My mum",
+       "ko": "엄마가"
+      },
+      {
+       "fr": "Mon ami",
+       "en": "My friend",
+       "ko": "내 친구가"
+      },
+      {
+       "fr": "Mon frère",
+       "en": "My brother",
+       "ko": "동생이"
+      }
+     ]
     }
    }
   },
@@ -1051,6 +1076,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "à Jo",
+      "en": "Jo",
+      "ko": "조한테"
+     },
+     "opts": [
+      {
+       "fr": "à ma femme",
+       "en": "my wife",
+       "ko": "아내한테"
+      },
+      {
+       "fr": "à mon chef",
+       "en": "my boss",
+       "ko": "상사한테"
+      },
+      {
+       "fr": "à mes parents",
+       "en": "my parents",
+       "ko": "부모님한테"
+      }
+     ]
     }
    }
   },
@@ -1544,6 +1594,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "dormes bien",
+      "en": "sleeping well",
+      "ko": "잘 잔다니"
+     },
+     "opts": [
+      {
+       "fr": "manges bien",
+       "en": "eating well",
+       "ko": "잘 먹는다니"
+      },
+      {
+       "fr": "ailles mieux",
+       "en": "feeling better",
+       "ko": "나아졌다니"
+      },
+      {
+       "fr": "sois heureux",
+       "en": "happy",
+       "ko": "행복하다니"
+      }
+     ]
     }
    }
   },
@@ -2005,7 +2080,32 @@
      "exposer"
     ],
     "grammar": "VIII.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "une très bonne idée",
+      "en": "a very good idea",
+      "ko": "아주 좋은 생각인"
+     },
+     "opts": [
+      {
+       "fr": "un peu cher",
+       "en": "a bit expensive",
+       "ko": "좀 비싼"
+      },
+      {
+       "fr": "trop tard",
+       "en": "too late",
+       "ko": "너무 늦은"
+      },
+      {
+       "fr": "très difficile",
+       "en": "very difficult",
+       "ko": "아주 어려운"
+      }
+     ]
+    }
    }
   },
   {
@@ -2477,6 +2577,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 1,
+     "slot": {
+      "fr": "difficile",
+      "en": "difficult",
+      "ko": "어려웠어"
+     },
+     "opts": [
+      {
+       "fr": "facile",
+       "en": "easy",
+       "ko": "쉬웠어"
+      },
+      {
+       "fr": "amusant",
+       "en": "fun",
+       "ko": "재밌었어"
+      },
+      {
+       "fr": "cher",
+       "en": "expensive",
+       "ko": "비쌌어"
+      }
+     ]
     }
    }
   },
@@ -2938,7 +3063,32 @@
      "étendue"
     ],
     "grammar": "VIII.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "À bientôt",
+      "en": "See you soon",
+      "ko": "또 보자"
+     },
+     "opts": [
+      {
+       "fr": "À demain",
+       "en": "See you tomorrow",
+       "ko": "내일 보자"
+      },
+      {
+       "fr": "À ce soir",
+       "en": "See you tonight",
+       "ko": "이따 보자"
+      },
+      {
+       "fr": "À lundi",
+       "en": "See you on Monday",
+       "ko": "월요일에 보자"
+      }
+     ]
+    }
    }
   },
   {
@@ -3445,6 +3595,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "fr": "depuis longtemps",
+      "en": "for a long time",
+      "ko": "오래전부터"
+     },
+     "opts": [
+      {
+       "fr": "depuis des mois",
+       "en": "for months",
+       "ko": "몇 달 전부터"
+      },
+      {
+       "fr": "depuis des années",
+       "en": "for years",
+       "ko": "몇 년 전부터"
+      },
+      {
+       "fr": "depuis l'été",
+       "en": "since the summer",
+       "ko": "여름부터"
+      }
+     ]
     }
    }
   }
