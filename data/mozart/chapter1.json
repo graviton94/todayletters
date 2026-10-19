@@ -505,7 +505,32 @@
      "Brief"
     ],
     "grammar": "I.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "gesund",
+      "en": "well",
+      "ko": "건강해"
+     },
+     "opts": [
+      {
+       "de": "müde",
+       "en": "tired",
+       "ko": "피곤해"
+      },
+      {
+       "de": "glücklich",
+       "en": "happy",
+       "ko": "행복해"
+      },
+      {
+       "de": "hungrig",
+       "en": "hungry",
+       "ko": "배고파"
+      }
+     ]
+    }
    }
   },
   {
@@ -925,7 +950,32 @@
      "Bett"
     ],
     "grammar": "I.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "die Stadt",
+      "en": "the city",
+      "ko": "로마는"
+     },
+     "opts": [
+      {
+       "de": "das Essen",
+       "en": "the food",
+       "ko": "음식은"
+      },
+      {
+       "de": "das Wetter",
+       "en": "the weather",
+       "ko": "날씨는"
+      },
+      {
+       "de": "die Schule",
+       "en": "the school",
+       "ko": "학교는"
+      }
+     ]
+    }
    }
   },
   {
@@ -1335,7 +1385,32 @@
      "Kleid"
     ],
     "grammar": "I.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "Neapel",
+      "en": "Naples",
+      "ko": "나폴리는"
+     },
+     "opts": [
+      {
+       "de": "Wien",
+       "en": "Vienna",
+       "ko": "빈은"
+      },
+      {
+       "de": "Tokio",
+       "en": "Tokyo",
+       "ko": "도쿄는"
+      },
+      {
+       "de": "Hamburg",
+       "en": "Hamburg",
+       "ko": "함부르크는"
+      }
+     ]
+    }
    }
   },
   {
@@ -1726,7 +1801,32 @@
      "Tag"
     ],
     "grammar": "I.0",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "Geige",
+      "en": "violin",
+      "ko": "바이올린 켜"
+     },
+     "opts": [
+      {
+       "de": "Klavier",
+       "en": "piano",
+       "ko": "피아노 쳐"
+      },
+      {
+       "de": "Gitarre",
+       "en": "guitar",
+       "ko": "기타 쳐"
+      },
+      {
+       "de": "Fußball",
+       "en": "football",
+       "ko": "축구 해"
+      }
+     ]
+    }
    }
   },
   {
@@ -2142,7 +2242,32 @@
      "Monat"
     ],
     "grammar": "I.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "der Reise",
+      "en": "the journey",
+      "ko": "여행"
+     },
+     "opts": [
+      {
+       "de": "der Arbeit",
+       "en": "work",
+       "ko": "일"
+      },
+      {
+       "de": "der Schule",
+       "en": "school",
+       "ko": "학교"
+      },
+      {
+       "de": "dem Training",
+       "en": "the workout",
+       "ko": "운동"
+      }
+     ]
+    }
    }
   },
   {
@@ -2542,7 +2667,32 @@
      "hoffen"
     ],
     "grammar": "I.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "deine Oper",
+      "en": "your opera",
+      "ko": "오페라는"
+     },
+     "opts": [
+      {
+       "de": "deine Prüfung",
+       "en": "your exam",
+       "ko": "시험은"
+      },
+      {
+       "de": "dein Urlaub",
+       "en": "your vacation",
+       "ko": "휴가는"
+      },
+      {
+       "de": "deine Party",
+       "en": "your party",
+       "ko": "파티는"
+      }
+     ]
+    }
    }
   }
  ]

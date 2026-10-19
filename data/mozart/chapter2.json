@@ -492,7 +492,32 @@
      "fragen"
     ],
     "grammar": "II.0",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "Mama",
+      "en": "Mama",
+      "ko": "엄마는"
+     },
+     "opts": [
+      {
+       "de": "Papa",
+       "en": "Papa",
+       "ko": "아빠는"
+      },
+      {
+       "de": "Oma",
+       "en": "Grandma",
+       "ko": "할머니는"
+      },
+      {
+       "de": "Opa",
+       "en": "Grandpa",
+       "ko": "할아버지는"
+      }
+     ]
+    }
    }
   },
   {
@@ -904,7 +929,32 @@
      "Arbeit"
     ],
     "grammar": "II.1",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "spielen",
+      "en": "play",
+      "ko": "연주해도"
+     },
+     "opts": [
+      {
+       "de": "essen",
+       "en": "eat",
+       "ko": "먹어도"
+      },
+      {
+       "de": "schlafen",
+       "en": "sleep",
+       "ko": "자도"
+      },
+      {
+       "de": "parken",
+       "en": "park",
+       "ko": "주차해도"
+      }
+     ]
+    }
    }
   },
   {
@@ -1299,7 +1349,32 @@
      "müssen"
     ],
     "grammar": "II.0",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "höflich",
+      "en": "polite",
+      "ko": "예의 바르게 해야"
+     },
+     "opts": [
+      {
+       "de": "vorsichtig",
+       "en": "careful",
+       "ko": "조심해야"
+      },
+      {
+       "de": "leise",
+       "en": "quiet",
+       "ko": "조용히 해야"
+      },
+      {
+       "de": "pünktlich",
+       "en": "on time",
+       "ko": "제시간에 와야"
+      }
+     ]
+    }
    }
   },
   {
@@ -1691,7 +1766,32 @@
      "Tochter"
     ],
     "grammar": "II.0",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "Musik",
+      "en": "music",
+      "ko": "음악은"
+     },
+     "opts": [
+      {
+       "de": "Mathe",
+       "en": "maths",
+       "ko": "수학은"
+      },
+      {
+       "de": "Sport",
+       "en": "sports",
+       "ko": "운동은"
+      },
+      {
+       "de": "Yoga",
+       "en": "yoga",
+       "ko": "요가는"
+      }
+     ]
+    }
    }
   },
   {
@@ -2100,7 +2200,32 @@
      "bekommen"
     ],
     "grammar": "II.1",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "eine Antwort",
+      "en": "an answer",
+      "ko": "답은"
+     },
+     "opts": [
+      {
+       "de": "eine E-Mail",
+       "en": "an email",
+       "ko": "메일은"
+      },
+      {
+       "de": "ein Paket",
+       "en": "a package",
+       "ko": "택배는"
+      },
+      {
+       "de": "eine Nachricht",
+       "en": "a message",
+       "ko": "문자는"
+      }
+     ]
+    }
    }
   },
   {
@@ -2510,7 +2635,32 @@
      "schwer"
     ],
     "grammar": "II.1",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "schwer",
+      "en": "hard",
+      "ko": "쉽지 않아"
+     },
+     "opts": [
+      {
+       "de": "teuer",
+       "en": "expensive",
+       "ko": "비싸"
+      },
+      {
+       "de": "weit",
+       "en": "far",
+       "ko": "멀어"
+      },
+      {
+       "de": "zu spät",
+       "en": "too late",
+       "ko": "너무 늦었어"
+      }
+     ]
+    }
    }
   },
   {
@@ -2893,7 +3043,32 @@
      "arbeiten"
     ],
     "grammar": "II.2",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "traurig",
+      "en": "sad",
+      "ko": "슬퍼하지"
+     },
+     "opts": [
+      {
+       "de": "nervös",
+       "en": "nervous",
+       "ko": "긴장하지"
+      },
+      {
+       "de": "böse",
+       "en": "angry",
+       "ko": "화내지"
+      },
+      {
+       "de": "enttäuscht",
+       "en": "disappointed",
+       "ko": "실망하지"
+      }
+     ]
+    }
    }
   }
  ]

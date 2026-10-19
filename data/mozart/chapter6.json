@@ -1128,7 +1128,32 @@
      "Versprechen"
     ],
     "grammar": "VI.2",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": {"*": "tb", "ko": "tk"},
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "beim Kaiser",
+      "en": "with the Emperor",
+      "ko": "황제 쪽은"
+     },
+     "opts": [
+      {
+       "de": "bei einer Bank",
+       "en": "at a bank",
+       "ko": "은행 쪽은"
+      },
+      {
+       "de": "in einem Café",
+       "en": "at a café",
+       "ko": "카페 쪽은"
+      },
+      {
+       "de": "in einer Schule",
+       "en": "at a school",
+       "ko": "학교 쪽은"
+      }
+     ]
+    }
    }
   },
   {
@@ -1633,7 +1658,32 @@
      "Fuge"
     ],
     "grammar": "VI.1",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "geschrieben",
+      "en": "write it",
+      "ko": "쓴 거야"
+     },
+     "opts": [
+      {
+       "de": "gekauft",
+       "en": "buy it",
+       "ko": "산 거야"
+      },
+      {
+       "de": "gemacht",
+       "en": "make it",
+       "ko": "만든 거야"
+      },
+      {
+       "de": "gekocht",
+       "en": "cook it",
+       "ko": "요리한 거야"
+      }
+     ]
+    }
    }
   },
   {
@@ -2144,7 +2194,32 @@
      "Wut"
     ],
     "grammar": "VI.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": {"*": "tb", "ko": "tk"},
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "der zweite Abend",
+      "en": "the second night",
+      "ko": "두 번째 공연은"
+     },
+     "opts": [
+      {
+       "de": "der erste Tag",
+       "en": "the first day",
+       "ko": "첫날은"
+      },
+      {
+       "de": "das Konzert",
+       "en": "the concert",
+       "ko": "콘서트는"
+      },
+      {
+       "de": "der Urlaub",
+       "en": "the holiday",
+       "ko": "휴가는"
+      }
+     ]
+    }
    }
   },
   {
@@ -2669,7 +2744,32 @@
      "Beifall"
     ],
     "grammar": "VI.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": {"*": "tb", "ko": "tk"},
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "unruhig",
+      "en": "restless",
+      "ko": "조급해하지"
+     },
+     "opts": [
+      {
+       "de": "traurig",
+       "en": "sad",
+       "ko": "슬퍼하지"
+      },
+      {
+       "de": "nervös",
+       "en": "nervous",
+       "ko": "긴장하지"
+      },
+      {
+       "de": "böse",
+       "en": "angry",
+       "ko": "화내지"
+      }
+     ]
+    }
    }
   },
   {
@@ -3189,7 +3289,32 @@
      "reisen"
     ],
     "grammar": "VI.1",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "einen Tag",
+      "en": "a day",
+      "ko": "하루"
+     },
+     "opts": [
+      {
+       "de": "eine Woche",
+       "en": "a week",
+       "ko": "일주일"
+      },
+      {
+       "de": "zwei Tage",
+       "en": "two days",
+       "ko": "이틀"
+      },
+      {
+       "de": "eine Stunde",
+       "en": "an hour",
+       "ko": "한 시간"
+      }
+     ]
+    }
    }
   },
   {
@@ -3674,7 +3799,32 @@
      "Segen"
     ],
     "grammar": "VI.2",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": {"*": "tb", "ko": "tk"},
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "englische",
+      "en": "English",
+      "ko": "영어책도"
+     },
+     "opts": [
+      {
+       "de": "deutsche",
+       "en": "German",
+       "ko": "독일어 책도"
+      },
+      {
+       "de": "koreanische",
+       "en": "Korean",
+       "ko": "한국어 책도"
+      },
+      {
+       "de": "französische",
+       "en": "French",
+       "ko": "프랑스어 책도"
+      }
+     ]
+    }
    }
   }
  ]

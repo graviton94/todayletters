@@ -573,7 +573,32 @@
      "gefallen"
     ],
     "grammar": "IV.1",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "die Arbeit an der Oper",
+      "en": "working on the opera",
+      "ko": "오페라 작업은"
+     },
+     "opts": [
+      {
+       "de": "die neue Arbeit",
+       "en": "the new job",
+       "ko": "새 일은"
+      },
+      {
+       "de": "die Schule",
+       "en": "school",
+       "ko": "학교는"
+      },
+      {
+       "de": "das Essen dort",
+       "en": "the food there",
+       "ko": "거기 음식은"
+      }
+     ]
+    }
    }
   },
   {
@@ -998,7 +1023,32 @@
      "zeigen"
     ],
     "grammar": "IV.1",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "die Arie",
+      "en": "the aria",
+      "ko": "아리아를"
+     },
+     "opts": [
+      {
+       "de": "das Foto",
+       "en": "the photo",
+       "ko": "사진을"
+      },
+      {
+       "de": "die Wohnung",
+       "en": "the flat",
+       "ko": "집을"
+      },
+      {
+       "de": "den Plan",
+       "en": "the plan",
+       "ko": "계획을"
+      }
+     ]
+    }
    }
   },
   {
@@ -1444,7 +1494,32 @@
      "Probe"
     ],
     "grammar": "IV.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": {"*": "tb", "ko": "tk"},
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "Probe",
+      "en": "rehearsal",
+      "ko": "리허설은"
+     },
+     "opts": [
+      {
+       "de": "Stunde",
+       "en": "class",
+       "ko": "수업은"
+      },
+      {
+       "de": "Pause",
+       "en": "break",
+       "ko": "쉬는 시간은"
+      },
+      {
+       "de": "Folge",
+       "en": "episode",
+       "ko": "편은"
+      }
+     ]
+    }
    }
   },
   {
@@ -1896,7 +1971,32 @@
      "ankommen"
     ],
     "grammar": "IV.2",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "Nannerl",
+      "en": "Nannerl",
+      "ko": "난네를이랑"
+     },
+     "opts": [
+      {
+       "de": "meiner Mutter",
+       "en": "my mother",
+       "ko": "엄마랑"
+      },
+      {
+       "de": "meinem Freund",
+       "en": "my friend",
+       "ko": "친구랑"
+      },
+      {
+       "de": "meiner Schwester",
+       "en": "my sister",
+       "ko": "동생이랑"
+      }
+     ]
+    }
    }
   },
   {
@@ -2361,7 +2461,32 @@
      "freundlich"
     ],
     "grammar": "IV.1",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "die Probe",
+      "en": "the rehearsal",
+      "ko": "리허설은"
+     },
+     "opts": [
+      {
+       "de": "die Party",
+       "en": "the party",
+       "ko": "파티는"
+      },
+      {
+       "de": "das Treffen",
+       "en": "the meeting",
+       "ko": "회의는"
+      },
+      {
+       "de": "die Hochzeit",
+       "en": "the wedding",
+       "ko": "결혼식은"
+      }
+     ]
+    }
    }
   },
   {
@@ -2830,7 +2955,32 @@
      "Papier"
     ],
     "grammar": "IV.2",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "eine Pause",
+      "en": "a break",
+      "ko": "좀 쉬어"
+     },
+     "opts": [
+      {
+       "de": "einen Spaziergang",
+       "en": "a walk",
+       "ko": "좀 걸어"
+      },
+      {
+       "de": "ein Nickerchen",
+       "en": "a nap",
+       "ko": "좀 자"
+      },
+      {
+       "de": "einen Tag frei",
+       "en": "a day off",
+       "ko": "하루 쉬어"
+      }
+     ]
+    }
    }
   },
   {
@@ -3277,7 +3427,32 @@
      "mitnehmen"
     ],
     "grammar": "IV.0",
-    "audio": "tc"
+    "audio": "tc",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "etwas",
+      "en": "anything else",
+      "ko": "더 필요한 거 있어"
+     },
+     "opts": [
+      {
+       "de": "Geld",
+       "en": "more money",
+       "ko": "돈 더 필요해"
+      },
+      {
+       "de": "Wasser",
+       "en": "more water",
+       "ko": "물 더 필요해"
+      },
+      {
+       "de": "Zeit",
+       "en": "more time",
+       "ko": "시간 더 필요해"
+      }
+     ]
+    }
    }
   }
  ]

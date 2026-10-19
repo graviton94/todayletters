@@ -602,6 +602,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "gegessen",
+      "en": "eaten",
+      "ko": "먹었어"
+     },
+     "opts": [
+      {
+       "de": "gekauft",
+       "en": "bought",
+       "ko": "샀어"
+      },
+      {
+       "de": "getrunken",
+       "en": "drunk",
+       "ko": "마셨어"
+      },
+      {
+       "de": "gelesen",
+       "en": "read",
+       "ko": "읽었어"
+      }
+     ]
     }
    }
   },
@@ -1093,6 +1118,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "sechs Tage",
+      "en": "six days",
+      "ko": "엿새인데도"
+     },
+     "opts": [
+      {
+       "de": "zwei Tage",
+       "en": "two days",
+       "ko": "이틀인데도"
+      },
+      {
+       "de": "drei Stunden",
+       "en": "three hours",
+       "ko": "세 시간인데도"
+      },
+      {
+       "de": "zehn Minuten",
+       "en": "ten minutes",
+       "ko": "십 분인데도"
+      }
+     ]
     }
    }
   },
@@ -1573,7 +1623,32 @@
      "Orgel"
     ],
     "grammar": "VIII.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "dein Konzert am Hof",
+      "en": "your concert at court",
+      "ko": "궁정 연주회는"
+     },
+     "opts": [
+      {
+       "de": "dein Tag",
+       "en": "your day",
+       "ko": "오늘 하루는"
+      },
+      {
+       "de": "dein Urlaub",
+       "en": "your holiday",
+       "ko": "휴가는"
+      },
+      {
+       "de": "dein Interview",
+       "en": "your interview",
+       "ko": "면접은"
+      }
+     ]
+    }
    }
   },
   {
@@ -2086,6 +2161,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "die Reise",
+      "en": "the journey",
+      "ko": "여행은"
+     },
+     "opts": [
+      {
+       "de": "die Party",
+       "en": "the party",
+       "ko": "파티는"
+      },
+      {
+       "de": "der Unterricht",
+       "en": "class",
+       "ko": "수업은"
+      },
+      {
+       "de": "das Spiel",
+       "en": "the game",
+       "ko": "경기는"
+      }
+     ]
     }
    }
   },
@@ -2568,6 +2668,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "tausend Küsse",
+      "en": "a thousand kisses",
+      "ko": "뽀뽀 천 번"
+     },
+     "opts": [
+      {
+       "de": "ein Foto",
+       "en": "a photo",
+       "ko": "사진"
+      },
+      {
+       "de": "eine Nachricht",
+       "en": "a message",
+       "ko": "문자"
+      },
+      {
+       "de": "einen Brief",
+       "en": "a letter",
+       "ko": "편지"
+      }
+     ]
     }
    }
   },
@@ -3052,7 +3177,32 @@
      "Bad"
     ],
     "grammar": "VIII.2",
-    "audio": "tb"
+    "audio": "tb",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "de": "ins Bad",
+      "en": "to a spa",
+      "ko": "온천에"
+     },
+     "opts": [
+      {
+       "de": "ans Meer",
+       "en": "to the sea",
+       "ko": "바다에"
+      },
+      {
+       "de": "in die Berge",
+       "en": "to the mountains",
+       "ko": "산에"
+      },
+      {
+       "de": "nach Italien",
+       "en": "to Italy",
+       "ko": "이탈리아에"
+      }
+     ]
+    }
    }
   },
   {
@@ -3576,6 +3726,31 @@
     "audio": {
      "*": "t",
      "ko": "tk"
+    },
+    "mine": {
+     "line": 1,
+     "slot": {
+      "de": "Mama",
+      "en": "Mama",
+      "ko": "엄마가"
+     },
+     "opts": [
+      {
+       "de": "Papa",
+       "en": "Papa",
+       "ko": "아빠가"
+      },
+      {
+       "de": "deine Schwester",
+       "en": "your sister",
+       "ko": "동생이"
+      },
+      {
+       "de": "dein Freund",
+       "en": "your friend",
+       "ko": "친구가"
+      }
+     ]
     }
    }
   }
