@@ -1,5 +1,6 @@
 package io.github.graviton94.todayletters.ui
 
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
@@ -176,8 +177,12 @@ fun IlText(
                 Text(text.substring(c.range.first, c.range.last + 1), style = word, color = p.slipInk,
                     modifier = Modifier.background(bg).then(under).padding(bottom = 2.dp))
                 Text(gloss.ifEmpty { " " }, style = small, maxLines = 1, softWrap = false,
-                    color = if (lit || (chunk && !anchorKnown)) p.giltText else p.slipSoft.copy(alpha = p.slipSoft.alpha * 0.7f))   // 낱말 뜻은 문장 번역보다 옅게
+                    color = if (lit || (chunk && !anchorKnown)) p.giltText else glossInk(p))
             }
         }
     }
 }
+
+/** 낱말 아래 뜻의 색: 문장 번역(잉크색)과 갈래가 다른 청회색 (시안 glosscolor A, 2026-10-20). 금빛은 덩어리 · 닻 · 읽는 낱말에 씀. */
+private fun glossInk(p: io.github.graviton94.todayletters.design.Palette) =
+    if (p.slip.luminance() < 0.5f) androidx.compose.ui.graphics.Color(0xFF8FA6B8) else androidx.compose.ui.graphics.Color(0xFF4F6679)
