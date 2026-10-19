@@ -1898,7 +1898,7 @@
       "who": "me",
       "fr": "Merci ! Tu veux que je plante des roses ?",
       "en": "Thank you! Do you want me to plant roses?",
-      "ko": "고마워! 장미 심을래. 나 장미 좋아하잖아.",
+      "ko": "고마워! 내가 장미 심어 줄까?",
       "focus": {
        "fr": [
         "que je plante"
@@ -1907,7 +1907,7 @@
         "want me to plant"
        ],
        "ko": [
-        "좋아하잖아"
+        "심어 줄까"
        ]
       },
       "wrong": {
@@ -1925,8 +1925,8 @@
        ],
        "ko": [
         [
-         "좋아하자나",
-         "좋아하잔아"
+         "심어 줄가",
+         "시머 줄까"
         ]
        ]
       }
@@ -1981,7 +1981,10 @@
     ],
     "grammar": "VII.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb",
+    "audio": {
+     "*": "tb",
+     "ko": "tc"
+    },
     "mine": {
      "line": 3,
      "slot": {

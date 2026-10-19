@@ -235,7 +235,9 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
                  /** 원래 소리가 없을 때 견줄 음절 수 (내 이야기로: 글자로 어림, core 의 SpeakCheck.estimate). null 이면 음절은 따지지 않는다. */
                  val estimate: Int? = null,
                  /** 비슷하게 읽으면 (내 글자로 쓴 소리, core 의 SayLike): 두 번째로 안 되면 보여 준다. 없으면 null. */
-                 val sayLike: String? = null) {
+                 sayLike: String? = null) {
+    /** 소리 힌트 파일을 뒤에서 다 읽으면 채워진다 ([rememberShadowTake]). */
+    var sayLike by mutableStateOf(sayLike)
     var recording by mutableStateOf(false)
     var playing by mutableStateOf(false)
     /** 녹음이 바뀔 때마다 하나씩 (다시 그리기 · 다시 채점). */
@@ -297,6 +299,7 @@ fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: 
                        onScored: (io.github.graviton94.todayletters.core.Prosody.Score, Boolean) -> Unit = { _, _ -> }): ShadowTake {
     val ctx = LocalContext.current
     val t = remember(key) { ShadowTake(audio, start, end, file, step, estimate, sayLike).also { it.allowed = ContextCompat.checkSelfPermission(ctx, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED } }
+    androidx.compose.runtime.SideEffect { if (sayLike != null && t.sayLike == null) t.sayLike = sayLike }
     val scored by androidx.compose.runtime.rememberUpdatedState(onScored)
     val voiced by androidx.compose.runtime.rememberUpdatedState(onVoice)
     val ask = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { t.allowed = it }

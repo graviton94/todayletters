@@ -22,6 +22,7 @@ import java.util.concurrent.ConcurrentHashMap
 // ── 비슷하게 읽으면 (core [SayLike], data/<작품>/pron[_en|_ko].json — scripts/pron.py 가 espeak-ng 로 만든 자동 · 어림 힌트) ──────────────────
 
 private val sayFiles = ConcurrentHashMap<String, Map<String, String>>()
+private val sayLoading: MutableSet<String> = ConcurrentHashMap.newKeySet()
 
 /** 소리 힌트 파일 (assets letters/<작품>/pron[_en|_ko].json). 없으면 빈 것. */
 fun sayLikeOf(ctx: Context, series: String, deck: String): Map<String, String> = sayFiles.getOrPut("$series/$deck") {
@@ -36,7 +37,16 @@ fun AppState.sayLike(series: String, text: String): String? {
     val w = works.firstOrNull { it.series.id == series } ?: return null
     val learn = room(series).learn
     if (!SayLike.shows(app.ui, learn)) return null
-    return SayLike.lookup(sayLikeOf(ctx, series, VocabSet.deckFor(learn, w.series.original)), text)
+    val deck = VocabSet.deckFor(learn, w.series.original)
+    // 파일(작품 · 말마다 수백 KB)은 처음 한 번 뒤에서 읽고, 다 읽으면 화면을 다시 그린다 (그리는 중에 읽으면 버벅임)
+    val m = sayFiles["$series/$deck"] ?: run {
+        if (sayLoading.add("$series/$deck")) Thread {
+            sayLikeOf(ctx, series, deck)
+            android.os.Handler(android.os.Looper.getMainLooper()).post { bump() }
+        }.start()
+        return null
+    }
+    return SayLike.lookup(m, text)
 }
 
 /** ‘비슷하게 읽으면 · 위, 싸 바’ 한 줄 (두 번째로 안 된 뒤에만, 그 뒤로 늘). */
