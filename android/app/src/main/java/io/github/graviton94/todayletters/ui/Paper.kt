@@ -427,8 +427,9 @@ suspend fun pause(ms: Int, still: Boolean) { if (!still && ms > 0) delay(ms.toLo
  * ([io.github.graviton94.todayletters.core.Listen.holdAdvance], 최대 8초). 소리가 없거나 소리를 끈 설정이면 [ms] 만.
  */
 suspend fun awaitAnswerSound(narrator: io.github.graviton94.todayletters.data.Narrator, ms: Int) {
-    val t0 = android.os.SystemClock.uptimeMillis()
-    while (io.github.graviton94.todayletters.core.Listen.holdAdvance(android.os.SystemClock.uptimeMillis() - t0, narrator.now != null, ms.toLong())) delay(50)
+    // 지난 시간은 delay 로 센다 (코루틴 시계: 화면 사진 테스트의 mainClock 과도 맞는다)
+    var waited = 0L
+    while (io.github.graviton94.todayletters.core.Listen.holdAdvance(waited, narrator.now != null, ms.toLong())) { delay(50); waited += 50 }
 }
 
 /**

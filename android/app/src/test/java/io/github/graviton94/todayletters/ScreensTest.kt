@@ -371,7 +371,7 @@ class ScreensTest {
     }
     @Test fun blankHint() {
         val s = withCards()
-        shot("38_blank_hint_ko_light", false, act = { rule.onNodeWithText(io.github.graviton94.todayletters.core.Breaks.keepAll("💡 번역에서 찾기")).performClick() }, series = s) {
+        shot("38_blank_hint_ko_light", false, act = { rule.onNodeWithText(ctx.getString(R.string.blank_hint)).performClick()  // 💡 는 그린 전구 (BulbGlyph) 로 바뀜 }, series = s) {
             Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.BLANK))
         }
     }
@@ -1808,7 +1808,8 @@ class ScreensTest {
     @Test fun slowSettings() {
         val s = state(true)
         shot("slow04_settings_speed_light", false, act = {
-            rule.onNode(hasText(ctx.getString(R.string.set_listen_auto).uppercase())).performScrollTo()
+            // 같은 글자가 예열 고름 칸에도 있다: 누를 수 없는 이름표 (듣기 빠르기의 ‘등급에 맞춰 자동’) 로
+            rule.onNode(hasText(ctx.getString(R.string.set_listen_auto).uppercase()) and !hasClickAction()).performScrollTo()
             org.junit.Assert.assertTrue(s.seriesSettings("vincent").listenAuto)
             org.junit.Assert.assertEquals(0.85f, s.listenSpeed("vincent"), 0.001f)
             rule.onNode(hasText("0.7") and hasClickAction()).performClick()
