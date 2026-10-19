@@ -1946,10 +1946,10 @@ class ScreensTest {
             }
         }, series = s) { io.github.graviton94.todayletters.ui.WarmUpScreen(s, Route.WarmUp(Route.Letter("vincent", 1, 2))) }
     }
-    /** 예열 뒤 편지 I-2: 아까 본 말 (금빛 점선), 익힌 닻 (j'ai · un ciel · mon cher, 금빛 바탕). */
+    /** 예열 뒤 편지 I-2: 아까 본 말 (금빛 점선), 익힌 닻 (j'ai · c'est · mon cher, 금빛 바탕). */
     @Test fun ilAnchors() {
         val s = state(true)
-        ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().putString("anc:vincent/", "j ai\nun ciel\nmon cher").commit()
+        ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().putString("anc:vincent/", "j ai\nc est\nmon cher").commit()
         val r = Route.Letter("vincent", 1, 2)
         val (c, l) = s.letterOf(r)
         s.finishWarm(Route.WarmUp(r), s.warmCards("vincent", c, l))

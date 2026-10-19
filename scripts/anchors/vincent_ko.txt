@@ -1,12 +1,29 @@
-# 빈센트 · 한국어 글의 닻 표현 (한국어를 배우는 사람). 줄 = 어절들|ko(풀이)|en
-사랑하는 테오에게|편지 첫 인사|Dear Theo
-것 같아|~인 듯해|I think, it seems
-그리고 있어|그리는 중이야|I'm painting
+# 빈센트 · 한국어 글의 닻 표현 (한국어를 배우는 사람, 반말). 줄 = 어절들|ko(풀이)|en
+# 고르는 기준: 입문자가 문장을 만드는 틀 (1인칭 · 이다 · 있다 · 하고 싶다 · 할 수 있다 · 했다 · 너는) 을 먼저, 그다음 많이 되풀이되는 덩어리. 쓸모 순서.
+# 뜻 = 틀 꼴 (나는 ~이다 / I am), 앞 뜻이 낱말 아래 뜻 (쉼표 앞), 전체는 예열 카드. 앱이 쓴 풀이 (사람 확인 전). 2통 이상만 남는다.
+# 어미 (-고 싶어 · -ㄹ 수 있어) 만 따로 맞추지는 못한다 (어절 단위): 그 어미가 든 뒤 어절 (싶어 · 수 있어) 을 덩어리로.
+나는|나는 ~ (나 + 는, 주제)|I (topic)
+내가|내가 ~ (나 + 가, 주어)|I (subject)
+있어|~이 있어, ~하고 있어|there is, I am (doing)
+없어|~이 없어|there is no
+싶어|~하고 싶어|I want to
+보고 싶어|보고 싶어, 그리워|I miss you, I want to see
+수 있어|~할 수 있어|I can
+수가 없어|~할 수가 없어|I can't
+거야|~일 거야, ~할 거야|it will be, I'm going to
 될 거야|~이 될 거야|it will be
-있을 거야|있을 거야|there will be
-아주 잘|매우 잘|very well
-한 점|그림 하나 (점 = 그림 세는 말)|one painting
-보고 싶어|만나고 싶어|I miss you, I want to see
-정말 고마워|아주 고마워|thank you so much
-알게 될 거야|곧 알게 돼|you'll see
-한 번|한 차례|once
+있을 거야|~이 있을 거야|there will be
+했어|~했어|I did
+그렸어|그렸어 (그리다 → 과거)|I painted
+봤어|봤어 (보다 → 과거)|I saw
+해|~해 (하다, 반말)|do, I do
+것 같아|~인 것 같아|I think, it seems
+그건|그건 ~ (그것은)|that (topic)
+그게|그게 ~ (그것이)|that (subject)
+좋겠어|~하면 좋겠어|I wish, I hope
+안|안 ~ (아니다)|not
+못|못 ~ (할 수 없다)|can't
+알아|알아|I know
+몰라|몰라|I don't know
+고마워|고마워|thank you
+중이야|~하는 중이야|I'm in the middle of

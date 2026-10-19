@@ -1,18 +1,29 @@
-# 모차르트 · 독일어 원문 (옛 철자 그대로). 줄 = 낱말들|ko|en
-meine liebe|나의 사랑하는 (편지 첫 인사)|my dear
-daß ich|내가 ~라는 것|that I
-ich habe|나는 ~했어요|I have
-ich bin|나는 ~이에요|I am
-wenn ich|내가 ~하면|when I, if I
-weil ich|내가 ~해서|because I
-das ist|그건 ~이에요|that is
-es ist|그건 ~이에요|it is
-kann ich|나는 ~할 수 있어요|I can
-ich will|나는 ~하려 해요|I want to
-ich weiß|나는 알아요|I know
-zu schreiben|쓰는 것|to write
-gar nichts|전혀 아무것도|nothing at all
-nicht mehr|더는 ~ 않아요|no longer
-alle tage|날마다|every day
-ganz gut|꽤 좋아요|quite well
-hören sie|들어 보세요|listen
+# 모차르트 · 독일어 원문 (옛 철자 그대로: daß · muß). 줄 = 낱말들|ko|en
+# 고르는 기준: 입문자가 문장을 만드는 틀 (1인칭 · 이다 · 있다 · 하고 싶다 · 할 수 있다 · 했다 · 너는) 을 먼저, 그다음 많이 되풀이되는 덩어리. 쓸모 순서.
+# 뜻 = 틀 꼴 (나는 ~이다 / I am), 앞 뜻이 낱말 아래 뜻 (쉼표 앞), 전체는 예열 카드. 앱이 쓴 풀이 (사람 확인 전). 2통 이상만 남는다.
+# 현재완료 ich habe … gemacht 처럼 떨어진 틀은 맞추지 못한다 (토큰이 이어져야 함): ich habe · habe ich 로 갈음.
+ich bin|나는 ~이다|I am
+ich habe|나는 ~을 가졌다, ~했다 (haben + 과거분사)|I have, I have (done)
+das ist|이것은 ~이다|this is, that is
+es ist|그것은 ~이다|it is
+ich will|나는 ~하고 싶다, ~하려 한다|I want to
+ich kann|나는 ~할 수 있다|I can
+ich muß|나는 ~해야 한다 (muss)|I must
+ich weiß|나는 ~을 안다|I know
+ich hoffe|나는 ~을 바란다|I hope
+ich wünsche|나는 ~을 빈다, 바란다|I wish
+ich war|나는 ~였다|I was
+ich ging|나는 갔다|I went
+es war|그것은 ~였다|it was
+es wird|그것은 ~이 될 것이다|it will (be)
+wir haben|우리는 ~을 가졌다, ~했다|we have
+daß ich|내가 ~한다는 것 (dass ich, 동사는 끝에)|that I …
+wenn ich|내가 ~하면, ~할 때|if I, when I
+weil ich|내가 ~하기 때문에|because I
+habe ich|나는 ~했다 (앞에 다른 말이 오면 도치)|I have (inverted)
+bin ich|나는 ~이다 (도치), 내가 ~인가?|I am (inverted), am I?
+kann ich|나는 ~할 수 있다 (도치), 내가 ~해도 될까?|I can (inverted), can I?
+muß ich|나는 ~해야 한다 (도치)|I must (inverted), must I?
+gar nichts|전혀 아무것도 (~ 않다)|nothing at all
+nicht mehr|더 이상 ~ 않다|no longer
+meine liebe|사랑하는 (편지 첫 인사)|my dear

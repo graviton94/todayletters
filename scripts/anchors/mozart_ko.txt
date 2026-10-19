@@ -1,9 +1,29 @@
-# 모차르트 · 한국어 글. 줄 = 어절들|ko(풀이)|en
-사랑하는 아버지|편지 첫 인사|Dear Father
-하느님 덕분에|다행히|thank God
-세상에서 가장|제일|the most … in the world
-들어 보세요|잘 들으세요|listen
-수 있어요|할 수 있어요|can
-있으면 좋겠어요|~이면 좋겠어요|I wish there were
-마음에 들어|좋아|I like it
-천 번|아주 많이|a thousand times
+# 모차르트 · 한국어 글 (해요체가 많음). 줄 = 어절들|ko(풀이)|en
+# 고르는 기준: 입문자가 문장을 만드는 틀 (1인칭 · 이다 · 있다 · 하고 싶다 · 할 수 있다 · 했다 · 너는) 을 먼저, 그다음 많이 되풀이되는 덩어리. 쓸모 순서.
+# 뜻 = 틀 꼴 (나는 ~이다 / I am), 앞 뜻이 낱말 아래 뜻 (쉼표 앞), 전체는 예열 카드. 앱이 쓴 풀이 (사람 확인 전). 2통 이상만 남는다.
+# 어미 (-고 싶어요 · -ㄹ 수 있어요) 만 따로 맞추지는 못한다 (어절 단위): 그 어미가 든 뒤 어절을 덩어리로.
+저는|저는 ~ (나는의 높임, 주제)|I (topic, polite)
+제가|제가 ~ (내가의 높임, 주어)|I (subject, polite)
+저도|저도|me too, I also
+나는|나는 ~ (나 + 는, 주제)|I (topic)
+내가|내가 ~ (나 + 가, 주어)|I (subject)
+있어요|~이 있어요, ~하고 있어요|there is, I am (doing)
+없어요|~이 없어요|there is no
+있었어요|~이 있었어요|there was
+싶어요|~하고 싶어요|I want to
+수 있어요|~할 수 있어요|I can
+거예요|~일 거예요, ~할 거예요|it will be, I'm going to
+거야|~일 거야, ~할 거야|it will be, I'm going to
+했어요|~했어요|I did
+썼어요|썼어요 (쓰다 → 과거)|I wrote
+해요|~해요 (하다, 해요체)|do, I do
+해|~해 (하다, 반말)|do, I do
+주세요|~해 주세요|please (do for me)
+아니에요|~이 아니에요|it is not
+바라요|~을 바라요|I hope
+좋겠어요|~하면 좋겠어요|I wish, I hope
+같아요|~인 것 같아요|I think, it seems
+이건|이건 ~ (이것은)|this (topic)
+그건|그건 ~ (그것은)|that (topic)
+안|안 ~ (아니다)|not
+못|못 ~ (할 수 없다)|can't

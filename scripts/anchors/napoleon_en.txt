@@ -1,15 +1,28 @@
 # Napoleon · English text. line = tokens|ko|en
-my love|내 사랑|my love
+# 고르는 기준: 입문자가 문장을 만드는 틀 (1인칭 · 이다 · 있다 · 하고 싶다 · 할 수 있다 · 했다 · 너는) 을 먼저, 그다음 많이 되풀이되는 덩어리. 쓸모 순서.
+# 뜻 = 틀 꼴 (나는 ~이다 / I am), 앞 뜻이 낱말 아래 뜻 (쉼표 앞), 전체는 예열 카드. 앱이 쓴 풀이 (사람 확인 전). 2통 이상만 남는다.
+i 'm|나는 ~이다 (I am 줄임)|I am
+i am|나는 ~이다|I am
+i have|나는 ~을 가졌다, ~했다 (have + 과거분사)|I have, I have (done)
+i 've|나는 ~했다 (I have 줄임)|I have (done)
+it 's|그것은 ~이다 (it is 줄임)|it is
+it is|그것은 ~이다|it is
+that is|그것은 ~이다|that is
+there is|~이 있다|there is
+i want|나는 ~을 원한다, ~하고 싶다|I want (to)
+i can|나는 ~할 수 있다|I can
+i 'll|나는 ~할 것이다 (I will 줄임)|I will
+i 'm going to|나는 ~할 것이다|I am going to
+i hope|나는 ~을 바란다|I hope
+i think|나는 ~라고 생각한다|I think
+i see|나는 ~을 본다|I see
+i love|나는 ~을 사랑한다|I love
+i was|나는 ~였다|I was
+i went|나는 갔다|I went
+i 've been|나는 ~였다, ~해 왔다|I have been
+i 've received|나는 ~을 받았다|I have received
+i 'm not|나는 ~이 아니다, ~하지 않는다|I am not
+you are|너는 ~이다|you are
+do you|너는 ~하니?|do you …?
+my love|내 사랑 (부르는 말)|my love
 goodbye my love|잘 있어, 내 사랑|goodbye, my love
-i 'm|나는 ~이야|I am
-your letter|당신 편지|your letter
-i hope|~하길 바라|I hope
-received your letter|당신 편지를 받았어|received your letter
-all yours|온전히 당신의 것|all yours
-a thousand|천 개의|a thousand
-my heart|내 마음|my heart
-my health|내 건강|my health
-your health|당신 건강|your health
-write to|~에게 편지 쓰다|write to
-glad to|~해서 기뻐|glad to
-a few|몇몇|a few

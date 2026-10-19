@@ -1,15 +1,28 @@
 # Mozart · English text (Wallace 1866). line = tokens|ko|en
-my darling|내 사랑|my darling
+# 고르는 기준: 입문자가 문장을 만드는 틀 (1인칭 · 이다 · 있다 · 하고 싶다 · 할 수 있다 · 했다 · 너는) 을 먼저, 그다음 많이 되풀이되는 덩어리. 쓸모 순서.
+# 뜻 = 틀 꼴 (나는 ~이다 / I am), 앞 뜻이 낱말 아래 뜻 (쉼표 앞), 전체는 예열 카드. 앱이 쓴 풀이 (사람 확인 전). 2통 이상만 남는다.
 i am|나는 ~이에요|I am
-i have|나는 ~했어요|I have
+i have|나는 ~을 가졌어요, ~했어요 (have + 과거분사)|I have, I have (done)
+it is|그것은 ~이에요|it is
+this is|이것은 ~이에요|this is
+there is|~이 있어요|there is
+i can|나는 ~할 수 있어요|I can
 i must|나는 ~해야 해요|I must
-i may|~해도 될까요, ~일지도|I may
-i never|나는 결코 ~ 않아요|I never
+i may|나는 ~해도 돼요, ~일지도 몰라요|I may
+i should|나는 ~해야겠어요, ~하는 게 좋겠어요|I should
+i would|나는 ~하겠어요, ~할 텐데요|I would
+i will|나는 ~할 거예요|I will
+going to|~할 거예요 (be going to)|going to
 i wish|~하면 좋겠어요|I wish
-at last|마침내|at last
-the first|첫 번째|the first
-the same|같은|the same
-you know|아시다시피|you know
-to write|쓰는 것|to write
-my heart|내 마음|my heart
-such a|그런, 이런|such a
+i hope|나는 ~을 바라요|I hope
+i think|나는 ~라고 생각해요|I think
+i was|나는 ~였어요|I was
+i had|나는 ~을 가지고 있었어요, ~했었어요|I had
+i went|나는 갔어요|I went
+i did not|나는 ~하지 않았어요|I did not
+i have been|나는 ~였어요, ~해 왔어요|I have been
+it was|그것은 ~였어요|it was
+there was|~이 있었어요|there was
+you are|당신은 ~이에요|you are
+do you|당신은 ~하나요?|do you …?
+my darling|내 사랑 (부르는 말)|my darling

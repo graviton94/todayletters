@@ -1,14 +1,28 @@
 # Vincent · English text anchors (for English learners). line = tokens|ko|en
-my dear|사랑하는 (편지 첫 인사)|my dear
-i 'm|나는 ~이야|I am
-i 've|나는 ~했어|I have
-it 's|그건 ~이야|it is
-i think|내 생각엔|I think
-a little|조금|a little
-a few|몇몇|a few
+# 고르는 기준: 입문자가 문장을 만드는 틀 (1인칭 · 이다 · 있다 · 하고 싶다 · 할 수 있다 · 했다 · 너는) 을 먼저, 그다음 많이 되풀이되는 덩어리. 쓸모 순서.
+# 뜻 = 틀 꼴 (나는 ~이다 / I am), 앞 뜻이 낱말 아래 뜻 (쉼표 앞), 전체는 예열 카드. 앱이 쓴 풀이 (사람 확인 전). 2통 이상만 남는다.
+i 'm|나는 ~이다 (I am 줄임)|I am
+i am|나는 ~이다|I am
+i have|나는 ~을 가졌다, ~했다 (have + 과거분사)|I have, I have (done)
+i 've|나는 ~했다 (I have 줄임)|I have (done)
+it 's|그것은 ~이다 (it is 줄임)|it is
+it is|그것은 ~이다|it is
+there are|~들이 있다|there are
+there is|~이 있다|there is
+i want|나는 ~을 원한다, ~하고 싶다|I want (to)
+i 'd like to|나는 ~하고 싶다|I would like to
+i can|나는 ~할 수 있다|I can
+i 'll|나는 ~할 것이다 (I will 줄임)|I will
+going to|~할 것이다 (be going to)|going to
+i think|나는 ~라고 생각한다|I think
+i know|나는 ~을 안다|I know
+i see|나는 ~을 본다|I see
+i feel|나는 ~을 느낀다|I feel
+i was|나는 ~였다|I was
+i had|나는 ~을 가지고 있었다, ~했었다|I had
+i 've been|나는 ~였다, ~해 왔다|I have been
+i 've just|나는 막 ~했다|I have just
+you 're|너는 ~이다 (you are 줄임)|you are
 you know|너도 알다시피|you know
-there are|~들이 있어|there are
-the same|같은|the same
-working on|~을 작업하는 중|working on
-very well|아주 잘|very well
-i can|나는 ~할 수 있어|I can
+that 's|그것은 ~이다 (that is 줄임)|that is
+a little|조금|a little

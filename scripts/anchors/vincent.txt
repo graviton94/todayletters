@@ -1,17 +1,28 @@
 # 빈센트 · 프랑스어 원문의 닻 표현. 줄 = 낱말들(gloss 토큰 꼴, 소문자, 띄어 씀)|ko|en
-# 뜻은 앱이 쓴 짧은 풀이 (사람 확인 전). 뜻 없는 조합(dans le, de la, que je …)은 넣지 않는다.
-mon cher|사랑하는 (편지 첫 인사)|my dear
-j' ai|나는 ~했어|I have
-je suis|나는 ~이야|I am
-c' est|그건 ~이야|it is
-il y a|~이 있어|there is
-je crois|내 생각엔|I think
-un peu|조금|a little
-une toile|캔버스 한 점|a canvas
-un ciel|하늘|a sky
-en train|(en train de) ~하는 중|in the middle of (doing)
+# 고르는 기준: 입문자가 문장을 만드는 틀 (1인칭 · 이다 · 있다 · 하고 싶다 · 할 수 있다 · 했다 · 너는) 을 먼저, 그다음 많이 되풀이되는 덩어리. 쓸모 순서.
+# 뜻 = 틀 꼴 (나는 ~이다 / I am), 앞 뜻이 낱말 아래 뜻 (쉼표 앞), 전체는 예열 카드. 앱이 쓴 풀이 (사람 확인 전). 2통 이상만 남는다.
+je suis|나는 ~이다|I am
+j' ai|나는 ~을 가졌다, ~했다 (avoir + 과거분사)|I have, I have (done)
+c' est|이것은 ~이다, 그것은 ~이다|it is, this is
+il y a|~이 있다|there is, there are
+je ne|나는 ~하지 않는다 (ne … pas)|I don't …, I am not …
+je voudrais|나는 ~하고 싶다|I would like to
+je peux|나는 ~할 수 있다|I can
+je vais|나는 ~할 것이다, 나는 간다|I am going to, I go
+je fais|나는 ~을 한다, 만든다|I do, I make
+je dois|나는 ~해야 한다|I must
+il faut|~해야 한다|one must, I need to
+je crois|나는 ~라고 생각한다|I think, I believe
+je sais|나는 ~을 안다|I know
+je vois|나는 ~을 본다|I see
+j' ai fait|나는 ~을 했다, 만들었다|I did, I made
+j' ai vu|나는 ~을 봤다|I saw
+j' avais|나는 ~을 가지고 있었다, ~했었다|I had
+c' était|그것은 ~였다|it was
+je viens de|나는 막 ~했다|I have just
+tu es|너는 ~이다|you are
+tu as|너는 ~을 가졌다, ~했다|you have
 tu sais|너도 알다시피|you know
-il faut|~해야 해|one must
-pas encore|아직 ~ 않은|not yet
-je travaille|나는 작업 중이야|I'm working
-en plein air|야외에서|in the open air
+il est|그는 ~이다, 그것은 ~이다|he is, it is
+un peu|조금|a little
+mon cher|사랑하는 (편지 첫 인사)|my dear

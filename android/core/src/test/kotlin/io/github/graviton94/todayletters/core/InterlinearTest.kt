@@ -100,6 +100,9 @@ class InterlinearTest {
         // 닻이 없으면 짧은 표현, 그것도 없으면 낱말 넷
         assertEquals(WarmUp.Item(WarmUp.Kind.PHRASE, 0), WarmUp.pick(words, listOf(3 to 9), emptyList()).last())
         assertEquals(4, WarmUp.pick(words, listOf(9 to 9), emptyList()).count { it.kind == WarmUp.Kind.WORD })
+        // 닻이 여럿이면 편지에 가장 먼저 나오는 것, 같은 자리면 목록 앞 (쓸모 순: j'ai 가 j'ai fait 보다 앞)
+        assertEquals(WarmUp.Item(WarmUp.Kind.ANCHOR, 2), WarmUp.pick(words, emptyList(), listOf(5 to 40, 2 to 11, 9 to 30)).last())
+        assertEquals(WarmUp.Item(WarmUp.Kind.ANCHOR, 1), WarmUp.pick(words, emptyList(), listOf(1 to 11, 14 to 11)).last())
         // 한 장뿐이면 예열 없이
         assertTrue(WarmUp.pick(listOf(1 to false), emptyList(), emptyList()).isEmpty())
     }
