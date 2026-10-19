@@ -1532,9 +1532,9 @@
      },
      {
       "who": "me",
-      "de": "Toll! Ich bin so stolz auf dich.",
-      "en": "Great! I'm so proud of you.",
-      "ko": "대단해! 정말 자랑스러워.",
+      "de": "Das finde ich toll! Ich bin so stolz auf dich.",
+      "en": "I think that's great! I'm so proud of you.",
+      "ko": "정말 멋지다! 네가 너무 자랑스러워.",
       "focus": {
        "de": [
         "stolz auf dich"
@@ -1573,10 +1573,7 @@
      "Orgel"
     ],
     "grammar": "VIII.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -3008,15 +3005,15 @@
      },
      {
       "who": "them",
-      "de": "Der Kurfürst will, dass ich beim Konzert spiele.",
-      "en": "The Elector wants me to play at his concert.",
-      "ko": "선제후께서 연주회에서 연주해 달래."
+      "de": "Der Kurfürst will, dass ich beim Konzert spiele. Aber jetzt muss ich los!",
+      "en": "The Elector wants me to play at his concert. But now I have to go!",
+      "ko": "선제후께서 연주회에서 연주해 달래. 그런데 이제 가 봐야 해!"
      },
      {
       "who": "me",
-      "de": "Schön! Nächsten Sommer fahren wir zusammen ins Bad, ja?",
-      "en": "Nice! Next summer we'll go to a spa together, okay?",
-      "ko": "잘됐다! 내년 여름엔 같이 온천에 가자, 알았지?",
+      "de": "Schön! Nächsten Sommer fahren wir zusammen ins Bad. Adieu, mein Lieber!",
+      "en": "Nice! Next summer we'll go to a spa together. Goodbye, my dear!",
+      "ko": "잘됐다! 내년 여름엔 같이 온천에 가자. 잘 가, 여보!",
       "focus": {
        "de": [
         "Nächsten Sommer"
@@ -3055,10 +3052,7 @@
      "Bad"
     ],
     "grammar": "VIII.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {

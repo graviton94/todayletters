@@ -421,52 +421,52 @@
      },
      {
       "who": "me",
-      "de": "Gut, danke! Wir haben hier viel Schnee.",
-      "en": "Good, thanks! We have lots of snow here.",
-      "ko": "잘 지내, 고마워! 여기는 눈이 많이 와.",
+      "de": "Gut, danke! Ich bin gesund.",
+      "en": "Good, thanks! I'm well.",
+      "ko": "잘 지내, 고마워! 난 건강해.",
       "focus": {
        "de": [
-        "haben"
+        "Ich bin"
        ],
        "en": [
-        "We have"
+        "I'm"
        ],
        "ko": [
-        "많이 와"
+        "건강해"
        ]
       },
       "wrong": {
        "de": [
         [
-         "hat",
-         "habt"
+         "Ich ist",
+         "Ich bist"
         ]
        ],
        "en": [
         [
-         "We has",
-         "We having"
+         "I is",
+         "I are"
         ]
        ],
        "ko": [
         [
-         "많이 오",
-         "많이 와아"
+         "건강하",
+         "건강헤"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "de": "Die Sängerin hier hat eine gute Stimme, aber kein Gefühl.",
-      "en": "The singer here has a good voice, but no feeling.",
-      "ko": "여기 가수는 목소리는 좋은데 감정이 없어."
+      "de": "Die Sängerin hat eine gute Stimme.",
+      "en": "The singer has a good voice.",
+      "ko": "여기 가수는 목소리가 좋아."
      },
      {
       "who": "me",
-      "de": "Schade! Schreib mir bald wieder einen Brief.",
-      "en": "Too bad! Write me another letter soon.",
-      "ko": "아쉽다! 곧 또 편지 써 줘.",
+      "de": "Schön! Schreib mir bald einen Brief!",
+      "en": "Nice! Write me a letter soon!",
+      "ko": "좋겠다! 곧 편지 써 줘!",
       "focus": {
        "de": [
         "einen Brief"
@@ -505,10 +505,7 @@
      "Brief"
     ],
     "grammar": "I.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -839,13 +836,13 @@
      {
       "who": "them",
       "de": "Hallo Nannerl! Grüß Mama von mir!",
-      "en": "Hi Nannerl! Say hi to Mama for me!",
+      "en": "Hi Nannerl! Say hi to Mama!",
       "ko": "안녕, 누나! 엄마한테 안부 전해 줘!"
      },
      {
       "who": "me",
-      "de": "Mach ich! Wie ist Rom?",
-      "en": "I will! What's Rome like?",
+      "de": "Mach ich! Wie ist die Stadt?",
+      "en": "Will do! What's the city like?",
       "ko": "그럴게! 로마는 어때?",
       "focus": {
        "de": [
@@ -881,15 +878,15 @@
      },
      {
       "who": "them",
-      "de": "Die Stadt ist toll, aber wir haben nur ein Bett.",
-      "en": "The city is great, but we only have one bed.",
-      "ko": "도시는 멋진데, 침대가 하나뿐이야."
+      "de": "Toll! Aber nur ein Bett!",
+      "en": "Great! But only one bed!",
+      "ko": "멋져! 그런데 침대가 하나뿐이야!"
      },
      {
       "who": "me",
-      "de": "Oh je! Wie schläfst du denn da?",
-      "en": "Oh dear! So how do you sleep?",
-      "ko": "어머! 그럼 잠은 어떻게 자?",
+      "de": "Oh je! Wo schläfst du denn?",
+      "en": "Oh dear! Where do you sleep?",
+      "ko": "어머! 그럼 어디서 자?",
       "focus": {
        "de": [
         "schläfst du"
@@ -898,7 +895,7 @@
         "do you sleep"
        ],
        "ko": [
-        "어떻게 자"
+        "어디서 자"
        ]
       },
       "wrong": {
@@ -916,8 +913,8 @@
        ],
        "ko": [
         [
-         "어떻게 자아",
-         "어떻개 자"
+         "어디서 자아",
+         "어디사 자"
         ]
        ]
       }
@@ -928,10 +925,7 @@
      "Bett"
     ],
     "grammar": "I.1",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1251,15 +1245,15 @@
     "lines": [
      {
       "who": "them",
-      "de": "Danke für das Menuett! Dein Bass hat keinen Fehler.",
-      "en": "Thanks for the minuet! Your bass has no mistakes.",
-      "ko": "미뉴에트 고마워! 누나가 쓴 베이스에 틀린 데가 하나도 없어."
+      "de": "Nannerl, dein Bass hat keinen Fehler!",
+      "en": "Nannerl, your bass has no mistakes!",
+      "ko": "누나, 베이스에 틀린 데가 없어!"
      },
      {
       "who": "me",
-      "de": "Gern geschehen! Wie ist Neapel?",
-      "en": "You're welcome! What's Naples like?",
-      "ko": "별말을! 나폴리는 어때?",
+      "de": "Danke! Wie ist Neapel?",
+      "en": "Thanks! What's Naples like?",
+      "ko": "고마워! 나폴리는 어때?",
       "focus": {
        "de": [
         "Wie ist"
@@ -1294,43 +1288,43 @@
      },
      {
       "who": "them",
-      "de": "Schön, aber nicht ruhig. Es gibt so viele Leute!",
-      "en": "Beautiful, but not quiet. There are so many people!",
-      "ko": "아름다운데 조용하지는 않아. 사람이 정말 많아!"
+      "de": "Schön! Und wir haben neue Kleider!",
+      "en": "Lovely! And we have new clothes!",
+      "ko": "멋져! 그리고 새 옷이 생겼어!"
      },
      {
       "who": "me",
-      "de": "Und die neuen Kleider? Sind sie schön?",
-      "en": "And the new clothes? Are they nice?",
-      "ko": "새 옷은? 예뻐?",
+      "de": "Toll! Aber ich sehe sie nicht.",
+      "en": "Great! But I can't see them.",
+      "ko": "좋겠다! 그런데 나는 못 보잖아.",
       "focus": {
        "de": [
-        "Sind sie"
+        "nicht"
        ],
        "en": [
-        "Are they"
+        "can't see"
        ],
        "ko": [
-        "예뻐"
+        "못 보잖아"
        ]
       },
       "wrong": {
        "de": [
         [
-         "Ist sie",
-         "Seid sie"
+         "kein",
+         "nichts"
         ]
        ],
        "en": [
         [
-         "Is they",
-         "Am they"
+         "can't sees",
+         "not can see"
         ]
        ],
        "ko": [
         [
-         "예쁘어",
-         "예뻐어"
+         "못 보잔아",
+         "못 바잖아"
         ]
        ]
       }
@@ -1341,10 +1335,7 @@
      "Kleid"
     ],
     "grammar": "I.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -1645,21 +1636,21 @@
     "lines": [
      {
       "who": "them",
-      "de": "Hallo Nannerl! Hier ist Wolfgang aus Bologna.",
-      "en": "Hi Nannerl! It's Wolfgang, from Bologna.",
-      "ko": "안녕, 누나! 볼로냐에서 볼프강이야."
+      "de": "Hallo Nannerl! Hier ist Wolfgang!",
+      "en": "Hi Nannerl! It's Wolfgang here!",
+      "ko": "안녕, 누나! 나 볼프강이야!"
      },
      {
       "who": "me",
-      "de": "Hallo! Mama fragt: Spielst du noch Geige?",
-      "en": "Hi! Mama's asking: do you still play the violin?",
-      "ko": "반가워! 엄마가 물어봐. 아직 바이올린 켜?",
+      "de": "Hallo! Spielst du noch Geige?",
+      "en": "Hi! Do you still play violin?",
+      "ko": "안녕! 아직 바이올린 켜?",
       "focus": {
        "de": [
         "Spielst du"
        ],
        "en": [
-        "do you"
+        "Do you"
        ],
        "ko": [
         "바이올린 켜"
@@ -1674,8 +1665,8 @@
        ],
        "en": [
         [
-         "does you",
-         "are you"
+         "Does you",
+         "Are you"
         ]
        ],
        "ko": [
@@ -1688,9 +1679,9 @@
      },
      {
       "who": "them",
-      "de": "Ja, jeden Tag! Meine Geige hat neue Saiten.",
-      "en": "Yes, every day! My violin has new strings.",
-      "ko": "응, 매일! 바이올린 줄도 새로 갈았어."
+      "de": "Ja, jeden Tag! Mit neuen Saiten.",
+      "en": "Yes, every day! With new strings.",
+      "ko": "응, 매일! 줄도 새로 갈았어."
      },
      {
       "who": "me",
@@ -1735,10 +1726,7 @@
      "Tag"
     ],
     "grammar": "I.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2064,15 +2052,15 @@
     "lines": [
      {
       "who": "them",
-      "de": "Hallo Nannerl! Puh, hier ist es so heiß!",
-      "en": "Hi Nannerl! Phew, it's so hot here!",
-      "ko": "안녕, 누나! 휴, 여기 너무 더워!"
+      "de": "Hallo Nannerl! Hier ist es heiß!",
+      "en": "Hi Nannerl! It's hot here!",
+      "ko": "안녕, 누나! 여기 너무 더워!"
      },
      {
       "who": "me",
-      "de": "Oh je! Wie geht's dir nach der Reise?",
-      "en": "Oh dear! How are you after the journey?",
-      "ko": "어머! 여행하고 나서 몸은 괜찮아?",
+      "de": "Wie geht's nach der Reise?",
+      "en": "How are you after the journey?",
+      "ko": "여행 끝나고 괜찮아?",
       "focus": {
        "de": [
         "nach der Reise"
@@ -2107,9 +2095,9 @@
      },
      {
       "who": "them",
-      "de": "Gut, aber seit einem Monat gibt es keinen Regen.",
-      "en": "Fine, but there's been no rain for a month.",
-      "ko": "괜찮아. 그런데 한 달째 비가 안 와."
+      "de": "Seit einem Monat gibt's keinen Regen!",
+      "en": "No rain for a whole month!",
+      "ko": "한 달째 비가 안 와!"
      },
      {
       "who": "me",
@@ -2154,10 +2142,7 @@
      "Monat"
     ],
     "grammar": "I.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -2468,9 +2453,9 @@
     "lines": [
      {
       "who": "them",
-      "de": "Hallo Nannerl! Ich hoffe, es geht dir gut.",
-      "en": "Hi Nannerl! I hope you're well.",
-      "ko": "안녕, 누나! 잘 지내고 있길 바라."
+      "de": "Nannerl, ich hoffe, dir geht's gut.",
+      "en": "Nannerl, I hope you're well.",
+      "ko": "누나, 잘 지내길 바라."
      },
      {
       "who": "me",
@@ -2511,15 +2496,15 @@
      },
      {
       "who": "them",
-      "de": "Bald! Morgen ist die Probe. Aber sag es nicht weiter!",
-      "en": "Soon! The rehearsal is tomorrow. But don't tell anyone!",
-      "ko": "곧! 내일 리허설이야. 그런데 아무한테도 말하지 마!"
+      "de": "Morgen ist Probe. Sag's nicht weiter!",
+      "en": "Rehearsal's tomorrow. Don't tell anyone!",
+      "ko": "내일 리허설이야. 아무한테도 말하지 마!"
      },
      {
       "who": "me",
-      "de": "Keine Sorge, ich sage nichts. Viel Glück!",
-      "en": "Don't worry, I won't say a thing. Good luck!",
-      "ko": "걱정 마, 아무 말 안 할게. 행운을 빌어!",
+      "de": "Keine Sorge, ich sage nichts!",
+      "en": "Don't worry, I won't tell!",
+      "ko": "걱정 마, 아무 말 안 할게!",
       "focus": {
        "de": [
         "nichts"
@@ -2557,10 +2542,7 @@
      "hoffen"
     ],
     "grammar": "I.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   }
  ]

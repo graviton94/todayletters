@@ -543,9 +543,9 @@
      },
      {
       "who": "me",
-      "de": "Ruh dich aus! Ich wünsche euch viel Glück in Paris.",
-      "en": "Get some rest! I wish you lots of luck in Paris.",
-      "ko": "푹 쉬어! 파리에서 행운을 빈다.",
+      "de": "Ruh dich aus! Ich wünsche euch viel Glück.",
+      "en": "Rest now! I wish you lots of luck.",
+      "ko": "푹 쉬어! 행운을 빈다.",
       "focus": {
        "de": [
         "wünsche euch"
@@ -584,7 +584,7 @@
      "wünschen"
     ],
     "grammar": "III.1",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -936,15 +936,15 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, ich habe eine halbe Stunde gewartet. Ohne Feuer!",
-      "en": "Papa, I waited half an hour. With no fire!",
-      "ko": "아빠, 불도 없는 데서 삼십 분이나 기다렸어요!"
+      "de": "Papa, ich habe eine halbe Stunde gewartet!",
+      "en": "Papa, I waited half an hour!",
+      "ko": "아빠, 삼십 분이나 기다렸어요!"
      },
      {
       "who": "me",
-      "de": "Oh nein! Und was ist dann passiert?",
-      "en": "Oh no! And then what happened?",
-      "ko": "저런! 그다음엔 어떻게 됐어?",
+      "de": "So lange? Und was ist dann passiert?",
+      "en": "So long? And then what happened?",
+      "ko": "그렇게 오래? 그다음엔 어떻게 됐어?",
       "focus": {
        "de": [
         "passiert"
@@ -979,9 +979,9 @@
      },
      {
       "who": "them",
-      "de": "Das Zimmer war eiskalt, und keiner hat richtig zugehört.",
-      "en": "The room was ice-cold, and nobody really listened.",
-      "ko": "방은 얼음처럼 차갑고, 아무도 제대로 듣지 않았어요."
+      "de": "Ohne Feuer! Das Zimmer war eiskalt.",
+      "en": "No fire! The room was ice-cold.",
+      "ko": "불도 없었어요! 방이 얼음장 같았어요."
      },
      {
       "who": "me",
@@ -1026,7 +1026,7 @@
      "eiskalt"
     ],
     "grammar": "III.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -1405,9 +1405,9 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, ich habe eine traurige Nachricht. Mama ist sehr krank.",
-      "en": "Papa, I have sad news. Mama is very ill.",
-      "ko": "아빠, 슬픈 소식이 있어요. 엄마가 많이 아파요."
+      "de": "Papa, traurige Nachricht: Mama ist sehr krank.",
+      "en": "Papa, sad news: Mama is very ill.",
+      "ko": "아빠, 슬픈 소식이에요. 엄마가 많이 아파요."
      },
      {
       "who": "me",
@@ -1448,14 +1448,14 @@
      },
      {
       "who": "them",
-      "de": "Ja. Ich bleibe bei ihr. Bitte bete für sie.",
-      "en": "Yes. I'm staying with her. Please pray for her.",
-      "ko": "네. 제가 곁에 있을게요. 엄마를 위해 기도해 주세요."
+      "de": "Ja. Ich bleibe bei ihr. Bete für sie!",
+      "en": "Yes. I'm staying with her. Pray for her!",
+      "ko": "네. 제가 곁에 있을게요. 기도해 주세요!"
      },
      {
       "who": "me",
-      "de": "Natürlich. Und achte auch auf deine Gesundheit.",
-      "en": "Of course. And look after your own health too.",
+      "de": "Natürlich. Und achte auf deine Gesundheit!",
+      "en": "Of course. And look after your health!",
       "ko": "물론이지. 너도 건강 잘 챙겨.",
       "focus": {
        "de": [
@@ -1495,7 +1495,7 @@
      "Gesundheit"
     ],
     "grammar": "III.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -1829,15 +1829,15 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, Mama ist am 3. Juli friedlich eingeschlafen.",
-      "en": "Papa, Mama passed away peacefully on 3 July.",
-      "ko": "아빠, 엄마가 7월 3일에 평온하게 잠드셨어요."
+      "de": "Papa, Mama ist friedlich eingeschlafen.",
+      "en": "Papa, Mama passed away peacefully.",
+      "ko": "아빠, 엄마가 평온하게 잠드셨어요."
      },
      {
       "who": "me",
-      "de": "Ich habe deinen Brief gelesen und geweint. Wie geht's dir?",
-      "en": "I read your letter and cried. How are you?",
-      "ko": "편지 읽고 울었다. 너는 좀 어떠니?",
+      "de": "Ich habe so geweint. Wann ist es passiert?",
+      "en": "I cried so much. When did it happen?",
+      "ko": "많이 울었다. 언제 그렇게 됐니?",
       "focus": {
        "de": [
         "geweint"
@@ -1872,15 +1872,15 @@
      },
      {
       "who": "them",
-      "de": "Ich wohne jetzt bei Freunden. Mein Zimmer ist hübsch.",
-      "en": "I'm staying with friends now. My room is nice.",
-      "ko": "지금은 친구 집에서 지내요. 방이 아늑해요."
+      "de": "Am 3. Juli, um zehn Uhr zwanzig abends.",
+      "en": "On 3 July, at 10:20 at night.",
+      "ko": "7월 3일 밤 10시 20분이요."
      },
      {
       "who": "me",
-      "de": "Gut. Eines Tages sehen wir sie wieder.",
-      "en": "Good. One day we'll see her again.",
-      "ko": "다행이구나. 언젠가 엄마를 다시 만날 거야.",
+      "de": "Eines Tages sehen wir sie wieder.",
+      "en": "One day we'll see her again.",
+      "ko": "언젠가 엄마를 다시 만날 거야.",
       "focus": {
        "de": [
         "sehen wir"
@@ -1919,7 +1919,7 @@
      "wiedersehen"
     ],
     "grammar": "III.1",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -2292,64 +2292,64 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, entschuldige, ich bin in Eile!",
-      "en": "Papa, sorry, I'm in a hurry!",
-      "ko": "아빠, 미안해요, 지금 바빠요!"
+      "de": "Papa, ich bin in Eile! Bach ist hier.",
+      "en": "Papa, I'm in a hurry! Bach is here.",
+      "ko": "아빠, 바빠요! 바흐 씨가 여기 있어요."
      },
      {
       "who": "me",
-      "de": "Schon gut. Wo bist du denn?",
-      "en": "That's fine. Where are you?",
-      "ko": "괜찮아. 지금 어디야?",
+      "de": "Bach? Hast du ihn schon getroffen?",
+      "en": "Bach? Have you met him yet?",
+      "ko": "바흐? 벌써 만났니?",
       "focus": {
        "de": [
-        "bist du"
+        "getroffen"
        ],
        "en": [
-        "Where are you"
+        "Have you met"
        ],
        "ko": [
-        "어디야"
+        "만났니"
        ]
       },
       "wrong": {
        "de": [
         [
-         "ist du",
-         "bin du"
+         "getrifft",
+         "getreffen"
         ]
        ],
        "en": [
         [
-         "Where is you",
-         "Where am you"
+         "Has you met",
+         "Have you meet"
         ]
        ],
        "ko": [
         [
-         "어디이야",
-         "어디여"
+         "만낫니",
+         "만났늬"
         ]
        ]
       }
      },
      {
       "who": "them",
-      "de": "In Saint-Germain. Ich habe Bach getroffen! Johann Christian!",
-      "en": "In Saint-Germain. I met Bach! Johann Christian!",
-      "ko": "생제르맹이요. 바흐를 만났어요! 요한 크리스티안요!"
+      "de": "Ja! Und am Sonntag singt Tenducci meine Szene.",
+      "en": "Yes! And on Sunday Tenducci sings my scena.",
+      "ko": "네! 일요일에 텐두치가 제 곡을 불러요."
      },
      {
       "who": "me",
-      "de": "Wie schön! Grüß ihn herzlich von mir.",
-      "en": "How lovely! Give him my warm regards.",
-      "ko": "정말 반갑구나! 내 안부도 꼭 전해 줘.",
+      "de": "Wie schön! Grüß Bach herzlich von mir.",
+      "en": "How lovely! Give Bach my warm regards.",
+      "ko": "정말 반갑구나! 바흐에게 안부 전해 줘.",
       "focus": {
        "de": [
-        "ihn"
+        "Grüß"
        ],
        "en": [
-        "Give him"
+        "Give"
        ],
        "ko": [
         "전해 줘"
@@ -2358,14 +2358,14 @@
       "wrong": {
        "de": [
         [
-         "ihm",
-         "er"
+         "Grüßt",
+         "Grüßst"
         ]
        ],
        "en": [
         [
-         "Give he",
-         "Give his"
+         "Gives",
+         "Giving"
         ]
        ],
        "ko": [
@@ -2381,7 +2381,7 @@
      "Eile"
     ],
     "grammar": "III.0",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -2717,15 +2717,15 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, Heina grüßt dich! Er ist gerade bei mir.",
-      "en": "Papa, Heina says hello! He's here with me.",
-      "ko": "아빠, 하이나 씨가 안부 전해요! 지금 같이 있어요."
+      "de": "Papa, Heina ist bei mir. Er grüßt dich!",
+      "en": "Papa, Heina is with me. He says hello!",
+      "ko": "아빠, 하이나 씨가 같이 있어요. 안부 전해요!"
      },
      {
       "who": "me",
-      "de": "Danke, grüß ihn auch! Hast du meinen Brief schon gelesen?",
-      "en": "Thanks, say hi back! Have you read my letter yet?",
-      "ko": "고맙구나, 나도 안부 전해 줘! 내 편지는 벌써 읽었니?",
+      "de": "Danke! Hast du meinen Brief schon gelesen?",
+      "en": "Thanks! Have you read my letter yet?",
+      "ko": "고맙구나! 내 편지는 벌써 읽었니?",
       "focus": {
        "de": [
         "schon gelesen"
@@ -2806,7 +2806,7 @@
      "küssen"
     ],
     "grammar": "III.2",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   },
   {
@@ -3198,9 +3198,9 @@
      },
      {
       "who": "them",
-      "de": "Bald. Aber ich habe ein bisschen Angst vor Salzburg.",
-      "en": "Soon. But I'm a bit afraid of Salzburg.",
-      "ko": "곧이요. 그런데 잘츠부르크가 조금 두려워요."
+      "de": "Bald. Aber ich habe Angst vor Salzburg.",
+      "en": "Soon. But I'm afraid of Salzburg.",
+      "ko": "곧이요. 그런데 잘츠부르크가 두려워요."
      },
      {
       "who": "me",
@@ -3244,7 +3244,7 @@
      "lachen"
     ],
     "grammar": "III.1",
-    "audio": {"*": "tb", "ko": "tk"}
+    "audio": "tc"
    }
   }
  ]

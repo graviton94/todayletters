@@ -1527,37 +1527,37 @@
      },
      {
       "who": "me",
-      "de": "Schön! Wie ist Prag?",
-      "en": "Great! What's Prague like?",
-      "ko": "반가워! 프라하는 어때?",
+      "de": "Schön! Was hast du in Prag schon gemacht?",
+      "en": "Great! What have you done in Prague so far?",
+      "ko": "반가워! 프라하에서 벌써 뭘 했어?",
       "focus": {
        "de": [
-        "Wie ist"
+        "gemacht"
        ],
        "en": [
-        "What's"
+        "What have you done"
        ],
        "ko": [
-        "어때"
+        "뭘 했어"
        ]
       },
       "wrong": {
        "de": [
         [
-         "Wer ist",
-         "Wie bist"
+         "gemachen",
+         "machte"
         ]
        ],
        "en": [
         [
-         "What are",
-         "Who's"
+         "What has you done",
+         "What have you did"
         ]
        ],
        "ko": [
         [
-         "어떼",
-         "어떠"
+         "뭘 햇어",
+         "뭘 했아"
         ]
        ]
       }
@@ -1611,10 +1611,7 @@
      "Mittwoch"
     ],
     "grammar": "VII.2",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    }
+    "audio": "tb"
    }
   },
   {
@@ -3533,9 +3530,9 @@
      },
      {
       "who": "them",
-      "de": "Billig und bequem. Hier kann ich gut arbeiten.",
-      "en": "Cheap and comfortable. I can work well here.",
-      "ko": "싸고 편해요. 여기선 일이 잘돼요."
+      "de": "Billig und bequem. In zehn Tagen habe ich viel gearbeitet.",
+      "en": "Cheap and comfortable. I've worked a lot in ten days.",
+      "ko": "싸고 편해요. 열흘 동안 일을 많이 했어요."
      },
      {
       "who": "me",
@@ -3579,7 +3576,7 @@
      "bequem"
     ],
     "grammar": "VII.2",
-    "audio": "t"
+    "audio": "tb"
    }
   }
  ]
