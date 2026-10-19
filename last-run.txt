@@ -1,3 +1,2 @@
-basic1_card_light.png
-basic2_card_answered_dark.png
-basic3_record_light.png
+a11y.txt
+il6_warmup_talk_light.png
