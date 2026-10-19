@@ -18,6 +18,7 @@ import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performScrollToIndex
 import androidx.compose.ui.test.performTouchInput
@@ -444,6 +445,14 @@ class ScreensTest {
         l.words.indices.forEach { i -> s.store.save(io.github.graviton94.todayletters.core.Card(s.cardKey("vincent", "I", l.id, i), box = 3, due = s.today + 5)) }
         s.store.markShadowed(s.key("vincent", "I", l.id)); s.settle(); s.reward = null
         shot("52_today_sealed_dark", true, 2000, series = s) { Inbox(s) }
+    }
+    /** 다 읽은 편지 아래 큐레이터 노트: 노트가 말하는 그림이 작게 (‘그림’ 걸음 전에도). 낱말 뜻(옅게) · 문장 번역(또렷하게). */
+    @Test fun noteFigure() {
+        val s = loopState()
+        shot("nf1_room_note_dark", true, 4000, act = {
+            rule.onAllNodes(androidx.compose.ui.test.hasScrollAction()).onFirst()
+                .performScrollToNode(hasText(ctx.getString(R.string.note_title)))
+        }, series = s) { Room(s, room(1)) }
     }
     @Test fun reread() { val s = loopState(); shot("53_room_reread_light", false, 3000, series = s) { Room(s, room(1)) } }
     @Test fun shadow() { val s = loopState(); shot("54_shadow_dark", true, 2000, series = s) { io.github.graviton94.todayletters.ui.ShadowScreen(s, Route.Shadow(room(1))) } }

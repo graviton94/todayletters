@@ -176,7 +176,7 @@ fun IlText(
                 Text(text.substring(c.range.first, c.range.last + 1), style = word, color = p.slipInk,
                     modifier = Modifier.background(bg).then(under).padding(bottom = 2.dp))
                 Text(gloss.ifEmpty { " " }, style = small, maxLines = 1, softWrap = false,
-                    color = if (lit || (chunk && !anchorKnown)) p.giltText else p.slipSoft)
+                    color = if (lit || (chunk && !anchorKnown)) p.giltText else p.slipSoft.copy(alpha = p.slipSoft.alpha * 0.7f))   // 낱말 뜻은 문장 번역보다 옅게
             }
         }
     }

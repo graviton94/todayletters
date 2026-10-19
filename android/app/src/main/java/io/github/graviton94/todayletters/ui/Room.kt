@@ -401,7 +401,7 @@ fun Room(s: AppState, r: Route.Letter) {
             if (writing && arrived == written && arrived < total) item(key = "${letter.id}:typing") { TypingBubble(work.name[uiLang()], s.reducedMotion) }
             if (finished) {
                 if (heardOut || progress.done) letter.note?.let { note ->
-                    item(key = "${letter.id}:note") { CuratorNote(note[uiLang()], uiLang()) }
+                    item(key = "${letter.id}:note") { CuratorNote(note[uiLang()], uiLang(), letter.plate) }
                 }
                 // 따라 읽기 (봉인까지): 다 읽은 편지라면 언제든
                 if (progress.done) item(key = "${letter.id}:shadow") {
@@ -776,7 +776,7 @@ private fun Modifier.androidx_semantics(label: String) = this.then(androidx.comp
 
 /** 큐레이터 노트: 편지와 다른 재료 (미술관 벽의 작품 설명판). 앱 글자 언어로. */
 @Composable
-private fun CuratorNote(text: String, lang: Lang) {
+private fun CuratorNote(text: String, lang: Lang, plate: io.github.graviton94.todayletters.core.Plate? = null) {
     val p = Ink.palette
     Column(
         Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s2).background(p.leaf)
@@ -792,6 +792,16 @@ private fun CuratorNote(text: String, lang: Lang) {
             Text(stringResource(R.string.note_title), style = Type.caps.ui(), color = p.giltText)
         }
         Text(text, style = Type.body.of(lang).copy(fontSize = Tokens.Text.small * 1.08f, lineHeight = Tokens.Text.small * 1.75f), color = p.ink)
+        // 노트가 말하는 그림 (‘그림’ 걸음 전에도 보이게): 작은 그림 + 제목 · 연도
+        val img = plate?.image.orEmpty()
+        if (img.isNotBlank()) Row(Modifier.padding(top = Tokens.Space.s1), verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+            PlateImage(img, Modifier.size(72.dp).border(Tokens.Stroke.hair, p.giltText.copy(alpha = 0.4f)))
+            Column(Modifier.weight(1f)) {
+                Text(plate!!.title[lang], style = Type.small.ui(), color = p.ink)
+                if (plate.date.isNotBlank()) Text(plate.date, style = Type.small.ui(), color = p.inkSoft)
+            }
+        }
     }
 }
 
@@ -816,7 +826,8 @@ private fun LetterSlip(
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
-    val readInk = p.slipSoft.copy(alpha = p.slipSoft.alpha * readAlpha)
+    // 문장 번역은 낱말 아래 뜻(옅은 slipSoft)보다 또렷하게: 잉크색을 조금 덜어서, 등급만큼 옅게
+    val readInk = p.slipInk.copy(alpha = 0.82f * readAlpha)
     val tilt = listOf(-0.6f, 0.5f, -0.3f, 0.4f)[index % 4]
     Slip(seed = index * 31 + 7, tilt = tilt, modifier = Modifier.fillMaxWidth(0.92f)) {
         Row(
