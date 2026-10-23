@@ -407,6 +407,19 @@
       "en": "Constanze Weber, the third daughter",
       "ko": "콘스탄체 베버, 베버 집안의 셋째 딸"
      }
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "mm-c6-l1.webp",
+     "caption": {
+      "de": "Constanze Mozart, gemalt von Hans Hansen (1802)",
+      "en": "Constanze Mozart, painted by Hans Hansen (1802)",
+      "ko": "한스 한센이 그린 콘스탄체 모차르트 (1802)"
+     },
+     "credit": "Constanze Mozart, 1802 · Hans Hansen · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Constanze_Mozart_by_Hanson_1802.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -905,6 +918,19 @@
     }
    ],
    "moments": [
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "mm-c6-l2.webp",
+     "caption": {
+      "de": "Kaiser Joseph II. (Anton von Maron, 1775)",
+      "en": "Emperor Joseph II (Anton von Maron, 1775)",
+      "ko": "황제 요제프 2세 (안톤 폰 마론, 1775)"
+     },
+     "credit": "Kaiser Joseph II. mit der Statue des Mars, 1775 · Anton von Maron · Kunsthistorisches Museum, Wien · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Anton_von_Maron_-_Kaiser_Joseph_II._(1741-1790)_mit_der_Statue_des_Mars_-_GG_6200_-_Kunsthistorisches_Museum.jpg",
+     "exception": "pd-art"
+    },
     {
      "after": 4,
      "type": "notice",
@@ -1442,6 +1468,19 @@
     }
    ],
    "moments": [
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "mm-c6-l3.webp",
+     "caption": {
+      "de": "Johann Sebastian Bach (Elias Gottlob Haußmann, 1748)",
+      "en": "Johann Sebastian Bach (Elias Gottlob Haussmann, 1748)",
+      "ko": "요한 제바스티안 바흐 (엘리아스 고틀로프 하우스만, 1748)"
+     },
+     "credit": "Johann Sebastian Bach, 1748 · Elias Gottlob Haußmann · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Johann_Sebastian_Bach_-_Google_Arts_Project.jpg",
+     "exception": "pd-art"
+    },
     {
      "after": 3,
      "type": "music",
@@ -1998,6 +2037,19 @@
       "en": "Takings in two days: 1,200 florins",
       "ko": "이틀 수입: 1200플로린"
      }
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "mm-c6-l4.webp",
+     "caption": {
+      "de": "Caterina Cavalieri, die erste Konstanze, in „Die Bergknappen“ (1779)",
+      "en": "Caterina Cavalieri, the first Konstanze, in Die Bergknappen (1779)",
+      "ko": "첫 콘스탄체 카테리나 카발리에리, 〈광부들〉 무대에서 (1779)"
+     },
+     "credit": "Szene aus „Die Bergknappen“, 1779 · Carl Schütz · Österreichische Nationalbibliothek · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Cavalieri-Bergknappen-1779.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2528,6 +2580,19 @@
       "en": "Summer heat in Vienna",
       "ko": "빈의 한여름 더위"
      }
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "mm-c6-l5.webp",
+     "caption": {
+      "de": "Theaterzettel der Uraufführung der „Entführung“, 16. Juli 1782",
+      "en": "Playbill for the premiere of Die Entführung, 16 July 1782",
+      "ko": "〈후궁 탈출〉 초연 전단 (1782년 7월 16일)"
+     },
+     "credit": "Theaterzettel der „Entführung aus dem Serail“, Burgtheater Wien, 1782 · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Mozart_Die_Entf%C3%BChrung_aus_dem_Serail_Urauff%C3%BChrung_1782.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -3074,6 +3139,19 @@
      "audioLicense": "CC0",
      "audioSource": "https://commons.wikimedia.org/wiki/File:Mozart_-_Mass_in_C_minor_K.427_-_I._Kyrie.mp3",
      "excerpt": "60 s excerpt, faded and level-matched"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "mm-c6-l6.webp",
+     "caption": {
+      "de": "Im Stephansdom zu Wien (Max Emanuel Ainmiller, 1848)",
+      "en": "Inside St Stephen's Cathedral, Vienna (Max Emanuel Ainmiller, 1848)",
+      "ko": "빈 슈테판 대성당 내부 (막스 에마누엘 아인밀러, 1848)"
+     },
+     "credit": "Das Innere der Stephanskirche in Wien, 1848 · Max Emanuel Ainmiller · Lenbachhaus, München · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Max_Emanuel_Ainmiller_-_Das_Innere_der_Stephanskirche_in_Wien_-_G_17322_-_Lenbachhaus.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -3600,6 +3678,19 @@
       "en": "Feast of Portiuncula · 2 August 1782, at the Theatines",
       "ko": "포르치운쿨라 축일 · 1782년 8월 2일, 테아티노 성당"
      }
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c6-l7.webp",
+     "caption": {
+      "de": "Die Franziskanerkirche in Wien (Salomon Kleiner, 1724)",
+      "en": "The Franciscan church in Vienna (Salomon Kleiner, 1724)",
+      "ko": "빈 프란치스코 성당 (잘로몬 클라이너, 1724)"
+     },
+     "credit": "Franziskanerkirche, Wien, 1724 · Salomon Kleiner · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Kleiner_Franziskanerkirche_Wien_1724.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {

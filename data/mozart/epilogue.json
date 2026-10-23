@@ -272,6 +272,21 @@
      "_note": "이 앱이 쓴 답장"
     }
    ],
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-e1.webp",
+     "caption": {
+      "de": "„Mozart und die Cavalieri“, wie das 19. Jahrhundert sie sah",
+      "en": "'Mozart and Cavalieri', as the 19th century imagined them",
+      "ko": "19세기가 상상한 〈모차르트와 카발리에리〉"
+     },
+     "credit": "Mozart et la Cavalieri, 19. Jh. · Friedrich Randel nach August Borckmann · Bibliothèque nationale de France · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Mozart_et_la_Cavalieri_-_gravure_de_F._Randel_;_d%27apr%C3%A8s_un_tableau_de_A._Borckmann_-_btv1b8422879c.jpg",
+     "exception": "pd-art"
+    }
+   ],
    "check": [
     {
      "q": {
