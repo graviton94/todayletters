@@ -1,0 +1,30 @@
+Error - Blocked from HathiTrust
+
+Page Blocked
+
+Sorry, your attempt to access HathiTrust has been blocked.
+
+Why did HathiTrust block my access to this web page?
+
+You may have been blocked due to one of several possible reasons:
+
+Because of your IP address' reputation or location
+
+Some data you submitted may have been flagged as suspicious
+
+ If accessing HathiTrust through a proxy or VPN: There may have been abusive activity from others using the
+ same proxy server or VPN
+
+These blocks may be due to federal and state regulations and laws, or organizational policies and mandates.
+
+What can I do to resolve this?
+
+ You may be able to access the page by using a different browser or device, or by trying again later. If you are
+ attempting to access HathiTrust via a proxy server or VPN, please try connecting without the use of the proxy or
+ VPN. If that doesn't resolve the issue, you can email HathiTrust support at
+ [email protected]. Please include what you were doing when this
+ page came up and provide these details:
+
+IP address: 68.220.59.51
+
+Cloudflare Ray ID: a4ee762f8f472c47

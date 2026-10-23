@@ -1,0 +1,9 @@
+Biblioteca Nacional de España
+
+ Página de bloqueo
+
+ SE HA BLOQUEADO EL ACCESO POR PARTE DE LOS SISTEMAS DE SEGURIDAD DE BIBLIOTECA NACIONAL DE ESPAÑA.
+
+ ::CLOUDFLARE_ERROR_1000S_BOX::
+
+ Si lo desea, puede acceder al Catálogo General y BNE Digital.
