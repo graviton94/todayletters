@@ -1629,9 +1629,9 @@
      },
      {
       "who": "them",
-      "fr": "Encore un peu. Mais maintenant, ça va.",
-      "en": "Still a bit. But now I'm OK.",
-      "ko": "아직 조금. 그래도 지금은 괜찮아."
+      "fr": "Un peu. Mais ce n'est pas grave.",
+      "en": "A bit. But it's nothing serious.",
+      "ko": "조금. 그래도 별거 아니야."
      },
      {
       "who": "me",
@@ -1677,7 +1677,7 @@
      "maintenant"
     ],
     "grammar": "II.1",
-    "audio": "tb",
+    "audio": "tc",
     "mine": {
      "line": 3,
      "slot": {
@@ -2864,8 +2864,8 @@
      },
      {
       "who": "them",
-      "fr": "Oui ! Pour l'atelier, avec Gauguin, ensemble.",
-      "en": "Yes! For the studio, with Gauguin, together.",
+      "fr": "Oui ! Pour décorer l'atelier, pour Gauguin.",
+      "en": "Yes! To decorate the studio, for Gauguin.",
       "ko": "응! 고갱이랑 같이 쓸 작업실에 걸 거야."
      },
      {
@@ -2911,7 +2911,10 @@
      "matin"
     ],
     "grammar": "II.1",
-    "audio": "tb",
+    "audio": {
+     "*": "tc",
+     "ko": "tb"
+    },
     "mine": {
      "line": 1,
      "slot": {

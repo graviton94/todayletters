@@ -1004,7 +1004,7 @@
      {
       "who": "me",
       "fr": "Avec plaisir. Quand est-ce que tu veux ?",
-      "en": "I'd love to. When would you like?",
+      "en": "I'd love to. When would you like me to come?",
       "ko": "좋아. 언제가 좋아?",
       "focus": {
        "fr": [
@@ -1088,7 +1088,8 @@
     "grammar": "VIII.0",
     "audio": {
      "*": "t",
-     "ko": "tk"
+     "ko": "tk",
+     "en": "tc"
     },
     "mine": {
      "line": 3,
@@ -2010,7 +2011,7 @@
    ],
    "talk": {
     "scene": {
-     "ko": "파리 방문을 마친 일요일 뒤, 빈센트와 통화",
+     "ko": "함께 보낸 일요일 뒤, 빈센트와 통화",
      "en": "On the phone with Vincent after a Sunday together"
     },
     "lines": [

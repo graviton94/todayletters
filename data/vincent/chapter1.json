@@ -2967,14 +2967,14 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Salut ! J'ai un bon restaurant.",
-      "en": "Hi! I've got a good restaurant.",
+      "fr": "Salut ! J'ai trouvé un bon restaurant.",
+      "en": "Hi! I've found a good restaurant.",
       "ko": "안녕! 괜찮은 식당을 찾았어."
      },
      {
       "who": "me",
       "fr": "Super ! Et ta santé, ça va ?",
-      "en": "Great! And your health, OK?",
+      "en": "Great! And how's your health?",
       "ko": "잘됐다! 건강은 괜찮아?",
       "focus": {
        "fr": [
@@ -3010,7 +3010,7 @@
      },
      {
       "who": "them",
-      "fr": "Meilleure. Je mange bien maintenant.",
+      "fr": "Mieux. Je mange bien maintenant.",
       "en": "Better. I'm eating well now.",
       "ko": "좋아졌어. 이제 잘 먹어."
      },
@@ -3057,7 +3057,10 @@
      "manger"
     ],
     "grammar": "I.1",
-    "audio": "tb",
+    "audio": {
+     "*": "tc",
+     "ko": "tb"
+    },
     "mine": {
      "line": 3,
      "slot": {

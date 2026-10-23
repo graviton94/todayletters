@@ -917,9 +917,9 @@
     "lines": [
      {
       "who": "them",
-      "fr": "La maison va bien. C'est un vrai atelier !",
-      "en": "The house is going well. It's a real studio!",
-      "ko": "집은 잘 돼 가. 진짜 작업실이야!"
+      "fr": "Tout va bien ici. C'est un vrai atelier !",
+      "en": "All's well here. It's a real studio!",
+      "ko": "여긴 다 잘 돌아가. 진짜 작업실이야!"
      },
      {
       "who": "me",
@@ -1008,7 +1008,7 @@
      "étude"
     ],
     "grammar": "IV.0",
-    "audio": "tb",
+    "audio": "tc",
     "mine": {
      "line": 1,
      "slot": {

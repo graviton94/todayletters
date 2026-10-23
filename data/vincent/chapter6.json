@@ -1647,19 +1647,19 @@
      },
      "opts": [
       {
-       "fr": "à Paris",
-       "en": "in Paris",
-       "ko": "파리에"
+       "fr": "dans le Midi",
+       "en": "in the South",
+       "ko": "남쪽에"
       },
       {
-       "fr": "à la mer",
-       "en": "at the sea",
-       "ko": "바다에"
+       "fr": "à la campagne",
+       "en": "in the countryside",
+       "ko": "시골에"
       },
       {
-       "fr": "à la maison",
-       "en": "at home",
-       "ko": "집에"
+       "fr": "dans les champs",
+       "en": "in the fields",
+       "ko": "들판에"
       }
      ]
     }
@@ -3624,9 +3624,9 @@
      },
      {
       "who": "me",
-      "fr": "Merci ! Si c'est un garçon, on t'écrira tout de suite.",
-      "en": "Thanks! If it's a boy, we'll write to you right away.",
-      "ko": "고마워! 아들이면 바로 편지할게.",
+      "fr": "Merci ! S'il y a des nouvelles, on t'écrira tout de suite.",
+      "en": "Thanks! If there's any news, we'll write to you right away.",
+      "ko": "고마워! 소식 있으면 바로 편지할게.",
       "focus": {
        "fr": [
         "on t'écrira"
@@ -3635,7 +3635,7 @@
         "we'll write"
        ],
        "ko": [
-        "아들이면"
+        "있으면"
        ]
       },
       "wrong": {
@@ -3653,8 +3653,8 @@
        ],
        "ko": [
         [
-         "아들면",
-         "아들이으면"
+         "있면",
+         "있으며는"
         ]
        ]
       }
@@ -3664,10 +3664,7 @@
      "croquis"
     ],
     "grammar": "VI.0",
-    "audio": {
-     "*": "t",
-     "ko": "tk"
-    },
+    "audio": "tc",
     "mine": {
      "line": 1,
      "slot": {

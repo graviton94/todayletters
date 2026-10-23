@@ -310,7 +310,7 @@
      {
       "who": "me",
       "fr": "Merci, Vincent. Je suis heureux que tu dises ça.",
-      "en": "Thank you, Vincent. I'm happy you say that.",
+      "en": "Thank you, Vincent. I'm happy to hear you say that.",
       "ko": "고마워, 형. 그렇게 말해 줘서 행복해.",
       "focus": {
        "fr": [
@@ -351,7 +351,8 @@
     "grammar": "VIII.1",
     "audio": {
      "*": "t",
-     "ko": "tk"
+     "ko": "tk",
+     "en": "tc"
     },
     "mine": {
      "line": 3,

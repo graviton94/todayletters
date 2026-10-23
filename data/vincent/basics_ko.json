@@ -1476,7 +1476,7 @@
    },
    "ex": {
     "t": "기다릴게! 언제 도착해?",
-    "en": "We're waiting for you! When do you get there?",
+    "en": "We're waiting for you! When do you get here?",
     "fr": "On t'attend ! Tu y arrives quand ?",
     "from": "c7-l7"
    }
@@ -1895,7 +1895,7 @@
     "en": "perhaps"
    },
    "ex": {
-    "t": "어쩌면 내일 비가 올 거야.",
+    "t": "어쩌면 내일 비가 올지도 몰라.",
     "en": "Perhaps it'll rain tomorrow.",
     "fr": "Il pleuvra peut-être demain.",
     "from": null
