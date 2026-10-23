@@ -204,7 +204,7 @@
      {
       "who": "them",
       "es": "Bien. Quiero campos y buena vida.",
-      "en": "Good. I want fields and a good life.",
+      "en": "Good. I want a country life.",
       "ko": "좋아. 난 밭이랑 좋은 삶을 원해."
      },
      {
@@ -274,7 +274,10 @@
       }
      ]
     },
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "en": "te"
+    }
    }
   },
   {
@@ -428,14 +431,14 @@
      {
       "who": "me",
       "es": "Me llamo Martín. Encantado.",
-      "en": "My name's Martín. Nice to meet you.",
+      "en": "I'm Martín. Nice to meet you.",
       "ko": "난 마르틴이야. 반가워.",
       "focus": {
        "es": [
         "Me llamo"
        ],
        "en": [
-        "My name's"
+        "I'm"
        ],
        "ko": [
         "반가워"
@@ -450,8 +453,8 @@
        ],
        "en": [
         [
-         "My name",
-         "Me name's"
+         "I is",
+         "I are"
         ]
        ],
        "ko": [
@@ -535,7 +538,10 @@
       }
      ]
     },
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "en": "te"
+    }
    }
   },
   {
@@ -791,7 +797,7 @@
       {
        "es": "sorprendido",
        "en": "surprised",
-       "ko": "놀라워"
+       "ko": "놀랐어"
       }
      ]
     },

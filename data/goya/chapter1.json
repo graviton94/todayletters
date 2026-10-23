@@ -170,7 +170,7 @@
    ],
    "words": [],
    "note": {
-    "ko": "1775년 1월 마드리드에 온 고야는 왕립 산타 바르바라 태피스트리 공장에서 짤 그림의 밑그림(카르톤)을 그리기 시작했어요. 직조공들이 보고 그대로 짜는, 벽 크기의 큰 유화예요. 첫 밑그림들은 왕세자의 사냥 별장 식당에 걸 사냥 장면이었어요. 이 짧은 편지는 사라고사의 마르틴에게 썼어요. 1868년 판은 편지 속 ‘프란시스코’가 바예우라고 적어요.",
+    "ko": "1775년 1월 마드리드에 온 고야는 왕립 산타 바르바라 태피스트리 공장에서 짤 그림의 밑그림(카르톤)을 그리기 시작했어요. 직조공들이 보고 그대로 짜는, 벽 크기의 큰 유화예요. 첫 밑그림들은 사냥 장면이었어요. 이 짧은 편지는 사라고사의 마르틴에게 썼어요. 1868년 판은 편지 속 ‘프란시스코’가 바예우라고 적어요.",
     "en": "Goya came to Madrid in January 1775 and began painting cartoons for the Royal Tapestry Factory of Santa Bárbara: large oil paintings, the size of a wall hanging, that the weavers copied. His first cartoons were hunting scenes. He wrote this short letter to Martín in Zaragoza; the 1868 edition notes that the ‘Francisco’ of the letter was Bayeu.",
     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 8 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
    },
@@ -366,7 +366,7 @@
      {
       "who": "them",
       "es": "Bien. Tengo mucho trabajo.",
-      "en": "Fine. I have a lot of work.",
+      "en": "Fine. I have lots of work.",
       "ko": "좋아. 일이 많아."
      },
      {
@@ -436,7 +436,10 @@
       }
      ]
     },
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "en": "te"
+    }
    }
   },
   {
@@ -454,7 +457,7 @@
    "excerpt": "Messages 0–2 are the whole printed passage, which the 1868 edition itself ends with 'etc.'.",
    "messages": [
     {
-     "es": "Infinitas gracias, y muchas más, por las expresiones de amistad que te merezco, y no dudes que, si había de cansar a alguno, sería a ti.",
+     "es": "Infinitas gracias, y muchas más, por las expresiones de amistad que te merezco, y no dudes que, si había de cansar alguno, sería a ti.",
      "en": "Endless thanks, and many more, for the words of friendship I have from you; and don't doubt that if I had to trouble anyone, it would be you.",
      "ko": "네가 보내 준 우정의 말에 끝없이 고마워. 누군가를 귀찮게 해야 한다면 그건 너일 거야. 의심하지 마.",
      "orig": {
@@ -463,7 +466,7 @@
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 8 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
      "speak": {
-      "es": "Infinitas gracias, / y muchas más, / por las expresiones de amistad que te merezco, / y no dudes que, / si había de cansar a alguno, / sería a ti.",
+      "es": "Infinitas gracias, / y muchas más, / por las expresiones de amistad que te merezco, / y no dudes que, / si había de cansar alguno, / sería a ti.",
       "en": "Endless thanks, / and many more, / for the words of friendship I have from you; // and don't doubt that if I had to trouble anyone, / it would be you.",
       "ko": "네가 보내 준 우정의 말에 끝없이 고마워. // 누군가를 귀찮게 해야 한다면 그건 너일 거야. // 의심하지 마."
      }
@@ -740,19 +743,19 @@
      },
      "opts": [
       {
-       "es": "hambre",
-       "en": "hungry",
-       "ko": "배고파"
+       "es": "mucho talento",
+       "en": "talented",
+       "ko": "재능이 있어"
       },
       {
-       "es": "sueño",
-       "en": "sleepy",
-       "ko": "졸려"
+       "es": "buena salud",
+       "en": "healthy",
+       "ko": "건강해"
       },
       {
-       "es": "frío",
-       "en": "cold",
-       "ko": "추워"
+       "es": "mucha paciencia",
+       "en": "very patient",
+       "ko": "참을성이 많아"
       }
      ]
     },
@@ -806,7 +809,7 @@
    ],
    "words": [],
    "note": {
-    "ko": "이 글은 친구에게 쓴 편지가 아니라, 왕립 태피스트리 공장의 책임자 코르넬리오 반데르고텐에게 보낸 짧은 요청서예요. 궁정 건축가 프란시스코 사바티니의 지시로, 자기가 그린 밑그림 〈기타 치는 눈먼 사람〉을 내어 달라고 해요. ‘아시는 그 일’이 무엇인지는 쪽지에 적혀 있지 않아요. 크루사다 비야아밀이 1870년에 펴낸 『고야의 태피스트리』가 이 쪽지를 실었어요. ‘Vmd.’는 ‘vuestra merced(귀하)’의 줄임으로, 오늘날 usted 의 옛 꼴이에요.",
+    "ko": "이 글은 친구에게 쓴 편지가 아니라, 왕립 태피스트리 공장의 책임자 코르넬리오 반데르고텐에게 보낸 짧은 요청서예요. 궁정 건축가 프란시스코 사바티니의 지시로, 자기가 그린 밑그림 〈기타 치는 눈먼 사람〉을 내어 달라고 해요. 그림을 무엇에 쓰려는지는 쪽지에 적혀 있지 않아요. 크루사다 비야아밀이 1870년에 펴낸 『고야의 태피스트리』가 이 쪽지를 실었어요. ‘Vmd.’는 ‘vuestra merced(귀하)’의 줄임으로, 오늘날 usted 의 옛 꼴이에요.",
     "en": "This is not a letter to a friend but a short request to Cornelio Vandergoten, director of the Royal Tapestry Factory. On the orders of the court architect Francisco Sabatini, Goya asks for his own cartoon ‘The Blind Guitarist’ to be handed back to him; the note does not say what ‘the purpose you know of’ was. Cruzada Villaamil printed it in ‘Los tapices de Goya’ (1870). ‘Vmd.’ abbreviates ‘vuestra merced’, the old form behind today's usted.",
     "source": "G. Cruzada Villaamil, Los tapices de Goya (Madrid, 1870), p. 122 · public domain · https://archive.org/details/lostapicesdegoy00villgoog ; image: see plate.imageSource"
    },
@@ -965,7 +968,7 @@
      {
       "who": "me",
       "es": "Buenos días, señor Goya. ¿Cómo está?",
-      "en": "Good morning, Señor Goya. How are you?",
+      "en": "Good morning, Goya. How are you?",
       "ko": "안녕하세요, 고야 씨. 어떻게 지내세요?",
       "focus": {
        "es": [
@@ -1002,7 +1005,7 @@
      {
       "who": "them",
       "es": "Bien, gracias. Necesito mi cuadro.",
-      "en": "Fine, thank you. I need my picture.",
+      "en": "Fine, thanks. I need my picture.",
       "ko": "잘 지내요, 고마워요. 제 그림이 필요해요."
      },
      {
@@ -1072,7 +1075,10 @@
       }
      ]
     },
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "en": "te"
+    }
    }
   },
   {
@@ -1781,7 +1787,7 @@
      {
       "who": "them",
       "es": "El Rey ve mis cuadros.",
-      "en": "The King is looking at my pictures.",
+      "en": "The King sees my pictures today.",
       "ko": "왕께서 내 그림을 보셔."
      },
      {
@@ -1851,7 +1857,10 @@
       }
      ]
     },
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "en": "te"
+    }
    }
   },
   {
@@ -2090,13 +2099,13 @@
      {
       "who": "them",
       "es": "Martín, busco una casa pequeña.",
-      "en": "Martín, I'm looking for a small house.",
+      "en": "I'm looking for a small house.",
       "ko": "마르틴, 작은 집을 찾고 있어."
      },
      {
       "who": "me",
       "es": "¿Qué necesitas en tu casa?",
-      "en": "What do you need in your house?",
+      "en": "What do you need for it?",
       "ko": "집에 뭐가 필요해?",
       "focus": {
        "es": [
@@ -2204,7 +2213,10 @@
       }
      ]
     },
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "en": "te"
+    }
    }
   },
   {

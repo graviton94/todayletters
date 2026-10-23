@@ -140,7 +140,7 @@
     {
      "es": "Pues hasta que el Rey vaya y se aseguren bien las voces que corren no te escribiré con individualidad lo que hay en el asunto, pues me acuerdo mucho de tu Jaco cuando veníamos de Cogullada, que hacías que otros dijesen lo que tú habías de decir.",
      "en": "For until the King goes and the rumours going round are confirmed, I won't write to you in detail about how things stand; I keep remembering your Jaco, when we were coming back from Cogullada, how you made others say what you had to say.",
-     "ko": "왕께서 가 보시고 떠도는 말들이 확실해질 때까지는 자세히 쓰지 않을게. 코굴랴다에서 돌아오던 날, 네 ‘하코’ 일이 자꾸 생각나거든. 네가 할 말을 남들이 하게 만들었잖아.",
+     "ko": "왕께서 가 보시고 떠도는 말들이 확실해질 때까지는 자세히 쓰지 않을게. 코구야다에서 돌아오던 날, 네 ‘하코’ 일이 자꾸 생각나거든. 네가 할 말을 남들이 하게 만들었잖아.",
      "orig": {
       "es": "pues asta que el Rey baya, y se aseguren bien las boces que corren no te escribiré con indibidualidad lo que ay en el asunto, pues me acuerdo mucho de tu Jaco cuando beniamos de Cogullada que acias que otros dijesen lo que tu abias de decir."
      },
@@ -149,7 +149,7 @@
      "speak": {
       "es": "Pues hasta que el Rey vaya y se aseguren bien las voces que corren no te escribiré con individualidad lo que hay en el asunto, / pues me acuerdo mucho de tu Jaco cuando veníamos de Cogullada, / que hacías que otros dijesen lo que tú habías de decir.",
       "en": "For until the King goes and the rumours going round are confirmed, / I won't write to you in detail about how things stand; // I keep remembering your Jaco, / when we were coming back from Cogullada, / how you made others say what you had to say.",
-      "ko": "왕께서 가 보시고 떠도는 말들이 확실해질 때까지는 자세히 쓰지 않을게. // 코굴랴다에서 돌아오던 날, / 네 ‘하코’ 일이 자꾸 생각나거든. // 네가 할 말을 남들이 하게 만들었잖아."
+      "ko": "왕께서 가 보시고 떠도는 말들이 확실해질 때까지는 자세히 쓰지 않을게. // 코구야다에서 돌아오던 날, / 네 ‘하코’ 일이 자꾸 생각나거든. // 네가 할 말을 남들이 하게 만들었잖아."
      }
     }
    ],
@@ -1584,7 +1584,7 @@
       "wrong": {
        "es": [
         [
-         "contesto",
+         "contestí",
          "contestó"
         ]
        ],
@@ -2137,7 +2137,7 @@
     "image": "g-c3-l6.webp",
     "kind": "painting",
     "why": {
-     "ko": "봉급을 받으며 ‘폐하를 섬기는 행운’을 누리던 궁정 화가, 매형 프란시스코 바예우예요. 고야가 이듬해 그렸어요.",
+     "ko": "봉급을 받으며 ‘폐하를 섬기는 행운’을 누리던 궁정 화가, 처남 프란시스코 바예우예요. 고야가 이듬해 그렸어요.",
      "en": "Francisco Bayeu, the brother-in-law who did have a court painter's salary, 'the good fortune to serve His Majesty' — painted by Goya the next year."
     },
     "spots": []
@@ -2361,7 +2361,7 @@
        "es": [
         [
          "trabajastes",
-         "trabajaron"
+         "trabajastéis"
         ]
        ],
        "en": [
@@ -2516,7 +2516,7 @@
    ],
    "words": [],
    "note": {
-    "ko": "1785년 5월, 산 페르난도 왕립 아카데미는 고야를 부원장(teniente director) 후보 1순위로 올렸어요. 산 프란시스코 경연에도 나왔던 화가 안드레스 칼레하가 세상을 떠나 빈 자리였어요. 1868년 판에 함께 실린 다음 편지에서 고야는 ‘매형 바예우가 가진 것과 같은 자리이고, 보수는 1년에 25도블론뿐, 원장은 50’이라고 써요. 그리고 곧 ‘왕의 재가가 내려왔다’고 알려요. ‘bage’는 판본에 찍힌 글자이고, 오늘날에는 ‘baje’라고 써요.",
+    "ko": "1785년 5월, 산 페르난도 왕립 아카데미는 고야를 부원장(teniente director) 후보 1순위로 올렸어요. 산 프란시스코 경연에도 나왔던 화가 안드레스 칼레하가 세상을 떠나 빈 자리였어요. 1868년 판에 함께 실린 다음 편지에서 고야는 ‘처남 바예우가 가진 것과 같은 자리이고, 보수는 1년에 25도블론뿐, 원장은 50’이라고 써요. 그리고 곧 ‘왕의 재가가 내려왔다’고 알려요. ‘bage’는 판본에 찍힌 글자이고, 오늘날에는 ‘baje’라고 써요.",
     "en": "In May 1785 the Royal Academy of San Fernando put Goya first on its list for deputy director (teniente director), the post left empty by the death of Andrés Calleja, one of his rivals at San Francisco. In the next letter quoted in the 1868 edition Goya says it is 'the same as Bayeu has', paid only twenty-five doubloons a year, the director's fifty — and soon after, that 'the King's approval has come down'. 'bage' is as printed; the modern spelling is 'baje'.",
     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 18 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
    },
@@ -2651,7 +2651,7 @@
      "caption": {
       "es": "Francisco Bayeu, que tenía la misma plaza",
       "en": "Francisco Bayeu, who held the same post",
-      "ko": "같은 자리에 있던 매형 프란시스코 바예우"
+      "ko": "같은 자리에 있던 처남 프란시스코 바예우"
      },
      "credit": "Autorretrato, c. 1792 · Francisco Bayeu · Real Academia de Bellas Artes de San Fernando · dominio público",
      "source": "https://commons.wikimedia.org/wiki/File:Francisco_Bayeu_Self_portrait_1792-95.JPG",
@@ -2780,7 +2780,7 @@
        ],
        "ko": [
         [
-         "얼마나",
+         "얼머",
          "엄마"
         ]
        ]
