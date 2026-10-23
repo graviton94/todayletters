@@ -90,12 +90,12 @@ class PromoShotsTest {
     @Test fun arrivalKo() = arrival(false)
     @Test @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") fun arrivalEn() = arrival(true)
 
-    // 2 · 편지 방: 낱말 아래 뜻 (편지 I-1 을 다 펼친 것으로)
+    // 2 · 편지 방: 낱말 아래 뜻 (편지 I-1 의 첫 두 문장까지 도착한 것으로: 끝의 그림 · 노트가 아니라 문장이 화면에)
     private fun gloss(en: Boolean) {
         val s = state(if (en) Lang.EN else Lang.KO)
         val r = Route.Letter("vincent", 1, 1)
         val (c, l) = s.letterOf(r)
-        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size))
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = 2))
         shot("promo_gloss_${lang(en)}", false, 4000, series = s) { Room(s, r) }
     }
     @Test fun glossKo() = gloss(false)

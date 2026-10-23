@@ -48,7 +48,7 @@ jobs:
             python3 scripts/promo/make.py --lang $l --shots android/app/build/screens --out out/promo_$l.mp4
             python3 scripts/promo/make.py --lang $l --shots android/app/build/screens --out out/still_$l --frames 2.5,12.5,23.5
           done
-          ffprobe -v error -show_entries stream=codec_name,width,height,duration -of compact out/promo_*.mp4
+          for f in out/promo_*.mp4; do ffprobe -v error -show_entries stream=codec_name,width,height,duration -of compact "$f"; done
           ls -la out
       - name: Show make log
         if: failure()
