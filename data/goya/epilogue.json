@@ -1,0 +1,1417 @@
+{
+ "_doc": "Goya · epilogue, Bordeaux (1825–1828): three letters, two to Joaquín María Ferrer in Paris and his last lines to his son Javier. Talks: e1 with Moratín (talk.me), whose public-domain letters about Goya in Bordeaux are quoted in Beruete 1916, pp. 145–151; the Duchess of Alba never speaks. Spanish = modern spelling (accents, b/v, h, x/j, joined words, abbreviations written out; no rewording and no change of word order), each message keeps the text as printed in the public-domain edition in orig.es (shown in the app as an optional ‘original spelling’ line). Editors' interjections are removed; nothing is taken from the 1981/82 or 2003 editions or their notes. verified=false: checked against the archive.org full text, a last check against the page images is still to do. en · ko translated from the Spanish for this app. Replies and talks are written by this app, not by the recipients.",
+ "series": "goya",
+ "chapter": "E",
+ "title_es": "Burdeos",
+ "title_en": "Bordeaux",
+ "title_ko": "보르도",
+ "original": "es",
+ "grammar": [
+  {
+   "id": "E.0",
+   "es": {
+    "name": {
+     "ko": "의견 creo que · me parece que",
+     "en": "Giving an opinion: creo que · me parece que"
+    },
+    "hint": {
+     "ko": "내 생각을 말해요 · Creo que se venderá bien",
+     "en": "Say what you think · Creo que se venderá bien"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "I think · In my opinion",
+     "en": "Giving an opinion: I think · In my opinion"
+    },
+    "hint": {
+     "ko": "내 생각을 말해요 · I think it will sell",
+     "en": "Say what you think · I think it will sell"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄴ/는 것 같아요",
+     "en": "Giving an opinion: -(으)ㄴ/는 것 같아요"
+    },
+    "hint": {
+     "ko": "부드럽게 생각을 말해요 · 잘 팔릴 것 같아요",
+     "en": "Say what you think, softly · 잘 팔릴 것 같아요"
+    }
+   }
+  },
+  {
+   "id": "E.1",
+   "es": {
+    "name": {
+     "ko": "감사 gracias por + 명사 · 동사",
+     "en": "Thanking: gracias por + noun · infinitive"
+    },
+    "hint": {
+     "ko": "무엇이 고마운지 말해요 · gracias por confiar en mí",
+     "en": "Say what you're thankful for · gracias por confiar en mí"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "Thank you for + -ing",
+     "en": "Thanking: Thank you for + -ing"
+    },
+    "hint": {
+     "ko": "무엇이 고마운지 말해요 · Thank you for trusting me",
+     "en": "Say what you're thankful for · Thank you for trusting me"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-아/어 줘서 고마워요",
+     "en": "Thanking: -아/어 줘서 고마워요"
+    },
+    "hint": {
+     "ko": "해 준 일에 고마워해요 · 믿어 줘서 고마워요",
+     "en": "Thank someone for what they did · 믿어 줘서 고마워요"
+    }
+   }
+  },
+  {
+   "id": "E.2",
+   "es": {
+    "name": {
+     "ko": "작별 · 바람 hasta pronto · ojalá + 접속법",
+     "en": "Farewells · wishes: hasta pronto · ojalá + subjunctive"
+    },
+    "hint": {
+     "ko": "헤어질 때 · 바랄 때 · Hasta pronto. Ojalá llegue pronto.",
+     "en": "Saying goodbye and wishing · Hasta pronto. Ojalá llegue pronto."
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "See you soon · I hope …",
+     "en": "Farewells · wishes: See you soon · I hope"
+    },
+    "hint": {
+     "ko": "헤어질 때 · 바랄 때 · See you soon. I hope I arrive soon.",
+     "en": "Saying goodbye and wishing · See you soon. I hope I arrive soon."
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "곧 봬요 · -(으)면 좋겠어요",
+     "en": "Farewells · wishes: 곧 봬요 · -(으)면 좋겠어요"
+    },
+    "hint": {
+     "ko": "헤어질 때 · 바랄 때 · 곧 봬요, 빨리 도착하면 좋겠어요",
+     "en": "Saying goodbye and wishing · 곧 봬요, 빨리 도착하면 좋겠어요"
+    }
+   }
+  }
+ ],
+ "letters": [
+  {
+   "id": "e1",
+   "date": "1825-12-06",
+   "dateNote": "Dated 6 December 1825 in Beruete (1918, p. 156: 'fechada el día 6 de Diciembre de 1825'); no modern dating checked.",
+   "ref": "Beruete 1918, p. 156 · A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 156 · public domain · https://archive.org/details/AV194",
+   "place": "Burdeos",
+   "to": {
+    "es": "Joaquín María Ferrer",
+    "en": "Joaquín María Ferrer",
+    "ko": "호아킨 마리아 페레르"
+   },
+   "mood": "weary",
+   "head": {
+    "es": "(Desde Burdeos, a París, 6 de diciembre de 1825)",
+    "en": "(From Bordeaux to Paris, 6 December 1825)",
+    "ko": "(1825년 12월 6일, 보르도에서 파리로)"
+   },
+   "excerpt": "Messages 0–1 are the passage Beruete prints (it begins mid-letter, marked …). His postscript after 'Vivo Rue Croix Blanche núm. 10', 'Y si nos morimos q.e nos entierren', is quoted in the note, not as a message.",
+   "messages": [
+    {
+     "es": "…Con motivo de ir a París el señor de Baranda, le enviaba a usted un ensayo litográfico que representa una fiesta de novillos, a fin de que la viese usted y el amigo Cardano, y, si la encontraban digna de despacharse algunas, enviaría las que usted quisiere.",
+     "en": "…As Señor de Baranda was going to Paris, I sent you by him a trial lithograph showing a fight with young bulls, so that you and our friend Cardano could see it, and, if you found it worth selling a few, I would send as many as you wished.",
+     "ko": "…바란다 씨가 파리에 간다기에, 어린 소 투우 장면을 그린 석판화 시험작을 한 장 보냈어요. 당신과 친구 카르다노가 보고, 몇 장 팔 만하다 싶으면 원하는 만큼 보내 드리려고요.",
+     "orig": {
+      "es": "... Con motivo de ir á París el Sr de Baranda, le enviaba a Vd. un ensayo Litográfico que representa una fiesta de nobillos, a fin de q.e la viese Vd. y el amigo Cardano y si la encontraban digna de despacharse algunas enviaría las q.e Vd. quisiere;"
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 156 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "…Con motivo de ir a París el señor de Baranda, / le enviaba a usted un ensayo litográfico que representa una fiesta de novillos, / a fin de que la viese usted y el amigo Cardano, / y, / si la encontraban digna de despacharse algunas, / enviaría las que usted quisiere.",
+      "en": "…As Señor de Baranda was going to Paris, / I sent you by him a trial lithograph showing a fight with young bulls, / so that you and our friend Cardano could see it, / and, / if you found it worth selling a few, / I would send as many as you wished.",
+      "ko": "…바란다 씨가 파리에 간다기에, / 어린 소 투우 장면을 그린 석판화 시험작을 한 장 보냈어요. // 당신과 친구 카르다노가 보고, / 몇 장 팔 만하다 싶으면 원하는 만큼 보내 드리려고요."
+     }
+    },
+    {
+     "es": "Este escrito lo metí en la estampa, y, no teniendo noticia, vuelvo a suplicarle a usted me avise, porque tengo hechos tres más del mismo tamaño y asunto de toros.",
+     "en": "I put this note inside the print, and, having had no news, I beg you again to let me know, because I have made three more of the same size and on the subject of bulls.",
+     "ko": "이 쪽지를 판화 안에 넣어 보냈는데 아무 소식이 없어서 다시 부탁드려요. 꼭 알려 주세요. 같은 크기에 투우를 그린 판화를 세 장 더 만들어 두었거든요.",
+     "orig": {
+      "es": "Este escrito lo meti en la estampa y no teniendo noticia, buelbo á suplicarle á Vd. me abise p.r q.e tengo echos tres mas del mismo tamaño y asunto de toros."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 156 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "Este escrito lo metí en la estampa, / y, / no teniendo noticia, / vuelvo a suplicarle a usted me avise, / porque tengo hechos tres más del mismo tamaño y asunto de toros.",
+      "en": "I put this note inside the print, / and, / having had no news, / I beg you again to let me know, / because I have made three more of the same size and on the subject of bulls.",
+      "ko": "이 쪽지를 판화 안에 넣어 보냈는데 아무 소식이 없어서 다시 부탁드려요. // 꼭 알려 주세요. // 같은 크기에 투우를 그린 판화를 세 장 더 만들어 두었거든요."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "1824년 6월, 일흔여덟의 고야는 온천 요양 허가를 받아 스페인을 떠났어요. 보르도에 들른 그를 보고 친구 모라틴은 ‘귀먹고 늙고 굼뜨고 약한데, 프랑스 말은 한마디도 모르면서 세상 구경에 들떠 있다’고 썼어요. 고야는 파리를 다녀온 뒤 보르도에 머물렀고, 1825년 투우를 그린 큰 석판화 네 장을 만들었어요. 받는 사람 페레르는 파리에 사는 스페인 사람으로, 1824년 고야가 파리에서 초상을 그려 준 친구예요. 이 편지 끝에 고야는 주소 ‘크루아 블랑슈 거리 10번지’와 함께 ‘우리가 죽으면 묻어 주겠지’라는 한 줄을 덧붙였어요.",
+    "en": "In June 1824 Goya, aged seventy-eight, left Spain with leave to take the waters. When he stopped in Bordeaux his friend Moratín wrote that he had arrived ‘deaf, old, clumsy and weak, without a word of French … and so happy and so eager to see the world’. After a stay in Paris he settled in Bordeaux, and in 1825 he made four large lithographs of bullfights. Ferrer was a Spaniard living in Paris, a friend whose portrait Goya had painted there in 1824. After his address, ‘Rue Croix Blanche no. 10’, Goya added one line to this letter: ‘And if we die, let them bury us.’",
+    "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 156–157 · public domain · https://archive.org/details/AV194 ; A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 145–147 · public domain · https://archive.org/details/AV192 ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Plaza partida (Los toros de Burdeos)",
+    "title_en": "Bullfight in a Divided Ring (The Bulls of Bordeaux)",
+    "title_ko": "둘로 나뉜 투우장 (《보르도의 투우》)",
+    "date": "1825",
+    "credit": "Francisco de Goya",
+    "collection": "National Gallery of Art, Washington",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Francisco_de_Goya,_Bullfight_in_a_Divided_Ring,_1825,_NGA_746.jpg",
+    "commonsFile": "File:Francisco de Goya, Bullfight in a Divided Ring, 1825, NGA 746.jpg",
+    "image": "g-e1.webp",
+    "kind": "print",
+    "why": {
+     "ko": "고야가 보르도에서 만든 투우 석판화 네 장 가운데 하나예요. 편지 속 ‘같은 크기에 투우를 그린’ 판화들이에요.",
+     "en": "One of the four bullfight lithographs Goya made in Bordeaux: the prints ‘of the same size and on the subject of bulls’ in the letter."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "E.0",
+     "es": "Creo que su litografía de los novillos es una obra maestra de verdad.",
+     "en": "I think your lithograph of the young bulls is a true masterpiece.",
+     "ko": "어린 소 투우 석판화는 정말 걸작인 것 같아요.",
+     "koLow": "어린 소 투우 석판화는 정말 걸작인 것 같아.",
+     "koHigh": "어린 소 투우 석판화는 참으로 걸작인 것 같습니다.",
+     "focus": {
+      "es": [
+       "Creo que"
+      ],
+      "en": [
+       "I think"
+      ],
+      "ko": [
+       "걸작인 것 같아요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Creo de que",
+        "Creo qué"
+       ]
+      ],
+      "en": [
+       [
+        "I thinks",
+        "I'm think"
+       ]
+      ],
+      "ko": [
+       [
+        "걸작인 것 갔아요",
+        "걸작인 거 같아여"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "VI.2",
+     "es": "¿Puedo ver también las otras tres estampas de toros antes de decidir?",
+     "en": "May I also see the other three bull prints before deciding?",
+     "ko": "결정하기 전에 다른 투우 판화 세 장도 봐도 돼요?",
+     "koLow": "결정하기 전에 다른 투우 판화 세 장도 봐도 돼?",
+     "koHigh": "결정하기 전에 다른 투우 판화 세 장도 보아도 되겠습니까?",
+     "focus": {
+      "es": [
+       "Puedo ver"
+      ],
+      "en": [
+       "May I also see"
+      ],
+      "ko": [
+       "봐도 돼요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Puedo veo",
+        "Puede ver"
+       ]
+      ],
+      "en": [
+       [
+        "May I also to see",
+        "May I also seeing"
+       ]
+      ],
+      "ko": [
+       [
+        "봐도 되요",
+        "바도 돼요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 0,
+     "grammar": "VI.0",
+     "es": "Si me envía las otras tres, se las enseñaré a los conocedores de París.",
+     "en": "If you send me the other three, I'll show them to the connoisseurs in Paris.",
+     "ko": "나머지 세 장을 보내 주시면 파리의 감식가들에게 보여 줄게요.",
+     "koLow": "나머지 세 장을 보내 주면 파리의 감식가들에게 보여 줄게.",
+     "koHigh": "나머지 세 장을 보내 주시면 파리의 감식가들에게 보여 드리겠습니다.",
+     "focus": {
+      "es": [
+       "Si me envía",
+       "enseñaré"
+      ],
+      "en": [
+       "If you send me",
+       "I'll show"
+      ],
+      "ko": [
+       "보내 주시면"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Si me enviará",
+        "Si me envíe"
+       ],
+       [
+        "enseño",
+        "enseñé"
+       ]
+      ],
+      "en": [
+       [
+        "If you will send me",
+        "If you sent me"
+       ],
+       [
+        "I show",
+        "I showed"
+       ]
+      ],
+      "ko": [
+       [
+        "보내 주시며",
+        "보네 주시면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Goya vive en Burdeos · 6 de diciembre de 1825",
+      "en": "Goya is living in Bordeaux · 6 December 1825",
+      "ko": "고야가 보르도에 살고 있어요 · 1825년 12월 6일"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "burdeos",
+     "title": {
+      "es": "Burdeos",
+      "en": "Bordeaux",
+      "ko": "보르도"
+     },
+     "address": "Bordeaux, Francia"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "gm-e1.webp",
+     "caption": {
+      "es": "Leandro Fernández de Moratín, retratado por Goya (1824)",
+      "en": "Leandro Fernández de Moratín, painted by Goya (1824)",
+      "ko": "고야가 그린 레안드로 페르난데스 데 모라틴 (1824)"
+     },
+     "credit": "Leandro Fernández de Moratín, 1824 · Francisco de Goya · Museo de Bellas Artes de Bilbao · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Francisco_de_Goya_-_Portrait_of_the_Poet_Morat%C3%ADn_-_Google_Art_Project.jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "Los toros de Burdeos",
+    "en": "The Bulls of Bordeaux",
+    "ko": "보르도의 투우"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Qué representa la litografía?",
+      "en": "What does the lithograph show?",
+      "ko": "석판화는 무엇을 그렸어요?"
+     },
+     "options": [
+      {
+       "es": "Una fiesta de novillos",
+       "en": "A fight with young bulls",
+       "ko": "어린 소 투우"
+      },
+      {
+       "es": "Un retrato de Ferrer",
+       "en": "A portrait of Ferrer",
+       "ko": "페레르의 초상"
+      },
+      {
+       "es": "Una vista de París",
+       "en": "A view of Paris",
+       "ko": "파리 풍경"
+      },
+      {
+       "es": "Una iglesia",
+       "en": "A church",
+       "ko": "성당"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "es": "fiesta de novillos",
+      "en": "fight with young bulls",
+      "ko": "어린 소 투우"
+     }
+    },
+    {
+     "q": {
+      "es": "¿Cuántas estampas más tiene hechas Goya?",
+      "en": "How many more prints has Goya made?",
+      "ko": "고야는 판화를 몇 장 더 만들어 두었어요?"
+     },
+     "options": [
+      {
+       "es": "Tres",
+       "en": "Three",
+       "ko": "세 장"
+      },
+      {
+       "es": "Una",
+       "en": "One",
+       "ko": "한 장"
+      },
+      {
+       "es": "Veinte",
+       "en": "Twenty",
+       "ko": "스무 장"
+      },
+      {
+       "es": "Ochenta",
+       "en": "Eighty",
+       "ko": "여든 장"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1,
+     "mark": {
+      "es": "tres más",
+      "en": "three more",
+      "ko": "세 장 더"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "보르도, 석판화를 보여 주는 고야와 · 나는 친구 모라틴",
+     "en": "Bordeaux, Goya shows me his lithograph · I'm his friend Moratín"
+    },
+    "me": "Moratín",
+    "lines": [
+     {
+      "who": "them",
+      "es": "Leandro, mire mi litografía de toros.",
+      "en": "Leandro, look at my lithograph of bulls.",
+      "ko": "레안드로, 내 투우 석판화 좀 봐요."
+     },
+     {
+      "who": "me",
+      "es": "Me parece magnífica. Creo que se venderá bien en París.",
+      "en": "I think it's magnificent. I believe it will sell well in Paris.",
+      "ko": "훌륭해 보여요. 파리에서 잘 팔릴 것 같아요.",
+      "focus": {
+       "es": [
+        "Me parece",
+        "Creo que"
+       ],
+       "en": [
+        "I think",
+        "I believe"
+       ],
+       "ko": [
+        "잘 팔릴 것 같아요"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Me parezco",
+         "Mi parece"
+        ],
+        [
+         "Creo de que",
+         "Creo qué"
+        ]
+       ],
+       "en": [
+        [
+         "I thinks",
+         "I am think"
+        ],
+        [
+         "I believes",
+         "I am believe"
+        ]
+       ],
+       "ko": [
+        [
+         "잘 팔릴 것 갔아요",
+         "잘 팔릴 것 같아여"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Ojalá. Ferrer no me escribe, y tengo hechas tres más.",
+      "en": "I hope so. Ferrer doesn't write to me, and I've made three more.",
+      "ko": "그러면 좋겠어요. 페레르가 답장을 안 해요. 세 장이나 더 만들어 뒀는데."
+     },
+     {
+      "who": "me",
+      "es": "En mi opinión, debe tener paciencia, amigo.",
+      "en": "In my opinion, you should be patient, my friend.",
+      "ko": "제 생각에는 좀 기다려 보는 게 좋겠어요, 친구.",
+      "focus": {
+       "es": [
+        "En mi opinión"
+       ],
+       "en": [
+        "In my opinion"
+       ],
+       "ko": [
+        "제 생각에는"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "En mi opinión de",
+         "A mi opinión"
+        ]
+       ],
+       "en": [
+        [
+         "On my opinion",
+         "In my opinions"
+        ]
+       ],
+       "ko": [
+        [
+         "제 생각에느",
+         "재 생각에는"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "toro",
+     "amigo"
+    ],
+    "grammar": "E.0",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "tener paciencia",
+      "en": "be patient",
+      "ko": "좀 기다려 보는 게"
+     },
+     "opts": [
+      {
+       "es": "escribirle otra vez",
+       "en": "write to him again",
+       "ko": "다시 편지를 쓰는 게"
+      },
+      {
+       "es": "enviar las otras tres",
+       "en": "send the other three",
+       "ko": "나머지 세 장을 보내는 게"
+      },
+      {
+       "es": "descansar un poco",
+       "en": "rest a little",
+       "ko": "좀 쉬는 게"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "e2",
+   "date": "1825-12-20",
+   "dateNote": "Dated 20 December 1825 in Beruete (1918, p. 156: 'con fecha 20 de Diciembre'); no modern dating checked.",
+   "ref": "Beruete 1918, pp. 156–157 · A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 156–157 · public domain · https://archive.org/details/AV194",
+   "place": "Burdeos",
+   "to": {
+    "es": "Joaquín María Ferrer",
+    "en": "Joaquín María Ferrer",
+    "ko": "호아킨 마리아 페레르"
+   },
+   "mood": "weary",
+   "head": {
+    "es": "(Desde Burdeos, a París, 20 de diciembre de 1825)",
+    "en": "(From Bordeaux to Paris, 20 December 1825)",
+    "ko": "(1825년 12월 20일, 보르도에서 파리로)"
+   },
+   "excerpt": "Messages 0–1 are the passage Beruete prints; the separator '==' between them is left out. 'más ha de 20 años' (archaic for 'hace más de 20 años') stays as written. In the app text S. M. is written out (Su Majestad).",
+   "messages": [
+    {
+     "es": "Quedo enterado y convencido de lo que usted me dice de las estampas de toros; pero, como yo pensé más en que las viesen los conocedores artísticos que en esa gran corte abundan, y también la gran porción de gente que las habrá visto, sin contar el número de españoles, creí que era fácil, dándolas a un estampero sin decir mi nombre, y a poco precio, podía haberse hecho.",
+     "en": "I've taken in what you tell me about the bull prints, and I'm convinced; but since I was thinking more of the art connoisseurs, who abound in that great capital, and also of the great many people who will have seen them, not counting the Spaniards, I thought it was easy: by giving them to a print-seller without saying my name, and at a low price, it could have been done.",
+     "ko": "투우 판화에 대해 하신 말씀, 잘 알아들었고 수긍해요. 그래도 저는 그 큰 도시에 많은 미술 감식가들, 그리고 그 판화를 봤을 많은 사람들을 생각했어요. 스페인 사람들은 빼고도요. 그래서 제 이름은 밝히지 않고 판화 장수에게 싸게 넘기면 쉽게 될 줄 알았어요.",
+     "orig": {
+      "es": "Quedo enterado y convencido de lo que Vd. me dice de las estampas de toros, pero como yo pensé mas en q.e las viesen los conocedores artísticos q.e en esa gran corte abundan, y también la gran porción de gente que las abra visto, sin contar el número de españoles creí que era fácil dándolas á un estampero sin decir mi nombre, y á poco precio podía aberse hecho"
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 156–157 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "Quedo enterado y convencido de lo que usted me dice de las estampas de toros; // pero, / como yo pensé más en que las viesen los conocedores artísticos que en esa gran corte abundan, / y también la gran porción de gente que las habrá visto, / sin contar el número de españoles, / creí que era fácil, / dándolas a un estampero sin decir mi nombre, / y a poco precio, / podía haberse hecho.",
+      "en": "I've taken in what you tell me about the bull prints, / and I'm convinced; // but since I was thinking more of the art connoisseurs, / who abound in that great capital, / and also of the great many people who will have seen them, / not counting the Spaniards, / I thought it was easy: // by giving them to a print-seller without saying my name, / and at a low price, / it could have been done.",
+      "ko": "투우 판화에 대해 하신 말씀, / 잘 알아들었고 수긍해요. // 그래도 저는 그 큰 도시에 많은 미술 감식가들, / 그리고 그 판화를 봤을 많은 사람들을 생각했어요. // 스페인 사람들은 빼고도요. // 그래서 제 이름은 밝히지 않고 판화 장수에게 싸게 넘기면 쉽게 될 줄 알았어요."
+     }
+    },
+    {
+     "es": "Lo que me dice usted de los Caprichos no puede ser, porque las láminas las cedí al Rey más ha de 20 años, como las demás cosas que he grabado, que están en la Calcografía de Su Majestad.",
+     "en": "What you tell me about the Caprichos cannot be, because I gave the plates to the King more than twenty years ago, like the other things I have engraved, which are in His Majesty's Calcografía.",
+     "ko": "《카프리초스》에 대해 하신 말씀은 안 돼요. 그 동판은 스무 해도 더 전에 왕께 넘겼거든요. 제가 새긴 다른 판들처럼 지금은 왕립 판화소에 있어요.",
+     "orig": {
+      "es": "Lo q.e me dice Vd. de los caprichos no puede ser porq.e las laminas las cedi al Rey mas ha de 20 años como las demas cosas q.e he grabado q.e están en la calcografía de S. M."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 156–157 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "Lo que me dice usted de los Caprichos no puede ser, / porque las láminas las cedí al Rey más ha de 20 años, / como las demás cosas que he grabado, / que están en la Calcografía de Su Majestad.",
+      "en": "What you tell me about the Caprichos cannot be, / because I gave the plates to the King more than twenty years ago, / like the other things I have engraved, / which are in His Majesty's Calcografía.",
+      "ko": "《카프리초스》에 대해 하신 말씀은 안 돼요. // 그 동판은 스무 해도 더 전에 왕께 넘겼거든요. // 제가 새긴 다른 판들처럼 지금은 왕립 판화소에 있어요."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "페레르의 답장은 남아 있지 않지만, 파리에서 투우 판화를 팔기는 어렵다는 말이었던 것 같아요. 고야가 《카프리초스》 동판을 왕께 바친 것은 1803년, 스물두 해 전이에요(VI장). 1918년 베루에테는 프랑스의 폴 르포르가 보르도의 투우 석판화를 들라크루아의 석판화와 견주었다고 적었어요. 들라크루아는 고야의 판화를 여러 점 가지고 있었어요. 모라틴은 1825년 봄 ‘고야는 이 도시와 들판, 날씨, 먹을거리, 자유와 고요를 좋아한다’고 썼어요.",
+    "en": "Ferrer's reply is lost, but it seems he had said the bull prints would be hard to sell in Paris. Goya had given the Caprichos plates to the King in 1803, twenty-two years before (chapter VI). In 1918 Beruete noted that the Frenchman Paul Lefort had compared the Bordeaux bullfight lithographs with Delacroix's lithographs, and that Delacroix owned several of Goya's prints. In the spring of 1825 Moratín wrote that Goya liked ‘the city, the country, the climate, the food, the independence, the quiet he enjoys’.",
+    "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 156–157 · public domain · https://archive.org/details/AV194 ; A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 147 · public domain · https://archive.org/details/AV192 ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Dibersión de España (Los toros de Burdeos)",
+    "title_en": "Spanish Entertainment (The Bulls of Bordeaux)",
+    "title_ko": "스페인의 놀이 (《보르도의 투우》)",
+    "date": "1825",
+    "credit": "Francisco de Goya",
+    "collection": "The Metropolitan Museum of Art, New York",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Spanish_Entertainment_from_the_%27Bulls_of_Bordeaux%27_MET_DP124109.jpg",
+    "commonsFile": "File:Spanish Entertainment from the 'Bulls of Bordeaux' MET DP124109.jpg",
+    "image": "g-e2.webp",
+    "kind": "print",
+    "why": {
+     "ko": "보르도의 투우 석판화 네 장 가운데 하나로, 투우장에 풀어놓은 소들과 사람들이 뒤엉켜 있어요. 고야가 이름 없이 싸게라도 팔고 싶어 한 판화예요.",
+     "en": "Another of the four Bordeaux bullfight lithographs, with bulls let loose among a crowd: the prints Goya would have sold cheaply, without his name."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "E.1",
+     "es": "Gracias por explicarme lo de los Caprichos; ahora entiendo por qué no puede ser.",
+     "en": "Thank you for explaining the Caprichos to me; now I understand why it can't be.",
+     "ko": "《카프리초스》 일을 설명해 주셔서 고마워요. 이제 왜 안 되는지 알겠어요.",
+     "koLow": "《카프리초스》 일을 설명해 줘서 고마워. 이제 왜 안 되는지 알겠어.",
+     "koHigh": "《카프리초스》 일을 설명해 주셔서 감사합니다. 이제 왜 안 되는지 알겠습니다.",
+     "focus": {
+      "es": [
+       "Gracias por explicarme"
+      ],
+      "en": [
+       "Thank you for explaining"
+      ],
+      "ko": [
+       "설명해 주셔서 고마워요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Gracias para explicarme",
+        "Gracias por explicas"
+       ]
+      ],
+      "en": [
+       [
+        "Thank you for explain",
+        "Thank you to explaining"
+       ]
+      ],
+      "ko": [
+       [
+        "설명해 주셔서 고마와요",
+        "설명해 주서서 고마워요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 0,
+     "grammar": "VI.0",
+     "es": "Si un estampero vende las estampas sin su nombre, nadie sabrá que son de Goya.",
+     "en": "If a print-seller sells the prints without your name, nobody will know they're by Goya.",
+     "ko": "판화 장수가 이름 없이 팔면 아무도 고야 작품인 줄 모를 거예요.",
+     "koLow": "판화 장수가 이름 없이 팔면 아무도 고야 작품인 줄 모를 거야.",
+     "koHigh": "판화 장수가 이름 없이 팔면 아무도 고야 작품인 줄 모를 것입니다.",
+     "focus": {
+      "es": [
+       "Si un estampero vende",
+       "sabrá"
+      ],
+      "en": [
+       "If a print-seller sells",
+       "will know"
+      ],
+      "ko": [
+       "팔면"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Si un estampero venderá",
+        "Si un estampero venda"
+       ],
+       [
+        "sabe",
+        "supo"
+       ]
+      ],
+      "en": [
+       [
+        "If a print-seller will sell",
+        "If a print-seller sold"
+       ],
+       [
+        "knows",
+        "knew"
+       ]
+      ],
+      "ko": [
+       [
+        "팔며",
+        "팔으면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 0,
+     "grammar": "E.0",
+     "es": "Me parece que los conocedores de París todavía no entienden su arte nuevo.",
+     "en": "It seems to me the connoisseurs of Paris don't yet understand your new art.",
+     "ko": "파리 감식가들은 아직 당신의 새로운 예술을 이해하지 못하는 것 같아요.",
+     "koLow": "파리 감식가들은 아직 네 새로운 예술을 이해하지 못하는 것 같아.",
+     "koHigh": "파리 감식가들은 아직 당신의 새로운 예술을 이해하지 못하는 것 같습니다.",
+     "focus": {
+      "es": [
+       "Me parece que"
+      ],
+      "en": [
+       "It seems to me"
+      ],
+      "ko": [
+       "못하는 것 같아요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Me parezco que",
+        "Mi parece que"
+       ]
+      ],
+      "en": [
+       [
+        "It seem to me",
+        "It seems me"
+       ]
+      ],
+      "ko": [
+       [
+        "못하는 것 갔아요",
+        "못하는 거 같아여"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Burdeos, 20 de diciembre de 1825",
+      "en": "Bordeaux, 20 December 1825",
+      "ko": "1825년 12월 20일, 보르도"
+     }
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "gm-e2.webp",
+     "caption": {
+      "es": "El famoso americano Mariano Ceballos (Los toros de Burdeos)",
+      "en": "The Famous American, Mariano Ceballos (The Bulls of Bordeaux)",
+      "ko": "유명한 아메리카 사람 마리아노 세바요스 (《보르도의 투우》)"
+     },
+     "credit": "El famoso americano Mariano Ceballos, 1825 · Francisco de Goya · The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Mariano_Ceballos_riding_a_bull_from_the_%27Bulls_of_Bordeaux%27_MET_DP124106.jpg"
+    }
+   ],
+   "status": {
+    "es": "Más ha de 20 años",
+    "en": "More than twenty years ago",
+    "ko": "스무 해도 더 전에"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Por qué no puede Goya vender los Caprichos?",
+      "en": "Why can't Goya sell the Caprichos?",
+      "ko": "고야는 왜 《카프리초스》를 팔 수 없어요?"
+     },
+     "options": [
+      {
+       "es": "Cedió las láminas al Rey",
+       "en": "He gave the plates to the King",
+       "ko": "동판을 왕께 넘겨서"
+      },
+      {
+       "es": "Las láminas se rompieron",
+       "en": "The plates broke",
+       "ko": "동판이 깨져서"
+      },
+      {
+       "es": "No le gustan",
+       "en": "He doesn't like them",
+       "ko": "마음에 안 들어서"
+      },
+      {
+       "es": "Están en París",
+       "en": "They're in Paris",
+       "ko": "파리에 있어서"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1,
+     "mark": {
+      "es": "las cedí al Rey",
+      "en": "I gave the plates to the King",
+      "ko": "왕께 넘겼거든요"
+     }
+    },
+    {
+     "q": {
+      "es": "¿Cómo quería vender Goya las estampas de toros?",
+      "en": "How did Goya want to sell the bull prints?",
+      "ko": "고야는 투우 판화를 어떻게 팔고 싶었어요?"
+     },
+     "options": [
+      {
+       "es": "Sin decir su nombre y a poco precio",
+       "en": "Without his name, at a low price",
+       "ko": "이름 없이 싸게"
+      },
+      {
+       "es": "Muy caras",
+       "en": "Very expensive",
+       "ko": "아주 비싸게"
+      },
+      {
+       "es": "Solo a españoles",
+       "en": "Only to Spaniards",
+       "ko": "스페인 사람에게만"
+      },
+      {
+       "es": "En Madrid",
+       "en": "In Madrid",
+       "ko": "마드리드에서"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "es": "sin decir mi nombre",
+      "en": "without saying my name",
+      "ko": "제 이름은 밝히지 않고"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "파리의 페레르와 통화, 보르도의 고야 · 나는 페레르",
+     "en": "A call between Ferrer in Paris and Goya in Bordeaux · I'm Ferrer"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "Ferrer, las estampas de toros no se venden en París.",
+      "en": "Ferrer, the bull prints aren't selling in Paris.",
+      "ko": "페레르 씨, 투우 판화가 파리에서 안 팔리네요."
+     },
+     {
+      "who": "me",
+      "es": "Lo siento mucho. Gracias por confiar en mí.",
+      "en": "I'm very sorry. Thank you for trusting me.",
+      "ko": "정말 안타까워요. 저를 믿어 줘서 고마워요.",
+      "focus": {
+       "es": [
+        "Gracias por confiar"
+       ],
+       "en": [
+        "Thank you for trusting"
+       ],
+       "ko": [
+        "믿어 줘서 고마워요"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Gracias para confiar",
+         "Gracias por confío"
+        ]
+       ],
+       "en": [
+        [
+         "Thank you for trust",
+         "Thank you to trusting"
+        ]
+       ],
+       "ko": [
+        [
+         "믿어 조서 고마워요",
+         "믿어 줘서 고마와요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Usted es un buen amigo. En Burdeos estoy tranquilo.",
+      "en": "You're a good friend. In Bordeaux I'm at peace.",
+      "ko": "당신은 좋은 친구예요. 보르도에서는 마음이 편해요."
+     },
+     {
+      "who": "me",
+      "es": "Y gracias por el retrato que me pintó en París.",
+      "en": "And thank you for the portrait you painted of me in Paris.",
+      "ko": "파리에서 제 초상화를 그려 주신 것도 고마워요.",
+      "focus": {
+       "es": [
+        "gracias por el retrato"
+       ],
+       "en": [
+        "thank you for the portrait"
+       ],
+       "ko": [
+        "고마워요"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "gracias para el retrato",
+         "gracias por la retrato"
+        ]
+       ],
+       "en": [
+        [
+         "thank you for portrait",
+         "thanks you for the portrait"
+        ]
+       ],
+       "ko": [
+        [
+         "고마와요",
+         "고마워여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "estampa",
+     "amigo"
+    ],
+    "grammar": "E.1",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "el retrato que me pintó en París",
+      "en": "the portrait you painted of me in Paris",
+      "ko": "파리에서 제 초상화를 그려 주신 것도"
+     },
+     "opts": [
+      {
+       "es": "las estampas de toros",
+       "en": "the bull prints",
+       "ko": "투우 판화를 보내 주신 것도"
+      },
+      {
+       "es": "su última carta",
+       "en": "your last letter",
+       "ko": "지난번 편지를 보내 주신 것도"
+      },
+      {
+       "es": "sus buenas palabras",
+       "en": "your kind words",
+       "ko": "좋은 말씀을 해 주신 것도"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "e3",
+   "date": "1828",
+   "dateNote": "Undated. Written in bed after the news that Javier was coming to Bordeaux (Beruete 1916, p. 154; Viñaza 1887, p. 69); Goya died on 16 April 1828, a few days after his son arrived. Spring 1828; no modern dating checked.",
+   "ref": "Beruete 1916, p. 154 (also Viñaza 1887, p. 69) · A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 154 · public domain · https://archive.org/details/AV192",
+   "place": "Burdeos",
+   "to": {
+    "es": "Javier",
+    "en": "his son Javier",
+    "ko": "아들 하비에르"
+   },
+   "mood": "tender",
+   "head": {
+    "es": "(Sus últimos renglones, Burdeos, 1828)",
+    "en": "(His last lines, Bordeaux, 1828)",
+    "ko": "(마지막 몇 줄, 1828년 보르도)"
+   },
+   "excerpt": "Messages 0–2 are the whole note. The signature is read 'F.co' as in Viñaza (Beruete's scan reads 'Feo'). The grandson Mariano's line written just before it and his note at the foot are quoted in the note, not as messages.",
+   "messages": [
+    {
+     "es": "Querido Javier: No te puedo decir más que de tanta alegría me he puesto un poco indispuesto y estoy en la cama.",
+     "en": "Dear Javier: I can tell you no more than this: from so much joy I've become a little unwell, and I'm in bed.",
+     "ko": "사랑하는 하비에르, 이 말밖에 못 하겠구나. 너무 기뻐서 몸이 좀 안 좋아져 누워 있단다.",
+     "orig": {
+      "es": "Qdo Javier: No te puedo decir mas qe de tanta alegría me he puesto un poco indispuesto y estoy en la cama."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 154 · public domain · https://archive.org/details/AV192",
+     "speak": {
+      "es": "Querido Javier: // No te puedo decir más que de tanta alegría me he puesto un poco indispuesto y estoy en la cama.",
+      "en": "Dear Javier: // I can tell you no more than this: // from so much joy I've become a little unwell, / and I'm in bed.",
+      "ko": "사랑하는 하비에르, / 이 말밖에 못 하겠구나. // 너무 기뻐서 몸이 좀 안 좋아져 누워 있단다."
+     }
+    },
+    {
+     "es": "Dios quiera que te vea venir a buscarlos, para que sea mi gusto completo.",
+     "en": "God grant that I may see you come to fetch them, so that my happiness may be complete.",
+     "ko": "네가 그들을 데리러 오는 걸 꼭 보고 싶구나. 그래야 내 기쁨이 온전해지겠지.",
+     "orig": {
+      "es": "Dios quiera q.e te bea venir á buscarlos para q.e sea mi gusto completo,"
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 154 · public domain · https://archive.org/details/AV192",
+     "speak": {
+      "es": "Dios quiera que te vea venir a buscarlos, / para que sea mi gusto completo.",
+      "en": "God grant that I may see you come to fetch them, / so that my happiness may be complete.",
+      "ko": "네가 그들을 데리러 오는 걸 꼭 보고 싶구나. // 그래야 내 기쁨이 온전해지겠지."
+     }
+    },
+    {
+     "es": "Adiós. Tu padre, Francisco.",
+     "en": "Goodbye. Your father, Francisco.",
+     "ko": "잘 있거라. 너의 아버지 프란시스코가.",
+     "orig": {
+      "es": "a Dios tu Pe Fco."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 154 · public domain · https://archive.org/details/AV192",
+     "speak": {
+      "es": "Adiós. // Tu padre, / Francisco.",
+      "en": "Goodbye. // Your father, / Francisco.",
+      "ko": "잘 있거라. // 너의 아버지 프란시스코가."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "1826년 고야는 마드리드에 잠시 다녀와 은퇴를 허락받았고, 다시 보르도로 돌아왔어요. 1828년 봄, 아들 하비에르가 보르도에 온다는 소식을 듣고 고야는 너무 기뻐 앓아누웠어요. 손자 마리아노가 먼저 ‘아빠, 할아버지가 몇 자 적으실 거예요’라고 쓰고, 그 아래 고야가 직접 이 몇 줄을 적었어요. 편지 끝에 마리아노는 ‘할아버지가 쓴 마지막 글’이라고 적어 두었어요. 하비에르가 도착하고 며칠 뒤인 1828년 4월 16일, 고야는 보르도에서 여든둘의 나이로 세상을 떠났어요.",
+    "en": "In 1826 Goya made a short trip to Madrid, was allowed to retire, and returned to Bordeaux. In the spring of 1828, on hearing that his son Javier was coming to Bordeaux, he was so overjoyed that he took to his bed. His grandson Mariano first wrote ‘Dear Papa: Grandfather is going to write you a few lines’, and below it Goya wrote these lines himself. At the foot Mariano noted: ‘The last lines Grandfather wrote.’ On 16 April 1828, a few days after Javier arrived, Goya died in Bordeaux, aged eighty-two.",
+    "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 154 · public domain · https://archive.org/details/AV192 ; Conde de la Viñaza, Goya, su tiempo, su vida, sus obras (Madrid, 1887), p. 69–70 · public domain · https://archive.org/details/goyasutiemposuv01vinagoog ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "La lechera de Burdeos",
+    "title_en": "The Milkmaid of Bordeaux",
+    "title_ko": "보르도의 우유 파는 여인",
+    "date": "c. 1827",
+    "credit": "Francisco de Goya",
+    "collection": "Museo del Prado, Madrid",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:La_lechera_de_Burdeos,_Francisco_de_Goya.jpg",
+    "commonsFile": "File:La lechera de Burdeos, Francisco de Goya.jpg",
+    "image": "g-e3.webp",
+    "kind": "painting",
+    "why": {
+     "ko": "고야가 보르도에서 마지막 무렵 그린 그림이에요. 1916년 베루에테는 보르도 시절의 ‘아주 아름다운 인물화’로 이 그림을 꼽았어요.",
+     "en": "A painting from Goya's last years in Bordeaux; in 1916 Beruete singled it out among the figures he painted there as ‘tan preciosa’."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "E.2",
+     "es": "Ojalá llegue pronto a Burdeos para darle un abrazo, papá.",
+     "en": "I hope I get to Bordeaux soon to give you a hug, Dad.",
+     "ko": "아버지를 안아 드리러 보르도에 빨리 도착하면 좋겠어요.",
+     "koLow": "아버지를 안아 드리러 보르도에 빨리 도착하면 좋겠어.",
+     "koHigh": "아버지를 안아 드리러 보르도에 빨리 도착하면 좋겠습니다.",
+     "focus": {
+      "es": [
+       "Ojalá llegue"
+      ],
+      "en": [
+       "I hope I get"
+      ],
+      "ko": [
+       "도착하면 좋겠어요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Ojalá llego",
+        "Ojalá llegaré"
+       ]
+      ],
+      "en": [
+       [
+        "I hope I getting",
+        "I hope I gets"
+       ]
+      ],
+      "ko": [
+       [
+        "도착하면 조겠어요",
+        "도착하며 좋겠어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 0,
+     "grammar": "E.0",
+     "es": "Creo que la alegría le hace bien, pero ahora descanse en la cama.",
+     "en": "I think joy does you good, but now rest in bed.",
+     "ko": "기쁜 건 좋은 것 같지만 지금은 침대에서 푹 쉬세요.",
+     "koLow": "기쁜 건 좋은 것 같지만 지금은 침대에서 푹 쉬어.",
+     "koHigh": "기쁘신 건 좋은 일 같지만 지금은 침대에서 푹 쉬십시오.",
+     "focus": {
+      "es": [
+       "Creo que"
+      ],
+      "en": [
+       "I think"
+      ],
+      "ko": [
+       "좋은 것 같지만"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Creo de que",
+        "Creo qué"
+       ]
+      ],
+      "en": [
+       [
+        "I thinks",
+        "I'm think"
+       ]
+      ],
+      "ko": [
+       [
+        "좋은 것 갔지만",
+        "좋은 거 같찌만"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "E.1",
+     "es": "Gracias por escribirme estas líneas, papá; las guardaré siempre conmigo.",
+     "en": "Thank you for writing me these lines, Dad; I'll always keep them with me.",
+     "ko": "이 몇 줄을 써 주셔서 고마워요, 아버지. 늘 간직할게요.",
+     "koLow": "이 몇 줄 써 줘서 고마워, 아버지. 늘 간직할게.",
+     "koHigh": "이 몇 줄을 써 주셔서 감사합니다, 아버지. 늘 간직하겠습니다.",
+     "focus": {
+      "es": [
+       "Gracias por escribirme"
+      ],
+      "en": [
+       "Thank you for writing"
+      ],
+      "ko": [
+       "써 주셔서 고마워요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Gracias para escribirme",
+        "Gracias por escribes"
+       ]
+      ],
+      "en": [
+       [
+        "Thank you for write",
+        "Thank you to writing"
+       ]
+      ],
+      "ko": [
+       [
+        "써 주셔서 고마와요",
+        "서 주셔서 고마워요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Burdeos, primavera de 1828",
+      "en": "Bordeaux, spring 1828",
+      "ko": "1828년 봄, 보르도"
+     }
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "gm-e3.webp",
+     "caption": {
+      "es": "Goya a los ochenta años, por Vicente López (1826)",
+      "en": "Goya at eighty, by Vicente López (1826)",
+      "ko": "여든의 고야, 비센테 로페스 그림 (1826)"
+     },
+     "credit": "El pintor Francisco de Goya, 1826 · Vicente López Portaña · Museo del Prado · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Vicente_L%C3%B3pez_Porta%C3%B1a_-_el_pintor_Francisco_de_Goya.jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "Los últimos renglones",
+    "en": "The last lines",
+    "ko": "마지막 몇 줄"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Por qué está Goya en la cama?",
+      "en": "Why is Goya in bed?",
+      "ko": "고야는 왜 누워 있어요?"
+     },
+     "options": [
+      {
+       "es": "De tanta alegría",
+       "en": "From so much joy",
+       "ko": "너무 기뻐서"
+      },
+      {
+       "es": "Por el frío",
+       "en": "Because of the cold",
+       "ko": "추워서"
+      },
+      {
+       "es": "Por un viaje",
+       "en": "Because of a journey",
+       "ko": "여행 때문에"
+      },
+      {
+       "es": "Por tristeza",
+       "en": "From sadness",
+       "ko": "슬퍼서"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "es": "de tanta alegría",
+      "en": "from so much joy",
+      "ko": "너무 기뻐서"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "보르도로 가는 길에 아버지와 통화 · 나는 아들 하비에르",
+     "en": "A call with my father on my way to Bordeaux · I'm his son Javier"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "Javier, hijo, estoy muy contento: ¡vienes a Burdeos!",
+      "en": "Javier, my son, I'm so happy: you're coming to Bordeaux!",
+      "ko": "하비에르, 아들아, 정말 기쁘구나. 네가 보르도에 온다니!"
+     },
+     {
+      "who": "me",
+      "es": "Sí, papá. Ojalá llegue pronto. Descanse mucho, por favor.",
+      "en": "Yes, Dad. I hope I arrive soon. Please rest a lot.",
+      "ko": "네, 아버지. 빨리 도착하면 좋겠어요. 푹 쉬세요.",
+      "focus": {
+       "es": [
+        "Ojalá llegue"
+       ],
+       "en": [
+        "I hope I arrive"
+       ],
+       "ko": [
+        "도착하면 좋겠어요"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Ojalá llego",
+         "Ojalá llegaré"
+        ]
+       ],
+       "en": [
+        [
+         "I hope I arriving",
+         "I hope I will to arrive"
+        ]
+       ],
+       "ko": [
+        [
+         "도착하면 조겠어요",
+         "도착하며 좋겠어요"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Dios quiera que te vea pronto. Adiós, hijo.",
+      "en": "God grant I see you soon. Goodbye, son.",
+      "ko": "곧 너를 볼 수 있으면 좋겠구나. 잘 있거라, 아들아."
+     },
+     {
+      "who": "me",
+      "es": "Hasta pronto, papá. Le mando un abrazo muy fuerte.",
+      "en": "See you soon, Dad. I'm sending you a big hug.",
+      "ko": "곧 봬요, 아버지. 따뜻한 포옹을 보내요.",
+      "focus": {
+       "es": [
+        "Hasta pronto"
+       ],
+       "en": [
+        "See you soon"
+       ],
+       "ko": [
+        "곧 봬요"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Hasta pronta",
+         "Hasta prontos"
+        ]
+       ],
+       "en": [
+        [
+         "See you sooner",
+         "See you soonly"
+        ]
+       ],
+       "ko": [
+        [
+         "곧 뵈요",
+         "곳 봬요"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "hijo",
+     "padre"
+    ],
+    "grammar": "E.2",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "un abrazo muy fuerte",
+      "en": "a big hug",
+      "ko": "따뜻한 포옹을"
+     },
+     "opts": [
+      {
+       "es": "todo mi cariño",
+       "en": "all my love",
+       "ko": "제 사랑을"
+      },
+      {
+       "es": "saludos de Mariano",
+       "en": "greetings from Mariano",
+       "ko": "마리아노의 안부를"
+      },
+      {
+       "es": "mil besos",
+       "en": "a thousand kisses",
+       "ko": "천 번의 입맞춤을"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  }
+ ]
+}

@@ -1,0 +1,3509 @@
+{
+ "_doc": "Goya · chapter VI, the silent years (1794–1803). Spanish = modern spelling (accents, b/v, h, x/j, joined words, abbreviations written out; no rewording and no change of word order), each message keeps the text as printed in the public-domain edition in orig.es (shown in the app as an optional ‘original spelling’ line). Editors' interjections are removed; nothing is taken from the 1981/82 or 2003 editions or their notes. verified=false: checked against the archive.org full text, a last check against the page images is still to do. en · ko translated from the Spanish for this app. Replies and talks are written by this app, not by the recipients.",
+ "series": "goya",
+ "chapter": "VI",
+ "title_es": "Sordo",
+ "title_en": "The Silent Years",
+ "title_ko": "들리지 않는 날들",
+ "original": "es",
+ "grammar": [
+  {
+   "id": "VI.0",
+   "es": {
+    "name": {
+     "ko": "si + 현재 → 미래",
+     "en": "si + present → future"
+    },
+    "hint": {
+     "ko": "조건이 맞으면 일어날 일 · si vienes, iremos a los toros",
+     "en": "What will happen if something is true · si vienes, iremos a los toros"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "if … will",
+     "en": "First conditional: if … will"
+    },
+    "hint": {
+     "ko": "조건과 그 결과 · If you come, we'll go",
+     "en": "A condition and its result · If you come, we'll go"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)면",
+     "en": "Condition -(으)면"
+    },
+    "hint": {
+     "ko": "조건을 말해요 · 오면 같이 가자, 시간이 나면 갈게요",
+     "en": "Say 'if' · 오면 같이 가자, 시간이 나면 갈게요"
+    }
+   }
+  },
+  {
+   "id": "VI.1",
+   "es": {
+    "name": {
+     "ko": "권유 · 초대 ¿Vamos a…? · ¿Quieres…?",
+     "en": "Suggesting · inviting: ¿Vamos a…? · ¿Quieres…?"
+    },
+    "hint": {
+     "ko": "같이 하자고 권해요 · ¿Vamos a celebrarlo? ¿Quieres venir?",
+     "en": "Suggest or invite · ¿Vamos a celebrarlo? ¿Quieres venir?"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "Shall we … · Would you like to …?",
+     "en": "Suggesting · inviting: Shall we · Would you like to"
+    },
+    "hint": {
+     "ko": "함께하자고 권해요 · Shall we go? Would you like to come?",
+     "en": "Suggest or invite · Shall we go? Would you like to come?"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄹ까요? · -(으)ㄹ래요?",
+     "en": "Suggesting · inviting: -(으)ㄹ까요? · -(으)ㄹ래요?"
+    },
+    "hint": {
+     "ko": "같이 하자고 물어요 · 갈까요? 올래요?",
+     "en": "Suggest or invite · 갈까요? 올래요?"
+    }
+   }
+  },
+  {
+   "id": "VI.2",
+   "es": {
+    "name": {
+     "ko": "허락 구하기 ¿Puedo + 동사?",
+     "en": "Asking permission: ¿Puedo + infinitive?"
+    },
+    "hint": {
+     "ko": "해도 되는지 물어요 · ¿Puedo verlas?",
+     "en": "Ask if you may · ¿Puedo verlas?"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "May I · Can I …?",
+     "en": "Asking permission: May I · Can I"
+    },
+    "hint": {
+     "ko": "해도 되는지 물어요 · May I see them?",
+     "en": "Ask if you may · May I see them?"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-아/어도 돼요?",
+     "en": "Asking permission: -아/어도 돼요?"
+    },
+    "hint": {
+     "ko": "해도 되는지 물어요 · 봐도 돼요?",
+     "en": "Ask if you may · 봐도 돼요?"
+    }
+   }
+  }
+ ],
+ "letters": [
+  {
+   "id": "c6-l1",
+   "date": "1794-04-23",
+   "dateNote": "Dated 23 April 1794 in Zapater y Gómez (1868, p. 26: 'Hasta 1794 … en carta de 23 de Abril') and Beruete (1916, p. 46); no modern dating checked.",
+   "ref": "Zapater y Gómez, p. 26 (also Beruete 1916, p. 46) · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 26 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+   "place": "Madrid",
+   "to": {
+    "es": "Martín Zapater",
+    "en": "Martín Zapater",
+    "ko": "마르틴 사파테르"
+   },
+   "mood": "weary",
+   "excerpt": "Messages 0–4 are the whole passage printed in Zapater y Gómez (1868); the signature 'tu Paco' is shown as the sign-off. The editor's footnote on Pignatelli is left out. 'Bobada' is printed in both editions and is translated as 'folly'.",
+   "messages": [
+    {
+     "es": "También quiero que me digas, si ves un retrato de miniatura que se ha hecho para el conde de Sástago de don Ramón Pignatelli, lo que te parece, porque lo ha hecho Esteve, que ha salido con la fresca de pintar de miniatura excelentemente.",
+     "en": "I also want you to tell me, if you see a miniature portrait of Don Ramón Pignatelli that has been made for the Count of Sástago, what you think of it, because Esteve made it; out of the blue he has turned out to paint miniatures excellently.",
+     "ko": "사스타고 백작에게 주려고 돈 라몬 피냐텔리의 세밀 초상화를 만들었는데, 혹시 보게 되면 어떤지 말해 줘. 에스테베가 그렸거든. 이 친구가 갑자기 세밀화를 아주 잘 그리게 됐어.",
+     "orig": {
+      "es": "También quiero que me digas si bes un retrato de miniatura que se ha echo para el Conde de Sastago de Don Ramón Pignatelli lo que te parece, porque lo a echo Esteve, que a salido con la fresca de pintar de miniatura excelentemente,"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 26 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "También quiero que me digas, / si ves un retrato de miniatura que se ha hecho para el conde de Sástago de don Ramón Pignatelli, / lo que te parece, / porque lo ha hecho Esteve, / que ha salido con la fresca de pintar de miniatura excelentemente.",
+      "en": "I also want you to tell me, / if you see a miniature portrait of Don Ramón Pignatelli that has been made for the Count of Sástago, / what you think of it, / because Esteve made it; // out of the blue he has turned out to paint miniatures excellently.",
+      "ko": "사스타고 백작에게 주려고 돈 라몬 피냐텔리의 세밀 초상화를 만들었는데, / 혹시 보게 되면 어떤지 말해 줘. // 에스테베가 그렸거든. // 이 친구가 갑자기 세밀화를 아주 잘 그리게 됐어."
+     }
+    },
+    {
+     "es": "Y espero que te gustará como a mí, que yo he sido la causa de que pintase de esa clase, porque se lo he leído en el cuerpo, que él no lo sabía que tenía tal habilidad.",
+     "en": "And I hope you'll like it as much as I do, for I was the reason he painted in that manner: I could see it in him, and he didn't know he had such a gift.",
+     "ko": "너도 나처럼 마음에 들면 좋겠어. 그가 그런 그림을 그리게 된 건 나 때문이야. 그 안에 그런 솜씨가 있는 걸 내가 알아봤거든. 본인은 자기한테 그런 재주가 있는 줄도 몰랐어.",
+     "orig": {
+      "es": "y espero que te gustara como a mi que yo he sido la causa de que pintase de esa clase porque se lo he leido en el cuerpo, que el no lo sabia que tenia tal abilidad,"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 26 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Y espero que te gustará como a mí, / que yo he sido la causa de que pintase de esa clase, / porque se lo he leído en el cuerpo, / que él no lo sabía que tenía tal habilidad.",
+      "en": "And I hope you'll like it as much as I do, / for I was the reason he painted in that manner: // I could see it in him, / and he didn't know he had such a gift.",
+      "ko": "너도 나처럼 마음에 들면 좋겠어. // 그가 그런 그림을 그리게 된 건 나 때문이야. // 그 안에 그런 솜씨가 있는 걸 내가 알아봤거든. // 본인은 자기한테 그런 재주가 있는 줄도 몰랐어."
+     }
+    },
+    {
+     "es": "Vaya, que si estuviera el tuyo aquí, haría que me hiciese uno para llevarte en una caja.",
+     "en": "Why, if yours were here, I'd have him make me one to bring you in a box.",
+     "ko": "정말이지, 네 것이 여기 있으면 그에게 하나 그려 달라고 해서 상자에 넣어 가져다줄 텐데.",
+     "orig": {
+      "es": "baya que si estubiera el tuyo aqui aria que me hiciese uno para llevarte en una caja."
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 26 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Vaya, / que si estuviera el tuyo aquí, / haría que me hiciese uno para llevarte en una caja.",
+      "en": "Why, / if yours were here, / I'd have him make me one to bring you in a box.",
+      "ko": "정말이지, / 네 것이 여기 있으면 그에게 하나 그려 달라고 해서 상자에 넣어 가져다줄 텐데."
+     }
+    },
+    {
+     "es": "Yo estoy lo mismo, en cuanto a mi salud: unos ratos rabiando, con un humor que yo mismo no me puedo aguantar; otros más templado, como este que he tomado la pluma para escribirte, y ya me canso.",
+     "en": "I'm the same as far as my health goes: at times raging, in a temper I can't stand myself; at others calmer, like now, when I've taken up the pen to write to you, and already I'm tired.",
+     "ko": "건강은 그대로야. 어떤 때는 나도 못 견딜 만큼 화가 치밀고, 어떤 때는 좀 누그러져. 지금처럼 펜을 들어 너한테 편지를 쓸 때 말이야. 그런데 벌써 지치네.",
+     "orig": {
+      "es": "Yo estoy lo mismo, en cuanto a mi salud, unos ratos rabiando con un humor que yo mismo no me puedo aguantar, otros mas templado como este que he tomado la pluma para escribirte, y ya me canso,"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 26 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Yo estoy lo mismo, / en cuanto a mi salud: // unos ratos rabiando, / con un humor que yo mismo no me puedo aguantar; // otros más templado, / como este que he tomado la pluma para escribirte, / y ya me canso.",
+      "en": "I'm the same as far as my health goes: // at times raging, / in a temper I can't stand myself; // at others calmer, / like now, / when I've taken up the pen to write to you, / and already I'm tired.",
+      "ko": "건강은 그대로야. // 어떤 때는 나도 못 견딜 만큼 화가 치밀고, / 어떤 때는 좀 누그러져. // 지금처럼 펜을 들어 너한테 편지를 쓸 때 말이야. // 그런데 벌써 지치네."
+     }
+    },
+    {
+     "es": "Solo te digo que el lunes, si Dios quiere, iré a ver los toros, y quisiera que me acompañaras, para el otro lunes, aunque dijera bobada que te habías vuelto loco.",
+     "en": "I'll only tell you that on Monday, God willing, I'll go and see the bulls, and I'd like you to come with me the Monday after, even if it were folly and they said you'd gone mad.",
+     "ko": "이 말만 할게. 월요일에, 하느님이 허락하시면, 투우를 보러 갈 거야. 다음 월요일엔 너도 같이 가 주면 좋겠어. 바보짓이라고, 네가 미쳤다고들 해도.",
+     "orig": {
+      "es": "solo te digo que el lunes si Dios quiere hire a ber los toros, y quisiera que me acompañaras, para el otro lunes aunque dijera bobada que te habías buelto loco,"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 26 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Solo te digo que el lunes, / si Dios quiere, / iré a ver los toros, / y quisiera que me acompañaras, / para el otro lunes, / aunque dijera bobada que te habías vuelto loco.",
+      "en": "I'll only tell you that on Monday, / God willing, / I'll go and see the bulls, / and I'd like you to come with me the Monday after, / even if it were folly and they said you'd gone mad.",
+      "ko": "이 말만 할게. // 월요일에, / 하느님이 허락하시면, / 투우를 보러 갈 거야. // 다음 월요일엔 너도 같이 가 주면 좋겠어. // 바보짓이라고, / 네가 미쳤다고들 해도."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "1792년 말 안달루시아에서 고야는 크게 앓았고, 이듬해 카디스에서 천천히 회복했지만 평생 귀가 들리지 않게 되었어요. 이 무렵의 편지는 남은 판본에 없어요. 1868년 판은 ‘1794년까지 그림 이야기를 다시 하지 않는다’고 적어요. 편지 속 에스테베는 고야 곁에서 함께 일한 화가 아구스틴 에스테베예요. 라몬 피냐텔리는 사라고사의 운하와 투우장을 만든 성직자로, 1793년에 세상을 떠났어요. 마음이 오락가락해도, 고야는 투우장에 가는 즐거움은 놓지 않았어요.",
+    "en": "At the end of 1792, in Andalusia, Goya fell gravely ill; he recovered slowly at Cádiz the next year, but he remained deaf for the rest of his life. No letters from those months survive in these editions; the 1868 edition says he ‘does not speak of painting again until 1794’. Esteve is the painter Agustín Esteve, who worked alongside Goya. Ramón Pignatelli, the churchman who built Zaragoza's canal and bullring, had died in 1793. Moody as he was, Goya kept his pleasure in the bullring.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 26 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Ligereza y atrevimiento de Juanito Apiñani en la de Madrid (La Tauromaquia, 20)",
+    "title_en": "The Agility and Audacity of Juanito Apiñani in the Ring at Madrid (La Tauromaquia, plate 20)",
+    "title_ko": "마드리드 투우장의 후아니토 아피냐니, 그 날렵함과 대담함 (《타우로마키아》 20번)",
+    "date": "1816",
+    "credit": "Francisco de Goya",
+    "collection": "The Metropolitan Museum of Art, New York",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Plate_20_from_the_%27Tauromaquia%27-The_agility_and_audacity_of_Juanito_Api%C3%B1ani_in_-the_ring-_at_Madrid._MET_DP817518.jpg",
+    "commonsFile": "File:Plate 20 from the 'Tauromaquia'-The agility and audacity of Juanito Apiñani in -the ring- at Madrid. MET DP817518.jpg",
+    "image": "g-c6-l1.webp",
+    "kind": "print",
+    "why": {
+     "ko": "고야는 평생 투우를 좋아했고, 1816년에는 투우만 다룬 판화집 《타우로마키아》를 펴냈어요. 장대를 짚고 소를 뛰어넘는 장면이에요.",
+     "en": "Goya loved the bullring all his life, and in 1816 he published a whole set of etchings on it, La Tauromaquia. Here a bullfighter vaults over the bull on a pole."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "VI.0",
+     "es": "Si el lunes estoy libre, iré contigo a ver los toros.",
+     "en": "If I'm free on Monday, I'll come with you to see the bulls.",
+     "ko": "월요일에 시간이 나면 같이 투우 보러 갈게요.",
+     "koLow": "월요일에 시간이 나면 같이 투우 보러 갈게.",
+     "koHigh": "월요일에 시간이 나면 함께 투우를 보러 가겠습니다.",
+     "focus": {
+      "es": [
+       "Si el lunes estoy libre",
+       "iré"
+      ],
+      "en": [
+       "If I'm free",
+       "I'll come"
+      ],
+      "ko": [
+       "시간이 나면"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Si el lunes estaré libre",
+        "Si el lunes esté libre"
+       ],
+       [
+        "iría",
+        "voy"
+       ]
+      ],
+      "en": [
+       [
+        "If I'll be free",
+        "If I was free"
+       ],
+       [
+        "I come",
+        "I came"
+       ]
+      ],
+      "ko": [
+       [
+        "시간이 나며",
+        "시간이 났면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "I.0",
+     "es": "Hoy estás más templado, y yo también estoy contento por eso.",
+     "en": "Today you're calmer, and I'm happy about that too.",
+     "ko": "오늘은 마음이 좀 편하다니 저도 기뻐요.",
+     "koLow": "오늘은 마음이 좀 편하다니 나도 기뻐.",
+     "koHigh": "오늘은 마음이 좀 편하시다니 저도 기쁩니다.",
+     "focus": {
+      "es": [
+       "estás"
+      ],
+      "en": [
+       "you're"
+      ],
+      "ko": [
+       "기뻐요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "eres",
+        "estoy"
+       ]
+      ],
+      "en": [
+       [
+        "you is",
+        "you am"
+       ]
+      ],
+      "ko": [
+       [
+        "기뻐여",
+        "기뻐야"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 0,
+     "grammar": "I.1",
+     "es": "Esteve tiene mucho talento, y tú tienes buen ojo para verlo.",
+     "en": "Esteve has a lot of talent, and you have a good eye for seeing it.",
+     "ko": "에스테베는 재능이 많고, 당신은 그걸 알아보는 눈이 있어요.",
+     "koLow": "에스테베는 재능이 많고, 넌 그걸 알아보는 눈이 있어.",
+     "koHigh": "에스테베는 재능이 많고, 당신은 그것을 알아보는 눈이 있습니다.",
+     "focus": {
+      "es": [
+       "tiene",
+       "tienes"
+      ],
+      "en": [
+       "has",
+       "you have"
+      ],
+      "ko": [
+       "있어요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "tienes",
+        "tengo"
+       ],
+       [
+        "tiene",
+        "tenéis"
+       ]
+      ],
+      "en": [
+       [
+        "have",
+        "haves"
+       ],
+       [
+        "you has",
+        "you having"
+       ]
+      ],
+      "ko": [
+       [
+        "있아요",
+        "잇어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Goya, sordo tras la enfermedad · Madrid, 23 de abril de 1794",
+      "en": "Goya, deaf since his illness · Madrid, 23 April 1794",
+      "ko": "병을 앓은 뒤 귀가 들리지 않는 고야 · 1794년 4월 23일, 마드리드"
+     }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "gm-c6-l1.webp",
+     "caption": {
+      "es": "Pedro Romero mata a un toro parado (La Tauromaquia, 30)",
+      "en": "Pedro Romero kills a halted bull (La Tauromaquia, plate 30)",
+      "ko": "멈춰 선 소를 쓰러뜨리는 페드로 로메로 (《타우로마키아》 30번)"
+     },
+     "credit": "Pedro Romero matando a toro parado, 1816 · Francisco de Goya · The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Plate_30_of_the_%27Tauromaquia%27-_Pedro_Romero_killing_the_halted_bull._MET_DP817790.jpg"
+    }
+   ],
+   "status": {
+    "es": "Unos ratos rabiando",
+    "en": "At times raging",
+    "ko": "화가 치미는 날들"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Adónde irá Goya el lunes?",
+      "en": "Where will Goya go on Monday?",
+      "ko": "고야는 월요일에 어디에 가요?"
+     },
+     "options": [
+      {
+       "es": "A ver los toros",
+       "en": "To see the bulls",
+       "ko": "투우를 보러"
+      },
+      {
+       "es": "A Zaragoza",
+       "en": "To Zaragoza",
+       "ko": "사라고사에"
+      },
+      {
+       "es": "Al palacio",
+       "en": "To the palace",
+       "ko": "왕궁에"
+      },
+      {
+       "es": "A la iglesia",
+       "en": "To church",
+       "ko": "성당에"
+      }
+     ],
+     "answer": 0,
+     "evidence": 4,
+     "mark": {
+      "es": "a ver los toros",
+      "en": "see the bulls",
+      "ko": "투우를 보러"
+     }
+    },
+    {
+     "q": {
+      "es": "¿Quién pintó el retrato de miniatura?",
+      "en": "Who painted the miniature portrait?",
+      "ko": "세밀 초상화는 누가 그렸어요?"
+     },
+     "options": [
+      {
+       "es": "Esteve",
+       "en": "Esteve",
+       "ko": "에스테베"
+      },
+      {
+       "es": "Goya",
+       "en": "Goya",
+       "ko": "고야"
+      },
+      {
+       "es": "Martín",
+       "en": "Martín",
+       "ko": "마르틴"
+      },
+      {
+       "es": "El conde de Sástago",
+       "en": "The Count of Sástago",
+       "ko": "사스타고 백작"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "es": "Esteve",
+      "en": "Esteve",
+      "ko": "에스테베"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "투우를 보러 가려는 프란시스코와 통화 · 나는 마르틴",
+     "en": "A call with Francisco, who is off to the bulls · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "Martín, el lunes voy a los toros.",
+      "en": "Martín, on Monday I'm going to the bulls.",
+      "ko": "마르틴, 월요일에 투우 보러 가."
+     },
+     {
+      "who": "me",
+      "es": "Si me invitas, iré contigo.",
+      "en": "If you invite me, I'll go with you.",
+      "ko": "초대해 주면 같이 갈게.",
+      "focus": {
+       "es": [
+        "Si me invitas",
+        "iré"
+       ],
+       "en": [
+        "If you invite me",
+        "I'll go"
+       ],
+       "ko": [
+        "초대해 주면"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Si me invitarás",
+         "Si me invitaras"
+        ],
+        [
+         "iría",
+         "voy"
+        ]
+       ],
+       "en": [
+        [
+         "If you will invite me",
+         "If you invited me"
+        ],
+        [
+         "I go",
+         "I'd go"
+        ]
+       ],
+       "ko": [
+        [
+         "초대해 주며",
+         "초대해 줘면"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "¡Claro! Así estaré de mejor humor.",
+      "en": "Of course! Then I'll be in a better mood.",
+      "ko": "물론이지! 그럼 기분이 좀 나아질 거야."
+     },
+     {
+      "who": "me",
+      "es": "Si no llueve, iremos juntos el lunes.",
+      "en": "If it doesn't rain, we'll go together on Monday.",
+      "ko": "비가 안 오면 월요일에 같이 가자.",
+      "focus": {
+       "es": [
+        "Si no llueve",
+        "iremos"
+       ],
+       "en": [
+        "If it doesn't rain",
+        "we'll go"
+       ],
+       "ko": [
+        "안 오면"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Si no lloverá",
+         "Si no llueva"
+        ],
+        [
+         "íbamos",
+         "vamos"
+        ]
+       ],
+       "en": [
+        [
+         "If it won't rain",
+         "If it not rains"
+        ],
+        [
+         "we go",
+         "we went"
+        ]
+       ],
+       "ko": [
+        [
+         "안 오며",
+         "안 와면"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "toro",
+     "lunes"
+    ],
+    "grammar": "VI.0",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "Si no llueve",
+      "en": "If it doesn't rain",
+      "ko": "비가 안 오면"
+     },
+     "opts": [
+      {
+       "es": "Si estás bien",
+       "en": "If you're well",
+       "ko": "네가 괜찮으면"
+      },
+      {
+       "es": "Si no hace frío",
+       "en": "If it isn't cold",
+       "ko": "안 추우면"
+      },
+      {
+       "es": "Si tengo tiempo",
+       "en": "If I have time",
+       "ko": "내가 시간이 나면"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "c6-l2",
+   "date": "1794-08-02",
+   "dateNote": "Dated 2 August 1794 by the Museo del Prado catalogue ('Carta a Martín Zapater de 2 de agosto de 1794'). Zapater y Gómez (1868, p. 27), Beruete (1916, p. 59) and Viñaza print 2 August 1800; Beruete adds that the letter is dated in jest from London ('fechada por broma en Londres').",
+   "ref": "Zapater y Gómez, pp. 27–28 (also Beruete 1916, p. 59) · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27–28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+   "place": "Madrid",
+   "to": {
+    "es": "Martín Zapater",
+    "en": "Martín Zapater",
+    "ko": "마르틴 사파테르"
+   },
+   "mood": "bright",
+   "excerpt": "Messages 0–2 are the whole passage printed in Zapater y Gómez (1868); the editor's aside '(decía el 2 de Agosto del año 1800)' is left out. Beruete prints a shorter version with small differences ('ayer se me metió', 'la pintase'). 'heñirme' is printed in both editions; the sense is 'venirme' [to check against the page images]. The Duchess of Alba has no speaking part in the talk.",
+   "messages": [
+    {
+     "es": "Más te valía heñirme a ayudar a pintar a la de Alba, que se me metió en el estudio a que le pintase la cara, y se salió con ello.",
+     "en": "You'd have done better to come and help me paint the Duchess of Alba, who barged into my studio to have me paint her face, and got her way.",
+     "ko": "네가 와서 알바 공작부인 그리는 걸 도와줬으면 좋았을 텐데. 공작부인이 내 작업실에 들이닥쳐 얼굴을 칠해 달라더니, 결국 뜻대로 했어.",
+     "orig": {
+      "es": "Mas te balia heñirme a ayudar a pintar a la de Alba, que se me metió en el estudio a que le pintase la cara, y se salió con ello;"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27–28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Más te valía heñirme a ayudar a pintar a la de Alba, / que se me metió en el estudio a que le pintase la cara, / y se salió con ello.",
+      "en": "You'd have done better to come and help me paint the Duchess of Alba, / who barged into my studio to have me paint her face, / and got her way.",
+      "ko": "네가 와서 알바 공작부인 그리는 걸 도와줬으면 좋았을 텐데. // 공작부인이 내 작업실에 들이닥쳐 얼굴을 칠해 달라더니, / 결국 뜻대로 했어."
+     }
+    },
+    {
+     "es": "Por cierto que me gusta más que pintar en lienzo; que también la he de retratar de cuerpo entero, y vendrá apenas acabe yo un borrón que estoy haciendo del duque de la Alcudia a caballo.",
+     "en": "I must say I like it better than painting on canvas. I'm also to paint her full-length, and she'll come as soon as I finish a sketch I'm making of the Duke of la Alcudia on horseback.",
+     "ko": "사실 캔버스에 그리는 것보다 그게 더 좋더라. 공작부인의 전신 초상도 그려야 해. 내가 알쿠디아 공작이 말 탄 모습의 밑그림을 끝내자마자 올 거야.",
+     "orig": {
+      "es": "por cierto que me gusta mas que pintar en lienzo, que también la he de retratar de cuerpo entero y bendra apenas acabe yo un borrón que estoy aciendo de el Duque de la Alcudia a caballo"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27–28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Por cierto que me gusta más que pintar en lienzo; // que también la he de retratar de cuerpo entero, / y vendrá apenas acabe yo un borrón que estoy haciendo del duque de la Alcudia a caballo.",
+      "en": "I must say I like it better than painting on canvas. // I'm also to paint her full-length, / and she'll come as soon as I finish a sketch I'm making of the Duke of la Alcudia on horseback.",
+      "ko": "사실 캔버스에 그리는 것보다 그게 더 좋더라. // 공작부인의 전신 초상도 그려야 해. // 내가 알쿠디아 공작이 말 탄 모습의 밑그림을 끝내자마자 올 거야."
+     }
+    },
+    {
+     "es": "Que me envió a decir me avisaría y dispondría mi alojamiento en el sitio, pues me estaría más tiempo del que yo pensaba: te aseguro que es un asunto de lo más difícil que se le puede ofrecer a un pintor.",
+     "en": "He sent word that he would let me know and arrange my lodging at the royal residence, since I'd be staying longer than I thought. I assure you it's one of the most difficult subjects a painter can be offered.",
+     "ko": "공작은 기별을 주고 궁에 내 숙소를 마련해 주겠다고 전해 왔어. 생각보다 오래 머물게 될 거라면서. 정말이지, 화가가 맡을 수 있는 일 가운데 가장 어려운 일이야.",
+     "orig": {
+      "es": "que me embio a decir me abisaria y dispondria mi alojamiento en el sitio pues me estaria mas tiempo del que yo pensaba: te aseguro que es un asunto de lo mas dificil que se le puede ofrecer a un Pintor."
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27–28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Que me envió a decir me avisaría y dispondría mi alojamiento en el sitio, / pues me estaría más tiempo del que yo pensaba: // te aseguro que es un asunto de lo más difícil que se le puede ofrecer a un pintor.",
+      "en": "He sent word that he would let me know and arrange my lodging at the royal residence, / since I'd be staying longer than I thought. // I assure you it's one of the most difficult subjects a painter can be offered.",
+      "ko": "공작은 기별을 주고 궁에 내 숙소를 마련해 주겠다고 전해 왔어. // 생각보다 오래 머물게 될 거라면서. // 정말이지, / 화가가 맡을 수 있는 일 가운데 가장 어려운 일이야."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "알바 공작부인(마리아 테레사 카예타나 데 실바)은 이 무렵 고야의 작업실을 드나들며 모델이 되어 주었어요. 고야는 1795년 흰 옷을 입은 전신 초상을, 1797년에는 검은 옷의 초상을 그렸어요. ‘얼굴을 칠해 달라’는 말은 붓으로 화장을 해 주었다는 뜻으로 읽혀요. 1916년 베루에테는 이 편지를 엉뚱하게 읽고 지어낸 일화가 많다고 꼬집었어요. ‘알쿠디아 공작’은 카를로스 4세의 총신이자 재상이던 마누엘 고도이예요.",
+    "en": "The Duchess of Alba, María Teresa Cayetana de Silva, was visiting Goya's studio and sitting for him at this time. He painted her full-length in white in 1795, and in black in 1797. ‘To paint her face’ reads as making up her face with his brush. In 1916 Beruete complained that misreadings of this letter had led writers to invent anecdotes. The ‘Duke of la Alcudia’ is Manuel Godoy, favourite and chief minister of Carlos IV.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27–28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 58–59 · public domain · https://archive.org/details/AV192 ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "La duquesa de Alba",
+    "title_en": "The Duchess of Alba",
+    "title_ko": "알바 공작부인",
+    "date": "1795",
+    "credit": "Francisco de Goya",
+    "collection": "Palacio de Liria, Madrid (Casa de Alba)",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Duchess_of_Alba_or_The_White_Duchess_by_Goya.jpg",
+    "commonsFile": "File:Duchess of Alba or The White Duchess by Goya.jpg",
+    "image": "g-c6-l2.webp",
+    "kind": "portrait",
+    "why": {
+     "ko": "고야가 1795년에 그린 알바 공작부인의 전신 초상이에요. 편지에서 그려야 한다던 바로 그 ‘전신’ 초상이에요.",
+     "en": "Goya's full-length portrait of the Duchess of Alba, painted in 1795: the kind of full-length portrait the letter says he must paint."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VI.0",
+     "es": "Si me llamas otra vez, iré a Madrid a ayudarte con mucho gusto.",
+     "en": "If you call me again, I'll come to Madrid and gladly help you.",
+     "ko": "다시 부르면 마드리드에 가서 기꺼이 도울게요.",
+     "koLow": "다시 부르면 마드리드에 가서 기꺼이 도울게.",
+     "koHigh": "다시 부르시면 마드리드에 가서 기꺼이 돕겠습니다.",
+     "focus": {
+      "es": [
+       "Si me llamas",
+       "iré"
+      ],
+      "en": [
+       "If you call me",
+       "I'll come"
+      ],
+      "ko": [
+       "부르면"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Si me llamarás",
+        "Si me llames"
+       ],
+       [
+        "iría",
+        "fui"
+       ]
+      ],
+      "en": [
+       [
+        "If you will call me",
+        "If you called me"
+       ],
+       [
+        "I come",
+        "I came"
+       ]
+      ],
+      "ko": [
+       [
+        "부르며",
+        "불면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "I.0",
+     "es": "Un retrato a caballo es difícil, pero tú estás preparado para todo.",
+     "en": "A portrait on horseback is difficult, but you're ready for anything.",
+     "ko": "말 탄 초상화는 어렵지만 당신은 뭐든 할 수 있어요.",
+     "koLow": "말 탄 초상화는 어렵지만 넌 뭐든 할 수 있어.",
+     "koHigh": "말 탄 초상화는 어렵지만 당신은 무엇이든 하실 수 있습니다.",
+     "focus": {
+      "es": [
+       "es",
+       "estás"
+      ],
+      "en": [
+       "is",
+       "you're"
+      ],
+      "ko": [
+       "할 수 있어요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "está",
+        "eres"
+       ],
+       [
+        "eres",
+        "está"
+       ]
+      ],
+      "en": [
+       [
+        "are",
+        "am"
+       ],
+       [
+        "you is",
+        "you am"
+       ]
+      ],
+      "ko": [
+       [
+        "할 수 있아요",
+        "할 수 잇어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "I.2",
+     "es": "No lo dudo, amigo: para ti ningún trabajo es difícil.",
+     "en": "I don't doubt it, my friend: for you no job is difficult.",
+     "ko": "의심하지 않아요. 당신에게는 어떤 일도 어렵지 않아요.",
+     "koLow": "의심하지 않아. 너에게는 어떤 일도 어렵지 않아.",
+     "koHigh": "의심하지 않습니다. 당신께는 어떤 일도 어렵지 않습니다.",
+     "focus": {
+      "es": [
+       "No lo dudo"
+      ],
+      "en": [
+       "I don't doubt"
+      ],
+      "ko": [
+       "어렵지 않아요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "No lo dudas",
+        "Lo no dudo"
+       ]
+      ],
+      "en": [
+       [
+        "I not doubt",
+        "I doesn't doubt"
+       ]
+      ],
+      "ko": [
+       [
+        "어렵지 안아요",
+        "어렵지 않어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Madrid, 2 de agosto de 1794",
+      "en": "Madrid, 2 August 1794",
+      "ko": "1794년 8월 2일, 마드리드"
+     }
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "gm-c6-l2.webp",
+     "caption": {
+      "es": "Manuel Godoy, duque de la Alcudia, a caballo: boceto de Goya (1794)",
+      "en": "Manuel Godoy, Duke of la Alcudia, on horseback: Goya's sketch (1794)",
+      "ko": "말 탄 알쿠디아 공작 마누엘 고도이, 고야의 밑그림 (1794)"
+     },
+     "credit": "Retrato ecuestre de Manuel Godoy (boceto), 1794 · Francisco de Goya · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Retrato_ecuestre_de_Manuel_Godoy.jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "La de Alba en el estudio",
+    "en": "The Duchess in the studio",
+    "ko": "작업실의 공작부인"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Quién se metió en el estudio de Goya?",
+      "en": "Who barged into Goya's studio?",
+      "ko": "고야의 작업실에 들이닥친 사람은 누구예요?"
+     },
+     "options": [
+      {
+       "es": "La de Alba",
+       "en": "The Duchess of Alba",
+       "ko": "알바 공작부인"
+      },
+      {
+       "es": "El Rey",
+       "en": "The King",
+       "ko": "왕"
+      },
+      {
+       "es": "Martín",
+       "en": "Martín",
+       "ko": "마르틴"
+      },
+      {
+       "es": "Esteve",
+       "en": "Esteve",
+       "ko": "에스테베"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "es": "la de Alba",
+      "en": "the Duchess of Alba",
+      "ko": "알바 공작부인"
+     }
+    },
+    {
+     "q": {
+      "es": "¿A quién pinta Goya a caballo?",
+      "en": "Whom is Goya painting on horseback?",
+      "ko": "고야는 누구의 말 탄 모습을 그리고 있어요?"
+     },
+     "options": [
+      {
+       "es": "Al duque de la Alcudia",
+       "en": "The Duke of la Alcudia",
+       "ko": "알쿠디아 공작"
+      },
+      {
+       "es": "A la duquesa de Alba",
+       "en": "The Duchess of Alba",
+       "ko": "알바 공작부인"
+      },
+      {
+       "es": "A Martín",
+       "en": "Martín",
+       "ko": "마르틴"
+      },
+      {
+       "es": "A su hijo",
+       "en": "His son",
+       "ko": "아들"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1,
+     "mark": {
+      "es": "duque de la Alcudia a caballo",
+      "en": "Duke of la Alcudia on horseback",
+      "ko": "알쿠디아 공작"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "일이 밀린 프란시스코와 통화 · 나는 마르틴",
+     "en": "A call with Francisco, snowed under with work · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "Martín, ¡ven a Madrid a ayudarme!",
+      "en": "Martín, come to Madrid and help me!",
+      "ko": "마르틴, 마드리드에 와서 나 좀 도와줘!"
+     },
+     {
+      "who": "me",
+      "es": "Si me esperas, iré pronto.",
+      "en": "If you wait for me, I'll come soon.",
+      "ko": "기다려 주면 곧 갈게.",
+      "focus": {
+       "es": [
+        "Si me esperas",
+        "iré"
+       ],
+       "en": [
+        "If you wait for me",
+        "I'll come"
+       ],
+       "ko": [
+        "기다려 주면"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Si me esperarás",
+         "Si me esperaras"
+        ],
+        [
+         "fui",
+         "voy"
+        ]
+       ],
+       "en": [
+        [
+         "If you will wait for me",
+         "If you waited for me"
+        ],
+        [
+         "I come",
+         "I came"
+        ]
+       ],
+       "ko": [
+        [
+         "기다려 주며",
+         "기다려 줘면"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Tengo mucho trabajo: un retrato y un caballo.",
+      "en": "I have lots of work: a portrait and a horse.",
+      "ko": "일이 많아. 초상화도 있고 말 그림도 있어."
+     },
+     {
+      "who": "me",
+      "es": "Si terminas pronto, pasearemos juntos por Madrid.",
+      "en": "If you finish soon, we'll walk around Madrid together.",
+      "ko": "빨리 끝내면 같이 마드리드를 산책하자.",
+      "focus": {
+       "es": [
+        "Si terminas",
+        "pasearemos"
+       ],
+       "en": [
+        "If you finish",
+        "we'll walk"
+       ],
+       "ko": [
+        "끝내면"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Si terminarás",
+         "Si termines"
+        ],
+        [
+         "paseamos",
+         "paseábamos"
+        ]
+       ],
+       "en": [
+        [
+         "If you will finish",
+         "If you finished"
+        ],
+        [
+         "we walk",
+         "we walked"
+        ]
+       ],
+       "ko": [
+        [
+         "끝내며",
+         "끝네면"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "retrato",
+     "caballo"
+    ],
+    "grammar": "VI.0",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "pasearemos juntos por Madrid",
+      "en": "we'll walk around Madrid together",
+      "ko": "같이 마드리드를 산책하자"
+     },
+     "opts": [
+      {
+       "es": "comeremos juntos",
+       "en": "we'll have dinner together",
+       "ko": "같이 밥 먹자"
+      },
+      {
+       "es": "iremos a los toros",
+       "en": "we'll go to the bulls",
+       "ko": "같이 투우 보러 가자"
+      },
+      {
+       "es": "hablaremos mucho",
+       "en": "we'll talk a lot",
+       "ko": "이야기 많이 하자"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "c6-l3",
+   "date": "1795",
+   "dateNote": "Undated. Zapater y Gómez (1868, p. 28) quotes it among the letters from the years when Godoy, Duke of la Alcudia, favoured Goya; it comes after the illness of 1792–93, since the minister 'learned to talk with his hands' (the editor's footnote: 'Goya era sordo'). About 1794–95; no modern dating found.",
+   "ref": "Zapater y Gómez, p. 28 (also Beruete 1916, p. 89) · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+   "place": "Madrid",
+   "to": {
+    "es": "Martín Zapater",
+    "en": "Martín Zapater",
+    "ko": "마르틴 사파테르"
+   },
+   "mood": "bright",
+   "excerpt": "Messages 0–4 are the whole passage printed in Zapater y Gómez (1868); the editor's footnote mark after 'para hablarme' is left out. 'Sabedra' is printed; the app text spells it 'Saavedra' (Francisco de Saavedra).",
+   "messages": [
+    {
+     "es": "Martín mío: Anteayer llegué de Aranjuez, y por eso no te he respondido.",
+     "en": "My dear Martín: I got back from Aranjuez the day before yesterday, and that's why I haven't answered you.",
+     "ko": "내 친구 마르틴, 그저께 아란후에스에서 돌아왔어. 그래서 답장을 못 했어.",
+     "orig": {
+      "es": "Martin mió. Antes de ayer llegue de Aranjuez y por eso no te he respondido."
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Martín mío: // Anteayer llegué de Aranjuez, / y por eso no te he respondido.",
+      "en": "My dear Martín: // I got back from Aranjuez the day before yesterday, / and that's why I haven't answered you.",
+      "ko": "내 친구 마르틴, / 그저께 아란후에스에서 돌아왔어. // 그래서 답장을 못 했어."
+     }
+    },
+    {
+     "es": "El ministro se ha excedido en obsequiarme, llevándome consigo a paseo en su coche, haciéndome las mayores expresiones de amistad que se pueden hacer.",
+     "en": "The minister went out of his way to make much of me: he took me out driving with him in his carriage and showed me the greatest signs of friendship anyone could.",
+     "ko": "장관이 나를 극진히 대접했어. 자기 마차에 태워 함께 바람을 쐬러 다니고, 더할 나위 없이 다정하게 대해 줬어.",
+     "orig": {
+      "es": "El ministro se ha escedido en obsequiarme llevandome consigo a paseo en su coche aciendome las mayores expresiones de amistad que se pueden acer,"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "El ministro se ha excedido en obsequiarme, / llevándome consigo a paseo en su coche, / haciéndome las mayores expresiones de amistad que se pueden hacer.",
+      "en": "The minister went out of his way to make much of me: // he took me out driving with him in his carriage and showed me the greatest signs of friendship anyone could.",
+      "ko": "장관이 나를 극진히 대접했어. // 자기 마차에 태워 함께 바람을 쐬러 다니고, / 더할 나위 없이 다정하게 대해 줬어."
+     }
+    },
+    {
+     "es": "Me consentía comer con capote, porque hacía mucho frío; aprendió a hablar por la mano, y dejaba de comer para hablarme.",
+     "en": "He let me eat with my cloak on, because it was very cold; he learned to talk with his hands, and he would stop eating to talk to me.",
+     "ko": "몹시 추워서 외투를 입은 채 밥을 먹게 해 줬어. 손으로 말하는 법을 배워서, 먹다 말고 나한테 말을 걸었어.",
+     "orig": {
+      "es": "me consentia comer con capote por que acia mucho frió, aprendió a ablar por la mano, y dejaba de comer para hablarme,"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Me consentía comer con capote, / porque hacía mucho frío; // aprendió a hablar por la mano, / y dejaba de comer para hablarme.",
+      "en": "He let me eat with my cloak on, / because it was very cold; // he learned to talk with his hands, / and he would stop eating to talk to me.",
+      "ko": "몹시 추워서 외투를 입은 채 밥을 먹게 해 줬어. // 손으로 말하는 법을 배워서, / 먹다 말고 나한테 말을 걸었어."
+     }
+    },
+    {
+     "es": "Quería que me estuviese hasta la Pascua y que hiciese el retrato de Saavedra (que es su amigo), y yo me hubiera alegrado de hacerlo, pero no tenía lienzo ni camisa que mudarme, y lo dejé descontento y me vine.",
+     "en": "He wanted me to stay until Easter and paint the portrait of Saavedra (who is his friend), and I'd have been glad to, but I had no canvas, nor a shirt to change into, so I left him displeased and came home.",
+     "ko": "부활절까지 머물면서 자기 친구 사아베드라의 초상을 그려 달라고 했어. 나도 기꺼이 그리고 싶었지만 캔버스도, 갈아입을 셔츠도 없었어. 그래서 서운해하는 그를 두고 돌아왔어.",
+     "orig": {
+      "es": "queria que me estubiese asta la pascua y que hiciese el retrato de Sabedra (que es su amigo) y yo me ubiera alegrado de acerlo pero no tenia lienzo ni camisa que mudarme, y lo dege descontento y me bine:"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Quería que me estuviese hasta la Pascua y que hiciese el retrato de Saavedra (que es su amigo), / y yo me hubiera alegrado de hacerlo, / pero no tenía lienzo ni camisa que mudarme, / y lo dejé descontento y me vine.",
+      "en": "He wanted me to stay until Easter and paint the portrait of Saavedra (who is his friend), / and I'd have been glad to, / but I had no canvas, / nor a shirt to change into, / so I left him displeased and came home.",
+      "ko": "부활절까지 머물면서 자기 친구 사아베드라의 초상을 그려 달라고 했어. // 나도 기꺼이 그리고 싶었지만 캔버스도, / 갈아입을 셔츠도 없었어. // 그래서 서운해하는 그를 두고 돌아왔어."
+     }
+    },
+    {
+     "es": "Ahí tienes una carta que lo acredita, que no sé si podrás leer su letra, que es peor que la mía: no la enseñes ni digas nada, y vuélvemela a enviar.",
+     "en": "Here's a letter that proves it; I don't know if you'll be able to read his handwriting, which is worse than mine. Don't show it or say anything, and send it back to me.",
+     "ko": "여기 그걸 증명하는 편지가 있어. 글씨가 나보다 엉망이라 읽을 수 있을지 모르겠어. 아무한테도 보여 주지 말고 말도 하지 말고, 다시 돌려보내 줘.",
+     "orig": {
+      "es": "ay tienes una carta que lo acredita, que no se si podras leer su letra que es peor que la mia: no la enseñes ni digas nada y buelbemela a embiar."
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Ahí tienes una carta que lo acredita, / que no sé si podrás leer su letra, / que es peor que la mía: // no la enseñes ni digas nada, / y vuélvemela a enviar.",
+      "en": "Here's a letter that proves it; // I don't know if you'll be able to read his handwriting, / which is worse than mine. // Don't show it or say anything, / and send it back to me.",
+      "ko": "여기 그걸 증명하는 편지가 있어. // 글씨가 나보다 엉망이라 읽을 수 있을지 모르겠어. // 아무한테도 보여 주지 말고 말도 하지 말고, / 다시 돌려보내 줘."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "‘장관’은 알쿠디아 공작 마누엘 고도이예요. 카를로스 4세의 재상으로, 훗날 ‘평화공’이라는 칭호를 받아요. 아란후에스는 마드리드 남쪽, 왕실이 봄을 보내던 궁이 있는 곳이에요. 1868년 판은 ‘손으로 말하는 법을 배웠다’는 대목에 ‘고야는 귀가 들리지 않았다’는 주를 달았어요. 귀먹은 화가와 이야기하려고 재상이 손말을 배운 거예요. 사아베드라는 훗날 재무 장관이 되는 프란시스코 데 사아베드라로, 고야는 1798년 그의 초상을 그렸어요.",
+    "en": "The ‘minister’ is Manuel Godoy, Duke of la Alcudia, chief minister of Carlos IV, later given the title ‘Prince of the Peace’. Aranjuez, south of Madrid, is the royal palace where the court spent the spring. At ‘he learned to talk with his hands’ the 1868 edition adds a footnote: ‘Goya was deaf’. The minister learned a hand language to talk to the deaf painter. Saavedra is Francisco de Saavedra, later minister of finance; Goya painted him in 1798.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Manuel Godoy, duque de la Alcudia, príncipe de la Paz",
+    "title_en": "Manuel Godoy, Duke of la Alcudia, Prince of the Peace",
+    "title_ko": "알쿠디아 공작, 평화공 마누엘 고도이",
+    "date": "1801",
+    "credit": "Francisco de Goya",
+    "collection": "Real Academia de Bellas Artes de San Fernando, Madrid",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Francisco_de_Goya_-_Godoy_como_general_-_Google_Art_Project.jpg",
+    "commonsFile": "File:Francisco de Goya - Godoy como general - Google Art Project.jpg",
+    "image": "g-c6-l3.webp",
+    "kind": "portrait",
+    "why": {
+     "ko": "고야가 1801년에 그린 고도이예요. 귀먹은 고야와 이야기하려고 손말을 배운 바로 그 장관이에요.",
+     "en": "Goya's portrait of Godoy, painted in 1801: the minister who learned to talk with his hands to speak with the deaf painter."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "VI.0",
+     "es": "Si el ministro habla con las manos, tú le entenderás mejor que nadie.",
+     "en": "If the minister talks with his hands, you'll understand him better than anyone.",
+     "ko": "장관이 손으로 말하면 당신이 누구보다 잘 알아들을 거예요.",
+     "koLow": "장관이 손으로 말하면 네가 누구보다 잘 알아들을 거야.",
+     "koHigh": "장관께서 손으로 말씀하시면 당신이 누구보다 잘 알아들으실 겁니다.",
+     "focus": {
+      "es": [
+       "Si el ministro habla",
+       "entenderás"
+      ],
+      "en": [
+       "If the minister talks",
+       "you'll understand"
+      ],
+      "ko": [
+       "말하면"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Si el ministro hablará",
+        "Si el ministro hable"
+       ],
+       [
+        "entiendes",
+        "entendías"
+       ]
+      ],
+      "en": [
+       [
+        "If the minister will talk",
+        "If the minister talked"
+       ],
+       [
+        "you understand",
+        "you understood"
+       ]
+      ],
+      "ko": [
+       [
+        "말하며",
+        "말허면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "I.2",
+     "es": "No enseñaré la carta a nadie y no diré nada, te lo prometo.",
+     "en": "I won't show the letter to anyone and I won't say anything, I promise.",
+     "ko": "편지는 아무한테도 안 보여 주고 아무 말도 안 할게요. 약속해요.",
+     "koLow": "편지는 아무한테도 안 보여 주고 아무 말도 안 할게. 약속해.",
+     "koHigh": "편지는 아무에게도 보이지 않고 아무 말도 하지 않겠습니다. 약속드립니다.",
+     "focus": {
+      "es": [
+       "No enseñaré",
+       "no diré"
+      ],
+      "en": [
+       "I won't show",
+       "I won't say"
+      ],
+      "ko": [
+       "안 보여 주고"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Enseñaré no",
+        "Nada enseñaré"
+       ],
+       [
+        "diré no",
+        "no dirá"
+       ]
+      ],
+      "en": [
+       [
+        "I not show",
+        "I don't will show"
+       ],
+       [
+        "I not say",
+        "I won't to say"
+       ]
+      ],
+      "ko": [
+       [
+        "안 보여 줘고",
+        "않 보여 주고"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "I.1",
+     "es": "Tienes una buena razón: no tenías lienzo ni camisa limpia.",
+     "en": "You have a good reason: you had no canvas and no clean shirt.",
+     "ko": "좋은 이유가 있어요. 캔버스도 셔츠도 없었잖아요.",
+     "koLow": "좋은 이유가 있어. 캔버스도 셔츠도 없었잖아.",
+     "koHigh": "좋은 이유가 있습니다. 캔버스도 셔츠도 없으셨지요.",
+     "focus": {
+      "es": [
+       "Tienes"
+      ],
+      "en": [
+       "You have"
+      ],
+      "ko": [
+       "있어요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Tiene",
+        "Tengo"
+       ]
+      ],
+      "en": [
+       [
+        "You has",
+        "You having"
+       ]
+      ],
+      "ko": [
+       [
+        "있아요",
+        "잇어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Goya vuelve de Aranjuez a Madrid",
+      "en": "Goya is back in Madrid from Aranjuez",
+      "ko": "고야가 아란후에스에서 마드리드로 돌아왔어요"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "aranjuez",
+     "title": {
+      "es": "Real Sitio de Aranjuez",
+      "en": "The royal palace of Aranjuez",
+      "ko": "아란후에스 왕궁"
+     },
+     "address": "Aranjuez, al sur de Madrid"
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "gm-c6-l3.webp",
+     "caption": {
+      "es": "Francisco de Saavedra, retratado por Goya (1798)",
+      "en": "Francisco de Saavedra, painted by Goya (1798)",
+      "ko": "고야가 그린 프란시스코 데 사아베드라 (1798)"
+     },
+     "credit": "Francisco de Saavedra, 1798 · Francisco de Goya · The Courtauld, Londres · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Francisco_de_Saavedra_(Goya).jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "Hablar por la mano",
+    "en": "Talking with the hands",
+    "ko": "손으로 하는 말"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Cómo hablaba el ministro con Goya?",
+      "en": "How did the minister talk to Goya?",
+      "ko": "장관은 고야와 어떻게 이야기했어요?"
+     },
+     "options": [
+      {
+       "es": "Con las manos",
+       "en": "With his hands",
+       "ko": "손으로"
+      },
+      {
+       "es": "Por carta",
+       "en": "By letter",
+       "ko": "편지로"
+      },
+      {
+       "es": "En voz muy alta",
+       "en": "Very loudly",
+       "ko": "아주 큰 소리로"
+      },
+      {
+       "es": "No hablaba",
+       "en": "He didn't talk",
+       "ko": "말하지 않았어요"
+      }
+     ],
+     "answer": 0,
+     "evidence": 2,
+     "mark": {
+      "es": "hablar por la mano",
+      "en": "talk with his hands",
+      "ko": "손으로 말하는"
+     }
+    },
+    {
+     "q": {
+      "es": "¿Por qué no se quedó Goya hasta la Pascua?",
+      "en": "Why didn't Goya stay until Easter?",
+      "ko": "고야는 왜 부활절까지 머물지 않았어요?"
+     },
+     "options": [
+      {
+       "es": "No tenía lienzo ni camisa",
+       "en": "He had no canvas and no shirt",
+       "ko": "캔버스도 셔츠도 없어서"
+      },
+      {
+       "es": "Hacía calor",
+       "en": "It was hot",
+       "ko": "더워서"
+      },
+      {
+       "es": "Estaba enfermo",
+       "en": "He was ill",
+       "ko": "아파서"
+      },
+      {
+       "es": "El ministro no quería",
+       "en": "The minister didn't want him to",
+       "ko": "장관이 원하지 않아서"
+      }
+     ],
+     "answer": 0,
+     "evidence": 3,
+     "mark": {
+      "es": "no tenía lienzo ni camisa",
+      "en": "I had no canvas",
+      "ko": "캔버스도"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "아란후에스에서 돌아온 프란시스코와 통화 · 나는 마르틴",
+     "en": "A call with Francisco, back from Aranjuez · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "Martín, el ministro aprendió a hablar con las manos.",
+      "en": "Martín, the minister learned to talk with his hands.",
+      "ko": "마르틴, 장관이 손으로 말하는 법을 배웠어."
+     },
+     {
+      "who": "me",
+      "es": "¡Qué amable! Si me enseñas, yo también aprenderé.",
+      "en": "How kind! If you teach me, I'll learn too.",
+      "ko": "참 친절하다! 네가 가르쳐 주면 나도 배울게.",
+      "focus": {
+       "es": [
+        "Si me enseñas",
+        "aprenderé"
+       ],
+       "en": [
+        "If you teach me",
+        "I'll learn"
+       ],
+       "ko": [
+        "가르쳐 주면"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Si me enseñarás",
+         "Si me enseñes"
+        ],
+        [
+         "aprendo",
+         "aprendí"
+        ]
+       ],
+       "en": [
+        [
+         "If you will teach me",
+         "If you taught me"
+        ],
+        [
+         "I learn",
+         "I learned"
+        ]
+       ],
+       "ko": [
+        [
+         "가르쳐 주며",
+         "가르쳐 줘면"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Claro. Así hablaremos sin escribir.",
+      "en": "Of course. Then we'll talk without writing.",
+      "ko": "좋아. 그럼 글을 안 써도 이야기할 수 있어."
+     },
+     {
+      "who": "me",
+      "es": "Si vienes a Zaragoza, practicaremos todos los días.",
+      "en": "If you come to Zaragoza, we'll practise every day.",
+      "ko": "사라고사에 오면 매일 같이 연습하자.",
+      "focus": {
+       "es": [
+        "Si vienes",
+        "practicaremos"
+       ],
+       "en": [
+        "If you come",
+        "we'll practise"
+       ],
+       "ko": [
+        "오면"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Si vendrás",
+         "Si vengas"
+        ],
+        [
+         "practicamos",
+         "practicábamos"
+        ]
+       ],
+       "en": [
+        [
+         "If you will come",
+         "If you came"
+        ],
+        [
+         "we practise",
+         "we practised"
+        ]
+       ],
+       "ko": [
+        [
+         "오며",
+         "와면"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "mano",
+     "hablar"
+    ],
+    "grammar": "VI.0",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "todos los días",
+      "en": "every day",
+      "ko": "매일"
+     },
+     "opts": [
+      {
+       "es": "cada tarde",
+       "en": "every evening",
+       "ko": "저녁마다"
+      },
+      {
+       "es": "los domingos",
+       "en": "on Sundays",
+       "ko": "일요일마다"
+      },
+      {
+       "es": "después de comer",
+       "en": "after lunch",
+       "ko": "점심 먹고"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "c6-l4",
+   "date": "1799",
+   "dateNote": "Undated: Goya's own explanation of plate 49 of Los Caprichos (Duendecitos), quoted in Beruete (1918, p. 36: 'El propio Goya dice…'). Los Caprichos went on sale in 1799; the explanations date from about 1797–99.",
+   "ref": "Beruete 1918, p. 36 · A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 36 · public domain · https://archive.org/details/AV194",
+   "place": "Madrid",
+   "mood": "calm",
+   "excerpt": "Messages 0–2 are Goya's whole explanation of the plate as Beruete prints it. This is a caption for a print, not a letter; it has no recipient.",
+   "messages": [
+    {
+     "es": "Buena cosa es que esta gente no se deje ver sino de noche y a oscuras.",
+     "en": "It's a good thing these folk only let themselves be seen at night and in the dark.",
+     "ko": "이 족속이 밤에, 어둠 속에서만 모습을 드러내니 다행이지.",
+     "orig": {
+      "es": "Buena cosa es qe esta gente no se dexe ver sino de noche y a obscuras."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 36 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "Buena cosa es que esta gente no se deje ver sino de noche y a oscuras.",
+      "en": "It's a good thing these folk only let themselves be seen at night and in the dark.",
+      "ko": "이 족속이 밤에, / 어둠 속에서만 모습을 드러내니 다행이지."
+     }
+    },
+    {
+     "es": "Nadie ha podido averiguar en dónde se encierran y ocultan durante el día.",
+     "en": "No one has been able to find out where they shut themselves up and hide during the day.",
+     "ko": "낮에는 어디에 틀어박혀 숨어 있는지 아무도 알아내지 못했어.",
+     "orig": {
+      "es": "Nadie a podido aberiguar en donde se encierran y ocultan durante el dia."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 36 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "Nadie ha podido averiguar en dónde se encierran y ocultan durante el día.",
+      "en": "No one has been able to find out where they shut themselves up and hide during the day.",
+      "ko": "낮에는 어디에 틀어박혀 숨어 있는지 아무도 알아내지 못했어."
+     }
+    },
+    {
+     "es": "El que lograse coger una madriguera de duendes y la enseñase dentro de una jaula a las 10 de la mañana en la Puerta del Sol no necesitaba de otro mayorazgo.",
+     "en": "Whoever managed to catch a nest of hobgoblins and show it in a cage at ten in the morning in the Puerta del Sol would need no other inheritance.",
+     "ko": "도깨비 굴을 하나 잡아서 아침 10시에 푸에르타 델 솔에서 우리에 넣어 보여 주는 사람은 다른 재산이 필요 없을 거야.",
+     "orig": {
+      "es": "El qe lograse cojer una madriguera de Duendes y la enseñase dentro de una jaula álas 10 de la mañana en la Puerta del Sol, no necesitaba de otro mayorazgo."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 36 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "El que lograse coger una madriguera de duendes y la enseñase dentro de una jaula a las 10 de la mañana en la Puerta del Sol no necesitaba de otro mayorazgo.",
+      "en": "Whoever managed to catch a nest of hobgoblins and show it in a cage at ten in the morning in the Puerta del Sol would need no other inheritance.",
+      "ko": "도깨비 굴을 하나 잡아서 아침 10시에 푸에르타 델 솔에서 우리에 넣어 보여 주는 사람은 다른 재산이 필요 없을 거야."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "편지가 아니라 고야가 자기 판화에 직접 붙인 풀이글이에요. 《카프리초스》는 사람들의 어리석음과 미신을 비꼰 판화 80장으로, 1799년에 팔기 시작했어요. 고야는 판마다 짧은 풀이를 적어 두었고, 1918년 베루에테는 이 글을 ‘고야 자신이 말하기를’ 하고 옮겼어요. 푸에르타 델 솔은 마드리드에서 사람이 가장 많이 모이는 광장이에요. ‘마요라스고(mayorazgo)’는 맏아들에게 통째로 물려주는 집안 재산이라, ‘평생 먹고살 걱정이 없다’는 농담이에요.",
+    "en": "Not a letter but the explanation Goya himself wrote for one of his prints. Los Caprichos, eighty etchings mocking human folly and superstition, went on sale in 1799. Goya wrote a short explanation for each plate; in 1918 Beruete quoted this one with ‘Goya himself says…’. The Puerta del Sol is the busiest square in Madrid. A ‘mayorazgo’ is an entailed family estate passed whole to the eldest son, so the joke is ‘he'd be set up for life’.",
+    "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 36 · public domain · https://archive.org/details/AV194 ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Duendecitos (Los Caprichos, 49)",
+    "title_en": "Hobgoblins (Los Caprichos, plate 49)",
+    "title_ko": "도깨비들 (《카프리초스》 49번)",
+    "date": "1799",
+    "credit": "Francisco de Goya",
+    "collection": "The Metropolitan Museum of Art, New York",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Plate_49_from_%27Los_Caprichos%27-_Hobgoblins_(Duendecitos.)_MET_DP816988.jpg",
+    "commonsFile": "File:Plate 49 from 'Los Caprichos'- Hobgoblins (Duendecitos.) MET DP816988.jpg",
+    "image": "g-c6-l4.webp",
+    "kind": "print",
+    "why": {
+     "ko": "이 풀이글이 붙은 바로 그 판화, 《카프리초스》 49번 〈도깨비들〉이에요.",
+     "en": "The very print this caption explains: plate 49 of Los Caprichos, ‘Hobgoblins’."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 2,
+     "grammar": "VI.1",
+     "es": "¿Vamos a la Puerta del Sol a las diez para buscar duendes juntos?",
+     "en": "Shall we go to the Puerta del Sol at ten to look for hobgoblins together?",
+     "ko": "열 시에 같이 푸에르타 델 솔에 도깨비 찾으러 갈까요?",
+     "koLow": "열 시에 같이 푸에르타 델 솔에 도깨비 찾으러 갈까?",
+     "koHigh": "열 시에 함께 푸에르타 델 솔에 도깨비를 찾으러 가시겠습니까?",
+     "focus": {
+      "es": [
+       "Vamos a"
+      ],
+      "en": [
+       "Shall we go"
+      ],
+      "ko": [
+       "갈까요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Vamos en",
+        "Van a"
+       ]
+      ],
+      "en": [
+       [
+        "Shall we going",
+        "Shall we goes"
+       ]
+      ],
+      "ko": [
+       [
+        "갈가요",
+        "갈까여"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 0,
+     "grammar": "VI.0",
+     "es": "Si los duendes solo salen de noche, nunca los veré de día.",
+     "en": "If hobgoblins only come out at night, I'll never see them by day.",
+     "ko": "도깨비가 밤에만 나오면 낮에는 절대 못 볼 거예요.",
+     "koLow": "도깨비가 밤에만 나오면 낮에는 절대 못 볼 거야.",
+     "koHigh": "도깨비가 밤에만 나오면 낮에는 결코 볼 수 없을 것입니다.",
+     "focus": {
+      "es": [
+       "Si los duendes solo salen",
+       "veré"
+      ],
+      "en": [
+       "If hobgoblins only come out",
+       "I'll never see"
+      ],
+      "ko": [
+       "나오면"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Si los duendes solo saldrán",
+        "Si los duendes solo salgan"
+       ],
+       [
+        "veo",
+        "vi"
+       ]
+      ],
+      "en": [
+       [
+        "If hobgoblins will only come out",
+        "If hobgoblins only came out"
+       ],
+       [
+        "I never see",
+        "I never saw"
+       ]
+      ],
+      "ko": [
+       [
+        "나오며",
+        "나와면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "I.0",
+     "es": "Los duendes son muy listos, y yo estoy seguro de que están en tu estudio.",
+     "en": "Hobgoblins are very clever, and I'm sure they're in your studio.",
+     "ko": "도깨비들은 아주 영리해요. 분명 당신 작업실에 있을 거예요.",
+     "koLow": "도깨비들은 아주 영리해. 분명 네 작업실에 있을 거야.",
+     "koHigh": "도깨비들은 아주 영리합니다. 분명 당신 작업실에 있을 겁니다.",
+     "focus": {
+      "es": [
+       "son",
+       "estoy"
+      ],
+      "en": [
+       "are",
+       "I'm"
+      ],
+      "ko": [
+       "영리해요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "están",
+        "es"
+       ],
+       [
+        "soy",
+        "está"
+       ]
+      ],
+      "en": [
+       [
+        "is",
+        "be"
+       ],
+       [
+        "I is",
+        "I are"
+       ]
+      ],
+      "ko": [
+       [
+        "영리헤요",
+        "영리하요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Los Caprichos · Madrid, 1799",
+      "en": "Los Caprichos · Madrid, 1799",
+      "ko": "《카프리초스》 · 1799년, 마드리드"
+     }
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "gm-c6-l4.webp",
+     "caption": {
+      "es": "El sueño de la razón produce monstruos (Los Caprichos, 43)",
+      "en": "The Sleep of Reason Produces Monsters (Los Caprichos, plate 43)",
+      "ko": "이성이 잠들면 괴물이 깨어난다 (《카프리초스》 43번)"
+     },
+     "credit": "El sueño de la razón produce monstruos, 1799 · Francisco de Goya · The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Plate_43_from_%27Los_Caprichos%27-_The_sleep_of_reason_produces_monsters_(El_sue%C3%B1o_de_la_razon_produce_monstruos)_MET_DP816992.jpg"
+    }
+   ],
+   "status": {
+    "es": "Los Caprichos",
+    "en": "Los Caprichos",
+    "ko": "《카프리초스》"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Cuándo se deja ver esta gente?",
+      "en": "When do these folk let themselves be seen?",
+      "ko": "이 족속은 언제 모습을 드러내요?"
+     },
+     "options": [
+      {
+       "es": "De noche y a oscuras",
+       "en": "At night and in the dark",
+       "ko": "밤에, 어둠 속에서"
+      },
+      {
+       "es": "A las diez de la mañana",
+       "en": "At ten in the morning",
+       "ko": "아침 10시에"
+      },
+      {
+       "es": "Los domingos",
+       "en": "On Sundays",
+       "ko": "일요일마다"
+      },
+      {
+       "es": "Todo el día",
+       "en": "All day",
+       "ko": "하루 종일"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "es": "de noche y a oscuras",
+      "en": "at night and in the dark",
+      "ko": "밤에"
+     }
+    },
+    {
+     "q": {
+      "es": "¿Dónde enseñaría alguien la jaula?",
+      "en": "Where would someone show the cage?",
+      "ko": "우리는 어디에서 보여 줄까요?"
+     },
+     "options": [
+      {
+       "es": "En la Puerta del Sol",
+       "en": "In the Puerta del Sol",
+       "ko": "푸에르타 델 솔에서"
+      },
+      {
+       "es": "En el palacio",
+       "en": "In the palace",
+       "ko": "왕궁에서"
+      },
+      {
+       "es": "En Zaragoza",
+       "en": "In Zaragoza",
+       "ko": "사라고사에서"
+      },
+      {
+       "es": "En la iglesia",
+       "en": "In church",
+       "ko": "성당에서"
+      }
+     ],
+     "answer": 0,
+     "evidence": 2,
+     "mark": {
+      "es": "Puerta del Sol",
+      "en": "Puerta del Sol",
+      "ko": "푸에르타 델 솔"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "새 판화를 보여 주는 프란시스코와 · 나는 마르틴",
+     "en": "Francisco shows me his new print · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "Martín, mira mi nuevo grabado: unos duendes.",
+      "en": "Martín, look at my new print: some hobgoblins.",
+      "ko": "마르틴, 내 새 판화 좀 봐. 도깨비들이야."
+     },
+     {
+      "who": "me",
+      "es": "¡Qué miedo! ¿Quieres enseñarlo en Zaragoza?",
+      "en": "How scary! Would you like to show it in Zaragoza?",
+      "ko": "무섭다! 사라고사에서 보여 줄래?",
+      "focus": {
+       "es": [
+        "Quieres enseñarlo"
+       ],
+       "en": [
+        "Would you like to show"
+       ],
+       "ko": [
+        "보여 줄래"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Quieres enseñas",
+         "Quiere enseñarlo"
+        ]
+       ],
+       "en": [
+        [
+         "Would you like show",
+         "Would you like showing"
+        ]
+       ],
+       "ko": [
+        [
+         "보여 줄레",
+         "보여 졸래"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Sí. Los duendes solo salen de noche.",
+      "en": "Yes. Hobgoblins only come out at night.",
+      "ko": "응. 도깨비는 밤에만 나와."
+     },
+     {
+      "who": "me",
+      "es": "Entonces, ¿vamos a buscarlos esta noche?",
+      "en": "Then shall we go and look for them tonight?",
+      "ko": "그럼 오늘 밤에 같이 찾으러 갈까?",
+      "focus": {
+       "es": [
+        "vamos a buscarlos"
+       ],
+       "en": [
+        "shall we go"
+       ],
+       "ko": [
+        "찾으러 갈까"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "vamos buscarlos",
+         "vamos a buscamos"
+        ]
+       ],
+       "en": [
+        [
+         "shall we going",
+         "shall we to go"
+        ]
+       ],
+       "ko": [
+        [
+         "찾으러 갈가",
+         "찾으로 갈까"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "noche",
+     "duende"
+    ],
+    "grammar": "VI.1",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "esta noche",
+      "en": "tonight",
+      "ko": "오늘 밤에"
+     },
+     "opts": [
+      {
+       "es": "mañana",
+       "en": "tomorrow",
+       "ko": "내일"
+      },
+      {
+       "es": "el sábado",
+       "en": "on Saturday",
+       "ko": "토요일에"
+      },
+      {
+       "es": "después de cenar",
+       "en": "after dinner",
+       "ko": "저녁 먹고"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "c6-l5",
+   "date": "1799-10",
+   "dateNote": "Zapater y Gómez (1868, p. 27) prints 'carta de 3 de Octubre' (1799), but the royal order it encloses is dated San Lorenzo, 31 October 1799 (Zapater y Gómez p. 27; Beruete 1916, p. 75), and the Museo del Prado says the correspondence runs to October 1799. The day is uncertain [?].",
+   "ref": "Zapater y Gómez, p. 27 (also Beruete 1916, p. 75) · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+   "place": "Camino de Madrid",
+   "to": {
+    "es": "Martín Zapater",
+    "en": "Martín Zapater",
+    "ko": "마르틴 사파테르"
+   },
+   "mood": "bright",
+   "excerpt": "Messages 0–4 are the whole passage printed in Zapater y Gómez (1868); the signature 'Goya' is shown as the sign-off. 'esccribo' (double c) and 'Estove' (read 'Esteve', as in Beruete) are printed. The copy of the royal order that follows in the book is not part of the letter.",
+   "messages": [
+    {
+     "es": "Te ofrezco todo cuanto esta orden expresa, y quiero que en mi nombre lo hagas en tu casa y a todos los amigos, sin olvidar a los de la calle de la Sartén: no tengo más tiempo; adiós.",
+     "en": "I offer you everything this order sets out, and I want you to share it in my name in your house and with all our friends, not forgetting those of the calle de la Sartén. I've no more time; goodbye.",
+     "ko": "이 임명장에 적힌 모든 걸 너에게 바친다. 내 이름으로 네 집에서, 그리고 모든 친구들과 함께 나눠 줘. 사르텐 거리 친구들도 잊지 말고. 시간이 없어, 잘 있어.",
+     "orig": {
+      "es": "Te ofrezco todo cuanto esta orden expresa y quiero que en mi nombre lo agas en tu casa y a todos los amigos sin olvidar a los de la calle de la Sartén: no tengo mas tiempo a Dios."
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Te ofrezco todo cuanto esta orden expresa, / y quiero que en mi nombre lo hagas en tu casa y a todos los amigos, / sin olvidar a los de la calle de la Sartén: // no tengo más tiempo; // adiós.",
+      "en": "I offer you everything this order sets out, / and I want you to share it in my name in your house and with all our friends, / not forgetting those of the calle de la Sartén. // I've no more time; // goodbye.",
+      "ko": "이 임명장에 적힌 모든 걸 너에게 바친다. // 내 이름으로 네 집에서, / 그리고 모든 친구들과 함께 나눠 줘. // 사르텐 거리 친구들도 잊지 말고. // 시간이 없어, / 잘 있어."
+     }
+    },
+    {
+     "es": "Estando para meterme en el coche para Madrid, de donde te escribo, he recibido tu carta hoy, y Esteve, a quien le envío esta copia de la gracia que el Rey me ha hecho, me excusa de repetírtela.",
+     "en": "Just as I was about to get into the carriage for Madrid, from where I'm writing to you, I received your letter today; and Esteve, to whom I'm sending this copy of the favour the King has done me, spares me repeating it to you.",
+     "ko": "마드리드로 가는 마차에 막 타려던 참에 오늘 네 편지를 받았어. 왕께서 내게 베푸신 은혜의 사본을 에스테베에게 보내니, 너한테 다시 적을 필요는 없겠지.",
+     "orig": {
+      "es": "Estando para meterme en el coche para Madrid de donde te esccribo, he recibido tu carta oy, y Esteve a quien le embio esta copia de la gracia que el Rey me ha hecho me escusa de repetírtela,"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Estando para meterme en el coche para Madrid, / de donde te escribo, / he recibido tu carta hoy, / y Esteve, / a quien le envío esta copia de la gracia que el Rey me ha hecho, / me excusa de repetírtela.",
+      "en": "Just as I was about to get into the carriage for Madrid, / from where I'm writing to you, / I received your letter today; // and Esteve, / to whom I'm sending this copy of the favour the King has done me, / spares me repeating it to you.",
+      "ko": "마드리드로 가는 마차에 막 타려던 참에 오늘 네 편지를 받았어. // 왕께서 내게 베푸신 은혜의 사본을 에스테베에게 보내니, / 너한테 다시 적을 필요는 없겠지."
+     }
+    },
+    {
+     "es": "Recíbela con mi corazón y ofrécela a Goicoechea con la mayor expresión, y a Yoldi, y a todos los amigos.",
+     "en": "Receive it with my heart, and offer it to Goicoechea with my warmest regards, and to Yoldi, and to all our friends.",
+     "ko": "내 마음을 담아 받아 줘. 고이코에체아에게도 진심을 담아 전해 주고, 욜디에게도, 모든 친구들에게도.",
+     "orig": {
+      "es": "recíbela con mi corazón y ofrécela a Goicoechea con la mayor expresión y a Yoldi, y a todos los amigos."
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Recíbela con mi corazón y ofrécela a Goicoechea con la mayor expresión, / y a Yoldi, / y a todos los amigos.",
+      "en": "Receive it with my heart, / and offer it to Goicoechea with my warmest regards, / and to Yoldi, / and to all our friends.",
+      "ko": "내 마음을 담아 받아 줘. // 고이코에체아에게도 진심을 담아 전해 주고, / 욜디에게도, / 모든 친구들에게도."
+     }
+    },
+    {
+     "es": "Ya te escribiré por menor, que es muy tarde y estoy rendido.",
+     "en": "I'll write to you in detail soon, for it's very late and I'm worn out.",
+     "ko": "자세한 건 곧 다시 쓸게. 너무 늦었고 녹초가 됐어.",
+     "orig": {
+      "es": "Ya te escrivire por menor que es muy tarde y estoy rendido."
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Ya te escribiré por menor, / que es muy tarde y estoy rendido.",
+      "en": "I'll write to you in detail soon, / for it's very late and I'm worn out.",
+      "ko": "자세한 건 곧 다시 쓸게. // 너무 늦었고 녹초가 됐어."
+     }
+    },
+    {
+     "es": "Los Reyes están locos con tu amigo.",
+     "en": "The King and Queen are mad about your friend.",
+     "ko": "왕과 왕비가 네 친구한테 푹 빠졌어.",
+     "orig": {
+      "es": "Los Reyes están locos con tu amigo"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Los Reyes están locos con tu amigo.",
+      "en": "The King and Queen are mad about your friend.",
+      "ko": "왕과 왕비가 네 친구한테 푹 빠졌어."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "1799년 10월 31일, 카를로스 4세는 고야를 수석 궁정 화가로 임명했어요. 1868년 판에 실린 임명장 사본에 따르면 연봉은 5만 레알, 마차 값으로 해마다 500두카도가 더해졌어요. 고야는 이 기쁜 소식을 고향 사라고사의 마르틴과 친구들에게 먼저 나누고 싶어 했어요. 이듬해인 1800년, 그는 왕실 가족 전체를 한 화면에 담은 〈카를로스 4세의 가족〉을 그려요.",
+    "en": "On 31 October 1799 Carlos IV named Goya First Court Painter. According to the copy of the order printed in the 1868 edition, the salary was 50,000 reales a year, plus 500 ducats a year for a carriage. Goya wanted to share the news first with Martín and their friends in Zaragoza. The next year, 1800, he painted the whole royal family in one picture, The Family of Carlos IV.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "La familia de Carlos IV",
+    "title_en": "The Family of Carlos IV",
+    "title_ko": "카를로스 4세의 가족",
+    "date": "1800–1801",
+    "credit": "Francisco de Goya",
+    "collection": "Museo del Prado, Madrid",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:La_familia_de_Carlos_IV,_Francisco_de_Goya.jpg",
+    "commonsFile": "File:La familia de Carlos IV, Francisco de Goya.jpg",
+    "image": "g-c6-l5.webp",
+    "kind": "painting",
+    "why": {
+     "ko": "수석 궁정 화가가 된 이듬해 고야가 그린 왕실 가족이에요. 왼쪽 그늘 속 캔버스 앞에 고야 자신도 서 있어요.",
+     "en": "The royal family, painted the year after he became First Court Painter. Goya himself stands in the shadows at the left, behind a canvas."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "VI.1",
+     "es": "¿Quieres venir a Zaragoza a celebrarlo con todos los amigos de la calle de la Sartén?",
+     "en": "Would you like to come to Zaragoza and celebrate with all the friends from the calle de la Sartén?",
+     "ko": "사르텐 거리 친구들이랑 다 같이 축하하러 사라고사에 올래요?",
+     "koLow": "사르텐 거리 친구들이랑 다 같이 축하하러 사라고사에 올래?",
+     "koHigh": "사르텐 거리 친구들과 다 함께 축하하러 사라고사에 오시겠습니까?",
+     "focus": {
+      "es": [
+       "Quieres venir"
+      ],
+      "en": [
+       "Would you like to come"
+      ],
+      "ko": [
+       "올래요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Quieres vienes",
+        "Quiere venir"
+       ]
+      ],
+      "en": [
+       [
+        "Would you like come",
+        "Would you like coming"
+       ]
+      ],
+      "ko": [
+       [
+        "올레요",
+        "올래여"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "VI.0",
+     "es": "Si estás rendido, duerme, amigo; mañana me escribirás por menor.",
+     "en": "If you're worn out, sleep, my friend; tomorrow you'll write to me in detail.",
+     "ko": "녹초가 됐으면 푹 자요. 자세한 건 내일 쓰면 되잖아요.",
+     "koLow": "녹초가 됐으면 푹 자. 자세한 건 내일 쓰면 되잖아.",
+     "koHigh": "녹초가 되셨으면 푹 주무십시오. 자세한 것은 내일 쓰시면 됩니다.",
+     "focus": {
+      "es": [
+       "Si estás rendido",
+       "escribirás"
+      ],
+      "en": [
+       "If you're worn out",
+       "you'll write"
+      ],
+      "ko": [
+       "됐으면"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Si estarás rendido",
+        "Si estés rendido"
+       ],
+       [
+        "escribes",
+        "escribiste"
+       ]
+      ],
+      "en": [
+       [
+        "If you'll be worn out",
+        "If you were worn out"
+       ],
+       [
+        "you write",
+        "you wrote"
+       ]
+      ],
+      "ko": [
+       [
+        "됐으며",
+        "됬으면"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 4,
+     "grammar": "I.0",
+     "es": "¡Qué alegría! Los Reyes están contentos y yo estoy orgulloso de ti.",
+     "en": "What joy! The King and Queen are happy, and I'm proud of you.",
+     "ko": "정말 기뻐요! 왕과 왕비가 기뻐하시고 저도 당신이 자랑스러워요.",
+     "koLow": "정말 기쁘다! 왕과 왕비가 기뻐하시고 나도 네가 자랑스러워.",
+     "koHigh": "정말 기쁩니다! 왕과 왕비께서 기뻐하시고 저도 당신이 자랑스럽습니다.",
+     "focus": {
+      "es": [
+       "están",
+       "estoy"
+      ],
+      "en": [
+       "are",
+       "I'm"
+      ],
+      "ko": [
+       "자랑스러워요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "son",
+        "está"
+       ],
+       [
+        "soy",
+        "estás"
+       ]
+      ],
+      "en": [
+       [
+        "is",
+        "be"
+       ],
+       [
+        "I is",
+        "I are"
+       ]
+      ],
+      "ko": [
+       [
+        "자랑스럽어요",
+        "자랑스러와요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Goya, primer pintor de Cámara · octubre de 1799",
+      "en": "Goya, First Court Painter · October 1799",
+      "ko": "고야, 수석 궁정 화가가 되다 · 1799년 10월"
+     }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "gm-c6-l5.webp",
+     "caption": {
+      "es": "Carlos IV a caballo, por Goya (1800–1801)",
+      "en": "Carlos IV on horseback, by Goya (1800–1801)",
+      "ko": "고야가 그린 말 탄 카를로스 4세 (1800–1801)"
+     },
+     "credit": "Carlos IV a caballo, 1800–1801 · Francisco de Goya · Museo del Prado · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Carlos_IV_a_caballo.jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "Primer pintor de Cámara",
+    "en": "First Court Painter",
+    "ko": "수석 궁정 화가"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Qué le ha hecho el Rey a Goya?",
+      "en": "What has the King done for Goya?",
+      "ko": "왕은 고야에게 무엇을 해 주었어요?"
+     },
+     "options": [
+      {
+       "es": "Le ha hecho una gracia",
+       "en": "He has granted him a favour",
+       "ko": "은혜를 베풀었어요"
+      },
+      {
+       "es": "Le ha quitado el sueldo",
+       "en": "He has taken away his salary",
+       "ko": "월급을 끊었어요"
+      },
+      {
+       "es": "Le ha mandado a Zaragoza",
+       "en": "He has sent him to Zaragoza",
+       "ko": "사라고사로 보냈어요"
+      },
+      {
+       "es": "Le ha comprado un cuadro",
+       "en": "He has bought a picture from him",
+       "ko": "그림을 한 점 샀어요"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1,
+     "mark": {
+      "es": "la gracia que el Rey me ha hecho",
+      "en": "the favour the King has done me",
+      "ko": "왕께서 내게 베푸신 은혜"
+     }
+    },
+    {
+     "q": {
+      "es": "¿Cómo está Goya esa noche?",
+      "en": "How is Goya that night?",
+      "ko": "그날 밤 고야는 어때요?"
+     },
+     "options": [
+      {
+       "es": "Rendido",
+       "en": "Worn out",
+       "ko": "녹초가 됐어요"
+      },
+      {
+       "es": "Enfermo",
+       "en": "Ill",
+       "ko": "아파요"
+      },
+      {
+       "es": "Triste",
+       "en": "Sad",
+       "ko": "슬퍼요"
+      },
+      {
+       "es": "Enfadado",
+       "en": "Angry",
+       "ko": "화가 났어요"
+      }
+     ],
+     "answer": 0,
+     "evidence": 3,
+     "mark": {
+      "es": "estoy rendido",
+      "en": "I'm worn out",
+      "ko": "녹초가 됐어"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "수석 궁정 화가가 된 프란시스코와 통화 · 나는 마르틴",
+     "en": "A call with Francisco, now First Court Painter · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "¡Martín! Soy primer pintor del Rey.",
+      "en": "Martín! I'm the King's First Painter.",
+      "ko": "마르틴! 나 왕의 수석 화가가 됐어."
+     },
+     {
+      "who": "me",
+      "es": "¡Enhorabuena! ¿Vamos a celebrarlo con los amigos?",
+      "en": "Congratulations! Shall we celebrate with our friends?",
+      "ko": "축하해! 친구들이랑 같이 축하할까?",
+      "focus": {
+       "es": [
+        "Vamos a celebrarlo"
+       ],
+       "en": [
+        "Shall we celebrate"
+       ],
+       "ko": [
+        "축하할까"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Vamos celebrarlo",
+         "Vamos a celebramos"
+        ]
+       ],
+       "en": [
+        [
+         "Shall we celebrating",
+         "Shall we to celebrate"
+        ]
+       ],
+       "ko": [
+        [
+         "축하할가",
+         "축하헐까"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Sí, pero hoy no. Estoy rendido.",
+      "en": "Yes, but not today. I'm worn out.",
+      "ko": "그래, 그런데 오늘은 안 돼. 녹초야."
+     },
+     {
+      "who": "me",
+      "es": "¿Quieres descansar y escribirme mañana?",
+      "en": "Would you like to rest and write to me tomorrow?",
+      "ko": "푹 쉬고 내일 편지 쓸래?",
+      "focus": {
+       "es": [
+        "Quieres descansar"
+       ],
+       "en": [
+        "Would you like to rest"
+       ],
+       "ko": [
+        "쓸래"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Quieres descansas",
+         "Quiere descansar"
+        ]
+       ],
+       "en": [
+        [
+         "Would you like rest",
+         "Would you like resting"
+        ]
+       ],
+       "ko": [
+        [
+         "쓸레",
+         "슬래"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "rey",
+     "amigo"
+    ],
+    "grammar": "VI.1",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "escribirme mañana",
+      "en": "write to me tomorrow",
+      "ko": "내일 편지 쓸래"
+     },
+     "opts": [
+      {
+       "es": "dormir un poco",
+       "en": "sleep a little",
+       "ko": "잠 좀 잘래"
+      },
+      {
+       "es": "cenar conmigo",
+       "en": "have dinner with me",
+       "ko": "나랑 저녁 먹을래"
+      },
+      {
+       "es": "venir el domingo",
+       "en": "come on Sunday",
+       "ko": "일요일에 올래"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "c6-l6",
+   "date": "1803-07-07",
+   "dateNote": "Dated in the letter itself: Madrid, 7 July 1803 (Beruete 1918, p. 29); no modern dating checked.",
+   "ref": "Beruete 1918, p. 29 · A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 29 · public domain · https://archive.org/details/AV194",
+   "place": "Madrid",
+   "to": {
+    "es": "Miguel Cayetano Soler",
+    "en": "Miguel Cayetano Soler",
+    "ko": "미겔 카예타노 솔레르"
+   },
+   "mood": "calm",
+   "excerpt": "Messages 0–5 are the whole letter as Beruete prints it; the closing formula and date line ('Dios guarde á V. E. muchos años. Madrid 7 de julio de 1803') are shown as the sign-off and the date. In the app text S. M. and V. E. are written out (Su Majestad, vuestra excelencia), as Vmd. is elsewhere.",
+   "messages": [
+    {
+     "es": "Excelentísimo señor: La obra de mis Caprichos consta de ochenta láminas grabadas al aguafuerte por mi mano.",
+     "en": "Your Excellency: The work of my Caprichos consists of eighty plates etched in aquafortis by my own hand.",
+     "ko": "각하, 제 《카프리초스》는 제 손으로 직접 부식 동판에 새긴 판화 80장으로 이루어져 있습니다.",
+     "orig": {
+      "es": "Excmo Sr: La obra de mis caprichos consta de ochenta láminas gravadas á la Agua fuerte por mi mano."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 29 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "Excelentísimo señor: // La obra de mis Caprichos consta de ochenta láminas grabadas al aguafuerte por mi mano.",
+      "en": "Your Excellency: // The work of my Caprichos consists of eighty plates etched in aquafortis by my own hand.",
+      "ko": "각하, / 제 《카프리초스》는 제 손으로 직접 부식 동판에 새긴 판화 80장으로 이루어져 있습니다."
+     }
+    },
+    {
+     "es": "No se vendieron al público más que dos días, a onza de oro cada libro; se despacharon veintisiete libros.",
+     "en": "They were on sale to the public for only two days, at an ounce of gold a book; twenty-seven books were sold.",
+     "ko": "일반에 판 것은 이틀뿐이었고, 한 권에 금화 1온스였습니다. 스물일곱 권이 팔렸습니다.",
+     "orig": {
+      "es": "No se vendieron al publico mas que dos dias á onza de oro cada libro; se despacharon veinte y siete libros."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 29 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "No se vendieron al público más que dos días, / a onza de oro cada libro; // se despacharon veintisiete libros.",
+      "en": "They were on sale to the public for only two days, / at an ounce of gold a book; // twenty-seven books were sold.",
+      "ko": "일반에 판 것은 이틀뿐이었고, / 한 권에 금화 1온스였습니다. // 스물일곱 권이 팔렸습니다."
+     }
+    },
+    {
+     "es": "Pueden tirar las láminas cinco o seis mil libros.",
+     "en": "The plates can print five or six thousand books.",
+     "ko": "이 동판으로 오륙천 권을 찍을 수 있습니다.",
+     "orig": {
+      "es": "Pueden tirar las láminas cinco ó seis mil libros."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 29 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "Pueden tirar las láminas cinco o seis mil libros.",
+      "en": "The plates can print five or six thousand books.",
+      "ko": "이 동판으로 오륙천 권을 찍을 수 있습니다."
+     }
+    },
+    {
+     "es": "Los extranjeros son los que más las desean, y, por temor de que recaigan en sus manos después de mi muerte, quiero regalárselas al Rey mi señor para su Calcografía.",
+     "en": "Foreigners are the ones who want them most, and for fear that they might fall into their hands after my death, I wish to give them to the King my lord for his Calcografía.",
+     "ko": "이 동판을 가장 탐내는 것은 외국인들입니다. 제가 죽은 뒤 그들 손에 넘어갈까 두려워, 저의 주군이신 국왕께 왕립 판화소에 쓰시도록 바치고자 합니다.",
+     "orig": {
+      "es": "Los extrangeros son los que mas las desean y por temor de que recaigan en sus manos después de mi muerte quiero regalárselas al Rey mi Señor para su calcografía."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 29 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "Los extranjeros son los que más las desean, / y, / por temor de que recaigan en sus manos después de mi muerte, / quiero regalárselas al Rey mi señor para su Calcografía.",
+      "en": "Foreigners are the ones who want them most, / and for fear that they might fall into their hands after my death, / I wish to give them to the King my lord for his Calcografía.",
+      "ko": "이 동판을 가장 탐내는 것은 외국인들입니다. // 제가 죽은 뒤 그들 손에 넘어갈까 두려워, / 저의 주군이신 국왕께 왕립 판화소에 쓰시도록 바치고자 합니다."
+     }
+    },
+    {
+     "es": "No pido a Su Majestad más que alguna recompensa a mi hijo Francisco Javier de Goya para que pueda viajar; tiene afición y gran disposición de aprovecharse.",
+     "en": "I ask of His Majesty only some reward for my son Francisco Javier de Goya, so that he may travel; he has the inclination and a great aptitude to profit by it.",
+     "ko": "전하께 바라는 것은 오직 제 아들 프란시스코 하비에르 데 고야가 여행할 수 있도록 작은 보상을 내려 주시는 것뿐입니다. 아들은 의욕도 있고 배운 것을 살릴 자질도 큽니다.",
+     "orig": {
+      "es": "No pido a S. M. mas que alguna recompensa á mi hijo Francisco Javier de Goya para que pueda viajar; tiene afición y gran disposición de aprovecharse."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 29 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "No pido a Su Majestad más que alguna recompensa a mi hijo Francisco Javier de Goya para que pueda viajar; // tiene afición y gran disposición de aprovecharse.",
+      "en": "I ask of His Majesty only some reward for my son Francisco Javier de Goya, / so that he may travel; // he has the inclination and a great aptitude to profit by it.",
+      "ko": "전하께 바라는 것은 오직 제 아들 프란시스코 하비에르 데 고야가 여행할 수 있도록 작은 보상을 내려 주시는 것뿐입니다. // 아들은 의욕도 있고 배운 것을 살릴 자질도 큽니다."
+     }
+    },
+    {
+     "es": "Si vuestra excelencia tiene a bien el hacerlo presente a Su Majestad, le quedaré sumamente agradecido.",
+     "en": "If Your Excellency sees fit to put this before His Majesty, I shall be most grateful to you.",
+     "ko": "각하께서 이 뜻을 전하께 아뢰어 주신다면 더없이 감사하겠습니다.",
+     "orig": {
+      "es": "Si V. E. tiene a bien el hacerlo presente á S. M. le quedaré sumamente agradecido."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 29 · public domain · https://archive.org/details/AV194",
+     "speak": {
+      "es": "Si vuestra excelencia tiene a bien el hacerlo presente a Su Majestad, / le quedaré sumamente agradecido.",
+      "en": "If Your Excellency sees fit to put this before His Majesty, / I shall be most grateful to you.",
+      "ko": "각하께서 이 뜻을 전하께 아뢰어 주신다면 더없이 감사하겠습니다."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "1799년 2월 마드리드에서 팔기 시작한 《카프리초스》는 편지에 따르면 이틀 만에 판매를 멈췄고, 스물일곱 권만 팔렸어요. 네 해 뒤 고야는 재무 장관 미겔 카예타노 솔레르에게 이 편지를 써서, 동판 80장을 왕께 바치고 그 대가로 아들 하비에르가 여행하며 배울 수 있게 해 달라고 청했어요. 하비에르는 그때 열여덟 살이었어요. 왕립 판화소(칼코그라피아)는 왕실의 동판을 보관하고 찍어 내던 곳이에요. 같은 해에 평생의 벗 마르틴 사파테르가 세상을 떠났어요.",
+    "en": "Los Caprichos went on sale in Madrid in February 1799; by this letter's account the sale stopped after two days, with only twenty-seven sets sold. Four years later Goya wrote to the finance minister, Miguel Cayetano Soler, offering the eighty copper plates to the King and asking in return that his son Javier, then eighteen, be helped to travel and study. The Royal Calcografía kept and printed the crown's engraved plates. The same year his lifelong friend Martín Zapater died.",
+    "source": "A. de Beruete y Moret, Goya, grabador (Madrid, 1918), p. 29 · public domain · https://archive.org/details/AV194 ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Francisco Goya y Lucientes, Pintor (Los Caprichos, 1)",
+    "title_en": "Francisco Goya y Lucientes, Painter (Los Caprichos, plate 1)",
+    "title_ko": "화가 프란시스코 고야 이 루시엔테스 (《카프리초스》 1번)",
+    "date": "1799",
+    "credit": "Francisco de Goya",
+    "collection": "The Metropolitan Museum of Art, New York",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Plate_1_from_%27Los_Caprichos%27-_Self-portrait_of_Goya_(_Franco._Goya_e_Lucientes,_Pintor)_MET_DP816885.jpg",
+    "commonsFile": "File:Plate 1 from 'Los Caprichos'- Self-portrait of Goya ( Franco. Goya e Lucientes, Pintor) MET DP816885.jpg",
+    "image": "g-c6-l6.webp",
+    "kind": "print",
+    "why": {
+     "ko": "《카프리초스》 첫 장에 실린 고야의 자화상이에요. 왕께 바친 동판 80장 가운데 맨 앞장이에요.",
+     "en": "Goya's self-portrait on the first plate of Los Caprichos, the first of the eighty plates he gave to the King."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 4,
+     "grammar": "VI.2",
+     "es": "¿Puedo saber adónde quiere viajar su hijo Francisco Javier para aprender?",
+     "en": "May I know where your son Francisco Javier wants to travel to learn?",
+     "ko": "아드님 프란시스코 하비에르가 배우러 어디로 가고 싶어 하는지 여쭤봐도 돼요?",
+     "koLow": "아들 프란시스코 하비에르가 배우러 어디로 가고 싶어 하는지 물어봐도 돼?",
+     "koHigh": "아드님 프란시스코 하비에르가 배우러 어디로 가고 싶어 하는지 여쭤봐도 되겠습니까?",
+     "focus": {
+      "es": [
+       "Puedo saber"
+      ],
+      "en": [
+       "May I know"
+      ],
+      "ko": [
+       "여쭤봐도 돼요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Puedo sé",
+        "Puede saber"
+       ]
+      ],
+      "en": [
+       [
+        "May I to know",
+        "May I knowing"
+       ]
+      ],
+      "ko": [
+       [
+        "여쭤봐도 되요",
+        "여쭤바도 돼요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "VI.0",
+     "es": "Si el Rey acepta las láminas, se quedarán en España para siempre.",
+     "en": "If the King accepts the plates, they'll stay in Spain for ever.",
+     "ko": "국왕께서 동판을 받으시면 영원히 스페인에 남을 거예요.",
+     "koLow": "국왕께서 동판을 받으시면 영원히 스페인에 남을 거야.",
+     "koHigh": "국왕께서 동판을 받으시면 영원히 스페인에 남을 것입니다.",
+     "focus": {
+      "es": [
+       "Si el Rey acepta",
+       "se quedarán"
+      ],
+      "en": [
+       "If the King accepts",
+       "they'll stay"
+      ],
+      "ko": [
+       "받으시면"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Si el Rey aceptará",
+        "Si el Rey acepte"
+       ],
+       [
+        "se quedan",
+        "se quedaron"
+       ]
+      ],
+      "en": [
+       [
+        "If the King will accept",
+        "If the King accepted"
+       ],
+       [
+        "they stay",
+        "they stayed"
+       ]
+      ],
+      "ko": [
+       [
+        "받으시며",
+        "받으시먼"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "I.2",
+     "es": "Veintisiete libros no son muchos, pero la obra no pierde su valor.",
+     "en": "Twenty-seven books aren't many, but the work doesn't lose its value.",
+     "ko": "스물일곱 권은 많지 않지만 작품의 가치는 줄지 않아요.",
+     "koLow": "스물일곱 권은 많지 않지만 작품의 가치는 줄지 않아.",
+     "koHigh": "스물일곱 권은 많지 않지만 작품의 가치는 줄지 않습니다.",
+     "focus": {
+      "es": [
+       "no son",
+       "no pierde"
+      ],
+      "en": [
+       "aren't",
+       "doesn't lose"
+      ],
+      "ko": [
+       "많지 않지만"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "son no",
+        "no es"
+       ],
+       [
+        "pierde no",
+        "no pierden"
+       ]
+      ],
+      "en": [
+       [
+        "isn't",
+        "not are"
+       ],
+       [
+        "don't lose",
+        "doesn't loses"
+       ]
+      ],
+      "ko": [
+       [
+        "많지 안지만",
+        "많치 않지만"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Madrid, 7 de julio de 1803",
+      "en": "Madrid, 7 July 1803",
+      "ko": "1803년 7월 7일, 마드리드"
+     }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "gm-c6-l6.webp",
+     "caption": {
+      "es": "Javier Goya, el hijo del pintor (1805)",
+      "en": "Javier Goya, the painter's son (1805)",
+      "ko": "화가의 아들 하비에르 고야 (1805)"
+     },
+     "credit": "Francisco Javier Goya y Bayeu, 1805 · Francisco de Goya · Museo de Zaragoza · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Francisco_Javier_Goya_y_Bayeu_(Museo_de_Zaragoza).jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "Ochenta láminas para el Rey",
+    "en": "Eighty plates for the King",
+    "ko": "왕께 바치는 동판 80장"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Cuántas láminas tienen los Caprichos?",
+      "en": "How many plates do the Caprichos have?",
+      "ko": "《카프리초스》는 판화가 몇 장이에요?"
+     },
+     "options": [
+      {
+       "es": "Ochenta",
+       "en": "Eighty",
+       "ko": "80장"
+      },
+      {
+       "es": "Veintisiete",
+       "en": "Twenty-seven",
+       "ko": "27장"
+      },
+      {
+       "es": "Seis mil",
+       "en": "Six thousand",
+       "ko": "6천 장"
+      },
+      {
+       "es": "Dos",
+       "en": "Two",
+       "ko": "2장"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "es": "ochenta láminas",
+      "en": "eighty plates",
+      "ko": "80장"
+     }
+    },
+    {
+     "q": {
+      "es": "¿Qué pide Goya para su hijo?",
+      "en": "What does Goya ask for his son?",
+      "ko": "고야는 아들을 위해 무엇을 청해요?"
+     },
+     "options": [
+      {
+       "es": "Una recompensa para viajar",
+       "en": "A reward so he can travel",
+       "ko": "여행할 수 있는 보상"
+      },
+      {
+       "es": "Un caballo",
+       "en": "A horse",
+       "ko": "말 한 필"
+      },
+      {
+       "es": "Una casa en Madrid",
+       "en": "A house in Madrid",
+       "ko": "마드리드의 집"
+      },
+      {
+       "es": "Las láminas",
+       "en": "The plates",
+       "ko": "동판"
+      }
+     ],
+     "answer": 0,
+     "evidence": 4,
+     "mark": {
+      "es": "para que pueda viajar",
+      "en": "so that he may travel",
+      "ko": "여행할 수 있도록"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "재무 장관실, 고야와 · 나는 장관 솔레르",
+     "en": "The finance minister's office, with Goya · I'm the minister, Soler"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "Excelencia, quiero regalar mis láminas al Rey.",
+      "en": "Your Excellency, I want to give my plates to the King.",
+      "ko": "각하, 제 동판을 국왕께 바치고 싶습니다."
+     },
+     {
+      "who": "me",
+      "es": "Es un gran regalo. ¿Puedo verlas primero?",
+      "en": "That's a great gift. May I see them first?",
+      "ko": "훌륭한 선물이군요. 먼저 봐도 되겠습니까?",
+      "focus": {
+       "es": [
+        "Puedo verlas"
+       ],
+       "en": [
+        "May I see"
+       ],
+       "ko": [
+        "봐도 되겠습니까"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Puedo veo",
+         "Puede verlas"
+        ]
+       ],
+       "en": [
+        [
+         "May I to see",
+         "May I seeing"
+        ]
+       ],
+       "ko": [
+        [
+         "봐도 돼겠습니까",
+         "봐두 되겠습니까"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Claro. Son ochenta láminas, hechas por mi mano.",
+      "en": "Of course. There are eighty plates, made by my hand.",
+      "ko": "물론입니다. 제 손으로 만든 동판 80장입니다."
+     },
+     {
+      "who": "me",
+      "es": "¿Puedo enseñárselas al Rey mañana?",
+      "en": "May I show them to the King tomorrow?",
+      "ko": "내일 국왕께 보여 드려도 되겠습니까?",
+      "focus": {
+       "es": [
+        "Puedo enseñárselas"
+       ],
+       "en": [
+        "May I show"
+       ],
+       "ko": [
+        "보여 드려도"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Puedo enseño",
+         "Puede enseñárselas"
+        ]
+       ],
+       "en": [
+        [
+         "May I to show",
+         "May I showing"
+        ]
+       ],
+       "ko": [
+        [
+         "보여 드려두",
+         "보여 드러도"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "lámina",
+     "rey"
+    ],
+    "grammar": "VI.2",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "mañana",
+      "en": "tomorrow",
+      "ko": "내일"
+     },
+     "opts": [
+      {
+       "es": "hoy",
+       "en": "today",
+       "ko": "오늘"
+      },
+      {
+       "es": "esta tarde",
+       "en": "this afternoon",
+       "ko": "오늘 오후"
+      },
+      {
+       "es": "el lunes",
+       "en": "on Monday",
+       "ko": "월요일에"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "c6-l7",
+   "date": "1803-10-09",
+   "dateNote": "Dated in the letter itself: Madrid, 9 October 1803 (Viñaza 1887, p. 52, footnote); no modern dating checked.",
+   "ref": "Viñaza, pp. 51–52 (footnote) · Conde de la Viñaza, Goya, su tiempo, su vida, sus obras (Madrid, 1887), p. 51–52 · public domain · https://archive.org/details/goyasutiemposuv01vinagoog",
+   "place": "Madrid",
+   "to": {
+    "es": "Miguel Cayetano Soler",
+    "en": "Miguel Cayetano Soler",
+    "ko": "미겔 카예타노 솔레르"
+   },
+   "mood": "calm",
+   "excerpt": "Messages 0–2 are the first part of the letter as Viñaza prints it in a footnote; the rest (about the portraits and Esteve's copy) and the closing formula are left out. 'U Real orden' in the scan is read 'la Real orden'. The footnote is split by the main text across pp. 51–52. In the app text S. M. and V. E. are written out (Su Majestad, vuestra excelencia).",
+   "messages": [
+    {
+     "es": "Excelentísimo señor: He recibido la Real orden de Su Majestad que vuestra excelencia se sirve comunicarme, con fecha del 6 del que rige, de haber admitido la oferta de la obra de mis Caprichos, en ochenta cobres, grabada al aguafuerte por mi mano.",
+     "en": "Your Excellency: I have received His Majesty's Royal Order, which Your Excellency is so kind as to send me, dated the 6th of this month, accepting the offer of my Caprichos, in eighty copper plates etched in aquafortis by my own hand.",
+     "ko": "각하, 이달 6일 자로 각하께서 전해 주신 국왕 전하의 칙령을 받았습니다. 제 손으로 부식 동판에 새긴 《카프리초스》 동판 80장을 받아 주신다는 내용이었습니다.",
+     "orig": {
+      "es": "Excmo. Sr.: He recibido la Real orden de S. M., que V. E. se sirve comunicarme, con fecha del 6 del que rige, de haber admitido la oferta de la obra de mis caprichos, en ochenta cobres, grabada al agua fuerte por mi mano,"
+     },
+     "verified": false,
+     "source": "Conde de la Viñaza, Goya, su tiempo, su vida, sus obras (Madrid, 1887), p. 51–52 · public domain · https://archive.org/details/goyasutiemposuv01vinagoog",
+     "speak": {
+      "es": "Excelentísimo señor: // He recibido la Real orden de Su Majestad que vuestra excelencia se sirve comunicarme, / con fecha del 6 del que rige, / de haber admitido la oferta de la obra de mis Caprichos, / en ochenta cobres, / grabada al aguafuerte por mi mano.",
+      "en": "Your Excellency: // I have received His Majesty's Royal Order, / which Your Excellency is so kind as to send me, / dated the 6th of this month, / accepting the offer of my Caprichos, / in eighty copper plates etched in aquafortis by my own hand.",
+      "ko": "각하, / 이달 6일 자로 각하께서 전해 주신 국왕 전하의 칙령을 받았습니다. // 제 손으로 부식 동판에 새긴 《카프리초스》 동판 80장을 받아 주신다는 내용이었습니다."
+     }
+    },
+    {
+     "es": "La que entregaré a la Real Calcografía con la partida de estampas que tenía tiradas a prevención, que son 240 ejemplares de a 80 estampas cada ejemplar, por no hacer el menor fraude a Su Majestad y satisfacción mía en mi modo de proceder.",
+     "en": "I shall deliver it to the Royal Calcografía together with the batch of prints I had run off beforehand, which are 240 copies of 80 prints each, so as not to defraud His Majesty in the least, and for my own satisfaction in my way of acting.",
+     "ko": "이 동판은 미리 찍어 둔 판화와 함께 왕립 판화소에 넘기겠습니다. 한 권에 80장씩, 240권입니다. 전하께 조금도 속임이 없도록, 그리고 제 처신에 스스로 떳떳하도록 하려는 것입니다.",
+     "orig": {
+      "es": "la que entregaré á la Real Calcografía con la partida de estampas que tenía tiradas á prevención, que son 240 exemplares de á 80 estampas cada exemplar, por no hacer el menor fraude á S. M. y satisfacción mía en mi modo de proceder."
+     },
+     "verified": false,
+     "source": "Conde de la Viñaza, Goya, su tiempo, su vida, sus obras (Madrid, 1887), p. 51–52 · public domain · https://archive.org/details/goyasutiemposuv01vinagoog",
+     "speak": {
+      "es": "La que entregaré a la Real Calcografía con la partida de estampas que tenía tiradas a prevención, / que son 240 ejemplares de a 80 estampas cada ejemplar, / por no hacer el menor fraude a Su Majestad y satisfacción mía en mi modo de proceder.",
+      "en": "I shall deliver it to the Royal Calcografía together with the batch of prints I had run off beforehand, / which are 240 copies of 80 prints each, / so as not to defraud His Majesty in the least, / and for my own satisfaction in my way of acting.",
+      "ko": "이 동판은 미리 찍어 둔 판화와 함께 왕립 판화소에 넘기겠습니다. // 한 권에 80장씩, / 240권입니다. // 전하께 조금도 속임이 없도록, / 그리고 제 처신에 스스로 떳떳하도록 하려는 것입니다."
+     }
+    },
+    {
+     "es": "Estoy muy agradecido de la pensión de doce mil reales que se ha dignado Su Majestad conceder a mi hijo, en recompensa de lo que doy infinitas gracias a Su Majestad y a vuestra excelencia.",
+     "en": "I am most grateful for the pension of twelve thousand reales that His Majesty has deigned to grant my son as a reward, for which I give endless thanks to His Majesty and to Your Excellency.",
+     "ko": "전하께서 그 보상으로 제 아들에게 1만 2천 레알의 연금을 내려 주셔서 깊이 감사드립니다. 전하와 각하께 끝없는 감사를 드립니다.",
+     "orig": {
+      "es": "Estoy muy agradecido de la pensión de doce mil reales que se ha dignado S. M. conceder á mi hijo, en recompensa de lo que doy ynfinitas gracias á S. M. y á V. E."
+     },
+     "verified": false,
+     "source": "Conde de la Viñaza, Goya, su tiempo, su vida, sus obras (Madrid, 1887), p. 51–52 · public domain · https://archive.org/details/goyasutiemposuv01vinagoog",
+     "speak": {
+      "es": "Estoy muy agradecido de la pensión de doce mil reales que se ha dignado Su Majestad conceder a mi hijo, / en recompensa de lo que doy infinitas gracias a Su Majestad y a vuestra excelencia.",
+      "en": "I am most grateful for the pension of twelve thousand reales that His Majesty has deigned to grant my son as a reward, / for which I give endless thanks to His Majesty and to Your Excellency.",
+      "ko": "전하께서 그 보상으로 제 아들에게 1만 2천 레알의 연금을 내려 주셔서 깊이 감사드립니다. // 전하와 각하께 끝없는 감사를 드립니다."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "왕은 1803년 10월 6일 고야의 제안을 받아들였고, 고야는 사흘 뒤 이 답장을 썼어요. 동판 80장과 미리 찍어 둔 240권이 왕립 판화소로 갔고, 아들 하비에르는 해마다 1만 2천 레알의 연금을 받게 되었어요. 이 동판은 지금도 마드리드에 남아 있어요. 이 편지 뒤로, 남은 판본에는 스무 해 넘게 고야의 편지가 없어요. 그사이 스페인은 전쟁(1808–1814)을 겪었고, 고야는 판화집 《전쟁의 참화》와 집 벽에 그린 ‘검은 그림’을 남겼어요.",
+    "en": "The King accepted Goya's offer on 6 October 1803, and Goya wrote this reply three days later. The eighty plates and the 240 sets he had already printed went to the Royal Calcografía, and his son Javier was granted a pension of 12,000 reales a year. The plates are still in Madrid. After this letter, these editions hold no letters by Goya for more than twenty years. In that time Spain went through the war of 1808–1814, and Goya made the etchings of The Disasters of War and the ‘Black Paintings’ on the walls of his house.",
+    "source": "Conde de la Viñaza, Goya, su tiempo, su vida, sus obras (Madrid, 1887), p. 51–52 · public domain · https://archive.org/details/goyasutiemposuv01vinagoog ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Ya es hora (Los Caprichos, 80)",
+    "title_en": "It Is Time (Los Caprichos, plate 80)",
+    "title_ko": "이제 때가 됐다 (《카프리초스》 80번)",
+    "date": "1799",
+    "credit": "Francisco de Goya",
+    "collection": "The Metropolitan Museum of Art, New York",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Plate_80_from_%27Los_Caprichos%27-_It_is_time_(Ya_es_hora.)_MET_DP817135.jpg",
+    "commonsFile": "File:Plate 80 from 'Los Caprichos'- It is time (Ya es hora.) MET DP817135.jpg",
+    "image": "g-c6-l7.webp",
+    "kind": "print",
+    "why": {
+     "ko": "《카프리초스》의 마지막, 80번째 판화예요. 편지 속 ‘동판 80장’의 맨 끝장이에요.",
+     "en": "The last of Los Caprichos, plate 80: the final one of the ‘eighty copper plates’ in the letter."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "VI.2",
+     "es": "¿Puedo guardar uno de los doscientos cuarenta ejemplares para mi biblioteca?",
+     "en": "May I keep one of the two hundred and forty copies for my library?",
+     "ko": "240권 가운데 한 권을 제 서재에 둬도 돼요?",
+     "koLow": "240권 가운데 한 권을 내 서재에 둬도 돼?",
+     "koHigh": "240권 가운데 한 권을 제 서재에 두어도 되겠습니까?",
+     "focus": {
+      "es": [
+       "Puedo guardar"
+      ],
+      "en": [
+       "May I keep"
+      ],
+      "ko": [
+       "둬도 돼요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Puedo guardo",
+        "Puede guardar"
+       ]
+      ],
+      "en": [
+       [
+        "May I to keep",
+        "May I keeping"
+       ]
+      ],
+      "ko": [
+       [
+        "둬도 되요",
+        "둬두 돼요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "I.1",
+     "es": "Su hijo tiene gran disposición, y ahora tiene también una pensión para viajar.",
+     "en": "Your son has great aptitude, and now he also has a pension to travel.",
+     "ko": "아드님은 자질이 뛰어나고, 이제 여행할 연금도 있어요.",
+     "koLow": "아드님은 자질이 뛰어나고, 이제 여행할 연금도 있어.",
+     "koHigh": "아드님은 자질이 뛰어나고, 이제 여행할 연금도 있습니다.",
+     "focus": {
+      "es": [
+       "ahora tiene"
+      ],
+      "en": [
+       "he also has"
+      ],
+      "ko": [
+       "연금도 있어요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "ahora tienes",
+        "ahora tengo"
+       ]
+      ],
+      "en": [
+       [
+        "he also have",
+        "he also having"
+       ]
+      ],
+      "ko": [
+       [
+        "연금도 있아요",
+        "연금도 잇어요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 0,
+     "grammar": "VI.0",
+     "es": "Si usted lo desea, los cobres llegarán a la Calcografía esta misma semana.",
+     "en": "If you wish, the copper plates will reach the Calcografía this very week.",
+     "ko": "원하시면 동판은 이번 주 안에 판화소에 도착할 거예요.",
+     "koLow": "원하면 동판은 이번 주 안에 판화소에 도착할 거야.",
+     "koHigh": "원하시면 동판은 이번 주 안에 판화소에 도착할 것입니다.",
+     "focus": {
+      "es": [
+       "Si usted lo desea",
+       "llegarán"
+      ],
+      "en": [
+       "If you wish",
+       "will reach"
+      ],
+      "ko": [
+       "원하시면"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Si usted lo deseará",
+        "Si usted lo desee"
+       ],
+       [
+        "llegan",
+        "llegaron"
+       ]
+      ],
+      "en": [
+       [
+        "If you will wish",
+        "If you wished"
+       ],
+       [
+        "reach",
+        "reached"
+       ]
+      ],
+      "ko": [
+       [
+        "원하시며",
+        "원하시먼"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Madrid, 9 de octubre de 1803",
+      "en": "Madrid, 9 October 1803",
+      "ko": "1803년 10월 9일, 마드리드"
+     }
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "gm-c6-l7.webp",
+     "caption": {
+      "es": "Bien tirada está (Los Caprichos, 17)",
+      "en": "It Is Nicely Stretched (Los Caprichos, plate 17)",
+      "ko": "잘 당겨졌네 (《카프리초스》 17번)"
+     },
+     "credit": "Bien tirada está, 1799 · Francisco de Goya · The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Plate_17_from_%27Los_Caprichos%27-_It_is_nicely_stretched_(Bien_tirada_est%C3%A1.)_MET_DP816905.jpg"
+    }
+   ],
+   "status": {
+    "es": "La Real Calcografía",
+    "en": "The Royal Calcografía",
+    "ko": "왕립 판화소"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Cuántos ejemplares entrega Goya?",
+      "en": "How many copies does Goya hand over?",
+      "ko": "고야는 몇 권을 넘겨요?"
+     },
+     "options": [
+      {
+       "es": "240",
+       "en": "240",
+       "ko": "240권"
+      },
+      {
+       "es": "80",
+       "en": "80",
+       "ko": "80권"
+      },
+      {
+       "es": "27",
+       "en": "27",
+       "ko": "27권"
+      },
+      {
+       "es": "12.000",
+       "en": "12,000",
+       "ko": "1만 2천 권"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1,
+     "mark": {
+      "es": "240 ejemplares",
+      "en": "240 copies",
+      "ko": "240권"
+     }
+    },
+    {
+     "q": {
+      "es": "¿Qué recibe el hijo de Goya?",
+      "en": "What does Goya's son receive?",
+      "ko": "고야의 아들은 무엇을 받아요?"
+     },
+     "options": [
+      {
+       "es": "Una pensión de doce mil reales",
+       "en": "A pension of twelve thousand reales",
+       "ko": "1만 2천 레알의 연금"
+      },
+      {
+       "es": "Ochenta cobres",
+       "en": "Eighty copper plates",
+       "ko": "동판 80장"
+      },
+      {
+       "es": "Un puesto en palacio",
+       "en": "A post at the palace",
+       "ko": "궁정의 자리"
+      },
+      {
+       "es": "Un viaje a Londres",
+       "en": "A trip to London",
+       "ko": "런던 여행"
+      }
+     ],
+     "answer": 0,
+     "evidence": 2,
+     "mark": {
+      "es": "pensión de doce mil reales",
+      "en": "pension of twelve thousand reales",
+      "ko": "1만 2천 레알의 연금"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "왕립 판화소 앞, 고야와 · 나는 장관 솔레르",
+     "en": "Outside the Royal Calcografía, with Goya · I'm the minister, Soler"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "Excelencia, ¿puedo traer los cobres el lunes?",
+      "en": "Your Excellency, may I bring the copper plates on Monday?",
+      "ko": "각하, 월요일에 동판을 가져와도 되겠습니까?"
+     },
+     {
+      "who": "me",
+      "es": "Sí, puede traerlos. ¿Trae también las estampas?",
+      "en": "Yes, you may bring them. Are you bringing the prints too?",
+      "ko": "네, 가져오셔도 됩니다. 판화도 가져오십니까?",
+      "focus": {
+       "es": [
+        "puede traerlos"
+       ],
+       "en": [
+        "you may bring"
+       ],
+       "ko": [
+        "가져오셔도 됩니다"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "puede trae",
+         "puedo traerlos"
+        ]
+       ],
+       "en": [
+        [
+         "you may to bring",
+         "you may brings"
+        ]
+       ],
+       "ko": [
+        [
+         "가져오셔두 됩니다",
+         "가저오셔도 됩니다"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Sí, doscientos cuarenta ejemplares. Todo para el Rey.",
+      "en": "Yes, two hundred and forty copies. All for the King.",
+      "ko": "네, 240권입니다. 모두 국왕께 드립니다."
+     },
+     {
+      "who": "me",
+      "es": "Gracias, señor Goya. ¿Puedo darle la buena noticia a su hijo?",
+      "en": "Thank you, Señor Goya. May I give the good news to your son?",
+      "ko": "고맙습니다, 고야 님. 아드님께 기쁜 소식을 전해도 되겠습니까?",
+      "focus": {
+       "es": [
+        "Puedo darle"
+       ],
+       "en": [
+        "May I give"
+       ],
+       "ko": [
+        "전해도 되겠습니까"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Puedo doy",
+         "Puede darle"
+        ]
+       ],
+       "en": [
+        [
+         "May I to give",
+         "May I giving"
+        ]
+       ],
+       "ko": [
+        [
+         "전헤도 되겠습니까",
+         "전해두 되겠습니까"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "estampa",
+     "hijo"
+    ],
+    "grammar": "VI.2",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "la buena noticia",
+      "en": "the good news",
+      "ko": "기쁜 소식을"
+     },
+     "opts": [
+      {
+       "es": "la carta",
+       "en": "the letter",
+       "ko": "편지를"
+      },
+      {
+       "es": "el dinero",
+       "en": "the money",
+       "ko": "돈을"
+      },
+      {
+       "es": "un saludo",
+       "en": "a greeting",
+       "ko": "안부를"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  }
+ ]
+}
