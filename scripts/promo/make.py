@@ -16,6 +16,7 @@ Play 스토어 홍보 영상 (30초 · 1920×1080 · H.264 + AAC) 을 만든다.
 자막은 한 줄, 화면 아래쪽 1/4 (소리 없이도 이해되게).
 """
 import argparse
+import json
 import os
 import subprocess
 import sys
@@ -38,6 +39,9 @@ TEXT = {
         "s2": "진짜 편지로, 원어 그대로",
         "s3": "낱말마다 뜻이 함께",
         "s4": "그 사람과 직접 말해요",
+        "s2sub": "빈센트가 쓴 프랑스어 그대로, 메신저처럼 도착해요",
+        "s3sub": "모르는 낱말 아래에 뜻이 함께 나와요",
+        "s4sub": "아를에 막 도착한 빈센트와 통화해요",
         "names": ["빈센트", "볼프강", "나폴레옹"],
         "s5": "프랑스어 · 독일어 · 영어 · 한국어",
         "title": "언어 미술관",
@@ -50,6 +54,9 @@ TEXT = {
         "s2": "Real letters, in the original.",
         "s3": "Every word, explained.",
         "s4": "Talk with them.",
+        "s2sub": "Vincent's own French, arriving like messages",
+        "s3sub": "The meaning sits under each word you don't know yet",
+        "s4sub": "A call with Vincent, just arrived in Arles",
         "names": ["Vincent", "Wolfgang", "Napoleon"],
         "s5": "Learn French, German, English, Korean",
         "title": "Lingua Museum",
@@ -67,9 +74,9 @@ def font(name, size):
 def fonts(lang):
     if lang == "ko":
         return {"cap": font("kr_semibold.ttf", 54), "title": font("kr_semibold.ttf", 96), "name": font("kr_semibold.ttf", 44),
-                "small": font("kr_regular.ttf", 22)}
+                "small": font("kr_regular.ttf", 22), "side": font("kr_semibold.ttf", 78), "sub": font("kr_regular.ttf", 38)}
     return {"cap": font("display_semibold.ttf", 66), "title": font("display_semibold.ttf", 112), "name": font("display_semibold.ttf", 52),
-            "small": font("text_regular.ttf", 24)}
+            "small": font("text_regular.ttf", 24), "side": font("display_semibold.ttf", 92), "sub": font("text_regular.ttf", 42)}
 
 
 def ease(x):
@@ -97,6 +104,57 @@ def rounded(im, r):
     out = im.convert("RGBA")
     out.putalpha(m)
     return out
+
+
+def phone_window(shot, height, y0, scale):
+    """휴대폰 모양 (높이 [height]) 안에 화면 사진의 [y0] 부터를 [scale] 배로 보여 준다 (화면 위쪽 일부를 크게)."""
+    bez = 16
+    sh = height - 2 * bez
+    sw = round(shot.width * scale)
+    src_h = round(sh / scale)
+    y0 = max(0, min(y0, shot.height - src_h))
+    win = shot.convert("RGB").crop((0, y0, shot.width, y0 + src_h)).resize((sw, sh), Image.LANCZOS)
+    screen = rounded(win, 40)
+    pw, ph = sw + 2 * bez, height
+    pad = 50
+    out = Image.new("RGBA", (pw + 2 * pad, ph + 2 * pad), (0, 0, 0, 0))
+    shadow = Image.new("L", out.size, 0)
+    ImageDraw.Draw(shadow).rounded_rectangle((pad, pad + 16, pad + pw, pad + ph + 16), 56, fill=170)
+    shadow = shadow.filter(ImageFilter.GaussianBlur(22))
+    out.paste((0, 0, 0, 255), (0, 0), shadow)
+    d = ImageDraw.Draw(out)
+    d.rounded_rectangle((pad, pad, pad + pw, pad + ph), 56, fill=(12, 10, 9, 255), outline=(78, 66, 56, 255), width=3)
+    out.alpha_composite(screen, (pad + bez, pad + bez))
+    return out
+
+
+def side_text(title, sub, ft, fs, x, w, alpha):
+    """오른쪽 글: 큰 제목 한 줄 + 작은 한 줄 (넘치면 줄바꿈), 세로 가운데."""
+    lay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+
+    def wrap(t, f):
+        lines, cur = [], ""
+        for word in t.split(" "):
+            nxt = (cur + " " + word).strip()
+            if cur and d.textlength(nxt, font=f) > w:
+                lines.append(cur); cur = word
+            else:
+                cur = nxt
+        return lines + [cur]
+    tl, sl = wrap(title, ft), wrap(sub, fs) if sub else []
+    lh_t, lh_s = int(ft.size * 1.25), int(fs.size * 1.45)
+    total = lh_t * len(tl) + (28 + lh_s * len(sl) if sl else 0)
+    y = (H - total) // 2
+    a = int(255 * alpha)
+    for t in tl:
+        d.text((x, y), t, font=ft, fill=INK + (a,)); y += lh_t
+    if sl:
+        y += 34
+        d.line((x, y, x + 90, y), fill=GOLD + (a,), width=3); y += 30
+        for t in sl:
+            d.text((x, y), t, font=fs, fill=SOFT + (a,)); y += lh_s
+    return lay
 
 
 def phone(shot, height):
@@ -152,6 +210,8 @@ def small_right(txt, f, alpha=1.0):
     return lay
 
 
+# 휴대폰 장면: 화면 사진(1179×2556)의 어디서부터 몇 배로 (글이 1080p 에서 읽히게 크게, 위쪽 흥미로운 곳만)
+CROP = {"arrival": (900, 0.56), "gloss": (392, 0.56), "talk": (0, 0.56)}
 CAP_Y = 945  # 아래쪽 1/4 (810–1080) 의 가운데
 
 
@@ -168,7 +228,8 @@ class Promo:
             p = os.path.join(shots, f"promo_{k}_{lang}.png")
             if not os.path.isfile(p):
                 sys.exit(f"화면 사진이 없어요: {p}")
-            self.phones[k] = phone(Image.open(p), 770)
+            y0, sc = CROP[k]
+            self.phones[k] = phone_window(Image.open(p), 950, y0, sc)
         icon = os.path.join(ROOT, "design/store/icon-512.png")
         self.icon = rounded(Image.open(icon).convert("RGB").resize((300, 300), Image.LANCZOS), 66)
         self.caps = {}
@@ -203,11 +264,15 @@ class Promo:
     def phone_scene(self, key, cap, lt, dur):
         frame = self.bg.copy().convert("RGBA")
         ph = self.phones[key]
-        rise = int(30 * (1 - ease(lt / 0.8)))
-        frame.alpha_composite(ph, ((W - ph.width) // 2, 30 - 40 + rise))
-        c = self.cap(cap, lt, band=False)
-        if c:
-            frame.alpha_composite(c)
+        a = ease(lt / 0.7)
+        x = 120 - 50 + int(-40 * (1 - a))
+        frame.alpha_composite(ph, (x, (H - ph.height) // 2 + 8))
+        ta = ease((lt - 0.3) / 0.5)
+        if ta > 0:
+            k = (cap, round(ta, 2))
+            if k not in self.caps:
+                self.caps[k] = side_text(self.t[cap], self.t.get(cap + "sub"), self.f["side"], self.f["sub"], 120 + ph.width - 100 + 110, W - (120 + ph.width - 100 + 110) - 110, ta)
+            frame.alpha_composite(self.caps[k])
         return frame.convert("RGB")
 
     def s2(self, lt, dur): return self.phone_scene("arrival", "s2", lt, dur)
@@ -279,27 +344,52 @@ class Promo:
         return img
 
 
-def audio_args(lang):
+SCENES = [0, 4, 10, 15, 21, 26, 30]
+
+
+def dur_of(p):
+    return float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", p],
+                                capture_output=True, text=True, check=True).stdout.strip())
+
+
+def audio_args(lang, vo):
+    """소리: 빈센트 원어 낭독 첫마디 → 장면마다 해설 한 줄 (빈센트 목소리, [vo]/<lang>/vo<n>.wav) · 밑에 곡 (해설 동안 작게, 끝에 크게)."""
     a = os.path.join(ASSETS, "audio/vincent/I/c1-l1")
     music = os.path.join(ROOT, "remote/audio/mozart/music/m-c7-l5.m4a")
-    clips = [  # (파일, 시작 초, 길이 상한, 음량)
-        (os.path.join(a, "m1_fr.m4a"), 0.7, 12.0, 1.0),
-        (os.path.join(a, "tb1_fr.m4a"), 15.7, 3.0, 1.0),
-        (os.path.join(a, "tb3_fr.m4a"), 18.4, 2.6, 1.0),
-        (music, 20.8, 9.2, 0.55),
-    ]
-    for p, *_ in clips:
+    first = os.path.join(a, "m1_fr.m4a")
+    cut = json.load(open(os.path.join(a, "m1_fr.json")))["chunks"][0]["e"] + 0.15  # "Mon cher Théo,"
+    clips = [(first, 0.3, cut, 1.0)]  # (파일, 시작 초, 길이, 음량)
+    t = 0.3 + cut - 0.2 + 0.35
+    last = t
+    if vo:
+        for n in range(1, 7):
+            p = os.path.join(vo, lang, f"vo{n}.wav")
+            if not os.path.isfile(p):
+                sys.exit(f"해설 파일이 없어요: {p}")
+            d = dur_of(p)
+            at = max(SCENES[n - 1] + 0.4, t) if n > 1 else t
+            clips.append((p, at, d, 1.0))
+            print(f"해설 {n}: {at:.2f}–{at + d:.2f}s (장면 {SCENES[n - 1]}–{SCENES[n]}s)")
+            t = at + d + 0.3
+            last = at + d
+    for p, *_ in clips + [(music,)]:
         if not os.path.isfile(p):
             sys.exit(f"소리 파일이 없어요: {p}")
     ins, flt, labels = [], [], []
     for i, (p, at, cap, vol) in enumerate(clips):
         ins += ["-i", p]
         n = i + 1
-        fo = 1.4 if p == music else 0.25
-        flt.append(f"[{n}:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{cap},asetpts=PTS-STARTPTS,"
-                   f"afade=t=in:d={0.6 if p == music else 0.02},afade=t=out:st={cap - fo}:d={fo},volume={vol},adelay={int(at * 1000)}|{int(at * 1000)}[a{n}]")
+        flt.append(f"[{n}:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{cap:.3f},asetpts=PTS-STARTPTS,"
+                   f"afade=t=out:st={max(0, cap - 0.12):.3f}:d=0.12,volume={vol},adelay={int(at * 1000)}|{int(at * 1000)}[a{n}]")
         labels.append(f"[a{n}]")
-    flt.append("".join(labels) + f"amix=inputs={len(labels)}:normalize=0:duration=longest,atrim=0:{DUR},afade=t=out:st={DUR - 0.6}:d=0.6[aout]")
+    # 곡: 해설이 끝날 때까지 작게 (0.12), 그 뒤 크게 (0.55)
+    m = len(clips) + 1
+    ins += ["-i", music]
+    up = max(last + 0.2, 21.0)
+    flt.append(f"[{m}:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{DUR},asetpts=PTS-STARTPTS,afade=t=in:d=1.0,"
+               f"volume='if(lt(t,{up:.2f}),0.12,min(0.55,0.12+(t-{up:.2f})*0.6))':eval=frame[am]")
+    labels.append("[am]")
+    flt.append("".join(labels) + f"amix=inputs={len(labels)}:normalize=0:duration=longest,atrim=0:{DUR},afade=t=out:st={DUR - 1.2}:d=1.2[aout]")
     return ins, ";".join(flt)
 
 
@@ -308,6 +398,7 @@ def main():
     ap.add_argument("--lang", choices=["ko", "en"], required=True)
     ap.add_argument("--shots", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--vo", help="해설 폴더 (voiceover.py 의 출력): <vo>/<lang>/vo1–6.wav")
     ap.add_argument("--frames", help="이 초들의 한 장면만 PNG 로 (점검용, 쉼표로)")
     a = ap.parse_args()
     p = Promo(a.lang, a.shots)
@@ -316,7 +407,7 @@ def main():
             p.frame(float(s)).save(f"{a.out}_{s}.png")
         return
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
-    ins, flt = audio_args(a.lang)
+    ins, flt = audio_args(a.lang, a.vo)
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-"] + ins + [
         "-filter_complex", flt, "-map", "0:v", "-map", "[aout]",
         "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p", "-profile:v", "high", "-r", str(FPS),

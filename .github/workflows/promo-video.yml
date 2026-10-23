@@ -30,11 +30,17 @@ jobs:
       - name: Show failures
         if: failure()
         run: grep -h -A12 "<failure" android/app/build/test-results/testDebugUnitTest/*.xml | head -120 || true
-      - name: Tools
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Tools and Supertonic 3 (archived, pinned: same as narration-r2.yml)
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg python3-pil > /dev/null
-          python3 -c "import PIL" || python3 -m pip install -q --break-system-packages pillow
+          sudo apt-get install -y -qq ffmpeg > /dev/null
+          git clone -q --depth 1 https://github.com/supertone-oss-archive/supertonic.git /tmp/st
+          pip install -q pillow huggingface_hub -r /tmp/st/py/requirements.txt
+          hf download supertone-oss-archive/supertonic-3 --revision aafc6e32416a594460b32413efc49d7fe4ce6d46 --local-dir /tmp/st/assets > /dev/null
+      - name: Voiceover in Vincent's voice (scripts/promo/voiceover.py)
+        run: python scripts/promo/voiceover.py /tmp/st/py /tmp/st/assets vo
       - name: Make videos
         shell: bash
         run: |
@@ -45,7 +51,7 @@ jobs:
           python3 --version; ffmpeg -version | head -1; python3 -c "import PIL; print('Pillow', PIL.__version__)"
           L="${{ inputs.lang }}"; [ "$L" = both ] && L="ko en"
           for l in $L; do
-            python3 scripts/promo/make.py --lang $l --shots android/app/build/screens --out out/promo_$l.mp4
+            python3 scripts/promo/make.py --lang $l --shots android/app/build/screens --vo vo --out out/promo_$l.mp4
             python3 scripts/promo/make.py --lang $l --shots android/app/build/screens --out out/still_$l --frames 2.5,12.5,23.5
           done
           for f in out/promo_*.mp4; do ffprobe -v error -show_entries stream=codec_name,width,height,duration -of compact "$f"; done
