@@ -1,0 +1,53 @@
+[
+ {
+  "file": "1.jpg",
+  "title": "File:Alegoría de la Agricultura.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Alegor%C3%ADa_de_la_Agricultura.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Francisco_Goya\" class=\"extiw\" title=\"w:en:Francisco Goya\"><span title=\"Spanish painter and printmaker (1746–1828)\">Francisco Goya</span></a></bdi>",
+  "date": "between 1804 and 1806<div style=\"display: none;\">date QS:P571,+1804-00-00T00:00:00Z/8,P1319,+1804-00-00T00:00:00Z/9,P1326,+1806-00-00T00:00:00Z/9</div>",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.museodelprado.es/imagen/alta_resolucion/P02547.jpg\">http://www.museodelprado.es/imagen/alta_resolucion/P02547.jpg</a>",
+  "usage": "Public domain",
+  "description": "<div class=\"description\">\n<i>La Agricultura</i>. Óleo sobre lienzo. Madrid, Museo del Prado.</div>",
+  "categories": "PD-old-100-expired|PD-Art (PD-old-auto-expired)|Artworks with Wikidata item|Artworks with known accession number|CC-PD-Mark|Artworks with accession number from Wikidata|Allegory of agriculture (Goya)|Artworks digital representation of unknown type of work|Artworks digital representation of 2D work",
+  "size": [
+   2202,
+   2251
+  ],
+  "query": "Goya La Agricultura alegoría Prado"
+ },
+ {
+  "file": "2.jpg",
+  "title": "File:La trilla.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:La_trilla.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Francisco_Goya\" class=\"extiw\" title=\"w:en:Francisco Goya\"><span title=\"Spanish painter and printmaker (1746–1828)\">Francisco Goya</span></a></bdi>",
+  "date": "between 1786 and 1787<div style=\"display: none;\">date QS:P571,+1786-00-00T00:00:00Z/8,P1319,+1786-00-00T00:00:00Z/9,P1326,+1787-00-00T00:00:00Z/9</div>",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://goya.unizar.es/InfoGoya/Obra/Catalogo/Pintura/185.html\">http://goya.unizar.es/InfoGoya/Obra/Catalogo/Pintura/185.html</a>",
+  "usage": "Public domain",
+  "description": "<div class=\"description\">\nLa trilla, boceto. <br>Cartones para tapices.</div>",
+  "categories": "Cartones para tapices por Goya|The Threshing Floor (Goya)|PD-old-100-expired|PD-Art (PD-old-auto-expired)|Artworks with Wikidata item|CC-PD-Mark|Paintings by Francisco de Goya in the Museo Lázaro Galdiano|Artworks with Wikidata item missing genre|Artworks digital representation of 2D work|1786 paintings by Francisco de Goya|Threshing in art|Sketches by Francisco de Goya",
+  "size": [
+   526,
+   215
+  ],
+  "query": "Goya La era El verano boceto"
+ },
+ {
+  "file": "3.jpg",
+  "title": "File:Las mozas del cántaro.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Las_mozas_del_c%C3%A1ntaro.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Francisco_Goya\" class=\"extiw\" title=\"w:en:Francisco Goya\"><span title=\"Spanish painter and printmaker (1746–1828)\">Francisco Goya</span></a></bdi>",
+  "date": "between 1791 and 1792<div style=\"display: none;\">date QS:P571,+1791-00-00T00:00:00Z/8,P1319,+1791-00-00T00:00:00Z/9,P1326,+1792-00-00T00:00:00Z/9</div>",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.museodelprado.es/es/pagina-principal/coleccion/galeria-on-line/galeria-on-line/zoom/1/obra/las-mozas-del-cantaro/oimg/0/\">http://www.museodelprado.es/es/pagina-principal/coleccion/galeria-on-line/galeria-on-line/zoom/1/obra/las-mozas-del-cantaro/oimg/0/</a>",
+  "usage": "Public domain",
+  "description": "<div class=\"description\">\nSerie <i>Cartones para tapices</i>.</div>",
+  "categories": "Cartones para tapices por Goya|Las mozas del cántaro (Goya)|PD-old-100-expired|PD-Art (PD-old-auto-expired)|Paintings by Goya in the Museo del Prado|Artworks with Wikidata item|Artworks with known accession number|Water carrying|CC-PD-Mark|Artworks with accession number from Wikidata|Headcarrying in Spain|Cántaros in art|Artworks with Wikidata item missing genre|Artworks digital representation of 2D work|Headcarrying in art|1791 paintings by Francisco de Goya|Paintings of ceramics by Goya",
+  "size": [
+   1166,
+   1920
+  ],
+  "query": "Goya Las mozas del cántaro cartón"
+ }
+]
