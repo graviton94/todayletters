@@ -686,50 +686,40 @@
     },
     {
      "quote": 0,
-     "grammar": "VI.0",
-     "es": "Si un estampero vende las estampas sin su nombre, nadie sabrá que son de Goya.",
-     "en": "If a print-seller sells the prints without your name, nobody will know they're by Goya.",
-     "ko": "판화 장수가 이름 없이 팔면 아무도 고야 작품인 줄 모를 거예요.",
-     "koLow": "판화 장수가 이름 없이 팔면 아무도 고야 작품인 줄 모를 거야.",
-     "koHigh": "판화 장수가 이름 없이 팔면 아무도 고야 작품인 줄 모를 것입니다.",
+     "grammar": "IV.0",
+     "es": "Voy a buscar un estampero en París.",
+     "en": "I'm going to look for a print-seller in Paris.",
+     "ko": "파리에서 판화 장수를 찾아볼게요.",
+     "koLow": "파리에서 판화 장수를 찾아볼게.",
+     "koHigh": "파리에서 판화 장수를 찾아보겠습니다.",
      "focus": {
       "es": [
-       "Si un estampero vende",
-       "sabrá"
+       "Voy a buscar"
       ],
       "en": [
-       "If a print-seller sells",
-       "will know"
+       "I'm going to look for"
       ],
       "ko": [
-       "팔면"
+       "찾아볼게요"
       ]
      },
      "wrong": {
       "es": [
        [
-        "Si un estampero venderá",
-        "Si un estampero venda"
-       ],
-       [
-        "sabe",
-        "supo"
+        "Voy buscar",
+        "Va a buscar"
        ]
       ],
       "en": [
        [
-        "If a print-seller will sell",
-        "If a print-seller sold"
-       ],
-       [
-        "knows",
-        "knew"
+        "I'm going look for",
+        "I going to look for"
        ]
       ],
       "ko": [
        [
-        "팔며",
-        "팔으면"
+        "찾아볼께요",
+        "찾아불게요"
        ]
       ]
      },
@@ -1072,8 +1062,8 @@
    ],
    "words": [],
    "note": {
-    "ko": "1826년 고야는 마드리드에 잠시 다녀와 은퇴를 허락받았고, 다시 보르도로 돌아왔어요. 1828년 봄, 아들 하비에르가 보르도에 온다는 소식을 듣고 고야는 너무 기뻐 앓아누웠어요. 손자 마리아노가 먼저 ‘아빠, 할아버지가 몇 자 적으실 거예요’라고 쓰고, 그 아래 고야가 직접 이 몇 줄을 적었어요. 편지 끝에 마리아노는 ‘할아버지가 쓴 마지막 글’이라고 적어 두었어요. 하비에르가 도착하고 며칠 뒤인 1828년 4월 16일, 고야는 보르도에서 여든둘의 나이로 세상을 떠났어요.",
-    "en": "In 1826 Goya made a short trip to Madrid, was allowed to retire, and returned to Bordeaux. In the spring of 1828, on hearing that his son Javier was coming to Bordeaux, he was so overjoyed that he took to his bed. His grandson Mariano first wrote ‘Dear Papa: Grandfather is going to write you a few lines’, and below it Goya wrote these lines himself. At the foot Mariano noted: ‘The last lines Grandfather wrote.’ On 16 April 1828, a few days after Javier arrived, Goya died in Bordeaux, aged eighty-two.",
+    "ko": "1826년 고야는 마드리드에 잠시 다녀와 은퇴를 허락받았고, 다시 보르도로 돌아왔어요. 1828년 봄, 아들 하비에르가 보르도에 온다는 소식을 듣고 고야는 너무 기뻐 앓아누웠어요. 손자 마리아노가 먼저 ‘아빠, 할아버지가 몇 자 적으실 거예요’라고 쓰고, 그 아래 고야가 직접 이 몇 줄을 적었어요. 편지 끝에 마리아노는 ‘할아버지가 쓴 마지막 글’이라고 적어 두었어요. 1828년 4월 16일, 고야는 보르도에서 여든둘의 나이로 세상을 떠났어요.",
+    "en": "In 1826 Goya made a short trip to Madrid, was allowed to retire, and returned to Bordeaux. In the spring of 1828, on hearing that his son Javier was coming to Bordeaux, he was so overjoyed that he took to his bed. His grandson Mariano first wrote ‘Dear Papa: Grandfather is going to write you a few lines’, and below it Goya wrote these lines himself. At the foot Mariano noted: ‘The last lines Grandfather wrote.’ On 16 April 1828 Goya died in Bordeaux, aged eighty-two.",
     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 154 · public domain · https://archive.org/details/AV192 ; Conde de la Viñaza, Goya, su tiempo, su vida, sus obras (Madrid, 1887), p. 69–70 · public domain · https://archive.org/details/goyasutiemposuv01vinagoog ; image: see plate.imageSource"
    },
    "plate": {

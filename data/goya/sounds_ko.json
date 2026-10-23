@@ -1,5 +1,5 @@
 {
- "_doc": "이번 장의 소리: 장마다 소리 짝 하나. checked=false 는 사람 확인 전. 지금은 I장만 (다른 장은 그 장 데이터와 함께).",
+ "_doc": "이번 장의 소리: 장마다 소리 짝 하나 (I~VI, 맺음은 다른 작품처럼 없음). 영어 · 한국어 덱은 나폴레옹과 같은 차례. checked=false 는 사람 확인 전.",
  "lang": "ko",
  "checked": false,
  "chapters": {
@@ -52,6 +52,260 @@
     },
     "크다": {
      "en": "to be big"
+    }
+   }
+  },
+  "II": {
+   "name": {
+    "en": "ㅂ, ㅃ and ㅍ"
+   },
+   "tip": {
+    "en": "ㅂ relaxed, ㅃ tight lips and no air, ㅍ with a puff of air"
+   },
+   "pairs": [
+    [
+     "불",
+     "풀"
+    ],
+    [
+     "불",
+     "뿔"
+    ],
+    [
+     "방",
+     "빵"
+    ],
+    [
+     "비",
+     "피"
+    ]
+   ],
+   "mean": {
+    "불": {
+     "en": "fire"
+    },
+    "풀": {
+     "en": "grass"
+    },
+    "뿔": {
+     "en": "horn"
+    },
+    "방": {
+     "en": "room"
+    },
+    "빵": {
+     "en": "bread"
+    },
+    "비": {
+     "en": "rain"
+    },
+    "피": {
+     "en": "blood"
+    }
+   }
+  },
+  "III": {
+   "name": {
+    "en": "ㄷ, ㄸ and ㅌ"
+   },
+   "tip": {
+    "en": "ㄷ relaxed, ㄸ tense with no breath, ㅌ with a puff of air"
+   },
+   "pairs": [
+    [
+     "달",
+     "딸"
+    ],
+    [
+     "달",
+     "탈"
+    ],
+    [
+     "덕",
+     "떡"
+    ],
+    [
+     "타다",
+     "따다"
+    ]
+   ],
+   "mean": {
+    "달": {
+     "en": "moon"
+    },
+    "딸": {
+     "en": "daughter"
+    },
+    "탈": {
+     "en": "mask"
+    },
+    "덕": {
+     "en": "virtue"
+    },
+    "떡": {
+     "en": "rice cake"
+    },
+    "타다": {
+     "en": "to ride"
+    },
+    "따다": {
+     "en": "to pick"
+    }
+   }
+  },
+  "IV": {
+   "name": {
+    "en": "ㅓ and ㅗ"
+   },
+   "tip": {
+    "en": "ㅓ with open, unrounded lips; ㅗ with small rounded lips"
+   },
+   "pairs": [
+    [
+     "거기",
+     "고기"
+    ],
+    [
+     "벌",
+     "볼"
+    ],
+    [
+     "서리",
+     "소리"
+    ],
+    [
+     "덜",
+     "돌"
+    ]
+   ],
+   "mean": {
+    "거기": {
+     "en": "there"
+    },
+    "고기": {
+     "en": "meat"
+    },
+    "벌": {
+     "en": "bee"
+    },
+    "볼": {
+     "en": "cheek"
+    },
+    "서리": {
+     "en": "frost"
+    },
+    "소리": {
+     "en": "sound"
+    },
+    "덜": {
+     "en": "less"
+    },
+    "돌": {
+     "en": "stone"
+    }
+   }
+  },
+  "V": {
+   "name": {
+    "en": "ㅡ and ㅜ"
+   },
+   "tip": {
+    "en": "ㅡ with flat, spread lips; ㅜ with rounded, pushed-out lips"
+   },
+   "pairs": [
+    [
+     "들",
+     "둘"
+    ],
+    [
+     "글",
+     "굴"
+    ],
+    [
+     "은",
+     "운"
+    ],
+    [
+     "그",
+     "구"
+    ]
+   ],
+   "mean": {
+    "들": {
+     "en": "field"
+    },
+    "둘": {
+     "en": "two"
+    },
+    "글": {
+     "en": "writing"
+    },
+    "굴": {
+     "en": "oyster"
+    },
+    "은": {
+     "en": "silver"
+    },
+    "운": {
+     "en": "luck"
+    },
+    "그": {
+     "en": "that"
+    },
+    "구": {
+     "en": "nine"
+    }
+   }
+  },
+  "VI": {
+   "name": {
+    "en": "ㅅ and ㅆ"
+   },
+   "tip": {
+    "en": "ㅅ soft and breathy, ㅆ tense and sharp"
+   },
+   "pairs": [
+    [
+     "살",
+     "쌀"
+    ],
+    [
+     "사다",
+     "싸다"
+    ],
+    [
+     "시",
+     "씨"
+    ],
+    [
+     "상",
+     "쌍"
+    ]
+   ],
+   "mean": {
+    "살": {
+     "en": "flesh · age"
+    },
+    "쌀": {
+     "en": "rice (uncooked)"
+    },
+    "사다": {
+     "en": "to buy"
+    },
+    "싸다": {
+     "en": "to be cheap"
+    },
+    "시": {
+     "en": "poem"
+    },
+    "씨": {
+     "en": "seed"
+    },
+    "상": {
+     "en": "table · prize"
+    },
+    "쌍": {
+     "en": "pair"
     }
    }
   }

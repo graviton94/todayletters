@@ -247,3 +247,11 @@
 - 어휘: `scripts/vocab/src/es_tab.txt` · `es_map.txt` · `en_map_goya.txt` · `ko_map_goya.txt` · phrases_goya*.txt · daily_override_goya.json · example_drop_goya.txt. Tatoeba spa 는 `tatoeba_spa` 가지 (fetch-tatoeba). ko 카드 발음은 다른 작품과 같은 낱말은 그쪽 것, 나머지는 pron.py 규칙으로 자동 [소리] · 로마자 (사람 확인 전). tok.py · basics.py · validate_lexicon.py 는 아직 없는 장 파일을 건너뛴다.
 - 그림: 서문 · I장 그림 11 + 대화 속 사진 11 (`remote/plates/g-*` · `gm-*`, PD-Art 는 `exception`), 대표 그림 `plates/g-c1-l2.webp` (〈양산〉) · 초상 `portraits/goya.webp` (〈카프리초스〉 1번, Met CC0) 만 앱 안. 검색어 `data/images/gplates*_queries.json` (fetch-portraits → gplates · gplates2 가지).
 - 사람 확인 전: 편지 글 `verified: false` (판본 쪽 그림과 마지막 대조), 앱 번역 · 회화 · 답장 · 기초 낱말 · 소리 · 닻 뜻. 출처 사이트 (site_sources.py) 는 아직 다시 돌리지 않음.
+
+### 고야 2단계 (2026-10-23): 49통 모두
+- series.json: II~VI장 (VI = Sordo · The Silent Years · 들리지 않는 날들), 맺음 아웃트로 (g-outro.webp 〈아직 배우고 있다〉, Prado · PD-Art, 본문 세 단락), 곳 aranjuez · arenas · san_francisco_el_grande · burdeos, 새 받는 사람 말투 (위원회 · 알루에 · 플로리다블랑카 · 베나벤테 · 솔레르 · 페레르 · 모라틴 · 하비에르), **tier 2**. 처음 묶음 P · I · II.
+- 맺음 편지가 셋 (보르도 e1~e3): 앱 `Outro.epilogues` (예전 `epilogue` 는 첫 편지), 아웃트로 화면이 차례로 보여 주고 둘째부터 날짜 · 곳 한 줄, 답장 단추는 `Route.Letter(작품, EPILOGUE, n)`. `AppState.letterOf` · 카드 낱말 찾기 · 출처 화면도 셋 다. 다른 작품은 하나 그대로.
+- 맺음 첫 단락: “하비에르가 도착하고 며칠 뒤” 는 기록이 엇갈려 쓰지 않았다 (e3 노트도 같은 이유로 고침) — 사용자 확인.
+- c6-l2: 지금 철자 venirme, 찍힌 글자 heñirme (orig.es, excerpt 에 적음). IV~VI · 맺음 복습 턴 8개를 II~V 문법으로 (c4-l1 III.0 · c4-l2 II.2 · c4-l4 II.0 · c4-l7 III.1 · c6-l1 V.1 · c6-l3 III.0 · c6-l7 IV.1 · e2 IV.0).
+- 어휘: es_tab +678 · en_tab +260 · ko_tab +330 (사람 확인 전). 카드 낱말을 장마다 5–8 · A1–A2 62% 로 맞춘 것은 `scripts/vocab/src/goya_cards/` (apply_depth.py 로 넣음, daily.py 를 다시 돌리면 다시 넣을 것). 예문 거르기 88개 `example_drop_goya.txt`.
+- 이번 장의 소리 I~VI (es: ñ/n · r/l · 강세 · b/p · g/k, en · ko 는 나폴레옹과 같은 차례).

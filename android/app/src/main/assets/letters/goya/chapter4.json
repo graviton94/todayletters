@@ -1,0 +1,2815 @@
+{
+ "_doc": "Goya · chapter IV, Painter to the King (1786–1787). Spanish = modern spelling (accents, b/v, h, x/j, joined words; no rewording and no change of word order), each message keeps the text as printed in the public-domain edition in orig.es (shown in the app as an optional ‘original spelling’ line). Editors' interjections and plate captions printed mid-text are removed; nothing is taken from the 1981/82 or 2003 editions or their notes. verified=false: checked against the archive.org full text, a last check against the page images is still to do. c4-l7 is an account (bill) in Goya's hand, not a letter. en · ko translated from the Spanish for this app. Replies and talks are written by this app, not by the recipients.",
+ "series": "goya",
+ "chapter": "IV",
+ "title_es": "Pintor del Rey",
+ "title_en": "Painter to the King",
+ "title_ko": "왕의 화가",
+ "original": "es",
+ "grammar": [
+  {
+   "id": "IV.0",
+   "es": {
+    "name": {
+     "ko": "ir a + 동사원형 (가까운 미래)",
+     "en": "ir a + infinitive (near future)"
+    },
+    "hint": {
+     "ko": "곧 할 일을 말해요 · voy a ver, vamos a mudar",
+     "en": "Say what you're about to do · voy a ver, vamos a mudar"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "be going to",
+     "en": "be going to"
+    },
+    "hint": {
+     "ko": "하려는 일을 말해요 · I'm going to see",
+     "en": "Talk about plans · I'm going to see"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄹ게요",
+     "en": "-(으)ㄹ게요 (I will, promise)"
+    },
+    "hint": {
+     "ko": "내가 하겠다고 약속해요 · 볼게요, 기다릴게요",
+     "en": "Promise what you'll do · 볼게요, 기다릴게요"
+    }
+   }
+  },
+  {
+   "id": "IV.1",
+   "es": {
+    "name": {
+     "ko": "porque · para + 동사원형",
+     "en": "porque · para + infinitive"
+    },
+    "hint": {
+     "ko": "porque 는 이유, para 는 목적 · porque me he retrasado, para tener el lienzo",
+     "en": "porque gives a reason, para + infinitive a purpose · porque me he retrasado, para tener el lienzo"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "because · so",
+     "en": "because · so"
+    },
+    "hint": {
+     "ko": "이유와 결과를 이어요 · because …, so …",
+     "en": "Link reasons and results · because …, so …"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄹ 거예요",
+     "en": "-(으)ㄹ 거예요 (will · probably)"
+    },
+    "hint": {
+     "ko": "앞으로 일어날 일을 말해요 · 그릴 거예요, 좋을 거예요",
+     "en": "Say what will or must be · 그릴 거예요, 좋을 거예요"
+    }
+   }
+  },
+  {
+   "id": "IV.2",
+   "es": {
+    "name": {
+     "ko": "단순 미래 (escribiré, haré)",
+     "en": "Simple future (escribiré, haré)"
+    },
+    "hint": {
+     "ko": "앞으로의 일을 말해요 · ya te escribiré, te la haré",
+     "en": "Talk about the future · ya te escribiré, te la haré"
+    }
+   },
+   "en": {
+    "name": {
+     "ko": "will",
+     "en": "will"
+    },
+    "hint": {
+     "ko": "앞으로의 일을 말해요 · I will write, I'll paint",
+     "en": "Talk about the future · I will write, I'll paint"
+    }
+   },
+   "ko": {
+    "name": {
+     "ko": "-(으)ㄹ까요?",
+     "en": "-(으)ㄹ까요? (shall we · will it?)"
+    },
+    "hint": {
+     "ko": "제안하거나 궁금해해요 · 갈까요? 좋을까요?",
+     "en": "Suggest or wonder · 갈까요? 좋을까요?"
+    }
+   }
+  }
+ ],
+ "letters": [
+  {
+   "id": "c4-l1",
+   "date": "1786-07-07",
+   "dateNote": "Dated 7 July 1786 following the Prado catalogue ('Carta a Martín Zapater de 7 de julio de 1786'; confirmed only through search results, the Prado site was not reachable). Zapater y Gómez (1868, p. 19) also says Goya sent the news on 7 July, but prints the passage at the head of the letter of 1 August 1786, and Beruete (1916, p. 28) prints it as 1 August 1786.",
+   "ref": "Zapater y Gómez, p. 19 · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+   "place": "Madrid",
+   "to": {
+    "es": "Martín Zapater",
+    "en": "Martín Zapater",
+    "ko": "마르틴 사파테르"
+   },
+   "mood": "bright",
+   "excerpt": "Messages 0–3 are the whole passage as printed in Zapater y Gómez (1868, p. 19); the editor's lead-in ('Dice así') is left out.",
+   "messages": [
+    {
+     "es": "Martín mío, ya soy Pintor del Rey con quince mil reales.",
+     "en": "My Martín, I'm Painter to the King now, with fifteen thousand reales.",
+     "ko": "마르틴, 드디어 왕의 화가가 됐어. 1만 5천 레알을 받아!",
+     "orig": {
+      "es": "Martin mío, ya soy Pintor del Rey con quince mil reales,"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Martín mío, ya soy Pintor del Rey con quince mil reales.",
+      "en": "My Martín, I'm Painter to the King now, / with fifteen thousand reales.",
+      "ko": "마르틴, 드디어 왕의 화가가 됐어. // 1만 5천 레알을 받아!"
+     }
+    },
+    {
+     "es": "Aunque no tengo tiempo, te insinuaré cómo el Rey envió orden a Bayeu y Maella que buscasen dos pintores, lo mejor que se encontrase, para pintar los ejemplares de tapices y lo que ocurriera en Palacio, a fresco o al óleo; Bayeu puso a su hermano, y Maella a mí.",
+     "en": "Though I have no time, I'll give you a hint of how it went: the King sent orders to Bayeu and Maella to find two painters, the best to be found, to paint the models for tapestries and whatever came up in the Palace, in fresco or in oil. Bayeu put forward his brother, and Maella put forward me.",
+     "ko": "시간은 없지만 어떻게 된 일인지 살짝 알려 줄게. 왕께서 바예우와 마에야에게 화가 두 사람을 찾으라고 명하셨어. 찾을 수 있는 가장 뛰어난 이로, 태피스트리 밑그림과 왕궁에서 생기는 일을 프레스코든 유화든 그릴 사람을. 바예우는 자기 동생을, 마에야는 나를 추천했어.",
+     "orig": {
+      "es": "aunque no tengo tiempo te insinuaré como el Rey enbio orden a Bayeu y Maella que buscasen dos pintores lo mejor que se encontrase para Pintar los exemplares de tapices y lo que ocurriera en Palacio a fresco o alolio, Bayeu puso a su hermano y Maella a mi."
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Aunque no tengo tiempo, te insinuaré cómo el Rey envió orden a Bayeu y Maella que buscasen dos pintores, / lo mejor que se encontrase, / para pintar los ejemplares de tapices y lo que ocurriera en Palacio, / a fresco o al óleo; // Bayeu puso a su hermano, / y Maella a mí.",
+      "en": "Though I have no time, / I'll give you a hint of how it went: // the King sent orders to Bayeu and Maella to find two painters, / the best to be found, / to paint the models for tapestries and whatever came up in the Palace, / in fresco or in oil. // Bayeu put forward his brother, / and Maella put forward me.",
+      "ko": "시간은 없지만 어떻게 된 일인지 살짝 알려 줄게. // 왕께서 바예우와 마에야에게 화가 두 사람을 찾으라고 명하셨어. // 찾을 수 있는 가장 뛰어난 이로, / 태피스트리 밑그림과 왕궁에서 생기는 일을 프레스코든 유화든 그릴 사람을. // 바예우는 자기 동생을, / 마에야는 나를 추천했어."
+     }
+    },
+    {
+     "es": "Subió esta consulta al Rey y estuvo hecha la gracia, y yo sin saber nada, que me cogió sin saber lo que me sucedía.",
+     "en": "The proposal went up to the King and the favour was granted, and I knew nothing: it caught me without my knowing what was happening to me.",
+     "ko": "이 추천이 왕께 올라가 은혜가 내려졌는데, 나는 아무것도 몰랐어. 무슨 일이 일어나는지도 모르고 있다가 맞은 일이야.",
+     "orig": {
+      "es": "Subio esta consulta al Rey y estubo echa la gracia y yo sin saber nada, que me cogió sin saber lo que me sucedía,"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Subió esta consulta al Rey y estuvo hecha la gracia, / y yo sin saber nada, / que me cogió sin saber lo que me sucedía.",
+      "en": "The proposal went up to the King and the favour was granted, / and I knew nothing: // it caught me without my knowing what was happening to me.",
+      "ko": "이 추천이 왕께 올라가 은혜가 내려졌는데, / 나는 아무것도 몰랐어. // 무슨 일이 일어나는지도 모르고 있다가 맞은 일이야."
+     }
+    },
+    {
+     "es": "He dado gracias al Rey y Príncipe y a los demás jefes, y a Bayeu, que dice que él fue la causa de que Maella me propusiera a mí, y a Maella por ser yo de su parte propuesto, y adiós, que ya te escribiré. Tuyo y retuyo.",
+     "en": "I've thanked the King and the Prince and the other heads, and Bayeu, who says he was the reason Maella proposed me, and Maella, since it was on his side I was proposed. And goodbye, I'll write to you soon. Yours, and yours again.",
+     "ko": "왕과 왕세자, 다른 윗분들께 감사를 드렸어. 바예우에게도. 자기 덕분에 마에야가 나를 추천했다고 하더라. 나를 추천해 준 마에야에게도. 그럼 안녕, 곧 또 쓸게. 온전히 너의 친구가.",
+     "orig": {
+      "es": "he dado gracias al Rey y Principe y a los demás Gefes y a Bayeu que dice que el fue la causa de que Maella me propusiera a mi, y a Maella por ser yo de su parte propuesto, y a Dios que ya te escribiré. Tuyo y retuyo."
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "He dado gracias al Rey y Príncipe y a los demás jefes, / y a Bayeu, que dice que él fue la causa de que Maella me propusiera a mí, / y a Maella por ser yo de su parte propuesto, / y adiós, que ya te escribiré. // Tuyo y retuyo.",
+      "en": "I've thanked the King and the Prince and the other heads, / and Bayeu, who says he was the reason Maella proposed me, / and Maella, since it was on his side I was proposed. // And goodbye, I'll write to you soon. // Yours, and yours again.",
+      "ko": "왕과 왕세자, 다른 윗분들께 감사를 드렸어. // 바예우에게도. // 자기 덕분에 마에야가 나를 추천했다고 하더라. // 나를 추천해 준 마에야에게도. // 그럼 안녕, 곧 또 쓸게. // 온전히 너의 친구가."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "1786년 여름, 고야는 ‘왕의 화가(Pintor del Rey)’가 되어 1년에 1만 5천 레알을 받게 됐어요. 왕립 태피스트리 공장의 밑그림과 왕궁의 일을 맡는 자리예요. 8월 1일 편지에서 고야는 더 자세히 적었어요. 처남 바예우가 불러, 자기는 멩스 밑에서 1만 2천 레알로 시작했다며 이 자리를 알려 주었고, 바예우는 동생 라몬을, 마에야는 고야를 추천했대요. 이 돈을 보태면 1년에 2만 8천 레알 남짓이 된다고도 했어요.",
+    "en": "In the summer of 1786 Goya became Pintor del Rey, Painter to the King, at 15,000 reales a year: cartoons for the Royal Tapestry Factory and whatever work the Palace needed. In his letter of 1 August he told the story at length: his brother-in-law Bayeu called him in, said he himself had started at 12,000 reales as Mengs's assistant, and explained that he had put forward his brother Ramón while Maella put forward Goya. With this, Goya wrote, his income came to a little over 28,000 reales a year.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19–21 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Las floreras (La primavera)",
+    "title_en": "The Flower Girls (Spring)",
+    "title_ko": "꽃 파는 여인들 (봄)",
+    "date": "1786–1787",
+    "credit": "Francisco de Goya",
+    "collection": "Museo del Prado, Madrid",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Las_floreras.jpg",
+    "commonsFile": "File:Las floreras.jpg",
+    "image": "g-c4-l1.webp",
+    "kind": "painting",
+    "why": {
+     "ko": "왕의 화가가 된 뒤 고야가 그린 ‘사계’ 밑그림 가운데 봄이에요. 1786–1787년의 작품이에요.",
+     "en": "Spring, from the Four Seasons cartoons Goya painted in 1786–87, after he became Painter to the King."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "IV.0",
+     "es": "¡Enhorabuena! Voy a contarlo a todos en Zaragoza.",
+     "en": "Congratulations! I'm going to tell everyone in Zaragoza.",
+     "ko": "축하해요! 사라고사의 모두에게 알릴게요.",
+     "koLow": "축하해! 사라고사의 모두에게 알릴게.",
+     "koHigh": "축하합니다! 사라고사의 모두에게 알리겠습니다.",
+     "focus": {
+      "es": [
+       "Voy a contarlo"
+      ],
+      "en": [
+       "I'm going to tell"
+      ],
+      "ko": [
+       "알릴게요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Voy contarlo",
+        "Va a contarlo"
+       ]
+      ],
+      "en": [
+       [
+        "I'm going tell",
+        "I going to tell"
+       ]
+      ],
+      "ko": [
+       [
+        "알릴께요",
+        "알리게요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "III.0",
+     "es": "¡Has trabajado mucho para esto, Francisco!",
+     "en": "You've worked hard for this, Francisco!",
+     "ko": "이걸 위해 정말 열심히 일했어요, 프란시스코!",
+     "koLow": "이걸 위해 정말 열심히 일했어, 프란시스코!",
+     "koHigh": "이를 위해 정말 열심히 일하셨습니다, 프란시스코!",
+     "focus": {
+      "es": [
+       "Has trabajado"
+      ],
+      "en": [
+       "You've worked"
+      ],
+      "ko": [
+       "일했어요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Has trabajar",
+        "Haces trabajado"
+       ]
+      ],
+      "en": [
+       [
+        "You've work",
+        "You has worked"
+       ]
+      ],
+      "ko": [
+       [
+        "일햇어요",
+        "일했아요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Goya, Pintor del Rey · julio de 1786",
+      "en": "Goya, Painter to the King · July 1786",
+      "ko": "고야가 왕의 화가가 돼요 · 1786년 7월"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "palacio",
+     "title": {
+      "es": "Palacio Real",
+      "en": "The Royal Palace",
+      "ko": "왕궁"
+     },
+     "address": "Madrid"
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "gm-c4-l1.webp",
+     "caption": {
+      "es": "Carlos III, cazador, retratado por Goya",
+      "en": "Carlos III as a hunter, painted by Goya",
+      "ko": "고야가 그린 사냥꾼 차림의 카를로스 3세"
+     },
+     "credit": "Carlos III, cazador, c. 1786 · Francisco de Goya · Museo del Prado · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Goya_-_Carlos_III,_cazador,_Hacia_1786,_P000737.jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "Ya soy Pintor del Rey",
+    "en": "Painter to the King at last",
+    "ko": "드디어 왕의 화가"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Cuánto gana Goya como Pintor del Rey?",
+      "en": "How much does Goya earn as Painter to the King?",
+      "ko": "고야는 왕의 화가로 얼마를 받아요?"
+     },
+     "options": [
+      {
+       "es": "Quince mil reales",
+       "en": "Fifteen thousand reales",
+       "ko": "1만 5천 레알"
+      },
+      {
+       "es": "Doce mil reales",
+       "en": "Twelve thousand reales",
+       "ko": "1만 2천 레알"
+      },
+      {
+       "es": "Noventa doblones",
+       "en": "Ninety doubloons",
+       "ko": "90도블론"
+      },
+      {
+       "es": "Cien mil reales",
+       "en": "A hundred thousand reales",
+       "ko": "10만 레알"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "es": "quince mil reales",
+      "en": "fifteen thousand reales",
+      "ko": "1만 5천 레알"
+     }
+    },
+    {
+     "q": {
+      "es": "¿Quién propuso a Goya?",
+      "en": "Who put Goya forward?",
+      "ko": "누가 고야를 추천했어요?"
+     },
+     "options": [
+      {
+       "es": "Maella",
+       "en": "Maella",
+       "ko": "마에야"
+      },
+      {
+       "es": "Bayeu",
+       "en": "Bayeu",
+       "ko": "바예우"
+      },
+      {
+       "es": "El Príncipe",
+       "en": "The Prince",
+       "ko": "왕세자"
+      },
+      {
+       "es": "Martín",
+       "en": "Martín",
+       "ko": "마르틴"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1,
+     "mark": {
+      "es": "Maella a mí",
+      "en": "Maella put forward me",
+      "ko": "마에야는 나를"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "왕의 화가가 된 프란시스코와 통화 · 나는 마르틴",
+     "en": "A call with Francisco, now Painter to the King · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "¡Martín! Voy a pintar en el Palacio.",
+      "en": "Martín! I'm going to paint at the Palace.",
+      "ko": "마르틴! 왕궁에서 그림을 그릴 거야."
+     },
+     {
+      "who": "me",
+      "es": "¡Qué bien! ¿Dónde está el Palacio?",
+      "en": "Great! Where is the Palace?",
+      "ko": "잘됐다! 왕궁은 어디에 있어?",
+      "focus": {
+       "es": [
+        "Dónde está"
+       ],
+       "en": [
+        "Where is"
+       ],
+       "ko": [
+        "어디에 있어"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Dónde es",
+         "Dónde estás"
+        ]
+       ],
+       "en": [
+        [
+         "Where are",
+         "Where it is"
+        ]
+       ],
+       "ko": [
+        [
+         "어디에 잇어",
+         "어디애 있어"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Al oeste de Madrid, junto al río.",
+      "en": "In the west of Madrid, by the river.",
+      "ko": "마드리드 서쪽, 강 옆에 있어."
+     },
+     {
+      "who": "me",
+      "es": "Entonces voy a visitarte allí.",
+      "en": "Then I'm going to visit you there.",
+      "ko": "그럼 거기로 너를 보러 갈게.",
+      "focus": {
+       "es": [
+        "voy a visitarte"
+       ],
+       "en": [
+        "I'm going to visit"
+       ],
+       "ko": [
+        "보러 갈게"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "voy visitarte",
+         "voy a visito"
+        ]
+       ],
+       "en": [
+        [
+         "I'm going visit",
+         "I'm go to visit"
+        ]
+       ],
+       "ko": [
+        [
+         "보러 갈께",
+         "보로 갈게"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "rey",
+     "pintor"
+    ],
+    "grammar": "IV.0",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "visitarte",
+      "en": "visit you",
+      "ko": "너를 보러"
+     },
+     "opts": [
+      {
+       "es": "verte",
+       "en": "see you",
+       "ko": "너를 만나러"
+      },
+      {
+       "es": "buscarte",
+       "en": "find you",
+       "ko": "너를 찾으러"
+      },
+      {
+       "es": "saludarte",
+       "en": "say hello to you",
+       "ko": "인사하러"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "c4-l2",
+   "date": "1786-08-01",
+   "dateNote": "Signed 'Madrid 1 de Agosto de 1786' in Zapater y Gómez (1868, p. 21); the same passage is in Cruzada Villaamil (1870, p. 45). No modern dating checked.",
+   "ref": "Zapater y Gómez, p. 19–20 · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19–20 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+   "place": "Madrid",
+   "to": {
+    "es": "Martín Zapater",
+    "en": "Martín Zapater",
+    "ko": "마르틴 사파테르"
+   },
+   "mood": "bright",
+   "excerpt": "Messages 0–3 keep the passage in order. The description of the gig and of the horse and the trial drive, after '90 doblones', is left out (marked …), and so is the rest of this long letter (his leg, and how the appointment came about).",
+   "messages": [
+    {
+     "es": "Querido Martín: Como iba diciendo en mis anteriores, voy a ver si me dejan satisfacer mi gusto en escribirte largo, ya que estoy cojo de una caída que tuvimos con el birlocho, que ya estaba medio ajustado en 90 doblones…",
+     "en": "Dear Martín: As I was saying in my last letters, I'm going to see if they'll let me enjoy writing to you at length, since I'm lame from a fall we had with the gig, which I had already half agreed to buy for 90 doubloons…",
+     "ko": "사랑하는 마르틴: 지난 편지들에서 말하던 대로, 이번엔 길게 써 보려고 해. 마차에서 떨어져서 다리를 절고 있거든. 90도블론에 거의 사기로 한 가벼운 2륜 마차였어…",
+     "orig": {
+      "es": "Querido Martin: Como hiba diciendo en mis anteriores boy a ber si me dejan satisfacer mi gusto en escrivirte largo, ya que estoy cojo de una caída que tubimos con el birlocho que ya estaba medio ajustado en 90 doblones …"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19–20 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Querido Martín: // Como iba diciendo en mis anteriores, / voy a ver si me dejan satisfacer mi gusto en escribirte largo, / ya que estoy cojo de una caída que tuvimos con el birlocho, / que ya estaba medio ajustado en 90 doblones…",
+      "en": "Dear Martín: // As I was saying in my last letters, / I'm going to see if they'll let me enjoy writing to you at length, / since I'm lame from a fall we had with the gig, / which I had already half agreed to buy for 90 doubloons…",
+      "ko": "사랑하는 마르틴: // 지난 편지들에서 말하던 대로, / 이번엔 길게 써 보려고 해. // 마차에서 떨어져서 다리를 절고 있거든. // 90도블론에 거의 사기로 한 가벼운 2륜 마차였어…"
+     }
+    },
+    {
+     "es": "…Fuera ya de Madrid, empezamos a correr grandemente; llevaba yo los cordones, y me dijo: «¿Quiere usted que le haga yo revolver a la napolitana?» (que él lo era).",
+     "en": "…Once outside Madrid we began to go at a great pace. I was holding the reins, and he said to me: ‘Would you like me to turn it for you the Neapolitan way?’ (for he was a Neapolitan).",
+     "ko": "…마드리드를 벗어나자 아주 빨리 달리기 시작했어. 고삐는 내가 잡고 있었는데, 그 사람이 말했어. “나폴리식으로 한번 돌려 드릴까요?” (그 사람이 나폴리 사람이었거든.)",
+     "orig": {
+      "es": "… fuera ya de Madrid empezamos a correr grandemente llebaba yo los cordones y me dijo quiere Vm. que le aga yo rebolber a la napolitana (que el lo era)"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19–20 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "…Fuera ya de Madrid, empezamos a correr grandemente; // llevaba yo los cordones, y me dijo: // «¿Quiere usted que le haga yo revolver a la napolitana?» // (que él lo era).",
+      "en": "…Once outside Madrid we began to go at a great pace. // I was holding the reins, / and he said to me: // ‘Would you like me to turn it for you the Neapolitan way?’ (for he was a Neapolitan).",
+      "ko": "…마드리드를 벗어나자 아주 빨리 달리기 시작했어. // 고삐는 내가 잡고 있었는데, / 그 사람이 말했어. // “나폴리식으로 한번 돌려 드릴까요?” (그 사람이 나폴리 사람이었거든.)"
+     }
+    },
+    {
+     "es": "Le di los cordones, deseoso de ver alguna cosa nueva y aprenderla, y, corriendo a galope como iba, en lo ancho del camino, que, aunque era ancho, no era para imaginar lo que él ejecutó.",
+     "en": "I gave him the reins, eager to see something new and learn it, and, galloping as we were, on the wide part of the road, which, wide as it was, was no place to imagine what he did.",
+     "ko": "새로운 걸 보고 배우고 싶어서 고삐를 넘겨줬지. 말이 전속력으로 달리던 길은 넓었는데, 넓긴 해도 그 사람이 한 짓은 상상도 못 할 일이었어.",
+     "orig": {
+      "es": "le di los cordones deseoso de ber alguna cosa nueba y aprenderla y corriendo a galope como hiba en lo ancho del camino que aunque era ancho no hera para himaginar lo que el executo,"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19–20 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Le di los cordones, deseoso de ver alguna cosa nueva y aprenderla, / y, corriendo a galope como iba, / en lo ancho del camino, / que, aunque era ancho, no era para imaginar lo que él ejecutó.",
+      "en": "I gave him the reins, / eager to see something new and learn it, / and, galloping as we were, / on the wide part of the road, / which, wide as it was, / was no place to imagine what he did.",
+      "ko": "새로운 걸 보고 배우고 싶어서 고삐를 넘겨줬지. // 말이 전속력으로 달리던 길은 넓었는데, / 넓긴 해도 그 사람이 한 짓은 상상도 못 할 일이었어."
+     }
+    },
+    {
+     "es": "Conque la vuelta fue que fuimos a parar, birlocho, caballo y nosotros, dando volteretas, y muchas gracias a Dios de lo poco que fue, que el peor librado fui yo.",
+     "en": "So the turn ended with all of us, gig, horse and ourselves, tumbling head over heels; and many thanks to God it was so little. The one who came off worst was me.",
+     "ko": "결국 돌다가 마차, 말, 우리 모두 데굴데굴 굴렀어. 이만하길 하느님께 감사할 일이지. 제일 크게 다친 건 나였어.",
+     "orig": {
+      "es": "conque la buelta fue que fuimos a parar, birlocho, caballo y nosotros, dando bolteretas, y muchas gracias a Dios de lo poco que fue que el peor librado fui yo."
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19–20 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Conque la vuelta fue que fuimos a parar, / birlocho, caballo y nosotros, dando volteretas, / y muchas gracias a Dios de lo poco que fue, / que el peor librado fui yo.",
+      "en": "So the turn ended with all of us, / gig, horse and ourselves, tumbling head over heels; // and many thanks to God it was so little. // The one who came off worst was me.",
+      "ko": "결국 돌다가 마차, / 말, 우리 모두 데굴데굴 굴렀어. // 이만하길 하느님께 감사할 일이지. // 제일 크게 다친 건 나였어."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "고야는 영국식 가벼운 2륜 마차(비를로초)를 사려던 참이었어요. 편지에 따르면 금박과 옻칠을 한 마차로, 마드리드에 같은 것이 세 대뿐이라 길에서 사람들이 멈춰 서서 구경할 정도였대요. 시험 삼아 몰고 나간 날은 성 야고보 축일(7월 25일)이었고, 고삐를 넘겨받은 사람은 마차 주인인 나폴리 사람이었어요. 오른쪽 다리의 발목 근처를 다쳤지만 부러지거나 어긋나지는 않았고, 고야는 왕실 외과의가 걸어도 된다고 해 주기를 기다리고 있었어요.",
+    "en": "Goya was about to buy an English-style gig (birlocho). The letter describes it as gilded and lacquered, one of only three like it in Madrid, so that people stopped in the street to look. The trial drive was on Saint James's day (25 July), and the man who took the reins was its owner, a Neapolitan. Goya hurt his right leg near the ankle, with nothing broken or dislocated, and was waiting for the royal surgeon to let him walk.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19–21 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "El albañil herido",
+    "title_en": "The Injured Mason",
+    "title_ko": "다친 석공",
+    "date": "1786–1787",
+    "credit": "Francisco de Goya",
+    "collection": "Museo del Prado, Madrid",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:El_alba%C3%B1il_herido.jpg",
+    "commonsFile": "File:El albañil herido.jpg",
+    "image": "g-c4-l2.webp",
+    "kind": "painting",
+    "why": {
+     "ko": "같은 1786–1787년의 밑그림이에요. 다친 사람을 동료 둘이 나르고 있어요. 고야가 마차에서 떨어진 바로 그해예요.",
+     "en": "A cartoon of 1786–87: two workmen carry an injured mason, in the year of Goya's own fall."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "IV.0",
+     "es": "¡Pobre Francisco! Voy a rezar por tu pierna.",
+     "en": "Poor Francisco! I'm going to pray for your leg.",
+     "ko": "불쌍한 프란시스코! 다리가 낫길 기도할게요.",
+     "koLow": "불쌍한 프란시스코! 다리가 낫길 기도할게.",
+     "koHigh": "가엾은 프란시스코! 다리가 낫기를 기도하겠습니다.",
+     "focus": {
+      "es": [
+       "Voy a rezar"
+      ],
+      "en": [
+       "I'm going to pray"
+      ],
+      "ko": [
+       "기도할게요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Voy rezar",
+        "Voy a rezo"
+       ]
+      ],
+      "en": [
+       [
+        "I'm going pray",
+        "I'm going to praying"
+       ]
+      ],
+      "ko": [
+       [
+        "기도할께요",
+        "기도하을게요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "II.2",
+     "es": "No subas más a ese birlocho, por favor.",
+     "en": "Don't get in that gig again, please.",
+     "ko": "다시는 그 마차에 타지 마세요.",
+     "koLow": "다시는 그 마차에 타지 마.",
+     "koHigh": "다시는 그 마차에 타지 마십시오.",
+     "focus": {
+      "es": [
+       "No subas"
+      ],
+      "en": [
+       "Don't get"
+      ],
+      "ko": [
+       "타지 마세요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "No sube",
+        "No subes"
+       ]
+      ],
+      "en": [
+       [
+        "Not get",
+        "Don't gets"
+       ]
+      ],
+      "ko": [
+       [
+        "타지 마새요",
+        "타지 말세요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Una caída en birlocho · 25 de julio de 1786",
+      "en": "A fall from a gig · 25 July 1786",
+      "ko": "마차에서 떨어졌어요 · 1786년 7월 25일"
+     }
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "gm-c4-l2.webp",
+     "caption": {
+      "es": "La caída, otro cuadro de Goya de esos años",
+      "en": "The Fall, another Goya picture of those years",
+      "ko": "같은 무렵 고야가 그린 〈넘어짐〉"
+     },
+     "credit": "La caída, 1786–1787 · Francisco de Goya · colección particular · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:La_ca%C3%ADda.jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "Una vuelta a la napolitana",
+    "en": "A Neapolitan turn",
+    "ko": "나폴리식으로 한 바퀴"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Quién llevaba los cordones al principio?",
+      "en": "Who was holding the reins at first?",
+      "ko": "처음에 고삐를 잡은 사람은 누구예요?"
+     },
+     "options": [
+      {
+       "es": "Goya",
+       "en": "Goya",
+       "ko": "고야"
+      },
+      {
+       "es": "El napolitano",
+       "en": "The Neapolitan",
+       "ko": "나폴리 사람"
+      },
+      {
+       "es": "Martín",
+       "en": "Martín",
+       "ko": "마르틴"
+      },
+      {
+       "es": "Bayeu",
+       "en": "Bayeu",
+       "ko": "바예우"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1,
+     "mark": {
+      "es": "llevaba yo los cordones",
+      "en": "I was holding the reins",
+      "ko": "고삐는 내가"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "마차에서 떨어진 프란시스코와 통화 · 나는 마르틴",
+     "en": "A call with Francisco after his fall · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "Martín, estoy cojo por una caída.",
+      "en": "Martín, I'm lame from a fall.",
+      "ko": "마르틴, 넘어져서 다리를 절어."
+     },
+     {
+      "who": "me",
+      "es": "¡Ay! ¿Dónde estás ahora?",
+      "en": "Oh! Where are you now?",
+      "ko": "아이고! 지금 어디에 있어?",
+      "focus": {
+       "es": [
+        "Dónde estás"
+       ],
+       "en": [
+        "Where are you"
+       ],
+       "ko": [
+        "어디에 있어"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Dónde eres",
+         "Dónde está"
+        ]
+       ],
+       "en": [
+        [
+         "Where is you",
+         "Where you are"
+        ]
+       ],
+       "ko": [
+        [
+         "어디에 잇어",
+         "어디애 있어"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "En casa. Voy a esperar al cirujano.",
+      "en": "At home. I'm going to wait for the surgeon.",
+      "ko": "집이야. 의사를 기다릴 거야."
+     },
+     {
+      "who": "me",
+      "es": "Bien. Voy a ir a verte mañana.",
+      "en": "Good. I'm going to come and see you tomorrow.",
+      "ko": "좋아. 내일 보러 갈게.",
+      "focus": {
+       "es": [
+        "Voy a ir"
+       ],
+       "en": [
+        "I'm going to come"
+       ],
+       "ko": [
+        "보러 갈게"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Voy ir",
+         "Vas a ir"
+        ]
+       ],
+       "en": [
+        [
+         "I'm going come",
+         "I going to come"
+        ]
+       ],
+       "ko": [
+        [
+         "보러 갈께",
+         "보러 갈개"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "camino",
+     "caballo"
+    ],
+    "grammar": "IV.0",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "mañana",
+      "en": "tomorrow",
+      "ko": "내일"
+     },
+     "opts": [
+      {
+       "es": "esta tarde",
+       "en": "this afternoon",
+       "ko": "오늘 오후에"
+      },
+      {
+       "es": "el lunes",
+       "en": "on Monday",
+       "ko": "월요일에"
+      },
+      {
+       "es": "esta noche",
+       "en": "tonight",
+       "ko": "오늘 밤에"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "c4-l3",
+   "date": "1787-01-10",
+   "dateNote": "Dated 10 January 1787 in Zapater y Gómez (1868, p. 21); the same letter is in Beruete (1916, p. 29). No modern dating checked.",
+   "ref": "Zapater y Gómez, p. 21 · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 21 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+   "place": "Madrid",
+   "to": {
+    "es": "Martín Zapater",
+    "en": "Martín Zapater",
+    "ko": "마르틴 사파테르"
+   },
+   "mood": "tender",
+   "excerpt": "Messages 0–3 keep the letter in order up to the question about the size of the canvas; the postscript about chorizos and turrones that follows is left out.",
+   "messages": [
+    {
+     "es": "Querido del alma: Con el sentimiento que te puedes pensar tomo la pluma para responderte; y en este asunto, amigo, ya sabes que he pasado por el mismo lance.",
+     "en": "Dear friend of my soul: With the sorrow you can imagine I take up my pen to answer you; and in this matter, my friend, you know I have been through the same trial.",
+     "ko": "마음의 벗에게: 네가 짐작할 만한 슬픔으로 펜을 들어 답장을 써. 이 일이라면, 친구야, 나도 같은 일을 겪은 걸 알지.",
+     "orig": {
+      "es": "Querido del Alma. Con el sentimiento que te puedes pensar tomo la pluma para responderte; y en este asunto Amigo ya sabes que he pasado por el mismo lance,"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 21 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Querido del alma: // Con el sentimiento que te puedes pensar tomo la pluma para responderte; // y en este asunto, amigo, / ya sabes que he pasado por el mismo lance.",
+      "en": "Dear friend of my soul: // With the sorrow you can imagine I take up my pen to answer you; // and in this matter, my friend, / you know I have been through the same trial.",
+      "ko": "마음의 벗에게: // 네가 짐작할 만한 슬픔으로 펜을 들어 답장을 써. // 이 일이라면, 친구야, / 나도 같은 일을 겪은 걸 알지."
+     }
+    },
+    {
+     "es": "Y, como el viaje lo vamos haciendo unos detrás de otros, creo que el que va mejor dispuesto (como es regular que tu padre, como el mío, en su edad lo habrán estado) va mejor, y es la mayor dicha.",
+     "en": "And since we all make the journey one behind another, I believe that the one who goes best prepared (as your father, like mine, will surely have been at his age) goes best, and that is the greatest blessing.",
+     "ko": "우리는 모두 한 사람씩 차례로 같은 길을 가지. 잘 준비하고 떠나는 이가 더 잘 가는 거고, 그게 가장 큰 복이라고 생각해. (너희 아버지도 우리 아버지처럼, 그 연세에 분명 그러셨을 거야.)",
+     "orig": {
+      "es": "y como el biage lo bamos aciendo unos detras de otros, creo que el que ba mejor dispuesto (como es regular que tu Padre como el mío en su edad, lo abran estado) ba mejor y es la mayor dicha."
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 21 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Y, como el viaje lo vamos haciendo unos detrás de otros, / creo que el que va mejor dispuesto (como es regular que tu padre, / como el mío, en su edad lo habrán estado) // va mejor, y es la mayor dicha.",
+      "en": "And since we all make the journey one behind another, / I believe that the one who goes best prepared (as your father, / like mine, will surely have been at his age) // goes best, and that is the greatest blessing.",
+      "ko": "우리는 모두 한 사람씩 차례로 같은 길을 가지. // 잘 준비하고 떠나는 이가 더 잘 가는 거고, / 그게 가장 큰 복이라고 생각해. // (너희 아버지도 우리 아버지처럼, / 그 연세에 분명 그러셨을 거야.)"
+     }
+    },
+    {
+     "es": "Conque así, querido mío, alegrarte, y ofrecerlo al servicio del Señor, que yo cumpliré con tu encargo; y el otro de Nuestra Señora del Carmen te la haré sin duda alguna.",
+     "en": "So, my dear, take heart, and offer it up to the service of the Lord. I'll carry out your commission, and the other one, Our Lady of Carmel, I'll paint for you without any doubt.",
+     "ko": "그러니 친구야, 힘을 내고 그 슬픔을 주님께 바쳐. 네 부탁은 내가 들어줄게. 카르멘 성모 그림도 꼭 그려 줄게.",
+     "orig": {
+      "es": "Con que asi querido mió alegrarte y ofrecerlo al servicio del Sr. que yo cumpliré con tu encargo, y el otro de Ntra. Sra. del Carmen te la are sin duda alguna"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 21 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Conque así, querido mío, alegrarte, / y ofrecerlo al servicio del Señor, / que yo cumpliré con tu encargo; // y el otro de Nuestra Señora del Carmen te la haré sin duda alguna.",
+      "en": "So, my dear, take heart, / and offer it up to the service of the Lord. // I'll carry out your commission, / and the other one, Our Lady of Carmel, / I'll paint for you without any doubt.",
+      "ko": "그러니 친구야, 힘을 내고 그 슬픔을 주님께 바쳐. // 네 부탁은 내가 들어줄게. // 카르멘 성모 그림도 꼭 그려 줄게."
+     }
+    },
+    {
+     "es": "Pero ahora no puedo ni perder un día, porque me he retrasado con las obras del Rey, y no pienso hacer nada que no cumpla con esta obligación tan precisa; con que, en desembarazarme, dime de qué tamaño, para tener el lienzo preparado.",
+     "en": "But just now I can't lose even a day, because I've fallen behind with the King's works, and I don't mean to do anything that isn't this pressing duty. So, for when I'm free of it, tell me what size, so I can have the canvas ready.",
+     "ko": "그런데 지금은 하루도 허비할 수 없어. 왕의 일이 밀려 있어서, 이 급한 의무 말고는 아무것도 하지 않을 생각이야. 그러니 일이 끝나면 바로 그릴 수 있게 크기를 알려 줘. 캔버스를 준비해 둘게.",
+     "orig": {
+      "es": "pero aora no puedo ni perder un dia porque me he retrasado con las obras del Rey y no pienso acer nada que no cumpla con esta obligacion tan precisa, con que en desenbarazarme dime de que tamaño para tener el lienzo preparado."
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 21 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Pero ahora no puedo ni perder un día, / porque me he retrasado con las obras del Rey, / y no pienso hacer nada que no cumpla con esta obligación tan precisa; // con que, en desembarazarme, dime de qué tamaño, / para tener el lienzo preparado.",
+      "en": "But just now I can't lose even a day, / because I've fallen behind with the King's works, / and I don't mean to do anything that isn't this pressing duty. // So, for when I'm free of it, / tell me what size, so I can have the canvas ready.",
+      "ko": "그런데 지금은 하루도 허비할 수 없어. // 왕의 일이 밀려 있어서, / 이 급한 의무 말고는 아무것도 하지 않을 생각이야. // 그러니 일이 끝나면 바로 그릴 수 있게 크기를 알려 줘. // 캔버스를 준비해 둘게."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "1868년 판은 이 편지 앞에 ‘친구이자 후원자의 아버지가 세상을 떠났다’고 적어요. 고야는 자기도 같은 일을 겪었다며 위로해요. 편지에 나오는 카르멘 성모 그림은 이후로도 여러 번 나와요. 1788년 5월에도 고야는 왕궁 일 때문에 아직 그리지 못했다고 썼어요.",
+    "en": "The 1868 edition introduces this letter by saying that the father of Goya's friend and protector had died. Goya consoles him: he has been through the same. The Virgin of Carmel he promises here comes back again and again; in May 1788 he was still writing that palace work had kept him from painting it.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 21–23 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Escena de invierno (boceto)",
+    "title_en": "Winter Scene (sketch)",
+    "title_ko": "겨울 장면 (스케치)",
+    "date": "c. 1786",
+    "credit": "Francisco de Goya",
+    "collection": "Art Institute of Chicago (1990.558)",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Francisco_Jos%C3%A9_de_Goya_y_Lucientes_-_Winter_Scene_-_1990.558_-_Art_Institute_of_Chicago.jpg",
+    "commonsFile": "File:Francisco José de Goya y Lucientes - Winter Scene - 1990.558 - Art Institute of Chicago.jpg",
+    "image": "g-c4-l3.webp",
+    "kind": "painting",
+    "why": {
+     "ko": "‘사계’ 밑그림 가운데 겨울 장면을 위한 작은 유화 스케치예요. 이 겨울, 고야가 매달려 있던 ‘왕의 일’이 이런 밑그림들이었어요.",
+     "en": "A small oil sketch for the winter scene of the Four Seasons cartoons, the kind of royal work that kept Goya busy that winter."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "IV.0",
+     "es": "Gracias. Voy a mandarte el tamaño del lienzo.",
+     "en": "Thank you. I'm going to send you the size of the canvas.",
+     "ko": "고마워요. 캔버스 크기를 보내 줄게요.",
+     "koLow": "고마워. 캔버스 크기를 보내 줄게.",
+     "koHigh": "고맙습니다. 캔버스 크기를 보내 드리겠습니다.",
+     "focus": {
+      "es": [
+       "Voy a mandarte"
+      ],
+      "en": [
+       "I'm going to send"
+      ],
+      "ko": [
+       "보내 줄게요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Voy mandarte",
+        "Voy a mando"
+       ]
+      ],
+      "en": [
+       [
+        "I'm going send",
+        "I going to send"
+       ]
+      ],
+      "ko": [
+       [
+        "보내 줄께요",
+        "보내 쥴게요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 1,
+     "grammar": "I.1",
+     "es": "Tengo tu carta siempre conmigo.",
+     "en": "I have your letter with me always.",
+     "ko": "당신 편지가 늘 곁에 있어요.",
+     "koLow": "네 편지가 늘 곁에 있어.",
+     "koHigh": "당신 편지가 늘 곁에 있습니다.",
+     "focus": {
+      "es": [
+       "Tengo"
+      ],
+      "en": [
+       "I have"
+      ],
+      "ko": [
+       "있어요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Tienes",
+        "Tiene"
+       ]
+      ],
+      "en": [
+       [
+        "I has",
+        "I having"
+       ]
+      ],
+      "ko": [
+       [
+        "있아요",
+        "있요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Una carta de pésame · 10 de enero de 1787",
+      "en": "A letter of condolence · 10 January 1787",
+      "ko": "위로의 편지 · 1787년 1월 10일"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "zaragoza",
+     "title": {
+      "es": "Zaragoza",
+      "en": "Zaragoza",
+      "ko": "사라고사"
+     },
+     "address": "Zaragoza"
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "gm-c4-l3.webp",
+     "caption": {
+      "es": "La nevada, el cartón terminado",
+      "en": "The Snowstorm, the finished cartoon",
+      "ko": "완성된 밑그림 〈눈보라〉"
+     },
+     "credit": "La nevada o El invierno, 1786–1787 · Francisco de Goya · Museo del Prado · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:La_nevada,_Francisco_de_Goya.jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "Querido del alma",
+    "en": "Dear friend of my soul",
+    "ko": "마음의 벗에게"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Por qué Goya no puede pintar ahora la Virgen?",
+      "en": "Why can't Goya paint the Virgin now?",
+      "ko": "고야는 왜 지금 성모 그림을 못 그려요?"
+     },
+     "options": [
+      {
+       "es": "Está retrasado con las obras del Rey",
+       "en": "He's behind with the King's works",
+       "ko": "왕의 일이 밀려 있어서"
+      },
+      {
+       "es": "Está enfermo",
+       "en": "He's ill",
+       "ko": "아파서"
+      },
+      {
+       "es": "No tiene lienzo",
+       "en": "He has no canvas",
+       "ko": "캔버스가 없어서"
+      },
+      {
+       "es": "Está de viaje",
+       "en": "He's travelling",
+       "ko": "여행 중이라서"
+      }
+     ],
+     "answer": 0,
+     "evidence": 3,
+     "mark": {
+      "es": "me he retrasado con las obras del Rey",
+      "en": "fallen behind with the King's works",
+      "ko": "왕의 일이 밀려"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "아버지를 잃은 마르틴과 프란시스코의 통화 · 나는 마르틴",
+     "en": "Francisco calls after Martín's father has died · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "Martín, lo siento mucho. Estoy contigo.",
+      "en": "Martín, I'm so sorry. I'm with you.",
+      "ko": "마르틴, 정말 유감이야. 내가 곁에 있어."
+     },
+     {
+      "who": "me",
+      "es": "Gracias, Francisco. ¿Vas a pintar la Virgen?",
+      "en": "Thanks, Francisco. Are you going to paint the Virgin?",
+      "ko": "고마워, 프란시스코. 성모 그림 그려 줄 거야?",
+      "focus": {
+       "es": [
+        "Vas a pintar"
+       ],
+       "en": [
+        "going to paint"
+       ],
+       "ko": [
+        "그려 줄 거야"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Vas pintar",
+         "Va a pintas"
+        ]
+       ],
+       "en": [
+        [
+         "going paint",
+         "go to paint"
+        ]
+       ],
+       "ko": [
+        [
+         "그려 줄 꺼야",
+         "그려 줄 거아"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Sí. ¿Dónde la vas a poner?",
+      "en": "Yes. Where are you going to put it?",
+      "ko": "응. 어디에 걸 거야?"
+     },
+     {
+      "who": "me",
+      "es": "En mi casa, junto a la ventana.",
+      "en": "In my house, next to the window.",
+      "ko": "우리 집, 창문 옆에.",
+      "focus": {
+       "es": [
+        "junto a"
+       ],
+       "en": [
+        "next to"
+       ],
+       "ko": [
+        "옆에"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "junto de",
+         "junto en"
+        ]
+       ],
+       "en": [
+        [
+         "next of",
+         "next at"
+        ]
+       ],
+       "ko": [
+        [
+         "엽에",
+         "옆애"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "amigo",
+     "día"
+    ],
+    "grammar": "IV.0",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "junto a la ventana",
+      "en": "next to the window",
+      "ko": "창문 옆에"
+     },
+     "opts": [
+      {
+       "es": "encima de la mesa",
+       "en": "above the table",
+       "ko": "탁자 위에"
+      },
+      {
+       "es": "cerca de la puerta",
+       "en": "near the door",
+       "ko": "문 가까이에"
+      },
+      {
+       "es": "en mi cuarto",
+       "en": "in my room",
+       "ko": "내 방에"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "c4-l4",
+   "date": "1787-04-17",
+   "dateNote": "Dated 17 April 1787 in Beruete (1917, p. 28) and Zapater y Gómez (1868, p. 22); no modern dating checked.",
+   "ref": "Beruete 1917, p. 28 · A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28 · public domain · https://archive.org/details/AV193",
+   "place": "Madrid",
+   "to": {
+    "es": "Martín Zapater",
+    "en": "Martín Zapater",
+    "ko": "마르틴 사파테르"
+   },
+   "mood": "calm",
+   "excerpt": "Messages 0–1 are the whole printed passage.",
+   "messages": [
+    {
+     "es": "Ya no quiero birlocho de dos ruedas: el otro día volqué y casi maté a un hombre que andaba por la calle, y yo no me hice mucho provecho; me sangré, etc.",
+     "en": "I don't want a two-wheeled gig any more: the other day I overturned and nearly killed a man who was walking along the street, and I didn't do myself much good either; I was bled, etc.",
+     "ko": "이제 두 바퀴 마차는 싫어. 며칠 전에 뒤집혀서 길을 걷던 사람을 죽일 뻔했어. 나도 성치 못해서 피를 뽑는 치료를 받았고.",
+     "orig": {
+      "es": "Ya no quiero birlocho de dos ruedas, el otro día bolque y cuasi mate a un hombre que andaba por la calle y yo no me hice mucho probecho, me sangre etc.,"
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "Ya no quiero birlocho de dos ruedas: // el otro día volqué y casi maté a un hombre que andaba por la calle, / y yo no me hice mucho provecho; // me sangré, etc.",
+      "en": "I don't want a two-wheeled gig any more: // the other day I overturned and nearly killed a man who was walking along the street, / and I didn't do myself much good either; // I was bled, etc.",
+      "ko": "이제 두 바퀴 마차는 싫어. // 며칠 전에 뒤집혀서 길을 걷던 사람을 죽일 뻔했어. // 나도 성치 못해서 피를 뽑는 치료를 받았고."
+     }
+    },
+    {
+     "es": "Por lo que le escribo a mi hermano Tomás que me compre un par de mulas.",
+     "en": "So I'm writing to my brother Tomás to buy me a pair of mules.",
+     "ko": "그래서 동생 토마스에게 노새 두 마리를 사 달라고 편지를 써.",
+     "orig": {
+      "es": "por lo que le escribo a mi H.o Thomas q.e me compre un par de mulas."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "Por lo que le escribo a mi hermano Tomás que me compre un par de mulas.",
+      "en": "So I'm writing to my brother Tomás to buy me a pair of mules.",
+      "ko": "그래서 동생 토마스에게 노새 두 마리를 사 달라고 편지를 써."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "1868년 판에 따르면 고야는 1786년의 2륜 마차와 ‘집시 말’ 대신, 사라고사에서 사 온 노새 두 마리가 끄는 4륜 마차를 마련했어요. 비용은 7,687레알이었대요. 피를 뽑는 사혈은 그 무렵 흔한 치료법이었어요.",
+    "en": "According to the 1868 edition, the two-wheeled gig and 'gypsy horse' of 1786 gave way to a four-wheeled carriage drawn by two mules bought in Zaragoza, at a cost of 7,687 reales. Bleeding was a common remedy at the time.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 21–22 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Un caballero español mata un toro después de haber perdido el caballo (La Tauromaquia, 9)",
+    "title_en": "A Spanish Knight Kills the Bull after Having Lost His Horse (La Tauromaquia, 9)",
+    "title_ko": "말을 잃은 스페인 기사가 소를 죽이다 (〈투우〉 9번)",
+    "date": "in or before 1816",
+    "credit": "Francisco de Goya",
+    "collection": "National Gallery of Art, Washington",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Francisco_de_Goya,_Un_caballero_espanol_mata_un_toro_despues_de_haber_perdido_el_caballo_(A_Spanish_Knight_Kills_the_Bull_after_Having_Lost_His_Horse),_in_or_before_1816,_NGA_4776.jpg",
+    "commonsFile": "File:Francisco de Goya, Un caballero espanol mata un toro despues de haber perdido el caballo (A Spanish Knight Kills the Bull after Having Lost His Horse), in or before 1816, NGA 4776.jpg",
+    "image": "g-c4-l4.webp",
+    "kind": "print",
+    "why": {
+     "ko": "훨씬 뒤(1816년 무렵)의 판화예요. 말이 쓰러진 뒤 땅에 선 기사를 그렸어요. 마차가 뒤집힌 이 편지 곁에 두었어요.",
+     "en": "A much later etching (by 1816): the rider on foot after his horse has fallen, set beside this letter about an overturned gig."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "IV.1",
+     "es": "Las mulas son mejores porque el birlocho es peligroso.",
+     "en": "Mules are better because the gig is dangerous.",
+     "ko": "노새가 더 안전할 거예요.",
+     "koLow": "노새가 더 안전할 거야.",
+     "koHigh": "노새가 더 안전할 것입니다.",
+     "focus": {
+      "es": [
+       "porque"
+      ],
+      "en": [
+       "because"
+      ],
+      "ko": [
+       "안전할 거예요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "por que",
+        "porqué"
+       ]
+      ],
+      "en": [
+       [
+        "becouse",
+        "because of"
+       ]
+      ],
+      "ko": [
+       [
+        "안전할 꺼예요",
+        "안전할 거에요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 0,
+     "grammar": "II.0",
+     "es": "Cuídate mucho, Francisco.",
+     "en": "Take good care of yourself, Francisco.",
+     "ko": "몸조심하세요, 프란시스코.",
+     "koLow": "몸조심해, 프란시스코.",
+     "koHigh": "몸조심하십시오, 프란시스코.",
+     "focus": {
+      "es": [
+       "Cuídate"
+      ],
+      "en": [
+       "Take good care"
+      ],
+      "ko": [
+       "몸조심하세요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Cuidarte",
+        "Cuidas"
+       ]
+      ],
+      "en": [
+       [
+        "Takes good care",
+        "Taking good care"
+       ]
+      ],
+      "ko": [
+       [
+        "몸조심하새요",
+        "몸조심허세요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Goya vuelca otra vez · abril de 1787",
+      "en": "Goya overturns again · April 1787",
+      "ko": "고야의 마차가 또 뒤집혀요 · 1787년 4월"
+     }
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "gm-c4-l4.webp",
+     "caption": {
+      "es": "La calle de Alcalá de Madrid, hacia 1750",
+      "en": "The Calle de Alcalá in Madrid, about 1750",
+      "ko": "1750년 무렵 마드리드의 알칼라 거리"
+     },
+     "credit": "Vista de la calle de Alcalá, c. 1750 · Antonio Joli · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Madrid_-_Calle_de_Alcal%C3%A1_in_18th-century_by_Antonio_Joli.jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "Un par de mulas",
+    "en": "A pair of mules",
+    "ko": "노새 두 마리"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Qué le pide Goya a su hermano Tomás?",
+      "en": "What does Goya ask his brother Tomás for?",
+      "ko": "고야는 동생 토마스에게 무엇을 부탁해요?"
+     },
+     "options": [
+      {
+       "es": "Un par de mulas",
+       "en": "A pair of mules",
+       "ko": "노새 두 마리"
+      },
+      {
+       "es": "Un birlocho nuevo",
+       "en": "A new gig",
+       "ko": "새 2륜 마차"
+      },
+      {
+       "es": "Un caballo",
+       "en": "A horse",
+       "ko": "말 한 마리"
+      },
+      {
+       "es": "Dinero",
+       "en": "Money",
+       "ko": "돈"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1,
+     "mark": {
+      "es": "un par de mulas",
+      "en": "a pair of mules",
+      "ko": "노새 두 마리"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "마차를 그만두려는 프란시스코와 통화 · 나는 마르틴",
+     "en": "A call with Francisco, who is giving up his gig · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "Martín, no quiero más birlocho.",
+      "en": "Martín, no more gigs for me.",
+      "ko": "마르틴, 이제 마차는 싫어."
+     },
+     {
+      "who": "me",
+      "es": "¿Y cómo vas a ir al Palacio?",
+      "en": "How are you going to get to the Palace?",
+      "ko": "그럼 왕궁까지 어떻게 갈 거야?",
+      "focus": {
+       "es": [
+        "vas a ir"
+       ],
+       "en": [
+        "are you going to get"
+       ],
+       "ko": [
+        "갈 거야"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "vas ir",
+         "va a ir"
+        ]
+       ],
+       "en": [
+        [
+         "you going to get",
+         "are you go to get"
+        ]
+       ],
+       "ko": [
+        [
+         "갈 꺼야",
+         "갈 거아"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Voy a comprar dos mulas en Zaragoza.",
+      "en": "I'm going to buy two mules in Zaragoza.",
+      "ko": "사라고사에서 노새 두 마리를 살 거야."
+     },
+     {
+      "who": "me",
+      "es": "Bien. Voy a buscar a Tomás.",
+      "en": "Good. I'm going to look for Tomás.",
+      "ko": "좋아. 내가 토마스를 찾아볼게.",
+      "focus": {
+       "es": [
+        "Voy a buscar"
+       ],
+       "en": [
+        "I'm going to look for"
+       ],
+       "ko": [
+        "찾아볼게"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Voy buscar",
+         "Voy a busco"
+        ]
+       ],
+       "en": [
+        [
+         "I'm going look for",
+         "I'm going to looking for"
+        ]
+       ],
+       "ko": [
+        [
+         "찾아볼께",
+         "찾아블게"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "calle",
+     "hombre"
+    ],
+    "grammar": "IV.0",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "a Tomás",
+      "en": "Tomás",
+      "ko": "토마스를"
+     },
+     "opts": [
+      {
+       "es": "a tu hermano",
+       "en": "your brother",
+       "ko": "네 동생을"
+      },
+      {
+       "es": "a un arriero",
+       "en": "a muleteer",
+       "ko": "노새 장수를"
+      },
+      {
+       "es": "a mi primo",
+       "en": "my cousin",
+       "ko": "내 사촌을"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "c4-l5",
+   "date": "1787-04-25",
+   "dateNote": "Dated 25 April 1787 following the Prado catalogue ('Carta a Martín Zapater de 25 de abril de 1787'; confirmed only through search results). Beruete (1917, p. 28) and Zapater y Gómez (1868, p. 22) print the same date.",
+   "ref": "Beruete 1917, p. 28 · A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28 · public domain · https://archive.org/details/AV193",
+   "place": "Madrid",
+   "to": {
+    "es": "Martín Zapater",
+    "en": "Martín Zapater",
+    "ko": "마르틴 사파테르"
+   },
+   "mood": "bright",
+   "excerpt": "Messages 0–3 keep the passage as printed in Beruete (1917, p. 28), ending at 'nos parecemos en todo'; the thanks to God that follow in Zapater y Gómez (p. 22) are left out (marked …).",
+   "messages": [
+    {
+     "es": "Mucho me he alegrado que me apruebes el pensamiento, y hablemos claros: para cuatro días que hemos de vivir en el mundo es menester vivir a gusto.",
+     "en": "I'm very glad you approve of the idea, and let's speak plainly: for the few days we have to live in this world, we must live as we like.",
+     "ko": "내 생각에 찬성해 줘서 정말 기뻐. 솔직히 말하자. 이 세상 며칠 산다고, 사는 동안은 마음 가는 대로 살아야지.",
+     "orig": {
+      "es": "Mucho me he alegrado q.e me apruebes el pensamiento, y hablemos claros: para cuatro dias q.e hemos de bibir en el mundo es menester vivir a gusto,"
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "Mucho me he alegrado que me apruebes el pensamiento, / y hablemos claros: // para cuatro días que hemos de vivir en el mundo es menester vivir a gusto.",
+      "en": "I'm very glad you approve of the idea, / and let's speak plainly: // for the few days we have to live in this world, / we must live as we like.",
+      "ko": "내 생각에 찬성해 줘서 정말 기뻐. // 솔직히 말하자. // 이 세상 며칠 산다고, / 사는 동안은 마음 가는 대로 살아야지."
+     }
+    },
+    {
+     "es": "Te estimo mucho la oferta de las mulas, y te digo que mejor las quisiera domadas ya, pero que sean buenas; por diez doblones más, estoy contigo, y me alegraré que a Tomás se lo digas y que haga lo que tú determines.",
+     "en": "Thank you very much for the offer of the mules. I'd rather have them already broken in, but good ones; for ten doubloons more, I'm with you. I'll be glad if you tell Tomás, and if he does whatever you decide.",
+     "ko": "노새를 구해 준다니 정말 고마워. 이왕이면 길이 든 놈이 좋겠지만, 좋은 놈으로 해 줘. 10도블론 더 줘도 좋아. 토마스에게 말해서 네가 정하는 대로 하게 해 주면 기쁘겠어.",
+     "orig": {
+      "es": "te estimo mucho la oferta de las mulas y te digo q.e mejor las quisiera domadas ya pero que sean buenas, por diez doblones mas estoy contigo y me alegrare q.e a Tomas se lo digas y q.e aga lo q.e tu determines."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "Te estimo mucho la oferta de las mulas, / y te digo que mejor las quisiera domadas ya, / pero que sean buenas; // por diez doblones más, estoy contigo, / y me alegraré que a Tomás se lo digas y que haga lo que tú determines.",
+      "en": "Thank you very much for the offer of the mules. // I'd rather have them already broken in, / but good ones; // for ten doubloons more, I'm with you. // I'll be glad if you tell Tomás, / and if he does whatever you decide.",
+      "ko": "노새를 구해 준다니 정말 고마워. // 이왕이면 길이 든 놈이 좋겠지만, / 좋은 놈으로 해 줘. // 10도블론 더 줘도 좋아. // 토마스에게 말해서 네가 정하는 대로 하게 해 주면 기쁘겠어."
+     }
+    },
+    {
+     "es": "En cuanto a la chacota que gastas de que tengo los doblonazos florecidos, todos los que tengo están a tu disposición, y cuanto tengo; pero no hago más con los que tengo que pasarlo anchamente, sobrándome casi siempre cien o doscientos, sin trescientos o cuatrocientos que me deben.",
+     "en": "As for your joke that my fat doubloons are in bloom: all I have is at your disposal, everything I have. But all I do with what I have is live comfortably, nearly always with a hundred or two to spare, not counting three or four hundred that people owe me.",
+     "ko": "내가 금화를 쌓아 두고 산다고 놀리는데, 내가 가진 건 다 네 거야. 하지만 가진 걸로 넉넉하게 지낼 뿐이야. 늘 100이나 200쯤 남고, 받을 돈이 300이나 400쯤 있지.",
+     "orig": {
+      "es": "En cuanto a la chacota q.e gastas de q.e tengo los doblonazos florecidos, todos los q.e tengo están a tu disposición, y cuanto tengo, pero no ago mas con los q.e tengo q.e pasarlo anchamente sobrándome cuasi siempre cien o doscientos, sin trescientos o cuatrocientos q.e me deben,"
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "En cuanto a la chacota que gastas de que tengo los doblonazos florecidos, / todos los que tengo están a tu disposición, / y cuanto tengo; // pero no hago más con los que tengo que pasarlo anchamente, / sobrándome casi siempre cien o doscientos, / sin trescientos o cuatrocientos que me deben.",
+      "en": "As for your joke that my fat doubloons are in bloom: // all I have is at your disposal, / everything I have. // But all I do with what I have is live comfortably, / nearly always with a hundred or two to spare, / not counting three or four hundred that people owe me.",
+      "ko": "내가 금화를 쌓아 두고 산다고 놀리는데, / 내가 가진 건 다 네 거야. // 하지만 가진 걸로 넉넉하게 지낼 뿐이야. // 늘 100이나 200쯤 남고, / 받을 돈이 300이나 400쯤 있지."
+     }
+    },
+    {
+     "es": "Y, en fin, si trabajo para el público, bien puedo mantener la berlina para conservarme. Yo todo te lo ofrezco con la voluntad que puede ofrecer un hombre a otro, y, chico, tú y yo sé que nos parecemos en todo…",
+     "en": "And after all, if I work for the public, I can well keep the berlin to look after myself. I offer you everything with all the goodwill one man can offer another, and, my boy, you and I, I know we're alike in everything…",
+     "ko": "그리고 사람들 주문을 받아 그리면, 몸을 아끼려고 4륜 마차쯤은 충분히 둘 수 있어. 한 사람이 다른 사람에게 줄 수 있는 온 마음으로 너에게 다 줄게. 친구야, 너와 나는 모든 게 닮았어…",
+     "orig": {
+      "es": "y en fin si trabajo p.a el publico bien puedo mantener la berlina p.a conservarme, yo todo te lo ofrezco con la boluntad que puede ofrecer un hombre a otro, y chico tu y yo se q.e nos parecemos en todo"
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "Y, en fin, si trabajo para el público, / bien puedo mantener la berlina para conservarme. // Yo todo te lo ofrezco con la voluntad que puede ofrecer un hombre a otro, / y, chico, tú y yo sé que nos parecemos en todo…",
+      "en": "And after all, if I work for the public, / I can well keep the berlin to look after myself. // I offer you everything with all the goodwill one man can offer another, / and, my boy, you and I, / I know we're alike in everything…",
+      "ko": "그리고 사람들 주문을 받아 그리면, / 몸을 아끼려고 4륜 마차쯤은 충분히 둘 수 있어. // 한 사람이 다른 사람에게 줄 수 있는 온 마음으로 너에게 다 줄게. // 친구야, 너와 나는 모든 게 닮았어…"
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "도블론은 금화이고, 베를리나는 지붕이 있는 4륜 마차예요. 마르틴은 고야가 ‘금화를 꽃피운다’며 놀렸어요. 1년 전인 1786년 3월만 해도 고야는 은행 주식과 아카데미에서 나오는 돈을 합쳐 1년에 1만 2천~1만 3천 레알뿐이라고 썼어요. 왕의 화가가 된 1786년 8월에는 2만 8천 레알 남짓이라고 했어요.",
+    "en": "A doblón was a gold coin; a berlina, a closed four-wheeled carriage. Martín had teased him about his 'blooming doubloons'. Only a year earlier, in March 1786, Goya had written that with his Bank shares and the Academy he had no more than twelve or thirteen thousand reales a year; by August 1786, as Painter to the King, he put it at a little over 28,000.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 19–22 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "La gallina ciega",
+    "title_en": "Blind Man's Buff",
+    "title_ko": "눈 가리고 술래잡기",
+    "date": "1788–1789",
+    "credit": "Francisco de Goya",
+    "collection": "Museo del Prado, Madrid",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:La_gallina_ciega_(cart%C3%B3n_restaurado)_por_Francisco_de_Goya.jpg",
+    "commonsFile": "File:La gallina ciega (cartón restaurado) por Francisco de Goya.jpg",
+    "image": "g-c4-l5.webp",
+    "kind": "painting",
+    "why": {
+     "ko": "친구들이 둥글게 손을 잡고 노는 밑그림이에요. ‘사는 동안은 마음 가는 대로’라는 이 편지와 잘 어울려요.",
+     "en": "Friends holding hands in a ring at play: a good match for 'we must live as we like'."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 1,
+     "grammar": "IV.1",
+     "es": "Busco mulas domadas para viajar tranquilo.",
+     "en": "I'm looking for tame mules so you can travel in peace.",
+     "ko": "길든 노새라 편할 거예요.",
+     "koLow": "길든 노새라 편할 거야.",
+     "koHigh": "길든 노새라 편할 것입니다.",
+     "focus": {
+      "es": [
+       "para viajar"
+      ],
+      "en": [
+       "so you can"
+      ],
+      "ko": [
+       "편할 거예요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "por viajar",
+        "para viajo"
+       ]
+      ],
+      "en": [
+       [
+        "so can you",
+        "so you could can"
+       ]
+      ],
+      "ko": [
+       [
+        "편할 꺼예요",
+        "편할 거에요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "I.0",
+     "es": "Es verdad: tú y yo somos iguales.",
+     "en": "It's true: you and I are alike.",
+     "ko": "맞아요. 당신과 나는 똑같아요.",
+     "koLow": "맞아. 너와 나는 똑같아.",
+     "koHigh": "맞습니다. 당신과 저는 똑같습니다.",
+     "focus": {
+      "es": [
+       "somos"
+      ],
+      "en": [
+       "are"
+      ],
+      "ko": [
+       "똑같아요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "estamos",
+        "son"
+       ]
+      ],
+      "en": [
+       [
+        "is",
+        "am"
+       ]
+      ],
+      "ko": [
+       [
+        "똑같어요",
+        "똑갔아요"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Las mulas, por diez doblones más · abril de 1787",
+      "en": "The mules, for ten doubloons more · April 1787",
+      "ko": "노새 값, 10도블론 더 · 1787년 4월"
+     }
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "gm-c4-l5.webp",
+     "caption": {
+      "es": "Goya, autorretrato en el taller",
+      "en": "Goya, self-portrait in the studio",
+      "ko": "작업실의 고야, 자화상"
+     },
+     "credit": "Autorretrato en el taller, c. 1790–1795 · Francisco de Goya · Real Academia de Bellas Artes de San Fernando · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Autorretrato_en_el_taller,_Francisco_de_Goya.jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "Para cuatro días",
+    "en": "For our few days",
+    "ko": "이 세상 며칠 산다고"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Qué dice Goya de su dinero?",
+      "en": "What does Goya say about his money?",
+      "ko": "고야는 자기 돈에 대해 뭐라고 해요?"
+     },
+     "options": [
+      {
+       "es": "Vive bien y casi siempre le sobra algo",
+       "en": "He lives well and nearly always has some to spare",
+       "ko": "넉넉하게 살고 늘 조금 남아요"
+      },
+      {
+       "es": "No tiene nada",
+       "en": "He has nothing",
+       "ko": "가진 게 하나도 없어요"
+      },
+      {
+       "es": "Debe mucho dinero",
+       "en": "He owes a lot of money",
+       "ko": "빚이 많아요"
+      },
+      {
+       "es": "Lo tiene todo en el Banco",
+       "en": "It's all in the Bank",
+       "ko": "모두 은행에 있어요"
+      }
+     ],
+     "answer": 0,
+     "evidence": 2,
+     "mark": {
+      "es": "pasarlo anchamente",
+      "en": "live comfortably",
+      "ko": "넉넉하게"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "노새를 구해 주는 마르틴, 프란시스코와 통화 · 나는 마르틴",
+     "en": "A call with Francisco about the mules · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "¿Dónde vas a buscar las mulas?",
+      "en": "Where are you going to look for the mules?",
+      "ko": "노새는 어디서 구할 거야?"
+     },
+     {
+      "who": "me",
+      "es": "En la feria, cerca de la puerta.",
+      "en": "At the fair, near the gate.",
+      "ko": "장터에서, 성문 근처야.",
+      "focus": {
+       "es": [
+        "cerca de"
+       ],
+       "en": [
+        "near"
+       ],
+       "ko": [
+        "근처"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "cerca a",
+         "cerca en"
+        ]
+       ],
+       "en": [
+        [
+         "near of",
+         "near to of"
+        ]
+       ],
+       "ko": [
+        [
+         "근쳐",
+         "근저"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Bien. Van a ser buenas, ¿verdad?",
+      "en": "Good. They're going to be good ones, right?",
+      "ko": "좋아. 좋은 놈들이겠지?"
+     },
+     {
+      "who": "me",
+      "es": "Sí. Voy a elegir las mejores.",
+      "en": "Yes. I'm going to choose the best ones.",
+      "ko": "응. 제일 좋은 놈으로 고를게.",
+      "focus": {
+       "es": [
+        "Voy a elegir"
+       ],
+       "en": [
+        "I'm going to choose"
+       ],
+       "ko": [
+        "고를게"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Voy elegir",
+         "Voy a elijo"
+        ]
+       ],
+       "en": [
+        [
+         "I'm going choose",
+         "I'm going to choosing"
+        ]
+       ],
+       "ko": [
+        [
+         "고를께",
+         "골를게"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "mundo",
+     "vivir"
+    ],
+    "grammar": "IV.0",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "las mejores",
+      "en": "the best ones",
+      "ko": "제일 좋은 놈으로"
+     },
+     "opts": [
+      {
+       "es": "las más fuertes",
+       "en": "the strongest ones",
+       "ko": "제일 튼튼한 놈으로"
+      },
+      {
+       "es": "las más jóvenes",
+       "en": "the youngest ones",
+       "ko": "제일 어린 놈으로"
+      },
+      {
+       "es": "las más mansas",
+       "en": "the calmest ones",
+       "ko": "제일 순한 놈으로"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "c4-l6",
+   "date": "1787-05-04",
+   "dateNote": "Dated 4 May 1787 in Beruete (1917, pp. 28–29) and Zapater y Gómez (1868, p. 22); no modern dating checked.",
+   "ref": "Beruete 1917, p. 28–29 · A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28–29 · public domain · https://archive.org/details/AV193",
+   "place": "Madrid",
+   "to": {
+    "es": "Martín Zapater",
+    "en": "Martín Zapater",
+    "ko": "마르틴 사파테르"
+   },
+   "mood": "bright",
+   "excerpt": "Messages 0–3 are the whole passage. The plate caption printed in the middle of the text in Beruete (1917) is left out.",
+   "messages": [
+    {
+     "es": "Hombre, ¡qué dirán ahí algunas gentes si lo saben, que las mulas son para mí!",
+     "en": "Man, what will some people there say if they find out the mules are for me!",
+     "ko": "이봐, 그 노새가 내 거라는 걸 알면 거기 사람들이 뭐라고 할까!",
+     "orig": {
+      "es": "Hombre q.e dirán ay algunas jentes si lo saben q.e las mulas son para mi,"
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28–29 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "Hombre, ¡qué dirán ahí algunas gentes si lo saben, / que las mulas son para mí!",
+      "en": "Man, what will some people there say if they find out the mules are for me!",
+      "ko": "이봐, 그 노새가 내 거라는 걸 알면 거기 사람들이 뭐라고 할까!"
+     }
+    },
+    {
+     "es": "Es preciso que se oigan buenas aprensiones, porque yo ya he sospechado que en casa de Bayeu lo saben, por habérselo escrito de ahí, aunque no hemos entrado en semejante conversación, y yo me guardaré de eso; lo sabrán cuando lo sepan.",
+     "en": "There are bound to be some fine suspicions, because I already suspect they know at Bayeu's house, since someone wrote to them from there, though we haven't had any such conversation, and I'll take care not to; they'll know when they know.",
+     "ko": "분명 별의별 의심을 다 하겠지. 바예우네 집에서는 벌써 아는 것 같아. 거기서 누가 편지를 써 보냈나 봐. 우리끼리 그런 얘기를 한 적은 없고, 나도 조심할 거야. 알게 되면 알게 되겠지.",
+     "orig": {
+      "es": "es preciso que se oigan buenas aprensiones, por q.e yo ya he sospechado q.e en casa de Bayeu lo saben por aberselo escrito de ay, aunq.e no hemos entrado en semejante conbersacion y yo me guardare de eso, lo sabran cuando lo sepan,"
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28–29 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "Es preciso que se oigan buenas aprensiones, / porque yo ya he sospechado que en casa de Bayeu lo saben, / por habérselo escrito de ahí, / aunque no hemos entrado en semejante conversación, / y yo me guardaré de eso; // lo sabrán cuando lo sepan.",
+      "en": "There are bound to be some fine suspicions, / because I already suspect they know at Bayeu's house, / since someone wrote to them from there, / though we haven't had any such conversation, / and I'll take care not to; // they'll know when they know.",
+      "ko": "분명 별의별 의심을 다 하겠지. // 바예우네 집에서는 벌써 아는 것 같아. // 거기서 누가 편지를 써 보냈나 봐. // 우리끼리 그런 얘기를 한 적은 없고, / 나도 조심할 거야. // 알게 되면 알게 되겠지."
+     }
+    },
+    {
+     "es": "Por las demás gentes no habrá sino alegría, pues muchísimos me lo han aconsejado (esto es, de gente que lo tienen); pero ¿para qué me canso en escribirte de estas tonterías? Chico, chico, yo estoy tonto, y vamos a mudar de punto.",
+     "en": "From everyone else there'll be nothing but joy, for a great many have advised me to do it (that is, people who have one). But why do I tire myself writing to you about this nonsense? My boy, my boy, I'm being silly, so let's change the subject.",
+     "ko": "다른 사람들은 기뻐할 거야. 아주 많은 사람이 그러라고 권했거든 (마차를 가진 사람들 말이야). 그런데 내가 왜 이런 시시한 얘기를 쓰느라 애쓰고 있지? 아, 난 바보야. 얘기 바꾸자.",
+     "orig": {
+      "es": "por las demas jentes no habra sino alegria pues muchisimos me lo han aconsejado (esto es de gente q.e lo tienen) pero para que me canso en escribirte de estas tonterías, chico chico yo estoy tonto y bamos a mudar de punto."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28–29 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "Por las demás gentes no habrá sino alegría, / pues muchísimos me lo han aconsejado (esto es, / de gente que lo tienen); // pero ¿para qué me canso en escribirte de estas tonterías? // Chico, chico, yo estoy tonto, / y vamos a mudar de punto.",
+      "en": "From everyone else there'll be nothing but joy, / for a great many have advised me to do it (that is, / people who have one). // But why do I tire myself writing to you about this nonsense? // My boy, my boy, I'm being silly, / so let's change the subject.",
+      "ko": "다른 사람들은 기뻐할 거야. // 아주 많은 사람이 그러라고 권했거든 (마차를 가진 사람들 말이야). // 그런데 내가 왜 이런 시시한 얘기를 쓰느라 애쓰고 있지? // 아, 난 바보야. // 얘기 바꾸자."
+     }
+    },
+    {
+     "es": "¡Qué Virgen del Carmen te he de pintar tan hermosa! Dios nos deje vida para su santo servicio, a quien ruega te la guarde muchos años tu Paco del alma.",
+     "en": "What a beautiful Virgin of Carmel I'm going to paint for you! May God give us life for his holy service; your Paco of the soul begs him to keep yours many years.",
+     "ko": "네게 그려 줄 카르멘 성모는 얼마나 아름다울까! 하느님께서 우리에게 거룩한 일을 할 삶을 주시기를. 네 삶을 오래 지켜 주십사 기도하는, 네 영혼의 친구 파코가.",
+     "orig": {
+      "es": "Q.e Virgen del Carmen te he de pintar tan ermosa. Dios nos deje vida para su S.to servicio a quien ruega te la guarde m.s a.s tu Paco del alma."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 28–29 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "¡Qué Virgen del Carmen te he de pintar tan hermosa! // Dios nos deje vida para su santo servicio, / a quien ruega te la guarde muchos años tu Paco del alma.",
+      "en": "What a beautiful Virgin of Carmel I'm going to paint for you! // May God give us life for his holy service; // your Paco of the soul begs him to keep yours many years.",
+      "ko": "네게 그려 줄 카르멘 성모는 얼마나 아름다울까! // 하느님께서 우리에게 거룩한 일을 할 삶을 주시기를. // 네 삶을 오래 지켜 주십사 기도하는, / 네 영혼의 친구 파코가."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "궁정의 선배 화가 프란시스코 바예우는 아내 호세파의 오빠, 곧 고야의 처남이에요. 노새가 끄는 마차는 이제 그만큼 벌이가 된다는 표시였고, 고야는 바예우 집안에서 무슨 말이 나올지 신경 쓰고 있어요. ‘파코’는 프란시스코를 부르는 친근한 이름이에요. 1월에 약속한 카르멘 성모 그림은 아직이에요.",
+    "en": "Francisco Bayeu, the senior court painter, was the brother of Goya's wife Josefa, and so his brother-in-law. A carriage with a pair of mules was a sign of new earnings, and Goya worries about what will be said at the Bayeus'. 'Paco' is the familiar form of Francisco. The Virgin of Carmel promised in January is still to come.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 21–22 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "La condesa de Altamira y su hija, María Agustina",
+    "title_en": "Condesa de Altamira and Her Daughter, María Agustina",
+    "title_ko": "알타미라 백작부인과 딸 마리아 아구스티나",
+    "date": "1787–1788",
+    "credit": "Francisco de Goya",
+    "collection": "The Metropolitan Museum of Art, New York (1975.1.148)",
+    "imageLicense": "Public domain (CC0)",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Condesa_de_Altamira_and_Her_Daughter,_Mar%C3%ADa_Agustina_MET_DT716.jpg",
+    "commonsFile": "File:Condesa de Altamira and Her Daughter, María Agustina MET DT716.jpg",
+    "image": "g-c4-l6.webp",
+    "kind": "painting",
+    "why": {
+     "ko": "이 무렵 왕의 화가 고야에게 귀족들의 초상 주문이 들어왔어요. 1787–1788년의 초상이에요.",
+     "en": "A portrait of 1787–88, from the years when the nobility came to the new Painter to the King for their likenesses."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 3,
+     "grammar": "IV.2",
+     "es": "¡Pintarás una Virgen muy hermosa!",
+     "en": "You will paint a very beautiful Virgin!",
+     "ko": "성모 그림은 언제 볼 수 있을까요?",
+     "koLow": "성모 그림은 언제 볼 수 있을까?",
+     "koHigh": "성모 그림은 언제 볼 수 있겠습니까?",
+     "focus": {
+      "es": [
+       "Pintarás"
+      ],
+      "en": [
+       "will paint"
+      ],
+      "ko": [
+       "있을까요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Pintarís",
+        "Pintarés"
+       ]
+      ],
+      "en": [
+       [
+        "will painted",
+        "will to paint"
+       ]
+      ],
+      "ko": [
+       [
+        "있을가요",
+        "있을까여"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 2,
+     "grammar": "I.2",
+     "es": "No es una tontería, Paco.",
+     "en": "It isn't nonsense, Paco.",
+     "ko": "시시하지 않아요, 파코.",
+     "koLow": "시시하지 않아, 파코.",
+     "koHigh": "시시하지 않습니다, 파코.",
+     "focus": {
+      "es": [
+       "No es"
+      ],
+      "en": [
+       "isn't"
+      ],
+      "ko": [
+       "않아요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Es no",
+        "No son"
+       ]
+      ],
+      "en": [
+       [
+        "not is",
+        "isn't not"
+       ]
+      ],
+      "ko": [
+       [
+        "안아요",
+        "않아여"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": 0,
+     "type": "location",
+     "place": "zaragoza",
+     "title": {
+      "es": "Zaragoza",
+      "en": "Zaragoza",
+      "ko": "사라고사"
+     },
+     "address": "Zaragoza"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "gm-c4-l6.webp",
+     "caption": {
+      "es": "Francisco Bayeu, retratado por Goya en 1786",
+      "en": "Francisco Bayeu, painted by Goya in 1786",
+      "ko": "고야가 1786년에 그린 프란시스코 바예우"
+     },
+     "credit": "Retrato de Francisco Bayeu, 1786 · Francisco de Goya · Museu de Belles Arts de València · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Retrat_de_Francisco_Bayeu,_Goya,_1786,_Museu_de_Belles_Arts_de_Val%C3%A8ncia.JPG",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "Tu Paco del alma",
+    "en": "Your Paco of the soul",
+    "ko": "네 영혼의 친구 파코"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Dónde sospecha Goya que ya saben lo de las mulas?",
+      "en": "Where does Goya suspect they already know about the mules?",
+      "ko": "고야는 어디에서 노새 일을 벌써 안다고 생각해요?"
+     },
+     "options": [
+      {
+       "es": "En casa de Bayeu",
+       "en": "At Bayeu's house",
+       "ko": "바예우네 집"
+      },
+      {
+       "es": "En el Palacio",
+       "en": "At the Palace",
+       "ko": "왕궁"
+      },
+      {
+       "es": "En la Academia",
+       "en": "At the Academy",
+       "ko": "아카데미"
+      },
+      {
+       "es": "En casa de Tomás",
+       "en": "At Tomás's house",
+       "ko": "토마스네 집"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1,
+     "mark": {
+      "es": "en casa de Bayeu",
+      "en": "at Bayeu's house",
+      "ko": "바예우네 집"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "노새 소문을 걱정하는 프란시스코와 통화 · 나는 마르틴",
+     "en": "A call with Francisco, worried about gossip · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "¿Quién sabe lo de las mulas?",
+      "en": "Who knows about the mules?",
+      "ko": "노새 일을 누가 알아?"
+     },
+     {
+      "who": "me",
+      "es": "La gente habla en la plaza.",
+      "en": "People are talking in the square.",
+      "ko": "사람들이 광장에서 수군거려.",
+      "focus": {
+       "es": [
+        "en la plaza"
+       ],
+       "en": [
+        "in the square"
+       ],
+       "ko": [
+        "광장에서"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "a la plaza",
+         "de la plaza"
+        ]
+       ],
+       "en": [
+        [
+         "in square",
+         "into the square"
+        ]
+       ],
+       "ko": [
+        [
+         "광장애서",
+         "광장에사"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "¡Qué tontería! Vamos a cambiar de tema.",
+      "en": "What nonsense! Let's change the subject.",
+      "ko": "바보 같은 얘기야! 얘기 바꾸자."
+     },
+     {
+      "who": "me",
+      "es": "Sí. ¿Cuándo vas a pintar la Virgen?",
+      "en": "Yes. When are you going to paint the Virgin?",
+      "ko": "그래. 성모 그림은 언제 그릴 거야?",
+      "focus": {
+       "es": [
+        "vas a pintar"
+       ],
+       "en": [
+        "are you going to paint"
+       ],
+       "ko": [
+        "그릴 거야"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "vas pintar",
+         "vas a pintas"
+        ]
+       ],
+       "en": [
+        [
+         "you going to paint",
+         "are you go to paint"
+        ]
+       ],
+       "ko": [
+        [
+         "그릴 꺼야",
+         "그릴 거아"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "casa",
+     "gente"
+    ],
+    "grammar": "IV.0",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "es": "en la plaza",
+      "en": "in the square",
+      "ko": "광장에서"
+     },
+     "opts": [
+      {
+       "es": "en el mercado",
+       "en": "at the market",
+       "ko": "시장에서"
+      },
+      {
+       "es": "en la iglesia",
+       "en": "at church",
+       "ko": "성당에서"
+      },
+      {
+       "es": "en la calle",
+       "en": "in the street",
+       "ko": "길에서"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "c4-l7",
+   "date": "1787-05-12",
+   "dateNote": "Signed and dated by Goya 'Madrid y Mayo á 12 de 1787', as printed in Beruete (1917, p. 63); no modern dating checked.",
+   "ref": "Beruete 1917, p. 63 · A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 63 · public domain · https://archive.org/details/AV193",
+   "place": "Madrid",
+   "to": {
+    "es": "Condesa-duquesa de Benavente",
+    "en": "The Countess-Duchess of Benavente",
+    "ko": "베나벤테 백작 공작부인"
+   },
+   "mood": "calm",
+   "excerpt": "An account in Goya's hand, not a letter. Messages 0–3 are the heading and the first three of the seven items, as printed in Beruete (1917, p. 63); items 4–7 are left out. 'Id.' is printed (= ítem).",
+   "messages": [
+    {
+     "es": "Cuenta de los cuadros que he pintado por orden de la excelentísima señora condesa de Peñafiel. Id. Para la Alameda, siete cuadros, todos de composición, asuntos de campo.",
+     "en": "Account of the pictures I have painted by order of Her Excellency the Countess of Peñafiel. Item: for the Alameda, seven pictures, all composed scenes, country subjects.",
+     "ko": "페냐피엘 백작부인 각하의 명으로 그린 그림들의 청구서. 항목: 알라메다를 위한 일곱 점, 모두 구성한 장면이고 시골 풍경이 주제임.",
+     "orig": {
+      "es": "Cuenta de los cuadros que he pintado por orden de la Excma. Señora Condesa de Peñafiel: Id. Para la Alameda, siete cuadros todos de composición, asuntos de campo;"
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 63 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "Cuenta de los cuadros que he pintado por orden de la excelentísima señora condesa de Peñafiel. // Id. // Para la Alameda, siete cuadros, / todos de composición, asuntos de campo.",
+      "en": "Account of the pictures I have painted by order of Her Excellency the Countess of Peñafiel. // Item: // for the Alameda, seven pictures, / all composed scenes, country subjects.",
+      "ko": "페냐피엘 백작부인 각하의 명으로 그린 그림들의 청구서. // 항목: // 알라메다를 위한 일곱 점, / 모두 구성한 장면이고 시골 풍경이 주제임."
+     }
+    },
+    {
+     "es": "El 1.º, primero, representa un apartado de toros, con varias figuras de a caballo y de a pie, y los toros, para formar su composición, con su país correspondiente; su valor, 4000 reales.",
+     "en": "The 1st represents the sorting of bulls, with various figures on horseback and on foot, and the bulls, to make up its composition, with its landscape to match; its value, 4,000 reales.",
+     "ko": "첫째, 소를 골라 나누는 장면. 말 탄 사람과 걸어가는 사람 여럿, 그리고 구성을 위한 소들, 그에 맞는 풍경. 값 4,000레알.",
+     "orig": {
+      "es": "el 1.° primero representa un apartado de toros, con varias figuras, de á caballo, y de á pié, y los toros para formar su composición, con su pais correspondiente; su valor 4.000 rs."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 63 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "El 1.º, primero, representa un apartado de toros, / con varias figuras de a caballo y de a pie, / y los toros, para formar su composición, / con su país correspondiente; // su valor, 4000 reales.",
+      "en": "The 1st represents the sorting of bulls, / with various figures on horseback and on foot, / and the bulls, to make up its composition, / with its landscape to match; // its value, 4,000 reales.",
+      "ko": "첫째, 소를 골라 나누는 장면. // 말 탄 사람과 걸어가는 사람 여럿, / 그리고 구성을 위한 소들, / 그에 맞는 풍경. // 값 4,000레알."
+     }
+    },
+    {
+     "es": "2.º Otro que representa unos ladrones que han asaltado a un coche, y, después de haberse apoderado y muerto a los caleseros y a un oficial de guerra, que se hicieron fuertes, están en ademán de atar a una mujer y a un hombre, con su país correspondiente; su valor, 3000 reales.",
+     "en": "2nd. Another that represents some robbers who have attacked a coach and, having overpowered and killed the coachmen and an army officer who held out against them, are about to tie up a woman and a man, with its landscape to match; its value, 3,000 reales.",
+     "ko": "둘째, 강도들이 마차를 덮친 장면. 버티던 마부들과 장교 한 사람을 제압한 뒤, 여자 하나와 남자 하나를 묶으려는 참이고, 그에 맞는 풍경. 값 3,000레알.",
+     "orig": {
+      "es": "2.° Otro que representa unos ladrones que han asaltado á un coche y después de haberse apoderado y muerto á los caleseros, y á un oficial de guerra, que se hicieron fuertes, están en ademan de atar á una muger y á un hombre, con su pais correspondiente; su valor 3.000 rs."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 63 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "2.º Otro que representa unos ladrones que han asaltado a un coche, / y, después de haberse apoderado y muerto a los caleseros y a un oficial de guerra, / que se hicieron fuertes, están en ademán de atar a una mujer y a un hombre, / con su país correspondiente; // su valor, 3000 reales.",
+      "en": "2nd. // Another that represents some robbers who have attacked a coach and, / having overpowered and killed the coachmen and an army officer who held out against them, / are about to tie up a woman and a man, / with its landscape to match; // its value, 3,000 reales.",
+      "ko": "둘째, 강도들이 마차를 덮친 장면. // 버티던 마부들과 장교 한 사람을 제압한 뒤, / 여자 하나와 남자 하나를 묶으려는 참이고, / 그에 맞는 풍경. // 값 3,000레알."
+     }
+    },
+    {
+     "es": "3.º Otro cuadro que representa unos gitanos divirtiéndose, columpiando a una gitana, y otras dos sentadas mirando y tocando una guitarra, con su país correspondiente; su valor, 2500 reales.",
+     "en": "3rd. Another picture that represents some gypsies enjoying themselves, swinging a gypsy girl, and two other women sitting, watching and playing a guitar, with its landscape to match; its value, 2,500 reales.",
+     "ko": "셋째, 집시들이 즐겁게 노는 장면. 집시 여인을 그네에 태워 밀고, 다른 두 여인은 앉아서 보며 기타를 치고, 그에 맞는 풍경. 값 2,500레알.",
+     "orig": {
+      "es": "3.° Otro cuadro que representa unos jitanos divirtiéndose, columpiando á una jitana y otras dos sentadas mirando y tocando una guitarra, con su pais correspondiente; su valor 2.500 rs."
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 63 · public domain · https://archive.org/details/AV193",
+     "speak": {
+      "es": "3.º Otro cuadro que representa unos gitanos divirtiéndose, / columpiando a una gitana, y otras dos sentadas mirando y tocando una guitarra, / con su país correspondiente; // su valor, 2500 reales.",
+      "en": "3rd. // Another picture that represents some gypsies enjoying themselves, / swinging a gypsy girl, and two other women sitting, / watching and playing a guitar, / with its landscape to match; // its value, 2,500 reales.",
+      "ko": "셋째, 집시들이 즐겁게 노는 장면. // 집시 여인을 그네에 태워 밀고, / 다른 두 여인은 앉아서 보며 기타를 치고, / 그에 맞는 풍경. // 값 2,500레알."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "편지가 아니라 고야가 직접 쓴 청구서예요. 알라메다는 오수나 공작 집안이 마드리드 밖에 둔 별장이에요. 청구서는 일곱 점을 적어요. 여기 실은 세 점 말고도 마을 행렬, 당나귀에서 떨어져 정신을 잃은 여인이 있는 순례, 오월제 기둥 오르기, 황소 두 쌍이 큰 돌을 끄는 공사장이 있어요. 일곱 점을 합하면 1만 9천 레알로, 왕의 화가 연봉 1만 5천 레알보다 많아요. 이 별장의 그림들은 1896년 오수나 집안의 재산 매각 때 흩어졌어요.",
+    "en": "Not a letter but an account in Goya's own hand. The Alameda was the Osuna family's country house outside Madrid. The account lists seven pictures; besides the three given here there are a village procession, a pilgrimage in which a woman has fainted after falling from a donkey, a maypole with boys climbing for a prize, and a building site where two pairs of oxen haul a great stone. The seven come to 19,000 reales, more than his 15,000 a year as Painter to the King. The Alameda pictures were dispersed in the sale of the Osuna estate in 1896.",
+    "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 63, 101–102 · public domain · https://archive.org/details/AV193 ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "El columpio",
+    "title_en": "The Swing",
+    "title_ko": "그네",
+    "date": "1787",
+    "credit": "Francisco de Goya",
+    "collection": "Colección particular",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:El_columpio_(1787).jpg",
+    "commonsFile": "File:El columpio (1787).jpg",
+    "image": "g-c4-l7.webp",
+    "kind": "painting",
+    "why": {
+     "ko": "청구서의 셋째 그림, 집시들이 여인을 그네에 태우는 바로 그 장면이에요.",
+     "en": "The third picture on the account: the gypsies swinging a girl."
+    },
+    "spots": []
+   },
+   "replies": [
+    {
+     "quote": 0,
+     "grammar": "IV.2",
+     "es": "Pagaré la cuenta esta semana.",
+     "en": "I will pay the bill this week.",
+     "ko": "값은 이번 주에 보내 드릴까요?",
+     "koLow": "값은 이번 주에 보내 줄까?",
+     "koHigh": "값은 이번 주에 보내 드리면 되겠습니까?",
+     "focus": {
+      "es": [
+       "Pagaré"
+      ],
+      "en": [
+       "will pay"
+      ],
+      "ko": [
+       "드릴까요"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "Pagaró",
+        "Pagarí"
+       ]
+      ],
+      "en": [
+       [
+        "will paid",
+        "will to pay"
+       ]
+      ],
+      "ko": [
+       [
+        "드릴가요",
+        "드릴까여"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    },
+    {
+     "quote": 3,
+     "grammar": "III.1",
+     "es": "La semana pasada vi el cuadro del columpio en la Alameda.",
+     "en": "Last week I saw the picture of the swing at the Alameda.",
+     "ko": "지난주에 알라메다에서 그네 그림을 봤어요.",
+     "koLow": "지난주에 알라메다에서 그네 그림을 봤어.",
+     "koHigh": "지난주에 알라메다에서 그네 그림을 보았습니다.",
+     "focus": {
+      "es": [
+       "vi"
+      ],
+      "en": [
+       "saw"
+      ],
+      "ko": [
+       "지난주에"
+      ]
+     },
+     "wrong": {
+      "es": [
+       [
+        "veí",
+        "vió"
+       ]
+      ],
+      "en": [
+       [
+        "seed",
+        "seen"
+       ]
+      ],
+      "ko": [
+       [
+        "지난주애",
+        "지난주의"
+       ]
+      ]
+     },
+     "_note": "이 앱이 쓴 답장"
+    }
+   ],
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Una cuenta, no una carta · Madrid, 12 de mayo de 1787",
+      "en": "An account, not a letter · Madrid, 12 May 1787",
+      "ko": "편지가 아닌 청구서 · 1787년 5월 12일, 마드리드"
+     }
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "gm-c4-l7.webp",
+     "caption": {
+      "es": "La condesa-duquesa de Benavente, retratada por Goya",
+      "en": "The Countess-Duchess of Benavente, painted by Goya",
+      "ko": "고야가 그린 베나벤테 백작 공작부인"
+     },
+     "credit": "La condesa-duquesa de Benavente, 1785 · Francisco de Goya · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Duchess_Countess_of_Benavente_by_Goya.jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "La cuenta de la Alameda",
+    "en": "The Alameda account",
+    "ko": "알라메다 청구서"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Cuánto vale el cuadro de los toros?",
+      "en": "How much is the picture of the bulls worth?",
+      "ko": "소 그림의 값은 얼마예요?"
+     },
+     "options": [
+      {
+       "es": "4000 reales",
+       "en": "4,000 reales",
+       "ko": "4,000레알"
+      },
+      {
+       "es": "3000 reales",
+       "en": "3,000 reales",
+       "ko": "3,000레알"
+      },
+      {
+       "es": "2500 reales",
+       "en": "2,500 reales",
+       "ko": "2,500레알"
+      },
+      {
+       "es": "15 000 reales",
+       "en": "15,000 reales",
+       "ko": "15,000레알"
+      }
+     ],
+     "answer": 0,
+     "evidence": 1,
+     "mark": {
+      "es": "4000 reales",
+      "en": "4,000 reales",
+      "ko": "4,000레알"
+     }
+    },
+    {
+     "q": {
+      "es": "¿Qué hacen los gitanos del tercer cuadro?",
+      "en": "What are the gypsies doing in the third picture?",
+      "ko": "셋째 그림의 집시들은 무엇을 해요?"
+     },
+     "options": [
+      {
+       "es": "Columpian a una gitana",
+       "en": "Swinging a gypsy girl",
+       "ko": "여인을 그네에 태워요"
+      },
+      {
+       "es": "Asaltan un coche",
+       "en": "Attacking a coach",
+       "ko": "마차를 덮쳐요"
+      },
+      {
+       "es": "Apartan los toros",
+       "en": "Sorting the bulls",
+       "ko": "소를 나눠요"
+      },
+      {
+       "es": "Van a misa",
+       "en": "Going to Mass",
+       "ko": "미사에 가요"
+      }
+     ],
+     "answer": 0,
+     "evidence": 3,
+     "mark": {
+      "es": "columpiando a una gitana",
+      "en": "swinging a gypsy girl",
+      "ko": "그네에 태워"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "알라메다 별장 가는 길, 프란시스코와 · 나는 마르틴",
+     "en": "On the way to the Alameda with Francisco · I'm Martín"
+    },
+    "me": "Martín Zapater",
+    "lines": [
+     {
+      "who": "them",
+      "es": "Martín, vamos a la Alameda de Osuna.",
+      "en": "Martín, let's go to the Alameda de Osuna.",
+      "ko": "마르틴, 오수나의 알라메다에 가자."
+     },
+     {
+      "who": "me",
+      "es": "¿Está lejos? ¿Cómo vamos a ir?",
+      "en": "Far? How are we going to get there?",
+      "ko": "멀어? 어떻게 갈 거야?",
+      "focus": {
+       "es": [
+        "vamos a ir"
+       ],
+       "en": [
+        "are we going to get"
+       ],
+       "ko": [
+        "갈 거야"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "vamos ir",
+         "van a ir"
+        ]
+       ],
+       "en": [
+        [
+         "we going to get",
+         "are we go to get"
+        ]
+       ],
+       "ko": [
+        [
+         "갈 꺼야",
+         "갈 거아"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "No, está cerca. Iremos en mi berlina.",
+      "en": "No, it's close. We'll go in my berlin.",
+      "ko": "아니, 가까워. 내 마차로 갈까?"
+     },
+     {
+      "who": "me",
+      "es": "¡Perfecto! Voy a ver tus siete cuadros.",
+      "en": "Perfect! I'm going to see your seven paintings.",
+      "ko": "좋아! 네 그림 일곱 점을 볼게.",
+      "focus": {
+       "es": [
+        "Voy a ver"
+       ],
+       "en": [
+        "I'm going to see"
+       ],
+       "ko": [
+        "볼게"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Voy ver",
+         "Voy a veo"
+        ]
+       ],
+       "en": [
+        [
+         "I'm going see",
+         "I'm going to seeing"
+        ]
+       ],
+       "ko": [
+        [
+         "볼께",
+         "볼개"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "cuadro",
+     "valor"
+    ],
+    "grammar": "IV.2",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "tus siete cuadros",
+      "en": "your seven paintings",
+      "ko": "네 그림 일곱 점을"
+     },
+     "opts": [
+      {
+       "es": "el columpio",
+       "en": "the swing",
+       "ko": "그네 그림을"
+      },
+      {
+       "es": "los toros",
+       "en": "the bulls",
+       "ko": "소 그림을"
+      },
+      {
+       "es": "la casa",
+       "en": "the house",
+       "ko": "그 집을"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  }
+ ]
+}

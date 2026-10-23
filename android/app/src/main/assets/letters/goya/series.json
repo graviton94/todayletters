@@ -1,5 +1,5 @@
 {
- "_doc": "고야 시리즈 표지 정보와 챕터 목록 (지금은 서문 + I장, 나머지 장 · 맺음은 다음 단계). 스페인어 원문은 공공 영역 판본 (Zapater y Gómez 1868 · Beruete 1916–18 · Viñaza 1887 · Cruzada Villaamil 1870, 메시지마다 source), 앱 글은 지금 철자 (악센트 · b/v · h · x/j · 이어 쓰기, 낱말 · 차례는 그대로), 찍힌 글자는 메시지 orig.es — \"origLine\": true 면 편지 방에서 ‘원래 철자’ 한 줄로 펼쳐 볼 수 있다. 1981/82 · 2003년 판과 그 주석은 쓰지 않았다. 영어 · 한국어는 이 앱의 번역. tier 는 지금 편지 수 (11통) 에 맞춘 1, 49통이 다 들어가면 2.",
+ "_doc": "고야 시리즈 표지 정보와 챕터 목록 (서문 4 + 6장 × 7 + 보르도 맺음 3 = 49통). 스페인어 원문은 공공 영역 판본 (Zapater y Gómez 1868 · Beruete 1916–18 · Viñaza 1887 · Cruzada Villaamil 1870, 메시지마다 source), 앱 글은 지금 철자 (악센트 · b/v · h · x/j · 이어 쓰기, 낱말 · 차례는 그대로), 찍힌 글자는 메시지 orig.es — \"origLine\": true 면 편지 방에서 ‘원래 철자’ 한 줄로 펼쳐 볼 수 있다. 1981/82 · 2003년 판과 그 주석은 쓰지 않았다. 영어 · 한국어는 이 앱의 번역. tier 2 (49통).",
  "id": "goya",
  "order": 4,
  "original": "es",
@@ -37,13 +37,45 @@
   "default": {
    "ko": "마르틴과 프란시스코는 어릴 적 학교 친구라 실제로는 반말을 썼어요.",
    "en": "Martín and Francisco were school friends from childhood, so between them it would really be 반말 (casual speech)."
+  },
+  "Junta de Fábrica del Pilar": {
+   "ko": "필라르 대성당 공사 위원회는 고야에게 일을 맡긴 쪽이라 공적인 사이예요. 높임말이 맞아요.",
+   "en": "The Pilar works committee had commissioned Goya, so they were on formal terms: 높임 (polite speech) fits."
+  },
+  "Matías Allué": {
+   "ko": "알루에는 위원회의 참사회원이라 고야와 공적인 사이예요. 하십시오체가 맞아요.",
+   "en": "Allué was a canon on the committee and on formal terms with Goya, so the formal 하십시오체 fits."
+  },
+  "Conde de Floridablanca": {
+   "ko": "플로리다블랑카 백작은 국왕의 수석 장관이라 가장 높은 말씨가 맞아요.",
+   "en": "Floridablanca was the King's chief minister, so the most formal speech fits."
+  },
+  "Condesa-duquesa de Benavente": {
+   "ko": "베나벤테 공작부인은 그림을 주문한 귀족이라 높임말이 맞아요.",
+   "en": "The Countess-Duchess of Benavente was a noble patron, so 높임 (polite speech) fits."
+  },
+  "Miguel Cayetano Soler": {
+   "ko": "솔레르는 재무 장관이라 고야와 공적인 사이예요. 하십시오체가 맞아요.",
+   "en": "Soler was the finance minister, on formal terms with Goya, so the formal 하십시오체 fits."
+  },
+  "Joaquín María Ferrer": {
+   "ko": "페레르는 파리에 사는 친구지만 서로 usted 를 썼어요. 해요체가 자연스러워요.",
+   "en": "Ferrer was a friend in Paris, but they wrote usted to each other, so polite 해요체 feels natural."
+  },
+  "Moratín": {
+   "ko": "모라틴은 보르도의 오랜 친구지만 서로 존중하는 사이였어요. 해요체가 자연스러워요.",
+   "en": "Moratín was an old friend in Bordeaux, on respectful terms, so polite 해요체 feels natural."
+  },
+  "Javier": {
+   "ko": "하비에르는 아들이라 아버지께 해요체가 자연스러워요. 아버지는 아들에게 반말을 써요.",
+   "en": "Javier is writing to his father, so polite 해요체 is natural; the father uses 반말 (casual speech) to his son."
   }
  },
  "portrait": "goya.webp",
  "credit": "Francisco Goya y Lucientes, Pintor (Los Caprichos, plate 1), 1799 · Francisco de Goya · The Metropolitan Museum of Art · CC0",
  "portraitSource": "https://commons.wikimedia.org/wiki/File:Plate_1_from_%27Los_Caprichos%27-_Self-portrait_of_Goya_(_Franco._Goya_e_Lucientes,_Pintor)_MET_DP816885.jpg",
  "product": "series_goya",
- "tier": 1,
+ "tier": 2,
  "title": {
   "es": "Cartas de Goya",
   "en": "Letters from Goya",
@@ -58,6 +90,56 @@
     "es": "Madrid y los cartones",
     "en": "Madrid and the Cartoons",
     "ko": "마드리드, 밑그림의 날들"
+   }
+  },
+  {
+   "id": "II",
+   "file": "chapter2.json",
+   "free": true,
+   "title": {
+    "es": "Del Pilar a Arenas",
+    "en": "From the Pilar to Arenas",
+    "ko": "필라르에서 아레나스로"
+   }
+  },
+  {
+   "id": "III",
+   "file": "chapter3.json",
+   "free": false,
+   "title": {
+    "es": "San Francisco el Grande",
+    "en": "The San Francisco Altarpiece",
+    "ko": "산 프란시스코의 그림"
+   }
+  },
+  {
+   "id": "IV",
+   "file": "chapter4.json",
+   "free": false,
+   "title": {
+    "es": "Pintor del Rey",
+    "en": "Painter to the King",
+    "ko": "왕의 화가"
+   }
+  },
+  {
+   "id": "V",
+   "file": "chapter5.json",
+   "free": false,
+   "title": {
+    "es": "La pradera",
+    "en": "The Meadow of San Isidro",
+    "ko": "성 이시드로의 들판"
+   }
+  },
+  {
+   "id": "VI",
+   "file": "chapter6.json",
+   "free": false,
+   "title": {
+    "es": "Sordo",
+    "en": "The Silent Years",
+    "ko": "들리지 않는 날들"
    }
   }
  ],
@@ -157,6 +239,70 @@
    "lat": 40.418,
    "lng": -3.714,
    "_note": "좌표는 대략 [미확인], 지도 x · y 는 나폴레옹과 같은 투영"
+  },
+  "aranjuez": {
+   "x": 0.074,
+   "y": 0.999,
+   "name": {
+    "es": "Aranjuez",
+    "en": "Aranjuez",
+    "ko": "아란후에스"
+   },
+   "note": {
+    "ko": "마드리드 남쪽, 왕실이 봄을 보내던 궁이 있는 곳.",
+    "en": "South of Madrid, the royal palace where the court spent the spring."
+   },
+   "lat": 40.033,
+   "lng": -3.603,
+   "_note": "좌표는 대략 [미확인], 지도 x · y 는 나폴레옹과 같은 투영"
+  },
+  "arenas": {
+   "x": 0.028,
+   "y": 0.988,
+   "name": {
+    "es": "Arenas de San Pedro",
+    "en": "Arenas de San Pedro",
+    "ko": "아레나스 데 산 페드로"
+   },
+   "note": {
+    "ko": "그레도스 산 아래 마을. 돈 루이스 왕자가 궁정을 떠나 살던 곳.",
+    "en": "A town below the Gredos mountains, where the Infante Don Luis lived away from court."
+   },
+   "lat": 40.208,
+   "lng": -5.087,
+   "_note": "좌표는 대략 [미확인], 지도 x · y 는 나폴레옹과 같은 투영"
+  },
+  "san_francisco_el_grande": {
+   "x": 0.071,
+   "y": 0.975,
+   "name": {
+    "es": "San Francisco el Grande",
+    "en": "San Francisco el Grande",
+    "ko": "산 프란시스코 엘 그란데 성당"
+   },
+   "note": {
+    "ko": "마드리드의 큰 둥근 지붕 성당. 고야의 제단화가 걸린 곳.",
+    "en": "The great domed church in Madrid where Goya's altarpiece hangs."
+   },
+   "lat": 40.41,
+   "lng": -3.714,
+   "_note": "좌표는 대략 [미확인], 지도 x · y 는 나폴레옹과 같은 투영"
+  },
+  "burdeos": {
+   "x": 0.169,
+   "y": 0.698,
+   "name": {
+    "es": "Burdeos",
+    "en": "Bordeaux",
+    "ko": "보르도"
+   },
+   "note": {
+    "ko": "프랑스 남서쪽, 가론 강가의 항구 도시. 고야가 마지막 네 해를 보낸 곳.",
+    "en": "The port city on the Garonne in south-west France, where Goya spent his last four years."
+   },
+   "lat": 44.837,
+   "lng": -0.579,
+   "_note": "좌표는 대략 [미확인], 지도 x · y 는 나폴레옹과 같은 투영"
   }
  },
  "kit": {
@@ -248,5 +394,29 @@
    "ko": "마드리드 이전",
    "en": "Before Madrid"
   }
+ },
+ "outro": {
+  "file": "epilogue.json",
+  "image": "g-outro.webp",
+  "credit": "Aún aprendo, c. 1825–1828 · Francisco de Goya · Museo del Prado · Public domain (PD-Art)",
+  "caps": "EPÍLOGO",
+  "name": "Francisco de Goya y Lucientes",
+  "years": "30 de marzo de 1746 — 16 de abril de 1828",
+  "body": [
+   {
+    "ko": "1828년 4월 16일, 고야는 프랑스 보르도에서 여든둘의 나이로 세상을 떠났어요. 마지막 편지에서처럼, 아들 하비에르가 오기를 기다리던 봄이었어요.",
+    "en": "On 16 April 1828 Goya died in Bordeaux, aged eighty-two. As in his last letter, it was a spring of waiting for his son Javier to come."
+   },
+   {
+    "ko": "1826년, 여든의 고야는 마드리드에 잠시 다녀와 궁정 화가 자리에서 물러나도록 허락받았어요. 보르도로 돌아온 뒤에도 그는 끝까지 그림을 그리고 석판화와 소묘를 만들었어요. 지팡이를 짚은 노인을 그린 이 소묘에는 고야의 글씨로 ‘아직 배우고 있다(Aún aprendo)’고 적혀 있어요.",
+    "en": "In 1826, at eighty, Goya made a short trip to Madrid and was allowed to retire as court painter. Back in Bordeaux he went on painting, drawing and making lithographs to the end. On this drawing of an old man on two sticks he wrote: ‘Aún aprendo’, I am still learning."
+   },
+   {
+    "ko": "그가 왕께 바친 《카프리초스》 동판은 지금도 마드리드의 국립 칼코그라피아(옛 왕립 판화소)에 있어요. 보르도에 묻혔던 유해는 훗날 스페인으로 돌아와, 지금은 그가 천장화를 그린 마드리드의 산 안토니오 데 라 플로리다 성당에 잠들어 있어요.",
+    "en": "The Caprichos plates he gave to the King are still in Madrid, at the Calcografía Nacional, once the Royal Calcografía. His remains, first buried in Bordeaux, were later brought back to Spain and now lie in the hermitage of San Antonio de la Florida in Madrid, whose dome he had painted."
+   }
+  ],
+  "imageSource": "https://commons.wikimedia.org/wiki/File:Aun_aprendo.jpg",
+  "exception": "pd-art"
  }
 }

@@ -1,5 +1,5 @@
 {
- "_doc": "이번 장의 소리: 장마다 소리 짝 하나. checked=false 는 사람 확인 전. 지금은 I장만 (다른 장은 그 장 데이터와 함께).",
+ "_doc": "이번 장의 소리: 장마다 소리 짝 하나 (I~VI, 맺음은 다른 작품처럼 없음). checked=false 는 사람 확인 전.",
  "lang": "es",
  "checked": false,
  "chapters": {
@@ -62,6 +62,316 @@
     "cerro": {
      "ko": "언덕",
      "en": "hill"
+    }
+   }
+  },
+  "II": {
+   "name": {
+    "ko": "ñ 과 n",
+    "en": "ñ and n"
+   },
+   "tip": {
+    "ko": "ñ 는 ‘냐 · 뇨’처럼 혀 가운데를 입천장에 · n 은 혀끝만",
+    "en": "ñ is like 'ny' in canyon, the middle of the tongue on the palate; n uses only the tip"
+   },
+   "pairs": [
+    [
+     "peña",
+     "pena"
+    ],
+    [
+     "cuña",
+     "cuna"
+    ],
+    [
+     "moño",
+     "mono"
+    ],
+    [
+     "caña",
+     "cana"
+    ]
+   ],
+   "mean": {
+    "peña": {
+     "ko": "바위",
+     "en": "rock"
+    },
+    "pena": {
+     "ko": "슬픔",
+     "en": "sorrow"
+    },
+    "cuña": {
+     "ko": "쐐기",
+     "en": "wedge"
+    },
+    "cuna": {
+     "ko": "요람",
+     "en": "cradle"
+    },
+    "moño": {
+     "ko": "쪽 찐 머리",
+     "en": "bun (hair)"
+    },
+    "mono": {
+     "ko": "원숭이",
+     "en": "monkey"
+    },
+    "caña": {
+     "ko": "갈대",
+     "en": "reed"
+    },
+    "cana": {
+     "ko": "흰머리",
+     "en": "grey hair"
+    }
+   }
+  },
+  "III": {
+   "name": {
+    "ko": "r 과 l",
+    "en": "r and l"
+   },
+   "tip": {
+    "ko": "r 은 혀끝을 한 번 톡 (낱말 첫머리는 떨기) · l 은 혀끝을 윗니 뒤에 붙인 채",
+    "en": "r is a tap (a trill at the start of a word); for l the tongue tip stays on the ridge behind the teeth"
+   },
+   "pairs": [
+    [
+     "rana",
+     "lana"
+    ],
+    [
+     "rata",
+     "lata"
+    ],
+    [
+     "pero",
+     "pelo"
+    ],
+    [
+     "cara",
+     "cala"
+    ]
+   ],
+   "mean": {
+    "rana": {
+     "ko": "개구리",
+     "en": "frog"
+    },
+    "lana": {
+     "ko": "양털",
+     "en": "wool"
+    },
+    "rata": {
+     "ko": "쥐",
+     "en": "rat"
+    },
+    "lata": {
+     "ko": "깡통",
+     "en": "tin"
+    },
+    "pero": {
+     "ko": "그러나",
+     "en": "but"
+    },
+    "pelo": {
+     "ko": "머리카락",
+     "en": "hair"
+    },
+    "cara": {
+     "ko": "얼굴",
+     "en": "face"
+    },
+    "cala": {
+     "ko": "작은 만",
+     "en": "cove"
+    }
+   }
+  },
+  "IV": {
+   "name": {
+    "ko": "강세 자리",
+    "en": "Where the stress falls"
+   },
+   "tip": {
+    "ko": "악센트(´)가 있는 모음을 세게 · 없으면 끝에서 둘째 음절을",
+    "en": "Stress the vowel with the accent mark; without one, usually the second-to-last syllable"
+   },
+   "pairs": [
+    [
+     "papa",
+     "papá"
+    ],
+    [
+     "hablo",
+     "habló"
+    ],
+    [
+     "esta",
+     "está"
+    ],
+    [
+     "tomo",
+     "tomó"
+    ]
+   ],
+   "mean": {
+    "papa": {
+     "ko": "감자",
+     "en": "potato"
+    },
+    "papá": {
+     "ko": "아빠",
+     "en": "dad"
+    },
+    "hablo": {
+     "ko": "나는 말한다",
+     "en": "I speak"
+    },
+    "habló": {
+     "ko": "그가 말했다",
+     "en": "he spoke"
+    },
+    "esta": {
+     "ko": "이 (여성형)",
+     "en": "this (f.)"
+    },
+    "está": {
+     "ko": "있다, ~이다",
+     "en": "is"
+    },
+    "tomo": {
+     "ko": "나는 잡는다",
+     "en": "I take"
+    },
+    "tomó": {
+     "ko": "그가 잡았다",
+     "en": "he took"
+    }
+   }
+  },
+  "V": {
+   "name": {
+    "ko": "b · v 와 p",
+    "en": "b · v and p"
+   },
+   "tip": {
+    "ko": "b 와 v 는 같은 소리, 성대를 울려요 · p 는 울림 없이 (된소리 ‘ㅃ’에 가깝게)",
+    "en": "b and v sound the same, voiced; p has no voice and no puff of air"
+   },
+   "pairs": [
+    [
+     "beso",
+     "peso"
+    ],
+    [
+     "bala",
+     "pala"
+    ],
+    [
+     "vino",
+     "pino"
+    ],
+    [
+     "boca",
+     "poca"
+    ]
+   ],
+   "mean": {
+    "beso": {
+     "ko": "입맞춤",
+     "en": "kiss"
+    },
+    "peso": {
+     "ko": "무게",
+     "en": "weight"
+    },
+    "bala": {
+     "ko": "총알",
+     "en": "bullet"
+    },
+    "pala": {
+     "ko": "삽",
+     "en": "shovel"
+    },
+    "vino": {
+     "ko": "포도주",
+     "en": "wine"
+    },
+    "pino": {
+     "ko": "소나무",
+     "en": "pine"
+    },
+    "boca": {
+     "ko": "입",
+     "en": "mouth"
+    },
+    "poca": {
+     "ko": "적은",
+     "en": "little (f.)"
+    }
+   }
+  },
+  "VI": {
+   "name": {
+    "ko": "g 와 c (k)",
+    "en": "g and c (k)"
+   },
+   "tip": {
+    "ko": "g 는 성대를 울려 부드럽게 · c 는 울림 없이 (된소리 ‘ㄲ’에 가깝게)",
+    "en": "g is voiced and soft; c (k) has no voice and no puff of air"
+   },
+   "pairs": [
+    [
+     "gasa",
+     "casa"
+    ],
+    [
+     "goma",
+     "coma"
+    ],
+    [
+     "gota",
+     "cota"
+    ],
+    [
+     "gallo",
+     "callo"
+    ]
+   ],
+   "mean": {
+    "gasa": {
+     "ko": "거즈",
+     "en": "gauze"
+    },
+    "casa": {
+     "ko": "집",
+     "en": "house"
+    },
+    "goma": {
+     "ko": "고무",
+     "en": "rubber"
+    },
+    "coma": {
+     "ko": "쉼표",
+     "en": "comma"
+    },
+    "gota": {
+     "ko": "물방울",
+     "en": "drop"
+    },
+    "cota": {
+     "ko": "높이",
+     "en": "height"
+    },
+    "gallo": {
+     "ko": "수탉",
+     "en": "rooster"
+    },
+    "callo": {
+     "ko": "굳은살",
+     "en": "callus"
     }
    }
   }

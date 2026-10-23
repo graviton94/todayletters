@@ -252,40 +252,40 @@
     },
     {
      "quote": 3,
-     "grammar": "I.0",
-     "es": "Estoy muy contento por ti, Francisco.",
-     "en": "I'm very happy for you, Francisco.",
-     "ko": "정말 기뻐요, 프란시스코.",
-     "koLow": "정말 기뻐, 프란시스코.",
-     "koHigh": "정말 기쁩니다, 프란시스코.",
+     "grammar": "III.0",
+     "es": "¡Has trabajado mucho para esto, Francisco!",
+     "en": "You've worked hard for this, Francisco!",
+     "ko": "이걸 위해 정말 열심히 일했어요, 프란시스코!",
+     "koLow": "이걸 위해 정말 열심히 일했어, 프란시스코!",
+     "koHigh": "이를 위해 정말 열심히 일하셨습니다, 프란시스코!",
      "focus": {
       "es": [
-       "Estoy"
+       "Has trabajado"
       ],
       "en": [
-       "I'm"
+       "You've worked"
       ],
       "ko": [
-       "기뻐요"
+       "일했어요"
       ]
      },
      "wrong": {
       "es": [
        [
-        "Soy",
-        "Está"
+        "Has trabajar",
+        "Haces trabajado"
        ]
       ],
       "en": [
        [
-        "I is",
-        "I are"
+        "You've work",
+        "You has worked"
        ]
       ],
       "ko": [
        [
-        "기뻐여",
-        "기뻐야"
+        "일햇어요",
+        "일했아요"
        ]
       ]
      },
@@ -676,40 +676,40 @@
     },
     {
      "quote": 3,
-     "grammar": "I.2",
-     "es": "Gracias a Dios no es grave.",
-     "en": "Thank God it isn't serious.",
-     "ko": "심하지 않아서 다행이에요.",
-     "koLow": "심하지 않아서 다행이야.",
-     "koHigh": "심하지 않아서 다행입니다.",
+     "grammar": "II.2",
+     "es": "No subas más a ese birlocho, por favor.",
+     "en": "Don't get in that gig again, please.",
+     "ko": "다시는 그 마차에 타지 마세요.",
+     "koLow": "다시는 그 마차에 타지 마.",
+     "koHigh": "다시는 그 마차에 타지 마십시오.",
      "focus": {
       "es": [
-       "no es"
+       "No subas"
       ],
       "en": [
-       "isn't"
+       "Don't get"
       ],
       "ko": [
-       "심하지 않아서"
+       "타지 마세요"
       ]
      },
      "wrong": {
       "es": [
        [
-        "es no",
-        "no son"
+        "No sube",
+        "No subes"
        ]
       ],
       "en": [
        [
-        "not is",
-        "isn't not"
+        "Not get",
+        "Don't gets"
        ]
       ],
       "ko": [
        [
-        "심하지 안아서",
-        "심하지 않와서"
+        "타지 마새요",
+        "타지 말세요"
        ]
       ]
      },
@@ -1409,40 +1409,40 @@
     },
     {
      "quote": 0,
-     "grammar": "I.0",
-     "es": "¿Estás bien ahora, Francisco?",
-     "en": "Are you all right now, Francisco?",
-     "ko": "이제 괜찮아요, 프란시스코?",
-     "koLow": "이제 괜찮아, 프란시스코?",
-     "koHigh": "이제 괜찮으십니까, 프란시스코?",
+     "grammar": "II.0",
+     "es": "Cuídate mucho, Francisco.",
+     "en": "Take good care of yourself, Francisco.",
+     "ko": "몸조심하세요, 프란시스코.",
+     "koLow": "몸조심해, 프란시스코.",
+     "koHigh": "몸조심하십시오, 프란시스코.",
      "focus": {
       "es": [
-       "Estás"
+       "Cuídate"
       ],
       "en": [
-       "Are you"
+       "Take good care"
       ],
       "ko": [
-       "괜찮아요"
+       "몸조심하세요"
       ]
      },
      "wrong": {
       "es": [
        [
-        "Eres",
-        "Está"
+        "Cuidarte",
+        "Cuidas"
        ]
       ],
       "en": [
        [
-        "Is you",
-        "Am you"
+        "Takes good care",
+        "Taking good care"
        ]
       ],
       "ko": [
        [
-        "괜찬아요",
-        "괜찮아여"
+        "몸조심하새요",
+        "몸조심허세요"
        ]
       ]
      },
@@ -2541,40 +2541,40 @@
     },
     {
      "quote": 3,
-     "grammar": "I.1",
-     "es": "Tengo un sitio para el columpio en la Alameda.",
-     "en": "I have a place for the swing at the Alameda.",
-     "ko": "알라메다에 그네 그림을 걸 자리가 있어요.",
-     "koLow": "알라메다에 그네 그림을 걸 자리가 있어.",
-     "koHigh": "알라메다에 그네 그림을 걸 자리가 있습니다.",
+     "grammar": "III.1",
+     "es": "La semana pasada vi el cuadro del columpio en la Alameda.",
+     "en": "Last week I saw the picture of the swing at the Alameda.",
+     "ko": "지난주에 알라메다에서 그네 그림을 봤어요.",
+     "koLow": "지난주에 알라메다에서 그네 그림을 봤어.",
+     "koHigh": "지난주에 알라메다에서 그네 그림을 보았습니다.",
      "focus": {
       "es": [
-       "Tengo"
+       "vi"
       ],
       "en": [
-       "I have"
+       "saw"
       ],
       "ko": [
-       "있어요"
+       "지난주에"
       ]
      },
      "wrong": {
       "es": [
        [
-        "Tienes",
-        "Tiene"
+        "veí",
+        "vió"
        ]
       ],
       "en": [
        [
-        "I has",
-        "I having"
+        "seed",
+        "seen"
        ]
       ],
       "ko": [
        [
-        "있아요",
-        "있요"
+        "지난주애",
+        "지난주의"
        ]
       ]
      },

@@ -276,40 +276,40 @@
     },
     {
      "quote": 3,
-     "grammar": "I.0",
-     "es": "Hoy estás más templado, y yo también estoy contento por eso.",
-     "en": "Today you're calmer, and I'm happy about that too.",
-     "ko": "오늘은 마음이 좀 편하다니 저도 기뻐요.",
-     "koLow": "오늘은 마음이 좀 편하다니 나도 기뻐.",
-     "koHigh": "오늘은 마음이 좀 편하시다니 저도 기쁩니다.",
+     "grammar": "V.1",
+     "es": "Me alegro mucho: hoy estás más templado.",
+     "en": "You used to be so gloomy; today you're calmer.",
+     "ko": "오늘은 마음이 편하니까 저도 기뻐요.",
+     "koLow": "오늘은 마음이 편하니까 나도 기뻐.",
+     "koHigh": "오늘은 마음이 편하시니 저도 기쁩니다.",
      "focus": {
       "es": [
-       "estás"
+       "Me alegro"
       ],
       "en": [
-       "you're"
+       "used to be"
       ],
       "ko": [
-       "기뻐요"
+       "편하니까"
       ]
      },
      "wrong": {
       "es": [
        [
-        "eres",
-        "estoy"
+        "Mi alegro",
+        "Me alegre"
        ]
       ],
       "en": [
        [
-        "you is",
-        "you am"
+        "use to be",
+        "used to being"
        ]
       ],
       "ko": [
        [
-        "기뻐여",
-        "기뻐야"
+        "편하니가",
+        "편하니까요"
        ]
       ]
      },
@@ -627,10 +627,10 @@
     "ko": "마르틴 사파테르"
    },
    "mood": "bright",
-   "excerpt": "Messages 0–2 are the whole passage printed in Zapater y Gómez (1868); the editor's aside '(decía el 2 de Agosto del año 1800)' is left out. Beruete prints a shorter version with small differences ('ayer se me metió', 'la pintase'). 'heñirme' is printed in both editions; the sense is 'venirme' [to check against the page images]. The Duchess of Alba has no speaking part in the talk.",
+   "excerpt": "Messages 0–2 are the whole passage printed in Zapater y Gómez (1868); the editor's aside '(decía el 2 de Agosto del año 1800)' is left out. Beruete prints a shorter version with small differences ('ayer se me metió', 'la pintase'). 'heñirme' is printed in both editions; the modern text reads 'venirme' (the sense), and orig.es keeps the printed 'heñirme'. The Duchess of Alba has no speaking part in the talk.",
    "messages": [
     {
-     "es": "Más te valía heñirme a ayudar a pintar a la de Alba, que se me metió en el estudio a que le pintase la cara, y se salió con ello.",
+     "es": "Más te valía venirme a ayudar a pintar a la de Alba, que se me metió en el estudio a que le pintase la cara, y se salió con ello.",
      "en": "You'd have done better to come and help me paint the Duchess of Alba, who barged into my studio to have me paint her face, and got her way.",
      "ko": "네가 와서 알바 공작부인 그리는 걸 도와줬으면 좋았을 텐데. 공작부인이 내 작업실에 들이닥쳐 얼굴을 칠해 달라더니, 결국 뜻대로 했어.",
      "orig": {
@@ -639,7 +639,7 @@
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 27–28 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
      "speak": {
-      "es": "Más te valía heñirme a ayudar a pintar a la de Alba, / que se me metió en el estudio a que le pintase la cara, / y se salió con ello.",
+      "es": "Más te valía venirme a ayudar a pintar a la de Alba, / que se me metió en el estudio a que le pintase la cara, / y se salió con ello.",
       "en": "You'd have done better to come and help me paint the Duchess of Alba, / who barged into my studio to have me paint her face, / and got her way.",
       "ko": "네가 와서 알바 공작부인 그리는 걸 도와줬으면 좋았을 텐데. // 공작부인이 내 작업실에 들이닥쳐 얼굴을 칠해 달라더니, / 결국 뜻대로 했어."
      }
@@ -1314,40 +1314,40 @@
     },
     {
      "quote": 3,
-     "grammar": "I.1",
-     "es": "Tienes una buena razón: no tenías lienzo ni camisa limpia.",
-     "en": "You have a good reason: you had no canvas and no clean shirt.",
-     "ko": "좋은 이유가 있어요. 캔버스도 셔츠도 없었잖아요.",
-     "koLow": "좋은 이유가 있어. 캔버스도 셔츠도 없었잖아.",
-     "koHigh": "좋은 이유가 있습니다. 캔버스도 셔츠도 없으셨지요.",
+     "grammar": "III.0",
+     "es": "Has hecho bien en volver a Madrid.",
+     "en": "You've done well to come back to Madrid.",
+     "ko": "마드리드로 돌아온 건 잘했어요.",
+     "koLow": "마드리드로 돌아온 건 잘했어.",
+     "koHigh": "마드리드로 돌아오신 것은 잘하셨습니다.",
      "focus": {
       "es": [
-       "Tienes"
+       "Has hecho"
       ],
       "en": [
-       "You have"
+       "You've done"
       ],
       "ko": [
-       "있어요"
+       "잘했어요"
       ]
      },
      "wrong": {
       "es": [
        [
-        "Tiene",
-        "Tengo"
+        "Has hacido",
+        "Has hace"
        ]
       ],
       "en": [
        [
-        "You has",
-        "You having"
+        "You've did",
+        "You've do"
        ]
       ],
       "ko": [
        [
-        "있아요",
-        "잇어요"
+        "잘했서요",
+        "잘햇어요"
        ]
       ]
      },
@@ -3186,40 +3186,40 @@
     },
     {
      "quote": 2,
-     "grammar": "I.1",
-     "es": "Su hijo tiene gran disposición, y ahora tiene también una pensión para viajar.",
-     "en": "Your son has great aptitude, and now he also has a pension to travel.",
-     "ko": "아드님은 자질이 뛰어나고, 이제 여행할 연금도 있어요.",
-     "koLow": "아드님은 자질이 뛰어나고, 이제 여행할 연금도 있어.",
-     "koHigh": "아드님은 자질이 뛰어나고, 이제 여행할 연금도 있습니다.",
+     "grammar": "IV.1",
+     "es": "Su hijo tiene una pensión para viajar y aprender.",
+     "en": "Your son has a pension so he can travel and learn.",
+     "ko": "아드님은 연금으로 여행하며 많이 배울 거예요.",
+     "koLow": "아드님은 연금으로 여행하며 많이 배울 거야.",
+     "koHigh": "아드님은 연금으로 여행하며 많이 배우실 것입니다.",
      "focus": {
       "es": [
-       "ahora tiene"
+       "para viajar"
       ],
       "en": [
-       "he also has"
+       "so he can"
       ],
       "ko": [
-       "연금도 있어요"
+       "배울 거예요"
       ]
      },
      "wrong": {
       "es": [
        [
-        "ahora tienes",
-        "ahora tengo"
+        "por viajar",
+        "para viaja"
        ]
       ],
       "en": [
        [
-        "he also have",
-        "he also having"
+        "so he cans",
+        "so can he"
        ]
       ],
       "ko": [
        [
-        "연금도 있아요",
-        "연금도 잇어요"
+        "배울 거에요",
+        "배을 거예요"
        ]
       ]
      },
