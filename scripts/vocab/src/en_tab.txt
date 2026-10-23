@@ -18,12 +18,12 @@ access|n|a way in; a chance to reach or see|접근, 출입
 accompaniment|n|music played to support a singer or soloist|반주
 accompany|v|to go with; to play music for a singer|동행하다; 반주하다
 according|prep|according to: as said by; in agreement with|~에 따르면|F
-account|n|a report; reason (on account of = because of)|설명, 이유; 계산
+account|n|a report; a list of costs; reason (on account of = because of)|설명, 이유; 계산, 내역
 acquaint|v|to make known (be acquainted with = know)|알게 하다, 알리다
 acquaintance|n|a person you know; knowing someone|아는 사람; 친분
 acquire|v|to get, to gain|얻다, 익히다
 act|n|a part of a play or opera; a deed|(연극·오페라의) 막; 행동
-acting|n|performing a part on stage|연기
+acting|n|performing a part on stage; behaving, the way one acts|연기; 처신
 actually|adv|in fact, really|실제로, 사실은
 Adamberger|name|Valentin Adamberger, tenor in Vienna|아담베르거 (빈의 테너)
 adapt|v|to change to fit a new use|맞추다, 각색하다
@@ -144,7 +144,7 @@ azure|adj|bright sky blue|하늘색의
 b|abbr|letter B (N.B. = note well)|B (주의: N.B.)
 baby|n|a very young child|아기
 Bach|name|Johann Sebastian Bach, composer|바흐
-back|adv|to an earlier place; behind|뒤로, 다시
+back|adv|to an earlier place; behind; (n.) the reverse side|뒤로, 다시; 뒷면
 background|n|the part of a picture behind the main things|배경
 bad|adj|not good|나쁜
 badly|adv|not well; very much|나쁘게; 몹시
@@ -209,7 +209,7 @@ blond|adj|pale yellow (of hair)|금발의
 blood|n|red liquid in the body|피
 blossom|n|flowers of a fruit tree|(과일나무의) 꽃
 blot|n|a spot of ink|얼룩
-blue|adj|the colour of a clear sky|파란
+blue|adj|the colour of a clear sky; (out of the blue) suddenly|파란; (out of the blue) 느닷없이
 blue-green|adj|between blue and green|청록색의
 boat|n|a small ship|배, 보트
 bodice|n|the top part of a dress|(옷의) 상체 부분, 보디스
@@ -236,7 +236,7 @@ bramble|n|a wild prickly bush|가시덤불
 branch|n|an arm of a tree|나뭇가지
 bravo|interj|well done!|브라보!
 bread|n|food baked from flour|빵
-break|v|to open by force; to make come apart|깨다, 뜯다
+break|v|to open by force; to make come apart; (break in) to train a young animal|깨다, 뜯다; (break in) 길들이다
 breast|n|the chest|가슴
 breath|n|air taken in and out|숨
 breathe|v|to take air in and out|숨 쉬다
@@ -291,7 +291,7 @@ canvas|n|cloth for painting on; a painting|캔버스, 그림
 cap|n|a soft hat|모자
 Capellhaus|name|the choir school in Salzburg|카펠하우스 (성가대 학교)
 caper|n|a playful jump|깡충 뛰기
-capital|adj|excellent; very good|아주 좋은, 훌륭한
+capital|adj|excellent; very good; (n.) the main city of a country|아주 좋은, 훌륭한; 수도
 capricious|adj|changing often without reason|변덕스러운
 captain|n|leader of a ship or of soldiers|선장; 대위
 Capuchin|name|a Capuchin friar (order of monks)|카푸친 수도사
@@ -302,7 +302,7 @@ Carl|name|Carl, Mozart's son|카를
 carmine|n|a deep red colour|카민 (진홍색)
 carpet|n|a thick cover for a floor|양탄자
 carriage|n|a vehicle pulled by horses|마차
-carry|v|to hold and take somewhere|나르다; (carried away) 열광하다
+carry|v|to hold and take somewhere; (carry out) to do, to complete|나르다; (carry out) 해내다; (carried away) 열광하다
 case|n|a situation; an example|경우
 Cassiglioni|name|impresario in Milan|카시글리오니
 cast|v|to throw|던지다
@@ -389,7 +389,7 @@ compel|v|to force|억지로 시키다
 complain|v|to say you are unhappy about something|불평하다
 complementary|n|complementary colours: opposite colours that strengthen each other|보색
 completely|adv|totally|완전히
-compose|v|to write music|작곡하다
+compose|v|to write music; to make by putting parts together|작곡하다; 구성하다
 composer|n|a person who writes music|작곡가
 composition|n|a piece of music or art; arrangement|작품; 구도
 conceive|v|to think of, to form in the mind|구상하다
@@ -548,7 +548,7 @@ donna|foreign:it|(Italian) lady (prima donna = leading singer)|(이탈리아어)
 door|n|you open it to go in|문
 dot|n|a small round mark|점
 double|adj|twice as much; in two|두 배의, 이중의
-doubt|n|feeling not sure|의심
+doubt|n|feeling not sure; (v.) to feel unsure about|의심; 의심하다
 down|adv|to a lower place|아래로|F
 downstairs|adv|on or to a lower floor|아래층에
 Dr|abbr|Doctor|박사, 의사 (Dr.)
@@ -680,7 +680,7 @@ fanatical|adj|extremely eager|광적인
 fancy|v|to imagine|상상하다
 far|adv|a long way|멀리
 far-off|adj|distant|먼
-farewell|interj|goodbye|안녕, 잘 있어
+farewell|interj|goodbye; (n.) the act of saying goodbye|안녕, 잘 있어; 작별
 farm|n|land for growing crops and animals|농장
 farmhouse|n|the house on a farm|농가
 fast|v|to eat no food|단식하다
@@ -837,7 +837,7 @@ grand|adj|great, splendid|웅장한
 grant|v|to give, to allow|주다, 허락하다
 grass|n|green plants covering the ground|풀
 gratify|v|to please|기쁘게 하다
-grave|adj|serious|진지한, 엄숙한
+grave|adj|serious; (n.) a place where a dead person is buried|진지한, 엄숙한; 무덤
 graveyard|n|a place where dead people are buried|묘지
 gray|adj|grey|회색의
 great|adj|very big; important; excellent|큰; 위대한; 대단한
@@ -885,7 +885,7 @@ haven't|v|have not|~하지 않았다|F
 Haydn|name|Joseph Haydn, composer|하이든
 hazel|n|a small nut tree|개암나무
 he|pron|that man or boy (him)|그, 그는|F
-head|n|the top of the body|머리
+head|n|the top of the body; a leader, a chief|머리; 우두머리
 health|n|being well|건강
 healthy|adj|well, not ill|건강한
 heap|n|a pile|더미
@@ -1015,7 +1015,7 @@ Japanese|name|of Japan|일본의
 Jeannin|name|Georges Jeannin, flower painter|자냉
 Jo|name|Johanna (Jo) Bonger, Theo's wife|요 (테오의 아내)
 Johann|name|Johann (first name)|요한
-joke|v|to say funny things|농담하다
+joke|v|to say funny things; (n.) something said to make people laugh|농담하다; 농담
 Josepha|name|Josepha Weber, Constanze's sister|요제파
 journey|n|a trip|여행
 joy|n|great happiness|기쁨
@@ -1086,12 +1086,12 @@ listener|n|a person who listens|청중
 little|adj|small; a little = some|작은; 조금
 live|v|to be alive; to have a home|살다
 lively|adj|full of life|활기찬
-living|adj|alive|살아 있는
+living|adj|alive; (n.) the money you live on (earn a living)|살아 있는; 생계
 lodge|v|to live in a rented room|묵다, 하숙하다
 lodging|n|lodgings: a rented room|숙소
 London|name|capital of England|런던
 loneliness|n|being alone and sad|외로움
-long|adj|great in length or time|긴, 오랜
+long|adj|great in length or time; (v.) to want very much (long for)|긴, 오랜; (long for) 간절히 바라다
 long-eared|adj|with long ears|귀가 긴
 look|v|to turn the eyes; to seem|보다; ~처럼 보이다
 lord|n|a nobleman; God|귀족, 주님
@@ -1229,7 +1229,7 @@ Nannerl|name|Maria Anna (Nannerl) Mozart, his sister|난네를
 Naples|name|city in southern Italy|나폴리
 nation|n|a country and its people|민족, 국민
 natural|adj|from nature; normal|자연스러운
-nature|n|plants, animals, landscape|자연
+nature|n|plants, animals, landscape; a person's character|자연; 성미, 본성
 near|prep|close to|~ 가까이|F
 nearly|adv|almost|거의
 necessarily|adv|unavoidably|반드시
@@ -1254,7 +1254,7 @@ nor|conj|and not|~도 아니다|F
 North|name|the North (of Europe)|북쪽
 north|n|direction to the top of a map|북쪽
 not|adv|makes a sentence negative|~ 않다|F
-note|n|a musical sound; a short letter; a touch of colour|음; 메모; 색조
+note|n|a musical sound; a short letter; a touch of colour; (take note of) to notice and remember|음; 메모; 색조; (take note) 알아 두다
 nothing|pron|not anything|아무것도 ~ 않다|F
 notice|v|to see|알아차리다
 novel|n|a long story book|소설
@@ -1319,7 +1319,7 @@ over|prep|above; across; finished|~ 위에; 끝난|F
 overcome|v|to defeat; to fill with feeling|이기다; 압도하다
 overleaf|adv|on the other side of the page|뒷장에
 overture|n|music at the start of an opera|서곡
-owe|v|owing to: because of|빚지다; (owing to) ~ 때문에
+owe|v|to have to pay or give back; to be grateful for; owing to: because of|빚지다, 신세를 지다; (owing to) ~ 때문에
 own|adj|belonging to oneself|자신의
 P|abbr|P. S. = postscript|추신 (P.S.)
 pack|v|to put things in a bag|짐을 싸다
@@ -1379,7 +1379,7 @@ Peter|name|Saint Peter|베드로 (성인)
 phrase|n|a group of words or notes|구절, 악구
 piano|n|a keyboard instrument|피아노
 pianoforte|n|piano (full name)|피아노포르테
-pick|v|to take fruit from a tree|따다
+pick|v|to choose; to take fruit from a tree|고르다; 따다
 picker|n|a person who picks (olive pickers)|따는 사람
 picture|n|a painting or drawing|그림
 picturesque|adj|pretty as a picture|그림 같은
@@ -1441,13 +1441,13 @@ prefer|v|to like better|더 좋아하다
 preoccupy|v|to fill the mind of|마음을 사로잡다
 prepare|v|to make ready|준비하다
 present|adj|now; here|현재의; 참석한
-press|v|to push hard|누르다, 재촉하다
+press|v|to push hard; (pressing) urgent|누르다, 재촉하다; (pressing) 급한
 pretension|n|a claim; showing off|허세, 주장
 pretty|adj|nice-looking; adv. quite|예쁜; 꽤
 previous|adj|earlier|이전의
 previously|adv|before|이전에
 price|n|what something costs|값
-priest|n|a man who leads church services|사제, 목사
+priest|n|a man who leads church services|사제, 신부
 prima|foreign:it|(Italian) first (prima donna)|(이탈리아어) 첫째의
 prince|n|son of a king; a ruler|왕자, 군주
 princely|adj|like a prince; generous|왕자다운, 후한
@@ -1483,7 +1483,7 @@ Quost|name|Ernest Quost, flower painter|코스트
 Raaff|name|Anton Raaff, tenor|라프
 Raffaëlli|name|Jean-François Raffaëlli, painter|라파엘리
 raft|n|a flat floating boat|뗏목
-rage|v|to be very violent (of wind)|사납게 몰아치다
+rage|v|to be very angry; (of wind, sea) to be very violent|몹시 화내다; 사납게 몰아치다
 rain|n|water falling from clouds|비
 Ramm|name|Friedrich Ramm, oboist in Mannheim|람
 range|n|a row of mountains|산맥
@@ -1516,7 +1516,7 @@ reflect|v|to think; to give back light|숙고하다; 비추다
 reflection|n|an image in water or glass|반사, 비친 모습
 refuse|v|to say no|거절하다
 regain|v|to get back|되찾다
-regard|n|regards: good wishes|안부
+regard|n|respect, attention; regards: good wishes|존중; (regards) 안부
 regret|v|to feel sorry about|후회하다, 유감으로 여기다
 regulate|v|to control|조절하다
 rehearsal|n|practice before a performance|리허설
@@ -1541,11 +1541,11 @@ request|v|to ask for|요청하다
 resemble|v|to look like|닮다
 resist|v|to fight against|저항하다
 resolve|v|to decide firmly|결심하다
-respect|v|to admire; n. a detail|존경하다; 점
+respect|v|to admire; n. admiration; a detail|존경하다; 존경; 점
 respond|v|to answer|응답하다
 rest|n|the remaining part; relaxing|나머지; 휴식
 restaurant|n|a place to eat|식당
-return|v|to come back|돌아오다
+return|v|to come back; (n.) money made from something; (in return) in exchange|돌아오다; 수익; (in return) 그 대신
 revelation|n|a surprising discovery|계시, 놀라운 발견
 revolt|v|revolting: disgusting|(revolting) 역겨운
 revolutionary|adj|completely new|혁명적인
@@ -1574,7 +1574,7 @@ routine|n|the usual way of doing things|일상, 틀에 박힌 방식
 row|n|a line of things|줄
 royal|adj|of a king|왕의
 rule|n|a law|규칙
-run|v|to move fast on foot; to come to an end (run out)|달리다; 바닥나다
+run|v|to move fast on foot; to come to an end (run out); (run off) to print copies|달리다; 바닥나다; (run off) 찍어 내다
 russet|adj|red-brown|적갈색의
 Russian|name|from Russia|러시아인
 Rémy|name|Saint-Rémy-de-Provence|레미 (생레미)
@@ -1635,7 +1635,7 @@ serious|adj|important; not joking|진지한
 seriously|adv|really, gravely|진지하게
 serve|v|to work for; to give food|섬기다; 대접하다
 service|n|work for someone; a church ceremony|봉사, 섬김; 예배
-set|v|to put; adj. fixed|놓다; 정해진
+set|v|to put; adj. fixed; (n.) a group of things that belong together|놓다; 정해진; 한 벌
 setting|n|the sinking of the sun|(해가) 짐
 settle|v|to decide; to make your home|정하다; 정착하다
 Seurat|name|Georges Seurat, painter|쇠라
@@ -1765,7 +1765,7 @@ stand|v|to be on your feet; to bear|서다; 견디다
 star|n|a light in the night sky|별
 starry|adj|full of stars|별이 빛나는
 start|v|to begin|시작하다
-state|n|condition|상태
+state|n|condition; (v.) to say formally|상태; 진술하다, 아뢰다
 station|n|a stopping place|역, 거점
 stay|v|to remain|머무르다
 steadfast|adj|firm, faithful|확고한
@@ -1928,7 +1928,7 @@ trick|n|a clever act|재주, 장난
 trim|v|to decorate|장식하다
 triumph|n|a great success|승리
 trombone|n|a brass instrument with a slide|트롬본
-trouble|n|difficulty, worry|어려움, 걱정
+trouble|n|difficulty, worry; (v.) to bother|어려움, 걱정; 귀찮게 하다
 true|adj|right, real|사실인, 진실한
 truly|adv|really|진정으로
 trumpeter|n|a trumpet player|트럼펫 연주자
@@ -2006,7 +2006,7 @@ violet-tinged|adj|with a little violet|보랏빛이 도는
 violin|n|a string instrument|바이올린
 violinist|n|a violin player|바이올리니스트
 virtue|n|goodness|미덕
-visit|n|going to see|방문
+visit|n|going to see; (v.) to go to see|방문; 찾아가다
 viz|abbr|namely|즉
 voce|foreign:it|(Italian) voice|(이탈리아어) 목소리
 Vogler|name|Abbé Vogler, composer in Mannheim|포글러
@@ -2037,7 +2037,7 @@ wattle|n|woven sticks for fences|엮은 나뭇가지
 wax|n|a soft material from bees|밀랍
 way|n|a road; a manner|길; 방식
 we|pron|you and I (us)|우리|F
-wear|v|to have on the body|입다
+wear|v|to have on the body; (worn out) very tired|입다; (worn out) 녹초가 된
 weary|v|to tire|지치게 하다
 weather|n|rain, sun, wind etc.|날씨
 Weber|name|the Weber family (Constanze, Aloysia…)|베버 (가족)
@@ -2088,7 +2088,7 @@ wished-for|adj|hoped for|바라던
 with|prep|together; using|~와 함께; ~로|F
 within|prep|inside|~ 안에|F
 without|prep|not having|~ 없이|F
-witness|v|to see|목격하다
+witness|v|to see; (n.) a person who saw something and can say it is true|목격하다; 증인
 Wolfgang|name|Wolfgang Amadeus Mozart|볼프강
 woman|n|an adult female|여자
 won't|v|will not|~하지 않을 것이다|F
@@ -2127,7 +2127,7 @@ Désirée|name|Désirée Clary (Joseph's sister-in-law, Napoleon's first fiancé
 fortune|n|what chance or fate brings|운, 운명
 sincerely|adv|in a way that is honest and real|진심으로
 fade|v|to slowly disappear|희미해지다, 사라지다
-bound|adj|tied together, joined|맺어진, 묶인
+bound|adj|tied together, joined; (bound to) sure to|맺어진, 묶인; (bound to) 틀림없이 ~하다
 luxury|n|expensive, comfortable things you do not need|사치
 amazing|adj|very surprising|놀라운
 Phèdre|name|Phèdre (Racine's tragedy)|〈페드르〉 (라신의 비극)
@@ -2503,7 +2503,7 @@ April|n|the fourth month of the year|4월
 so-called|adj|called so, though perhaps wrongly|이른바, 소위
 enthusiastic|adj|very excited and interested|열광하는, 열렬한
 born|adj|brought into life (be born)|태어난 (be born)
-fight|v|to use force against someone|싸우다
+fight|v|to use force against someone; (n.) a struggle|싸우다; 싸움
 childhood|n|the time when you are a child|어린 시절
 ashes|n|what is left after burning; a dead person's remains|재; 유해
 Joaquín|name|Joaquín, Goya's schoolmaster, a priest|호아킨 (고야의 학교 신부님)
@@ -2573,7 +2573,7 @@ reputation|n|what people think of someone|명성
 darken|v|to become dark|어두워지다
 pendentives|n|the curved triangles under a dome|펜던티브 (둥근 천장 아래 삼각면)
 agreement|n|when people agree|합의
-brother-in-law|n|the brother of your wife or husband|처남, 매형
+brother-in-law|n|the brother of your wife or husband; your sister's husband|처남 (아내의 형제); 매형, 매부
 Bayeu|name|Francisco Bayeu, court painter|바예우
 approve|v|to say officially that something is good|승인하다
 term|n|a condition of an agreement|조건
@@ -2583,7 +2583,7 @@ proof|n|something that shows a thing is true|증거
 due|adj|right, proper|마땅한
 submission|n|accepting someone else's power|순종
 revere|v|to respect very much|공경하다
-favour|n|a kind act; approval|호의
+favour|n|a kind act; approval; (v.) to do someone a kindness|호의; 베풀다
 undertaking|n|a big task|큰일
 Madrid|name|Madrid|마드리드
 el|name|el (in San Francisco el Grande)|엘 (산 프란시스코 엘 그란데)
@@ -2591,7 +2591,7 @@ Grande|name|Grande (San Francisco el Grande, a church in Madrid)|그란데 (마�
 competition|n|a contest|경연
 Goicoechea|name|Juan Martín de Goicoechea, a friend in Zaragoza|고이코에체아
 wretch|n|a bad or unpleasant person|비열한 사람
-Maella|name|Mariano Salvador Maella, court painter|마엘랴 (궁정 화가)
+Maella|name|Mariano Salvador Maella, court painter|마에야 (궁정 화가)
 formal|adj|official, real|정식의
 grieve|v|to feel very sad|슬퍼하다
 deeply|adv|very much|깊이
@@ -2621,7 +2621,7 @@ await|v|to wait for|기다리다
 rumour|n|a story people pass on that may not be true|소문
 confirm|v|to show that something is true|확인하다
 Jaco|name|Jaco, a private joke between the friends|하코 (친구끼리의 농담)
-Cogullada|name|Cogullada, near Zaragoza|코굴랴다
+Cogullada|name|Cogullada, near Zaragoza|코구야다
 sturdy|adj|strong|튼튼한
 baptise|v|to give a child a name in church|세례를 주다
 Pedro|name|Pedro|페드로
@@ -2674,7 +2674,7 @@ pace|n|speed|속도
 rein|n|a strap to control a horse|고삐
 Neapolitan|adj|from Naples|나폴리의
 eager|adj|wanting very much|간절히 바라는
-gallop|n|a horse's fastest run|질주
+gallop|v|(of a horse) to run at full speed|(말이) 질주하다
 horse|n|a large animal people ride|말
 tumble|v|to fall over and over|굴러떨어지다
 heel|n|the back of the foot (head over heels: turning over)|발뒤꿈치 (head over heels: 거꾸로)
@@ -2699,7 +2699,7 @@ nonsense|n|silly ideas|헛소리
 Virgin|name|the Virgin Mary|성모
 Paco|name|Paco, a short name for Francisco|파코
 countess|n|a woman with the rank of count|백작 부인
-Peñafiel|name|the Marquis of Peñafiel|페냐피엘
+Peñafiel|name|Peñafiel, a title of the Osuna family|페냐피엘 (오수나 가문의 칭호)
 item|n|one thing on a list|항목
 Alameda|name|the Alameda, the Osuna country house|알라메다 (별장)
 represent|v|to show in a picture|나타내다, 그리다
@@ -2711,7 +2711,7 @@ coach|n|a large carriage|마차
 overpower|v|to defeat by force|제압하다
 coachman|n|a man who drives a carriage|마부
 gypsy|n|a member of the Roma people|집시
-swing|v|to move back and forth|그네를 타다
+swing|v|to move back and forth; to push someone on a swing|흔들다, 그네를 태우다
 sitting|adj|seated|앉은
 barley|n|a grain|보리
 fanega|name|fanega, an old Spanish grain measure|파네가 (곡물 되)
@@ -2732,7 +2732,7 @@ Carabanchel|name|Carabanchel, near Madrid|카라반첼
 quietly|adv|without noise|조용히
 promotion|n|a move to a higher job|승진
 chamber|n|a room (painter of the chamber: court painter)|방 (궁정 화가)
-privately|adv|secretly|몰래
+privately|adv|not officially, in private|사적으로, 비공식으로
 stare|v|to look for a long time|빤히 보다
 brain|n|the organ you think with|머리, 뇌
 Bank|name|the Bank of San Carlos|산 카를로스 은행
@@ -2802,3 +2802,14 @@ Spaniards|name|people from Spain|스페인 사람들
 print-seller|n|a person who sells prints|판화 장수
 fetch|v|to go and get|데리러 가다
 complete|adj|whole, full|완전한
+sorting|n|separating into groups (the sorting of bulls before a bullfight)|가르기 (투우 전에 소를 골라 나누기)
+spring#2|v|(spring from) to come from, to have its cause in|(spring from) ~에서 생겨나다
+labour#2|n|work, hard effort|노동, 수고
+archbishop#2|n|a chief bishop|대주교
+Committee#2|name|the Committee (the Board of Works of the Pilar, Zaragoza)|위원회 (필라르 공사 위원회)
+Bernard#2|name|Saint Bernard|성 베르나르도
+San#2|foreign:es|(Spanish) Saint, before a name|(스페인어) 성 (산)
+del#2|foreign:es|(Spanish) of the|(스페인어) ~의
+de#2|foreign:es|(Spanish) of, from (in names)|(스페인어) ~의
+la#2|foreign:es|(Spanish) the|(스페인어) 정관사
+reales|name|reales, Spanish coins (one real is a small silver coin)|레알 (스페인의 옛 돈)

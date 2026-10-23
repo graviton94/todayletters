@@ -352,7 +352,7 @@
     "ko": "가다"
    },
    "ex": {
-    "t": "I go to Madrid tomorrow.",
+    "t": "I'm going to Madrid tomorrow.",
     "ko": "내일 마드리드에 가.",
     "from": null
    }
@@ -391,8 +391,8 @@
     "ko": "~할 때"
    },
    "ex": {
-    "t": "When I get home, I write to you.",
-    "ko": "집에 오면 너한테 편지 써.",
+    "t": "When I get home, I'll write to you.",
+    "ko": "집에 가면 너한테 편지 쓸게.",
     "from": null
    }
   },
@@ -560,7 +560,7 @@
     "ko": "주다"
    },
    "ex": {
-    "t": "I give you this picture.",
+    "t": "I'll give you this picture.",
     "ko": "이 그림을 너한테 줄게.",
     "from": null
    }

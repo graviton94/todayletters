@@ -1,7 +1,7 @@
 # 고야 · 스페인어 원문 (지금 철자). 줄 = 낱말들|ko|en
 # 고르는 기준: 입문자 문장 틀 (나는 ~이다 · 있다 · 했다 · 너에게) 먼저, 그다음 되풀이되는 덩어리. 앱이 쓴 풀이 (사람 확인 전). 2통 이상만 남는다.
 no tengo|나는 ~이 없다 (tener 의 부정)|I don't have
-me he|나는 (나 자신을) ~했다 (재귀 + 현재완료)|I have (done) myself
+me he|나는 ~했다 · ~하게 됐다 (재귀동사 + 현재완료: me he quedado)|I have … (reflexive verb + perfect: me he quedado, I have been left)
 te lo|너에게 그것을|it to you
 mi mujer|내 아내|my wife
 parece que|~인 것 같다|it seems that
@@ -17,7 +17,7 @@ se ha|~이 되었다, ~했다 (se + haber)|has (been) …
 me ha|나에게 ~했다|has … me
 que he|내가 ~한 (que + haber)|that I have …
 el rey|왕|the King
-san francisco|산 프란시스코 (성당 · 그림)|San Francisco
+de lo que|~한 것보다 · ~한 것의 (más de lo que)|than what, of what (más de lo que)
 para que|~하도록|so that
 de mí|나에 대해, 나의|of me
 más que|~보다 더|more than

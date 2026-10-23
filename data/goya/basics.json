@@ -584,9 +584,9 @@
     "en": "when"
    },
    "ex": {
-    "t": "Cuando llego a casa, te escribo.",
-    "ko": "집에 오면 너한테 편지 쓸게.",
-    "en": "When I get home, I write to you.",
+    "t": "Cuando llegue a casa, te escribo.",
+    "ko": "집에 가면 너한테 편지 쓸게.",
+    "en": "When I get home, I'll write to you.",
     "from": null
    }
   },
@@ -839,10 +839,10 @@
     "en": "also, too"
    },
    "ex": {
-    "t": "¡Qué bien! Estoy contento también.",
+    "t": "¡Qué bien! Yo también estoy contento.",
     "ko": "잘됐다! 나도 기뻐.",
     "en": "How nice! I'm happy too.",
-    "from": "p3"
+    "from": null
    }
   },
   {

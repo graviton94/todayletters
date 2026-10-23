@@ -83,7 +83,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 건지다|v|to save, to rescue (a picture)|물에서 꺼내다; 살려 내다
 걷다|v|to walk|발로 움직여 가다
 걸다|v|to hang; to bet|매달다; 내기에 걸다
-걸리다|v|to take (time); to hang|시간이 들다; 매달리다
+걸리다|v|to take (time); to hang; (마음에 걸리다) to weigh on one's mind|시간이 들다; 매달리다; 마음이 쓰이다
 걸맞다|adj|to be suitable|잘 어울리다
 걸어가다|v|to walk (there)|걸어서 가다
 검다|adj|to be black|빛이 어둡고 까맣다
@@ -833,7 +833,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 미안하다|adj|to be sorry|송구하다
 미인|n|beauty (woman)|아름다운 여자
 미제로|foreign:it|(Italian) misero, wretched|(이탈리아어) 비참한
-미치다|v|to go mad|정신이 이상해지다
+미치다|v|to go mad; (못 미치다) to fall short of|정신이 이상해지다; (못 미치다) 이르지 못하다
 민족|n|people, nation|겨레
 믿다|v|to believe|참이라 여기다
 믿음|n|faith|믿는 마음
@@ -859,7 +859,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 바람|n|wind; wish|공기의 흐름; 바라는 마음
 바로|adv|right, exactly|곧, 꼭
 바로잡다|v|to correct|바르게 고치다
-바르다|v|to apply (paint)|칠하다
+바르다|v|to be right, proper (바르게: rightly); to apply (paint)|올바르다; 칠하다
 바서부르크|name|Wasserburg|바서부르크 (마을)
 바순|n|bassoon|낮은 소리의 목관 악기
 바오로|name|Saint Paul|바오로 (성인)
@@ -1258,7 +1258,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 신나다|v|to be excited|흥이 나다
 신부님|n|priest (honorific)|신부의 높임
 신사|n|gentleman|점잖은 남자
-신세|n|situation, lot (in life)|처지
+신세|n|(신세를 지다) a debt of kindness; situation, lot (in life)|남에게 입은 도움; 처지
 신포니아|n|sinfonia|서곡풍의 기악곡
 실루엣|n|silhouette|윤곽만 보이는 모습
 실망하다|v|to be disappointed|기대가 어긋나다
@@ -1362,7 +1362,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 앓다|v|to be ill|병을 앓다
 앞|n|front|앞쪽
 앞쪽|n|front, foreground|앞의 쪽
-애|n|effort (애를 먹다: have trouble)|마음과 힘
+애|n|child (= 아이); effort (애를 먹다: have trouble)|아이; 마음과 힘
 애#2|n|child|아이
 애국자|n|patriot|나라를 사랑하는 사람
 애쓰다|v|to try hard|힘쓰다
@@ -1475,7 +1475,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 영예|n|honour|영광
 영원하다|adj|to be eternal|끝없다
 영원히|adv|forever|끝없이
-옅다|adj|to be pale|진하지 않다
+옅다|adj|to be pale, faint|진하지 않다
 옆|n|side|곁
 옆구리|n|side (of the body)|몸의 옆
 옆방|n|next room|옆의 방
@@ -1673,7 +1673,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 잊다|v|to forget|기억하지 못하다
 잎|n|leaf|나뭇잎
 자|interj|well, now|자, 말을 꺼냄
-자#2|n|letter (character); dated (11일 자)|글자; 날짜
+자#2|n|letter (character); dated (11일 자, 이달 자로)|글자; 날짜 (~ 자로)
 자기|pron|oneself|저 자신|F
 자꾸|adv|again and again|자주
 자냉|name|Jeannin, painter|자냉 (화가)
@@ -1856,7 +1856,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 지난번|n|last time|저번
 지내다|v|to get along, to spend (time)|살아가다
 지니다|v|to have, to keep|갖다
-지다|v|to fall (leaves); to set (sun); to lose|떨어지다; 해가 지다; 패하다
+지다|v|to fall (leaves); to set (sun); to lose; (신세를 지다) to owe|떨어지다; 해가 지다; 패하다; (신세를) 입다
 지엄하다|adj|to be most august|매우 엄하다
 지우다|v|to erase|없애다
 지중해|name|Mediterranean|지중해
@@ -2033,7 +2033,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 탓하다|v|to blame|나무라다
 탕기|name|Père Tanguy|탕기 영감
 태어나다|v|to be born|세상에 나오다
-태우다|v|to burn (애를 태우다: worry)|불에 타게 하다
+태우다|v|to give a ride, to put on (a swing, a carriage); to burn (속을 태우다: to worry)|타게 하다; 불에 타게 하다
 터|n|(~ㄹ 테니까/텐데) because it will|예정·추측|F
 터지다|v|to burst|갑자기 생기다
 털다|v|to brush off|떨어내다
@@ -2067,7 +2067,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 파리|name|Paris|파리 (도시)
 파시앙스|name|Patience (Escalier)|파시앙스
 파파게노|name|Papageno|파파게노 (오페라 인물)
-판|n|board; scene|판자; 자리
+판|n|plate (for printing); board; scene|동판 같은 인쇄판; 판자; 자리
 판#2|name|van (in Dutch names)|판 (네덜란드 이름 앞)
 판화|n|print|찍은 그림
 팔걸이의자|n|armchair|팔걸이 있는 의자
@@ -2106,7 +2106,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 표현하다|v|to express|나타내다
 푸가|n|fugue|돌림 형식 곡
 푸오르|foreign:it|(Italian 'fuor') out of|(이탈리아어) ~ 밖으로
-푹|adv|deeply (sleep)|깊이
+푹|adv|deeply, completely (푹 빠지다: to be crazy about)|깊이, 흠뻑
 풀|n|grass|풀
 풀다|v|to untie; to relieve|매듭을 끄르다
 풀려나다|v|to be released|놓이다
@@ -2354,7 +2354,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 우울|n|melancholy|마음이 어둡고 답답함
 고통|n|pain|몸이나 마음의 괴로움
 음울하다|adj|gloomy|어둡고 답답하다
-밝히다|v|to light up, to brighten|환하게 하다
+밝히다|v|to reveal, to make known; to light up|드러내 알리다; 환하게 하다
 부치다|v|to send (a letter)|편지나 물건을 보내다
 추스르다|v|to pull oneself together, to recover|몸이나 마음을 가다듬다
 백만|num|one million|100만
@@ -2470,7 +2470,7 @@ de|foreign:fr|(French) of|(프랑스어) ~의
 악장|n|music director (of a court)|악단을 이끄는 사람
 꿩|n|pheasant|사냥하는 새의 한 가지
 사냥터|n|hunting ground|사냥하는 곳
-바퀴|n|(한 바퀴) a round, a turn|한 번 도는 것
+바퀴|n|wheel; (한 바퀴) a round, a turn|수레바퀴; 한 번 도는 것
 유지|n|leading citizen|지역에서 이름 있는 사람
 기관|n|institution, public body|공적인 일을 하는 조직
 대표|n|representative|여럿을 대신하는 사람
@@ -2822,7 +2822,6 @@ A|name|A (a mark on the list)|A (목록에 붙인 기호)
 지난달|n|last month|바로 앞의 달
 말씀|n|words (honorific)|남의 말을 높여 부르는 말
 여러분|pron|everyone (polite)|여러 사람을 높여 부르는 말
-매형|n|brother-in-law (sister's husband)|누나의 남편
 바예우|name|Bayeu (Francisco Bayeu, court painter)|궁정 화가, 고야의 처남
 의논하다|v|to consult|서로 의견을 나누다
 펜덴티브|n|pendentive|둥근 천장 아래 삼각면
@@ -2841,11 +2840,10 @@ A|name|A (a mark on the list)|A (목록에 붙인 기호)
 엘|name|el (in San Francisco el Grande)|산 프란시스코 엘 그란데
 그란데|name|Grande (San Francisco el Grande)|마드리드의 성당 이름
 경연|n|competition|솜씨를 겨룸
-뽑다|v|to choose|골라내다
+뽑다|v|to choose; to pull out, to draw (blood)|골라내다; 빼내다
 임명장|n|letter of appointment|임명을 알리는 문서
 고이코에체아|name|Goicoechea (a friend in Zaragoza)|사라고사의 친구
 비열하다|adj|to be mean, vile|하는 짓이 더럽고 치사하다
-마엘랴|name|Maella (court painter)|궁정 화가
 정식|n|formal, official|정해진 방식
 듬뿍|adv|plentifully|넘칠 만큼 많이
 건달|n|rascal|빈둥거리는 사람
@@ -2883,7 +2881,7 @@ A|name|A (a mark on the list)|A (목록에 붙인 기호)
 답하다|v|to answer|대답하다
 떠돌다|v|to circulate|여기저기 퍼지다
 자세히|adv|in detail|꼼꼼하게
-코굴랴다|name|Cogullada (near Zaragoza)|사라고사 근처
+코구야다|name|Cogullada (near Zaragoza)|사라고사 근처
 하코|name|Jaco (a private joke)|두 친구의 농담
 생각나다|v|to come to mind|떠오르다
 잘생기다|adj|to be good-looking|얼굴이 훤하다
@@ -3108,3 +3106,12 @@ A|name|A (a mark on the list)|A (목록에 붙인 기호)
 그래야|adv|only then|그렇게 해야
 온전하다|adj|to be complete|모자람 없다
 라몬|name|Ramón (Ramón Pignatelli)|라몬 피냐텔리
+산#2|name|San, Spanish 'Saint' before a name (San Francisco)|스페인어로 성인 이름 앞에 붙는 말 (성 ~)
+솔#2|name|Sol (the Puerta del Sol, a square in Madrid)|마드리드 광장 이름 (푸에르타 델 솔)
+공작#2|n|duke|귀족 작위의 하나
+거리#3|n|street|사람과 차가 다니는 길
+방#2|n|a shot, a blow (한 방 먹이다: to land a blow)|한 번 치거나 쏘는 것
+적#2|n|enemy|맞서 싸우는 상대
+데#2|foreign:es|(Spanish 'de') of, in names (Francisco de Goya)|(스페인어) ~의
+델#2|foreign:es|(Spanish 'del') of the|(스페인어) ~의
+편#2|n|side (내 편: on my side); (사람 편에) by way of someone|같은 쪽; ~을 통해

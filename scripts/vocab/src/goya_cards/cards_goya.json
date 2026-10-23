@@ -132,16 +132,18 @@
   ]
  },
  "c5-l2": {
-  "remove": [],
+  "remove": [
+   "baja"
+  ],
   "add": [
    "pregunta",
-   "aquí"
+   "aquí",
+   "bajo"
   ]
  },
  "c5-l3": {
   "remove": [],
   "add": [
-   "vengar",
    "trabajar"
   ]
  },
@@ -183,7 +185,8 @@
  "c6-l2": {
   "remove": [
    "lienzo",
-   "retratar"
+   "retratar",
+   "valía"
   ],
   "add": [
    "ayudar",
@@ -211,10 +214,13 @@
   ]
  },
  "c6-l5": {
-  "remove": [],
+  "remove": [
+   "excusa"
+  ],
   "add": [
    "nombre",
-   "corazón"
+   "corazón",
+   "excusar"
   ]
  },
  "c6-l6": {
@@ -229,10 +235,12 @@
  },
  "c6-l7": {
   "remove": [
-   "comunicar"
+   "comunicar",
+   "tirada"
   ],
   "add": [
-   "hijo"
+   "hijo",
+   "tirar"
   ]
  },
  "e1": {

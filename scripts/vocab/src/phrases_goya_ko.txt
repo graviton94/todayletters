@@ -29,7 +29,7 @@ c2-l5|1|신세를 많이 졌어|I owe (him) a lot|큰 도움을 받았어|신세
 c2-l6|0|막 돌아왔어|I've just got back|방금 왔어|막: ‘바로 조금 전’.|막 = just now.
 c2-l6|3|다들 천사 같아|they're all like angels|모두 천사야|-같아: 비유.|같아 = like.
 c2-l7|1|마지막 손질|the last touches|끝 손질|손질: 다듬는 일.|손질 = touching up.
-c2-l7|2|매형만은 달라|only my brother-in-law is different|매형만 빼고|-만은: ‘~만큼은’.|-만은 = only … (contrast).
+c2-l7|2|처남만은 달라|only my brother-in-law is different|처남만 빼고|-만은: ‘~만큼은’.|-만은 = only … (contrast).
 c3-l1|0|더는 말 안 할게|I won't say more|이제 말 안 할게|안 + 동사 + -ㄹ게: 의지.|안 … -ㄹ게 = I won't.
 c3-l1|1|자꾸 생각나거든|it keeps coming back to me|계속 떠오르거든|자꾸: ‘여러 번 되풀이’.|자꾸 = again and again.
 c3-l2|0|사내아이를 낳았어|gave birth to a boy|아들을 낳았어|-을 낳다: 아이를 낳다.|낳다 = to give birth.

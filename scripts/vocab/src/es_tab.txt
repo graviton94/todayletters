@@ -39,7 +39,7 @@ bueno|adj|good; (estar bueno) well, healthy|좋은; (estar bueno) 건강한
 campico|n.m|little field (Aragonese, fond)|작은 밭 (아라곤 말투)
 candil|n.m|oil lamp|등잔
 cansar|v|to tire, to trouble|귀찮게 하다, 지치게 하다
-caracol|n.m|snail|달팽이
+caracol|n.m|snail (tres caracoles: next to nothing)|달팽이 (tres caracoles: 거의 아무것도 아님)
 casa|n.f|house, home|집
 caso|n.m|case (ser del caso: to be right, fitting)|경우 (ser del caso: 알맞다)
 chiquío|n.m|my boy, my friend (Aragonese, fond)|얘야, 친구야 (아라곤 말투)
@@ -68,7 +68,7 @@ dicha|n.f|joy, good fortune|복, 기쁨
 divertir|v|(divertirse) to enjoy oneself|(divertirse) 즐겁게 지내다
 don|n.m|Don (title)|돈 (남자 존칭)|F
 dudar|v|to doubt|의심하다
-echar|v|(echarse sobre) to pounce on|(echarse sobre) 덮치다
+echar|v|(echarse sobre) to pounce on, to grab|(echarse sobre) 달려들어 차지하다
 ejecución|n.f|execution, carrying out (of a painting)|그리기, 실행
 el|art|the|그 (정관사)|F
 ella|pron|her, them (f.)|그녀, 그것들|F
@@ -79,7 +79,7 @@ encono|n.m|rancour, spite|앙심
 enemigo|n.m|enemy|적
 enredo|n.m|tangle, trouble|골치 아픈 일
 enseñar|v|to show|보여 주다
-enterar|v|(quedar enterado) to take note|(quedar enterado) 알아듣다
+enterar|v|(quedar enterado) to take note, to be informed|(quedar enterado) 잘 알게 되다
 entregar|v|to hand over|건네주다
 enviar|v|to send|보내다
 escapar|v|(escaparse) to escape|빠져나오다, 살아나다
@@ -115,7 +115,7 @@ le|pron|him, her, you (to)|그에게, 그를|F
 librar|v|(salir bien/mal librado) to come off well/badly|(bien/mal librado) 득을 보다 / 손해 보다
 lo|pron|it, him|그것을, 그를|F
 lograr|v|to get, to achieve|얻다, 이루다
-mal|adv|badly|나쁘게
+mal|adv|badly; (adj., before a noun) bad|나쁘게; (명사 앞) 나쁜
 mandar|v|to command, to send|시키다, 보내다
 mano|n.f|hand|손
 mayor|adj|bigger, greater|더 큰
@@ -145,7 +145,7 @@ para|prep|for, in order to|~을 위해|F
 paraje|n.m|place, spot|곳, 자리
 parecer|v|to seem|~처럼 보이다
 pelota|n.f|ball (en pelota: stripped bare, with nothing)|공 (en pelota: 빈털터리로)
-pena|n.f|trouble (valer la pena: to be worth it)|수고 (merecer la pena: ~할 가치가 있다)
+pena|n.f|trouble, pains (merecer la pena: to be worth it)|수고 (merecer la pena: ~할 가치가 있다)
 pensar|v|to think|생각하다
 pero|conj|but|그러나, 그래도|F
 pintar|v|to paint|그리다
@@ -218,7 +218,7 @@ S|abbr|S. (Señor, Señoría: Sir, Lordship)|S. (Señor · Señoría 의 줄임)
 Goya|name|Goya|고야
 académico|n.m|academician, member of an academy|아카데미 회원
 mérito|n.m|merit (académico de mérito: full academician)|공로, 실력
-real|adj|royal; (n.) real, a coin|왕립의, 왕의; 레알 (돈)
+real|adj|royal|왕립의, 왕의
 Fernando|name|Fernando (Real Academia de San Fernando)|페르난도 (산 페르난도 아카데미)
 respeto|n.m|respect|존경
 V|abbr|V. (Vuestra: Your, in V. S., V. M., V. E.)|V. (Vuestra, 귀하의)|F
@@ -293,13 +293,13 @@ nuevo|adj|new|새로운
 boceto|n.m|sketch (for a painting)|밑그림
 pechina|n.f|pendentive (of a dome)|펜던티브 (둥근 천장 아래 삼각면)
 acuerdo|n.m|agreement (de acuerdo con: in agreement with)|합의 (de acuerdo con: ~와 의논해)
-cuñado|n.m|brother-in-law|처남, 매형
+cuñado|n.m|brother-in-law (here: his wife's brother)|처남 (아내의 형제), 매부
 Bayeu|name|Bayeu (Francisco Bayeu, court painter)|바예우 (궁정 화가, 고야의 처남)
 preceder|v|to precede|앞서다
 aprobación|n.f|approval|승인
 término|n.m|term|조건, 말
 determinar|v|to decide|정하다
-pasar|v|to pass, to go on to; to happen|넘어가다; 일어나다
+pasar|v|to pass, to go on to; to happen; (pasar por) to go through|넘어가다; 일어나다; (pasar por) 겪다
 ejecutar|v|to carry out, to paint|실행하다, 그리다
 media|n.f|(media naranja) dome|(media naranja) 둥근 천장
 naranja|n.f|orange (media naranja: dome)|오렌지 (media naranja: 둥근 천장)
@@ -337,10 +337,10 @@ vil|adj|vile, base|비열한
 desconfiar|v|to distrust|의심하다
 llevar|v|to take, to carry|가져가다, 데려가다
 adonde|adv|where (to)|~하는 곳으로|F
-fuego|n.m|fire (hacer fuego: to make a stir)|불
+fuego|n.m|fire (hacer fuego: to open fire, to make a stir)|불 (hacer fuego: 포문을 열다)
 motivo|n.m|reason|까닭
 él|pron|he, him, it|그, 그것|F
-Maella|name|Maella (Mariano Salvador Maella, court painter)|마엘랴 (궁정 화가)
+Maella|name|Maella (Mariano Salvador Maella, court painter)|마에야 (궁정 화가)
 suyo|pron|his, hers, theirs|그의 것|F
 pintor|n.m|painter|화가
 cámara|n.f|chamber (pintor de cámara: court painter)|방 (pintor de cámara: 궁정 화가)
@@ -400,7 +400,7 @@ aplauso|n.m|applause, praise|박수, 칭찬
 inesperado|adj|unexpected|뜻밖의
 acertar|v|to get it right|맞히다, 잘 해내다
 caza|n.f|hunt, hunting|사냥
-tirar|v|to shoot; to throw|쏘다; 던지다
+tirar|v|to shoot; to throw; to print (copies from a plate)|쏘다; 던지다; (판화를) 찍다
 bien|adv|well|잘|F
 último|adj|last|마지막의
 conejo|n.m|rabbit|토끼
@@ -442,7 +442,7 @@ individualidad|n.f|detail (con individualidad: in detail)|자세함
 asunto|n.m|matter, subject|일, 주제
 Jaco|name|Jaco (a private joke between the friends)|하코 (두 친구 사이의 농담)
 cuando|conj|when|~할 때|F
-Cogullada|name|Cogullada (near Zaragoza)|코굴랴다 (사라고사 근처)
+Cogullada|name|Cogullada (near Zaragoza)|코구야다 (사라고사 근처)
 luz|n.f|light (dar a luz: to give birth)|빛 (dar a luz: 아이를 낳다)
 robusto|adj|sturdy|튼튼한
 bautizar|v|to baptise|세례를 주다
@@ -560,7 +560,7 @@ largo|adj|long|긴
 cojo|adj|lame|다리를 저는
 caída|n.f|fall|떨어짐
 birlocho|n.m|gig, light carriage|가벼운 마차
-medio|adv|half|반쯤
+medio|adj|half; (adv.) half-, partly|절반의; 반쯤
 ajustar|v|to agree on (a price)|값을 정하다
 doblón|n.m|doubloon (gold coin)|도블론 (금화)
 grandemente|adv|greatly|크게
@@ -573,7 +573,7 @@ ancho|adj|wide|넓은
 camino|n.m|road, way|길
 imaginar|v|to imagine|상상하다
 conque|conj|so|그래서|F
-vuelta|n.f|turn; (dar vueltas) to roll|돌기, 바퀴
+vuelta|n.f|turn (la vuelta fue que: the upshot was); (dar vueltas) to roll over|돌기 (la vuelta fue que: 결국); 구르기
 parar|v|to stop, to end up|멈추다, 이르다
 caballo|n.m|horse|말
 voltereta|n.f|tumble, somersault|공중제비
@@ -609,7 +609,6 @@ sangrar|v|to bleed (to be bled)|피를 뽑다 (사혈)
 Tomás|name|Tomás|토마스
 comprar|v|to buy|사다
 par|n.m|pair|한 쌍
-mulo|n.m|mule|노새
 pensamiento|n.m|thought|생각
 claro|adj|clear|분명한
 vivir|v|to live|살다
@@ -645,7 +644,7 @@ aconsejar|v|to advise|권하다
 tontería|n.f|silly thing|어리석은 짓
 tonto|adj|silly, foolish|바보 같은
 mudar|v|to change|바꾸다
-punto|n.m|point, dot|점
+punto|n.m|point, dot (mudar de punto: to change the subject)|점 (mudar de punto: 화제를 바꾸다)
 Virgen|name|the Virgin|성모
 hermoso|adj|beautiful|아름다운
 quien|pron|who|~하는 사람|F
@@ -654,38 +653,36 @@ Paco|name|Paco (Francisco)|파코 (프란시스코의 애칭)
 cuenta|n.f|account, bill|계산서
 excelentísimo|adj|most excellent (title)|각하 (존칭)
 condesa|n.f|countess|백작 부인
-Peñafiel|name|Peñafiel (the Marquis of Peñafiel)|페냐피엘
+Peñafiel|name|Peñafiel (a title of the Osuna family)|페냐피엘 (오수나 가문의 칭호)
 Alameda|name|the Alameda (the Osuna country house)|알라메다 (오수나 가문의 별장)
 siete|num|seven|일곱|F
 composición|n.f|composition, picture|구성, 그림
 campo|n.m|country, field|들판, 시골
 º|abbr|(ordinal) -th|번째|F
-apartado|adj|out-of-the-way|외딴
+apartado|n.m|(apartado de toros) the sorting of the bulls before a bullfight|(apartado de toros) 투우 전에 소를 골라 나누기
 toro|n.m|bull|소
 figura|n.f|figure|인물
 pie|n.m|foot (a pie: on foot)|발
-país|n.m|landscape; country|풍경; 나라
+país|n.m|landscape (in a painting); country|풍경 (그림의 배경); 나라
 correspondiente|adj|corresponding|알맞은
-valor|n.m|courage; value|용기; 가치
+valor|n.m|value, price; courage|값, 가치; 용기
 ladrón|n.m|robber|도둑
 asaltar|v|to hold up, to attack|습격하다
 coche|n.m|coach, carriage|마차
-apoderado|n.m|agent|대리인
-muerto|adj|dead|죽은
+muerto|adj|dead; (haber muerto a) to have killed|죽은; (haber muerto a) 죽였다
 calesero|n.m|coachman|마부
 oficial|n.m|officer|장교
 guerra|n.f|war|전쟁
-fuerte|adj|strong|강한
+fuerte|adj|strong (hacerse fuerte: to hold out, to make a stand)|강한 (hacerse fuerte: 버티며 맞서다)
 ademán|n.m|gesture|몸짓
 atar|v|to tie|묶다
 gitano|n.m|gypsy|집시
-divertirse|v|to enjoy oneself|즐기다
-columpiar|v|to swing|그네를 타다
+columpiar|v|to swing (someone), to push on a swing|그네를 태우다, 흔들어 주다
 sentado|adj|sitting|앉은
 cebada|n.f|barley|보리
 fanega|n.f|fanega (grain measure)|파네가 (곡물 되)
 aire|n.m|air|공기, 바람
-criado|n.m|servant|하인
+criado|n.m|servant (criada: maid)|하인 (criada: 하녀)
 cocina|n.f|kitchen|부엌
 caer|v|to fall|떨어지다
 calentura|n.f|fever|열
@@ -699,18 +696,16 @@ idea|n.f|idea|생각
 Arali|name|Arali (an acquaintance)|아랄리
 Santa|name|Saint (female)|성녀
 Ana|name|Anne (Saint Anne)|안나
-natural|adj|natural; (n.) life (del natural: from life)|자연스러운; 실물
+natural|adj|natural; (del natural) life-size, from life|자연스러운; (del natural) 실물 크기의
 colocar|v|to place|두다
-sitio|n.m|place; royal seat|자리; 왕실 별궁
+sitio|n.m|place, spot (en su sitio: in its place)|자리, 곳
 tránsito|n.m|passing, death|돌아가심
 José|name|Joseph|요셉
 Bernardo|name|Bernard (Saint Bernard)|베르나르도
 Lutgarda|name|Lutgard (Saint Lutgard)|루트가르다
 estrenar|v|to show for the first time|처음 선보이다
-baja|n.f|(dar de baja) to take off; low|빠짐
 entreoír|v|to half-hear|어렴풋이 듣다
 algo|pron|something|무언가|F
-vengar|v|(venga) come on (from venir)|(venga) 자, 어서
 trabajar|v|to work|일하다
 desazón|n.f|unease|언짢음
 difícil|adj|difficult|어려운
@@ -732,11 +727,11 @@ remediar|v|to remedy|바로잡다
 bastar|v|to be enough|충분하다
 tranquilidad|n.f|peace|평온
 desempeñar|v|to carry out|해내다
-sobrante|n.m|surplus|남은 돈
+sobrante|adj|spare, left over|남는
 carecer|v|to lack|부족하다
 ascenso|n.m|promotion|승진
 recibir|v|to receive|받다
-privadamente|adv|privately|몰래
+privadamente|adv|privately, not officially|사적으로, 비공식으로
 tino|n.m|good judgement|분별
 dónde|adv|where|어디|F
 Banco|name|the Bank (Banco de San Carlos)|은행 (산 카를로스 은행)
@@ -749,12 +744,11 @@ boca|n.f|mouth|입
 elogiar|v|to praise|칭찬하다
 hombro|n.m|shoulder|어깨
 abrazar|v|to embrace|껴안다
-aragonés|adj|Aragonese|아라곤 사람의
+aragonés|adj|Aragonese; (n.) a person from Aragon|아라곤의; 아라곤 사람
 Zaragoza|name|Zaragoza|사라고사
 interesar|v|to interest; to matter|관심을 끌다
 situación|n.f|situation|형편
 diferente|adj|different|다른
-gasto|n.m|expense|지출
 meter|v|to put in; (meterse) to get into|넣다; 들어가다
 circunstancia|n.f|circumstance|사정
 conocido|adj|known|알려진
@@ -783,7 +777,6 @@ lunes|n.m|Monday|월요일
 acompañar|v|to go with|함께 가다
 bobada|n.f|silly thing|바보짓
 loco|adj|mad, crazy|미친
-valía|n.f|(más te valía) you had better (valer)|(más te valía) ~하는 게 나았어
 ayudar|v|to help|돕다
 Alba|name|Alba (the Duchess of Alba)|알바 (공작부인)
 cara|n.f|face|얼굴
@@ -826,7 +819,6 @@ olvidar|v|to forget|잊다
 Sartén|name|(calle de la Sartén) Frying-pan Street, in Zaragoza|사르텐 거리 (사라고사)
 donde|adv|where|~하는 곳|F
 copia|n.f|copy|사본
-excusa|n.f|excuse (me excusa de: spares me)|핑계 (덕분에 ~하지 않아도 된다)
 Yoldi|name|Yoldi (a friend in Zaragoza)|욜디 (사라고사의 친구)
 rendir|v|(rendido) worn out|지치다
 Caprichos|name|Los Caprichos (Goya's etchings)|카프리초스 (고야의 판화집)
@@ -854,7 +846,7 @@ afición|n.f|liking, keenness|애정, 취미
 gran|adj|great|큰|F
 aprovechar|v|to make the most of|활용하다
 excelencia|n.f|Excellency|각하
-presente|adj|present|있는 (hacer presente: 알리다)
+presente|adj|present (hacer presente: to bring to someone's notice)|있는 (hacer presente: 알려 드리다)
 sumamente|adv|extremely|지극히
 agradecer|v|to thank|감사하다
 fecha|n.f|date|날짜
@@ -862,7 +854,6 @@ regir|v|(el que rige) the current (month)|지금의 (이번 달)
 admitir|v|to accept|받아들이다
 cobre|n.m|copper (plate)|동판
 partida|n.f|batch|한 묶음
-tirada|n.f|printing|찍은 것
 prevención|n.f|(a prevención) in advance|미리
 fraude|n.m|fraud|속임
 proceder|v|to act; (n.) conduct|행동하다
@@ -890,3 +881,14 @@ ceder|v|to hand over|넘겨주다
 indisponer|v|(indispuesto) unwell|몸이 안 좋다
 cama|n.f|bed|침대
 completo|adj|complete|완전한
+real#2|n.m|real (an old Spanish coin; quince mil reales: 15,000 reales)|레알 (스페인의 옛 돈 단위)
+vale|n.m|voucher, bond (vales reales: royal bonds, the crown's paper money)|증서 (vales reales: 왕실 채권)
+bajo|adj|low; (de alma baja) base, mean-spirited|낮은; (alma baja) 비열한
+excusar|v|to spare (someone) from (me excusa de: saves me from)|면하게 하다 (me excusa de: ~하지 않아도 되게 하다)
+apoderar|v|(apoderarse) to seize, to overpower|(apoderarse) 손에 넣다, 제압하다
+mula|n.f|mule|노새
+fuera|adv|out, outside (fuera de: outside of)|밖에 (fuera de: ~ 밖에서)
+muy|adv|very|매우, 아주|F
+nosotros|pron|we, us|우리|F
+usted|pron|you (polite)|당신 (높임)|F
+sitio#2|n.m|the Royal Site (el Sitio: a royal residence outside Madrid)|왕실 별궁
