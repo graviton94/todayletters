@@ -1,0 +1,70 @@
+[
+ {
+  "file": "1.jpg",
+  "title": "File:Rue Cauchoise 1.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Rue_Cauchoise_1.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Giogo\" title=\"User:Giogo\">Giogo</a>",
+  "date": "2017-04-20 15:55:47",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+  "usage": "Creative Commons Attribution-Share Alike 4.0",
+  "description": "Rue Cauchoise depuis la place du Vieux-Marché.",
+  "categories": "Rue Cauchoise (Rouen)|Self-published work",
+  "size": [
+   3000,
+   4000
+  ],
+  "query": "Cauchoise"
+ },
+ {
+  "file": "2.jpg",
+  "title": "File:Rue Cauchoise 2.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Rue_Cauchoise_2.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Giogo\" title=\"User:Giogo\">Giogo</a>",
+  "date": "2017-04-20 15:57:24",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+  "usage": "Creative Commons Attribution-Share Alike 4.0",
+  "description": "Rue Cauchoise",
+  "categories": "Rue Cauchoise (Rouen)|Self-published work",
+  "size": [
+   3000,
+   4000
+  ],
+  "query": "Cauchoise"
+ },
+ {
+  "file": "3.jpg",
+  "title": "File:L Barillot Truie normande.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:L_Barillot_Truie_normande.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:L%C3%A9on_Barillot\" class=\"extiw\" title=\"w:en:Léon Barillot\"><span title=\"French painter (1844-1929)\">Léon Barillot</span></a></bdi>",
+  "date": "before 1912<div style=\"display: none;\">date QS:P,+1912-00-00T00:00:00Z/7,P1326,+1912-00-00T00:00:00Z/9</div>",
+  "credit": "This file comes from <a rel=\"nofollow\" class=\"external text\" href=\"https://gallica.bnf.fr/\">Gallica Digital Library</a> and is available under the digital ID <a rel=\"nofollow\" class=\"external text\" href=\"https://gallica.bnf.fr/ark:/12148/bpt6k6371377r\">bpt6k6371377r</a>",
+  "usage": "Public domain",
+  "description": "Truie normande. Les Animaux de la ferme. Les races ovines, porcines et caprines. Librairie agricole de la Maison rustique (Paris), 1912.",
+  "categories": "Les Animaux de la ferme. Les races ovines, porcines et caprines|Race normande (pig)|PD-Art (PD-old-auto-expired)|CC-PD-Mark|Files from Gallica|PD-old-95-expired|Paintings by Léon Barillot",
+  "size": [
+   3953,
+   2690
+  ],
+  "query": "Cauchoise"
+ },
+ {
+  "file": "4.jpg",
+  "title": "File:Rue Cauchoise 4.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Rue_Cauchoise_4.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Giogo\" title=\"User:Giogo\">Giogo</a>",
+  "date": "2017-04-20 15:58:31",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+  "usage": "Creative Commons Attribution-Share Alike 4.0",
+  "description": "Rue Cauchoise.",
+  "categories": "Rue Cauchoise (Rouen)|Self-published work|Facades in Rouen",
+  "size": [
+   3000,
+   4000
+  ],
+  "query": "Cauchoise"
+ }
+]
