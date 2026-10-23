@@ -467,7 +467,7 @@
    "ex": {
     "t": "On t'attend ! Tu y arrives quand ?",
     "ko": "기다릴게! 언제 도착해?",
-    "en": "We're waiting for you! When do you get there?",
+    "en": "We're waiting for you! When do you get here?",
     "from": "c7-l7"
    }
   },
@@ -556,7 +556,7 @@
    },
    "ex": {
     "t": "N'abandonne jamais les portraits, c'est ton chemin.",
-    "ko": "초상화를 계속 그리고 그 길로 가요.",
+    "ko": "초상화는 절대 그만두지 마요. 그게 형의 길이에요.",
     "en": "Never give up the portraits; they are your road.",
     "from": "c2-l5"
    }

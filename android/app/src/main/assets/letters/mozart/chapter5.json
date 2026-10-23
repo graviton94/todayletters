@@ -1454,7 +1454,7 @@
     "lines": [
      {
       "who": "them",
-      "de": "Papa, Graf Arco hat mich aus der Tür geworfen!",
+      "de": "Papa, Graf Arco hat mich zur Tür hinausgeworfen!",
       "en": "Papa, Count Arco threw me out the door!",
       "ko": "아빠, 아르코 백작이 저를 문밖으로 내쫓았어요!"
      },
@@ -1543,7 +1543,7 @@
      "leicht"
     ],
     "grammar": "V.0",
-    "audio": "tc",
+    "audio": {"*": "tc", "de": "td"},
     "mine": {
      "line": 3,
      "slot": {
@@ -2422,7 +2422,7 @@
       "who": "me",
       "de": "Gut! Warum gerade er?",
       "en": "Good! Why him in particular?",
-      "ko": "좋구나! 왜 하필 그분이야?",
+      "ko": "좋구나! 왜 바로 그분이야?",
       "focus": {
        "de": [
         "er"
@@ -2459,7 +2459,7 @@
       "who": "them",
       "de": "Weil er eine wunderbar tiefe Stimme hat.",
       "en": "Because he has a wonderfully deep voice.",
-      "ko": "목소리가 멋지게 낮아서요."
+      "ko": "저음이 정말 멋져서요."
      },
      {
       "who": "me",
@@ -2504,7 +2504,7 @@
      "tief"
     ],
     "grammar": "V.0",
-    "audio": {"*": "tb", "ko": "tk"},
+    "audio": {"*": "tb", "ko": "td"},
     "mine": {
      "line": 3,
      "slot": {

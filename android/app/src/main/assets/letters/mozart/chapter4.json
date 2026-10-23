@@ -505,7 +505,7 @@
       "who": "me",
       "de": "Ja, sehr viel! Wie war die Fahrt?",
       "en": "Yes, a lot! How was the trip?",
-      "ko": "그래, 아주 많이! 오는 길은 어땠어?",
+      "ko": "그래, 아주 많이! 가는 길은 어땠어?",
       "focus": {
        "de": [
         "war"
@@ -586,7 +586,7 @@
      "gefallen"
     ],
     "grammar": "IV.1",
-    "audio": "tc",
+    "audio": {"*": "tc", "ko": "td"},
     "mine": {
      "line": 3,
      "slot": {
@@ -1452,7 +1452,7 @@
       "who": "me",
       "de": "Toll! Warst du vorher nervös?",
       "en": "Great! Were you nervous beforehand?",
-      "ko": "대단하다! 미리 떨리진 않았어?",
+      "ko": "대단하다! 리허설 전에 떨리진 않았어?",
       "focus": {
        "de": [
         "Warst du"
@@ -1533,7 +1533,7 @@
      "Probe"
     ],
     "grammar": "IV.0",
-    "audio": {"*": "tb", "ko": "tk"},
+    "audio": {"*": "tb", "ko": "td"},
     "mine": {
      "line": 3,
      "slot": {
@@ -3043,7 +3043,7 @@
       {
        "de": "einen Spaziergang",
        "en": "a walk",
-       "ko": "좀 걸어"
+       "ko": "산책 좀 해"
       },
       {
        "de": "ein Nickerchen",

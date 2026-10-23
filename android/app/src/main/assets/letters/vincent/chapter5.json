@@ -1392,7 +1392,7 @@
       "who": "me",
       "fr": "C'est beau. Et toi, qu'est-ce que tu peins maintenant ?",
       "en": "That's lovely. And what are you painting now?",
-      "ko": "예쁘다. 형은 요즘 뭘 그려?",
+      "ko": "다정하다. 형은 요즘 뭘 그려?",
       "focus": {
        "fr": [
         "qu'est-ce que tu peins"
@@ -1432,7 +1432,7 @@
     "grammar": "V.2",
     "audio": {
      "*": "t",
-     "ko": "tk"
+     "ko": "tc"
     },
     "mine": {
      "line": 3,

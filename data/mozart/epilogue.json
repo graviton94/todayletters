@@ -382,14 +382,14 @@
      {
       "who": "me",
       "de": "Wie schön! Bis morgen, ich freue mich auf dich!",
-      "en": "How lovely! See you tomorrow, I'm looking forward to it!",
+      "en": "How lovely! See you tomorrow, I'm looking forward to seeing you!",
       "ko": "잘됐다! 내일 봐, 정말 기다려져!",
       "focus": {
        "de": [
         "freue mich"
        ],
        "en": [
-        "looking forward to it"
+        "looking forward to seeing you"
        ],
        "ko": [
         "기다려져"
@@ -404,8 +404,8 @@
        ],
        "en": [
         [
-         "looking forward on it",
-         "looking forward it"
+         "looking forward to see you",
+         "looking forward seeing you"
         ]
        ],
        "ko": [
@@ -424,7 +424,8 @@
     "grammar": "VIII.2",
     "audio": {
      "*": "t",
-     "ko": "tk"
+     "ko": "tk",
+     "en": "td"
     },
     "mine": {
      "line": 3,

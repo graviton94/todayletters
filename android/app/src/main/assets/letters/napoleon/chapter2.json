@@ -1306,7 +1306,7 @@
        ],
        "ko": [
         [
-         "뭐 질투해",
+         "외 질투해",
          "어디 질투해"
         ]
        ]
@@ -3027,7 +3027,7 @@
      {
       "who": "them",
       "fr": "Ta santé va bien ? Viens à Rimini !",
-      "en": "Is your health good? Come to Rimini!",
+      "en": "Are you feeling well? Come to Rimini!",
       "ko": "몸은 괜찮아? 리미니로 와!"
      },
      {
@@ -3074,7 +3074,10 @@
     ],
     "grammar": "II.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb",
+    "audio": {
+     "*": "tb",
+     "en": "td"
+    },
     "mine": {
      "line": 3,
      "slot": {

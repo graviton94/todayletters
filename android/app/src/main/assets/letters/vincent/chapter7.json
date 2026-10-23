@@ -1049,7 +1049,7 @@
      {
       "who": "them",
       "fr": "J'en ai sept. Je joue des couleurs comme du violon.",
-      "en": "I've got seven. I play colours like a violin.",
+      "en": "I've got seven. I play colour the way you play a violin.",
       "ko": "일곱 점. 바이올린 켜듯 색을 갖고 놀아."
      },
      {
@@ -1097,7 +1097,8 @@
     "grammar": "VII.2",
     "audio": {
      "*": "t",
-     "ko": "tk"
+     "ko": "tk",
+     "en": "tc"
     },
     "mine": {
      "line": 3,
@@ -3588,14 +3589,14 @@
      {
       "who": "me",
       "fr": "On t'attend ! Tu y arrives quand ?",
-      "en": "We're waiting for you! When do you get there?",
+      "en": "We're waiting for you! When do you get here?",
       "ko": "기다릴게! 언제 도착해?",
       "focus": {
        "fr": [
         "Tu y arrives"
        ],
        "en": [
-        "do you get there"
+        "do you get here"
        ],
        "ko": [
         "도착해"
@@ -3610,8 +3611,8 @@
        ],
        "en": [
         [
-         "do you gets there",
-         "you get there"
+         "do you gets here",
+         "you get here"
         ]
        ],
        "ko": [
@@ -3630,7 +3631,8 @@
     "grammar": "VII.2",
     "audio": {
      "*": "t",
-     "ko": "tk"
+     "ko": "tk",
+     "en": "tc"
     },
     "mine": {
      "line": 1,

@@ -514,7 +514,7 @@
       "who": "me",
       "de": "Gott sei Dank! Wie war die Fahrt?",
       "en": "Thank God! How was the trip?",
-      "ko": "다행이다! 오는 길은 어땠어?",
+      "ko": "다행이다! 가는 길은 어땠어?",
       "focus": {
        "de": [
         "war"
@@ -596,13 +596,13 @@
      "wünschen"
     ],
     "grammar": "III.1",
-    "audio": "tc",
+    "audio": {"*": "tc", "ko": "td"},
     "mine": {
      "line": 1,
      "slot": {
       "de": "die Fahrt",
       "en": "the trip",
-      "ko": "오는 길은"
+      "ko": "가는 길은"
      },
      "opts": [
       {
@@ -2966,7 +2966,7 @@
       "who": "me",
       "de": "Schön! Nannerl und ich küssen dich. Komm bald!",
       "en": "Lovely! Nannerl and I send kisses. Come soon!",
-      "ko": "좋아! 난네를이랑 나랑 뽀뽀를 보낸다. 빨리 와!",
+      "ko": "좋아! 난네를이랑 나랑 입맞춤을 보낸다. 빨리 와!",
       "focus": {
        "de": [
         "küssen dich"
@@ -3004,7 +3004,7 @@
      "küssen"
     ],
     "grammar": "III.2",
-    "audio": "tc",
+    "audio": {"*": "tc", "ko": "td"},
     "mine": {
      "line": 1,
      "slot": {
@@ -3162,7 +3162,7 @@
     }
    ],
    "note": {
-    "ko": "그림은 슈트라스부르 대성당 남쪽 문을 17세기 판화와 훗날 사진으로 나란히 보여 줘요. 파리를 떠나 잘츠부르크로 돌아가는 길에 슈트라스부르에서 쓴 편지예요. 선제후의 궁정을 따라 뮌헨으로 옮겨 간 베버 가족은 한 달 넘게 소식이 없자 그가 죽은 줄 알았고, '가엾은 아가씨' 알로이지아는 날마다 성당에 가서 기도했대요. 모차르트는 아버지만이 잘츠부르크의 쓴맛을 달게 해 줄 수 있다고 말해요.",
+    "ko": "그림은 스트라스부르 대성당 남쪽 문을 17세기 판화와 훗날 사진으로 나란히 보여 줘요. 파리를 떠나 잘츠부르크로 돌아가는 길에 스트라스부르에서 쓴 편지예요. 선제후의 궁정을 따라 뮌헨으로 옮겨 간 베버 가족은 한 달 넘게 소식이 없자 그가 죽은 줄 알았고, '가엾은 아가씨' 알로이지아는 날마다 성당에 가서 기도했대요. 모차르트는 아버지만이 잘츠부르크의 쓴맛을 달게 해 줄 수 있다고 말해요.",
     "en": "The image pairs a 17th-century engraving and a later photograph of Strasbourg Cathedral's south portal. Mozart wrote this in Strasbourg on his way home from Paris to Salzburg. The Webers, who had moved to Munich with the Elector's court, heard nothing from him for a month and feared he was dead; 'the poor girl', Aloysia, went to church every day to pray for him. He tells his father that only he can sweeten the bitterness of Salzburg.",
     "source": "Mozarts Briefe (L. Nohl, 1865), Nr. 115 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog"
    },
@@ -3257,7 +3257,7 @@
      "text": {
       "de": "Auf dem Heimweg · Straßburg",
       "en": "On the way home · Strasbourg",
-      "ko": "집으로 가는 길 · 슈트라스부르"
+      "ko": "집으로 가는 길 · 스트라스부르"
      }
     },
     {
@@ -3267,7 +3267,7 @@
      "caption": {
       "de": "Straßburg, Kupferstich von 1737",
       "en": "Strasbourg, engraving, 1737",
-      "ko": "슈트라스부르 (1737년 동판화)"
+      "ko": "스트라스부르 (1737년 동판화)"
      },
      "credit": "Gezicht op Straatsburg, 1737 · Rijksmuseum, Amsterdam · CC0",
      "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_Straatsburg,_RP-P-2018-3005.jpg"
@@ -3291,14 +3291,14 @@
    "plate": {
     "title_de": "Straßburger Münster, Portal des Südquerhauses: Stich des 17. Jahrhunderts und späteres Foto",
     "title_en": "Strasbourg Cathedral, south transept portal: 17th-century engraving and later photograph",
-    "title_ko": "슈트라스부르 대성당 남쪽 익랑 문: 17세기 판화와 훗날의 사진",
+    "title_ko": "스트라스부르 대성당 남쪽 익랑 문: 17세기 판화와 훗날의 사진",
     "date": "17th c. (engraving); photo undated",
     "collection": "Bibliothèque nationale de France (Gallica)",
     "imageLicense": "Public domain",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Cathédrale_de_Strasbourg_-_portail_du_transept-sud,_gravure_du_XVIIe_siècle_et_état_actuel_-_btv1b102142371.jpg",
     "credit": "Unknown engraver and photographer",
     "why": {
-     "ko": "모차르트가 이 편지를 쓴 도시 슈트라스부르의 대성당이에요. 위는 17세기 판화, 아래는 훗날 사진이에요.",
+     "ko": "모차르트가 이 편지를 쓴 도시 스트라스부르의 대성당이에요. 위는 17세기 판화, 아래는 훗날 사진이에요.",
      "en": "The cathedral of Strasbourg, the city where Mozart wrote this letter: a 17th-century engraving above, a later photograph below."
     },
     "image": "m-c3-l7.webp",

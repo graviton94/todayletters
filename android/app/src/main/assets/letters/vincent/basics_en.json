@@ -341,7 +341,7 @@
     "ko": "너의, 당신의"
    },
    "ex": {
-    "t": "Great! And your health, OK?",
+    "t": "Great! And how's your health?",
     "ko": "잘됐다! 건강은 괜찮아?",
     "fr": "Super ! Et ta santé, ça va ?",
     "from": "c1-l7"
@@ -537,7 +537,7 @@
     "ko": "~하겠어요 (공손), ~할 텐데"
    },
    "ex": {
-    "t": "I'd love to. When would you like?",
+    "t": "I'd love to. When would you like me to come?",
     "ko": "좋아. 언제가 좋아?",
     "fr": "Avec plaisir. Quand est-ce que tu veux ?",
     "from": "c8-l2"

@@ -3264,7 +3264,7 @@
      },
      {
       "who": "me",
-      "fr": "Depuis minuit ? Tu ne dors pas depuis hier !",
+      "fr": "Depuis minuit ? Tu n'as pas dormi depuis hier !",
       "en": "Since midnight? You haven't slept since yesterday!",
       "ko": "자정부터? 어제부터 한숨도 못 잤겠네!",
       "focus": {
@@ -3348,7 +3348,10 @@
     ],
     "grammar": "III.1",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb",
+    "audio": {
+     "*": "tb",
+     "fr": "td"
+    },
     "mine": {
      "line": 3,
      "slot": {

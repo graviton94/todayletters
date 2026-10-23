@@ -3329,7 +3329,7 @@
       "who": "me",
       "de": "Wir werden sehen. Ich gratuliere euch von Herzen.",
       "en": "We'll see. Congratulations to you both, from my heart.",
-      "ko": "두고 보자. 진심으로 축하한다.",
+      "ko": "차차 보자꾸나. 진심으로 축하한다.",
       "focus": {
        "de": [
         "gratuliere euch"
@@ -3367,7 +3367,7 @@
      "reisen"
     ],
     "grammar": "VI.1",
-    "audio": "tc",
+    "audio": {"*": "tc", "ko": "td"},
     "mine": {
      "line": 1,
      "slot": {

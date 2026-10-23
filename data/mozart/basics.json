@@ -465,7 +465,7 @@
    },
    "ex": {
     "t": "Vielleicht beim Kaiser?",
-    "ko": "황제 쪽은 어때?",
+    "ko": "어쩌면 황제 쪽은 어때?",
     "en": "Maybe with the Emperor?",
     "from": "c6-l2"
    }
@@ -600,7 +600,7 @@
    },
    "ex": {
     "t": "Na, wie geht's?",
-    "ko": "자, 잘 지내?",
+    "ko": "그래, 잘 지내?",
     "en": "Well, how are you?",
     "from": null
    }
@@ -670,12 +670,12 @@
    "w": "gerade",
    "pos": "adv",
    "mean": {
-    "ko": "지금 막; 하필",
+    "ko": "지금 막; 바로, 하필",
     "en": "just (now); of all"
    },
    "ex": {
     "t": "Gut! Warum gerade er?",
-    "ko": "좋구나! 왜 하필 그분이야?",
+    "ko": "좋구나! 왜 바로 그분이야?",
     "en": "Good! Why him in particular?",
     "from": "c5-l5"
    }
@@ -1035,7 +1035,7 @@
     "en": "dead"
    },
    "ex": {
-    "t": "Sie dachten, ich war tot.",
+    "t": "Sie dachten, ich wäre tot.",
     "ko": "그들은 내가 죽은 줄 알았다.",
     "en": "They thought I was dead.",
     "from": null
