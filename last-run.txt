@@ -1,2 +1,0 @@
-a11y.txt
-nf1_room_note_dark.png
