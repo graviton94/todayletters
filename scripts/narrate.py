@@ -29,7 +29,8 @@
           replies 가 없는 편지 (서문) 는 앱이 메시지 하나를 대신 말하게 하므로 그 메시지 낭독 m<번호> 를 쓴다 (만들지 않음).
   NARRATE_ONLY=messages: NARRATE_MESSAGES 에 적은 메시지 낭독만 다시 (m<번호>_<언어>.m4a + .json). 띄어쓰기로 나눈
           "<작품>/<편지 id>/m<번호>_<언어>" 목록 (예: "mozart/c1-l2/m4_en"), 이 편지 파일에 없는 것은 건너뛴다.
-          회화 줄도 같은 목록에 적을 수 있다 ("<작품>/<편지 id>/t<줄>_<언어>", 예 "napoleon/c7-l3/t3_ko").
+          회화 줄도 같은 목록에 적을 수 있다 ("<작품>/<편지 id>/t<줄>_<언어>", 예 "napoleon/c7-l3/t3_ko"),
+          답장 r<턴>_<언어> · 표현 ph<번호>_<언어> 도, 기초 낱말 덱은 "<작품>/basics/bx_<언어>_<id>" (b_… 낱말도, 서문 파일에서).
   NARRATE_SKIP_EXISTING=1: 이 저장소의 assets/audio · remote/audio 에 이미 있는 파일은 만들지 않는다
           (R2 의 파일은 덮어쓰지 않는다 · docs/release.md 5: 빠진 소리만 새로 만든다).
 
@@ -295,6 +296,20 @@ if ONLY in ("vocab", "new"):
     print("vocab files", n)
     sys.exit(0)
 PICK = {tuple(x.split("/")) for x in os.environ.get("NARRATE_MESSAGES", "").split()} if ONLY == "messages" else None
+if PICK is not None and chapter == "P":
+    # 고친 기초 낱말 덱 예문 · 낱말도 같은 목록으로 ("<작품>/basics/bx_<언어>_<id>" · "b_<언어>_<id>", 서문 파일을 돌 때)
+    pick_b = {name for s, lid, name in PICK if s == series and lid == "basics"}
+    for lang in langs if pick_b else []:
+        f = f"data/{series}/basics{'' if lang == book['original'] else '_' + lang}.json"
+        if not os.path.exists(f):
+            continue
+        base = os.path.join(out, series, "B", "basics")
+        for it in json.load(open(f, encoding="utf-8")).get("items", []):
+            if f"b_{lang}_{it['id']}" in pick_b:
+                save(os.path.join(base, f"b_{lang}_{it['id']}.m4a"), speak(it["w"], lang, presets["calm"])[0], 1.0)
+            t = ((it.get("ex") or {}).get("t") or "").strip()
+            if t and f"bx_{lang}_{it['id']}" in pick_b:
+                save(os.path.join(base, f"bx_{lang}_{it['id']}.m4a"), speak(t, lang, presets["calm"])[0], 1.0)
 for letter in book["letters"]:
     if PICK is not None and not any(s == series and lid == letter["id"] for s, lid, _ in PICK):
         continue
@@ -302,7 +317,21 @@ for letter in book["letters"]:
     base = os.path.join(out, series, chapter, letter["id"])
     if PICK is not None:
         # 고친 회화 줄도 같은 목록으로 (예 napoleon/c7-l3/t3_ko)
-        make_talk(letter, {name for s, lid, name in PICK if s == series and lid == letter["id"]})
+        names = {name for s, lid, name in PICK if s == series and lid == letter["id"]}
+        make_talk(letter, names)
+        # 고친 답장 말해 보기 문장 r<턴>_<언어> · 표현 ph<번호>_<언어> 도 (replies · vocab 과 같은 목소리 · 프리셋)
+        for lang in langs:
+            for i, t in enumerate(letter.get("replies") or [], 1):
+                text = re.sub(r"[〈〉]", "", t.get(lang) or "").strip()
+                if text and f"r{i}_{lang}" in names:
+                    me = me_voice(letter)
+                    save(os.path.join(base, f"r{i}_{lang}.m4a"), speak(text, lang, presets["calm"], who=me[0], rate=me[1])[0], me[2])
+            if any(n.startswith("ph") and n.endswith("_" + lang) for n in names):
+                d = json.load(open(f"data/{series}/daily{'' if lang == book['original'] else '_' + lang}.json",
+                                   encoding="utf-8"))["letters"].get(letter["id"]) or {}
+                for i, ph in enumerate(d.get("phrases", []), 1):
+                    if f"ph{i}_{lang}" in names:
+                        save(os.path.join(base, f"ph{i}_{lang}.m4a"), speak(ph["t"], lang, presets["calm"])[0], 1.0)
     for lang in langs:
         # 그림 속 산책의 낱말 (s<k>): 낱말 발음과 같은 방식
         for k, sp in enumerate([] if PICK is not None else (letter.get("plate") or {}).get("spots", []), 1):

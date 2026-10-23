@@ -31,7 +31,7 @@ on:
         type: string
         default: ""
       messages:
-        description: "make=messages: 띄어쓰기로 나눈 <작품>/<편지 id>/m<번호>_<언어> 또는 회화 줄 t<줄>_<언어> (예: mozart/c1-l2/m4_en napoleon/c7-l3/t3_ko)"
+        description: "make=messages: 띄어쓰기로 나눈 <작품>/<편지 id>/m<번호>_<언어> · 회화 줄 t<줄>_<언어> · 답장 r<턴>_<언어> · 표현 ph<번호>_<언어>, 기초 낱말은 <작품>/basics/bx_<언어>_<id> (예: mozart/c1-l2/m4_en napoleon/c7-l3/t3_ko goya/c2-l2/r1_ko)"
         type: string
         default: ""
 
@@ -61,7 +61,7 @@ jobs:
           if only and '${{ matrix.series }}' not in only: print(0); raise SystemExit
           if os.environ['MAKE'] != 'messages': print(1); raise SystemExit
           b = json.load(open('$f')); ids = {l['id'] for l in b['letters']}
-          print(int(any(x.split('/')[0] == b['series'] and x.split('/')[1] in ids for x in os.environ['MSGS'].split())))")
+          print(int(any(x.split('/')[0] == b['series'] and (x.split('/')[1] in ids or (x.split('/')[1] == 'basics' and '$f'.endswith('/prologue.json'))) for x in os.environ['MSGS'].split())))")
           echo "go=$go" >> "$GITHUB_OUTPUT"; echo "go=$go"
       - uses: actions/setup-python@v5
         if: steps.want.outputs.go == '1'
