@@ -254,6 +254,7 @@
     <string name="shadow_tap">Tap the microphone and read the sentence.</string>
     <string name="shadow_recording">Listening… tap again when you\'ve finished.</string>
     <string name="shadow_check">Compare the original with your voice, then go on.</string>
+    <string name="orig_spelling">Original spelling</string>
     <string name="shadow_orig">Original</string>
     <string name="shadow_mine">My voice</string>
     <string name="shadow_talk">Speak</string>

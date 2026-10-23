@@ -1,0 +1,59 @@
+{
+ "_doc": "이번 장의 소리: 장마다 소리 짝 하나. checked=false 는 사람 확인 전. 지금은 I장만 (다른 장은 그 장 데이터와 함께).",
+ "lang": "ko",
+ "checked": false,
+ "chapters": {
+  "I": {
+   "name": {
+    "en": "ㄱ, ㄲ and ㅋ"
+   },
+   "tip": {
+    "en": "ㄱ soft and relaxed, ㄲ tense with no breath, ㅋ with a strong puff of air"
+   },
+   "pairs": [
+    [
+     "굴",
+     "꿀"
+    ],
+    [
+     "개",
+     "깨"
+    ],
+    [
+     "공",
+     "콩"
+    ],
+    [
+     "끄다",
+     "크다"
+    ]
+   ],
+   "mean": {
+    "굴": {
+     "en": "oyster"
+    },
+    "꿀": {
+     "en": "honey"
+    },
+    "개": {
+     "en": "dog"
+    },
+    "깨": {
+     "en": "sesame"
+    },
+    "공": {
+     "en": "ball"
+    },
+    "콩": {
+     "en": "bean"
+    },
+    "끄다": {
+     "en": "to turn off"
+    },
+    "크다": {
+     "en": "to be big"
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,1073 @@
+{
+ "_doc": "Goya · prologue: four docent cards, each voiced by one line from a later letter. Spanish = modern spelling (accents, b/v, h, x/j, joined words; no rewording and no change of word order), each message keeps the text as printed in the public-domain edition in orig.es (shown in the app as an optional ‘original spelling’ line). Editors' interjections are removed; nothing is taken from the 1981/82 or 2003 editions or their notes. verified=false: checked against the archive.org full text, a last check against the page images is still to do. en · ko translated from the Spanish for this app. Replies and talks are written by this app, not by the recipients.",
+ "series": "goya",
+ "chapter": "P",
+ "title_es": "Desde Fuendetodos",
+ "title_en": "From Fuendetodos",
+ "title_ko": "푸엔데토도스에서",
+ "original": "es",
+ "letters": [
+  {
+   "id": "p1",
+   "date": "1746-03-30",
+   "dateNote": "The date is his birth at Fuendetodos (30 March 1746; baptism record printed in Beruete 1916, p. 3), the start of the period this card covers. The words come from a later letter to Martín Zapater, 9 January 1779 (Beruete 1916, p. 10).",
+   "ref": "Beruete 1916, p. 10 · A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 10 · public domain · https://archive.org/details/AV192",
+   "place": "Fuendetodos",
+   "mood": "tender",
+   "docent": {
+    "period": "1746–1759",
+    "caps": "PRÓLOGO · I · 1746–1759",
+    "heading": {
+     "ko": "메마른 마을의 아이",
+     "en": "A child of a dry village",
+     "es": "Un niño de un pueblo seco"
+    },
+    "sub": "Fuendetodos · Zaragoza",
+    "body": {
+     "ko": "1746년 3월 30일, 아라곤의 메마른 산골 마을 푸엔데토도스에서 태어났어요. 아버지 호세는 사라고사의 도금 장인이었고, 마을에는 어머니 그라시아 루시엔테스의 집안이 있었어요. 어린 시절은 사라고사에서 보냈어요. 어른이 된 고야는 어릴 적 친구 마르틴에게 쓴 편지마다 ‘작은 밭과 좋은 삶’을 꿈꿨어요.",
+     "en": "He was born on 30 March 1746 in Fuendetodos, a dry hill village in Aragon. His father José was a master gilder in Zaragoza; his mother Gracia Lucientes came from a family of the village. He grew up in Zaragoza. As a grown man, in letter after letter to his childhood friend Martín, Goya dreamed of ‘a few little fields and a good life’."
+    },
+    "source": {
+     "ko": "훗날 마드리드에서 마르틴에게 · 1779년 1월 9일",
+     "en": "Years later, to Martín from Madrid · 9 January 1779"
+    }
+   },
+   "messages": [
+    {
+     "es": "Pero, chiquío, campicos y buena vida: nadie me sacará de esta opinión.",
+     "en": "But, my boy, a few little fields and a good life: no one will talk me out of that.",
+     "ko": "그래도 친구야, 작은 밭 몇 뙈기에 좋은 삶이면 돼. 누구도 내 이 생각은 못 바꿔.",
+     "orig": {
+      "es": "Pero chiquio campicos y buena vida, nadie me sacará de esta opinión"
+     },
+     "verified": false,
+     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 10 · public domain · https://archive.org/details/AV192",
+     "speak": {
+      "es": "Pero, / chiquío, / campicos y buena vida: // nadie me sacará de esta opinión.",
+      "en": "But, / my boy, / a few little fields and a good life: // no one will talk me out of that.",
+      "ko": "그래도 친구야, / 작은 밭 몇 뙈기에 좋은 삶이면 돼. // 누구도 내 이 생각은 못 바꿔."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "‘캄피코스(campicos)’는 ‘작은 밭’을 귀엽게 부르는 아라곤 말투예요. ‘치키오(chiquío)’는 ‘얘야, 이 친구야’ 하고 다정하게 부르는 말이에요.",
+    "en": "‘Campicos’ is an affectionate Aragonese way of saying ‘little fields’; ‘chiquío’ is a fond ‘my boy, my friend’.",
+    "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 10 · public domain · https://archive.org/details/AV192 ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "La era o El verano",
+    "title_en": "The Threshing Floor, or Summer",
+    "title_ko": "타작마당 (여름)",
+    "date": "1786–1787",
+    "credit": "Francisco de Goya",
+    "collection": "Museo del Prado, Madrid",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:La_era.jpg",
+    "commonsFile": "File:La era.jpg",
+    "image": "g-p1.webp",
+    "kind": "place",
+    "why": {
+     "ko": "훗날 고야가 왕궁 태피스트리 밑그림으로 그린 아라곤 같은 들판의 여름이에요. 편지 속 ‘작은 밭과 좋은 삶’이 이런 모습이었을 거예요.",
+     "en": "A summer harvest Goya later painted as a tapestry cartoon for the royal palace: the kind of fields he means by ‘a few little fields and a good life’."
+    },
+    "spots": []
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Nace Francisco de Goya · Fuendetodos, 30 de marzo de 1746",
+      "en": "Francisco de Goya is born · Fuendetodos, 30 March 1746",
+      "ko": "프란시스코 데 고야가 태어나요 · 1746년 3월 30일, 푸엔데토도스"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "fuendetodos",
+     "title": {
+      "es": "Fuendetodos",
+      "en": "Fuendetodos",
+      "ko": "푸엔데토도스"
+     },
+     "address": "Aragón"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "gm-p1.webp",
+     "caption": {
+      "es": "La vendimia, cartón de Goya (1786)",
+      "en": "The Grape Harvest, a cartoon by Goya (1786)",
+      "ko": "포도 수확, 고야의 밑그림 (1786)"
+     },
+     "credit": "La vendimia o El otoño, 1786 · Francisco de Goya · Museo del Prado · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Francisco_de_Goya_-_La_vendimia_o_El_Oto%C3%B1o_(1786).jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "1746–1759",
+    "en": "1746–1759",
+    "ko": "1746–1759"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Qué quiere Goya?",
+      "en": "What does Goya want?",
+      "ko": "고야는 무엇을 원해요?"
+     },
+     "options": [
+      {
+       "es": "Campos y buena vida",
+       "en": "Fields and a good life",
+       "ko": "작은 밭과 좋은 삶"
+      },
+      {
+       "es": "Mucho dinero",
+       "en": "A lot of money",
+       "ko": "많은 돈"
+      },
+      {
+       "es": "Una casa en Madrid",
+       "en": "A house in Madrid",
+       "ko": "마드리드의 집"
+      },
+      {
+       "es": "Ser rey",
+       "en": "To be king",
+       "ko": "왕이 되는 것"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "es": "campicos y buena vida",
+      "en": "a few little fields and a good life",
+      "ko": "좋은 삶"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "사라고사의 골목, 어린 프란시스코와 · 나는 친구 마르틴",
+     "en": "A street in Zaragoza, with young Francisco · I'm his friend Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "¡Hola, Martín! Soy Francisco.",
+      "en": "Hi, Martín! I'm Francisco.",
+      "ko": "안녕, 마르틴! 나 프란시스코야."
+     },
+     {
+      "who": "me",
+      "es": "¡Hola, Francisco! ¿Qué tal?",
+      "en": "Hi, Francisco! How are you?",
+      "ko": "안녕, 프란시스코! 잘 지내?",
+      "focus": {
+       "es": [
+        "Qué tal"
+       ],
+       "en": [
+        "How are you"
+       ],
+       "ko": [
+        "잘 지내"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Qué tan",
+         "Cuál tal"
+        ]
+       ],
+       "en": [
+        [
+         "How you are",
+         "How is you"
+        ]
+       ],
+       "ko": [
+        [
+         "잘 지네",
+         "잘 지나"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Bien. Quiero campos y buena vida.",
+      "en": "Good. I want fields and a good life.",
+      "ko": "좋아. 난 밭이랑 좋은 삶을 원해."
+     },
+     {
+      "who": "me",
+      "es": "Yo también. Soy tu amigo.",
+      "en": "Me too. I'm your friend.",
+      "ko": "나도. 난 네 친구야.",
+      "focus": {
+       "es": [
+        "Soy"
+       ],
+       "en": [
+        "I'm"
+       ],
+       "ko": [
+        "친구야"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Es",
+         "Eres"
+        ]
+       ],
+       "en": [
+        [
+         "I is",
+         "I are"
+        ]
+       ],
+       "ko": [
+        [
+         "친구아",
+         "친구여"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "vida"
+    ],
+    "grammar": "I.0",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "tu amigo",
+      "en": "your friend",
+      "ko": "네 친구야"
+     },
+     "opts": [
+      {
+       "es": "de Zaragoza",
+       "en": "from Zaragoza",
+       "ko": "사라고사 사람이야"
+      },
+      {
+       "es": "pintor",
+       "en": "a painter",
+       "ko": "화가야"
+      },
+      {
+       "es": "estudiante",
+       "en": "a student",
+       "ko": "학생이야"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "p2",
+   "date": "1760",
+   "dateNote": "About 1760: his school years at the Escuelas Pías in Zaragoza, where he met Martín Zapater (approximate). The words come from a later letter to Martín, 28 November 1787 (Zapater y Gómez, p. 23).",
+   "ref": "Zapater y Gómez, p. 23 · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 23 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+   "place": "Zaragoza",
+   "mood": "tender",
+   "docent": {
+    "period": "1760–1769",
+    "caps": "PRÓLOGO · II · 1760–1769",
+    "heading": {
+     "ko": "학교 친구 마르틴",
+     "en": "Martín, his school friend",
+     "es": "Martín, el amigo de la escuela"
+    },
+    "sub": "Zaragoza · Madrid",
+    "body": {
+     "ko": "사라고사의 에스쿠엘라스 피아스(피아리스트 수도회 학교)에서 글을 배웠어요. 그곳에서 평생의 벗 마르틴 사파테르를 만났어요. 열서너 살 무렵부터 화가 호세 루산의 화실에서 그림을 배웠고, 마드리드 왕립 아카데미의 장학 공모에는 1763년과 1766년 두 번 떨어졌어요.",
+     "en": "He learned his letters at the Escuelas Pías, the Piarist school in Zaragoza, and there met his lifelong friend Martín Zapater. From the age of about thirteen he trained in the studio of the painter José Luzán; he twice failed the Royal Academy's scholarship competitions in Madrid, in 1763 and 1766."
+    },
+    "source": {
+     "ko": "훗날 마드리드에서 마르틴에게 · 1787년 11월 28일",
+     "en": "Years later, to Martín from Madrid · 28 November 1787"
+    }
+   },
+   "messages": [
+    {
+     "es": "…tal vez tú te conservarás como en la escuela del P. Joaquín.",
+     "en": "…perhaps you are still just as you were at Father Joaquín's school.",
+     "ko": "…너는 아마 호아킨 신부님 학교에 다니던 그때 그대로겠지.",
+     "orig": {
+      "es": "tal bez tu te conserbaras como en la escuela del P. Joaquín"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 23 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "…tal vez tú te conservarás como en la escuela del P. Joaquín.",
+      "en": "…perhaps you are still just as you were at Father Joaquín's school.",
+      "ko": "…너는 아마 호아킨 신부님 학교에 다니던 그때 그대로겠지."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "마흔한 살의 고야가 ‘나는 주름투성이 늙은이가 됐는데, 너는 학교 때 그대로겠지’ 하고 농담하던 편지의 끝 구절이에요. P.는 신부님(Padre)의 줄임이에요.",
+    "en": "The end of a letter in which Goya, at forty-one, jokes that he has grown old and wrinkled while Martín must be just as he was at school. ‘P.’ stands for Padre, Father.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 23 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Martín Zapater",
+    "title_en": "Martín Zapater",
+    "title_ko": "마르틴 사파테르",
+    "date": "1797",
+    "credit": "Francisco de Goya",
+    "collection": "Museo de Bellas Artes de Bilbao",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Francisco_de_Goya_-_Portrait_of_Martín_Zapater_-_Google_Art_Project.jpg",
+    "commonsFile": "File:Francisco de Goya - Portrait of Martín Zapater - Google Art Project.jpg",
+    "image": "g-p2.webp",
+    "kind": "portrait",
+    "why": {
+     "ko": "고야가 쉰한 살에 그린 친구 마르틴의 초상이에요. 이 편지들을 받은 사람이에요.",
+     "en": "Goya's portrait of his friend Martín, painted when Goya was fifty-one: the man who received these letters."
+    },
+    "spots": []
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "location",
+     "place": "zaragoza",
+     "title": {
+      "es": "Zaragoza",
+      "en": "Zaragoza",
+      "ko": "사라고사"
+     },
+     "address": "Aragón, a orillas del Ebro"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "gm-p2.webp",
+     "caption": {
+      "es": "Vista de Zaragoza en 1647",
+      "en": "View of Zaragoza in 1647",
+      "ko": "1647년의 사라고사"
+     },
+     "credit": "Vista de Zaragoza, 1647 · Juan Bautista Martínez del Mazo · Museo del Prado · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Juan_Bautista_Mart%C3%ADnez_del_Mazo_-_Vista_de_Zaragoza_en_1647,_Museo_del_Prado.jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "1760–1769",
+    "en": "1760–1769",
+    "ko": "1760–1769"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿De qué escuela habla Goya?",
+      "en": "Which school does Goya mention?",
+      "ko": "고야는 어느 학교 이야기를 해요?"
+     },
+     "options": [
+      {
+       "es": "La escuela del P. Joaquín",
+       "en": "Father Joaquín's school",
+       "ko": "호아킨 신부님의 학교"
+      },
+      {
+       "es": "La Academia de Madrid",
+       "en": "The Madrid Academy",
+       "ko": "마드리드 아카데미"
+      },
+      {
+       "es": "Una escuela de música",
+       "en": "A music school",
+       "ko": "음악 학교"
+      },
+      {
+       "es": "Una escuela de Italia",
+       "en": "A school in Italy",
+       "ko": "이탈리아의 학교"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "es": "la escuela del P. Joaquín",
+      "en": "Father Joaquín's school",
+      "ko": "호아킨 신부님 학교"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "사라고사의 학교, 첫날 · 나는 마르틴",
+     "en": "School in Zaragoza, the first day · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "Hola. Me llamo Francisco Goya.",
+      "en": "Hello. My name is Francisco Goya.",
+      "ko": "안녕. 내 이름은 프란시스코 고야야."
+     },
+     {
+      "who": "me",
+      "es": "Me llamo Martín. Encantado.",
+      "en": "My name's Martín. Nice to meet you.",
+      "ko": "난 마르틴이야. 반가워.",
+      "focus": {
+       "es": [
+        "Me llamo"
+       ],
+       "en": [
+        "My name's"
+       ],
+       "ko": [
+        "반가워"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Me llama",
+         "Te llamo"
+        ]
+       ],
+       "en": [
+        [
+         "My name",
+         "Me name's"
+        ]
+       ],
+       "ko": [
+        [
+         "반가와",
+         "방가워"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "¿Eres de Zaragoza?",
+      "en": "Are you from Zaragoza?",
+      "ko": "넌 사라고사 사람이야?"
+     },
+     {
+      "who": "me",
+      "es": "Sí, soy de Zaragoza. ¿Y tú?",
+      "en": "Yes, I'm from Zaragoza. And you?",
+      "ko": "응, 사라고사 사람이야. 너는?",
+      "focus": {
+       "es": [
+        "soy de"
+       ],
+       "en": [
+        "I'm from"
+       ],
+       "ko": [
+        "너는"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "estoy de",
+         "eres de"
+        ]
+       ],
+       "en": [
+        [
+         "I from",
+         "I'm of"
+        ]
+       ],
+       "ko": [
+        [
+         "너가",
+         "넌는"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "escuela"
+    ],
+    "grammar": "I.0",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "Zaragoza",
+      "en": "Zaragoza",
+      "ko": "사라고사"
+     },
+     "opts": [
+      {
+       "es": "Seúl",
+       "en": "Seoul",
+       "ko": "서울"
+      },
+      {
+       "es": "Busan",
+       "en": "Busan",
+       "ko": "부산"
+      },
+      {
+       "es": "Madrid",
+       "en": "Madrid",
+       "ko": "마드리드"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "p3",
+   "date": "1771",
+   "dateNote": "1771: Italy and the competition of the Parma Academy (the month of his journey is not known). The words come from a later letter to Martín, 25 July 1781 (Zapater y Gómez, p. 9).",
+   "ref": "Zapater y Gómez, p. 9 · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 9 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+   "place": "Italia",
+   "mood": "bright",
+   "docent": {
+    "period": "1770–1771",
+    "caps": "PRÓLOGO · III · 1770–1771",
+    "heading": {
+     "ko": "알프스 너머 이탈리아",
+     "en": "Over the Alps to Italy",
+     "es": "Al otro lado de los Alpes"
+    },
+    "sub": "Roma · Parma · Zaragoza",
+    "body": {
+     "ko": "스물네 살 무렵 이탈리아로 건너가 그림을 공부했어요. 1771년 파르마 아카데미 공모전에 〈알프스에서 처음 이탈리아를 내려다보는 승리자 한니발〉을 냈고, 1등은 못 했지만 심사에서 좋은 평을 받았어요. 그해 사라고사로 돌아와 필라르 대성당의 작은 천장화를 맡았어요.",
+     "en": "At about twenty-four he went to Italy to study painting. In 1771 he sent ‘Hannibal the Conqueror Viewing Italy from the Alps’ to the competition of the Parma Academy; it did not win first prize but was praised by the jury. That year he returned to Zaragoza and was given a small ceiling to paint in the basilica of the Pilar."
+    },
+    "source": {
+     "ko": "훗날 마드리드에서 마르틴에게 · 1781년 7월 25일",
+     "en": "Years later, to Martín from Madrid · 25 July 1781"
+    }
+   },
+   "messages": [
+    {
+     "es": "…pues parece que Dios se ha acordado de mí.",
+     "en": "…for it seems that God has remembered me.",
+     "ko": "…하느님이 나를 기억해 주신 것 같아.",
+     "orig": {
+      "es": "pues parece que Dios se a acordado de mi"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 9 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "…pues parece que Dios se ha acordado de mí.",
+      "en": "…for it seems that God has remembered me.",
+      "ko": "…하느님이 나를 기억해 주신 것 같아."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "이 말은 열 해 뒤, 마드리드의 큰 성당 제단화를 맡게 되었을 때 쓴 편지의 한 구절이에요. 이탈리아에서 돌아온 젊은 화가에게 그런 날은 아직 멀었어요.",
+    "en": "These words come from a letter written ten years later, when he was chosen to paint an altarpiece for a great Madrid church; for the young painter just back from Italy, that day was still far off.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 9 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Aníbal vencedor contempla por primera vez Italia desde los Alpes",
+    "title_en": "Hannibal the Conqueror Viewing Italy from the Alps for the First Time",
+    "title_ko": "알프스에서 처음 이탈리아를 내려다보는 승리자 한니발",
+    "date": "1771",
+    "credit": "Francisco de Goya",
+    "collection": "Museo del Prado, Madrid",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:An%C3%ADbal_vencedor_que_por_primera_vez_mira_Italia_desde_los_Alpes_-_Francisco_Goya.jpg",
+    "commonsFile": "File:Aníbal vencedor que por primera vez mira Italia desde los Alpes - Francisco Goya.jpg",
+    "image": "g-p3.webp",
+    "kind": "painting",
+    "why": {
+     "ko": "고야가 파르마 공모전에 낸 바로 그 그림이에요.",
+     "en": "The very painting Goya sent to the Parma competition."
+    },
+    "spots": []
+   },
+   "moments": [
+    {
+     "after": 0,
+     "type": "location",
+     "place": "parma",
+     "title": {
+      "es": "Parma",
+      "en": "Parma",
+      "ko": "파르마"
+     },
+     "address": "Italia"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "gm-p3.webp",
+     "caption": {
+      "es": "La plaza de España de Roma, grabado de Piranesi",
+      "en": "The Piazza di Spagna in Rome, an etching by Piranesi",
+      "ko": "로마의 스페인 광장, 피라네시의 판화"
+     },
+     "credit": "Veduta di Piazza di Spagna, c. 1750 · Giovanni Battista Piranesi · The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:The_Piazza_di_Spagna_(Veduta_di_Piazza_di_Spagna)_MET_DP828311.jpg"
+    }
+   ],
+   "status": {
+    "es": "1770–1771",
+    "en": "1770–1771",
+    "ko": "1770–1771"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Quién se ha acordado de Goya?",
+      "en": "Who has remembered Goya?",
+      "ko": "누가 고야를 기억해 주었어요?"
+     },
+     "options": [
+      {
+       "es": "Dios",
+       "en": "God",
+       "ko": "하느님"
+      },
+      {
+       "es": "El Rey",
+       "en": "The King",
+       "ko": "왕"
+      },
+      {
+       "es": "Martín",
+       "en": "Martín",
+       "ko": "마르틴"
+      },
+      {
+       "es": "Su padre",
+       "en": "His father",
+       "ko": "아버지"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "es": "Dios",
+      "en": "God",
+      "ko": "하느님"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "이탈리아에서 돌아온 프란시스코와 · 나는 마르틴",
+     "en": "Francisco is back from Italy · I'm Martín"
+    },
+    "lines": [
+     {
+      "who": "them",
+      "es": "¡Martín! Ya estoy aquí.",
+      "en": "Martín! I'm back.",
+      "ko": "마르틴! 나 돌아왔어."
+     },
+     {
+      "who": "me",
+      "es": "¡Bienvenido! ¿Cómo estás?",
+      "en": "Welcome back! How are you?",
+      "ko": "잘 왔어! 어떻게 지내?",
+      "focus": {
+       "es": [
+        "Cómo estás"
+       ],
+       "en": [
+        "How are you"
+       ],
+       "ko": [
+        "어떻게 지내"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Cómo eres",
+         "Cómo estoy"
+        ]
+       ],
+       "en": [
+        [
+         "How is you",
+         "How you are"
+        ]
+       ],
+       "ko": [
+        [
+         "어떻게 지네",
+         "어떡게 지내"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Muy bien. Estoy muy contento.",
+      "en": "Very well. I'm very happy.",
+      "ko": "아주 좋아. 정말 기뻐."
+     },
+     {
+      "who": "me",
+      "es": "¡Qué bien! Estoy contento también.",
+      "en": "How nice! I'm happy too.",
+      "ko": "잘됐다! 나도 기뻐.",
+      "focus": {
+       "es": [
+        "Estoy contento"
+       ],
+       "en": [
+        "I'm happy"
+       ],
+       "ko": [
+        "나도 기뻐"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Soy contento",
+         "Está contento"
+        ]
+       ],
+       "en": [
+        [
+         "I happy",
+         "I'm happily"
+        ]
+       ],
+       "ko": [
+        [
+         "나도 기퍼",
+         "나도 기빠"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "Dios"
+    ],
+    "grammar": "I.0",
+    "mine": {
+     "line": 3,
+     "slot": {
+      "es": "contento",
+      "en": "happy",
+      "ko": "기뻐"
+     },
+     "opts": [
+      {
+       "es": "cansado",
+       "en": "tired",
+       "ko": "피곤해"
+      },
+      {
+       "es": "tranquilo",
+       "en": "calm",
+       "ko": "마음이 놓여"
+      },
+      {
+       "es": "sorprendido",
+       "en": "surprised",
+       "ko": "놀라워"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  },
+  {
+   "id": "p4",
+   "date": "1773-07-25",
+   "dateNote": "The date is his wedding to Josefa Bayeu in Madrid (25 July 1773). The words come from a later letter to Martín, 9 August 1780 (Zapater y Gómez, p. 11), the same sentence as chapter I, letter 7.",
+   "ref": "Zapater y Gómez, p. 11 · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 11 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+   "place": "Madrid",
+   "mood": "tender",
+   "docent": {
+    "period": "1773–1774",
+    "caps": "PRÓLOGO · IV · 1773–1774",
+    "heading": {
+     "ko": "호세파와 결혼하다",
+     "en": "Marrying Josefa",
+     "es": "La boda con Josefa"
+    },
+    "sub": "Madrid · Zaragoza",
+    "body": {
+     "ko": "1773년 7월 25일 마드리드에서, 궁정 화가 프란시스코 바예우의 누이동생 호세파 바예우와 결혼했어요. 바예우는 고야의 손위 처남이자 스승 같은 사람이 되었어요. 1774년 말 고야는 마드리드로 불려 가, 왕립 태피스트리 공장에서 짤 그림의 밑그림을 그리게 되었어요.",
+     "en": "On 25 July 1773, in Madrid, he married Josefa Bayeu, the younger sister of the court painter Francisco Bayeu, who became his brother-in-law and something of a master to him. At the end of 1774 Goya was called to Madrid to paint cartoons for the Royal Tapestry Factory."
+    },
+    "source": {
+     "ko": "훗날 마드리드에서 마르틴에게 · 1780년 8월 9일",
+     "en": "Years later, to Martín from Madrid · 9 August 1780"
+    }
+   },
+   "messages": [
+    {
+     "es": "Mi mujer te lo estima infinito.",
+     "en": "My wife is ever so grateful to you for it.",
+     "ko": "아내가 네게 무척 고마워해.",
+     "orig": {
+      "es": "Mi mujer te lo estima infinito"
+     },
+     "verified": false,
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 11 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "speak": {
+      "es": "Mi mujer te lo estima infinito.",
+      "en": "My wife is ever so grateful to you for it.",
+      "ko": "아내가 네게 무척 고마워해."
+     }
+    }
+   ],
+   "words": [],
+   "note": {
+    "ko": "고야는 편지에서 아내를 늘 ‘내 아내(mi mujer)’라고 불러요. 호세파가 마르틴에게 고마워한 일은 I장의 마지막 편지에 나와요.",
+    "en": "In his letters Goya always calls her ‘mi mujer’, my wife. What Josefa thanks Martín for comes in the last letter of chapter I.",
+    "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 11 · public domain · https://archive.org/details/goyanoticiasbibl00zapa ; image: see plate.imageSource"
+   },
+   "plate": {
+    "title_es": "Retrato de mujer, llamado Josefa Bayeu",
+    "title_en": "Portrait of a woman, said to be Josefa Bayeu",
+    "title_ko": "호세파 바예우로 전해지는 여인의 초상",
+    "date": "c. 1798 or 1814",
+    "credit": "Francisco de Goya",
+    "collection": "Museo del Prado, Madrid",
+    "imageLicense": "Public domain (PD-Art)",
+    "exception": "pd-art",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Josefa_Bayeu_Francisco_De_Goya_y_Lucientes.jpg",
+    "commonsFile": "File:Josefa Bayeu Francisco De Goya y Lucientes.jpg",
+    "image": "g-p4.webp",
+    "kind": "portrait",
+    "why": {
+     "ko": "오래 호세파의 초상으로 알려진 그림이에요. 누구를 그렸는지는 학자들 사이에 의견이 갈려요.",
+     "en": "Long known as a portrait of Josefa; who the sitter really is remains debated."
+    },
+    "spots": []
+   },
+   "moments": [
+    {
+     "after": -1,
+     "type": "notice",
+     "text": {
+      "es": "Boda en Madrid · 25 de julio de 1773",
+      "en": "A wedding in Madrid · 25 July 1773",
+      "ko": "마드리드에서 결혼 · 1773년 7월 25일"
+     }
+    },
+    {
+     "after": 0,
+     "type": "location",
+     "place": "madrid",
+     "title": {
+      "es": "Madrid",
+      "en": "Madrid",
+      "ko": "마드리드"
+     },
+     "address": "Madrid, 1773"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "gm-p4.webp",
+     "caption": {
+      "es": "Francisco Bayeu, el hermano de Josefa",
+      "en": "Francisco Bayeu, Josefa's brother",
+      "ko": "호세파의 오빠 프란시스코 바예우"
+     },
+     "credit": "Retrato de Francisco Bayeu, 1795 · Francisco de Goya · Museo del Prado · dominio público",
+     "source": "https://commons.wikimedia.org/wiki/File:Retrato_de_Francisco_Bayeu.jpg",
+     "exception": "pd-art"
+    }
+   ],
+   "status": {
+    "es": "1773–1774",
+    "en": "1773–1774",
+    "ko": "1773–1774"
+   },
+   "check": [
+    {
+     "q": {
+      "es": "¿Quién está agradecida a Martín?",
+      "en": "Who is grateful to Martín?",
+      "ko": "누가 마르틴에게 고마워해요?"
+     },
+     "options": [
+      {
+       "es": "La mujer de Goya",
+       "en": "Goya's wife",
+       "ko": "고야의 아내"
+      },
+      {
+       "es": "El Rey",
+       "en": "The King",
+       "ko": "왕"
+      },
+      {
+       "es": "Bayeu",
+       "en": "Bayeu",
+       "ko": "바예우"
+      },
+      {
+       "es": "La madre de Goya",
+       "en": "Goya's mother",
+       "ko": "고야의 어머니"
+      }
+     ],
+     "answer": 0,
+     "evidence": 0,
+     "mark": {
+      "es": "Mi mujer",
+      "en": "My wife",
+      "ko": "아내가"
+     }
+    }
+   ],
+   "talk": {
+    "scene": {
+     "ko": "결혼 무렵, 마드리드 · 나는 호세파",
+     "en": "Madrid, around the wedding · I'm Josefa"
+    },
+    "me": "Josefa",
+    "lines": [
+     {
+      "who": "them",
+      "es": "Buenos días, Pepa. ¿Qué tal?",
+      "en": "Good morning, Pepa. How are you?",
+      "ko": "잘 잤어, 페파? 기분 어때?"
+     },
+     {
+      "who": "me",
+      "es": "Bien, Francisco. Estoy muy feliz.",
+      "en": "Fine, Francisco. I'm very happy.",
+      "ko": "좋아, 프란시스코. 정말 행복해.",
+      "focus": {
+       "es": [
+        "Estoy"
+       ],
+       "en": [
+        "I'm"
+       ],
+       "ko": [
+        "행복해"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "Estás",
+         "Es"
+        ]
+       ],
+       "en": [
+        [
+         "I is",
+         "I are"
+        ]
+       ],
+       "ko": [
+        [
+         "행복헤",
+         "행복하"
+        ]
+       ]
+      }
+     },
+     {
+      "who": "them",
+      "es": "Tu hermano es mi maestro.",
+      "en": "Your brother is my teacher.",
+      "ko": "네 오빠는 내 스승이야."
+     },
+     {
+      "who": "me",
+      "es": "Sí. Y tú eres mi marido.",
+      "en": "Yes. And you're my husband.",
+      "ko": "응. 그리고 넌 내 남편이야.",
+      "focus": {
+       "es": [
+        "eres"
+       ],
+       "en": [
+        "you're"
+       ],
+       "ko": [
+        "남편이야"
+       ]
+      },
+      "wrong": {
+       "es": [
+        [
+         "es",
+         "soy"
+        ]
+       ],
+       "en": [
+        [
+         "you is",
+         "you am"
+        ]
+       ],
+       "ko": [
+        [
+         "남편이아",
+         "남편야"
+        ]
+       ]
+      }
+     }
+    ],
+    "words": [
+     "mujer"
+    ],
+    "grammar": "I.0",
+    "mine": {
+     "line": 1,
+     "slot": {
+      "es": "muy feliz",
+      "en": "very happy",
+      "ko": "정말 행복해"
+     },
+     "opts": [
+      {
+       "es": "muy contenta",
+       "en": "very glad",
+       "ko": "정말 기뻐"
+      },
+      {
+       "es": "un poco cansada",
+       "en": "a little tired",
+       "ko": "조금 피곤해"
+      },
+      {
+       "es": "muy bien",
+       "en": "very well",
+       "ko": "아주 좋아"
+      }
+     ]
+    },
+    "audio": "t"
+   }
+  }
+ ]
+}

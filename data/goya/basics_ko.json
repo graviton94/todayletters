@@ -1,0 +1,1154 @@
+{
+ "_doc": "기초 낱말 덱: 많이 쓰는 표제어 300 (top, data/lexicon/<말>_freq.tsv) 가운데 카드 · 닻이 안 다루는 것. scripts/basics.py 후보를 골라 다듬음 (시대에 안 맞는 말 · 거친 말은 뺌). 예문은 편지 · 회화 · 답장에서 (from = 편지 id), 없으면 앱이 쓴 짧은 문장 (from = null). checked=false 는 사람 확인 전.",
+ "lang": "ko",
+ "checked": false,
+ "top": [
+  "나",
+  "그",
+  "안",
+  "수",
+  "이",
+  "네",
+  "거",
+  "좀",
+  "그래",
+  "있다",
+  "왜",
+  "더",
+  "그리고",
+  "우리",
+  "다",
+  "무슨",
+  "한",
+  "하지만",
+  "잘",
+  "어떻다",
+  "하다",
+  "그냥",
+  "정말",
+  "그렇다",
+  "것",
+  "여기",
+  "너",
+  "저",
+  "날",
+  "이제",
+  "지금",
+  "그것",
+  "걸",
+  "아니",
+  "없다",
+  "되다",
+  "못",
+  "좋다",
+  "당신",
+  "다른",
+  "그런",
+  "그거",
+  "너무",
+  "그래서",
+  "다시",
+  "이거",
+  "이런",
+  "모든",
+  "아",
+  "오",
+  "때",
+  "아냐",
+  "아니다",
+  "알다",
+  "같이",
+  "응",
+  "이것",
+  "괜찮다",
+  "오늘",
+  "말",
+  "줄",
+  "또",
+  "누구",
+  "어떤",
+  "아주",
+  "아직",
+  "안되다",
+  "진짜",
+  "모두",
+  "마",
+  "같다",
+  "어서",
+  "위하다",
+  "일",
+  "엄마",
+  "바로",
+  "가",
+  "근데",
+  "이렇다",
+  "빨리",
+  "전",
+  "어",
+  "아뇨",
+  "계속",
+  "닥터",
+  "얼마나",
+  "않다",
+  "제발",
+  "어디",
+  "사람",
+  "안녕",
+  "자",
+  "두",
+  "때문",
+  "대하다",
+  "아빠",
+  "몇",
+  "뭐",
+  "수도",
+  "많이",
+  "집",
+  "거지",
+  "음",
+  "함께",
+  "만약",
+  "하나",
+  "저기",
+  "고맙다",
+  "항상",
+  "잠깐",
+  "가다",
+  "가장",
+  "맞다",
+  "보다",
+  "와",
+  "아무",
+  "안녕하다",
+  "모르다",
+  "많다",
+  "아무것",
+  "그러니까",
+  "크다",
+  "그만",
+  "젠장",
+  "그러다",
+  "이미",
+  "야",
+  "오다",
+  "이보다",
+  "그런데",
+  "세상에",
+  "예",
+  "절대",
+  "말다",
+  "당장",
+  "그래도",
+  "거기",
+  "전부",
+  "둘",
+  "그녀",
+  "니",
+  "갈",
+  "자기",
+  "가지다",
+  "참",
+  "미안하다",
+  "감사하다",
+  "씨",
+  "곧",
+  "아마",
+  "얘기",
+  "꼭",
+  "중",
+  "시간",
+  "먼저",
+  "방금",
+  "완전",
+  "동안",
+  "싶다",
+  "친구",
+  "듣다",
+  "번",
+  "자네",
+  "사실",
+  "한번",
+  "대체",
+  "생각하다",
+  "볼",
+  "혼자",
+  "절",
+  "선생님",
+  "문제",
+  "다음",
+  "물론",
+  "거의",
+  "그러면",
+  "순",
+  "이리",
+  "맙소사",
+  "내일",
+  "싫다",
+  "중요하다",
+  "말하다",
+  "이상",
+  "새",
+  "적",
+  "전혀",
+  "여자",
+  "새롭다",
+  "너희",
+  "나오다",
+  "알",
+  "원하다",
+  "돈",
+  "필요",
+  "도움",
+  "작다",
+  "혹시",
+  "나쁘다",
+  "죄송하다",
+  "밖",
+  "직접",
+  "필요하다",
+  "아니요",
+  "갖다",
+  "주다",
+  "없이",
+  "나중",
+  "아버지",
+  "차",
+  "언제",
+  "그저",
+  "생각",
+  "마지막",
+  "왜냐면",
+  "엄청",
+  "오래",
+  "기다리다",
+  "제일",
+  "지나다",
+  "죽다",
+  "제대로",
+  "짓",
+  "남자",
+  "너가다",
+  "보이다",
+  "여러분",
+  "완전히",
+  "밤",
+  "소리",
+  "벌써",
+  "올",
+  "처음",
+  "멋지다",
+  "정말로",
+  "이름",
+  "여보",
+  "조금",
+  "여보세요",
+  "서로",
+  "죽",
+  "첫",
+  "매우",
+  "사랑하다",
+  "단지",
+  "나가다",
+  "뿐",
+  "미안",
+  "확실히",
+  "살",
+  "당연히",
+  "데리다",
+  "후",
+  "글쎄",
+  "별로",
+  "라",
+  "여전히",
+  "딱",
+  "이야기",
+  "부인",
+  "문",
+  "훨씬",
+  "망하다",
+  "손",
+  "수술",
+  "어쩌면",
+  "어느",
+  "아마도",
+  "준비",
+  "전화",
+  "뒤",
+  "도대체",
+  "최고",
+  "세",
+  "유일하다",
+  "갑자기",
+  "어쨌든",
+  "이번",
+  "뭐하다",
+  "지",
+  "신경",
+  "그만하다",
+  "늘",
+  "분명히",
+  "존",
+  "일단",
+  "걱정",
+  "매일",
+  "아침",
+  "대신",
+  "마치",
+  "두다",
+  "금방",
+  "사",
+  "좋아하다",
+  "찾다",
+  "맘",
+  "결국",
+  "이유",
+  "그때"
+ ],
+ "items": [
+  {
+   "id": "f627dfb9",
+   "w": "나",
+   "pos": "pron",
+   "mean": {
+    "en": "I, me"
+   },
+   "ex": {
+    "t": "나도. 난 네 친구야.",
+    "en": "Me too. I'm your friend.",
+    "from": "p1"
+   }
+  },
+  {
+   "id": "b4573a75",
+   "w": "그",
+   "pos": "det",
+   "mean": {
+    "en": "that; he"
+   },
+   "ex": {
+    "t": "그 집은 쓸쓸해.",
+    "en": "That house is dreary.",
+    "from": null
+   }
+  },
+  {
+   "id": "e694ccdc",
+   "w": "안",
+   "pos": "adv",
+   "mean": {
+    "en": "not (before a verb)"
+   },
+   "ex": {
+    "t": "오늘은 안 바빠.",
+    "en": "I'm not busy today.",
+    "from": null
+   }
+  },
+  {
+   "id": "f72045d5",
+   "w": "이",
+   "pos": "det",
+   "mean": {
+    "en": "this"
+   },
+   "ex": {
+    "t": "이 그림은 네 거야.",
+    "en": "This picture is for you.",
+    "from": null
+   }
+  },
+  {
+   "id": "a7fa0337",
+   "w": "왜",
+   "pos": "adv",
+   "mean": {
+    "en": "why"
+   },
+   "ex": {
+    "t": "왜? 무슨 일이야?",
+    "en": "Why? What's happening?",
+    "from": "c1-l5"
+   }
+  },
+  {
+   "id": "c07aba5e",
+   "w": "그리고",
+   "pos": "conj",
+   "mean": {
+    "en": "and"
+   },
+   "ex": {
+    "t": "응. 그리고 넌 내 남편이야.",
+    "en": "Yes. And you're my husband.",
+    "from": "p4"
+   }
+  },
+  {
+   "id": "97434367",
+   "w": "우리",
+   "pos": "pron",
+   "mean": {
+    "en": "we, our"
+   },
+   "ex": {
+    "t": "우리는 같은 학교에 다녔어.",
+    "en": "We went to the same school.",
+    "from": null
+   }
+  },
+  {
+   "id": "2c4b49d9",
+   "w": "무슨",
+   "pos": "det",
+   "mean": {
+    "en": "what, what kind of"
+   },
+   "ex": {
+    "t": "왜? 무슨 일이야?",
+    "en": "Why? What's happening?",
+    "from": null
+   }
+  },
+  {
+   "id": "ea73bac7",
+   "w": "하지만",
+   "pos": "conj",
+   "mean": {
+    "en": "but"
+   },
+   "ex": {
+    "t": "하지만 시간이 없어.",
+    "en": "But I have no time.",
+    "from": null
+   }
+  },
+  {
+   "id": "42137e04",
+   "w": "잘",
+   "pos": "adv",
+   "mean": {
+    "en": "well"
+   },
+   "ex": {
+    "t": "안녕, 프란시스코! 잘 지내?",
+    "en": "Hi, Francisco! How are you?",
+    "from": "p1"
+   }
+  },
+  {
+   "id": "60c53595",
+   "w": "정말",
+   "pos": "adv",
+   "mean": {
+    "en": "really"
+   },
+   "ex": {
+    "t": "마르틴! 오늘 정말 기뻐.",
+    "en": "Martín! Today I'm very happy.",
+    "from": "c1-l5"
+   }
+  },
+  {
+   "id": "de35e773",
+   "w": "여기",
+   "pos": "pron",
+   "mean": {
+    "en": "here"
+   },
+   "ex": {
+    "t": "여기 있어요. 아주 아름다운 그림이에요.",
+    "en": "Here it is. It's a very beautiful picture.",
+    "from": "c1-l3"
+   }
+  },
+  {
+   "id": "3b9a3858",
+   "w": "지금",
+   "pos": "adv",
+   "mean": {
+    "en": "now"
+   },
+   "ex": {
+    "t": "지금 마드리드에 있어.",
+    "en": "I'm in Madrid now.",
+    "from": null
+   }
+  },
+  {
+   "id": "fab4640d",
+   "w": "아니",
+   "pos": "interj",
+   "mean": {
+    "en": "no (casual)"
+   },
+   "ex": {
+    "t": "아니, 괜찮아.",
+    "en": "No, it's fine.",
+    "from": null
+   }
+  },
+  {
+   "id": "dee78c41",
+   "w": "못",
+   "pos": "adv",
+   "mean": {
+    "en": "cannot"
+   },
+   "ex": {
+    "t": "오늘은 못 가.",
+    "en": "I can't go today.",
+    "from": null
+   }
+  },
+  {
+   "id": "7ed0ef67",
+   "w": "다른",
+   "pos": "det",
+   "mean": {
+    "en": "other, another"
+   },
+   "ex": {
+    "t": "그럼 다른 집을 찾아볼게.",
+    "en": "Then I'll look for another house.",
+    "from": "c1-l7"
+   }
+  },
+  {
+   "id": "797c49f6",
+   "w": "너무",
+   "pos": "adv",
+   "mean": {
+    "en": "too, so"
+   },
+   "ex": {
+    "t": "너무 바빠.",
+    "en": "I'm too busy.",
+    "from": null
+   }
+  },
+  {
+   "id": "b9c92a19",
+   "w": "그래서",
+   "pos": "conj",
+   "mean": {
+    "en": "so, therefore"
+   },
+   "ex": {
+    "t": "그래서 편지를 늦게 써.",
+    "en": "So I'm writing late.",
+    "from": null
+   }
+  },
+  {
+   "id": "1c6fa1cd",
+   "w": "모든",
+   "pos": "det",
+   "mean": {
+    "en": "all, every"
+   },
+   "ex": {
+    "t": "모든 그림이 좋아.",
+    "en": "All the pictures are good.",
+    "from": null
+   }
+  },
+  {
+   "id": "6bbae438",
+   "w": "같이",
+   "pos": "adv",
+   "mean": {
+    "en": "together"
+   },
+   "ex": {
+    "t": "같이 가자.",
+    "en": "Let's go together.",
+    "from": null
+   }
+  },
+  {
+   "id": "74b41352",
+   "w": "응",
+   "pos": "interj",
+   "mean": {
+    "en": "yes, yeah (casual)"
+   },
+   "ex": {
+    "t": "응, 사라고사 사람이야. 너는?",
+    "en": "Yes, I'm from Zaragoza. And you?",
+    "from": "p2"
+   }
+  },
+  {
+   "id": "4893a7d0",
+   "w": "괜찮다",
+   "pos": "adj",
+   "mean": {
+    "en": "to be all right"
+   },
+   "ex": {
+    "t": "아니, 괜찮아.",
+    "en": "No, it's fine.",
+    "from": null
+   }
+  },
+  {
+   "id": "03954269",
+   "w": "오늘",
+   "pos": "n",
+   "mean": {
+    "en": "today"
+   },
+   "ex": {
+    "t": "오늘은 어때?",
+    "en": "How are you today?",
+    "from": null
+   }
+  },
+  {
+   "id": "162f3042",
+   "w": "또",
+   "pos": "adv",
+   "mean": {
+    "en": "again, also"
+   },
+   "ex": {
+    "t": "또 편지 쓸게.",
+    "en": "I'll write again.",
+    "from": null
+   }
+  },
+  {
+   "id": "53a123bf",
+   "w": "누구",
+   "pos": "pron",
+   "mean": {
+    "en": "who"
+   },
+   "ex": {
+    "t": "네 스승은 누구야?",
+    "en": "Who is your teacher?",
+    "from": null
+   }
+  },
+  {
+   "id": "509a4b4a",
+   "w": "아주",
+   "pos": "adv",
+   "mean": {
+    "en": "very"
+   },
+   "ex": {
+    "t": "아주 좋아. 정말 기뻐.",
+    "en": "Very well. I'm very happy.",
+    "from": "p3"
+   }
+  },
+  {
+   "id": "31f3b886",
+   "w": "아직",
+   "pos": "adv",
+   "mean": {
+    "en": "still, yet"
+   },
+   "ex": {
+    "t": "아직 집을 못 찾았어.",
+    "en": "I still haven't found a house.",
+    "from": null
+   }
+  },
+  {
+   "id": "3d824e9b",
+   "w": "엄마",
+   "pos": "n",
+   "mean": {
+    "en": "mum, mom"
+   },
+   "ex": {
+    "t": "엄마는 집에 계셔.",
+    "en": "Mum is at home.",
+    "from": null
+   }
+  },
+  {
+   "id": "ce879d53",
+   "w": "바로",
+   "pos": "adv",
+   "mean": {
+    "en": "right, directly"
+   },
+   "ex": {
+    "t": "바로 갈게.",
+    "en": "I'll come right away.",
+    "from": null
+   }
+  },
+  {
+   "id": "6950bcd6",
+   "w": "빨리",
+   "pos": "adv",
+   "mean": {
+    "en": "quickly"
+   },
+   "ex": {
+    "t": "빨리 와!",
+    "en": "Come quickly!",
+    "from": null
+   }
+  },
+  {
+   "id": "661edbc7",
+   "w": "계속",
+   "pos": "adv",
+   "mean": {
+    "en": "continuously, keep (doing)"
+   },
+   "ex": {
+    "t": "계속 그림을 그려.",
+    "en": "I keep painting.",
+    "from": null
+   }
+  },
+  {
+   "id": "0c4cf070",
+   "w": "어디",
+   "pos": "pron",
+   "mean": {
+    "en": "where"
+   },
+   "ex": {
+    "t": "네 집은 어디야?",
+    "en": "Where is your house?",
+    "from": null
+   }
+  },
+  {
+   "id": "d8d1d052",
+   "w": "안녕",
+   "pos": "interj",
+   "mean": {
+    "en": "hi; bye (casual)"
+   },
+   "ex": {
+    "t": "안녕, 마르틴! 나 마드리드에 있어.",
+    "en": "Hi, Martín! I'm in Madrid.",
+    "from": "c1-l1"
+   }
+  },
+  {
+   "id": "c80b67e5",
+   "w": "두",
+   "pos": "det",
+   "mean": {
+    "en": "two (before a counter)"
+   },
+   "ex": {
+    "t": "새 그림이 두 점 있어.",
+    "en": "I have two new pictures.",
+    "from": null
+   }
+  },
+  {
+   "id": "2e581a50",
+   "w": "몇",
+   "pos": "det",
+   "mean": {
+    "en": "how many; a few"
+   },
+   "ex": {
+    "t": "의자는 몇 개 필요해?",
+    "en": "How many chairs do you need?",
+    "from": null
+   }
+  },
+  {
+   "id": "f70a6ea1",
+   "w": "뭐",
+   "pos": "pron",
+   "mean": {
+    "en": "what (casual)"
+   },
+   "ex": {
+    "t": "집에 뭐가 필요해?",
+    "en": "What do you need in your house?",
+    "from": "c1-l6"
+   }
+  },
+  {
+   "id": "84e555b7",
+   "w": "함께",
+   "pos": "adv",
+   "mean": {
+    "en": "together"
+   },
+   "ex": {
+    "t": "우리는 함께 학교에 다녔어.",
+    "en": "We went to school together.",
+    "from": null
+   }
+  },
+  {
+   "id": "510712f1",
+   "w": "하나",
+   "pos": "num",
+   "mean": {
+    "en": "one"
+   },
+   "ex": {
+    "t": "탁자 하나랑 의자 다섯 개.",
+    "en": "A table and five chairs.",
+    "from": "c1-l6"
+   }
+  },
+  {
+   "id": "3e65db5b",
+   "w": "항상",
+   "pos": "adv",
+   "mean": {
+    "en": "always"
+   },
+   "ex": {
+    "t": "내 친구는 항상 편지를 써.",
+    "en": "My friend always writes to me.",
+    "from": null
+   }
+  },
+  {
+   "id": "2adb28eb",
+   "w": "가다",
+   "pos": "v",
+   "mean": {
+    "en": "to go"
+   },
+   "ex": {
+    "t": "내일 마드리드에 가.",
+    "en": "I'm going to Madrid tomorrow.",
+    "from": null
+   }
+  },
+  {
+   "id": "d242e4e0",
+   "w": "가장",
+   "pos": "adv",
+   "mean": {
+    "en": "most"
+   },
+   "ex": {
+    "t": "이게 가장 좋은 그림이야.",
+    "en": "This is the best picture.",
+    "from": null
+   }
+  },
+  {
+   "id": "62e7e783",
+   "w": "오다",
+   "pos": "v",
+   "mean": {
+    "en": "to come"
+   },
+   "ex": {
+    "t": "마르틴! 나 돌아왔어.",
+    "en": "Martín! I'm back.",
+    "from": "p3"
+   }
+  },
+  {
+   "id": "d5d5af14",
+   "w": "미안하다",
+   "pos": "adj",
+   "mean": {
+    "en": "to be sorry"
+   },
+   "ex": {
+    "t": "미안해. 그 집은 밝지 않구나.",
+    "en": "I'm sorry. The house isn't cheerful.",
+    "from": "c1-l7"
+   }
+  },
+  {
+   "id": "f3f6f0dc",
+   "w": "감사하다",
+   "pos": "v",
+   "mean": {
+    "en": "to thank, to be grateful"
+   },
+   "ex": {
+    "t": "정말 감사합니다.",
+    "en": "Thank you very much.",
+    "from": null
+   }
+  },
+  {
+   "id": "0b4f5882",
+   "w": "곧",
+   "pos": "adv",
+   "mean": {
+    "en": "soon"
+   },
+   "ex": {
+    "t": "곧 편지 써 줘.",
+    "en": "Write to me soon.",
+    "from": null
+   }
+  },
+  {
+   "id": "526092a8",
+   "w": "꼭",
+   "pos": "adv",
+   "mean": {
+    "en": "surely, by all means"
+   },
+   "ex": {
+    "t": "꼭 와야 해.",
+    "en": "You must come.",
+    "from": null
+   }
+  },
+  {
+   "id": "dbaa7ca7",
+   "w": "먼저",
+   "pos": "adv",
+   "mean": {
+    "en": "first"
+   },
+   "ex": {
+    "t": "먼저 가.",
+    "en": "You go first.",
+    "from": null
+   }
+  },
+  {
+   "id": "c69d96f8",
+   "w": "혼자",
+   "pos": "adv",
+   "mean": {
+    "en": "alone"
+   },
+   "ex": {
+    "t": "혼자 그림을 그려.",
+    "en": "I paint alone.",
+    "from": null
+   }
+  },
+  {
+   "id": "0cd278c6",
+   "w": "다음",
+   "pos": "n",
+   "mean": {
+    "en": "next"
+   },
+   "ex": {
+    "t": "다음 편지에 쓸게.",
+    "en": "I'll write it in my next letter.",
+    "from": null
+   }
+  },
+  {
+   "id": "00a446b7",
+   "w": "물론",
+   "pos": "adv",
+   "mean": {
+    "en": "of course"
+   },
+   "ex": {
+    "t": "물론이지!",
+    "en": "Of course!",
+    "from": null
+   }
+  },
+  {
+   "id": "56d64866",
+   "w": "내일",
+   "pos": "n",
+   "mean": {
+    "en": "tomorrow"
+   },
+   "ex": {
+    "t": "내일 편지 쓸게.",
+    "en": "I'll write to you tomorrow.",
+    "from": null
+   }
+  },
+  {
+   "id": "79d49f3c",
+   "w": "새",
+   "pos": "det",
+   "mean": {
+    "en": "new"
+   },
+   "ex": {
+    "t": "새 그림이 있어.",
+    "en": "I have a new picture.",
+    "from": null
+   }
+  },
+  {
+   "id": "1f807c47",
+   "w": "원하다",
+   "pos": "v",
+   "mean": {
+    "en": "to want"
+   },
+   "ex": {
+    "t": "좋아. 난 밭이랑 좋은 삶을 원해.",
+    "en": "Good. I want fields and a good life.",
+    "from": "p1"
+   }
+  },
+  {
+   "id": "e73e66f3",
+   "w": "돈",
+   "pos": "n",
+   "mean": {
+    "en": "money"
+   },
+   "ex": {
+    "t": "돈이 많지 않아.",
+    "en": "I don't have much money.",
+    "from": null
+   }
+  },
+  {
+   "id": "4c0eee7d",
+   "w": "나쁘다",
+   "pos": "adj",
+   "mean": {
+    "en": "to be bad"
+   },
+   "ex": {
+    "t": "나쁘지 않아.",
+    "en": "It's not bad.",
+    "from": null
+   }
+  },
+  {
+   "id": "fb253005",
+   "w": "아버지",
+   "pos": "n",
+   "mean": {
+    "en": "father"
+   },
+   "ex": {
+    "t": "아버지는 잘 지내셔.",
+    "en": "My father is well.",
+    "from": null
+   }
+  },
+  {
+   "id": "a32478bb",
+   "w": "언제",
+   "pos": "pron",
+   "mean": {
+    "en": "when"
+   },
+   "ex": {
+    "t": "언제 와?",
+    "en": "When are you coming?",
+    "from": null
+   }
+  },
+  {
+   "id": "12e53df5",
+   "w": "기다리다",
+   "pos": "v",
+   "mean": {
+    "en": "to wait"
+   },
+   "ex": {
+    "t": "기다려 줘, 마르틴.",
+    "en": "Wait for me, Martín.",
+    "from": null
+   }
+  },
+  {
+   "id": "d417cadb",
+   "w": "밤",
+   "pos": "n",
+   "mean": {
+    "en": "night"
+   },
+   "ex": {
+    "t": "밤에 편지를 써.",
+    "en": "I write letters at night.",
+    "from": null
+   }
+  },
+  {
+   "id": "401f5e3c",
+   "w": "이름",
+   "pos": "n",
+   "mean": {
+    "en": "name"
+   },
+   "ex": {
+    "t": "안녕. 내 이름은 프란시스코 고야야.",
+    "en": "Hello. My name is Francisco Goya.",
+    "from": "p2"
+   }
+  },
+  {
+   "id": "1c64bd33",
+   "w": "조금",
+   "pos": "adv",
+   "mean": {
+    "en": "a little"
+   },
+   "ex": {
+    "t": "조금 피곤해.",
+    "en": "I'm a little tired.",
+    "from": null
+   }
+  },
+  {
+   "id": "90a8c6e8",
+   "w": "아침",
+   "pos": "n",
+   "mean": {
+    "en": "morning"
+   },
+   "ex": {
+    "t": "아침에 그림을 그려.",
+    "en": "I paint in the morning.",
+    "from": null
+   }
+  },
+  {
+   "id": "55b908cc",
+   "w": "찾다",
+   "pos": "v",
+   "mean": {
+    "en": "to look for, to find"
+   },
+   "ex": {
+    "t": "마르틴, 작은 집을 찾고 있어.",
+    "en": "Martín, I'm looking for a small house.",
+    "from": "c1-l6"
+   }
+  },
+  {
+   "id": "5b631492",
+   "w": "이야기",
+   "pos": "n",
+   "mean": {
+    "en": "story, talk"
+   },
+   "ex": {
+    "t": "재미있는 이야기가 있어.",
+    "en": "I have an interesting story.",
+    "from": null
+   }
+  },
+  {
+   "id": "e6ce18ea",
+   "w": "문",
+   "pos": "n",
+   "mean": {
+    "en": "door"
+   },
+   "ex": {
+    "t": "문 좀 열어 줘.",
+    "en": "Open the door, please.",
+    "from": null
+   }
+  }
+ ]
+}

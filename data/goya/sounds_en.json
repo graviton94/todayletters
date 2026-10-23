@@ -1,0 +1,59 @@
+{
+ "_doc": "이번 장의 소리: 장마다 소리 짝 하나. checked=false 는 사람 확인 전. 지금은 I장만 (다른 장은 그 장 데이터와 함께).",
+ "lang": "en",
+ "checked": false,
+ "chapters": {
+  "I": {
+   "name": {
+    "ko": "r 과 l"
+   },
+   "tip": {
+    "ko": "r 은 혀끝이 어디에도 닿지 않게 · l 은 혀끝을 윗니 뒤에"
+   },
+   "pairs": [
+    [
+     "right",
+     "light"
+    ],
+    [
+     "rock",
+     "lock"
+    ],
+    [
+     "pray",
+     "play"
+    ],
+    [
+     "fry",
+     "fly"
+    ]
+   ],
+   "mean": {
+    "right": {
+     "ko": "오른쪽 · 옳은"
+    },
+    "light": {
+     "ko": "빛"
+    },
+    "rock": {
+     "ko": "바위"
+    },
+    "lock": {
+     "ko": "자물쇠"
+    },
+    "pray": {
+     "ko": "기도하다"
+    },
+    "play": {
+     "ko": "놀다"
+    },
+    "fry": {
+     "ko": "튀기다"
+    },
+    "fly": {
+     "ko": "날다"
+    }
+   }
+  }
+ }
+}

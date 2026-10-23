@@ -1,0 +1,27 @@
+{
+ "_doc": "고야 배역표 (사용자 결정 2026-10-23). 목소리 길 M4 → M5: 장마다 age 자리에서 두 결을 섞는다 (I 0.4 = M4 0.6 · M5 0.4, 견본 goya_M4M5 와 같음). speed 1.02 = 견본의 빠르기 0.92 를 다른 작품 견본의 기본 0.90 에 견준 값 (narrate.py 가 인물 목소리에만 곱한다; 감정 프리셋 · SLOWER 는 다른 작품과 같이 곱해진다). talk_me 는 받는 사람 목소리: 마르틴 M2, 반데르고텐 M1, 호세파 F2 (견본 josefa_F2low: 빠르기 0.85 → 0.85/0.90 = 0.94, 높낮이 0.96). 목소리 항목은 \"M2\" 처럼 이름만, 또는 {\"voice\": \"F2\", \"speed\": 0.94, \"pitch\": 0.96} (narrate.py, 높낮이는 감정 프리셋과 같은 ffmpeg 필터). 회화의 \"me\" 가 있으면 (talk.me, 예 \"Josefa\") 편지 \"to\" 대신 그 이름으로 찾는다.",
+ "character": "goya",
+ "path": ["M4", "M5"],
+ "young": "M4",
+ "old": "M5",
+ "speed": 1.02,
+ "chapters": {
+  "P": {"age": 0.4, "mood": "tender", "_note": "서문의 말은 1779–1787년 편지에서 온 것이라 I장과 같은 자리"},
+  "I": {"age": 0.4, "mood": "calm", "_note": "마드리드, 밑그림의 날들 · M4 0.6 + M5 0.4"},
+  "II": {"age": 0.45, "mood": "calm"},
+  "III": {"age": 0.5, "mood": "calm"},
+  "IV": {"age": 0.55, "mood": "bright"},
+  "V": {"age": 0.6, "mood": "calm"},
+  "VI": {"age": 0.7, "mood": "weary"},
+  "E": {"age": 0.9, "mood": "weary"}
+ },
+ "talk_me": {
+  "_doc": "오늘의 회화 \"me\" 줄 · 답장 목소리: 편지 \"to\" 의 스페인어 글자 (또는 talk.me) → 목소리 (없으면 default = 마르틴).",
+  "default": "M2",
+  "by_to": {
+   "Martín Zapater": "M2",
+   "Cornelio Vandergoten": "M1",
+   "Josefa": {"voice": "F2", "speed": 0.94, "pitch": 0.96}
+  }
+ }
+}

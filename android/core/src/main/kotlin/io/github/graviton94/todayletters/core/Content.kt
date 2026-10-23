@@ -5,7 +5,11 @@ data class Tri(val lines: Map<Lang, String>) {
     operator fun get(lang: Lang): String = lines[lang] ?: lines.values.first()
 }
 
-data class Message(val text: Tri)
+/**
+ * 메시지 한 조각. [orig] 는 판본에 찍힌 그대로의 원어 글 (고야: 옛 철자 · 문장부호 없음), 작품의 series.json 이 "origLine": true 일 때만 채운다
+ * (편지 방에서 ‘원래 철자’ 한 줄로 펼쳐 본다). 지금 철자 글 [text] 와 같으면 비운다.
+ */
+data class Message(val text: Tri, val orig: String = "")
 /**
  * 낱말. [icon] 이 있으면 ‘편지 속 물건’으로 수집 앨범에 들어간다.
  * [modern] 은 오늘의 철자 (de_modern · fr_modern): 편지는 판의 철자(daß)를 그대로 보여 주고, 쓰기 채점은 이 철자(dass)로 한다.

@@ -28,6 +28,7 @@ Google Play Billing Library 8 (`com.android.billingclient:billing:8.0.0`).
 | 인앱 (일회성, 소비 안 함) | `series_vincent` | — | ₩4,900 | 빈센트 소장 |
 | 인앱 (일회성, 소비 안 함) | `series_mozart` | — | ₩4,900 | 모차르트 소장 |
 | 인앱 (일회성, 소비 안 함) | `series_napoleon` | — | ₩4,900 | 나폴레옹 소장 |
+| 인앱 (일회성, 소비 안 함) | `series_goya` | — | (tier 1 지금, 49통이면 tier 2) | 고야 소장 (서문 · I장만 들어간 단계) |
 
 - 새 시리즈를 넣으면 인앱 상품 `series_<작품 id>` 를 하나 더 (값은 그 시리즈의 `"tier"`).
 - 구독 상품은 하나 (`sub_all`), 요금제만 둘. 앱은 기본 요금제 (offerId 가 없는 것) 만 쓴다.

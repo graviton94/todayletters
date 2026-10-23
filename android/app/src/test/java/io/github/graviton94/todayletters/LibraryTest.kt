@@ -118,6 +118,18 @@ class LibraryTest {
         }
     }
 
+    /** 고야 ("origLine": true): 메시지마다 판본에 찍힌 글 (orig.es) 을 읽고, 지금 철자와 문장부호 · 대소문자만 다르면 비운다. 다른 작품은 읽지 않는다. */
+    @Test fun goyaOriginalSpelling() {
+        val ctx = androidx.test.core.app.ApplicationProvider.getApplicationContext<android.content.Context>()
+        val works = Library.works(ctx)
+        val g = works.first { it.series.id == "goya" }
+        val m = g.chapters.first().letters.first().messages.first()
+        assertTrue(m.orig.contains("dibiertas"))
+        assertTrue(m.text[Lang.ES].contains("diviertas"))
+        assertEquals("", g.prologue[3].letter.messages.first().orig)   // p4: 찍힌 글과 지금 철자가 마침표만 다르다
+        assertTrue(works.first { it.series.id == "napoleon" }.chapters.first().letters.first().messages.all { it.orig.isEmpty() })
+    }
+
     private val lexFields = """"fields": ["lemma","id","forms","pos","gender","ko","en","ipa","level","first","letters","example","function"]"""
 
     /** 배우는 말마다 자료 한 벌: 원어 lexicon.json, 영어 lexicon_en.json, 한국어 lexicon_ko.json. 사전이 없는 언어는 빠진다 (= 원어 자료 그대로). */

@@ -1,0 +1,252 @@
+{
+ "_doc": "고야 시리즈 표지 정보와 챕터 목록 (지금은 서문 + I장, 나머지 장 · 맺음은 다음 단계). 스페인어 원문은 공공 영역 판본 (Zapater y Gómez 1868 · Beruete 1916–18 · Viñaza 1887 · Cruzada Villaamil 1870, 메시지마다 source), 앱 글은 지금 철자 (악센트 · b/v · h · x/j · 이어 쓰기, 낱말 · 차례는 그대로), 찍힌 글자는 메시지 orig.es — \"origLine\": true 면 편지 방에서 ‘원래 철자’ 한 줄로 펼쳐 볼 수 있다. 1981/82 · 2003년 판과 그 주석은 쓰지 않았다. 영어 · 한국어는 이 앱의 번역. tier 는 지금 편지 수 (11통) 에 맞춘 1, 49통이 다 들어가면 2.",
+ "id": "goya",
+ "order": 4,
+ "original": "es",
+ "sender": "Goya",
+ "name": {
+  "es": "Goya",
+  "en": "Goya",
+  "ko": "고야"
+ },
+ "_known": "널리 알려진 이름 (받기 시트)",
+ "known": {
+  "es": "Goya",
+  "en": "Goya",
+  "ko": "고야"
+ },
+ "seal": "goya",
+ "years": "1746–1828",
+ "fullName": "Francisco de Goya",
+ "recipient": {
+  "es": "Martín",
+  "en": "Martín",
+  "ko": "마르틴"
+ },
+ "origLine": true,
+ "register": {
+  "_doc": "말투 노트의 한 줄 (한국어를 배울 때): 답장을 쓰는 사람과 받는 사람이 실제로 어떤 사이인지. 열쇠는 편지 \"to\" 의 원어 글자, 없으면 \"default\".",
+  "Martín Zapater": {
+   "ko": "마르틴과 프란시스코는 어릴 적 학교 친구라 실제로는 반말을 썼어요.",
+   "en": "Martín and Francisco were school friends from childhood, so between them it would really be 반말 (casual speech)."
+  },
+  "Cornelio Vandergoten": {
+   "ko": "반데르고텐은 왕립 공장의 책임자라 고야와는 공적인 사이예요. 높임말이 맞아요.",
+   "en": "Vandergoten ran the royal factory and was on formal terms with Goya, so 높임 (polite speech) fits."
+  },
+  "default": {
+   "ko": "마르틴과 프란시스코는 어릴 적 학교 친구라 실제로는 반말을 썼어요.",
+   "en": "Martín and Francisco were school friends from childhood, so between them it would really be 반말 (casual speech)."
+  }
+ },
+ "portrait": "goya.webp",
+ "credit": "Francisco Goya y Lucientes, Pintor (Los Caprichos, plate 1), 1799 · Francisco de Goya · The Metropolitan Museum of Art · CC0",
+ "portraitSource": "https://commons.wikimedia.org/wiki/File:Plate_1_from_%27Los_Caprichos%27-_Self-portrait_of_Goya_(_Franco._Goya_e_Lucientes,_Pintor)_MET_DP816885.jpg",
+ "product": "series_goya",
+ "tier": 1,
+ "title": {
+  "es": "Cartas de Goya",
+  "en": "Letters from Goya",
+  "ko": "고야의 편지"
+ },
+ "chapters": [
+  {
+   "id": "I",
+   "file": "chapter1.json",
+   "free": true,
+   "title": {
+    "es": "Madrid y los cartones",
+    "en": "Madrid and the Cartoons",
+    "ko": "마드리드, 밑그림의 날들"
+   }
+  }
+ ],
+ "places": {
+  "fuendetodos": {
+   "x": 0.157,
+   "y": 0.917,
+   "name": {
+    "es": "Fuendetodos",
+    "en": "Fuendetodos",
+    "ko": "푸엔데토도스"
+   },
+   "note": {
+    "ko": "사라고사 남쪽, 아라곤의 메마른 산골 마을. 고야가 태어난 곳.",
+    "en": "A dry hill village in Aragon, south of Zaragoza, where Goya was born."
+   },
+   "lat": 41.343,
+   "lng": -0.957,
+   "_note": "좌표는 대략 [미확인], 지도 x · y 는 나폴레옹과 같은 투영"
+  },
+  "zaragoza": {
+   "x": 0.16,
+   "y": 0.897,
+   "name": {
+    "es": "Zaragoza",
+    "en": "Zaragoza",
+    "ko": "사라고사"
+   },
+   "note": {
+    "ko": "에브로 강가, 아라곤의 큰 도시. 고야와 마르틴이 함께 자란 곳이고, 필라르 대성당이 있어요.",
+    "en": "The great city of Aragon on the Ebro, where Goya and Martín grew up, with the basilica of the Pilar."
+   },
+   "lat": 41.656,
+   "lng": -0.878,
+   "_note": "좌표는 대략 [미확인], 지도 x · y 는 나폴레옹과 같은 투영"
+  },
+  "parma": {
+   "x": 0.51,
+   "y": 0.7,
+   "name": {
+    "es": "Parma",
+    "en": "Parma",
+    "ko": "파르마"
+   },
+   "note": {
+    "ko": "북이탈리아의 도시. 1771년 고야가 아카데미 공모전에 그림을 낸 곳.",
+    "en": "A city in northern Italy, where Goya entered the Academy's competition in 1771."
+   },
+   "lat": 44.801,
+   "lng": 10.328,
+   "_note": "좌표는 대략 [미확인], 지도 x · y 는 나폴레옹과 같은 투영"
+  },
+  "madrid": {
+   "x": 0.071,
+   "y": 0.975,
+   "name": {
+    "es": "Madrid",
+    "en": "Madrid",
+    "ko": "마드리드"
+   },
+   "note": {
+    "ko": "왕이 사는 수도. 1775년부터 고야가 일한 곳.",
+    "en": "The royal capital, where Goya worked from 1775."
+   },
+   "lat": 40.4168,
+   "lng": -3.7038,
+   "_note": "좌표는 대략 [미확인], 지도 x · y 는 나폴레옹과 같은 투영"
+  },
+  "fabrica": {
+   "x": 0.071,
+   "y": 0.974,
+   "name": {
+    "es": "Real Fábrica de Tapices",
+    "en": "Royal Tapestry Factory",
+    "ko": "왕립 태피스트리 공장"
+   },
+   "note": {
+    "ko": "산타 바르바라 문 가까이 있던 왕립 공장. 고야의 밑그림을 보고 태피스트리를 짰어요.",
+    "en": "The royal factory near the Santa Bárbara gate, where tapestries were woven from Goya's cartoons."
+   },
+   "lat": 40.428,
+   "lng": -3.7,
+   "_note": "좌표는 대략 [미확인], 지도 x · y 는 나폴레옹과 같은 투영"
+  },
+  "palacio": {
+   "x": 0.071,
+   "y": 0.975,
+   "name": {
+    "es": "Palacio Real",
+    "en": "The Royal Palace",
+    "ko": "왕궁"
+   },
+   "note": {
+    "ko": "마드리드의 왕궁. 벨라스케스의 그림들이 걸려 있던 곳.",
+    "en": "The royal palace in Madrid, where the paintings by Velázquez hung."
+   },
+   "lat": 40.418,
+   "lng": -3.714,
+   "_note": "좌표는 대략 [미확인], 지도 x · y 는 나폴레옹과 같은 투영"
+  }
+ },
+ "kit": {
+  "fullName": {
+   "es": "Francisco de Goya y Lucientes",
+   "en": "Francisco de Goya",
+   "ko": "프란시스코 데 고야"
+  },
+  "about": {
+   "es": "Pintor · de los cartones de Madrid a Burdeos · cartas a su amigo Martín y a los suyos",
+   "en": "Painter · from the Madrid tapestry cartoons to Bordeaux · letters to his friend Martín and others",
+   "ko": "화가 · 마드리드의 태피스트리 밑그림부터 보르도까지 · 친구 마르틴과 사람들에게 보낸 편지"
+  },
+  "_doc": "시리즈 키트: 아라곤의 흙빛 + 붉은 황토 (다른 작품과 겹치지 않는 빛깔) · 대표 그림 (〈양산〉, I-2 그림) · 화폐 (레알).",
+  "_tag": "서재 카드의 작품 주제 꼬리표: 앱 글자 언어로 보인다.",
+  "tag": {
+   "en": "Museum",
+   "ko": "미술관",
+   "es": "Museo"
+  },
+  "theme": {
+   "light": {
+    "paper": "#F1E8DE",
+    "ink": "#22160F",
+    "soft": "#6F5A4C",
+    "faint": "#AD978A",
+    "accent": "#A1452A"
+   },
+   "dark": {
+    "paper": "#160F0C",
+    "ink": "#F0E2D6",
+    "soft": "#B49F90",
+    "faint": "#77655A",
+    "accent": "#E08A62"
+   }
+  },
+  "hero": "plates/g-c1-l2.webp",
+  "place": "MADRID · 1775",
+  "world": {
+   "es": "Hacia el mundo de Goya",
+   "en": "Into Goya's world",
+   "ko": "고야의 세상으로 떠납니다"
+  },
+  "currency": {
+   "name": {
+    "es": "reales",
+    "en": "reales",
+    "ko": "레알"
+   }
+  },
+  "weekdays": "LMMJVSD",
+  "collection": [],
+  "exhibitions": []
+ },
+ "prologue": {
+  "file": "prologue.json",
+  "arrival": {
+   "date": "3 · I · 1775",
+   "route": "ZARAGOZA → MADRID",
+   "heading": {
+    "ko": "스물여덟 살의 고야가\n마드리드로 떠납니다.",
+    "en": "Goya, twenty-eight,\nsets out for Madrid.",
+    "es": "Goya, con veintiocho años,\nparte hacia Madrid."
+   },
+   "body": {
+    "ko": "어릴 적 친구 마르틴 사파테르는 사라고사에 남았어요. 지금부터 고야가 쓴 편지를 마르틴이 되어 받아요. 끝 무렵에는 다른 사람들에게 쓴 편지도 와요.",
+    "en": "His childhood friend Martín Zapater stays behind in Zaragoza. From now on you receive Goya's letters as Martín; near the end, letters to others arrive too.",
+    "es": "Su amigo Martín Zapater se queda en Zaragoza. Desde ahora, tú recibes sus cartas."
+   }
+  },
+  "timeline": {
+   "years": [
+    "1746",
+    "1760",
+    "1771",
+    "1773",
+    "1775",
+    "1828"
+   ],
+   "at": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  "label": {
+   "ko": "마드리드 이전",
+   "en": "Before Madrid"
+  }
+ }
+}

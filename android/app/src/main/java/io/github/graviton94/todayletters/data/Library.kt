@@ -146,7 +146,9 @@ object Library {
         return ids.mapNotNull { id ->
             val meta = runCatching { JSONObject(am.open("letters/$id/series.json").bufferedReader().readText()) }.getOrNull() ?: return@mapNotNull null
             val original = Lang.valueOf(meta.getString("original").uppercase())
-            fun letters(data: JSONObject) = parseLetters(data)
+            // "origLine": true (고야) 면 메시지의 찍힌 글 (orig.<원어>) 도 읽는다: 편지 방의 ‘원래 철자’ 줄
+            val origLang = original.takeIf { meta.optBoolean("origLine", false) }
+            fun letters(data: JSONObject) = parseLetters(data, origLang)
             val prologue = meta.optJSONObject("prologue")?.optString("file")?.takeIf { it.isNotEmpty() }?.let { f ->
                 runCatching {
                     val data = JSONObject(am.open("letters/$id/$f").bufferedReader().readText())
@@ -386,11 +388,18 @@ object Library {
         return if (opts.isEmpty()) null else io.github.graviton94.todayletters.core.TalkMine(line, slot, opts)
     }
 
-    internal fun parseLetters(data: JSONObject): List<Letter> {
+    internal fun parseLetters(data: JSONObject, origLang: Lang? = null): List<Letter> {
         val arr = data.getJSONArray("letters")
         return (0 until arr.length()).map { i ->
             val l = arr.getJSONObject(i)
-            val msgs = l.getJSONArray("messages").let { m -> (0 until m.length()).map { Message(tri(m.getJSONObject(it))) } }
+            val msgs = l.getJSONArray("messages").let { m -> (0 until m.length()).map { k ->
+                val o = m.getJSONObject(k)
+                val text = tri(o)
+                // 원래 철자: 지금 철자와 낱말이 다를 때만 (문장부호 · 대소문자만 다르면 줄을 보이지 않는다)
+                val orig = origLang?.let { lang -> o.optJSONObject("orig")?.str(lang.code) }.orEmpty().trim()
+                fun bare(t: String) = t.lowercase().filter { it.isLetterOrDigit() }
+                Message(text, orig.takeIf { it.isNotEmpty() && bare(it) != bare(o.str(origLang?.code ?: "")) }.orEmpty())
+            } }
             val words = l.optJSONArray("words")?.let { w ->
                 (0 until w.length()).map { j -> word(w.getJSONObject(j)).copy(audio = "w${j + 1}") }
             } ?: emptyList()

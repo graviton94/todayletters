@@ -82,7 +82,7 @@ class ScreensTest {
         // 알림 권한 앞 한 줄 (편지 완료 뒤 대화창) 은 따로 찍는다: 다른 사진에서는 이미 물은 것으로 (대화창은 화면 뿌리가 둘이 된다)
         Store(ctx).notifyAsked = true
         // 편지 전 예열 (ui/WarmUp.kt) 은 따로 찍는다 (il3 · il4): 다른 사진에서는 편지를 열면 바로 편지 방
-        listOf("vincent", "mozart", "napoleon").forEach { ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().putInt("s:$it:warm", 0).commit() }
+        listOf("vincent", "mozart", "napoleon", "goya").forEach { ctx.getSharedPreferences("letters", Context.MODE_PRIVATE).edit().putInt("s:$it:warm", 0).commit() }
         val s = AppState(ctx, deepLink = false)
         s.update(s.app.copy(pace = TypingPace.INSTANT))
         // 편지 도착 연출(2단계 D1)은 따로 찍는다: 다른 편지 방 사진에서는 이미 본 것으로
@@ -745,6 +745,26 @@ class ScreensTest {
     /** 나폴레옹 공개 (hidden 해제): 서재에 셋째 작품 카드 · 그 작품의 표지 (처음 묶음 P+I+II 를 받은 것으로). */
     @Test fun napoleonLibrary() { val s = state(true).also { fetchedLocally("napoleon", listOf("P", "I", "II")) }; shot("n01_library_napoleon", false, 3000) { LibraryTab(s) } }
     @Test fun napoleonCover() { val s = state(true).also { fetchedLocally("napoleon", listOf("P", "I", "II")) }; shot("n02_cover_napoleon", true, 3000, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "napoleon") } }
+    // ── 고야 (넷째 작품, 서문 + I장): '*ScreensTest.goya*'. 앱 안에는 대표 그림 · 초상만, 나머지는 저장소 remote/ 에서 files/ 로 (받은 것으로).
+    private fun gstate(): AppState = state(true).also { fetchedLocally("goya", listOf("P", "I")) }
+    private fun goyaShown(s: AppState, n: Int) {
+        val c = s.work("goya").chapters.first(); val l = c.letters[n - 1]
+        s.save("goya", c.id, l.id, s.progress("goya", c.id, l.id).copy(shown = l.messages.size))
+    }
+    /** 서재: 넷째 작품 고야 카드 (〈양산〉 · 붉은 황토 빛깔). */
+    @Test fun goyaLibrary() { val s = gstate(); shot("g01_library_goya", false, 3000) { LibraryTab(s) } }
+    /** 편지 방 I-1 (스페인어로 읽기): 문장마다 ‘원래 철자 ›’ 접힌 줄. */
+    @Test fun goyaRoom() { val s = gstate(); s.enter("goya"); goyaShown(s, 1); shot("g02_room_c1l1", false, 4000, series = s) { Room(s, Route.Letter("goya", 1, 1)) } }
+    /** 편지 방 I-1: 첫 문장의 ‘원래 철자’ 를 펼친 모습 (판본에 찍힌 dibiertas · bisites · á, 어두운 화면). */
+    @Test fun goyaRoomOrig() {
+        val s = gstate(); s.enter("goya"); goyaShown(s, 1)
+        shot("g03_room_c1l1_orig_dark", true, 4000, act = { tap(io.github.graviton94.todayletters.core.Breaks.keepAll("원래 철자"), substring = true) }, series = s) { Room(s, Route.Letter("goya", 1, 1)) }
+    }
+    /** 오늘의 회화 I-1 (A1, 스페인어): 마드리드의 프란시스코와 통화 · 나는 마르틴. */
+    @Test fun goyaTalk() {
+        val s = gstate(); s.enter("goya"); s.store.setGrade(s.seriesSettings("goya").learn.code, 1); s.bump()
+        shot("g04_talk_c1l1", false, ms = 4000, series = s) { Play(s, Route.Play(Route.Letter("goya", 1, 1), ReplyMode.TALK)) }
+    }
     @Test fun mozartLibrary() { val s = mstate(); shot("m01_library", true) { LibraryTab(s) } }
     @Test fun mozartRoom() { val s = mstate(); shownAll(s, 1, 4); shot("m02_room_c1l4", false, 4000, series = s) { Room(s, Route.Letter("mozart", 1, 4)) } }
     @Test fun mozartMusicSheet() {

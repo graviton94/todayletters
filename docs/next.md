@@ -237,3 +237,13 @@
 ## 2026-10-23 · 나폴레옹 날짜 기준 (역사 검토 답변)
 - 디도(1833)와 Hall(1901) 날짜가 다르면 **Hall (및 Fondation Napoléon 『Correspondance générale』)** 을 따른다. 디도의 인쇄 연도는 쓰지 않는다 (편집자가 연도 없는 편지에 임의로 붙인 것이 많음).
 - VII-7 (디도 CCXXVIII, 'Vendredi, huit heures du matin'): Hall 대로 1811. III-3 (디도 'an X'): Hall 대로 1801 (an IX) 여름 플롱비에르.
+
+## 2026-10-23 추가 (고야 시리즈 · 서문 + I장)
+
+- `data/goya/`: 넷째 작품 (스페인어 원문, 배우는 말 es · en · ko). 지금은 **서문 4 + I장 7 = 11통** (편지 목록은 사용자 승인한 goya_plan, 49통 중). 나머지 II~VI장 · 보르도 맺음 3통은 다음 단계. `spec_check.py goya` 통과.
+- 원문 두 겹: `es` = 지금 철자 (앱 글), `orig.es` = 판본에 찍힌 그대로. series.json `"origLine": true` 면 편지 방 문장 아래 ‘원래 철자 ›’ 접힌 줄 (누르면 펼침, 문장부호 · 대소문자만 다르면 줄 없음). core `Message.orig`, `Library.parseLetters(origLang)`, `Room.kt OrigLine`, 글자 키 `orig_spelling`. 나폴레옹의 orig.fr 은 그대로 숨김 (origLine 없음).
+- 판매: `series_goya`, 지금 편지 수에 맞춰 **tier 1** (generate.py 판매 검사). 49통이 다 들어가면 tier 2 로 (Play Console 상품 등록은 출시 때).
+- 배역 voices.json: 고야 M4 → M5 (age 0.4 = M4 0.6 + M5 0.4), speed 1.02 (견본 0.92 ÷ 기본 0.90), talk_me 마르틴 M2 · 반데르고텐 M1 · 호세파 F2 (speed 0.94, pitch 0.96). narrate.py: talk_me 항목이 {voice, speed, pitch} 일 수 있고, 회화의 `"me"` (p4 "Josefa") 가 편지 "to" 보다 먼저. `NARRATE_ONLY=new` + SKIP_EXISTING 이면 빠진 메시지 낭독 m<번호> 도 만든다 (새 작품 첫 낭독). narration-r2 넣기 단계는 마디 시각 m*.json 도 옮긴다.
+- 어휘: `scripts/vocab/src/es_tab.txt` · `es_map.txt` · `en_map_goya.txt` · `ko_map_goya.txt` · phrases_goya*.txt · daily_override_goya.json · example_drop_goya.txt. Tatoeba spa 는 `tatoeba_spa` 가지 (fetch-tatoeba). ko 카드 발음은 다른 작품과 같은 낱말은 그쪽 것, 나머지는 pron.py 규칙으로 자동 [소리] · 로마자 (사람 확인 전). tok.py · basics.py · validate_lexicon.py 는 아직 없는 장 파일을 건너뛴다.
+- 그림: 서문 · I장 그림 11 + 대화 속 사진 11 (`remote/plates/g-*` · `gm-*`, PD-Art 는 `exception`), 대표 그림 `plates/g-c1-l2.webp` (〈양산〉) · 초상 `portraits/goya.webp` (〈카프리초스〉 1번, Met CC0) 만 앱 안. 검색어 `data/images/gplates*_queries.json` (fetch-portraits → gplates · gplates2 가지).
+- 사람 확인 전: 편지 글 `verified: false` (판본 쪽 그림과 마지막 대조), 앱 번역 · 회화 · 답장 · 기초 낱말 · 소리 · 닻 뜻. 출처 사이트 (site_sources.py) 는 아직 다시 돌리지 않음.

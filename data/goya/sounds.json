@@ -1,0 +1,69 @@
+{
+ "_doc": "이번 장의 소리: 장마다 소리 짝 하나. checked=false 는 사람 확인 전. 지금은 I장만 (다른 장은 그 장 데이터와 함께).",
+ "lang": "es",
+ "checked": false,
+ "chapters": {
+  "I": {
+   "name": {
+    "ko": "r 과 rr",
+    "en": "r and rr"
+   },
+   "tip": {
+    "ko": "r 은 혀끝을 한 번 톡 (우리말 ‘ㄹ’처럼) · rr 은 혀끝을 여러 번 떨어요",
+    "en": "r is one quick tap of the tongue; rr is a trill, the tongue tip flutters several times"
+   },
+   "pairs": [
+    [
+     "pero",
+     "perro"
+    ],
+    [
+     "caro",
+     "carro"
+    ],
+    [
+     "para",
+     "parra"
+    ],
+    [
+     "cero",
+     "cerro"
+    ]
+   ],
+   "mean": {
+    "pero": {
+     "ko": "그러나",
+     "en": "but"
+    },
+    "perro": {
+     "ko": "개",
+     "en": "dog"
+    },
+    "caro": {
+     "ko": "비싼",
+     "en": "expensive"
+    },
+    "carro": {
+     "ko": "수레",
+     "en": "cart"
+    },
+    "para": {
+     "ko": "~을 위해",
+     "en": "for"
+    },
+    "parra": {
+     "ko": "포도 넝쿨",
+     "en": "grapevine"
+    },
+    "cero": {
+     "ko": "영 (0)",
+     "en": "zero"
+    },
+    "cerro": {
+     "ko": "언덕",
+     "en": "hill"
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,1359 @@
+{
+ "_doc": "기초 낱말 덱: 많이 쓰는 표제어 300 (top, data/lexicon/<말>_freq.tsv) 가운데 카드 · 닻이 안 다루는 것. scripts/basics.py 후보를 골라 다듬음 (시대에 안 맞는 말 · 거친 말은 뺌). 예문은 편지 · 회화 · 답장에서 (from = 편지 id), 없으면 앱이 쓴 짧은 문장 (from = null). checked=false 는 사람 확인 전.",
+ "lang": "es",
+ "checked": false,
+ "top": [
+  "de",
+  "que",
+  "no",
+  "a",
+  "el",
+  "y",
+  "ser",
+  "en",
+  "él",
+  "uno",
+  "por",
+  "qué",
+  "yo",
+  "tú",
+  "con",
+  "para",
+  "estar",
+  "mi",
+  "pero",
+  "si",
+  "bien",
+  "ese",
+  "su",
+  "del",
+  "como",
+  "aquí",
+  "tu",
+  "al",
+  "más",
+  "este",
+  "todo",
+  "ya",
+  "ahora",
+  "mucho",
+  "haber",
+  "así",
+  "ir",
+  "algo",
+  "bueno",
+  "tener",
+  "cuando",
+  "saber",
+  "nada",
+  "cómo",
+  "o",
+  "poder",
+  "querer",
+  "hacer",
+  "gracia",
+  "vez",
+  "sólo",
+  "porque",
+  "creer",
+  "entonces",
+  "hola",
+  "solo",
+  "verdad",
+  "casa",
+  "tan",
+  "quién",
+  "tiempo",
+  "dos",
+  "nunca",
+  "dónde",
+  "oh",
+  "favor",
+  "sentir",
+  "señor",
+  "mejor",
+  "decir",
+  "también",
+  "sobre",
+  "dios",
+  "sin",
+  "ver",
+  "hombre",
+  "vida",
+  "alguien",
+  "cosa",
+  "siempre",
+  "hasta",
+  "ahí",
+  "año",
+  "antes",
+  "ni",
+  "poco",
+  "día",
+  "noche",
+  "hecho",
+  "otro",
+  "acuerdo",
+  "trabajo",
+  "parecer",
+  "gente",
+  "padre",
+  "mira",
+  "mismo",
+  "nadie",
+  "hablar",
+  "tal",
+  "pasar",
+  "después",
+  "desde",
+  "dinero",
+  "mundo",
+  "claro",
+  "momento",
+  "mañana",
+  "madre",
+  "valer",
+  "lugar",
+  "donde",
+  "seguro",
+  "espera",
+  "nuevo",
+  "hijo",
+  "allí",
+  "menos",
+  "tipo",
+  "amigo",
+  "gran",
+  "nuestro",
+  "mujer",
+  "mamá",
+  "luego",
+  "papá",
+  "hoy",
+  "tres",
+  "buen",
+  "necesitar",
+  "oír",
+  "gustar",
+  "parte",
+  "nombre",
+  "mierda",
+  "mal",
+  "deber",
+  "realmente",
+  "aún",
+  "mío",
+  "cada",
+  "vestir",
+  "importar",
+  "razón",
+  "alguno",
+  "tanto",
+  "serio",
+  "idea",
+  "eh",
+  "tarde",
+  "problema",
+  "hora",
+  "cierto",
+  "dicho",
+  "quien",
+  "demasiado",
+  "amor",
+  "entre",
+  "pasado",
+  "familia",
+  "policía",
+  "chico",
+  "cuenta",
+  "todavía",
+  "salir",
+  "hermano",
+  "pensar",
+  "cabeza",
+  "ah",
+  "cariño",
+  "cualquiera",
+  "forma",
+  "mientras",
+  "lado",
+  "caso",
+  "primero",
+  "genial",
+  "supuesto",
+  "pues",
+  "adiós",
+  "persona",
+  "señora",
+  "volver",
+  "quizá",
+  "contra",
+  "camino",
+  "durante",
+  "manera",
+  "muerto",
+  "rápido",
+  "cuál",
+  "ayuda",
+  "historia",
+  "suponer",
+  "entender",
+  "dentro",
+  "casi",
+  "puerta",
+  "significar",
+  "semana",
+  "hacia",
+  "quizás",
+  "esperar",
+  "junto",
+  "niño",
+  "pronto",
+  "tío",
+  "suerte",
+  "ciudad",
+  "siquiera",
+  "feliz",
+  "venir",
+  "hija",
+  "minuto",
+  "cuánto",
+  "hey",
+  "muerte",
+  "dejar",
+  "realidad",
+  "dar",
+  "importante",
+  "corazón",
+  "miedo",
+  "jefe",
+  "agua",
+  "justo",
+  "esposa",
+  "mano",
+  "vengar",
+  "ojo",
+  "adelante",
+  "encontrar",
+  "cinco",
+  "ninguno",
+  "cara",
+  "cuidado",
+  "bajo",
+  "cerca",
+  "viejo",
+  "bastante",
+  "fin",
+  "tomar",
+  "único",
+  "escucha",
+  "suficiente",
+  "punto",
+  "cuándo",
+  "seguir",
+  "equipo",
+  "grande",
+  "llegar",
+  "incluso",
+  "doctor",
+  "difícil",
+  "aunque",
+  "coche",
+  "clase",
+  "cuatro",
+  "mas",
+  "pequeño",
+  "llama",
+  "toma",
+  "allá",
+  "último",
+  "arriba",
+  "tierra",
+  "guerra",
+  "igual",
+  "loco",
+  "sangre",
+  "vuelta",
+  "trabajar",
+  "juego",
+  "cuerpo",
+  "entrar",
+  "oportunidad",
+  "teléfono",
+  "final",
+  "listo",
+  "fiesta",
+  "verse",
+  "auto",
+  "vivir",
+  "posible",
+  "ok",
+  "hermana",
+  "número",
+  "mes",
+  "exactamente",
+  "culpa",
+  "abajo",
+  "escuela",
+  "fuerte",
+  "habla",
+  "pregunta",
+  "chica",
+  "atrás",
+  "malo",
+  "capitán",
+  "bebé"
+ ],
+ "items": [
+  {
+   "id": "de9e6b4d",
+   "w": "qué",
+   "pos": "pron",
+   "mean": {
+    "ko": "무엇, 무슨",
+    "en": "what"
+   },
+   "ex": {
+    "t": "¿Qué necesitas en tu casa?",
+    "ko": "집에 뭐가 필요해?",
+    "en": "What do you need in your house?",
+    "from": "c1-l6"
+   }
+  },
+  {
+   "id": "ac9c7391",
+   "w": "yo",
+   "pos": "pron",
+   "mean": {
+    "ko": "나",
+    "en": "I"
+   },
+   "ex": {
+    "t": "Yo también estoy bien.",
+    "ko": "나도 잘 지내.",
+    "en": "I'm fine too.",
+    "from": "c1-l1"
+   }
+  },
+  {
+   "id": "d13f265b",
+   "w": "tú",
+   "pos": "pron",
+   "mean": {
+    "ko": "너",
+    "en": "you"
+   },
+   "ex": {
+    "t": "Y tú eres mi marido.",
+    "ko": "그리고 넌 내 남편이야.",
+    "en": "And you're my husband.",
+    "from": "p4"
+   }
+  },
+  {
+   "id": "e015e1cd",
+   "w": "con",
+   "pos": "prep",
+   "mean": {
+    "ko": "~와 함께, ~로",
+    "en": "with"
+   },
+   "ex": {
+    "t": "Estoy contento con la Dolorosa.",
+    "ko": "슬픔의 성모 그림이 생겨서 기뻐.",
+    "en": "I'm happy about the Dolorosa.",
+    "from": "c1-l1"
+   }
+  },
+  {
+   "id": "2873e24d",
+   "w": "para",
+   "pos": "prep",
+   "mean": {
+    "ko": "~을 위해, ~에 쓸",
+    "en": "for"
+   },
+   "ex": {
+    "t": "Tengo una sartén para tu casa.",
+    "ko": "네 집에 둘 프라이팬이 있어.",
+    "en": "I have a frying pan for your house.",
+    "from": "c1-l6"
+   }
+  },
+  {
+   "id": "6e3411da",
+   "w": "pero",
+   "pos": "conj",
+   "mean": {
+    "ko": "그러나, 그래도",
+    "en": "but"
+   },
+   "ex": {
+    "t": "Pero, chiquío, campicos y buena vida: nadie me sacará de esta opinión.",
+    "ko": "그래도 친구야, 작은 밭 몇 뙈기에 좋은 삶이면 돼. 누구도 내 이 생각은 못 바꿔.",
+    "en": "But, my boy, a few little fields and a good life: no one will talk me out of that.",
+    "from": "p1"
+   }
+  },
+  {
+   "id": "c4be5a4e",
+   "w": "si",
+   "pos": "conj",
+   "mean": {
+    "ko": "만약 ~면",
+    "en": "if"
+   },
+   "ex": {
+    "t": "Si tienes tiempo, escríbeme.",
+    "ko": "시간 있으면 편지 써 줘.",
+    "en": "If you have time, write to me.",
+    "from": null
+   }
+  },
+  {
+   "id": "0ee07d1b",
+   "w": "bien",
+   "pos": "adv",
+   "mean": {
+    "ko": "잘, 좋게",
+    "en": "well, fine"
+   },
+   "ex": {
+    "t": "Bien. Tengo mucho trabajo.",
+    "ko": "좋아. 일이 많아.",
+    "en": "Fine. I have a lot of work.",
+    "from": "c1-l1"
+   }
+  },
+  {
+   "id": "e6cf3874",
+   "w": "ese",
+   "pos": "det",
+   "mean": {
+    "ko": "그",
+    "en": "that"
+   },
+   "ex": {
+    "t": "Ese cuadro es muy bonito.",
+    "ko": "그 그림은 정말 아름다워.",
+    "en": "That picture is very beautiful.",
+    "from": null
+   }
+  },
+  {
+   "id": "ec74a40c",
+   "w": "como",
+   "pos": "conj",
+   "mean": {
+    "ko": "~처럼, ~같이",
+    "en": "as, like"
+   },
+   "ex": {
+    "t": "Eres como un hermano.",
+    "ko": "넌 형제 같아.",
+    "en": "You're like a brother.",
+    "from": null
+   }
+  },
+  {
+   "id": "fdaec6a3",
+   "w": "aquí",
+   "pos": "adv",
+   "mean": {
+    "ko": "여기",
+    "en": "here"
+   },
+   "ex": {
+    "t": "Aquí está. Es muy bonito.",
+    "ko": "여기 있어요. 아주 아름다운 그림이에요.",
+    "en": "Here it is. It's very beautiful.",
+    "from": "c1-l3"
+   }
+  },
+  {
+   "id": "b46ebd0c",
+   "w": "tu",
+   "pos": "det",
+   "mean": {
+    "ko": "너의",
+    "en": "your"
+   },
+   "ex": {
+    "t": "Yo también. Soy tu amigo.",
+    "ko": "나도. 난 네 친구야.",
+    "en": "Me too. I'm your friend.",
+    "from": "p1"
+   }
+  },
+  {
+   "id": "9f0361f8",
+   "w": "más",
+   "pos": "adv",
+   "mean": {
+    "ko": "더",
+    "en": "more"
+   },
+   "ex": {
+    "t": "Quiero pintar más.",
+    "ko": "그림을 더 그리고 싶어.",
+    "en": "I want to paint more.",
+    "from": null
+   }
+  },
+  {
+   "id": "efb6469a",
+   "w": "este",
+   "pos": "det",
+   "mean": {
+    "ko": "이",
+    "en": "this"
+   },
+   "ex": {
+    "t": "Este cuadro es para ti.",
+    "ko": "이 그림은 네 거야.",
+    "en": "This picture is for you.",
+    "from": null
+   }
+  },
+  {
+   "id": "1456877c",
+   "w": "ahora",
+   "pos": "adv",
+   "mean": {
+    "ko": "지금, 이제",
+    "en": "now"
+   },
+   "ex": {
+    "t": "¡Estupendo! Ahora estás bien.",
+    "ko": "다행이다! 이제 괜찮구나.",
+    "en": "Wonderful! Now you're well.",
+    "from": "c1-l2"
+   }
+  },
+  {
+   "id": "cccae65e",
+   "w": "mucho",
+   "pos": "det",
+   "mean": {
+    "ko": "많은, 많이",
+    "en": "much, a lot"
+   },
+   "ex": {
+    "t": "Muchas gracias, amigo.",
+    "ko": "정말 고마워, 친구야.",
+    "en": "Thank you very much, my friend.",
+    "from": null
+   }
+  },
+  {
+   "id": "bf648f48",
+   "w": "así",
+   "pos": "adv",
+   "mean": {
+    "ko": "이렇게, 그렇게",
+    "en": "like this, so"
+   },
+   "ex": {
+    "t": "Así pinto yo.",
+    "ko": "난 이렇게 그려.",
+    "en": "This is how I paint.",
+    "from": null
+   }
+  },
+  {
+   "id": "1e3914fb",
+   "w": "algo",
+   "pos": "pron",
+   "mean": {
+    "ko": "무언가",
+    "en": "something"
+   },
+   "ex": {
+    "t": "¿Necesitas algo?",
+    "ko": "뭐 필요한 거 있어?",
+    "en": "Do you need anything?",
+    "from": null
+   }
+  },
+  {
+   "id": "cdd9c220",
+   "w": "cuando",
+   "pos": "conj",
+   "mean": {
+    "ko": "~할 때",
+    "en": "when"
+   },
+   "ex": {
+    "t": "Cuando llego a casa, te escribo.",
+    "ko": "집에 오면 너한테 편지 쓸게.",
+    "en": "When I get home, I write to you.",
+    "from": null
+   }
+  },
+  {
+   "id": "4ece7fd6",
+   "w": "nada",
+   "pos": "pron",
+   "mean": {
+    "ko": "아무것도 (~ 않다)",
+    "en": "nothing"
+   },
+   "ex": {
+    "t": "No necesito nada más.",
+    "ko": "더 필요한 건 없어.",
+    "en": "I don't need anything else.",
+    "from": null
+   }
+  },
+  {
+   "id": "ef2e8a64",
+   "w": "cómo",
+   "pos": "adv",
+   "mean": {
+    "ko": "어떻게",
+    "en": "how"
+   },
+   "ex": {
+    "t": "¡Bienvenido! ¿Cómo estás?",
+    "ko": "잘 왔어! 어떻게 지내?",
+    "en": "Welcome back! How are you?",
+    "from": "p3"
+   }
+  },
+  {
+   "id": "02875b0e",
+   "w": "o",
+   "pos": "conj",
+   "mean": {
+    "ko": "또는",
+    "en": "or"
+   },
+   "ex": {
+    "t": "¿Madrid o Zaragoza?",
+    "ko": "마드리드야, 사라고사야?",
+    "en": "Madrid or Zaragoza?",
+    "from": null
+   }
+  },
+  {
+   "id": "d3192307",
+   "w": "solo",
+   "pos": "adv",
+   "mean": {
+    "ko": "~만, 오직",
+    "en": "only"
+   },
+   "ex": {
+    "t": "Solo tengo una mesa.",
+    "ko": "탁자 하나밖에 없어.",
+    "en": "I only have a table.",
+    "from": null
+   }
+  },
+  {
+   "id": "42153d7f",
+   "w": "porque",
+   "pos": "conj",
+   "mean": {
+    "ko": "왜냐하면, ~ 때문에",
+    "en": "because"
+   },
+   "ex": {
+    "t": "Estoy contento porque el Rey ve mis cuadros.",
+    "ko": "왕께서 내 그림을 보셔서 기뻐.",
+    "en": "I'm happy because the King is looking at my pictures.",
+    "from": null
+   }
+  },
+  {
+   "id": "e126b6fc",
+   "w": "creer",
+   "pos": "v",
+   "mean": {
+    "ko": "믿다, ~라고 생각하다",
+    "en": "to believe, to think"
+   },
+   "ex": {
+    "t": "Creo que es un buen cuadro.",
+    "ko": "좋은 그림인 것 같아.",
+    "en": "I think it's a good picture.",
+    "from": null
+   }
+  },
+  {
+   "id": "8155b760",
+   "w": "entonces",
+   "pos": "adv",
+   "mean": {
+    "ko": "그럼, 그때",
+    "en": "then, so"
+   },
+   "ex": {
+    "t": "Entonces busco otra casa.",
+    "ko": "그럼 다른 집을 찾아볼게.",
+    "en": "Then I'll look for another house.",
+    "from": "c1-l7"
+   }
+  },
+  {
+   "id": "d0c92e92",
+   "w": "hola",
+   "pos": "interj",
+   "mean": {
+    "ko": "안녕",
+    "en": "hello"
+   },
+   "ex": {
+    "t": "¡Hola, Martín! Estoy en Madrid.",
+    "ko": "안녕, 마르틴! 나 마드리드에 있어.",
+    "en": "Hi, Martín! I'm in Madrid.",
+    "from": "c1-l1"
+   }
+  },
+  {
+   "id": "5ce1353c",
+   "w": "verdad",
+   "pos": "n",
+   "mean": {
+    "ko": "사실, 참말",
+    "en": "truth"
+   },
+   "ex": {
+    "t": "Es verdad.",
+    "ko": "그건 사실이야.",
+    "en": "It's true.",
+    "from": null
+   }
+  },
+  {
+   "id": "73ed0c3b",
+   "w": "tan",
+   "pos": "adv",
+   "mean": {
+    "ko": "그렇게, 아주",
+    "en": "so"
+   },
+   "ex": {
+    "t": "¡Es tan bonito!",
+    "ko": "정말 아름다워!",
+    "en": "It's so beautiful!",
+    "from": null
+   }
+  },
+  {
+   "id": "4228632d",
+   "w": "quién",
+   "pos": "pron",
+   "mean": {
+    "ko": "누구",
+    "en": "who"
+   },
+   "ex": {
+    "t": "¿Quién es tu maestro?",
+    "ko": "네 스승은 누구야?",
+    "en": "Who is your teacher?",
+    "from": null
+   }
+  },
+  {
+   "id": "69834d77",
+   "w": "dos",
+   "pos": "num",
+   "mean": {
+    "ko": "둘",
+    "en": "two"
+   },
+   "ex": {
+    "t": "Tengo dos cuadros nuevos.",
+    "ko": "새 그림이 두 점 있어.",
+    "en": "I have two new pictures.",
+    "from": null
+   }
+  },
+  {
+   "id": "a2445614",
+   "w": "nunca",
+   "pos": "adv",
+   "mean": {
+    "ko": "결코, 한 번도",
+    "en": "never"
+   },
+   "ex": {
+    "t": "Nunca tengo tiempo.",
+    "ko": "난 늘 시간이 없어.",
+    "en": "I never have time.",
+    "from": null
+   }
+  },
+  {
+   "id": "530fa62f",
+   "w": "dónde",
+   "pos": "adv",
+   "mean": {
+    "ko": "어디",
+    "en": "where"
+   },
+   "ex": {
+    "t": "¿Dónde está tu casa?",
+    "ko": "네 집은 어디야?",
+    "en": "Where is your house?",
+    "from": null
+   }
+  },
+  {
+   "id": "338727fb",
+   "w": "favor",
+   "pos": "n",
+   "mean": {
+    "ko": "부탁 (por favor: 부디)",
+    "en": "favour (por favor: please)"
+   },
+   "ex": {
+    "t": "Escríbeme pronto, por favor.",
+    "ko": "곧 편지 써 줘, 부탁이야.",
+    "en": "Write to me soon, please.",
+    "from": null
+   }
+  },
+  {
+   "id": "0aa774c5",
+   "w": "sentir",
+   "pos": "v",
+   "mean": {
+    "ko": "느끼다 (lo siento: 미안해)",
+    "en": "to feel (lo siento: I'm sorry)"
+   },
+   "ex": {
+    "t": "Lo siento. La casa no es alegre.",
+    "ko": "미안해. 그 집은 밝지 않구나.",
+    "en": "I'm sorry. The house isn't cheerful.",
+    "from": "c1-l7"
+   }
+  },
+  {
+   "id": "dc349aaf",
+   "w": "también",
+   "pos": "adv",
+   "mean": {
+    "ko": "~도, 또한",
+    "en": "also, too"
+   },
+   "ex": {
+    "t": "¡Qué bien! Estoy contento también.",
+    "ko": "잘됐다! 나도 기뻐.",
+    "en": "How nice! I'm happy too.",
+    "from": "p3"
+   }
+  },
+  {
+   "id": "29fe1662",
+   "w": "sin",
+   "pos": "prep",
+   "mean": {
+    "ko": "~ 없이",
+    "en": "without"
+   },
+   "ex": {
+    "t": "Un día sin pintar es muy largo.",
+    "ko": "그림 없는 하루는 아주 길어.",
+    "en": "A day without painting is very long.",
+    "from": null
+   }
+  },
+  {
+   "id": "3d197ddf",
+   "w": "hombre",
+   "pos": "n",
+   "mean": {
+    "ko": "남자, 사람",
+    "en": "man"
+   },
+   "ex": {
+    "t": "Eres un hombre feliz.",
+    "ko": "넌 행복한 사람이야.",
+    "en": "You're a happy man.",
+    "from": null
+   }
+  },
+  {
+   "id": "179af494",
+   "w": "cosa",
+   "pos": "n",
+   "mean": {
+    "ko": "것, 일",
+    "en": "thing"
+   },
+   "ex": {
+    "t": "Es una cosa pequeña.",
+    "ko": "작은 일이야.",
+    "en": "It's a small thing.",
+    "from": null
+   }
+  },
+  {
+   "id": "0eb2beaa",
+   "w": "siempre",
+   "pos": "adv",
+   "mean": {
+    "ko": "언제나",
+    "en": "always"
+   },
+   "ex": {
+    "t": "Mi amigo siempre me escribe.",
+    "ko": "내 친구는 늘 편지를 써.",
+    "en": "My friend always writes to me.",
+    "from": null
+   }
+  },
+  {
+   "id": "f3f8c336",
+   "w": "año",
+   "pos": "n",
+   "mean": {
+    "ko": "해, 년",
+    "en": "year"
+   },
+   "ex": {
+    "t": "Este año pinto mucho.",
+    "ko": "올해는 그림을 많이 그려.",
+    "en": "This year I'm painting a lot.",
+    "from": null
+   }
+  },
+  {
+   "id": "9cd85943",
+   "w": "día",
+   "pos": "n",
+   "mean": {
+    "ko": "날, 하루",
+    "en": "day"
+   },
+   "ex": {
+    "t": "Buenos días, Pepa. ¿Qué tal?",
+    "ko": "잘 잤어, 페파? 기분 어때?",
+    "en": "Good morning, Pepa. How are you?",
+    "from": "p4"
+   }
+  },
+  {
+   "id": "08e49938",
+   "w": "noche",
+   "pos": "n",
+   "mean": {
+    "ko": "밤",
+    "en": "night"
+   },
+   "ex": {
+    "t": "Buenas noches, Martín.",
+    "ko": "잘 자, 마르틴.",
+    "en": "Good night, Martín.",
+    "from": null
+   }
+  },
+  {
+   "id": "5294852d",
+   "w": "otro",
+   "pos": "det",
+   "mean": {
+    "ko": "다른",
+    "en": "other, another"
+   },
+   "ex": {
+    "t": "Tengo otro cuadro.",
+    "ko": "그림이 하나 더 있어.",
+    "en": "I have another picture.",
+    "from": null
+   }
+  },
+  {
+   "id": "8e229dbd",
+   "w": "trabajo",
+   "pos": "n",
+   "mean": {
+    "ko": "일",
+    "en": "work"
+   },
+   "ex": {
+    "t": "Me gusta mi trabajo.",
+    "ko": "난 내 일이 좋아.",
+    "en": "I like my work.",
+    "from": null
+   }
+  },
+  {
+   "id": "672b736e",
+   "w": "padre",
+   "pos": "n",
+   "mean": {
+    "ko": "아버지",
+    "en": "father"
+   },
+   "ex": {
+    "t": "Tu padre es muy bueno.",
+    "ko": "너희 아버지는 정말 좋은 분이야.",
+    "en": "Your father is very kind.",
+    "from": null
+   }
+  },
+  {
+   "id": "e67ac404",
+   "w": "madre",
+   "pos": "n",
+   "mean": {
+    "ko": "어머니",
+    "en": "mother"
+   },
+   "ex": {
+    "t": "Mi madre está en casa.",
+    "ko": "어머니는 집에 계셔.",
+    "en": "My mother is at home.",
+    "from": null
+   }
+  },
+  {
+   "id": "f4c528bc",
+   "w": "hijo",
+   "pos": "n",
+   "mean": {
+    "ko": "아들",
+    "en": "son"
+   },
+   "ex": {
+    "t": "Mi hijo tiene cinco años.",
+    "ko": "우리 아들은 다섯 살이야.",
+    "en": "My son is five.",
+    "from": null
+   }
+  },
+  {
+   "id": "29fdb024",
+   "w": "hermano",
+   "pos": "n",
+   "mean": {
+    "ko": "형제, 오빠",
+    "en": "brother"
+   },
+   "ex": {
+    "t": "Tu hermano es mi maestro.",
+    "ko": "네 오빠는 내 스승이야.",
+    "en": "Your brother is my teacher.",
+    "from": "p4"
+   }
+  },
+  {
+   "id": "abcf7408",
+   "w": "hablar",
+   "pos": "v",
+   "mean": {
+    "ko": "말하다",
+    "en": "to speak, to talk"
+   },
+   "ex": {
+    "t": "Hablo con Martín.",
+    "ko": "마르틴이랑 이야기해.",
+    "en": "I'm talking with Martín.",
+    "from": null
+   }
+  },
+  {
+   "id": "8f36129b",
+   "w": "pasar",
+   "pos": "v",
+   "mean": {
+    "ko": "(일이) 일어나다; 지나가다",
+    "en": "to happen; to pass"
+   },
+   "ex": {
+    "t": "¿Por qué? ¿Qué pasa?",
+    "ko": "왜? 무슨 일이야?",
+    "en": "Why? What's happening?",
+    "from": "c1-l5"
+   }
+  },
+  {
+   "id": "c277394c",
+   "w": "dinero",
+   "pos": "n",
+   "mean": {
+    "ko": "돈",
+    "en": "money"
+   },
+   "ex": {
+    "t": "No tengo mucho dinero.",
+    "ko": "돈이 많지 않아.",
+    "en": "I don't have much money.",
+    "from": null
+   }
+  },
+  {
+   "id": "3c1e8e94",
+   "w": "mundo",
+   "pos": "n",
+   "mean": {
+    "ko": "세상",
+    "en": "world"
+   },
+   "ex": {
+    "t": "Madrid es un mundo nuevo para mí.",
+    "ko": "마드리드는 나한테 새로운 세상이야.",
+    "en": "Madrid is a new world for me.",
+    "from": null
+   }
+  },
+  {
+   "id": "e7f0cce5",
+   "w": "mañana",
+   "pos": "adv",
+   "mean": {
+    "ko": "내일; (la mañana) 아침",
+    "en": "tomorrow; morning"
+   },
+   "ex": {
+    "t": "Mañana te escribo.",
+    "ko": "내일 편지 쓸게.",
+    "en": "I'll write to you tomorrow.",
+    "from": null
+   }
+  },
+  {
+   "id": "49036151",
+   "w": "lugar",
+   "pos": "n",
+   "mean": {
+    "ko": "곳, 자리",
+    "en": "place"
+   },
+   "ex": {
+    "t": "Es un lugar muy bonito.",
+    "ko": "아주 예쁜 곳이야.",
+    "en": "It's a very pretty place.",
+    "from": null
+   }
+  },
+  {
+   "id": "d27145a3",
+   "w": "nuevo",
+   "pos": "adj",
+   "mean": {
+    "ko": "새로운",
+    "en": "new"
+   },
+   "ex": {
+    "t": "Tengo un cuadro nuevo.",
+    "ko": "새 그림이 있어.",
+    "en": "I have a new picture.",
+    "from": null
+   }
+  },
+  {
+   "id": "d692e854",
+   "w": "hoy",
+   "pos": "adv",
+   "mean": {
+    "ko": "오늘",
+    "en": "today"
+   },
+   "ex": {
+    "t": "¡Martín! Hoy estoy muy contento.",
+    "ko": "마르틴! 오늘 정말 기뻐.",
+    "en": "Martín! Today I'm very happy.",
+    "from": "c1-l5"
+   }
+  },
+  {
+   "id": "e925c403",
+   "w": "nombre",
+   "pos": "n",
+   "mean": {
+    "ko": "이름",
+    "en": "name"
+   },
+   "ex": {
+    "t": "¿Cuál es tu nombre?",
+    "ko": "네 이름은 뭐야?",
+    "en": "What's your name?",
+    "from": null
+   }
+  },
+  {
+   "id": "ca5065f8",
+   "w": "amor",
+   "pos": "n",
+   "mean": {
+    "ko": "사랑",
+    "en": "love"
+   },
+   "ex": {
+    "t": "Con amor, tu amigo.",
+    "ko": "사랑을 담아, 네 친구가.",
+    "en": "With love, your friend.",
+    "from": null
+   }
+  },
+  {
+   "id": "ea3964d4",
+   "w": "familia",
+   "pos": "n",
+   "mean": {
+    "ko": "가족",
+    "en": "family"
+   },
+   "ex": {
+    "t": "Mi familia está bien.",
+    "ko": "우리 가족은 잘 지내.",
+    "en": "My family is well.",
+    "from": null
+   }
+  },
+  {
+   "id": "b256ef21",
+   "w": "feliz",
+   "pos": "adj",
+   "mean": {
+    "ko": "행복한",
+    "en": "happy"
+   },
+   "ex": {
+    "t": "Bien, Francisco. Estoy muy feliz.",
+    "ko": "좋아, 프란시스코. 정말 행복해.",
+    "en": "Fine, Francisco. I'm very happy.",
+    "from": "p4"
+   }
+  },
+  {
+   "id": "7e6c8ab3",
+   "w": "ciudad",
+   "pos": "n",
+   "mean": {
+    "ko": "도시",
+    "en": "city"
+   },
+   "ex": {
+    "t": "Zaragoza es una ciudad bonita.",
+    "ko": "사라고사는 예쁜 도시야.",
+    "en": "Zaragoza is a pretty city.",
+    "from": null
+   }
+  },
+  {
+   "id": "40e67278",
+   "w": "agua",
+   "pos": "n",
+   "mean": {
+    "ko": "물",
+    "en": "water"
+   },
+   "ex": {
+    "t": "Necesito agua.",
+    "ko": "물이 필요해.",
+    "en": "I need water.",
+    "from": null
+   }
+  },
+  {
+   "id": "9158301e",
+   "w": "grande",
+   "pos": "adj",
+   "mean": {
+    "ko": "큰",
+    "en": "big"
+   },
+   "ex": {
+    "t": "La casa es muy grande.",
+    "ko": "그 집은 아주 커.",
+    "en": "The house is very big.",
+    "from": null
+   }
+  },
+  {
+   "id": "e5b46619",
+   "w": "pequeño",
+   "pos": "adj",
+   "mean": {
+    "ko": "작은",
+    "en": "small"
+   },
+   "ex": {
+    "t": "Martín, busco una casa pequeña.",
+    "ko": "마르틴, 작은 집을 찾고 있어.",
+    "en": "Martín, I'm looking for a small house.",
+    "from": "c1-l6"
+   }
+  },
+  {
+   "id": "3b3630c1",
+   "w": "venir",
+   "pos": "v",
+   "mean": {
+    "ko": "오다",
+    "en": "to come"
+   },
+   "ex": {
+    "t": "¿Vienes a Madrid?",
+    "ko": "마드리드에 올래?",
+    "en": "Are you coming to Madrid?",
+    "from": null
+   }
+  },
+  {
+   "id": "44c513c2",
+   "w": "volver",
+   "pos": "v",
+   "mean": {
+    "ko": "돌아가다, 돌아오다",
+    "en": "to return"
+   },
+   "ex": {
+    "t": "Vuelvo a Zaragoza.",
+    "ko": "사라고사로 돌아가.",
+    "en": "I'm going back to Zaragoza.",
+    "from": null
+   }
+  },
+  {
+   "id": "ac3de5ea",
+   "w": "adiós",
+   "pos": "interj",
+   "mean": {
+    "ko": "잘 가, 안녕",
+    "en": "goodbye"
+   },
+   "ex": {
+    "t": "Adiós, Martín.",
+    "ko": "잘 있어, 마르틴.",
+    "en": "Goodbye, Martín.",
+    "from": null
+   }
+  },
+  {
+   "id": "6eb15911",
+   "w": "llegar",
+   "pos": "v",
+   "mean": {
+    "ko": "도착하다",
+    "en": "to arrive"
+   },
+   "ex": {
+    "t": "Llego a Madrid mañana.",
+    "ko": "내일 마드리드에 도착해.",
+    "en": "I arrive in Madrid tomorrow.",
+    "from": null
+   }
+  },
+  {
+   "id": "b8871252",
+   "w": "vivir",
+   "pos": "v",
+   "mean": {
+    "ko": "살다",
+    "en": "to live"
+   },
+   "ex": {
+    "t": "Vivo en Madrid.",
+    "ko": "난 마드리드에 살아.",
+    "en": "I live in Madrid.",
+    "from": null
+   }
+  }
+ ]
+}

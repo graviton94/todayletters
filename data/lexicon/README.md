@@ -65,3 +65,8 @@ Tatoeba 예문 가운데 학습 앱에 맞지 않는 것(성적 · 혐오 · 폭
 - 나폴레옹에만 쓰는 손 고침: `src/<lang>_map_napoleon.txt` (공용 map 뒤에 읽음). `src/<lang>_occ.txt` 키는 이제 모두 `작품/편지:메시지:토큰` (fr · de 도).
 - 새로 쓴 뜻 (카드 · 공용 표에 없던 fr 557 · en 383 · ko 454줄) 은 이 편지 문맥에 맞춰 썼고 **아직 사람이 확인하지 않았다**. IPA 는 espeak-ng 근사치 (영어는 CMUdict GA 로 아직 안 바꿈).
 - 새 Tatoeba 예문 가운데 다른 뜻 · 앱에 맞지 않는 것 78개는 `src/example_drop_napoleon.txt` 로 뺐다 (예문 없음, 앱이 쓴 예문으로 바꾸지 않음).
+
+## 고야 (2026-10-23, 서문 + I장)
+- 스페인어 원문 (지금 철자) 으로 `build.py goya es` → `daily.py goya es`, `build_tl.py goya en|ko` → `daily_tl.py goya en|ko`. Tatoeba spa 는 `tatoeba_spa` 가지의 `tatoeba_spa.tsv.gz`.
+- 표제어 표 `src/es_tab.txt` 는 이 편지들의 뜻으로 새로 씀 (사람 확인 전). 앱에 맞지 않는 예문은 `src/example_drop_goya.txt` 로 뺐다 (다시 만들면 손으로 다시 뺄 것).
+- en IPA 는 빈센트 · 모차르트 · 나폴레옹과 같은 낱말이면 그쪽 것 (CMUdict GA), 나머지는 espeak. ko 카드 발음 · 로마자도 같은 낱말은 그쪽 것, 나머지는 scripts/pron.py 규칙으로 자동.

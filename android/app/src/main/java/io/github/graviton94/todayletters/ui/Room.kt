@@ -389,6 +389,8 @@ fun Room(s: AppState, r: Route.Letter) {
                         spoken = spokenRange(s.narrator, audio(i), m.text[view.learn]),
                         il = il?.getOrNull(i), seen = seen,
                         onLong = if (i < written) ({ cardOf = i }) else null,
+                        // 원래 철자 (series.json "origLine", 고야): 원어를 읽을 때, 다 써진 문장에만
+                        orig = m.orig.takeIf { it.isNotEmpty() && view.learn == work.series.original && i < written },
                     )
                 }
                 // 메신저 같은 순간: 이 문장 다음의 위치 공유 · 사진 공유 (문장이 다 써진 뒤에)
@@ -829,6 +831,8 @@ private fun LetterSlip(
     il: IlLine? = null, seen: Set<String> = emptySet(),
     /** 길게 누르기: 이 문장을 편지 카드로 (다 써진 문장만, 없으면 null). */
     onLong: (() -> Unit)? = null,
+    /** 판본에 찍힌 그대로의 글 (‘원래 철자’, 누르면 펼침). 없으면 null. */
+    orig: String? = null,
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
@@ -860,6 +864,7 @@ private fun LetterSlip(
                     taps = taps, onTap = onTap, hints = hints, picked = picked, onPickedAt = onPickedAt)
                 if (read != null) InkText(read, Type.base.of(readLang), readInk, animate, go = learnDone, lineMs = (lineMs * 0.7f).toInt(), onDone = onWritten)
                 }
+                if (orig != null) OrigLine(orig, learnLang)
                 if (signature != null) Text(signature, style = Type.signature, color = p.slipSoft, modifier = Modifier.align(Alignment.End).padding(top = Tokens.Space.s1))
             }
             Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
@@ -869,6 +874,18 @@ private fun LetterSlip(
                 if (canPlay) IconButton(stringResource(if (saved) R.string.quote_saved else R.string.quote_save), onClick = onSave) { Bookmark(saved) }
             }
         }
+    }
+}
+
+/** ‘원래 철자’: 접힌 이름표 한 줄, 누르면 판본에 찍힌 그대로의 글 (기울임, 옅게). */
+@Composable
+private fun OrigLine(orig: String, lang: Lang) {
+    val p = Ink.palette
+    var open by remember(orig) { mutableStateOf(false) }
+    Column(Modifier.padding(top = Tokens.Space.s1), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+        Text(stringResource(R.string.orig_spelling) + if (open) " ‹" else " ›", style = Type.small.ui(), color = p.slipSoft,
+            modifier = Modifier.heightIn(min = 32.dp).pressable { open = !open }.padding(vertical = 6.dp))
+        if (open) Text(orig, style = Type.base.of(lang).copy(fontStyle = androidx.compose.ui.text.font.FontStyle.Italic), color = p.slipSoft)
     }
 }
 
