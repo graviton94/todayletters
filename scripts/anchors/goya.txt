@@ -10,3 +10,14 @@ buena vida|좋은 삶|a good life
 lo que|~하는 것|what
 en cuanto a|~에 대해서는|as for
 que no|~하지 않는다는 것|that … not
+que yo|내가 ~하는 것|that I
+yo no|나는 ~하지 않는다|I don't
+no te|너에게 ~하지 않는다|… not … you
+se ha|~이 되었다, ~했다 (se + haber)|has (been) …
+me ha|나에게 ~했다|has … me
+que he|내가 ~한 (que + haber)|that I have …
+el rey|왕|the King
+san francisco|산 프란시스코 (성당 · 그림)|San Francisco
+para que|~하도록|so that
+de mí|나에 대해, 나의|of me
+más que|~보다 더|more than

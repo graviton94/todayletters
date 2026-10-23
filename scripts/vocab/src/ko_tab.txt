@@ -2789,3 +2789,322 @@ A|name|A (a mark on the list)|A (목록에 붙인 기호)
 나머지|n|the rest|남은 것
 군더더기|n|something superfluous|쓸데없이 붙은 것
 무덤|n|grave|죽은 사람을 묻은 곳
+지극히|adv|most, extremely|더할 나위 없이
+존귀하다|adj|to be illustrious|높고 귀하다
+페르난도|name|Fernando (the Academy of San Fernando)|산 페르난도 아카데미
+왕립|n|royal|나라 임금이 세움
+아카데미|n|academy|미술가 모임 · 학교
+회원|n|member|모임에 든 사람
+존경|n|respect|우러러 받듦
+아뢰다|v|to report (to a superior)|윗사람에게 말씀드리다
+공개되다|v|to be unveiled|여럿에게 드러나다
+평가|n|judgement, assessment|값어치를 매김
+고야|name|Goya|화가 프란시스코 데 고야
+비평|n|criticism|좋고 나쁨을 따짐
+정의|n|justice|올바른 도리
+평가하다|v|to judge|값어치를 매기다
+기준|n|standard|잣대
+미술|n|fine art|그림 · 조각 같은 예술
+규칙|n|rule|정해 둔 법
+악의|n|ill will|나쁜 마음
+편견|n|prejudice|치우친 생각
+올곧다|adj|to be upright|마음이 바르다
+스며들다|v|to seep in|안으로 배어들다
+이치|n|reason|사리, 도리
+충동|n|impulse|갑자기 이는 마음
+끌려가다|v|to be dragged along|끌림을 당해 가다
+그러나|conj|but, however|그렇지만
+섬세하다|adj|to be delicate|가늘고 곱다
+지탱하다|v|to support|버티어 내다
+평판|n|reputation|세상 사람들의 평
+생계|n|livelihood|살아갈 방도
+삼가|adv|respectfully|조심스럽게
+지난달|n|last month|바로 앞의 달
+말씀|n|words (honorific)|남의 말을 높여 부르는 말
+여러분|pron|everyone (polite)|여러 사람을 높여 부르는 말
+매형|n|brother-in-law (sister's husband)|누나의 남편
+바예우|name|Bayeu (Francisco Bayeu, court painter)|궁정 화가, 고야의 처남
+의논하다|v|to consult|서로 의견을 나누다
+펜덴티브|n|pendentive|둥근 천장 아래 삼각면
+방식|n|way, method|하는 방법
+승인|n|approval|좋다고 인정함
+돔|n|dome|둥근 천장
+그곳|pron|there|그 장소
+마땅히|adv|duly|당연히
+존중하다|v|to respect|높이어 귀하게 여기다
+공손히|adv|politely|예의 바르게
+증표|n|token, sign|증거가 되는 표
+간청하다|v|to beg|간절히 부탁하다
+주님|n|the Lord|하느님 · 예수를 높여 부르는 말
+마드리드|name|Madrid|스페인의 수도
+겨루다|v|to compete|서로 이기려고 다투다
+엘|name|el (in San Francisco el Grande)|산 프란시스코 엘 그란데
+그란데|name|Grande (San Francisco el Grande)|마드리드의 성당 이름
+경연|n|competition|솜씨를 겨룸
+뽑다|v|to choose|골라내다
+임명장|n|letter of appointment|임명을 알리는 문서
+고이코에체아|name|Goicoechea (a friend in Zaragoza)|사라고사의 친구
+비열하다|adj|to be mean, vile|하는 짓이 더럽고 치사하다
+마엘랴|name|Maella (court painter)|궁정 화가
+정식|n|formal, official|정해진 방식
+듬뿍|adv|plentifully|넘칠 만큼 많이
+건달|n|rascal|빈둥거리는 사람
+글솜씨|n|skill in writing|글 쓰는 재주
+뛰어나다|adj|to be excellent|남보다 낫다
+가망|n|hope, chance|될 가능성
+오르티스|name|Ortiz (the doctor)|의사
+도|n|also (particle)|~도|F
+카밀로|name|Camilo (Goya's brother)|고야의 동생
+사제|n|priest|신부
+톨레도|name|Toledo|마드리드 남쪽 도시
+플로리다블랑카|name|Floridablanca (chief minister)|수석 장관
+이분|pron|this person (honorific)|이 사람을 높여 부르는 말
+마치다|v|to finish|끝내다
+식사하다|v|to dine|밥을 먹다
+아레나스|name|Arenas de San Pedro|돈 루이스 왕자가 살던 곳
+한껏|adv|to the full|할 수 있는 데까지
+대접하다|v|to treat, to entertain|음식 · 예의로 모시다
+총|n|gun|쏘는 무기
+토끼|n|rabbit|귀가 긴 작은 동물
+환쟁이|n|dauber (joking word for painter)|화가를 낮춰 부르는 말
+은|n|silver|흰 빛 나는 쇠붙이
+가운|n|gown|길고 헐렁한 옷
+의상|n|clothing|옷
+담당|n|charge, person in charge|맡음
+삼만|num|thirty thousand|30,000
+레알|name|real (Spanish coin)|스페인 돈
+작별|n|farewell|헤어짐
+인사|n|greeting|만나고 헤어질 때의 말
+명하다|v|to order|시키다
+아이토스|name|[word unclear in the edition]|판본의 불확실한 낱말
+애호가|n|lover (of art)|즐기고 좋아하는 사람
+행사|n|event, ceremony|정해 놓고 하는 일
+손대다|v|to touch, to work on|손을 대어 고치다
+답하다|v|to answer|대답하다
+떠돌다|v|to circulate|여기저기 퍼지다
+자세히|adv|in detail|꼼꼼하게
+코굴랴다|name|Cogullada (near Zaragoza)|사라고사 근처
+하코|name|Jaco (a private joke)|두 친구의 농담
+생각나다|v|to come to mind|떠오르다
+잘생기다|adj|to be good-looking|얼굴이 훤하다
+페드로|name|Pedro|페드로
+세례|n|baptism|교회에 드는 예식
+산모|n|new mother|아이를 낳은 여자
+순조롭다|adj|to go smoothly|탈 없이 잘되다
+운|n|luck|운수
+전문가|n|expert|그 일을 잘 아는 사람
+평|n|review, opinion|좋고 나쁨의 말
+이견|n|different opinion|다른 의견
+나들이|n|outing|잠깐 다녀오는 일
+아토차|name|Atocha (church in Madrid)|마드리드의 성당
+왼쪽|n|left|왼편
+창가|n|window side|창 옆
+왕세자비|n|crown princess|왕세자의 아내
+카를로타|name|Carlota (the Infanta)|공주
+뒤따르다|v|to follow behind|뒤를 따라가다
+행렬|n|procession|줄지어 가는 무리
+구경|n|sightseeing, a sight|보고 즐김
+마요르|name|Mayor (the Plaza Mayor)|마요르 광장
+광장|n|square|넓은 빈터
+루이스|name|Luis (the Infante Don Luis)|돈 루이스 왕자
+아란후에스|name|Aranjuez|왕실의 봄 궁
+살펴보다|v|to observe|두루 자세히 보다
+그레고리오|name|Gregorio (Gregorio Ferro)|화가
+페로|name|Ferro|화가 그레고리오 페로
+호세|name|José|호세
+카스티요|name|Castillo (José del Castillo)|화가
+발아래|n|at the feet|발 밑
+엎드리다|v|to prostrate oneself|몸을 바닥에 대다
+마땅하다|adj|to be proper|알맞다
+공경|n|reverence|공손히 받듦
+각하|n|Your Excellency|높은 관리를 높여 부르는 말
+국왕|n|king|나라의 임금
+저마다|adv|each|각각
+수고|n|toil, trouble|애씀
+완성|n|completion|다 이룸
+보상하다|v|to reward|갚아 주다
+달리|adv|otherwise|다르게
+꾸리다|v|to manage (a living)|살림을 이끌다
+비밀|n|secret|숨긴 일
+칼레하|name|Calleja (painter)|화가
+부원장|n|deputy director|원장 다음 자리
+후보|n|candidate|뽑힐 사람
+재가|n|royal approval|임금의 허락
+전례|n|precedent|앞의 예
+재가하다|v|to approve (of a king)|임금이 허락하다
+마에야|name|Maella (court painter)|궁정 화가
+태피스트리|n|tapestry|무늬를 짜 넣은 벽걸이
+왕궁|n|royal palace|임금의 궁전
+프레스코|n|fresco|젖은 회벽에 그린 그림
+유화|n|oil painting|기름 물감 그림
+추천|n|recommendation|좋다고 내세움
+윗분|n|superiors|윗사람
+감사|n|thanks|고마움
+절다|v|to limp|다리를 절름거리다
+벗어나다|v|to get out of|빠져나오다
+고삐|n|reins|말을 모는 줄
+나폴리식|n|Neapolitan style|나폴리 방식
+넘겨주다|v|to hand over|건네주다
+전속력|n|full speed|낼 수 있는 가장 빠른 속도
+데굴데굴|adv|rolling over and over|굴러가는 모양
+구르다|v|to roll|굴러가다
+이만하다|adj|to be this much|이 정도이다
+벗|n|friend|친구
+연세|n|age (honorific)|나이의 높임말
+카르멘|name|Carmen (Our Lady of Carmen)|카르멘 성모
+허비하다|v|to waste|헛되이 쓰다
+밀리다|v|to be behind (with work)|일이 쌓이다
+뒤집히다|v|to overturn|엎어지다
+성하다|adj|to be whole, sound|탈 없이 온전하다
+토마스|name|Tomás|토마스
+노새|n|mule|말과 나귀의 새끼
+찬성하다|v|to agree|좋다고 하다
+이왕이면|adv|if it's going to be anyway|어차피 할 바에는
+놈|n|fellow, one (casual)|사람 · 것을 낮춰 이름
+금화|n|gold coin|금으로 만든 돈
+쌓다|v|to pile up|포개어 올리다
+놀리다|v|to tease|장난으로 괴롭히다
+걸|n|thing (= 것을, casual)|것을
+넉넉하다|adj|to be ample|모자라지 않다
+주문|n|order|만들어 달라고 맡김
+이봐|interj|hey|부르는 말
+별의별|det|all sorts of|온갖
+의심|n|suspicion|믿지 못함
+우리끼리|n|between us|우리만
+조심하다|v|to be careful|주의하다
+시시하다|adj|to be silly, trivial|보잘것없다
+거룩하다|adj|to be holy|성스럽다
+파코|name|Paco (Francisco)|프란시스코의 애칭
+페냐피엘|name|Peñafiel (the Marquis)|후작
+백작부인|n|countess|백작의 아내
+청구서|n|bill, invoice|돈을 달라고 적은 문서
+항목|n|item|하나하나의 항
+알라메다|name|the Alameda (Osuna country house)|오수나 가문의 별장
+첫째|num|first|첫 번째
+여럿|n|several|많은 수
+구성|n|composition|짜임새
+둘째|num|second|두 번째
+강도|n|robber|남의 것을 빼앗는 사람
+마부|n|coachman|마차를 모는 사람
+제압하다|v|to overpower|힘으로 누르다
+셋째|num|third|세 번째
+집시|n|gypsy|떠돌아다니는 사람들
+그네|n|swing|매달려 흔드는 놀이 기구
+밀다|v|to push|앞으로 내밀다
+보리|n|barley|곡식
+하녀|n|maid|집안일을 하는 여자
+유행하다|v|to be in fashion|널리 퍼지다
+건축|n|architecture|집을 지음
+양식|n|style|일정한 형식
+아랄리|name|Arali|아는 사람
+성녀|n|female saint|여자 성인
+안나|name|Anne (Saint Anne)|성녀 안나
+실물|n|real thing (life-size)|실제 모습
+제자리|n|proper place|본디 자리
+요셉|name|Joseph|성 요셉
+임종|n|deathbed|숨을 거둘 때
+루트가르다|name|Lutgard (Saint Lutgard)|성녀
+좁다|adj|to be narrow|넓지 않다
+얼핏|adv|briefly, by chance|잠깐 스치듯
+별것|n|anything special|특별한 것
+이리로|adv|this way, here|이쪽으로
+왕자님|n|prince (honorific)|왕자를 높여 부르는 말
+이시드로|name|Isidro (San Isidro)|마드리드의 수호성인
+맹세하다|v|to swear|굳게 약속하다
+서기|n|clerk|글 쓰는 일을 맡은 사람
+증인|n|witness|본 사람
+카라반첼|name|Carabanchel (near Madrid)|마드리드 근처 마을
+페리코|name|Perico|페리코
+처남|n|brother-in-law (wife's brother)|아내의 남자 형제
+밑|n|bottom, under|아래
+만족시키다|v|to satisfy|흡족하게 하다
+맡다|v|to take charge of|책임지다
+승진|n|promotion|자리가 오름
+임명하다|v|to appoint|자리를 맡기다
+비공식|n|unofficial|공식이 아님
+살배기|n|-year-old (child)|그 나이의 아이
+쳐다보다|v|to look at|바라보다
+은행|n|bank|돈을 맡는 곳
+왕실|n|royal family|임금의 집안
+채권|n|bond|빚 문서
+조합|n|guild|모임
+이익|n|profit|이득
+어깨|n|shoulder|팔 위쪽
+껴안다|v|to embrace|두 팔로 안다
+사라고사|name|Zaragoza|아라곤의 도시
+흉|n|fault, gossip|흉허물
+이름나다|v|to be well known|널리 알려지다
+기질|n|temperament|타고난 성질
+누르다|v|to press, to hold down|힘을 주다
+사스타고|name|Sástago (the Count)|백작
+피냐텔리|name|Pignatelli (Ramón Pignatelli)|사라고사의 성직자
+세밀|n|fine detail|자세하고 꼼꼼함
+에스테베|name|Esteve (Agustín Esteve, painter)|화가
+세밀화|n|miniature|아주 작게 그린 그림
+본인|pron|oneself|자기 자신
+누그러지다|v|to calm down|부드러워지다
+투우|n|bullfight|소와 싸우는 경기
+바보짓|n|silly thing|어리석은 짓
+알바|name|Alba (the Duchess of Alba)|공작부인
+공작부인|n|duchess|공작의 아내
+들이닥치다|v|to burst in|갑자기 들어오다
+전신|n|full length|온몸
+알쿠디아|name|la Alcudia (Godoy's title)|고도이의 작위
+기별|n|word, news|소식
+마련하다|v|to arrange|준비하다
+극진히|adv|warmly, with great care|정성을 다해
+쐬다|v|to get (air)|바람을 맞다
+나위|n|(할 나위 없이) beyond|더할 여지
+외투|n|coat|겉옷
+부활절|n|Easter|부활 축일
+사아베드라|name|Saavedra (Francisco de Saavedra)|훗날 재무 장관
+갈아입다|v|to change (clothes)|다른 옷으로 입다
+셔츠|n|shirt|윗옷
+증명하다|v|to prove|사실을 밝히다
+돌려보내다|v|to send back|되돌려 보내다
+틀어박히다|v|to shut oneself away|들어앉아 나오지 않다
+숨다|v|to hide|안 보이게 하다
+알아내다|v|to find out|밝혀내다
+도깨비|n|hobgoblin|장난치는 귀신
+굴|n|den, cave|구멍
+푸에르타|name|Puerta (the Puerta del Sol)|마드리드의 광장
+재산|n|fortune, property|가진 것
+적히다|v|to be written|글로 쓰이다
+사르텐|name|Sartén (calle de la Sartén)|사라고사의 거리
+베풀다|v|to grant|남에게 주다
+사본|n|copy|베낀 것
+욜디|name|Yoldi (a friend)|사라고사의 친구
+카프리초스|name|Los Caprichos|고야의 판화집
+는|n|(topic particle)|~는|F
+부식|n|etching (corrosion)|산으로 깎음
+동판|n|copper plate|구리판
+스물일곱|num|twenty-seven|27
+오륙천|num|five or six thousand|5천~6천
+찍다|v|to print|박아 내다
+탐내다|v|to covet|갖고 싶어 하다
+외국인|n|foreigner|다른 나라 사람
+주군|n|my lord (the King)|섬기는 임금
+판화소|n|print house|판화를 찍는 곳
+하비에르|name|Javier (Goya's son)|고야의 아들
+여행하다|v|to travel|다른 곳에 가다
+보상|n|reward|갚음
+의욕|n|eagerness|하고 싶은 마음
+살리다|v|to make good use of|잘 쓰다
+칙령|n|royal order|임금의 명령
+내용|n|content|담긴 것
+떳떳하다|adj|to be honest, above board|굽힐 것 없다
+연금|n|pension|해마다 주는 돈
+끝없다|adj|to be endless|끝이 없다
+바란다|name|Baranda|파리로 간 사람
+석판화|n|lithograph|돌판으로 찍은 그림
+시험작|n|trial piece|시험 삼아 만든 작품
+카르다노|name|Cardano (lithographer)|석판 인쇄공
+수긍하다|v|to accept, to agree|옳다고 인정하다
+감식가|n|connoisseur|작품을 가려 보는 사람
+스페인|name|Spain|나라 이름
+장수|n|seller, dealer|장사하는 사람
+스무|num|twenty (before a counter)|20
+데리다|v|to take (someone) along|함께 가다
+그래야|adv|only then|그렇게 해야
+온전하다|adj|to be complete|모자람 없다
+라몬|name|Ramón (Ramón Pignatelli)|라몬 피냐텔리

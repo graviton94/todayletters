@@ -1,0 +1,277 @@
+{
+ "c1-l7": {
+  "remove": [],
+  "add": [
+   "caso"
+  ]
+ },
+ "c3-l1": {
+  "remove": [],
+  "add": [
+   "bastante"
+  ]
+ },
+ "c3-l2": {
+  "remove": [],
+  "add": [
+   "día"
+  ]
+ },
+ "c3-l3": {
+  "remove": [],
+  "add": [
+   "cierto"
+  ]
+ },
+ "c3-l4": {
+  "remove": [],
+  "add": [
+   "arriba",
+   "creer"
+  ]
+ },
+ "c3-l5": {
+  "remove": [
+   "contento",
+   "príncipe",
+   "vidrio"
+  ],
+  "add": [
+   "tren",
+   "vista",
+   "detrás"
+  ]
+ },
+ "c3-l6": {
+  "remove": [
+   "pintar",
+   "emplear"
+  ],
+  "add": [
+   "posible",
+   "atención"
+  ]
+ },
+ "c3-l7": {
+  "remove": [
+   "academia",
+   "consulta"
+  ],
+  "add": [
+   "primero",
+   "lugar"
+  ]
+ },
+ "c4-l1": {
+  "remove": [],
+  "add": [
+   "hermano",
+   "jefe"
+  ]
+ },
+ "c4-l2": {
+  "remove": [
+   "cojo",
+   "caída"
+  ],
+  "add": [
+   "medio",
+   "camino"
+  ]
+ },
+ "c4-l3": {
+  "remove": [
+   "sentimiento",
+   "responder"
+  ],
+  "add": [
+   "tomar",
+   "edad"
+  ]
+ },
+ "c4-l4": {
+  "remove": [],
+  "add": [
+   "casi"
+  ]
+ },
+ "c4-l5": {
+  "remove": [
+   "gastar",
+   "disposición"
+  ],
+  "add": [
+   "claro",
+   "mundo"
+  ]
+ },
+ "c4-l6": {
+  "remove": [
+   "preciso",
+   "semejante"
+  ],
+  "add": [
+   "hombre",
+   "entrar"
+  ]
+ },
+ "c4-l7": {
+  "remove": [
+   "toro",
+   "figura"
+  ],
+  "add": [
+   "cuenta",
+   "muerto"
+  ]
+ },
+ "c5-l1": {
+  "remove": [],
+  "add": [
+   "mal"
+  ]
+ },
+ "c5-l2": {
+  "remove": [],
+  "add": [
+   "pregunta",
+   "aquí"
+  ]
+ },
+ "c5-l3": {
+  "remove": [],
+  "add": [
+   "vengar",
+   "trabajar"
+  ]
+ },
+ "c5-l5": {
+  "remove": [],
+  "add": [
+   "ahora",
+   "aguardar"
+  ]
+ },
+ "c5-l6": {
+  "remove": [],
+  "add": [
+   "malo",
+   "vivir",
+   "tino"
+  ]
+ },
+ "c5-l7": {
+  "remove": [
+   "felicidad",
+   "hombro"
+  ],
+  "add": [
+   "hoy",
+   "conocido"
+  ]
+ },
+ "c6-l1": {
+  "remove": [
+   "miniatura",
+   "acompañar"
+  ],
+  "add": [
+   "esperar",
+   "clase"
+  ]
+ },
+ "c6-l2": {
+  "remove": [
+   "lienzo",
+   "retratar"
+  ],
+  "add": [
+   "ayudar",
+   "cara"
+  ]
+ },
+ "c6-l3": {
+  "remove": [
+   "exceder",
+   "obsequiar"
+  ],
+  "add": [
+   "coche",
+   "frío"
+  ]
+ },
+ "c6-l4": {
+  "remove": [
+   "madriguera",
+   "mayorazgo"
+  ],
+  "add": [
+   "noche",
+   "dentro"
+  ]
+ },
+ "c6-l5": {
+  "remove": [],
+  "add": [
+   "nombre",
+   "corazón"
+  ]
+ },
+ "c6-l6": {
+  "remove": [
+   "constar",
+   "lámina"
+  ],
+  "add": [
+   "libro",
+   "muerte"
+  ]
+ },
+ "c6-l7": {
+  "remove": [
+   "comunicar"
+  ],
+  "add": [
+   "hijo"
+  ]
+ },
+ "e1": {
+  "remove": [
+   "litográfico"
+  ],
+  "add": [
+   "fiesta"
+  ]
+ },
+ "e2": {
+  "remove": [
+   "conocedor",
+   "abundar"
+  ],
+  "add": [
+   "quedar",
+   "número"
+  ]
+ },
+ "e3": {
+  "remove": [],
+  "add": [
+   "cama",
+   "completo",
+   "querido",
+   "poder"
+  ]
+ },
+ "c1-l4": {
+  "remove": [
+   "querido"
+  ],
+  "add": []
+ },
+ "c1-l5": {
+  "remove": [
+   "poder"
+  ],
+  "add": []
+ }
+}

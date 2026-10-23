@@ -16,3 +16,79 @@ c1-l6|0|많이 필요 없어|I don't need much|별로 필요 없어|필요 없�
 c1-l6|1|나머지는 다|all the rest|남은 건 다|나머지: ‘남은 것’.|나머지 = the rest.
 c1-l7|0|전해 달래|(she) asks me to tell you|전해 달라고 해|-어 달래: 남의 부탁을 옮길 때.|-어 달래 passes on someone's request.
 c1-l7|1|그렇게 해 줘|please do so|그렇게 해 주라|-어 줘: 친한 사이의 부탁.|-어 줘 = a casual request.
+c2-l1|0|깊은 존경을 담아|with deep respect|공경하는 마음으로|-을 담아: 마음을 넣어.|-을 담아 = with … in it.
+c2-l1|3|아주 섬세한 것입니다|is a very delicate thing|매우 섬세합니다|-ㅂ니다: 가장 정중한 끝맺음.|-ㅂ니다 is the most formal ending.
+c2-l2|0|삼가 아룁니다|I respectfully report|정중히 말씀드립니다|공식 편지 첫머리.|A formal opening.
+c2-l2|2|오래 지켜 주시기를 빕니다|I pray (He) may keep you long|오래 보살펴 주시길 바랍니다|-기를 빕니다: 축원.|-기를 빕니다 = I pray that.
+c2-l3|0|가장 큰 일이 왔어|the biggest undertaking has come|제일 큰 일이 생겼어|가장: ‘제일’.|가장 = most.
+c2-l3|2|한마디로|in short|간단히 말해|말을 정리할 때.|To sum up.
+c2-l4|0|마음이 많이 아팠어|it grieved me deeply|정말 슬펐어|마음이 아프다: ‘슬프다’.|마음이 아프다 = to feel sad.
+c2-l4|3|기다리는 중이야|I'm waiting for|기다리고 있어|-는 중이다: 진행.|-는 중이다 = in the middle of.
+c2-l5|0|아무 말도 말라고|not to say anything|말하지 말라고|-지 말라고: 부정 명령을 전함.|-지 말라고 reports a ‘don't’.
+c2-l5|1|신세를 많이 졌어|I owe (him) a lot|큰 도움을 받았어|신세를 지다: 남의 도움을 받다.|신세를 지다 = to be indebted.
+c2-l6|0|막 돌아왔어|I've just got back|방금 왔어|막: ‘바로 조금 전’.|막 = just now.
+c2-l6|3|다들 천사 같아|they're all like angels|모두 천사야|-같아: 비유.|같아 = like.
+c2-l7|1|마지막 손질|the last touches|끝 손질|손질: 다듬는 일.|손질 = touching up.
+c2-l7|2|매형만은 달라|only my brother-in-law is different|매형만 빼고|-만은: ‘~만큼은’.|-만은 = only … (contrast).
+c3-l1|0|더는 말 안 할게|I won't say more|이제 말 안 할게|안 + 동사 + -ㄹ게: 의지.|안 … -ㄹ게 = I won't.
+c3-l1|1|자꾸 생각나거든|it keeps coming back to me|계속 떠오르거든|자꾸: ‘여러 번 되풀이’.|자꾸 = again and again.
+c3-l2|0|사내아이를 낳았어|gave birth to a boy|아들을 낳았어|-을 낳다: 아이를 낳다.|낳다 = to give birth.
+c3-l2|1|부디 살아 주기를|may (he) live, please|꼭 살아 주길|부디: 간절히.|부디 = please (earnestly).
+c3-l3|0|운이 좋았던 건 사실이야|it's true I was lucky|운이 좋았어, 정말로|-ㄴ 건 사실이야: 확인.|-ㄴ 건 사실이야 = it's true that.
+c3-l3|1|아직 아무것도 몰라|I don't know anything yet|아직 모르겠어|아직: ‘지금까지도’.|아직 = yet.
+c3-l4|0|아무 소식이 없고|there's no news|소식이 없고|아무 … 없다: 전혀 없다.|아무 … 없다 = none at all.
+c3-l4|2|좀 더 차분히 쓸게|I'll write more calmly|천천히 쓸게|-ㄹ게: 약속.|-ㄹ게 = I will (promise).
+c3-l5|0|아주 흐뭇한 얼굴로|with a very pleased face|아주 기뻐하며|흐뭇하다: 마음에 흡족하다.|흐뭇하다 = pleased.
+c3-l5|1|네 생각이 났어|I thought of you|네가 떠올랐어|-이 나다: 떠오르다.|생각이 나다 = to come to mind.
+c3-l6|0|마땅한 공경을 담아|with due veneration|정중히|청원서의 말투.|Petition wording.
+c3-l6|3|생계를 꾸려야 하는|having to make a living|먹고살아야 하는|-아야 하다: 의무.|-아야 하다 = must.
+c3-l7|0|비밀이야|it's a secret|아무한테도 말하지 마|비밀: 숨기는 일.|비밀 = secret.
+c3-l7|1|돈은 적고 명예는 크지만|little money but great honour|돈보다 명예|-은 … -은: 맞세움.|은/는 … 은/는 contrasts.
+c4-l1|0|드디어 왕의 화가가 됐어|at last I've become the King's painter|마침내 왕의 화가야|드디어: 오래 기다린 끝에.|드디어 = at last.
+c4-l1|3|감사를 드렸어|I gave thanks|고맙다고 했어|드리다: 주다의 높임.|드리다 = honorific ‘give’.
+c4-l2|0|사랑하는 마르틴|Dear Martín|친애하는 마르틴|편지 첫머리.|A letter opening.
+c4-l2|2|넓긴 해도|wide as it was|넓었지만|-긴 해도: 인정하면서 반대.|-긴 해도 = although.
+c4-l3|0|펜을 들어|taking up my pen|펜을 잡고|편지를 시작하는 말.|To start writing.
+c4-l3|2|꼭 그려 줄게|I'll surely paint it for you|반드시 그려 줄게|꼭: ‘반드시’.|꼭 = surely.
+c4-l4|0|이제 두 바퀴 마차는 싫어|I don't want a two-wheeled gig any more|이제 그 마차는 싫어|이제: ‘지금부터는’.|이제 = from now on.
+c4-l4|1|사 달라고|asking (him) to buy|사 주라고|-아 달라고: 부탁을 전함.|-아 달라고 reports a request.
+c4-l5|0|솔직히 말하자|let's speak plainly|터놓고 말하자|-자: 권유.|-자 = let's.
+c4-l5|2|내가 가진 건 다 네 거야|all I have is yours|내 것은 다 네 것|-은 다: 모두.|다 = all.
+c4-l6|0|뭐라고 할까|what will they say|무슨 말을 할까|-ㄹ까: 걱정스러운 짐작.|-ㄹ까 = I wonder.
+c4-l6|2|얘기 바꾸자|let's change the subject|다른 얘기 하자|-자: 권유.|-자 = let's.
+c4-l7|0|명으로 그린|painted by order|명령으로 그린|-으로: 까닭 · 근거.|-으로 = by.
+c4-l7|1|값 4,000레알|value 4,000 reales|4천 레알|청구서의 값.|A price on a bill.
+c5-l1|0|하필 안 좋은 해에|of all years, a bad one|운 나쁘게도 올해|하필: 공교롭게도.|하필 = of all times.
+c5-l1|1|정신이 하나도 없어|I'm all up in the air|너무 정신없어|정신이 없다: 어수선하다.|정신이 없다 = to be frantic.
+c5-l2|0|정말 미안했어|I was really sorry|너무 미안했어|-었어: 과거.|-었어 = past.
+c5-l2|2|아직 아무것도 시작하지 못했어|I haven't started anything yet|하나도 시작 못 했어|-지 못하다: 할 수 없었음.|-지 못하다 = couldn't.
+c5-l3|0|아주 애쓰며|with great effort|열심히|애쓰다: 힘을 들이다.|애쓰다 = to make an effort.
+c5-l3|2|잠도 못 자고|I can't even sleep|잠을 못 이루고|-도 못: ‘~조차 못’.|-도 못 = can't even.
+c5-l4|0|정말 미안해|I'm really sorry|너무 미안해|사과할 때.|An apology.
+c5-l4|1|어쩔 수가 없어|I can't help it|방법이 없어|어쩔 수 없다: 피할 길이 없다.|어쩔 수 없다 = nothing can be done.
+c5-l5|0|방금 친구를 통해 들었어|I've just heard through a friend|조금 전에 친구한테 들었어|-를 통해: ~을 거쳐.|-를 통해 = through.
+c5-l5|1|함께 나눠|share (it)|같이 나눠|나누다: 함께 가지다.|나누다 = to share.
+c5-l6|1|하느님 덕분에|thank God|하느님 은혜로|덕분에: 도움으로.|덕분에 = thanks to.
+c5-l6|2|네가 말해 줘|you tell me|알려 줘|-아 줘: 친한 사이의 부탁.|-아 줘 = a casual request.
+c5-l7|0|그림 한 점을 바쳤어|I presented a picture|그림을 드렸어|점: 그림을 세는 말.|점 counts pictures.
+c5-l7|2|돈을 많이 쓰거든|because I spend a lot|씀씀이가 크거든|-거든: 까닭을 덧붙임.|-거든 adds a reason.
+c6-l1|0|어떤지 말해 줘|tell me what you think|어떤지 알려 줘|-ㄴ지: 간접 질문.|-ㄴ지 = whether / how.
+c6-l1|4|하느님이 허락하시면|God willing|하느님 뜻이면|-면: 조건.|-면 = if.
+c6-l2|0|도와줬으면 좋았을 텐데|it would have been good if you'd helped|도와줬으면 했는데|-었으면 좋았을 텐데: 아쉬움.|-었으면 좋았을 텐데 = I wish you had.
+c6-l2|2|가장 어려운 일이야|it's the hardest job|제일 힘든 일이야|가장: 제일.|가장 = most.
+c6-l3|0|그래서 답장을 못 했어|that's why I couldn't answer|그래서 못 썼어|그래서: 까닭.|그래서 = so.
+c6-l3|2|몹시 추워서|because it was very cold|아주 추워서|-어서: 까닭.|-어서 = because.
+c6-l4|1|아무도 알아내지 못했어|no one has found out|누구도 모르는 일이야|아무도 … 못: 전혀 못.|아무도 … 못 = no one could.
+c6-l4|2|다른 재산이 필요 없을 거야|would need no other fortune|평생 걱정 없을 거야|-ㄹ 거야: 짐작.|-ㄹ 거야 = will (guess).
+c6-l5|0|시간이 없어|I have no time|바빠|없다: 있지 않다.|없다 = there isn't.
+c6-l5|3|녹초가 됐어|I'm worn out|아주 지쳤어|녹초: 몹시 지친 상태.|녹초 = utterly exhausted.
+c6-l6|0|제 손으로 직접|by my own hand|제가 손수|직접: 남을 거치지 않고.|직접 = directly, oneself.
+c6-l6|5|더없이 감사하겠습니다|I would be most grateful|정말 고맙겠습니다|-겠습니다: 정중한 뜻.|-겠습니다 = formal ‘would’.
+c6-l7|0|칙령을 받았습니다|I received the royal order|명령을 받았습니다|-았습니다: 정중한 과거.|-았습니다 = formal past.
+c6-l7|2|깊이 감사드립니다|I thank (you) deeply|정말 감사합니다|감사드리다: 높임.|감사드리다 = honorific ‘thank’.
+e1|0|보내 드리려고요|in order to send (them) to you|보내려고요|-려고: 의도.|-려고 = in order to.
+e1|1|꼭 알려 주세요|please be sure to let me know|알려 주세요|-아 주세요: 부드러운 부탁.|-아 주세요 = please.
+e2|0|잘 알아들었고 수긍해요|I understood and I agree|이해하고 인정해요|-고: 이어 말하기.|-고 = and.
+e2|1|그 동판은 스무 해도 더 전에|those plates, more than twenty years ago|그 동판은 20년 전에|-도 더: ‘그보다 더’.|-도 더 = even more than.
+e3|0|사랑하는 하비에르|Dear Javier|사랑하는 아들|편지 첫머리.|A letter opening.
+e3|1|꼭 보고 싶구나|I so want to see|정말 보고 싶다|-구나: 느낌 (어른이 아랫사람에게).|-구나 = an exclamation (to a junior).

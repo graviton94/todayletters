@@ -1,2 +1,13 @@
 # goya only (form=key), read after the shared map; see lemmatize.py / tl_lemma.py
 아내가=아내|가/JKS
+큰=크다|ㄴ/ETM
+오르티스야=오르티스|이/VCP+야/EF
+레알짜리래=레알|짜리/XSN+이/VCP+래/EF
+마차쯤은=마차|쯤/XSN+은/JX
+바예우네=바예우|네/XSN
+파코가=파코|가/JKS
+프란시스코가=프란시스코|가/JKS
+카라반첼의=카라반첼|의/JKG
+라몬=라몬|
+점씩=점|씩/XSN
+사람씩=사람|씩/XSN

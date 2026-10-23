@@ -2543,3 +2543,262 @@ pan|n|a metal dish for cooking|냄비, 팬
 wineskin|n|a leather bag for wine|포도주 가죽 부대
 spit|n|a long metal stick for roasting meat over a fire|고기 굽는 꼬챙이
 oil|n|a thick liquid used for cooking or burning in a lamp|기름
+Goya|name|Francisco de Goya, the painter|고야
+academician|n|a member of an academy of art|아카데미 회원
+merit|n|the quality of being good and deserving praise|공로, 실력
+Fernando|name|Fernando (the Royal Academy of San Fernando)|페르난도 (산 페르난도 아카데미)
+academy|n|a society of artists that teaches and judges art|아카데미
+lordship|n|a polite way to speak to a lord (Your Lordship)|각하, 나리
+profession|n|a job that needs special training|직업
+public|adj|for everyone; (n.) people in general|공공의; 대중
+judgement|n|an opinion after thinking carefully|판단, 평가
+unveil|v|to show something new to people for the first time|공개하다
+holy|adj|connected with God|거룩한
+temple|n|a building for worship|성당
+remark|n|something that someone says|말
+criticism|n|saying what is bad about something|비평, 비판
+principle|n|a basic idea or rule|원칙
+justice|n|fairness|정의
+govern|v|to control or guide|다스리다
+recognise|v|to accept that something is right|인정하다
+ill-intentioned|adj|meaning to do harm|악의 있는
+prejudice|n|an unfair opinion formed before knowing the facts|편견
+uprightness|n|honesty and fairness|올곧음
+restless|adj|unable to stay calm|들뜬
+professional|n|someone who does a skilled job|전문가
+delicate|adj|easily damaged|섬세한, 민감한
+name|n|what someone or something is called; reputation|이름; 평판
+support|v|to hold up or keep going|떠받치다, 지탱하다
+reputation|n|what people think of someone|명성
+darken|v|to become dark|어두워지다
+pendentives|n|the curved triangles under a dome|펜던티브 (둥근 천장 아래 삼각면)
+agreement|n|when people agree|합의
+brother-in-law|n|the brother of your wife or husband|처남, 매형
+Bayeu|name|Francisco Bayeu, court painter|바예우
+approve|v|to say officially that something is good|승인하다
+term|n|a condition of an agreement|조건
+dome|n|a round roof|둥근 천장
+inform|v|to tell someone facts|알리다
+proof|n|something that shows a thing is true|증거
+due|adj|right, proper|마땅한
+submission|n|accepting someone else's power|순종
+revere|v|to respect very much|공경하다
+favour|n|a kind act; approval|호의
+undertaking|n|a big task|큰일
+Madrid|name|Madrid|마드리드
+el|name|el (in San Francisco el Grande)|엘 (산 프란시스코 엘 그란데)
+Grande|name|Grande (San Francisco el Grande, a church in Madrid)|그란데 (마드리드의 성당 이름)
+competition|n|a contest|경연
+Goicoechea|name|Juan Martín de Goicoechea, a friend in Zaragoza|고이코에체아
+wretch|n|a bad or unpleasant person|비열한 사람
+Maella|name|Mariano Salvador Maella, court painter|마엘랴 (궁정 화가)
+formal|adj|official, real|정식의
+grieve|v|to feel very sad|슬퍼하다
+deeply|adv|very much|깊이
+commend|v|to give into someone's care (to God)|맡기다 (기도로)
+conviction|n|a strong belief|확신
+rascal|n|a person who behaves badly, in a fun way|건달
+mend|v|to repair; to improve|고치다
+lack|v|to not have enough of|모자라다
+superior|adj|better|뛰어난
+Ortiz|name|Ortiz, the doctor|오르티스 (의사)
+Camilo|name|Camilo Goya, Goya's brother, a priest|카밀로 (고야의 동생)
+Toledo|name|Toledo, a city near Madrid|톨레도
+Floridablanca|name|the Count of Floridablanca, chief minister|플로리다블랑카
+Arenas|name|Arenas de San Pedro|아레나스
+twice|adv|two times|두 번
+shot|n|someone who shoots (a good shot)|사수
+rabbit|n|a small animal with long ears|토끼
+dauber|n|a bad painter (said as a joke)|환쟁이
+keen|adj|very interested|좋아하는
+duros|name|duros, Spanish silver coins|두로 (은화)
+gown|n|a long dress or robe|가운
+silver|n|a shiny grey precious metal|은
+wardrobe|n|the clothes of a household|옷 (옷장)
+keeper|n|someone who looks after something|담당자
+ahítos|name|[a word unclear in the edition]|[판본 글자 불확실]
+await|v|to wait for|기다리다
+rumour|n|a story people pass on that may not be true|소문
+confirm|v|to show that something is true|확인하다
+Jaco|name|Jaco, a private joke between the friends|하코 (친구끼리의 농담)
+Cogullada|name|Cogullada, near Zaragoza|코굴랴다
+sturdy|adj|strong|튼튼한
+baptise|v|to give a child a name in church|세례를 주다
+Pedro|name|Pedro|페드로
+connoisseur|n|an expert in art|감식가
+dispute|n|an argument|다툼
+contest|n|a competition|경연
+wonder|n|surprise and admiration|감탄
+Atocha|name|Atocha, a church in Madrid|아토차 (성당)
+Carlota|name|the Infanta Carlota Joaquina|카를로타 (공주)
+Infantes|name|the Infantes (royal princes)|왕자들
+Infanta|name|the Infanta (a royal princess)|공주
+train|n|people following someone important|행렬
+illumination|n|lights for a celebration|조명
+Plaza|name|Plaza (the Plaza Mayor)|플라사 (광장)
+Mayor|name|Mayor (the Plaza Mayor, Madrid's main square)|마요르 (마요르 광장)
+Infante|name|the Infante (a royal prince)|왕자
+Luis|name|the Infante Don Luis|돈 루이스 왕자
+Aranjuez|name|Aranjuez, a royal palace south of Madrid|아란후에스
+sire|n|an old way to speak to a king|폐하 (옛 말)
+Gregorio|name|Gregorio Ferro, painter|그레고리오 페로
+Ferro|name|Gregorio Ferro|페로
+Joseph|name|José del Castillo, painter|호세프 델 카스티요
+Castillo|name|José del Castillo|카스티요
+veneration|n|great respect|공경
+resolution|n|a decision|결정
+communicate|v|to pass on information|전하다
+Excellency|name|a title for a minister (Your Excellency)|각하
+application|n|hard work|정성, 부지런함
+toil|n|hard work|수고
+execution|n|carrying out (a painting)|그리기
+reward|v|to give something for good work|보상하다
+unlike|prep|different from|~와 달리
+secret|n|something kept hidden|비밀
+deputy|n|the person second in rank|부- (부원장)
+vacant|adj|empty, not filled|비어 있는
+Calleja|name|Andrés de la Calleja, painter|칼레하
+approval|n|official agreement|승인
+example|n|a case that shows something|예
+precedent|n|an earlier case like this one|선례
+profit|n|money you gain|이익
+tapestry|n|a woven picture for a wall|태피스트리
+fresco|n|painting on wet plaster|프레스코
+proposal|n|a suggestion|추천
+propose|v|to suggest|추천하다
+length|n|how long something is|길이
+lame|adj|unable to walk well|다리를 저는
+gig|n|a light two-wheeled carriage|가벼운 마차
+doubloon|n|an old Spanish gold coin|도블론 (금화)
+pace|n|speed|속도
+rein|n|a strap to control a horse|고삐
+Neapolitan|adj|from Naples|나폴리의
+eager|adj|wanting very much|간절히 바라는
+gallop|n|a horse's fastest run|질주
+horse|n|a large animal people ride|말
+tumble|v|to fall over and over|굴러떨어지다
+heel|n|the back of the foot (head over heels: turning over)|발뒤꿈치 (head over heels: 거꾸로)
+trial|n|something hard to bear|시련
+commission|n|an order for a work|주문
+Carmel|name|Our Lady of Mount Carmel|카르멜 성모
+two-wheel|adj|with two wheels|두 바퀴의
+overturn|v|to turn upside down|뒤집히다
+along|adv|forward|앞으로
+bleed|v|to lose blood; (be bled) to have blood taken|피를 흘리다 (사혈)
+Tomás|name|Tomás|토마스
+mule|n|an animal from a horse and a donkey|노새
+plainly|adv|clearly|분명히
+bloom|v|to flower|꽃피다
+disposal|n|use (at your disposal)|처분
+berlin|n|a closed four-wheeled carriage|베를린 마차
+goodwill|n|kind feelings|호의
+suspicion|n|a feeling that something is wrong|의심
+suspect|v|to think something bad may be true|의심하다
+conversation|n|a talk|대화
+nonsense|n|silly ideas|헛소리
+Virgin|name|the Virgin Mary|성모
+Paco|name|Paco, a short name for Francisco|파코
+countess|n|a woman with the rank of count|백작 부인
+Peñafiel|name|the Marquis of Peñafiel|페냐피엘
+item|n|one thing on a list|항목
+Alameda|name|the Alameda, the Osuna country house|알라메다 (별장)
+represent|v|to show in a picture|나타내다, 그리다
+match|v|to go well with|어울리다
+value|n|how much something is worth|가치
+robber|n|a person who steals|도둑
+attack|v|to try to hurt|공격하다
+coach|n|a large carriage|마차
+overpower|v|to defeat by force|제압하다
+coachman|n|a man who drives a carriage|마부
+gypsy|n|a member of the Roma people|집시
+swing|v|to move back and forth|그네를 타다
+sitting|adj|seated|앉은
+barley|n|a grain|보리
+fanega|name|fanega, an old Spanish grain measure|파네가 (곡물 되)
+fashion|n|a way of doing something; style|방식; 유행
+architectural|adj|about buildings|건축의
+Arali|name|Arali, an acquaintance|아랄리
+life-size|adj|as big as the real thing|실물 크기의
+Lutgarde|name|Saint Lutgarde|성녀 루트가르다
+low-minded|adj|thinking mean thoughts|저속한
+overhear|v|to hear by chance|우연히 듣다
+effort|n|hard work|노력
+Isidro|name|San Isidro, Madrid's patron saint|이시드로
+bustle|n|busy noise and movement|북적임
+easy|adj|not difficult|쉬운
+clerk|n|a person who writes documents|서기
+Perico|name|Perico|페리코
+Carabanchel|name|Carabanchel, near Madrid|카라반첼
+quietly|adv|without noise|조용히
+promotion|n|a move to a higher job|승진
+chamber|n|a room (painter of the chamber: court painter)|방 (궁정 화가)
+privately|adv|secretly|몰래
+stare|v|to look for a long time|빤히 보다
+brain|n|the organ you think with|머리, 뇌
+Bank|name|the Bank of San Carlos|산 카를로스 은행
+bond|n|a paper that pays interest|채권
+guild|n|a group of tradesmen|조합
+deliver|v|to bring|가져오다
+shoulder|n|the top of your arm|어깨
+Aragonese|adj|from Aragon|아라곤의
+Zaragoza|name|Zaragoza|사라고사
+means|n|money|재산
+well-known|adj|known by many|잘 알려진
+miniature|n|a very small painting|세밀화
+Ramón|name|Ramón Pignatelli|라몬
+Pignatelli|name|Ramón Pignatelli, a churchman of Zaragoza|피냐텔리
+Sástago|name|the Count of Sástago|사스타고
+Esteve|name|Agustín Esteve, painter|에스테베
+excellently|adv|very well|훌륭하게
+gift|n|a natural ability|재능
+temper|n|mood|기분, 성미
+willing|adj|ready to do something|기꺼이 하는
+duchess|n|the wife of a duke|공작부인
+Alba|name|the Duchess of Alba|알바
+barge|v|to push in rudely (barge in)|불쑥 들어오다
+full-length|adj|showing the whole body|전신의
+Alcudia|name|la Alcudia (Godoy's title)|알쿠디아
+arrange|v|to plan, to organise|마련하다
+residence|n|a royal house|궁, 거처
+cloak|n|a long coat without sleeves|망토
+Easter|name|Easter|부활절
+Saavedra|name|Francisco de Saavedra|사아베드라
+shirt|n|a piece of clothing for the top of the body|셔츠
+displease|v|to make unhappy|못마땅하게 하다
+folk|n|people|사람들
+shut|v|to close|닫다
+whoever|pron|any person who|누구든|F
+hobgoblin|n|a small mischievous spirit|도깨비
+cage|n|a box with bars for animals|우리, 새장
+Puerta|name|Puerta (the Puerta del Sol)|푸에르타
+Sol|name|Sol (the Puerta del Sol, a square in Madrid)|솔 (광장)
+inheritance|n|money or property left to you|유산
+calle|name|calle, Spanish for 'street'|거리 (스페인어)
+Sartén|name|the calle de la Sartén in Zaragoza|사르텐 거리
+Yoldi|name|Yoldi, a friend in Zaragoza|욜디
+Caprichos|name|Los Caprichos, Goya's etchings|카프리초스
+eighty|num|80|여든|F
+plate|n|a metal sheet for printing|동판
+etch|v|to cut a picture into metal with acid|에칭으로 새기다
+aquafortis|n|acid used for etching|질산 (에칭)
+sale|n|selling|판매
+ounce|n|a gold coin (ounce of gold)|온스 금화
+twenty-seven|num|27|스물일곱|F
+foreigner|n|a person from another country|외국인
+Calcografía|name|the Royal Calcografía, the crown's print house|왕립 판화소
+Javier|name|Javier, Goya's son|하비에르
+inclination|n|a liking for something|성향, 애정
+aptitude|n|natural ability|소질
+copper|n|a reddish metal|구리, 동
+batch|n|a group made at one time|한 묶음
+beforehand|adv|before|미리
+defraud|v|to cheat|속이다
+pension|n|money paid regularly|연금
+Baranda|name|Señor de Baranda|바란다
+lithograph|n|a print made from stone|석판화
+Cardano|name|José María Cardano, lithographer|카르다노
+abound|v|to be many|많다
+Spaniards|name|people from Spain|스페인 사람들
+print-seller|n|a person who sells prints|판화 장수
+fetch|v|to go and get|데리러 가다
+complete|adj|whole, full|완전한

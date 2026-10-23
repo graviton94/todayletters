@@ -16,3 +16,79 @@ c1-l6|0|no necesito|I don't need|필요 없어|no + 동사: 부정. necesitar de
 c1-l6|1|todo lo demás|everything else|나머지는 다|lo demás: ‘나머지’.|lo demás: the rest.
 c1-l7|0|te lo estima infinito|is ever so grateful to you|네게 무척 고마워해|estimar: ‘소중히 여기다, 고마워하다’.|estimar: to value, to be grateful for.
 c1-l7|1|lo hagas|you do it|그렇게 해 줘|hacer 의 접속법. 부탁 · 바람에 써요.|Subjunctive of hacer, for requests and wishes.
+c2-l1|0|con su mayor respeto|with his greatest respect|깊은 존경을 담아|청원서의 정중한 첫머리 말.|A formal opening for a petition.
+c2-l1|3|el honor de un profesor es cosa muy delicada|the honour of a professional is a very delicate thing|화가의 명예는 아주 섬세한 것|ser cosa + 형용사: ‘~한 것이다’.|ser cosa + adjective: ‘is a … thing’.
+c2-l2|0|Muy señor mío|Dear Sir|삼가 아룁니다|공식 편지의 첫머리. 오늘날 Estimado señor.|A formal letter opening; today Estimado señor.
+c2-l2|2|muchos años|many years|오래|Dios guarde a … muchos años: 옛 편지의 맺음 축원.|An old closing blessing: ‘God keep you many years’.
+c2-l3|0|llegó el tiempo|the time has come|때가 왔어|llegar 의 단순 과거 (llegó).|Simple past of llegar.
+c2-l3|2|en fin|in short|한마디로|말을 정리할 때.|To sum up.
+c2-l4|0|Martín mío|my dear Martín|내 마르틴|이름 + mío: 다정하게 부르는 말.|Name + mío: an affectionate address.
+c2-l4|2|el mejor día|any day now|언제라도|여기서는 ‘곧, 어느 날 갑자기’.|Here: ‘any day now’.
+c2-l5|0|no diga nada|not to say anything|아무 말도 말라|no + 접속법: 부정 명령 · 부탁.|no + subjunctive: a negative request.
+c2-l5|1|le debo tanto|I owe him so much|신세를 많이 졌어|deber: ‘빚지다’.|deber: to owe.
+c2-l6|0|Acabo de llegar|I've just arrived|막 돌아왔어|acabar de + 동사원형: ‘막 ~했다’.|acabar de + infinitive: to have just done.
+c2-l6|3|son unos ángeles|they're angels|다들 천사 같아|unos + 명사: ‘정말 ~같은 사람들’.|unos + noun: ‘real …’.
+c2-l7|1|los últimos retoques|the last touches|마지막 손질|retoque: 그림을 다듬는 손질.|retoque: a finishing touch.
+c2-l7|2|hacen lo mismo|are doing the same|다 그래|lo mismo: ‘같은 것’.|lo mismo: the same thing.
+c3-l1|0|se empieza a hablar|people are starting to talk|사람들 입에 오르내리기 시작했어|se + 동사: ‘사람들이 ~한다’.|Impersonal se: ‘people …’.
+c3-l1|1|me acuerdo mucho de|I keep remembering|자꾸 생각나|acordarse de: ‘~을 기억하다’.|acordarse de: to remember.
+c3-l2|0|dio a luz|gave birth|낳았어|dar a luz: ‘아이를 낳다’.|dar a luz: to give birth.
+c3-l2|1|Dios quiera|God grant|부디|Dios quiera (que) + 접속법: 간절한 바람.|Dios quiera (que) + subjunctive: a heartfelt wish.
+c3-l3|0|Es cierto que|it's true that|~인 건 사실이야|확실한 일을 말할 때.|To state something as true.
+c3-l3|1|hasta ahora|so far|아직|‘지금까지’.|‘Until now’.
+c3-l4|0|no he podido desear más|I couldn't have wished for more|더 바랄 게 없었어|현재완료 + 부정.|Present perfect with no.
+c3-l4|2|con más sosiego|with more calm|좀 더 차분히|con + 명사: 방법.|con + noun: how something is done.
+c3-l5|0|muy contento|very happy|아주 흐뭇하게|contento: ‘기쁜, 만족한’.|contento: glad, pleased.
+c3-l5|1|me acordé de ti|I thought of you|네 생각이 났어|acordarse de 의 단순 과거.|Simple past of acordarse de.
+c3-l6|0|con la debida veneración|with due veneration|마땅한 공경을 담아|청원서의 정중한 말투.|Formal language of a petition.
+c3-l6|3|ganar el sustento|to earn a living|생계를 꾸리다|ganar: ‘벌다’.|ganar: to earn.
+c3-l7|0|en primer lugar|in first place|1순위로|순서를 말할 때.|To say the order.
+c3-l7|1|poco provecho y mucho honor|little profit and much honour|돈은 적고 명예는 크지|poco · mucho 의 맞세움.|The contrast poco / mucho.
+c4-l1|0|ya soy Pintor del Rey|I'm Painter to the King now|드디어 왕의 화가가 됐어|ya + 현재: ‘이제 ~이다’.|ya + present: ‘now I am’.
+c4-l1|3|He dado gracias|I've thanked|감사를 드렸어|dar gracias 의 현재완료.|Present perfect of dar gracias.
+c4-l2|0|Querido Martín|Dear Martín|사랑하는 마르틴|편지의 첫머리.|A letter opening.
+c4-l2|2|aunque era ancho|wide as it was|넓긴 해도|aunque + 과거: ‘~이긴 했지만’.|aunque + past: ‘although it was’.
+c4-l3|0|tomo la pluma|I take up my pen|펜을 들어|편지를 쓰기 시작할 때의 말.|A phrase for starting to write.
+c4-l3|2|sin duda alguna|without any doubt|꼭|강한 약속.|A firm promise.
+c4-l4|0|Ya no quiero|I don't want … any more|이제 … 싫어|ya no + 동사: ‘이제는 ~ 않다’.|ya no + verb: no longer.
+c4-l4|1|un par de mulas|a pair of mules|노새 두 마리|un par de: ‘두어, 한 쌍의’.|un par de: a pair of, a couple of.
+c4-l5|0|hablemos claros|let's speak plainly|솔직히 말하자|-emos: ‘~하자’ (권유).|-emos: ‘let's …’.
+c4-l5|1|estoy contigo|I'm with you|좋아|‘네 편이야, 찬성이야’.|‘I agree with you’.
+c4-l6|0|qué dirán|what will they say|뭐라고 할까|decir 의 미래, 걱정 섞인 짐작.|Future of decir, an anxious guess.
+c4-l6|2|vamos a mudar de punto|let's change the subject|얘기 바꾸자|vamos a + 동사원형: ‘~하자’.|vamos a + infinitive: ‘let's …’.
+c4-l7|0|por orden de|by order of|~의 명으로|공식 문서의 말.|Official wording.
+c4-l7|1|su valor|its value|값|청구서에서 값을 적을 때.|For a price on a bill.
+c5-l1|0|En mal año|in a bad year|하필 안 좋은 해에|mal: malo 가 명사 앞에서 줄어든 꼴.|mal is malo shortened before a noun.
+c5-l1|1|ando en el aire|I'm all up in the air|정신이 하나도 없어|andar: ‘~한 상태로 지내다’.|andar: to go about, to be.
+c5-l2|0|lo sentí infinito|I was terribly sorry|정말 미안했어|sentir 의 단순 과거.|Simple past of sentir.
+c5-l2|2|aún no tengo empezado nada|I haven't started anything yet|아직 아무것도 시작하지 못했어|aún no: ‘아직 ~ 않다’.|aún no: not yet.
+c5-l3|0|con mucho empeño|with great effort|아주 애쓰며|empeño: ‘노력, 애씀’.|empeño: effort.
+c5-l3|2|ni duermo ni sosiego|I neither sleep nor rest|잠도 못 자고 쉬지도 못해|ni … ni: ‘~도 ~도 아니다’.|ni … ni: neither … nor.
+c5-l4|0|lo siento muchísimo|I'm very sorry|정말 미안해|sentir: ‘유감이다’. muchísimo 는 mucho 를 더 세게.|muchísimo is a stronger mucho.
+c5-l4|1|no lo puedo remediar|I can't help it|어쩔 수가 없어|remediar: ‘바로잡다’.|remediar: to put right.
+c5-l5|0|acabo de recibir|I've just received|방금 들었어|acabar de + 동사원형.|acabar de + infinitive.
+c5-l5|1|te lo participo|I let you know|너에게 알리고|participar: ‘알리다’ (옛 말투).|participar: to inform (old style).
+c5-l6|1|gracias a Dios|thank God|하느님 덕분에|고마운 일을 말할 때.|For something you are thankful for.
+c5-l6|2|Dime tú|tell me|네가 말해 줘|decir 의 명령형 + me.|Command of decir + me.
+c5-l7|0|Hoy he entregado|today I delivered|오늘 바쳤어|오늘 일은 현재완료로.|Today's events take the present perfect.
+c5-l7|2|gasto mucho|I spend a lot|돈을 많이 쓰거든|gastar: ‘돈을 쓰다’.|gastar: to spend.
+c6-l1|0|lo que te parece|what you think of it|어떤지|parecer: ‘~로 보이다, 생각되다’.|parecer: to seem, to think.
+c6-l1|4|si Dios quiere|God willing|하느님이 허락하시면|계획을 말할 때 덧붙이는 말.|Added when speaking of plans.
+c6-l2|0|Más te valía|you'd have done better|~했으면 좋았을 텐데|valer 의 불완료 과거.|Imperfect of valer.
+c6-l2|2|te aseguro|I assure you|정말이지|확신을 줄 때.|To assure someone.
+c6-l3|0|por eso no te he respondido|that's why I haven't answered you|그래서 답장을 못 했어|por eso: ‘그래서’.|por eso: that's why.
+c6-l3|2|hacía mucho frío|it was very cold|몹시 추웠어|날씨는 hacer 의 불완료 과거.|Weather with the imperfect of hacer.
+c6-l4|0|Buena cosa es|it's a good thing|다행이지|ser + cosa: 생각을 말할 때.|ser + cosa to give an opinion.
+c6-l4|1|Nadie ha podido|no one has been able|아무도 ~하지 못했어|nadie + 동사: ‘아무도 ~ 않다’.|nadie + verb: no one.
+c6-l5|0|no tengo más tiempo|I've no more time|시간이 없어|no … más: ‘더는 ~ 없다’.|no … más: no more.
+c6-l5|3|estoy rendido|I'm worn out|녹초가 됐어|rendido: ‘몹시 지친’.|rendido: exhausted.
+c6-l6|0|por mi mano|by my own hand|제 손으로|직접 했음을 말할 때.|To say you did it yourself.
+c6-l6|5|le quedaré sumamente agradecido|I shall be most grateful to you|더없이 감사하겠습니다|공식 편지의 맺음.|A formal closing.
+c6-l7|0|He recibido|I have received|받았습니다|recibir 의 현재완료.|Present perfect of recibir.
+c6-l7|2|doy infinitas gracias|I give endless thanks|끝없는 감사를 드립니다|아주 큰 고마움.|Very deep thanks.
+e1|0|a fin de que|so that|~하도록|a fin de que + 접속법: 목적.|a fin de que + subjunctive: purpose.
+e1|1|vuelvo a suplicarle|I beg you again|다시 부탁드려요|volver a + 동사원형: ‘다시 ~하다’.|volver a + infinitive: to do again.
+e2|0|Quedo enterado|I've taken note|잘 알아들었고|quedar enterado: ‘알게 되다’.|quedar enterado: to take note.
+e2|1|no puede ser|cannot be|안 돼요|‘그럴 수 없다’.|‘It can't be.’
+e3|0|Querido Javier|Dear Javier|사랑하는 하비에르|편지 첫머리.|A letter opening.
+e3|2|Tu padre|your father|너의 아버지|편지 끝의 서명.|A signature at the end of a letter.

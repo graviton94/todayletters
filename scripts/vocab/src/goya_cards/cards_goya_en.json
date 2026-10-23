@@ -1,0 +1,225 @@
+{
+ "c3-l1": {
+  "remove": [],
+  "add": [
+   "already",
+   "start"
+  ]
+ },
+ "c3-l2": {
+  "remove": [],
+  "add": [
+   "name",
+   "mother"
+  ]
+ },
+ "c3-l3": {
+  "remove": [],
+  "add": [
+   "side",
+   "far"
+  ]
+ },
+ "c3-l4": {
+  "remove": [],
+  "add": [
+   "own"
+  ]
+ },
+ "c3-l5": {
+  "remove": [
+   "carriage"
+  ],
+  "add": [
+   "high"
+  ]
+ },
+ "c3-l6": {
+  "remove": [
+   "communicate"
+  ],
+  "add": [
+   "due"
+  ]
+ },
+ "c3-l7": {
+  "remove": [
+   "approval"
+  ],
+  "add": [
+   "put"
+  ]
+ },
+ "c4-l1": {
+  "remove": [
+   "painter"
+  ],
+  "add": [
+   "forward"
+  ]
+ },
+ "c4-l2": {
+  "remove": [
+   "length"
+  ],
+  "add": [
+   "enjoy"
+  ]
+ },
+ "c4-l3": {
+  "remove": [
+   "pen"
+  ],
+  "add": [
+   "imagine"
+  ]
+ },
+ "c4-l4": {
+  "remove": [],
+  "add": [
+   "day"
+  ]
+ },
+ "c4-l5": {
+  "remove": [
+   "bloom"
+  ],
+  "add": [
+   "live"
+  ]
+ },
+ "c4-l6": {
+  "remove": [
+   "suspicion"
+  ],
+  "add": [
+   "care"
+  ]
+ },
+ "c4-l7": {
+  "remove": [
+   "represent"
+  ],
+  "add": [
+   "country"
+  ]
+ },
+ "c5-l1": {
+  "remove": [],
+  "add": [
+   "bad"
+  ]
+ },
+ "c5-l2": {
+  "remove": [
+   "terribly",
+   "answer"
+  ],
+  "add": [
+   "question"
+  ]
+ },
+ "c5-l3": {
+  "remove": [
+   "clerk"
+  ],
+  "add": [
+   "worry"
+  ]
+ },
+ "c5-l4": {
+  "remove": [],
+  "add": [
+   "happen"
+  ]
+ },
+ "c5-l5": {
+  "remove": [],
+  "add": [
+   "let",
+   "privately",
+   "answer"
+  ]
+ },
+ "c5-l6": {
+  "remove": [],
+  "add": [
+   "look"
+  ]
+ },
+ "c5-l7": {
+  "remove": [
+   "embrace"
+  ],
+  "add": [
+   "today"
+  ]
+ },
+ "c6-l1": {
+  "remove": [],
+  "add": [
+   "also"
+  ]
+ },
+ "c6-l2": {
+  "remove": [
+   "duchess"
+  ],
+  "add": [
+   "help"
+  ]
+ },
+ "c6-l3": {
+  "remove": [],
+  "add": [
+   "back"
+  ]
+ },
+ "c6-l4": {
+  "remove": [],
+  "add": [
+   "only"
+  ]
+ },
+ "c6-l5": {
+  "remove": [],
+  "add": [
+   "share",
+   "forget",
+   "get",
+   "copy"
+  ]
+ },
+ "c6-l6": {
+  "remove": [
+   "etch"
+  ],
+  "add": [
+   "gold"
+  ]
+ },
+ "c6-l7": {
+  "remove": [
+   "defraud"
+  ],
+  "add": [
+   "date"
+  ]
+ },
+ "e1": {
+  "remove": [],
+  "add": [
+   "fight",
+   "young",
+   "sell"
+  ]
+ },
+ "e3": {
+  "remove": [],
+  "add": [
+   "become",
+   "bed",
+   "complete"
+  ]
+ }
+}
