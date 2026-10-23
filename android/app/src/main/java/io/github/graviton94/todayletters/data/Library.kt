@@ -104,7 +104,7 @@ fun Work.withVocab(set: io.github.graviton94.todayletters.core.VocabSet?): Work 
         chapters = chapters.map { c -> c.copy(letters = c.letters.map(::ap)) },
         prologue = pro,
         prologueChapter = prologueChapter?.copy(letters = pro.map { it.letter }),
-        outro = outro?.copy(epilogue = outro.epilogue?.let(::ap)),
+        outro = outro?.copy(epilogue = outro.epilogue?.let(::ap), epilogues = outro.epilogues.map(::ap)),
         lexicon = set?.lexicon,
         vocabLang = set?.lang?.takeIf { it != series.original },
         deck = set?.deck.orEmpty(),
@@ -123,6 +123,8 @@ data class Docent(val period: String, val caps: String, val heading: Tri, val su
 data class Arrival(val date: String, val route: String, val heading: Tri, val body: Tri, val years: List<String> = emptyList(), val at: List<Int> = emptyList(), val label: Tri? = null)
 /** 아웃트로: 맺음말 편지([epilogue], 장 "E") 와 생애를 맺는 글. */
 data class Outro(val image: String, val credit: String, val caps: String, val name: String, val years: String, val body: List<Tri>, val head: Tri?, val epilogue: Letter?,
+                 /** 맺음 편지 모두 (epilogue.json 의 letters, 차례대로). 보통 하나 ([epilogue] 와 같음), 고야는 보르도 셋. */
+                 val epilogues: List<Letter> = listOfNotNull(epilogue),
                  /** 맺음 편지의 오늘의 문법 (epilogue.json 의 "grammar", 없으면 VIII 장 것을 id 로 가리킨다). */
                  val grammar: List<io.github.graviton94.todayletters.core.Grammar> = emptyList())
 
@@ -195,7 +197,8 @@ object Library {
                     val first = ep?.getJSONArray("letters")?.optJSONObject(0)
                     Outro(o.optString("image"), o.optString("credit"), o.optString("caps"), o.optString("name"), o.optString("years"),
                         o.optJSONArray("body")?.let { b -> (0 until b.length()).map { tri(b.getJSONObject(it)) } } ?: emptyList(),
-                        first?.optJSONObject("head")?.let { tri(it) }, ep?.let { letters(it).firstOrNull() }, ep?.let { grammar(it) } ?: emptyList())
+                        first?.optJSONObject("head")?.let { tri(it) }, ep?.let { letters(it).firstOrNull() }, ep?.let { grammar(it) } ?: emptyList(),
+                        epilogues = ep?.let { letters(it) } ?: emptyList())
                 },
             )
             // 어휘 자료: 배우는 말마다 한 벌 (원어 lexicon · daily.json, 영어 *_en, 한국어 *_ko). 없으면 챕터 파일의 낱말 그대로

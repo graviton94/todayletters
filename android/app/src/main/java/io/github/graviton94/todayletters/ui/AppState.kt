@@ -681,7 +681,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     private fun letterFor(w: Work, ch: String, lid: String): Letter? =
         when (ch) {
             "P" -> w.prologueChapter?.letters
-            "E" -> listOfNotNull(w.outro?.epilogue)
+            "E" -> w.outro?.epilogues
             else -> w.chapters.firstOrNull { it.id == ch }?.letters
         }?.firstOrNull { it.id == lid }
 
@@ -726,7 +726,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             ?.let { l -> narrator.path(series, ch, l.id, name).takeIf(::has) }
         return w.chapters.firstNotNullOfOrNull { c -> scan(c.id, c.letters) }
             ?: w.prologueChapter?.let { scan("P", it.letters) }
-            ?: w.outro?.epilogue?.let { scan("E", listOf(it)) }
+            ?: w.outro?.epilogues?.let { scan("E", it) }
             ?: ""
     }
     fun wordAudio(c: CardWord, lang: io.github.graviton94.todayletters.core.Lang) =
@@ -1087,7 +1087,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     fun letterOf(r: Route.Letter): Pair<String, Letter> {
         // 맺음 편지: 아웃트로 화면에서 답장 걸음만 (장 "E")
-        if (r.epilogue) return "E" to work(r.series).outro!!.epilogue!!
+        if (r.epilogue) return "E" to work(r.series).outro!!.let { o -> o.epilogues.getOrNull(r.letter - 1) ?: o.epilogue!! }
         val ch = work(r.series).chapters[r.chapter - 1]
         return ch.id to ch.letters[r.letter - 1]
     }

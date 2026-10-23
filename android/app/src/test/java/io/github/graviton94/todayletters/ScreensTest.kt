@@ -761,6 +761,22 @@ class ScreensTest {
         val s = gstate(); s.enter("goya"); goyaShown(s, 1)
         shot("g03_room_c1l1_orig_dark", true, 4000, act = { tap(io.github.graviton94.todayletters.core.Breaks.keepAll("원래 철자"), substring = true) }, series = s) { Room(s, Route.Letter("goya", 1, 1)) }
     }
+    /** IV장 첫 편지 (소장한 것으로, IV장 · 맺음까지 받은 것으로): “이제 왕의 화가가 됐어”. */
+    @Test fun goyaRoomIV() {
+        val s = state(true).also { fetchedLocally("goya", listOf("P", "I", "IV", "E")) }
+        s.store.entitlement = io.github.graviton94.todayletters.core.Entitlement.of(listOf("series_goya")); s.bump()
+        s.enter("goya")
+        val c = s.work("goya").chapters[3]; val l = c.letters[0]
+        s.save("goya", c.id, l.id, s.progress("goya", c.id, l.id).copy(shown = 2))
+        shot("g05_room_c4l1", false, 4000, series = s) { Room(s, Route.Letter("goya", 4, 1)) }
+    }
+    /** 맺음 (보르도 세 통 + 〈아직 배우고 있다〉, 모든 편지를 마친 것으로, 어두운 화면). */
+    @Test fun goyaOutro() {
+        val s = state(true).also { fetchedLocally("goya", listOf("P", "I", "II", "III", "IV", "V", "VI", "E")) }
+        s.store.entitlement = io.github.graviton94.todayletters.core.Entitlement.of(listOf("series_goya")); s.bump()
+        s.work("goya").chapters.forEach { c -> c.letters.forEach { l -> s.save("goya", c.id, l.id, s.progress("goya", c.id, l.id).copy(shown = l.messages.size, done = true)) } }
+        shot("g06_outro", true, 3000) { io.github.graviton94.todayletters.ui.OutroScreen(s, "goya") }
+    }
     /** 오늘의 회화 I-1 (A1, 스페인어): 마드리드의 프란시스코와 통화 · 나는 마르틴. */
     @Test fun goyaTalk() {
         val s = gstate(); s.enter("goya"); s.store.setGrade(s.seriesSettings("goya").learn.code, 1); s.bump()

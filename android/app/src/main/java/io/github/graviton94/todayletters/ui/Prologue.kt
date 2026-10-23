@@ -202,8 +202,10 @@ fun OutroScreen(s: AppState, series: String) {
             Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = 26.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
                 Box(Modifier.height(170.dp))
                 // 맺음말: 그가 지니고 있던 편지
-                o.epilogue?.let { e ->
-                    o.head?.let { Text(it[ui], style = Type.small.ui(), color = Gilt) }
+                // 맺음 편지가 여럿이면 (고야: 보르도 셋) 차례대로, 둘째부터는 날짜 · 곳 한 줄을 머리로
+                o.epilogues.forEachIndexed { k, e ->
+                    if (k == 0) o.head?.let { Text(it[ui], style = Type.small.ui(), color = Gilt) }
+                    else Text(shortDateLine(e.date, e.place), style = Type.small.ui(), color = Gilt, modifier = Modifier.padding(top = 18.dp))
                     e.messages.forEachIndexed { i, m ->
                         val audio = s.narrator.path(series, "E", e.id, "m${i + 1}_${view.learn.code}")
                         Row(Modifier.fillMaxWidth().pressable { s.narrator.play(audio) }.padding(vertical = 4.dp)) {
@@ -228,7 +230,7 @@ fun OutroScreen(s: AppState, series: String) {
                         }
                         Text(stringResource(if (sent) R.string.outro_replied else R.string.outro_reply), style = Type.small.ui(), color = if (sent) Gilt else Soft, modifier = Modifier.padding(top = 8.dp))
                         Box(Modifier.fillMaxWidth().heightIn(min = 48.dp).border(1.dp, Gilt).pressable {
-                            s.narrator.stop(); s.go(Route.Play(Route.Letter(series, Route.Letter.EPILOGUE, 1), ReplyMode.CONSTELLATION))
+                            s.narrator.stop(); s.go(Route.Play(Route.Letter(series, Route.Letter.EPILOGUE, k + 1), ReplyMode.CONSTELLATION))
                         }, contentAlignment = Alignment.Center) { Text(stringResource(R.string.room_reply, stringResource(how)), style = Type.body.ui(), color = Gilt) }
                     }
                 }

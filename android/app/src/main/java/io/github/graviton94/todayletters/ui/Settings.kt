@@ -413,7 +413,7 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
 
             Caps(stringResource(R.string.credits_images_h), p.giltText)
             Text(stringResource(R.string.credits_images_note), style = Type.small.ui(), color = p.inkSoft)
-            s.works.forEach { w -> (w.prologue.map { it.letter } + w.chapters.flatMap { it.letters } + listOfNotNull(w.outro?.epilogue)).distinctBy { it.plate?.image ?: it.id }.forEach { l ->
+            s.works.forEach { w -> (w.prologue.map { it.letter } + w.chapters.flatMap { it.letters } + (w.outro?.epilogues ?: emptyList())).distinctBy { it.plate?.image ?: it.id }.forEach { l ->
                 l.plate?.let { pl ->
                     Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
                         Text("${pl.title[ui]} · ${pl.date}", style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
