@@ -1,0 +1,53 @@
+[
+ {
+  "file": "1.jpg",
+  "title": "File:Peterskloster.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Peterskloster.jpg",
+  "license": "Public domain",
+  "artist": "ACB",
+  "date": "1910",
+  "credit": "Stadtarchiv Erfurt",
+  "usage": "Public domain",
+  "description": "ehem. Benediktinerkloster St. Peter und Paul (Peterskloster) um 1800, Ansicht aus Nordosten",
+  "categories": "Peterskirche (Erfurt)|PD Old|Needing transcription (de)|CC-PD-Mark|PD-old missing SDC copyright status|Kloster St. Peter und Paul (Erfurt)",
+  "size": [
+   738,
+   629
+  ],
+  "query": "Erfurt Ansicht 1800"
+ },
+ {
+  "file": "2.jpg",
+  "title": "File:Peterskloster 2.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Peterskloster_2.jpg",
+  "license": "Public domain",
+  "artist": "ABC",
+  "date": "1910",
+  "credit": "Stadtarchiv Erfurt",
+  "usage": "Public domain",
+  "description": "ehem. Benediktinerkloster St. Peter und Paul (Peterskloster) um 1800, Ansicht aus Nordosten",
+  "categories": "Peterskirche (Erfurt)|PD Old|CC-PD-Mark|PD-old missing SDC copyright status",
+  "size": [
+   738,
+   629
+  ],
+  "query": "Erfurt Ansicht 1800"
+ },
+ {
+  "file": "3.jpg",
+  "title": "File:Musikinstrumenten-Museum Berlin - Tenorposaune - 1106353.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Musikinstrumenten-Museum_Berlin_-_Tenorposaune_-_1106353.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Wolfgang Rauch",
+  "date": null,
+  "credit": "Onlinesammlung der Staatlichen Museen zu Berlin: <a rel=\"nofollow\" class=\"external text\" href=\"https://id.smb.museum/object/1106353\">1106353</a>",
+  "usage": "Creative Commons Attribution-Share Alike 4.0",
+  "description": "",
+  "categories": "Artworks without Wikidata item|Uploaded with OpenRefine|Artworks with known accession number|1780s instrument productions|1790s instrument productions|Logos of brass instrument manufacturers|Images provided by the Staatliches Institut für Musikforschung|Brass instrument bells|Brass instruments in the Musikinstrumentenmuseum (Berlin)|Musical instrument parts and accessories in the Musikinstrumentenmuseum (Berlin)|Tenor trombones|Carl Zielsdorf|Trombones in museums",
+  "size": [
+   985,
+   694
+  ],
+  "query": "Erfurt Ansicht 1800"
+ }
+]
