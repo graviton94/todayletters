@@ -968,7 +968,7 @@
        "fr": [
         [
          "Tu m'écrireras",
-         "Tu m'écrirais"
+         "Tu me écriras"
         ]
        ],
        "en": [
@@ -1465,7 +1465,7 @@
      {
       "who": "them",
       "fr": "À Schönbrunn. Je te ferai venir dès que possible.",
-      "en": "At Schönbrunn. You'll come as soon as possible.",
+      "en": "At Schönbrunn. I'll send for you very soon.",
       "ko": "쇤브룬에. 되도록 빨리 당신을 부를게."
      },
      {
@@ -1512,7 +1512,10 @@
     ],
     "grammar": "IV.0",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb",
+    "audio": {
+     "*": "tb",
+     "en": "td"
+    },
     "mine": {
      "line": 3,
      "slot": {
@@ -2892,7 +2895,7 @@
       "wrong": {
        "fr": [
         [
-         "tu viendrais",
+         "tu venras",
          "tu veniras"
         ]
        ],
@@ -2935,7 +2938,7 @@
       "wrong": {
        "fr": [
         [
-         "Tu me le dirais",
+         "Tu me le direras",
          "Tu me le disras"
         ]
        ],

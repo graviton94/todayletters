@@ -786,7 +786,7 @@
    "w": "아뇨",
    "pos": "interj",
    "mean": {
-    "en": "no (polite, casual)"
+    "en": "no (polite, spoken)"
    },
    "ex": {
     "t": "아뇨, 아직 못 받았어요.",
@@ -1545,10 +1545,10 @@
     "en": "very, hugely"
    },
    "ex": {
-    "t": "엄청난 광경이었어.",
-    "fr": "Ce spectacle était grand.",
-    "en": "It was a grand sight.",
-    "from": "c3-l6"
+    "t": "오늘 엄청 추워.",
+    "fr": "Il fait très froid aujourd'hui.",
+    "en": "It's really cold today.",
+    "from": null
    }
   },
   {
@@ -2007,7 +2007,7 @@
     "en": "this time"
    },
    "ex": {
-    "t": "이번 여행은 반가워.",
+    "t": "이번 여행은 나도 반가운 일이야.",
     "fr": "Je vois ce voyage avec plaisir.",
     "en": "I'm glad about this trip.",
     "from": "c6-l4"

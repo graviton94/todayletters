@@ -1026,7 +1026,7 @@
        ],
        "en": [
         [
-         "all the morning",
+         "all of morning",
          "whole morning"
         ]
        ],
@@ -2955,7 +2955,7 @@
     "lines": [
      {
       "who": "them",
-      "fr": "Tu as su ? J'ai un fils !",
+      "fr": "Tu as appris la nouvelle ? J'ai un fils !",
       "en": "Have you heard? I have a son!",
       "ko": "소식 들었어? 나 아들 생겼어!"
      },
@@ -3046,7 +3046,10 @@
     ],
     "grammar": "VII.2",
     "_audio": "소리는 아직 없음 — 낭독 뒤 \"audio\": {\"*\": \"t\", \"ko\": \"tk\"} 를 붙인다 (them = 나폴레옹, me = talk_me.by_to Joséphine).",
-    "audio": "tb",
+    "audio": {
+     "*": "tb",
+     "fr": "td"
+    },
     "mine": {
      "line": 1,
      "slot": {
