@@ -1,0 +1,61 @@
+name: Promo video
+
+# Play 스토어 홍보 영상 (30초 · 1920×1080 · H.264 + AAC). 직접 실행할 때만.
+# 1) PromoShotsTest 로 앱 화면 사진 (한국어 · 영어 화면)  2) scripts/promo/make.py 로 그림 · 화면 · 낭독 · 곡을 잇기
+# 3) mp4 를 워크플로 결과물 + promo 가지에 올린다. 재료는 모두 앱에 이미 있는 것 (그림 · 낭독 · 곡 · 글꼴).
+on:
+  workflow_dispatch:
+    inputs:
+      lang:
+        description: "ko | en | both"
+        default: both
+        type: choice
+        options: [both, ko, en]
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Draw app screens
+        working-directory: android
+        run: ./gradlew :app:testDebugUnitTest --tests '*PromoShotsTest*'
+      - name: Show failures
+        if: failure()
+        run: grep -h -A12 "<failure" android/app/build/test-results/testDebugUnitTest/*.xml | head -120 || true
+      - name: Tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg > /dev/null
+          python3 -m pip install -q pillow
+      - name: Make videos
+        run: |
+          mkdir -p out
+          L="${{ inputs.lang }}"; [ "$L" = both ] && L="ko en"
+          for l in $L; do
+            python3 scripts/promo/make.py --lang $l --shots android/app/build/screens --out out/promo_$l.mp4
+            python3 scripts/promo/make.py --lang $l --shots android/app/build/screens --out out/still_$l --frames 2.5,12.5,23.5
+          done
+          cp android/app/build/screens/promo_*.png out/
+          ffprobe -v error -show_entries stream=codec_name,width,height,duration -of compact out/promo_*.mp4
+          ls -la out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: promo-video
+          path: out/
+      - name: Publish to promo branch
+        run: |
+          if git fetch -q origin promo; then git worktree add -q pub origin/promo; else mkdir -p pub && git -C pub init -q; fi
+          cp out/* pub/
+          cd pub
+          git checkout -q -B promo
+          git add -A
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Promo video ${{ github.sha }}" || exit 0
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:promo
