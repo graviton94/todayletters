@@ -603,7 +603,7 @@
      "speak": {
       "es": "Conque la vuelta fue que fuimos a parar, / birlocho, caballo y nosotros, dando volteretas, / y muchas gracias a Dios de lo poco que fue, / que el peor librado fui yo.",
       "en": "So the turn ended with all of us, / gig, horse and ourselves, tumbling head over heels; // and many thanks to God it was so little. // The one who came off worst was me.",
-      "ko": "결국 돌다가 마차, / 말, 우리 모두 데굴데굴 굴렀어. // 이만하길 하느님께 감사할 일이지. // 제일 크게 다친 건 나였어."
+      "ko": "결국 돌다가 / 마차, 말, 우리 모두 데굴데굴 굴렀어. // 이만하길 하느님께 감사할 일이지. // 제일 크게 다친 건 나였어."
      }
     }
    ],
@@ -1635,7 +1635,7 @@
       {
        "es": "a mi primo",
        "en": "my cousin",
-       "ko": "내 사촌을"
+       "ko": "사촌을"
       }
      ]
     },
@@ -2303,7 +2303,7 @@
        "es": [
         [
          "a la plaza",
-         "de la plaza"
+         "en el plaza"
         ]
        ],
        "en": [

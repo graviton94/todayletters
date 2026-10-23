@@ -252,7 +252,7 @@
        ],
        [
         "iría",
-        "voy"
+        "fui"
        ]
       ],
       "en": [
@@ -507,7 +507,7 @@
         ],
         [
          "iría",
-         "voy"
+         "fui"
         ]
        ],
        "en": [
@@ -560,7 +560,7 @@
         ],
         [
          "íbamos",
-         "vamos"
+         "fuimos"
         ]
        ],
        "en": [
@@ -986,7 +986,7 @@
         ],
         [
          "fui",
-         "voy"
+         "iría"
         ]
        ],
        "en": [
@@ -1038,7 +1038,7 @@
          "Si termines"
         ],
         [
-         "paseamos",
+         "pasearíamos",
          "paseábamos"
         ]
        ],
@@ -1076,7 +1076,7 @@
      "opts": [
       {
        "es": "comeremos juntos",
-       "en": "we'll have dinner together",
+       "en": "we'll eat together",
        "ko": "같이 밥 먹자"
       },
       {
@@ -1238,7 +1238,7 @@
         "Si el ministro hable"
        ],
        [
-        "entiendes",
+        "entenderías",
         "entendías"
        ]
       ],
@@ -1558,7 +1558,7 @@
          "Si vengas"
         ],
         [
-         "practicamos",
+         "practicaríamos",
          "practicábamos"
         ]
        ],
@@ -1763,7 +1763,7 @@
         "Si los duendes solo salgan"
        ],
        [
-        "veo",
+        "vería",
         "vi"
        ]
       ],
@@ -1907,7 +1907,7 @@
      "q": {
       "es": "¿Dónde enseñaría alguien la jaula?",
       "en": "Where would someone show the cage?",
-      "ko": "우리는 어디에서 보여 줄까요?"
+      "ko": "도깨비를 가둔 우리는 어디에서 보여 줄까요?"
      },
      "options": [
       {
@@ -2251,7 +2251,7 @@
         "Si estés rendido"
        ],
        [
-        "escribes",
+        "escribirías",
         "escribiste"
        ]
       ],
@@ -2754,7 +2754,7 @@
         "Si el Rey acepte"
        ],
        [
-        "se quedan",
+        "se quedarían",
         "se quedaron"
        ]
       ],
@@ -3046,7 +3046,7 @@
       {
        "es": "esta tarde",
        "en": "this afternoon",
-       "ko": "오늘 오후"
+       "ko": "오늘 오후에"
       },
       {
        "es": "el lunes",
@@ -3253,7 +3253,7 @@
         "Si usted lo desee"
        ],
        [
-        "llegan",
+        "llegarían",
         "llegaron"
        ]
       ],
@@ -3437,7 +3437,7 @@
      {
       "who": "me",
       "es": "Gracias, señor Goya. ¿Puedo darle la buena noticia a su hijo?",
-      "en": "Thank you, Señor Goya. May I give the good news to your son?",
+      "en": "Thanks, Señor Goya. May I give your son the good news?",
       "ko": "고맙습니다, 고야 님. 아드님께 기쁜 소식을 전해도 되겠습니까?",
       "focus": {
        "es": [
@@ -3502,7 +3502,10 @@
       }
      ]
     },
-    "audio": "t"
+    "audio": {
+     "*": "t",
+     "en": "tb"
+    }
    }
   }
  ]
