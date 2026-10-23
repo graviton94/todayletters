@@ -461,7 +461,7 @@ class ScreensTest {
     private fun momentPhoto(name: String, k: Int) {
         val s = loopState()
         val w = s.work("vincent")
-        val m = w.chapters.first().letters.first().moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Photo>()[k]
+        val m = w.chapters.first { it.id == "I" }.letters.first().moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Photo>()[k]
         shot(name, true, 3000, series = s) {
             androidx.compose.foundation.layout.Column(Modifier.fillMaxSize().padding(16.dp)) {
                 io.github.graviton94.todayletters.ui.MomentCard(s, w, m, onMap = {}, onPhoto = {})
