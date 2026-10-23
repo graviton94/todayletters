@@ -455,14 +455,18 @@ class ScreensTest {
         }, series = s) { Room(s, room(1)) }
     }
     /** 대화 속 사진 (공공 영역 그림으로 넓힘): 빈센트 I-1 의 히로시게 눈 판화 · 눈 덮인 아를. */
-    @Test fun momentPhoto1() = momentPhoto("mp1_room_photo_dark", "히로시게")
-    @Test fun momentPhoto2() = momentPhoto("mp2_room_photo_dark", "눈 덮인 풍경")
-    private fun momentPhoto(name: String, cap: String) {
+    @Test fun momentPhoto1() = momentPhoto("mp1_moment_photo_dark", 0)
+    @Test fun momentPhoto2() = momentPhoto("mp2_moment_photo_dark", 1)
+    /** 대화 속 사진 (공공 영역 그림으로 넓힘): 빈센트 I-1 의 새 사진 말풍선만. */
+    private fun momentPhoto(name: String, k: Int) {
         val s = loopState()
-        shot(name, true, 4000, act = {
-            rule.onAllNodes(androidx.compose.ui.test.hasScrollAction()).onFirst()
-                .performScrollToNode(hasText(cap, substring = true))
-        }, series = s) { Room(s, room(1)) }
+        val w = s.work("vincent")
+        val m = w.chapters.first().letters.first().moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Photo>()[k]
+        shot(name, true, 3000, series = s) {
+            androidx.compose.foundation.layout.Column(Modifier.fillMaxSize().padding(16.dp)) {
+                io.github.graviton94.todayletters.ui.MomentCard(s, w, m, onMap = {}, onPhoto = {})
+            }
+        }
     }
     @Test fun reread() { val s = loopState(); shot("53_room_reread_light", false, 3000, series = s) { Room(s, room(1)) } }
     @Test fun shadow() { val s = loopState(); shot("54_shadow_dark", true, 2000, series = s) { io.github.graviton94.todayletters.ui.ShadowScreen(s, Route.Shadow(room(1))) } }
