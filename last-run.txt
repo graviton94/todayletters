@@ -1,2 +1,2 @@
-mp1_moment_photo_dark.png
-mp2_moment_photo_dark.png
+cardShare1_light.png
+cardShare2_dark.png
