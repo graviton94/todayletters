@@ -8,6 +8,7 @@ on:
       series: { description: "작품", default: "mozart" }
       voices: { description: "목소리 (띄어쓰기로 구분, M1+M3@0.5:1.0)", default: "M1>M3>M5@0.0:0.9 M1>M3>M5@0.25:0.9 M1>M3>M5@0.5:0.9 M1>M3>M5@0.7:0.9 M1>M3>M5@0.85:0.9 M1>M3>M5@1.0:0.9" }
       branch: { description: "결과 가지", default: "tts-sample-mozart" }
+      file: { description: "발췌 파일 (비우면 data/<작품>/sample_letter.json, 예 data/voices/sample_es.json)", default: "" }
   push:
     paths: ["scripts/tts_sample.py", "data/*/sample_letter.json", ".github/workflows/tts-sample.yml"]
 
@@ -30,6 +31,7 @@ jobs:
         run: python scripts/tts_sample.py /tmp/st/py /tmp/st/assets tts_out $VOICES
         env:
           SAMPLE_SERIES: ${{ inputs.series || 'mozart' }}
+          SAMPLE_FILE: ${{ inputs.file }}
           VOICES: ${{ inputs.voices || 'M1>M3>M5@0.0:0.9 M1>M3>M5@0.25:0.9 M1>M3>M5@0.5:0.9 M1>M3>M5@0.7:0.9 M1>M3>M5@0.85:0.9 M1>M3>M5@1.0:0.9' }}
       - name: Encode (32kHz mono AAC, same as the app) and publish to tts-sample branch
         run: |

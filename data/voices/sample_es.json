@@ -1,0 +1,16 @@
+{
+ "_doc": "스페인어 목소리 견본용 두 문장 (고야 배역 고르기, 아직 작품 데이터 없음). 고야 → 마르틴 사파테르 투의 문장으로 앱이 쓴 것 (실제 편지 인용 아님). 남자 목소리 M1–M5 · 호세파 후보 여자 목소리 둘.",
+ "series": "goya",
+ "original": "es",
+ "langs": [
+  "es"
+ ],
+ "messages": [
+  {
+   "es": "Querido Martín: ya estoy en Madrid y no sé cómo decirte lo contento que estoy."
+  },
+  {
+   "es": "Dios te guarde muchos años; tuyo siempre, Francisco de Goya."
+  }
+ ]
+}

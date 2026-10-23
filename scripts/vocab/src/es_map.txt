@@ -1,0 +1,1 @@
+# 스페인어 (고야) 꼴=표제어. 예: dárselo=dar · del=de · al=a (build.py goya es 전에 채운다)

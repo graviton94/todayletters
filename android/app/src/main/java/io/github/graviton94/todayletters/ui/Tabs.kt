@@ -151,7 +151,7 @@ fun SeriesCover(s: AppState, id: String) {
             IconButton(stringResource(R.string.series_settings), onClick = { s.go(Route.SeriesSettings(id)) }) { Gear(p.ink) }
         }
         Page {
-            Caps(deco(w.series.original, "Saison I · Table des matières", "Band I · Inhalt"), decorative = true)
+            Caps(deco(w.series.original, "Saison I · Table des matières", "Band I · Inhalt", "Tomo I · Índice"), decorative = true)
             Text(w.title[w.series.original], style = Type.display, color = p.ink)
             Text(w.title[s.app.read], style = Type.body.of(s.app.read), color = p.inkSoft)
             Rule()
@@ -162,7 +162,7 @@ fun SeriesCover(s: AppState, id: String) {
             // 프롤로그: 아를 이전 (언제든 다시 보기)
             if (w.prologue.isNotEmpty()) {
                 ChapterRow(
-                    numeral = "P", original = deco(w.series.original, "Prologue", "Prolog"), read = w.arrival?.label?.get(uiLang()) ?: stringResource(R.string.cover_prologue),
+                    numeral = "P", original = deco(w.series.original, "Prologue", "Prolog", "Prólogo"), read = w.arrival?.label?.get(uiLang()) ?: stringResource(R.string.cover_prologue),
                     readLang = s.app.read, originalLang = w.series.original,
                     meta = stringResource(R.string.cover_prologue_meta, w.prologue.size),
                     onClick = { s.openPrologue(id) },
@@ -188,7 +188,7 @@ fun SeriesCover(s: AppState, id: String) {
             if (w.outro != null) {
                 val done = s.seriesDone(id)
                 ChapterRow(
-                    numeral = deco(w.series.original, "É", "E"), original = deco(w.series.original, "Épilogue", "Epilog"), read = stringResource(R.string.cover_epilogue),
+                    numeral = deco(w.series.original, "É", "E", "E"), original = deco(w.series.original, "Épilogue", "Epilog", "Epílogo"), read = stringResource(R.string.cover_epilogue),
                     readLang = s.app.read, originalLang = w.series.original,
                     meta = stringResource(if (done) R.string.cover_epilogue_open else R.string.cover_epilogue_locked),
                     onClick = { if (done) s.openOutro(id) },
@@ -196,7 +196,7 @@ fun SeriesCover(s: AppState, id: String) {
                 Hair()
             }
             ChapterRow(
-                numeral = "✦", original = deco(w.series.original, "Catalogue", "Katalog"), read = stringResource(R.string.plates_title),
+                numeral = "✦", original = deco(w.series.original, "Catalogue", "Katalog", "Catálogo"), read = stringResource(R.string.plates_title),
                 readLang = s.app.read, originalLang = w.series.original,
                 meta = stringResource(R.string.catalogue_progress, w.chapters.sumOf { c -> c.letters.count { s.progress(id, c.id, it.id).done } }, w.chapters.sumOf { it.letters.size }),
                 onClick = { s.go(Route.Catalogue(id)) },
@@ -224,7 +224,7 @@ fun ChapterScreen(s: AppState, r: Route.Chapter) {
                 0.62f to p.paper.copy(alpha = 0.55f), 0.85f to p.paper.copy(alpha = 0.85f), 1f to p.paper)))
             IconButton(stringResource(R.string.back), onClick = { s.back() }) { Chevron(androidx.compose.ui.graphics.Color(0xFFF7F0E1)) }
             Column(Modifier.align(Alignment.BottomStart).padding(start = Tokens.Space.s5, bottom = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                Caps("${deco(w.series.original, "Chapitre", "Kapitel")} ${roman(r.chapter)} · ${c.letters.firstOrNull()?.place ?: ""} ${c.letters.firstOrNull()?.date?.take(4) ?: ""}", p.giltText, small = true, decorative = true)
+                Caps("${deco(w.series.original, "Chapitre", "Kapitel", "Capítulo")} ${roman(r.chapter)} · ${c.letters.firstOrNull()?.place ?: ""} ${c.letters.firstOrNull()?.date?.take(4) ?: ""}", p.giltText, small = true, decorative = true)
                 Text(c.title[w.series.original], style = Type.display, color = p.ink)
                 Text(stringResource(R.string.chapter_meta, c.letters.size, readN) + " · " + c.title[uiLang()], style = Type.small.ui(), color = p.inkSoft)
             }

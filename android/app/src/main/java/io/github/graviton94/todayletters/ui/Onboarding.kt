@@ -55,12 +55,12 @@ import io.github.graviton94.todayletters.design.Type
 
 /** 언어 이름: 그 언어 자신의 글자로 (Français, English, 한국어). 언어 고르기 단추에 쓴다. */
 fun langName(l: Lang) = when (l) {
-    Lang.KO -> "한국어"; Lang.EN -> "English"; Lang.FR -> "Français"; Lang.NL -> "Nederlands"; Lang.DE -> "Deutsch"; Lang.JA -> "日本語"
+    Lang.KO -> "한국어"; Lang.EN -> "English"; Lang.FR -> "Français"; Lang.NL -> "Nederlands"; Lang.DE -> "Deutsch"; Lang.JA -> "日本語"; Lang.ES -> "Español"
 }
 
 /** 언어 이름: 앱 글자 언어로 (프랑스어 / French). 설명 문장 안에 쓴다. */
 fun langLabel(l: Lang) = when (l) {
-    Lang.KO -> R.string.lang_ko; Lang.EN -> R.string.lang_en; Lang.FR -> R.string.lang_fr; Lang.NL -> R.string.lang_nl; Lang.DE -> R.string.lang_de; Lang.JA -> R.string.lang_ja
+    Lang.KO -> R.string.lang_ko; Lang.EN -> R.string.lang_en; Lang.FR -> R.string.lang_fr; Lang.NL -> R.string.lang_nl; Lang.DE -> R.string.lang_de; Lang.JA -> R.string.lang_ja; Lang.ES -> R.string.lang_es
 }
 
 /**

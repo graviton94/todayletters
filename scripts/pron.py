@@ -5,10 +5,10 @@
     python3 scripts/pron.py vincent         # 한 작품
     python3 scripts/pron.py --say fr "Oui, ça va. Et toi ?"   # 한 줄만 찍어 보기 (ko 는 로마자)
 
-- 한국어 앱 글자 + 프랑스어 · 독일어 · 영어를 배우는 사람: 한글 어림 표기.
-  espeak-ng (`espeak-ng -q --ipa -v fr|de|en-us`, CI 에서는 `sudo apt-get install -y espeak-ng`) 로 IPA → 언어마다 표 ([HANGUL]) 로 한글.
+- 한국어 앱 글자 + 프랑스어 · 독일어 · 영어 · 스페인어를 배우는 사람: 한글 어림 표기.
+  espeak-ng (`espeak-ng -q --ipa -v fr|de|en-us|es`, CI 에서는 `sudo apt-get install -y espeak-ng`) 로 IPA → 언어마다 표 ([HANGUL]) 로 한글.
   국립국어원 외래어 표기법의 뜻을 따르되, 한국 사람이 읽었을 때 가장 가깝게: 프랑스어 p · t · k · s 는 된소리 (ㅃ ㄸ ㄲ ㅆ), 비모음은 앙 · 옹 · 앵,
-  독일어 ç → 히 · x → 흐 · ʏ/y → 위 · ø → 외, 영어 r · l → ㄹ (모음 앞이 아닌 r 은 읽지 않음) · θ → ㅆ · ð → ㄷ · f → ㅍ · v → ㅂ · z → ㅈ.
+  독일어 ç → 히 · x → 흐 · ʏ/y → 위 · ø → 외, 스페인어 p · t · k · s 도 된소리 · β → ㅂ · ɣ → ㄱ · ð → ㄷ · x → ㅎ · ʝ/ʎ → 반모음 j (야 · 요) · r/ɾ → ㄹ, 영어 r · l → ㄹ (모음 앞이 아닌 r 은 읽지 않음) · θ → ㅆ · ð → ㄷ · f → ㅍ · v → ㅂ · z → ㅈ.
   띄어쓰기 · 문장부호는 원문 그대로 (낱말마다 맞춰 놓고, 프랑스어 연음 자음은 다음 낱말 앞으로).
 - 영어 앱 글자 + 한국어를 배우는 사람: 소리 나는 대로 바꾼 뒤 (연음 · 비음화 · 유음화 · 경음화 · 격음화 · 구개음화, ㅎ 탈락) 국어의 로마자 표기법.
   (ㄴ 첨가는 낱말 경계를 몰라서 하지 않는다.)
@@ -20,7 +20,7 @@
 import glob, json, os, re, shutil, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VOICE = {"fr": "fr", "de": "de", "en": "en-us", "nl": "nl"}
+VOICE = {"fr": "fr", "de": "de", "en": "en-us", "nl": "nl", "es": "es"}
 PUNCT_ONLY = re.compile(r"^[^\w]+$", re.UNICODE)
 
 # ── IPA → 한글 ─────────────────────────────────────────
@@ -39,13 +39,16 @@ WAU = {"ㅏ": "ㅘ", "ㅐ": "ㅙ", "ㅔ": "ㅞ", "ㅣ": "ㅟ", "ㅓ": "ㅝ", "�
 # 모음 (이어진 홀소리는 따로 한 글자씩: aɪ → 아이)
 VOWELS = {"a": "ㅏ", "ɑ": "ㅏ", "æ": "ㅐ", "e": "ㅔ", "ɛ": "ㅔ", "i": "ㅣ", "ɪ": "ㅣ", "o": "ㅗ", "ɔ": "ㅗ", "u": "ㅜ", "ʊ": "ㅜ",
           "oʊ": "ㅗ", "əʊ": "ㅗ", "y": "ㅟ", "ʏ": "ㅟ", "ø": "ㅚ", "œ": "ㅚ", "ʌ": "ㅓ", "ɜ": "ㅓ", "ɚ": "ㅓ", "ɝ": "ㅓ", "ɐ": "ㅓ", "ᵻ": "ㅣ", "ɒ": "ㅗ", "ɘ": "ㅓ"}
-SCHWA = {"fr": "ㅡ", "de": "ㅔ", "en": "ㅓ", "nl": "ㅓ"}
+SCHWA = {"fr": "ㅡ", "de": "ㅔ", "en": "ㅓ", "nl": "ㅓ", "es": "ㅔ"}
 NASAL = {"ɑ̃": "ㅏ", "ɔ̃": "ㅗ", "ɛ̃": "ㅐ", "œ̃": "ㅐ", "ã": "ㅏ", "õ": "ㅗ", "ẽ": "ㅐ"}
 # 닿소리: (모음 앞 첫소리, 홀로 설 때 첫소리). 홀로 설 때는 + ㅡ (ʃ · ç 는 + ㅣ)
 BASE = {"b": "ㅂ", "d": "ㄷ", "g": "ㄱ", "ɡ": "ㄱ", "f": "ㅍ", "v": "ㅂ", "z": "ㅈ", "ʒ": "ㅈ", "dʒ": "ㅈ", "tʃ": "ㅊ", "ts": "ㅊ", "pf": "ㅍ",
         "m": "ㅁ", "n": "ㄴ", "ŋ": "ㅇ", "l": "ㄹ", "h": "ㅎ", "ç": "ㅎ", "x": "ㅎ", "χ": "ㅎ", "θ": "ㅆ", "ð": "ㄷ", "ʃ": "ㅅ", "ɲ": "ㄴ",
-        "p": "ㅍ", "t": "ㅌ", "k": "ㅋ", "s": "ㅅ", "r": "ㄹ", "ʁ": "ㄹ", "ɹ": "ㄹ", "ɾ": "ㄹ", "ʀ": "ㄹ", "c": "ㅋ", "ʎ": "ㄹ"}
+        "p": "ㅍ", "t": "ㅌ", "k": "ㅋ", "s": "ㅅ", "r": "ㄹ", "ʁ": "ㄹ", "ɹ": "ㄹ", "ɾ": "ㄹ", "ʀ": "ㄹ", "c": "ㅋ", "ʎ": "ㄹ",
+        "β": "ㅂ", "ɣ": "ㄱ"}
 TENSE_FR = {"p": "ㅃ", "t": "ㄸ", "k": "ㄲ", "s": "ㅆ"}
+# 된소리로 읽는 말: 프랑스어 · 스페인어 p · t · k · s 는 숨이 거의 없어 한국 사람 귀에 ㅃ ㄸ ㄲ ㅆ 에 가깝다 (pero 뻬로 · tuyo 뚜요)
+TENSE_LANGS = {"fr", "es"}
 MULTI = ["dʒ", "tʃ", "ts", "pf", "ɑ̃", "ɔ̃", "ɛ̃", "œ̃", "ã", "õ", "ẽ", "oʊ", "əʊ"]
 GLIDES = {"j", "w", "ɥ"}
 SKIP = set("ˈˌːˑ‿ʔ̯̩̆.") | {"̆", "̯", "̩"}
@@ -69,7 +72,11 @@ def is_vowel(p, lang):
 
 def hangul_word(ipa, lang):
     """IPA 낱말 하나 → 한글 (글자 짓기는 첫소리 · 가운뎃소리 · 끝소리)."""
-    P = [p for p in phonemes(ipa) if p in BASE or p in GLIDES or is_vowel(p, lang)]
+    P = phonemes(ipa)
+    # 스페인어 espeak 의 ʝ (ya · tuyo) 와 ʎ (llamar · caballo, 지금 말에서는 같은 소리) 는 반모음 j 로 (야마르 · 카바요)
+    if lang == "es":
+        P = ["j" if p in ("ʝ", "ʎ") else p for p in P]
+    P = [p for p in P if p in BASE or p in GLIDES or is_vowel(p, lang)]
     # 프랑스어 espeak 은 반모음 ɥ 를 모음 앞의 y 로 적는다 (lui → lyi)
     if lang == "fr":
         P = ["ɥ" if p == "y" and i + 1 < len(P) and is_vowel(P[i + 1], lang) else p for i, p in enumerate(P)]
@@ -125,7 +132,7 @@ def hangul_word(ipa, lang):
             # 모음 앞의 ŋ 은 앞 글자 받침 (singen 징엔)
             if p == "ŋ" and syl and not syl[-1][2]:
                 syl[-1][2] = "ㅇ"; continue
-            jamo = TENSE_FR.get(p) if lang == "fr" and p in TENSE_FR else BASE[p]
+            jamo = TENSE_FR.get(p) if lang in TENSE_LANGS and p in TENSE_FR else BASE[p]
             # 모음 사이 · 닿소리 뒤의 l 은 ㄹㄹ (올리브 · 알레 · 블랑)
             if p == "l" and syl and not syl[-1][2] and i > 0 and (is_vowel(P[i - 1], lang) or (P[i - 1] in BASE and syl[-1][1] in ("ㅡ", "ㅜ"))):
                 syl[-1][2] = "ㄹ"

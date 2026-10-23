@@ -112,19 +112,20 @@ object Spoken {
 }
 
 /**
- * 따옴표: 배우는 말의 꼴로. 영어 · 한국어 “…”, 독일어 „…“, 프랑스어 « … ».
+ * 따옴표: 배우는 말의 꼴로. 영어 · 한국어 “…”, 독일어 „…“, 프랑스어 « … », 스페인어 «…».
  */
 object Quote {
     fun wrap(text: String, lang: Lang): String = when (lang) {
         Lang.FR -> "« $text »"
         Lang.DE -> "„$text“"
+        Lang.ES -> "«$text»"
         else -> "“$text”"
     }
 }
 
 /**
  * 문장 끝이 아닌 마침표: 줄임말 (St. · Mr. · Mrs. · Dr. · M. · Mme · Hr. · Sig. · No. · heil. …), 머리글자 (J. · A.),
- * 날짜 · 차례의 숫자 (den 3. Juni, 1. Theo). 세 언어 (영어 · 프랑스어 · 독일어) 와 편지에 실제로 나온 꼴을 한 목록에 둔다.
+ * 날짜 · 차례의 숫자 (den 3. Juni, 1. Theo). 네 언어 (영어 · 프랑스어 · 독일어 · 스페인어) 와 편지에 실제로 나온 꼴을 한 목록에 둔다.
  * 언어마다 겹치지 않는 꼴이라 (영어 ‘I.’ 만 빼고) 한 목록으로 충분하다.
  */
 object Abbrev {
@@ -136,10 +137,12 @@ object Abbrev {
         "M", "MM", "Mme", "Mmes", "Mlle", "Mlles", "Mgr", "Ste", "Vve",
         // 독일어 · 이탈리아어 (모차르트의 편지)
         "Hr", "Hrn", "Herrn", "Fr", "Frl", "Mad", "Mons", "Sig", "Sigr", "Sgra", "Ew", "Se", "Ihro", "heil", "hl", "Hl",
+        // 스페인어 (고야의 편지: D. Martín · Sra. · Vm. · Excmo.)
+        "Sra", "Sras", "Srta", "Sres", "Srs", "Dn", "Dña", "Ud", "Uds", "Vd", "Vds", "Vm", "Vmd", "Excmo", "Excma", "Ilmo", "Ilma", "Fco", "Ntra", "Ntro",
     )
     /** 뒤에 숫자가 올 때만 줄임말 (No. 5, Nr. 3, p. 12, 15 Oct. 1888). */
     val BEFORE_NUMBER = setOf("No", "no", "Nos", "Nr", "nr", "n", "p", "pp", "S", "vol", "Vol", "op", "Op", "fig", "Fig", "art", "Art",
-        "Jan", "Febr", "Feb", "Mar", "Apr", "Aug", "Sept", "Sep", "Oct", "Okt", "Nov", "Dec", "Dez")
+        "Jan", "Febr", "Feb", "Mar", "Apr", "Aug", "Sept", "Sep", "Oct", "Okt", "Nov", "Dec", "Dez", "núm", "pág", "Ene", "Abr", "Ago", "Dic")
     /** 뒤에 소문자 · 숫자가 이어질 때만 줄임말 (etc. and, z. B. wenn, fr. 50). 문장 끝에도 자주 오는 꼴. */
     val SOFT = setOf("etc", "viz", "cf", "vs", "ca", "approx", "fr", "fl", "Fl", "usw", "bzw", "vgl", "resp", "sc", "z", "B", "d", "h", "u", "a", "i", "e", "av", "bd", "chap", "env")
 

@@ -91,6 +91,7 @@
     <string name="lang_de">독⁠일⁠어</string>
     <string name="lang_ja">일⁠본⁠어</string>
     <string name="lang_nl">네⁠덜⁠란⁠드⁠어</string>
+    <string name="lang_es">스⁠페⁠인⁠어</string>
     <string name="step_reply">답⁠장</string>
     <string name="step_plate">그⁠림</string>
     <string name="room_locked">편⁠지⁠를 끝⁠까⁠지 읽⁠으⁠면 답⁠장⁠이 열⁠려⁠요</string>
@@ -623,6 +624,7 @@
     <string name="credits_music_h">음⁠악</string>
     <string name="credits_full">전⁠체 출⁠처⁠와 라⁠이⁠선⁠스 ›</string>
     <string name="credits_text_de">모⁠차⁠르⁠트 편⁠지⁠의 독⁠일⁠어 원⁠문⁠: 루⁠트⁠비⁠히 놀 엮⁠음 『Mozarts Briefe』(⁠잘⁠츠⁠부⁠르⁠크⁠, 1865, 공⁠공 영⁠역⁠), 인⁠터⁠넷 아⁠카⁠이⁠브 스⁠캔⁠본⁠, 판⁠의 철⁠자 그⁠대⁠로⁠. 영⁠어⁠는 레⁠이⁠디 월⁠리⁠스⁠의 1866⁠년 번⁠역⁠이⁠고⁠, 한⁠국⁠어 번⁠역⁠은 이 앱⁠이 새⁠로 썼⁠어⁠요⁠.</string>
+    <string name="credits_text_es">고⁠야 편⁠지⁠의 스⁠페⁠인⁠어 원⁠문⁠: 마⁠르⁠틴 사⁠파⁠테⁠르⁠에⁠게 보⁠낸 편⁠지⁠, 공⁠공 영⁠역 판⁠본⁠(⁠출⁠처 페⁠이⁠지⁠에 적⁠음⁠)⁠의 철⁠자 그⁠대⁠로⁠. 영⁠어 · 한⁠국⁠어 번⁠역⁠은 이 앱⁠이 새⁠로 썼⁠어⁠요⁠.</string>
     <string name="gloss_add">카⁠드⁠에 담⁠기</string>
     <string name="gloss_in_cards">카⁠드⁠에 있⁠어⁠요</string>
     <string name="gloss_later">오⁠늘 새 카⁠드⁠가 다 차⁠서⁠, 내⁠일 카⁠드⁠에 들⁠어⁠가⁠요⁠.</string>

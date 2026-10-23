@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build data/<series>/lexicon.json and gloss.json from the letters + the hand-made tables in scripts/vocab/src.
-Run from the repo root:  TATOEBA_DIR=<dir with tatoeba_deu.tsv / tatoeba_fra.tsv> python3 scripts/vocab/build.py vincent fr
+Run from the repo root:  TATOEBA_DIR=<dir with tatoeba_deu.tsv / tatoeba_fra.tsv / tatoeba_spa.tsv> python3 scripts/vocab/build.py vincent fr
+(languages: fr · de · es; es = Goya, no hand tables yet beyond src/es_*.txt)
 (Tatoeba extracts: id<TAB>sentence<TAB>en<TAB>ko<TAB>author, sentences of <=12 words; not kept in git.)
 Needs: pip install simplemma; apt install espeak-ng.  Then run daily.py and scripts/validate_lexicon.py.
 """
@@ -48,7 +49,7 @@ for lid, msgs in by_letter.items():
 
 # ---------- hand IPA from the chapter files ----------
 hand_ipa = {}
-ART = re.compile(r'^(der|die|das|le|la|les|l\'|un|une)\s+', re.I)
+ART = re.compile(r'^(der|die|das|le|la|les|l\'|un|une|el|los|las|una)\s+', re.I)
 for f, l in letters(series):
     ws = list(l.get('words') or [])
     for sp in (l.get('plate') or {}).get('spots', []):
@@ -90,13 +91,20 @@ def de_fix(ipa):
         i += 1
     return ''.join(out)
 
+ESPEAK = {'de': 'de', 'fr': 'fr', 'es': 'es'}
 def espeak(word):
-    v = 'de' if lang == 'de' else 'fr'
+    v = ESPEAK[lang]
     o = subprocess.run(['espeak-ng', '-q', '--ipa', '-v', v, word], capture_output=True).stdout.decode('utf-8', 'replace').strip()
     o = re.sub(r'\([a-z]+\)', '', o).replace('_', '')
     o = ' '.join(o.split())
     if lang == 'fr':
         return FR_FIX.get(word) or o.replace('ˈ', '').replace('ˌ', '').replace('ː', '').replace('-', '')
+    if lang == 'es':
+        # 스페인어: 길이표 · 이음표만 빼고 강세는 둔다 (한 음절 낱말은 강세도 뺀다)
+        o = o.replace('ː', '').replace('-', '')
+        if len(re.findall(r'[aeiou]+', o)) <= 1:
+            o = o.replace('ˈ', '').replace('ˌ', '')
+        return o
     o = de_fix(o)
     if len(re.findall(r'[aeiouyøœɛɪʊɔəɐʏ]+', o.replace('ɐ̯', ''))) <= 1:
         o = o.replace('ˈ', '').replace('ˌ', '')
@@ -133,7 +141,7 @@ def keywords(en):
             ks.add(w[:5] if len(w) > 5 else w)
     return ks
 
-tsv = SCR + ('tatoeba_deu.tsv' if lang == 'de' else 'tatoeba_fra.tsv')
+tsv = SCR + {'de': 'tatoeba_deu.tsv', 'fr': 'tatoeba_fra.tsv', 'es': 'tatoeba_spa.tsv'}[lang]
 want = collections.defaultdict(set)   # lowercase form -> lemma keys
 for key, fs in forms.items():
     t = tab[key]

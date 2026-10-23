@@ -82,12 +82,13 @@ private val boxGaps = listOf(R.string.gap_today, R.string.gap_1, R.string.gap_3,
 
 /**
  * 영어 밖의 언어를 쓸 때의 글자 줄: 휴대폰 키보드에 바로 없는 글자를 한 번에 넣는다.
- * 언어가 늘면 여기에 더한다 (독일어 ä ö ü ß 등).
+ * 언어가 늘면 여기에 더한다 (독일어 ä ö ü ß, 스페인어 á ñ ¿ ¡ 등).
  */
 fun inputHelpers(lang: Lang): List<String> = when (lang) {
     Lang.FR -> listOf("é", "è", "ê", "à", "ç", "ô", "û", "î", "ë", "ù", "â", "œ")
     Lang.DE -> listOf("ä", "ö", "ü", "ß", "Ä", "Ö", "Ü")
     Lang.NL -> listOf("é", "ë", "ï", "ü", "ĳ")
+    Lang.ES -> listOf("á", "é", "í", "ó", "ú", "ñ", "ü", "¿", "¡", "Ñ")
     else -> emptyList()
 }
 

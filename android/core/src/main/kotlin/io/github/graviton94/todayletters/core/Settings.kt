@@ -4,7 +4,7 @@ package io.github.graviton94.todayletters.core
 enum class ThemeMode { SYSTEM, LIGHT, DARK }
 
 /** 편지에 쓰이는 언어. 모든 편지는 원어 · 영어 · 한국어 세 줄을 늘 갖고 있다. */
-enum class Lang(val code: String) { KO("ko"), EN("en"), FR("fr"), NL("nl"), DE("de"), JA("ja") }
+enum class Lang(val code: String) { KO("ko"), EN("en"), FR("fr"), NL("nl"), DE("de"), JA("ja"), ES("es") }
 
 /**
  * 앱 글자(설정 · 단추 · 도움말 · 큐레이터 노트 · 낱말 뜻풀이) 언어. 출시는 영어 · 한국어 둘.

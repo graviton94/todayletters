@@ -27,7 +27,7 @@ on:
         options: [none, new, replies, messages]
         default: none
       series:
-        description: "만들 작품만 (띄어쓰기로 나눔, 비우면 전부: vincent mozart napoleon)"
+        description: "만들 작품만 (띄어쓰기로 나눔, 비우면 전부: vincent mozart napoleon goya)"
         type: string
         default: ""
       messages:
@@ -44,7 +44,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        series: [vincent, mozart, napoleon]
+        # goya 는 data/goya 가 생기기 전에는 아래 첫 단계에서 건너뛴다 (go=0)
+        series: [vincent, mozart, napoleon, goya]
         file: [prologue, chapter1, chapter2, chapter3, chapter4, chapter5, chapter6, chapter7, chapter8, epilogue]
     steps:
       - uses: actions/checkout@v4
@@ -55,6 +56,7 @@ jobs:
           f="data/${{ matrix.series }}/${{ matrix.file }}.json"
           go=$(python3 -c "
           import json, os
+          if not os.path.exists('$f'): print(0); raise SystemExit
           only = os.environ['ONLY_SERIES'].split()
           if only and '${{ matrix.series }}' not in only: print(0); raise SystemExit
           if os.environ['MAKE'] != 'messages': print(1); raise SystemExit
@@ -143,7 +145,7 @@ jobs:
             mkdir -p "$root/$d"; cp "$out/$rel" "$root/$rel"; n=$((n+1))
           done < <(cd "$out" && find . -name "*.m4a" | sed 's#^\./##' | sort)
           echo "new clips: $n"
-          for s in vincent mozart napoleon; do for l in fr de en ko; do
+          for s in vincent mozart napoleon goya; do for l in fr de es en ko; do
             t=$(cd "$out" && find $s -name "t*_$l.m4a" 2>/dev/null | wc -l); v=$(cd "$out" && find $s -name "v_${l}_*.m4a" 2>/dev/null | wc -l)
             p=$(cd "$out" && find $s -name "ph*_$l.m4a" 2>/dev/null | wc -l); r=$(cd "$out" && find $s -name "r[0-9]*_$l.m4a" 2>/dev/null | wc -l)
             b=$(cd "$out" && find $s -name "b_${l}_*.m4a" -o -name "bx_${l}_*.m4a" 2>/dev/null | wc -l)

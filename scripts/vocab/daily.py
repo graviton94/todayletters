@@ -67,7 +67,7 @@ DEBUG = len(sys.argv) > 3
 form2key = {}
 for k, e in ent.items():
     for f_ in e['forms']: form2key.setdefault(f_, k)
-ART = re.compile(r'^(der|die|das|le|la|les|l\'|un|une)\s+', re.I)
+ART = re.compile(r'^(der|die|das|le|la|les|l\'|un|une|el|los|las|una)\s+', re.I)
 chosen = set()
 out = {'_doc': ('Per letter id (order P, I…VIII, E): words = 8 lemma keys for the "today\'s words" card, chosen from that letter by chapter band '
                 '(P/I–II: A1–A2, III–V: B1, VI–VIII/E: B2–C1; widened by one band only when needed), never repeating a lemma of an earlier letter; '

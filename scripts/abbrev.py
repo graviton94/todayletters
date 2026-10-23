@@ -9,9 +9,10 @@ import re
 
 TITLES = {"Mr", "Mrs", "Ms", "Messrs", "Dr", "St", "Sts", "Mt", "Rev", "Prof", "Capt", "Col", "Gen", "Lt", "Sgt", "Jr", "Sr", "Esq", "Hon",
           "M", "MM", "Mme", "Mmes", "Mlle", "Mlles", "Mgr", "Ste", "Vve",
-          "Hr", "Hrn", "Herrn", "Fr", "Frl", "Mad", "Mons", "Sig", "Sigr", "Sgra", "Ew", "Se", "Ihro", "heil", "hl", "Hl"}
+          "Hr", "Hrn", "Herrn", "Fr", "Frl", "Mad", "Mons", "Sig", "Sigr", "Sgra", "Ew", "Se", "Ihro", "heil", "hl", "Hl",
+          "Sra", "Sras", "Srta", "Sres", "Srs", "Dn", "Dña", "Ud", "Uds", "Vd", "Vds", "Vm", "Vmd", "Excmo", "Excma", "Ilmo", "Ilma", "Fco", "Ntra", "Ntro"}
 BEFORE_NUMBER = {"No", "no", "Nos", "Nr", "nr", "n", "p", "pp", "S", "vol", "Vol", "op", "Op", "fig", "Fig", "art", "Art",
-                 "Jan", "Febr", "Feb", "Mar", "Apr", "Aug", "Sept", "Sep", "Oct", "Okt", "Nov", "Dec", "Dez"}
+                 "Jan", "Febr", "Feb", "Mar", "Apr", "Aug", "Sept", "Sep", "Oct", "Okt", "Nov", "Dec", "Dez", "núm", "pág", "Ene", "Abr", "Ago", "Dic"}
 SOFT = {"etc", "viz", "cf", "vs", "ca", "approx", "fr", "fl", "Fl", "usw", "bzw", "vgl", "resp", "sc", "z", "B", "d", "h", "u", "a", "i", "e",
         "av", "bd", "chap", "env"}
 DATE_BEFORE = {"den", "dem", "der", "des", "am", "vom", "zum", "bis"}

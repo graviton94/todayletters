@@ -409,6 +409,7 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
             Caps(stringResource(R.string.credits_text_h), p.giltText)
             if (s.works.any { it.series.original == Lang.FR }) Text(stringResource(R.string.credits_text), style = Type.small.ui(), color = p.ink)
             if (s.works.any { it.series.original == Lang.DE }) Text(stringResource(R.string.credits_text_de), style = Type.small.ui(), color = p.ink)
+            if (s.works.any { it.series.original == Lang.ES }) Text(stringResource(R.string.credits_text_es), style = Type.small.ui(), color = p.ink)
 
             Caps(stringResource(R.string.credits_images_h), p.giltText)
             Text(stringResource(R.string.credits_images_note), style = Type.small.ui(), color = p.inkSoft)
@@ -431,7 +432,7 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
                 // 맺음말의 그림
                 w.outro?.let { o ->
                     Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                        Text(deco(w.series.original, "Épilogue", "Epilog"), style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
+                        Text(deco(w.series.original, "Épilogue", "Epilog", "Epílogo"), style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink)
                         Text(o.credit, style = Type.small.ui(), color = p.inkSoft)
                     }
                 }

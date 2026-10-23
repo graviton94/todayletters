@@ -38,12 +38,12 @@ object Start {
      */
     fun asks(answered: Boolean, legacy: Boolean, startedInLang: Boolean): Boolean = !answered && !legacy && !startedInLang
 
-    /** 왜에 맞춘 다음 작품 차례: [ids] (서재 차례) 를 좋아할 만한 것부터. 모르는 작품은 뒤에 서재 차례 그대로. */
+    /** 왜에 맞춘 다음 작품 차례: [ids] (서재 차례) 를 좋아할 만한 것부터. 모르는 작품은 뒤에 서재 차례 그대로. 아직 서재에 없는 작품 (goya) 은 [ids] 에 없으니 상관없다. */
     fun suggest(why: Why?, ids: List<String>): List<String> {
         val pref = when (why) {
-            Why.TRAVEL -> listOf("vincent", "napoleon", "mozart")
-            Why.ARTS -> listOf("vincent", "mozart", "napoleon")
-            Why.WORK -> listOf("napoleon", "mozart", "vincent")
+            Why.TRAVEL -> listOf("vincent", "goya", "napoleon", "mozart")
+            Why.ARTS -> listOf("vincent", "goya", "mozart", "napoleon")
+            Why.WORK -> listOf("napoleon", "mozart", "vincent", "goya")
             Why.CURIOUS, null -> emptyList()
         }
         return ids.sortedBy { pref.indexOf(it).let { i -> if (i < 0) pref.size else i } }

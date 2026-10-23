@@ -6,7 +6,8 @@
 높낮이는 손대지 않는다 (만든 뒤에 음을 옮기면 소리가 떨린다).
 숨: 문장부호에서 0.35초, 메시지와 메시지 사이 0.9초.
 GitHub Actions 에서 돌려요: python scripts/tts_sample.py <supertonic/py> <assets> <출력 폴더> [목소리 …]
-환경 변수 SAMPLE_SERIES (기본 vincent)
+환경 변수 SAMPLE_SERIES (기본 vincent), SAMPLE_FILE (data/<작품>/sample_letter.json 대신 읽을 파일, 예 data/voices/sample_es.json — 작품 데이터가 아직 없을 때)
+발췌 파일에 "langs" 가 있으면 그 언어만 (없으면 원어 · 영어 · 한국어).
 """
 import json, os, re, sys
 import os as _os, sys as _sys; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
@@ -19,8 +20,9 @@ sys.path.insert(0, py)
 from helper import Style, load_text_to_speech, load_voice_style  # noqa: E402
 
 series = os.environ.get("SAMPLE_SERIES") or "vincent"
-letter = json.load(open(f"data/{series}/sample_letter.json", encoding="utf-8"))
-langs = [letter["original"], "en", "ko"]
+letter = json.load(open(os.environ.get("SAMPLE_FILE") or f"data/{series}/sample_letter.json", encoding="utf-8"))
+series = letter.get("series") or series
+langs = letter.get("langs") or [letter["original"], "en", "ko"]
 STEPS = 16
 
 

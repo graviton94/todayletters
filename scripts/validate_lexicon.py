@@ -18,7 +18,8 @@ import json, os, re, sys, unicodedata
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORDER = ['prologue'] + ['chapter%d' % i for i in range(1, 9)] + ['epilogue']
-SERIES = {'vincent': 'fr', 'mozart': 'de', 'napoleon': 'fr'}
+# goya (스페인어) 는 data/goya 가 생기면 함께 검사한다
+SERIES = {s: l for s, l in {'vincent': 'fr', 'mozart': 'de', 'napoleon': 'fr', 'goya': 'es'}.items() if os.path.exists(os.path.join(ROOT, 'data', s, 'lexicon.json'))}
 LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 LETTER = re.compile(r'[^\W\d_]')
 

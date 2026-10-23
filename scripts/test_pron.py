@@ -14,7 +14,9 @@ class IpaToHangul(unittest.TestCase):
         cases = [("fr", "wˈi", "위"), ("fr", "sa", "싸"), ("fr", "twˈa", "뚜아"), ("fr", "bɔ̃ʒˈuʁ", "봉주르"), ("fr", "blˈɑ̃", "블랑"),
                  ("fr", "vˈɛ̃", "뱅"), ("fr", "lyˌi", "뤼"), ("fr", "bokˈu", "보꾸"),
                  ("de", "ɪç", "이히"), ("de", "ˈaɾbaɪt", "아르바이트"), ("de", "ɡəmˈaxt", "게마흐트"), ("de", "ʃˈøːn", "쇤"), ("de", "ʃvˈɛstɜ", "슈베스터"),
-                 ("en", "θˈɪn", "씬"), ("en", "ðə", "더"), ("en", "vˈɛɹi", "베리"), ("en", "dˈɪɹ", "디어"), ("en", "kˈɑːɹz", "카즈"), ("en", "lˈɜːnɪŋ", "러닝")]
+                 ("en", "θˈɪn", "씬"), ("en", "ðə", "더"), ("en", "vˈɛɹi", "베리"), ("en", "dˈɪɹ", "디어"), ("en", "kˈɑːɹz", "카즈"), ("en", "lˈɜːnɪŋ", "러닝"),
+                 ("es", "pˈeɾo", "뻬로"), ("es", "tˈuʝo", "뚜요"), ("es", "ʎamˈaɾ", "야마르"), ("es", "kaβˈaʎo", "까바요"), ("es", "ˈaɣwa", "아구아"),
+                 ("es", "xamˈas", "하마스"), ("es", "ˈaɲos", "아뇨스"), ("es", "maðɾˈið", "마드리드"), ("es", "estˈoɪ", "에스또이")]
         for lang, ipa, want in cases:
             self.assertEqual(want, pron.hangul_word(ipa, lang), f"{lang} {ipa}")
 
@@ -25,6 +27,8 @@ class IpaToHangul(unittest.TestCase):
         self.assertEqual("레 자미 쏭 따리베.", pron.hint("les amis sont arrivés.", "fr"))
         self.assertEqual("이히 하베 디 아르바이트 게마흐트, 바일 에스 쇤 이스트.", pron.hint("Ich habe die Arbeit gemacht, weil es schön ist.", "de"))
         self.assertEqual("미 투, 아임 러닝 라츠!", pron.hint("Me too, I'm learning lots!", "en"))
+        self.assertEqual("디오스 떼 구아르데 무초스 아뇨스; 뚜요 씨엠프레, 프란씨스꼬 데 고야.", pron.hint("Dios te guarde muchos años; tuyo siempre, Francisco de Goya.", "es"))
+        self.assertEqual("¿꼬모 에스따스? ¡무이 비엔!", pron.hint("¿Cómo estás? ¡Muy bien!", "es"))
 
 
 class KoreanRomanization(unittest.TestCase):

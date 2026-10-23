@@ -941,7 +941,7 @@ fun WordSheet(s: AppState, r: Route.Letter, onClose: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
             Rule()
-            Caps("${deco(s.work(r.series).series.original, "Mots", "Wörter")} · ${letter.date}", p.giltText)
+            Caps("${deco(s.work(r.series).series.original, "Mots", "Wörter", "Palabras")} · ${letter.date}", p.giltText)
             letter.words.forEachIndexed { i, w ->
                 Row(
                     Modifier.fillMaxWidth().heightIn(min = Tokens.Size.touch).clickable(role = Role.Button) {
@@ -1024,14 +1024,19 @@ private fun io.github.graviton94.todayletters.core.Moment.shows(s: AppState, ser
     else -> true
 }
 
-/** 장식 글자(머리글 · 갈래 이름)를 작품의 원어로: 독일어 작품은 [de], 그 밖(프랑스어 작품)은 [fr]. */
-fun deco(original: Lang, fr: String, de: String) = if (original == Lang.DE) de else fr
+/** 장식 글자(머리글 · 갈래 이름)를 작품의 원어로: 독일어 작품은 [de], 스페인어 작품은 [es], 그 밖(프랑스어 작품)은 [fr]. */
+fun deco(original: Lang, fr: String, de: String, es: String) = when (original) {
+    Lang.DE -> de
+    Lang.ES -> es
+    else -> fr
+}
 
-/** 인용 부호 (앱 전체 하나, 그 글의 언어대로): « … » · „…“ · 「…」 · “…”. */
+/** 인용 부호 (앱 전체 하나, 그 글의 언어대로): « … » · „…“ · «…» (스페인어) · 「…」 · “…”. */
 fun quoted(text: String, lang: Lang): String = when (lang) {
     Lang.FR -> "«\u202F$text\u202F»"
     Lang.DE -> "„$text“"
     Lang.JA -> "「$text」"
+    Lang.ES -> "«$text»"
     else -> "“$text”"
 }
 

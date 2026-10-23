@@ -15,13 +15,16 @@ if os.path.exists(p):
     for line in open(p, encoding='utf-8'):
         a = line.rstrip('\n').split('\t')
         if len(a) == 3: drop[(a[0], a[1])] = int(a[2])
-for lang, sfx in [('fr', ''), ('en', '_en'), ('ko', '_ko')]:
+# 원문 언어는 series.json 의 original (napoleon fr · goya es). 원문 줄은 같은 원문 언어의 앞 작품 (빈센트 · 모차르트) 을 빌려 쓴다.
+orig = json.load(open(f'data/{series}/series.json', encoding='utf-8'))['original']
+SHARED = {'fr': ['vincent'], 'de': ['mozart']}
+for lang, sfx in [(orig, ''), ('en', '_en'), ('ko', '_ko')]:
     built = json.load(open(f'data/{series}/lexicon{sfx}.json', encoding='utf-8'))
     card = json.load(open(os.path.join(cards, f'lexicon{sfx}.json'), encoding='utf-8'))
     CF, BF = card['fields'], built['fields']
     cmap = {key(dict(zip(CF, r))): dict(zip(CF, r)) for r in card['entries']}
     refs = {}
-    for s in (['vincent'] if lang == 'fr' else ['vincent', 'mozart']):
+    for s in (SHARED.get(lang, []) if lang == orig else ['vincent', 'mozart']):
         d = json.load(open(f'data/{s}/lexicon{sfx}.json', encoding='utf-8'))
         for r in d['entries']:
             e = dict(zip(d['fields'], r)); refs.setdefault(key(e), e)

@@ -2,7 +2,7 @@ name: Fetch Tatoeba
 
 # 낱말 예문용 Tatoeba 추출본 (scripts/vocab/build.py · build_tl.py 의 TATOEBA_DIR). 앱에는 들어가지 않음.
 # 형식: id<TAB>문장<TAB>en<TAB>ko<TAB>author, 12낱말 이하 (data/lexicon/README.md).
-#   tatoeba_fra.tsv · tatoeba_deu.tsv: 영어 번역이 있는 문장, ko 는 한국어 번역이 있을 때만
+#   tatoeba_fra.tsv · tatoeba_deu.tsv · tatoeba_spa.tsv (고야): 영어 번역이 있는 문장, ko 는 한국어 번역이 있을 때만
 #   tatoeba_kor.tsv: 영어 번역이 있는 한국어 문장 (ko 칸 비움)
 #   tatoeba_eng.tsv: CC0 영어 문장만 (author "CC0"), ko 는 한국어 번역이 있을 때만
 # Tatoeba 문장은 CC BY 2.0 FR (CC0 문장 제외) — 쓸 때 작성자 표기. 결과는 gzip 으로 tatoeba 가지에 (새 가지, 덮어쓰지 않음).
@@ -21,14 +21,16 @@ jobs:
         run: |
           mkdir -p dl out && cd dl
           B=https://downloads.tatoeba.org/exports
-          for l in fra deu kor eng; do curl -sSfLO "$B/per_language/$l/${l}_sentences_detailed.tsv.bz2"; done
-          for p in fra-eng fra-kor deu-eng deu-kor kor-eng eng-kor; do curl -sSfLO "$B/per_language/${p%-*}/${p}_links.tsv.bz2"; done
+          for l in fra deu spa kor eng; do curl -sSfLO "$B/per_language/$l/${l}_sentences_detailed.tsv.bz2"; done
+          for p in fra-eng fra-kor deu-eng deu-kor spa-eng kor-eng eng-kor; do curl -sSfLO "$B/per_language/${p%-*}/${p}_links.tsv.bz2"; done
+          # spa-kor 는 짝이 적어 파일이 없을 수도 있다 (없으면 ko 칸을 비운다)
+          curl -sSfLO "$B/per_language/spa/spa-kor_links.tsv.bz2" || echo "no spa-kor links"
           curl -sSfLO "$B/sentences_CC0.tar.bz2"
           bunzip2 -f *.bz2 && tar xf sentences_CC0.tar && ls -la
       - name: Make extracts
         run: |
           python3 - <<'PY'
-          import csv, sys, collections
+          import csv, os, sys, collections
           csv.field_size_limit(10**9)
           D = 'dl/'
           def sents(l):
@@ -38,16 +40,17 @@ jobs:
               return s
           def links(a, b):
               m = collections.defaultdict(list)
+              if not os.path.exists(D + f'{a}-{b}_links.tsv'): return m
               for p in csv.reader(open(D + f'{a}-{b}_links.tsv', encoding='utf-8'), delimiter='\t', quoting=csv.QUOTE_NONE):
                   if len(p) >= 2: m[p[0]].append(p[1])
               return m
-          S = {l: sents(l) for l in ('fra', 'deu', 'kor', 'eng')}
+          S = {l: sents(l) for l in ('fra', 'deu', 'spa', 'kor', 'eng')}
           def first(ids, l):
               for i in ids:
                   if i in S[l]: return S[l][i][0]
               return ''
           def short(t): return len(t.split()) <= 12
-          for l in ('fra', 'deu'):
+          for l in ('fra', 'deu', 'spa'):
               E, K = links(l, 'eng'), links(l, 'kor')
               n = 0
               with open(f'out/tatoeba_{l[:3]}.tsv', 'w', encoding='utf-8') as f:

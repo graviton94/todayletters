@@ -50,7 +50,7 @@ def run(series,lang):
                 if key in o: lem=o[key]
                 elif t in m: lem=m[t]
                 elif t.lower() in m and t not in caps: lem=m[t.lower()]
-                elif t in caps and lang=='fr': lem=t
+                elif t in caps and lang in ('fr','es'): lem=t
                 elif lang=='de': lem=de_lemma(t,start,caps,lower_seen)
                 else: lem=simplemma.lemmatize(t.lower(),lang=lang)
                 pairs.append([t,lem])

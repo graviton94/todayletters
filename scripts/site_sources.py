@@ -19,7 +19,7 @@ from urllib.parse import urlparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
-ORDER = ["vincent", "mozart", "napoleon"]  # 앱에 나온 차례. 나머지 작품은 이름순으로 뒤에
+ORDER = ["vincent", "mozart", "napoleon", "goya"]  # 앱에 나온 차례 (goya 는 데이터가 생기면). 나머지 작품은 이름순으로 뒤에
 
 # 편지 글의 출처는 데이터에 문장으로 들어 있지 않아 여기 적는다 (작품을 더하면 함께 더할 것).
 LETTERS = {

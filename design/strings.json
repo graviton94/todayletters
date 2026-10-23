@@ -360,6 +360,10 @@
     "en": "Dutch",
     "ko": "네덜란드어"
   },
+  "lang_es": {
+    "en": "Spanish",
+    "ko": "스페인어"
+  },
   "step_reply": {
     "en": "Reply",
     "ko": "답장"
@@ -2487,6 +2491,10 @@
   "credits_text_de": {
     "en": "German text of Mozart's letters: Mozarts Briefe, edited by Ludwig Nohl (Salzburg, 1865, public domain), from the Internet Archive scan, keeping the edition's spelling. English: Lady Wallace's translation (1866). Korean translations are written for this app.",
     "ko": "모차르트 편지의 독일어 원문: 루트비히 놀 엮음 『Mozarts Briefe』(잘츠부르크, 1865, 공공 영역), 인터넷 아카이브 스캔본, 판의 철자 그대로. 영어는 레이디 월리스의 1866년 번역이고, 한국어 번역은 이 앱이 새로 썼어요."
+  },
+  "credits_text_es": {
+    "en": "Spanish text of Goya's letters to Martín Zapater: from a public-domain edition (named on the sources page), keeping the edition's spelling. English and Korean translations are written for this app.",
+    "ko": "고야 편지의 스페인어 원문: 마르틴 사파테르에게 보낸 편지, 공공 영역 판본(출처 페이지에 적음)의 철자 그대로. 영어 · 한국어 번역은 이 앱이 새로 썼어요."
   },
   "gloss_add": {
     "en": "Add to cards",

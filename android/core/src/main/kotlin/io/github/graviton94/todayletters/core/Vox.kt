@@ -38,6 +38,7 @@ object SpeakCheck {
         Lang.DE to "aeiouyäöü",
         Lang.EN to "aeiouy",
         Lang.NL to "aeiouyëïéèáóú",
+        Lang.ES to "aeiouáéíóúü",
     )
 
     /**

@@ -178,7 +178,7 @@ fun MusicSheet(s: AppState, work: Work, m: Moment.Music, onClose: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
             Box(Modifier.align(Alignment.CenterHorizontally).size(40.dp, 4.dp).background(p.hair))
-            Caps(deco(original, "Écouter", "Hören").uppercase() + " · " + stringResource(R.string.music_caps), p.giltText, small = true)
+            Caps(deco(original, "Écouter", "Hören", "Escuchar").uppercase() + " · " + stringResource(R.string.music_caps), p.giltText, small = true)
             Text(m.piece[original], style = Type.title.copy(fontFamily = Faces.display).of(original), color = p.ink)
             if (ui != original) Text(m.piece[ui], style = Type.small.ui(), color = p.inkSoft)
             // 진행: 막대 무늬 (곡마다 같은 모양) 위에 들은 만큼 금빛

@@ -182,7 +182,7 @@ fun PhraseCards(s: AppState, r: Route.Play, onFinish: () -> Unit) {
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {
-            PracticeTitle(deco(work.series.original, "EXPRESSIONS", "AUSDRÜCKE"), stringResource(R.string.phrase_title))
+            PracticeTitle(deco(work.series.original, "EXPRESSIONS", "AUSDRÜCKE", "EXPRESIONES"), stringResource(R.string.phrase_title))
             val (chapter, _) = s.letterOf(r.room)
             letter.phrases.forEach { ph -> PhraseCard(s, r.room.series, chapter, letter, ph, original, tr) }
             Text(stringResource(R.string.phrase_note), style = Type.small.ui(), color = p.inkSoft)

@@ -2,7 +2,8 @@
 쓰기: python3 scripts/basics.py <출력 폴더>  → <작품>_<언어>.json (사람이 다듬어 data/<작품>/basics[_언어].json 으로)."""
 import json, os, re, sys
 R=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','data')
-SER={'vincent':'fr','mozart':'de','napoleon':'fr'}
+# goya (스페인어) 는 data/goya 가 생기면 함께
+SER={s:l for s,l in {'vincent':'fr','mozart':'de','napoleon':'fr','goya':'es'}.items() if os.path.exists(os.path.join(R,s,'lexicon.json'))}
 FILES=['prologue']+[f'chapter{i}' for i in range(1,9)]+['epilogue']
 CH=['P','I','II','III','IV','V','VI','VII','VIII','E']
 def sfx(lang,orig): return '' if lang==orig else '_'+lang
@@ -36,7 +37,7 @@ def freq_lemmas(lang,N=1000):
         else:
             lem=simplemma.lemmatize(w,lang=lang)
         lem=lem.lower()
-        if len(lem)<2 and lang!='ko' and lem not in('a','à','y','i'): continue
+        if len(lem)<2 and lang!='ko' and lem not in('a','à','y','i','o'): continue
         if lem in seen: continue
         seen.add(lem); out.append(lem)
         if len(out)>=N: break
@@ -45,10 +46,11 @@ def freq_lemmas(lang,N=1000):
 def candidates(out):
     """작품 × 언어마다: 많이 쓰는 표제어 300 (top) 과 그 가운데 카드 · 표현 · 편지 낱말 · 닻이 안 다루는 것 (todo)."""
     os.makedirs(out,exist_ok=True)
-    for lang in ['fr','de','en','ko']:
+    for lang in ['fr','de','es','en','ko']:
+        if lang not in('en','ko') and lang not in SER.values(): continue
         top=freq_lemmas(lang,300)
         for s,orig in SER.items():
-            if lang in('fr','de') and orig!=lang: continue
+            if lang not in('en','ko') and orig!=lang: continue
             lex=lexicon(s,lang); f2l={}
             for k,e in lex.items():
                 L=e['lemma'].lower(); f2l[L]=L
