@@ -72,8 +72,8 @@
      "pine"
     ],
     [
-     "coffee",
-     "copy"
+     "leaf",
+     "leap"
     ],
     [
      "fork",
@@ -93,11 +93,11 @@
     "pine": {
      "ko": "소나무"
     },
-    "coffee": {
-     "ko": "커피"
+    "leaf": {
+     "ko": "잎"
     },
-    "copy": {
-     "ko": "복사하다"
+    "leap": {
+     "ko": "뛰어오르다"
     },
     "fork": {
      "ko": "포크"

@@ -111,8 +111,8 @@
   {
    "id": "c5-l1",
    "date": "1787-05-09",
-   "dateNote": "Dated 9 May 1787 in Beruete (1917, p. 37) and Zapater y Gómez (1868, p. 22); no modern dating checked.",
-   "ref": "Beruete 1917, p. 37 · A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 37 · public domain · https://archive.org/details/AV193",
+   "dateNote": "Dated 9 May 1787 in Beruete (1917, p. 36) and Zapater y Gómez (1868, p. 22); no modern dating checked.",
+   "ref": "Beruete 1917, p. 36 · A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 37 · public domain · https://archive.org/details/AV193",
    "place": "Madrid",
    "to": {
     "es": "Martín Zapater",
@@ -120,7 +120,7 @@
     "ko": "마르틴 사파테르"
    },
    "mood": "weary",
-   "excerpt": "Messages 0–1 are the whole printed passage, as in Beruete (1917, p. 37); Zapater y Gómez (1868, p. 22) prints 'según dicen' and 'reales'.",
+   "excerpt": "Messages 0–1 are the whole printed passage, as in Beruete (1917, p. 36); Zapater y Gómez (1868, p. 22) prints 'según dicen' and 'reales'.",
    "messages": [
     {
      "es": "En mal año me he puesto, que, según dice, la cebada ha de ir lo menos a 40 reales la fanega.",
@@ -130,7 +130,7 @@
       "es": "En mal año me he puesto que según dice la cebada a de hir lo menos a 40 r.s la fanega."
      },
      "verified": false,
-     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 37 · public domain · https://archive.org/details/AV193",
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 36 · public domain · https://archive.org/details/AV193",
      "speak": {
       "es": "En mal año me he puesto, / que, según dice, la cebada ha de ir lo menos a 40 reales la fanega.",
       "en": "I've picked a bad year for it: // by what they say, barley is going to reach at least 40 reales a fanega.",
@@ -142,10 +142,10 @@
      "en": "My friend, I'm all up in the air, because my wife is ill and the boy worse, and even the kitchen maid has come down with a fever; so goodbye.",
      "ko": "친구야, 정신이 하나도 없어. 아내가 아프고 아이는 더 아프고, 부엌 하녀까지 열이 나서 누웠어. 그럼 안녕.",
      "orig": {
-      "es": "Amigo ando en el aire porque tengo á mi muger mala y al niño peor, y asta la criada de la cocina ha caído con calentura conq.e a Dios."
+      "es": "Amigo ando en el aire porque tengo á mi muger mala y al niño peor, y asta la criada de la cocina ha caido con calentura conq.e a Dios."
      },
      "verified": false,
-     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 37 · public domain · https://archive.org/details/AV193",
+     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 36 · public domain · https://archive.org/details/AV193",
      "speak": {
       "es": "Amigo, ando en el aire, / porque tengo a mi mujer mala y al niño peor, / y hasta la criada de la cocina ha caído con calentura; // conque adiós.",
       "en": "My friend, I'm all up in the air, / because my wife is ill and the boy worse, / and even the kitchen maid has come down with a fever; // so goodbye.",
@@ -477,14 +477,14 @@
     "ko": "마르틴 사파테르"
    },
    "mood": "calm",
-   "excerpt": "Messages 0–3 are the whole printed passage. 'dará razón' follows Beruete (1917, p. 32), where the Zapater y Gómez scan reads 'clara razón'; 'Ludgarda' is printed, the modern spelling is Lutgarda.",
+   "excerpt": "Messages 0–3 are the whole printed passage. both editions print 'dara razon' (= dará razón; Zapater y Gómez p. 23, Beruete 1917, p. 32); 'Ludgarda' is printed, the modern spelling is Lutgarda.",
    "messages": [
     {
      "es": "El correo pasado no te pude responder, y lo sentí infinito, por la pregunta que me haces para don Martín, a la cual te respondo que lo que se estila aquí ahora es estilo arquitectónico, de lo cual dará razón e idea mi amigo Arali.",
      "en": "Last post I couldn't answer you, and I was terribly sorry, about the question you put to me for Don Martín. My answer is that what is in fashion here now is the architectural style, of which my friend Arali will give you an account and an idea.",
      "ko": "지난 우편 때 답장을 못 해서 정말 미안했어. 돈 마르틴을 위해 물어본 것 말인데, 요즘 여기서 유행하는 건 건축 양식이야. 내 친구 아랄리가 자세히 알려 줄 거야.",
      "orig": {
-      "es": "El correo pasado no te pude responder, y lo sentí ynfinito por la pregunta que me aces para Don Martin a la cual te respondo que lo que se estila aqui aora es estilo Arquitectónico, de lo cual dara razón y hidea mi amigo Arali."
+      "es": "El correo pasado no te pude responder, y lo senti ynfinito por la pregunta que me aces para Don Martin a la cual te respondo que lo que se estila aqui aora es estilo Arquitectonico, de lo cual dara razon y hidea mi amigo Arali."
      },
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 22–23 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
@@ -499,7 +499,7 @@
      "en": "By Saint Anne's day three pictures of life-size figures must be in their place, and composed scenes: one, the death of Saint Joseph; another, of Saint Bernard; and another, of Saint Lutgarde.",
      "ko": "성녀 안나 축일까지 실물 크기 인물을 그린 그림 세 점을 제자리에 걸어야 해. 하나는 성 요셉의 임종, 하나는 성 베르나르도, 하나는 성녀 루트가르다야.",
      "orig": {
-      "es": "Para el dia de Sta. Ana an de estar tres quadros de figuras del natural colocados en su sitio y de composición, el uno el transito de San Josef, otro de San Bernardo, y otro de Santa Ludgarda,"
+      "es": "Para el dia de Sta. Ana an de estar tres quadros de figuras del natural colocados en su sitio y de composicion, el uno el transito de San Josef, otro de San Bernardo, y otro de Santa Ludgarda,"
      },
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 22–23 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
@@ -529,7 +529,7 @@
      "en": "The mules are good, the berlin is good, and I don't go out in it, though I've used it once. Everyone has been very glad, except the low-minded people; I've overheard a few things, though of little account.",
      "ko": "노새도 좋고 마차도 좋은데, 한 번 타 보고는 타지 못하고 있어. 다들 아주 기뻐해 줬어. 속 좁은 사람들만 빼고. 뭐라고 하는 걸 얼핏 들었지만, 별것 아니야.",
      "orig": {
-      "es": "Las mulas buenas la berlina buena, y no voy en ella aunque la he estrenado. Todos se an alegrado mucho, menos la jente de alma baja, que he entreoido algo, aunque de poca consideración."
+      "es": "Las mulas buenas la berlina buena, y no voy en ella aunque la he estrenado. Todos se an alegrado mucho, menos la jente de alma baja, que he entreoido algo, aunque de poca consideracion."
      },
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 22–23 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
@@ -845,7 +845,7 @@
   {
    "id": "c5-l3",
    "date": "1788-05-31",
-   "dateNote": "Dated 31 May 1788 in Zapater y Gómez (1868, p. 23); Beruete (1917, p. 34) quotes the same passage. No modern dating checked.",
+   "dateNote": "Dated 31 May 1788 in Zapater y Gómez (1868, p. 23); Beruete (1917, p. 31) quotes the same passage. No modern dating checked.",
    "ref": "Zapater y Gómez, p. 23 · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 23 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
    "place": "Madrid",
    "to": {
@@ -861,13 +861,13 @@
      "en": "…for when the Court comes here, which I'm working on with great effort and worry, because the time is short and it is something the King, the Princes, etc. are to see.",
      "ko": "…궁정이 이리로 올 때를 위한 일인데, 아주 애쓰며 속을 태우며 하고 있어. 시간은 짧고, 왕과 왕자님들이 보실 것이니까.",
      "orig": {
-      "es": "para quando venga aquí la Corte, en lo que estoy trabajando con mucho empeño y desazón, por ser poco el tiempo, y ser cosa que ha de ver el Rey Principes etc.;"
+      "es": "para quando venga aqui la Corte, en lo que estoy trabajando con mucho empeño y desazon, por ser poco el tiempo, y ser cosa que ha de ver el Rey Principes etc.;"
      },
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 23 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
      "speak": {
       "es": "…Para cuando venga aquí la Corte, / en lo que estoy trabajando con mucho empeño y desazón, / por ser poco el tiempo y ser cosa que ha de ver el Rey, / Príncipes, etc.",
-      "en": "…for when the Court comes here, / which I'm working on with great effort and worry, / because the time is short and it is something the King, / the Princes, etc. // are to see.",
+      "en": "…for when the Court comes here, / which I'm working on with great effort and worry, / because the time is short and it is something the King, / the Princes, etc. are to see.",
       "ko": "…궁정이 이리로 올 때를 위한 일인데, / 아주 애쓰며 속을 태우며 하고 있어. // 시간은 짧고, 왕과 왕자님들이 보실 것이니까."
      }
     },
@@ -876,7 +876,7 @@
      "en": "Besides this, the subjects are so difficult and so much work, like the Meadow of San Isidro on the saint's own day, with all the bustle there usually is in this Court.",
      "ko": "게다가 주제가 아주 어렵고 할 일이 많아. 성 이시드로 축일 날의 들판처럼, 이 궁정의 도시에서 늘 벌어지는 그 북적임을 다 그려야 하거든.",
      "orig": {
-      "es": "a mas de esto ser los asumptos tan difíciles y de tanto que hacer, como la Pradera de San Isidro en el mismo día del Santo con todo el bullicio que en esta Corte acostumbra haber."
+      "es": "a mas de esto ser los asumptos tan dificiles y de tanto que hacer, como la Pradera de San Isidro en el mismo dia del Santo con todo el bullicio que en esta Corte acostumbra haber."
      },
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 23 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
@@ -1278,17 +1278,17 @@
     "ko": "마르틴 사파테르"
    },
    "mood": "weary",
-   "excerpt": "Messages 0–2 are the passage of the letter of 2 July 1788 as Zapater y Gómez quotes it (1868, pp. 23–24); the first sentence is also in Beruete (1917, p. 35), whose reading is followed where the 1868 scan is damaged.",
+   "excerpt": "Messages 0–2 are the passage of the letter of 2 July 1788 as Zapater y Gómez quotes it (1868, pp. 23–24); the first sentence is also in Beruete (1917, p. 35), with small differences ('á', 'q.e', 'muchisimo'); the text here follows Zapater y Gómez.",
    "messages": [
     {
      "es": "Y en cuanto a no haber cumplido yo con tu encargo, lo siento muchísimo, por ser cosa tuya; pero lo mismo le ha sucedido al arzobispo de Toledo, que me tenía encargado un cuadro para su iglesia, y ni aun el borrón he podido hacer.",
      "en": "And as for my not having done what you asked, I'm very sorry, since it's for you; but the same has happened to the Archbishop of Toledo, who had ordered a picture from me for his church, and I haven't even been able to make the sketch.",
      "ko": "네 부탁을 아직 못 들어준 건 정말 미안해. 다른 사람도 아니고 네 부탁인데. 그런데 톨레도 대주교님도 마찬가지야. 성당에 걸 그림을 맡기셨는데 밑그림조차 못 그렸어.",
      "orig": {
-      "es": "Y en cuanto á no haber cumplido yo con tu encargo, lo siento muchísimo, por ser cosa tuya, pero lo mismo le ha sucedido a el Arzobispo de Toledo q.e me tenia encargado un Quadro para su Iglesia y ni aun el Borrón he podido hacer."
+      "es": "Y en cuanto a no haber cumplido yo con tu encargo, lo siento muchísimo, por ser cosa tuya, pero lo mismo le ha sucedido a el Arzobispo de Toledo que me tenia encargado un Quadro para su Iglesia y ni aun el Borron he podido hacer."
      },
      "verified": false,
-     "source": "A. de Beruete y Moret, Goya, composiciones y figuras (Madrid, 1917), p. 35 · public domain · https://archive.org/details/AV193 ; F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 23–24 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
+     "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 23–24 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
      "speak": {
       "es": "Y en cuanto a no haber cumplido yo con tu encargo, / lo siento muchísimo, por ser cosa tuya; // pero lo mismo le ha sucedido al arzobispo de Toledo, / que me tenía encargado un cuadro para su iglesia, / y ni aun el borrón he podido hacer.",
       "en": "And as for my not having done what you asked, / I'm very sorry, since it's for you; // but the same has happened to the Archbishop of Toledo, / who had ordered a picture from me for his church, / and I haven't even been able to make the sketch.",
@@ -1635,7 +1635,7 @@
   {
    "id": "c5-l5",
    "date": "1789-04-25",
-   "dateNote": "Zapater y Gómez (1868, p. 24) says Goya sent this news and that of his oath 'en 25 y 2 de Mayo'; Beruete (1917, p. 37) reads them as letters of 25 April and 2 May 1789. This is the 25 April passage. No modern dating checked.",
+   "dateNote": "Zapater y Gómez (1868, p. 24) says Goya sent this news and that of his oath 'en 25 y 2 de Mayo'; Beruete (1917, p. 36) reads them as letters of 25 April and 2 May 1789. This is the 25 April passage. No modern dating checked.",
    "ref": "Zapater y Gómez, p. 24 · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 24 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
    "place": "Madrid",
    "to": {
@@ -1651,7 +1651,7 @@
      "en": "I didn't answer you because I was waiting for news of my promotion, and I've just heard from a friend that they've made me Painter of the Chamber (that is, privately).",
      "ko": "답장을 미룬 건 승진 소식을 기다려서야. 방금 친구를 통해 들었어. 나를 궁정 화가로 임명했대 (아직은 비공식으로).",
      "orig": {
-      "es": "No te respondí aguardando noticia alguna de mis ascensos, y aora acabo de recibir por un amigo la noticia de que me han hecho Pintor de Cámara (esto es privadamente)"
+      "es": "No te respondi aguardando noticia alguna de mis ascensos, y aora acabo de recibir por un amigo la noticia de que me han hecho Pintor de Camara (esto es privadamente)"
      },
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 24 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
@@ -1662,7 +1662,7 @@
      }
     },
     {
-     "es": "Con que te lo participo y ofrezco, como a Goicoechea.",
+     "es": "Conque te lo participo y ofrezco, como a Goicoechea.",
      "en": "So I let you know, and offer it to you, as I do to Goicoechea.",
      "ko": "그래서 너에게 알리고 이 기쁨을 함께 나눠. 고이코에체아에게도 그랬듯이.",
      "orig": {
@@ -1671,7 +1671,7 @@
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 24 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
      "speak": {
-      "es": "Con que te lo participo y ofrezco, / como a Goicoechea.",
+      "es": "Conque te lo participo y ofrezco, / como a Goicoechea.",
       "en": "So I let you know, / and offer it to you, / as I do to Goicoechea.",
       "ko": "그래서 너에게 알리고 이 기쁨을 함께 나눠. // 고이코에체아에게도 그랬듯이."
      }
@@ -1962,7 +1962,7 @@
   {
    "id": "c5-l6",
    "date": "1789-05-23",
-   "dateNote": "Dated 23 May; Zapater y Gómez (1868, p. 24) prints it after the letters of April and May 1789, and Javier, born in December 1784, would be four in May 1789. Beruete (1917, p. 37) prints it as 23 May 1788. No modern dating checked.",
+   "dateNote": "Dated 23 May; Zapater y Gómez (1868, p. 24) prints it after the letters of April and May 1789, and Javier, born in December 1784, would be four in May 1789. Beruete (1917, p. 36) prints it as 23 May 1788. No modern dating checked.",
    "ref": "Zapater y Gómez, p. 24 · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 24 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
    "place": "Madrid",
    "to": {
@@ -2334,14 +2334,14 @@
     "ko": "마르틴 사파테르"
    },
    "mood": "bright",
-   "excerpt": "Messages 0–3 keep the two passages Zapater y Gómez quotes from this letter (1868, pp. 25–26); the editor's link between them ('Y hablando de que querían ir a Madrid sus hermanos, continúa') is replaced by …. 'abrazándonos' is as printed (the sense suggests 'abrazándome'), still to be checked against the page image; 'Ñapóles' in the scan is read 'Nápoles'.",
+   "excerpt": "Messages 0–3 keep the two passages Zapater y Gómez quotes from this letter (1868, pp. 25–26); the editor's link between them ('Y hablando de que querían ir a Madrid sus hermanos, continúa') is replaced by …. 'abrazándonos' is as printed (the sense suggests 'abrazándome').",
    "messages": [
     {
      "es": "Hoy he entregado un cuadro al Rey que me había mandado hacer él mismo para su hermano el rey de Nápoles.",
      "en": "Today I delivered a picture to the King which he himself had ordered me to paint for his brother, the King of Naples.",
      "ko": "오늘 왕께 그림 한 점을 바쳤어. 왕께서 동생인 나폴리 왕에게 주려고 직접 주문하신 그림이야.",
      "orig": {
-      "es": "Hoy he entregado un Quadro al Rey que me habia mandado acer el mismo para su Hermano el Rey de Nápoles,"
+      "es": "Hoy he entregado un Quadro al Rey que me habia mandado acer el mismo para su Hermano el Rey de Napoles,"
      },
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 25–26 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
@@ -2371,7 +2371,7 @@
      "en": "…I can do no more than what I'm doing. My situation is very different from what many will think, because I spend a lot, because I've got into it now, and because I want to.",
      "ko": "…나는 지금 하는 것 이상은 못 해. 내 형편은 많은 사람이 생각하는 것과 아주 달라. 돈을 많이 쓰거든. 이미 그렇게 살기 시작했고, 내가 원해서야.",
      "orig": {
-      "es": "… Yo no puedo mas que lo que boy aciendo, mi situación es muy diferente de lo que pensaran muchos, porque gasto mucho, porque ya me meti en ello y porque quiero."
+      "es": "… Yo no puedo mas que lo que boy aciendo, mi situacion es muy diferente de lo que pensaran muchos, porque gasto mucho, porque ya me meti en ello y porque quiero."
      },
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 25–26 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
@@ -2386,7 +2386,7 @@
      "en": "There's also the fact that I'm such a well-known man that from the King and Queen down everyone knows me, and I can't rein in my nature as easily as others perhaps would.",
      "ko": "게다가 나는 아주 이름난 사람이라, 왕과 왕비부터 아래로 모두가 나를 알아. 그러니 다른 사람들처럼 내 기질을 쉽게 누를 수가 없어.",
      "orig": {
-      "es": "Tambien ay la circunstancia de ser yo un ombre tan conocido que de los Reyes abajo todo el mundo me conoce, y no puedo reducir tan fácil mi genio como tal bez otros lo arian"
+      "es": "Tanbien ay la circunstancia de ser yo un ombre tan conocido que de los Reyes abajo todo el mundo me conoce, y no puedo reducir tan facil mi genio como tal bez otros lo arian"
      },
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 25–26 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
@@ -2450,7 +2450,7 @@
         "leyía"
        ],
        [
-        "me reía",
+        "me reío",
         "me reíste"
        ]
       ],
