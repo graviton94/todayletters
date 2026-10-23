@@ -255,3 +255,5 @@
 - c6-l2: 지금 철자 venirme, 찍힌 글자 heñirme (orig.es, excerpt 에 적음). IV~VI · 맺음 복습 턴 8개를 II~V 문법으로 (c4-l1 III.0 · c4-l2 II.2 · c4-l4 II.0 · c4-l7 III.1 · c6-l1 V.1 · c6-l3 III.0 · c6-l7 IV.1 · e2 IV.0).
 - 어휘: es_tab +678 · en_tab +260 · ko_tab +330 (사람 확인 전). 카드 낱말을 장마다 5–8 · A1–A2 62% 로 맞춘 것은 `scripts/vocab/src/goya_cards/` (apply_depth.py 로 넣음, daily.py 를 다시 돌리면 다시 넣을 것). 예문 거르기 88개 `example_drop_goya.txt`.
 - 이번 장의 소리 I~VI (es: ñ/n · r/l · 강세 · b/p · g/k, en · ko 는 나폴레옹과 같은 차례).
+- 소리: narration-r2 make=new (편지 낭독 · 회화 · 카드 · 기초 · 소리) 와 make=replies 를 goya 로 돌려 R2 에 올림 (remote/audio/goya). 화면 사진 `ScreensTest.goya*` g01~g06 (g05 IV-1 편지 방, g06 맺음 아웃트로).
+- 남은 것: 낱말 아래 뜻의 동형어 real (왕립의 / 레알 돈) 을 가르지 않아 “quince mil reales” 아래 ‘왕립의’ 로 보인다 (es_occ 로 real#2 를 나눌 것). 출처 사이트 (site_sources.py) 아직.
