@@ -32,7 +32,7 @@ jobs:
         run: grep -h -A12 "<failure" android/app/build/test-results/testDebugUnitTest/*.xml | head -120 || true
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - name: Tools and Supertonic 3 (archived, pinned: same as narration-r2.yml)
+      - name: Tools and Supertonic 3 (archived, pinned, same as narration-r2.yml)
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg > /dev/null
