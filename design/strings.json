@@ -1012,6 +1012,10 @@
     "en": "Compare the original with your voice, then go on.",
     "ko": "원래 소리와 내 소리를 번갈아 들어 보고 다음으로."
   },
+  "orig_spelling": {
+    "en": "Original spelling",
+    "ko": "원래 철자"
+  },
   "shadow_orig": {
     "en": "Original",
     "ko": "원래 소리"
