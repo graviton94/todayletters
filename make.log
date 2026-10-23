@@ -1,0 +1,18 @@
+Python 3.12.3
+ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers
+Pillow 10.2.0
+ko: 0/900
+ko: 150/900
+ko: 300/900
+ko: 450/900
+ko: 600/900
+ko: 750/900
+만듦: out/promo_ko.mp4
+en: 0/900
+en: 150/900
+en: 300/900
+en: 450/900
+en: 600/900
+en: 750/900
+만듦: out/promo_en.mp4
+Argument 'out/promo_ko.mp4' provided as input filename, but 'out/promo_en.mp4' was already specified.
