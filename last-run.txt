@@ -1,2 +1,5 @@
-cardShare1_light.png
-cardShare2_dark.png
+a11y.txt
+g01_library_goya.png
+g02_room_c1l1.png
+g03_room_c1l1_orig_dark.png
+g04_talk_c1l1.png
