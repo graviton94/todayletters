@@ -197,8 +197,8 @@ object Library {
                     val first = ep?.getJSONArray("letters")?.optJSONObject(0)
                     Outro(o.optString("image"), o.optString("credit"), o.optString("caps"), o.optString("name"), o.optString("years"),
                         o.optJSONArray("body")?.let { b -> (0 until b.length()).map { tri(b.getJSONObject(it)) } } ?: emptyList(),
-                        first?.optJSONObject("head")?.let { tri(it) }, ep?.let { letters(it).firstOrNull() }, ep?.let { grammar(it) } ?: emptyList(),
-                        epilogues = ep?.let { letters(it) } ?: emptyList())
+                        first?.optJSONObject("head")?.let { tri(it) }, ep?.let { letters(it).firstOrNull() },
+                        epilogues = ep?.let { letters(it) } ?: emptyList(), grammar = ep?.let { grammar(it) } ?: emptyList())
                 },
             )
             // 어휘 자료: 배우는 말마다 한 벌 (원어 lexicon · daily.json, 영어 *_en, 한국어 *_ko). 없으면 챕터 파일의 낱말 그대로
