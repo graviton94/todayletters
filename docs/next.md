@@ -233,3 +233,7 @@
 - 여는 곳: 편지 방 문장 길게 누르기 (`Modifier.longPressCard`, 다 써진 문장만, 화면 읽기는 ‘길게 누르기’ 동작) · 내 구절 구절마다 아래 ‘카드로 보내기’ 줄 · 봉인한 편지 ‘이 편지 카드’ (첫 메시지, 목소리 엽서 단추 아래). 기존 ‘엽서로’(작품 카드) 는 그대로.
 - 글자 키 새로: `letter_card_title` · `letter_card_send` · `letter_card_seal` · `letter_card_text` (strings.xml 만 다시 만듦).
 - 화면 사진 `ScreensTest.cardShare1` (밝은, 가장 긴 메시지) · `cardShare2` (어두운, 첫 메시지) — 카드 그림만 바로 그린다. 아직 안 찍음.
+
+## 2026-10-23 · 나폴레옹 날짜 기준 (역사 검토 답변)
+- 디도(1833)와 Hall(1901) 날짜가 다르면 **Hall (및 Fondation Napoléon 『Correspondance générale』)** 을 따른다. 디도의 인쇄 연도는 쓰지 않는다 (편집자가 연도 없는 편지에 임의로 붙인 것이 많음).
+- VII-7 (디도 CCXXVIII, 'Vendredi, huit heures du matin'): Hall 대로 1811. III-3 (디도 'an X'): Hall 대로 1801 (an IX) 여름 플롱비에르.
