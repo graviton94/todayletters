@@ -2616,7 +2616,7 @@ gown|n|a long dress or robe|가운
 silver|n|a shiny grey precious metal|은
 wardrobe|n|the clothes of a household|옷 (옷장)
 keeper|n|someone who looks after something|담당자
-ahítos|name|[a word unclear in the edition]|[판본 글자 불확실]
+habit|n|a robe worn by monks or by knights of an order (the ceremony of the habits: the investiture)|수도복, 기사단 옷 (서임식)
 await|v|to wait for|기다리다
 rumour|n|a story people pass on that may not be true|소문
 confirm|v|to show that something is true|확인하다
@@ -2813,3 +2813,5 @@ del#2|foreign:es|(Spanish) of the|(스페인어) ~의
 de#2|foreign:es|(Spanish) of, from (in names)|(스페인어) ~의
 la#2|foreign:es|(Spanish) the|(스페인어) 정관사
 reales|name|reales, Spanish coins (one real is a small silver coin)|레알 (스페인의 옛 돈)
+knight|n|a man given a noble rank by a king, often in an order|기사
+investiture|n|the ceremony of giving someone an office or honour|서임식

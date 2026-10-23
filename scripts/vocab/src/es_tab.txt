@@ -425,7 +425,7 @@ menos|adv|less (lo menos: at least)|덜 (lo menos: 적어도)|F
 concluir|v|to finish|마치다
 celebrar|v|to celebrate, to hold|열다, 축하하다
 función|n.f|ceremony, event|행사
-ahíto|adj|(los ahítos) [word unclear in the edition]|[판본 글자 불확실]
+hábito|n.m|habit (la función de los hábitos: the investiture of knights in the habits of their order)|수도복, 기사단 옷 (la función de los hábitos: 기사단 서임식)
 retoque|n.m|finishing touch|마지막 손질
 hablar|v|to talk, to speak|말하다
 esperado|adj|awaited|기다려 온

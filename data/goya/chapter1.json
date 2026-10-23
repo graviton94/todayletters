@@ -157,7 +157,7 @@
      "en": "And I've no time to tell you more than this: I have the Saint Christopher here, and on the back I'll paint you the Dolorosa. Your friend from the heart is yours to command.",
      "ko": "시간이 없어서 이 말만 할게. 성 크리스토포로 그림은 여기 있고, 그 뒷면에 슬픔의 성모를 그려 줄게. 언제든 시켜 줘, 진심 어린 네 친구한테.",
      "orig": {
-      "es": "y no tengo tiempo para mas que decirte que aqui tengo el San Cristóbal y que al reberso te haré la Dolorosa y manda á tu amigo de corazón."
+      "es": "y no tengo tiempo para mas que decirte que aqui tengo el San Cristobal y que al reberso te haré la Dolorosa y manda á tu amigo de corazon"
      },
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 8 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
@@ -796,7 +796,7 @@
      "en": "I remain your servant.",
      "ko": "언제나 당신을 받드는 사람으로 남겠습니다.",
      "orig": {
-      "es": "Quedo de Vmd. su servidor."
+      "es": "Quedo de Vmd. su servidor,"
      },
      "verified": false,
      "source": "G. Cruzada Villaamil, Los tapices de Goya (Madrid, 1870), p. 122 · public domain · https://archive.org/details/lostapicesdegoy00villgoog",
@@ -1115,7 +1115,7 @@
      "en": "Anyway, my boy, treasure them; I'll send you the others as they come out.",
      "ko": "아무튼 친구야, 아껴 줘. 새로 나오는 대로 보내 줄게.",
      "orig": {
-      "es": "enfin chiquio estímalas que conforme bayan saliendo te las enviaré."
+      "es": "enfin chiquio estimalas que conforme bayan saliendo te las enviaré."
      },
      "verified": false,
      "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 10 · public domain · https://archive.org/details/AV192",
@@ -1145,7 +1145,7 @@
      "en": "That old one of the dance I had, too: if you want it, put it in some little corner, since it was left over as useless…",
      "ko": "예전에 그린 춤 그림 하나도 있는데, 원하면 구석 어디에 걸어 둬. 쓸모없다고 남은 거야…",
      "orig": {
-      "es": "aquel que tenia antiguo del bayle también si lo quieres lo pondrás en un rinconcico qe por inútil se quedó"
+      "es": "aquel que tenia antiguo del bayle tambien si lo quieres lo pondras en un rinconcico qe por inutil se quedó"
      },
      "verified": false,
      "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 10 · public domain · https://archive.org/details/AV192",
@@ -1466,8 +1466,8 @@
   {
    "id": "c1-l5",
    "date": "1779-01-09",
-   "dateNote": "Dated 9 January 1779 in Zapater y Gómez (1868, fragment, p. 9) and Beruete (1916); Beruete's copy prints 1773, which he corrects to 1779.",
-   "ref": "Beruete 1916, p. 10 · A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 10 · public domain · https://archive.org/details/AV192",
+   "dateNote": "Dated 9 January 1779 in Zapater y Gómez (1868, fragment, p. 9) and Beruete (1916, p. 11); Beruete's copy prints 1773 (his footnote on p. 10), which he corrects to 1779.",
+   "ref": "Beruete 1916, p. 11 · A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 10 · public domain · https://archive.org/details/AV192",
    "place": "Madrid",
    "to": {
     "es": "Martín Zapater",
@@ -1482,10 +1482,10 @@
      "en": "Dear Martín: I couldn't answer what you asked me, because I had no time.",
      "ko": "사랑하는 마르틴, 시간이 없어서 네가 물은 것에 답을 못 했어.",
      "orig": {
-      "es": "Querido Martin; No te pude responder á lo que me preguntabas por no tener tiempo."
+      "es": "Querido Martin: No te pude responder á lo que me preguntabas por no tener tiempo."
      },
      "verified": false,
-     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 10 · public domain · https://archive.org/details/AV192",
+     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 11 · public domain · https://archive.org/details/AV192",
      "speak": {
       "es": "Querido Martín: // No te pude responder a lo que me preguntabas por no tener tiempo.",
       "en": "Dear Martín: // I couldn't answer what you asked me, / because I had no time.",
@@ -1497,10 +1497,10 @@
      "en": "The little sketch you have: the idea is Francisco's and the painting mine, and the whole thing is worth three snails; it isn't worth being mine or yours. It's not worth a fig.",
      "ko": "네가 가진 그 작은 밑그림은 구상은 프란시스코, 그리기는 내가 한 거야. 다 합쳐도 달팽이 세 마리 값이라, 내 것이든 네 것이든 할 가치도 없어. 한 푼어치도 안 돼.",
      "orig": {
-      "es": "El borroncico que tu tienes es de Francisco la invención y mia la execucion y todo importa tres caracoles que no merece la pena de que sea mió ni tuyo, no vale ni un cuerno."
+      "es": "El borroncico que tu tienes es de Francisco la invencion y mia la execucion y todo importa tres caracoles que no merece la pena de que sea mio ni tuyo, no vale ni un cuerno."
      },
      "verified": false,
-     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 10 · public domain · https://archive.org/details/AV192",
+     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 11 · public domain · https://archive.org/details/AV192",
      "speak": {
       "es": "El borroncico que tú tienes es de Francisco la invención y mía la ejecución, / y todo importa tres caracoles, / que no merece la pena de que sea mío ni tuyo; // no vale ni un cuerno.",
       "en": "The little sketch you have: // the idea is Francisco's and the painting mine, / and the whole thing is worth three snails; // it isn't worth being mine or yours. // It's not worth a fig.",
@@ -1515,7 +1515,7 @@
       "es": "Si estubiera mas despacio te contaria lo que me onró el Rey y el Principe y la princesa que por la gracia de Dios me proporcionó el enseñarlas cuatro cuadros, y les besé la mano que aun no había tenido tanta dicha jamas,"
      },
      "verified": false,
-     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 10 · public domain · https://archive.org/details/AV192",
+     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 11 · public domain · https://archive.org/details/AV192",
      "speak": {
       "es": "Si estuviera más despacio, / te contaría lo que me honró el Rey y el Príncipe y la Princesa, / que, / por la gracia de Dios, / me proporcionó el enseñarlas cuatro cuadros, / y les besé la mano, / que aún no había tenido tanta dicha jamás.",
       "en": "If I had more time I'd tell you how the King and the Prince and Princess honoured me; // by the grace of God I was able to show them four pictures, / and I kissed their hands, / a joy I had never had before.",
@@ -1527,10 +1527,10 @@
      "en": "And I tell you I couldn't have wished for more, as far as their liking my work goes, judging by the pleasure they took in seeing it and the satisfaction I had with the King, and much more with Their Highnesses, and afterwards with all the grandees, thank God; neither I nor my work deserved what I got.",
      "ko": "그분들이 내 그림을 얼마나 좋아하셨는지, 더 바랄 게 없었어. 왕께, 왕세자 부부께는 더더욱, 그리고 귀족들 모두에게 칭찬을 받았지. 하느님 덕분이야. 나도 내 그림도 그만한 대접을 받을 자격은 없었어.",
      "orig": {
-      "es": "y te digo que no podia desear mas en cuanto á gustarles mis obras, según el gusto que tubieron de verlas y las satisfacciones que logré con el Rey y mucho mas con sus Altezas y después con toda la grandeza, gracias á Dios, que yo no merecia ni mis obras lo que logré."
+      "es": "y te digo que no podia desear mas en cuanto á gustarles mis obras, segun el gusto que tubieron de verlas y las satisfacciones que logré con el Rey y mucho mas con sus Altezas y despues con toda la grandeza, gracias á Dios, que yo no merecia ni mis obras lo que logré."
      },
      "verified": false,
-     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 10 · public domain · https://archive.org/details/AV192",
+     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 11 · public domain · https://archive.org/details/AV192",
      "speak": {
       "es": "Y te digo que no podía desear más en cuanto a gustarles mis obras, / según el gusto que tuvieron de verlas y las satisfacciones que logré con el Rey, / y mucho más con Sus Altezas, / y después con toda la grandeza, / gracias a Dios, / que yo no merecía, / ni mis obras, / lo que logré.",
       "en": "And I tell you I couldn't have wished for more, / as far as their liking my work goes, / judging by the pleasure they took in seeing it and the satisfaction I had with the King, / and much more with Their Highnesses, / and afterwards with all the grandees, / thank God; // neither I nor my work deserved what I got.",
@@ -1542,10 +1542,10 @@
      "en": "But, my boy, a few little fields and a good life: no one will talk me out of that, all the more now that I'm beginning to have bigger enemies, and angrier ones.",
      "ko": "그래도 친구야, 작은 밭 몇 뙈기에 좋은 삶이면 돼. 누구도 내 이 생각은 못 바꿔. 게다가 이제는 더 큰 적들이, 더 큰 앙심을 품고 생기기 시작했거든.",
      "orig": {
-      "es": "Pero chiquio campicos y buena vida, nadie me sacará de esta opinión y mas que ahora empiezo á tener enemigos mayores y con mayor encono."
+      "es": "Pero chiquio campicos y buena vida, nadie me sacará de esta opinion y mas que ahora empiezo á tener enemigos mayores y con mayor encono."
      },
      "verified": false,
-     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 10 · public domain · https://archive.org/details/AV192",
+     "source": "A. de Beruete y Moret, Goya, pintor de retratos (Madrid, 1916), p. 11 · public domain · https://archive.org/details/AV192",
      "speak": {
       "es": "Pero, / chiquío, / campicos y buena vida: // nadie me sacará de esta opinión, / y más que ahora empiezo a tener enemigos mayores y con mayor encono.",
       "en": "But, / my boy, / a few little fields and a good life: // no one will talk me out of that, / all the more now that I'm beginning to have bigger enemies, / and angrier ones.",
@@ -1866,7 +1866,7 @@
   {
    "id": "c1-l6",
    "date": "1780-05-10",
-   "dateNote": "Dated 10 May 1780 in Zapater y Gómez (1868); 'superfluo' confirmed in Beruete (1917), p. 4.",
+   "dateNote": "Dated 10 May 1780 in Zapater y Gómez (1868); 'superfluo' confirmed in Beruete (1917), p. 15.",
    "ref": "Zapater y Gómez, pp. 10–11 · F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 10–11 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",
    "place": "Madrid",
    "to": {
@@ -1897,7 +1897,7 @@
      "en": "For it seems to me that with a print of Our Lady of the Pilar, a table, five chairs, a frying pan, a wineskin, a little guitar, a spit and an oil lamp, everything else is superfluous.",
      "ko": "필라르 성모 그림 한 장, 탁자 하나, 의자 다섯, 프라이팬 하나, 포도주 가죽 부대, 작은 기타, 고기 굽는 꼬챙이, 등잔만 있으면 나머지는 다 군더더기 같아.",
      "orig": {
-      "es": "pues me parece que con una estampa de Nuestra Señora del Pilar, una mesa, cinco sillas, una sartén, una bota y un tiple y asador y candil, todo lo demás es superfluo."
+      "es": "pues me parece que con una estampa de Nuestra Señora del Pilar, una mesa, cinco sillas, una sarten, una bota y un tiple y asador y candil, todo lo demas es superfluo."
      },
      "verified": false,
      "source": "F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text; scan without imprint), p. 10–11 · public domain · https://archive.org/details/goyanoticiasbibl00zapa",

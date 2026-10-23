@@ -2874,7 +2874,7 @@ A|name|A (a mark on the list)|A (목록에 붙인 기호)
 작별|n|farewell|헤어짐
 인사|n|greeting|만나고 헤어질 때의 말
 명하다|v|to order|시키다
-아이토스|name|[word unclear in the edition]|판본의 불확실한 낱말
+기사단|n|order of knights|기사들의 모임
 애호가|n|lover (of art)|즐기고 좋아하는 사람
 행사|n|event, ceremony|정해 놓고 하는 일
 손대다|v|to touch, to work on|손을 대어 고치다
@@ -3115,3 +3115,4 @@ A|name|A (a mark on the list)|A (목록에 붙인 기호)
 데#2|foreign:es|(Spanish 'de') of, in names (Francisco de Goya)|(스페인어) ~의
 델#2|foreign:es|(Spanish 'del') of the|(스페인어) ~의
 편#2|n|side (내 편: on my side); (사람 편에) by way of someone|같은 쪽; ~을 통해
+서임식|n|investiture ceremony|작위나 직책을 주는 의식
