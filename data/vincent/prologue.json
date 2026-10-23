@@ -144,8 +144,8 @@
    ],
    "talk": {
     "scene": {
-     "ko": "아파서 쉬는 빈센트와 통화 · 어린 시절 쥔더르트 집 이야기",
-     "en": "On the phone with Vincent, resting after an illness · the childhood house at Zundert"
+     "ko": "어린 시절 쥔더르트 집을 떠올리는 빈센트와 통화",
+     "en": "On the phone with Vincent, remembering the childhood house at Zundert"
     },
     "lines": [
      {
@@ -193,9 +193,9 @@
      },
      {
       "who": "them",
-      "fr": "Mieux. Je revois notre jardin.",
-      "en": "Better. I see our garden again.",
-      "ko": "좀 나아졌어. 우리 정원이 다시 떠올라."
+      "fr": "Bien. Je revois notre jardin.",
+      "en": "Fine. I see our garden again.",
+      "ko": "잘 지내. 우리 정원이 다시 떠올라."
      },
      {
       "who": "me",
@@ -241,7 +241,7 @@
      "revoir"
     ],
     "grammar": "I.1",
-    "audio": "tb",
+    "audio": "td",
     "mine": {
      "line": 3,
      "slot": {
