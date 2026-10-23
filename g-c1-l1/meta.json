@@ -1,0 +1,36 @@
+[
+ {
+  "file": "1.jpg",
+  "title": "File:Caza con mochuelo y red.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Caza_con_mochuelo_y_red.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Francisco_Goya\" class=\"extiw\" title=\"w:en:Francisco Goya\"><span title=\"Spanish painter and printmaker (1746–1828)\">Francisco Goya</span></a></bdi>",
+  "date": "<a href=\"//commons.wikimedia.org/w/index.php?title=1775&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"1775 (page does not exist)\">1775</a>",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://goya.unizar.es/InfoGoya/Obra/Catalogo_/Pintura_/52p.html\">https://goya.unizar.es/InfoGoya/Obra/Catalogo_/Pintura_/52p.html</a>",
+  "usage": "Public domain",
+  "description": "boceto para <i>Caza con reclamo</i>. Primera serie de cartones para tapices.",
+  "categories": "Cartones para tapices por Goya|Caza con reclamo|PD-old-100-expired|PD-Art (PD-old-auto-expired)|Paintings by Goya in the Museo del Prado|Artworks with Wikidata item|Artworks with known accession number|18th-century paintings, location missing|Owls in paintings|CC-PD-Mark|Artworks with accession number from Wikidata|1775 oil on canvas paintings|Artworks with the same artist and author|Artworks with Wikidata item missing genre|Bird cages in art|Artworks with Wikidata item redundant author|Artworks digital representation of 2D work|Hanging cages|Paintings of hunting dogs|1775 paintings by Francisco de Goya",
+  "size": [
+   564,
+   353
+  ],
+  "query": "Goya Hunting with decoy Prado"
+ },
+ {
+  "file": "2.jpg",
+  "title": "File:Caza con reclamo.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Caza_con_reclamo.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Francisco_Goya\" class=\"extiw\" title=\"w:en:Francisco Goya\"><span title=\"Spanish painter and printmaker (1746–1828)\">Francisco Goya</span></a></bdi>",
+  "date": "circa 1775<div style=\"display: none;\">date QS:P571,+1775-00-00T00:00:00Z/9,P1480,Q5727902</div>",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.museodelprado.es/es/pagina-principal/coleccion/galeria-on-line/galeria-on-line/zoom/1/obra/caza-con-reclamo/oimg/0/\">http://www.museodelprado.es/es/pagina-principal/coleccion/galeria-on-line/galeria-on-line/zoom/1/obra/caza-con-reclamo/oimg/0/</a>",
+  "usage": "Public domain",
+  "description": "<div class=\"description\">\nCartones parra tapices.</div>",
+  "categories": "Caza con reclamo|PD-old-100-expired|PD-Art (PD-old-auto-expired)|Artworks with Wikidata item|Artworks with known accession number|CC-PD-Mark|Artworks with accession number from Wikidata|Artworks with Wikidata item missing genre|Artworks digital representation of 2D work",
+  "size": [
+   3051,
+   1898
+  ],
+  "query": "Goya Hunting with decoy Prado"
+ }
+]
