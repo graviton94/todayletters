@@ -454,6 +454,16 @@ class ScreensTest {
                 .performScrollToNode(hasText(ctx.getString(R.string.note_title)))
         }, series = s) { Room(s, room(1)) }
     }
+    /** 대화 속 사진 (공공 영역 그림으로 넓힘): 빈센트 I-1 의 히로시게 눈 판화 · 눈 덮인 아를. */
+    @Test fun momentPhotos() {
+        for ((n, cap) in listOf(1 to "히로시게", 2 to "눈 덮인 풍경")) {
+            val s = loopState()
+            shot("mp${n}_room_photo_dark", true, 4000, act = {
+                rule.onAllNodes(androidx.compose.ui.test.hasScrollAction()).onFirst()
+                    .performScrollToNode(hasText(cap, substring = true))
+            }, series = s) { Room(s, room(1)) }
+        }
+    }
     @Test fun reread() { val s = loopState(); shot("53_room_reread_light", false, 3000, series = s) { Room(s, room(1)) } }
     @Test fun shadow() { val s = loopState(); shot("54_shadow_dark", true, 2000, series = s) { io.github.graviton94.todayletters.ui.ShadowScreen(s, Route.Shadow(room(1))) } }
     @Test fun seal() {
