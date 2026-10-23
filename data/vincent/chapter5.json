@@ -1280,6 +1280,19 @@
       "en": "Lemons, oranges and blue gloves",
       "ko": "레몬, 오렌지와 파란 장갑"
      }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "vm-c5-l3.webp",
+     "caption": {
+      "fr": "Ernest Quost, Jardin aux roses trémières",
+      "en": "Ernest Quost, Garden with hollyhocks",
+      "ko": "에르네스트 코스트, 〈접시꽃 정원〉"
+     },
+     "credit": "Jardin aux roses trémières · Ernest Quost · Van Gogh Museum, Amsterdam · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Tuin_met_stokrozen_-_s0457V1996_-_Van_Gogh_Museum.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2172,6 +2185,18 @@
      }
     },
     {
+     "after": 3,
+     "type": "photo",
+     "image": "vm-c5-l5.webp",
+     "caption": {
+      "fr": "Le dessin « correct » de Bouguereau : Frère et sœur bretons (1871)",
+      "en": "Bouguereau's ‘correct’ drawing: Breton Brother and Sister (1871)",
+      "ko": "부그로의 ‘정확한’ 그림 · 〈브르타뉴의 남매〉 (1871)"
+     },
+     "credit": "Breton Brother and Sister, 1871 · William-Adolphe Bouguereau · The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Breton_Brother_and_Sister_MET_DT2566.jpg"
+    },
+    {
      "after": 4,
      "type": "weather",
      "title": {
@@ -2619,6 +2644,18 @@
       "en": "Two smoked herrings",
       "ko": "훈제 청어 두 마리"
      }
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "vm-c5-l6.webp",
+     "caption": {
+      "fr": "Paul Signac, La Jetée de Cassis, opus 198 (1889)",
+      "en": "Paul Signac, The Jetty at Cassis, Opus 198 (1889)",
+      "ko": "폴 시냐크, 〈카시스의 방파제, 작품 198〉 (1889)"
+     },
+     "credit": "The Jetty at Cassis, Opus 198, 1889 · Paul Signac · The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:The_Jetty_at_Cassis,_Opus_198_MET_DT2166.jpg"
     }
    ],
    "status": {

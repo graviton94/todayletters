@@ -1844,6 +1844,19 @@
      }
     },
     {
+     "after": 0,
+     "type": "photo",
+     "image": "vm-c3-l4.webp",
+     "caption": {
+      "fr": "Le portrait de Bernard par lui-même, avec Gauguin au mur (1888)",
+      "en": "Bernard's portrait of himself, with Gauguin on the wall (1888)",
+      "ko": "베르나르의 자화상, 벽에는 고갱 (1888)"
+     },
+     "credit": "Autoportrait avec portrait de Gauguin, 1888 · Émile Bernard · Van Gogh Museum, Amsterdam · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:%C3%89mile_Bernard_-_Self-portrait_with_portrait_of_Gauguin_-_Google_Art_Project.jpg",
+     "exception": "pd-art"
+    },
+    {
      "after": 4,
      "type": "photo",
      "image": "v545.webp",

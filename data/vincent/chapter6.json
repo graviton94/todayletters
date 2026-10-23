@@ -429,6 +429,18 @@
      "credit": "La Berceuse entre deux tournesols · Brieven aan zijn broeder (1914), p. 318"
     },
     {
+     "after": 2,
+     "type": "photo",
+     "image": "vm-c6-l1-2.webp",
+     "caption": {
+      "fr": "Jan van Goyen, Paysage de polder (1644)",
+      "en": "Jan van Goyen, Polder landscape (1644)",
+      "ko": "얀 반 호이언, 〈간척지 풍경〉 (1644)"
+     },
+     "credit": "Polderlandschap, 1644 · Jan van Goyen · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Polderlandschap_Rijksmuseum_SK-A-3249.jpeg"
+    },
+    {
      "after": 3,
      "type": "sketch",
      "image": "v592-papillon.webp",
@@ -438,6 +450,19 @@
       "ko": "편지 속에 그린 나방"
      },
      "credit": "Croquis du papillon de nuit · Brieven aan zijn broeder (1914), p. 321"
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "vm-c6-l1.webp",
+     "caption": {
+      "fr": "Il l'a peint quand même : le grand paon de nuit, 1889",
+      "en": "He painted it after all: the giant peacock moth, 1889",
+      "ko": "결국 그린 그림 · 큰공작나방, 1889"
+     },
+     "credit": "Grand paon de nuit, 1889 · Van Gogh Museum, Amsterdam · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Grote_nachtpauwoog_-_s0189V1962_-_Van_Gogh_Museum.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -921,6 +946,18 @@
       "en": "The brushes, roughly their sizes",
       "ko": "붓, 대략 이 굵기"
      }
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "vm-c6-l2.webp",
+     "caption": {
+      "fr": "Théodore Rousseau, La Forêt en hiver au coucher du soleil",
+      "en": "Théodore Rousseau, The Forest in Winter at Sunset",
+      "ko": "테오도르 루소, 〈해 질 녘 겨울 숲〉"
+     },
+     "credit": "The Forest in Winter at Sunset, c. 1846–1867 · Théodore Rousseau · The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:The_Forest_in_Winter_at_Sunset_MET_DP247630.jpg"
     },
     {
      "after": 3,
@@ -2942,6 +2979,18 @@
       "en": "Enclosed · a letter from their mother",
       "ko": "같이 넣은 것 · 어머니의 편지"
      }
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "vm-c6-l6.webp",
+     "caption": {
+      "fr": "Le premier recueil des pièces de Shakespeare (1623)",
+      "en": "The first collected edition of Shakespeare's plays (1623)",
+      "ko": "셰익스피어 희곡 첫 전집 (1623)"
+     },
+     "credit": "Mr. William Shakespeares Comedies, Histories, & Tragedies (First Folio), 1623 · portrait gravé par Martin Droeshout · British Library · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Title_Page_-_Shakespeare_First_Folio_(1623),_title_page_-_BL.jpg"
     },
     {
      "after": 1,
