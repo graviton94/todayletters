@@ -381,6 +381,18 @@
       "ko": "로잔"
      },
      "address": "Pays de Vaud, au bord du Léman"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c3-l1.webp",
+     "caption": {
+      "fr": "Vue de Lausanne",
+      "en": "View of Lausanne",
+      "ko": "로잔 풍경"
+     },
+     "credit": "Vue de Lausanne, XIXe siècle · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_Lausanne,_RP-P-1905-6093.jpg"
     }
    ],
    "status": {
@@ -816,6 +828,18 @@
      },
      "quote": "Je ne supporte pas la pluie",
      "icon": "rain"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "nm-c3-l2.webp",
+     "caption": {
+      "fr": "La bataille de Marengo, 14 juin 1800",
+      "en": "The Battle of Marengo, 14 June 1800",
+      "ko": "마렝고 전투, 1800년 6월 14일"
+     },
+     "credit": "Victoires et conquêtes des Français : bataille de Marengo · Charles Normand d'après Louis-François Lejeune, musée Carnavalet · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:VICTOIRES_ET_CONQUETES_DES_FRANCAIS._Bataille_de_Marengo._G.33401.jpg"
     }
    ],
    "status": {
@@ -1287,6 +1311,19 @@
      },
      "quote": "Il fait si mauvais temps ici",
      "icon": "rain"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "nm-c3-l3.webp",
+     "caption": {
+      "fr": "Pivoine arbustive, des plantes rares de Malmaison",
+      "en": "Tree peony, from the rare plants of Malmaison",
+      "ko": "말메종의 희귀 식물 · 모란"
+     },
+     "credit": "Description des plantes rares cultivées à Malmaison et à Navarre, 1813 · Pierre-Joseph Redouté · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Description_des_plantes_rares_cultivees_a_Malmaison_et_a_Navarre_(Paeonia_suffruticosa_subsp._suffruticosa)_BHL275853.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1724,6 +1761,19 @@
       "ko": "말메종"
      },
      "address": "Rueil, à l'ouest de Paris"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "nm-c3-l4.webp",
+     "caption": {
+      "fr": "Le château de Marly",
+      "en": "The Château de Marly",
+      "ko": "마를리 성"
+     },
+     "credit": "Vue du château de Marly, 1725 · Pierre-Denis Martin · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Pierre-Denis_Martin_-_View_of_the_Ch%C3%A2teau_of_Marly_-_WGA14151.jpg",
+     "exception": "pd-art"
     },
     {
      "after": 3,
@@ -2185,6 +2235,18 @@
       "ko": "말메종"
      },
      "address": "Rueil, à l'ouest de Paris"
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "nm-c3-l5.webp",
+     "caption": {
+      "fr": "Le Barbier de Séville",
+      "en": "The Barber of Seville",
+      "ko": "세비야의 이발사"
+     },
+     "credit": "Illustration pour le Barbier de Séville, vers 1820 · Alexandre-Joseph Desenne, musée Carnavalet · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Illustration_pour_le_Barbier_de_S%C3%A9ville._G.11539.jpg"
     }
    ],
    "status": {
@@ -2661,6 +2723,19 @@
      "address": "Château de Pont-de-Briques, près de Boulogne-sur-Mer"
     },
     {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c3-l6.webp",
+     "caption": {
+      "fr": "Napoléon visite le camp de Boulogne, juillet 1804",
+      "en": "Napoleon visiting the camp at Boulogne, July 1804",
+      "ko": "불로뉴 진영을 둘러보는 나폴레옹, 1804년 7월"
+     },
+     "credit": "Napoléon visitant le camp de Boulogne en juillet 1804, 1806 · Jean-François Hue, château de Versailles · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Napol%C3%A9on_visitant_le_camp_de_Boulogne_en_juillet_1804.jpg",
+     "exception": "pd-art"
+    },
+    {
      "after": 2,
      "type": "weather",
      "title": {
@@ -3117,6 +3192,19 @@
       "ko": "칼레"
      },
      "address": "Pas-de-Calais, face à l'Angleterre"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c3-l7.webp",
+     "caption": {
+      "fr": "L'entrée du port de Dunkerque",
+      "en": "The entrance to the port of Dunkirk",
+      "ko": "됭케르크 항구 어귀"
+     },
+     "credit": "L'Entrée du port de Dunkerque vue de la rade, 1776 · Nicolas Ozanne · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:L%27Entr%C3%A9e_du_Port_de_Dunkerque_Vue_de_la_Rade_btv1b53185577m.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {

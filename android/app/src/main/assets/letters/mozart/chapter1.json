@@ -301,6 +301,18 @@
    ],
    "moments": [
     {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c1-l1.webp",
+     "caption": {
+      "de": "Schlittenfahrt im Februar, Augsburger Monatsblatt",
+      "en": "A sleigh ride in February, an Augsburg print of the months",
+      "ko": "2월의 썰매 나들이 (아우크스부르크의 달력 판화)"
+     },
+     "credit": "Februarius, 18. Jh. · Johann Georg Hertel nach Gottlieb Sigmund Rösch · Rijksmuseum, Amsterdam · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Februari_Februarius_(titel_op_object)_Eerste_zes_maanden_van_het_jaar_(serietitel),_RP-P-1964-4300.jpg"
+    },
+    {
      "after": 1,
      "type": "music",
      "piece": {
@@ -734,6 +746,18 @@
       "en": "A postscript to Papa's letter",
       "ko": "아빠 편지에 덧붙인 추신"
      }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "mm-c1-l2.webp",
+     "caption": {
+      "de": "Das Innere von St. Peter in Rom",
+      "en": "Interior of Saint Peter's, Rome",
+      "ko": "로마 성 베드로 대성당 내부"
+     },
+     "credit": "Interior of Saint Peter's, Rome, um 1754 · Giovanni Paolo Panini · National Gallery of Art, Washington · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Giovanni_Paolo_Panini,_Interior_of_Saint_Peter%27s,_Rome,_c._1754,_NGA_50884.jpg"
     }
    ],
    "status": {
@@ -1165,6 +1189,19 @@
       "en": "Mozart loved animals and later always kept birds in his room.",
       "ko": "모차르트는 동물을 무척 좋아해, 나중에도 늘 방에 새를 두었어요."
      }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "mm-c1-l3.webp",
+     "caption": {
+      "de": "Ferdinand IV., König von Neapel, als Kind",
+      "en": "Ferdinand IV, King of Naples, as a boy",
+      "ko": "어린 시절의 나폴리 왕 페르디난도 4세"
+     },
+     "credit": "Fernando IV de Nápoles, 1760 · Anton Raphael Mengs · Museo del Prado, Madrid · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Ferdinand_IV_at_age_nine.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1592,6 +1629,18 @@
    ],
    "moments": [
     {
+     "after": 2,
+     "type": "photo",
+     "image": "mm-c1-l4.webp",
+     "caption": {
+      "de": "Der Dom von Bologna, Kupferstich des 18. Jahrhunderts",
+      "en": "Bologna Cathedral, 18th-century engraving",
+      "ko": "볼로냐 대성당 (18세기 동판화)"
+     },
+     "credit": "Gezicht op de Kathedraal van Bologna, 18. Jh. · Rijksmuseum, Amsterdam · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_de_Kathedraal_van_Bologna,_RP-P-1934-6.jpg"
+    },
+    {
      "after": 3,
      "type": "music",
      "piece": {
@@ -2016,6 +2065,19 @@
       "en": "A month without rain, then sun again",
       "ko": "한 달 동안 비 없음, 다시 쨍쨍"
      }
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "mm-c1-l5.webp",
+     "caption": {
+      "de": "Mailand: San Babila und Santa Marta, um 1745",
+      "en": "Milan: San Babila and Santa Marta, c. 1745",
+      "ko": "밀라노 산 바빌라와 산타 마르타 (1745년경)"
+     },
+     "credit": "Vedute di Milano: San Babila e Santa Marta, um 1745 · Marc'Antonio Dal Re · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Dal_Re,_Marc%27Antonio_(1697-1766)_-_Vedute_di_Milano_-_22_-_San_Babila_e_Santa_Marta_-_ca._1745.jpg",
+     "exception": "pd-art"
     },
     {
      "after": 4,
@@ -2457,6 +2519,19 @@
       "en": "Every other line is written upside down.",
       "ko": "한 줄 걸러 한 줄씩 거꾸로 쓴 편지예요."
      }
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "mm-c1-l6.webp",
+     "caption": {
+      "de": "Venanzio Rauzzini, der erste Cecilio in „Lucio Silla“",
+      "en": "Venanzio Rauzzini, the first Cecilio in Lucio Silla",
+      "ko": "〈루치오 실라〉의 첫 체칠리오, 베난치오 라우치니"
+     },
+     "credit": "Venanzio Rauzzini, 18. Jh. · Robert Hancock nach Joseph Hutchison · New York Public Library · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Venanzio_Rauzzini_by_Robert_Hancock.jpg",
+     "exception": "pd-art"
     },
     {
      "after": 4,

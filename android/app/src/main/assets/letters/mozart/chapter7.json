@@ -388,6 +388,19 @@
    ],
    "moments": [
     {
+     "after": 3,
+     "type": "photo",
+     "image": "mm-c7-l1.webp",
+     "caption": {
+      "de": "Der Abersee (Wolfgangsee) bei St. Wolfgang, um 1850",
+      "en": "The Abersee (Wolfgangsee) at St Wolfgang, c. 1850",
+      "ko": "장크트 볼프강의 아버제 (볼프강 호수), 1850년경"
+     },
+     "credit": "St. Wolfgang am Abersee, um 1850 · H. von Gasteiger · Universitätsbibliothek Salzburg · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:H_von_Gasteiger_St_Wolfgang_am_Abersee_ubs_G_0325_I.jpg",
+     "exception": "pd-art"
+    },
+    {
      "after": 4,
      "type": "notice",
      "text": {
@@ -921,6 +934,19 @@
      }
     },
     {
+     "after": 3,
+     "type": "photo",
+     "image": "mm-c7-l2.webp",
+     "caption": {
+      "de": "Das Nationaltheater in Mannheim, Stich der Brüder Klauber (1782)",
+      "en": "The National Theatre in Mannheim, engraving by the Klauber brothers (1782)",
+      "ko": "만하임 국민극장 (클라우버 형제의 동판화, 1782)"
+     },
+     "credit": "Das teutsche Komödienhaus (Nationaltheater Mannheim), 1782 · Joseph Sebastian und Johann Baptist Klauber · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Nationaltheater_Mannheim.jpg",
+     "exception": "pd-art"
+    },
+    {
      "after": 4,
      "type": "music",
      "piece": {
@@ -1452,6 +1478,18 @@
      }
     },
     {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c7-l3.webp",
+     "caption": {
+      "de": "Prag, Ansicht von 1735",
+      "en": "Prague, a view of 1735",
+      "ko": "프라하 풍경 (1735)"
+     },
+     "credit": "Gezicht op Praag, 1735 · Rijksmuseum, Amsterdam · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_Praag_Praag_(titel_op_object),_BI-B-FM-090-13.jpg"
+    },
+    {
      "after": 2,
      "type": "music",
      "piece": {
@@ -1957,6 +1995,19 @@
     }
    ],
    "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c7-l4.webp",
+     "caption": {
+      "de": "Der Hannibalplatz in Salzburg, wo der Vater wohnt",
+      "en": "The Hannibalplatz in Salzburg, where Papa lives",
+      "ko": "아버지가 사는 잘츠부르크 하니발 광장"
+     },
+     "credit": "Salzburg, Hannibalplatz mit Dreifaltigkeitskirche, um 1800 · Karl Schneeweis · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Karl_Schneeweis_Salzburg_Hannibalplatz_mit_Dreifaltigkeitskirche.jpg",
+     "exception": "pd-art"
+    },
     {
      "after": 4,
      "type": "notice",
@@ -2468,6 +2519,19 @@
     }
    ],
    "moments": [
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "mm-c7-l5.webp",
+     "caption": {
+      "de": "Maria Anna (Nannerl) Mozart",
+      "en": "Maria Anna (Nannerl) Mozart",
+      "ko": "마리아 안나(난네를) 모차르트"
+     },
+     "credit": "Maria Anna Mozart, 1780er Jahre · unbekannter Maler · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Nannerl_Mozart.jpg",
+     "exception": "pd-art"
+    },
     {
      "after": 3,
      "type": "notice",
@@ -3005,6 +3069,19 @@
      "excerpt": "60 s excerpt, faded and level-matched"
     },
     {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c7-l6.webp",
+     "caption": {
+      "de": "Luigi Bassi, der erste Don Giovanni (Medard Thoenert, 1787)",
+      "en": "Luigi Bassi, the first Don Giovanni (Medard Thoenert, 1787)",
+      "ko": "첫 돈 조반니 루이지 바시 (메다르트 퇴너트, 1787)"
+     },
+     "credit": "Luigi Bassi als Don Giovanni, 1787 · Medard Thoenert · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Luigi_Bassi480.jpg",
+     "exception": "pd-art"
+    },
+    {
      "after": 4,
      "type": "notice",
      "text": {
@@ -3516,6 +3593,19 @@
       "en": "10 days · 2 months",
       "ko": "열흘 · 두 달"
      }
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "mm-c7-l7.webp",
+     "caption": {
+      "de": "Wien mit seinen Vorstädten, Stadtplan (2. Auflage 1810)",
+      "en": "Vienna with its suburbs, city plan (2nd edition, 1810)",
+      "ko": "빈과 교외 지역 지도 (1810년 재판)"
+     },
+     "credit": "Grundriss der K. K. Haupt- und Residenzstadt Wien mit ihren Vorstädten, 1810 · Maximilian Grimm · David Rumsey Map Collection · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Grundriss_der_K_._K._Haupt_und_residenzstadt_Wien_mit_ihern_Vorstaedten._Zweyte_verbesserte_und_vermehrte_auflage_im_jahr_1810_(IA_dr_grundriss-der-k-k-haupt-und-residenzstadt-wien-mit-ihern-vorstaedten-zw-13223000).jpg",
+     "exception": "pd-art"
     },
     {
      "after": 4,

@@ -389,6 +389,18 @@
       "ko": "쾨니히스베르크"
      },
      "address": "Prusse-Orientale (aujourd'hui Kaliningrad)"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c8-l1.webp",
+     "caption": {
+      "fr": "Vue de Dantzig",
+      "en": "View of Danzig",
+      "ko": "단치히 풍경"
+     },
+     "credit": "Vue de Dantzig depuis la Nouvelle Motława, 1625 · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_Danzig_vanaf_de_Nieuwe_Mottlau,_met_in_de_verte_de_Melkkan-toren_Gezichten_in_en_om_de_stad_Danzig_(serietitel)_Praecipuor._Locorum_et_Aedificorum_quae_in_urbe_Dantiscana_visunter_adumbracio_(serietitel),_RP-P-1901-A-22336.jpg"
     }
    ],
    "status": {
@@ -857,6 +869,18 @@
      "address": "Prusse-Orientale (aujourd'hui Goussev, Russie)"
     },
     {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c8-l2.webp",
+     "caption": {
+      "fr": "Le passage du Niémen, juin 1812",
+      "en": "Crossing the Niemen, June 1812",
+      "ko": "네만강 도하, 1812년 6월"
+     },
+     "credit": "Passage du Niémen · Charles Beyer d'après Auguste Raffet, musée Carnavalet · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Passage_du_Ni%C3%A9men,_G.33722.jpg"
+    },
+    {
      "after": 2,
      "type": "weather",
      "title": {
@@ -1310,6 +1334,18 @@
       "ko": "하이나우"
      },
      "address": "Silésie (aujourd'hui Chojnów, Pologne)"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c8-l3.webp",
+     "caption": {
+      "fr": "L'archichancelier Cambacérès",
+      "en": "Archchancellor Cambacérès",
+      "ko": "대재상 캉바세레스"
+     },
+     "credit": "Portrait de Jean-Jacques Régis de Cambacérès, duc de Parme · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Portret_van_Jean-Jacques_R%C3%A9gis_de_Cambac%C3%A9r%C3%A8s,_hertog_van_Parma,_RP-P-1909-5678.jpg"
     }
    ],
    "status": {
@@ -1755,6 +1791,18 @@
       "ko": "랭스"
      },
      "address": "Champagne"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "nm-c8-l4.webp",
+     "caption": {
+      "fr": "Andromaque et Astyanax",
+      "en": "Andromache and Astyanax",
+      "ko": "안드로마케와 아스티아낙스"
+     },
+     "credit": "Andromaque et Astyanax, 1813–1817 · Pierre-Paul Prud'hon, The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Andromache_and_Astyanax_MET_DP-647-001.jpg"
     }
    ],
    "status": {
@@ -2251,6 +2299,19 @@
       "ko": "퐁텐블로"
      },
      "address": "Seine-et-Marne"
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "nm-c8-l5.webp",
+     "caption": {
+      "fr": "Portoferraio, île d'Elbe",
+      "en": "Portoferraio, Elba",
+      "ko": "엘바섬 포르토페라이오"
+     },
+     "credit": "View of Porto Ferrajo from the Sea, 1799 · Francis Chesham d'après James Weir, British Museum · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:View_of_Porto_Ferrajo_from_the_Sea_1799,_after_Major_James_Weir_-_UK_BM_860496001.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2719,6 +2780,19 @@
       "ko": "퐁텐블로"
      },
      "address": "Seine-et-Marne"
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "nm-c8-l6.webp",
+     "caption": {
+      "fr": "Marie-Louise veillant sur le roi de Rome",
+      "en": "Marie-Louise watching over the sleeping King of Rome",
+      "ko": "잠든 로마 왕을 지켜보는 마리 루이즈"
+     },
+     "credit": "L'Impératrice Marie-Louise veillant sur le sommeil du roi de Rome, 1811 · Joseph Franque, château de Versailles · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Marie_Louise_von_%C3%96sterreich_Napoleon_Zweite.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -3179,6 +3253,19 @@
       "ko": "튀일리 궁"
      },
      "address": "Paris, au bord de la Seine"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "nm-c8-l7.webp",
+     "caption": {
+      "fr": "Louis XVIII quitte les Tuileries, 20 mars 1815",
+      "en": "Louis XVIII leaves the Tuileries, 20 March 1815",
+      "ko": "튈르리를 떠나는 루이 18세, 1815년 3월 20일"
+     },
+     "credit": "Louis XVIII quitte le palais des Tuileries, nuit du 19 au 20 mars 1815 · Masson d'après Gros, Bibliothèque nationale de France · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Louis_XVIII_quitte_le_palais_des_Tuileries,_nuit_du_19_au_20_mars_1815_-_estampe_-_btv1b6954561w.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {

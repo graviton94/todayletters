@@ -293,6 +293,19 @@
       "en": "First night of the journey: the Stern inn, Wasserburg",
       "ko": "여행 첫날 밤 · 바서부르크의 여관 ‘슈테른’"
      }
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c2-l1.webp",
+     "caption": {
+      "de": "Wasserburg am Inn, Kupferstich von Michael Wening (1701)",
+      "en": "Wasserburg am Inn, engraving by Michael Wening (1701)",
+      "ko": "바서부르크 암 인 (미하엘 베닝의 동판화, 1701)"
+     },
+     "credit": "Wasserburg am Inn, 1701 · Michael Wening · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Wening_M221_Wasserburg_am_Inn,_Stadt.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -711,6 +724,18 @@
       "ko": "피아노 소나타 3번 B♭장조, K. 281 (소나타 여섯 곡 중 하나)"
      },
      "commons": "File:W. A. Mozart, Piano Sonata No. 3, K 281.mid"
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "mm-c2-l2.webp",
+     "caption": {
+      "de": "Die große Orgel von St. Bavo in Haarlem, die der kleine Mozart 1766 spielte",
+      "en": "The great organ of St Bavo's, Haarlem, which the boy Mozart played in 1766",
+      "ko": "어린 모차르트가 1766년에 연주한 하를럼 성 바보 교회의 큰 오르간"
+     },
+     "credit": "Orgel van de Sint-Bavokerk te Haarlem, 1763 · Rijksmuseum, Amsterdam · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Orgel_van_de_Sint-Bavokerk_te_Haarlem,_RP-P-1921-335.jpg"
     }
    ],
    "status": {
@@ -1150,6 +1175,19 @@
      "audioLicense": "Public domain",
      "audioSource": "https://commons.wikimedia.org/wiki/File:Oboe_Concerto_in_C_K.314_271k_II._Andantino_(Mozart)_European_Archive.ogg",
      "excerpt": "60 s excerpt, faded and level-matched"
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "mm-c2-l3.webp",
+     "caption": {
+      "de": "Kurfürstin Elisabeth Auguste von der Pfalz",
+      "en": "Electress Elisabeth Auguste of the Palatinate",
+      "ko": "팔츠 선제후비 엘리자베트 아우구스테"
+     },
+     "credit": "Elisabeth Auguste, Kurfürstin von der Pfalz, 18. Jh. · Umkreis von Johann Georg Ziesenis · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Ziesenis,_circle_of_-_Elisabeth_Auguste,_Electress_Palatine.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1567,6 +1605,19 @@
       "ko": "피아노 소나타 C장조, K. 309 (로자 칸나비히를 위해)"
      },
      "commons": null
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c2-l4.webp",
+     "caption": {
+      "de": "Mannheim: das alte Kaufhaus, Stich um 1780",
+      "en": "Mannheim: the old Kaufhaus, engraving, c. 1780",
+      "ko": "만하임의 옛 상관 건물 (1780년경 동판화)"
+     },
+     "credit": "Das Kaufhaus in Mannheim, um 1780 · Gebrüder Klauber · MARCHIVUM, Mannheim · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Das_Alte_Kaufhaus,_erster_Standort_des_Leihamts._Stich_der_Gebr%C3%BCder_Klauber,_um_1780,_MARCHIVUM.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1974,6 +2025,18 @@
     }
    ],
    "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c2-l5.webp",
+     "caption": {
+      "de": "Das kurfürstliche Schloss in Mannheim (1782)",
+      "en": "The Elector's palace at Mannheim (1782)",
+      "ko": "만하임 선제후 궁전 (1782)"
+     },
+     "credit": "Gezicht op Schloss Mannheim, 1782 · Rijksmuseum, Amsterdam · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_Schloss_Mannheim,_RP-P-1965-349.jpg"
+    },
     {
      "after": 2,
      "type": "transfer",
@@ -2409,6 +2472,18 @@
     }
    ],
    "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c2-l6.webp",
+     "caption": {
+      "de": "Prinzessin Carolina von Oranien-Nassau, die Gastgeberin in Kirchheimbolanden",
+      "en": "Princess Carolina of Orange-Nassau, the hostess at Kirchheimbolanden",
+      "ko": "키르히하임볼란덴에서 일행을 맞은 오라녜나사우 공녀 카롤리나"
+     },
+     "credit": "Portret van Carolina, prinses van Oranje-Nassau, 1755 · Rijksmuseum, Amsterdam · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Portret_van_Carolina,_prinses_van_Oranje-Nassau,_NG-625.jpg"
+    },
     {
      "after": 2,
      "type": "transfer",
@@ -2847,6 +2922,19 @@
       "ko": "아리아 〈논 소 돈데 비에네〉, K. 294 (알로이지아 베버를 위해)"
      },
      "commons": null
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "mm-c2-l7.webp",
+     "caption": {
+      "de": "Paris aus der Vogelschau: der Turgot-Plan (1739)",
+      "en": "Paris from above: the Turgot map (1739)",
+      "ko": "하늘에서 본 파리: 튀르고 지도 (1739)"
+     },
+     "credit": "Plan de Paris (Plan de Turgot), 1739 · Louis Bretez · Norman B. Leventhal Map Center, Boston · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Turgot_map_of_Paris_-_Norman_B._Leventhal_Map_Center.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {

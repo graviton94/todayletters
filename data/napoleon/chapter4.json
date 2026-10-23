@@ -386,6 +386,19 @@
      },
      "quote": "Le temps est superbe",
      "icon": "sun"
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "nm-c4-l1.webp",
+     "caption": {
+      "fr": "Le château de Ludwigsburg",
+      "en": "Ludwigsburg Palace",
+      "ko": "루트비히스부르크 궁전"
+     },
+     "credit": "Schloss Ludwigsburg, jardin nord, vers 1810 · Friedrich Weber, Städtisches Museum Ludwigsburg · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Schloss_Ludwigsburg_Nordgarten.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -855,6 +868,18 @@
       "ko": "뮌헨"
      },
      "address": "Bavière"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "nm-c4-l2.webp",
+     "caption": {
+      "fr": "La reddition d'Ulm, octobre 1805",
+      "en": "The surrender of Ulm, October 1805",
+      "ko": "울름의 항복, 1805년 10월"
+     },
+     "credit": "Reddition d'Ulm · Pierre Martinet, musée Carnavalet · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Reddition_d%27Ulm,_G.34400.jpg"
     },
     {
      "after": 4,
@@ -1330,6 +1355,19 @@
       "ko": "빈"
      },
      "address": "Autriche, au bord du Danube"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "nm-c4-l3.webp",
+     "caption": {
+      "fr": "Napoléon reçoit les clefs de Vienne",
+      "en": "Napoleon receiving the keys of Vienna",
+      "ko": "빈의 열쇠를 받는 나폴레옹"
+     },
+     "credit": "Napoléon reçoit les clefs de Vienne, 1808 · Anne-Louis Girodet, château de Versailles · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Napoleon_en_de_sleutels_van_wenen.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1817,6 +1855,19 @@
      "address": "Autriche, au bord du Danube"
     },
     {
+     "after": 3,
+     "type": "photo",
+     "image": "nm-c4-l4.webp",
+     "caption": {
+      "fr": "Charlotte, électrice puis reine de Wurtemberg",
+      "en": "Charlotte, Electress (later Queen) of Württemberg",
+      "ko": "뷔르템베르크 선제후비 샤를로트"
+     },
+     "credit": "Charlotte-Mathilde, reine de Wurtemberg, 1827 · Franz Seraph Stirnbrand, Stadtarchiv Stuttgart · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Franz_Seraph_Stirnbrand,_Portr%C3%A4t_K%C3%B6nigin_Charlotte_Auguste_Mathilde_von_W%C3%BCrttemberg_als_Wittwe,_1827_(Stadtarchiv_Stuttgart,_9050-04529).jpg",
+     "exception": "pd-art"
+    },
+    {
      "after": 5,
      "type": "weather",
      "title": {
@@ -2285,6 +2336,19 @@
       "ko": "브륀 (브르노)"
      },
      "address": "Moravie"
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "nm-c4-l5.webp",
+     "caption": {
+      "fr": "La bataille d'Austerlitz",
+      "en": "The Battle of Austerlitz",
+      "ko": "아우스터리츠 전투"
+     },
+     "credit": "La Bataille d'Austerlitz, 2 décembre 1805, 1810 · François Gérard, château de Versailles · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:La_bataille_d%27Austerlitz._2_decembre_1805_(Fran%C3%A7ois_G%C3%A9rard).jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2739,6 +2803,19 @@
       "ko": "쇤브룬"
      },
      "address": "Vienne"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "nm-c4-l6.webp",
+     "caption": {
+      "fr": "L'entrevue de Napoléon et de François II",
+      "en": "Napoleon meeting Francis II after Austerlitz",
+      "ko": "아우스터리츠 뒤 나폴레옹과 프란츠 2세의 회견"
+     },
+     "credit": "Entrevue de Napoléon et de François II, 1812 · Antoine-Jean Gros, château de Versailles · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Gros_-_Entrevue_-_1812.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -3156,6 +3233,19 @@
       "ko": "슈투트가르트"
      },
      "address": "Wurtemberg"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "nm-c4-l7.webp",
+     "caption": {
+      "fr": "Le Moniteur (un numéro de 1793)",
+      "en": "The Moniteur (an 1793 issue)",
+      "ko": "관보 〈모니퇴르〉 (1793년 호)"
+     },
+     "credit": "Gazette nationale ou le Moniteur universel, 19 novembre 1793 · Bibliothèque nationale de France · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Gazette_nationale_ou_le_Moniteur_19_novembre_1793_237.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {

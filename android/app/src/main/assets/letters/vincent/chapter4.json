@@ -413,6 +413,19 @@
      }
     },
     {
+     "after": 3,
+     "type": "photo",
+     "image": "vm-c4-l1.webp",
+     "caption": {
+      "fr": "Émile Bernard, Bretonnes dans la prairie (Le Pardon), 1888",
+      "en": "Émile Bernard, Breton women in the meadow (The Pardon), 1888",
+      "ko": "에밀 베르나르, 〈초원의 브르타뉴 여인들〉 (1888)"
+     },
+     "credit": "Bretonnes dans la prairie (Le Pardon), 1888 · Émile Bernard · collection particulière · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:%C3%89mile_Bernard_-_The_Pardon_(Le_Pardon)_1888.jpeg",
+     "exception": "pd-art"
+    },
+    {
      "after": 4,
      "type": "photo",
      "image": "v557.webp",
@@ -1749,6 +1762,19 @@
      "outgoing": false
     },
     {
+     "after": 0,
+     "type": "photo",
+     "image": "vm-c4-l4.webp",
+     "caption": {
+      "fr": "Le café de nuit à Arles, vu par Gauguin (1888)",
+      "en": "The night café at Arles, as Gauguin saw it (1888)",
+      "ko": "고갱이 그린 아를의 밤 카페 (1888)"
+     },
+     "credit": "Café de nuit à Arles (Madame Ginoux), 1888 · Paul Gauguin · Musée Pouchkine, Moscou · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Paul_Gauguin_-_The_Night_Caf%C3%A9.jpg",
+     "exception": "pd-art"
+    },
+    {
      "after": 2,
      "type": "photo",
      "image": "v560.webp",
@@ -2212,6 +2238,18 @@
    ],
    "moments": [
     {
+     "after": 1,
+     "type": "photo",
+     "image": "vm-c4-l5.webp",
+     "caption": {
+      "fr": "Claude Monet, Bouquet de tournesols (1881)",
+      "en": "Claude Monet, Bouquet of Sunflowers (1881)",
+      "ko": "클로드 모네, 〈해바라기 꽃다발〉 (1881)"
+     },
+     "credit": "Bouquet of Sunflowers, 1881 · Claude Monet · The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Bouquet_of_Sunflowers_MET_DP130800.jpg"
+    },
+    {
      "after": 3,
      "type": "photo",
      "image": "v563.webp",
@@ -2636,6 +2674,19 @@
       "en": "Vincent and Gauguin in Montpellier",
       "ko": "빈센트와 고갱, 몽펠리에에 다녀옴"
      }
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "vm-c4-l6.webp",
+     "caption": {
+      "fr": "Dans la salle Bruyas : Courbet, La Rencontre (1854) · Bruyas à la barbe rousse salue le peintre",
+      "en": "In the Bruyas room: Courbet, The Meeting (1854) · red-bearded Bruyas greets the painter",
+      "ko": "브뤼야스 전시실에서 · 쿠르베, 〈만남〉 (1854) · 화가를 맞는 붉은 수염의 브뤼야스"
+     },
+     "credit": "La Rencontre (Bonjour Monsieur Courbet), 1854 · Gustave Courbet · Musée Fabre, Montpellier · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Gustave_Courbet_-_Bonjour_Monsieur_Courbet_-_Mus%C3%A9e_Fabre.jpg",
+     "exception": "pd-art"
     },
     {
      "after": 1,
@@ -3071,6 +3122,19 @@
       "ko": "100프랑 지폐와 50프랑 우편환"
      },
      "outgoing": false
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "vm-c4-l7.webp",
+     "caption": {
+      "fr": "Arles vue par Gauguin : Arlésiennes (Mistral), 1888",
+      "en": "Arles as Gauguin saw it: Arlésiennes (Mistral), 1888",
+      "ko": "고갱이 본 아를 · 〈아를의 여인들 (미스트랄)〉 (1888)"
+     },
+     "credit": "Arlésiennes (Mistral), 1888 · Paul Gauguin · Art Institute of Chicago · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Paul_Gauguin_-_Arl%C3%A9siennes_(Mistral)_-_1934.391_-_Art_Institute_of_Chicago.jpg",
+     "exception": "pd-art"
     },
     {
      "after": 4,

@@ -102,7 +102,21 @@
     "en": "1756–1762",
     "ko": "1756–1762"
    },
-   "moments": [],
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-p1.webp",
+     "caption": {
+      "de": "Leopold Mozart, Titelkupfer seiner Violinschule (1756)",
+      "en": "Leopold Mozart, frontispiece of his Violin School (1756)",
+      "ko": "레오폴트 모차르트, 그의 『바이올린 교본』 권두 판화 (1756)"
+     },
+     "credit": "Leopold Mozart, Titelkupfer des „Versuchs einer gründlichen Violinschule“, 1756 · Jacob Andreas Fridrich nach Gottfried Eichler d. J. · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:LeopoldMozartPortraitFromViolinschule.jpg",
+     "exception": "pd-art"
+    }
+   ],
    "check": [
     {
      "q": {
@@ -361,7 +375,20 @@
     "en": "1763–1766",
     "ko": "1763–1766"
    },
-   "moments": [],
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-p2.webp",
+     "caption": {
+      "de": "Einweihung des Reiterstandbilds Ludwigs XV. in Paris, 20. Juni 1763",
+      "en": "Unveiling of the equestrian statue of Louis XV in Paris, 20 June 1763",
+      "ko": "파리 루이 15세 기마상 제막식 (1763년 6월 20일)"
+     },
+     "credit": "Inauguration de la statue de Louis XV, le 20 juin 1763 · Gravelot · Musée Carnavalet, Paris · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Inauguration_de_la_statue_de_Louis_XV,_le_20_juin_1763._D.8247.jpg"
+    }
+   ],
    "check": [
     {
      "q": {
@@ -613,7 +640,21 @@
     "en": "1767–1769",
     "ko": "1767–1769"
    },
-   "moments": [],
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-p3.webp",
+     "caption": {
+      "de": "Salzburg: die Franziskanerkirche, Kupferstich um 1735",
+      "en": "Salzburg: the Franciscan church, engraving, c. 1735",
+      "ko": "잘츠부르크 프란치스코 성당 (동판화, 1735년경)"
+     },
+     "credit": "Die Pfarr- oder Franciscaner Kirche (Die Saltzburgische Kirchen-Prospect), um 1735 · Franz Anton Danreiter · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Franz_Anton_Danreiter_Franziskanerkirche_Salzburg.jpg",
+     "exception": "pd-art"
+    }
+   ],
    "check": [
     {
      "q": {

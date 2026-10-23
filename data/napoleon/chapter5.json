@@ -426,6 +426,19 @@
       "ko": "베를린"
      },
      "address": "Prusse"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c5-l1.webp",
+     "caption": {
+      "fr": "Napoléon entre à Berlin, 27 octobre 1806",
+      "en": "Napoleon entering Berlin, 27 October 1806",
+      "ko": "베를린에 들어서는 나폴레옹, 1806년 10월 27일"
+     },
+     "credit": "Entrée de Napoléon à Berlin, 27 octobre 1806, 1810 · Charles Meynier, château de Versailles · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Charles_Meynier_-_Entr%C3%A9e_de_Napol%C3%A9on_%C3%A0_Berlin._27_octobre_1806.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -904,6 +917,19 @@
       "ko": "포즈난"
      },
      "address": "Grande-Pologne"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c5-l2.webp",
+     "caption": {
+      "fr": "Jour de marché devant l'hôtel de ville de Posen",
+      "en": "Market day at the town hall of Posen",
+      "ko": "포즈난 시청 앞 장날"
+     },
+     "credit": "Rynek i ratusz w Poznaniu w dzień targowy, 1841 · Wilhelm Bässler, Bibliothèque nationale de Pologne · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Rynek_i_ratusz_w_Poznaniu_w_dzien_targowy_1841_(85062717).jpg",
+     "exception": "pd-art"
     },
     {
      "after": 1,
@@ -1396,6 +1422,19 @@
      },
      "quote": "la saison froide",
      "icon": "snow"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c5-l3.webp",
+     "caption": {
+      "fr": "Le faubourg de Cracovie, à Varsovie",
+      "en": "Krakowskie Przedmieście, Warsaw",
+      "ko": "바르샤바 크라쿠프 교외 거리"
+     },
+     "credit": "Le Faubourg de Cracovie vu de la porte de Cracovie, 1767–1768 · Bernardo Bellotto, château royal de Varsovie · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Bellotto_Bernardo_Cracow_Suburb_as_seen_from_the_Cracow_Gate_1768.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1893,6 +1932,19 @@
      "address": "Prusse-Orientale"
     },
     {
+     "after": 1,
+     "type": "photo",
+     "image": "nm-c5-l4.webp",
+     "caption": {
+      "fr": "Napoléon sur le champ de bataille d'Eylau",
+      "en": "Napoleon on the battlefield of Eylau",
+      "ko": "아일라우 전장의 나폴레옹"
+     },
+     "credit": "Napoléon sur le champ de bataille d'Eylau, 1808 · Antoine-Jean Gros, musée du Louvre · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Antoine-Jean_Gros_-_Napoleon_on_the_Battlefield_of_Eylau_-_Google_Art_Project.jpg",
+     "exception": "pd-art"
+    },
+    {
      "after": 4,
      "type": "weather",
      "title": {
@@ -2376,6 +2428,19 @@
       "ko": "핑켄슈타인"
      },
      "address": "Prusse-Orientale"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c5-l5.webp",
+     "caption": {
+      "fr": "Le château de Finckenstein",
+      "en": "Finckenstein Palace",
+      "ko": "핑켄슈타인 성"
+     },
+     "credit": "Schloss Finckenstein, vers 1860 · collection Alexander Duncker · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Schloss_Finckenstein_Sammlung_Duncker.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2778,6 +2843,18 @@
       "ko": "핑켄슈타인"
      },
      "address": "Prusse-Orientale"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c5-l6.webp",
+     "caption": {
+      "fr": "Le Vijverberg à La Haye",
+      "en": "The Vijverberg in The Hague",
+      "ko": "헤이그의 페이버르베르흐 거리"
+     },
+     "credit": "Vue du Vijverberg à La Haye, 1858 · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_de_Vijverberg_in_Den_Haag,_RP-P-1905-6056.jpg"
     }
    ],
    "status": {
@@ -3247,6 +3324,18 @@
       "ko": "틸지트"
      },
      "address": "Prusse-Orientale, au bord du Niémen"
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "nm-c5-l7.webp",
+     "caption": {
+      "fr": "Les empereurs sur le radeau du Niémen",
+      "en": "The emperors meeting on the raft on the Niemen",
+      "ko": "네만강 뗏목 위 두 황제의 회견"
+     },
+     "credit": "Première entrevue des empereurs Napoléon et Alexandre sur le radeau du Niémen, 25 juin 1807 · musée Carnavalet · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Premi%C3%A8re_entrevue_des_EmpereursNapol%C3%A9on_et_Alexandresur_le_radeau_du_Niemen,_%C3%A0_Tilsitt,_le_25_Juin_1807._G.33607.jpg"
     }
    ],
    "status": {

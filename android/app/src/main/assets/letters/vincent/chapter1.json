@@ -352,6 +352,31 @@
      },
      "quote": "il en tombe toujours",
      "icon": "snow"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "vm-c1-l1.webp",
+     "caption": {
+      "fr": "Paysage enneigé, Arles, février 1888",
+      "en": "Landscape with snow, Arles, February 1888",
+      "ko": "눈 덮인 풍경, 아를, 1888년 2월"
+     },
+     "credit": "Paysage enneigé, 1888 · Solomon R. Guggenheim Museum, New York · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Vincent_Willem_van_Gogh_099.jpg",
+     "exception": "pd-art"
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "vm-c1-l1-2.webp",
+     "caption": {
+      "fr": "Hiroshige, Kanbara : neige du soir (vers 1833)",
+      "en": "Hiroshige, Evening snow at Kanbara (c. 1833)",
+      "ko": "히로시게, 〈간바라의 저녁 눈〉 (1833년 무렵)"
+     },
+     "credit": "Kambara: Evening Snow (Fifty-three Stations of the Tōkaidō), c. 1833 · Utagawa Hiroshige · Cleveland Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Ando_Hiroshige_-_Kambara-_Evening_Snow_-_1940.984_-_Cleveland_Museum_of_Art.jpg"
     }
    ],
    "status": {
@@ -1220,6 +1245,18 @@
      }
     },
     {
+     "after": 1,
+     "type": "photo",
+     "image": "vm-c1-l3.webp",
+     "caption": {
+      "fr": "Anton Mauve, Le Changement de pâturage",
+      "en": "Anton Mauve, Changing Pasture",
+      "ko": "안톤 마우버, 〈목초지를 옮기며〉"
+     },
+     "credit": "Changing Pasture · Anton Mauve · The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Changing_Pasture_MET_DT1987.jpg"
+    },
+    {
      "after": 3,
      "type": "weather",
      "title": {
@@ -2015,6 +2052,19 @@
    ],
    "moments": [
     {
+     "after": 1,
+     "type": "photo",
+     "image": "vm-c1-l5.webp",
+     "caption": {
+      "fr": "Poirier en fleurs, avril 1888",
+      "en": "Blossoming pear tree, April 1888",
+      "ko": "꽃 핀 배나무, 1888년 4월"
+     },
+     "credit": "Poirier en fleurs, 1888 · Van Gogh Museum, Amsterdam · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Bl%C3%BChender_Birnbaum.jpeg",
+     "exception": "pd-art"
+    },
+    {
      "after": 3,
      "type": "sketch",
      "image": "c1-l4-poirier.webp",
@@ -2409,6 +2459,19 @@
       "ko": "노란 집, 라마르틴 광장 2번지"
      },
      "outgoing": true
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "vm-c1-l6.webp",
+     "caption": {
+      "fr": "La maison jaune, aquarelle, 1888",
+      "en": "The Yellow House, watercolour, 1888",
+      "ko": "노란 집, 수채화, 1888"
+     },
+     "credit": "La maison de Vincent à Arles (La maison jaune), aquarelle, 1888 · Van Gogh Museum, Amsterdam · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Vincent%27s_House_in_Arles_(The_Yellow_House).jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2813,6 +2876,19 @@
       "ko": "새 습작 두 점, 이런 거야"
      },
      "credit": "Croquis dans la lettre · Brieven aan zijn broeder (1914), p. 54"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "vm-c1-l7.webp",
+     "caption": {
+      "fr": "La ferme au bord de la grand-route, parmi les blés, 1888",
+      "en": "The farm by the main road among the wheat, 1888",
+      "ko": "밀밭 사이 큰길가의 농가, 1888"
+     },
+     "credit": "Ferme dans les blés, 1888 · Van Gogh Museum, Amsterdam · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Boerderij_in_het_koren_-_s0034V1962_-_Van_Gogh_Museum.jpg",
+     "exception": "pd-art"
     },
     {
      "after": 4,

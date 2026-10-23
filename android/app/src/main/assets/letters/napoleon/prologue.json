@@ -236,6 +236,19 @@
       "ko": "파리"
      },
      "address": "Paris, 1795"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-p1.webp",
+     "caption": {
+      "fr": "Des artistes réunis dans l'atelier d'Isabey",
+      "en": "Artists gathered in Isabey's studio",
+      "ko": "이자베의 화실에 모인 화가들"
+     },
+     "credit": "Réunion d'artistes dans l'atelier d'Isabey, 1798 · Louis-Léopold Boilly, musée du Louvre · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Boilly_r%C3%A9union_d%27artiste_chez_Isabey_1798.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -651,6 +664,18 @@
       "ko": "오페라 극장 (테아트르 데 자르)"
      },
      "address": "rue de Richelieu, Paris"
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "nm-p2.webp",
+     "caption": {
+      "fr": "La promenade de la galerie du Palais-Royal",
+      "en": "The gallery walk at the Palais-Royal",
+      "ko": "팔레루아얄 회랑의 산책"
+     },
+     "credit": "Promenade de la galerie du Palais-Royal, 1787 · Philibert-Louis Debucourt, National Gallery of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Philibert-Louis_Debucourt_after_Claude-Louis_Desrais,_The_Palais_Royal_-_Gallery%27s_Walk_-_Promenade_de_la_Galerie_du_Palais_Royal,_1787,_NGA_2895.jpg"
     }
    ],
    "status": {
@@ -1041,6 +1066,19 @@
       "en": "Bonaparte is in Paris · 5 September 1795, at the Committee of Public Safety",
       "ko": "보나파르트가 파리에 있어요 · 1795년 9월 5일, 공안위원회"
      }
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "nm-p3.webp",
+     "caption": {
+      "fr": "Julie Clary, épouse de Joseph, et ses filles",
+      "en": "Julie Clary, Joseph's wife, with her daughters",
+      "ko": "조제프의 아내 쥘리 클라리와 딸들"
+     },
+     "credit": "Julie Clary et ses filles, après 1808 · atelier de François Gérard, château de Fontainebleau · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Bonaparte_Julie_by_Wicar.JPG",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1479,6 +1517,18 @@
       "ko": "샹트렌 거리"
      },
      "address": "rue Chantereine (aujourd'hui rue de la Victoire), Paris"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "nm-p4.webp",
+     "caption": {
+      "fr": "Un portrait de Joséphine",
+      "en": "A portrait of Joséphine",
+      "ko": "조제핀의 초상"
+     },
+     "credit": "Portrait de Joséphine, impératrice des Français · Ludwig Gottlieb Portman, Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Portret_van_Jos%C3%A9phine,_keizerin_van_Frankrijk,_RP-P-1908-4553.jpg"
     },
     {
      "after": 5,

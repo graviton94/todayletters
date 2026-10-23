@@ -404,6 +404,19 @@
       "ko": "가을 오페라 한 편, 그리고 여비"
      },
      "outgoing": false
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "mm-c8-l1.webp",
+     "caption": {
+      "de": "Domenico Guardasoni, Impresario in Prag",
+      "en": "Domenico Guardasoni, impresario in Prague",
+      "ko": "프라하의 흥행주 도메니코 과르다소니"
+     },
+     "credit": "Domenico Guardasoni, um 1787 · Medard Thoenert · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Guardasoni482.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -920,6 +933,19 @@
       "en": "Arrival in Dresden · Sunday, 6 p.m.",
       "ko": "드레스덴 도착 · 일요일 저녁 6시"
      }
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c8-l2.webp",
+     "caption": {
+      "de": "Der Neumarkt in Dresden (Bernardo Bellotto, 1749)",
+      "en": "The Neumarkt in Dresden (Bernardo Bellotto, 1749)",
+      "ko": "드레스덴 노이마르크트 (베르나르도 벨로토, 1749)"
+     },
+     "credit": "Der Neumarkt in Dresden vom Jüdenhofe aus, 1749 · Bernardo Bellotto · Gemäldegalerie Alte Meister, Dresden · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Canaletto_-_View_of_the_Neumarkt_in_Dresden_from_the_J%C3%BCdenhofe_-_Google_Art_Project.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1427,6 +1453,19 @@
       "ko": "피아노 협주곡 D장조, K. 537 〈대관식〉"
      },
      "commons": null
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "mm-c8-l3.webp",
+     "caption": {
+      "de": "Kurfürst Friedrich August III. von Sachsen (Anton Graff)",
+      "en": "Elector Frederick Augustus III of Saxony (Anton Graff)",
+      "ko": "작센 선제후 프리드리히 아우구스트 3세 (안톤 그라프)"
+     },
+     "credit": "Kurfürst Friedrich August III. von Sachsen, 1795 · Anton Graff · Gemäldegalerie Alte Meister, Dresden · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Kurf%C3%BCrst_Friedrich_August_III._von_Sachsen,_genannt_der_Gerechte.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1945,6 +1984,19 @@
       "en": "Six days on the road, fine weather but for one day",
       "ko": "엿새 여행, 하루 빼고 맑음"
      }
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "mm-c8-l4.webp",
+     "caption": {
+      "de": "Regensburg mit der Steinernen Brücke (1784)",
+      "en": "Regensburg with the Stone Bridge (1784)",
+      "ko": "돌다리가 있는 레겐스부르크 (1784)"
+     },
+     "credit": "Regensburg, Steinerne Brücke, 1784 · Johann Georg Kraer · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Stich_-_Regensburg_-_Steinerne_Br%C3%BCcke_-_Kraer_-1784.jpg",
+     "exception": "pd-art"
     },
     {
      "after": 4,
@@ -2470,6 +2522,19 @@
       "en": "Lodging at Böhm's, with Hofer · 30 florins a month",
       "ko": "호퍼와 함께 뵘의 집에 묵음 · 한 달 30플로린"
      }
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "mm-c8-l5.webp",
+     "caption": {
+      "de": "Frankfurt am Main aus der Vogelschau (Merian-Plan, Ausgabe 1770)",
+      "en": "Frankfurt am Main from above (Merian plan, 1770 edition)",
+      "ko": "하늘에서 본 프랑크푸르트 (메리안 지도, 1770년판)"
+     },
+     "credit": "Vogelschauplan von Frankfurt am Main, Ausgabe 1770 · nach Matthäus Merian · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Frankfurt_Am_Main-Merian1770-MFHK-Komplett.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2973,6 +3038,19 @@
     }
    ],
    "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c8-l6.webp",
+     "caption": {
+      "de": "Linz an der Donau, Kupferstich von Georg Balthasar Probst",
+      "en": "Linz on the Danube, engraving by Georg Balthasar Probst",
+      "ko": "도나우 강변의 린츠 (게오르크 발타자르 프롭스트의 동판화)"
+     },
+     "credit": "Lintz, 18. Jh. · Georg Balthasar Probst · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Georg_Balthasar_Probst_Lintz.jpg",
+     "exception": "pd-art"
+    },
     {
      "after": 1,
      "type": "notice",
@@ -3497,6 +3575,19 @@
      "audioLicense": "Public domain",
      "audioSource": "https://commons.wikimedia.org/wiki/File:Mozart_-_Die_Zauberfl%C3%B6te,_K620_-_Overture_(Musopen_Symphony).flac",
      "excerpt": "60 s excerpt, faded and level-matched"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "mm-c8-l7.webp",
+     "caption": {
+      "de": "Emanuel Schikaneder als erster Papageno (Libretto 1791)",
+      "en": "Emanuel Schikaneder as the first Papageno (libretto, 1791)",
+      "ko": "첫 파파게노 에마누엘 시카네더 (1791년 대본)"
+     },
+     "credit": "Papageno, Titelkupfer des Librettos der „Zauberflöte“, 1791 · Ignaz Alberti · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Papageno.jpg",
+     "exception": "pd-art"
     },
     {
      "after": 3,

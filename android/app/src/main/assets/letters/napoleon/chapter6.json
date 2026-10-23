@@ -426,6 +426,19 @@
       "ko": "바욘"
      },
      "address": "Pays basque, près de la frontière espagnole"
+    },
+    {
+     "after": 5,
+     "type": "photo",
+     "image": "nm-c6-l1.webp",
+     "caption": {
+      "fr": "La famille de Charles IV",
+      "en": "The Family of Charles IV",
+      "ko": "카를로스 4세의 가족"
+     },
+     "credit": "La Famille de Charles IV, 1800–1801 · Francisco de Goya, musée du Prado · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:La_familia_de_Carlos_IV.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -900,6 +913,19 @@
       "ko": "에르푸르트"
      },
      "address": "Thuringe, au cœur de l'Allemagne"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "nm-c6-l2.webp",
+     "caption": {
+      "fr": "La bataille d'Iéna",
+      "en": "The Battle of Jena",
+      "ko": "예나 전투"
+     },
+     "credit": "Bataille d'Iéna, 14 octobre 1806, 1836 · Horace Vernet, château de Versailles · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Iena.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1396,6 +1422,19 @@
       "ko": "에르푸르트"
      },
      "address": "Thuringe, au cœur de l'Allemagne"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c6-l3.webp",
+     "caption": {
+      "fr": "Goethe reçu par Napoléon à Erfurt, 2 octobre 1808",
+      "en": "Goethe received by Napoleon at Erfurt, 2 October 1808",
+      "ko": "에르푸르트에서 나폴레옹을 만난 괴테, 1808년 10월 2일"
+     },
+     "credit": "Audience de Goethe chez Napoléon, 1828 · Illustriertes Kreuzerblatt · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Audienz_Goethe_Napoleon.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1855,6 +1894,19 @@
       "ko": "쇤브룬"
      },
      "address": "Vienne, Autriche"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c6-l4.webp",
+     "caption": {
+      "fr": "Plombières-les-Bains",
+      "en": "Plombières-les-Bains",
+      "ko": "플롱비에르레뱅"
+     },
+     "credit": "Plombières-les-Bains, Guide pittoresque du voyageur en France, 1838 · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Guide_pittoresque_079_Plombi%C3%A8res-les-Bains_cropped.jpg",
+     "exception": "pd-art"
     },
     {
      "after": 3,
@@ -2324,6 +2376,19 @@
       "ko": "쇤브룬"
      },
      "address": "Vienne, Autriche"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c6-l5.webp",
+     "caption": {
+      "fr": "Napoléon à Wagram",
+      "en": "Napoleon at Wagram",
+      "ko": "바그람의 나폴레옹"
+     },
+     "credit": "Bataille de Wagram, 6 juillet 1809, 1836 · Horace Vernet, château de Versailles · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Napoleon_Wagram.jpg",
+     "exception": "pd-art"
     },
     {
      "after": 2,
@@ -2819,6 +2884,18 @@
       "ko": "쇤브룬"
      },
      "address": "Vienne, Autriche"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "nm-c6-l6.webp",
+     "caption": {
+      "fr": "Le château de Rueil, près de Malmaison",
+      "en": "The château at Rueil, near Malmaison",
+      "ko": "말메종 근처 뤼에유 성"
+     },
+     "credit": "Veue du Chasteau de Ruel, XVIIe siècle · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_het_kasteel_van_Rueil,_RP-P-OB-74.307.jpg"
     }
    ],
    "status": {
@@ -3292,6 +3369,18 @@
       "ko": "님펜부르크"
      },
      "address": "Munich, Bavière"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "nm-c6-l7.webp",
+     "caption": {
+      "fr": "Le château et les jardins de Fontainebleau",
+      "en": "The palace and gardens of Fontainebleau",
+      "ko": "퐁텐블로 궁전과 정원"
+     },
+     "credit": "Vue et perspective du château et du jardin de Fontainebleau, vers 1690 · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_het_paleis_en_de_tuinen_van_Fontainebleau,_RP-P-1957-606-167.jpg"
     }
    ],
    "status": {

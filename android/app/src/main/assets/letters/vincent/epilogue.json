@@ -52,7 +52,34 @@
     }
    ],
    "words": [],
-   "moments": [],
+   "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "vm-e1.webp",
+     "caption": {
+      "fr": "Racines d'arbres, Auvers, juillet 1890",
+      "en": "Tree roots, Auvers, July 1890",
+      "ko": "나무뿌리, 오베르, 1890년 7월"
+     },
+     "credit": "Racines d'arbres, 1890 · Van Gogh Museum, Amsterdam · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Boomwortels_-_s0195V1962_-_Van_Gogh_Museum.jpg",
+     "exception": "pd-art"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "vm-e1-2.webp",
+     "caption": {
+      "fr": "Camille Corot, Ville-d'Avray (vers 1867)",
+      "en": "Camille Corot, Ville-d'Avray (c. 1867)",
+      "ko": "카미유 코로, 〈빌다브레〉 (1867년 무렵)"
+     },
+     "credit": "Ville-d'Avray, vers 1867 · Camille Corot · National Gallery of Art, Washington · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Jean-Baptiste_Camille_Corot_-_Ville-d%E2%80%99Avray.jpg",
+     "exception": "pd-art"
+    }
+   ],
    "replies": [
     {
      "quote": 0,

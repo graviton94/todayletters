@@ -331,6 +331,18 @@
       "ko": "베로나"
      },
      "address": "Vénétie, sur l'Adige"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c2-l1.webp",
+     "caption": {
+      "fr": "Vue de Vérone",
+      "en": "View of Verona",
+      "ko": "베로나 풍경"
+     },
+     "credit": "Verona. Ville de l'état de Venise, 1704 · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_Verona_Verona._Ville_de_l%27etat_de_Venise_(titel_op_object),_RP-P-2018-1233.jpg"
     }
    ],
    "status": {
@@ -767,6 +779,19 @@
       "ko": "모데나"
      },
      "address": "Émilie, entre Bologne et Parme"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "nm-c2-l2.webp",
+     "caption": {
+      "fr": "Le Rêve du bonheur",
+      "en": "The Dream of Happiness",
+      "ko": "행복의 꿈"
+     },
+     "credit": "Le Rêve du bonheur, 1819 · Constance Mayer, musée du Louvre · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Le_R%C3%AAve_du_bonheur_-_Constance_Mayer-Lamartini%C3%A8re_-_Mus%C3%A9e_du_Louvre_Peintures_INV_6586_;_L_3735.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1181,6 +1206,18 @@
       "ko": "베로나"
      },
      "address": "Vénétie, sur l'Adige"
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "nm-c2-l3.webp",
+     "caption": {
+      "fr": "Jeune femme écrivant une lettre",
+      "en": "A young woman writing a letter",
+      "ko": "편지를 쓰는 젊은 여인"
+     },
+     "credit": "Jeune femme écrivant une lettre (La boîte aux lettres), 1838 · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Jonge_vrouw_schrijft_een_brief_in_de_kapsalon,_RP-P-OB-40.895.jpg"
     }
    ],
    "status": {
@@ -1596,6 +1633,18 @@
       "ko": "밀라노"
      },
      "address": "Lombardie · palais Serbelloni"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c2-l4.webp",
+     "caption": {
+      "fr": "La cathédrale de Milan",
+      "en": "Milan Cathedral",
+      "ko": "밀라노 대성당"
+     },
+     "credit": "Façade de la cathédrale de Milan, vers 1800 · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_de_kathedraal_van_Milaan,_RP-P-1905-6047.jpg"
     }
    ],
    "status": {
@@ -2010,6 +2059,18 @@
       "ko": "밀라노"
      },
      "address": "Lombardie · palais Serbelloni"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c2-l5.webp",
+     "caption": {
+      "fr": "Le général Berthier",
+      "en": "General Berthier",
+      "ko": "베르티에 장군"
+     },
+     "credit": "Portrait de Louis-Alexandre Berthier, maréchal de France, 1806 · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Portret_van_Louis_Alexandre_Berthier,_maarschalk_van_Frankrijk,_RP-P-1908-4517.jpg"
     }
    ],
    "status": {
@@ -2434,6 +2495,18 @@
       "ko": "안코나"
      },
      "address": "Marches, port sur l'Adriatique"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c2-l6.webp",
+     "caption": {
+      "fr": "L'arc de Trajan à Ancône",
+      "en": "The Arch of Trajan at Ancona",
+      "ko": "안코나의 트라야누스 개선문"
+     },
+     "credit": "Arco di Traiano in Ancona, 1748 · Giovanni Battista Piranesi, National Gallery of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Giovanni_Battista_Piranesi,_Arco_di_Trajoano_in_Ancona,_1748,_NGA_125687.jpg"
     }
    ],
    "status": {
@@ -2844,6 +2917,19 @@
       "ko": "톨렌티노"
      },
      "address": "Marches, dans les collines"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c2-l7.webp",
+     "caption": {
+      "fr": "Le traité de Tolentino",
+      "en": "The Treaty of Tolentino",
+      "ko": "톨렌티노 조약"
+     },
+     "credit": "Traité de Tolentino, 1835 · France militaire (Abel Hugo) · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Treaty_of_Tolentino,_1797.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {

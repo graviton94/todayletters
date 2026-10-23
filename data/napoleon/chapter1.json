@@ -383,6 +383,18 @@
      "address": "Ligurie, au bord de la mer"
     },
     {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c1-l1.webp",
+     "caption": {
+      "fr": "Le quartier général quitte Nice, 28 mars 1796",
+      "en": "Headquarters leaving Nice, 28 March 1796",
+      "ko": "니스를 떠나는 사령부, 1796년 3월 28일"
+     },
+     "credit": "Départ de Nice du quartier général (28 mars 1796), vers 1829 · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Vertrek_van_het_Franse_militaire_hoofdkwartier_uit_Nice_op_28_maart_1796,_RP-P-1906-506.jpg"
+    },
+    {
      "after": 4,
      "type": "music",
      "piece": {
@@ -810,6 +822,18 @@
       "ko": "알벤가"
      },
      "address": "Ligurie, quartier général"
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "nm-c1-l2.webp",
+     "caption": {
+      "fr": "Un officier retenant son cheval",
+      "en": "An officer reining in his horse",
+      "ko": "말을 붙잡은 장교"
+     },
+     "credit": "Officier retenant un cheval · Carle Vernet, The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:A_Dismounted_Horse_Reined_in_by_an_Officer_MET_DP882174.jpg"
     }
    ],
    "status": {
@@ -1224,6 +1248,18 @@
       "en": "Bonaparte is still at Albenga · 7 April 1796",
       "ko": "보나파르트가 아직 알벤가에 있어요 · 1796년 4월 7일"
      }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "nm-c1-l3.webp",
+     "caption": {
+      "fr": "Vue de Gênes",
+      "en": "View of Genoa",
+      "ko": "제노바 풍경"
+     },
+     "credit": "Vue de Gênes, XVIIe siècle · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_Genua,_RP-P-2014-57-3.jpg"
     }
    ],
    "status": {
@@ -1643,6 +1679,19 @@
       "ko": "카루"
      },
      "address": "Piémont"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c1-l4.webp",
+     "caption": {
+      "fr": "La bataille de Mondovi, 21 avril 1796",
+      "en": "The Battle of Mondovì, 21 April 1796",
+      "ko": "몬도비 전투, 1796년 4월 21일"
+     },
+     "credit": "Bataille de Mondovi, gravure d'après Carle Vernet, vers 1800 · Bibliothèque nationale de France · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Bataille_de_Mondovi,_le_3_(i.e._2)_Floreal,_An_4_-_estampe_-_Dessin%C3%A9_par_Carle_Vernet_;_Grav%C3%A9_%C3%A0_l%27eau_forte_par_Duplessi-Bertaux_;_Termin%C3%A9_par_L.J._Masquelier_l%27ain%C3%A9_-_btv1b6953505z.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2063,6 +2112,18 @@
       "ko": "토르토나"
      },
      "address": "Piémont"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "nm-c1-l5.webp",
+     "caption": {
+      "fr": "Sur la route de poste",
+      "en": "On the post road",
+      "ko": "역마차가 달리는 길"
+     },
+     "credit": "Route de poste, 1817 · Philibert-Louis Debucourt, The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Route_de_Poste_Met_DP887959.jpg"
     }
    ],
    "status": {
@@ -2481,6 +2542,19 @@
       "ko": "피스토이아"
      },
      "address": "Toscane"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c1-l6.webp",
+     "caption": {
+      "fr": "Fête sur la place Saint-François de Pistoia, 1791",
+      "en": "A festival in Piazza San Francesco, Pistoia, 1791",
+      "ko": "피스토이아 산프란체스코 광장의 축제, 1791"
+     },
+     "credit": "Prospetto dell'anfiteatro nella Piazza di S. Francesco di Pistoia, 1791 · Bibliothèque nationale de France · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Prospetto_dell%27_anfiteatro_eretto_nella_Piazza_di_S._Francesco_di_Pistoia,_e_dello_spettacolo_ivi_rappresentato_l%27anno_1791_in_occasione_della_festa_di_S._Jacopo_Apostolo,_umiliato_alla_Communit%C3%A0_civica..._-_btv1b532511844_(1_of_2).jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2901,6 +2975,19 @@
       "ko": "마르미롤로"
      },
      "address": "près de Mantoue"
+    },
+    {
+     "after": 5,
+     "type": "photo",
+     "image": "nm-c1-l7.webp",
+     "caption": {
+      "fr": "Jeune femme tenant un carlin",
+      "en": "A young lady holding a pug",
+      "ko": "퍼그를 안은 젊은 여인"
+     },
+     "credit": "Jeune femme tenant un carlin, 1745 · François Boucher · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois_Boucher_-_A_young_lady_holding_a_pug_dog_-_Google_Art_Project.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {

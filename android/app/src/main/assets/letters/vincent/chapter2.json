@@ -724,6 +724,19 @@
       "en": "A street in Saintes-Maries",
       "ko": "생트마리의 거리"
      }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "vm-c2-l2.webp",
+     "caption": {
+      "fr": "Croquis de la Manga de Hokusai (1817)",
+      "en": "Sketches from Hokusai's Manga (1817)",
+      "ko": "호쿠사이 『만화』의 스케치 (1817)"
+     },
+     "credit": "Hokusai Manga, vol. 6, 1817 · Katsushika Hokusai · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Hokusai_sketches_-_hokusai_manga_vol6.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1124,6 +1137,19 @@
       "en": "The Sower",
       "ko": "씨 뿌리는 사람"
      }
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "vm-c2-l3.webp",
+     "caption": {
+      "fr": "Le Semeur de Millet (1850)",
+      "en": "Millet's Sower (1850)",
+      "ko": "밀레의 〈씨 뿌리는 사람〉 (1850)"
+     },
+     "credit": "Le Semeur, 1850 · Jean-François Millet · Museum of Fine Arts, Boston · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Jean-Fran%C3%A7ois_Millet_-_The_Sower_-_Google_Art_Project.jpg",
+     "exception": "pd-art"
     },
     {
      "after": 4,
@@ -2314,6 +2340,19 @@
       "en": "Sent to Theo · the drawings of Escalier and of Roulin the postman",
       "ko": "테오에게 보냄 · 에스칼리에와 우편배달부 룰랭의 드로잉"
      }
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "vm-c2-l6.webp",
+     "caption": {
+      "fr": "L'Homme à la houe de Millet (1860–1862)",
+      "en": "Millet's Man with a Hoe (1860–1862)",
+      "ko": "밀레의 〈괭이를 든 남자〉 (1860–1862)"
+     },
+     "credit": "L'Homme à la houe, 1860–1862 · Jean-François Millet · J. Paul Getty Museum · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Jean-Fran%C3%A7ois_Millet_-_L%27Homme_%C3%A0_la_houe_(1860-62).jpg",
+     "exception": "pd-art"
     },
     {
      "after": 2,

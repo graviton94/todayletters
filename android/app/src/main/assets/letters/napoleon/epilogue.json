@@ -461,6 +461,18 @@
       "ko": "롱우드"
      },
      "address": "Île de Sainte-Hélène, Atlantique Sud"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-e1.webp",
+     "caption": {
+      "fr": "Vue de l'île de Sainte-Hélène",
+      "en": "View of the island of St Helena",
+      "ko": "세인트헬레나섬 풍경"
+     },
+     "credit": "2e vue de l'isle de Sainte-Hélène, vers 1800 · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_Sint-Helena_2eme_vue_de_l%27isle_de_S.te_Helene_(titel_op_object),_RP-P-1909-1702.jpg"
     }
    ],
    "status": {

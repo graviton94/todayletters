@@ -944,6 +944,19 @@
       "en": "Pietà, after Delacroix",
       "ko": "피에타, 들라크루아를 따라"
      }
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "vm-c7-l2.webp",
+     "caption": {
+      "fr": "La Pietà de Delacroix, l'original (vers 1850)",
+      "en": "Delacroix's Pietà, the original (c. 1850)",
+      "ko": "들라크루아의 〈피에타〉 원작 (1850년 무렵)"
+     },
+     "credit": "Pietà, vers 1850 · Eugène Delacroix · Nasjonalmuseet, Oslo · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Eug%C3%A8ne_Delacroix_-_Piet%C3%A0_-_NG.M.01179_-_National_Museum_of_Art,_Architecture_and_Design.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1437,6 +1450,19 @@
     }
    ],
    "moments": [
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "vm-c7-l3.webp",
+     "caption": {
+      "fr": "Le Christ au jardin des Oliviers de Gauguin (1889)",
+      "en": "Gauguin's Christ in the Garden of Olives (1889)",
+      "ko": "고갱의 〈올리브 동산의 그리스도〉 (1889)"
+     },
+     "credit": "Le Christ au jardin des Oliviers, 1889 · Paul Gauguin · Norton Museum of Art, West Palm Beach · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Paul_Gauguin_-_Christ_and_the_Garden_of_Olives.jpg",
+     "exception": "pd-art"
+    },
     {
      "after": 1,
      "type": "weather",
@@ -3443,6 +3469,18 @@
      },
      "credit": "Roses, 1890 · domaine public",
      "source": "https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Vase_of_Roses.jpg"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "vm-c7-l7.webp",
+     "caption": {
+      "fr": "Georges Seurat, Parade de cirque (1887–1888)",
+      "en": "Georges Seurat, Circus Sideshow (1887–1888)",
+      "ko": "조르주 쇠라, 〈서커스 선전 공연〉 (1887–1888)"
+     },
+     "credit": "Parade de cirque, 1887–1888 · Georges Seurat · The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Circus_Sideshow_(Parade_de_cirque)_MET_DP375450_cropped.jpg"
     },
     {
      "after": 3,

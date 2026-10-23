@@ -431,6 +431,19 @@
       "ko": "6프랑 대신"
      },
      "outgoing": true
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "vm-c8-l1.webp",
+     "caption": {
+      "fr": "Un bouquet de Cézanne : Dahlias dans un grand vase de Delft",
+      "en": "A bouquet by Cézanne: Dahlias in a large Delft vase",
+      "ko": "세잔의 꽃다발 · 〈델프트 큰 꽃병의 달리아〉"
+     },
+     "credit": "Dahlias dans un grand vase de Delft, vers 1873 · Paul Cézanne · Musée d'Orsay, Paris · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Paul_C%C3%A9zanne_-_Dahlias_dans_un_grand_vase_de_Delft.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1938,6 +1951,18 @@
       "en": "Stairway at Auvers",
       "ko": "오베르의 계단"
      }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "vm-c8-l4.webp",
+     "caption": {
+      "fr": "Une affiche de Chéret : Apéritif Mugnier (1890)",
+      "en": "A poster by Chéret: Apéritif Mugnier (1890)",
+      "ko": "셰레의 포스터 · 〈아페리티프 뮈니에〉 (1890)"
+     },
+     "credit": "Apéritif Mugnier, affiche, 1890 · Jules Chéret · Bibliothèque nationale de France · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Ap%C3%A9ritif_Mugnier_affiche,_Jules_Ch%C3%A9ret_90.jpg"
     }
    ],
    "status": {
@@ -3416,6 +3441,18 @@
     }
    ],
    "moments": [
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "vm-c8-l7.webp",
+     "caption": {
+      "fr": "Gauguin en Bretagne : Bretonnes dansant, Pont-Aven (1888)",
+      "en": "Gauguin in Brittany: Breton Girls Dancing, Pont-Aven (1888)",
+      "ko": "브르타뉴의 고갱 · 〈춤추는 브르타뉴 소녀들, 퐁타벤〉 (1888)"
+     },
+     "credit": "Breton Girls Dancing, Pont-Aven, 1888 · Paul Gauguin · National Gallery of Art, Washington · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Paul_Gauguin,_Breton_Girls_Dancing,_Pont-Aven,_1888,_NGA_61369.jpg"
+    },
     {
      "after": 2,
      "type": "sketch",

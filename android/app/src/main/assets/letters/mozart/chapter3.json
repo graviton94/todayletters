@@ -365,6 +365,18 @@
       "ko": "아리아 「Non so d'onde viene」 K. 294"
      },
      "commons": null
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "mm-c3-l1.webp",
+     "caption": {
+      "de": "Abschied an der Tür, aus dem „Monument du costume“ (1777)",
+      "en": "Farewell at the door, from the Monument du costume (1777)",
+      "ko": "문 앞의 작별 (『의상 기념비』 중, 1777)"
+     },
+     "credit": "Les Adieux (Le Monument du costume), 1777 · Jean-Michel Moreau · The Metropolitan Museum of Art · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Les_Adieux,_from_Le_Monument_du_Costume_MET_DT225518.jpg"
     }
    ],
    "status": {
@@ -841,6 +853,18 @@
     }
    ],
    "moments": [
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "mm-c3-l2.webp",
+     "caption": {
+      "de": "Musik im Pariser Salon: „L'Accord parfait“ (1777)",
+      "en": "Music in a Paris salon: L'Accord parfait (1777)",
+      "ko": "파리 살롱의 음악: 〈완전한 화음〉 (1777)"
+     },
+     "credit": "L'Accord parfait, 1777 · Isidore-Stanislas Helman nach Jean-Michel Moreau · Musée Carnavalet, Paris · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:L%27accord_parfait,_G.187(1).jpg"
+    },
     {
      "after": 3,
      "type": "music",
@@ -1338,6 +1362,18 @@
      "icon": "sun"
     },
     {
+     "after": 1,
+     "type": "photo",
+     "image": "mm-c3-l3.webp",
+     "caption": {
+      "de": "Ein Konzert in Paris, nach Augustin de Saint-Aubin (1774)",
+      "en": "A concert in Paris, after Augustin de Saint-Aubin (1774)",
+      "ko": "파리의 음악회 (오귀스탱 드 생토뱅 원화, 1774)"
+     },
+     "credit": "Le concert, 1774 · Antoine-Jean Duclos nach Augustin de Saint-Aubin · National Gallery of Art, Washington · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Antoine-Jean_Duclos_after_Augustin_de_Saint-Aubin,_Le_concert,_1774,_NGA_3092.jpg"
+    },
+    {
      "after": 3,
      "type": "music",
      "piece": {
@@ -1798,6 +1834,19 @@
       "en": "Anna Maria Mozart died in Paris on 3 July 1778",
       "ko": "안나 마리아 모차르트, 1778년 7월 3일 파리에서 세상을 떠남"
      }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "mm-c3-l4.webp",
+     "caption": {
+      "de": "Madame d'Épinay, in deren Haus Mozart nun wohnt",
+      "en": "Madame d'Épinay, in whose house Mozart now lives",
+      "ko": "모차르트가 이제 머무는 집의 주인, 데피네 부인"
+     },
+     "credit": "Madame d'Épinay, um 1759 · Jean-Étienne Liotard · Musée d'art et d'histoire, Genf · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Louise_d%27Epinay_Liotard.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2253,6 +2302,18 @@
       "en": "Written at Saint-Germain, not in Paris",
       "ko": "파리가 아니라 생제르맹에서 쓴 편지"
      }
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c3-l5.webp",
+     "caption": {
+      "de": "Das Schloss von Saint-Germain-en-Laye",
+      "en": "The château of Saint-Germain-en-Laye",
+      "ko": "생제르맹앙레 성"
+     },
+     "credit": "Vuë du Chateau de St. Germain en Laye, 18. Jh. · Rijksmuseum, Amsterdam · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_het_Ch%C3%A2teau_de_Saint-Germain-en-Laye_Vu%C3%AB_du_Chateau_de_St._Germain_en_Laye_(titel_op_object),_RP-P-1925-1222.jpg"
     },
     {
      "after": 4,
@@ -2728,6 +2789,18 @@
    ],
    "moments": [
     {
+     "after": 3,
+     "type": "photo",
+     "image": "mm-c3-l6.webp",
+     "caption": {
+      "de": "Baron Friedrich Melchior Grimm, Mozarts Gastgeber in Paris",
+      "en": "Baron Friedrich Melchior Grimm, Mozart's host in Paris",
+      "ko": "파리에서 모차르트를 맞아 준 프리드리히 멜히오르 그림 남작"
+     },
+     "credit": "Portret van baron Friedrich Melchior Grimm, 1807–1841 · Rijksmuseum, Amsterdam · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Portret_van_baron_Friedrich_Melchior_Grimm,_RP-P-1920-405.jpg"
+    },
+    {
      "after": 4,
      "type": "music",
      "piece": {
@@ -3186,6 +3259,18 @@
       "en": "On the way home · Strasbourg",
       "ko": "집으로 가는 길 · 슈트라스부르"
      }
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c3-l7.webp",
+     "caption": {
+      "de": "Straßburg, Kupferstich von 1737",
+      "en": "Strasbourg, engraving, 1737",
+      "ko": "슈트라스부르 (1737년 동판화)"
+     },
+     "credit": "Gezicht op Straatsburg, 1737 · Rijksmuseum, Amsterdam · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_Straatsburg,_RP-P-2018-3005.jpg"
     },
     {
      "after": 4,

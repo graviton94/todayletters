@@ -358,6 +358,18 @@
      }
     },
     {
+     "after": 0,
+     "type": "photo",
+     "image": "mm-c5-l1.webp",
+     "caption": {
+      "de": "Der Hohe Markt in Wien (Carl Schütz, 1793)",
+      "en": "The Hoher Markt, Vienna (Carl Schütz, 1793)",
+      "ko": "빈의 호어 마르크트 (카를 쉬츠, 1793)"
+     },
+     "credit": "Hoher Markt, 1793 · Carl Schütz · Wien Museum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Hoher_Markt,_Vienna_(1793).jpg"
+    },
+    {
      "after": 3,
      "type": "transfer",
      "amount": "3 Ducaten",
@@ -843,6 +855,19 @@
       "en": "Old Madame Weber was so kind as to take me into her house.",
       "ko": "나이 든 베버 부인이 친절하게도 제게 집을 내주었어요."
      }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "mm-c5-l2.webp",
+     "caption": {
+      "de": "Wien aus der Vogelschau, Plan von Joseph Daniel Huber (1778)",
+      "en": "Vienna from above, plan by Joseph Daniel Huber (1778)",
+      "ko": "하늘에서 본 빈 (요제프 다니엘 후버의 조감도, 1778)"
+     },
+     "credit": "Vogelschauplan von Wien, 1778 · Joseph Daniel Huber · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Wien-1773_(1778)-Huber.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1310,6 +1335,19 @@
       "en": "The end of the Salzburg service",
       "ko": "잘츠부르크 궁정 근무의 끝"
      }
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "mm-c5-l3.webp",
+     "caption": {
+      "de": "Wien mit der Karlskirche, gemalt von Bernardo Bellotto",
+      "en": "Vienna with the Karlskirche, painted by Bernardo Bellotto",
+      "ko": "베르나르도 벨로토가 그린 빈의 카를 성당"
+     },
+     "credit": "Wien, Karlskirche, 18. Jh. · Bernardo Bellotto · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Bernardo_Bellotto_Wien_Karlskirche.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -1781,6 +1819,19 @@
       "en": "The subject, as Nohl prints it: 'Belmont und Konstanze, oder: Die Verführung aus dem Serail'",
       "ko": "제목(놀의 판 그대로): 「벨몬트와 콘스탄체, 또는 후궁으로부터의 유혹」"
      }
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "mm-c5-l4.webp",
+     "caption": {
+      "de": "Eine Türkin, gemalt von Jean-Baptiste Vanmour",
+      "en": "A Turkish woman, painted by Jean-Baptiste Vanmour",
+      "ko": "장바티스트 반무르가 그린 오스만 여인"
+     },
+     "credit": "Turkse vrouw, 1720–1737 · Jean-Baptiste Vanmour · Rijksmuseum, Amsterdam · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Turkse_vrouw_Rijksmuseum_SK-A-2041.jpeg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2240,6 +2291,19 @@
       "ko": "오스민의 아리아 「Solche hergelauf'ne Laffen」 (「후궁으로부터의 유괴」)"
      },
      "commons": null
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "mm-c5-l5.webp",
+     "caption": {
+      "de": "Osmanische Musikerinnen, Miniatur aus dem Surname-i Vehbi (um 1720)",
+      "en": "Ottoman women musicians, miniature from the Surname-i Vehbi (c. 1720)",
+      "ko": "오스만의 여성 악사들 (『수르나메이 베흐비』 세밀화, 1720년경)"
+     },
+     "credit": "Surname-i Vehbi, fol. 17b (Detail), um 1720 · Levni · Topkapı-Palast, Istanbul · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Detail_of_Turkish_musicians_from_Surname_17b.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2701,6 +2765,19 @@
       "en": "Nohl: Nissen had printed this paragraph under the letter of 26 Sept. 1781.",
       "ko": "놀의 각주: 니센은 이 단락을 1781년 9월 26일 편지에 붙여 실었어요."
      }
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "mm-c5-l6.webp",
+     "caption": {
+      "de": "„Die eingebildeten Philosophen“: Paisiello in Stephanies Übersetzung (Wien 1781)",
+      "en": "Die eingebildeten Philosophen: Paisiello in Stephanie's translation (Vienna 1781)",
+      "ko": "슈테파니가 옮긴 파이시엘로의 〈상상의 철학자들〉 (빈, 1781)"
+     },
+     "credit": "Die eingebildeten Philosophen, Libretto, 1781 · Gottlieb Stephanie d. J. · Library of Congress · gemeinfrei",
+     "source": "https://commons.wikimedia.org/wiki/File:Paisiello_-_Gli_astrologi_immaginari_-_Die_eingebildeten_Philosophen_-_title_page_of_the_libretto,_Vienna_1781.png",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -3200,6 +3277,18 @@
      "audioLicense": "CC BY-SA 2.0",
      "audioSource": "https://commons.wikimedia.org/wiki/File:Wolfgang_Amadeus_Mozart_-_Serenade_K.375_-_3._Adagio.ogg",
      "excerpt": "60 s excerpt, faded and level-matched"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "mm-c5-l7.webp",
+     "caption": {
+      "de": "Straßenmusikanten (1775)",
+      "en": "Street musicians (1775)",
+      "ko": "거리의 악사들 (1775)"
+     },
+     "credit": "Straatmuzikanten, 1775 · Rijksmuseum, Amsterdam · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Straatmuzikanten,_RP-P-2002-224.jpg"
     }
    ],
    "status": {

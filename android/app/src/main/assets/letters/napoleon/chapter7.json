@@ -411,6 +411,18 @@
       "ko": "트리아농"
      },
      "address": "Parc de Versailles"
+    },
+    {
+     "after": 0,
+     "type": "photo",
+     "image": "nm-c7-l1.webp",
+     "caption": {
+      "fr": "Le divorce de Napoléon et de Joséphine",
+      "en": "The divorce of Napoleon and Joséphine",
+      "ko": "나폴레옹과 조제핀의 이혼"
+     },
+     "credit": "Divorce de Napoléon et de Joséphine, après 1809 · Bosselman d'après Charles-Abraham Chasselat, musée Carnavalet · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Divorce_de_Naopl%C3%A9on_et_de_Jos%C3%A9phine,_G.34222.jpg"
     }
    ],
    "status": {
@@ -920,6 +932,18 @@
       "ko": "트리아농"
      },
      "address": "Parc de Versailles"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "nm-c7-l2.webp",
+     "caption": {
+      "fr": "Une chasse au cerf",
+      "en": "A stag hunt",
+      "ko": "사슴 사냥"
+     },
+     "credit": "Chasse au cerf dans un paysage de montagne · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Hertenjacht_in_een_bergachtig_landschap,_RP-T-1898-A-3583.jpg"
     }
    ],
    "status": {
@@ -1377,6 +1401,18 @@
       "ko": "튀일리 궁"
      },
      "address": "Paris, au bord de la Seine"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "nm-c7-l3.webp",
+     "caption": {
+      "fr": "La grande parade dans la cour des Tuileries",
+      "en": "The grand parade in the courtyard of the Tuileries",
+      "ko": "튈르리 궁 안뜰의 대열병"
+     },
+     "credit": "Vue de la grande parade par l'Empereur dans la cour du palais des Tuileries, vers 1810 · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_een_parade_voor_het_Palais_des_Tuileries,_RP-P-1948-271.jpg"
     }
    ],
    "status": {
@@ -1837,6 +1873,19 @@
       "ko": "튀일리 궁"
      },
      "address": "Paris, au bord de la Seine"
+    },
+    {
+     "after": 2,
+     "type": "photo",
+     "image": "nm-c7-l4.webp",
+     "caption": {
+      "fr": "Une plante du Jardin de la Malmaison",
+      "en": "A plant from the Jardin de la Malmaison",
+      "ko": "〈말메종 정원〉의 식물"
+     },
+     "credit": "Jardin de la Malmaison, pl. 117, 1804 · Pierre-Joseph Redouté · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:P.J._Redout%C3%A9_botanical_illustration_from_Jardin_de_la_Malmaison_vol._2_t._117,_Ventenat_E.P_1804.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -2347,6 +2396,18 @@
       "ko": "부르제 호수"
      },
      "address": "Aix-les-Bains, Savoie"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "nm-c7-l5.webp",
+     "caption": {
+      "fr": "Aix-les-Bains et l'arc de Campanus",
+      "en": "Aix-les-Bains and the Arch of Campanus",
+      "ko": "엑스레뱅과 캄파누스 아치"
+     },
+     "credit": "Plan d'Aix-les-Bains et l'arc de Campanus, vers 1690 · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Plattegrond_van_Aix-les-Bains_en_een_gezicht_op_de_Arc_de_Campanus,_RP-P-1908-280.jpg"
     }
    ],
    "status": {
@@ -2828,6 +2889,19 @@
       "ko": "튀일리 궁"
      },
      "address": "Paris, au bord de la Seine"
+    },
+    {
+     "after": 1,
+     "type": "photo",
+     "image": "nm-c7-l6.webp",
+     "caption": {
+      "fr": "Le cortège du baptême du roi de Rome",
+      "en": "The procession for the baptism of the King of Rome",
+      "ko": "로마 왕의 세례식 행렬"
+     },
+     "credit": "Cortège du baptême du roi de Rome, 1811 · Jean-François Garneray · domaine public",
+     "source": "https://commons.wikimedia.org/wiki/File:Cort%C3%A8ge_du_bapt%C3%AAme_du_roi_de_Rome.jpg",
+     "exception": "pd-art"
     }
    ],
    "status": {
@@ -3292,6 +3366,18 @@
      },
      "commons": null,
      "_note": "오르탕스가 지은 노래. 훗날 그녀의 아들 나폴레옹 3세 때 제2제정의 사실상 국가가 돼요. 녹음 공용 파일 [미확인]."
+    },
+    {
+     "after": 3,
+     "type": "photo",
+     "image": "nm-c7-l7.webp",
+     "caption": {
+      "fr": "Un costume de femme normande",
+      "en": "A Normandy woman's costume",
+      "ko": "노르망디 여인의 옷차림"
+     },
+     "credit": "Costumes des femmes du pays de Caux : costume d'Étrépagny, 1827 · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Costumes_des_femmes_du_Pays_de_Caux,_et_de_plusieurs_autres_parties_de_l%E2%80%99ancienne_province_de_Normandie,_1827,_No._94_Costume_d%27Etrepagny,_RP-P-2009-1679.jpg"
     }
    ],
    "status": {
