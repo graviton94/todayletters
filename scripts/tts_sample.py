@@ -3,13 +3,14 @@
 원어 · 영어 · 한국어로, 목소리마다 하나씩 만든다. 듣고 배역을 고르기 위한 것.
 목소리 적는 법: "M3" (하나), "M1+M3@0.5" (두 결을 섞음, 뒤쪽 비율), "M1>M3>M5@0.7" (목소리 길 위의 자리),
 끝에 ":0.9" 를 붙이면 빠르기 (기본 0.9).
-높낮이는 손대지 않는다 (만든 뒤에 음을 옮기면 소리가 떨린다).
+높낮이는 기본으로 손대지 않는다 (만든 뒤에 음을 옮기면 소리가 떨린다). "F2:0.85^0.96" 처럼 "^" 뒤에 배율을 적으면
+narrate.py 의 save 와 같은 ffmpeg 필터 (asetrate · aresample · atempo, 감정 프리셋의 pitch 와 같은 셈) 로 옮긴다 (ffmpeg 필요).
 숨: 문장부호에서 0.35초, 메시지와 메시지 사이 0.9초.
 GitHub Actions 에서 돌려요: python scripts/tts_sample.py <supertonic/py> <assets> <출력 폴더> [목소리 …]
 환경 변수 SAMPLE_SERIES (기본 vincent), SAMPLE_FILE (data/<작품>/sample_letter.json 대신 읽을 파일, 예 data/voices/sample_es.json — 작품 데이터가 아직 없을 때)
 발췌 파일에 "langs" 가 있으면 그 언어만 (없으면 원어 · 영어 · 한국어).
 """
-import json, os, re, sys
+import json, os, re, subprocess, sys
 import os as _os, sys as _sys; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
 from abbrev import split_keep  # 줄임말 뒤에서는 끊지 않는다 (St. · Mr. · Hr. …)
 import numpy as np, soundfile as sf
@@ -72,8 +73,17 @@ def silence(s):
     return np.zeros(int(s * sr), dtype=np.float32)
 
 
+def shift(path, pitch):
+    """narrate.py save 와 같은 높낮이 옮기기 (길이는 그대로)."""
+    tmp = path + ".tmp.wav"
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", path, "-af",
+                    f"asetrate={int(sr * pitch)},aresample={sr},atempo={1 / pitch:.5f}", tmp], check=True)
+    os.replace(tmp, path)
+
+
 for lang in langs:
-    for spec in voices:
+    for full in voices:
+        spec, _, pitch = full.partition("^")
         style, speed = voice(spec)
         parts = [silence(0.4)]
         # by_voice: 목소리 이름(":" 앞)마다 따로 읽을 줄 (없으면 messages)
@@ -83,6 +93,9 @@ for lang in langs:
                 parts.append(wav[0, : int(sr * dur[0].item())].astype(np.float32))
                 parts.append(silence(0.35))
             parts[-1] = silence(0.9)
-        name = spec.replace("+", "-").replace(">", "-").replace("@", "_").replace(":", "_s")
-        sf.write(os.path.join(out, f"{series}_{lang}_{name}.wav"), np.concatenate(parts), sr)
-        print("ok", lang, spec, flush=True)
+        name = spec.replace("+", "-").replace(">", "-").replace("@", "_").replace(":", "_s") + (f"_p{pitch}" if pitch else "")
+        path = os.path.join(out, f"{series}_{lang}_{name}.wav")
+        sf.write(path, np.concatenate(parts), sr)
+        if pitch and float(pitch) != 1.0:
+            shift(path, float(pitch))
+        print("ok", lang, full, flush=True)

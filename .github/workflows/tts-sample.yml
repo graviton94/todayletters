@@ -21,8 +21,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
-      - name: Get Supertonic 3 (archived, pinned)
+      - name: Get Supertonic 3 (archived, pinned) and ffmpeg
         run: |
+          sudo apt-get install -y -qq ffmpeg >/dev/null
           git clone -q --depth 1 https://github.com/supertone-oss-archive/supertonic.git /tmp/st
           pip install -q huggingface_hub -r /tmp/st/py/requirements.txt
           hf download supertone-oss-archive/supertonic-3 --revision aafc6e32416a594460b32413efc49d7fe4ce6d46 --local-dir /tmp/st/assets
