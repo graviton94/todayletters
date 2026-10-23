@@ -1,0 +1,70 @@
+[
+ {
+  "file": "1.jpg",
+  "title": "File:Operngasse 20.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Operngasse_20.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Buchh%C3%A4ndler\" title=\"User:Buchhändler\">Buchhändler</a>",
+  "date": "2008",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+  "usage": "Creative Commons Attribution-Share Alike 3.0",
+  "description": "Majolikarelief Papageno von H. Revy, Papageno-Hof (1937), Operngasse 26, Wien-Wieden",
+  "categories": "GFDL|Heinrich Révy|CC-BY-SA-3.0,2.5,2.0,1.0|License migration redundant|Theater auf der Wieden|Papageno (Die Zauberflöte)|Self-published work|Reliefs in Vienna|1937 sculptures in Austria|Papagenohof",
+  "size": [
+   1646,
+   3064
+  ],
+  "query": "Freihaustheater Wieden"
+ },
+ {
+  "file": "2.jpg",
+  "title": "File:TheaterAufDerWiedenFloorplans.png",
+  "page": "https://commons.wikimedia.org/wiki/File:TheaterAufDerWiedenFloorplans.png",
+  "license": "Public domain",
+  "artist": "<span lang=\"en\">Anonymous</span><span style=\"display:none\">Unknown author</span>",
+  "date": "1789",
+  "credit": "Freihaustheater in Wien: 1787-1801 by Tadeusz Krzeszowiak; online at Google.  p. 125",
+  "usage": "Public domain",
+  "description": "Floor plans for the lower and upper levels of the Theater auf der Wieden, site of the premiere of Mozart's opera \"The Magic Flute.\"  A \"Klafter\", shown in the scale, is a unit of measure approx. 1.9 meters.  From the State Archives of Lower Austria in St. Poelten.",
+  "categories": "Theater auf der Wieden|PD-old-100-expired|PD-Art (PD-old-100-expired)|Floor plans of theaters|CC-PD-Mark|Floor plans of Vienna|PD-Art missing SDC copyright status|PD-old missing SDC copyright status",
+  "size": [
+   1022,
+   1436
+  ],
+  "query": "Freihaustheater Wieden"
+ },
+ {
+  "file": "3.jpg",
+  "title": "File:Operngasse Papagenohof.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:Operngasse_Papagenohof.JPG",
+  "license": "CC BY-SA 4.0",
+  "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Thomas_Ledl\" class=\"mw-redirect\" title=\"User:Thomas Ledl\">Thomas Ledl</a>",
+  "date": "2015-06-09 07:57:58",
+  "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+  "usage": "Creative Commons Attribution-Share Alike 4.0",
+  "description": "Operngasse Papagenohof",
+  "categories": "Taken with Panasonic Lumix DMC-G5|Heinrich Révy|Theater auf der Wieden|Self-published work|1937 sculptures in Austria|Images by Thomas Ledl|On OSM|Files with coordinates missing SDC location of creation|Taken with Panasonic Lumix G Vario 45-200mm F4.0-5.6 O.I.S.|Papagenohof",
+  "size": [
+   3456,
+   4608
+  ],
+  "query": "Freihaustheater Wieden"
+ },
+ {
+  "file": "4.jpg",
+  "title": "File:FreihausInVienna.PNG",
+  "page": "https://commons.wikimedia.org/wiki/File:FreihausInVienna.PNG",
+  "license": "Public domain",
+  "artist": "<span lang=\"en\">Anonymous</span><span style=\"display:none\">Unknown author</span>",
+  "date": "1789",
+  "credit": "Freihaustheater in Wien: 1787-1801 by Tadeusz Krzeszowiak; online at Google.  p. 123",
+  "usage": "Public domain",
+  "description": "Floorplan of the ground floor of the Freihaus, a complex of apartments and businesses in Vienna.  The complex also included the Theater auf der Wieden, site of the premiere of Mozart's opera \"The Magic Flute\".  The complex is shown as it existed in the late 18th century.  From the State Archives of Lower Austria in St. Poelten.",
+  "categories": "Opera houses in Austria|Wieden (Vienna)|Theaters in Vienna|PD-old-100-expired|PD-Art (PD-old-100-expired)|CC-PD-Mark|Freihaus auf der Wieden, Vienna|PD-Art missing SDC copyright status|PD-old missing SDC copyright status",
+  "size": [
+   1149,
+   1807
+  ],
+  "query": "Freihaustheater Wieden"
+ }
+]
