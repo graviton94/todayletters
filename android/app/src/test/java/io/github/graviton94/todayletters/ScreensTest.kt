@@ -747,12 +747,13 @@ class ScreensTest {
     @Test fun napoleonCover() { val s = state(true).also { fetchedLocally("napoleon", listOf("P", "I", "II")) }; shot("n02_cover_napoleon", true, 3000, series = s) { io.github.graviton94.todayletters.ui.SeriesCover(s, "napoleon") } }
     // ── 고야 (넷째 작품, 서문 + I장): '*ScreensTest.goya*'. 앱 안에는 대표 그림 · 초상만, 나머지는 저장소 remote/ 에서 files/ 로 (받은 것으로).
     private fun gstate(): AppState = state(true).also { fetchedLocally("goya", listOf("P", "I")) }
-    private fun goyaShown(s: AppState, n: Int) {
+    /** I장 [n] 번째 편지의 메시지 [shown] 개가 와 있는 것으로 (편지 방 맨 위가 보이게 앞 몇 개만). */
+    private fun goyaShown(s: AppState, n: Int, shown: Int = 2) {
         val c = s.work("goya").chapters.first(); val l = c.letters[n - 1]
-        s.save("goya", c.id, l.id, s.progress("goya", c.id, l.id).copy(shown = l.messages.size))
+        s.save("goya", c.id, l.id, s.progress("goya", c.id, l.id).copy(shown = shown))
     }
     /** 서재: 넷째 작품 고야 카드 (〈양산〉 · 붉은 황토 빛깔). */
-    @Test fun goyaLibrary() { val s = gstate(); shot("g01_library_goya", false, 3000) { LibraryTab(s) } }
+    @Test fun goyaLibrary() { val s = gstate(); shot("g01_library_goya", false, 3000, act = { rule.onRoot().performTouchInput { swipeUp() }; rule.mainClock.advanceTimeBy(600); rule.onRoot().performTouchInput { swipeUp() } }) { LibraryTab(s) } }
     /** 편지 방 I-1 (스페인어로 읽기): 문장마다 ‘원래 철자 ›’ 접힌 줄. */
     @Test fun goyaRoom() { val s = gstate(); s.enter("goya"); goyaShown(s, 1); shot("g02_room_c1l1", false, 4000, series = s) { Room(s, Route.Letter("goya", 1, 1)) } }
     /** 편지 방 I-1: 첫 문장의 ‘원래 철자’ 를 펼친 모습 (판본에 찍힌 dibiertas · bisites · á, 어두운 화면). */
