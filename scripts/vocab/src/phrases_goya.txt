@@ -1,0 +1,18 @@
+p1|0|campicos y buena vida|a few little fields and a good life|작은 밭과 좋은 삶|고야가 평생 되풀이한 꿈. -ico 는 아라곤 말투의 ‘작은’ 꼴이에요.|Goya's lifelong dream; -ico is the Aragonese ‘little’ ending.
+p2|0|tal vez|perhaps|아마|‘아마, 어쩌면’. 문장 앞에 와요.|‘Perhaps, maybe’; usually at the start.
+p3|0|parece que|it seems that|~인 것 같다|parecer + que: 보이는 대로 짐작할 때.|parecer + que: to say how things look.
+p4|0|Mi mujer|my wife|내 아내|mi 는 ‘나의’. 고야는 편지에서 아내를 늘 이렇게 불러요.|mi = my; Goya always calls her this in his letters.
+c1-l1|0|Me alegro|I'm glad|기뻐|alegrarse: ‘기뻐하다’. Me alegro que … 로 기쁜 까닭을 말해요.|alegrarse: to be glad; Me alegro (de) que … gives the reason.
+c1-l1|1|te doy gracias|I thank you|고마워|dar gracias: ‘고맙다고 하다’. 그냥 Gracias 라고도 해요.|dar gracias: to give thanks; plain Gracias also works.
+c1-l2|0|Infinitas gracias|endless thanks|끝없이 고마워|아주 큰 고마움. 오늘은 Muchas gracias 를 더 많이 써요.|Very warm thanks; today Muchas gracias is more common.
+c1-l2|2|ya estoy bueno|I'm well again now|이제 다 나았어|estar bueno: ‘(몸이) 괜찮다’. ya 는 ‘이제’.|estar bueno: to be well (in health); ya = now, already.
+c1-l3|0|De orden del señor|by order of Señor|~ 님의 지시에 따라|공식 글의 첫머리 말투예요.|A formal opening for an official note.
+c1-l3|1|su servidor|your servant|삼가 드림|옛 편지의 맺음말. 오늘날 Atentamente 와 비슷해요.|An old letter closing, like today's Atentamente.
+c1-l4|0|Querido Martín|Dear Martín|사랑하는 마르틴|편지 첫머리. 여자에게는 Querida.|A letter opening; to a woman, Querida.
+c1-l4|1|En fin|anyway|아무튼|말을 정리하고 넘어갈 때.|To wrap up and move on.
+c1-l5|0|por no tener tiempo|because I had no time|시간이 없어서|por + 동사원형: ‘~해서’ 까닭.|por + infinitive gives the reason.
+c1-l5|2|gracia de Dios|the grace of God|하느님 은혜|por la gracia de Dios: 고마운 일을 말할 때.|por la gracia de Dios: for a blessing.
+c1-l6|0|no necesito|I don't need|필요 없어|no + 동사: 부정. necesitar de 는 옛 말투예요.|no + verb makes it negative; necesitar de is old usage.
+c1-l6|1|todo lo demás|everything else|나머지는 다|lo demás: ‘나머지’.|lo demás: the rest.
+c1-l7|0|te lo estima infinito|is ever so grateful to you|네게 무척 고마워해|estimar: ‘소중히 여기다, 고마워하다’.|estimar: to value, to be grateful for.
+c1-l7|1|lo hagas|you do it|그렇게 해 줘|hacer 의 접속법. 부탁 · 바람에 써요.|Subjunctive of hacer, for requests and wishes.

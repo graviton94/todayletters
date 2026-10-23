@@ -2733,3 +2733,59 @@ A|name|A (a mark on the list)|A (목록에 붙인 기호)
 왕자|n|prince|왕의 아들
 강가|n|riverside, riverbank|강의 가장자리
 배#3|n|ship, boat|물 위로 다니는 탈것
+뙈기|n|plot (of land)|작은 땅 한 조각
+호아킨|name|Joaquín (a priest, Goya's schoolmaster)|호아킨 신부
+학교|n|school|배우는 곳
+기억하다|v|to remember|잊지 않다
+고마워하다|v|to be grateful|고맙게 여기다
+프란시스코|name|Francisco|프란시스코 (고야의 이름)
+크리스토포로|name|Christopher (Saint Christopher)|성 크리스토포로
+뒷면|n|back, reverse side|뒤쪽 면
+성모|n|the Virgin Mary|예수의 어머니 마리아
+시키다|v|to tell (someone) to do|일을 하게 하다
+귀찮다|adj|to be bothersome|성가시다
+넌지시|adv|indirectly, as a hint|드러나지 않게 살짝
+뻔하다|v|(-ㄹ 뻔하다) to nearly happen|하마터면 ~할 뻔하다
+코르넬리오|name|Cornelio|코르넬리오 (반데르고텐)
+반데르고텐|name|Vandergoten (director of the Royal Tapestry Factory)|왕립 태피스트리 공장 책임자
+님|n|(honorific) Mr, Ms|높여 부르는 말
+사바티니|name|Sabatini (court architect)|궁정 건축가
+지시|n|instruction, order|시킴, 명령
+기타|n|guitar|줄을 퉁기는 악기
+받들다|v|to serve, to respect|공경하여 모시다
+마르틴|name|Martín (Martín Zapater)|고야의 친구
+안토니오|name|Antonio (Antonio Ibáñez)|안토니오 이바녜스
+이바녜스|name|Ibáñez|안토니오 이바녜스
+새기다|v|to engrave|파서 그리다
+벨라스케스|name|Velázquez (painter)|17세기 스페인 화가
+골치|n|head (골치 아프다: troublesome)|머리 (골치 아프다: 성가시다)
+덮치다|v|to pounce on|갑자기 달려들다
+빈털터리|n|penniless person, someone left with nothing|가진 것 없는 사람
+구석|n|corner|모퉁이 안쪽
+쓸모없다|adj|to be useless|쓸 데가 없다
+구상|n|idea, design (of a picture)|어떻게 그릴지 생각함
+합치다|v|to put together|하나로 모으다
+달팽이|n|snail|껍데기를 진 느린 동물
+가치|n|value, worth|값어치
+푼어치|n|a penny's worth|아주 적은 값
+여유|n|spare time, ease|넉넉함
+왕세자|n|crown prince|왕의 자리를 이을 아들
+높이다|v|to honour, to raise|높게 하다
+은혜|n|grace, favour|고마운 도움
+복|n|blessing, good fortune|좋은 운
+더더욱|adv|all the more|더욱더
+귀족|n|nobleman, the nobility|신분이 높은 사람들
+칭찬|n|praise|잘했다는 말
+자격|n|right, qualification|그만한 조건
+앙심|n|grudge, spite|원한을 품은 마음
+필라르|name|the Pilar (Our Lady of the Pilar, Zaragoza)|사라고사의 필라르 성모
+프라이팬|n|frying pan|기름에 굽는 팬
+포도주|n|wine|포도로 만든 술
+가죽|n|leather|짐승의 껍질
+부대|n|sack, bag|자루
+굽다|v|to roast, to grill|불에 익히다
+꼬챙이|n|skewer, spit|끝이 뾰족한 막대
+등잔|n|oil lamp|기름 불을 켜는 그릇
+나머지|n|the rest|남은 것
+군더더기|n|something superfluous|쓸데없이 붙은 것
+무덤|n|grave|죽은 사람을 묻은 곳

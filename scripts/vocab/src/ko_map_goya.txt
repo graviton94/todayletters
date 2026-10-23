@@ -1,0 +1,2 @@
+# goya only (form=key), read after the shared map; see lemmatize.py / tl_lemma.py
+아내가=아내|가/JKS

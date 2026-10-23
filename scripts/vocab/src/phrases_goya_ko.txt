@@ -1,0 +1,18 @@
+p1|0|좋은 삶이면 돼|a good life is enough|좋은 삶이면 충분해|-(이)면 돼: ‘~이면 충분하다’.|-(이)면 돼 = … is enough.
+p2|0|그때 그대로겠지|you must be just as you were then|그때와 똑같겠지|-겠지: 짐작.|-겠지 = must be, I guess.
+p3|0|기억해 주신 것 같아|it seems (he) has remembered me|기억해 주셨나 봐|-(으)ㄴ 것 같아: 짐작. -시-: 높임.|-(으)ㄴ 것 같아 = it seems; -시- is honorific.
+p4|0|무척 고마워해|is ever so grateful|아주 고마워해|-어하다: 남의 마음을 말할 때.|-어하다 describes someone else's feeling.
+c1-l1|0|찾아가 준다니 기뻐|I'm glad you visit|가 준다니 기뻐|-다니: 들은 일에 대한 느낌.|-다니 reacts to news.
+c1-l1|1|더는 생각하지 않는 게 낫겠어|it's better not to think any more|그만 생각하는 게 좋겠어|-는 게 낫겠어: 더 나은 쪽을 고를 때.|-는 게 낫겠어 = it would be better to.
+c1-l2|0|끝없이 고마워|endless thanks|정말 고마워|끝없이: ‘끝이 없을 만큼’.|끝없이 = endlessly.
+c1-l2|2|이제 다 나았어|I'm all well now|이제 괜찮아|낫다 → 나았어 (ㅅ 불규칙).|낫다 → 나았어 (ㅅ-irregular).
+c1-l3|0|지시에 따라|according to the order|명령대로|-에 따라: ‘~대로’. 공식 글.|-에 따라 = according to (formal).
+c1-l3|0|내어 주십시오|please hand it over|건네주십시오|-(으)십시오: 가장 높은 부탁.|-(으)십시오 = the most formal request.
+c1-l4|0|사랑하는 마르틴|Dear Martín|친애하는 마르틴|편지 첫머리.|A letter opening.
+c1-l4|1|새로 나오는 대로|as they come out|나오면 바로|-는 대로: ‘~하자마자’.|-는 대로 = as soon as.
+c1-l5|0|시간이 없어서|because I had no time|바빠서|-어서: 까닭.|-어서 gives the reason.
+c1-l5|2|그런 복은 처음이었어|I'd never had such luck|처음 받은 복이었어|처음이다: ‘처음이다’.|처음이다 = to be the first time.
+c1-l6|0|많이 필요 없어|I don't need much|별로 필요 없어|필요 없다: ‘필요하지 않다’.|필요 없다 = not needed.
+c1-l6|1|나머지는 다|all the rest|남은 건 다|나머지: ‘남은 것’.|나머지 = the rest.
+c1-l7|0|전해 달래|(she) asks me to tell you|전해 달라고 해|-어 달래: 남의 부탁을 옮길 때.|-어 달래 passes on someone's request.
+c1-l7|1|그렇게 해 줘|please do so|그렇게 해 주라|-어 줘: 친한 사이의 부탁.|-어 줘 = a casual request.

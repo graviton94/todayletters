@@ -10,6 +10,7 @@ def sfx(lang,orig): return '' if lang==orig else '_'+lang
 def letters(s):
     out=[]
     for f,c in zip(FILES,CH):
+        if not os.path.exists(f'{R}/{s}/{f}.json'): continue   # 작업 중인 작품: 아직 없는 장
         for l in json.load(open(f'{R}/{s}/{f}.json'))['letters']: out.append((c,l))
     return out
 def lexicon(s,lang):

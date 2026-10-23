@@ -47,6 +47,8 @@ def check(series, lang=None):
     d = os.path.join(ROOT, 'data', series)
     letters = []
     for f in ORDER:
+        if not os.path.exists(os.path.join(d, f + '.json')):   # 작업 중인 작품: 아직 없는 장
+            continue
         letters += json.load(open(os.path.join(d, f + '.json'), encoding='utf-8'))['letters']
     lex = json.load(open(os.path.join(d, f'lexicon{sfx}.json'), encoding='utf-8'))
     gdoc = json.load(open(os.path.join(d, f'gloss{sfx}.json'), encoding='utf-8'))

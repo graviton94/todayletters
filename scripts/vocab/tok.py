@@ -5,7 +5,10 @@ ELI=re.compile(r"^(jusqu|lorsqu|puisqu|quoiqu|presqu|qu|[ldjmtscn])['’]",re.I)
 KEEP_FR={"aujourd'hui","quelqu'un","quelqu'une","peut-être","avant-plan","pont-levis","c'est-à-dire","au-dessus","là-dessus","là-bas","avant-hier","ci-inclus","saintes-maries","ville-d'avray","au-delà","là-haut","grand-père","grand-mère","arc-en-ciel","vis-à-vis","non-seulement","soi-disant"}
 SPLIT_SUFFIX={"ci","là","même","mêmes","je","tu","il","elle","on","nous","vous","ils","elles","moi","toi","le","la","les","lui","leur","en","y","t","ce"}
 def letters(series):
+    import os
     for f in ORDER:
+        # 작업 중인 작품 (고야: 서문 · I장만) 은 아직 없는 장 파일을 건너뛴다
+        if not os.path.exists(f'data/{series}/{f}.json'): continue
         d=json.load(open(f'data/{series}/{f}.json'))
         for l in d['letters']:
             yield f,l

@@ -1,1 +1,214 @@
 # 스페인어 (고야) 표제어 표: fr_tab.txt 와 같은 꼴 (표제어 · 품사 · en · ko · F=기능어 를 세로 막대로 잇는다)
+Antonio|name|Antonio (Antonio Ibáñez, who carried the prints)|안토니오 (판화를 가져간 안토니오 이바녜스)
+Cornelio|name|Cornelio (Cornelio Vandergoten)|코르넬리오 (코르넬리오 반데르고텐)
+Cristóbal|name|Christopher (San Cristóbal: Saint Christopher)|크리스토포로 (성 크리스토포로)
+D.|abbr|Don (title before a man's first name)|돈 (남자 이름 앞의 존칭)|F
+Dios|name|God|하느님
+Dolorosa|name|the Dolorosa, Our Lady of Sorrows|슬픔의 성모 (그림)
+Francisco|name|Francisco|프란시스코
+Ibáñez|name|Ibáñez (Antonio Ibáñez)|이바녜스 (안토니오 이바녜스)
+Joaquín|name|Joaquín (Father Joaquín, his schoolmaster)|호아킨 (학교의 호아킨 신부)
+Martín|name|Martín (Martín Zapater)|마르틴 (마르틴 사파테르)
+P.|abbr|Father (Padre, a priest's title)|신부 (Padre 의 줄임)|F
+Pilar|name|the Pilar (Our Lady of the Pilar, Zaragoza)|필라르 (사라고사의 필라르 성모)
+Sabatini|name|Sabatini (Francisco Sabatini, court architect)|사바티니 (궁정 건축가)
+San|name|Saint (before a name)|성 (성인 이름 앞)
+Sr.|abbr|Mr, Señor|~ 님 (Señor 의 줄임)|F
+Vandergoten|name|Vandergoten (director of the Royal Tapestry Factory)|반데르고텐 (왕립 태피스트리 공장 책임자)
+Velázquez|name|Velázquez (Diego Velázquez, painter)|벨라스케스 (화가)
+a|prep|to, at|~에, ~에게|F
+acordar|v|(acordarse de) to remember|(acordarse de) 기억하다
+ahora|adv|now|지금, 이제
+alegrar|v|(alegrarse) to be glad|(alegrarse) 기뻐하다
+alguno|pron|someone, anyone|누군가|F
+alteza|n.f|Highness (Sus Altezas: the Prince and Princess)|전하 (Sus Altezas: 왕세자 부부)
+amigo|n.m|friend|친구
+amistad|n.f|friendship|우정
+antes|adv|before, earlier|전에, 먼저
+antiguo|adj|old, former|오래된, 예전의
+aquel|det|that (one)|저, 그 (것)|F
+aquí|adv|here|여기
+asador|n.m|spit (for roasting)|고기 굽는 꼬챙이
+aún|adv|still, yet|아직
+baile|n.m|dance|춤
+besar|v|to kiss|입 맞추다
+borroncico|n.m|little sketch|작은 밑그림
+borrón|n.m|sketch, rough painting|밑그림, 스케치
+bota|n.f|wineskin|포도주 가죽 부대
+bueno|adj|good; (estar bueno) well, healthy|좋은; (estar bueno) 건강한
+campico|n.m|little field (Aragonese, fond)|작은 밭 (아라곤 말투)
+candil|n.m|oil lamp|등잔
+cansar|v|to tire, to trouble|귀찮게 하다, 지치게 하다
+caracol|n.m|snail|달팽이
+casa|n.f|house, home|집
+caso|n.m|case (ser del caso: to be right, fitting)|경우 (ser del caso: 알맞다)
+chiquío|n.m|my boy, my friend (Aragonese, fond)|얘야, 친구야 (아라곤 말투)
+ciego|n.m|blind man|눈먼 사람
+cinco|num|five|다섯|F
+como|conj|as, like; since|~처럼; ~이니까|F
+con|prep|with|~와 함께, ~로|F
+conforme|conj|as (conforme vayan saliendo: as they come out)|~하는 대로|F
+conocer|v|to know, to see|알다
+conservar|v|(conservarse) to stay, to keep|그대로 있다, 지키다
+contar|v|to tell|이야기하다
+corazón|n.m|heart|마음, 심장
+cuadro|n.m|picture, painting|그림
+cuanto|pron|(en cuanto a) as for, about|(en cuanto a) ~에 대해서는|F
+cuatro|num|four|넷|F
+cuerno|n.m|horn (no vale ni un cuerno: not worth a thing)|뿔 (한 푼어치도 안 되다)
+dar|v|to give (dar gracias: to thank)|주다 (dar gracias: 감사하다)
+de|prep|of, from|~의, ~에서|F
+decir|v|to say, to tell|말하다
+demás|pron|(lo demás) the rest|(lo demás) 나머지|F
+desear|v|to wish, to want|바라다
+despacio|adv|slowly; at leisure|천천히, 여유 있게
+después|adv|afterwards, then|그 뒤에
+destinar|v|to set aside for, to intend|(누구 몫으로) 정해 두다
+dicha|n.f|joy, good fortune|복, 기쁨
+divertir|v|(divertirse) to enjoy oneself|(divertirse) 즐겁게 지내다
+don|n.m|Don (title)|돈 (남자 존칭)|F
+dudar|v|to doubt|의심하다
+echar|v|(echarse sobre) to pounce on|(echarse sobre) 덮치다
+ejecución|n.f|execution, carrying out (of a painting)|그리기, 실행
+el|art|the|그 (정관사)|F
+ella|pron|her, them (f.)|그녀, 그것들|F
+empezar|v|to begin|시작하다
+en|prep|in, on, at|~에, ~에서|F
+encargar|v|to ask (someone to do), to commission|부탁하다, 맡기다
+encono|n.m|rancour, spite|앙심
+enemigo|n.m|enemy|적
+enredo|n.m|tangle, trouble|골치 아픈 일
+enseñar|v|to show|보여 주다
+enterar|v|(quedar enterado) to take note|(quedar enterado) 알아듣다
+entregar|v|to hand over|건네주다
+enviar|v|to send|보내다
+escapar|v|(escaparse) to escape|빠져나오다, 살아나다
+escuela|n.f|school|학교
+esperanza|n.f|hope|희망
+estampa|n.f|print, picture|판화, 그림 한 장
+estar|v|to be (state, place)|(상태 · 자리) ~이다, 있다|F
+este|det|this|이|F
+estimar|v|to value, to appreciate|소중히 여기다, 고마워하다
+etc.|abbr|etc.|기타 등등
+expresión|n.f|expression, kind word|표현, 말
+fin|n.m|end, purpose|끝, 목적
+gente|n.f|people|사람들
+grabar|v|to engrave, to etch|새기다, 판화로 찍다
+gracia|n.f|grace (gracias: thanks)|은혜 (gracias: 고마워)
+grandeza|n.f|the grandees, the nobility|귀족들
+guapo|adj|fine, handsome|멋진
+guitarra|n.f|guitar|기타
+gustar|v|to please (me gusta: I like)|마음에 들다
+gusto|n.m|pleasure, liking|기쁨, 즐거움
+haber|v|(aux.) to have (done)|(조동사) ~했다|F
+hacer|v|to do, to make|하다, 만들다
+honrar|v|to honour|높여 주다, 영광을 주다
+importar|v|to amount to, to be worth|(값이) ~이다
+infinito|adj|endless, infinite; (adv.) ever so much|끝없는; 무척
+insinuar|v|to hint|넌지시 말하다
+invención|n.f|invention, idea (of a picture)|구상, 착상
+inútil|adj|useless|쓸모없는
+ir|v|to go|가다
+jamás|adv|never, ever|결코, 한 번도
+juego|n.m|set|한 벌
+le|pron|him, her, you (to)|그에게, 그를|F
+librar|v|(salir bien/mal librado) to come off well/badly|(bien/mal librado) 득을 보다 / 손해 보다
+lo|pron|it, him|그것을, 그를|F
+lograr|v|to get, to achieve|얻다, 이루다
+mal|adv|badly|나쁘게
+mandar|v|to command, to send|시키다, 보내다
+mano|n.f|hand|손
+mayor|adj|bigger, greater|더 큰
+me|pron|me, to me|나를, 나에게|F
+mejor|adj|better|더 나은
+merced|n.f|(vuestra merced) you (polite, old form of usted)|(vuestra merced) 귀하 (usted 의 옛 꼴)
+merecer|v|to deserve|~할 자격이 있다
+mesa|n.f|table|탁자
+mi|det|my|나의|F
+mil|num|a thousand|천|F
+mucho|det|much, many, a lot|많은|F
+mueble|n.m|piece of furniture|가구
+mujer|n.f|woman; wife|여자; 아내
+más|adv|more|더|F
+mí|pron|me (after a preposition)|나 (전치사 뒤)|F
+mío|pron|mine|내 것|F
+nadie|pron|nobody|아무도|F
+necesitar|v|to need|필요하다
+ni|conj|nor, not even|~도 아니다|F
+no|adv|no, not|아니, ~않다|F
+nuestro|det|our (Nuestra Señora: Our Lady)|우리의 (Nuestra Señora: 성모)|F
+obra|n.f|work|작품, 일
+opinión|n.f|opinion|생각, 의견
+orden|n.f|order, command|명령, 지시
+oír|v|to hear, to listen|듣다
+para|prep|for, in order to|~을 위해|F
+paraje|n.m|place, spot|곳, 자리
+parecer|v|to seem|~처럼 보이다
+pelota|n.f|ball (en pelota: stripped bare, with nothing)|공 (en pelota: 빈털터리로)
+pena|n.f|trouble (valer la pena: to be worth it)|수고 (merecer la pena: ~할 가치가 있다)
+pensar|v|to think|생각하다
+pero|conj|but|그러나, 그래도|F
+pintar|v|to paint|그리다
+poder|v|can, to be able to|~할 수 있다
+poner|v|to put|두다, 놓다
+por|prep|for, by, because of|~ 때문에, ~로|F
+porque|conj|because; so that|왜냐하면; ~하도록|F
+preguntar|v|to ask|묻다
+princesa|n.f|princess|공주, 왕세자비
+proporcionar|v|to give, to provide|마련해 주다
+príncipe|n.m|prince|왕자, 왕세자
+pues|conj|for, since; well|왜냐하면; 그래|F
+que|conj|that; who, which|~라는 것; ~하는|F
+quedar|v|to remain, to be left|남다, ~하게 되다
+querer|v|to want; to love|원하다; 사랑하다
+querido|adj|dear|사랑하는, 소중한
+repetir|v|to repeat|되풀이하다
+representar|v|to show, to depict|나타내다, 그리다
+responder|v|to answer|답하다
+reverso|n.m|back, reverse side|뒷면
+rey|n.m|king|왕
+rinconcico|n.m|little corner (Aragonese, fond)|작은 구석 (아라곤 말투)
+saber|v|to know|알다
+sacar|v|to take out (sacar de una opinión: to talk out of)|꺼내다 (생각을 바꾸게 하다)
+salir|v|to come out, to go out|나오다, 나가다
+sartén|n.f|frying pan|프라이팬
+satisfacción|n.f|satisfaction|만족
+se|pron|himself, herself, itself|자기, 스스로|F
+según|prep|according to, judging by|~에 따르면|F
+sepultura|n.f|grave|무덤
+ser|v|to be|~이다|F
+servidor|n.m|servant (su servidor: yours faithfully)|종 (su servidor: 삼가 드림)
+servir|v|to serve (servirse de: to be so kind as to)|섬기다 (servirse de: ~해 주시다)
+señor|n.m|sir, Mr, gentleman|님, 신사
+señora|n.f|lady (Nuestra Señora: Our Lady)|부인 (Nuestra Señora: 성모)
+si|conj|if|만약 ~면|F
+silla|n.f|chair|의자
+sobre|prep|on, over|~ 위에|F
+su|det|his, her, their, your|그의, 그들의|F
+superfluo|adj|superfluous|군더더기의, 쓸데없는
+tal|adv|(tal vez) perhaps|(tal vez) 아마|F
+también|adv|also, too|~도, 또한|F
+tanto|det|so much, such|그렇게 많은|F
+te|pron|you, to you|너를, 너에게|F
+tener|v|to have|가지다, 있다
+ti|pron|you (after a preposition)|너 (전치사 뒤)|F
+tiempo|n.m|time|시간
+tiple|n.m|tiple, small high guitar|티플레 (작은 기타)
+tocar|v|to play (an instrument); to touch|연주하다; 만지다
+todo|det|all, everything|모든, 모두|F
+tres|num|three|셋|F
+triste|adj|sad, dreary|슬픈, 쓸쓸한
+tu|det|your|너의|F
+tuyo|pron|yours|네 것|F
+tú|pron|you|너|F
+uno|art|a, an, one|하나, 어떤|F
+valer|v|to be worth|가치가 있다
+varios|det|several, various|여러|F
+ver|v|to see|보다
+vez|n.f|time, occasion (tal vez: perhaps)|번, 때 (tal vez: 아마)
+vida|n.f|life|삶
+visitar|v|to visit|찾아가다
+vuestro|det|your (vuestra merced: you, polite)|너희의 (vuestra merced: 귀하)|F
+y|conj|and|그리고|F
+ya|adv|already, now|이미, 이제|F
+yo|pron|I|나|F

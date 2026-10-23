@@ -1,0 +1,14 @@
+# 고야 · 영어 줄 (앱 번역). 줄 = 낱말들|ko|en
+# 고르는 기준: 입문자 문장 틀 먼저, 그다음 되풀이되는 덩어리. 앱이 쓴 풀이 (사람 확인 전). 2통 이상만 남는다.
+i m|나는 ~이다|I am
+i have|나는 ~을 가지고 있다|I have
+i ve|나는 ~했다 (have + 과거분사)|I have (done)
+i had|나는 ~을 가지고 있었다, ~했었다|I had
+tell you|너에게 말하다|tell you
+to you|너에게|to you
+no one|아무도 ~ 않다|no one
+thank god|하느님 덕분에|thank God
+my wife|내 아내|my wife
+my boy|친구야 (다정하게 부르는 말)|my boy
+a good life|좋은 삶|a good life
+a few little fields|작은 밭 몇 뙈기|a few little fields

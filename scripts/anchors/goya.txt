@@ -1,0 +1,12 @@
+# 고야 · 스페인어 원문 (지금 철자). 줄 = 낱말들|ko|en
+# 고르는 기준: 입문자 문장 틀 (나는 ~이다 · 있다 · 했다 · 너에게) 먼저, 그다음 되풀이되는 덩어리. 앱이 쓴 풀이 (사람 확인 전). 2통 이상만 남는다.
+no tengo|나는 ~이 없다 (tener 의 부정)|I don't have
+me he|나는 (나 자신을) ~했다 (재귀 + 현재완료)|I have (done) myself
+te lo|너에게 그것을|it to you
+mi mujer|내 아내|my wife
+parece que|~인 것 같다|it seems that
+gracias a dios|하느님 덕분에|thank God
+buena vida|좋은 삶|a good life
+lo que|~하는 것|what
+en cuanto a|~에 대해서는|as for
+que no|~하지 않는다는 것|that … not

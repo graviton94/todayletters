@@ -3,6 +3,7 @@
 메시지마다 · 언어마다 파일 하나, 낱말마다 · 언어마다 파일 하나를 만든다.
 
   목소리: data/<인물>/voices.json 의 young · old 를 챕터 age 로 섞은 것 (세 언어 같은 비율)
+          talk_me 항목은 이름 ("M2") 또는 {"voice", "speed", "pitch"} (받는 사람 목소리마다 빠르기 · 높낮이, me_voice)
           "speed" 가 있으면 인물 목소리(편지 · 회화 them 줄 · 낱말)의 빠르기에 곱한다 (없으면 1.0, 나폴레옹 1.05). talk_me 목소리에는 안 곱한다.
   감정:   편지의 "mood" (없으면 챕터 기본값) → data/voices/presets.json 의 빠르기 · 높낮이 · 쉼 · 앞 숨
   끊어 읽기: 메시지의 "speak" 에서 긴 끊음("//", 쉼표 자리)마다 마디를 나눠, 마디는 한 번에 읽고(억양이 이어짐)
@@ -19,7 +20,7 @@
           "audio" 가 {"*": "t", "ko": "tk"} 면 그 언어는 그 앞부분, 없는 언어는 "*")
           "them" 줄은 그 장의 인물 목소리(편지 낭독과 같은 섞음) · 편지 mood 의 빠르기 · 높낮이,
           "me" 줄은 받는 사람 목소리 (배역표의 "talk_me": 편지 "to" 의 원어 글자 → 목소리, 없으면 "default") · 차분한 프리셋.
-  NARRATE_ONLY=new: talk + vocab 을 한 번에. vocab 은 서문 파일(장 P)을 돌 때 기초 낱말 덱도 (작품마다 한 번):
+  NARRATE_ONLY=new: talk + vocab 을 한 번에 (NARRATE_SKIP_EXISTING=1 이면 빠진 메시지 낭독 m<번호> 도 — 새 작품의 첫 낭독). vocab 은 서문 파일(장 P)을 돌 때 기초 낱말 덱도 (작품마다 한 번):
           data/<작품>/basics[_en|_ko].json (core Basics) 의 낱말 b_<언어>_<id>.m4a · 예문 bx_<언어>_<id>.m4a 를
           <출력>/<작품>/B/basics/ 에 (앱 경로 audio/<작품>/B/basics/, R2 묶음 "B"). 덱 파일이 없으면 건너뛴다. 차분한(calm) 프리셋.
           이번 장의 소리 data/<작품>/sounds[_en|_ko].json (core Sounds) 의 쌍 낱말 s_<언어>_<slug>.m4a 도 <출력>/<작품>/S/sounds/ 에 (R2 묶음 "S").
@@ -102,7 +103,7 @@ def clauses(text):
     return [re.sub(r"\s*/\s*", " ", c).strip() for c in re.split(r"\s*//\s*", text.strip()) if c.strip()]
 
 
-def speak(text, lang, pr, lead="", spoken=None, who=None):
+def speak(text, lang, pr, lead="", spoken=None, who=None, rate=1.0):
     """
     사람처럼 읽기: 마디(쉼표 자리)마다 한 번에 읽어 억양이 이어지게 하고, 마디 사이에 긴 숨을 둔다.
     돌려주는 것: 소리와 마디 시각 [(시작, 끝, 글자)] (따라 읽기에서 읽는 자리를 칠할 때 쓴다).
@@ -111,7 +112,7 @@ def speak(text, lang, pr, lead="", spoken=None, who=None):
     parts, times, t = [silence(0.2)], [], 0.2
     for j, p in enumerate(chunks):
         said = f"{lead} {p}" if j == 0 and lead else p
-        wav, dur = tts(said, lang, who or voice, STEPS_FINE, pr["speed"] * SLOWER * (SPEED if who is None else 1.0))
+        wav, dur = tts(said, lang, who or voice, STEPS_FINE, pr["speed"] * SLOWER * (SPEED if who is None else 1.0) * rate)
         audio = wav[0, : int(sr * dur[0].item())].astype(np.float32)
         parts.append(audio)
         times.append((round(t, 3), round(t + len(audio) / sr, 3), p))
@@ -163,15 +164,13 @@ def talk_stem(t, lang):
 
 def make_talk(letter, pick=None):
     """편지 하나의 회화 줄 소리. [pick] 이 있으면 그 이름(<줄 소리>_<언어>, 예 t3_ko)만."""
-    me_cast = cast.get("talk_me") or {}
     t = letter.get("talk") or {}
     if not t.get("lines"):
         return 0
     n = 0
     base = os.path.join(out, series, chapter, letter["id"])
     pr = presets[letter.get("mood") or cast["chapters"][chapter]["mood"]]
-    to = (letter.get("to") or {}).get(book["original"]) if isinstance(letter.get("to"), dict) else letter.get("to")
-    me = style_of((me_cast.get("by_to") or {}).get(to or "", me_cast.get("default", "M4")))
+    me, me_rate, me_pitch = me_voice(letter, talk=True)
     for lang in langs:
         stem = talk_stem(t, lang)
         for i, line in enumerate(t["lines"], 1):
@@ -182,18 +181,26 @@ def make_talk(letter, pick=None):
             if not text or (pick is None and not wanted(path)):
                 continue
             if line.get("who") == "me":
-                save(path, speak(text, lang, presets["calm"], who=me)[0], 1.0)
+                save(path, speak(text, lang, presets["calm"], who=me, rate=me_rate)[0], me_pitch)
             else:
                 save(path, speak(text, lang, pr)[0], pr["pitch"])
             n += 1
     return n
 
 
-def me_voice(letter):
-    """회화 "me" 줄 · 답장의 목소리: 배역표 talk_me 의 by_to[편지 "to" 의 원어 글자], 없으면 default."""
+def me_voice(letter, talk=False):
+    """회화 "me" 줄 · 답장의 목소리: 배역표 talk_me 의 by_to[편지 "to" 의 원어 글자] (회화는 talk.me 가 있으면 그 이름), 없으면 default.
+    목소리 항목은 "M2" 처럼 이름만, 또는 {"voice": "F2", "speed": 0.94, "pitch": 0.96} (고야의 호세파):
+    speed 는 차분한 프리셋 빠르기에 곱하고, pitch 는 감정 프리셋의 pitch 와 같은 ffmpeg 필터 (save) 로 옮긴다.
+    돌려주는 것: (Style, 빠르기 배율, 높낮이 배율)."""
     me_cast = cast.get("talk_me") or {}
     to = (letter.get("to") or {}).get(book["original"]) if isinstance(letter.get("to"), dict) else letter.get("to")
-    return style_of((me_cast.get("by_to") or {}).get(to or "", me_cast.get("default", "M4")))
+    if talk and (letter.get("talk") or {}).get("me"):
+        to = letter["talk"]["me"]
+    v = (me_cast.get("by_to") or {}).get(to or "", me_cast.get("default", "M4"))
+    if isinstance(v, dict):
+        return style_of(v["voice"]), float(v.get("speed", 1.0)), float(v.get("pitch", 1.0))
+    return style_of(v), 1.0, 1.0
 
 
 if ONLY == "replies":
@@ -208,7 +215,7 @@ if ONLY == "replies":
                 if not text or not wanted(path):
                     continue
                 me = me or me_voice(letter)
-                save(path, speak(text, lang, presets["calm"], who=me)[0], 1.0); n += 1
+                save(path, speak(text, lang, presets["calm"], who=me[0], rate=me[1])[0], me[2]); n += 1
         print("reply ok", letter["id"], flush=True)
     print("reply files", n)
     sys.exit(0)
@@ -218,6 +225,24 @@ if ONLY in ("talk", "new"):
         n += make_talk(letter)
         print("talk ok", letter["id"], flush=True)
     print("talk files", n)
+if ONLY == "new" and SKIP:
+    # 새 작품 (고야): 편지 메시지 낭독 m<번호>_<언어>.m4a (+ 마디 시각 .json) 도 없는 것만 만든다. 이미 있는 작품은 모두 있어 건너뛴다
+    n = 0
+    for letter in book["letters"]:
+        pr = presets[letter.get("mood") or cast["chapters"][chapter]["mood"]]
+        base = os.path.join(out, series, chapter, letter["id"])
+        for lang in langs:
+            for i, m in enumerate(letter["messages"], 1):
+                path = os.path.join(base, f"m{i}_{lang}.m4a")
+                if not m.get(lang) or not wanted(path):
+                    continue
+                audio, times = speak(m[lang], lang, pr, pr["lead"] if i == 1 else "", (m.get("speak") or {}).get(lang))
+                save(path, audio, pr["pitch"])
+                json.dump({"chunks": [{"s": a, "e": b, "text": x} for a, b, x in times]},
+                          open(os.path.join(base, f"m{i}_{lang}.json"), "w", encoding="utf-8"), ensure_ascii=False)
+                n += 1
+        print("messages ok", letter["id"], flush=True)
+    print("message files", n)
     if ONLY == "talk":
         sys.exit(0)
 if ONLY in ("vocab", "new"):

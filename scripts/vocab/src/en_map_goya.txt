@@ -1,0 +1,16 @@
+# goya only (form=key), read after the shared map; see lemmatize.py / tl_lemma.py
+The=the
+Blind=blind
+Man=man
+Playing=play
+Guitar=guitar
+Their=their
+Our=our
+Lady=lady
+Highnesses=highness
+Princess=princess
+Father=father
+Saint=saint
+Señor=señor
+frying=fry
+bigger=big

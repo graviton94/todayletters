@@ -2506,3 +2506,40 @@ born|adj|brought into life (be born)|태어난 (be born)
 fight|v|to use force against someone|싸우다
 childhood|n|the time when you are a child|어린 시절
 ashes|n|what is left after burning; a dead person's remains|재; 유해
+Joaquín|name|Joaquín, Goya's schoolmaster, a priest|호아킨 (고야의 학교 신부님)
+school|n|a place where children learn|학교
+Francisco|name|Francisco (Goya's first name; also Francisco Bayeu)|프란시스코
+saint|n|a holy person honoured by the Church|성인 (Saint: 성 ~)
+Christopher|name|Christopher (Saint Christopher)|크리스토포로
+Dolorosa|name|the Dolorosa, a picture of the grieving Virgin Mary|슬픔의 성모 (그림)
+command|v|to tell someone what to do|명령하다, 시키다
+hint|v|to say something in an indirect way|넌지시 말하다
+narrow|adj|small in width (a narrow escape: only just escaping)|좁은 (a narrow escape: 간신히 피함)
+etc.|abbr|and so on|기타 등등
+señor|n|Spanish for 'sir' or 'Mr'|세뇨르 (스페인어 존칭)
+Don|name|Don, a Spanish title used before a man's first name|돈 (스페인 남자 존칭)
+Cornelio|name|Cornelio Vandergoten|코르넬리오
+Vandergoten|name|Vandergoten, director of the Royal Tapestry Factory|반데르고텐 (왕립 태피스트리 공장 책임자)
+Sabatini|name|Francisco Sabatini, court architect|사바티니 (궁정 건축가)
+guitar|n|a musical instrument with strings that you play with your fingers|기타
+servant|n|a person who works for someone else; in old letters, a polite way to sign off|하인, 종 (옛 편지의 맺음말)
+Martín|name|Martín Zapater, Goya's friend|마르틴 (고야의 친구)
+Antonio|name|Antonio Ibáñez, who carried the prints|안토니오
+Ibáñez|name|Antonio Ibáñez|이바녜스
+Velázquez|name|Diego Velázquez, Spanish painter of the 1600s|벨라스케스 (17세기 화가)
+engrave|v|to cut a picture into metal so it can be printed|새기다, 판화로 만들다
+treasure|v|to keep something carefully because you love it|소중히 아끼다
+pounce|v|to jump on something suddenly|덮치다
+useless|adj|not good for anything|쓸모없는
+snail|n|a small slow animal with a shell|달팽이
+fig|n|a soft sweet fruit (not worth a fig: worth nothing)|무화과 (not worth a fig: 한 푼 값어치도 없다)
+satisfaction|n|the good feeling when something goes well|만족
+afterwards|adv|later, after that|그 뒤에
+grandee|n|a Spanish nobleman of the highest rank|대귀족
+furniture|n|tables, chairs, beds and so on|가구
+Pilar|name|the Pilar: the Virgin of the Pilar, Zaragoza|필라르 (사라고사의 필라르 성모)
+fry|v|to cook in hot oil (frying pan: a flat pan for frying)|튀기다, 굽다 (frying pan: 프라이팬)
+pan|n|a metal dish for cooking|냄비, 팬
+wineskin|n|a leather bag for wine|포도주 가죽 부대
+spit|n|a long metal stick for roasting meat over a fire|고기 굽는 꼬챙이
+oil|n|a thick liquid used for cooking or burning in a lamp|기름
