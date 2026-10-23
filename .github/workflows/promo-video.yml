@@ -33,24 +33,33 @@ jobs:
       - name: Tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq ffmpeg > /dev/null
-          python3 -m pip install -q pillow
+          sudo apt-get install -y -qq ffmpeg python3-pil > /dev/null
+          python3 -c "import PIL" || python3 -m pip install -q --break-system-packages pillow
       - name: Make videos
+        shell: bash
         run: |
+          set -o pipefail
           mkdir -p out
+          cp android/app/build/screens/promo_*.png out/
+          exec > >(tee out/make.log) 2>&1
+          python3 --version; ffmpeg -version | head -1; python3 -c "import PIL; print('Pillow', PIL.__version__)"
           L="${{ inputs.lang }}"; [ "$L" = both ] && L="ko en"
           for l in $L; do
             python3 scripts/promo/make.py --lang $l --shots android/app/build/screens --out out/promo_$l.mp4
             python3 scripts/promo/make.py --lang $l --shots android/app/build/screens --out out/still_$l --frames 2.5,12.5,23.5
           done
-          cp android/app/build/screens/promo_*.png out/
           ffprobe -v error -show_entries stream=codec_name,width,height,duration -of compact out/promo_*.mp4
           ls -la out
+      - name: Show make log
+        if: failure()
+        run: tail -25 out/make.log | sed 's/^/::error::/' || true
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: promo-video
           path: out/
       - name: Publish to promo branch
+        if: always()
         run: |
           if git fetch -q origin promo; then git worktree add -q pub origin/promo; else mkdir -p pub && git -C pub init -q; fi
           cp out/* pub/
