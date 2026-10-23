@@ -15,4 +15,27 @@ en: 450/900
 en: 600/900
 en: 750/900
 만듦: out/promo_en.mp4
-Argument 'out/promo_ko.mp4' provided as input filename, but 'out/promo_en.mp4' was already specified.
+stream|codec_name=h264|width=1920|height=1080|duration=30.000000
+stream|codec_name=aac|duration=30.000000
+stream|codec_name=h264|width=1920|height=1080|duration=30.000000
+stream|codec_name=aac|duration=30.000000
+total 41216
+drwxr-xr-x  2 runner runner    4096 Oct 23 05:02 .
+drwxr-xr-x 11 runner runner    4096 Oct 23 05:01 ..
+-rw-r--r--  1 runner runner     506 Oct 23 05:02 make.log
+-rw-r--r--  1 runner runner 3564515 Oct 23 05:01 promo_arrival_en.png
+-rw-r--r--  1 runner runner 3579019 Oct 23 05:01 promo_arrival_ko.png
+-rw-r--r--  1 runner runner 9363822 Oct 23 05:02 promo_en.mp4
+-rw-r--r--  1 runner runner  235268 Oct 23 05:01 promo_gloss_en.png
+-rw-r--r--  1 runner runner  262211 Oct 23 05:01 promo_gloss_ko.png
+-rw-r--r--  1 runner runner 9347723 Oct 23 05:01 promo_ko.mp4
+-rw-r--r--  1 runner runner 3513939 Oct 23 05:01 promo_library_en.png
+-rw-r--r--  1 runner runner 3469738 Oct 23 05:01 promo_library_ko.png
+-rw-r--r--  1 runner runner  170579 Oct 23 05:01 promo_talk_en.png
+-rw-r--r--  1 runner runner  187464 Oct 23 05:01 promo_talk_ko.png
+-rw-r--r--  1 runner runner  370505 Oct 23 05:02 still_en_12.5.png
+-rw-r--r--  1 runner runner 1985046 Oct 23 05:02 still_en_2.5.png
+-rw-r--r--  1 runner runner 1883115 Oct 23 05:02 still_en_23.5.png
+-rw-r--r--  1 runner runner  359380 Oct 23 05:01 still_ko_12.5.png
+-rw-r--r--  1 runner runner 1979169 Oct 23 05:01 still_ko_2.5.png
+-rw-r--r--  1 runner runner 1887564 Oct 23 05:01 still_ko_23.5.png
