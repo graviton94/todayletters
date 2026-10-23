@@ -216,7 +216,7 @@ CAP_Y = 945  # 아래쪽 1/4 (810–1080) 의 가운데
 
 
 class Promo:
-    def __init__(self, lang, shots):
+    def __init__(self, lang, shots, bounds=None):
         self.lang, self.t, self.f = lang, TEXT[lang], fonts(lang)
         plate = lambda n: Image.open(os.path.join(ASSETS, "plates", n)).convert("RGB")
         self.p1 = plate("c1-l1.webp")
@@ -233,7 +233,7 @@ class Promo:
         icon = os.path.join(ROOT, "design/store/icon-512.png")
         self.icon = rounded(Image.open(icon).convert("RGB").resize((300, 300), Image.LANCZOS), 66)
         self.caps = {}
-        b = [0, 4, 10, 15, 21, 26, 30]
+        b = bounds or SCENES
         self.scenes = [(b[i], b[i + 1], fn) for i, fn in enumerate([self.s1, self.s2, self.s3, self.s4, self.s5, self.s6])]
 
     def cap(self, key, lt, band=True):
@@ -352,26 +352,38 @@ def dur_of(p):
                                 capture_output=True, text=True, check=True).stdout.strip())
 
 
-def audio_args(lang, vo):
-    """소리: 빈센트 원어 낭독 첫마디 → 장면마다 해설 한 줄 (빈센트 목소리, [vo]/<lang>/vo<n>.wav) · 밑에 곡 (해설 동안 작게, 끝에 크게)."""
+def plan(lang, vo):
+    """장면 경계와 소리 자리. 해설이 있으면 장면이 해설을 따라간다: 장면 n 은 해설 n 이 나오기 조금 앞에서 시작하고,
+    남는 시간은 해설 사이 쉼으로 고루 나눈다 (해설 6 이 29초쯤 끝나게)."""
     a = os.path.join(ASSETS, "audio/vincent/I/c1-l1")
-    music = os.path.join(ROOT, "remote/audio/mozart/music/m-c7-l5.m4a")
     first = os.path.join(a, "m1_fr.m4a")
     cut = json.load(open(os.path.join(a, "m1_fr.json")))["chunks"][0]["e"] + 0.15  # "Mon cher Théo,"
     clips = [(first, 0.3, cut, 1.0)]  # (파일, 시작 초, 길이, 음량)
-    t = 0.3 + cut - 0.2 + 0.35
-    last = t
-    if vo:
-        for n in range(1, 7):
-            p = os.path.join(vo, lang, f"vo{n}.wav")
-            if not os.path.isfile(p):
-                sys.exit(f"해설 파일이 없어요: {p}")
-            d = dur_of(p)
-            at = max(SCENES[n - 1] + 0.4, t) if n > 1 else t
-            clips.append((p, at, d, 1.0))
-            print(f"해설 {n}: {at:.2f}–{at + d:.2f}s (장면 {SCENES[n - 1]}–{SCENES[n]}s)")
-            t = at + d + 0.3
-            last = at + d
+    if not vo:
+        return list(SCENES), clips, 21.0
+    ds, ps = [], []
+    for n in range(1, 7):
+        p = os.path.join(vo, lang, f"vo{n}.wav")
+        if not os.path.isfile(p):
+            sys.exit(f"해설 파일이 없어요: {p}")
+        ps.append(p); ds.append(dur_of(p))
+    t0 = 0.3 + cut + 0.15
+    gap = max(0.35, (29.2 - t0 - sum(ds)) / 5)
+    bounds, t = [0.0], t0
+    for n, (p, d) in enumerate(zip(ps, ds), 1):
+        if n > 1:
+            bounds.append(round(t - 0.35, 2))
+        clips.append((p, t, d, 1.0))
+        print(f"해설 {n}: {t:.2f}–{t + d:.2f}s")
+        t += d + gap
+    bounds.append(DUR)
+    print("장면 경계", bounds)
+    return bounds, clips, bounds[5]
+
+
+def audio_args(clips, up):
+    """소리: 빈센트 원어 낭독 첫마디 → 장면마다 해설 한 줄 (빈센트 목소리) · 밑에 곡 (해설 동안 작게, 세 작품 장면부터 크게)."""
+    music = os.path.join(ROOT, "remote/audio/mozart/music/m-c7-l5.m4a")
     for p, *_ in clips + [(music,)]:
         if not os.path.isfile(p):
             sys.exit(f"소리 파일이 없어요: {p}")
@@ -385,9 +397,8 @@ def audio_args(lang, vo):
     # 곡: 해설이 끝날 때까지 작게 (0.12), 그 뒤 크게 (0.55)
     m = len(clips) + 1
     ins += ["-i", music]
-    up = max(last + 0.2, 21.0)
     flt.append(f"[{m}:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{DUR},asetpts=PTS-STARTPTS,afade=t=in:d=1.0,"
-               f"volume='if(lt(t,{up:.2f}),0.12,min(0.55,0.12+(t-{up:.2f})*0.6))':eval=frame[am]")
+               f"volume='if(lt(t,{up:.2f}),0.12,min(0.45,0.12+(t-{up:.2f})*0.5))':eval=frame[am]")
     labels.append("[am]")
     flt.append("".join(labels) + f"amix=inputs={len(labels)}:normalize=0:duration=longest,atrim=0:{DUR},afade=t=out:st={DUR - 1.2}:d=1.2[aout]")
     return ins, ";".join(flt)
@@ -401,13 +412,14 @@ def main():
     ap.add_argument("--vo", help="해설 폴더 (voiceover.py 의 출력): <vo>/<lang>/vo1–6.wav")
     ap.add_argument("--frames", help="이 초들의 한 장면만 PNG 로 (점검용, 쉼표로)")
     a = ap.parse_args()
-    p = Promo(a.lang, a.shots)
+    bounds, clips, up = plan(a.lang, a.vo)
+    p = Promo(a.lang, a.shots, bounds)
     if a.frames:
         for s in a.frames.split(","):
             p.frame(float(s)).save(f"{a.out}_{s}.png")
         return
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
-    ins, flt = audio_args(a.lang, a.vo)
+    ins, flt = audio_args(clips, up)
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-"] + ins + [
         "-filter_complex", flt, "-map", "0:v", "-map", "[aout]",
         "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p", "-profile:v", "high", "-r", str(FPS),
