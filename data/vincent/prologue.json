@@ -10,6 +10,7 @@
   {
    "id": "p1",
    "date": "1853-03-30",
+   "dateNote": "The date is his birth at Zundert (30 March 1853), the start of the period this card covers. The words come from a later letter, written in Arles in January 1889 (1914 edition, n° 573).",
    "ref": "Brieven 1914, n° 573",
    "place": "Zundert",
    "mood": "tender",
@@ -271,6 +272,7 @@
   {
    "id": "p2",
    "date": "1885-04",
+   "dateNote": "April 1885, when The Potato Eaters was painted at Nuenen. The words come from a later letter, written in Arles in August 1888 (1914 edition, n° 520).",
    "ref": "Brieven 1914, n° 520",
    "place": "Nuenen",
    "mood": "calm",
@@ -792,6 +794,7 @@
   {
    "id": "p4",
    "date": "1887",
+   "dateNote": "1887, the Paris year of the Japanese prints. The words come from a later letter, written in Arles in September 1888 (1914 edition, n° 538).",
    "ref": "Brieven 1914, n° 538",
    "place": "Paris",
    "mood": "bright",
