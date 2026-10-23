@@ -2116,4 +2116,27 @@ class ScreensTest {
             rule.onAllNodes(hasText(word) and hasClickAction()).onFirst().performClick()
         }, series = s) { io.github.graviton94.todayletters.ui.SoundsPane(s, "vincent", c, io.github.graviton94.todayletters.core.Lang.FR, seed = 1, stage0 = 0) {} }
     }
+
+    // ── 편지 카드 공유 (시안 Gbowc2Rqd6VJJpfmMPP6jC 2): 카드 그림만 바로 그린다 (편지 방을 스크롤하지 않음) ──
+    /** 그림 + 가장 긴 메시지 전체 (말줄임 없음, 높이는 내용만큼) · 번역 · 꼬리 줄 · 그림 줄. 밝은 종이. */
+    @Test fun cardShare1() {
+        val s = state(true)
+        val w = s.work("vincent"); val l = w.chapters[0].letters[0]
+        val m = l.messages.maxBy { it.text[s.room("vincent").learn].length }
+        shot("cardShare1_light", false, series = s) {
+            Box(Modifier.fillMaxSize().padding(16.dp)) {
+                io.github.graviton94.todayletters.ui.LetterCardImage(io.github.graviton94.todayletters.ui.rememberLetterCard(s, w, l, m), Modifier.fillMaxSize())
+            }
+        }
+    }
+    /** 어두운 카드: 첫 메시지 (봉인한 편지의 ‘이 편지 카드’ 와 같은 문장). */
+    @Test fun cardShare2() {
+        val s = state(true)
+        val w = s.work("vincent"); val l = w.chapters[0].letters[0]
+        shot("cardShare2_dark", true, series = s) {
+            Box(Modifier.fillMaxSize().padding(16.dp)) {
+                io.github.graviton94.todayletters.ui.LetterCardImage(io.github.graviton94.todayletters.ui.rememberLetterCard(s, w, l, l.messages.first()), Modifier.fillMaxSize())
+            }
+        }
+    }
 }

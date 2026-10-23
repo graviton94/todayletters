@@ -1032,7 +1032,10 @@ fun QuotesScreen(s: AppState) {
     val ctx = androidx.compose.ui.platform.LocalContext.current
     s.version
     var card by remember { mutableStateOf<Triple<io.github.graviton94.todayletters.data.Work, io.github.graviton94.todayletters.core.Letter, io.github.graviton94.todayletters.core.Message>?>(null) }
+    // 편지 카드 (그림 + 문장 전체, 시안 Gbowc2Rqd6VJJpfmMPP6jC 2)
+    var letterCardOf by remember { mutableStateOf<Triple<io.github.graviton94.todayletters.data.Work, io.github.graviton94.todayletters.core.Letter, io.github.graviton94.todayletters.core.Message>?>(null) }
     card?.let { (w, l, m) -> ArtCardSheet(s, w, l, m) { card = null }; return }
+    letterCardOf?.let { (w, l, m) -> LetterCardSheet(s, w, l, m) { letterCardOf = null }; return }
     Column(Modifier.fillMaxSize()) {
         TopBar(stringResource(R.string.quotes_title), s, help = null, showBack = true, showSettings = false)
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4)) {
@@ -1087,6 +1090,11 @@ fun QuotesScreen(s: AppState) {
                                 else { s.narrator.stop(); s.go(Route.Session(ReviewKind.BLANK, only = blanks, quote = k)) }
                             }
                             QuoteAction(stringResource(R.string.quote_postcard), { PostcardGlyph(it) }) { card = Triple(w, l, m) }
+                        }
+                        Box(Modifier.fillMaxWidth().height(1.dp).background(p.hair))
+                        Box(Modifier.fillMaxWidth().heightIn(min = 48.dp).pressable { s.narrator.stop(); letterCardOf = Triple(w, l, m) },
+                            contentAlignment = Alignment.Center) {
+                            Text(stringResource(R.string.letter_card_send), style = Type.small.ui(), color = p.giltText, maxLines = 1)
                         }
                     }
                 }

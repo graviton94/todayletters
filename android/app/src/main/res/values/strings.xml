@@ -528,6 +528,10 @@
     <string name="evening_rest_text">You have %1$d rest(s), so your %2$d-day run carries on to tomorrow.</string>
     <string name="card_title">Send as a painting card</string>
     <string name="card_share">Share</string>
+    <string name="letter_card_title">Letter card</string>
+    <string name="letter_card_send">Send as a card</string>
+    <string name="letter_card_seal">This letter as a card</string>
+    <string name="letter_card_text">A line from a letter I read in Lingua Museum\n%1$s</string>
     <string name="card_portrait">Portrait</string>
     <string name="card_square">Square</string>
     <string name="card_story">Story (9:16)</string>

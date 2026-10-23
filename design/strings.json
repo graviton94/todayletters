@@ -2108,6 +2108,22 @@
     "en": "Share",
     "ko": "공유하기"
   },
+  "letter_card_title": {
+    "en": "Letter card",
+    "ko": "편지 카드"
+  },
+  "letter_card_send": {
+    "en": "Send as a card",
+    "ko": "카드로 보내기"
+  },
+  "letter_card_seal": {
+    "en": "This letter as a card",
+    "ko": "이 편지 카드"
+  },
+  "letter_card_text": {
+    "en": "A line from a letter I read in Lingua Museum\n%1$s",
+    "ko": "언어 미술관에서 읽은 편지 한 줄\n%1$s"
+  },
   "card_portrait": {
     "en": "Portrait",
     "ko": "세로 카드"

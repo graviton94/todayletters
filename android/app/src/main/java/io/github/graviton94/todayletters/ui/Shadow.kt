@@ -543,6 +543,8 @@ fun SealScreen(s: AppState, r: Route.Seal) {
     val reading = remember(letter.id) { s.myReading(id, chapter, letter) }
     val chunks = remember(letter.id) { s.shadowChunks(id, chapter, letter).sumOf { it.size } }
     var playing by remember { mutableStateOf(false) }
+    // 편지 카드 (첫 문장): 목소리 엽서 옆에
+    var card by remember { mutableStateOf(false) }
     LaunchedEffect(letter.id) { s.sealSeen(id, chapter, letter) }
     DisposableEffect(Unit) { onDispose { s.recorder.stopPlaying() } }
 
@@ -600,11 +602,16 @@ fun SealScreen(s: AppState, r: Route.Seal) {
                     ctx.startActivity(Intent.createChooser(send, ctx.getString(R.string.seal_send)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
                 }
             }, contentAlignment = Alignment.Center) { Text(stringResource(R.string.seal_send), style = Type.body.ui(), color = t.paper) }
+            if (letter.messages.isNotEmpty()) Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).border(1.dp, t.ink).pressable {
+                if (playing) { s.recorder.stopPlaying(); playing = false }
+                card = true
+            }, contentAlignment = Alignment.Center) { Text(stringResource(R.string.letter_card_seal), style = Type.body.ui(), color = t.ink) }
             Box(Modifier.fillMaxWidth().heightIn(min = 46.dp).pressable { s.back() }, contentAlignment = Alignment.Center) {
                 Text(stringResource(R.string.close), style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = t.ink)
             }
         }
     }
+    if (card) letter.messages.firstOrNull()?.let { m -> LetterCardSheet(s, work, letter, m) { card = false } }
 }
 
 private fun stringResource0(ctx: android.content.Context, id: Int, vararg args: Any) = ctx.getString(id, *args)

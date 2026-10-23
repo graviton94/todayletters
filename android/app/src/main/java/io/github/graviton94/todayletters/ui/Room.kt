@@ -93,6 +93,8 @@ fun Room(s: AppState, r: Route.Letter) {
     var writing by remember(letter.id) { mutableStateOf(false) }
     var words by remember { mutableStateOf(false) }
     var wordFocus by remember { mutableStateOf<Int?>(null) }
+    // 편지 카드 (문장 길게 누르기): 고른 메시지 번호
+    var cardOf by remember(letter.id) { mutableStateOf<Int?>(null) }
     // 펼친 낱말은 [AppState.gloss] (화면 맨 위의 GlossHost 가 카드를 띄운다). 배우는 말이 이 작품 어휘 자료의 언어일 때만
     val glossTokens = remember(id, letter.id, view.learn, work.deck) {
         letter.messages.indices.map { s.glossTokens(id, letter.id, it) }.takeIf { t -> t.any { it != null } }
@@ -386,6 +388,7 @@ fun Room(s: AppState, r: Route.Letter) {
                         onSave = { s.toggleQuote(s.quoteKey(id, chapter, letter.id, i)) },
                         spoken = spokenRange(s.narrator, audio(i), m.text[view.learn]),
                         il = il?.getOrNull(i), seen = seen,
+                        onLong = if (i < written) ({ cardOf = i }) else null,
                     )
                 }
                 // 메신저 같은 순간: 이 문장 다음의 위치 공유 · 사진 공유 (문장이 다 써진 뒤에)
@@ -493,6 +496,7 @@ fun Room(s: AppState, r: Route.Letter) {
     if (words) WordSheet(s, r, onClose = { words = false })
     listening?.let { m -> MusicSheet(s, work, m, onClose = { listening = null }) }
     wordFocus?.let { k -> val (ch, lt) = s.letterOf(r); WordDetail(s, s.cardKey(id, ch, lt.id, k)) { wordFocus = null } }
+    cardOf?.let { i -> letter.messages.getOrNull(i)?.let { m -> LetterCardSheet(s, work, letter, m) { cardOf = null } } }
     // 다 읽은 편지의 낱말은 낱말 카드함으로 (내일부터 복습)
     LaunchedEffect(finished) { if (finished) { s.collectWords(id, chapter, letter); s.collectAnchors(id, chapter, letter) } }
 }
@@ -823,15 +827,19 @@ private fun LetterSlip(
     onPickedAt: (GlossAnchor?) -> Unit = {},
     /** 낱말 아래 뜻 (켜져 있고 이 메시지에 토큰이 있을 때). [seen] 은 예열에서 본 것 ([warmSeen]). */
     il: IlLine? = null, seen: Set<String> = emptySet(),
+    /** 길게 누르기: 이 문장을 편지 카드로 (다 써진 문장만, 없으면 null). */
+    onLong: (() -> Unit)? = null,
 ) {
     val p = Ink.palette
     var learnDone by remember { mutableStateOf(!animate) }
     // 문장 번역은 낱말 아래 뜻(옅은 slipSoft)보다 또렷하게: 잉크색을 조금 덜어서, 등급만큼 옅게
     val readInk = p.slipInk.copy(alpha = 0.82f * readAlpha)
     val tilt = listOf(-0.6f, 0.5f, -0.3f, 0.4f)[index % 4]
+    val cardLabel = stringResource(R.string.letter_card_send)
     Slip(seed = index * 31 + 7, tilt = tilt, modifier = Modifier.fillMaxWidth(0.92f)) {
         Row(
-            Modifier.padding(start = Tokens.Space.s4, end = Tokens.Space.s2, top = Tokens.Space.s4, bottom = Tokens.Space.s3),
+            Modifier.then(if (onLong != null) Modifier.longPressCard(cardLabel, onLong) else Modifier)
+                .padding(start = Tokens.Space.s4, end = Tokens.Space.s2, top = Tokens.Space.s4, bottom = Tokens.Space.s3),
             horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {

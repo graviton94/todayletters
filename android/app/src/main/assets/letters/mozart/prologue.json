@@ -10,6 +10,7 @@
   {
    "id": "p1",
    "date": "1756-01-27",
+   "dateNote": "The date is his birth in Salzburg (27 January 1756), the start of the period this card covers. The words come from a later letter: to his father from Mannheim, 7 March 1778 (Nohl no. 98).",
    "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 98 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
    "place": "Salzburg",
    "mood": "tender",
@@ -283,7 +284,8 @@
   },
   {
    "id": "p2",
-   "date": "1763-06-09",
+   "date": "1763-11-18",
+   "dateNote": "The scene is the family's arrival in Paris on 18 November 1763 (they had left Salzburg on 9 June 1763). The words come from a later letter: to his father from Saint-Germain, 27 August 1778 (Nohl no. 112).",
    "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 112 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
    "place": "Paris",
    "mood": "bright",
@@ -549,7 +551,8 @@
   },
   {
    "id": "p3",
-   "date": "1769-12-13",
+   "date": "1769-12-12",
+   "dateNote": "The scene is the night before father and son left Salzburg for Italy on 13 December 1769. The words come from a later letter: to his father from Strasbourg, 15 October 1778 (Nohl no. 115).",
    "ref": "Mozarts Briefe (L. Nohl, 1865), Nr. 115 · public domain · https://archive.org/details/mozartsbriefehe00mozagoog",
    "place": "Salzburg",
    "mood": "calm",

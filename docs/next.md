@@ -225,3 +225,11 @@
 - spec_check.py: `mine` (내 줄 · slot 이 줄에 그대로 · opts 3 세 언어) · `sounds` (lang · checked · I~VIII · 4쌍 · name/tip 은 덱의 말 뺀 ko/en · mean 은 쌍 안 낱말).
 - core 시험 `VoxTest` (음절: 소리 다섯 → 5 · 긴 소리 → 1 · 침묵 → 0 · 이어진 소리 안 봉우리 넷 · 100ms 안은 하나, 판정 규칙, 글자 어림, 조각 · 차례 · 한 번 더, mine 문장 · 카드 열쇠, sounds 읽기 · 장마다 한 번 · 네 판, SayLike 찾기). 화면 사진 `*ScreensTest.vox*` (vox1 또박또박 · vox2 비슷하게 읽으면 · vox3 오늘 카드 · vox4/5 떠올리기 · vox6 내 이야기로 · vox7/8 이번 장의 소리) — 아직 안 찍음. assets 에 아직 mine · sounds 가 없으면 시험용 데이터로 그린다.
 - **generate.py 를 아직 돌리지 않았다** (데이터 작업 중): 글자만 다시 만들었다 (strings.xml). 데이터가 끝나면 `python3 scripts/generate.py` (pron 은 이미 있으면 그대로, 데이터를 고쳤으면 `--pron`) · `build_fonts.py --check`.
+
+## 2026-10-23 추가 (편지 카드 공유, 시안 Gbowc2Rqd6VJJpfmMPP6jC 2 — 화면 사진은 아직)
+
+- **편지 카드**: 너비 1080px, 높이는 내용만큼 (말줄임 없이 메시지 전체 · 사용자 고침). 위에 그 편지의 그림 (4:3 으로 자름, 긴 그림은 위쪽 35% 자리) → 원문 (배우는 말, 세리프) → 번역 (앱 글자 언어, 같은 말이면 없음) → 가는 줄 → “빈센트 → 테오 · 1888. 2. 21.” / 오른쪽 ‘언어 미술관’ (길면 다음 줄) → 작은 줄 작가 · 제목 · 연도 (image-policy 7, 빈센트 그림은 credit 이 비어 작품 fullName). 밝은 종이 · 어두운 두 가지는 앱 테마 (`Ink.isDark`).
+- 그리기 `ui/LetterCard.kt` (`letterCard` Canvas · `rememberLetterCard` · `LetterCardImage` · `LetterCardSheet` 미리 보기 + ‘카드로 보내기’ · `shareLetterCard` PNG → cache/postcards (FileProvider) + 한 줄 글과 스토어 주소 `BuildConfig.APPLICATION_ID`). 글 · 날짜 · 자르기는 core `LetterCard` (`LetterCardTest`).
+- 여는 곳: 편지 방 문장 길게 누르기 (`Modifier.longPressCard`, 다 써진 문장만, 화면 읽기는 ‘길게 누르기’ 동작) · 내 구절 구절마다 아래 ‘카드로 보내기’ 줄 · 봉인한 편지 ‘이 편지 카드’ (첫 메시지, 목소리 엽서 단추 아래). 기존 ‘엽서로’(작품 카드) 는 그대로.
+- 글자 키 새로: `letter_card_title` · `letter_card_send` · `letter_card_seal` · `letter_card_text` (strings.xml 만 다시 만듦).
+- 화면 사진 `ScreensTest.cardShare1` (밝은, 가장 긴 메시지) · `cardShare2` (어두운, 첫 메시지) — 카드 그림만 바로 그린다. 아직 안 찍음.

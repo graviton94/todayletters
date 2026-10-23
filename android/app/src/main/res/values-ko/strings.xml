@@ -528,6 +528,10 @@
     <string name="evening_rest_text">쉼⁠표 %1$d⁠개⁠가 있⁠어⁠서 이⁠어 읽⁠기 %2$d⁠일⁠은 내⁠일⁠까⁠지 이⁠어⁠져⁠요⁠.</string>
     <string name="card_title">작⁠품 카⁠드⁠로 보⁠내⁠기</string>
     <string name="card_share">공⁠유⁠하⁠기</string>
+    <string name="letter_card_title">편⁠지 카⁠드</string>
+    <string name="letter_card_send">카⁠드⁠로 보⁠내⁠기</string>
+    <string name="letter_card_seal">이 편⁠지 카⁠드</string>
+    <string name="letter_card_text">언⁠어 미⁠술⁠관⁠에⁠서 읽⁠은 편⁠지 한 줄\n%1$s</string>
     <string name="card_portrait">세⁠로 카⁠드</string>
     <string name="card_square">정⁠사⁠각</string>
     <string name="card_story">이⁠야⁠기 (9:16)</string>
