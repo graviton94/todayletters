@@ -3,3 +3,5 @@ g01_library_goya.png
 g02_room_c1l1.png
 g03_room_c1l1_orig_dark.png
 g04_talk_c1l1.png
+g05_room_c4l1.png
+g06_outro.png
