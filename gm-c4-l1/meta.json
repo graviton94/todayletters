@@ -1,0 +1,53 @@
+[
+ {
+  "file": "1.jpg",
+  "title": "File:Carlos III cazador.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Carlos_III_cazador.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Francisco_Goya\" class=\"extiw\" title=\"w:en:Francisco Goya\"><span title=\"Spanish painter and printmaker (1746–1828)\">Francisco Goya</span></a></bdi>",
+  "date": "from 1786 until 1788<div style=\"display: none;\">date QS:P571,+1786-00-00T00:00:00Z/8,P580,+1786-00-00T00:00:00Z/9,P582,+1788-00-00T00:00:00Z/9</div>",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.museodelprado.es/imagen/alta_resolucion/P00737.jpg\">http://www.museodelprado.es/imagen/alta_resolucion/P00737.jpg</a>",
+  "usage": "Public domain",
+  "description": "<div class=\"description\">\n<div style=\"font-size:0.9em;display:inline-block;\">Spanish:  <div style=\"display:inline-block\" dir=\"ltr\" lang=\"es\"><i>Carlos III cazador</i></div></div><br><div style=\"font-weight:bold;display:inline-block;\"><div style=\"display:inline-block\" dir=\"ltr\" lang=\"en\"><i>King Charles III as a hunter</i></div></div><div style=\"display: none;\">title QS:P1476,es:\"Carlos III cazador\"</div><div style=\"display: none;\">label QS:Les,\"Carlos III cazador\"</div><div style=\"display: none;\">label QS:Len,\"King Charles III as a hunter\"</div></div>",
+  "categories": "Carlos III, cazador (P000737)|PD-old-100-expired|PD-Art (PD-old-auto-expired)|Artworks with Wikidata item|Artworks with known accession number|CC-PD-Mark|Artworks with accession number from Wikidata|Artworks with Wikidata item missing genre|Artworks digital representation of 2D work|Jewellery for dogs in art",
+  "size": [
+   1786,
+   3051
+  ],
+  "query": "Goya Carlos III cazador Prado"
+ },
+ {
+  "file": "2.jpg",
+  "title": "File:Carlos III cazador.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Carlos_III_cazador.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Francisco_Goya\" class=\"extiw\" title=\"w:en:Francisco Goya\"><span title=\"Spanish painter and printmaker (1746–1828)\">Francisco Goya</span></a></bdi>",
+  "date": "from 1786 until 1788<div style=\"display: none;\">date QS:P571,+1786-00-00T00:00:00Z/8,P580,+1786-00-00T00:00:00Z/9,P582,+1788-00-00T00:00:00Z/9</div>",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.museodelprado.es/imagen/alta_resolucion/P00737.jpg\">http://www.museodelprado.es/imagen/alta_resolucion/P00737.jpg</a>",
+  "usage": "Public domain",
+  "description": "<div class=\"description\">\n<div style=\"font-size:0.9em;display:inline-block;\">Spanish:  <div style=\"display:inline-block\" dir=\"ltr\" lang=\"es\"><i>Carlos III cazador</i></div></div><br><div style=\"font-weight:bold;display:inline-block;\"><div style=\"display:inline-block\" dir=\"ltr\" lang=\"en\"><i>King Charles III as a hunter</i></div></div><div style=\"display: none;\">title QS:P1476,es:\"Carlos III cazador\"</div><div style=\"display: none;\">label QS:Les,\"Carlos III cazador\"</div><div style=\"display: none;\">label QS:Len,\"King Charles III as a hunter\"</div></div>",
+  "categories": "Carlos III, cazador (P000737)|PD-old-100-expired|PD-Art (PD-old-auto-expired)|Artworks with Wikidata item|Artworks with known accession number|CC-PD-Mark|Artworks with accession number from Wikidata|Artworks with Wikidata item missing genre|Artworks digital representation of 2D work|Jewellery for dogs in art",
+  "size": [
+   1786,
+   3051
+  ],
+  "query": "Goya Charles III in hunting dress"
+ },
+ {
+  "file": "3.jpg",
+  "title": "File:Goya - Carlos III, cazador, Hacia 1786, P000737.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Goya_-_Carlos_III,_cazador,_Hacia_1786,_P000737.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Francisco_Goya\" class=\"extiw\" title=\"w:en:Francisco Goya\"><span title=\"Spanish painter and printmaker (1746–1828)\">Francisco Goya</span></a></bdi>",
+  "date": "circa 1786<div style=\"display: none;\">date QS:P571,+1786-00-00T00:00:00Z/9,P1480,Q5727902</div>",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.museodelprado.es/coleccion/obra-de-arte/carlos-iii-cazador/32f3cf01-f8d2-4be1-b12a-aa04668706d7\">https://www.museodelprado.es/coleccion/obra-de-arte/carlos-iii-cazador/32f3cf01-f8d2-4be1-b12a-aa04668706d7</a>",
+  "usage": "Public domain",
+  "description": "Carlos III, cazador",
+  "categories": "Carlos III, cazador (P000737)|Artworks without Wikidata item|PD-old-100-expired|PD-Art (PD-old-auto-expired)|CC-PD-Mark",
+  "size": [
+   1179,
+   1920
+  ],
+  "query": "Goya Charles III in hunting dress"
+ }
+]

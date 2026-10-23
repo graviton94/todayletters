@@ -1,0 +1,36 @@
+[
+ {
+  "file": "1.jpg",
+  "title": "File:La gallina ciega (cartón restaurado) por Francisco de Goya.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:La_gallina_ciega_(cart%C3%B3n_restaurado)_por_Francisco_de_Goya.jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Francisco_Goya\" class=\"extiw\" title=\"w:en:Francisco Goya\"><span title=\"Spanish painter and printmaker (1746–1828)\">Francisco Goya</span></a></bdi>",
+  "date": "1788<div style=\"display: none;\">date QS:P571,+1788-00-00T00:00:00Z/9</div>",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.museodelprado.es/coleccion/obra-de-arte/la-gallina-ciega/a490da25-de17-4936-8f29-3cb418ae6e0b?searchid=242c8b9a-3822-3031-a752-a1854f7219da\">https://www.museodelprado.es/coleccion/obra-de-arte/la-gallina-ciega/a490da25-de17-4936-8f29-3cb418ae6e0b?searchid=242c8b9a-3822-3031-a752-a1854f7219da</a>",
+  "usage": "Public domain",
+  "description": "",
+  "categories": "PD-old-100-expired|PD-Art (PD-old-auto-expired)|Artworks with Wikidata item|Artworks with known accession number|CC-PD-Mark|La gallina ciega (P000804)|Artworks digital representation of 2D work",
+  "size": [
+   1895,
+   1513
+  ],
+  "query": "Goya La gallina ciega cartón Prado 1788"
+ },
+ {
+  "file": "2.jpg",
+  "title": "File:La gallina ciega (boceto).jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:La_gallina_ciega_(boceto).jpg",
+  "license": "Public domain",
+  "artist": "<bdi><a href=\"https://en.wikipedia.org/wiki/en:Francisco_Goya\" class=\"extiw\" title=\"w:en:Francisco Goya\"><span title=\"Spanish painter and printmaker (1746–1828)\">Francisco Goya</span></a></bdi>",
+  "date": "1788<div style=\"display: none;\">date QS:P571,+1788-00-00T00:00:00Z/9</div>",
+  "credit": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.allpaintings.org/v/Romanticism/Goya/Goya+-+Blind+Man_s+Buff.jpg.html?g2_imageViewsIndex=1\">http://www.allpaintings.org/v/Romanticism/Goya/Goya+-+Blind+Man_s+Buff.jpg.html?g2_imageViewsIndex=1</a>",
+  "usage": "Public domain",
+  "description": "",
+  "categories": "Studies (art)|PD-old-100-expired|PD-Art (PD-old-auto-expired)|Artworks with Wikidata item|Artworks with known accession number|CC-PD-Mark|Artworks with accession number from Wikidata|Artworks with Wikidata item missing genre|Images from Allpaintings.org|La gallina ciega (P002781)|Artworks digital representation of unknown type of work|Artworks digital representation of 2D work",
+  "size": [
+   1038,
+   1014
+  ],
+  "query": "Goya Blind Man's Buff cartoon Prado"
+ }
+]
