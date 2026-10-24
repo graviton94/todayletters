@@ -194,11 +194,11 @@ fun Room(s: AppState, r: Route.Letter) {
         }
     }
     // 모두 듣기 중에 낱말을 눌러 낱말 카드가 열리면 (카드 소리가 낭독을 멈춘다) 그 문장을 기억해 두고, 카드를 닫으면 거기서 이어 듣는다
-    var resumeAt by remember(letter.id) { mutableStateOf<Int?>(null) }
+    var resumeAfterCard by remember(letter.id) { mutableStateOf<Int?>(null) }
     val glossOpen = s.gloss != null
     LaunchedEffect(glossOpen) {
-        if (glossOpen) { if (all != null && queue[1] == 1) resumeAt = playing }
-        else resumeAt?.let { k -> resumeAt = null; if (all == null) speakAll(from = k) }
+        if (glossOpen) { if (all != null && queue[1] == 1) resumeAfterCard = playing }
+        else resumeAfterCard?.let { k -> resumeAfterCard = null; if (all == null) speakAll(from = k) }
     }
     controlsRef[0] = object : Playback.Controls {
         override fun next() { jump[0] = 1; s.narrator.stop() }

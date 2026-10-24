@@ -678,7 +678,6 @@ fun SpeakPanel(s: AppState, t: ShadowTake?, preview: Boolean = true, canListen: 
     }
 }
 
-private fun Modifier = this
 
 /** 큰 단추 하나 + 누를 수 없으면 그 아래 까닭 한 줄 (자리는 늘 비워 두어 칸 높이가 같다). */
 @Composable

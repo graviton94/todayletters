@@ -2469,7 +2469,8 @@ class ScreensTest {
         val s = state(true)
         finishReal(s, "vincent", 1, 1)
         s.store.notifyAsked = false
-        shot("rules10_end_today_notice_light", false, 2000, series = s) { Inbox(s) }
+        // 오늘에 들어올 때의 정산이 보상을 띄우면 그것이 걷힌 뒤에 묻는다 (덮개)
+        shot("rules10_end_today_notice_light", false, 2000, act = { s.reward = null; s.levelUp = null; s.gradeUp = null }, series = s) { Inbox(s) }
         org.junit.Assert.assertTrue(s.store.notifyAsked)
     }
 }
