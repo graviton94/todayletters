@@ -1037,4 +1037,21 @@
     <string name="backup_ask_file_b">편⁠지 %1$d⁠통 · 카⁠드 %2$d⁠장 · %3$s⁠에 내⁠보⁠냄</string>
     <string name="backup_ask_here">지⁠금 폰⁠의 기⁠록</string>
     <string name="backup_ask_here_b">편⁠지 %1$d⁠통 · 카⁠드 %2$d⁠장</string>
+    <string name="listen_first">먼⁠저 들⁠어 봐⁠요 · 다 들⁠으⁠면 말⁠할 수 있⁠어⁠요</string>
+    <string name="board_empty">말⁠하⁠면 여⁠기⁠에 내 목⁠소⁠리⁠가 그⁠려⁠져⁠요</string>
+    <string name="board_retry">한 번 더 듣⁠고 해 볼⁠까⁠요⁠?</string>
+    <string name="board_info">점⁠수 설⁠명</string>
+    <string name="reward_chip">+%1$d %2$s</string>
+    <string name="reward_level_line">레⁠벨⁠이 올⁠랐⁠어⁠요 · Lv %1$d</string>
+    <string name="done_today">오⁠늘⁠로</string>
+    <string name="leave_title">여⁠기⁠서 그⁠만⁠하⁠고 나⁠갈⁠까⁠요⁠?</string>
+    <string name="leave_yes">나⁠가⁠기</string>
+    <string name="leave_no">계⁠속⁠하⁠기</string>
+    <string name="review_back">복⁠습⁠으⁠로 돌⁠아⁠가⁠기</string>
+    <string name="warm_listen_first">먼⁠저 카⁠드 소⁠리⁠를 들⁠어 봐⁠요</string>
+    <string name="need_record">말⁠해 보⁠면 다⁠음⁠으⁠로 갈 수 있⁠어⁠요</string>
+    <string name="need_pick">하⁠나⁠를 먼⁠저 골⁠라⁠요</string>
+    <string name="need_answer">답⁠을 먼⁠저 골⁠라⁠요</string>
+    <string name="need_heard">들⁠린 말⁠을 먼⁠저 골⁠라⁠요</string>
+    <string name="need_scoring">내 소⁠리⁠를 비⁠교⁠하⁠는 중⁠이⁠에⁠요</string>
 </resources>

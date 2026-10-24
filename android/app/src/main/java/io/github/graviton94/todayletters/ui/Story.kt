@@ -65,31 +65,21 @@ fun Done(s: AppState, room: Route.Letter) {
     val home = { s.go(Route.Inbox) }
     androidx.activity.compose.BackHandler(onBack = home)
     val t = remember { androidx.compose.animation.core.Animatable(if (s.reducedMotion) 1f else 0f) }
-    val askNotice = androidx.activity.compose.rememberLauncherForActivityResult(androidx.activity.result.contract.ActivityResultContracts.RequestPermission()) {
-        io.github.graviton94.todayletters.data.Notices.schedule(s.ctx)
-    }
-    var preNotice by remember { mutableStateOf(false) }
-    if (preNotice) FullDialog(onDismissRequest = { preNotice = false }) {
-        Ask(stringResource(R.string.notice_pre_t), stringResource(R.string.notice_pre_yes), stringResource(R.string.notice_pre_no),
-            onYes = { preNotice = false; askNotice.launch(android.Manifest.permission.POST_NOTIFICATIONS) }, onNo = { preNotice = false })
-    }
+    // 편지 끝 흐름 (시안 하루 흐름): 보상 → 이 화면 하나. 알림 허락은 다음에 오늘에 올 때 (Inbox), 튜토리얼 끝은 이 화면 안의 한 줄
+    val graduating = remember { !s.tutorialDone }
     LaunchedEffect(Unit) {
+        // 보상 (화면 전체) 이 걷힌 뒤 도장을 찍는다
+        s.uncovered()
         t.animateTo(0.35f, androidx.compose.animation.core.tween(420, easing = androidx.compose.animation.core.FastOutSlowInEasing))
         if (s.app.haptics) haptic.performHapticFeedback(androidx.compose.ui.hapticfeedback.HapticFeedbackType.LongPress)
         t.animateTo(1f, androidx.compose.animation.core.tween(1600, easing = androidx.compose.animation.core.LinearEasing))
-        // 첫 편지를 끝낸 뒤 한 번: 내일 편지가 오면 알려 줄지 묻는다 (Android 13+). 시스템 창 앞에 앱의 한 줄 먼저
-        if (android.os.Build.VERSION.SDK_INT >= 33 && !s.store.notifyAsked) {
-            s.store.notifyAsked = true
-            preNotice = true
-        }
     }
+    LaunchedEffect(graduating) { if (graduating) s.graduate() }
     fun win(a: Float, b: Float) = androidx.compose.animation.core.FastOutSlowInEasing.transform(((t.value - a) / (b - a)).coerceIn(0f, 1f))
     val stamp = win(0f, 0.35f)
     val modes = s.letterModes(room.series, chapter, letter)
     val pr = s.progress(room.series, chapter, letter.id)
     val waiting = s.waiting(room.series)
-    // 다음 편지: 방금 마친 편지 뒤의 첫 안 마친 편지 (앞서 읽다 둔 편지가 끝 부분부터 열리지 않게)
-    val next = s.nextLetter(room)
 
     val plates = work.chapters.flatMap { it.letters }
     val got = work.chapters.sumOf { c -> c.letters.count { s.progress(room.series, c.id, it.id).done } }
@@ -136,85 +126,33 @@ fun Done(s: AppState, room: Route.Letter) {
                     Stat("+${letter.words.size}", stringResource(R.string.done_stat_cards))
                     Stat("$got/${plates.size}", stringResource(R.string.tab_gallery))
                 }
-                Text(stringResource(if (waiting > 0) R.string.done_next_now else if (got >= plates.size && work.outro != null) R.string.done_series_end else if (got >= plates.size) R.string.done_chapter_end else R.string.done_next_tomorrow), style = Type.small.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                // 다음 편지가 언제 오는지 (알림 시각 그대로) · 건너뛴 걸음 (예전 ‘오늘의 편지 마침’ 한 장의 줄들을 이 화면에)
+                val skipped = pr.toRedo.count { it in modes }
+                if (skipped > 0) Text(stringResource(R.string.finish_skipped, skipped), style = Type.small.ui(), color = p.giltText, textAlign = androidx.compose.ui.text.style.TextAlign.Center, maxLines = 1)
+                Text(when {
+                    waiting > 0 -> stringResource(R.string.done_next_now)
+                    got >= plates.size && work.outro != null -> stringResource(R.string.done_series_end)
+                    got >= plates.size -> stringResource(R.string.done_chapter_end)
+                    s.seriesSettings(room.series).arrivalNotice -> stringResource(R.string.finish_next_at, noticeTime(s.store.noticeHour.coerceIn(0, 23), s.store.noticeMinute.coerceIn(0, 59)))
+                    else -> stringResource(R.string.done_next_tomorrow)
+                }, style = Type.small.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                // 천천히 듣는 2주의 안내 (첫 편지 · 3일째에 한 번)
+                if (s.finishSheet == s.key(room.series, chapter, letter.id)) SlowNoteLine(s, room.series, s.key(room.series, chapter, letter.id))
+                // 튜토리얼 끝 한 줄 (편지 I 을 마친 뒤 한 번): 그 뒤로는 도움말이 저절로 뜨지 않는다
+                if (graduating) Text(stringResource(R.string.graduate_title), style = Type.body.ui(), color = p.giltText, textAlign = androidx.compose.ui.text.style.TextAlign.Center, maxLines = 1)
+                // 작품을 다 마쳤으면: 왜에 맞춘 다음 작품 한 줄
+                if (s.seriesDone(room.series)) s.suggestedNext(room.series)?.let { nx ->
+                    TextLink(stringResource(R.string.finish_suggest, s.work(nx).name[uiLang()])) { s.enter(nx) }
+                }
             }
         }
         Column(Modifier.background(p.paper).navigationBarsPadding().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            // 큰 단추 하나 “오늘로” (늘 다음에 할 일로: 완료 → 오늘 → 복습). 작품을 다 마쳤고 맺음이 있으면 맺음으로. 옆에 작은 “그림 속 산책”
+            if (work.outro != null && s.seriesDone(room.series)) Primary(stringResource(R.string.done_outro), shine = true) { s.openOutro(room.series) }
+            else Primary(stringResource(R.string.done_today), shine = true, onClick = home)
             // 그림이 이 기기에 없으면 (소리 없이 읽기 · 받지 않음) 걸을 그림도 없다
-            if (letter.plate != null && io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${letter.plate!!.image}")) Secondary(stringResource(R.string.done_walk)) { s.go(Route.Artwork(room.series, room.letter, room)) }
-            if (next != null) Primary(stringResource(R.string.done_open_next), shine = true) { s.open(room.series, next.first, next.second, Route.Inbox) }
-            else if (work.outro != null && s.seriesDone(room.series)) Primary(stringResource(R.string.done_outro), shine = true) { s.openOutro(room.series) }
-            else Primary(stringResource(R.string.done_home), shine = true, onClick = home)
-        }
-    }
-    // 튜토리얼 끝 (편지 I 을 마친 뒤 한 번): “이제 혼자서도 괜찮아요” → 그 뒤로는 도움말이 저절로 뜨지 않는다
-    if (!s.tutorialDone) Graduate(s)
-    // 오늘의 편지 마침 한 장: 처음 마쳤을 때 한 번 (건너뛴 걸음이 있어도), 도장이 다 찍힌 뒤
-    else if (s.finishSheet == s.key(room.series, chapter, letter.id) && t.value >= 1f) FinishSheet(s, room)
-}
-
-/**
- * 오늘의 편지를 마쳤어요: 밀랍 도장 · 편지 번호와 날짜 · 건너뛴 걸음은 복습에서 · 다음 편지가 언제 오는지 (알림 시각 그대로).
- * 서재로 (채운 단추) · 이 편지 처음부터 다시 보기. 닫으면 다시 뜨지 않는다 ([AppState.finishSheet]).
- */
-@Composable
-fun FinishSheet(s: AppState, room: Route.Letter) {
-    val p = Ink.palette
-    val (chapter, letter) = s.letterOf(room)
-    val work = s.work(room.series)
-    val pr = s.progress(room.series, chapter, letter.id)
-    val skipped = pr.toRedo.count { it in s.letterModes(room.series, chapter, letter) }
-    val n = work.chapters.flatMap { it.letters }.indexOf(letter) + 1
-    val close = { s.finishSheet = null }
-    androidx.activity.compose.BackHandler(onBack = close)
-    // 가운데 한 장 (아래 완료 화면의 제목 · 도장이 겹쳐 보이지 않게 짙은 막 위에)
-    Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.72f)).pressable(haptic = false, onClick = close), contentAlignment = Alignment.Center) {
-        Column(
-            Modifier.fillMaxWidth(0.86f).background(p.paper).border(1.dp, p.giltText).pressable(haptic = false) { }
-                .padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s6),
-            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
-        ) {
-            Box(
-                Modifier.size(64.dp).graphicsLayer { rotationZ = -8f }.background(androidx.compose.ui.graphics.Brush.radialGradient(listOf(Color(0xFFC25546), Color(0xFF9A3027), Color(0xFF6E1C15))), CircleShape),
-                contentAlignment = Alignment.Center,
-            ) { Portrait(work.portrait, work.fullName, 40.dp) }
-            Text(stringResource(R.string.finish_title), style = Type.title.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
-            Text(stringResource(R.string.finish_meta, roman(n), dateLine(letter.date, letter.place)),
-                style = Type.small.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center, maxLines = 1)
-            if (skipped > 0) Text(stringResource(R.string.finish_skipped, skipped),
-                style = Type.small.ui(), color = p.giltText, textAlign = androidx.compose.ui.text.style.TextAlign.Center, maxLines = 1)
-            val next = when {
-                s.seriesDone(room.series) -> stringResource(R.string.finish_series_done)
-                s.waiting(room.series) > 0 -> stringResource(R.string.done_next_now)
-                s.seriesSettings(room.series).arrivalNotice -> stringResource(R.string.finish_next_at, noticeTime(s.store.noticeHour.coerceIn(0, 23), s.store.noticeMinute.coerceIn(0, 59)))
-                else -> stringResource(R.string.finish_next_day)
-            }
-            Text(next, style = Type.body.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center, modifier = Modifier.padding(vertical = Tokens.Space.s2))
-            // 천천히 듣는 2주의 안내 (첫 편지 · 3일째에 한 번)
-            SlowNoteLine(s, room.series, s.key(room.series, chapter, letter.id))
-            // 작품을 다 마쳤으면: 왜에 맞춘 다음 작품 한 줄
-            if (s.seriesDone(room.series)) s.suggestedNext(room.series)?.let { nx ->
-                TextLink(stringResource(R.string.finish_suggest, s.work(nx).name[uiLang()])) { close(); s.enter(nx) }
-            }
-            Primary(stringResource(R.string.finish_today), shine = true) { close(); s.go(Route.Inbox) }
-            Secondary(stringResource(R.string.finish_again)) { s.replayLetter(room.series, chapter, letter, Route.Inbox) }
-        }
-    }
-}
-
-/** 튜토리얼을 맺는 한 장. */
-@Composable
-private fun Graduate(s: AppState) {
-    val p = Ink.palette
-    androidx.activity.compose.BackHandler { s.graduate() }
-    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false) { }, contentAlignment = Alignment.Center) {
-        Column(Modifier.fillMaxWidth(0.86f).background(p.paper).border(1.dp, p.giltText).padding(Tokens.Space.s6),
-            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-            Text(stringResource(R.string.graduate_title), style = Type.title.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
-            Text(stringResource(R.string.graduate_body), style = Type.body.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
-            // 첫 편지를 마치면 천천히 듣기 안내 한 줄 (튜토리얼 끝 한 장에)
-            s.slowNote?.let { k -> SlowNoteLine(s, s.current, k) }
-            Primary(stringResource(R.string.graduate_go), shine = true) { s.graduate() }
+            if (letter.plate != null && io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${letter.plate!!.image}"))
+                Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) { TextLink(stringResource(R.string.done_walk)) { s.go(Route.Artwork(room.series, room.letter, room)) } }
         }
     }
 }

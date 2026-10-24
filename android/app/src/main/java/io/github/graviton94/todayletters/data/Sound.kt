@@ -118,8 +118,24 @@ class Narrator(private val ctx: Context) {
      * [keep] 이면 소리는 그대로 (밀어 닫은 뒤 이어 읽기). 효과음(sounds/, 화면을 넘기는 종이 소리 등)은 끝까지 둔다.
      */
     fun enter(scene: Any?, keep: Boolean = false) {
+        routeScene = scene
         voice.enter(scene)
         if (!keep && now?.startsWith("sounds/") != true) stop()
+    }
+    private var routeScene: Any? = null
+
+    /** 화면 안의 작은 단계 (질문 k · 마디 · 회화 차례 · 답장 턴 · 예열 카드): 화면 이름 + 단계. */
+    data class Step(val scene: Any?, val key: Any?)
+
+    /**
+     * 화면 안의 작은 단계로 옮겼다 (시안 하루 흐름 ①): 이제부터는 이 단계의 소리만 받는다. 앞 단계의 늦은 자동 재생 · 이어 읽기
+     * (그 단계 주인으로 부른 것) 는 받지 않는다. [stopNow] 면 지금 소리도 멈춘다. 돌려준 주인으로 이 단계의 소리를 낸다.
+     */
+    fun step(key: Any?, stopNow: Boolean = false): Any {
+        val o = Step(routeScene, key)
+        voice.enter(o)
+        if (stopNow && now?.startsWith("sounds/") != true) stop()
+        return o
     }
 
     /** [speed] 를 주지 않으면 기본 빠르기 ([base]). [onDone] 은 끝까지 들었든 멈췄든 한 번 (이어 읽으려면 [playThen]). */
@@ -223,6 +239,17 @@ class Narrator(private val ctx: Context) {
         val a = o.getJSONArray("chunks")
         (0 until a.length()).map { a.getJSONObject(it).let { c -> Chunk((c.getDouble("s") * 1000).toInt(), (c.getDouble("e") * 1000).toInt(), c.getString("text")) } }
     }.getOrDefault(emptyList())
+
+    /**
+     * 낱말 시간 (정렬 작업이 낭독마다 만든 `<소리>.words.json` = {"v":1,"words":[{"t","s","e","q"}],"ok"}, s · e 는 소리 시작부터 밀리초).
+     * 없거나 정렬이 좋지 않으면 ("ok": false) null: 부르는 쪽이 기기에서 어림한다 (core 의 WordSpots.estimate).
+     */
+    fun words(asset: String): List<io.github.graviton94.todayletters.core.WordAt>? = runCatching {
+        val o = org.json.JSONObject(AssetFiles.text(ctx, asset.removeSuffix(".m4a") + ".words.json")!!)
+        if (!o.optBoolean("ok", true)) return null
+        val a = o.getJSONArray("words")
+        (0 until a.length()).map { a.getJSONObject(it).let { w -> io.github.graviton94.todayletters.core.WordAt(w.getString("t"), w.getDouble("s").toInt(), w.getDouble("e").toInt()) } }
+    }.getOrNull()?.takeIf { it.isNotEmpty() }
 
     /** 지금 재생 중인 파일 (화면의 듣기 버튼이 재생 · 멈춤 모양을 고른다). */
     var playing: String? = null

@@ -66,6 +66,8 @@ fun CoachLayer(s: AppState) {
     var i by remember(screen, s.coachTick) { mutableIntStateOf(0) }
     LaunchedEffect(screen, s.coachTick) { ready = false; delay(Tokens.Motion.coachDelayMs.toLong()); ready = true }
     if (!ready) return
+    // 도움말이 떠 있는 동안은 화면이 덮인 것 (저절로 나오는 소리 · 회화가 기다린다, AppState.covered)
+    androidx.compose.runtime.DisposableEffect(Unit) { s.coachShowing = true; onDispose { s.coachShowing = false } }
     val alpha = Tokens.Alpha.coachScrim * 0.5f
     Box(
         // 바탕은 터치만 막고 (단추가 아님), 넘기기는 카드에서만

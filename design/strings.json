@@ -4143,5 +4143,73 @@
   "backup_ask_here_b": {
     "en": "%1$d letters · %2$d cards",
     "ko": "편지 %1$d통 · 카드 %2$d장"
+  },
+  "listen_first": {
+    "en": "Listen first · then you can speak",
+    "ko": "먼저 들어 봐요 · 다 들으면 말할 수 있어요"
+  },
+  "board_empty": {
+    "en": "Your voice is drawn here as you speak",
+    "ko": "말하면 여기에 내 목소리가 그려져요"
+  },
+  "board_retry": {
+    "en": "Listen once more and try again?",
+    "ko": "한 번 더 듣고 해 볼까요?"
+  },
+  "board_info": {
+    "en": "About the score",
+    "ko": "점수 설명"
+  },
+  "reward_chip": {
+    "en": "+%1$d %2$s",
+    "ko": "+%1$d %2$s"
+  },
+  "reward_level_line": {
+    "en": "Level up · Lv %1$d",
+    "ko": "레벨이 올랐어요 · Lv %1$d"
+  },
+  "done_today": {
+    "en": "To Today",
+    "ko": "오늘로"
+  },
+  "leave_title": {
+    "en": "Stop here and leave?",
+    "ko": "여기서 그만하고 나갈까요?"
+  },
+  "leave_yes": {
+    "en": "Leave",
+    "ko": "나가기"
+  },
+  "leave_no": {
+    "en": "Keep going",
+    "ko": "계속하기"
+  },
+  "review_back": {
+    "en": "Back to Review",
+    "ko": "복습으로 돌아가기"
+  },
+  "warm_listen_first": {
+    "en": "Listen to the card first",
+    "ko": "먼저 카드 소리를 들어 봐요"
+  },
+  "need_record": {
+    "en": "Speak once to go on",
+    "ko": "말해 보면 다음으로 갈 수 있어요"
+  },
+  "need_pick": {
+    "en": "Pick one first",
+    "ko": "하나를 먼저 골라요"
+  },
+  "need_answer": {
+    "en": "Pick an answer first",
+    "ko": "답을 먼저 골라요"
+  },
+  "need_heard": {
+    "en": "Pick the word you heard first",
+    "ko": "들린 말을 먼저 골라요"
+  },
+  "need_scoring": {
+    "en": "Comparing your voice…",
+    "ko": "내 소리를 비교하는 중이에요"
   }
 }

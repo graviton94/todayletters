@@ -97,9 +97,14 @@ fun LibraryTab(s: AppState) {
                 }
             }
             Spacer(Modifier.height(Tokens.Space.s5))
+            // 서재 아래 업데이트 띠가 떠 있으면 그 높이만큼 아래 여백 (마지막 카드가 띠에 가리지 않게, 시안 하루 흐름 ⑤)
+            if (s.updateBand != io.github.graviton94.todayletters.core.UpdateBand.Hidden) Spacer(Modifier.height(UPDATE_BAND_SPACE))
         }
     }
 }
+
+/** 업데이트 띠 (알림 · 받는 중 · 다 받음) 의 가장 큰 높이 + 바깥 여백. */
+private val UPDATE_BAND_SPACE = 168.dp
 
 /** 서재의 시리즈 카드: 대표 그림 위에 그 시리즈의 빛깔이 왼쪽에서 번진다. */
 @Composable

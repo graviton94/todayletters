@@ -118,12 +118,19 @@ internal fun SoundsPane(s: AppState, series: String, c: SoundChapter, learn: Lan
     var picked by remember(again, stage) { mutableStateOf<Int?>(null) }
     DisposableEffect(Unit) { val me = s.narrator.scene; onDispose { s.narrator.stop(me) } }
     // 판이 바뀌면 그 판의 낱말을 한 번
-    LaunchedEffect(stage, again) { rounds.getOrNull(stage)?.let { rd -> c.pairs[rd.pair].let { (a, b) -> play(if (rd.second) b else a) } } }
+    // (판마다 화면 안의 단계: 앞 판의 늦은 소리는 받지 않고, 덮개가 걷힌 뒤에)
+    LaunchedEffect(stage, again) {
+        s.narrator.step("sounds" to (stage to again))
+        s.uncovered()
+        rounds.getOrNull(stage)?.let { rd -> c.pairs[rd.pair].let { (a, b) -> play(if (rd.second) b else a) } }
+    }
+    var leaving by remember { mutableStateOf(false) }
     val over = stage >= rounds.size
     val passed = over && Sounds.passed(right, rounds.size)
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PracticeHeader(stage.coerceIn(0, rounds.size), rounds.size, onClose = onDone)
+        // × 는 나가기 (한 번 묻기), 건너뛰기는 위 오른쪽 글자 하나 (편지는 그대로 열린다)
+        PracticeHeader(stage.coerceIn(0, rounds.size), rounds.size, onClose = { leaving = true }, onSkip = if (passed) null else ({ s.narrator.stop(); onDone() }))
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
@@ -191,13 +198,12 @@ internal fun SoundsPane(s: AppState, series: String, c: SoundChapter, learn: Lan
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             when {
                 stage < 0 -> Primary(stringResource(R.string.sounds_start), shine = true) { s.narrator.stop(); stage = 0 }
-                !over -> Primary(stringResource(R.string.recall_next), enabled = picked != null, shine = true) { s.narrator.stop(); stage++ }
+                !over -> MainButton(stringResource(R.string.recall_next), enabled = picked != null, reason = stringResource(R.string.need_heard)) { s.narrator.stop(); stage++ }
                 passed -> Primary(stringResource(R.string.sounds_open), shine = true) { onDone() }
                 else -> Primary(stringResource(R.string.sounds_retry), shine = true) { again++; stage = 0 }
             }
-            if (!passed) Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable(role = Role.Button) { onDone() }, contentAlignment = Alignment.Center) {
-                Text(stringResource(R.string.sounds_skip), style = Type.small.ui().copy(textDecoration = TextDecoration.Underline), color = p.inkSoft)
-            }
         }
     }
+    if (leaving) Ask(stringResource(R.string.leave_title), stringResource(R.string.leave_yes), stringResource(R.string.leave_no),
+        onYes = { leaving = false; s.narrator.stop(); s.back() }, onNo = { leaving = false })
 }

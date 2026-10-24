@@ -120,11 +120,20 @@ internal fun RecallPane(s: AppState, series: String, items: List<RecallItem>, on
     val audio = remember(item, learn) {
         item.letter.talk?.audioName(item.line, learn)?.let { s.narrator.path(series, item.chapter, item.letter.id, it) }?.takeIf { s.narrator.has(it) }
     }
-    // 맞으면 그 줄의 회화 소리를 한 번
-    LaunchedEffect(st.right) { if (st.right) audio?.let { s.narrator.play(it) } }
+    var leaving by remember { mutableStateOf(false) }
+    // 말하기 칸 (맞힌 뒤 ‘소리 내어 말해 보기’): 말하기 일곱 곳 공통의 판 · 아래 칸 ([SpeakPanel]). 맞으면 그 줄의 소리를 한 번 들은 셈이라 먼저 듣기는 그 소리로
+    val take = if (st.right && speak) rememberShadowTake(s, audio, 0, Int.MAX_VALUE, sayFile, step = true, key = Triple(series, done, item.line),
+        sayLike = s.sayLike(series, text), text = text, lang = learn) else null
+    // 말하기 칸이 열리면 먼저 듣기 (끝까지 들으면 녹음이 열린다)
+    LaunchedEffect(take) { if (take != null && !take.have) { s.uncovered(); take.original(s) } }
+    // 맞으면 그 줄의 회화 소리를 한 번 (이 줄의 소리로, 덮개가 걷힌 뒤)
+    LaunchedEffect(st.right, done) {
+        val me = s.narrator.step("recall" to done)
+        if (st.right) { s.uncovered(); audio?.let { s.narrator.play(it, owner = me) } }
+    }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PracticeHeader(done, done + queue.size, onClose = { s.back() })
+        PracticeHeader(done, done + queue.size, onClose = { leaving = true })
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
@@ -159,18 +168,20 @@ internal fun RecallPane(s: AppState, series: String, items: List<RecallItem>, on
                 if (!speak) Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable(role = Role.Button) { s.narrator.stop(); speak = true }, contentAlignment = Alignment.Center) {
                     Text(stringResource(R.string.recall_say), style = Type.small.ui().copy(textDecoration = TextDecoration.Underline), color = p.giltText)
                 }
-                else SpeakLine(s, audio, sayFile, key = Triple(series, done, item.line), sayLike = s.sayLike(series, text)) { }
             }
             if (st.wrong) Text(stringResource(R.string.recall_wrong), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
         }
-        Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (st.over) {
-                val (nq, na) = Recall.after(queue, again, st.right)
-                Primary(stringResource(if (nq.isEmpty()) R.string.recall_finish else R.string.recall_next), shine = true) {
-                    s.narrator.stop(); s.recorder.stopPlaying()
-                    if (nq.isEmpty()) onFinish() else { queue = nq; again = na; done++ }
-                }
-            }
+        val next: () -> Unit = {
+            val (nq, na) = Recall.after(queue, again, st.right)
+            s.narrator.stop(); s.recorder.stopPlaying()
+            if (nq.isEmpty()) onFinish() else { queue = nq; again = na; done++ }
+        }
+        val label = stringResource(if (Recall.after(queue, again, st.right).first.isEmpty()) R.string.recall_finish else R.string.recall_next)
+        if (take != null) SpeakPanel(s, take) { MainButton(label) { next() } }
+        else Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
+            MainButton(label, enabled = st.over, reason = stringResource(R.string.need_pick)) { next() }
         }
     }
+    if (leaving) Ask(stringResource(R.string.leave_title), stringResource(R.string.leave_yes), stringResource(R.string.leave_no),
+        onYes = { leaving = false; s.narrator.stop(); s.back() }, onNo = { leaving = false })
 }

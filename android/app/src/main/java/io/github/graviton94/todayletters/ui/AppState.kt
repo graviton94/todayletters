@@ -1,5 +1,6 @@
 package io.github.graviton94.todayletters.ui
 
+import kotlinx.coroutines.flow.first
 import android.content.Context
 import android.provider.Settings
 import androidx.compose.runtime.getValue
@@ -889,6 +890,20 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 오늘의 복습 한 판의 저장 이름: 작품의 진도 이름마다 (빈센트를 프랑스어 · 영어로 따로). */
     fun reviewSession(id: String = current) = "today:${space(id)}"
 
+    /**
+     * 복습 한 판을 마치고 나가기: 그 판을 시작한 곳 (오늘 · 복습 탭 등, 판 밑의 화면) 으로. 판이 맨 밑이면 오늘.
+     * (예전에는 어디서 시작했든 오늘 탭으로 갔다.)
+     */
+    fun leaveSession() {
+        val from = stack.dropLast(1).lastOrNull { it !is Route.Session }
+        if (from == null) { go(Route.Inbox); return }
+        music.stop(); gloss = null; forward = false
+        while (stack.size > 1 && stack.last() is Route.Session) stack.removeAt(stack.lastIndex)
+        moved()
+    }
+    /** 복습 한 판을 시작한 곳이 복습 탭인가 (돌아가기 단추 이름). */
+    val sessionFromReview: Boolean get() = stack.dropLast(1).lastOrNull { it !is Route.Session } == Route.Words
+
     /** 오늘의 복습 (여정 II) 을 끝까지 풀었다. */
     fun reviewDone() {
         store.setReviewedOn(space(current), today); finished()
@@ -1175,11 +1190,13 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         // 맺음 편지의 답장: 아웃트로로 돌아갈 뿐 (편지 완료 화면 · 편지 보상 없음)
         if (r.epilogue) { settle(); return }
         val now = progress(r.series, ch, l.id)
-        if (!was && now.done) letterDone(r)
+        val ended = !was && now.done
+        if (ended) letterDone(r)
         // 편지 방에서 이어 하던 걸음이면 바로 다음 걸음으로 (방으로 돌아가 ‘다음 · …’ 을 다시 누르지 않게, 사용자 요청 2026-10-24).
         // 방은 뒤에 남아서 걸음 화면을 닫으면 편지로 돌아간다. 마친 편지의 다시 하기 · 복습 탭에서 들어온 걸음은 들어온 곳으로 그대로
         else if (!was && route == r) stepsOf(r).firstOrNull { it !in now.replied && it !in now.skipped }?.let { go(Route.Play(r, it)) }
-        settle()
+        // 걸음 안 보상은 작은 “+2” (화면을 덮지 않음, 다음 걸음이 바로), 편지를 마쳤으면 편지 완료 보상 한 번 (등급 · 레벨은 그 안에 한 줄씩)
+        settle(quiet = !ended, fold = ended)
     }
 
     /** 편지를 막 마쳤다 (마지막 걸음을 했거나 건너뛰었다): 처음이면 보상 · 오늘의 편지 마침 한 장, 다시 보기면 보상 없이 끝. 그리고 편지 완료 화면. */
@@ -1215,8 +1232,30 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val lines: List<Pair<Earn, Int>> = emptyList(),
         /** 이달의 전시를 방금 다 모았으면 그 전시 (도록 표지, E4). */
         val catalogue: Exhibition? = null,
+        /** 편지 완료 보상 안의 한 줄: 오른 언어 등급 · 레벨 (따로 한 장씩 띄우지 않는다, 시안 하루 흐름 편지 끝 흐름). */
+        val grade: GradeUp? = null,
+        val level: LevelUp? = null,
     )
     var reward by mutableStateOf<RewardMoment?>(null)
+
+    /** 걸음 안 보상 (시안 하루 흐름 ④): 화면을 덮지 않는 작은 “+2” 표시. 새로 받을 때마다 [Chip.n] 이 바뀐다. */
+    data class Chip(val series: String, val gain: Int, val n: Int)
+    var chip by mutableStateOf<Chip?>(null)
+    private var chips = 0
+
+    /**
+     * 무언가 화면을 덮고 있는가 (보상 · 레벨 · 등급 · 받기 시트 · 처음 시작 · 묻는 창 · 도움말 · 설정 · 의견 · 고마워요).
+     * 저절로 나오는 소리와 회화의 상대 줄은 덮개가 걷힐 때까지 기다린다 ([uncovered]).
+     */
+    val covered: Boolean get() = reward != null || levelUp != null || gradeUp != null || downloadAsk != null || startAsk != null ||
+        settingsOpen || feedback != null || crashAsk || thanks != null || coachShowing || askingExit || langNotice || Covers.open > 0
+    /** 화면 사진 · 길 시험만: 말하기 칸이 만들어질 때 (칸, 목소리 판정 알리기). 앱에서는 null. */
+    var takeHook: (suspend (ShadowTake, (Boolean) -> Unit) -> Unit)? = null
+    /** 도움말 층이 떠 있는가 (CoachLayer 가 건다). */
+    var coachShowing by mutableStateOf(false)
+    /** 덮개가 없을 때까지 기다린다 (없으면 바로). */
+    suspend fun uncovered() { androidx.compose.runtime.snapshotFlow { covered }.first { !it } }
+
     /** 레벨 업 순간: [from] → [to] (한 번에 여러 레벨을 올라도 하나만). 보상 순간이 닫힌 뒤에 뜬다. */
     data class LevelUp(val from: Int, val to: Int)
     var levelUp by mutableStateOf<LevelUp?>(null)
@@ -1715,8 +1754,17 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         fun words(t: String) = if (learn == io.github.graviton94.todayletters.core.Lang.JA) (t.count { !it.isWhitespace() } + 2) / 3 else t.split(Regex("\\s+")).count { it.isNotBlank() }
         return l.messages.mapIndexed { i, m ->
             val text = io.github.graviton94.todayletters.core.Breaks.plain(m.text[learn])
-            val cs = narrator.chunks(narrator.path(id, chapter, l.id, "m${i + 1}_${learn.code}"))
-            if (cs.isEmpty()) listOf(io.github.graviton94.todayletters.data.Chunk(-1, -1, text))
+            val path = narrator.path(id, chapter, l.id, "m${i + 1}_${learn.code}")
+            val cs = narrator.chunks(path)
+            // 영어 · 한국어 편지는 문장 하나가 10~20초 한 덩어리: 낱말 시간 파일이 있으면 4초 안쪽 · 6~10 낱말 마디로 (core 의 WordSpots.split)
+            val ws = if (learn == io.github.graviton94.todayletters.core.Lang.EN || learn == io.github.graviton94.todayletters.core.Lang.KO) narrator.words(path) else null
+            if (ws != null && ws.size > io.github.graviton94.todayletters.core.Prosody.SPAN_MAX) io.github.graviton94.todayletters.core.WordSpots.split(ws).map { r ->
+                val a = ws[r.first]; val b = ws[r.last]
+                val from = (a.s - 80).coerceAtLeast(ws.getOrNull(r.first - 1)?.e ?: 0)
+                val to = (b.e + 120).coerceAtMost(ws.getOrNull(r.last + 1)?.s ?: Int.MAX_VALUE)
+                io.github.graviton94.todayletters.data.Chunk(from, to, r.joinToString(" ") { ws[it].t })
+            }
+            else if (cs.isEmpty()) listOf(io.github.graviton94.todayletters.data.Chunk(-1, -1, text))
             else io.github.graviton94.todayletters.core.Prosody.spans(cs.map { words(it.text) }).map { r ->
                 io.github.graviton94.todayletters.data.Chunk(cs[r.first].start, cs[r.last].end, r.joinToString(" ") { cs[it].text })
             }
@@ -1804,7 +1852,10 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
      * 정산: 혼자 읽기가 오른 만큼 · 봉인 · 새 메달 · 완주한 작품 · 새로 익힌 낱말을 모아 한 번의 보상 순간으로 보여 준다.
      * 메달 셋째마다 유화 한 점이 확정. 레벨이 올랐으면 그 뒤에 레벨 업 순간 하나. 아무 것도 없으면 조용히.
      */
-    fun settle() {
+    fun settle(
+        /** 걸음 안 정산: 화폐만이면 작은 “+2” ([chip]), 자료 · 메달 · 도록 · 이정표가 있으면 화면 전체. */ quiet: Boolean = false,
+        /** 편지 완료: 오른 등급 · 레벨을 보상 화면 안의 한 줄로 접는다. */ fold: Boolean = false,
+    ) {
         val cm = cardMap()
         val id = current
         // 완독 봉인 (F13): 낱말을 모두 떠올리고 (떠올리기 이상) 소리 내어 읽은 (따라 읽기 별 하나 이상 · 녹음만 해도) 편지
@@ -1847,7 +1898,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         }
         val gain = pending.values.sum()
         if (gain > 0 || pendingPiece != null || got.isNotEmpty() || catalogue != null) {
-            reward = RewardMoment(id, gain, pendingPiece, got, milestone, pending.toList(), catalogue)
+            val m = RewardMoment(id, gain, pendingPiece, got, milestone, pending.toList(), catalogue)
+            if (quiet && m.piece == null && m.medals.isEmpty() && m.catalogue == null && m.milestone == null) chip = Chip(id, gain, ++chips)
+            else reward = m
         }
         pending = mutableMapOf(); pendingPiece = null
         // 언어 등급 (오르면 XP 가 붙으니 레벨 업보다 먼저)
@@ -1855,6 +1908,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         // 레벨 업: 이번 일로 오른 만큼 한 번 (보상 순간이 있으면 그 뒤에)
         val lv = Levels.of(store.xp().total).level
         if (lv > store.levelSeen) { levelUp = LevelUp(store.levelSeen, lv); store.levelSeen = lv }
+        if (fold) reward?.let { m -> reward = m.copy(grade = gradeUp, level = levelUp); gradeUp = null; levelUp = null }
         version++
     }
 

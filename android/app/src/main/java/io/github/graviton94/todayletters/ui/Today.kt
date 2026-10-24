@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
@@ -79,6 +80,16 @@ fun Inbox(s: AppState) {
     val tl = s.todayLetter(id)
 
     var backupSheet by remember { mutableStateOf(false) }
+    // 새 편지 알림 허락 (Android 13+): 첫 편지를 마친 뒤 다음에 오늘에 왔을 때 한 번, 덮개 (보상 등) 가 걷힌 뒤 (편지 끝 흐름: 완료 화면 위에 겹치지 않게)
+    var preNotice by remember { mutableStateOf(false) }
+    val askNotice = androidx.activity.compose.rememberLauncherForActivityResult(androidx.activity.result.contract.ActivityResultContracts.RequestPermission()) {
+        io.github.graviton94.todayletters.data.Notices.schedule(s.ctx)
+    }
+    LaunchedEffect(Unit) {
+        if (android.os.Build.VERSION.SDK_INT >= 33 && !s.store.notifyAsked && s.store.progressKeys().any { s.store.progress(it).done }) {
+            s.uncovered(); s.store.notifyAsked = true; preNotice = true
+        }
+    }
     Box(Modifier.fillMaxSize()) {
     Column(Modifier.fillMaxSize()) {
         SeriesHeader(s, learnChip = false)
@@ -170,6 +181,8 @@ fun Inbox(s: AppState) {
     }
     // 보관 시트는 화면 위에 (굴리는 칸 밖)
     BackupExportFlow(s, backupSheet) { backupSheet = false }
+    if (preNotice) Ask(stringResource(R.string.notice_pre_t), stringResource(R.string.notice_pre_yes), stringResource(R.string.notice_pre_no),
+        onYes = { preNotice = false; askNotice.launch(android.Manifest.permission.POST_NOTIFICATIONS) }, onNo = { preNotice = false })
     }
 }
 
@@ -231,8 +244,10 @@ private fun TodayLetter(s: AppState, id: String, work: io.github.graviton94.toda
                     Journey.Step.SKIPPED -> Modifier.border(1.5.dp, p.giltText, CircleShape)
                     else -> Modifier.border(1.dp, p.hideInk, CircleShape)
                 }))
+                // 이름표는 한 줄 (‘따라 읽기’ 가 두 줄로 꺾이지 않게: 칸보다 조금 넓으면 가운데에서 양쪽으로)
                 Text(labels.getOrElse(k) { "" }, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = if (st == Journey.Step.TODO) p.hideInk else p.inkSoft,
-                    textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center, maxLines = 1, softWrap = false,
+                    modifier = Modifier.wrapContentWidth(unbounded = true))
             }
         }
     }

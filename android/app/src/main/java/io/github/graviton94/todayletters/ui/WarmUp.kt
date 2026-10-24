@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -269,11 +270,16 @@ fun WarmUpScreen(s: AppState, r: Route.WarmUp) {
     val cards = remember(letter.id) { s.warmCards(series, chapter, letter) }
     if (cards.isEmpty()) { LaunchedEffect(Unit) { s.finishWarm(r, emptyList()) }; return }
     var at by remember(letter.id) { mutableIntStateOf(0) }
+    // 끝까지 들은 카드 (‘따라 말했어요’ 는 그 카드 소리를 들은 뒤에만, 소리가 없는 카드는 바로)
+    var heard by remember(letter.id) { mutableStateOf(setOf<Int>()) }
+    var me by remember(letter.id) { mutableStateOf<Any?>(s.narrator.scene) }
     fun play(i: Int, speed: Float? = null) {
         val (path, range) = cards.getOrNull(i)?.audio ?: return
-        if (range != null) s.narrator.playRange(path, range.first, range.last, speed) else s.narrator.play(path, speed)
+        val done: (Boolean) -> Unit = { ok -> if (ok) heard = heard + i }
+        if (range != null) s.narrator.playRangeThen(path, range.first, range.last, speed, me, done) else s.narrator.playThen(path, speed, me, done)
     }
-    LaunchedEffect(at) { if (at < cards.size && s.app.sound) play(at) }
+    // 카드마다 화면 안의 단계 (앞 카드의 늦은 소리는 받지 않음): 덮개가 걷힌 뒤 지금 카드 소리를 한 번
+    LaunchedEffect(at) { me = s.narrator.step("warm" to at); s.uncovered(); if (at < cards.size && s.app.sound) play(at) }
     androidx.activity.compose.BackHandler { s.back() }
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
         Row(Modifier.fillMaxWidth().heightIn(min = 56.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -317,7 +323,8 @@ fun WarmUpScreen(s: AppState, r: Route.WarmUp) {
                 modifier = Modifier.fillMaxWidth(), textAlign = androidx.compose.ui.text.style.TextAlign.Center)
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (at < cards.size) Primary(stringResource(R.string.warm_said), shine = true) { s.narrator.stop(); at++ }
+            if (at < cards.size) MainButton(stringResource(R.string.warm_said), enabled = cards[at].audio == null || at in heard,
+                reason = stringResource(R.string.warm_listen_first)) { s.narrator.stop(); at++ }
             else Primary(stringResource(R.string.warm_open), shine = true) { s.finishWarm(r, cards) }
         }
     }

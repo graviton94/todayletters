@@ -1037,4 +1037,21 @@
     <string name="backup_ask_file_b">%1$d letters · %2$d cards · exported %3$s</string>
     <string name="backup_ask_here">On this phone now</string>
     <string name="backup_ask_here_b">%1$d letters · %2$d cards</string>
+    <string name="listen_first">Listen first · then you can speak</string>
+    <string name="board_empty">Your voice is drawn here as you speak</string>
+    <string name="board_retry">Listen once more and try again?</string>
+    <string name="board_info">About the score</string>
+    <string name="reward_chip">+%1$d %2$s</string>
+    <string name="reward_level_line">Level up · Lv %1$d</string>
+    <string name="done_today">To Today</string>
+    <string name="leave_title">Stop here and leave?</string>
+    <string name="leave_yes">Leave</string>
+    <string name="leave_no">Keep going</string>
+    <string name="review_back">Back to Review</string>
+    <string name="warm_listen_first">Listen to the card first</string>
+    <string name="need_record">Speak once to go on</string>
+    <string name="need_pick">Pick one first</string>
+    <string name="need_answer">Pick an answer first</string>
+    <string name="need_heard">Pick the word you heard first</string>
+    <string name="need_scoring">Comparing your voice…</string>
 </resources>

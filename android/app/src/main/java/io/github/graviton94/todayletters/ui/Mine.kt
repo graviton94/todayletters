@@ -14,6 +14,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -81,14 +82,20 @@ internal fun MinePane(s: AppState, series: String, chapter: String, letter: Lett
     val sentence = (if (pick >= 0) Mine.sentence(talk, pick, learn) else Mine.blanked(talk, learn)).orEmpty()
     val meaning = if (ui == learn) "" else (if (pick >= 0) Mine.sentence(talk, pick, ui) else Mine.blanked(talk, ui)).orEmpty()
     val file = remember(letter.id) { s.mineTake(series, chapter, letter.id).also { it.delete() } }
+    var leaving by remember { mutableStateOf(false) }
     DisposableEffect(Unit) { onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release() } }
     fun finish() {
         s.narrator.stop()
         if (pick >= 0) s.mineChosen(series, chapter, letter, pick)
         onDone()
     }
+    // 원래 소리가 없다: 글자로 어림한 음절과 견준다 (core 의 SpeakCheck.estimate). 보기를 골라 ‘말해 보기’ 를 눌러야 녹음 칸이 생긴다
+    val take = if (speaking && pick >= 0) rememberShadowTake(s, null, 0, Int.MAX_VALUE, file, step = true, key = Triple(letter.id, pick, learn),
+        onVoice = { v -> if (v) spoken = true }, estimate = SpeakCheck.estimate(sentence, learn), sayLike = s.sayLike(series, sentence)) else null
+    LaunchedEffect(pick, speaking) { s.narrator.step("mine" to (pick to speaking)) }
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PracticeHeader(if (spoken) 1 else 0, 1, onClose = { finish() })
+        // × 는 나가기 (한 번 묻기), 건너뛰기는 위 오른쪽 글자 (고른 문장은 카드로)
+        PracticeHeader(if (spoken) 1 else 0, 1, onClose = { leaving = true }, onSkip = if (spoken) null else ({ finish() }))
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
@@ -112,22 +119,16 @@ internal fun MinePane(s: AppState, series: String, chapter: String, letter: Lett
                     if (tr.isNotBlank()) Text(tr, style = Type.small.of(ui), color = p.inkSoft)
                 }
             }
-            if (speaking && pick >= 0) {
-                if (spoken) Text(stringResource(R.string.speak_line_ok), style = Type.small.ui(), color = p.correct, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
-                // 원래 소리가 없다: 글자로 어림한 음절과 견준다 (core 의 SpeakCheck.estimate)
-                SpeakLine(s, null, file, key = Triple(letter.id, pick, learn), estimate = SpeakCheck.estimate(sentence, learn),
-                    sayLike = s.sayLike(series, sentence)) { spoken = true }
-            }
         }
-        Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
+        // 판 · 아래 칸 (말하기 일곱 곳 공통, 높이 고정)
+        SpeakPanel(s, take, why = if (pick < 0) stringResource(R.string.need_pick) else null, canRecord = take != null) {
             when {
-                spoken -> Primary(stringResource(R.string.mine_finish), shine = true) { finish() }
-                !speaking -> Primary(stringResource(R.string.mine_say), enabled = pick >= 0, shine = pick >= 0) { speaking = true }
-                else -> Unit
-            }
-            if (!spoken) Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable(role = Role.Button) { finish() }, contentAlignment = Alignment.Center) {
-                Text(stringResource(R.string.mine_skip), style = Type.small.ui().copy(textDecoration = TextDecoration.Underline), color = p.inkSoft)
+                spoken -> MainButton(stringResource(R.string.mine_finish)) { finish() }
+                !speaking -> MainButton(stringResource(R.string.mine_say), enabled = pick >= 0, reason = stringResource(R.string.need_pick)) { speaking = true }
+                else -> MainButton(stringResource(R.string.mine_finish), enabled = false, reason = stringResource(if (take?.scoring == true) R.string.need_scoring else R.string.need_record)) {}
             }
         }
     }
+    if (leaving) Ask(stringResource(R.string.leave_title), stringResource(R.string.leave_yes), stringResource(R.string.leave_no),
+        onYes = { leaving = false; s.narrator.stop(); s.back() }, onNo = { leaving = false })
 }

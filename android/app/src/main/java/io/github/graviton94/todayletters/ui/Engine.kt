@@ -365,6 +365,10 @@ fun RewardOverlay(s: AppState) {
                     Text(stringResource(R.string.reward_ach, md.title[uiLang()]), style = Type.body.ui(), color = t.accent)
                 }
             }
+            // 편지 완료 보상 안의 한 줄씩: 오른 언어 등급 · 레벨 (따로 한 장씩 띄우지 않는다)
+            m.grade?.let { g -> Text(stringResource(R.string.gradeup_title, stringResource(langLabel(g.lang))) + " · " + gradeLine(g.lang, g.to),
+                style = Type.body.ui(), color = gold, textAlign = TextAlign.Center) }
+            m.level?.let { lv -> Text(stringResource(R.string.reward_level_line, lv.to), style = Type.body.ui(), color = gold, textAlign = TextAlign.Center) }
             Spacer(Modifier.height(Tokens.Space.s2))
             if (m.gain > 0) Column(Modifier.fillMaxWidth()) {
                 Box(Modifier.fillMaxWidth().height(1.dp).background(t.ink.copy(alpha = 0.15f)))
@@ -391,6 +395,25 @@ fun RewardOverlay(s: AppState) {
                 Text(stringResource(R.string.close), style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = t.ink)
             }
         }
+    }
+}
+
+/**
+ * 걸음 안 보상 (시안 하루 흐름 ④): 화면 위쪽 가운데 작은 “+2 ○○” 표시. 누를 것도 막는 것도 없고 (다음 걸음이 바로 이어진다), 2.4초 뒤 사라진다.
+ */
+@Composable
+fun RewardChip(s: AppState) {
+    val c = s.chip ?: return
+    val p = Ink.palette
+    LaunchedEffect(c.n) { kotlinx.coroutines.delay(2400); if (s.chip?.n == c.n) s.chip = null }
+    val w = s.work(c.series.ifEmpty { s.current })
+    Box(Modifier.fillMaxWidth().statusBarsPadding().padding(top = 60.dp), contentAlignment = Alignment.TopCenter) {
+        Text(stringResource(R.string.reward_chip, c.gain, w.kit.currency[uiLang()]), style = Type.small.ui().copy(fontWeight = FontWeight.SemiBold),
+            color = p.giltText, maxLines = 1,
+            modifier = Modifier.shadow(4.dp, androidx.compose.foundation.shape.RoundedCornerShape(Tokens.Radius.round))
+                .background(p.paper, androidx.compose.foundation.shape.RoundedCornerShape(Tokens.Radius.round))
+                .border(1.dp, p.giltText, androidx.compose.foundation.shape.RoundedCornerShape(Tokens.Radius.round))
+                .padding(horizontal = 14.dp, vertical = 6.dp))
     }
 }
 

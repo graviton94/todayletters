@@ -120,8 +120,9 @@ fun ReplyLadder(s: AppState, r: Route.Play, help: Ladder.Help, turn: Int, turns:
     val ime = WindowInsets.isImeVisible
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f).imePadding()) {
         // 턴이 여럿이면 막대는 턴마다 한 칸 (“턴 1 / 2”), 하나면 빈칸마다
-        if (turns > 1) PracticeHeader(turn, turns, onClose = onClose, count = stringResource(R.string.ladder_turn, turn + 1, turns))
-        else PracticeHeader(filled.count { it }, holes.size.coerceAtLeast(1), onClose = onClose, count = "${filled.count { it }} / ${holes.size}")
+        val skip: (() -> Unit)? = if (done) null else ({ s.skipStep(r.room, ReplyMode.CONSTELLATION) })
+        if (turns > 1) PracticeHeader(turn, turns, onClose = onClose, count = stringResource(R.string.ladder_turn, turn + 1, turns), onSkip = skip)
+        else PracticeHeader(filled.count { it }, holes.size.coerceAtLeast(1), onClose = onClose, count = "${filled.count { it }} / ${holes.size}", onSkip = skip)
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
@@ -206,14 +207,10 @@ fun ReplyLadder(s: AppState, r: Route.Play, help: Ladder.Help, turn: Int, turns:
                 done -> Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.play_send), shine = true) { onDone() }
                 help == Ladder.Help.WRITE -> {
                     Primary(stringResource(R.string.ladder_check), enabled = typed.isNotBlank(), shine = true) { if (Ladder.right(answers[at], typed)) accept() else miss(typed) }
-                    if (!ime) {
-                        Secondary(stringResource(R.string.play_show)) { filled = List(holes.size) { true } }
-                        SkipLink { s.skipStep(r.room, ReplyMode.CONSTELLATION) }
-                    }
+                    if (!ime) Secondary(stringResource(R.string.play_show)) { filled = List(holes.size) { true } }
                 }
                 else -> {
                     Secondary(stringResource(R.string.play_show)) { filled = List(holes.size) { true } }
-                    SkipLink { s.skipStep(r.room, ReplyMode.CONSTELLATION) }
                 }
             }
         }

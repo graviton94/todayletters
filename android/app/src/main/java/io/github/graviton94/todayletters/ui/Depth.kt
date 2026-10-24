@@ -102,7 +102,8 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val options = remember(letter.id, k, langs) { c?.options?.map { Breaks.plain(it[langs.options]) }.orEmpty() }
     val right = options.getOrNull(c?.answer ?: -1).orEmpty()
     val over = picked == right || missed.size >= 2
-    val me = remember(letter.id) { s.narrator.scene }
+    // 소리의 주인: 이 화면의 지금 질문 (화면 안의 단계, 시안 하루 흐름 ①)
+    var me by remember(letter.id) { mutableStateOf<Any?>(s.narrator.scene) }
     DisposableEffect(letter.id) { onDispose { s.narrator.stop(me) } }
 
     // 지문 듣기: 근거 메시지의 낭독을 차례로 (없으면 단추 없음)
@@ -112,10 +113,12 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     // 다음 메시지는 앞 메시지를 끝까지 들었을 때만 (멈추거나 화면을 옮기면 잇지 않는다)
     fun listen(from: Int = 0, speed: Float? = null) { clips.getOrNull(from)?.let { s.narrator.playThen(it, speed, owner = me) { ok -> if (ok && from + 1 < clips.size) listen(from + 1, speed) } } }
     // 질문이 뜨면 지문을 한 번 저절로 (자동 낭독 설정 · 기본 듣기 속도, 소리 파일이 없으면 조용히)
-    LaunchedEffect(letter.id, k) { if (s.app.sound) listen() }
+    // 질문마다 그 질문의 소리만 받고, 덮개 (보상 · 묻는 창 · 도움말) 가 걷힌 뒤에
+    LaunchedEffect(letter.id, k) { me = s.narrator.step("check" to k); s.uncovered(); if (s.app.sound) listen() }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PracticeHeader(if (over) k + 1 else k, n, onClose = onClose, count = "${k + 1} / $n")
+        PracticeHeader(if (over) k + 1 else k, n, onClose = onClose, count = "${k + 1} / $n",
+            onSkip = if (over && k == n - 1) null else ({ s.narrator.stop(); s.skipStep(r.room, ReplyMode.CHECK) }))
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s4).padding(top = Tokens.Space.s1, bottom = Tokens.Space.s2),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
@@ -171,9 +174,8 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
             if (!over && missed.isNotEmpty()) Text(stringResource(R.string.check_wrong), style = Type.small.ui(), color = p.wrong)
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (k < n - 1) Primary(stringResource(R.string.check_next), enabled = over, shine = true) { s.narrator.stop(); at = k + 1 }
-            else Primary(stringResource(R.string.play_finish), enabled = over, shine = true) { s.narrator.stop(); s.replyAndContinue(r.room, ReplyMode.CHECK) }
-            if (!(over && k == n - 1)) SkipLink { s.narrator.stop(); s.skipStep(r.room, ReplyMode.CHECK) }
+            if (k < n - 1) MainButton(stringResource(R.string.check_next), enabled = over, reason = stringResource(R.string.need_answer)) { s.narrator.stop(); at = k + 1 }
+            else MainButton(stringResource(R.string.play_finish), enabled = over, reason = stringResource(R.string.need_answer)) { s.narrator.stop(); s.replyAndContinue(r.room, ReplyMode.CHECK) }
         }
     }
 }
@@ -204,47 +206,57 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     var shown by rememberSaveable(letter.id) { mutableIntStateOf(0) }
     var marks by rememberSaveable(letter.id) { mutableStateOf("") }
     fun audio(i: Int): String? = talk?.audioName(i, view.learn)?.let { s.narrator.path(id, chapter, letter.id, it) }?.takeIf { s.narrator.has(it) }
+    // 소리의 주인: 이 화면의 지금 차례 (화면 안의 단계, 시안 하루 흐름 ①). 차례가 바뀌면 앞 차례의 늦은 소리는 받지 않는다
+    var me by remember(letter.id) { mutableStateOf<Any?>(s.narrator.scene) }
     LaunchedEffect(shown, lines.size) {
-        // 앞 줄 소리(상대 줄 · 내 줄 정답 소리)가 끝난 뒤에 다음 상대 줄 (그 줄의 소리가 앞 소리를 자르지 않게)
-        if (shown < lines.size && !lines[shown].me) { awaitAnswerSound(s.narrator, if (shown == 0) 300 else 900); shown++ }
+        // 앞 줄 소리(상대 줄 · 내 줄 정답 소리)가 끝난 뒤에 다음 상대 줄 (그 줄의 소리가 앞 소리를 자르지 않게).
+        // 무언가 화면을 덮고 있으면 (보상 · 묻는 창 · 도움말 · 설정) 걷힐 때까지 기다린다
+        if (shown < lines.size && !lines[shown].me) { awaitAnswerSound(s.narrator, if (shown == 0) 300 else 900); s.uncovered(); shown++ }
     }
-    // 상대 줄은 저절로: 이 화면의 소리로만 (화면을 떠난 뒤 다음 줄 차례가 와도 새 화면 소리를 자르지 않게)
-    val me = remember(letter.id) { s.narrator.scene }
-    LaunchedEffect(shown) { val i = shown - 1; if (i >= 0 && !lines[i].me) audio(i)?.let { s.narrator.play(it, owner = me) } }
+    // 상대 줄은 저절로: 이 화면 · 이 차례의 소리로만 (화면을 떠난 뒤 다음 줄 차례가 와도 새 화면 소리를 자르지 않게)
+    LaunchedEffect(shown) {
+        me = s.narrator.step("talk" to shown)
+        val i = shown - 1
+        if (i >= 0 && !lines[i].me) audio(i)?.let { s.narrator.play(it, owner = me) }
+    }
     DisposableEffect(letter.id) { onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release(); s.narrator.stop(me) } }
     val done = shown >= lines.size && lines.isNotEmpty()
 
-    // 지금 내 차례 줄의 상태
+    // 지금 내 차례 줄의 상태 (원래 소리가 있으면 문장이 다 보일 때 먼저 듣기, core 의 TalkTurn.Phase.LISTEN)
     val cur = shown.takeIf { it < lines.size && lines[it].me }
-    var st by remember(letter.id, cur, help, view.learn) { mutableStateOf(cur?.let { startTurn(lines[it], it, help, view.learn, known) }) }
+    var st by remember(letter.id, cur, help, view.learn) { mutableStateOf(cur?.let { startTurn(lines[it], it, help, view.learn, known, listen = audio(it) != null) }) }
     fun send(e: TalkTurn.Event) { st = st?.let { TalkTurn.reduce(it, e) } }
     val phase = st?.phase
+
+    // 말하기: 따라 읽기와 같은 부품 ([ShadowTake]): 원래 소리 듣기 · 마이크 녹음 (기기 안) · 억양 · 리듬 채점, 편지 걸음처럼 목소리가 들어가면 통과
+    // (원래 소리가 없는 줄도 같이: 채점 없이 목소리만). 폰의 음성 인식 서비스는 쓰지 않는다
+    val take = cur?.let { i ->
+        val file = remember(letter.id, i) { s.talkTake(id, chapter, letter.id, i).also { it.delete() } }
+        val line = Breaks.plain(lines[i].text[view.learn]).trim()
+        rememberShadowTake(s, audio(i), 0, Int.MAX_VALUE, file, step = true, key = Triple(letter.id, i, view.learn),
+            onVoice = { v -> send(TalkTurn.Event.Heard(v)) }, sayLike = s.sayLike(id, line), text = line, lang = view.learn)
+    }
     LaunchedEffect(phase, cur) {
         when (phase) {
-            TalkTurn.Phase.REVEALED -> cur?.let { audio(it) }?.let { s.narrator.play(it, owner = me) }
+            // 먼저 듣기: 덮개가 걷히면 내 문장을 한 번 (끝까지 들으면 녹음이 열린다)
+            TalkTurn.Phase.LISTEN -> { s.uncovered(); take?.original(s, owner = me) }
+            TalkTurn.Phase.REVEALED -> { s.uncovered(); cur?.let { audio(it) }?.let { s.narrator.play(it, owner = me) } }
             TalkTurn.Phase.DONE -> { val t = st; if (cur != null && t != null) { marks += if (t.passed) "1" else "0"; shown = cur + 1 } }
             else -> Unit
         }
     }
-
-    // 말하기: 따라 읽기와 같은 부품 ([ShadowTake]): 원래 소리 듣기 · 마이크 녹음 (기기 안) · 억양 · 리듬 채점, 편지 걸음처럼 목소리가 들어가면 통과
-    // (원래 소리가 없는 줄도 같이: 채점 없이 목소리만). 폰의 음성 인식 서비스는 쓰지 않는다 (예전에는 인식 서비스가 없거나 오류가 나면 스스로 판정으로 떨어졌다)
-    val take = cur?.let { i ->
-        val file = remember(letter.id, i) { s.talkTake(id, chapter, letter.id, i).also { it.delete() } }
-        rememberShadowTake(s, audio(i), 0, Int.MAX_VALUE, file, step = true, key = Triple(letter.id, i, view.learn),
-            onVoice = { v -> send(TalkTurn.Event.Heard(v)) }, sayLike = s.sayLike(id, Breaks.plain(lines[i].text[view.learn]).trim()))
-    }
+    // 끝까지 들었으면 녹음을 연다 (먼저 듣기를 마침)
+    LaunchedEffect(take, take?.heard) { if (take?.heard == true) send(TalkTurn.Event.Listened) }
 
     val scroll = rememberScrollState()
-    // 새 말풍선 · 채점 판이 생기면 끝까지 내려간다. 판은 녹음을 시작할 때 · 채점이 끝날 때 길이가 바뀌고 그 길이는 한 박자 뒤에 잡히므로
-    // 그 순간의 끝이 아니라 끝 자리가 바뀔 때마다 따라간다 (예전에는 판이 아래 칸 뒤로 반쯤 가려진 채 멈췄다)
-    LaunchedEffect(shown, phase, st?.placed, st?.filled, st?.hints, take?.result, take?.recording, take?.scoring, take?.have) {
+    // 새 말풍선 · 칩이 생기면 끝까지 내려간다 (판은 아래 고정 칸이라 내용만 굴린다)
+    LaunchedEffect(shown, phase, st?.placed, st?.filled, st?.hints) {
         androidx.compose.runtime.snapshotFlow { scroll.maxValue }.collectLatest { scroll.animateScrollTo(it) }
     }
     val name = work.name[uiLang()]
 
     Column(Modifier.fillMaxSize().background(p.paper)) {
-        // 윗줄: 닫기 · 초상 · 이름 · 장소 · 날짜 · 이 앱이 쓴 대화 · 건너뛰기
+        // 윗줄: 닫기 · 초상 · 이름 · 장소 · 날짜 · 이 앱이 쓴 대화 · 건너뛰기 (위 오른쪽 글자 하나)
         Row(Modifier.fillMaxWidth().padding(end = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             IconButton(stringResource(R.string.close), onClick = onClose) { Text("×", style = Type.title, color = p.ink) }
             Portrait(work.portrait, name, 40.dp)
@@ -256,7 +268,7 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
             if (!done) TextLink(stringResource(R.string.reply_speak_skip)) { s.narrator.stop(); s.skipStep(r.room, ReplyMode.TALK) }
         }
         Hair()
-        // 말풍선
+        // 말풍선 (이것만 굴린다)
         Column(
             Modifier.weight(1f).fillMaxWidth().desk(p.paper, p.lamp, 0.35f).verticalScroll(scroll).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
@@ -270,27 +282,12 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
                     val ok = marks.getOrNull(mine++) == '1'
                     MyBubble(Breaks.plain(line.text[view.learn]), line.text[view.read], view.learn, view.read, todays, check = ok)
                 } else TheirBubble(Breaks.plain(line.text[view.learn]), line.text[view.read], view.learn, view.read, todays,
-                    audio(i)?.let { a -> @Composable { ListenButtons(play = { sp -> s.narrator.play(a, sp) }) } })
+                    audio(i)?.let { a -> @Composable { ListenButtons(play = { sp -> s.narrator.play(a, sp, owner = me) }) } })
             }
-            st?.let { t -> CurrentBubble(t, cur?.let { lines[it].text[view.read] }.orEmpty(), view.learn, view.read) }
-            // 채점 판 (따라 읽기와 같은 것): 녹음 중 · 녹음 뒤. 아래 칸 바로 위에 붙지 않게 끝에 한 칸 비움
-            // 녹음 전 원래 소리 점선은 녹음할 수 있고 원래 소리를 들을 수 있을 때만 (빈칸 · 조각을 맞추기 전에는 보이지 않는다)
-            take?.let { ShadowBoard(it, preview = st?.let { t -> t.canRecord && (t.help == Support.Talk.SHADOW || t.fullLine) } == true) }
-            Box(Modifier.height(Tokens.Space.s4))
-        }
-        // 아래 칸 (높이 고정)
-        Column(
-            Modifier.fillMaxWidth().heightIn(min = TRAY).background(p.paper).border(Tokens.Stroke.hair, p.hair).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
-            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2, Alignment.CenterVertically),
-        ) {
-            val t = st
-            when {
-                done -> Primary(stringResource(R.string.talk_finish), shine = true) {
-                    s.narrator.stop()
-                    if (s.mineDue(r.room)) mineOpen = true else s.replyAndContinue(r.room, ReplyMode.TALK)
-                }
-                t != null && take != null -> TalkTray(s, t, take, view.learn,
-                    cur?.let { audio(it) }?.let { a -> @Composable { ListenButtons(play = { sp -> s.narrator.play(a, sp) }) } },
+            st?.let { t ->
+                CurrentBubble(t, cur?.let { lines[it].text[view.read] }.orEmpty(), view.learn, view.read)
+                // 칩 · 힌트 (고르기 · 쌓기 단계): 내 말풍선 바로 아래 (아래 칸은 높이 고정)
+                TalkPicks(t, view.learn,
                     onPick = { i ->
                         val before = st
                         send(TalkTurn.Event.Pick(i))
@@ -299,32 +296,50 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
                             if (after.rejected == i && after.shake != before.shake) s.cue(false) else if (after.used.size > before.used.size) s.cue(true)
                         }
                     },
-                    onHint = { send(TalkTurn.Event.Hint) }, onContinue = { s.narrator.stop(); s.recorder.stopPlaying(); send(TalkTurn.Event.Continue) })
-                else -> Unit
+                    onHint = { send(TalkTurn.Event.Hint) })
+            }
+        }
+        // 판 · 아래 칸 (말하기 일곱 곳 공통, 높이 고정): 녹음 전 원래 소리 점선은 녹음할 수 있고 원래 소리를 들을 수 있을 때만
+        val t = st
+        val listenOk = t != null && (t.help == Support.Talk.SHADOW || t.fullLine)
+        SpeakPanel(s, take, preview = listenOk, canListen = listenOk, canRecord = t?.canRecord == true || t?.phase == TalkTurn.Phase.LISTEN,
+            why = when (t?.phase) {
+                TalkTurn.Phase.BUILD -> stringResource(if (t?.help == Support.Talk.BLANK) R.string.talk_need_blank else R.string.talk_need_build)
+                TalkTurn.Phase.REVEALED -> stringResource(R.string.talk_revealed)
+                TalkTurn.Phase.PASSED, TalkTurn.Phase.DONE -> stringResource(R.string.shadow_check)
+                else -> null
+            }) {
+            val next = { s.narrator.stop(); s.recorder.stopPlaying(); send(TalkTurn.Event.Continue) }
+            when {
+                done -> MainButton(stringResource(R.string.talk_finish)) {
+                    s.narrator.stop()
+                    if (s.mineDue(r.room)) mineOpen = true else s.replyAndContinue(r.room, ReplyMode.TALK)
+                }
+                t != null -> MainButton(stringResource(R.string.speak_line_next),
+                    enabled = t.phase == TalkTurn.Phase.PASSED || t.phase == TalkTurn.Phase.REVEALED,
+                    reason = stringResource(if (take?.scoring == true) R.string.need_scoring else R.string.need_record)) { next() }
+                else -> MainButton(stringResource(R.string.speak_line_next), enabled = false) {}
             }
         }
     }
 }
 
-/** 아래 칸 높이 (자판 자리처럼 고정: 대화가 길어져도 화면이 흔들리지 않게). */
-private val TRAY = 216.dp
-
 /** 내 차례 줄 하나를 시작: BLANK 이면 빈칸 (그 줄의 덩어리, 잘 아는 것 먼저) 과 보기 칩 (정답 · 적힌 틀린 보기) 을 고른다. */
-private fun startTurn(line: TalkLine, index: Int, help: Support.Talk, learn: Lang, known: (String) -> Int): TalkTurn.State {
+private fun startTurn(line: TalkLine, index: Int, help: Support.Talk, learn: Lang, known: (String) -> Int, listen: Boolean = false): TalkTurn.State {
     val sentence = Breaks.plain(line.text[learn]).trim()
     val seed = sentence.hashCode() + index
-    if (help != Support.Talk.BLANK) return TalkTurn.start(help, sentence, seed = seed)
+    if (help != Support.Talk.BLANK) return TalkTurn.start(help, sentence, seed = seed, listen = listen)
     val focusAll = line.focus[learn].orEmpty().map { Breaks.plain(it) }
     val focus = Ladder.focusIn(sentence, focusAll)
     val chunk = Support.pickBlank(focus, known)
     val hole = chunk?.let { Ladder.find(sentence, it) }
         ?: Ladder.holes(sentence, emptyList(), 1) { w -> Support.blankScore(if (w.length >= 2) 1 + w.length / 4 else 0, known(w)) }.firstOrNull()
-        ?: return TalkTurn.start(help, sentence, seed = seed)
+        ?: return TalkTurn.start(help, sentence, seed = seed, listen = listen)
     val answer = sentence.substring(hole)
     val k = focusAll.indexOfFirst { it == chunk }
     val authored = line.wrong[learn]?.getOrNull(k).orEmpty().map { Breaks.plain(it) }.filter { !it.equals(answer, ignoreCase = true) }
     val pool = Ladder.tokens(sentence).map { Ladder.core(it) }.filter { it.isNotEmpty() && !it.equals(answer, ignoreCase = true) }
-    return TalkTurn.start(help, sentence, hole, Ladder.chips(answer, authored, pool, seed), seed)
+    return TalkTurn.start(help, sentence, hole, Ladder.chips(answer, authored, pool, seed), seed, listen)
 }
 
 /** 말풍선 글에 오늘 낱말 밑줄. */
@@ -397,61 +412,40 @@ private fun CurrentBubble(t: TalkTurn.State, readText: String, learn: Lang, read
 }
 
 /**
- * 아래 칸: 도움 한 줄 · 칩 (BLANK 보기 · CHIPS 조각) · 힌트, 그리고 따라 읽기와 같은 말하기 단추 ([ShadowControls]: 원래 소리 · 녹음 · 내 소리).
- * 녹음은 [TalkTurn.State.canRecord] 일 때만 (그 전에는 까닭 한 줄). 목소리가 들어가지 않으면 ‘다시 해 봐요’, 두 번이면 원문과 ‘다음으로’.
+ * 내 차례의 칩 (BLANK 보기 · CHIPS 조각) · 힌트: 내 말풍선 바로 아래 (아래 칸은 말하기 판 · 단추로 높이 고정, [SpeakPanel]).
+ * 녹음은 [TalkTurn.State.canRecord] 일 때만 (그 전에는 아래 칸의 안내 한 줄이 까닭).
  */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun TalkTray(s: AppState, t: TalkTurn.State, take: ShadowTake, learn: Lang, onListen: (@Composable () -> Unit)?,
-                     onPick: (Int) -> Unit, onHint: () -> Unit, onContinue: () -> Unit) {
+private fun TalkPicks(t: TalkTurn.State, learn: Lang, onPick: (Int) -> Unit, onHint: () -> Unit) {
     val p = Ink.palette
-    when (t.phase) {
-        TalkTurn.Phase.PASSED, TalkTurn.Phase.DONE -> {
-            Text(stringResource(R.string.speak_line_ok), style = Type.body.ui(), color = p.correct, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
-            Primary(stringResource(R.string.speak_line_next), shine = true) { onContinue() }
-        }
-        TalkTurn.Phase.REVEALED -> {
-            Text(stringResource(R.string.talk_revealed), style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
-            SayLikeLine(take)
-            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                onListen?.invoke()
-                Box(Modifier.weight(1f)) { Primary(stringResource(R.string.speak_line_next), shine = true) { onContinue() } }
-            }
-        }
-        else -> {
-            Text(stringResource(when (t.help) {
-                Support.Talk.SHADOW -> R.string.talk_tray_shadow
-                Support.Talk.BLANK -> R.string.talk_tray_blank
-                Support.Talk.CHIPS -> R.string.talk_tray_chips
-                Support.Talk.MEANING -> R.string.talk_tray_meaning
-            }), style = Type.capsSm.ui(), color = p.giltText)
-            // 칩: 고르기 · 쌓기가 남았을 때만
-            if (t.phase == TalkTurn.Phase.BUILD) FlowRow(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                t.chips.forEachIndexed { i, c ->
-                    if (i in t.used) return@forEachIndexed
-                    val bad = t.rejected == i
-                    val lit = t.hinted == i
-                    Box(Modifier.heightIn(min = 44.dp).then(if (bad) Modifier.shake(t.shake) else Modifier)
-                        .background(if (bad) p.wrong.copy(alpha = 0.10f) else if (lit) p.gilt.copy(alpha = 0.18f) else Color.Transparent)
-                        .border(if (lit) 2.dp else 1.dp, if (bad) p.wrong else if (lit) p.giltText else p.line)
-                        .pressable(role = Role.Button) { onPick(i) }.padding(horizontal = Tokens.Space.s3),
-                        contentAlignment = Alignment.Center) {
-                        Text(c, style = Type.body.of(learn), color = if (bad) p.wrong else p.ink)
-                    }
+    if (t.phase == TalkTurn.Phase.BUILD) {
+        Text(stringResource(when (t.help) {
+            Support.Talk.SHADOW -> R.string.talk_tray_shadow
+            Support.Talk.BLANK -> R.string.talk_tray_blank
+            Support.Talk.CHIPS -> R.string.talk_tray_chips
+            Support.Talk.MEANING -> R.string.talk_tray_meaning
+        }), style = Type.capsSm.ui(), color = p.giltText, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.End)
+        FlowRow(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2, Alignment.End), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            t.chips.forEachIndexed { i, c ->
+                if (i in t.used) return@forEachIndexed
+                val bad = t.rejected == i
+                val lit = t.hinted == i
+                Box(Modifier.heightIn(min = 44.dp).then(if (bad) Modifier.shake(t.shake) else Modifier)
+                    .background(if (bad) p.wrong.copy(alpha = 0.10f) else if (lit) p.gilt.copy(alpha = 0.18f) else Color.Transparent)
+                    .border(if (lit) 2.dp else 1.dp, if (bad) p.wrong else if (lit) p.giltText else p.line)
+                    .pressable(role = Role.Button) { onPick(i) }.padding(horizontal = Tokens.Space.s3),
+                    contentAlignment = Alignment.Center) {
+                    Text(c, style = Type.body.of(learn), color = if (bad) p.wrong else p.ink)
                 }
             }
-            if (t.phase == TalkTurn.Phase.RETRY) Text(stringResource(if (take.unclear) R.string.speak_clearer else R.string.talk_retry), style = Type.small.ui(), color = p.wrong, maxLines = 2)
-            if (t.hintable) Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                Row(Modifier.heightIn(min = 48.dp).border(1.dp, p.line).pressable(role = Role.Button) { onHint() }.padding(horizontal = Tokens.Space.s3),
-                    verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    BulbGlyph(p.giltText)
-                    Text(stringResource(R.string.talk_hint), style = Type.small.ui(), color = p.ink)
-                }
-            }
-            // 칩 · 조각을 다 맞추기 전에는 까닭 한 줄. 원래 소리는 답이 다 보인 뒤에만 (따라 말하기 A1 은 처음부터)
-            if (!t.canRecord) Text(stringResource(if (t.help == Support.Talk.BLANK) R.string.talk_need_blank else R.string.talk_need_build),
-                style = Type.small.ui(), color = p.inkSoft, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
-            else ShadowControls(s, take, canListen = t.help == Support.Talk.SHADOW || t.fullLine)
+        }
+    }
+    if (t.hintable) Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
+        Row(Modifier.heightIn(min = 48.dp).border(1.dp, p.line).pressable(role = Role.Button) { onHint() }.padding(horizontal = Tokens.Space.s3),
+            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            BulbGlyph(p.giltText)
+            Text(stringResource(R.string.talk_hint), style = Type.small.ui(), color = p.ink)
         }
     }
 }
@@ -463,27 +457,12 @@ private fun Modifier.dashedRound(c: Color) = drawBehind {
 }
 
 /**
- * 문장 말하기 칸 (답장 말해 보기): 따라 읽기 · 회화와 같은 부품 ([ShadowTake] · [ShadowBoard] · [ShadowControls]).
- * 마이크로 녹음 (기기 안), 원래 소리 [audio] 가 있으면 억양 · 리듬 채점. 목소리가 들어간 녹음이면 [onDone] (무슨 말인지는 알아듣지 않는다:
- * 스스로 배우는 앱이라 믿고 맡김). 침묵 · 잡음만이면 ‘다시 해 봐요’. 통과한 뒤에도 다시 녹음 · 내 소리 듣기는 그대로.
- */
-@Composable
-fun SpeakLine(s: AppState, audio: String?, file: java.io.File, key: Any,
-              /** 원래 소리가 없을 때 견줄 음절 수 (글자로 어림, [ShadowTake.estimate]). */ estimate: Int? = null,
-              /** 비슷하게 읽으면 ([AppState.sayLike]). */ sayLike: String? = null, onDone: () -> Unit) {
-    val take = rememberShadowTake(s, audio, 0, Int.MAX_VALUE, file, step = true, key = key, onVoice = { v -> if (v) onDone() }, estimate = estimate, sayLike = sayLike)
-    Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-        ShadowBoard(take)
-        ShadowControls(s, take, canListen = audio != null)
-    }
-}
-
-/**
  * 답장 말해 보기 (답장 한 턴을 보낸 뒤 한 번, 건너뛰기 있음): 방금 쓴 배우는 말 문장을 소리 내어.
  * 문장은 도움 사다리만큼 ([Support.replySpeak]): A1–A2 보이고, B1 흐리게, B2 감추고 힌트로. 뜻(읽는 말)은 늘 보인다.
+ * 말하기 판 · 아래 칸은 일곱 곳 공통 ([SpeakPanel]). 원래 소리가 있고 문장이 보이면 먼저 듣기. × 는 나가기 ([onClose], 한 번 묻는다).
  */
 @Composable
-fun ReplySpeak(s: AppState, r: Route.Play, turn: Int, turns: Int, onNext: () -> Unit) {
+fun ReplySpeak(s: AppState, r: Route.Play, turn: Int, turns: Int, onNext: () -> Unit, onClose: () -> Unit = onNext) {
     val p = Ink.palette
     val id = r.room.series
     val (chapter, letter) = s.letterOf(r.room)
@@ -499,8 +478,18 @@ fun ReplySpeak(s: AppState, r: Route.Play, turn: Int, turns: Int, onNext: () -> 
     val how = Support.replySpeak(s.support(id).band)
     var hinted by remember(turn) { mutableStateOf(false) }
     var spoken by remember(turn) { mutableStateOf(false) }
+    val visible = how != Support.Speak.HIDDEN || hinted || spoken
+    // 감춘 문장 (B2) 은 먼저 들으면 답을 듣는 셈: 보일 때만 먼저 듣기
+    val take = rememberShadowTake(s, audio, 0, Int.MAX_VALUE, file, step = true, key = Triple(letter.id, turn, view.learn),
+        onVoice = { v -> if (v) spoken = true }, sayLike = s.sayLike(id, sentence), listenFirst = how == Support.Speak.SHOWN, text = sentence, lang = view.learn)
+    LaunchedEffect(take) {
+        val me = s.narrator.step("reply" to turn)
+        s.uncovered()
+        if (how == Support.Speak.SHOWN && !take.have) take.original(s, owner = me)
+    }
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PracticeHeader(turn + 1, turns, onClose = onNext, count = if (turns > 1) stringResource(R.string.ladder_turn, turn + 1, turns) else null)
+        PracticeHeader(turn + 1, turns, onClose = onClose, count = if (turns > 1) stringResource(R.string.ladder_turn, turn + 1, turns) else null,
+            onSkip = if (spoken) null else ({ s.narrator.stop(); onNext() }))
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
@@ -510,20 +499,15 @@ fun ReplySpeak(s: AppState, r: Route.Play, turn: Int, turns: Int, onNext: () -> 
             Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4),
                 verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                 Text(quoted(tri[view.read], view.read), style = Type.heading.of(view.read), color = p.ink)
-                val visible = how != Support.Speak.HIDDEN || hinted || spoken
                 if (visible) Text(sentence, style = Type.title.copy(fontFamily = Faces.display).of(view.learn),
                     color = if (how == Support.Speak.FADED && !spoken) p.ink.copy(alpha = 0.35f) else p.ink)
                 else Text(stringResource(R.string.talk_hint), style = Type.small.ui().copy(textDecoration = TextDecoration.Underline), color = p.giltText,
                     modifier = Modifier.heightIn(min = 44.dp).pressable { hinted = true }.padding(vertical = Tokens.Space.s2))
             }
-            if (spoken) Text(stringResource(R.string.speak_line_ok), style = Type.small.ui(), color = p.correct, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
-            SpeakLine(s, audio, file, key = Triple(letter.id, turn, view.learn), sayLike = s.sayLike(id, sentence)) { spoken = true }
         }
-        Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (spoken) Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.speak_line_next), shine = true) { onNext() }
-            else Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable(role = Role.Button) { onNext() }, contentAlignment = Alignment.Center) {
-                Text(stringResource(R.string.reply_speak_skip), style = Type.small.ui().copy(textDecoration = TextDecoration.Underline), color = p.inkSoft)
-            }
+        SpeakPanel(s, take, preview = visible, canListen = audio != null && (visible || take.have)) {
+            MainButton(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.speak_line_next), enabled = spoken,
+                reason = stringResource(if (take.scoring) R.string.need_scoring else R.string.need_record)) { s.narrator.stop(); onNext() }
         }
     }
 }

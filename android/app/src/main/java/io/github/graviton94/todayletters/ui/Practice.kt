@@ -41,7 +41,8 @@ import io.github.graviton94.todayletters.design.Type
 
 /** 연습 머리. [onHelp] 가 있으면 오른쪽에 (?). */
 @Composable
-fun PracticeHeader(at: Int, total: Int, onClose: () -> Unit, onHelp: (() -> Unit)? = null, count: String? = null) {
+fun PracticeHeader(at: Int, total: Int, onClose: () -> Unit, onHelp: (() -> Unit)? = null, count: String? = null,
+                   /** 건너뛰기 (시안 하루 흐름 ④): 어느 연습이든 위 오른쪽 글자 하나 “건너뛰기”. 없으면 숨김. */ onSkip: (() -> Unit)? = null) {
     val p = Ink.palette
     Row(Modifier.fillMaxWidth().padding(end = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
         IconButton(stringResource(R.string.close), onClick = onClose) { Text("×", style = Type.title, color = p.ink) }
@@ -59,6 +60,10 @@ fun PracticeHeader(at: Int, total: Int, onClose: () -> Unit, onHelp: (() -> Unit
         if (onHelp != null) {
             Box(Modifier.width(Tokens.Space.s2))
             Box(Modifier.size(44.dp).pressable { onHelp() }, contentAlignment = Alignment.Center) { HelpGlyph(p.inkSoft) }
+        }
+        if (onSkip != null) Box(Modifier.heightIn(min = 44.dp).pressable(role = androidx.compose.ui.semantics.Role.Button) { onSkip() }.padding(start = Tokens.Space.s3),
+            contentAlignment = Alignment.Center) {
+            Text(stringResource(R.string.reply_speak_skip), style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
         }
     }
 }

@@ -103,7 +103,7 @@ fun Play(s: AppState, r: Route.Play) {
                 speaking = true
             }
             when {
-                speaking -> ReplySpeak(s, r, t, turns, onNext = advance)
+                speaking -> ReplySpeak(s, r, t, turns, onNext = advance, onClose = { asking = true })
                 help == io.github.graviton94.todayletters.core.Ladder.Help.LINK || letter.replies.isEmpty() -> Constellation(s, r, t, turns, next, onClose = { asking = true })
                 else -> ReplyLadder(s, r, help, t, turns, next, onClose = { asking = true })
             }
@@ -156,7 +156,8 @@ private fun Constellation(s: AppState, r: Route.Play, turn: Int, turns: Int, onD
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
         val turnLabel = if (turns > 1) stringResource(R.string.ladder_turn, turn + 1, turns) + " · " else ""
-        PracticeHeader(picked.size, answer.size, onClose = onClose, onHelp = { helpId(s.route)?.let { s.coachAgain(it) } }, count = "$turnLabel${picked.size} / ${answer.size}")
+        PracticeHeader(picked.size, answer.size, onClose = onClose, onHelp = { helpId(s.route)?.let { s.coachAgain(it) } }, count = "$turnLabel${picked.size} / ${answer.size}",
+            onSkip = if (done) null else ({ s.skipStep(r.room, ReplyMode.CONSTELLATION) }))
         // 한 화면에 다 (굴리지 않는다): 하늘이 남은 높이를 채우고 별 사이를 줄인다. 낮은 화면은 제목을 빼고 사이를 좁힌다
         val small = androidx.compose.ui.platform.LocalConfiguration.current.screenHeightDp < SMALL_SKY_H
         Column(
@@ -199,7 +200,6 @@ private fun Constellation(s: AppState, r: Route.Play, turn: Int, turns: Int, onD
             if (done) Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.play_send), shine = true) { onDone() }
             else {
                 Secondary(stringResource(R.string.play_show)) { showAnswer = true }
-                SkipLink { s.skipStep(r.room, ReplyMode.CONSTELLATION) }
             }
         }
     }
@@ -335,12 +335,14 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
         }
     }
     fun say(i: Int, speed: Float? = null) = letter.words.getOrNull(i)?.let { s.narrator.play(s.wordAudio(r.room.series, chapter, letter, it, view.learn), speed) }
-    LaunchedEffect(letter.id, k) { if (!done) say(k) }
+    // 낱말마다 화면 안의 단계 (앞 낱말의 늦은 소리는 받지 않음), 덮개가 걷힌 뒤에
+    LaunchedEffect(letter.id, k) { s.narrator.step("match" to k); s.uncovered(); if (!done) say(k) }
     // 맞히면 잠깐 뒤 다음 낱말. 정답 발음이 끝나기 전에는 넘어가지 않는다 (다음 낱말 소리가 그것을 자르지 않게)
     LaunchedEffect(over, k) { if (over) { awaitAnswerSound(s.narrator, 1100); at = k + 1 } }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PracticeHeader(minOf(at, n), n, onClose = onClose, onHelp = { helpId(s.route)?.let { s.coachAgain(it) } }, count = "${minOf(at + 1, n)} / $n")
+        PracticeHeader(minOf(at, n), n, onClose = onClose, onHelp = { helpId(s.route)?.let { s.coachAgain(it) } }, count = "${minOf(at + 1, n)} / $n",
+            onSkip = if (done) null else ({ s.narrator.stop(); s.skipStep(r.room, ReplyMode.MATCH) }))
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s4).padding(top = Tokens.Space.s1, bottom = Tokens.Space.s2),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
@@ -374,9 +376,8 @@ private fun Match(s: AppState, r: Route.Play, onClose: () -> Unit) {
             }
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
-            if (letter.phrases.isNotEmpty()) Primary(stringResource(R.string.phrase_next), enabled = done, shine = true) { phrases = true }
-            else Primary(stringResource(R.string.play_finish), enabled = done, shine = true) { s.replyAndContinue(r.room, ReplyMode.MATCH) }
-            if (!done) SkipLink { s.skipStep(r.room, ReplyMode.MATCH) }
+            if (letter.phrases.isNotEmpty()) MainButton(stringResource(R.string.phrase_next), enabled = done, reason = stringResource(R.string.need_answer)) { phrases = true }
+            else MainButton(stringResource(R.string.play_finish), enabled = done, reason = stringResource(R.string.need_answer)) { s.replyAndContinue(r.room, ReplyMode.MATCH) }
         }
     }
 }
@@ -408,6 +409,9 @@ fun SkipLink(onSkip: () -> Unit) {
     }
 }
 
+/** 화면 안에서 떠 있는 묻는 창 수 ([Ask]): [AppState.covered] 가 본다. */
+object Covers { var open by mutableIntStateOf(0) }
+
 /** 읽는 자리 칠하기: 읽은 낱말은 먹색, 지금 낱말은 금빛 바탕, 남은 낱말은 흐리게. [pos] < 0 이면 모두 먹색. */
 internal fun readAlong(text: String, pos: Int, done: Color, rest: Color, now: Color): androidx.compose.ui.text.AnnotatedString =
     androidx.compose.ui.text.buildAnnotatedString {
@@ -432,6 +436,8 @@ internal fun readAlong(text: String, pos: Int, done: Color, rest: Color, now: Co
 /** 묻는 창: 제목 17 · 본문 14 · 단추 46 (작은 단추 둘). 화면 너비의 84%. */
 fun Ask(title: String, yes: String, no: String, onYes: () -> Unit, onNo: () -> Unit, body: String? = null) {
     val p = Ink.palette
+    // 묻는 창이 떠 있는 동안은 화면이 덮인 것 (저절로 나오는 소리 · 회화가 기다린다, AppState.covered)
+    DisposableEffect(Unit) { Covers.open++; onDispose { Covers.open-- } }
     Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onNo), contentAlignment = Alignment.Center) {
         Column(
             Modifier.fillMaxWidth(0.84f).background(p.paper).border(Tokens.Stroke.hair, p.line).clickable(enabled = false) {}

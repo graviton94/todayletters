@@ -340,6 +340,9 @@ fun Session(s: AppState, r: Route.Session) {
     }
 
     val focusManager = androidx.compose.ui.platform.LocalFocusManager.current
+    lateinit var onSpoken: () -> Unit
+    // 말하기 문제의 녹음 칸 (아래 고정 칸에 두려고 화면 머리에서): 목소리가 들어가면 맞음
+    val speakTake = if (q.kind == ReviewKind.SPEAK) rememberSpeakTake(s, q, mark) { onSpoken() } else null
     fun judge(m: Memory.Mark) {
         mark = m
         // 답을 보면 키보드 · 글자판을 내려 문장과 ‘다음’ 단추가 가려지지 않게
@@ -354,6 +357,8 @@ fun Session(s: AppState, r: Route.Session) {
         if (q.phrase != null) playPhrase()
         else if (q.kind == ReviewKind.BLANK && ok && q.sentenceAudio != null) s.narrator.play(q.sentenceAudio) else if (q.kind != ReviewKind.DICTATION || ok) s.narrator.play(q.audio)
     }
+
+    onSpoken = { if (mark == null) judge(Memory.Mark.RIGHT) }
 
     /** 첫 번째로 틀림: 흔들고 붉은 띠. 두 번째면 정답을 보여 준다. */
     fun miss(o: String?) {
@@ -495,7 +500,7 @@ fun Session(s: AppState, r: Route.Session) {
                         Text(stringResource(R.string.blank_hint), style = Type.small.ui(), color = p.giltText)
                     }
                 }
-                ReviewKind.SPEAK -> SpeakPane(s, q, mark) { judge(it) }
+                ReviewKind.SPEAK -> SpeakPane(s, q, mark)
                 ReviewKind.MEANING -> if (q.style > 0) {
                     // 말투 바꿔 보기: 해요체 문장 → 반말 · 높임 가운데 고르기
                     Column(Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
@@ -586,6 +591,14 @@ fun Session(s: AppState, r: Route.Session) {
             (if (q.kind == ReviewKind.MEANING && q.sentence != null) "\n" + quoted(q.sentence, q.learn) +
                 (q.sentenceRead?.takeIf { q.read != q.learn && it.isNotBlank() }?.let { "\n$it" } ?: "") + (if (tag.isNotEmpty()) "\n$tag" else "") else "")
         when {
+            // 말하기: 말하기 일곱 곳 공통의 판 · 아래 칸 (높이 고정). 답 (낱말 · 원래 소리) 은 맞히거나 ‘정답 보기’ 뒤에만
+            speakTake != null -> SpeakPanel(s, speakTake, preview = mark != null, canListen = mark != null, tip = R.string.speak_tap) {
+                if (mark != null) MainButton(nextLabel) { s.narrator.stop(); next() }
+                else Column(Modifier.fillMaxWidth()) {
+                    Secondary(stringResource(R.string.practice_reveal)) { judge(Memory.Mark.WRONG) }
+                    Box(Modifier.fillMaxWidth().height(20.dp))
+                }
+            }
             retry && q.phrase != null -> FeedbackBar(
                 ok = false, title = stringResource(R.string.dict_phrase_retry, wrongShown.size),
                 detail = stringResource(R.string.dict_phrase_retry_d),
@@ -693,16 +706,12 @@ internal fun meaningMarks(text: String, meaning: String, ink: Color): androidx.c
 
 /**
  * 말하기 단계: 뜻을 보고 그 낱말을 배우는 말로 소리 내어 말한다. 따라 읽기 · 회화 · 답장 말해 보기와 같은 부품
- * ([ShadowTake] · [ShadowBoard] · [ShadowControls]): 기기 안 녹음, 목소리가 들어가면 맞음 (무슨 말인지는 알아듣지 않는다:
+ * ([ShadowTake] · [SpeakPanel]): 기기 안 녹음, 목소리가 들어가면 맞음 (무슨 말인지는 알아듣지 않는다:
  * 스스로 배우는 앱이라 믿고 맡김). 그 뒤 낱말 · 원래 소리 · 억양 · 리듬 채점. 침묵 · 잡음만이면 ‘다시 해 봐요’, 떠오르지 않으면 ‘정답 보기’ (틀림).
  */
 @Composable
-private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Mark) -> Unit) {
+private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?) {
     val p = Ink.palette
-    val file = remember(q) { s.speakTake.also { it.delete() } }
-    DisposableEffect(Unit) { onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release() } }
-    val take = rememberShadowTake(s, q.audio.takeIf { it.isNotEmpty() }, 0, Int.MAX_VALUE, file, step = true, key = q,
-        onVoice = { v -> if (v && mark == null) onJudge(Memory.Mark.RIGHT) }, sayLike = s.sayLike(q.series, q.word))
     // 뜻(내 언어)을 보고 배우는 언어로 말한다: 무엇을 어느 말로 할지 분명히 (v21)
     Text(stringResource(R.string.speak_prompt_lang, stringResource(langLabel(q.learn))), style = Type.heading.ui(), color = p.ink, textAlign = TextAlign.Center)
     Caps(stringResource(R.string.speak_meaning), p.giltText, small = true)
@@ -714,11 +723,19 @@ private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Ma
         Text(q.word, style = Type.title.of(q.learn), color = p.ink)
         if (q.ipa.isNotEmpty()) Text(q.ipa, style = Type.small, color = p.inkSoft)
     }
-    // 원래 소리 점선도 답이 나온 뒤에만
-    ShadowBoard(take, preview = mark != null)
-    // 원래 소리는 답이 나온 뒤에만 (먼저 들으면 답을 듣는 셈)
-    ShadowControls(s, take, canListen = mark != null, canRecord = true, tip = R.string.speak_tap)
-    if (mark == null && !take.recording) TextLink(stringResource(R.string.practice_reveal)) { onJudge(Memory.Mark.WRONG) }
+}
+
+/**
+ * 말하기 문제의 녹음 칸: 기기 안 녹음, 목소리가 들어가면 [onRight] (무슨 말인지는 알아듣지 않는다). 답을 아직 못 봤으니 먼저 듣기는 없다
+ * (원래 소리는 답이 나온 뒤에만, 먼저 들으면 답을 듣는 셈).
+ */
+@Composable
+private fun rememberSpeakTake(s: AppState, q: Q, mark: Memory.Mark?, onRight: () -> Unit): ShadowTake {
+    val file = remember(q) { s.speakTake.also { it.delete() } }
+    DisposableEffect(Unit) { onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release() } }
+    return rememberShadowTake(s, q.audio.takeIf { it.isNotEmpty() }, 0, Int.MAX_VALUE, file, step = true, key = q,
+        onVoice = { v -> if (v && mark == null) onRight() }, sayLike = s.sayLike(q.series, q.word), listenFirst = false,
+        text = io.github.graviton94.todayletters.core.Breaks.plain(q.word), lang = q.learn)
 }
 
 /** 맞았을 때: 금빛 원이 튀어 오르며 체크가 그려지고, 고리가 퍼진다. */
@@ -751,7 +768,7 @@ private fun SessionResult(s: AppState, r: Route.Session, results: List<Pair<Q, B
     val p = Ink.palette
     val journey = r.kind == null && r.only == null && r.quote == null && !r.free
     LaunchedEffect(Unit) { if (journey) s.reviewDone() }
-    BackHandler { s.back() }
+    BackHandler { s.leaveSession() }
     val practice = !journey
     var detail by remember { mutableStateOf<String?>(null) }
     val right = results.count { it.second }
@@ -793,10 +810,11 @@ private fun SessionResult(s: AppState, r: Route.Session, results: List<Pair<Q, B
             // 틀린 것 다시 (v21 F3): 틀린 낱말만 바로 한 판 더 (연습이라 기억 칸은 오늘 처음 결과대로)
             if (wrong.isNotEmpty()) {
                 Primary(stringResource(R.string.result_again_n, wrong.size), shine = true) { s.back(); s.go(Route.Session(null, wrong.map { it.first.card.key }.distinct())) }
-                Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable { s.go(Route.Inbox) }, contentAlignment = Alignment.Center) {
+                // 판을 시작한 곳으로 (오늘 · 복습 탭, 예전에는 늘 오늘)
+                Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable { s.leaveSession() }, contentAlignment = Alignment.Center) {
                     Text(stringResource(R.string.result_enough), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.inkSoft)
                 }
-            } else Primary(stringResource(R.string.done_home), shine = true) { s.go(Route.Inbox) }
+            } else Primary(stringResource(if (s.sessionFromReview) R.string.review_back else R.string.done_home), shine = true) { s.leaveSession() }
         }
     }
     detail?.let { k -> WordDetail(s, k) { detail = null } }

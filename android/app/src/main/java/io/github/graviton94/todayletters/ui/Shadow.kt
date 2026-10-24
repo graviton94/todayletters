@@ -36,6 +36,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -110,7 +111,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
     val take = rememberShadowTake(s, audio.takeIf { unit.start >= 0 }, unit.start, unit.end, fileOf(spot), step, key = letter.id to at,
         // 통과 (ShadowTake.passed, 판정은 한 곳): 편지 걸음이면 그 칸 통과로, 봉인까지의 따라 읽기면 안 된 횟수를 센다 (세 번이면 ‘넘어가기’)
         onVoice = { ok -> if (step && ok) s.markPassed(id, chapter, letter.id, spot.tag) else if (!step && !ok) { tries[at] = (tries[at] ?: 0) + 1 } },
-        sayLike = s.sayLike(id, unit.text)) { sc, _ ->
+        sayLike = s.sayLike(id, unit.text), text = unit.text, lang = view.learn) { sc, _ ->
         if (sc.stars >= 1) s.markStar(id, chapter, letter.id)   // 봉인 조건: 따라 읽기 별 하나 이상 (F13)
         s.recordStars(id, chapter, letter.id, spot.tag, sc.stars)   // 메달 진열장의 따라 읽기 별 (마디마다 가장 많이 받은 별)
         if (sc.passed) s.markPassed(id, chapter, letter.id, spot.tag)
@@ -128,7 +129,21 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
         }
     }
     var pos by remember(at) { mutableIntStateOf(-1) }
-    LaunchedEffect(take.playing) {
+    // 이번 마디의 글자 자리 (긴 문장은 마디만) · 그 안의 낱말들: 낱말 시간 (파일, 없으면 어림) 이 있으면 밑줄이 목소리를 따라간다
+    // (예전에는 낭독 덩어리 시각을 글자 수로 나눠 목소리보다 앞서 갔다)
+    val partFrom = remember(sentence, unit) { if (spot.isTalk) 0 else sentence.indexOf(unit.text).coerceAtLeast(0) }
+    val tokens = remember(sentence, partFrom) { Regex("\\S+").findAll(sentence, partFrom).map { it.range.first }.toList() }
+    LaunchedEffect(take.playing, take.spots) {
+        val spots = take.spots
+        if (spots.isNotEmpty()) {
+            while (take.playing) {
+                val k = if (take.playAt >= 0) io.github.graviton94.todayletters.core.WordSpots.at(spots, take.playAt) else -1
+                pos = if (k < 0) -1 else tokens.getOrElse(k) { tokens.lastOrNull() ?: -1 }
+                androidx.compose.runtime.withFrameMillis { }
+            }
+            pos = -1
+            return@LaunchedEffect
+        }
         while (take.playing) {
             val t = s.narrator.position()
             if (t >= 0) {
@@ -143,11 +158,35 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
         }
         pos = -1
     }
-    // 새 문장에 오면 원래 소리를 한 번 들려준다
-    LaunchedEffect(take) { if (!take.have) take.original(s) }
+    // 새 마디 (화면 안의 단계) 에 오면: 이 마디의 소리만 받고, 덮개 (보상 · 묻는 창 · 도움말 등) 가 걷힌 뒤 원래 소리를 한 번 (먼저 듣기)
+    LaunchedEffect(take) {
+        val me = s.narrator.step("shadow" to at)
+        s.uncovered()
+        if (!take.have) take.original(s, owner = me)
+    }
 
+    val last = at == flat.lastIndex
+    val allTried = flat.all { fileOf(it).exists() }
+    val stuck = (tries[at] ?: 0) >= 3 && !ok(spot) && !last
+    fun advance() {
+        s.narrator.stop(); s.recorder.stopPlaying(); take.playing = false
+        when {
+            !last -> at++
+            !allTried -> at = flat.indexOfFirst { !fileOf(it).exists() }
+            onFinish != null -> onFinish()
+            else -> {
+                unpassed = flat.count { !ok(it) }
+                if (unpassed == 0) {
+                    finished = true
+                    if (s.shadowDone(id, chapter, letter)) { s.back(); s.go(Route.Seal(room)) }
+                }
+            }
+        }
+    }
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
-        PracticeHeader(at, flat.size, onClose = onClose, count = "${flat.count { ok(it) }} / ${flat.size}")
+        // 건너뛰기는 위 오른쪽 글자 하나 (편지 걸음이면, 녹음 전에도 뒤에도)
+        PracticeHeader(at, flat.size, onClose = onClose, count = "${flat.count { ok(it) }} / ${flat.size}",
+            onSkip = onSkip?.let { sk -> { s.narrator.stop(); sk() } })
         Column(
             Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
@@ -176,33 +215,13 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
             else GlossText(s, id, chapter, letter, mi, painted, style = Type.target.of(view.learn))
             if (view.showRead) Text((talkLine?.text ?: letter.messages[mi].text)[view.read], style = Type.base.of(view.read), color = p.inkSoft)
             if (!take.hasAudio) Text(stringResource(R.string.shadow_noaudio), style = Type.small.ui(), color = p.inkSoft)
-            ShadowBoard(take)
         }
-        ShadowControls(s, take)
-        Column(Modifier.padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            val last = at == flat.lastIndex
-            val allTried = flat.all { fileOf(it).exists() }
-            val stuck = (tries[at] ?: 0) >= 3 && !ok(spot) && !last
-            fun advance() {
-                s.narrator.stop(); s.recorder.stopPlaying(); take.playing = false
-                when {
-                    !last -> at++
-                    !allTried -> at = flat.indexOfFirst { !fileOf(it).exists() }
-                    onFinish != null -> onFinish()
-                    else -> {
-                        unpassed = flat.count { !ok(it) }
-                        if (unpassed == 0) {
-                            finished = true
-                            if (s.shadowDone(id, chapter, letter)) { s.back(); s.go(Route.Seal(room)) }
-                        }
-                    }
-                }
-            }
-            if (stuck) Secondary(stringResource(R.string.read_skip), small = true) { advance() }
-            // 편지 걸음(한 문장)은 녹음하면 바로 ‘마치기’ (F14: ‘다음 문장’이 아니라)
-            Primary(stringResource(if (last && (allTried || onFinish != null)) (if (onFinish != null) R.string.aloud_finish else R.string.shadow_finish) else R.string.shadow_next),
-                enabled = have && !take.recording && !take.scoring && (!step || take.voice == true), shine = true) { advance() }
-            if (onSkip != null && !have) SkipLink(onSkip)
+        // 판 · 아래 칸 (말하기 일곱 곳 공통, 높이 고정): 편지 걸음(한 문장)은 녹음하면 바로 ‘마치기’ (F14: ‘다음 문장’이 아니라)
+        SpeakPanel(s, take) {
+            val enabled = have && !take.recording && !take.scoring && (!step || take.voice == true)
+            MainButton(stringResource(if (last && (allTried || onFinish != null)) (if (onFinish != null) R.string.aloud_finish else R.string.shadow_finish) else R.string.shadow_next),
+                enabled = enabled, reason = stringResource(if (take.scoring) R.string.need_scoring else R.string.need_record)) { advance() }
+            if (stuck) TextLink(stringResource(R.string.read_skip)) { advance() }
         }
     }
     // 아직 통과 못 한 문장이 있으면: 그 문장으로 (봉인은 모든 문장 통과)
@@ -225,20 +244,27 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
 }
 
 /**
- * 따라 말하기 한 칸의 녹음 · 채점 상태: 따라 읽기 (편지 · 오늘 · 봉인) 와 회화 내 차례가 같은 것을 쓴다.
+ * 따라 말하기 한 칸의 녹음 · 채점 상태: 말하기 일곱 곳 (따라 읽기 · 회화 내 차례 · 답장 말해 보기 · 내 이야기로 · 떠올리기 · 복습 말하기) 이 같은 것을 쓴다.
  * 원래 소리 ([audio] 의 [start]~[end] 밀리초, 없으면 null) 를 듣고, 마이크로 녹음해 ([file], 기기 안 PCM),
  * 억양 · 리듬 · 완성도를 기기 안에서 잰다 (core 의 Prosody). 폰의 음성 인식 서비스는 쓰지 않는다 (그래서 인식이 없는 폰에서도 같다).
  * [step] (편지 걸음 · 회화 · 답장 말해 보기 · 복습 말하기) 이면 목소리가 들어간 녹음은 통과 ([voice], core 의 Prosody.spoke):
  * 무슨 말인지는 알아듣지 않는다 (스스로 배우는 앱이라 믿고 맡김). 침묵 · 잡음만인 녹음은 통과가 아니다.
  * 이 화면에서 새로 녹음한 것은 음절 수도 본다 (core 의 SpeakCheck, 길이는 보지 않음): 원래 소리에서 센 음절 (없으면 [estimate], 글자로 어림한 것) 과
  * 40% 넘게 어긋나면 ‘조금 더 또박또박 · 끝까지 말해 봐요’ ([unclear]) 로 한 번 더, 같은 칸에서 두 번째로 안 되면 목소리만 들어갔어도 통과.
+ *
+ * 먼저 듣기 (시안 하루 흐름 ②): [listenFirst] 이고 원래 소리가 있으면, 원래 소리를 한 번 끝까지 들어야 ([heard]) 말하기 단추가 켜진다
+ * ([locked]). 듣는 동안 말하기 단추 둘레 고리가 듣는 만큼 찬다 ([listenRing]). 소리가 없는 줄은 막지 않는다.
  */
 @androidx.compose.runtime.Stable
 class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: java.io.File, val step: Boolean,
                  /** 원래 소리가 없을 때 견줄 음절 수 (내 이야기로: 글자로 어림, core 의 SpeakCheck.estimate). null 이면 음절은 따지지 않는다. */
                  val estimate: Int? = null,
                  /** 비슷하게 읽으면 (내 글자로 쓴 소리, core 의 SayLike): 두 번째로 안 되면 보여 준다. 없으면 null. */
-                 sayLike: String? = null) {
+                 sayLike: String? = null,
+                 /** 원래 소리를 먼저 한 번 들어야 녹음할 수 있다 (답을 아직 못 본 복습 말하기 등은 false). */
+                 val listenFirst: Boolean = true,
+                 /** 이 소리의 글 (낱말 줄 · 어림한 낱말 자리), 그 말. 없으면 낱말 줄 없음. */
+                 val text: String? = null, val lang: io.github.graviton94.todayletters.core.Lang? = null) {
     /** 소리 힌트 파일을 뒤에서 다 읽으면 채워진다 ([rememberShadowTake]). */
     var sayLike by mutableStateOf(sayLike)
     var recording by mutableStateOf(false)
@@ -247,16 +273,28 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
     var tick by mutableIntStateOf(0)
     var result by mutableStateOf<Triple<io.github.graviton94.todayletters.core.Prosody.Score, FloatArray?, FloatArray?>?>(null)
     var scoring by mutableStateOf(false)
-    /** 원래 소리의 선 (core 의 Prosody.preview: 채점 뒤 원래 선과 같은 칸 · 같은 폭, -1..1). 녹음 전부터 판에 점선으로. */
+    /** 원래 소리의 한 줄 선 (core 의 PitchLine: 채점 뒤 원래 선과 같은 칸 · 같은 폭, -1..1). 녹음 전부터 판에 점선으로. */
     var refCurve by mutableStateOf<FloatArray?>(null)
+    /** 원래 선 (가로 자리 셈: 낱말 · 재생 자리, 쉼을 줄인 시간축). */
+    var line by mutableStateOf<io.github.graviton94.todayletters.core.PitchLine.Line?>(null)
+    /** 낱말을 말한 때 (이 토막의 시작부터 밀리초): 낱말 시간 파일, 없으면 기기에서 어림한 것. */
+    var spots by mutableStateOf<List<io.github.graviton94.todayletters.core.WordAt>>(emptyList())
+    /** 원래 소리를 지금 재생하는 자리 (이 토막의 시작부터 밀리초, 재생 중이 아니면 -1): 판의 금빛 세로줄 · 지금 낱말. */
+    var playAt by mutableIntStateOf(-1)
     /** 원래 선의 폭 (반음): 녹음 중 내 선을 같은 폭으로 (core 의 LiveLine). */
     var refRange by mutableStateOf(4f)
     /** 앞뒤 침묵을 뺀 원래 소리의 길이 (밀리초, 모르면 null): 녹음 고리 · 저절로 멈추기 (core 의 AutoStop). */
     var refMs by mutableStateOf<Int?>(null)
+    /** 원래 소리 (분석한 것): 채점할 때 다시 풀지 않게. */
+    internal var refSamples: FloatArray? = null
     /** 녹음 고리 · 저절로 멈추기의 기준 길이: 원래 소리, 없으면 글자로 어림한 음절 ([estimate]). 모르면 null (고리 없음 · 상한만). */
     val targetMs: Int? get() = refMs ?: if (!hasAudio) io.github.graviton94.todayletters.core.AutoStop.estimateMs(estimate) else null
     /** 녹음 고리 (0..1, 첫 목소리부터 [targetMs] 만큼 차오름). 녹음 중이 아니거나 길이를 모르면 null. */
     var ring by mutableStateOf<Float?>(null)
+    /** 먼저 듣는 동안의 고리 (0..1, 들은 만큼). 듣는 중이 아니면 null. */
+    var listenRing by mutableStateOf<Float?>(null)
+    /** 원래 소리를 한 번 끝까지 들었다. */
+    var heard by mutableStateOf(false)
     /** 이번 녹음의 첫 목소리 시각 (녹음 시작부터 밀리초, 아직이면 -1): 실시간 선의 0 자리. */
     var onset by mutableStateOf(-1L)
     /** 원래 소리 칩 (1× · 0.7×): true 면 원래 소리를 0.7× 로. */
@@ -282,6 +320,8 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
     val times = androidx.compose.runtime.mutableStateListOf<Long>()
     val hasAudio: Boolean get() = audio != null && start >= 0
     val have: Boolean get() { tick; return file.exists() }
+    /** 아직 먼저 듣기를 마치지 않아 녹음이 막혀 있다 (소리가 없거나 이미 녹음이 있으면 막지 않는다). */
+    val locked: Boolean get() = listenFirst && hasAudio && !heard && !have && !recording
     /**
      * 마지막 녹음이 통과인가 (아직 재지 않았으면 null). 판정은 이것 하나 (core 의 SpeakCheck.judge): [step] 이면 [voice]
      * (목소리 + 음절 맞음 또는 점수 ≥ 통과 문턱, 두 번째 실패는 목소리만), 봉인까지의 따라 읽기는 점수 ≥ 통과 문턱.
@@ -305,20 +345,21 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
         tick++
     }
 
-    /** 원래 소리 (칩 [slow] 면 0.7×, 아니면 기본 빠르기. [speed] 를 주면 그 빠르기로 한 번). */
-    fun original(s: AppState, speed: Float? = null) {
+    /** 원래 소리 (칩 [slow] 면 0.7×, 아니면 기본 빠르기. [speed] 를 주면 그 빠르기로 한 번). [owner] 는 그 소리의 주인 (화면 안 단계). */
+    fun original(s: AppState, speed: Float? = null, owner: Any? = s.narrator.scene) {
         stopRecording(s)
         stopCompare(s)
-        playOriginal(s, speed ?: if (slow) io.github.graviton94.todayletters.core.Listen.SLOW else null) {}
+        playOriginal(s, speed ?: if (slow) io.github.graviton94.todayletters.core.Listen.SLOW else null, owner) {}
     }
 
-    /** [then] 은 원래 소리가 끝났을 때 (끝까지 들었으면 true · 멈췄거나 다른 소리 · 화면을 옮겼으면 false). */
-    private fun playOriginal(s: AppState, speed: Float?, then: (Boolean) -> Unit) {
+    /** [then] 은 원래 소리가 끝났을 때 (끝까지 들었으면 true · 멈췄거나 다른 소리 · 화면을 옮겼으면 false). 끝까지 들으면 [heard]. */
+    private fun playOriginal(s: AppState, speed: Float?, owner: Any? = s.narrator.scene, then: (Boolean) -> Unit) {
         val a = audio ?: return
         if (!hasAudio) return
         s.recorder.stopPlaying()
-        playing = if (end == Int.MAX_VALUE) s.narrator.playThen(a, speed) { ok -> playing = false; then(ok) }
-            else s.narrator.playRangeThen(a, start, end, speed) { ok -> playing = false; then(ok) }
+        val done: (Boolean) -> Unit = { ok -> playing = false; if (ok) heard = true; then(ok) }
+        playing = if (end == Int.MAX_VALUE) s.narrator.playThen(a, speed, owner, done)
+            else s.narrator.playRangeThen(a, start, end, speed, owner, done)
     }
 
     /**
@@ -354,8 +395,9 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
         s.narrator.stop(); playing = false; s.recorder.play(file)
     }
 
-    /** 녹음 시작 · 끝 (마이크 권한이 없으면 먼저 묻는다). */
+    /** 녹음 시작 · 끝 (마이크 권한이 없으면 먼저 묻는다). 먼저 듣기를 마치지 않았으면 아무것도. */
     fun record(s: AppState) {
+        if (locked) return
         if (!allowed) { askMic(); return }
         if (recording) { stopRecording(s); return }
         stopCompare(s)
@@ -392,9 +434,11 @@ fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: 
                        onVoice: (Boolean) -> Unit = {},
                        /** 원래 소리가 없을 때 견줄 음절 수 ([ShadowTake.estimate]). */ estimate: Int? = null,
                        /** 비슷하게 읽으면 ([ShadowTake.sayLike], [AppState.sayLike]). */ sayLike: String? = null,
+                       /** 먼저 듣기 ([ShadowTake.listenFirst]). */ listenFirst: Boolean = true,
+                       /** 이 소리의 글 · 말 (낱말 줄). */ text: String? = null, lang: io.github.graviton94.todayletters.core.Lang? = null,
                        onScored: (io.github.graviton94.todayletters.core.Prosody.Score, Boolean) -> Unit = { _, _ -> }): ShadowTake {
     val ctx = LocalContext.current
-    val t = remember(key) { ShadowTake(audio, start, end, file, step, estimate, sayLike).also { it.allowed = ContextCompat.checkSelfPermission(ctx, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED } }
+    val t = remember(key) { ShadowTake(audio, start, end, file, step, estimate, sayLike, listenFirst, text, lang).also { it.allowed = ContextCompat.checkSelfPermission(ctx, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED } }
     androidx.compose.runtime.SideEffect { if (sayLike != null && t.sayLike == null) t.sayLike = sayLike }
     val scored by androidx.compose.runtime.rememberUpdatedState(onScored)
     val voiced by androidx.compose.runtime.rememberUpdatedState(onVoice)
@@ -402,15 +446,33 @@ fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: 
     t.askMic = { ask.launch(Manifest.permission.RECORD_AUDIO) }
     // 앱을 벗어나면 녹음은 그 자리에서 끝난다 (그때까지 녹음한 것은 남는다)
     LaunchedEffect(t, s.away) { t.stopRecording(s); t.stopCompare(s); t.playing = false }
-    // 원래 소리의 음높이 선 · 길이 (칸이 바뀔 때 한 번): 녹음 전부터 판에 점선, 녹음 고리 · 저절로 멈추기의 기준
+    // 재생 자리 (판의 금빛 세로줄 · 지금 낱말) · 먼저 듣는 동안의 고리
+    LaunchedEffect(t, t.playing) {
+        while (t.playing) {
+            val pos = s.narrator.position()
+            if (pos >= 0) {
+                val rel = pos - t.start.coerceAtLeast(0)
+                t.playAt = rel
+                val total = if (t.end == Int.MAX_VALUE) s.narrator.duration() else t.end - t.start
+                if (!t.heard && total > 0) t.listenRing = (rel.toFloat() / total).coerceIn(0f, 1f)
+            }
+            androidx.compose.runtime.withFrameMillis { }
+        }
+        t.playAt = -1; t.listenRing = null
+    }
+    // 원래 소리의 한 줄 선 · 길이 · 낱말 자리 (칸이 바뀔 때 한 번): 녹음 전부터 판에 점선, 녹음 고리 · 저절로 멈추기의 기준
     LaunchedEffect(t) {
         if (!t.hasAudio) return@LaunchedEffect
-        val pv = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
+        val got = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
             val ref = io.github.graviton94.todayletters.data.decodeRange(ctx, t.audio!!, t.start, t.end) ?: return@withContext null
-            val P = io.github.graviton94.todayletters.core.Prosody
-            P.preview(P.analyze(ref, io.github.graviton94.todayletters.data.Wav.RATE))
+            t.refSamples = ref
+            val tr = io.github.graviton94.todayletters.core.PitchLine.analyze(ref, io.github.graviton94.todayletters.data.Wav.RATE)
+            val ln = io.github.graviton94.todayletters.core.PitchLine.line(tr)
+            ln to spotsFor(s, t, tr.db)
         } ?: return@LaunchedEffect
-        t.refCurve = pv.ref; t.refRange = pv.range; t.refMs = pv.ms
+        val (ln, sp) = got
+        t.spots = sp
+        if (ln != null) { t.line = ln; t.refCurve = ln.values; t.refRange = ln.range; t.refMs = ln.ms }
     }
     // 억양 · 리듬: 원래 소리와 내 녹음을 기기 안에서 비교 (녹음이 끝날 때마다 한 번: [ShadowTake.tick] 은 녹음을 끝낼 때만 바뀐다)
     // 목소리가 들어갔는가는 원래 소리가 없어도 잰다 (침묵 · 잡음만인 녹음은 통과가 아니고, 점수도 보이지 않는다)
@@ -428,17 +490,23 @@ fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: 
         }
         t.scoring = true
         val bg = kotlinx.coroutines.Dispatchers.Default
-        val mt = kotlinx.coroutines.withContext(bg) {
-            runCatching { P.analyze(io.github.graviton94.todayletters.data.Wav.samples(io.github.graviton94.todayletters.data.Wav.pcm(t.file)), rate) }.getOrNull()
+        val mine = kotlinx.coroutines.withContext(bg) {
+            runCatching { io.github.graviton94.todayletters.data.Wav.samples(io.github.graviton94.todayletters.data.Wav.pcm(t.file)) }.getOrNull()
         }
+        val mt = mine?.let { kotlinx.coroutines.withContext(bg) { P.analyze(it, rate) } }
         val spoke = mt != null && P.spoke(mt)
         // 원래 소리의 분석 (음절 수 · 억양 · 리듬): 목소리가 들어간 녹음일 때만 (아니면 0점을 보이지 않는다)
-        val rt = if (spoke && t.hasAudio) kotlinx.coroutines.withContext(bg) {
-            io.github.graviton94.todayletters.data.decodeRange(ctx, t.audio!!, t.start, t.end)?.let { P.analyze(it, rate) }
+        val refX = if (spoke && t.hasAudio) t.refSamples ?: kotlinx.coroutines.withContext(bg) {
+            io.github.graviton94.todayletters.data.decodeRange(ctx, t.audio!!, t.start, t.end)
         } else null
+        val rt = refX?.let { kotlinx.coroutines.withContext(bg) { P.analyze(it, rate) } }
         // 채점이 안 된 것 (원래 · 내 소리가 너무 짧음, 완성도 0) 은 점수 없음으로: 0점 판을 보이지 않는다
         val score = if (rt != null) kotlinx.coroutines.withContext(bg) { P.score(rt, mt!!) }.takeIf { it.complete > 0 } else null
-        val curves = if (rt != null) kotlinx.coroutines.withContext(bg) { P.curves(rt, mt!!) } else null
+        // 판의 두 선 (그리기 전용, 채점과 따로): 한 줄로 이어진 원래 선 · 내 선 (core 의 PitchLine)
+        val curves = if (refX != null && mine != null) kotlinx.coroutines.withContext(bg) {
+            val L = io.github.graviton94.todayletters.core.PitchLine
+            L.curves(L.analyze(refX, rate), L.analyze(mine, rate))
+        } else null
         // 통과 (core 의 SpeakCheck.judge, 한 곳): 목소리 + (음절 · 점수). 예전에 녹음해 둔 것 (이 화면에서 새로 한 것이 아님) 은 목소리만 본다
         val refSyl = if (!fresh) null else if (rt != null) P.syllables(rt).takeIf { it > 0 } else if (!t.hasAudio) t.estimate else null
         val mineSyl = if (mt != null) P.syllables(mt) else 0
@@ -457,107 +525,214 @@ fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: 
         score?.let { scored(it, fresh) }
         if (fresh) voiced(ok)
     }
+    // 화면 사진 · 길 시험만: 실제 화면의 칸을 듣는 중 · 녹음 중 · 채점 뒤로 꾸민다 (앱에서는 늘 null)
+    LaunchedEffect(t) { s.takeHook?.let { h -> kotlinx.coroutines.delay(600); h(t) { v -> voiced(v) } } }
     return t
 }
 
 /**
- * 판 (시안 rec_controls 2 · D): 녹음 전에는 원래 소리의 오르내림 점선 (따라 할 것을 미리), 녹음 중에는 그 점선 위에 내 선이
- * 같은 시간축 · 같은 폭으로 그려지고, 녹음 뒤에는 두 선 (core 의 Prosody.curves) 과 점수 · 별 · 억양 · 리듬.
- * [preview] 가 아니면 녹음 전 점선을 보이지 않는다 (답을 아직 못 본 복습 말하기 · 회화 빈칸 전).
+ * 낱말 자리 (이 토막의 시작부터 밀리초): 낱말 시간 파일 (정렬 작업) 이 있으면 그 토막 안의 것, 없으면 기기에서 어림
+ * (core 의 WordSpots.estimate: 낭독 덩어리 시각이 있으면 덩어리마다). 글이 없으면 빈 목록.
+ */
+private fun spotsFor(s: AppState, t: ShadowTake, db: FloatArray): List<io.github.graviton94.todayletters.core.WordAt> {
+    val a = t.audio ?: return emptyList()
+    val text = t.text?.takeIf { it.isNotBlank() } ?: return emptyList()
+    val from = t.start.coerceAtLeast(0); val to = t.end
+    s.narrator.words(a)?.filter { it.s >= from - 60 && it.e <= to.toLong() + 60 }?.takeIf { it.isNotEmpty() }?.let { ws ->
+        return ws.map { it.copy(s = it.s - from, e = it.e - from) }
+    }
+    val chunks = s.narrator.chunks(a).filter { it.start >= from - 60 && it.end <= to.toLong() + 60 }.map { Triple(it.start - from, it.end - from, it.text) }
+    return io.github.graviton94.todayletters.core.WordSpots.estimate(text, db, t.lang ?: io.github.graviton94.todayletters.core.Lang.EN, chunks)
+}
+
+/** 말하기 판의 높이 (시안 하루 흐름 ②: 선 72dp · 낱말 줄 · 점수 한 줄 · 칭찬 한 줄, 고정 · 스크롤 없음). */
+private val BOARD = 156.dp
+
+/**
+ * 말하기 판 (일곱 곳 공통, 아래 칸 바로 위 · 높이 고정): 선 (녹음 전 원래 소리 점선 · 녹음 중 내 선 · 채점 뒤 두 선, 모두 한 줄) ·
+ * 낱말 줄 (말한 시간 자리, 원래 소리가 나오는 동안 금빛 세로줄 · 지금 낱말) · 점수 한 줄 “91 ★★★ · 억양 100 · 리듬 77” (i) · 칭찬 · 다시 한 줄.
+ * [preview] 가 아니면 녹음 전 점선 · 낱말 줄을 보이지 않는다 (답을 아직 못 본 복습 말하기 · 회화 빈칸 전). 긴 설명은 (i) 를 누르면 선 자리에.
  */
 @Composable
-fun ShadowBoard(t: ShadowTake, preview: Boolean = true) {
+fun SpeakBoard(t: ShadowTake?, preview: Boolean = true) {
     val p = Ink.palette
-    val res = t.result
-    val before = !t.recording && !t.have
-    if (!(t.recording || (t.have && t.hasAudio) || (before && preview && t.refCurve != null))) return
-    Column(Modifier.fillMaxWidth().border(Tokens.Stroke.hair, p.hair).padding(Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        Row(horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-            if (t.refCurve != null || !before) Text("┅ " + stringResource(R.string.shadow_orig), style = Type.small.ui(), color = p.inkSoft)
-            if (!before) Text("━ " + stringResource(R.string.shadow_mine), style = Type.small.ui(), color = p.giltText)
-        }
-        if (before) Canvas(Modifier.fillMaxWidth().height(96.dp)) { drawCurve(t.refCurve, p.inkSoft, dotted = true, range = 1f) }
-        else if (t.recording) LiveTrace(t)
-        else if (res == null) Text(stringResource(if (t.scoring) R.string.shadow_scoring else R.string.shadow_noscore), style = Type.small.ui(), color = p.inkSoft)
-        else {
-            // 두 선 (core 의 Prosody.curves): 옥타브 접기 · 다듬기 · 끊김, 같은 반음 폭 (-1..1), 내 선은 원래의 시간축에 맞춤
-            Canvas(Modifier.fillMaxWidth().height(96.dp)) {
-                drawCurve(res.second, p.inkSoft, dotted = true, range = 1f); drawCurve(res.third, p.giltText, dotted = false, range = 1f)
+    var info by remember(t) { mutableStateOf(false) }
+    val res = t?.result
+    Column(Modifier.fillMaxWidth().height(BOARD).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s2),
+        verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Box(Modifier.fillMaxWidth().height(72.dp), contentAlignment = Alignment.Center) {
+            when {
+                t == null -> {}
+                info -> Text(stringResource(R.string.shadow_note) + " " + stringResource(R.string.shadow_retry, io.github.graviton94.todayletters.core.Prosody.PASS),
+                    style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, modifier = Modifier.fillMaxWidth())
+                t.recording -> LiveTrace(t)
+                res != null -> Canvas(Modifier.fillMaxSize()) {
+                    drawCurve(res.second, p.inkSoft, dotted = true, range = 1f); drawCurve(res.third, p.giltText, dotted = false, range = 1f)
+                    playhead(t, p.gilt)
+                }
+                (preview || t.have) && t.refCurve != null -> Canvas(Modifier.fillMaxSize()) {
+                    drawCurve(t.refCurve, p.inkSoft, dotted = true, range = 1f)
+                    playhead(t, p.gilt)
+                }
+                !t.hasAudio || !preview -> Text(stringResource(R.string.board_empty), style = Type.small.ui(), color = p.hideInk, textAlign = TextAlign.Center)
+                else -> {}
             }
-            val total = res.first.total
-            val stars = res.first.stars
-            val P = io.github.graviton94.todayletters.core.Prosody
-            // 점수 · 별 (빨간 ‘실패’ 없음): 화면 읽기는 한 덩어리로 “점수 72, 별 셋 중 둘”
-            val said = stringResource(R.string.a11y_score, total, stars)
-            Row(Modifier.semantics(mergeDescendants = true) { contentDescription = said },
-                verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                Text("$total", style = Type.display.copy(fontFamily = Faces.display), color = p.ink)
-                Text("★".repeat(stars) + "☆".repeat(3 - stars), style = Type.title, color = p.giltText)
-                Box(Modifier.weight(1f).height(6.dp).background(p.hair)) {
-                    Box(Modifier.fillMaxWidth(total / 100f).height(6.dp).background(p.gilt))
-                    // 별 문턱 셋
-                    listOf(P.STAR1, P.STAR2, P.STAR3).forEach { th ->
-                        Box(Modifier.fillMaxWidth(th / 100f).height(6.dp)) { Box(Modifier.align(Alignment.CenterEnd).size(1.dp, 10.dp).background(p.inkSoft)) }
-                    }
+        }
+        // 낱말 줄: 원래 소리에서 말한 자리 (원래 선이 보일 때만)
+        val showWords = t != null && t.line != null && t.spots.isNotEmpty() && (preview || t.have) && !t.recording && !info
+        Box(Modifier.fillMaxWidth().height(20.dp)) { if (showWords) WordRow(t!!) }
+        // 점수 한 줄 (i)
+        Row(Modifier.fillMaxWidth().height(24.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+            if (t != null && res != null) {
+                val sc = res.first
+                val said = stringResource(R.string.a11y_score, sc.total, sc.stars)
+                val line = "${sc.total} " + "★".repeat(sc.stars) + "☆".repeat(3 - sc.stars) + " · " +
+                    stringResource(R.string.shadow_intonation) + " ${sc.intonation} · " + stringResource(R.string.shadow_rhythm) + " ${sc.rhythm}"
+                Text(line, style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = p.ink, maxLines = 1,
+                    modifier = Modifier.weight(1f, fill = false).semantics { contentDescription = said })
+            } else if (t != null && t.scoring) Text(stringResource(R.string.shadow_scoring), style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
+            if (t != null && (res != null || t.recording || t.have)) {
+                val about = stringResource(R.string.board_info)
+                Box(Modifier.size(28.dp).border(1.dp, if (info) p.giltText else p.hair, CircleShape).semantics { contentDescription = about }
+                    .pressable(role = Role.Button) { info = !info }, contentAlignment = Alignment.Center) {
+                    Text("i", style = Type.small.copy(fontSize = Tokens.Text.caps), color = if (info) p.giltText else p.inkSoft)
                 }
             }
-            Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                Meter(stringResource(R.string.shadow_intonation), res.first.intonation, Modifier.weight(1f), p.giltText, p.ink, p.inkSoft)
-                Meter(stringResource(R.string.shadow_rhythm), res.first.rhythm, Modifier.weight(1f), p.giltText, p.ink, p.inkSoft)
-            }
-            // 칭찬 한 줄은 통과 판정 ([ShadowTake.passed]) 을 따른다: 안 된 녹음에 ‘훌륭해요’ 가 붙지 않게
-            val ok = t.passed == true
-            Text(when {
-                !ok -> stringResource(R.string.shadow_retry, P.PASS)
-                stars >= 3 -> stringResource(R.string.read_great)
-                stars == 2 -> stringResource(R.string.read_good)
-                else -> stringResource(R.string.read_pass)
-            }, style = Type.small.ui(), color = if (ok) p.giltText else p.inkSoft)
         }
-        if (!before) Text(stringResource(R.string.shadow_note), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+        // 칭찬 · 다시 한 줄 (통과 판정 [ShadowTake.passed] 을 따른다: 안 된 녹음에 ‘훌륭해요’ 가 붙지 않게). 두 번째로 안 되면 ‘비슷하게 읽으면’
+        Box(Modifier.fillMaxWidth().height(22.dp), contentAlignment = Alignment.CenterStart) {
+            if (t != null && !t.recording) {
+                val ok = t.passed == true
+                when {
+                    t.showsSayLike && !ok -> SayLikeLine(t)
+                    res != null -> Text(when {
+                        !ok -> stringResource(R.string.board_retry)
+                        res.first.stars >= 3 -> stringResource(R.string.read_great)
+                        res.first.stars == 2 -> stringResource(R.string.read_good)
+                        else -> stringResource(R.string.read_pass)
+                    }, style = Type.small.ui(), color = if (ok) p.giltText else p.inkSoft, maxLines = 1)
+                    ok -> Text(stringResource(R.string.speak_line_ok), style = Type.small.ui(), color = p.correct, maxLines = 1)
+                    else -> {}
+                }
+            }
+        }
+    }
+}
+
+/** 원래 소리가 나오는 자리 (금빛 세로줄, 쉼을 줄인 시간축). */
+private fun androidx.compose.ui.graphics.drawscope.DrawScope.playhead(t: ShadowTake, c: Color) {
+    val ln = t.line ?: return
+    if (t.playAt < 0) return
+    val x = ln.x(t.playAt) * size.width
+    drawLine(c, androidx.compose.ui.geometry.Offset(x, 0f), androidx.compose.ui.geometry.Offset(x, size.height), 2.dp.toPx())
+}
+
+/** 낱말 줄: 낱말마다 말한 때의 가로 자리 ([ShadowTake.line] 의 시간축). 앞 낱말과 겹치면 그 뒤로 밀고, 넘치면 자른다. 지금 낱말은 금빛. */
+@Composable
+private fun WordRow(t: ShadowTake) {
+    val p = Ink.palette
+    val ln = t.line ?: return
+    val now = if (t.playAt >= 0) io.github.graviton94.todayletters.core.WordSpots.at(t.spots, t.playAt) else -1
+    val style = Type.small.copy(fontSize = Tokens.Text.caps).let { st -> t.lang?.let { st.of(it) } ?: st }
+    androidx.compose.ui.layout.Layout(content = {
+        t.spots.forEachIndexed { i, w ->
+            Text(w.t, style = if (i == now) style.copy(fontWeight = FontWeight.SemiBold) else style,
+                color = if (i == now) p.giltText else p.inkSoft, maxLines = 1, softWrap = false)
+        }
+    }, modifier = Modifier.fillMaxSize().clipToBounds()) { ms, c ->
+        val ps = ms.map { it.measure(androidx.compose.ui.unit.Constraints()) }
+        layout(c.maxWidth, c.maxHeight) {
+            var right = 0
+            ps.forEachIndexed { i, pl ->
+                val x = maxOf((ln.x(t.spots[i].s) * c.maxWidth).toInt(), right)
+                if (x < c.maxWidth) pl.place(x, 0)
+                right = x + pl.width + 6
+            }
+        }
+    }
+}
+
+/** 아래 칸의 단추 줄 높이 (원래 소리 · 말하기 · 내 소리, 칩 포함: 단계마다 같은 높이). */
+private val CONTROLS = 156.dp
+
+/**
+ * 말하기 판 하나 (일곱 곳 공통, 시안 하루 흐름 ②): 판 ([SpeakBoard], 높이 고정) 바로 아래 고정 칸 — 안내 한 줄 · 단추 셋 ([ShadowControls]) ·
+ * 큰 단추 하나 ([main], 누를 수 없으면 그 아래에 까닭 한 줄 [MainButton]). 화면은 이 위의 내용만 굴린다. 건너뛰기는 위 오른쪽 글자 ([PracticeHeader]).
+ * [t] 가 없으면 (아직 말할 차례가 아님) 판과 단추 자리는 그대로 비워 두어 높이가 흔들리지 않는다.
+ */
+@Composable
+fun SpeakPanel(s: AppState, t: ShadowTake?, preview: Boolean = true, canListen: Boolean = true, canRecord: Boolean = true,
+               /** 녹음 전 안내 한 줄 (기본: 이 문장을 따라 읽어 보세요). */ tip: Int = R.string.shadow_tap,
+               /** 녹음이 막힌 까닭 (빈칸 · 조각을 다 맞추기 전 등). */ why: String? = null,
+               main: @Composable () -> Unit) {
+    val p = Ink.palette
+    Column(Modifier.fillMaxWidth().background(p.paper)) {
+        Hair()
+        SpeakBoard(t, preview)
+        Hair()
+        Column(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s2)) {
+            if (t != null) ShadowControls(s, t, canListen, canRecord, tip, why)
+            else Box(Modifier.fillMaxWidth().height(CONTROLS + 22.dp))
+            main()
+        }
+    }
+}
+
+private fun Modifier = this
+
+/** 큰 단추 하나 + 누를 수 없으면 그 아래 까닭 한 줄 (자리는 늘 비워 두어 칸 높이가 같다). */
+@Composable
+fun MainButton(text: String, enabled: Boolean = true, reason: String? = null, onClick: () -> Unit) {
+    val p = Ink.palette
+    Column(Modifier.fillMaxWidth()) {
+        Primary(text, enabled = enabled, shine = enabled, onClick = onClick)
+        Box(Modifier.fillMaxWidth().height(20.dp), contentAlignment = Alignment.Center) {
+            if (!enabled && reason != null) Text(reason, style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, maxLines = 1, textAlign = TextAlign.Center)
+        }
     }
 }
 
 /**
  * 단추 셋 (시안 rec_controls 2 · A~C), 한 줄 · 같은 높이: 원래 소리 (56dp, 아래 칩 1× · 0.7×) · 말하기 (80dp, 금테 · 녹음 중 금빛 바탕에 멈춤 네모,
- * 둘레 고리가 원래 문장 길이만큼 차오름) · 내 소리 (56dp, 채점 뒤에는 ‘비교 듣기’: 원래 소리 → 내 소리, 다시 누르면 멈춤).
+ * 둘레 고리가 원래 문장 길이만큼 차오름 · 먼저 듣는 동안에는 들은 만큼) · 내 소리 (56dp, 채점 뒤에는 ‘비교 듣기’: 원래 소리 → 내 소리, 다시 누르면 멈춤).
  * 그 위에 안내 한 줄 (비교 듣기 중이면 지금 나오는 쪽이 금빛). [canListen] 이 아니면 원래 소리를 막고 (빈칸 · 조각을 다 맞추기 전),
- * [canRecord] 가 아니면 녹음을 막는다.
+ * [canRecord] 가 아니면 녹음을 막는다 ([why] 가 그 까닭 한 줄). 먼저 듣기 ([ShadowTake.locked]) 동안도 녹음이 막힌다.
  */
 @Composable
 fun ShadowControls(s: AppState, t: ShadowTake, canListen: Boolean = true, canRecord: Boolean = true,
-                   /** 녹음 전 안내 한 줄 (기본: 이 문장을 따라 읽어 보세요). */ tip: Int = R.string.shadow_tap) {
+                   /** 녹음 전 안내 한 줄 (기본: 이 문장을 따라 읽어 보세요). */ tip: Int = R.string.shadow_tap,
+                   why: String? = null) {
     val p = Ink.palette
     val listen = t.hasAudio && canListen
     // 비교 듣기: 원래 소리를 들을 수 있고 녹음이 있을 때 (내 소리 단추가 바뀐다)
     val canCompare = listen && t.have && !t.recording
     val cmp = t.compare
-    if (cmp != null) {
-        val o = stringResource(R.string.shadow_orig); val m = stringResource(R.string.shadow_mine)
-        val line = stringResource(R.string.shadow_compare_line, o, m)
-        val lit = androidx.compose.ui.text.AnnotatedString.Builder(line).apply {
-            val (w, at) = if (cmp == ShadowTake.Side.ORIG) o to line.indexOf(o) else m to line.lastIndexOf(m)
-            if (at >= 0) addStyle(androidx.compose.ui.text.SpanStyle(color = p.giltText, fontWeight = FontWeight.SemiBold), at, at + w.length)
-        }.toAnnotatedString()
-        Text(lit, style = Type.small.ui(), color = p.inkSoft, textAlign = TextAlign.Center, maxLines = 1,
-            modifier = Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s5).padding(top = Tokens.Space.s2))
-    } else Text(
-        // 안내 한 줄: 스크롤 밖, 단추 바로 위 (단추에 가리지 않게). 목소리가 들리지 않은 녹음이면 ‘다시 해 봐요’,
-        // 목소리는 들렸지만 음절이 원래와 어긋나면 ‘조금 더 또박또박 · 끝까지 말해 봐요’. 녹음 전 원래 선이 보이면 ‘선을 따라 오르내리듯’
-        stringResource(when {
-            t.recording -> if (t.targetMs != null) R.string.shadow_listening_auto else R.string.shadow_recording
-            t.unclear && t.tick > 0 -> R.string.speak_clearer
-            t.voice == false && t.tick > 0 -> R.string.talk_retry
-            t.have -> R.string.shadow_check
-            tip == R.string.shadow_tap && listen && t.refCurve != null -> R.string.shadow_follow_line
-            else -> tip
-        }),
-        style = Type.small.ui(), color = if (t.recording) p.giltText else p.inkSoft, textAlign = TextAlign.Center,
-        modifier = Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s5).padding(top = Tokens.Space.s2),
-    )
-    // 두 번째로 안 되면: 비슷하게 읽으면 (원래 소리 단추 바로 위, 그 뒤로 늘)
-    SayLikeLine(t)
-    Row(Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s3, horizontal = Tokens.Space.s3), verticalAlignment = Alignment.Top) {
+    val locked = t.locked && listen
+    Box(Modifier.fillMaxWidth().height(22.dp), contentAlignment = Alignment.Center) {
+        if (cmp != null) {
+            val o = stringResource(R.string.shadow_orig); val m = stringResource(R.string.shadow_mine)
+            val line = stringResource(R.string.shadow_compare_line, o, m)
+            val lit = androidx.compose.ui.text.AnnotatedString.Builder(line).apply {
+                val (w, at) = if (cmp == ShadowTake.Side.ORIG) o to line.indexOf(o) else m to line.lastIndexOf(m)
+                if (at >= 0) addStyle(androidx.compose.ui.text.SpanStyle(color = p.giltText, fontWeight = FontWeight.SemiBold), at, at + w.length)
+            }.toAnnotatedString()
+            Text(lit, style = Type.small.ui(), color = p.inkSoft, textAlign = TextAlign.Center, maxLines = 1)
+        } else Text(
+            // 안내 한 줄 (단추 바로 위): 막힌 까닭 · 먼저 듣기 · 녹음 중 · 목소리가 들리지 않음 · 또박또박 · 녹음 뒤 · 녹음 전
+            when {
+                !canRecord && why != null && !t.recording -> why
+                locked -> stringResource(R.string.listen_first)
+                t.recording -> stringResource(if (t.targetMs != null) R.string.shadow_listening_auto else R.string.shadow_recording)
+                t.unclear && t.tick > 0 -> stringResource(R.string.speak_clearer)
+                t.voice == false && t.tick > 0 -> stringResource(R.string.talk_retry)
+                t.have -> stringResource(R.string.shadow_check)
+                tip == R.string.shadow_tap && listen && t.refCurve != null -> stringResource(R.string.shadow_follow_line)
+                else -> stringResource(tip)
+            },
+            style = Type.small.ui(), color = if (t.recording) p.giltText else p.inkSoft, textAlign = TextAlign.Center, maxLines = 1,
+        )
+    }
+    Row(Modifier.fillMaxWidth().height(CONTROLS).padding(top = Tokens.Space.s2), verticalAlignment = Alignment.Top) {
         // 원래 소리 + 칩 (1× · 0.7×). 원래 소리가 없으면 단추를 두지 않는다 (자리는 비워 말하기가 가운데). 답을 아직 못 봐서 못 듣는 때만 흐린 단추
         Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
             if (t.hasAudio) {
@@ -570,14 +745,15 @@ fun ShadowControls(s: AppState, t: ShadowTake, canListen: Boolean = true, canRec
         }
         // 말하기 (녹음 시작 · 끝)
         val recStart = stringResource(R.string.a11y_record); val recStop = stringResource(R.string.a11y_record_stop)
-        val rec = canRecord || t.recording
+        val rec = (canRecord && !locked) || t.recording
         Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
             Box(Modifier.size(BUTTON_BOX), contentAlignment = Alignment.Center) {
-                // 고리: 첫 목소리부터 원래 문장 길이만큼 차오른다 (core 의 AutoStop). 움직임 줄이기면 프레임마다 그 자리 그대로 (부드럽게 잇지 않음)
-                val target = t.ring
+                // 고리: 녹음 중이면 첫 목소리부터 원래 문장 길이만큼 (core 의 AutoStop), 먼저 듣는 동안이면 들은 만큼.
+                // 움직임 줄이기면 프레임마다 그 자리 그대로 (부드럽게 잇지 않음)
+                val target = if (t.recording) t.ring else if (locked) t.listenRing else null
                 val eased by androidx.compose.animation.core.animateFloatAsState(target ?: 0f,
                     androidx.compose.animation.core.tween(160, easing = androidx.compose.animation.core.LinearEasing), label = "ring")
-                if (t.recording && target != null) {
+                if (target != null) {
                     val shown = if (LocalStill.current) target else eased
                     Canvas(Modifier.size(BUTTON_BOX)) {
                         val w = 3.dp.toPx()
@@ -601,7 +777,7 @@ fun ShadowControls(s: AppState, t: ShadowTake, canListen: Boolean = true, canRec
                     }
                 }
             }
-            Text(stringResource(if (t.recording) R.string.shadow_stop else if (t.have) R.string.shadow_again else R.string.shadow_talk), style = Type.small.ui(), color = if (rec) p.ink else p.inkSoft)
+            Text(stringResource(if (t.recording) R.string.shadow_stop else if (t.have) R.string.shadow_again else R.string.shadow_talk), style = Type.small.ui(), color = if (rec) p.ink else p.inkSoft, maxLines = 1)
         }
         // 내 소리 → 채점 뒤 ‘비교 듣기’ (원래 소리 → 내 소리, 다시 누르면 멈춤). 원래 소리를 못 듣는 때는 내 소리만
         Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
@@ -636,13 +812,13 @@ private fun SpeedChip(t: ShadowTake, enabled: Boolean) {
     }
 }
 
-/** 반음 곡선 하나 (가운데 0, 위아래 ±[range], 채점 판의 두 선 · 미리 보기 선은 이미 -1..1 이라 1). */
+/** 반음 곡선 하나 (가운데 0, 위아래 ±[range], 채점 판의 두 선 · 미리 보기 선은 이미 -1..1 이라 1). NaN 은 건너 이어 그린다 (한 줄). */
 private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCurve(c: FloatArray?, color: Color, dotted: Boolean, upTo: Float = 1f, range: Float = 8f) {
     if (c == null || c.size < 2) return
     val path = androidx.compose.ui.graphics.Path()
     var started = false
     c.forEachIndexed { k, v ->
-        if (v.isNaN()) { started = false; return@forEachIndexed }   // 긴 쉼: 선을 끊는다
+        if (v.isNaN()) return@forEachIndexed
         val x = size.width * upTo * k / (c.size - 1); val y = size.height / 2 - v.coerceIn(-range, range) / range * size.height / 2.2f
         if (!started) { path.moveTo(x, y); started = true } else path.lineTo(x, y)
     }
@@ -653,14 +829,14 @@ private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCurve(c: FloatA
 /**
  * 녹음 중 판 (시안 rec_controls 2 · D): 원래 소리 점선 위에 내 음높이 선 (core 의 LiveLine). 가로는 같은 시간축
  * (첫 목소리부터, 원래 길이 = 판 너비, 더 길게 말하면 선 전체가 줄어든다), 세로는 원래 선과 같은 폭이라 채점 뒤 선과 모양이 이어진다.
- * 원래 선이 없으면 (원래 소리 없음) 크기 막대를 같은 시간축에 옅게 깔아 듣고 있음을 보인다.
+ * 목소리가 잠깐 끊긴 자리는 곧게 이어 그린다 (한 줄, 시안 하루 흐름 ③). 원래 선이 없으면 (원래 소리 없음) 크기 막대를 같은 시간축에 옅게 깐다.
  */
 @Composable
 private fun LiveTrace(t: ShadowTake) {
     val p = Ink.palette
     val ref = t.refCurve
     val pts = io.github.graviton94.todayletters.core.LiveLine.points(t.times, t.levels, t.pitches, t.onset, t.targetMs, t.refRange)
-    Canvas(Modifier.fillMaxWidth().height(96.dp)) {
+    Canvas(Modifier.fillMaxSize()) {
         drawCurve(ref, p.inkSoft, dotted = true, range = 1f)
         if (ref == null && t.times.isNotEmpty()) {
             val span = maxOf((t.targetMs ?: 0).toLong(), t.times.last(), 3000L).toFloat()
@@ -674,22 +850,12 @@ private fun LiveTrace(t: ShadowTake) {
         fun y(v: Float) = size.height / 2 - v * size.height / 2.2f
         val path = androidx.compose.ui.graphics.Path(); var started = false
         pts.forEach { pt ->
-            if (pt == null) { started = false; return@forEach }
+            if (pt == null) return@forEach
             val x = pt.first * size.width
             if (!started) { path.moveTo(x, y(pt.second)); started = true } else path.lineTo(x, y(pt.second))
         }
         drawPath(path, p.giltText, style = androidx.compose.ui.graphics.drawscope.Stroke(2.5.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round))
         pts.lastOrNull { it != null }?.let { drawCircle(p.giltText, 4.dp.toPx(), androidx.compose.ui.geometry.Offset(it.first * size.width, y(it.second))) }
-    }
-}
-
-@Composable
-private fun Meter(label: String, value: Int, modifier: Modifier, gold: Color, text: Color, soft: Color) {
-    // 화면 읽기: “억양 72” 한 덩어리로
-    Column(modifier.semantics(mergeDescendants = true) { contentDescription = "$label $value" }, verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        Text(label, style = Type.small.ui(), color = soft)
-        Text("$value", style = Type.title.copy(fontFamily = Faces.display), color = text)
-        Box(Modifier.fillMaxWidth().height(4.dp).background(Ink.palette.hair)) { Box(Modifier.fillMaxWidth(value / 100f).height(4.dp).background(gold)) }
     }
 }
 
