@@ -60,9 +60,10 @@ fun BackupImportChooser(file: String, onPick: () -> Unit, onClose: () -> Unit) {
 /** 가져오기 전 확인: [file] 파일의 기록 · [here] 지금 폰의 기록. */
 @Composable
 fun BackupImportSheet(file: Backup.Summary, here: Backup.Summary, onImport: () -> Unit, onClose: () -> Unit) {
-    BackupSheet(stringResource(R.string.backup_ask_t), onClose, note = stringResource(R.string.backup_ask_w)) {
+    BackupSheet(stringResource(R.string.backup_ask_t), onClose) {
         BackupOption(stringResource(R.string.backup_ask_file), null, line = stringResource(R.string.backup_ask_file_b, file.letters, file.cards, file.made))
         BackupOption(stringResource(R.string.backup_ask_here), null, line = stringResource(R.string.backup_ask_here_b, here.letters, here.cards))
+        Text(stringResource(R.string.backup_ask_w), style = Type.small.ui(), color = Ink.palette.giltText, maxLines = 1)
         Row(Modifier.fillMaxWidth().padding(top = Tokens.Space.s2), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             Secondary(stringResource(R.string.backup_no), Modifier.weight(1f), small = true, onClick = onClose)
             Primary(stringResource(R.string.backup_yes), Modifier.weight(1f), small = true, onClick = onImport)
