@@ -1,5 +1,0 @@
-a11y.txt
-abcd1_before_light.png
-abcd2_recording_dark.png
-abcd3_compare_dark.png
-abcd4_scored_light.png
