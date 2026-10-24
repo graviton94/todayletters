@@ -1,0 +1,207 @@
+name: Word times
+
+# 낭독 소리마다 낱말 시각 <소리 이름>.words.json (scripts/align_words.py, torchaudio MMS_FA 강제 정렬).
+# 앱이 그 소리와 함께 보여 주는 글의 낱말 (띄어쓰기로 나눔) 마다 시작 · 끝 밀리초 · 점수 q, 약하면 "ok": false.
+# 소리: 편지 메시지 m* · 오늘의 회화 (지금 이름 t · tb · tc · tk …) · 답장 r* · 표현 ph* · 기초 낱말 예문 bx_ (장 "B").
+# 새 파일만: 이미 .words.json 이 있는 소리는 건너뛰고, 넣을 때 같은 이름이 있으면 멈춘다.
+#   앱 안 장 (assets/audio, 빈센트 서문 · I) 은 그 자리에 커밋, 앱 밖 장 (remote/audio) 은 커밋 + generate.py (remote.json 묶음에 들어감)
+#   + R2 에 새 주소로만 올린다 (낱말 시각 파일 · 새 장 묶음 zip. 이미 있는 주소는 같은 내용일 때만 건너뛰고, 다르면 멈춘다).
+# dry_run=true: 만들어서 요약 · 내려받을 묶음 (words-all) 만, 커밋 · 올리기 없음.
+on:
+  workflow_dispatch:
+    inputs:
+      series:
+        description: "작품 (띄어쓰기로 나눔, 비우면 전부: vincent mozart napoleon goya)"
+        type: string
+        default: ""
+      chapters:
+        description: "장만 (띄어쓰기로 나눔, 예: I · P E · B = 기초 낱말 예문, 비우면 전부)"
+        type: string
+        default: ""
+      dry_run:
+        description: "true = 만들고 요약만 (커밋 · R2 없음)"
+        type: choice
+        options: ["true", "false"]
+        default: "true"
+
+permissions: { contents: write }
+concurrency: { group: "align-${{ github.ref }}", cancel-in-progress: false }
+jobs:
+  align:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        series: [vincent, mozart, napoleon, goya]
+        file: [prologue, chapter1, chapter2, chapter3, chapter4, chapter5, chapter6, chapter7, chapter8, epilogue]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            data
+            scripts
+            android/app/src/main/assets/audio/${{ matrix.series }}
+            remote/audio/${{ matrix.series }}
+      - name: This file has clips to align?
+        id: want
+        env: { ONLY_SERIES: "${{ inputs.series }}", CHAPTERS: "${{ inputs.chapters }}" }
+        run: |
+          f="data/${{ matrix.series }}/${{ matrix.file }}.json"
+          go=$(python3 -c "
+          import json, os
+          f = '$f'
+          if not os.path.exists(f): print(0); raise SystemExit
+          only = os.environ['ONLY_SERIES'].split()
+          if only and '${{ matrix.series }}' not in only: print(0); raise SystemExit
+          ch = set(os.environ['CHAPTERS'].split())
+          c = json.load(open(f))['chapter']
+          print(int(not ch or c in ch or (c == 'P' and 'B' in ch)))")
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "go=$go"
+      - uses: actions/setup-python@v5
+        if: steps.want.outputs.go == '1'
+        with: { python-version: "3.11" }
+      - uses: actions/cache@v4
+        if: steps.want.outputs.go == '1'
+        with: { path: ~/.cache/torch/hub/checkpoints, key: mms-fa-v1 }
+      - name: Get torchaudio (CPU), uroman, num2words, ffmpeg
+        if: steps.want.outputs.go == '1'
+        run: |
+          sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q torch==2.5.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+          pip install -q numpy uroman==1.3.1.1 num2words==0.5.14
+      - name: Align
+        if: steps.want.outputs.go == '1'
+        env: { CHAPTERS: "${{ inputs.chapters }}" }
+        run: |
+          mkdir -p words
+          python scripts/align_words.py "data/${{ matrix.series }}/${{ matrix.file }}.json" words ${CHAPTERS:+--chapters "$CHAPTERS"}
+          echo "files: $(find words -name '*.words.json' | wc -l)"
+      - uses: actions/upload-artifact@v4
+        if: steps.want.outputs.go == '1'
+        with:
+          name: words-${{ matrix.series }}-${{ matrix.file }}
+          path: words
+          if-no-files-found: ignore
+          retention-days: 7
+
+  sync:
+    needs: align
+    if: ${{ !cancelled() && needs.align.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.CF_R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.CF_R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      AWS_REQUEST_CHECKSUM_CALCULATION: when_required
+      AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
+      ACCOUNT: ${{ secrets.CF_ACCOUNT_ID }}
+      BUCKET: ${{ secrets.CF_R2_BUCKET }}
+      PUBLIC: ${{ vars.CF_R2_PUBLIC_URL }}
+      DRY: ${{ inputs.dry_run }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: words-*
+          merge-multiple: true
+          path: ${{ runner.temp }}/words
+      - name: Summary
+        run: |
+          mkdir -p "$RUNNER_TEMP/words"
+          { echo "## Word times (dry_run=$DRY, series='${{ inputs.series }}', chapters='${{ inputs.chapters }}')"; echo;
+            python3 scripts/align_words.py --summary "$RUNNER_TEMP/words"; } | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: words-all
+          path: ${{ runner.temp }}/words
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Check settings (names only)
+        if: env.DRY == 'false'
+        run: |
+          ok=1
+          for n in ACCOUNT BUCKET AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY PUBLIC; do
+            if [ -z "${!n}" ]; then echo "::error::$n is empty"; ok=0; else echo "$n is set"; fi
+          done
+          [ $ok = 1 ]
+      - name: Put word times next to the audio, new files only
+        if: env.DRY == 'false'
+        run: |
+          out="$RUNNER_TEMP/words"; n=0
+          # 장 폴더가 앱 안(assets/audio)에 있으면 거기, 아니면 앱 밖(remote/audio). 같은 이름이 있으면 멈춘다 (덮어쓰지 않음)
+          while IFS= read -r rel; do
+            d=$(dirname "$rel"); s=${d%%/*}; rest=${d#*/}; ch=${rest%%/*}
+            if [ -d "android/app/src/main/assets/audio/$s/$ch" ]; then root=android/app/src/main/assets/audio; else root=remote/audio; fi
+            [ -e "$root/${rel%.words.json}.m4a" ] || { echo "::error::no audio for $rel"; exit 1; }
+            if [ -e "$root/$rel" ]; then echo "::error::$root/$rel already exists"; exit 1; fi
+            cp "$out/$rel" "$root/$rel"; n=$((n+1))
+          done < <(cd "$out" && find . -name "*.words.json" | sed 's#^\./##' | sort)
+          echo "new word-time files: $n" | tee -a "$GITHUB_STEP_SUMMARY"
+          python3 scripts/generate.py
+          python3 scripts/generate.py --check
+      - name: Commit to this branch
+        if: env.DRY == 'false'
+        run: |
+          git add -A android/app/src/main/assets remote
+          git diff --cached --quiet && { echo "nothing new"; exit 0; }
+          git config user.name bot && git config user.email bot@users.noreply.github.com
+          git commit -qm "Word times: per-word timings next to narration clips (new files only)"
+          git pull -q --rebase origin "$GITHUB_REF_NAME"
+          python3 scripts/generate.py --check
+          git push origin "HEAD:$GITHUB_REF_NAME"
+      # R2: 새 주소만 올린다. 낱말 시각 파일 (remote/ 의 경로 그대로) 과 장 묶음 zip (내용이 바뀌어 새 이름).
+      # 이미 R2 에 있는 주소는 크기 · MD5 가 같으면 건너뛰고, 다르면 멈춘다 (docs/release.md 5, 덮어쓰기 금지)
+      - name: Stage new R2 keys
+        if: env.DRY == 'false'
+        run: |
+          python3 scripts/generate.py --check --packs "$RUNNER_TEMP/packs"
+          aws s3api list-objects-v2 --bucket "$BUCKET" --output json --endpoint-url "https://$ACCOUNT.r2.cloudflarestorage.com" > "$RUNNER_TEMP/objects.json"
+          python3 - <<'PY'
+          import hashlib, json, os, shutil, sys
+          sys.path.insert(0, "scripts"); from r2_guard import r2_key
+          tmp = os.environ["RUNNER_TEMP"]; stage = os.path.join(tmp, "r2new")
+          revs = json.load(open("data/remote.json", encoding="utf-8")).get("revisions", {})
+          objs = {o["Key"]: (int(o["Size"]), o.get("ETag", "").strip('"')) for o in json.load(open(os.path.join(tmp, "objects.json"))).get("Contents") or []}
+          want = []
+          for d, _, names in os.walk("remote"):
+              for n in names:
+                  if n.endswith(".words.json"):
+                      rel = os.path.relpath(os.path.join(d, n), "remote").replace(os.sep, "/")
+                      want.append((r2_key(rel, revs), os.path.join(d, n)))
+          P = os.path.join(tmp, "packs")
+          for d, _, names in os.walk(P):
+              for n in names:
+                  want.append((os.path.relpath(os.path.join(d, n), P).replace(os.sep, "/"), os.path.join(d, n)))
+          bad, new = [], 0
+          for key, path in want:
+              if key in objs:
+                  size, etag = objs[key]
+                  if size != os.path.getsize(path) or (etag and "-" not in etag and hashlib.md5(open(path, "rb").read()).hexdigest() != etag):
+                      bad.append(key)
+                  continue
+              dst = os.path.join(stage, key); os.makedirs(os.path.dirname(dst), exist_ok=True)
+              try: os.link(path, dst)
+              except OSError: shutil.copy2(path, dst)
+              new += 1
+          if bad:
+              print("::error::R2 already has these keys with other content (never overwrite):"); print("\n".join(sorted(bad)[:50])); sys.exit(1)
+          os.makedirs(stage, exist_ok=True)
+          msg = f"R2: {new} new keys (R2 had {len(objs)})"
+          print(msg); print(msg, file=open(os.environ["GITHUB_STEP_SUMMARY"], "a"))
+          PY
+      - name: Upload new keys to R2
+        if: env.DRY == 'false'
+        run: |
+          ep="https://$ACCOUNT.r2.cloudflarestorage.com"; st="$RUNNER_TEMP/r2new"
+          aws s3 sync "$st" "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.json" --content-type application/json --endpoint-url "$ep"
+          aws s3 sync "$st" "s3://$BUCKET/" --only-show-errors --exclude "*" --include "*.zip" --content-type application/zip --endpoint-url "$ep"
+          files="$(cd "$st" && { find . -name '*.words.json' | sort | sed -n '1p;$p'; find . -name '*.zip' | sort | head -1; } | sed 's#^\./##')"
+          for f in $files; do
+            code=$(curl -s -o /tmp/t -w "%{http_code}" "${PUBLIC%/}/$f")
+            echo "GET $f → $code ($(stat -c%s /tmp/t) bytes)"
+            [ "$code" = 200 ] && cmp -s /tmp/t "$st/$f" && echo "same file ✓" || { echo "::error::public download differs or failed"; exit 1; }
+          done

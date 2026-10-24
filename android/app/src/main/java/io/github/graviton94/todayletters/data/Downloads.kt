@@ -11,6 +11,7 @@ import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import io.github.graviton94.todayletters.core.Fetching
 import io.github.graviton94.todayletters.core.Packs
+import io.github.graviton94.todayletters.core.WordTimes
 import org.json.JSONObject
 import java.io.File
 import java.net.HttpURLConnection
@@ -112,7 +113,8 @@ class Downloads(private val ctx: Context) {
     private fun file(p: Part) = File(ctx.filesDir, p.path)
 
     /** 이 장을 다 받아 두었는가. */
-    fun ready(pack: Pack) = pack.parts.all { file(it).length() == it.size }
+    /** 낱말 시각 (.words.json, core WordTimes.optional) 은 빠져도 받은 것으로 친다: 그 파일이 생기기 전에 받은 장을 다시 받게 하지 않는다 (없으면 화면은 마디 시각). */
+    fun ready(pack: Pack) = pack.parts.all { WordTimes.optional(it.path) || file(it).length() == it.size }
 
     /** 받다 만 파일 (files/<경로>.part) 의 크기: 다시 받을 때 여기서부터 잇는다. */
     private fun partial(p: Part): Long = File(file(p).path + ".part").length().takeIf { it in 1 until p.size } ?: 0L
