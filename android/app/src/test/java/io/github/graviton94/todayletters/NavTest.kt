@@ -7,6 +7,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.test.core.app.ApplicationProvider
+import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Route
 import io.github.graviton94.todayletters.core.ThemeMode
 import io.github.graviton94.todayletters.data.Store
@@ -583,5 +584,100 @@ class NavTest {
         assertEquals(null, s.downloadAsk)
         assertEquals(DownloadJob.Phase.STOPPED, DownloadJob.state?.phase)
         DownloadJob.show(null)
+    }
+
+    // ── 하루 흐름 정리 (시안 ux/src.html, 2026-10-24) ──
+    /** 먼저 듣기: 원래 소리가 있는 칸은 끝까지 한 번 들어야 녹음이 열린다. 소리가 없거나 답을 못 본 칸 (listenFirst=false) · 이미 녹음이 있으면 막지 않는다. */
+    @Test fun listenFirstLocksRecordingUntilHeard() {
+        val f = java.io.File(ctx.cacheDir, "nav/take.wav").apply { parentFile?.mkdirs(); delete() }
+        val t = io.github.graviton94.todayletters.ui.ShadowTake("audio/x.m4a", 0, Int.MAX_VALUE, f, step = true)
+        assertTrue(t.locked)
+        t.heard = true
+        assertFalse(t.locked)
+        assertFalse(io.github.graviton94.todayletters.ui.ShadowTake(null, -1, 0, f, step = true).locked)
+        assertFalse(io.github.graviton94.todayletters.ui.ShadowTake("audio/x.m4a", 0, Int.MAX_VALUE, f, step = true, listenFirst = false).locked)
+        f.writeBytes(ByteArray(64))
+        val had = io.github.graviton94.todayletters.ui.ShadowTake("audio/x.m4a", 0, Int.MAX_VALUE, f, step = true)
+        assertFalse(had.locked)
+        f.delete()
+        // 회화 내 차례: 소리가 있으면 LISTEN → 끝까지 들으면 READY (core 의 TalkTurn)
+        val st = io.github.graviton94.todayletters.core.TalkTurn.start(io.github.graviton94.todayletters.core.Support.Talk.SHADOW, "Oui, ça va.", listen = true)
+        assertEquals(io.github.graviton94.todayletters.core.TalkTurn.Phase.LISTEN, st.phase)
+        assertTrue(io.github.graviton94.todayletters.core.TalkTurn.reduce(st, io.github.graviton94.todayletters.core.TalkTurn.Event.Listened).canRecord)
+    }
+
+    /** 덮개: 보상 · 레벨 · 등급 · 받기 시트 · 묻는 창 · 도움말 · 설정이 떠 있으면 저절로 나오는 소리 · 회화가 기다린다. */
+    @Test fun coveredGate() {
+        val s = state()
+        assertFalse(s.covered)
+        s.reward = AppState.RewardMoment("vincent", 2, null, emptyList(), null); assertTrue(s.covered); s.reward = null
+        s.levelUp = AppState.LevelUp(1, 2); assertTrue(s.covered); s.levelUp = null
+        s.settingsOpen = true; assertTrue(s.covered); s.settingsOpen = false
+        s.coachShowing = true; assertTrue(s.covered); s.coachShowing = false
+        io.github.graviton94.todayletters.ui.Covers.open++; assertTrue(s.covered); io.github.graviton94.todayletters.ui.Covers.open--
+        // 작은 “+2” 는 덮개가 아니다 (다음 걸음이 바로)
+        s.chip = AppState.Chip("vincent", 2, 1); assertFalse(s.covered)
+        assertFalse(s.covered)
+    }
+
+    /**
+     * 편지 끝 흐름: 걸음 안 보상은 작은 “+2” (화면 전체 보상 없음), 마지막 걸음 뒤 편지 완료 보상 한 번 · 등급 · 레벨은 그 안의 한 줄
+     * (따로 한 장씩 뜨지 않는다) → 완료 화면.
+     */
+    @Test fun endOfLetterQueue() {
+        val s = state()
+        s.enter("vincent")
+        val room = Route.Letter("vincent", 1, 1, Route.Inbox)
+        val (c, l) = s.letterOf(room)
+        s.open("vincent", c, l, Route.Inbox, skipAudio = true)
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size))
+        val modes = s.letterModes("vincent", c, l)
+        assertTrue(modes.size >= 2)
+        s.reward = null; s.chip = null
+        s.go(Route.Play(room, modes[0]))
+        s.replyAndContinue(room, modes[0])
+        assertEquals(Route.Play(room, modes[1]), s.route)
+        // 화폐만이면 작은 “+2”, 메달 · 자료가 걸렸을 때만 화면 전체
+        val mid = s.reward
+        if (mid == null) assertTrue((s.chip?.gain ?: 0) > 0) else assertTrue(mid.medals.isNotEmpty() || mid.piece != null || mid.milestone != null)
+        s.reward = null
+        modes.drop(1).forEach { m -> if (s.route != Route.Play(room, m)) s.go(Route.Play(room, m)); s.replyAndContinue(room, m) }
+        assertEquals(Route.Done(room), s.route)
+        val r = s.reward
+        assertTrue(r != null && r.gain > 0)
+        assertEquals(null, s.levelUp); assertEquals(null, s.gradeUp)
+    }
+
+    /** 복습 한 판은 시작한 탭으로 돌아간다 (예전에는 늘 오늘). */
+    @Test fun reviewReturnsToItsTab() {
+        val s = state()
+        s.enter("vincent")
+        s.go(Route.Words)
+        s.go(Route.Session())
+        assertTrue(s.sessionFromReview)
+        s.leaveSession()
+        assertEquals(Route.Words, s.route)
+        s.go(Route.Inbox)
+        s.go(Route.Session())
+        assertFalse(s.sessionFromReview)
+        s.leaveSession()
+        assertEquals(Route.Inbox, s.route)
+    }
+
+    /** × 는 늘 나가기 + 한 번 묻기: 답장 말해 보기의 × 는 다음 턴으로 넘어가지 않는다 (예전 Depth.kt: onClose = onNext). */
+    @Test fun closeAlwaysLeaves() {
+        val s = state()
+        s.enter("vincent")
+        var closed = 0; var next = 0
+        rule.setContent {
+            TodayLettersTheme(ThemeMode.LIGHT) {
+                io.github.graviton94.todayletters.ui.ReplySpeak(s, Route.Play(Route.Letter("vincent", 1, 1), io.github.graviton94.todayletters.core.ReplyMode.CONSTELLATION), 0, 1,
+                    onNext = { next++ }, onClose = { closed++ })
+            }
+        }
+        rule.waitForIdle()
+        rule.onNode(androidx.compose.ui.test.hasContentDescription(ctx.getString(R.string.close)) and androidx.compose.ui.test.hasClickAction()).performClick()
+        rule.waitForIdle()
+        assertEquals(1, closed); assertEquals(0, next)
     }
 }

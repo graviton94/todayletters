@@ -1859,7 +1859,13 @@ class ScreensTest {
     /** 회화 말풍선 (상대 줄) 안의 스피커 · 0.7× (A1, 내 차례 아래 칸에도 둘). */
     @Test fun slowTalkBubble() = withSlow {
         val s = graded(state(true), 1)
-        shot("slow01_talk_bubble_light", false, ms = 4000, act = { org.junit.Assert.assertTrue(slowButtons() >= 2) }, series = s) { Play(s, talkRoute) }
+        // 말풍선 안 스피커 · 0.7× (ListenButtons), 내 차례 아래 칸은 말하기 판 공통 단추 (rec_controls ABCD: 원래 소리 아래 칩 1× · 0.7×).
+        // 예전에는 아래 칸에도 ListenButtons 가 있어 ‘둘 이상’ 을 셌다: 이제 아래 칸의 0.7× 는 빠르기 칩이라 그것을 따로 센다
+        shot("slow01_talk_bubble_light", false, ms = 4000, act = {
+            org.junit.Assert.assertTrue(slowButtons() >= 1)
+            val chip = ctx.getString(R.string.shadow_speed, io.github.graviton94.todayletters.ui.SLOW_TEXT)
+            org.junit.Assert.assertEquals(1, rule.onAllNodes(androidx.compose.ui.test.hasContentDescription(chip) and hasClickAction()).fetchSemanticsNodes().size)
+        }, series = s) { Play(s, talkRoute) }
     }
     /** 이해 확인 지문 아래 스피커 · 0.7× · 번역 보기. */
     @Test fun slowCheckPassage() = withSlow {
@@ -2126,20 +2132,23 @@ class ScreensTest {
         val P = io.github.graviton94.todayletters.core.Prosody
         val rate = io.github.graviton94.todayletters.data.Wav.RATE
         val f = java.io.File(ctx.cacheDir, "fix/take.wav").apply { parentFile?.mkdirs(); writeBytes(ByteArray(64)) }
-        val ref = P.analyze(fakeVoice(1.8) { t -> 190 + 60 * kotlin.math.sin(t * 3.2) }, rate)
-        // 내 소리: 낮은 목소리 · 조금 느리게 · 옥타브로 튄 곳 셋 (예전에는 큰 세로 가시가 되었다)
-        val mine = P.analyze(fakeVoice(2.3, spikes = listOf(0.5, 1.1, 1.7)) { t -> 120 + 38 * kotlin.math.sin(t / 2.3 * 1.8 * 3.2) }, rate)
-        val c = P.curves(ref, mine)
+        val L = io.github.graviton94.todayletters.core.PitchLine
+        val ref = L.analyze(fakeVoice(1.8) { t -> 190 + 60 * kotlin.math.sin(t * 3.2) }, rate)
+        // 내 소리: 낮은 목소리 · 조금 느리게 · 옥타브로 튄 곳 셋 (예전에는 큰 세로 가시가 되었다). 판의 선은 한 줄 (core 의 PitchLine)
+        val mine = L.analyze(fakeVoice(2.3, spikes = listOf(0.5, 1.1, 1.7)) { t -> 120 + 38 * kotlin.math.sin(t / 2.3 * 1.8 * 3.2) }, rate)
+        val c = L.curves(ref, mine)
         val v = io.github.graviton94.todayletters.core.SpeakCheck.judge(true, mineSyl, refSyl, 0, score.total)
         return io.github.graviton94.todayletters.ui.ShadowTake("audio/none.m4a", 0, Int.MAX_VALUE, f, step = true).apply {
-            tick = 1; result = Triple(score, c?.ref, c?.mine); voice = v.pass; unclear = v.hint; misses = if (v.pass) 0 else 1
+            tick = 1; heard = true; result = Triple(score, c?.ref, c?.mine); voice = v.pass; unclear = v.hint; misses = if (v.pass) 0 else 1
         }
     }
     @Composable private fun ScoredPane(s: AppState, t: io.github.graviton94.todayletters.ui.ShadowTake) {
-        androidx.compose.foundation.layout.Column(Modifier.fillMaxSize().padding(horizontal = 20.dp), verticalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(12.dp, androidx.compose.ui.Alignment.Bottom)) {
+        androidx.compose.foundation.layout.Column(Modifier.fillMaxSize().padding(horizontal = 20.dp, vertical = 40.dp)) {
             androidx.compose.material3.Text("Hi! Are you tired from travelling?", style = io.github.graviton94.todayletters.design.Type.target, color = Ink.palette.ink)
-            io.github.graviton94.todayletters.ui.ShadowBoard(t)
-            io.github.graviton94.todayletters.ui.ShadowControls(s, t)
+        }
+        // 판 · 아래 칸 (말하기 일곱 곳 공통): 아래에 붙는다
+        androidx.compose.foundation.layout.Box(Modifier.fillMaxSize(), contentAlignment = androidx.compose.ui.Alignment.BottomCenter) {
+            io.github.graviton94.todayletters.ui.SpeakPanel(s, t) { io.github.graviton94.todayletters.ui.MainButton("다음", enabled = t.passed == true, reason = "말해 보면 다음으로 갈 수 있어요") {} }
         }
     }
     /** 점수 91 (억양 100 · 리듬 77) 인데 음절은 어긋남: 이제 통과 (‘훌륭해요!’ 만, ‘또박또박’ 없음), 두 선은 다듬고 시간축을 맞춤. */
@@ -2172,9 +2181,14 @@ class ScreensTest {
         val P = io.github.graviton94.todayletters.core.Prosody
         val rate = io.github.graviton94.todayletters.data.Wav.RATE
         val f = java.io.File(ctx.cacheDir, "abcd/take.wav").apply { parentFile?.mkdirs(); delete(); if (taken) writeBytes(ByteArray(64)) }
-        val pv = P.preview(P.analyze(fakeVoice(1.8) { t -> 190 + 60 * kotlin.math.sin(t * 3.2) }, rate))!!
-        return io.github.graviton94.todayletters.ui.ShadowTake("audio/none.m4a", 0, Int.MAX_VALUE, f, step = true).apply {
-            refCurve = pv.ref; refRange = pv.range; refMs = pv.ms
+        val tr = io.github.graviton94.todayletters.core.PitchLine.analyze(fakeVoice(1.8) { t -> 190 + 60 * kotlin.math.sin(t * 3.2) }, rate)
+        val pv = io.github.graviton94.todayletters.core.PitchLine.line(tr)!!
+        @Suppress("UNUSED_VARIABLE") val unusedP = P
+        // 원래 소리는 이미 한 번 들은 것으로 (먼저 듣기를 마침): 녹음 단추가 켜진 모습
+        return io.github.graviton94.todayletters.ui.ShadowTake("audio/none.m4a", 0, Int.MAX_VALUE, f, step = true,
+            text = "Hi! Are you tired from travelling?", lang = io.github.graviton94.todayletters.core.Lang.EN).apply {
+            refCurve = pv.values; refRange = pv.range; refMs = pv.ms; line = pv; heard = true
+            spots = io.github.graviton94.todayletters.core.WordSpots.estimate(text!!, tr.db, lang!!)
         }
     }
     /** 녹음 전: 원래 소리 점선 · ‘선을 따라 오르내리듯 읽어 보세요.’ · 단추 셋 (원래 소리 아래 칩 1× · 0.7×, 금테 말하기, 흐린 내 소리). */
@@ -2300,5 +2314,162 @@ class ScreensTest {
                 io.github.graviton94.todayletters.ui.LetterCardImage(io.github.graviton94.todayletters.ui.rememberLetterCard(s, w, l, l.messages.first()), Modifier.fillMaxSize())
             }
         }
+    }
+
+    // ── 하루 흐름 정리 (시안 ux/src.html, 2026-10-24): 말하기 판 하나 (일곱 곳 공통) · 먼저 듣기 · 편지 끝 흐름. 한 번에 `*ScreensTest.rules*` ──
+    private enum class Phase { LISTEN, RECORD, SCORED }
+    /** 실제 화면의 말하기 칸을 [ph] 로 꾸민다 ([AppState.takeHook]): 원래 소리 한 줄 선 · 낱말 자리 (가짜 목소리) · 듣는 중 / 녹음 중 / 채점 뒤. */
+    private fun staged(s: AppState, ph: Phase): AppState {
+        val L = io.github.graviton94.todayletters.core.PitchLine
+        val rate = io.github.graviton94.todayletters.data.Wav.RATE
+        val tr = L.analyze(fakeVoice(2.2) { t -> 180 + 55 * kotlin.math.sin(t * 2.9) }, rate)
+        val ln = L.line(tr)!!
+        s.takeHook = { t, voiced ->
+            if (t.hasAudio) {
+                t.line = ln; t.refCurve = ln.values; t.refRange = ln.range; t.refMs = ln.ms
+                t.spots = io.github.graviton94.todayletters.core.WordSpots.estimate(t.text ?: "Oui, ça va. Et toi ?", tr.db, t.lang ?: io.github.graviton94.todayletters.core.Lang.FR)
+            }
+            when (ph) {
+                Phase.LISTEN -> { t.heard = false; t.playing = true; t.playAt = (ln.ms * 0.45).toInt(); t.listenRing = 0.45f }
+                Phase.RECORD -> {
+                    t.heard = true
+                    val ref = t.targetMs ?: 2000
+                    val onset = 300L
+                    var at = 0L
+                    while (at < onset + ref * 0.6) {
+                        val sec = (at - onset) / 1000.0
+                        val voiced2 = at >= onset && (sec % 0.45) < 0.38
+                        t.times.add(at); t.levels.add(if (voiced2) -18f else -60f)
+                        t.pitches.add(if (voiced2) (125 + 34 * kotlin.math.sin(sec * 2.6)).toFloat() else 0f)
+                        at += 40
+                    }
+                    t.onset = onset; t.recording = true; t.ring = 0.6f
+                }
+                Phase.SCORED -> {
+                    t.heard = true
+                    kotlinx.coroutines.delay(300)
+                    t.file.parentFile?.mkdirs(); t.file.writeBytes(ByteArray(64))
+                    if (t.hasAudio) {
+                        val c = L.curves(tr, L.analyze(fakeVoice(2.5) { x -> 130 + 40 * kotlin.math.sin(x * 2.6) }, rate))
+                        t.result = Triple(io.github.graviton94.todayletters.core.Prosody.Score(96, 84), c?.ref, c?.mine)
+                    }
+                    t.voice = true
+                    voiced(true)
+                }
+            }
+        }
+        return s
+    }
+    private fun phaseName(ph: Phase) = ph.name.lowercase()
+    private fun phaseDark(ph: Phase) = ph == Phase.RECORD
+
+    /** 따라 읽기 (회화 내 줄 먼저): 먼저 듣기 (고리 · 금빛 세로줄 · 지금 낱말) → 녹음 중 → 채점 뒤 (점수 한 줄 · 칭찬). */
+    private fun readAlongShot(ph: Phase) {
+        val dark = phaseDark(ph)
+        val s = staged(state(true), ph)
+        shot("rules1_readalong_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, ms = 1500, series = s) {
+            io.github.graviton94.todayletters.ui.ReadAlong(s, Route.Letter("vincent", 1, 2), only = listOf(0), onClose = {}, onFinish = {}, onSkip = {})
+        }
+    }
+    @Test fun rulesReadAlongListen() = readAlongShot(Phase.LISTEN)
+    @Test fun rulesReadAlongRecord() = readAlongShot(Phase.RECORD)
+    @Test fun rulesReadAlongScored() = readAlongShot(Phase.SCORED)
+    /** 회화 내 차례 (A1): 내 문장을 먼저 한 번 (녹음 단추는 다 들은 뒤), 판은 아래 칸 바로 위 · 높이 고정. */
+    private fun talkShot(ph: Phase) {
+        val dark = phaseDark(ph)
+        withSlow {
+            val s = staged(graded(state(true), 1), ph)
+            shot("rules2_talk_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, ms = 4000, series = s) { Play(s, talkRoute) }
+        }
+    }
+    @Test fun rulesTalkListen() = talkShot(Phase.LISTEN)
+    @Test fun rulesTalkRecord() = talkShot(Phase.RECORD)
+    @Test fun rulesTalkScored() = talkShot(Phase.SCORED)
+    /** 답장 말해 보기 (A1, 문장이 보임): 같은 판 · 같은 아래 칸, × 는 나가기. */
+    private fun replyShot(ph: Phase) {
+        val dark = phaseDark(ph)
+        val s = staged(graded(state(true), 1), ph)
+        shot("rules3_reply_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, ms = 1500, series = s) {
+            io.github.graviton94.todayletters.ui.ReplySpeak(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.CONSTELLATION), 0, 1, onNext = {})
+        }
+    }
+    @Test fun rulesReplyListen() = replyShot(Phase.LISTEN)
+    @Test fun rulesReplyRecord() = replyShot(Phase.RECORD)
+    @Test fun rulesReplyScored() = replyShot(Phase.SCORED)
+    /** 내 이야기로 (원래 소리 없음): 보기를 고르고 ‘말해 보기’ 뒤의 판 (선 대신 크기 막대 · 칭찬 한 줄). */
+    private fun mineShot(ph: Phase) {
+        val dark = phaseDark(ph)
+        val s = staged(state(true), ph)
+        val (c, l0) = s.letterOf(Route.Letter("vincent", 1, 2))
+        val F = io.github.graviton94.todayletters.core.Lang.FR; val E = io.github.graviton94.todayletters.core.Lang.EN; val K = io.github.graviton94.todayletters.core.Lang.KO
+        val l = if (l0.talk?.mine != null) l0 else l0.copy(talk = l0.talk?.copy(mine = io.github.graviton94.todayletters.core.TalkMine(3,
+            mapOf(F to "beaucoup", E to "lots", K to "많이"),
+            listOf(mapOf(F to "le français", E to "French", K to "프랑스어를"), mapOf(F to "à peindre", E to "to paint", K to "그림 그리기를"),
+                mapOf(F to "à cuisiner", E to "to cook", K to "요리를")))))
+        val first = l.talk!!.mine!!.opts[0][s.room("vincent").learn].orEmpty()
+        shot("rules4_mine_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, act = {
+            rule.onAllNodes(hasText(first) and hasClickAction()).onFirst().performClick(); rule.mainClock.advanceTimeBy(300)
+            rule.onAllNodes(hasText(ctx.getString(R.string.mine_say)) and hasClickAction()).onFirst().performClick(); rule.mainClock.advanceTimeBy(1500)
+        }, series = s) { io.github.graviton94.todayletters.ui.MinePane(s, "vincent", c, l) {} }
+    }
+    @Test fun rulesMineListen() = mineShot(Phase.LISTEN)
+    @Test fun rulesMineRecord() = mineShot(Phase.RECORD)
+    @Test fun rulesMineScored() = mineShot(Phase.SCORED)
+    /** 어제 말 떠올리기: 맞힌 뒤 ‘소리 내어 말해 보기’ 의 판. */
+    private fun recallShot(ph: Phase) {
+        val dark = phaseDark(ph)
+        val s = staged(state(true), ph); val l = voxYesterday(s)
+        val learn = s.room("vincent").learn
+        val me = io.github.graviton94.todayletters.core.ShadowLines.talkMe(l.talk, learn).first()
+        val chunks = io.github.graviton94.todayletters.core.Recall.chunks(io.github.graviton94.todayletters.core.Breaks.plain(l.talk!!.lines[me].text[learn]).trim())
+        shot("rules5_recall_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, act = {
+            chunks.forEach { ch -> rule.onAllNodes(hasText(ch) and hasClickAction()).onFirst().performClick(); rule.mainClock.advanceTimeBy(300) }
+            rule.onAllNodes(hasText(ctx.getString(R.string.recall_say)) and hasClickAction()).onFirst().performClick(); rule.mainClock.advanceTimeBy(1500)
+        }, series = s) { io.github.graviton94.todayletters.ui.RecallScreen(s, Route.RecallQuiz("vincent")) }
+    }
+    @Test fun rulesRecallListen() = recallShot(Phase.LISTEN)
+    @Test fun rulesRecallRecord() = recallShot(Phase.RECORD)
+    @Test fun rulesRecallScored() = recallShot(Phase.SCORED)
+    /** 복습 말하기: 답을 보기 전에는 원래 소리 · 점선 없이 (먼저 들으면 답을 듣는 셈), 맞힌 뒤 같은 판. */
+    private fun reviewSpeakShot(ph: Phase) {
+        val dark = phaseDark(ph)
+        val s = staged(engineState(), ph); s.reward = null
+        shot("rules6_review_speak_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, ms = 1500, series = s) {
+            Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.SPEAK))
+        }
+    }
+    @Test fun rulesReviewSpeakListen() = reviewSpeakShot(Phase.LISTEN)
+    @Test fun rulesReviewSpeakRecord() = reviewSpeakShot(Phase.RECORD)
+    @Test fun rulesReviewSpeakScored() = reviewSpeakShot(Phase.SCORED)
+
+    /** 편지 끝 흐름 ①: 걸음 안 보상은 작은 “+2” (화면을 덮지 않고, 다음 걸음이 그 아래서 그대로). */
+    @Test fun rulesEndChip() = withDepth {
+        val s = graded(state(true), 1)
+        s.chip = AppState.Chip("vincent", 2, 1)
+        shot("rules7_end_chip_light", false, ms = 800, series = s) { Play(s, checkRoute); io.github.graviton94.todayletters.ui.RewardChip(s) }
+    }
+    /** 편지 끝 흐름 ②: 편지 완료 보상 한 번, 오른 등급 · 레벨은 그 안에 한 줄씩 (따로 한 장씩 뜨지 않는다). */
+    @Test fun rulesEndReward() {
+        val s = state(true)
+        val G = io.github.graviton94.todayletters.core.Reading.Grade
+        s.reward = AppState.RewardMoment("vincent", 12, null, emptyList(), null,
+            listOf(io.github.graviton94.todayletters.core.Earn.LETTER to 10, io.github.graviton94.todayletters.core.Earn.PRACTICE to 2),
+            grade = AppState.GradeUp(s.room("vincent").learn, G.of(3), G.of(4)), level = AppState.LevelUp(4, 5))
+        shot("rules8_end_reward_dark", true, 2000) { io.github.graviton94.todayletters.ui.RewardOverlay(s) }
+    }
+    /** 편지 끝 흐름 ③: 완료 화면 하나 (큰 단추 ‘오늘로’ · 작은 ‘그림 속 산책’), 튜토리얼 끝 한 줄은 이 화면 안에. */
+    @Test fun rulesEndDone() {
+        val s = state(true, tutorial = true)
+        finishReal(s, "vincent", 1, 1)
+        shot("rules9_end_done_tutorial_light", false, 4000, series = s) { Done(s, Route.Letter("vincent", 1, 1)) }
+        org.junit.Assert.assertTrue(s.tutorialDone)
+    }
+    /** 편지 끝 흐름 ④: 알림 허락은 다음에 오늘에 왔을 때 한 번 (완료 화면 위에 겹치지 않음). */
+    @Test fun rulesEndNotice() {
+        val s = state(true)
+        finishReal(s, "vincent", 1, 1)
+        s.store.notifyAsked = false
+        shot("rules10_end_today_notice_light", false, 2000, series = s) { Inbox(s) }
+        org.junit.Assert.assertTrue(s.store.notifyAsked)
     }
 }
