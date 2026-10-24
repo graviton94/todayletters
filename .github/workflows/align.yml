@@ -120,6 +120,15 @@ jobs:
           path: ${{ runner.temp }}/words
           if-no-files-found: ignore
           retention-days: 7
+      # 미리 보기: 결과를 새 가지 align-dry-<run id> 에 (내려받기 묶음을 못 여는 곳에서도 git 으로 볼 수 있게, 작업 가지는 건드리지 않음)
+      - name: Dry run → preview branch
+        if: env.DRY == 'true'
+        run: |
+          cd "$RUNNER_TEMP/words" && [ -n "$(ls -A)" ] || exit 0
+          git init -q && git checkout -q -b "align-dry-${{ github.run_id }}" && git add -A
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Word times preview ${{ github.run_id }}"
+          git push -q "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" "HEAD:align-dry-${{ github.run_id }}"
+          echo "preview branch: align-dry-${{ github.run_id }}" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Check settings (names only)
         if: env.DRY == 'false'
         run: |
