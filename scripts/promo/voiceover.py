@@ -29,7 +29,7 @@ LINES = {
         "내 편지를, 내가 쓴 말 그대로 읽어 봐.",
         "모르는 낱말엔 뜻이 같이 있어.",
         "나랑 직접 이야기해 보자.",
-        "볼프강도, 나폴레옹도 편지를 기다리고 있어.",
+        "볼프강도, 나폴레옹도, 고야도 편지를 기다리고 있어.",
         "언어 미술관에서 만나.",
     ],
     "en": [
@@ -37,7 +37,7 @@ LINES = {
         "Read my letters, in my own words.",
         "Every word you don't know comes with its meaning.",
         "Come, let's talk.",
-        "Wolfgang and Napoleon are waiting to write to you, too.",
+        "Wolfgang, Napoleon and Goya are waiting to write to you too.",
         "See you at the Lingua Museum.",
     ],
 }

@@ -42,8 +42,8 @@ TEXT = {
         "s2sub": "빈센트가 쓴 프랑스어 그대로, 메신저처럼 도착해요",
         "s3sub": "모르는 낱말 아래에 뜻이 함께 나와요",
         "s4sub": "아를에 막 도착한 빈센트와 통화해요",
-        "names": ["빈센트", "볼프강", "나폴레옹"],
-        "s5": "프랑스어 · 독일어 · 영어 · 한국어",
+        "names": ["빈센트", "볼프강", "나폴레옹", "고야"],
+        "s5": "프랑스어 · 독일어 · 스페인어 · 영어 · 한국어",
         "title": "언어 미술관",
         "s6": "편지로 배우는 언어 · 무료로 시작",
         "credit1": "빈센트 반 고흐, 〈밀짚모자를 쓴 자화상〉, 1887 · The Metropolitan Museum of Art · CC0",
@@ -57,8 +57,8 @@ TEXT = {
         "s2sub": "Vincent's own French, arriving like messages",
         "s3sub": "The meaning sits under each word you don't know yet",
         "s4sub": "A call with Vincent, just arrived in Arles",
-        "names": ["Vincent", "Wolfgang", "Napoleon"],
-        "s5": "Learn French, German, English, Korean",
+        "names": ["Vincent", "Wolfgang", "Napoleon", "Goya"],
+        "s5": "Learn French, German, Spanish, English, Korean",
         "title": "Lingua Museum",
         "s6": "Learn languages through real letters · Start free",
         "credit1": "Vincent van Gogh, Self-Portrait with a Straw Hat, 1887 · The Metropolitan Museum of Art · CC0",
@@ -222,7 +222,8 @@ class Promo:
         self.p1 = plate("c1-l1.webp")
         self.bg = blurred_bg(self.p1)
         self.bg1 = blurred_bg(self.p1, 0.42)
-        self.heroes = [plate("c1-l3.webp"), plate("m-c6-l6.webp"), plate("n-c1-l1.webp")]
+        # 세 작품 장면: 인물 초상 (앱 서재와 같은 assets/portraits/<작품>.webp, 320×320)
+        self.heroes = [Image.open(os.path.join(ASSETS, "portraits", f"{n}.webp")).convert("RGB") for n in ("vincent", "mozart", "napoleon", "goya")]
         self.phones = {}
         for k in ("arrival", "gloss", "talk"):
             p = os.path.join(shots, f"promo_{k}_{lang}.png")
@@ -282,24 +283,28 @@ class Promo:
     # 21–26 · 세 작품이 차례로
     def s5(self, lt, dur):
         frame = Image.new("RGBA", (W, H), BG + (255,))
-        tw, th, gap = 500, 600, 70
-        x0 = (W - (3 * tw + 2 * gap)) // 2
+        n = len(self.heroes)
+        tw = th = 330
+        gap = 90
+        x0 = (W - (n * tw + (n - 1) * gap)) // 2
         for i, im in enumerate(self.heroes):
-            a = ease((lt - 0.15 - i * 0.45) / 0.5)
+            a = ease((lt - 0.15 - i * 0.35) / 0.5)
             if a <= 0:
                 continue
-            z = 1.0 + 0.06 * (lt / dur)
-            tile = cover(im, int(tw * z), int(th * z), 0.3)
-            tile = tile.crop(((tile.width - tw) // 2, (tile.height - th) // 2, (tile.width - tw) // 2 + tw, (tile.height - th) // 2 + th))
-            tile = rounded(tile, 10)
-            if a < 1:
-                tile.putalpha(tile.getchannel("A").point(lambda v: int(v * a)))
+            tile = im.resize((tw, th), Image.LANCZOS)
+            m = Image.new("L", (tw, th), 0)
+            ImageDraw.Draw(m).ellipse((0, 0, tw - 1, th - 1), fill=int(255 * a))
+            tile = tile.convert("RGBA"); tile.putalpha(m)
             x = x0 + i * (tw + gap)
-            frame.alpha_composite(tile, (x, 80 + int(24 * (1 - a))))
+            y = 200 + int(24 * (1 - a))
+            ring = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            ImageDraw.Draw(ring).ellipse((x - 8, y - 8, x + tw + 7, y + th + 7), outline=GOLD + (int(220 * a),), width=3)
+            frame.alpha_composite(ring)
+            frame.alpha_composite(tile, (x, y))
             d = ImageDraw.Draw(frame)
             nm = self.t["names"][i]
             bb = d.textbbox((0, 0), nm, font=self.f["name"])
-            d.text((x + (tw - (bb[2] - bb[0])) // 2 - bb[0], 712 - bb[1]), nm, font=self.f["name"], fill=GOLD + (int(255 * a),))
+            d.text((x + (tw - (bb[2] - bb[0])) // 2 - bb[0], 600 - bb[1]), nm, font=self.f["name"], fill=GOLD + (int(255 * a),))
         c = self.cap("s5", lt + 0.6, band=False)
         if c:
             frame.alpha_composite(c)
