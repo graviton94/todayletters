@@ -184,11 +184,11 @@ fun GoButton(label: String, detail: String? = null, modifier: Modifier = Modifie
             .giltSweep(shine && enabled, fill).padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(label, style = Type.body.ui().copy(fontSize = 16.sp), color = if (enabled) on else soft, maxLines = 1, overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.weight(1f, fill = false).clearAndSetSemantics { })
-        if (detail != null) Text("  $detail", style = Type.small.ui().copy(fontSize = 13.sp), color = soft, maxLines = 1, overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.weight(1f, fill = false).clearAndSetSemantics { })
-        Spacer(Modifier.weight(1f))
+        // 이름은 다 보이게, 기다리는 것은 남은 폭에 (넘치면 그쪽만 줄임)
+        Text(label, style = Type.body.ui().copy(fontSize = 16.sp), color = if (enabled) on else soft, maxLines = 1, softWrap = false,
+            modifier = Modifier.clearAndSetSemantics { })
+        Text(if (detail != null) "  $detail" else "", style = Type.small.ui().copy(fontSize = 13.sp), color = soft, maxLines = 1, overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.weight(1f).clearAndSetSemantics { })
         Spacer(Modifier.width(12.dp))
         ArrowGlyph(if (enabled) on else soft)
     }
@@ -445,10 +445,11 @@ fun MedalMoment(s: AppState) {
                         val got = f.id in s.medalsOwned
                         val nw = f.id == md.id
                         val k = if (nw) win(clock, 2200, 800) else 1f
-                        Box(Modifier.size(22.dp).then(if (nw) Modifier.rise(k) else Modifier).clip(CircleShape)
-                            .background(if (got) Color.Transparent else Museum.wall2)
-                            .border(1.dp, if (nw) Museum.gilt else if (got) Color.Transparent else Museum.line, CircleShape)) {
-                            if (got) AssetImage(f.image, Modifier.fillMaxSize(), sample = 4)
+                        Box(Modifier.size(24.dp).then(if (nw) Modifier.rise(k) else Modifier).clip(CircleShape)
+                            .background(if (got) Color.Transparent else Museum.wall2)) {
+                            if (got) AssetImage(f.image, Modifier.fillMaxSize().padding(if (nw) 3.dp else 0.dp).clip(CircleShape), sample = 4)
+                            // 새 칸은 금선, 빈 칸은 자리만 (그림 위에 그어 가리지 않게)
+                            Box(Modifier.fillMaxSize().border(1.dp, if (nw) Museum.gilt else if (got) Color.Transparent else Museum.line, CircleShape))
                         }
                     }
                 }

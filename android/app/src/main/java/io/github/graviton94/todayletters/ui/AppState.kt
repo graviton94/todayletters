@@ -1218,7 +1218,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         // 방은 뒤에 남아서 걸음 화면을 닫으면 편지로 돌아간다. 마친 편지의 다시 하기 · 복습 탭에서 들어온 걸음은 들어온 곳으로 그대로
         val straight = !was && route == r
         val after = io.github.graviton94.todayletters.core.Next.afterStep(stepsOf(r), now.replied, now.skipped, straight, backToLetter = route is Route.Letter)
-        if (ended) letterDone(r)
+        // 편지를 마쳤으면 앞 걸음의 마침 한 장은 남기지 않는다 (완료 화면 하나)
+        if (ended) { stepNote = null; letterDone(r) }
         else if (after is io.github.graviton94.todayletters.core.Next.AfterStep.Step) go(Route.Play(r, after.mode))
         // 걸음 안 보상은 걸음 마침 한 장 ([stepNote]: 그날 편지의 그림 · “+2”, 다음 걸음 단추), 편지를 마쳤으면 편지 완료 화면 하나 (등급 · 레벨은 그 안에 한 줄씩)
         chip = null

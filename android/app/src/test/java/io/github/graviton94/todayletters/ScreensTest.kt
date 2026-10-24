@@ -139,7 +139,7 @@ class ScreensTest {
         s.open(series, c, l, null, skipAudio = true)
         s.save(series, c, l.id, s.progress(series, c, l.id).copy(shown = l.messages.size))
         s.letterModes(series, c, l).forEach { m -> if (!s.progress(series, c, l.id).done) s.replyAndContinue(r, m) }
-        s.reward = null; s.levelUp = null; s.gradeUp = null
+        s.reward = null; s.levelUp = null; s.gradeUp = null; s.stepNote = null
     }
 
     /**
@@ -2617,5 +2617,5 @@ class ScreensTest {
         }
     }
     @Test fun rwArrivalMid() = arrivalFromCard("rw6e_card_to_arrival_mid", 160, true)
-    @Test fun rwArrival() = arrivalFromCard("rw6f_card_to_arrival_end", 4500, false)
+    @Test fun rwArrival() = arrivalFromCard("rw6f_card_to_arrival_end", 6000, false)
 }
