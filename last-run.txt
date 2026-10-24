@@ -1,0 +1,8 @@
+a11y.txt
+ub1_update_offer_ko_light.png
+ub2_update_progress_ko_light.png
+ub2b_update_failed_ko_light.png
+ub3_update_ready_ko_dark.png
+ub4_backup_export_sheet_light.png
+ub5_backup_import_sheet_light.png
+ub6_backup_confirm_light.png
