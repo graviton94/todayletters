@@ -41,6 +41,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -246,7 +247,24 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
     var tick by mutableIntStateOf(0)
     var result by mutableStateOf<Triple<io.github.graviton94.todayletters.core.Prosody.Score, FloatArray?, FloatArray?>?>(null)
     var scoring by mutableStateOf(false)
+    /** 원래 소리의 선 (core 의 Prosody.preview: 채점 뒤 원래 선과 같은 칸 · 같은 폭, -1..1). 녹음 전부터 판에 점선으로. */
     var refCurve by mutableStateOf<FloatArray?>(null)
+    /** 원래 선의 폭 (반음): 녹음 중 내 선을 같은 폭으로 (core 의 LiveLine). */
+    var refRange by mutableStateOf(4f)
+    /** 앞뒤 침묵을 뺀 원래 소리의 길이 (밀리초, 모르면 null): 녹음 고리 · 저절로 멈추기 (core 의 AutoStop). */
+    var refMs by mutableStateOf<Int?>(null)
+    /** 녹음 고리 · 저절로 멈추기의 기준 길이: 원래 소리, 없으면 글자로 어림한 음절 ([estimate]). 모르면 null (고리 없음 · 상한만). */
+    val targetMs: Int? get() = refMs ?: if (!hasAudio) io.github.graviton94.todayletters.core.AutoStop.estimateMs(estimate) else null
+    /** 녹음 고리 (0..1, 첫 목소리부터 [targetMs] 만큼 차오름). 녹음 중이 아니거나 길이를 모르면 null. */
+    var ring by mutableStateOf<Float?>(null)
+    /** 이번 녹음의 첫 목소리 시각 (녹음 시작부터 밀리초, 아직이면 -1): 실시간 선의 0 자리. */
+    var onset by mutableStateOf(-1L)
+    /** 원래 소리 칩 (1× · 0.7×): true 면 원래 소리를 0.7× 로. */
+    var slow by mutableStateOf(false)
+    /** 비교 듣기 (원래 소리 → 내 소리) 의 지금 쪽. 듣지 않으면 null. 판정은 바꾸지 않는다. */
+    var compare by mutableStateOf<Side?>(null)
+    enum class Side { ORIG, MINE }
+    private var compareRun = 0
     var allowed by mutableStateOf(false)
     /** 마지막 녹음이 통과인가 (목소리 + 음절 검사, 아직 재지 않았으면 null). 원래 소리가 없어도 잰다. */
     var voice by mutableStateOf<Boolean?>(null)
@@ -260,6 +278,8 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
     internal var askMic: () -> Unit = {}
     val levels = androidx.compose.runtime.mutableStateListOf<Float>()
     val pitches = androidx.compose.runtime.mutableStateListOf<Float>()
+    /** 프레임마다 녹음 시작부터의 시각 (밀리초, [levels] · [pitches] 와 같은 칸). */
+    val times = androidx.compose.runtime.mutableStateListOf<Long>()
     val hasAudio: Boolean get() = audio != null && start >= 0
     val have: Boolean get() { tick; return file.exists() }
     /**
@@ -278,34 +298,85 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
      */
     fun stopRecording(s: AppState) {
         if (!recording) return
-        s.pcm.onFrame = null; s.pcm.stop(); recording = false
+        s.pcm.onFrame = null; s.pcm.stop(); recording = false; ring = null
         val rec = pending
         if (rec.length() > 44) { file.delete(); if (!rec.renameTo(file)) { rec.copyTo(file, overwrite = true); rec.delete() } }
         else { rec.delete(); file.delete() }
         tick++
     }
 
-    /** 원래 소리 (기본 빠르기, [speed] 를 주면 그 빠르기로 한 번). */
+    /** 원래 소리 (칩 [slow] 면 0.7×, 아니면 기본 빠르기. [speed] 를 주면 그 빠르기로 한 번). */
     fun original(s: AppState, speed: Float? = null) {
         stopRecording(s)
+        stopCompare(s)
+        playOriginal(s, speed ?: if (slow) io.github.graviton94.todayletters.core.Listen.SLOW else null) {}
+    }
+
+    private fun playOriginal(s: AppState, speed: Float?, then: () -> Unit) {
         val a = audio ?: return
         if (!hasAudio) return
         s.recorder.stopPlaying()
-        playing = if (end == Int.MAX_VALUE) s.narrator.play(a, speed) { playing = false }
-            else s.narrator.playRange(a, start, end, speed) { playing = false }
+        playing = if (end == Int.MAX_VALUE) s.narrator.play(a, speed) { playing = false; then() }
+            else s.narrator.playRange(a, start, end, speed) { playing = false; then() }
+    }
+
+    /**
+     * 비교 듣기 (시안 rec_controls 2 · C): 원래 소리 (칩 빠르기) 에 이어 내 소리. 듣는 중에 다시 누르면 멈춤.
+     * 녹음 · 판정 ([tick] · [voice] · [result]) 은 건드리지 않는다.
+     */
+    fun compareListen(s: AppState) {
+        if (compare != null) { stopCompare(s); return }
+        stopRecording(s)
+        if (!have) return
+        val run = ++compareRun
+        compare = Side.ORIG
+        playOriginal(s, if (slow) io.github.graviton94.todayletters.core.Listen.SLOW else null) {
+            if (run != compareRun || compare != Side.ORIG) return@playOriginal
+            compare = Side.MINE
+            s.recorder.play(file) { if (run == compareRun) compare = null }
+        }
+        if (!playing && compare == Side.ORIG) { compare = Side.MINE; s.recorder.play(file) { if (run == compareRun) compare = null } }
+    }
+
+    /** 비교 듣기를 멈춘다 (듣는 중이 아니면 아무것도). */
+    fun stopCompare(s: AppState) {
+        val was = compare ?: return
+        compareRun++; compare = null
+        if (was == Side.ORIG) { s.narrator.stop(); playing = false } else s.recorder.stopPlaying()
+    }
+
+    /** 내 소리만 (비교 듣기 전 · 원래 소리가 없을 때). */
+    fun mine(s: AppState) {
+        stopCompare(s)
+        s.narrator.stop(); playing = false; s.recorder.play(file)
     }
 
     /** 녹음 시작 · 끝 (마이크 권한이 없으면 먼저 묻는다). */
     fun record(s: AppState) {
         if (!allowed) { askMic(); return }
         if (recording) { stopRecording(s); return }
+        stopCompare(s)
         s.narrator.stop(); s.recorder.stopPlaying(); playing = false
-        levels.clear(); pitches.clear()
-        s.pcm.onFrame = { db, hz -> levels.add(db); pitches.add(hz); if (levels.size > 1500) { levels.removeAt(0); pitches.removeAt(0) } }
+        levels.clear(); pitches.clear(); times.clear(); onset = -1L
+        // 저절로 멈추기 (core 의 AutoStop): 목소리가 들어갔고 · 원래 길이의 80% 를 지났고 · 그 뒤 1초 조용할 때만. 상한을 넘으면 언제나
+        val stop = io.github.graviton94.todayletters.core.AutoStop(targetMs)
+        val begin = android.os.SystemClock.elapsedRealtime()
+        ring = stop.progress()
+        s.pcm.onFrame = { db, hz ->
+            if (recording) {
+                val at = android.os.SystemClock.elapsedRealtime() - begin
+                levels.add(db); pitches.add(hz); times.add(at)
+                if (levels.size > 1500) { levels.removeAt(0); pitches.removeAt(0); times.removeAt(0) }
+                val done = stop.frame(at, db, hz)
+                onset = stop.onset; ring = stop.progress()
+                if (done) stopRecording(s)
+            }
+        }
         file.parentFile?.mkdirs()
         pending.delete()
         result = null; voice = null; unclear = false
         recording = s.pcm.start(pending)
+        if (!recording) ring = null
     }
 }
 
@@ -327,15 +398,16 @@ fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: 
     val ask = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { t.allowed = it }
     t.askMic = { ask.launch(Manifest.permission.RECORD_AUDIO) }
     // 앱을 벗어나면 녹음은 그 자리에서 끝난다 (그때까지 녹음한 것은 남는다)
-    LaunchedEffect(t, s.away) { t.stopRecording(s); t.playing = false }
-    // 원래 소리의 음높이 선 (칸이 바뀔 때 한 번)
+    LaunchedEffect(t, s.away) { t.stopRecording(s); t.stopCompare(s); t.playing = false }
+    // 원래 소리의 음높이 선 · 길이 (칸이 바뀔 때 한 번): 녹음 전부터 판에 점선, 녹음 고리 · 저절로 멈추기의 기준
     LaunchedEffect(t) {
         if (!t.hasAudio) return@LaunchedEffect
-        t.refCurve = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
+        val pv = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
             val ref = io.github.graviton94.todayletters.data.decodeRange(ctx, t.audio!!, t.start, t.end) ?: return@withContext null
             val P = io.github.graviton94.todayletters.core.Prosody
-            P.line(P.trim(P.analyze(ref, io.github.graviton94.todayletters.data.Wav.RATE)))
-        }
+            P.preview(P.analyze(ref, io.github.graviton94.todayletters.data.Wav.RATE))
+        } ?: return@LaunchedEffect
+        t.refCurve = pv.ref; t.refRange = pv.range; t.refMs = pv.ms
     }
     // 억양 · 리듬: 원래 소리와 내 녹음을 기기 안에서 비교 (녹음이 끝날 때마다 한 번: [ShadowTake.tick] 은 녹음을 끝낼 때만 바뀐다)
     // 목소리가 들어갔는가는 원래 소리가 없어도 잰다 (침묵 · 잡음만인 녹음은 통과가 아니고, 점수도 보이지 않는다)
@@ -385,17 +457,24 @@ fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: 
     return t
 }
 
-/** 판: 녹음 중이면 실시간 파형 + 내 음높이, 녹음 뒤에는 두 선과 점수 · 별 · 억양 · 리듬. */
+/**
+ * 판 (시안 rec_controls 2 · D): 녹음 전에는 원래 소리의 오르내림 점선 (따라 할 것을 미리), 녹음 중에는 그 점선 위에 내 선이
+ * 같은 시간축 · 같은 폭으로 그려지고, 녹음 뒤에는 두 선 (core 의 Prosody.curves) 과 점수 · 별 · 억양 · 리듬.
+ * [preview] 가 아니면 녹음 전 점선을 보이지 않는다 (답을 아직 못 본 복습 말하기 · 회화 빈칸 전).
+ */
 @Composable
-fun ShadowBoard(t: ShadowTake) {
+fun ShadowBoard(t: ShadowTake, preview: Boolean = true) {
     val p = Ink.palette
     val res = t.result
-    if (t.recording || (t.have && t.hasAudio)) Column(Modifier.fillMaxWidth().border(Tokens.Stroke.hair, p.hair).padding(Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+    val before = !t.recording && !t.have
+    if (!(t.recording || (t.have && t.hasAudio) || (before && preview && t.refCurve != null))) return
+    Column(Modifier.fillMaxWidth().border(Tokens.Stroke.hair, p.hair).padding(Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(10.dp)) {
         Row(horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-            Text("┅ " + stringResource(R.string.shadow_orig), style = Type.small.ui(), color = p.inkSoft)
-            Text("━ " + stringResource(R.string.shadow_mine), style = Type.small.ui(), color = p.giltText)
+            if (t.refCurve != null || !before) Text("┅ " + stringResource(R.string.shadow_orig), style = Type.small.ui(), color = p.inkSoft)
+            if (!before) Text("━ " + stringResource(R.string.shadow_mine), style = Type.small.ui(), color = p.giltText)
         }
-        if (t.recording) LiveTrace(t.levels, t.pitches, t.refCurve)
+        if (before) Canvas(Modifier.fillMaxWidth().height(96.dp)) { drawCurve(t.refCurve, p.inkSoft, dotted = true, range = 1f) }
+        else if (t.recording) LiveTrace(t)
         else if (res == null) Text(stringResource(if (t.scoring) R.string.shadow_scoring else R.string.shadow_noscore), style = Type.small.ui(), color = p.inkSoft)
         else {
             // 두 선 (core 의 Prosody.curves): 옥타브 접기 · 다듬기 · 끊김, 같은 반음 폭 (-1..1), 내 선은 원래의 시간축에 맞춤
@@ -432,58 +511,129 @@ fun ShadowBoard(t: ShadowTake) {
                 else -> stringResource(R.string.read_pass)
             }, style = Type.small.ui(), color = if (ok) p.giltText else p.inkSoft)
         }
-        Text(stringResource(R.string.shadow_note), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
+        if (!before) Text(stringResource(R.string.shadow_note), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
     }
 }
 
 /**
- * 안내 한 줄 + 원래 소리 (와 0.7×) · 말하기 (녹음) · 내 소리. [canListen] 이 아니면 원래 소리를 막고 (빈칸 · 조각을 다 맞추기 전),
+ * 단추 셋 (시안 rec_controls 2 · A~C), 한 줄 · 같은 높이: 원래 소리 (56dp, 아래 칩 1× · 0.7×) · 말하기 (80dp, 금테 · 녹음 중 금빛 바탕에 멈춤 네모,
+ * 둘레 고리가 원래 문장 길이만큼 차오름) · 내 소리 (56dp, 채점 뒤에는 ‘비교 듣기’: 원래 소리 → 내 소리, 다시 누르면 멈춤).
+ * 그 위에 안내 한 줄 (비교 듣기 중이면 지금 나오는 쪽이 금빛). [canListen] 이 아니면 원래 소리를 막고 (빈칸 · 조각을 다 맞추기 전),
  * [canRecord] 가 아니면 녹음을 막는다.
  */
 @Composable
 fun ShadowControls(s: AppState, t: ShadowTake, canListen: Boolean = true, canRecord: Boolean = true,
                    /** 녹음 전 안내 한 줄 (기본: 이 문장을 따라 읽어 보세요). */ tip: Int = R.string.shadow_tap) {
     val p = Ink.palette
-    // 안내 한 줄: 스크롤 밖, 단추 바로 위 (단추에 가리지 않게). 목소리가 들리지 않은 녹음이면 ‘다시 해 봐요’,
-    // 목소리는 들렸지만 음절이 원래와 어긋나면 ‘조금 더 또박또박 · 끝까지 말해 봐요’
-    Text(
-        stringResource(if (t.recording) R.string.shadow_recording else if (t.unclear && t.tick > 0) R.string.speak_clearer
-            else if (t.voice == false && t.tick > 0) R.string.talk_retry else if (t.have) R.string.shadow_check else tip),
+    val listen = t.hasAudio && canListen
+    // 비교 듣기: 원래 소리를 들을 수 있고 녹음이 있을 때 (내 소리 단추가 바뀐다)
+    val canCompare = listen && t.have && !t.recording
+    val cmp = t.compare
+    if (cmp != null) {
+        val o = stringResource(R.string.shadow_orig); val m = stringResource(R.string.shadow_mine)
+        val line = stringResource(R.string.shadow_compare_line, o, m)
+        val lit = androidx.compose.ui.text.AnnotatedString.Builder(line).apply {
+            val (w, at) = if (cmp == ShadowTake.Side.ORIG) o to line.indexOf(o) else m to line.lastIndexOf(m)
+            if (at >= 0) addStyle(androidx.compose.ui.text.SpanStyle(color = p.giltText, fontWeight = FontWeight.SemiBold), at, at + w.length)
+        }.toAnnotatedString()
+        Text(lit, style = Type.small.ui(), color = p.inkSoft, textAlign = TextAlign.Center, maxLines = 1,
+            modifier = Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s5).padding(top = Tokens.Space.s2))
+    } else Text(
+        // 안내 한 줄: 스크롤 밖, 단추 바로 위 (단추에 가리지 않게). 목소리가 들리지 않은 녹음이면 ‘다시 해 봐요’,
+        // 목소리는 들렸지만 음절이 원래와 어긋나면 ‘조금 더 또박또박 · 끝까지 말해 봐요’. 녹음 전 원래 선이 보이면 ‘선을 따라 오르내리듯’
+        stringResource(when {
+            t.recording -> if (t.targetMs != null) R.string.shadow_listening_auto else R.string.shadow_recording
+            t.unclear && t.tick > 0 -> R.string.speak_clearer
+            t.voice == false && t.tick > 0 -> R.string.talk_retry
+            t.have -> R.string.shadow_check
+            tip == R.string.shadow_tap && listen && t.refCurve != null -> R.string.shadow_follow_line
+            else -> tip
+        }),
         style = Type.small.ui(), color = if (t.recording) p.giltText else p.inkSoft, textAlign = TextAlign.Center,
         modifier = Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s5).padding(top = Tokens.Space.s2),
     )
     // 두 번째로 안 되면: 비슷하게 읽으면 (원래 소리 단추 바로 위, 그 뒤로 늘)
     SayLikeLine(t)
-    Row(Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s3), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.Bottom) {
-        // 원래 소리 (기본 듣기 빠르기) 와 그 옆 0.7× (천천히 한 번)
-        // 원래 소리가 없으면 단추를 두지 않는다 (소리 없는 단추 없음). 답을 아직 못 봐서 못 듣는 때만 흐린 단추
-        val listen = t.hasAudio && canListen
-        if (t.hasAudio) Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
-            RoundButton(stringResource(R.string.shadow_orig), 56.dp, if (t.playing && s.narrator.slowBy == null) p.giltText else Color.Transparent, if (listen) p.giltText else p.hair, enabled = listen, onDark = p.paper) {
-                if (t.playing && s.narrator.slowBy == null) { s.narrator.stop(); t.playing = false } else t.original(s)
+    Row(Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s3, horizontal = Tokens.Space.s3), verticalAlignment = Alignment.Top) {
+        // 원래 소리 + 칩 (1× · 0.7×). 원래 소리가 없으면 단추를 두지 않는다 (자리는 비워 말하기가 가운데). 답을 아직 못 봐서 못 듣는 때만 흐린 단추
+        Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            if (t.hasAudio) {
+                val on = t.playing && cmp == null
+                RoundButton(stringResource(R.string.shadow_orig), 56.dp, filled = on, enabled = listen && !t.recording, glyph = if (on) Glyph.STOP else Glyph.PLAY) {
+                    if (on) { s.narrator.stop(); t.playing = false } else t.original(s)
+                }
+                SpeedChip(t, enabled = listen && !t.recording)
             }
-            if (listen) Box(Modifier.padding(bottom = 24.dp)) { SlowToggle({ t.original(s, io.github.graviton94.todayletters.core.Listen.SLOW) }, onDark = true, onStop = { s.narrator.stop(); t.playing = false }) }
         }
+        // 말하기 (녹음 시작 · 끝)
         val recStart = stringResource(R.string.a11y_record); val recStop = stringResource(R.string.a11y_record_stop)
         val rec = canRecord || t.recording
-        Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Box(
-                Modifier.size(80.dp).background(if (t.recording) p.wrong else if (rec) p.wrong.copy(alpha = 0.12f) else p.hide, CircleShape).border(1.dp, if (rec) p.wrong else p.hair, CircleShape)
-                    .semantics { contentDescription = if (t.recording) recStop else recStart }
-                    .pressable(enabled = rec, role = Role.Button) { t.record(s) },
-                contentAlignment = Alignment.Center,
-            ) {
-                Canvas(Modifier.size(24.dp)) { if (t.recording) drawRect(p.paper) else drawCircle(if (rec) p.wrong else p.hideInk, size.minDimension / 2) }
+        Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Box(Modifier.size(BUTTON_BOX), contentAlignment = Alignment.Center) {
+                // 고리: 첫 목소리부터 원래 문장 길이만큼 차오른다 (core 의 AutoStop). 움직임 줄이기면 프레임마다 그 자리 그대로 (부드럽게 잇지 않음)
+                val target = t.ring
+                val eased by androidx.compose.animation.core.animateFloatAsState(target ?: 0f,
+                    androidx.compose.animation.core.tween(160, easing = androidx.compose.animation.core.LinearEasing), label = "ring")
+                if (t.recording && target != null) {
+                    val shown = if (LocalStill.current) target else eased
+                    Canvas(Modifier.size(BUTTON_BOX)) {
+                        val w = 3.dp.toPx()
+                        val inset = w / 2
+                        val arc = androidx.compose.ui.geometry.Size(size.width - w, size.height - w)
+                        val tl = androidx.compose.ui.geometry.Offset(inset, inset)
+                        drawArc(p.hair, 0f, 360f, false, tl, arc, style = androidx.compose.ui.graphics.drawscope.Stroke(w))
+                        drawArc(p.gilt, -90f, 360f * shown, false, tl, arc, style = androidx.compose.ui.graphics.drawscope.Stroke(w, cap = androidx.compose.ui.graphics.StrokeCap.Round))
+                    }
+                }
+                Box(
+                    Modifier.size(80.dp).background(if (t.recording) p.gilt else if (rec) Color.Transparent else p.hide, CircleShape)
+                        .border(1.5.dp, if (rec) p.gilt else p.hair, CircleShape)
+                        .semantics { contentDescription = if (t.recording) recStop else recStart }
+                        .pressable(enabled = rec, role = Role.Button) { t.record(s) },
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Canvas(Modifier.size(22.dp)) {
+                        if (t.recording) { val q = size.minDimension * 0.8f; drawRect(p.paper, androidx.compose.ui.geometry.Offset((size.width - q) / 2, (size.height - q) / 2), androidx.compose.ui.geometry.Size(q, q)) }
+                        else drawCircle(if (rec) p.gilt else p.hideInk, size.minDimension / 2)
+                    }
+                }
             }
             Text(stringResource(if (t.recording) R.string.shadow_stop else if (t.have) R.string.shadow_again else R.string.shadow_talk), style = Type.small.ui(), color = if (rec) p.ink else p.inkSoft)
         }
-        RoundButton(stringResource(R.string.shadow_mine), 56.dp, Color.Transparent, if (t.have) p.giltText else p.hair, enabled = t.have && !t.recording, onDark = p.paper) {
-            s.narrator.stop(); t.playing = false; s.recorder.play(t.file)
+        // 내 소리 → 채점 뒤 ‘비교 듣기’ (원래 소리 → 내 소리, 다시 누르면 멈춤). 원래 소리를 못 듣는 때는 내 소리만
+        Column(Modifier.weight(1f), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            if (canCompare || cmp != null) RoundButton(stringResource(R.string.shadow_compare), 56.dp, filled = cmp != null, enabled = true,
+                glyph = if (cmp != null) Glyph.STOP else Glyph.DOUBLE) { t.compareListen(s) }
+            else RoundButton(stringResource(R.string.shadow_mine), 56.dp, filled = false, enabled = t.have && !t.recording, glyph = Glyph.PLAY) { t.mine(s) }
         }
     }
 }
 
-/** 반음 곡선 하나 (가운데 0, 위아래 ±[range], 채점 판의 두 선은 이미 -1..1 이라 1). */
+/** 둥근 단추 셋이 같은 높이에 서도록: 말하기 (80dp) + 고리 자리. */
+private val BUTTON_BOX = 92.dp
+
+/** 원래 소리 빠르기 칩 “1× · 0.7×” (고른 쪽은 금빛 글자 · 옅은 금빛 바탕). */
+@Composable
+private fun SpeedChip(t: ShadowTake, enabled: Boolean) {
+    val p = Ink.palette
+    Row(Modifier.border(1.dp, p.hair, androidx.compose.foundation.shape.RoundedCornerShape(Tokens.Radius.round))
+        .background(Color.Transparent, androidx.compose.foundation.shape.RoundedCornerShape(Tokens.Radius.round))
+        .padding(1.dp)) {
+        listOf(false to "1×", true to SLOW_TEXT).forEach { (slow, label) ->
+            val on = t.slow == slow
+            val said = stringResource(R.string.shadow_speed, label)
+            Box(Modifier.heightIn(min = 30.dp)
+                .background(if (on) p.gilt.copy(alpha = 0.16f) else Color.Transparent, androidx.compose.foundation.shape.RoundedCornerShape(Tokens.Radius.round))
+                .semantics { contentDescription = said; selected = on }
+                .pressable(enabled = enabled, role = Role.RadioButton) { t.slow = slow }
+                .padding(horizontal = 10.dp), contentAlignment = Alignment.Center) {
+                Text(label, style = Type.small.copy(fontSize = Tokens.Text.caps), color = if (!enabled) p.inkSoft.copy(alpha = 0.6f) else if (on) p.giltText else p.inkSoft)
+            }
+        }
+    }
+}
+
+/** 반음 곡선 하나 (가운데 0, 위아래 ±[range], 채점 판의 두 선 · 미리 보기 선은 이미 -1..1 이라 1). */
 private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCurve(c: FloatArray?, color: Color, dotted: Boolean, upTo: Float = 1f, range: Float = 8f) {
     if (c == null || c.size < 2) return
     val path = androidx.compose.ui.graphics.Path()
@@ -498,40 +648,35 @@ private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCurve(c: FloatA
 }
 
 /**
- * 녹음 중 실시간 판: 크기 막대(파형)와 내 음높이 선. 원래 낭독의 선은 점선으로 뒤에 깔린다.
- * 가로는 원래 낭독 길이에 맞춰 늘고 (넘치면 왼쪽으로 밀림), 내 선은 반음 (내 첫 목소리 기준).
+ * 녹음 중 판 (시안 rec_controls 2 · D): 원래 소리 점선 위에 내 음높이 선 (core 의 LiveLine). 가로는 같은 시간축
+ * (첫 목소리부터, 원래 길이 = 판 너비, 더 길게 말하면 선 전체가 줄어든다), 세로는 원래 선과 같은 폭이라 채점 뒤 선과 모양이 이어진다.
+ * 원래 선이 없으면 (원래 소리 없음) 크기 막대를 같은 시간축에 옅게 깔아 듣고 있음을 보인다.
  */
 @Composable
-private fun LiveTrace(levels: List<Float>, pitches: List<Float>, ref: FloatArray?) {
+private fun LiveTrace(t: ShadowTake) {
     val p = Ink.palette
+    val ref = t.refCurve
+    val pts = io.github.graviton94.todayletters.core.LiveLine.points(t.times, t.levels, t.pitches, t.onset, t.targetMs, t.refRange)
     Canvas(Modifier.fillMaxWidth().height(96.dp)) {
-        val n = levels.size
-        val span = maxOf(ref?.size?.div(3) ?: 0, n, 60)   // 녹음 프레임은 원래 분석 프레임(10ms)의 약 3배 길이
-        drawCurve(ref, p.inkSoft, dotted = true)
-        val bw = size.width / span
-        levels.forEachIndexed { k, db ->
-            val h = ((db + 60f) / 60f).coerceIn(0.02f, 1f) * size.height * 0.9f
-            val x = k * bw
-            drawRect(p.hair, androidx.compose.ui.geometry.Offset(x, size.height / 2 - h / 2), androidx.compose.ui.geometry.Size((bw * 0.6f).coerceAtLeast(1f), h))
-        }
-        val voiced = pitches.filter { it > 0f }
-        if (voiced.size >= 3) {
-            val med = voiced.sorted()[voiced.size / 2]
-            // 옥타브로 튄 값은 접는다 (실시간 선이 위아래로 크게 튀지 않게)
-            fun semi(hz: Float): Float { var st = 12 * kotlin.math.ln(hz / med) / kotlin.math.ln(2f); repeat(2) { if (st > 9f) st -= 12f else if (st < -9f) st += 12f }; return st.coerceIn(-8f, 8f) }
-            val path = androidx.compose.ui.graphics.Path(); var started = false
-            pitches.forEachIndexed { k, hz ->
-                if (hz <= 0f) { started = false; return@forEachIndexed }
-                val st = semi(hz)
-                val x = k * bw; val y = size.height / 2 - st / 8f * size.height / 2.2f
-                if (!started) { path.moveTo(x, y); started = true } else path.lineTo(x, y)
-            }
-            drawPath(path, p.giltText, style = androidx.compose.ui.graphics.drawscope.Stroke(2.5.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round))
-            pitches.indexOfLast { it > 0f }.takeIf { it >= 0 }?.let { k ->
-                val st = semi(pitches[k])
-                drawCircle(p.giltText, 4.dp.toPx(), androidx.compose.ui.geometry.Offset(k * bw, size.height / 2 - st / 8f * size.height / 2.2f))
+        drawCurve(ref, p.inkSoft, dotted = true, range = 1f)
+        if (ref == null && t.times.isNotEmpty()) {
+            val span = maxOf((t.targetMs ?: 0).toLong(), t.times.last(), 3000L).toFloat()
+            val bw = (size.width * 40f / span).coerceAtLeast(1f)
+            t.times.forEachIndexed { k, at ->
+                val db = t.levels.getOrNull(k) ?: return@forEachIndexed
+                val h = ((db + 60f) / 60f).coerceIn(0.02f, 1f) * size.height * 0.9f
+                drawRect(p.hair, androidx.compose.ui.geometry.Offset(at / span * size.width, size.height / 2 - h / 2), androidx.compose.ui.geometry.Size(bw * 0.6f, h))
             }
         }
+        fun y(v: Float) = size.height / 2 - v * size.height / 2.2f
+        val path = androidx.compose.ui.graphics.Path(); var started = false
+        pts.forEach { pt ->
+            if (pt == null) { started = false; return@forEach }
+            val x = pt.first * size.width
+            if (!started) { path.moveTo(x, y(pt.second)); started = true } else path.lineTo(x, y(pt.second))
+        }
+        drawPath(path, p.giltText, style = androidx.compose.ui.graphics.drawscope.Stroke(2.5.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round))
+        pts.lastOrNull { it != null }?.let { drawCircle(p.giltText, 4.dp.toPx(), androidx.compose.ui.geometry.Offset(it.first * size.width, y(it.second))) }
     }
 }
 
@@ -545,22 +690,32 @@ private fun Meter(label: String, value: Int, modifier: Modifier, gold: Color, te
     }
 }
 
+private enum class Glyph { PLAY, DOUBLE, STOP }
+
+/** 둥근 단추 (원래 소리 · 내 소리 · 비교 듣기): [BUTTON_BOX] 칸 가운데라 말하기와 같은 높이 · 같은 이름표 줄. [filled] 면 금빛 바탕. */
 @Composable
-private fun RoundButton(label: String, diameter: androidx.compose.ui.unit.Dp, fill: Color, ring: Color, enabled: Boolean, onDark: Color = Color(0xFF17110C), onClick: () -> Unit) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
+private fun RoundButton(label: String, diameter: androidx.compose.ui.unit.Dp, filled: Boolean, enabled: Boolean, glyph: Glyph, onClick: () -> Unit) {
+    val p = Ink.palette
+    val ring = if (enabled) p.gilt else p.hair
+    Box(Modifier.size(BUTTON_BOX), contentAlignment = Alignment.Center) {
         Box(
-            Modifier.size(diameter).background(fill, CircleShape).border(1.dp, ring, CircleShape).pressable(enabled = enabled, role = Role.Button) { onClick() }
+            Modifier.size(diameter).background(if (filled) p.gilt else Color.Transparent, CircleShape).border(1.5.dp, ring, CircleShape)
+                .pressable(enabled = enabled, role = Role.Button) { onClick() }
                 .semantics { contentDescription = label },
             contentAlignment = Alignment.Center,
         ) {
             Canvas(Modifier.size(20.dp)) {
-                val c = if (fill == Color.Transparent) ring else onDark
-                val path = androidx.compose.ui.graphics.Path().apply { moveTo(size.width * 0.25f, size.height * 0.15f); lineTo(size.width * 0.85f, size.height / 2); lineTo(size.width * 0.25f, size.height * 0.85f); close() }
-                drawPath(path, c)
+                val c = if (filled) p.paper else ring
+                fun tri(x0: Float, x1: Float) = androidx.compose.ui.graphics.Path().apply { moveTo(x0, size.height * 0.18f); lineTo(x1, size.height / 2); lineTo(x0, size.height * 0.82f); close() }
+                when (glyph) {
+                    Glyph.PLAY -> drawPath(tri(size.width * 0.25f, size.width * 0.85f), c)
+                    Glyph.DOUBLE -> { drawPath(tri(0f, size.width * 0.48f), c); drawPath(tri(size.width * 0.52f, size.width), c) }
+                    Glyph.STOP -> { val q = size.minDimension * 0.6f; drawRect(c, androidx.compose.ui.geometry.Offset((size.width - q) / 2, (size.height - q) / 2), androidx.compose.ui.geometry.Size(q, q)) }
+                }
             }
         }
-        Text(label, style = Type.small.ui(), color = Ink.palette.inkSoft)
     }
+    Text(label, style = Type.small.ui(), color = if (enabled) p.ink else p.inkSoft, maxLines = 1)
 }
 
 /**

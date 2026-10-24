@@ -268,3 +268,12 @@
 - 회화: 채점 판이 생기거나 녹음을 시작할 때 끝 자리가 바뀔 때마다 아래로 따라감 (판이 아래 칸 뒤로 반쯤 가려져 멈추던 것).
 - ‘다음 편지 열기’: 방금 마친 편지 **뒤의** 첫 안 마친 편지 (core `Arrivals.next`, `AppState.nextLetter`). 예전에는 앞쪽 첫 안 마친 편지라 읽다 둔 편지가 끝 부분부터 열렸다.
 - 시험: core `VoxTest` (점수로 통과 · 옥타브 접기 · 시간 맞춤) · `CoreTest.nextLetterIsAfterCurrent`, `NavTest.stepGoesStraightToNextStep` · `nextLetterOpensAtStart`. 화면 사진 `ScreensTest.fix*` (fix1 점수 91 통과 · fix2 낮은 점수 · fix3 녹음 없음).
+
+## 2026-10-24 추가 (말하기 단추 · 시안 rec_controls 2 ABCD)
+
+- **A 단추 셋** (`ui/Shadow.kt` `ShadowControls`, 따라 읽기 · 회화 내 차례 · 답장 말해 보기 · 복습 말하기 공통): 원래 소리 56dp · 말하기 80dp · 내 소리 56dp 를 한 줄 (92dp 칸 가운데라 높이 · 이름표 줄이 같음). 떠 있던 0.7× 동그라미 대신 원래 소리 아래 칩 “1× · 0.7×” (`ShadowTake.slow`, 고른 쪽 금빛 글자 · 옅은 금빛 바탕) — 원래 소리 · 처음 저절로 듣기 · 비교 듣기가 칩 빠르기로. 말하기는 빨강 대신 금테 · 금빛 점, 녹음 중 금빛 바탕 + 종이색 멈춤 네모. 녹음 중에는 원래 소리 · 내 소리 흐림.
+- **B 녹음 고리 · 저절로 멈추기** (core `AutoStop`, `AutoStopTest`): 고리는 첫 목소리부터 원래 소리 길이 (앞뒤 침묵 뺀 것, `Prosody.preview().ms`; 원래 소리가 없으면 글자로 어림한 음절 × 250ms, 그것도 없으면 고리 없음) 만큼 차오름 (움직임 줄이기면 프레임 값 그대로). 저절로 멈춤 = 목소리 들어감 (음높이 + −45dB 위 250ms) AND 첫 목소리부터 원래 길이의 80% 지남 AND 그 자리부터 1초 조용 (−45dB 아래 또는 이번 녹음 가장 큰 소리 −20dB 아래). 80% 전의 쉼으로는 멈추지 않음. 상한 원래 × 2 + 3초 (모르면 15초). 직접 멈추기 그대로. 녹음 중 안내 ‘듣고 있어요 · 다 말하면 저절로 멈춰요’ (`shadow_listening_auto`, 길이를 모르면 예전 글).
+- **C 비교 듣기** (`ShadowTake.compareListen` · `compare`): 녹음이 있고 원래 소리를 들을 수 있으면 내 소리 자리가 ‘비교 듣기’ — 원래 소리 → 내 소리, 다시 누르면 멈춤, 위 한 줄 “비교 듣기: 원래 소리 → 내 소리” 에서 지금 쪽이 금빛. 녹음 · 판정 (`tick` · `voice` · `result`) 은 건드리지 않는다 (채점은 녹음을 끝낼 때만, 그대로).
+- **D 미리 보는 원래 선**: core `Prosody.preview` (채점 뒤 `curves` 의 원래 선과 같은 칸 · 다듬기 · 폭) 를 칸마다 한 번 읽어 녹음 전부터 판에 점선 + ‘선을 따라 오르내리듯 읽어 보세요.’. 녹음 중 내 선은 core `LiveLine` (첫 목소리부터 시간 / 원래 길이, 원래 선과 같은 반음 폭) 으로 점선 위에. 채점 뒤 두 선은 예전 `curves` (내 선이 원래보다 넓으면 그 폭으로 조금 줄어듦). 답을 아직 못 본 복습 말하기 · 회화 빈칸 · 조각 전에는 점선을 보이지 않는다 (`ShadowBoard(preview = …)`).
+- 글자 키 새로: `shadow_compare` · `shadow_compare_line` · `shadow_follow_line` · `shadow_listening_auto` · `shadow_speed` (기존 키 값은 그대로, strings.xml 만 다시 만듦, 글꼴 검사 통과).
+- 화면 사진 `ScreensTest.abcd*` (abcd1 녹음 전 · abcd2 녹음 중 · abcd3 비교 듣기 중 · abcd4 채점 뒤 0.7×).

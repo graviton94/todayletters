@@ -270,7 +270,8 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
             }
             st?.let { t -> CurrentBubble(t, cur?.let { lines[it].text[view.read] }.orEmpty(), view.learn, view.read) }
             // 채점 판 (따라 읽기와 같은 것): 녹음 중 · 녹음 뒤. 아래 칸 바로 위에 붙지 않게 끝에 한 칸 비움
-            take?.let { ShadowBoard(it) }
+            // 녹음 전 원래 소리 점선은 녹음할 수 있고 원래 소리를 들을 수 있을 때만 (빈칸 · 조각을 맞추기 전에는 보이지 않는다)
+            take?.let { ShadowBoard(it, preview = st?.let { t -> t.canRecord && (t.help == Support.Talk.SHADOW || t.fullLine) } == true) }
             Box(Modifier.height(Tokens.Space.s4))
         }
         // 아래 칸 (높이 고정)

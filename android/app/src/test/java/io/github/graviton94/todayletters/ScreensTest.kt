@@ -2152,6 +2152,59 @@ class ScreensTest {
         }, series = s) { ScoredPane(s, t) }
     }
 
+    // ── 말하기 단추 셋 · 녹음 고리 · 비교 듣기 · 미리 보는 원래 선 (2026-10-24, 시안 rec_controls 2 ABCD): `*ScreensTest.abcd*` ──
+    /** 원래 소리의 선 (core 의 Prosody.preview) 을 이미 읽어 둔 칸: 원래 소리 있음, 녹음 [taken] 이면 파일을 둔다. */
+    private fun abcdTake(taken: Boolean): io.github.graviton94.todayletters.ui.ShadowTake {
+        val P = io.github.graviton94.todayletters.core.Prosody
+        val rate = io.github.graviton94.todayletters.data.Wav.RATE
+        val f = java.io.File(ctx.cacheDir, "abcd/take.wav").apply { parentFile?.mkdirs(); delete(); if (taken) writeBytes(ByteArray(64)) }
+        val pv = P.preview(P.analyze(fakeVoice(1.8) { t -> 190 + 60 * kotlin.math.sin(t * 3.2) }, rate))!!
+        return io.github.graviton94.todayletters.ui.ShadowTake("audio/none.m4a", 0, Int.MAX_VALUE, f, step = true).apply {
+            refCurve = pv.ref; refRange = pv.range; refMs = pv.ms
+        }
+    }
+    /** 녹음 전: 원래 소리 점선 · ‘선을 따라 오르내리듯 읽어 보세요.’ · 단추 셋 (원래 소리 아래 칩 1× · 0.7×, 금테 말하기, 흐린 내 소리). */
+    @Test fun abcdBefore() {
+        val s = state(true)
+        val t = abcdTake(false)
+        shot("abcd1_before_light", false, series = s) { ScoredPane(s, t) }
+    }
+    /** 녹음 중: 원래 길이의 60% 쯤 말한 자리. 점선 위에 내 선 (같은 시간축 · 같은 폭), 말하기 둘레 고리, ‘듣고 있어요 · 다 말하면 저절로 멈춰요’. */
+    @Test fun abcdRecording() {
+        val s = state(true)
+        val t = abcdTake(false)
+        val ref = t.refMs!!
+        val onset = 300L
+        var at = 0L
+        while (at < onset + ref * 0.6) {
+            val sec = (at - onset) / 1000.0
+            val voiced = at >= onset && (sec % 0.45) < 0.38
+            t.times.add(at); t.levels.add(if (voiced) -18f else -60f)
+            t.pitches.add(if (voiced) (120 + 34 * kotlin.math.sin(sec / 2.0 * 1.8 * 3.2)).toFloat() else 0f)
+            at += 40
+        }
+        t.onset = onset; t.recording = true
+        t.ring = ((at - onset).toFloat() / ref).coerceIn(0f, 1f)
+        shot("abcd2_recording_dark", true, series = s) { ScoredPane(s, t) }
+        t.recording = false
+    }
+    /** 채점 뒤 비교 듣기: 원래 소리가 나오는 중 (위 한 줄 ‘비교 듣기: 원래 소리 → 내 소리’ 의 원래 소리가 금빛), 내 소리 자리는 ‘비교 듣기’ (멈춤 모양). */
+    @Test fun abcdCompare() {
+        val s = state(true)
+        val t = scoredTake(io.github.graviton94.todayletters.core.Prosody.Score(92, 84), mineSyl = 9, refSyl = 10)
+        t.refCurve = abcdTake(false).refCurve
+        java.io.File(ctx.cacheDir, "fix/take.wav").writeBytes(ByteArray(64))
+        t.compare = io.github.graviton94.todayletters.ui.ShadowTake.Side.ORIG; t.playing = true
+        shot("abcd3_compare_dark", true, series = s) { ScoredPane(s, t) }
+    }
+    /** 채점 뒤 (비교 듣기 전, 밝은 화면): 칩 0.7× 를 고른 상태. */
+    @Test fun abcdScored() {
+        val s = state(true)
+        val t = scoredTake(io.github.graviton94.todayletters.core.Prosody.Score(92, 84), mineSyl = 9, refSyl = 10)
+        t.slow = true
+        shot("abcd4_scored_light", false, series = s) { ScoredPane(s, t) }
+    }
+
     /** 어제 회화를 한 것으로 (빈센트 I-2): 오늘 화면 카드 · 떠올리기 퀴즈. */
     private fun voxYesterday(s: AppState): io.github.graviton94.todayletters.core.Letter {
         val (c, l) = s.letterOf(Route.Letter("vincent", 1, 2))

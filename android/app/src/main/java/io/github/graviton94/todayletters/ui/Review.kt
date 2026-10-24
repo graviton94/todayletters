@@ -714,7 +714,8 @@ private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Ma
         Text(q.word, style = Type.title.of(q.learn), color = p.ink)
         if (q.ipa.isNotEmpty()) Text(q.ipa, style = Type.small, color = p.inkSoft)
     }
-    ShadowBoard(take)
+    // 원래 소리 점선도 답이 나온 뒤에만
+    ShadowBoard(take, preview = mark != null)
     // 원래 소리는 답이 나온 뒤에만 (먼저 들으면 답을 듣는 셈)
     ShadowControls(s, take, canListen = mark != null, canRecord = true, tip = R.string.speak_tap)
     if (mark == null && !take.recording) TextLink(stringResource(R.string.practice_reveal)) { onJudge(Memory.Mark.WRONG) }

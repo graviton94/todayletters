@@ -1164,6 +1164,26 @@
     "en": "Say it again",
     "ko": "다시 말하기"
   },
+  "shadow_compare": {
+    "en": "Compare",
+    "ko": "비교 듣기"
+  },
+  "shadow_compare_line": {
+    "en": "Compare: %1$s → %2$s",
+    "ko": "비교 듣기: %1$s → %2$s"
+  },
+  "shadow_follow_line": {
+    "en": "Let your voice rise and fall with the line.",
+    "ko": "선을 따라 오르내리듯 읽어 보세요."
+  },
+  "shadow_listening_auto": {
+    "en": "Listening · it stops by itself when you finish",
+    "ko": "듣고 있어요 · 다 말하면 저절로 멈춰요"
+  },
+  "shadow_speed": {
+    "en": "Original speed %1$s",
+    "ko": "원래 소리 빠르기 %1$s"
+  },
   "shadow_unpassed_title": {
     "en": "Some parts haven't passed yet",
     "ko": "아직 통과 못 한 마디가 있어요"

@@ -292,6 +292,11 @@
     <string name="shadow_retry">Stars start at 50, and %1$d is kept as passed. Listen once more and try again?</string>
     <string name="shadow_note">This scores the rise and fall of your voice and its rhythm, not pronunciation. Stars at 50 · 70 · 85.</string>
     <string name="shadow_again">Say it again</string>
+    <string name="shadow_compare">Compare</string>
+    <string name="shadow_compare_line">Compare: %1$s → %2$s</string>
+    <string name="shadow_follow_line">Let your voice rise and fall with the line.</string>
+    <string name="shadow_listening_auto">Listening · it stops by itself when you finish</string>
+    <string name="shadow_speed">Original speed %1$s</string>
     <string name="shadow_unpassed_title">Some parts haven\'t passed yet</string>
     <string name="shadow_unpassed_body">%1$d parts are under %2$d. Every part needs to pass for the seal.</string>
     <string name="shadow_go">Go to that part</string>

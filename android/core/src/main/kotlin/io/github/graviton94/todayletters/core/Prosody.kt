@@ -399,9 +399,8 @@ object Prosody {
      */
     fun curves(ref: Track, mine: Track, frames: Int = 160): Curves? {
         val r = trim(ref); val y = trim(mine)
-        val a = line(r) ?: return null
-        val n = frames.coerceAtMost(r.size).coerceAtLeast(2)
-        val ra = FloatArray(n) { k -> a[(k.toLong() * r.size / n).toInt()] }
+        val ra = refLine(r, frames) ?: return null
+        val n = ra.size
         val b = if (y.size >= 5) line(y) else null
         val ya = b?.let { bl ->
             val m = y.size.coerceAtMost(200)
@@ -415,10 +414,31 @@ object Prosody {
             out.takeIf { o -> o.any { !it.isNaN() } }
         }
         // 같은 폭: 두 선의 95% 안쪽 폭 가운데 큰 것
-        fun reach(x: FloatArray): Float = x.filter { !it.isNaN() }.map { abs(it) }.sorted().let { if (it.isEmpty()) 0f else it[(it.size * 0.95).toInt().coerceAtMost(it.size - 1)] }
         val range = maxOf(reach(ra), ya?.let { reach(it) } ?: 0f).coerceIn(LINE_RANGE_MIN, LINE_RANGE_MAX)
-        fun norm(x: FloatArray) = FloatArray(x.size) { if (x[it].isNaN()) Float.NaN else (x[it] / range).coerceIn(-1f, 1f) }
-        return Curves(norm(ra), ya?.let { norm(it) })
+        return Curves(norm(ra, range), ya?.let { norm(it, range) })
+    }
+
+    /** 앞뒤를 자른 원래 소리 [r] 의 선을 [frames] 칸으로 (원래 소리의 시간축). 그릴 것이 없으면 null. */
+    private fun refLine(r: Track, frames: Int): FloatArray? {
+        val a = line(r) ?: return null
+        val n = frames.coerceAtMost(r.size).coerceAtLeast(2)
+        return FloatArray(n) { k -> a[(k.toLong() * r.size / n).toInt()] }
+    }
+    /** 선의 95% 안쪽 폭 (반음). */
+    private fun reach(x: FloatArray): Float = x.filter { !it.isNaN() }.map { abs(it) }.sorted().let { if (it.isEmpty()) 0f else it[(it.size * 0.95).toInt().coerceAtMost(it.size - 1)] }
+    private fun norm(x: FloatArray, range: Float) = FloatArray(x.size) { if (x[it].isNaN()) Float.NaN else (x[it] / range).coerceIn(-1f, 1f) }
+
+    /**
+     * 녹음 전 · 녹음 중 판의 원래 소리 선 (시안 rec_controls 2 · D): [curves] 의 원래 선과 같은 칸 · 같은 다듬기 · 같은 폭 잡기
+     * (원래 선만으로 잰 폭 [range] 반음, 그래서 채점 뒤 선 모양이 거의 그대로다. 내 선이 더 넓으면 채점 뒤에 그만큼 넓어진다).
+     * [ms] 는 앞뒤 침묵을 뺀 원래 소리의 길이 (녹음 고리 · 저절로 멈추기의 기준, core 의 [AutoStop]). 그릴 것이 없으면 null.
+     */
+    class Preview(val ref: FloatArray, val range: Float, val ms: Int)
+    fun preview(ref: Track, frames: Int = 160): Preview? {
+        val r = trim(ref)
+        val ra = refLine(r, frames) ?: return null
+        val range = reach(ra).coerceIn(LINE_RANGE_MIN, LINE_RANGE_MAX)
+        return Preview(norm(ra, range), range, r.size * HOP_MS)
     }
 
     /** 평균 0 · 표준편차 1 로 (표준편차 바닥 [SD_FLOOR]). */
