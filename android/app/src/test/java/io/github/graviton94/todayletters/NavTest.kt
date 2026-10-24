@@ -208,11 +208,18 @@ class NavTest {
             assertEquals(listOf(io.github.graviton94.todayletters.core.ReplyMode.ALOUD), s.progress("vincent", c, l.id).toRedo)
             assertEquals(1, s.redos("vincent").size)
         }
-        // 오늘의 여정: 편지는 마침, 복습할 카드는 아직 (내일부터) → 여정 완료 · 보너스
+        // 오늘의 여정: 편지는 마침. 편지 낱말 카드는 내일부터지만, 편지를 연 날부터 새 기초 낱말 (2~3개) 이 오늘의 복습에 온다
+        // (기초 낱말 덱, 2026-10). 그래서 첫날도 복습 걸음이 있고, 그것까지 하면 여정 완료 · 보너스
         val j = s.journey("vincent")
         assertEquals(io.github.graviton94.todayletters.core.Journey.Step.DONE, j.letter)
-        assertEquals(io.github.graviton94.todayletters.core.Journey.Step.NONE, j.review)
-        assertTrue(j.paid)
+        assertEquals(io.github.graviton94.todayletters.core.Journey.Step.TODO, j.review)
+        assertFalse(j.paid)
+        val first = s.startReview("vincent")
+        assertTrue(first.isNotEmpty() && first.all { io.github.graviton94.todayletters.core.CardRef.parse(it.key)?.chapter == io.github.graviton94.todayletters.core.Basics.CHAPTER })
+        s.reviewDone()
+        assertEquals(io.github.graviton94.todayletters.core.Journey.Step.DONE, s.journey("vincent").review)
+        assertTrue(s.journey("vincent").paid)
+        assertEquals(Route.Done(room), s.route)
         assertTrue(s.wallet("vincent").balance > 0)
         // 편지 완료 화면에서 “이제 혼자서도 괜찮아요” → 튜토리얼 끝
         assertFalse(s.tutorialDone)
