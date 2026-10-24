@@ -246,8 +246,15 @@ class ScreensTest {
     /** 업데이트 뒤 첫 실행의 ‘새로 바뀐 것’ · 새 버전을 다 받은 뒤의 ‘다시 열기’ 띠 (서재). */
     @Test fun updateWhatsNew() { val s = state(true); s.go(io.github.graviton94.todayletters.core.Route.Library); s.whatsNew = true
         shot("u01_whatsnew_ko_light", false) { LibraryTab(s); io.github.graviton94.todayletters.ui.UpdateLayer(s) } }
-    @Test fun updateReady() { val s = state(true); s.go(io.github.graviton94.todayletters.core.Route.Library); s.whatsNew = false; s.updateReady = true
-        shot("u02_update_ready_ko_dark", true) { LibraryTab(s); io.github.graviton94.todayletters.ui.UpdateLayer(s) } }
+    // ── 업데이트 띠 · 기록 보관 시트 (시안 update_backup.html): 띠는 Play 없이 상태만 넣어 찍는다 ──
+    private fun updateShot(name: String, dark: Boolean, band: io.github.graviton94.todayletters.core.UpdateBand) {
+        val s = state(true); s.go(Route.Library); s.whatsNew = false; s.updateBand = band
+        shot(name, dark) { LibraryTab(s); io.github.graviton94.todayletters.ui.UpdateLayer(s) }
+    }
+    @Test fun ubUpdateOffer() = updateShot("ub1_update_offer_ko_light", false, io.github.graviton94.todayletters.core.UpdateBand.Offer(18_400_000))
+    @Test fun ubUpdateProgress() = updateShot("ub2_update_progress_ko_light", false, io.github.graviton94.todayletters.core.UpdateBand.Fetching(7_728_000, 18_400_000))
+    @Test fun ubUpdateFailed() = updateShot("ub2b_update_failed_ko_light", false, io.github.graviton94.todayletters.core.UpdateBand.Failed)
+    @Test fun ubUpdateReady() = updateShot("ub3_update_ready_ko_dark", true, io.github.graviton94.todayletters.core.UpdateBand.Ready)
     // ── 결제 뒤 고마워요 한 장 ─────────────
     @Test fun thanksSub() { val s = state(true); s.thanks = io.github.graviton94.todayletters.data.Billing.Thanks(null); shot("thanks1_sub_light", false, series = s) { Inbox(s); io.github.graviton94.todayletters.ui.ThanksSheet(s) } }
     @Test fun thanksOwn() { val s = state(true); s.thanks = io.github.graviton94.todayletters.data.Billing.Thanks("vincent"); shot("thanks2_own_light", false, series = s) { Inbox(s); io.github.graviton94.todayletters.ui.ThanksSheet(s) } }
@@ -1050,18 +1057,25 @@ class ScreensTest {
             scrolled { rule.onNodeWithText(ctx.getString(R.string.backup_note)).performScrollTo() }
         }) { io.github.graviton94.todayletters.ui.SettingsScreen(s) }
     }
-    @Test fun backupExport() {
+    @Test fun ubBackupExport() {
         val s = engineState(); s.reward = null
-        shot("bk2_export_sheet_light", false, act = {
+        shot("ub4_backup_export_sheet_light", false, act = {
             scrolled { rule.onNodeWithText(ctx.getString(R.string.backup_export)).performScrollTo().performClick() }
         }) { io.github.graviton94.todayletters.ui.SettingsScreen(s) }
     }
-    @Test fun backupImport() {
+    @Test fun ubBackupImport() {
+        val s = engineState(); s.reward = null
+        shot("ub5_backup_import_sheet_light", false, act = {
+            scrolled { rule.onNodeWithText(ctx.getString(R.string.backup_import)).performScrollTo().performClick() }
+        }) { io.github.graviton94.todayletters.ui.SettingsScreen(s) }
+    }
+    /** 가져오기 확인: 파일 = 지금 기록을 내보낸 것, 지금 폰 = 새 폰처럼 작은 수 (나란히 다르게 보이게). */
+    @Test fun ubBackupConfirm() {
         val s = engineState(); s.reward = null
         val r = io.github.graviton94.todayletters.core.Backup.decode(io.github.graviton94.todayletters.data.Records.export(s.store, s.today))!!
-        shot("bk3_import_ask_light", false) {
+        shot("ub6_backup_confirm_light", false) {
             io.github.graviton94.todayletters.ui.SettingsScreen(s)
-            io.github.graviton94.todayletters.ui.BackupImportSheet(r.summary, onImport = { }, onClose = { })
+            io.github.graviton94.todayletters.ui.BackupImportSheet(r.summary, io.github.graviton94.todayletters.core.Backup.Summary(2, 9, r.summary.made), onImport = { }, onClose = { })
         }
     }
     /** 오늘 화면의 보관 한 줄: 내보낸 적이 없고 어제 처음 한 장을 다 마침. */

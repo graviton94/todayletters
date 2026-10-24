@@ -62,6 +62,7 @@ fun SettingsScreen(s: AppState) {
     var askClear by remember { mutableStateOf(false) }
     var timeSheet by remember { mutableStateOf(false) }
     var exportSheet by remember { mutableStateOf(false) }
+    var importChooser by remember { mutableStateOf(false) }
     var importing by remember { mutableStateOf<io.github.graviton94.todayletters.core.Backup.Records?>(null) }
     val ctx = s.ctx
     val records = io.github.graviton94.todayletters.data.Records
@@ -169,8 +170,7 @@ fun SettingsScreen(s: AppState) {
                         Chev()
                     }
                 }
-                SetRow(stringResource(R.string.backup_import), stringResource(R.string.backup_import_d),
-                    onClick = { runCatching { openRecords.launch(arrayOf("application/json", "application/octet-stream")) } }) { Chev() }
+                SetRow(stringResource(R.string.backup_import), stringResource(R.string.backup_import_d2), onClick = { importChooser = true }) { Chev() }
             }
             Text(stringResource(R.string.backup_note), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft,
                 maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis, modifier = Modifier.padding(start = 4.dp))
@@ -195,8 +195,11 @@ fun SettingsScreen(s: AppState) {
     }
     if (timeSheet) NoticeTimeSheet(s) { timeSheet = false }
     BackupExportFlow(s, exportSheet) { exportSheet = false }
+    if (importChooser) BackupImportChooser(ctx.getString(R.string.backup_file),
+        onPick = { importChooser = false; runCatching { openRecords.launch(arrayOf("application/json", "application/octet-stream")) } },
+        onClose = { importChooser = false })
     importing?.let { r ->
-        BackupImportSheet(r.summary, onImport = {
+        BackupImportSheet(r.summary, remember(r) { records.summary(s.store, s.today) }, onImport = {
             importing = null
             // 이 폰의 이용권 · 개발용 열쇠는 그대로, 나머지는 파일로. 그다음 화면을 처음부터 (새 AppState → Play 에서 이용권 다시 확인 · 알림 다시 걸기).
             if (s.store.replaceRecords(r.values)) {

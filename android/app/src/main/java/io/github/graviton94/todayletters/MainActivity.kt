@@ -29,8 +29,11 @@ class MainActivity : ComponentActivity() {
         if (fromNotice && !recreated) noticeSeries(intent)?.let { io.github.graviton94.todayletters.data.Store(applicationContext).lastSeries = it }
         // 도착 알림을 다음 그 시각으로 다시 잡는다 (권한이 없으면 울릴 때 조용히 넘어감)
         runCatching { io.github.graviton94.todayletters.data.Notices.schedule(applicationContext) }
-        // 새 버전 알림 (Play 인앱 업데이트): 다 받으면 서재 아래 띠
-        updates = io.github.graviton94.todayletters.data.Updates(this) { state?.updateReady = true }
+        // 새 버전 알림 (Play 인앱 업데이트): 서재 아래 우리 띠 (알림 · 받는 중 · 다시 열기)
+        updates = io.github.graviton94.todayletters.data.Updates(this, io.github.graviton94.todayletters.data.Store(applicationContext),
+            today = { java.time.LocalDate.now().toEpochDay() },
+            band = { state?.updateBand ?: io.github.graviton94.todayletters.core.UpdateBand.Hidden },
+            setBand = { b -> state?.updateBand = b })
         setContent {
             val s = remember { AppState(applicationContext, deepLink = fromNotice || recreated, recreated = recreated).also { state = it; connectBilling(it); wireUpdates(it) } }
             TodayLettersTheme(s.app.theme, s.app.largeText) {
@@ -60,11 +63,13 @@ class MainActivity : ComponentActivity() {
         state?.resumed()
         // 결제: Play 에 붙어 값과 산 것을 다시 읽는다 (밖에서 구독을 해지 · 결제했을 수 있다). Play 가 없어도 조용히 넘어간다.
         state?.let(::connectBilling)
-        updates?.resume()
+        updates?.check()
     }
 
     private fun wireUpdates(s: AppState) {
-        s.askUpdate = { updates?.ask(s.store, s.today) }
+        s.askUpdate = { updates?.check() }
+        s.startUpdate = { updates?.start() }
+        s.laterUpdate = { updates?.later() }
         s.restartForUpdate = { updates?.restart() }
     }
 

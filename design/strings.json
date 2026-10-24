@@ -4023,5 +4023,125 @@
   "say_like": {
     "en": "Sounds roughly like",
     "ko": "비슷하게 읽으면"
+  },
+  "update_offer_t": {
+    "en": "A new version is out",
+    "ko": "새 버전이 나왔어요"
+  },
+  "update_size": {
+    "en": "About %1$s",
+    "ko": "약 %1$s"
+  },
+  "update_offer_b": {
+    "en": "Your letters and progress stay as they are.",
+    "ko": "읽던 편지와 기록은 그대로예요."
+  },
+  "update_later": {
+    "en": "Later",
+    "ko": "나중에"
+  },
+  "update_get": {
+    "en": "Get it",
+    "ko": "받기"
+  },
+  "update_fetching_t": {
+    "en": "Downloading the new version",
+    "ko": "새 버전을 받는 중"
+  },
+  "update_fetching_b": {
+    "en": "You can keep using the app while it downloads.",
+    "ko": "받는 동안에도 앱을 그대로 쓸 수 있어요."
+  },
+  "update_failed": {
+    "en": "The download stopped",
+    "ko": "새 버전을 다 받지 못했어요"
+  },
+  "update_retry": {
+    "en": "Try again",
+    "ko": "다시 받기"
+  },
+  "update_ready_b": {
+    "en": "Restart to open the new version. It takes a few seconds.",
+    "ko": "다시 열면 바로 새 버전이에요. 몇 초면 돼요."
+  },
+  "backup_import_d2": {
+    "en": "From a file on your phone or Drive",
+    "ko": "휴대폰이나 Drive 에 둔 파일로"
+  },
+  "backup_drive_t": {
+    "en": "Save to Google Drive",
+    "ko": "Google Drive 에 저장"
+  },
+  "backup_drive_tag": {
+    "en": "Good for a new phone",
+    "ko": "폰을 바꿀 때 좋아요"
+  },
+  "backup_drive_1": {
+    "en": "Pick Drive on the next screen",
+    "ko": "다음 창에서 Drive 를 골라요"
+  },
+  "backup_drive_2": {
+    "en": "Choose a folder and tap Save",
+    "ko": "폴더를 고르고 저장을 눌러요"
+  },
+  "backup_phone_tag": {
+    "en": "Quickest",
+    "ko": "가장 빨라요"
+  },
+  "backup_phone_b": {
+    "en": "Saved in Downloads as “%1$s”.",
+    "ko": "다운로드 폴더에 “%1$s” 파일로 남아요."
+  },
+  "backup_note_copy": {
+    "en": "This file is a separate copy you keep yourself.",
+    "ko": "이 파일은 그와 별도로 직접 챙기는 사본이에요."
+  },
+  "backup_in_t": {
+    "en": "Where are the records you saved?",
+    "ko": "어디에 둔 기록을 가져올까요?"
+  },
+  "backup_in_drive_t": {
+    "en": "From Google Drive",
+    "ko": "Google Drive 에서"
+  },
+  "backup_in_drive_tag": {
+    "en": "When moving to a new phone",
+    "ko": "새 폰으로 옮길 때"
+  },
+  "backup_in_drive_1": {
+    "en": "On the next screen, tap the menu at the top left",
+    "ko": "다음 창 왼쪽 위 메뉴를 눌러요"
+  },
+  "backup_in_drive_2": {
+    "en": "Pick Drive, then tap the “%1$s” file",
+    "ko": "Drive 를 고르고 “%1$s” 파일을 눌러요"
+  },
+  "backup_in_phone_t": {
+    "en": "From this phone",
+    "ko": "휴대폰에서"
+  },
+  "backup_in_phone_b": {
+    "en": "Tap the “%1$s” file in Downloads.",
+    "ko": "다운로드 폴더의 “%1$s” 파일을 눌러요."
+  },
+  "backup_in_note": {
+    "en": "Importing replaces the records on this phone. We'll ask once more first.",
+    "ko": "가져오면 지금 폰의 기록은 그 파일로 바뀌어요. 가져오기 전에 한 번 더 물어봐요."
+  },
+  "backup_ask_file": {
+    "en": "In the file",
+    "ko": "파일의 기록"
+  },
+  "backup_ask_file_b": {
+    "en": "%1$d letters · %2$d cards · exported %3$s",
+    "ko": "편지 %1$d통 · 카드 %2$d장 · %3$s에 내보냄"
+  },
+  "backup_ask_here": {
+    "en": "On this phone now",
+    "ko": "지금 폰의 기록"
+  },
+  "backup_ask_here_b": {
+    "en": "%1$d letters · %2$d cards",
+    "ko": "편지 %1$d통 · 카드 %2$d장"
   }
 }

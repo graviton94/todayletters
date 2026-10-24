@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -23,33 +24,79 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Route
+import io.github.graviton94.todayletters.core.UpdateBand
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 
 /**
- * 서재 · 오늘에서만: ① 업데이트 뒤 첫 실행이면 ‘새로 바뀐 것’ 한 장 ② 새 버전을 다 받아 두었으면 아래 띠 ‘다시 열기’
- * ③ (둘 다 아니면) 오늘 아직 안 물었을 때 Play 의 새 버전 확인 창 (data/Updates).
+ * 서재 · 오늘에서만: ① 업데이트 뒤 첫 실행이면 ‘새로 바뀐 것’ 한 장 ② 서재 아래 업데이트 띠 (시안 update_backup.html, core UpdateBand):
+ * 새 버전 알림 (나중에 · 받기) → 받는 중 % → 다 받음 (나중에 · 다시 열기). Play 의 창은 ‘받기’ 를 누를 때만 (data/Updates).
  */
 @Composable
 fun UpdateLayer(s: AppState) {
-    // 앱을 켜면 오늘부터일 수도 있어 (읽던 작품) 서재와 오늘 둘 다에서
+    // 앱을 켜면 오늘부터일 수도 있어 (읽던 작품) ‘새로 바뀐 것’ 은 서재와 오늘 둘 다에서
     if (s.route != Route.Library && s.route != Route.Inbox) return
     val busy = s.crashAsk || s.reward != null || s.levelUp != null || s.gradeUp != null || s.settingsOpen
-    LaunchedEffect(s.route, s.whatsNew, busy) { if (!s.whatsNew && !busy) s.askUpdate() }
-    // 아래 띠는 서재에서만 (오늘은 이름표 줄이 그 자리)
-    if (s.updateReady && !s.whatsNew && s.route == Route.Library) Box(Modifier.fillMaxSize().navigationBarsPadding(), contentAlignment = Alignment.BottomCenter) {
-        val p = Ink.palette
-        Row(
-            Modifier.padding(Tokens.Space.s3).fillMaxWidth().background(p.fill)
-                .clickable { s.restartForUpdate() }.heightIn(min = 52.dp).padding(horizontal = Tokens.Space.s4),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(stringResource(R.string.update_ready), style = Type.small.ui(), color = p.onFill, modifier = Modifier.weight(1f))
-            Text(stringResource(R.string.update_restart), style = Type.small.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.onFill)
+    // 띠는 서재에서만 (편지 · 복습 중에는 띄우지 않는다)
+    LaunchedEffect(s.route, s.whatsNew, busy) { if (s.route == Route.Library && !s.whatsNew && !busy) s.askUpdate() }
+    if (s.route == Route.Library && !s.whatsNew && !busy && s.updateBand != UpdateBand.Hidden)
+        Box(Modifier.fillMaxSize().navigationBarsPadding(), contentAlignment = Alignment.BottomCenter) { UpdateBandView(s, s.updateBand) }
+    if (s.whatsNew && !busy) WhatsNew(s)
+}
+
+@Composable
+private fun UpdateBandView(s: AppState, band: UpdateBand) {
+    val p = Ink.palette
+    val small = Type.small.ui()
+    val pct = Type.body.ui().copy(fontFeatureSettings = "tnum", color = p.giltText)
+    Column(
+        Modifier.padding(Tokens.Space.s3).fillMaxWidth().background(p.paper).border(Tokens.Stroke.hair, p.line)
+            .pressable(haptic = false) { }.padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
+        verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
+    ) {
+        @Composable fun Head(title: String, right: String?, rightStyle: androidx.compose.ui.text.TextStyle) =
+            Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                Text(title, style = Type.body.ui(), color = p.ink, maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
+                if (right != null) Text(right, style = rightStyle, maxLines = 1, modifier = Modifier.padding(start = Tokens.Space.s2))
+            }
+        @Composable fun Bar(frac: Float) = Box(Modifier.fillMaxWidth().height(4.dp).background(p.hair)) {
+            Box(Modifier.fillMaxWidth(frac.coerceIn(0f, 1f)).height(4.dp).background(p.giltText))
+        }
+        @Composable fun Note(text: String) = Text(text, style = small, color = p.inkSoft, maxLines = 2)
+        @Composable fun Buttons(yes: String, onYes: () -> Unit) =
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2), verticalAlignment = Alignment.CenterVertically) {
+                Secondary(stringResource(R.string.update_later), Modifier.weight(1f), small = true) { s.laterUpdate() }
+                Primary(yes, Modifier.weight(1f), small = true, shine = true, onClick = onYes)
+            }
+        when (band) {
+            is UpdateBand.Offer -> {
+                Head(stringResource(R.string.update_offer_t), band.bytes.takeIf { it > 0 }?.let { stringResource(R.string.update_size, sizeLabel(it)) }, small.copy(color = p.inkSoft))
+                Note(stringResource(R.string.update_offer_b))
+                Buttons(stringResource(R.string.update_get)) { s.startUpdate() }
+            }
+            is UpdateBand.Fetching -> {
+                Head(stringResource(R.string.update_fetching_t), "${band.percent}%", pct)
+                Bar(band.percent / 100f)
+                Note(stringResource(R.string.update_fetching_b))
+            }
+            UpdateBand.Failed -> Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                Text(stringResource(R.string.update_failed), style = small, color = p.inkSoft, maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f))
+                Box(Modifier.heightIn(min = 48.dp).pressable { s.startUpdate() }.padding(start = Tokens.Space.s3), contentAlignment = Alignment.Center) {
+                    Text(stringResource(R.string.update_retry), style = small.copy(fontWeight = FontWeight.SemiBold), color = p.giltText, maxLines = 1)
+                }
+            }
+            UpdateBand.Ready -> {
+                Head(stringResource(R.string.update_ready), "100%", pct)
+                Bar(1f)
+                Note(stringResource(R.string.update_ready_b))
+                Buttons(stringResource(R.string.update_restart)) { s.restartForUpdate() }
+            }
+            UpdateBand.Hidden -> {}
         }
     }
-    if (s.whatsNew && !busy) WhatsNew(s)
 }
 
 @Composable

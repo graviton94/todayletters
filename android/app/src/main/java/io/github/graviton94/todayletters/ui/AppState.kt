@@ -115,11 +115,14 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 의견 보내기 시트 (설정 › 의견 보내기, 멈춘 뒤 ‘보내기’). [kind] 는 처음 고른 칸. */
     data class FeedbackAsk(val kind: io.github.graviton94.todayletters.core.Feedback.Kind = io.github.graviton94.todayletters.core.Feedback.Kind.BUG)
     var feedback by mutableStateOf<FeedbackAsk?>(null)
-    /** 새 버전을 다 받아 둠: 서재 아래 띠 ‘다시 열기’ ([restartForUpdate] 는 MainActivity 가 채운다). */
-    var updateReady by mutableStateOf(false)
+    /** 서재 아래 업데이트 띠 (core UpdateBand, data/Updates 가 바꾼다). 아래 일들은 MainActivity 가 채운다. */
+    var updateBand by mutableStateOf<io.github.graviton94.todayletters.core.UpdateBand>(io.github.graviton94.todayletters.core.UpdateBand.Hidden)
     var restartForUpdate: () -> Unit = {}
-    /** 서재에 들어왔을 때 새 버전을 물어본다 (MainActivity 가 채운다). */
+    /** 서재에 들어왔을 때 Play 에 새 버전 · 받는 중인지 물어본다. */
     var askUpdate: () -> Unit = {}
+    /** 띠의 ‘받기’ · ‘다시 받기’ (Play 의 확인 창) 와 ‘나중에’. */
+    var startUpdate: () -> Unit = {}
+    var laterUpdate: () -> Unit = { updateBand = io.github.graviton94.todayletters.core.UpdateBand.Hidden }
     /**
      * ‘새로 바뀐 것’: 버전이 바뀐 뒤 첫 실행에 한 번. 처음 설치(아직 소개 전)는 보여 주지 않고 지금 버전만 적어 둔다.
      */
