@@ -19,7 +19,7 @@ from urllib.parse import urlparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
-ORDER = ["vincent", "mozart", "napoleon", "goya"]  # 앱에 나온 차례 (goya 는 데이터가 생기면). 나머지 작품은 이름순으로 뒤에
+ORDER = ["vincent", "mozart", "napoleon", "goya"]  # 앱에 나온 차례. 나머지 작품은 이름순으로 뒤에
 
 # 편지 글의 출처는 데이터에 문장으로 들어 있지 않아 여기 적는다 (작품을 더하면 함께 더할 것).
 LETTERS = {
@@ -68,6 +68,21 @@ LETTERS = {
             "The English and Korean translations, glosses and notes are written for this app; no published translation or modern critical edition is copied.",
         ],
     },
+    "goya": {
+        "edition": "https://archive.org/details/goyanoticiasbibl00zapa",
+        "ko": [
+            "프란시스코 데 고야(1746–1828)의 편지 원문(스페인어)은 공공 영역입니다.",
+            "앱의 스페인어 문장은 공공 영역 판본에서 옮겨 적었습니다: 프란시스코 사파테르 이 고메스 『Goya. Noticias biográficas』(사라고사, 1868년 글 · 스캔본에는 판권 면이 없음), A. 데 베루에테 이 모레트 『Goya, pintor de retratos』(마드리드, 1916) · 『Goya, composiciones y figuras』(1917) · 『Goya, grabador』(1918), 비냐사 백작 『Goya: su tiempo, su vida, sus obras』(마드리드, 1887), G. 크루사다 비야아밀 『Los tapices de Goya』(마드리드, 1870). 편지마다 판과 쪽을 앱에 적었습니다. 사파테르 이 고메스 판 인터넷 아카이브 스캔본: {link} (베루에테: <a href='https://archive.org/details/AV192'>AV192</a> · <a href='https://archive.org/details/AV193'>AV193</a> · <a href='https://archive.org/details/AV194'>AV194</a>, 비냐사: <a href='https://archive.org/details/goyasutiemposuv01vinagoog'>archive.org/details/goyasutiemposuv01vinagoog</a>, 크루사다 비야아밀: <a href='https://archive.org/details/lostapicesdegoy00villgoog'>archive.org/details/lostapicesdegoy00villgoog</a>)",
+            "악센트 · b/v · h · x/j 같은 철자와 띄어쓰기만 지금 표기로 다듬었고 낱말과 차례는 그대로 두었습니다. 판에 찍힌 원래 철자는 앱의 편지에서 펼쳐 볼 수 있습니다. 편지에서 일부 문장을 골라 실었습니다.",
+            "영어 · 한국어 번역, 낱말 풀이, 설명 글은 이 앱이 새로 쓴 것입니다. 현대 비평판(1981/82 · 2003)과 그 주석, 다른 출판 번역의 글은 쓰지 않았습니다.",
+        ],
+        "en": [
+            "Francisco de Goya’s letters (1746–1828; in Spanish) are in the public domain.",
+            "The Spanish text in the app is transcribed from public-domain editions: F. Zapater y Gómez, <i>Goya. Noticias biográficas</i> (Zaragoza, 1868 text; the scan has no imprint), A. de Beruete y Moret, <i>Goya, pintor de retratos</i> (Madrid, 1916), <i>Goya, composiciones y figuras</i> (1917) and <i>Goya, grabador</i> (1918), the Conde de la Viñaza, <i>Goya: su tiempo, su vida, sus obras</i> (Madrid, 1887) and G. Cruzada Villaamil, <i>Los tapices de Goya</i> (Madrid, 1870); the app gives the edition and page for each letter. Internet Archive scan of Zapater y Gómez: {link} (Beruete: <a href='https://archive.org/details/AV192'>AV192</a>, <a href='https://archive.org/details/AV193'>AV193</a>, <a href='https://archive.org/details/AV194'>AV194</a>; Viñaza: <a href='https://archive.org/details/goyasutiemposuv01vinagoog'>archive.org/details/goyasutiemposuv01vinagoog</a>; Cruzada Villaamil: <a href='https://archive.org/details/lostapicesdegoy00villgoog'>archive.org/details/lostapicesdegoy00villgoog</a>)",
+            "Only accents, spelling (b/v, h, x/j) and word division are modernised; words and word order are kept. The printed spelling can be opened in the letter in the app. Sentences are excerpted.",
+            "The English and Korean translations, glosses and notes are written for this app; the modern critical editions (1981/82, 2003), their notes and other published translations are not used.",
+        ],
+    },
 }
 
 SPELLING = {
@@ -110,7 +125,8 @@ T = {
     },
 }
 
-LICENCE = re.compile(r"^(cc0|cc[ -]by.*|public domain.*|domaine public|open access.*)$", re.I)
+LICENCE = re.compile(r"^(cc0|cc[ -]by.*|public domain.*|domaine public|dominio público|gemeinfrei|open access.*)$", re.I)
+PD_WORDS = ("public domain", "domaine public", "dominio público", "gemeinfrei")  # 원어로 적힌 ‘공공 영역’
 WARN = []
 
 
@@ -233,7 +249,7 @@ def collect(sid):
                     warn(f"{lid}: {kind} 모먼트 {m['image']} 출처 · 라이선스 없음 (credit) — 페이지에서 뺌")
                     continue
                 holder, lic = split_holder(credit, m.get("imageLicense", ""))
-                src = m.get("imageSource") or url_in(credit)
+                src = m.get("imageSource") or m.get("source") or url_in(credit)
                 from_edition = "Brieven aan zijn broeder (1914)" in credit
                 # 1914년판 쪽 사진은 판 자체가 공공 영역이므로 판의 스캔본으로 잇는다
                 if from_edition and not lic:
@@ -327,7 +343,7 @@ def plate_li(e, orig, lang):
     if e["holder"]:
         soft.append(escape(e["holder"]))
     if e["licence"]:
-        soft.append(escape(t["pd"] if e["licence"].lower() in ("public domain", "domaine public") else e["licence"]))
+        soft.append(escape(t["pd"] if e["licence"].lower() in PD_WORDS else e["licence"]))
     if e["pdart"]:
         soft.append(t["pdart"])
     r = refs_text(e["refs"])

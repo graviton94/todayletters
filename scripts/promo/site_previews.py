@@ -17,13 +17,14 @@ import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 PLAY = "https://play.google.com/store/apps/details?id=io.github.graviton94.todayletters"
-SERIES = ["vincent", "mozart", "napoleon"]
+SERIES = ["vincent", "mozart", "napoleon", "goya"]
 WHO = {  # 제목에 쓰는 이름
     "vincent": {"ko": "빈센트가", "ko_seo": "반 고흐의 편지 번역", "en": "Vincent", "en_seo": "Van Gogh's letter to Theo, translated", "artist": "Vincent van Gogh"},
     "mozart": {"ko": "볼프강이", "ko_seo": "모차르트의 편지 번역", "en": "Wolfgang", "en_seo": "Mozart's letter to {to}, translated", "artist": None},
     "napoleon": {"ko": "나폴레옹이", "ko_seo": "나폴레옹이 조제핀에게 쓴 편지 번역", "en": "Napoleon", "en_seo": "Napoleon's letter to Joséphine, translated", "artist": None},
+    "goya": {"ko": "고야가", "ko_seo": "고야의 편지 번역", "en": "Goya", "en_seo": "Goya's letter to {to}, translated", "artist": None},
 }
-LANG_NAME = {"fr": {"ko": "프랑스어", "en": "French"}, "de": {"ko": "독일어", "en": "German"}}
+LANG_NAME = {"fr": {"ko": "프랑스어", "en": "French"}, "de": {"ko": "독일어", "en": "German"}, "es": {"ko": "스페인어", "en": "Spanish"}}
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 STYLE = """<style>:root{--moss:#8F6A27}@media (prefers-color-scheme: dark){:root{--moss:#D2A955}}
 figure{margin:18px 0 8px}figure img{display:block;max-width:100%;max-height:560px;width:auto;height:auto;margin:0 auto;border-radius:4px}figcaption{font-size:.86rem;color:var(--soft);margin-top:6px}
@@ -171,11 +172,11 @@ def letter_page(it, lang, prev, nxt):
 def index_page(all_items, lang):
     up = "../../" if lang == "ko" else "../../../"
     if lang == "ko":
-        title = "맛보기 편지 · 반 고흐 · 모차르트 · 나폴레옹의 편지 번역 · 언어 미술관"
-        desc = "언어 미술관의 무료 장에서 고른 편지 9통: 반 고흐 · 모차르트 · 나폴레옹의 편지 원문(프랑스어 · 독일어)과 한국어 번역, 그림, 원어 낭독."
+        title = "맛보기 편지 · 반 고흐 · 모차르트 · 나폴레옹 · 고야의 편지 번역 · 언어 미술관"
+        desc = "언어 미술관의 무료 장에서 고른 편지 12통: 반 고흐 · 모차르트 · 나폴레옹 · 고야의 편지 원문(프랑스어 · 독일어 · 스페인어)과 한국어 번역, 그림, 원어 낭독."
     else:
-        title = "Sample letters · Van Gogh, Mozart and Napoleon in translation · Lingua Museum"
-        desc = "Nine letters from Lingua Museum's free chapters: Van Gogh, Mozart and Napoleon in the original French and German with English translations, paintings and narration."
+        title = "Sample letters · Van Gogh, Mozart, Napoleon and Goya in translation · Lingua Museum"
+        desc = "Twelve letters from Lingua Museum's free chapters: Van Gogh, Mozart, Napoleon and Goya in the original French, German and Spanish with English translations, paintings and narration."
     t = head(title, desc, "/todayletters/letters/" + ("" if lang == "ko" else "en/"), "/todayletters/letters/", "/todayletters/letters/en/", lang, up)
     if lang == "ko":
         t += '<nav><a href="../">언어 미술관</a> · <a href="en/">English</a></nav>\n<h1>언어 미술관 · 맛보기 편지</h1>\n'

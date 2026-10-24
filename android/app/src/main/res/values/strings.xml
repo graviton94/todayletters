@@ -625,7 +625,7 @@
     <string name="credits_music_h">Music</string>
     <string name="credits_full">Full sources and licences ›</string>
     <string name="credits_text_de">German text of Mozart\'s letters: Mozarts Briefe, edited by Ludwig Nohl (Salzburg, 1865, public domain), from the Internet Archive scan, keeping the edition\'s spelling. English: Lady Wallace\'s translation (1866). Korean translations are written for this app.</string>
-    <string name="credits_text_es">Spanish text of Goya\'s letters to Martín Zapater: from a public-domain edition (named on the sources page), keeping the edition\'s spelling. English and Korean translations are written for this app.</string>
+    <string name="credits_text_es">Spanish text of Goya\'s letters: public-domain editions, from the Internet Archive scans: F. Zapater y Gómez, Goya. Noticias biográficas (Zaragoza, 1868 text); A. de Beruete y Moret, Goya (Madrid, 1916–1918, 3 vols.); the Conde de la Viñaza, Goya: su tiempo, su vida, sus obras (Madrid, 1887); G. Cruzada Villaamil, Los tapices de Goya (Madrid, 1870). Accents and spelling are modernised; the printed spelling can be opened in the letter. English and Korean translations are written for this app.</string>
     <string name="gloss_add">Add to cards</string>
     <string name="gloss_in_cards">In your cards</string>
     <string name="gloss_later">Today\'s new cards are full, so it joins your cards tomorrow.</string>
