@@ -305,3 +305,15 @@
 - × 는 늘 나가기 + 한 번 묻기 (답장 말해 보기 · 내 이야기로 · 소리 · 떠올리기, 새 열쇠 `leave_*`). 복습 한 판은 시작한 탭으로 (`leaveSession`, 복습 탭이면 “복습으로 돌아가기”). 서재 업데이트 띠만큼 아래 여백. 편지 방 모두 듣기는 낱말 카드를 닫으면 그 문장부터 이어 듣기. 오늘 걸음 점 이름표 한 줄.
 - 시험: core `PitchLineTest` · `WordSpotsTest` · `TalkTurnTest` (LISTEN), NavTest `listenFirstLocksRecordingUntilHeard` · `coveredGate` · `endOfLetterQueue` · `reviewReturnsToItsTab` · `closeAlwaysLeaves`. 화면 사진 `ScreensTest.rules*` (말하기 여섯 곳 × 듣기 · 녹음 · 채점 뒤, “+2”, 접힌 보상, 완료 화면, 오늘 알림 묻기) — 실제 화면의 칸을 `AppState.takeHook` 으로 꾸민다. `slowTalkBubble` 은 아래 칸의 0.7× 가 이제 빠르기 칩이라 그것을 센다.
 - 남은 것: 낱말 시간 파일이 앱에 들어오면 (align.yml) 따라 읽기 밑줄 · 낱말 줄이 그것을 쓴다 (지금은 어림). 폰으로 먼저 듣기 고리 · 판 높이를 한 번 봐야 한다.
+
+## 2026-10-24 추가 (낭독 낱말 시각 `.words.json`)
+
+- 낭독 소리마다 낱말 시각 파일 **`<소리 이름>.words.json`** (소리 옆, 새 파일만): `{"v":1,"ok":true,"words":[{"t":"Mon","s":641,"e":762,"q":0.999},…]}`.
+  `t` = 앱이 그 소리와 함께 보여 주는 글을 띄어쓰기로 나눈 낱말 그대로 (`Breaks.plain` 뒤 `\s+`), `s` · `e` = 소리 처음부터 밀리초 (마디 시각 m*.json 과 달리 앞 쉼 없이 목소리가 실제로 나는 때, 마디 s 보다 중앙값 0.6초 늦음), `q` = 정렬 점수 0..1 (없으면 소리 없는 기호 낱말, s = e = 앞 낱말 끝). `ok` false = 약한 정렬 (낱말 평균 q < 0.35 또는 q < 0.05 인 낱말 25% 넘음) → 화면은 마디 시각으로.
+- 대상: 편지 메시지 m* · 오늘의 회화 (지금 쓰는 이름 t · tb · tc · tk …, core `Talk.audioName`) · 답장 r* · 표현 ph* · 기초 낱말 예문 bx_ (B/basics). 낱말 하나짜리 소리 (v_ · b_ · w · s · s_) 는 없음.
+- 만들기: `scripts/align_words.py` (torchaudio 2.5.1 `MMS_FA` 강제 정렬, fr · de · es · en 은 소문자 · 악센트 · 구두점 뺌 + 숫자는 num2words, ko 는 uroman 로마자), 워크플로 **`align.yml`** (수동: series · chapters (예 `I`, `P E`, `B` = 기초 낱말 예문) · dry_run). 이미 .words.json 이 있는 소리는 건너뛴다.
+  dry_run=true 는 요약 + 미리 보기 가지 `align-dry-<run id>` (이 환경은 actions 내려받기 묶음을 못 연다), false 는 앱 안 장 (assets/audio) · 앱 밖 장 (remote/audio) 에 커밋 → generate.py (장 묶음 zip 에 들어가 새 이름) → R2 에 **없는 주소만** 올림 (낱말 시각 파일 + 새 zip, 이미 있는 주소가 다른 내용이면 멈춤).
+- **새 편지 · 새 소리를 만든 뒤**: narration-r2 (make=new · replies) 가 끝나면 `align.yml` 을 그 작품 (· 장) 으로 dry_run=false 한 번. 소리를 고쳐 새 이름이 되면 (tb → tc) 새 이름의 시각만 생긴다. 같은 이름의 소리를 고친 경우 (make=messages, revisions) 는 옛 시각 파일이 남으니 그 파일을 지우지 말고 **새 판 규칙을 정해야 한다 (아직 없음)**.
+- 앱: core `WordTimes` (`parse` · `parseFor(글, 화면 글)` = 낱말이 화면 글과 다르면 null · `at(ms)` 읽는 낱말 · `span` · `pieces(max)` 긴 마디를 가장 긴 숨에서 나누기 · `pathFor` · `optional`), 읽기 `data/Words.kt` `WordTimesFiles.load(ctx, 소리 경로, 화면 글?)` (없으면 null). 받기 `Downloads.ready` 는 .words.json 이 빠져도 받은 것으로 친다 (이 파일이 생기기 전에 받은 장을 다시 받게 하지 않음 → 그런 폰은 다음 받기 전까지 시각 없음). 화면 쪽은 `Narrator.words` 가 이것을 읽는다 (ok=false 면 기기 어림값, 말하기 판 작업).
+- 만든 것 (2026-10-24, align.yml 전 작품): 9,675개 · 약함 63 (거의 한국어 짧은 표현 · 기초 낱말 예문 · 회화 줄). 빈센트 828 메시지 · 732 회화 · 366 답장 · 357 표현 · 316 예문 (약함 15), 모차르트 843 · 708 · 363 · 345 · 301 (14), 나폴레옹 948 · 732 · 378 · 366 · 314 (22), 고야 459 · 588 · 258 · 282 · 191 (12). 앱 안 장 (빈센트 서문 · I) 은 assets 에, 나머지는 remote/ + R2 (새 장 묶음 zip 이름은 assets/letters/<작품>/remote.json).
+- 검증 (빈센트 I장 234개): 마디 첫 낱말 시작 − 마디 s 중앙값 601ms (p10 480 · p90 684, 앞 쉼 0.57초와 맞음), 낱말 구간이 무음인 몫 중앙값 0.
