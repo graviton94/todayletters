@@ -30,6 +30,7 @@ import androidx.compose.ui.layout.boundsInWindow
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.positionInWindow
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import io.github.graviton94.todayletters.core.FlightMath
@@ -39,7 +40,7 @@ import kotlin.math.roundToInt
  * 받은 것이 다음 화면의 제자리로 옮겨 가기 (시안 rw2 Between screens ①~④): 걸음 그림 → 다음 걸음 머리의 작은 그림,
  * 편지 완료의 그림 → 오늘 맨 위 그림 칸, 메달 → 진열장 칸, 서재 카드 → 편지 도착 맨 위.
  * 보상은 화면 위에 덮인 층이고 다음 화면은 길 (Route) 이라, 한 SharedTransitionLayout 안에 둘 수 없다 → 잰 자리로 그리는 층 하나.
- * 처음 자리 ([Flight.from], 창 좌표) 는 누른 쪽이 재서 넘기고, 닿을 자리는 받는 쪽이 [flightSlot] 으로 알린다.
+ * 처음 자리 ([Flight.from], 화면 좌표) 는 누른 쪽이 재서 넘기고, 닿을 자리는 받는 쪽이 [flightSlot] 으로 알린다.
  * 날아가는 동안 받는 자리는 비워 두고 (같은 그림이 둘 보이지 않게), 다 닿으면 그 자리의 그림이 그대로 이어진다.
  * 움직임 줄이기면 날지 않는다 (바로 제자리, 마지막 모습).
  */
@@ -75,11 +76,21 @@ class Flights {
     fun leaving(key: String) = now?.source == key && key.isNotEmpty()
 }
 
-/** 닿을 자리: 그 자리의 창 좌표를 알리고, 날아오는 동안은 비워 둔다. */
+/*
+ * 자리는 모두 화면 좌표 (창 좌표 + 그 창이 화면에서 놓인 곳). 편지 도착은 대화창 창이라, 기기에 따라 그 창이 상태 바 아래에서 시작하면
+ * 창 좌표만으로는 바깥 화면에서 잰 처음 자리와 막대 두께만큼 어긋난다. 처음 자리 · 닿을 자리 · 그리는 층이 같은 기준을 쓴다.
+ */
+private fun android.view.View.screenOrigin(): Offset {
+    val a = IntArray(2); getLocationOnScreen(a)
+    return Offset(a[0].toFloat(), a[1].toFloat())
+}
+
+/** 닿을 자리: 그 자리의 화면 좌표를 알리고, 날아오는 동안은 비워 둔다. */
 fun Modifier.flightSlot(s: AppState, key: String): Modifier = composed {
     val host = LocalFlightHost.current
+    val view = LocalView.current
     androidx.compose.runtime.DisposableEffect(key) { onDispose { if (s.flights.slots[key]?.host == host) s.flights.slots.remove(key) } }
-    this.onGloballyPositioned { s.flights.slots[key] = Flights.Slot(it.boundsInWindow(), host) }
+    this.onGloballyPositioned { s.flights.slots[key] = Flights.Slot(it.boundsInWindow().translate(view.screenOrigin()), host) }
         .graphicsLayer { alpha = if (s.flights.incoming(key)) 0f else 1f }
 }
 
@@ -90,7 +101,10 @@ class Bounds { var rect by mutableStateOf<Rect?>(null) }
 @Composable
 fun rememberBounds() = remember { Bounds() }
 
-fun Modifier.measured(b: Bounds): Modifier = onGloballyPositioned { b.rect = it.boundsInWindow() }
+fun Modifier.measured(b: Bounds): Modifier = composed {
+    val view = LocalView.current
+    onGloballyPositioned { b.rect = it.boundsInWindow().translate(view.screenOrigin()) }
+}
 
 /** 떠나는 자리 (날아가는 동안 비움). */
 fun Modifier.flightSource(s: AppState, key: String): Modifier = graphicsLayer { alpha = if (s.flights.leaving(key)) 0f else 1f }
@@ -122,7 +136,8 @@ fun FlightLayer(s: AppState) {
         if (s.flights.now?.n == f.n) s.flights.now = null
     }
     val d = LocalDensity.current
-    Box(Modifier.fillMaxSize().onGloballyPositioned { origin = it.positionInWindow() }) {
+    val view = LocalView.current
+    Box(Modifier.fillMaxSize().onGloballyPositioned { origin = it.positionInWindow() + view.screenOrigin() }) {
         val to = slot?.rect ?: f.from
         val b = FlightMath.lerp(box(f.from), box(to), t)
         val w = with(d) { b.w.toDp() }; val h = with(d) { b.h.toDp() }

@@ -15,8 +15,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -76,7 +74,7 @@ private fun Main(s: AppState, onExit: () -> Unit) {
     // 시리즈 안 화면은 그 시리즈의 빛깔로 (서재 · 내 기록 · 전환은 제 색)
     val body: @Composable () -> Unit = {
         val p = Ink.palette
-        Column(Modifier.fillMaxSize().background(p.paper).statusBarsPadding().navigationBarsPadding()) {
+        Column(Modifier.fillMaxSize().background(p.paper).statusBarsSafe().navigationBarsSafe()) {
             Box(Modifier.weight(1f)) {
                 AnimatedContent(
                     s.route,

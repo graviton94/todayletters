@@ -21,10 +21,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -73,7 +71,7 @@ fun Onboarding(s: AppState) {
     val work = s.works.first()
     val ko = uiLang() == Lang.KO
     val name = work.kit.fullName[uiLang()].ifBlank { work.fullName }
-    Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f).statusBarsPadding().navigationBarsPadding()) {
+    Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.3f).statusBarsSafe().navigationBarsSafe()) {
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s8),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4, Alignment.CenterVertically)) {
             Box(Modifier.border(1.5.dp, p.giltText, CircleShape).padding(3.dp)) { Portrait(work.portrait, work.fullName, 88.dp) }
@@ -127,7 +125,7 @@ fun WelcomeSheet(s: AppState, id: String) {
     Box(Modifier.fillMaxSize().background(t.paper)) {
         AssetImage(w.kit.hero, Modifier.fillMaxSize(), sample = 2)
         Box(Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Brush.verticalGradient(0f to Color(0x33000000), 0.4f to Color(0x1A000000), 0.75f to t.paper)))
-        Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().navigationBarsPadding().padding(Tokens.Space.s5),
+        Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().navigationBarsSafe().padding(Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                 Box(Modifier.border(1.5.dp, t.accent, CircleShape).padding(1.5.dp)) { Portrait(w.portrait, w.fullName, 40.dp) }

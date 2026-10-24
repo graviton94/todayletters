@@ -25,9 +25,7 @@ import java.io.File
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.unit.dp
@@ -312,7 +310,7 @@ fun ArtCardSheet(s: AppState, w: Work, l: Letter, m: Message, onClose: () -> Uni
     }
     androidx.activity.compose.BackHandler(onBack = onClose)
     androidx.compose.foundation.layout.Column(
-        androidx.compose.ui.Modifier.fillMaxSize().background(p.hide).statusBarsPadding().navigationBarsPadding(),
+        androidx.compose.ui.Modifier.fillMaxSize().background(p.hide).statusBarsSafe().navigationBarsSafe(),
     ) {
         androidx.compose.foundation.layout.Row(androidx.compose.ui.Modifier.fillMaxWidth().padding(end = io.github.graviton94.todayletters.design.Tokens.Space.s4),
             verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {

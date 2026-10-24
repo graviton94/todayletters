@@ -21,11 +21,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -120,7 +118,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
     val focusRef = remember { arrayOf<(Int) -> Unit>({}) }
     val focus: (Int) -> Unit = { focusRef[0](it) }
     Box(Modifier.fillMaxSize().background(Room)) {
-        BoxWithConstraints(Modifier.fillMaxSize().statusBarsPadding().padding(top = 56.dp, bottom = 250.dp).clipToBounds()) {
+        BoxWithConstraints(Modifier.fillMaxSize().statusBarsSafe().padding(top = 56.dp, bottom = 250.dp).clipToBounds()) {
             val density = LocalDensity.current
             val maxW = constraints.maxWidth.toFloat()
             val maxH = constraints.maxHeight.toFloat()
@@ -187,7 +185,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
 
         // 위: 닫기 · 산책 n / N
         Row(
-            Modifier.fillMaxWidth().background(Room).statusBarsPadding().heightIn(min = 56.dp).padding(horizontal = Tokens.Space.s2),
+            Modifier.fillMaxWidth().background(Room).statusBarsSafe().heightIn(min = 56.dp).padding(horizontal = Tokens.Space.s2),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             if (at >= 0) Row(
@@ -212,7 +210,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
         }
 
         // 아래: 쪽지
-        Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().navigationBarsPadding().padding(Tokens.Space.s3)) {
+        Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().navigationBarsSafe().padding(Tokens.Space.s3)) {
             val sp = spots.getOrNull(at)
             if (sp == null && spots.isNotEmpty()) GuideLine(s, "walk", Modifier.padding(bottom = Tokens.Space.s2))
             if (sp == null) {

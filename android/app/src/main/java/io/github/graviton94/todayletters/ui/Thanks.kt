@@ -36,7 +36,7 @@ fun ThanksSheet(s: AppState) {
     val w = s.work(t.series?.takeIf { id -> s.works.any { it.series.id == id } } ?: s.current)
     val close = { s.thanks = null }
     androidx.activity.compose.BackHandler(onBack = close)
-    Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.72f)).pressable(haptic = false, onClick = close), contentAlignment = Alignment.Center) {
+    Box(Modifier.fillMaxSize().background(Color.Black.copy(alpha = 0.72f)).pressable(haptic = false, onClick = close).systemBarsSafe(), contentAlignment = Alignment.Center) {
         Column(
             Modifier.fillMaxWidth(0.92f).background(p.paper).border(1.dp, p.giltText).pressable(haptic = false) { }
                 .padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s6),

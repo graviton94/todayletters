@@ -4319,5 +4319,9 @@
   "need_typed": {
     "en": "Write an answer to check it",
     "ko": "답을 써 보면 확인할 수 있어요"
+  },
+  "medal_with_painting": {
+    "en": "Came with it",
+    "ko": "함께 온 그림"
   }
 }

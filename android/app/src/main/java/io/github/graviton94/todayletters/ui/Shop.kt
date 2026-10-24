@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -220,9 +219,9 @@ private fun ShopGlyph(sp: Spend) {
 private fun PiecePicker(title: String, pieces: List<Piece>, empty: String, onPick: (Piece) -> Unit, onClose: () -> Unit) {
     val p = Ink.palette
     androidx.activity.compose.BackHandler(onBack = onClose)
-    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose), contentAlignment = Alignment.BottomCenter) {
+    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose).statusBarsSafe(), contentAlignment = Alignment.BottomCenter) {
         Column(
-            Modifier.fillMaxWidth().heightIn(max = 620.dp).background(p.paper).pressable(haptic = false) { }.navigationBarsPadding()
+            Modifier.fillMaxWidth().heightIn(max = 620.dp).background(p.paper).pressable(haptic = false) { }.navigationBarsSafe()
                 .verticalScroll(rememberScrollState()).padding(Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {

@@ -6,6 +6,8 @@ import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -2618,4 +2620,128 @@ class ScreensTest {
     }
     @Test fun rwArrivalMid() = arrivalFromCard("rw6e_card_to_arrival_mid", 160, true)
     @Test fun rwArrival() = arrivalFromCard("rw6f_card_to_arrival_end", 6000, false)
+
+    // ── 시스템 막대 (ui/Insets.kt): 앱의 실제 뿌리 (Root) 를 그리고, Compose 뷰에 상태 바 24dp · 내비게이션 바 48dp 인셋을 보낸다 ──
+    // Robolectric 은 막대 두께가 0 이라 그대로 찍으면 겹쳐도 보이지 않는다. 막대 자리에는 반투명 빨간 띠를 그어
+    // 그 띠 밑에 누를 것 · 글자가 깔리지 않는지 본다. '*ScreensTest.insets*' 로 따로 돌린다.
+    private fun simulateBars(v: android.view.View) {
+        val d = ctx.resources.displayMetrics.density
+        val status = androidx.core.view.WindowInsetsCompat.Type.statusBars()
+        val nav = androidx.core.view.WindowInsetsCompat.Type.navigationBars()
+        val ins = androidx.core.view.WindowInsetsCompat.Builder()
+            .setInsets(status, androidx.core.graphics.Insets.of(0, (BAR_TOP * d).toInt(), 0, 0))
+            .setInsets(nav, androidx.core.graphics.Insets.of(0, 0, 0, (BAR_BOTTOM * d).toInt()))
+            .setVisible(status, true).setVisible(nav, true).build()
+        androidx.core.view.ViewCompat.dispatchApplyWindowInsets(v, ins)
+    }
+    private val BAR_TOP = 24
+    private val BAR_BOTTOM = 48
+
+    /** 막대가 있는 화면: [s] 를 메인 단계로 넘기고 (첫 화면 없이) 도움말은 본 것으로, Root 를 그린다. */
+    private fun barsShot(name: String, dark: Boolean, s: AppState, ms: Long = 2500, after: Long = 900, act: () -> Unit = {}) {
+        repeat(3) { if (s.stage != io.github.graviton94.todayletters.core.Stage.MAIN) s.nextStage() }
+        listOf("inbox", "words", "gallery", "shop", "library", "series", "room", "play_aloud", "play_constellation").forEach { s.coachDone(it) }
+        s.whatsNew = false
+        var host: android.view.View? = null
+        rule.mainClock.autoAdvance = false
+        rule.setContent {
+            host = androidx.compose.ui.platform.LocalView.current
+            TodayLettersTheme(if (dark) ThemeMode.DARK else ThemeMode.LIGHT) {
+                Box(Modifier.fillMaxSize()) {
+                    io.github.graviton94.todayletters.ui.Root(s, onExit = { })
+                    val band = androidx.compose.ui.graphics.Color(0x66FF1E1E)
+                    Box(Modifier.align(androidx.compose.ui.Alignment.TopCenter).fillMaxWidth().height(BAR_TOP.dp).background(band))
+                    Box(Modifier.align(androidx.compose.ui.Alignment.BottomCenter).fillMaxWidth().height(BAR_BOTTOM.dp).background(band))
+                }
+            }
+        }
+        rule.runOnIdle { simulateBars(host!!) }
+        rule.mainClock.advanceTimeBy(ms)
+        act()
+        rule.runOnIdle { simulateBars(host!!) }
+        rule.mainClock.advanceTimeBy(after)
+        rule.onRoot().captureRoboImage("build/screens/$name.png")
+        audit(name)
+    }
+
+    @Test fun insetsLibraryUpdate() {
+        val s = engineState(); s.reward = null; s.go(Route.Library)
+        s.updateBand = io.github.graviton94.todayletters.core.UpdateBand.Offer(18_400_000)
+        barsShot("insets01_library_update_light", false, s, 3600)
+    }
+    @Test fun insetsRoom() {
+        val s = state(true)
+        val (c, l) = s.letterOf(Route.Letter("vincent", 1, 1))
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size))
+        s.go(Route.Letter("vincent", 1, 1))
+        barsShot("insets02_room_light", false, s, 4000)
+    }
+    @Test fun insetsReadAlong() {
+        val s = state(true); s.go(Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.ALOUD))
+        barsShot("insets03_read_along_dark", true, s)
+    }
+    @Test fun insetsTalk() = withDepth {
+        val s = graded(state(true), 1); s.go(talkRoute)
+        barsShot("insets04_talk_light", false, s)
+    }
+    @Test fun insetsStepNote() = withDepth {
+        val s = graded(state(true), 1)
+        val room = Route.Letter("vincent", 1, 1)
+        val (c, l) = s.letterOf(room)
+        val modes = s.letterModes("vincent", c, l)
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size).reply(modes[0]))
+        s.go(Route.Play(room, modes[1]))
+        s.stepNote = AppState.StepNote(room, 2, modes[0], "plates/${l.plate!!.image}", io.github.graviton94.todayletters.core.Next.AfterStep.Step(modes[1], 1, modes.size), 1)
+        barsShot("insets05_step_note_light", false, s, 2600)
+    }
+    @Test fun insetsDone() {
+        val s = withCards()
+        finishReal(s, "vincent", 1, 1)
+        s.go(Route.Done(Route.Letter("vincent", 1, 1)))
+        barsShot("insets06_letter_done_dark", true, s, 4000, after = 0)
+    }
+    @Test fun insetsLevelUp() {
+        val s = engineState(); s.reward = null; s.go(Route.Library)
+        s.store.saveXp(io.github.graviton94.todayletters.core.XpLedger(total = io.github.graviton94.todayletters.core.Levels.totalFor(15) + 40))
+        s.levelUp = AppState.LevelUp(14, 15)
+        barsShot("insets07_level_up_dark", true, s, 3600, after = 0)
+    }
+    /** 메달과 함께 온 그림 (셋째 메달): 메달 한 장 + “함께 온 그림” 한 줄. */
+    @Test fun insetsMedalPainting() {
+        val s = engineState(); s.go(Route.Library)
+        s.reward = medalWithPainting(s)
+        barsShot("insets08_medal_painting_dark", true, s, 3600, after = 0)
+    }
+    @Test fun insetsDownloadSheet() {
+        val s = state(true); s.go(Route.Inbox)
+        val ch = s.work("vincent").chapters[1]
+        s.downloadAsk = AppState.DownloadAsk(s.downloads.pack("vincent", ch.id)!!, "vincent", ch.id, ch.letters.first(), Route.Inbox)
+        barsShot("insets09_download_sheet_light", false, s)
+    }
+    @Test fun insetsBackupSheet() {
+        val s = engineState(); s.reward = null; s.go(Route.Library); s.settingsOpen = true
+        barsShot("insets10_backup_sheet_light", false, s, act = {
+            scrolled { rule.onNodeWithText(ctx.getString(R.string.backup_export)).performScrollTo().performClick() }
+        })
+    }
+    @Test fun insetsDialog() {
+        val s = state(true); s.go(Route.Library); s.askingExit = true
+        barsShot("insets11_dialog_light", false, s)
+    }
+    @Test fun insetsToday() {
+        val s = withCards(); s.go(Route.Inbox)
+        barsShot("insets12_today_light", false, s, 3000)
+    }
+
+    private fun medalWithPainting(s: AppState): AppState.RewardMoment {
+        val pc = s.work("vincent").kit.collection.first { !s.owns("vincent", it) }
+        s.store.addPiece("vincent", pc.id)
+        return AppState.RewardMoment("vincent", 10, pc, listOf("streak_7"), null, listOf(io.github.graviton94.todayletters.core.Earn.ACHIEVEMENT to 10))
+    }
+    /** ⑤ 셋째 메달: 메달 한 장 아래 “함께 온 그림” (예전 보상 화면 대신, 시안 medal 1안). */
+    @Test fun rwMedalPainting() {
+        val s = engineState()
+        s.reward = medalWithPainting(s)
+        shot("rw5f_medal_painting", true, ms = 3600, after = 0) { io.github.graviton94.todayletters.ui.MedalMoment(s); io.github.graviton94.todayletters.ui.RewardOverlay(s) }
+    }
 }

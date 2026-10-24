@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.ui.unit.dp
@@ -72,11 +71,11 @@ fun CoachLayer(s: AppState) {
     Box(
         // 바탕은 터치만 막고 (단추가 아님), 넘기기는 카드에서만
         Modifier.fillMaxSize().background(Color.Black.copy(alpha = alpha))
-            .pointerInput(Unit) { detectTapGestures { } },
+            .pointerInput(Unit) { detectTapGestures { } }.statusBarsSafe(),
         contentAlignment = Alignment.BottomCenter,
     ) {
         Column(
-            Modifier.fillMaxWidth().navigationBarsPadding().padding(Tokens.Space.s5).background(p.paper).border(Tokens.Stroke.hair, p.gilt)
+            Modifier.fillMaxWidth().navigationBarsSafe().padding(Tokens.Space.s5).background(p.paper).border(Tokens.Stroke.hair, p.gilt)
                 .clickable(interactionSource = remember { MutableInteractionSource() }, indication = null) {
                     if (i < list.lastIndex) i++ else s.coachDone(screen)
                 }.padding(Tokens.Space.s5),

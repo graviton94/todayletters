@@ -24,7 +24,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -963,9 +962,9 @@ fun WordSheet(s: AppState, r: Route.Letter, onClose: () -> Unit) {
     val (chapter, letter) = s.letterOf(r)
     val view = s.room(r.series)
     androidx.activity.compose.BackHandler(onBack = onClose)
-    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose), contentAlignment = Alignment.BottomCenter) {
+    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose).statusBarsSafe(), contentAlignment = Alignment.BottomCenter) {
         Column(
-            Modifier.fillMaxWidth().background(p.paper).clickable(enabled = false) {}.navigationBarsPadding()
+            Modifier.fillMaxWidth().background(p.paper).clickable(enabled = false) {}.navigationBarsSafe()
                 .verticalScroll(rememberScrollState()).padding(Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
@@ -1017,9 +1016,9 @@ fun WordCard(s: AppState, r: Route.Letter, index: Int, onClose: () -> Unit) {
     val audio = s.wordAudio(r.series, chapter, letter, w, view.learn)
     LaunchedEffect(index) { s.narrator.play(audio) }
     androidx.activity.compose.BackHandler(onBack = onClose)
-    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose), contentAlignment = Alignment.BottomCenter) {
+    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose).statusBarsSafe(), contentAlignment = Alignment.BottomCenter) {
         Column(
-            Modifier.fillMaxWidth().background(p.paper).clickable(enabled = false) {}.navigationBarsPadding().padding(Tokens.Space.s5),
+            Modifier.fillMaxWidth().background(p.paper).clickable(enabled = false) {}.navigationBarsSafe().padding(Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {

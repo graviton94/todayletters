@@ -18,7 +18,6 @@ import io.github.graviton94.todayletters.data.Billing
 import io.github.graviton94.todayletters.data.Records
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -75,9 +74,9 @@ fun BackupImportSheet(file: Backup.Summary, here: Backup.Summary, onImport: () -
 private fun BackupSheet(title: String, onClose: () -> Unit, sub: String? = null, note: String? = null, body: @Composable () -> Unit) {
     val p = Ink.palette
     BackHandler(onBack = onClose)
-    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose), contentAlignment = Alignment.BottomCenter) {
+    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose).statusBarsSafe(), contentAlignment = Alignment.BottomCenter) {
         Column(
-            Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsPadding().padding(Tokens.Space.s5),
+            Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsSafe().padding(Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {

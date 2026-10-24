@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -171,9 +170,9 @@ fun MusicSheet(s: AppState, work: Work, m: Moment.Music, onClose: () -> Unit) {
         }
     }
     androidx.activity.compose.BackHandler(onBack = onClose)
-    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose), contentAlignment = Alignment.BottomCenter) {
+    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onClose).statusBarsSafe(), contentAlignment = Alignment.BottomCenter) {
         Column(
-            Modifier.fillMaxWidth().background(p.paper).clickable(enabled = false) {}.navigationBarsPadding()
+            Modifier.fillMaxWidth().background(p.paper).clickable(enabled = false) {}.navigationBarsSafe()
                 .padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {

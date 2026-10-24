@@ -14,10 +14,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -94,7 +92,7 @@ fun PrologueScreen(s: AppState, r: Route.Prologue) {
     // 다른 장으로 넘기면 맨 위부터
     val scroll = rememberScrollState()
     LaunchedEffect(page) { scroll.scrollTo(0) }
-    Column(Modifier.fillMaxSize().background(Night).statusBarsPadding().navigationBarsPadding()) {
+    Column(Modifier.fillMaxSize().background(Night).statusBarsSafe().navigationBarsSafe()) {
         val last = page >= pages.size
         w.arrival?.let { a -> Timeline(a.years, a.at.getOrElse(page) { a.years.lastIndex }) }
         if (!last) {
@@ -198,7 +196,7 @@ fun OutroScreen(s: AppState, series: String) {
         }
         AssetImage(outroImg, Modifier.fillMaxWidth().height(300.dp), sample = 2, alignment = Alignment.TopCenter)
         Box(Modifier.fillMaxWidth().height(300.dp).background(Brush.verticalGradient(0f to Night.copy(alpha = 0.25f), 0.7f to Night.copy(alpha = 0.85f), 1f to Night)))
-        Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
+        Column(Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe()) {
             Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = 26.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
                 Box(Modifier.height(170.dp))
                 // 맺음말: 그가 지니고 있던 편지
@@ -260,7 +258,7 @@ fun CatalogueScreen(s: AppState, series: String) {
     val complete = s.seriesDone(series)
     val all = w.chapters.flatMapIndexed { ci, c -> c.letters.mapIndexed { li, l -> Triple(ci, li, c to l) } }
     val got = all.count { (_, _, cl) -> s.progress(series, cl.first.id, cl.second.id).done }
-    Column(Modifier.fillMaxSize().background(Night).statusBarsPadding().navigationBarsPadding().verticalScroll(rememberScrollState())) {
+    Column(Modifier.fillMaxSize().background(Night).statusBarsSafe().navigationBarsSafe().verticalScroll(rememberScrollState())) {
         Row(Modifier.fillMaxWidth().padding(horizontal = 8.dp), verticalAlignment = Alignment.CenterVertically) {
             Box(Modifier.size(48.dp).pressable { s.back() }, contentAlignment = Alignment.Center) { Text("‹", style = Type.title, color = Light) }
             Text(stringResource(R.string.plates_title), style = Type.small.ui(), color = Soft)

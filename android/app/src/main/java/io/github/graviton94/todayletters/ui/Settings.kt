@@ -23,9 +23,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.toggleableState
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
@@ -76,7 +74,7 @@ fun SettingsScreen(s: AppState) {
     BackHandler { s.settingsOpen = false }
     s.version
     val w = s.works.firstOrNull()
-    Column(Modifier.fillMaxSize().background(p.paper).statusBarsPadding().navigationBarsPadding()) {
+    Column(Modifier.fillMaxSize().background(p.paper).statusBarsSafe().navigationBarsSafe()) {
         TopBar(stringResource(R.string.settings), s, help = null, showBack = false, showSettings = false) {
             IconButton(stringResource(R.string.close), onClick = { s.settingsOpen = false }) { Text("×", style = Type.heading, color = p.ink) }
         }
@@ -242,9 +240,9 @@ fun NoticeTimeSheet(s: AppState, onClose: () -> Unit) {
         io.github.graviton94.todayletters.data.Notices.schedule(s.ctx)
         onClose()
     }
-    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose), contentAlignment = Alignment.BottomCenter) {
+    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose).statusBarsSafe(), contentAlignment = Alignment.BottomCenter) {
         Column(
-            Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsPadding().padding(Tokens.Space.s5),
+            Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsSafe().padding(Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
             Text(stringResource(R.string.notice_sheet_t), style = Type.heading.ui(), color = p.ink)
@@ -401,7 +399,7 @@ private fun CreditsScreen(s: AppState, onClose: () -> Unit) {
     val ctx = androidx.compose.ui.platform.LocalContext.current
     val ui = uiLang()
     BackHandler { onClose() }
-    Column(Modifier.fillMaxSize().background(p.paper).statusBarsPadding().navigationBarsPadding()) {
+    Column(Modifier.fillMaxSize().background(p.paper).statusBarsSafe().navigationBarsSafe()) {
         TopBar(stringResource(R.string.set_credits), s, help = null, showBack = false, showSettings = false) {
             IconButton(stringResource(R.string.close), onClick = onClose) { Text("×", style = Type.heading, color = p.ink) }
         }

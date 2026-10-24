@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -91,9 +90,9 @@ fun DownloadSheet(s: AppState, ask: AppState.DownloadAsk) {
     fun start() { DownloadJob.start(ctx, ask.pack, name) }
     BackHandler { close() }
 
-    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false) { close() }, contentAlignment = Alignment.BottomCenter) {
+    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false) { close() }.statusBarsSafe(), contentAlignment = Alignment.BottomCenter) {
         Column(
-            Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsPadding()
+            Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsSafe()
                 .padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
         ) {

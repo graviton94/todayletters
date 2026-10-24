@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -43,7 +42,7 @@ fun UpdateLayer(s: AppState) {
     // 띠는 서재에서만 (편지 · 복습 중에는 띄우지 않는다)
     LaunchedEffect(s.route, s.whatsNew, busy) { if (s.route == Route.Library && !s.whatsNew && !busy) s.askUpdate() }
     if (s.route == Route.Library && !s.whatsNew && !busy && s.updateBand != UpdateBand.Hidden)
-        Box(Modifier.fillMaxSize().navigationBarsPadding(), contentAlignment = Alignment.BottomCenter) { UpdateBandView(s, s.updateBand) }
+        Box(Modifier.fillMaxSize().navigationBarsSafe(), contentAlignment = Alignment.BottomCenter) { UpdateBandView(s, s.updateBand) }
     if (s.whatsNew && !busy) WhatsNew(s)
 }
 
@@ -104,7 +103,7 @@ private fun WhatsNew(s: AppState) {
     val p = Ink.palette
     BackHandler { s.closeWhatsNew() }
     val ver = remember(s) { io.github.graviton94.todayletters.data.Updates.versionName(s.ctx).removeSuffix("-dev") }
-    Box(Modifier.fillMaxSize().background(p.scrim).clickable { s.closeWhatsNew() }, contentAlignment = Alignment.Center) {
+    Box(Modifier.fillMaxSize().background(p.scrim).clickable { s.closeWhatsNew() }.systemBarsSafe(), contentAlignment = Alignment.Center) {
         Column(
             Modifier.fillMaxWidth(0.86f).background(p.paper).border(Tokens.Stroke.hair, p.line).clickable(enabled = false) {}
                 .padding(Tokens.Space.s5),

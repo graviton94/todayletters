@@ -24,9 +24,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -206,7 +204,7 @@ fun LetterCardSheet(s: AppState, w: Work, l: Letter, m: Message, onClose: () -> 
     val bmp = rememberLetterCard(s, w, l, m)
     androidx.activity.compose.BackHandler(onBack = onClose)
     // 아래 화면 (편지 방 · 봉인) 으로 누르기가 새지 않게 막는다
-    Column(Modifier.fillMaxSize().background(p.hide).pointerInput(Unit) { detectTapGestures { } }.statusBarsPadding().navigationBarsPadding()) {
+    Column(Modifier.fillMaxSize().background(p.hide).pointerInput(Unit) { detectTapGestures { } }.statusBarsSafe().navigationBarsSafe()) {
         Row(Modifier.fillMaxWidth().padding(end = Tokens.Space.s4), verticalAlignment = Alignment.CenterVertically) {
             IconButton(stringResource(R.string.close), onClick = onClose) {
                 Text("×", style = Type.title, color = p.ink)

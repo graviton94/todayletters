@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -85,7 +84,7 @@ fun LearnPicker(s: AppState, id: String, onClose: () -> Unit) {
             InSeries(w) {
                 val q = Ink.palette
                 Column(
-                    Modifier.fillMaxWidth().background(q.paper).clickable(enabled = false) {}.navigationBarsPadding()
+                    Modifier.fillMaxWidth().background(q.paper).clickable(enabled = false) {}.navigationBarsSafe()
                         .verticalScroll(rememberScrollState()).padding(Tokens.Space.s5),
                     verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
                 ) {
@@ -128,7 +127,7 @@ fun LangNoticeHost(s: AppState) {
     if (!s.langNotice) return
     val p = Ink.palette
     BackHandler { s.langNotice = false }
-    Box(Modifier.fillMaxSize().background(p.scrim).clickable(interactionSource = remember { MutableInteractionSource() }, indication = null) { s.langNotice = false },
+    Box(Modifier.fillMaxSize().background(p.scrim).clickable(interactionSource = remember { MutableInteractionSource() }, indication = null) { s.langNotice = false }.systemBarsSafe(),
         contentAlignment = Alignment.Center) {
         Column(
             Modifier.fillMaxWidth(0.84f).background(p.paper).border(Tokens.Stroke.hair, p.gilt).clickable(enabled = false) {}

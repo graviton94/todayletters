@@ -441,7 +441,7 @@ fun Ask(title: String, yes: String, no: String, onYes: () -> Unit, onNo: () -> U
     val p = Ink.palette
     // 묻는 창이 떠 있는 동안은 화면이 덮인 것 (저절로 나오는 소리 · 회화가 기다린다, AppState.covered)
     DisposableEffect(Unit) { Covers.open++; onDispose { Covers.open-- } }
-    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onNo), contentAlignment = Alignment.Center) {
+    Box(Modifier.fillMaxSize().background(p.scrim).clickable(onClick = onNo).systemBarsSafe(), contentAlignment = Alignment.Center) {
         Column(
             Modifier.fillMaxWidth(0.84f).background(p.paper).border(Tokens.Stroke.hair, p.line).clickable(enabled = false) {}
                 .padding(start = Tokens.Space.s5, end = Tokens.Space.s5, top = Tokens.Space.s5, bottom = Tokens.Space.s4),

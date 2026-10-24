@@ -16,10 +16,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -278,8 +276,8 @@ fun MedalDetail(s: AppState, m: MedalDef, onClose: () -> Unit) {
     val day = s.medalDay(m.id)
     val earned = day != null
     androidx.activity.compose.BackHandler(onBack = onClose)
-    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose), contentAlignment = Alignment.BottomCenter) {
-        Column(Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsPadding()
+    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose).statusBarsSafe(), contentAlignment = Alignment.BottomCenter) {
+        Column(Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsSafe()
             .verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s5),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
             MedalImage(m, earned, 150.dp, progress = if (earned) null else medalCount(s, m, st).let { (a, b) -> a.toFloat() / b.coerceAtLeast(1) })
@@ -379,7 +377,7 @@ fun LevelUpOverlay(s: AppState) {
         }
     }
     Box(Modifier.fillMaxSize().background(Museum.wall).pressable(haptic = false) { }) {
-        Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
+        Column(Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe()) {
             Column(Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(14.dp, Alignment.CenterVertically)) {
                 Spacer(Modifier.height(24.dp))
@@ -455,7 +453,7 @@ fun GradeUpOverlay(s: AppState) {
         Box(Modifier.fillMaxSize().graphicsLayer { alpha = a.value }.background(Brush.radialGradient(
             listOf(Color(0xFFFFE2AA).copy(alpha = 0.22f), Color.Transparent), center = Offset(wpx / 2, hpx * 0.28f), radius = hpx * 0.5f)))
         Column(
-            Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding().verticalScroll(rememberScrollState())
+            Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe().verticalScroll(rememberScrollState())
                 .padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3, Alignment.CenterVertically),
         ) {

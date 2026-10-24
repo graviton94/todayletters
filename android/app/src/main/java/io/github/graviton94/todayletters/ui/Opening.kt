@@ -11,9 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -99,7 +97,7 @@ fun Opening(s: AppState) {
         Box(Modifier.fillMaxSize().background(Brush.verticalGradient(
             0f to ground.copy(alpha = 0.78f), 0.32f to ground.copy(alpha = 0.3f), 0.55f to ground.copy(alpha = 0.15f), 0.88f to ground,
         )))
-        Column(Modifier.fillMaxWidth().statusBarsPadding().padding(top = 56.dp, start = 24.dp, end = 24.dp),
+        Column(Modifier.fillMaxWidth().statusBarsSafe().padding(top = 56.dp, start = 24.dp, end = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Text("LINGUA MUSEUM", style = Type.caps, color = gilt, modifier = Modifier.rise(steps[1].value))
             Text(stringResource(R.string.app_name), style = Type.display.ui(), color = ink, modifier = Modifier.rise(steps[2].value))
@@ -115,7 +113,7 @@ fun Opening(s: AppState) {
                 }
             }
         }
-        Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().navigationBarsPadding().padding(horizontal = 32.dp, vertical = 48.dp),
+        Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().navigationBarsSafe().padding(horizontal = 32.dp, vertical = 48.dp),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(14.dp)) {
             if (piece != null) Text(
                 stringResource(R.string.opening_piece, piece.title[uiLang()], piece.date) + "\n" + piece.collection,

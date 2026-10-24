@@ -30,8 +30,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.border
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.navigationBarsPadding
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Route
@@ -119,7 +117,7 @@ fun Done(s: AppState, room: Route.Letter) {
                 0f to Museum.wall.copy(alpha = 0.15f), 0.3f to Color.Transparent, 0.58f to Museum.wall.copy(alpha = 0.78f), 0.74f to Museum.wall, 1f to Museum.wall)))
         }
         Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
-        Column(Modifier.fillMaxWidth().heightIn(min = h).navigationBarsPadding(), verticalArrangement = Arrangement.Bottom) {
+        Column(Modifier.fillMaxWidth().heightIn(min = h).navigationBarsSafe(), verticalArrangement = Arrangement.Bottom) {
             Spacer(Modifier.height(h * 0.36f))
             // 벽 라벨
             Box(Modifier.fillMaxWidth().padding(horizontal = 22.dp)) {

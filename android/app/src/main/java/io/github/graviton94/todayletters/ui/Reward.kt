@@ -17,10 +17,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -324,7 +322,7 @@ fun StepNoteOverlay(s: AppState) {
     val plate = letter.plate
     val sub = plate?.let { pl -> pl.title[view.read].takeIf { it.isNotBlank() }?.let { t -> listOf(t, Wall.year(pl.date)).filter { it.isNotBlank() }.joinToString(" · ") } }
     Box(Modifier.fillMaxSize().graphicsLayer { alpha = leave.value }.background(p.paper).pressable(haptic = false) { }) {
-        Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
+        Column(Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe()) {
             // 걸음 선: 마친 걸음은 금빛, 방금 마친 칸은 왼쪽에서 차오른다
             Row(Modifier.fillMaxWidth().padding(start = 22.dp, end = 22.dp, top = 20.dp), horizontalArrangement = Arrangement.spacedBy(5.dp)) {
                 modes.forEach { m ->
@@ -388,11 +386,13 @@ internal fun StepThumbSlot(t: StepThumb) {
 /**
  * 새 메달 (시안 rw2 5 · ③): 실제 고대 동전 메달이 옆에서 돌아 정면을 보고 (1.8초), 빛이 한 번 표면을 스친다. 진동 한 번.
  * 아래 진열장 줄에 같은 가족의 메달 칸, 새 칸이 금선으로 채워지고 “4 / 31”. 큰 단추 “진열장에 넣기 · 4 / 31” → 메달이 진열장의 그 칸으로 옮겨 간다.
+ * 메달 셋째마다 오는 그림 ([AppState.RewardMoment.piece], 이미 갤러리에 들어 있음): 따로 한 장을 띄우지 않고 (시안 medal 1안)
+ * 진열장 줄 아래에 “함께 온 그림” 한 줄 (작은 그림 · 가는 테두리, 원제, 작가 · 해 — 데이터에 있는 것만). 단추는 같다.
  */
 @Composable
 fun MedalMoment(s: AppState) {
     val m = s.reward ?: return
-    if (m.medals.isEmpty() || m.piece != null || m.catalogue != null) return
+    if (m.medals.isEmpty() || m.catalogue != null) return
     val md = s.medalBook.medal(m.medals.first()) ?: return
     val still = s.reducedMotion
     val w = s.work(m.series.ifEmpty { s.current })
@@ -418,7 +418,7 @@ fun MedalMoment(s: AppState) {
     androidx.activity.compose.BackHandler { s.reward = null }
     val bmp = rememberAsset(md.image)
     Box(Modifier.fillMaxSize().background(Museum.wall).pressable(haptic = false) { }) {
-        Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
+        Column(Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe()) {
             Column(Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)) {
                 Spacer(Modifier.height(40.dp))
@@ -454,6 +454,7 @@ fun MedalMoment(s: AppState) {
                     }
                 }
                 Text("$owned / ${all.size}", style = Type.small.copy(fontFamily = Faces.display, fontSize = 14.sp), color = Museum.soft)
+                m.piece?.let { pc -> WithPainting(s, w, pc, Modifier.padding(top = 6.dp).rise(win(clock, 2500, 900))) }
                 if (m.medals.size > 1) m.medals.drop(1).mapNotNull { s.medalBook.medal(it) }.forEach { more ->
                     Text(stringResource(R.string.reward_ach, more.title[ui]), style = Type.small.ui(), color = Museum.gilt, maxLines = 1)
                 }
@@ -463,6 +464,30 @@ fun MedalMoment(s: AppState) {
             Box(Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 22.dp)) {
                 GoButton(stringResource(R.string.go_cabinet), "$owned / ${all.size}", fill = Museum.ink, on = Museum.wall, soft = Color(0xFF6B6255)) { place() }
             }
+        }
+    }
+}
+
+/** 메달과 함께 온 그림 한 줄 (시안 medal 1안): 작은 그림 (가는 테두리) · “함께 온 그림” · 원제 · 작가 · 해. 위에 가는 선. */
+@Composable
+private fun WithPainting(s: AppState, w: io.github.graviton94.todayletters.data.Work, pc: io.github.graviton94.todayletters.core.Piece, modifier: Modifier) {
+    val ui = uiLang()
+    // 원제: 작품의 말로 적힌 이름이 있으면 그것, 없으면 데이터의 첫 이름 (소장처가 붙인 이름)
+    val tl = if (pc.title.lines.containsKey(w.series.original)) w.series.original else pc.title.lines.keys.first()
+    val title = pc.title[tl]
+    // 작가 · 해: 갤러리 소장품은 그 작품 화가의 것 (키트의 이름), 해는 그림 데이터에서만
+    val meta = Wall.meta(w.kit.fullName[ui].ifBlank { w.fullName }, pc.date)
+    Row(modifier.fillMaxWidth().drawBehind { drawLine(Museum.line, Offset(0f, 0f), Offset(size.width, 0f), 1.dp.toPx()) }
+        .padding(top = 14.dp).semantics(mergeDescendants = true) { },
+        horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
+        Box(Modifier.size(46.dp, 58.dp).border(1.dp, Museum.ink.copy(alpha = 0.14f))) {
+            AssetImage(pc.image, Modifier.fillMaxSize(), sample = 4)
+        }
+        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            Text(stringResource(R.string.medal_with_painting), style = Type.small.ui().copy(fontSize = 11.5.sp), color = Museum.soft, maxLines = 1)
+            Text(title, style = Type.body.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic, fontSize = 16.sp, lineHeight = 19.sp).of(tl),
+                color = Museum.ink, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            if (meta.isNotEmpty()) Text(meta, style = Type.small.ui().copy(fontSize = 11.5.sp), color = Museum.soft, maxLines = 1, overflow = TextOverflow.Ellipsis)
         }
     }
 }

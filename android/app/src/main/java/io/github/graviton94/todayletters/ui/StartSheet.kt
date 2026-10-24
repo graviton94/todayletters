@@ -13,10 +13,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -110,7 +108,7 @@ fun StartSheet(s: AppState, id: String, startAt: Int = 0) {
     BackHandler { if (page > 0) page-- else done() }
     Box(Modifier.fillMaxSize().background(p.paper).pressable(haptic = false) { }) {
         Column(
-            Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding().verticalScroll(rememberScrollState())
+            Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe().verticalScroll(rememberScrollState())
                 .padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
         ) {

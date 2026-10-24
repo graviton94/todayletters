@@ -16,16 +16,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
-import androidx.compose.foundation.layout.navigationBars
-import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.layout.systemBars
-import androidx.compose.ui.composed
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -93,34 +85,18 @@ fun text(name: String, fallback: String = ""): String = named(name).let { if (it
 
 fun tone(t: Tone) = SeriesTone(Color(t.paper), Color(t.ink), Color(t.soft), Color(t.faint), Color(t.accent))
 
-/** 대화창 밖(액티비티 화면)에서 잰 시스템 막대 두께. [FullDialog] 안에서만 값이 있다. */
-private val LocalOuterBars = androidx.compose.runtime.staticCompositionLocalOf<androidx.compose.foundation.layout.PaddingValues?> { null }
-
 /**
  * 화면을 가득 덮는 대화창 (편지 도착 · 낱말 상세 · 사진 크게 보기). 기기에 따라 대화창 창은 상태 바 · 내비게이션 바 두께를
- * 0 으로 받아서 아래 단추가 막대 밑에 깔린다. 그래서 바깥에서 잰 두께를 함께 넘기고, 안에서는 [statusBarsSafe] · [navigationBarsSafe] 를 쓴다.
+ * 0 으로 받아서 아래 단추가 막대 밑에 깔린다. 그래서 바깥(액티비티 화면)의 막대 · 컷아웃 두께를 함께 넘기고 ([LocalOuterBars], ui/Insets.kt),
+ * 안에서는 [statusBarsSafe] · [navigationBarsSafe] 를 쓴다.
  */
 @Composable
 fun FullDialog(onDismissRequest: () -> Unit, content: @Composable () -> Unit) {
-    val bars = WindowInsets.systemBars.asPaddingValues()
+    val bars = safeBars()
     androidx.compose.ui.window.Dialog(onDismissRequest = onDismissRequest,
         properties = androidx.compose.ui.window.DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
         androidx.compose.runtime.CompositionLocalProvider(LocalOuterBars provides bars, content = content)
     }
-}
-
-/** 상태 바 아래로: [statusBarsPadding] 과 같고, [FullDialog] 안에서는 바깥에서 잰 두께와 대화창이 받은 두께 중 큰 쪽. */
-fun Modifier.statusBarsSafe(): Modifier = composed {
-    val outer = LocalOuterBars.current
-    if (outer == null) statusBarsPadding()
-    else padding(top = maxOf(outer.calculateTopPadding(), WindowInsets.statusBars.asPaddingValues().calculateTopPadding()))
-}
-
-/** 내비게이션 바 위로: [navigationBarsPadding] 과 같고, [FullDialog] 안에서는 바깥에서 잰 두께와 대화창이 받은 두께 중 큰 쪽. */
-fun Modifier.navigationBarsSafe(): Modifier = composed {
-    val outer = LocalOuterBars.current
-    if (outer == null) navigationBarsPadding()
-    else padding(bottom = maxOf(outer.calculateBottomPadding(), WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()))
 }
 
 /** 이 시리즈의 빛깔로 칠한다. */
@@ -187,7 +163,7 @@ fun CurrencyLine(s: AppState, w: Work = s.currentWork) {
 fun NumberNote(title: String, lines: List<String>, onClose: () -> Unit) {
     val p = Ink.palette
     FullDialog(onDismissRequest = onClose) {
-        Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose), contentAlignment = Alignment.Center) {
+        Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose).systemBarsSafe(), contentAlignment = Alignment.Center) {
             Column(
                 Modifier.fillMaxWidth(0.84f).background(p.paper).border(Tokens.Stroke.hair, p.line).pressable(haptic = false) { }.padding(Tokens.Space.s5),
                 verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
@@ -300,8 +276,8 @@ fun rememberFramed(art: String, kind: io.github.graviton94.todayletters.data.Fra
 @Composable
 fun RewardOverlay(s: AppState) {
     val m = s.reward ?: return
-    // 새 메달만이면 메달 한 장 ([MedalMoment])
-    if (m.medals.isNotEmpty() && m.piece == null && m.catalogue == null) return
+    // 새 메달이면 (셋째마다 함께 온 그림도) 메달 한 장 ([MedalMoment])
+    if (m.medals.isNotEmpty() && m.catalogue == null) return
     val w = s.work(m.series.ifEmpty { s.current })
     val t = darkTone(w)
     val a = remember(m) { Animatable(if (s.reducedMotion) 1f else 0f) }
@@ -320,7 +296,7 @@ fun RewardOverlay(s: AppState) {
             listOf(Color(0xFFFFE2AA).copy(alpha = if (master) 0.30f else 0.18f), Color.Transparent),
             center = androidx.compose.ui.geometry.Offset(wpx / 2, hpx * 0.2f), radius = hpx * 0.55f)))
         Column(
-            Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding().verticalScroll(rememberScrollState())
+            Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe().verticalScroll(rememberScrollState())
                 .padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
         ) {
@@ -356,7 +332,6 @@ fun RewardOverlay(s: AppState) {
                         Text(frameName(kind) + if (pc.tier.weight > 0) " · " + stringResource(R.string.reward_odds, pc.tier.weight) else "",
                             style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = t.soft)
                     }
-                    if (m.medals.isNotEmpty() && pc.tier >= Tier.PAINTING) Text(stringResource(R.string.reward_from_ach), style = Type.small.ui(), color = t.soft)
                 }
             }
             if (m.milestone != null) Text(stringResource(R.string.reward_alone, m.milestone), style = Type.body.ui(), color = t.ink, textAlign = TextAlign.Center)
@@ -600,8 +575,8 @@ fun FramePicker(s: AppState, w: Work, pc: Piece, onClose: () -> Unit) {
     val cur = s.frameKind(pc)
     var pick by remember { mutableStateOf<io.github.graviton94.todayletters.data.Frames.Kind?>(null) }
     androidx.activity.compose.BackHandler(onBack = onClose)
-    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose), contentAlignment = Alignment.BottomCenter) {
-        Column(Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsPadding().padding(Tokens.Space.s5),
+    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose).statusBarsSafe(), contentAlignment = Alignment.BottomCenter) {
+        Column(Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsSafe().padding(Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
             Text(stringResource(R.string.frame_change), style = Type.heading.ui(), color = p.ink)
             Text(stringResource(R.string.frame_note), style = Type.small.ui(), color = p.inkSoft)
@@ -636,8 +611,8 @@ fun BorderSheet(s: AppState, w: Work, onClose: () -> Unit) {
     var buying by remember { mutableStateOf<io.github.graviton94.todayletters.core.Border?>(null) }
     s.version
     androidx.activity.compose.BackHandler(onBack = onClose)
-    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose), contentAlignment = Alignment.BottomCenter) {
-        Column(Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsPadding().padding(Tokens.Space.s5),
+    Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false, onClick = onClose).statusBarsSafe(), contentAlignment = Alignment.BottomCenter) {
+        Column(Modifier.fillMaxWidth().background(p.paper).pressable(haptic = false) { }.navigationBarsSafe().padding(Tokens.Space.s5),
             verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
             Text(stringResource(R.string.spend_border), style = Type.heading.ui(), color = p.ink)
             Text(stringResource(R.string.border_note), style = Type.small.ui(), color = p.inkSoft)

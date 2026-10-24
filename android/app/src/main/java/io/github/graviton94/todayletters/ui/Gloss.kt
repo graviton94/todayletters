@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.height
 import androidx.compose.ui.graphics.Color
 import io.github.graviton94.todayletters.core.Breaks
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,9 +29,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.layout.positionInRoot
 import androidx.compose.ui.draw.shadow
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
@@ -88,8 +84,13 @@ fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key
     // 누른 문장 바로 아래에 작은 카드 (자리가 없으면 문장 위에). 자리를 모르면 (문장 밖에서 연 카드) 화면 아래에
     var origin by remember { mutableStateOf(0f) }
     val dens = androidx.compose.ui.platform.LocalDensity.current
-    val safeTop = WindowInsets.statusBars.getTop(dens)
-    val safeBottom = WindowInsets.navigationBars.getBottom(dens)
+    // 막대 · 컷아웃 안쪽에만 (ui/Insets.kt): 위 · 아래, 가로 화면이면 옆 (내비게이션 바 · 펀치홀)
+    val bars = safeBars()
+    val safeTop = bars.getTop(dens)
+    val safeBottom = bars.getBottom(dens)
+    val dir = androidx.compose.ui.platform.LocalLayoutDirection.current
+    val safeLeft = bars.getLeft(dens, dir)
+    val safeRight = bars.getRight(dens, dir)
     androidx.compose.ui.layout.Layout(
         modifier = Modifier.fillMaxSize().onGloballyPositioned { origin = it.positionInRoot().y }
             .clickable(interactionSource = remember { androidx.compose.foundation.interaction.MutableInteractionSource() }, indication = null, onClick = onClose),
@@ -137,17 +138,18 @@ fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key
         },
     ) { ms, c ->
         val side = Tokens.Space.s4.roundToPx(); val gap = 6.dp.roundToPx()
-        val w = (c.maxWidth - 2 * side).coerceAtLeast(0)
+        val w = (c.maxWidth - 2 * side - safeLeft - safeRight).coerceAtLeast(0)
+        val x = side + safeLeft
         val topB = safeTop; val botB = (c.maxHeight - safeBottom).coerceAtLeast(topB + 1)
         val a = anchor
         if (a == null) {
             val pl = ms.first().measure(androidx.compose.ui.unit.Constraints(w, w, 0, ((botB - topB) * 0.6f).toInt()))
-            return@Layout layout(c.maxWidth, c.maxHeight) { pl.place(side, botB - pl.height - side) }
+            return@Layout layout(c.maxWidth, c.maxHeight) { pl.place(x, botB - pl.height - side) }
         }
         // 자리가 화면 밖이면 (문장이 넘겨져 안 보임) 화면 아래에
         if (a.bottom - origin < topB || a.top - origin > botB) {
             val pl = ms.first().measure(androidx.compose.ui.unit.Constraints(w, w, 0, ((botB - topB) * 0.6f).toInt()))
-            return@Layout layout(c.maxWidth, c.maxHeight) { pl.place(side, botB - pl.height - side) }
+            return@Layout layout(c.maxWidth, c.maxHeight) { pl.place(x, botB - pl.height - side) }
         }
         val below = (a.bottom - origin).toInt() + gap
         val above = (a.top - origin).toInt() - gap
@@ -162,7 +164,7 @@ fun GlossSheet(s: AppState, series: String, chapter: String, letter: Letter, key
             // 위아래 어디에도 다 들어가지 않으면 (아주 긴 문장) 더 넓은 쪽에, 화면 안으로
             else -> (if (roomBelow >= roomAbove) below else above - h).coerceIn(topB + side, (botB - side - h).coerceAtLeast(topB + side))
         }
-        layout(c.maxWidth, c.maxHeight) { pl.place(side, y) }
+        layout(c.maxWidth, c.maxHeight) { pl.place(x, y) }
     }
 }
 

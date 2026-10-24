@@ -1081,4 +1081,5 @@
     <string name="verdict_evidence">Right. The underline above is why.</string>
     <string name="need_stop">Finish recording to go on</string>
     <string name="need_typed">Write an answer to check it</string>
+    <string name="medal_with_painting">Came with it</string>
 </resources>
