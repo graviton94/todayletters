@@ -300,6 +300,8 @@ fun rememberFramed(art: String, kind: io.github.graviton94.todayletters.data.Fra
 @Composable
 fun RewardOverlay(s: AppState) {
     val m = s.reward ?: return
+    // 새 메달만이면 메달 한 장 ([MedalMoment])
+    if (m.medals.isNotEmpty() && m.piece == null && m.catalogue == null) return
     val w = s.work(m.series.ifEmpty { s.current })
     val t = darkTone(w)
     val a = remember(m) { Animatable(if (s.reducedMotion) 1f else 0f) }
@@ -397,26 +399,6 @@ fun RewardOverlay(s: AppState) {
                 Text(stringResource(R.string.close), style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = t.ink)
             }
         }
-    }
-}
-
-/**
- * 걸음 안 보상 (시안 하루 흐름 ④): 화면 위쪽 가운데 작은 “+2 ○○” 표시. 누를 것도 막는 것도 없고 (다음 걸음이 바로 이어진다), 2.4초 뒤 사라진다.
- */
-@Composable
-fun RewardChip(s: AppState) {
-    val c = s.chip ?: return
-    val p = Ink.palette
-    LaunchedEffect(c.n) { kotlinx.coroutines.delay(2400); if (s.chip?.n == c.n) s.chip = null }
-    val w = s.work(c.series.ifEmpty { s.current })
-    // 머리 (× · 진행 막대) 가운데 위에 얹는다: 그 아래 제목 · 내용을 가리지 않게
-    Box(Modifier.fillMaxWidth().statusBarsPadding().padding(top = 6.dp), contentAlignment = Alignment.TopCenter) {
-        Text(stringResource(R.string.reward_chip, c.gain, w.kit.currency[uiLang()]), style = Type.small.ui().copy(fontWeight = FontWeight.SemiBold),
-            color = p.giltText, maxLines = 1,
-            modifier = Modifier.shadow(4.dp, androidx.compose.foundation.shape.RoundedCornerShape(Tokens.Radius.round))
-                .background(p.paper, androidx.compose.foundation.shape.RoundedCornerShape(Tokens.Radius.round))
-                .border(1.dp, p.giltText, androidx.compose.foundation.shape.RoundedCornerShape(Tokens.Radius.round))
-                .padding(horizontal = 14.dp, vertical = 6.dp))
     }
 }
 

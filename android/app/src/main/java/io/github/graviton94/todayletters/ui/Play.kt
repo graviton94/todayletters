@@ -79,6 +79,8 @@ import io.github.graviton94.todayletters.design.Type
 fun Play(s: AppState, r: Route.Play) {
     var asking by remember { mutableStateOf(false) }
     BackHandler { asking = true }
+    val thumb = s.stepPic?.takeIf { it.route == r }?.let { StepThumb(s, it.image) }
+    androidx.compose.runtime.CompositionLocalProvider(LocalStepThumb provides thumb) {
     when (r.mode) {
         ReplyMode.MATCH -> Match(s, r, onClose = { asking = true })
         ReplyMode.ALOUD -> Aloud(s, r, onClose = { asking = true })
@@ -108,6 +110,7 @@ fun Play(s: AppState, r: Route.Play) {
                 else -> ReplyLadder(s, r, help, t, turns, next, onClose = { asking = true })
             }
         }
+    }
     }
     if (asking) Ask(
         stringResource(R.string.play_leave_title), stringResource(R.string.play_leave_yes), stringResource(R.string.play_leave_no),

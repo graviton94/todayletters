@@ -154,6 +154,42 @@ object WordSpots {
     /** 지금 [ms] 에 말하는 낱말의 번호 (말하기 전이면 -1, 다 말한 뒤면 마지막). */
     fun at(words: List<WordAt>, ms: Int): Int = words.indexOfLast { it.s <= ms }
 
+    /** 말하기 판 낱말 줄의 한 칸: 글 [t] · 자리 [s]~[e] · 이 칸이 덮는 낱말 번호 [from]..[to] ([at] 의 번호). */
+    data class Shown(val t: String, val s: Int, val e: Int, val from: Int, val to: Int)
+
+    private val OPENING = Regex("^[«‹¿¡(\\[“‘„\"]+$")
+
+    /**
+     * 화면에 보일 낱말 칸: 글자 · 숫자가 없는 토막 (프랑스어 띄어 쓴 문장부호 "Vraiment ? Le" 의 "?" · "»" · "—" 등) 은
+     * 앞 낱말에 붙인다 — 다음 낱말에 붙이지 않는다 ("? Le" 가 되지 않게). 여는 부호 (« ¿ ¡ ( “) 만 다음 낱말 앞에,
+     * 맨 앞의 닫는 부호는 다음 낱말에 (앞 낱말이 없으니). 자리 · 번호는 덮은 낱말들의 것.
+     */
+    fun display(words: List<WordAt>): List<Shown> {
+        val out = mutableListOf<Shown>()
+        var lead: Pair<String, Int>? = null   // 다음 낱말 앞에 붙일 여는 부호 (글, 첫 번호)
+        words.forEachIndexed { i, w ->
+            val tok = w.t.trim()
+            val bare = tok.isNotEmpty() && tok.none { it.isLetterOrDigit() }
+            when {
+                tok.isEmpty() -> {}
+                bare && OPENING.matches(tok) -> lead = (lead?.first.orEmpty() + tok) to (lead?.second ?: i)
+                bare && out.isNotEmpty() && lead == null -> {
+                    val p = out.removeAt(out.lastIndex)
+                    out += p.copy(t = p.t + " " + tok, e = maxOf(p.e, w.e), to = i)
+                }
+                bare -> lead = ((lead?.first?.let { "$it " } ?: "") + tok) to (lead?.second ?: i)
+                else -> {
+                    val l = lead
+                    out += if (l != null) Shown(l.first + (if (OPENING.matches(l.first)) "" else " ") + tok, w.s, w.e, l.second, i)
+                        else Shown(tok, w.s, w.e, i, i)
+                    lead = null
+                }
+            }
+        }
+        lead?.let { l -> if (out.isNotEmpty()) { val p = out.removeAt(out.lastIndex); out += p.copy(t = p.t + " " + l.first, to = words.lastIndex) } }
+        return out
+    }
+
     /**
      * 긴 문장 나누기 (영어 · 한국어, 낱말 시간이 있을 때): 한 마디가 [maxMs] 안쪽 · [max] 낱말 이하가 되게, 낱말 사이 쉼이 가장 긴 곳
      * (문장부호면 더 우선) 에서 자른다. 되도록 [min] 낱말 이상, 끝에 3 낱말 안 되게 남기지 않는다. 낱말 번호 범위들.

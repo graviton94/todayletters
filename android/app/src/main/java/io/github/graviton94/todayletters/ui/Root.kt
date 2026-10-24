@@ -71,7 +71,7 @@ fun Root(s: AppState, onExit: () -> Unit) {
 @Composable
 private fun Main(s: AppState, onExit: () -> Unit) {
     // 맨 위 화면(서재)에서 뒤로: 바로 나가지 않고 닫을지 묻는다 (홈 단추로 내리는 건 묻지 않음)
-    BackHandler(enabled = !s.settingsOpen && !s.askingExit && s.reward == null && s.levelUp == null && s.gradeUp == null && s.downloadAsk == null && s.startAsk == null && s.feedback == null && !s.crashAsk) { if (!s.back()) s.askingExit = true }
+    BackHandler(enabled = !s.settingsOpen && !s.askingExit && s.reward == null && s.stepNote == null && s.levelUp == null && s.gradeUp == null && s.downloadAsk == null && s.startAsk == null && s.feedback == null && !s.crashAsk) { if (!s.back()) s.askingExit = true }
     val inSeries = Nav.inSeries(s.route) && s.route !is Route.Enter && s.current.isNotEmpty()
     // 시리즈 안 화면은 그 시리즈의 빛깔로 (서재 · 내 기록 · 전환은 제 색)
     val body: @Composable () -> Unit = {
@@ -84,6 +84,8 @@ private fun Main(s: AppState, onExit: () -> Unit) {
                         val d = if (s.forward) 1 else -1
                         when {
                             s.reducedMotion -> fadeIn(tween(Tokens.Motion.fadeMs)) togetherWith fadeOut(tween(Tokens.Motion.fadeMs))
+                            // 받은 것이 다음 화면의 제자리로 옮겨 가는 중 (ui/Flight.kt): 자리가 미끄러지지 않게 제자리에서 밝아지기만
+                            s.flights.now != null -> fadeIn(tween(Tokens.Motion.pageMs)) togetherWith fadeOut(tween(Tokens.Motion.pageMs))
                             // 서재 → 전환: 카드가 화면 가득 커지듯 (전환 화면이 스스로 커진다)
                             targetState is Route.Enter || initialState is Route.Enter -> fadeIn(tween(Tokens.Motion.pageMs)) togetherWith fadeOut(tween(Tokens.Motion.pageMs))
                             else -> (fadeIn(tween(Tokens.Motion.pageMs)) + androidx.compose.animation.slideInHorizontally(tween(Tokens.Motion.pageMs)) { it / 5 * d }) togetherWith
@@ -143,10 +145,11 @@ private fun Main(s: AppState, onExit: () -> Unit) {
         LangNoticeHost(s)
         // 결제가 끝난 뒤 고마워요 한 장
         ThanksSheet(s)
-        // 걸음 안 보상: 작은 “+2” (화면을 덮지 않음)
-        RewardChip(s)
-        // 보상 순간: 어느 화면에서든 맨 위에
+        // 걸음 마침 한 장: 그날 편지의 그림 · “+2” · 다음 걸음 단추 (그 아래 다음 걸음이 이미 열려 있다)
+        StepNoteOverlay(s)
+        // 보상 순간: 어느 화면에서든 맨 위에 (새 메달만이면 메달 한 장)
         RewardOverlay(s)
+        MedalMoment(s)
         // 레벨 업: 보상 순간이 닫힌 뒤 한 장
         GradeUpOverlay(s)
         LevelUpOverlay(s)
@@ -155,6 +158,8 @@ private fun Main(s: AppState, onExit: () -> Unit) {
         CrashAsk(s)
         // 새 버전: 업데이트 뒤 ‘새로 바뀐 것’ · 다 받으면 ‘다시 열기’ 띠 · 하루 한 번 묻기 (서재에서만)
         UpdateLayer(s)
+        // 받은 것이 다음 화면의 제자리로 (걸음 그림 · 편지 그림 · 메달 · 서재 카드)
+        FlightLayer(s)
     }
     if (inSeries) InSeries(s.currentWork) { body() } else body()
 }

@@ -28,6 +28,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import kotlinx.coroutines.flow.first
+import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
@@ -211,6 +215,13 @@ fun MedalCabinet(s: AppState, onOpen: (MedalDef) -> Unit) {
                         repeat(4 - row.size) { Spacer(Modifier.weight(1f)) }
                     }
                 }
+                // 메달을 막 진열장에 넣었으면 (메달 한 장의 ‘진열장에 넣기’): 그 가족 아래 다음 메달까지 (시안 rw2 ③)
+                if (s.medalLanding != null && ms.any { it.id == s.medalLanding } && next != null) {
+                    val left = (next.threshold - Medals.value(next, st)).coerceAtLeast(0)
+                    val unit = unitOf(s, next, ui)
+                    Text(stringResource(R.string.medal_next_line, next.title[ui], if (ui == Lang.KO) "$left$unit" else "$left $unit".trim()),
+                        style = Type.small.ui(), color = p.inkSoft, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth().padding(top = 6.dp))
+                }
             }
             Hair()
         }
@@ -218,14 +229,21 @@ fun MedalCabinet(s: AppState, onOpen: (MedalDef) -> Unit) {
 }
 
 /** 메달 칸 하나: 메달 · 아래에 이름 (받음) / 진행 (다음) / 문턱 (그 뒤). 진열장과 나의 기록이 같이 쓴다. */
+@OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
 fun MedalCell(s: AppState, m: MedalDef, st: Stats, earned: Boolean, isNext: Boolean, size: Dp, modifier: Modifier = Modifier, onOpen: () -> Unit) {
     val p = Ink.palette
     val ui = uiLang()
     Column(modifier.pressable(onClick = onOpen).padding(horizontal = 2.dp, vertical = 4.dp),
         horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        MedalImage(m, earned, size, progress = if (isNext) medalCount(s, m, st).let { (a, b) -> a.toFloat() / b.coerceAtLeast(1) } else null,
-            faint = !earned && !isNext)
+        // 막 받은 메달이 날아올 칸 (ui/Flight.kt): 화면 밖이면 그 칸까지 굴린다
+        val bring = remember { androidx.compose.foundation.relocation.BringIntoViewRequester() }
+        val landing = s.medalLanding == m.id
+        LaunchedEffect(landing) { if (landing) bring.bringIntoView() }
+        Box(Modifier.bringIntoViewRequester(bring).then(if (earned) Modifier.flightSlot(s, "medal:${m.id}") else Modifier)) {
+            MedalImage(m, earned, size, progress = if (isNext) medalCount(s, m, st).let { (a, b) -> a.toFloat() / b.coerceAtLeast(1) } else null,
+                faint = !earned && !isNext)
+        }
         Text(
             when {
                 earned -> m.title[ui]
@@ -327,52 +345,92 @@ fun Ornament(color: Color, modifier: Modifier = Modifier) {
 }
 
 /**
- * 레벨 업 순간: 보상 순간과 같은 전시실 벽 (어두운 바탕 · 위에서 내려오는 조명) 위에 새 레벨 · 칭호 · 새 입구 장식.
- * 보상 순간이 떠 있으면 그것이 닫힌 뒤에 (겹쳐 쌓지 않는다). 한 번에 여러 레벨을 올라도 한 장.
+ * 레벨 업 (시안 rw2 4): 숫자보다 이름. 옛 칭호 “해설사 II” 가 흐려지며 사라지고 새 칭호 “해설사 III” 이 또렷해진다
+ * (한글은 세운 글자, 로마 숫자는 Cormorant). 금선이 가운데서 펴지고, 새로 열린 것 (입구 장식, 그림이 데이터에 없으면 이름만) · XP 줄.
+ * 진동 한 번. 큰 단추는 열린 곳으로 (입구 장식이 열렸으면 ‘입구에 가 보기’, 걸음 중이면 그 걸음으로, 아니면 나의 기록).
+ * 보상 순간 · 등급 · 걸음 마침 한 장이 떠 있으면 그것이 닫힌 뒤에 (겹쳐 쌓지 않는다). 한 번에 여러 레벨을 올라도 한 장.
  */
 @Composable
 fun LevelUpOverlay(s: AppState) {
     val up = s.levelUp ?: return
-    if (s.reward != null || s.gradeUp != null) return
+    if (s.reward != null || s.gradeUp != null || s.stepNote != null) return
     val w = s.currentWork
-    val t = darkTone(w)
     val ui = uiLang()
-    val gold = Color(0xFFE7C878)
-    val a = remember(up) { Animatable(if (s.reducedMotion) 1f else 0f) }
-    LaunchedEffect(up) { a.animateTo(1f, tween(if (s.reducedMotion) 0 else 900)) }
+    val still = s.reducedMotion
+    val clock by rememberClock(up, still, 3200)
+    val haptic = androidx.compose.ui.platform.LocalHapticFeedback.current
+    LaunchedEffect(up) { s.cueTier(io.github.graviton94.todayletters.core.Tier.DRAWING) }
+    LaunchedEffect(up) {
+        if (!still) androidx.compose.runtime.snapshotFlow { clock }.first { it >= 1700 }
+        if (s.app.haptics) haptic.performHapticFeedback(androidx.compose.ui.hapticfeedback.HapticFeedbackType.LongPress)
+    }
     androidx.activity.compose.BackHandler { s.levelUp = null }
     val book = s.medalBook.levels
     val lv = Levels.of(s.store.xp().total)
-    BoxWithConstraints(Modifier.fillMaxSize().background(t.paper).pressable(haptic = false) { }) {
-        val wpx = constraints.maxWidth.toFloat(); val hpx = constraints.maxHeight.toFloat()
-        Box(Modifier.fillMaxSize().graphicsLayer { alpha = a.value }.background(Brush.radialGradient(
-            listOf(Color(0xFFFFE2AA).copy(alpha = 0.22f), Color.Transparent), center = Offset(wpx / 2, hpx * 0.28f), radius = hpx * 0.5f)))
-        Column(
-            Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding().verticalScroll(rememberScrollState())
-                .padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
-            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3, Alignment.CenterVertically),
-        ) {
-            Spacer(Modifier.height(Tokens.Space.s6))
-            Caps(stringResource(R.string.levelup_caps), gold, decorative = true)
-            Text(stringResource(R.string.levelup_title), style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
-            Box(Modifier.graphicsLayer { alpha = a.value; val k = 0.94f + 0.06f * a.value; scaleX = k; scaleY = k }.padding(vertical = Tokens.Space.s3),
-                contentAlignment = Alignment.Center) {
-                Text("Lv ${up.to}", style = Type.display.copy(fontFamily = Faces.display), color = gold)
-            }
-            Ornament(gold.copy(alpha = 0.8f))
-            Text(Levels.title(book, up.to, ui), style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
-            Levels.decorationsBetween(up.from, up.to).forEach { d ->
-                Text(stringResource(R.string.levelup_deco, Levels.decorationName(book, d, ui)), style = Type.body.ui(), color = t.accent, textAlign = TextAlign.Center)
-            }
-            Column(Modifier.fillMaxWidth().padding(top = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                Box(Modifier.fillMaxWidth().height(2.dp).background(t.ink.copy(alpha = 0.15f))) {
-                    Box(Modifier.fillMaxWidth(lv.frac).height(2.dp).background(gold))
+    val old = io.github.graviton94.todayletters.core.Wall.rank(Levels.title(book, up.from.coerceAtLeast(1), ui))
+    val now = io.github.graviton94.todayletters.core.Wall.rank(Levels.title(book, up.to, ui))
+    val decos = Levels.decorationsBetween(up.from, up.to)
+    val step = s.route as? io.github.graviton94.todayletters.core.Route.Play
+    @Composable
+    fun Rank(t: Pair<String, String>, k: Float, dir: Float) {
+        Row(Modifier.fillMaxWidth().focus(k, 8f, dir * (1f - k) * 8f), horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.Bottom) {
+            Text(t.first, style = Type.title.ui().copy(fontSize = 34.sp, lineHeight = 44.sp, fontWeight = FontWeight.Medium), color = Museum.ink, maxLines = 1, textAlign = TextAlign.Center)
+            if (t.second.isNotEmpty()) Text(" " + t.second, style = Type.title.copy(fontFamily = Faces.display, fontSize = 44.sp, lineHeight = 44.sp, fontWeight = FontWeight.Medium), color = Museum.ink, maxLines = 1)
+        }
+    }
+    Box(Modifier.fillMaxSize().background(Museum.wall).pressable(haptic = false) { }) {
+        Column(Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding()) {
+            Column(Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(14.dp, Alignment.CenterVertically)) {
+                Spacer(Modifier.height(24.dp))
+                Eyebrow("${io.github.graviton94.todayletters.core.Wall.level(w.series.original)} ${up.to}", Museum.gilt, Modifier.rise(win(clock, 0, 900)))
+                Box(Modifier.fillMaxWidth().height(70.dp), contentAlignment = Alignment.Center) {
+                    // 옛 칭호: 흐려지며 위로 (0.3초 뒤 1.2초), 새 칭호: 아래에서 또렷해짐 (0.9초 뒤 1.2초)
+                    val out = 1f - win(clock, 300, 1200)
+                    if (out > 0f && old != now) Rank(old, out, -1f)
+                    Rank(now, if (old == now) win(clock, 300, 1200) else win(clock, 900, 1200), 1f)
                 }
-                Text(stringResource(R.string.level_left, lv.left, lv.level + 1), style = Type.small.ui(), color = t.soft, modifier = Modifier.align(Alignment.End))
+                val rule = win(clock, 1400, 1000)
+                Box(Modifier.width(120.dp).height(1.dp).graphicsLayer { scaleX = rule }.background(Museum.gilt))
+                Text(stringResource(R.string.levelup_title), style = Type.small.ui().copy(fontSize = 13.sp), color = Museum.soft, textAlign = TextAlign.Center,
+                    modifier = Modifier.rise(win(clock, 1600, 900)))
+                if (decos.isNotEmpty()) Column(Modifier.fillMaxWidth().padding(top = 18.dp).rise(win(clock, 1900, 900)), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Eyebrow(stringResource(R.string.level_unlocked), Museum.soft, size = 11f)
+                    decos.forEach { d ->
+                        Column(Modifier.fillMaxWidth()) {
+                            Box(Modifier.fillMaxWidth().height(1.dp).background(Museum.line))
+                            Row(Modifier.padding(top = 12.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp)) {
+                                Ornament(Museum.gilt.copy(alpha = 0.8f))
+                                Column {
+                                    Text(Levels.decorationName(book, d, ui), style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = Museum.ink)
+                                    Text(stringResource(R.string.level_deco_line, d.level), style = Type.small.ui().copy(fontSize = 12.sp), color = Museum.soft)
+                                }
+                            }
+                        }
+                    }
+                }
+                Column(Modifier.fillMaxWidth().padding(top = 6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Box(Modifier.fillMaxWidth().height(1.dp).background(Museum.line)) {
+                        val k = win(clock, 1800, 1200)
+                        Box(Modifier.fillMaxWidth(lv.frac.coerceIn(0.02f, 1f) * k).height(2.dp).background(Museum.gilt))
+                    }
+                    Row(Modifier.fillMaxWidth()) {
+                        Spacer(Modifier.weight(1f))
+                        Text(stringResource(R.string.level_left, lv.left, lv.level + 1), style = Type.small.ui().copy(fontSize = 11.sp), color = Museum.soft)
+                    }
+                }
+                Spacer(Modifier.height(12.dp))
             }
-            Spacer(Modifier.height(Tokens.Space.s3))
-            Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).background(gold).pressable { s.levelUp = null }, contentAlignment = Alignment.Center) {
-                Text(stringResource(R.string.reward_ok), style = Type.body.ui(), color = Color(0xFF15110C))
+            Box(Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 22.dp)) {
+                when {
+                    decos.isNotEmpty() -> GoButton(stringResource(R.string.go_entrance), Levels.decorationName(book, decos.last(), ui),
+                        fill = Museum.ink, on = Museum.wall, soft = Color(0xFF6B6255)) { s.levelUp = null; s.visitEntrance() }
+                    step != null -> GoButton(stringResource(R.string.go_next_step, stringResource(modeLabel(step.mode))),
+                        fill = Museum.ink, on = Museum.wall, soft = Color(0xFF6B6255)) { s.levelUp = null }
+                    else -> GoButton(stringResource(R.string.go_record), "Lv ${up.to}", fill = Museum.ink, on = Museum.wall, soft = Color(0xFF6B6255)) {
+                        s.levelUp = null; s.go(io.github.graviton94.todayletters.core.Route.Record)
+                    }
+                }
             }
         }
     }
@@ -385,7 +443,7 @@ fun LevelUpOverlay(s: AppState) {
 @Composable
 fun GradeUpOverlay(s: AppState) {
     val up = s.gradeUp ?: return
-    if (s.reward != null) return
+    if (s.reward != null || s.stepNote != null) return
     val t = darkTone(s.currentWork)
     val gold = Color(0xFFE7C878)
     val a = remember(up) { Animatable(if (s.reducedMotion) 1f else 0f) }

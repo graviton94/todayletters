@@ -38,6 +38,18 @@ import io.github.graviton94.todayletters.core.Route
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
+import io.github.graviton94.todayletters.design.Faces
+import io.github.graviton94.todayletters.core.Wall
+import io.github.graviton94.todayletters.core.Levels
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.flow.first
 
 @Composable
 private fun Scroll(content: @Composable () -> Unit) =
@@ -51,109 +63,163 @@ private fun Scroll(content: @Composable () -> Unit) =
 private fun noteLang(@Suppress("UNUSED_PARAMETER") s: AppState) = uiLang()
 
 /**
- * 오늘의 편지 완료: 밀랍 도장이 찍히고(진동), 오늘 한 일이 하나씩 체크되고, 이어 읽은 날 · 그림 · 다음 편지가 언제 오는지.
- * 뒤로 가면 편지함으로 (대화방으로 되돌아가지 않음).
+ * 편지 완료 (시안 rw2 3 · ②): 그림이 주인공. 그날 편지의 그림이 화면 가득 천천히 물러나고 (9초), 아래에 미술관 벽 라벨처럼
+ * 머리말 (작품의 말 “Lettre I · 마침”) · 제목 (원어) · 번역 제목 · 작가 · 해 · 곳 (데이터에 있는 것만) 이 차례로 뜬다.
+ * 가는 금선 봉인 (장 번호) 이 흐린 데서 또렷해지며 진동 한 번. 셈 한 줄 (+우표 · +낱말 카드 · 갤러리 n / N), 등급 · 레벨은 그 아래 한 줄.
+ * 큰 단추 하나 “오늘로 · 복습 3장 · 기초 낱말 2개” (맺음이 있으면 맺음) → 그림이 오늘 맨 위 그림 칸으로 옮겨 가고 오늘의 할 일에 체크.
+ * 작게 “그림 속 산책”. 뒤로 가면 오늘로. 보상 층 (자료 · 메달) 이 떠 있으면 그것이 걷힌 뒤에 라벨이 뜬다.
  */
-@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
 @Composable
 fun Done(s: AppState, room: Route.Letter) {
-    val p = Ink.palette
     val (chapter, letter) = s.letterOf(room)
     val view = s.room(room.series)
     val work = s.work(room.series)
+    val ui = uiLang()
+    val still = s.reducedMotion
     val haptic = androidx.compose.ui.platform.LocalHapticFeedback.current
-    val home = { s.go(Route.Inbox) }
-    androidx.activity.compose.BackHandler(onBack = home)
-    val t = remember { androidx.compose.animation.core.Animatable(if (s.reducedMotion) 1f else 0f) }
-    // 편지 끝 흐름 (시안 하루 흐름): 보상 → 이 화면 하나. 알림 허락은 다음에 오늘에 올 때 (Inbox), 튜토리얼 끝은 이 화면 안의 한 줄
-    val graduating = remember { !s.tutorialDone }
-    LaunchedEffect(Unit) {
-        // 보상 (화면 전체) 이 걷힌 뒤 도장을 찍는다
-        s.uncovered()
-        t.animateTo(0.35f, androidx.compose.animation.core.tween(420, easing = androidx.compose.animation.core.FastOutSlowInEasing))
-        if (s.app.haptics) haptic.performHapticFeedback(androidx.compose.ui.hapticfeedback.HapticFeedbackType.LongPress)
-        t.animateTo(1f, androidx.compose.animation.core.tween(1600, easing = androidx.compose.animation.core.LinearEasing))
-    }
-    LaunchedEffect(graduating) { if (graduating) s.graduate() }
-    fun win(a: Float, b: Float) = androidx.compose.animation.core.FastOutSlowInEasing.transform(((t.value - a) / (b - a)).coerceIn(0f, 1f))
-    val stamp = win(0f, 0.35f)
-    val modes = s.letterModes(room.series, chapter, letter)
-    val pr = s.progress(room.series, chapter, letter.id)
-    val waiting = s.waiting(room.series)
-
     val plates = work.chapters.flatMap { it.letters }
     val got = work.chapters.sumOf { c -> c.letters.count { s.progress(room.series, c.id, it.id).done } }
-    Column(Modifier.fillMaxSize().background(p.paper)) {
-        Column(Modifier.weight(1f).verticalScroll(androidx.compose.foundation.rememberScrollState())) {
-            // 그림 공개: 화면 위를 가득 채우고 아래로 종이에 스며든다. 밀랍 도장이 그 경계에 찍힌다.
-            Box(Modifier.fillMaxWidth().height(400.dp)) {
-                PlateImage(letter.plate?.image.orEmpty(), Modifier.fillMaxSize().graphicsLayer { alpha = win(0.1f, 0.45f); val k = 1.06f - 0.06f * win(0.1f, 0.6f); scaleX = k; scaleY = k })
-                Box(Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Brush.verticalGradient(0f to Color(0x59170F0A), 0.3f to Color.Transparent, 0.65f to Color.Transparent, 1f to p.paper)))
-                Row(Modifier.fillMaxWidth().statusBarsPadding().padding(Tokens.Space.s4)) {
-                    Caps(stringResource(R.string.story_received, roman(plates.indexOf(letter) + 1)), Color(0xFFF7F0E1), modifier = Modifier.weight(1f), decorative = true)
-                    letter.plate?.let { Text(it.date.uppercase(), style = Type.caps, color = Color(0xFFF7F0E1)) }
+    val pl = letter.plate
+    val image = pl?.image?.takeIf { it.isNotBlank() }?.let { "plates/$it" }
+    val art = rememberBounds()
+    // 편지 끝 흐름 (시안 하루 흐름): 이 화면 하나. 알림 허락은 다음에 오늘에 올 때 (Inbox), 튜토리얼 끝은 이 화면 안의 한 줄
+    val graduating = remember { !s.tutorialDone }
+    LaunchedEffect(graduating) { if (graduating) s.graduate() }
+    // 보상 층 (자료 · 메달) 이 걷힌 뒤에 라벨 시계가 돈다
+    var open by remember { mutableStateOf(!s.covered || still) }
+    LaunchedEffect(Unit) { s.uncovered(); open = true }
+    val clock by rememberClock(room, still, 3200, start = open)
+    val zoom by rememberClock(room to "zoom", still, 9000)
+    LaunchedEffect(open) {
+        if (!open) return@LaunchedEffect
+        s.cueTier(io.github.graviton94.todayletters.core.Tier.PAINTING)
+        if (!still) androidx.compose.runtime.snapshotFlow { clock }.first { it >= 2300 }
+        if (s.app.haptics) haptic.performHapticFeedback(androidx.compose.ui.hapticfeedback.HapticFeedbackType.LongPress)
+    }
+    val outro = work.outro != null && s.seriesDone(room.series)
+    val plan = s.todayPlan(room.series)
+    fun home() {
+        if (image != null && !outro) {
+            s.landing = s.key(room.series, chapter, letter.id)
+            s.flights.launch(image, art.rect, "today-pic", still, alignY = 0.3f, source = "wall")
+        }
+        if (outro) s.openOutro(room.series) else s.go(Route.Inbox)
+    }
+    androidx.activity.compose.BackHandler { s.go(Route.Inbox) }
+    val tally = s.letterTally?.takeIf { it.room == room }
+    BoxWithConstraints(Modifier.fillMaxSize().background(Museum.wall)) {
+        val h = maxHeight
+        // 그림: 화면 가득, 9초 동안 1.12 → 1 로 물러난다. 아래 3할부터 벽빛에 스민다
+        Box(Modifier.fillMaxSize().measured(art).flightSource(s, "wall").clipToBounds()) {
+            if (image != null) AssetImage(image, Modifier.fillMaxSize().graphicsLayer {
+                val k = 1.12f - 0.12f * (zoom / 9000f).coerceIn(0f, 1f); scaleX = k; scaleY = k
+            }, sample = 1, alignment = androidx.compose.ui.BiasAlignment(0f, -0.4f))
+            Box(Modifier.fillMaxSize().background(Brush.verticalGradient(
+                0f to Museum.wall.copy(alpha = 0.15f), 0.3f to Color.Transparent, 0.58f to Museum.wall.copy(alpha = 0.78f), 0.74f to Museum.wall, 1f to Museum.wall)))
+        }
+        Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
+        Column(Modifier.fillMaxWidth().heightIn(min = h).navigationBarsPadding(), verticalArrangement = Arrangement.Bottom) {
+            Spacer(Modifier.height(h * 0.36f))
+            // 벽 라벨
+            Box(Modifier.fillMaxWidth().padding(horizontal = 22.dp)) {
+                Column(Modifier.fillMaxWidth().padding(end = 56.dp, bottom = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Eyebrow(Wall.letterNo(work.series.original, plates.indexOf(letter) + 1) + " · " + stringResource(R.string.wall_done), Museum.gilt,
+                        Modifier.rise(win(clock, 600, 900)))
+                    if (pl != null) {
+                        val orig = pl.title[work.series.original]
+                        Text(orig, style = Type.title.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic, fontSize = 30.sp, lineHeight = 33.sp).of(work.series.original),
+                            color = Museum.ink, modifier = Modifier.rise(win(clock, 800, 900)))
+                        val tr = pl.title[view.read].takeIf { it.isNotBlank() && it != orig }
+                        Text(if (tr != null) stringResource(R.string.wall_hung, tr) else stringResource(R.string.wall_hung_only),
+                            style = Type.small.ui().copy(fontSize = 13.sp), color = Museum.soft, modifier = Modifier.rise(win(clock, 1000, 900)))
+                        val artist = pl.credit.ifBlank { if (pl.kind.isEmpty()) work.kit.fullName[ui].ifBlank { work.fullName } else "" }
+                        val meta = Wall.meta(artist, pl.date)
+                        if (meta.isNotEmpty()) Text(meta, style = Type.small.ui().copy(fontSize = 12.sp), color = Museum.soft, modifier = Modifier.rise(win(clock, 1100, 900)))
+                    } else Text(stringResource(R.string.done_title), style = Type.title.ui(), color = Museum.ink, modifier = Modifier.rise(win(clock, 800, 900)))
                 }
-                Box(
-                    Modifier.align(Alignment.BottomCenter).size(92.dp).graphicsLayer {
-                        val k = 1.8f - 0.8f * stamp
-                        scaleX = k; scaleY = k; alpha = stamp; rotationZ = -8f - 10f * (1f - stamp)
-                    }.background(androidx.compose.ui.graphics.Brush.radialGradient(listOf(Color(0xFFC25546), Color(0xFF9A3027), Color(0xFF6E1C15))), CircleShape),
-                    contentAlignment = Alignment.Center,
-                ) { Portrait(work.portrait, work.fullName, 58.dp) }
+                // 가는 금선 봉인 (장 번호): 흐린 데서 또렷해진다
+                val seal = win(clock, 1300, 1100)
+                Box(Modifier.align(Alignment.TopEnd).padding(top = 0.dp).size(44.dp).graphicsLayer {
+                    alpha = seal; val k = 1.25f - 0.25f * seal; scaleX = k; scaleY = k
+                    val r = (1f - seal) * 4f * density
+                    renderEffect = if (r > 0.5f && android.os.Build.VERSION.SDK_INT >= 31) androidx.compose.ui.graphics.BlurEffect(r, r) else null
+                }.drawBehind {
+                    drawCircle(Museum.gilt, size.minDimension / 2 - 0.5.dp.toPx(), style = androidx.compose.ui.graphics.drawscope.Stroke(1.dp.toPx()))
+                    drawCircle(Museum.gilt.copy(alpha = 0.5f), size.minDimension / 2 - 3.5.dp.toPx(), style = androidx.compose.ui.graphics.drawscope.Stroke(1.dp.toPx()))
+                }.clearAndSetSemantics { }, contentAlignment = Alignment.Center) {
+                    Text(roman(room.chapter), style = Type.title.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic, fontSize = 21.sp, lineHeight = 21.sp), color = Museum.gilt)
+                }
             }
-            Column(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                Text(stringResource(R.string.done_title), style = Type.title.ui(), color = p.ink, textAlign = androidx.compose.ui.text.style.TextAlign.Center, modifier = Modifier.graphicsLayer { alpha = win(0.3f, 0.5f) })
-                letter.plate?.let { pl ->
-                    // 원제와 번역은 두 줄 (v20). 같은 시절을 보여 주려고 곁에 둔 그림이면 ‘시대의 그림’
-                    if (pl.era) EraTag()
-                    Text(pl.title[work.series.original], style = Type.small.of(work.series.original), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
-                    if (pl.title[view.read] != pl.title[work.series.original]) Text(pl.title[view.read], style = Type.small.of(view.read), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
-                }
-                // 오늘 한 일 (작은 칩)
-                androidx.compose.foundation.layout.FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    // 실제로 한 걸음만 체크, 건너뛴 걸음은 ‘나중에’ (복습 탭 · 편지 목록에서 다시 하기)
-                    (listOf(null to R.string.step_read_short) + modes.map { it to when (it) { io.github.graviton94.todayletters.core.ReplyMode.MATCH -> R.string.step_match; io.github.graviton94.todayletters.core.ReplyMode.ALOUD -> R.string.step_aloud; io.github.graviton94.todayletters.core.ReplyMode.CHECK -> R.string.step_check; io.github.graviton94.todayletters.core.ReplyMode.TALK -> R.string.step_talk; else -> R.string.step_reply } }).forEachIndexed { k, (m, label) ->
-                        val skipped = m != null && m in pr.skipped && m !in pr.replied
-                        Row(Modifier.graphicsLayer { alpha = win(0.45f + k * 0.07f, 0.55f + k * 0.07f) }.background(p.leaf).border(Tokens.Stroke.hair, p.hair).padding(horizontal = 10.dp, vertical = 6.dp),
-                            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(5.dp)) {
-                            CheckMark(!skipped, 14.dp)
-                            Text(stringResource(label) + if (skipped) " · " + stringResource(R.string.step_later) else "", style = Type.small.ui(), color = if (skipped) p.inkSoft else p.ink)
-                        }
+            // 셈: +우표 · +낱말 카드 · 갤러리 n / N (화폐는 이 편지로 받은 것, 다시 보기면 칸 없음)
+            val k = win(clock, 1500, 900)
+            Row(Modifier.fillMaxWidth().padding(horizontal = 22.dp).rise(k).drawBehind {
+                drawLine(Museum.line, Offset(0f, 0f), Offset(size.width, 0f), 1.dp.toPx())
+                drawLine(Museum.line, Offset(0f, size.height), Offset(size.width, size.height), 1.dp.toPx())
+            }) {
+                val cells = listOfNotNull(
+                    tally?.takeIf { it.gain > 0 }?.let { "+${(it.gain * win(clock, 1700, 900)).toInt()}" to work.kit.currency[ui] },
+                    "+${letter.words.size}" to stringResource(R.string.done_stat_cards),
+                    "$got / ${plates.size}" to stringResource(R.string.tab_gallery),
+                )
+                cells.forEachIndexed { i, (v, l) ->
+                    Column(Modifier.weight(1f).then(if (i > 0) Modifier.drawBehind { drawLine(Museum.line, Offset(0f, 0f), Offset(0f, size.height), 1.dp.toPx()) }.padding(start = 14.dp) else Modifier)
+                        .padding(vertical = 12.dp).semantics(mergeDescendants = true) { }, verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                        Text(v, style = Type.title.copy(fontFamily = Faces.display, fontSize = 24.sp, lineHeight = 26.sp), color = Museum.ink, maxLines = 1)
+                        Text(l, style = Type.small.ui().copy(fontSize = 11.sp), color = Museum.soft, maxLines = 1)
                     }
                 }
-                Row(Modifier.graphicsLayer { alpha = win(0.7f, 0.9f) }, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s6)) {
-                    if (s.streak > 0) Stat("${s.streak}", stringResource(R.string.done_stat_streak))
-                    Stat("+${letter.words.size}", stringResource(R.string.done_stat_cards))
-                    Stat("$got/${plates.size}", stringResource(R.string.tab_gallery))
+            }
+            // 한 줄씩 (있는 것만): 오른 등급 · 레벨, 건너뛴 걸음, 다음 편지, 천천히 듣기, 튜토리얼 끝, 다음 작품
+            Column(Modifier.fillMaxWidth().padding(horizontal = 22.dp, vertical = 12.dp).rise(win(clock, 1800, 900)), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                tally?.grade?.let { g ->
+                    Text(if (g.to.band != g.from.band) stringResource(R.string.gradeup_became, gradeName(g.to.band)) else stringResource(R.string.gradeup_title, stringResource(langLabel(g.lang))),
+                        style = Type.small.ui(), color = Museum.gilt, maxLines = 1)
                 }
-                // 다음 편지가 언제 오는지 (알림 시각 그대로) · 건너뛴 걸음 (예전 ‘오늘의 편지 마침’ 한 장의 줄들을 이 화면에)
+                tally?.level?.let { lv ->
+                    val t = Levels.title(s.medalBook.levels, lv.to, ui)
+                    Text(stringResource(R.string.reward_level_line, lv.to) + " · " + t, style = Type.small.ui(), color = Museum.gilt, maxLines = 1)
+                }
+                val modes = s.letterModes(room.series, chapter, letter)
+                val pr = s.progress(room.series, chapter, letter.id)
                 val skipped = pr.toRedo.count { it in modes }
-                if (skipped > 0) Text(stringResource(R.string.finish_skipped, skipped), style = Type.small.ui(), color = p.giltText, textAlign = androidx.compose.ui.text.style.TextAlign.Center, maxLines = 1)
+                if (skipped > 0) Text(stringResource(R.string.finish_skipped, skipped), style = Type.small.ui(), color = Museum.soft, maxLines = 1)
+                val waiting = s.waiting(room.series)
                 Text(when {
                     waiting > 0 -> stringResource(R.string.done_next_now)
                     got >= plates.size && work.outro != null -> stringResource(R.string.done_series_end)
                     got >= plates.size -> stringResource(R.string.done_chapter_end)
                     s.seriesSettings(room.series).arrivalNotice -> stringResource(R.string.finish_next_at, noticeTime(s.store.noticeHour.coerceIn(0, 23), s.store.noticeMinute.coerceIn(0, 59)))
                     else -> stringResource(R.string.done_next_tomorrow)
-                }, style = Type.small.ui(), color = p.inkSoft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
-                // 천천히 듣는 2주의 안내 (첫 편지 · 3일째에 한 번)
-                if (s.finishSheet == s.key(room.series, chapter, letter.id)) SlowNoteLine(s, room.series, s.key(room.series, chapter, letter.id))
-                // 튜토리얼 끝 한 줄 (편지 I 을 마친 뒤 한 번): 그 뒤로는 도움말이 저절로 뜨지 않는다
-                if (graduating) Text(stringResource(R.string.graduate_title), style = Type.body.ui(), color = p.giltText, textAlign = androidx.compose.ui.text.style.TextAlign.Center, maxLines = 1)
-                // 작품을 다 마쳤으면: 왜에 맞춘 다음 작품 한 줄
+                }, style = Type.small.ui(), color = Museum.soft)
+                val key = s.key(room.series, chapter, letter.id)
+                if (s.finishSheet == key && s.slowNote == key) Text(stringResource(R.string.slow_note, s.listenedToday(view.learn).coerceAtLeast(1)), style = Type.small.ui(), color = Museum.gilt)
+                if (graduating) Text(stringResource(R.string.graduate_title), style = Type.small.ui(), color = Museum.gilt, maxLines = 1)
                 if (s.seriesDone(room.series)) s.suggestedNext(room.series)?.let { nx ->
-                    TextLink(stringResource(R.string.finish_suggest, s.work(nx).name[uiLang()])) { s.enter(nx) }
+                    WallLink(stringResource(R.string.finish_suggest, s.work(nx).name[ui])) { s.enter(nx) }
                 }
             }
+            // 큰 단추 하나: 어디로 가는지 + 거기서 기다리는 것
+            Column(Modifier.fillMaxWidth().padding(horizontal = 20.dp).padding(top = 4.dp, bottom = 10.dp)) {
+                val detail = listOfNotNull(
+                    plan.review.takeIf { it > 0 }?.let { stringResource(R.string.go_review_n, it) },
+                    plan.basics.takeIf { it > 0 }?.let { stringResource(R.string.go_basics_n, it) },
+                ).joinToString(" · ").ifEmpty { null }
+                if (outro) GoButton(stringResource(R.string.done_outro), fill = Museum.ink, on = Museum.wall, soft = Color(0xFF6B6255)) { home() }
+                else GoButton(stringResource(R.string.done_today), detail, fill = Museum.ink, on = Museum.wall, soft = Color(0xFF6B6255)) { home() }
+                // 그림이 이 기기에 없으면 (소리 없이 읽기 · 받지 않음) 걸을 그림도 없다
+                if (pl != null && io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${pl.image}"))
+                    Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) { WallLink(stringResource(R.string.done_walk)) { s.go(Route.Artwork(room.series, room.letter, room)) } }
+            }
         }
-        Column(Modifier.background(p.paper).navigationBarsPadding().padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            // 큰 단추 하나 “오늘로” (늘 다음에 할 일로: 완료 → 오늘 → 복습). 작품을 다 마쳤고 맺음이 있으면 맺음으로. 옆에 작은 “그림 속 산책”
-            if (work.outro != null && s.seriesDone(room.series)) Primary(stringResource(R.string.done_outro), shine = true) { s.openOutro(room.series) }
-            else Primary(stringResource(R.string.done_today), shine = true, onClick = home)
-            // 그림이 이 기기에 없으면 (소리 없이 읽기 · 받지 않음) 걸을 그림도 없다
-            if (letter.plate != null && io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${letter.plate!!.image}"))
-                Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) { TextLink(stringResource(R.string.done_walk)) { s.go(Route.Artwork(room.series, room.letter, room)) } }
         }
+    }
+}
+
+/** 전시실 벽 위의 조용한 글자 링크 (밑줄, 흐린 색, 누르는 자리 44dp). */
+@Composable
+private fun WallLink(text: String, onClick: () -> Unit) {
+    Box(Modifier.heightIn(min = 44.dp).pressable { onClick() }, contentAlignment = Alignment.Center) {
+        Text(text, style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = Museum.soft, maxLines = 1)
     }
 }
 

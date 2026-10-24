@@ -635,17 +635,20 @@ private fun WordRow(t: ShadowTake) {
     val ln = t.line ?: return
     val now = if (t.playAt >= 0) io.github.graviton94.todayletters.core.WordSpots.at(t.spots, t.playAt) else -1
     val style = Type.small.copy(fontSize = Tokens.Text.caps).let { st -> t.lang?.let { st.of(it) } ?: st }
+    // 띄어 쓴 문장부호 ("Vraiment ? Le" 의 "?") 는 앞 낱말에 붙여 보인다 (다음 낱말에 붙지 않게, core 의 WordSpots.display)
+    val shown = remember(t.spots) { io.github.graviton94.todayletters.core.WordSpots.display(t.spots) }
     androidx.compose.ui.layout.Layout(content = {
-        t.spots.forEachIndexed { i, w ->
-            Text(w.t, style = if (i == now) style.copy(fontWeight = FontWeight.SemiBold) else style,
-                color = if (i == now) p.giltText else p.inkSoft, maxLines = 1, softWrap = false)
+        shown.forEach { w ->
+            val on = now in w.from..w.to
+            Text(w.t, style = if (on) style.copy(fontWeight = FontWeight.SemiBold) else style,
+                color = if (on) p.giltText else p.inkSoft, maxLines = 1, softWrap = false)
         }
     }, modifier = Modifier.fillMaxSize().clipToBounds()) { ms, c ->
         val ps = ms.map { it.measure(androidx.compose.ui.unit.Constraints()) }
         layout(c.maxWidth, c.maxHeight) {
             var right = 0
             ps.forEachIndexed { i, pl ->
-                val x = maxOf((ln.x(t.spots[i].s) * c.maxWidth).toInt(), right)
+                val x = maxOf((ln.x(shown[i].s) * c.maxWidth).toInt(), right)
                 if (x < c.maxWidth) pl.place(x, 0)
                 right = x + pl.width + 6
             }
@@ -837,16 +840,8 @@ private fun LiveTrace(t: ShadowTake) {
     val ref = t.refCurve
     val pts = io.github.graviton94.todayletters.core.LiveLine.points(t.times, t.levels, t.pitches, t.onset, t.targetMs, t.refRange)
     Canvas(Modifier.fillMaxSize()) {
+        // 원래 소리가 없는 곳 (내 이야기로 등) 도 같은 한 줄 선만 (예전의 크기 막대는 그리지 않는다, 스크린샷 점검 2026-10-24)
         drawCurve(ref, p.inkSoft, dotted = true, range = 1f)
-        if (ref == null && t.times.isNotEmpty()) {
-            val span = maxOf((t.targetMs ?: 0).toLong(), t.times.last(), 3000L).toFloat()
-            val bw = (size.width * 40f / span).coerceAtLeast(1f)
-            t.times.forEachIndexed { k, at ->
-                val db = t.levels.getOrNull(k) ?: return@forEachIndexed
-                val h = ((db + 60f) / 60f).coerceIn(0.02f, 1f) * size.height * 0.9f
-                drawRect(p.hair, androidx.compose.ui.geometry.Offset(at / span * size.width, size.height / 2 - h / 2), androidx.compose.ui.geometry.Size(bw * 0.6f, h))
-            }
-        }
         fun y(v: Float) = size.height / 2 - v * size.height / 2.2f
         val path = androidx.compose.ui.graphics.Path(); var started = false
         pts.forEach { pt ->

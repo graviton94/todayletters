@@ -4211,5 +4211,113 @@
   "need_scoring": {
     "en": "Comparing your voice…",
     "ko": "내 소리를 비교하는 중이에요"
+  },
+  "wall_done": {
+    "en": "Finished",
+    "ko": "마침"
+  },
+  "wall_hung": {
+    "en": "%1$s · now in your gallery",
+    "ko": "%1$s · 갤러리에 걸었어요"
+  },
+  "wall_hung_only": {
+    "en": "Now in your gallery",
+    "ko": "갤러리에 걸었어요"
+  },
+  "go_next_step": {
+    "en": "Next · %1$s",
+    "ko": "다음 걸음 · %1$s"
+  },
+  "go_back_letter": {
+    "en": "Back to the letter",
+    "ko": "편지로 돌아가기"
+  },
+  "go_back": {
+    "en": "Go back",
+    "ko": "돌아가기"
+  },
+  "go_review_n": {
+    "en": "%1$d to review",
+    "ko": "복습 %1$d장"
+  },
+  "go_basics_n": {
+    "en": "%1$d basic words",
+    "ko": "기초 낱말 %1$d개"
+  },
+  "go_cards_n": {
+    "en": "%1$d cards",
+    "ko": "%1$d장"
+  },
+  "go_cabinet": {
+    "en": "Put it in the cabinet",
+    "ko": "진열장에 넣기"
+  },
+  "go_entrance": {
+    "en": "Visit the entrance",
+    "ko": "입구에 가 보기"
+  },
+  "go_record": {
+    "en": "See My record",
+    "ko": "나의 기록에서 보기"
+  },
+  "go_open_letter": {
+    "en": "Open · %1$s",
+    "ko": "편지 열기 · %1$s"
+  },
+  "step_note_done": {
+    "en": "%1$s done",
+    "ko": "%1$s 마쳤어요"
+  },
+  "step_note_bar": {
+    "en": "%1$s done",
+    "ko": "%1$s 마침"
+  },
+  "step_note_sub": {
+    "en": "%1$s %2$d · %3$s",
+    "ko": "%1$s %2$d · %3$s"
+  },
+  "step_note_sub_only": {
+    "en": "%1$s %2$d",
+    "ko": "%1$s %2$d"
+  },
+  "medal_next_line": {
+    "en": "Next medal · %1$s · %2$s to go",
+    "ko": "다음 메달 · %1$s · %2$s 남음"
+  },
+  "level_unlocked": {
+    "en": "Newly open",
+    "ko": "새로 열린 것"
+  },
+  "level_deco_line": {
+    "en": "At the entrance · Level %1$d",
+    "ko": "입구 장식 · 레벨 %1$d"
+  },
+  "slip_today": {
+    "en": "Arrived today, %1$s",
+    "ko": "오늘 %1$s 도착"
+  },
+  "slip_ago": {
+    "en": "Arrived %1$s",
+    "ko": "%1$s 도착"
+  },
+  "lib_new_hero": {
+    "en": "A letter you haven't opened yet",
+    "ko": "아직 열지 않은 편지가 있어요"
+  },
+  "lib_new_today": {
+    "en": "%1$d new today",
+    "ko": "오늘 새 편지 %1$d통"
+  },
+  "verdict_evidence": {
+    "en": "Right. The underline above is why.",
+    "ko": "맞았어요. 근거는 위의 밑줄이에요."
+  },
+  "need_stop": {
+    "en": "Finish recording to go on",
+    "ko": "녹음을 마치면 다음으로 갈 수 있어요"
+  },
+  "need_typed": {
+    "en": "Write an answer to check it",
+    "ko": "답을 써 보면 확인할 수 있어요"
   }
 }

@@ -162,7 +162,8 @@ internal fun RecallPane(s: AppState, series: String, items: List<RecallItem>, on
             }
             if (st.right) {
                 Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                    Text(stringResource(R.string.recall_right), style = Type.body.ui(), color = p.correct, modifier = Modifier.weight(1f))
+                    GiltCheck(s.reducedMotion, p.giltText, 22.dp)
+                    Text(stringResource(R.string.recall_right), style = Type.body.ui(), color = p.giltText, modifier = Modifier.weight(1f))
                     audio?.let { a -> ListenButtons(play = { sp -> s.narrator.play(a, sp) }) }
                 }
                 if (!speak) Box(Modifier.fillMaxWidth().heightIn(min = 44.dp).pressable(role = Role.Button) { s.narrator.stop(); speak = true }, contentAlignment = Alignment.Center) {
@@ -177,7 +178,10 @@ internal fun RecallPane(s: AppState, series: String, items: List<RecallItem>, on
             if (nq.isEmpty()) onFinish() else { queue = nq; again = na; done++ }
         }
         val label = stringResource(if (Recall.after(queue, again, st.right).first.isEmpty()) R.string.recall_finish else R.string.recall_next)
-        if (take != null) SpeakPanel(s, take) { MainButton(label) { next() } }
+        // 녹음 · 채점 중에는 다음으로 가지 않는다 (말하기 일곱 곳과 같은 규칙: 못 누르면 까닭 한 줄)
+        if (take != null) SpeakPanel(s, take) {
+            MainButton(label, enabled = !take.recording && !take.scoring, reason = stringResource(if (take.scoring) R.string.need_scoring else R.string.need_stop)) { next() }
+        }
         else Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
             MainButton(label, enabled = st.over, reason = stringResource(R.string.need_pick)) { next() }
         }

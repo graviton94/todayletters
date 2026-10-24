@@ -524,7 +524,8 @@ fun Session(s: AppState, r: Route.Session) {
             }
             if (q.kind == ReviewKind.MEANING) IndexOptions(q, picked, mark, missed, retry, shakeKey, choose)
             if (q.kind == ReviewKind.BLANK) TypeTiles(q, picked, mark, missed, retry, shakeKey, choose)
-            if (mark == Memory.Mark.RIGHT || mark == Memory.Mark.ACCENT) CorrectBurst(still = s.reducedMotion)
+            // 뜻 고르기는 고른 보기 옆에 체크가 그려지니 따로 두지 않는다
+            if ((mark == Memory.Mark.RIGHT || mark == Memory.Mark.ACCENT) && q.kind != ReviewKind.MEANING) CorrectBurst(still = s.reducedMotion)
         }
         if (q.kind == ReviewKind.DICTATION && mark == null) {
             val helpers = if (q.learn == Lang.KO) remember(at) { koSyllables(Breaks.plain(q.word), s.cards().mapNotNull { c -> s.cardWord(c.key)?.word?.text?.get(Lang.KO) }, at) } else inputHelpers(q.learn)
@@ -593,7 +594,8 @@ fun Session(s: AppState, r: Route.Session) {
         when {
             // 말하기: 말하기 일곱 곳 공통의 판 · 아래 칸 (높이 고정). 답 (낱말 · 원래 소리) 은 맞히거나 ‘정답 보기’ 뒤에만
             speakTake != null -> SpeakPanel(s, speakTake, preview = mark != null, canListen = mark != null, tip = R.string.speak_tap) {
-                if (mark != null) MainButton(nextLabel) { s.narrator.stop(); next() }
+                if (mark != null) MainButton(nextLabel, enabled = !speakTake.recording && !speakTake.scoring,
+                    reason = stringResource(if (speakTake.scoring) R.string.need_scoring else R.string.need_stop)) { s.narrator.stop(); next() }
                 else Column(Modifier.fillMaxWidth()) {
                     Secondary(stringResource(R.string.practice_reveal)) { judge(Memory.Mark.WRONG) }
                     Box(Modifier.fillMaxWidth().height(20.dp))
@@ -617,7 +619,13 @@ fun Session(s: AppState, r: Route.Session) {
             mark == Memory.Mark.WRONG -> FeedbackBar(false, stringResource(R.string.practice_answer), detail, nextLabel, ::next)
             mark != null -> FeedbackBar(true,
                 if (mark == Memory.Mark.RIGHT) stringResource(if (hinted) R.string.review_right_hint else R.string.review_right) else stringResource(R.string.review_accent, accentWord ?: q.word),
-                detail, nextLabel, ::next)
+                detail, nextLabel, ::next, ticker = if (!journey) null else ({
+                    // 맞힌 낱말 하나 = 그 작품 화폐 하나 (하루 상한 안에서, ‘다음’ 을 누를 때 들어온다): 화폐 수가 제자리에서 한 칸
+                    val sid = q.card.key.substringBefore(":")
+                    val w0 = s.wallet(sid)
+                    val gain = io.github.graviton94.todayletters.core.Rewards.earn(w0, io.github.graviton94.todayletters.core.Earn.REVIEW_RIGHT, s.today).second
+                    if (gain > 0) CurrencyTicker(s.work(sid).kit.currency[uiLang()], w0.balance, w0.balance + gain, p.ink, p.inkSoft, s.reducedMotion)
+                }))
             q.kind == ReviewKind.DICTATION && q.phrase != null -> Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {
                 Primary(stringResource(R.string.play_check), enabled = typed.text.isNotBlank(), shine = true) {
                     // 남은 칸마다 채점: 다 맞으면 맞음, 첫 번째로 틀리면 맞은 낱말은 잠그고 틀린 낱말만 다시
@@ -738,29 +746,9 @@ private fun rememberSpeakTake(s: AppState, q: Q, mark: Memory.Mark?, onRight: ()
         text = io.github.graviton94.todayletters.core.Breaks.plain(q.word), lang = q.learn)
 }
 
-/** 맞았을 때: 금빛 원이 튀어 오르며 체크가 그려지고, 고리가 퍼진다. */
+/** 맞았을 때 (보기 줄이 없는 문제: 받아쓰기 · 빈칸 · 말하기): 가는 금선 원과 체크가 그려진다 (시안 rw2 1, 튀거나 퍼지지 않음). */
 @Composable
-internal fun CorrectBurst(still: Boolean) {
-    val p = Ink.palette
-    val k = remember { androidx.compose.animation.core.Animatable(if (still) 1f else 0f) }
-    LaunchedEffect(Unit) { k.animateTo(1f, androidx.compose.animation.core.tween(650, easing = androidx.compose.animation.core.FastOutSlowInEasing)) }
-    androidx.compose.foundation.Canvas(Modifier.size(84.dp)) {
-        val t = k.value
-        val c = center; val r = size.minDimension / 2
-        // 퍼지는 고리 두 겹
-        drawCircle(p.giltText.copy(alpha = (1f - t) * 0.6f), r * (0.5f + 0.5f * t), c, style = androidx.compose.ui.graphics.drawscope.Stroke(2.dp.toPx()))
-        drawCircle(p.giltText.copy(alpha = (1f - t) * 0.35f), r * (0.3f + 0.7f * t), c, style = androidx.compose.ui.graphics.drawscope.Stroke(1.dp.toPx()))
-        // 튀어 오르는 원 (조금 넘쳤다가 제자리)
-        val s = when { t < 0.55f -> t / 0.55f * 1.15f; else -> 1.15f - (t - 0.55f) / 0.45f * 0.15f }
-        drawCircle(p.correct, r * 0.48f * s, c)
-        // 체크: 원이 다 커진 뒤 그려짐
-        val d = ((t - 0.35f) / 0.65f).coerceIn(0f, 1f)
-        val a = Offset(c.x - r * 0.2f, c.y + r * 0.0f); val b = Offset(c.x - r * 0.05f, c.y + r * 0.15f); val e = Offset(c.x + r * 0.22f, c.y - r * 0.15f)
-        val st = 3.dp.toPx()
-        if (d > 0f) drawLine(p.onFill, a, Offset(a.x + (b.x - a.x) * (d * 2).coerceAtMost(1f), a.y + (b.y - a.y) * (d * 2).coerceAtMost(1f)), st, cap = androidx.compose.ui.graphics.StrokeCap.Round)
-        if (d > 0.5f) { val u = (d - 0.5f) * 2; drawLine(p.onFill, b, Offset(b.x + (e.x - b.x) * u, b.y + (e.y - b.y) * u), st, cap = androidx.compose.ui.graphics.StrokeCap.Round) }
-    }
-}
+internal fun CorrectBurst(still: Boolean) = GiltCheck(still, size = 44.dp)
 
 /** 오늘의 복습 결과. */
 @Composable
@@ -1210,17 +1198,18 @@ fun MeaningOptions(options: List<String>, right: String, read: Lang, picked: Str
                 o in missed || (over && o == picked && o != right) -> 2
                 !over -> 0; o == right -> 1; else -> 3
             }
-            val c = when (st) { 1 -> p.correct; 2 -> p.wrong; 3 -> p.hideInk; else -> p.ink }
+            // 맞은 보기: 먹색으로 남고 오른쪽에 가는 금선 원 · 체크가 그려진다 (시안 rw2 1), 나머지는 옅게
+            val c = when (st) { 1 -> p.ink; 2 -> p.wrong; 3 -> p.hideInk; else -> p.ink }
             Row(
                 Modifier.fillMaxWidth().heightIn(min = 52.dp).then(if (st == 2 && o == picked) Modifier.shake(shakeKey) else Modifier)
-                    .background(when (st) { 1 -> p.correct.copy(alpha = 0.12f); 2 -> p.wrong.copy(alpha = 0.10f); else -> Color.Transparent })
+                    .background(when (st) { 2 -> p.wrong.copy(alpha = 0.10f); else -> Color.Transparent })
                     .pressable(enabled = !over && !retry && o !in missed) { onPick(o) }.padding(horizontal = Tokens.Space.s2),
                 verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
             ) {
                 Text("ABCD".getOrElse(k) { ' ' }.toString(), style = Type.caps, color = if (st == 0) p.giltText else c)
                 Text(o, style = Type.body.of(read).copy(textDecoration = if (st == 2) androidx.compose.ui.text.style.TextDecoration.LineThrough else null),
                     color = c, modifier = Modifier.weight(1f))
-                if (st == 1) Text("✓", style = Type.body, color = p.correct)
+                if (st == 1) GiltCheck(LocalStill.current || calm())
                 if (st == 2) Text("✕", style = Type.body, color = p.wrong)
             }
             Hair()

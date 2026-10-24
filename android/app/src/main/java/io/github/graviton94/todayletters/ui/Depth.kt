@@ -102,6 +102,7 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val options = remember(letter.id, k, langs) { c?.options?.map { Breaks.plain(it[langs.options]) }.orEmpty() }
     val right = options.getOrNull(c?.answer ?: -1).orEmpty()
     val over = picked == right || missed.size >= 2
+    val answeredAt by rememberClock(letter.id to k to over, s.reducedMotion || !over, 1600, start = over)
     // 소리의 주인: 이 화면의 지금 질문 (화면 안의 단계, 시안 하루 흐름 ①)
     var me by remember(letter.id) { mutableStateOf<Any?>(s.narrator.scene) }
     DisposableEffect(letter.id) { onDispose { s.narrator.stop(me) } }
@@ -132,18 +133,15 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
                 Modifier.fillMaxWidth().background(p.leaf).border(Tokens.Stroke.hair, p.line).padding(Tokens.Space.s4),
                 verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
             ) {
-                val soft = p.gilt.copy(alpha = 0.22f)
                 passage.forEach { m ->
                     val t = Breaks.plain(m[view.learn])
                     val mark = c.mark?.lines?.get(view.learn)?.let { Breaks.plain(it) }?.takeIf { it.isNotBlank() }
                     val at0 = mark?.let { t.indexOf(it, ignoreCase = true) } ?: -1
-                    Text(buildAnnotatedString {
-                        append(t)
-                        if (over) {
-                            if (at0 >= 0) addStyle(SpanStyle(background = soft, color = p.giltText, fontWeight = FontWeight.SemiBold), at0, at0 + mark!!.length)
-                            else if (mark == null) addStyle(SpanStyle(background = soft), 0, t.length)
-                        }
-                    }, style = Type.target.copy(fontFamily = Faces.display).of(view.learn), color = p.ink)
+                    // 답이 나면 (시안 rw2 1): 근거 대목에 불이 들고 (나머지는 옅게) 그 아래 금선 밑줄이 왼쪽에서 오른쪽으로. 근거 표시가 없는 문제면 지문 전체가 근거
+                    // 근거 표시가 있는데 이 메시지에 없으면 이 메시지는 옅게만
+                    val range = if (at0 >= 0) at0 until at0 + mark!!.length else if (mark == null) t.indices else IntRange(0, -1)
+                    EvidenceText(androidx.compose.ui.text.AnnotatedString(t), if (mark == null) null else range, over,
+                        Type.target.copy(fontFamily = Faces.display).of(view.learn), p.ink, p.inkSoft.copy(alpha = 0.8f), p.giltText, s.reducedMotion)
                     if (over || showRead) Text(m[view.read], style = Type.small.of(view.read), color = p.inkSoft)
                 }
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
@@ -167,10 +165,9 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
                     }
                 } else { missed = missed + o; shakeKey++; buzzWrong(view0, s.app.haptics); s.cue(false) }
             }
-            if (picked == right && right.isNotEmpty()) Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
-                CorrectBurst(still = s.reducedMotion)
-                Text(stringResource(R.string.review_right), style = Type.body.ui(), color = p.correct)
-            }
+            // 맞음: 고른 보기 옆의 금선 체크 + 한 줄 (근거가 지문에 있으면 ‘근거는 위의 밑줄’)
+            if (picked == right && right.isNotEmpty()) Text(stringResource(if (passage.isNotEmpty()) R.string.verdict_evidence else R.string.review_right),
+                style = Type.body.ui(), color = p.giltText, modifier = Modifier.rise(win(answeredAt, 700, 900), blur = 0f))
             if (!over && missed.isNotEmpty()) Text(stringResource(R.string.check_wrong), style = Type.small.ui(), color = p.wrong)
         }
         Column(Modifier.background(p.paper).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3)) {

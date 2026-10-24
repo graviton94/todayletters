@@ -171,6 +171,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         drainLater()
         version++
     }
+    /** 레벨 업의 ‘입구에 가 보기’: 앱을 켤 때의 첫 화면 (미술관 입구) 을 한 번 더, 들어가면 지금 화면으로. */
+    fun visitEntrance() { stages = listOf(io.github.graviton94.todayletters.core.Stage.OPENING) + stages.filter { it != io.github.graviton94.todayletters.core.Stage.OPENING } }
+
     fun nextStage() {
         if (stages.size > 1) stages = stages.drop(1)
         if (stage == Stage.MAIN) store.openedDay = LocalDate.now().toEpochDay()
@@ -1046,6 +1049,26 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         })
     }
 
+    /** 서재 맨 위 카드의 새 편지 (와 있고 한 번도 열지 않은 첫 편지): (장, 편지, 작품 처음부터 센 번호). 없으면 null. */
+    fun freshLetter(id: String): Triple<String, Letter, Int>? {
+        val all = work(id).chapters.flatMap { c -> c.letters.map { c.id to it } }
+        val k = unreadKeys(id).firstOrNull() ?: return null
+        val i = all.indexOfFirst { (c, l) -> key(id, c, l.id) == k }
+        return all.getOrNull(i)?.let { (c, l) -> Triple(c, l, i + 1) }
+    }
+
+    /** 서재의 ‘편지 열기’: 그 작품의 오늘로 들어가 새 편지를 바로 연다 (도착 장면부터). */
+    fun openFresh(id: String) {
+        val f = freshLetter(id) ?: run { go(Route.Enter(id)); return }
+        enter(id)
+        if (downloadAsk != null) return
+        open(id, f.first, f.second, Route.Inbox)
+    }
+
+    /** 편지 완료 화면 · 오늘의 복습 단추에 적을 것: (낱말 · 표현 · 답장 카드 수, 새 기초 낱말 수). 오늘 복습을 다 했으면 (0, 0). */
+    fun todayPlan(id: String): io.github.graviton94.todayletters.core.Next.AfterLetter =
+        io.github.graviton94.todayletters.core.Next.afterLetter(false, dueCards(id).map { it.key }, store.reviewedOn(space(id)) == today)
+
     /**
      * 받기를 마쳤거나 소리 없이 읽기를 골랐을 때: 기다리던 편지 · 화면을 연다.
      * 소리 없이 읽기는 그 장 (서문 "작품:P" · 맺음 "작품:E" · 편지의 장) 을 다시 묻지 않게만 적는다. 받은 것으로 치지 않으므로 표지 · 설정의 받기 단추는 그대로.
@@ -1150,7 +1173,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         // 회화를 한 날 (어제 말 떠올리기, ui/Recall.kt): "날:편지 열쇠"
         if (mode == ReplyMode.TALK && !r.epilogue) store.logDay("talk", today, key(r.series, ch, l.id))
         replied(r, mode)
-        stepEnded(r, before.done)
+        stepEnded(r, before.done, mode)
     }
 
     /**
@@ -1176,14 +1199,14 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
             store.skipNoted = true
             android.widget.Toast.makeText(ctx, ctx.getString(io.github.graviton94.todayletters.R.string.skip_note), android.widget.Toast.LENGTH_LONG).show()
         }
-        stepEnded(r, before.done)
+        stepEnded(r, before.done, mode)
     }
 
     /** 이 편지에서 하는 걸음 (맺음 편지는 답장 하나). */
     private fun stepsOf(r: Route.Letter): List<ReplyMode> =
         if (r.epilogue) listOf(ReplyMode.CONSTELLATION) else letterOf(r).let { (ch, l) -> letterModes(r.series, ch, l) }
 
-    private fun stepEnded(r: Route.Letter, was: Boolean) {
+    private fun stepEnded(r: Route.Letter, was: Boolean, mode: ReplyMode) {
         val (ch, l) = letterOf(r)
         recorder.stop()
         back()
@@ -1191,12 +1214,21 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         if (r.epilogue) { settle(); return }
         val now = progress(r.series, ch, l.id)
         val ended = !was && now.done
-        if (ended) letterDone(r)
         // 편지 방에서 이어 하던 걸음이면 바로 다음 걸음으로 (방으로 돌아가 ‘다음 · …’ 을 다시 누르지 않게, 사용자 요청 2026-10-24).
         // 방은 뒤에 남아서 걸음 화면을 닫으면 편지로 돌아간다. 마친 편지의 다시 하기 · 복습 탭에서 들어온 걸음은 들어온 곳으로 그대로
-        else if (!was && route == r) stepsOf(r).firstOrNull { it !in now.replied && it !in now.skipped }?.let { go(Route.Play(r, it)) }
-        // 걸음 안 보상은 작은 “+2” (화면을 덮지 않음, 다음 걸음이 바로), 편지를 마쳤으면 편지 완료 보상 한 번 (등급 · 레벨은 그 안에 한 줄씩)
+        val straight = !was && route == r
+        val after = io.github.graviton94.todayletters.core.Next.afterStep(stepsOf(r), now.replied, now.skipped, straight, backToLetter = route is Route.Letter)
+        if (ended) letterDone(r)
+        else if (after is io.github.graviton94.todayletters.core.Next.AfterStep.Step) go(Route.Play(r, after.mode))
+        // 걸음 안 보상은 걸음 마침 한 장 ([stepNote]: 그날 편지의 그림 · “+2”, 다음 걸음 단추), 편지를 마쳤으면 편지 완료 화면 하나 (등급 · 레벨은 그 안에 한 줄씩)
+        chip = null
         settle(quiet = !ended, fold = ended)
+        val c = chip
+        if (!ended && c != null) {
+            chip = null
+            val img = l.plate?.image?.takeIf { it.isNotBlank() }?.let { "plates/$it" }?.takeIf { io.github.graviton94.todayletters.data.AssetFiles.has(ctx, it) }
+            stepNote = StepNote(r, c.gain, mode, img, after, ++chips)
+        }
     }
 
     /** 편지를 막 마쳤다 (마지막 걸음을 했거나 건너뛰었다): 처음이면 보상 · 오늘의 편지 마침 한 장, 다시 보기면 보상 없이 끝. 그리고 편지 완료 화면. */
@@ -1217,7 +1249,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         val (ch, l) = letterOf(r)
         save(r.series, ch, l.id, progress(r.series, ch, l.id).complete(stepsOf(r)).copy(done = true))
         letterDone(r)
-        settle()
+        settle(fold = true)
     }
 
     // ── 보상 엔진 (모든 시리즈 공통: 시리즈 화폐 · 오늘의 자료 · 이정표) ───────────
@@ -1244,10 +1276,32 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     private var chips = 0
 
     /**
+     * 걸음 마침 한 장 (시안 rw2 2 · ①): 마친 걸음 [done] · 받은 화폐 [gain] · 그날 편지의 그림 [image] (assets 경로, 이 기기에 없으면 null) ·
+     * 큰 단추가 데려갈 곳 [next] (다음 걸음 · 들어온 곳). 그 아래에는 다음 걸음이 이미 열려 있고, 단추를 누르면 그림이 다음 걸음 머리의 작은 그림 자리로 옮겨 간다 ([stepPic]).
+     */
+    data class StepNote(val room: Route.Letter, val gain: Int, val done: ReplyMode, val image: String?, val next: io.github.graviton94.todayletters.core.Next.AfterStep, val n: Int)
+    var stepNote by mutableStateOf<StepNote?>(null)
+    /** 걸음 머리의 작은 그림: 걸음 마침 한 장에서 옮겨 온 그림이 그 걸음 [route] 내내 머문다. */
+    data class StepPic(val route: Route.Play, val image: String)
+    var stepPic by mutableStateOf<StepPic?>(null)
+    /**
+     * 편지 완료 화면의 셈 (시안 rw2 3): 이 편지로 받은 화폐 [gain] · 오른 등급 · 레벨 (따로 뜨지 않고 완료 화면 안의 한 줄).
+     * 화폐만이면 보상 층 없이 이 화면 하나 (편지 끝 보상 한 번), 자료 · 메달이 걸렸으면 그 층이 먼저.
+     */
+    data class LetterTally(val room: Route.Letter, val gain: Int, val grade: GradeUp?, val level: LevelUp?)
+    var letterTally by mutableStateOf<LetterTally?>(null)
+    /** 편지 완료 → 오늘로 옮겨 온 편지 열쇠: 오늘 화면이 그 편지에 체크를 긋고 다음 할 일을 밝힌다 (한 번). */
+    var landing by mutableStateOf<String?>(null)
+    /** 메달 → 진열장으로 옮겨 온 메달 id: 진열장이 그 칸으로 굴리고 그 가족 아래 ‘다음 메달’ 한 줄. */
+    var medalLanding by mutableStateOf<String?>(null)
+    /** 옮겨 가는 그림 (ui/Flight.kt). */
+    val flights = Flights()
+
+    /**
      * 무언가 화면을 덮고 있는가 (보상 · 레벨 · 등급 · 받기 시트 · 처음 시작 · 묻는 창 · 도움말 · 설정 · 의견 · 고마워요).
      * 저절로 나오는 소리와 회화의 상대 줄은 덮개가 걷힐 때까지 기다린다 ([uncovered]).
      */
-    val covered: Boolean get() = reward != null || levelUp != null || gradeUp != null || downloadAsk != null || startAsk != null ||
+    val covered: Boolean get() = reward != null || levelUp != null || gradeUp != null || stepNote != null || downloadAsk != null || startAsk != null ||
         settingsOpen || feedback != null || crashAsk || thanks != null || coachShowing || askingExit || langNotice || Covers.open > 0
     /** 화면 사진 · 길 시험만: 말하기 칸이 만들어질 때 (칸, 목소리 판정 알리기). 앱에서는 null. */
     var takeHook: (suspend (ShadowTake, (Boolean) -> Unit) -> Unit)? = null
@@ -1908,7 +1962,15 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         // 레벨 업: 이번 일로 오른 만큼 한 번 (보상 순간이 있으면 그 뒤에)
         val lv = Levels.of(store.xp().total).level
         if (lv > store.levelSeen) { levelUp = LevelUp(store.levelSeen, lv); store.levelSeen = lv }
-        if (fold) reward?.let { m -> reward = m.copy(grade = gradeUp, level = levelUp); gradeUp = null; levelUp = null }
+        if (fold) {
+            // 편지 완료: 셈은 완료 화면 안에 (화폐만이면 보상 층 없이), 등급 · 레벨도 그 안의 한 줄
+            val m = reward
+            val r = route as? Route.Done
+            if (r != null) letterTally = LetterTally(r.room, m?.gain ?: 0, gradeUp, levelUp)
+            if (m != null) reward = if (r != null && m.piece == null && m.medals.isEmpty() && m.catalogue == null && m.milestone == null) null
+                else m.copy(grade = gradeUp, level = levelUp)
+            if (r != null || m != null) { gradeUp = null; levelUp = null }
+        }
         version++
     }
 

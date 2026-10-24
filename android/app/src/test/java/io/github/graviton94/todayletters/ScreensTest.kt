@@ -51,6 +51,7 @@ import io.github.graviton94.todayletters.ui.Artwork
 import io.github.graviton94.todayletters.ui.postcard
 import io.github.graviton94.todayletters.data.DownloadJob
 import org.junit.Rule
+import kotlinx.coroutines.flow.first
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -91,7 +92,7 @@ class ScreensTest {
     }
 
     /** [series] 가 있으면 앱처럼 그 시리즈의 빛깔로 칠한다 (시리즈 안 화면). */
-    private fun shot(name: String, dark: Boolean, ms: Long = 2500, act: () -> Unit = {}, series: AppState? = null, content: @Composable () -> Unit) {
+    private fun shot(name: String, dark: Boolean, ms: Long = 2500, act: () -> Unit = {}, series: AppState? = null, after: Long = 900, content: @Composable () -> Unit) {
         rule.mainClock.autoAdvance = false
         rule.setContent {
             TodayLettersTheme(if (dark) ThemeMode.DARK else ThemeMode.LIGHT) {
@@ -101,7 +102,7 @@ class ScreensTest {
         }
         rule.mainClock.advanceTimeBy(ms)
         act()
-        rule.mainClock.advanceTimeBy(900)
+        rule.mainClock.advanceTimeBy(after)
         rule.onRoot().captureRoboImage("build/screens/$name.png")
         audit(name)
     }
@@ -2324,6 +2325,7 @@ class ScreensTest {
         val rate = io.github.graviton94.todayletters.data.Wav.RATE
         val tr = L.analyze(fakeVoice(2.2) { t -> 180 + 55 * kotlin.math.sin(t * 2.9) }, rate)
         val ln = L.line(tr)!!
+        hookDone = false
         s.takeHook = { t, voiced ->
             if (t.hasAudio) {
                 t.line = ln; t.refCurve = ln.values; t.refRange = ln.range; t.refMs = ln.ms
@@ -2346,28 +2348,38 @@ class ScreensTest {
                     t.onset = onset; t.recording = true; t.ring = 0.6f
                 }
                 Phase.SCORED -> {
+                    // 앱과 같은 길 (스크린샷 점검 2026-10-24 (d)): 목소리가 든 녹음을 녹음 중 파일에 쓰고 녹음을 끝낸다 → 화면의 채점 · 판정 ([ShadowTake.tick])
+                    // 이 그대로 돈다 (통과 수 · 다음 단추가 실제 상태). 그 뒤 판의 두 선 · 점수만 정해 둔 값으로 (Robolectric 은 원래 낭독을 풀지 못한다)
                     t.heard = true
                     kotlinx.coroutines.delay(300)
-                    t.file.parentFile?.mkdirs(); t.file.writeBytes(ByteArray(64))
+                    val voice = fakeVoice(2.5) { x -> 130 + 40 * kotlin.math.sin(x * 2.6) }
+                    val pcm = java.nio.ByteBuffer.allocate(voice.size * 2).order(java.nio.ByteOrder.LITTLE_ENDIAN)
+                    voice.forEach { pcm.putShort((it * 32767).toInt().coerceIn(-32768, 32767).toShort()) }
+                    io.github.graviton94.todayletters.data.Wav.write(java.io.File(t.file.path + ".rec"), pcm.array())
+                    t.recording = true
+                    t.stopRecording(s)
+                    androidx.compose.runtime.snapshotFlow { t.scoring to t.voice }.first { !it.first && it.second != null }
                     if (t.hasAudio) {
-                        val c = L.curves(tr, L.analyze(fakeVoice(2.5) { x -> 130 + 40 * kotlin.math.sin(x * 2.6) }, rate))
+                        val c = L.curves(tr, L.analyze(voice, rate))
                         t.result = Triple(io.github.graviton94.todayletters.core.Prosody.Score(96, 84), c?.ref, c?.mine)
                     }
-                    t.voice = true
-                    voiced(true)
+                    hookDone = true
                 }
             }
         }
         return s
     }
     private fun phaseName(ph: Phase) = ph.name.lowercase()
+    /** 채점 뒤 장면: 화면의 채점은 백그라운드 스레드에서 도니, 끝날 때까지 시계를 조금씩 흘린다. */
+    @Volatile private var hookDone = false
+    private fun waitHook() { repeat(80) { if (hookDone) return; rule.mainClock.advanceTimeBy(100); Thread.sleep(40) } }
     private fun phaseDark(ph: Phase) = ph == Phase.RECORD
 
     /** 따라 읽기 (회화 내 줄 먼저): 먼저 듣기 (고리 · 금빛 세로줄 · 지금 낱말) → 녹음 중 → 채점 뒤 (점수 한 줄 · 칭찬). */
     private fun readAlongShot(ph: Phase) {
         val dark = phaseDark(ph)
         val s = staged(state(true), ph)
-        shot("rules1_readalong_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, ms = 1500, series = s) {
+        shot("rules1_readalong_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, ms = 1500, act = { if (ph == Phase.SCORED) waitHook() }, series = s) {
             io.github.graviton94.todayletters.ui.ReadAlong(s, Route.Letter("vincent", 1, 2), only = listOf(0), onClose = {}, onFinish = {}, onSkip = {})
         }
     }
@@ -2379,7 +2391,7 @@ class ScreensTest {
         val dark = phaseDark(ph)
         withSlow {
             val s = staged(graded(state(true), 1), ph)
-            shot("rules2_talk_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, ms = 4000, series = s) { Play(s, talkRoute) }
+            shot("rules2_talk_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, ms = 4000, act = { if (ph == Phase.SCORED) waitHook() }, series = s) { Play(s, talkRoute) }
         }
     }
     @Test fun rulesTalkListen() = talkShot(Phase.LISTEN)
@@ -2389,7 +2401,7 @@ class ScreensTest {
     private fun replyShot(ph: Phase) {
         val dark = phaseDark(ph)
         val s = staged(graded(state(true), 1), ph)
-        shot("rules3_reply_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, ms = 1500, series = s) {
+        shot("rules3_reply_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, ms = 1500, act = { if (ph == Phase.SCORED) waitHook() }, series = s) {
             io.github.graviton94.todayletters.ui.ReplySpeak(s, Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.CONSTELLATION), 0, 1, onNext = {})
         }
     }
@@ -2410,6 +2422,7 @@ class ScreensTest {
         shot("rules4_mine_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, act = {
             rule.onAllNodes(hasText(first) and hasClickAction()).onFirst().performClick(); rule.mainClock.advanceTimeBy(300)
             rule.onAllNodes(hasText(ctx.getString(R.string.mine_say)) and hasClickAction()).onFirst().performClick(); rule.mainClock.advanceTimeBy(1500)
+            if (ph == Phase.SCORED) waitHook()
         }, series = s) { io.github.graviton94.todayletters.ui.MinePane(s, "vincent", c, l) {} }
     }
     @Test fun rulesMineListen() = mineShot(Phase.LISTEN)
@@ -2425,6 +2438,7 @@ class ScreensTest {
         shot("rules5_recall_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, act = {
             chunks.forEach { ch -> rule.onAllNodes(hasText(ch) and hasClickAction()).onFirst().performClick(); rule.mainClock.advanceTimeBy(300) }
             rule.onAllNodes(hasText(ctx.getString(R.string.recall_say)) and hasClickAction()).onFirst().performClick(); rule.mainClock.advanceTimeBy(1500)
+            if (ph == Phase.SCORED) waitHook()
         }, series = s) { io.github.graviton94.todayletters.ui.RecallScreen(s, Route.RecallQuiz("vincent")) }
     }
     @Test fun rulesRecallListen() = recallShot(Phase.LISTEN)
@@ -2434,7 +2448,7 @@ class ScreensTest {
     private fun reviewSpeakShot(ph: Phase) {
         val dark = phaseDark(ph)
         val s = staged(engineState(), ph); s.reward = null
-        shot("rules6_review_speak_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, ms = 1500, series = s) {
+        shot("rules6_review_speak_${phaseName(ph)}_${if (dark) "dark" else "light"}", dark, ms = 1500, act = { if (ph == Phase.SCORED) waitHook() }, series = s) {
             Session(s, Route.Session(io.github.graviton94.todayletters.core.ReviewKind.SPEAK))
         }
     }
@@ -2442,12 +2456,7 @@ class ScreensTest {
     @Test fun rulesReviewSpeakRecord() = reviewSpeakShot(Phase.RECORD)
     @Test fun rulesReviewSpeakScored() = reviewSpeakShot(Phase.SCORED)
 
-    /** 편지 끝 흐름 ①: 걸음 안 보상은 작은 “+2” (화면을 덮지 않고, 다음 걸음이 그 아래서 그대로). */
-    @Test fun rulesEndChip() = withDepth {
-        val s = graded(state(true), 1)
-        s.chip = AppState.Chip("vincent", 2, 1)
-        shot("rules7_end_chip_light", false, ms = 800, series = s) { Play(s, checkRoute); io.github.graviton94.todayletters.ui.RewardChip(s) }
-    }
+    // 편지 끝 흐름 ①: 걸음 안 보상은 걸음 마침 한 장 (예전 “+2” 칩, rules7) → `rw2*`
     /** 편지 끝 흐름 ②: 편지 완료 보상 한 번, 오른 등급 · 레벨은 그 안에 한 줄씩 (따로 한 장씩 뜨지 않는다). */
     @Test fun rulesEndReward() {
         val s = state(true)
@@ -2473,4 +2482,140 @@ class ScreensTest {
         shot("rules10_end_today_notice_light", false, 2000, act = { s.reward = null; s.levelUp = null; s.gradeUp = null }, series = s) { Inbox(s) }
         org.junit.Assert.assertTrue(s.store.notifyAsked)
     }
+
+    // ── 보상 · 새 편지 (시안 rw2, 2026-10-24): 화면마다 시작 · 끝, 옮겨 가는 것은 가운데 한 장 (`*ScreensTest.rw*`) ──
+    private fun px(dp: Float) = dp * ctx.resources.displayMetrics.density
+    /** 창 좌표의 칸 (dp). */
+    private fun rectDp(x: Float, y: Float, w: Float, h: Float) = androidx.compose.ui.geometry.Rect(px(x), px(y), px(x + w), px(y + h))
+
+    /** ① 정답 (이해 확인): 고른 보기 옆 금선 원 · 체크, 지문의 근거 “pensé à toi” 에 불이 들고 금선 밑줄. */
+    private fun checkRight(name: String, dark: Boolean, after: Long) = withDepth {
+        val s = graded(state(true), 1)
+        shot(name, dark, act = {
+            rule.onAllNodes(hasText(io.github.graviton94.todayletters.core.Breaks.plain(D.check.options[1][s.room("vincent").read])) and hasClickAction()).onFirst().performClick()
+        }, after = after, series = s) { Play(s, checkRoute) }
+    }
+    @Test fun rwCheckRightMid() = checkRight("rw1a_check_right_mid_light", false, 700)
+    @Test fun rwCheckRight() = checkRight("rw1b_check_right_light", false, 2200)
+    @Test fun rwCheckRightDark() = checkRight("rw1c_check_right_dark", true, 2200)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi")
+    @Test fun rwCheckRightEn() = checkRight("rw1d_check_right_en_light", false, 2200)
+    /** 뜻 고르기 (복습 · 낱말 맞추기 같은 부품) + 맞음 띠: 화폐 수가 제자리에서 한 칸 (가운데 · 끝). */
+    private fun meaningRight(name: String, after: Long) {
+        val s = state(true)
+        shot(name, false, ms = 0, after = after, series = s) {
+            androidx.compose.foundation.layout.Column(Modifier.fillMaxSize().padding(16.dp)) {
+                io.github.graviton94.todayletters.ui.MeaningOptions(listOf("인간의", "올리브색의", "필요한", "새로운"), "새로운", io.github.graviton94.todayletters.core.Lang.KO,
+                    "새로운", true, emptySet(), false, 0) { }
+                androidx.compose.foundation.layout.Spacer(Modifier.weight(1f))
+                io.github.graviton94.todayletters.ui.FeedbackBar(true, ctx.getString(R.string.review_right), "nouveau  ·  [nuvo]  ·  새로운", ctx.getString(R.string.ob_next), {},
+                    ticker = { io.github.graviton94.todayletters.ui.CurrencyTicker("우표", 12, 13, Ink.palette.ink, Ink.palette.inkSoft, false) })
+            }
+        }
+    }
+    @Test fun rwMeaningRightMid() = meaningRight("rw1e_meaning_right_mid_light", 1250)
+    @Test fun rwMeaningRight() = meaningRight("rw1f_meaning_right_light", 2400)
+
+    /** ② 걸음 마침 한 장 → 다음 걸음 머리의 작은 그림. [stage] 0 마침 한 장 · 1 옮겨 가는 중 · 2 다음 걸음 (머리에 그림). */
+    private fun stepNote(name: String, dark: Boolean, stage: Int) = withDepth {
+        val s = graded(state(true), 1)
+        val room = Route.Letter("vincent", 1, 1)
+        val (c, l) = s.letterOf(room)
+        val modes = s.letterModes("vincent", c, l)
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size).reply(modes[0]))
+        val img = "plates/${l.plate!!.image}"
+        val next = Route.Play(room, modes[1])
+        when (stage) {
+            0 -> s.stepNote = AppState.StepNote(room, 2, modes[0], img, io.github.graviton94.todayletters.core.Next.AfterStep.Step(modes[1], 1, modes.size), 1)
+            else -> {
+                s.stepPic = AppState.StepPic(next, img)
+                if (stage == 1) s.flights.launch(img, rectDp(140.5f, 236f, 112f, 140f), "step-thumb", false, framed = true, alignY = 0.3f)
+            }
+        }
+        shot(name, dark, ms = if (stage == 1) 120 else 2600, after = if (stage == 1) 0 else 900, series = s) {
+            Box(Modifier.fillMaxSize()) { Play(s, next); io.github.graviton94.todayletters.ui.StepNoteOverlay(s); io.github.graviton94.todayletters.ui.FlightLayer(s) }
+        }
+    }
+    @Test fun rwStepNote() = stepNote("rw2a_step_note_light", false, 0)
+    @Test fun rwStepNoteDark() = stepNote("rw2b_step_note_dark", true, 0)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi")
+    @Test fun rwStepNoteEn() = stepNote("rw2c_step_note_en_light", false, 0)
+    @Test fun rwStepThumbMid() = stepNote("rw2d_step_to_thumb_mid_light", false, 1)
+    @Test fun rwStepThumb() = stepNote("rw2e_step_thumb_end_light", false, 2)
+
+    /** ③ 편지 완료 (벽 라벨 · 봉인 · 셈) → 오늘 (맨 위 그림 칸 · 체크 · 다음 할 일). */
+    private fun letterDone(name: String, ms: Long) {
+        val s = withCards()
+        finishReal(s, "vincent", 1, 1)
+        shot(name, true, ms = ms, after = 0, series = s) { Done(s, Route.Letter("vincent", 1, 1)) }
+    }
+    @Test fun rwDoneStart() = letterDone("rw3a_done_start_dark", 900)
+    @Test fun rwDone() = letterDone("rw3b_done_dark", 4000)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi")
+    @Test fun rwDoneEn() = letterDone("rw3c_done_en_dark", 4000)
+    private fun doneToToday(name: String, dark: Boolean, ms: Long, fly: Boolean) {
+        val s = withCards()
+        finishReal(s, "vincent", 1, 1)
+        val (c, l) = s.letterOf(Route.Letter("vincent", 1, 1))
+        s.landing = s.key("vincent", c, l.id)
+        if (fly) s.flights.launch("plates/${l.plate!!.image}", rectDp(0f, 0f, 393f, 630f), "today-pic", false, alignY = 0.3f)
+        shot(name, dark, ms = ms, after = 0, series = s) { Box(Modifier.fillMaxSize()) { Inbox(s); io.github.graviton94.todayletters.ui.FlightLayer(s) } }
+    }
+    @Test fun rwDoneToTodayMid() = doneToToday("rw3d_done_to_today_mid_light", false, 140, true)
+    @Test fun rwToday() = doneToToday("rw3e_today_landed_light", false, 3000, false)
+    @Test fun rwTodayDark() = doneToToday("rw3f_today_landed_dark", true, 3000, false)
+
+    /** ④ 레벨 업: 옛 칭호가 흐려지고 새 칭호 (한글 세운 글자 · 로마 숫자 Cormorant), 금선, 새로 열린 것, XP 줄. */
+    private fun levelUp(name: String, from: Int, to: Int, ms: Long) {
+        val s = engineState(); s.reward = null
+        s.store.saveXp(io.github.graviton94.todayletters.core.XpLedger(total = io.github.graviton94.todayletters.core.Levels.totalFor(to) + 40))
+        s.levelUp = AppState.LevelUp(from, to)
+        shot(name, true, ms = ms, after = 0) { io.github.graviton94.todayletters.ui.LevelUpOverlay(s) }
+    }
+    @Test fun rwLevelMid() = levelUp("rw4a_level_up_mid", 14, 15, 1150)
+    @Test fun rwLevel() = levelUp("rw4b_level_up_deco", 14, 15, 3600)
+    @Test fun rwLevelPlain() = levelUp("rw4c_level_up_plain", 15, 16, 3600)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi")
+    @Test fun rwLevelEn() = levelUp("rw4d_level_up_en", 14, 15, 3600)
+
+    /** ⑤ 새 메달 → 진열장 칸 (가족 아래 ‘다음 메달’ 한 줄). */
+    private fun medal(name: String, ms: Long) {
+        val s = engineState()
+        s.reward = AppState.RewardMoment("vincent", 10, null, listOf("streak_7"), null, listOf(io.github.graviton94.todayletters.core.Earn.ACHIEVEMENT to 10))
+        shot(name, true, ms = ms, after = 0) { io.github.graviton94.todayletters.ui.MedalMoment(s) }
+    }
+    @Test fun rwMedalMid() = medal("rw5a_medal_mid", 1000)
+    @Test fun rwMedal() = medal("rw5b_medal", 3600)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi")
+    @Test fun rwMedalEn() = medal("rw5c_medal_en", 3600)
+    private fun cabinet(name: String, dark: Boolean, ms: Long, fly: Boolean) {
+        val s = engineState(); s.reward = null
+        s.medalLanding = "streak_7"
+        if (fly) s.flights.launch("medals/streak_7.webp", rectDp(121.5f, 300f, 150f, 150f), "medal:streak_7", false, round = true)
+        shot(name, dark, ms = ms, after = 0) { Box(Modifier.fillMaxSize()) { io.github.graviton94.todayletters.ui.MedalsScreen(s); io.github.graviton94.todayletters.ui.FlightLayer(s) } }
+    }
+    @Test fun rwCabinetMid() = cabinet("rw5d_cabinet_mid_light", false, 160, true)
+    @Test fun rwCabinet() = cabinet("rw5e_cabinet_landed_light", false, 2000, false)
+
+    /** ⑥ 서재의 새 편지 (맨 위 큰 카드 · 편지지 · 빛 한 번 · 편지 열기) → 편지 도착 (카드 그림이 맨 위로, 첫 줄). */
+    private fun library(name: String, dark: Boolean, ms: Long) {
+        val s = engineState(); s.reward = null
+        org.junit.Assert.assertNotNull(s.freshLetter("vincent"))
+        shot(name, dark, ms = ms, after = 0) { LibraryTab(s) }
+    }
+    @Test fun rwLibraryMid() = library("rw6a_library_slip_mid_dark", true, 1100)
+    @Test fun rwLibrary() = library("rw6b_library_hero_dark", true, 3600)
+    @Test fun rwLibraryLight() = library("rw6c_library_hero_light", false, 3600)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi")
+    @Test fun rwLibraryEn() = library("rw6d_library_hero_en_dark", true, 3600)
+    private fun arrivalFromCard(name: String, ms: Long, fly: Boolean) {
+        val s = engineState(); s.reward = null
+        val (c, l, n) = s.freshLetter("vincent")!!
+        if (fly) s.flights.launch(s.work("vincent").kit.hero, rectDp(20f, 236f, 353f, 300f), "arrival-pic", false, cornerFrom = px(16f), alignY = 0.25f, handOff = true)
+        shot(name, false, ms = ms, after = 0, series = s) {
+            Box(Modifier.fillMaxSize()) { io.github.graviton94.todayletters.ui.ArrivalBody(s, "vincent", c, l, n, { }); io.github.graviton94.todayletters.ui.FlightLayer(s) }
+        }
+    }
+    @Test fun rwArrivalMid() = arrivalFromCard("rw6e_card_to_arrival_mid", 160, true)
+    @Test fun rwArrival() = arrivalFromCard("rw6f_card_to_arrival_end", 4500, false)
 }

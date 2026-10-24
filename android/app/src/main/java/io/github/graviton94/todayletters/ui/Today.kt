@@ -107,6 +107,13 @@ fun Inbox(s: AppState) {
                     LearnChip(s, id, learning = true)
                 }
             }
+            // 오늘 마친 편지의 그림 (편지 완료에서 옮겨 온 자리, 시안 rw2 ②): 그날 내내 맨 위에
+            val tlDone = tl != null && s.progress(id, tl.first, tl.second.id).done
+            tl?.second?.plate?.image?.takeIf { tlDone && it.isNotBlank() && io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/$it") }?.let { img ->
+                Box(Modifier.fillMaxWidth().height(150.dp).flightSlot(s, "today-pic").clip(androidx.compose.foundation.shape.RoundedCornerShape(2.dp))) {
+                    AssetImage("plates/$img", Modifier.fillMaxSize(), sample = 2, alignment = androidx.compose.ui.BiasAlignment(0f, -0.4f))
+                }
+            }
             // 어제 말 떠올리기 (지난 공부한 날 회화를 했으면, 오늘 마칠 때까지)
             RecallCard(s, id)
             // 천천히 듣는 2주: 어제 편지 다시 듣기 (기간 중에만)
@@ -122,7 +129,13 @@ fun Inbox(s: AppState) {
             }
             // I 오늘의 편지
             // 여정을 마친 날, 할 것이 없던 걸음도 끝난 표시 (머리의 3 / 3 과 맞춘다)
-            JourneyStep("I", stringResource(R.string.journey_letter), if (j.complete && j.letter == Journey.Step.NONE) Journey.Step.DONE else j.letter, last = false) {
+            // 편지 완료에서 막 왔으면: 그림이 닿은 뒤 편지에 체크가 그어지고 다음 할 일 (복습) 이 밝아진다 (한 번)
+            val landed = tl != null && s.landing == s.key(id, tl.first, tl.second.id)
+            val land by rememberClock(s.landing ?: "", s.reducedMotion || !landed, 2400)
+            androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.landing = null } }
+            val tick = if (landed) win(land, 900, 700) else 1f
+            val glow = if (landed) win(land, 1300, 900) else 0f
+            JourneyStep("I", stringResource(R.string.journey_letter), if (j.complete && j.letter == Journey.Step.NONE) Journey.Step.DONE else j.letter, last = false, tick = tick) {
                 // 여러 통이 와 있으면: 수 · 가장 앞의 편지를 큰 단추로 · 나머지는 한 줄씩
                 // 오늘 이미 한 통을 마쳤으면 그 카드 아래에 수 · 나머지
                 val waiting = s.waitingLetters(id)
@@ -142,7 +155,8 @@ fun Inbox(s: AppState) {
                 }
             }
             // II 오늘의 복습 (이 작품 카드만, 한 판)
-            JourneyStep("II", stringResource(R.string.review_today), if (j.complete && j.review == Journey.Step.NONE) Journey.Step.DONE else j.review, last = false) {
+            JourneyStep("II", stringResource(R.string.review_today), if (j.complete && j.review == Journey.Step.NONE) Journey.Step.DONE else j.review, last = false,
+                glow = if (j.review == Journey.Step.NOW || j.review == Journey.Step.TODO) glow else 0f) {
                 val (n, total) = j.reviewCount
                 when (j.review) {
                     Journey.Step.NONE -> Text(stringResource(if (j.letter == Journey.Step.DONE && s.seriesCards(id).isEmpty()) R.string.review_first_tomorrow else reviewNone(s.seriesCards(id))), style = Type.small.ui(), color = p.inkSoft)
@@ -150,7 +164,7 @@ fun Inbox(s: AppState) {
                     else -> {
                         Text(stringResource(R.string.review_words_n, total), style = Type.small.ui(), color = p.inkSoft)
                         if (n > 0) Bar(n.toFloat() / total.coerceAtLeast(1))
-                        Primary(stringResource(if (n > 0) R.string.journey_review_continue else R.string.review_start), small = true, shine = true) { s.go(Route.Session()) }
+                        GoButton(stringResource(if (n > 0) R.string.journey_review_continue else R.string.review_start), stringResource(R.string.go_cards_n, (total - n).coerceAtLeast(0))) { s.go(Route.Session()) }
                     }
                 }
             }
@@ -188,12 +202,19 @@ fun Inbox(s: AppState) {
 
 /** 여정의 한 걸음: 왼쪽 로마 숫자 동그라미 (다 하면 금빛, 할 것이 없으면 점선) · 이름 · 내용. 걸음 사이를 세로 선이 잇는다. */
 @Composable
-private fun JourneyStep(num: String, title: String, state: Journey.Step, last: Boolean, content: @Composable () -> Unit) {
+private fun JourneyStep(num: String, title: String, state: Journey.Step, last: Boolean,
+                        /** 체크가 그어지는 정도 (편지 완료에서 막 왔을 때 0 → 1). */ tick: Float = 1f,
+                        /** 다음 할 일로 밝히기 (옅은 금빛 바탕, 0..1). */ glow: Float = 0f, content: @Composable () -> Unit) {
     val p = Ink.palette
-    val done = state == Journey.Step.DONE
-    Row(Modifier.fillMaxWidth().height(androidx.compose.foundation.layout.IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+    val done = state == Journey.Step.DONE && tick >= 1f
+    Row(Modifier.fillMaxWidth().height(androidx.compose.foundation.layout.IntrinsicSize.Min)
+        .then(if (glow > 0f) Modifier.background(p.gilt.copy(alpha = 0.10f * glow)) else Modifier), horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
         Column(Modifier.width(28.dp).fillMaxHeight(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Box(Modifier.size(28.dp).then(when (state) {
+            Box(Modifier.size(28.dp).then(when {
+                state == Journey.Step.DONE && tick < 1f -> Modifier.border(1.5.dp, p.giltText, CircleShape).background(p.giltText.copy(alpha = tick), CircleShape)
+                else -> Modifier
+            }).then(when (if (state == Journey.Step.DONE && tick < 1f) null else state) {
+                null -> Modifier
                 Journey.Step.DONE -> Modifier.background(p.giltText, CircleShape)
                 Journey.Step.NONE -> Modifier.dashed(p.line)
                 Journey.Step.NOW -> Modifier.border(2.dp, p.ink, CircleShape)

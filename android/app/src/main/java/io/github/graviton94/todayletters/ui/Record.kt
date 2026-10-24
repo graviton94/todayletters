@@ -149,6 +149,8 @@ fun RecordScreen(s: AppState) {
 @Composable
 fun MedalsScreen(s: AppState) {
     s.version
+    // 메달 한 장에서 막 넣은 메달 (그 가족 아래 ‘다음 메달’ 한 줄) 은 진열장을 떠나면 잊는다
+    androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.medalLanding = null } }
     var detail by rememberSaveable { mutableStateOf<String?>(null) }
     Column(Modifier.fillMaxSize()) {
         TopBar(stringResource(R.string.cabinet_title), s, help = null, showBack = true, showSettings = false)

@@ -615,8 +615,10 @@ class NavTest {
         s.settingsOpen = true; assertTrue(s.covered); s.settingsOpen = false
         s.coachShowing = true; assertTrue(s.covered); s.coachShowing = false
         io.github.graviton94.todayletters.ui.Covers.open++; assertTrue(s.covered); io.github.graviton94.todayletters.ui.Covers.open--
-        // 작은 “+2” 는 덮개가 아니다 (다음 걸음이 바로)
-        s.chip = AppState.Chip("vincent", 2, 1); assertFalse(s.covered)
+        // 걸음 마침 한 장은 덮개 (그 아래 다음 걸음의 소리 · 회화는 단추를 누른 뒤에)
+        s.stepNote = AppState.StepNote(Route.Letter("vincent", 1, 1), 2, io.github.graviton94.todayletters.core.ReplyMode.CHECK, null,
+            io.github.graviton94.todayletters.core.Next.AfterStep.Back(true), 1)
+        assertTrue(s.covered); s.stepNote = null
         assertFalse(s.covered)
     }
 
@@ -633,18 +635,25 @@ class NavTest {
         s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size))
         val modes = s.letterModes("vincent", c, l)
         assertTrue(modes.size >= 2)
-        s.reward = null; s.chip = null
+        s.reward = null; s.stepNote = null
         s.go(Route.Play(room, modes[0]))
         s.replyAndContinue(room, modes[0])
         assertEquals(Route.Play(room, modes[1]), s.route)
-        // 화폐만이면 작은 “+2”, 메달 · 자료가 걸렸을 때만 화면 전체
+        // 화폐만이면 걸음 마침 한 장 (다음 걸음 이름 · 마친 수), 메달 · 자료가 걸렸을 때만 보상 화면
         val mid = s.reward
-        if (mid == null) assertTrue((s.chip?.gain ?: 0) > 0) else assertTrue(mid.medals.isNotEmpty() || mid.piece != null || mid.milestone != null)
-        s.reward = null
+        if (mid == null) {
+            val n = s.stepNote!!
+            assertTrue(n.gain > 0); assertEquals(modes[0], n.done)
+            assertEquals(io.github.graviton94.todayletters.core.Next.AfterStep.Step(modes[1], 1, modes.size), n.next)
+        } else assertTrue(mid.medals.isNotEmpty() || mid.piece != null || mid.milestone != null)
+        s.reward = null; s.stepNote = null
         modes.drop(1).forEach { m -> if (s.route != Route.Play(room, m)) s.go(Route.Play(room, m)); s.replyAndContinue(room, m) }
         assertEquals(Route.Done(room), s.route)
-        val r = s.reward
-        assertTrue(r != null && r.gain > 0)
+        // 편지 완료: 셈은 완료 화면 안 (화폐만이면 보상 층 없이), 등급 · 레벨은 따로 뜨지 않는다
+        val t = s.letterTally
+        assertTrue(t != null && t.room == room && t.gain > 0)
+        s.reward?.let { r -> assertTrue(r.medals.isNotEmpty() || r.piece != null || r.catalogue != null || r.milestone != null) }
+        assertEquals(null, s.stepNote)
         assertEquals(null, s.levelUp); assertEquals(null, s.gradeUp)
     }
 
@@ -679,5 +688,59 @@ class NavTest {
         rule.onNode(androidx.compose.ui.test.hasContentDescription(ctx.getString(R.string.close)) and androidx.compose.ui.test.hasClickAction()).performClick()
         rule.waitForIdle()
         assertEquals(1, closed); assertEquals(0, next)
+    }
+
+    /**
+     * 화면 사이 (시안 rw2): 다시 하기로 들어온 걸음은 들어온 곳으로 (다음 걸음 없음), 편지 완료 단추는 오늘의 복습 · 기초 낱말 수,
+     * 옮겨 가는 그림은 받는 자리가 날아오는 동안 비고, 움직임 줄이기면 날지 않는다.
+     */
+    @Test fun destinationsAndFlights() {
+        val s = state()
+        s.enter("vincent")
+        val room = Route.Letter("vincent", 1, 1, Route.Inbox)
+        val (c, l) = s.letterOf(room)
+        s.open("vincent", c, l, Route.Inbox, skipAudio = true)
+        s.walkLetter(room)
+        assertEquals(Route.Done(room), s.route)
+        // 완료 화면의 단추: 오늘 볼 카드를 낱말 · 기초 낱말로 나눈 수
+        val plan = s.todayPlan("vincent")
+        val due = s.dueCards("vincent").map { it.key }
+        assertEquals(due.count { !io.github.graviton94.todayletters.core.Next.basic(it) }, plan.review)
+        assertEquals(due.count { io.github.graviton94.todayletters.core.Next.basic(it) }, plan.basics)
+        // 마친 편지에서 다시 한 걸음: 다음 걸음 없이 들어온 곳으로
+        s.go(room)
+        s.stepNote = null
+        val m = s.letterModes("vincent", c, l).first()
+        s.go(Route.Play(room, m))
+        s.replyAndContinue(room, m)
+        s.stepNote?.let { assertTrue(it.next is io.github.graviton94.todayletters.core.Next.AfterStep.Back) }
+        // 옮겨 가기
+        val f = s.flights
+        f.launch("plates/c1-l1.webp", androidx.compose.ui.geometry.Rect(0f, 0f, 100f, 100f), "today-pic", still = false, source = "wall")
+        assertTrue(f.incoming("today-pic")); assertTrue(f.leaving("wall")); assertFalse(f.incoming("step-thumb"))
+        f.launch("plates/c1-l1.webp", androidx.compose.ui.geometry.Rect(0f, 0f, 100f, 100f), "arrival-pic", still = false, handOff = true)
+        assertFalse(f.incoming("arrival-pic"))
+        f.launch("plates/c1-l1.webp", androidx.compose.ui.geometry.Rect(0f, 0f, 100f, 100f), "today-pic", still = true)
+        assertEquals(null, f.now)
+    }
+
+    /** 서재의 ‘편지 열기’ 는 그 작품의 오늘을 뒤에 두고 새 편지를 바로 연다. 레벨 업의 ‘입구에 가 보기’ 는 첫 화면 (입구) 을 한 번 더. */
+    @Test fun openFreshAndEntrance() {
+        val s = state()
+        s.enter("vincent")
+        val first = s.freshLetter("vincent")
+        assertTrue(first != null)
+        s.go(Route.Library)
+        s.openFresh("vincent")
+        assertTrue(s.route is Route.Letter)
+        assertTrue(s.store.started(s.key("vincent", first!!.first, first.second.id)))
+        s.back()
+        assertEquals(Route.Inbox, s.route)
+        while (s.stage != io.github.graviton94.todayletters.core.Stage.MAIN) s.nextStage()
+        s.visitEntrance()
+        assertEquals(io.github.graviton94.todayletters.core.Stage.OPENING, s.stage)
+        s.nextStage()
+        assertEquals(io.github.graviton94.todayletters.core.Stage.MAIN, s.stage)
+        assertEquals(Route.Inbox, s.route)
     }
 }

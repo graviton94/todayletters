@@ -196,7 +196,10 @@ fun ReplyLadder(s: AppState, r: Route.Play, help: Ladder.Help, turn: Int, turns:
                 }
             }
             when {
-                done -> Text(stringResource(R.string.play_right, work.name[uiLang()]), style = Type.small.ui(), color = p.correct)
+                done -> Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
+                    GiltCheck(s.reducedMotion, p.giltText, 22.dp)
+                    Text(stringResource(R.string.play_right, work.name[uiLang()]), style = Type.small.ui(), color = p.giltText)
+                }
                 wrong != null -> Text(stringResource(R.string.ladder_wrong), style = Type.small.ui(), color = p.wrong)
             }
             // 한국어를 배우면: 맞힌 뒤 그 문장의 말투 노트 (반말 · 높임 · 실제 사이)
@@ -206,7 +209,7 @@ fun ReplyLadder(s: AppState, r: Route.Play, help: Ladder.Help, turn: Int, turns:
             when {
                 done -> Primary(stringResource(if (turn < turns - 1) R.string.ladder_next_turn else R.string.play_send), shine = true) { onDone() }
                 help == Ladder.Help.WRITE -> {
-                    Primary(stringResource(R.string.ladder_check), enabled = typed.isNotBlank(), shine = true) { if (Ladder.right(answers[at], typed)) accept() else miss(typed) }
+                    MainButton(stringResource(R.string.ladder_check), enabled = typed.isNotBlank(), reason = stringResource(R.string.need_typed)) { if (Ladder.right(answers[at], typed)) accept() else miss(typed) }
                     if (!ime) Secondary(stringResource(R.string.play_show)) { filled = List(holes.size) { true } }
                 }
                 else -> {

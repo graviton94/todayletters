@@ -46,6 +46,8 @@ fun PracticeHeader(at: Int, total: Int, onClose: () -> Unit, onHelp: (() -> Unit
     val p = Ink.palette
     Row(Modifier.fillMaxWidth().padding(end = Tokens.Space.s3), verticalAlignment = Alignment.CenterVertically) {
         IconButton(stringResource(R.string.close), onClick = onClose) { Text("×", style = Type.title, color = p.ink) }
+        // 걸음 마침 한 장에서 옮겨 온 그날 편지의 그림 (그 걸음 내내, 시안 rw2 ①)
+        LocalStepThumb.current?.let { StepThumbSlot(it) }
         // 끝낸 칸은 금빛, 지금 칸은 옅은 잉크 테두리 (아직 다 한 것이 아니니 채우지 않는다). 문제가 없으면 막대와 수를 감춘다
         Row(Modifier.weight(1f), horizontalArrangement = Arrangement.spacedBy(3.dp)) {
             if (total > 0) (0 until total).forEach { k ->
@@ -87,21 +89,25 @@ fun FeedbackBar(
     ok: Boolean, title: String, detail: String? = null,
     primary: String, onPrimary: () -> Unit,
     secondary: String? = null, onSecondary: () -> Unit = {},
+    /** 맞았을 때 제목 줄 오른쪽 (화폐가 한 칸 넘어가는 [CurrencyTicker]). */ ticker: (@Composable () -> Unit)? = null,
 ) {
     val p = Ink.palette
-    val c = if (ok) p.correct else p.wrong
+    // 맞음은 금빛 (가는 금선 원 · 체크, 시안 rw2 1), 틀림은 옅은 빨강 그대로
+    val c = if (ok) p.giltText else p.wrong
     val still = calm()
     AnimatedVisibility(true, enter = if (still) androidx.compose.animation.EnterTransition.None else fadeIn(tween(Tokens.Motion.fadeMs)) + slideInVertically(tween(Tokens.Motion.fadeMs)) { it / 3 }) {
         Column(
-            Modifier.fillMaxWidth().background(c.copy(alpha = 0.12f)),
+            Modifier.fillMaxWidth().background(if (ok) p.gilt.copy(alpha = 0.07f) else c.copy(alpha = 0.12f)),
         ) {
-            Box(Modifier.fillMaxWidth().height(2.dp).background(c))
+            Box(Modifier.fillMaxWidth().height(if (ok) 1.dp else 2.dp).background(c))
             Column(Modifier.padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                 Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    Box(Modifier.size(22.dp).background(c, CircleShape), contentAlignment = Alignment.Center) {
-                        Text(if (ok) "✓" else "!", style = Type.small, color = p.paper)
+                    if (ok) GiltCheck(still, c, 22.dp)
+                    else Box(Modifier.size(22.dp).background(c, CircleShape), contentAlignment = Alignment.Center) {
+                        Text("!", style = Type.small, color = p.paper)
                     }
-                    Text(title, style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = c)
+                    Text(title, style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = c, modifier = Modifier.weight(1f))
+                    if (ok) ticker?.invoke()
                 }
                 if (detail != null) Text(detail, style = Type.small.ui(), color = p.ink)
                 if (secondary != null) Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {

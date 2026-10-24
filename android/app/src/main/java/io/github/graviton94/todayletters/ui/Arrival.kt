@@ -70,9 +70,13 @@ fun LetterArrival(s: AppState, series: String, chapter: String, letter: Letter, 
         // 첫 줄에서 누른 낱말의 뜻 카드는 이 창 안에 (창 밖의 GlossHost 는 가려지므로)
         val layer = remember { s.glossLayers + 1 }
         DisposableEffect(Unit) { s.glossLayers = layer; onDispose { s.glossLayers = layer - 1; s.gloss = null } }
-        Box(Modifier.fillMaxSize()) {
-            ArrivalBody(s, series, chapter, letter, n, onDone, onBack = onBack)
-            GlossHost(s, layer)
+        // 서재 카드에서 펴져 오는 그림은 이 대화창 안의 층이 그린다 (ui/Flight.kt)
+        androidx.compose.runtime.CompositionLocalProvider(LocalFlightHost provides "dialog") {
+            Box(Modifier.fillMaxSize()) {
+                ArrivalBody(s, series, chapter, letter, n, onDone, onBack = onBack)
+                GlossHost(s, layer)
+                FlightLayer(s)
+            }
         }
     }
 }
@@ -128,12 +132,12 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
         val h = maxHeight
         Column(Modifier.fillMaxSize().pressable(enabled = stage == 1, haptic = false) { shown = line.length; stage = 2 }) {
             // 위: 그림 (화면의 4할, 아래로 밤빛에 스며든다)
-            if (plate != null) Box(Modifier.fillMaxWidth().height(h * 0.4f)) {
+            if (plate != null) Box(Modifier.fillMaxWidth().height(h * 0.4f).flightSlot(s, "arrival-pic")) {
                 Image(plate, letter.plate?.title?.get(uiLang()), Modifier.fillMaxSize().graphicsLayer {
                     alpha = reveal.value; val k = 1.06f - 0.06f * reveal.value; scaleX = k; scaleY = k
                 }, contentScale = ContentScale.Crop, alignment = BiasAlignment(0f, -0.3f))
                 Box(Modifier.fillMaxSize().background(Brush.verticalGradient(0f to Night.copy(alpha = 0.55f), 0.25f to Color.Transparent, 0.7f to Color.Transparent, 1f to Night)))
-            } else Box(Modifier.statusBarsSafe().height(Tokens.Space.s8))
+            } else Box(Modifier.fillMaxWidth().statusBarsSafe().height(Tokens.Space.s8).flightSlot(s, "arrival-pic"))
             Column(Modifier.padding(horizontal = Tokens.Space.s7).padding(top = Tokens.Space.s2), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Caps(stringResource(R.string.letter_n, roman(n)), Gilt, small = true, decorative = true, modifier = Modifier.weight(1f))

@@ -46,6 +46,9 @@ import io.github.graviton94.todayletters.design.Faces
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.unit.sp
 
 /** 아직 오지 않은 시리즈 (서재의 ‘곧 도착’ 칸): 초상 파일과 이름. */
 private val upcoming = listOf("mozart" to R.string.up_mozart, "napoleon" to R.string.up_napoleon, "basho" to R.string.up_basho)
@@ -84,8 +87,16 @@ fun LibraryTab(s: AppState) {
                     }
                 }
             }
+            // 새 편지가 온 작품 (읽던 작품 · 한 번도 열지 않은 편지) 이 맨 위 큰 카드, 나머지는 작고 차분하게 (시안 rw2 6 · ④)
+            val hero = if (s.tutorialDone) s.works.firstOrNull { w -> s.startedCount(w.series.id) > 0 && s.freshLetter(w.series.id) != null } else null
+            if (hero != null) {
+                val fresh = s.works.sumOf { w -> if (s.startedCount(w.series.id) > 0) s.unreadKeys(w.series.id).size else 0 }
+                Text(stringResource(R.string.lib_new_today, fresh), style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
+                HeroCard(s, hero)
+                s.works.filter { it != hero }.forEach { w -> SmallSeriesCard(s, w) }
+            }
             // 처음 설치 (튜토리얼): 첫 작품 카드를 강조하고, 배울 말은 그 카드에서 고른다 → 바로 편지 I
-            s.works.forEach { w -> if (!s.tutorialDone && w.series.id == s.tutorialSeries && s.needsWelcome(w.series.id)) TutorialCard(s, w) else SeriesCard(s, w) }
+            else s.works.forEach { w -> if (!s.tutorialDone && w.series.id == s.tutorialSeries && s.needsWelcome(w.series.id)) TutorialCard(s, w) else SeriesCard(s, w) }
             Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
                 upcoming.filter { (id, _) -> s.works.none { it.series.id == id } }.forEach { (file, name) ->
                     Column(Modifier.weight(1f).heightIn(min = 96.dp).dashed(p.hair).padding(vertical = Tokens.Space.s3),
@@ -159,6 +170,97 @@ private fun SeriesCard(s: AppState, w: Work) {
                     if (badge != null) Text(badge, style = Type.small.ui(), color = t.paper, modifier = Modifier.background(t.accent).padding(horizontal = 10.dp, vertical = 4.dp))
                 }
             }
+        }
+    }
+}
+
+/**
+ * 새 편지가 온 작품의 큰 카드 (시안 rw2 6): 그 작품의 표지 그림 위, 카드 위쪽에서 크림색 편지지 “Lettre II · 오늘 08:00 도착” 이 내려와 꽂히고
+ * (1.1초, 0.5초 뒤 · 종이 소리), 빛이 한 번 카드를 지나간다. 아래 ‘편지 열기 · Lettre II’ → 카드의 그림이 편지 도착 맨 위로 펴진다.
+ * 편지지가 내려오는 것은 편지마다 한 번 (저장소에 기억), 그 뒤로는 꽂혀 있는 채로. 카드를 누르면 예전처럼 그 작품으로.
+ */
+@Composable
+private fun HeroCard(s: AppState, w: Work) {
+    val id = w.series.id
+    val f = s.freshLetter(id) ?: return
+    val still = s.reducedMotion
+    val ui = uiLang()
+    val k = s.key(id, f.first, f.second.id)
+    val first = remember(k) { !s.store.dropSeen("hero|$k") }
+    val clock by rememberClock(k, still || !first, 3000)
+    LaunchedEffect(k) { s.store.markDropSeen(listOf("hero|$k")); if (first && !still) { kotlinx.coroutines.delay(500); s.cuePage() } }
+    val card = rememberBounds()
+    val density0 = androidx.compose.ui.platform.LocalDensity.current
+    val no = io.github.graviton94.todayletters.core.Wall.letterNo(w.series.original, f.third)
+    val day = s.arrivedOn(id)
+    val ago = if (day == null) 0L else java.time.LocalDate.now().toEpochDay() - day
+    val time = noticeTime(s.store.noticeHour.coerceIn(0, 23), s.store.noticeMinute.coerceIn(0, 59))
+    val arrived = when {
+        ago <= 0L -> stringResource(R.string.slip_today, time)
+        ago == 1L -> stringResource(R.string.slip_ago, stringResource(R.string.lib_when_yesterday))
+        else -> stringResource(R.string.slip_ago, stringResource(R.string.lib_when_days, ago.toInt()))
+    }
+    fun open() {
+        val from = card.rect
+        s.openFresh(id)
+        // 편지 도착 장면이 바로 뜰 때만 (받기 시트 · 예열 · 이번 장의 소리가 먼저면 날리지 않는다)
+        if (s.route is Route.Letter && s.downloadAsk == null)
+            s.flights.launch(w.kit.hero, from, "arrival-pic", still, cornerFrom = with(density0) { 16.dp.toPx() }, alignY = 0.25f, handOff = true)
+    }
+    Box(Modifier.fillMaxWidth().height(300.dp).measured(card).flightSource(s, "hero").clip(androidx.compose.foundation.shape.RoundedCornerShape(16.dp))
+        .border(1.dp, Color(0x47C9A866), androidx.compose.foundation.shape.RoundedCornerShape(16.dp)).background(Museum.wall).pressable { s.go(Route.Enter(id)) }) {
+        AssetImage(w.kit.hero, Modifier.fillMaxSize(), sample = 2, alignment = androidx.compose.ui.BiasAlignment(0f, -0.5f))
+        Box(Modifier.fillMaxSize().background(Brush.verticalGradient(0.3f to Color(0x000A0908), 0.62f to Color(0xB30A0908), 1f to Color(0xF00A0908))))
+        // 빛 한 번
+        val sweep = win(clock, 1200, 1600)
+        if (sweep > 0f && sweep < 1f) Box(Modifier.fillMaxSize().drawWithContent {
+            val x = size.width * (1.3f - 1.8f * sweep)
+            drawRect(Brush.linearGradient(listOf(Color.Transparent, Color(0x29FFF0D2), Color.Transparent),
+                start = androidx.compose.ui.geometry.Offset(x - size.width * 0.25f, 0f), end = androidx.compose.ui.geometry.Offset(x + size.width * 0.25f, size.height)))
+        })
+        // 편지지: 카드 위쪽에서 내려와 꽂힌다
+        val slip = win(clock, 500, 1100)
+        Column(Modifier.padding(start = 16.dp).graphicsLayer { translationY = -(1f - slip) * size.height }
+            .shadow(8.dp, androidx.compose.foundation.shape.RoundedCornerShape(bottomStart = 6.dp, bottomEnd = 6.dp))
+            .background(Color(0xFFF1EBDF), androidx.compose.foundation.shape.RoundedCornerShape(bottomStart = 6.dp, bottomEnd = 6.dp))
+            .padding(start = 14.dp, end = 14.dp, top = 10.dp, bottom = 12.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            Text(no, style = Type.title.copy(fontFamily = Faces.display, fontStyle = androidx.compose.ui.text.font.FontStyle.Italic, fontSize = 18.sp, lineHeight = 18.sp), color = Color(0xFF2A2520))
+            Text(arrived, style = Type.small.ui().copy(fontSize = 11.sp), color = Color(0xFF6B6255), maxLines = 1)
+        }
+        Column(Modifier.align(Alignment.BottomStart).fillMaxWidth().padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Eyebrow(w.kit.place, Museum.gilt, size = 11.5f)
+            Text("${w.name[ui]} → ${w.recipient[ui]}", style = Type.heading.ui(), color = Museum.ink, maxLines = 1)
+            Text(stringResource(R.string.lib_new_hero), style = Type.small.ui().copy(fontSize = 12.sp), color = Museum.soft, maxLines = 1)
+            Box(Modifier.padding(top = 10.dp).heightIn(min = 44.dp).pressable { open() }, contentAlignment = Alignment.CenterStart) {
+                Row(Modifier.background(Museum.ink, CircleShape).padding(horizontal = 16.dp, vertical = 9.dp), verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Text(stringResource(R.string.go_open_letter, no), style = Type.small.ui().copy(fontSize = 13.sp), color = Museum.wall, maxLines = 1)
+                    ArrowGlyph(Museum.wall)
+                }
+            }
+        }
+    }
+}
+
+/** 새 편지가 온 작품이 맨 위에 있을 때의 나머지 작품: 낮은 카드 (표지 그림 위 어둠 한 겹 · 이름 · 진도 한 줄). */
+@Composable
+private fun SmallSeriesCard(s: AppState, w: Work) {
+    val t = darkTone(w)
+    val id = w.series.id
+    val ui = uiLang()
+    val started = s.startedCount(id) > 0
+    val fresh = if (started) s.unreadKeys(id).size else 0
+    val line = when {
+        fresh > 0 -> stringResource(R.string.lib_new, fresh)
+        started && s.waitingLetters(id).isNotEmpty() -> stringResource(R.string.lib_reading)
+        else -> libWhere(s, w)
+    }
+    Box(Modifier.fillMaxWidth().height(96.dp).clip(androidx.compose.foundation.shape.RoundedCornerShape(16.dp)).background(t.paper).pressable { s.go(Route.Enter(id)) }) {
+        AssetImage(w.kit.hero, Modifier.fillMaxSize().graphicsLayer { alpha = 0.55f }, sample = 4, alignment = Alignment.CenterEnd)
+        Box(Modifier.fillMaxSize().background(Brush.horizontalGradient(0f to t.paper, 0.45f to t.paper.copy(alpha = 0.85f), 1f to t.paper.copy(alpha = 0.35f))))
+        Column(Modifier.align(Alignment.CenterStart).padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Text("${w.name[ui]} → ${w.recipient[ui]}", style = Type.body.ui().copy(fontWeight = FontWeight.SemiBold), color = t.ink, maxLines = 1)
+            Text(line, style = Type.small.ui().copy(fontSize = 12.sp), color = t.soft, maxLines = 1)
         }
     }
 }
