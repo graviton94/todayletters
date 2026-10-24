@@ -241,15 +241,11 @@ class Narrator(private val ctx: Context) {
     }.getOrDefault(emptyList())
 
     /**
-     * 낱말 시간 (정렬 작업이 낭독마다 만든 `<소리>.words.json` = {"v":1,"words":[{"t","s","e","q"}],"ok"}, s · e 는 소리 시작부터 밀리초).
-     * 없거나 정렬이 좋지 않으면 ("ok": false) null: 부르는 쪽이 기기에서 어림한다 (core 의 WordSpots.estimate).
+     * 낱말 시간 (정렬 작업 align.yml 이 낭독마다 만든 `<소리>.words.json`, core 의 WordTimes · [WordTimesFiles]). s · e 는 소리 시작부터 밀리초.
+     * 없거나 정렬이 약하면 ("ok": false) null: 부르는 쪽이 기기에서 어림한다 (core 의 WordSpots.estimate). 낱말 차례는 화면 글 그대로.
      */
-    fun words(asset: String): List<io.github.graviton94.todayletters.core.WordAt>? = runCatching {
-        val o = org.json.JSONObject(AssetFiles.text(ctx, asset.removeSuffix(".m4a") + ".words.json")!!)
-        if (!o.optBoolean("ok", true)) return null
-        val a = o.getJSONArray("words")
-        (0 until a.length()).map { a.getJSONObject(it).let { w -> io.github.graviton94.todayletters.core.WordAt(w.getString("t"), w.getDouble("s").toInt(), w.getDouble("e").toInt()) } }
-    }.getOrNull()?.takeIf { it.isNotEmpty() }
+    fun words(asset: String): List<io.github.graviton94.todayletters.core.WordAt>? =
+        WordTimesFiles.load(ctx, asset)?.takeIf { it.ok }?.words?.map { io.github.graviton94.todayletters.core.WordAt(it.text, it.start, it.end) }?.takeIf { it.isNotEmpty() }
 
     /** 지금 재생 중인 파일 (화면의 듣기 버튼이 재생 · 멈춤 모양을 고른다). */
     var playing: String? = null
