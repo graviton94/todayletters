@@ -1,11 +1,5 @@
 a11y.txt
-f01_room_gloss_below_light.png
-f02_room_gloss_last_dark.png
-f03_room_guide_done_dark.png
-f04_match8_dark.png
-f05_match_german_long_light.png
-f06_match8_large.png
-fix1_shadow_high_score_pass_dark.png
-fix2_shadow_low_score_retry_light.png
-fix3_shadow_no_take_light.png
-fixfit_constellation_360x640.png
+abcd1_before_light.png
+abcd2_recording_dark.png
+abcd3_compare_dark.png
+abcd4_scored_light.png
