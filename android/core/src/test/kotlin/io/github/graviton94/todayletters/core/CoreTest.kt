@@ -111,6 +111,15 @@ class CoreTest {
         words = listOf(Word(tri("étoile", "star", "별"))), note = null, plate = null,
     )
 
+    /** 다음 편지 열기: 방금 마친 편지 뒤의 첫 안 마친 편지 (앞서 읽다 둔 편지는 뒤에 없을 때만). */
+    @Test fun nextLetterIsAfterCurrent() {
+        // 0 은 읽다 둠, 1 을 방금 마침, 2 는 새 편지 → 2 (예전에는 0 이 끝 부분부터 열렸다)
+        assertEquals(2, Arrivals.next(listOf(false, true, false), 1))
+        assertEquals(0, Arrivals.next(listOf(false, true, true), 1))
+        assertEquals(null, Arrivals.next(listOf(true, true), 1))
+        assertEquals(null, Arrivals.next(listOf(false), 0))
+    }
+
     @Test fun arrivalsLetPerDayNewLetters() {
         assertEquals(1, Arrivals.openable(total = 5, started = 0, openedToday = 0, perDay = 1))
         // 오늘 열고 아직 다 읽지 않은 편지는 그대로 열려 있다 (사라지지 않음)

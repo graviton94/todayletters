@@ -722,7 +722,7 @@ private fun SpeakPane(s: AppState, q: Q, mark: Memory.Mark?, onJudge: (Memory.Ma
 
 /** 맞았을 때: 금빛 원이 튀어 오르며 체크가 그려지고, 고리가 퍼진다. */
 @Composable
-private fun CorrectBurst(still: Boolean) {
+internal fun CorrectBurst(still: Boolean) {
     val p = Ink.palette
     val k = remember { androidx.compose.animation.core.Animatable(if (still) 1f else 0f) }
     LaunchedEffect(Unit) { k.animateTo(1f, androidx.compose.animation.core.tween(650, easing = androidx.compose.animation.core.FastOutSlowInEasing)) }

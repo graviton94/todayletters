@@ -198,6 +198,13 @@ object Arrivals {
     fun waiting(total: Int, done: Int, started: Int, openedToday: Int, perDay: Int): Int =
         (openable(total, started, openedToday, perDay) - done).coerceAtLeast(0)
 
+    /**
+     * 편지 완료 화면의 ‘다음 편지 열기’: 열 수 있는 편지 ([done] 다 마쳤는가, 앞에서부터) 가운데 방금 마친 [current] 뒤의 첫 안 마친 편지.
+     * 뒤에 없을 때만 앞쪽의 안 마친 편지 (예전에는 늘 앞쪽 첫 편지라, 앞서 읽다 둔 편지가 끝 부분부터 열렸다). 없으면 null.
+     */
+    fun next(done: List<Boolean>, current: Int): Int? =
+        (current + 1 until done.size).firstOrNull { !done[it] } ?: done.indices.firstOrNull { it != current && !done[it] }
+
     /** [index](0부터) 번째 편지가 며칠 뒤에 오는가. 0 이면 이미 왔다. */
     fun daysUntil(index: Int, openable: Int, perDay: Int): Int =
         if (index < openable) 0 else (index - openable) / perDay.coerceAtLeast(1) + 1

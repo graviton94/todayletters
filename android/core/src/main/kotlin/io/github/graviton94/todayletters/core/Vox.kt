@@ -23,12 +23,16 @@ object SpeakCheck {
     data class Verdict(val pass: Boolean, val hint: Boolean)
 
     /**
-     * [spoke] 목소리가 들어갔나, [mine] 내 음절, [ref] 원래 음절 (null 이면 음절은 따지지 않음), [misses] 이 줄에서 앞서 안 된 횟수.
-     * 침묵 · 잡음은 언제나 아니다 (‘다시 해 봐요’). 음절이 어긋나도 두 번째 실패 (앞서 한 번 이상 안 됨) 면 통과.
+     * 말하기 한 번의 판정 (따라 읽기 · 회화 · 답장 말해 보기 · 복습 말하기 · 떠올리기 · 내 이야기로, 모두 이 한 곳):
+     * 통과 = [spoke] (목소리가 들어감) 이고, 음절이 맞거나 ([mine] 내 음절 · [ref] 원래 음절, null 이면 따지지 않음)
+     * 억양 · 리듬 점수 [score] (원래 소리가 있을 때만, 없으면 null) 가 [Prosody.PASS] 이상. [misses] 이 줄에서 앞서 안 된 횟수:
+     * 두 번째 실패 (앞서 한 번 이상 안 됨) 는 목소리만 들어가면 통과. 침묵 · 잡음은 언제나 아니다 (‘다시 해 봐요’).
+     * 점수가 높으면 음절이 어긋나도 통과라서 ‘훌륭해요’ 와 ‘또박또박’ 이 함께 나오지 않는다.
      */
-    fun judge(spoke: Boolean, mine: Int, ref: Int?, misses: Int): Verdict = when {
+    fun judge(spoke: Boolean, mine: Int, ref: Int?, misses: Int, score: Int? = null): Verdict = when {
         !spoke -> Verdict(pass = false, hint = false)
         ref == null || close(mine, ref) -> Verdict(pass = true, hint = false)
+        score != null && score >= Prosody.PASS -> Verdict(pass = true, hint = false)
         misses >= 1 -> Verdict(pass = true, hint = false)
         else -> Verdict(pass = false, hint = true)
     }

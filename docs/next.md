@@ -257,3 +257,14 @@
 - 이번 장의 소리 I~VI (es: ñ/n · r/l · 강세 · b/p · g/k, en · ko 는 나폴레옹과 같은 차례).
 - 소리: narration-r2 make=new (편지 낭독 · 회화 · 카드 · 기초 · 소리) 와 make=replies 를 goya 로 돌려 R2 에 올림 (remote/audio/goya). 화면 사진 `ScreensTest.goya*` g01~g06 (g05 IV-1 편지 방, g06 맺음 아웃트로).
 - 남은 것: 낱말 아래 뜻의 동형어 real (왕립의 / 레알 돈) 을 가르지 않아 “quince mil reales” 아래 ‘왕립의’ 로 보인다 (es_occ 로 real#2 를 나눌 것). 출처 사이트 (site_sources.py) 아직.
+
+## 2026-10-24 폰 시험 고침 (말하기 판 · 걸음 흐름 · 다음 편지)
+
+- **판정 한 곳** core `SpeakCheck.judge(spoke, 내 음절, 원래 음절, misses, score)`: 통과 = 목소리 AND (음절 맞음 OR 억양 · 리듬 점수 ≥ `Prosody.PASS` 55), 같은 칸 두 번째 실패는 목소리만 (사용자 결정 가 그대로). 점수 91 인데 ‘또박또박’ 으로 막히던 것 (음절 규칙만 보고 점수는 안 봄) 고침. `ShadowTake.passed` 가 판의 칭찬 한 줄 · 안내 한 줄 · 다음 단추 · 효과음 모두의 기준 (안 된 녹음엔 ‘훌륭해요’ 대신 ‘다시’ 한 줄).
+- 녹음은 `<파일>.rec` 에 받고 끝낼 때 0.3초 이상이면 바꿔 넣는다 (아니면 지난 녹음도 지움 → 점수 없이 ‘다시 해 봐요’). 채점은 녹음을 끝낼 때만 (`tick`), 듣기는 판정을 바꾸지 않는다. 목소리가 없으면 점수 판을 보이지 않는다 (0점 없음). 다시 들어온 칸은 점수 기록 · 효과음 없이.
+- 화면 선 core `Prosody.line` / `curves`: 작은 소리 프레임 버림 · 이웃 가운데에서 6반음 넘게 튀면 옥타브 접기 (아니면 버림) · 7프레임 중앙값 · 60ms 안 되는 조각 버림 (선이 끊김), 내 선은 크기 흐름 DTW 로 원래 시간축에 맞춤, 두 선 같은 반음 폭 (3~12) 으로 -1..1. 채점 (`score`) 은 그대로.
+- 이해 확인: 맞히면 낭독을 멈추고 효과음 · CONFIRM 진동 · 금빛 원 (`CorrectBurst`) + ‘맞았어요.’ (복습과 같은 부품).
+- 걸음을 마치면 편지 방으로 돌아가지 않고 바로 다음 걸음 (`AppState.stepEnded`, 방에서 들어온 걸음만 · 마친 편지 다시 하기는 그대로). 방은 뒤에 남아 × 로 편지로.
+- 회화: 채점 판이 생기거나 녹음을 시작할 때 끝 자리가 바뀔 때마다 아래로 따라감 (판이 아래 칸 뒤로 반쯤 가려져 멈추던 것).
+- ‘다음 편지 열기’: 방금 마친 편지 **뒤의** 첫 안 마친 편지 (core `Arrivals.next`, `AppState.nextLetter`). 예전에는 앞쪽 첫 안 마친 편지라 읽다 둔 편지가 끝 부분부터 열렸다.
+- 시험: core `VoxTest` (점수로 통과 · 옥타브 접기 · 시간 맞춤) · `CoreTest.nextLetterIsAfterCurrent`, `NavTest.stepGoesStraightToNextStep` · `nextLetterOpensAtStart`. 화면 사진 `ScreensTest.fix*` (fix1 점수 91 통과 · fix2 낮은 점수 · fix3 녹음 없음).

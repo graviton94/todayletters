@@ -322,6 +322,105 @@ object Prosody {
         return out
     }
 
+    // ── 화면에 그리는 두 음높이 선 (채점과 따로: 채점은 위의 score 그대로) ──────────────
+    /** 화면 선: 가까운 이웃 (±150ms) 의 가운데에서 이만큼 (반음) 넘게 떨어지면 옥타브를 접고, 그래도 떨어지면 뺀다. */
+    private const val LINE_JUMP = 6f
+    private const val LINE_LOCAL = 15
+    private const val LINE_MEDIAN = 7
+    /** 이보다 짧은 목소리 조각 (프레임) 은 그리지 않는다. */
+    private const val LINE_MIN_RUN = 6
+    /** 가장 큰 소리보다 이만큼 작은 프레임의 음높이는 믿지 않는다 (dB). */
+    private const val LINE_QUIET = 30f
+    /** 두 선을 같은 폭으로: 반음 폭의 바닥 · 천장. */
+    private const val LINE_RANGE_MIN = 3f
+    private const val LINE_RANGE_MAX = 12f
+
+    /**
+     * 그리기용 음높이 선 (반음, 이 소리의 가운데 높이가 0, 목소리 없음 · 믿기 어려운 프레임은 NaN 이라 선이 끊긴다):
+     * 작은 소리 프레임 버림 → 이웃 가운데에서 6반음 넘게 튀면 옥타브 접기 (아니면 버림) → 7프레임 중앙값 → 60ms 안 되는 조각 버림.
+     * 그릴 것이 거의 없으면 null.
+     */
+    fun line(t: Track): FloatArray? {
+        val n = t.size
+        if (n == 0 || t.voiced == 0) return null
+        val top = t.db.max()
+        val st = FloatArray(n) { if (t.f0[it] > 0f && t.db[it] > top - LINE_QUIET) 12 * ln(t.f0[it]) / ln(2f) else Float.NaN }
+        val raw = st.filter { !it.isNaN() }.sorted()
+        if (raw.size < LINE_MIN_RUN) return null
+        val center = raw[raw.size / 2]
+        for (i in 0 until n) if (!st[i].isNaN()) st[i] -= center
+        // 옥타브 오류: 이웃 (±[LINE_LOCAL]) 의 가운데에서 크게 튄 값
+        val fixed = FloatArray(n) { i ->
+            val v = st[i]
+            if (v.isNaN()) return@FloatArray Float.NaN
+            val w = (maxOf(0, i - LINE_LOCAL)..minOf(n - 1, i + LINE_LOCAL)).map { st[it] }.filter { !it.isNaN() }.sorted()
+            val m = w[w.size / 2]
+            var f = v
+            repeat(2) { if (f - m > LINE_JUMP) f -= 12f else if (m - f > LINE_JUMP) f += 12f }
+            if (abs(f - m) > LINE_JUMP) Float.NaN else f
+        }
+        // 중앙값 다듬기 (끊긴 곳은 넘지 않는다)
+        val half = LINE_MEDIAN / 2
+        val smooth = FloatArray(n) { i ->
+            if (fixed[i].isNaN()) Float.NaN else {
+                var a = i; while (a > i - half && a > 0 && !fixed[a - 1].isNaN()) a--
+                var b = i; while (b < i + half && b < n - 1 && !fixed[b + 1].isNaN()) b++
+                val w = (a..b).map { fixed[it] }.sorted()
+                w[w.size / 2]
+            }
+        }
+        dropShort(smooth, LINE_MIN_RUN)
+        val left = smooth.filter { !it.isNaN() }.sorted()
+        if (left.size < LINE_MIN_RUN) return null
+        val mid = left[left.size / 2]
+        for (i in 0 until n) if (!smooth[i].isNaN()) smooth[i] -= mid
+        return smooth
+    }
+
+    /** [min] 프레임 안 되는 조각을 NaN 으로. */
+    private fun dropShort(x: FloatArray, min: Int) {
+        var i = 0
+        while (i < x.size) {
+            if (x[i].isNaN()) { i++; continue }
+            var j = i
+            while (j < x.size && !x[j].isNaN()) j++
+            if (j - i < min) for (k in i until j) x[k] = Float.NaN
+            i = j
+        }
+    }
+
+    /** 화면의 두 선: 같은 가로 칸 수 (원래 소리의 시간축), 값은 -1..1 (두 선이 같은 반음 폭으로), NaN 은 끊김. */
+    class Curves(val ref: FloatArray, val mine: FloatArray?)
+
+    /**
+     * 원래 소리와 내 소리를 같은 판에 그릴 선 ([frames] 칸): 둘 다 [line] 으로 다듬고, 내 선은 크기 흐름을 DTW 로 맞춘 길을 따라
+     * 원래 소리의 시간축으로 옮긴다 (빨리 · 느리게 말해도 같은 자리에 겹친다). 두 선을 같은 반음 폭 (3~12) 으로 -1..1.
+     * 원래 소리의 선이 없으면 null, 내 선이 없으면 mine 이 null.
+     */
+    fun curves(ref: Track, mine: Track, frames: Int = 160): Curves? {
+        val r = trim(ref); val y = trim(mine)
+        val a = line(r) ?: return null
+        val n = frames.coerceAtMost(r.size).coerceAtLeast(2)
+        val ra = FloatArray(n) { k -> a[(k.toLong() * r.size / n).toInt()] }
+        val b = if (y.size >= 5) line(y) else null
+        val ya = b?.let { bl ->
+            val m = y.size.coerceAtMost(200)
+            val re = zs(FloatArray(n) { k -> r.db[(k.toLong() * r.size / n).toInt()] })
+            val ye = zs(FloatArray(m) { k -> y.db[(k.toLong() * y.size / m).toInt()] })
+            val (path, _) = dtw(re, ye)
+            val got = Array(n) { ArrayList<Float>() }
+            path.forEach { (i, j) -> val v = bl[(j.toLong() * y.size / m).toInt()]; if (!v.isNaN()) got[i] += v }
+            val out = FloatArray(n) { i -> got[i].sorted().let { g -> if (g.isEmpty()) Float.NaN else g[g.size / 2] } }
+            dropShort(out, 3)
+            out.takeIf { o -> o.any { !it.isNaN() } }
+        }
+        // 같은 폭: 두 선의 95% 안쪽 폭 가운데 큰 것
+        fun reach(x: FloatArray): Float = x.filter { !it.isNaN() }.map { abs(it) }.sorted().let { if (it.isEmpty()) 0f else it[(it.size * 0.95).toInt().coerceAtMost(it.size - 1)] }
+        val range = maxOf(reach(ra), ya?.let { reach(it) } ?: 0f).coerceIn(LINE_RANGE_MIN, LINE_RANGE_MAX)
+        fun norm(x: FloatArray) = FloatArray(x.size) { if (x[it].isNaN()) Float.NaN else (x[it] / range).coerceIn(-1f, 1f) }
+        return Curves(norm(ra), ya?.let { norm(it) })
+    }
+
     /** 평균 0 · 표준편차 1 로 (표준편차 바닥 [SD_FLOOR]). */
     private fun zs(x: FloatArray): FloatArray {
         val m = x.average(); val sd = sqrt(x.map { (it - m) * (it - m) }.average()).coerceAtLeast(SD_FLOOR)

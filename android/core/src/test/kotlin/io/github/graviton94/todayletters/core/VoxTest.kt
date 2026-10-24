@@ -69,6 +69,62 @@ class VoxTest {
         assertEquals(SpeakCheck.Verdict(true, false), SpeakCheck.judge(true, 2, 10, 1))
     }
 
+    /** 사용자 보고 (2026-10-24): 점수 91 인데 음절이 어긋나 ‘또박또박’ 으로 막힘 → 점수가 통과 문턱이면 통과 (한 규칙). */
+    @Test fun highScorePassesDespiteSyllables() {
+        assertEquals(SpeakCheck.Verdict(true, false), SpeakCheck.judge(true, 2, 10, 0, score = 91))
+        assertEquals(SpeakCheck.Verdict(true, false), SpeakCheck.judge(true, 2, 10, 0, score = Prosody.PASS))
+        assertEquals(SpeakCheck.Verdict(false, true), SpeakCheck.judge(true, 2, 10, 0, score = Prosody.PASS - 1))
+        // 목소리가 없으면 점수와 상관없이 아님
+        assertEquals(SpeakCheck.Verdict(false, false), SpeakCheck.judge(false, 2, 10, 0, score = 99))
+        // 두 번째 실패는 목소리만 들어가면 통과 (점수가 낮아도)
+        assertEquals(SpeakCheck.Verdict(true, false), SpeakCheck.judge(true, 2, 10, 1, score = 10))
+    }
+
+    /** 가짜 목소리, 높이가 [hz] (시간 → Hz). */
+    private fun glide(seconds: Double, hz: (Double) -> Double): FloatArray {
+        val n = (seconds * rate).toInt(); var ph = 0.0
+        return FloatArray(n) { k ->
+            val t = k.toDouble() / rate
+            ph += 2 * Math.PI * hz(t) / rate
+            (0.5 * (0.6 * Math.sin(ph) + 0.3 * Math.sin(2 * ph) + 0.1 * Math.sin(3 * ph))).toFloat()
+        }
+    }
+
+    /** 화면 선: 옥타브로 튄 프레임은 접혀서 이웃과 이어지고 (큰 세로 가시 없음), 침묵 · 짧은 조각은 끊긴다. */
+    @Test fun lineFoldsOctaveSpikes() {
+        val f0 = FloatArray(100) { 200f }
+        for (k in listOf(30, 31, 60)) f0[k] = 400f      // 옥타브 위로 튐
+        f0[45] = 100f                                    // 아래로
+        for (k in 70..72) f0[k] = 0f                     // 짧은 쉼
+        f0[90] = 0f; f0[95] = 0f                         // 조각 91~94 (4프레임) 은 버림
+        for (k in 96..99) f0[k] = 0f
+        val db = FloatArray(100) { -20f }
+        val line = Prosody.line(Prosody.Track(f0, db))!!
+        val v = line.filter { !it.isNaN() }
+        assertTrue(v.all { kotlin.math.abs(it) < 0.5f }, "no spikes: ${v.maxOf { kotlin.math.abs(it) }}")
+        assertTrue(line[71].isNaN())
+        assertTrue((91..94).all { line[it].isNaN() })
+        assertNull(Prosody.line(Prosody.Track(FloatArray(50), FloatArray(50) { -80f })))
+    }
+
+    /** 두 선: 같은 칸 수 · -1..1, 두 배로 느리게 따라 한 소리도 원래의 시간축에 겹친다 (DTW). */
+    @Test fun curvesAlignSlowTake() {
+        // 원래: 0.8초 동안 180 → 260Hz 로 오름, 내 것: 같은 오름을 1.6초에 (낮은 목소리)
+        val ref = glide(0.8) { t -> 180 + 100 * t }
+        val mine = glide(1.6) { t -> 120 + 50 * t }
+        val c = Prosody.curves(Prosody.analyze(ref, rate), Prosody.analyze(mine, rate))!!
+        val m = c.mine!!
+        assertEquals(c.ref.size, m.size)
+        assertTrue(c.ref.all { it.isNaN() || it in -1f..1f }); assertTrue(m.all { it.isNaN() || it in -1f..1f })
+        // 앞쪽은 낮고 뒤쪽은 높다 (둘 다), 그리고 같은 자리에서 가깝다
+        fun at(x: FloatArray, f: Double) = x.toList().subList((x.size * f).toInt(), (x.size * f).toInt() + 5).filter { !it.isNaN() }.average()
+        assertTrue(at(c.ref, 0.1) < at(c.ref, 0.85)); assertTrue(at(m, 0.1) < at(m, 0.85))
+        assertTrue(kotlin.math.abs(at(c.ref, 0.5) - at(m, 0.5)) < 0.35, "aligned middle")
+        // 원래 소리에 목소리가 없으면 null, 내 소리가 침묵이면 내 선만 없다
+        assertNull(Prosody.curves(Prosody.analyze(FloatArray(rate), rate), Prosody.analyze(mine, rate)))
+        assertNull(Prosody.curves(Prosody.analyze(ref, rate), Prosody.analyze(FloatArray(rate), rate))!!.mine)
+    }
+
     @Test fun estimateFromText() {
         assertEquals(6, SpeakCheck.estimate("나도 많이 배워!", Lang.KO))
         assertEquals(7, SpeakCheck.estimate("Moi aussi, j'apprends beaucoup !", Lang.FR))   // moi · au · ssi · ja · pprends · beau · coup

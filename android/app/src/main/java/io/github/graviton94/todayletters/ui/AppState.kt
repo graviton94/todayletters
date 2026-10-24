@@ -642,6 +642,14 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         return all.take(n.coerceAtMost(all.size))
     }
 
+    /** 편지 완료 화면의 ‘다음 편지 열기’: 방금 마친 [room] 뒤의 첫 안 마친 편지 (core 의 Arrivals.next), 없으면 null. */
+    fun nextLetter(room: Route.Letter): Pair<String, Letter>? {
+        val list = openable(room.series)
+        val (_, cur) = letterOf(room)
+        val k = Arrivals.next(list.map { (c, l) -> progress(room.series, c, l.id).done }, list.indexOfFirst { it.second.id == cur.id })
+        return k?.let { list[it] }
+    }
+
     /** 도착했지만 한 번도 열지 않은 편지 수 (서재의 붉은 숫자). */
     fun unread(id: String): Int = openable(id).count { (c, l) -> !store.started(key(id, c, l.id)) && progress(id, c, l.id).shown == 0 }
 
@@ -1156,7 +1164,11 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         back()
         // 맺음 편지의 답장: 아웃트로로 돌아갈 뿐 (편지 완료 화면 · 편지 보상 없음)
         if (r.epilogue) { settle(); return }
-        if (!was && progress(r.series, ch, l.id).done) letterDone(r)
+        val now = progress(r.series, ch, l.id)
+        if (!was && now.done) letterDone(r)
+        // 편지 방에서 이어 하던 걸음이면 바로 다음 걸음으로 (방으로 돌아가 ‘다음 · …’ 을 다시 누르지 않게, 사용자 요청 2026-10-24).
+        // 방은 뒤에 남아서 걸음 화면을 닫으면 편지로 돌아간다. 마친 편지의 다시 하기 · 복습 탭에서 들어온 걸음은 들어온 곳으로 그대로
+        else if (!was && route == r) stepsOf(r).firstOrNull { it !in now.replied && it !in now.skipped }?.let { go(Route.Play(r, it)) }
         settle()
     }
 

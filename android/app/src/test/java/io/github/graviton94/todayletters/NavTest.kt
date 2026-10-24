@@ -50,9 +50,71 @@ class NavTest {
         val (c, l) = letterOf(room)
         save(room.series, c, l.id, progress(room.series, c, l.id).copy(shown = l.messages.size))
         letterModes(room.series, c, l).forEach { m ->
-            go(Route.Play(room, m))
+            // 걸음을 마치면 바로 다음 걸음 화면이 열린다 (stepEnded): 이미 그 걸음이면 다시 열지 않는다
+            if (route != Route.Play(room, m)) go(Route.Play(room, m))
             if (m in skip) skipStep(room, m) else replyAndContinue(room, m)
         }
+    }
+
+    /**
+     * 걸음을 마치면 편지 방으로 돌아가지 않고 바로 다음 걸음 (사용자 요청 2026-10-24). 방은 뒤에 남아 걸음 화면을 닫으면 편지로,
+     * 마지막 걸음 뒤에는 편지 완료. 마친 편지에서 다시 한 걸음은 들어온 곳 (방) 으로.
+     */
+    @Test fun stepGoesStraightToNextStep() {
+        val s = state()
+        s.enter("vincent")
+        val room = Route.Letter("vincent", 1, 1, Route.Inbox)
+        val (c, l) = s.letterOf(room)
+        s.open("vincent", c, l, Route.Inbox, skipAudio = true)
+        assertEquals(room, s.route)
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size))
+        val modes = s.letterModes("vincent", c, l)
+        assertTrue(modes.size >= 2)
+        s.go(Route.Play(room, modes[0]))
+        s.replyAndContinue(room, modes[0])
+        assertEquals(Route.Play(room, modes[1]), s.route)
+        // 걸음 화면을 닫으면 편지 방 (편지로 돌아갈 수 있다)
+        s.backTo(room)
+        s.go(Route.Play(room, modes[1]))
+        modes.drop(1).forEach { m -> if (s.route != Route.Play(room, m)) s.go(Route.Play(room, m)); s.skipStep(room, m) }
+        assertEquals(Route.Done(room), s.route)
+        s.reward = null; s.levelUp = null
+        s.backTo(room)
+        // 마친 편지에서 건너뛴 걸음을 다시 하면: 그 걸음만 하고 방으로
+        s.go(Route.Play(room, modes[1]))
+        s.replyAndContinue(room, modes[1])
+        assertEquals(room, s.route)
+    }
+
+    /**
+     * ‘다음 편지 열기’ (사용자 보고 2026-10-24): 앞서 읽다 둔 편지 (끝까지 읽고 걸음은 남김) 가 있어도 방금 마친 편지 뒤의 새 편지를 연다
+     * (예전에는 앞쪽 첫 안 마친 편지라 그 편지가 끝 부분부터 열렸다). 새 편지는 첫 메시지부터 (도착 장면).
+     */
+    @Test fun nextLetterOpensAtStart() {
+        val s = state()
+        s.enter("vincent")
+        val rooms = (1..3).map { Route.Letter("vincent", 1, it, Route.Inbox) }
+        val (c, l1) = s.letterOf(rooms[0]); val l2 = s.letterOf(rooms[1]).second; val l3 = s.letterOf(rooms[2]).second
+        // 편지 I: 끝까지 읽고 걸음은 남김
+        s.open("vincent", c, l1, Route.Inbox, skipAudio = true)
+        s.save("vincent", c, l1.id, s.progress("vincent", c, l1.id).copy(shown = l1.messages.size))
+        s.backTo(Route.Inbox)
+        // 편지 II: 끝까지 마침
+        s.open("vincent", c, l2, Route.Inbox, skipAudio = true)
+        s.walkLetter(rooms[1])
+        assertEquals(Route.Done(rooms[1]), s.route)
+        s.reward = null; s.levelUp = null
+        // 편지 III 이 와 있게 (오늘 받을 몫이 끝났으면 하나 더)
+        if (s.openable("vincent").size < 3) s.store.markStarted(s.key("vincent", c, l3.id))
+        assertEquals(c to l3, s.nextLetter(rooms[1]))
+        val (nc, nl) = s.nextLetter(rooms[1])!!
+        s.open("vincent", nc, nl, Route.Inbox)
+        assertEquals(rooms[2], s.route)
+        assertEquals(0, s.progress("vincent", c, l3.id).shown)
+        assertFalse(s.progress("vincent", c, l3.id).done)
+        // 뒤에 안 마친 편지가 없으면 앞서 읽다 둔 편지 (이어 읽기)
+        s.save("vincent", c, l3.id, s.progress("vincent", c, l3.id).copy(shown = l3.messages.size, done = true))
+        assertEquals(c to l1, s.nextLetter(rooms[1]))
     }
 
     private fun AppState.backTo(r: Route) { assertTrue(back()); assertEquals(r, route) }

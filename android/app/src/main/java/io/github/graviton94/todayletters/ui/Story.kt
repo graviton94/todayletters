@@ -88,7 +88,8 @@ fun Done(s: AppState, room: Route.Letter) {
     val modes = s.letterModes(room.series, chapter, letter)
     val pr = s.progress(room.series, chapter, letter.id)
     val waiting = s.waiting(room.series)
-    val next = s.openable(room.series).firstOrNull { (c, l) -> !s.progress(room.series, c, l.id).done }
+    // 다음 편지: 방금 마친 편지 뒤의 첫 안 마친 편지 (앞서 읽다 둔 편지가 끝 부분부터 열리지 않게)
+    val next = s.nextLetter(room)
 
     val plates = work.chapters.flatMap { it.letters }
     val got = work.chapters.sumOf { c -> c.letters.count { s.progress(room.series, c.id, it.id).done } }

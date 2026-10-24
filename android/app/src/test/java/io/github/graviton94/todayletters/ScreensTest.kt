@@ -2094,6 +2094,64 @@ class ScreensTest {
     /** 두 번째로 안 된 뒤: 원래 소리 단추 위에 ‘비슷하게 읽으면 · 위, 싸 바. 에 뚜아?’ (scripts/pron.py 자동 힌트). */
     @Test fun voxPron() { val s = state(true); val t = voxTake(false, 2, "위, 싸 바. 에 뚜아?"); shot("vox2_pron_light", false, series = s) { VoxLine(s, t) } }
 
+    // ── 말하기 판 고침 (2026-10-24 사용자 보고): 한 번에 찍기 `*ScreensTest.fix*` ──
+    /** 가짜 목소리 (높이 [hz] 시간 → Hz), [spikes] 의 시각 (초) 근처는 YIN 이 옥타브로 잘못 잡은 것처럼 두 배. */
+    private fun fakeVoice(seconds: Double, spikes: List<Double> = emptyList(), hz: (Double) -> Double): FloatArray {
+        val rate = io.github.graviton94.todayletters.data.Wav.RATE
+        val n = (seconds * rate).toInt(); var ph = 0.0
+        return FloatArray(n) { k ->
+            val t = k.toDouble() / rate
+            val f = hz(t) * (if (spikes.any { kotlin.math.abs(it - t) < 0.02 }) 2 else 1)
+            ph += 2 * Math.PI * f / rate
+            val gap = (t % 0.45) > 0.38   // 낱말 사이 쉼
+            if (gap) 0f else (0.5 * (0.6 * Math.sin(ph) + 0.3 * Math.sin(2 * ph) + 0.1 * Math.sin(3 * ph))).toFloat()
+        }
+    }
+    /** 녹음 · 채점을 마친 것처럼 둔 말하기 칸: 판정은 앱과 같은 한 곳 (core 의 SpeakCheck.judge, 점수 포함). */
+    private fun scoredTake(score: io.github.graviton94.todayletters.core.Prosody.Score, mineSyl: Int, refSyl: Int): io.github.graviton94.todayletters.ui.ShadowTake {
+        val P = io.github.graviton94.todayletters.core.Prosody
+        val rate = io.github.graviton94.todayletters.data.Wav.RATE
+        val f = java.io.File(ctx.cacheDir, "fix/take.wav").apply { parentFile?.mkdirs(); writeBytes(ByteArray(64)) }
+        val ref = P.analyze(fakeVoice(1.8) { t -> 190 + 60 * kotlin.math.sin(t * 3.2) }, rate)
+        // 내 소리: 낮은 목소리 · 조금 느리게 · 옥타브로 튄 곳 셋 (예전에는 큰 세로 가시가 되었다)
+        val mine = P.analyze(fakeVoice(2.3, spikes = listOf(0.5, 1.1, 1.7)) { t -> 120 + 38 * kotlin.math.sin(t / 2.3 * 1.8 * 3.2) }, rate)
+        val c = P.curves(ref, mine)
+        val v = io.github.graviton94.todayletters.core.SpeakCheck.judge(true, mineSyl, refSyl, 0, score.total)
+        return io.github.graviton94.todayletters.ui.ShadowTake("audio/none.m4a", 0, Int.MAX_VALUE, f, step = true).apply {
+            tick = 1; result = Triple(score, c?.ref, c?.mine); voice = v.pass; unclear = v.hint; misses = if (v.pass) 0 else 1
+        }
+    }
+    @Composable private fun ScoredPane(s: AppState, t: io.github.graviton94.todayletters.ui.ShadowTake) {
+        androidx.compose.foundation.layout.Column(Modifier.fillMaxSize().padding(horizontal = 20.dp), verticalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(12.dp, androidx.compose.ui.Alignment.Bottom)) {
+            androidx.compose.material3.Text("Hi! Are you tired from travelling?", style = io.github.graviton94.todayletters.design.Type.target, color = Ink.palette.ink)
+            io.github.graviton94.todayletters.ui.ShadowBoard(t)
+            io.github.graviton94.todayletters.ui.ShadowControls(s, t)
+        }
+    }
+    /** 점수 91 (억양 100 · 리듬 77) 인데 음절은 어긋남: 이제 통과 (‘훌륭해요!’ 만, ‘또박또박’ 없음), 두 선은 다듬고 시간축을 맞춤. */
+    @Test fun fixShadowHighScorePasses() {
+        val s = state(true)
+        val t = scoredTake(io.github.graviton94.todayletters.core.Prosody.Score(100, 77), mineSyl = 3, refSyl = 10)
+        org.junit.Assert.assertEquals(true, t.passed); org.junit.Assert.assertFalse(t.unclear)
+        shot("fix1_shadow_high_score_pass_dark", true, series = s) { ScoredPane(s, t) }
+    }
+    /** 점수가 문턱 아래 · 음절도 어긋남: ‘다시’ 한 줄과 ‘또박또박’ 이 함께 (칭찬 없음). */
+    @Test fun fixShadowLowScoreRetry() {
+        val s = state(true)
+        val t = scoredTake(io.github.graviton94.todayletters.core.Prosody.Score(40, 50), mineSyl = 3, refSyl = 10)
+        org.junit.Assert.assertEquals(false, t.passed); org.junit.Assert.assertTrue(t.unclear)
+        shot("fix2_shadow_low_score_retry_light", false, series = s) { ScoredPane(s, t) }
+    }
+    /** 녹음이 남지 않은 칸 (너무 짧음): 0점 판 없이 안내만. */
+    @Test fun fixShadowNoTake() {
+        val s = state(true)
+        val f = java.io.File(ctx.cacheDir, "fix/none.wav").apply { delete() }
+        val t = io.github.graviton94.todayletters.ui.ShadowTake("audio/none.m4a", 0, Int.MAX_VALUE, f, step = true).apply { tick = 1; voice = false }
+        shot("fix3_shadow_no_take_light", false, act = {
+            org.junit.Assert.assertTrue(rule.onAllNodes(hasText("0")).fetchSemanticsNodes().isEmpty())
+        }, series = s) { ScoredPane(s, t) }
+    }
+
     /** 어제 회화를 한 것으로 (빈센트 I-2): 오늘 화면 카드 · 떠올리기 퀴즈. */
     private fun voxYesterday(s: AppState): io.github.graviton94.todayletters.core.Letter {
         val (c, l) = s.letterOf(Route.Letter("vincent", 1, 2))

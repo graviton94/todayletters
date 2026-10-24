@@ -107,10 +107,12 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
     val sentence = if (spot.isTalk) unit.text else io.github.graviton94.todayletters.core.Breaks.plain(letter.messages[mi].text[view.learn])
     // 녹음 · 채점 (회화 내 차례와 같은 부품): 원래 낭독의 이 마디와 내 녹음을 기기 안에서 비교
     val take = rememberShadowTake(s, audio.takeIf { unit.start >= 0 }, unit.start, unit.end, fileOf(spot), step, key = letter.id to at,
-        onVoice = { v -> if (step && v) s.markPassed(id, chapter, letter.id, spot.tag) }, sayLike = s.sayLike(id, unit.text)) { sc, fresh ->
+        // 통과 (ShadowTake.passed, 판정은 한 곳): 편지 걸음이면 그 칸 통과로, 봉인까지의 따라 읽기면 안 된 횟수를 센다 (세 번이면 ‘넘어가기’)
+        onVoice = { ok -> if (step && ok) s.markPassed(id, chapter, letter.id, spot.tag) else if (!step && !ok) { tries[at] = (tries[at] ?: 0) + 1 } },
+        sayLike = s.sayLike(id, unit.text)) { sc, _ ->
         if (sc.stars >= 1) s.markStar(id, chapter, letter.id)   // 봉인 조건: 따라 읽기 별 하나 이상 (F13)
         s.recordStars(id, chapter, letter.id, spot.tag, sc.stars)   // 메달 진열장의 따라 읽기 별 (마디마다 가장 많이 받은 별)
-        if (sc.passed) s.markPassed(id, chapter, letter.id, spot.tag) else if (fresh && !step) tries[at] = (tries[at] ?: 0) + 1
+        if (sc.passed) s.markPassed(id, chapter, letter.id, spot.tag)
     }
     val have = take.have
 
@@ -260,10 +262,28 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
     val pitches = androidx.compose.runtime.mutableStateListOf<Float>()
     val hasAudio: Boolean get() = audio != null && start >= 0
     val have: Boolean get() { tick; return file.exists() }
-    /** 마지막 채점이 통과인가 (아직 없으면 null). */
-    val passed: Boolean? get() = result?.first?.let { it.passed || (step && voice == true) } ?: if (step && !hasAudio) voice else null
+    /**
+     * 마지막 녹음이 통과인가 (아직 재지 않았으면 null). 판정은 이것 하나 (core 의 SpeakCheck.judge): [step] 이면 [voice]
+     * (목소리 + 음절 맞음 또는 점수 ≥ 통과 문턱, 두 번째 실패는 목소리만), 봉인까지의 따라 읽기는 점수 ≥ 통과 문턱.
+     * 점수 · 별 · 안내 한 줄 · 다음 단추 · 효과음이 모두 이것을 따른다 (‘훌륭해요’ 와 ‘또박또박’ 이 함께 나오지 않게).
+     */
+    val passed: Boolean? get() = if (step) voice else if (voice == null) null else result?.first?.passed == true
 
-    fun stopRecording(s: AppState) { if (recording) { s.pcm.onFrame = null; s.pcm.stop(); recording = false; tick++ } }
+    /** 녹음하는 동안 쓰는 파일: 다 녹음하면 [file] 로 바꾼다 (너무 짧은 녹음이 지난 녹음을 남긴 채 다시 채점되지 않게). */
+    private val pending: java.io.File get() = java.io.File(file.path + ".rec")
+
+    /**
+     * 녹음을 끝낸다. 쓸 만한 녹음 (0.3초 이상, PcmRecorder) 이 남았으면 이번 녹음으로, 아니면 지난 녹음도 지운다
+     * (그러면 판에 점수 없이 ‘다시 해 봐요’). 녹음이 바뀌는 것은 여기뿐: 원래 소리 · 내 소리 듣기는 판정을 바꾸지 않는다.
+     */
+    fun stopRecording(s: AppState) {
+        if (!recording) return
+        s.pcm.onFrame = null; s.pcm.stop(); recording = false
+        val rec = pending
+        if (rec.length() > 44) { file.delete(); if (!rec.renameTo(file)) { rec.copyTo(file, overwrite = true); rec.delete() } }
+        else { rec.delete(); file.delete() }
+        tick++
+    }
 
     /** 원래 소리 (기본 빠르기, [speed] 를 주면 그 빠르기로 한 번). */
     fun original(s: AppState, speed: Float? = null) {
@@ -283,7 +303,9 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
         levels.clear(); pitches.clear()
         s.pcm.onFrame = { db, hz -> levels.add(db); pitches.add(hz); if (levels.size > 1500) { levels.removeAt(0); pitches.removeAt(0) } }
         file.parentFile?.mkdirs()
-        recording = s.pcm.start(file)
+        pending.delete()
+        result = null; voice = null; unclear = false
+        recording = s.pcm.start(pending)
     }
 }
 
@@ -312,43 +334,53 @@ fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: 
         t.refCurve = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
             val ref = io.github.graviton94.todayletters.data.decodeRange(ctx, t.audio!!, t.start, t.end) ?: return@withContext null
             val P = io.github.graviton94.todayletters.core.Prosody
-            P.semitones(P.trim(P.analyze(ref, io.github.graviton94.todayletters.data.Wav.RATE)).f0)
+            P.line(P.trim(P.analyze(ref, io.github.graviton94.todayletters.data.Wav.RATE)))
         }
     }
-    // 억양 · 리듬: 원래 소리와 내 녹음을 기기 안에서 비교 (녹음이 바뀔 때마다)
-    // 목소리가 들어갔는가는 원래 소리가 없어도 잰다 (침묵 · 잡음만인 녹음은 통과가 아니다)
+    // 억양 · 리듬: 원래 소리와 내 녹음을 기기 안에서 비교 (녹음이 끝날 때마다 한 번: [ShadowTake.tick] 은 녹음을 끝낼 때만 바뀐다)
+    // 목소리가 들어갔는가는 원래 소리가 없어도 잰다 (침묵 · 잡음만인 녹음은 통과가 아니고, 점수도 보이지 않는다)
     LaunchedEffect(t, t.tick) {
-        t.result = null; t.voice = null; t.unclear = false
-        if (!t.have || t.recording) return@LaunchedEffect
-        t.scoring = true
+        t.result = null; t.voice = null; t.unclear = false; t.scoring = false
+        if (t.recording) return@LaunchedEffect
         val P = io.github.graviton94.todayletters.core.Prosody
+        val judge = io.github.graviton94.todayletters.core.SpeakCheck
         val rate = io.github.graviton94.todayletters.data.Wav.RATE
         val fresh = t.tick > 0
-        val mt = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
+        // 녹음이 남지 않았다 (너무 짧음 · 마이크 오류): 막 녹음한 것이면 점수 없이 ‘다시 해 봐요’, 아직 녹음 전이면 아무것도
+        if (!t.have) {
+            if (fresh) { t.voice = false; t.misses++; t.rough++; s.cue(false); voiced(false) }
+            return@LaunchedEffect
+        }
+        t.scoring = true
+        val bg = kotlinx.coroutines.Dispatchers.Default
+        val mt = kotlinx.coroutines.withContext(bg) {
             runCatching { P.analyze(io.github.graviton94.todayletters.data.Wav.samples(io.github.graviton94.todayletters.data.Wav.pcm(t.file)), rate) }.getOrNull()
         }
-        // 원래 소리의 분석 (음절 수 · 억양 · 리듬), 없으면 null
-        val rt = if (mt != null && t.hasAudio) kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
+        val spoke = mt != null && P.spoke(mt)
+        // 원래 소리의 분석 (음절 수 · 억양 · 리듬): 목소리가 들어간 녹음일 때만 (아니면 0점을 보이지 않는다)
+        val rt = if (spoke && t.hasAudio) kotlinx.coroutines.withContext(bg) {
             io.github.graviton94.todayletters.data.decodeRange(ctx, t.audio!!, t.start, t.end)?.let { P.analyze(it, rate) }
         } else null
-        if (mt != null && rt != null) t.result = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
-            Triple(P.score(rt, mt), P.semitones(P.trim(rt).f0), P.semitones(P.trim(mt).f0))
-        }
-        // 통과: 목소리 + 음절 수 (core 의 SpeakCheck). 예전에 녹음해 둔 것 (이 화면에서 새로 한 것이 아님) 은 목소리만 본다
-        val spoke = mt != null && P.spoke(mt)
+        // 채점이 안 된 것 (원래 · 내 소리가 너무 짧음, 완성도 0) 은 점수 없음으로: 0점 판을 보이지 않는다
+        val score = if (rt != null) kotlinx.coroutines.withContext(bg) { P.score(rt, mt!!) }.takeIf { it.complete > 0 } else null
+        val curves = if (rt != null) kotlinx.coroutines.withContext(bg) { P.curves(rt, mt!!) } else null
+        // 통과 (core 의 SpeakCheck.judge, 한 곳): 목소리 + (음절 · 점수). 예전에 녹음해 둔 것 (이 화면에서 새로 한 것이 아님) 은 목소리만 본다
         val refSyl = if (!fresh) null else if (rt != null) P.syllables(rt).takeIf { it > 0 } else if (!t.hasAudio) t.estimate else null
         val mineSyl = if (mt != null) P.syllables(mt) else 0
-        val v = io.github.graviton94.todayletters.core.SpeakCheck.judge(spoke, mineSyl, refSyl, t.misses)
+        val total = score?.total
+        val v = judge.judge(spoke, mineSyl, refSyl, t.misses, total)
+        // 채점하는 동안 새로 녹음을 시작했으면 이 결과는 버린다
+        if (t.recording) { t.scoring = false; return@LaunchedEffect }
+        t.result = score?.let { Triple(it, curves?.ref, curves?.mine) }
         t.voice = v.pass; t.unclear = v.hint
         if (fresh && !v.pass) t.misses++
         // 봐주기 (두 번째는 목소리만으로 통과) 전의 판정: 두 번 안 되면 ‘비슷하게 읽으면’
-        if (fresh && !io.github.graviton94.todayletters.core.SpeakCheck.judge(spoke, mineSyl, refSyl, 0).pass) t.rough++
+        if (fresh && !judge.judge(spoke, mineSyl, refSyl, 0, total).pass) t.rough++
         t.scoring = false
-        t.result?.first?.let {
-            s.recordScore(it); s.cue(it.passed || (t.step && t.voice == true))
-            scored(it, fresh)
-        } ?: run { if (fresh && !t.hasAudio) s.cue(t.voice == true) }
-        if (fresh) voiced(t.voice == true)
+        val ok = t.passed == true
+        if (fresh) { score?.let { s.recordScore(it) }; s.cue(ok) }
+        score?.let { scored(it, fresh) }
+        if (fresh) voiced(ok)
     }
     return t
 }
@@ -366,8 +398,9 @@ fun ShadowBoard(t: ShadowTake) {
         if (t.recording) LiveTrace(t.levels, t.pitches, t.refCurve)
         else if (res == null) Text(stringResource(if (t.scoring) R.string.shadow_scoring else R.string.shadow_noscore), style = Type.small.ui(), color = p.inkSoft)
         else {
+            // 두 선 (core 의 Prosody.curves): 옥타브 접기 · 다듬기 · 끊김, 같은 반음 폭 (-1..1), 내 선은 원래의 시간축에 맞춤
             Canvas(Modifier.fillMaxWidth().height(96.dp)) {
-                drawCurve(res.second, p.inkSoft, dotted = true); drawCurve(res.third, p.giltText, dotted = false)
+                drawCurve(res.second, p.inkSoft, dotted = true, range = 1f); drawCurve(res.third, p.giltText, dotted = false, range = 1f)
             }
             val total = res.first.total
             val stars = res.first.stars
@@ -390,12 +423,14 @@ fun ShadowBoard(t: ShadowTake) {
                 Meter(stringResource(R.string.shadow_intonation), res.first.intonation, Modifier.weight(1f), p.giltText, p.ink, p.inkSoft)
                 Meter(stringResource(R.string.shadow_rhythm), res.first.rhythm, Modifier.weight(1f), p.giltText, p.ink, p.inkSoft)
             }
+            // 칭찬 한 줄은 통과 판정 ([ShadowTake.passed]) 을 따른다: 안 된 녹음에 ‘훌륭해요’ 가 붙지 않게
+            val ok = t.passed == true
             Text(when {
+                !ok -> stringResource(R.string.shadow_retry, P.PASS)
                 stars >= 3 -> stringResource(R.string.read_great)
                 stars == 2 -> stringResource(R.string.read_good)
-                t.passed == true -> stringResource(R.string.read_pass)
-                else -> stringResource(R.string.shadow_retry, P.PASS)
-            }, style = Type.small.ui(), color = if (res.first.passed) p.giltText else p.inkSoft)
+                else -> stringResource(R.string.read_pass)
+            }, style = Type.small.ui(), color = if (ok) p.giltText else p.inkSoft)
         }
         Text(stringResource(R.string.shadow_note), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft)
     }
@@ -448,14 +483,14 @@ fun ShadowControls(s: AppState, t: ShadowTake, canListen: Boolean = true, canRec
     }
 }
 
-/** 반음 곡선 하나 (가운데 0, 위아래 ±8 반음). */
-private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCurve(c: FloatArray?, color: Color, dotted: Boolean, upTo: Float = 1f) {
+/** 반음 곡선 하나 (가운데 0, 위아래 ±[range], 채점 판의 두 선은 이미 -1..1 이라 1). */
+private fun androidx.compose.ui.graphics.drawscope.DrawScope.drawCurve(c: FloatArray?, color: Color, dotted: Boolean, upTo: Float = 1f, range: Float = 8f) {
     if (c == null || c.size < 2) return
     val path = androidx.compose.ui.graphics.Path()
     var started = false
     c.forEachIndexed { k, v ->
         if (v.isNaN()) { started = false; return@forEachIndexed }   // 긴 쉼: 선을 끊는다
-        val x = size.width * upTo * k / (c.size - 1); val y = size.height / 2 - v.coerceIn(-8f, 8f) / 8f * size.height / 2.2f
+        val x = size.width * upTo * k / (c.size - 1); val y = size.height / 2 - v.coerceIn(-range, range) / range * size.height / 2.2f
         if (!started) { path.moveTo(x, y); started = true } else path.lineTo(x, y)
     }
     drawPath(path, color, style = androidx.compose.ui.graphics.drawscope.Stroke(if (dotted) 1.5.dp.toPx() else 2.5.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round,
@@ -482,16 +517,18 @@ private fun LiveTrace(levels: List<Float>, pitches: List<Float>, ref: FloatArray
         val voiced = pitches.filter { it > 0f }
         if (voiced.size >= 3) {
             val med = voiced.sorted()[voiced.size / 2]
+            // 옥타브로 튄 값은 접는다 (실시간 선이 위아래로 크게 튀지 않게)
+            fun semi(hz: Float): Float { var st = 12 * kotlin.math.ln(hz / med) / kotlin.math.ln(2f); repeat(2) { if (st > 9f) st -= 12f else if (st < -9f) st += 12f }; return st.coerceIn(-8f, 8f) }
             val path = androidx.compose.ui.graphics.Path(); var started = false
             pitches.forEachIndexed { k, hz ->
                 if (hz <= 0f) { started = false; return@forEachIndexed }
-                val st = (12 * kotlin.math.ln(hz / med) / kotlin.math.ln(2f)).coerceIn(-8f, 8f)
+                val st = semi(hz)
                 val x = k * bw; val y = size.height / 2 - st / 8f * size.height / 2.2f
                 if (!started) { path.moveTo(x, y); started = true } else path.lineTo(x, y)
             }
             drawPath(path, p.giltText, style = androidx.compose.ui.graphics.drawscope.Stroke(2.5.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round))
             pitches.indexOfLast { it > 0f }.takeIf { it >= 0 }?.let { k ->
-                val hz = pitches[k]; val st = (12 * kotlin.math.ln(hz / med) / kotlin.math.ln(2f)).coerceIn(-8f, 8f)
+                val st = semi(pitches[k])
                 drawCircle(p.giltText, 4.dp.toPx(), androidx.compose.ui.geometry.Offset(k * bw, size.height / 2 - st / 8f * size.height / 2.2f))
             }
         }

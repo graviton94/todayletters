@@ -50,6 +50,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.flow.collectLatest
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Breaks
 import io.github.graviton94.todayletters.core.Lang
@@ -150,10 +151,20 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
             Text(c.q[langs.question], style = Type.heading.of(langs.question), color = p.ink)
             MeaningOptions(options, right, langs.options, picked, over, missed, false, shakeKey) { o ->
                 picked = o
+                // 맞힘 · 틀림 알림은 다른 퀴즈 (복습 뜻 고르기 · 낱말 맞추기) 와 같게: 효과음 · 진동, 맞으면 금빛 원 + ‘맞았어요.’
+                // 지문 낭독이 흐르는 중이면 먼저 멈춘다 (효과음이 낭독에 묻혀 맞혀도 아무 일 없는 것처럼 들리지 않게)
+                s.narrator.stop()
                 if (o == right) {
-                    if (s.app.haptics) haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                     s.cue(true)
+                    if (s.app.haptics) {
+                        if (android.os.Build.VERSION.SDK_INT >= 30) view0.performHapticFeedback(android.view.HapticFeedbackConstants.CONFIRM)
+                        else haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
+                    }
                 } else { missed = missed + o; shakeKey++; buzzWrong(view0, s.app.haptics); s.cue(false) }
+            }
+            if (picked == right && right.isNotEmpty()) Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
+                CorrectBurst(still = s.reducedMotion)
+                Text(stringResource(R.string.review_right), style = Type.body.ui(), color = p.correct)
             }
             if (!over && missed.isNotEmpty()) Text(stringResource(R.string.check_wrong), style = Type.small.ui(), color = p.wrong)
         }
@@ -221,7 +232,11 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     }
 
     val scroll = rememberScrollState()
-    LaunchedEffect(shown, phase, st?.placed, st?.filled, st?.hints, take?.result) { scroll.animateScrollTo(scroll.maxValue) }
+    // 새 말풍선 · 채점 판이 생기면 끝까지 내려간다. 판은 녹음을 시작할 때 · 채점이 끝날 때 길이가 바뀌고 그 길이는 한 박자 뒤에 잡히므로
+    // 그 순간의 끝이 아니라 끝 자리가 바뀔 때마다 따라간다 (예전에는 판이 아래 칸 뒤로 반쯤 가려진 채 멈췄다)
+    LaunchedEffect(shown, phase, st?.placed, st?.filled, st?.hints, take?.result, take?.recording, take?.scoring, take?.have) {
+        androidx.compose.runtime.snapshotFlow { scroll.maxValue }.collectLatest { scroll.animateScrollTo(it) }
+    }
     val name = work.name[uiLang()]
 
     Column(Modifier.fillMaxSize().background(p.paper)) {
@@ -254,8 +269,9 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
                     audio(i)?.let { a -> @Composable { ListenButtons(play = { sp -> s.narrator.play(a, sp) }) } })
             }
             st?.let { t -> CurrentBubble(t, cur?.let { lines[it].text[view.read] }.orEmpty(), view.learn, view.read) }
-            // 채점 판 (따라 읽기와 같은 것): 녹음 중 · 녹음 뒤
+            // 채점 판 (따라 읽기와 같은 것): 녹음 중 · 녹음 뒤. 아래 칸 바로 위에 붙지 않게 끝에 한 칸 비움
             take?.let { ShadowBoard(it) }
+            Box(Modifier.height(Tokens.Space.s4))
         }
         // 아래 칸 (높이 고정)
         Column(
