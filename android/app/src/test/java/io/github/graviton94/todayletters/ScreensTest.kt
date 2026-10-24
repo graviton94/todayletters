@@ -2638,7 +2638,9 @@ class ScreensTest {
     private val BAR_BOTTOM = 48
 
     /** 막대가 있는 화면: [s] 를 메인 단계로 넘기고 (첫 화면 없이) 도움말은 본 것으로, Root 를 그린다. */
-    private fun barsShot(name: String, dark: Boolean, s: AppState, ms: Long = 2500, after: Long = 900, act: () -> Unit = {}) {
+    private fun barsShot(name: String, dark: Boolean, s: AppState, ms: Long = 2500, after: Long = 900, act: () -> Unit = {}, late: (() -> Unit)? = null) {
+        // 혼자 읽기 이정표는 이미 본 것으로 (서재가 뜨며 정산한 보상 순간이 찍을 장면을 덮지 않게)
+        s.store.readAloneSeen = s.readAlone
         repeat(3) { if (s.stage != io.github.graviton94.todayletters.core.Stage.MAIN) s.nextStage() }
         listOf("inbox", "words", "gallery", "shop", "library", "series", "room", "play_aloud", "play_constellation").forEach { s.coachDone(it) }
         s.whatsNew = false
@@ -2656,6 +2658,8 @@ class ScreensTest {
             }
         }
         rule.runOnIdle { simulateBars(host!!) }
+        // [late]: 화면이 뜬 뒤에 넣는 보상 순간 (뜨며 하는 정산이 덮어쓰지 않게)
+        if (late != null) { rule.mainClock.advanceTimeBy(300); rule.runOnIdle { late() } }
         rule.mainClock.advanceTimeBy(ms)
         act()
         rule.runOnIdle { simulateBars(host!!) }
@@ -2666,8 +2670,9 @@ class ScreensTest {
 
     @Test fun insetsLibraryUpdate() {
         val s = engineState(); s.reward = null; s.go(Route.Library)
-        s.updateBand = io.github.graviton94.todayletters.core.UpdateBand.Offer(18_400_000)
-        barsShot("insets01_library_update_light", false, s, 3600)
+        barsShot("insets01_library_update_light", false, s, 3600, late = {
+            s.reward = null; s.levelUp = null; s.updateBand = io.github.graviton94.todayletters.core.UpdateBand.Offer(18_400_000)
+        })
     }
     @Test fun insetsRoom() {
         val s = state(true)
@@ -2703,14 +2708,13 @@ class ScreensTest {
     @Test fun insetsLevelUp() {
         val s = engineState(); s.reward = null; s.go(Route.Library)
         s.store.saveXp(io.github.graviton94.todayletters.core.XpLedger(total = io.github.graviton94.todayletters.core.Levels.totalFor(15) + 40))
-        s.levelUp = AppState.LevelUp(14, 15)
-        barsShot("insets07_level_up_dark", true, s, 3600, after = 0)
+        barsShot("insets07_level_up_dark", true, s, 3600, after = 0, late = { s.reward = null; s.levelUp = AppState.LevelUp(14, 15) })
     }
     /** 메달과 함께 온 그림 (셋째 메달): 메달 한 장 + “함께 온 그림” 한 줄. */
     @Test fun insetsMedalPainting() {
-        val s = engineState(); s.go(Route.Library)
-        s.reward = medalWithPainting(s)
-        barsShot("insets08_medal_painting_dark", true, s, 3600, after = 0)
+        val s = engineState(); s.reward = null; s.go(Route.Library)
+        val m = medalWithPainting(s)
+        barsShot("insets08_medal_painting_dark", true, s, 3600, after = 0, late = { s.levelUp = null; s.reward = m })
     }
     @Test fun insetsDownloadSheet() {
         val s = state(true); s.go(Route.Inbox)
@@ -2720,7 +2724,7 @@ class ScreensTest {
     }
     @Test fun insetsBackupSheet() {
         val s = engineState(); s.reward = null; s.go(Route.Library); s.settingsOpen = true
-        barsShot("insets10_backup_sheet_light", false, s, act = {
+        barsShot("insets10_backup_sheet_light", false, s, late = { s.reward = null; s.levelUp = null }, act = {
             scrolled { rule.onNodeWithText(ctx.getString(R.string.backup_export)).performScrollTo().performClick() }
         })
     }

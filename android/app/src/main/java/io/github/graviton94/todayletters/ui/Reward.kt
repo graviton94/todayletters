@@ -472,8 +472,9 @@ fun MedalMoment(s: AppState) {
 @Composable
 private fun WithPainting(s: AppState, w: io.github.graviton94.todayletters.data.Work, pc: io.github.graviton94.todayletters.core.Piece, modifier: Modifier) {
     val ui = uiLang()
-    // 원제: 작품의 말로 적힌 이름이 있으면 그것, 없으면 데이터의 첫 이름 (소장처가 붙인 이름)
-    val tl = if (pc.title.lines.containsKey(w.series.original)) w.series.original else pc.title.lines.keys.first()
+    // 원제: 작품의 말로 적힌 이름이 있으면 그것, 없으면 소장처가 붙인 영어 이름 (번역 이름은 쓰지 않는다)
+    val ln = pc.title.lines
+    val tl = listOf(w.series.original, io.github.graviton94.todayletters.core.Lang.EN).firstOrNull { !ln[it].isNullOrBlank() } ?: ln.keys.first()
     val title = pc.title[tl]
     // 작가 · 해: 갤러리 소장품은 그 작품 화가의 것 (키트의 이름), 해는 그림 데이터에서만
     val meta = Wall.meta(w.kit.fullName[ui].ifBlank { w.fullName }, pc.date)
