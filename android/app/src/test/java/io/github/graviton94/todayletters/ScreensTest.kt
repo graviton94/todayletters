@@ -2138,7 +2138,7 @@ class ScreensTest {
     /** 점수가 문턱 아래 · 음절도 어긋남: ‘다시’ 한 줄과 ‘또박또박’ 이 함께 (칭찬 없음). */
     @Test fun fixShadowLowScoreRetry() {
         val s = state(true)
-        val t = scoredTake(io.github.graviton94.todayletters.core.Prosody.Score(40, 50), mineSyl = 3, refSyl = 10)
+        val t = scoredTake(io.github.graviton94.todayletters.core.Prosody.Score(30, 35), mineSyl = 3, refSyl = 10)
         org.junit.Assert.assertEquals(false, t.passed); org.junit.Assert.assertTrue(t.unclear)
         shot("fix2_shadow_low_score_retry_light", false, series = s) { ScoredPane(s, t) }
     }
