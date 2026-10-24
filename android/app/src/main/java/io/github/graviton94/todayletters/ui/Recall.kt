@@ -110,7 +110,7 @@ internal fun RecallPane(s: AppState, series: String, items: List<RecallItem>, on
     val pool = remember(series, learn) {
         s.work(series).chapters.flatMap { it.letters }.flatMap { l -> ShadowLines.talkMe(l.talk, learn).map { Breaks.plain(l.talk!!.lines[it].text[learn]) } }.distinct()
     }
-    DisposableEffect(Unit) { onDispose { s.narrator.stop(); s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release() } }
+    DisposableEffect(Unit) { val me = s.narrator.scene; onDispose { s.narrator.stop(me); s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release() } }
     val item = queue.firstOrNull()?.let { items[it] } ?: return
     val line = item.letter.talk!!.lines[item.line]
     val text = Breaks.plain(line.text[learn]).trim()

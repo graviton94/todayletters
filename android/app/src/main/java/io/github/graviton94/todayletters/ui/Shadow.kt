@@ -97,7 +97,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
     var finished by remember { mutableStateOf(false) }
     var unpassed by remember { mutableStateOf(0) }
     val tries = remember(letter.id) { mutableMapOf<Int, Int>() }
-    DisposableEffect(Unit) { onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release(); s.narrator.stop() } }
+    DisposableEffect(Unit) { val me = s.narrator.scene; onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release(); s.narrator.stop(me) } }
     if (flat.isEmpty()) return
     val spot = flat[at.coerceIn(0, flat.lastIndex)]
     val mi = spot.msg
@@ -312,12 +312,13 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
         playOriginal(s, speed ?: if (slow) io.github.graviton94.todayletters.core.Listen.SLOW else null) {}
     }
 
-    private fun playOriginal(s: AppState, speed: Float?, then: () -> Unit) {
+    /** [then] 은 원래 소리가 끝났을 때 (끝까지 들었으면 true · 멈췄거나 다른 소리 · 화면을 옮겼으면 false). */
+    private fun playOriginal(s: AppState, speed: Float?, then: (Boolean) -> Unit) {
         val a = audio ?: return
         if (!hasAudio) return
         s.recorder.stopPlaying()
-        playing = if (end == Int.MAX_VALUE) s.narrator.play(a, speed) { playing = false; then() }
-            else s.narrator.playRange(a, start, end, speed) { playing = false; then() }
+        playing = if (end == Int.MAX_VALUE) s.narrator.playThen(a, speed) { ok -> playing = false; then(ok) }
+            else s.narrator.playRangeThen(a, start, end, speed) { ok -> playing = false; then(ok) }
     }
 
     /**
@@ -330,8 +331,10 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
         if (!have) return
         val run = ++compareRun
         compare = Side.ORIG
-        playOriginal(s, if (slow) io.github.graviton94.todayletters.core.Listen.SLOW else null) {
+        playOriginal(s, if (slow) io.github.graviton94.todayletters.core.Listen.SLOW else null) { ok ->
             if (run != compareRun || compare != Side.ORIG) return@playOriginal
+            // 원래 소리가 끊겼으면 (다른 소리 · 화면을 옮김) 내 소리를 잇지 않는다
+            if (!ok) { compare = null; return@playOriginal }
             compare = Side.MINE
             s.recorder.play(file) { if (run == compareRun) compare = null }
         }

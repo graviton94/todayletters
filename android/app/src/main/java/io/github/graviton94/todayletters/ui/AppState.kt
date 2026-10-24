@@ -280,8 +280,9 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         current = id; store.lastSeries = id
         forward = true
         stack.clear()
-        if (needsWelcome(id)) { stack.addAll(listOf(Route.Library, Route.Welcome(id))); return }
+        if (needsWelcome(id)) { stack.addAll(listOf(Route.Library, Route.Welcome(id))); moved(); return }
         stack.addAll(Nav.trail(Route.Inbox))
+        moved()
         // 앱 안 장이 없는 작품을 처음 열 때: 서문 + 무료 장을 받을지 한 번 묻는다 (‘다음에’ 면 표지에 받기 단추가 남는다)
         if (!store.firstAsked(id)) downloads.first(id)?.takeIf { !downloads.ready(it) }?.let { store.markFirstAsked(id); downloadAsk = DownloadAsk(it, id, it.chapter, null, null) }
     }
@@ -379,12 +380,10 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     /** 소리 하나를 끝까지 들었다: 천천히 읽던 편지의 마지막 문장이면 처음 한 번은 끝 (그 뒤로는 평소 빠르기). */
     private fun soundEnded(asset: String) {
-        lastEnded = asset
         val (id, cl) = slowPassing() ?: return
         val (c, l) = cl
         if (asset == narrator.path(id, c, l.id, "m${l.messages.size}_${room(id).learn.code}")) store.markSlowPassed(key(id, c, l.id))
     }
-    private var lastEnded: String? = null
 
     /** 어제 편지: 오늘 마치지 않은 것 가운데 가장 나중에 마친 편지 (없으면 null). */
     fun yesterdayLetter(id: String): Pair<String, Letter>? {
@@ -413,7 +412,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         fun next(k: Int) {
             if (!againPlaying) return
             if (k >= clips.size) { againPlaying = false; return }
-            val ok = narrator.play(clips[k]) { if (againPlaying && lastEnded == clips[k]) next(k + 1) else againPlaying = false }
+            val ok = narrator.playThen(clips[k]) { heard -> if (againPlaying && heard) next(k + 1) else againPlaying = false }
             if (!ok) next(k + 1)
         }
         next(0)
@@ -525,11 +524,19 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         if (r is Route.Tab || r == Route.Library) afterPurchase = null
         forward = r != Route.Library && (r !is Route.Tab || stack.size > 2 || (stack.lastOrNull() as? Route.Tab)?.let { tabIndex(it) < tabIndex(r) } ?: true)
         when {
-            r == Route.Library -> { narrator.stop(); music.stop(); stack.clear(); stack.add(r) }
+            r == Route.Library -> { music.stop(); stack.clear(); stack.add(r) }
             r is Route.Tab -> { stack.clear(); stack.addAll(Nav.trail(r)) }
             else -> stack.add(r)
         }
+        moved()
     }
+
+    /**
+     * 길을 옮긴 뒤 한 곳에서: 앞 화면의 소리를 새 화면이 그려지기 전에 멈추고, 이제부터는 새 화면의 소리만 받는다
+     * ([Narrator.enter]). 화면 전환 동안 나가는 화면이 아직 살아 있어서, 그 화면의 이어 읽기 · 늦은 자동 재생이 새 화면 소리를 자르거나
+     * 그 화면의 onDispose 가 새 화면 소리를 끄던 것을 막는다 (0.9.9 폰 피드백). 밀어 닫은 뒤 이어 읽는 낭독은 그대로.
+     */
+    private fun moved() = narrator.enter(route, keep = io.github.graviton94.todayletters.data.Playback.detached)
 
     private fun tabIndex(r: Route) = listOf(Route.Inbox, Route.Words, Route.Gallery, Route.Shop).indexOf(r)
 
@@ -549,12 +556,12 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
 
     /** 뒤로: 스택을 하나 내리고, 비면 계층의 부모로. 맨 위(서재)면 false (앱을 나감). */
     fun back(): Boolean {
-        narrator.stop(); music.stop()
+        music.stop()   // 낭독은 옮긴 뒤 moved() 가 멈춘다
         gloss = null
         forward = false
-        if (stack.size > 1) { stack.removeAt(stack.lastIndex); return true }
+        if (stack.size > 1) { stack.removeAt(stack.lastIndex); moved(); return true }
         val up = Nav.up(route) ?: return false
-        stack.clear(); stack.addAll(Nav.trail(up)); return true
+        stack.clear(); stack.addAll(Nav.trail(up)); moved(); return true
     }
 
     fun update(a: AppSettings) {
@@ -1631,7 +1638,7 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
         else if (slowPassing()?.first == series) io.github.graviton94.todayletters.core.Listen.SLOW
         else io.github.graviton94.todayletters.core.Listen.speed(seriesSettings(series), support(series).band)
 
-    init { narrator.base = { listenSpeed() } }
+    init { narrator.base = { listenSpeed() }; narrator.enter(route, keep = true) }
 
     /**
      * 낱말마다 익숙한 정도: 이 작품에서 지금 배우는 말의 낱말 꼴 → 그 낱말 카드의 복습 칸 (없으면 0).

@@ -119,10 +119,12 @@ object Playback {
             override fun stop() { end(app) }
         }
         // 지금 문장: 소리 나는 중이면 (멈춤 포함) 끝나기를 기다린다
-        val current = kotlinx.coroutines.CompletableDeferred<Unit>()
+        val current = kotlinx.coroutines.CompletableDeferred<Boolean>()
         val playing = n.now == files[at]
-        if (playing) n.follow { current.complete(Unit) }
+        if (playing) n.follow { ok -> current.complete(ok) }
         tail = main.launch {
+            // 지금 문장이 끝까지 들렸는가 (멈춤 · 다른 소리면 false: 단추로 넘긴 것이 아니면 거기서 그만)
+            var completed: Boolean
             var k = at
             var first = playing
             var finished = false
@@ -132,15 +134,14 @@ object Playback {
                     snapshotFlow { paused }.first { !it }
                     update(k); heard?.invoke(k)
                     jump[0] = 0
-                    suspendCancellableCoroutine<Unit> { c ->
-                        val done = { if (c.isActive) c.resume(Unit) }
-                        if (!n.play(files[k], speed) { done() }) done()
+                    completed = suspendCancellableCoroutine<Boolean> { c ->
+                        n.playThen(files[k], speed, owner = null) { ok -> if (c.isActive) c.resume(ok) }
                     }
-                } else current.await()
+                } else completed = current.await()
                 first = false
-                // 다른 소리가 재생기를 가져갔다 → 여기서 그만 (그 소리는 그대로)
+                // 다른 소리가 재생기를 가져갔다 · 앱에서 멈췄다 → 여기서 그만 (그 소리는 그대로, 앞 문장으로 되돌아가 다시 읽지 않는다)
                 if (n.now != null) break
-                k = when (jump[0]) { -1 -> (k - 1).coerceAtLeast(0); 2 -> k; else -> k + 1 }
+                k = io.github.graviton94.todayletters.core.Voice.next(k, completed, jump[0]) ?: break
                 jump[0] = 0
             }
             if (finished) heard?.invoke(-1)

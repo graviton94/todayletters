@@ -99,7 +99,7 @@ fun Artwork(s: AppState, r: Route.Artwork) {
     val ty = remember { Animatable(0f) }
     val scope = rememberCoroutineScope()
     androidx.activity.compose.BackHandler(enabled = at >= 0) { at = -1 }
-    androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.narrator.stop(); s.music.stop() } }
+    androidx.compose.runtime.DisposableEffect(Unit) { val me = s.narrator.scene; onDispose { s.narrator.stop(me); s.music.stop() } }
     // 악보 속 산책: 이 편지의 ‘편지 속 그 곡’ 발췌를 그 악보 위에서 듣는다 (녹음이 있을 때만)
     val excerpt = letter?.music?.takeIf { pl?.score == true }
     var hearing by remember { mutableStateOf(false) }

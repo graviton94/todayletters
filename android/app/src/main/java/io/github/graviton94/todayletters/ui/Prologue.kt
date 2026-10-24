@@ -89,7 +89,7 @@ fun PrologueScreen(s: AppState, r: Route.Prologue) {
     val pages = w.prologue
     var page by remember(r) { mutableStateOf(r.page.coerceIn(0, pages.size)) }
     var detail by remember { mutableStateOf<String?>(null) }
-    DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
+    DisposableEffect(Unit) { val me = s.narrator.scene; onDispose { s.narrator.stop(me) } }
     BackHandler { if (page > 0) { s.narrator.stop(); page-- } else s.back() }
     // 다른 장으로 넘기면 맨 위부터
     val scroll = rememberScrollState()
@@ -187,7 +187,7 @@ fun OutroScreen(s: AppState, series: String) {
     val o = w.outro ?: return
     val view = s.room(series)
     val ui = uiLang()
-    DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
+    DisposableEffect(Unit) { val me = s.narrator.scene; onDispose { s.narrator.stop(me) } }
     BackHandler { s.back() }
     val done = w.chapters.flatMap { c -> c.letters.filter { s.progress(series, c.id, it.id).done } }
     Box(Modifier.fillMaxSize().background(Night)) {

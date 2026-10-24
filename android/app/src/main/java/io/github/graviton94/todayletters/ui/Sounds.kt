@@ -116,7 +116,7 @@ internal fun SoundsPane(s: AppState, series: String, c: SoundChapter, learn: Lan
     val rounds = remember(again) { Sounds.rounds(c.pairs.size, seed * 31 + again + s.today) }
     var right by remember(again) { mutableIntStateOf(0) }
     var picked by remember(again, stage) { mutableStateOf<Int?>(null) }
-    DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
+    DisposableEffect(Unit) { val me = s.narrator.scene; onDispose { s.narrator.stop(me) } }
     // 판이 바뀌면 그 판의 낱말을 한 번
     LaunchedEffect(stage, again) { rounds.getOrNull(stage)?.let { rd -> c.pairs[rd.pair].let { (a, b) -> play(if (rd.second) b else a) } } }
     val over = stage >= rounds.size

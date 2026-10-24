@@ -291,6 +291,24 @@ class NavTest {
         s.backTo(Route.Library)
     }
 
+    /**
+     * 소리 차례 (0.9.9 폰 피드백): 길을 옮기면 낭독의 ‘지금 화면’도 바로 바뀌고 (새 화면이 그려지기 전),
+     * 나간 화면 이름으로 오는 늦은 소리는 받지 않는다 (끝까지 듣지 않은 것으로 한 번 알림). 차례 자체는 core VoiceTest.
+     */
+    @Test fun narrationFollowsTheRoute() {
+        val s = state()
+        s.enter("vincent")
+        val before = s.narrator.scene
+        assertEquals(s.route, before)
+        s.go(Route.Record)
+        assertEquals(Route.Record, s.narrator.scene)
+        var heard: Boolean? = null
+        assertFalse(s.narrator.playThen("sounds/page.m4a", owner = before) { heard = it })
+        assertEquals(false, heard)
+        assertTrue(s.back())
+        assertEquals(before, s.narrator.scene)
+    }
+
     /** 편지 도착 장면에서 뒤로: 들어온 곳(오늘)으로, 도착은 본 것으로 치지 않는다 (다음에 다시 온다). */
     @Test fun arrivalBackReturnsToEntry() {
         val s = state(seen = false)

@@ -284,3 +284,11 @@
 - **D 미리 보는 원래 선**: core `Prosody.preview` (채점 뒤 `curves` 의 원래 선과 같은 칸 · 다듬기 · 폭) 를 칸마다 한 번 읽어 녹음 전부터 판에 점선 + ‘선을 따라 오르내리듯 읽어 보세요.’. 녹음 중 내 선은 core `LiveLine` (첫 목소리부터 시간 / 원래 길이, 원래 선과 같은 반음 폭) 으로 점선 위에. 채점 뒤 두 선은 예전 `curves` (내 선이 원래보다 넓으면 그 폭으로 조금 줄어듦). 답을 아직 못 본 복습 말하기 · 회화 빈칸 · 조각 전에는 점선을 보이지 않는다 (`ShadowBoard(preview = …)`).
 - 글자 키 새로: `shadow_compare` · `shadow_compare_line` · `shadow_follow_line` · `shadow_listening_auto` · `shadow_speed` (기존 키 값은 그대로, strings.xml 만 다시 만듦, 글꼴 검사 통과).
 - 화면 사진 `ScreensTest.abcd*` (abcd1 녹음 전 · abcd2 녹음 중 · abcd3 비교 듣기 중 · abcd4 채점 뒤 0.7×).
+
+## 2026-10-24 소리 차례 고침 (0.9.9 폰 피드백: 메뉴 · 보상 · 다음 화면에서 소리가 안 나거나 앞 화면 소리가 나옴)
+
+- 원인 1: `Narrator.stop()` 이 앞 소리의 ‘끝났을 때’를 부르고, 이어 읽는 쪽 (이해 확인 지문 `Depth.listen` · 편지 방 `Room.say` · 알림 이어 읽기 `Playback.handOff` · 비교 듣기 `ShadowTake.compareListen` · 어제 편지 다시 듣기) 이 멈춘 것도 끝난 것으로 보고 다음 소리를 틀었다 → 화면을 옮기면 앞 화면의 다음 문장 · 내 녹음이 새 화면 소리를 자름. 끝까지 들었는지를 함께 주는 `playThen` · `playRangeThen` (토막 끝에 닿으면 끝까지 들은 것) 으로 바꾸고, 이어 읽기는 true 일 때만. 멈추는 중 (앞 소리의 ‘끝’ 안) 에 부른 새 소리는 받지 않는다.
+- 원인 2: 화면 전환(AnimatedContent) 동안 나가는 화면이 살아 있어서, 전환이 끝날 때의 `onDispose { narrator.stop() }` 가 새 화면이 막 튼 자동 낭독을 껐고, 나가는 화면의 늦은 자동 재생 (도착 첫 줄 delay 뒤 · 회화 상대 줄 차례 · 편지 방 다음 조각) 이 새 화면 소리를 잘랐다. `go` · `back` · `enter` 뒤 한 곳 `AppState.moved()` → `Narrator.enter(route)`: 새 화면이 그려지기 전에 앞 소리를 멈추고 (효과음 sounds/ 와 밀어 닫은 뒤 이어 읽기는 그대로), 지난 화면 이름(`owner`)의 소리는 받지 않는다. 화면의 onDispose 는 `stop(me)` (제 소리일 때만).
+- 원인 3: 알림 이어 읽기는 앱에서 그냥 멈춰도 (뒤로 가기 등) 다음 문장으로 넘어갔다 → 단추(다음 · 이전) 없이 멈추면 그만 (`Voice.next`). `back()` 은 이제 낭독을 직접 멈추지 않고 `moved()` 에 맡긴다.
+- 보상 화면의 소리는 SoundPool (`Effects`) 이라 낭독과 겹치지 않음 (확인만, 고친 것 없음).
+- 판단은 core `Voice` (`VoiceTest`), 앱 쪽 확인은 `NavTest.narrationFollowsTheRoute` (android.yml 은 core 테스트만 돌린다). 실제 폰에서 아직 들어 본 적 없음.

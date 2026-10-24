@@ -328,7 +328,7 @@ fun Session(s: AppState, r: Route.Session) {
     val q = questions[at]
     // 이름표: 그 낱말이 나온 편지, 앱 글자 언어로 (편지 6 · 1888년 5월)
     val tag = letterTag(s, q.card.key)
-    androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.narrator.stop() } }
+    androidx.compose.runtime.DisposableEffect(Unit) { val me = s.narrator.scene; onDispose { s.narrator.stop(me) } }
     // 새 문제로 오면 앞 문제의 소리(빈칸 문장 등)는 멈추고, 듣는 문제만 새 소리를
     fun playPhrase(speed: Float? = null) { val a = q.sentenceAudio; val rg = q.range; if (a != null && rg != null) s.narrator.playRange(a, rg.first, rg.last, speed) }
     LaunchedEffect(at) {

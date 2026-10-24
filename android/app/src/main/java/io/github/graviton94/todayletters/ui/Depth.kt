@@ -102,13 +102,15 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val options = remember(letter.id, k, langs) { c?.options?.map { Breaks.plain(it[langs.options]) }.orEmpty() }
     val right = options.getOrNull(c?.answer ?: -1).orEmpty()
     val over = picked == right || missed.size >= 2
-    DisposableEffect(letter.id) { onDispose { s.narrator.stop() } }
+    val me = remember(letter.id) { s.narrator.scene }
+    DisposableEffect(letter.id) { onDispose { s.narrator.stop(me) } }
 
     // 지문 듣기: 근거 메시지의 낭독을 차례로 (없으면 단추 없음)
     val clips = remember(letter.id, k, view.learn) {
         c?.evidence.orEmpty().map { i -> s.narrator.path(id, chapter, letter.id, "m${i + 1}_${view.learn.code}") }.filter { s.narrator.has(it) }
     }
-    fun listen(from: Int = 0, speed: Float? = null) { clips.getOrNull(from)?.let { s.narrator.play(it, speed) { if (from + 1 < clips.size) listen(from + 1, speed) } } }
+    // 다음 메시지는 앞 메시지를 끝까지 들었을 때만 (멈추거나 화면을 옮기면 잇지 않는다)
+    fun listen(from: Int = 0, speed: Float? = null) { clips.getOrNull(from)?.let { s.narrator.playThen(it, speed, owner = me) { ok -> if (ok && from + 1 < clips.size) listen(from + 1, speed) } } }
     // 질문이 뜨면 지문을 한 번 저절로 (자동 낭독 설정 · 기본 듣기 속도, 소리 파일이 없으면 조용히)
     LaunchedEffect(letter.id, k) { if (s.app.sound) listen() }
 
@@ -206,8 +208,10 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
         // 앞 줄 소리(상대 줄 · 내 줄 정답 소리)가 끝난 뒤에 다음 상대 줄 (그 줄의 소리가 앞 소리를 자르지 않게)
         if (shown < lines.size && !lines[shown].me) { awaitAnswerSound(s.narrator, if (shown == 0) 300 else 900); shown++ }
     }
-    LaunchedEffect(shown) { val i = shown - 1; if (i >= 0 && !lines[i].me) audio(i)?.let { s.narrator.play(it) } }
-    DisposableEffect(letter.id) { onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release(); s.narrator.stop() } }
+    // 상대 줄은 저절로: 이 화면의 소리로만 (화면을 떠난 뒤 다음 줄 차례가 와도 새 화면 소리를 자르지 않게)
+    val me = remember(letter.id) { s.narrator.scene }
+    LaunchedEffect(shown) { val i = shown - 1; if (i >= 0 && !lines[i].me) audio(i)?.let { s.narrator.play(it, owner = me) } }
+    DisposableEffect(letter.id) { onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release(); s.narrator.stop(me) } }
     val done = shown >= lines.size && lines.isNotEmpty()
 
     // 지금 내 차례 줄의 상태
@@ -217,7 +221,7 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     val phase = st?.phase
     LaunchedEffect(phase, cur) {
         when (phase) {
-            TalkTurn.Phase.REVEALED -> cur?.let { audio(it) }?.let { s.narrator.play(it) }
+            TalkTurn.Phase.REVEALED -> cur?.let { audio(it) }?.let { s.narrator.play(it, owner = me) }
             TalkTurn.Phase.DONE -> { val t = st; if (cur != null && t != null) { marks += if (t.passed) "1" else "0"; shown = cur + 1 } }
             else -> Unit
         }

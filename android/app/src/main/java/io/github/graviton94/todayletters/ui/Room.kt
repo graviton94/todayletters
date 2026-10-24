@@ -133,6 +133,8 @@ fun Room(s: AppState, r: Route.Letter) {
             Playback.Now(nowTitle, nowSub, letter.plate?.image?.takeIf { it.isNotBlank() }?.let { "plates/$it" }, 0, total), controlsRef[0]!!)
     }
 
+    // 이 방의 소리 주인 (들어올 때의 화면): 방을 떠난 뒤의 늦은 낭독은 받지 않고, 방이 사라질 때는 제 소리만 멈춘다
+    val me = remember(letter.id) { s.narrator.scene }
     fun stopAll() { all?.cancel(); all = null; s.narrator.stop(); playing = null; Playback.end(appCtx) }
     // 이어 읽을 끝 (앱을 밀어 닫았을 때 여기까지 Playback 이 이어 읽는다): 도착 낭독은 편지 끝, 모두 듣기는 쓰인 데까지, 한 조각은 그 조각
     val queue = remember(letter.id) { intArrayOf(total, 1) }   // [끝, 들은 자리 남기기 1/0]
@@ -140,24 +142,27 @@ fun Room(s: AppState, r: Route.Letter) {
      * [from] 번째부터 [until] 앞까지 차례로 읽는다. 멈춰 두면 기다리고, 단추로 앞뒤 문장을 오간다.
      * [extend] 면 ‘다음’ 단추로 [until] 너머(쓰인 조각까지)로도 간다. [mark] 면 듣다 멈춘 자리를 남긴다.
      */
-    suspend fun say(from: Int, until: Int, extend: Boolean = false, mark: Boolean = true, speed: Float? = null) {
+    suspend fun say(from: Int, until: Int, extend: Boolean = false, mark: Boolean = true, speed: Float? = null): Boolean {
         var k = from
         var end = until
+        var whole = true
         while (k < end && !muted) {
             snapshotFlow { Playback.paused }.first { !it }
             session()
             playing = k; Playback.update(k); if (mark) s.store.setHeard(key, k)
             jump[0] = 0
-            suspendCancellableCoroutine { c ->
-                // 앱을 밀어 닫아 Playback 이 넘겨받았으면 소리를 끊지 않는다
-                c.invokeOnCancellation { if (!Playback.detached) s.narrator.stop() }
-                if (!s.narrator.play(audio(k), speed) { if (c.isActive) c.resume(Unit) } && c.isActive) c.resume(Unit)
+            val heard = suspendCancellableCoroutine<Boolean> { c ->
+                // 앱을 밀어 닫아 Playback 이 넘겨받았으면 소리를 끊지 않는다. 이 방의 소리일 때만 (새 화면 소리는 그대로)
+                c.invokeOnCancellation { if (!Playback.detached) s.narrator.stop(me) }
+                s.narrator.playThen(audio(k), speed, owner = me) { ok -> if (c.isActive) c.resume(ok) }
             }
             val j = jump[0]
-            k = when (j) { -1 -> (k - 1).coerceAtLeast(0); 2 -> k; else -> k + 1 }
+            // 단추 없이 멈췄으면 (다른 소리 · 방을 떠남) 다음 문장으로 잇지 않는다
+            k = io.github.graviton94.todayletters.core.Voice.next(k, heard, j) ?: run { whole = false; end }
             if (extend && j == 1 && k >= end && k < written) end = k + 1
         }
         if (playing != null) playing = null
+        return whole
     }
     /**
      * 조각 하나 듣기: 이것도 낭독 세션으로 (알림창 · 잠금 화면 · 이어폰 단추에 재생/멈춤 · 이전/다음, v22).
@@ -180,10 +185,10 @@ fun Room(s: AppState, r: Route.Letter) {
         stopAll(); muted = false
         queue[0] = written; queue[1] = 1
         all = scope.launch {
-            say(from, written)
+            val whole = say(from, written)
             all = null
             if (after != null) after() else {
-                if (written >= total && !muted) s.store.setHeard(key, -1)
+                if (whole && written >= total && !muted) s.store.setHeard(key, -1)
                 Playback.end(appCtx)
             }
         }
@@ -193,7 +198,7 @@ fun Room(s: AppState, r: Route.Letter) {
         override fun prev() { jump[0] = if (s.narrator.position() > 1500) 2 else -1; s.narrator.stop() }
         override fun stop() { muted = true; stopAll() }
     }
-    DisposableEffect(letter.id) { onDispose { s.music.stop(); if (!Playback.detached) { s.narrator.stop(); Playback.end(appCtx) } } }
+    DisposableEffect(letter.id) { onDispose { s.music.stop(); if (!Playback.detached) { s.narrator.stop(me); Playback.end(appCtx) } } }
     // 최근 앱에서 앱을 밀어 닫음 (화면이 사라짐, 언어를 바꿔 다시 그리는 것은 빼고): 남은 문장을 Playback 에 넘겨 이 편지 끝까지 이어 읽는다.
     // 앱 안에서 방을 나가면 지금처럼 멈춘다.
     val activity = androidx.compose.ui.platform.LocalContext.current as? android.app.Activity

@@ -93,7 +93,9 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
     // 첫 줄 낭독을 끝까지 들었는가 (그러면 편지 방에서 첫 줄을 다시 읽지 않는다)
     var heardAll by remember(letter.id) { androidx.compose.runtime.mutableStateOf(false) }
     BackHandler(onBack = onBack)
-    DisposableEffect(letter.id) { onDispose { s.narrator.stop() } }
+    // 이 장면의 소리 주인: 그림이 밝아지는 동안 방을 떠났으면 첫 줄 낭독을 시작하지 않고, 사라질 때는 제 소리만 멈춘다
+    val me = remember(letter.id) { s.narrator.scene }
+    DisposableEffect(letter.id) { onDispose { s.narrator.stop(me) } }
 
     // 그림이 밝아지며 다가온다 (첫 줄과 함께)
     val reveal = remember(letter.id) { Animatable(if (still || startAt == 2) 1f else 0f) }
@@ -102,7 +104,7 @@ internal fun ArrivalBody(s: AppState, series: String, chapter: String, letter: L
     LaunchedEffect(stage) {
         if (stage != 1) return@LaunchedEffect
         if (plate != null && !still) kotlinx.coroutines.delay(Tokens.Motion.introFadeMs.toLong())
-        val voiced = s.app.sound && s.narrator.play(audio) { heardAll = true }
+        val voiced = s.app.sound && s.narrator.play(audio, owner = me) { heardAll = true }
         val start = System.currentTimeMillis()
         val plain = (line.length * Tokens.Motion.typeCharMs * 2L).coerceAtLeast(1200L)
         // 목소리가 나오는 구간: 마디 시각의 처음(앞 쉼만큼 늦춤) ~ 끝(뒤 쉼 뺌). 없으면 파일 처음 ~ 끝

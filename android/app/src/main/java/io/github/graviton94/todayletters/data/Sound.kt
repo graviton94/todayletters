@@ -105,21 +105,45 @@ class Narrator(private val ctx: Context) {
     private fun tick() = android.os.SystemClock.elapsedRealtime()
     private fun count() { clock.stop(tick())?.let { (l, ms) -> runCatching { heard(l, ms) } } }
 
-    /** [speed] 를 주지 않으면 기본 빠르기 ([base]). */
-    fun play(asset: String, speed: Float? = null, onDone: () -> Unit = {}): Boolean {
+    /**
+     * 누가 언제 소리를 낼 수 있는가 ([io.github.graviton94.todayletters.core.Voice]): 지금 화면 · 지금 소리의 주인 · 끝났을 때 부를 것.
+     * 화면을 옮기면 [enter], 화면이 사라질 때는 [stop] (주인) 으로 제 소리만.
+     */
+    private val voice = io.github.graviton94.todayletters.core.Voice()
+    /** 지금 화면 (AppState 가 [enter] 로 건다). 소리의 주인을 따로 주지 않으면 이 화면의 소리. */
+    val scene: Any? get() = voice.scene
+
+    /**
+     * 화면을 옮겼다: 앞 화면의 소리를 멈추고 (끝까지 듣지 않은 것으로) 이제부터는 [scene] 의 소리만.
+     * [keep] 이면 소리는 그대로 (밀어 닫은 뒤 이어 읽기). 효과음(sounds/, 화면을 넘기는 종이 소리 등)은 끝까지 둔다.
+     */
+    fun enter(scene: Any?, keep: Boolean = false) {
+        voice.enter(scene)
+        if (!keep && now?.startsWith("sounds/") != true) stop()
+    }
+
+    /** [speed] 를 주지 않으면 기본 빠르기 ([base]). [onDone] 은 끝까지 들었든 멈췄든 한 번 (이어 읽으려면 [playThen]). */
+    fun play(asset: String, speed: Float? = null, owner: Any? = voice.scene, onDone: () -> Unit = {}): Boolean =
+        playThen(asset, speed, owner) { onDone() }
+
+    /**
+     * [play] 와 같고, 끝났을 때 끝까지 들었는가(true) · 멈췄거나 다른 소리로 바뀌었는가(false) 를 준다.
+     * 다음 문장 · 다음 줄로 이어 읽는 쪽은 true 일 때만 잇는다. [owner] 가 지난 화면이면 소리 없이 false.
+     */
+    fun playThen(asset: String, speed: Float? = null, owner: Any? = voice.scene, onEnd: (completed: Boolean) -> Unit): Boolean {
+        if (!voice.admits(owner)) { onEnd(false); return false }
         stop()
         if (speed != io.github.graviton94.todayletters.core.Listen.SLOW) slowBy = null
         val rate = speed ?: if (asset.startsWith("sounds/")) 1f else runCatching { base() }.getOrDefault(1f)
-        val fd = AssetFiles.fd(ctx, asset) ?: run { onDone(); return false }
-        pending = onDone
+        val fd = AssetFiles.fd(ctx, asset) ?: run { onEnd(true); return false }
+        voice.begin(owner, onEnd)
         // 소리 파일이 깨졌거나 재생기가 거절하면 조용히 넘어간다 (대화는 계속)
         player = runCatching {
             MediaPlayer().apply {
                 setAudioAttributes(media)
                 setDataSource(fd.fileDescriptor, fd.startOffset, fd.length)
                 setOnCompletionListener {
-                    if (player === this) { count(); now = null; runCatching { ended(asset) } }
-                    finish()
+                    if (player === this) { count(); now = null; runCatching { ended(asset) }; voice.end(true) }
                 }
                 prepare()
                 if (rate != 1f) playbackParams = playbackParams.setSpeed(rate)
@@ -127,7 +151,7 @@ class Narrator(private val ctx: Context) {
             }
         }.getOrNull()
         runCatching { fd.close() }
-        if (player == null) { finish(); return false }
+        if (player == null) { voice.end(true); return false }
         now = asset
         clock.start(asset, tick())
         return true
@@ -137,22 +161,24 @@ class Narrator(private val ctx: Context) {
     var now by mutableStateOf<String?>(null)
         private set
 
-    /** 끝났을 때 부를 것. 멈춰도(다른 소리로 바뀌어도) 한 번은 불러서, 기다리던 쪽이 멈춰 서지 않게 한다. */
-    private var pending: (() -> Unit)? = null
-    private fun finish() { val d = pending; pending = null; d?.invoke() }
+    /** 멈춘다. 기다리던 쪽은 ‘끝까지 듣지 않음’으로 한 번 불러서 멈춰 서지 않게 한다. */
+    fun stop() = halt(completed = false)
 
-    fun stop() {
+    /** [owner] 가 낸 소리일 때만 멈춘다 (나가는 화면의 onDispose 가 새 화면의 소리를 끄지 않게). */
+    fun stop(owner: Any?) { if (player != null && !voice.owns(owner)) return; stop() }
+
+    private fun halt(completed: Boolean) {
         count()
         player?.runCatching { stop(); release() }
         player = null
         playing = null
         now = null
         paused = false
-        finish()
+        voice.end(completed)
     }
 
-    /** 지금 소리가 끝나면 (또는 멈추면) [onDone] (기다리던 것을 바꾼다). 지금 소리가 없으면 바로. */
-    fun follow(onDone: () -> Unit) { if (now == null) onDone() else pending = onDone }
+    /** 지금 소리가 끝나면 (또는 멈추면) [onEnd] (기다리던 것을 바꾼다, 끝까지 들었는가와 함께). 지금 소리가 없으면 바로. */
+    fun follow(onEnd: (completed: Boolean) -> Unit) { if (now == null) onEnd(true) else voice.follow(onEnd) }
 
     /** 잠깐 멈춤 · 이어서 (알림창 · 이어폰 단추). 멈춘 동안에는 ‘끝났을 때’를 부르지 않는다. */
     var paused = false
@@ -165,8 +191,12 @@ class Narrator(private val ctx: Context) {
     val active get() = player != null
 
     /** 낭독의 한 토막만: [from]~[to] 밀리초 (따라 읽기의 한 마디). */
-    fun playRange(asset: String, from: Int, to: Int, speed: Float? = null, onDone: () -> Unit = {}): Boolean {
-        if (!play(asset, speed, onDone = onDone)) return false
+    fun playRange(asset: String, from: Int, to: Int, speed: Float? = null, owner: Any? = voice.scene, onDone: () -> Unit = {}): Boolean =
+        playRangeThen(asset, from, to, speed, owner) { onDone() }
+
+    /** [playRange] 를 끝까지 들었는가와 함께 ([playThen] 처럼). 토막 끝에 닿으면 끝까지 들은 것. */
+    fun playRangeThen(asset: String, from: Int, to: Int, speed: Float? = null, owner: Any? = voice.scene, onEnd: (completed: Boolean) -> Unit): Boolean {
+        if (!playThen(asset, speed, owner, onEnd)) return false
         val pl = player ?: return false
         runCatching { pl.seekTo(from) }
         val h = android.os.Handler(android.os.Looper.getMainLooper())
@@ -174,7 +204,7 @@ class Narrator(private val ctx: Context) {
             override fun run() {
                 if (player !== pl) return
                 val at = runCatching { pl.currentPosition }.getOrDefault(to)
-                if (at >= to) stop() else h.postDelayed(this, 40)
+                if (at >= to) halt(completed = true) else h.postDelayed(this, 40)
             }
         }
         h.postDelayed(tick, 40)
