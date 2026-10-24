@@ -11,6 +11,10 @@ package io.github.graviton94.todayletters.core
  *                 힌트는 다음 조각을 밝힌다. 문장을 다 쌓기 전에는 녹음이 막힌다.
  *  - MEANING (B2): 말풍선에 뜻만. 힌트 두 단 (첫 낱말 → 원문), 녹음은 바로 된다.
  *
+ * 먼저 듣기 (시안 하루 흐름 ②, 2026-10-24): 문장이 다 보이고 원래 소리가 있으면 ([start] 의 listen) 먼저 [Phase.LISTEN] —
+ * 내 문장을 한 번 들려주고, 끝까지 들은 뒤 ([Event.Listened]) 에야 녹음이 열린다. 소리가 없는 줄은 막지 않는다.
+ * BLANK · CHIPS 는 답을 다 맞춘 뒤에 듣는다 (먼저 들으면 답이 들린다). MEANING 은 뜻만 보고 말하는 단계라 듣기 없이.
+ *
  * 녹음 → 채점 ([Event.Heard]): 따라 읽기와 같은 부품 (원래 소리 · 기기 안 녹음 · [Prosody] 억양 · 리듬, 편지 걸음처럼 목소리가 들어가면 통과).
  * 맞으면 [Phase.PASSED] (원문 + 금빛 체크, ‘다음’ 으로 다음 상대 줄). 틀리면 [Phase.RETRY] (다시 해 봐요),
  * [MAX_FAILS] 번 틀리면 [Phase.REVEALED] (원문을 보여 주고 다음으로 갈 수 있다, 막히지 않음). 폰의 음성 인식 · 스스로 판정은 없다.
@@ -25,6 +29,8 @@ object TalkTurn {
     enum class Phase {
         /** 칩 고르기 · 조각 쌓기가 남음 (녹음 막힘). */
         BUILD,
+        /** 내 문장의 원래 소리를 먼저 한 번 듣는 중 (녹음 막힘, 끝까지 들으면 [READY]). */
+        LISTEN,
         /** 녹음할 수 있음. */
         READY,
         /** 한 번 틀림: 다시 녹음. */
@@ -46,6 +52,8 @@ object TalkTurn {
         data class Heard(val ok: Boolean) : Event
         /** 다음으로 (맞힌 뒤 · 원문을 보여 준 뒤). */
         data object Continue : Event
+        /** 먼저 듣기를 끝까지 들었다 (또는 들을 소리가 없다). */
+        data object Listened : Event
     }
 
     /**
@@ -69,6 +77,8 @@ object TalkTurn {
         val hints: Int = 0,
         val fails: Int = 0,
         val phase: Phase = Phase.READY,
+        /** 원래 소리가 있어 먼저 듣는가 ([Phase.LISTEN] 을 거친다). */
+        val listen: Boolean = false,
     ) {
         /** 알맹이가 있는 낱말의 자리 (쌓을 차례). */
         val order: List<Int> get() = keys.indices.filter { keys[it].isNotEmpty() }
@@ -77,7 +87,7 @@ object TalkTurn {
         val canRecord: Boolean get() = phase == Phase.READY || phase == Phase.RETRY
 
         /** 녹음 단추를 보여 주나 (막혀 있어도 보인다: 회색 + 까닭 한 줄). */
-        val showsRecord: Boolean get() = phase == Phase.BUILD || canRecord
+        val showsRecord: Boolean get() = phase == Phase.BUILD || phase == Phase.LISTEN || canRecord
 
         /** 말풍선에 원문 전체가 보이나. */
         val fullLine: Boolean get() = phase == Phase.PASSED || phase == Phase.REVEALED || phase == Phase.DONE ||
@@ -132,7 +142,14 @@ object TalkTurn {
      * 내 차례 줄 하나를 시작한다. [sentence] 는 배우는 말 줄. BLANK 이면 [blank] (빈칸 자리) · [options] (보기 칩, 정답 포함) 를 화면이 고른 대로 받는다
      * (빈칸이 없으면 바로 녹음). CHIPS 면 첫 낱말을 두고 남은 낱말을 [seed] 로 섞는다 (문장 차례 그대로면 한 칸 돌린다).
      */
-    fun start(help: Support.Talk, sentence: String, blank: IntRange? = null, options: List<String> = emptyList(), seed: Int = 0): State {
+    fun start(help: Support.Talk, sentence: String, blank: IntRange? = null, options: List<String> = emptyList(), seed: Int = 0,
+              /** 원래 소리가 있으면 true: 문장이 다 보일 때 먼저 듣기. */ listen: Boolean = false): State =
+        ready(begin(help, sentence, blank, options, seed).copy(listen = listen && help != Support.Talk.MEANING))
+
+    /** 녹음할 차례가 됐을 때: 먼저 들을 것이 있으면 [Phase.LISTEN]. */
+    private fun ready(st: State): State = if (st.phase == Phase.READY && st.listen) st.copy(phase = Phase.LISTEN) else st
+
+    private fun begin(help: Support.Talk, sentence: String, blank: IntRange?, options: List<String>, seed: Int): State {
         val s = Breaks.plain(sentence).trim()
         val tokens = Ladder.tokens(s)
         val keys = tokens.map(::key)
@@ -165,10 +182,11 @@ object TalkTurn {
 
     /** 사건 하나로 다음 상태. 지금 단계에 맞지 않는 사건은 무시한다 (녹음이 막힌 동안의 Heard 등). */
     fun reduce(st: State, e: Event): State = when (e) {
-        is Event.Pick -> pick(st, e.index)
+        is Event.Pick -> ready(pick(st, e.index))
         Event.Hint -> if (!st.hintable) st else st.copy(hints = st.hints + 1, rejected = null)
         is Event.Heard -> if (!st.canRecord) st else if (e.ok) st.copy(phase = Phase.PASSED) else fail(st, Phase.RETRY)
         Event.Continue -> if (st.phase == Phase.PASSED || st.phase == Phase.REVEALED) st.copy(phase = Phase.DONE) else st
+        Event.Listened -> if (st.phase == Phase.LISTEN) st.copy(phase = Phase.READY) else st
     }
 
     private fun fail(st: State, again: Phase): State {

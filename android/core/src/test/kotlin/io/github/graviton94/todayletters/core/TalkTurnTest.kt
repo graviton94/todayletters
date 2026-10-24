@@ -135,4 +135,35 @@ class TalkTurnTest {
         (0..40).forEach { seed -> assertNotEquals(w, TalkTurn.shuffle(w, seed)) }
         assertEquals(listOf("x"), TalkTurn.shuffle(listOf("x"), 1))
     }
+
+    // ── 먼저 듣기 (시안 하루 흐름 ②) ──
+    @Test fun shadowListensFirstWhenThereIsSound() {
+        val st = TalkTurn.start(Support.Talk.SHADOW, fr, listen = true)
+        assertEquals(Phase.LISTEN, st.phase); assertFalse(st.canRecord); assertTrue(st.showsRecord)
+        // 듣기 전 녹음 결과는 무시
+        assertEquals(st, run(st, Event.Heard(true)))
+        val ready = run(st, Event.Listened)
+        assertEquals(Phase.READY, ready.phase); assertTrue(ready.canRecord)
+        // 다시 듣기 신호는 아무 일도 하지 않는다
+        assertEquals(ready, run(ready, Event.Listened))
+        assertEquals(Phase.PASSED, run(ready, Event.Heard(true)).phase)
+    }
+
+    @Test fun noSoundIsNotLocked() {
+        assertEquals(Phase.READY, TalkTurn.start(Support.Talk.SHADOW, fr, listen = false).phase)
+    }
+
+    @Test fun blankListensAfterTheRightChip() {
+        val b = Ladder.find(fr, "Tu es fatigué")!!
+        val st = TalkTurn.start(Support.Talk.BLANK, fr, b, listOf("Tu as fatigué", "Tu es fatigué", "Tu es fatiguée"), listen = true)
+        assertEquals(Phase.BUILD, st.phase)
+        val picked = run(st, Event.Pick(1))
+        assertEquals(Phase.LISTEN, picked.phase); assertTrue(picked.fullLine)
+        assertEquals(Phase.READY, run(picked, Event.Listened).phase)
+    }
+
+    @Test fun meaningNeverListensFirst() {
+        // 뜻만 보고 말하는 단계: 먼저 들으면 답이 들린다
+        assertEquals(Phase.READY, TalkTurn.start(Support.Talk.MEANING, fr, listen = true).phase)
+    }
 }
