@@ -218,7 +218,8 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
         }
         // 판 · 아래 칸 (말하기 일곱 곳 공통, 높이 고정): 편지 걸음(한 문장)은 녹음하면 바로 ‘마치기’ (F14: ‘다음 문장’이 아니라)
         SpeakPanel(s, take) {
-            val enabled = have && !take.recording && !take.scoring && (!step || take.voice == true)
+            // 녹음이 있는지는 여기서 읽는다 (판정이 바뀌면 이 칸이 다시 그려진다)
+            val enabled = take.have && !take.recording && !take.scoring && (!step || take.voice == true)
             MainButton(stringResource(if (last && (allTried || onFinish != null)) (if (onFinish != null) R.string.aloud_finish else R.string.shadow_finish) else R.string.shadow_next),
                 enabled = enabled, reason = stringResource(if (take.scoring) R.string.need_scoring else R.string.need_record)) { advance() }
             if (stuck) TextLink(stringResource(R.string.read_skip)) { advance() }
@@ -546,7 +547,7 @@ private fun spotsFor(s: AppState, t: ShadowTake, db: FloatArray): List<io.github
 }
 
 /** 말하기 판의 높이 (시안 하루 흐름 ②: 선 72dp · 낱말 줄 · 점수 한 줄 · 칭찬 한 줄, 고정 · 스크롤 없음). */
-private val BOARD = 156.dp
+private val BOARD = 164.dp
 
 /**
  * 말하기 판 (일곱 곳 공통, 아래 칸 바로 위 · 높이 고정): 선 (녹음 전 원래 소리 점선 · 녹음 중 내 선 · 채점 뒤 두 선, 모두 한 줄) ·
@@ -560,7 +561,7 @@ fun SpeakBoard(t: ShadowTake?, preview: Boolean = true) {
     val res = t?.result
     Column(Modifier.fillMaxWidth().height(BOARD).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s2),
         verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        Box(Modifier.fillMaxWidth().height(72.dp), contentAlignment = Alignment.Center) {
+        Box(Modifier.fillMaxWidth().height(68.dp), contentAlignment = Alignment.Center) {
             when {
                 t == null -> {}
                 info -> Text(stringResource(R.string.shadow_note) + " " + stringResource(R.string.shadow_retry, io.github.graviton94.todayletters.core.Prosody.PASS),
@@ -593,7 +594,7 @@ fun SpeakBoard(t: ShadowTake?, preview: Boolean = true) {
             } else if (t != null && t.scoring) Text(stringResource(R.string.shadow_scoring), style = Type.small.ui(), color = p.inkSoft, maxLines = 1)
             if (t != null && (res != null || t.recording || t.have)) {
                 val about = stringResource(R.string.board_info)
-                Box(Modifier.size(28.dp).border(1.dp, if (info) p.giltText else p.hair, CircleShape).semantics { contentDescription = about }
+                Box(Modifier.size(24.dp).border(1.dp, if (info) p.giltText else p.hair, CircleShape).semantics { contentDescription = about }
                     .pressable(role = Role.Button) { info = !info }, contentAlignment = Alignment.Center) {
                     Text("i", style = Type.small.copy(fontSize = Tokens.Text.caps), color = if (info) p.giltText else p.inkSoft)
                 }

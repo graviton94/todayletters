@@ -366,9 +366,11 @@ fun RewardOverlay(s: AppState) {
                 }
             }
             // 편지 완료 보상 안의 한 줄씩: 오른 언어 등급 · 레벨 (따로 한 장씩 띄우지 않는다)
-            m.grade?.let { g -> Text(stringResource(R.string.gradeup_title, stringResource(langLabel(g.lang))) + " · " + gradeLine(g.lang, g.to),
-                style = Type.body.ui(), color = gold, textAlign = TextAlign.Center) }
-            m.level?.let { lv -> Text(stringResource(R.string.reward_level_line, lv.to), style = Type.body.ui(), color = gold, textAlign = TextAlign.Center) }
+            m.grade?.let { g ->
+                Text(if (g.to.band != g.from.band) stringResource(R.string.gradeup_became, gradeName(g.to.band)) else stringResource(R.string.gradeup_title, stringResource(langLabel(g.lang))),
+                    style = Type.body.ui(), color = gold, textAlign = TextAlign.Center, maxLines = 1)
+            }
+            m.level?.let { lv -> Text(stringResource(R.string.reward_level_line, lv.to), style = Type.body.ui(), color = gold, textAlign = TextAlign.Center, maxLines = 1) }
             Spacer(Modifier.height(Tokens.Space.s2))
             if (m.gain > 0) Column(Modifier.fillMaxWidth()) {
                 Box(Modifier.fillMaxWidth().height(1.dp).background(t.ink.copy(alpha = 0.15f)))
@@ -407,7 +409,8 @@ fun RewardChip(s: AppState) {
     val p = Ink.palette
     LaunchedEffect(c.n) { kotlinx.coroutines.delay(2400); if (s.chip?.n == c.n) s.chip = null }
     val w = s.work(c.series.ifEmpty { s.current })
-    Box(Modifier.fillMaxWidth().statusBarsPadding().padding(top = 60.dp), contentAlignment = Alignment.TopCenter) {
+    // 머리 (× · 진행 막대) 가운데 위에 얹는다: 그 아래 제목 · 내용을 가리지 않게
+    Box(Modifier.fillMaxWidth().statusBarsPadding().padding(top = 6.dp), contentAlignment = Alignment.TopCenter) {
         Text(stringResource(R.string.reward_chip, c.gain, w.kit.currency[uiLang()]), style = Type.small.ui().copy(fontWeight = FontWeight.SemiBold),
             color = p.giltText, maxLines = 1,
             modifier = Modifier.shadow(4.dp, androidx.compose.foundation.shape.RoundedCornerShape(Tokens.Radius.round))
