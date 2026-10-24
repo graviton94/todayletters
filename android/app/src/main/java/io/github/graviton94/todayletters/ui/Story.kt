@@ -42,6 +42,7 @@ import io.github.graviton94.todayletters.design.Faces
 import io.github.graviton94.todayletters.core.Wall
 import io.github.graviton94.todayletters.core.Levels
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
