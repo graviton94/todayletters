@@ -2,12 +2,12 @@ Python 3.11.17
 ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers
 Pillow 13.0.0
 해설 1: 2.67–7.70s
-해설 2: 8.52–12.85s
-해설 3: 13.66–16.82s
-해설 4: 17.63–20.32s
-해설 5: 21.14–25.78s
+해설 2: 8.33–12.66s
+해설 3: 13.28–16.43s
+해설 4: 17.06–19.75s
+해설 5: 20.37–25.97s
 해설 6: 26.60–29.20s
-장면 경계 [0.0, 8.17, 13.31, 17.28, 20.79, 26.25, 30.0]
+장면 경계 [0.0, 7.98, 12.93, 16.71, 20.02, 26.25, 30.0]
 ko: 0/900
 ko: 150/900
 ko: 300/900
@@ -16,19 +16,19 @@ ko: 600/900
 ko: 750/900
 만듦: out/promo_ko.mp4
 해설 1: 2.67–7.70s
-해설 2: 8.52–12.85s
-해설 3: 13.66–16.82s
-해설 4: 17.63–20.32s
-해설 5: 21.14–25.78s
+해설 2: 8.33–12.66s
+해설 3: 13.28–16.43s
+해설 4: 17.06–19.75s
+해설 5: 20.37–25.97s
 해설 6: 26.60–29.20s
-장면 경계 [0.0, 8.17, 13.31, 17.28, 20.79, 26.25, 30.0]
+장면 경계 [0.0, 7.98, 12.93, 16.71, 20.02, 26.25, 30.0]
 해설 1: 2.67–7.04s
-해설 2: 8.21–11.47s
-해설 3: 12.64–16.41s
-해설 4: 17.58–19.45s
-해설 5: 20.62–25.38s
+해설 2: 8.07–11.33s
+해설 3: 12.36–16.13s
+해설 4: 17.17–19.03s
+해설 5: 20.06–25.52s
 해설 6: 26.55–29.20s
-장면 경계 [0.0, 7.86, 12.29, 17.23, 20.27, 26.2, 30.0]
+장면 경계 [0.0, 7.72, 12.01, 16.82, 19.71, 26.2, 30.0]
 en: 0/900
 en: 150/900
 en: 300/900
@@ -37,33 +37,33 @@ en: 600/900
 en: 750/900
 만듦: out/promo_en.mp4
 해설 1: 2.67–7.04s
-해설 2: 8.21–11.47s
-해설 3: 12.64–16.41s
-해설 4: 17.58–19.45s
-해설 5: 20.62–25.38s
+해설 2: 8.07–11.33s
+해설 3: 12.36–16.13s
+해설 4: 17.17–19.03s
+해설 5: 20.06–25.52s
 해설 6: 26.55–29.20s
-장면 경계 [0.0, 7.86, 12.29, 17.23, 20.27, 26.2, 30.0]
+장면 경계 [0.0, 7.72, 12.01, 16.82, 19.71, 26.2, 30.0]
 stream|codec_name=h264|width=1920|height=1080|duration=30.000000
 stream|codec_name=aac|duration=30.000000
 stream|codec_name=h264|width=1920|height=1080|duration=30.000000
 stream|codec_name=aac|duration=30.000000
-total 47092
-drwxr-xr-x  2 runner runner     4096 Oct 23 06:06 .
-drwxr-xr-x 12 runner runner     4096 Oct 23 06:04 ..
--rw-r--r--  1 runner runner     1333 Oct 23 06:06 make.log
--rw-r--r--  1 runner runner  3564515 Oct 23 06:04 promo_arrival_en.png
--rw-r--r--  1 runner runner  3579019 Oct 23 06:04 promo_arrival_ko.png
--rw-r--r--  1 runner runner 12468616 Oct 23 06:06 promo_en.mp4
--rw-r--r--  1 runner runner   235268 Oct 23 06:04 promo_gloss_en.png
--rw-r--r--  1 runner runner   262211 Oct 23 06:04 promo_gloss_ko.png
--rw-r--r--  1 runner runner 12144131 Oct 23 06:05 promo_ko.mp4
--rw-r--r--  1 runner runner  3513939 Oct 23 06:04 promo_library_en.png
--rw-r--r--  1 runner runner  3469738 Oct 23 06:04 promo_library_ko.png
--rw-r--r--  1 runner runner   170579 Oct 23 06:04 promo_talk_en.png
--rw-r--r--  1 runner runner   187464 Oct 23 06:04 promo_talk_ko.png
--rw-r--r--  1 runner runner   478177 Oct 23 06:06 still_en_12.5.png
--rw-r--r--  1 runner runner  1935048 Oct 23 06:06 still_en_2.5.png
--rw-r--r--  1 runner runner  1881210 Oct 23 06:06 still_en_23.5.png
--rw-r--r--  1 runner runner   469136 Oct 23 06:05 still_ko_12.5.png
--rw-r--r--  1 runner runner  1930553 Oct 23 06:05 still_ko_2.5.png
--rw-r--r--  1 runner runner  1887152 Oct 23 06:05 still_ko_23.5.png
+total 37996
+drwxr-xr-x  2 runner runner    4096 Oct 24 12:11 .
+drwxr-xr-x 12 runner runner    4096 Oct 24 12:10 ..
+-rw-r--r--  1 runner runner    1333 Oct 24 12:11 make.log
+-rw-r--r--  1 runner runner 3564515 Oct 24 12:10 promo_arrival_en.png
+-rw-r--r--  1 runner runner 3579019 Oct 24 12:10 promo_arrival_ko.png
+-rw-r--r--  1 runner runner 8879219 Oct 24 12:11 promo_en.mp4
+-rw-r--r--  1 runner runner  235268 Oct 24 12:10 promo_gloss_en.png
+-rw-r--r--  1 runner runner  262211 Oct 24 12:10 promo_gloss_ko.png
+-rw-r--r--  1 runner runner 8789487 Oct 24 12:11 promo_ko.mp4
+-rw-r--r--  1 runner runner 3513939 Oct 24 12:10 promo_library_en.png
+-rw-r--r--  1 runner runner 3469738 Oct 24 12:10 promo_library_ko.png
+-rw-r--r--  1 runner runner  170579 Oct 24 12:10 promo_talk_en.png
+-rw-r--r--  1 runner runner  187464 Oct 24 12:10 promo_talk_ko.png
+-rw-r--r--  1 runner runner  429112 Oct 24 12:11 still_en_12.5.png
+-rw-r--r--  1 runner runner 1936285 Oct 24 12:11 still_en_2.5.png
+-rw-r--r--  1 runner runner  722647 Oct 24 12:11 still_en_23.5.png
+-rw-r--r--  1 runner runner  469136 Oct 24 12:11 still_ko_12.5.png
+-rw-r--r--  1 runner runner 1930881 Oct 24 12:11 still_ko_2.5.png
+-rw-r--r--  1 runner runner  728715 Oct 24 12:11 still_ko_23.5.png
