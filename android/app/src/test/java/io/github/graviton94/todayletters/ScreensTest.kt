@@ -414,7 +414,7 @@ class ScreensTest {
     @Test fun reward() {
         val s = engineState()
         val pc = s.work("vincent").kit.collection.first { it.id == "met-436529" }
-        s.reward = AppState.RewardMoment("vincent", 18, pc, listOf("streak_7"), null,
+        s.reward = AppState.RewardMoment("vincent", 18, pc, emptyList(), null,
             listOf(io.github.graviton94.todayletters.core.Earn.REVIEW_RIGHT to 8, io.github.graviton94.todayletters.core.Earn.SHADOW_PASS to 6, io.github.graviton94.todayletters.core.Earn.STREAK to 4))
         shot("45_reward_dark", true, 2000) { io.github.graviton94.todayletters.ui.RewardOverlay(s) }
     }
@@ -594,7 +594,7 @@ class ScreensTest {
     @Test fun rewardMaster() {
         val s = engineState()
         val pc = s.work("vincent").kit.collection.first { it.id == "met-436528" }
-        s.reward = AppState.RewardMoment("vincent", 28, pc, listOf("words_25"), null,
+        s.reward = AppState.RewardMoment("vincent", 28, pc, emptyList(), null,
             listOf(io.github.graviton94.todayletters.core.Earn.ACHIEVEMENT to 10, io.github.graviton94.todayletters.core.Earn.LETTER to 6, io.github.graviton94.todayletters.core.Earn.STREAK to 4, io.github.graviton94.todayletters.core.Earn.REVIEW_RIGHT to 8))
         shot("69_reward_master", true, 2000) { io.github.graviton94.todayletters.ui.RewardOverlay(s) }
     }
@@ -696,7 +696,7 @@ class ScreensTest {
     @Test fun largeReward() {
         val s = engineState()
         val pc = s.work("vincent").kit.collection.first { it.id == "met-436528" }
-        s.reward = AppState.RewardMoment("vincent", 28, pc, listOf("words_25"), null, listOf(io.github.graviton94.todayletters.core.Earn.LETTER to 6))
+        s.reward = AppState.RewardMoment("vincent", 28, pc, emptyList(), null, listOf(io.github.graviton94.todayletters.core.Earn.LETTER to 6))
         large("89_reward", 2000) { io.github.graviton94.todayletters.ui.RewardOverlay(s) }
     }
 
@@ -2805,6 +2805,8 @@ class ScreensTest {
     @Test fun owGalleryLandedDark() = owGallery("ow3j_gallery_landed_dark", true, false)
     /** ④ 이달의 전시를 다 모음 (예전 “도록 넘겨 보기 · 닫기”) → 이달의 전시로. */
     private fun owCatalogue(name: String, dark: Boolean) = owReward(name, dark, Route.Inbox) { s ->
+        // 전시 자료를 모두 가진 때만 뜨는 순간 (데이터를 그 상태로)
+        s.exhibitionPieces("vincent").forEach { s.store.addPiece("vincent", it.id) }
         AppState.RewardMoment("vincent", 50, null, emptyList(), null, listOf(io.github.graviton94.todayletters.core.Earn.EXHIBITION to 50), s.exhibition("vincent")!!)
     }
     @Test fun owCatalogueLight() = owCatalogue("ow4a_catalogue_ko_light", false)

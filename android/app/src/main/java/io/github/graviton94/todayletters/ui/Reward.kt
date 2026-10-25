@@ -634,7 +634,8 @@ internal fun NoticeMoment(s: AppState, m: AppState.RewardMoment) {
                     modifier = Modifier.rise(win(clock, 1300, 900)))
                 // 혼자 읽기 줄: 지금 몫까지 금선이 차고, 다음 이정표 자리에 눈금 하나
                 if (ms != null) {
-                    val now = s.readAlone.coerceIn(ms, 100)
+                    // 줄은 제목과 같은 수 (방금 넘은 이정표) 까지, 다음 이정표 자리에 눈금
+                    val now = ms.coerceIn(0, 100)
                     val next = io.github.graviton94.todayletters.core.Growth.nextMilestone(now)
                     val k = win(clock, 1500, 1200)
                     Column(Modifier.fillMaxWidth().padding(top = 18.dp).rise(win(clock, 1400, 900)), verticalArrangement = Arrangement.spacedBy(8.dp)) {

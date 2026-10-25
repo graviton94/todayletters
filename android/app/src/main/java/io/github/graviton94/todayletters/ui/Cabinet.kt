@@ -437,7 +437,7 @@ fun LevelUpOverlay(s: AppState) {
 /**
  * 언어 등급이 오른 순간 (2026-10-25, 레벨 업과 같은 벽으로 다시 씀 — 예전 조명 · 금빛 큰 글자 · ‘좋아요’ 는 지움): 보상 순간이 닫힌 뒤, 레벨 업보다 먼저.
  * 머리말 “언어 등급 · 프랑스어”, 새 등급에 들어섰으면 옛 이름이 흐려지고 새 이름이 또렷해진다 (한글 세운 글자), 그 아래 “A2 1단” (같은 등급 안이면
- * 이것만 바뀐다). 금선, “문장을 읽는 사람이 됐어요” (같은 등급 안이면 “프랑스어 실력이 한 단 올랐어요”), 새로 달라지는 것 한 줄씩 (번역이 조금 더 옅게 · 도움 한 칸). 단추는 덮인 화면으로.
+ * 이것만 바뀐다). 금선, “프랑스어 실력이 한 단 올랐어요” (새 등급 이름은 제목이라 ‘됐어요’ 줄은 겹쳐 빼고), 새로 달라지는 것 한 줄씩 (번역이 조금 더 옅게 · 도움 한 칸). 단추는 덮인 화면으로.
  */
 @Composable
 fun GradeUpOverlay(s: AppState) {
@@ -476,7 +476,7 @@ fun GradeUpOverlay(s: AppState) {
                     Step(up.to, if (newBand) win(clock, 1200, 1000) else win(clock, 1100, 1100))
                 }
                 Box(Modifier.width(120.dp).height(1.dp).graphicsLayer { scaleX = win(clock, 1400, 1000) }.background(Museum.gilt))
-                Text(if (newBand) stringResource(R.string.gradeup_became, gradeName(up.to.band)) else stringResource(R.string.gradeup_title, langName),
+                Text(stringResource(R.string.gradeup_title, langName),
                     style = Type.small.ui().copy(fontSize = 13.sp), color = Museum.soft, textAlign = TextAlign.Center, modifier = Modifier.rise(win(clock, 1600, 900)))
                 // 새로 달라지는 것: 새 등급의 이름 · 번역이 조금 더 옅게 (작품 설정에서 끈 사람에게는 말하지 않는다) · 도움 한 칸
                 val fade = newBand && s.works.any { s.room(it.series.id).learn == up.lang && s.seriesSettings(it.series.id).fadeRead && s.seriesSettings(it.series.id).showRead }
