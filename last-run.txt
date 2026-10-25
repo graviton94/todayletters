@@ -13,5 +13,3 @@ ex5a_handover_ko_light.png
 ex5b_handover_en_dark.png
 ex6a_travel_ko_light.png
 ex6b_travel_en_dark.png
-rr10a_mozart_photo_ko_light.png
-rr10b_mozart_photo_en_dark.png
