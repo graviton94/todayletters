@@ -114,6 +114,47 @@
    }
   }
  ],
+ "travel": {
+  "_doc": "편지 쓴 곳이 앞 편지와 달라지면 편지 앞에 위치 공유를 저절로 놓아요 (core Travel). names: 편지의 place 글자 → 보여 줄 이름.",
+  "auto": true,
+  "names": {
+   "Zundert": {
+    "fr": "Zundert",
+    "en": "Zundert",
+    "ko": "쥔더르트"
+   },
+   "Nuenen": {
+    "fr": "Nuenen",
+    "en": "Nuenen",
+    "ko": "뉘넌"
+   },
+   "Paris": {
+    "fr": "Paris",
+    "en": "Paris",
+    "ko": "파리"
+   },
+   "Arles": {
+    "fr": "Arles",
+    "en": "Arles",
+    "ko": "아를"
+   },
+   "Saintes-Maries": {
+    "fr": "Saintes-Maries",
+    "en": "Saintes-Maries",
+    "ko": "생트마리"
+   },
+   "Saint-Rémy-de-Provence": {
+    "fr": "Saint-Rémy",
+    "en": "Saint-Rémy",
+    "ko": "생레미"
+   },
+   "Auvers-sur-Oise": {
+    "fr": "Auvers-sur-Oise",
+    "en": "Auvers-sur-Oise",
+    "ko": "오베르쉬르우아즈"
+   }
+  }
+ },
  "places": {
   "station": {
    "x": 0.7,

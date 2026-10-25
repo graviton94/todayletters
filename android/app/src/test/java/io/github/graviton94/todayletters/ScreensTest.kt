@@ -2980,7 +2980,7 @@ class ScreensTest {
     @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr9NoteEnDark() = rrNote("rr9d_note_cta_en_dark", true)
 
     /** ⑩ 다른 작품의 순간: 모차르트 (볼프강이 사진을 보냄) · 나폴레옹 (위치 공유) · 고야 (사진). */
-    private fun rrMozart(name: String, dark: Boolean) { val s = rrState("mozart"); rrShot(name, dark, s, Route.Letter("mozart", 1, 1, Route.Inbox)) { end(5400) } }
+    private fun rrMozart(name: String, dark: Boolean) { val s = rrState("mozart"); rrShot(name, dark, s, Route.Letter("mozart", 1, 1, Route.Inbox)) { idle(2600); end(5400) } }
     private fun rrNapoleon(name: String, dark: Boolean) { val s = rrState("napoleon"); rrShot(name, dark, s, Route.Letter("napoleon", 1, 1, Route.Inbox)) { idle(2300); end(5500) } }
     private fun rrGoya(name: String, dark: Boolean) {
         val s = rrState("goya")
@@ -2992,4 +2992,46 @@ class ScreensTest {
     @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr11NapoleonEnDark() = rrNapoleon("rr11b_napoleon_location_en_dark", true)
     @Test fun rr12GoyaKoLight() = rrGoya("rr12a_goya_photo_ko_light", false)
     @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr12GoyaEnDark() = rrGoya("rr12b_goya_photo_en_dark", true)
+
+    // ── 주고받기 순간 (시안 moments, 2026-10-25 확정): ex* ──
+    // 소리 없이 읽기 (문장마다 읽을 쉼만큼) 로 몰아서: 앞 문장 [shown] 개는 이미 놓인 채로 열고, 그다음 문장의 쉼이 지나 순간이 놓인 때 찍는다.
+    private fun exShot(name: String, dark: Boolean, series: String, chapter: Int, n: Int, shown: Int = 0, drive: RoomDriver.() -> Unit = {}) {
+        val s = rrState(series)
+        s.update(s.app.copy(sound = false, pace = io.github.graviton94.todayletters.core.TypingPace.INSTANT))
+        val room = Route.Letter(series, chapter, n, Route.Inbox)
+        val (c, l) = s.letterOf(room)
+        s.store.markArrived(s.key(series, c, l.id))
+        if (shown > 0) s.save(series, c, l.id, s.progress(series, c, l.id).copy(shown = shown))
+        val ui = if (ctx.resources.configuration.locales[0].language == "ko") io.github.graviton94.todayletters.core.Lang.KO else io.github.graviton94.todayletters.core.Lang.EN
+        // 다시 연 자리의 문장 (번역 = 글자 언어) 쉼이 지나면 그 뒤 순간
+        val wait = if (shown > 0) io.github.graviton94.todayletters.core.RoomFlow.holdMs(l.messages[shown].text[ui].length) else 0L
+        rrShot(name, dark, s, room) { idle(wait + 700); drive() }
+    }
+    private fun RoomDriver.tapAsk() { rule.onNode(androidx.compose.ui.test.hasTestTag("room_ask")).performClick(); idle(900) }
+    /** ① 내가 부친 소포 (빈센트 VI장 3번째, 편지 앞): 단추를 누른 뒤 오른쪽 어두운 말풍선 (물건 다섯), 이어서 첫 문장. */
+    private fun exParcelMine(name: String, dark: Boolean) = exShot(name, dark, "vincent", 6, 3) { tapAsk() }
+    @Test fun ex1ParcelMineKoLight() = exParcelMine("ex1a_parcel_mine_ko_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun ex1ParcelMineEnDark() = exParcelMine("ex1b_parcel_mine_en_dark", true)
+    /** ①' 그 단추 (‘테오로서 소포 부치기 · 5가지’). */
+    @Test fun ex1ParcelAskKoLight() = exShot("ex1c_parcel_ask_ko_light", false, "vincent", 6, 3)
+    /** ② 보낸 사람의 소포 (나폴레옹 I장 3번째, 5번째 문장 뒤: 제노바 사탕 · 오렌지 · 향수 · 오렌지꽃 물), 보는 쉼. */
+    private fun exParcelHis(name: String, dark: Boolean) = exShot(name, dark, "napoleon", 1, 3, shown = 4)
+    @Test fun ex2ParcelHisKoLight() = exParcelHis("ex2a_parcel_his_ko_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun ex2ParcelHisEnDark() = exParcelHis("ex2b_parcel_his_en_dark", true)
+    /** ③ 목록 (고야 IV장 7번째, 그림 값 셋). */
+    private fun exList(name: String, dark: Boolean) = exShot(name, dark, "goya", 4, 7, shown = 3)
+    @Test fun ex3ListKoLight() = exList("ex3a_list_ko_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun ex3ListEnDark() = exList("ex3b_list_en_dark", true)
+    /** ④ 소식 (빈센트 VII장 6번째, 편지 앞: 테오와 조의 아들이 태어났어요). */
+    private fun exNews(name: String, dark: Boolean) = exShot(name, dark, "vincent", 7, 6)
+    @Test fun ex4NewsKoLight() = exNews("ex4a_news_ko_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun ex4NewsEnDark() = exNews("ex4b_news_en_dark", true)
+    /** ⑤ 전령에게 답장 맡기기 (나폴레옹 I장 5번째, 4번째 문장 뒤): 단추를 누른 뒤 ‘전령 편에 보냄 · 파리 → 토르토나 · 답장 한 통’. */
+    private fun exHand(name: String, dark: Boolean) = exShot(name, dark, "napoleon", 1, 5, shown = 3) { tapAsk() }
+    @Test fun ex5HandKoLight() = exHand("ex5a_handover_ko_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun ex5HandEnDark() = exHand("ex5b_handover_en_dark", true)
+    /** ⑥ 이동 위치 공유 (모차르트 I장 2번째, 편지 앞: 밀라노에서 로마). */
+    private fun exTravel(name: String, dark: Boolean) = exShot(name, dark, "mozart", 1, 2)
+    @Test fun ex6TravelKoLight() = exTravel("ex6a_travel_ko_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun ex6TravelEnDark() = exTravel("ex6b_travel_en_dark", true)
 }

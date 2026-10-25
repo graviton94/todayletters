@@ -99,6 +99,8 @@ fun MomentCard(s: AppState, work: Work, m: Moment, onMap: () -> Unit, onPhoto: (
         is Moment.Weather -> WeatherCard(m, lang)
         // 편지 속 그 곡: 녹음이 없으면 아무것도 놓지 않는다
         is Moment.Music -> if (m.playable) MusicChip(m, lang) { onMusic(m) }
+        // 소포 · 목록 · 소식 · 맡기기는 편지 방의 부품 (RoomParts.kt RoomMoment) 이 그린다
+        is Moment.Parcel, is Moment.Ledger, is Moment.News, is Moment.Handover -> Unit
     }
 }
 
@@ -306,6 +308,13 @@ fun openMaps(ctx: android.content.Context, place: io.github.graviton94.todaylett
     val uri = android.net.Uri.parse("https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lng}")
     runCatching { ctx.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, uri).addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)) }
     @Suppress("UNUSED_EXPRESSION") label
+}
+
+/** 이름으로 구글 지도를 연다 (좌표가 없는 이동 위치 공유: 편지를 쓴 도시). */
+fun openMapsNamed(ctx: android.content.Context, name: String) {
+    if (name.isBlank()) return
+    val uri = android.net.Uri.parse("https://www.google.com/maps/search/?api=1&query=" + java.net.URLEncoder.encode(name, "UTF-8"))
+    runCatching { ctx.startActivity(android.content.Intent(android.content.Intent.ACTION_VIEW, uri).addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)) }
 }
 
 /** 테오의 답장: 푸른 얇은 편지지 (오른쪽), 펜글씨. */

@@ -141,6 +141,10 @@
    }
   }
  ],
+ "travel": {
+  "_doc": "편지 쓴 곳이 앞 편지와 같으면 그 편지의 위치 공유는 빼요 (core Travel).",
+  "dedupe": true
+ },
  "places": {
   "paris": {
    "x": 0.26,

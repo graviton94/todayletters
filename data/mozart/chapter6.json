@@ -3126,6 +3126,21 @@
      }
     },
     {
+     "after": -1,
+     "type": "handover",
+     "kind": "post",
+     "what": {
+      "de": "2 Briefe",
+      "en": "2 letters",
+      "ko": "편지 두 통"
+     },
+     "memo": {
+      "de": "Salzburg → Wien",
+      "en": "Salzburg → Vienna",
+      "ko": "잘츠부르크 → 빈"
+     }
+    },
+    {
      "after": 2,
      "type": "music",
      "piece": {

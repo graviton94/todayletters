@@ -53,17 +53,36 @@ data class Plate(val title: Tri, val date: String, val collection: String, val i
  */
 sealed interface Moment {
     val after: Int
-    data class Location(override val after: Int, val place: String, val title: Tri, val address: String) : Moment
+    /**
+     * 위치 공유. [from] 이 있으면 이동 위치 공유 ([Travel]): 편지 쓴 곳이 앞 편지와 달라져 저절로 놓은 것 ([place] 는 비고, 지도는 이름으로 찾는다).
+     */
+    data class Location(override val after: Int, val place: String, val title: Tri, val address: String, val from: Tri? = null) : Moment {
+        val travel get() = from != null
+    }
     /** 그림 사진 (assets/plates) 또는 [sketch] 면 편지 원본의 스케치 (assets/sketches). */
     data class Photo(override val after: Int, val image: String, val caption: Tri, val sketch: Boolean = false, val credit: String = "") : Moment
     /**
      * 송금: [outgoing] 이면 보내는 사람(빈센트)이 보낸 것, 아니면 받는 사람(테오)이 보낸 것 · 받는 쪽이 받은 돈 (모차르트의 제안 등).
-     * [reader] 는 대화방의 나(받는 사람)가 하는 송금인가 (데이터의 "by": "recipient" / "sender", 없으면 null):
+     * [reader] 는 대화방의 나(받는 사람)가 하는 송금인가 (데이터의 "by": "reader" · "writer" (예전 "recipient" · "sender"), 없으면 null):
      * 없으면 편지 앞 (after -1) 의 받는 사람 송금만 나의 송금으로 친다 ([byReader], 빈센트의 ‘테오가 보냄’).
      */
     data class Transfer(override val after: Int, val amount: String, val label: Tri, val memo: Tri, val outgoing: Boolean = false, val reader: Boolean? = null) : Moment {
         val byReader get() = reader ?: (!outgoing && after < 0)
     }
+    /**
+     * 소포 (물건 목록): [items] 는 편지에 나온 물건 (원어 낱말 · en · ko, [Item.lex] 는 원어 사전 열쇠 → 카드에 담기), [memo] 는 어디서 어디로 · 편지의 한마디.
+     * [reader] 면 내가 (받는 사람이) 부치는 것 (내 차례, 오른쪽), 아니면 보낸 사람이 부친 것 (왼쪽, 보는 쉼).
+     */
+    data class Parcel(override val after: Int, val items: List<Item>, val memo: Tri, val reader: Boolean) : Moment
+    /** 목록 카드 (가운데): 값 · 물건이 줄줄이 나오는 대목 (고야의 그림 값). 값은 원문 그대로. */
+    data class Ledger(override val after: Int, val title: Tri, val rows: List<Row>) : Moment
+    /** 소식 카드 (가운데): 큰 소식 한 줄 [head] + 편지 원문 한 토막 [line]. */
+    data class News(override val after: Int, val head: Tri, val line: String) : Moment
+    /**
+     * 내가 맡기는 일 (내 차례): [kind] 는 "courier" (전령에게 답장 맡기기) · "return" (돌려보내기) · "post" (편지 부치기) · "ask" (부탁하기).
+     * [what] 은 맡기는 것 (큰 글자, 답장 한 통), [memo] 는 어디서 어디로 · 편지의 한마디. 답장 글은 답장 걸음이 쓴다.
+     */
+    data class Handover(override val after: Int, val kind: String, val what: Tri, val memo: Tri) : Moment
     /** 가운데 알림 줄: 도착 · 이사 같은 실제 사건. */
     data class Notice(override val after: Int, val text: Tri) : Moment
     /** 날씨 공유: [value] 는 큰 글자 (눈 60cm), [quote] 는 편지 원문 한 토막. */
@@ -77,6 +96,11 @@ sealed interface Moment {
         fun path(series: String) = "audio/$series/music/$audio"
     }
 }
+
+/** 소포 · 목록의 물건 하나: 원어 낱말 · en · ko ([text]), [lex] 는 원어 사전 열쇠 (없으면 빈 글자). */
+data class Item(val text: Tri, val lex: String = "")
+/** 목록 한 줄: 이름 [label] (세 언어) · 값 [value] (원문 그대로) · 그 줄의 낱말 [word] (카드에 담기, 없으면 null). */
+data class Row(val label: Tri, val value: String, val word: Item? = null)
 
 /** 작품의 장소 (손으로 그린 지도 위 0~1 위치, 실제 위도 · 경도). */
 data class Place(val id: String, val x: Float, val y: Float, val name: Tri, val note: Tri, val lat: Double = 0.0, val lng: Double = 0.0)

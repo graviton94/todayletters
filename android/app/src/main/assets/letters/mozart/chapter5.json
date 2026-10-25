@@ -372,6 +372,7 @@
     {
      "after": 3,
      "type": "transfer",
+     "by": "writer",
      "amount": "3 Ducaten",
      "label": {
       "de": "Statt der Abendtafel",
@@ -1348,6 +1349,16 @@
      "credit": "Wien, Karlskirche, 18. Jh. · Bernardo Bellotto · gemeinfrei",
      "source": "https://commons.wikimedia.org/wiki/File:Bernardo_Bellotto_Wien_Karlskirche.jpg",
      "exception": "pd-art"
+    },
+    {
+     "after": 3,
+     "type": "news",
+     "head": {
+      "de": "Auch nicht für 1200 Fl. Besoldung",
+      "en": "Not even for a salary of 1200 florins",
+      "ko": "봉급 1200플로린을 준대도 가지 않아요"
+     },
+     "line": "wenn mir der Erzbischof nun 1200 Fl. Besoldung gäbe, so ging ich nicht"
     }
    ],
    "status": {

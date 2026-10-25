@@ -116,6 +116,92 @@
    }
   }
  ],
+ "travel": {
+  "_doc": "편지 쓴 곳이 앞 편지와 달라지면 편지 앞에 위치 공유를 저절로 놓아요 (core Travel). names: 편지의 place 글자 → 보여 줄 이름.",
+  "auto": true,
+  "names": {
+   "Salzburg": {
+    "de": "Salzburg",
+    "en": "Salzburg",
+    "ko": "잘츠부르크"
+   },
+   "Paris": {
+    "de": "Paris",
+    "en": "Paris",
+    "ko": "파리"
+   },
+   "Mailand": {
+    "de": "Mailand",
+    "en": "Milan",
+    "ko": "밀라노"
+   },
+   "Rom": {
+    "de": "Rom",
+    "en": "Rome",
+    "ko": "로마"
+   },
+   "Neapel": {
+    "de": "Neapel",
+    "en": "Naples",
+    "ko": "나폴리"
+   },
+   "Bologna": {
+    "de": "Bologna",
+    "en": "Bologna",
+    "ko": "볼로냐"
+   },
+   "Wasserburg": {
+    "de": "Wasserburg",
+    "en": "Wasserburg",
+    "ko": "바서부르크"
+   },
+   "Augsburg": {
+    "de": "Augsburg",
+    "en": "Augsburg",
+    "ko": "아우크스부르크"
+   },
+   "Mannheim": {
+    "de": "Mannheim",
+    "en": "Mannheim",
+    "ko": "만하임"
+   },
+   "St. Germain": {
+    "de": "St. Germain",
+    "en": "Saint-Germain",
+    "ko": "생제르맹"
+   },
+   "Straßburg": {
+    "de": "Straßburg",
+    "en": "Strasbourg",
+    "ko": "스트라스부르"
+   },
+   "München": {
+    "de": "München",
+    "en": "Munich",
+    "ko": "뮌헨"
+   },
+   "Wien": {
+    "de": "Wien",
+    "en": "Vienna",
+    "ko": "빈"
+   },
+   "Prag": {
+    "de": "Prag",
+    "en": "Prague",
+    "ko": "프라하"
+   },
+   "Dresden": {
+    "de": "Dresden",
+    "en": "Dresden",
+    "ko": "드레스덴"
+   },
+   "Frankfurt am Main": {
+    "de": "Frankfurt am Main",
+    "en": "Frankfurt",
+    "ko": "프랑크푸르트"
+   }
+  }
+ },
  "kit": {
   "fullName": {"en": "Wolfgang Amadeus Mozart", "ko": "볼프강 아마데우스 모차르트", "de": "Wolfgang Amadeus Mozart"},
   "about": {"de": "Komponist · von der ersten Italienreise mit 14 bis zum letzten Jahr in Wien", "en": "Composer · from his first Italian journey at 14 to his last year in Vienna · letters home", "ko": "작곡가 · 열네 살의 첫 이탈리아 여행부터 빈의 마지막 해까지 · 집으로 보낸 편지"},

@@ -390,6 +390,7 @@
     {
      "after": -1,
      "type": "transfer",
+     "by": "reader",
      "amount": "50 francs",
      "label": {
       "fr": "Théo a envoyé",
@@ -1303,6 +1304,7 @@
     {
      "after": -1,
      "type": "transfer",
+     "by": "reader",
      "amount": "100 francs",
      "label": {
       "fr": "Théo a envoyé",
@@ -1748,6 +1750,7 @@
     {
      "after": -1,
      "type": "transfer",
+     "by": "reader",
      "amount": "100 francs",
      "label": {
       "fr": "Théo a envoyé",
@@ -3110,6 +3113,7 @@
     {
      "after": -1,
      "type": "transfer",
+     "by": "reader",
      "amount": "150 francs",
      "label": {
       "fr": "Théo a envoyé",

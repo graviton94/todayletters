@@ -1324,6 +1324,24 @@
      "credit": "Description des plantes rares cultivées à Malmaison et à Navarre, 1813 · Pierre-Joseph Redouté · domaine public",
      "source": "https://commons.wikimedia.org/wiki/File:Description_des_plantes_rares_cultivees_a_Malmaison_et_a_Navarre_(Paeonia_suffruticosa_subsp._suffruticosa)_BHL275853.jpg",
      "exception": "pd-art"
+    },
+    {
+     "after": 2,
+     "type": "parcel",
+     "by": "writer",
+     "items": [
+      {
+       "fr": "des plantes de Londres",
+       "en": "plants from London",
+       "ko": "런던에서 온 식물",
+       "lex": "plante"
+      }
+     ],
+     "memo": {
+      "fr": "Pour ton jardinier",
+      "en": "Sent to your gardener",
+      "ko": "당신 정원사에게"
+     }
     }
    ],
    "status": {

@@ -368,6 +368,7 @@
     {
      "after": -1,
      "type": "transfer",
+     "by": "reader",
      "amount": "300 francs",
      "label": {
       "fr": "Théo a envoyé",
@@ -876,6 +877,22 @@
      }
     },
     {
+     "after": 0,
+     "type": "transfer",
+     "by": "reader",
+     "amount": "100 francs",
+     "label": {
+      "fr": "Théo envoie",
+      "en": "Theo sends",
+      "ko": "테오가 보냄"
+     },
+     "memo": {
+      "fr": "Au lieu de 50 francs",
+      "en": "Instead of 50 francs",
+      "ko": "50프랑 대신"
+     }
+    },
+    {
      "after": 2,
      "type": "photo",
      "image": "v537.webp",
@@ -1344,6 +1361,7 @@
     {
      "after": -1,
      "type": "transfer",
+     "by": "reader",
      "amount": "50 francs",
      "label": {
       "fr": "Théo a envoyé",
@@ -2277,6 +2295,7 @@
     {
      "after": 1,
      "type": "transfer",
+     "by": "writer",
      "amount": "23 cafés",
      "label": {
       "fr": "À crédit · 4 jours",
@@ -2292,12 +2311,13 @@
     },
     {
      "after": 3,
-     "type": "notice",
-     "text": {
-      "fr": "Il reste à Vincent 6 francs pour la semaine",
-      "en": "Vincent has 6 francs left for the week",
-      "ko": "빈센트에게 남은 돈 · 이번 주 6프랑"
-     }
+     "type": "news",
+     "head": {
+      "fr": "Il reste 6 francs pour la semaine",
+      "en": "6 francs left for the week",
+      "ko": "이번 주를 버틸 돈 6프랑"
+     },
+     "line": "Juste 6 francs."
     },
     {
      "after": 4,
@@ -3170,6 +3190,7 @@
     {
      "after": -1,
      "type": "transfer",
+     "by": "reader",
      "amount": "50 francs",
      "label": {
       "fr": "Théo a envoyé",
@@ -3197,6 +3218,7 @@
     {
      "after": 0,
      "type": "transfer",
+     "by": "writer",
      "amount": "25 francs",
      "label": {
       "fr": "Installation du gaz",
@@ -3217,6 +3239,22 @@
       "fr": "Gauguin est attendu à Arles · de jour en jour",
       "en": "Gauguin is expected in Arles · any day now",
       "ko": "고갱이 아를에 올 날만 기다려요 · 이제 언제라도"
+     }
+    },
+    {
+     "after": 2,
+     "type": "transfer",
+     "by": "reader",
+     "amount": "50 francs",
+     "label": {
+      "fr": "Théo envoie",
+      "en": "Theo sends",
+      "ko": "테오가 보냄"
+     },
+     "memo": {
+      "fr": "Gauguin peut venir de jour en jour",
+      "en": "Gauguin may come any day now",
+      "ko": "고갱이 언제라도 올 수 있어서"
      }
     },
     {

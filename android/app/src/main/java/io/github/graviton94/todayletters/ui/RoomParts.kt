@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
@@ -58,9 +59,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.graviton94.todayletters.R
+import io.github.graviton94.todayletters.core.Item
 import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Moment
 import io.github.graviton94.todayletters.core.RoomFlow
@@ -361,7 +364,7 @@ internal fun RoomAsk(label: String, go: String, onClick: () -> Unit) {
     val p = Ink.palette
     val ink = remember(p) { RoomInk(p) }
     Row(
-        Modifier.fillMaxWidth().heightIn(min = 54.dp).clip(RoundedCornerShape(16.dp)).background(ink.giltFill)
+        Modifier.fillMaxWidth().heightIn(min = 54.dp).testTag("room_ask").clip(RoundedCornerShape(16.dp)).background(ink.giltFill)
             .semantics(mergeDescendants = true) { contentDescription = label }.pressable(onClick = onClick).padding(horizontal = 18.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -390,12 +393,71 @@ private fun subject(name: String) = if (uiLang() == Lang.KO) josa(name, "이", "
  * 내가 (받는 사람이) 한 것 ([Moment.Transfer.byReader]) 은 오른쪽 어두운 말풍선. 누르면 [onOpen] (크게 보기 · 지도 · 곡).
  */
 @Composable
-internal fun RoomMoment(s: AppState, work: Work, recipient: String, m: Moment, onOpen: () -> Unit, hold: (@Composable () -> Unit)? = null) {
+internal fun RoomMoment(s: AppState, work: Work, recipient: String, m: Moment, onOpen: () -> Unit, hold: (@Composable () -> Unit)? = null,
+                         learn: Lang = work.series.original, onItem: (Item) -> Unit = {}) {
     val p = Ink.palette
     val ink = remember(p) { RoomInk(p) }
     val lang = uiLang()
     val sender = work.name[lang]
     when (m) {
+        is Moment.Parcel -> if (m.reader) Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
+            Column(Modifier.widthIn(min = 220.dp, max = 300.dp).clip(MineShape).background(ink.deep).padding(horizontal = 16.dp, vertical = 14.dp)) {
+                Text(stringResource(R.string.room_parcel_mine, m.memo[lang]), style = Type.small.ui().copy(fontSize = 11.sp, letterSpacing = 0.08.sp), color = ink.onDeepSoft,
+                    maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = Modifier.padding(bottom = 4.dp))
+                m.items.forEach { ItemRow(it, lang, learn, ink.onDeep, ink.onDeepSoft.copy(alpha = 0.35f)) { onItem(it) } }
+                Text(stringResource(R.string.room_sent_reply, subject(sender)), style = Type.small.ui().copy(fontSize = 12.sp), color = ink.onDeepGilt,
+                    maxLines = 1, modifier = Modifier.padding(top = 10.dp))
+            }
+        } else Column(Modifier.widthIn(min = 220.dp, max = 300.dp)) {
+            Column(Modifier.clip(BubbleShape).background(ink.card).border(1.dp, ink.hair, BubbleShape).padding(horizontal = 16.dp, vertical = 14.dp)) {
+                Text(stringResource(R.string.room_parcel_from, subject(sender), m.memo[lang]), style = Type.small.ui().copy(fontSize = 11.sp, letterSpacing = 0.06.sp),
+                    color = ink.soft, maxLines = 2, overflow = TextOverflow.Ellipsis, modifier = Modifier.padding(bottom = 4.dp))
+                m.items.forEach { ItemRow(it, lang, learn, ink.ink, ink.hair) { onItem(it) } }
+            }
+            hold?.let { Box(Modifier.padding(top = 8.dp)) { it() } }
+        }
+        is Moment.Ledger -> Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(Modifier.fillMaxWidth(0.92f).widthIn(max = 340.dp).clip(RoundedCornerShape(14.dp)).background(ink.card).border(1.dp, ink.hair, RoundedCornerShape(14.dp))
+                .padding(horizontal = 16.dp, vertical = 12.dp)) {
+                Text(m.title[lang], style = Type.small.ui().copy(fontSize = 11.sp, letterSpacing = 0.06.sp), color = ink.soft, maxLines = 2, overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.padding(bottom = 4.dp))
+                m.rows.forEach { r ->
+                    Box(Modifier.fillMaxWidth().height(1.dp).background(ink.hair))
+                    Row(Modifier.fillMaxWidth().heightIn(min = 44.dp).then(if (r.word != null) Modifier.pressable { onItem(r.word) } else Modifier).padding(vertical = 6.dp),
+                        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                        Column(Modifier.weight(1f)) {
+                            Text(r.label[lang], style = Type.small.ui().copy(fontSize = 13.sp, lineHeight = 18.sp), color = ink.ink)
+                            r.word?.let { w -> Text(w.text[learn], style = Type.small.of(learn).copy(fontSize = 11.5.sp), color = ink.gloss, maxLines = 1) }
+                        }
+                        Column(horizontalAlignment = Alignment.End) {
+                            Text(r.value, style = Type.body.copy(fontFamily = Faces.display, fontSize = 14.sp), color = ink.ink, maxLines = 1)
+                            amountKo(r.value, lang)?.let { Text(it, style = Type.small.ui().copy(fontSize = 10.5.sp), color = ink.soft, maxLines = 1) }
+                        }
+                    }
+                }
+            }
+            hold?.let { Box(Modifier.fillMaxWidth(0.92f).widthIn(max = 340.dp).padding(top = 8.dp)) { it() } }
+        }
+        is Moment.News -> Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(Modifier.fillMaxWidth(0.86f).widthIn(max = 320.dp).clip(RoundedCornerShape(14.dp)).background(ink.card).border(1.dp, ink.hair, RoundedCornerShape(14.dp))
+                .padding(horizontal = 18.dp, vertical = 14.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(stringResource(R.string.room_news), style = Type.small.ui().copy(fontSize = 11.sp, letterSpacing = 0.14.sp), color = ink.gilt)
+                Text(m.head[lang], style = Type.title.copy(fontFamily = Faces.display, fontSize = 19.sp, lineHeight = 25.sp).ui(), color = ink.ink,
+                    textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                if (m.line.isNotBlank()) Text(quoted(m.line, work.series.original), style = Type.small.of(work.series.original).copy(fontSize = 12.sp, lineHeight = 17.sp,
+                    fontStyle = androidx.compose.ui.text.font.FontStyle.Italic), color = ink.soft, textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+            }
+            hold?.let { Box(Modifier.fillMaxWidth(0.86f).widthIn(max = 320.dp).padding(top = 8.dp)) { it() } }
+        }
+        is Moment.Handover -> Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
+            Column(Modifier.widthIn(min = 220.dp, max = 300.dp).clip(MineShape).background(ink.deep).padding(horizontal = 16.dp, vertical = 14.dp)) {
+                Text(stringResource(handoverDone(m.kind), m.memo[lang]), style = Type.small.ui().copy(fontSize = 11.sp, letterSpacing = 0.08.sp), color = ink.onDeepSoft,
+                    maxLines = 1, overflow = TextOverflow.Ellipsis)
+                Text(m.what[lang], style = Type.title.copy(fontFamily = Faces.display, fontSize = 24.sp, lineHeight = 29.sp).ui(), color = ink.onDeep, maxLines = 2)
+                Text(if (m.kind == "courier") stringResource(R.string.room_hand_left) else stringResource(R.string.room_sent_reply, subject(sender)),
+                    style = Type.small.ui().copy(fontSize = 12.sp), color = ink.onDeepGilt, maxLines = 1, modifier = Modifier.padding(top = 8.dp))
+            }
+        }
         is Moment.Photo -> Column(Modifier.fillMaxWidth(0.8f).widthIn(max = 320.dp)) {
             Who(stringResource(if (m.sketch) R.string.room_sketch_sent else R.string.room_photo_sent, subject(sender)))
             val path = (if (m.sketch) "sketches/" else "plates/") + m.image
@@ -411,10 +473,12 @@ internal fun RoomMoment(s: AppState, work: Work, recipient: String, m: Moment, o
         }
         is Moment.Location -> Column(Modifier.fillMaxWidth(0.8f).widthIn(min = 230.dp, max = 320.dp)) {
             Column(Modifier.fillMaxWidth().clip(BubbleShape).background(ink.card).border(1.dp, ink.hair, BubbleShape).pressable(onClick = onOpen)) {
-                MapStripe(ink, p)
+                val from = m.from
+                if (from != null) RouteStripe(ink, p, from[lang], m.title[lang]) else MapStripe(ink, p)
                 Column(Modifier.padding(horizontal = 14.dp, vertical = 10.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
                     Text(stringResource(R.string.room_place_shared, subject(sender)), style = Type.small.ui().copy(fontSize = 13.sp), color = ink.ink, maxLines = 1)
-                    Text(stringResource(R.string.room_place_line, listOf(m.title[lang], m.address).filter { it.isNotBlank() }.joinToString(" · ")),
+                    Text(stringResource(R.string.room_place_line, listOfNotNull(m.title[lang], from?.let { stringResource(R.string.room_travel_from, it[lang]) }, m.address)
+                        .filter { it.isNotBlank() }.joinToString(" · ")),
                         style = Type.small.ui().copy(fontSize = 11.5.sp, lineHeight = 15.sp), color = ink.soft, maxLines = 2, overflow = TextOverflow.Ellipsis)
                 }
             }
@@ -424,6 +488,7 @@ internal fun RoomMoment(s: AppState, work: Work, recipient: String, m: Moment, o
             Column(Modifier.widthIn(min = 220.dp, max = 300.dp).clip(MineShape).background(ink.deep).padding(horizontal = 16.dp, vertical = 14.dp)) {
                 Text(stringResource(R.string.room_sent_by_me, recipient, sender), style = Type.small.ui().copy(fontSize = 11.sp, letterSpacing = 0.08.sp), color = ink.onDeepSoft, maxLines = 1)
                 Text(m.amount, style = Type.title.copy(fontFamily = Faces.display, fontSize = 30.sp, lineHeight = 33.sp), color = ink.onDeep, maxLines = 1)
+                amountKo(m.amount, lang)?.let { Text(it, style = Type.small.ui().copy(fontSize = 11.sp), color = ink.onDeepSoft, maxLines = 1) }
                 Text(m.memo[lang], style = Type.small.ui().copy(fontSize = 12.sp), color = ink.onDeepSoft, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 Text(stringResource(R.string.room_sent_reply, subject(sender)), style = Type.small.ui().copy(fontSize = 12.sp), color = ink.onDeepGilt,
                     maxLines = 1, modifier = Modifier.padding(top = 8.dp))
@@ -433,6 +498,7 @@ internal fun RoomMoment(s: AppState, work: Work, recipient: String, m: Moment, o
                 val k = if (m.outgoing) stringResource(R.string.room_paid_by, subject(sender)) + " · " + m.label[lang] else m.label[lang]
                 Text(k, style = Type.small.ui().copy(fontSize = 11.sp, letterSpacing = 0.06.sp), color = ink.soft, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 Text(m.amount, style = Type.title.copy(fontFamily = Faces.display, fontSize = 30.sp, lineHeight = 33.sp), color = ink.ink, maxLines = 1)
+                amountKo(m.amount, lang)?.let { Text(it, style = Type.small.ui().copy(fontSize = 11.sp), color = ink.soft, maxLines = 1) }
                 Text(m.memo[lang], style = Type.small.ui().copy(fontSize = 12.sp), color = ink.soft, maxLines = 2, overflow = TextOverflow.Ellipsis)
             }
             hold?.let { Box(Modifier.padding(top = 8.dp)) { it() } }
@@ -445,6 +511,66 @@ internal fun RoomMoment(s: AppState, work: Work, recipient: String, m: Moment, o
             MomentCard(s, work, m, onMap = {}, onPhoto = {})
             hold?.let { Box(Modifier.padding(top = 8.dp)) { it() } }
         }
+    }
+}
+
+/** 소포 · 목록의 물건 한 줄: 뜻 (글자 언어) 왼쪽 · 원어 낱말 (배우는 말) 오른쪽. 누르면 낱말 카드 (카드에 담기). */
+@Composable
+private fun ItemRow(item: Item, lang: Lang, learn: Lang, color: Color, line: Color, onClick: () -> Unit) {
+    Box(Modifier.fillMaxWidth().height(1.dp).background(line))
+    Row(Modifier.fillMaxWidth().heightIn(min = 40.dp).semantics(mergeDescendants = true) {}.pressable(onClick = onClick).padding(vertical = 6.dp),
+        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+        val word = item.text[learn]
+        val mean = item.text[lang]
+        Text(if (mean != word) mean else "", style = Type.small.ui().copy(fontSize = 13.sp, lineHeight = 18.sp), color = color, modifier = Modifier.weight(1f))
+        Text(word, style = Type.body.of(learn).copy(fontFamily = Faces.display, fontSize = 14.sp, lineHeight = 18.sp), color = color,
+            textAlign = androidx.compose.ui.text.style.TextAlign.End, modifier = Modifier.weight(1f, fill = false))
+    }
+}
+
+/** 금액의 한국어 읽기 (한국어 글자일 때만, “100 francs” → “100프랑”, core Amounts). */
+private fun amountKo(amount: String, lang: Lang): String? = if (lang == Lang.KO) io.github.graviton94.todayletters.core.Amounts.ko(amount) else null
+
+/** 맡긴 뒤 말풍선 머리 (전령 편에 보냄 · 돌려보냄 · 내가 부침 · 내가 부탁함). */
+internal fun handoverDone(kind: String) = when (kind) {
+    "return" -> R.string.room_hand_return_done
+    "post" -> R.string.room_hand_post_done
+    "ask" -> R.string.room_hand_ask_done
+    else -> R.string.room_hand_courier_done
+}
+
+/** 내 차례 단추의 글 (전령에게 답장 맡기기 · 돌려보내기 · 편지 부치기 · 부탁하기) 과 오른쪽 짧은 말. */
+internal fun handoverAsk(kind: String) = when (kind) {
+    "return" -> R.string.room_hand_return to R.string.room_send_go
+    "post" -> R.string.room_hand_post to R.string.room_parcel_go
+    "ask" -> R.string.room_hand_ask to R.string.room_ask_go
+    else -> R.string.room_hand_courier to R.string.room_hand_go
+}
+
+/** 이동 위치 공유의 작은 길: 앞 곳 (빈 동그라미) 에서 이번 곳 (금빛 핀) 까지 점선, 아래에 두 이름. */
+@Composable
+private fun RouteStripe(ink: RoomInk, p: Palette, from: String, to: String) = Box(Modifier.fillMaxWidth().height(92.dp).background(p.mapPaper)) {
+    Canvas(Modifier.fillMaxSize()) {
+        val step = 10.dp.toPx()
+        var x = -size.height
+        var k = 0
+        while (x < size.width + size.height) {
+            if (k % 2 == 0) drawLine(p.mapRoad.copy(alpha = 0.35f), Offset(x, size.height), Offset(x + size.height * 0.7f, 0f), step)
+            x += step; k++
+        }
+        val a = Offset(size.width * 0.18f, size.height * 0.36f)
+        val b = Offset(size.width * 0.82f, size.height * 0.36f)
+        drawLine(ink.gilt.copy(alpha = 0.8f), a, b, 1.5.dp.toPx(), pathEffect = androidx.compose.ui.graphics.PathEffect.dashPathEffect(floatArrayOf(5.dp.toPx(), 4.dp.toPx())))
+        drawCircle(p.mapPaper, 5.dp.toPx(), a)
+        drawCircle(ink.soft, 5.dp.toPx(), a, style = androidx.compose.ui.graphics.drawscope.Stroke(1.5.dp.toPx()))
+        drawCircle(ink.gilt.copy(alpha = 0.25f), 10.dp.toPx(), b)
+        drawCircle(ink.gilt, 6.dp.toPx(), b)
+    }
+    Row(Modifier.align(Alignment.BottomCenter).fillMaxWidth().padding(horizontal = 12.dp, vertical = 10.dp), horizontalArrangement = Arrangement.SpaceBetween) {
+        Text(from, style = Type.small.ui().copy(fontSize = 11.sp), color = ink.soft, maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f, fill = false))
+        Spacer(Modifier.width(12.dp))
+        Text(to, style = Type.small.ui().copy(fontSize = 11.sp, fontWeight = FontWeight.Medium), color = ink.ink, maxLines = 1, overflow = TextOverflow.Ellipsis,
+            textAlign = androidx.compose.ui.text.style.TextAlign.End, modifier = Modifier.weight(1f, fill = false))
     }
 }
 

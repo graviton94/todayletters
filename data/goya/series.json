@@ -143,6 +143,42 @@
    }
   }
  ],
+ "travel": {
+  "_doc": "편지 쓴 곳이 앞 편지와 달라지면 편지 앞에 위치 공유를 저절로 놓아요 (core Travel). names: 편지의 place 글자 → 보여 줄 이름.",
+  "auto": true,
+  "names": {
+   "Fuendetodos": {
+    "es": "Fuendetodos",
+    "en": "Fuendetodos",
+    "ko": "푸엔데토도스"
+   },
+   "Zaragoza": {
+    "es": "Zaragoza",
+    "en": "Zaragoza",
+    "ko": "사라고사"
+   },
+   "Italia": {
+    "es": "Italia",
+    "en": "Italy",
+    "ko": "이탈리아"
+   },
+   "Madrid": {
+    "es": "Madrid",
+    "en": "Madrid",
+    "ko": "마드리드"
+   },
+   "Camino de Madrid": {
+    "es": "Camino de Madrid",
+    "en": "On the road to Madrid",
+    "ko": "마드리드 가는 길"
+   },
+   "Burdeos": {
+    "es": "Burdeos",
+    "en": "Bordeaux",
+    "ko": "보르도"
+   }
+  }
+ },
  "places": {
   "fuendetodos": {
    "x": 0.157,

@@ -339,6 +339,24 @@
      "address": "Bordeaux, Francia"
     },
     {
+     "after": 0,
+     "type": "parcel",
+     "by": "writer",
+     "items": [
+      {
+       "es": "un ensayo litográfico",
+       "en": "a trial lithograph",
+       "ko": "석판화 시험작 한 장",
+       "lex": "ensayo"
+      }
+     ],
+     "memo": {
+      "es": "Con el señor de Baranda · a París",
+      "en": "With Señor Baranda · to Paris",
+      "ko": "바란다 씨 편에 · 파리로"
+     }
+    },
+    {
      "after": 1,
      "type": "photo",
      "image": "gm-e1.webp",

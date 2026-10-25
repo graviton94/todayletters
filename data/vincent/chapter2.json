@@ -702,6 +702,7 @@
     {
      "after": -1,
      "type": "transfer",
+     "by": "reader",
      "amount": "50 francs",
      "label": {
       "fr": "Théo a envoyé",
@@ -714,6 +715,24 @@
       "ko": "파리 → 아를"
      },
      "outgoing": false
+    },
+    {
+     "after": 1,
+     "type": "parcel",
+     "by": "writer",
+     "items": [
+      {
+       "fr": "les dessins des Saintes-Maries",
+       "en": "the drawings of Saintes-Maries",
+       "ko": "생트마리에서 그린 소묘",
+       "lex": "dessin"
+      }
+     ],
+     "memo": {
+      "fr": "Arles → Paris · par même courrier",
+      "en": "Arles → Paris · by the same post",
+      "ko": "아를 → 파리 · 같은 우편으로"
+     }
     },
     {
      "after": 2,

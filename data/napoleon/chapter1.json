@@ -1260,6 +1260,42 @@
      },
      "credit": "Vue de Gênes, XVIIe siècle · Rijksmuseum · CC0",
      "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_Genua,_RP-P-2014-57-3.jpg"
+    },
+    {
+     "after": 4,
+     "type": "parcel",
+     "by": "writer",
+     "items": [
+      {
+       "fr": "une boîte de bonbons de Gênes",
+       "en": "a box of Genoa sweets",
+       "ko": "제노바 사탕 한 상자",
+       "lex": "bonbon"
+      },
+      {
+       "fr": "des oranges",
+       "en": "oranges",
+       "ko": "오렌지",
+       "lex": "orange"
+      },
+      {
+       "fr": "des parfums",
+       "en": "perfumes",
+       "ko": "향수",
+       "lex": "parfum"
+      },
+      {
+       "fr": "de l'eau de fleur d'oranger",
+       "en": "orange-flower water",
+       "ko": "오렌지꽃 물",
+       "lex": "eau"
+      }
+     ],
+     "memo": {
+      "fr": "Albenga → Paris",
+      "en": "Albenga → Paris",
+      "ko": "알벤가 → 파리"
+     }
     }
    ],
    "status": {
@@ -2124,6 +2160,21 @@
      },
      "credit": "Route de poste, 1817 · Philibert-Louis Debucourt, The Metropolitan Museum of Art · CC0",
      "source": "https://commons.wikimedia.org/wiki/File:Route_de_Poste_Met_DP887959.jpg"
+    },
+    {
+     "after": 3,
+     "type": "handover",
+     "kind": "courier",
+     "what": {
+      "fr": "Ta réponse",
+      "en": "Your reply",
+      "ko": "답장 한 통"
+     },
+     "memo": {
+      "fr": "Paris → Tortona",
+      "en": "Paris → Tortona",
+      "ko": "파리 → 토르토나"
+     }
     }
    ],
    "status": {

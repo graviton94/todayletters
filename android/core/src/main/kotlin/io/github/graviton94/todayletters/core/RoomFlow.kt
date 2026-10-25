@@ -6,7 +6,7 @@ package io.github.graviton94.todayletters.core
  * 편지 한 통은 차례 ([timeline]): 편지 앞 순간 (after -1) → 문장 하나 → 그 문장 뒤 순간들 → … → 큐레이터 노트.
  * 이어 듣기는 이 차례를 따라간다: 문장은 낭독이 끝나면 [holdMs] 만큼 쉬고 (아래 금선이 찬다), 볼 것이 있는 순간
  * (사진 · 위치 · 날씨 · 알림 · 보낸 사람의 송금) 도 [momentHoldMs] 만큼 쉰다. 곡은 듣거나 넘길 때까지 (null).
- * 내가 (받는 사람이) 하는 일 ([Moment.Transfer.byReader]) 은 내가 눌러야 이어진다.
+ * 내가 (받는 사람이) 하는 일 ([blocks]: 송금 · 소포 · 답장 맡기기) 은 내가 눌러야 이어진다.
  * 사람이 누른 것이 이긴다: 읽은 문장 다시 듣기 · 낱말 · 사진 · 지도를 누르면 이어 듣기는 멈춘다 (화면 쪽).
  *
  * 낱말 시각 ([WordTimes], 없으면 마디 시각에서 [chunkWords]) 으로 지금 낱말을 따라가고 ([wordAt]),
@@ -31,22 +31,33 @@ object RoomFlow {
     const val GLANCE_MS = 2000
 
     /**
-     * 순간을 볼 시간 (밀리초): 사진 · 스케치 3500 + 30 × 설명 길이 (6000 까지), 위치 2500, 날씨 · 알림 · 보낸 사람 쪽 송금 2000.
-     * 곡은 null (듣거나 넘길 때까지 기다림). 내가 하는 송금은 쉼이 아니라 내 차례라 0 ([blocks]).
+     * 순간을 볼 시간 (밀리초): 사진 · 스케치 · 보낸 사람의 소포 · 목록 · 소식 3500 + 30 × 글 길이 (6000 까지, [captionOf]), 위치 2500,
+     * 날씨 · 알림 · 보낸 사람 쪽 송금 2000. 곡은 null (듣거나 넘길 때까지 기다림). 내가 하는 일 (송금 · 소포 · 맡기기) 은 쉼이 아니라 내 차례라 0 ([blocks]).
      */
     fun momentHoldMs(m: Moment, caption: Int = 0, pause: Pause = Pause.NORMAL): Long? {
+        if (blocks(m)) return 0
+        val look = minOf(PHOTO_CAP_MS, PHOTO_BASE_MS + PHOTO_PER_CHAR_MS * caption.coerceAtLeast(0))
         val base = when (m) {
-            is Moment.Photo -> minOf(PHOTO_CAP_MS, PHOTO_BASE_MS + PHOTO_PER_CHAR_MS * caption.coerceAtLeast(0))
+            is Moment.Photo, is Moment.Parcel, is Moment.Ledger, is Moment.News -> look
             is Moment.Location -> PLACE_MS
-            is Moment.Weather, is Moment.Notice -> GLANCE_MS
-            is Moment.Transfer -> if (m.byReader) return 0 else GLANCE_MS
+            is Moment.Weather, is Moment.Notice, is Moment.Transfer -> GLANCE_MS
+            is Moment.Handover -> return 0
             is Moment.Music -> return null
         }
         return (base * pause.factor).toLong()
     }
 
-    /** 내가 해야 이어지는 순간인가 (받는 사람이 하는 송금). */
-    fun blocks(m: Moment): Boolean = m is Moment.Transfer && m.byReader
+    /** 볼 글의 길이 (사진 설명 · 소포의 물건과 메모 · 목록 · 소식), 글자 언어 [lang]. 쉼 [momentHoldMs] 에 넘긴다. */
+    fun captionOf(m: Moment, lang: Lang): Int = when (m) {
+        is Moment.Photo -> m.caption[lang].length
+        is Moment.Parcel -> m.items.sumOf { it.text[lang].length } + m.memo[lang].length
+        is Moment.Ledger -> m.title[lang].length + m.rows.sumOf { it.label[lang].length + it.value.length }
+        is Moment.News -> m.head[lang].length + m.line.length
+        else -> 0
+    }
+
+    /** 내가 해야 이어지는 순간인가 (받는 사람이 하는 송금 · 소포, 답장 맡기기 · 돌려보내기). */
+    fun blocks(m: Moment): Boolean = (m is Moment.Transfer && m.byReader) || (m is Moment.Parcel && m.reader) || m is Moment.Handover
 
     /** 차례 한 칸. */
     sealed interface Beat {

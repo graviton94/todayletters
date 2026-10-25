@@ -1387,6 +1387,21 @@
      "credit": "Francisco de Saavedra, 1798 · Francisco de Goya · The Courtauld, Londres · dominio público",
      "source": "https://commons.wikimedia.org/wiki/File:Francisco_de_Saavedra_(Goya).jpg",
      "exception": "pd-art"
+    },
+    {
+     "after": 4,
+     "type": "handover",
+     "kind": "return",
+     "what": {
+      "es": "La carta del ministro",
+      "en": "The minister's letter",
+      "ko": "장관의 편지"
+     },
+     "memo": {
+      "es": "No la enseñes",
+      "en": "Show it to no one",
+      "ko": "아무한테도 보여 주지 말고"
+     }
     }
    ],
    "status": {
@@ -3298,6 +3313,30 @@
      },
      "credit": "Bien tirada está, 1799 · Francisco de Goya · The Metropolitan Museum of Art · CC0",
      "source": "https://commons.wikimedia.org/wiki/File:Plate_17_from_%27Los_Caprichos%27-_It_is_nicely_stretched_(Bien_tirada_est%C3%A1.)_MET_DP816905.jpg"
+    },
+    {
+     "after": 1,
+     "type": "parcel",
+     "by": "writer",
+     "items": [
+      {
+       "es": "ochenta cobres",
+       "en": "eighty copper plates",
+       "ko": "동판 80장",
+       "lex": "cobre"
+      },
+      {
+       "es": "240 ejemplares",
+       "en": "240 sets",
+       "ko": "240권",
+       "lex": "ejemplar"
+      }
+     ],
+     "memo": {
+      "es": "A la Real Calcografía",
+      "en": "To the Royal Printworks",
+      "ko": "왕립 판화소로"
+     }
     }
    ],
    "status": {

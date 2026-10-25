@@ -6,6 +6,7 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.swipeDown
@@ -887,13 +888,13 @@ class NavTest {
 
     /** 편지 방을 낭독 없이 (시험용 가짜 낭독) 그린다: 도착 장면 · 타자 기다림 없이. [n] 은 I장 몇 번째 편지. */
     // 글자 자리 (낱말을 눌러 고르기) 가 실제 글꼴로 재어져야 해서 이 시험들은 NATIVE 그래픽으로
-    private fun roomRun(n: Int): Triple<AppState, Route.Letter, MutableList<String>> {
+    private fun roomRun(n: Int, series: String = "vincent", chapter: Int = 1): Triple<AppState, Route.Letter, MutableList<String>> {
         val s = state()
-        s.enter("vincent")
+        s.enter(series)
         s.update(s.app.copy(pace = io.github.graviton94.todayletters.core.TypingPace.INSTANT))
-        val room = Route.Letter("vincent", 1, n, Route.Inbox)
+        val room = Route.Letter(series, chapter, n, Route.Inbox)
         val (c, l) = s.letterOf(room)
-        s.store.markArrived(s.key("vincent", c, l.id))
+        s.store.markArrived(s.key(series, c, l.id))
         s.go(room)
         val log = mutableListOf<String>()
         s.narrator.fake = log
@@ -904,7 +905,7 @@ class NavTest {
     }
     private fun AppState.msgAudio(room: Route.Letter, i: Int): String {
         val (c, l) = letterOf(room)
-        return narrator.path("vincent", c, l.id, "m${i + 1}_${this.room(room.series).learn.code}")
+        return narrator.path(room.series, c, l.id, "m${i + 1}_${this.room(room.series).learn.code}")
     }
     private fun endSound(s: AppState, ms: Long) {
         rule.runOnUiThread { s.narrator.fakeEnd(); androidx.compose.runtime.snapshots.Snapshot.sendApplyNotifications() }
@@ -982,6 +983,53 @@ class NavTest {
         val w = s.work("vincent")
         rule.onNodeWithText(ctx.getString(R.string.room_sent_by_me, w.recipient[io.github.graviton94.todayletters.core.Lang.KO], w.name[io.github.graviton94.todayletters.core.Lang.KO])).assertExists()
         assertEquals(listOf(s.msgAudio(room, 0)), log)
+        s.narrator.fake = null
+    }
+
+    /**
+     * 내가 부치는 소포 (빈센트 VI장 3번째, 편지 앞): 아래 자리가 ‘테오로서 소포 부치기 · 5가지’ 단추, 누를 때까지 첫 문장이 오지 않는다.
+     * 누르면 오른쪽 ‘내가 보낸 소포 · 파리 → 생레미’ 말풍선 (물건 다섯), 그다음 첫 문장. 물건을 누르면 낱말 카드 (카드에 담기).
+     */
+    @org.robolectric.annotation.GraphicsMode(org.robolectric.annotation.GraphicsMode.Mode.NATIVE) @Test fun roomReaderParcelBlocks() {
+        val (s, room, _) = roomRun(3, chapter = 6)
+        val (c, l) = s.letterOf(room)
+        val pc = l.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Parcel>().single()
+        assertTrue(pc.reader && pc.after == -1 && pc.items.size == 5)
+        val ask = androidx.compose.ui.test.hasTestTag("room_ask")
+        rule.onNode(ask).assertExists()
+        rule.mainClock.advanceTimeBy(10_000)
+        assertEquals("the letter waits for Theo's parcel", 0, s.progress("vincent", c, l.id).shown)
+        rule.onNode(ask).performClick()
+        rule.mainClock.advanceTimeBy(1500)
+        val ko = io.github.graviton94.todayletters.core.Lang.KO
+        rule.onNodeWithText(ctx.getString(R.string.room_parcel_mine, pc.memo[ko])).assertExists()
+        assertTrue(s.progress("vincent", c, l.id).shown >= 1)
+        rule.onAllNodes(ask).assertCountEquals(0)
+        // 물건 하나를 누르면 낱말 카드 (원어 사전 낱말이면 카드에 담기)
+        rule.onAllNodesWithText(pc.items[1].text[s.room("vincent").learn], useUnmergedTree = true).onFirst().performClick()
+        rule.mainClock.advanceTimeBy(400)
+        rule.onNodeWithText(ctx.getString(R.string.room_card_item)).assertExists()
+        rule.onNodeWithText(ctx.getString(R.string.gloss_add)).performClick()
+        rule.mainClock.advanceTimeBy(300)
+        assertTrue(s.hasLex("vincent", pc.items[1].lex))
+        s.narrator.fake = null
+    }
+
+    /** 맡기기 (모차르트 VI장 6번째, 편지 앞: 아버지의 편지 두 통): 아래 자리가 ‘아버지로서 편지 부치기’, 누르면 오른쪽 ‘내가 부침’ 말풍선, 그다음 편지. */
+    @org.robolectric.annotation.GraphicsMode(org.robolectric.annotation.GraphicsMode.Mode.NATIVE) @Test fun roomHandoverBlocks() {
+        val (s, room, _) = roomRun(6, series = "mozart", chapter = 6)
+        val (c, l) = s.letterOf(room)
+        val h = l.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Handover>().single()
+        val ask = androidx.compose.ui.test.hasTestTag("room_ask")
+        rule.mainClock.advanceTimeBy(3000)
+        rule.onNode(ask).assertExists()
+        rule.mainClock.advanceTimeBy(10_000)
+        assertEquals("the letter waits for the father's letters", 0, s.progress("mozart", c, l.id).shown)
+        rule.onNode(ask).performClick()
+        rule.mainClock.advanceTimeBy(1500)
+        val ko = io.github.graviton94.todayletters.core.Lang.KO
+        rule.onNodeWithText(ctx.getString(R.string.room_hand_post_done, h.memo[ko])).assertExists()
+        assertTrue(s.progress("mozart", c, l.id).shown >= 1)
         s.narrator.fake = null
     }
 

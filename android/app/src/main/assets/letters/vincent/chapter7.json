@@ -2950,12 +2950,13 @@
    "moments": [
     {
      "after": -1,
-     "type": "notice",
-     "text": {
-      "fr": "Le fils de Théo et Jo est né le 31 janvier 1890.",
-      "en": "Theo and Jo's son was born on 31 January 1890.",
-      "ko": "1890년 1월 31일, 테오와 조의 아들이 태어났어요."
-     }
+     "type": "news",
+     "head": {
+      "fr": "Le fils de Théo et Jo est né",
+      "en": "Theo and Jo's son is born",
+      "ko": "테오와 조의 아들이 태어났어요"
+     },
+     "line": "tu es père enfin"
     },
     {
      "after": 4,
@@ -3446,6 +3447,7 @@
     {
      "after": -1,
      "type": "transfer",
+     "by": "reader",
      "amount": "150 francs",
      "label": {
       "fr": "Théo a envoyé",

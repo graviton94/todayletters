@@ -419,6 +419,7 @@
     {
      "after": 1,
      "type": "transfer",
+     "by": "writer",
      "amount": "3,50 francs",
      "label": {
       "fr": "L'auberge · par jour",
@@ -1429,6 +1430,7 @@
     {
      "after": -1,
      "type": "transfer",
+     "by": "reader",
      "amount": "50 francs",
      "label": {
       "fr": "Théo a envoyé",

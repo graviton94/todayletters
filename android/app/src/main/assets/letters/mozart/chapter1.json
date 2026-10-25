@@ -1182,6 +1182,24 @@
    ],
    "moments": [
     {
+     "after": -1,
+     "type": "parcel",
+     "by": "reader",
+     "items": [
+      {
+       "de": "der 12te Menuett von Haydn",
+       "en": "Haydn's 12th minuet",
+       "ko": "하이든의 열두 번째 미뉴에트",
+       "lex": "Menuett"
+      }
+     ],
+     "memo": {
+      "de": "mit dem Baß von Dir",
+      "en": "with the bass you wrote",
+      "ko": "누나가 지은 베이스와 함께"
+     }
+    },
+    {
      "after": 2,
      "type": "notice",
      "text": {

@@ -1132,4 +1132,22 @@
     <string name="room_card_phrase">Phrase</string>
     <string name="room_card_more">More</string>
     <string name="slow_first_08">First, one listen at 0.8×</string>
+    <string name="room_parcel_as">Post a parcel as %1$s · %2$d items</string>
+    <string name="room_parcel_go">Post</string>
+    <string name="room_parcel_mine">Parcel I sent · %1$s</string>
+    <string name="room_parcel_from">Parcel from %1$s · %2$s</string>
+    <string name="room_card_item">In the letter</string>
+    <string name="room_news">News</string>
+    <string name="room_travel_from">from %1$s</string>
+    <string name="room_hand_courier">Hand your reply to the courier as %1$s</string>
+    <string name="room_hand_return">Send the letter back as %1$s</string>
+    <string name="room_hand_post">Post your letters as %1$s</string>
+    <string name="room_hand_ask">Make the request as %1$s</string>
+    <string name="room_hand_go">Hand over</string>
+    <string name="room_ask_go">Ask</string>
+    <string name="room_hand_courier_done">Sent with the courier · %1$s</string>
+    <string name="room_hand_return_done">Sent back · %1$s</string>
+    <string name="room_hand_post_done">Posted by me · %1$s</string>
+    <string name="room_hand_ask_done">Asked by me · %1$s</string>
+    <string name="room_hand_left">The courier is on his way</string>
 </resources>

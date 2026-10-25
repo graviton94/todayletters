@@ -249,6 +249,24 @@
      "credit": "Réunion d'artistes dans l'atelier d'Isabey, 1798 · Louis-Léopold Boilly, musée du Louvre · domaine public",
      "source": "https://commons.wikimedia.org/wiki/File:Boilly_r%C3%A9union_d%27artiste_chez_Isabey_1798.jpg",
      "exception": "pd-art"
+    },
+    {
+     "after": 2,
+     "type": "parcel",
+     "by": "reader",
+     "items": [
+      {
+       "fr": "ton portrait",
+       "en": "your portrait",
+       "ko": "형 초상화",
+       "lex": "portrait"
+      }
+     ],
+     "memo": {
+      "fr": "Si tu pars",
+      "en": "If you leave",
+      "ko": "형이 떠난다면"
+     }
     }
    ],
    "status": {

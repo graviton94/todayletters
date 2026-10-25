@@ -2040,6 +2040,7 @@
     {
      "after": 2,
      "type": "transfer",
+     "by": "writer",
      "amount": "200 Fl.",
      "label": {
       "de": "Angebot des „Indianers“ (über Wendling)",
@@ -2487,6 +2488,7 @@
     {
      "after": 2,
      "type": "transfer",
+     "by": "writer",
      "amount": "7 Louisdor",
      "label": {
       "de": "Von der Fürstin",

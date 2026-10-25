@@ -402,15 +402,6 @@
     },
     {
      "after": 4,
-     "type": "notice",
-     "text": {
-      "de": "1000 gute Wünsche · Wien → Salzburg",
-      "en": "1000 kind wishes · Vienna → Salzburg",
-      "ko": "좋은 소원 1000가지 · 빈 → 잘츠부르크"
-     }
-    },
-    {
-     "after": 4,
      "type": "music",
      "piece": {
       "de": "Klavierkonzert B-Dur KV 450 (1784)",
@@ -423,6 +414,24 @@
      "audioLicense": "Public domain",
      "audioSource": "https://commons.wikimedia.org/wiki/File:Mozart_Piano_Concerto_No._15_in_B_flat_major_K450_II._Andante_(Mozart)_European_Archive.ogg",
      "excerpt": "60 s excerpt, faded and level-matched"
+    },
+    {
+     "after": 4,
+     "type": "parcel",
+     "by": "writer",
+     "items": [
+      {
+       "de": "1000 gute Wünsche",
+       "en": "1000 good wishes",
+       "ko": "좋은 소원 1000가지",
+       "lex": "Wunsch"
+      }
+     ],
+     "memo": {
+      "de": "Wien → Salzburg",
+      "en": "Vienna → Salzburg",
+      "ko": "빈 → 잘츠부르크"
+     }
     }
    ],
    "status": {

@@ -3249,6 +3249,24 @@
      "credit": "Gazette nationale ou le Moniteur universel, 19 novembre 1793 · Bibliothèque nationale de France · domaine public",
      "source": "https://commons.wikimedia.org/wiki/File:Gazette_nationale_ou_le_Moniteur_19_novembre_1793_237.jpg",
      "exception": "pd-art"
+    },
+    {
+     "after": 2,
+     "type": "parcel",
+     "by": "writer",
+     "items": [
+      {
+       "fr": "un Moniteur",
+       "en": "a copy of the Moniteur",
+       "ko": "『모니퇴르』 한 부",
+       "lex": "Moniteur"
+      }
+     ],
+     "memo": {
+      "fr": "Des choses relatives à vous",
+      "en": "Things that concern you",
+      "ko": "너에 관한 기사"
+     }
     }
    ],
    "status": {

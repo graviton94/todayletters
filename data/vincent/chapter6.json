@@ -974,6 +974,30 @@
      },
      "quote": "quel beau bleu et quel soleil!",
      "icon": "sun"
+    },
+    {
+     "after": 4,
+     "type": "parcel",
+     "by": "reader",
+     "items": [
+      {
+       "fr": "brosses ordinaires",
+       "en": "ordinary brushes",
+       "ko": "보통 붓",
+       "lex": "brosse"
+      },
+      {
+       "fr": "5 mètres de toile",
+       "en": "5 metres of canvas",
+       "ko": "캔버스 천 5미터",
+       "lex": "toile"
+      }
+     ],
+     "memo": {
+      "fr": "Paris → Saint-Rémy",
+      "en": "Paris → Saint-Rémy",
+      "ko": "파리 → 생레미"
+     }
     }
    ],
    "status": {
@@ -1459,12 +1483,45 @@
    ],
    "moments": [
     {
-     "after": 0,
-     "type": "notice",
-     "text": {
-      "fr": "Un colis de Paris · toiles, couleurs, brosses, tabac et chocolat",
-      "en": "A parcel from Paris · canvas, paints, brushes, tobacco and chocolate",
-      "ko": "파리에서 온 꾸러미 · 캔버스, 물감, 붓, 담배, 초콜릿"
+     "after": -1,
+     "type": "parcel",
+     "by": "reader",
+     "items": [
+      {
+       "fr": "toiles",
+       "en": "canvases",
+       "ko": "캔버스",
+       "lex": "toile"
+      },
+      {
+       "fr": "couleurs",
+       "en": "paints",
+       "ko": "물감",
+       "lex": "couleur"
+      },
+      {
+       "fr": "brosses",
+       "en": "brushes",
+       "ko": "붓",
+       "lex": "brosse"
+      },
+      {
+       "fr": "tabac",
+       "en": "tobacco",
+       "ko": "담배",
+       "lex": "tabac"
+      },
+      {
+       "fr": "chocolat",
+       "en": "chocolate",
+       "ko": "초콜릿",
+       "lex": "chocolat"
+      }
+     ],
+     "memo": {
+      "fr": "Paris → Saint-Rémy",
+      "en": "Paris → Saint-Rémy",
+      "ko": "파리 → 생레미"
      }
     },
     {
@@ -3526,6 +3583,24 @@
       "fr": "Le même champ, avec un moissonneur",
       "en": "The same field, with a reaper",
       "ko": "같은 밭, 수확하는 사람과 함께"
+     }
+    },
+    {
+     "after": 2,
+     "type": "parcel",
+     "by": "writer",
+     "items": [
+      {
+       "fr": "un croquis de cigales",
+       "en": "a sketch of cicadas",
+       "ko": "매미를 그린 스케치",
+       "lex": "croquis"
+      }
+     ],
+     "memo": {
+      "fr": "Saint-Rémy → Paris · ci-inclus",
+      "en": "Saint-Rémy → Paris · enclosed",
+      "ko": "생레미 → 파리 · 편지에 같이"
      }
     }
    ],

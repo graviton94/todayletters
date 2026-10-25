@@ -269,6 +269,21 @@
      "credit": "Autorretrato, c. 1761–1769 · Anton Raphael Mengs · Museo del Prado · dominio público",
      "source": "https://commons.wikimedia.org/wiki/File:Autorretrato_de_Anton_Raphael_Mengs_(Museo_del_Prado).jpg",
      "exception": "pd-art"
+    },
+    {
+     "after": 2,
+     "type": "handover",
+     "kind": "ask",
+     "what": {
+      "es": "La Dolorosa",
+      "en": "The Dolorosa",
+      "ko": "슬픔의 성모"
+     },
+     "memo": {
+      "es": "Al reverso del San Cristóbal",
+      "en": "On the back of the Saint Christopher",
+      "ko": "성 크리스토포로 그림 뒷면에"
+     }
     }
    ],
    "status": {
@@ -1244,6 +1259,24 @@
       "ko": "왕궁"
      },
      "address": "Madrid"
+    },
+    {
+     "after": 0,
+     "type": "parcel",
+     "by": "writer",
+     "items": [
+      {
+       "es": "un juego de las obras de Velázquez",
+       "en": "a set of the Velázquez prints",
+       "ko": "벨라스케스 그림 판화 한 벌",
+       "lex": "juego"
+      }
+     ],
+     "memo": {
+      "es": "Con Antonio Ibáñez",
+      "en": "With Antonio Ibáñez",
+      "ko": "안토니오 이바녜스 편에"
+     }
     },
     {
      "after": 1,

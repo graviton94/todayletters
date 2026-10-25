@@ -2930,6 +2930,21 @@
      "credit": "Traité de Tolentino, 1835 · France militaire (Abel Hugo) · domaine public",
      "source": "https://commons.wikimedia.org/wiki/File:Treaty_of_Tolentino,_1797.jpg",
      "exception": "pd-art"
+    },
+    {
+     "after": 4,
+     "type": "handover",
+     "kind": "courier",
+     "what": {
+      "fr": "Une lettre",
+      "en": "A letter",
+      "ko": "편지 한 통"
+     },
+     "memo": {
+      "fr": "Écris-moi tous les jours",
+      "en": "Write to me every day",
+      "ko": "매일 편지 써 줘"
+     }
     }
    ],
    "status": {

@@ -1132,4 +1132,22 @@
     <string name="room_card_phrase">표⁠현</string>
     <string name="room_card_more">자⁠세⁠히</string>
     <string name="slow_first_08">먼⁠저 0.8×⁠로 한 번 들⁠어⁠요</string>
+    <string name="room_parcel_as">%1$s 소⁠포 부⁠치⁠기 · %2$d⁠가⁠지</string>
+    <string name="room_parcel_go">부⁠치⁠기</string>
+    <string name="room_parcel_mine">내⁠가 보⁠낸 소⁠포 · %1$s</string>
+    <string name="room_parcel_from">%1$s 보⁠낸 소⁠포 · %2$s</string>
+    <string name="room_card_item">편⁠지 속 물⁠건</string>
+    <string name="room_news">소⁠식</string>
+    <string name="room_travel_from">%1$s⁠에⁠서</string>
+    <string name="room_hand_courier">%1$s 전⁠령⁠에⁠게 답⁠장 맡⁠기⁠기</string>
+    <string name="room_hand_return">%1$s 편⁠지 돌⁠려⁠보⁠내⁠기</string>
+    <string name="room_hand_post">%1$s 편⁠지 부⁠치⁠기</string>
+    <string name="room_hand_ask">%1$s 부⁠탁⁠하⁠기</string>
+    <string name="room_hand_go">맡⁠기⁠기</string>
+    <string name="room_ask_go">부⁠탁⁠하⁠기</string>
+    <string name="room_hand_courier_done">전⁠령 편⁠에 보⁠냄 · %1$s</string>
+    <string name="room_hand_return_done">돌⁠려⁠보⁠냄 · %1$s</string>
+    <string name="room_hand_post_done">내⁠가 부⁠침 · %1$s</string>
+    <string name="room_hand_ask_done">내⁠가 부⁠탁⁠함 · %1$s</string>
+    <string name="room_hand_left">전⁠령⁠이 떠⁠났⁠어⁠요</string>
 </resources>

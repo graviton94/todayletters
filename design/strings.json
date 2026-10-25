@@ -4523,5 +4523,77 @@
   "slow_first_08": {
     "en": "First, one listen at 0.8×",
     "ko": "먼저 0.8×로 한 번 들어요"
+  },
+  "room_parcel_as": {
+    "en": "Post a parcel as %1$s · %2$d items",
+    "ko": "%1$s 소포 부치기 · %2$d가지"
+  },
+  "room_parcel_go": {
+    "en": "Post",
+    "ko": "부치기"
+  },
+  "room_parcel_mine": {
+    "en": "Parcel I sent · %1$s",
+    "ko": "내가 보낸 소포 · %1$s"
+  },
+  "room_parcel_from": {
+    "en": "Parcel from %1$s · %2$s",
+    "ko": "%1$s 보낸 소포 · %2$s"
+  },
+  "room_card_item": {
+    "en": "In the letter",
+    "ko": "편지 속 물건"
+  },
+  "room_news": {
+    "en": "News",
+    "ko": "소식"
+  },
+  "room_travel_from": {
+    "en": "from %1$s",
+    "ko": "%1$s에서"
+  },
+  "room_hand_courier": {
+    "en": "Hand your reply to the courier as %1$s",
+    "ko": "%1$s 전령에게 답장 맡기기"
+  },
+  "room_hand_return": {
+    "en": "Send the letter back as %1$s",
+    "ko": "%1$s 편지 돌려보내기"
+  },
+  "room_hand_post": {
+    "en": "Post your letters as %1$s",
+    "ko": "%1$s 편지 부치기"
+  },
+  "room_hand_ask": {
+    "en": "Make the request as %1$s",
+    "ko": "%1$s 부탁하기"
+  },
+  "room_hand_go": {
+    "en": "Hand over",
+    "ko": "맡기기"
+  },
+  "room_ask_go": {
+    "en": "Ask",
+    "ko": "부탁하기"
+  },
+  "room_hand_courier_done": {
+    "en": "Sent with the courier · %1$s",
+    "ko": "전령 편에 보냄 · %1$s"
+  },
+  "room_hand_return_done": {
+    "en": "Sent back · %1$s",
+    "ko": "돌려보냄 · %1$s"
+  },
+  "room_hand_post_done": {
+    "en": "Posted by me · %1$s",
+    "ko": "내가 부침 · %1$s"
+  },
+  "room_hand_ask_done": {
+    "en": "Asked by me · %1$s",
+    "ko": "내가 부탁함 · %1$s"
+  },
+  "room_hand_left": {
+    "en": "The courier is on his way",
+    "ko": "전령이 떠났어요"
   }
 }

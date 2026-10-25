@@ -944,6 +944,24 @@
      },
      "credit": "Chasse au cerf dans un paysage de montagne · Rijksmuseum · CC0",
      "source": "https://commons.wikimedia.org/wiki/File:Hertenjacht_in_een_bergachtig_landschap,_RP-T-1898-A-3583.jpg"
+    },
+    {
+     "after": 1,
+     "type": "parcel",
+     "by": "writer",
+     "items": [
+      {
+       "fr": "de ma chasse",
+       "en": "game from my hunt",
+       "ko": "내가 사냥한 고기",
+       "lex": "chasse"
+      }
+     ],
+     "memo": {
+      "fr": "Trianon → Malmaison",
+      "en": "Trianon → Malmaison",
+      "ko": "트리아농 → 말메종"
+     }
     }
    ],
    "status": {
@@ -1873,6 +1891,16 @@
       "ko": "튀일리 궁"
      },
      "address": "Paris, au bord de la Seine"
+    },
+    {
+     "after": 1,
+     "type": "news",
+     "head": {
+      "fr": "100 000 francs pour Malmaison",
+      "en": "100,000 francs for Malmaison",
+      "ko": "말메종 특별비 10만 프랑"
+     },
+     "line": "J'ai accordé 100 000 francs pour 1810, pour l'extraordinaire de Malmaison."
     },
     {
      "after": 2,

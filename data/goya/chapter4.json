@@ -294,15 +294,6 @@
    ],
    "moments": [
     {
-     "after": -1,
-     "type": "notice",
-     "text": {
-      "es": "Goya, Pintor del Rey · julio de 1786",
-      "en": "Goya, Painter to the King · July 1786",
-      "ko": "고야가 왕의 화가가 돼요 · 1786년 7월"
-     }
-    },
-    {
      "after": 0,
      "type": "location",
      "place": "palacio",
@@ -312,6 +303,16 @@
       "ko": "왕궁"
      },
      "address": "Madrid"
+    },
+    {
+     "after": 0,
+     "type": "news",
+     "head": {
+      "es": "Pintor del Rey",
+      "en": "Painter to the King",
+      "ko": "드디어 왕의 화가가 됐어"
+     },
+     "line": "ya soy Pintor del Rey con quince mil reales"
     },
     {
      "after": 3,
@@ -2603,6 +2604,59 @@
      "credit": "La condesa-duquesa de Benavente, 1785 · Francisco de Goya · dominio público",
      "source": "https://commons.wikimedia.org/wiki/File:Duchess_Countess_of_Benavente_by_Goya.jpg",
      "exception": "pd-art"
+    },
+    {
+     "after": 3,
+     "type": "list",
+     "title": {
+      "es": "Cuenta de los cuadros · para la Alameda",
+      "en": "Account of the paintings · for the Alameda",
+      "ko": "알라메다 그림 값 · 고야의 청구서"
+     },
+     "rows": [
+      {
+       "label": {
+        "es": "Un apartado de toros",
+        "en": "Sorting the bulls",
+        "ko": "소를 골라 나누는 장면"
+       },
+       "value": "4000 reales",
+       "word": {
+        "es": "toros",
+        "en": "bulls",
+        "ko": "소",
+        "lex": "toro"
+       }
+      },
+      {
+       "label": {
+        "es": "Unos ladrones asaltan un coche",
+        "en": "Robbers attack a coach",
+        "ko": "강도들이 마차를 덮친 장면"
+       },
+       "value": "3000 reales",
+       "word": {
+        "es": "ladrones",
+        "en": "robbers",
+        "ko": "도둑",
+        "lex": "ladrón"
+       }
+      },
+      {
+       "label": {
+        "es": "Unos gitanos divirtiéndose",
+        "en": "Gypsies at play",
+        "ko": "집시들이 즐겁게 노는 장면"
+       },
+       "value": "2500 reales",
+       "word": {
+        "es": "gitanos",
+        "en": "gypsies",
+        "ko": "집시",
+        "lex": "gitano"
+       }
+      }
+     ]
     }
    ],
    "status": {

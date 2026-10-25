@@ -7,6 +7,9 @@ import io.github.graviton94.todayletters.core.Lang
 import io.github.graviton94.todayletters.core.Letter
 import io.github.graviton94.todayletters.core.Message
 import io.github.graviton94.todayletters.core.Moment
+import io.github.graviton94.todayletters.core.Item
+import io.github.graviton94.todayletters.core.Row
+import io.github.graviton94.todayletters.core.Travel
 import io.github.graviton94.todayletters.core.Place
 import io.github.graviton94.todayletters.core.Spot
 import io.github.graviton94.todayletters.core.Plate
@@ -111,6 +114,24 @@ fun Work.withVocab(set: io.github.graviton94.todayletters.core.VocabSet?): Work 
     )
 }
 
+/** 이동 위치 공유 ([Travel]) 를 읽는 차례 (서문 · 장 · 맺음) 대로 입힌다. */
+fun Work.withTravel(auto: Boolean, dedupe: Boolean, names: Map<String, Tri>): Work {
+    val pro = prologue.map { it.letter }
+    val eps = outro?.epilogues.orEmpty()
+    val all = Travel.apply(pro + chapters.flatMap { it.letters } + eps, auto, dedupe, names)
+    var k = 0
+    fun next() = all[k++]
+    val newPro = prologue.map { it.copy(letter = next()) }
+    val newChapters = chapters.map { c -> c.copy(letters = c.letters.map { next() }) }
+    val newEps = eps.map { next() }
+    return copy(
+        prologue = newPro,
+        prologueChapter = prologueChapter?.copy(letters = newPro.map { it.letter }),
+        chapters = newChapters,
+        outro = outro?.copy(epilogues = newEps, epilogue = outro.epilogue?.let { e -> newEps.firstOrNull { it.id == e.id } ?: e }),
+    )
+}
+
 /** 이 편지를 받는 사람: 편지에 적힌 사람(아버지 · 누나 · 콘스탄체…)이 있으면 그 사람, 없으면 작품의 받는 사람(테오). */
 fun Work.recipientOf(letter: Letter): Tri = letter.to ?: recipient
 
@@ -171,7 +192,7 @@ object Library {
                 }
             }
             if (chapters.isEmpty()) return@mapNotNull null
-            val raw = Work(
+            val raw0 = Work(
                 Series(id, original), meta.getString("sender"), tri(meta.getJSONObject("title")), meta.optString("years"), meta.optString("seal", id), chapters,
                 portrait = meta.optString("portrait"), credit = meta.optString("credit"),
                 fullName = meta.optString("fullName", meta.getString("sender")), recipient = meta.optJSONObject("recipient")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to meta.optString("recipient"))),
@@ -201,6 +222,10 @@ object Library {
                         epilogues = ep?.let { letters(it) } ?: emptyList(), grammar = ep?.let { grammar(it) } ?: emptyList())
                 },
             )
+            // 이동 위치 공유 (core Travel, series.json "travel"): 읽는 차례 (서문 · 장 · 맺음) 로 편지 쓴 곳이 바뀌면 편지 앞에 위치 공유
+            val travel = meta.optJSONObject("travel")
+            val raw = if (travel == null) raw0 else raw0.withTravel(travel.optBoolean("auto"), travel.optBoolean("dedupe"),
+                travel.optJSONObject("names")?.let { o -> o.keys().asSequence().filter { !it.startsWith("_") }.associateWith { tri(o.getJSONObject(it)) } } ?: emptyMap())
             // 어휘 자료: 배우는 말마다 한 벌 (원어 lexicon · daily.json, 영어 *_en, 한국어 *_ko). 없으면 챕터 파일의 낱말 그대로
             val sets = vocabSets(original) { name -> runCatching { am.open("letters/$id/$name").bufferedReader().readText() }.getOrNull() }
             raw.withVocab(sets[original]).copy(decks = sets.filterKeys { it != original }.mapValues { (_, set) -> raw.withVocab(set) })
@@ -271,7 +296,13 @@ object Library {
             "photo" -> Moment.Photo(m.getInt("after"), m.getString("image"), tri(m.getJSONObject("caption")))
             "sketch" -> Moment.Photo(m.getInt("after"), m.getString("image"), tri(m.getJSONObject("caption")), sketch = true, credit = m.optString("credit"))
             "transfer" -> Moment.Transfer(m.getInt("after"), m.getString("amount"), tri(m.getJSONObject("label")), tri(m.getJSONObject("memo")), m.optBoolean("outgoing"),
-                reader = when (m.optString("by")) { "recipient" -> true; "sender" -> false; else -> null })
+                reader = by(m))
+            "parcel" -> Moment.Parcel(m.getInt("after"), items(m.getJSONArray("items")), m.optJSONObject("memo")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")), by(m) == true)
+            "list" -> Moment.Ledger(m.getInt("after"), tri(m.getJSONObject("title")), m.getJSONArray("rows").let { a ->
+                (0 until a.length()).map { i -> a.getJSONObject(i).let { r -> Row(tri(r.getJSONObject("label")), r.getString("value"), r.optJSONObject("word")?.let { item(it) }) } }
+            })
+            "news" -> Moment.News(m.getInt("after"), tri(m.getJSONObject("head")), m.str("line"))
+            "handover" -> Moment.Handover(m.getInt("after"), m.optString("kind", "courier"), tri(m.getJSONObject("what")), m.optJSONObject("memo")?.let { tri(it) } ?: Tri(mapOf(Lang.EN to "")))
             "notice" -> Moment.Notice(m.getInt("after"), tri(m.getJSONObject("text")))
             // 날씨: 제목 · 큰 값 둘로 나뉜 것(빈센트)과 한 줄 글(text)만 있는 것(모차르트) 둘 다
             "weather" -> {
@@ -283,6 +314,12 @@ object Library {
             else -> null
         }
     }.getOrNull()
+
+    /** 누가 하는가: "by": "reader" (받는 사람, 대화방의 나) · "writer" (보낸 사람), 예전 이름 "recipient" · "sender". 없으면 null. */
+    private fun by(m: JSONObject): Boolean? = when (m.optString("by")) { "reader", "recipient" -> true; "writer", "sender" -> false; else -> null }
+
+    private fun item(o: JSONObject) = Item(tri(o), o.str("lex"))
+    private fun items(a: JSONArray) = (0 until a.length()).map { item(a.getJSONObject(it)) }
 
     /** 세 언어 글자. 한국어가 낱말 가운데서 줄이 바뀌지 않게 [Breaks.keepAll] 을 거친다. */
     private fun tri(o: JSONObject, prefix: String = ""): Tri =

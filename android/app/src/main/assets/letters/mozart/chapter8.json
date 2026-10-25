@@ -390,8 +390,27 @@
    ],
    "moments": [
     {
+     "after": 0,
+     "type": "parcel",
+     "by": "writer",
+     "items": [
+      {
+       "de": "mein Briefchen aus Budwitz",
+       "en": "my little note from Budwitz",
+       "ko": "부트비츠에서 보낸 쪽지",
+       "lex": "Briefchen"
+      }
+     ],
+     "memo": {
+      "de": "Budwitz → Wien",
+      "en": "Budwitz → Vienna",
+      "ko": "부트비츠 → 빈"
+     }
+    },
+    {
      "after": 2,
      "type": "transfer",
+     "by": "writer",
      "amount": "200 Duc. + 50 Duc.",
      "label": {
       "de": "Guardassonis Angebot (fast richtig)",

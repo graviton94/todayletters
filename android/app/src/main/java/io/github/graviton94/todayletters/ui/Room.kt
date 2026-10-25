@@ -322,7 +322,7 @@ fun Room(s: AppState, r: Route.Letter) {
                             visible = b + 1; focus = b
                             if (b >= rushTo) {
                                 nextBeat = b + 1
-                                hold(b, RoomFlow.momentHoldMs(m, (m as? Moment.Photo)?.caption?.get(ui)?.length ?: 0, pause))
+                                hold(b, RoomFlow.momentHoldMs(m, RoomFlow.captionOf(m, ui), pause))
                             }
                         }
                     }
@@ -414,6 +414,17 @@ fun Room(s: AppState, r: Route.Letter) {
         }
         cut(); fromWord = i to w; pick = pk; pill = null
         return true
+    }
+
+    val tagItem = stringResource(R.string.room_card_item)
+    /** 소포 · 목록의 물건을 눌렀다: 아래 낱말 카드 (원어 사전에 있으면 카드에 담기). 이어 듣기는 멈춘다. */
+    fun pickItem(item: io.github.graviton94.todayletters.core.Item) {
+        val gl = s.glossLangFor(id)
+        val e = item.lex.takeIf { it.isNotEmpty() && view.learn == work.series.original }?.let { work.lexicon?.get(it) }
+        val short = e?.let { Interlinear.short(Vocab.meaning(it, gl)) } ?: item.text[gl].takeIf { it != item.text[view.learn] }.orEmpty()
+        val head = item.text[view.learn]
+        pauseFor(R.string.room_paused_word)
+        pick = RoomPick(-1, -1, head, tagItem, head, short, "", e?.key, e?.function == true, -1)
     }
 
     fun goNext() {
@@ -595,11 +606,16 @@ fun Room(s: AppState, r: Route.Letter) {
                                 RoomMoment(s, work, toWhom[ui], m, onOpen = {
                                     when (m) {
                                         is Moment.Photo -> { look = m; pauseFor(R.string.room_paused_photo) }
-                                        is Moment.Location -> { work.places.firstOrNull { it.id == m.place }?.let { openMaps(ctx, it, m.title[ui]) }; pauseFor(R.string.room_paused_map) }
+                                        is Moment.Location -> {
+                                            if (m.travel) openMapsNamed(ctx, m.title[work.series.original])
+                                            else work.places.firstOrNull { it.id == m.place }?.let { openMaps(ctx, it, m.title[ui]) }
+                                            pauseFor(R.string.room_paused_map)
+                                        }
                                         is Moment.Music -> { listening = m }
                                         else -> Unit
                                     }
-                                }, hold = if (holdAt == b && holdMs > 0) ({ HoldLine(b to holdMs, holdMs, s.reducedMotion, ink) }) else null)
+                                }, hold = if (holdAt == b && holdMs > 0) ({ HoldLine(b to holdMs, holdMs, s.reducedMotion, ink) }) else null,
+                                    learn = view.learn, onItem = { item -> pickItem(item) })
                             }
                             RoomFlow.Beat.Note -> letter.note?.let { note ->
                                 RoomNoteCard(note[ui], ui, letter.plate, work.fullName) { lookPlate = true; pauseFor(R.string.room_paused_photo) }
@@ -635,12 +651,12 @@ fun Room(s: AppState, r: Route.Letter) {
                 val lex = pk.lex
                 val ownKey = lex?.let { s.ownKey(id, chapter, letter, it) }
                 Box(Modifier.align(Alignment.BottomCenter).padding(horizontal = 10.dp, vertical = 8.dp)) {
-                    RoomWordCard(pk, view.learn, s.glossLangFor(id), canResume = sound && timesOf(pk.msg).isNotEmpty(),
+                    RoomWordCard(pk, view.learn, s.glossLangFor(id), canResume = pk.msg >= 0 && sound && timesOf(pk.msg).isNotEmpty(),
                         inCards = lex != null && s.hasLex(id, lex), canAdd = lex != null && !pk.function && ownKey != null && !s.isLater(ownKey),
                         onResume = { pick = null; resumeFromWord() },
                         onAdd = { if (lex != null) s.addOwn(id, chapter, letter, lex) },
-                        onMore = if (lex != null) ({ pick = null; pill = Pill.Word(pk.surface); s.gloss = AppState.GlossPick(id, chapter, letter, pk.msg, pk.token, lex) }) else null,
-                        onClose = { pick = null; pill = Pill.Word(pk.surface) })
+                        onMore = if (lex != null && pk.msg >= 0) ({ pick = null; pill = Pill.Word(pk.surface); s.gloss = AppState.GlossPick(id, chapter, letter, pk.msg, pk.token, lex) }) else null,
+                        onClose = { pick = null; if (pk.msg >= 0) pill = Pill.Word(pk.surface) })
                 }
             }
         }
@@ -666,9 +682,14 @@ fun Room(s: AppState, r: Route.Letter) {
                         }
                     }
                 }
-                phase == RoomPhase.ASK -> (beats.getOrNull(nextBeat) as? RoomFlow.Beat.Mo)?.let { moments[it.k] as? Moment.Transfer }?.let { t ->
+                phase == RoomPhase.ASK -> (beats.getOrNull(nextBeat) as? RoomFlow.Beat.Mo)?.let { moments[it.k] }?.let { m ->
                     val as_ = if (ui == Lang.KO) josa(toWhom[ui], "으로서", "로서") else toWhom[ui]
-                    RoomAsk(stringResource(R.string.room_send_as, as_, work.name[ui], t.amount), stringResource(R.string.room_send_go)) { act.trySend(Unit) }
+                    when (m) {
+                        is Moment.Transfer -> RoomAsk(stringResource(R.string.room_send_as, as_, work.name[ui], m.amount), stringResource(R.string.room_send_go)) { act.trySend(Unit) }
+                        is Moment.Parcel -> RoomAsk(stringResource(R.string.room_parcel_as, as_, m.items.size), stringResource(R.string.room_parcel_go)) { act.trySend(Unit) }
+                        is Moment.Handover -> handoverAsk(m.kind).let { (label, go) -> RoomAsk(stringResource(label, as_), stringResource(go)) { act.trySend(Unit) } }
+                        else -> Unit
+                    }
                 }
                 showCta -> RoomNext(s, r, progress, modes, nextPlay, letter, guideNext) { cut() }
                 else -> {

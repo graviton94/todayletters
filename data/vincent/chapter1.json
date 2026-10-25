@@ -1222,6 +1222,7 @@
     {
      "after": -1,
      "type": "transfer",
+     "by": "reader",
      "amount": "50 francs",
      "label": {
       "fr": "Théo a envoyé",
@@ -2447,6 +2448,7 @@
     {
      "after": 1,
      "type": "transfer",
+     "by": "writer",
      "amount": "15 francs",
      "label": {
       "fr": "Loyer · par mois",
