@@ -221,7 +221,7 @@ fun Room(s: AppState, r: Route.Letter) {
         }
     }
 
-    // 재생 위치: 지금 문장이 소리 나는 동안. 낱말 사이 긴 쉼은 건너뛴다 (RoomFlow.skipSilence, 옮긴 자리에서 다시 옮기지 않음)
+    // 재생 위치: 지금 문장이 소리 나는 동안 (화면 한 장마다). 낱말 사이 긴 쉼은 건너뛴다 (RoomFlow.skipSilence, 옮긴 자리에서 다시 옮기지 않음)
     val sounding = cur >= 0 && s.narrator.now == audio(cur)
     LaunchedEffect(cur, sounding) {
         if (!sounding) { pos.intValue = -1; return@LaunchedEffect }
@@ -232,7 +232,8 @@ fun Room(s: AppState, r: Route.Letter) {
                 pos.intValue = at
                 if (!paused) RoomFlow.skipSilence(at, w)?.let { to -> s.narrator.seekTo(to); pos.intValue = to }
             }
-            delay(33)
+            // 화면이 그려질 때마다 (앱을 벗어나 그리지 않는 동안은 따라가기 · 쉼 건너뛰기도 쉰다)
+            androidx.compose.runtime.withFrameMillis { }
         }
     }
     // 알림창 · 이어폰으로 멈추면 화면도 멈춤
