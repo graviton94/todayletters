@@ -1251,18 +1251,6 @@
     },
     {
      "after": 4,
-     "type": "photo",
-     "image": "nm-c1-l3.webp",
-     "caption": {
-      "fr": "Vue de Gênes",
-      "en": "View of Genoa",
-      "ko": "제노바 풍경"
-     },
-     "credit": "Vue de Gênes, XVIIe siècle · Rijksmuseum · CC0",
-     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_Genua,_RP-P-2014-57-3.jpg"
-    },
-    {
-     "after": 4,
      "type": "parcel",
      "by": "writer",
      "items": [
@@ -1296,6 +1284,18 @@
       "en": "Albenga → Paris",
       "ko": "알벤가 → 파리"
      }
+    },
+    {
+     "after": 4,
+     "type": "photo",
+     "image": "nm-c1-l3.webp",
+     "caption": {
+      "fr": "Vue de Gênes",
+      "en": "View of Genoa",
+      "ko": "제노바 풍경"
+     },
+     "credit": "Vue de Gênes, XVIIe siècle · Rijksmuseum · CC0",
+     "source": "https://commons.wikimedia.org/wiki/File:Gezicht_op_Genua,_RP-P-2014-57-3.jpg"
     }
    ],
    "status": {

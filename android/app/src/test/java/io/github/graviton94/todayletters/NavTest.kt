@@ -1006,12 +1006,12 @@ class NavTest {
         assertTrue(s.progress("vincent", c, l.id).shown >= 1)
         rule.onAllNodes(ask).assertCountEquals(0)
         // 물건 하나를 누르면 낱말 카드 (원어 사전 낱말이면 카드에 담기)
-        rule.onAllNodesWithText(pc.items[1].text[s.room("vincent").learn], useUnmergedTree = true).onFirst().performClick()
+        rule.onAllNodesWithText(pc.items.last().text[s.room("vincent").learn], useUnmergedTree = true).onFirst().performClick()
         rule.mainClock.advanceTimeBy(400)
         rule.onNodeWithText(ctx.getString(R.string.room_card_item)).assertExists()
         rule.onNodeWithText(ctx.getString(R.string.gloss_add)).performClick()
         rule.mainClock.advanceTimeBy(300)
-        assertTrue(s.hasLex("vincent", pc.items[1].lex))
+        assertTrue(s.hasLex("vincent", pc.items.last().lex))
         s.narrator.fake = null
     }
 
