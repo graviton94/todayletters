@@ -1,0 +1,9 @@
+vincent fr: lemma 85 · pos 98 · ptcp 47 (rows 230)
+vincent en: lemma 40 · pos 86 · ptcp 34 (rows 160)
+mozart de: lemma 396 · pos 22 · ptcp 10 (rows 428)
+mozart en: lemma 62 · pos 53 · ptcp 48 (rows 163)
+napoleon fr: lemma 103 · pos 53 · ptcp 21 (rows 177)
+napoleon en: lemma 17 · pos 42 · ptcp 41 (rows 100)
+goya es: lemma 178 · pos 31 · ptcp 3 (rows 212)
+goya en: lemma 29 · pos 49 · ptcp 30 (rows 108)
+from claude/adoring-planck-usz2sr @ e71b016f7dbcb8c3a8f1b8a915b6fa9e14da2260

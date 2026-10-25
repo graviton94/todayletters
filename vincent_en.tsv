@@ -1,0 +1,161 @@
+kind	form	our_key	our_pos	sp_lemma	sp_pos	simplemma	n	of	sp_key	ref	context
+lemma	an	a	art	an	DET	a	18	18	-	c1-l3:0:9	size-20 canvas outdoors in an orchard: ploughed lilac ground,
+lemma	these	this	det	these	DET	this	11	14	-	c1-l7:0:15	My health is better these days.
+lemma	better	good	adj	well	ADJ	good	8	11	well	c1-l4:2:13	I'm making here is better than the Asnières countryside
+lemma	painting	paint	v	painting	NOUN	paint	6	11	painting	c1-l3:4:0	Painting is very hard going
+lemma	those	that	pron	those	DET	that	6	9	-	c3-l5:1:1	For those 4 days I lived
+lemma	least	little	adj	least	ADJ	less	4	6	-	c1-l1:0:11	thought about you at least as much as about
+lemma	thanks	thanks	n	thank	NOUN	thanks	4	4	thank	c3-l5:0:0	Thanks for your letter, but
+lemma	better	good	adj	well	ADV	good	3	11	well	c4-l4:2:10	that whole family even better, I'll have done at
+lemma	her	her	pron	she	PRON	her	3	4	she	c2-l4:3:8	have, the Zouave and her.
+lemma	leaves	leaf	n	leave	NOUN	leave	3	3	leave	c1-l7:2:13	with iris plants, green leaves and violet flowers, the
+lemma	these	this	det	these	PRON	this	3	14	-	c2-l2:2:15	now, and they'll follow these.
+lemma	those	that	pron	those	PRON	that	3	9	-	c2-l6:4:20	enchanted after all. Ah! those who don't believe in
+lemma	clothes	clothes	n	clothe	NOUN	clothes	2	2	-	c3-l4:3:11	green (no yellow). The clothes are that brown jacket
+lemma	colouring	colour	n	colouring	NOUN	colour	2	2	-	c6-l1:3:20	death's-head, with astonishingly distinguished colouring: black, grey, shaded white,
+lemma	distinguished	distinguish	v	distinguished	ADJ	distinguish	2	2	-	c6-l1:3:19	the death's-head, with astonishingly distinguished colouring: black, grey, shaded
+lemma	further	further	adv	far	ADV	further	2	2	far	c2-l2:0:29	must be pushed even further.
+lemma	having	have	v	having	AUX	have	2	4	-	c2-l4:1:11	do anything else, not having been very well again.
+lemma	interesting	interest	v	interesting	ADJ	interest	2	2	-	c2-l5:3:30	has a Socratic head, interesting to paint.
+lemma	later	late	adj	later	ADV	late	2	2	-	c2-l1:1:31	blue, because a second later the shifting reflection has
+lemma	least	little	adj	least	ADV	less	2	6	-	c1-l1:1:12	begin with, there's at least 60 centimetres of snow
+lemma	tired	tire	v	tired	ADJ	tire	2	2	-	c4-l6:3:15	with our heads as tired as an electric battery
+lemma	amazed	amaze	v	amazed	ADJ	amaze	1	1	-	c5-l5:4:16	to work that I'm amazed at it, having stopped
+lemma	astonishing	astonish	v	astonishing	ADJ	astonish	1	1	-	c6-l4:0:11	made a few absolutely astonishing canvases, with a gentleness
+lemma	bearded	beard	n	bearded	ADJ	beard	1	1	-	c2-l5:0:19	with gold, a big bearded face, very Socratic. A
+lemma	candelabra	candelabrum	n	candelabra	NOUN	candelabrum	1	1	-	c5-l4:3:15	thus form lamp-stands or candelabra beside them, of the
+lemma	closed	close	v	closed	ADJ	close	1	1	-	c3-l6:4:11	room, with its shutters closed.
+lemma	coloured	colour	n	coloured	ADJ	colour	1	2	-	c3-l3:3:27	the gas. Two small coloured figures of lovers in
+lemma	consoling	console	v	consoling	ADJ	console	1	1	-	c6-l4:3:40	to prepare a more consoling painting.
+lemma	contrasting	contrast	v	contrasting	NOUN	contrast	1	1	-	c3-l3:3:17	pink, its quiet paleness contrasting with the harsh gold
+lemma	discouraged	discourage	v	discouraged	ADJ	discourage	1	1	-	c4-l7:1:7	had become a little discouraged with the good town
+lemma	fasting	fast	v	fasting	NOUN	fast	1	1	-	c3-l5:3:17	4 days of strict fasting? Just 6 francs.
+lemma	finished	finish	v	finished	ADJ	finish	1	3	-	c7-l5:3:25	it here, perhaps more finished.
+lemma	glowing	glow	v	glowing	NOUN	glow	1	1	-	c2-l6:3:32	tones of old gold glowing in the dark.
+lemma	lives	live	v	life	NOUN	live	1	1	life	c6-l7:3:17	great captains of our lives, and that we obey
+lemma	making	make	v	making	NOUN	make	1	5	-	e1:2:25	share in the very making of certain canvases, which
+lemma	pleased	please	v	pleased	ADJ	please	1	1	-	c8-l7:1:2	I was pleased to find that the
+lemma	smoked	smoke	v	smoked	ADJ	smoke	1	1	-	c5-l6:1:24	because it showed two smoked herrings, which are called
+lemma	troubled	trouble	n	troubled	ADJ	trouble	1	1	-	c8-l6:2:7	stretches of wheat under troubled skies, and I didn't
+lemma	weeping	weep	v	weeping	NOUN	weep	1	1	-	c3-l2:1:16	a garden with a weeping tree, grass, cedar bushes
+lemma	went	go	v	went	AUX	go	1	3	-	c7-l3:1:20	fine, frank sun, I went messing about in the
+pos	like	like	prep	like	VERB	like	11	43	like	p3:0:23	or earlier if you like.
+pos	blue	blue	adj	blue	NOUN	blue	10	29	blue	c1-l2:1:2	The river blue as well, orange banks
+pos	today	today	adv	today	NOUN	today	9	9	today	c1-l2:0:3	As for work, today I brought back a
+pos	green	green	adj	green	NOUN	green	8	29	green	c3-l1:2:12	passions with red and green.
+pos	violet	violet	adj	violet	NOUN	violet	7	16	violet	c1-l7:4:11	in flower, yellow and violet: you know, that would
+pos	paint	paint	v	paint	NOUN	paint	6	15	paint	c3-l2:4:26	done absolutely nothing but paint, sleep and eat my
+pos	yesterday	yesterday	adv	yesterday	NOUN	yesterday	6	6	yesterday	c4-l6:0:6	I went to Montpellier yesterday to see the museum
+pos	light	light	n	light	ADJ	light	5	6	light	c3-l4:4:6	is modelled in thick, light paint against the light
+pos	whole	whole	adj	whole	NOUN	whole	5	11	whole	c2-l7:2:32	is to do the whole in one go.
+pos	orange	orange	n	orange	ADJ	orange	4	8	orange	c1-l2:1:5	river blue as well, orange banks with greenery, a
+pos	wish	wish	v	wish	NOUN	wish	4	6	wish	c2-l3:3:4	It has been my wish for so long already
+pos	go	go	v	go	NOUN	go	3	11	go	c2-l7:2:35	the whole in one go.
+pos	home	home	n	home	ADV	home	3	4	home	c5-l2:0:23	know that I came home today.
+pos	open	open	v	open	ADJ	open	3	3	open	c8-l3:0:21	here, in the healthy open air, look very well.
+pos	yellow	yellow	adj	yellow	NOUN	yellow	3	29	yellow	c3-l6:2:20	the chairs are fresh-butter yellow, the sheet and the
+pos	calm	calm	n	calm	ADJ	calm	2	3	calm	c5-l6:2:4	I find Signac very calm, though people say he
+pos	dress	dress	v	dress	NOUN	dress	2	2	dress	c8-l5:0:13	Mlle Gachet …: the dress is pink, the wall
+pos	flat	flat	adj	flat	NOUN	flat	2	2	flat	c2-l6:2:12	wall of the shabby flat, I paint the infinite:
+pos	good	good	adj	good	NOUN	good	2	14	good	c5-l1:4:21	out of it for good.
+pos	greens	green	adj	green	NOUN	green	2	2	green	c5-l4:2:35	flats of reds and greens.
+pos	infinite	infinite	adj	infinite	NOUN	infinite	2	2	infinite	c2-l6:2:16	flat, I paint the infinite: I make a simple
+pos	living	living	adj	living	NOUN	living	2	3	living	c1-l3:3:14	as there are the living, the dead will live,
+pos	mine	mine	pron	mine	NOUN	mine	2	3	mine	c3-l5:1:25	not your fault; it's mine, if it's anyone's.
+pos	opposite	opposite	adj	opposite	NOUN	opposite	2	2	opposite	c7-l1:3:7	you like — the opposite of the sower I
+pos	others	other	adj	other	NOUN	other	2	2	other	c7-l2:3:7	don't copy, lots of others do — I took
+pos	sleep	sleep	v	sleep	NOUN	sleep	2	4	sleep	c3-l6:0:30	of rest or of sleep in general.
+pos	square	square	n	square	ADJ	square	2	3	square	c3-l2:1:5	of these is a square size-30 canvas showing a
+pos	stretches	stretch	v	stretch	NOUN	stretch	2	2	stretch	c8-l6:2:3	They are immense stretches of wheat under troubled
+pos	tomorrow	tomorrow	adv	tomorrow	NOUN	tomorrow	2	2	tomorrow	c3-l2:0:8	move into the house tomorrow; only, since I've bought
+pos	violets	violet	adj	violet	NOUN	violet	2	2	violet	c7-l7:1:44	of greens, pinks and violets.
+pos	while	while	conj	while	NOUN	while	2	3	while	c2-l2:3:2	After a while your sight changes: you
+pos	azure	azure	adj	azure	NOUN	azure	1	1	azure	c6-l3:3:16	cloud drowned in the azure. It is a landscape
+pos	back	back	adv	back	NOUN	back	1	11	back	c1-l5:2:4	Violet ground, at the back a wall with straight
+pos	boundary	boundary	n	boundary	ADJ	boundary	1	1	boundary	c6-l3:2:18	after a storm. A boundary wall, and beyond it
+pos	bow	bow	v	bow	NOUN	bow	1	1	bow	c7-l2:3:35	my fingers as a bow would on the violin,
+pos	brown	brown	adj	brown	NOUN	brown	1	2	brown	c3-l4:3:24	but I've exaggerated the brown into purple, and the
+pos	changes	change	v	change	NOUN	change	1	1	change	c2-l2:3:5	a while your sight changes: you see with a
+pos	charm	charm	v	charm	NOUN	charm	1	1	charm	c6-l7:2:20	heat has the same charm for me as the
+pos	clashes	clash	v	clash	NOUN	clash	1	1	clash	c5-l4:2:20	flowers. Now these sharp clashes of raw pink, raw
+pos	complementary	complementary	n	complementary	ADJ	complementary	1	1	complementary	c8-l5:2:27	pale green and yellow-green, complementary to the pink.
+pos	console	console	v	console	NOUN	console	1	2	console	c6-l4:3:34	other, being here to console, or to prepare a
+pos	consoles	console	v	console	NOUN	console	1	1	console	c7-l2:3:24	and above all sometimes consoles. And then my brush
+pos	cost	cost	v	cost	NOUN	cost	1	1	cost	c8-l1:1:22	chance of covering the cost of my stay —
+pos	cross	cross	n	cross	ADJ	cross	1	1	cross	p3:0:2	Don’t be cross with me for coming
+pos	dark	dark	adj	dark	NOUN	dark	1	4	dark	c2-l6:3:35	gold glowing in the dark.
+pos	dead	dead	adj	dead	NOUN	dead	1	4	dead	c1-l3:3:5	not believe that the dead are dead; as long
+pos	dream	dream	v	dream	NOUN	dream	1	1	dream	c1-l7:4:20	be a real Japanese dream.
+pos	equivalent	equivalent	n	equivalent	ADJ	equivalent	1	2	equivalent	c5-l4:0:30	to the repetitions, absolutely equivalent and alike.
+pos	flats	flat	adj	flat	NOUN	flat	1	1	flat	c5-l4:2:31	green are softened by flats of reds and greens.
+pos	foreground	foreground	n	foreground	ADV	foreground	1	7	foreground	c4-l4:4:19	a yellow background and foreground; he has a portrait
+pos	foxglove	foxglove	n	foxglove	ADJ	foxglove	1	1	foxglove	c8-l3:1:39	yellow book and a foxglove plant with purple flowers.
+pos	glow	glow	v	glow	NOUN	glow	1	1	glow	c3-l1:3:22	an orange and green glow.
+pos	hazel	hazel	n	hazel	ADJ	hazel	1	1	hazel	c8-l7:3:29	above the wall a hazel tree with violet foliage.
+pos	hope	hope	v	hope	NOUN	hope	1	5	hope	c2-l7:1:2	In the hope of living in a
+pos	hopes	hope	v	hope	NOUN	hope	1	1	hope	c5-l7:3:28	with high spirits and hopes.
+pos	interests	interest	v	interest	NOUN	interest	1	2	interest	c7-l2:1:22	you that making copies interests me enormously, and that,
+pos	laugh	laugh	v	laugh	NOUN	laugh	1	1	laugh	c5-l3:0:26	when he made her laugh and bounce on his
+pos	lean	lean	v	lean	ADJ	lean	1	1	lean	c4-l1:2:38	in all a very lean one, that we put
+pos	liked	like	prep	like	VERB	like	1	1	like	c4-l3:0:10	falling leaves, which Gauguin liked, I think, and I'm
+pos	likes	like	prep	like	VERB	like	1	1	like	c4-l2:3:24	few studies he really likes, such as the sower,
+pos	mauve	mauve	adj	mauve	NOUN	mauve	1	1	Mauve,mauve	c3-l3:2:10	royal blue, the ground mauve. The town is blue
+pos	middle	middle	n	middle	ADJ	middle	1	2	middle	c3-l1:3:14	billiard table in the middle, 4 lemon-yellow lamps with
+pos	mistral	mistral	n	mistral	ADJ	mistral	1	2	mistral	p4:0:4	If we had less mistral, this country would really
+pos	need	need	v	need	NOUN	need	1	4	need	c3-l3:4:5	I have a terrible need of — shall I
+pos	ornament	ornament	n	ornament	ADJ	ornament	1	1	ornament	c8-l5:3:25	yellow hat without any ornament, very healthy country figures,
+pos	outside	outside	adv	outside	NOUN	outside	1	5	outside	c3-l2:2:4	The second shows the outside of a café, its
+pos	overleaf	overleaf	adv	overleaf	NOUN	overleaf	1	1	overleaf	c1-l5:1:7	from the three squares overleaf that the three orchards
+pos	paints	paint	v	paint	NOUN	paint	1	1	paint	c6-l3:0:7	the parcel of canvas, paints, brushes, tobacco and chocolate,
+pos	past	past	adj	past	NOUN	past	1	1	past	c5-l4:4:22	that could also file past in that very same
+pos	pink	pink	adj	pink	NOUN	pink	1	17	pink	c8-l5:2:30	yellow-green, complementary to the pink.
+pos	pinks	pink	adj	pink	NOUN	pink	1	1	pink	c7-l7:1:42	the combination of greens, pinks and violets.
+pos	purple	purple	adj	purple	NOUN	purple	1	3	purple	c3-l4:3:26	exaggerated the brown into purple, and the width of
+pos	red	red	adj	red	NOUN	red	1	18	red	c3-l6:3:3	The blanket scarlet red. The window green. The
+pos	reds	red	adj	red	NOUN	red	1	1	red	c5-l4:2:33	softened by flats of reds and greens.
+pos	republican	republican	n	republican	ADJ	republican	1	1	republican	c2-l5:0:25	very Socratic. A raging republican, like old Tanguy.
+pos	right	right	adj	right	NOUN	right	1	4	right	c8-l7:3:18	of roses, on the right a wattle fence, a
+pos	russet	russet	adj	russet	NOUN	russet	1	1	russet	c3-l3:2:25	and the reflections are russet gold, going down to
+pos	scarlet	scarlet	adj	scarlet	NOUN	scarlet	1	1	scarlet	c3-l6:3:2	The blanket scarlet red. The window green.
+pos	second	second	adj	second	NOUN	second	1	2	second	c3-l2:2:1	The second shows the outside of
+pos	share	share	v	share	NOUN	share	1	1	share	e1:2:21	me you have your share in the very making
+pos	stay	stay	v	stay	NOUN	stay	1	5	stay	c8-l1:1:25	the cost of my stay — for really it
+pos	touches	touch	v	touch	NOUN	touch	1	2	touch	c5-l4:0:25	just put the last touches to the repetitions, absolutely
+pos	ventures	venture	v	venture	NOUN	venture	1	1	venture	c4-l4:4:35	count among his dead-end ventures…
+pos	wait	wait	v	wait	NOUN	wait	1	1	wait	c3-l5:0:22	was a damned long wait until Monday noon.
+pos	want	want	v	want	NOUN	want	1	7	want	c7-l1:0:13	of myself — for want of another model —
+pos	wishes	wish	v	wish	NOUN	wish	1	1	wish	c2-l3:3:15	a sower, but the wishes I've had for a
+ptcp	working	work	n	work	VERB	work	15	15	work	c1-l5:0:8	tell you that I'm working on the 2 paintings
+ptcp	work	work	n	work	VERB	work	8	23	work	c1-l3:4:21	into the ground and work all the same; it's
+ptcp	thought	thought	n	think	VERB	thought	3	3	think	c1-l1:0:7	on the journey I thought about you at least
+ptcp	writing	writing	n	write	VERB	writing	3	3	write	c2-l1:0:5	My dear Theo, I'm writing to you from Saintes-Maries,
+ptcp	last	last	adj	last	VERB	last	2	17	last	c4-l2:2:25	little studio that will last, and will remain a
+ptcp	matter	matter	n	matter	VERB	matter	2	3	matter	c2-l5:2:25	model under way, which matter more to me than
+ptcp	planted	plant	n	plant	VERB	plant	2	2	plant	c1-l1:2:5	glimpsed magnificent red fields planted with vines, with mountains
+ptcp	rented	rent	n	rent	VERB	rent	2	2	rent	c1-l6:0:4	Well, today I've rented the right wing of
+ptcp	thatched	thatch	n	thatch	VERB	thatch	2	2	thatch	c8-l2:0:7	a study of old thatched roofs with, in the
+ptcp	worked	work	n	work	VERB	work	2	2	work	c1-l3:0:2	I had worked on a size-20 canvas
+ptcp	black	black	adj	black	VERB	black	1	13	black	c4-l3:1:23	grey face, the clothes black, black black, raw Prussian
+ptcp	calms	calm	n	calm	VERB	calm	1	1	calm	c7-l4:4:4	Towards sunset it usually calms down a little, and
+ptcp	coloured	colour	n	colour	VERB	colour	1	2	colour	c3-l1:1:14	more alive and richly coloured than the day.
+ptcp	copy	copy	n	copy	VERB	copy	1	2	copy	c7-l2:3:4	Lots of people don't copy, lots of others do
+ptcp	count	count	n	count	VERB	count	1	1	count	c4-l4:4:31	way that I don't count among his dead-end ventures…
+ptcp	counting	count	n	count	VERB	count	1	1	count	c5-l5:4:21	at it, having stopped counting on it.
+ptcp	finding	finding	n	find	VERB	finding	1	1	find	c1-l7:3:24	and I had trouble finding the composition.
+ptcp	floods	flood	n	flood	VERB	flood	1	1	flood	c7-l1:3:31	with a sun that floods everything with a light
+ptcp	form	form	n	form	VERB	form	1	2	form	c5-l4:3:12	the sunflowers, which thus form lamp-stands or candelabra beside
+ptcp	ground	ground	n	grind	VERB	ground	1	10	-	c7-l2:4:32	it matter — you're ground to become bread.
+ptcp	lit	light	n	light	VERB	light	1	1	light	c3-l2:2:10	a café, its terrace lit by a big gas
+ptcp	living	living	adj	live	VERB	living	1	3	live	c2-l7:1:4	In the hope of living in a studio of
+ptcp	long	long	adj	long	VERB	long	1	10	long	c7-l7:3:2	How I long to see you again,
+ptcp	mind	mind	n	mind	VERB	mind	1	3	mind	c8-l4:4:23	a café; I wouldn't mind exhibiting with Chéret, who
+ptcp	modelled	model	n	model	VERB	modell	1	1	model	c3-l4:4:3	The head is modelled in thick, light paint
+ptcp	ordered	order	n	order	VERB	order	1	1	order	c3-l5:2:13	in frames, and I'd ordered a few too many
+ptcp	pined	pine	n	pine	VERB	pine	1	1	pine	c3-l5:0:7	letter, but I really pined this time: my money
+ptcp	pink	pink	adj	pink	VERB	pink	1	17	pink	c7-l4:1:31	and three little figures pink too. The whole in
+ptcp	red	red	adj	red	VERB	red	1	18	red	c8-l5:0:28	orange dot, the carpet red with a green dot,
+ptcp	rest	rest	n	rest	VERB	rest	1	2	rest	c3-l6:1:7	at the picture should rest the mind, or rather
+ptcp	rocked	rock	n	rock	VERB	rock	1	1	rock	c5-l4:1:34	a sense of being rocked, reminding them of their
+ptcp	setting	setting	n	set	VERB	setting	1	1	set	c4-l3:4:49	and there where the setting sun was reflected.
+ptcp	tones	tone	n	tone	VERB	tone	1	3	tone	c3-l2:3:13	myself, almost colourless: ashen tones on a pale Veronese-green
+ptcp	worry	worry	n	worry	VERB	worry	1	1	worry	c5-l2:4:6	me soon, and don't worry at all about my

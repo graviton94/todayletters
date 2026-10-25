@@ -1,0 +1,101 @@
+kind	form	our_key	our_pos	sp_lemma	sp_pos	simplemma	n	of	sp_key	ref	context
+lemma	her	her	pron	she	PRON	her	13	22	she	p1:0:17	made. Give it to her if she still wants
+lemma	yours	yours	pron	your	NOUN	yours	8	11	your	c2-l7:5:12	me. For life, all yours.
+lemma	better	better	adj	well	ADJ	good	5	7	well	p1:1:14	you can have no better friend, no one who
+lemma	an	a	art	an	DET	a	3	3	-	p2:1:10	coming back here in an amazing way.
+lemma	these	this	det	these	DET	this	3	3	-	c2-l1:3:5	adorable Joséphine. One of these nights the doors will
+lemma	better	better	adj	well	ADV	good	2	7	well	p1:3:19	one, and you know better than anyone how completely
+lemma	least	little	adj	least	ADJ	less	2	2	-	c1-l7:4:13	join me; and at least, before we die, let
+lemma	those	that	pron	those	DET	that	2	3	-	c2-l3:4:19	pages, quickly, full of those lovely things that fill
+lemma	ashes	ashes	n	ashe	NOUN	ash	1	1	-	e1:1:3	I wish my ashes to rest on the
+lemma	attached	attach	v	attached	ADJ	attach	1	1	-	e1:5:39	set out in the attached list, marked A.
+lemma	dearer	dear	adj	dearer	ADV	dear	1	1	-	p1:1:21	one who holds you dearer or wishes more sincerely
+lemma	devoted	devote	v	devoted	ADJ	devote	1	1	-	c1-l2:3:5	is dead; he was devoted to me; he did
+lemma	following	following	prep	follow	VERB	following	1	1	-	c8-l4:0:1	Brother, following the spoken instructions I
+lemma	getting	get	v	getting	AUX	get	1	3	-	p3:2:13	by the madness of getting married.
+lemma	retired	retire	v	retired	ADJ	retire	1	1	-	p2:2:13	the benefit of a retired actress; the crowd was
+lemma	spoken	speak	v	spoken	ADJ	speak	1	1	-	c8-l4:0:3	Brother, following the spoken instructions I gave you
+lemma	those	that	pron	those	PRON	that	1	3	-	c5-l1:1:8	good, gentle, easy-going women; those are the ones I
+pos	love	love	v	love	NOUN	love	37	51	love	c1-l1:4:6	a magic, my sweet love, that will end only
+pos	yesterday	yesterday	adv	yesterday	NOUN	yesterday	14	14	yesterday	p2:2:0	Yesterday they put on Phèdre
+pos	tomorrow	tomorrow	adv	tomorrow	NOUN	tomorrow	9	9	tomorrow	c2-l2:6:16	little better; I leave tomorrow.
+pos	today	today	adv	today	NOUN	today	7	7	today	c1-l7:1:16	health must be better today; I'm sure you are
+pos	care	care	v	care	NOUN	care	6	8	care	c2-l7:1:25	or Ravenna; but take care of yourself, I beg
+pos	kind	kind	n	kind	ADJ	kind	5	6	kind	c3-l3:4:2	A thousand kind things to Mama and
+pos	tonight	tonight	adv	tonight	NOUN	tonight	4	4	tonight	c3-l4:3:11	The Barber of Seville tonight. The weather is very
+pos	like	like	prep	like	VERB	like	3	10	like	p3:3:3	So I'd like a little word from
+pos	wish	wish	v	wish	NOUN	wish	3	5	wish	c5-l3:2:21	there; that is my wish.
+pos	wishes	wish	v	wish	NOUN	wish	3	4	wish	c4-l3:4:3	A thousand loving wishes to you.
+pos	calm	calm	n	calm	ADJ	calm	2	3	calm	c5-l5:1:11	that you could be calm and wise in your
+pos	cold	cold	adj	cold	NOUN	cold	2	6	cold	c3-l2:0:7	Milan, with a bad cold. I can't stand the
+pos	cure	cure	v	cure	NOUN	cure	2	2	cure	c2-l4:3:6	danger, I know the cure for life's troubles and
+pos	dear	dear	adj	dear	NOUN	dear	2	11	dear	c2-l3:4:2	Truly, my dear, I'm worried at getting
+pos	ills	ill	adj	ill	NOUN	ill	2	2	ill	c2-l4:3:12	for life's troubles and ills. The unhappiness I feel
+pos	tender	tender	adj	tender	NOUN	tender	2	8	tender	c2-l1:1:8	a poor husband, a tender lover! Must he lose
+pos	walk	walk	v	walk	NOUN	walk	2	2	walk	c2-l6:4:4	Please go for a walk every day; it will
+pos	will	will	v	will	NOUN	will	2	34	will	c4-l6:1:14	events; I have no will of my own; I'm
+pos	advance	advance	v	advance	NOUN	advance	1	1	advance	c6-l7:2:7	told twenty-four hours in advance of my arrival at
+pos	alarm	alarm	v	alarm	NOUN	alarm	1	1	alarm	c3-l6:3:5	was a grand sight: alarm guns firing, the shore
+pos	beloved	beloved	adj	beloved	NOUN	beloved	1	1	beloved	c1-l6:5:2	Goodbye, my beloved: one kiss on your
+pos	cross	cross	n	cross	ADJ	cross	1	2	cross	c2-l2:2:11	me, not moody and cross, but sweet and tender,
+pos	deign	deign	v	deign	ADJ	deign	1	1	deign	c4-l5:4:0	Deign, from the height of
+pos	good	good	adj	good	NOUN	good	1	38	good	c5-l3:4:24	but events and the good of affairs demand it.
+pos	home	home	n	home	ADV	home	1	1	home	c6-l3:3:3	I'll be home with you before long;
+pos	hope	hope	v	hope	NOUN	hope	1	19	hope	c1-l5:1:21	rest; I'm almost without hope.
+pos	incognito	incognito	adv	incognito	NOUN	incognito	1	2	incognito	c3-l1:1:21	you'll have to travel incognito and not say where
+pos	light	light	n	light	ADJ	light	1	1	light	p1:2:3	Life is a light dream that fades away.
+pos	mine	mine	pron	mine	NOUN	mine	1	3	mine	c2-l5:3:8	you a love like mine, I'm wrong: why expect
+pos	move	move	v	move	NOUN	move	1	2	move	c3-l6:0:20	horseback and on the move the whole time, without
+pos	none	none	pron	none	NOUN	none	1	1	none	c1-l1:0:7	all your letters, but none has moved me like
+pos	o'clock	o'clock	adv	o'clock	NOUN	o'clock	1	1	o'clock	c4-l7:0:10	yesterday evening, at six o'clock.
+pos	open	open	v	open	ADJ	open	1	1	open	c2-l1:3:11	the doors will burst open with a crash, like
+pos	plan	plan	v	plan	NOUN	plan	1	2	plan	c3-l6:1:6	told me of your plan to leave on Monday:
+pos	random	random	n	random	ADJ	random	1	1	random	c2-l3:1:32	lines dashed off at random!
+pos	right	right	adj	right	NOUN	right	1	2	right	c2-l4:3:23	measure; I had every right not to expect it.
+pos	rights	right	adj	right	NOUN	right	1	1	right	c2-l1:1:14	Must he lose his rights because he is far
+pos	show	show	v	show	NOUN	show	1	3	show	c1-l3:0:22	you put on a show of being jealous of
+pos	sweets	sweet	adj	sweet	NOUN	sweet	1	1	sweet	c1-l3:4:7	you a box of sweets from Genoa as a
+pos	use	use	v	use	NOUN	use	1	1	use	e1:5:33	my person and my use, as set out in
+pos	weary	weary	v	weary	ADJ	weary	1	1	weary	c1-l1:3:3	If I am weary of the worries of
+pos	while	while	conj	while	NOUN	while	1	5	while	c5-l4:2:13	be spending a good while yet: it's not worth
+ptcp	writing	writing	n	write	VERB	writing	7	7	write	c1-l4:2:13	went many days without writing to me; what are
+ptcp	doubt	doubt	n	doubt	VERB	doubt	4	5	doubt	c7-l1:3:2	You cannot doubt my constant and tender
+ptcp	hunting	hunting	n	hunt	VERB	hunting	3	3	hunt	c3-l4:1:9	health. Yesterday I went hunting at Marly, and I
+ptcp	thought	thought	n	think	VERB	thought	3	5	think	c1-l7:3:5	few days ago I thought I loved you; but
+ptcp	end	end	n	end	VERB	end	2	4	end	c1-l1:3:15	fear how it will end, if people disgust me,
+ptcp	hand	hand	n	hand	VERB	hand	2	4	hand	c1-l4:0:3	My brother will hand you this letter. I
+ptcp	kiss	kiss	n	kiss	VERB	kiss	2	5	kiss	c1-l6:5:4	Goodbye, my beloved: one kiss on your mouth, another
+ptcp	loving	loving	adj	love	VERB	love	2	4	love	c2-l1:4:2	A thousand loving kisses.
+ptcp	ordered	order	n	order	VERB	order	2	2	order	c5-l4:5:2	I've ordered what you want for
+ptcp	rest	rest	n	rest	VERB	rest	2	6	rest	c1-l7:4:0	Rest well. Get your health
+ptcp	signed	sign	n	sign	VERB	sign	2	2	sign	c2-l7:0:6	Rome has just been signed.
+ptcp	bear	bear	n	bear	VERB	bear	1	1	bear	c7-l1:2:12	love me, you must bear yourself with strength and
+ptcp	born	born	adj	bear	VERB	born	1	1	bear	e1:3:10	forget that he was born a French prince, and
+ptcp	bound	bound	adj	bind	VERB	bound	1	1	-	p1:3:9	years together, so closely bound, that our hearts have
+ptcp	burning	burning	adj	burn	VERB	burning	1	1	burn	c2-l3:5:20	with a million kisses, burning as if under the
+ptcp	cleared	clear	adj	clear	VERB	clear	1	1	clear	c3-l6:5:6	in the morning everything cleared, everything was saved, and
+ptcp	cross	cross	n	cross	VERB	cross	1	2	cross	c5-l1:0:9	in which you seem cross with me for the
+ptcp	finding	finding	n	find	VERB	finding	1	1	find	c7-l2:4:22	to hear that you're finding your feet again.
+ptcp	firing	fire	n	fire	VERB	fire	1	1	fire	c3-l6:3:7	grand sight: alarm guns firing, the shore covered with
+ptcp	harm	harm	n	harm	VERB	harm	1	1	harm	e1:4:6	never fight France or harm her in any way.
+ptcp	harming	harm	n	harm	VERB	harm	1	1	harm	c3-l6:0:26	whole time, without it harming my health in the
+ptcp	hurry	hurry	n	hurry	VERB	hurry	1	1	hurry	p2:0:0	Hurry up and send me
+ptcp	kisses	kiss	n	kiss	VERB	kiss	1	7	kiss	c4-l7:3:1	Two kisses to Princess Augusta, one
+ptcp	lasts	last	adj	last	VERB	last	1	1	last	p3:0:13	long as the war lasts.
+ptcp	leaves	leaf	n	leave	VERB	leave	1	1	leave	c2-l3:2:15	so important that it leaves you no time to
+ptcp	living	living	adj	live	VERB	living	1	1	live	c1-l5:1:4	I'm no longer living; I have lost more
+ptcp	longing	long	adj	long	VERB	long	1	1	long	c1-l3:2:14	of my marriage; he's longing to meet you.
+ptcp	married	married	adj	marry	VERB	marry	1	1	marry	c3-l5:2:14	for Plombières; he'll get married when he comes back.
+ptcp	pained	pain	n	pain	VERB	pain	1	1	pain	c7-l5:0:6	received your letter. It pained me to see the
+ptcp	planted	plant	n	plant	VERB	plant	1	1	plant	c7-l4:2:6	can have as much planted as you like; you'll
+ptcp	pleasure	pleasure	n	pleasure	VERB	pleasure	1	3	pleasure	c2-l3:4:29	heart with feeling and pleasure.
+ptcp	plump	plump	adj	plump	VERB	plump	1	2	plump	c6-l3:3:15	let me find you plump and rosy.
+ptcp	raining	rain	n	rain	VERB	rain	1	1	rain	c5-l2:1:2	It's raining. I'm well.
+ptcp	setting	setting	n	set	VERB	setting	1	1	set	c1-l2:3:21	was that he was setting out to join me.
+ptcp	snowing	snow	n	snow	VERB	snow	1	1	snow	c4-l4:5:6	weather is dreadful, it's snowing a lot; otherwise all
+ptcp	tired	tired	adj	tire	VERB	tire	1	4	tire	c3-l3:1:5	celebration was beautiful; it tired me a little. The
+ptcp	warning	warning	n	warn	VERB	warning	1	1	warn	c1-l4:3:16	worried. Come quickly; I'm warning you: if you're late,
+ptcp	worked	work	n	work	VERB	work	1	1	work	c7-l4:1:2	Today I worked with Estève. I've granted
+ptcp	working	work	n	work	VERB	work	1	1	work	c3-l5:0:18	how the baths are working.
+ptcp	worried	worried	adj	worry	VERB	worry	1	4	worry	c4-l2:0:13	see that you had worried too much.
+ptcp	worry	worry	n	worry	VERB	worry	1	1	worry	c5-l4:0:21	I know how you worry.

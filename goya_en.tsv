@@ -1,0 +1,109 @@
+kind	form	our_key	our_pos	sp_lemma	sp_pos	simplemma	n	of	sp_key	ref	context
+lemma	an	a	art	an	DET	a	8	8	-	c1-l6:1:30	guitar, a spit and an oil lamp, everything else
+lemma	having	have	v	having	AUX	have	6	6	-	c2-l1:1:1	That, having put the work of
+lemma	pleased	please	v	pleased	ADJ	please	4	4	-	c2-l2:0:10	what your honour is pleased to advise me in
+lemma	better	good	adj	well	ADJ	good	3	6	well	c1-l1:1:14	and it will be better not to think about
+lemma	better	good	adj	well	ADV	good	3	6	well	c3-l5:1:48	the Plaza Mayor looked better than at other times,
+lemma	thanks	thanks	n	thank	NOUN	thanks	3	3	thank	c1-l2:0:1	Endless thanks, and many more, for
+lemma	these	this	det	these	DET	this	3	3	-	c2-l6:3:7	a whole month with these people, and they're angels:
+lemma	best	good	adj	well	ADV	good	2	5	well	c4-l3:1:17	the one who goes best prepared (as your father,
+lemma	composed	compose	v	composed	ADJ	compose	2	2	-	c4-l7:0:23	Alameda, seven pictures, all composed scenes, country subjects.
+lemma	her	her	pron	she	PRON	her	2	6	she	c1-l7:0:31	a sad one to her.
+lemma	least	little	adj	least	ADJ	less	2	3	-	c2-l6:4:23	I come back at least every year.
+lemma	tired	tire	v	tired	ADJ	tire	2	2	-	c2-l6:0:9	from Arenas, and very tired.
+lemma	connoisseurs	connoisseur	n	connoisseurs	NOUN	connoisseur	1	2	-	e2:0:25	more of the art connoisseurs, who abound in that
+lemma	displeased	displease	v	displeased	ADJ	displease	1	1	-	c6-l3:3:39	so I left him displeased and came home.
+lemma	hears	hear	v	hears	AUX	hear	1	1	-	c2-l1:1:34	by the remarks he hears spoken, thrown out with
+lemma	is	be	v	is	ADV	be	1	48	-	c5-l5:0:31	of the Chamber (that is, privately).
+lemma	least	little	adj	least	ADV	less	1	3	-	c5-l1:0:18	going to reach at least 40 reales a fanega.
+lemma	left	leave	v	left	NOUN	left	1	9	-	c3-l5:0:18	the Prince on his left and the Princess and
+lemma	liking	like	prep	liking	NOUN	like	1	2	-	c3-l6:2:24	be most to your liking.
+lemma	painting	paint	v	painting	NOUN	paint	1	3	painting	c1-l5:1:12	is Francisco's and the painting mine, and the whole
+lemma	pendentives	pendentives	n	pendentive	NOUN	pendentives	1	1	-	c2-l2:0:47	new sketches for the pendentives in agreement with my
+lemma	prepared	prepare	v	prepared	ADJ	prepare	1	1	-	c4-l3:1:18	one who goes best prepared (as your father, like
+lemma	said	say	v	said	ADJ	say	1	5	-	c2-l2:0:86	there too whatever my said brother-in-law thinks fit.
+lemma	swinging	swing	v	swinge	VERB	swinge	1	1	-	c4-l7:3:8	some gypsies enjoying themselves, swinging a gypsy girl, and
+lemma	those	that	pron	those	DET	that	1	2	-	c2-l3:1:18	can show it to those wretches who have doubted
+lemma	those	that	pron	those	PRON	that	1	2	-	c6-l5:0:28	our friends, not forgetting those of the calle de
+lemma	touching	touch	v	touching	ADJ	touch	1	1	-	c2-l7:2:31	his picture needs no touching.
+lemma	worst	bad	adj	worst	ADV	bad	1	1	-	c4-l2:3:30	one who came off worst was me.
+lemma	yours	yours	pron	your	NOUN	yours	1	8	your	c3-l3:1:37	it in detail. Goodbye. Yours and yours again.
+pos	others	other	adj	other	NOUN	other	9	9	other	c1-l4:1:10	I'll send you the others as they come out.
+pos	like	like	prep	like	VERB	like	8	12	like	c3-l5:2:47	— he seemed to like seeing me often —
+pos	today	today	adv	today	NOUN	today	4	4	today	c2-l3:1:10	of appointment to Goicoechea today, so that he can
+pos	public	public	adj	public	NOUN	public	3	5	public	c3-l3:0:22	connoisseurs and of the public, for everyone is on
+pos	yesterday	yesterday	adv	yesterday	NOUN	yesterday	3	3	yesterday	c3-l2:0:18	boy; he was baptised yesterday with the names Francisco
+pos	kind	kind	n	kind	ADJ	kind	2	2	kind	c2-l2:1:7	honour to be so kind as to inform the
+pos	living	living	adj	living	NOUN	living	2	3	living	c2-l1:3:21	supports him, his whole living depends on his reputation,
+pos	mine	mine	pron	mine	NOUN	mine	2	4	mine	c1-l5:1:13	Francisco's and the painting mine, and the whole thing
+pos	offer	offer	v	offer	NOUN	offer	2	9	offer	c4-l5:1:6	very much for the offer of the mules. I'd
+pos	reward	reward	v	reward	NOUN	reward	2	3	reward	c6-l6:4:7	His Majesty only some reward for my son Francisco
+pos	answer	answer	v	answer	NOUN	answer	1	5	answer	c5-l2:0:22	for Don Martín. My answer is that what is
+pos	back	back	adv	back	NOUN	back	1	7	back	c1-l1:2:20	here, and on the back I'll paint you the
+pos	bloom	bloom	v	bloom	NOUN	bloom	1	1	bloom	c4-l5:2:10	fat doubloons are in bloom: all I have is
+pos	calm	calm	n	calm	ADJ	calm	1	1	calm	c3-l4:2:41	you another with more calm, and goodbye, etc.
+pos	calmer	calm	n	calm	ADJ	calm	1	1	calm	c6-l1:3:22	stand myself; at others calmer, like now, when I've
+pos	capital	capital	adj	capital	NOUN	capital	1	1	capital	e2:0:31	abound in that great capital, and also of the
+pos	comfort	comfort	v	comfort	NOUN	comfort	1	1	comfort	c2-l4:2:48	there to have that comfort.
+pos	commands	command	v	command	NOUN	command	1	1	command	c2-l2:1:42	favour me with whatever commands may please you.
+pos	dark	dark	adj	dark	NOUN	dark	1	1	dark	c6-l4:0:17	night and in the dark.
+pos	decide	decide	v	decide	NOUN	decide	1	2	decide	c2-l2:0:70	gentlemen of the Committee decide, I shall go on
+pos	desire	desire	v	desire	NOUN	desire	1	1	desire	c2-l2:0:27	wishing to fulfil my desire to serve and please
+pos	escape	escape	v	escape	NOUN	escape	1	1	escape	c1-l2:2:15	I've had a narrow escape, etc.
+pos	fall	fall	v	fall	NOUN	fall	1	2	fall	c4-l2:0:32	I'm lame from a fall we had with the
+pos	fear	fear	v	fear	NOUN	fear	1	1	fear	c6-l6:3:10	them most, and for fear that they might fall
+pos	fight	fight	v	fight	NOUN	fight	1	1	fight	e1:0:18	trial lithograph showing a fight with young bulls, so
+pos	grave	grave	adj	grave	NOUN	grave	1	1	grave	c1-l7:0:23	house is a woman's grave, the place seems a
+pos	half	half	n	half	DET	half	1	3	half	c3-l5:2:25	left for his house half an hour before the
+pos	half	half	n	half	ADV	half	1	3	half	c4-l2:0:42	which I had already half agreed to buy for
+pos	hint	hint	v	hint	NOUN	hint	1	1	hint	c4-l1:1:10	I'll give you a hint of how it went:
+pos	home	home	n	home	ADV	home	1	1	home	c6-l3:3:42	him displeased and came home.
+pos	hope	hope	v	hope	NOUN	hope	1	4	hope	c2-l4:2:24	he gives very little hope, and the doctor (it's
+pos	joke	joke	v	joke	NOUN	joke	1	1	joke	c4-l5:2:3	As for your joke that my fat doubloons
+pos	liking	like	prep	like	VERB	like	1	2	like	c1-l5:3:14	as far as their liking my work goes, judging
+pos	live	live	v	live	ADV	live	1	5	live	c4-l5:2:30	what I have is live comfortably, nearly always with
+pos	looks	look	v	look	NOUN	look	1	1	look	c5-l6:0:17	stares at for his looks, and he's been ill,
+pos	miniature	miniature	n	miniature	ADJ	miniature	1	1	miniature	c6-l1:0:11	if you see a miniature portrait of Don Ramón
+pos	professional	professional	n	professional	ADJ	professional	1	1	professional	c2-l1:3:5	the honour of a professional man is a very
+pos	respect	respect	v	respect	NOUN	respect	1	1	respect	c2-l1:0:20	Fernando, with his greatest respect sets out before Your
+pos	return	return	v	return	NOUN	return	1	1	return	c5-l6:2:41	bring me the most return.
+pos	royal	royal	adj	royal	NOUN	royal	1	6	royal	c3-l5:1:16	after, with the whole royal train, which made a
+pos	secret	secret	n	secret	ADJ	secret	1	1	secret	c3-l7:0:0	Secret. On Sunday the Academy
+pos	set	set	v	set	NOUN	set	1	2	set	c1-l4:0:10	I'm sending you a set of the works of
+pos	spare	spare	v	spare	ADJ	spare	1	1	spare	c4-l5:2:40	hundred or two to spare, not counting three or
+pos	springs	spring#2	v	spring	NOUN	spring	1	1	spring#2	c2-l1:1:43	a criticism that perhaps springs from some other principle
+pos	support	support	v	support	NOUN	support	1	1	support	c3-l6:3:23	with no salary or support, unlike others who have
+pos	touches	touch	v	touch	NOUN	touch	1	1	touch	c2-l7:1:5	I'm giving the last touches to my picture, which
+pos	turn	turn	v	turn	NOUN	turn	1	3	turn	c4-l2:3:2	So the turn ended with all of
+pos	use	use	v	use	NOUN	use	1	1	use	c3-l7:2:26	you may make whatever use of it you see
+pos	witness	witness	v	witness	NOUN	witness	1	1	witness	c5-l3:3:12	writes this is my witness: Perico from Carabanchel, who
+ptcp	ordered	order	n	order	VERB	order	5	5	order	c2-l7:0:4	The King has just ordered the church of San
+ptcp	writing	writing	n	write	VERB	writing	4	4	write	c4-l2:0:21	they'll let me enjoy writing to you at length,
+ptcp	thought	thought	n	think	VERB	thought	3	3	think	c3-l5:1:26	fine sight (and I thought of you, as I
+ptcp	counting	count	n	count	VERB	count	2	2	count	c4-l5:2:42	two to spare, not counting three or four hundred
+ptcp	working	work	n	work	VERB	work	2	2	work	c5-l3:0:9	comes here, which I'm working on with great effort
+ptcp	acting	acting	n	act	VERB	acting	1	1	-	c6-l7:1:44	in my way of acting.
+ptcp	beginning	beginning	n	begin	VERB	beginning	1	1	begin	c1-l5:4:26	more now that I'm beginning to have bigger enemies,
+ptcp	bound	bound	adj	bind	VERB	bound	1	1	-	c4-l6:1:2	There are bound to be some fine
+ptcp	doubt	doubt	n	doubt	VERB	doubt	1	2	doubt	c1-l2:0:16	from you; and don't doubt that if I had
+ptcp	doubted	doubt	n	doubt	VERB	doubt	1	1	doubt	c2-l3:1:22	those wretches who have doubted my merit so much,
+ptcp	ended	end	n	end	VERB	end	1	1	end	c4-l2:3:3	So the turn ended with all of us,
+ptcp	favour	favour	n	favour	VERB	favour	1	3	favour	c2-l2:1:38	their decisions, and to favour me with whatever commands
+ptcp	hand	hand	n	hand	VERB	hand	1	5	hand	c1-l3:0:17	so good as to hand over to me the
+ptcp	honoured	honour	n	honour	VERB	honour	1	1	honour	c1-l5:2:17	the Prince and Princess honoured me; by the grace
+ptcp	hunting	hunting	n	hunt	VERB	hunting	1	1	-	c2-l6:2:3	I went out hunting twice with His Highness,
+ptcp	living	living	adj	live	VERB	living	1	3	live	c5-l3:2:34	this life I lead living.
+ptcp	long	long	adj	long	VERB	long	1	2	long	c5-l4:2:2	But I long for them to forget
+ptcp	name	name	n	name	VERB	name	1	5	name	c2-l3:0:46	has been pleased to name me.
+ptcp	note	note	n	note	VERB	note	1	3	note	c3-l4:1:26	I don't want to note them down for you
+ptcp	placed	place	n	place	VERB	place	1	1	place	c5-l6:2:22	reales would be best placed: in the Bank, or
+ptcp	print	print	n	print	VERB	print	1	3	print	c6-l6:2:3	The plates can print five or six thousand
+ptcp	profit	profit	n	profit	VERB	profit	1	2	profit	c6-l6:4:29	a great aptitude to profit by it.
+ptcp	regards	regard	n	regard	VERB	regard	1	1	regard	c6-l5:2:13	Goicoechea with my warmest regards, and to Yoldi, and
+ptcp	rein	rein	n	rein	VERB	rein	1	1	rein	c5-l7:3:25	me, and I can't rein in my nature as
+ptcp	rest	rest	n	rest	VERB	rest	1	1	rest	c5-l3:2:19	I neither sleep nor rest until I'm through with
+ptcp	sitting	sitting	adj	sit	VERB	sitting	1	1	-	c4-l7:3:16	and two other women sitting, watching and playing a
+ptcp	trouble	trouble	n	trouble	VERB	trouble	1	1	trouble	c1-l2:0:22	if I had to trouble anyone, it would be
+ptcp	visit	visit	n	visit	VERB	visit	1	1	visit	c1-l1:0:10	yourself and that you visit Francisco.
+ptcp	work	work	n	work	VERB	work	1	9	work	c4-l5:3:5	after all, if I work for the public, I
+ptcp	worry	worry	n	worry	VERB	worry	1	1	worry	c5-l3:0:15	with great effort and worry, because the time is

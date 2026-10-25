@@ -1,0 +1,178 @@
+kind	form	our_key	our_pos	sp_lemma	sp_pos	simplemma	n	of	sp_key	ref	context
+lemma	amie	ami	n	amie	NOUN	amie	41	41	-	c1-l1:4:6	une magie, ma douce amie, qui ne finira qu'avec
+lemma	du	du	art	de	ADP	du	36	36	de	p2:4:13	bibliothèques. Dans le cabinet du savant, vous voyez de
+lemma	cela	cela	pron	celer	PRON	cela	20	20	-	c1-l3:0:16	campagne ; et après cela tu te donnes le
+lemma	des	des	art	de	ADP	un	17	34	de	c1-l1:3:6	suis ennuyé du tracas des affaires, si j'en crains
+lemma	des	des	art	un	DET	un	17	34	un	c1-l3:4:13	de Gênes. Tu recevras des oranges, des parfums et
+lemma	lui	lui	pron	luire	PRON	lui	15	17	-	p1:0:12	faire faire. Tu le lui donneras si elle le
+lemma	elle	elle	pron	lui	PRON	elle	14	15	lui	p1:0:15	le lui donneras si elle le désire encore, sans
+lemma	aux	au	art	à	ADP	aux	12	13	à	p2:4:4	Les femmes sont partout, aux spectacles, aux promenades, aux
+lemma	nouvelles	nouvelle	n	nouveau	ADJ	nouvelle	8	8	nouveau	p2:0:7	me donner de tes nouvelles.
+lemma	votre	son	det	votre	DET	son	8	8	-	p4:3:14	point de repos pour votre ami.
+lemma	madame	madame	n	monsieur	NOUN	madame	5	5	monsieur	c2-l3:2:7	donc toute la journée, madame ? Quelle affaire si
+lemma	elles	elle	pron	lui	PRON	lui	4	4	lui	c1-l6:4:42	pas envoyées, parce qu'elles étaient trop bêtes.
+lemma	reste	rester	v	reste	VERB	reste	4	6	-	p3:2:2	Si je reste ici, il ne serait
+lemma	belle	beau	adj	bel	ADJ	beau	3	3	-	c3-l3:1:4	La fête a été belle ; elle m'a un
+lemma	entre	entre	prep	entrer	ADP	entre	3	3	-	c3-l6:4:3	L'âme était entre l'éternité, l'Océan et la
+lemma	puis	puis	adv	pouvoir	VERB	puis	3	4	pouvoir	p1:4:12	voir, et je ne puis plus continuer ma lettre.
+lemma	sous	sous	prep	sou	ADP	sous	3	3	-	c2-l3:5:22	de baisers brûlants comme sous l'équateur.
+lemma	tu	tu	pron	taire	VERB	toi	3	119	-	p1:1:24	meilleur ami, à qui tu sois plus cher et
+lemma	ailles	aller	v	aille	ADJ	aller	2	2	-	c6-l5:1:15	de tes eaux tu ailles à Malmaison.
+lemma	conserve	conserver	v	conserve	VERB	conserve	2	2	-	c8-l5:3:3	Porte-toi bien, conserve ta santé pour […]
+lemma	cours	courir	v	cours	NOUN	cours	2	2	-	c2-l4:1:1	Tu cours les villes avec des
+lemma	donne	donner	v	donne	VERB	donne	2	2	-	p4:5:24	; mais ne m'en donne pas, car ils brûlent
+lemma	isolé	isoler	v	isolé	ADJ	isolé	2	2	-	c1-l1:2:23	désert où je reste isolé, et sans éprouver la
+lemma	mérite	mériter	v	mérite	NOUN	mérite	2	2	-	c1-l4:0:22	tienne : il la mérite.
+lemma	quelle	quel	det	quell	ADJ	quel	2	2	-	c2-l3:2:8	la journée, madame ? Quelle affaire si importante vous
+lemma	sens	sentir	v	sens	NOUN	sens	2	6	-	p4:1:19	de repos à mes sens.
+lemma	sois	être	v	soi	NOUN	être	2	5	-	c5-l3:5:4	ma bonne amie ; sois gaie, et montre du
+lemma	tienne	tenir	v	tienne	NOUN	tenir	2	2	-	c1-l4:0:19	il obtiendra, j'espère, la tienne : il la mérite.
+lemma	vive	vivre	v	vif	ADJ	vivre	2	2	-	c1-l4:0:12	pour lui la plus vive amitié ; il obtiendra,
+lemma	vos	son	det	votre	DET	son	2	2	-	c4-l5:4:4	Daignez, du haut de vos grandeurs, vous occuper un
+lemma	actrice	actrice	n	acteur	NOUN	actrice	1	1	-	p2:2:13	au profit d'une ancienne actrice ; la foule était
+lemma	adresse	adresser	v	adresse	VERB	adresse	1	1	-	c8-l5:5:3	Écris-moi souvent ; adresse tes lettres au vice-roi,
+lemma	aies	avoir	v	aie	NOUN	avoir	1	1	-	c7-l7:1:16	pas que tu en aies ; au contraire, j'espère
+lemma	altérez	altérer	v	altérez	NOUN	altérer	1	1	-	c5-l6:1:1	N'altérez point votre santé ; prenez
+lemma	annexé	annexer	v	annexé	NOUN	annexé	1	1	-	e1:5:40	usage, conformément à l'état annexé, coté A.
+lemma	aperçu	apercevoir	v	aperçu	NOUN	aperçu	1	1	-	p4:4:10	je me suis bien aperçu que votre portrait n'est
+lemma	aux	au	art	aux	DET	aux	1	13	-	c8-l5:2:17	d'aller tout de suite aux eaux d'Aix, que l'on
+lemma	celles	celui	pron	celle	ADJ	celui	1	2	-	c5-l1:1:12	conciliantes ; ce sont celles que j'aime.
+lemma	cherche	chercher	v	cherche	VERB	chercher	1	1	-	c1-l3:3:1	Je cherche à le décider à
+lemma	comptes	compter	v	compte	NOUN	compte	1	1	-	c3-l5:1:4	Je vois que tu comptes être de retour dans
+lemma	console	consoler	v	console	VERB	console	1	1	-	c1-l2:5:3	Le sommeil me console : il te place
+lemma	constante	constant	adj	constante	NOUN	constante	1	1	-	c7-l1:3:8	mettre en doute ma constante et tendre amitié, et
+lemma	coté	coter	v	coté	NOUN	coté	1	1	-	e1:5:41	conformément à l'état annexé, coté A.
+lemma	danse	danser	v	danse	NOUN	danse	1	1	-	c6-l2:2:10	de Weimar. L'empereur Alexandre danse ; mais moi, non
+lemma	demande	demander	v	demande	VERB	demande	1	1	-	p1:0:2	Désirée me demande mon portrait ; je
+lemma	dises	dire	v	dise	NOUN	dire	1	1	-	c6-l1:1:10	que tu ne m'en dises rien, puisque ta lettre
+lemma	données	donner	v	donnée	NOUN	donnée	1	1	-	c8-l4:0:10	que je vous ai données et à l'esprit de
+lemma	dégèlent	dégeler	v	dégèlent	ADJ	dégeler	1	1	-	c5-l4:4:12	neige fond, les rivières dégèlent ; cela me fait
+lemma	déjeuné	déjeuner	v	déjeuné	NOUN	déjeuner	1	1	-	c6-l2:1:13	bataille d'Iéna. Nous avons déjeuné dans l'endroit où j'avais
+lemma	désires	désirer	v	désire	ADJ	désirer	1	1	-	c5-l4:5:6	ordonné ce que tu désires pour Malmaison ; sois
+lemma	engraisses	engraisser	v	engraisse	ADJ	engraisser	1	1	-	c7-l7:3:14	On dit que tu engraisses comme une bonne fermière
+lemma	engraissé	engraisser	v	engraissé	NOUN	engraisser	1	1	-	c5-l4:3:16	tu me trouveras fort engraissé.
+lemma	entendras	entendre	v	entendra	NOUN	entendre	1	1	-	c7-l4:2:16	somme comme tu l'entendras.
+lemma	entretiendra	entretenir	v	entretiendra	NOUN	entretenir	1	1	-	e1:6:21	père dont l'univers l'entretiendra.
+lemma	environnée	environner	v	environnée	NOUN	environner	1	1	-	c2-l5:1:0	Environnée de plaisirs et de
+lemma	fait	faire	v	fait	NOUN	faire	1	16	-	c1-l4:5:11	elle est tout à fait aimable. Je vais lui
+lemma	faites	faire	v	fait	DET	faire	1	2	-	c2-l3:2:1	Que faites-vous donc toute la journée,
+lemma	fatigué	fatiguer	v	fatigué	ADJ	fatigué	1	1	fatigué	c3-l3:1:10	elle m'a un peu fatigué. Le vésicatoire que l'on
+lemma	guérie	guérir	v	guérie	NOUN	guéri	1	1	-	c1-l7:1:29	sûr que tu es guérie.
+lemma	impératrice	impératrice	n	empereur	NOUN	impératrice	1	3	empereur	c4-l5:0:1	Grande impératrice, pas une lettre de
+lemma	juge	juger	v	juge	NOUN	juge	1	1	-	c2-l2:3:4	C'était un rêve ; juge si cela m'a guéri
+lemma	laisse	laisser	v	laisse	VERB	laisser	1	1	-	c6-l6:2:3	Cependant, je te laisse maîtresse de faire ce
+lemma	leur	leur	det	son	DET	son	1	1	son	c4-l6:1:21	; j'attends tout de leur issue.
+lemma	lui	lui	pron	luire	VERB	lui	1	17	-	c8-l5:1:9	Corvisart t'encourage ; je lui en sais un gré
+lemma	marche	marcher	v	march	ADJ	marche	1	1	-	c4-l1:1:3	Toute mon armée marche. Le temps est superbe.
+lemma	maîtresse	maîtresse	n	maître	ADJ	maîtresse	1	1	maître	c6-l6:2:4	Cependant, je te laisse maîtresse de faire ce que
+lemma	miennes	mien	pron	mienne	NOUN	mien	1	1	-	c8-l5:0:18	ce qui accroît les miennes.
+lemma	modérée	modéré	adj	modérer	ADJ	modéré	1	1	-	c5-l5:1:10	pour que tu fusses modérée et sage dans ta
+lemma	montre	montrer	v	montre	VERB	montrer	1	1	-	c5-l3:5:7	; sois gaie, et montre du caractère.
+lemma	mugissante	mugissant	adj	mugissante	NOUN	mugissant	1	1	-	c3-l6:3:20	mer en fureur et mugissante, toute la nuit dans
+lemma	neige	neiger	v	neige	NOUN	neige	1	1	neige	c4-l4:5:6	un temps affreux, il neige beaucoup ; du reste,
+lemma	pars	partir	v	par	NOUN	partir	1	8	par	p1:2:11	se dissipe. Si tu pars, et que tu penses
+lemma	pars	partir	v	par	ADJ	partir	1	8	par	p4:5:1	Tu pars à midi ; je
+lemma	partes	partir	v	parte	NOUN	pars	1	1	-	c4-l4:0:9	d'Harville pour que tu partes, et que tu te
+lemma	partis	partir	v	parti	NOUN	parti	1	1	-	c4-l5:3:8	Brünn. Les Russes sont partis ; j'ai une trêve.
+lemma	peins	peindre	v	pein	ADJ	peindre	1	1	-	c1-l1:1:8	que ceux que tu peins ! Ils sont de
+lemma	penses	penser	v	pense	NOUN	penser	1	1	-	p1:2:15	pars, et que tu penses que ce puisse être
+lemma	pleures	pleurer	v	pleure	ADJ	pleurer	1	1	-	c7-l2:0:11	me dit que tu pleures toujours ; cela n'est
+lemma	porte	porter	v	porte	VERB	porte	1	1	porte	c8-l1:2:9	l'intérêt que je te porte.
+lemma	prie	prier	v	prie	NOUN	prie	1	5	-	e1:2:27	tendres sentiments. Je la prie de veiller pour garantir
+lemma	prince	prince	n	princ	ADJ	prince	1	1	-	e1:3:13	oublier qu'il est né prince français, et de ne
+lemma	prise	prendre	v	prise	NOUN	priser	1	1	-	c1-l7:1:10	peine que tu as prise de me donner de
+lemma	profonde	profond	adj	profonde	NOUN	profond	1	1	-	c5-l1:4:16	en sanglotant, avec une profonde sensibilité, et naïvement :
+lemma	puis	puis	adv	pouvoir	CCONJ	puis	1	4	pouvoir	c1-l5:2:14	heures à Paris, et puis m'apportera ta réponse.
+lemma	quoique	quoique	conj	quoiqu	ADJ	quoique	1	2	-	c4-l1:4:27	qui paraît fort bonne, quoique fille du roi d'Angleterre.
+lemma	recommande	recommander	v	recommande	NOUN	recommander	1	2	-	c1-l4:1:18	affaires. Je te le recommande.
+lemma	renonces	renoncer	v	renonce	NOUN	renonce	1	1	-	c5-l3:3:15	est indispensable que tu renonces à faire trois cents
+lemma	repose	reposer	v	repose	VERB	reposer	1	1	-	c1-l7:4:0	Repose-toi bien. Rétablis vite ta
+lemma	reproche	reprocher	v	reproche	NOUN	reproche	1	1	-	c5-l4:0:18	; je me le reproche ; je connais tes
+lemma	reste	rester	v	reste	NOUN	reste	1	6	-	c4-l4:5:9	neige beaucoup ; du reste, toutes mes affaires vont
+lemma	satisfaite	satisfaire	v	satisfaite	NOUN	satisfaire	1	1	-	c7-l2:4:14	besoin de te savoir satisfaite, et d'apprendre que tu
+lemma	serre	serrer	v	serre	VERB	serre	1	1	-	c1-l2:5:12	mes côtés, je te serre dans mes bras. Mais
+lemma	serrerai	serrer	v	serrerai	ADJ	serrer	1	1	-	c2-l3:5:7	qu'avant peu je te serrerai dans mes bras, et
+lemma	songe	songer	v	songe	NOUN	songe	1	2	-	p1:2:4	La vie est un songe léger qui se dissipe.
+lemma	supposais	supposer	v	supposai	ADJ	supposer	1	1	-	c7-l1:3:26	te porte, si tu supposais que je puis être
+lemma	trouves	trouver	v	trouve	ADJ	trouver	1	2	-	c7-l1:1:10	faut que tu en trouves pour te soutenir ;
+lemma	tâche	tâcher	v	tâche	NOUN	tâche	1	1	-	c8-l5:2:11	fréquemment, de ton état. Tâche d'aller tout de suite
+lemma	viennes	venir	v	vienne	ADJ	venir	1	1	Vienne	c3-l1:1:17	à ce que tu viennes à ma rencontre ;
+lemma	viens	venir	v	vien	NOUN	venir	1	4	-	c1-l4:3:13	jaloux, mais quelquefois inquiet. Viens vite ; je te
+lemma	viens	venir	v	vien	ADJ	venir	1	4	-	c2-l7:1:20	santé te le permet, viens à Rimini ou à
+lemma	yeux	œil	n	oeil	NOUN	œil	1	1	-	c7-l6:2:8	ma bouche et mes yeux. J'espère qu'il remplira sa
+lemma	égaye	égayer	v	égay	ADJ	égayer	1	1	-	c1-l6:3:6	embellit ma pensée et égaye le tableau sinistre et
+lemma	éloigné	éloigner	v	éloigné	ADJ	éloigné	1	1	-	c1-l4:1:3	Il désire vivre éloigné, avec sa petite femme,
+pos	tu	tu	pron	tu	NOUN	toi	18	119	tu	p1:0:10	vais le faire faire. Tu le lui donneras si
+pos	toi	toi	pron	toi	NOUN	toi	6	41	toi	p2:0:1	Hâte-toi de me donner de tes
+pos	bien	bien	adv	bien	NOUN	bien	5	74	bien	c2-l6:4:14	cela te fera du bien.
+pos	es	être	v	être	ADV	être	4	12	être	c1-l5:4:11	je t'ai affligée, tu es grosse, et je ne
+pos	aimables	aimable	adj	aimable	NOUN	aimable	3	7	aimable	c2-l3:4:23	pages, et de ces aimables choses qui remplissent mon
+pos	voilà	voilà	prep	voilà	VERB	voilà	3	3	voilà	c1-l1:4:16	moi. Vivre pour Joséphine, voilà l'histoire de ma vie.
+pos	amant	amant	n	amant	ADJ	amant	2	2	amant	c2-l1:1:9	pauvre mari, un tendre amant ! Doit-il perdre ses
+pos	baisers	baiser	n	baiser	ADV	baiser	2	7	baiser	c2-l1:4:1	Mille baisers amoureux.
+pos	lieues	lieue	n	lieue	ADJ	lieue	2	3	lieue	c1-l2:5:26	trouve à trois cents lieues de toi.
+pos	mal	mal	n	mal	ADV	mal	2	3	mal	c2-l2:1:5	fièvre et un violent mal de tête, tout cela
+pos	mort	mort	n	mort	ADJ	mort	2	5	mort	c1-l2:3:2	Chauvet est mort ; il m'était attaché
+pos	te	te	pron	te	VERB	le	2	86	te	c1-l4:1:16	des grandes affaires. Je te le recommande.
+pos	tout	tout	det	tout	NOUN	tout	2	35	tout	c2-l3:0:6	ne t'aime plus du tout ; au contraire, je
+pos	tu	tu	pron	tu	AUX	toi	2	119	tu	c4-l2:5:9	faisanderie de l'électeur : tu vois que je ne
+pos	vilaine	vilain	adj	vilain	NOUN	vilain	2	2	vilain	c2-l3:0:15	déteste. Tu es une vilaine, bien gauche, bien bête,
+pos	accouchée	accoucher	v	accoucher	ADJ	accouchée	1	2	accoucher	c6-l1:0:4	Mon amie, Hortense est accouchée d'un fils ; j'en
+pos	affligée	affliger	v	affliger	ADJ	affligé	1	1	affliger	c1-l5:4:9	tu m'aimes, je t'ai affligée, tu es grosse, et
+pos	amoureux	amoureux	n	amoureux	ADJ	amoureux	1	1	amoureux	c2-l1:4:2	Mille baisers amoureux.
+pos	autre	autre	adj	autre	NOUN	autre	1	2	autre	c1-l6:5:10	sur ta bouche, un autre sur ton cœur.
+pos	biens	bien	adv	bien	NOUN	bien	1	1	bien	c3-l6:2:36	cru perdu, corps et biens ; mais nous sommes
+pos	bête	bête	adj	bête	NOUN	bête	1	1	bête	c2-l3:0:19	vilaine, bien gauche, bien bête, bien cendrillon.
+pos	bêtes	bête	adj	bête	NOUN	bête	1	1	bête	c1-l6:4:45	parce qu'elles étaient trop bêtes.
+pos	calme	calme	adj	calme	NOUN	calme	1	1	calme	c8-l6:3:12	sur le courage, le calme et l'amitié de ton
+pos	ci	ci	adv	ci	NOUN	ci	1	4	ci	c2-l6:5:19	qu'à cette vilaine guerre-ci.
+pos	consolé	consoler	v	consoler	ADJ	consoler	1	1	consoler	c1-l2:1:8	sens le besoin d'être consolé.
+pos	contraire	contraire	n	contraire	ADJ	contraire	1	3	contraire	c7-l3:0:20	mon amie ; c'est contraire à ce que tu
+pos	derrières	derrière	prep	derrière	NOUN	derrière	1	1	derrière	c5-l3:3:32	ennemis, et sur les derrières de l'armée.
+pos	dis	dire	v	dire	ADV	dire	1	5	dire	c1-l3:0:9	tu interromps pour aller, dis-tu, à la campagne ;
+pos	droits	droit	adj	droit	NOUN	droit	1	1	droit	c2-l1:1:14	! Doit-il perdre ses droits parce qu'il est loin,
+pos	désert	désert	adj	désert	NOUN	désert	1	1	désert	c1-l1:2:19	le monde est un désert où je reste isolé,
+pos	dû	devoir	v	devoir	ADJ	devoir	1	1	devoir	p2:5:15	ce qui lui est dû, et quel est son
+pos	ensemble	ensemble	adv	ensemble	NOUN	ensemble	1	1	ensemble	p1:3:6	avons vécu tant d'années ensemble, si étroitement unis, que
+pos	fais	faire	v	faire	ADV	faire	1	9	faire	c6-l1:3:0	Fais partir ton premier service
+pos	gauche	gauche	adj	gauche	NOUN	gauche	1	1	gauche	c2-l3:0:17	es une vilaine, bien gauche, bien bête, bien cendrillon.
+pos	inquiétée	inquiéter	v	inquiéter	ADJ	inquiéter	1	1	inquiéter	c4-l2:0:17	que tu t'étais trop inquiétée.
+pos	jaloux	jaloux	adj	jaloux	NOUN	jaloux	1	2	jaloux	c2-l1:3:15	fracas : comme un jaloux, et me voilà dans
+pos	malheureux	malheureux	adj	malheureux	NOUN	malheureux	1	3	malheureux	c3-l6:3:34	de voir périr ces malheureux !
+pos	mien	mien	pron	mien	NOUN	mien	1	2	mien	c2-l5:3:9	un amour pareil au mien, j'ai tort : pourquoi
+pos	méchante	méchant	adj	méchant	NOUN	méchant	1	1	méchant	c2-l1:0:14	peu. Tu es une méchante et une laide, bien
+pos	noir	noir	adj	noir	NOUN	noir	1	1	noir	c1-l6:3:11	le tableau sinistre et noir de la mélancolie et
+pos	oranges	orange	adj	orange	NOUN	orange	1	1	orange	c1-l3:4:14	Gênes. Tu recevras des oranges, des parfums et de
+pos	présent	présent	adj	présent	NOUN	présent	1	1	présent	c1-l3:4:4	Il t'envoie pour présent une boîte de bonbons
+pos	présents	présent	adj	présent	NOUN	présent	1	1	présent	c4-l4:1:5	de quoi faire des présents aux dames et aux
+pos	sachez	savoir	v	savoir	ADP	savoir	1	1	savoir	c5-l6:1:9	prenez des distractions, et sachez que la vie est
+pos	savant	savant	n	savant	ADJ	savant	1	1	savant	p2:4:14	Dans le cabinet du savant, vous voyez de très
+pos	soit	être	v	être	CCONJ	être	1	4	être	c5-l6:0:21	: quelque légitime que soit votre douleur, elle doit
+pos	t'	te	pron	te	NOUN	toi	1	37	te	c5-l3:3:6	ne tarderai-je pas à t'y rejoindre ; mais il
+pos	tendre	tendre	adj	tendre	NOUN	tendre	1	5	tendre	c2-l3:3:10	de côté l'amour, le tendre et constant amour que
+pos	triplés	tripler	v	tripler	ADJ	triplé	1	1	tripler	p2:2:27	quoique les prix fussent triplés.
+pos	violent	violent	adj	violent	NOUN	violent	1	1	violent	c2-l2:1:4	La fièvre et un violent mal de tête, tout
+pos	âme	âme	n	âme	PRON	âme	1	3	âme	c3-l6:4:1	L'âme était entre l'éternité, l'Océan et
+pos	éperons	éperon	n	éperon	AUX	éperon	1	1	éperon	e1:5:19	de camp, armes, selles, éperons, vases de ma chapelle,
+pos	êtes	être	v	être	DET	être	1	2	être	p4:2:19	Vous vois-je triste ? Êtes-vous inquiète ?
+ptcp	porte	porte	n	porte	VERB	porte	13	18	porte	p3:4:9	dans dix jours, te porte les livres que tu
+ptcp	content	content	adj	conter	VERB	content	6	6	-	c1-l3:1:4	Je ne suis pas content : ta dernière lettre
+ptcp	point	point	n	poindre	VERB	point	4	6	-	p4:1:13	l'enivrante soirée d'hier n'ont point laissé de repos à
+ptcp	portes	porte	n	porter	VERB	porte	3	6	porter	c5-l5:3:12	et que tu te portes bien ! Voudrais-tu accroître
+ptcp	fâchée	fâché	adj	fâcher	VERB	fâché	2	2	fâcher	c2-l2:2:13	moi, non capricieuse et fâchée, mais douce, tendre, avec
+ptcp	inquiet	inquiet	adj	inquiet	VERB	inquiet	2	2	inquiet	c1-l4:3:12	pas jaloux, mais quelquefois inquiet. Viens vite ; je
+ptcp	occupé	occupé	adj	occuper	VERB	occuper	2	2	occuper	c4-l6:3:4	Je suis, moi, assez occupé. Dans quelques jours, je
+ptcp	vue	vue	n	voir	VERB	vu	2	4	voir	c1-l7:3:15	depuis que je t'ai vue, je sens que je
+ptcp	aimables	aimable	adj	aimabler	VERB	aimable	1	7	-	c4-l1:4:19	tout des gens fort aimables, même notre électrice, qui
+ptcp	constant	constant	adj	conster	VERB	constant	1	1	-	c2-l3:3:12	l'amour, le tendre et constant amour que vous lui
+ptcp	cru	cru	adj	croire	VERB	cru	1	1	croire	c3-l6:2:32	Boulogne ; j'ai tout cru perdu, corps et biens
+ptcp	destinée	destinée	n	destiner	VERB	destiner	1	1	-	c7-l6:2:15	J'espère qu'il remplira sa destinée.
+ptcp	enrhumé	enrhumé	adj	enrhumer	VERB	enrhumé	1	1	-	c3-l2:0:5	suis à Milan, très enrhumé. Je ne supporte pas
+ptcp	fâché	fâché	adj	fâcher	VERB	fâché	1	1	fâcher	c7-l7:1:3	J'ai été fâché contre toi pour tes
+ptcp	heureuse	heureux	adj	heureux	VERB	heureux	1	5	heureux	c7-l1:3:37	si tu n'es pas heureuse, et content si tu
+ptcp	impatient	impatient	adj	impatier	VERB	impatient	1	1	-	c3-l5:4:12	t'aime, et suis fort impatient de te revoir. Tout
+ptcp	place	place	n	placer	VERB	place	1	2	placer	c1-l2:5:6	console : il te place à mes côtés, je
+ptcp	pressées	pressé	adj	presser	VERB	pressé	1	1	presser	c2-l2:1:28	lettres, je les ai pressées contre mon cœur et
+ptcp	sort	sort	n	sortir	VERB	sort	1	2	sortir	c8-l4:2:12	m'a toujours paru le sort le plus malheureux de
+ptcp	surpris	surpris	adj	surprendre	VERB	surprendre	1	1	-	c6-l1:1:4	Je ne suis pas surpris que tu ne m'en
+ptcp	traître	traître	adj	traître	VERB	traître	1	1	traître	c2-l2:5:9	méchant, bien mauvais, bien traître à vous.

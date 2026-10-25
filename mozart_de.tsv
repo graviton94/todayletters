@@ -1,0 +1,429 @@
+kind	form	our_key	our_pos	sp_lemma	sp_pos	simplemma	n	of	sp_key	ref	context
+lemma	daß	dass	conj	daß	SCONJ/KOUS	daß	69	69	-	c1-l1:0:7	recht von ganzem Herzen, daß Du bei der Schlittenfahrt,
+lemma	mir	ich	pron	mir	PRON/PPER	ich	58	67	-	c1-l1:0:15	Schlittenfahrt, von der Du mir schreibst, Dich so sehr
+lemma	mich	ich	pron	mich	PRON/PPER	ich	27	44	-	c1-l1:0:0	Mich freut es recht von
+lemma	dir	du	pron	dir	PRON/PPER	du	23	23	-	c1-l1:0:25	hast, und ich wünsche Dir tausend Gelegenheiten zur Ergötzung,
+lemma	ihnen	sie	pron	ihnen	PRON/PPER	sie	22	22	-	c2-l4:4:2	Ich wünsche Ihnen, daß Sie so viele
+lemma	im	im	art	in	ADP/APPRART	im	20	20	in	c2-l1:4:25	meiner Ernsthaftigkeit, wie ich im Portrait bin.
+lemma	gewiß	gewiss	adv	gewiß	ADV/ADV	gewiss	14	15	-	c1-l2:1:14	ihr würde diese Stadt gewiß wohl gefallen, indem die
+lemma	ihn	er	pron	ihn	PRON/PPER	er	14	14	-	c2-l2:1:3	…so stellt er ihn in die Luft, Regen,
+lemma	ihm	er	pron	ihm	PRON/PPER	er	13	13	-	c2-l1:4:18	an, und ich antwortete ihm mit aller meiner Ernsthaftigkeit,
+lemma	liebe	lieben	v	lieb	ADJ/ADJA	lieben	13	15	lieb	c1-l6:0:8	Dich gut befinden meine liebe Schwester.
+lemma	mich	ich	pron	sich	PRON/PRF	ich	11	44	sich	c3-l4:1:14	aber? — Ich mußte mich also trösten …
+lemma	alle	alle	det	aller	DET/PIAT	alle	10	15	-	c1-l4:1:9	beseitet und ich spiele alle Tage; aber dieses setze
+lemma	uns	wir	pron	uns	PRON/PPER	wir	10	13	-	c1-l5:0:12	und der Staub hat uns beständig impertinent seckirt, daß
+lemma	letzten	letzt	adj	letzter	ADJ/ADJA	letzt	8	9	-	c1-l5:3:18	Lection gibt, in dem letzten Zimmer gegen unser ist
+lemma	zur	zur	art	zu	ADP/APPRART	zur	8	8	zu	c1-l1:0:28	wünsche Dir tausend Gelegenheiten zur Ergötzung, damit Du recht
+lemma	act	Akt	n	act	NOUN/NN	act	7	7	-	c4-l2:2:11	wie selbe im 2. Act Fuor del mar hò
+lemma	am	am	art	an	ADP/APPRART	am	7	8	an	c3-l3:1:12	eröffnen, machen müssen. — Am Frohnleichnamstag wurde sie mit
+lemma	andern	ander	adj	anderer	ADJ/ADJA	anderer	6	7	-	c4-l1:1:1	Den andern Tag Morgens ging ich
+lemma	was	was	pron	wer	PRON/PRELS	was	6	15	wer	c2-l5:3:13	nicht alles thun läßt, was man im Sinne hat.
+lemma	dich	du	pron	dich	PRON/PPER	du	5	6	-	c1-l1:0:17	der Du mir schreibst, Dich so sehr ergötzt hast,
+lemma	mir	ich	pron	sich	PRON/PRF	ich	5	67	sich	c3-l6:1:3	… aber wenn ich mir vorstelle, daß ich Sie
+lemma	versichere	versichern	v	versicheren	VERB/VVFIN	versichern	5	5	-	c3-l6:2:2	Denn, ich versichere Sie, ohne Reisen (wenigstens
+lemma	viele	viel	det	vieler	DET/PIAT	viel	5	5	-	c1-l2:1:22	die Peterskirche regulär, und viele andere Sachen zu Rom
+lemma	vom	vom	art	von	ADP/APPRART	vom	5	5	von	c2-l5:1:9	das gewöhnliche schöne Schicksal vom Hof hat.“
+lemma	erste	erst	adj	erster	ADJ/ADJA	erst	4	4	-	c1-l1:3:25	das, daß sie das erste Mal agirt.
+lemma	letzte	letzt	adj	letzter	ADJ/ADJA	letzter	4	4	-	c2-l2:3:15	auswendig gespielt; … die letzte aus D kommt auf
+lemma	mich	ich	pron	mich	PRON/PRF	ich	4	44	-	c2-l4:0:19	geschrieben, folglich haben sie mich nicht mehr weggelassen.
+lemma	thun	tun	v	thun	NOUN/NN	thun	4	6	-	c2-l5:3:11	daß sich nicht alles thun läßt, was man im
+lemma	allen	alle	det	aller	DET/PIAT	alle	3	5	-	c2-l2:1:11	Regen, Schnee, Sonnenhitze und allen Teufel, damit er zerspringt,
+lemma	aller	alle	det	aller	DET/PIAT	alle	3	4	-	c2-l2:4:17	und Ohren der König aller Instrumente.“
+lemma	anderes	ander	adj	anderer	ADJ/ADJA	anderer	3	3	-	c5-l3:2:8	Antichambre; mithin war kein anderes Mittel als sich losreißen
+lemma	beim	beim	art	bei	ADP/APPRART	beim	3	3	bei	c2-l3:3:9	Orgel wie das Kind beim Dreck; man sieht ihm
+lemma	churfürst	Kurfürst	n	churfürst	NOUN/NN	churfürst	3	3	-	c4-l5:0:15	Zimmer bei Hof, der Churfürst war auch da.
+lemma	dermalen	dermalen	adv	dermal	ADJ/ADJA	dermalen	3	4	-	c1-l4:4:7	meine einzige Lustbarkeit besteht dermalen in englischen Schritten, Capriol-
+lemma	dritten	dritt	adj	dritter	ADJ/ADJA	dritter	3	3	-	c4-l6:0:8	mir so von dem dritten Acte voll, daß es
+lemma	ersten	erst	adj	erster	ADJ/ADJA	erst	3	3	-	c3-l3:2:3	… gleich mitten im ersten Allegro, war eine Passage,
+lemma	gefallen	gefallen	v	fallen	VERB/VVPP	gefallen	3	4	fallen	c1-l2:1:16	diese Stadt gewiß wohl gefallen, indem die Peterskirche regulär,
+lemma	hausthüre	Haustür	n	hausthüre	NOUN/NN	hausthüre	3	3	-	c1-l6:4:23	so machten wir unser Hausthüre auf, und was meinste
+lemma	lieber	lieb	adj	lieber	ADV/ADV	lieb	3	5	-	c2-l6:2:7	meiner Ehre meine Sonaten lieber von ihr als von
+lemma	mir	ich	pron	mir	PRON/PRF	ich	3	67	-	c3-l2:4:19	aushalten kann, daß ich mir und der ganzen deutschen
+lemma	wirst	werden	v	wirst	AUX/VAFIN	werden	3	3	-	c1-l6:0:3	Ich hoffe Du wirst Dich gut befinden meine
+lemma	zum	zum	art	zu	ADP/APPRART	zum	3	3	zu	c1-l5:4:3	Das ist lustig zum Componiren! Giebt einen viel
+lemma	academie	Akademie	n	academie	NOUN/NN	academie	2	2	-	c2-l5:0:13	war vorgestern in der Academie bei Hof um eine
+lemma	andere	ander	adj	anderer	ADJ/ADJA	anderer	2	2	-	c1-l2:1:23	Peterskirche regulär, und viele andere Sachen zu Rom regulär
+lemma	armen	Arm	n	arme	NOUN/NN	arm	2	2	-	c3-l6:0:26	mich schon in Ihren Armen.
+lemma	axioma	Axiom	n	axioma	NOUN/NN	axioma	2	2	-	p1:0:13	Kind mein Wahlspruch oder Axioma und bey dem bleib
+lemma	baß	Bass	n	baß	NOUN/NN	baß	2	2	-	c1-l3:0:15	recht wohl, und den Baß hast du unvergleichlich dazu
+lemma	bleib	bleiben	v	bleib	VERB/VVFIN	bleiben	2	2	-	p1:0:17	Axioma und bey dem bleib ich auch noch.
+lemma	duc	Dukaten	n	duc	NOUN/NN	duc	2	2	-	c8-l1:2:18	für die Oper 200 Duc. und 50 Duc. Reisegeld
+lemma	gedacht	gedenken	v	denken	VERB/VVPP	gedenken	2	2	denken	c4-l3:2:29	auf Ihren Herrn Vater gedacht habe, was dieser Mann
+lemma	giengen	gehen	v	giengen	VERB/VVFIN	giengen	2	2	-	c1-l6:4:1	Wir giengen heunt von Graf Firmian
+lemma	heirathen	heiraten	v	heirathen	VERB/VVINF	heirathen	2	3	-	c6-l1:0:26	und dann — zu heirathen!
+lemma	liebster	lieb	adj	liebst	ADJ/ADJA	lieb	2	5	-	c3-l6:1:8	vorstelle, daß ich Sie liebster Vater und meine liebe
+lemma	liebster	lieb	adj	liebster	NOUN/NN	lieb	2	5	-	c6-l2:4:0	Liebster, bester Vater! — wenn
+lemma	mich	ich	pron	sich	PRON/PPER	ich	2	44	sich	c2-l1:3:2	Ich gebe mich ganz gut drein. Ich
+lemma	morgens	Morgen	n	morgens	ADV/ADV	morgens	2	3	-	c4-l1:1:3	Den andern Tag Morgens ging ich hin, mit
+lemma	noth	Not	n	noth	NOUN/NN	noth	2	2	-	c1-l2:2:4	O ich habe eine Noth. In unserm Quartier ist
+lemma	scene	Szene	n	scene	NOUN/NN	scene	2	2	-	c3-l5:4:8	ich für Tenducci eine Scene schreibe auf Sonntag —
+lemma	sey	sein	v	sey	VERB/NE	sey	2	2	-	p2:0:4	denn man sagt, ich sey vor 15 Jahren auch
+lemma	solche	solch	det	solcher	DET/PIAT	solcher	2	2	-	c4-l3:2:13	mir noch keine Musik solche Impression gemacht hat, und
+lemma	solchen	solch	det	solcher	DET/PIAT	solcher	2	2	-	c5-l3:3:24	ich nicht nach einer solchen Behandlung.
+lemma	thränen	Träne	n	thräne	NOUN/NN	thränen	2	2	-	c2-l5:2:27	dem Hrn. Schatzmeister die Thränen in die Augen …
+lemma	thut	tun	v	thut	VERB/VVFIN	thun	2	2	-	c6-l5:2:12	auf diese Oper. Es thut einem doch wohl, wenn
+lemma	uns	wir	pron	sich	PRON/PRF	wir	2	13	sich	c3-l5:1:7	meine Freude als wir uns wieder sahen, können Sie
+lemma	unserm	unser	det	unserm	DET/PPOSAT	unserm	2	3	-	c1-l2:2:6	habe eine Noth. In unserm Quartier ist nur ein
+lemma	vermuthen	vermuten	v	vermuthen	VERB/VVINF	vermuthen	2	2	-	c6-l4:1:3	Könnten Sie wohl vermuthen, daß gestern noch eine
+lemma	ward	werden	v	ward	VERB/VVFIN	werden	2	2	-	c6-l3:2:6	Constanze die Fugen hörte, ward sie ganz verliebt darein;
+lemma	was	was	pron	wer	PRON/PWS	was	2	15	wer	c1-l6:4:26	unser Hausthüre auf, und was meinste wohl was sich
+lemma	zweite	zweit	adj	zweiter	ADJ/ADJA	zweit	2	2	-	c2-l3:3:1	Der zweite ist bei der Orgel
+lemma	abends	Abend	n	abends	ADV/ADV	abends	1	2	-	c3-l4:0:7	3. ist meine Mutter Abends um 10 Uhr 21
+lemma	abends	Abend	n	abends	ADV/NN	abends	1	2	-	c8-l2:0:16	Sonntags um 6 Uhr Abends an; — so schlecht
+lemma	acte	Akt	n	acte	NOUN/NN	acte	1	1	-	c4-l6:0:9	so von dem dritten Acte voll, daß es kein
+lemma	affaire	Affäre	n	affaire	NOUN/NN	affaire	1	1	-	c5-l3:3:5	will von der ganzen Affaire nichts mehr schreiben, und
+lemma	agiren	agieren	v	agiren	VERB/VVINF	agiren	1	1	-	c1-l1:2:12	wenn man sie nicht agiren sähe, sondern singen nur
+lemma	agirt	agieren	v	agirtn	VERB/VVFIN	agirt	1	1	-	c1-l1:3:27	sie das erste Mal agirt.
+lemma	all	alle	det	all	DET/PIAT	alle	1	1	-	c5-l6:1:9	Opern überall? — mit all dem Elend, was das
+lemma	alle	alle	det	aller	PRON/PIAT	alle	1	15	-	c2-l2:3:7	und in München schon alle meine 6 Sonaten recht
+lemma	alle	alle	det	aller	PRON/PIS	alle	1	15	-	c6-l6:2:16	zu weinen; davon wurden Alle, sogar der Priester gerührt,
+lemma	aller	alle	det	aller	PRON/PIS	alle	1	4	-	c2-l1:4:20	ich antwortete ihm mit aller meiner Ernsthaftigkeit, wie ich
+lemma	allerliebster	allerliebst	adj	allerliebster	ADJ/ADJA	allerliebster	1	2	-	c3-l6:3:0	Allerliebster Vater! ich muß es
+lemma	alles	alle	det	aller	PRON/PIS	alle	1	23	-	c2-l5:3:10	Wahrheit, daß sich nicht alles thun läßt, was man
+lemma	alles	alle	det	aller	DET/PIAT	alle	1	23	-	c7-l1:1:6	und ich wünschen Dir alles Glück und Vergnügen zu
+lemma	allmächtigen	allmächtig	adj	allmächtige	NOUN/NN	allmächtig	1	1	-	c3-l3:4:29	ist in Händen des Allmächtigen …
+lemma	andern	ander	adj	anderer	NOUN/NN	anderer	1	7	-	c4-l4:1:18	„Ein Cavalier darf den andern schon bedienen.“
+lemma	andres	ander	adj	andrer	ADJ/ADJA	andres	1	1	-	c3-l6:1:22	so kenne ich kein andres Glück nicht.
+lemma	anfingen	anfangen	v	anfingen	VERB/VVFIN	anfangen	1	1	-	c7-l2:3:15	Deutsche einmal mit Ernst anfingen deutsch zu denken —
+lemma	angebornen	angeboren	adj	angeborn	ADJ/ADJA	angebornen	1	1	-	c7-l3:1:18	das letzte aus meiner angebornen Blöde;
+lemma	angekleidet	ankleiden	v	angekleidet	VERB/VVPP	ankleiden	1	1	-	c8-l1:1:16	ich balbirt, frisirt und angekleidet war, fuhr ich aus
+lemma	anordnet	anordnen	v	anordnet	VERB/VVPP	anordnen	1	1	-	c6-l7:2:12	und Gott, der alles anordnet und folglich auch dieses
+lemma	anschlägt	anschlagen	v	anschlägen	VERB/VVFIN	anschlagen	1	1	-	c8-l6:3:38	wie es mir herrlich anschlägt …
+lemma	antworten	antworten	v	antwort	VERB/VVINF	antworten	1	1	Antwort	c3-l3:0:25	datirt, nicht eher habe antworten können. — Meine liebe
+lemma	anzubringen	anbringen	v	anzubringen	VERB/VVFIN	anbringen	1	1	-	c4-l1:2:13	mit vier concertirenden Blasinstrumenten anzubringen, nämlich auf eine Flöte,
+lemma	applause	Applaus	n	applause	NOUN/NN	applaus	1	1	-	c3-l3:1:18	wurde sie mit allem Applause aufgeführt.
+lemma	aufs	aufs	art	auf	ADP/APPRART	aufs	1	1	auf	c8-l5:4:11	mir auch manche Thräne aufs Papier; nun aber lustig
+lemma	ausgestrichenes	ausstreichen	v	ausgestrichene	NOUN/NN	ausgestrichen	1	1	-	c6-l4:4:3	Sie werden viel Ausgestrichenes darin finden, — das
+lemma	auszubürsten	ausbürsten	v	auszubürsten	VERB/NN	ausbürsten	1	1	-	c4-l4:1:11	am Leibe ein wenig auszubürsten, und sagte: „Ein Cavalier
+lemma	baares	bar	adj	baar	ADJ/ADJA	baares	1	1	-	c6-l2:3:15	das für jetzt? — baares Geld ist besser.
+lemma	balbirt	barbieren	v	balbirt	VERB/VVFIN	balbirt	1	1	-	c8-l1:1:13	beim Einhorn; nachdem ich balbirt, frisirt und angekleidet war,
+lemma	baßstimme	Bassstimme	n	baßstimm	NOUN/NN	baßstimme	1	1	-	c5-l5:0:14	welcher gewiß eine vortreffliche Baßstimme hat, obwohl der Erzbischof
+lemma	bedrückte	bedrücken	v	bedrückt	ADJ/ADJA	bedrücken	1	1	-	c2-l6:3:3	Ich habe diese bedrückte Familie so lieb, daß
+lemma	befänden	befinden	v	befänden	VERB/VVFIN	befinden	1	1	-	c7-l4:0:28	Gott Lob, recht wohl befänden.
+lemma	beruhigendes	beruhigend	adj	beruhigendes	NOUN/NN	beruhigend	1	1	-	c7-l4:1:44	hat, sondern sehr viel Beruhigendes und Tröstendes!
+lemma	beseitet	besaiten	v	beseiten	VERB/VVPP	beseitet	1	1	-	c1-l4:1:5	ist meine Geige neu beseitet und ich spiele alle
+lemma	beste	gut	adj	gute	NOUN/NN	gut	1	5	-	c8-l3:3:20	Brief von Dir Liebste! Beste!
+lemma	bester	gut	adj	be	ADJ/ADJA	gut	1	4	-	c6-l2:4:1	Liebster, bester Vater! — wenn ich
+lemma	bestund	bestehen	v	bestund	ADV/ADJD	bestunden	1	1	-	c6-l6:3:3	Unser ganzes Hochzeitfest bestund aus einem Souper, welches
+lemma	betheuerte	beteuern	v	betheueren	VERB/VVFIN	betheuerte	1	1	-	c5-l5:0:33	und ich ihm aber betheuerte, er würde nächstens höher
+lemma	betrübten	betrüben	v	betrübt	ADJ/ADJA	betrüben	1	1	-	c2-l7:4:32	Ihnen aus den dermaligen betrübten Umständen herauszuhelfen.
+lemma	bewirthung	Bewirtung	n	bewirthung	NOUN/NN	bewirthung	1	1	-	c8-l4:2:13	göttliche Tafelmusik, eine englische Bewirthung und einen herrlichen Mosler-Wein.
+lemma	bey	bei	prep	bey	VERB/PRF	bey	1	5	-	c3-l6:0:13	sich Ihnen beyden empfehlt, bey mir) zitterte ich vor
+lemma	bey	bei	prep	bey	PRON/PIS	bey	1	5	-	c4-l6:1:31	Das ganze Orchester ist bey dieser Stelle stille.
+lemma	beyde	beide	det	beyde	ADV/ADV	beyde	1	1	-	c3-l6:3:17	Vergnügen zu haben Sie beyde wieder zu sehen, so
+lemma	beyden	beide	det	beyden	ADV/ADV	beyden	1	1	-	c3-l6:0:11	Heina, der sich Ihnen beyden empfehlt, bey mir) zitterte
+lemma	bitte	bitten	v	bitte	ADV/ADV	bitten	1	2	Bitte	c3-l2:4:1	Ich bitte alle Tage Gott, daß
+lemma	blas	blasen	v	blas	VERB/VVFIN	blasen	1	1	-	c1-l5:2:1	Jetzt blas ich just vor Hitz!
+lemma	blasinstrumenten	Blasinstrument	n	blasinstrumente	NOUN/NN	blasinstrument	1	1	-	c4-l1:2:12	Andantino mit vier concertirenden Blasinstrumenten anzubringen, nämlich auf eine
+lemma	blöde	blöd	adj	blöde	NOUN/NN	blöd	1	1	-	c7-l3:1:19	letzte aus meiner angebornen Blöde;
+lemma	bratschen	Bratsche	n	bratschen	NOUN/NN	bratschen	1	1	-	c2-l3:2:12	bis 11 Violinen, 4 Bratschen, 2 Oboen, 2 Flauti
+lemma	brette	Brett	n	brette	NOUN/NN	brett	1	1	-	c7-l2:2:7	einziger Patriot mit am Brette — es sollte ein
+lemma	canaglie	Kanaille	n	canaglie	NOUN/NN	canaglie	1	1	-	c4-l7:4:18	da könnte man die Canaglie richten lassen.
+lemma	canari	Kanarienvogel	n	canari	NOUN/NN	canari	1	2	-	c1-l3:2:6	warum ich auf den Canari denke? Weil in unserm
+lemma	capellhaus	Kapellhaus	n	capellhaus	NOUN/NN	capellhaus	1	1	-	c7-l1:3:24	wieder an das verfluchte Capellhaus gebunden!
+lemma	cavalier	Kavalier	n	cavalier	NOUN/NN	cavalier	1	1	-	c4-l4:1:15	auszubürsten, und sagte: „Ein Cavalier darf den andern schon
+lemma	churfürsten	Kurfürst	n	churfürst	NOUN/NN	churfürsten	1	1	-	c2-l5:0:7	dermalen nichts mit dem Churfürsten. Ich war vorgestern in
+lemma	clarinetten	Klarinette	n	clarinett	NOUN/NN	clarinetten	1	1	-	c5-l7:1:10	eine Nachtmusik von 2 Clarinetten, 2 Horn und 2
+lemma	clavier	Klavier	n	clavier	NOUN/NN	clavier	1	1	-	c3-l2:2:5	Sie mir das beste Clavier in Europa und aber
+lemma	collation	Kollation	n	collation	NOUN/NN	collation	1	1	-	c4-l3:0:19	ich wo auf eine Collation hinginge.
+lemma	componiren	komponieren	v	componir	NOUN/NN	componiren	1	1	-	c1-l5:4:4	Das ist lustig zum Componiren! Giebt einen viel Gedanken.
+lemma	componirt	komponieren	v	componirt	VERB/VVFIN	componirt	1	2	-	c1-l3:0:20	hast du unvergleichlich dazu componirt, und ohne mindesten Fehler.
+lemma	composition	Komposition	n	composition	NOUN/NN	composition	1	1	-	c5-l7:1:19	zwar von meiner eigenen Composition …
+lemma	concertirenden	konzertierend	adj	concertirend	ADJ/ADJA	concertirenden	1	1	-	c4-l1:2:11	Arie Andantino mit vier concertirenden Blasinstrumenten anzubringen, nämlich auf
+lemma	copulation	Kopulation	n	copulation	NOUN/NN	copulation	1	1	-	c6-l6:0:10	Antwort wartete und die Copulation schon auf den Tag
+lemma	darinnen	darin	adv	darinn	NOUN/NN	darinnen	1	1	-	c7-l7:1:26	zu bringen und auch darinnen zu erhalten.
+lemma	darvon	davon	adv	darvon	ADV/PROAV	darvon	1	1	-	c1-l6:3:20	ich solle niemand nichts darvon sagen, denn sonst lauffen
+lemma	datirt	datieren	v	datirt	NOUN/NN	datirt	1	1	-	c3-l3:0:21	Ihren letzten vom 11. datirt, nicht eher habe antworten
+lemma	deinem	dein	det	deinem	DET/PPOSAT	dein	1	1	-	c8-l2:2:9	wollte was ich mit Deinem lieben Portrait anfange, würdest
+lemma	denke	denken	v	denk	NOUN/NN	denken	1	4	-	c1-l6:2:0	Denke auf mich meine liebe
+lemma	denselbigen	derselbe	det	denselbig	ADJ/PDAT	denselbigen	1	1	-	c1-l6:1:10	liebe Schwester, so geht denselbigen Abend meine liebe Schwester
+lemma	dermalen	dermalen	adv	dermale	ADJ/ADJA	dermalen	1	4	-	c4-l2:2:24	etc. kann er sich dermalen nicht mehr zeigen.
+lemma	des	der	art	des	DET/ART	der	1	14	-	c8-l3:1:0	Des andern Tages spielte ich
+lemma	deßwegen	deswegen	adv	deßwegen	NOUN/NN	deßwegen	1	1	-	c5-l7:3:27	hören zu lassen und deßwegen habe ich sie auch
+lemma	dich	du	pron	dich	PRON/PRF	du	1	6	-	c8-l1:4:8	Carl, und ich bin Dich von ganzem Herzen küssend
+lemma	distinction	Distinktion	n	distinction	NOUN/NN	distinction	1	1	-	c8-l6:1:25	Das ist wirklich eine Distinction.
+lemma	durchgespielt	durchspielen	v	durchgespieln	VERB/VVPP	durchspielen	1	1	-	c6-l3:1:22	(nachdem ich sie ihm durchgespielt) nach Hause gegeben.
+lemma	durchlas	durchlesen	v	durchlas	VERB/NE	durchlesen	1	1	-	c3-l6:0:3	Als ich ihn durchlas (es war Mr. Heina,
+lemma	durchs	durchs	art	durch	ADP/APPRART	durchs	1	1	durch	c2-l4:3:3	Ich kann sogar durchs Deuten und durch Pantomime
+lemma	eilen	eilen	v	eile	NOUN/NN	entgegeneilen	1	1	Eile	c3-l5:4:0	Eilen muß ich — weil
+lemma	einem	ein	art	einer	PRON/PIS	ein	1	11	-	c6-l5:2:13	diese Oper. Es thut einem doch wohl, wenn man
+lemma	einer	ein	art	einer	PRON/PIS	ein	1	13	-	c2-l5:1:3	„Nu, da ist Einer, der das gewöhnliche schöne
+lemma	einschläft	einschlafen	v	einschläft	VERB/VVFIN	einschlafen	1	1	-	c4-l3:4:4	Des Nachts, ehe er einschläft und Morgens da er
+lemma	eintheilen	einteilen	v	eintheilen	VERB/VVINF	eintheilen	1	1	-	c2-l4:2:16	Redensarten nicht so künstlich eintheilen, daß sie Schatten und
+lemma	englischen	Englisch	n	englische	NOUN/NN	englisch	1	1	-	c6-l7:4:5	schon 3 Lectionen im Englischen genommen. — In 3
+lemma	engländischen	englisch	adj	engländisch	ADJ/ADJA	engländischen	1	1	-	c6-l7:4:15	so ganz passable die engländischen Bücher lesen und verstehen
+lemma	ennuyirt	ennuyieren	v	ennuyirt	VERB/VVFIN	ennuyirt	1	1	-	c3-l1:0:15	mein Lebetag niemals so ennuyirt.
+lemma	erbrach	erbrechen	v	erbrach	VERB/VVFIN	erbrechen	1	1	-	c8-l3:4:15	unzähligemale, ehe ich ihn erbrach, dann — verschlang ich
+lemma	erbrochen	erbrechen	v	erbrochen	VERB/VVPP	erbrochen	1	1	-	c4-l6:4:4	…wie ich den Brief erbrochen, hatte ich ihn eben
+lemma	erhaltst	erhalten	v	erhaltsn	VERB/VVFIN	erhaltst	1	1	-	c1-l6:1:4	Wenn Du diesen Brief erhaltst meine liebe Schwester, so
+lemma	errathen	erraten	v	errathen	VERB/VVINF	errathen	1	1	-	c7-l5:0:27	ich die Ursache leicht errathen konnte.
+lemma	erschrocken	erschrecken	v	erschrocken	ADV/ADJD	erschrocken	1	1	-	c2-l7:2:9	sagen, daß ich so erschrocken war und mir die
+lemma	erstere	erst	adj	erster	ADJ/ADJA	erster	1	1	-	c7-l3:1:7	und löffelte nicht. Das erstere, weil ich zu müde
+lemma	exequiren	exekutieren	v	exequir	NOUN/NN	exequiren	1	1	-	c5-l7:2:4	6 Herrn die solche exequiren, sind arme Schlucker, die
+lemma	fing	fangen	v	fing	VERB/VVFIN	fangen	1	1	-	c6-l6:2:5	wir zusammen verbunden wurden, fing sowohl meine Frau als
+lemma	fl	Gulden	n	fl	NOUN/NN	fl	1	1	-	c5-l3:3:15	der Erzbischof nun 1200 Fl. Besoldung gäbe, so ging
+lemma	freudengefühle	Freudengefühl	n	freudengefühle	NOUN/NN	freudengefühle	1	1	-	c8-l7:0:4	Mit größtem Vergnügen und Freudengefühle fand ich bei Zurückkunft
+lemma	frisirt	frisieren	v	frisirt	VERB/VVFIN	frisirt	1	2	-	c6-l1:4:1	… sie frisirt sich auch alle Tage
+lemma	frisirt	frisieren	v	frisirt	ADV/NN	frisirt	1	2	-	c8-l1:1:14	Einhorn; nachdem ich balbirt, frisirt und angekleidet war, fuhr
+lemma	frohnleichnamstag	Fronleichnamstag	n	frohnleichnamstag	NOUN/NN	frohnleichnamstag	1	1	-	c3-l3:1:13	machen müssen. — Am Frohnleichnamstag wurde sie mit allem
+lemma	functiones	Funktion	n	functione	NOUN/NN	functiones	1	1	-	c1-l4:2:14	die Kirchen und prächtige Functiones zu gehen.
+lemma	fällt	fällen	v	fallen	VERB/VVFIN	fällen	1	1	fallen	c4-l2:4:4	…und auf diese Art fällt auch hier ein unnöthiges
+lemma	führe	führen	v	fahren	VERB/VVFIN	führen	1	1	fahren	c8-l7:1:1	Morgen führe ich die Mama hinein;
+lemma	gallerie	Galerie	n	gallerie	NOUN/NN	gallerie	1	1	-	c8-l7:3:24	besser als auf der Gallerie. Sobald Du zurückkommst, mußt
+lemma	geb	geben	v	geb	VERB/VVFIN	geben	1	1	-	c2-l1:3:12	der andere Papa, ich geb auf alles acht.
+lemma	gefrorenes	Gefrorene	n	gefrorenes	NOUN/NN	gefroren	1	1	-	c3-l3:3:15	— nahm ein gutes Gefrorenes — bat den Rosenkranz
+lemma	gefällt	gefallen	v	gefällen	VERB/VVFIN	gefällt	1	1	-	c1-l3:0:9	Du mir geschickt hast, gefällt mir recht wohl, und
+lemma	gefüget	fügen	v	fügeen	VERB/VVPP	gefüget	1	1	-	c6-l7:2:19	auch dieses alles also gefüget hat, wird uns nicht
+lemma	gehorsamste	gehorsam	adj	gehorsamste	NOUN/NN	gehorsam	1	1	-	c6-l7:2:31	danken Ihnen auf das Gehorsamste für Ihren väterlichen Segen.
+lemma	gehr	geheim	adj	gehrn	ADV/VVFIN	gehr	1	1	-	c7-l2:0:2	Lieber Hr. gehr. Rath! — Ich habe
+lemma	geige	Geige	n	geig	NOUN/NN	geigen	1	1	-	c1-l4:1:3	Nun ist meine Geige neu beseitet und ich
+lemma	geige	geigen	v	geige	NOUN/NN	geigen	1	1	Geige	c1-l4:1:27	verlangte, ob ich noch geige.
+lemma	geliebten	lieben	v	geliebt	ADJ/ADJA	lieben	1	1	-	c6-l6:0:31	Gottes Namen mit meiner geliebten Constanze trauen ließ.
+lemma	gepfiffen	pfeifen	v	gepfiffen	VERB/VVPP	pfeifen	1	1	-	c7-l3:2:14	gespielt, geblasen, gesungen und gepfiffen als — Figaro; keine
+lemma	gerenget	regnen	v	gerenget	ADV/ADJD	gerenget	1	1	-	c1-l5:1:11	(sagen die Mayländer) nicht gerenget, heunt hat es angefangen
+lemma	gerührten	rühren	v	gerührt	ADJ/ADJA	gerührt	1	1	-	c6-l6:2:28	da sie Zeuge unserer gerührten Herzen waren.
+lemma	gescheidtes	gescheit	adj	gescheidt	NOUN/NN	gescheidtes	1	1	-	c6-l5:4:12	kann man da etwas Gescheidtes denken und arbeiten?
+lemma	gescheiter	gescheit	adj	gescheiter	ADV/ADJD	gescheit	1	1	-	c1-l5:0:26	wären, wenn wir nicht gescheiter gewesen wären.
+lemma	gestrotzt	strotzen	v	gestrotzt	ADV/ADJD	strotzen	1	1	-	c6-l5:1:24	ungeachtet der schrecklichen Hitze, gestrotzt voll.
+lemma	getraute	getrauen	v	getraute	VERB/VVFIN	getrauen	1	1	-	c6-l2:3:3	Das simple Versprechen getraute ich mir schon herauszulocken,
+lemma	gewisse	gewiss	adv	gewiß	ADJ/ADJA	gewiss	1	1	-	c2-l5:3:5	Sie nur diese allzu gewisse Wahrheit, daß sich nicht
+lemma	gewissen	gewiss	adv	gewiß	ADJ/ADJA	gewiss	1	1	-	c8-l2:3:25	Nu! aber mit dem gewissen Nachdruck den dieses so
+lemma	gewisses	gewiss	adv	gewiß	NOUN/NN	gewiss	1	1	-	c6-l1:0:6	ist unterdessen etwas wenig Gewisses hier zu haben —
+lemma	gewiß	gewiss	adv	gewiß	ADV/ADJD	gewiss	1	15	-	c5-l2:4:13	meiner Sache hier so gewiß, daß ich ohne mindeste
+lemma	gewunschenen	wünschen	v	gewunschen	ADJ/ADJA	gewunschenen	1	1	-	c8-l3:3:15	lange mit heißer Sehnsucht gewunschenen Brief von Dir Liebste!
+lemma	giebt	geben	v	giebt	VERB/VVFIN	giebt	1	1	-	c1-l5:4:5	ist lustig zum Componiren! Giebt einen viel Gedanken.
+lemma	glaubst	glauben	v	glaubst	ADV/ADJD	glauben	1	1	-	c8-l5:2:1	Wen glaubst Du daß ich hier
+lemma	glocken-spiel	Glockenspiel	n	glocken-spiel	NOUN/NN	glockenspiel	1	1	-	c8-l7:2:13	des Papageno mit dem Glocken-Spiel, weil ich heute so
+lemma	glücklichste	glücklich	adj	glücklichst	ADJ/ADJA	glücklich	1	1	-	c8-l3:3:3	Nun kömmt der glücklichste Augenblick für mich; —
+lemma	großes	groß	adj	große	NOUN/NN	groß	1	2	-	c4-l5:2:26	kleinen Kopf so was Großes stecke.“
+lemma	grösser	groß	adj	gröss	ADV/ADJD	groß	1	1	-	c2-l3:1:13	bin ich älter und grösser geworden, und so auch
+lemma	größtem	groß	adj	größt	ADJ/ADJA	groß	1	1	-	c8-l7:0:1	Mit größtem Vergnügen und Freudengefühle fand
+lemma	hab	haben	v	hab	AUX/VAFIN	haben	1	2	-	c4-l6:2:9	ein Marsch seyn, da hab ich einen ganz simpeln
+lemma	hab	haben	v	habn	AUX/VAFIN	haben	1	2	-	c5-l1:1:4	Nun vom Erzbischof. Ich hab ein charmantes Zimmer im
+lemma	hauswirthschaft	Hauswirtschaft	n	hauswirthschaft	NOUN/NN	hauswirthschaft	1	1	-	c6-l1:4:9	selbst — versteht die Hauswirthschaft, hat das beste Herz
+lemma	hautbois-concert	Oboenkonzert	n	hautbois-concert	NOUN/NN	hautbois-concert	1	1	-	c2-l3:0:7	ein Präsent mit dem Hautbois-Concert gemacht; es wird im
+lemma	heil	heilig	adj	heil	NOUN/NN	heil	1	2	-	c1-l2:3:5	habe ich just den heil. Petrus mit dem Schlüsselamt,
+lemma	heil	heilig	adj	heil	ADV/ADJD	heil	1	2	-	c1-l2:4:6	die Ehre gehabt, des heil. Petrus Fuß zu S.
+lemma	heirathen	heiraten	v	heirathen	VERB/VVFIN	heirathen	1	3	-	c6-l2:4:31	treues Mädchen noch heute heirathen.
+lemma	herkömmt	herkommen	v	herkömmen	VERB/VVFIN	herkömmt	1	1	-	c4-l6:1:26	sind, wo die Stimme herkömmt. — Das ganze Orchester
+lemma	herzens	Herz	n	herzens	NOUN/NN	herzen	1	1	-	c6-l3:0:13	dem Triebe ihres guten Herzens zu folgen — nemlich
+lemma	hinaufgehoben	hinaufheben	v	hinaufgehoben	VERB/VVINF	hinaufheben	1	1	-	c1-l2:4:34	nämlichen alten Wolfgang Mozart hinaufgehoben.
+lemma	hineinthue	hineintun	v	hineinthue	VERB/VVFIN	hineinthue	1	1	-	c8-l2:3:5	wenn ich es wieder hineinthue so lasse ich es
+lemma	hingerissen	hinreißen	v	hingerissen	VERB/VVPP	hinreissen	1	1	-	c3-l3:2:20	alle Zuhörer wurden davon hingerissen — und war ein
+lemma	hinginge	hingehen	v	hingingen	VERB/VVFIN	hingehen	1	1	-	c4-l3:0:20	wo auf eine Collation hinginge.
+lemma	hitz	Hitze	n	hitz	NOUN/NN	hitz	1	2	-	c1-l5:0:6	auf der Reise viele Hitz ausgestanden, und der Staub
+lemma	hitz	Hitze	n	hitz	NOUN/NE	hitz	1	2	-	c1-l5:2:5	blas ich just vor Hitz! Nun reiß ich das
+lemma	hofcapelle	Hofkapelle	n	hofcapelle	NOUN/NN	hofcapelle	1	1	-	c1-l3:4:14	zu Portici in der Hofcapelle gesehen, und den Vesuvius
+lemma	hofe	Hof	n	hofe	NOUN/NN	hof	1	1	-	c8-l3:1:6	Tages spielte ich bei Hofe das neue Concert in
+lemma	häßlich	hässlich	adj	häßlich	ADV/ADJD	häßlich	1	1	-	c6-l1:3:3	Sie ist nicht häßlich, aber auch nichts weniger
+lemma	hörest	hören	v	hörest	NOUN/NE	hören	1	1	-	c1-l6:2:18	ein, Du siehest und hörest meine liebe Schwester sie
+lemma	hülfe	Hilfe	n	hülfe	NOUN/NN	helfen	1	1	-	c6-l1:0:16	es sich mit der Hülfe des Unsichern ganz gut
+lemma	impressario	impresario	n	impressario	NOUN/NN	impressario	1	1	-	c1-l6:3:8	auf dem Theatro. Der Impressario aber der Sig. Cassiglioni
+lemma	ins	ins	art	in	ADP/APPRART	ins	1	1	in	c3-l3:3:9	Freude nach der Sinfonie ins Palais Royal — nahm
+lemma	kannst	können	v	könnsten	AUX/VMFIN	können	1	4	-	c8-l6:0:18	Nachricht zu haben das kannst Du nicht glauben.
+lemma	kannst	können	v	kannst	VERB/VMFIN	können	1	4	-	c8-l6:2:22	meine Liebe, gesprochen wird, kannst Du Dir wohl einbilden.
+lemma	kannst	können	v	kannstn	VERB/VMFIN	können	1	4	-	c8-l7:3:1	Uebrigens kannst Du nicht glauben, wie
+lemma	kannst	können	v	könnsten	VERB/VMFIN	können	1	4	-	e1:0:1	Du kannst nicht glauben, wie artig
+lemma	kothig	kotig	adj	kothig	ADV/ADJD	kothig	1	1	-	c3-l2:3:14	zu weit oder zu kothig, denn in Paris ist
+lemma	köchen	Koch	n	köche	NOUN/NN	koch	1	1	-	c5-l1:2:15	die Ehre vor den Köchen zu sitzen. Nu —
+lemma	kömmt	kommen	v	kömmen	VERB/VVFIN	kömmt	1	1	-	c8-l3:3:1	Nun kömmt der glücklichste Augenblick für
+lemma	künsten	Kunst	n	künst	NOUN/NN	kunst	1	1	-	c3-l6:2:9	Reisen (wenigstens Leute von Künsten und Wissenschaften) ist man
+lemma	künstlichste	künstlich	adj	künstlichste	NOUN/NN	künstlich	1	1	-	c6-l3:3:16	daß ich eben das Künstlichste und Schönste in der
+lemma	küsse	Kuss	n	küsse	NOUN/NN	küssen	1	1	-	c8-l1:4:0	Küsse tausend mal unsern Carl,
+lemma	küssend	küssen	v	küssend	ADV/ADJD	küssen	1	1	-	c8-l1:4:12	Dich von ganzem Herzen küssend Dein ewig getreuer Mozart.
+lemma	küßte	küssen	v	küßen	VERB/VVFIN	küßte	1	1	-	c8-l3:4:8	Triumphe in mein Zimmer, küßte den Brief unzähligemale, ehe
+lemma	lachend	lachen	v	lachend	ADV/ADJD	lachen	1	1	-	c4-l5:2:13	seinen Beifall und sagte lachend: „Man sollte nicht meinen,
+lemma	lange	lange	adv	lang	ADJ/ADJA	lange	1	2	lang	c4-l4:2:19	Gattung Leute, ausgenommen für lange Ohren nicht.
+lemma	lauffen	laufen	v	lauffen	VERB/VVFIN	lauffen	1	1	-	c1-l6:3:24	darvon sagen, denn sonst lauffen alle Leute hinein, und
+lemma	launigten	launig	adj	launigt	ADJ/ADJA	launigten	1	1	-	c7-l6:1:5	das Vergnügen einer flatterhaften launigten Liebe nicht himmelweit von
+lemma	lauter	lauter	adv	laut	DET/PIAT	laut	1	1	laut	c3-l5:4:18	Oboe, Horn und Fagott, lauter Leute vom Marschall, Deutsche,
+lemma	lautesten	laut	adj	lautester	ADJ/ADJA	laut	1	1	-	c7-l6:0:13	und zwar mit dem lautesten Beifall.
+lemma	lebe	leben	v	lebe	NOUN/NN	leben	1	2	-	c1-l4:4:1	Addio! Lebe wohl, meine einzige Lustbarkeit
+lemma	lebetag	Lebtag	n	lebetag	NOUN/NN	lebetag	1	1	-	c3-l1:0:12	ich habe mich mein Lebetag niemals so ennuyirt.
+lemma	lection	Lektion	n	lection	NOUN/NN	lection	1	1	-	c1-l5:3:14	unser ein Singmeister, der Lection gibt, in dem letzten
+lemma	lectionen	Lektion	n	lectione	NOUN/NN	lectionen	1	1	-	c6-l7:4:3	und nun schon 3 Lectionen im Englischen genommen. —
+lemma	leibel	Leibchen	n	leibel	NOUN/NN	leibel	1	1	-	c1-l5:2:10	Nun reiß ich das Leibel auf.
+lemma	leimt	leimen	v	leimt	VERB/VVFIN	leimen	1	1	-	c2-l2:1:23	er Späne ein und leimt sie hinein, damit er
+lemma	letzten	letzt	adj	letzter	NOUN/ADJA	letzt	1	9	-	c4-l1:3:13	weil sie von den letzten ist, nicht gekannt. Ich
+lemma	lieber	lieb	adj	lieber	ADV/ADJD	lieb	1	5	-	c6-l5:0:9	gemacht, weil es Ihnen lieber ist.
+lemma	lieber	lieb	adj	lieber	ADP/APPR	lieb	1	5	-	c7-l2:0:0	Lieber Hr. gehr. Rath! —
+lemma	liebste	lieb	adj	liebste	NOUN/NN	lieb	1	2	-	c7-l5:2:1	Meine liebste, beste Schwester! wenn Du
+lemma	liebster	lieb	adj	liebster	ADJ/ADJA	lieb	1	5	-	c5-l2:0:12	Sie als mein bester liebster Vater sind es gewiß
+lemma	liebstes	lieb	adj	liebstes	ADJ/ADJA	lieb	1	1	-	c8-l1:3:0	Liebstes Weibchen! ich sehne mich
+lemma	logire	logieren	v	logire	ADV/ADJD	logire	1	1	-	c3-l4:4:15	Grimm, wo ich nun logire, ein hübsches Zimmerl mit
+lemma	logiren	logieren	v	logiren	ADJ/VVFIN	logiren	1	1	-	c5-l1:1:18	logirt; Brunetti und Ceccarelli logiren in einem andern Hause,
+lemma	logirt	logieren	v	logirt	VERB/VVFIN	logirt	1	1	-	c5-l1:1:14	Hause wo der Erzbischof logirt; Brunetti und Ceccarelli logiren
+lemma	löffelte	löffeln	v	löffelten	VERB/VVFIN	löffeln	1	1	-	c7-l3:1:4	Ich tanzte nicht und löffelte nicht. Das erstere, weil
+lemma	manche	manch	det	mancher	DET/PIAT	mancher	1	1	-	c8-l5:4:9	schrieb, fiel mir auch manche Thräne aufs Papier; nun
+lemma	manne	Mann	n	manne	NOUN/NN	mannen	1	1	-	c7-l2:4:5	überzeugt mit einem deutschen Manne zu reden ließ ich
+lemma	mayländer	Mailänder	n	mayländer	NOUN/NN	mayländer	1	1	-	c1-l5:1:9	Monath durch (sagen die Mayländer) nicht gerenget, heunt hat
+lemma	meinen	mein	det	meinen	VERB/VVINF	mein	1	7	meinen	c4-l5:2:17	lachend: „Man sollte nicht meinen, daß in einem so
+lemma	meinste	meinen	v	meinst	PRON/PIS	meinste	1	1	-	c1-l6:4:27	Hausthüre auf, und was meinste wohl was sich zugetragen?
+lemma	meisten	meist	adj	meister	PRON/PIS	meist	1	1	-	c5-l6:4:10	erkundigen, was mir am meisten am Herzen liegt, nämlich
+lemma	meynte	meinen	v	meynte	VERB/VVFIN	meynte	1	1	-	c1-l1:2:19	singen nur allein, so meynte man, sie sänge nicht,
+lemma	mindeste	mindest	adj	minde	ADJ/ADJA	mindeste	1	1	-	c5-l2:4:17	gewiß, daß ich ohne mindeste Ursache quittirt hätte.
+lemma	mir	ich	pron	sich	PRON/PPER	ich	1	67	sich	c4-l1:0:13	zur Regel wird es mir sein lieber zu Fuß
+lemma	miserablen	miserabel	adj	miserabl	ADJ/ADJA	miserabel	1	1	-	c1-l2:0:8	und Dank! nebst meiner miserablen Feder gesund und küsse
+lemma	mittwochs	Mittwoch	n	mittwochs	NOUN/NN	mittwochs	1	1	-	c8-l3:1:14	in D; folgenden Tags Mittwochs den 15. vor Mittag
+lemma	mitwoch	Mittwoch	n	mitwoch	ADV/ADV	mitwoch	1	1	-	c7-l3:4:0	Mitwoch werde ich hier den
+lemma	monath	Monat	n	monath	NOUN/NN	monath	1	1	-	c1-l5:1:5	hat es ein ganzes Monath durch (sagen die Mayländer)
+lemma	mußt	müssen	v	mußt	VERB/VMFIN	mußt	1	1	-	c8-l7:3:28	Gallerie. Sobald Du zurückkommst, mußt Du es versuchen.
+lemma	mädl	Mädel	n	mädl	NOUN/NN	mädl	1	1	-	c3-l7:1:2	Das arme Mädl ist alle Tage in
+lemma	möcht	mögen	v	möchen	AUX/VMFIN	möcht	1	1	-	c8-l4:1:26	weil mein Wagen (ich möcht ihm ein Busserl geben)
+lemma	möchte	mögen	v	möchten	AUX/VMFIN	mögen	1	1	-	c4-l5:4:23	man Blut dabei schwitzen möchte.
+lemma	möchten	mögen	v	möchten	AUX/VMFIN	mögen	1	1	-	c2-l4:4:9	so viele Jahre leben möchten, als man Jahre braucht,
+lemma	möget	mögen	v	möget	VERB/VMFIN	mögen	1	1	-	c7-l1:4:20	so gut zusammen leben möget, als wie — wir
+lemma	mögtest	mögen	v	mögtest	ADV/ADJD	mögtest	1	1	-	c1-l1:0:37	lustig Dein Leben zubringen mögtest.
+lemma	nachts	nachts	adv	nacht	NOUN/NN	nachts	1	1	Nacht	c4-l3:4:1	Des Nachts, ehe er einschläft und
+lemma	nemlich	nämlich	adv	nemlich	ADV/ADV	nemlich	1	2	-	c4-l6:1:11	nichts als 5 Stimmen, nemlich in 3 Posaunen und
+lemma	nemlich	nämlich	adv	nemlich	ADV/ADJD	nemlich	1	2	-	c6-l3:0:16	Herzens zu folgen — nemlich Dir meine liebe Schwester
+lemma	nemlichen	nämlich	adv	nemlich	ADJ/ADJA	nemlichen	1	1	-	c4-l6:1:19	Waldhorn, welche an dem nemlichen Orte placirt sind, wo
+lemma	neues	neu	adj	neue	NOUN/NN	neu	1	1	-	c2-l4:4:17	braucht, um gar nichts Neues mehr in der Musik
+lemma	niederschlägt	niederschlagen	v	niederschlägen	VERB/VVFIN	niederschlagen	1	1	-	c7-l4:0:9	Nachricht, die mich sehr niederschlägt — um so mehr,
+lemma	notenfeder	Notenfeder	n	notenfed	NOUN/NN	notenfeder	1	1	-	c1-l4:0:10	die Feder ist eine Notenfeder und keine Schriftfeder.
+lemma	nothwendiger	notwendig	adj	nothwendig	ADJ/ADJA	nothwendiger	1	1	-	c4-l6:2:3	Da muß nun nothwendiger Weise ein Marsch seyn,
+lemma	nothwendigste	notwendig	adj	nothwendig	ADJ/NN	nothwendigste	1	1	-	c4-l7:1:28	überstanden; mithin nur das nothwendigste.
+lemma	nützte	nützen	v	nützte	VERB/VVFIN	nützen	1	1	-	c3-l4:1:9	genug geweint — was nützte es aber? — Ich
+lemma	october	Oktober	n	october	NOUN/NN	october	1	1	-	c7-l6:0:1	Den 29. October ging meine Opera D.
+lemma	ouvertüren	Ouvertüre	n	ouvertür	NOUN/NN	ouvertüre	1	1	-	c1-l4:3:7	vier italienische Sinfonien [Ouvertüren] componirt, außer den Arien, deren
+lemma	pantomime	Pantomime	n	pantomim	NOUN/NN	pantomime	1	1	-	c2-l4:3:7	durchs Deuten und durch Pantomime meine Gesinnungen und Gedanken
+lemma	passable	passabel	adj	passabl	ADJ/ADJA	passabel	1	1	-	c6-l7:4:13	hoffe ich so ganz passable die engländischen Bücher lesen
+lemma	passionirter	passioniert	adj	passionirt	ADJ/ADJA	passionirter	1	1	-	c2-l2:0:9	nicht selbst ein so passionirter Liebhaber der Musik wäre
+lemma	petschier	Petschaft	n	petschier	NOUN/NN	petschieren	1	1	-	c7-l6:4:3	Wegen dem doppelten Petschier ist es also: das
+lemma	petschirte	petschieren	v	petschiren	VERB/VVFIN	petschirte	1	1	-	c7-l6:4:12	taugte nichts — ich petschirte also schwarz darauf,
+lemma	pfeift	pfeifen	v	pfeift	VERB/VVFIN	pfeifen	1	1	-	c1-l3:1:11	geht. Singt er noch? Pfeift er noch?
+lemma	pianoforte	Pianoforte	n	pianofort	NOUN/NN	pianoforte	1	1	-	c3-l5:4:13	auf Sonntag — auf Pianoforte, Oboe, Horn und Fagott,
+lemma	placirt	platzieren	v	placirt	NOUN/VVINF	placirt	1	1	-	c4-l6:1:21	an dem nemlichen Orte placirt sind, wo die Stimme
+lemma	populare	populär	adj	popular	NOUN/NN	populare	1	1	-	c4-l4:2:3	Wegen dem sogenannten populare sorgen Sie nichts, denn
+lemma	portiunculatage	Portiunkulatag	n	portiunculatag	NOUN/NN	portiunculatage	1	1	-	c6-l7:0:14	und ich zusammen am Portiunculatage bei den Theatinern unsere
+lemma	portrait	Porträt	n	portrait	NOUN/NN	portrait	1	2	-	c2-l1:4:26	Ernsthaftigkeit, wie ich im Portrait bin.
+lemma	portrait	Porträt	n	portrait	NOUN/NE	portrait	1	2	-	c8-l2:2:11	ich mit Deinem lieben Portrait anfange, würdest Du wohl
+lemma	posttage	Posttag	n	posttage	NOUN/NN	posttage	1	1	-	c6-l6:0:2	… da ich 2 Posttage umsonst auf eine Antwort
+lemma	quittirt	quittieren	v	quittirt	VERB/VVINF	quittirt	1	1	-	c5-l2:4:19	ich ohne mindeste Ursache quittirt hätte.
+lemma	rechten	recht	adv	rechter	ADJ/ADJA	recht	1	1	-	c7-l6:2:19	nicht minder große zur rechten Zeit aufzuhören.
+lemma	reiß	reißen	v	reiß	VERB/VVFIN	reißen	1	1	-	c1-l5:2:7	just vor Hitz! Nun reiß ich das Leibel auf.
+lemma	respect	Respekt	n	respect	NOUN/NN	respect	1	1	-	c5-l3:2:23	die fürstlichen Zimmer den Respect nicht verlieren, wenn ihn
+lemma	samstags	Samstag	n	samstags	ADV/ADV	samstags	1	1	-	c8-l2:0:2	Wir glaubten Samstags nach Tisch in Dresden
+lemma	schaudervollsten	schaudervoll	adj	schaudervollst	ADJ/ADJA	schaudervollsten	1	1	-	c5-l5:2:20	Musik, auch in der schaudervollsten Lage, das Ohr niemals
+lemma	schlaf	schlafen	v	schlaf	VERB/VVFIN	schlafen	1	1	-	c8-l2:3:41	schnell: Gute Nacht, Mauserl, schlaf gesund!
+lemma	schläfert	schläfern	v	schläferen	VERB/VVFIN	schläfern	1	1	-	c1-l4:4:19	ist ein Schlafland; es schläfert Einen immer.
+lemma	schneiet	schneien	v	schneiet	VERB/VVFIN	schneien	1	1	-	c4-l1:4:2	Sagen Sie, schneiet es in Salzburg auch
+lemma	schreckendes	schreckend	adj	schreckende	NOUN/NN	schreckend	1	1	-	c7-l4:1:36	Bild nicht allein nichts Schreckendes mehr für mich hat,
+lemma	schreibe	schreiben	v	schreibe	NOUN/VVIMP	schreiben	1	8	-	c1-l3:1:0	Schreibe mir, wie es dem
+lemma	schreibst	schreiben	v	schreibst	ADV/ADV	schreiben	1	1	-	c1-l1:0:16	von der Du mir schreibst, Dich so sehr ergötzt
+lemma	schädlichste	schädlich	adj	schädlichste	NOUN/NN	schädlich	1	1	-	c5-l6:2:14	Reimens wegen — das Schädlichste.
+lemma	schöne	schön	adj	schöne	NOUN/NN	schön	1	3	-	c4-l3:3:18	feuriger Mann in seine Schöne sein kann.
+lemma	schönste	schön	adj	schöne	NOUN/NN	schön	1	1	-	c6-l3:3:18	eben das Künstlichste und Schönste in der Musik nicht
+lemma	sechste	sechst	adj	sechster	ADJ/ADJA	sechst	1	1	-	c8-l2:4:3	Heute ist der sechste Tag daß ich von
+lemma	seckirt	sekkieren	v	seckirt	NOUN/NN	seckirt	1	1	-	c1-l5:0:15	hat uns beständig impertinent seckirt, daß wir gewiß erstickt
+lemma	seeligkeit	Seligkeit	n	seeligkeit	NOUN/NN	seeligkeit	1	1	-	c7-l6:1:11	nicht himmelweit von der Seeligkeit unterschieden, welche eine wahrhafte,
+lemma	selbe	derselbe	det	selbe	ADV/ADJD	selbe	1	2	-	c4-l1:3:22	versichere Sie, wenn Sie selbe gehört hätten, sie würde
+lemma	selbe	derselbe	det	selbe	ADV/ADV	selbe	1	2	-	c4-l2:2:9	in einer Arie wie selbe im 2. Act Fuor
+lemma	seufzt	seufzen	v	seufzt	VERB/VVFIN	seufzen	1	1	-	c4-l7:3:10	worüber man noch mehr seufzt; allein man muß aus
+lemma	seyn	sein	v	seyn	VERB/VVFIN	seyn	1	1	-	c4-l6:2:7	nothwendiger Weise ein Marsch seyn, da hab ich einen
+lemma	siehest	sehen	v	siehest	VERB/VVFIN	siehest	1	1	-	c1-l6:2:16	Schwester kräftig ein, Du siehest und hörest meine liebe
+lemma	simpeln	simpel	adj	simpeln	ADJ/ADJA	simpel	1	1	-	c4-l6:2:13	hab ich einen ganz simpeln Marsch auf 2 Violin,
+lemma	simple	simpel	adj	simple	ADJ/ADJA	simpel	1	1	-	c6-l2:3:1	Das simple Versprechen getraute ich mir
+lemma	sinfonien	Sinfonie	n	sinfonien	NOUN/NE	sinfonie	1	2	-	c1-l4:3:6	ich schon vier italienische Sinfonien [Ouvertüren] componirt, außer den
+lemma	singen	singen	v	singe	NOUN/NN	singen	1	6	-	c2-l7:1:18	gemeldet habe, von ihr singen hörten, … denn sie
+lemma	sogenannten	sogenannt	adj	sogenannter	ADJ/ADJA	sogenannt	1	1	-	c4-l4:2:2	Wegen dem sogenannten populare sorgen Sie nichts,
+lemma	solcher	solch	det	solcher	PRON/PIAT	solcher	1	1	-	c5-l5:4:4	Der Janitscharen-Chor ist als solcher Alles was man verlangen
+lemma	sonate	Sonate	n	sonat	NOUN/NN	sonate	1	2	-	c2-l5:2:6	darauf ganz serieuse meine Sonate. Hören Sie, ich konnte
+lemma	sonaten	Sonate	n	sonat	NOUN/NN	sonate	1	3	-	c2-l2:3:9	schon alle meine 6 Sonaten recht oft auswendig gespielt;
+lemma	sonntage	Sonntag	n	sonntage	NOUN/NN	sonntag	1	1	-	c6-l3:1:7	zu dem ich alle Sonntage gehe, hat mir alle
+lemma	sonntags	Sonntag	n	sonntags	ADV/ADV	sonntags	1	1	-	c8-l2:0:13	kamen aber erst gestern Sonntags um 6 Uhr Abends
+lemma	sorgen	sorgen	v	sorge	NOUN/NN	sorgen	1	2	Sorge	c5-l2:4:0	Sorgen Sie sich gar nichts
+lemma	soupiren	soupieren	v	soupir	NOUN/NN	soupiren	1	1	-	c5-l4:4:13	guten Freunde, wo ich soupiren könnte, essen schon um
+lemma	spaggat-machen	Spagat	n	spaggat-machen	NOUN/NN	spaggat-machen	1	1	-	c1-l4:4:13	englischen Schritten, Capriol- und Spaggat-machen. Italien ist ein Schlafland;
+lemma	sperrsitze	Sperrsitz	n	sperrsitze	NOUN/NN	sperrsitz	1	1	-	c6-l4:3:16	vorher konnte man keine Sperrsitze mehr haben, weder auf
+lemma	späne	Span	n	späne	NOUN/NN	spänen	1	1	-	c2-l2:1:20	und dann legt er Späne ein und leimt sie
+lemma	späße	Spaß	n	späß	NOUN/NN	spaß	1	2	-	c5-l1:3:5	Tische werden grobe einfältige Späße gemacht; mit mir macht
+lemma	späße	Spaß	n	späße	NOUN/NN	spaß	1	2	-	c5-l1:3:11	mit mir macht keiner Späße, weil ich kein Wort
+lemma	statten	vonstatten	adv	statte	NOUN/NN	statten	1	1	-	c7-l7:4:21	mir noch besser von Statten gehen, denn ich wohne
+lemma	subject	Subjekt	n	subject	NOUN/NN	subject	1	1	-	c6-l3:4:28	kann man das eintretende Subject nicht deutlich und klar
+lemma	sänge	singen	v	sängen	NOUN/VVFIN	singen	1	1	-	c1-l1:2:22	so meynte man, sie sänge nicht, denn den Mund
+lemma	säue	Sau	n	säue	NOUN/NN	sau	1	1	-	c1-l1:4:15	wie ich: wie die Säue brumzen.
+lemma	tags	Tag	n	tags	NOUN/NN	tags	1	1	-	c8-l3:1:13	Concert in D; folgenden Tags Mittwochs den 15. vor
+lemma	tanzte	tanzen	v	tanzten	VERB/VVFIN	tanzen	1	1	-	c7-l3:1:1	Ich tanzte nicht und löffelte nicht.
+lemma	thräne	Träne	n	thran	NOUN/NN	thräne	1	1	-	c8-l5:4:10	fiel mir auch manche Thräne aufs Papier; nun aber
+lemma	thun	tun	v	thunn	VERB/VVFIN	thun	1	6	-	c4-l2:0:34	Haaren etwas zu Gefallen thun.
+lemma	thun	tun	v	thun	ADV/NN	thun	1	6	-	c8-l6:3:32	Motion und Luftveränderung gut thun, so wie es mir
+lemma	thür	Tür	n	thür	NOUN/NN	thür	1	1	-	c5-l3:1:20	zu verstatten, ihn zur Thür hinaus schmeißt und einen
+lemma	treues	treu	adj	treeu	ADJ/ADJA	treu	1	1	-	c6-l2:4:27	wollte ich mein liebes treues Mädchen noch heute heirathen.
+lemma	trösten	trösten	v	trösen	VERB/VVFIN	trösten	1	2	-	c3-l4:2:7	sich recht aus, — trösten Sie sich aber endlich
+lemma	tröstendes	tröstend	adj	tröstendes	NOUN/NN	tröstend	1	1	-	c7-l4:1:46	sehr viel Beruhigendes und Tröstendes!
+lemma	trüge	trügen	v	trüge	VERB/VVFIN	trügen	1	1	-	c4-l4:0:9	ich den Sporn nicht trüge? Ich sagte, ich hätte
+lemma	tänzen	Tanz	n	tänze	NOUN/NN	tanz	1	1	-	c4-l7:1:13	immer mit den verwünschten Tänzen zu thun gehabt habe.
+lemma	uebrigens	übrigens	adv	uebrigens	ADV/ADV	uebrigens	1	1	-	c8-l7:3:0	Uebrigens kannst Du nicht glauben,
+lemma	ums	ums	art	um	ADP/APPRART	ums	1	1	um	c3-l1:4:14	Hausthüre stehen, bis ich ums Eck herum war, und
+lemma	unangehehmeres	unangenehm	adj	unangehehmere	NOUN/NN	unangehehmeres	1	1	-	c6-l2:0:3	Es ist nichts Unangehehmeres als wenn man so
+lemma	unentbehrlichste	unentbehrlich	adj	unentbehrlichste	NOUN/NN	unentbehrlich	1	1	-	c5-l6:2:7	für die Musik das Unentbehrlichste, aber Reime — des
+lemma	ungewißheit	Ungewissheit	n	ungewißheit	NOUN/NN	ungewißheit	1	1	-	c6-l2:0:9	wenn man so in Ungewißheit, ohne zu wissen was
+lemma	unnöthiges	unnötig	adj	unnöthig	ADJ/ADJA	unnöthiges	1	1	-	c4-l2:4:8	fällt auch hier ein unnöthiges Stück weg und der
+lemma	uns	wir	pron	sich	PRON/PPER	wir	1	13	sich	c8-l7:4:8	wohl! — wir sehen uns wieder!
+lemma	unserer	unser	det	unserer	DET/PPOSS	unser	1	2	-	c1-l3:2:19	ein G'seis macht, wie unserer.
+lemma	unsern	unser	det	unsern	DET/PPOSAT	unsern	1	2	-	c7-l1:2:5	bedauern nun nichts als unsern lieben Vater, welcher nun
+lemma	unsern	unser	det	unsern	PRON/PPOSAT	unsern	1	2	-	c8-l1:4:3	Küsse tausend mal unsern Carl, und ich bin
+lemma	unvermuthete	unvermutet	adj	unvermuthet	ADJ/ADJA	unvermuthete	1	1	-	c8-l4:4:15	um damit ich durch unvermuthete Zufälle nicht wieder in
+lemma	unvermutheten	unvermutet	adj	unvermuthet	ADJ/ADJA	unvermutheten	1	1	-	c7-l5:0:8	traurigen und mir ganz unvermutheten Todesfall unseres liebsten Vaters
+lemma	unzähligemale	unzähligemal	adv	unzähligemalen	VERB/ADV	unzähligemale	1	1	-	c8-l3:4:11	Zimmer, küßte den Brief unzähligemale, ehe ich ihn erbrach,
+lemma	vacanzreise	Vakanzreise	n	vacanzreise	NOUN/NN	vacanzreise	1	1	-	c2-l6:0:21	ist. Es war eine Vacanzreise und weiter nichts.
+lemma	verfluchte	verfluchen	v	verflucht	ADJ/ADJA	verfluchen	1	1	-	c7-l1:3:23	er wieder an das verfluchte Capellhaus gebunden!
+lemma	verstatten	verstatten	v	verstatt	NOUN/NN	verstatten	1	1	-	c5-l3:1:17	wenigstens den Zutritt zu verstatten, ihn zur Thür hinaus
+lemma	verstecken	Versteck	n	verstecken	NOUN/NN	verstecken	1	1	-	c8-l5:2:17	im Auge Gottes … Verstecken gespielt hat …
+lemma	versuchest	versuchen	v	versuchest	ADV/ADJD	versuchen	1	1	-	c8-l6:3:21	Du ein anderes Bad versuchest, dabei wird Dir auch
+lemma	verwünschten	verwünschen	v	verwünscht	ADJ/ADJA	verwünschen	1	1	-	c4-l7:1:12	noch immer mit den verwünschten Tänzen zu thun gehabt
+lemma	violinen	Violine	n	violin	NOUN/NN	violine	1	1	-	c2-l3:2:11	Seite 10 bis 11 Violinen, 4 Bratschen, 2 Oboen,
+lemma	vorgeritten	vorreiten	v	vorgeritten	VERB/VVIZU	vorreiten	1	1	-	c4-l2:1:10	ihm seine 1. Arie vorgeritten und er war sehr
+lemma	wachs	Wachs	n	wach	NOUN/NN	wachsen	1	1	-	c4-l1:1:15	von den Mannheimern wie Wachs zusammengeschmolzen worden.
+lemma	wachsthum	Wachstum	n	wachsthum	NOUN/NN	wachsthum	1	1	-	c6-l1:3:23	und in einem schönen Wachsthum.
+lemma	was	was	pron	wer	PRON/PIS	was	1	15	wer	c8-l2:2:6	Dir alles erzählen wollte was ich mit Deinem lieben
+lemma	weck	wecken	v	weck	VERB/VVFIN	wecken	1	1	-	c1-l6:4:6	heunt von Graf Firmian weck um nach Haus zu
+lemma	weggelassen	weglassen	v	weggelassen	VERB/VVINF	weglassen	1	1	-	c2-l4:0:22	sie mich nicht mehr weggelassen.
+lemma	weißt	wissen	v	weißen	VERB/VVFIN	weißen	1	1	-	c1-l3:2:0	Weißt Du, warum ich auf
+lemma	wen	wer	pron	wen	PRON/PWS	wer	1	1	-	c8-l5:2:0	Wen glaubst Du daß ich
+lemma	wenigen	wenig	det	weniger	DET/PIAT	wenig	1	1	-	c6-l2:1:6	ich Ihnen wegen dem wenigen Gewissen meine Meinung sagen.
+lemma	weniger	wenig	det	weniger	ADV/PIS	wenig	1	1	-	c6-l1:3:7	häßlich, aber auch nichts weniger als schön, — ihre
+lemma	werthen	wert	adj	werth	ADJ/ADJA	werth	1	1	-	c2-l6:0:12	es mir und meinen werthen Freunden in Kirchheim-Boland ergangen
+lemma	wills	wollen	v	wills	ADV/ADV	wills	1	1	-	c2-l1:2:10	Papa. Je nun, Gott wills so haben. Es wird
+lemma	wirds	werden	v	wirds	AUX/VAFIN	wirds	1	1	-	c8-l7:1:19	gegeben. Bei der Mama wirds wohl heißen, die schaut
+lemma	wuth	Wut	n	wuth	NOUN/NN	wuth	1	1	-	c6-l4:2:4	Ich war so in Wuth, daß ich mich nicht
+lemma	wälschen	welsch	adj	wälsch	DET/ADJA	wälschen	1	1	-	c5-l6:1:4	Warum gefallen denn die wälschen komischen Opern überall? —
+lemma	wärest	sein	v	sestin	AUX/VAFIN	sein	1	1	-	c7-l5:2:8	wenn Du noch unversorgt wärest, so brauchte es dieses
+lemma	wünschest	wünschen	v	wünschest	VERB/VVFIN	wünschen	1	1	-	c7-l5:1:20	liebenden und schützenden Bruder wünschest, Du ihn gewiß bei
+lemma	würdest	werden	v	würdeen	VERB/VMFIN	werden	1	1	-	c8-l2:2:13	Deinem lieben Portrait anfange, würdest Du wohl oft lachen.
+lemma	zitterte	zittern	v	zitteren	VERB/VVFIN	zittern	1	1	-	c3-l6:0:15	beyden empfehlt, bey mir) zitterte ich vor Freude, —
+lemma	zurückkommst	zurückkommen	v	zurückkommsen	VERB/VVFIN	zurückkommen	1	1	-	c8-l7:3:27	der Gallerie. Sobald Du zurückkommst, mußt Du es versuchen.
+lemma	zusammengeschmolzen	zusammenschmelzen	v	zusammengeschmolzen	VERB/VVPP	zusammenschmelzen	1	1	-	c4-l1:1:16	den Mannheimern wie Wachs zusammengeschmolzen worden.
+pos	recht	recht	adv	recht	NOUN/NN	recht	2	15	recht,Recht	c4-l7:0:7	wenn ich Ihnen dermalen recht sehr wenig schreibe, denn
+pos	sein	sein	v	sein	DET/PPOSAT	sein	2	17	sein,sein#2	c4-l1:0:14	Regel wird es mir sein lieber zu Fuß zu
+pos	allen	alle	det	alle	NOUN/NE	alle	1	5	alle	c7-l4:3:7	doch kein Mensch von Allen, die mich kennen, sagen
+pos	bedenken	bedenken	v	bedenken	NOUN/NN	bedenken	1	2	bedenken	c2-l5:3:0	Bedenken Sie nur diese allzu
+pos	bessern	bessern	v	bessern	ADJ/ADJA	bessern	1	2	bessern	c7-l5:4:26	sind ihn in einer bessern Welt — wieder —
+pos	dermaligen	dermalig	adj	dermalig	NOUN/NN	dermaligen	1	1	dermalig	c2-l7:4:31	haben Ihnen aus den dermaligen betrübten Umständen herauszuhelfen.
+pos	deuten	deuten	v	deuten	NOUN/NN	deuten	1	1	deuten	c2-l4:3:4	Ich kann sogar durchs Deuten und durch Pantomime meine
+pos	drohen	drohen	v	drohen	NOUN/NN	drohen	1	1	drohen	c4-l5:3:29	dann das minacciar, das Drohen, gänzlich ausdrücken.
+pos	flatterhaften	flatterhaft	adj	flatterhaft	NOUN/ADJA	flatterhaft	1	1	flatterhaft	c7-l6:1:4	Ist das Vergnügen einer flatterhaften launigten Liebe nicht himmelweit
+pos	morgens	Morgen	n	morgen	ADV/ADV	morgens	1	3	morgen,Morgen	c4-l3:4:6	ehe er einschläft und Morgens da er erwacht, singt
+pos	nimmer	nimmer	adv	nimmer	NOUN/NN	nimmer	1	2	nimmer	c7-l5:4:31	wieder — und auf nimmer scheiden zu sehen.
+pos	recht	recht	adv	recht	NOUN/ADV	recht	1	15	recht,Recht	c1-l1:0:3	Mich freut es recht von ganzem Herzen, daß
+pos	reimens	reimen	v	reimen	NOUN/NN	reimen	1	1	reimen	c5-l6:2:11	aber Reime — des Reimens wegen — das Schädlichste.
+pos	unsichern	unsicher	adj	unsicher	NOUN/NN	unsichern	1	1	unsicher	c6-l1:0:18	mit der Hülfe des Unsichern ganz gut hier leben
+pos	versehenen	versehen	v	versehen	ADJ/ADJA	versehen	1	1	versehen	c3-l2:0:14	und ohne mit Kamin versehenen großen Zimmer warten.
+pos	verwirrt	verwirren	v	verwirren	ADV/ADJD	verwirren	1	1	verwirren	c6-l5:4:6	ist unruhig, mein Kopf verwirrt, wie kann man da
+pos	vorschreiben	vorschreiben	v	vorschreiben	NOUN/NN	vorschreiben	1	1	vorschreiben	c4-l7:1:0	Vorschreiben habe ich mir nicht
+pos	wanken	wanken	v	wanken	NOUN/NN	wanken	1	1	wanken	c5-l5:3:4	Man sieht das Zittern, Wanken, man sieht wie sich
+pos	weh	weh	adj	weh	NOUN/NN	weh	1	1	weh	c8-l6:0:3	Was mir das weh thut daß ich bis
+pos	weinen	weinen	v	weinen	NOUN/NN	weinen	1	3	weinen	c3-l4:2:0	Weinen Sie, weinen Sie sich
+pos	weinens	weinen	v	weinen	NOUN/NN	weinen	1	1	weinen	c2-l5:2:13	ich konnte mich des Weinens nicht enthalten. Endlich kamen
+pos	zittern	zittern	v	zittern	NOUN/NN	zittern	1	1	zittern	c5-l5:3:3	Man sieht das Zittern, Wanken, man sieht wie
+ptcp	verliebt	verliebt	adj	verlieben	VERB/VVPP	verliebt	2	2	-	c4-l3:3:7	so in seine Arie verliebt, als es nur immer
+ptcp	überzeugt	überzeugt	adj	überzeugen	VERB/VVPP	überzeugt	2	2	-	c7-l2:4:1	Gänzlich überzeugt mit einem deutschen Manne
+ptcp	entfernt	entfernt	adj	entfernen	VERB/VVPP	entfernt	1	1	-	c7-l1:3:7	nicht weit von ihm entfernt und er kann öfters
+ptcp	entschlossen	entschlossen	adj	entschließen	VERB/VVFIN	entschlossen	1	1	entschließen	c8-l4:3:4	Nun bin ich fest entschlossen meine Sachen hier so
+ptcp	geschwind	geschwind	adj	geschwind	VERB/VVINF	geschwind	1	2	geschwind	c6-l3:4:13	man sie nur nicht geschwind spiele; — denn wenn
+ptcp	geschwind	geschwind	adj	geschwind	VERB/VVFIN	geschwind	1	2	geschwind	c7-l4:4:13	lassen, damit ich so geschwind als es menschenmöglich ist,
+ptcp	heißen	heiß	adj	heißen	VERB/VVINF	heiß	1	1	-	c8-l7:1:21	der Mama wirds wohl heißen, die schaut die Oper,
+ptcp	rothe	rot	adj	rothen	VERB/VVFIN	rothe	1	1	-	c7-l6:4:8	ist es also: das rothe … taugte nichts —
+ptcp	unversorgt	unversorgt	adj	unversorgen	VERB/VVPP	unversorgt	1	1	-	c7-l5:2:7	Schwester! wenn Du noch unversorgt wärest, so brauchte es
+ptcp	versessen	versessen	adj	versessen	VERB/VVINF	versessen	1	1	versessen	c4-l5:4:17	auf den alten Schlendrian versessen, daß man Blut dabei

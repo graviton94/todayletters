@@ -1,0 +1,213 @@
+kind	form	our_key	our_pos	sp_lemma	sp_pos	simplemma	n	of	sp_key	ref	context
+lemma	lo	lo	pron	él	PRON	él	80	80	él	p4:0:3	Mi mujer te lo estima infinito.
+lemma	me	me	pron	yo	PRON	yo	74	74	yo	p1:0:7	y buena vida: nadie me sacará de esta opinión.
+lemma	se	se	pron	él	PRON	él	54	54	él	p3:0:4	…pues parece que Dios se ha acordado de mí.
+lemma	te	te	pron	tú	PRON	tú	50	50	tú	p2:0:3	…tal vez tú te conservarás como en la
+lemma	del	de	prep	del	ADP	del	31	31	-	p2:0:9	como en la escuela del P. Joaquín.
+lemma	le	le	pron	él	PRON	él	17	17	él	c1-l7:0:23	mujeres la casa, que le parece el paraje triste.
+lemma	muy	muy	adv	mucho	ADV	mucho	16	16	mucho	c2-l1:3:8	un profesor es cosa muy delicada, el concepto es
+lemma	la	el	art	él	PRON	el	13	122	él	c2-l3:1:6	orden el Ministro se la envía hoy a Goicoechea
+lemma	al	a	prep	al	ADP	al	12	13	-	c1-l1:2:16	San Cristóbal y que al reverso te haré la
+lemma	mí	mí	pron	yo	PRON	yo	11	11	yo	p3:0:8	se ha acordado de mí.
+lemma	las	el	art	él	PRON	el	9	37	él	c1-l4:0:26	el Rey; no te las he enviado antes porque
+lemma	buena	bueno	adj	buen	ADJ	buen	8	8	-	p1:0:4	Pero, chiquío, campicos y buena vida: nadie me sacará
+lemma	gracias	gracia	n	gracias	NOUN	gracia	7	9	-	c1-l2:1:1	Pero, gracias a Dios, tengo, y
+lemma	tan	tan	adv	tanto	ADV	tan	7	7	tanto	c2-l4:0:46	nosotros, que hemos sido tan tunantes, necesitamos enmendar en
+lemma	demás	demás	pron	demá	PRON	demás	4	6	-	c1-l6:1:29	y candil, todo lo demás es superfluo.
+lemma	nos	nosotros	pron	yo	PRON	yo	4	4	yo	c2-l4:0:54	en el tiempo que nos queda.
+lemma	buenas	bueno	adj	buena	ADJ	buen	3	3	-	c4-l5:1:20	ya, pero que sean buenas; por diez doblones más,
+lemma	enterado	enterar	v	enterado	ADJ	enterar	3	3	-	c1-l1:1:2	Ya quedo enterado de todo lo que
+lemma	escribirte	escribir	v	escribir tú	VERB	escribir	3	3	-	c4-l2:0:18	satisfacer mi gusto en escribirte largo, ya que estoy
+lemma	ti	ti	pron	tú	PRON	tú	3	3	tú	c1-l2:0:24	cansar alguno, sería a ti.
+lemma	vuestra	vuestro	det	vuestra	NOUN	vuestro	3	12	-	c2-l2:0:42	la Junta y a vuestra merced, haré nuevos bocetos
+lemma	acuerden	acordar	v	acuerdir	VERB	acordar	2	2	-	c5-l4:1:16	todos; basta que se acuerden de mí.
+lemma	agradecido	agradecer	v	agradecido	ADJ	agradecer	2	2	-	c6-l6:5:15	Majestad, le quedaré sumamente agradecido.
+lemma	es	ser	v	es	NOUN	ser	2	30	-	c4-l6:2:15	lo han aconsejado (esto es, de gente que lo
+lemma	haberse	haber	v	haber él	AUX	haber	2	2	-	c4-l7:2:15	coche, y, después de haberse apoderado y muerto a
+lemma	habías	haber	v	habiar	AUX	haber	2	2	-	c3-l1:1:44	dijesen lo que tú habías de decir.
+lemma	hacerlo	hacer	v	hacer él	VERB	hacer	2	2	-	c6-l3:3:24	me hubiera alegrado de hacerlo, pero no tenía lienzo
+lemma	librado	librar	v	librado	ADJ	librado	2	2	-	c1-l4:2:19	y no ibas mal librado, y me he quedado
+lemma	logré	lograr	v	logré	VERB	lograr	2	2	-	c1-l5:3:25	y las satisfacciones que logré con el Rey, y
+lemma	nombrarme	nombrar	v	nombrar yo	VERB	nombrar	2	2	-	c2-l3:0:46	se ha dignado el nombrarme a mí.
+lemma	nosotros	nosotros	pron	yo	PRON	yo	2	2	yo	c2-l4:0:42	de gloria, lo que nosotros, que hemos sido tan
+lemma	reales	real#2	n	reales	NOUN	real	2	8	-	c5-l1:0:17	lo menos a 40 reales la fanega.
+lemma	sabrás	saber	v	sabrar	VERB	saber	2	2	-	c1-l4:0:19	he grabado, que ya sabrás que tiene el Rey;
+lemma	abrazándonos	abrazar	v	abrazándonos	NOUN	abrazar	1	1	-	c5-l7:1:32	por mis hombros, medio abrazándonos, y hablándome mal de
+lemma	acompañaras	acompañar	v	acompañarar	VERB	acompañar	1	1	-	c6-l1:4:18	y quisiera que me acompañaras, para el otro lunes,
+lemma	ajustado	ajustar	v	ajustado	ADJ	ajustar	1	1	-	c4-l2:0:36	que ya estaba medio ajustado en 90 doblones…
+lemma	al	a	prep	al	DET	al	1	13	-	c4-l1:3:3	He dado gracias al Rey y Príncipe y
+lemma	ando	andar	v	ar	VERB	andar	1	1	-	c5-l1:1:1	Amigo, ando en el aire, porque
+lemma	aprenderla	aprender	v	aprender él	VERB	aprender	1	1	-	c4-l2:2:11	alguna cosa nueva y aprenderla, y, corriendo a galope
+lemma	aprovecharse	aprovechar	v	aprovechar él	VERB	aprovechar	1	1	-	c6-l6:4:26	y gran disposición de aprovecharse.
+lemma	apruebes	aprobar	v	apruebser	VERB	aprobar	1	1	-	c4-l5:0:6	he alegrado que me apruebes el pensamiento, y hablemos
+lemma	arrojadas	arrojar	v	arrojado	ADJ	arrojar	1	1	-	c2-l1:1:40	especies que oye proferir, arrojadas con una crítica que
+lemma	artes	arte	n	art	NOUN	arte	1	1	-	c2-l7:1:31	los deleitantes de las artes.
+lemma	autorizadas	autorizar	v	autorizado	ADJ	autorizar	1	1	-	c2-l1:1:67	gobierna por las reglas autorizadas del arte, que solas
+lemma	bobada	bobada	n	bobado	ADJ	bobada	1	1	-	c6-l1:4:25	otro lunes, aunque dijera bobada que te habías vuelto
+lemma	buen	bueno	adj	buen	ADJ	buen	1	1	-	c2-l4:0:36	y se habrá hallado buen pedazo de gloria, lo
+lemma	buscarlos	buscar	v	buscar él	VERB	buscar	1	1	-	e3:1:7	te vea venir a buscarlos, para que sea mi
+lemma	cansado	cansar	v	cansado	ADJ	cansar	1	1	-	c2-l6:0:7	de Arenas, y muy cansado.
+lemma	carezco	carecer	v	carezco	VERB	carecer	1	1	-	c5-l4:2:33	que es lo que carezco.
+lemma	cebada	cebada	n	cebado	ADJ	cebada	1	1	-	c5-l1:0:10	que, según dice, la cebada ha de ir lo
+lemma	colocados	colocar	v	colocado	ADJ	colocar	1	1	-	c5-l2:1:15	de figuras del natural colocados en su sitio, y
+lemma	comunicada	comunicar	v	comunicado	ADJ	comunicar	1	1	-	c3-l6:1:7	del Rey Nuestro Señor comunicada por V. E. en
+lemma	comunicarme	comunicar	v	comunicarme	VERB	comunicar	1	1	-	c6-l7:0:15	vuestra excelencia se sirve comunicarme, con fecha del 6
+lemma	conformes	conforme	conj	conformes	NOUN	conforme	1	1	-	c2-l1:2:27	los impulsos inquietos, poco conformes a la razón, que
+lemma	conozcas	conocer	v	conozcar	VERB	conocer	1	1	-	c2-l3:1:30	tú la llevarás adonde conozcas que has de hacer
+lemma	consentía	consentir	v	consentía	VERB	consentir	1	1	-	c6-l3:2:1	Me consentía comer con capote, porque
+lemma	conservarme	conservar	v	conservar yo	VERB	conservar	1	1	-	c4-l5:3:14	mantener la berlina para conservarme. Yo todo te lo
+lemma	conservarás	conservar	v	conservarás	VERB	conservar	1	1	-	p2:0:4	…tal vez tú te conservarás como en la escuela
+lemma	criada	criado	n	criada	NOUN	criado	1	1	-	c5-l1:1:18	peor, y hasta la criada de la cocina ha
+lemma	debida	deber	v	debido	ADJ	deber	1	1	-	c3-l6:0:21	V. M., con la debida veneración, dicen:
+lemma	decirte	decir	v	decir tú	VERB	decir	1	1	-	c1-l1:2:7	tiempo para más que decirte que aquí tengo el
+lemma	deleitantes	deleitante	n	deleitant	NOUN	deleitante	1	1	-	c2-l7:1:28	los profesores y los deleitantes de las artes.
+lemma	descubrirse	descubrir	v	descubrir él	VERB	descubrir	1	1	-	c2-l1:1:20	pinturas que acaban de descubrirse en el Santo Templo
+lemma	desembarazarme	desembarazar	v	desembarazarme	NOUN	desembarazar	1	1	-	c4-l3:3:32	tan precisa; conque, en desembarazarme, dime de qué tamaño,
+lemma	despacharse	despachar	v	despachar él	VERB	despachar	1	1	-	e1:0:40	la encontraban digna de despacharse algunas, enviaría las que
+lemma	determines	determinar	v	determines	VERB	determinar	1	1	-	c4-l5:1:42	haga lo que tú determines.
+lemma	dilatado	dilatar	v	dilatado	ADJ	dilatar	1	1	-	c3-l6:2:11	se sirva remunerar tan dilatado trabajo en el modo
+lemma	dime	decir	v	dime	VERB	dimir	1	2	-	c4-l3:3:33	precisa; conque, en desembarazarme, dime de qué tamaño, para
+lemma	dispensándome	dispensar	v	dispensándome	VERB	dispensar	1	1	-	c2-l2:1:33	que venero sus resoluciones, dispensándome vuestra merced los que
+lemma	dispuesto	disponer	v	dispuesto	ADJ	disponer	1	1	-	c4-l3:1:17	el que va mejor dispuesto (como es regular que
+lemma	diviertas	divertir	v	divierta	ADJ	divertir	1	1	-	c1-l1:0:4	Me alegro que te diviertas y que visites a
+lemma	divirtiéndose	divertir	v	divertir él	VERB	divertirse	1	1	-	c4-l7:3:7	que representa unos gitanos divirtiéndose, columpiando a una gitana,
+lemma	domadas	domar	v	domada	ADJ	domar	1	1	-	c4-l5:1:15	que mejor las quisiera domadas ya, pero que sean
+lemma	dándolas	dar	v	dar él	VERB	dar	1	1	-	e2:0:54	creí que era fácil, dándolas a un estampero sin
+lemma	ejecutarlos	ejecutar	v	ejecutar él	VERB	ejecutar	1	1	-	c2-l2:0:76	Junta determinen, pasaré a ejecutarlos en la media naranja,
+lemma	ellas	ella	pron	él	PRON	él	1	1	él	c1-l4:0:41	tenido mil enredos con ellas.
+lemma	empecéis	empezar	v	empecéis	VERB	empecer	1	1	-	c3-l1:0:26	será mucho mejor que empecéis a saber por otros
+lemma	empiezo	empezar	v	empiezo	VERB	empezar	1	1	-	c1-l5:4:16	y más que ahora empiezo a tener enemigos mayores
+lemma	emplearlo	emplear	v	emplear él	VERB	emplear	1	1	-	c5-l4:2:23	y el tiempo sobrante emplearlo en cosas de mi
+lemma	encargado	encargar	v	encargado	ADJ	encargado	1	2	-	c5-l4:0:31	Toledo, que me tenía encargado un cuadro para su
+lemma	enseñarlas	enseñar	v	enseñar él	VERB	enseñar	1	1	-	c1-l5:2:27	Dios, me proporcionó el enseñarlas cuatro cuadros, y les
+lemma	enseñase	enseñar	v	enseñasar	VERB	enseñar	1	1	-	c6-l4:2:10	de duendes y la enseñase dentro de una jaula
+lemma	enseñe	enseñar	v	enseñe	VERB	enseñar	1	1	-	c2-l3:1:14	Goicoechea para que la enseñe a esos viles que
+lemma	enseñes	enseñar	v	enseñser	VERB	enseñar	1	1	-	c6-l3:4:23	la mía: no la enseñes ni digas nada, y
+lemma	entregarme	entregar	v	entregar yo	VERB	entregar	1	1	-	c1-l3:0:16	servirá vuestra merced de entregarme el cuadro pintado por
+lemma	entreoído	entreoír	v	entreoer	VERB	entreoír	1	1	-	c5-l2:3:28	alma baja, que he entreoído algo, aunque de poca
+lemma	enviaré	enviar	v	enviaré	VERB	enviar	1	1	-	c1-l4:1:10	vayan saliendo te las enviaré.
+lemma	escribiré	escribir	v	escribiré	VERB	escribir	1	4	-	c3-l4:2:26	de mí. Otra te escribiré con más sosiego, y
+lemma	escrito	escribir	v	escrito	NOUN	escrito	1	3	-	e1:1:1	Este escrito lo metí en la
+lemma	estímalas	estimar	v	estímala	NOUN	estima	1	1	-	c1-l4:1:3	En fin, chiquío, estímalas, que conforme vayan saliendo
+lemma	florecidos	florecer	v	florecido	ADJ	florecer	1	1	-	c4-l5:2:12	que tengo los doblonazos florecidos, todos los que tengo
+lemma	fresca	fresco	n	fresca	NOUN	fresco	1	1	-	c6-l1:0:38	ha salido con la fresca de pintar de miniatura
+lemma	fueren	ser	v	fuerir	VERB	ser	1	1	-	c2-l2:1:38	vuestra merced los que fueren de su agrado.
+lemma	fui	ser	v	ir	AUX	ser	1	1	ir	c4-l2:3:28	que el peor librado fui yo.
+lemma	gastas	gastar	v	gastas	VERB	gastar	1	1	-	c4-l5:2:6	a la chacota que gastas de que tengo los
+lemma	gasto	gastar	v	gasto	NOUN	gasto	1	1	-	c5-l7:2:20	que pensarán muchos, porque gasto mucho, porque ya me
+lemma	gitana	gitano	n	gitana	NOUN	gitano	1	1	-	c4-l7:3:11	divirtiéndose, columpiando a una gitana, y otras dos sentadas
+lemma	grabada	grabar	v	grabado	ADJ	grabar	1	1	-	c6-l7:0:36	Caprichos, en ochenta cobres, grabada al aguafuerte por mi
+lemma	grabadas	grabar	v	grabado	ADJ	grabar	1	1	-	c6-l6:0:11	consta de ochenta láminas grabadas al aguafuerte por mi
+lemma	gustarles	gustar	v	gustar él	VERB	gustar	1	1	-	c1-l5:3:11	más en cuanto a gustarles mis obras, según el
+lemma	haberle	haber	v	haber él	AUX	haber	1	1	-	c5-l7:1:6	tenido la felicidad de haberle dado mucho gusto, de
+lemma	hablarme	hablar	v	hablar yo	VERB	hablar	1	1	-	c6-l3:2:20	dejaba de comer para hablarme.
+lemma	hablándome	hablar	v	hablándome	VERB	hablar	1	1	-	c5-l7:1:34	hombros, medio abrazándonos, y hablándome mal de los aragoneses
+lemma	habérselo	haber	v	habérselo	AUX	haber	1	1	-	c4-l6:1:20	Bayeu lo saben, por habérselo escrito de ahí, aunque
+lemma	haciéndome	hacer	v	haciéndome	VERB	hacer	1	1	-	c6-l3:1:14	paseo en su coche, haciéndome las mayores expresiones de
+lemma	hacías	hacer	v	hacías	VERB	hacer	1	1	-	c3-l1:1:37	veníamos de Cogullada, que hacías que otros dijesen lo
+lemma	hagas	hacer	v	hagas	VERB	hacer	1	3	-	c3-l7:2:21	nada tengo, para que hagas el uso que te
+lemma	harían	hacer	v	haer	VERB	hacer	1	1	-	c5-l7:3:34	tal vez otros lo harían.
+lemma	hecha	hacer	v	hecho	ADJ	hacer	1	1	-	c4-l1:2:7	al Rey y estuvo hecha la gracia, y yo
+lemma	hecho	hacer	v	hecho	ADJ	hecho	1	8	-	c2-l4:0:26	el juicio que tengo hecho de que era muy
+lemma	hechos	hacer	v	hecho	ADJ	hecho	1	1	-	e1:1:20	me avise, porque tengo hechos tres más del mismo
+lemma	honró	honrar	v	honró	VERB	honrar	1	1	-	c1-l5:2:9	contaría lo que me honró el Rey y el
+lemma	ibas	ir	v	ibar	VERB	ir	1	1	-	c1-l4:2:17	había destinado, y no ibas mal librado, y me
+lemma	indispuesto	indisponer	v	indispuesto	ADJ	indisponer	1	1	-	e3:0:16	he puesto un poco indispuesto y estoy en la
+lemma	insinué	insinuar	v	insinuer	VERB	insinuar	1	1	-	c1-l2:1:12	de tener, como te insinué, campicos.
+lemma	inteligentes	inteligente	n	inteligent	NOUN	inteligente	1	1	-	c3-l3:0:10	para el concepto de inteligentes y para el público,
+lemma	les	le	pron	él	PRON	él	1	1	él	c1-l5:2:31	enseñarlas cuatro cuadros, y les besé la mano, que
+lemma	llames	llamar	v	llames	VERB	llamar	1	1	-	c5-l3:2:24	asunto, y no le llames vivir a esta vida
+lemma	llevarte	llevar	v	llevarte	VERB	llevar	1	1	-	c6-l1:2:13	me hiciese uno para llevarte en una caja.
+lemma	llevarás	llevar	v	llevarar	VERB	llevar	1	1	-	c2-l3:1:28	mérito, y tú la llevarás adonde conozcas que has
+lemma	llevándome	llevar	v	llevándome	VERB	llevar	1	1	-	c6-l3:1:7	ha excedido en obsequiarme, llevándome consigo a paseo en
+lemma	los	el	art	él	PRON	el	1	45	él	c1-l4:2:12	que tenía, y ya los había destinado, y no
+lemma	maté	matar	v	maté	VERB	matar	1	1	-	c4-l4:0:13	día volqué y casi maté a un hombre que
+lemma	meterme	meter	v	meter yo	VERB	meter	1	1	-	c6-l5:1:2	Estando para meterme en el coche para
+lemma	mira	mirar	v	mirir	VERB	mira	1	3	-	c5-l6:0:10	es el que se mira en Madrid de hermoso,
+lemma	muchísimos	mucho	det	muchísimo	PRON	mucho	1	1	muchísimo	c4-l6:2:9	habrá sino alegría, pues muchísimos me lo han aconsejado
+lemma	mudarme	mudar	v	mudar yo	VERB	mudar	1	1	-	c6-l3:3:32	lienzo ni camisa que mudarme, y lo dejé descontento
+lemma	mía	mío	pron	mía	DET	mía	1	3	-	c6-l3:4:20	es peor que la mía: no la enseñes ni
+lemma	napolitana	napolitano	adj	napolitán	ADJ	napolitano	1	1	-	c4-l2:1:25	yo revolver a la napolitana?» (que él lo era).
+lemma	obsequiarme	obsequiar	v	obsequiarme	NOUN	obsequiar	1	1	-	c6-l3:1:6	se ha excedido en obsequiarme, llevándome consigo a paseo
+lemma	observado	observar	v	observado	ADJ	observar	1	1	-	c3-l5:2:51	verme a menudo, y observado, no escapa de esta,
+lemma	ofrecerlo	ofrecer	v	ofrecer él	VERB	ofrecer	1	1	-	c4-l3:2:6	querido mío, alegrarte, y ofrecerlo al servicio del Señor,
+lemma	ofrécela	ofrecer	v	ofrécelar	VERB	ofrecer	1	1	-	c6-l5:2:5	con mi corazón y ofrécela a Goicoechea con la
+lemma	oirás	oír	v	oirás	VERB	oír	1	2	-	c2-l7:1:11	mi cuadro, que ya oirás hablar, como de todos
+lemma	oirás	oír	v	oier	VERB	oír	1	2	-	c3-l4:1:1	Ya oirás decir cosas ordenadas del
+lemma	ordenadas	ordenar	v	ordenado	ADJ	ordenar	1	1	-	c3-l4:1:4	Ya oirás decir cosas ordenadas del que todo lo
+lemma	oscuras	oscuro	adj	oscuras	NOUN	oscuro	1	1	-	c6-l4:0:15	de noche y a oscuras.
+lemma	oye	oír	v	oir	VERB	oír	1	1	-	c2-l1:1:38	atención las especies que oye proferir, arrojadas con una
+lemma	oyéndole	oír	v	oir él	VERB	oír	1	1	-	c1-l3:0:33	guitarra y varias gentes oyéndole, para el fin que
+lemma	pasarlo	pasar	v	pasar él	VERB	pasar	1	1	-	c4-l5:2:33	los que tengo que pasarlo anchamente, sobrándome casi siempre
+lemma	pensaremos	pensar	v	pensaremos	AUX	pensar	1	1	-	c2-l4:3:20	cura, y si no, pensaremos de otro modo por
+lemma	persuadirse	persuadir	v	persuadir él	VERB	persuadir	1	1	-	c2-l1:2:4	Y aunque jamás podrá persuadirse que la preocupación malintencionada
+lemma	pintado	pintar	v	pintado	ADJ	pintado	1	3	-	c1-l3:0:19	de entregarme el cuadro pintado por mi mano que
+lemma	pintamonas	pintamonas	n	pintamona	NOUN	pintamonas	1	1	-	c2-l6:2:25	a un conejo: «Este pintamonas aún es más aficionado
+lemma	podrás	poder	v	podrar	AUX	poder	1	1	-	c6-l3:4:11	que no sé si podrás leer su letra, que
+lemma	pondrás	poner	v	pondrás	VERB	poner	1	1	-	c1-l4:3:11	si lo quieres, lo pondrás en un rinconcico, que
+lemma	precisa	precisar	v	preciso	ADJ	precisar	1	1	preciso	c4-l3:3:29	con esta obligación tan precisa; conque, en desembarazarme, dime
+lemma	precisados	precisar	v	precisado	ADJ	precisar	1	1	-	c3-l6:3:9	E., pues nos hallamos precisados a ganar el sustento
+lemma	preguntabas	preguntar	v	preguntabas	VERB	preguntar	1	1	-	c1-l5:0:10	a lo que me preguntabas por no tener tiempo.
+lemma	prevenirme	prevenir	v	prevenir yo	VERB	prevenir	1	1	-	c2-l2:0:11	se sirve vuestra merced prevenirme en su carta de
+lemma	propuesto	proponer	v	propuesto	ADJ	proponer	1	1	-	c4-l1:3:38	yo de su parte propuesto, y adiós, que ya
+lemma	quisiere	querer	v	quisierir	VERB	querer	1	1	-	e1:0:46	enviaría las que usted quisiere.
+lemma	regalárselas	regalar	v	regalar él él	VERB	regalar	1	1	-	c6-l6:3:22	de mi muerte, quiero regalárselas al Rey mi señor
+lemma	rendido	rendir	v	rendido	ADJ	rendir	1	1	-	c6-l5:3:11	muy tarde y estoy rendido.
+lemma	repetírtela	repetir	v	repetírtela	NOUN	repetir	1	1	-	c6-l5:1:37	hecho, me excusa de repetírtela.
+lemma	respondo	responder	v	respondo	VERB	responder	1	1	-	c5-l2:0:24	a la cual te respondo que lo que se
+lemma	sangré	sangrar	v	sangré	VERB	sangrar	1	1	-	c4-l4:0:30	hice mucho provecho; me sangré, etc.
+lemma	sepas	saber	v	separ	VERB	saber	1	1	-	c2-l5:0:20	quiero que tú lo sepas solo, y es que
+lemma	sobrándome	sobrar	v	sobrándome	VERB	sobrar	1	1	-	c4-l5:2:35	tengo que pasarlo anchamente, sobrándome casi siempre cien o
+lemma	suplicarle	suplicar	v	suplicar él	VERB	suplicar	1	1	-	e1:1:13	teniendo noticia, vuelvo a suplicarle a usted me avise,
+lemma	suplico	suplicar	v	suplicir	VERB	suplico	1	1	-	c2-l2:1:0	Suplico a vuestra merced se
+lemma	templado	templar	v	templado	ADJ	templar	1	1	-	c6-l1:3:24	puedo aguantar; otros más templado, como este que he
+lemma	tiradas	tirar	v	tirada	NOUN	tirada	1	1	-	c6-l7:1:14	de estampas que tenía tiradas a prevención, que son
+lemma	tomo	tomar	v	tomo	NOUN	tomo	1	1	-	c4-l3:0:10	que te puedes pensar tomo la pluma para responderte;
+lemma	traiga	traer	v	traigar	VERB	traer	1	1	-	c5-l6:2:32	gremios, y que me traiga más utilidad.
+lemma	tunantes	tunante	n	tunant	ADJ	tunante	1	1	-	c2-l4:0:47	que hemos sido tan tunantes, necesitamos enmendar en el
+lemma	vales	vale	n	val	NOUN	valer	1	1	-	c5-l6:2:23	el Banco o en vales reales o en los
+lemma	valía	valer	v	val	VERB	valía	1	1	-	c6-l2:0:2	Más te valía venirme a ayudar a
+lemma	vendieron	vender	v	vendar	VERB	vender	1	1	-	c6-l6:1:2	No se vendieron al público más que
+lemma	venero	venerar	v	venero	VERB	venero	1	1	-	c2-l2:1:30	la sumisión con que venero sus resoluciones, dispensándome vuestra
+lemma	venirme	venir	v	venir yo	VERB	venir	1	1	-	c6-l2:0:3	Más te valía venirme a ayudar a pintar
+lemma	veníamos	venir	v	veníar	VERB	venir	1	1	-	c3-l1:1:33	de tu Jaco cuando veníamos de Cogullada, que hacías
+lemma	verlas	ver	v	ver él	VERB	verlas	1	1	-	c1-l5:3:20	gusto que tuvieron de verlas y las satisfacciones que
+lemma	verlo	ver	v	ver él	VERB	verlo	1	1	-	c3-l4:1:24	las quiero apuntar hasta verlo, si se verifica, aunque
+lemma	verme	ver	v	ver yo	VERB	verme	1	1	-	c3-l5:2:47	parece tenía gusto de verme a menudo, y observado,
+lemma	visites	visitar	v	visites	VERB	visitar	1	1	-	c1-l1:0:7	te diviertas y que visites a Francisco.
+lemma	vuestra	vuestro	det	vuestrir	VERB	vuestro	1	12	-	c1-l3:0:38	para el fin que vuestra merced sabe.
+lemma	vuélvemela	volver	v	vuélvemelar	VERB	volver	1	1	-	c6-l3:4:28	ni digas nada, y vuélvemela a enviar.
+pos	reales	real#2	n	real	ADJ	real	6	8	real,real#2	c2-l6:3:32	que vale treinta mil reales, según me dijeron allí
+pos	cuanto	cuanto	pron	cuanto	NOUN	cuanto	5	7	cuanto	c1-l1:1:9	lo que dices en cuanto a la obra, y
+pos	chiquío	chiquío	n	chiquío	ADJ	chiquío	3	3	chiquío	p1:0:1	Pero, chiquío, campicos y buena vida:
+pos	merced	merced	n	merced	ADP	merced	3	9	merced	c1-l3:1:3	Quedo de vuestra merced su servidor.
+pos	público	público	adj	público	NOUN	público	3	4	público	c3-l3:0:14	inteligentes y para el público, con el cuadro de
+pos	tal	tal	adv	tal	NOUN	tal	3	5	tal	p2:0:0	…tal vez tú te conservarás como
+pos	birlocho	birlocho	n	birlocho	ADJ	birlocho	2	3	birlocho	c4-l2:3:8	que fuimos a parar, birlocho, caballo y nosotros, dando
+pos	cuñado	cuñado	n	cuñado	ADJ	cuñado	2	4	cuñado	c2-l2:0:54	de acuerdo con mi cuñado don Francisco Bayeu, y,
+pos	deseoso	deseoso	adj	deseoso	NOUN	deseoso	2	2	deseoso	c2-l2:0:19	26 del pasado, y deseoso de que por mí
+pos	merced	merced	n	merced	ADJ	merced	2	9	merced	c2-l2:0:10	que se sirve vuestra merced prevenirme en su carta
+pos	retuyo	retuyo	pron	retuyo	VERB	retuyo	2	2	retuyo	c3-l3:1:30	menor. Adiós. Tuyo y retuyo.
+pos	aficionado	aficionado	adj	aficionado	NOUN	aficionado	1	1	aficionado	c2-l6:2:29	pintamonas aún es más aficionado que yo».
+pos	aragoneses	aragonés	adj	aragonés	NOUN	aragonés	1	1	aragonés	c5-l7:1:38	hablándome mal de los aragoneses y de Zaragoza; ya
+pos	borroncico	borroncico	n	borroncico	ADJ	borroncico	1	1	borroncico	c1-l5:1:1	El borroncico que tú tienes es
+pos	campicos	campico	n	campico	ADJ	campico	1	3	campico	c1-l2:1:13	tener, como te insinué, campicos.
+pos	cojo	cojo	adj	cojo	NOUN	cojo	1	1	cojo	c4-l2:0:23	largo, ya que estoy cojo de una caída que
+pos	descontento	descontento	adj	descontento	NOUN	descontento	1	1	descontento	c6-l3:3:36	mudarme, y lo dejé descontento y me vine.
+pos	dicho	dicho	adj	dicho	NOUN	dicho	1	1	dicho	c2-l2:0:89	lo que pareciese a dicho mi cuñado.
+pos	fresco	fresco	n	fresco	ADJ	fresco	1	1	fresco	c4-l1:1:37	ocurriera en Palacio, a fresco o al óleo; Bayeu
+pos	menester	menester	n	menester	ADJ	menester	1	1	menester	c4-l5:0:23	en el mundo es menester vivir a gusto.
+pos	menudo	menudo	adj	menudo	NOUN	menudo	1	1	menudo	c3-l5:2:49	gusto de verme a menudo, y observado, no escapa
+pos	merced	merced	n	merced	SCONJ	merced	1	9	merced	c1-l3:0:39	el fin que vuestra merced sabe.
+pos	nada	nada	pron	nada	NOUN	nada	1	8	nada	c3-l7:2:17	lo apruebe el Rey, nada tengo, para que hagas
+pos	pasado	pasado	adj	pasado	NOUN	pasado	1	2	pasado	c2-l2:0:17	carta de 26 del pasado, y deseoso de que
+pos	resultas	resulta	n	resulta	ADJ	resulta	1	1	resulta	c2-l3:2:46	sea todo en felices resultas después de hechas las
+pos	señor	señor	n	señor	ADJ	señor	1	11	señor	c2-l2:0:1	Muy señor mío: Enterado de lo
+pos	solo	solo	adj	solo	NOUN	solo	1	4	solo	c5-l7:1:14	de modo que no solo con las expresiones de
+pos	tanto	tanto	det	tanto	NOUN	tanto	1	5	tanto	c5-l3:1:11	tan difíciles y de tanto que hacer, como la
+pos	tarde	tarde	n	tarde	ADV	tarde	1	4	tarde	c6-l5:3:8	menor, que es muy tarde y estoy rendido.
+pos	viles	vil	adj	vil	NOUN	vil	1	1	vil	c2-l3:1:17	la enseñe a esos viles que tanto han desconfiado
+pos	último	último	adj	último	NOUN	último	1	1	último	c2-l7:2:14	ha respondido que a último de este vendrá de
+ptcp	cuenta	cuenta	n	contar	VERB	cuenta	1	1	contar	c4-l7:0:0	Cuenta de los cuadros que
+ptcp	regular	regular	adj	regular	VERB	regular	1	1	regular	c4-l3:1:20	mejor dispuesto (como es regular que tu padre, como
+ptcp	trabajo	trabajo	n	trabajar	VERB	trabajo	1	2	trabajar	c4-l5:3:4	Y, en fin, si trabajo para el público, bien
