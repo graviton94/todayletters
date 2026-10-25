@@ -1091,4 +1091,5 @@
     <string name="need_stop">Finish recording to go on</string>
     <string name="need_typed">Write an answer to check it</string>
     <string name="medal_with_painting">Came with it</string>
+    <string name="whatsnew_items_100">Speaking screens redone · listen first, then speak\nThe pitch line is one smooth curve, with words where they\'re spoken\nRecording stops when you finish · Compare plays both voices in a row\nNew reward screens · your painting or medal moves to its place\nThe Library puts the series with a new letter on top\nFixed voices playing at the wrong time when you change screens</string>
 </resources>

@@ -4359,5 +4359,9 @@
   "medal_with_painting": {
     "en": "Came with it",
     "ko": "함께 온 그림"
+  },
+  "whatsnew_items_100": {
+    "en": "Speaking screens redone · listen first, then speak\nThe pitch line is one smooth curve, with words where they're spoken\nRecording stops when you finish · Compare plays both voices in a row\nNew reward screens · your painting or medal moves to its place\nThe Library puts the series with a new letter on top\nFixed voices playing at the wrong time when you change screens",
+    "ko": "말하기 화면을 새로 정리했어요 · 먼저 듣고, 다 들으면 말해요\n억양 선이 한 줄로 이어지고, 낱말이 말한 자리에 놓여요\n다 말하면 녹음이 저절로 멈추고, 비교 듣기로 두 소리를 이어 들어요\n보상 화면을 새로 그렸어요 · 받은 그림과 메달이 제자리로 옮겨 가요\n서재에서 새 편지가 온 시리즈가 맨 위에 보여요\n화면을 옮길 때 소리가 엉뚱하게 나오던 문제를 고쳤어요"
   }
 }
