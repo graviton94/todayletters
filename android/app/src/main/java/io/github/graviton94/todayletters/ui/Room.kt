@@ -506,7 +506,7 @@ fun Room(s: AppState, r: Route.Letter) {
     }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
-        RoomHeader(s, work.portrait, work.sender, listOf(dateLine(letter.date, letter.place), letter.place).filter { it.isNotBlank() }.distinct().joinToString(" · "),
+        RoomHeader(s, work.portrait, work.sender, listOf(dateLine(letter.date, letter.place), letter.place.substringBefore(" (").trim()).filter { it.isNotBlank() }.distinct().joinToString(" · "),
             known = known, knownLabel = knownLabel, narrated = narrated, words = letter.words.size,
             onAuto = { if (s.app.sound) cut(); s.update(s.app.copy(sound = !s.app.sound)) },
             onHold = { s.update(s.app.copy(hold = it)) }, onWords = { words = true }, onInfo = { s.go(Route.RoomInfo(r)) })

@@ -1889,7 +1889,7 @@ class ScreensTest {
             }
         }
     }
-    /** 작품 설정의 기본 듣기 속도 (0.7 · 0.85 · 1.0) + 등급에 맞춰 자동. 0.7 을 고르면 자동이 꺼지고 그 값이 남는다. */
+    /** 작품 설정의 기본 듣기 속도 (0.8 · 0.9 · 1.0, 2026-10-25) + 등급에 맞춰 자동 (이제 어느 등급이든 1.0). 0.8 을 고르면 자동이 꺼지고 그 값이 남는다. */
     @Test fun slowSettings() {
         val s = state(true)
         shot("slow04_settings_speed_light", false, act = {
@@ -1897,11 +1897,11 @@ class ScreensTest {
             // 이름표가 화면 밑으로 내려가 이제는 실제로 굴린다: 굴리는 동안만 시계를 흘린다 (scrolled)
             scrolled { rule.onNode(hasText(ctx.getString(R.string.set_listen_auto).uppercase()) and androidx.compose.ui.test.SemanticsMatcher.keyNotDefined(androidx.compose.ui.semantics.SemanticsActions.OnClick)).performScrollTo() }
             org.junit.Assert.assertTrue(s.seriesSettings("vincent").listenAuto)
-            org.junit.Assert.assertEquals(0.85f, s.listenSpeed("vincent"), 0.001f)
-            rule.onNode(hasText("0.7") and hasClickAction()).performClick()
+            org.junit.Assert.assertEquals(1f, s.listenSpeed("vincent"), 0.001f)
+            rule.onNode(hasText("0.8") and hasClickAction()).performClick()
             rule.mainClock.advanceTimeBy(300)
             org.junit.Assert.assertFalse(s.seriesSettings("vincent").listenAuto)
-            org.junit.Assert.assertEquals(0.7f, s.listenSpeed("vincent"), 0.001f)
+            org.junit.Assert.assertEquals(0.8f, s.listenSpeed("vincent"), 0.001f)
         }, series = s) { SeriesSettingsScreen(s, "vincent") }
     }
 

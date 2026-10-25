@@ -920,10 +920,10 @@ class NavTest {
         val m1 = s.msgAudio(room, 0); val m2 = s.msgAudio(room, 1)
         assertEquals(listOf(m1), log)
         // 낱말 (지금 문장 · 낱말 아래 뜻 칸): 멈춤, 카드
-        rule.onNodeWithText("rapporté", useUnmergedTree = true).performClick()
+        rule.onAllNodesWithText("une", useUnmergedTree = true)[0].performClick()
         rule.mainClock.advanceTimeBy(300)
-        assertEquals(null, s.narrator.now)
-        val fromWord = ctx.getString(R.string.room_from_word, "rapporté")
+        assertEquals("word tap pauses: log=$log", null, s.narrator.now)
+        val fromWord = ctx.getString(R.string.room_from_word, "une")
         rule.onNodeWithText(fromWord).assertExists()
         rule.mainClock.advanceTimeBy(12_000)
         assertEquals("no new sentence while the word card is open", listOf(m1), log)
@@ -932,14 +932,14 @@ class NavTest {
         rule.mainClock.advanceTimeBy(300)
         assertEquals(listOf(m1, m1), log)
         val text = l.messages[0].text[s.room("vincent").learn]
-        val k = io.github.graviton94.todayletters.core.RoomFlow.wordRanges(text).indexOfFirst { text.substring(it.first, it.last + 1) == "rapporté" }
+        val k = io.github.graviton94.todayletters.core.RoomFlow.wordRanges(text).indexOfFirst { text.substring(it.first, it.last + 1) == "une" }
         val times = s.narrator.words(m1)!!
         assertEquals(io.github.graviton94.todayletters.core.RoomFlow.resumeSeek(times[k].s), s.narrator.fakeAt)
         // 문장이 끝나면 쉼 → 사진 (빈센트가 보냄, 왼쪽) 이 와서 보는 동안 쉼
         endSound(s, 5200)
         val photo = l.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Photo>().first()
         val caption = photo.caption[io.github.graviton94.todayletters.core.Lang.KO]
-        rule.onNodeWithText(ctx.getString(R.string.room_photo_sent, "빈센트가")).assertExists()
+        rule.onNodeWithText(ctx.getString(R.string.room_photo_sent, io.github.graviton94.todayletters.ui.josa(s.work("vincent").name[io.github.graviton94.todayletters.core.Lang.KO], "이", "가"))).assertExists()
         assertEquals(listOf(m1, m1), log)
         // 사진을 누르면 크게 보며 멈춤 (띠), 다음 문장은 오지 않는다
         rule.onNodeWithContentDescription(caption).performClick()
@@ -971,13 +971,15 @@ class NavTest {
         val (_, l) = s.letterOf(room)
         val t = l.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Transfer>().first()
         assertTrue(t.byReader)
-        val ask = ctx.getString(R.string.room_send_as, "테오로서", "빈센트", t.amount)
-        rule.onNodeWithContentDescription(ask).assertExists()
+        // 이름에는 한국어 줄바꿈 이음표가 들어 있어 금액으로 찾는다
+        val ask = androidx.compose.ui.test.hasContentDescription(t.amount, substring = true) and androidx.compose.ui.test.hasClickAction()
+        rule.onNode(ask).assertExists()
         rule.mainClock.advanceTimeBy(10_000)
         assertEquals("the letter waits for Theo", emptyList<String>(), log)
-        rule.onNodeWithContentDescription(ask).performClick()
+        rule.onNode(ask).performClick()
         rule.mainClock.advanceTimeBy(800)
-        rule.onNodeWithText(ctx.getString(R.string.room_sent_by_me, "테오", "빈센트")).assertExists()
+        val w = s.work("vincent")
+        rule.onNodeWithText(ctx.getString(R.string.room_sent_by_me, w.recipient[io.github.graviton94.todayletters.core.Lang.KO], w.name[io.github.graviton94.todayletters.core.Lang.KO])).assertExists()
         assertEquals(listOf(s.msgAudio(room, 0)), log)
         s.narrator.fake = null
     }
