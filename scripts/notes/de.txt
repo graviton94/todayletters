@@ -1,0 +1,164 @@
+# 독일어 (모차르트 원문, 옛 철자 그대로 — daß · sey · muß) 기능어 · 문형. 형식은 scripts/notes.py 머리 주석. 앱이 쓴 풀이 (사람 확인 전).
+T|art|기능어 · 관사|Function word · article
+T|case|기능어 · 관사 (격)|Function word · article (case)
+T|contr|기능어 · 줄어든 꼴|Function word · contraction
+T|prep|기능어 · 전치사|Function word · preposition
+T|pron|기능어 · 대명사|Function word · pronoun
+T|refl|기능어 · 재귀 대명사|Function word · reflexive pronoun
+T|rel|기능어 · 관계사|Function word · relative
+T|poss|기능어 · 소유 한정사|Function word · possessive
+T|det|기능어 · 한정사|Function word · determiner
+T|neg|부정|Negation
+T|aux|조동사|Auxiliary verb
+T|modal|화법조동사|Modal verb
+T|conj|기능어 · 접속사|Function word · conjunction
+T|sub|기능어 · 종속 접속사 (동사는 끝으로)|Function word · subordinator (verb goes last)
+T|adv|기능어 · 부사|Function word · adverb
+T|tense|문형 · 시제|Construction · tense
+T|cons|문형|Construction
+T|sep|문형 · 분리동사|Construction · separable verb
+C|pp|p=v,i,r=ge.+(t|en|n)|| p=v,i,r=.+iert|| p=v,i,r=(ver|be|er|ent|zer|emp|miß|über|unter|hinter)[a-zäöüß]+(t|en)|| p=v,i,r=(an|auf|aus|ab|mit|zu|vor|ein|zurück|weg|fort|her|hin|nach|bei|los|dar|heim|wieder)ge.+(t|en)
+C|inf|p=v,!u,r=.+(en|ern|eln|n)
+C|ppx|c=pp|| p=v,!u,r=(ver|be|er|ent|zer|emp|miß|über|unter|hinter)[a-zäöüß]+en
+C|modal|l=können/müssen/wollen/sollen/dürfen/mögen,!f=gekönnt/gemußt/gewollt/gesollt/gedurft/gemocht
+C|motion|l=gehen/kommen/fahren/reisen/laufen/fallen/fliegen/steigen/sterben/werden/bleiben/sein/geschehen/ankommen/abreisen/abfahren/zurückkommen/hingehen/aufstehen/einschlafen/erscheinen/begegnen/folgen/wachsen/werden/gelingen/passieren/eilen/ziehen/rennen/reiten/springen/schwimmen/zurückkehren/ausgehen/hinausgehen/eintreten/aufbrechen
+C|clause|l=und/aber/oder/denn/dass/daß/weil/wenn/als/ob/da/damit/sondern/nachdem/obwohl/indem/welcher/sobald/ehe/bis
+C|sepprt|f=an/auf/aus/ab/mit/zu/vor/ein/zurück/weg/fort/her/hin/nach/bei/los/dar/heim/hinaus/heraus/herum/vorbei/weiter/zusammen/fest/hinein/herein/hinab/hinüber/fort/statt/teil/kennen/spazieren
+# ── 문형 ──
+P|de.um_zu|l=um@part + l=zu + c=inf@head|gap=6 stop=c=clause always|cons|~하기 위해|in order to|um … zu + 동사 원형 = ‘~하기 위해’ 예요. 동사 원형은 맨 끝에 와요.|Um … zu + infinitive means “in order to”; the infinitive comes last.
+P|de.ohne_zu|l=ohne@part + l=zu + c=inf@head|gap=6 stop=c=clause always|cons|~하지 않고|without doing|ohne … zu + 동사 원형 = ‘~하지 않고’ 예요.|Ohne … zu + infinitive means “without doing”.
+P|de.statt_zu|l=anstatt/statt@part + l=zu + c=inf@head|gap=6 stop=c=clause always|cons|~하는 대신|instead of doing|(an)statt … zu + 동사 원형 = ‘~하는 대신에’ 예요.|(An)statt … zu + infinitive means “instead of doing”.
+P|de.zu_inf|l=zu + c=inf,!i@head|next!=p=n/name|cons|~하는 것 · ~하기|to (do)|zu + 동사 원형은 ‘~하는 것, ~하기’ (영어 to do) 예요. 분리동사는 zu 가 가운데 끼어요 (anzufangen).|Zu + infinitive is “to do”. With separable verbs zu goes inside (anzufangen).
+P|de.perf_sub|c=ppx@head + l=haben/sein,f=habe/hast/hat/haben/habt/hätte/hätten/bin/bist/ist/sind/seid/sey/sei/seyn/war/wäre/wären/hatte/hatten|-|tense|~했다|did (past)|부문장에서는 과거분사 뒤에 조동사 haben · sein 이 맨 끝에 와요 (…, daß ich es gesehen habe).|In a subordinate clause the auxiliary haben/sein comes last, after the participle (…, daß ich es gesehen habe).
+P|de.pqp|l=haben/sein,f=hatte/hattest/hatten/hattet/war/warst/waren/wart + c=ppx@head|gap=7 stop=c=clause stop=p=v,!c=pp|tense|~했었다|had done|haben · sein 의 과거 (hatte · war) + 과거분사 = 과거완료 ‘~했었다’ 예요. 과거분사는 문장 끝에 와요.|Past of haben/sein (hatte, war) + participle at the end = pluperfect “had done”.
+P|de.konj_perf|l=haben/sein,f=hätte/hättest/hätten/hättet/wäre/wärest/wären/wäret + c=ppx@head|gap=7 stop=c=clause stop=p=v,!c=pp|tense|~했을 텐데|would have|hätte · wäre + 과거분사 = ‘~했을 텐데’ (접속법 II 과거) 예요.|Hätte / wäre + participle means “would have done” (subjunctive II past).
+P|de.perf_sein|l=sein,f=bin/bist/ist/sind/seid/sey/sei/seyn + c=ppx,c=motion@head|gap=7 stop=c=clause stop=p=v,!c=pp|tense|~했다|did (past)|오고 가는 동사 · 바뀜 (gehen · kommen · werden …) 은 현재완료에 haben 대신 sein 을 써요. 과거분사는 문장 끝에 와요.|Verbs of motion or change (gehen, kommen, werden …) form the perfect with sein; the participle goes to the end.
+P|de.perf|l=haben,f=habe/hast/hat/haben/habt + c=ppx@head|gap=7 stop=c=clause stop=p=v,!c=pp|tense|~했다|did (past)|현재완료: haben 현재 + 문장 끝의 과거분사 = ‘~했다’ 예요. 여기서 haben 은 ‘가지다’ 가 아니라 조동사예요.|Perfect: present of haben + participle at the end = “did / have done”. Here haben is only an auxiliary.
+P|de.passive|l=werden + c=pp,!c=motion@head|gap=6 stop=c=clause stop=p=v,!c=pp|cons|~되다 (수동)|is done (pass.)|werden + 과거분사는 수동 ‘~되다, ~받다’ 예요.|Werden + past participle is the passive: “is done”.
+P|de.state|l=sein,f=bin/bist/ist/sind/seid/sey/sei/war/waren + c=pp,!c=motion@head|gap=5 stop=c=clause stop=p=v,!c=pp|cons|~되어 있다|is (done)|sein + 과거분사 (오고 가는 동사가 아닐 때) 는 ‘~되어 있다’ (상태) 예요.|Sein + past participle of other verbs describes a state: “is (done)”.
+P|de.futur|l=werden,f=werde/wirst/wird/werden/werdet + c=inf,!i@head|gap=7 stop=c=clause stop=p=v,i|tense|~할 것이다|will|werden + 문장 끝의 동사 원형 = 미래 ‘~할 거야’ 예요.|Werden + infinitive at the end is the future: “will do”.
+P|de.würde|l=werden,f=würde/würdest/würden/würdet + c=inf,!i@head|gap=7 stop=c=clause stop=p=v,i|cons|~할 텐데|would|würde + 동사 원형 = ‘~할 텐데, ~하겠어’ (접속법 II) 예요.|Würde + infinitive means “would do” (subjunctive II).
+P|de.modal|c=modal,i@head + c=inf,!i@head|gap=7 stop=c=clause stop=p=v,i|modal|(화법조동사)|(modal)|화법조동사 (können · müssen · wollen · sollen · dürfen · mögen) 가 오면 본동사는 원형으로 문장 끝에 가요.|After a modal verb (können, müssen, wollen …) the main verb goes to the end in the infinitive.
+P|de.sep|p=v,!l=sein/haben/werden + c=sepprt@part|gap=6 stop=c=clause next!=p=n/name/art/det/pron/num/adj compound always|sep|(분리동사)|(separable verb)|분리동사는 앞 조각이 떨어져 문장 끝에 가요 (fängt … an = anfangen 시작하다). 뜻은 둘을 합친 동사로 봐요.|A separable verb splits: its prefix goes to the end (fängt … an = anfangen, to begin). Read the two parts as one verb.
+P|de.es_gibt|l=es + l=geben,f=gibt/gab/giebt|always|cons|~이 있다|there is|es gibt 은 ‘~이 있다’ 예요. 뒤의 것은 4격 (den, einen) 이에요.|Es gibt means “there is / there are”; what follows is accusative.
+P|de.gibt_es|l=geben,f=gibt/gab/giebt + l=es|always|cons|~이 있다|there is|gibt es 는 es gibt 의 뒤바뀐 꼴 ‘~이 있다’ 예요.|Gibt es is es gibt inverted: “there is”.
+P|de.weder_noch|l=weder@part + l=noch|gap=6 always|neg|~도 ~도 아니다|neither … nor|weder … noch 는 ‘~도 ~도 아니다’ 예요.|Weder … noch means “neither … nor”.
+P|de.nicht_nur|l=nicht + l=nur + l=sondern|gap=8 always|conj|~뿐만 아니라|not only … but|nicht nur … sondern (auch) 는 ‘~뿐만 아니라 ~도’ 예요.|Nicht nur … sondern (auch) means “not only … but (also)”.
+P|de.sowohl_als|l=sowohl@part + l=als/wie|gap=6|conj|~도 ~도|both … and|sowohl … als (auch) 는 ‘~도 ~도 (둘 다)’ 예요.|Sowohl … als (auch) means “both … and”.
+P|de.sich_v|p=v@head + l=sich|-|refl|자기를 · 스스로|oneself|sich 는 재귀 대명사예요: ‘자기를, 서로’, 또는 그 동사의 한 부분 (sich freuen = 기뻐하다).|Sich is the reflexive pronoun: “oneself / each other”, or simply part of the verb (sich freuen = to be glad).
+P|de.dem|l=der,f=dem|-|case|그 ~에게|to the|dem 은 남성 · 중성 3격 정관사예요: ‘그 ~에게’, 또는 3격 전치사 뒤 (mit dem, bei dem).|Dem is the dative of der/das: “to the”, or after dative prepositions (mit dem, bei dem).
+P|de.den|l=der,f=den|-|case|그 ~를|the (object)|den 은 남성 4격 ‘그 ~를’, 또는 복수 3격 정관사예요.|Den is the masculine accusative “the (object)”, or the dative plural.
+P|de.des|l=der,f=des|-|case|그 ~의|of the|des 는 남성 · 중성 2격 정관사 ‘그 ~의’ 예요. 뒤 명사에 -s · -es 가 붙어요.|Des is the genitive of der/das: “of the”; the noun takes -s or -es.
+P|de.einem|l=ein,f=einem/einer|-|case|어떤 ~에게|to a|einem · einer 는 부정관사의 3격 (einer 는 여성 2 · 3격) 이에요.|Einem / einer are dative forms of ein (einer is also feminine genitive).
+P|de.einen|l=ein,f=einen|-|case|어떤 ~를|a (object)|einen 은 남성 4격 부정관사 ‘어떤 ~를’ 이에요.|Einen is the masculine accusative of ein: “a (object)”.
+P|de.modal_sub|c=inf,!i@head + c=modal,i@head|-|modal|(화법조동사)|(modal)|부문장에서는 화법조동사가 맨 끝, 본동사 원형이 그 바로 앞에 와요 (…, daß sie gefallen müßte).|In a subordinate clause the modal comes last, right after the infinitive (…, daß sie gefallen müßte).
+P|de.mich|l=ich,f=mich|-|pron|나를|me|mich 는 ich 의 4격 ‘나를’ 이에요.|Mich is the accusative of ich: “me”.
+P|de.mir|l=ich,f=mir|-|pron|나에게|to me|mir 는 ich 의 3격 ‘나에게’ 예요.|Mir is the dative of ich: “to me”.
+P|de.dich|l=du,f=dich|-|pron|너를|you (obj.)|dich 는 du 의 4격 ‘너를’ 이에요.|Dich is the accusative of du: “you”.
+P|de.dir|l=du,f=dir|-|pron|너에게|to you|dir 는 du 의 3격 ‘너에게’ 예요.|Dir is the dative of du: “to you”.
+P|de.ihn|l=er,f=ihn|-|pron|그를|him|ihn 은 er 의 4격 ‘그를’ 이에요.|Ihn is the accusative of er: “him”.
+P|de.ihm|l=er/es,f=ihm|-|pron|그에게|to him|ihm 은 er · es 의 3격 ‘그에게’ 예요.|Ihm is the dative of er/es: “to him / to it”.
+P|de.uns|l=wir,f=uns|-|pron|우리를 · 우리에게|us|uns 는 wir 의 3 · 4격 ‘우리를, 우리에게’ 예요.|Uns is the dative/accusative of wir: “us / to us”.
+P|de.euch|l=ihr,f=euch|-|pron|너희를 · 너희에게|you (pl.)|euch 는 ihr 의 3 · 4격 ‘너희를, 너희에게’ 예요.|Euch is the dative/accusative of ihr: “you / to you”.
+P|de.ihnen|l=sie/ihr,f=ihnen|-|pron|그들에게 · 당신께|to them, to you|ihnen 은 ‘그들에게’, 대문자 Ihnen 은 ‘당신께’ 예요.|Ihnen means “to them”; capitalised Ihnen is “to you” (polite).
+P|de.ihr_poss|l=ihr/sie,r=ihr(e|en|em|er|es|em)|-|poss|그녀의 · 당신의|her, your|ihre · ihren … 는 ‘그녀의, 그들의’, 대문자 Ihre 는 ‘당신의’ 예요.|Ihre, ihren … mean “her / their”; capitalised Ihre is “your” (polite).
+# ── 기능어 ──
+W|ich|pron|나는|I|ich 는 ‘나는’ 이에요. mich = 나를, mir = 나에게, mein = 나의.|Ich is “I”; mich = me (acc.), mir = to me, mein = my.
+W|der|art|그|the|der · die · das 는 정관사예요. 성 (남 · 여 · 중) 과 격 (1 · 2 · 3 · 4격) 에 따라 꼴이 바뀌어요. 관계대명사 ‘~하는’ 으로도 써요.|Der, die, das are the definite article; the form shows gender and case. They also work as relative pronouns (“who, which”).
+W|sein|aux|~이다 · 있다|to be|sein 은 ‘~이다, 있다’ 예요. 과거분사와 함께 오고 가는 동사의 현재완료 (ich bin gekommen) 를 만들어요.|Sein means “to be”; with a participle it forms the perfect of motion verbs (ich bin gekommen).
+W|und|conj|그리고|and|und 는 ‘그리고, ~와’ 예요. 어순은 바뀌지 않아요.|Und means “and”; it does not change word order.
+W|haben|aux|가지다|to have|haben 은 ‘가지다’ 예요. 과거분사와 함께면 ‘~했다’ (현재완료) 를 만드는 조동사예요.|Haben means “to have”; with a participle it is the auxiliary of the perfect (“did”).
+W|ein|art|어떤 · 하나의|a, an|ein · eine 는 부정관사 ‘어떤, 하나의’ 예요. 격에 따라 einen · einem · einer 로 바뀌어요.|Ein, eine are the indefinite article “a / an”; by case they become einen, einem, einer.
+W|sie|pron|그녀 · 그들 · 당신|she, they, you|sie 는 ‘그녀, 그들’, 대문자 Sie 는 높이는 ‘당신’ 이에요.|Sie means “she” or “they”; capitalised Sie is the polite “you”.
+W|zu|prep|~로 · 너무|to, too|zu 는 ‘~로, ~에게’ (3격), 형용사 앞에서 ‘너무’, 동사 원형 앞에서 ‘~하는 것’ 이에요.|Zu means “to” (dative), “too” before an adjective, and “to (do)” before an infinitive.
+W|mein|poss|나의|my|mein 은 ‘나의’ 예요. 뒤 명사의 성 · 격에 따라 meine · meinen · meinem 으로 바뀌어요.|Mein means “my”; it changes with the noun's gender and case (meine, meinen, meinem).
+W|nicht|neg|~않다|not|nicht 는 ‘~않다’ 예요. 부정하려는 말 앞이나 문장 끝 쪽에 와요.|Nicht means “not”; it stands before what it negates or near the end.
+W|in|prep|~ 안에 · ~로|in, into|in 은 3격이면 ‘~ 안에’ (자리), 4격이면 ‘~ 안으로’ (방향) 예요.|In takes the dative for “in” (place) and the accusative for “into” (direction).
+W|so|adv|그렇게|so|so 는 ‘그렇게, 이렇게, 그래서’ 예요.|So means “so, like this, then”.
+W|dass|sub|~라는 것|that|daß (dass) 는 ‘~라는 것’ 이에요. 뒤 문장의 동사는 맨 끝에 가요.|Daß (dass) means “that”; it sends the verb of its clause to the end.
+W|es|pron|그것|it|es 는 ‘그것’ 이에요. es gibt · es ist 처럼 뜻 없는 형식 주어로도 써요.|Es means “it”; it is also an empty subject (es gibt, es regnet).
+W|er|pron|그는|he|er 는 ‘그는’ 또는 남성 명사를 받는 ‘그것’ 이에요. ihn = 그를, ihm = 그에게.|Er means “he”, or “it” for a masculine noun; ihn = him, ihm = to him.
+W|von|prep|~에서 · ~의|from, of|von 은 ‘~에서, ~의, ~에 의해’ (3격) 예요.|Von means “from, of, by” (dative).
+W|werden|aux|되다|to become|werden 은 ‘되다’ 예요. 동사 원형과 함께면 미래 (~할 것이다), 과거분사와 함께면 수동 (~되다) 이에요.|Werden means “to become”; with an infinitive it makes the future, with a participle the passive.
+W|du|pron|너는|you|du 는 친한 사이의 ‘너는’ 이에요. dich = 너를, dir = 너에게.|Du is the familiar “you”; dich = you (acc.), dir = to you.
+W|wir|pron|우리는|we|wir 는 ‘우리는’, uns 는 ‘우리를, 우리에게’ 예요.|Wir means “we”; uns = us / to us.
+W|als|conj|~로서 · ~보다|as, when, than|als 는 ‘~로서’, 과거 한 번의 ‘~했을 때’, 비교의 ‘~보다’ 예요.|Als means “as”, “when” (one past event), or “than” in comparisons.
+W|alle|det|모든|all|alle (all-) 는 ‘모든, 모두’ 예요.|Alle means “all, everyone”.
+W|mit|prep|~와 함께|with|mit 은 ‘~와 함께, ~으로’ (3격) 예요.|Mit means “with” (dative).
+W|aber|conj|하지만|but|aber 는 ‘하지만’ 이에요. 문장 가운데서는 ‘정말, 그런데’ 같은 힘을 줘요.|Aber means “but”; in mid-sentence it can add emphasis (“really”).
+W|auf|prep|~ 위에 · ~에|on, at|auf 는 ‘~ 위에, ~에’ 예요. 문장 끝에 혼자 있으면 분리동사의 앞 조각일 수 있어요.|Auf means “on, at”; alone at the end of a clause it may be a separable prefix.
+W|nun|adv|이제 · 자|now, well|nun 은 ‘이제, 자, 그런데’ 예요.|Nun means “now” or “well”.
+W|auch|adv|~도 · 또한|also, too|auch 는 ‘~도, 또한’ 이에요.|Auch means “also / too”.
+W|wie|conj|어떻게 · ~처럼|how, like|wie 는 ‘어떻게’, ‘~처럼, ~만큼’ 이에요.|Wie means “how”, or “like / as”.
+W|dieser|det|이|this|dieser · diese · dieses 는 ‘이’ 예요.|Dieser, diese, dieses mean “this”.
+W|man|pron|사람들|one, people|man 은 정해지지 않은 ‘사람들, 누군가’ 예요. 우리말로는 주어 없이 옮기면 자연스러워요.|Man means “one / people”; often best translated without a subject.
+W|wenn|sub|~하면 · ~할 때|if, when|wenn 은 ‘~하면, ~할 때마다’ 예요. 동사는 끝으로 가요.|Wenn means “if / whenever”; the verb goes to the end.
+W|für|prep|~을 위해|for|für 는 ‘~을 위해, ~에게’ (4격) 예요.|Für means “for” (accusative).
+W|bei|prep|~ 곁에 · ~에서|at, with|bei 는 ‘~ 곁에, ~네 집에서, ~할 때’ (3격) 예요.|Bei means “at, near, at someone's place” (dative).
+W|nichts|neg|아무것도|nothing|nichts 는 ‘아무것도 ~않다’ 예요.|Nichts means “nothing”.
+W|denn|conj|왜냐하면 · 도대체|for, then|denn 은 ‘왜냐하면’ (어순 그대로), 질문 속에서 ‘도대체’ 예요.|Denn means “for / because” (normal word order), or “then” in questions.
+W|nach|prep|~ 뒤에 · ~로|after, to|nach 는 ‘~ 뒤에’, 도시 · 나라 이름 앞에서 ‘~로’ (3격) 예요.|Nach means “after”, or “to” before towns and countries (dative).
+W|noch|adv|아직 · 더|still, more|noch 는 ‘아직, 더, 또’ 예요.|Noch means “still, yet, more”.
+W|sich|refl|자기를|oneself|sich 는 3인칭 재귀 대명사 ‘자기를, 자기에게, 서로’ 예요.|Sich is the third-person reflexive: “himself, herself, themselves, each other”.
+W|ihr|pron|너희 · 그녀의|you, her|ihr 는 ‘너희’, 또는 ‘그녀의, 그들의’, 대문자 Ihr 는 ‘당신의’ 예요.|Ihr means “you (pl.)”, or “her / their”; capitalised Ihr is “your” (polite).
+W|nur|adv|~만|only|nur 는 ‘~만, 오직’ 이에요.|Nur means “only”.
+W|kein|neg|아무 ~도 없는|no|kein 은 명사를 부정하는 ‘아무 ~도 없는’ 이에요 (nicht ein).|Kein negates a noun: “no / not any” (= nicht ein).
+W|um|prep|~ 주위에 · ~시에|around, at|um 은 ‘~ 주위에’, 시간 앞에서 ‘~시에’ 예요. um … zu 는 ‘~하기 위해’.|Um means “around”, or “at” with clock times; um … zu = “in order to”.
+W|welcher|rel|어느 · ~하는|which, who|welcher 는 ‘어느’ 또는 관계대명사 ‘~하는 (사람 · 것)’ 이에요. 그 뒤 문장의 동사는 끝으로 가요.|Welcher means “which”, or is a relative pronoun “who / which” (verb goes last).
+W|sehr|adv|매우|very|sehr 는 ‘매우, 무척’ 이에요.|Sehr means “very / very much”.
+W|im|contr|~ 안에 (in+dem)|in the|im 은 in + dem 이 합쳐진 꼴이에요.|Im is in + dem: “in the”.
+W|da|adv|거기 · 그때 · ~이므로|there, then|da 는 ‘거기, 그때’, 문장 앞의 접속사로는 ‘~이므로’ 예요.|Da means “there / then”; as a conjunction, “since”.
+W|unser|poss|우리의|our|unser 는 ‘우리의’ 예요.|Unser means “our”.
+W|weil|sub|왜냐하면|because|weil 은 ‘~이기 때문에’ 예요. 동사는 끝으로 가요.|Weil means “because”; the verb goes to the end.
+W|mehr|adv|더|more|mehr 는 ‘더, 더 많이’ 예요 (nicht mehr = 더는 ~않다).|Mehr means “more” (nicht mehr = no longer).
+W|an|prep|~에|at, on|an 은 ‘~에, ~ 곁에, ~에게’ 예요. 문장 끝에 혼자 있으면 분리동사의 앞 조각일 수 있어요.|An means “at, on, to”; alone at the end of a clause it may be a separable prefix.
+W|was|pron|무엇|what|was 는 ‘무엇’ 또는 ‘~하는 것’ (관계) 이에요.|Was means “what”, or “that which”.
+W|vor|prep|~ 앞에 · ~ 전에|before, ago|vor 는 ‘~ 앞에’, 시간 앞에서 ‘~ 전에’ 예요 (vor Jahren = 몇 해 전).|Vor means “in front of”, or “ago / before” with time (vor Jahren = years ago).
+W|aus|prep|~에서|out of, from|aus 는 ‘~ 밖으로, ~에서’ (3격) 예요.|Aus means “out of, from” (dative).
+W|viel|det|많은|much, many|viel 은 ‘많은, 많이’ 예요.|Viel means “much / many”.
+W|doch|adv|그래도 · 역시|yet, after all|doch 는 ‘그래도, 역시, 제발’ 처럼 말에 힘을 실어요.|Doch means “yet, after all”, or adds emphasis.
+W|also|adv|그러니까|so|also 는 ‘그러니까, 그래서’ 예요 (영어 also 와 달라요).|Also means “so / therefore” (not English “also”).
+W|oder|conj|또는|or|oder 는 ‘또는’ 이에요.|Oder means “or”.
+W|ohne|prep|~ 없이|without|ohne 는 ‘~ 없이’ (4격) 예요.|Ohne means “without” (accusative).
+W|dann|adv|그다음|then|dann 은 ‘그다음, 그러면’ 이에요.|Dann means “then”.
+W|bis|prep|~까지|until|bis 는 ‘~까지’ 예요.|Bis means “until / up to”.
+W|sein#2|poss|그의|his|sein (seine · seinen …) 은 ‘그의, 그것의’ 예요.|Sein (seine, seinen …) means “his / its”.
+W|selbst|pron|스스로 · 심지어|-self, even|selbst 는 ‘스스로, 몸소’, 앞에 오면 ‘심지어’ 예요.|Selbst means “-self”, or “even” when it comes first.
+W|zur|contr|~로 (zu+der)|to the|zur 는 zu + der 가 합쳐진 꼴이에요 (여성 3격).|Zur is zu + der: “to the” (feminine).
+W|damit|sub|~하도록|so that|damit 은 ‘~하도록’ (동사는 끝으로), 또는 ‘그것으로’ 예요.|Damit means “so that” (verb last), or “with it”.
+W|wenig|det|적은|little|wenig 은 ‘적은, 조금’ 이에요.|Wenig means “little / few”.
+W|am|contr|~에 (an+dem)|at the, on the|am 은 an + dem 이 합쳐진 꼴이에요 (am Montag = 월요일에).|Am is an + dem: “at / on the” (am Montag = on Monday).
+W|davon|adv|그것에 대해|of it|davon 은 von + 그것 = ‘그것에 대해, 그것에서’ 예요.|Davon is von + it: “of it, from it”.
+W|sondern|conj|~가 아니라|but rather|sondern 은 부정 뒤의 ‘~가 아니라 (오히려)’ 예요.|Sondern means “but rather”, after a negation.
+W|durch|prep|~을 통해|through|durch 는 ‘~을 통해, ~ 덕분에’ (4격) 예요.|Durch means “through / by” (accusative).
+W|beide|det|둘 다|both|beide 는 ‘둘 다, 두 ~’ 예요.|Beide means “both”.
+W|wegen|prep|~ 때문에|because of|wegen 은 ‘~ 때문에’ (2격) 예요.|Wegen means “because of” (genitive).
+W|etwas|pron|무엇인가 · 조금|something, a bit|etwas 는 ‘무엇인가’ 또는 ‘조금’ 이에요.|Etwas means “something” or “a little”.
+W|dein|poss|너의|your|dein 은 ‘너의’ 예요.|Dein means “your” (familiar).
+W|ja|adv|네 · 정말|yes, indeed|ja 는 ‘네’, 문장 가운데서는 ‘정말, 아시다시피’ 예요.|Ja means “yes”; in mid-sentence, “indeed / as you know”.
+W|vom|contr|~에서 (von+dem)|from the|vom 은 von + dem 이 합쳐진 꼴이에요.|Vom is von + dem: “from / of the”.
+W|wo|adv|어디|where|wo 는 ‘어디, ~하는 곳’ 이에요.|Wo means “where”.
+W|solch|det|그러한|such|solch (solche) 는 ‘그러한’ 이에요.|Solch (solche) means “such”.
+W|wer|pron|누구|who|wer 는 ‘누구’ 예요.|Wer means “who”.
+W|warum|adv|왜|why|warum 은 ‘왜’ 예요.|Warum means “why”.
+W|dabei|adv|그러면서|while, there|dabei 는 ‘그러면서, 그 자리에, 그 일에’ 예요.|Dabei means “at the same time, there, in doing so”.
+W|ehe|sub|~하기 전에|before|ehe 는 ‘~하기 전에’ 예요. 동사는 끝으로 가요.|Ehe means “before”; the verb goes to the end.
+W|unter|prep|~ 아래 · ~ 가운데|under, among|unter 는 ‘~ 아래, ~ 가운데’ 예요.|Unter means “under / among”.
+W|zum|contr|~로 (zu+dem)|to the|zum 은 zu + dem 이 합쳐진 꼴이에요.|Zum is zu + dem: “to the”.
+W|derselbe|det|같은|the same|derselbe 는 ‘바로 그, 같은’ 이에요.|Derselbe means “the same”.
+W|beim|contr|~할 때 (bei+dem)|at the|beim 은 bei + dem 이 합쳐진 꼴이에요 (beim Essen = 먹을 때).|Beim is bei + dem (beim Essen = while eating).
+W|darauf|adv|그 위에 · 그 뒤|on it, then|darauf 는 ‘그 위에, 그것을, 그 뒤에’ 예요.|Darauf means “on it / for it / afterwards”.
+W|darin|adv|그 안에|in it|darin 은 ‘그 안에’ 예요.|Darin means “in it”.
+W|nachdem|sub|~한 뒤에|after|nachdem 은 ‘~한 뒤에’ 예요. 동사는 끝으로 가요.|Nachdem means “after”; the verb goes to the end.
+W|indem|sub|~함으로써|by (doing)|indem 은 ‘~함으로써, ~하면서’ 예요.|Indem means “by doing / while”.
+W|dazu|adv|거기에 · 덧붙여|for it, besides|dazu 는 ‘그것을 위해, 거기에 덧붙여’ 예요.|Dazu means “for it / in addition”.
+W|ob|sub|~인지|whether|ob 은 ‘~인지 (아닌지)’ 예요.|Ob means “whether / if”.
+W|jeder|det|각각의|each|jeder 는 ‘각각의, 모든’ 이에요.|Jeder means “each / every”.
+W|ins|contr|~ 안으로 (in+das)|into the|ins 는 in + das 가 합쳐진 꼴 (방향) 이에요.|Ins is in + das: “into the”.
+W|obwohl|sub|~이지만|although|obwohl 은 ‘~이지만’ 이에요. 동사는 끝으로 가요.|Obwohl means “although”; the verb goes to the end.
+W|seit|prep|~ 이래로|since|seit 는 ‘~부터 (지금까지)’ 예요.|Seit means “since / for”.
+W|niemand|neg|아무도|nobody|niemand 는 ‘아무도 ~않다’ 예요.|Niemand means “nobody”.
+W|über|prep|~ 위에 · ~에 대해|over, about|über 는 ‘~ 위에, ~ 너머, ~에 대해’ 예요.|Über means “over, above, about”.
+W|gegen|prep|~ 쪽으로 · ~에 맞서|towards, against|gegen 은 ‘~에 맞서’, 시간 앞에서 ‘~쯤’ 이에요.|Gegen means “against”, or “around” with a time.
+W|einander|pron|서로|each other|einander 는 ‘서로’ 예요.|Einander means “each other”.
+W|sobald|sub|~하자마자|as soon as|sobald 는 ‘~하자마자’ 예요.|Sobald means “as soon as”.

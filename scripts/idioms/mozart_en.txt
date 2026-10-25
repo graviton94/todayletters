@@ -1,0 +1,38 @@
+# mozart_en 관용구 (scripts/notes.py --seed 로 일반 목록에서 찾은 것 + 손으로 고름). 줄 = 표제어 열쇠|ko|en[|노트 ko|노트 en]
+at little|적어도|at least
+at last|마침내|finally
+at once|곧바로, 동시에|immediately
+at all|조금도|at all
+at home|집에|at home
+at the same time|동시에|at the same time
+in fact|사실|actually
+in short|요컨대|in short
+in spite of|~에도 불구하고|despite
+instead of|~ 대신|in place of
+as if|마치 ~처럼|as though
+as for|~에 대해서는|regarding
+so much|그렇게 많이|so much
+such a|그런|such a
+a little|조금|a bit
+a great deal|많이|a lot
+of course|물론|naturally
+all right|괜찮은|okay
+no long|더 이상 ~않다|not any more
+even if|~라 해도|even though
+each other|서로|one another
+from time to time|가끔|occasionally
+once more|한 번 더|again
+by heart|외워서|from memory
+out of|~에서, ~ 밖으로|from
+next to|~ 옆에|beside
+kind of|일종의, 좀|sort of
+look after|~을 돌보다|to take care of
+come in|들어오다|to enter
+go on|계속하다|to continue
+get on|잘 지내다, 해 나가다|to manage
+take place|일어나다|to happen
+think of|~을 생각하다|to consider
+long for|~을 그리워하다|to yearn for
+be sure|확신하다|to be certain
+seem to|~인 것 같다|to appear to
+how much|얼마나|to what extent

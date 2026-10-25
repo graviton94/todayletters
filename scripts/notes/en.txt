@@ -1,0 +1,165 @@
+# 영어 (세 작품의 영어 줄) 기능어 · 문형. 형식은 scripts/notes.py 머리 주석. 앱이 쓴 풀이 (사람 확인 전).
+# 's · 've · 'll · 'd · 'm · 're 는 gloss_en 에서 따로 떼어진 토큰 (열쇠 그대로).
+T|art|기능어 · 관사|Function word · article
+T|prep|기능어 · 전치사|Function word · preposition
+T|pron|기능어 · 대명사|Function word · pronoun
+T|refl|기능어 · 재귀 대명사|Function word · reflexive pronoun
+T|rel|기능어 · 관계사|Function word · relative
+T|poss|기능어 · 소유|Function word · possessive
+T|det|기능어 · 한정사|Function word · determiner
+T|dem|기능어 · 지시어|Function word · demonstrative
+T|neg|부정|Negation
+T|aux|조동사|Auxiliary verb
+T|modal|조동사 (가능 · 의무 · 추측)|Modal verb
+T|conj|기능어 · 접속사|Function word · conjunction
+T|adv|기능어 · 부사|Function word · adverb
+T|tense|문형 · 시제|Construction · tense
+T|cons|문형|Construction
+T|q|문형 · 질문|Construction · question
+C|pp|p=v,i,!r=.*(ing|s)|| f=come/become/run/put/set/let/cut/read/hit/hurt/shut/cost/spread/overcome
+C|base|p=v,!i,!r=.*ing|| f=be
+C|be|l=be/'m/'re/'s
+C|have|l=have/'ve,f=have/has/ve|| f=s
+C|modal|l=would/could/should/must/might/may/will/can/shall/'d/'ll
+# ── 문형 ──
+P|en.there_be|l=there + c=be|always|cons|~이 있다|there is|there is · there are 는 ‘~이 있다’ 예요. 뒤에 오는 것이 진짜 주어라 be 는 그 수에 맞춰요.|There is / there are means “~이 있다”; be agrees with the noun that follows.
+P|en.poss_s|p=n/name + f=s|-|poss|~의|’s (of)|명사 뒤의 ’s 는 ‘~의’ (소유) 예요 (Theo's letter = 테오의 편지). is · has 의 줄임과 꼴이 같아요.|’s after a noun shows possession (Theo's letter). It looks the same as the short form of is / has.
+P|en.going_to|c=be + f=going + f=to + c=base@head|gap=1 always|tense|~할 것이다|going to|be going to + 동사 원형 = ‘~할 거야’ (예정 · 곧 일어날 일) 예요.|Be going to + verb means “will / be about to” (a plan or something coming).
+P|en.used_to|f=used + f=to + c=base@head|always|tense|~하곤 했다|used to|used to + 동사 원형 = ‘(예전에) ~하곤 했다’ 예요.|Used to + verb means “did regularly in the past”.
+P|en.have_to|l=have,!f=having + f=to + c=base@head|gap=0 always|modal|~해야 한다|have to|have to + 동사 원형 = ‘~해야 한다’ 예요 (had to = ~해야 했다).|Have to + verb means “must” (had to = had to).
+P|en.would_like|l=would/'d + l=like|always|cons|~하고 싶다|would like|would like (I'd like) 는 ‘~하고 싶다, ~을 원하다’ 를 부드럽게 말하는 틀이에요.|Would like (I'd like) is a polite “want”.
+P|en.would_rather|l=would/'d + f=rather|always|cons|차라리 ~하겠다|would rather|would rather 는 ‘차라리 ~하겠다’ 예요.|Would rather means “would prefer to”.
+P|en.had_better|l=have/'d,f=had/d + f=better|always|modal|~하는 게 낫다|had better|had better + 동사 원형 = ‘~하는 게 좋겠다’ (충고) 예요.|Had better + verb is advice: “should”.
+P|en.modal_perf|c=modal + l=have,f=have + c=pp@head|gap=1|tense|~했을 텐데|would have|would · could · should · must · might + have + 과거분사 = 지난 일에 대한 ‘~했을 텐데, ~했을 것이다, ~했어야 했다’ 예요.|Modal + have + past participle talks about the past: “would have / should have / must have done”.
+P|en.past_perf|l=have/'d,f=had/d + c=pp@head|gap=2 stop=p=n/name|tense|~했었다|had done|had + 과거분사 = 과거완료 ‘(그보다 앞서) ~했었다’ 예요.|Had + past participle is the past perfect: “had done (before then)”.
+P|en.been_ing|c=have + f=been + p=v,r=.*ing@head|gap=1|tense|계속 ~해 왔다|have been doing|have been + -ing = ‘(지금까지) 계속 ~해 왔다’ 예요.|Have been + -ing means “have been doing (up to now)”.
+P|en.pres_perf|c=have + c=pp@head|gap=2 stop=p=n/name stop=l=to|tense|~했다 (완료)|have done|have · has + 과거분사 = 현재완료 ‘~했다, ~해 왔다, ~한 적이 있다’ 예요. 지금과 이어진 과거예요.|Have / has + past participle is the present perfect: a past action linked to now.
+P|en.prog|c=be + p=v,r=.*ing,!f=going@head|gap=1 stop=p=n/name|tense|~하고 있다|is doing|be + -ing = ‘~하고 있다’ (진행) 예요.|Be + -ing is the progressive: “is doing”.
+P|en.going_prog|c=be + f=going@head|gap=1|tense|~하고 있다|is going|be going 은 ‘가고 있다’ 예요.|Be going means “is going (somewhere)”.
+P|en.passive|c=be + c=pp@head|gap=1 stop=p=n/name|cons|~되다 (수동)|is done (pass.)|be + 과거분사는 ‘~되다, ~받다’ (수동) 예요.|Be + past participle is the passive: “is done”.
+P|en.will|l=will/'ll/shall,!f=wont + c=base@head|gap=1|tense|~할 것이다|will|will (’ll) + 동사 원형 = ‘~할 거야, ~하겠어’ 예요.|Will (’ll) + verb is the future: “will do”.
+P|en.would|l=would/'d + c=base@head|gap=1|modal|~할 텐데 · ~하겠다|would|would (’d) + 동사 원형 = ‘~할 텐데, ~하곤 했다, ~하겠다’ 예요.|Would (’d) + verb means “would do” (or “used to do”).
+P|en.dont|l=don't/doesn't/didn't + c=base@head|gap=1|neg|~하지 않는다|do not|don't · doesn't · didn't + 동사 원형 = 부정 ‘~하지 않는다 (않았다)’ 예요. 명령문이면 ‘~하지 마’.|Don't / doesn't / didn't + verb is the negative; as an order it means “don't”.
+P|en.do_not|l=do,f=do/does/did + f=not + c=base@head|-|neg|~하지 않는다|do not|do (does · did) not + 동사 원형 = ‘~하지 않는다’ 예요. 여기서 do 는 뜻이 없는 도우미예요.|Do (does, did) not + verb is the negative; do is only a helper here.
+P|en.do_q|l=do,f=do/does/did + p=pron@part + c=base@head|prev!=p=pron|q|(질문)|(question)|do (does · did) + 주어 + 동사 원형 = 질문이에요. do 는 따로 옮기지 않아요.|Do (does, did) + subject + verb makes a question; do itself is not translated.
+P|en.so_that|f=so + f=that|-|conj|~하도록|so that|so that 은 ‘~하도록, ~하기 위해’ 예요.|So that means “in order that”.
+P|en.as_as|f=as + p=adj/adv@head + f=as|-|cons|~만큼 ~한|as … as|as + 형용사 + as 는 ‘~만큼 ~한’ 이에요.|As + adjective + as means “just as … as”.
+P|en.in_order_to|f=in + f=order + f=to|always|cons|~하기 위해|in order to|in order to + 동사 원형 = ‘~하기 위해’ 예요.|In order to + verb means “so as to”.
+P|en.to_inf|f=to + c=base,!f=be@head|prev!=c=be|cons|~하는 것 · ~하러|to (do)|to + 동사 원형은 ‘~하는 것, ~하기 위해, ~할’ 이에요.|To + verb (the infinitive) means “to do / in order to”.
+P|en.not_only|f=not + f=only + f=but|gap=8|conj|~뿐 아니라|not only … but|not only … but (also) 는 ‘~뿐 아니라 ~도’ 예요.|Not only … but (also) means “not just … but also”.
+P|en.me|l=i,f=me|-|pron|나를 · 나에게|me|me 는 I 의 목적격 ‘나를, 나에게’ 예요.|Me is the object form of I.
+P|en.him|l=he,f=him|-|pron|그를 · 그에게|him|him 은 he 의 목적격 ‘그를, 그에게’ 예요.|Him is the object form of he.
+P|en.us|l=we,f=us|-|pron|우리를 · 우리에게|us|us 는 we 의 목적격 ‘우리를, 우리에게’ 예요.|Us is the object form of we.
+P|en.them|l=they,f=them|-|pron|그들을 · 그들에게|them|them 은 they 의 목적격 ‘그들을, 그들에게’ 예요.|Them is the object form of they.
+# ── 기능어 ──
+W|I|pron|나는|I|I 는 ‘나는’ 이에요. 늘 대문자로 써요 (me = 나를, my = 나의).|I means “나는”; it is always capitalised (me, my).
+W|the|art|그|the|the 는 정해진 것 앞의 정관사예요. 우리말로는 옮기지 않을 때가 많아요.|The is the definite article; Korean often leaves it out.
+W|be|aux|~이다 · 있다|to be|be (am · is · are · was · were) 는 ‘~이다, 있다’ 예요. -ing 와 함께면 진행, 과거분사와 함께면 수동이에요.|Be (am, is, are, was, were) means “to be”; with -ing it is progressive, with a participle passive.
+W|and|conj|그리고|and|and 는 ‘그리고, ~와’ 예요.|And joins words or clauses.
+W|to|prep|~로 · ~하기|to|to 는 ‘~로, ~에게’, 동사 원형 앞에서는 ‘~하는 것, ~하기 위해’ 예요.|To means “to (a place / person)”; before a verb it marks the infinitive.
+W|a|art|하나의 · 어떤|a, an|a (an) 는 셀 수 있는 것 하나 앞의 부정관사예요. 모음 소리 앞에서는 an.|A (an) is the indefinite article; an before a vowel sound.
+W|you|pron|너 · 당신|you|you 는 ‘너, 당신, 너희’ 예요 (주어 · 목적어 같은 꼴).|You is “you” (singular or plural, subject or object).
+W|of|prep|~의|of|of 는 ‘~의, ~ 중에’ 예요.|Of means “of”.
+W|in|prep|~ 안에 · ~에|in|in 은 ‘~ 안에, ~에 (때 · 곳)’ 예요.|In means “in / inside / during”.
+W|my|poss|나의|my|my 는 ‘나의’ 예요.|My means “my”.
+W|have|aux|가지다|to have|have 는 ‘가지다’ 예요. 과거분사와 함께면 현재완료 ‘~했다’, to 와 함께면 ‘~해야 한다’.|Have means “to have”; with a past participle it forms the perfect, with to it means “must”.
+W|that|conj|그것 · ~라는 것|that|that 은 ‘저것, 그’, ‘~라는 것’ (접속사), ‘~하는’ (관계사) 로 두루 써요.|That is “that” (demonstrative), a conjunction, or a relative pronoun.
+W|it|pron|그것|it|it 은 ‘그것’, 또는 날씨 · 때를 말하는 형식 주어예요 (it is late).|It means “it”, or is an empty subject (it is late).
+W|for|prep|~을 위해 · ~ 동안|for|for 는 ‘~을 위해, ~에게, ~ 동안, ~ 때문에’ 예요.|For means “for” (purpose, recipient, duration, reason).
+W|with|prep|~와 함께|with|with 는 ‘~와 함께, ~로’ 예요.|With means “with”.
+W|as|conj|~처럼 · ~로서|as|as 는 ‘~처럼, ~로서, ~할 때, ~이니까’ 예요.|As means “like, as, when, since”.
+W|he|pron|그는|he|he 는 ‘그는’ (him = 그를, his = 그의) 이에요.|He means “그는” (him, his).
+W|'s|aux|~이다 · ~의|is, has, ’s|’s 는 is · has 의 줄임, 또는 명사 뒤의 소유 ‘~의’ 예요.|’s is short for is or has, or the possessive after a noun.
+W|at|prep|~에|at|at 은 한 점 같은 곳 · 때의 ‘~에, ~에서’ 예요.|At means “at” (a point in place or time).
+W|your|poss|너의|your|your 는 ‘너의, 당신의’ 예요.|Your means “your”.
+W|so|adv|그래서 · 매우|so|so 는 ‘그래서’, 형용사 앞에서 ‘그렇게, 매우’ 예요.|So means “therefore”, or “so / very” before an adjective.
+W|on|prep|~ 위에 · ~에|on|on 은 ‘~ 위에, ~에 (날짜), ~에 대해’ 예요.|On means “on, on (a day), about”.
+W|this|dem|이 · 이것|this|this 는 ‘이, 이것’ 이에요 (복수 these).|This means “this” (plural these).
+W|all|det|모든|all|all 은 ‘모든, 전부’ 예요.|All means “all / everything”.
+W|but|conj|하지만|but|but 은 ‘하지만, ~ 말고는’ 이에요.|But means “but / except”.
+W|do|aux|하다|to do|do 는 ‘하다’ 예요. 질문 · 부정에서는 뜻 없이 동사를 돕는 조동사예요.|Do means “to do”; in questions and negatives it is only a helper.
+W|we|pron|우리는|we|we 는 ‘우리는’ (us = 우리를, our = 우리의) 예요.|We means “우리는” (us, our).
+W|'m|aux|~이다|am|’m 은 am 의 줄임 (I'm = I am) 이에요.|’m is short for am (I'm = I am).
+W|not|neg|~않다|not|not 은 ‘~않다’ 예요. 일반 동사는 do 와 함께 써요 (do not know).|Not makes a negative; ordinary verbs need do (do not know).
+W|from|prep|~에서|from|from 은 ‘~에서, ~로부터’ 예요.|From means “from”.
+W|one|pron|하나 · 사람|one|one 은 ‘하나’, 또는 앞의 명사를 받는 ‘~것’, 일반 주어 ‘사람’ 이에요.|One means “one”, “the one”, or “people in general”.
+W|they|pron|그들은|they|they 는 ‘그들은’ (them = 그들을, their = 그들의) 이에요.|They means “그들은” (them, their).
+W|very|adv|매우|very|very 는 ‘매우’ 예요.|Very means “very”.
+W|'ll|aux|~할 것이다|will|’ll 은 will 의 줄임이에요 (I'll = I will).|’ll is short for will (I'll = I will).
+W|will|modal|~할 것이다|will|will 은 ‘~할 거야, ~하겠어’ (미래 · 뜻) 예요.|Will expresses the future or intention.
+W|if|conj|만약 ~면|if|if 는 ‘만약 ~라면’, ‘~인지’ 예요.|If means “if / whether”.
+W|his|poss|그의|his|his 는 ‘그의, 그의 것’ 이에요.|His means “his”.
+W|what|pron|무엇 · ~하는 것|what|what 은 ‘무엇’, ‘~하는 것’ 이에요.|What means “what / the thing that”.
+W|'ve|aux|(완료)|have|’ve 는 have 의 줄임이에요 (I've = I have). 과거분사와 함께면 현재완료.|’ve is short for have (I've = I have); with a participle, present perfect.
+W|by|prep|~에 의해 · ~ 옆에|by|by 는 ‘~ 옆에, ~에 의해, ~까지’ 예요.|By means “near, by (someone), by (a time)”.
+W|there|adv|거기|there|there 는 ‘거기’, there is 에서는 ‘~이 있다’ 의 형식 주어예요.|There means “there”; in there is it is an empty subject.
+W|more|adv|더|more|more 는 ‘더, 더 많이’ 예요.|More means “more”.
+W|which|rel|어느 · ~하는|which|which 는 ‘어느’, 또는 앞의 것을 꾸미는 ‘~하는 (것)’ 이에요.|Which means “which”, or links a clause to a thing.
+W|here|adv|여기|here|here 는 ‘여기’ 예요.|Here means “here”.
+W|no|neg|아니 · ~ 없는|no|no 는 ‘아니’, 명사 앞에서 ‘아무 ~도 없는’ 이에요.|No means “no”, or “not any” before a noun.
+W|who|rel|누구 · ~하는 사람|who|who 는 ‘누구’, 또는 사람을 꾸미는 ‘~하는 (사람)’ 이에요.|Who means “who”, or links a clause to a person.
+W|now|adv|지금|now|now 는 ‘지금, 이제’ 예요.|Now means “now”.
+W|or|conj|또는|or|or 는 ‘또는’ 이에요.|Or means “or”.
+W|would|modal|~할 텐데|would|would 는 ‘~할 텐데, ~하곤 했다’, will 의 과거예요.|Would means “would”; it is also the past of will.
+W|when|conj|~할 때|when|when 은 ‘언제’, ‘~할 때’ 예요.|When means “when”.
+W|about|prep|~에 대해 · 약|about|about 은 ‘~에 대해’, 수 앞에서 ‘약’ 이에요.|About means “about / around”.
+W|can|modal|~할 수 있다|can|can 은 ‘~할 수 있다, ~해도 된다’ 예요.|Can means “be able to / may”.
+W|than|conj|~보다|than|than 은 비교의 ‘~보다’ 예요.|Than is used in comparisons.
+W|out|adv|밖으로|out|out 은 ‘밖으로’, 동사 뒤에서 뜻을 바꾸기도 해요 (find out = 알아내다).|Out means “out”; after a verb it can change the meaning (find out).
+W|her|pron|그녀를 · 그녀의|her|her 는 ‘그녀를’ 또는 ‘그녀의’ 예요.|Her means “her” (object) or “her” (possessive).
+W|our|poss|우리의|our|our 는 ‘우리의’ 예요.|Our means “our”.
+W|don't|neg|~하지 않는다|do not|don't 는 do not 의 줄임이에요. 동사 원형 앞에서 ‘~하지 않는다’, 명령이면 ‘~하지 마’.|Don't is short for do not: a negative, or “don't” as an order.
+W|because|conj|~ 때문에|because|because 는 ‘~ 때문에’ (because of + 명사) 예요.|Because means “since / for the reason that” (because of + noun).
+W|may|modal|~일지 몰라 · ~해도 돼|may|may 는 ‘~일지도 모른다, ~해도 된다’ 예요.|May means “might” or “be allowed to”.
+W|before|prep|~ 전에|before|before 는 ‘~ 전에, ~ 앞에’ 예요.|Before means “before”.
+W|she|pron|그녀는|she|she 는 ‘그녀는’ 이에요.|She means “그녀는”.
+W|much|adv|많이|much|much 는 ‘많이, 훨씬’ 이에요.|Much means “a lot / much”.
+W|how|adv|어떻게 · 얼마나|how|how 는 ‘어떻게’, 형용사 앞에서 ‘얼마나’ 예요.|How means “how”.
+W|after|prep|~ 뒤에|after|after 는 ‘~ 뒤에, ~ 후에’ 예요.|After means “after”.
+W|since|conj|~ 이래로 · ~이니까|since|since 는 ‘~ 이래로’ 또는 ‘~이니까’ 예요.|Since means “from (a time)” or “because”.
+W|too|adv|~도 · 너무|too|too 는 문장 끝에서 ‘~도’, 형용사 앞에서 ‘너무’ 예요.|Too means “also” at the end, or “too” before an adjective.
+W|up|adv|위로|up|up 은 ‘위로’, 동사 뒤에서 ‘다, 끝까지’ 같은 뜻을 더해요.|Up means “up”; after a verb it often adds “completely”.
+W|must|modal|~해야 한다|must|must 는 ‘~해야 한다’, 또는 ‘~임에 틀림없다’ 예요.|Must means “have to”, or “surely is”.
+W|without|prep|~ 없이|without|without 은 ‘~ 없이’ 예요 (without -ing = ~하지 않고).|Without means “without” (without -ing = without doing).
+W|nothing|neg|아무것도|nothing|nothing 은 ‘아무것도 ~ 않다’ 예요.|Nothing means “not anything”.
+W|then|adv|그때 · 그러면|then|then 은 ‘그때, 그다음, 그러면’ 이에요.|Then means “at that time / next / so”.
+W|'d|aux|~할 텐데 · ~했었다|would, had|’d 는 would 또는 had 의 줄임이에요. 뒤가 동사 원형이면 would, 과거분사면 had.|’d is short for would or had: before a base verb it is would, before a participle had.
+W|such|det|그런|such|such 는 ‘그런, 그렇게 ~한’ 이에요.|Such means “such / so”.
+W|could|modal|~할 수 있었다|could|could 는 can 의 과거 ‘~할 수 있었다’, 또는 ‘~일 수도 있다’ 예요.|Could is the past of can, or means “might”.
+W|another|det|또 하나의|another|another 는 ‘또 하나의, 다른’ 이에요.|Another means “one more / a different”.
+W|into|prep|~ 안으로|into|into 는 ‘~ 안으로’ (움직임) 예요.|Into means “into” (movement).
+W|every|det|모든 · ~마다|every|every 는 ‘모든, ~마다’ 예요 (뒤는 단수).|Every means “each / every” (with a singular noun).
+W|most|adv|가장|most|most 는 ‘가장, 대부분의’ 예요.|Most means “most”.
+W|many|det|많은|many|many 는 셀 수 있는 것의 ‘많은’ 이에요.|Many means “a lot of” (countable).
+W|its|poss|그것의|its|its 는 ‘그것의’ 예요 (it's = it is 와 달라요).|Its means “of it” (not it's = it is).
+W|myself|refl|나 자신|myself|myself 는 ‘나 자신 (을)’, ‘내가 직접’ 이에요.|Myself means “me (reflexive)” or “I personally”.
+W|where|adv|어디 · ~하는 곳|where|where 는 ‘어디’, ‘~하는 곳’ 이에요.|Where means “where”.
+W|'re|aux|~이다|are|’re 는 are 의 줄임이에요 (you're = you are).|’re is short for are (you're = you are).
+W|any|det|어떤 · 아무|any|any 는 질문 · 부정에서 ‘어떤, 아무’ 예요.|Any means “some / any” in questions and negatives.
+W|some|det|몇몇 · 어떤|some|some 은 ‘몇몇의, 조금, 어떤’ 이에요.|Some means “some / a few”.
+W|something|pron|무언가|something|something 은 ‘무언가’ 예요.|Something means “a thing (not named)”.
+W|yours|poss|너의 것|yours|yours 는 ‘너의 것’, 편지 끝에서는 ‘당신의 (벗) 으로부터’ 예요.|Yours means “your one(s)”; at the end of a letter it is a sign-off.
+W|everything|pron|모든 것|everything|everything 은 ‘모든 것’ 이에요.|Everything means “all things”.
+W|off|adv|떨어져|off|off 는 ‘떨어져, 꺼져’, 동사 뒤에서 뜻을 바꿔요 (set off = 출발하다).|Off means “away / off”; after a verb it changes the meaning (set off).
+W|their|poss|그들의|their|their 는 ‘그들의’ 예요.|Their means “of them”.
+W|yourself|refl|너 자신|yourself|yourself 는 ‘너 자신 (을)’ 이에요.|Yourself means “you (reflexive)”.
+W|should|modal|~해야 한다|should|should 는 ‘~해야 한다, ~하는 게 좋다’ 예요.|Should means “ought to”.
+W|can't|neg|~할 수 없다|cannot|can't 는 cannot 의 줄임 ‘~할 수 없다’ 예요.|Can't is short for cannot.
+W|few|det|거의 없는|few|few 는 ‘거의 없는’, a few 는 ‘몇몇의’ 예요.|Few means “not many”; a few means “some”.
+W|over|prep|~ 위에 · 끝난|over|over 는 ‘~ 위에, ~ 넘어’, be over 는 ‘끝나다’ 예요.|Over means “above / across”; be over means “to be finished”.
+W|shall|modal|~할 것이다|shall|shall 은 옛 말투의 ‘~할 것이다’, Shall I …? 는 ‘~할까요?’ 예요.|Shall is an older “will”; Shall I …? offers or asks.
+W|though|conj|~이지만|though|though 는 ‘~이지만’, 문장 끝에서 ‘그래도’ 예요.|Though means “although”, or “however” at the end.
+W|cannot|neg|~할 수 없다|cannot|cannot 은 ‘~할 수 없다’ 예요.|Cannot means “is not able to”.
+W|both|det|둘 다|both|both 는 ‘둘 다’ 예요.|Both means “the two together”.
+W|yet|adv|아직 · 그러나|yet|yet 은 부정 · 질문에서 ‘아직’, 문장 앞에서 ‘그러나’ 예요.|Yet means “still / so far”, or “but” at the start.
+W|through|prep|~을 통해|through|through 는 ‘~을 통해, ~을 지나’ 예요.|Through means “through”.
+W|nor|neg|~도 아니다|nor|nor 는 ‘~도 아니다’ (neither … nor) 예요.|Nor means “and not” (neither … nor).
+W|anything|pron|무엇이든|anything|anything 은 ‘무엇이든’, 부정에서 ‘아무것도’ 예요.|Anything means “any thing”; in negatives, “nothing”.
+W|while|conj|~하는 동안|while|while 은 ‘~하는 동안, ~인 반면’ 이에요.|While means “during the time that / whereas”.
+W|might|modal|~일지도 모른다|might|might 는 ‘~일지도 모른다’ 예요.|Might means “may possibly”.
+W|whom|rel|누구를|whom|whom 은 who 의 목적격 ‘누구를, ~하는 (사람)’ 이에요.|Whom is the object form of who.
+W|whether|conj|~인지|whether|whether 는 ‘~인지 (아닌지)’ 예요.|Whether means “if (or not)”.
+W|until|prep|~까지|until|until (till) 은 ‘~까지’ 예요.|Until (till) means “up to (a time)”.
+W|although|conj|비록 ~이지만|although|although 는 ‘비록 ~이지만’ 이에요.|Although means “even though”.
+W|however|adv|그러나|however|however 는 ‘그러나’, 형용사 앞에서 ‘아무리 ~해도’ 예요.|However means “but”, or “no matter how”.
+W|unless|conj|~하지 않으면|unless|unless 는 ‘~하지 않으면’ 이에요.|Unless means “if not”.

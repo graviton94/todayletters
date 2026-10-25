@@ -357,3 +357,22 @@
 - **내 선의 계단 (긴 평평 → 뛰어오름)**: 원인 `PitchLine.mine` 이 크기 흐름 DTW 길을 그대로 써서 원래 칸 여럿이 내 칸 하나에 묶임 (+ 꼬리 소음이 끝 칸을 평평하게). 이제 꼬리를 떼고 (`voicedOnly`), 맞춘 길 (`PitchLine.warp`: 칸마다 평균 자리 → 가우스 (칸 수 / 16) → 늘 0.35 기울기 이상 앞으로 → 0 · m−1 맞춤) 의 소수 자리에서 곧게 읽는다. 시험: 미끄러지는 음높이의 내 선 가장 긴 평평 ≤ 8칸 (예전 16 ~ 40), 한 칸 뜀 < 0.08, `warpNeverStalls`.
 - **회화 상대 줄 (빈센트) 이 안 들림**: 원인 `TalkStep` 에서 상대 줄이 열리면 같은 프레임에 내 줄 차례가 생겨 LISTEN 의 `take.original` 이 막 시작한 상대 줄 소리를 바로 잘랐다 (걸음 마침 한 장 아래에서 열리든 아니든). 이제 상대 줄은 `AppState.autoPlay` (덮개가 걷힐 때까지 기다림 · 받을 수 없으면 다시 걷힐 때 · 끝날 때까지 기다림) 로 틀고, 끝나면 `spoken`, 내 줄의 먼저 듣기는 `spoken` 을 기다린 뒤 같은 `autoPlay` 로. 따라 읽기 첫 듣기 · 이해 확인 지문 · 답장 말해 보기도 `autoPlay` 한 곳으로 (`ShadowTake.listen`).
 - 시험 도우미 `Narrator.fake` · `fakeEnd` (소리 없이 시작한 파일만 적음, 앱에서는 null). NavTest `talkAfterStepNotePlaysPartnerThenMine` (덮개 동안 소리 없음 → 걷히면 상대 줄 → 끝나기 전엔 그대로 → 끝나면 내 줄 → 다 들으면 녹음 단추 켜짐) · `checkAfterStepNotePlaysPassage` · `readAlongAfterStepNotePlaysOriginal`, core `TalkTurnTest.retryAlwaysOpenAfterAnyScoredTake`. 글자 값 · 키 바뀐 것 없음.
+
+## 2026-10-25 추가 (낱말 아래 뜻 노트: 기능어 · 문형 · 관용구 — 자료 · core, 화면은 따로)
+
+- **무엇**: 편지 방 낱말 아래 뜻에 기능어 · 여러 낱말 문형 · 관용구의 짧은 뜻, 누르면 짧은 문법 카드 (꼬리표 · 짧은 뜻 · 두 문장 안 노트, ko · en). 다섯 배우는 말 fr · de · es · en · ko.
+  모든 토큰을 덮지는 않는다: 노트가 없는 토큰은 예전대로 사전 첫 뜻.
+- **자료** (손으로 고치는 원본 → 만든 파일, `python3 scripts/notes.py` · `--check`):
+  - `scripts/notes/<말>.txt` → `data/lexicon/notes_<말>.json` (v1): `words` (사전 열쇠 → tag · short · note) · `endings` (한국어만, gloss_ko fn 조각 "를/JKO" → 같음 + show) · `classes` · `patterns` (토큰 조건 · `gap` · `stop` · `next_not` · `prev_not` · `always` · `compound`). 원본 줄 꼴과 조건 글 (l= f= p= c= r= fn= i u, @head @part) 은 notes.py 머리 주석.
+    지금 fr 96 · 28, de 99 · 37, es 89 · 31, en 111 · 29, ko 66 낱말 + 103 어미 · 조사 · 37 문형 (낱말 · 문형).
+  - `scripts/idioms/<작품>[_en|_ko].txt` → `data/<작품>/idioms[_en|_ko].json` (`lem` = 사전 열쇠 잇단 꼴, t · ko · en · note_ko · note_en · n · first). 후보는 `--candidates <작품> [en|ko]` (일반 목록 `scripts/idioms/known/<말>.txt` 에서 찾은 것 + 자주 나오는 n-gram), 처음 목록은 `--seed` (없는 파일만). 닻 안에 드는 관용구 · 편지에 없는 줄은 저절로 빠진다.
+    지금 vincent 45 · 45 · 14, mozart 31 · 37 · 22, napoleon 36 · 39 · 14, goya 24 · 28 · 11 (원어 · en · ko). 한국어 줄은 어절 안의 어미 · 조사가 문형으로 먼저 잡혀 관용구가 적다.
+  - 점검 `--report <md>`: 작품 · 말마다 덮인 비율 (A1·A2 / B1+, 전 → 후), 맥락 뜻 · 카드 비율, 말마다 무작위 문장 20개의 칸.
+  - 앱 안: `generate.py` 가 notes → `assets/notes/notes_<말>.json`, idioms → `assets/letters/<작품>/` (어휘 자료처럼 번들, R2 아님). 모두 새 파일 이름.
+- **core** (`core/Notes.kt`): `NoteBook.parse(notes, idioms, lexicon)` · `forToken(lexKey)` · `forEnding(piece)` · `match(tokens, blocked)` → `Hit(start, end, kind PATTERN|IDIOM|WORD, short, note, parts, roles, id, always, suffix)`.
+  `Interlinear.units(…, notes = book)` (선택 인자): 차례 표현 카드 > 문형 > 관용구 > 닻 > 낱말. 문형의 mark 부분 = 문형 뜻 (떨어진 부분은 마지막 칸에만), head = 그 낱말 뜻, part = 뜻 없음 · 같은 `Unit.hit`. 기능어 뜻을 끈 등급 (B1+) 에도 `always` 문형 (ne … que = ~만, 분리동사, il y a …) 과 관용구는 뜻.
+  한국어 어미 뜻은 낱말 뜻 뒤 괄호 (to think (past), `Notes.withEnding`). `Token.fn` (gloss_ko 셋째 칸) 을 `Library.gloss` 가 읽는다. 읽기 `data/NoteFiles.load(ctx, 작품, 자료, 사전)`.
+  `Anchors.find`: 토큰 하나가 여러 낱말 닻을 통째로 맞추지 않게 고침 (영어 ill · its 가 닻 I'll · it's 로 잡히던 것).
+- **테스트**: `NotesTest` (je ne te dis que cela → ~만, j'ai rapporté → ~했다, fängt … an → 시작하다, estar/ser, have seen, 를/JKO · 었 · -고 있다, 관용구 > 닻), `NotesDataTest` (실제 자료로 core 와 notes.py 가 같은 수를 잡는지: `scripts/notes/expect.json`). 규칙을 고치면 notes.py 를 돌려 expect.json 도 새로.
+- **넓히는 법**: 새 기능어 = `W|열쇠|꼬리표|짧은 뜻 ko|en|노트 ko|en` 한 줄. 새 문형 = `P|id|부분 + 부분|설정|…` (파일 위쪽이 먼저 잡힘; 넓은 문형은 아래로). 새 작품 = idioms 원본 `--seed` 후 손으로 고르기, notes 는 말마다라 그대로. 새 배우는 말 = `scripts/notes/<말>.txt` + notes.py 의 LANGS · SERIES.
+- **남은 것**: 화면 (편지 방 카드 · 묶음 밑줄) 은 다른 작업 (`ui/RoomNotes.kt`). 노트 · 관용구 뜻은 앱이 쓴 것 (사람 확인 전, idioms `"checked": false`). 사전 표제어가 틀린 토큰 (영어 least → little, 프랑스어 porte → 문) 은 문형이 못 고친다 (lexicon 쪽 일). 독일어 비분리 동사의 3인칭 -t (versteht) 가 과거분사로 잡히는 일이 가끔 있다. 문장부호를 모르는 core 라 떨어진 문형 (gap) 이 문장 경계를 넘을 수 있어 gap · stop 을 작게 둠.

@@ -1,0 +1,35 @@
+# mozart 관용구 (scripts/notes.py --seed 로 일반 목록에서 찾은 것 + 손으로 고름). 줄 = 표제어 열쇠|ko|en[|노트 ko|노트 en]
+gott lob|다행히, 하느님 덕분에|thank God
+gott lob und dank|하느님께 감사하게도|thank God
+von ganz herz|진심으로|with all my heart
+von herz|진심으로|from the heart
+auf dieser art|이런 식으로|in this way
+nach haus|집으로|home(wards)
+zu haus|집에|at home
+in der tat|정말로|indeed
+über alle|무엇보다|above all
+nach und nach|조금씩|little by little
+nicht mehr|더는 ~않다|no longer
+gar nicht|전혀 ~않다|not at all
+gar nichts|아무것도|nothing at all
+so viel|그만큼|so much
+so gut|그렇게 잘, ~만큼|as well as
+so wie|~처럼|just as
+eben so|똑같이|just as
+unrecht haben|틀리다|to be wrong
+in gott name|하느님의 이름으로, 좋아|in God's name
+im stand|~할 수 있는|able to
+in ordnung|괜찮은, 정리된|in order
+alle tag|날마다|every day
+ein paar|몇몇의|a few
+ein wenig|조금|a little
+auf der|그래서 ~하도록 (옛말)|so that
+# 손으로 더함 (--candidates 의 자주 나오는 n-gram 에서)
+um uhr|~시에|at … o'clock|시각 앞의 um 은 ‘~시에’ 예요 (um 6 Uhr = 6시에).|Um before a clock time means “at” (um 6 Uhr = at six).
+ander tag|다음 날|the next day|am andern Tag = ‘그다음 날’ (옛 철자 andern) 이에요.|Am andern Tag means “on the next day”.
+ich versichern sie|당신께 장담해요|I assure you|편지에 자주 쓰는 다짐 ‘장담하건대’ 예요.|A letter formula: “I assure you”.
+lob und dank|찬양과 감사|praise and thanks|Gott Lob und Dank = ‘하느님께 찬양과 감사를’ (다행히) 이에요.|Gott Lob und Dank = “praise and thanks be to God” (thankfully).
+vor jahr|몇 해 전|years ago|vor Jahren = ‘몇 해 전에’ 예요.|Vor Jahren means “years ago”.
+bei hof|궁정에서|at court|bei Hof = ‘궁정에서’ (임금 · 제후의 곁) 예요.|Bei Hof means “at court”.
+in der welt|세상에서|in the world
+von der welt|세상의|of the world

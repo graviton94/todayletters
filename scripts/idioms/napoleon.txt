@@ -1,0 +1,37 @@
+# napoleon 관용구 (scripts/notes.py --seed 로 일반 목록에서 찾은 것 + 손으로 고름). 줄 = 표제어 열쇠|ko|en[|노트 ko|노트 en]
+tout à faire|완전히, 정말|quite, completely
+au moins|적어도|at least
+au fond|결국, 사실|basically, deep down
+un peu de|약간의|a bit of
+un peu|조금|a little
+tout de suite|곧바로|right away
+à travers|~을 가로질러|through
+près de|~ 가까이|near
+loin de|~에서 멀리|far from
+à côté de|~ 옆에|next to
+avant de|~하기 전에|before (doing)
+le plus|가장|the most
+tout le monde|모두|everybody
+tout le jour|매일|every day
+à le fois|동시에|at once
+un fois|한 번|once
+avoir besoin de|~이 필요하다|to need
+avoir tort|틀리다|to be wrong
+avoir peur|무서워하다|to be afraid
+avoir le temps|시간이 있다|to have time
+faire plaisir|기쁘게 하다|to please
+faire du bien|좋게 하다, 이롭다|to do good
+mettre en|~하게 하다 (mettre en …)|to put into
+de nouveau|다시|again
+au contraire|반대로|on the contrary
+à le campagne|시골에서|in the country
+à peine|겨우|hardly
+ce que|~하는 것|what
+ce qui|~하는 것|what
+en tout|모두 합쳐|in all
+bien que|~이지만|although
+pour que|~하도록|so that
+à le fin#2|마침내|in the end
+de côté|옆으로, 제쳐 두고|aside
+à le fin#2 de|~의 끝에|at the end of
+se porte bien|잘 지내다|is well

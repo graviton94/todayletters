@@ -1,0 +1,30 @@
+# goya_en 관용구 (scripts/notes.py --seed 로 일반 목록에서 찾은 것 + 손으로 고름). 줄 = 표제어 열쇠|ko|en[|노트 ko|노트 en]
+at little|적어도|at least
+at all|조금도|at all
+in short|요컨대|in short
+thanks to|~ 덕분에|thanks to
+as for|~에 대해서는|regarding
+so much|그렇게 많이|so much
+so far|지금까지|until now
+such a|그런|such a
+a lot|많이|much
+a few|몇몇|some
+a little|조금|a bit
+a great deal|많이|a lot
+after all|결국|in the end
+even if|~라 해도|even though
+out of|~에서, ~ 밖으로|from
+thank god|다행히|thank God
+god willing|하느님이 허락하시면|God willing
+come back|돌아오다|to return
+go out|나가다|to leave
+come out|나오다|to emerge
+find out|알아내다|to discover
+set out|출발하다, 시작하다|to start
+think of|~을 생각하다|to consider
+long for|~을 그리워하다|to yearn for
+depend on|~에 달려 있다|to rely on
+work on|~에 공을 들이다|to work at
+be sure|확신하다|to be certain
+want to|~하고 싶다|to wish to
+seem to|~인 것 같다|to appear to

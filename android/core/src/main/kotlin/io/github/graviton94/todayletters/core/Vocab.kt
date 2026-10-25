@@ -37,8 +37,8 @@ data class DailySpot(val index: Int, val word: String?, val was: String = "")
 /** 편지 한 통의 오늘의 낱말 · 그림 점 바꾸기 · 표현 (daily.json). */
 data class Daily(val words: List<String> = emptyList(), val spots: List<DailySpot> = emptyList(), val phrases: List<Phrase> = emptyList())
 
-/** gloss.json 의 토큰 하나: 편지에 찍힌 꼴과 사전 열쇠. */
-data class Token(val surface: String, val key: String)
+/** gloss.json 의 토큰 하나: 편지에 찍힌 꼴과 사전 열쇠, 한국어는 [fn] = 조사 · 어미 조각 ("를/JKO", "었/EP+어/EF", gloss_ko 셋째 칸, 없으면 ""). */
+data class Token(val surface: String, val key: String, val fn: String = "")
 
 /**
  * 배우는 언어 한 벌의 어휘 자료: 원어는 lexicon · gloss · daily.json, 영어 · 한국어는 *_en · *_ko.json.

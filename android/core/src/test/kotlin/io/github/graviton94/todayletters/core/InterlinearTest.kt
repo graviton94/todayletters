@@ -92,7 +92,10 @@ class InterlinearTest {
 
     @Test fun anchorFindJoinsTokens() {
         assertEquals(listOf(1..2), Anchors.find(listOf("et", "j", "ai"), listOf("j", "ai")))
-        assertEquals(listOf(0..0), Anchors.find(listOf("jai"), listOf("j", "ai")))
+        // 토큰 하나가 여러 낱말 덩어리를 통째로 맞추지는 않는다 (gloss 는 j' · ai 를 늘 나누므로, 하나로 붙은 토큰은 다른 낱말: 영어 ill ≠ i 'll)
+        assertTrue(Anchors.find(listOf("jai"), listOf("j", "ai")).isEmpty())
+        assertTrue(Anchors.find(listOf("ill"), listOf("i", "ll")).isEmpty())
+        assertEquals(listOf(0..0), Anchors.find(listOf("jai"), listOf("jai")))
         assertTrue(Anchors.find(listOf("j", "avais"), listOf("j", "ai")).isEmpty())
         assertEquals(listOf("pour", "le", "moins"), Anchors.keyOf("pour le moins"))
     }

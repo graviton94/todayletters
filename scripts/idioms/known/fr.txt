@@ -1,0 +1,124 @@
+# 프랑스어 관용구 후보 (일반 목록). 줄 = 낱말들 (표제어 또는 찍힌 꼴, 소문자)|ko|en[|노트 ko|노트 en]. scripts/notes.py --candidates 가 편지에서 찾는다.
+tout à fait|완전히, 정말|quite, completely
+peu à peu|조금씩|little by little
+au moins|적어도|at least
+pour le moins|적어도|at the very least
+du moins|적어도|at least
+en train de|~하는 중|in the middle of|être en train de + 동사 원형 = ‘~하고 있는 중이다’ 예요.|Être en train de + infinitive = “to be busy doing”.
+en plein|한가운데|in the middle of, full
+en plein air|야외에서|outdoors
+en plein soleil|땡볕 아래|in full sun
+dans le fond|사실은|at bottom, really
+au fond|결국, 사실|basically, deep down
+de temps en temps|가끔|from time to time
+de temps à autre|이따금|now and then
+pas encore|아직 ~않다|not yet
+beaucoup de|많은|a lot of
+un peu de|약간의|a bit of
+un peu|조금|a little
+à peu près|거의, 대략|roughly
+tout de même|그래도|all the same
+tout de suite|곧바로|right away
+d' ailleurs|게다가|besides
+en effet|사실, 과연|indeed
+par exemple|예를 들면|for example
+par conséquent|따라서|consequently
+en tout cas|어쨌든|in any case
+quand même|그래도|even so
+à cause de|~ 때문에|because of
+au lieu de|~ 대신에|instead of
+à propos de|~에 관해|about
+à travers|~을 가로질러|through
+au-dessus de|~ 위에|above
+autour de|~ 주위에|around
+près de|~ 가까이|near
+loin de|~에서 멀리|far from
+à côté de|~ 옆에|next to
+en face de|~ 맞은편에|opposite
+grâce à|~ 덕분에|thanks to
+quant à|~에 관해서는|as for
+afin de|~하기 위해|in order to
+avant de|~하기 전에|before (doing)
+plus ou moins|다소|more or less
+de plus en plus|점점 더|more and more
+de moins en moins|점점 덜|less and less
+le plus|가장|the most
+tout le monde|모두|everybody
+tous les jours|매일|every day
+tout le temps|늘|all the time
+en même temps|동시에|at the same time
+à la fois|동시에|at once
+à l' instant|방금|just now
+à présent|지금|now
+pour toujours|영원히|forever
+pour la première fois|처음으로|for the first time
+une fois|한 번|once
+encore une fois|한 번 더|once more
+avoir besoin de|~이 필요하다|to need
+avoir envie de|~하고 싶다|to feel like
+avoir raison|옳다|to be right
+avoir tort|틀리다|to be wrong
+avoir peur|무서워하다|to be afraid
+avoir l' air|~해 보이다|to seem
+avoir lieu|일어나다, 열리다|to take place
+avoir le temps|시간이 있다|to have time
+faire attention|조심하다|to be careful
+faire plaisir|기쁘게 하다|to please
+faire du bien|좋게 하다, 이롭다|to do good
+faire mal|아프게 하다|to hurt
+faire partie de|~의 일부다|to be part of
+se rendre compte|깨닫다|to realise
+se mettre à|~하기 시작하다|to start (doing)
+mettre en|~하게 하다 (mettre en …)|to put into
+prendre garde|조심하다|to beware
+il faut que|~해야 한다|it is necessary that
+il me semble|내 생각엔|it seems to me
+c' est-à-dire|즉|that is to say
+n' importe|아무 ~나|any, no matter
+bien sûr|물론|of course
+bien entendu|물론|of course
+sans doute|아마|probably
+sans cesse|끊임없이|constantly
+tant pis|할 수 없지|too bad
+tant mieux|잘됐다|so much the better
+à bientôt|곧 또|see you soon
+d' abord|먼저|first
+tout d' abord|우선|first of all
+de nouveau|다시|again
+à nouveau|다시|again
+tout à coup|갑자기|suddenly
+tout à l' heure|아까, 이따가|earlier, later
+en ce moment|지금|at the moment
+de toute façon|어쨌든|anyway
+à vrai dire|사실을 말하면|to tell the truth
+au contraire|반대로|on the contrary
+à la campagne|시골에서|in the country
+à peine|겨우|hardly
+ce que|~하는 것|what
+ce qui|~하는 것|what
+de la sorte|그렇게|in that way
+en somme|요컨대|in short
+en tout|모두 합쳐|in all
+la plupart|대부분|most
+c' est pourquoi|그래서|that is why
+de même|마찬가지로|likewise
+même si|~라 해도|even if
+dès que|~하자마자|as soon as
+pendant que|~하는 동안|while
+tandis que|~하는 반면|whereas
+bien que|~이지만|although
+pour que|~하도록|so that
+à moins que|~이 아니라면|unless
+au bout de|~ 끝에|at the end of
+à la fin|마침내|in the end
+de bonne heure|일찍|early
+à la main|손으로|by hand
+de loin|멀리서|from afar
+de près|가까이서|closely
+mon cher|사랑하는 ~ (편지 첫머리)|my dear
+poignée de main|악수|handshake
+de côté|옆으로, 제쳐 두고|aside
+quand bien même|설령 ~라 해도|even if
+à la fin de|~의 끝에|at the end of
+se porte bien|잘 지내다|is well
+se porter bien|잘 지내다|to be well

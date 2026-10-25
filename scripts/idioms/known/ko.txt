@@ -1,0 +1,132 @@
+# 한국어 관용구 후보 (표제어 순서, 어절마다 어간 표제어). 줄 = 낱말들 (표제어 또는 찍힌 꼴)|ko|en[|노트 ko|노트 en]
+마음 들다|마음에 들다|to like|‘마음에 들다’ 는 ‘좋아하다, 흡족하다’ 예요.|마음에 들다 means “to be to one's liking”.
+생각 나다|생각이 나다|to come to mind
+생각 들다|생각이 들다|to feel, to think
+기억 나다|기억이 나다|to remember
+눈 띄다|눈에 띄다|to stand out
+신경 쓰다|신경을 쓰다|to care, to worry about
+신경 쓰이다|신경이 쓰이다|to be bothered
+어쩔 수 없다|어쩔 수 없다|it can't be helped
+말 안 되다|말도 안 되다|it makes no sense
+잘 지내다|잘 지내다|to be well
+보고 싶다|보고 싶다|to miss
+고맙다|고맙다|thank you
+걱정 말다|걱정 마|don't worry
+걱정 하다|걱정하다|to worry
+힘 내다|힘을 내다|to cheer up
+힘 들다|힘들다|to be hard
+마음 먹다|마음을 먹다|to make up one's mind
+마음 놓다|마음을 놓다|to be relieved
+정신 차리다|정신을 차리다|to come to one's senses
+시간 나다|시간이 나다|to have time
+시간 걸리다|시간이 걸리다|to take time
+돈 들다|돈이 들다|to cost money
+돈 벌다|돈을 벌다|to earn money
+일 하다|일을 하다|to work
+손 대다|손을 대다|to touch, to start on
+눈 감다|눈을 감다|to close one's eyes; to die
+숨 쉬다|숨을 쉬다|to breathe
+잠 들다|잠이 들다|to fall asleep
+잠 자다|잠을 자다|to sleep
+길 떠나다|길을 떠나다|to set off
+길 잃다|길을 잃다|to get lost
+도움 되다|도움이 되다|to be helpful
+소용 없다|소용이 없다|to be no use
+상관 없다|상관없다|it doesn't matter
+문제 없다|문제없다|no problem
+틀림 없다|틀림없다|surely
+어떻게 되다|어떻게 되다|to turn out
+그렇게 하다|그렇게 하다|to do so
+그러다 보다|그러다 보니|as things went on
+이 세상|이 세상|this world
+그 무렵|그 무렵|around that time
+그 뒤|그 뒤|after that
+그 다음|그다음|next
+그 때|그때|then
+요즘|요즘|these days
+한 번|한 번|once
+다시 한 번|다시 한 번|once again
+조금 씩|조금씩|little by little
+점점 더|점점 더|more and more
+더 이상|더 이상|any more
+아무 것|아무것|anything
+아무 말|아무 말|any word
+하루 종일|하루 종일|all day
+매일|매일|every day
+날 마다|날마다|every day
+얼마 전|얼마 전|a while ago
+얼마 동안|얼마 동안|for a while
+오랜 만|오랜만|after a long time
+처음 으로|처음으로|for the first time
+무엇 보다|무엇보다|above all
+그 대신|그 대신|instead
+덕분|덕분에|thanks to
+때문|때문에|because of
+대하다|~에 대해|about
+위하다|~을 위해|for
+통하다|~을 통해|through
+따르다|~에 따라|according to
+비하다|~에 비해|compared to
+관하다|~에 관해|about
+비하다 데|비할 데 (없다)|beyond compare
+잘 있다|잘 있다|to be well
+안 되다|안 되다|no good, must not
+마음 아프다|마음이 아프다|to be heartbroken
+가슴 아프다|가슴이 아프다|to be heartbroken
+가슴 뛰다|가슴이 뛰다|heart races
+눈물 나다|눈물이 나다|tears come
+화 나다|화가 나다|to get angry
+기분 좋다|기분이 좋다|to feel good
+기분 나쁘다|기분이 나쁘다|to feel bad
+배 고프다|배가 고프다|to be hungry
+정신 없다|정신이 없다|to be swamped
+말 걸다|말을 걸다|to speak to
+말 듣다|말을 듣다|to obey, to listen
+손 잡다|손을 잡다|to hold hands
+눈 뜨다|눈을 뜨다|to open one's eyes
+귀 기울이다|귀를 기울이다|to listen closely
+고개 숙이다|고개를 숙이다|to bow one's head
+고개 끄덕이다|고개를 끄덕이다|to nod
+자리 잡다|자리를 잡다|to settle
+애 쓰다|애를 쓰다|to try hard
+힘 쓰다|힘을 쓰다|to make an effort
+목숨 걸다|목숨을 걸다|to risk one's life
+숨 막히다|숨이 막히다|to be breathtaking, stifling
+마음 쓰다|마음을 쓰다|to care about
+꿈 꾸다|꿈을 꾸다|to dream
+소리 내다|소리를 내다|to make a sound
+빛 나다|빛이 나다|to shine
+하나 도|하나도 (않다)|not even one
+한 번 도|한 번도 (않다)|never once
+여러 번|여러 번|many times
+몇 번|몇 번|several times
+아무 데|아무 데|anywhere
+다름 아니다|다름 아니다|nothing other than
+다름 없다|다름없다|no different
+다행 이다|다행이다|what a relief
+잘 되다|잘되다|to go well
+잘 알다|잘 알다|to know well
+잘 모르다|잘 모르다|not to know well
+몸 조심 하다|몸조심하다|to take care of oneself
+정 들다|정이 들다|to grow attached
+말 그대로|말 그대로|literally
+얼마 안 되다|얼마 안 되다|not much, not long
+그렇다 해도|그렇다 해도|even so
+마음 속|마음속|in one's heart
+눈 앞|눈앞|before one's eyes
+세상 떠나다|세상을 떠나다|to pass away
+숨 거두다|숨을 거두다|to breathe one's last
+뜻 대로|뜻대로|as one wishes
+제 시간|제시간|on time
+곧 바로|곧바로|right away
+하루 하루|하루하루|day by day
+머리 아프다|머리가 아프다|to have a headache
+신 나다|신이 나다|to be excited
+마음 편하다|마음이 편하다|to feel at ease
+속 상하다|속상하다|to be upset
+말 하다 보다|말하자면|so to speak
+돌아 오다|돌아오다|to come back
+돌아 가다|돌아가다|to go back
+가지다 오다|가져오다|to bring
+가지다 가다|가져가다|to take away
+들다 오다|들고 오다|to bring (carrying)

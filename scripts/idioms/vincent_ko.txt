@@ -1,0 +1,15 @@
+# vincent_ko 관용구 (scripts/notes.py --seed 로 일반 목록에서 찾은 것 + 손으로 고름). 줄 = 표제어 열쇠|ko|en[|노트 ko|노트 en]
+마음 들다|마음에 들다|to like|‘마음에 들다’ 는 ‘좋아하다, 흡족하다’ 예요.|마음에 들다 means “to be to one's liking”.
+생각 들다|생각이 들다|to feel, to think
+그 뒤|그 뒤|after that
+한 번|한 번|once
+다시 한 번|다시 한 번|once again
+안 되다|안 되다|no good, must not
+화 나다|화가 나다|to get angry
+손 잡다|손을 잡다|to hold hands
+자리 잡다|자리를 잡다|to settle
+잘 되다|잘되다|to go well
+잘 알다|잘 알다|to know well
+얼마 안 되다|얼마 안 되다|not much, not long
+신 나다|신이 나다|to be excited
+들다 오다|들고 오다|to bring (carrying)

@@ -1,0 +1,86 @@
+# 스페인어 관용구 후보 (일반 목록 · 18세기 편지 말투 포함). 줄 = 낱말들 (표제어 또는 찍힌 꼴, 소문자)|ko|en[|노트 ko|노트 en]
+tal vez|아마|perhaps
+a lo menos|적어도|at least
+por lo menos|적어도|at least
+al menos|적어도|at least
+sin embargo|그런데도|however
+por fin|마침내|at last
+por supuesto|물론|of course
+de veras|정말로|really
+de nuevo|다시|again
+otra vez|다시|again
+a veces|가끔|sometimes
+de vez en cuando|이따금|from time to time
+cada vez más|점점 더|more and more
+cada día|매일|every day
+todos los días|매일|every day
+en seguida|곧바로|right away
+enseguida|곧바로|right away
+de pronto|갑자기|suddenly
+de repente|갑자기|suddenly
+poco a poco|조금씩|little by little
+a menudo|자주|often
+así que|그래서|so
+ya que|~이니까|since
+para que|~하도록|so that
+aunque sea|~일지라도|even if
+con tal que|~하기만 하면|provided that
+antes de|~하기 전에|before
+después de|~한 뒤에|after
+a pesar de|~에도 불구하고|despite
+en cuanto a|~에 대해서는|as for
+en cuanto|~하자마자|as soon as
+acerca de|~에 대해|about
+cerca de|~ 가까이|near
+lejos de|~에서 멀리|far from
+delante de|~ 앞에|in front of
+encima de|~ 위에|on top of
+debajo de|~ 아래에|under
+dentro de|~ 안에|inside
+fuera de|~ 밖에|outside
+junto a|~ 곁에|next to
+a causa de|~ 때문에|because of
+por eso|그래서|that's why
+por lo tanto|그러므로|therefore
+sobre todo|무엇보다|above all
+en fin|결국, 요컨대|in short
+al fin|마침내|finally
+de todos modos|어쨌든|anyway
+de modo que|그래서 ~하도록|so that
+de manera que|그래서|so that
+lo mismo|같은 것|the same
+lo demás|나머지|the rest
+lo que|~하는 것|what
+a mí|나에게|to me
+hacer falta|필요하다|to be needed
+tener razón|옳다|to be right
+tener ganas de|~하고 싶다|to feel like
+tener que|~해야 한다|to have to
+dar las gracias|감사하다|to thank
+dar gracias|감사하다|to give thanks
+darse cuenta|깨닫다|to realise
+echar de menos|그리워하다|to miss
+hacer caso|신경 쓰다|to pay attention
+valer la pena|가치가 있다|to be worth it
+dar gusto|기쁘게 하다|to please
+con mucho gusto|기꺼이|gladly
+de buena gana|기꺼이|willingly
+a gusto|마음 편히|at ease
+qué sé yo|내가 어찌 알아|who knows
+dios mío|맙소사|my God
+si dios quiere|하느님이 허락하시면|God willing
+gracias a dios|다행히|thank God
+vaya con dios|잘 가요|go with God
+a la vez|동시에|at the same time
+al mismo tiempo|동시에|at the same time
+al cabo|결국|in the end
+en efecto|사실|indeed
+no más|~만, 더는 ~않다|only, no more
+nada más|그뿐|nothing else
+ni siquiera|~조차 않다|not even
+a propósito|그런데, 일부러|by the way, on purpose
+de casa|집의|of the house
+en casa|집에|at home
+a casa|집으로|home
+vuestra merced|귀하 (옛 높임)|Your Grace (old polite you)
+mi señor|나의 주인님|my lord

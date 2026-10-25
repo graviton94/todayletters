@@ -1,0 +1,13 @@
+# goya_ko 관용구 (scripts/notes.py --seed 로 일반 목록에서 찾은 것 + 손으로 고름). 줄 = 표제어 열쇠|ko|en[|노트 ko|노트 en]
+생각 나다|생각이 나다|to come to mind
+힘 내다|힘을 내다|to cheer up
+일 하다|일을 하다|to work
+도움 되다|도움이 되다|to be helpful
+이 세상|이 세상|this world
+한 번|한 번|once
+아무 말|아무 말|any word
+잘 있다|잘 있다|to be well
+안 되다|안 되다|no good, must not
+마음 아프다|마음이 아프다|to be heartbroken
+말 걸다|말을 걸다|to speak to
+잘 알다|잘 알다|to know well

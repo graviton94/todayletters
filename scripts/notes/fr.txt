@@ -1,0 +1,153 @@
+# 프랑스어 (빈센트 · 나폴레옹 원문) 기능어 · 문형. 형식은 scripts/notes.py 머리 주석. 앱이 쓴 풀이 (사람 확인 전).
+# 짧은 뜻 = 낱말 아래 (14자 안), 노트 = 누르면 카드 (두 문장 안, 해요체).
+T|art|기능어 · 관사|Function word · article
+T|contr|기능어 · 줄어든 꼴|Function word · contraction
+T|prep|기능어 · 전치사|Function word · preposition
+T|pron|기능어 · 대명사|Function word · pronoun
+T|obj|기능어 · 목적어 대명사|Function word · object pronoun
+T|refl|기능어 · 재귀 대명사|Function word · reflexive pronoun
+T|rel|기능어 · 관계사|Function word · relative
+T|poss|기능어 · 소유 한정사|Function word · possessive
+T|dem|기능어 · 지시어|Function word · demonstrative
+T|det|기능어 · 한정사|Function word · determiner
+T|neg|부정|Negation
+T|aux|조동사|Auxiliary verb
+T|conj|기능어 · 접속사|Function word · conjunction
+T|adv|기능어 · 부사|Function word · adverb
+T|tense|문형 · 시제|Construction · tense
+T|cons|문형|Construction
+T|q|문형 · 질문|Construction · question
+C|pp|p=v,i,!f=ai,r=.*(é|ée|és|ées|i|ie|ies|u|ue|us|ues|pris|prise|prises|mis|mise|mises|quis|assis|it|ite|its|ites|ert|erte|erts|ertes|ort|orte|orts|aint|ainte|eint|einte|eints|oint)
+C|inf|p=v,r=.*(er|ir|re|oir)
+C|ppron|l=je/tu/il/elle/on/nous/vous/ils/elles/ce/cela/ça
+C|clitic|l=me/te/se/le/lui/leur/en/y/nous/vous
+C|etre_pres|f=suis/es/est/sommes/êtes/sont/sois/soit/soyons/soyez/soient
+C|avoir_pres|f=ai/as/a/avons/avez/ont/aie/aies/ait/ayons/ayez/aient
+C|motion|l=aller/venir/arriver/partir/sortir/entrer/monter/descendre/naître/mourir/rester/tomber/retourner/devenir/revenir/rentrer/parvenir/repartir/ressortir/décéder
+# ── 문형 (위에서부터 먼저 잡음) ──
+P|fr.il_y_a|l=il + l=y + l=avoir|always|cons|~이 있다|there is|il y a 는 통째로 ‘~이 있다’ 예요. 시간 앞에서는 ‘~ 전에’ 라는 뜻도 돼요 (il y a deux ans = 2년 전).|Il y a as a whole means “there is / there are”. Before a time it means “ago” (il y a deux ans = two years ago).
+P|fr.est_ce_que|l=être,f=est + l=ce + l=que|always prev!=l=ce|q|(질문)|(question)|est-ce que 는 문장을 질문으로 만드는 틀이에요. 따로 옮기지 않고 끝을 올려 읽으면 돼요.|Est-ce que turns a statement into a question. It is not translated; it just marks the question.
+P|fr.ne_que|l=ne@part + l=que|gap=3 stop=l=pas/point/jamais/rien/plus/personne always|neg|~만|only|ne … que 는 부정이 아니라 ‘~만, ~밖에’ 예요. que 뒤에 오는 것만 남겨요 (je n'ai que toi = 나에겐 너뿐이야).|Ne … que is not a negation: it means “only”. It keeps just what follows que (je n'ai que toi = I have only you).
+P|fr.ne_jamais|l=ne@part + l=jamais|gap=3 always|neg|결코 ~않다|never|ne … jamais 는 ‘결코 ~않다, 한 번도 ~않다’ 예요. 동사를 ne 와 jamais 가 앞뒤로 감싸요.|Ne … jamais means “never”. The verb sits between ne and jamais.
+P|fr.ne_rien|l=ne@part + l=rien|gap=3 always|neg|아무것도 ~않다|nothing|ne … rien 은 ‘아무것도 ~않다’ 예요. rien 이 목적어 자리에 와요.|Ne … rien means “nothing / not anything”.
+P|fr.ne_plus|l=ne@part + l=plus|gap=3 always|neg|더는 ~않다|no longer|ne … plus 는 ‘더 이상 ~않다’ 예요. plus 가 ‘더’ 가 아니라 ‘이제는’ 의 부정이 돼요.|Ne … plus means “no longer / not any more”.
+P|fr.ne_personne|l=ne@part + f=personne|gap=3 always|neg|아무도 ~않다|nobody|ne … personne 는 ‘아무도 ~않다’ 예요.|Ne … personne means “nobody / not anyone”.
+P|fr.ne_aucun|l=ne@part + l=aucun|gap=3 always|neg|어떤 ~도 없다|not any|ne … aucun 은 ‘어떤 ~도 없다’ 예요. aucun 은 뒤 명사와 성을 맞춰요 (aucune).|Ne … aucun means “not a single / no”. Aucun agrees with its noun (aucune).
+P|fr.ne_ni|l=ne@part + l=ni|gap=4 always|neg|~도 ~도 않다|neither … nor|ne … ni … ni 는 ‘~도 ~도 아니다’ 예요.|Ne … ni … ni means “neither … nor”.
+P|fr.ne_pas|l=ne@part + l=pas/point|gap=4|neg|~않다|not|ne … pas 가 부정이에요. 동사 (복합 시제면 조동사) 를 앞뒤로 감싸요 (je ne sais pas).|Ne … pas is the negation. It wraps the verb, or the auxiliary in compound tenses (je ne sais pas).
+P|fr.ne_seul|l=ne@part|next!=l=pas/point/que/jamais/rien/plus/personne/aucun/ni always|neg|(부정)|(not)|ne 가 혼자 오면 옛 글 · 문어의 부정 (je ne puis = 나는 할 수 없다) 이거나, 두려움 · 비교 뒤에 붙는 뜻 없는 ne (avant qu'il ne parte) 예요.|A lone ne is either a negation in older or formal writing (je ne puis = I cannot), or an empty ne after fear or comparison (avant qu'il ne parte).
+P|fr.pc_refl|l=me/te/se/nous/vous@part + c=etre_pres + c=pp@head|gap=1|tense|~했다|did (past)|대명동사 (se + 동사) 의 복합과거는 avoir 대신 être 를 써요 (je me suis promené = 산책했다).|Reflexive verbs build the passé composé with être, not avoir (je me suis promené = I went for a walk).
+P|fr.cond_past|f=aurais/aurait/aurions/auriez/auraient/serais/serait/serions/seriez/seraient + c=pp@head|gap=2 stop=p=n|tense|~했을 텐데|would have|조건법 과거: avoir · être 의 조건법 + 과거분사 = ‘~했을 텐데, ~했을 거야’ 예요.|Past conditional: conditional of avoir/être + past participle = “would have done”.
+P|fr.fut_ant|f=aurai/auras/aura/aurons/aurez/auront/serai/seras/sera/serons/serez/seront + c=pp@head|gap=2 stop=p=n|tense|~했을 것이다|will have|전미래: avoir · être 의 미래 + 과거분사 = ‘(그때쯤엔) ~했을 거야’ 예요.|Future perfect: future of avoir/être + past participle = “will have done”.
+P|fr.pqp|f=avais/avait/avions/aviez/avaient/étais/était/étions/étiez/étaient + c=pp@head|gap=2 stop=p=n|tense|~했었다|had done|대과거: avoir · être 의 반과거 + 과거분사 = ‘(그보다 앞서) ~했었다’ 예요.|Pluperfect: imperfect of avoir/être + past participle = “had done”.
+P|fr.pc_etre|c=etre_pres + c=pp,c=motion@head|gap=3 stop=p=n/name stop=l=que/qui/et/mais|tense|~했다|did (past)|오고 가는 동사 (aller · venir · partir · arriver …) 는 복합과거에서 avoir 대신 être 를 써요. 과거분사는 주어와 성 · 수를 맞춰요.|Verbs of coming and going (aller, venir, partir, arriver …) take être in the passé composé; the participle agrees with the subject.
+P|fr.pc|c=avoir_pres + c=pp@head|gap=4 stop=p=n/name stop=l=que/qui/et/mais/ou/car/si|tense|~했다|did (past)|복합과거: avoir 현재 + 과거분사 = ‘~했다’ 예요. 여기서 avoir 는 ‘가지다’ 가 아니라 과거를 만드는 조동사예요.|Passé composé: present of avoir + past participle = “did / have done”. Here avoir is only an auxiliary, not “to have”.
+P|fr.inf_past|l=avoir/être,f=avoir/être + c=pp@head|gap=1|tense|~한 것 (완료)|having done|과거 부정사: avoir · être + 과거분사 = ‘~한 것, ~한 뒤’ (après avoir vu = 본 뒤에).|Past infinitive: avoir/être + participle = “having done” (après avoir vu = after seeing).
+P|fr.passive|c=etre_pres + c=pp,!c=motion@head|gap=1 stop=p=n|cons|~되다 (수동)|is done (pass.)|être + 과거분사는 ‘~되다, ~받다’ (수동) 예요. 과거분사는 주어와 성 · 수를 맞춰요.|Être + past participle is the passive (“is done / is made”); the participle agrees with the subject.
+P|fr.futur_proche|l=aller,f=vais/vas/va/allons/allez/vont + c=inf@head|gap=1 always|tense|~할 것이다|going to|aller + 동사 원형 = 가까운 미래 ‘곧 ~할 거야’ 예요.|Aller + infinitive is the near future: “going to do”.
+P|fr.passe_recent|l=venir + l=de + c=inf@head|gap=0 always|tense|막 ~했다|just did|venir de + 동사 원형 = ‘막 ~했다’ (방금 일어난 일) 예요.|Venir de + infinitive means “have just done”.
+P|fr.il_faut|l=il@part + l=falloir|always|cons|~해야 한다|one must|il faut 는 ‘~해야 한다, ~이 필요하다’ 예요. il 은 아무도 가리키지 않는 형식 주어예요.|Il faut means “one must / it takes”. Il here is an empty subject.
+P|fr.gerund|l=en + p=v,r=.*ant@head|always|cons|~하면서|while doing|en + 현재분사 (-ant) 는 ‘~하면서, ~함으로써’ 예요 (en marchant = 걸으면서).|En + present participle (-ant) means “while / by doing” (en marchant = while walking).
+P|fr.en_pron|l=en + p=v,!c=pp@head|prev!=p=n|obj|그것을 · 그에 대해|of it, some|동사 앞의 en 은 ‘그것을, 그것에 대해, 거기서’ 처럼 de + 명사를 대신하는 대명사예요.|En before a verb is a pronoun standing for de + noun: “of it, some, from there”.
+P|fr.y_pron|l=y + p=v@head|-|obj|거기에 · 그것에|there, to it|동사 앞의 y 는 ‘거기에’ 또는 à + 명사를 대신해 ‘그것에’ 예요 (j'y pense = 그것을 생각해).|Y before a verb means “there” or replaces à + noun: “of it, about it” (j'y pense = I think about it).
+P|fr.le_pron|l=le,f=le/la/les/l + p=v@head|-|obj|그것을 · 그를|it, him, her|동사 바로 앞의 le · la · les 는 관사가 아니라 ‘그것을, 그를, 그녀를’ 이에요.|Le, la, les right before a verb are not articles but object pronouns: “it, him, her, them”.
+P|fr.se_verb|l=se + p=v@head|-|refl|자기를 · 스스로|oneself|se + 동사는 대명동사예요: ‘자기 자신을’ 또는 ‘서로’, 때로는 그냥 동사의 한 부분이에요 (se souvenir = 기억하다).|Se + verb is a pronominal verb: “oneself / each other”, or simply part of the verb (se souvenir = to remember).
+P|fr.parce_que|l=parce + l=que|-|conj|왜냐하면|because|parce que 는 둘이 한 낱말처럼 ‘왜냐하면, ~이니까’ 예요.|Parce que is one unit: “because”.
+# ── 기능어 (자주 나오는 순) ──
+W|le|art|그|the|le · la · les 는 정해진 것 앞의 관사예요. 모음 앞에서 l' 로 줄고, 동사 앞이면 ‘그것을’ 이에요.|Le, la, les are the definite article; before a vowel they shorten to l'. Right before a verb they mean “it / him / her”.
+W|de|prep|~의 · ~에서|of, from|de 는 ‘~의, ~에서, ~로부터’ 예요. le · les 와 만나면 du · des 로 바뀌어요.|De means “of, from”. With le and les it becomes du and des.
+W|je|pron|나는|I|je 는 ‘나는’ (주어) 예요. 모음 앞에서는 j' 로 줄어요.|Je is “I” (subject); before a vowel it becomes j'.
+W|être|aux|~이다 · 있다|to be|être 는 ‘~이다, 있다’ 예요. 과거분사와 함께 쓰면 과거 (je suis venu) 나 수동 (il est aimé) 을 만들어요.|Être means “to be”. With a past participle it forms the past of some verbs (je suis venu) or the passive (il est aimé).
+W|que|conj|~라고 · ~보다|that, than|que 는 ‘~라고 (접속사), ~하는 (관계사), ~보다 (비교)’ 로 두루 쓰여요. 모음 앞에서 qu' 로 줄어요.|Que means “that” (conjunction or relative), “than” in comparisons, or “what”; before a vowel it becomes qu'.
+W|un|art|하나의|a, an|un · une 는 부정관사 ‘어떤, 하나의’ 예요. 복수는 des 예요.|Un, une are the indefinite article “a / an”; the plural is des.
+W|et|conj|그리고|and|et 는 ‘그리고, ~와’ 예요.|Et means “and”.
+W|avoir|aux|가지다|to have|avoir 는 ‘가지다’ 예요. 과거분사와 함께 쓰면 ‘~했다’ (복합과거) 를 만드는 조동사예요.|Avoir means “to have”. With a past participle it is the auxiliary of the passé composé (“did”).
+W|à|prep|~에 · ~로|to, at|à 는 ‘~에, ~로, ~에게’ 예요. le · les 와 만나면 au · aux 가 돼요.|À means “to, at, in”. With le and les it becomes au and aux.
+W|ce|dem|이 · 그것|this, it|ce (cet · cette · ces) 는 ‘이, 그’ 이고, 동사 être 앞의 c' 는 ‘그것은’ 이에요.|Ce (cet, cette, ces) means “this / that”; c' before être means “it”.
+W|mon|poss|나의|my|mon · ma · mes 는 ‘나의’ 예요. 뒤 명사의 성 · 수에 맞춰 바뀌어요.|Mon, ma, mes mean “my”; they follow the gender and number of the noun.
+W|ne|neg|(부정)|(not)|ne 는 부정의 앞 조각이에요. 보통 뒤의 pas · jamais · rien · que 와 짝을 지어요.|Ne is the first half of a negation, usually paired with pas, jamais, rien or que.
+W|me|obj|나를 · 나에게|me, to me|me 는 ‘나를, 나에게’ 예요. 동사 앞에 오고, 모음 앞에서 m' 로 줄어요.|Me means “me / to me”; it goes before the verb and shortens to m'.
+W|tu|pron|너는|you|tu 는 친한 사이의 ‘너는’ 이에요.|Tu is the familiar “you” (subject).
+W|te|obj|너를 · 너에게|you, to you|te 는 ‘너를, 너에게’ 예요. 동사 앞에 와요.|Te means “you / to you” (familiar), placed before the verb.
+W|il|pron|그는 · 그것은|he, it|il 은 ‘그는, 그것은’ 이에요. il y a · il faut 에서는 아무것도 가리키지 않아요.|Il means “he / it”; in il y a and il faut it refers to nothing.
+W|en|prep|~에 · ~으로|in, to|en 은 전치사 ‘~에, ~으로’ 예요. 동사 앞이면 ‘그것을, 그에 대해’ 를 뜻하는 대명사예요.|En is the preposition “in, to”; before a verb it is a pronoun (“of it, some”).
+W|pour|prep|~을 위해|for|pour 는 ‘~을 위해, ~하려고’ 예요.|Pour means “for” or “in order to”.
+W|des|art|몇몇의 · ~의|some, of the|des 는 un 의 복수 ‘몇몇의’, 또는 de + les ‘~의’ 예요.|Des is the plural of un (“some”) or the contraction de + les (“of the”).
+W|pas|neg|~않다|not|pas 는 ne 와 짝을 이뤄 ‘~않다’ 를 만들어요.|Pas pairs with ne to make “not”.
+W|dans|prep|~ 안에|in|dans 은 ‘~ 안에, ~ 속에’ 예요.|Dans means “in, inside”.
+W|du|contr|~의 · 약간의|of the, some|du 는 de + le 가 합쳐진 꼴이에요. ‘~의’ 또는 셀 수 없는 것의 ‘약간의’ 예요.|Du is de + le: “of the”, or “some” before uncountable things.
+W|avec|prep|~와 함께|with|avec 은 ‘~와 함께, ~으로’ 예요.|Avec means “with”.
+W|ton|poss|너의|your|ton · ta · tes 는 ‘너의’ 예요.|Ton, ta, tes mean “your” (familiar).
+W|au|contr|~에 (à+le)|to the, at the|au 는 à + le 가 합쳐진 꼴이에요 (복수 aux).|Au is à + le: “to the / at the” (plural aux).
+W|qui|rel|~하는 (관계사) · 누구|who, which|qui 는 ‘누구’ 또는 앞 명사를 꾸미는 ‘~하는’ (주어 자리 관계사) 예요.|Qui means “who”, or links a clause to a noun as its subject (“who / which”).
+W|mais|conj|하지만|but|mais 는 ‘하지만, 그런데’ 예요.|Mais means “but”.
+W|y|obj|거기에|there|y 는 ‘거기에’ 또는 ‘그것에’ 를 뜻하는 대명사예요.|Y means “there” or “to / about it”.
+W|moi|pron|나|me|moi 는 강세형 ‘나’ 예요. 전치사 뒤나 혼자 쓸 때 (avec moi, moi aussi).|Moi is the stressed “me”, used after prepositions or alone (avec moi, moi aussi).
+W|nous|pron|우리|we, us|nous 는 ‘우리는, 우리를’ 이에요.|Nous means “we / us”.
+W|cela|dem|그것|that|cela (ça) 는 ‘그것, 그 일’ 이에요.|Cela (ça) means “that / it”.
+W|comme|conj|~처럼 · ~이니까|like, as|comme 는 ‘~처럼’ 또는 문장 앞에서 ‘~이니까’ 예요.|Comme means “like, as”, or “since” at the start of a sentence.
+W|plus|adv|더|more|plus 는 ‘더’ 예요. ne … plus 에서는 ‘더 이상 ~않다’ 예요.|Plus means “more”; in ne … plus it means “no longer”.
+W|si|conj|만약 · 아주|if, so|si 는 ‘만약 ~하면’ 또는 ‘그렇게, 아주’ 예요. il 앞에서는 s' 로 줄어요.|Si means “if”, or “so” before an adjective; before il it becomes s'.
+W|toi|pron|너|you|toi 는 강세형 ‘너’ 예요 (à toi, avec toi).|Toi is the stressed “you” (à toi, avec toi).
+W|tout|adv|모든 · 아주|all, quite|tout 는 ‘모든, 전부’ 또는 부사로 ‘아주’ 예요.|Tout means “all, every”, or “quite / entirely” as an adverb.
+W|son|poss|그의 · 그녀의|his, her|son · sa · ses 는 ‘그의, 그녀의’ 예요. 주인의 성이 아니라 뒤 명사의 성을 따라요.|Son, sa, ses mean “his / her / its”; they follow the noun's gender, not the owner's.
+W|sur|prep|~ 위에 · ~에 대해|on, about|sur 는 ‘~ 위에’, ‘~에 대해’ 예요.|Sur means “on” or “about”.
+W|se|refl|자기를|oneself|se 는 재귀 대명사 ‘자기 자신을, 서로’ 예요.|Se is the reflexive pronoun: “oneself / each other”.
+W|très|adv|매우|very|très 는 ‘매우, 아주’ 예요.|Très means “very”.
+W|vous|pron|당신 · 여러분|you|vous 는 높이는 ‘당신’ 또는 복수 ‘너희, 여러분’ 이에요.|Vous is the polite “you” or plural “you”.
+W|par|prep|~에 의해 · ~로|by, through|par 는 ‘~에 의해, ~을 통해, ~마다’ 예요.|Par means “by, through, per”.
+W|on|pron|사람들 · 우리|one, we|on 은 ‘사람들, 누군가’ 또는 구어에서 ‘우리’ 예요. 동사는 3인칭 단수를 써요.|On means “one / people”, or “we” in speech; it takes a third-person singular verb.
+W|ou|conj|또는|or|ou 는 ‘또는’ 이에요. où (어디) 와 악센트로 갈려요.|Ou means “or”; où with an accent means “where”.
+W|où|rel|어디 · ~하는 곳|where|où 는 ‘어디’ 또는 장소 · 때를 꾸미는 ‘~하는 곳, ~한 때’ 예요.|Où means “where”, or “where / when” linking a clause to a place or time.
+W|lui|obj|그에게 · 그|him, to him|lui 는 ‘그에게, 그녀에게’ 또는 강세형 ‘그’ 예요.|Lui means “to him / to her”, or the stressed “him”.
+W|quelque|det|어떤 · 몇몇|some|quelque 는 ‘어떤, 몇몇의’ 예요 (quelque chose = 무언가).|Quelque means “some, a few” (quelque chose = something).
+W|elle|pron|그녀는 · 그것은|she, it|elle 은 ‘그녀는’ 또는 여성 명사를 받는 ‘그것은’ 이에요.|Elle means “she”, or “it” for a feminine noun.
+W|là|adv|거기|there|là 는 ‘거기, 그때’ 예요.|Là means “there” or “then”.
+W|même|adv|심지어 · 같은|even, same|même 는 명사 앞에서 ‘같은’, 부사로 ‘심지어’, 대명사 뒤에서 ‘자신’ (moi-même) 이에요.|Même means “same” before a noun, “even” as an adverb, and “-self” after a pronoun (moi-même).
+W|sans|prep|~ 없이|without|sans 는 ‘~ 없이’ 예요. 동사 원형이 오면 ‘~하지 않고’ 예요.|Sans means “without”; with an infinitive, “without doing”.
+W|aussi|adv|또한 · 그만큼|also, as|aussi 는 ‘또한’, 비교에서는 ‘~만큼’ (aussi … que) 이에요.|Aussi means “also”, or “as” in comparisons (aussi … que).
+W|peu|adv|조금|little|peu 는 ‘조금, 거의 ~않은’ 이고, un peu 는 ‘조금’ 이에요.|Peu means “little”; un peu means “a little”.
+W|celui|dem|~인 것 · 그 사람|the one|celui · celle · ceux 는 ‘~인 것, ~인 사람’ 이에요 (celui de, celui qui).|Celui, celle, ceux mean “the one(s)” (celui de, celui qui).
+W|car|conj|왜냐하면|for, because|car 는 ‘왜냐하면, ~이니까’ (이유를 덧붙임) 예요.|Car means “for / because”, adding a reason.
+W|moins|adv|덜|less|moins 는 ‘덜’ 이에요 (au moins = 적어도).|Moins means “less” (au moins = at least).
+W|ci|adv|이 (가까운 쪽)|this (here)|-ci 는 ce … 뒤에 붙어 ‘이’ (가까운 것) 을 가리켜요 (ce mois-ci = 이번 달).|-Ci after ce … points to the nearer thing: “this” (ce mois-ci = this month).
+W|après|prep|~ 후에|after|après 는 ‘~ 후에, ~ 뒤에’ 예요.|Après means “after”.
+W|lorsque|conj|~할 때|when|lorsque 는 ‘~할 때’ (quand 보다 글말) 예요.|Lorsque means “when” (more formal than quand).
+W|lequel|rel|그것 (관계사)|which|lequel · laquelle 은 전치사 뒤의 관계사 ‘그것’ 이에요 (dans lequel = 그 안에서).|Lequel, laquelle are relatives after a preposition: “which” (dans lequel = in which).
+W|notre|poss|우리의|our|notre (복수 nos) 는 ‘우리의’ 예요.|Notre (plural nos) means “our”.
+W|contre|prep|~에 맞서|against|contre 는 ‘~에 맞서, ~에 기대어’ 예요.|Contre means “against”.
+W|rien|neg|아무것도|nothing|rien 은 ne 와 함께 ‘아무것도 ~않다’ 예요.|Rien means “nothing”, together with ne.
+W|aucun|neg|어떤 ~도|no, none|aucun 은 ne 와 함께 ‘어떤 ~도 없다’ 예요.|Aucun means “no / not any”, together with ne.
+W|trop|adv|너무|too|trop 는 ‘너무, 지나치게’ 예요.|Trop means “too / too much”.
+W|alors|adv|그러면 · 그때|then, so|alors 는 ‘그때, 그러면, 그래서’ 예요.|Alors means “then, so”.
+W|parce|conj|왜냐하면|because|parce 는 que 와 함께 parce que ‘왜냐하면’ 이에요.|Parce goes with que: parce que = “because”.
+W|quel|det|어떤 · 무슨|what, which|quel · quelle 은 ‘어떤, 무슨’ 이고, 감탄문에서 ‘얼마나 ~한’ 이에요.|Quel, quelle mean “which / what”, and “what a …” in exclamations.
+W|non|adv|아니|no, not|non 은 ‘아니’ 예요 (non plus = ~도 아니다).|Non means “no” (non plus = not … either).
+W|dont|rel|그것의 (관계사)|of which, whose|dont 은 de + 관계사예요: ‘그것의, 그것에 대해’ (l'homme dont je parle = 내가 말하는 사람).|Dont is de + relative: “of which, whose” (l'homme dont je parle = the man I speak of).
+W|donc|conj|그러니까|so|donc 은 ‘그러니까, 그래서’ 예요.|Donc means “so / therefore”.
+W|sous|prep|~ 아래|under|sous 는 ‘~ 아래에’ 예요.|Sous means “under”.
+W|leur|poss|그들의 · 그들에게|their, to them|leur 는 명사 앞이면 ‘그들의’, 동사 앞이면 ‘그들에게’ 예요.|Leur means “their” before a noun and “to them” before a verb.
+W|quoi|pron|무엇|what|quoi 는 ‘무엇’ (전치사 뒤 · 혼자) 이에요.|Quoi means “what” (after a preposition or alone).
+W|entre|prep|~ 사이에|between|entre 는 ‘~ 사이에’ 예요.|Entre means “between”.
+W|chaque|det|각각의|each|chaque 는 ‘각각의, 매’ 예요.|Chaque means “each / every”.
+W|ni|neg|~도 아니다|nor|ni 는 ne 와 함께 ‘~도 ~도 아니다’ 예요.|Ni means “nor”, together with ne.
+W|depuis|prep|~ 이래로|since, for|depuis 는 ‘~부터, ~ 동안 (지금까지)’ 예요. 현재형과 함께 쓰면 ‘~째 하고 있다’ 예요.|Depuis means “since / for”; with the present it means “have been doing for”.
+W|jusque|prep|~까지|until|jusque (jusqu'à) 는 ‘~까지’ 예요.|Jusque (jusqu'à) means “until / up to”.
+W|avant|prep|~ 전에|before|avant 은 ‘~ 전에’ 예요 (avant de + 동사 원형 = ~하기 전에).|Avant means “before” (avant de + infinitive = before doing).
+W|ça|dem|그것|that|ça 는 cela 의 입말 꼴 ‘그것’ 이에요.|Ça is the spoken form of cela: “that / it”.
+W|quand|conj|~할 때|when|quand 은 ‘~할 때, 언제’ 예요.|Quand means “when”.
+W|puisque|conj|~이니까|since|puisque 는 ‘(알다시피) ~이니까’ 예요.|Puisque means “since / given that”.
+W|voilà|adv|자 ~이다|there is|voilà 는 ‘자, 여기 ~이 있다, 그게 ~이다’ 예요.|Voilà means “there is / that's”.
+W|voici|adv|여기 ~이 있다|here is|voici 는 ‘여기 ~이 있다’ 예요.|Voici means “here is / here are”.
+W|pendant|prep|~ 동안|during|pendant 은 ‘~ 동안’ 이에요.|Pendant means “during / for”.
+W|chez|prep|~의 집에|at the home of|chez 는 ‘~의 집에, ~네에서’ 예요 (chez moi = 우리 집에).|Chez means “at the home of” (chez moi = at my place).
+W|malgré|prep|~에도 불구하고|despite|malgré 는 ‘~에도 불구하고’ 예요.|Malgré means “despite”.
+W|t|pron|(소리 잇기)|(linking t)|a-t-il 의 t 는 뜻이 없고 모음 사이 소리를 잇는 글자예요.|The t in a-t-il has no meaning; it only links two vowel sounds.
+W|eux|pron|그들|them|eux 는 강세형 ‘그들’ 이에요 (avec eux).|Eux is the stressed “them” (avec eux).
+W|ceci|dem|이것|this|ceci 는 ‘이것’ 이에요.|Ceci means “this”.
+W|vers|prep|~ 쪽으로 · ~쯤|towards, around|vers 는 ‘~ 쪽으로’, 때 앞에서 ‘~쯤’ 이에요.|Vers means “towards”, or “around” with a time.
+W|dès|prep|~부터 곧|from, as soon as|dès 는 ‘~부터 바로, ~하자마자’ 예요.|Dès means “from / as soon as”.
+W|devant|prep|~ 앞에|in front of|devant 은 ‘~ 앞에’ 예요.|Devant means “in front of”.
+W|pourquoi|adv|왜|why|pourquoi 는 ‘왜’ 예요.|Pourquoi means “why”.
+W|quoique|conj|~이지만|although|quoique 는 ‘~이지만’ (뒤에 접속법) 이에요.|Quoique means “although” (followed by the subjunctive).
+

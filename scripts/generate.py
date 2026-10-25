@@ -7,7 +7,8 @@
 - design/tokens.json  → android/app/.../design/Tokens.kt
                         android/app/src/main/res/values{,-night}/window.xml (창 · 시작 화면 바탕색)
 - design/strings.json → android/app/src/main/res/values{,-ko}/strings.xml
-- data/<작품>/series.json + 챕터 + 어휘 자료(lexicon · gloss · daily[_en|_ko].json) → android/app/src/main/assets/letters/<작품>/
+- data/<작품>/series.json + 챕터 + 어휘 자료(lexicon · gloss · daily · anchors · idioms …[_en|_ko].json) → android/app/src/main/assets/letters/<작품>/
+- data/lexicon/notes_<말>.json (기능어 · 문형 노트, scripts/notes.py) → android/app/src/main/assets/notes/
   ("hidden": true 인 출시 전 작품은 넣지 않는다 — 판매 규칙 검사만)
 - remote/ (앱 밖에 두는 낭독 · 그림 · 곡) → android/app/src/main/assets/letters/<작품>/remote.json
 - data/medals.json (메달 진열장 · 레벨) → android/app/src/main/assets/medals/medals.json
@@ -149,11 +150,21 @@ def letters():
         # 어휘 자료 (data/lexicon/README.md): 사전 · 눌러서 뜻 보기 토큰 · 오늘의 낱말 · 닻 표현 (scripts/anchors.py) · 기초 낱말 (core Basics)
         # · 이번 장의 소리 (core Sounds) · 비슷하게 읽으면 (scripts/pron.py, 자동). 작아서 그대로 넣는다
         # 배우는 말마다 한 벌: 원어 lexicon.json …, 영어 lexicon_en.json …, 한국어 lexicon_ko.json … (있는 것만)
-        for base in ("lexicon", "gloss", "daily", "anchors", "basics", "sounds", "pron"):
+        # · 관용구 (scripts/notes.py, core NoteBook)
+        for base in ("lexicon", "gloss", "daily", "anchors", "basics", "sounds", "pron", "idioms"):
             for src in sorted(glob.glob(os.path.join(folder, base + "*.json"))):
                 name = os.path.basename(src)
                 if re.fullmatch(base + r"(_[a-z]{2})?\.json", name):
                     out[os.path.join(dest, name)] = open(src, encoding="utf-8").read()
+    return out
+
+
+def notes():
+    """기능어 · 문형 노트 (scripts/notes.py → data/lexicon/notes_<말>.json) → assets/notes/ (배우는 말마다 하나, 작품과 상관없이 앱 안에)."""
+    out = {}
+    for src in sorted(glob.glob(os.path.join(ROOT, "data", "lexicon", "notes_*.json"))):
+        if re.fullmatch(r"notes_[a-z]{2}\.json", os.path.basename(src)):
+            out[os.path.join(APP, "assets", "notes", os.path.basename(src))] = open(src, encoding="utf-8").read()
     return out
 
 
@@ -396,7 +407,7 @@ def main():
     check = "--check" in sys.argv
     if not check:
         pron_files()
-    files = {**tokens(), **strings(), **letters(), **remote(), **medals(), **shop()}
+    files = {**tokens(), **strings(), **letters(), **notes(), **remote(), **medals(), **shop()}
     stale = []
     for path, text in files.items():
         old = open(path, encoding="utf-8").read() if os.path.exists(path) else None

@@ -1,0 +1,30 @@
+# goya 관용구 (scripts/notes.py --seed 로 일반 목록에서 찾은 것 + 손으로 고름). 줄 = 표제어 열쇠|ko|en[|노트 ko|노트 en]
+tal vez|아마|perhaps
+a menudo|자주|often
+ya que|~이니까|since
+para que|~하도록|so that
+después de|~한 뒤에|after
+en cuanto a|~에 대해서는|as for
+en cuanto|~하자마자|as soon as
+debajo de|~ 아래에|under
+dentro de|~ 안에|inside
+por ese|그래서|that's why
+en fin|결국, 요컨대|in short
+de modo que|그래서 ~하도록|so that
+lo demás|나머지|the rest
+a mí|나에게|to me
+dar gracia|감사하다|to give thanks
+a gusto|마음 편히|at ease
+si dios querer|하느님이 허락하시면|God willing
+gracia a dios|다행히|thank God
+en casa|집에|at home
+vuestro merced|귀하 (옛 높임)|Your Grace (old polite you)
+mi señor|나의 주인님|my lord
+# 손으로 더함 (--candidates 의 자주 나오는 n-gram 에서)
+acordar de|~을 기억하다|to remember|acordarse de = ‘~을 기억하다’ (se 와 함께) 예요.|Acordarse de means “to remember”.
+pues parecer que|아무래도 ~인 것 같다|it seems that
+por mi mano|내 손으로|by my own hand
+nuestro señora|성모|Our Lady
+a ver|어디 보자|let's see
+no tener tiempo|시간이 없다|to have no time
+besar el mano|손에 입 맞추다 (공손한 인사)|to kiss the hand (respectful greeting)

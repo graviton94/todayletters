@@ -1,0 +1,144 @@
+# 스페인어 (고야 원문) 기능어 · 문형. 형식은 scripts/notes.py 머리 주석. 앱이 쓴 풀이 (사람 확인 전).
+T|art|기능어 · 관사|Function word · article
+T|contr|기능어 · 줄어든 꼴|Function word · contraction
+T|prep|기능어 · 전치사|Function word · preposition
+T|pron|기능어 · 대명사|Function word · pronoun
+T|obj|기능어 · 목적어 대명사|Function word · object pronoun
+T|refl|기능어 · 재귀 대명사|Function word · reflexive pronoun
+T|rel|기능어 · 관계사|Function word · relative
+T|poss|기능어 · 소유 한정사|Function word · possessive
+T|det|기능어 · 한정사|Function word · determiner
+T|dem|기능어 · 지시어|Function word · demonstrative
+T|neg|부정|Negation
+T|aux|조동사|Auxiliary verb
+T|be|동사 · 두 가지 ‘이다’|Verb · the two “to be”
+T|conj|기능어 · 접속사|Function word · conjunction
+T|adv|기능어 · 부사|Function word · adverb
+T|tense|문형 · 시제|Construction · tense
+T|cons|문형|Construction
+C|pp|p=v,i,r=.*(ado|ada|ados|adas|ido|ida|idos|idas|ído|ída|uesto|uesta|uelto|uelta|crito|crita|isto|ista|icho|icha|echo|echa|uerto|uerta|ierto|ierta|oto|ota)
+C|ger|p=v,r=.*(ando|iendo|yendo)(me|te|se|lo|la|le|los|las|les|nos|os)*
+C|inf|p=v,r=.*(ar|er|ir|ír)(me|te|se|lo|la|le|los|las|les|nos|os)*
+C|clitic|l=me/te/se/lo/le/nos/os
+# ── 문형 ──
+P|es.haber_de|l=haber + l=de + c=inf@head|always|cons|~해야 한다|must|haber de + 동사 원형 = ‘~해야 한다, ~할 것이다’ (옛 글말) 예요.|Haber de + infinitive means “must / is to” (older written style).
+P|es.hay_que|l=haber,f=hay + l=que + c=inf@head|always|cons|~해야 한다|one must|hay que + 동사 원형은 ‘(누구든) ~해야 한다’ 예요.|Hay que + infinitive means “one must / it is necessary to”.
+P|es.hay|l=haber,f=hay/había/hubo/habrá/haya|always next!=c=pp next!=l=de|cons|~이 있다|there is|hay (había · habrá) 는 ‘~이 있다’ 예요. haber 의 이 꼴은 과거를 만들지 않아요.|Hay (había, habrá) means “there is / there are”; here haber does not make a past tense.
+P|es.empezar_a|l=empezar/comenzar/ponerse/echar + l=a + c=inf@head|gap=0 always|cons|~하기 시작하다|start to|empezar · comenzar · ponerse a + 동사 원형 = ‘~하기 시작하다’ 예요.|Empezar / comenzar / ponerse a + infinitive means “to start doing”.
+P|es.deber|l=deber + c=inf@head|gap=1 always|cons|~해야 한다|must|deber + 동사 원형 = ‘~해야 한다’ (deber de = ~임에 틀림없다) 예요.|Deber + infinitive means “must”; deber de = “must be (probably)”.
+P|es.tener_que|l=tener + l=que + c=inf@head|always|cons|~해야 한다|have to|tener que + 동사 원형 = ‘~해야 한다’ 예요.|Tener que + infinitive means “to have to”.
+P|es.ir_a|l=ir,f=voy/vas/va/vamos/vais/van/iba/ibas/íbamos/ibais/iban + l=a + c=inf@head|gap=0 always|tense|~할 것이다|going to|ir a + 동사 원형 = ‘~할 거야’ (가까운 미래) 예요.|Ir a + infinitive is the near future: “going to do”.
+P|es.acabar_de|l=acabar + l=de + c=inf@head|always|tense|막 ~했다|have just|acabar de + 동사 원형 = ‘막 ~했다’ 예요.|Acabar de + infinitive means “to have just done”.
+P|es.volver_a|l=volver + l=a + c=inf@head|always|cons|다시 ~하다|again|volver a + 동사 원형 = ‘다시 ~하다’ 예요.|Volver a + infinitive means “to do again”.
+P|es.estar_ger|l=estar + c=ger@head|gap=1 always|cons|~하고 있다|is doing|estar + 현재분사 (-ando · -iendo) = ‘지금 ~하고 있다’ 예요.|Estar + gerund (-ando, -iendo) means “to be doing (right now)”.
+P|es.seguir_ger|l=seguir/ir/andar/quedar + c=ger@head|gap=1|cons|계속 ~하다|keeps doing|seguir · ir · andar + 현재분사 = ‘계속 ~하다, 점점 ~해 가다’ 예요.|Seguir / ir / andar + gerund mean “to keep doing / to go on doing”.
+P|es.pqp|l=haber,f=había/habías/habíamos/habíais/habían + c=pp@head|gap=2 stop=p=n/name|tense|~했었다|had done|había + 과거분사 = 대과거 ‘~했었다’ 예요.|Había + past participle is the pluperfect: “had done”.
+P|es.cond_perf|l=haber,f=habría/habrías/habríamos/habrían/hubiera/hubieras/hubiéramos/hubieran/hubiese/hubiesen + c=pp@head|gap=2 stop=p=n/name|tense|~했을 텐데|would have|habría · hubiera + 과거분사 = ‘~했을 텐데’ 예요.|Habría / hubiera + past participle means “would have done”.
+P|es.perf|l=haber + c=pp@head|gap=2 stop=p=n/name stop=l=que/y|tense|~했다|have done|haber (he · has · ha …) + 과거분사 = ‘~했다’ (현재완료) 예요. 여기서 haber 는 ‘가지다’ 가 아니라 조동사예요.|Haber (he, has, ha …) + past participle is the present perfect: “have done”. Haber is only an auxiliary here.
+P|es.inf_perf|l=haber,f=haber/haberme/haberte/haberse/haberlo/haberla/haberle/habiendo + c=pp@head|-|tense|~한 것 (완료)|having done|haber · habiendo + 과거분사 = ‘~한 것, ~하고 나서’ 예요.|Haber / habiendo + past participle means “having done”.
+P|es.ser_pp|l=ser + c=pp@head|gap=1 stop=p=n|cons|~되다 (수동)|is done (pass.)|ser + 과거분사는 수동 ‘~되다, ~받다’ 예요.|Ser + past participle is the passive: “is done”.
+P|es.estar_pp|l=estar + c=pp@head|gap=1 stop=p=n|be|~되어 있다|is (done)|estar + 과거분사는 결과 상태 ‘~되어 있다’ 예요 (estoy cansado = 지쳐 있어).|Estar + past participle describes a resulting state: “is (done)” (estoy cansado = I am tired).
+P|es.estar_adj|l=estar + p=adj/adv@head|gap=1|be|(지금) ~하다|is (now)|estar 는 지금의 상태 · 자리의 ‘이다, 있다’ 예요 (estoy bueno = 몸이 괜찮아). 성질 · 정체는 ser 예요.|Estar is “to be” for a present state or place (estoy bueno = I am well). For nature or identity Spanish uses ser.
+P|es.ser_adj|l=ser + p=adj/n@head|gap=1|be|~이다 (본디)|is (by nature)|ser 는 정체 · 성질의 ‘이다’ 예요 (es bueno = 착한 사람이다). 지금의 상태는 estar 예요.|Ser is “to be” for identity and lasting nature (es bueno = he is a good person). A passing state uses estar.
+P|es.lo_adj|l=lo + p=adj@head|prev!=c=clitic next!=p=n|cons|~한 것|what is …|lo + 형용사 = ‘~한 것, ~한 점’ 이에요 (lo mejor = 가장 좋은 것).|Lo + adjective means “the … thing / what is …” (lo mejor = the best thing).
+P|es.lo_que|l=lo + l=que|-|rel|~하는 것|what|lo que 는 ‘~하는 것’ 이에요 (lo que quieras = 네가 원하는 것).|Lo que means “what / that which” (lo que quieras = whatever you want).
+P|es.al_inf|l=a,f=al + c=inf@head|always|cons|~할 때|on (doing)|al + 동사 원형 = ‘~할 때, ~하자’ 예요 (al llegar = 도착했을 때).|Al + infinitive means “on / when doing” (al llegar = on arriving).
+P|es.del|l=de,f=del|-|contr|~의 (de+el)|of the|del 은 de + el 이 합쳐진 꼴이에요.|Del is de + el: “of the / from the”.
+P|es.al|l=a,f=al|-|contr|~에 (a+el)|to the|al 은 a + el 이 합쳐진 꼴이에요.|Al is a + el: “to the / at the”.
+P|es.no_nada|l=no@part + l=nada/nadie/nunca/ninguno/tampoco|gap=3 always|neg|아무 ~도 않다|not … any|스페인어는 no 와 nada · nadie · nunca 를 함께 써도 부정이 한 번이에요 (no sé nada = 아무것도 몰라).|Spanish keeps no together with nada, nadie, nunca: it is still one negation (no sé nada = I know nothing).
+P|es.no_sino|l=no@part + l=sino|gap=6 always|conj|~가 아니라|not … but|no … sino 는 ‘~가 아니라 ~이다’ 예요.|No … sino means “not … but rather”.
+P|es.se_verb|l=se + p=v@head|-|refl|자기를 · ~되다|oneself|se + 동사는 ‘자기를, 서로’, 또는 주어 없이 ‘~되다, (사람들이) ~하다’ 예요 (se dice = 사람들이 말하길).|Se + verb means “oneself / each other”, or is impersonal or passive (se dice = it is said).
+P|es.lo_pron|l=lo/le,f=lo/la/los/las/le/les + p=v@head|-|obj|그것을 · 그를|it, him|동사 앞의 lo · la · los · las 는 ‘그것을, 그를’, le · les 는 ‘그에게’ 예요.|Lo, la, los, las before a verb mean “it / him / her / them”; le, les mean “to him / to her”.
+P|es.para_inf|l=para + c=inf@head|-|cons|~하기 위해|in order to|para + 동사 원형 = ‘~하기 위해’ 예요.|Para + infinitive means “in order to”.
+P|es.por_inf|l=por + c=inf@head|-|cons|아직 ~하지 않은 · ~하려고|still to (do)|por + 동사 원형은 ‘~하려고’, 또는 ‘아직 ~할 것으로 남은’ 이에요 (está por hacer).|Por + infinitive means “to / in order to”, or “still to be done” (está por hacer).
+P|es.sin_inf|l=sin + c=inf@head|-|cons|~하지 않고|without doing|sin + 동사 원형 = ‘~하지 않고’ 예요.|Sin + infinitive means “without doing”.
+# ── 기능어 ──
+W|el|art|그|the|el · la · los · las 는 정관사 ‘그’ 예요. de · a 와 만나면 del · al 이 돼요.|El, la, los, las are the definite article; with de and a they become del and al.
+W|que|conj|~라고 · ~하는|that, which|que 는 ‘~라고 (접속사), ~하는 (관계사), ~보다 (비교)’ 로 두루 써요. 악센트가 붙은 qué 는 ‘무엇’.|Que means “that” (conjunction or relative) or “than”; qué with an accent means “what”.
+W|de|prep|~의 · ~에서|of, from|de 는 ‘~의, ~에서, ~로 된’ 이에요. el 과 만나면 del.|De means “of, from”; de + el = del.
+W|y|conj|그리고|and|y 는 ‘그리고, ~와’ 예요. i- · hi- 앞에서는 e 로 바뀌어요.|Y means “and”; before i- or hi- it becomes e.
+W|a|prep|~에 · ~에게|to, at|a 는 ‘~에, ~로, ~에게’ 예요. 사람 목적어 앞에도 붙어요 (veo a Juan). el 과 만나면 al.|A means “to, at”; it also marks a person as object (veo a Juan). A + el = al.
+W|haber|aux|(조동사)|(auxiliary)|haber 는 과거분사와 함께 ‘~했다’ 를 만드는 조동사예요. hay 꼴은 ‘~이 있다’.|Haber is the auxiliary of perfect tenses (“have done”); its form hay means “there is”.
+W|en|prep|~에 · ~에서|in, on, at|en 은 ‘~에, ~에서, ~ 안에’ 예요.|En means “in, on, at”.
+W|lo|obj|그것을 · 그를|it, him|lo 는 ‘그것을, 그를’, 형용사 앞에서는 ‘~한 것’ 을 만드는 중성 관사예요.|Lo means “it / him”; before an adjective it is the neuter article (“the … thing”).
+W|me|obj|나를 · 나에게|me, to me|me 는 ‘나를, 나에게’ 예요. 활용된 동사 앞이나 원형 · 현재분사 끝에 붙어요.|Me means “me / to me”; it goes before a conjugated verb or on the end of an infinitive or gerund.
+W|no|neg|~않다 · 아니|not, no|no 는 동사 앞에서 ‘~않다’, 혼자서는 ‘아니’ 예요.|No before a verb means “not”; alone it means “no”.
+W|ser|be|~이다|to be|ser 는 정체 · 성질 · 때의 ‘이다’ 예요. 상태 · 자리는 estar 를 써요.|Ser is “to be” for identity, nature and time; for states and places Spanish uses estar.
+W|con|prep|~와 함께|with|con 은 ‘~와 함께, ~으로’ 예요 (conmigo = 나와 함께).|Con means “with” (conmigo = with me).
+W|uno|art|하나의 · 어떤|a, an|un · una 는 부정관사 ‘어떤, 하나의’ 예요.|Un, una are the indefinite article “a / an”.
+W|se|refl|자기를|oneself|se 는 재귀 대명사 ‘자기를, 서로’, 또는 주어 없는 ‘~되다’ 예요. le · les 가 lo 앞에서 se 로도 바뀌어요.|Se is reflexive (“oneself / each other”) or impersonal; it also replaces le/les before lo.
+W|te|obj|너를 · 너에게|you, to you|te 는 ‘너를, 너에게’ 예요.|Te means “you / to you”.
+W|su|poss|그의 · 당신의|his, her, your|su (sus) 는 ‘그의, 그녀의, 그들의’, 또는 usted 의 ‘당신의’ 예요.|Su (sus) means “his / her / their”, or “your” for usted.
+W|mi|poss|나의|my|mi (mis) 는 ‘나의’ 예요. 악센트가 붙은 mí 는 전치사 뒤의 ‘나’.|Mi (mis) means “my”; mí with an accent is “me” after a preposition.
+W|para|prep|~을 위해|for|para 는 ‘~을 위해, ~에게, ~까지’ (목적 · 받는 이) 예요.|Para means “for, to, in order to” (purpose, recipient).
+W|por|prep|~ 때문에 · ~로|for, by|por 는 ‘~ 때문에, ~을 통해, ~에 의해, ~ 대신’ (까닭 · 지나감) 이에요.|Por means “because of, through, by, in exchange for”.
+W|este|dem|이|this|este · esta · estos 는 ‘이’ 예요 (esto = 이것).|Este, esta, estos mean “this / these” (esto = this thing).
+W|estar|be|있다 · (지금) ~이다|to be (state)|estar 는 지금의 상태 · 자리의 ‘이다, 있다’ 예요. 현재분사와 함께면 ‘~하고 있다’.|Estar is “to be” for states and places; with a gerund it means “to be doing”.
+W|yo|pron|나는|I|yo 는 ‘나는’ 이에요. 동사 꼴로 주어를 알 수 있어 자주 빠져요.|Yo means “I”; it is often dropped because the verb ending shows the subject.
+W|más|adv|더|more|más 는 ‘더, 가장’ 이에요 (악센트 없는 mas 는 옛말 ‘하지만’).|Más means “more / most” (mas without an accent is an old word for “but”).
+W|todo|det|모든|all|todo · toda 는 ‘모든, 전부’ 예요.|Todo, toda mean “all / every / everything”.
+W|ya|adv|이미 · 이제|already, now|ya 는 ‘이미, 이제, 곧’ 이에요 (ya no = 더는 ~않다).|Ya means “already, now”; ya no = “no longer”.
+W|otro|det|다른|other|otro · otra 는 ‘다른, 또 하나의’ 예요 (un otro 는 쓰지 않아요).|Otro, otra mean “other / another” (never un otro).
+W|mucho|det|많은|much, many|mucho 는 ‘많은, 많이’ 예요.|Mucho means “much / many / a lot”.
+W|pues|conj|그러니까 · 그래|so, well|pues 는 ‘그러니까, 그래, 왜냐하면’ 이에요.|Pues means “so, well, since”.
+W|si|conj|만약 ~면|if|si 는 ‘만약 ~면’, ‘~인지’ 예요 (악센트가 붙은 sí 는 ‘네’).|Si means “if / whether” (sí with an accent means “yes”).
+W|le|obj|그에게|to him, to her|le (les) 는 ‘그에게, 그녀에게, 당신께’ 예요.|Le (les) means “to him / to her / to you (usted)”.
+W|como|conj|~처럼 · ~이니까|like, as|como 는 ‘~처럼, ~로서’, 문장 앞에서 ‘~이니까’ 예요. 악센트가 붙은 cómo 는 ‘어떻게’.|Como means “like, as”, or “since” at the start; cómo means “how”.
+W|muy|adv|매우|very|muy 는 형용사 · 부사 앞의 ‘매우’ 예요.|Muy means “very” (before adjectives and adverbs).
+W|pero|conj|하지만|but|pero 는 ‘하지만, 그래도’ 예요.|Pero means “but”.
+W|porque|conj|왜냐하면|because|porque 는 ‘~이기 때문에’ 예요. 띄어 쓴 por qué 는 ‘왜’.|Porque means “because”; por qué written apart means “why”.
+W|ni|neg|~도 아니다|nor|ni 는 ‘~도 아니다’ (ni … ni = ~도 ~도 아니다) 예요.|Ni means “nor / not even” (ni … ni = neither … nor).
+W|tu|poss|너의|your|tu (tus) 는 ‘너의’ 예요. 악센트가 붙은 tú 는 ‘너는’.|Tu (tus) means “your”; tú with an accent means “you”.
+W|vuestro|poss|너희의 · 귀하의|your|vuestro 는 ‘너희의’, Vuestra Merced (V. M.) 는 옛 높임말 ‘귀하’ 예요.|Vuestro means “your (pl.)”; Vuestra Merced (V. M.) is the old polite “Your Grace / you”.
+W|mí|pron|나|me|mí 는 전치사 뒤의 ‘나’ 예요 (para mí).|Mí is “me” after a preposition (para mí).
+W|aunque|conj|비록 ~지만|although|aunque 는 ‘비록 ~지만, ~라도’ 예요.|Aunque means “although / even if”.
+W|alguno|det|어떤 · 누군가|some, any|alguno (algún) 는 ‘어떤, 몇몇’ 이에요.|Alguno (algún) means “some / any”.
+W|también|adv|~도 · 또한|also|también 은 ‘~도, 또한’ 이에요.|También means “also / too”.
+W|mío|poss|내 것|mine|mío (mía) 는 ‘나의 것, 나의’ (명사 뒤) 예요 (amigo mío).|Mío (mía) means “mine / of mine” (after a noun: amigo mío).
+W|él|pron|그|he, him|él 은 ‘그, 그것’ 이에요 (악센트 없는 el 은 관사).|Él means “he / him” (el without an accent is the article).
+W|tú|pron|너는|you|tú 는 친한 사이의 ‘너는’ 이에요.|Tú is the familiar “you”.
+W|mismo|det|같은 · 바로|same, -self|mismo 는 ‘같은’, 명사 · 대명사 뒤에서 ‘바로 그, 자신’ 이에요.|Mismo means “same”, or “-self / very” after a noun or pronoun.
+W|sin|prep|~ 없이|without|sin 은 ‘~ 없이’ 예요.|Sin means “without”.
+W|poco|det|적은 · 조금|little|poco 는 ‘적은, 조금’ (un poco = 조금) 이에요.|Poco means “little / few” (un poco = a little).
+W|nada|neg|아무것도|nothing|nada 는 ‘아무것도 (않다)’ 예요.|Nada means “nothing”.
+W|cuanto|rel|~하는 만큼|as much as|cuanto 는 ‘~하는 만큼, ~하는 모든 것’ 이에요 (en cuanto a = ~에 대해서는).|Cuanto means “as much as / all that” (en cuanto a = as for).
+W|tanto|det|그렇게 많은|so much|tanto 는 ‘그렇게 많은, 그만큼’ 이에요.|Tanto means “so much / as much”.
+W|o|conj|또는|or|o 는 ‘또는’ 이에요.|O means “or”.
+W|ese|dem|그|that|ese · esa 는 ‘그’ (듣는 사람 쪽) 예요 (eso = 그것).|Ese, esa mean “that” (near the listener); eso = that thing.
+W|tan|adv|그렇게|so|tan 은 형용사 · 부사 앞의 ‘그렇게, 그만큼’ 이에요.|Tan means “so / as” before adjectives and adverbs.
+W|nuestro|poss|우리의|our|nuestro 는 ‘우리의’ 예요.|Nuestro means “our”.
+W|demás|pron|나머지|the rest|lo demás 는 ‘나머지’, los demás 는 ‘다른 사람들’ 이에요.|Lo demás means “the rest”; los demás means “the others”.
+W|nosotros|pron|우리|we|nosotros 는 ‘우리’ 예요.|Nosotros means “we / us”.
+W|hasta|prep|~까지 · 심지어|until, even|hasta 는 ‘~까지’, 또는 ‘심지어’ 예요.|Hasta means “until / as far as”, or “even”.
+W|conque|conj|그러니까|so|conque 는 ‘그러니까, 그래서’ 예요.|Conque means “so / and so”.
+W|usted|pron|당신|you (polite)|usted 는 높이는 ‘당신’ 이에요. 동사는 3인칭을 써요.|Usted is the polite “you”; it takes a third-person verb.
+W|tal|adv|그런|such|tal 은 ‘그런, 그러한’ 이에요 (tal vez = 아마).|Tal means “such” (tal vez = perhaps).
+W|tuyo|poss|네 것|yours|tuyo 는 ‘너의 것, 너의’ (명사 뒤) 예요.|Tuyo means “yours / of yours”.
+W|ahí|adv|거기|there|ahí 는 ‘거기’ (듣는 사람 가까이) 예요.|Ahí means “there” (near the listener).
+W|según|prep|~에 따르면|according to|según 은 ‘~에 따르면, ~대로’ 예요.|Según means “according to / as”.
+W|bien|adv|잘|well|bien 은 ‘잘, 좋게’ 예요 (si bien = ~이지만).|Bien means “well” (si bien = although).
+W|menos|adv|덜|less|menos 는 ‘덜, 가장 덜’ (a lo menos = 적어도) 이에요.|Menos means “less / least” (a lo menos = at least).
+W|sino|conj|~가 아니라|but rather|sino 는 부정 뒤의 ‘~가 아니라’ 예요.|Sino means “but rather”, after a negation.
+W|e|conj|그리고|and|e 는 i- · hi- 앞에서 y 대신 쓰는 ‘그리고’ 예요.|E is “and”, used for y before i- or hi-.
+W|qué|pron|무엇 · 얼마나|what, how|qué 는 ‘무엇’, 감탄에서 ‘얼마나’ 예요.|Qué means “what”, or “how …!” in exclamations.
+W|nadie|neg|아무도|nobody|nadie 는 ‘아무도 (않다)’ 예요.|Nadie means “nobody”.
+W|ti|pron|너|you|ti 는 전치사 뒤의 ‘너’ 예요 (para ti, contigo).|Ti is “you” after a preposition (para ti; con + ti = contigo).
+W|cuando|conj|~할 때|when|cuando 는 ‘~할 때’ 예요. 앞일이면 뒤에 접속법이 와요.|Cuando means “when”; for a future event it takes the subjunctive.
+W|cada|det|각각의|each|cada 는 ‘각각의, ~마다’ 예요.|Cada means “each / every”.
+W|quien|rel|~하는 사람|who|quien 은 ‘~하는 사람, 누구’ 예요.|Quien means “who / the one who”.
+W|sobre|prep|~ 위에 · ~에 대해|on, about|sobre 는 ‘~ 위에, ~에 대해’ 예요.|Sobre means “on / about”.
+W|aquel|dem|저|that (far)|aquel · aquella 는 ‘저’ (멀리 있는 것) 예요.|Aquel, aquella mean “that” (far away).
+W|cuyo|rel|그의 (관계)|whose|cuyo 는 ‘그의 ~가 …하는’ (관계 소유) 예요.|Cuyo means “whose”.
+W|cómo|adv|어떻게|how|cómo 는 ‘어떻게’ 예요.|Cómo means “how”.
+W|allí|adv|거기|there|allí 는 ‘저기, 거기’ (먼 곳) 예요.|Allí means “there” (far).
+W|cual|rel|~하는 것 (관계)|which|el cual · la cual 은 ‘그것, ~하는 것’ (관계) 이에요. cuál 은 ‘어느 것’.|El cual / la cual mean “which / who” (relative); cuál means “which one”.
+W|dónde|adv|어디|where|dónde 는 ‘어디’ 예요.|Dónde means “where”.
+W|ella|pron|그녀|she, her|ella 는 ‘그녀’ 예요.|Ella means “she / her”.
+W|nunca|neg|결코|never|nunca 는 ‘결코, 한 번도 ~않다’ 예요.|Nunca means “never”.
+W|siempre|adv|늘|always|siempre 는 ‘늘, 언제나’ 예요.|Siempre means “always”.
+W|entre|prep|~ 사이에|between|entre 는 ‘~ 사이에, ~ 가운데’ 예요.|Entre means “between / among”.
+W|durante|prep|~ 동안|during|durante 는 ‘~ 동안’ 이에요.|Durante means “during / for”.
+W|donde|rel|~하는 곳|where|donde 는 ‘~하는 곳’ (관계) 이에요.|Donde means “where” (relative).
+W|así|adv|이렇게|so, like this|así 는 ‘이렇게, 그렇게’ 예요.|Así means “like this / so”.
+W|algo|pron|무엇인가|something|algo 는 ‘무엇인가, 조금’ 이에요.|Algo means “something / somewhat”.
+W|ninguno|neg|어떤 ~도|no, none|ninguno (ningún) 는 ‘어떤 ~도 (않다)’ 예요.|Ninguno (ningún) means “no / none”.

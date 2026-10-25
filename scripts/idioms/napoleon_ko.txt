@@ -1,0 +1,17 @@
+# napoleon_ko 관용구 (scripts/notes.py --seed 로 일반 목록에서 찾은 것 + 손으로 고름). 줄 = 표제어 열쇠|ko|en[|노트 ko|노트 en]
+마음 들다|마음에 들다|to like|‘마음에 들다’ 는 ‘좋아하다, 흡족하다’ 예요.|마음에 들다 means “to be to one's liking”.
+생각 들다|생각이 들다|to feel, to think
+잘 지내다|잘 지내다|to be well
+잠 들다|잠이 들다|to fall asleep
+어떻게 되다|어떻게 되다|to turn out
+한 번|한 번|once
+하루 종일|하루 종일|all day
+잘 있다|잘 있다|to be well
+안 되다|안 되다|no good, must not
+마음 아프다|마음이 아프다|to be heartbroken
+화 나다|화가 나다|to get angry
+기분 좋다|기분이 좋다|to feel good
+눈 뜨다|눈을 뜨다|to open one's eyes
+꿈 꾸다|꿈을 꾸다|to dream
+잘 알다|잘 알다|to know well
+세상 떠나다|세상을 떠나다|to pass away

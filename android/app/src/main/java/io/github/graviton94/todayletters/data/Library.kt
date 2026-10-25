@@ -498,7 +498,7 @@ object Library {
                 val toks = msgs.getJSONArray(m)
                 (0 until toks.length()).map { t ->
                     when (val x = toks.get(t)) {
-                        is JSONArray -> Token(x.getString(0), x.getString(1))
+                        is JSONArray -> Token(x.getString(0), x.getString(1), x.optString(2, ""))
                         else -> x.toString().let { Token(it, it) }
                     }
                 }

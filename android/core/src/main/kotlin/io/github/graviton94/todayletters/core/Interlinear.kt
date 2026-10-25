@@ -25,6 +25,7 @@ object Anchors {
     /**
      * 토큰 [norms] (맞추는 꼴) 에서 덩어리 [key] 가 나오는 자리 (첫 토큰 번호들). 토큰 꼴을 이어 붙인 글자가 덩어리의 글자와 같으면
      * 같은 것으로 본다 (j' + ai = jai, 덩어리 "j ai"). 토큰 수가 달라도 (표현 "j'ai" 를 j' · ai 두 토큰으로) 맞는다.
+     * 다만 토큰 하나가 여러 낱말 덩어리를 통째로 맞추지는 않는다 (영어 ill 이 닻 "i 'll" 로 잡히지 않게).
      */
     fun find(norms: List<String>, key: List<String>): List<IntRange> {
         val want = key.joinToString("")
@@ -37,7 +38,8 @@ object Anchors {
             while (j < norms.size && acc.length < want.length) {
                 acc += norms[j]
                 if (!want.startsWith(acc)) break
-                if (acc == want) { out += i..j; break }
+                // 토큰 하나가 여러 낱말 덩어리 전체가 되지는 않는다 (ill ≠ i 'll, its ≠ it 's)
+                if (acc == want) { if (j > i || key.size == 1) out += i..j; break }
                 j++
             }
         }
@@ -57,14 +59,15 @@ object Anchors {
  *  - 닻 표현은 익혔으면 ([Unit.known]) 뜻 없이 금빛 바탕, 아니면 금빛 밑줄과 뜻.
  */
 object Interlinear {
-    enum class Kind { WORD, PHRASE, ANCHOR }
+    enum class Kind { WORD, PHRASE, ANCHOR, PATTERN, IDIOM }
 
     /**
      * 한 칸: 토큰 [from]..[to] (포함). [gloss] 가 null 이면 뜻을 달지 않는 낱말 (안다 · 이름 …), "" 면 뜻이 필요한데 사전에 없음.
      * [anchor] 는 닻 표현 번호 (이 목록 안, 닻이 아니면 -1), [anchorId] 는 그 닻의 고정 이름 ([Anchor.id]), [known] 은 익힌 닻.
+     * [hit] 은 노트 ([NoteBook]) 에서 온 칸의 맞은 자리: 문형 (떨어진 부분은 각자 칸, 같은 [Hit]) · 관용구 · 노트가 있는 기능어 · 어미. 누르면 [Hit.note] 카드.
      */
     data class Unit(val from: Int, val to: Int, val gloss: String?, val kind: Kind = Kind.WORD, val anchor: Int = -1, val known: Boolean = false,
-                    val anchorId: String = "")
+                    val anchorId: String = "", val hit: Hit? = null)
 
     /** 짧은 덩어리 (표현 카드) 로 칠 낱말 수 상한: 그보다 긴 표현은 낱말마다 푼다 (문장 하나를 통째로 덮지 않게). */
     const val PHRASE_MAX = 4
@@ -83,10 +86,16 @@ object Interlinear {
     /**
      * 메시지 한 개의 칸들 ([tokens] 차례). [phrases] 는 이 메시지의 표현 (글자, 뜻), [anchors] 는 작품의 닻 표현.
      * [known] 은 내 것이 된 사전 열쇠, [function] 이면 기능어에도 뜻, [anchorKnown] 은 익힌 닻 (번호).
+     * [notes] 가 있으면 (그 작품 · 말의 [NoteBook]) 차례는 표현 카드 > 문형 > 관용구 > 닻 > 낱말:
+     *  - 문형: mark 부분은 문형의 짧은 뜻 (붙어 있는 것은 한 칸, 떨어진 것은 마지막 칸에만 뜻), head 는 그 낱말 뜻, part 는 뜻 없음.
+     *    뜻은 [function] 일 때만 (기능어처럼), [Hit.always] 인 문형 (ne … que = ~만) 은 늘.
+     *  - 관용구: 한 칸, 짧은 뜻 (닻처럼 늘).
+     *  - 기능어 노트: 그 낱말 뜻을 노트의 짧은 뜻으로, 한국어 어미 · 조사는 낱말 뜻 뒤에 괄호로 ([Notes.withEnding]).
      */
     fun units(
         tokens: List<Token>, lexicon: (String) -> LexEntry?, lang: Lang, known: (String) -> Boolean, function: Boolean,
         phrases: List<Pair<String, String>> = emptyList(), anchors: List<Anchor> = emptyList(), anchorKnown: (Int) -> Boolean = { false },
+        notes: NoteBook? = null,
     ): List<Unit> {
         val norms = tokens.map { Anchors.norm(it.surface) }
         val taken = BooleanArray(tokens.size)
@@ -99,6 +108,44 @@ object Interlinear {
         phrases.map { (t, m) -> Anchors.keyOf(t) to m }.filter { it.first.size in 2..PHRASE_MAX }.sortedByDescending { it.first.size }.forEach { (key, m) ->
             Anchors.find(norms, key).firstOrNull()?.let { r -> if (claim(r)) chunks += Unit(r.first, r.last, short(m), Kind.PHRASE) }
         }
+        val hits = notes?.match(tokens) { taken[it] }.orEmpty()
+        fun wordGloss(j: Int): String? {
+            val e = lexicon(tokens[j].key)
+            return when {
+                e == null -> ""
+                silent(e) -> null
+                e.function -> if (function) short(Vocab.meaning(e, lang)) else null
+                known(e.key) -> null
+                else -> short(Vocab.meaning(e, lang))
+            }
+        }
+        hits.forEach { h ->
+            when (h.kind) {
+                Hit.Kind.PATTERN -> {
+                    val show = h.always || function
+                    val marks = h.parts.filterIndexed { k, _ -> h.roles[k] == TokenSpec.Role.MARK }
+                    val groups = mutableListOf<MutableList<Int>>()
+                    marks.forEach { j -> if (groups.isNotEmpty() && groups.last().last() == j - 1) groups.last() += j else groups += mutableListOf(j) }
+                    groups.forEachIndexed { gi, g ->
+                        chunks += Unit(g.first(), g.last(), if (show && gi == groups.lastIndex) Notes.clip(Notes.pick(h.short, lang)) else null, Kind.PATTERN, hit = h)
+                    }
+                    h.parts.forEachIndexed { k, j ->
+                        when (h.roles[k]) {
+                            TokenSpec.Role.PART -> chunks += Unit(j, j, null, Kind.PATTERN, hit = h)
+                            TokenSpec.Role.HEAD -> chunks += Unit(j, j, wordGloss(j), Kind.PATTERN, hit = h)
+                            TokenSpec.Role.MARK -> {}
+                        }
+                    }
+                    h.parts.forEach { taken[it] = true }
+                }
+                Hit.Kind.IDIOM -> {
+                    chunks += Unit(h.start, h.end, Notes.clip(Notes.pick(h.short, lang)), Kind.IDIOM, hit = h)
+                    h.parts.forEach { taken[it] = true }
+                }
+                Hit.Kind.WORD -> {}
+            }
+        }
+        val wordHits = hits.filter { it.kind == Hit.Kind.WORD }.associateBy { it.start }
         anchors.withIndex().sortedByDescending { it.value.key.size }.forEach { (i, a) ->
             Anchors.find(norms, a.key).forEach { r ->
                 if (claim(r)) {
@@ -110,15 +157,15 @@ object Interlinear {
         val out = chunks.toMutableList()
         tokens.forEachIndexed { j, t ->
             if (taken[j]) return@forEachIndexed
-            val e = lexicon(t.key)
-            val g = when {
-                e == null -> ""
-                silent(e) -> null
-                e.function -> if (function) short(Vocab.meaning(e, lang)) else null
-                known(e.key) -> null
-                else -> short(Vocab.meaning(e, lang))
+            var g = wordGloss(j)
+            val h = wordHits[j]
+            if (h != null) {
+                val e = lexicon(t.key)
+                // 기능어 노트: 노트의 짧은 뜻 (사전에 없는 기능어도). 어미 노트만 있으면 낱말 뜻 그대로
+                if (h.note != null && notes?.forToken(t.key) != null && (e == null || e.function)) g = if (function) Notes.clip(Notes.pick(h.short, lang)) else null
+                h.suffix?.let { sfx -> if (!g.isNullOrEmpty()) g = Notes.withEnding(g!!, Notes.pick(sfx, lang)) }
             }
-            out += Unit(j, j, g)
+            out += Unit(j, j, g, hit = h)
         }
         return out.sortedBy { it.from }
     }
