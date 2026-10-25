@@ -111,7 +111,7 @@ private fun WhatsNew(s: AppState) {
         ) {
             Caps(stringResource(R.string.whatsnew_cap, ver), p.giltText, small = true)
             Text(stringResource(R.string.whatsnew_title), style = Type.heading.ui(), color = p.ink)
-            stringResource(R.string.whatsnew_items_100).split('\n').filter { it.isNotBlank() }.forEach {
+            stringResource(R.string.whatsnew_items_110).split('\n').filter { it.isNotBlank() }.forEach {
                 Row(horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
                     Text("·", style = Type.body.ui(), color = p.giltText)
                     Text(it, style = Type.body.ui(), color = p.ink)

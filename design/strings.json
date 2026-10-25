@@ -4595,5 +4595,9 @@
   "room_hand_left": {
     "en": "The courier is on his way",
     "ko": "전령이 떠났어요"
+  },
+  "whatsnew_items_110": {
+    "ko": "편지 읽는 방을 새로 만들었어요 · 지금 나오는 낱말을 따라가요\n문장을 다시 누르면 그 문장만 · 낱말에서 멈추면 그 낱말부터 이어 들어요\n문장 사이에 생각할 틈이 생겼어요 · 사진도 천천히 감상해요\n기능어와 관용구에 짧은 설명 카드가 생겼어요\n테오로서 돈과 소포를 보내고, 주인공이 보낸 선물과 위치를 받아요\n기본 빠르기는 원래 그대로, 천천히는 0.8배로 바뀌었어요",
+    "en": "A new reading room · follow each word as it is spoken\nTap a sentence to hear just it · stop on a word and resume from there\nA pause between sentences · time to enjoy each photo\nShort cards explain function words and idioms\nSend money and parcels as the recipient · receive gifts and places\nNormal speed is now the original · slow is now 0.8×"
   }
 }
