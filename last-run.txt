@@ -1,15 +1,3 @@
-44_exhibition_dark.png
 a11y.txt
-ex1a_parcel_mine_ko_light.png
-ex1b_parcel_mine_en_dark.png
-ex1c_parcel_ask_ko_light.png
 ex2a_parcel_his_ko_light.png
 ex2b_parcel_his_en_dark.png
-ex3a_list_ko_light.png
-ex3b_list_en_dark.png
-ex4a_news_ko_light.png
-ex4b_news_en_dark.png
-ex5a_handover_ko_light.png
-ex5b_handover_en_dark.png
-ex6a_travel_ko_light.png
-ex6b_travel_en_dark.png
