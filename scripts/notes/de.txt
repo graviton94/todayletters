@@ -17,7 +17,9 @@ T|adv|기능어 · 부사|Function word · adverb
 T|tense|문형 · 시제|Construction · tense
 T|cons|문형|Construction
 T|sep|문형 · 분리동사|Construction · separable verb
-C|pp|p=v,i,r=ge.+(t|en|n)|| p=v,i,r=.+iert|| p=v,i,r=(ver|be|er|ent|zer|emp|miß|über|unter|hinter)[a-zäöüß]+(t|en)|| p=v,i,r=(an|auf|aus|ab|mit|zu|vor|ein|zurück|weg|fort|her|hin|nach|bei|los|dar|heim|wieder)ge.+(t|en)
+# 비분리 접두사 + 강변화 동사의 현재 3인칭 (versteht · bekommt · gefällt …): 과거분사 꼴 (-t) 과 같아 보이지만 분사가 아니다 (verstanden · bekommen · gefallen).
+C|fin|r=(ver|be|er|ent|zer|ge|emp|miß|miss|über|unter|hinter|wider)(steht|geht|sieht|schieht|kommt|kömmt|nimmt|gibt|giebt|hält|fällt|läßt|lässt|läuft|spricht|trifft|wirft|bricht|schreibt|greift|weist|zeiht|bietet|bittet|liert|gißt|gisst|schließt|schliesst|fährt|trägt|schlägt|wächst|ginnt|winnt|scheint|bleibt|treibt|sinkt|singt|lingt|fiehlt|fängt|hängt|ißt|isst|stirbt|wirbt|birgt|liegt|sitzt|zieht|flieht|gießt|nießt|frißt|schläft|stößt|tritt|wird|ruft|hebt|leiht|meidet|reitet|schreit|schweigt|steigt|streicht|weicht|wiegt|findet|bindet|dringt|springt|klingt|rinnt|schwimmt|sinnt|trinkt|zwingt)
+C|pp|p=v,i,r=ge.+(t|en|n),!c=fin|| p=v,i,r=.+iert,!c=fin|| p=v,i,r=(ver|be|er|ent|zer|emp|miß|über|unter|hinter)[a-zäöüß]+(t|en),!c=fin|| p=v,i,r=(an|auf|aus|ab|mit|zu|vor|ein|zurück|weg|fort|her|hin|nach|bei|los|dar|heim|wieder)ge.+(t|en),!c=fin
 C|inf|p=v,!u,r=.+(en|ern|eln|n)
 C|ppx|c=pp|| p=v,!u,r=(ver|be|er|ent|zer|emp|miß|über|unter|hinter)[a-zäöüß]+en
 C|modal|l=können/müssen/wollen/sollen/dürfen/mögen,!f=gekönnt/gemußt/gewollt/gesollt/gedurft/gemocht

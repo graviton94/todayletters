@@ -1,0 +1,96 @@
+# Lexicon fixes from the spaCy lemma audit (scripts/audit/lemma_audit.py → apply_fixes.py). Log: one line per fix, applied in order.
+#
+#   R series lang|form|old key|which|new key[|pos|gender|en|ko]   re-key gloss tokens (form = printed form, lowercase)
+#       which: *        every token with this form → old key
+#              VERB … : tokens in the audit TSV row(s) with this form / old key whose spaCy pos starts with it
+#       new key not in the lexicon yet → a new entry (pos · gender · en · ko; copied from another series when that one has it)
+#   E series lang|key|pos|en|ko                                    change one entry's pos / glosses
+#
+# Re-keyed tokens are also written to scripts/vocab/src/<lang>_occ.txt (series/letter:msg:idx=key) and new lemmas to
+# <lang>_tab.txt, so build.py · build_tl.py keep them.
+#
+# 2026-10-25 — first audit (spaCy 3.8 *_core_*_md). Left on purpose: colour words used as nouns (le bleu), participles
+# used as adjectives (fatigué, pleased, tired), English zero-derivation verb ↔ noun (work, love, wish, hope: one entry
+# per spelling), spaCy lemmatizer misses (fr porte → porte, de old spelling thun · daß · Hausthüre, es clitic verbs
+# escribirte → escribir tú), function words (des · du · cela · lui, an → a, these → this).
+
+# ── French (vincent) ──
+R vincent fr|visite|visiter|NOUN|visite|n|f|visit|방문
+R vincent fr|donnée|donner|NOUN|donnée|n|f|subject, motif (of a picture)|주제, 소재
+R vincent fr|reste|rester|NOUN|reste|n|m|rest, remainder (du reste: besides)|나머지 (du reste: 게다가)
+R vincent fr|touches|toucher|NOUN|touche|n|f|touch, brushstroke|붓질, 터치
+R vincent fr|oranges|orange|NOUN|orange#2|n|f|orange (the fruit)|오렌지 (과일)
+R vincent fr|olives|olive|NOUN|olive#2|n|f|olive (the fruit)|올리브 (열매)
+R vincent fr|calme|calme|VERB|calmer|v||to calm (se calmer: to calm down)|진정시키다 (se calmer: 가라앉다)
+R vincent fr|couchant|couchant|VERB|coucher
+R vincent fr|couche|couche|VERB|coucher
+R vincent fr|exaspéré|exaspéré|VERB|exaspérer|v||to exasperate|몹시 화나게 하다
+R vincent fr|découragé|découragé|VERB|décourager|v||to discourage (se décourager: to lose heart)|낙담시키다 (se décourager: 낙담하다)
+R vincent fr|lutte|lutte|VERB|lutter|v||to struggle|싸우다, 애쓰다
+R vincent fr|fabrique|fabrique|VERB|fabriquer
+R vincent fr|rencontre|rencontre|VERB|rencontrer|v||to meet|만나다
+R vincent fr|rêve|rêve|VERB|rêver|v||to dream|꿈꾸다
+
+# ── French (napoleon) ──
+R napoleon fr|porte|porte|VERB|porter
+R napoleon fr|portes|porte|VERB|porter
+R napoleon fr|tienne|tenir|NOUN|tien|pron||yours (le tien, la tienne)|너의 것
+R napoleon fr|vive|vivre|ADJ|vif|adj||lively, keen|생생한, 강렬한
+R napoleon fr|reste|rester|NOUN|reste|n|m|rest, remainder (du reste: besides)|나머지 (du reste: 게다가)
+R napoleon fr|songe|songer|NOUN|songe|n|m|dream|꿈
+R napoleon fr|sens|sentir|NOUN|sens|n|m|sense; the senses|감각
+R napoleon fr|droits|droit|NOUN|droit#2|n|m|right (a claim one is owed)|권리
+R napoleon fr|présent|présent|NOUN|présent#2|n|m|present, gift|선물
+R napoleon fr|présents|présent|NOUN|présent#2
+R napoleon fr|oranges|orange|NOUN|orange#2|n|f|orange (the fruit)|오렌지 (과일)
+R napoleon fr|cru|cru|VERB|croire
+R napoleon fr|pressées|pressé|VERB|presser
+R napoleon fr|vue|vue|VERB|voir
+R napoleon fr|place|place|VERB|placer
+
+# ── German (mozart) ──
+R mozart de|liebe|lieben|ADJ|lieb
+R mozart de|gedacht|gedenken|VERB|denken
+R mozart de|fällt|fällen|VERB|fallen
+R mozart de|lange|lange|ADJ|lang
+R mozart de|heißen|heiß|VERB|heißen|v||to be called; to mean (es heißt: they say)|~라고 하다, 뜻하다
+R mozart de|meinen|mein|VERB|meinen
+
+# ── Spanish (goya) ──
+R goya es|escrito|escribir|NOUN|escrito|n|m|piece of writing, document|글, 문서
+R goya es|trabajo|trabajo|VERB|trabajar
+
+# ── English (all four series) ──
+R vincent en|least|little|*|least|adj||least (at least: not less than)|가장 적은 (at least: 적어도)
+R mozart en|least|little|*|least|adj||least (at least: not less than)|가장 적은 (at least: 적어도)
+R napoleon en|least|little|*|least|adj||least (at least: not less than)|가장 적은 (at least: 적어도)
+R goya en|least|little|*|least|adj||least (at least: not less than)|가장 적은 (at least: 적어도)
+R vincent en|thought|thought|VERB|think
+R mozart en|thought|thought|VERB|think
+R napoleon en|thought|thought|VERB|think
+R goya en|thought|thought|VERB|think
+R vincent en|writing|writing|VERB|write
+R mozart en|writing|writing|VERB|write
+R napoleon en|writing|writing|VERB|write
+R goya en|writing|writing|VERB|write
+R vincent en|lives|live|NOUN|life
+R vincent en|ground|ground|VERB|grind|v||to grind (grain into flour)|빻다, 갈다
+R vincent en|lit|light|VERB|light#2|v||to light (up)|밝히다, 불을 켜다
+R vincent en|finding|finding|VERB|find
+R napoleon en|finding|finding|VERB|find
+R napoleon en|leaves|leaf|VERB|leave
+R mozart en|beginning|beginning|VERB|begin
+R goya en|beginning|beginning|VERB|begin
+R mozart en|feeling|feeling|VERB|feel
+R mozart en|drove|drive|NOUN|drove|n||drove, herd (of animals)|(가축) 떼
+R mozart en|might|might|NOUN|might#2|n||strength, power (with all your might)|힘 (온 힘을 다해)
+R mozart en|will|will|NOUN|will#2|n||will, wish (the will of God)|뜻, 의지
+R napoleon en|will|will|NOUN|will#2|n||will, wish (the will of God)|뜻, 의지
+R mozart en|tear|tear|VERB|tear#2|v||to tear, to rip|찢다
+R goya en|left|leave|NOUN|left|n||the left (side)|왼쪽
+E mozart en|shed|v|to shed (tears)|(눈물을) 흘리다
+# copied entries whose gloss was for another sense in the other series
+E napoleon fr|vif|adj|lively, keen (la plus vive amitié: the warmest friendship)|생생한, 강렬한
+E napoleon fr|sens|n|sense; the senses|감각; 뜻
+# daily words: apply_fixes.py moves a card word to the new key in that letter or drops it (log in its output). By hand:
+#   mozart en c3-l5 lost "writing" (now write, a card word elsewhere) → added "well" (spec_check needs 5–8 words)

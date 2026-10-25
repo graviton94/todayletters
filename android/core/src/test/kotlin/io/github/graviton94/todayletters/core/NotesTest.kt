@@ -85,6 +85,23 @@ class NotesTest {
         assertTrue(b.match(listOf(t("fängt", "fangen"), t("an"), t("Gebet"))).none { it.id == "de.sep" })
     }
 
+    // 비분리 동사의 현재 3인칭 (versteht) 은 과거분사 꼴처럼 보여도 완료 · 상태가 아니다. 완료는 조동사 + 진짜 분사 (verstanden · gekommen).
+    @Test fun germanPrefixVerbPresentIsNotParticiple() {
+        val lex = listOf(LexEntry("verstehen", pos = "v", ko = "이해하다", en = "to understand"), LexEntry("kommen", pos = "v", ko = "오다", en = "to come"),
+            LexEntry("haben", pos = "v", ko = "가지다", en = "to have", function = true), LexEntry("sein", pos = "v", ko = "~이다", en = "to be", function = true),
+            LexEntry("er", pos = "pron", function = true), LexEntry("es", pos = "pron", function = true), LexEntry("spät", pos = "adj", ko = "늦은", en = "late"))
+        val b = book("de", lex)
+        val tense = setOf("de.perf", "de.perf_sub", "de.pqp", "de.konj_perf", "de.perf_sein", "de.passive", "de.state")
+        val present = b.match(listOf(t("es"), t("ist", "sein"), t("spät"), t("er"), t("versteht", "verstehen"), t("es")))
+        assertTrue(present.none { it.id in tense }, present.map { it.id }.toString())
+        val perf = b.match(listOf(t("er"), t("hat", "haben"), t("es"), t("verstanden", "verstehen"))).single { it.kind == Hit.Kind.PATTERN }
+        assertEquals("de.perf", perf.id)
+        assertEquals(listOf(1, 3), perf.parts)
+        val sein = b.match(listOf(t("er"), t("ist", "sein"), t("gekommen", "kommen"))).single { it.kind == Hit.Kind.PATTERN }
+        assertEquals("de.perf_sein", sein.id)
+        assertEquals(listOf(1, 2), sein.parts)
+    }
+
     @Test fun spanishSerEstar() {
         val lex = listOf(LexEntry("estar", pos = "v", ko = "있다", en = "to be", function = true), LexEntry("bueno", pos = "adj", ko = "좋은", en = "good"),
             LexEntry("pintar", pos = "v", ko = "그리다", en = "to paint"), LexEntry("ser", pos = "v", ko = "~이다", en = "to be", function = true))

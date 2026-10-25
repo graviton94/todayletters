@@ -8,3 +8,5 @@ goya/c4-l2:1:0=fuera
 goya/c6-l2:2:13=sitio#2
 goya/c5-l6:2:23=vale
 goya/c5-l6:2:24=real
+goya/e1:1:1=escrito
+goya/c4-l5:3:4=trabajar

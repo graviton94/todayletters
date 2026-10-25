@@ -1297,3 +1297,4 @@ Aufmerksamkeit|n.f|attention|주의
 Chor|n.m|chorus|합창
 bello|it|(It.) beautiful|(이탈리아어) 아름다운
 entlocken|v|to draw out|끌어내다
+heißen|v|to be called; to mean (es heißt: they say)|~라고 하다, 뜻하다

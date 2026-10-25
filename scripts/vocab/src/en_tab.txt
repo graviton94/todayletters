@@ -2815,3 +2815,11 @@ la#2|foreign:es|(Spanish) the|(스페인어) 정관사
 reales|name|reales, Spanish coins (one real is a small silver coin)|레알 (스페인의 옛 돈)
 knight|n|a man given a noble rank by a king, often in an order|기사
 investiture|n|the ceremony of giving someone an office or honour|서임식
+least|adj|least (at least: not less than)|가장 적은 (at least: 적어도)
+grind|v|to grind (grain into flour)|빻다, 갈다
+light#2|v|to light (up)|밝히다, 불을 켜다
+drove|n|drove, herd (of animals)|(가축) 떼
+might#2|n|strength, power (with all your might)|힘 (온 힘을 다해)
+will#2|n|will, wish (the will of God)|뜻, 의지
+tear#2|v|to tear, to rip|찢다
+left|n|the left (side)|왼쪽

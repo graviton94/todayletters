@@ -1842,3 +1842,18 @@ prince|n.m|prince|왕자, 군주
 enfance|n.f|childhood|어린 시절
 testament|n.m|will, testament|유언장
 reconnaître|v|to recognize|알아보다
+visite|n.f|visit|방문
+donnée|n.f|subject, motif (of a picture)|주제, 소재
+reste|n.m|rest, remainder (du reste: besides)|나머지 (du reste: 게다가)
+touche|n.f|touch, brushstroke|붓질, 터치
+orange#2|n.f|orange (the fruit)|오렌지 (과일)
+olive#2|n.f|olive (the fruit)|올리브 (열매)
+calmer|v|to calm (se calmer: to calm down)|진정시키다 (se calmer: 가라앉다)
+exaspérer|v|to exasperate|몹시 화나게 하다
+décourager|v|to discourage (se décourager: to lose heart)|낙담시키다 (se décourager: 낙담하다)
+lutter|v|to struggle|싸우다, 애쓰다
+rencontrer|v|to meet|만나다
+rêver|v|to dream|꿈꾸다
+songe|n.m|dream|꿈
+droit#2|n.m|right (a claim one is owed)|권리
+présent#2|n.m|present, gift|선물

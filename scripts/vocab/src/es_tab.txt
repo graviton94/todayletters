@@ -892,3 +892,4 @@ muy|adv|very|매우, 아주|F
 nosotros|pron|we, us|우리|F
 usted|pron|you (polite)|당신 (높임)|F
 sitio#2|n.m|the Royal Site (el Sitio: a royal residence outside Madrid)|왕실 별궁
+escrito|n.m|piece of writing, document|글, 문서

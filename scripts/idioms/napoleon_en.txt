@@ -1,5 +1,5 @@
 # napoleon_en 관용구 (scripts/notes.py --seed 로 일반 목록에서 찾은 것 + 손으로 고름). 줄 = 표제어 열쇠|ko|en[|노트 ko|노트 en]
-at little|적어도|at least
+at least|적어도|at least
 at once|곧바로, 동시에|immediately
 at all|조금도|at all
 in short|요컨대|in short
