@@ -462,8 +462,8 @@ class ScreensTest {
     @Test fun noteFigure() {
         val s = loopState()
         shot("nf1_room_note_dark", true, 4000, act = {
-            rule.onAllNodes(androidx.compose.ui.test.hasScrollAction()).onFirst()
-                .performScrollToNode(hasText(ctx.getString(R.string.note_title)))
+            // 편지 방은 스크롤 Column: 노트가 보이게 위로 밀어 올린다 (performScrollToNode 는 시계를 멈춘 채로는 끝나지 않는다)
+            rule.onAllNodes(androidx.compose.ui.test.hasScrollAction()).onFirst().performTouchInput { swipeUp(); swipeUp(); swipeUp() }
         }, series = s) { Room(s, room(1)) }
     }
     /** 대화 속 사진 (공공 영역 그림으로 넓힘): 빈센트 I-1 의 히로시게 눈 판화 · 눈 덮인 아를. */
@@ -2899,7 +2899,12 @@ class ScreensTest {
     /** ② 읽은 첫 문장을 눌러 다시 듣는 중: 띠 “1번째 문장을 다시 듣는 중 · 이어서 듣기 · 2번째부터”. */
     private fun rrReplay(name: String, dark: Boolean) {
         val s = rrState()
-        rrShot(name, dark, s, vin2) { end(11_500); tapText(firstLine(0), substring = true); mid(0, 3) }
+        rrShot(name, dark, s, vin2) {
+            end(11_500)
+            // 앞 문장 단추 = 읽은 앞 문장 다시 듣기 (그 문장을 누른 것과 같다)
+            rule.onNode(androidx.compose.ui.test.hasContentDescription(ctx.getString(R.string.room_prev_line))).performClick(); idle(300)
+            mid(0, 3)
+        }
     }
     @Test fun rr2ReplayKoLight() = rrReplay("rr2a_replay_ko_light", false)
     @Test fun rr2ReplayKoDark() = rrReplay("rr2b_replay_ko_dark", true)

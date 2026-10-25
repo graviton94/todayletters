@@ -7,6 +7,8 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.performTouchInput
+import androidx.compose.ui.test.swipeDown
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.test.core.app.ApplicationProvider
@@ -950,7 +952,9 @@ class NavTest {
         rule.onNodeWithText(ctx.getString(R.string.room_resume_from, 2)).performClick()
         rule.mainClock.advanceTimeBy(500)
         assertEquals(listOf(m1, m1, m2), log)
-        // 읽은 첫 문장을 누르면 그 문장만 (띠), 끝나도 새 문장은 오지 않는다
+        // 읽은 첫 문장을 누르면 (위로 넘겨서) 그 문장만 (띠), 끝나도 새 문장은 오지 않는다
+        rule.onAllNodes(androidx.compose.ui.test.hasScrollAction())[0].performTouchInput { swipeDown(); swipeDown() }
+        rule.mainClock.advanceTimeBy(1500)
         rule.onAllNodesWithText(text.take(14), substring = true)[0].performClick()
         rule.mainClock.advanceTimeBy(300)
         assertEquals(listOf(m1, m1, m2, m1), log)

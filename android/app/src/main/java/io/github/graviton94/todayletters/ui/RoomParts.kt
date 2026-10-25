@@ -314,10 +314,11 @@ private fun RoomSpeedChip(slow: Boolean, normalLabel: String, onSlow: (Boolean) 
     Row(Modifier.clip(RoundedCornerShape(50)).border(1.dp, ink.hair, RoundedCornerShape(50)).semantics { contentDescription = group }) {
         listOf(false to normalLabel, true to SLOW_TEXT).forEach { (v, label) ->
             val on = slow == v
-            Box(Modifier.heightIn(min = 48.dp).background(if (on) ink.gilt.copy(alpha = 0.14f) else Color.Transparent)
+            Box(Modifier.heightIn(min = 48.dp).background(if (on) ink.gilt.copy(alpha = 0.18f) else Color.Transparent)
                 .semantics { contentDescription = "$group $label"; selected = on }
-                .pressable(haptic = false, role = Role.RadioButton) { onSlow(v) }.padding(horizontal = 9.dp), contentAlignment = Alignment.Center) {
-                Text(label, style = Type.small.copy(fontFamily = Faces.display, fontSize = 13.sp), color = if (on) ink.gilt else ink.soft, maxLines = 1)
+                .pressable(haptic = false, role = Role.RadioButton) { onSlow(v) }.padding(horizontal = 11.dp), contentAlignment = Alignment.Center) {
+                Text(label, style = Type.small.copy(fontFamily = Faces.display, fontSize = 14.sp, fontWeight = if (on) FontWeight.SemiBold else FontWeight.Medium),
+                    color = if (on) ink.gilt else ink.soft, maxLines = 1, softWrap = false)
             }
         }
     }
