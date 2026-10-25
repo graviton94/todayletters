@@ -24,6 +24,12 @@ object Wall {
         Lang.KO -> "레벨"; Lang.JA -> "レベル"; Lang.EN -> "Level"
     }
 
+    /** ‘이정표’ (혼자 읽기 이정표 머리말 "Jalon"). */
+    fun milestone(lang: Lang): String = when (lang) {
+        Lang.FR -> "Jalon"; Lang.DE -> "Meilenstein"; Lang.ES -> "Hito"; Lang.NL -> "Mijlpaal"
+        Lang.KO -> "이정표"; Lang.JA -> "道標"; Lang.EN -> "Milestone"
+    }
+
     /** "Lettre II" (편지 번호는 작품 처음부터 센 것, 로마 숫자). */
     fun letterNo(lang: Lang, n: Int): String = "${letter(lang)} ${roman(n)}"
 
@@ -94,6 +100,43 @@ object Next {
         if (outro || reviewDone) return AfterLetter(outro, 0, 0)
         val (r, b) = review(due)
         return AfterLetter(false, r, b)
+    }
+
+    /**
+     * 보상 · 알림 한 장 (혼자 읽기 이정표 · 오늘의 자료 · 등급 · 새로 바뀐 것) 이 덮고 있는 화면: 단추가 그 화면 이름을 적고 (‘좋아요’ 대신),
+     * 누르면 한 장만 걷혀 그 화면이 그대로 이어진다 (길은 바꾸지 않는다).
+     */
+    sealed interface Under {
+        /** 걸음 중 (걸음을 마치면 다음 걸음이 이미 열려 있다). */
+        data class Step(val mode: ReplyMode) : Under
+        data object Today : Under
+        data object Library : Under
+        /** 편지 완료 화면 (벽 라벨). */
+        data object Finished : Under
+        /** 오늘의 복습 결과. */
+        data object Review : Under
+        /** 복습 탭 (낱말 · 문장 목록). */
+        data object Words : Under
+        /** 편지 방 · 따라 읽기 · 봉인. */
+        data object Letter : Under
+        data object Gallery : Under
+        data object Record : Under
+        data object Shop : Under
+        data object Other : Under
+    }
+
+    fun under(r: Route): Under = when (r) {
+        is Route.Play -> Under.Step(r.mode)
+        Route.Inbox, is Route.Series, is Route.Chapter, is Route.RecallQuiz, is Route.Outro -> Under.Today
+        Route.Library, is Route.Enter, is Route.Welcome -> Under.Library
+        is Route.Done -> Under.Finished
+        is Route.Session -> Under.Review
+        is Route.Letter, is Route.Shadow, is Route.Seal, is Route.RoomInfo, is Route.WarmUp, is Route.SoundCheck -> Under.Letter
+        Route.Gallery, Route.Exhibition, is Route.Catalogue, is Route.Collection, is Route.Artwork -> Under.Gallery
+        Route.Record, Route.Medals, Route.Week, Route.Recital -> Under.Record
+        Route.Shop, Route.Purchase -> Under.Shop
+        Route.Words, Route.WordList, Route.Quotes -> Under.Words
+        else -> Under.Other
     }
 
     /** 레벨 업의 단추: 새 입구 장식이 열렸으면 입구 (앱을 켤 때의 첫 화면) 로, 아니면 나의 기록. */

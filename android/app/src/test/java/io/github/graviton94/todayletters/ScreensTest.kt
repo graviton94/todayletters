@@ -2748,4 +2748,101 @@ class ScreensTest {
         s.reward = medalWithPainting(s)
         shot("rw5f_medal_painting", true, ms = 3600, after = 0) { io.github.graviton94.todayletters.ui.MedalMoment(s); io.github.graviton94.todayletters.ui.RewardOverlay(s) }
     }
+
+    // ── 남은 보상 · 알림 (2026-10-25, 시안 rw2 의 말씨로): 이정표 · 화폐만 · 오늘의 자료 → 갤러리 칸 · 명작 · 전시 · 등급 · 봉인 · 맺음 · 새로 바뀐 것 ──
+    // 모두 ko · en × 밝은 · 어두운 (보상 벽은 테마와 상관없이 밤의 전시실이라 단추 · 링크 글이 맞는지를 본다). '*ScreensTest.ow*' 로 따로 돌린다.
+    /** 덮인 화면 [under] 위에 보상 [m] (정산이 덮어쓰지 않게 길을 먼저 옮긴 뒤). */
+    private fun owReward(name: String, dark: Boolean, under: Route, ms: Long = 3600, m: (AppState) -> AppState.RewardMoment) {
+        val s = engineState(); s.reward = null; s.levelUp = null; s.gradeUp = null
+        s.go(under)
+        s.reward = m(s)
+        shot(name, dark, ms = ms, after = 0) { io.github.graviton94.todayletters.ui.RewardOverlay(s); io.github.graviton94.todayletters.ui.MedalMoment(s) }
+    }
+    /** ① 혼자 읽기 이정표 (예전 “잘 읽었어요 · 이제 25%를 혼자 읽어요 · 좋아요”) → 오늘. */
+    private fun owMilestone(name: String, dark: Boolean, ms: Long = 3600) = owReward(name, dark, Route.Inbox, ms) {
+        AppState.RewardMoment("vincent", 50, null, emptyList(), 25, listOf(io.github.graviton94.todayletters.core.Earn.READ_ALONE to 40, io.github.graviton94.todayletters.core.Earn.LETTER to 10))
+    }
+    @Test fun owMilestoneMid() = owMilestone("ow1a_milestone_mid_dark", true, 900)
+    @Test fun owMilestoneLight() = owMilestone("ow1b_milestone_ko_light", false)
+    @Test fun owMilestoneDark() = owMilestone("ow1c_milestone_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owMilestoneEnLight() = owMilestone("ow1d_milestone_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owMilestoneEnDark() = owMilestone("ow1e_milestone_en_dark", true)
+    /** ② 받은 화폐만 + 편지 끝에 접힌 등급 · 레벨 한 줄 (예전 “잘 읽었어요 · 좋아요”) → 오늘의 복습 결과. */
+    private fun owGain(name: String, dark: Boolean) = owReward(name, dark, Route.Session()) { s ->
+        val G = io.github.graviton94.todayletters.core.Reading.Grade
+        AppState.RewardMoment("vincent", 12, null, emptyList(), null, listOf(io.github.graviton94.todayletters.core.Earn.REVIEW_RIGHT to 8, io.github.graviton94.todayletters.core.Earn.JOURNEY to 4),
+            grade = AppState.GradeUp(s.room("vincent").learn, G.of(3), G.of(4)), level = AppState.LevelUp(17, 18))
+    }
+    @Test fun owGainLight() = owGain("ow2a_gain_ko_light", false)
+    @Test fun owGainDark() = owGain("ow2b_gain_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owGainEnLight() = owGain("ow2c_gain_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owGainEnDark() = owGain("ow2d_gain_en_dark", true)
+    /** ③ 오늘의 자료 (예전 “오늘의 자료가 왔어요 · 실제 액자 · 갤러리에 걸기 · 닫기”): 그림 가득 · 벽 라벨 · 갤러리에 걸기 n / N. */
+    private fun owPiece(name: String, dark: Boolean, id: String = "met-436529", ms: Long = 4000, milestone: Int? = null) = owReward(name, dark, Route.Inbox, ms) { s ->
+        val pc = s.work("vincent").kit.collection.first { it.id == id }
+        AppState.RewardMoment("vincent", 18, pc, emptyList(), milestone, listOf(io.github.graviton94.todayletters.core.Earn.REVIEW_RIGHT to 8, io.github.graviton94.todayletters.core.Earn.SHADOW_PASS to 6, io.github.graviton94.todayletters.core.Earn.STREAK to 4))
+    }
+    @Test fun owPieceStart() = owPiece("ow3a_piece_start_dark", true, ms = 900)
+    @Test fun owPieceLight() = owPiece("ow3b_piece_ko_light", false)
+    @Test fun owPieceDark() = owPiece("ow3c_piece_ko_dark", true, milestone = 50)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owPieceEnLight() = owPiece("ow3d_piece_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owPieceEnDark() = owPiece("ow3e_piece_en_dark", true)
+    /** 명작 (예전 금빛 조명 · 장식 액자 · 금빛 명판): 같은 벽 라벨, 머리말만 “명작”. */
+    @Test fun owMaster() = owPiece("ow3f_master_ko_dark", true, id = "met-436528")
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owMasterEn() = owPiece("ow3g_master_en_light", false, id = "met-436528")
+    /** 오늘의 자료 → 갤러리: 그림이 ‘모은 작품’ 맨 앞 칸으로 (가운데 · 닿은 뒤). */
+    private fun owGallery(name: String, dark: Boolean, fly: Boolean) {
+        val s = engineState(); s.reward = null; s.levelUp = null
+        val pc = s.work("vincent").kit.collection.first { it.id == "met-436529" }
+        s.galleryLanding = pc.id
+        if (fly) s.flights.launch(pc.image, rectDp(0f, 0f, 393f, 852f), "gallery:${pc.id}", false, alignY = 0.3f)
+        shot(name, dark, ms = if (fly) 160 else 2000, after = 0, series = s) {
+            Box(Modifier.fillMaxSize()) { io.github.graviton94.todayletters.ui.GalleryTab(s); io.github.graviton94.todayletters.ui.FlightLayer(s) }
+        }
+    }
+    @Test fun owGalleryMid() = owGallery("ow3h_piece_to_gallery_mid_light", false, true)
+    @Test fun owGalleryLanded() = owGallery("ow3i_gallery_landed_light", false, false)
+    @Test fun owGalleryLandedDark() = owGallery("ow3j_gallery_landed_dark", true, false)
+    /** ④ 이달의 전시를 다 모음 (예전 “도록 넘겨 보기 · 닫기”) → 이달의 전시로. */
+    private fun owCatalogue(name: String, dark: Boolean) = owReward(name, dark, Route.Inbox) { s ->
+        AppState.RewardMoment("vincent", 50, null, emptyList(), null, listOf(io.github.graviton94.todayletters.core.Earn.EXHIBITION to 50), s.exhibition("vincent")!!)
+    }
+    @Test fun owCatalogueLight() = owCatalogue("ow4a_catalogue_ko_light", false)
+    @Test fun owCatalogueDark() = owCatalogue("ow4b_catalogue_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owCatalogueEnLight() = owCatalogue("ow4c_catalogue_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owCatalogueEnDark() = owCatalogue("ow4d_catalogue_en_dark", true)
+    /** ⑤ 언어 등급 (예전 조명 · 금빛 큰 글자 · ‘좋아요’): 새 등급 (A1 3단 → A2 1단, 오늘 위) · 같은 등급 안 한 단 (걸음 위). */
+    private fun owGrade(name: String, dark: Boolean, from: Int, to: Int, ms: Long = 3600, under: Route = Route.Inbox) {
+        val s = engineState(); s.reward = null; s.levelUp = null
+        s.go(under)
+        val G = io.github.graviton94.todayletters.core.Reading.Grade
+        s.gradeUp = AppState.GradeUp(s.seriesSettings("vincent").learn, G.of(from), G.of(to))
+        shot(name, dark, ms = ms, after = 0) { io.github.graviton94.todayletters.ui.GradeUpOverlay(s) }
+    }
+    private val stepUnder get() = Route.Play(Route.Letter("vincent", 1, 1), ReplyMode.ALOUD)
+    @Test fun owGradeMid() = owGrade("ow5a_grade_band_mid_dark", true, 3, 4, ms = 1100)
+    @Test fun owGradeLight() = owGrade("ow5b_grade_band_ko_light", false, 3, 4)
+    @Test fun owGradeDark() = owGrade("ow5c_grade_band_ko_dark", true, 3, 4)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owGradeEnLight() = owGrade("ow5d_grade_band_en_light", false, 3, 4)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owGradeEnDark() = owGrade("ow5e_grade_band_en_dark", true, 3, 4)
+    @Test fun owGradeStep() = owGrade("ow5f_grade_step_ko_dark", true, 4, 5, under = stepUnder)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owGradeStepEn() = owGrade("ow5g_grade_step_en_light", false, 4, 5, under = stepUnder)
+    /** ⑥ 완독 봉인 (예전 맨 아래 ‘닫기’ → ‘편지로 돌아가기’). */
+    private fun owSeal(name: String, dark: Boolean) {
+        val s = loopState()
+        val l = s.work("vincent").chapters.first().letters[0]
+        s.shadowChunks("vincent", "I", l).forEachIndexed { i, cs -> cs.indices.forEach { j -> s.take("vincent", "I", l.id, i, j).apply { parentFile?.mkdirs(); writeBytes(ByteArray(16)) } } }
+        shot(name, dark, 2000, series = s) { io.github.graviton94.todayletters.ui.SealScreen(s, Route.Seal(room(1))) }
+    }
+    @Config(qualifiers = "+h1300dp") @Test fun owSealLight() = owSeal("ow6a_seal_ko_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h1300dp-xxhdpi") @Test fun owSealEnDark() = owSeal("ow6b_seal_en_dark", true)
+    /** ⑦ 맺음 (예전 ‘닫기’ → ‘오늘로’). */
+    @Config(qualifiers = "+h1900dp") @Test fun owOutroLight() { val s = state(true); allDone(s); shot("ow7a_outro_ko_light", false, 3000) { io.github.graviton94.todayletters.ui.OutroScreen(s, "vincent") } }
+    @Config(qualifiers = "en-rUS-w393dp-h1900dp-xxhdpi") @Test fun owOutroEnDark() { val s = state(true); allDone(s); shot("ow7b_outro_en_dark", true, 3000) { io.github.graviton94.todayletters.ui.OutroScreen(s, "vincent") } }
+    /** ⑧ 새로 바뀐 것 (예전 ‘좋아요’ → 덮인 화면 이름 ‘서재로’). */
+    private fun owWhatsNew(name: String, dark: Boolean) { val s = state(true); s.go(Route.Library); s.whatsNew = true
+        shot(name, dark) { LibraryTab(s); io.github.graviton94.todayletters.ui.UpdateLayer(s) } }
+    @Test fun owWhatsNewLight() = owWhatsNew("ow8a_whatsnew_ko_light", false)
+    @Test fun owWhatsNewDark() = owWhatsNew("ow8b_whatsnew_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owWhatsNewEn() = owWhatsNew("ow8c_whatsnew_en_light", false)
 }

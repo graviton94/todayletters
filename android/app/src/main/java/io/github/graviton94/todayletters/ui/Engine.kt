@@ -239,13 +239,13 @@ fun Bar(frac: Float, modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun tierName(t: Tier) = stringResource(when (t) {
+internal fun tierName(t: Tier) = stringResource(when (t) {
     Tier.LETTER -> R.string.tier_letter; Tier.SKETCH -> R.string.tier_sketch; Tier.DRAWING -> R.string.tier_drawing
     Tier.PAINTING -> R.string.tier_painting; Tier.MASTER -> R.string.tier_master
 })
 
 @Composable
-private fun earnName(e: Earn) = stringResource(when (e) {
+internal fun earnName(e: Earn) = stringResource(when (e) {
     Earn.LETTER -> R.string.earn_letter; Earn.PRACTICE -> R.string.earn_practice; Earn.REVIEW_RIGHT -> R.string.earn_review
     Earn.SHADOW_PASS -> R.string.earn_shadow; Earn.READ_ALONE -> R.string.earn_alone; Earn.JOURNEY -> R.string.earn_journey
     Earn.RECITAL -> R.string.earn_recital; Earn.STREAK -> R.string.earn_streak; Earn.ACHIEVEMENT -> R.string.earn_achievement
@@ -269,111 +269,21 @@ fun rememberFramed(art: String, kind: io.github.graviton94.todayletters.data.Fra
 }
 
 /**
- * 보상 순간 (v21 3단계 D2): 어두운 전시실 벽에 조명이 내려오고, 걸린 자료는 등급에 맞는 실제 액자에 걸린다.
- * 아래는 작품 라벨 · 등급 · 얼마나 드문지, 새 이정표, 받은 화폐 (내역은 접어 둠). 등급마다 다른 소리.
- * 이달의 전시를 방금 다 모았으면 액자 대신 도록 표지 (E4).
+ * 보상 순간 (2026-10-25 시안 rw2 의 말씨로 다시 씀, 예전 v21 D2 의 조명 · 실제 액자 · 금빛 명판 · ‘좋아요 · 닫기’ 는 지움):
+ * 이달의 전시를 다 모았으면 도록 ([CatalogueMoment]), 오늘의 자료가 걸렸으면 그림이 주인공인 벽 라벨 ([PieceMoment], 그림이 갤러리 칸으로),
+ * 그 밖 (혼자 읽기 이정표 · 받은 화폐) 은 레벨 업과 같은 벽 ([NoticeMoment]). 새 메달이면 메달 한 장 ([MedalMoment]) 이 맡는다.
  */
 @Composable
 fun RewardOverlay(s: AppState) {
     val m = s.reward ?: return
     // 새 메달이면 (셋째마다 함께 온 그림도) 메달 한 장 ([MedalMoment])
     if (m.medals.isNotEmpty() && m.catalogue == null) return
-    val w = s.work(m.series.ifEmpty { s.current })
-    val t = darkTone(w)
-    val a = remember(m) { Animatable(if (s.reducedMotion) 1f else 0f) }
-    LaunchedEffect(m) {
-        m.piece?.let { s.cueTier(it.tier) }
-        a.animateTo(1f, tween(if (s.reducedMotion) 0 else 900))
-    }
-    var lines by remember(m) { mutableStateOf(false) }
-    androidx.activity.compose.BackHandler { s.reward = null }
-    val master = m.piece?.tier == Tier.MASTER && m.catalogue == null
-    val gold = Color(0xFFE7C878)
-    androidx.compose.foundation.layout.BoxWithConstraints(Modifier.fillMaxSize().background(t.paper).pressable(haptic = false) { }) {
-        val wpx = constraints.maxWidth.toFloat(); val hpx = constraints.maxHeight.toFloat()
-        // 전시실 벽: 위에서 내려오는 조명 (명작이면 더 밝게)
-        Box(Modifier.fillMaxSize().graphicsLayer { alpha = a.value }.background(Brush.radialGradient(
-            listOf(Color(0xFFFFE2AA).copy(alpha = if (master) 0.30f else 0.18f), Color.Transparent),
-            center = androidx.compose.ui.geometry.Offset(wpx / 2, hpx * 0.2f), radius = hpx * 0.55f)))
-        Column(
-            Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe().verticalScroll(rememberScrollState())
-                .padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
-            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
-        ) {
-            Caps(stringResource(R.string.reward_caps), if (master) gold else t.accent, decorative = true)
-            Text(stringResource(when { m.catalogue != null -> R.string.reward_catalogue; master -> R.string.reward_master; m.piece != null -> R.string.reward_piece; else -> R.string.reward_title }),
-                style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
-            val cat = m.catalogue
-            if (cat != null) {
-                val today = java.time.LocalDate.now()
-                Box(Modifier.padding(top = Tokens.Space.s3).graphicsLayer { alpha = a.value; translationY = (1 - a.value) * 40f }) {
-                    CatalogueCover(s, w, cat, today.year, today.monthValue, s.catalogues(w.series.id).size.coerceAtLeast(1))
-                }
-            } else m.piece?.let { pc ->
-                val kind = s.frameKind(pc)
-                val framed = rememberFramed(pc.image, kind)
-                Box(Modifier.padding(top = Tokens.Space.s3).fillMaxWidth(if ((framed?.height ?: 1) > (framed?.width ?: 1)) 0.66f else 0.86f)
-                    .graphicsLayer { alpha = a.value; val k = 0.96f + 0.04f * a.value; scaleX = k; scaleY = k }
-                    .shadow(18.dp)) {
-                    if (framed != null) Image(framed, pc.title[uiLang()], Modifier.fillMaxWidth(), contentScale = ContentScale.FillWidth)
-                    else AssetImage(pc.image, Modifier.fillMaxWidth().aspectRatio(0.82f), sample = 1)
-                }
-                // 명작: 작품 이름 명판
-                if (master) Box(Modifier.background(Brush.verticalGradient(listOf(Color(0xFFE9CF8A), Color(0xFFB48F45)))).padding(horizontal = 12.dp, vertical = 4.dp)) {
-                    Text("${pc.title[Lang.EN].uppercase()} · ${pc.date}", style = Type.capsSm, color = Color(0xFF2A1C06))
-                }
-                Column(Modifier.fillMaxWidth().padding(top = Tokens.Space.s2), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Text(pc.title[uiLang()], style = Type.title.ui(), color = t.ink)
-                    Text("${pc.date} · ${pc.collection}", style = Type.small.copy(fontSize = Tokens.Text.caps), color = t.soft)
-                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2), modifier = Modifier.padding(top = 4.dp)) {
-                        Box(Modifier.then(if (master) Modifier.background(gold) else Modifier.border(1.dp, t.accent)).padding(horizontal = 9.dp, vertical = 3.dp)) {
-                            Text(tierName(pc.tier), style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = if (master) Color(0xFF2A1C06) else t.accent)
-                        }
-                        Text(frameName(kind) + if (pc.tier.weight > 0) " · " + stringResource(R.string.reward_odds, pc.tier.weight) else "",
-                            style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = t.soft)
-                    }
-                }
-            }
-            if (m.milestone != null) Text(stringResource(R.string.reward_alone, m.milestone), style = Type.body.ui(), color = t.ink, textAlign = TextAlign.Center)
-            // 새 메달: 금속 메달과 이름 (메달 진열장)
-            m.medals.mapNotNull { s.medalBook.medal(it) }.forEach { md ->
-                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-                    MedalImage(md, true, 44.dp)
-                    Text(stringResource(R.string.reward_ach, md.title[uiLang()]), style = Type.body.ui(), color = t.accent)
-                }
-            }
-            // 편지 완료 보상 안의 한 줄씩: 오른 언어 등급 · 레벨 (따로 한 장씩 띄우지 않는다)
-            m.grade?.let { g ->
-                Text(if (g.to.band != g.from.band) stringResource(R.string.gradeup_became, gradeName(g.to.band)) else stringResource(R.string.gradeup_title, stringResource(langLabel(g.lang))),
-                    style = Type.body.ui(), color = gold, textAlign = TextAlign.Center, maxLines = 1)
-            }
-            m.level?.let { lv -> Text(stringResource(R.string.reward_level_line, lv.to), style = Type.body.ui(), color = gold, textAlign = TextAlign.Center, maxLines = 1) }
-            Spacer(Modifier.height(Tokens.Space.s2))
-            if (m.gain > 0) Column(Modifier.fillMaxWidth()) {
-                Box(Modifier.fillMaxWidth().height(1.dp).background(t.ink.copy(alpha = 0.15f)))
-                Row(Modifier.fillMaxWidth().pressable(haptic = false) { lines = !lines }.padding(vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
-                    Text(stringResource(if (m.catalogue != null) R.string.reward_catalogue_gain else R.string.reward_total, w.kit.currency[uiLang()]), style = Type.body.ui(), color = t.ink)
-                    if (m.lines.size > 1) Text("  " + stringResource(R.string.reward_lines), style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = t.faint)
-                    Spacer(Modifier.weight(1f))
-                    Text("+${m.gain}", style = Type.display.copy(fontFamily = Faces.display), color = if (master) gold else t.accent)
-                }
-                if (lines) m.lines.forEach { (e, n) ->
-                    Row(Modifier.fillMaxWidth().padding(vertical = 6.dp)) {
-                        Text(earnName(e), style = Type.small.ui(), color = t.soft, modifier = Modifier.weight(1f))
-                        Text("+$n", style = Type.small, color = t.ink)
-                    }
-                }
-            }
-            Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).background(if (master) gold else t.ink).pressable {
-                s.reward = null; if (m.piece != null && m.catalogue == null) s.go(Route.Gallery) else if (m.catalogue != null) s.go(Route.Exhibition)
-            }, contentAlignment = Alignment.Center) {
-                Text(stringResource(when { m.catalogue != null -> R.string.reward_catalogue_open; m.piece != null -> R.string.reward_hang; else -> R.string.reward_ok }),
-                    style = Type.body.ui(), color = if (master) Color(0xFF15110C) else t.paper)
-            }
-            if (m.piece != null || m.catalogue != null) Box(Modifier.fillMaxWidth().heightIn(min = 46.dp).pressable { s.reward = null }, contentAlignment = Alignment.Center) {
-                Text(stringResource(R.string.close), style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = t.ink)
-            }
-        }
+    val cat = m.catalogue
+    val pc = m.piece
+    when {
+        cat != null -> CatalogueMoment(s, m, cat)
+        pc != null -> PieceMoment(s, m, pc)
+        else -> NoticeMoment(s, m)
     }
 }
 
@@ -461,22 +371,27 @@ fun GalleryTab(s: AppState) {
     val plates = w.chapters.flatMapIndexed { ci, c -> c.letters.mapIndexedNotNull { li, l -> l.plate?.let { Triple(ci, li, c to l) } } }
     val opened = plates.filter { (_, _, cl) -> s.progress(id, cl.first.id, cl.second.id).let { it.shown > 0 || it.done } }
     val collected = w.kit.collection.filter { s.owns(id, it) }
+    // 오늘의 자료 → 갤러리: 그 그림을 묶음 맨 앞에 두고, 날아오는 그림을 그 칸이 받는다 ("gallery:<id>")
+    val landing = s.galleryLanding
+    androidx.compose.runtime.DisposableEffect(Unit) { onDispose { s.galleryLanding = null } }
     Column(Modifier.fillMaxSize()) {
         SeriesHeader(s, stringResource(R.string.tab_gallery))
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal = Tokens.Space.s5, vertical = Tokens.Space.s4), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s5)) {
             // 편지의 그림: 연 편지의 그림, 최근 것부터 셋 → 그림 산책
             GalleryGroup(stringResource(R.string.plates_title), "${opened.size} / ${plates.size}", onMore = { s.go(Route.Catalogue(id)) }) {
                 // 받아 둔 그림을 먼저, 모자라면 아직 받지 않은 그림은 빈 자리 (종이색 칸 · 옅은 자물쇠)로
-                val recent = opened.reversed().sortedBy { (_, _, cl) -> !io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${cl.second.plate!!.image}") }.take(3)
+                val recent = opened.reversed().sortedBy { (_, _, cl) -> !io.github.graviton94.todayletters.data.AssetFiles.has(s.ctx, "plates/${cl.second.plate!!.image}") }
+                    .sortedBy { (_, _, cl) -> "letter:${cl.second.id}" != landing }.take(3)
                 Thumbs(recent.map { (ci, li, cl) ->
                     "plates/${cl.second.plate!!.image}" to { s.go(Route.Artwork(id, li + 1, Route.Letter(id, ci + 1, li + 1, Route.Gallery))) }
-                }, empty = stringResource(R.string.gallery_none_plates))
+                }, empty = stringResource(R.string.gallery_none_plates), s = s, slots = recent.map { (_, _, cl) -> "gallery:letter:${cl.second.id}" })
             }
             // 모은 작품 (예전 ‘나의 도록’과 합침): 뽑기 · 상점으로 모은 소장품
             GalleryGroup(stringResource(R.string.gallery_collected), "${collected.size} / ${w.kit.collection.size}", onMore = { s.go(Route.Collection(id)) }) {
                 // 가진 것 그대로 (수와 칸이 맞게): 이 기기에 있는 그림 먼저, 받지 않은 것은 빈 자리
-                Thumbs(collected.reversed().sortedBy { !s.available(it) }.take(3).map { pc -> pc.image to { if (s.available(pc)) open = pc } },
-                    empty = stringResource(R.string.gallery_none_collected))
+                val first = collected.reversed().sortedBy { !s.available(it) }.sortedBy { it.id != landing }.take(3)
+                Thumbs(first.map { pc -> pc.image to { if (s.available(pc)) open = pc } },
+                    empty = stringResource(R.string.gallery_none_collected), s = s, slots = first.map { "gallery:${it.id}" })
             }
             // 이달의 전시
             s.exhibition(id)?.let { e ->
@@ -513,12 +428,15 @@ private fun GalleryGroup(title: String, count: String, onMore: () -> Unit, conte
 
 /** 가진 그림만 세 칸 (모자라면 빈자리 없이 비워 둔다). 하나도 없으면 한 줄 ([empty]: 어디서 모이는지). */
 @Composable
-private fun Thumbs(items: List<Pair<String, () -> Unit>>, empty: String? = null) {
+private fun Thumbs(items: List<Pair<String, () -> Unit>>, empty: String? = null, s: AppState? = null, slots: List<String> = emptyList()) {
     val p = Ink.palette
     if (items.isEmpty()) { Text(empty ?: stringResource(R.string.gallery_none), style = Type.small.ui(), color = p.hideInk, maxLines = 1); return }
     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-        items.take(3).forEach { (image, go) ->
-            AssetImage(image, Modifier.weight(1f).aspectRatio(1f).border(Tokens.Stroke.hair, p.hair).pressable(onClick = go), sample = 4)
+        items.take(3).forEachIndexed { i, (image, go) ->
+            // 받는 자리 (오늘의 자료가 날아오는 칸): 날아오는 동안 비어 있다
+            val slot = slots.getOrNull(i)?.takeIf { s != null }
+            AssetImage(image, Modifier.weight(1f).aspectRatio(1f).then(if (slot != null) Modifier.flightSlot(s!!, slot) else Modifier)
+                .border(Tokens.Stroke.hair, p.hair).pressable(onClick = go), sample = 4)
         }
         repeat(3 - items.size.coerceAtMost(3)) { Spacer(Modifier.weight(1f)) }
     }

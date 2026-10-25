@@ -743,4 +743,57 @@ class NavTest {
         assertEquals(io.github.graviton94.todayletters.core.Stage.MAIN, s.stage)
         assertEquals(Route.Inbox, s.route)
     }
+
+    /**
+     * 남은 보상 · 알림 (2026-10-25): ‘좋아요 · 닫기’ 없이 덮인 화면의 이름 (core Next.under). 이정표 · 등급은 한 장만 걷히고 길은 그대로,
+     * 오늘의 자료는 ‘갤러리에 걸기’ → 갤러리 (그 칸이 그림을 받는다), 전시를 다 모으면 ‘이달의 전시로’ → 이달의 전시.
+     */
+    @Test fun oldRewardScreensNameWhereTheyGo() {
+        val s = state()
+        s.enter("vincent")
+        s.go(Route.Inbox)
+        s.reward = null; s.levelUp = null; s.gradeUp = null
+        rule.setContent {
+            TodayLettersTheme(ThemeMode.DARK) {
+                io.github.graviton94.todayletters.ui.RewardOverlay(s)
+                io.github.graviton94.todayletters.ui.GradeUpOverlay(s)
+            }
+        }
+        fun press(label: String) {
+            rule.waitForIdle()
+            rule.onNode(androidx.compose.ui.test.hasContentDescription(label, substring = true) and androidx.compose.ui.test.hasClickAction()).performClick()
+            rule.waitForIdle()
+        }
+        fun none(text: String) = assertEquals(0, rule.onAllNodes(androidx.compose.ui.test.hasText(text)).fetchSemanticsNodes().size)
+        // 혼자 읽기 이정표: 오늘 위 → ‘오늘로’, 누르면 한 장만 걷힌다
+        s.reward = AppState.RewardMoment("vincent", 50, null, emptyList(), 25, listOf(io.github.graviton94.todayletters.core.Earn.READ_ALONE to 50))
+        rule.waitForIdle()
+        none(ctx.getString(R.string.reward_ok)); none(ctx.getString(R.string.close))
+        press(ctx.getString(R.string.done_today))
+        assertEquals(null, s.reward); assertEquals(Route.Inbox, s.route)
+        // 언어 등급: 걸음 위 → 그 걸음 이름
+        val room = Route.Letter("vincent", 1, 1, Route.Inbox)
+        s.go(Route.Play(room, io.github.graviton94.todayletters.core.ReplyMode.ALOUD))
+        val G = io.github.graviton94.todayletters.core.Reading.Grade
+        s.gradeUp = AppState.GradeUp(s.room("vincent").learn, G.of(3), G.of(4))
+        rule.waitForIdle()
+        none(ctx.getString(R.string.reward_ok))
+        press(ctx.getString(R.string.go_next_step, ctx.getString(io.github.graviton94.todayletters.ui.modeLabel(io.github.graviton94.todayletters.core.ReplyMode.ALOUD))))
+        assertEquals(null, s.gradeUp); assertEquals(Route.Play(room, io.github.graviton94.todayletters.core.ReplyMode.ALOUD), s.route)
+        // 오늘의 자료: ‘갤러리에 걸기’ → 갤러리, 그 그림이 받는 칸
+        s.go(Route.Inbox)
+        val pc = s.work("vincent").kit.collection.first()
+        s.store.addPiece("vincent", pc.id)
+        s.reward = AppState.RewardMoment("vincent", 18, pc, emptyList(), null)
+        press(ctx.getString(R.string.reward_hang))
+        assertEquals(null, s.reward); assertEquals(Route.Gallery, s.route); assertEquals(pc.id, s.galleryLanding)
+        // 이달의 전시를 다 모음: ‘이달의 전시로’ → 이달의 전시
+        s.go(Route.Inbox)
+        val e = s.exhibition("vincent")
+        if (e != null) {
+            s.reward = AppState.RewardMoment("vincent", 50, null, emptyList(), null, catalogue = e)
+            press(ctx.getString(R.string.go_exhibition))
+            assertEquals(null, s.reward); assertEquals(Route.Exhibition, s.route)
+        }
+    }
 }

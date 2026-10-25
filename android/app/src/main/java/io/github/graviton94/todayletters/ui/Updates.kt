@@ -117,7 +117,7 @@ private fun WhatsNew(s: AppState) {
                     Text(it, style = Type.body.ui(), color = p.ink)
                 }
             }
-            Box(Modifier.padding(top = Tokens.Space.s2)) { Primary(stringResource(R.string.whatsnew_ok), small = true) { s.closeWhatsNew() } }
+            Box(Modifier.padding(top = Tokens.Space.s2)) { Primary(underLabel(s).first, small = true) { s.closeWhatsNew() } }
         }
     }
 }

@@ -242,7 +242,7 @@ fun OutroScreen(s: AppState, series: String) {
                 Text(o.credit, style = Type.small.ui(), color = Faint, modifier = Modifier.padding(bottom = 12.dp))
             }
             Row(Modifier.fillMaxWidth().padding(horizontal = 22.dp, vertical = 14.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                Box(Modifier.weight(1f).heightIn(min = 48.dp).border(1.dp, Gilt).pressable { s.back() }, contentAlignment = Alignment.Center) { Text(stringResource(R.string.outro_close), style = Type.body.ui(), color = Gilt) }
+                Box(Modifier.weight(1f).heightIn(min = 48.dp).border(1.dp, Gilt).pressable { s.go(Route.Inbox) }, contentAlignment = Alignment.Center) { Text(stringResource(R.string.done_today), style = Type.body.ui(), color = Gilt) }
                 Box(Modifier.weight(1f).heightIn(min = 48.dp).background(Gilt).pressable { s.go(Route.Catalogue(series)) }, contentAlignment = Alignment.Center) { Text(stringResource(R.string.outro_catalogue), style = Type.body.ui(), color = Night) }
             }
         }

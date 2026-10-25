@@ -962,8 +962,9 @@ fun SealScreen(s: AppState, r: Route.Seal) {
                 if (playing) { s.recorder.stopPlaying(); playing = false }
                 card = true
             }, contentAlignment = Alignment.Center) { Text(stringResource(R.string.letter_card_seal), style = Type.body.ui(), color = t.ink) }
-            Box(Modifier.fillMaxWidth().heightIn(min = 46.dp).pressable { s.back() }, contentAlignment = Alignment.Center) {
-                Text(stringResource(R.string.close), style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = t.ink)
+            // 닫기 대신 갈 곳 (봉인은 편지 방 위에 열린다)
+            Box(Modifier.fillMaxWidth().heightIn(min = 48.dp).pressable { s.back() }, contentAlignment = Alignment.Center) {
+                Text(stringResource(R.string.go_back_letter), style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = t.ink)
             }
         }
     }

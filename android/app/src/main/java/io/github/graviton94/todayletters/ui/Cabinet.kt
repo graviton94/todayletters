@@ -435,48 +435,62 @@ fun LevelUpOverlay(s: AppState) {
 }
 
 /**
- * 언어 등급이 오른 순간: 레벨 업과 같은 전시실 벽 위에 배우는 말 · 새 등급 · 단. 보상 순간이 닫힌 뒤, 레벨 업보다 먼저.
- * 새 등급에 들어섰으면 새 이름 한 줄과, 번역이 조금 더 옅어진다는 한 줄 (번역은 접지 않는다).
+ * 언어 등급이 오른 순간 (2026-10-25, 레벨 업과 같은 벽으로 다시 씀 — 예전 조명 · 금빛 큰 글자 · ‘좋아요’ 는 지움): 보상 순간이 닫힌 뒤, 레벨 업보다 먼저.
+ * 머리말 “언어 등급 · 프랑스어”, 새 등급에 들어섰으면 옛 이름이 흐려지고 새 이름이 또렷해진다 (한글 세운 글자), 그 아래 “A2 1단” (같은 등급 안이면
+ * 이것만 바뀐다). 금선, “문장을 읽는 사람이 됐어요” (같은 등급 안이면 “프랑스어 실력이 한 단 올랐어요”), 새로 달라지는 것 한 줄씩 (번역이 조금 더 옅게 · 도움 한 칸). 단추는 덮인 화면으로.
  */
 @Composable
 fun GradeUpOverlay(s: AppState) {
     val up = s.gradeUp ?: return
     if (s.reward != null || s.stepNote != null) return
-    val t = darkTone(s.currentWork)
-    val gold = Color(0xFFE7C878)
-    val a = remember(up) { Animatable(if (s.reducedMotion) 1f else 0f) }
-    LaunchedEffect(up) { a.animateTo(1f, tween(if (s.reducedMotion) 0 else 900)) }
+    val still = s.reducedMotion
+    val clock by rememberClock(up, still, 3200)
+    LaunchedEffect(up) { s.cueTier(io.github.graviton94.todayletters.core.Tier.DRAWING) }
     androidx.activity.compose.BackHandler { s.gradeUp = null }
     val langName = stringResource(langLabel(up.lang))
-    BoxWithConstraints(Modifier.fillMaxSize().background(t.paper).pressable(haptic = false) { }) {
-        val wpx = constraints.maxWidth.toFloat(); val hpx = constraints.maxHeight.toFloat()
-        Box(Modifier.fillMaxSize().graphicsLayer { alpha = a.value }.background(Brush.radialGradient(
-            listOf(Color(0xFFFFE2AA).copy(alpha = 0.22f), Color.Transparent), center = Offset(wpx / 2, hpx * 0.28f), radius = hpx * 0.5f)))
-        Column(
-            Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe().verticalScroll(rememberScrollState())
-                .padding(horizontal = Tokens.Space.s6, vertical = Tokens.Space.s6),
-            horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s3, Alignment.CenterVertically),
-        ) {
-            Spacer(Modifier.height(Tokens.Space.s6))
-            Caps(stringResource(R.string.gradeup_caps), gold, decorative = true)
-            Text(stringResource(R.string.gradeup_title, langName), style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
-            Box(Modifier.graphicsLayer { alpha = a.value; val k = 0.94f + 0.06f * a.value; scaleX = k; scaleY = k }.padding(vertical = Tokens.Space.s3),
-                contentAlignment = Alignment.Center) {
-                Text(gradeName(up.to.band), style = Type.title.ui().copy(fontSize = Tokens.Text.title * 1.25f), color = gold, textAlign = TextAlign.Center)
+    val newBand = up.to.band != up.from.band
+    @Composable
+    fun Name(text: String, k: Float) {
+        Text(text, style = Type.title.ui().copy(fontSize = 30.sp, lineHeight = 40.sp, fontWeight = FontWeight.Medium), color = Museum.ink, maxLines = 1,
+            textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth().focus(k, 8f, 8f))
+    }
+    @Composable
+    fun Step(g: io.github.graviton94.todayletters.core.Reading.Grade, k: Float) {
+        Text(stringResource(R.string.grade_step, g.band.name, g.step), style = Type.body.ui().copy(fontSize = 18.sp, lineHeight = 24.sp),
+            color = Museum.gilt, maxLines = 1, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth().focus(k, 6f, 6f))
+    }
+    Box(Modifier.fillMaxSize().background(Museum.wall).pressable(haptic = false) { }) {
+        Column(Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe()) {
+            Column(Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(14.dp, Alignment.CenterVertically)) {
+                Spacer(Modifier.height(24.dp))
+                Eyebrow(stringResource(R.string.gradeup_caps) + " · " + langName, Museum.gilt, Modifier.rise(win(clock, 0, 900)))
+                // 등급 이름: 새 등급이면 옛 이름이 흐려지며 물러나고 (0.3초 뒤 1.2초) 새 이름이 또렷해진다 (0.9초 뒤 1.2초)
+                Box(Modifier.fillMaxWidth().height(44.dp), contentAlignment = Alignment.Center) {
+                    if (newBand) { val out = 1f - win(clock, 300, 1200); if (out > 0f) Name(gradeName(up.from.band), out) }
+                    Name(gradeName(up.to.band), if (newBand) win(clock, 900, 1200) else win(clock, 300, 1200))
+                }
+                // 단: 같은 등급 안이면 이것만 넘어간다
+                Box(Modifier.fillMaxWidth().height(28.dp), contentAlignment = Alignment.Center) {
+                    if (!newBand) { val out = 1f - win(clock, 500, 1100); if (out > 0f) Step(up.from, out) }
+                    Step(up.to, if (newBand) win(clock, 1200, 1000) else win(clock, 1100, 1100))
+                }
+                Box(Modifier.width(120.dp).height(1.dp).graphicsLayer { scaleX = win(clock, 1400, 1000) }.background(Museum.gilt))
+                Text(if (newBand) stringResource(R.string.gradeup_became, gradeName(up.to.band)) else stringResource(R.string.gradeup_title, langName),
+                    style = Type.small.ui().copy(fontSize = 13.sp), color = Museum.soft, textAlign = TextAlign.Center, modifier = Modifier.rise(win(clock, 1600, 900)))
+                // 새로 달라지는 것: 새 등급의 이름 · 번역이 조금 더 옅게 (작품 설정에서 끈 사람에게는 말하지 않는다) · 도움 한 칸
+                val fade = newBand && s.works.any { s.room(it.series.id).learn == up.lang && s.seriesSettings(it.series.id).fadeRead && s.seriesSettings(it.series.id).showRead }
+                val less = io.github.graviton94.todayletters.core.Support.lessened(up.from, up.to)
+                if (fade || less) Column(Modifier.fillMaxWidth().padding(top = 18.dp).rise(win(clock, 1900, 900)), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Box(Modifier.fillMaxWidth().height(1.dp).background(Museum.line))
+                    if (fade) Text(stringResource(R.string.gradeup_dim), style = Type.body.ui(), color = Museum.ink)
+                    if (less) Text(stringResource(R.string.support_less), style = Type.body.ui(), color = Museum.ink)
+                    Box(Modifier.fillMaxWidth().height(1.dp).background(Museum.line))
+                }
+                Spacer(Modifier.height(12.dp))
             }
-            Ornament(gold.copy(alpha = 0.8f))
-            Text(gradeLine(up.lang, up.to), style = Type.title.ui(), color = t.ink, textAlign = TextAlign.Center)
-            // 새 등급에 들어섰으면: “편지를 읽는 사람이 됐어요” · 번역은 접지 않고 조금 더 옅게 (작품 설정에서 끈 사람에게는 말하지 않는다)
-            if (up.to.band != up.from.band) {
-                Text(stringResource(R.string.gradeup_became, gradeName(up.to.band)), style = Type.body.ui(), color = t.accent, textAlign = TextAlign.Center)
-                if (s.works.any { s.room(it.series.id).learn == up.lang && s.seriesSettings(it.series.id).fadeRead && s.seriesSettings(it.series.id).showRead })
-                    Text(stringResource(R.string.gradeup_dim), style = Type.body.ui(), color = t.ink, textAlign = TextAlign.Center)
-            }
-            // 도움 사다리가 한 칸 줄었으면 한 줄 (설정의 ‘도움 한 단계 더’ 로 되돌릴 수 있다)
-            if (io.github.graviton94.todayletters.core.Support.lessened(up.from, up.to)) Text(stringResource(R.string.support_less), style = Type.body.ui(), color = t.ink, textAlign = TextAlign.Center)
-            Spacer(Modifier.height(Tokens.Space.s3))
-            Box(Modifier.fillMaxWidth().heightIn(min = Tokens.Size.button).background(gold).pressable { s.gradeUp = null }, contentAlignment = Alignment.Center) {
-                Text(stringResource(R.string.reward_ok), style = Type.body.ui(), color = Color(0xFF15110C))
+            Box(Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 22.dp).rise(win(clock, 1000, 700), blur = 0f)) {
+                UnderButton(s) { s.gradeUp = null }
             }
         }
     }

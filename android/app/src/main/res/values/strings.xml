@@ -1074,6 +1074,15 @@
     <string name="medal_next_line">Next medal · %1$s · %2$s to go</string>
     <string name="level_unlocked">Newly open</string>
     <string name="level_deco_line">At the entrance · Level %1$d</string>
+    <string name="rw_today_piece">Today\'s piece</string>
+    <string name="rw_next_milestone">Next milestone · %1$d%%</string>
+    <string name="go_library">To the Library</string>
+    <string name="go_finished">See the finished letter</string>
+    <string name="go_review_result">See the review results</string>
+    <string name="go_gallery">To the Gallery</string>
+    <string name="go_record_back">To My record</string>
+    <string name="go_shop">To the Shop</string>
+    <string name="go_exhibition">To this month\'s exhibition</string>
     <string name="slip_today">Arrived today, %1$s</string>
     <string name="slip_ago">Arrived %1$s</string>
     <string name="lib_new_hero">A letter you haven\'t opened yet</string>

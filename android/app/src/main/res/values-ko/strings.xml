@@ -1074,6 +1074,15 @@
     <string name="medal_next_line">다⁠음 메⁠달 · %1$s · %2$s 남⁠음</string>
     <string name="level_unlocked">새⁠로 열⁠린 것</string>
     <string name="level_deco_line">입⁠구 장⁠식 · 레⁠벨 %1$d</string>
+    <string name="rw_today_piece">오⁠늘⁠의 자⁠료</string>
+    <string name="rw_next_milestone">다⁠음 이⁠정⁠표 · %1$d%%</string>
+    <string name="go_library">서⁠재⁠로</string>
+    <string name="go_finished">마⁠친 편⁠지 보⁠기</string>
+    <string name="go_review_result">복⁠습 결⁠과 보⁠기</string>
+    <string name="go_gallery">갤⁠러⁠리⁠로</string>
+    <string name="go_record_back">나⁠의 기⁠록⁠으⁠로</string>
+    <string name="go_shop">상⁠점⁠으⁠로</string>
+    <string name="go_exhibition">이⁠달⁠의 전⁠시⁠로</string>
     <string name="slip_today">오⁠늘 %1$s 도⁠착</string>
     <string name="slip_ago">%1$s 도⁠착</string>
     <string name="lib_new_hero">아⁠직 열⁠지 않⁠은 편⁠지⁠가 있⁠어⁠요</string>

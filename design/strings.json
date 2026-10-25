@@ -4292,6 +4292,42 @@
     "en": "At the entrance · Level %1$d",
     "ko": "입구 장식 · 레벨 %1$d"
   },
+  "rw_today_piece": {
+    "en": "Today's piece",
+    "ko": "오늘의 자료"
+  },
+  "rw_next_milestone": {
+    "en": "Next milestone · %1$d%%",
+    "ko": "다음 이정표 · %1$d%%"
+  },
+  "go_library": {
+    "en": "To the Library",
+    "ko": "서재로"
+  },
+  "go_finished": {
+    "en": "See the finished letter",
+    "ko": "마친 편지 보기"
+  },
+  "go_review_result": {
+    "en": "See the review results",
+    "ko": "복습 결과 보기"
+  },
+  "go_gallery": {
+    "en": "To the Gallery",
+    "ko": "갤러리로"
+  },
+  "go_record_back": {
+    "en": "To My record",
+    "ko": "나의 기록으로"
+  },
+  "go_shop": {
+    "en": "To the Shop",
+    "ko": "상점으로"
+  },
+  "go_exhibition": {
+    "en": "To this month's exhibition",
+    "ko": "이달의 전시로"
+  },
   "slip_today": {
     "en": "Arrived today, %1$s",
     "ko": "오늘 %1$s 도착"

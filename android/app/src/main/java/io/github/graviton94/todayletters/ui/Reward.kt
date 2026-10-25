@@ -492,3 +492,306 @@ private fun WithPainting(s: AppState, w: io.github.graviton94.todayletters.data.
         }
     }
 }
+
+/*
+ * 남은 보상 · 알림 한 장 (2026-10-25, 시안 rw2 의 말씨로): 혼자 읽기 이정표 · 받은 화폐만 · 오늘의 자료 (명작 포함) · 이달의 전시 · 언어 등급.
+ * 모두 전시실 벽 위의 벽 라벨, 흐린 데서 또렷해지는 느린 움직임 한 번씩, 가는 금선. 큰 단추는 ‘좋아요 · 닫기’ 대신 덮인 화면의 이름
+ * (core [Next.under]), 오늘의 자료는 그림이 갤러리 칸으로 옮겨 간다.
+ */
+
+/** 전시실 단추의 흐린 글빛 (레벨 업 · 메달과 같은 값). */
+internal val MuseumButtonSoft = Color(0xFF6B6255)
+
+/** 덮인 화면의 이름 (단추 글): 이름 · 거기서 기다리는 것 (있을 때만). 누르면 한 장만 걷힌다 (길은 그대로). */
+@Composable
+fun underLabel(s: AppState): Pair<String, String?> = when (val u = Next.under(s.route)) {
+    is Next.Under.Step -> stringResource(R.string.go_next_step, stepName(u.mode)) to null
+    Next.Under.Today -> {
+        val plan = s.todayPlan(s.current)
+        stringResource(R.string.done_today) to listOfNotNull(
+            plan.review.takeIf { it > 0 }?.let { stringResource(R.string.go_review_n, it) },
+            plan.basics.takeIf { it > 0 }?.let { stringResource(R.string.go_basics_n, it) },
+        ).joinToString(" · ").ifEmpty { null }
+    }
+    Next.Under.Library -> stringResource(R.string.go_library) to null
+    Next.Under.Finished -> {
+        val room = (s.route as Route.Done).room
+        val w = s.work(room.series)
+        val n = w.chapters.flatMap { it.letters }.indexOf(s.letterOf(room).second) + 1
+        stringResource(R.string.go_finished) to (if (n > 0) Wall.letterNo(w.series.original, n) else null)
+    }
+    Next.Under.Review -> stringResource(R.string.go_review_result) to null
+    Next.Under.Words -> stringResource(R.string.review_back) to null
+    Next.Under.Letter -> stringResource(R.string.go_back_letter) to null
+    Next.Under.Gallery -> stringResource(R.string.go_gallery) to null
+    Next.Under.Record -> stringResource(R.string.go_record_back) to null
+    Next.Under.Shop -> stringResource(R.string.go_shop) to null
+    Next.Under.Other -> stringResource(R.string.go_back) to null
+}
+
+/** 전시실 벽의 큰 단추: 덮인 화면으로 (이름 · 기다리는 것 · →). */
+@Composable
+fun UnderButton(s: AppState, onGo: () -> Unit) {
+    val (label, detail) = underLabel(s)
+    GoButton(label, detail, fill = Museum.ink, on = Museum.wall, soft = MuseumButtonSoft, onClick = onGo)
+}
+
+/** 전시실 벽 위의 조용한 글자 링크 (밑줄 · 흐린 색 · 누르는 자리 48dp): 큰 단추가 다른 곳으로 갈 때 덮인 화면으로. */
+@Composable
+fun UnderLink(s: AppState, onGo: () -> Unit) {
+    val (label, _) = underLabel(s)
+    Box(Modifier.fillMaxWidth().heightIn(min = 48.dp).pressable { onGo() }, contentAlignment = Alignment.Center) {
+        Text(label, style = Type.small.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = Museum.soft, maxLines = 1)
+    }
+}
+
+/** 벽 라벨의 셈 한 줄 (편지 완료와 같은 꼴): 위아래 가는 선, 칸마다 큰 숫자 (Cormorant) · 작은 이름. */
+@Composable
+fun TallyRow(cells: List<Pair<String, String>>, modifier: Modifier = Modifier, trailing: (@Composable () -> Unit)? = null) {
+    Row(modifier.fillMaxWidth().drawBehind {
+        drawLine(Museum.line, Offset(0f, 0f), Offset(size.width, 0f), 1.dp.toPx())
+        drawLine(Museum.line, Offset(0f, size.height), Offset(size.width, size.height), 1.dp.toPx())
+    }, verticalAlignment = Alignment.CenterVertically) {
+        cells.forEachIndexed { i, (v, l) ->
+            Column(Modifier.weight(1f).then(if (i > 0) Modifier.drawBehind { drawLine(Museum.line, Offset(0f, 0f), Offset(0f, size.height), 1.dp.toPx()) }.padding(start = 14.dp) else Modifier)
+                .padding(vertical = 12.dp).semantics(mergeDescendants = true) { }, verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(v, style = Type.title.copy(fontFamily = Faces.display, fontSize = 24.sp, lineHeight = 26.sp), color = Museum.ink, maxLines = 1)
+                Text(l, style = Type.small.ui().copy(fontSize = 11.sp), color = Museum.soft, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            }
+        }
+        trailing?.invoke()
+    }
+}
+
+/** 받은 화폐의 내역 (접어 둠): 셈 줄 끝의 ‘내역’ 을 누르면 한 줄씩. */
+@Composable
+private fun EarnLines(lines: List<Pair<io.github.graviton94.todayletters.core.Earn, Int>>, open: Boolean, modifier: Modifier = Modifier) {
+    if (!open) return
+    Column(modifier.fillMaxWidth().padding(top = 4.dp)) {
+        lines.forEach { (e, n) ->
+            Row(Modifier.fillMaxWidth().padding(vertical = 5.dp)) {
+                Text(earnName(e), style = Type.small.ui().copy(fontSize = 12.sp), color = Museum.soft, modifier = Modifier.weight(1f), maxLines = 1)
+                Text("+$n", style = Type.small.copy(fontFamily = Faces.display, fontSize = 14.sp), color = Museum.ink)
+            }
+        }
+    }
+}
+
+/** 셈 줄 끝의 ‘내역’ (항목이 둘 이상일 때만). */
+@Composable
+private fun LinesToggle(count: Int, onToggle: () -> Unit) {
+    if (count < 2) return
+    Box(Modifier.heightIn(min = 48.dp).pressable(haptic = false) { onToggle() }.padding(start = 12.dp), contentAlignment = Alignment.CenterEnd) {
+        Text(stringResource(R.string.reward_lines), style = Type.small.ui().copy(fontSize = 12.sp, textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = Museum.soft)
+    }
+}
+
+/** 편지 완료 보상 안에 접힌 한 줄씩: 혼자 읽기 이정표 (다른 것이 주인공일 때) · 오른 언어 등급 · 레벨. */
+@Composable
+private fun FoldedLines(s: AppState, m: AppState.RewardMoment, milestone: Boolean, modifier: Modifier = Modifier) {
+    val ui = uiLang()
+    Column(modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        if (milestone) m.milestone?.let { Text(stringResource(R.string.reward_alone, it), style = Type.small.ui(), color = Museum.gilt, maxLines = 1) }
+        m.grade?.let { g ->
+            Text(if (g.to.band != g.from.band) stringResource(R.string.gradeup_became, gradeName(g.to.band)) else stringResource(R.string.gradeup_title, stringResource(langLabel(g.lang))),
+                style = Type.small.ui(), color = Museum.gilt, maxLines = 1)
+        }
+        m.level?.let { lv ->
+            Text(stringResource(R.string.reward_level_line, lv.to) + " · " + io.github.graviton94.todayletters.core.Levels.title(s.medalBook.levels, lv.to, ui),
+                style = Type.small.ui(), color = Museum.gilt, maxLines = 1)
+        }
+        m.medals.mapNotNull { s.medalBook.medal(it) }.forEach { md ->
+            Text(stringResource(R.string.reward_ach, md.title[ui]), style = Type.small.ui(), color = Museum.gilt, maxLines = 1)
+        }
+    }
+}
+
+/**
+ * 혼자 읽기 이정표 · 받은 화폐만 (예전 “잘 읽었어요 · 이제 25%를 혼자 읽어요 · 오늘 받은 우표 +50 · 좋아요”): 레벨 업과 같은 벽.
+ * 머리말은 작품의 말 (core [Wall.milestone] “Jalon”, 화폐만이면 “오늘”), 이정표가 제목 (흐린 데서 또렷), 금선, 가는 혼자 읽기 줄 (지금 몫까지 차고
+ * 다음 이정표 자리에 눈금 · “다음 이정표 · 50%”), 받은 화폐는 셈 줄의 숫자 (내역은 접어 둠). 단추는 덮인 화면으로.
+ */
+@Composable
+internal fun NoticeMoment(s: AppState, m: AppState.RewardMoment) {
+    val w = s.work(m.series.ifEmpty { s.current })
+    val ui = uiLang()
+    val still = s.reducedMotion
+    val clock by rememberClock(m, still, 3200)
+    var lines by remember(m) { mutableStateOf(false) }
+    androidx.activity.compose.BackHandler { s.reward = null }
+    val ms = m.milestone
+    Box(Modifier.fillMaxSize().background(Museum.wall).pressable(haptic = false) { }) {
+        Column(Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe()) {
+            Column(Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(14.dp, Alignment.CenterVertically)) {
+                Spacer(Modifier.height(24.dp))
+                Eyebrow(if (ms != null) Wall.milestone(w.series.original) else stringResource(R.string.reward_caps), Museum.gilt, Modifier.rise(win(clock, 0, 900)))
+                Text(if (ms != null) stringResource(R.string.reward_alone, ms) else stringResource(R.string.reward_title),
+                    style = Type.title.ui().copy(fontSize = 28.sp, lineHeight = 38.sp, fontWeight = FontWeight.Medium), color = Museum.ink, textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth().focus(win(clock, 300, 1200), 8f, 8f))
+                Box(Modifier.width(120.dp).height(1.dp).graphicsLayer { scaleX = win(clock, 1100, 1000) }.background(Museum.gilt))
+                if (ms != null) Text(stringResource(R.string.reward_title), style = Type.small.ui().copy(fontSize = 13.sp), color = Museum.soft, textAlign = TextAlign.Center,
+                    modifier = Modifier.rise(win(clock, 1300, 900)))
+                // 혼자 읽기 줄: 지금 몫까지 금선이 차고, 다음 이정표 자리에 눈금 하나
+                if (ms != null) {
+                    val now = s.readAlone.coerceIn(ms, 100)
+                    val next = io.github.graviton94.todayletters.core.Growth.nextMilestone(now)
+                    val k = win(clock, 1500, 1200)
+                    Column(Modifier.fillMaxWidth().padding(top = 18.dp).rise(win(clock, 1400, 900)), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Bottom) {
+                            Text(stringResource(R.string.earn_alone), style = Type.small.ui().copy(fontSize = 12.sp), color = Museum.soft, modifier = Modifier.weight(1f), maxLines = 1)
+                            Text("$now%", style = Type.body.copy(fontFamily = Faces.display, fontSize = 17.sp), color = Museum.ink)
+                        }
+                        Box(Modifier.fillMaxWidth().height(7.dp).clearAndSetSemantics { }.drawBehind {
+                            val y = size.height / 2
+                            drawLine(Museum.line, Offset(0f, y), Offset(size.width, y), 1.dp.toPx())
+                            drawLine(Museum.gilt, Offset(0f, y), Offset(size.width * now / 100f * k, y), 2.dp.toPx())
+                            next?.let { n -> val x = size.width * n / 100f; drawLine(Museum.soft, Offset(x, 0f), Offset(x, size.height), 1.dp.toPx()) }
+                        })
+                        if (next != null) Row(Modifier.fillMaxWidth()) {
+                            Spacer(Modifier.weight(1f))
+                            Text(stringResource(R.string.rw_next_milestone, next), style = Type.small.ui().copy(fontSize = 11.sp), color = Museum.soft, maxLines = 1)
+                        }
+                    }
+                }
+                if (m.gain > 0) Column(Modifier.fillMaxWidth().padding(top = 6.dp).rise(win(clock, 1700, 900))) {
+                    TallyRow(listOf("+${(m.gain * win(clock, 1800, 900)).toInt()}" to stringResource(R.string.reward_total, w.kit.currency[ui]))) {
+                        LinesToggle(m.lines.size) { lines = !lines }
+                    }
+                    EarnLines(m.lines, lines)
+                }
+                FoldedLines(s, m, milestone = false, Modifier.rise(win(clock, 1900, 900)))
+                Spacer(Modifier.height(12.dp))
+            }
+            Box(Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 22.dp).rise(win(clock, 1000, 700), blur = 0f)) {
+                UnderButton(s) { s.reward = null }
+            }
+        }
+    }
+}
+
+/** 소장품의 원제: 작품의 말로 적힌 이름이 있으면 그것, 없으면 소장처의 영어 이름 (번역 이름은 쓰지 않는다). */
+internal fun originalTitle(w: io.github.graviton94.todayletters.data.Work, pc: io.github.graviton94.todayletters.core.Piece): Pair<String, io.github.graviton94.todayletters.core.Lang> {
+    val ln = pc.title.lines
+    val tl = listOf(w.series.original, io.github.graviton94.todayletters.core.Lang.EN).firstOrNull { !ln[it].isNullOrBlank() } ?: ln.keys.first()
+    return pc.title[tl] to tl
+}
+
+/**
+ * 오늘의 자료 (예전 “오늘의 자료가 왔어요 · 실제 액자 · 갤러리에 걸기 · 닫기”, 명작 · 금빛 명판 포함): 편지 완료처럼 그림이 주인공.
+ * 그림이 화면 가득 9초 동안 천천히 물러나고, 아래에 벽 라벨 — 머리말 “오늘의 자료 · 유화” (명작이면 “명작”), 원제, 번역 제목 · 갤러리에 걸었어요,
+ * 작가 · 해 · 곳 (데이터에 있는 것만), 소장처 · 액자 · 드문 정도. 셈 줄 (+화폐 · 모은 작품 n / N). 큰 단추 “갤러리에 걸기 · n / N →” 를 누르면
+ * 그림이 갤러리의 그 칸으로 옮겨 간다 ([AppState.galleryLanding]). 작게 덮인 화면으로 가는 링크.
+ */
+@Composable
+internal fun PieceMoment(s: AppState, m: AppState.RewardMoment, pc: io.github.graviton94.todayletters.core.Piece) {
+    val w = s.work(m.series.ifEmpty { s.current })
+    val id = w.series.id
+    val ui = uiLang()
+    val still = s.reducedMotion
+    val clock by rememberClock(m, still, 3200)
+    val zoom by rememberClock(m to "zoom", still, 9000)
+    val art = rememberBounds()
+    var lines by remember(m) { mutableStateOf(false) }
+    LaunchedEffect(m) { s.cueTier(pc.tier) }
+    androidx.activity.compose.BackHandler { s.reward = null }
+    val letterPiece = pc.tier == io.github.graviton94.todayletters.core.Tier.LETTER
+    val (have, all) = if (letterPiece) s.ownedLetterPieces(id).size to s.letterPieces(id).size
+        else w.kit.collection.count { s.owns(id, it) } to w.kit.collection.size
+    fun hang() {
+        s.galleryLanding = pc.id
+        s.flights.launch(pc.image, art.rect, "gallery:${pc.id}", still, alignY = 0.3f, source = "draw")
+        s.reward = null
+        s.go(Route.Gallery)
+    }
+    BoxWithConstraints(Modifier.fillMaxSize().background(Museum.wall).pressable(haptic = false) { }) {
+        val h = maxHeight
+        Box(Modifier.fillMaxSize().measured(art).flightSource(s, "draw").clipToBounds()) {
+            AssetImage(pc.image, Modifier.fillMaxSize().graphicsLayer {
+                val k = 1.12f - 0.12f * (zoom / 9000f).coerceIn(0f, 1f); scaleX = k; scaleY = k
+            }, sample = 1, alignment = androidx.compose.ui.BiasAlignment(0f, -0.4f))
+            Box(Modifier.fillMaxSize().background(Brush.verticalGradient(
+                0f to Museum.wall.copy(alpha = 0.15f), 0.3f to Color.Transparent, 0.58f to Museum.wall.copy(alpha = 0.78f), 0.74f to Museum.wall, 1f to Museum.wall)))
+        }
+        Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
+            Column(Modifier.fillMaxWidth().heightIn(min = h).navigationBarsSafe(), verticalArrangement = Arrangement.Bottom) {
+                Spacer(Modifier.height(h * 0.36f))
+                // 벽 라벨
+                Column(Modifier.fillMaxWidth().padding(horizontal = 22.dp).padding(bottom = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Eyebrow(stringResource(R.string.rw_today_piece) + " · " + tierName(pc.tier), Museum.gilt, Modifier.rise(win(clock, 600, 900)))
+                    val (orig, tl) = originalTitle(w, pc)
+                    Text(orig, style = Type.title.copy(fontFamily = Faces.display, fontStyle = FontStyle.Italic, fontSize = 30.sp, lineHeight = 33.sp).of(tl),
+                        color = Museum.ink, modifier = Modifier.rise(win(clock, 800, 900)))
+                    val tr = pc.title[ui].takeIf { it.isNotBlank() && it != orig }
+                    Text(if (tr != null) stringResource(R.string.wall_hung, tr) else stringResource(R.string.wall_hung_only),
+                        style = Type.small.ui().copy(fontSize = 13.sp), color = Museum.soft, modifier = Modifier.rise(win(clock, 1000, 900)))
+                    // 작가 · 해 · 곳: 소장품은 그 작품 화가의 것 (키트의 이름), 해 · 곳은 그림 데이터에서만
+                    val meta = Wall.meta(w.kit.fullName[ui].ifBlank { w.fullName }, pc.date)
+                    if (meta.isNotEmpty()) Text(meta, style = Type.small.ui().copy(fontSize = 12.sp), color = Museum.soft, modifier = Modifier.rise(win(clock, 1100, 900)))
+                    val kind = s.frameKind(pc)
+                    val more = listOfNotNull(pc.collection.takeIf { it.isNotBlank() }, frameName(kind),
+                        if (pc.tier.weight > 0) stringResource(R.string.reward_odds, pc.tier.weight) else null).joinToString(" · ")
+                    Text(more, style = Type.small.ui().copy(fontSize = 11.5.sp), color = Museum.soft, maxLines = 2,
+                        modifier = Modifier.rise(win(clock, 1200, 900)))
+                }
+                Column(Modifier.fillMaxWidth().padding(horizontal = 22.dp).rise(win(clock, 1500, 900))) {
+                    TallyRow(listOfNotNull(
+                        m.gain.takeIf { it > 0 }?.let { "+${(it * win(clock, 1700, 900)).toInt()}" to w.kit.currency[ui] },
+                        "$have / $all" to stringResource(if (letterPiece) R.string.plates_title else R.string.gallery_collected),
+                    )) { LinesToggle(m.lines.size) { lines = !lines } }
+                    EarnLines(m.lines, lines)
+                }
+                FoldedLines(s, m, milestone = true, Modifier.padding(horizontal = 22.dp, vertical = 12.dp).rise(win(clock, 1800, 900)))
+                Column(Modifier.fillMaxWidth().padding(horizontal = 20.dp).padding(top = 4.dp, bottom = 6.dp).rise(win(clock, 1900, 700), blur = 0f)) {
+                    GoButton(stringResource(R.string.reward_hang), "$have / $all", fill = Museum.ink, on = Museum.wall, soft = MuseumButtonSoft) { hang() }
+                    UnderLink(s) { s.reward = null }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * 이달의 전시를 다 모은 순간 (예전 “이달의 전시를 다 모았어요 · 도록 넘겨 보기 · 닫기”): 벽 위에 머리말 “이달의 전시”, 제목, 금선,
+ * 도록 표지 ([CatalogueCover], 흐린 데서 또렷), 셈 줄 (+화폐 · 전시 자료 n / n). 큰 단추 “이달의 전시로 · 전시 이름 →”, 작게 덮인 화면으로.
+ */
+@Composable
+internal fun CatalogueMoment(s: AppState, m: AppState.RewardMoment, cat: io.github.graviton94.todayletters.core.Exhibition) {
+    val w = s.work(m.series.ifEmpty { s.current })
+    val ui = uiLang()
+    val still = s.reducedMotion
+    val clock by rememberClock(m, still, 3200)
+    var lines by remember(m) { mutableStateOf(false) }
+    androidx.activity.compose.BackHandler { s.reward = null }
+    val ep = remember(cat) { io.github.graviton94.todayletters.core.Draws.exhibitionPieces(w.kit.collection, cat) }
+    val today = java.time.LocalDate.now()
+    Box(Modifier.fillMaxSize().background(Museum.wall).pressable(haptic = false) { }) {
+        Column(Modifier.fillMaxSize().statusBarsSafe().navigationBarsSafe()) {
+            Column(Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(14.dp, Alignment.CenterVertically)) {
+                Spacer(Modifier.height(20.dp))
+                Eyebrow(stringResource(R.string.gallery_expo), Museum.gilt, Modifier.rise(win(clock, 0, 900)))
+                Text(stringResource(R.string.reward_catalogue), style = Type.title.ui().copy(fontSize = 24.sp, lineHeight = 32.sp, fontWeight = FontWeight.Medium),
+                    color = Museum.ink, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth().focus(win(clock, 300, 1200), 8f, 8f))
+                Box(Modifier.width(120.dp).height(1.dp).graphicsLayer { scaleX = win(clock, 1000, 1000) }.background(Museum.gilt))
+                CatalogueCover(s, w, cat, today.year, today.monthValue, s.catalogues(w.series.id).size.coerceAtLeast(1),
+                    Modifier.fillMaxWidth(0.86f).padding(top = 8.dp).focus(win(clock, 1100, 1400), 6f, 10f))
+                Column(Modifier.fillMaxWidth().padding(top = 8.dp).rise(win(clock, 1700, 900))) {
+                    TallyRow(listOfNotNull(
+                        m.gain.takeIf { it > 0 }?.let { "+${(it * win(clock, 1800, 900)).toInt()}" to stringResource(R.string.reward_catalogue_gain, w.kit.currency[ui]) },
+                        "${ep.size} / ${ep.size}" to stringResource(R.string.expo_pieces),
+                    )) { LinesToggle(m.lines.size) { lines = !lines } }
+                    EarnLines(m.lines, lines)
+                }
+                FoldedLines(s, m, milestone = true, Modifier.rise(win(clock, 1900, 900)))
+                Spacer(Modifier.height(8.dp))
+            }
+            Column(Modifier.fillMaxWidth().padding(horizontal = 20.dp).padding(top = 10.dp, bottom = 8.dp).rise(win(clock, 1200, 700), blur = 0f)) {
+                GoButton(stringResource(R.string.go_exhibition), cat.title[ui], fill = Museum.ink, on = Museum.wall, soft = MuseumButtonSoft) {
+                    s.reward = null; s.go(Route.Exhibition)
+                }
+                UnderLink(s) { s.reward = null }
+            }
+        }
+    }
+}

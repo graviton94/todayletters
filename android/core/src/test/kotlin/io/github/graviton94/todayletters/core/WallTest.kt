@@ -88,4 +88,24 @@ class WallTest {
         assertEquals(listOf("Oui,", "ça", "va.", "Et", "toi ?"),
             WordSpots.display("Oui, ça va. Et toi ?".split(" ").mapIndexed { i, t -> WordAt(t, i * 100, i * 100 + 90) }).map { it.t })
     }
+
+    @Test fun noticeButtonNamesTheScreenUnderIt() {
+        val room = Route.Letter("vincent", 1, 1, Route.Inbox)
+        assertEquals(Next.Under.Step(ReplyMode.ALOUD), Next.under(Route.Play(room, ReplyMode.ALOUD)))
+        assertEquals(Next.Under.Today, Next.under(Route.Inbox))
+        assertEquals(Next.Under.Library, Next.under(Route.Library))
+        assertEquals(Next.Under.Finished, Next.under(Route.Done(room)))
+        assertEquals(Next.Under.Review, Next.under(Route.Session()))
+        assertEquals(Next.Under.Words, Next.under(Route.Words))
+        assertEquals(Next.Under.Letter, Next.under(Route.Seal(room)))
+        assertEquals(Next.Under.Gallery, Next.under(Route.Exhibition))
+        assertEquals(Next.Under.Shop, Next.under(Route.Purchase))
+        assertEquals(Next.Under.Record, Next.under(Route.Medals))
+    }
+
+    @Test fun milestoneEyebrowIsInTheWorksLanguage() {
+        assertEquals("Jalon", Wall.milestone(Lang.FR))
+        assertEquals("Meilenstein", Wall.milestone(Lang.DE))
+        assertEquals("이정표", Wall.milestone(Lang.KO))
+    }
 }

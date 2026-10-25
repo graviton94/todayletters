@@ -1295,6 +1295,8 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     var landing by mutableStateOf<String?>(null)
     /** 메달 → 진열장으로 옮겨 온 메달 id: 진열장이 그 칸으로 굴리고 그 가족 아래 ‘다음 메달’ 한 줄. */
     var medalLanding by mutableStateOf<String?>(null)
+    /** 오늘의 자료 → 갤러리로 옮겨 온 그림 id: 갤러리가 그 칸을 묶음 맨 앞에 두고 날아오는 그림을 받는다 (갤러리를 떠나면 비움). */
+    var galleryLanding by mutableStateOf<String?>(null)
     /** 옮겨 가는 그림 (ui/Flight.kt). */
     val flights = Flights()
 
