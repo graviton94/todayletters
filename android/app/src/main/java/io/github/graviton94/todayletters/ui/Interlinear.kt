@@ -166,7 +166,7 @@ fun IlText(
             val under = when {
                 chunk -> Modifier.solid(p.giltText, 1.5f)
                 isSeen -> Modifier.dotted(p.giltText, 1.6f)
-                mark != null -> Modifier.dotted(markInk, 1.2f, 2.5f, 2.5f)
+                // 설명 카드가 있는 낱말은 누르면 열리지만 밑줄은 긋지 않는다 (관사 · 전치사마다 점선이 깔리면 문장이 어지럽다, 2026-10-25). 뜻이 달라지는 묶음은 위의 chunk 가 긋는다
                 missing -> Modifier.dotted(p.slipInk.copy(alpha = 0.3f), 0.8f, 1.5f, 2.5f)
                 else -> Modifier
             }
