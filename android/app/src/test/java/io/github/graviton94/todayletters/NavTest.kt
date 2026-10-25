@@ -600,11 +600,89 @@ class NavTest {
         val had = io.github.graviton94.todayletters.ui.ShadowTake("audio/x.m4a", 0, Int.MAX_VALUE, f, step = true)
         assertFalse(had.locked)
         f.delete()
+        // 한 번 녹음해 채점된 뒤 (너무 짧아 녹음이 남지 않았어도) 는 다시 말하기가 늘 열려 있다 (2026-10-25 폰 시험)
+        val tried = io.github.graviton94.todayletters.ui.ShadowTake("audio/x.m4a", 0, Int.MAX_VALUE, f, step = true)
+        tried.tick++
+        assertFalse(tried.locked)
         // 회화 내 차례: 소리가 있으면 LISTEN → 끝까지 들으면 READY (core 의 TalkTurn)
         val st = io.github.graviton94.todayletters.core.TalkTurn.start(io.github.graviton94.todayletters.core.Support.Talk.SHADOW, "Oui, ça va.", listen = true)
         assertEquals(io.github.graviton94.todayletters.core.TalkTurn.Phase.LISTEN, st.phase)
         assertTrue(io.github.graviton94.todayletters.core.TalkTurn.reduce(st, io.github.graviton94.todayletters.core.TalkTurn.Event.Listened).canRecord)
     }
+
+    /** 편지 I 을 끝까지 읽고 [mode] 걸음을 연 뒤, 앞 걸음의 마침 한 장 (덮개) 이 떠 있는 상태로 (stepEnded 와 같은 차례: 길 → 한 장). */
+    private fun underStepNote(mode: io.github.graviton94.todayletters.core.ReplyMode): Pair<AppState, Route.Play> {
+        val s = state()
+        s.enter("vincent")
+        val room = Route.Letter("vincent", 1, 1, Route.Inbox)
+        val (c, l) = s.letterOf(room)
+        s.open("vincent", c, l, Route.Inbox, skipAudio = true)
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size))
+        val play = Route.Play(room, mode)
+        s.go(play)
+        s.stepNote = AppState.StepNote(room, 2, io.github.graviton94.todayletters.core.ReplyMode.CHECK, null,
+            io.github.graviton94.todayletters.core.Next.AfterStep.Step(mode, 1, 3), 1)
+        assertTrue(s.covered)
+        return s to play
+    }
+
+    /**
+     * 걸음 마침 한 장의 단추로 회화에 들어오면 (덮개 → 걷힘, 2026-10-25 폰 시험): 상대 줄 (빈센트) 이 저절로 나오고, 그 소리가 끝난 뒤에 내 줄 (먼저 듣기),
+     * 내 줄을 끝까지 들으면 녹음이 열린다. 예전에는 내 줄 먼저 듣기가 막 시작한 상대 줄을 바로 잘라 상대 줄이 들리지 않았다.
+     */
+    @Test fun talkAfterStepNotePlaysPartnerThenMine() {
+        val (s, play) = underStepNote(io.github.graviton94.todayletters.core.ReplyMode.TALK)
+        val (c, l) = s.letterOf(play.room)
+        val talk = l.talk!!
+        val learn = s.room("vincent").learn
+        assertEquals(io.github.graviton94.todayletters.core.Support.Talk.SHADOW, io.github.graviton94.todayletters.core.Support.talk(s.support("vincent").band))
+        assertFalse(talk.lines[0].me); assertTrue(talk.lines[1].me)
+        val partner = s.narrator.path("vincent", c, l.id, talk.audioName(0, learn)!!)
+        val mine = s.narrator.path("vincent", c, l.id, talk.audioName(1, learn)!!)
+        assertTrue(s.narrator.has(partner) && s.narrator.has(mine))
+        val log = mutableListOf<String>()
+        s.narrator.fake = log
+        rule.mainClock.autoAdvance = false
+        rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { io.github.graviton94.todayletters.ui.TalkStep(s, play, onClose = {}) } }
+        rule.mainClock.advanceTimeBy(3000)
+        // 덮여 있는 동안은 아무 소리도
+        assertEquals(emptyList<String>(), log)
+        // 단추를 누름: 한 장이 걷힌다
+        rule.runOnUiThread { s.stepNote = null }
+        rule.mainClock.advanceTimeBy(1500)
+        assertEquals(listOf(partner), log)
+        assertEquals(partner, s.narrator.now)
+        // 상대 줄이 끝나기 전에는 내 줄이 자르지 않는다
+        rule.mainClock.advanceTimeBy(3000)
+        assertEquals(listOf(partner), log)
+        rule.runOnUiThread { s.narrator.fakeEnd() }
+        rule.mainClock.advanceTimeBy(1000)
+        assertEquals(listOf(partner, mine), log)
+        assertEquals(mine, s.narrator.now)
+        // 내 줄을 끝까지 들으면 녹음이 열린다 (다시 저절로 틀지 않는다)
+        rule.runOnUiThread { s.narrator.fakeEnd() }
+        rule.mainClock.advanceTimeBy(1000)
+        assertEquals(listOf(partner, mine), log)
+        rule.onNode(androidx.compose.ui.test.hasContentDescription(ctx.getString(R.string.a11y_record)) and androidx.compose.ui.test.isEnabled()).assertExists()
+        s.narrator.fake = null
+    }
+
+    /** 이해 확인 · 따라 읽기도 걸음 마침 한 장 아래에서 열리면, 걷힌 뒤에 저절로 듣기 (덮개가 걷히기 전에는 소리 없음). */
+    private fun playsOnceUncovered(mode: io.github.graviton94.todayletters.core.ReplyMode) {
+        val (s, play) = underStepNote(mode)
+        val log = mutableListOf<String>()
+        s.narrator.fake = log
+        rule.mainClock.autoAdvance = false
+        rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { io.github.graviton94.todayletters.ui.Play(s, play) } }
+        rule.mainClock.advanceTimeBy(3000)
+        assertEquals("$mode covered", emptyList<String>(), log)
+        rule.runOnUiThread { s.stepNote = null }
+        rule.mainClock.advanceTimeBy(1500)
+        assertEquals("$mode uncovered: $log", 1, log.size)
+        s.narrator.fake = null
+    }
+    @Test fun checkAfterStepNotePlaysPassage() = playsOnceUncovered(io.github.graviton94.todayletters.core.ReplyMode.CHECK)
+    @Test fun readAlongAfterStepNotePlaysOriginal() = playsOnceUncovered(io.github.graviton94.todayletters.core.ReplyMode.ALOUD)
 
     /** 덮개: 보상 · 레벨 · 등급 · 받기 시트 · 묻는 창 · 도움말 · 설정이 떠 있으면 저절로 나오는 소리 · 회화가 기다린다. */
     @Test fun coveredGate() {

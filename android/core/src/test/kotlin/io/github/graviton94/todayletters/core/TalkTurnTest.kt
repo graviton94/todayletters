@@ -109,25 +109,52 @@ class TalkTurnTest {
         val f1 = run(st, Event.Heard(false))
         assertEquals(Phase.RETRY, f1.phase); assertTrue(f1.canRecord); assertFalse(f1.fullLine)
         val f2 = run(f1, Event.Heard(false))
-        assertEquals(Phase.REVEALED, f2.phase); assertFalse(f2.canRecord); assertTrue(f2.fullLine); assertFalse(f2.passed)
+        assertEquals(Phase.REVEALED, f2.phase); assertTrue(f2.canRecord); assertTrue(f2.fullLine); assertFalse(f2.passed)
         val done = run(f2, Event.Continue)
         assertEquals(Phase.DONE, done.phase); assertFalse(done.passed)
         // 한 번 틀리고 맞히면 금빛 체크
         assertTrue(run(f1, Event.Heard(true)).passed)
     }
 
-    /** 말하기는 따라 읽기와 같은 채점 하나: 스스로 판정 단계는 없다. 맞힌 뒤 · 원문을 보여 준 뒤의 채점은 무시. */
+    /**
+     * 말하기는 따라 읽기와 같은 채점 하나: 스스로 판정 단계는 없다. 채점된 뒤 (맞음 · 원문을 보여 줌) 에도 늘 다시 말할 수 있다
+     * (2026-10-25 폰 시험: 맞힌 뒤 ‘다시 말하기’ 가 막혔다). 다시 말해 안 돼도 맞음은 그대로, 원문을 본 뒤 맞히면 맞음.
+     */
     @Test fun scoringOnlyNoSelfJudge() {
         assertTrue(Phase.entries.none { it.name == "SELF" })
         val st = TalkTurn.start(Support.Talk.SHADOW, fr)
         assertTrue(st.canRecord); assertTrue(st.fullLine)
         val passed = run(st, Event.Heard(true))
-        assertEquals(Phase.PASSED, passed.phase); assertFalse(passed.canRecord)
+        assertEquals(Phase.PASSED, passed.phase); assertTrue(passed.canRecord); assertTrue(passed.showsRecord)
         assertEquals(passed, run(passed, Event.Heard(false)))
+        assertEquals(passed, run(passed, Event.Heard(true)))
         assertEquals(Phase.DONE, run(passed, Event.Continue).phase)
         val revealed = run(st, Event.Heard(false), Event.Heard(false))
-        assertEquals(Phase.REVEALED, revealed.phase)
-        assertEquals(revealed, run(revealed, Event.Heard(true)))
+        assertEquals(Phase.REVEALED, revealed.phase); assertTrue(revealed.canRecord)
+        assertEquals(revealed, run(revealed, Event.Heard(false)))
+        val late = run(revealed, Event.Heard(true))
+        assertEquals(Phase.PASSED, late.phase); assertTrue(late.passed)
+        // 먼저 듣기 · 고르기 단계는 여전히 막힘
+        assertFalse(TalkTurn.start(Support.Talk.SHADOW, fr, listen = true).canRecord)
+    }
+
+    /** 어느 도움 단계든, 채점된 뒤 (맞음 · 틀림 · 원문) 에는 늘 다시 말할 수 있다. */
+    @Test fun retryAlwaysOpenAfterAnyScoredTake() {
+        for (help in Support.Talk.entries) {
+            var st = TalkTurn.start(help, fr, listen = true)
+            // 고르기 · 쌓기 · 먼저 듣기를 마친다
+            var guard = 0
+            while (!st.canRecord && guard++ < 40) {
+                st = when (st.phase) {
+                    Phase.LISTEN -> run(st, Event.Listened)
+                    Phase.BUILD -> st.chips.indices.firstOrNull { it !in st.used && TalkTurn.key(st.chips[it]) == st.nextKey }?.let { run(st, Event.Pick(it)) } ?: break
+                    else -> break
+                }
+            }
+            if (!st.canRecord) continue
+            for (seq in listOf(listOf(true), listOf(false), listOf(false, false), listOf(true, false), listOf(false, false, true)))
+                assertTrue(run(st, *seq.map { Event.Heard(it) }.toTypedArray()).canRecord, "$help $seq")
+        }
     }
 
     @Test fun shuffleNeverKeepsSentenceOrder() {

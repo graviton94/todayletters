@@ -264,8 +264,49 @@ object Prosody {
     private fun shrink(x: FloatArray, max: Int = 200): FloatArray =
         if (x.size <= max) x else FloatArray(max) { k -> x[(k.toLong() * x.size / max).toInt()] }
 
+    /** 목소리 구간 앞뒤로 남기는 여유 (밀리초): 첫 자음 · 끝 숨이 잘리지 않게. */
+    const val SPAN_MARGIN_MS = 120
+    /** 목소리 구간의 프레임: 음높이가 잡혔고 가장 큰 소리보다 이만큼 (dB) 안쪽. */
+    private const val SPAN_DB = 30f
+
+    /**
+     * 목소리 구간 (프레임): 첫 목소리 프레임 − [SPAN_MARGIN_MS] ~ 마지막 목소리 프레임 + [SPAN_MARGIN_MS].
+     * 목소리 프레임 = 음높이가 잡혔고 (짧은 조각은 [clean] 이 이미 뺌) 가장 큰 소리 − 30dB 위. 목소리가 없으면 null.
+     * 저절로 멈춘 녹음 ([AutoStop]) 은 마지막 목소리 뒤 1초를 더 담는다: 폰 마이크의 방 소음은 [trim] 의 30dB 안쪽이라
+     * 크기만으로는 잘리지 않아 채점 · 선에 들어갔다 (2026-10-25 폰 시험, 리듬 56). 이것으로 그 꼬리 · 첫 목소리 앞을 뗀다.
+     */
+    fun span(t: Track): IntRange? {
+        if (t.size == 0 || t.voiced == 0) return null
+        val top = t.db.max()
+        val first = (0 until t.size).firstOrNull { t.f0[it] > 0f && t.db[it] > top - SPAN_DB } ?: return null
+        val last = (t.size - 1 downTo 0).first { t.f0[it] > 0f && t.db[it] > top - SPAN_DB }
+        val m = SPAN_MARGIN_MS / HOP_MS
+        return maxOf(0, first - m)..minOf(t.size - 1, last + m)
+    }
+
+    /** [span] 만 남긴 분석 (목소리가 없으면 그대로). */
+    fun voicedOnly(t: Track): Track {
+        val r = span(t) ?: return t
+        if (r.first == 0 && r.last == t.size - 1) return t
+        return Track(t.f0.copyOfRange(r.first, r.last + 1), t.db.copyOfRange(r.first, r.last + 1))
+    }
+
+    /**
+     * 내 녹음 소리를 목소리 구간 ([span], 앞뒤 여유 120ms) 만 남겨 자른다: 채점 ([score]) · 판의 선 ([PitchLine.curves]) · 음절이 모두 같은 녹음을 보게.
+     * 목소리가 없으면 그대로 (침묵 판정은 [spoke] 가 한다).
+     */
+    fun voicedSamples(samples: FloatArray, rate: Int, t: Track = analyze(samples, rate)): FloatArray {
+        val r = span(t) ?: return samples
+        val hop = rate * HOP_MS / 1000
+        val win = rate * 40 / 1000
+        val a = (r.first * hop).coerceIn(0, samples.size)
+        val b = (r.last * hop + win).coerceIn(a, samples.size)
+        return if (a == 0 && b == samples.size) samples else samples.copyOfRange(a, b)
+    }
+
+    /** 채점: 두 소리 모두 목소리 구간 ([voicedOnly]) → 앞뒤 침묵 자르기 ([trim]) 뒤에 잰다. */
     fun score(ref: Track, mine: Track): Score {
-        val r = trim(ref); val y = trim(mine)
+        val r = trim(voicedOnly(ref)); val y = trim(voicedOnly(mine))
         if (r.size < 5 || y.size < 5 || y.voiced == 0) return Score(0, 0, 0)
         // 완성도: 목소리가 원래의 절반 이상이면 100
         val complete = if (r.voiced == 0) 100 else (100.0 * y.voiced / (0.5 * r.voiced)).roundToInt().coerceIn(0, 100)

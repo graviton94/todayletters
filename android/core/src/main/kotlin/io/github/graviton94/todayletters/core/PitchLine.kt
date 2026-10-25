@@ -152,20 +152,60 @@ object PitchLine {
 
     /** 내 선 (반음, 원래 선의 칸에 맞춤). */
     private fun mine(r: Line, mine: Prosody.Track): FloatArray? {
-        val (f0, db, _) = compress(mine)
+        // 저절로 멈춘 녹음의 꼬리 (마지막 목소리 뒤 1초) · 첫 목소리 앞은 뗀다 (채점과 같은 [Prosody.voicedOnly])
+        val (f0, db, _) = compress(Prosody.voicedOnly(mine))
         val c = continuous(f0, db) ?: return null
         val n = r.semis.size
         val m = minOf(200, c.semis.size).coerceAtLeast(2)
         val ys = bins(c.semis, m); val yd = bins(c.db, m)
         val (path, _) = Prosody.dtw(zs(r.db), zs(yd))
-        val sum = DoubleArray(n); val cnt = IntArray(n)
-        path.forEach { (i, j) -> sum[i] += ys[j]; cnt[i]++ }
-        val idx = (0 until n).filter { cnt[it] > 0 }
-        if (idx.isEmpty()) return null
-        val got = idx.map { (sum[it] / cnt[it]).toFloat() }
-        val out = interp(n, idx, got)
+        val w = warp(path, n, m)
+        // 맞춘 자리 (소수) 에서 내 선을 곧게 읽는다: 원래 칸 여럿이 내 칸 하나에 묶여 생기던 평평한 계단이 없다
+        val out = FloatArray(n) { i ->
+            val x = w[i]; val a = x.toInt().coerceIn(0, m - 1); val b = (a + 1).coerceAtMost(m - 1)
+            ys[a] + (ys[b] - ys[a]) * (x - a).toFloat()
+        }
         val mid = median(out.map { it.toDouble() }).toFloat()
         return FloatArray(n) { out[it] - mid }
+    }
+
+    /** 맞춘 길이 한 칸에 머무는 가장 작은 기울기 (내 칸 / 원래 칸, 고른 기울기의 몫). */
+    private const val WARP_MIN_SLOPE = 0.35
+    /** 맞춘 길 다듬기 (원래 칸, 가우스 시그마 = 칸 수 / 이것). */
+    private const val WARP_SMOOTH = 16.0
+
+    /**
+     * DTW 길 → 원래 칸마다 내 자리 (소수, 0..[m]−1). 크기 흐름 DTW 는 원래 칸 여럿을 내 칸 하나에 (또는 반대로) 묶는다 —
+     * 그대로 옮기면 내 선이 긴 평평한 계단 → 뛰어오름이 된다 (2026-10-25 폰 시험). 칸마다 평균 자리 → 가우스로 다듬기 →
+     * 늘 [WARP_MIN_SLOPE] 만큼은 앞으로 (물러나거나 멈추지 않음) → 처음 0 · 끝 m−1 로 맞춘다.
+     */
+    internal fun warp(path: List<Pair<Int, Int>>, n: Int, m: Int): DoubleArray {
+        val sum = DoubleArray(n); val cnt = IntArray(n)
+        path.forEach { (i, j) -> if (i in 0 until n) { sum[i] += j.toDouble(); cnt[i]++ } }
+        val diag = { i: Int -> if (n <= 1) 0.0 else i.toDouble() * (m - 1) / (n - 1) }
+        val raw = DoubleArray(n) { if (cnt[it] > 0) sum[it] / cnt[it] else diag(it) }
+        val sig = (n / WARP_SMOOTH).coerceAtLeast(1.0)
+        val half = (3 * sig).toInt()
+        val g = DoubleArray(2 * half + 1) { k -> val x = (k - half).toDouble(); exp(-x * x / (2 * sig * sig)) }
+        // 끝은 비춰 늘려 (거울) 다듬는다: 처음 · 끝이 가운데로 끌려 들어가지 않게
+        fun at(q: Int): Double = when {
+            q < 0 -> 2 * raw[0] - raw[(-q).coerceAtMost(n - 1)]
+            q >= n -> 2 * raw[n - 1] - raw[(2 * (n - 1) - q).coerceAtLeast(0)]
+            else -> raw[q]
+        }
+        val sm = DoubleArray(n) { q -> var s = 0.0; var t = 0.0; for (k in g.indices) { s += g[k] * at(q + k - half); t += g[k] }; s / t }
+        val step = if (n <= 1) 0.0 else WARP_MIN_SLOPE * (m - 1) / (n - 1)
+        for (q in 1 until n) sm[q] = maxOf(sm[q], sm[q - 1] + step)
+        val a = sm[0]; val b = sm[n - 1]
+        return DoubleArray(n) { q -> if (b - a <= 1e-9) diag(q) else ((sm[q] - a) / (b - a) * (m - 1)).coerceIn(0.0, (m - 1).toDouble()) }
+    }
+
+    /** 가장 긴 평평한 칸 수 (이웃 칸 차이가 [eps] 아래로 이어진 길이, 시험 · 근거용). */
+    fun plateau(x: FloatArray?, eps: Float = 1e-3f): Int {
+        if (x == null || x.isEmpty()) return 0
+        var best = 1; var run = 1
+        for (q in 1 until x.size) { if (abs(x[q] - x[q - 1]) < eps) run++ else run = 1; best = maxOf(best, run) }
+        return best
     }
 
     // ── 시제품 그대로의 길 ─────────────────────────────

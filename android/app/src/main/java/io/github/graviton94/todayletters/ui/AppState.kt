@@ -1313,6 +1313,24 @@ class AppState(val ctx: Context, deepLink: Boolean = false, recreated: Boolean =
     /** 덮개가 없을 때까지 기다린다 (없으면 바로). */
     suspend fun uncovered() { androidx.compose.runtime.snapshotFlow { covered }.first { !it } }
 
+    /**
+     * 저절로 나오는 소리 하나 (회화 상대 줄 · 먼저 듣기 · 따라 읽기 첫 듣기 · 이해 확인 지문, 2026-10-25 폰 시험): 덮개가 걷힐 때까지 기다렸다가
+     * [owner] (화면 안의 지금 단계, [io.github.graviton94.todayletters.data.Narrator.step]) 의 소리로 [start] 하고 끝날 때까지 기다린다.
+     * 끝까지 들었으면 true. 걷힌 그 순간 받을 수 없었으면 (앞 소리를 멈추는 중) 조금 뒤 · 다시 덮였으면 다시 걷힐 때 한 번 더.
+     * [owner] 가 더는 지금 단계가 아니면 (화면 · 차례를 옮김) 틀지 않고 false. [start] 는 끝났을 때 (끝까지 들었는가) 를 꼭 한 번 부른다.
+     */
+    suspend fun autoPlay(owner: Any?, start: (onEnd: (Boolean) -> Unit) -> Unit): Boolean {
+        repeat(3) {
+            uncovered()
+            if (owner != null && narrator.scene != owner) return false
+            if (!narrator.admits(owner)) { kotlinx.coroutines.delay(100); return@repeat }
+            val done = kotlinx.coroutines.CompletableDeferred<Boolean>()
+            start { ok -> done.complete(ok) }
+            return done.await()
+        }
+        return false
+    }
+
     /** 레벨 업 순간: [from] → [to] (한 번에 여러 레벨을 올라도 하나만). 보상 순간이 닫힌 뒤에 뜬다. */
     data class LevelUp(val from: Int, val to: Int)
     var levelUp by mutableStateOf<LevelUp?>(null)

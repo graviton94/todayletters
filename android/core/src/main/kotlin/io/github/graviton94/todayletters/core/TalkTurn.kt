@@ -18,6 +18,7 @@ package io.github.graviton94.todayletters.core
  * 녹음 → 채점 ([Event.Heard]): 따라 읽기와 같은 부품 (원래 소리 · 기기 안 녹음 · [Prosody] 억양 · 리듬, 편지 걸음처럼 목소리가 들어가면 통과).
  * 맞으면 [Phase.PASSED] (원문 + 금빛 체크, ‘다음’ 으로 다음 상대 줄). 틀리면 [Phase.RETRY] (다시 해 봐요),
  * [MAX_FAILS] 번 틀리면 [Phase.REVEALED] (원문을 보여 주고 다음으로 갈 수 있다, 막히지 않음). 폰의 음성 인식 · 스스로 판정은 없다.
+ * 맞은 뒤 · 원문을 보여 준 뒤에도 다시 말하기는 늘 열려 있다 ([State.canRecord]): 맞음은 거두지 않고, 원문을 본 뒤 맞히면 맞음.
  * 줄 하나만 건너뛰기는 없다 (걸음 전체의 건너뛰기만). 고르기만 하고 녹음하지 않으면 넘어가지 않는다.
  */
 object TalkTurn {
@@ -83,8 +84,11 @@ object TalkTurn {
         /** 알맹이가 있는 낱말의 자리 (쌓을 차례). */
         val order: List<Int> get() = keys.indices.filter { keys[it].isNotEmpty() }
 
-        /** 녹음할 수 있나 (칩 · 조각 단계를 마쳤고, 판정 중이 아님). */
-        val canRecord: Boolean get() = phase == Phase.READY || phase == Phase.RETRY
+        /**
+         * 녹음할 수 있나 (칩 · 조각 · 먼저 듣기를 마침). 채점된 뒤 (맞음 [Phase.PASSED] · 원문을 보여 줌 [Phase.REVEALED]) 에도 늘 다시 말할 수 있다
+         * (2026-10-25 폰 시험: 맞힌 뒤 ‘다시 말하기’ 가 흐린 단추로 막혔다).
+         */
+        val canRecord: Boolean get() = phase == Phase.READY || phase == Phase.RETRY || phase == Phase.PASSED || phase == Phase.REVEALED
 
         /** 녹음 단추를 보여 주나 (막혀 있어도 보인다: 회색 + 까닭 한 줄). */
         val showsRecord: Boolean get() = phase == Phase.BUILD || phase == Phase.LISTEN || canRecord
@@ -184,7 +188,14 @@ object TalkTurn {
     fun reduce(st: State, e: Event): State = when (e) {
         is Event.Pick -> ready(pick(st, e.index))
         Event.Hint -> if (!st.hintable) st else st.copy(hints = st.hints + 1, rejected = null)
-        is Event.Heard -> if (!st.canRecord) st else if (e.ok) st.copy(phase = Phase.PASSED) else fail(st, Phase.RETRY)
+        // 맞힌 뒤 다시 말한 것은 맞음을 거두지 않는다 (안 되면 판의 ‘다시’ 한 줄만), 원문을 보여 준 뒤 맞히면 맞음
+        is Event.Heard -> when {
+            !st.canRecord -> st
+            st.phase == Phase.PASSED -> st
+            st.phase == Phase.REVEALED -> if (e.ok) st.copy(phase = Phase.PASSED) else st
+            e.ok -> st.copy(phase = Phase.PASSED)
+            else -> fail(st, Phase.RETRY)
+        }
         Event.Continue -> if (st.phase == Phase.PASSED || st.phase == Phase.REVEALED) st.copy(phase = Phase.DONE) else st
         Event.Listened -> if (st.phase == Phase.LISTEN) st.copy(phase = Phase.READY) else st
     }

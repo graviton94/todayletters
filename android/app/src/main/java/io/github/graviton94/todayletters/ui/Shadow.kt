@@ -161,8 +161,7 @@ fun ReadAlong(s: AppState, room: Route.Letter, only: List<Int>?, onClose: () -> 
     // 새 마디 (화면 안의 단계) 에 오면: 이 마디의 소리만 받고, 덮개 (보상 · 묻는 창 · 도움말 등) 가 걷힌 뒤 원래 소리를 한 번 (먼저 듣기)
     LaunchedEffect(take) {
         val me = s.narrator.step("shadow" to at)
-        s.uncovered()
-        if (!take.have) take.original(s, owner = me)
+        if (!take.have) s.autoPlay(me) { end -> take.listen(s, me, end) }
     }
 
     val last = at == flat.lastIndex
@@ -321,8 +320,8 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
     val times = androidx.compose.runtime.mutableStateListOf<Long>()
     val hasAudio: Boolean get() = audio != null && start >= 0
     val have: Boolean get() { tick; return file.exists() }
-    /** 아직 먼저 듣기를 마치지 않아 녹음이 막혀 있다 (소리가 없거나 이미 녹음이 있으면 막지 않는다). */
-    val locked: Boolean get() = listenFirst && hasAudio && !heard && !have && !recording
+    /** 아직 먼저 듣기를 마치지 않아 녹음이 막혀 있다 (소리가 없거나 이미 녹음이 있거나 한 번이라도 녹음해 채점됐으면 막지 않는다: 다시 말하기는 늘 열림). */
+    val locked: Boolean get() = listenFirst && hasAudio && !heard && !have && !recording && tick == 0
     /**
      * 마지막 녹음이 통과인가 (아직 재지 않았으면 null). 판정은 이것 하나 (core 의 SpeakCheck.judge): [step] 이면 [voice]
      * (목소리 + 음절 맞음 또는 점수 ≥ 통과 문턱, 두 번째 실패는 목소리만), 봉인까지의 따라 읽기는 점수 ≥ 통과 문턱.
@@ -351,6 +350,17 @@ class ShadowTake(val audio: String?, val start: Int, val end: Int, val file: jav
         stopRecording(s)
         stopCompare(s)
         playOriginal(s, speed ?: if (slow) io.github.graviton94.todayletters.core.Listen.SLOW else null, owner) {}
+    }
+
+    /**
+     * 원래 소리를 저절로 한 번 (먼저 듣기, [AppState.autoPlay] 가 덮개 · 주인을 본 뒤): 끝나면 [then] 한 번 (끝까지 들었는가).
+     * 원래 소리가 없으면 바로 true.
+     */
+    fun listen(s: AppState, owner: Any?, then: (Boolean) -> Unit) {
+        stopRecording(s); stopCompare(s)
+        if (!hasAudio) { then(true); return }
+        var called = false
+        playOriginal(s, if (slow) io.github.graviton94.todayletters.core.Listen.SLOW else null, owner) { ok -> if (!called) { called = true; then(ok) } }
     }
 
     /** [then] 은 원래 소리가 끝났을 때 (끝까지 들었으면 true · 멈췄거나 다른 소리 · 화면을 옮겼으면 false). 끝까지 들으면 [heard]. */
@@ -491,8 +501,11 @@ fun rememberShadowTake(s: AppState, audio: String?, start: Int, end: Int, file: 
         }
         t.scoring = true
         val bg = kotlinx.coroutines.Dispatchers.Default
+        // 내 녹음은 목소리 구간만 (core 의 Prosody.voicedSamples, 앞뒤 여유 120ms): 저절로 멈추기가 기다린 1초 꼬리 · 첫 목소리 앞이
+        // 채점 · 선에 들어가지 않게 (원래 소리는 Prosody.score 안에서 같은 규칙으로)
         val mine = kotlinx.coroutines.withContext(bg) {
             runCatching { io.github.graviton94.todayletters.data.Wav.samples(io.github.graviton94.todayletters.data.Wav.pcm(t.file)) }.getOrNull()
+                ?.let { P.voicedSamples(it, rate) }
         }
         val mt = mine?.let { kotlinx.coroutines.withContext(bg) { P.analyze(it, rate) } }
         val spoke = mt != null && P.spoke(mt)

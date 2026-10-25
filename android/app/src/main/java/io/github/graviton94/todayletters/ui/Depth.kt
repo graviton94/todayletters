@@ -51,6 +51,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.first
 import io.github.graviton94.todayletters.R
 import io.github.graviton94.todayletters.core.Breaks
 import io.github.graviton94.todayletters.core.Lang
@@ -112,10 +113,13 @@ fun CheckStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
         c?.evidence.orEmpty().map { i -> s.narrator.path(id, chapter, letter.id, "m${i + 1}_${view.learn.code}") }.filter { s.narrator.has(it) }
     }
     // 다음 메시지는 앞 메시지를 끝까지 들었을 때만 (멈추거나 화면을 옮기면 잇지 않는다)
-    fun listen(from: Int = 0, speed: Float? = null) { clips.getOrNull(from)?.let { s.narrator.playThen(it, speed, owner = me) { ok -> if (ok && from + 1 < clips.size) listen(from + 1, speed) } } }
+    fun listen(from: Int = 0, speed: Float? = null, end: (Boolean) -> Unit = {}) {
+        val clip = clips.getOrNull(from) ?: return end(true)
+        s.narrator.playThen(clip, speed, owner = me) { ok -> if (ok && from + 1 < clips.size) listen(from + 1, speed, end) else end(ok) }
+    }
     // 질문이 뜨면 지문을 한 번 저절로 (자동 낭독 설정 · 기본 듣기 속도, 소리 파일이 없으면 조용히)
     // 질문마다 그 질문의 소리만 받고, 덮개 (보상 · 묻는 창 · 도움말) 가 걷힌 뒤에
-    LaunchedEffect(letter.id, k) { me = s.narrator.step("check" to k); s.uncovered(); if (s.app.sound) listen() }
+    LaunchedEffect(letter.id, k) { val o = s.narrator.step("check" to k); me = o; if (s.app.sound) s.autoPlay(o) { end -> listen(end = end) } }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
         PracticeHeader(if (over) k + 1 else k, n, onClose = onClose, count = "${k + 1} / $n",
@@ -205,16 +209,23 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     fun audio(i: Int): String? = talk?.audioName(i, view.learn)?.let { s.narrator.path(id, chapter, letter.id, it) }?.takeIf { s.narrator.has(it) }
     // 소리의 주인: 이 화면의 지금 차례 (화면 안의 단계, 시안 하루 흐름 ①). 차례가 바뀌면 앞 차례의 늦은 소리는 받지 않는다
     var me by remember(letter.id) { mutableStateOf<Any?>(s.narrator.scene) }
+    // 저절로 들은 상대 줄 수: 상대 줄 [shown]−1 의 소리가 끝나면 (끝까지 · 멈춤 · 소리 없음 모두) [shown] 이 된다.
+    // 내 줄의 먼저 듣기는 이것을 기다린다 (2026-10-25 폰 시험: 내 줄 먼저 듣기가 막 시작한 상대 줄 소리를 바로 잘라 상대 줄이 들리지 않았다)
+    var spoken by rememberSaveable(letter.id) { mutableIntStateOf(0) }
     LaunchedEffect(shown, lines.size) {
         // 앞 줄 소리(상대 줄 · 내 줄 정답 소리)가 끝난 뒤에 다음 상대 줄 (그 줄의 소리가 앞 소리를 자르지 않게).
-        // 무언가 화면을 덮고 있으면 (보상 · 묻는 창 · 도움말 · 설정) 걷힐 때까지 기다린다
+        // 무언가 화면을 덮고 있으면 (보상 · 걸음 마침 한 장 · 묻는 창 · 도움말 · 설정) 걷힐 때까지 기다린다
         if (shown < lines.size && !lines[shown].me) { awaitAnswerSound(s.narrator, if (shown == 0) 300 else 900); s.uncovered(); shown++ }
     }
-    // 상대 줄은 저절로: 이 화면 · 이 차례의 소리로만 (화면을 떠난 뒤 다음 줄 차례가 와도 새 화면 소리를 자르지 않게)
+    // 상대 줄은 저절로: 이 화면 · 이 차례의 소리로만 (화면을 떠난 뒤 다음 줄 차례가 와도 새 화면 소리를 자르지 않게),
+    // 덮개가 걷힌 뒤에 (걷히는 사이 다시 덮이면 다시 걷힐 때, AppState.autoPlay), 끝날 때까지 기다렸다가 [spoken]
     LaunchedEffect(shown) {
-        me = s.narrator.step("talk" to shown)
+        val owner = s.narrator.step("talk" to shown)
+        me = owner
         val i = shown - 1
-        if (i >= 0 && !lines[i].me) audio(i)?.let { s.narrator.play(it, owner = me) }
+        val a = if (i >= 0 && !lines[i].me) audio(i) else null
+        if (a != null) s.autoPlay(owner) { end -> s.narrator.playThen(a, owner = owner, onEnd = end) }
+        spoken = maxOf(spoken, shown)
     }
     DisposableEffect(letter.id) { onDispose { s.pcm.onFrame = null; s.pcm.stop(); s.recorder.release(); s.narrator.stop(me) } }
     val done = shown >= lines.size && lines.isNotEmpty()
@@ -235,8 +246,13 @@ fun TalkStep(s: AppState, r: Route.Play, onClose: () -> Unit) {
     }
     LaunchedEffect(phase, cur) {
         when (phase) {
-            // 먼저 듣기: 덮개가 걷히면 내 문장을 한 번 (끝까지 들으면 녹음이 열린다)
-            TalkTurn.Phase.LISTEN -> { s.uncovered(); take?.original(s, owner = me) }
+            // 먼저 듣기: 상대 줄 소리가 끝난 뒤 (덮개가 걷히면) 내 문장을 한 번 (끝까지 들으면 녹음이 열린다)
+            TalkTurn.Phase.LISTEN -> {
+                val at = cur ?: return@LaunchedEffect
+                androidx.compose.runtime.snapshotFlow { spoken }.first { it >= at }
+                val o = me
+                take?.let { tk -> s.autoPlay(o) { end -> tk.listen(s, o, end) } }
+            }
             TalkTurn.Phase.REVEALED -> { s.uncovered(); cur?.let { audio(it) }?.let { s.narrator.play(it, owner = me) } }
             TalkTurn.Phase.DONE -> { val t = st; if (cur != null && t != null) { marks += if (t.passed) "1" else "0"; shown = cur + 1 } }
             else -> Unit
@@ -481,8 +497,7 @@ fun ReplySpeak(s: AppState, r: Route.Play, turn: Int, turns: Int, onNext: () -> 
         onVoice = { v -> if (v) spoken = true }, sayLike = s.sayLike(id, sentence), listenFirst = how == Support.Speak.SHOWN, text = sentence, lang = view.learn)
     LaunchedEffect(take) {
         val me = s.narrator.step("reply" to turn)
-        s.uncovered()
-        if (how == Support.Speak.SHOWN && !take.have) take.original(s, owner = me)
+        if (how == Support.Speak.SHOWN && !take.have) s.autoPlay(me) { end -> take.listen(s, me, end) }
     }
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.35f)) {
         PracticeHeader(turn + 1, turns, onClose = onClose, count = if (turns > 1) stringResource(R.string.ladder_turn, turn + 1, turns) else null,

@@ -153,6 +153,8 @@ class Narrator(private val ctx: Context) {
         val rate = speed ?: if (asset.startsWith("sounds/")) 1f else runCatching { base() }.getOrDefault(1f)
         val fd = AssetFiles.fd(ctx, asset) ?: run { onEnd(true); return false }
         voice.begin(owner, onEnd)
+        // 시험만 ([fake]): 소리 없이 시작만 적고, 끝은 [fakeEnd] 가 (멈춤 · 다른 소리로 바뀜은 앱과 같다)
+        fake?.let { runCatching { fd.close() }; it += asset; now = asset; return true }
         // 소리 파일이 깨졌거나 재생기가 거절하면 조용히 넘어간다 (대화는 계속)
         player = runCatching {
             MediaPlayer().apply {
@@ -172,6 +174,17 @@ class Narrator(private val ctx: Context) {
         clock.start(asset, tick())
         return true
     }
+
+    /** 새 소리를 [owner] 의 것으로 지금 받을 수 있는가 (멈추는 중이 아니고, 지난 화면 · 단계가 아님). */
+    fun admits(owner: Any?): Boolean = voice.admits(owner)
+
+    /**
+     * 시험만 (NavTest · 화면 사진): null 이 아니면 소리를 실제로 내지 않고 시작한 파일을 차례로 적는다. 소리는 [fakeEnd] 때 끝까지 들은 것으로 끝난다
+     * (그 전에 다른 소리 · 멈춤이 오면 앱처럼 ‘끝까지 듣지 않음’). 앱에서는 늘 null.
+     */
+    var fake: MutableList<String>? = null
+    /** 시험만: [fake] 로 내는 지금 소리를 끝까지 들은 것으로 끝낸다. */
+    fun fakeEnd() { if (fake != null && now != null && player == null) { count(); now = null; voice.end(true) } }
 
     /** 지금 소리를 내는 파일 (멈춘 것 포함, 끝나거나 멈추면 null). 화면이 읽는 자리를 칠할 때 이것을 본다. */
     var now by mutableStateOf<String?>(null)
