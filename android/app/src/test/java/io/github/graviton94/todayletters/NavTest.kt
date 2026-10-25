@@ -886,6 +886,7 @@ class NavTest {
     // ── 편지 방 읽기 흐름 (시안 room src4): 내가 누른 것이 이긴다 · 내 차례 · 노트 뒤 다음 걸음 ──
 
     /** 편지 방을 낭독 없이 (시험용 가짜 낭독) 그린다: 도착 장면 · 타자 기다림 없이. [n] 은 I장 몇 번째 편지. */
+    // 글자 자리 (낱말을 눌러 고르기) 가 실제 글꼴로 재어져야 해서 이 시험들은 NATIVE 그래픽으로
     private fun roomRun(n: Int): Triple<AppState, Route.Letter, MutableList<String>> {
         val s = state()
         s.enter("vincent")
@@ -914,7 +915,7 @@ class NavTest {
      * 내가 누른 것이 이긴다: 지금 문장의 낱말을 누르면 멈추고 (새 문장 없음), 카드의 ‘“낱말” 부터 이어 듣기’ 는 그 낱말 150ms 앞부터.
      * 사진을 누르면 멈춘다 (띠, 이어서 듣기는 그 사진 다음부터). 읽은 문장을 누르면 그 문장만 다시 듣고 이어 듣기는 멈춘다.
      */
-    @Test fun roomManualActionWins() {
+    @org.robolectric.annotation.GraphicsMode(org.robolectric.annotation.GraphicsMode.Mode.NATIVE) @Test fun roomManualActionWins() {
         val (s, room, log) = roomRun(2)
         val (_, l) = s.letterOf(room)
         val m1 = s.msgAudio(room, 0); val m2 = s.msgAudio(room, 1)
@@ -966,7 +967,7 @@ class NavTest {
     }
 
     /** 내가 하는 일 (테오의 송금): 아래 자리가 그 단추가 되고, 누를 때까지 편지가 오지 않는다. 누르면 오른쪽 ‘내가 보냄’ 말풍선, 그다음 첫 문장. */
-    @Test fun roomTheoActsBeforeTheLetter() {
+    @org.robolectric.annotation.GraphicsMode(org.robolectric.annotation.GraphicsMode.Mode.NATIVE) @Test fun roomTheoActsBeforeTheLetter() {
         val (s, room, log) = roomRun(3)
         val (_, l) = s.letterOf(room)
         val t = l.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Transfer>().first()
@@ -985,7 +986,7 @@ class NavTest {
     }
 
     /** 마지막 문장 · 순간 뒤에 큐레이터 노트 (미술관 카드), 그 뒤에야 아래 자리가 ‘다음 걸음 · …’ 단추. */
-    @Test fun roomNoteThenNextStep() {
+    @org.robolectric.annotation.GraphicsMode(org.robolectric.annotation.GraphicsMode.Mode.NATIVE) @Test fun roomNoteThenNextStep() {
         val (s, room, log) = roomRun(2)
         val (_, l) = s.letterOf(room)
         val next = ctx.getString(R.string.go_next_step, "")
