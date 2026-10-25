@@ -901,7 +901,7 @@ class NavTest {
     }
     private fun AppState.msgAudio(room: Route.Letter, i: Int): String {
         val (c, l) = letterOf(room)
-        return narrator.path("vincent", c, l.id, "m${i + 1}_${room(room.series).learn.code}")
+        return narrator.path("vincent", c, l.id, "m${i + 1}_${this.room(room.series).learn.code}")
     }
     private fun endSound(s: AppState, ms: Long) {
         rule.runOnUiThread { s.narrator.fakeEnd(); androidx.compose.runtime.snapshots.Snapshot.sendApplyNotifications() }

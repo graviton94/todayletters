@@ -25,7 +25,7 @@ jobs:
         if: failure()
         run: |
           grep -h -A12 "<failure" android/app/build/test-results/testDebugUnitTest/*.xml | head -120 || true
-          ./android/gradlew -p android :app:compileDebugUnitTestKotlin 2>&1 | grep -E "^e: " | head -40 || true
+          ./android/gradlew -p android :app:compileDebugUnitTestKotlin 2>&1 | grep -E "^e: " | head -40 | tee compile-errors.txt || true
       - name: Publish to screens branch
         if: always()
         run: |
@@ -34,6 +34,8 @@ jobs:
           cp android/app/build/screens/*.png out/ 2>/dev/null || true
           grep -h -B2 -A25 "<failure" android/app/build/test-results/testDebugUnitTest/*.xml > out/failures.txt 2>/dev/null || true
           ls android/app/build/screens/ > out/last-run.txt 2>/dev/null || true
+          # 시험 코드가 컴파일되지 않으면 그 까닭 (실행 기록을 못 여는 곳에서도 보이게)
+          cp compile-errors.txt out/compile-errors.txt 2>/dev/null || : > out/compile-errors.txt
           cd out && ls -la
           git checkout -q -B screens
           git add -A
