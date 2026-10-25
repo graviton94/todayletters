@@ -1,14 +1,10 @@
 package io.github.graviton94.todayletters.ui
 
 import io.github.graviton94.todayletters.data.learnVocab
-
 import io.github.graviton94.todayletters.data.Playback
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.ui.draw.clip
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -18,7 +14,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -28,24 +23,31 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
+import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.layout.positionInParent
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -53,450 +55,657 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import io.github.graviton94.todayletters.R
+import io.github.graviton94.todayletters.core.Breaks
 import io.github.graviton94.todayletters.core.Exercises
+import io.github.graviton94.todayletters.core.Interlinear
 import io.github.graviton94.todayletters.core.Lang
-import io.github.graviton94.todayletters.core.Plays
+import io.github.graviton94.todayletters.core.Listen
+import io.github.graviton94.todayletters.core.Moment
 import io.github.graviton94.todayletters.core.ReplyMode
+import io.github.graviton94.todayletters.core.RoomFlow
 import io.github.graviton94.todayletters.core.Route
 import io.github.graviton94.todayletters.core.TypingPace
+import io.github.graviton94.todayletters.core.Vocab
 import io.github.graviton94.todayletters.data.recipientOf
+import io.github.graviton94.todayletters.design.Faces
 import io.github.graviton94.todayletters.design.Ink
 import io.github.graviton94.todayletters.design.Tokens
 import io.github.graviton94.todayletters.design.Type
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import androidx.compose.foundation.gestures.scrollBy
-import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlin.coroutines.resume
+import kotlinx.coroutines.withTimeoutOrNull
+
+/** 편지 방이 지금 하는 일: 쉼 · 쓰는 중 · 낭독 · 문장 사이 쉼 · 내 차례 (받는 사람이 할 일). */
+internal enum class RoomPhase { IDLE, TYPING, PLAY, HOLD, ASK }
+
+/** 멈춘 띠 (이어 듣기가 멈춘 까닭). */
+private sealed interface Pill {
+    data class Replaying(val i: Int) : Pill
+    data class Replayed(val i: Int) : Pill
+    data class Word(val surface: String) : Pill
+    data class Look(val what: Int) : Pill
+}
 
 /**
- * 편지 = 대화방. 문장마다 편지지 한 조각이 도착하고, 글자는 줄마다 잉크가 번지며 한 번만 나타난다.
- * 소리는 저절로 나지 않는다: 조각의 듣기 단추나 위의 "전체 듣기"를 누를 때만 (미디어 볼륨).
- * 진도는 문장 단위로 저장되어, 나갔다 와도 그 자리에서 이어진다 (이미 받은 조각은 다 써진 채로).
+ * 편지 = 대화방 (시안 room src4, 2026-10-25 허락). 편지 한 통을 차례 ([RoomFlow.timeline]) 로 이어 듣는다:
+ * 쓰는 중 0.7초 → 문장이 도착해 떠오른 카드로 (화면 위 22% 자리) → 낭독이 낱말마다 따라가고 (낱말 시각 파일, 없으면 마디 시각) →
+ * 문장 사이 쉼 (아래 금선) → 그 문장 뒤의 순간 (보는 동안 쉼) → … → 큐레이터 노트 → 아래 자리가 ‘다음 걸음’ 단추.
+ *
+ * 사람이 누른 것이 이긴다: 읽은 문장을 누르면 그 문장만 다시 듣고 이어 듣기는 멈춘다 (띠 “2번째 문장을 다시 듣는 중 · 이어서 듣기 · 3번째부터”).
+ * 지금 문장의 낱말 · 사진 · 지도를 눌러도 멈춘다. 낱말 카드에서 멈췄으면 그 낱말 바로 앞부터 이어 듣는다.
+ * 내가 (받는 사람이) 하는 일 (테오의 송금) 은 아래 자리가 그 단추가 되어 내가 눌러야 편지가 이어진다.
+ * 앱을 벗어나도 낭독은 이어지고 (알림 · 잠금 화면 단추), 밀어 닫으면 남은 문장을 [Playback.handOff] 가 이어 읽는다.
+ * 진도는 문장 단위로 저장되어 다시 열면 그 자리에서 (듣다 멈춘 문장이 있으면 묻는다).
  */
 @Composable
 fun Room(s: AppState, r: Route.Letter) {
     val p = Ink.palette
+    val ink = remember(p) { RoomInk(p) }
     val (chapter, letter) = s.letterOf(r)
     val id = r.series
     val work = s.work(id)
     val view = s.room(id)
     s.version
+    val ui = uiLang()
     val total = letter.messages.size
     val already = remember(letter.id) { s.progress(id, chapter, letter.id).shown }
-    var arrived by remember(letter.id) { mutableIntStateOf(already) }   // 화면에 놓인 조각 수
-    var written by remember(letter.id) { mutableIntStateOf(already) }   // 다 써진 조각 수
-    var writing by remember(letter.id) { mutableStateOf(false) }
     var words by remember { mutableStateOf(false) }
     var wordFocus by remember { mutableStateOf<Int?>(null) }
     // 편지 카드 (문장 길게 누르기): 고른 메시지 번호
     var cardOf by remember(letter.id) { mutableStateOf<Int?>(null) }
-    // 펼친 낱말은 [AppState.gloss] (화면 맨 위의 GlossHost 가 카드를 띄운다). 배우는 말이 이 작품 어휘 자료의 언어일 때만
+    // 배우는 말이 이 작품 어휘 자료의 언어일 때만 낱말 토큰이 있다
     val glossTokens = remember(id, letter.id, view.learn, work.deck) {
         letter.messages.indices.map { s.glossTokens(id, letter.id, it) }.takeIf { t -> t.any { it != null } }
     }
-    val glossAt = s.gloss?.takeIf { it.series == id && it.letter.id == letter.id }?.let { it.msg to it.token }
-    // 낱말 아래 뜻 (시안 beginner.html ①, core Interlinear): 아직 내 것이 아닌 낱말마다 그 아래 짧은 뜻. 위의 켜고 끄기 (기본 켜짐)
+    // 낱말 아래 뜻 (core Interlinear): 지금 문장에만 보인다. 켜고 끄기와 상관없이 낱말 카드가 칸 · 자리를 쓴다
     val ilOn = glossTokens != null && s.interlinearOn(id)
-    val il = remember(s.version, letter.id, view.learn, view.read, ilOn) { if (!ilOn) null else interlinearLines(s, id, letter, glossTokens!!) }
-    // 예열에서 본 말 (‘아까 본 말’, 금빛 점선): 사전 열쇠 · 닻 · 표현
-    val seen = remember(s.version, letter.id) { s.warmSeen(id, chapter, letter.id) }
-    var playing by remember(letter.id) { mutableStateOf<Int?>(null) }
-    var all by remember { mutableStateOf<Job?>(null) }
-    val controlsRef = remember { arrayOfNulls<Playback.Controls>(1) }
-    val list = rememberLazyListState()
+    val ilAll = remember(s.version, letter.id, view.learn, view.read, glossTokens) { glossTokens?.let { interlinearLines(s, id, letter, it) } }
+    // 기능어 · 문형 · 관용구 노트 (core NoteBook, ui/RoomNotes.kt)
+    val notes = remember(letter.id, view.learn, glossTokens) { letter.messages.indices.map { i -> glossTokens?.getOrNull(i)?.let { roomNotes(s, id, it) } ?: emptyList() } }
     val scope = rememberCoroutineScope()
 
     val pace = when (view.pace) { TypingPace.CALM -> 1f; TypingPace.QUICK -> 0.55f; TypingPace.INSTANT -> 0f }
     val animate = pace > 0f && !s.reducedMotion
     fun audio(i: Int) = s.narrator.path(id, chapter, letter.id, "m${i + 1}_${view.learn.code}")
-    // 낭독이 아직 없는 편지 (모차르트 등): 듣기 단추를 숨기고, 자동 낭독 · 알림창 재생도 시작하지 않는다 (읽기는 그대로)
+    // 낭독이 아직 없는 편지: 소리 없이 읽기 (문장마다 읽을 시간만큼 쉬고 다음 문장)
     val narrated = remember(letter.id, view.learn) { total > 0 && s.narrator.has(audio(0)) }
+    val sound = narrated && s.app.sound
 
     // 낭독 이어 듣기: 앱을 벗어나도 알림창 · 잠금 화면 · 이어폰 단추로 멈추고 넘긴다 (data/Playback)
     val appCtx = androidx.compose.ui.platform.LocalContext.current.applicationContext
+    val ctx = androidx.compose.ui.platform.LocalContext.current
     val lifecycle = androidx.lifecycle.compose.LocalLifecycleOwner.current.lifecycle
     fun fg() = lifecycle.currentState.isAtLeast(androidx.lifecycle.Lifecycle.State.STARTED)
     val key = s.key(id, chapter, letter.id)
-    val jump = remember(letter.id) { intArrayOf(0) }   // 단추로 넘길 곳: 1 다음 문장, -1 이전 문장, 2 이 문장 처음부터
+    val controlsRef = remember { arrayOfNulls<Playback.Controls>(1) }
     var muted by remember(letter.id) { mutableStateOf(false) }   // 알림을 밀어 지우면 이 방에서는 더 읽지 않는다
     val nowTitle = dateLine(letter.date, letter.place)
-    val toWhom = remember(letter.id) { work.recipientOf(letter) }   // 이 편지를 받는 사람 (편지에 적혀 있으면 그 사람)
-    val nowSub = stringResource(R.string.narration_sub, work.name[uiLang()], toWhom[uiLang()],
-        work.chapters.firstOrNull { it.id == chapter }?.title?.get(uiLang()).orEmpty())
+    val toWhom = remember(letter.id) { work.recipientOf(letter) }   // 이 편지를 받는 사람 (대화방의 나)
+    val nowSub = stringResource(R.string.narration_sub, work.name[ui], toWhom[ui],
+        work.chapters.firstOrNull { it.id == chapter }?.title?.get(ui).orEmpty())
     fun session() {
         if (Playback.now == null || Playback.detached) Playback.start(appCtx, s.narrator,
             Playback.Now(nowTitle, nowSub, letter.plate?.image?.takeIf { it.isNotBlank() }?.let { "plates/$it" }, 0, total), controlsRef[0]!!)
     }
-
     // 이 방의 소리 주인 (들어올 때의 화면): 방을 떠난 뒤의 늦은 낭독은 받지 않고, 방이 사라질 때는 제 소리만 멈춘다
     val me = remember(letter.id) { s.narrator.scene }
-    fun stopAll() { all?.cancel(); all = null; s.narrator.stop(); playing = null; Playback.end(appCtx) }
-    // 이어 읽을 끝 (앱을 밀어 닫았을 때 여기까지 Playback 이 이어 읽는다): 도착 낭독은 편지 끝, 모두 듣기는 쓰인 데까지, 한 조각은 그 조각
-    val queue = remember(letter.id) { intArrayOf(total, 1) }   // [끝, 들은 자리 남기기 1/0]
-    /**
-     * [from] 번째부터 [until] 앞까지 차례로 읽는다. 멈춰 두면 기다리고, 단추로 앞뒤 문장을 오간다.
-     * [extend] 면 ‘다음’ 단추로 [until] 너머(쓰인 조각까지)로도 간다. [mark] 면 듣다 멈춘 자리를 남긴다.
-     */
-    suspend fun say(from: Int, until: Int, extend: Boolean = false, mark: Boolean = true, speed: Float? = null): Boolean {
-        var k = from
-        var end = until
-        var whole = true
-        while (k < end && !muted) {
-            snapshotFlow { Playback.paused }.first { !it }
-            session()
-            playing = k; Playback.update(k); if (mark) s.store.setHeard(key, k)
-            jump[0] = 0
-            val heard = suspendCancellableCoroutine<Boolean> { c ->
-                // 앱을 밀어 닫아 Playback 이 넘겨받았으면 소리를 끊지 않는다. 이 방의 소리일 때만 (새 화면 소리는 그대로)
-                c.invokeOnCancellation { if (!Playback.detached) s.narrator.stop(me) }
-                s.narrator.playThen(audio(k), speed, owner = me) { ok -> if (c.isActive) c.resume(ok) }
-            }
-            val j = jump[0]
-            // 단추 없이 멈췄으면 (다른 소리 · 방을 떠남) 다음 문장으로 잇지 않는다
-            k = io.github.graviton94.todayletters.core.Voice.next(k, heard, j) ?: run { whole = false; end }
-            if (extend && j == 1 && k >= end && k < written) end = k + 1
-        }
-        if (playing != null) playing = null
-        return whole
+
+    // ── 차례 ───────────────────────────────────────────────
+    val moments = remember(letter.id, s.version) { letter.moments.filter { it.shows(s, id) } }
+    val beats = remember(letter.id, moments) { RoomFlow.timeline(total, moments.map { it.after }, letter.note != null) }
+    val start = remember(letter.id, beats) { RoomFlow.visibleFor(beats, already) }
+    var visible by remember(letter.id) { mutableIntStateOf(start) }            // 화면에 놓인 칸 수
+    val heard = remember(letter.id) { mutableStateListOf<Boolean>().apply { repeat(total) { add(it < already) } } }
+    var cur by remember(letter.id) { mutableIntStateOf(if (already in 1..total) already - 1 else -1) }   // 지금 문장
+    var phase by remember(letter.id) { mutableStateOf(RoomPhase.IDLE) }
+    var chainOn by remember(letter.id) { mutableStateOf(false) }   // 이어 듣는 중
+    var single by remember(letter.id) { mutableStateOf(false) }    // 한 문장만 다시 듣는 중
+    var paused by remember(letter.id) { mutableStateOf(false) }
+    var holdAt by remember(letter.id) { mutableIntStateOf(-1) }    // 쉬는 칸
+    var holdMs by remember(letter.id) { mutableLongStateOf(0L) }    // 0 = 곡처럼 넘길 때까지
+    var nextBeat by remember(letter.id) { mutableIntStateOf(start) }   // 이어 들을 칸
+    var pill by remember(letter.id) { mutableStateOf<Pill?>(null) }
+    var pick by remember(letter.id) { mutableStateOf<RoomPick?>(null) }
+    var fromWord by remember(letter.id) { mutableStateOf<Pair<Int, Int>?>(null) }   // (문장, 낱말): 낱말에서 멈춘 자리
+    var focus by remember(letter.id) { mutableIntStateOf(if (already in 1..total) RoomFlow.beatOf(beats, already - 1) else -1) }
+    var job by remember { mutableStateOf<Job?>(null) }
+    val skip = remember(letter.id) { Channel<Unit>(Channel.CONFLATED) }
+    val act = remember(letter.id) { Channel<Unit>(Channel.CONFLATED) }
+    val pos = remember(letter.id) { mutableIntStateOf(-1) }
+    // 빠르기 칩: 1× (작품의 기본 빠르기, 천천히 듣는 2주면 1) · 0.8×
+    val base = s.listenSpeed(id)
+    var slow by remember(id) { mutableStateOf(base <= Listen.SLOW) }
+    val normal = if (base > Listen.SLOW) base else 1f
+    val rate = if (slow) Listen.SLOW else normal
+    val pause = s.app.hold
+    var listening by remember(letter.id) { mutableStateOf<Moment.Music?>(null) }
+    var look by remember(letter.id) { mutableStateOf<Moment.Photo?>(null) }
+    var lookPlate by remember(letter.id) { mutableStateOf(false) }
+
+    // 낱말 자리 (글자 범위) 와 시각 (밀리초): 낱말 시각 파일, 없거나 낱말 수가 다르면 마디 시각에서 어림
+    val wordsOf = remember(letter.id, view.learn) { letter.messages.map { RoomFlow.wordRanges(it.text[view.learn]) } }
+    val times = remember(letter.id, view.learn) { arrayOfNulls<List<IntRange>>(total) }
+    fun timesOf(i: Int): List<IntRange> = times[i] ?: run {
+        val text = letter.messages[i].text[view.learn]
+        val w = s.narrator.words(audio(i))?.takeIf { it.size == wordsOf[i].size }?.map { it.s..maxOf(it.s, it.e) }
+        (w ?: s.narrator.chunks(audio(i)).let { c -> RoomFlow.chunkWords(text, c.map { it.start }, c.map { it.end }, c.map { it.text }) }).also { times[i] = it }
     }
+    // 오늘의 낱말 (낱말 카드로 가는 밑줄): 사전 열쇠가 있으면 토큰으로, 없으면 글자 맞추기로
+    val marksAll = remember(letter.id, view.learn, glossTokens) {
+        letter.messages.mapIndexed { i, m ->
+            val toks = glossTokens?.getOrNull(i)
+            val ranges = ilAll?.getOrNull(i)?.ranges ?: toks?.let { Vocab.align(m.text[view.learn], it) } ?: emptyList()
+            if (toks != null && letter.words.any { it.lex.isNotEmpty() }) buildList {
+                toks.forEachIndexed { j, t ->
+                    val k = letter.words.indexOfFirst { it.lex == t.key }
+                    if (k >= 0 && j < ranges.size && !ranges[j].isEmpty() && none { it.second == k }) add(ranges[j] to k)
+                }
+            } else wordMarks(m.text[view.learn], letter.words.map { it.text[view.learn] })
+        }
+    }
+    // 노트 자리: 낱말 하나는 점선, 여럿 (문형 · 관용구) 과 표현 · 닻 칸은 가는 묶음 선
+    val noteSpots = remember(letter.id, ilAll, notes) {
+        letter.messages.indices.map { i ->
+            val line = ilAll?.getOrNull(i)
+            val rg = line?.ranges ?: emptyList()
+            fun span(a: Int, b: Int): IntRange? { val x = rg.getOrNull(a); val y = rg.getOrNull(b); return if (x == null || y == null || x.isEmpty() || y.isEmpty()) null else x.first..y.last }
+            val dotted = notes[i].filter { it.from == it.to }.mapNotNull { span(it.from, it.to) }
+            val grouped = notes[i].filter { it.from < it.to }.mapNotNull { span(it.from, it.to) } +
+                (line?.units?.filter { it.kind != Interlinear.Kind.WORD && it.to > it.from }?.mapNotNull { span(it.from, it.to) } ?: emptyList())
+            dotted to grouped
+        }
+    }
+
+    // 재생 위치: 지금 문장이 소리 나는 동안. 낱말 사이 긴 쉼은 건너뛴다 (RoomFlow.skipSilence, 옮긴 자리에서 다시 옮기지 않음)
+    val sounding = cur >= 0 && s.narrator.now == audio(cur)
+    LaunchedEffect(cur, sounding) {
+        if (!sounding) { pos.intValue = -1; return@LaunchedEffect }
+        val w = timesOf(cur)
+        while (true) {
+            val at = s.narrator.position()
+            if (at >= 0) {
+                pos.intValue = at
+                if (!paused) RoomFlow.skipSilence(at, w)?.let { to -> s.narrator.seekTo(to); pos.intValue = to }
+            }
+            delay(33)
+        }
+    }
+    // 알림창 · 이어폰으로 멈추면 화면도 멈춤
+    LaunchedEffect(letter.id) { snapshotFlow { Playback.paused }.collect { if (Playback.now != null) paused = it } }
+
+    val complete = visible >= beats.size && heard.all { it }
+
+    /** 지금 소리를 멈춘다 (이 방의 소리일 때만, 밀어 닫은 뒤 이어 읽는 중이면 그대로). 하던 일 (이어 듣기 · 한 문장) 도 그만. */
+    fun cut() {
+        job?.cancel(); job = null
+        if (!Playback.detached) s.narrator.stop(me)
+        chainOn = false; single = false; paused = false; holdAt = -1; phase = RoomPhase.IDLE
+    }
+
+    /** 문장 [i] 를 [seekMs] 부터 한 번 (소리가 없으면 바로 true). 끝까지 들었으면 true. */
+    suspend fun play(i: Int, seekMs: Int = 0): Boolean {
+        cur = i; phase = RoomPhase.PLAY; paused = false; pos.intValue = -1
+        focus = RoomFlow.beatOf(beats, i)
+        if (!sound || muted) return true
+        snapshotFlow { Playback.paused }.first { !it }
+        session(); Playback.update(i)
+        if (chainOn) s.store.setHeard(key, i)
+        return s.autoPlay(me) { onEnd ->
+            s.narrator.playThen(audio(i), rate, owner = me) { ok -> onEnd(ok) }
+            if (seekMs > 0) s.narrator.seekTo(seekMs)
+        }
+    }
+
+    /** 쉼: [ms] 동안 (null 이면 넘길 때까지). 가운데 단추 · ‘다음’ 이면 바로. 알림창에서 멈춰 두었으면 풀릴 때까지. */
+    suspend fun hold(b: Int, ms: Long?) {
+        if (ms == 0L) return
+        skip.tryReceive()
+        holdAt = b; holdMs = ms ?: 0L; phase = RoomPhase.HOLD
+        try {
+            if (ms == null) skip.receive() else withTimeoutOrNull(ms) { skip.receive() }
+            if (Playback.now != null) snapshotFlow { Playback.paused }.first { !it }
+        } finally { if (holdAt == b) holdAt = -1 }
+    }
+
     /**
-     * 조각 하나 듣기: 이것도 낭독 세션으로 (알림창 · 잠금 화면 · 이어폰 단추에 재생/멈춤 · 이전/다음, v22).
-     * 알림에서 ‘다음’을 누르면 다음 조각으로 이어진다 (쓰인 조각까지). [speed] 는 0.7× 단추 (없으면 이 작품의 기본 빠르기).
-     * 같은 조각을 기본 빠르기로 듣는 중에 스피커를 다시 누르면 멈춘다 (천천히 듣는 중이면 기본 빠르기로 다시).
+     * 이어 듣기: [from] 칸부터 차례로. [seekMs] 는 첫 문장의 시작 자리 (낱말부터 이어 듣기).
+     * [rushTo] 앞의 새 순간은 쉬지 않고 놓는다 (‘다음’ 으로 다음 문장까지 건너뜀, 내 차례는 그대로 기다림).
      */
-    fun speak(i: Int, speed: Float? = null) {
-        if (playing == i && speed == null && s.narrator.slowBy == null) { stopAll(); return }
-        stopAll(); muted = false
-        queue[0] = i + 1; queue[1] = 0
-        all = scope.launch {
-            say(i, i + 1, extend = true, mark = false, speed = speed)
-            all = null
+    fun chain(from: Int, seekMs: Int = 0, rushTo: Int = -1) {
+        cut()
+        pill = null; pick = null; fromWord = null; chainOn = true; muted = false
+        job = scope.launch {
+            var b = from.coerceAtLeast(0)
+            var seek = seekMs
+            while (b < beats.size) {
+                nextBeat = b
+                when (val beat = beats[b]) {
+                    is RoomFlow.Beat.Msg -> {
+                        val i = beat.i
+                        if (b >= visible) {
+                            if (animate && fg()) { phase = RoomPhase.TYPING; focus = TYPING; delay((700 * pace).toLong()) }
+                            visible = b + 1
+                            val pr = s.progress(id, chapter, letter.id)
+                            if (pr.shown < i + 1) s.save(id, chapter, letter.id, pr.copy(shown = i + 1))
+                        }
+                        val ok = play(i, seek); seek = 0
+                        if (!ok) {
+                            // 다른 소리가 가져감 · 덮개 아래서 멈춤: 이어 듣기는 거기서 멈추고 띠로
+                            chainOn = false; phase = RoomPhase.IDLE
+                            if (!(visible >= beats.size && heard.all { it })) pill = Pill.Look(R.string.room_paused_line)
+                            Playback.end(appCtx); job = null
+                            return@launch
+                        }
+                        heard[i] = true
+                        nextBeat = b + 1
+                        if (b >= rushTo) hold(b, RoomFlow.holdMs(letter.messages[i].text[view.read].length, pause))
+                    }
+                    is RoomFlow.Beat.Mo -> {
+                        val m = moments[beat.k]
+                        val fresh = b >= visible
+                        if (RoomFlow.blocks(m)) {
+                            if (fresh) {
+                                // 내 차례: 아래 자리가 그 단추 (누를 때까지 기다림)
+                                act.tryReceive()
+                                phase = RoomPhase.ASK
+                                act.receive()
+                                visible = b + 1; focus = b; phase = RoomPhase.IDLE
+                                if (animate && fg()) delay(1200)
+                            }
+                        } else if (fresh) {
+                            visible = b + 1; focus = b
+                            if (b >= rushTo) {
+                                nextBeat = b + 1
+                                hold(b, RoomFlow.momentHoldMs(m, (m as? Moment.Photo)?.caption?.get(ui)?.length ?: 0, pause))
+                            }
+                        }
+                    }
+                    RoomFlow.Beat.Note -> { if (b >= visible) { visible = b + 1; focus = b } }
+                }
+                b++
+            }
+            nextBeat = beats.size
+            chainOn = false; phase = RoomPhase.IDLE
+            if (sound && !muted && heard.all { it }) s.store.setHeard(key, -1)
             Playback.end(appCtx)
+            job = null
         }
     }
-    fun speakAll(from: Int = 0, after: (() -> Unit)? = null) {
-        if (all != null) { stopAll(); return }
-        if (!narrated) { after?.invoke(); return }
-        stopAll(); muted = false
-        queue[0] = written; queue[1] = 1
-        all = scope.launch {
-            val whole = say(from, written)
-            all = null
-            if (after != null) after() else {
-                if (whole && written >= total && !muted) s.store.setHeard(key, -1)
-                Playback.end(appCtx)
+
+    /** 읽은 문장 하나만 다시 (이어 듣기는 멈추고, 새 문장은 오지 않는다). 다 들은 편지면 띠 없이. */
+    fun replay(i: Int) {
+        if (i !in 0 until total) return
+        cut()
+        pick = null; fromWord = null
+        if (!sound) { cur = i; focus = RoomFlow.beatOf(beats, i); return }
+        single = true
+        pill = if (visible >= beats.size && heard.all { it }) null else Pill.Replaying(i)
+        job = scope.launch {
+            val ok = play(i)
+            if (ok) heard[i] = true
+            single = false; phase = RoomPhase.IDLE
+            if (pill == Pill.Replaying(i)) pill = Pill.Replayed(i)
+            Playback.end(appCtx)
+            job = null
+        }
+    }
+
+    /** 사진 · 지도 · 그림을 보는 동안: 이어 듣기를 멈추고 띠로 (이어서 듣기는 그 순간 다음부터). */
+    fun pauseFor(what: Int) {
+        val wasBusy = chainOn || single || phase != RoomPhase.IDLE
+        cut()
+        if (wasBusy && !(visible >= beats.size && heard.all { it })) pill = Pill.Look(what)
+    }
+
+    /** 낱말에서 멈춘 자리부터 이어 듣기 (그 낱말 시작 150ms 앞). */
+    fun resumeFromWord() {
+        val (i, w) = fromWord ?: return
+        val t = timesOf(i).getOrNull(w)
+        chain(RoomFlow.beatOf(beats, i), seekMs = t?.let { RoomFlow.resumeSeek(it.first) } ?: 0)
+    }
+
+    fun surfaceOf(i: Int, w: Int): String {
+        val text = letter.messages[i].text[view.learn]
+        val r = wordsOf[i].getOrNull(w) ?: return ""
+        return Breaks.plain(text.substring(r.first, r.last + 1)).trim { !it.isLetterOrDigit() && it != '\'' && it != '’' }
+    }
+
+    val tagWord = stringResource(R.string.room_card_word)
+    val tagPhrase = stringResource(R.string.room_card_phrase)
+    /** 지금 문장의 글자 [char] 를 눌렀다: 오늘의 낱말이면 낱말 카드, 사전 낱말 · 노트 · 묶음이면 아래 카드. 이어 듣기는 멈춘다. */
+    fun pickAt(i: Int, char: Int): Boolean {
+        if (i != cur) return false
+        val w = wordsOf[i].indexOfFirst { char in it }
+        if (w < 0) return false
+        val mark = marksAll[i].firstOrNull { char in it.first }
+        if (mark != null) {
+            cut(); fromWord = i to w; wordFocus = mark.second
+            pill = Pill.Word(surfaceOf(i, w))
+            return true
+        }
+        val toks = glossTokens?.getOrNull(i) ?: return false
+        val line = ilAll?.getOrNull(i) ?: return false
+        val j = line.ranges.indexOfFirst { !it.isEmpty() && char in it }
+        if (j < 0 || j >= toks.size) return false
+        val text = letter.messages[i].text[view.learn]
+        fun spanText(a: Int, b: Int): String {
+            val x = line.ranges.getOrNull(a); val y = line.ranges.getOrNull(b)
+            if (x == null || y == null || x.isEmpty() || y.isEmpty()) return surfaceOf(i, w)
+            return Breaks.plain(text.substring(x.first, y.last + 1)).trim { !it.isLetterOrDigit() && it != '\'' && it != '’' }
+        }
+        val e = work.lexicon?.get(toks[j].key)
+        val note = notes[i].firstOrNull { j in it.from..it.to }
+        val unit = line.units.firstOrNull { j in it.from..it.to }
+        val gl = s.glossLangFor(id)
+        val pk = when {
+            note != null -> RoomPick(i, w, surfaceOf(i, w), note.tag, spanText(note.from, note.to), note.short, note.note,
+                if (note.from == note.to) e?.key else null, e?.function == true, j)
+            unit != null && unit.kind != Interlinear.Kind.WORD && unit.to > unit.from ->
+                RoomPick(i, w, surfaceOf(i, w), tagPhrase, spanText(unit.from, unit.to), unit.gloss.orEmpty(), "", null, false, j)
+            e != null -> RoomPick(i, w, surfaceOf(i, w), tagWord, surfaceOf(i, w), Interlinear.short(Vocab.meaning(e, gl)), "", e.key, e.function, j)
+            else -> return false
+        }
+        cut(); fromWord = i to w; pick = pk; pill = null
+        return true
+    }
+
+    fun goNext() {
+        if (phase == RoomPhase.HOLD) { skip.trySend(Unit); return }
+        if (phase == RoomPhase.ASK || phase == RoomPhase.TYPING) return
+        if (cur < 0) { if (nextBeat < beats.size) chain(nextBeat); return }
+        val from = RoomFlow.beatOf(beats, cur) + 1
+        val target = if (cur + 1 < total) RoomFlow.beatOf(beats, cur + 1) else beats.size
+        if (from < beats.size) chain(from, rushTo = target)
+    }
+    fun goPrev() { if (cur >= 0) replay((cur - 1).coerceAtLeast(0)) else if (total > 0) replay(0) }
+    fun mainButton() {
+        when (phase) {
+            RoomPhase.HOLD -> skip.trySend(Unit)
+            RoomPhase.PLAY -> if (sound) {
+                if (paused) { if (Playback.now != null) Playback.play() else s.narrator.resume(); paused = false }
+                else { if (Playback.now != null) Playback.pause() else s.narrator.pause(); paused = true }
+            }
+            RoomPhase.TYPING, RoomPhase.ASK -> Unit
+            RoomPhase.IDLE -> when {
+                fromWord != null && pill is Pill.Word -> resumeFromWord()
+                nextBeat < beats.size -> chain(nextBeat)
+                cur >= 0 -> replay(cur)
+                else -> chain(0)
             }
         }
     }
-    // 모두 듣기 중에 낱말을 눌러 낱말 카드가 열리면 (카드 소리가 낭독을 멈춘다) 그 문장을 기억해 두고, 카드를 닫으면 거기서 이어 듣는다
-    var resumeAfterCard by remember(letter.id) { mutableStateOf<Int?>(null) }
-    val glossOpen = s.gloss != null
-    LaunchedEffect(glossOpen) {
-        if (glossOpen) { if (all != null && queue[1] == 1) resumeAfterCard = playing }
-        else resumeAfterCard?.let { k -> resumeAfterCard = null; if (all == null) speakAll(from = k) }
-    }
+
     controlsRef[0] = object : Playback.Controls {
-        override fun next() { jump[0] = 1; s.narrator.stop() }
-        override fun prev() { jump[0] = if (s.narrator.position() > 1500) 2 else -1; s.narrator.stop() }
-        override fun stop() { muted = true; stopAll() }
+        override fun next() = goNext()
+        override fun prev() { val k = (cur - 1).coerceAtLeast(0); chain(RoomFlow.beatOf(beats, k)) }
+        override fun stop() { muted = true; cut(); Playback.end(appCtx) }
     }
     DisposableEffect(letter.id) { onDispose { s.music.stop(); if (!Playback.detached) { s.narrator.stop(me); Playback.end(appCtx) } } }
-    // 최근 앱에서 앱을 밀어 닫음 (화면이 사라짐, 언어를 바꿔 다시 그리는 것은 빼고): 남은 문장을 Playback 에 넘겨 이 편지 끝까지 이어 읽는다.
-    // 앱 안에서 방을 나가면 지금처럼 멈춘다.
-    val activity = androidx.compose.ui.platform.LocalContext.current as? android.app.Activity
+    // 최근 앱에서 앱을 밀어 닫음 (화면이 사라짐, 언어를 바꿔 다시 그리는 것은 빼고): 남은 문장을 Playback 에 넘겨 이어 읽는다.
+    val activity = ctx as? android.app.Activity
     DisposableEffect(letter.id, lifecycle) {
         val obs = androidx.lifecycle.LifecycleEventObserver { _, e ->
             if (e != androidx.lifecycle.Lifecycle.Event.ON_DESTROY || activity?.isChangingConfigurations == true) return@LifecycleEventObserver
-            val at = playing ?: return@LifecycleEventObserver
-            if (Playback.now == null || muted) return@LifecycleEventObserver
-            val mark = queue[1] == 1
-            Playback.handOff(appCtx, (0 until queue[0].coerceIn(at + 1, total)).map(::audio), at, null,
-                heard = if (mark) ({ k: Int -> s.store.setHeard(key, k) }) else null)
+            if (phase != RoomPhase.PLAY || cur < 0 || Playback.now == null || muted) return@LifecycleEventObserver
+            val until = if (chainOn) total else cur + 1
+            Playback.handOff(appCtx, (0 until until.coerceIn(cur + 1, total)).map(::audio), cur, rate,
+                heard = if (chainOn) ({ k: Int -> s.store.setHeard(key, k) }) else null)
         }
         lifecycle.addObserver(obs)
         onDispose { lifecycle.removeObserver(obs) }
     }
-    // 편지 속 그 곡 듣기 시트 (열려 있는 동안 낭독은 잠깐 멈춤)
-    var listening by remember(letter.id) { mutableStateOf<io.github.graviton94.todayletters.core.Moment.Music?>(null) }
 
-    // 다시 열 때: 듣다 멈춘 문장이 있으면 묻는다 (이어서 듣기 · 처음부터). 소리를 끈 사람에게는 묻지 않고 전처럼 이어서 도착.
+    // 다시 열 때: 듣다 멈춘 문장이 있으면 묻는다 (이어서 듣기 · 처음부터). 소리 없이 읽는 사람에게는 묻지 않고 이어서 도착.
     val resumeAt = remember(letter.id) {
-        if (!s.app.sound || !narrated) null
+        if (!sound) null
         else if (already in 1 until total) already
         else s.store.heard(key).takeIf { it in 1 until total && already >= total }
     }
     var asking by remember(letter.id) { mutableStateOf(resumeAt != null) }
-    var gate by remember(letter.id) { mutableStateOf(resumeAt == null || already >= total) }
-    // 편지 도착 (v21 2단계 D1): 처음 여는 새 편지만. 도착 화면이 첫 줄을 읽었으면 방에서는 첫 줄을 다시 읽지 않는다
-    // 큐레이터 노트를 띄워도 되는가: 이 편지의 도착(쓰기 · 마지막 메시지 낭독)이 다 끝났거나, 이미 다 읽은 편지
-    var heardOut by remember(letter.id) { mutableStateOf(already >= total) }
+    // 편지 도착 (처음 여는 새 편지만): 도착 화면을 지난 뒤 이어 듣기가 시작된다
     var arriving by remember(letter.id) { mutableStateOf(already == 0 && !s.progress(id, chapter, letter.id).done && !s.store.arrived(key) && total > 0) }
-
-    // 도착: 남은 문장을 한 조각씩. 조각이 놓이면 바로 쓰기 시작하면서 빈센트 목소리로 읽고 (자동 낭독), 화면은 쓰이는 끝을 따라 내려간다.
-    // 글자도 다 써지고 낭독도 끝나면 다음 조각. 조각이 화면 밖이라 ‘다 써짐’ 알림이 오지 않아도 시간이 지나면 다음으로 넘어간다.
-    // 앱을 벗어나 화면이 그려지지 않는 동안에도 (화면 따라가기만 쉬고) 낭독은 이어진다.
     LaunchedEffect(letter.id) {
-        suspend fun toEnd(animated: Boolean) {
-            if (!fg()) return
-            androidx.compose.runtime.withFrameNanos { }
-            val last = list.layoutInfo.totalItemsCount - 1
-            if (last < 0) return
-            if (animated) list.animateScrollToItem(last) else list.scrollToItem(last)
-            // 마지막 조각이 화면보다 길면 그 아래 끝까지
-            list.scrollBy(100_000f)
-        }
-        snapshotFlow { gate && !arriving }.first { it }
-        var voiced = false
-        while (arrived < total) {
-            val i = arrived
-            writing = true
-            if (animate && fg()) delay((Tokens.Motion.typingDotsMs * pace).toLong())
-            arrived = i + 1
-            toEnd(animated = animate)
-            // 도착 화면이 첫 줄을 읽었어도 방에서는 다른 조각처럼 다시 읽는다 (v22: 첫 메시지도 방에서 듣고 따라갈 수 있게)
-            val voice = if (narrated && s.app.sound && all == null && !muted) launch { voiced = true; queue[0] = total; queue[1] = 1; say(i, i + 1) } else null
-            // 쓰는 동안 끝을 따라간다 (손으로 넘기는 중이면 기다림)
-            val follow = launch {
-                while (true) {
-                    delay(300)
-                    if (fg() && !list.isScrollInProgress) list.scrollBy(100_000f)
-                }
-            }
-            val m = letter.messages[i]
-            val lines = (m.text[view.learn].length + (if (view.showRead) m.text[view.read].length else 0)) / 26 + 2
-            val limit = if (animate && fg()) lines * (Tokens.Motion.inkLineMs * pace.coerceAtLeast(0.3f)).toLong() + 2500 else 600
-            kotlinx.coroutines.withTimeoutOrNull(limit) { snapshotFlow { written }.first { it > i } }
-            if (written <= i) written = i + 1
-            follow.cancel()
-            writing = false
-            toEnd(animated = animate)
-            voice?.join()
-            s.save(id, chapter, letter.id, s.progress(id, chapter, letter.id).copy(shown = i + 1))
-            if (animate && fg()) delay((Tokens.Motion.inkPauseMs * pace).toLong())
-        }
-        if (voiced && !muted) s.store.setHeard(key, -1)
-        if (voiced && all == null) Playback.end(appCtx)
-        // 마지막 문장 낭독까지 끝난 뒤에 큐레이터 노트 (그 전에 뜨면 읽는 글을 가린다), 화면도 그때 노트까지
-        heardOut = true
-        toEnd(animated = animate)
+        snapshotFlow { !arriving && !asking }.first { it }
+        if (job == null && !(visible >= beats.size && heard.all { it })) chain(nextBeat)
     }
+    // 곡 시트를 닫으면 (들었으면) 그 곡에서 쉬던 차례가 이어진다
+    LaunchedEffect(listening) { if (listening == null && phase == RoomPhase.HOLD && holdMs == 0L) skip.trySend(Unit) }
 
     val progress = s.progress(id, chapter, letter.id)
-    // 이 편지에서 하는 걸음 (낭독이 없는 편지는 따라 읽기 없이, F11). 건너뛴 걸음은 지나간 것으로
     val modes = remember(letter.id, view.learn, s.version) { s.letterModes(id, chapter, letter) }
     val nextPlay = modes.firstOrNull { it !in progress.replied && it !in progress.skipped }
     val reply = Exercises.replyFor(letter, view.learn).second
-    val finished = written >= total
-    // 이 편지의 읽을 수 있는 비율 (아는 낱말 %): 머리의 날짜 옆에
+    val finished = beats.take(visible).count { it is RoomFlow.Beat.Msg } >= total
     val known = remember(s.version, letter.id, view.learn) { s.coverage(id, letter.id) }
     val knownLabel = known?.let { stringResource(R.string.known_pct, it) }
-    // 튜토리얼 (편지 I) 의 읽기 걸음 안내: 이 방에 처음 들어온 동안만 (도착 장면을 지난 뒤). 읽기 전에는 첫 조각 바로 위에
-    // “이 문장을 눌러 보세요”, 다 읽으면 아래 다음 단추 바로 위에 “다 읽었어요 — 아래 ‘…’를 눌러 보세요” + 단추에 금빛 테 깜빡임
+    // 튜토리얼 (편지 I) 의 읽기 걸음 안내
     val guiding = remember(letter.id) { glossTokens != null && s.guideDue("read") }
     LaunchedEffect(guiding, arriving) { if (guiding && !arriving) s.guideShown("read") }
     val guideOn = guiding && !arriving
     val guideNext = guideOn && finished && !progress.done && nextPlay != null
+    val heardCount = heard.count { it }
+    val showCta = complete && !chainOn && !single && phase == RoomPhase.IDLE
+
+    // 시선은 한 자리에: 지금 칸이 대화 칸 위 22% 에 오도록 (움직임 줄이기면 바로)
+    val scroll = rememberScrollState()
+    val tops = remember(letter.id) { mutableStateMapOf<Int, Int>() }
+    var viewport by remember { mutableIntStateOf(0) }
+    LaunchedEffect(focus, visible, viewport) {
+        if (focus == -1 || viewport == 0 || !fg()) return@LaunchedEffect
+        withFrameNanos { }; withFrameNanos { }
+        val top = tops[focus] ?: return@LaunchedEffect
+        val target = (top - viewport * 0.22f).toInt().coerceIn(0, scroll.maxValue)
+        if (animate) scroll.animateScrollTo(target, tween(600)) else scroll.scrollTo(target)
+    }
 
     Column(Modifier.fillMaxSize().desk(p.paper, p.lamp, 0.4f)) {
-        RoomHeader(s, work.portrait, work.sender, if (writing) "${work.name[uiLang()]} · ${stringResource(R.string.room_typing)}" else shortDateLine(letter.date, letter.place),
-            known = if (writing) null else known, knownLabel = knownLabel,
-            auto = s.app.sound, onAuto = if (!narrated) null else ({ if (s.app.sound) stopAll(); s.update(s.app.copy(sound = !s.app.sound)) }), onInfo = { s.go(Route.RoomInfo(r)) })
-        val ctx = androidx.compose.ui.platform.LocalContext.current
+        RoomHeader(s, work.portrait, work.sender, listOf(dateLine(letter.date, letter.place), letter.place).filter { it.isNotBlank() }.distinct().joinToString(" · "),
+            known = known, knownLabel = knownLabel, narrated = narrated, words = letter.words.size,
+            onAuto = { if (s.app.sound) cut(); s.update(s.app.copy(sound = !s.app.sound)) },
+            onHold = { s.update(s.app.copy(hold = it)) }, onWords = { words = true }, onInfo = { s.go(Route.RoomInfo(r)) })
         val notYet = stringResource(R.string.step_not_yet)
         val nLetter = remember(letter.id) { work.chapters.flatMap { it.letters }.indexOf(letter) + 1 }
-        StepBar(read = written, total = total, modes = modes, progress = progress,
-            words = letter.words.size, recipient = toWhom[uiLang()], number = roman(nLetter)) { step ->
+        StepRail(heard = if (finished) heardCount else heardCount.coerceAtMost(total), read = if (finished) total else 0, total = total, modes = modes, progress = progress,
+            words = letter.words.size, recipient = toWhom[ui], number = roman(nLetter)) { step ->
             // 0 = 읽기, 1..modes = 연습, 마지막 = 그림. 다 한 걸음 · 건너뛴 걸음(다시 하기) · 지금 걸음만 이동
-            val readDone = written >= total
-            val nextMode = if (!readDone) null else nextPlay
+            val nextMode = if (!finished) null else nextPlay
             when {
-                step == 0 -> scope.launch { list.animateScrollToItem(0) }
+                step == 0 -> scope.launch { scroll.animateScrollTo(0) }
                 step <= modes.size -> modes[step - 1].let { m ->
-                    if (readDone && (m in progress.replied || m in progress.skipped || m == nextMode)) { stopAll(); s.go(Route.Play(r, m)) }
+                    if (finished && (m in progress.replied || m in progress.skipped || m == nextMode)) { cut(); s.go(Route.Play(r, m)) }
                     else android.widget.Toast.makeText(ctx, notYet, android.widget.Toast.LENGTH_SHORT).show()
                 }
-                else -> if (progress.done || (readDone && nextMode == null)) { stopAll(); s.go(Route.Artwork(id, r.letter, r)) }
+                else -> if (progress.done || (finished && nextMode == null)) { cut(); s.go(Route.Artwork(id, r.letter, r)) }
                     else android.widget.Toast.makeText(ctx, notYet, android.widget.Toast.LENGTH_SHORT).show()
             }
         }
-        LazyColumn(
-            Modifier.weight(1f).fillMaxWidth(), state = list,
-            contentPadding = PaddingValues(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s5),
-            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s4),
-        ) {
-            if (glossTokens != null) item(key = "${letter.id}:il") { InterlinearToggle(ilOn, seen.isNotEmpty() && ilOn) { s.setInterlinear(id, !ilOn) } }
-            item {
-                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                    Box(Modifier.weight(1f)) { Hair() }
-                    Text(dateLine(letter.date, letter.place).uppercase(), style = Type.capsSm, color = p.giltText)
-                    Box(Modifier.weight(1f)) { Hair() }
+        Box(Modifier.weight(1f).fillMaxWidth().onSizeChanged { viewport = it.height }) {
+            Column(
+                Modifier.fillMaxSize().verticalScroll(scroll).padding(horizontal = Tokens.Space.s4).padding(top = 18.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                if (glossTokens != null) InterlinearToggle(ilOn, false) { s.setInterlinear(id, !ilOn) }
+                Text(dateLine(letter.date, letter.place), style = Type.small.ui().copy(fontSize = 11.sp, letterSpacing = 1.5.sp), color = ink.soft,
+                    modifier = Modifier.fillMaxWidth(), textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                // 그 무렵 보낸 사람의 상태 메시지 (메신저 프로필 한마디처럼)
+                letter.status?.let { st ->
+                    Text(stringResource(R.string.status_line, work.name[ui], st[ui]), style = Type.small.ui().copy(fontSize = 12.sp), color = ink.soft,
+                        modifier = Modifier.fillMaxWidth(), textAlign = androidx.compose.ui.text.style.TextAlign.Center)
                 }
-            }
-
-            // 그 무렵 빈센트의 상태 메시지 (메신저 프로필 한마디처럼)
-            letter.status?.let { st -> item(key = "${letter.id}:status") {
-                Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-                    Text(stringResource(R.string.status_line, work.name[uiLang()], st[uiLang()]), style = Type.small.ui(), color = p.inkSoft,
-                        textAlign = androidx.compose.ui.text.style.TextAlign.Center)
-                }
-            } }
-            // 다시 읽기: 다 읽은 편지라면 지금 이 편지의 아는 낱말 % (처음 읽을 때와 견줘) · 오늘의 낱말을 몇 개 혼자 읽는지
-            if (progress.done) s.letterGrowth(id, chapter, letter).takeIf { it.total > 0 || known != null }?.let { g -> item(key = "${letter.id}:growth") {
-                val first = remember(letter.id) { s.firstCoverage(id, chapter, letter.id) }
-                Row(Modifier.fillMaxWidth().background(p.fill).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
-                    verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-                    Text("${known ?: g.pct}%", style = Type.title.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = Color(0xFFD2A955))
-                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                        if (known != null && first != null) Text(stringResource(R.string.reread_cov, first, known), style = Type.small.ui(), color = p.onFill)
-                        if (g.total > 0) Text(stringResource(R.string.reread_banner, g.known, g.total), style = Type.small.ui(), color = p.onFill)
-                    }
-                }
-            } }
-            letter.moments.filter { it.after < 0 && it.shows(s, id) }.forEachIndexed { k, mo ->
-                item(key = "${letter.id}:pre:$k") { MomentCard(s, work, mo, onMap = { }, onPhoto = { s.go(Route.Artwork(id, r.letter, r)) }, onMusic = { listening = it }) }
-            }
-            itemsIndexed(letter.messages.take(arrived), key = { i, _ -> "${letter.id}:$i" }) { i, m ->
-                val toks = glossTokens?.getOrNull(i)
-                val ranges = remember(letter.id, i, toks) { toks?.let { io.github.graviton94.todayletters.core.Vocab.align(m.text[view.learn], it) } ?: emptyList() }
-                // 오늘의 낱말: 사전 열쇠가 있으면 토큰으로 (편지에 찍힌 꼴 그대로), 없으면 글자 맞추기로. 문장마다 낱말 하나에 한 번
-                val sentMarks = remember(letter.id, i, view.learn, toks) {
-                    if (toks != null && letter.words.any { it.lex.isNotEmpty() }) buildList {
-                        toks.forEachIndexed { j, t ->
-                            val k = letter.words.indexOfFirst { it.lex == t.key }
-                            if (k >= 0 && !ranges[j].isEmpty() && none { it.second == k }) add(ranges[j] to k)
+                // 다시 읽기: 다 읽은 편지라면 지금 이 편지의 아는 낱말 % (처음 읽을 때와 견줘) · 오늘의 낱말을 몇 개 혼자 읽는지
+                if (progress.done) s.letterGrowth(id, chapter, letter).takeIf { it.total > 0 || known != null }?.let { g ->
+                    val first = remember(letter.id) { s.firstCoverage(id, chapter, letter.id) }
+                    Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(p.fill).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
+                        verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
+                        Text("${known ?: g.pct}%", style = Type.title.copy(fontFamily = Faces.display), color = Color(0xFFD2A955))
+                        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                            if (known != null && first != null) Text(stringResource(R.string.reread_cov, first, known), style = Type.small.ui(), color = p.onFill)
+                            if (g.total > 0) Text(stringResource(R.string.reread_banner, g.known, g.total), style = Type.small.ui(), color = p.onFill)
                         }
-                    } else wordMarks(m.text[view.learn], letter.words.map { it.text[view.learn] })
-                }
-                val hints = remember(letter.id, i, toks, sentMarks) { toks?.let { ts -> ranges.filterIndexed { j, r -> work.lexicon?.get(ts[j].key)?.function != true && sentMarks.none { it.first == r } } } ?: emptyList() }
-                // 번역 줄은 접지 않고 등급만큼 옅게 (core 의 Support.readAlpha, 작품 설정에서 끌 수 있음)
-                val readAlpha = s.readAlpha(id)
-                // 한 번만 쓴다: 다 써진 조각은 (스크롤로 화면 밖에 나갔다 돌아와도) 다시 쓰지 않는다
-                val fresh = i >= already && animate && i >= written
-                var shownIn by remember { mutableStateOf(!fresh) }
-                LaunchedEffect(Unit) { shownIn = true }
-                Column {
-                if (i == 0 && guideOn && !finished) GuideBanner(stringResource(R.string.guide_read), Modifier.padding(bottom = Tokens.Space.s2))
-                AnimatedVisibility(shownIn, enter = fadeIn(tween(Tokens.Motion.fadeMs * 2)) + slideInVertically(tween(Tokens.Motion.fadeMs * 2)) { it / 6 }) {
-                    LetterSlip(
-                        index = i, learn = m.text[view.learn], learnLang = view.learn,
-                        read = if (view.showRead) m.text[view.read] else null, readLang = view.read,
-                        animate = fresh, lineMs = (Tokens.Motion.inkLineMs * pace.coerceAtLeast(0.3f)).toInt(),
-                        signature = if (i == total - 1) signOff(work.series.original, work.sender) else null,
-                        canPlay = i < written, canListen = narrated,
-                        listen = { ListenButtons(play = { sp -> speak(i, sp) }, label = stringResource(R.string.listen_line), vertical = true,
-                            playing = playing == i, onListen = { speak(i) }, onStop = { stopAll() }) },
-                        onWritten = { if (written < i + 1) written = i + 1 },
-                        marks = sentMarks,
-                        onWord = { wordFocus = it },
-                        taps = ranges, onTap = if (toks != null) ({ j: Int -> s.gloss = AppState.GlossPick(id, chapter, letter, i, j, toks[j].key) }) else null, hints = hints,
-                        picked = glossAt?.takeIf { it.first == i }?.let { ranges.getOrNull(it.second) }, onPickedAt = { s.glossAnchor = it },
-                        readAlpha = readAlpha,
-                        saved = s.isSaved(s.quoteKey(id, chapter, letter.id, i)),
-                        onSave = { s.toggleQuote(s.quoteKey(id, chapter, letter.id, i)) },
-                        spoken = spokenRange(s.narrator, audio(i), m.text[view.learn]),
-                        il = il?.getOrNull(i), seen = seen,
-                        onLong = if (i < written) ({ cardOf = i }) else null,
-                        // 원래 철자 (series.json "origLine", 고야): 원어를 읽을 때, 다 써진 문장에만
-                        orig = m.orig.takeIf { it.isNotEmpty() && view.learn == work.series.original && i < written },
-                    )
-                }
-                // 메신저 같은 순간: 이 문장 다음의 위치 공유 · 사진 공유 (문장이 다 써진 뒤에)
-                if (i < written) letter.moments.filter { it.after == i && it.shows(s, id) }.forEach { mo ->
-                    Box(Modifier.padding(top = Tokens.Space.s4)) {
-                        MomentCard(s, work, mo, onMap = { }, onPhoto = {
-                            s.go(Route.Artwork(id, r.letter, r))
-                        }, onMusic = { listening = it })
                     }
                 }
+                val replayLabel = stringResource(R.string.room_replay_line)
+                beats.take(visible).forEachIndexed { b, beat ->
+                    Box(Modifier.fillMaxWidth().onGloballyPositioned { tops[b] = it.positionInParent().y.toInt() }) {
+                        when (beat) {
+                            is RoomFlow.Beat.Msg -> {
+                                val i = beat.i
+                                val m = letter.messages[i]
+                                val active = i == cur
+                                val kState = remember(letter.id, i, view.learn) {
+                                    derivedStateOf {
+                                        when {
+                                            cur != i -> Karaoke.DONE
+                                            s.narrator.now == audio(i) -> Karaoke.at(pos.intValue, timesOf(i), s.reducedMotion)
+                                            heard[i] || !sound -> Karaoke.DONE
+                                            else -> Karaoke.BEFORE
+                                        }
+                                    }
+                                }
+                                val qk = s.quoteKey(id, chapter, letter.id, i)
+                                Column {
+                                    if (i == 0 && guideOn && !finished) GuideBanner(stringResource(R.string.guide_read), Modifier.padding(bottom = Tokens.Space.s2))
+                                    RoomBubble(
+                                        learn = m.text[view.learn], learnLang = view.learn,
+                                        read = if (view.showRead) m.text[view.read] else null, readLang = view.read, readAlpha = s.readAlpha(id),
+                                        active = active, heard = heard[i], words = wordsOf[i], karaoke = kState,
+                                        il = if (ilOn) ilAll?.getOrNull(i) else null,
+                                        dotted = if (active) noteSpots[i].first else emptyList(), grouped = if (active) noteSpots[i].second else emptyList(),
+                                        marks = if (active) marksAll[i].map { it.first } else emptyList(),
+                                        onWordAt = if (active) ({ c: Int -> pickAt(i, c) }) else null,
+                                        onTap = { if (!(active && phase == RoomPhase.PLAY && !paused)) replay(i) }, tapLabel = replayLabel,
+                                        onLong = { cardOf = i },
+                                        saved = s.isSaved(qk), onSave = if (active) ({ s.toggleQuote(qk) }) else null,
+                                        signature = if (i == total - 1) signOff(work.series.original, work.sender) else null,
+                                        // 원래 철자 (series.json "origLine", 고야): 원어를 읽을 때
+                                        orig = if (m.orig.isNotEmpty() && view.learn == work.series.original) ({ OrigLine(m.orig, view.learn) }) else null,
+                                        hold = if (holdAt == b) ({ HoldLine(b to holdMs, holdMs, s.reducedMotion, ink, Modifier.padding(top = 4.dp, end = 8.dp)) }) else null,
+                                    )
+                                }
+                            }
+                            is RoomFlow.Beat.Mo -> {
+                                val m = moments[beat.k]
+                                RoomMoment(s, work, toWhom[ui], m, onOpen = {
+                                    when (m) {
+                                        is Moment.Photo -> { look = m; pauseFor(R.string.room_paused_photo) }
+                                        is Moment.Location -> { work.places.firstOrNull { it.id == m.place }?.let { openMaps(ctx, it, m.title[ui]) }; pauseFor(R.string.room_paused_map) }
+                                        is Moment.Music -> { listening = m }
+                                        else -> Unit
+                                    }
+                                }, hold = if (holdAt == b && holdMs > 0) ({ HoldLine(b to holdMs, holdMs, s.reducedMotion, ink) }) else null)
+                            }
+                            RoomFlow.Beat.Note -> letter.note?.let { note ->
+                                RoomNoteCard(note[ui], ui, letter.plate, work.fullName) { lookPlate = true; pauseFor(R.string.room_paused_photo) }
+                            }
+                        }
+                    }
                 }
+                if (phase == RoomPhase.TYPING) Box(Modifier.onGloballyPositioned { tops[TYPING] = it.positionInParent().y.toInt() }) {
+                    TypingDots(s.reducedMotion, stringResource(R.string.typing_bubble, if (ui == Lang.KO) josa(work.name[ui], "이", "가") else work.name[ui]))
+                }
+                if (finished) {
+                    // 따라 읽기 (봉인까지): 다 읽은 편지라면 언제든
+                    if (progress.done) Secondary(stringResource(if (s.isSealed(id, chapter, letter)) R.string.focus_sealed else R.string.shadow_entry)) {
+                        cut(); s.go(if (s.isSealed(id, chapter, letter)) Route.Seal(r) else Route.Shadow(r))
+                    }
+                    if (ReplyMode.CONSTELLATION in progress.replied) {
+                        val nextLetter = work.chapters.getOrNull(r.chapter - 1)?.letters?.getOrNull(r.letter)
+                        val unreadByHim = nextLetter != null && !s.store.started(s.key(id, chapter, nextLetter.id)) && s.progress(id, chapter, nextLetter.id).shown == 0
+                        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End, verticalAlignment = Alignment.Bottom) {
+                            if (unreadByHim) Text("1", style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.giltText,
+                                modifier = Modifier.padding(end = 6.dp, bottom = 2.dp))
+                            TheoNote(reply[view.learn], view.learn, if (view.showRead) reply[view.read] else null, view.read, toWhom[view.learn])
+                        }
+                    }
+                }
+                // 마지막 칸도 화면 위쪽에 올 수 있게
+                with(androidx.compose.ui.platform.LocalDensity.current) { Box(Modifier.height((viewport * 0.6f).toDp())) }
             }
-            if (writing && arrived == written && arrived < total) item(key = "${letter.id}:typing") { TypingBubble(work.name[uiLang()], s.reducedMotion) }
-            if (finished) {
-                if (heardOut || progress.done) letter.note?.let { note ->
-                    item(key = "${letter.id}:note") { CuratorNote(note[uiLang()], uiLang(), letter.plate) }
-                }
-                // 따라 읽기 (봉인까지): 다 읽은 편지라면 언제든
-                if (progress.done) item(key = "${letter.id}:shadow") {
-                    Secondary(stringResource(if (s.isSealed(id, chapter, letter)) R.string.focus_sealed else R.string.shadow_entry)) {
-                        stopAll(); s.go(if (s.isSealed(id, chapter, letter)) Route.Seal(r) else Route.Shadow(r))
-                    }
-                }
-                if (ReplyMode.CONSTELLATION in progress.replied) item {
-                    val nextLetter = work.chapters.getOrNull(r.chapter - 1)?.letters?.getOrNull(r.letter)
-                    val unreadByHim = nextLetter != null && !s.store.started(s.key(id, chapter, nextLetter.id)) && s.progress(id, chapter, nextLetter.id).shown == 0
-                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End, verticalAlignment = Alignment.Bottom) {
-                        if (unreadByHim) Text("1", style = Type.small.copy(fontSize = Tokens.Text.caps), color = p.giltText,
-                            modifier = Modifier.padding(end = 6.dp, bottom = 2.dp))
-                        TheoNote(reply[view.learn], view.learn, if (view.showRead) reply[view.read] else null, view.read, toWhom[view.learn])
-                    }
+            // 위아래 끝은 종이색으로 흐리게 (눈이 가운데로)
+            Box(Modifier.align(Alignment.TopCenter).fillMaxWidth().height(28.dp).background(Brush.verticalGradient(listOf(p.paper, p.paper.copy(alpha = 0f)))))
+            Box(Modifier.align(Alignment.BottomCenter).fillMaxWidth().height(34.dp).background(Brush.verticalGradient(listOf(p.paper.copy(alpha = 0f), p.paper))))
+            pick?.let { pk ->
+                val lex = pk.lex
+                val ownKey = lex?.let { s.ownKey(id, chapter, letter, it) }
+                Box(Modifier.align(Alignment.BottomCenter).padding(horizontal = 10.dp, vertical = 8.dp)) {
+                    RoomWordCard(pk, view.learn, s.glossLangFor(id), canResume = sound && timesOf(pk.msg).isNotEmpty(),
+                        inCards = lex != null && s.hasLex(id, lex), canAdd = lex != null && !pk.function && ownKey != null && !s.isLater(ownKey),
+                        onResume = { pick = null; resumeFromWord() },
+                        onAdd = { if (lex != null) s.addOwn(id, chapter, letter, lex) },
+                        onMore = if (lex != null) ({ pick = null; pill = Pill.Word(pk.surface); s.gloss = AppState.GlossPick(id, chapter, letter, pk.msg, pk.token, lex) }) else null,
+                        onClose = { pick = null; pill = Pill.Word(pk.surface) })
                 }
             }
         }
-        // 듣다 멈춘 자리에서 (v17 E)
-        if (asking && resumeAt != null) Column(
-            Modifier.fillMaxWidth().background(p.paper).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
-            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
-        ) {
-            Hair()
-            Caps(stringResource(R.string.caps_resume), p.giltText, small = true, decorative = true)
-            Text(stringResource(R.string.room_resume, resumeAt + 1), style = Type.body.ui(), color = p.ink)
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
-                Box(Modifier.heightIn(min = 44.dp).pressable {
-                    asking = false
-                    if (already < total) speakAll(0) { gate = true } else speakAll(0)
-                }, contentAlignment = Alignment.CenterStart) {
-                    Text(stringResource(R.string.room_resume_start), style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.inkSoft)
-                }
-                Box(Modifier.width(160.dp)) {
-                    Primary(stringResource(R.string.room_resume_go), small = true, shine = true) {
-                        asking = false
-                        if (already < total) gate = true else speakAll(resumeAt)
-                    }
-                }
-            }
-        }
+        // 아래 자리: 듣다 멈춘 자리 묻기 · 내 차례 · 다음 걸음 · 플레이어 (멈춘 띠는 그 위)
         Column(
-            Modifier.fillMaxWidth().background(p.paper).padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s3),
-            verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
+            Modifier.fillMaxWidth().background(p.paper).padding(horizontal = 14.dp).padding(top = 4.dp, bottom = 12.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             when {
-                !finished -> Row(
-                    Modifier.fillMaxWidth().heightIn(min = Tokens.Size.buttonSm).dashed(p.line),
-                    horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Pen(p.inkSoft)
-                    Box(Modifier.width(Tokens.Space.s2))
-                    Text(stringResource(R.string.room_locked), style = Type.small.ui(), color = p.inkSoft)
-                }
-                progress.done -> {
-                    // 건너뛴 걸음은 언제든 다시 (편지 목록 · 복습 탭에서도)
-                    progress.toRedo.firstOrNull { it in modes }?.let { m ->
-                        Secondary(stringResource(R.string.redo_step, stringResource(modeLabel(m)))) { stopAll(); s.go(Route.Play(r, m)) }
-                    } ?: if (letter.words.isNotEmpty()) Secondary(stringResource(R.string.room_words, letter.words.size)) { words = true } else Unit
-                    Primary(stringResource(R.string.done_home), shine = true) { stopAll(); s.go(r.from ?: Route.Inbox) }
-                }
-                else -> {
-                    if (letter.words.isNotEmpty()) Secondary(stringResource(R.string.room_words, letter.words.size)) { words = true }
-                    when (nextPlay) {
-                        null -> Primary(stringResource(R.string.room_done_today), shine = true) { stopAll(); s.finishReading(r) }
-                        ReplyMode.CONSTELLATION -> {
-                            val help = s.replyHelp(id)
-                            val how = when {
-                                help == io.github.graviton94.todayletters.core.Ladder.Help.LINK || letter.replies.isEmpty() -> modeLabel(nextPlay)
-                                help == io.github.graviton94.todayletters.core.Ladder.Help.WRITE -> R.string.ladder_write_mode
-                                else -> R.string.ladder_choose_mode
+                asking && resumeAt != null -> {
+                    Hair()
+                    Caps(stringResource(R.string.caps_resume), p.giltText, small = true, decorative = true)
+                    Text(stringResource(R.string.room_resume, resumeAt + 1), style = Type.body.ui(), color = p.ink)
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                        Box(Modifier.heightIn(min = 44.dp).pressable { asking = false; chain(0) }, contentAlignment = Alignment.CenterStart) {
+                            Text(stringResource(R.string.room_resume_start), style = Type.body.ui().copy(textDecoration = androidx.compose.ui.text.style.TextDecoration.Underline), color = p.inkSoft)
+                        }
+                        Box(Modifier.width(160.dp)) {
+                            Primary(stringResource(R.string.room_resume_go), small = true, shine = true) {
+                                asking = false
+                                chain(if (already < total) start else RoomFlow.beatOf(beats, resumeAt))
                             }
-                            Primary(stringResource(R.string.room_reply, stringResource(how)), shine = true) { stopAll(); s.go(Route.Play(r, nextPlay)) }
                         }
-                        else -> {
-                            val label = stringResource(R.string.room_next, stringResource(modeLabel(nextPlay)))
-                            if (guideNext) GuideBanner(stringResource(R.string.guide_read_done, label))
-                            Primary(label, Modifier.then(if (guideNext) Modifier.guidePulse(s.reducedMotion) else Modifier), shine = true) { stopAll(); s.go(Route.Play(r, nextPlay)) }
+                    }
+                }
+                phase == RoomPhase.ASK -> (beats.getOrNull(nextBeat) as? RoomFlow.Beat.Mo)?.let { moments[it.k] as? Moment.Transfer }?.let { t ->
+                    val as_ = if (ui == Lang.KO) josa(toWhom[ui], "으로서", "로서") else toWhom[ui]
+                    RoomAsk(stringResource(R.string.room_send_as, as_, work.name[ui], t.amount), stringResource(R.string.room_send_go)) { act.trySend(Unit) }
+                }
+                showCta -> RoomNext(s, r, progress, modes, nextPlay, letter, guideNext) { cut() }
+                else -> {
+                    pill?.let { pl ->
+                        val text = when (pl) {
+                            is Pill.Replaying -> stringResource(R.string.room_replaying, pl.i + 1)
+                            is Pill.Replayed -> stringResource(R.string.room_replayed, pl.i + 1)
+                            is Pill.Word -> stringResource(R.string.room_paused_word)
+                            is Pill.Look -> stringResource(pl.what)
                         }
+                        val next = RoomFlow.firstMsgFrom(beats, nextBeat)
+                        val action = when {
+                            pl is Pill.Word && fromWord != null && sound -> stringResource(R.string.room_from_word, pl.surface)
+                            next != null -> stringResource(R.string.room_resume_from, next + 1)
+                            nextBeat < beats.size -> stringResource(R.string.room_resume_go)
+                            else -> null
+                        }
+                        RoomPill(text, action) { if (pl is Pill.Word && fromWord != null && sound) resumeFromWord() else chain(nextBeat) }
+                    }
+                    val state = stringResource(when {
+                        phase == RoomPhase.TYPING -> R.string.room_state_typing
+                        phase == RoomPhase.HOLD -> when ((beats.getOrNull(holdAt) as? RoomFlow.Beat.Mo)?.let { moments[it.k] }) {
+                            null -> R.string.room_state_hold
+                            is Moment.Music -> R.string.room_state_music
+                            else -> R.string.room_state_look
+                        }
+                        phase == RoomPhase.PLAY && paused -> R.string.room_state_paused
+                        phase == RoomPhase.PLAY && single -> R.string.room_state_one
+                        phase == RoomPhase.PLAY && !sound -> R.string.room_state_quiet
+                        phase == RoomPhase.PLAY -> R.string.room_state_chain
+                        complete -> R.string.room_state_done
+                        else -> R.string.room_state_paused
+                    })
+                    RoomPlayer("${cur.coerceAtLeast(0) + 1} / $total", state,
+                        playing = phase == RoomPhase.PLAY && !paused && sound, holding = phase == RoomPhase.HOLD,
+                        onPrev = ::goPrev, onMain = ::mainButton, onNext = ::goNext,
+                        slow = slow, normalLabel = if (normal == 1f) "1×" else Listen.label(normal) + "×") { v ->
+                        slow = v
+                        if (s.narrator.now != null && cur >= 0 && s.narrator.now == audio(cur)) s.narrator.setRate(if (v) Listen.SLOW else normal)
                     }
                 }
             }
@@ -510,9 +719,163 @@ fun Room(s: AppState, r: Route.Letter) {
     listening?.let { m -> MusicSheet(s, work, m, onClose = { listening = null }) }
     wordFocus?.let { k -> val (ch, lt) = s.letterOf(r); WordDetail(s, s.cardKey(id, ch, lt.id, k)) { wordFocus = null } }
     cardOf?.let { i -> letter.messages.getOrNull(i)?.let { m -> LetterCardSheet(s, work, letter, m) { cardOf = null } } }
+    look?.let { m ->
+        val bmp = rememberPicture((if (m.sketch) "sketches/" else "plates/") + m.image).bmp
+        FullDialog(onDismissRequest = { look = null }) { ZoomViewer(bmp, m.caption[ui], m.credit.ifBlank { null }, onClose = { look = null }) }
+    }
+    if (lookPlate) letter.plate?.let { pl ->
+        val bmp = rememberPicture("plates/${pl.image}").bmp
+        FullDialog(onDismissRequest = { lookPlate = false }) { ZoomViewer(bmp, pl.title[ui], pl.credit.ifBlank { null }, onClose = { lookPlate = false }) }
+    }
     // 다 읽은 편지의 낱말은 낱말 카드함으로 (내일부터 복습)
     LaunchedEffect(finished) { if (finished) { s.collectWords(id, chapter, letter); s.collectAnchors(id, chapter, letter) } }
 }
+
+/** 쓰는 중 칸의 자리 이름 ([Room] 의 시선 맞추기). */
+private const val TYPING = -2
+
+/**
+ * 편지를 다 들은 뒤 아래 자리: 다음 걸음 단추 (“다음 걸음 · 낱말 맞추기  2 / 7 →”, core Wall 의 말씨) · 답장 · 오늘의 편지 마치기,
+ * 다 마친 편지면 건너뛴 걸음 다시 하기 · 오늘로.
+ */
+@Composable
+private fun RoomNext(s: AppState, r: Route.Letter, progress: io.github.graviton94.todayletters.core.LetterProgress, modes: List<ReplyMode>, nextPlay: ReplyMode?,
+                     letter: io.github.graviton94.todayletters.core.Letter, guideNext: Boolean, leave: () -> Unit) {
+    val shape = RoundedCornerShape(16.dp)
+    val stepNo = "${modes.count { it in progress.replied || it in progress.skipped } + 2} / ${modes.size + 2}"
+    when {
+        progress.done -> {
+            progress.toRedo.firstOrNull { it in modes }?.let { m ->
+                Secondary(stringResource(R.string.redo_step, stringResource(modeLabel(m)))) { leave(); s.go(Route.Play(r, m)) }
+            }
+            GoButton(stringResource(R.string.done_home), modifier = Modifier.clip(shape)) { leave(); s.go(r.from ?: Route.Inbox) }
+        }
+        nextPlay == null -> GoButton(stringResource(R.string.room_done_today), modifier = Modifier.clip(shape)) { leave(); s.finishReading(r) }
+        nextPlay == ReplyMode.CONSTELLATION -> {
+            val help = s.replyHelp(r.series)
+            val how = when {
+                help == io.github.graviton94.todayletters.core.Ladder.Help.LINK || letter.replies.isEmpty() -> modeLabel(nextPlay)
+                help == io.github.graviton94.todayletters.core.Ladder.Help.WRITE -> R.string.ladder_write_mode
+                else -> R.string.ladder_choose_mode
+            }
+            GoButton(stringResource(R.string.room_reply, stringResource(how)), stepNo, modifier = Modifier.clip(shape)) { leave(); s.go(Route.Play(r, nextPlay)) }
+        }
+        else -> {
+            val label = stringResource(R.string.go_next_step, stepName(nextPlay))
+            if (guideNext) GuideBanner(stringResource(R.string.guide_read_done, label))
+            GoButton(label, stepNo, modifier = Modifier.clip(shape).then(if (guideNext) Modifier.guidePulse(s.reducedMotion) else Modifier)) { leave(); s.go(Route.Play(r, nextPlay)) }
+        }
+    }
+}
+
+/** 대화방 머리 (한 줄): 뒤로 · 동그란 초상 · 이름 · 날짜 · 곳 (아는 낱말 %) · 메뉴. 자동 낭독 · 문장 사이 쉼 · 낱말 · 도움말 · 대화방 정보는 메뉴 안. */
+@Composable
+private fun RoomHeader(
+    s: AppState, portrait: String, name: String, sub: String, known: Int?, knownLabel: String?,
+    narrated: Boolean, words: Int, onAuto: () -> Unit, onHold: (RoomFlow.Pause) -> Unit, onWords: () -> Unit, onInfo: () -> Unit,
+) {
+    val p = Ink.palette
+    var knownNote by remember { mutableStateOf(false) }
+    Column(Modifier.background(p.paper)) {
+        Row(Modifier.fillMaxWidth().heightIn(min = 56.dp).padding(end = Tokens.Space.s1), verticalAlignment = Alignment.CenterVertically) {
+            IconButton(stringResource(R.string.back), onClick = { s.back() }) { Chevron(p.inkSoft) }
+            Portrait(portrait, name, 36.dp)
+            Column(Modifier.weight(1f).padding(start = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(1.dp)) {
+                Text(name, style = Type.heading.copy(fontFamily = Faces.display, fontSize = 19.sp, lineHeight = 21.sp), color = p.ink, maxLines = 1,
+                    overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+                DateAndBadge {
+                    Text(sub, style = Type.small.ui().copy(fontSize = 11.5.sp), color = p.inkSoft, maxLines = 1, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
+                    if (known != null) Text("$known%", style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold),
+                        color = p.giltText, maxLines = 1, softWrap = false,
+                        modifier = Modifier.pressable(haptic = false) { knownNote = true }
+                            .border(1.dp, p.giltText.copy(alpha = 0.6f), RoundedCornerShape(50))
+                            .padding(horizontal = 6.dp).then(if (knownLabel != null) Modifier.androidx_semantics(knownLabel) else Modifier))
+                }
+                if (knownNote && knownLabel != null) NumberNote(knownLabel,
+                    listOf(stringResource(R.string.note_known_1), stringResource(R.string.note_known_2, stringResource(R.string.stage_recall)))) { knownNote = false }
+            }
+            Box {
+                var menu by remember { mutableStateOf(false) }
+                HeadButton(stringResource(R.string.room_more), onClick = { menu = true }) { Lines(p.inkSoft) }
+                if (menu) RoomMenu(s, narrated, words,
+                    onInfo = { menu = false; onInfo() }, onAuto = onAuto, onHold = onHold,
+                    onWords = { menu = false; onWords() }, onHelp = { menu = false; s.coachAgain("room") }, onClose = { menu = false })
+            }
+        }
+    }
+}
+
+/** 머리 오른쪽 메뉴: 대화방 정보 · 자동 낭독 · 문장 사이 쉼 (짧게 · 보통 · 길게) · 이 편지의 낱말 · 도움말. */
+@Composable
+private fun RoomMenu(s: AppState, narrated: Boolean, words: Int, onInfo: () -> Unit, onAuto: () -> Unit, onHold: (RoomFlow.Pause) -> Unit,
+                     onWords: () -> Unit, onHelp: () -> Unit, onClose: () -> Unit) {
+    val p = Ink.palette
+    val d = androidx.compose.ui.platform.LocalDensity.current
+    androidx.compose.ui.window.Popup(alignment = Alignment.TopEnd, offset = androidx.compose.ui.unit.IntOffset(0, with(d) { 48.dp.roundToPx() }),
+        onDismissRequest = onClose, properties = androidx.compose.ui.window.PopupProperties(focusable = true)) {
+        Column(Modifier.width(androidx.compose.foundation.layout.IntrinsicSize.Max).widthIn(min = 220.dp, max = 320.dp).background(p.paper).border(1.dp, p.line)) {
+            MenuItem(stringResource(R.string.room_info), onClick = onInfo)
+            if (narrated) MenuItem(stringResource(if (s.app.sound) R.string.room_auto_on else R.string.room_auto_off), onClick = onAuto)
+            Column(Modifier.fillMaxWidth().padding(horizontal = Tokens.Space.s4, vertical = 8.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                Text(stringResource(R.string.room_hold_menu), style = Type.body.ui(), color = p.ink)
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    listOf(RoomFlow.Pause.SHORT to R.string.room_hold_short, RoomFlow.Pause.NORMAL to R.string.room_hold_normal, RoomFlow.Pause.LONG to R.string.room_hold_long).forEach { (v, l) ->
+                        val on = s.app.hold == v
+                        val label = stringResource(l)
+                        Box(Modifier.heightIn(min = 44.dp).clip(RoundedCornerShape(50)).background(if (on) p.gilt.copy(alpha = 0.16f) else Color.Transparent)
+                            .border(1.dp, if (on) p.giltText else p.hair, RoundedCornerShape(50))
+                            .semantics { contentDescription = label }.pressable(haptic = false, role = Role.RadioButton) { onHold(v) }.padding(horizontal = 14.dp),
+                            contentAlignment = Alignment.Center) {
+                            Text(label, style = Type.small.ui(), color = if (on) p.giltText else p.inkSoft, maxLines = 1)
+                        }
+                    }
+                }
+            }
+            if (words > 0) MenuItem(stringResource(R.string.room_words, words), onClick = onWords)
+            MenuItem(stringResource(R.string.help), onClick = onHelp)
+        }
+    }
+}
+
+/**
+ * 걸음 줄 (시안 room 5): “I · 읽기” · 들은 만큼 차는 가는 금선 · “n / N”. 누르면 위에서 걸음 목록이 내려온다
+ * (끝난 것 ✓ · 지금 · 남은 것). 끝난 걸음 · 지금 걸음만 바로 간다.
+ */
+@Composable
+private fun StepRail(heard: Int, read: Int, total: Int, modes: List<ReplyMode>, progress: io.github.graviton94.todayletters.core.LetterProgress,
+                     words: Int, recipient: String, number: String, onStep: (Int) -> Unit) {
+    val p = Ink.palette
+    val ink = remember(p) { RoomInk(p) }
+    val list = steps(read, total, modes, progress, words, recipient)
+    var open by remember { mutableStateOf(false) }
+    val cur = list.indexOfFirst { it.state == 1 }.let { if (it < 0) list.lastIndex else it }
+    val openLabel = stringResource(R.string.steps_open)
+    val reading = cur == 0
+    val frac = if (reading) (if (total > 0) heard.toFloat() / total else 0f) else list.count { it.state >= 2 }.toFloat() / list.size
+    val count = if (reading) "$heard / $total" else "${list.count { it.state >= 2 }} / ${list.size}"
+    Column(Modifier.background(p.paper)) {
+        Row(
+            Modifier.fillMaxWidth().heightIn(min = 48.dp).pressable(haptic = false) { open = !open }
+                .androidx_semantics("$openLabel · ${roman(cur + 1)} · ${list[cur].label} · $count").padding(horizontal = 18.dp),
+            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            Text("${roman(cur + 1)} · ${list[cur].label}", style = Type.small.ui().copy(fontSize = 12.sp, fontWeight = androidx.compose.ui.text.font.FontWeight.Medium),
+                color = ink.ink, maxLines = 1)
+            Box(Modifier.weight(1f).height(2.dp).background(ink.hair)) {
+                Box(Modifier.fillMaxWidth(frac.coerceIn(0f, 1f)).height(2.dp).background(ink.gilt))
+            }
+            Text(count, style = Type.small.copy(fontFamily = Faces.display, fontSize = 14.sp), color = ink.soft, maxLines = 1)
+        }
+        if (open) androidx.compose.ui.window.Popup(onDismissRequest = { open = false },
+            properties = androidx.compose.ui.window.PopupProperties(focusable = true)) {
+            Column(Modifier.fillMaxSize()) {
+                StepSheet(list, number) { i -> if (list[i].state > 0) open = false; onStep(i) }
+                Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false) { open = false })
+            }
+        }
+    }
+}
+
 
 fun modeLabel(m: ReplyMode) = when (m) {
     ReplyMode.MATCH -> R.string.mode_match
@@ -543,65 +906,6 @@ private fun TypingBubble(name: String, still: Boolean) {
             drawPath(part, p.slipSoft, style = androidx.compose.ui.graphics.drawscope.Stroke(1.4.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round))
         }
         Text(stringResource(R.string.typing_bubble, if (uiLang() == Lang.KO) josa(name, "이", "가") else name), style = Type.small.ui(), color = p.slipSoft)
-    }
-}
-
-/** 대화방 맨 위: 뒤로 · 동그란 초상 · 이름(첫 줄) · 날짜와 아는 낱말 %(둘째 줄) · 자동 낭독 · (?) · 더 보기(대화방 정보 · 낭독 빠르기). */
-@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
-@Composable
-private fun RoomHeader(
-    s: AppState, portrait: String, name: String, sub: String,
-    known: Int? = null, knownLabel: String? = null,
-    auto: Boolean, onAuto: (() -> Unit)?, onInfo: () -> Unit,
-) {
-    val p = Ink.palette
-    var knownNote by remember { mutableStateOf(false) }
-    Column(Modifier.background(p.paper)) {
-        Row(Modifier.fillMaxWidth().heightIn(min = 64.dp).padding(end = Tokens.Space.s1), verticalAlignment = Alignment.CenterVertically) {
-            IconButton(stringResource(R.string.back), onClick = { s.back() }) { Chevron(p.ink) }
-            Portrait(portrait, name, Tokens.Size.avatar)
-            Column(Modifier.weight(1f).padding(start = Tokens.Space.s3), verticalArrangement = Arrangement.spacedBy(1.dp)) {
-                Text(name, style = Type.heading.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.ink, maxLines = 1,
-                    overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
-                // 짧은 날짜 · 아는 낱말 % (작은 금빛 표)를 한 줄에. 큰 글자에서 넘치면 표가 날짜 아래로 내려간다 (자르지 않는다)
-                DateAndBadge {
-                    Text(sub, style = Type.small.ui(), color = p.inkSoft, maxLines = 2, overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis)
-                    if (known != null) Text("$known%", style = Type.small.ui().copy(fontSize = Tokens.Text.caps, fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold),
-                        color = p.giltText, maxLines = 1, softWrap = false,
-                        modifier = Modifier.pressable(haptic = false) { knownNote = true }
-                            .border(1.dp, p.giltText.copy(alpha = 0.6f), androidx.compose.foundation.shape.RoundedCornerShape(50))
-                            .padding(horizontal = 6.dp).then(if (knownLabel != null) Modifier.androidx_semantics(knownLabel) else Modifier))
-                }
-                // 아는 낱말 % 를 누르면 무엇을 세는지 두 줄
-                if (knownNote && knownLabel != null) NumberNote(knownLabel,
-                    listOf(stringResource(R.string.note_known_1), stringResource(R.string.note_known_2, stringResource(R.string.stage_recall)))) { knownNote = false }
-            }
-            // 자동 낭독 켜기 · 끄기: 켜져 있으면 금빛으로 채운 스피커, 꺼져 있으면 빗금. 낭독이 이 기기에 없으면 (소리 없이 읽기) 단추 없음
-            if (onAuto != null) HeadButton(stringResource(if (auto) R.string.room_auto_on else R.string.room_auto_off), onClick = onAuto) {
-                Box(Modifier.size(34.dp).background(if (auto) p.giltText else Color.Transparent, androidx.compose.foundation.shape.CircleShape)
-                    .border(1.dp, p.giltText, androidx.compose.foundation.shape.CircleShape), contentAlignment = Alignment.Center) {
-                    Canvas(Modifier.size(16.dp)) {
-                        val w = size.width
-                        val c = if (auto) p.paper else p.giltText
-                        val st = androidx.compose.ui.graphics.drawscope.Stroke(1.4.dp.toPx(), cap = androidx.compose.ui.graphics.StrokeCap.Round, join = androidx.compose.ui.graphics.StrokeJoin.Round)
-                        drawPath(androidx.compose.ui.graphics.Path().apply {
-                            moveTo(w * 0.1f, w * 0.38f); lineTo(w * 0.3f, w * 0.38f); lineTo(w * 0.52f, w * 0.18f)
-                            lineTo(w * 0.52f, w * 0.82f); lineTo(w * 0.3f, w * 0.62f); lineTo(w * 0.1f, w * 0.62f); close()
-                        }, c, style = st)
-                        if (auto) drawArc(c, -50f, 100f, false, Offset(w * 0.5f, w * 0.3f), androidx.compose.ui.geometry.Size(w * 0.36f, w * 0.4f), style = st)
-                        else drawLine(c, Offset(w * 0.62f, w * 0.35f), Offset(w * 0.95f, w * 0.68f), 1.4.dp.toPx())
-                    }
-                }
-            }
-            HeadButton(stringResource(R.string.help), onClick = { s.coachAgain("room") }) { HelpGlyph(p.ink) }
-            // 더 보기: 대화방 정보. 빠르기는 문장마다의 0.7× 단추 · 작품 설정의 기본 듣기 빠르기로 (시안 slow.html)
-            Box {
-                var menu by remember { mutableStateOf(false) }
-                HeadButton(stringResource(R.string.room_more), onClick = { menu = true }) { Lines(p.ink) }
-                if (menu) RoomMenu(onInfo = { menu = false; onInfo() }, onClose = { menu = false })
-            }
-        }
-        Hair()
     }
 }
 
@@ -636,19 +940,6 @@ private fun DateAndBadge(content: @Composable () -> Unit) {
                 d.placeRelative(0, 0)
                 badge.placeRelative(0, d.height + vGap.roundToPx())
             }
-        }
-    }
-}
-
-/** 머리 오른쪽 더 보기 메뉴: 대화방 정보. */
-@Composable
-private fun RoomMenu(onInfo: () -> Unit, onClose: () -> Unit) {
-    val p = Ink.palette
-    val d = androidx.compose.ui.platform.LocalDensity.current
-    androidx.compose.ui.window.Popup(alignment = Alignment.TopEnd, offset = androidx.compose.ui.unit.IntOffset(0, with(d) { 48.dp.roundToPx() }),
-        onDismissRequest = onClose, properties = androidx.compose.ui.window.PopupProperties(focusable = true)) {
-        Column(Modifier.width(androidx.compose.foundation.layout.IntrinsicSize.Max).widthIn(min = 200.dp, max = 300.dp).background(p.paper).border(1.dp, p.line)) {
-            MenuItem(stringResource(R.string.room_info), onClick = onInfo)
         }
     }
 }
@@ -690,56 +981,6 @@ private fun steps(read: Int, total: Int, modes: List<ReplyMode>, progress: io.gi
             }, state(k + 1)))
         }
         add(Step(stringResource(R.string.step_plate), stringResource(R.string.step_plate_d), state(modes.size + 1)))
-    }
-}
-
-/**
- * 진행 줄 (v21 2단계 U1): 지금 할 걸음 하나만 (로마 숫자 · 이름 · 몇 번째 · 앞 걸음 끝남) + 작은 마름모들.
- * 누르면 위에서 걸음 목록이 내려온다 (끝난 것 ✓ · 지금 · 남은 것). 끝난 걸음 · 지금 걸음만 바로 간다.
- */
-@Composable
-private fun StepBar(read: Int, total: Int, modes: List<ReplyMode>, progress: io.github.graviton94.todayletters.core.LetterProgress,
-                    words: Int, recipient: String, number: String, onStep: (Int) -> Unit) {
-    val p = Ink.palette
-    val list = steps(read, total, modes, progress, words, recipient)
-    var open by remember { mutableStateOf(false) }
-    val cur = list.indexOfFirst { it.state == 1 }.let { if (it < 0) list.lastIndex else it }
-    val openLabel = stringResource(R.string.steps_open)
-    Column(Modifier.background(p.paper)) {
-        Row(
-            Modifier.fillMaxWidth().heightIn(min = 60.dp).pressable(haptic = false) { open = !open }
-                .androidx_semantics(openLabel).padding(start = Tokens.Space.s4, end = Tokens.Space.s3, top = 6.dp, bottom = 6.dp),
-            verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3),
-        ) {
-            Text(roman(cur + 1), style = Type.numeral.copy(fontFamily = io.github.graviton94.todayletters.design.Faces.display), color = p.giltText,
-                modifier = Modifier.width(34.dp))
-            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(1.dp)) {
-                Text(list[cur].label, style = Type.body.ui().copy(fontWeight = androidx.compose.ui.text.font.FontWeight.SemiBold), color = p.ink, maxLines = 1)
-                Text(stringResource(R.string.step_of, list.size, cur + 1) + (if (cur > 0 && list[cur - 1].state == 2) " · " + stringResource(R.string.step_after, list[cur - 1].label)
-                    else if (cur > 0 && list[cur - 1].state == 3) " · " + stringResource(R.string.step_after_skipped, list[cur - 1].label) else ""),
-                    style = Type.small.ui().copy(fontSize = Tokens.Text.caps), color = p.inkSoft, maxLines = 1)
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalAlignment = Alignment.CenterVertically) {
-                list.forEach { st ->
-                    val d = if (st.state == 1) 9.dp else 7.dp
-                    Box(Modifier.size(d).graphicsLayer { rotationZ = 45f }
-                        .background(when (st.state) { 2 -> p.giltText; 1 -> p.ink; else -> Color.Transparent })
-                        .border(1.dp, when (st.state) { 2, 3 -> p.giltText; 1 -> p.ink; else -> p.hideInk }))
-                }
-            }
-            Box(Modifier.graphicsLayer { rotationZ = if (open) 90f else -90f }) { Chevron(p.inkSoft) }
-        }
-        // 한 것만큼 금빛 (가는 줄)
-        Box(Modifier.fillMaxWidth().height(2.dp).background(p.hair)) {
-            Box(Modifier.fillMaxWidth(list.count { it.state >= 2 }.toFloat() / list.size).height(2.dp).background(p.giltText))
-        }
-        if (open) androidx.compose.ui.window.Popup(onDismissRequest = { open = false },
-            properties = androidx.compose.ui.window.PopupProperties(focusable = true)) {
-            Column(Modifier.fillMaxSize()) {
-                StepSheet(list, number) { i -> if (list[i].state > 0) open = false; onStep(i) }
-                Box(Modifier.fillMaxSize().background(p.scrim).pressable(haptic = false) { open = false })
-            }
-        }
     }
 }
 
@@ -791,103 +1032,6 @@ internal fun StepSheet(list: List<Step>, number: String, onStep: (Int) -> Unit) 
 
 private fun Modifier.androidx_semantics(label: String) = this.then(androidx.compose.ui.Modifier.semantics { contentDescription = label })
 
-/** 큐레이터 노트: 편지와 다른 재료 (미술관 벽의 작품 설명판). 앱 글자 언어로. */
-@Composable
-private fun CuratorNote(text: String, lang: Lang, plate: io.github.graviton94.todayletters.core.Plate? = null) {
-    val p = Ink.palette
-    Column(
-        Modifier.fillMaxWidth().padding(vertical = Tokens.Space.s2).background(p.leaf)
-            .border(1.dp, p.giltText.copy(alpha = 0.55f)).padding(3.dp).border(Tokens.Stroke.hair, p.giltText.copy(alpha = 0.3f))
-            .padding(horizontal = Tokens.Space.s4, vertical = Tokens.Space.s4),
-        verticalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
-    ) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2)) {
-            Canvas(Modifier.size(10.dp)) {
-                val w = size.width
-                drawPath(androidx.compose.ui.graphics.Path().apply { moveTo(w / 2, 0f); lineTo(w, w / 2); lineTo(w / 2, w); lineTo(0f, w / 2); close() }, p.giltText)
-            }
-            Text(stringResource(R.string.note_title), style = Type.caps.ui(), color = p.giltText)
-        }
-        Text(text, style = Type.body.of(lang).copy(fontSize = Tokens.Text.small * 1.08f, lineHeight = Tokens.Text.small * 1.75f), color = p.ink)
-        // 노트가 말하는 그림 (‘그림’ 걸음 전에도 보이게): 작은 그림 + 제목 · 연도
-        val img = plate?.image.orEmpty()
-        if (img.isNotBlank()) Row(Modifier.padding(top = Tokens.Space.s1), verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s3)) {
-            PlateImage(img, Modifier.size(72.dp).border(Tokens.Stroke.hair, p.giltText.copy(alpha = 0.4f)))
-            Column(Modifier.weight(1f)) {
-                Text(plate!!.title[lang], style = Type.small.ui(), color = p.ink)
-                if (plate.date.isNotBlank()) Text(plate.date, style = Type.small.ui(), color = p.inkSoft)
-            }
-        }
-    }
-}
-
-/** 편지지 한 조각: 배울 언어 줄(크게) · 번역 줄(작게) · 듣기 단추. 새로 온 조각은 줄마다 잉크가 번지며 한 번만 써진다. */
-@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
-@Composable
-private fun LetterSlip(
-    index: Int, learn: String, learnLang: Lang, read: String?, readLang: Lang,
-    animate: Boolean, lineMs: Int, signature: String?, canPlay: Boolean, canListen: Boolean = true,
-    /** 듣기 단추 둘 ([ListenButtons]): 스피커 · 0.7×. */
-    listen: @Composable () -> Unit, onWritten: () -> Unit,
-    marks: List<Pair<IntRange, Int>> = emptyList(), onWord: (Int) -> Unit = {},
-    saved: Boolean = false, onSave: () -> Unit = {},
-    /** 번역 줄의 진하기 (등급이 오를수록 옅게, 접지는 않는다). */
-    readAlpha: Float = 1f,
-    /** 지금 낭독 중인 마디의 글자 범위 (없으면 null). */
-    spoken: IntRange? = null,
-    taps: List<IntRange> = emptyList(), onTap: ((Int) -> Unit)? = null, hints: List<IntRange> = emptyList(), picked: IntRange? = null,
-    onPickedAt: (GlossAnchor?) -> Unit = {},
-    /** 낱말 아래 뜻 (켜져 있고 이 메시지에 토큰이 있을 때). [seen] 은 예열에서 본 것 ([warmSeen]). */
-    il: IlLine? = null, seen: Set<String> = emptySet(),
-    /** 길게 누르기: 이 문장을 편지 카드로 (다 써진 문장만, 없으면 null). */
-    onLong: (() -> Unit)? = null,
-    /** 판본에 찍힌 그대로의 글 (‘원래 철자’, 누르면 펼침). 없으면 null. */
-    orig: String? = null,
-) {
-    val p = Ink.palette
-    var learnDone by remember { mutableStateOf(!animate) }
-    // 문장 번역은 낱말 아래 뜻(옅은 slipSoft)보다 또렷하게: 잉크색을 조금 덜어서, 등급만큼 옅게
-    val readInk = p.slipInk.copy(alpha = 0.82f * readAlpha)
-    val tilt = listOf(-0.6f, 0.5f, -0.3f, 0.4f)[index % 4]
-    val cardLabel = stringResource(R.string.letter_card_send)
-    Slip(seed = index * 31 + 7, tilt = tilt, modifier = Modifier.fillMaxWidth(0.92f)) {
-        Row(
-            Modifier.then(if (onLong != null) Modifier.longPressCard(cardLabel, onLong) else Modifier)
-                .padding(start = Tokens.Space.s4, end = Tokens.Space.s2, top = Tokens.Space.s4, bottom = Tokens.Space.s3),
-            horizontalArrangement = Arrangement.spacedBy(Tokens.Space.s2),
-        ) {
-            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
-                // 문장 짝 (v22): 배우는 말 한 문장 바로 아래에 그 번역
-                val pairs = remember(learn, read) { if (read != null) io.github.graviton94.todayletters.core.Pairs.of(learn, read) else emptyList() }
-                if (pairs.size > 1) SentencePairs(
-                    learn, learnLang, readLang, pairs, animate, lineMs, onWritten,
-                    marks, onWord, spoken, taps, onTap, hints, picked, onPickedAt, il, seen, readInk,
-                ) else {
-                if (il != null) IlText(learn, il, null, learnLang, animate, true, lineMs, onDone = {
-                    learnDone = true
-                    if (read == null) onWritten()
-                }, marks = marks, onWord = onWord, spoken = spoken, onTap = onTap, picked = picked, onPickedAt = onPickedAt, seen = seen)
-                else InkText(learn, Type.target.of(learnLang), p.slipInk, animate, lineMs = lineMs, onDone = {
-                    learnDone = true
-                    if (read == null) onWritten()
-                }, marks = marks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { k -> onWord(marks[k].second) }, spoken = spoken,
-                    taps = taps, onTap = onTap, hints = hints, picked = picked, onPickedAt = onPickedAt)
-                if (read != null) InkText(read, Type.base.of(readLang), readInk, animate, go = learnDone, lineMs = (lineMs * 0.7f).toInt(), onDone = onWritten)
-                }
-                if (orig != null) OrigLine(orig, learnLang)
-                if (signature != null) Text(signature, style = Type.signature, color = p.slipSoft, modifier = Modifier.align(Alignment.End).padding(top = Tokens.Space.s1))
-            }
-            Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(Tokens.Space.s1)) {
-                if (canPlay && canListen) listen()
-                else Box(Modifier.size(Tokens.Size.speaker))
-                // 내 구절에 담기
-                if (canPlay) IconButton(stringResource(if (saved) R.string.quote_saved else R.string.quote_save), onClick = onSave) { Bookmark(saved) }
-            }
-        }
-    }
-}
-
 /** ‘원래 철자’: 접힌 이름표 한 줄, 누르면 판본에 찍힌 그대로의 글 (기울임, 옅게). */
 @Composable
 private fun OrigLine(orig: String, lang: Lang) {
@@ -897,41 +1041,6 @@ private fun OrigLine(orig: String, lang: Lang) {
         Text(stringResource(R.string.orig_spelling) + if (open) " ‹" else " ›", style = Type.small.ui(), color = p.slipSoft,
             modifier = Modifier.heightIn(min = 32.dp).pressable { open = !open }.padding(vertical = 6.dp))
         if (open) Text(orig, style = Type.base.of(lang).copy(fontStyle = androidx.compose.ui.text.font.FontStyle.Italic), color = p.slipSoft)
-    }
-}
-
-/** [r] 안의 범위를 [r] 첫 글자 기준으로 (밖에 걸치면 null). */
-private fun IntRange.inside(r: IntRange): IntRange? = if (isEmpty() || first < r.first || last > r.last) null else (first - r.first)..(last - r.first)
-
-/**
- * 문장 짝 (v22): 메시지 하나를 (배우는 말 문장 · 바로 아래 번역) 짝으로. 짝마다 배우는 말이 써지고 이어서 번역이 써진다 (한 번만).
- * 밑줄 낱말 · 눌러서 뜻 보기 · 낭독 칠하기는 메시지 전체의 글자 범위를 문장마다 옮겨서 그대로 쓴다.
- */
-@Composable
-private fun SentencePairs(
-    learn: String, learnLang: Lang, readLang: Lang, pairs: List<Pair<IntRange, String>>, animate: Boolean, lineMs: Int, onWritten: () -> Unit,
-    marks: List<Pair<IntRange, Int>>, onWord: (Int) -> Unit, spoken: IntRange?,
-    taps: List<IntRange>, onTap: ((Int) -> Unit)?, hints: List<IntRange>, picked: IntRange?, onPickedAt: (GlossAnchor?) -> Unit,
-    il: IlLine? = null, seen: Set<String> = emptySet(),
-    readInk: Color = Ink.palette.slipSoft,
-) {
-    val p = Ink.palette
-    var stage by remember(learn) { mutableIntStateOf(if (animate) 0 else pairs.size * 2) }
-    pairs.forEachIndexed { k, (r, tr) ->
-        val seg = learn.substring(r.first.coerceAtLeast(0), (r.last + 1).coerceAtMost(learn.length))
-        val segMarks = marks.mapNotNull { (m, w) -> m.inside(r)?.let { it to w } }
-        val segSpoken = spoken?.takeIf { !it.isEmpty() && it.first <= r.last && it.last >= r.first }?.let { maxOf(it.first, r.first) - r.first..minOf(it.last, r.last) - r.first }
-        if (k > 0) Box(Modifier.height(Tokens.Space.s1))
-        if (il != null) IlText(learn, il, r, learnLang, animate, stage >= 2 * k, lineMs, onDone = { if (stage == 2 * k) stage = 2 * k + 1 },
-            marks = marks, onWord = onWord, spoken = spoken, onTap = onTap, picked = picked, onPickedAt = onPickedAt, seen = seen)
-        else InkText(seg, Type.target.of(learnLang), p.slipInk, animate, go = stage >= 2 * k, lineMs = lineMs, onDone = { if (stage == 2 * k) stage = 2 * k + 1 },
-            marks = segMarks.map { it.first }, markColor = Color(0xFF8F6A27), onMark = { j -> onWord(segMarks[j].second) }, spoken = segSpoken,
-            taps = taps.map { it.inside(r) ?: IntRange.EMPTY }, onTap = onTap, hints = hints.mapNotNull { it.inside(r) },
-            picked = picked?.inside(r), onPickedAt = onPickedAt)
-        if (tr.isNotBlank()) InkText(tr, Type.base.of(readLang), readInk, animate, go = stage >= 2 * k + 1, lineMs = (lineMs * 0.7f).toInt(),
-            onDone = { if (stage == 2 * k + 1) stage = 2 * k + 2; if (k == pairs.lastIndex) onWritten() })
-        else if (k == pairs.lastIndex) LaunchedEffect(stage) { if (stage >= 2 * k + 1) onWritten() }
-        else LaunchedEffect(stage) { if (stage == 2 * k + 1) stage = 2 * k + 2 }
     }
 }
 
@@ -1102,3 +1211,4 @@ fun dateLine(date: String, place: String): String {
     else d.format(java.time.format.DateTimeFormatter.ofPattern("d MMMM yyyy", java.util.Locale.ENGLISH))
     return text
 }
+

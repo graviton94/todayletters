@@ -17,6 +17,7 @@ import androidx.compose.ui.test.hasSetTextAction
 import androidx.compose.ui.test.performTextInput
 import androidx.compose.ui.test.isEnabled
 import androidx.compose.ui.test.onFirst
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -25,6 +26,7 @@ import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performScrollToIndex
 import androidx.compose.ui.test.performTouchInput
 import androidx.compose.ui.test.swipeUp
+import androidx.compose.ui.test.swipeDown
 import androidx.test.core.app.ApplicationProvider
 import com.github.takahirom.roborazzi.captureRoboImage
 import io.github.graviton94.todayletters.core.Exercises
@@ -892,7 +894,7 @@ class ScreensTest {
         s.gloss = pick(s, "vincent", ch, l, 0)
         // 편지 끝까지 내려간 목록을 맨 위로 되돌려, 누른 첫 문장이 보이게
         shot("f01_room_gloss_below_light", false, 4000, act = {
-            rule.onNode(androidx.compose.ui.test.hasScrollToIndexAction()).performScrollToIndex(0)
+            rule.onAllNodes(androidx.compose.ui.test.hasScrollAction()).onFirst().performTouchInput { swipeDown(); swipeDown(); swipeDown() }
             rule.mainClock.advanceTimeBy(600)
         }, series = s) {
             Box(Modifier.fillMaxSize()) { Room(s, room); io.github.graviton94.todayletters.ui.GlossHost(s) }
@@ -1329,7 +1331,7 @@ class ScreensTest {
         // 다 읽은 편지는 끝으로 내려가 있으므로 맨 위의 다시 읽기 띠로 올린다
         shot("g02_room_reread_cov_light", false, 3000, act = {
             // 편지 목록은 LazyColumn 이라 화면 밖 띠는 아직 그려지지 않았다: 목록을 맨 위로 굴린다
-            scrolled { rule.onAllNodes(androidx.compose.ui.test.hasScrollToIndexAction()).onFirst().performScrollToIndex(0) }
+            scrolled { rule.onAllNodes(androidx.compose.ui.test.hasScrollAction()).onFirst().performTouchInput { swipeDown(); swipeDown(); swipeDown() } }
         }, series = s) { Room(s, room(1)) }
     }
     /** 번역 줄은 접지 않는다: B1 에서는 옅게만 (다 아는 문장도 번역이 보인다). 다 읽은 편지라 끝 쪽이 보인다. */
@@ -2847,4 +2849,142 @@ class ScreensTest {
     @Test fun owWhatsNewLight() = owWhatsNew("ow8a_whatsnew_ko_light", false)
     @Test fun owWhatsNewDark() = owWhatsNew("ow8b_whatsnew_ko_dark", true)
     @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun owWhatsNewEn() = owWhatsNew("ow8c_whatsnew_en_light", false)
+
+    // ── 편지 방 읽기 흐름 (시안 room src4, 2026-10-25 허락): rr* ──
+    // 가짜 낭독 (Narrator.fake) 으로 흐름을 몰아서 찍는다: 끝 = end(), 재생 자리 = at(밀리초).
+    private fun rrState(series: String = "vincent"): AppState {
+        val s = when (series) {
+            "mozart" -> mstate()
+            "goya" -> gstate()
+            "napoleon" -> state(true).also { fetchedLocally("napoleon", listOf("P", "I")) }
+            else -> state(true)
+        }
+        s.enter(series)
+        return s
+    }
+    private inner class RoomDriver(val s: AppState, val room: Route.Letter) {
+        fun end(ms: Long = 0) {
+            rule.runOnUiThread { s.narrator.fakeEnd(); androidx.compose.runtime.snapshots.Snapshot.sendApplyNotifications() }
+            if (ms > 0) rule.mainClock.advanceTimeBy(ms)
+        }
+        fun wait(ms: Long) = rule.mainClock.advanceTimeBy(ms)
+        /** 문장 [msg] 의 [k] 번째 낱말 가운데쯤으로 (낱말 시각 파일). */
+        fun mid(msg: Int, k: Int) {
+            val (c, l) = s.letterOf(room)
+            val w = s.narrator.words(s.narrator.path(room.series, c, l.id, "m${msg + 1}_${s.room(room.series).learn.code}")) ?: return
+            val x = w[k.coerceAtMost(w.lastIndex)]
+            rule.runOnUiThread { s.narrator.fakeAt = x.s + (x.e - x.s) * 6 / 10 }
+            rule.mainClock.advanceTimeBy(150)
+        }
+        fun tapText(t: String, substring: Boolean = false, unmerged: Boolean = false) {
+            rule.onAllNodesWithText(t, substring = substring, useUnmergedTree = unmerged).onFirst().performClick()
+            rule.mainClock.advanceTimeBy(400)
+        }
+        fun firstLine(msg: Int) = io.github.graviton94.todayletters.core.Breaks.plain(s.letterOf(room).second.messages[msg].text[s.room(room.series).learn]).take(14)
+    }
+    private fun rrShot(name: String, dark: Boolean, s: AppState, room: Route.Letter, after: Long = 400, drive: RoomDriver.() -> Unit) {
+        s.narrator.fake = mutableListOf()
+        try { shot(name, dark, ms = 400, act = { RoomDriver(s, room).drive() }, series = s, after = after) { Room(s, room) } }
+        finally { s.narrator.fake = null }
+    }
+    private val vin2 = Route.Letter("vincent", 1, 2, Route.Inbox)
+
+    /** ① 읽는 중: 말한 낱말 먹색 · 지금 낱말 금빛 밑줄 · 아직은 옅게, 뜻은 지금 문장에만, 번역 80%. */
+    private fun rrKaraoke(name: String, dark: Boolean) { val s = rrState(); rrShot(name, dark, s, vin2) { mid(0, 5) } }
+    @Test fun rr1KaraokeKoLight() = rrKaraoke("rr1a_karaoke_ko_light", false)
+    @Test fun rr1KaraokeKoDark() = rrKaraoke("rr1b_karaoke_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr1KaraokeEnLight() = rrKaraoke("rr1c_karaoke_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr1KaraokeEnDark() = rrKaraoke("rr1d_karaoke_en_dark", true)
+
+    /** ② 읽은 첫 문장을 눌러 다시 듣는 중: 띠 “1번째 문장을 다시 듣는 중 · 이어서 듣기 · 2번째부터”. */
+    private fun rrReplay(name: String, dark: Boolean) {
+        val s = rrState()
+        rrShot(name, dark, s, vin2) { end(11_500); tapText(firstLine(0), substring = true); mid(0, 3) }
+    }
+    @Test fun rr2ReplayKoLight() = rrReplay("rr2a_replay_ko_light", false)
+    @Test fun rr2ReplayKoDark() = rrReplay("rr2b_replay_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr2ReplayEnLight() = rrReplay("rr2c_replay_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr2ReplayEnDark() = rrReplay("rr2d_replay_en_dark", true)
+
+    /** ③ 지금 문장의 기능어 (une) 를 누른 카드: 멈춤 · ‘“une” 부터 이어 듣기’ · 닫기. */
+    private fun rrWord(name: String, dark: Boolean) { val s = rrState(); rrShot(name, dark, s, vin2) { mid(0, 9); tapText("une", unmerged = true) } }
+    @Test fun rr3WordKoLight() = rrWord("rr3a_word_card_ko_light", false)
+    @Test fun rr3WordKoDark() = rrWord("rr3b_word_card_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr3WordEnLight() = rrWord("rr3c_word_card_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr3WordEnDark() = rrWord("rr3d_word_card_en_dark", true)
+
+    /** ④ 문장 사이 쉼: 카드 아래 금선이 차는 중, 가운데 단추는 ‘다음 문장으로’. */
+    private fun rrHold(name: String, dark: Boolean) { val s = rrState(); rrShot(name, dark, s, vin2) { end(1800) } }
+    @Test fun rr4HoldKoLight() = rrHold("rr4a_hold_ko_light", false)
+    @Test fun rr4HoldKoDark() = rrHold("rr4b_hold_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr4HoldEnLight() = rrHold("rr4c_hold_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr4HoldEnDark() = rrHold("rr4d_hold_en_dark", true)
+
+    /** ⑤ 빈센트가 보낸 사진 (왼쪽): 보는 동안 쉼 (사진 아래 금선). */
+    private fun rrPhoto(name: String, dark: Boolean) { val s = rrState(); rrShot(name, dark, s, vin2) { end(6400) } }
+    @Test fun rr5PhotoKoLight() = rrPhoto("rr5a_photo_ko_light", false)
+    @Test fun rr5PhotoKoDark() = rrPhoto("rr5b_photo_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr5PhotoEnLight() = rrPhoto("rr5c_photo_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr5PhotoEnDark() = rrPhoto("rr5d_photo_en_dark", true)
+
+    /** ⑥ 빈센트가 위치를 공유했어요 (왼쪽, 지도에서 보기). I장 첫 편지: 알림 줄 → 첫 문장 → 위치. */
+    private fun rrPlace(name: String, dark: Boolean) {
+        val s = rrState()
+        rrShot(name, dark, s, Route.Letter("vincent", 1, 1, Route.Inbox)) { wait(2300); end(6100) }
+    }
+    @Test fun rr6PlaceKoLight() = rrPlace("rr6a_location_ko_light", false)
+    @Test fun rr6PlaceKoDark() = rrPlace("rr6b_location_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr6PlaceEnLight() = rrPlace("rr6c_location_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr6PlaceEnDark() = rrPlace("rr6d_location_en_dark", true)
+
+    /** ⑦ 내 차례 (테오의 송금, 편지 앞): 아래 자리가 ‘테오로서 빈센트에게 50 francs 보내기 →’. */
+    private val vin3 = Route.Letter("vincent", 1, 3, Route.Inbox)
+    private fun rrAsk(name: String, dark: Boolean) { val s = rrState(); rrShot(name, dark, s, vin3) { wait(300) } }
+    @Test fun rr7AskKoLight() = rrAsk("rr7a_theo_ask_ko_light", false)
+    @Test fun rr7AskKoDark() = rrAsk("rr7b_theo_ask_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr7AskEnLight() = rrAsk("rr7c_theo_ask_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr7AskEnDark() = rrAsk("rr7d_theo_ask_en_dark", true)
+
+    /** ⑧ 보낸 뒤: 오른쪽 어두운 말풍선 ‘내가 보냄 · 테오 → 빈센트’, 이어서 첫 문장. */
+    private fun rrSent(name: String, dark: Boolean) {
+        val s = rrState()
+        rrShot(name, dark, s, vin3) {
+            val t = s.letterOf(vin3).second.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Transfer>().first()
+            val ui = if (ctx.resources.configuration.locales[0].language == "ko") io.github.graviton94.todayletters.core.Lang.KO else io.github.graviton94.todayletters.core.Lang.EN
+            val to = s.work("vincent").recipient[ui]; val from = s.work("vincent").name[ui]
+            val label = ctx.getString(R.string.room_send_as, if (ui == io.github.graviton94.todayletters.core.Lang.KO) to + "로서" else to, from, t.amount)
+            rule.onNode(androidx.compose.ui.test.hasContentDescription(label)).performClick()
+            wait(900); mid(0, 2)
+        }
+    }
+    @Test fun rr8SentKoLight() = rrSent("rr8a_theo_sent_ko_light", false)
+    @Test fun rr8SentKoDark() = rrSent("rr8b_theo_sent_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr8SentEnLight() = rrSent("rr8c_theo_sent_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr8SentEnDark() = rrSent("rr8d_theo_sent_en_dark", true)
+
+    /** ⑨ 다 들은 편지: 마지막 순간 뒤 큐레이터 노트 (미술관 카드) · 아래 자리 ‘다음 걸음 · 낱말 맞추기  2 / N →’. */
+    private fun rrNote(name: String, dark: Boolean) {
+        val s = rrState()
+        val (c, l) = s.letterOf(vin2)
+        s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size))
+        rrShot(name, dark, s, vin2) { rule.onAllNodes(androidx.compose.ui.test.hasScrollAction()).onFirst().performTouchInput { swipeUp(); swipeUp() }; wait(600) }
+    }
+    @Test fun rr9NoteKoLight() = rrNote("rr9a_note_cta_ko_light", false)
+    @Test fun rr9NoteKoDark() = rrNote("rr9b_note_cta_ko_dark", true)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr9NoteEnLight() = rrNote("rr9c_note_cta_en_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr9NoteEnDark() = rrNote("rr9d_note_cta_en_dark", true)
+
+    /** ⑩ 다른 작품의 순간: 모차르트 (볼프강이 사진을 보냄) · 나폴레옹 (위치 공유) · 고야 (사진). */
+    private fun rrMozart(name: String, dark: Boolean) { val s = rrState("mozart"); rrShot(name, dark, s, Route.Letter("mozart", 1, 1, Route.Inbox)) { end(5400) } }
+    private fun rrNapoleon(name: String, dark: Boolean) { val s = rrState("napoleon"); rrShot(name, dark, s, Route.Letter("napoleon", 1, 1, Route.Inbox)) { wait(2300); end(5500) } }
+    private fun rrGoya(name: String, dark: Boolean) {
+        val s = rrState("goya")
+        rrShot(name, dark, s, Route.Letter("goya", 1, 1, Route.Inbox)) { wait(2300); end(8200); end(5300); end(5600) }
+    }
+    @Test fun rr10MozartKoLight() = rrMozart("rr10a_mozart_photo_ko_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr10MozartEnDark() = rrMozart("rr10b_mozart_photo_en_dark", true)
+    @Test fun rr11NapoleonKoLight() = rrNapoleon("rr11a_napoleon_location_ko_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr11NapoleonEnDark() = rrNapoleon("rr11b_napoleon_location_en_dark", true)
+    @Test fun rr12GoyaKoLight() = rrGoya("rr12a_goya_photo_ko_light", false)
+    @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr12GoyaEnDark() = rrGoya("rr12b_goya_photo_en_dark", true)
 }

@@ -4,6 +4,9 @@ import android.content.Context
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.test.core.app.ApplicationProvider
@@ -876,5 +879,121 @@ class NavTest {
             press(ctx.getString(R.string.go_exhibition))
             assertEquals(null, s.reward); assertEquals(Route.Exhibition, s.route)
         }
+    }
+
+    // ── 편지 방 읽기 흐름 (시안 room src4): 내가 누른 것이 이긴다 · 내 차례 · 노트 뒤 다음 걸음 ──
+
+    /** 편지 방을 낭독 없이 (시험용 가짜 낭독) 그린다: 도착 장면 · 타자 기다림 없이. [n] 은 I장 몇 번째 편지. */
+    private fun roomRun(n: Int): Triple<AppState, Route.Letter, MutableList<String>> {
+        val s = state()
+        s.enter("vincent")
+        s.update(s.app.copy(pace = io.github.graviton94.todayletters.core.TypingPace.INSTANT))
+        val room = Route.Letter("vincent", 1, n, Route.Inbox)
+        val (c, l) = s.letterOf(room)
+        s.store.markArrived(s.key("vincent", c, l.id))
+        s.go(room)
+        val log = mutableListOf<String>()
+        s.narrator.fake = log
+        rule.mainClock.autoAdvance = false
+        rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { io.github.graviton94.todayletters.ui.Room(s, room) } }
+        rule.mainClock.advanceTimeBy(500)
+        return Triple(s, room, log)
+    }
+    private fun AppState.msgAudio(room: Route.Letter, i: Int): String {
+        val (c, l) = letterOf(room)
+        return narrator.path("vincent", c, l.id, "m${i + 1}_${room(room.series).learn.code}")
+    }
+    private fun endSound(s: AppState, ms: Long) {
+        rule.runOnUiThread { s.narrator.fakeEnd(); androidx.compose.runtime.snapshots.Snapshot.sendApplyNotifications() }
+        rule.mainClock.advanceTimeBy(ms)
+    }
+
+    /**
+     * 내가 누른 것이 이긴다: 지금 문장의 낱말을 누르면 멈추고 (새 문장 없음), 카드의 ‘“낱말” 부터 이어 듣기’ 는 그 낱말 150ms 앞부터.
+     * 사진을 누르면 멈춘다 (띠, 이어서 듣기는 그 사진 다음부터). 읽은 문장을 누르면 그 문장만 다시 듣고 이어 듣기는 멈춘다.
+     */
+    @Test fun roomManualActionWins() {
+        val (s, room, log) = roomRun(2)
+        val (_, l) = s.letterOf(room)
+        val m1 = s.msgAudio(room, 0); val m2 = s.msgAudio(room, 1)
+        assertEquals(listOf(m1), log)
+        // 낱말 (지금 문장 · 낱말 아래 뜻 칸): 멈춤, 카드
+        rule.onNodeWithText("rapporté", useUnmergedTree = true).performClick()
+        rule.mainClock.advanceTimeBy(300)
+        assertEquals(null, s.narrator.now)
+        val fromWord = ctx.getString(R.string.room_from_word, "rapporté")
+        rule.onNodeWithText(fromWord).assertExists()
+        rule.mainClock.advanceTimeBy(12_000)
+        assertEquals("no new sentence while the word card is open", listOf(m1), log)
+        // 그 낱말부터 이어 듣기: 같은 문장을 그 낱말 시작 150ms 앞에서
+        rule.onNodeWithText(fromWord).performClick()
+        rule.mainClock.advanceTimeBy(300)
+        assertEquals(listOf(m1, m1), log)
+        val text = l.messages[0].text[s.room("vincent").learn]
+        val k = io.github.graviton94.todayletters.core.RoomFlow.wordRanges(text).indexOfFirst { text.substring(it.first, it.last + 1) == "rapporté" }
+        val times = s.narrator.words(m1)!!
+        assertEquals(io.github.graviton94.todayletters.core.RoomFlow.resumeSeek(times[k].s), s.narrator.fakeAt)
+        // 문장이 끝나면 쉼 → 사진 (빈센트가 보냄, 왼쪽) 이 와서 보는 동안 쉼
+        endSound(s, 5200)
+        val photo = l.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Photo>().first()
+        val caption = photo.caption[io.github.graviton94.todayletters.core.Lang.KO]
+        rule.onNodeWithText(ctx.getString(R.string.room_photo_sent, "빈센트가")).assertExists()
+        assertEquals(listOf(m1, m1), log)
+        // 사진을 누르면 크게 보며 멈춤 (띠), 다음 문장은 오지 않는다
+        rule.onNodeWithContentDescription(caption).performClick()
+        rule.mainClock.advanceTimeBy(300)
+        rule.onNodeWithText("✕").performClick()
+        rule.mainClock.advanceTimeBy(12_000)
+        assertEquals(listOf(m1, m1), log)
+        rule.onNodeWithText(ctx.getString(R.string.room_paused_photo)).assertExists()
+        // 이어서 듣기 · 2번째부터 → 다음 문장
+        rule.onNodeWithText(ctx.getString(R.string.room_resume_from, 2)).performClick()
+        rule.mainClock.advanceTimeBy(500)
+        assertEquals(listOf(m1, m1, m2), log)
+        // 읽은 첫 문장을 누르면 그 문장만 (띠), 끝나도 새 문장은 오지 않는다
+        rule.onAllNodesWithText(text.take(14), substring = true)[0].performClick()
+        rule.mainClock.advanceTimeBy(300)
+        assertEquals(listOf(m1, m1, m2, m1), log)
+        rule.onNodeWithText(ctx.getString(R.string.room_replaying, 1)).assertExists()
+        endSound(s, 12_000)
+        assertEquals(listOf(m1, m1, m2, m1), log)
+        rule.onNodeWithText(ctx.getString(R.string.room_replayed, 1)).assertExists()
+        s.narrator.fake = null
+    }
+
+    /** 내가 하는 일 (테오의 송금): 아래 자리가 그 단추가 되고, 누를 때까지 편지가 오지 않는다. 누르면 오른쪽 ‘내가 보냄’ 말풍선, 그다음 첫 문장. */
+    @Test fun roomTheoActsBeforeTheLetter() {
+        val (s, room, log) = roomRun(3)
+        val (_, l) = s.letterOf(room)
+        val t = l.moments.filterIsInstance<io.github.graviton94.todayletters.core.Moment.Transfer>().first()
+        assertTrue(t.byReader)
+        val ask = ctx.getString(R.string.room_send_as, "테오로서", "빈센트", t.amount)
+        rule.onNodeWithContentDescription(ask).assertExists()
+        rule.mainClock.advanceTimeBy(10_000)
+        assertEquals("the letter waits for Theo", emptyList<String>(), log)
+        rule.onNodeWithContentDescription(ask).performClick()
+        rule.mainClock.advanceTimeBy(800)
+        rule.onNodeWithText(ctx.getString(R.string.room_sent_by_me, "테오", "빈센트")).assertExists()
+        assertEquals(listOf(s.msgAudio(room, 0)), log)
+        s.narrator.fake = null
+    }
+
+    /** 마지막 문장 · 순간 뒤에 큐레이터 노트 (미술관 카드), 그 뒤에야 아래 자리가 ‘다음 걸음 · …’ 단추. */
+    @Test fun roomNoteThenNextStep() {
+        val (s, room, log) = roomRun(2)
+        val (_, l) = s.letterOf(room)
+        val next = ctx.getString(R.string.go_next_step, "")
+        repeat(l.messages.size) { k ->
+            assertEquals(s.msgAudio(room, k), log.last())
+            rule.onAllNodes(androidx.compose.ui.test.hasContentDescription(next, substring = true)).assertCountEquals(0)
+            rule.onAllNodesWithText(ctx.getString(R.string.note_title)).assertCountEquals(0)
+            endSound(s, 10_000)
+        }
+        rule.mainClock.advanceTimeBy(4000)
+        rule.onNodeWithText(ctx.getString(R.string.note_title)).assertExists()
+        rule.onNode(androidx.compose.ui.test.hasContentDescription(next, substring = true)).assertExists()
+        rule.onAllNodes(androidx.compose.ui.test.hasContentDescription(ctx.getString(R.string.room_next_line))).assertCountEquals(0)
+        assertTrue(s.progress("vincent", s.letterOf(room).first, l.id).shown >= l.messages.size)
+        s.narrator.fake = null
     }
 }

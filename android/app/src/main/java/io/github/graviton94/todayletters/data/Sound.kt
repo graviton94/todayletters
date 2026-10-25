@@ -154,7 +154,7 @@ class Narrator(private val ctx: Context) {
         val fd = AssetFiles.fd(ctx, asset) ?: run { onEnd(true); return false }
         voice.begin(owner, onEnd)
         // 시험만 ([fake]): 소리 없이 시작만 적고, 끝은 [fakeEnd] 가 (멈춤 · 다른 소리로 바뀜은 앱과 같다)
-        fake?.let { runCatching { fd.close() }; it += asset; now = asset; return true }
+        fake?.let { runCatching { fd.close() }; it += asset; now = asset; fakeAt = 0; return true }
         // 소리 파일이 깨졌거나 재생기가 거절하면 조용히 넘어간다 (대화는 계속)
         player = runCatching {
             MediaPlayer().apply {
@@ -183,6 +183,8 @@ class Narrator(private val ctx: Context) {
      * (그 전에 다른 소리 · 멈춤이 오면 앱처럼 ‘끝까지 듣지 않음’). 앱에서는 늘 null.
      */
     var fake: MutableList<String>? = null
+    /** 시험만: [fake] 소리의 재생 위치 ([position] 이 돌려준다, 소리를 시작하면 0). */
+    var fakeAt: Int = 0
     /** 시험만: [fake] 로 내는 지금 소리를 끝까지 들은 것으로 끝낸다. */
     fun fakeEnd() { if (fake != null && now != null && player == null) { count(); now = null; voice.end(true) } }
 
@@ -216,6 +218,17 @@ class Narrator(private val ctx: Context) {
     fun resume() { player?.runCatching { if (paused) { start(); paused = false; clock.resume(tick()) } } }
     /** 지금 파일의 처음으로. */
     fun restart() { player?.runCatching { seekTo(0) } }
+
+    /** 지금 파일의 [ms] 자리로 (편지 방: 낱말부터 이어 듣기 · 긴 쉼 건너뛰기). 시험의 [fake] 소리면 [fakeAt] 을 옮긴다. */
+    fun seekTo(ms: Int) {
+        if (fake != null && player == null) { if (now != null) fakeAt = ms; return }
+        player?.runCatching { seekTo(ms.coerceAtLeast(0)) }
+    }
+
+    /** 지금 소리의 빠르기를 바꾼다 (편지 방 빠르기 칩, 높낮이 유지). 다음 소리는 [playThen] 의 빠르기대로. */
+    fun setRate(rate: Float) {
+        player?.runCatching { val was = isPlaying; playbackParams = playbackParams.setSpeed(rate); if (!was) pause() }
+    }
     /** 지금 파일을 재생 중인가 (멈춘 것도 포함). */
     val active get() = player != null
 
@@ -244,7 +257,10 @@ class Narrator(private val ctx: Context) {
     fun duration(): Int = player?.runCatching { duration }?.getOrNull() ?: -1
 
     /** 재생 위치 (밀리초). 재생 중이 아니면 -1. */
-    fun position(): Int = player?.runCatching { if (isPlaying || paused) currentPosition else -1 }?.getOrNull() ?: -1
+    fun position(): Int {
+        if (fake != null && player == null) return if (now != null) fakeAt else -1
+        return player?.runCatching { if (isPlaying || paused) currentPosition else -1 }?.getOrNull() ?: -1
+    }
 
     /** 낭독의 덩어리 시각: assets/....m<번호>_<언어>.json (narrate.py 가 씀). 없으면 빈 목록. */
     fun chunks(asset: String): List<Chunk> = runCatching {

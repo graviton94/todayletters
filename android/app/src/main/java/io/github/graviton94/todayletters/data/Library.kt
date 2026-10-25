@@ -270,7 +270,8 @@ object Library {
             "location" -> Moment.Location(m.getInt("after"), m.getString("place"), tri(m.getJSONObject("title")), m.optString("address"))
             "photo" -> Moment.Photo(m.getInt("after"), m.getString("image"), tri(m.getJSONObject("caption")))
             "sketch" -> Moment.Photo(m.getInt("after"), m.getString("image"), tri(m.getJSONObject("caption")), sketch = true, credit = m.optString("credit"))
-            "transfer" -> Moment.Transfer(m.getInt("after"), m.getString("amount"), tri(m.getJSONObject("label")), tri(m.getJSONObject("memo")), m.optBoolean("outgoing"))
+            "transfer" -> Moment.Transfer(m.getInt("after"), m.getString("amount"), tri(m.getJSONObject("label")), tri(m.getJSONObject("memo")), m.optBoolean("outgoing"),
+                reader = when (m.optString("by")) { "recipient" -> true; "sender" -> false; else -> null })
             "notice" -> Moment.Notice(m.getInt("after"), tri(m.getJSONObject("text")))
             // 날씨: 제목 · 큰 값 둘로 나뉜 것(빈센트)과 한 줄 글(text)만 있는 것(모차르트) 둘 다
             "weather" -> {

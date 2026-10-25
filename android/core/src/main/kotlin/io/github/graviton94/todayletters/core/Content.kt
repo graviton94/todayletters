@@ -56,8 +56,14 @@ sealed interface Moment {
     data class Location(override val after: Int, val place: String, val title: Tri, val address: String) : Moment
     /** 그림 사진 (assets/plates) 또는 [sketch] 면 편지 원본의 스케치 (assets/sketches). */
     data class Photo(override val after: Int, val image: String, val caption: Tri, val sketch: Boolean = false, val credit: String = "") : Moment
-    /** 송금: [outgoing] 이면 보내는 사람(빈센트)이 보낸 것, 아니면 받는 사람(테오)이 보낸 것. */
-    data class Transfer(override val after: Int, val amount: String, val label: Tri, val memo: Tri, val outgoing: Boolean = false) : Moment
+    /**
+     * 송금: [outgoing] 이면 보내는 사람(빈센트)이 보낸 것, 아니면 받는 사람(테오)이 보낸 것 · 받는 쪽이 받은 돈 (모차르트의 제안 등).
+     * [reader] 는 대화방의 나(받는 사람)가 하는 송금인가 (데이터의 "by": "recipient" / "sender", 없으면 null):
+     * 없으면 편지 앞 (after -1) 의 받는 사람 송금만 나의 송금으로 친다 ([byReader], 빈센트의 ‘테오가 보냄’).
+     */
+    data class Transfer(override val after: Int, val amount: String, val label: Tri, val memo: Tri, val outgoing: Boolean = false, val reader: Boolean? = null) : Moment {
+        val byReader get() = reader ?: (!outgoing && after < 0)
+    }
     /** 가운데 알림 줄: 도착 · 이사 같은 실제 사건. */
     data class Notice(override val after: Int, val text: Tri) : Moment
     /** 날씨 공유: [value] 는 큰 글자 (눈 60cm), [quote] 는 편지 원문 한 토막. */

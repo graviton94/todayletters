@@ -41,6 +41,8 @@ data class AppSettings(
     /** 맞음 · 틀림 효과음 (v21 1단계). 낭독 소리와는 따로 켜고 끈다. */
     val effects: Boolean = true,
     val pace: TypingPace = TypingPace.CALM,
+    /** 편지 방 ‘문장 사이 쉼’ (짧게 · 보통 · 길게, [RoomFlow.Pause]): 문장 · 순간 뒤 쉼에 곱한다. */
+    val hold: RoomFlow.Pause = RoomFlow.Pause.NORMAL,
 )
 
 /**

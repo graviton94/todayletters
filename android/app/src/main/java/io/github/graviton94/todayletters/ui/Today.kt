@@ -245,7 +245,7 @@ private fun TodayLetter(s: AppState, id: String, work: io.github.graviton94.toda
     Text(l.messages.first().text[view.learn], style = Type.target.of(view.learn), color = p.ink)
     if (view.showRead && view.read != view.learn) Text(l.messages.first().text[view.read], style = Type.small.of(view.read), color = p.inkSoft)
     // 천천히 듣는 2주: 처음 한 번은 0.7× 로 저절로 읽는다
-    if (s.slowPassDue(id, c, l)) Text(stringResource(R.string.slow_first), style = Type.small.ui(), color = p.giltText, maxLines = 1)
+    if (s.slowPassDue(id, c, l)) Text(stringResource(R.string.slow_first_08), style = Type.small.ui(), color = p.giltText, maxLines = 1)
     // 걸음 점
     val dots = Journey.letterDots(pr.shown, l.messages.size, modes, pr)
     val labels = listOf(stringResource(R.string.step_read_short)) + modes.map { stringResource(when (it) {

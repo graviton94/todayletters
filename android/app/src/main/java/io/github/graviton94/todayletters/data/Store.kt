@@ -50,12 +50,13 @@ class Store(ctx: Context) {
         haptics = p.getBoolean("haptics", true),
         effects = p.getBoolean("effects", true),
         pace = runCatching { TypingPace.valueOf(p.getString("pace", "") ?: "") }.getOrDefault(TypingPace.CALM),
+        hold = runCatching { io.github.graviton94.todayletters.core.RoomFlow.Pause.valueOf(p.getString("hold", "") ?: "") }.getOrDefault(io.github.graviton94.todayletters.core.RoomFlow.Pause.NORMAL),
     )
 
     fun save(a: AppSettings) = p.edit()
         .putString("ui", a.ui.name).putString("read", a.read.name).putString("theme", a.theme.name)
         .putBoolean("large", a.largeText).putBoolean("sound", a.sound).putBoolean("haptics", a.haptics)
-        .putBoolean("effects", a.effects).putString("pace", a.pace.name).apply()
+        .putBoolean("effects", a.effects).putString("pace", a.pace.name).putString("hold", a.hold.name).apply()
 
     fun hasApp() = p.contains("read")
 
@@ -68,9 +69,9 @@ class Store(ctx: Context) {
             modes = modes(p.getString("s:$id:modes", null) ?: "MATCH,CONSTELLATION,ALOUD"),
             arrivalNotice = p.getBoolean("s:$id:notice", true),
             easier = p.getBoolean("s:$id:easier", false),
-            // 예전 편지 방의 0.7× 를 쓰던 작품은 직접 고른 0.7 로 이어 간다
+            // 예전 편지 방의 0.7× 를 쓰던 작품은 직접 고른 천천히로 이어 간다. 예전 값 0.7 · 0.85 는 지금 칸 0.8 · 0.9 로 (core Listen.migrate)
             listenAuto = p.getBoolean("s:$id:lauto", p.getFloat("speed:$id", 1f) >= 1f),
-            listenSpeed = p.getFloat("s:$id:lspeed", p.getFloat("speed:$id", 1f)),
+            listenSpeed = io.github.graviton94.todayletters.core.Listen.migrate(p.getFloat("s:$id:lspeed", p.getFloat("speed:$id", 1f))),
             amount = p.getString("s:$id:amount", null)?.let { a -> io.github.graviton94.todayletters.core.Start.Amount.entries.firstOrNull { it.name == a } }
                 ?: io.github.graviton94.todayletters.core.Start.Amount.ONE,
             why = p.getString("s:$id:why", null)?.let { w -> io.github.graviton94.todayletters.core.Start.Why.entries.firstOrNull { it.name == w } },

@@ -4363,5 +4363,165 @@
   "whatsnew_items_100": {
     "en": "Speaking screens redone · listen first, then speak\nThe pitch line is one smooth curve, with words where they're spoken\nRecording stops when you finish · Compare plays both voices in a row\nNew reward screens · your painting or medal moves to its place\nThe Library puts the series with a new letter on top\nFixed voices playing at the wrong time when you change screens",
     "ko": "말하기 화면을 새로 정리했어요 · 먼저 듣고, 다 들으면 말해요\n억양 선이 한 줄로 이어지고, 낱말이 말한 자리에 놓여요\n다 말하면 녹음이 저절로 멈추고, 비교 듣기로 두 소리를 이어 들어요\n보상 화면을 새로 그렸어요 · 받은 그림과 메달이 제자리로 옮겨 가요\n서재에서 새 편지가 온 시리즈가 맨 위에 보여요\n화면을 옮길 때 소리가 엉뚱하게 나오던 문제를 고쳤어요"
+  },
+  "room_replaying": {
+    "en": "Replaying sentence %1$d",
+    "ko": "%1$d번째 문장을 다시 듣는 중"
+  },
+  "room_replayed": {
+    "en": "Replayed sentence %1$d",
+    "ko": "%1$d번째 문장을 다시 들었어요"
+  },
+  "room_resume_from": {
+    "en": "Keep listening · from %1$d",
+    "ko": "이어서 듣기 · %1$d번째부터"
+  },
+  "room_from_word": {
+    "en": "Listen on from “%1$s”",
+    "ko": "“%1$s” 부터 이어 듣기"
+  },
+  "room_paused_word": {
+    "en": "Paused while you look at a word",
+    "ko": "낱말을 보는 동안 멈췄어요"
+  },
+  "room_paused_photo": {
+    "en": "Paused while you look at the picture",
+    "ko": "사진을 보는 동안 멈췄어요"
+  },
+  "room_paused_map": {
+    "en": "Paused while you look at the map",
+    "ko": "지도를 보는 동안 멈췄어요"
+  },
+  "room_paused_line": {
+    "en": "Paused",
+    "ko": "멈췄어요"
+  },
+  "room_state_chain": {
+    "en": "Listening on",
+    "ko": "이어 듣는 중"
+  },
+  "room_state_one": {
+    "en": "This sentence only",
+    "ko": "이 문장만"
+  },
+  "room_state_paused": {
+    "en": "Paused",
+    "ko": "멈춤"
+  },
+  "room_state_hold": {
+    "en": "Until the next sentence",
+    "ko": "다음 문장까지"
+  },
+  "room_state_look": {
+    "en": "A moment to look",
+    "ko": "보는 동안 잠깐"
+  },
+  "room_state_music": {
+    "en": "Listen, or tap next",
+    "ko": "곡을 듣거나 다음을 눌러요"
+  },
+  "room_state_typing": {
+    "en": "Writing",
+    "ko": "쓰는 중"
+  },
+  "room_state_quiet": {
+    "en": "Reading without sound",
+    "ko": "소리 없이 읽는 중"
+  },
+  "room_state_done": {
+    "en": "All heard",
+    "ko": "다 들었어요"
+  },
+  "room_prev_line": {
+    "en": "Previous sentence",
+    "ko": "앞 문장"
+  },
+  "room_next_line": {
+    "en": "Next sentence",
+    "ko": "다음 문장"
+  },
+  "room_skip_hold": {
+    "en": "Go to the next sentence",
+    "ko": "다음 문장으로"
+  },
+  "room_replay_line": {
+    "en": "Replay this sentence",
+    "ko": "이 문장 다시 듣기"
+  },
+  "room_speed_group": {
+    "en": "Speed",
+    "ko": "빠르기"
+  },
+  "room_photo_sent": {
+    "en": "%1$s sent a picture",
+    "ko": "%1$s 사진을 보냈어요"
+  },
+  "room_sketch_sent": {
+    "en": "%1$s sent a sketch",
+    "ko": "%1$s 스케치를 보냈어요"
+  },
+  "room_place_shared": {
+    "en": "%1$s shared a location",
+    "ko": "%1$s 위치를 공유했어요"
+  },
+  "room_place_line": {
+    "en": "%1$s · Open in Maps",
+    "ko": "%1$s · 지도에서 보기"
+  },
+  "room_paid_by": {
+    "en": "Paid by %1$s",
+    "ko": "%1$s 냄"
+  },
+  "room_send_as": {
+    "en": "Send %3$s to %2$s as %1$s",
+    "ko": "%1$s %2$s에게 %3$s 보내기"
+  },
+  "room_send_go": {
+    "en": "Send",
+    "ko": "보내기"
+  },
+  "room_sent_by_me": {
+    "en": "Sent by me · %1$s → %2$s",
+    "ko": "내가 보냄 · %1$s → %2$s"
+  },
+  "room_sent_reply": {
+    "en": "Sent · %1$s will write back soon",
+    "ko": "보냈어요 · %1$s 곧 답해요"
+  },
+  "room_note_more": {
+    "en": "Look closer at the picture",
+    "ko": "그림 자세히 보기"
+  },
+  "room_hold_menu": {
+    "en": "Pause between sentences",
+    "ko": "문장 사이 쉼"
+  },
+  "room_hold_short": {
+    "en": "Short",
+    "ko": "짧게"
+  },
+  "room_hold_normal": {
+    "en": "Normal",
+    "ko": "보통"
+  },
+  "room_hold_long": {
+    "en": "Long",
+    "ko": "길게"
+  },
+  "room_card_word": {
+    "en": "Word",
+    "ko": "낱말"
+  },
+  "room_card_phrase": {
+    "en": "Phrase",
+    "ko": "표현"
+  },
+  "room_card_more": {
+    "en": "More",
+    "ko": "자세히"
+  },
+  "slow_first_08": {
+    "en": "First, one listen at 0.8×",
+    "ko": "먼저 0.8×로 한 번 들어요"
   }
 }
