@@ -1,0 +1,35 @@
+name: Lemma audit
+
+# 사전 표제어 · 품사 점검: spaCy 가 편지 문맥에서 본 표제어 · 품사와 gloss*.json 의 사전 열쇠 · lexicon pos 가 다른 곳 (scripts/audit/lemma_audit.py).
+# 원문 (fr · de · es) + 영어 층. 결과 TSV 는 결과 가지에 (이 환경은 실행 산출물을 못 받는다). 직접 실행할 때만.
+on:
+  workflow_dispatch:
+    inputs:
+      series: { description: "작품 (띄어쓰기로 나눔, 비우면 전부)", default: "" }
+      branch: { description: "결과 가지", default: "lemma-audit" }
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Install spaCy + models
+        run: |
+          # preshed · cymem · murmurhash 새 판은 spaCy 3.8.7 바퀴와 맞지 않아 (OverflowError in tokenizer) 묶어 둔다
+          pip install -q "spacy==3.8.7" "preshed==3.0.9" "cymem==2.0.11" "murmurhash==1.0.13" click simplemma
+          for m in fr_core_news_md de_core_news_md es_core_news_md en_core_web_md; do
+            pip install -q "https://github.com/explosion/spacy-models/releases/download/$m-3.8.0/$m-3.8.0-py3-none-any.whl"
+          done
+      - name: Audit
+        run: python3 scripts/audit/lemma_audit.py out ${{ inputs.series }}
+      - name: Publish to results branch
+        run: |
+          cd out
+          echo "from ${{ github.ref_name }} @ ${{ github.sha }}" >> summary.txt
+          git init -q && git checkout -q -b audit && git add .
+          git -c user.name=bot -c user.email=bot@users.noreply.github.com commit -qm "Lemma audit ($(date -u +%F)) of ${{ github.sha }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:refs/heads/${{ inputs.branch }}
