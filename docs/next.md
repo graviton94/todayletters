@@ -108,6 +108,19 @@
 - 화면 사진 `ScreensTest.ub*` (ub1 알림 · ub2 받는 중 42% · ub2b 실패 · ub3 다 받음 어둠 · ub4 내보내기 · ub5 가져오기 · ub6 확인). 예전 `updateReady` · `backupExport` · `backupImport` (u02 · bk2 · bk3) 는 이것으로 바꿨다.
 - 남은 것: 실제 Play 내부 테스트 트랙에서 받기 → 다시 열기를 폰으로 한 번 확인해야 한다 (Robolectric 은 Play 없이 상태만).
 
+## 2026-10-25 추가 (주고받기 순간 · 시안 moments.html 확정, ⑥ 내 생각 고르기 뺌)
+
+- **누가 하는가** 데이터 `"by": "reader" | "writer"` (예전 `recipient` · `sender` 도 읽음): 모든 송금 · 소포에 적었다 (테오가 편지 앞에 보낸 돈 = reader, 나머지 = writer). 나 = 그 편지를 받는 사람 (`work.recipientOf`).
+- 새 순간 (core `Content.kt`, `Library.moment`): `parcel` (물건 목록 `items: [{원어, en, ko, lex}]` · `memo` · `by`) · `list` (`title` · `rows: [{label, value, word}]`, 값은 원문) · `news` (`head` 세 언어 · `line` 원문 한 토막) · `handover` (`kind`: courier · return · post · ask, `what` · `memo`). 
+  내가 하는 것 (reader 송금 · reader 소포 · 맡기기) 은 막고 (`RoomFlow.blocks`, 아래 자리 금빛 단추 → 오른쪽 어두운 말풍선), 보낸 사람의 소포 · 목록 · 소식은 사진처럼 3500 + 30 × 글 (6000 까지, `RoomFlow.captionOf`).
+  물건 · 목록 낱말을 누르면 아래 낱말 카드 (꼬리표 ‘편지 속 물건’, 원어를 배울 때 `lex` 가 사전에 있으면 카드에 담기). 금액은 원문 + 한국어 글자일 때 작게 읽기 (core `Amounts.ko`: 숫자 + 화폐 낱말 하나만 — 프랑 · 플로린 · 레알 · 두카트 · 루이도르, 소수 · 여러 금액은 원문만).
+- 넣은 곳 28 (편지 원문이 말하는 문장 뒤, 편지 앞 = after -1): 빈센트 8 (송금 III-2 · III-7, 소포 VI-2 · VI-3 (내가) · II-2 · VI-7 (빈센트), 소식 III-5 · VII-6), 모차르트 5 (소포 I-3 (누나) · VII-1 · VIII-1, 맡기기 VI-6 (아버지의 편지 두 통), 소식 V-3), 나폴레옹 8 (소포 P-1 (조제프) · I-3 · III-3 · IV-7 · VII-2, 전령 I-5 · II-7, 소식 VII-4), 고야 7 (소포 I-4 · VI-7 · E-1, 부탁 I-1, 돌려보내기 VI-3, 소식 IV-1, 목록 IV-7). IV-7 의 그림 값은 원문대로 ‘알라메다를 위한 그림’ (시안의 ‘태피스트리 밑그림’ 이 아님). 겹치던 알림 줄 다섯 (VI-3 꾸러미 · VII-6 아들 · III-5 6프랑 · 모차르트 VII-1 소원 · 고야 IV-1 왕의 화가) 은 새 순간으로 바꿨다. 빈센트 IV-7 (100 + 50프랑) 은 이미 있던 송금.
+- **이동 위치 공유** (core `Travel`, series.json `"travel"`): 읽는 차례 (서문 · 장 · 맺음) 로 편지 쓴 곳이 앞 편지와 달라지면 편지 앞에 “볼프강이 위치를 공유했어요” + 길 (앞 곳 → 이번 곳, `RouteStripe`), 이미 위치가 있는 편지는 빼고. 이름은 `"names"` (편지 place 글자 → 세 언어). 지도는 이름으로 찾기 (`openMapsNamed`). 모차르트 23 · 빈센트 4 · 고야 2. 나폴레옹은 `"dedupe": true` (새로 놓지 않고, 앞 편지와 같은 장소 id 의 위치 순간을 뺀다).
+- 장 JSON (글) 은 앱 안 assets 라 generate.py 로 들어간다 (R2 판 규칙 `revisions` 은 remote/ 의 낭독 · 그림만, 이번엔 해당 없음).
+- 새 글자 키 18개 (`room_parcel_*` · `room_hand_*` · `room_news` · `room_card_item` · `room_travel_from` · `room_ask_go`).
+- 시험: core `MomentsTest` (막기 · 쉼 · by · 이동 · 나폴레옹 빼기 · 금액), NavTest `roomReaderParcelBlocks` · `roomHandoverBlocks`, 화면 사진 `*ScreensTest.ex*` (ex1 내 소포 · ex1c 그 단추 · ex2 보낸 사람 소포 · ex3 목록 · ex4 소식 · ex5 전령 · ex6 이동 위치, ko 밝음 · en 어둠). rr10 (모차르트 I-1) 은 이제 위치 공유 (잘츠부르크 → 밀라노) 가 먼저.
+- 남은 것: 서문 편지는 편지 방이 없어 나폴레옹 P-1 소포는 아직 화면에 안 나온다. 내가 맡긴 일도 `shown` 으로만 남는다 (송금과 같음).
+
 ## 다음 할 일 (차례대로)
 
 ### 1. 스크린샷 점검 (사용자 허락 뒤 `screens.yml`)
