@@ -423,7 +423,7 @@ internal fun RoomMoment(s: AppState, work: Work, recipient: String, m: Moment, o
                     modifier = Modifier.padding(bottom = 4.dp))
                 m.rows.forEach { r ->
                     Box(Modifier.fillMaxWidth().height(1.dp).background(ink.hair))
-                    Row(Modifier.fillMaxWidth().heightIn(min = 44.dp).then(if (r.word != null) Modifier.pressable { onItem(r.word) } else Modifier).padding(vertical = 6.dp),
+                    Row(Modifier.fillMaxWidth().heightIn(min = 44.dp).then(r.word?.let { w -> Modifier.pressable { onItem(w) } } ?: Modifier).padding(vertical = 6.dp),
                         verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                         Column(Modifier.weight(1f)) {
                             Text(r.label[lang], style = Type.small.ui().copy(fontSize = 13.sp, lineHeight = 18.sp), color = ink.ink)
