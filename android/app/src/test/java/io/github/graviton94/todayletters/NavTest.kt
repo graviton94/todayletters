@@ -648,19 +648,19 @@ class NavTest {
         // 덮여 있는 동안은 아무 소리도
         assertEquals(emptyList<String>(), log)
         // 단추를 누름: 한 장이 걷힌다
-        rule.runOnUiThread { s.stepNote = null }
+        rule.runOnUiThread { s.stepNote = null; androidx.compose.runtime.snapshots.Snapshot.sendApplyNotifications() }
         rule.mainClock.advanceTimeBy(1500)
-        assertEquals(listOf(partner), log)
+        assertEquals("covered=${s.covered} ${coverState(s)}", listOf(partner), log)
         assertEquals(partner, s.narrator.now)
         // 상대 줄이 끝나기 전에는 내 줄이 자르지 않는다
         rule.mainClock.advanceTimeBy(3000)
         assertEquals(listOf(partner), log)
-        rule.runOnUiThread { s.narrator.fakeEnd() }
+        rule.runOnUiThread { s.narrator.fakeEnd(); androidx.compose.runtime.snapshots.Snapshot.sendApplyNotifications() }
         rule.mainClock.advanceTimeBy(1000)
         assertEquals(listOf(partner, mine), log)
         assertEquals(mine, s.narrator.now)
         // 내 줄을 끝까지 들으면 녹음이 열린다 (다시 저절로 틀지 않는다)
-        rule.runOnUiThread { s.narrator.fakeEnd() }
+        rule.runOnUiThread { s.narrator.fakeEnd(); androidx.compose.runtime.snapshots.Snapshot.sendApplyNotifications() }
         rule.mainClock.advanceTimeBy(1000)
         assertEquals(listOf(partner, mine), log)
         rule.onNode(androidx.compose.ui.test.hasContentDescription(ctx.getString(R.string.a11y_record)) and androidx.compose.ui.test.isEnabled()).assertExists()
@@ -676,11 +676,14 @@ class NavTest {
         rule.setContent { TodayLettersTheme(ThemeMode.LIGHT) { io.github.graviton94.todayletters.ui.Play(s, play) } }
         rule.mainClock.advanceTimeBy(3000)
         assertEquals("$mode covered", emptyList<String>(), log)
-        rule.runOnUiThread { s.stepNote = null }
+        rule.runOnUiThread { s.stepNote = null; androidx.compose.runtime.snapshots.Snapshot.sendApplyNotifications() }
         rule.mainClock.advanceTimeBy(1500)
-        assertEquals("$mode uncovered: $log", 1, log.size)
+        assertEquals("$mode uncovered: $log covered=${s.covered} ${coverState(s)}", 1, log.size)
         s.narrator.fake = null
     }
+    private fun coverState(s: AppState) = "reward=${s.reward != null} level=${s.levelUp != null} grade=${s.gradeUp != null} note=${s.stepNote != null} dl=${s.downloadAsk != null} " +
+        "start=${s.startAsk} settings=${s.settingsOpen} fb=${s.feedback != null} crash=${s.crashAsk} thanks=${s.thanks != null} coach=${s.coachShowing} exit=${s.askingExit} " +
+        "lang=${s.langNotice} covers=${io.github.graviton94.todayletters.ui.Covers.open} scene=${s.narrator.scene}"
     @Test fun checkAfterStepNotePlaysPassage() = playsOnceUncovered(io.github.graviton94.todayletters.core.ReplyMode.CHECK)
     @Test fun readAlongAfterStepNotePlaysOriginal() = playsOnceUncovered(io.github.graviton94.todayletters.core.ReplyMode.ALOUD)
 
