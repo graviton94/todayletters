@@ -126,7 +126,7 @@ fun Room(s: AppState, r: Route.Letter) {
     val ilOn = glossTokens != null && s.interlinearOn(id)
     val ilAll = remember(s.version, letter.id, view.learn, view.read, glossTokens) { glossTokens?.let { interlinearLines(s, id, letter, it) } }
     // 기능어 · 문형 · 관용구 노트 (core NoteBook, ui/RoomNotes.kt)
-    val notes = remember(letter.id, view.learn, glossTokens) { letter.messages.indices.map { i -> glossTokens?.getOrNull(i)?.let { roomNotes(s, id, it) } ?: emptyList() } }
+    val notes = remember(letter.id, ilAll) { letter.messages.indices.map { i -> roomNotes(ilAll?.getOrNull(i), s.glossLangFor(id)) } }
     val scope = rememberCoroutineScope()
 
     val pace = when (view.pace) { TypingPace.CALM -> 1f; TypingPace.QUICK -> 0.55f; TypingPace.INSTANT -> 0f }
@@ -399,8 +399,9 @@ fun Room(s: AppState, r: Route.Letter) {
             return Breaks.plain(text.substring(x.first, y.last + 1)).trim { !it.isLetterOrDigit() && it != '\'' && it != '’' }
         }
         val e = work.lexicon?.get(toks[j].key)
-        val note = notes[i].firstOrNull { j in it.from..it.to }
         val unit = line.units.firstOrNull { j in it.from..it.to }
+        // 노트: 누른 칸이 맞은 자리 (문형의 떨어진 부분 사이 낱말은 그 문형이 아니다)
+        val note = unit?.hit?.let { h -> notes[i].firstOrNull { it.from == h.start && it.to == h.end } }
         val gl = s.glossLangFor(id)
         val pk = when {
             note != null -> RoomPick(i, w, surfaceOf(i, w), note.tag, spanText(note.from, note.to), note.short, note.note,

@@ -2867,7 +2867,7 @@ class ScreensTest {
             rule.runOnUiThread { s.narrator.fakeEnd(); androidx.compose.runtime.snapshots.Snapshot.sendApplyNotifications() }
             if (ms > 0) rule.mainClock.advanceTimeBy(ms)
         }
-        fun wait(ms: Long) = rule.mainClock.advanceTimeBy(ms)
+        fun idle(ms: Long) = rule.mainClock.advanceTimeBy(ms)
         /** 문장 [msg] 의 [k] 번째 낱말 가운데쯤으로 (낱말 시각 파일). */
         fun mid(msg: Int, k: Int) {
             val (c, l) = s.letterOf(room)
@@ -2930,7 +2930,7 @@ class ScreensTest {
     /** ⑥ 빈센트가 위치를 공유했어요 (왼쪽, 지도에서 보기). I장 첫 편지: 알림 줄 → 첫 문장 → 위치. */
     private fun rrPlace(name: String, dark: Boolean) {
         val s = rrState()
-        rrShot(name, dark, s, Route.Letter("vincent", 1, 1, Route.Inbox)) { wait(2300); end(6100) }
+        rrShot(name, dark, s, Route.Letter("vincent", 1, 1, Route.Inbox)) { idle(2300); end(6100) }
     }
     @Test fun rr6PlaceKoLight() = rrPlace("rr6a_location_ko_light", false)
     @Test fun rr6PlaceKoDark() = rrPlace("rr6b_location_ko_dark", true)
@@ -2939,7 +2939,7 @@ class ScreensTest {
 
     /** ⑦ 내 차례 (테오의 송금, 편지 앞): 아래 자리가 ‘테오로서 빈센트에게 50 francs 보내기 →’. */
     private val vin3 = Route.Letter("vincent", 1, 3, Route.Inbox)
-    private fun rrAsk(name: String, dark: Boolean) { val s = rrState(); rrShot(name, dark, s, vin3) { wait(300) } }
+    private fun rrAsk(name: String, dark: Boolean) { val s = rrState(); rrShot(name, dark, s, vin3) { idle(300) } }
     @Test fun rr7AskKoLight() = rrAsk("rr7a_theo_ask_ko_light", false)
     @Test fun rr7AskKoDark() = rrAsk("rr7b_theo_ask_ko_dark", true)
     @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr7AskEnLight() = rrAsk("rr7c_theo_ask_en_light", false)
@@ -2954,7 +2954,7 @@ class ScreensTest {
             val to = s.work("vincent").recipient[ui]; val from = s.work("vincent").name[ui]
             val label = ctx.getString(R.string.room_send_as, if (ui == io.github.graviton94.todayletters.core.Lang.KO) to + "로서" else to, from, t.amount)
             rule.onNode(androidx.compose.ui.test.hasContentDescription(label)).performClick()
-            wait(900); mid(0, 2)
+            idle(900); mid(0, 2)
         }
     }
     @Test fun rr8SentKoLight() = rrSent("rr8a_theo_sent_ko_light", false)
@@ -2967,7 +2967,7 @@ class ScreensTest {
         val s = rrState()
         val (c, l) = s.letterOf(vin2)
         s.save("vincent", c, l.id, s.progress("vincent", c, l.id).copy(shown = l.messages.size))
-        rrShot(name, dark, s, vin2) { rule.onAllNodes(androidx.compose.ui.test.hasScrollAction()).onFirst().performTouchInput { swipeUp(); swipeUp() }; wait(600) }
+        rrShot(name, dark, s, vin2) { rule.onAllNodes(androidx.compose.ui.test.hasScrollAction()).onFirst().performTouchInput { swipeUp(); swipeUp() }; idle(600) }
     }
     @Test fun rr9NoteKoLight() = rrNote("rr9a_note_cta_ko_light", false)
     @Test fun rr9NoteKoDark() = rrNote("rr9b_note_cta_ko_dark", true)
@@ -2976,10 +2976,10 @@ class ScreensTest {
 
     /** ⑩ 다른 작품의 순간: 모차르트 (볼프강이 사진을 보냄) · 나폴레옹 (위치 공유) · 고야 (사진). */
     private fun rrMozart(name: String, dark: Boolean) { val s = rrState("mozart"); rrShot(name, dark, s, Route.Letter("mozart", 1, 1, Route.Inbox)) { end(5400) } }
-    private fun rrNapoleon(name: String, dark: Boolean) { val s = rrState("napoleon"); rrShot(name, dark, s, Route.Letter("napoleon", 1, 1, Route.Inbox)) { wait(2300); end(5500) } }
+    private fun rrNapoleon(name: String, dark: Boolean) { val s = rrState("napoleon"); rrShot(name, dark, s, Route.Letter("napoleon", 1, 1, Route.Inbox)) { idle(2300); end(5500) } }
     private fun rrGoya(name: String, dark: Boolean) {
         val s = rrState("goya")
-        rrShot(name, dark, s, Route.Letter("goya", 1, 1, Route.Inbox)) { wait(2300); end(8200); end(5300); end(5600) }
+        rrShot(name, dark, s, Route.Letter("goya", 1, 1, Route.Inbox)) { idle(2300); end(8200); end(5300); end(5600) }
     }
     @Test fun rr10MozartKoLight() = rrMozart("rr10a_mozart_photo_ko_light", false)
     @Config(qualifiers = "en-rUS-w393dp-h852dp-xxhdpi") @Test fun rr10MozartEnDark() = rrMozart("rr10b_mozart_photo_en_dark", true)

@@ -65,6 +65,8 @@ fun interlinearLines(s: AppState, series: String, letter: Letter, tokens: List<L
     val function = s.support(series).band <= Reading.Band.A2
     val anchors = s.anchors(series)
     val known = s.anchorKnownFn(series)
+    // 기능어 · 문형 · 관용구 노트 (core NoteBook, data/NoteFiles): 편지 방의 점선 · 묶음 · 낱말 카드
+    val notes = io.github.graviton94.todayletters.data.NoteFiles.load(s.ctx, series, work.deck, work.lexicon)
     return letter.messages.mapIndexed { i, m ->
         val ts = tokens.getOrNull(i) ?: return@mapIndexed null
         val text = m.text[view.learn]
@@ -72,7 +74,7 @@ fun interlinearLines(s: AppState, series: String, letter: Letter, tokens: List<L
         val at = text.indices.filter { text[it] != Breaks.JOIN }
         val ranges = Vocab.align(Breaks.plain(text), ts).map { r -> if (r.isEmpty()) r else at[r.first]..at[r.last] }
         val phrases = letter.phrases.filter { it.msg == i }.map { it.text[learn] to it.text[gl] }
-        val units = Interlinear.units(ts, { work.lexicon?.get(it) }, gl, { it in mine }, function, phrases, anchors, known)
+        val units = Interlinear.units(ts, { work.lexicon?.get(it) }, gl, { it in mine }, function, phrases, anchors, known, notes)
         IlLine(ts, ranges, units, Interlinear.cells(text, ranges, units), gl)
     }
 }
